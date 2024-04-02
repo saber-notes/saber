@@ -148,7 +148,7 @@ de:
       mustBeDoneSyncing: Stelle sicher, dass die Synchronisierung abgeschlossen ist, bevor du das Verzeichnis änderst
   login:
     feedbacks:
-      ncUnsupportedFailure: Der angegebene Server führt Nextcloud $v aus, aber diese Version von Sabre unterstützt nur Nextcloud $s bis $t.
+      ncUnsupportedFailure: Der angegebene Server führt Nextcloud $v aus, aber diese Version von Saber unterstützt nur Nextcloud $s bis $t.
   update:
     downloadNotAvailableYet: Der Download ist für deine Platform noch nicht verfügbar. Bitte schaue in Kürze noch einmal nach.
   editor:
