@@ -79,7 +79,24 @@ class FileManager {
     if (oldDirEmpty) {
       log.fine('Old data directory is empty or missing, nothing to migrate');
     } else {
-      await oldDir.rename(newDir.path);
+      await moveDirContents(oldDir: oldDir, newDir: newDir);
+      await oldDir.delete();
+    }
+  }
+
+  static Future<void> moveDirContents({
+    required Directory oldDir,
+    required Directory newDir,
+  }) async {
+    await newDir.create(recursive: true);
+    await for (final entity in oldDir.list()) {
+      final entityPath = '${newDir.path}/${entity.path.split('/').last}';
+      switch (entity) {
+        case File file:
+          await file.rename(entityPath);
+        case Directory dir:
+          await moveDirContents(oldDir: oldDir, newDir: Directory(entityPath));
+      }
     }
   }
 
