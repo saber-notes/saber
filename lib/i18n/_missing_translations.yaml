@@ -90,12 +90,12 @@ ar:
 cs:
   settings:
     prefLabels:
-      customDataDir(OUTDATED): Custom data directory
+      customDataDir(OUTDATED): Vlastní datový adresář
     customDataDir:
-      cancel(OUTDATED): Cancel
-      select(OUTDATED): Select
-      mustBeEmpty(OUTDATED): Selected directory must be empty
-      mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the directory
+      cancel(OUTDATED): Zrušit
+      select(OUTDATED): Zvolit
+      mustBeEmpty(OUTDATED): Zvolený adresář musí být prázdný
+      mustBeDoneSyncing(OUTDATED): Než změníte datový adresář, ujistěte se, že byla dokončena synchronizace
 de:
   home:
     titles:
