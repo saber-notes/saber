@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:collapsible/collapsible.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -301,6 +303,9 @@ class _ToolbarState extends State<Toolbar> {
                             iconTheme: iconTheme,
                           ),
                         ),
+                        // scrollable on Android and iOS
+                        multiRowsDisplay:
+                            !Platform.isAndroid && !Platform.isIOS,
                         showUndo: false,
                         showRedo: false,
                         showFontSize: false,
