@@ -831,6 +831,8 @@ class EditorState extends State<Editor> {
         savingState.value = SavingState.saving;
     }
 
+    await _renameFileNow();
+
     final filePath = coreInfo.filePath + Editor.extension;
     final Uint8List bson;
     final OrderedAssetCache assets;
