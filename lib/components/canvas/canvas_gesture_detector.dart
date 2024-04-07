@@ -338,14 +338,19 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
     double adjustmentX = 0;
     double adjustmentY = 0;
 
-    // horizontally center pages if zoomed out
-    if (scale < 1) {
-      final center = containerBounds.maxWidth * (1 - scale) / 2;
-      adjustmentX = center - translation.x;
+    if (scale >= 0.95 && scale < 1.05) {
+      // snap to 1.0x zoom
+      // (allow a small margin for floating point errors)
+      if (scale < 0.999 || scale > 1.001) resetZoom();
+      return;
     }
 
-    // if zoomed in, don't allow scrolling past the edges
-    else {
+    if (scale < 1) {
+      // horizontally center pages if zoomed out
+      final center = containerBounds.maxWidth * (1 - scale) / 2;
+      adjustmentX = center - translation.x;
+    } else {
+      // if zoomed in, don't allow scrolling past the edges
       late final minX = containerBounds.maxWidth * (1 - scale);
       if (translation.x > 0) {
         adjustmentX = -translation.x;
