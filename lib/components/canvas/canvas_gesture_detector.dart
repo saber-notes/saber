@@ -328,6 +328,8 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
     }
   }
 
+  Timer? _snapZoomTimer;
+
   /// Corrects the transform if it's out of bounds.
   /// If the scale is less than 1, centers the pages horizontally.
   /// Otherwise, prevents the user from scrolling past the edges.
@@ -338,12 +340,12 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
     double adjustmentX = 0;
     double adjustmentY = 0;
 
-    if (scale >= 0.95 && scale < 1.05) {
-      // snap to 1.0x zoom
-      // (allow a small margin for floating point errors)
-      if (scale < 0.999 || scale > 1.001) resetZoom();
-      return;
-    }
+    // snap to 1.0x zoom
+    _snapZoomTimer?.cancel();
+    final diffFrom1 = (scale - 1).abs();
+    // allow 0.001 leeway for floating point error
+    if (diffFrom1 < 0.05 && diffFrom1 > 0.001)
+      _snapZoomTimer = Timer(const Duration(milliseconds: 200), resetZoom);
 
     if (scale < 1) {
       // horizontally center pages if zoomed out
