@@ -919,7 +919,7 @@ class EditorState extends State<Editor> {
     final newName = filenameTextEditingController.text;
     if (newName == coreInfo.fileName) return;
 
-    if (_filenameFormKey.currentState?.validate() ?? true) {
+    if (_validateFilenameTextField(newName) == null) {
       coreInfo.filePath = await FileManager.moveFile(
           coreInfo.filePath + Editor.extension, newName + Editor.extension);
       coreInfo.filePath = coreInfo.filePath
