@@ -91,7 +91,7 @@ ar:
 cs:
   editor:
     menu:
-      lineHeightDescription(OUTDATED): Also controls the text size for typed notes
+      lineHeightDescription(OUTDATED): Ovlivňuje také velikost textu psaných poznámek
 de:
   editor:
     menu:
