@@ -1631,7 +1631,7 @@ class _StringsEditorMenuAr extends _StringsEditorMenuEn {
 	@override String get duplicatePage => 'تكرار الصفحة';
 	@override String get deletePage => 'حذف الصفحة';
 	@override String get lineHeight => 'ارتفاع خط';
-	@override String get lineHeightDescription => 'يتحكم أيضًا في حجم النص';
+	@override String get lineHeightDescription => 'يتحكم أيضًا في حجم النص للملاحظات المكتوبة';
 	@override String get backgroundPattern => 'نمط الخلفية';
 	@override String get import => 'يستورد';
 	@override late final _StringsEditorMenuBoxFitsAr boxFits = _StringsEditorMenuBoxFitsAr._(_root);
@@ -2426,7 +2426,7 @@ class _StringsEditorMenuCs extends _StringsEditorMenuEn {
 	@override String get duplicatePage => 'Duplikovat stránku';
 	@override String get deletePage => 'Odstranit stránku';
 	@override String get lineHeight => 'Výška řádku';
-	@override String get lineHeightDescription => 'Ovlivňuje také velikost textu';
+	@override String get lineHeightDescription => 'Ovlivňuje také velikost textu psaných poznámek';
 	@override String get backgroundImageFit => 'Rozložení obrázku na pozadí';
 	@override String get backgroundPattern => 'Vzor na pozadí';
 	@override String get import => 'Importovat';
@@ -3221,7 +3221,7 @@ class _StringsEditorMenuDe extends _StringsEditorMenuEn {
 	@override String get duplicatePage => 'Seite duplizieren';
 	@override String get deletePage => 'Seite löschen';
 	@override String get lineHeight => 'Zeilenhöhe';
-	@override String get lineHeightDescription => 'Beeinflusst außerdem die Schriftgröße';
+	@override String get lineHeightDescription => 'Steuert außerdem die Textgröße für getippte Notizen';
 	@override String get backgroundImageFit => 'Background image fit';
 	@override String get backgroundPattern => 'Hintergrundmuster';
 	@override String get import => 'Importieren';
@@ -4015,7 +4015,7 @@ class _StringsEditorMenuEs extends _StringsEditorMenuEn {
 	@override String get duplicatePage => 'Duplicar página';
 	@override String get deletePage => 'Eliminar página';
 	@override String get lineHeight => 'Altura de la línea';
-	@override String get lineHeightDescription => 'Controla también el tamaño del texto';
+	@override String get lineHeightDescription => 'También controla el tamaño del texto de las notas escritas.';
 	@override String get backgroundImageFit => 'Ajuste de la imagen de fondo';
 	@override String get backgroundPattern => 'Patrón de fondo';
 	@override String get import => 'Importar';
@@ -4810,7 +4810,7 @@ class _StringsEditorMenuFa extends _StringsEditorMenuEn {
 	@override String get duplicatePage => 'تکرار صفحه';
 	@override String get deletePage => 'حذف صفحه';
 	@override String get lineHeight => 'ارتفاع خط';
-	@override String get lineHeightDescription => 'همچنین اندازه متن را کنترل می کند';
+	@override String get lineHeightDescription => 'همچنین اندازه متن را برای یادداشت های تایپ شده کنترل می کند';
 	@override String get backgroundImageFit => 'مناسب تصویر پس زمینه';
 	@override String get backgroundPattern => 'الگوی پس زمینه';
 	@override String get import => 'واردکردن';
@@ -5605,7 +5605,7 @@ class _StringsEditorMenuFr extends _StringsEditorMenuEn {
 	@override String get duplicatePage => 'Dupliquer la page';
 	@override String get deletePage => 'Supprimer la page';
 	@override String get lineHeight => 'Hauteur de ligne';
-	@override String get lineHeightDescription => 'Contrôle aussi la taille du texte';
+	@override String get lineHeightDescription => 'Contrôle également la taille du texte pour les notes saisies';
 	@override String get backgroundImageFit => 'Adaptation de l\'image de fond';
 	@override String get backgroundPattern => 'Texture de fond';
 	@override String get import => 'Importer';
@@ -6400,7 +6400,7 @@ class _StringsEditorMenuHe extends _StringsEditorMenuEn {
 	@override String get duplicatePage => 'שכפל דף';
 	@override String get deletePage => 'מחק דף';
 	@override String get lineHeight => 'גובה הקו';
-	@override String get lineHeightDescription => 'שולט גם בגודל הטקסט';
+	@override String get lineHeightDescription => 'שולט גם בגודל הטקסט עבור הערות מוקלדות';
 	@override String get backgroundImageFit => 'התאמת תמונת רקע';
 	@override String get backgroundPattern => 'תבנית רקע';
 	@override String get import => 'יבוא';
@@ -7191,6 +7191,7 @@ class _StringsEditorMenuHu extends _StringsEditorMenuEn {
 	// Translations
 	@override String get clearAllPages => 'Összes oldal törlése';
 	@override String get lineHeight => 'Vonalmagasság';
+	@override String get lineHeightDescription => 'A beírt jegyzetek szövegméretét is szabályozza';
 	@override String get backgroundPattern => 'Háttérminta';
 	@override String get import => 'Importálás';
 	@override late final _StringsEditorMenuBoxFitsHu boxFits = _StringsEditorMenuBoxFitsHu._(_root);
@@ -7200,7 +7201,6 @@ class _StringsEditorMenuHu extends _StringsEditorMenuEn {
 	@override String get insertPage => 'Az oldal beszúrása alább';
 	@override String get duplicatePage => 'Ismétlődő oldal';
 	@override String get deletePage => 'Oldal törlése';
-	@override String get lineHeightDescription => 'Szintén ellenőrzi a szöveg méretét';
 }
 
 // Path: editor.newerFileFormat
@@ -7990,7 +7990,7 @@ class _StringsEditorMenuIt extends _StringsEditorMenuEn {
 	@override String get duplicatePage => 'Pagina duplicata';
 	@override String get deletePage => 'Elimina pagina';
 	@override String get lineHeight => 'Altezza della linea';
-	@override String get lineHeightDescription => 'Inoltre controlla la dimensione del testo';
+	@override String get lineHeightDescription => 'Controlla anche la dimensione del testo per le note digitate';
 	@override String get backgroundImageFit => 'Adattamento immagine di sfondo';
 	@override String get backgroundPattern => 'Modello di sfondo';
 	@override String get import => 'Importa';
@@ -8785,7 +8785,7 @@ class _StringsEditorMenuJa extends _StringsEditorMenuEn {
 	@override String get duplicatePage => '重複したページ';
 	@override String get deletePage => 'ページの削除';
 	@override String get lineHeight => '行の高さ';
-	@override String get lineHeightDescription => '文字サイズを調整';
+	@override String get lineHeightDescription => '入力されたメモのテキスト サイズも制御します';
 	@override String get backgroundPattern => '背景パターン';
 	@override String get import => 'インポート';
 	@override late final _StringsEditorMenuBoxFitsJa boxFits = _StringsEditorMenuBoxFitsJa._(_root);
@@ -9580,7 +9580,7 @@ class _StringsEditorMenuPtBr extends _StringsEditorMenuEn {
 	@override String get duplicatePage => 'Duplicar página';
 	@override String get deletePage => 'Apagar página';
 	@override String get lineHeight => 'Altura da linha';
-	@override String get lineHeightDescription => 'Também controla o tamanho do texto';
+	@override String get lineHeightDescription => 'Também controla o tamanho do texto para notas digitadas';
 	@override String get backgroundImageFit => 'Ajustar a imagem de plano de fundo';
 	@override String get backgroundPattern => 'Padrão de plano de fundo';
 	@override String get import => 'Importar';
@@ -10375,7 +10375,7 @@ class _StringsEditorMenuRu extends _StringsEditorMenuEn {
 	@override String get duplicatePage => 'Дубликат страницы';
 	@override String get deletePage => 'Удалить страницу';
 	@override String get lineHeight => 'Высота строки';
-	@override String get lineHeightDescription => 'Также управляет размером текста';
+	@override String get lineHeightDescription => 'Также контролирует размер текста для напечатанных заметок.';
 	@override String get backgroundImageFit => 'Фоновое изображение';
 	@override String get backgroundPattern => 'Фоновый шаблон';
 	@override String get import => 'Импорт';
@@ -11170,7 +11170,7 @@ class _StringsEditorMenuTr extends _StringsEditorMenuEn {
 	@override String get duplicatePage => 'Sayfayı çoğalt';
 	@override String get deletePage => 'Sayfayı sil';
 	@override String get lineHeight => 'Satır aralığı';
-	@override String get lineHeightDescription => 'Metnin boyutunu da kontrol eder';
+	@override String get lineHeightDescription => 'Ayrıca yazılan notların metin boyutunu da kontrol eder';
 	@override String get backgroundImageFit => 'Arkaplan görüntüsünü sığdır';
 	@override String get backgroundPattern => 'Arkaplan deseni';
 	@override String get import => 'İçe aktar';
@@ -11965,7 +11965,7 @@ class _StringsEditorMenuZhHansCn extends _StringsEditorMenuEn {
 	@override String get duplicatePage => '复制页面';
 	@override String get deletePage => '删除页面';
 	@override String get lineHeight => '行高';
-	@override String get lineHeightDescription => '同时控制文本大小';
+	@override String get lineHeightDescription => '还可以控制键入注释的文本大小';
 	@override String get backgroundImageFit => '背景图像拟合';
 	@override String get backgroundPattern => '背景图案';
 	@override String get import => '导入';
@@ -12760,7 +12760,7 @@ class _StringsEditorMenuZhHantTw extends _StringsEditorMenuEn {
 	@override String get duplicatePage => '複製頁面';
 	@override String get deletePage => '刪除頁面';
 	@override String get lineHeight => '行高';
-	@override String get lineHeightDescription => '同時控制文字大小';
+	@override String get lineHeightDescription => '也可以控制鍵入註解的文字大小';
 	@override String get backgroundImageFit => '適應背景圖片';
 	@override String get backgroundPattern => '背景圖案';
 	@override String get import => '匯入';

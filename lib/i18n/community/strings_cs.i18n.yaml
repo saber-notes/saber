@@ -278,7 +278,7 @@ editor:
     duplicatePage: Duplikovat stránku
     deletePage: Odstranit stránku
     lineHeight: Výška řádku
-    lineHeightDescription(OUTDATED): Také řídí velikost textu pro psané poznámky
+    lineHeightDescription: Ovlivňuje také velikost textu psaných poznámek
     backgroundImageFit: Rozložení obrázku na pozadí
     backgroundPattern: Vzor na pozadí
     import: Importovat

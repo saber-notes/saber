@@ -89,9 +89,6 @@ ar:
       bgPatterns:
         tablature(OUTDATED): Tablature
 cs:
-  editor:
-    menu:
-      lineHeightDescription(OUTDATED): Also controls the text size for typed notes
 de:
   editor:
     menu:
