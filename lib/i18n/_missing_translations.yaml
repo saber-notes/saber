@@ -403,15 +403,15 @@ hu:
 it:
   settings:
     prefLabels:
-      customDataDir(OUTDATED): Custom data directory
+      customDataDir(OUTDATED): Directory di dati personalizzata
     customDataDir:
-      cancel(OUTDATED): Cancel
-      select(OUTDATED): Select
-      mustBeEmpty(OUTDATED): Selected directory must be empty
-      mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the directory
+      cancel(OUTDATED): Annulla
+      select(OUTDATED): Seleziona
+      mustBeEmpty(OUTDATED): La directory selezionata deve essere vuota
+      mustBeDoneSyncing(OUTDATED): Assicurati che la sincronizzazione sia completa prima di cambiare la directory
   editor:
     menu:
-      lineHeightDescription(OUTDATED): Also controls the text size for typed notes
+      lineHeightDescription(OUTDATED): Controlla anche la dimensione del testo per le note digitate
 ja:
   home:
     titles:
