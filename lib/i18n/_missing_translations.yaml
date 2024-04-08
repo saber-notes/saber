@@ -89,9 +89,6 @@ ar:
       bgPatterns:
         tablature(OUTDATED): Tablature
 cs:
-  editor:
-    menu:
-      lineHeightDescription(OUTDATED): Ovlivňuje také velikost textu psaných poznámek
 de:
   editor:
     menu:
