@@ -279,7 +279,7 @@ editor:
     duplicatePage: Duplicate page
     deletePage: Delete page
     lineHeight: Line height
-    lineHeightDescription: Also controls the text size
+    lineHeightDescription: Also controls the text size for typed notes
     backgroundImageFit: Background image fit
     backgroundPattern: Background pattern
     import: Import

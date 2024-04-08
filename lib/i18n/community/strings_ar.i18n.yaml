@@ -278,7 +278,7 @@ editor:
     duplicatePage: تكرار الصفحة
     deletePage: حذف الصفحة
     lineHeight: ارتفاع خط
-    lineHeightDescription: يتحكم أيضًا في حجم النص
+    lineHeightDescription(OUTDATED): يتحكم أيضًا في حجم النص للملاحظات المكتوبة
     backgroundPattern: نمط الخلفية
     import: يستورد
     boxFits:

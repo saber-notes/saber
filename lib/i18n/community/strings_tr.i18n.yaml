@@ -279,7 +279,7 @@ editor:
     duplicatePage: Sayfayı çoğalt
     deletePage: Sayfayı sil
     lineHeight: Satır aralığı
-    lineHeightDescription: Metnin boyutunu da kontrol eder
+    lineHeightDescription(OUTDATED): Ayrıca yazılan notların metin boyutunu da kontrol eder
     backgroundImageFit: Arkaplan görüntüsünü sığdır
     backgroundPattern: Arkaplan deseni
     import: İçe aktar

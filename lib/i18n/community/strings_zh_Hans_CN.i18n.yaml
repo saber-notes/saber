@@ -278,7 +278,7 @@ editor:
     duplicatePage: 复制页面
     deletePage: 删除页面
     lineHeight: 行高
-    lineHeightDescription: 同时控制文本大小
+    lineHeightDescription(OUTDATED): 还可以控制键入注释的文本大小
     backgroundImageFit: 背景图像拟合
     backgroundPattern: 背景图案
     import: 导入

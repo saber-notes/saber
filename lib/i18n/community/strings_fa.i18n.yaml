@@ -274,7 +274,7 @@ editor:
     duplicatePage: تکرار صفحه
     deletePage: حذف صفحه
     lineHeight: ارتفاع خط
-    lineHeightDescription: همچنین اندازه متن را کنترل می کند
+    lineHeightDescription(OUTDATED): همچنین اندازه متن را برای یادداشت های تایپ شده کنترل می کند
     backgroundImageFit: مناسب تصویر پس زمینه
     backgroundPattern: الگوی پس زمینه
     import: واردکردن

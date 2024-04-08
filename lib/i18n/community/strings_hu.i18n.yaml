@@ -274,6 +274,7 @@ editor:
   menu:
     clearAllPages: Összes oldal törlése
     lineHeight: Vonalmagasság
+    lineHeightDescription(OUTDATED): A beírt jegyzetek szövegméretét is szabályozza
     backgroundPattern: Háttérminta
     import: Importálás
     boxFits:
@@ -295,7 +296,6 @@ editor:
     insertPage(OUTDATED): Az oldal beszúrása alább
     duplicatePage(OUTDATED): Ismétlődő oldal
     deletePage(OUTDATED): Oldal törlése
-    lineHeightDescription(OUTDATED): Szintén ellenőrzi a szöveg méretét
   newerFileFormat:
     readOnlyMode: Csak olvasható mód
     title: Ezt a jegyzetet a Saber egy újabb verziójával lett szerkesztve

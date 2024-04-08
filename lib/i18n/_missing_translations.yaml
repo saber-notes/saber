@@ -84,11 +84,18 @@ ar:
     selectionBar:
       duplicate(OUTDATED): Duplicate
     menu:
+      lineHeightDescription(OUTDATED): Also controls the text size for typed notes
       backgroundImageFit(OUTDATED): Background image fit
       bgPatterns:
         tablature(OUTDATED): Tablature
 cs:
+  editor:
+    menu:
+      lineHeightDescription(OUTDATED): Also controls the text size for typed notes
 de:
+  editor:
+    menu:
+      lineHeightDescription(OUTDATED): Also controls the text size for typed notes
 es:
   settings:
     prefCategories:
@@ -117,6 +124,8 @@ es:
       pencil(OUTDATED): Pencil
     colors:
       customBrightnessHue(OUTDATED): Custom $b $h
+    menu:
+      lineHeightDescription(OUTDATED): Also controls the text size for typed notes
 fa:
   settings:
     prefLabels:
@@ -135,6 +144,9 @@ fa:
       ncUnsupportedFailure(OUTDATED): The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s to $t.
   update:
     downloadNotAvailableYet(OUTDATED): The download isn't available yet for your platform. Please check back shortly.
+  editor:
+    menu:
+      lineHeightDescription(OUTDATED): Also controls the text size for typed notes
 fr:
   settings:
     prefLabels:
@@ -152,6 +164,9 @@ fr:
       ncUnsupportedFailure(OUTDATED): The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s to $t.
   update:
     downloadNotAvailableYet(OUTDATED): The download isn't available yet for your platform. Please check back shortly.
+  editor:
+    menu:
+      lineHeightDescription(OUTDATED): Also controls the text size for typed notes
 he:
   home:
     tooltips:
@@ -198,6 +213,7 @@ he:
       cyan(OUTDATED): Cyan
       pink(OUTDATED): Pink
     menu:
+      lineHeightDescription(OUTDATED): Also controls the text size for typed notes
       bgPatterns:
         staffs(OUTDATED): Staffs
         tablature(OUTDATED): Tablature
@@ -376,7 +392,7 @@ hu:
       insertPage(OUTDATED): Insert page below
       duplicatePage(OUTDATED): Duplicate page
       deletePage(OUTDATED): Delete page
-      lineHeightDescription(OUTDATED): Also controls the text size
+      lineHeightDescription(OUTDATED): Also controls the text size for typed notes
       backgroundImageFit(OUTDATED): Background image fit
       bgPatterns:
         collegeRtl(OUTDATED): College-ruled (Reverse)
@@ -396,6 +412,9 @@ it:
       select(OUTDATED): Select
       mustBeEmpty(OUTDATED): Selected directory must be empty
       mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the directory
+  editor:
+    menu:
+      lineHeightDescription(OUTDATED): Also controls the text size for typed notes
 ja:
   home:
     titles:
@@ -471,6 +490,7 @@ ja:
     selectionBar:
       duplicate(OUTDATED): Duplicate
     menu:
+      lineHeightDescription(OUTDATED): Also controls the text size for typed notes
       backgroundImageFit(OUTDATED): Background image fit
       bgPatterns:
         tablature(OUTDATED): Tablature
@@ -517,6 +537,8 @@ pt-BR:
       pink(OUTDATED): Pink
     selectionBar:
       duplicate(OUTDATED): Duplicate
+    menu:
+      lineHeightDescription(OUTDATED): Also controls the text size for typed notes
 ru:
   settings:
     prefLabels:
@@ -529,6 +551,9 @@ ru:
       select(OUTDATED): Select
       mustBeEmpty(OUTDATED): Selected directory must be empty
       mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the directory
+  editor:
+    menu:
+      lineHeightDescription(OUTDATED): Also controls the text size for typed notes
 tr:
   settings:
     prefLabels:
@@ -538,6 +563,9 @@ tr:
       select(OUTDATED): Select
       mustBeEmpty(OUTDATED): Selected directory must be empty
       mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the directory
+  editor:
+    menu:
+      lineHeightDescription(OUTDATED): Also controls the text size for typed notes
 zh-Hans-CN:
   settings:
     prefLabels:
@@ -552,4 +580,10 @@ zh-Hans-CN:
       mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the directory
   update:
     downloadNotAvailableYet(OUTDATED): The download isn't available yet for your platform. Please check back shortly.
+  editor:
+    menu:
+      lineHeightDescription(OUTDATED): Also controls the text size for typed notes
 zh-Hant-TW:
+  editor:
+    menu:
+      lineHeightDescription(OUTDATED): Also controls the text size for typed notes

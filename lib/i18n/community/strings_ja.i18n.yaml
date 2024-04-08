@@ -275,7 +275,7 @@ editor:
     duplicatePage: 重複したページ
     deletePage: ページの削除
     lineHeight: 行の高さ
-    lineHeightDescription: 文字サイズを調整
+    lineHeightDescription(OUTDATED): 入力されたメモのテキスト サイズも制御します
     backgroundPattern: 背景パターン
     import: インポート
     boxFits:

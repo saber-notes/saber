@@ -279,7 +279,7 @@ editor:
     duplicatePage: שכפל דף
     deletePage: מחק דף
     lineHeight: גובה הקו
-    lineHeightDescription: שולט גם בגודל הטקסט
+    lineHeightDescription(OUTDATED): שולט גם בגודל הטקסט עבור הערות מוקלדות
     backgroundImageFit: התאמת תמונת רקע
     backgroundPattern: תבנית רקע
     import: יבוא

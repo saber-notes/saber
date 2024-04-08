@@ -277,7 +277,7 @@ editor:
     duplicatePage: 複製頁面
     deletePage: 刪除頁面
     lineHeight: 行高
-    lineHeightDescription: 同時控制文字大小
+    lineHeightDescription(OUTDATED): 也可以控制鍵入註解的文字大小
     backgroundImageFit: 適應背景圖片
     backgroundPattern: 背景圖案
     import: 匯入

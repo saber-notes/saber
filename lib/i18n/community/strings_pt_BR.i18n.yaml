@@ -278,7 +278,7 @@ editor:
     duplicatePage: Duplicar página
     deletePage: Apagar página
     lineHeight: Altura da linha
-    lineHeightDescription: Também controla o tamanho do texto
+    lineHeightDescription(OUTDATED): Também controla o tamanho do texto para notas digitadas
     backgroundImageFit: Ajustar a imagem de plano de fundo
     backgroundPattern: Padrão de plano de fundo
     import: Importar

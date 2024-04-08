@@ -278,7 +278,7 @@ editor:
     duplicatePage: Дубликат страницы
     deletePage: Удалить страницу
     lineHeight: Высота строки
-    lineHeightDescription: Также управляет размером текста
+    lineHeightDescription(OUTDATED): Также контролирует размер текста для напечатанных заметок.
     backgroundImageFit: Фоновое изображение
     backgroundPattern: Фоновый шаблон
     import: Импорт
