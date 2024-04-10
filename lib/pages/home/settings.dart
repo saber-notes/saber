@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:collapsible/collapsible.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
@@ -11,7 +9,6 @@ import 'package:saber/components/settings/app_info.dart';
 import 'package:saber/components/settings/nextcloud_profile.dart';
 import 'package:saber/components/settings/settings_button.dart';
 import 'package:saber/components/settings/settings_color.dart';
-import 'package:saber/components/settings/settings_directory_selector.dart';
 import 'package:saber/components/settings/settings_dropdown.dart';
 import 'package:saber/components/settings/settings_selection.dart';
 import 'package:saber/components/settings/settings_subtitle.dart';
@@ -33,7 +30,7 @@ class SettingsPage extends StatefulWidget {
 
   static Future<bool?> showResetDialog({
     required BuildContext context,
-    required IPref pref,
+    required IPref pref,//ValueNotifier<>
     required String prefTitle,
   }) async {
     if (pref.value == pref.defaultValue) return null;
@@ -44,18 +41,18 @@ class SettingsPage extends StatefulWidget {
         content: Text(prefTitle),
         actions: [
           CupertinoDialogAction(
-            onPressed: () {
-              Navigator.of(context).pop(false);
+            onPressed: () {// 更新 ValueNotifier 中的值，會觸發 UI 的更新
+              Navigator.of(context).pop(false);//在模態頁面關閉時將結果傳遞給打開它的頁面(沒有變動)
             },
-            child: Text(MaterialLocalizations.of(context).cancelButtonLabel),
+            child: Text(MaterialLocalizations.of(context).cancelButtonLabel),//取消按鈕標籤根據app的語言設置變化
           ),
           CupertinoDialogAction(
             isDestructiveAction: true,
-            onPressed: () {
-              pref.value = pref.defaultValue;
-              Navigator.of(context).pop(true);
+            onPressed: () {// 更新 ValueNotifier 中的值，會觸發 UI 的更新
+              pref.value = pref.defaultValue;//將調整的值設為default值
+              Navigator.of(context).pop(true);//在模態頁面關閉時將結果傳遞給打開它的頁面(有變動)
             },
-            child: Text(t.settings.reset.button),
+            child: Text(t.settings.reset.button),//更新按鈕標籤根據app的語言設置變化
           ),
         ],
       ),
@@ -63,31 +60,31 @@ class SettingsPage extends StatefulWidget {
   }
 }
 
-abstract class _SettingsPrefs {
+abstract class _SettingsPrefs {//設定拉條列表的選項
   static final appTheme = TransformedPref(
     Prefs.appTheme,
     (ThemeMode value) => value.index,
     (int value) => ThemeMode.values[value],
-  );
+  );//將應用程式主題轉換成int並形成陣列
 
   static final platform = TransformedPref(
     Prefs.platform,
     (TargetPlatform value) => value.index,
     (int value) => TargetPlatform.values[value],
-  );
+  );//將主題類型轉換成int並形成陣列
 
   static final layoutSize = TransformedPref(
     Prefs.layoutSize,
     (LayoutSize value) => value.index,
     (int value) => LayoutSize.values[value],
-  );
+  );//將布局大小轉換成int並形成陣列
 
   static final editorToolbarAlignment = TransformedPref(
     Prefs.editorToolbarAlignment,
     (AxisDirection value) => value.index,
     (int value) => AxisDirection.values[value],
   );
-}
+}//將應用程式主題轉換成int並形成陣列
 
 class _SettingsPageState extends State<SettingsPage> {
   @override
@@ -95,36 +92,36 @@ class _SettingsPageState extends State<SettingsPage> {
     Prefs.locale.addListener(onChanged);
     UpdateManager.status.addListener(onChanged);
     super.initState();
-  }
+  }//初始化settings
 
   void onChanged() {
     setState(() {});
-  }
+  }//更新settings
 
   static final bool usesCupertinoByDefault = switch (defaultTargetPlatform) {
     TargetPlatform.iOS => true,
     TargetPlatform.macOS => true,
     _ => false,
-  };
+  };//使用者平台為iOS或macOS
   static final bool usesYaruByDefault = switch (defaultTargetPlatform) {
     TargetPlatform.linux => true,
     _ => false,
-  };
+  };//使用者平台為linux
   static final bool usesMaterialByDefault =
-      !usesCupertinoByDefault && !usesYaruByDefault;
+      !usesCupertinoByDefault && !usesYaruByDefault;//使用者平台為android
 
   static const cupertinoDirectionIcons = [
     CupertinoIcons.arrow_up_to_line,
     CupertinoIcons.arrow_right_to_line,
     CupertinoIcons.arrow_down_to_line,
     CupertinoIcons.arrow_left_to_line,
-  ];
+  ];//箭頭圖示的陣列(iOS或macOS)
   static const materialDirectionIcons = [
     Icons.north,
     Icons.east,
     Icons.south,
     Icons.west,
-  ];
+  ];//箭頭圖示的陣列(android)
 
   @override
   Widget build(BuildContext context) {
@@ -179,11 +176,11 @@ class _SettingsPageState extends State<SettingsPage> {
           SliverSafeArea(
               sliver: SliverList.list(
             children: [
-              const NextcloudProfile(),
+              const NextcloudProfile(),//使用者雲端和個人資訊
               const Padding(
                 padding: EdgeInsets.all(8),
                 child: AppInfo(),
-              ),
+              ), //app版本資訊
               SettingsSubtitle(
                 subtitle: t.settings.prefCategories.general,
               ),
@@ -204,7 +201,7 @@ class _SettingsPageState extends State<SettingsPage> {
                     );
                   }),
                 ],
-              ),
+              ),//app語言
               SettingsSelection(
                 title: t.settings.prefLabels.appTheme,
                 iconBuilder: (i) {
@@ -229,7 +226,7 @@ class _SettingsPageState extends State<SettingsPage> {
                       Icon(Icons.dark_mode,
                           semanticLabel: t.settings.themeModes.dark)),
                 ],
-              ),
+              ),//app主題
               SettingsSelection(
                 title: t.settings.prefLabels.platform,
                 iconBuilder: (i) => switch (Prefs.platform.value) {
@@ -264,7 +261,7 @@ class _SettingsPageState extends State<SettingsPage> {
                     const Icon(FontAwesomeIcons.ubuntu, semanticLabel: 'Yaru'),
                   ),
                 ],
-              ),
+              ),//主題類型
               SettingsSelection(
                 title: t.settings.prefLabels.layoutSize,
                 subtitle: switch (Prefs.layoutSize.value) {
@@ -294,12 +291,12 @@ class _SettingsPageState extends State<SettingsPage> {
                       Icon(Icons.tablet,
                           semanticLabel: t.settings.layoutSizes.tablet)),
                 ],
-              ),
+              ),//佈局大小
               SettingsColor(
                 title: t.settings.prefLabels.customAccentColor,
                 icon: Icons.colorize,
                 pref: Prefs.accentColor,
-              ),
+              ),//自訂主題色
               SettingsSwitch(
                 title: t.settings.prefLabels.hyperlegibleFont,
                 subtitle: t.settings.prefDescriptions.hyperlegibleFont,
@@ -313,7 +310,7 @@ class _SettingsPageState extends State<SettingsPage> {
                       : Icons.font_download_off;
                 },
                 pref: Prefs.hyperlegibleFont,
-              ),
+              ),//易讀字體
               SettingsSubtitle(subtitle: t.settings.prefCategories.writing),
               SettingsSwitch(
                 title: t.settings.prefLabels.preferGreyscale,
@@ -324,19 +321,19 @@ class _SettingsPageState extends State<SettingsPage> {
                       : Icons.enhance_photo_translate;
                 },
                 pref: Prefs.preferGreyscale,
-              ),
+              ),//使用灰度顏色
               SettingsSwitch(
                 title: t.settings.prefLabels.autoClearWhiteboardOnExit,
                 subtitle: t.settings.prefDescriptions.autoClearWhiteboardOnExit,
                 icon: Icons.cleaning_services,
                 pref: Prefs.autoClearWhiteboardOnExit,
-              ),
+              ),//退出應用程式後清除白板
               SettingsSwitch(
                 title: t.settings.prefLabels.disableEraserAfterUse,
                 subtitle: t.settings.prefDescriptions.disableEraserAfterUse,
                 icon: FontAwesomeIcons.eraser,
                 pref: Prefs.disableEraserAfterUse,
-              ),
+              ),//自動禁用橡皮擦
               SettingsSwitch(
                 title: t.settings.prefLabels.hideFingerDrawingToggle,
                 subtitle: () {
@@ -353,7 +350,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 icon: CupertinoIcons.hand_draw,
                 pref: Prefs.hideFingerDrawingToggle,
                 afterChange: (_) => setState(() {}),
-              ),
+              ),//隱藏手指繪圖切換開關
               SettingsSubtitle(subtitle: t.settings.prefCategories.editor),
               SettingsSelection(
                 title: t.settings.prefLabels.editorToolbarAlignment,
@@ -382,19 +379,19 @@ class _SettingsPageState extends State<SettingsPage> {
                     ),
                 ],
                 afterChange: (_) => setState(() {}),
-              ),
+              ),//編輯器工具列的對齊方式
               SettingsSwitch(
                 title: t.settings.prefLabels.editorToolbarShowInFullscreen,
                 icon: cupertino ? CupertinoIcons.fullscreen : Icons.fullscreen,
                 pref: Prefs.editorToolbarShowInFullscreen,
-              ),
+              ),//在全螢幕模式中顯示編輯器工具列
               SettingsSwitch(
                 title: t.settings.prefLabels.editorAutoInvert,
                 iconBuilder: (b) {
                   return b ? Icons.invert_colors_on : Icons.invert_colors_off;
                 },
                 pref: Prefs.editorAutoInvert,
-              ),
+              ),//在深色模式下使用反色筆記背景
               SettingsSwitch(
                 title: t.settings.prefLabels.editorPromptRename,
                 subtitle: t.settings.prefDescriptions.editorPromptRename,
@@ -406,7 +403,7 @@ class _SettingsPageState extends State<SettingsPage> {
                       : Icons.keyboard_hide;
                 },
                 pref: Prefs.editorPromptRename,
-              ),
+              ),//提醒您重新命名新筆記
               SettingsSwitch(
                 title: t.settings.prefLabels.hideHomeBackgrounds,
                 subtitle: t.settings.prefDescriptions.hideHomeBackgrounds,
@@ -417,12 +414,12 @@ class _SettingsPageState extends State<SettingsPage> {
                       : Icons.photo_library;
                 },
                 pref: Prefs.hideHomeBackgrounds,
-              ),
+              ),//隱藏主畫面上的背景
               SettingsSwitch(
                 title: t.settings.prefLabels.recentColorsDontSavePresets,
                 icon: Icons.palette,
                 pref: Prefs.recentColorsDontSavePresets,
-              ),
+              ),//不要在最近的顏色中儲存預設顏色
               SettingsSelection(
                 title: t.settings.prefLabels.recentColorsLength,
                 icon: Icons.history,
@@ -431,13 +428,13 @@ class _SettingsPageState extends State<SettingsPage> {
                   ToggleButtonsOption(5, Text('5')),
                   ToggleButtonsOption(10, Text('10')),
                 ],
-              ),
+              ),//要儲存種最近的顏色
               SettingsSwitch(
                 title: t.settings.prefLabels.printPageIndicators,
                 subtitle: t.settings.prefDescriptions.printPageIndicators,
                 icon: Icons.numbers,
                 pref: Prefs.printPageIndicators,
-              ),
+              ),//列印頁碼
               SettingsSubtitle(subtitle: t.settings.prefCategories.performance),
               SettingsSelection(
                 title: t.settings.prefLabels.maxImageSize,
@@ -449,7 +446,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   ToggleButtonsOption(1000, Text('1000')),
                   ToggleButtonsOption(2000, Text('2000')),
                 ],
-              ),
+              ),//最大圖片尺寸
               SettingsSelection(
                 title: t.settings.prefLabels.autosaveDelay,
                 subtitle: t.settings.prefDescriptions.autosaveDelay,
@@ -460,7 +457,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   ToggleButtonsOption(10000, Text('10s')),
                   ToggleButtonsOption(-1, Icon(Icons.close)),
                 ],
-              ),
+              ),//自動儲存延遲
               SettingsSelection(
                 title: t.settings.prefLabels.shapeRecognitionDelay,
                 subtitle: t.settings.prefDescriptions.shapeRecognitionDelay,
@@ -474,19 +471,14 @@ class _SettingsPageState extends State<SettingsPage> {
                 afterChange: (ms) {
                   ShapePen.debounceDuration = ShapePen.getDebounceFromPref();
                 },
-              ),
+              ),//形狀辨別延遲
               SettingsSwitch(
                 title: t.settings.prefLabels.autoStraightenLines,
                 subtitle: t.settings.prefDescriptions.autoStraightenLines,
                 icon: Icons.straighten,
                 pref: Prefs.autoStraightenLines,
-              ),
+              ),//自動拉直線條
               SettingsSubtitle(subtitle: t.settings.prefCategories.advanced),
-              if (Platform.isAndroid)
-                SettingsDirectorySelector(
-                  title: t.settings.prefLabels.customDataDir,
-                  icon: Icons.folder,
-                ),
               if (requiresManualUpdates ||
                   Prefs.shouldCheckForUpdates.value !=
                       Prefs.shouldCheckForUpdates.defaultValue) ...[
@@ -495,7 +487,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   icon: Icons.system_update,
                   pref: Prefs.shouldCheckForUpdates,
                   afterChange: (_) => setState(() {}),
-                ),
+                ),//禁用廣告
                 Collapsible(
                   collapsed: !Prefs.shouldCheckForUpdates.value,
                   axis: CollapsibleAxis.vertical,
@@ -525,13 +517,13 @@ class _SettingsPageState extends State<SettingsPage> {
                     onPressed: () => AdState.showConsentForm(),
                   ),
                 ),
-              ],
+              ],//修改懬告同意書
               SettingsSwitch(
                 title: t.settings.prefLabels.allowInsecureConnections,
                 subtitle: t.settings.prefDescriptions.allowInsecureConnections,
                 icon: Icons.private_connectivity,
                 pref: Prefs.allowInsecureConnections,
-              ),
+              ),//允許不安全的連結
             ],
           )),
         ],
