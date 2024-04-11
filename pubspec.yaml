@@ -15,7 +15,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 0.21.2+21020
+version: 0.21.3+21030
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
@@ -101,9 +101,6 @@ dependencies:
   archive: ^3.4.6
 
   receive_sharing_intent: ^1.6.7
-  open_as_default:
-    git:
-      url: https://github.com/adil192/open_as_default.git
 
   onyxsdk_pen:
     path: packages/onyxsdk_pen
@@ -125,7 +122,7 @@ dependencies:
   google_mobile_ads: ^5.0.0
   app_tracking_transparency: ^2.0.4
 
-  bson: ^4.0.0
+  bson: ^5.0.0
 
   flutter_speed_dial: ^7.0.0
 
@@ -133,7 +130,7 @@ dependencies:
 
   fixnum: ^1.1.0
 
-  device_info_plus: ^9.0.3
+  device_info_plus: ^10.0.1
 
   yaru: ^4.0.0
 
@@ -174,12 +171,6 @@ dependency_overrides:
     git:
       url: https://github.com/adil192/json2yaml
       ref: fix-string-ends-with-colon
-
-  # https://github.com/mongo-dart/bson/pull/38
-  bson:
-    git:
-      url: https://github.com/adil192/bson
-      ref: toJson
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

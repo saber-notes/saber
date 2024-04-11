@@ -88,6 +88,7 @@ settings:
     recentColorsDontSavePresets: Não salvar as cores predefinidas nas cores recentes
     printPageIndicators: Imprimir os indicadores de página
     autosaveDelay: Atraso de salvamento automático
+    customDataDir(OUTDATED): Diretório de dados personalizado
     autoStraightenLines(OUTDATED): Endireitar linhas automaticamente
     shapeRecognitionDelay(OUTDATED): Atraso no reconhecimento de forma
     recentColorsLength(OUTDATED): Quantas cores recentes armazenar
@@ -107,8 +108,8 @@ settings:
     hideHomeBackgrounds: Para uma aparência mais limpa
     printPageIndicators: Mostrar os indicadores de página nas exportações
     autosaveDelay: Quanto tempo esperar antes de salvar automaticamente uma nota
-    autoStraightenLines(OUTDATED): Endireita linhas longas sem precisar usar a caneta modeladora
     shouldAlwaysAlertForUpdates: Conte-me sobre atualizações assim que elas estiverem disponíveis
+    autoStraightenLines(OUTDATED): Endireita linhas longas sem precisar usar a caneta modeladora
     shapeRecognitionDelay(OUTDATED): Com que frequência atualizar a visualização da forma
   themeModes:
     system: Sistema
@@ -129,6 +130,11 @@ settings:
   reset:
     title: "Redefinir esta configuração?"
     button: Redefinir
+  customDataDir:
+    cancel(OUTDATED): Cancelar
+    select(OUTDATED): Selecione
+    mustBeEmpty(OUTDATED): O diretório selecionado deve estar vazio
+    mustBeDoneSyncing(OUTDATED): Certifique-se de que a sincronização esteja concluída antes de alterar o diretório
   resyncEverything(OUTDATED): Resync tudo
 login:
   title: Login
@@ -272,7 +278,7 @@ editor:
     duplicatePage: Duplicar página
     deletePage: Apagar página
     lineHeight: Altura da linha
-    lineHeightDescription: Também controla o tamanho do texto
+    lineHeightDescription(OUTDATED): Também controla o tamanho do texto para notas digitadas
     backgroundImageFit: Ajustar a imagem de plano de fundo
     backgroundPattern: Padrão de plano de fundo
     import: Importar

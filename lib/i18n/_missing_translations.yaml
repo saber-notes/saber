@@ -46,6 +46,7 @@ ar:
       autosaveDelay(OUTDATED): Auto-save delay
       shapeRecognitionDelay(OUTDATED): Shape recognition delay
       autoStraightenLines(OUTDATED): Auto straighten lines
+      customDataDir(OUTDATED): Custom data directory
     prefDescriptions:
       disableAds(OUTDATED): "Ads help support Saber's development, but you can disable them if you'd like"
       allowInsecureConnections(OUTDATED): (Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates
@@ -59,6 +60,11 @@ ar:
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
       shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
     resyncEverything(OUTDATED): Resync everything
+    customDataDir:
+      cancel(OUTDATED): Cancel
+      select(OUTDATED): Select
+      mustBeEmpty(OUTDATED): Selected directory must be empty
+      mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the directory
   login:
     feedbacks:
       ncUnsupportedFailure(OUTDATED): The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s to $t.
@@ -78,84 +84,15 @@ ar:
     selectionBar:
       duplicate(OUTDATED): Duplicate
     menu:
+      lineHeightDescription(OUTDATED): Also controls the text size for typed notes
       backgroundImageFit(OUTDATED): Background image fit
       bgPatterns:
         tablature(OUTDATED): Tablature
 cs:
 de:
-  home:
-    titles:
-      browse(OUTDATED): Browse
-    tooltips:
-      exportNote(OUTDATED): Export note
-    create:
-      newNote(OUTDATED): New note
-      importNote(OUTDATED): Import note
-    invalidFormat(OUTDATED): "The file you selected is not supported. Please select an sbn, sbn2, sba, or pdf file."
-    backFolder(OUTDATED): Go back to the previous folder
-    moveNote:
-      moveNotes(OUTDATED): Move $n notes
-      multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
-      numberRenamedTo(OUTDATED): $n notes will be renamed to avoid conflicts
-    deleteNote(OUTDATED): Delete note
-    renameFolder:
-      renameFolder(OUTDATED): Rename folder
-      folderName(OUTDATED): Folder name
-      rename(OUTDATED): Rename
-      folderNameEmpty(OUTDATED): Folder name can't be empty
-      folderNameContainsSlash(OUTDATED): Folder name can't contain a slash
-      folderNameExists(OUTDATED): A folder with this name already exists
-    deleteFolder:
-      deleteFolder(OUTDATED): Delete folder
-      deleteName(OUTDATED): Delete $f
-      delete(OUTDATED): Delete
-      alsoDeleteContents(OUTDATED): Also delete all notes inside this folder
-  settings:
-    prefCategories:
-      editor(OUTDATED): Editor
-      performance(OUTDATED): Performance
-      advanced(OUTDATED): Advanced
-    prefLabels:
-      shouldAlwaysAlertForUpdates(OUTDATED): Faster updates
-      disableEraserAfterUse(OUTDATED): Auto-disable the eraser
-      hideFingerDrawingToggle(OUTDATED): Hide the finger drawing toggle
-      recentColorsLength(OUTDATED): How many recent colors to store
-      autosaveDelay(OUTDATED): Auto-save delay
-      shapeRecognitionDelay(OUTDATED): Shape recognition delay
-      autoStraightenLines(OUTDATED): Auto straighten lines
-    prefDescriptions:
-      disableEraserAfterUse(OUTDATED): Automatically switches back to the pen after using the eraser
-      hideFingerDrawing:
-        shown(OUTDATED): Prevents accidental toggling
-        fixedOn(OUTDATED): Finger drawing is fixed as enabled
-        fixedOff(OUTDATED): Finger drawing is fixed as disabled
-      autosaveDelay(OUTDATED): How long to wait before auto-saving a note
-      shapeRecognitionDelay(OUTDATED): How often to update the shape preview
-      autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
-      shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
-    resyncEverything(OUTDATED): Resync everything
-  login:
-    feedbacks:
-      ncUnsupportedFailure(OUTDATED): The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s to $t.
-  update:
-    downloadNotAvailableYet(OUTDATED): The download isn't available yet for your platform. Please check back shortly.
   editor:
-    pens:
-      pencil(OUTDATED): Pencil
-      shapePen(OUTDATED): Shape pen
-    colors:
-      customBrightnessHue(OUTDATED): Custom $b $h
-      customHue(OUTDATED): Custom $h
-      dark(OUTDATED): dark
-      light(OUTDATED): light
-      cyan: Cyan
-      pink(OUTDATED): Pink
-    selectionBar:
-      duplicate(OUTDATED): Duplicate
     menu:
-      backgroundImageFit(OUTDATED): Background image fit
-      bgPatterns:
-        tablature(OUTDATED): Tablature
+      lineHeightDescription(OUTDATED): Also controls the text size for typed notes
 es:
   settings:
     prefCategories:
@@ -163,10 +100,16 @@ es:
     prefLabels:
       shapeRecognitionDelay(OUTDATED): Shape recognition delay
       autoStraightenLines(OUTDATED): Auto straighten lines
+      customDataDir(OUTDATED): Custom data directory
     prefDescriptions:
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
     resyncEverything(OUTDATED): Resync everything
+    customDataDir:
+      cancel(OUTDATED): Cancel
+      select(OUTDATED): Select
+      mustBeEmpty(OUTDATED): Selected directory must be empty
+      mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the directory
   login:
     feedbacks:
       ncUnsupportedFailure(OUTDATED): The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s to $t.
@@ -178,29 +121,49 @@ es:
       pencil(OUTDATED): Pencil
     colors:
       customBrightnessHue(OUTDATED): Custom $b $h
+    menu:
+      lineHeightDescription(OUTDATED): Also controls the text size for typed notes
 fa:
   settings:
     prefLabels:
       autoStraightenLines(OUTDATED): Auto straighten lines
+      customDataDir(OUTDATED): Custom data directory
     prefDescriptions:
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
     resyncEverything(OUTDATED): Resync everything
+    customDataDir:
+      cancel(OUTDATED): Cancel
+      select(OUTDATED): Select
+      mustBeEmpty(OUTDATED): Selected directory must be empty
+      mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the directory
   login:
     feedbacks:
       ncUnsupportedFailure(OUTDATED): The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s to $t.
   update:
     downloadNotAvailableYet(OUTDATED): The download isn't available yet for your platform. Please check back shortly.
+  editor:
+    menu:
+      lineHeightDescription(OUTDATED): Also controls the text size for typed notes
 fr:
   settings:
     prefLabels:
       autoStraightenLines(OUTDATED): Auto straighten lines
+      customDataDir(OUTDATED): Custom data directory
     prefDescriptions:
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
+    customDataDir:
+      cancel(OUTDATED): Cancel
+      select(OUTDATED): Select
+      mustBeEmpty(OUTDATED): Selected directory must be empty
+      mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the directory
   login:
     feedbacks:
       ncUnsupportedFailure(OUTDATED): The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s to $t.
   update:
     downloadNotAvailableYet(OUTDATED): The download isn't available yet for your platform. Please check back shortly.
+  editor:
+    menu:
+      lineHeightDescription(OUTDATED): Also controls the text size for typed notes
 he:
   home:
     tooltips:
@@ -220,10 +183,16 @@ he:
       recentColorsLength(OUTDATED): How many recent colors to store
       shapeRecognitionDelay(OUTDATED): Shape recognition delay
       autoStraightenLines(OUTDATED): Auto straighten lines
+      customDataDir(OUTDATED): Custom data directory
     prefDescriptions:
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
     resyncEverything(OUTDATED): Resync everything
+    customDataDir:
+      cancel(OUTDATED): Cancel
+      select(OUTDATED): Select
+      mustBeEmpty(OUTDATED): Selected directory must be empty
+      mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the directory
   login:
     feedbacks:
       ncUnsupportedFailure(OUTDATED): The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s to $t.
@@ -241,6 +210,7 @@ he:
       cyan(OUTDATED): Cyan
       pink(OUTDATED): Pink
     menu:
+      lineHeightDescription(OUTDATED): Also controls the text size for typed notes
       bgPatterns:
         staffs(OUTDATED): Staffs
         tablature(OUTDATED): Tablature
@@ -309,6 +279,7 @@ hu:
       autosaveDelay(OUTDATED): Auto-save delay
       shapeRecognitionDelay(OUTDATED): Shape recognition delay
       autoStraightenLines(OUTDATED): Auto straighten lines
+      customDataDir(OUTDATED): Custom data directory
     prefDescriptions:
       disableAds(OUTDATED): "Ads help support Saber's development, but you can disable them if you'd like"
       allowInsecureConnections(OUTDATED): (Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates
@@ -327,6 +298,11 @@ hu:
       phone(OUTDATED): Phone
       tablet(OUTDATED): Tablet
     resyncEverything(OUTDATED): Resync everything
+    customDataDir:
+      cancel(OUTDATED): Cancel
+      select(OUTDATED): Select
+      mustBeEmpty(OUTDATED): Selected directory must be empty
+      mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the directory
   login:
     feedbacks:
       ncUnsupportedFailure(OUTDATED): The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s to $t.
@@ -413,7 +389,7 @@ hu:
       insertPage(OUTDATED): Insert page below
       duplicatePage(OUTDATED): Duplicate page
       deletePage(OUTDATED): Delete page
-      lineHeightDescription(OUTDATED): Also controls the text size
+      lineHeightDescription(OUTDATED): Also controls the text size for typed notes
       backgroundImageFit(OUTDATED): Background image fit
       bgPatterns:
         collegeRtl(OUTDATED): College-ruled (Reverse)
@@ -425,6 +401,17 @@ hu:
       lockAxisAlignedPan(OUTDATED): Lock panning to horizontal or vertical
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
 it:
+  settings:
+    prefLabels:
+      customDataDir(OUTDATED): Custom data directory
+    customDataDir:
+      cancel(OUTDATED): Cancel
+      select(OUTDATED): Select
+      mustBeEmpty(OUTDATED): Selected directory must be empty
+      mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the directory
+  editor:
+    menu:
+      lineHeightDescription(OUTDATED): Also controls the text size for typed notes
 ja:
   home:
     titles:
@@ -464,6 +451,7 @@ ja:
       autosaveDelay(OUTDATED): Auto-save delay
       shapeRecognitionDelay(OUTDATED): Shape recognition delay
       autoStraightenLines(OUTDATED): Auto straighten lines
+      customDataDir(OUTDATED): Custom data directory
     prefDescriptions:
       disableEraserAfterUse(OUTDATED): Automatically switches back to the pen after using the eraser
       hideFingerDrawing:
@@ -475,6 +463,11 @@ ja:
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
       shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
     resyncEverything(OUTDATED): Resync everything
+    customDataDir:
+      cancel(OUTDATED): Cancel
+      select(OUTDATED): Select
+      mustBeEmpty(OUTDATED): Selected directory must be empty
+      mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the directory
   login:
     feedbacks:
       ncUnsupportedFailure(OUTDATED): The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s to $t.
@@ -494,6 +487,7 @@ ja:
     selectionBar:
       duplicate(OUTDATED): Duplicate
     menu:
+      lineHeightDescription(OUTDATED): Also controls the text size for typed notes
       backgroundImageFit(OUTDATED): Background image fit
       bgPatterns:
         tablature(OUTDATED): Tablature
@@ -512,10 +506,16 @@ pt-BR:
       recentColorsLength(OUTDATED): How many recent colors to store
       shapeRecognitionDelay(OUTDATED): Shape recognition delay
       autoStraightenLines(OUTDATED): Auto straighten lines
+      customDataDir(OUTDATED): Custom data directory
     prefDescriptions:
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
     resyncEverything(OUTDATED): Resync everything
+    customDataDir:
+      cancel(OUTDATED): Cancel
+      select(OUTDATED): Select
+      mustBeEmpty(OUTDATED): Selected directory must be empty
+      mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the directory
   login:
     feedbacks:
       ncUnsupportedFailure(OUTDATED): The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s to $t.
@@ -534,24 +534,53 @@ pt-BR:
       pink(OUTDATED): Pink
     selectionBar:
       duplicate(OUTDATED): Duplicate
+    menu:
+      lineHeightDescription(OUTDATED): Also controls the text size for typed notes
 ru:
   settings:
     prefLabels:
       autoStraightenLines(OUTDATED): Auto straighten lines
+      customDataDir(OUTDATED): Custom data directory
     prefDescriptions:
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
+    customDataDir:
+      cancel(OUTDATED): Cancel
+      select(OUTDATED): Select
+      mustBeEmpty(OUTDATED): Selected directory must be empty
+      mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the directory
+  editor:
+    menu:
+      lineHeightDescription(OUTDATED): Also controls the text size for typed notes
 tr:
+  settings:
+    prefLabels:
+      customDataDir(OUTDATED): Custom data directory
+    customDataDir:
+      cancel(OUTDATED): Cancel
+      select(OUTDATED): Select
+      mustBeEmpty(OUTDATED): Selected directory must be empty
+      mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the directory
+  editor:
+    menu:
+      lineHeightDescription(OUTDATED): Also controls the text size for typed notes
 zh-Hans-CN:
   settings:
     prefLabels:
       autoStraightenLines(OUTDATED): Auto straighten lines
+      customDataDir(OUTDATED): Custom data directory
     prefDescriptions:
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
+    customDataDir:
+      cancel(OUTDATED): Cancel
+      select(OUTDATED): Select
+      mustBeEmpty(OUTDATED): Selected directory must be empty
+      mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the directory
   update:
     downloadNotAvailableYet(OUTDATED): The download isn't available yet for your platform. Please check back shortly.
+  editor:
+    menu:
+      lineHeightDescription(OUTDATED): Also controls the text size for typed notes
 zh-Hant-TW:
-  settings:
-    prefLabels:
-      autoStraightenLines(OUTDATED): Auto straighten lines
-    prefDescriptions:
-      autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
+  editor:
+    menu:
+      lineHeightDescription(OUTDATED): Also controls the text size for typed notes

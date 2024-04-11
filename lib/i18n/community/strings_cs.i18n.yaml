@@ -91,6 +91,7 @@ settings:
     autosaveDelay: Zpoždění automatického ukládání
     shapeRecognitionDelay: Zpoždění rozpoznávání tvarů
     autoStraightenLines: Automaticky narovnávat čáry
+    customDataDir: Vlastní datový adresář
   prefDescriptions:
     hyperlegibleFont: Font Atkinson Hyperlegible zvyšuje čitelnost pro čtenáře se slabým zrakem
     disableAds: "Reklamy podporují vývoj aplikace Saber, ale pokud chcete, můžete je vypnout"
@@ -130,6 +131,11 @@ settings:
     title: "Chcete resetovat tuto volbu?"
     button: Resetovat
   resyncEverything: Znovu synchronizovat všechny poznámky
+  customDataDir:
+    cancel: Zrušit
+    select: Zvolit
+    mustBeEmpty: Zvolený adresář musí být prázdný
+    mustBeDoneSyncing: "Než změníte datový adresář, ujistěte se, že byla dokončena synchronizace"
 login:
   title: Přihlásit se
   feedbacks:
@@ -272,7 +278,7 @@ editor:
     duplicatePage: Duplikovat stránku
     deletePage: Odstranit stránku
     lineHeight: Výška řádku
-    lineHeightDescription: Ovlivňuje také velikost textu
+    lineHeightDescription: Ovlivňuje také velikost textu psaných poznámek
     backgroundImageFit: Rozložení obrázku na pozadí
     backgroundPattern: Vzor na pozadí
     import: Importovat

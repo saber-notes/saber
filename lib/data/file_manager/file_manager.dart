@@ -46,9 +46,61 @@ class FileManager {
     String? documentsDirectory,
     bool shouldWatchRootDirectory = true,
   }) async {
-    FileManager.documentsDirectory = documentsDirectory ??
-        '${(await getApplicationDocumentsDirectory()).path}/$appRootDirectoryPrefix';
+    FileManager.documentsDirectory =
+        documentsDirectory ?? await getDocumentsDirectory();
+
     if (shouldWatchRootDirectory) unawaited(watchRootDirectory());
+  }
+
+  static Future<String> getDocumentsDirectory() async =>
+      Prefs.customDataDir.value ?? await getDefaultDocumentsDirectory();
+
+  static Future<String> getDefaultDocumentsDirectory() async =>
+      '${(await getApplicationDocumentsDirectory()).path}/$appRootDirectoryPrefix';
+
+  static Future<void> migrateDataDir() async {
+    final oldDir = Directory(documentsDirectory);
+    final newDir = Directory(await getDocumentsDirectory());
+    if (oldDir.path == newDir.path) return;
+    log.info('Migrating data directory from $oldDir to $newDir');
+
+    late final oldDirEmpty =
+        oldDir.existsSync() ? oldDir.listSync().isEmpty : true;
+    late final newDirEmpty =
+        newDir.existsSync() ? newDir.listSync().isEmpty : true;
+
+    if (!oldDirEmpty && !newDirEmpty) {
+      log.severe('New and old data directory aren\'t empty, can\'t migrate');
+      return;
+    }
+
+    documentsDirectory = newDir.path;
+    if (oldDirEmpty) {
+      log.fine('Old data directory is empty or missing, nothing to migrate');
+    } else {
+      await moveDirContents(oldDir: oldDir, newDir: newDir);
+      await oldDir.delete();
+    }
+  }
+
+  static Future<void> moveDirContents({
+    required Directory oldDir,
+    required Directory newDir,
+  }) async {
+    String entityPath(FileSystemEntity entity) =>
+        '${newDir.path}/${entity.path.split('/').last}';
+
+    await newDir.create(recursive: true);
+    await Future.wait([
+      await for (final entity in oldDir.list())
+        switch (entity) {
+          (File _) => entity.rename(entityPath(entity)),
+          (Directory _) => moveDirContents(
+              oldDir: oldDir, newDir: Directory(entityPath(entity))),
+          _ => Future.value(
+              () => log.warning('Unknown file entity type: $entity')),
+        }
+    ]);
   }
 
   @visibleForTesting

@@ -90,6 +90,7 @@ settings:
     printPageIndicators: 打印页码
     autosaveDelay: 自动保存延迟
     shapeRecognitionDelay: 形状识别延迟
+    customDataDir(OUTDATED): 自定义数据目录
     autoStraightenLines(OUTDATED): 自动拉直线条
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible 字体为低视力读者提高易读性
@@ -108,8 +109,8 @@ settings:
     printPageIndicators: 在导出中显示页码
     autosaveDelay: 自动保存便笺需要等待的时间
     shapeRecognitionDelay: 形状预览更新频率
-    autoStraightenLines(OUTDATED): 无需使用形状笔即可拉直长线
     shouldAlwaysAlertForUpdates: 在更新可用时尽快告诉我
+    autoStraightenLines(OUTDATED): 无需使用形状笔即可拉直长线
   themeModes:
     system: 系统
     light: 浅色
@@ -130,6 +131,11 @@ settings:
     title: 重置此设置？
     button: 重置
   resyncEverything: 重新同步所有
+  customDataDir:
+    cancel(OUTDATED): 取消
+    select(OUTDATED): 选择
+    mustBeEmpty(OUTDATED): 所选目录必须为空
+    mustBeDoneSyncing(OUTDATED): 更改目录之前确保同步已完成
 login:
   title: 登录
   feedbacks:
@@ -272,7 +278,7 @@ editor:
     duplicatePage: 复制页面
     deletePage: 删除页面
     lineHeight: 行高
-    lineHeightDescription: 同时控制文本大小
+    lineHeightDescription(OUTDATED): 还可以控制键入注释的文本大小
     backgroundImageFit: 背景图像拟合
     backgroundPattern: 背景图案
     import: 导入

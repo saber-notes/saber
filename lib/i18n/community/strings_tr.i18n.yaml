@@ -91,6 +91,7 @@ settings:
     autosaveDelay: Otomatik kayıt aralığı
     shapeRecognitionDelay: Şekil tanıma gecikmesi
     autoStraightenLines: Çizgileri otomatik düzleştir
+    customDataDir(OUTDATED): Özel veri dizini
   prefDescriptions:
     hyperlegibleFont: "Atkinson Hyperlegible, görme sorunu yaşayanların okumasını kolaylaştıran bir fonttur"
     disableAds: Reklamlar Saber'ın geliştirilmesine yardım ediyor fakat dilerseniz devre dışı bırakabilirsiniz
@@ -130,6 +131,11 @@ settings:
     title: "Ayarı sıfırlamak istiyor musunuz?"
     button: Sıfırla
   resyncEverything: Her şeyi yeniden senkronize et
+  customDataDir:
+    cancel(OUTDATED): İptal etmek
+    select(OUTDATED): Seçme
+    mustBeEmpty(OUTDATED): Seçilen dizin boş olmalıdır
+    mustBeDoneSyncing(OUTDATED): Dizini değiştirmeden önce senkronizasyonun tamamlandığından emin olun
 login:
   title: Giriş yap
   feedbacks:
@@ -273,7 +279,7 @@ editor:
     duplicatePage: Sayfayı çoğalt
     deletePage: Sayfayı sil
     lineHeight: Satır aralığı
-    lineHeightDescription: Metnin boyutunu da kontrol eder
+    lineHeightDescription(OUTDATED): Ayrıca yazılan notların metin boyutunu da kontrol eder
     backgroundImageFit: Arkaplan görüntüsünü sığdır
     backgroundPattern: Arkaplan deseni
     import: İçe aktar

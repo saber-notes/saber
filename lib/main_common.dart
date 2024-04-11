@@ -8,7 +8,6 @@ import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 import 'package:logging/logging.dart';
 import 'package:onyxsdk_pen/onyxsdk_pen_area.dart';
-import 'package:open_as_default/open_as_default.dart';
 import 'package:path_to_regexp/path_to_regexp.dart';
 import 'package:printing/printing.dart';
 import 'package:receive_sharing_intent/receive_sharing_intent.dart';
@@ -53,7 +52,7 @@ Future<void> main() async {
   Prefs.init();
 
   await Future.wait([
-    FileManager.init(),
+    Prefs.customDataDir.waitUntilLoaded().then((_) => FileManager.init()),
     if (Platform.isWindows || Platform.isLinux || Platform.isMacOS)
       windowManager.ensureInitialized(),
     workerManager.init(),
@@ -73,6 +72,7 @@ Future<void> main() async {
 
   setLocale();
   Prefs.locale.addListener(setLocale);
+  Prefs.customDataDir.addListener(FileManager.migrateDataDir);
 
   LicenseRegistry.addLicense(() async* {
     final license = await rootBundle.loadString('assets/google_fonts/OFL.txt');
@@ -268,16 +268,6 @@ class _AppState extends State<App> {
         for (final file in files) {
           App.openFile(file);
         }
-      });
-    }
-
-    if (Platform.isAndroid) {
-      // this only works for files opened while the app is closed
-      OpenAsDefault.getFileIntent.then((File? file) {
-        if (file == null) return;
-        App.openFile(
-          SharedMediaFile(path: file.path, type: SharedMediaType.file),
-        );
       });
     }
   }

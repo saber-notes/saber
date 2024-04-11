@@ -54,6 +54,12 @@ jobs:
           cache: true
           cache-key: 'flutter-:os:-:channel:-:version:-:arch:'
 
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'microsoft'
+          java-version: '17'
+
       - run: flutter pub get
 
       - name: Build aab
