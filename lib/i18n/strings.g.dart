@@ -12760,7 +12760,7 @@ class _StringsEditorMenuZhHantTw extends _StringsEditorMenuEn {
 	@override String get duplicatePage => '複製頁面';
 	@override String get deletePage => '刪除頁面';
 	@override String get lineHeight => '行高';
-	@override String get lineHeightDescription => '也可以控制鍵入註解的文字大小';
+	@override String get lineHeightDescription => '同時控制輸入筆記的文字大小';
 	@override String get backgroundImageFit => '適應背景圖片';
 	@override String get backgroundPattern => '背景圖案';
 	@override String get import => '匯入';
