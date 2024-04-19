@@ -11405,7 +11405,7 @@ class _StringsUpdateZhHansCn extends _StringsUpdateEn {
 	@override String get updateAvailable => '可用更新';
 	@override String get updateAvailableDescription => '该应用的新版本可用，具有以下变更：';
 	@override String get update => '更新';
-	@override String get downloadNotAvailableYet => '您的平台尚无法下载。请稍后回来查看。';
+	@override String get downloadNotAvailableYet => '该下载在您的平台暂不可用。请稍后重试。';
 }
 
 // Path: editor
@@ -11600,8 +11600,8 @@ class _StringsSettingsPrefLabelsZhHansCn extends _StringsSettingsPrefLabelsEn {
 	@override String get printPageIndicators => '打印页码';
 	@override String get autosaveDelay => '自动保存延迟';
 	@override String get shapeRecognitionDelay => '形状识别延迟';
+	@override String get autoStraightenLines => '自动拉直线';
 	@override String get customDataDir => '自定义数据目录';
-	@override String get autoStraightenLines => '自动拉直线条';
 }
 
 // Path: settings.prefDescriptions
@@ -11624,8 +11624,8 @@ class _StringsSettingsPrefDescriptionsZhHansCn extends _StringsSettingsPrefDescr
 	@override String get printPageIndicators => '在导出中显示页码';
 	@override String get autosaveDelay => '自动保存便笺需要等待的时间';
 	@override String get shapeRecognitionDelay => '形状预览更新频率';
+	@override String get autoStraightenLines => '拉直长线，无需使用形状笔';
 	@override String get shouldAlwaysAlertForUpdates => '在更新可用时尽快告诉我';
-	@override String get autoStraightenLines => '无需使用形状笔即可拉直长线';
 }
 
 // Path: settings.themeModes
@@ -11683,7 +11683,7 @@ class _StringsSettingsCustomDataDirZhHansCn extends _StringsSettingsCustomDataDi
 	@override String get cancel => '取消';
 	@override String get select => '选择';
 	@override String get mustBeEmpty => '所选目录必须为空';
-	@override String get mustBeDoneSyncing => '更改目录之前确保同步已完成';
+	@override String get mustBeDoneSyncing => '在更改目录之前，请确保同步已完成';
 }
 
 // Path: login.feedbacks
@@ -11965,7 +11965,7 @@ class _StringsEditorMenuZhHansCn extends _StringsEditorMenuEn {
 	@override String get duplicatePage => '复制页面';
 	@override String get deletePage => '删除页面';
 	@override String get lineHeight => '行高';
-	@override String get lineHeightDescription => '还可以控制键入注释的文本大小';
+	@override String get lineHeightDescription => '还控制已输入的笔记的文本大小';
 	@override String get backgroundImageFit => '背景图像拟合';
 	@override String get backgroundPattern => '背景图案';
 	@override String get import => '导入';

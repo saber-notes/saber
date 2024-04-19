@@ -553,22 +553,6 @@ tr:
     menu:
       lineHeightDescription(OUTDATED): Also controls the text size for typed notes
 zh-Hans-CN:
-  settings:
-    prefLabels:
-      autoStraightenLines(OUTDATED): 自动拉直线
-      customDataDir(OUTDATED): 自定义数据目录
-    prefDescriptions:
-      autoStraightenLines(OUTDATED): 拉直长线，无需使用形状笔
-    customDataDir:
-      cancel(OUTDATED): 取消
-      select(OUTDATED): 选择
-      mustBeEmpty(OUTDATED): 所选目录必须为空
-      mustBeDoneSyncing(OUTDATED): 在更改目录之前，请确保同步已完成
-  update:
-    downloadNotAvailableYet(OUTDATED): 该下载在您的平台暂不可用。请稍后重试。
-  editor:
-    menu:
-      lineHeightDescription(OUTDATED): 还控制已输入的笔记的文本大小
 zh-Hant-TW:
   editor:
     menu:

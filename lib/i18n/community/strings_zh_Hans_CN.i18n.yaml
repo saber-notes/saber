@@ -90,8 +90,8 @@ settings:
     printPageIndicators: 打印页码
     autosaveDelay: 自动保存延迟
     shapeRecognitionDelay: 形状识别延迟
-    customDataDir(OUTDATED): 自定义数据目录
-    autoStraightenLines(OUTDATED): 自动拉直线条
+    autoStraightenLines: 自动拉直线
+    customDataDir: 自定义数据目录
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible 字体为低视力读者提高易读性
     disableAds: 广告有助于支持 Saber 的开发，但如果你不喜欢，你可以禁用它们
@@ -109,8 +109,8 @@ settings:
     printPageIndicators: 在导出中显示页码
     autosaveDelay: 自动保存便笺需要等待的时间
     shapeRecognitionDelay: 形状预览更新频率
+    autoStraightenLines: 拉直长线，无需使用形状笔
     shouldAlwaysAlertForUpdates: 在更新可用时尽快告诉我
-    autoStraightenLines(OUTDATED): 无需使用形状笔即可拉直长线
   themeModes:
     system: 系统
     light: 浅色
@@ -132,10 +132,10 @@ settings:
     button: 重置
   resyncEverything: 重新同步所有
   customDataDir:
-    cancel(OUTDATED): 取消
-    select(OUTDATED): 选择
-    mustBeEmpty(OUTDATED): 所选目录必须为空
-    mustBeDoneSyncing(OUTDATED): 更改目录之前确保同步已完成
+    cancel: 取消
+    select: 选择
+    mustBeEmpty: 所选目录必须为空
+    mustBeDoneSyncing: 在更改目录之前，请确保同步已完成
 login:
   title: 登录
   feedbacks:
@@ -211,7 +211,7 @@ update:
   updateAvailable: 可用更新
   updateAvailableDescription: 该应用的新版本可用，具有以下变更：
   update: 更新
-  downloadNotAvailableYet(OUTDATED): 您的平台尚无法下载。请稍后回来查看。
+  downloadNotAvailableYet: 该下载在您的平台暂不可用。请稍后重试。
 editor:
   toolbar:
     toggleColors: 切换颜色 (Ctrl C)
@@ -278,7 +278,7 @@ editor:
     duplicatePage: 复制页面
     deletePage: 删除页面
     lineHeight: 行高
-    lineHeightDescription(OUTDATED): 还可以控制键入注释的文本大小
+    lineHeightDescription: 还控制已输入的笔记的文本大小
     backgroundImageFit: 背景图像拟合
     backgroundPattern: 背景图案
     import: 导入
