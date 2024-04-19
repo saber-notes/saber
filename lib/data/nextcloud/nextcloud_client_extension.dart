@@ -39,14 +39,16 @@ extension NextcloudClientExtension on NextcloudClient {
 
   /// Downloads the config from Nextcloud
   Future<Map<String, String>> getConfig() async {
-    final Uint8List file;
+    final Uint8List bytes;
     try {
-      file = await webdav.get(configFileUri);
+      bytes = await webdav.get(configFileUri);
     } on DynamiteApiException {
       return {};
     }
-    Map<String, dynamic> bytes = jsonDecode(_utf8Decoder.convert(file));
-    return bytes.cast<String, String>();
+
+    final json = _utf8Decoder.convert(bytes);
+    final decoded = jsonDecode(json) as Map<String, dynamic>;
+    return decoded.cast<String, String>();
   }
 
   /// Generates a config using known values (i.e. from [Prefs]),
