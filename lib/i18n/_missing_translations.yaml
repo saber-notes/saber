@@ -401,17 +401,6 @@ hu:
       lockAxisAlignedPan(OUTDATED): Lock panning to horizontal or vertical
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
 it:
-  settings:
-    prefLabels:
-      customDataDir(OUTDATED): Directory di dati personalizzata
-    customDataDir:
-      cancel(OUTDATED): Annulla
-      select(OUTDATED): Seleziona
-      mustBeEmpty(OUTDATED): La directory selezionata deve essere vuota
-      mustBeDoneSyncing(OUTDATED): Assicurati che la sincronizzazione sia completa prima di cambiare la directory
-  editor:
-    menu:
-      lineHeightDescription(OUTDATED): Controlla anche la dimensione del testo per le note digitate
 ja:
   home:
     titles:

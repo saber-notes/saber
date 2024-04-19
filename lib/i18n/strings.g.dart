@@ -7706,7 +7706,7 @@ class _StringsSettingsCustomDataDirIt extends _StringsSettingsCustomDataDirEn {
 
 	// Translations
 	@override String get cancel => 'Annulla';
-	@override String get select => 'Selezionare';
+	@override String get select => 'Seleziona';
 	@override String get mustBeEmpty => 'La directory selezionata deve essere vuota';
 	@override String get mustBeDoneSyncing => 'Assicurati che la sincronizzazione sia completa prima di cambiare la directory';
 }
