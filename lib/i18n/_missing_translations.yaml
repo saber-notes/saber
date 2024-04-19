@@ -553,22 +553,6 @@ tr:
     menu:
       lineHeightDescription(OUTDATED): Also controls the text size for typed notes
 zh-Hans-CN:
-  settings:
-    prefLabels:
-      autoStraightenLines(OUTDATED): Auto straighten lines
-      customDataDir(OUTDATED): Custom data directory
-    prefDescriptions:
-      autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
-    customDataDir:
-      cancel(OUTDATED): Cancel
-      select(OUTDATED): Select
-      mustBeEmpty(OUTDATED): Selected directory must be empty
-      mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the directory
-  update:
-    downloadNotAvailableYet(OUTDATED): The download isn't available yet for your platform. Please check back shortly.
-  editor:
-    menu:
-      lineHeightDescription(OUTDATED): Also controls the text size for typed notes
 zh-Hant-TW:
   editor:
     menu:
