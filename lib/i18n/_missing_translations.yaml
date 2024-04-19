@@ -554,6 +554,3 @@ tr:
       lineHeightDescription(OUTDATED): Also controls the text size for typed notes
 zh-Hans-CN:
 zh-Hant-TW:
-  editor:
-    menu:
-      lineHeightDescription(OUTDATED): 同時控制輸入筆記的文字大小
