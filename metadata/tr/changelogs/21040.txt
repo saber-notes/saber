@@ -1,0 +1,3 @@
+• Android kullanıcıları artık notların saklandığı klasörü değiştirebilir
+• Metin araç çubuğunun boyutu küçültüldü
+• Yakınlaştırma artık kapatıldığında 1,0x'e ayarlanıyor
