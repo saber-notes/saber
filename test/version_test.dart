@@ -7,7 +7,7 @@ import 'package:saber/components/settings/update_manager.dart';
 import 'package:saber/data/locales.dart';
 import 'package:saber/data/version.dart';
 
-const String dummyChangelog = 'Release notes will be added here.';
+const String dummyChangelog = 'Release_notes_will_be_added_here';
 
 void main() {
   test('Check for dummy text in changelogs', () async {
