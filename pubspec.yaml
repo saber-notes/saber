@@ -95,7 +95,7 @@ dependencies:
 
   window_manager: ^0.3.0
 
-  worker_manager: ^6.0.0
+  worker_manager: ^7.0.1
   workmanager: ^0.5.0
 
   archive: ^3.4.6
@@ -157,7 +157,7 @@ dev_dependencies:
 
   icons_launcher: ^2.1.0
 
-  simplytranslate: ^1.2.2
+  simplytranslate: ^2.0.1
 
   auto_screenshot: ^0.0.2
 
