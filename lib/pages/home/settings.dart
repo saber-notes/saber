@@ -458,7 +458,10 @@ class _SettingsPageState extends State<SettingsPage> {
                       Icon(setting.icon, semanticLabel: setting.description),
                     ),
                 ],
-                afterChange: (_) => setState(() {}),
+                afterChange: (_) {
+                  PencilSound.setAudioContext();
+                  setState(() {});
+                },
               ),
               SettingsSubtitle(subtitle: t.settings.prefCategories.performance),
               SettingsSelection(

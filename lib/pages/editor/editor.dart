@@ -552,7 +552,7 @@ class EditorState extends State<Editor> {
     final position = page.renderBox!.globalToLocal(details.focalPoint);
     history.canRedo = false;
 
-    PencilSound.resume();
+    if (Prefs.pencilSound.value != PencilSoundSetting.off) PencilSound.resume();
 
     if (currentTool is Pen) {
       (currentTool as Pen)
@@ -593,7 +593,8 @@ class EditorState extends State<Editor> {
     final position = page.renderBox!.globalToLocal(details.focalPoint);
     final offset = position - previousPosition;
 
-    PencilSound.update(offset.distance);
+    if (Prefs.pencilSound.value != PencilSoundSetting.off)
+      PencilSound.update(offset.distance);
 
     if (currentTool is Pen) {
       (currentTool as Pen).onDragUpdate(position, currentPressure);
@@ -630,7 +631,7 @@ class EditorState extends State<Editor> {
   void onDrawEnd(ScaleEndDetails details) {
     final page = coreInfo.pages[dragPageIndex!];
     bool shouldSave = true;
-    PencilSound.pause();
+    if (Prefs.pencilSound.value != PencilSoundSetting.off) PencilSound.pause();
     setState(() {
       if (currentTool is Pen) {
         Stroke newStroke = (currentTool as Pen).onDragEnd();

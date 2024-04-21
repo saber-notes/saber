@@ -4,6 +4,7 @@ import 'dart:math';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
 
 /// Emulates the scratchy sound of pencil on paper.
@@ -19,17 +20,21 @@ abstract class PencilSound {
   /// instead of abruptly stopping it.
   static Timer? _pauseTimer;
 
-  /// Loads the audio file into the audio cache,
-  /// and sets up the audio context.
-  static Future<void> preload() {
-    AudioPlayer.global.setAudioContext(AudioContextConfig(
-      // Prevents the pencil sound interrupting other audio, like music.
-      focus: AudioContextConfigFocus.mixWithOthers,
-      // Doesn't play the sound when the device is in silent mode.
-      respectSilence: true,
-    ).build());
-    return _player.audioCache.loadPath(_source);
-  }
+  /// Loads the audio file into the audio cache
+  /// and sets the audio context.
+  static Future<void> preload() => Future.wait([
+        setAudioContext(),
+        _player.audioCache.loadPath(_source),
+      ]);
+
+  /// Updates the `respectSilence` setting in the audio context.
+  static Future<void> setAudioContext() =>
+      AudioPlayer.global.setAudioContext(AudioContextConfig(
+        // Prevents the pencil sound interrupting other audio, like music.
+        focus: AudioContextConfigFocus.mixWithOthers,
+        // Doesn't play the sound when the device is in silent mode.
+        respectSilence: Prefs.pencilSound.value.respectSilence,
+      ).build());
 
   static void resume() {
     _pauseTimer?.cancel();
@@ -99,5 +104,11 @@ enum PencilSoundSetting {
           t.settings.prefDescriptions.pencilSoundSetting.onButNotInSilentMode,
         PencilSoundSetting.onAlways =>
           t.settings.prefDescriptions.pencilSoundSetting.onAlways,
+      };
+
+  bool get respectSilence => switch (this) {
+        PencilSoundSetting.off => true,
+        PencilSoundSetting.onButNotInSilentMode => true,
+        PencilSoundSetting.onAlways => false,
       };
 }
