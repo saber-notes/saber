@@ -5,7 +5,7 @@ import 'package:audioplayers/audioplayers.dart';
 
 /// Emulates the scratchy sound of pencil on paper.
 abstract class PencilSound {
-  static const _source = 'audio/white-noise-8117.mp3';
+  static const _source = 'audio/white-noise-8117.ogg';
   static final _player = AudioPlayer()
     ..setSourceAsset(_source)
     ..setPlayerMode(PlayerMode.lowLatency)
