@@ -552,18 +552,21 @@ class EditorState extends State<Editor> {
     final position = page.renderBox!.globalToLocal(details.focalPoint);
     history.canRedo = false;
 
-    if (Prefs.pencilSound.value != PencilSoundSetting.off) PencilSound.resume();
+    final bool shouldPlayPencilSound;
 
     if (currentTool is Pen) {
+      shouldPlayPencilSound = true;
       (currentTool as Pen)
           .onDragStart(position, page, dragPageIndex!, currentPressure);
     } else if (currentTool is Eraser) {
+      shouldPlayPencilSound = true;
       for (Stroke stroke in (currentTool as Eraser)
           .checkForOverlappingStrokes(position, page.strokes)) {
         page.strokes.remove(stroke);
       }
       removeExcessPages();
     } else if (currentTool is Select) {
+      shouldPlayPencilSound = false;
       Select select = currentTool as Select;
       if (select.doneSelecting &&
           select.selectResult.pageIndex == dragPageIndex! &&
@@ -574,8 +577,14 @@ class EditorState extends State<Editor> {
         history.canRedo = true; // selection doesn't affect history
       }
     } else if (currentTool is LaserPointer) {
+      shouldPlayPencilSound = true;
       (currentTool as LaserPointer).onDragStart(position, page, dragPageIndex!);
+    } else {
+      shouldPlayPencilSound = false;
     }
+
+    if (Prefs.pencilSound.value != PencilSoundSetting.off &&
+        shouldPlayPencilSound) PencilSound.resume();
 
     previousPosition = position;
     moveOffset = Offset.zero;
@@ -593,8 +602,7 @@ class EditorState extends State<Editor> {
     final position = page.renderBox!.globalToLocal(details.focalPoint);
     final offset = position - previousPosition;
 
-    if (Prefs.pencilSound.value != PencilSoundSetting.off)
-      PencilSound.update(offset.distance);
+    if (PencilSound.isPlaying) PencilSound.update(offset.distance);
 
     if (currentTool is Pen) {
       (currentTool as Pen).onDragUpdate(position, currentPressure);
@@ -631,7 +639,7 @@ class EditorState extends State<Editor> {
   void onDrawEnd(ScaleEndDetails details) {
     final page = coreInfo.pages[dragPageIndex!];
     bool shouldSave = true;
-    if (Prefs.pencilSound.value != PencilSoundSetting.off) PencilSound.pause();
+    if (PencilSound.isPlaying) PencilSound.pause();
     setState(() {
       if (currentTool is Pen) {
         Stroke newStroke = (currentTool as Pen).onDragEnd();

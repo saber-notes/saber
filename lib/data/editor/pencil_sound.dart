@@ -69,6 +69,8 @@ abstract class PencilSound {
     _player.setPlaybackRate(1 - (1 - speed) * 0.5);
   }
 
+  static bool get isPlaying => _player.state == PlayerState.playing;
+
   /// Sets the volume to the average of the current volume and the new volume,
   /// to smooth out sudden jumps in volume.
   static void _setVolume(double volume) {
