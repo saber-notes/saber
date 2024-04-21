@@ -142,6 +142,8 @@ dependencies:
 
   collection: ^1.0.0
 
+  audioplayers: ^6.0.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -190,6 +192,7 @@ flutter:
     - assets/icon/resized/icon-128x128.png
     - assets/images/
     - assets/google_fonts/
+    - assets/audio/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

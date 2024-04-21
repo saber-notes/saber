@@ -33,6 +33,7 @@ import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/data/editor/editor_exporter.dart';
 import 'package:saber/data/editor/editor_history.dart';
 import 'package:saber/data/editor/page.dart';
+import 'package:saber/data/editor/pencil_sound.dart';
 import 'package:saber/data/extensions/change_notifier_extensions.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/prefs.dart';
@@ -551,16 +552,21 @@ class EditorState extends State<Editor> {
     final position = page.renderBox!.globalToLocal(details.focalPoint);
     history.canRedo = false;
 
+    final bool shouldPlayPencilSound;
+
     if (currentTool is Pen) {
+      shouldPlayPencilSound = true;
       (currentTool as Pen)
           .onDragStart(position, page, dragPageIndex!, currentPressure);
     } else if (currentTool is Eraser) {
+      shouldPlayPencilSound = true;
       for (Stroke stroke in (currentTool as Eraser)
           .checkForOverlappingStrokes(position, page.strokes)) {
         page.strokes.remove(stroke);
       }
       removeExcessPages();
     } else if (currentTool is Select) {
+      shouldPlayPencilSound = false;
       Select select = currentTool as Select;
       if (select.doneSelecting &&
           select.selectResult.pageIndex == dragPageIndex! &&
@@ -571,8 +577,14 @@ class EditorState extends State<Editor> {
         history.canRedo = true; // selection doesn't affect history
       }
     } else if (currentTool is LaserPointer) {
+      shouldPlayPencilSound = true;
       (currentTool as LaserPointer).onDragStart(position, page, dragPageIndex!);
+    } else {
+      shouldPlayPencilSound = false;
     }
+
+    if (Prefs.pencilSound.value != PencilSoundSetting.off &&
+        shouldPlayPencilSound) PencilSound.resume();
 
     previousPosition = position;
     moveOffset = Offset.zero;
@@ -589,6 +601,9 @@ class EditorState extends State<Editor> {
     final page = coreInfo.pages[dragPageIndex!];
     final position = page.renderBox!.globalToLocal(details.focalPoint);
     final offset = position - previousPosition;
+
+    if (PencilSound.isPlaying) PencilSound.update(offset.distance);
+
     if (currentTool is Pen) {
       (currentTool as Pen).onDragUpdate(position, currentPressure);
       page.redrawStrokes();
@@ -624,6 +639,7 @@ class EditorState extends State<Editor> {
   void onDrawEnd(ScaleEndDetails details) {
     final page = coreInfo.pages[dragPageIndex!];
     bool shouldSave = true;
+    if (PencilSound.isPlaying) PencilSound.pause();
     setState(() {
       if (currentTool is Pen) {
         Stroke newStroke = (currentTool as Pen).onDragEnd();
