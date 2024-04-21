@@ -630,9 +630,9 @@ zh-Hans-CN:
 zh-Hant-TW:
   settings:
     prefLabels:
-      pencilSoundSetting(OUTDATED): Pencil sound effect
+      pencilSoundSetting(OUTDATED): 筆的音效
     prefDescriptions:
       pencilSoundSetting:
-        off(OUTDATED): No sound
-        onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
-        onAlways(OUTDATED): Enabled (even in silent mode)
+        off(OUTDATED): 關閉
+        onButNotInSilentMode(OUTDATED): 已啟用（除非處於靜音模式）
+        onAlways(OUTDATED): 已啟用（即使在靜音模式下）
