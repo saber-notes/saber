@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
 import 'package:saber/components/theming/dynamic_material_app.dart';
+import 'package:saber/data/editor/pencil_sound.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/flavor_config.dart';
 import 'package:saber/data/prefs.dart';
@@ -19,10 +20,12 @@ void main() {
 
     setupMockPathProvider();
     setupMockPrinting();
+    setupMockAudioplayers();
 
     FlavorConfig.setup();
     Prefs.testingMode = true;
     Prefs.init();
+    Prefs.pencilSound.value = PencilSoundSetting.off;
     await tester.runAsync(FileManager.init);
 
     const filePath = '/tests/editor_undo_redo_test';

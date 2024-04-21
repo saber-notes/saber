@@ -10,7 +10,7 @@ import 'package:saber/i18n/strings.g.dart';
 /// Emulates the scratchy sound of pencil on paper.
 abstract class PencilSound {
   static const _source = 'audio/white-noise-8117.ogg';
-  static final _player = AudioPlayer()
+  static final _player = AudioPlayer(playerId: 'pencilSoundEffect')
     ..setSourceAsset(_source)
     ..setPlayerMode(PlayerMode.lowLatency)
     ..setVolume(0.1)
