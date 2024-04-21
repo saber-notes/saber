@@ -10,6 +10,7 @@ import 'package:nextcloud/provisioning_api.dart';
 import 'package:perfect_freehand/perfect_freehand.dart';
 import 'package:saber/components/canvas/_canvas_background_painter.dart';
 import 'package:saber/components/navbar/responsive_navbar.dart';
+import 'package:saber/data/editor/pencil_sound.dart';
 import 'package:saber/data/flavor_config.dart';
 import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
 import 'package:saber/data/tools/_tool.dart';
@@ -85,6 +86,7 @@ abstract class Prefs {
   static late final PlainPref<int> autosaveDelay;
   static late final PlainPref<int> shapeRecognitionDelay;
   static late final PlainPref<bool> autoStraightenLines;
+  static late final PlainPref<PencilSoundSetting> pencilSound;
 
   static late final PlainPref<bool> hideHomeBackgrounds;
   static late final PlainPref<bool> printPageIndicators;
@@ -193,6 +195,8 @@ abstract class Prefs {
     autosaveDelay = PlainPref('autosaveDelay', 10000);
     shapeRecognitionDelay = PlainPref('shapeRecognitionDelay', 500);
     autoStraightenLines = PlainPref('autoStraightenLines', true);
+    pencilSound =
+        PlainPref('pencilSound', PencilSoundSetting.onButNotInSilentMode);
 
     hideHomeBackgrounds = PlainPref('hideHomeBackgrounds', false);
     printPageIndicators = PlainPref('printPageIndicators', false);
@@ -398,7 +402,8 @@ class PlainPref<T> extends IPref<T> {
         T == LayoutSize ||
         T == ToolId ||
         T == CanvasBackgroundPattern ||
-        T == DateTime);
+        T == DateTime ||
+        T == PencilSoundSetting);
   }
 
   @override
@@ -488,6 +493,8 @@ class PlainPref<T> extends IPref<T> {
         } else {
           return await _prefs!.setString(key, date.toIso8601String());
         }
+      } else if (T == PencilSoundSetting) {
+        return await _prefs!.setInt(key, (value as PencilSoundSetting).index);
       } else {
         return await _prefs!.setString(key, value as String);
       }
@@ -558,6 +565,9 @@ class PlainPref<T> extends IPref<T> {
         String? iso8601 = _prefs!.getString(key);
         if (iso8601 == null) return null;
         return DateTime.parse(iso8601) as T;
+      } else if (T == PencilSoundSetting) {
+        final index = _prefs!.getInt(key);
+        return index != null ? PencilSoundSetting.values[index] as T? : null;
       } else {
         return _prefs!.get(key) as T?;
       }

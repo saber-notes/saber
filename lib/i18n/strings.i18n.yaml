@@ -92,6 +92,7 @@ settings:
     shapeRecognitionDelay: Shape recognition delay
     autoStraightenLines: Auto straighten lines
     customDataDir: Custom data directory
+    pencilSoundSetting: Pencil sound effect
   prefDescriptions:
     hyperlegibleFont: Increases legibility for users with low vision
     disableAds: "Ads help support Saber's development, but you can disable them if you'd like"
@@ -111,6 +112,10 @@ settings:
     shapeRecognitionDelay: How often to update the shape preview
     autoStraightenLines: Straightens long lines without having to use the shape pen
     shouldAlwaysAlertForUpdates: Tell me about updates as soon as they're available
+    pencilSoundSetting:
+      off: No sound
+      onButNotInSilentMode: Enabled (unless in silent mode)
+      onAlways: Enabled (even in silent mode)
   themeModes:
     system: System
     light: Light

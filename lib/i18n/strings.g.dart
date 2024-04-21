@@ -473,6 +473,7 @@ class _StringsSettingsPrefLabelsEn {
 	String get shapeRecognitionDelay => 'Shape recognition delay';
 	String get autoStraightenLines => 'Auto straighten lines';
 	String get customDataDir => 'Custom data directory';
+	String get pencilSoundSetting => 'Pencil sound effect';
 }
 
 // Path: settings.prefDescriptions
@@ -497,6 +498,7 @@ class _StringsSettingsPrefDescriptionsEn {
 	String get shapeRecognitionDelay => 'How often to update the shape preview';
 	String get autoStraightenLines => 'Straightens long lines without having to use the shape pen';
 	String get shouldAlwaysAlertForUpdates => 'Tell me about updates as soon as they\'re available';
+	late final _StringsSettingsPrefDescriptionsPencilSoundSettingEn pencilSoundSetting = _StringsSettingsPrefDescriptionsPencilSoundSettingEn._(_root);
 }
 
 // Path: settings.themeModes
@@ -893,6 +895,18 @@ class _StringsSettingsPrefDescriptionsHideFingerDrawingEn {
 	String get shown => 'Prevents accidental toggling';
 	String get fixedOn => 'Finger drawing is fixed as enabled';
 	String get fixedOff => 'Finger drawing is fixed as disabled';
+}
+
+// Path: settings.prefDescriptions.pencilSoundSetting
+class _StringsSettingsPrefDescriptionsPencilSoundSettingEn {
+	_StringsSettingsPrefDescriptionsPencilSoundSettingEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get off => 'No sound';
+	String get onButNotInSilentMode => 'Enabled (unless in silent mode)';
+	String get onAlways => 'Enabled (even in silent mode)';
 }
 
 // Path: editor.menu.boxFits

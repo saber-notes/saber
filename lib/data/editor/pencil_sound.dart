@@ -2,6 +2,9 @@ import 'dart:async';
 import 'dart:math';
 
 import 'package:audioplayers/audioplayers.dart';
+import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:saber/i18n/strings.g.dart';
 
 /// Emulates the scratchy sound of pencil on paper.
 abstract class PencilSound {
@@ -73,4 +76,28 @@ abstract class PencilSound {
   static void _limitPlaybackRate([double limit = 0.7]) {
     if (_player.playbackRate > limit) _player.setPlaybackRate(limit);
   }
+}
+
+enum PencilSoundSetting {
+  /// Pencil sound is disabled
+  off(icon: FontAwesomeIcons.bellSlash),
+
+  /// Pencil sound is enabled, but only when the device is not in silent mode
+  onButNotInSilentMode(icon: FontAwesomeIcons.bell),
+
+  /// Pencil sound is always enabled, even when the device is in silent mode
+  onAlways(icon: FontAwesomeIcons.solidBell);
+
+  const PencilSoundSetting({required this.icon});
+
+  final IconData icon;
+
+  String get description => switch (this) {
+        PencilSoundSetting.off =>
+          t.settings.prefDescriptions.pencilSoundSetting.off,
+        PencilSoundSetting.onButNotInSilentMode =>
+          t.settings.prefDescriptions.pencilSoundSetting.onButNotInSilentMode,
+        PencilSoundSetting.onAlways =>
+          t.settings.prefDescriptions.pencilSoundSetting.onAlways,
+      };
 }
