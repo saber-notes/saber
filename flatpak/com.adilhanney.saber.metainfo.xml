@@ -198,6 +198,13 @@
     </screenshots>
 
     <releases>
+        <release version="0.21.4" type="development" date="2024-04-20">
+            <description>
+                <ul>
+                    <li>The zoom is now snapped to 1.0x when close</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.21.3" type="development" date="2024-03-31">
             <description>
                 <ul>
