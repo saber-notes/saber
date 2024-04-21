@@ -96,12 +96,12 @@ ar:
 cs:
   settings:
     prefLabels:
-      pencilSoundSetting(OUTDATED): Pencil sound effect
+      pencilSoundSetting(OUTDATED): Zvukový efekt psaní tužkou
     prefDescriptions:
       pencilSoundSetting:
-        off(OUTDATED): No sound
-        onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
-        onAlways(OUTDATED): Enabled (even in silent mode)
+        off(OUTDATED): Bez zvuku
+        onButNotInSilentMode(OUTDATED): Zapnuto (mimo tichý režim)
+        onAlways(OUTDATED): Zapnuto (i v tichém režimu)
 de:
   settings:
     prefLabels:
