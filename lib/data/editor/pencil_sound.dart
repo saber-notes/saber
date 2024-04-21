@@ -31,10 +31,13 @@ abstract class PencilSound {
   static void resume() {
     _pauseTimer?.cancel();
     _limitPlaybackRate();
+    _player.setVolume(0);
     _player.resume();
   }
 
   static void pause() {
+    if (_player.state == PlayerState.paused) return;
+
     const numTicks = 4;
     var tick = 0;
     _limitPlaybackRate();
