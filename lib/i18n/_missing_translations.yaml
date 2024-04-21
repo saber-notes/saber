@@ -47,6 +47,7 @@ ar:
       shapeRecognitionDelay(OUTDATED): Shape recognition delay
       autoStraightenLines(OUTDATED): Auto straighten lines
       customDataDir(OUTDATED): Custom data directory
+      pencilSoundSetting(OUTDATED): Pencil sound effect
     prefDescriptions:
       disableAds(OUTDATED): "Ads help support Saber's development, but you can disable them if you'd like"
       allowInsecureConnections(OUTDATED): (Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates
@@ -59,6 +60,10 @@ ar:
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
       shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
+      pencilSoundSetting:
+        off(OUTDATED): No sound
+        onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
+        onAlways(OUTDATED): Enabled (even in silent mode)
     resyncEverything(OUTDATED): Resync everything
     customDataDir:
       cancel(OUTDATED): Cancel
@@ -89,7 +94,23 @@ ar:
       bgPatterns:
         tablature(OUTDATED): Tablature
 cs:
+  settings:
+    prefLabels:
+      pencilSoundSetting(OUTDATED): Pencil sound effect
+    prefDescriptions:
+      pencilSoundSetting:
+        off(OUTDATED): No sound
+        onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
+        onAlways(OUTDATED): Enabled (even in silent mode)
 de:
+  settings:
+    prefLabels:
+      pencilSoundSetting(OUTDATED): Pencil sound effect
+    prefDescriptions:
+      pencilSoundSetting:
+        off(OUTDATED): No sound
+        onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
+        onAlways(OUTDATED): Enabled (even in silent mode)
   editor:
     menu:
       lineHeightDescription(OUTDATED): Also controls the text size for typed notes
@@ -101,9 +122,14 @@ es:
       shapeRecognitionDelay(OUTDATED): Shape recognition delay
       autoStraightenLines(OUTDATED): Auto straighten lines
       customDataDir(OUTDATED): Custom data directory
+      pencilSoundSetting(OUTDATED): Pencil sound effect
     prefDescriptions:
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
+      pencilSoundSetting:
+        off(OUTDATED): No sound
+        onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
+        onAlways(OUTDATED): Enabled (even in silent mode)
     resyncEverything(OUTDATED): Resync everything
     customDataDir:
       cancel(OUTDATED): Cancel
@@ -128,8 +154,13 @@ fa:
     prefLabels:
       autoStraightenLines(OUTDATED): Auto straighten lines
       customDataDir(OUTDATED): Custom data directory
+      pencilSoundSetting(OUTDATED): Pencil sound effect
     prefDescriptions:
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
+      pencilSoundSetting:
+        off(OUTDATED): No sound
+        onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
+        onAlways(OUTDATED): Enabled (even in silent mode)
     resyncEverything(OUTDATED): Resync everything
     customDataDir:
       cancel(OUTDATED): Cancel
@@ -149,8 +180,13 @@ fr:
     prefLabels:
       autoStraightenLines(OUTDATED): Auto straighten lines
       customDataDir(OUTDATED): Custom data directory
+      pencilSoundSetting(OUTDATED): Pencil sound effect
     prefDescriptions:
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
+      pencilSoundSetting:
+        off(OUTDATED): No sound
+        onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
+        onAlways(OUTDATED): Enabled (even in silent mode)
     customDataDir:
       cancel(OUTDATED): Cancel
       select(OUTDATED): Select
@@ -184,9 +220,14 @@ he:
       shapeRecognitionDelay(OUTDATED): Shape recognition delay
       autoStraightenLines(OUTDATED): Auto straighten lines
       customDataDir(OUTDATED): Custom data directory
+      pencilSoundSetting(OUTDATED): Pencil sound effect
     prefDescriptions:
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
+      pencilSoundSetting:
+        off(OUTDATED): No sound
+        onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
+        onAlways(OUTDATED): Enabled (even in silent mode)
     resyncEverything(OUTDATED): Resync everything
     customDataDir:
       cancel(OUTDATED): Cancel
@@ -280,6 +321,7 @@ hu:
       shapeRecognitionDelay(OUTDATED): Shape recognition delay
       autoStraightenLines(OUTDATED): Auto straighten lines
       customDataDir(OUTDATED): Custom data directory
+      pencilSoundSetting(OUTDATED): Pencil sound effect
     prefDescriptions:
       disableAds(OUTDATED): "Ads help support Saber's development, but you can disable them if you'd like"
       allowInsecureConnections(OUTDATED): (Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates
@@ -293,6 +335,10 @@ hu:
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
       shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
+      pencilSoundSetting:
+        off(OUTDATED): No sound
+        onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
+        onAlways(OUTDATED): Enabled (even in silent mode)
     layoutSizes:
       auto(OUTDATED): Auto
       phone(OUTDATED): Phone
@@ -401,6 +447,14 @@ hu:
       lockAxisAlignedPan(OUTDATED): Lock panning to horizontal or vertical
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
 it:
+  settings:
+    prefLabels:
+      pencilSoundSetting(OUTDATED): Pencil sound effect
+    prefDescriptions:
+      pencilSoundSetting:
+        off(OUTDATED): No sound
+        onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
+        onAlways(OUTDATED): Enabled (even in silent mode)
 ja:
   home:
     titles:
@@ -441,6 +495,7 @@ ja:
       shapeRecognitionDelay(OUTDATED): Shape recognition delay
       autoStraightenLines(OUTDATED): Auto straighten lines
       customDataDir(OUTDATED): Custom data directory
+      pencilSoundSetting(OUTDATED): Pencil sound effect
     prefDescriptions:
       disableEraserAfterUse(OUTDATED): Automatically switches back to the pen after using the eraser
       hideFingerDrawing:
@@ -451,6 +506,10 @@ ja:
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
       shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
+      pencilSoundSetting:
+        off(OUTDATED): No sound
+        onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
+        onAlways(OUTDATED): Enabled (even in silent mode)
     resyncEverything(OUTDATED): Resync everything
     customDataDir:
       cancel(OUTDATED): Cancel
@@ -496,9 +555,14 @@ pt-BR:
       shapeRecognitionDelay(OUTDATED): Shape recognition delay
       autoStraightenLines(OUTDATED): Auto straighten lines
       customDataDir(OUTDATED): Custom data directory
+      pencilSoundSetting(OUTDATED): Pencil sound effect
     prefDescriptions:
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
+      pencilSoundSetting:
+        off(OUTDATED): No sound
+        onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
+        onAlways(OUTDATED): Enabled (even in silent mode)
     resyncEverything(OUTDATED): Resync everything
     customDataDir:
       cancel(OUTDATED): Cancel
@@ -530,8 +594,12 @@ ru:
     prefLabels:
       autoStraightenLines(OUTDATED): Auto straighten lines
       customDataDir(OUTDATED): Custom data directory
+      pencilSoundSetting(OUTDATED): Pencil sound effect
     prefDescriptions:
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
+      pencilSoundSetting:
+        off(OUTDATED): No sound
+        onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
     customDataDir:
       cancel(OUTDATED): Cancel
       select(OUTDATED): Select
@@ -544,6 +612,12 @@ tr:
   settings:
     prefLabels:
       customDataDir(OUTDATED): Custom data directory
+      pencilSoundSetting(OUTDATED): Pencil sound effect
+    prefDescriptions:
+      pencilSoundSetting:
+        off(OUTDATED): No sound
+        onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
+        onAlways(OUTDATED): Enabled (even in silent mode)
     customDataDir:
       cancel(OUTDATED): Cancel
       select(OUTDATED): Select
@@ -553,4 +627,20 @@ tr:
     menu:
       lineHeightDescription(OUTDATED): Also controls the text size for typed notes
 zh-Hans-CN:
+  settings:
+    prefLabels:
+      pencilSoundSetting(OUTDATED): Pencil sound effect
+    prefDescriptions:
+      pencilSoundSetting:
+        off(OUTDATED): No sound
+        onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
+        onAlways(OUTDATED): Enabled (even in silent mode)
 zh-Hant-TW:
+  settings:
+    prefLabels:
+      pencilSoundSetting(OUTDATED): Pencil sound effect
+    prefDescriptions:
+      pencilSoundSetting:
+        off(OUTDATED): No sound
+        onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
+        onAlways(OUTDATED): Enabled (even in silent mode)

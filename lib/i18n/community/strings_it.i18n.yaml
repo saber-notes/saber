@@ -92,6 +92,7 @@ settings:
     shapeRecognitionDelay: Ritardo nel riconoscimento della forma
     autoStraightenLines: Raddrizzamento automatico delle linee
     customDataDir: Directory di dati personalizzata
+    pencilSoundSetting(OUTDATED): Effetto sonoro della matita
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible aumenta la leggibilità per i lettori ipovedenti
     disableAds: "Gli annunci aiutano a supportare lo sviluppo di Saber, ma puoi disattivarli se lo desideri"
@@ -111,6 +112,10 @@ settings:
     shapeRecognitionDelay: Quanto spesso aggiornare l'anteprima della forma
     autoStraightenLines: Raddrizza le linee lunghe senza dover utilizzare la penna sagomatrice
     shouldAlwaysAlertForUpdates: Segnalami aggiornamenti non appena sono disponibili
+    pencilSoundSetting:
+      off(OUTDATED): Nessun suono
+      onButNotInSilentMode(OUTDATED): Abilitato (a meno che non sia in modalità silenziosa)
+      onAlways(OUTDATED): Abilitato (anche in modalità silenziosa)
   themeModes:
     system: Sistema
     light: Chiaro

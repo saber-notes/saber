@@ -90,6 +90,7 @@ settings:
     printPageIndicators: چاپ نشانگرهای صفحه
     autosaveDelay: تأخیر ذخیره خودکار
     shapeRecognitionDelay: تاخیر در تشخیص شکل
+    pencilSoundSetting(OUTDATED): جلوه صدای مداد
     customDataDir(OUTDATED): دایرکتوری داده های سفارشی
     autoStraightenLines(OUTDATED): صاف کردن خودکار خطوط
   prefDescriptions:
@@ -110,6 +111,10 @@ settings:
     autosaveDelay: چه مدت باید قبل از ذخیره خودکار یادداشت صبر کرد
     shapeRecognitionDelay: به روز رسانی پیشنمایش شکل چند وقت یکبار انجام شود
     shouldAlwaysAlertForUpdates: به محض اینکه به‌روزرسانی‌ها در دسترس هستند، به من بگویید
+    pencilSoundSetting:
+      onAlways(OUTDATED): فعال (حتی در حالت بی صدا)
+      off(OUTDATED): بدون صدا
+      onButNotInSilentMode(OUTDATED): فعال (مگر در حالت بی صدا)
     autoStraightenLines(OUTDATED): خطوط بلند را بدون استفاده از قلم شکل صاف می کند
   themeModes:
     system: سیستم
@@ -274,7 +279,6 @@ editor:
     duplicatePage: تکرار صفحه
     deletePage: حذف صفحه
     lineHeight: ارتفاع خط
-    lineHeightDescription(OUTDATED): همچنین اندازه متن را برای یادداشت های تایپ شده کنترل می کند
     backgroundImageFit: مناسب تصویر پس زمینه
     backgroundPattern: الگوی پس زمینه
     import: واردکردن
@@ -292,6 +296,7 @@ editor:
       staffs: کارکنان
       tablature: جدول بندی
       cornell: کرنل
+    lineHeightDescription(OUTDATED): همچنین اندازه متن را برای یادداشت های تایپ شده کنترل می کند
   newerFileFormat:
     readOnlyMode: حالت فقط خواندنی
     title: این یادداشت با استفاده از نسخه جدیدتر برنامه ویرایش شده است

@@ -92,6 +92,7 @@ settings:
     shapeRecognitionDelay: Zpoždění rozpoznávání tvarů
     autoStraightenLines: Automaticky narovnávat čáry
     customDataDir: Vlastní datový adresář
+    pencilSoundSetting(OUTDATED): Zvukový efekt tužky
   prefDescriptions:
     hyperlegibleFont: Font Atkinson Hyperlegible zvyšuje čitelnost pro čtenáře se slabým zrakem
     disableAds: "Reklamy podporují vývoj aplikace Saber, ale pokud chcete, můžete je vypnout"
@@ -111,6 +112,10 @@ settings:
     shapeRecognitionDelay: Jak často aktualizovat náhled tvaru
     autoStraightenLines: "Automaticky narovná dlouhé čáry, aniž by bylo nutné využít tvarové pero"
     shouldAlwaysAlertForUpdates: Oznámit dostupnost aktualizací co nejdříve od jejich vydání
+    pencilSoundSetting:
+      off(OUTDATED): Žádný zvuk
+      onButNotInSilentMode(OUTDATED): Povoleno (pokud není v tichém režimu)
+      onAlways(OUTDATED): Povoleno (i v tichém režimu)
   themeModes:
     system: Systémový
     light: Světlý

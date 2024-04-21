@@ -90,6 +90,7 @@ settings:
     printPageIndicators: Печатать номера страниц
     autosaveDelay: Задержка автосохранения
     shapeRecognitionDelay: Задержка распознавания формы
+    pencilSoundSetting(OUTDATED): Звуковой эффект карандаша
     customDataDir(OUTDATED): Пользовательский каталог данных
     autoStraightenLines(OUTDATED): Автоматическое выпрямление линий
   prefDescriptions:
@@ -110,6 +111,10 @@ settings:
     autosaveDelay: Время ожидания до автосохранения заметки
     shapeRecognitionDelay: Как часто обновлять предварительный просмотр формы
     shouldAlwaysAlertForUpdates: "Сообщать мне об обновлениях, как только они станут доступны"
+    pencilSoundSetting:
+      onAlways: Включено (даже в беззвучном режиме)
+      off(OUTDATED): Без звука
+      onButNotInSilentMode(OUTDATED): Включено (кроме беззвучного режима)
     autoStraightenLines(OUTDATED): Выпрямляет длинные линии без использования фигурного пера.
   themeModes:
     system: Системная
@@ -278,7 +283,6 @@ editor:
     duplicatePage: Дубликат страницы
     deletePage: Удалить страницу
     lineHeight: Высота строки
-    lineHeightDescription(OUTDATED): Также контролирует размер текста для напечатанных заметок.
     backgroundImageFit: Фоновое изображение
     backgroundPattern: Фоновый шаблон
     import: Импорт
@@ -296,6 +300,7 @@ editor:
       staffs: Персональный
       tablature: Табулатура
       cornell: Корнелл
+    lineHeightDescription(OUTDATED): Также контролирует размер текста для напечатанных заметок.
   newerFileFormat:
     readOnlyMode: Режим «Только чтение»
     title: Эта заметка была отредактирована в более новой версии Saber.

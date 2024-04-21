@@ -81,6 +81,7 @@ settings:
     hideHomeBackgrounds: إخفاء الخلفيات على الشاشة الرئيسية
     recentColorsDontSavePresets: لا تحفظ الألوان المعينة مسبقًا كألوان حديثة
     printPageIndicators: طباعة مؤشرات الصفحة
+    pencilSoundSetting(OUTDATED): تأثير صوت قلم الرصاص
     customDataDir(OUTDATED): دليل البيانات المخصصة
     autoStraightenLines(OUTDATED): تصويب الخطوط تلقائيا
     shapeRecognitionDelay(OUTDATED): تأخير التعرف على الشكل
@@ -104,6 +105,10 @@ settings:
     editorPromptRename: يمكنك دائمًا إعادة تسمية الملاحظات لاحقًا
     hideHomeBackgrounds: للحصول على مظهر أنظف
     printPageIndicators: تظهر مؤشرات الصفحة في الصادرات
+    pencilSoundSetting:
+      off(OUTDATED): لا صوت
+      onButNotInSilentMode(OUTDATED): ممكّن (ما لم يكن في الوضع الصامت)
+      onAlways(OUTDATED): ممكّن (حتى في الوضع الصامت)
     autoStraightenLines(OUTDATED): يقوم بفرد الخطوط الطويلة دون الحاجة إلى استخدام قلم الشكل
     shapeRecognitionDelay(OUTDATED): عدد مرات تحديث معاينة الشكل
     disableAds(OUTDATED): (أدز) يساعد في دعم تطوير (سابر) لكن يمكنك إزالتهم إذا أردت
@@ -278,7 +283,6 @@ editor:
     duplicatePage: تكرار الصفحة
     deletePage: حذف الصفحة
     lineHeight: ارتفاع خط
-    lineHeightDescription(OUTDATED): يتحكم أيضًا في حجم النص للملاحظات المكتوبة
     backgroundPattern: نمط الخلفية
     import: يستورد
     boxFits:
@@ -295,6 +299,7 @@ editor:
       staffs: موظفون
       cornell: كورنيل
       tablature(OUTDATED): تبلتثر
+    lineHeightDescription(OUTDATED): يتحكم أيضًا في حجم النص للملاحظات المكتوبة
     backgroundImageFit(OUTDATED): الصورة الخلفية
   newerFileFormat:
     readOnlyMode: وضع القراءة فقط

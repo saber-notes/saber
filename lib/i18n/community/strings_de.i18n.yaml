@@ -92,6 +92,7 @@ settings:
     shapeRecognitionDelay: Verzögerung der Formerkennung
     autoStraightenLines: Linien automatisch begradigen
     customDataDir: Benutzerdefiniertes Verzeichnis
+    pencilSoundSetting(OUTDATED): Bleistift-Soundeffekt
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible verbessert die Lesbarkeit für Menschen mit eingeschränkter Sicht
     disableAds: Die Entwicklung von Saber wird duch Werbung finanziert. Die Werbung kann auf Wunsch deaktiviert werden.
@@ -111,6 +112,10 @@ settings:
     shapeRecognitionDelay: Häufigkeit der Aktualisierung der Form-Vorschau
     autoStraightenLines: Lange Linien selbst ohne Form-Stift begradigen
     shouldAlwaysAlertForUpdates: Über neue Updates informiert bleiben
+    pencilSoundSetting:
+      onAlways(OUTDATED): Aktiviert (auch im lautlosen Modus)
+      off(OUTDATED): Keinen Ton
+      onButNotInSilentMode(OUTDATED): Aktiviert (außer im stillen Modus)
   themeModes:
     system: System
     light: Hell
@@ -279,7 +284,6 @@ editor:
     duplicatePage: Seite duplizieren
     deletePage: Seite löschen
     lineHeight: Zeilenhöhe
-    lineHeightDescription(OUTDATED): Steuert außerdem die Textgröße für getippte Notizen
     backgroundImageFit: Background image fit
     backgroundPattern: Hintergrundmuster
     import: Importieren
@@ -297,6 +301,7 @@ editor:
       staffs: Notenpapier
       tablature: Tablature
       cornell: Cornell-Stil
+    lineHeightDescription(OUTDATED): Steuert außerdem die Textgröße für getippte Notizen
   newerFileFormat:
     readOnlyMode: Schreibgeschützter Modus
     title: Diese Notiz wurde mit einer neueren Version von Saber bearbeitet
