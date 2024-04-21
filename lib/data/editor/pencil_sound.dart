@@ -16,8 +16,15 @@ abstract class PencilSound {
   /// instead of abruptly stopping it.
   static Timer? _pauseTimer;
 
-  /// Loads the audio file into the audio cache.
+  /// Loads the audio file into the audio cache,
+  /// and sets up the audio context.
   static Future<void> preload() {
+    AudioPlayer.global.setAudioContext(AudioContextConfig(
+      // Prevents the pencil sound interrupting other audio, like music.
+      focus: AudioContextConfigFocus.mixWithOthers,
+      // Doesn't play the sound when the device is in silent mode.
+      respectSilence: true,
+    ).build());
     return _player.audioCache.loadPath(_source);
   }
 
