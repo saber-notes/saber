@@ -121,7 +121,13 @@ class _DirectorySelectorState extends State<DirectorySelector> {
   }
 
   void _onConfirm() {
+    if(_isEmpty) {
+      Prefs.customDataDir.removeListener(FileManager.migrateDataDir);
+    }
     Prefs.customDataDir.value = _directory;
+    if(_isEmpty) {
+      Prefs.customDataDir.addListener(FileManager.migrateDataDir);
+    }
     context.pop();
   }
 
@@ -175,7 +181,7 @@ class _DirectorySelectorState extends State<DirectorySelector> {
         ),
         CupertinoDialogAction(
           isDefaultAction: true,
-          onPressed: anyErrors ? null : _onConfirm,
+          onPressed: anyErrors && !emptyError ? null : _onConfirm,
           child: Text(t.settings.customDataDir.select),
         ),
       ],
