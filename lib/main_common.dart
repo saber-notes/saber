@@ -8,6 +8,7 @@ import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 import 'package:logging/logging.dart';
 import 'package:onyxsdk_pen/onyxsdk_pen_area.dart';
+import 'package:open_as_default/open_as_default.dart';
 import 'package:path_to_regexp/path_to_regexp.dart';
 import 'package:printing/printing.dart';
 import 'package:receive_sharing_intent/receive_sharing_intent.dart';
@@ -31,10 +32,10 @@ import 'package:worker_manager/worker_manager.dart';
 import 'package:workmanager/workmanager.dart';
 
 Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+  WidgetsFlutterBinding.ensureInitialized();//Flutter插件系统初始化
 
-  Logger.root.level = kDebugMode ? Level.INFO : Level.WARNING;
-  Logger.root.onRecord.listen((record) {
+  Logger.root.level = kDebugMode ? Level.INFO : Level.WARNING;//建立一個log(日誌)
+  Logger.root.onRecord.listen((record) {//设置日志级别，并通过一个监听器打印出日志信息
     // ignore: avoid_print
     print('${record.level.name}: ${record.loggerName}: ${record.message}');
   });
@@ -51,8 +52,8 @@ Future<void> main() async {
   StrokeOptionsExtension.setDefaults();
   Prefs.init();
 
-  await Future.wait([
-    Prefs.customDataDir.waitUntilLoaded().then((_) => FileManager.init()),
+  await Future.wait([//初始化各种功能和组件
+    FileManager.init(),
     if (Platform.isWindows || Platform.isLinux || Platform.isMacOS)
       windowManager.ensureInitialized(),
     workerManager.init(),
@@ -70,22 +71,21 @@ Future<void> main() async {
 
   AdState.init();
 
-  setLocale();
+  setLocale();//用戶语言环境(寫在下面)
   Prefs.locale.addListener(setLocale);
-  Prefs.customDataDir.addListener(FileManager.migrateDataDir);
 
   LicenseRegistry.addLicense(() async* {
     final license = await rootBundle.loadString('assets/google_fonts/OFL.txt');
     yield LicenseEntryWithLineBreaks(['google_fonts'], license);
   });
 
-  HttpOverrides.global = NcHttpOverrides();
+  HttpOverrides.global = NcHttpOverrides();//覆盖HTTP请求处理以支持特定的网络交互
   runApp(TranslationProvider(child: const App()));
-  startSyncAfterUsernameLoaded();
-  setupBackgroundSync();
+  startSyncAfterUsernameLoaded();//用户登录状态的同步(寫在下面)
+  setupBackgroundSync();//后台同步任务的设置(寫在下面)
 }
 
-void startSyncAfterUsernameLoaded() async {
+void startSyncAfterUsernameLoaded() async {//用户登录状态的同步
   await Prefs.username.waitUntilLoaded();
 
   Prefs.username.removeListener(startSyncAfterUsernameLoaded);
@@ -101,7 +101,7 @@ void startSyncAfterUsernameLoaded() async {
   FileSyncer.startSync();
 }
 
-void setLocale() {
+void setLocale() {//用戶语言环境
   if (Prefs.locale.value.isNotEmpty &&
       AppLocaleUtils.supportedLocalesRaw.contains(Prefs.locale.value)) {
     LocaleSettings.setLocaleRaw(Prefs.locale.value);
@@ -110,7 +110,7 @@ void setLocale() {
   }
 }
 
-void setupBackgroundSync() {
+void setupBackgroundSync() {//后台同步任务的设置
   if (!Platform.isAndroid && !Platform.isIOS) return;
   if (!Prefs.syncInBackground.loaded) {
     return Prefs.syncInBackground.addListener(setupBackgroundSync);
@@ -119,7 +119,7 @@ void setupBackgroundSync() {
   }
   if (!Prefs.syncInBackground.value) return;
 
-  Workmanager().initialize(doBackgroundSync, isInDebugMode: kDebugMode);
+  Workmanager().initialize(doBackgroundSync, isInDebugMode: kDebugMode);//安排后台任务，这些任务依据设备的网络和电量状态，定时执行数据同步。
   const uniqueName = 'background-sync';
   const initialDelay = Duration(hours: 12);
   final constraints = Constraints(
@@ -141,7 +141,7 @@ void setupBackgroundSync() {
 }
 
 @pragma('vm:entry-point')
-void doBackgroundSync() {
+void doBackgroundSync() {//具体的后台任务逻辑，如初始化系统状态、执行文件同步等
   Workmanager().executeTask((_, __) async {
     StrokeOptionsExtension.setDefaults();
     Prefs.init();
@@ -165,13 +165,13 @@ class App extends StatefulWidget {
   static final log = Logger('App');
 
   static String initialLocation =
-      pathToFunction(RoutePaths.home)({'subpage': HomePage.recentSubpage});
-  static final GoRouter _router = GoRouter(
+      pathToFunction(RoutePaths.home)({'subpage': HomePage.recentSubpage});//启动时默认的路由位置
+  static final GoRouter _router = GoRouter(//使用GoRouter管理应用的页面路由
     initialLocation: initialLocation,
     routes: <GoRoute>[
       GoRoute(
         path: '/',
-        redirect: (context, state) => initialLocation,
+        redirect: (context, state) => initialLocation,//启动时默认的路由位置  redirect重新定向
       ),
       GoRoute(
         path: RoutePaths.home,
@@ -198,7 +198,7 @@ class App extends StatefulWidget {
     ],
   );
 
-  static void openFile(SharedMediaFile file) async {
+  static void openFile(SharedMediaFile file) async {//应用可以处理外部共享的文件 导入到应用中后，根据文件类型进行相应的处理
     log.info('Opening file: (${file.type}) ${file.path}');
 
     if (file.type != SharedMediaType.file) return;
@@ -268,6 +268,16 @@ class _AppState extends State<App> {
         for (final file in files) {
           App.openFile(file);
         }
+      });
+    }
+
+    if (Platform.isAndroid) {
+      // this only works for files opened while the app is closed
+      OpenAsDefault.getFileIntent.then((File? file) {
+        if (file == null) return;
+        App.openFile(
+          SharedMediaFile(path: file.path, type: SharedMediaType.file),
+        );
       });
     }
   }
