@@ -7,6 +7,7 @@ import 'package:flutter/foundation.dart';
 import 'package:logging/logging.dart';
 import 'package:mutex/mutex.dart';
 import 'package:nextcloud/nextcloud.dart';
+import 'package:nextcloud/webdav.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
 import 'package:saber/data/prefs.dart';
@@ -25,7 +26,7 @@ abstract class FileSyncer {
     ..cancelled = true;
   static bool get isDownloading => !_downloadCancellable.cancelled;
 
-  static NextcloudClient? _client;
+  static NextcloudClient? _client = NextcloudClientExtension.withSavedDetails();
 
   static final ValueNotifier<int?> filesDone = ValueNotifier<int?>(null);
   static int get filesToSync =>
@@ -55,8 +56,9 @@ abstract class FileSyncer {
     _downloadCancellable = downloadCancellable;
 
     log.finer('startSync: Creating nextcloud client');
-    if (_client?.loginName != Prefs.username.value) _client = null;
-    _client ??= NextcloudClientExtension.withSavedDetails();
+    if (_client?.authentications?.isEmpty ?? true) {
+      _client = NextcloudClientExtension.withSavedDetails();
+    }
     if (_client == null) return 0;
 
     log.fine('startSync: Starting upload');
@@ -69,8 +71,8 @@ abstract class FileSyncer {
           .propfind(
             PathUri.parse(FileManager.appRootDirectoryPrefix),
             prop: const WebDavPropWithoutValues.fromBools(
-              davgetcontentlength: true,
-              davgetlastmodified: true,
+              davGetcontentlength: true,
+              davGetlastmodified: true,
             ),
           )
           .then((multistatus) => multistatus.toWebDavFiles());
@@ -173,8 +175,9 @@ abstract class FileSyncer {
     await _uploadQueue.waitUntilLoaded();
     if (_uploadQueue.value.isEmpty) return;
 
-    if (_client?.loginName != Prefs.username.value) _client = null;
-    _client ??= NextcloudClientExtension.withSavedDetails();
+    if (_client?.authentications?.isEmpty ?? true) {
+      _client = NextcloudClientExtension.withSavedDetails();
+    }
     if (_client == null) return;
 
     await _uploadMutex.protect(() async {
@@ -424,8 +427,8 @@ abstract class FileSyncer {
             PathUri.parse(file.remotePath),
             depth: WebDavDepth.zero,
             prop: const WebDavPropWithoutValues.fromBools(
-              davgetlastmodified: true,
-              davgetcontentlength: true,
+              davGetlastmodified: true,
+              davGetcontentlength: true,
             ),
           )
           .then((multistatus) => multistatus.toWebDavFiles().single);
