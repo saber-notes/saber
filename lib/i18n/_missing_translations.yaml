@@ -94,14 +94,6 @@ ar:
       bgPatterns:
         tablature(OUTDATED): Tablature
 cs:
-  settings:
-    prefLabels:
-      pencilSoundSetting(OUTDATED): Pencil sound effect
-    prefDescriptions:
-      pencilSoundSetting:
-        off(OUTDATED): No sound
-        onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
-        onAlways(OUTDATED): Enabled (even in silent mode)
 de:
   settings:
     prefLabels:
