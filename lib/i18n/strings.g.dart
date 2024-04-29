@@ -1271,6 +1271,7 @@ class _StringsSettingsPrefLabelsAr extends _StringsSettingsPrefLabelsEn {
 	@override String get hideHomeBackgrounds => 'إخفاء الخلفيات على الشاشة الرئيسية';
 	@override String get recentColorsDontSavePresets => 'لا تحفظ الألوان المعينة مسبقًا كألوان حديثة';
 	@override String get printPageIndicators => 'طباعة مؤشرات الصفحة';
+	@override String get pencilSoundSetting => 'تأثير صوت قلم الرصاص';
 	@override String get customDataDir => 'دليل البيانات المخصصة';
 	@override String get autoStraightenLines => 'تصويب الخطوط تلقائيا';
 	@override String get shapeRecognitionDelay => 'تأخير التعرف على الشكل';
@@ -1299,6 +1300,7 @@ class _StringsSettingsPrefDescriptionsAr extends _StringsSettingsPrefDescription
 	@override String get editorPromptRename => 'يمكنك دائمًا إعادة تسمية الملاحظات لاحقًا';
 	@override String get hideHomeBackgrounds => 'للحصول على مظهر أنظف';
 	@override String get printPageIndicators => 'تظهر مؤشرات الصفحة في الصادرات';
+	@override late final _StringsSettingsPrefDescriptionsPencilSoundSettingAr pencilSoundSetting = _StringsSettingsPrefDescriptionsPencilSoundSettingAr._(_root);
 	@override String get autoStraightenLines => 'يقوم بفرد الخطوط الطويلة دون الحاجة إلى استخدام قلم الشكل';
 	@override String get shapeRecognitionDelay => 'عدد مرات تحديث معاينة الشكل';
 	@override String get disableAds => '(أدز) يساعد في دعم تطوير (سابر) لكن يمكنك إزالتهم إذا أردت';
@@ -1645,11 +1647,11 @@ class _StringsEditorMenuAr extends _StringsEditorMenuEn {
 	@override String get duplicatePage => 'تكرار الصفحة';
 	@override String get deletePage => 'حذف الصفحة';
 	@override String get lineHeight => 'ارتفاع خط';
-	@override String get lineHeightDescription => 'يتحكم أيضًا في حجم النص للملاحظات المكتوبة';
 	@override String get backgroundPattern => 'نمط الخلفية';
 	@override String get import => 'يستورد';
 	@override late final _StringsEditorMenuBoxFitsAr boxFits = _StringsEditorMenuBoxFitsAr._(_root);
 	@override late final _StringsEditorMenuBgPatternsAr bgPatterns = _StringsEditorMenuBgPatternsAr._(_root);
+	@override String get lineHeightDescription => 'يتحكم أيضًا في حجم النص للملاحظات المكتوبة';
 	@override String get backgroundImageFit => 'الصورة الخلفية';
 }
 
@@ -1702,6 +1704,18 @@ class _StringsSettingsPrefDescriptionsHideFingerDrawingAr extends _StringsSettin
 	@override String get shown => 'يمنع التبديل العرضي';
 	@override String get fixedOn => 'تم إصلاح رسم الإصبع على أنه ممكن';
 	@override String get fixedOff => 'تم إصلاح رسم الإصبع على أنه معطل';
+}
+
+// Path: settings.prefDescriptions.pencilSoundSetting
+class _StringsSettingsPrefDescriptionsPencilSoundSettingAr extends _StringsSettingsPrefDescriptionsPencilSoundSettingEn {
+	_StringsSettingsPrefDescriptionsPencilSoundSettingAr._(_StringsAr root) : this._root = root, super._(root);
+
+	@override final _StringsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get off => 'لا صوت';
+	@override String get onButNotInSilentMode => 'ممكّن (ما لم يكن في الوضع الصامت)';
+	@override String get onAlways => 'ممكّن (حتى في الوضع الصامت)';
 }
 
 // Path: editor.menu.boxFits
@@ -2077,6 +2091,7 @@ class _StringsSettingsPrefLabelsCs extends _StringsSettingsPrefLabelsEn {
 	@override String get shapeRecognitionDelay => 'Zpoždění rozpoznávání tvarů';
 	@override String get autoStraightenLines => 'Automaticky narovnávat čáry';
 	@override String get customDataDir => 'Vlastní datový adresář';
+	@override String get pencilSoundSetting => 'Zvukový efekt psaní tužkou';
 }
 
 // Path: settings.prefDescriptions
@@ -2101,6 +2116,7 @@ class _StringsSettingsPrefDescriptionsCs extends _StringsSettingsPrefDescription
 	@override String get shapeRecognitionDelay => 'Jak často aktualizovat náhled tvaru';
 	@override String get autoStraightenLines => 'Automaticky narovná dlouhé čáry, aniž by bylo nutné využít tvarové pero';
 	@override String get shouldAlwaysAlertForUpdates => 'Oznámit dostupnost aktualizací co nejdříve od jejich vydání';
+	@override late final _StringsSettingsPrefDescriptionsPencilSoundSettingCs pencilSoundSetting = _StringsSettingsPrefDescriptionsPencilSoundSettingCs._(_root);
 }
 
 // Path: settings.themeModes
@@ -2499,6 +2515,18 @@ class _StringsSettingsPrefDescriptionsHideFingerDrawingCs extends _StringsSettin
 	@override String get fixedOff => 'Kreslení prstem je napevno vypnuté';
 }
 
+// Path: settings.prefDescriptions.pencilSoundSetting
+class _StringsSettingsPrefDescriptionsPencilSoundSettingCs extends _StringsSettingsPrefDescriptionsPencilSoundSettingEn {
+	_StringsSettingsPrefDescriptionsPencilSoundSettingCs._(_StringsCs root) : this._root = root, super._(root);
+
+	@override final _StringsCs _root; // ignore: unused_field
+
+	// Translations
+	@override String get off => 'Bez zvuku';
+	@override String get onButNotInSilentMode => 'Zapnuto (mimo tichý režim)';
+	@override String get onAlways => 'Zapnuto (i v tichém režimu)';
+}
+
 // Path: editor.menu.boxFits
 class _StringsEditorMenuBoxFitsCs extends _StringsEditorMenuBoxFitsEn {
 	_StringsEditorMenuBoxFitsCs._(_StringsCs root) : this._root = root, super._(root);
@@ -2872,6 +2900,7 @@ class _StringsSettingsPrefLabelsDe extends _StringsSettingsPrefLabelsEn {
 	@override String get shapeRecognitionDelay => 'Verzögerung der Formerkennung';
 	@override String get autoStraightenLines => 'Linien automatisch begradigen';
 	@override String get customDataDir => 'Benutzerdefiniertes Verzeichnis';
+	@override String get pencilSoundSetting => 'Bleistift-Soundeffekt';
 }
 
 // Path: settings.prefDescriptions
@@ -2896,6 +2925,7 @@ class _StringsSettingsPrefDescriptionsDe extends _StringsSettingsPrefDescription
 	@override String get shapeRecognitionDelay => 'Häufigkeit der Aktualisierung der Form-Vorschau';
 	@override String get autoStraightenLines => 'Lange Linien selbst ohne Form-Stift begradigen';
 	@override String get shouldAlwaysAlertForUpdates => 'Über neue Updates informiert bleiben';
+	@override late final _StringsSettingsPrefDescriptionsPencilSoundSettingDe pencilSoundSetting = _StringsSettingsPrefDescriptionsPencilSoundSettingDe._(_root);
 }
 
 // Path: settings.themeModes
@@ -3235,12 +3265,12 @@ class _StringsEditorMenuDe extends _StringsEditorMenuEn {
 	@override String get duplicatePage => 'Seite duplizieren';
 	@override String get deletePage => 'Seite löschen';
 	@override String get lineHeight => 'Zeilenhöhe';
-	@override String get lineHeightDescription => 'Steuert außerdem die Textgröße für getippte Notizen';
 	@override String get backgroundImageFit => 'Background image fit';
 	@override String get backgroundPattern => 'Hintergrundmuster';
 	@override String get import => 'Importieren';
 	@override late final _StringsEditorMenuBoxFitsDe boxFits = _StringsEditorMenuBoxFitsDe._(_root);
 	@override late final _StringsEditorMenuBgPatternsDe bgPatterns = _StringsEditorMenuBgPatternsDe._(_root);
+	@override String get lineHeightDescription => 'Steuert außerdem die Textgröße für getippte Notizen';
 }
 
 // Path: editor.newerFileFormat
@@ -3292,6 +3322,18 @@ class _StringsSettingsPrefDescriptionsHideFingerDrawingDe extends _StringsSettin
 	@override String get shown => 'Schützt vor versehentlichem Umschalten';
 	@override String get fixedOn => 'Finger-Zeichnen ist als aktiviert festgelegt';
 	@override String get fixedOff => 'Finger-Zeichnen ist als deaktiviert festgelegt';
+}
+
+// Path: settings.prefDescriptions.pencilSoundSetting
+class _StringsSettingsPrefDescriptionsPencilSoundSettingDe extends _StringsSettingsPrefDescriptionsPencilSoundSettingEn {
+	_StringsSettingsPrefDescriptionsPencilSoundSettingDe._(_StringsDe root) : this._root = root, super._(root);
+
+	@override final _StringsDe _root; // ignore: unused_field
+
+	// Translations
+	@override String get onAlways => 'Aktiviert (auch im lautlosen Modus)';
+	@override String get off => 'Keinen Ton';
+	@override String get onButNotInSilentMode => 'Aktiviert (außer im stillen Modus)';
 }
 
 // Path: editor.menu.boxFits
@@ -3663,6 +3705,7 @@ class _StringsSettingsPrefLabelsEs extends _StringsSettingsPrefLabelsEn {
 	@override String get recentColorsLength => 'Número de colores recientes a almacenar';
 	@override String get printPageIndicators => 'Indicadores de página de impresión';
 	@override String get autosaveDelay => 'Retardo en el autoguardado';
+	@override String get pencilSoundSetting => 'Efecto de sonido de lápiz';
 	@override String get customDataDir => 'Directorio de datos personalizado';
 	@override String get autoStraightenLines => 'Líneas de enderezamiento automático';
 	@override String get shapeRecognitionDelay => 'Retraso en el reconocimiento de formas';
@@ -3688,6 +3731,7 @@ class _StringsSettingsPrefDescriptionsEs extends _StringsSettingsPrefDescription
 	@override String get printPageIndicators => 'Mostrar indicadores de página en las exportaciones';
 	@override String get autosaveDelay => 'Cuánto esperar antes de autoguardar una nota';
 	@override String get shouldAlwaysAlertForUpdates => 'Avísame sobre actualizaciones tan pronto como estén disponibles';
+	@override late final _StringsSettingsPrefDescriptionsPencilSoundSettingEs pencilSoundSetting = _StringsSettingsPrefDescriptionsPencilSoundSettingEs._(_root);
 	@override String get autoStraightenLines => 'Endereza líneas largas sin tener que usar el rotulador.';
 	@override String get shapeRecognitionDelay => 'Con qué frecuencia actualizar la vista previa de la forma';
 }
@@ -4029,12 +4073,12 @@ class _StringsEditorMenuEs extends _StringsEditorMenuEn {
 	@override String get duplicatePage => 'Duplicar página';
 	@override String get deletePage => 'Eliminar página';
 	@override String get lineHeight => 'Altura de la línea';
-	@override String get lineHeightDescription => 'También controla el tamaño del texto de las notas escritas.';
 	@override String get backgroundImageFit => 'Ajuste de la imagen de fondo';
 	@override String get backgroundPattern => 'Patrón de fondo';
 	@override String get import => 'Importar';
 	@override late final _StringsEditorMenuBoxFitsEs boxFits = _StringsEditorMenuBoxFitsEs._(_root);
 	@override late final _StringsEditorMenuBgPatternsEs bgPatterns = _StringsEditorMenuBgPatternsEs._(_root);
+	@override String get lineHeightDescription => 'También controla el tamaño del texto de las notas escritas.';
 }
 
 // Path: editor.newerFileFormat
@@ -4086,6 +4130,18 @@ class _StringsSettingsPrefDescriptionsHideFingerDrawingEs extends _StringsSettin
 	@override String get shown => 'Evita cambios accidentales';
 	@override String get fixedOn => 'Dibujar o escribir con el dedo está activado';
 	@override String get fixedOff => 'Dibujar o escribir con el dedo está desactivado';
+}
+
+// Path: settings.prefDescriptions.pencilSoundSetting
+class _StringsSettingsPrefDescriptionsPencilSoundSettingEs extends _StringsSettingsPrefDescriptionsPencilSoundSettingEn {
+	_StringsSettingsPrefDescriptionsPencilSoundSettingEs._(_StringsEs root) : this._root = root, super._(root);
+
+	@override final _StringsEs _root; // ignore: unused_field
+
+	// Translations
+	@override String get off => 'Sin sonido';
+	@override String get onButNotInSilentMode => 'Habilitado (a menos que esté en modo silencioso)';
+	@override String get onAlways => 'Habilitado (incluso en modo silencioso)';
 }
 
 // Path: editor.menu.boxFits
@@ -4459,6 +4515,7 @@ class _StringsSettingsPrefLabelsFa extends _StringsSettingsPrefLabelsEn {
 	@override String get printPageIndicators => 'چاپ نشانگرهای صفحه';
 	@override String get autosaveDelay => 'تأخیر ذخیره خودکار';
 	@override String get shapeRecognitionDelay => 'تاخیر در تشخیص شکل';
+	@override String get pencilSoundSetting => 'جلوه صدای مداد';
 	@override String get customDataDir => 'دایرکتوری داده های سفارشی';
 	@override String get autoStraightenLines => 'صاف کردن خودکار خطوط';
 }
@@ -4484,6 +4541,7 @@ class _StringsSettingsPrefDescriptionsFa extends _StringsSettingsPrefDescription
 	@override String get autosaveDelay => 'چه مدت باید قبل از ذخیره خودکار یادداشت صبر کرد';
 	@override String get shapeRecognitionDelay => 'به روز رسانی پیشنمایش شکل چند وقت یکبار انجام شود';
 	@override String get shouldAlwaysAlertForUpdates => 'به محض اینکه به‌روزرسانی‌ها در دسترس هستند، به من بگویید';
+	@override late final _StringsSettingsPrefDescriptionsPencilSoundSettingFa pencilSoundSetting = _StringsSettingsPrefDescriptionsPencilSoundSettingFa._(_root);
 	@override String get autoStraightenLines => 'خطوط بلند را بدون استفاده از قلم شکل صاف می کند';
 }
 
@@ -4824,12 +4882,12 @@ class _StringsEditorMenuFa extends _StringsEditorMenuEn {
 	@override String get duplicatePage => 'تکرار صفحه';
 	@override String get deletePage => 'حذف صفحه';
 	@override String get lineHeight => 'ارتفاع خط';
-	@override String get lineHeightDescription => 'همچنین اندازه متن را برای یادداشت های تایپ شده کنترل می کند';
 	@override String get backgroundImageFit => 'مناسب تصویر پس زمینه';
 	@override String get backgroundPattern => 'الگوی پس زمینه';
 	@override String get import => 'واردکردن';
 	@override late final _StringsEditorMenuBoxFitsFa boxFits = _StringsEditorMenuBoxFitsFa._(_root);
 	@override late final _StringsEditorMenuBgPatternsFa bgPatterns = _StringsEditorMenuBgPatternsFa._(_root);
+	@override String get lineHeightDescription => 'همچنین اندازه متن را برای یادداشت های تایپ شده کنترل می کند';
 }
 
 // Path: editor.newerFileFormat
@@ -4881,6 +4939,18 @@ class _StringsSettingsPrefDescriptionsHideFingerDrawingFa extends _StringsSettin
 	@override String get shown => 'از جابجایی تصادفی جلوگیری می کند';
 	@override String get fixedOn => 'طراحی با انگشت به صورت فعال ثابت شده است';
 	@override String get fixedOff => 'طراحی با انگشت به عنوان غیرفعال ثابت است';
+}
+
+// Path: settings.prefDescriptions.pencilSoundSetting
+class _StringsSettingsPrefDescriptionsPencilSoundSettingFa extends _StringsSettingsPrefDescriptionsPencilSoundSettingEn {
+	_StringsSettingsPrefDescriptionsPencilSoundSettingFa._(_StringsFa root) : this._root = root, super._(root);
+
+	@override final _StringsFa _root; // ignore: unused_field
+
+	// Translations
+	@override String get onAlways => 'فعال (حتی در حالت بی صدا)';
+	@override String get off => 'بدون صدا';
+	@override String get onButNotInSilentMode => 'فعال (مگر در حالت بی صدا)';
 }
 
 // Path: editor.menu.boxFits
@@ -5254,6 +5324,7 @@ class _StringsSettingsPrefLabelsFr extends _StringsSettingsPrefLabelsEn {
 	@override String get printPageIndicators => 'Imprimer les numéros de pages';
 	@override String get autosaveDelay => 'Délai entre les sauvegardes automatiques';
 	@override String get shapeRecognitionDelay => 'Délai de reconnaissance de forme';
+	@override String get pencilSoundSetting => 'Effet sonore de crayon';
 	@override String get customDataDir => 'Répertoire de données personnalisé';
 	@override String get autoStraightenLines => 'Redresser automatiquement les lignes';
 }
@@ -5279,6 +5350,7 @@ class _StringsSettingsPrefDescriptionsFr extends _StringsSettingsPrefDescription
 	@override String get autosaveDelay => 'Combien de temps attendre avant de sauvegarder automatiquement une note';
 	@override String get shapeRecognitionDelay => 'Avec quelle fréquence mettre à jour la prévisualisation de forme';
 	@override String get shouldAlwaysAlertForUpdates => 'Me prévenir dès qu\'une mise à jour est disponible';
+	@override late final _StringsSettingsPrefDescriptionsPencilSoundSettingFr pencilSoundSetting = _StringsSettingsPrefDescriptionsPencilSoundSettingFr._(_root);
 	@override String get autoStraightenLines => 'Redresse les longues lignes sans avoir à utiliser le stylo de forme';
 }
 
@@ -5619,12 +5691,12 @@ class _StringsEditorMenuFr extends _StringsEditorMenuEn {
 	@override String get duplicatePage => 'Dupliquer la page';
 	@override String get deletePage => 'Supprimer la page';
 	@override String get lineHeight => 'Hauteur de ligne';
-	@override String get lineHeightDescription => 'Contrôle également la taille du texte pour les notes saisies';
 	@override String get backgroundImageFit => 'Adaptation de l\'image de fond';
 	@override String get backgroundPattern => 'Texture de fond';
 	@override String get import => 'Importer';
 	@override late final _StringsEditorMenuBoxFitsFr boxFits = _StringsEditorMenuBoxFitsFr._(_root);
 	@override late final _StringsEditorMenuBgPatternsFr bgPatterns = _StringsEditorMenuBgPatternsFr._(_root);
+	@override String get lineHeightDescription => 'Contrôle également la taille du texte pour les notes saisies';
 }
 
 // Path: editor.newerFileFormat
@@ -5676,6 +5748,18 @@ class _StringsSettingsPrefDescriptionsHideFingerDrawingFr extends _StringsSettin
 	@override String get shown => 'Empêcher l\'activation/désactivation accidentelle';
 	@override String get fixedOn => 'Le tracé au doigt est fixé à activé';
 	@override String get fixedOff => 'Le tracé au doigt est fixé à désactivé';
+}
+
+// Path: settings.prefDescriptions.pencilSoundSetting
+class _StringsSettingsPrefDescriptionsPencilSoundSettingFr extends _StringsSettingsPrefDescriptionsPencilSoundSettingEn {
+	_StringsSettingsPrefDescriptionsPencilSoundSettingFr._(_StringsFr root) : this._root = root, super._(root);
+
+	@override final _StringsFr _root; // ignore: unused_field
+
+	// Translations
+	@override String get off => 'Pas de son';
+	@override String get onButNotInSilentMode => 'Activé (sauf en mode silencieux)';
+	@override String get onAlways => 'Activé (même en mode silencieux)';
 }
 
 // Path: editor.menu.boxFits
@@ -6047,6 +6131,7 @@ class _StringsSettingsPrefLabelsHe extends _StringsSettingsPrefLabelsEn {
 	@override String get recentColorsDontSavePresets => 'אל תשמור צבעים מוגדרים מראש בצבעים אחרונים';
 	@override String get printPageIndicators => 'הדפסת עמודים מחוונים';
 	@override String get autosaveDelay => 'השהיית שמירה אוטומטית';
+	@override String get pencilSoundSetting => 'אפקט צליל עיפרון';
 	@override String get customDataDir => 'ספריית נתונים מותאמת אישית';
 	@override String get autoStraightenLines => 'יישור קווים אוטומטית';
 	@override String get shapeRecognitionDelay => 'עיכוב זיהוי צורות';
@@ -6073,6 +6158,7 @@ class _StringsSettingsPrefDescriptionsHe extends _StringsSettingsPrefDescription
 	@override String get printPageIndicators => 'הצג מחווני עמודים בייצוא';
 	@override String get autosaveDelay => 'כמה זמן לחכות לפני שמירת הערה אוטומטית';
 	@override String get shouldAlwaysAlertForUpdates => 'ספר לי על עדכונים ברגע שהם יהיו זמינים';
+	@override late final _StringsSettingsPrefDescriptionsPencilSoundSettingHe pencilSoundSetting = _StringsSettingsPrefDescriptionsPencilSoundSettingHe._(_root);
 	@override String get autoStraightenLines => 'מיישר קווים ארוכים ללא צורך להשתמש בעט הצורה';
 	@override String get shapeRecognitionDelay => 'באיזו תדירות לעדכן את התצוגה המקדימה של הצורה';
 }
@@ -6414,12 +6500,12 @@ class _StringsEditorMenuHe extends _StringsEditorMenuEn {
 	@override String get duplicatePage => 'שכפל דף';
 	@override String get deletePage => 'מחק דף';
 	@override String get lineHeight => 'גובה הקו';
-	@override String get lineHeightDescription => 'שולט גם בגודל הטקסט עבור הערות מוקלדות';
 	@override String get backgroundImageFit => 'התאמת תמונת רקע';
 	@override String get backgroundPattern => 'תבנית רקע';
 	@override String get import => 'יבוא';
 	@override late final _StringsEditorMenuBoxFitsHe boxFits = _StringsEditorMenuBoxFitsHe._(_root);
 	@override late final _StringsEditorMenuBgPatternsHe bgPatterns = _StringsEditorMenuBgPatternsHe._(_root);
+	@override String get lineHeightDescription => 'שולט גם בגודל הטקסט עבור הערות מוקלדות';
 }
 
 // Path: editor.newerFileFormat
@@ -6471,6 +6557,18 @@ class _StringsSettingsPrefDescriptionsHideFingerDrawingHe extends _StringsSettin
 	@override String get shown => 'מונע החלפת מצב בשוגג';
 	@override String get fixedOn => 'ציור אצבע קבוע כזמין';
 	@override String get fixedOff => 'ציור אצבע קבוע כלא זמין';
+}
+
+// Path: settings.prefDescriptions.pencilSoundSetting
+class _StringsSettingsPrefDescriptionsPencilSoundSettingHe extends _StringsSettingsPrefDescriptionsPencilSoundSettingEn {
+	_StringsSettingsPrefDescriptionsPencilSoundSettingHe._(_StringsHe root) : this._root = root, super._(root);
+
+	@override final _StringsHe _root; // ignore: unused_field
+
+	// Translations
+	@override String get onButNotInSilentMode => 'מופעל (אלא אם כן במצב שקט)';
+	@override String get off => 'אין קול';
+	@override String get onAlways => 'מופעל (אפילו במצב שקט)';
 }
 
 // Path: editor.menu.boxFits
@@ -6833,6 +6931,7 @@ class _StringsSettingsPrefLabelsHu extends _StringsSettingsPrefLabelsEn {
 	@override String get editorPromptRename => 'Új jegyzetek átnevezésére való felszólítás';
 	@override String get hideHomeBackgrounds => 'Hátterek elrejtése a kezdőképernyőn';
 	@override String get recentColorsDontSavePresets => 'Ne mentse az előre beállított színeket a legutóbbi színek között';
+	@override String get pencilSoundSetting => 'Ceruza hanghatás';
 	@override String get customDataDir => 'Egyedi adatkönyvtár';
 	@override String get autoStraightenLines => 'A vonalak automatikus kiegyenesítése';
 	@override String get shapeRecognitionDelay => 'Alakfelismerési késleltetés';
@@ -6862,6 +6961,7 @@ class _StringsSettingsPrefDescriptionsHu extends _StringsSettingsPrefDescription
 	@override late final _StringsSettingsPrefDescriptionsHideFingerDrawingHu hideFingerDrawing = _StringsSettingsPrefDescriptionsHideFingerDrawingHu._(_root);
 	@override String get editorPromptRename => 'A jegyzeteket később bármikor átnevezheti';
 	@override String get hideHomeBackgrounds => 'Egy letisztultabb megjelenítésért';
+	@override late final _StringsSettingsPrefDescriptionsPencilSoundSettingHu pencilSoundSetting = _StringsSettingsPrefDescriptionsPencilSoundSettingHu._(_root);
 	@override String get autoStraightenLines => 'Kiegyenesíti a hosszú vonalakat anélkül, hogy az alakos tollat ​​kellene használnia';
 	@override String get shapeRecognitionDelay => 'Milyen gyakran kell frissíteni az alakzat előnézetét';
 	@override String get disableAds => 'A hirdetések segítik a Saber fejlesztését, de tilthatja őket, ha tetszik';
@@ -7205,11 +7305,11 @@ class _StringsEditorMenuHu extends _StringsEditorMenuEn {
 	// Translations
 	@override String get clearAllPages => 'Összes oldal törlése';
 	@override String get lineHeight => 'Vonalmagasság';
-	@override String get lineHeightDescription => 'A beírt jegyzetek szövegméretét is szabályozza';
 	@override String get backgroundPattern => 'Háttérminta';
 	@override String get import => 'Importálás';
 	@override late final _StringsEditorMenuBoxFitsHu boxFits = _StringsEditorMenuBoxFitsHu._(_root);
 	@override late final _StringsEditorMenuBgPatternsHu bgPatterns = _StringsEditorMenuBgPatternsHu._(_root);
+	@override String get lineHeightDescription => 'A beírt jegyzetek szövegméretét is szabályozza';
 	@override String get backgroundImageFit => 'Háttérkép';
 	@override String clearPage({required Object page, required Object totalPages}) => '${page}/${totalPages} oldal törlése';
 	@override String get insertPage => 'Az oldal beszúrása alább';
@@ -7266,6 +7366,18 @@ class _StringsSettingsPrefDescriptionsHideFingerDrawingHu extends _StringsSettin
 	@override String get shown => 'Megakadályozza a véletlen átkapcsolást';
 	@override String get fixedOn => 'Az ujjlenyomat rögzítése engedélyezett állapotban van';
 	@override String get fixedOff => 'Az ujjrajzolás letiltva van rögzítve';
+}
+
+// Path: settings.prefDescriptions.pencilSoundSetting
+class _StringsSettingsPrefDescriptionsPencilSoundSettingHu extends _StringsSettingsPrefDescriptionsPencilSoundSettingEn {
+	_StringsSettingsPrefDescriptionsPencilSoundSettingHu._(_StringsHu root) : this._root = root, super._(root);
+
+	@override final _StringsHu _root; // ignore: unused_field
+
+	// Translations
+	@override String get off => 'Nincs hang';
+	@override String get onButNotInSilentMode => 'Engedélyezve (kivéve, ha néma módban van)';
+	@override String get onAlways => 'Engedélyezve (néma módban is)';
 }
 
 // Path: editor.menu.boxFits
@@ -7641,6 +7753,7 @@ class _StringsSettingsPrefLabelsIt extends _StringsSettingsPrefLabelsEn {
 	@override String get shapeRecognitionDelay => 'Ritardo nel riconoscimento della forma';
 	@override String get autoStraightenLines => 'Raddrizzamento automatico delle linee';
 	@override String get customDataDir => 'Directory di dati personalizzata';
+	@override String get pencilSoundSetting => 'Effetto sonoro della matita';
 }
 
 // Path: settings.prefDescriptions
@@ -7665,6 +7778,7 @@ class _StringsSettingsPrefDescriptionsIt extends _StringsSettingsPrefDescription
 	@override String get shapeRecognitionDelay => 'Quanto spesso aggiornare l\'anteprima della forma';
 	@override String get autoStraightenLines => 'Raddrizza le linee lunghe senza dover utilizzare la penna sagomatrice';
 	@override String get shouldAlwaysAlertForUpdates => 'Segnalami aggiornamenti non appena sono disponibili';
+	@override late final _StringsSettingsPrefDescriptionsPencilSoundSettingIt pencilSoundSetting = _StringsSettingsPrefDescriptionsPencilSoundSettingIt._(_root);
 }
 
 // Path: settings.themeModes
@@ -8063,6 +8177,18 @@ class _StringsSettingsPrefDescriptionsHideFingerDrawingIt extends _StringsSettin
 	@override String get fixedOff => 'Il disegno con le dita è fisso come disabilitato';
 }
 
+// Path: settings.prefDescriptions.pencilSoundSetting
+class _StringsSettingsPrefDescriptionsPencilSoundSettingIt extends _StringsSettingsPrefDescriptionsPencilSoundSettingEn {
+	_StringsSettingsPrefDescriptionsPencilSoundSettingIt._(_StringsIt root) : this._root = root, super._(root);
+
+	@override final _StringsIt _root; // ignore: unused_field
+
+	// Translations
+	@override String get off => 'Nessun suono';
+	@override String get onButNotInSilentMode => 'Abilitato (a meno che non sia in modalità silenziosa)';
+	@override String get onAlways => 'Abilitato (anche in modalità silenziosa)';
+}
+
 // Path: editor.menu.boxFits
 class _StringsEditorMenuBoxFitsIt extends _StringsEditorMenuBoxFitsEn {
 	_StringsEditorMenuBoxFitsIt._(_StringsIt root) : this._root = root, super._(root);
@@ -8428,6 +8554,7 @@ class _StringsSettingsPrefLabelsJa extends _StringsSettingsPrefLabelsEn {
 	@override String get hideHomeBackgrounds => 'ホーム画面で背景を隠す';
 	@override String get recentColorsDontSavePresets => '最近使用した色をプリセットに登録しない';
 	@override String get printPageIndicators => '印刷ページのインジケーター';
+	@override String get pencilSoundSetting => '鉛筆の効果音';
 	@override String get customDataDir => 'カスタムデータディレクトリ';
 	@override String get autoStraightenLines => '線を自動直線化する';
 	@override String get shapeRecognitionDelay => '形状認識の遅延';
@@ -8455,6 +8582,7 @@ class _StringsSettingsPrefDescriptionsJa extends _StringsSettingsPrefDescription
 	@override String get editorPromptRename => 'メモの名前は後でいつでも変更できます';
 	@override String get hideHomeBackgrounds => 'よりクリーンな外観に';
 	@override String get printPageIndicators => 'エクスポートにページインジケーターを表示';
+	@override late final _StringsSettingsPrefDescriptionsPencilSoundSettingJa pencilSoundSetting = _StringsSettingsPrefDescriptionsPencilSoundSettingJa._(_root);
 	@override String get autoStraightenLines => 'シェイプペンを使用せずに長い線をまっすぐにします。';
 	@override String get shapeRecognitionDelay => '形状プレビューを更新する頻度';
 	@override String get autosaveDelay => 'メモを自動保存するまでの待ち時間';
@@ -8799,11 +8927,11 @@ class _StringsEditorMenuJa extends _StringsEditorMenuEn {
 	@override String get duplicatePage => '重複したページ';
 	@override String get deletePage => 'ページの削除';
 	@override String get lineHeight => '行の高さ';
-	@override String get lineHeightDescription => '入力されたメモのテキスト サイズも制御します';
 	@override String get backgroundPattern => '背景パターン';
 	@override String get import => 'インポート';
 	@override late final _StringsEditorMenuBoxFitsJa boxFits = _StringsEditorMenuBoxFitsJa._(_root);
 	@override late final _StringsEditorMenuBgPatternsJa bgPatterns = _StringsEditorMenuBgPatternsJa._(_root);
+	@override String get lineHeightDescription => '入力されたメモのテキスト サイズも制御します';
 	@override String get backgroundImageFit => '背景画像';
 }
 
@@ -8856,6 +8984,18 @@ class _StringsSettingsPrefDescriptionsHideFingerDrawingJa extends _StringsSettin
 	@override String get fixedOn => '指の描画が有効に固定される';
 	@override String get shown => '偶発的な切り替えを防止します';
 	@override String get fixedOff => '指の描画が無効に固定される';
+}
+
+// Path: settings.prefDescriptions.pencilSoundSetting
+class _StringsSettingsPrefDescriptionsPencilSoundSettingJa extends _StringsSettingsPrefDescriptionsPencilSoundSettingEn {
+	_StringsSettingsPrefDescriptionsPencilSoundSettingJa._(_StringsJa root) : this._root = root, super._(root);
+
+	@override final _StringsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get off => '無音';
+	@override String get onButNotInSilentMode => '有効 (サイレントモードでない場合)';
+	@override String get onAlways => '有効（サイレントモードでも）';
 }
 
 // Path: editor.menu.boxFits
@@ -9227,6 +9367,7 @@ class _StringsSettingsPrefLabelsPtBr extends _StringsSettingsPrefLabelsEn {
 	@override String get recentColorsDontSavePresets => 'Não salvar as cores predefinidas nas cores recentes';
 	@override String get printPageIndicators => 'Imprimir os indicadores de página';
 	@override String get autosaveDelay => 'Atraso de salvamento automático';
+	@override String get pencilSoundSetting => 'Efeito sonoro de lápis';
 	@override String get customDataDir => 'Diretório de dados personalizado';
 	@override String get autoStraightenLines => 'Endireitar linhas automaticamente';
 	@override String get shapeRecognitionDelay => 'Atraso no reconhecimento de forma';
@@ -9253,6 +9394,7 @@ class _StringsSettingsPrefDescriptionsPtBr extends _StringsSettingsPrefDescripti
 	@override String get printPageIndicators => 'Mostrar os indicadores de página nas exportações';
 	@override String get autosaveDelay => 'Quanto tempo esperar antes de salvar automaticamente uma nota';
 	@override String get shouldAlwaysAlertForUpdates => 'Conte-me sobre atualizações assim que elas estiverem disponíveis';
+	@override late final _StringsSettingsPrefDescriptionsPencilSoundSettingPtBr pencilSoundSetting = _StringsSettingsPrefDescriptionsPencilSoundSettingPtBr._(_root);
 	@override String get autoStraightenLines => 'Endireita linhas longas sem precisar usar a caneta modeladora';
 	@override String get shapeRecognitionDelay => 'Com que frequência atualizar a visualização da forma';
 }
@@ -9594,12 +9736,12 @@ class _StringsEditorMenuPtBr extends _StringsEditorMenuEn {
 	@override String get duplicatePage => 'Duplicar página';
 	@override String get deletePage => 'Apagar página';
 	@override String get lineHeight => 'Altura da linha';
-	@override String get lineHeightDescription => 'Também controla o tamanho do texto para notas digitadas';
 	@override String get backgroundImageFit => 'Ajustar a imagem de plano de fundo';
 	@override String get backgroundPattern => 'Padrão de plano de fundo';
 	@override String get import => 'Importar';
 	@override late final _StringsEditorMenuBoxFitsPtBr boxFits = _StringsEditorMenuBoxFitsPtBr._(_root);
 	@override late final _StringsEditorMenuBgPatternsPtBr bgPatterns = _StringsEditorMenuBgPatternsPtBr._(_root);
+	@override String get lineHeightDescription => 'Também controla o tamanho do texto para notas digitadas';
 }
 
 // Path: editor.newerFileFormat
@@ -9651,6 +9793,18 @@ class _StringsSettingsPrefDescriptionsHideFingerDrawingPtBr extends _StringsSett
 	@override String get shown => 'Evitar alternância acidental';
 	@override String get fixedOn => 'O desenho com o dedo está ativado';
 	@override String get fixedOff => 'O desenho com o dedo está desativado';
+}
+
+// Path: settings.prefDescriptions.pencilSoundSetting
+class _StringsSettingsPrefDescriptionsPencilSoundSettingPtBr extends _StringsSettingsPrefDescriptionsPencilSoundSettingEn {
+	_StringsSettingsPrefDescriptionsPencilSoundSettingPtBr._(_StringsPtBr root) : this._root = root, super._(root);
+
+	@override final _StringsPtBr _root; // ignore: unused_field
+
+	// Translations
+	@override String get off => 'Sem som';
+	@override String get onButNotInSilentMode => 'Ativado (a menos que esteja no modo silencioso)';
+	@override String get onAlways => 'Ativado (mesmo no modo silencioso)';
 }
 
 // Path: editor.menu.boxFits
@@ -10024,6 +10178,7 @@ class _StringsSettingsPrefLabelsRu extends _StringsSettingsPrefLabelsEn {
 	@override String get printPageIndicators => 'Печатать номера страниц';
 	@override String get autosaveDelay => 'Задержка автосохранения';
 	@override String get shapeRecognitionDelay => 'Задержка распознавания формы';
+	@override String get pencilSoundSetting => 'Звуковой эффект карандаша';
 	@override String get customDataDir => 'Пользовательский каталог данных';
 	@override String get autoStraightenLines => 'Автоматическое выпрямление линий';
 }
@@ -10049,6 +10204,7 @@ class _StringsSettingsPrefDescriptionsRu extends _StringsSettingsPrefDescription
 	@override String get autosaveDelay => 'Время ожидания до автосохранения заметки';
 	@override String get shapeRecognitionDelay => 'Как часто обновлять предварительный просмотр формы';
 	@override String get shouldAlwaysAlertForUpdates => 'Сообщать мне об обновлениях, как только они станут доступны';
+	@override late final _StringsSettingsPrefDescriptionsPencilSoundSettingRu pencilSoundSetting = _StringsSettingsPrefDescriptionsPencilSoundSettingRu._(_root);
 	@override String get autoStraightenLines => 'Выпрямляет длинные линии без использования фигурного пера.';
 }
 
@@ -10389,12 +10545,12 @@ class _StringsEditorMenuRu extends _StringsEditorMenuEn {
 	@override String get duplicatePage => 'Дубликат страницы';
 	@override String get deletePage => 'Удалить страницу';
 	@override String get lineHeight => 'Высота строки';
-	@override String get lineHeightDescription => 'Также контролирует размер текста для напечатанных заметок.';
 	@override String get backgroundImageFit => 'Фоновое изображение';
 	@override String get backgroundPattern => 'Фоновый шаблон';
 	@override String get import => 'Импорт';
 	@override late final _StringsEditorMenuBoxFitsRu boxFits = _StringsEditorMenuBoxFitsRu._(_root);
 	@override late final _StringsEditorMenuBgPatternsRu bgPatterns = _StringsEditorMenuBgPatternsRu._(_root);
+	@override String get lineHeightDescription => 'Также контролирует размер текста для напечатанных заметок.';
 }
 
 // Path: editor.newerFileFormat
@@ -10446,6 +10602,18 @@ class _StringsSettingsPrefDescriptionsHideFingerDrawingRu extends _StringsSettin
 	@override String get shown => 'Предотвращать случайное переключение';
 	@override String get fixedOn => '«Рисование пальцем» зафиксировано как включенное';
 	@override String get fixedOff => '«Рисование пальцем» зафиксировано как выключенное';
+}
+
+// Path: settings.prefDescriptions.pencilSoundSetting
+class _StringsSettingsPrefDescriptionsPencilSoundSettingRu extends _StringsSettingsPrefDescriptionsPencilSoundSettingEn {
+	_StringsSettingsPrefDescriptionsPencilSoundSettingRu._(_StringsRu root) : this._root = root, super._(root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get onAlways => 'Включено (даже в беззвучном режиме)';
+	@override String get off => 'Без звука';
+	@override String get onButNotInSilentMode => 'Включено (кроме беззвучного режима)';
 }
 
 // Path: editor.menu.boxFits
@@ -10820,6 +10988,7 @@ class _StringsSettingsPrefLabelsTr extends _StringsSettingsPrefLabelsEn {
 	@override String get autosaveDelay => 'Otomatik kayıt aralığı';
 	@override String get shapeRecognitionDelay => 'Şekil tanıma gecikmesi';
 	@override String get autoStraightenLines => 'Çizgileri otomatik düzleştir';
+	@override String get pencilSoundSetting => 'Kalem ses efekti';
 	@override String get customDataDir => 'Özel veri dizini';
 }
 
@@ -10845,6 +11014,7 @@ class _StringsSettingsPrefDescriptionsTr extends _StringsSettingsPrefDescription
 	@override String get shapeRecognitionDelay => 'Çizilen şekilleri tanımlama sıklığını belirler';
 	@override String get autoStraightenLines => 'Şekil aracını kullanmadığınızda da çizgileri düzleştirir';
 	@override String get shouldAlwaysAlertForUpdates => 'Güncelleme mevcut olduğu gibi bana haber ver';
+	@override late final _StringsSettingsPrefDescriptionsPencilSoundSettingTr pencilSoundSetting = _StringsSettingsPrefDescriptionsPencilSoundSettingTr._(_root);
 }
 
 // Path: settings.themeModes
@@ -11184,12 +11354,12 @@ class _StringsEditorMenuTr extends _StringsEditorMenuEn {
 	@override String get duplicatePage => 'Sayfayı çoğalt';
 	@override String get deletePage => 'Sayfayı sil';
 	@override String get lineHeight => 'Satır aralığı';
-	@override String get lineHeightDescription => 'Ayrıca yazılan notların metin boyutunu da kontrol eder';
 	@override String get backgroundImageFit => 'Arkaplan görüntüsünü sığdır';
 	@override String get backgroundPattern => 'Arkaplan deseni';
 	@override String get import => 'İçe aktar';
 	@override late final _StringsEditorMenuBoxFitsTr boxFits = _StringsEditorMenuBoxFitsTr._(_root);
 	@override late final _StringsEditorMenuBgPatternsTr bgPatterns = _StringsEditorMenuBgPatternsTr._(_root);
+	@override String get lineHeightDescription => 'Ayrıca yazılan notların metin boyutunu da kontrol eder';
 }
 
 // Path: editor.newerFileFormat
@@ -11241,6 +11411,18 @@ class _StringsSettingsPrefDescriptionsHideFingerDrawingTr extends _StringsSettin
 	@override String get shown => 'Yanlışlıkla değiştirilmesini engeller';
 	@override String get fixedOn => 'Parmakla çizim izni verildi ve sabitlendi';
 	@override String get fixedOff => 'Parmakla çizim izni verilmedi ve sabitlendi';
+}
+
+// Path: settings.prefDescriptions.pencilSoundSetting
+class _StringsSettingsPrefDescriptionsPencilSoundSettingTr extends _StringsSettingsPrefDescriptionsPencilSoundSettingEn {
+	_StringsSettingsPrefDescriptionsPencilSoundSettingTr._(_StringsTr root) : this._root = root, super._(root);
+
+	@override final _StringsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String get off => 'Ses yok';
+	@override String get onButNotInSilentMode => 'Etkin (sessiz modda olmadığı sürece)';
+	@override String get onAlways => 'Etkin (sessiz modda bile)';
 }
 
 // Path: editor.menu.boxFits
@@ -11616,6 +11798,7 @@ class _StringsSettingsPrefLabelsZhHansCn extends _StringsSettingsPrefLabelsEn {
 	@override String get shapeRecognitionDelay => '形状识别延迟';
 	@override String get autoStraightenLines => '自动拉直线';
 	@override String get customDataDir => '自定义数据目录';
+	@override String get pencilSoundSetting => '铅笔音效';
 }
 
 // Path: settings.prefDescriptions
@@ -11640,6 +11823,7 @@ class _StringsSettingsPrefDescriptionsZhHansCn extends _StringsSettingsPrefDescr
 	@override String get shapeRecognitionDelay => '形状预览更新频率';
 	@override String get autoStraightenLines => '拉直长线，无需使用形状笔';
 	@override String get shouldAlwaysAlertForUpdates => '在更新可用时尽快告诉我';
+	@override late final _StringsSettingsPrefDescriptionsPencilSoundSettingZhHansCn pencilSoundSetting = _StringsSettingsPrefDescriptionsPencilSoundSettingZhHansCn._(_root);
 }
 
 // Path: settings.themeModes
@@ -12038,6 +12222,18 @@ class _StringsSettingsPrefDescriptionsHideFingerDrawingZhHansCn extends _Strings
 	@override String get fixedOff => '手指绘制固定为禁用状态';
 }
 
+// Path: settings.prefDescriptions.pencilSoundSetting
+class _StringsSettingsPrefDescriptionsPencilSoundSettingZhHansCn extends _StringsSettingsPrefDescriptionsPencilSoundSettingEn {
+	_StringsSettingsPrefDescriptionsPencilSoundSettingZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
+
+	@override final _StringsZhHansCn _root; // ignore: unused_field
+
+	// Translations
+	@override String get onButNotInSilentMode => '已启用（除非处于静音模式）';
+	@override String get off => '没有声音';
+	@override String get onAlways => '已启用（即使在静音模式下）';
+}
+
 // Path: editor.menu.boxFits
 class _StringsEditorMenuBoxFitsZhHansCn extends _StringsEditorMenuBoxFitsEn {
 	_StringsEditorMenuBoxFitsZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
@@ -12411,6 +12607,7 @@ class _StringsSettingsPrefLabelsZhHantTw extends _StringsSettingsPrefLabelsEn {
 	@override String get shapeRecognitionDelay => '形狀識別延遲';
 	@override String get autoStraightenLines => '自動拉直線條';
 	@override String get customDataDir => '自訂資料目錄';
+	@override String get pencilSoundSetting => '鉛筆音效';
 }
 
 // Path: settings.prefDescriptions
@@ -12435,6 +12632,7 @@ class _StringsSettingsPrefDescriptionsZhHantTw extends _StringsSettingsPrefDescr
 	@override String get shapeRecognitionDelay => '多久更新一次形狀預覽';
 	@override String get autoStraightenLines => '無需使用形狀筆即可拉直線條';
 	@override String get shouldAlwaysAlertForUpdates => '一旦有更新請告訴我';
+	@override late final _StringsSettingsPrefDescriptionsPencilSoundSettingZhHantTw pencilSoundSetting = _StringsSettingsPrefDescriptionsPencilSoundSettingZhHantTw._(_root);
 }
 
 // Path: settings.themeModes
@@ -12831,6 +13029,18 @@ class _StringsSettingsPrefDescriptionsHideFingerDrawingZhHantTw extends _Strings
 	@override String get shown => '防止意外切換';
 	@override String get fixedOn => '手指繪圖固定為啟用';
 	@override String get fixedOff => '手指繪圖固定為禁用';
+}
+
+// Path: settings.prefDescriptions.pencilSoundSetting
+class _StringsSettingsPrefDescriptionsPencilSoundSettingZhHantTw extends _StringsSettingsPrefDescriptionsPencilSoundSettingEn {
+	_StringsSettingsPrefDescriptionsPencilSoundSettingZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
+
+	@override final _StringsZhHantTw _root; // ignore: unused_field
+
+	// Translations
+	@override String get off => '沒有聲音';
+	@override String get onButNotInSilentMode => '已啟用（除非處於靜音模式）';
+	@override String get onAlways => '已啟用（即使在靜音模式下）';
 }
 
 // Path: editor.menu.boxFits

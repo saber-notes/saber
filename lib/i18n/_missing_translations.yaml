@@ -94,14 +94,6 @@ ar:
       bgPatterns:
         tablature(OUTDATED): Tablature
 cs:
-  settings:
-    prefLabels:
-      pencilSoundSetting(OUTDATED): Zvukový efekt psaní tužkou
-    prefDescriptions:
-      pencilSoundSetting:
-        off(OUTDATED): Bez zvuku
-        onButNotInSilentMode(OUTDATED): Zapnuto (mimo tichý režim)
-        onAlways(OUTDATED): Zapnuto (i v tichém režimu)
 de:
   settings:
     prefLabels:
