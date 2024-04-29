@@ -12607,7 +12607,7 @@ class _StringsSettingsPrefLabelsZhHantTw extends _StringsSettingsPrefLabelsEn {
 	@override String get shapeRecognitionDelay => '形狀識別延遲';
 	@override String get autoStraightenLines => '自動拉直線條';
 	@override String get customDataDir => '自訂資料目錄';
-	@override String get pencilSoundSetting => '鉛筆音效';
+	@override String get pencilSoundSetting => '筆的音效';
 }
 
 // Path: settings.prefDescriptions
@@ -13038,7 +13038,7 @@ class _StringsSettingsPrefDescriptionsPencilSoundSettingZhHantTw extends _String
 	@override final _StringsZhHantTw _root; // ignore: unused_field
 
 	// Translations
-	@override String get off => '沒有聲音';
+	@override String get off => '關閉';
 	@override String get onButNotInSilentMode => '已啟用（除非處於靜音模式）';
 	@override String get onAlways => '已啟用（即使在靜音模式下）';
 }

@@ -92,7 +92,7 @@ settings:
     shapeRecognitionDelay: 形狀識別延遲
     autoStraightenLines: 自動拉直線條
     customDataDir: 自訂資料目錄
-    pencilSoundSetting(OUTDATED): 鉛筆音效
+    pencilSoundSetting: 筆的音效
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible 字體為低視力讀者提高易讀性
     disableAds: 廣告有助於支持Saber的發展，但如果您不願意，可以禁用它
@@ -113,9 +113,9 @@ settings:
     autoStraightenLines: 無需使用形狀筆即可拉直線條
     shouldAlwaysAlertForUpdates: 一旦有更新請告訴我
     pencilSoundSetting:
-      off(OUTDATED): 沒有聲音
-      onButNotInSilentMode(OUTDATED): 已啟用（除非處於靜音模式）
-      onAlways(OUTDATED): 已啟用（即使在靜音模式下）
+      off: 關閉
+      onButNotInSilentMode: 已啟用（除非處於靜音模式）
+      onAlways: 已啟用（即使在靜音模式下）
   themeModes:
     system: 系統
     light: 淺色

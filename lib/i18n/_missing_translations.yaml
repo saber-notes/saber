@@ -628,11 +628,3 @@ zh-Hans-CN:
         onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
         onAlways(OUTDATED): Enabled (even in silent mode)
 zh-Hant-TW:
-  settings:
-    prefLabels:
-      pencilSoundSetting(OUTDATED): Pencil sound effect
-    prefDescriptions:
-      pencilSoundSetting:
-        off(OUTDATED): No sound
-        onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
-        onAlways(OUTDATED): Enabled (even in silent mode)
