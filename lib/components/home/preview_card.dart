@@ -53,8 +53,11 @@ class _PreviewCardState extends State<PreviewCard> {
   }
 
   StreamSubscription? fileWriteSubscription;
+
+  /// Listen to changes of thumbnail file
   void fileWriteListener(FileOperation event) {
-    if (event.filePath != widget.filePath) return;
+    if (event.filePath != '${widget.filePath}${Editor.extension}.p') return;
+
     if (event.type == FileOperationType.delete) {
       thumbnail.image = null;
     } else if (event.type == FileOperationType.write) {

@@ -64,6 +64,11 @@ void main() {
         reason: 'Editor is still read-only');
     printOnFailure('Editor core info is loaded');
 
+    addTearDown(() async {
+      editorState.delayedSaveTimer?.cancel();
+      await FileManager.deleteFile(filePath + Editor.extension);
+    });
+
     IconButton getUndoBtn() => tester.widget<IconButton>(find.ancestor(
           of: find.byIcon(Icons.undo),
           matching: find.byType(IconButton),
@@ -111,14 +116,6 @@ void main() {
         reason: 'Undo button should be enabled after undo and draw');
     expect(getRedoBtn().onPressed, isNull,
         reason: 'Redo button should be disabled after undo and draw');
-
-    // save file now to supersede the save timer (which would run after the test is finished)
-    printOnFailure('Saving file: $filePath${Editor.extension}');
-    await tester.runAsync(() async {
-      await editorState.saveToFile();
-      await Future.delayed(const Duration(milliseconds: 100));
-      await FileManager.deleteFile(filePath + Editor.extension);
-    });
   });
 }
 
