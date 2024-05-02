@@ -33,6 +33,20 @@ class NextcloudProfile extends StatefulWidget {
 
 class _NextcloudProfileState extends State<NextcloudProfile> {
   @override
+  void initState() {
+    Prefs.username.addListener(_setState);
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    Prefs.username.removeListener(_setState);
+    super.dispose();
+  }
+
+  void _setState() => setState(() {});
+
+  @override
   Widget build(BuildContext context) {
     final String heading, subheading;
     final bool loggedIn = Prefs.username.value.isNotEmpty;
