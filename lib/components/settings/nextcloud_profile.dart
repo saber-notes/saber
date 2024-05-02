@@ -19,32 +19,26 @@ class NextcloudProfile extends StatefulWidget {
 
   @override
   State<NextcloudProfile> createState() => _NextcloudProfileState();
-
-  @visibleForTesting
-  static Future<Quota?> getStorageQuota() async {
-    final client = NextcloudClientExtension.withSavedDetails();
-    if (client == null) return null;
-
-    final user = await client.provisioningApi.users.getCurrentUser();
-    Prefs.lastStorageQuota.value = user.body.ocs.data.quota;
-    return Prefs.lastStorageQuota.value;
-  }
 }
 
 class _NextcloudProfileState extends State<NextcloudProfile> {
   @override
   void initState() {
-    Prefs.username.addListener(_setState);
+    Prefs.username.addListener(_usernameChanged);
     super.initState();
   }
 
   @override
   void dispose() {
-    Prefs.username.removeListener(_setState);
+    Prefs.username.removeListener(_usernameChanged);
     super.dispose();
   }
 
-  void _setState() => setState(() {});
+  late var getStorageQuotaFuture = getStorageQuota();
+  void _usernameChanged() {
+    getStorageQuotaFuture = getStorageQuota();
+    if (mounted) setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -91,7 +85,7 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 FutureBuilder(
-                  future: NextcloudProfile.getStorageQuota(),
+                  future: getStorageQuotaFuture,
                   initialData: Prefs.lastStorageQuota.value,
                   builder:
                       (BuildContext context, AsyncSnapshot<Quota?> snapshot) {
@@ -142,6 +136,15 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
             )
           : null,
     );
+  }
+
+  static Future<Quota?> getStorageQuota() async {
+    final client = NextcloudClientExtension.withSavedDetails();
+    if (client == null) return null;
+
+    final user = await client.provisioningApi.users.getCurrentUser();
+    Prefs.lastStorageQuota.value = user.body.ocs.data.quota;
+    return Prefs.lastStorageQuota.value;
   }
 
   static String readableQuota(Quota? quota) {
