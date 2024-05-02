@@ -148,7 +148,8 @@ jobs:
               sudo \
               bash curl file git unzip xz-utils zip \
               clang cmake ninja-build pkg-config libgtk-3-dev liblzma-dev libstdc++-12-dev \
-              libsecret-1-dev libjsoncpp-dev
+              libsecret-1-dev libjsoncpp-dev \
+              gstreamer1.0-plugins-base
 
             echo Creating nonroot user
             useradd -m -d /home/nonroot -s /bin/bash nonroot
