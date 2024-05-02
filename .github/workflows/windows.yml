@@ -76,6 +76,7 @@ jobs:
         id: rename
         shell: bash
         run: |
+          export LC_ALL=en_US.utf8
           buildName=$(grep -oP "(?<=buildName = ').*(?=')" lib/data/version.dart)
           installerName="SaberInstaller_v${buildName}.exe"
           echo "installerName=$installerName" >> $GITHUB_OUTPUT

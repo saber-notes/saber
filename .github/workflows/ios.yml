@@ -62,7 +62,9 @@ jobs:
           architecture: x64
 
       - name: Install Codemagic CLI Tools
-        run: pip3 install codemagic-cli-tools
+        run: |
+          brew install pipx
+          pipx install codemagic-cli-tools
 
       - name: Setup keychain
         run: |
@@ -82,7 +84,6 @@ jobs:
       - run: find . -name "Podfile" -execdir pod install \;
 
       - name: Build for iOS
-        id: build
         run: |
           flutter build ipa \
             --dart-define=FLAVOR="App Store" \
@@ -91,7 +92,11 @@ jobs:
             --dart-define=DIRTY="false" \
             --export-options-plist=$HOME/export_options.plist
 
-          buildName=$(grep -oP "(?<=buildName = ').*(?=')" lib/data/version.dart)
+      - name: Move IPA
+        id: move
+        run: |
+          brew install grep
+          buildName=$(ggrep -oP "(?<=buildName = ').*(?=')" lib/data/version.dart)
           export ipaPath="Saber_v${buildName}.ipa"
           mv $(find $(pwd) -name "*.ipa") $ipaPath
           echo "ipaPath=$ipaPath" >> $GITHUB_OUTPUT
@@ -104,8 +109,8 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: Saber-iOS-Archive
-          path: ${{ steps.build.outputs.ipaPath }}
+          path: ${{ steps.move.outputs.ipaPath }}
 
       - name: Publish to App Store
         if: ${{ startsWith(github.ref, 'refs/tags/') }}
-        run: app-store-connect publish --path ${{ steps.build.outputs.ipaPath }}
+        run: app-store-connect publish --path ${{ steps.move.outputs.ipaPath }}

@@ -62,7 +62,9 @@ jobs:
           architecture: x64
 
       - name: Install Codemagic CLI Tools
-        run: pip3 install codemagic-cli-tools
+        run: |
+          brew install pipx
+          pipx install codemagic-cli-tools
 
       - name: Setup keychain
         run: |
@@ -124,7 +126,8 @@ jobs:
       - name: Compress macOS build
         id: compress
         run: |
-          buildName=$(grep -oP "(?<=buildName = ').*(?=')" lib/data/version.dart)
+          brew install grep
+          buildName=$(ggrep -oP "(?<=buildName = ').*(?=')" lib/data/version.dart)
           zipName="Saber_v${buildName}.app.zip"
           echo "zipName=$zipName" >> $GITHUB_OUTPUT
 
