@@ -588,12 +588,12 @@ hu:
 it:
   settings:
     prefLabels:
-      pencilSoundSetting(OUTDATED): Pencil sound effect
+      pencilSoundSetting(OUTDATED): Effetto sonoro della matita
     prefDescriptions:
       pencilSoundSetting:
-        off(OUTDATED): No sound
-        onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
-        onAlways(OUTDATED): Enabled (even in silent mode)
+        off(OUTDATED): Nessun suono
+        onButNotInSilentMode(OUTDATED): Abilitato (a meno che non sia in modalità silenziosa)
+        onAlways(OUTDATED): Abilitato (anche in modalità silenziosa)
   login:
     seeFaq(OUTDATED): "See the FAQ below for more information, including about the encryption password."
     faq(OUTDATED):
