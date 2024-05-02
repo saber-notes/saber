@@ -37,7 +37,7 @@ jobs:
       - name: Install apt dependencies
         uses: awalsh128/cache-apt-pkgs-action@latest
         with:
-          packages: libgtk-3-dev libx11-dev pkg-config cmake ninja-build libblkid-dev libsecret-1-dev libjsoncpp-dev ghostscript libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev
+          packages: libgtk-3-dev libx11-dev pkg-config cmake ninja-build libblkid-dev libsecret-1-dev libjsoncpp-dev ghostscript libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev libunwind-dev
           version: 1.0
           execute_install_scripts: true
 
@@ -149,7 +149,7 @@ jobs:
               bash curl file git unzip xz-utils zip \
               clang cmake ninja-build pkg-config libgtk-3-dev liblzma-dev libstdc++-12-dev \
               libsecret-1-dev libjsoncpp-dev \
-              libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev
+              libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev libunwind-dev
 
             echo Creating nonroot user
             useradd -m -d /home/nonroot -s /bin/bash nonroot
