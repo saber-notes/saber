@@ -144,7 +144,7 @@ package can be summarised as:
 
 #### Linux
 
-`sudo apt install libsecret-1-dev libjsoncpp-dev`
+`sudo apt install libsecret-1-dev libjsoncpp-dev gstreamer1.0-plugins-base`
 `flutter build linux`
 
 This is good enough for using on your own computer, but if you want to redistribute your build,

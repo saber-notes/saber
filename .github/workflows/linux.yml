@@ -37,7 +37,7 @@ jobs:
       - name: Install apt dependencies
         uses: awalsh128/cache-apt-pkgs-action@latest
         with:
-          packages: libgtk-3-dev libx11-dev pkg-config cmake ninja-build libblkid-dev libsecret-1-dev libjsoncpp-dev ghostscript
+          packages: libgtk-3-dev libx11-dev pkg-config cmake ninja-build libblkid-dev libsecret-1-dev libjsoncpp-dev ghostscript gstreamer1.0-plugins-base
           version: 1.0
           execute_install_scripts: true
 
