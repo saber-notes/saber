@@ -1,0 +1,2 @@
+• Se ha agregado un efecto de sonido de lápiz simulado. De forma predeterminada, solo está habilitado cuando su dispositivo no está silenciado.
+• Se solucionó el problema de sincronización de Nextcloud.

@@ -2,10 +2,10 @@
 // Run `./scripts/apply_version.sh --help` for more information.
 
 /// The current app version as an ordinal number.
-const int buildNumber = 21040;
+const int buildNumber = 22000;
 
 /// The current app version as a string.
-const String buildName = '0.21.4';
+const String buildName = '0.22.0';
 
 /// The year in which the current version was released.
 const int buildYear = 2024;
