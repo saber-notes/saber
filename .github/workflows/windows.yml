@@ -8,32 +8,9 @@ on:
       - '**'
 
 jobs:
-  get-version:
-    name: Get version
-    runs-on: ubuntu-latest
-    outputs:
-      buildName: ${{ steps.get_version.outputs.buildName }}
-      buildNumber: ${{ steps.get_version.outputs.buildNumber }}
-    timeout-minutes: 1
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Get version
-        id: get_version
-        run: |
-          # get buildName from lib/data/version.dart
-          buildName=$(grep -oP "(?<=buildName = ').*(?=')" lib/data/version.dart)
-          echo "buildName=$buildName" >> $GITHUB_OUTPUT
-
-          # get buildNumber from lib/data/version.dart
-          buildNumber=$(grep -oP '(?<=buildNumber = ).*(?=;)' lib/data/version.dart)
-          echo "buildNumber=$buildNumber" >> $GITHUB_OUTPUT
-
   build-windows:
     name: Build for Windows
     runs-on: windows-latest
-    needs: get-version
     permissions:
       contents: write
     timeout-minutes: 20
@@ -95,7 +72,8 @@ jobs:
         id: rename
         shell: bash
         run: |
-          installerName="SaberInstaller_v${{ needs.get-version.outputs.buildName }}.exe"
+          buildName=$(grep -oP "(?<=buildName = ').*(?=')" lib/data/version.dart)
+          installerName="SaberInstaller_v${buildName}.exe"
           echo "installerName=$installerName" >> $GITHUB_OUTPUT
 
           mv installers/SaberInstaller.exe installers/$installerName

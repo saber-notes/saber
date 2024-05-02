@@ -11,32 +11,9 @@ on:
       - '**'
 
 jobs:
-  get-version:
-    name: Get version
-    runs-on: ubuntu-latest
-    outputs:
-      buildName: ${{ steps.get_version.outputs.buildName }}
-      buildNumber: ${{ steps.get_version.outputs.buildNumber }}
-    timeout-minutes: 1
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Get version
-        id: get_version
-        run: |
-          # get buildName from lib/data/version.dart
-          buildName=$(grep -oP "(?<=buildName = ').*(?=')" lib/data/version.dart)
-          echo "buildName=$buildName" >> $GITHUB_OUTPUT
-
-          # get buildNumber from lib/data/version.dart
-          buildNumber=$(grep -oP '(?<=buildNumber = ).*(?=;)' lib/data/version.dart)
-          echo "buildNumber=$buildNumber" >> $GITHUB_OUTPUT
-
   build-ios:
     name: Build for iOS
     runs-on: macos-latest
-    needs: get-version
     timeout-minutes: 30
     env:
       APP_STORE_CONNECT_ISSUER_ID: ${{secrets.APP_STORE_CONNECT_ISSUER_ID}}
@@ -110,7 +87,8 @@ jobs:
             --dart-define=DIRTY="false" \
             --export-options-plist=$HOME/export_options.plist
 
-          export ipaPath="Saber_v${{ needs.get-version.outputs.buildName }}.ipa"
+          buildName=$(grep -oP "(?<=buildName = ').*(?=')" lib/data/version.dart)
+          export ipaPath="Saber_v${buildName}.ipa"
           mv $(find $(pwd) -name "*.ipa") $ipaPath
           echo "ipaPath=$ipaPath" >> $GITHUB_OUTPUT
 
