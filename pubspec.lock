@@ -133,10 +133,10 @@ packages:
     dependency: transitive
     description:
       name: barcode
-      sha256: "1fe4a55344505850517ce72d4a3a7b9ccf51b0dc1631ee7e552f6eacc4947f96"
+      sha256: ab180ce22c6555d77d45f0178a523669db67f95856e3378259ef2ffeb43e6003
       url: "https://pub.dev"
     source: hosted
-    version: "2.2.7"
+    version: "2.2.8"
   bidi:
     dependency: transitive
     description:
@@ -349,10 +349,10 @@ packages:
     dependency: transitive
     description:
       name: dynamite_runtime
-      sha256: e88b40e52ba900904c9f1256b6b06b34643c613193886ef0acd2fdc6542b093e
+      sha256: d3a43d9ed21dcbb4d5a2f6dab894b14747838dbeb5a2f0eb49f882d36ad7aefb
       url: "https://pub.dev"
     source: hosted
-    version: "0.3.0"
+    version: "0.4.0"
   encrypt:
     dependency: "direct main"
     description:
@@ -619,10 +619,10 @@ packages:
     dependency: "direct main"
     description:
       name: go_router
-      sha256: "466425a64508ca00983882f523400d9169365cb9b464e2e2419f3b6545ff9c51"
+      sha256: "9e0f7d1a3e7dc5010903e330fbc5497872c4c3cf6626381d69083cc1d5113c1e"
       url: "https://pub.dev"
     source: hosted
-    version: "14.0.1"
+    version: "14.0.2"
   google_fonts:
     dependency: "direct main"
     description:
@@ -873,10 +873,10 @@ packages:
     dependency: "direct main"
     description:
       name: nextcloud
-      sha256: "703bb0b6ee572248bc75a5608adff4152c7b74132b98a06f5ecd20f3356275ae"
+      sha256: fe4b557fcd3587f70a6edbceb88eb228e7298c28d589fcae812116d13fd8a3ba
       url: "https://pub.dev"
     source: hosted
-    version: "6.0.0"
+    version: "6.1.0"
   one_dollar_unistroke_recognizer:
     dependency: "direct main"
     description:
@@ -1112,10 +1112,10 @@ packages:
     dependency: "direct main"
     description:
       name: receive_sharing_intent
-      sha256: fe02f858ac9f8d44d62e1964dadded000bb48dea424085ed280d542a61c4e8ba
+      sha256: f127989f8662ea15e193bd1e10605e5a0ab6bb92dffd51f3ce002feb0ce24c93
       url: "https://pub.dev"
     source: hosted
-    version: "1.7.0"
+    version: "1.8.0"
   regexed_validator:
     dependency: "direct main"
     description:
@@ -1517,10 +1517,10 @@ packages:
     dependency: transitive
     description:
       name: webview_flutter_android
-      sha256: f038ee2fae73b509dde1bc9d2c5a50ca92054282de17631a9a3d515883740934
+      sha256: dad3313c9ead95517bb1cae5e1c9d20ba83729d5a59e5e83c0a2d66203f27f91
       url: "https://pub.dev"
     source: hosted
-    version: "3.16.0"
+    version: "3.16.1"
   webview_flutter_platform_interface:
     dependency: transitive
     description:
@@ -1565,10 +1565,10 @@ packages:
     dependency: "direct main"
     description:
       name: worker_manager
-      sha256: "9544658d732bdbab5232464aa5b04e2bca061ac8c68acd0b8120278ec8131a79"
+      sha256: "911a2d0728895f6a6cf81d22c5c27ecefd62187075192fef0e664c1c8d78ecd2"
       url: "https://pub.dev"
     source: hosted
-    version: "7.0.1"
+    version: "7.0.2"
   workmanager:
     dependency: "direct main"
     description:
