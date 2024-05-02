@@ -6,6 +6,10 @@ on:
   push:
     tags:
       - '**'
+    branches:
+      - '**'
+    paths:
+      - .github/workflows/linux.yml
 
 jobs:
   build-flutter-app-x86_64:

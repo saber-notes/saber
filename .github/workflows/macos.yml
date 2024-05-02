@@ -9,6 +9,10 @@ on:
   push:
     tags:
       - '**'
+    branches:
+      - '**'
+    paths:
+      - .github/workflows/macos.yml
 
 jobs:
   build-macos:

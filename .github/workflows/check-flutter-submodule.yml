@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - .github/workflows/check-flutter-submodule.yml
+      - submodules/flutter
   schedule:
     # every 2 days at 5:58 am (random time to avoid spikes in GitHub Actions usage)
     - cron: '58 5 */2 * *'

@@ -5,9 +5,11 @@ on:
   pull_request:
     paths:
       - 'packages/onyxsdk_pen/**'
+      - .github/workflows/onyxsdk_pen_tests.yml
   push:
     paths:
       - 'packages/onyxsdk_pen/**'
+      - .github/workflows/onyxsdk_pen_tests.yml
 
 jobs:
   run-onyx-tests:
