@@ -123,7 +123,9 @@ class _NcLoginPageState extends State<NcLoginPage> {
                 SvgPicture.asset(
                   'assets/images/undraw_cloud_sync_re_02p1.svg',
                   width: 350,
-                  height: 240,
+                  height: 160,
+                  fit: BoxFit.cover,
+                  alignment: Alignment.bottomCenter,
                   excludeFromSemantics: true,
                 ),
                 const SizedBox(height: 64),
