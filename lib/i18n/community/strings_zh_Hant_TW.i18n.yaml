@@ -92,6 +92,7 @@ settings:
     shapeRecognitionDelay: 形狀識別延遲
     autoStraightenLines: 自動拉直線條
     customDataDir: 自訂資料目錄
+    pencilSoundSetting: 筆的音效
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible 字體為低視力讀者提高易讀性
     disableAds: 廣告有助於支持Saber的發展，但如果您不願意，可以禁用它
@@ -111,6 +112,10 @@ settings:
     shapeRecognitionDelay: 多久更新一次形狀預覽
     autoStraightenLines: 無需使用形狀筆即可拉直線條
     shouldAlwaysAlertForUpdates: 一旦有更新請告訴我
+    pencilSoundSetting:
+      off: 關閉
+      onButNotInSilentMode: 已啟用（除非處於靜音模式）
+      onAlways: 已啟用（即使在靜音模式下）
   themeModes:
     system: 系統
     light: 淺色
@@ -155,12 +160,13 @@ login:
     encPassword: 加密密碼
     agreeToPrivacyPolicy(rich): "登入即表示你同意 ${linkToPrivacyPolicy(隱私政策)}。"
     login: 登入
+  seeFaq(OUTDATED): 請參閱下面的常見問題解答以了解更多信息，包括有關加密密碼的信息。
   signup(rich): "還沒有帳號？ ${linkToSignup(立即註冊)}！"
   status:
     loggedIn: 已使用 Nextcloud 登入
     loggedOut: 已登出
     tapToLogin: 點擊以使用 Nextcloud 登入
-  faq:
+  faq(OUTDATED):
     - q: 什麼是 Nextcloud？
       a: Nextcloud 是一個私人檔案同步伺服器。您可以使用預設的 Saber Nextcloud 伺服器或、使用第三方伺服器或自行託管您的伺服器以完全控制您的資料。
     - q: 加密密碼是什麼？

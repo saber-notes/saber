@@ -15,6 +15,7 @@ import 'package:saber/components/canvas/invert_shader.dart';
 import 'package:saber/components/canvas/pencil_shader.dart';
 import 'package:saber/components/home/banner_ad_widget.dart';
 import 'package:saber/components/theming/dynamic_material_app.dart';
+import 'package:saber/data/editor/pencil_sound.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/nextcloud/file_syncer.dart';
 import 'package:saber/data/nextcloud/nc_http_overrides.dart';
@@ -62,6 +63,7 @@ Future<void> main() async {
     Prefs.allowInsecureConnections.waitUntilLoaded(),
     InvertShader.init(),
     PencilShader.init(),
+    PencilSound.preload(),
     Printing.info().then((info) {
       Editor.canRasterPdf = info.canRaster;
     }),

@@ -90,6 +90,7 @@ settings:
     printPageIndicators: Imprimer les numéros de pages
     autosaveDelay: Délai entre les sauvegardes automatiques
     shapeRecognitionDelay: Délai de reconnaissance de forme
+    pencilSoundSetting(OUTDATED): Effet sonore de crayon
     customDataDir(OUTDATED): Répertoire de données personnalisé
     autoStraightenLines(OUTDATED): Redresser automatiquement les lignes
   prefDescriptions:
@@ -110,6 +111,10 @@ settings:
     autosaveDelay: Combien de temps attendre avant de sauvegarder automatiquement une note
     shapeRecognitionDelay: Avec quelle fréquence mettre à jour la prévisualisation de forme
     shouldAlwaysAlertForUpdates: Me prévenir dès qu'une mise à jour est disponible
+    pencilSoundSetting:
+      off(OUTDATED): Pas de son
+      onButNotInSilentMode(OUTDATED): Activé (sauf en mode silencieux)
+      onAlways(OUTDATED): Activé (même en mode silencieux)
     autoStraightenLines(OUTDATED): Redresse les longues lignes sans avoir à utiliser le stylo de forme
   themeModes:
     system: Système
@@ -155,12 +160,13 @@ login:
     encPassword: Mot de passe de cryptage
     agreeToPrivacyPolicy(rich): "En vous connectant, vous acceptez les ${linkToPrivacyPolicy(Privacy Policy)}."
     login: Se connecter
+  seeFaq(OUTDATED): "Consultez la FAQ ci-dessous pour plus d'informations, notamment sur le mot de passe de cryptage."
   signup(rich): "Pas encore de compte ? ${linkToSignup(Sign up now)} !"
   status:
     loggedIn: Connecté avec Nextcloud
     loggedOut: Déconnecté
     tapToLogin: Appuyer pour vous connecter avec Nextcloud
-  faq:
+  faq(OUTDATED):
     - q: "Qu'est-ce que Nextcloud ?"
       a: "Nextcloud est, entre autres choses, un serveur privé de synchronisation de fichiers. Vous pouvez utiliser le serveur Nextcloud par défaut de Saber, utiliser un serveur tiers ou auto-héberger le vôtre pour un contrôle total de vos données."
     - q: "Qu'est-ce que le mot de passe de cryptage ?"
@@ -278,7 +284,6 @@ editor:
     duplicatePage: Dupliquer la page
     deletePage: Supprimer la page
     lineHeight: Hauteur de ligne
-    lineHeightDescription(OUTDATED): Contrôle également la taille du texte pour les notes saisies
     backgroundImageFit: Adaptation de l'image de fond
     backgroundPattern: Texture de fond
     import: Importer
@@ -296,6 +301,7 @@ editor:
       staffs: Staffs
       tablature: Tablature
       cornell: Cornell
+    lineHeightDescription(OUTDATED): Contrôle également la taille du texte pour les notes saisies
   newerFileFormat:
     readOnlyMode: Mode lecture seule
     title: Cette note a été modifiée avec une version plus récente de Saber

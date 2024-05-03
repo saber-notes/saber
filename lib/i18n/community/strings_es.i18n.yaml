@@ -89,6 +89,7 @@ settings:
     recentColorsLength: Número de colores recientes a almacenar
     printPageIndicators: Indicadores de página de impresión
     autosaveDelay: Retardo en el autoguardado
+    pencilSoundSetting(OUTDATED): Efecto de sonido de lápiz
     customDataDir(OUTDATED): Directorio de datos personalizado
     autoStraightenLines(OUTDATED): Líneas de enderezamiento automático
     shapeRecognitionDelay(OUTDATED): Retraso en el reconocimiento de formas
@@ -109,6 +110,10 @@ settings:
     printPageIndicators: Mostrar indicadores de página en las exportaciones
     autosaveDelay: Cuánto esperar antes de autoguardar una nota
     shouldAlwaysAlertForUpdates: Avísame sobre actualizaciones tan pronto como estén disponibles
+    pencilSoundSetting:
+      off(OUTDATED): Sin sonido
+      onButNotInSilentMode(OUTDATED): Habilitado (a menos que esté en modo silencioso)
+      onAlways(OUTDATED): Habilitado (incluso en modo silencioso)
     autoStraightenLines(OUTDATED): Endereza líneas largas sin tener que usar el rotulador.
     shapeRecognitionDelay(OUTDATED): Con qué frecuencia actualizar la vista previa de la forma
   themeModes:
@@ -155,12 +160,13 @@ login:
     encPassword: Contraseña de cifrado
     agreeToPrivacyPolicy(rich): "Al iniciar sesión, aceptas nuestra ${linkToPrivacyPolicy(Política de privacidad)}."
     login: Iniciar sesión
+  seeFaq(OUTDATED): "Consulte las preguntas frecuentes a continuación para obtener más información, incluida la contraseña de cifrado."
   signup(rich): "¿Aún no tienes una cuenta? ${linkToSignup(Regístrate ahora)}"
   status:
     loggedIn: Sesión iniciada con Nextcloud
     loggedOut: Desconectado
     tapToLogin: Toca para iniciar sesión con Nextcloud
-  faq:
+  faq(OUTDATED):
     - q: "¿Qué es Nextcloud?"
       a: "Nextcloud es un servidor privado de sincronización de archivos, entre otras cosas. Puedes usar el servidor de Saber Nextcloud predeterminado, usar un servidor de terceros o alojar el tuyo propio para tener un control total de tus datos."
     - q: "¿Qué es la contraseña de cifrado?"
@@ -278,7 +284,6 @@ editor:
     duplicatePage: Duplicar página
     deletePage: Eliminar página
     lineHeight: Altura de la línea
-    lineHeightDescription(OUTDATED): También controla el tamaño del texto de las notas escritas.
     backgroundImageFit: Ajuste de la imagen de fondo
     backgroundPattern: Patrón de fondo
     import: Importar
@@ -296,6 +301,7 @@ editor:
       staffs: Pentagrama
       tablature: Tablatura
       cornell: Método Cornell
+    lineHeightDescription(OUTDATED): También controla el tamaño del texto de las notas escritas.
   newerFileFormat:
     readOnlyMode: Modo de solo lectura
     title: Esta nota fue editada usando una versión más reciente de Saber

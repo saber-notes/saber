@@ -79,6 +79,7 @@ settings:
     editorPromptRename: Új jegyzetek átnevezésére való felszólítás
     hideHomeBackgrounds: Hátterek elrejtése a kezdőképernyőn
     recentColorsDontSavePresets: Ne mentse az előre beállított színeket a legutóbbi színek között
+    pencilSoundSetting(OUTDATED): Ceruza hanghatás
     customDataDir(OUTDATED): Egyedi adatkönyvtár
     autoStraightenLines(OUTDATED): A vonalak automatikus kiegyenesítése
     shapeRecognitionDelay(OUTDATED): Alakfelismerési késleltetés
@@ -103,6 +104,10 @@ settings:
       fixedOff(OUTDATED): Az ujjrajzolás letiltva van rögzítve
     editorPromptRename: A jegyzeteket később bármikor átnevezheti
     hideHomeBackgrounds: Egy letisztultabb megjelenítésért
+    pencilSoundSetting:
+      off(OUTDATED): Nincs hang
+      onButNotInSilentMode(OUTDATED): "Engedélyezve (kivéve, ha néma módban van)"
+      onAlways(OUTDATED): Engedélyezve (néma módban is)
     autoStraightenLines(OUTDATED): "Kiegyenesíti a hosszú vonalakat anélkül, hogy az alakos tollat ​​kellene használnia"
     shapeRecognitionDelay(OUTDATED): Milyen gyakran kell frissíteni az alakzat előnézetét
     disableAds(OUTDATED): "A hirdetések segítik a Saber fejlesztését, de tilthatja őket, ha tetszik"
@@ -155,6 +160,7 @@ login:
     encPassword: Titkosítási jelszó
     agreeToPrivacyPolicy(rich): "A bejelentkezéssel elfogadja a ${linkToPrivacyPolicy(Adatvédelmi irányelvek)}."
     login: Bejelentkezés
+  seeFaq(OUTDATED): "Tekintse meg az alábbi GYIK-et további információkért, beleértve a titkosítási jelszót is."
   signup(rich): "Még nincsen fiókja? ${linkToSignup(Regisztrálás)}!"
   status:
     loggedIn: Bejelentkezve a Nextclouddal
@@ -274,7 +280,6 @@ editor:
   menu:
     clearAllPages: Összes oldal törlése
     lineHeight: Vonalmagasság
-    lineHeightDescription(OUTDATED): A beírt jegyzetek szövegméretét is szabályozza
     backgroundPattern: Háttérminta
     import: Importálás
     boxFits:
@@ -291,6 +296,7 @@ editor:
       staffs(OUTDATED): Vezetők
       cornell(OUTDATED): Cornell
       tablature(OUTDATED): Tablatúra
+    lineHeightDescription(OUTDATED): A beírt jegyzetek szövegméretét is szabályozza
     backgroundImageFit(OUTDATED): Háttérkép
     clearPage(OUTDATED): $page/$totalPages oldal törlése
     insertPage(OUTDATED): Az oldal beszúrása alább

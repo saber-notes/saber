@@ -6,6 +6,7 @@ import 'package:crypto/crypto.dart';
 import 'package:encrypt/encrypt.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/provisioning_api.dart';
+import 'package:nextcloud/webdav.dart';
 import 'package:saber/components/nextcloud/login_group.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/prefs.dart';
@@ -30,11 +31,20 @@ extension NextcloudClientExtension on NextcloudClient {
 
     if (username.isEmpty || ncPassword.isEmpty) return null;
 
-    return NextcloudClient(
+    final client = NextcloudClient(
       url.isNotEmpty ? Uri.parse(url) : defaultNextcloudUri,
       loginName: username,
       password: ncPassword,
     );
+
+    void deAuth() {
+      Prefs.username.removeListener(deAuth);
+      client.authentications?.clear();
+    }
+
+    Prefs.username.addListener(deAuth);
+
+    return client;
   }
 
   /// Downloads the config from Nextcloud

@@ -91,6 +91,7 @@ settings:
     autosaveDelay: Otomatik kayıt aralığı
     shapeRecognitionDelay: Şekil tanıma gecikmesi
     autoStraightenLines: Çizgileri otomatik düzleştir
+    pencilSoundSetting(OUTDATED): Kalem ses efekti
     customDataDir(OUTDATED): Özel veri dizini
   prefDescriptions:
     hyperlegibleFont: "Atkinson Hyperlegible, görme sorunu yaşayanların okumasını kolaylaştıran bir fonttur"
@@ -111,6 +112,10 @@ settings:
     shapeRecognitionDelay: Çizilen şekilleri tanımlama sıklığını belirler
     autoStraightenLines: Şekil aracını kullanmadığınızda da çizgileri düzleştirir
     shouldAlwaysAlertForUpdates: Güncelleme mevcut olduğu gibi bana haber ver
+    pencilSoundSetting:
+      off(OUTDATED): Ses yok
+      onButNotInSilentMode(OUTDATED): Etkin (sessiz modda olmadığı sürece)
+      onAlways(OUTDATED): Etkin (sessiz modda bile)
   themeModes:
     system: Sistem teması
     light: Aydınlık
@@ -155,12 +160,13 @@ login:
     encPassword: Şifreleme parolası
     agreeToPrivacyPolicy(rich): "Giriş yaparak ${linkToPrivacyPolicy(Gizlilik Politikasını)} kabul edersiniz."
     login: Giriş yap
+  seeFaq(OUTDATED): Şifreleme parolası da dahil olmak üzere daha fazla bilgi için aşağıdaki SSS'ye bakın.
   signup(rich): "Henüz hesabınız yok mu? ${linkToSignup(Hesap oluşturmak için tıklayın)}!"
   status:
     loggedIn: Nextcloud'a giriş yapıldı
     loggedOut: Çıkış yapıldı
     tapToLogin: Nextcloud oturumu açmak için tıklayın
-  faq:
+  faq(OUTDATED):
     - q: "Nextcloud nedir?"
       a: "Nextcloud sunduğu birçok özelliğin yanı sıra, özel bir dosya senkronizasyon sunucusudur. Varsayılan Saber Nextcloud sunucusunu, 3. parti bir sunucuyu kullanmayı tercih edebilir veya kendi verinizin tam sahipliğini elde etmek için kendi host ettiğiniz sunucunuza bağlanabilirsiniz."
     - q: "Şifreleme parolası nedir?"
@@ -279,7 +285,6 @@ editor:
     duplicatePage: Sayfayı çoğalt
     deletePage: Sayfayı sil
     lineHeight: Satır aralığı
-    lineHeightDescription(OUTDATED): Ayrıca yazılan notların metin boyutunu da kontrol eder
     backgroundImageFit: Arkaplan görüntüsünü sığdır
     backgroundPattern: Arkaplan deseni
     import: İçe aktar
@@ -297,6 +302,7 @@ editor:
       staffs: Porte (müzik)
       tablature: Nota kağıdı
       cornell: Cornell not şablonu
+    lineHeightDescription(OUTDATED): Ayrıca yazılan notların metin boyutunu da kontrol eder
   newerFileFormat:
     readOnlyMode: Yalnızca okunabilir mod
     title: Bu not Saber'ın yeni bir versiyonunda düzenlenmiş

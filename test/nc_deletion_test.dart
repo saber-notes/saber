@@ -3,7 +3,7 @@ import 'dart:io';
 
 import 'package:encrypt/encrypt.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:nextcloud/nextcloud.dart';
+import 'package:nextcloud/webdav.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/flavor_config.dart';
 import 'package:saber/data/nextcloud/file_syncer.dart';
@@ -74,7 +74,7 @@ void main() {
         .propfind(PathUri.parse(syncFile.remotePath),
             depth: WebDavDepth.zero,
             prop: const WebDavPropWithoutValues.fromBools(
-              davgetcontentlength: true,
+              davGetcontentlength: true,
             ))
         .then((multistatus) => multistatus.toWebDavFiles().single);
     expect(webDavFile.size, 0, reason: 'File should be empty on Nextcloud');

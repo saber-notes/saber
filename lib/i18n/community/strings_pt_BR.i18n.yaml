@@ -88,6 +88,7 @@ settings:
     recentColorsDontSavePresets: Não salvar as cores predefinidas nas cores recentes
     printPageIndicators: Imprimir os indicadores de página
     autosaveDelay: Atraso de salvamento automático
+    pencilSoundSetting(OUTDATED): Efeito sonoro de lápis
     customDataDir(OUTDATED): Diretório de dados personalizado
     autoStraightenLines(OUTDATED): Endireitar linhas automaticamente
     shapeRecognitionDelay(OUTDATED): Atraso no reconhecimento de forma
@@ -109,6 +110,10 @@ settings:
     printPageIndicators: Mostrar os indicadores de página nas exportações
     autosaveDelay: Quanto tempo esperar antes de salvar automaticamente uma nota
     shouldAlwaysAlertForUpdates: Conte-me sobre atualizações assim que elas estiverem disponíveis
+    pencilSoundSetting:
+      off(OUTDATED): Sem som
+      onButNotInSilentMode(OUTDATED): Ativado (a menos que esteja no modo silencioso)
+      onAlways(OUTDATED): Ativado (mesmo no modo silencioso)
     autoStraightenLines(OUTDATED): Endireita linhas longas sem precisar usar a caneta modeladora
     shapeRecognitionDelay(OUTDATED): Com que frequência atualizar a visualização da forma
   themeModes:
@@ -155,12 +160,13 @@ login:
     encPassword: Senha de criptografia
     agreeToPrivacyPolicy(rich): "Ao fazer login, você concorda com a ${linkToPrivacyPolicy(Política de Privacidade)}."
     login: Login
+  seeFaq(OUTDATED): "Consulte o FAQ abaixo para obter mais informações, inclusive sobre a senha de criptografia."
   signup(rich): "Ainda não tem uma conta? ${linkToSignup(Registre-se agora)}!"
   status:
     loggedIn: Logado com o Nextcloud
     loggedOut: Desconectado
     tapToLogin: Toque para fazer login com o Nextcloud
-  faq:
+  faq(OUTDATED):
     - q: "O que é o Nextcloud?"
       a: "O Nextcloud é um servidor privado de sincronização de arquivos, entre outras coisas. Você pode usar o servidor Nextcloud padrão do Saber, usar um servidor de terceiros ou auto-hospedar o seu próprio servidor para controle total dos seus dados."
     - q: "O que é uma senha de criptografia?"
@@ -278,7 +284,6 @@ editor:
     duplicatePage: Duplicar página
     deletePage: Apagar página
     lineHeight: Altura da linha
-    lineHeightDescription(OUTDATED): Também controla o tamanho do texto para notas digitadas
     backgroundImageFit: Ajustar a imagem de plano de fundo
     backgroundPattern: Padrão de plano de fundo
     import: Importar
@@ -296,6 +301,7 @@ editor:
       staffs: Pentagrama
       tablature: Tablatura
       cornell: Cornell
+    lineHeightDescription(OUTDATED): Também controla o tamanho do texto para notas digitadas
   newerFileFormat:
     readOnlyMode: Modo somente leitura
     title: Esta nota foi editada usando uma versão mais recente do Saber

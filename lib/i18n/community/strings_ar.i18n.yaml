@@ -81,6 +81,7 @@ settings:
     hideHomeBackgrounds: إخفاء الخلفيات على الشاشة الرئيسية
     recentColorsDontSavePresets: لا تحفظ الألوان المعينة مسبقًا كألوان حديثة
     printPageIndicators: طباعة مؤشرات الصفحة
+    pencilSoundSetting(OUTDATED): تأثير صوت قلم الرصاص
     customDataDir(OUTDATED): دليل البيانات المخصصة
     autoStraightenLines(OUTDATED): تصويب الخطوط تلقائيا
     shapeRecognitionDelay(OUTDATED): تأخير التعرف على الشكل
@@ -104,6 +105,10 @@ settings:
     editorPromptRename: يمكنك دائمًا إعادة تسمية الملاحظات لاحقًا
     hideHomeBackgrounds: للحصول على مظهر أنظف
     printPageIndicators: تظهر مؤشرات الصفحة في الصادرات
+    pencilSoundSetting:
+      off(OUTDATED): لا صوت
+      onButNotInSilentMode(OUTDATED): ممكّن (ما لم يكن في الوضع الصامت)
+      onAlways(OUTDATED): ممكّن (حتى في الوضع الصامت)
     autoStraightenLines(OUTDATED): يقوم بفرد الخطوط الطويلة دون الحاجة إلى استخدام قلم الشكل
     shapeRecognitionDelay(OUTDATED): عدد مرات تحديث معاينة الشكل
     disableAds(OUTDATED): (أدز) يساعد في دعم تطوير (سابر) لكن يمكنك إزالتهم إذا أردت
@@ -155,12 +160,13 @@ login:
     encPassword: كلمة مرور التشفير
     agreeToPrivacyPolicy(rich): "بتسجيل الدخول، فإنك توافق على ${linkToPrivacyPolicy(سياسة الخصوصية)}."
     login: تسجيل الدخول
+  seeFaq(OUTDATED): راجع الأسئلة الشائعة أدناه لمزيد من المعلومات، بما في ذلك معلومات حول كلمة مرور التشفير.
   signup(rich): "لا تملك حسابا حتى الآن؟ ${linkToSignup(سجل حساباً الأن)}!"
   status:
     loggedIn: تم تسجيل الدخول باستخدام Nextcloud
     loggedOut: تسجيل الخروج
     tapToLogin: انقر لتسجيل الدخول باستخدام Nextcloud
-  faq:
+  faq(OUTDATED):
     - q: ما هو Nextcloud؟
       a: Nextcloud هو خادم مزامنة ملفات خاص، من بين أشياء أخرى. يمكنك استخدام خادم Saber Nextcloud الافتراضي، أو استخدام خادم جهة خارجية، أو الاستضافة الذاتية الخاصة بك للتحكم الكامل في بياناتك.
     - q: ما هي كلمة مرور التشفير؟
@@ -278,7 +284,6 @@ editor:
     duplicatePage: تكرار الصفحة
     deletePage: حذف الصفحة
     lineHeight: ارتفاع خط
-    lineHeightDescription(OUTDATED): يتحكم أيضًا في حجم النص للملاحظات المكتوبة
     backgroundPattern: نمط الخلفية
     import: يستورد
     boxFits:
@@ -295,6 +300,7 @@ editor:
       staffs: موظفون
       cornell: كورنيل
       tablature(OUTDATED): تبلتثر
+    lineHeightDescription(OUTDATED): يتحكم أيضًا في حجم النص للملاحظات المكتوبة
     backgroundImageFit(OUTDATED): الصورة الخلفية
   newerFileFormat:
     readOnlyMode: وضع القراءة فقط

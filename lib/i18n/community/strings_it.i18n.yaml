@@ -92,6 +92,7 @@ settings:
     shapeRecognitionDelay: Ritardo nel riconoscimento della forma
     autoStraightenLines: Raddrizzamento automatico delle linee
     customDataDir: Directory di dati personalizzata
+    pencilSoundSetting(OUTDATED): Effetto sonoro della matita
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible aumenta la leggibilità per i lettori ipovedenti
     disableAds: "Gli annunci aiutano a supportare lo sviluppo di Saber, ma puoi disattivarli se lo desideri"
@@ -111,6 +112,10 @@ settings:
     shapeRecognitionDelay: Quanto spesso aggiornare l'anteprima della forma
     autoStraightenLines: Raddrizza le linee lunghe senza dover utilizzare la penna sagomatrice
     shouldAlwaysAlertForUpdates: Segnalami aggiornamenti non appena sono disponibili
+    pencilSoundSetting:
+      off(OUTDATED): Nessun suono
+      onButNotInSilentMode(OUTDATED): Abilitato (a meno che non sia in modalità silenziosa)
+      onAlways(OUTDATED): Abilitato (anche in modalità silenziosa)
   themeModes:
     system: Sistema
     light: Chiaro
@@ -155,12 +160,13 @@ login:
     encPassword: Password di crittografata
     agreeToPrivacyPolicy(rich): "Effettuando l'accesso, accetti la ${linkToPrivacyPolicy(Informativa sulla privacy)}."
     login: Log in
+  seeFaq(OUTDATED): "Consulta le domande frequenti di seguito per ulteriori informazioni, inclusa la password di crittografia."
   signup(rich): "Non hai ancora un account? ${linkToSignup(Registrati ora)}!"
   status:
     loggedIn: Effettuato l'accesso con Nextcloud
     loggedOut: Disconnesso
     tapToLogin: Tocca per accedere con Nextcloud
-  faq:
+  faq(OUTDATED):
     - q: "Che cos'è Nextcloud?"
       a: "Nextcloud è un server di sincronizzazione file privato, tra le altre cose. Puoi utilizzare il server Saber Nextcloud predefinito, utilizzare un server di terze parti o ospitare autonomamente il tuo per il pieno controllo dei tuoi dati."
     - q: "Qual è la password di crittografia?"

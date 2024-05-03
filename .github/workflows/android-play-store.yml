@@ -6,6 +6,10 @@ on:
   push:
     tags:
       - '**'
+    branches:
+      - '**'
+    paths:
+      - .github/workflows/android-play-store.yml
 
 jobs:
   build-aab:
