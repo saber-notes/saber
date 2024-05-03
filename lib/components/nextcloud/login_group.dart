@@ -168,6 +168,7 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
         child: FocusTraversalGroup(
           policy: OrderedTraversalPolicy(),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               InkWell(
                 onTap: () {
@@ -256,6 +257,8 @@ class _LoginInputGroupState extends State<LoginInputGroup> {
                 ),
                 const SizedBox(height: 8),
               ],
+              Text(t.login.seeFaq),
+              const SizedBox(height: 8),
               Text.rich(
                 t.login.signup(
                   linkToSignup: (text) => TextSpan(

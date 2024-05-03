@@ -218,6 +218,7 @@ class _StringsLoginEn {
 	String get title => 'Login';
 	late final _StringsLoginFeedbacksEn feedbacks = _StringsLoginFeedbacksEn._(_root);
 	late final _StringsLoginFormEn form = _StringsLoginFormEn._(_root);
+	String get seeFaq => 'See the FAQ below for more information, including about the encryption password.';
 	TextSpan signup({required InlineSpanBuilder linkToSignup}) => TextSpan(children: [
 		const TextSpan(text: 'Don\'t have an account yet? '),
 		linkToSignup('Sign up now'),
@@ -230,6 +231,7 @@ class _StringsLoginEn {
 		_StringsLogin$faq$0i2$En._(_root),
 		_StringsLogin$faq$0i3$En._(_root),
 		_StringsLogin$faq$0i4$En._(_root),
+		_StringsLogin$faq$0i5$En._(_root),
 	];
 }
 
@@ -648,13 +650,24 @@ class _StringsLogin$faq$0i3$En {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
-	String get q => 'How do I login if I use 2FA?';
-	String get a => 'Instead of your regular Nextcloud password, you\'ll need to create an "app password". You can do this in your Nextcloud settings under Security > Devices & sessions > Create new app password. Your encryption password is unaffected.';
+	String get q => 'I haven\'t set an encryption password yet. Where do I get it?';
+	String get a => 'Simply choose one now when you log in above!\nYou choose the encryption password when you first log in to Saber (the app, not the server website).';
 }
 
 // Path: login.faq.4
 class _StringsLogin$faq$0i4$En {
 	_StringsLogin$faq$0i4$En._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get q => 'How do I login if I use 2FA?';
+	String get a => 'Instead of your regular Nextcloud password, you\'ll need to create an "app password". You can do this in your Nextcloud settings under Security > Devices & sessions > Create new app password. Your encryption password is unaffected.';
+}
+
+// Path: login.faq.5
+class _StringsLogin$faq$0i5$En {
+	_StringsLogin$faq$0i5$En._(this._root);
 
 	final Translations _root; // ignore: unused_field
 
