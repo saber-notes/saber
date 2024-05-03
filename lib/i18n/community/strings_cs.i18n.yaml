@@ -160,12 +160,13 @@ login:
     encPassword: Heslo pro šifrování
     agreeToPrivacyPolicy(rich): "Přihlášením souhlasíte se ${linkToPrivacyPolicy(Zásadami ochrany osobních údajů)}."
     login: Přihlásit se
+  seeFaq(OUTDATED): "Další informace, včetně informací o šifrovacím heslu, naleznete v části Nejčastější dotazy níže."
   signup(rich): "Ještě nemáte účet? ${linkToSignup(Zaregistrujte se)}!"
   status:
     loggedIn: Jste přihlášeni pomocí Nextcloud účtu
     loggedOut: Jste odhlášení
     tapToLogin: Klepněte pro přihlášení pomocí Nextcloud účtu
-  faq:
+  faq(OUTDATED):
     - q: "Co je to Nextcloud?"
       a: "Nextcloud je mimo jiné osobní server pro synchronizaci souborů. Můžete používat výchozí Nextcloud server poskytovaný aplikací Saber, použít server hostovaný třetí stranou, nebo vlastní server pro plnou kontrolu nad svými daty."
     - q: "K čemu je heslo pro šifrování?"

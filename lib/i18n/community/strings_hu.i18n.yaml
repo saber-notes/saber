@@ -160,6 +160,7 @@ login:
     encPassword: Titkosítási jelszó
     agreeToPrivacyPolicy(rich): "A bejelentkezéssel elfogadja a ${linkToPrivacyPolicy(Adatvédelmi irányelvek)}."
     login: Bejelentkezés
+  seeFaq(OUTDATED): "Tekintse meg az alábbi GYIK-et további információkért, beleértve a titkosítási jelszót is."
   signup(rich): "Még nincsen fiókja? ${linkToSignup(Regisztrálás)}!"
   status:
     loggedIn: Bejelentkezve a Nextclouddal

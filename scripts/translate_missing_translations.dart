@@ -140,7 +140,7 @@ Future<String?> translateString(
   try {
     translations = await translator
         .translateLingva(english, 'en', _nearestLocaleCode(languageCode))
-        .timeout(const Duration(seconds: 3));
+        .timeout(const Duration(seconds: 10));
   } catch (e) {
     print('    Translation failed: $e');
     errorOccurredInTranslatingTree = true;

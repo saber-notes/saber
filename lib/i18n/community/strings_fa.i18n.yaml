@@ -160,12 +160,13 @@ login:
     encPassword: رمز رمزگذاری
     agreeToPrivacyPolicy(rich): "با ورود به سیستم، با قوانین موافقت خواهد شد ${linkToPrivacyPolicy(Privacy Policy)}."
     login: وارد شدن
+  seeFaq(OUTDATED): برای اطلاعات بیشتر، از جمله در مورد رمز عبور رمزگذاری، سؤالات متداول زیر را ببینید.
   signup(rich): "حساب کاربری ندارید؟ ${linkToSignup(Sign up now)}!"
   status:
     loggedIn: وارد شدن با Nextcloud
     loggedOut: خروج
     tapToLogin: برای ورود با Nextcloud ضربه بزنید
-  faq:
+  faq(OUTDATED):
     - q: Nextcloud چیست؟
       a: نکست کلاود یک سرور خصوصی همگام سازی فایل است، در میان چیزهای دیگر. می‌توانید از سرور پیش‌فرض Nextcloud ما استفاده کنید، از یک سرور شخص ثالث استفاده کنید یا برای کنترل کامل داده‌های خود، سرور خود را میزبانی کنید.
     - q: رمز عبور رمزنگاری چیست؟

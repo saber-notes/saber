@@ -160,12 +160,13 @@ login:
     encPassword: סיסמה מוצפנת
     agreeToPrivacyPolicy(rich): "על ידי התחברות, אתה מסכים ל ${linkToPrivacyPolicy(מדיניות הפרטיות)}."
     login: התחבר
+  seeFaq(OUTDATED): "עיין בשאלות הנפוצות למטה למידע נוסף, כולל על סיסמת ההצפנה."
   signup(rich): "אין לך עוד משתמש ${linkToSignup(הירשם עכשיו)}!"
   status:
     loggedIn: מחובר עם NextCloud
     loggedOut: מנותק
     tapToLogin: לחץ כדי להתחבר עם NextCloud
-  faq:
+  faq(OUTDATED):
     - q: "מה זה Nextcloud?"
       a: "Nextcloud הוא שרת סנכרון קבצים פרטי, בין היתר. אתה יכול להשתמש בשרת ברירת המחדל של Saber Nextcloud, להשתמש בשרת של צד שלישי או לארח בעצמך לשליטה מלאה בנתונים שלך."
     - q: "מהי הסיסמא המוצפנת?"

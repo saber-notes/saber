@@ -160,12 +160,13 @@ login:
     encPassword: Mot de passe de cryptage
     agreeToPrivacyPolicy(rich): "En vous connectant, vous acceptez les ${linkToPrivacyPolicy(Privacy Policy)}."
     login: Se connecter
+  seeFaq(OUTDATED): "Consultez la FAQ ci-dessous pour plus d'informations, notamment sur le mot de passe de cryptage."
   signup(rich): "Pas encore de compte ? ${linkToSignup(Sign up now)} !"
   status:
     loggedIn: Connecté avec Nextcloud
     loggedOut: Déconnecté
     tapToLogin: Appuyer pour vous connecter avec Nextcloud
-  faq:
+  faq(OUTDATED):
     - q: "Qu'est-ce que Nextcloud ?"
       a: "Nextcloud est, entre autres choses, un serveur privé de synchronisation de fichiers. Vous pouvez utiliser le serveur Nextcloud par défaut de Saber, utiliser un serveur tiers ou auto-héberger le vôtre pour un contrôle total de vos données."
     - q: "Qu'est-ce que le mot de passe de cryptage ?"

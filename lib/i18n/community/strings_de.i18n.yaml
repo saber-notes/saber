@@ -160,12 +160,13 @@ login:
     encPassword: Verschlüsselungspasswort
     agreeToPrivacyPolicy(rich): "Indem du dich anmeldest, stimmst du der ${linkToPrivacyPolicy(Datenschutzrichtlinie)} zu."
     login: Anmelden
+  seeFaq(OUTDATED): "Weitere Informationen, auch zum Verschlüsselungskennwort, finden Sie in den FAQ unten."
   signup(rich): "Du hast noch kein Konto? ${linkToSignup(Erstelle jetzt eins)}!"
   status:
     loggedIn: Mit Nextcloud angemeldet
     loggedOut: Nicht angemeldet
     tapToLogin: "Hier tippen, um dich mit Nextcloud anzumelden"
-  faq:
+  faq(OUTDATED):
     - q: "Was ist Nextcloud?"
       a: "Nextcloud ist unter anderem ein privater Dateisynchronisationsserver. Du kannst den Standard-Saber-Nextcloud-Server, einen Drittanbieter-, oder einen selbst-gehosteten Server verwenden, um volle Kontrolle über deine Daten zu behalten."
     - q: "Was ist das Verchlüsselungspasswort?"

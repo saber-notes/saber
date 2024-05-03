@@ -160,12 +160,13 @@ login:
     encPassword: 加密密码
     agreeToPrivacyPolicy(rich): "登录即表示您同意 ${linkToPrivacyPolicy(隐私政策)}。"
     login: 登录
+  seeFaq(OUTDATED): 请参阅下面的常见问题解答以了解更多信息，包括有关加密密码的信息。
   signup(rich): "还没有帐户？ ${linkToSignup(立即注册)}！"
   status:
     loggedIn: 已使用 Nextcloud 登录
     loggedOut: 已注销
     tapToLogin: 点击以使用 Nextcloud 登录
-  faq:
+  faq(OUTDATED):
     - q: Nextcloud 是什么？
       a: Nextcloud 是一个私人文件同步服务器，等等。您可以使用默认的 Saber Nextcloud 服务器、使用第三方服务器或自行托管您自己的服务器以完全控制您的数据。
     - q: 加密密码是什么？

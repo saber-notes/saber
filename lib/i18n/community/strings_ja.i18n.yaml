@@ -160,12 +160,13 @@ login:
     encPassword: 暗号化パスワード
     agreeToPrivacyPolicy(rich): "ログインすることにより、${linkToPrivacyPolicy(プライベートポリシー)}に同意したものとみなされます。"
     login: ログイン
+  seeFaq(OUTDATED): 暗号化パスワードなどの詳細については、以下の FAQ を参照してください。
   signup(rich): "まだアカウントをお持ちでないですか？ ${linkToSignup(今すぐ登録)}!"
   status:
     loggedIn: Nextcloudでログイン
     loggedOut: ログアウト
     tapToLogin: タップしてNextcloudにログイン
-  faq:
+  faq(OUTDATED):
     - q: Nextcloudとは？
       a: Nextcloudは、プライベートなファイル同期サーバーです。デフォルトのSaber Nextcloudサーバーを使用することも、サードパーティのサーバーを使用することも、データを完全に管理するために自身でホストすることも可能です。
     - q: 暗号化パスワードは何ですか？

@@ -160,12 +160,13 @@ login:
     encPassword: Password di crittografata
     agreeToPrivacyPolicy(rich): "Effettuando l'accesso, accetti la ${linkToPrivacyPolicy(Informativa sulla privacy)}."
     login: Log in
+  seeFaq(OUTDATED): "Consulta le domande frequenti di seguito per ulteriori informazioni, inclusa la password di crittografia."
   signup(rich): "Non hai ancora un account? ${linkToSignup(Registrati ora)}!"
   status:
     loggedIn: Effettuato l'accesso con Nextcloud
     loggedOut: Disconnesso
     tapToLogin: Tocca per accedere con Nextcloud
-  faq:
+  faq(OUTDATED):
     - q: "Che cos'è Nextcloud?"
       a: "Nextcloud è un server di sincronizzazione file privato, tra le altre cose. Puoi utilizzare il server Saber Nextcloud predefinito, utilizzare un server di terze parti o ospitare autonomamente il tuo per il pieno controllo dei tuoi dati."
     - q: "Qual è la password di crittografia?"

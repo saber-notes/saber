@@ -160,12 +160,13 @@ login:
     encPassword: Şifreleme parolası
     agreeToPrivacyPolicy(rich): "Giriş yaparak ${linkToPrivacyPolicy(Gizlilik Politikasını)} kabul edersiniz."
     login: Giriş yap
+  seeFaq(OUTDATED): Şifreleme parolası da dahil olmak üzere daha fazla bilgi için aşağıdaki SSS'ye bakın.
   signup(rich): "Henüz hesabınız yok mu? ${linkToSignup(Hesap oluşturmak için tıklayın)}!"
   status:
     loggedIn: Nextcloud'a giriş yapıldı
     loggedOut: Çıkış yapıldı
     tapToLogin: Nextcloud oturumu açmak için tıklayın
-  faq:
+  faq(OUTDATED):
     - q: "Nextcloud nedir?"
       a: "Nextcloud sunduğu birçok özelliğin yanı sıra, özel bir dosya senkronizasyon sunucusudur. Varsayılan Saber Nextcloud sunucusunu, 3. parti bir sunucuyu kullanmayı tercih edebilir veya kendi verinizin tam sahipliğini elde etmek için kendi host ettiğiniz sunucunuza bağlanabilirsiniz."
     - q: "Şifreleme parolası nedir?"

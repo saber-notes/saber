@@ -160,12 +160,13 @@ login:
     encPassword: كلمة مرور التشفير
     agreeToPrivacyPolicy(rich): "بتسجيل الدخول، فإنك توافق على ${linkToPrivacyPolicy(سياسة الخصوصية)}."
     login: تسجيل الدخول
+  seeFaq(OUTDATED): راجع الأسئلة الشائعة أدناه لمزيد من المعلومات، بما في ذلك معلومات حول كلمة مرور التشفير.
   signup(rich): "لا تملك حسابا حتى الآن؟ ${linkToSignup(سجل حساباً الأن)}!"
   status:
     loggedIn: تم تسجيل الدخول باستخدام Nextcloud
     loggedOut: تسجيل الخروج
     tapToLogin: انقر لتسجيل الدخول باستخدام Nextcloud
-  faq:
+  faq(OUTDATED):
     - q: ما هو Nextcloud؟
       a: Nextcloud هو خادم مزامنة ملفات خاص، من بين أشياء أخرى. يمكنك استخدام خادم Saber Nextcloud الافتراضي، أو استخدام خادم جهة خارجية، أو الاستضافة الذاتية الخاصة بك للتحكم الكامل في بياناتك.
     - q: ما هي كلمة مرور التشفير؟
