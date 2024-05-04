@@ -586,14 +586,6 @@ hu:
       lockAxisAlignedPan(OUTDATED): Lock panning to horizontal or vertical
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
 it:
-  settings:
-    prefLabels:
-      pencilSoundSetting(OUTDATED): Effetto sonoro della matita
-    prefDescriptions:
-      pencilSoundSetting:
-        off(OUTDATED): Nessun suono
-        onButNotInSilentMode(OUTDATED): Abilitato (a meno che non sia in modalità silenziosa)
-        onAlways(OUTDATED): Abilitato (anche in modalità silenziosa)
   login:
     seeFaq(OUTDATED): "See the FAQ below for more information, including about the encryption password."
     faq(OUTDATED):
