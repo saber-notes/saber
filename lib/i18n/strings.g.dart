@@ -1040,6 +1040,7 @@ class _StringsLoginAr extends _StringsLoginEn {
 	@override String get title => 'تسجيل الدخول';
 	@override late final _StringsLoginFeedbacksAr feedbacks = _StringsLoginFeedbacksAr._(_root);
 	@override late final _StringsLoginFormAr form = _StringsLoginFormAr._(_root);
+	@override String get seeFaq => 'راجع الأسئلة الشائعة أدناه لمزيد من المعلومات، بما في ذلك معلومات حول كلمة مرور التشفير.';
 	@override TextSpan signup({required InlineSpanBuilder linkToSignup}) => TextSpan(children: [
 		const TextSpan(text: 'لا تملك حسابا حتى الآن؟ '),
 		linkToSignup('سجل حساباً الأن'),
@@ -1849,6 +1850,7 @@ class _StringsLoginCs extends _StringsLoginEn {
 	@override String get title => 'Přihlásit se';
 	@override late final _StringsLoginFeedbacksCs feedbacks = _StringsLoginFeedbacksCs._(_root);
 	@override late final _StringsLoginFormCs form = _StringsLoginFormCs._(_root);
+	@override String get seeFaq => 'Další informace, včetně informací o šifrovacím heslu, naleznete v části Nejčastější dotazy níže.';
 	@override TextSpan signup({required InlineSpanBuilder linkToSignup}) => TextSpan(children: [
 		const TextSpan(text: 'Ještě nemáte účet? '),
 		linkToSignup('Zaregistrujte se'),
@@ -2658,6 +2660,7 @@ class _StringsLoginDe extends _StringsLoginEn {
 	@override String get title => 'Login';
 	@override late final _StringsLoginFeedbacksDe feedbacks = _StringsLoginFeedbacksDe._(_root);
 	@override late final _StringsLoginFormDe form = _StringsLoginFormDe._(_root);
+	@override String get seeFaq => 'Weitere Informationen, auch zum Verschlüsselungskennwort, finden Sie in den FAQ unten.';
 	@override TextSpan signup({required InlineSpanBuilder linkToSignup}) => TextSpan(children: [
 		const TextSpan(text: 'Du hast noch kein Konto? '),
 		linkToSignup('Erstelle jetzt eins'),
@@ -3467,6 +3470,7 @@ class _StringsLoginEs extends _StringsLoginEn {
 	@override String get title => 'Iniciar sesión';
 	@override late final _StringsLoginFeedbacksEs feedbacks = _StringsLoginFeedbacksEs._(_root);
 	@override late final _StringsLoginFormEs form = _StringsLoginFormEs._(_root);
+	@override String get seeFaq => 'Consulte las preguntas frecuentes a continuación para obtener más información, incluida la contraseña de cifrado.';
 	@override TextSpan signup({required InlineSpanBuilder linkToSignup}) => TextSpan(children: [
 		const TextSpan(text: '¿Aún no tienes una cuenta? '),
 		linkToSignup('Regístrate ahora'),
@@ -4275,6 +4279,7 @@ class _StringsLoginFa extends _StringsLoginEn {
 	@override String get title => 'وارد شدن';
 	@override late final _StringsLoginFeedbacksFa feedbacks = _StringsLoginFeedbacksFa._(_root);
 	@override late final _StringsLoginFormFa form = _StringsLoginFormFa._(_root);
+	@override String get seeFaq => 'برای اطلاعات بیشتر، از جمله در مورد رمز عبور رمزگذاری، سؤالات متداول زیر را ببینید.';
 	@override TextSpan signup({required InlineSpanBuilder linkToSignup}) => TextSpan(children: [
 		const TextSpan(text: 'حساب کاربری ندارید؟ '),
 		linkToSignup('Sign up now'),
@@ -5084,6 +5089,7 @@ class _StringsLoginFr extends _StringsLoginEn {
 	@override String get title => 'Connexion';
 	@override late final _StringsLoginFeedbacksFr feedbacks = _StringsLoginFeedbacksFr._(_root);
 	@override late final _StringsLoginFormFr form = _StringsLoginFormFr._(_root);
+	@override String get seeFaq => 'Consultez la FAQ ci-dessous pour plus d\'informations, notamment sur le mot de passe de cryptage.';
 	@override TextSpan signup({required InlineSpanBuilder linkToSignup}) => TextSpan(children: [
 		const TextSpan(text: 'Pas encore de compte ? '),
 		linkToSignup('Sign up now'),
@@ -5893,6 +5899,7 @@ class _StringsLoginHe extends _StringsLoginEn {
 	@override String get title => 'התחבר';
 	@override late final _StringsLoginFeedbacksHe feedbacks = _StringsLoginFeedbacksHe._(_root);
 	@override late final _StringsLoginFormHe form = _StringsLoginFormHe._(_root);
+	@override String get seeFaq => 'עיין בשאלות הנפוצות למטה למידע נוסף, כולל על סיסמת ההצפנה.';
 	@override TextSpan signup({required InlineSpanBuilder linkToSignup}) => TextSpan(children: [
 		const TextSpan(text: 'אין לך עוד משתמש '),
 		linkToSignup('הירשם עכשיו'),
@@ -6702,6 +6709,7 @@ class _StringsLoginHu extends _StringsLoginEn {
 	@override String get title => 'Bejelentkezés';
 	@override late final _StringsLoginFeedbacksHu feedbacks = _StringsLoginFeedbacksHu._(_root);
 	@override late final _StringsLoginFormHu form = _StringsLoginFormHu._(_root);
+	@override String get seeFaq => 'Tekintse meg az alábbi GYIK-et további információkért, beleértve a titkosítási jelszót is.';
 	@override TextSpan signup({required InlineSpanBuilder linkToSignup}) => TextSpan(children: [
 		const TextSpan(text: 'Még nincsen fiókja? '),
 		linkToSignup('Regisztrálás'),
@@ -7517,6 +7525,7 @@ class _StringsLoginIt extends _StringsLoginEn {
 		const TextSpan(text: '!'),
 	]);
 	@override late final _StringsLoginStatusIt status = _StringsLoginStatusIt._(_root);
+	@override String get seeFaq => 'Consulta le domande frequenti di seguito per ulteriori informazioni, inclusa la password di crittografia.';
 	@override List<dynamic> get faq => [
 		_StringsLogin$faq$0i0$It._(_root),
 		_StringsLogin$faq$0i1$It._(_root),
@@ -8320,6 +8329,7 @@ class _StringsLoginJa extends _StringsLoginEn {
 	@override String get title => 'ログイン';
 	@override late final _StringsLoginFeedbacksJa feedbacks = _StringsLoginFeedbacksJa._(_root);
 	@override late final _StringsLoginFormJa form = _StringsLoginFormJa._(_root);
+	@override String get seeFaq => '暗号化パスワードなどの詳細については、以下の FAQ を参照してください。';
 	@override TextSpan signup({required InlineSpanBuilder linkToSignup}) => TextSpan(children: [
 		const TextSpan(text: 'まだアカウントをお持ちでないですか？ '),
 		linkToSignup('今すぐ登録'),
@@ -9129,6 +9139,7 @@ class _StringsLoginPtBr extends _StringsLoginEn {
 	@override String get title => 'Login';
 	@override late final _StringsLoginFeedbacksPtBr feedbacks = _StringsLoginFeedbacksPtBr._(_root);
 	@override late final _StringsLoginFormPtBr form = _StringsLoginFormPtBr._(_root);
+	@override String get seeFaq => 'Consulte o FAQ abaixo para obter mais informações, inclusive sobre a senha de criptografia.';
 	@override TextSpan signup({required InlineSpanBuilder linkToSignup}) => TextSpan(children: [
 		const TextSpan(text: 'Ainda não tem uma conta? '),
 		linkToSignup('Registre-se agora'),
@@ -9938,6 +9949,7 @@ class _StringsLoginRu extends _StringsLoginEn {
 	@override String get title => 'Авторизация';
 	@override late final _StringsLoginFeedbacksRu feedbacks = _StringsLoginFeedbacksRu._(_root);
 	@override late final _StringsLoginFormRu form = _StringsLoginFormRu._(_root);
+	@override String get seeFaq => 'Дополнительную информацию, в том числе о пароле шифрования, см. в разделе часто задаваемых вопросов ниже.';
 	@override TextSpan signup({required InlineSpanBuilder linkToSignup}) => TextSpan(children: [
 		const TextSpan(text: 'У вас нет учётной записи? '),
 		linkToSignup('Зарегистрируйтесь сейчас'),
@@ -10747,6 +10759,7 @@ class _StringsLoginTr extends _StringsLoginEn {
 	@override String get title => 'Giriş yap';
 	@override late final _StringsLoginFeedbacksTr feedbacks = _StringsLoginFeedbacksTr._(_root);
 	@override late final _StringsLoginFormTr form = _StringsLoginFormTr._(_root);
+	@override String get seeFaq => 'Şifreleme parolası da dahil olmak üzere daha fazla bilgi için aşağıdaki SSS\'ye bakın.';
 	@override TextSpan signup({required InlineSpanBuilder linkToSignup}) => TextSpan(children: [
 		const TextSpan(text: 'Henüz hesabınız yok mu? '),
 		linkToSignup('Hesap oluşturmak için tıklayın'),
@@ -11556,6 +11569,7 @@ class _StringsLoginZhHansCn extends _StringsLoginEn {
 	@override String get title => '登录';
 	@override late final _StringsLoginFeedbacksZhHansCn feedbacks = _StringsLoginFeedbacksZhHansCn._(_root);
 	@override late final _StringsLoginFormZhHansCn form = _StringsLoginFormZhHansCn._(_root);
+	@override String get seeFaq => '请参阅下面的常见问题解答以了解更多信息，包括有关加密密码的信息。';
 	@override TextSpan signup({required InlineSpanBuilder linkToSignup}) => TextSpan(children: [
 		const TextSpan(text: '还没有帐户？ '),
 		linkToSignup('立即注册'),
@@ -12365,6 +12379,7 @@ class _StringsLoginZhHantTw extends _StringsLoginEn {
 	@override String get title => '登入';
 	@override late final _StringsLoginFeedbacksZhHantTw feedbacks = _StringsLoginFeedbacksZhHantTw._(_root);
 	@override late final _StringsLoginFormZhHantTw form = _StringsLoginFormZhHantTw._(_root);
+	@override String get seeFaq => '請參閱下面的常見問題解答以了解更多信息，包括有關加密密碼的信息。';
 	@override TextSpan signup({required InlineSpanBuilder linkToSignup}) => TextSpan(children: [
 		const TextSpan(text: '還沒有帳號？ '),
 		linkToSignup('立即註冊'),
