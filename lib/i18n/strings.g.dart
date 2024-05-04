@@ -9962,6 +9962,7 @@ class _StringsLoginRu extends _StringsLoginEn {
 		_StringsLogin$faq$0i2$Ru._(_root),
 		_StringsLogin$faq$0i3$Ru._(_root),
 		_StringsLogin$faq$0i4$Ru._(_root),
+		_StringsLogin$faq$0i5$Ru._(_root),
 	];
 }
 
@@ -10203,9 +10204,9 @@ class _StringsSettingsPrefLabelsRu extends _StringsSettingsPrefLabelsEn {
 	@override String get printPageIndicators => 'Печатать номера страниц';
 	@override String get autosaveDelay => 'Задержка автосохранения';
 	@override String get shapeRecognitionDelay => 'Задержка распознавания формы';
-	@override String get pencilSoundSetting => 'Звуковой эффект карандаша';
-	@override String get customDataDir => 'Пользовательский каталог данных';
 	@override String get autoStraightenLines => 'Автоматическое выпрямление линий';
+	@override String get customDataDir => 'Свой каталог для данных';
+	@override String get pencilSoundSetting => 'Звуковой эффект карандаша';
 }
 
 // Path: settings.prefDescriptions
@@ -10228,9 +10229,9 @@ class _StringsSettingsPrefDescriptionsRu extends _StringsSettingsPrefDescription
 	@override String get printPageIndicators => 'Показывать номера страниц при экспорте';
 	@override String get autosaveDelay => 'Время ожидания до автосохранения заметки';
 	@override String get shapeRecognitionDelay => 'Как часто обновлять предварительный просмотр формы';
+	@override String get autoStraightenLines => 'Выпрямляет длинные линии без использования фигурного пера';
 	@override String get shouldAlwaysAlertForUpdates => 'Сообщать мне об обновлениях, как только они станут доступны';
 	@override late final _StringsSettingsPrefDescriptionsPencilSoundSettingRu pencilSoundSetting = _StringsSettingsPrefDescriptionsPencilSoundSettingRu._(_root);
-	@override String get autoStraightenLines => 'Выпрямляет длинные линии без использования фигурного пера.';
 }
 
 // Path: settings.themeModes
@@ -10286,7 +10287,7 @@ class _StringsSettingsCustomDataDirRu extends _StringsSettingsCustomDataDirEn {
 
 	// Translations
 	@override String get cancel => 'Отмена';
-	@override String get select => 'Выбирать';
+	@override String get select => 'Выбрать';
 	@override String get mustBeEmpty => 'Выбранный каталог должен быть пустым';
 	@override String get mustBeDoneSyncing => 'Прежде чем менять каталог, убедитесь, что синхронизация завершена.';
 }
@@ -10347,8 +10348,8 @@ class _StringsLogin$faq$0i0$Ru extends _StringsLogin$faq$0i0$En {
 	@override final _StringsRu _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Что такое Nextcloud?';
-	@override String get a => 'Nextcloud — это частный сервер синхронизации файлов, помимо всего прочего. Вы можете использовать сервер Saber Nextcloud по умолчанию, использовать сторонний сервер или самостоятельно разместить свой собственный для полного контроля над своими данными.';
+	@override String get в => 'Что такое Nextcloud?';
+	@override String get о => 'Nextcloud — это частный сервер синхронизации файлов, помимо всего прочего. Вы можете использовать сервер Saber Nextcloud по умолчанию, использовать сторонний сервер или самостоятельно разместить свой собственный для полного контроля над своими данными.';
 }
 
 // Path: login.faq.1
@@ -10358,8 +10359,8 @@ class _StringsLogin$faq$0i1$Ru extends _StringsLogin$faq$0i1$En {
 	@override final _StringsRu _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Что такое пароль шифрования?';
-	@override String get a => 'Пароль шифрования используется для шифрования ваших данных перед их отправкой на сервер. Вы выбираете его при первом входе в Saber, и он не связан с вашей учетной записью/паролем Nextcloud.\nНикто не сможет получить доступ к вашим заметкам на сервере без вашего пароля шифрования. Это также означает, что если вы забудете пароль для шифрования, вы потеряете доступ к своим данным.';
+	@override String get в => 'Что такое пароль шифрования?';
+	@override String get о => 'Пароль шифрования используется для шифрования ваших данных перед их отправкой на сервер. Вы выбираете его при первом входе в Saber, и он не связан с вашей учетной записью/паролем Nextcloud.\nНикто не сможет получить доступ к вашим заметкам на сервере без вашего пароля шифрования. Это также означает, что если вы забудете пароль для шифрования, вы потеряете доступ к своим данным.';
 }
 
 // Path: login.faq.2
@@ -10369,8 +10370,8 @@ class _StringsLogin$faq$0i2$Ru extends _StringsLogin$faq$0i2$En {
 	@override final _StringsRu _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Зачем использовать два пароля?';
-	@override String get a => 'Пароль Nextcloud используется для доступа к облаку. Пароль шифрования «шифрует» ваши данные еще до того, как они попадут в облако.\nДаже если кто-то получит доступ к вашей учетной записи Nextcloud, ваши заметки останутся в безопасности и будут зашифрованы с помощью отдельного пароля. Это обеспечивает вам второй уровень безопасности для защиты ваших данных.';
+	@override String get в => 'Зачем использовать два пароля?';
+	@override String get о => 'Пароль Nextcloud используется для доступа к облаку. Пароль шифрования «шифрует» ваши данные еще до того, как они попадут в облако.\nДаже если кто-то получит доступ к вашей учетной записи Nextcloud, ваши заметки останутся в безопасности и будут зашифрованы с помощью отдельного пароля. Это обеспечивает вам второй уровень безопасности для защиты ваших данных.';
 }
 
 // Path: login.faq.3
@@ -10380,8 +10381,8 @@ class _StringsLogin$faq$0i3$Ru extends _StringsLogin$faq$0i3$En {
 	@override final _StringsRu _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Как мне войти, если я использую 2FA?';
-	@override String get a => 'Вместо обычного пароля Nextcloud Вам нужно будет создать "Пароль приложения". Вы можете сделать это в настройках Nextcloud в разделе «Безопасность» -> «Устройства и сеансы» -> «Создать новый пароль приложения». Ваш пароль шифрования не изменится.';
+	@override String get q => 'Я еще не установил пароль шифрования. Где я могу его получить?';
+	@override String get a => 'Просто придумайте его, когда вы войдёте в систему, указанную выше!\nВы придумываете пароль шифрования при первом входе в Saber (приложение, а не веб-сайт сервера).';
 }
 
 // Path: login.faq.4
@@ -10391,8 +10392,19 @@ class _StringsLogin$faq$0i4$Ru extends _StringsLogin$faq$0i4$En {
 	@override final _StringsRu _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Могу ли я использовать один и тот же пароль для обоих?';
-	@override String get a => 'Да, но это менее безопасно. Поскольку ваш пароль Nextcloud отправляется на сервер, кто-то, имеющий доступ к серверу, сможет расшифровать ваши заметки. Используйте тот же пароль, только если вы доверяете владельцу сервера.';
+	@override String get в => 'Как мне войти, если я использую 2FA?';
+	@override String get о => 'Вместо обычного пароля Nextcloud Вам нужно будет создать «Пароль приложения». Вы можете сделать это в настройках Nextcloud в разделе «Безопасность» -> «Устройства и сеансы» -> «Создать новый пароль приложения». Ваш пароль шифрования не изменится.';
+}
+
+// Path: login.faq.5
+class _StringsLogin$faq$0i5$Ru extends _StringsLogin$faq$0i5$En {
+	_StringsLogin$faq$0i5$Ru._(_StringsRu root) : this._root = root, super._(root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get в => 'Могу ли я использовать один и тот же пароль для обоих приложений?';
+	@override String get о => 'Да, но это менее безопасно. Поскольку ваш пароль Nextcloud отправляется на сервер, кто-то, имеющий доступ к серверу, сможет расшифровать ваши заметки. Используйте тот же пароль, только если вы доверяете владельцу сервера.';
 }
 
 // Path: profile.quickLinks
@@ -10570,12 +10582,12 @@ class _StringsEditorMenuRu extends _StringsEditorMenuEn {
 	@override String get duplicatePage => 'Дубликат страницы';
 	@override String get deletePage => 'Удалить страницу';
 	@override String get lineHeight => 'Высота строки';
+	@override String get lineHeightDescription => 'Также управляет размером текста для напечатанных заметок';
 	@override String get backgroundImageFit => 'Фоновое изображение';
 	@override String get backgroundPattern => 'Фоновый шаблон';
 	@override String get import => 'Импорт';
 	@override late final _StringsEditorMenuBoxFitsRu boxFits = _StringsEditorMenuBoxFitsRu._(_root);
 	@override late final _StringsEditorMenuBgPatternsRu bgPatterns = _StringsEditorMenuBgPatternsRu._(_root);
-	@override String get lineHeightDescription => 'Также контролирует размер текста для напечатанных заметок.';
 }
 
 // Path: editor.newerFileFormat
@@ -10636,9 +10648,9 @@ class _StringsSettingsPrefDescriptionsPencilSoundSettingRu extends _StringsSetti
 	@override final _StringsRu _root; // ignore: unused_field
 
 	// Translations
-	@override String get onAlways => 'Включено (даже в беззвучном режиме)';
 	@override String get off => 'Без звука';
-	@override String get onButNotInSilentMode => 'Включено (кроме беззвучного режима)';
+	@override String get onButNotInSilentMode => 'Включено (кроме тихого режима)';
+	@override String get onAlways => 'Включено (даже в беззвучном режиме)';
 }
 
 // Path: editor.menu.boxFits

@@ -782,45 +782,6 @@ pt-BR:
     menu:
       lineHeightDescription(OUTDATED): Also controls the text size for typed notes
 ru:
-  settings:
-    prefLabels:
-      autoStraightenLines(OUTDATED): Auto straighten lines
-      customDataDir(OUTDATED): Custom data directory
-      pencilSoundSetting(OUTDATED): Pencil sound effect
-    prefDescriptions:
-      autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
-      pencilSoundSetting:
-        off(OUTDATED): No sound
-        onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
-    customDataDir:
-      cancel(OUTDATED): Cancel
-      select(OUTDATED): Select
-      mustBeEmpty(OUTDATED): Selected directory must be empty
-      mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the directory
-  login:
-    seeFaq(OUTDATED): "See the FAQ below for more information, including about the encryption password."
-    faq(OUTDATED):
-      - q: "What is Nextcloud?"
-        a: "Nextcloud is a private file sync server, among other things. You can use the default Saber Nextcloud server, use a third-party server, or self-host your own for full control of your data."
-      - q: "What is the encryption password?"
-        a: |-
-          The encryption password is used to encrypt your data before it is sent to the server. You choose it when you first login to Saber, and it's not related to your Nextcloud account/password.
-          No-one can access your notes on the server without your encryption password. This also means that if you forget your encryption password, you will lose access to your data.
-      - q: "Why use two passwords?"
-        a: |-
-          The Nextcloud password is used to access the cloud. The encryption password "scrambles" your data before it ever reaches the cloud.
-          Even if someone gains access to your Nextcloud account, your notes will remain safe and encrypted with a separate password. This provides you a second layer of security to protect your data.
-      - q: "I haven't set an encryption password yet. Where do I get it?"
-        a: |-
-          Simply choose one now when you log in above!
-          You choose the encryption password when you first log in to Saber (the app, not the server website).
-      - q: "How do I login if I use 2FA?"
-        a: "Instead of your regular Nextcloud password, you'll need to create an \"app password\". You can do this in your Nextcloud settings under Security > Devices & sessions > Create new app password. Your encryption password is unaffected."
-      - q: "Can I use the same password for both?"
-        a: "Yes, but doing so is less secure. Since your Nextcloud password is sent to the server, someone with access to the server would be able to decrypt your notes. Only use the same password if you trust the server owner."
-  editor:
-    menu:
-      lineHeightDescription(OUTDATED): Also controls the text size for typed notes
 tr:
   settings:
     prefLabels:
