@@ -2261,7 +2261,7 @@ class _StringsLogin$faq$0i1$Cs extends _StringsLogin$faq$0i1$En {
 
 	// Translations
 	@override String get q => 'Co je to heslo pro šifrování?';
-	@override String get a => 'Heslo pro šifrování je použito k zašifrování vašich dat před jejich odesláním na server. Zvolíte si ho při prvním přihlášení do aplikace Saber, není nijak vázáno na heslo k vašemu Nextcloud účtu nebo na účet samotný.\nBez jeho znalosti nemůže nikdo přistoupit k vašim poznámkám uloženým na serveru. To také znamená, že pokud ho zapomenete, ztratíte přístup ke svým datům.';
+	@override String get a => 'Heslo pro šifrování je použito k zašifrování vašich dat před jejich odesláním na server. Zvolíte si ho při prvním přihlášení do aplikace Saber (nikoliv do webového rozhraní Nextcloud serveru), není nijak vázáno na heslo k vašemu Nextcloud účtu nebo na účet samotný.\nBez jeho znalosti nemůže nikdo přistoupit k vašim poznámkám uloženým na serveru. To také znamená, že pokud ho zapomenete, ztratíte přístup ke svým datům.';
 }
 
 // Path: login.faq.2
@@ -2283,7 +2283,7 @@ class _StringsLogin$faq$0i3$Cs extends _StringsLogin$faq$0i3$En {
 
 	// Translations
 	@override String get q => 'Ještě jsem heslo pro šifrování nenastavoval. Kde ho získám?';
-	@override String get a => 'Jednoduše si ho zvolíte právě teď, když se budete výše přihlašovat!\nHeslo pro šifrování si volíte při prvním přihlášení do aplikace Saber (přímo do aplikace, nikoliv do webového rozhraní Nextcloud serveru).';
+	@override String get a => 'Jednoduše si ho zvolíte právě teď, když se budete výše přihlašovat!\nHeslo pro šifrování si volíte při prvním přihlášení do aplikace Saber (nikoliv do webového rozhraní Nextcloud serveru).';
 }
 
 // Path: login.faq.4
