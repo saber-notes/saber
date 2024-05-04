@@ -160,16 +160,16 @@ login:
     encPassword: Heslo pro šifrování
     agreeToPrivacyPolicy(rich): "Přihlášením souhlasíte se ${linkToPrivacyPolicy(Zásadami ochrany osobních údajů)}."
     login: Přihlásit se
-  seeFaq(OUTDATED): "Další informace, včetně informací o šifrovacím heslu, naleznete v části Nejčastější dotazy níže."
+  seeFaq: "Více informací, včetně těch o heslu pro šifrování, nalezenete v sekci s častými otázkami umístěné níže."
   signup(rich): "Ještě nemáte účet? ${linkToSignup(Zaregistrujte se)}!"
   status:
     loggedIn: Jste přihlášeni pomocí Nextcloud účtu
     loggedOut: Jste odhlášení
     tapToLogin: Klepněte pro přihlášení pomocí Nextcloud účtu
-  faq(OUTDATED):
+  faq:
     - q: "Co je to Nextcloud?"
       a: "Nextcloud je mimo jiné osobní server pro synchronizaci souborů. Můžete používat výchozí Nextcloud server poskytovaný aplikací Saber, použít server hostovaný třetí stranou, nebo vlastní server pro plnou kontrolu nad svými daty."
-    - q: "K čemu je heslo pro šifrování?"
+    - q: "Co je to heslo pro šifrování?"
       a: |-
         Heslo pro šifrování je použito k zašifrování vašich dat před jejich odesláním na server. Zvolíte si ho při prvním přihlášení do aplikace Saber, není nijak vázáno na heslo k vašemu Nextcloud účtu nebo na účet samotný.
         Bez jeho znalosti nemůže nikdo přistoupit k vašim poznámkám uloženým na serveru. To také znamená, že pokud ho zapomenete, ztratíte přístup ke svým datům.
@@ -177,10 +177,14 @@ login:
       a: |-
         Heslo k Nextcloud účtu se používá k přístupu do cloudu. Heslo pro šifrování "utají" vaše data ještě před tím, než se na cloud dostanou.
         I když by někdo získat přístup k vašemu Nextcloud účtu, vaše poznámky zůstanou v bezpečí zašifrované vlastním heslem. To vám poskytuje druhou vrstvu ochrany vašich dat.
+    - q: "Ještě jsem heslo pro šifrování nenastavoval. Kde ho získám?"
+      a: |-
+        Jednoduše si ho zvolíte právě teď, když se budete výše přihlašovat!
+        Heslo pro šifrování si volíte při prvním přihlášení do aplikace Saber (přímo do aplikace, nikoliv do webového rozhraní Nextcloud serveru).
     - q: "Jak se přihlásím, když používám 2FA?"
       a: "Místo běžného hesla k Nextcloud účtu si potřebujete vytvořit \"heslo aplikace\". Toho můžete docílit v nastavení Nextcloudu v záložce Zabezpečení > Zařízení a sezení > Vytvořit nové heslo aplikace. Vašeho hesla pro šifrování se to nijak netýká."
     - q: "Mohu použít stejné heslo k Nextcloud účtu a pro šifrování?"
-      a: "Ano, ale je není to tak bezpečné. Jelikož je heslo k Nextcloud účtu odesíláno na server, kdokoliv s přístupem k serveru může dešifrovat vaše poznámky. Stejné heslo použijte jen v případě, že věříte vlastníkovi serveru."
+      a: "Ano, ale je není to tak bezpečné. Jelikož je heslo k Nextcloud účtu odesíláno na server, kdokoliv s přístupem k serveru může dešifrovat vaše poznámky. Stejné heslo tedy použijte jen v případě, že vlastníkovi Nextcloud serveru důvěřujete."
 profile:
   title: Můj profil
   logout: Odhlásit se

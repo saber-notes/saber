@@ -1850,7 +1850,7 @@ class _StringsLoginCs extends _StringsLoginEn {
 	@override String get title => 'Přihlásit se';
 	@override late final _StringsLoginFeedbacksCs feedbacks = _StringsLoginFeedbacksCs._(_root);
 	@override late final _StringsLoginFormCs form = _StringsLoginFormCs._(_root);
-	@override String get seeFaq => 'Další informace, včetně informací o šifrovacím heslu, naleznete v části Nejčastější dotazy níže.';
+	@override String get seeFaq => 'Více informací, včetně těch o heslu pro šifrování, nalezenete v sekci s častými otázkami umístěné níže.';
 	@override TextSpan signup({required InlineSpanBuilder linkToSignup}) => TextSpan(children: [
 		const TextSpan(text: 'Ještě nemáte účet? '),
 		linkToSignup('Zaregistrujte se'),
@@ -1863,6 +1863,7 @@ class _StringsLoginCs extends _StringsLoginEn {
 		_StringsLogin$faq$0i2$Cs._(_root),
 		_StringsLogin$faq$0i3$Cs._(_root),
 		_StringsLogin$faq$0i4$Cs._(_root),
+		_StringsLogin$faq$0i5$Cs._(_root),
 	];
 }
 
@@ -2259,7 +2260,7 @@ class _StringsLogin$faq$0i1$Cs extends _StringsLogin$faq$0i1$En {
 	@override final _StringsCs _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'K čemu je heslo pro šifrování?';
+	@override String get q => 'Co je to heslo pro šifrování?';
 	@override String get a => 'Heslo pro šifrování je použito k zašifrování vašich dat před jejich odesláním na server. Zvolíte si ho při prvním přihlášení do aplikace Saber, není nijak vázáno na heslo k vašemu Nextcloud účtu nebo na účet samotný.\nBez jeho znalosti nemůže nikdo přistoupit k vašim poznámkám uloženým na serveru. To také znamená, že pokud ho zapomenete, ztratíte přístup ke svým datům.';
 }
 
@@ -2281,8 +2282,8 @@ class _StringsLogin$faq$0i3$Cs extends _StringsLogin$faq$0i3$En {
 	@override final _StringsCs _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Jak se přihlásím, když používám 2FA?';
-	@override String get a => 'Místo běžného hesla k Nextcloud účtu si potřebujete vytvořit "heslo aplikace". Toho můžete docílit v nastavení Nextcloudu v záložce Zabezpečení > Zařízení a sezení > Vytvořit nové heslo aplikace. Vašeho hesla pro šifrování se to nijak netýká.';
+	@override String get q => 'Ještě jsem heslo pro šifrování nenastavoval. Kde ho získám?';
+	@override String get a => 'Jednoduše si ho zvolíte právě teď, když se budete výše přihlašovat!\nHeslo pro šifrování si volíte při prvním přihlášení do aplikace Saber (přímo do aplikace, nikoliv do webového rozhraní Nextcloud serveru).';
 }
 
 // Path: login.faq.4
@@ -2292,8 +2293,19 @@ class _StringsLogin$faq$0i4$Cs extends _StringsLogin$faq$0i4$En {
 	@override final _StringsCs _root; // ignore: unused_field
 
 	// Translations
+	@override String get q => 'Jak se přihlásím, když používám 2FA?';
+	@override String get a => 'Místo běžného hesla k Nextcloud účtu si potřebujete vytvořit "heslo aplikace". Toho můžete docílit v nastavení Nextcloudu v záložce Zabezpečení > Zařízení a sezení > Vytvořit nové heslo aplikace. Vašeho hesla pro šifrování se to nijak netýká.';
+}
+
+// Path: login.faq.5
+class _StringsLogin$faq$0i5$Cs extends _StringsLogin$faq$0i5$En {
+	_StringsLogin$faq$0i5$Cs._(_StringsCs root) : this._root = root, super._(root);
+
+	@override final _StringsCs _root; // ignore: unused_field
+
+	// Translations
 	@override String get q => 'Mohu použít stejné heslo k Nextcloud účtu a pro šifrování?';
-	@override String get a => 'Ano, ale je není to tak bezpečné. Jelikož je heslo k Nextcloud účtu odesíláno na server, kdokoliv s přístupem k serveru může dešifrovat vaše poznámky. Stejné heslo použijte jen v případě, že věříte vlastníkovi serveru.';
+	@override String get a => 'Ano, ale je není to tak bezpečné. Jelikož je heslo k Nextcloud účtu odesíláno na server, kdokoliv s přístupem k serveru může dešifrovat vaše poznámky. Stejné heslo tedy použijte jen v případě, že vlastníkovi Nextcloud serveru důvěřujete.';
 }
 
 // Path: profile.quickLinks
@@ -12391,7 +12403,7 @@ class _StringsLoginZhHantTw extends _StringsLoginEn {
 	@override String get title => '登入';
 	@override late final _StringsLoginFeedbacksZhHantTw feedbacks = _StringsLoginFeedbacksZhHantTw._(_root);
 	@override late final _StringsLoginFormZhHantTw form = _StringsLoginFormZhHantTw._(_root);
-	@override String get seeFaq => '請參閱下面的常見問題解答以了解更多信息，包括有關加密密碼的信息。';
+	@override String get seeFaq => '請閱讀下面的常見問題解答以了解有關加密密碼等資訊。';
 	@override TextSpan signup({required InlineSpanBuilder linkToSignup}) => TextSpan(children: [
 		const TextSpan(text: '還沒有帳號？ '),
 		linkToSignup('立即註冊'),
@@ -12404,6 +12416,7 @@ class _StringsLoginZhHantTw extends _StringsLoginEn {
 		_StringsLogin$faq$0i2$ZhHantTw._(_root),
 		_StringsLogin$faq$0i3$ZhHantTw._(_root),
 		_StringsLogin$faq$0i4$ZhHantTw._(_root),
+		_StringsLogin$faq$0i5$ZhHantTw._(_root),
 	];
 }
 
@@ -12790,7 +12803,7 @@ class _StringsLogin$faq$0i0$ZhHantTw extends _StringsLogin$faq$0i0$En {
 
 	// Translations
 	@override String get q => '什麼是 Nextcloud？';
-	@override String get a => 'Nextcloud 是一個私人檔案同步伺服器。您可以使用預設的 Saber Nextcloud 伺服器或、使用第三方伺服器或自行託管您的伺服器以完全控制您的資料。';
+	@override String get a => 'Nextcloud 是一個私人檔案同步伺服器。您可以使用預設的 Saber Nextcloud 伺服器、第三方伺服器或自託管的伺服器以完全控制您的資料。';
 }
 
 // Path: login.faq.1
@@ -12801,7 +12814,7 @@ class _StringsLogin$faq$0i1$ZhHantTw extends _StringsLogin$faq$0i1$En {
 
 	// Translations
 	@override String get q => '加密密碼是什麼？';
-	@override String get a => '加密密碼用於在將資料傳送到伺服器之前對其進行加密。您在首次登入 Saber 時選擇它，它與您的 Nextcloud 帳戶/密碼無關。\n沒有您的加密密碼，任何人都無法訪問您在伺服器上的筆記。這也意味著，如果您忘記了加密密碼，您將無法訪問您的資料。';
+	@override String get a => '加密密碼用於在將資料傳送到伺服器之前對其進行加密。您在第一次登入 Saber 時建立，它與您的 Nextcloud 帳號/密碼無關。\n如果沒有您的加密密碼，任何人都無法存取您在伺服器上的筆記。這也意味著，如果您忘記加密密碼，您將無法存取您的資料。';
 }
 
 // Path: login.faq.2
@@ -12812,7 +12825,7 @@ class _StringsLogin$faq$0i2$ZhHantTw extends _StringsLogin$faq$0i2$En {
 
 	// Translations
 	@override String get q => '為什麼要使用兩個密碼？';
-	@override String get a => 'Nextcloud 密碼用於訪問雲端。而加密密碼會在您的資料到達雲端之前對其進行「加密」。\n即使有人獲得了您 Nextcloud 帳號的訪問權限，您的筆記也將保持安全並使用單獨的密碼進行加密。這為您提供了第二層安全保護來保護您的資料。';
+	@override String get a => 'Nextcloud 密碼用於存取雲端。加密密碼會在資料到達雲端之前混亂您的資料。\n即使有人存取您的 Nextcloud 帳戶，您的筆記也將保持安全並使用單獨的密碼進行加密。這為您提供了第二層安全保護來保護您的資料。';
 }
 
 // Path: login.faq.3
@@ -12822,8 +12835,8 @@ class _StringsLogin$faq$0i3$ZhHantTw extends _StringsLogin$faq$0i3$En {
 	@override final _StringsZhHantTw _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => '如果我使用2FA，我應該如何登入？';
-	@override String get a => '您需要創建一個"應用程式密碼"，而不是一般的 Nextcloud 密碼。您可以在安全 > 裝置和會話 > 創建新應用密碼下的 Nextcloud 設定中執行此操作。您的加密密碼不受影響。';
+	@override String get q => '我還沒有設定加密密碼。我在哪裡可以得到它？';
+	@override String get a => '只需在上面登入時選擇一項即可！\n您在首次登入 Saber（應用程式，而不是伺服器網站）時選擇加密密碼。';
 }
 
 // Path: login.faq.4
@@ -12833,8 +12846,19 @@ class _StringsLogin$faq$0i4$ZhHantTw extends _StringsLogin$faq$0i4$En {
 	@override final _StringsZhHantTw _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => '我可以讓兩個密碼相同嗎？';
-	@override String get a => '可以，但這樣做不太安全。由於您的 Nextcloud 密碼已傳送到伺服器，因此有權訪問伺服器的人將能夠解密您的筆記。只有在您信任伺服器所有者的情況下才使用相同的密碼。';
+	@override String get q => '如果我使用 2FA，如何登入？';
+	@override String get a => '您需要建立一個「應用程式密碼」，而不是使用 Nextcloud 密碼。您可以在 Nextcloud 設定中的「安全性」>「裝置和工作階段」>「建立新的應用程式密碼」下執行此操作。您的加密密碼不受影響。';
+}
+
+// Path: login.faq.5
+class _StringsLogin$faq$0i5$ZhHantTw extends _StringsLogin$faq$0i5$En {
+	_StringsLogin$faq$0i5$ZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
+
+	@override final _StringsZhHantTw _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => '我可以為兩者使用相同的密碼嗎？';
+	@override String get a => '可以，但這樣做不太安全。由於您的 Nextcloud 密碼已傳送至伺服器，因此有權存取伺服器的人將能夠解密您的筆記。請在您信任伺服器擁有者時才使用相同的密碼。';
 }
 
 // Path: profile.quickLinks
