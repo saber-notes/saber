@@ -629,7 +629,7 @@ class _StringsLogin$faq$0i1$En {
 
 	// Translations
 	String get q => 'What is the encryption password?';
-	String get a => 'The encryption password is used to encrypt your data before it is sent to the server. You choose it when you first login to Saber, and it\'s not related to your Nextcloud account/password.\nNo-one can access your notes on the server without your encryption password. This also means that if you forget your encryption password, you will lose access to your data.';
+	String get a => 'The encryption password is used to encrypt your data before it is sent to the server. You choose it when you first login to Saber (the app, not the server\'s website) and it\'s not related to your Nextcloud account/password.\nNo-one can access your notes on the server without your encryption password. This also means that if you forget your encryption password, you will lose access to your data.';
 }
 
 // Path: login.faq.2

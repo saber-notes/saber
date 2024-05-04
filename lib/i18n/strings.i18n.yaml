@@ -171,7 +171,7 @@ login:
       a: "Nextcloud is a private file sync server, among other things. You can use the default Saber Nextcloud server, use a third-party server, or self-host your own for full control of your data."
     - q: "What is the encryption password?"
       a: |-
-        The encryption password is used to encrypt your data before it is sent to the server. You choose it when you first login to Saber, and it's not related to your Nextcloud account/password.
+        The encryption password is used to encrypt your data before it is sent to the server. You choose it when you first login to Saber (the app, not the server's website) and it's not related to your Nextcloud account/password.
         No-one can access your notes on the server without your encryption password. This also means that if you forget your encryption password, you will lose access to your data.
     - q: "Why use two passwords?"
       a: |-
