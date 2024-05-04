@@ -853,23 +853,23 @@ zh-Hans-CN:
         a: "Yes, but doing so is less secure. Since your Nextcloud password is sent to the server, someone with access to the server would be able to decrypt your notes. Only use the same password if you trust the server owner."
 zh-Hant-TW:
   login:
-    seeFaq(OUTDATED): "See the FAQ below for more information, including about the encryption password."
+    seeFaq(OUTDATED): "請閱讀下面的常見問題解答以了解有關加密密碼等資訊。"
     faq(OUTDATED):
-      - q: "What is Nextcloud?"
-        a: "Nextcloud is a private file sync server, among other things. You can use the default Saber Nextcloud server, use a third-party server, or self-host your own for full control of your data."
-      - q: "What is the encryption password?"
+      - q: "什麼是 Nextcloud？"
+        a: "Nextcloud 是一個私人檔案同步伺服器。您可以使用預設的 Saber Nextcloud 伺服器、第三方伺服器或自託管的伺服器以完全控制您的資料。"
+      - q: "加密密碼是什麼？"
         a: |-
-          The encryption password is used to encrypt your data before it is sent to the server. You choose it when you first login to Saber, and it's not related to your Nextcloud account/password.
-          No-one can access your notes on the server without your encryption password. This also means that if you forget your encryption password, you will lose access to your data.
-      - q: "Why use two passwords?"
+          加密密碼用於在將資料傳送到伺服器之前對其進行加密。您在第一次登入 Saber 時建立，它與您的 Nextcloud 帳號/密碼無關。
+          如果沒有您的加密密碼，任何人都無法存取您在伺服器上的筆記。這也意味著，如果您忘記加密密碼，您將無法存取您的資料。
+      - q: "為什麼要使用兩個密碼？"
         a: |-
-          The Nextcloud password is used to access the cloud. The encryption password "scrambles" your data before it ever reaches the cloud.
-          Even if someone gains access to your Nextcloud account, your notes will remain safe and encrypted with a separate password. This provides you a second layer of security to protect your data.
-      - q: "I haven't set an encryption password yet. Where do I get it?"
+          Nextcloud 密碼用於存取雲端。加密密碼會在資料到達雲端之前混亂您的資料。
+          即使有人存取您的 Nextcloud 帳戶，您的筆記也將保持安全並使用單獨的密碼進行加密。這為您提供了第二層安全保護來保護您的資料。
+      - q: "我還沒有設定加密密碼。我在哪裡可以得到它？"
         a: |-
-          Simply choose one now when you log in above!
-          You choose the encryption password when you first log in to Saber (the app, not the server website).
-      - q: "How do I login if I use 2FA?"
-        a: "Instead of your regular Nextcloud password, you'll need to create an \"app password\". You can do this in your Nextcloud settings under Security > Devices & sessions > Create new app password. Your encryption password is unaffected."
-      - q: "Can I use the same password for both?"
-        a: "Yes, but doing so is less secure. Since your Nextcloud password is sent to the server, someone with access to the server would be able to decrypt your notes. Only use the same password if you trust the server owner."
+          只需在上面登入時選擇一項即可！
+          您在首次登入 Saber（應用程式，而不是伺服器網站）時選擇加密密碼。
+      - q: "如果我使用 2FA，如何登入？"
+        a: "您需要建立一個「應用程式密碼」，而不是使用 Nextcloud 密碼。您可以在 Nextcloud 設定中的「安全性」>「裝置和工作階段」>「建立新的應用程式密碼」下執行此操作。您的加密密碼不受影響。"
+      - q: "我可以為兩者使用相同的密碼嗎？"
+        a: "可以，但這樣做不太安全。由於您的 Nextcloud 密碼已傳送至伺服器，因此有權存取伺服器的人將能夠解密您的筆記。請在您信任伺服器擁有者時才使用相同的密碼。"
