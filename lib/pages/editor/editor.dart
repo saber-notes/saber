@@ -821,13 +821,26 @@ class EditorState extends State<Editor> {
   }
 
   void autosaveAfterDelay() {
-    savingState.value = SavingState.waitingToSave;
-    _delayedSaveTimer?.cancel();
-    if (Prefs.autosaveDelay.value < 0) return;
-    _delayedSaveTimer =
-        Timer(Duration(milliseconds: Prefs.autosaveDelay.value), () {
+    late final void Function() callback;
+
+    void startTimer() {
+      _delayedSaveTimer?.cancel();
+      if (Prefs.autosaveDelay.value < 0) return;
+      _delayedSaveTimer =
+          Timer(Duration(milliseconds: Prefs.autosaveDelay.value), callback);
+    }
+
+    callback = () {
+      if (Pen.currentStroke != null) {
+        // don't save yet if the pen is currently drawing
+        startTimer();
+        return;
+      }
       saveToFile();
-    });
+    };
+
+    savingState.value = SavingState.waitingToSave;
+    startTimer();
   }
 
   Future<void> saveToFile() async {
