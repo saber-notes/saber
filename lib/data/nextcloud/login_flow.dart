@@ -4,6 +4,7 @@ import 'package:http/http.dart' as http;
 import 'package:logging/logging.dart';
 import 'package:nextcloud/core.dart';
 import 'package:nextcloud/nextcloud.dart';
+import 'package:saber/data/nextcloud/nc_http_overrides.dart';
 import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -11,6 +12,7 @@ class SaberLoginFlow {
   SaberLoginFlow.start({
     required this.serverUrl,
   }) {
+    NcHttpOverrides.tempAcceptBadCertificateFrom(serverUrl);
     unawaited(_run());
   }
 
