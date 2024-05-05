@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use_from_same_package
+
 import 'package:collapsible/collapsible.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
@@ -15,6 +17,7 @@ import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/user/login.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+@Deprecated('Use LoginSteps instead')
 class LoginInputGroup extends StatefulWidget {
   const LoginInputGroup({
     super.key,
