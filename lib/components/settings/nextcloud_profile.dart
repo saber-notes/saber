@@ -43,7 +43,7 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
   @override
   Widget build(BuildContext context) {
     final String heading, subheading;
-    final bool loggedIn = Prefs.username.value.isNotEmpty;
+    final loggedIn = Prefs.loggedIn;
     if (loggedIn) {
       heading = Prefs.username.value;
       subheading = t.login.status.loggedIn;

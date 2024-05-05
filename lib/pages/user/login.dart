@@ -28,7 +28,10 @@ class _NcLoginPageState extends State<NcLoginPage> {
   Future<void> waitForPrefs() async {
     step = LoginStep.waitingForPrefs;
 
-    if (!Prefs.url.loaded || !Prefs.username.loaded || !Prefs.ncPassword.loaded)
+    if (!Prefs.url.loaded ||
+        !Prefs.username.loaded ||
+        !Prefs.ncPassword.loaded ||
+        !Prefs.encPassword.loaded)
       await Future.wait([
         Prefs.url.waitUntilLoaded(),
         Prefs.username.waitUntilLoaded(),

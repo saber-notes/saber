@@ -83,17 +83,21 @@ Future<void> main() async {
 
   HttpOverrides.global = NcHttpOverrides();
   runApp(TranslationProvider(child: const App()));
-  startSyncAfterUsernameLoaded();
+  startSyncAfterLoaded();
   setupBackgroundSync();
 }
 
-void startSyncAfterUsernameLoaded() async {
+void startSyncAfterLoaded() async {
   await Prefs.username.waitUntilLoaded();
+  await Prefs.encPassword.waitUntilLoaded();
 
-  Prefs.username.removeListener(startSyncAfterUsernameLoaded);
-  if (Prefs.username.value.isEmpty) {
+  Prefs.username.removeListener(startSyncAfterLoaded);
+  Prefs.encPassword.removeListener(startSyncAfterLoaded);
+  if (!Prefs.loggedIn) {
     // try again when logged in
-    return Prefs.username.addListener(startSyncAfterUsernameLoaded);
+    Prefs.username.addListener(startSyncAfterLoaded);
+    Prefs.encPassword.addListener(startSyncAfterLoaded);
+    return;
   }
 
   // wait for other prefs to load
