@@ -54,7 +54,10 @@ class _NcLoginStepState extends State<NcLoginStep> {
       );
       final username = await client.getUsername();
 
-      Prefs.url.value = credentials.server;
+      Prefs.url.value = credentials.server ==
+              NextcloudClientExtension.defaultNextcloudUri.toString()
+          ? ''
+          : credentials.server;
       Prefs.username.value = username;
       Prefs.ncPassword.value = credentials.appPassword;
       Prefs.encPassword.value = '';

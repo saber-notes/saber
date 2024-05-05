@@ -129,12 +129,7 @@ class _EncLoginStepState extends State<EncLoginStep> {
 
     try {
       Prefs.encPassword.value = encPassword;
-      final client = NextcloudClient(
-        Uri.parse(Prefs.url.value),
-        loginName: Prefs.username.value,
-        appPassword: Prefs.ncPassword.value,
-        userAgent: NextcloudClientExtension.userAgent,
-      );
+      final client = NextcloudClientExtension.withSavedDetails()!;
       _isChecking.value = true;
       await client.loadEncryptionKey();
       widget.recheckCurrentStep();

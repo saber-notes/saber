@@ -46,8 +46,7 @@ class _NcLoginPageState extends State<NcLoginPage> {
   void recheckCurrentStep() {
     final prevStep = step;
 
-    if (Prefs.url.value.isEmpty ||
-        Prefs.username.value.isEmpty ||
+    if (Prefs.username.value.isEmpty ||
         Prefs.ncPassword.value.isEmpty) {
       step = LoginStep.nc;
     } else if (Prefs.encPassword.value.isEmpty) {

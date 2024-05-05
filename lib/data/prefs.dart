@@ -59,7 +59,7 @@ abstract class Prefs {
   /// Whether the user is logged in and has provided both passwords.
   /// Please ensure that the relevant Prefs are loaded before using this.
   static bool get loggedIn =>
-      url.value.isNotEmpty &&
+      url.loaded &&
       username.value.isNotEmpty &&
       ncPassword.value.isNotEmpty &&
       encPassword.value.isNotEmpty;

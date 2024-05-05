@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:saber/components/misc/faq.dart';
 import 'package:saber/components/theming/sliver_width_box.dart';
+import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -68,16 +69,22 @@ class ProfilePage extends StatelessWidget {
                   children: [
                     TextButton(
                       onPressed: () {
-                        launchUrl(Uri.parse(Prefs.url.value));
+                        launchUrl(
+                          Prefs.url.value.isEmpty
+                              ? NextcloudClientExtension.defaultNextcloudUri
+                              : Uri.parse(Prefs.url.value),
+                        );
                       },
                       child: Text(t.profile.quickLinks.serverHomepage),
                     ),
                     TextButton(
                       onPressed: () {
-                        launchUrl(
-                          Uri.parse(
-                              '${Prefs.url.value}/index.php/settings/user/drop_account'),
-                        );
+                        final baseUrl = Prefs.url.value.isEmpty
+                            ? NextcloudClientExtension.defaultNextcloudUri
+                                .toString()
+                            : Prefs.url.value;
+                        launchUrl(Uri.parse(
+                            '$baseUrl/index.php/settings/user/drop_account'));
                       },
                       child: Text(t.profile.quickLinks.deleteAccount),
                     ),
