@@ -48,6 +48,8 @@ class _NcLoginPageState extends State<NcLoginPage> {
       step = LoginStep.nc;
     } else if (Prefs.encPassword.value.isEmpty) {
       step = LoginStep.enc;
+    } else if (Prefs.key.value.isEmpty || Prefs.iv.value.isEmpty) {
+      step = LoginStep.keyIv;
     } else {
       step = LoginStep.done;
     }
@@ -88,10 +90,13 @@ enum LoginStep {
   /// The user needs to provide their encryption password
   enc(0.6),
 
+  /// Logged in, but we need to get the encryption key and iv
+  keyIv(0.8),
+
   /// The user is fully logged in
   done(1);
 
-  const LoginStep(this.progress);
+  const LoginStep(this.progress) : assert(progress >= 0 && progress <= 1);
 
   /// The value used for the LinearProgressIndicator on this step
   final double progress;
