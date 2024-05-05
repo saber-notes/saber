@@ -1,7 +1,14 @@
+import 'dart:ffi';
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:logging/logging.dart';
+import 'package:nextcloud/nextcloud.dart';
+import 'package:saber/components/nextcloud/login_group.dart';
+import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
 import 'package:yaru/yaru.dart';
@@ -19,10 +26,16 @@ class _EncLoginStepState extends State<EncLoginStep> {
   static const width = 400.0;
 
   final _encPasswordController = TextEditingController();
+  final _errorMessage = ValueNotifier('');
+  final _isChecking = ValueNotifier(false);
+
+  final log = Logger('EncLoginStep');
 
   @override
   void dispose() {
     _encPasswordController.dispose();
+    _errorMessage.dispose();
+    _isChecking.dispose();
     super.dispose();
   }
 
@@ -74,12 +87,31 @@ class _EncLoginStepState extends State<EncLoginStep> {
             labelText: 'Encryption password',
           ),
         ),
+        ValueListenableBuilder(
+          valueListenable: _errorMessage,
+          builder: (context, errorMessage, _) {
+            if (errorMessage.isEmpty) return const SizedBox.shrink();
+            return Padding(
+              padding: const EdgeInsets.only(top: 4),
+              child: Text(errorMessage,
+                  style: TextStyle(color: colorScheme.error)),
+            );
+          },
+        ),
         const SizedBox(height: 4),
         ValueListenableBuilder(
           valueListenable: _encPasswordController,
           builder: (context, encPassword, child) {
-            return ElevatedButton(
-              onPressed: encPassword.text.isEmpty ? null : () {},
+            return ValueListenableBuilder(
+              valueListenable: _isChecking,
+              builder: (context, isChecking, child) {
+                return ElevatedButton(
+                  onPressed: (encPassword.text.isEmpty || isChecking)
+                      ? null
+                      : _checkEncPassword,
+                  child: child,
+                );
+              },
               child: child,
             );
           },
@@ -87,5 +119,40 @@ class _EncLoginStepState extends State<EncLoginStep> {
         ),
       ],
     );
+  }
+
+  void _checkEncPassword() async {
+    _errorMessage.value = '';
+
+    final encPassword = _encPasswordController.text;
+    if (encPassword.isEmpty) return;
+
+    try {
+      Prefs.encPassword.value = encPassword;
+      final client = NextcloudClient(
+        Uri.parse(Prefs.url.value),
+        loginName: Prefs.username.value,
+        appPassword: Prefs.ncPassword.value,
+        userAgent: NextcloudClientExtension.userAgent,
+      );
+      _isChecking.value = true;
+      await client.loadEncryptionKey();
+      widget.recheckCurrentStep();
+    } on EncLoginFailure {
+      Prefs.encPassword.value = '';
+
+      _errorMessage.value =
+          'Decryption failed with the provided password. Please try entering it again.';
+    } catch (e) {
+      Prefs.encPassword.value = '';
+      log.severe('Failed to load encryption key: $e', e);
+
+      _errorMessage.value =
+          'Something went wrong connecting to the server. Please try again.\n\n$e';
+
+      if (kDebugMode) rethrow;
+    } finally {
+      _isChecking.value = false;
+    }
   }
 }
