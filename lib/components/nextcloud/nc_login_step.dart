@@ -2,7 +2,9 @@ import 'dart:async';
 
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:regexed_validator/regexed_validator.dart';
 import 'package:saber/data/nextcloud/login_flow.dart';
 import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
 import 'package:saber/data/prefs.dart';
@@ -47,6 +49,13 @@ class _NcLoginStepState extends State<NcLoginStep> {
       widget.recheckCurrentStep();
     });
   }
+
+  final _serverUrlValid = ValueNotifier(false);
+  late final TextEditingController _serverUrlController =
+      TextEditingController()
+        ..addListener(() {
+          _serverUrlValid.value = validator.url(_serverUrlController.text);
+        });
 
   @override
   Widget build(BuildContext context) {
@@ -129,16 +138,25 @@ class _NcLoginStepState extends State<NcLoginStep> {
           ],
         ),
         const SizedBox(height: 16),
-        const TextField(
-          decoration: InputDecoration(
+        TextField(
+          decoration: const InputDecoration(
             labelText: 'Server URL',
             hintText: 'https://nc.example.com',
           ),
+          controller: _serverUrlController,
         ),
         const SizedBox(height: 4),
-        ElevatedButton(
-          onPressed: () {},
-          style: buttonColorStyle(ncColor),
+        ValueListenableBuilder(
+          valueListenable: _serverUrlValid,
+          builder: (context, valid, child) {
+            return ElevatedButton(
+              onPressed: valid
+                  ? () => startLoginFlow(Uri.parse(_serverUrlController.text))
+                  : null,
+              style: buttonColorStyle(ncColor),
+              child: child,
+            );
+          },
           child: const Text('Login with Nextcloud'),
         ),
       ],
