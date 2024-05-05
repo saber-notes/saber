@@ -224,6 +224,11 @@ class _StringsLoginEn {
 		linkToSignup('Sign up now'),
 		const TextSpan(text: '!'),
 	]);
+	TextSpan notYou({required InlineSpanBuilder undoLogin}) => TextSpan(children: [
+		const TextSpan(text: 'Not you? '),
+		undoLogin('Choose another account'),
+		const TextSpan(text: '.'),
+	]);
 	late final _StringsLoginStatusEn status = _StringsLoginStatusEn._(_root);
 	List<dynamic> get faq => [
 		_StringsLogin$faq$0i0$En._(_root),

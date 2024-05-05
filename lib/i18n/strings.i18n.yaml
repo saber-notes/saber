@@ -162,6 +162,7 @@ login:
     login: Log in
   seeFaq: See the FAQ below for more information, including about the encryption password.
   signup(rich): "Don't have an account yet? ${linkToSignup(Sign up now)}!"
+  notYou(rich): "Not you? ${undoLogin(Choose another account)}."
   status:
     loggedIn: Logged in with Nextcloud
     loggedOut: Logged out

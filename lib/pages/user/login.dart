@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
+import 'package:saber/components/nextcloud/enc_login_step.dart';
 import 'package:saber/components/nextcloud/nc_login_step.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
@@ -63,23 +64,25 @@ class _NcLoginPageState extends State<NcLoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          toolbarHeight: kToolbarHeight,
-          title: Text(t.login.title),
-          bottom: PreferredSize(
-            preferredSize: const Size.fromHeight(4),
-            child: LinearProgressIndicator(
-              value: step.progress,
-              minHeight: 4,
-            ),
+      appBar: AppBar(
+        toolbarHeight: kToolbarHeight,
+        title: Text(t.login.title),
+        bottom: PreferredSize(
+          preferredSize: const Size.fromHeight(4),
+          child: LinearProgressIndicator(
+            value: step.progress,
+            minHeight: 4,
           ),
         ),
-        body: switch (step) {
-          LoginStep.waitingForPrefs =>
-            const Center(child: CircularProgressIndicator()),
-          LoginStep.nc => NcLoginStep(recheckCurrentStep: recheckCurrentStep),
-          _ => Text('$step, ${step.progress}'),
-        });
+      ),
+      body: switch (step) {
+        LoginStep.waitingForPrefs =>
+          const Center(child: CircularProgressIndicator()),
+        LoginStep.nc => NcLoginStep(recheckCurrentStep: recheckCurrentStep),
+        LoginStep.enc => EncLoginStep(recheckCurrentStep: recheckCurrentStep),
+        _ => Text('$step, ${step.progress}'),
+      },
+    );
   }
 }
 

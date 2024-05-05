@@ -58,6 +58,13 @@ class _NcLoginStepState extends State<NcLoginStep> {
         });
 
   @override
+  void dispose() {
+    loginFlow?.dispose();
+    _serverUrlController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
