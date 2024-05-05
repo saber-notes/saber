@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
+import 'package:saber/components/nextcloud/done_login_step.dart';
 import 'package:saber/components/nextcloud/enc_login_step.dart';
 import 'package:saber/components/nextcloud/nc_login_step.dart';
 import 'package:saber/data/prefs.dart';
@@ -94,7 +95,7 @@ class _NcLoginPageState extends State<NcLoginPage> {
           const Center(child: CircularProgressIndicator()),
         LoginStep.nc => NcLoginStep(recheckCurrentStep: recheckCurrentStep),
         LoginStep.enc => EncLoginStep(recheckCurrentStep: recheckCurrentStep),
-        _ => Text('$step, ${step.progress}'),
+        LoginStep.done => DoneLoginStep(recheckCurrentStep: recheckCurrentStep),
       },
     );
   }

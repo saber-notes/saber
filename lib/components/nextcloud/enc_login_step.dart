@@ -55,7 +55,8 @@ class _EncLoginStepState extends State<EncLoginStep> {
           excludeFromSemantics: true,
         ),
         const SizedBox(height: 64),
-        Text('Hi ${Prefs.username.value}!', style: textTheme.headlineSmall),
+        Text(t.login.status.hi(u: Prefs.username.value),
+            style: textTheme.headlineSmall),
         Text.rich(
           t.login.notYou(
             undoLogin: (text) => TextSpan(
