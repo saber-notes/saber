@@ -4,8 +4,11 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:nextcloud/core.dart';
+import 'package:nextcloud/nextcloud.dart';
 import 'package:regexed_validator/regexed_validator.dart';
 import 'package:saber/data/nextcloud/login_flow.dart';
+import 'package:saber/data/nextcloud/nc_http_overrides.dart';
 import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
@@ -42,10 +45,26 @@ class _NcLoginStepState extends State<NcLoginStep> {
       ),
     );
 
-    loginFlow!.future.then((credentials) {
+    loginFlow!.future.then((credentials) async {
+      final client = NextcloudClient(
+        Uri.parse(credentials.server),
+        loginName: credentials.loginName,
+        appPassword: credentials.appPassword,
+        userAgent: NextcloudClientExtension.userAgent,
+      );
+      final username = await client.getUsername();
+
       Prefs.url.value = credentials.server;
-      Prefs.username.value = credentials.loginName;
+      Prefs.username.value = username;
       Prefs.ncPassword.value = credentials.appPassword;
+      Prefs.encPassword.value = '';
+
+      Prefs.pfp.value = null;
+      client.core.avatar
+          .getAvatar(userId: username, size: 512)
+          .then((response) => response.body)
+          .then((pfp) => Prefs.pfp.value = pfp);
+
       widget.recheckCurrentStep();
     });
   }
