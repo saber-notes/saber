@@ -4,6 +4,7 @@ import 'package:http/http.dart' as http;
 import 'package:logging/logging.dart';
 import 'package:nextcloud/core.dart';
 import 'package:nextcloud/nextcloud.dart';
+import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class SaberLoginFlow {
@@ -32,7 +33,8 @@ class SaberLoginFlow {
 
   Future<void> _run() async {
     _catchHttpError(() async {
-      final client = NextcloudClient(serverUrl);
+      final client = NextcloudClient(serverUrl,
+          userAgent: NextcloudClientExtension.userAgent);
       final flowClient = client.core.clientFlowLoginV2;
       init = await flowClient.init().then((response) => response.body);
       log.info('init: $init');
