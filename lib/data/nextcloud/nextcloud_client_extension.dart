@@ -30,11 +30,11 @@ extension NextcloudClientExtension on NextcloudClient {
   static const String reproducibleSalt = r'8MnPs64@R&mF8XjWeLrD';
 
   static NextcloudClient? withSavedDetails() {
+    if (!Prefs.loggedIn) return null;
+
     String url = Prefs.url.value;
     String username = Prefs.username.value;
     String ncPassword = Prefs.ncPassword.value;
-
-    if (username.isEmpty || ncPassword.isEmpty) return null;
 
     final client = NextcloudClient(
       url.isNotEmpty ? Uri.parse(url) : defaultNextcloudUri,
