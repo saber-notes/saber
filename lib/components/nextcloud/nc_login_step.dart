@@ -1,12 +1,19 @@
+import 'dart:async';
+
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:saber/data/nextcloud/login_flow.dart';
+import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
+import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/user/login.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class NcLoginStep extends StatefulWidget {
-  const NcLoginStep({super.key});
+  const NcLoginStep({super.key, required this.recheckCurrentStep});
+
+  final void Function() recheckCurrentStep;
 
   @override
   State<NcLoginStep> createState() => _NcLoginStepState();
@@ -20,6 +27,26 @@ class _NcLoginStepState extends State<NcLoginStep> {
   static const onSaberColor = Colors.black;
   static const saberColorDarkened = Color(0xFFc29800);
   static const ncColor = Color(0xFF0082c9);
+
+  SaberLoginFlow? loginFlow;
+  void startLoginFlow(Uri serverUrl) {
+    loginFlow?.dispose();
+    loginFlow = SaberLoginFlow.start(serverUrl: serverUrl);
+
+    showAdaptiveDialog(
+      context: context,
+      builder: (context) => _LoginFlowDialog(
+        loginFlow: loginFlow!,
+      ),
+    );
+
+    loginFlow!.future.then((credentials) {
+      Prefs.url.value = credentials.server;
+      Prefs.username.value = credentials.loginName;
+      Prefs.ncPassword.value = credentials.appPassword;
+      widget.recheckCurrentStep();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +89,8 @@ class _NcLoginStepState extends State<NcLoginStep> {
         ),
         const SizedBox(height: 16),
         ElevatedButton(
-          onPressed: () {},
+          onPressed: () =>
+              startLoginFlow(NextcloudClientExtension.defaultNextcloudUri),
           style: buttonColorStyle(saberColor, onSaberColor),
           child: const Text('Login with Saber'),
         ),
@@ -104,7 +132,7 @@ class _NcLoginStepState extends State<NcLoginStep> {
         const TextField(
           decoration: InputDecoration(
             labelText: 'Server URL',
-            hintText: 'https://example.com',
+            hintText: 'https://nc.example.com',
           ),
         ),
         const SizedBox(height: 4),
@@ -125,4 +153,97 @@ class _NcLoginStepState extends State<NcLoginStep> {
       foregroundColor: colorScheme.onPrimary,
     );
   }
+}
+
+class _LoginFlowDialog extends StatefulWidget {
+  // ignore: unused_element
+  const _LoginFlowDialog({super.key, required this.loginFlow});
+
+  final SaberLoginFlow loginFlow;
+
+  @override
+  State<_LoginFlowDialog> createState() => _LoginFlowDialogState();
+}
+
+class _LoginFlowDialogState extends State<_LoginFlowDialog> {
+  @override
+  void initState() {
+    super.initState();
+    widget.loginFlow.future.then((_) {
+      if (!mounted) return;
+      Navigator.of(context).pop();
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog.adaptive(
+      title:
+          const Text('Please authorize Saber to access your Nextcloud account'),
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          const Text('Please follow the prompts in your browser.'),
+          TextButton(
+            onPressed: widget.loginFlow.openInBrowser,
+            child: const Text('Browser didn\'t open? Click here'),
+          ),
+        ],
+      ),
+      actions: [
+        TextButton(
+          onPressed: () {
+            widget.loginFlow.dispose();
+            Navigator.of(context).pop();
+          },
+          child: const Text('Cancel'),
+        ),
+        const _FakeDoneButton(
+          child: Text('Done'),
+        ),
+      ],
+    );
+  }
+}
+
+/// [SaberLoginFlow] polls the login flow and completes automatically.
+///
+/// The done button isn't needed, but it's added to prevent the user from
+/// closing the dialog before the login flow is completed.
+///
+/// When pressed, the text will be replaced with a spinner for 10 seconds.
+class _FakeDoneButton extends StatefulWidget {
+  // ignore: unused_element
+  const _FakeDoneButton({super.key, required this.child});
+
+  final Widget child;
+
+  @override
+  State<_FakeDoneButton> createState() => _FakeDoneButtonState();
+}
+
+class _FakeDoneButtonState extends State<_FakeDoneButton> {
+  bool pressed = false;
+
+  Timer? timer;
+
+  void _onPressed() {
+    timer?.cancel();
+    timer = Timer(const Duration(seconds: 10), () {
+      if (mounted) setState(() => pressed = false);
+    });
+    if (mounted) setState(() => pressed = true);
+  }
+
+  @override
+  Widget build(BuildContext context) => TextButton(
+        onPressed: pressed ? null : _onPressed,
+        child: pressed
+            ? const SizedBox(
+                width: 16,
+                height: 16,
+                child: CircularProgressIndicator(),
+              )
+            : widget.child,
+      );
 }

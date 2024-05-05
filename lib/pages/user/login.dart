@@ -36,6 +36,12 @@ class _NcLoginPageState extends State<NcLoginPage> {
         Prefs.encPassword.waitUntilLoaded(),
       ]);
 
+    recheckCurrentStep();
+  }
+
+  void recheckCurrentStep() {
+    final prevStep = step;
+
     if (Prefs.url.value.isEmpty ||
         Prefs.username.value.isEmpty ||
         Prefs.ncPassword.value.isEmpty) {
@@ -46,7 +52,7 @@ class _NcLoginPageState extends State<NcLoginPage> {
       step = LoginStep.done;
     }
 
-    if (mounted) setState(() {});
+    if (prevStep != step) if (mounted) setState(() {});
   }
 
   @override
@@ -66,7 +72,7 @@ class _NcLoginPageState extends State<NcLoginPage> {
         body: switch (step) {
           LoginStep.waitingForPrefs =>
             const Center(child: CircularProgressIndicator()),
-          LoginStep.nc => const NcLoginStep(),
+          LoginStep.nc => NcLoginStep(recheckCurrentStep: recheckCurrentStep),
           _ => Text('$step, ${step.progress}'),
         });
   }
