@@ -610,9 +610,11 @@ class _StringsLoginStatusEn {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
-	String get loggedIn => 'Logged in with Nextcloud';
 	String get loggedOut => 'Logged out';
 	String get tapToLogin => 'Tap to log in with Nextcloud';
+	String hi({required Object u}) => 'Hi, ${u}!';
+	String get almostDone => 'Almost ready for syncing, tap to finish logging in';
+	String get loggedIn => 'Logged in with Nextcloud';
 }
 
 // Path: login.faq.0

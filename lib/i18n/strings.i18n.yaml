@@ -164,9 +164,11 @@ login:
   signup(rich): "Don't have an account yet? ${linkToSignup(Sign up now)}!"
   notYou(rich): "Not you? ${undoLogin(Choose another account)}."
   status:
-    loggedIn: Logged in with Nextcloud
     loggedOut: Logged out
     tapToLogin: Tap to log in with Nextcloud
+    hi: Hi, $u!
+    almostDone: Almost ready for syncing, tap to finish logging in
+    loggedIn: Logged in with Nextcloud
   faq:
     - q: "What is Nextcloud?"
       a: "Nextcloud is a private file sync server, among other things. You can use the default Saber Nextcloud server, use a third-party server, or self-host your own for full control of your data."

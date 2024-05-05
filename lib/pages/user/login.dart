@@ -13,6 +13,27 @@ class NcLoginPage extends StatefulWidget {
 
   @override
   State<NcLoginPage> createState() => _NcLoginPageState();
+
+  static LoginStep getCurrentStep() {
+    if (!Prefs.url.loaded ||
+        !Prefs.username.loaded ||
+        !Prefs.ncPassword.loaded ||
+        !Prefs.encPassword.loaded ||
+        !Prefs.key.loaded ||
+        !Prefs.iv.loaded) {
+      return LoginStep.waitingForPrefs;
+    }
+
+    if (Prefs.username.value.isEmpty || Prefs.ncPassword.value.isEmpty) {
+      return LoginStep.nc;
+    }
+    if (Prefs.encPassword.value.isEmpty ||
+        Prefs.key.value.isEmpty ||
+        Prefs.iv.value.isEmpty) {
+      return LoginStep.enc;
+    }
+    return LoginStep.done;
+  }
 }
 
 class _NcLoginPageState extends State<NcLoginPage> {
@@ -32,12 +53,16 @@ class _NcLoginPageState extends State<NcLoginPage> {
     if (!Prefs.url.loaded ||
         !Prefs.username.loaded ||
         !Prefs.ncPassword.loaded ||
-        !Prefs.encPassword.loaded)
+        !Prefs.encPassword.loaded ||
+        !Prefs.key.loaded ||
+        !Prefs.iv.loaded)
       await Future.wait([
         Prefs.url.waitUntilLoaded(),
         Prefs.username.waitUntilLoaded(),
         Prefs.ncPassword.waitUntilLoaded(),
         Prefs.encPassword.waitUntilLoaded(),
+        Prefs.key.waitUntilLoaded(),
+        Prefs.iv.waitUntilLoaded(),
       ]);
 
     recheckCurrentStep();
@@ -45,17 +70,7 @@ class _NcLoginPageState extends State<NcLoginPage> {
 
   void recheckCurrentStep() {
     final prevStep = step;
-
-    if (Prefs.username.value.isEmpty ||
-        Prefs.ncPassword.value.isEmpty) {
-      step = LoginStep.nc;
-    } else if (Prefs.encPassword.value.isEmpty) {
-      step = LoginStep.enc;
-    } else if (Prefs.key.value.isEmpty || Prefs.iv.value.isEmpty) {
-      step = LoginStep.keyIv;
-    } else {
-      step = LoginStep.done;
-    }
+    step = NcLoginPage.getCurrentStep();
 
     if (prevStep != step) if (mounted) setState(() {});
   }
@@ -94,9 +109,6 @@ enum LoginStep {
 
   /// The user needs to provide their encryption password
   enc(0.6),
-
-  /// Logged in, but we need to get the encryption key and iv
-  keyIv(0.8),
 
   /// The user is fully logged in
   done(1);

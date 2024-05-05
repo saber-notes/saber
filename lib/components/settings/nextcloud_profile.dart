@@ -11,6 +11,7 @@ import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/data/routes.dart';
 import 'package:saber/i18n/strings.g.dart';
+import 'package:saber/pages/user/login.dart';
 
 typedef Quota = UserDetailsQuota;
 
@@ -42,21 +43,24 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
 
   @override
   Widget build(BuildContext context) {
-    final String heading, subheading;
-    final loggedIn = Prefs.loggedIn;
-    if (loggedIn) {
-      heading = Prefs.username.value;
-      subheading = t.login.status.loggedIn;
-    } else {
-      heading = t.login.status.loggedOut;
-      subheading = t.login.status.tapToLogin;
-    }
+    final loginStep = NcLoginPage.getCurrentStep();
+    final heading = switch (loginStep) {
+      LoginStep.waitingForPrefs => '',
+      LoginStep.nc => t.login.status.loggedOut,
+      LoginStep.enc ||
+      LoginStep.done =>
+        t.login.status.hi(u: Prefs.username.value),
+    };
+    final subheading = switch (loginStep) {
+      LoginStep.waitingForPrefs => '',
+      LoginStep.nc => t.login.status.tapToLogin,
+      LoginStep.enc => t.login.status.almostDone,
+      LoginStep.done => t.login.status.loggedIn,
+    };
 
     var colorScheme = Theme.of(context).colorScheme;
     return ListTile(
-      onTap: () {
-        context.push(loggedIn ? RoutePaths.profile : RoutePaths.login);
-      },
+      onTap: () => context.push(RoutePaths.login),
       leading: ValueListenableBuilder(
         valueListenable: Prefs.pfp,
         builder: (BuildContext context, Uint8List? pfp, _) {
@@ -80,7 +84,7 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
       ),
       title: Text(heading),
       subtitle: Text(subheading),
-      trailing: loggedIn
+      trailing: loginStep == LoginStep.done
           ? Row(
               mainAxisSize: MainAxisSize.min,
               children: [
