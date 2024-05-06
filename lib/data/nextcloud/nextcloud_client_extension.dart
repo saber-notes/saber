@@ -17,8 +17,8 @@ extension NextcloudClientExtension on NextcloudClient {
       Uri.parse('https://nc.saber.adil.hanney.org');
 
   static final userAgent = 'Saber/$buildName '
-      '(${Platform.operatingSystem}; ${Platform.operatingSystemVersion}) '
-      'Dart/${Platform.version}';
+      '(${Platform.operatingSystem}) '
+      'Dart/${Platform.version.split(' ').first}';
 
   static const String appRootDirectoryPrefix =
       FileManager.appRootDirectoryPrefix;
