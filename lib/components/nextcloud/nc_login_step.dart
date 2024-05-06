@@ -6,6 +6,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:nextcloud/core.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:regexed_validator/regexed_validator.dart';
+import 'package:saber/components/settings/app_info.dart';
 import 'package:saber/data/nextcloud/login_flow.dart';
 import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
 import 'package:saber/data/prefs.dart';
@@ -105,6 +106,18 @@ class _NcLoginStepState extends State<NcLoginStep> {
         const SizedBox(height: 64),
         Text('Choose where you want to store your data:',
             style: textTheme.headlineSmall),
+        Text.rich(
+          t.login.form.agreeToPrivacyPolicy(
+            linkToPrivacyPolicy: (text) => TextSpan(
+              text: text,
+              style: TextStyle(color: colorScheme.primary),
+              recognizer: TapGestureRecognizer()
+                ..onTap = () {
+                  launchUrl(AppInfo.privacyPolicyUrl);
+                },
+            ),
+          ),
+        ),
         const SizedBox(height: 32),
         Row(
           mainAxisAlignment: MainAxisAlignment.end,
@@ -178,7 +191,14 @@ class _NcLoginStepState extends State<NcLoginStep> {
           builder: (context, valid, child) {
             return ElevatedButton(
               onPressed: valid
-                  ? () => startLoginFlow(Uri.parse(_serverUrlController.text))
+                  ? () {
+                      var text = _serverUrlController.text;
+                      if (!text.startsWith(RegExp(r'https?://'))) {
+                        text = 'https://$text';
+                        _serverUrlController.text = text;
+                      }
+                      startLoginFlow(Uri.parse(text));
+                    }
                   : null,
               style: buttonColorStyle(ncColor),
               child: child,
