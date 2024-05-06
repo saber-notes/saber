@@ -995,48 +995,6 @@ pt-BR:
     menu:
       lineHeightDescription(OUTDATED): Also controls the text size for typed notes
 ru:
-  common:
-    done(OUTDATED): Готово
-    continueBtn(OUTDATED): Продолжить
-  login:
-    notYou(rich)(OUTDATED): "Не вы? ${undoLogin(Выбрать другую учётную запись)}."
-    status:
-      hi(OUTDATED): "Привет, $u!"
-      almostDone(OUTDATED): "Синхронизация почти готова, нажмите, чтобы завершить вход в систему"
-    ncLoginStep:
-      whereToStoreData(OUTDATED): "Выберите, где вы хотите хранить свои данные:"
-      saberNcServer(OUTDATED): Saber Nextcloud сервер
-      otherNcServer(OUTDATED): Другой Nextcloud сервер
-      serverUrl(OUTDATED): URL-адрес сервера
-      loginWithSaber(OUTDATED): Войти с помощью Saber
-      loginWithNextcloud(OUTDATED): Войти с помощью Nextcloud
-      loginFlow:
-        pleaseAuthorize(OUTDATED): Пожалуйста, авторизуйте Saber для доступа к вашей учётной записи Nextcloud
-        followPrompts(OUTDATED): Пожалуйста, следуйте инструкциям в вашем браузере.
-        browserDidntOpen(OUTDATED): "Браузер не открылся? Нажмите сюда"
-    encLoginStep:
-      enterEncPassword(OUTDATED): "Чтобы защитить ваши данные, введите пароль шифрования:"
-      newToSaber(OUTDATED): "Новичок в Saber? Просто введите новый пароль для шифрования."
-      encPassword(OUTDATED): Пароль шифрования
-      encFaqTitle(OUTDATED): Часто задаваемые вопросы
-      wrongEncPassword(OUTDATED): Не удалось расшифровать указанным паролем. Пожалуйста, попробуйте ввести его еще раз.
-      connectionFailed(OUTDATED): При подключении к серверу произошла ошибка. Пожалуйста, повторите попытку позже.
-      encFaq(OUTDATED):
-        - в: "Что такое пароль шифрования? Зачем использовать два пароля?"
-          о: |-
-            Пароль Nextcloud используется для доступа к облаку. Пароль шифрования "зашифровывает" ваши данные еще до того, как они попадут в облако.
-            Даже если кто-то получит доступ к вашей учётной записи Nextcloud, ваши заметки останутся в безопасности и будут зашифрованы с помощью отдельного пароля. Это обеспечивает второй уровень безопасности для защиты ваших данных.
-            Никто не сможет получить доступ к вашим заметкам на сервере без вашего пароля шифрования, но это также означает, что если вы забудете свой пароль шифрования, вы потеряете доступ к своим данным.
-        - в: "Я еще не установил пароль для шифрования. Где я могу его получить?"
-          о: |-
-            Придумайте новый пароль для шифрования и введите его выше.
-            Saber автоматически сгенерирует ваши ключи шифрования на основе этого пароля.
-        - в: "Могу ли я использовать тот же пароль, что и для моей учётной записи Nextcloud?"
-          о: "Да, но имейте в виду, что администратору сервера или кому-либо ещё будет проще получить доступ к вашим заметкам, если они получат доступ к вашей учётной записи Nextcloud."
-  profile:
-    quotaUsage(OUTDATED): Вы используете $used из $total ($percent)
-    connectedTo(OUTDATED): Подключен к
-    faqTitle(OUTDATED): Часто задаваемые вопросы
 tr:
   common:
     done(OUTDATED): Done
@@ -1149,45 +1107,3 @@ zh-Hans-CN:
     connectedTo(OUTDATED): Connected to
     faqTitle(OUTDATED): Frequently asked questions
 zh-Hant-TW:
-  common:
-    done(OUTDATED): 完成
-    continueBtn(OUTDATED): 繼續
-  login:
-    notYou(rich)(OUTDATED): "不是你？ ${undoLogin(選擇另一個帳號)}。"
-    status:
-      hi(OUTDATED): "嗨，$u!"
-      almostDone(OUTDATED): "即將同步，點擊即可完成登入"
-    ncLoginStep:
-      whereToStoreData(OUTDATED): "選擇您要儲存資料的位置："
-      saberNcServer(OUTDATED): Saber 的 Nextcloud 伺服器
-      otherNcServer(OUTDATED): 其他 Nextcloud 伺服器
-      serverUrl(OUTDATED): 伺服器網址
-      loginWithSaber(OUTDATED): 使用 Saber 登入
-      loginWithNextcloud(OUTDATED): 使用 Nextcloud 登入
-      loginFlow:
-        pleaseAuthorize(OUTDATED): 請授權 Saber 存取您的 Nextcloud 帳號
-        followPrompts(OUTDATED): 請按照瀏覽器中的提示進行操作。
-        browserDidntOpen(OUTDATED): "瀏覽器沒打開？點擊這裡"
-    encLoginStep:
-      enterEncPassword(OUTDATED): "為了保護您的資料，請輸入您的加密密碼："
-      newToSaber(OUTDATED): "第一次使用 Saber？只需輸入新的加密密碼即可。"
-      encPassword(OUTDATED): 加密密碼
-      encFaqTitle(OUTDATED): 常見問題
-      wrongEncPassword(OUTDATED): 使用提供的密碼解密失敗。請嘗試再次輸入。
-      connectionFailed(OUTDATED): 連線伺服器時出現問題。請稍後再試。
-      encFaq(OUTDATED):
-        - q: "什麼是加密密碼？為什麼要使用兩個密碼？"
-          a: |-
-            Nextcloud 密碼用於存取雲端。加密密碼會在資料到達雲端之前混亂您的資料。
-            即使有人訪問您的 Nextcloud 帳號，您的筆記也將保持安全並使用單獨的密碼進行加密。這為您提供了第二層安全保護來保護您的資料。
-            如果沒有加密密碼，任何人都無法存取伺服器上的筆記，但這也意味著如果您忘記加密密碼，您將無法存取您的資料。
-        - q: "我還沒有設定加密密碼。我在哪裡可以得到它？"
-          a: |-
-            選擇一個新的加密密碼並在上面輸入。
-            Saber 將自動根據該密碼產生您的加密金鑰。
-        - q: "我可以使用與 Nextcloud 帳號相同的密碼嗎？"
-          a: "可以，但請記住如果伺服器管理員或其他人獲得了您的 Nextcloud 帳號的存取權限，他們將更容易存取您的筆記。"
-  profile:
-    quotaUsage(OUTDATED): 您已使用 $used，共 $total ($percent)
-    connectedTo(OUTDATED): 連線到
-    faqTitle(OUTDATED): 常見問題
