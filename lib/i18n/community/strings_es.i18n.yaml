@@ -143,24 +143,8 @@ settings:
   resyncEverything(OUTDATED): Resync todo
 login:
   title: Iniciar sesión
-  feedbacks:
-    checkUsername: Por favor verifica tu nombre de usuario o correo electrónico.
-    enterNcPassword: Por favor ingresa tu contraseña de Nextcloud.
-    enterEncPassword: Por favor introduce tu contraseña de cifrado.
-    checkUrl: Por favor introduce una dirección URL válida.
-    ncLoginFailed: "No se pudo iniciar sesión, por favor verifica tus datos y conexión a internet."
-    encLoginFailed: "No se pudo iniciar sesión, por favor verifica tu contraseña de cifrado."
-    loginSuccess: "¡Inicio de sesión exitoso! Por favor espera mientras configuramos todo..."
-    ncUnsupportedFailure(OUTDATED): El servidor al que intentas conectar tiene la versión $v de Nextcloud pero esta versión de Saber solo admite Nextcloud $s a $t.
   form:
-    useCustomServer: Quiero utilizar un servidor de Nextcloud personalizado
-    customServerUrl: Dirección URL del servidor personalizada
-    username: Nombre de usuario o correo electrónico
-    ncPassword: Contraseña de Nextcloud
-    encPassword: Contraseña de cifrado
     agreeToPrivacyPolicy(rich): "Al iniciar sesión, aceptas nuestra ${linkToPrivacyPolicy(Política de privacidad)}."
-    login: Iniciar sesión
-  seeFaq(OUTDATED): "Consulte las preguntas frecuentes a continuación para obtener más información, incluida la contraseña de cifrado."
   signup(rich): "¿Aún no tienes una cuenta? ${linkToSignup(Regístrate ahora)}"
   status:
     loggedIn: Sesión iniciada con Nextcloud
@@ -185,7 +169,6 @@ profile:
   title: Mi perfil
   logout: Cerrar sesión
   quickLinks:
-    title: Enlaces rápidos
     serverHomepage: Página de inicio del servidor
     deleteAccount: Eliminar cuenta
   faq:

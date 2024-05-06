@@ -143,24 +143,8 @@ settings:
     mustBeDoneSyncing(OUTDATED): Dizini değiştirmeden önce senkronizasyonun tamamlandığından emin olun
 login:
   title: Giriş yap
-  feedbacks:
-    checkUsername: Lütfen kullanıcı adınız veya e-posta adresinizi kontrol edin.
-    enterNcPassword: Lütfen Nextcloud parolanızı girin.
-    enterEncPassword: Lütfen şifreleme parolanızı girin.
-    checkUrl: Lütfen geçerli bir URL girin.
-    ncLoginFailed: "Giriş başarısız, Nextcloud parolanızı ve internet bağlantınızı kontrol edin."
-    ncUnsupportedFailure: Bu sunucu Nextcloud'un $v sürümünü kullanıyor ancak Saber'ın bu versiyonunda Nextcloud $s - $t sürümleri desteklenmekte.
-    encLoginFailed: "Giriş başarısız, şifreleme parolanızı kontrol ediniz."
-    loginSuccess: "Giriş başarılı! Kurulum gerçekleşirken lütfen bekleyin..."
   form:
-    useCustomServer: Farklı bir Nextcloud sunucusu kullanmak istiyorum
-    customServerUrl: Farklı bir sunucu URL'i
-    username: Kullanıcı adı veya e-posta adresi
-    ncPassword: Nextcloud parolası
-    encPassword: Şifreleme parolası
     agreeToPrivacyPolicy(rich): "Giriş yaparak ${linkToPrivacyPolicy(Gizlilik Politikasını)} kabul edersiniz."
-    login: Giriş yap
-  seeFaq(OUTDATED): Şifreleme parolası da dahil olmak üzere daha fazla bilgi için aşağıdaki SSS'ye bakın.
   signup(rich): "Henüz hesabınız yok mu? ${linkToSignup(Hesap oluşturmak için tıklayın)}!"
   status:
     loggedIn: Nextcloud'a giriş yapıldı
@@ -185,7 +169,6 @@ profile:
   title: Profilim
   logout: Çıkış yap
   quickLinks:
-    title: Hızlı linkler
     serverHomepage: Sunucu anasayfası
     deleteAccount: Hesabı sil
   faq:

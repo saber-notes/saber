@@ -143,24 +143,8 @@ settings:
     mustBeDoneSyncing: "Прежде чем менять каталог, убедитесь, что синхронизация завершена."
 login:
   title: Авторизация
-  feedbacks:
-    checkUsername: Дважды проверьте своё имя пользователя или адрес электронной почты.
-    enterNcPassword: Введите свой пароль Nextcloud.
-    enterEncPassword: Введите пароль шифрования.
-    checkUrl: "Пожалуйста, введите корректный URL адрес."
-    ncLoginFailed: Ошибка входа. Проверьте свои данные и подключение к сети.
-    ncUnsupportedFailure: "На данном сервере работает Nextcloud $v, но эта версия Saber поддерживает только Nextcloud от $s до $t."
-    encLoginFailed: Не удалось войти. Проверьте пароль шифрования.
-    loginSuccess: "Вход выполнен успешно! Пожалуйста подождите, пока мы настроим…"
   form:
-    useCustomServer: Я буду использовать свой Nextcloud сервер
-    customServerUrl: Адрес Вашего сервера
-    username: Имя пользователя или e-mail
-    ncPassword: Пароль Nextcloud
-    encPassword: Пароль шифрования
     agreeToPrivacyPolicy(rich): "Авторизуясь, вы соглашаетесь с ${linkToPrivacyPolicy(политикой конфиденциальности)}."
-    login: Авторизоваться
-  seeFaq: "Дополнительную информацию, в том числе о пароле шифрования, см. в разделе часто задаваемых вопросов ниже."
   signup(rich): "У вас нет учётной записи? ${linkToSignup(Зарегистрируйтесь сейчас)}!"
   status:
     loggedIn: Авторизован в Nextcloud
@@ -189,7 +173,6 @@ profile:
   title: Мой профиль
   logout: Выйти
   quickLinks:
-    title: Быстрые ссылки
     serverHomepage: Домашняя страница сервера
     deleteAccount: Удалить учётную запись
   faq:

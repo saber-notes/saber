@@ -143,24 +143,8 @@ settings:
   resyncEverything(OUTDATED): すべてを再同期する
 login:
   title: ログイン
-  feedbacks:
-    checkUsername: ユーザー名またはEメールを再度ご確認ください。
-    enterNcPassword: Nextcloudのパスワードを入力してください。
-    enterEncPassword: 暗号化パスワードを入力してください。
-    checkUrl: 有効なURLを入力してください。
-    ncLoginFailed: ログインに失敗しました。詳細とネットワーク接続を確認してください。
-    encLoginFailed: ログインに失敗しました。暗号化パスワードを確認してください。
-    loginSuccess: ログインに成功しました！セットアップ中です。しばらくお待ちください...
-    ncUnsupportedFailure(OUTDATED): 指定されたサーバーは Nextcloud $v を実行していますが、このバージョンの Saber は Nextcloud $s ～ $t のみをサポートします。
   form:
-    useCustomServer: カスタムNextcloudサーバーを使いたい
-    customServerUrl: カスタムサーバーURL
-    username: ユーザー名またはメールアドレス
-    ncPassword: Nextcloudのパスワード
-    encPassword: 暗号化パスワード
     agreeToPrivacyPolicy(rich): "ログインすることにより、${linkToPrivacyPolicy(プライベートポリシー)}に同意したものとみなされます。"
-    login: ログイン
-  seeFaq(OUTDATED): 暗号化パスワードなどの詳細については、以下の FAQ を参照してください。
   signup(rich): "まだアカウントをお持ちでないですか？ ${linkToSignup(今すぐ登録)}!"
   status:
     loggedIn: Nextcloudでログイン
@@ -185,7 +169,6 @@ profile:
   title: プロフィール
   logout: ログアウト
   quickLinks:
-    title: クイックリンク
     serverHomepage: サーバーホームページ
     deleteAccount: アカウントの削除
   faq:

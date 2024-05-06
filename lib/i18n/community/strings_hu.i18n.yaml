@@ -143,24 +143,8 @@ settings:
   resyncEverything(OUTDATED): Resync mindent
 login:
   title: Bejelentkezés
-  feedbacks:
-    checkUsername: "Kérjem, ellenőrizze kétszer is a felhasználónevét vagy az e-mail címét"
-    enterNcPassword: "Kérem, adja meg a Nextcloud jelszavát"
-    enterEncPassword: "Kérem, adja meg a titkosítási jelszavát"
-    checkUrl: Kérem adjon meg egy érvényes URL-címet
-    ncLoginFailed: "A bejelentkezés sikertelen, kérem, ellenőrizze adatait és hálózati kapcsolatát"
-    encLoginFailed: "A bejelentkezés sikertelen, kérem, ellenőrizze a titkosítási jelszavát"
-    loginSuccess: "Bejelentkezés sikeres! Kérjük, várjon, amíg beüzemeljük..."
-    ncUnsupportedFailure(OUTDATED): "Az adott szerveren a Nextcloud $v fut, de a Saber ezen verziója csak a Nextcloud $s és $t között támogatja."
   form:
-    useCustomServer: Egyéni Nextcloud-kiszolgálót szeretnék használni
-    customServerUrl: Egyéni kiszolgáló URL-címe
-    username: Felhasnálónév vagy e-mail
-    ncPassword: Nextcloud jelszó
-    encPassword: Titkosítási jelszó
     agreeToPrivacyPolicy(rich): "A bejelentkezéssel elfogadja a ${linkToPrivacyPolicy(Adatvédelmi irányelvek)}."
-    login: Bejelentkezés
-  seeFaq(OUTDATED): "Tekintse meg az alábbi GYIK-et további információkért, beleértve a titkosítási jelszót is."
   signup(rich): "Még nincsen fiókja? ${linkToSignup(Regisztrálás)}!"
   status:
     loggedIn: Bejelentkezve a Nextclouddal
@@ -183,7 +167,6 @@ login:
       a: "Igen, de ez kevésbé biztonságos. Mivel a Nextcloud jelszava elküldésre kerül a szervernek, valaki, aki hozzáfér a szerverhez, képes lesz visszafejteni a jegyzeteit. Csak akkor használja ugyanazt a jelszót, ha megbízik a szerver tulajdonosában."
 profile:
   quickLinks:
-    title(OUTDATED): Gyors linkek
     serverHomepage(OUTDATED): Szerver honlapja
     deleteAccount(OUTDATED): Fiók törlése
   title(OUTDATED): A profilom

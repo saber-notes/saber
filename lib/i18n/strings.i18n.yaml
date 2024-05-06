@@ -143,31 +143,15 @@ settings:
     mustBeDoneSyncing: Make sure syncing is complete before changing the directory
 login:
   title: Login
-  feedbacks:
-    checkUsername: Please double check your username or email.
-    enterNcPassword: Please enter your Nextcloud password.
-    enterEncPassword: Please enter your encryption password.
-    checkUrl: Please enter a valid URL.
-    ncLoginFailed: "Log in failed, please check your details and network connection."
-    ncUnsupportedFailure: The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s to $t.
-    encLoginFailed: "Log in failed, please check your encryption password."
-    loginSuccess: "Log in successful! Please wait while we set up..."
   form:
-    useCustomServer: I want to use a custom Nextcloud server
-    customServerUrl: Custom server URL
-    username: Username or email
-    ncPassword: Nextcloud password
-    encPassword: Encryption password
     agreeToPrivacyPolicy(rich): "By logging in, you agree to the ${linkToPrivacyPolicy(Privacy Policy)}."
-    login: Log in
-  seeFaq: See the FAQ below for more information, including about the encryption password.
   signup(rich): "Don't have an account yet? ${linkToSignup(Sign up now)}!"
   notYou(rich): "Not you? ${undoLogin(Choose another account)}."
   status:
     loggedOut: Logged out
     tapToLogin: Tap to log in with Nextcloud
-    hi: Hi, $u!
-    almostDone: Almost ready for syncing, tap to finish logging in
+    hi: "Hi, $u!"
+    almostDone: "Almost ready for syncing, tap to finish logging in"
     loggedIn: Logged in with Nextcloud
   faq:
     - q: "What is Nextcloud?"
@@ -192,7 +176,6 @@ profile:
   title: My profile
   logout: Log out
   quickLinks:
-    title: Quick links
     serverHomepage: Server homepage
     deleteAccount: Delete account
   faqTitle: Frequently asked questions

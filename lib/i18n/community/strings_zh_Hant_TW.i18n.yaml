@@ -143,24 +143,8 @@ settings:
     mustBeDoneSyncing: 更改目錄之前請確保同步已完成
 login:
   title: 登入
-  feedbacks:
-    checkUsername: 請仔細檢查您的使用者名稱或電子郵件。
-    enterNcPassword: 請輸入您的 Nextcloud 密碼。
-    enterEncPassword: 請輸入您的加密密碼。
-    checkUrl: 請輸入有效連結。
-    ncLoginFailed: 登入失敗，請檢查您的詳細資訊和網路連接。
-    ncUnsupportedFailure: 選定的伺服器正在運行 Nextcloud $v，但此版本的 Saber 僅支援 Nextcloud $s 到 $t。
-    encLoginFailed: 登入失敗，請檢查您的加密密碼。
-    loginSuccess: 登入成功！我們正在設定中，請稍後……
   form:
-    useCustomServer: 我想要使用自訂 Nextcloud 伺服器
-    customServerUrl: 自訂伺服器連結
-    username: 使用者名稱或電子郵件
-    ncPassword: Nextcloud 密碼
-    encPassword: 加密密碼
     agreeToPrivacyPolicy(rich): "登入即表示你同意 ${linkToPrivacyPolicy(隱私政策)}。"
-    login: 登入
-  seeFaq: 請閱讀下面的常見問題解答以了解有關加密密碼等資訊。
   signup(rich): "還沒有帳號？ ${linkToSignup(立即註冊)}！"
   status:
     loggedIn: 已使用 Nextcloud 登入
@@ -189,7 +173,6 @@ profile:
   title: 我的個人資料
   logout: 登出
   quickLinks:
-    title: 快速連結
     serverHomepage: 伺服器主頁
     deleteAccount: 刪除帳戶
   faq:

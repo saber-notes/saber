@@ -216,9 +216,7 @@ class _StringsLoginEn {
 
 	// Translations
 	String get title => 'Login';
-	late final _StringsLoginFeedbacksEn feedbacks = _StringsLoginFeedbacksEn._(_root);
 	late final _StringsLoginFormEn form = _StringsLoginFormEn._(_root);
-	String get seeFaq => 'See the FAQ below for more information, including about the encryption password.';
 	TextSpan signup({required InlineSpanBuilder linkToSignup}) => TextSpan(children: [
 		const TextSpan(text: 'Don\'t have an account yet? '),
 		linkToSignup('Sign up now'),
@@ -567,23 +565,6 @@ class _StringsSettingsCustomDataDirEn {
 	String get mustBeDoneSyncing => 'Make sure syncing is complete before changing the directory';
 }
 
-// Path: login.feedbacks
-class _StringsLoginFeedbacksEn {
-	_StringsLoginFeedbacksEn._(this._root);
-
-	final Translations _root; // ignore: unused_field
-
-	// Translations
-	String get checkUsername => 'Please double check your username or email.';
-	String get enterNcPassword => 'Please enter your Nextcloud password.';
-	String get enterEncPassword => 'Please enter your encryption password.';
-	String get checkUrl => 'Please enter a valid URL.';
-	String get ncLoginFailed => 'Log in failed, please check your details and network connection.';
-	String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'The given server is running Nextcloud ${v} but this version of Saber only supports Nextcloud ${s} to ${t}.';
-	String get encLoginFailed => 'Log in failed, please check your encryption password.';
-	String get loginSuccess => 'Log in successful! Please wait while we set up...';
-}
-
 // Path: login.form
 class _StringsLoginFormEn {
 	_StringsLoginFormEn._(this._root);
@@ -591,17 +572,11 @@ class _StringsLoginFormEn {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
-	String get useCustomServer => 'I want to use a custom Nextcloud server';
-	String get customServerUrl => 'Custom server URL';
-	String get username => 'Username or email';
-	String get ncPassword => 'Nextcloud password';
-	String get encPassword => 'Encryption password';
 	TextSpan agreeToPrivacyPolicy({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [
 		const TextSpan(text: 'By logging in, you agree to the '),
 		linkToPrivacyPolicy('Privacy Policy'),
 		const TextSpan(text: '.'),
 	]);
-	String get login => 'Log in';
 }
 
 // Path: login.status
@@ -691,7 +666,6 @@ class _StringsProfileQuickLinksEn {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
-	String get title => 'Quick links';
 	String get serverHomepage => 'Server homepage';
 	String get deleteAccount => 'Delete account';
 }
@@ -1046,9 +1020,7 @@ class _StringsLoginAr extends _StringsLoginEn {
 
 	// Translations
 	@override String get title => 'تسجيل الدخول';
-	@override late final _StringsLoginFeedbacksAr feedbacks = _StringsLoginFeedbacksAr._(_root);
 	@override late final _StringsLoginFormAr form = _StringsLoginFormAr._(_root);
-	@override String get seeFaq => 'راجع الأسئلة الشائعة أدناه لمزيد من المعلومات، بما في ذلك معلومات حول كلمة مرور التشفير.';
 	@override TextSpan signup({required InlineSpanBuilder linkToSignup}) => TextSpan(children: [
 		const TextSpan(text: 'لا تملك حسابا حتى الآن؟ '),
 		linkToSignup('سجل حساباً الأن'),
@@ -1390,23 +1362,6 @@ class _StringsSettingsCustomDataDirAr extends _StringsSettingsCustomDataDirEn {
 	@override String get mustBeDoneSyncing => 'تأكد من اكتمال المزامنة قبل تغيير الدليل';
 }
 
-// Path: login.feedbacks
-class _StringsLoginFeedbacksAr extends _StringsLoginFeedbacksEn {
-	_StringsLoginFeedbacksAr._(_StringsAr root) : this._root = root, super._(root);
-
-	@override final _StringsAr _root; // ignore: unused_field
-
-	// Translations
-	@override String get checkUsername => 'يرجى التحقق مرة أخرى من اسم المستخدم أو البريد الإلكتروني الخاص بك.';
-	@override String get enterNcPassword => 'الرجاء إدخال كلمة مرور Nextcloud الخاصة بك.';
-	@override String get enterEncPassword => 'الرجاء إدخال كلمة مرور التشفير الخاصة بك.';
-	@override String get checkUrl => 'أدخل رابط URL صالح من فضلك.';
-	@override String get ncLoginFailed => 'فشل تسجيل الدخول ، يرجى التحقق من التفاصيل الخاصة بك واتصال الشبكة.';
-	@override String get encLoginFailed => 'فشل تسجيل الدخول ، يرجى التحقق من كلمة مرور التشفير الخاصة بك.';
-	@override String get loginSuccess => 'تم تسجيل الدخول بنجاح! الرجاء الانتظار بينما نقوم بالإعداد ...';
-	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'يقوم الخادم المحدد بتشغيل Nextcloud ${v} ولكن هذا الإصدار من Saber يدعم فقط Nextcloud ${s} إلى ${t}.';
-}
-
 // Path: login.form
 class _StringsLoginFormAr extends _StringsLoginFormEn {
 	_StringsLoginFormAr._(_StringsAr root) : this._root = root, super._(root);
@@ -1414,17 +1369,11 @@ class _StringsLoginFormAr extends _StringsLoginFormEn {
 	@override final _StringsAr _root; // ignore: unused_field
 
 	// Translations
-	@override String get useCustomServer => 'أريد استخدام خادم Nextcloud مخصص';
-	@override String get customServerUrl => 'عنوان URL مخصص للخادم';
-	@override String get username => 'اسم المستخدم أو البريد الالكتروني';
-	@override String get ncPassword => 'Nextcloud كلمة المرور';
-	@override String get encPassword => 'كلمة مرور التشفير';
 	@override TextSpan agreeToPrivacyPolicy({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [
 		const TextSpan(text: 'بتسجيل الدخول، فإنك توافق على '),
 		linkToPrivacyPolicy('سياسة الخصوصية'),
 		const TextSpan(text: '.'),
 	]);
-	@override String get login => 'تسجيل الدخول';
 }
 
 // Path: login.status
@@ -1501,7 +1450,6 @@ class _StringsProfileQuickLinksAr extends _StringsProfileQuickLinksEn {
 	@override final _StringsAr _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'روابط سريعة';
 	@override String get serverHomepage => 'الصفحة الرئيسية للخادم';
 	@override String get deleteAccount => 'حذف الحساب';
 }
@@ -1856,9 +1804,7 @@ class _StringsLoginCs extends _StringsLoginEn {
 
 	// Translations
 	@override String get title => 'Přihlásit se';
-	@override late final _StringsLoginFeedbacksCs feedbacks = _StringsLoginFeedbacksCs._(_root);
 	@override late final _StringsLoginFormCs form = _StringsLoginFormCs._(_root);
-	@override String get seeFaq => 'Více informací, včetně těch o heslu pro šifrování, nalezenete v sekci s častými otázkami umístěné níže.';
 	@override TextSpan signup({required InlineSpanBuilder linkToSignup}) => TextSpan(children: [
 		const TextSpan(text: 'Ještě nemáte účet? '),
 		linkToSignup('Zaregistrujte se'),
@@ -2201,23 +2147,6 @@ class _StringsSettingsCustomDataDirCs extends _StringsSettingsCustomDataDirEn {
 	@override String get mustBeDoneSyncing => 'Než změníte datový adresář, ujistěte se, že byla dokončena synchronizace';
 }
 
-// Path: login.feedbacks
-class _StringsLoginFeedbacksCs extends _StringsLoginFeedbacksEn {
-	_StringsLoginFeedbacksCs._(_StringsCs root) : this._root = root, super._(root);
-
-	@override final _StringsCs _root; // ignore: unused_field
-
-	// Translations
-	@override String get checkUsername => 'Zkontrolujte prosím své uživatelské jméno a heslo.';
-	@override String get enterNcPassword => 'Zadejte prosím své heslo k Nextcloud účtu.';
-	@override String get enterEncPassword => 'Zadejte prosím své heslo pro šifrování.';
-	@override String get checkUrl => 'Zadejte prosím správnou URL adresu.';
-	@override String get ncLoginFailed => 'Přihlašování selhalo, zkontrolujte prosím zadané údaje a připojení k internetu.';
-	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'Zadaný server používá Nextcloud ${v}, ale tato verze aplikace Saber podporuje pouze Nextcloud ${s} až ${t}.';
-	@override String get encLoginFailed => 'Přihlašování selhalo, zkontrolujte prosím své heslo pro šifrování.';
-	@override String get loginSuccess => 'Přihlášení bylo úspěšné! Vyčkejte prosím, nastavíme vše potřebné...';
-}
-
 // Path: login.form
 class _StringsLoginFormCs extends _StringsLoginFormEn {
 	_StringsLoginFormCs._(_StringsCs root) : this._root = root, super._(root);
@@ -2225,17 +2154,11 @@ class _StringsLoginFormCs extends _StringsLoginFormEn {
 	@override final _StringsCs _root; // ignore: unused_field
 
 	// Translations
-	@override String get useCustomServer => 'Chci využít vlastní Nextcloud server';
-	@override String get customServerUrl => 'URL adresa vlastního Nextcloud serveru';
-	@override String get username => 'Přihlašovací jméno nebo e-mail';
-	@override String get ncPassword => 'Heslo k Nextcloud účtu';
-	@override String get encPassword => 'Heslo pro šifrování';
 	@override TextSpan agreeToPrivacyPolicy({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [
 		const TextSpan(text: 'Přihlášením souhlasíte se '),
 		linkToPrivacyPolicy('Zásadami ochrany osobních údajů'),
 		const TextSpan(text: '.'),
 	]);
-	@override String get login => 'Přihlásit se';
 }
 
 // Path: login.status
@@ -2323,7 +2246,6 @@ class _StringsProfileQuickLinksCs extends _StringsProfileQuickLinksEn {
 	@override final _StringsCs _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Rychlé odkazy';
 	@override String get serverHomepage => 'Webové stránky serveru';
 	@override String get deleteAccount => 'Odstranit účet';
 }
@@ -2678,9 +2600,7 @@ class _StringsLoginDe extends _StringsLoginEn {
 
 	// Translations
 	@override String get title => 'Login';
-	@override late final _StringsLoginFeedbacksDe feedbacks = _StringsLoginFeedbacksDe._(_root);
 	@override late final _StringsLoginFormDe form = _StringsLoginFormDe._(_root);
-	@override String get seeFaq => 'Weitere Informationen, auch zum Verschlüsselungskennwort, finden Sie in den FAQ unten.';
 	@override TextSpan signup({required InlineSpanBuilder linkToSignup}) => TextSpan(children: [
 		const TextSpan(text: 'Du hast noch kein Konto? '),
 		linkToSignup('Erstelle jetzt eins'),
@@ -3022,23 +2942,6 @@ class _StringsSettingsCustomDataDirDe extends _StringsSettingsCustomDataDirEn {
 	@override String get mustBeDoneSyncing => 'Stelle sicher, dass die Synchronisierung abgeschlossen ist, bevor du das Verzeichnis änderst';
 }
 
-// Path: login.feedbacks
-class _StringsLoginFeedbacksDe extends _StringsLoginFeedbacksEn {
-	_StringsLoginFeedbacksDe._(_StringsDe root) : this._root = root, super._(root);
-
-	@override final _StringsDe _root; // ignore: unused_field
-
-	// Translations
-	@override String get checkUsername => 'Bitte überprüfe deinen Benutzernamen oder deine E-Mail.';
-	@override String get enterNcPassword => 'Bitte gib dein Nextcloud-Passwort ein.';
-	@override String get enterEncPassword => 'Bitte gib dein Verschlüsselungspasswort ein.';
-	@override String get checkUrl => 'Bitte gib eine gültige URL an.';
-	@override String get ncLoginFailed => 'Anmeldung fehlgeschlagen, bitte überprüfe deine Angaben und deine Netzwerkverbindung.';
-	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'Der angegebene Server führt Nextcloud ${v} aus, aber diese Version von Saber unterstützt nur Nextcloud ${s} bis ${t}.';
-	@override String get encLoginFailed => 'Anmeldung fehlgeschlagen, bitte überprüfe dein Verschlüsselungspasswort.';
-	@override String get loginSuccess => 'Anmeldung erfolgreich! Bitte warte, während wir alles einrichten...';
-}
-
 // Path: login.form
 class _StringsLoginFormDe extends _StringsLoginFormEn {
 	_StringsLoginFormDe._(_StringsDe root) : this._root = root, super._(root);
@@ -3046,17 +2949,11 @@ class _StringsLoginFormDe extends _StringsLoginFormEn {
 	@override final _StringsDe _root; // ignore: unused_field
 
 	// Translations
-	@override String get useCustomServer => 'Ich möchte einen eigenen Nextcloud-Server verwenden';
-	@override String get customServerUrl => 'Eigene Server-URL';
-	@override String get username => 'Benutzername oder E-Mail';
-	@override String get ncPassword => 'Nextcloud-Passwort';
-	@override String get encPassword => 'Verschlüsselungspasswort';
 	@override TextSpan agreeToPrivacyPolicy({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [
 		const TextSpan(text: 'Indem du dich anmeldest, stimmst du der '),
 		linkToPrivacyPolicy('Datenschutzrichtlinie'),
 		const TextSpan(text: ' zu.'),
 	]);
-	@override String get login => 'Anmelden';
 }
 
 // Path: login.status
@@ -3133,7 +3030,6 @@ class _StringsProfileQuickLinksDe extends _StringsProfileQuickLinksEn {
 	@override final _StringsDe _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Schnellzugriff';
 	@override String get serverHomepage => 'Server-Startseite';
 	@override String get deleteAccount => 'Account löschen';
 }
@@ -3488,9 +3384,7 @@ class _StringsLoginEs extends _StringsLoginEn {
 
 	// Translations
 	@override String get title => 'Iniciar sesión';
-	@override late final _StringsLoginFeedbacksEs feedbacks = _StringsLoginFeedbacksEs._(_root);
 	@override late final _StringsLoginFormEs form = _StringsLoginFormEs._(_root);
-	@override String get seeFaq => 'Consulte las preguntas frecuentes a continuación para obtener más información, incluida la contraseña de cifrado.';
 	@override TextSpan signup({required InlineSpanBuilder linkToSignup}) => TextSpan(children: [
 		const TextSpan(text: '¿Aún no tienes una cuenta? '),
 		linkToSignup('Regístrate ahora'),
@@ -3831,23 +3725,6 @@ class _StringsSettingsCustomDataDirEs extends _StringsSettingsCustomDataDirEn {
 	@override String get mustBeDoneSyncing => 'Asegúrese de que la sincronización esté completa antes de cambiar el directorio';
 }
 
-// Path: login.feedbacks
-class _StringsLoginFeedbacksEs extends _StringsLoginFeedbacksEn {
-	_StringsLoginFeedbacksEs._(_StringsEs root) : this._root = root, super._(root);
-
-	@override final _StringsEs _root; // ignore: unused_field
-
-	// Translations
-	@override String get checkUsername => 'Por favor verifica tu nombre de usuario o correo electrónico.';
-	@override String get enterNcPassword => 'Por favor ingresa tu contraseña de Nextcloud.';
-	@override String get enterEncPassword => 'Por favor introduce tu contraseña de cifrado.';
-	@override String get checkUrl => 'Por favor introduce una dirección URL válida.';
-	@override String get ncLoginFailed => 'No se pudo iniciar sesión, por favor verifica tus datos y conexión a internet.';
-	@override String get encLoginFailed => 'No se pudo iniciar sesión, por favor verifica tu contraseña de cifrado.';
-	@override String get loginSuccess => '¡Inicio de sesión exitoso! Por favor espera mientras configuramos todo...';
-	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'El servidor al que intentas conectar tiene la versión ${v} de Nextcloud pero esta versión de Saber solo admite Nextcloud ${s} a ${t}.';
-}
-
 // Path: login.form
 class _StringsLoginFormEs extends _StringsLoginFormEn {
 	_StringsLoginFormEs._(_StringsEs root) : this._root = root, super._(root);
@@ -3855,17 +3732,11 @@ class _StringsLoginFormEs extends _StringsLoginFormEn {
 	@override final _StringsEs _root; // ignore: unused_field
 
 	// Translations
-	@override String get useCustomServer => 'Quiero utilizar un servidor de Nextcloud personalizado';
-	@override String get customServerUrl => 'Dirección URL del servidor personalizada';
-	@override String get username => 'Nombre de usuario o correo electrónico';
-	@override String get ncPassword => 'Contraseña de Nextcloud';
-	@override String get encPassword => 'Contraseña de cifrado';
 	@override TextSpan agreeToPrivacyPolicy({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [
 		const TextSpan(text: 'Al iniciar sesión, aceptas nuestra '),
 		linkToPrivacyPolicy('Política de privacidad'),
 		const TextSpan(text: '.'),
 	]);
-	@override String get login => 'Iniciar sesión';
 }
 
 // Path: login.status
@@ -3942,7 +3813,6 @@ class _StringsProfileQuickLinksEs extends _StringsProfileQuickLinksEn {
 	@override final _StringsEs _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Enlaces rápidos';
 	@override String get serverHomepage => 'Página de inicio del servidor';
 	@override String get deleteAccount => 'Eliminar cuenta';
 }
@@ -4297,9 +4167,7 @@ class _StringsLoginFa extends _StringsLoginEn {
 
 	// Translations
 	@override String get title => 'وارد شدن';
-	@override late final _StringsLoginFeedbacksFa feedbacks = _StringsLoginFeedbacksFa._(_root);
 	@override late final _StringsLoginFormFa form = _StringsLoginFormFa._(_root);
-	@override String get seeFaq => 'برای اطلاعات بیشتر، از جمله در مورد رمز عبور رمزگذاری، سؤالات متداول زیر را ببینید.';
 	@override TextSpan signup({required InlineSpanBuilder linkToSignup}) => TextSpan(children: [
 		const TextSpan(text: 'حساب کاربری ندارید؟ '),
 		linkToSignup('Sign up now'),
@@ -4641,23 +4509,6 @@ class _StringsSettingsCustomDataDirFa extends _StringsSettingsCustomDataDirEn {
 	@override String get mustBeDoneSyncing => 'قبل از تغییر دایرکتوری مطمئن شوید که همگام سازی کامل شده است';
 }
 
-// Path: login.feedbacks
-class _StringsLoginFeedbacksFa extends _StringsLoginFeedbacksEn {
-	_StringsLoginFeedbacksFa._(_StringsFa root) : this._root = root, super._(root);
-
-	@override final _StringsFa _root; // ignore: unused_field
-
-	// Translations
-	@override String get checkUsername => 'لطفا نام کاربری یا ایمیل خود را دوباره چک کنید';
-	@override String get enterNcPassword => 'لطفا رمز Nextcloud خود را وارد کنید';
-	@override String get enterEncPassword => 'لطفا رمز رمزگذاری خود را وارد کنید';
-	@override String get checkUrl => 'لطفا یک آدرس اینترنتی معتبر وارد کنید';
-	@override String get ncLoginFailed => 'ورود ناموفق بود، لطفاً جزئیات و اتصال شبکه خود را بررسی کنید';
-	@override String get encLoginFailed => 'ورود ناموفق بود، لطفا رمز عبور رمزگذاری خود را بررسی کنید';
-	@override String get loginSuccess => 'با موفقیت وارد شدید لطفا تا راه اندازی صبر کنید';
-	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'سرور داده شده Nextcloud ${v} را اجرا می کند اما این نسخه از Saber فقط از Nextcloud ${s} تا ${t} پشتیبانی می کند.';
-}
-
 // Path: login.form
 class _StringsLoginFormFa extends _StringsLoginFormEn {
 	_StringsLoginFormFa._(_StringsFa root) : this._root = root, super._(root);
@@ -4665,17 +4516,11 @@ class _StringsLoginFormFa extends _StringsLoginFormEn {
 	@override final _StringsFa _root; // ignore: unused_field
 
 	// Translations
-	@override String get useCustomServer => 'من می خواهم از یک سرور Nextcloud سفارشی استفاده کنم';
-	@override String get customServerUrl => 'آدرس اینترنتی سرور سفارشی';
-	@override String get username => 'نام کاربری یا ایمیل';
-	@override String get ncPassword => 'رمز ورود Nextcloud';
-	@override String get encPassword => 'رمز رمزگذاری';
 	@override TextSpan agreeToPrivacyPolicy({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [
 		const TextSpan(text: 'با ورود به سیستم، با قوانین موافقت خواهد شد '),
 		linkToPrivacyPolicy('Privacy Policy'),
 		const TextSpan(text: '.'),
 	]);
-	@override String get login => 'وارد شدن';
 }
 
 // Path: login.status
@@ -4752,7 +4597,6 @@ class _StringsProfileQuickLinksFa extends _StringsProfileQuickLinksEn {
 	@override final _StringsFa _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'لینک های سریع';
 	@override String get serverHomepage => 'صفحه اصلی سرور';
 	@override String get deleteAccount => 'حذف حساب';
 }
@@ -5107,9 +4951,7 @@ class _StringsLoginFr extends _StringsLoginEn {
 
 	// Translations
 	@override String get title => 'Connexion';
-	@override late final _StringsLoginFeedbacksFr feedbacks = _StringsLoginFeedbacksFr._(_root);
 	@override late final _StringsLoginFormFr form = _StringsLoginFormFr._(_root);
-	@override String get seeFaq => 'Consultez la FAQ ci-dessous pour plus d\'informations, notamment sur le mot de passe de cryptage.';
 	@override TextSpan signup({required InlineSpanBuilder linkToSignup}) => TextSpan(children: [
 		const TextSpan(text: 'Pas encore de compte ? '),
 		linkToSignup('Sign up now'),
@@ -5451,23 +5293,6 @@ class _StringsSettingsCustomDataDirFr extends _StringsSettingsCustomDataDirEn {
 	@override String get mustBeDoneSyncing => 'Assurez-vous que la synchronisation est terminée avant de modifier le répertoire';
 }
 
-// Path: login.feedbacks
-class _StringsLoginFeedbacksFr extends _StringsLoginFeedbacksEn {
-	_StringsLoginFeedbacksFr._(_StringsFr root) : this._root = root, super._(root);
-
-	@override final _StringsFr _root; // ignore: unused_field
-
-	// Translations
-	@override String get checkUsername => 'Veuillez verifier votre nom d\'utilisateur ou votre e-mail.';
-	@override String get enterNcPassword => 'Veuiller saisir votre mot de passe Nextcloud.';
-	@override String get enterEncPassword => 'Veuillez saisir votre mot de passe de cryptage.';
-	@override String get checkUrl => 'Veuillez saisir une URL valide.';
-	@override String get ncLoginFailed => 'La connexion a échoué, veuillez vérifier vos identifiants et votre connexion réseau.';
-	@override String get encLoginFailed => 'La connexion a échoué, veuillez vérifier votre mot de passe de cryptage.';
-	@override String get loginSuccess => 'Connexion reussie ! Veuillez patienter pendant la configuration...';
-	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'Le serveur donné exécute Nextcloud ${v} mais cette version de Saber ne prend en charge que Nextcloud ${s} à ${t}.';
-}
-
 // Path: login.form
 class _StringsLoginFormFr extends _StringsLoginFormEn {
 	_StringsLoginFormFr._(_StringsFr root) : this._root = root, super._(root);
@@ -5475,17 +5300,11 @@ class _StringsLoginFormFr extends _StringsLoginFormEn {
 	@override final _StringsFr _root; // ignore: unused_field
 
 	// Translations
-	@override String get useCustomServer => 'Je veux utiliser un serveur Nextcloud personnalisé';
-	@override String get customServerUrl => 'URL du serveur personnalisé';
-	@override String get username => 'Nom d\'utilisateur ou adresse mel';
-	@override String get ncPassword => 'Mot de passe Nextcloud';
-	@override String get encPassword => 'Mot de passe de cryptage';
 	@override TextSpan agreeToPrivacyPolicy({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [
 		const TextSpan(text: 'En vous connectant, vous acceptez les '),
 		linkToPrivacyPolicy('Privacy Policy'),
 		const TextSpan(text: '.'),
 	]);
-	@override String get login => 'Se connecter';
 }
 
 // Path: login.status
@@ -5562,7 +5381,6 @@ class _StringsProfileQuickLinksFr extends _StringsProfileQuickLinksEn {
 	@override final _StringsFr _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Raccourcis';
 	@override String get serverHomepage => 'Page d\'accueil du serveur';
 	@override String get deleteAccount => 'Supprimer le compte';
 }
@@ -5917,9 +5735,7 @@ class _StringsLoginHe extends _StringsLoginEn {
 
 	// Translations
 	@override String get title => 'התחבר';
-	@override late final _StringsLoginFeedbacksHe feedbacks = _StringsLoginFeedbacksHe._(_root);
 	@override late final _StringsLoginFormHe form = _StringsLoginFormHe._(_root);
-	@override String get seeFaq => 'עיין בשאלות הנפוצות למטה למידע נוסף, כולל על סיסמת ההצפנה.';
 	@override TextSpan signup({required InlineSpanBuilder linkToSignup}) => TextSpan(children: [
 		const TextSpan(text: 'אין לך עוד משתמש '),
 		linkToSignup('הירשם עכשיו'),
@@ -6261,23 +6077,6 @@ class _StringsSettingsCustomDataDirHe extends _StringsSettingsCustomDataDirEn {
 	@override String get mustBeDoneSyncing => 'ודא שהסנכרון הושלם לפני שינוי הספרייה';
 }
 
-// Path: login.feedbacks
-class _StringsLoginFeedbacksHe extends _StringsLoginFeedbacksEn {
-	_StringsLoginFeedbacksHe._(_StringsHe root) : this._root = root, super._(root);
-
-	@override final _StringsHe _root; // ignore: unused_field
-
-	// Translations
-	@override String get checkUsername => 'אנא בדוק שוב את שם המשתמש או הדוא"ל שלך.';
-	@override String get enterNcPassword => 'הזן את סיסמת NextCloud שלך.';
-	@override String get enterEncPassword => 'הזן את סיסמת ההצפנה שלך.';
-	@override String get checkUrl => 'הזן כתובת URL חוקית.';
-	@override String get ncLoginFailed => 'הכניסה נכשלה, אנא בדוק את הפרטים שלך ואת חיבור הרשת.';
-	@override String get encLoginFailed => 'הכניסה נכשלה, אנא בדוק את סיסמת ההצפנה שלך.';
-	@override String get loginSuccess => 'ההתחבר בהצלחה! אנא המתן בזמן שאנו מגדירים...';
-	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'השרת הנתון מריץ את Nextcloud ${v} אבל גרסה זו של Saber תומכת רק ב-Nextcloud ${s} עד ${t}.';
-}
-
 // Path: login.form
 class _StringsLoginFormHe extends _StringsLoginFormEn {
 	_StringsLoginFormHe._(_StringsHe root) : this._root = root, super._(root);
@@ -6285,17 +6084,11 @@ class _StringsLoginFormHe extends _StringsLoginFormEn {
 	@override final _StringsHe _root; // ignore: unused_field
 
 	// Translations
-	@override String get useCustomServer => 'אני רוצה להשתמש בשרת Nextcloud מותאם אישית';
-	@override String get customServerUrl => 'כתובת אתר מותאמת אישית של שרת';
-	@override String get username => 'שם משתמש או אימייל';
-	@override String get ncPassword => 'סיסמת NextCloud';
-	@override String get encPassword => 'סיסמה מוצפנת';
 	@override TextSpan agreeToPrivacyPolicy({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [
 		const TextSpan(text: 'על ידי התחברות, אתה מסכים ל '),
 		linkToPrivacyPolicy('מדיניות הפרטיות'),
 		const TextSpan(text: '.'),
 	]);
-	@override String get login => 'התחבר';
 }
 
 // Path: login.status
@@ -6372,7 +6165,6 @@ class _StringsProfileQuickLinksHe extends _StringsProfileQuickLinksEn {
 	@override final _StringsHe _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'קישורים מהירים';
 	@override String get serverHomepage => 'דף הבית של השרת';
 	@override String get deleteAccount => 'מחק משתמש';
 }
@@ -6727,9 +6519,7 @@ class _StringsLoginHu extends _StringsLoginEn {
 
 	// Translations
 	@override String get title => 'Bejelentkezés';
-	@override late final _StringsLoginFeedbacksHu feedbacks = _StringsLoginFeedbacksHu._(_root);
 	@override late final _StringsLoginFormHu form = _StringsLoginFormHu._(_root);
-	@override String get seeFaq => 'Tekintse meg az alábbi GYIK-et további információkért, beleértve a titkosítási jelszót is.';
 	@override TextSpan signup({required InlineSpanBuilder linkToSignup}) => TextSpan(children: [
 		const TextSpan(text: 'Még nincsen fiókja? '),
 		linkToSignup('Regisztrálás'),
@@ -7071,23 +6861,6 @@ class _StringsSettingsCustomDataDirHu extends _StringsSettingsCustomDataDirEn {
 	@override String get mustBeDoneSyncing => 'A könyvtár módosítása előtt győződjön meg arról, hogy a szinkronizálás befejeződött';
 }
 
-// Path: login.feedbacks
-class _StringsLoginFeedbacksHu extends _StringsLoginFeedbacksEn {
-	_StringsLoginFeedbacksHu._(_StringsHu root) : this._root = root, super._(root);
-
-	@override final _StringsHu _root; // ignore: unused_field
-
-	// Translations
-	@override String get checkUsername => 'Kérjem, ellenőrizze kétszer is a felhasználónevét vagy az e-mail címét';
-	@override String get enterNcPassword => 'Kérem, adja meg a Nextcloud jelszavát';
-	@override String get enterEncPassword => 'Kérem, adja meg a titkosítási jelszavát';
-	@override String get checkUrl => 'Kérem adjon meg egy érvényes URL-címet';
-	@override String get ncLoginFailed => 'A bejelentkezés sikertelen, kérem, ellenőrizze adatait és hálózati kapcsolatát';
-	@override String get encLoginFailed => 'A bejelentkezés sikertelen, kérem, ellenőrizze a titkosítási jelszavát';
-	@override String get loginSuccess => 'Bejelentkezés sikeres! Kérjük, várjon, amíg beüzemeljük...';
-	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'Az adott szerveren a Nextcloud ${v} fut, de a Saber ezen verziója csak a Nextcloud ${s} és ${t} között támogatja.';
-}
-
 // Path: login.form
 class _StringsLoginFormHu extends _StringsLoginFormEn {
 	_StringsLoginFormHu._(_StringsHu root) : this._root = root, super._(root);
@@ -7095,17 +6868,11 @@ class _StringsLoginFormHu extends _StringsLoginFormEn {
 	@override final _StringsHu _root; // ignore: unused_field
 
 	// Translations
-	@override String get useCustomServer => 'Egyéni Nextcloud-kiszolgálót szeretnék használni';
-	@override String get customServerUrl => 'Egyéni kiszolgáló URL-címe';
-	@override String get username => 'Felhasnálónév vagy e-mail';
-	@override String get ncPassword => 'Nextcloud jelszó';
-	@override String get encPassword => 'Titkosítási jelszó';
 	@override TextSpan agreeToPrivacyPolicy({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [
 		const TextSpan(text: 'A bejelentkezéssel elfogadja a '),
 		linkToPrivacyPolicy('Adatvédelmi irányelvek'),
 		const TextSpan(text: '.'),
 	]);
-	@override String get login => 'Bejelentkezés';
 }
 
 // Path: login.status
@@ -7182,7 +6949,6 @@ class _StringsProfileQuickLinksHu extends _StringsProfileQuickLinksEn {
 	@override final _StringsHu _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Gyors linkek';
 	@override String get serverHomepage => 'Szerver honlapja';
 	@override String get deleteAccount => 'Fiók törlése';
 }
@@ -7537,7 +7303,6 @@ class _StringsLoginIt extends _StringsLoginEn {
 
 	// Translations
 	@override String get title => 'Login';
-	@override late final _StringsLoginFeedbacksIt feedbacks = _StringsLoginFeedbacksIt._(_root);
 	@override late final _StringsLoginFormIt form = _StringsLoginFormIt._(_root);
 	@override TextSpan signup({required InlineSpanBuilder linkToSignup}) => TextSpan(children: [
 		const TextSpan(text: 'Non hai ancora un account? '),
@@ -7545,7 +7310,6 @@ class _StringsLoginIt extends _StringsLoginEn {
 		const TextSpan(text: '!'),
 	]);
 	@override late final _StringsLoginStatusIt status = _StringsLoginStatusIt._(_root);
-	@override String get seeFaq => 'Consulta le domande frequenti di seguito per ulteriori informazioni, inclusa la password di crittografia.';
 	@override List<dynamic> get faq => [
 		_StringsLogin$faq$0i0$It._(_root),
 		_StringsLogin$faq$0i1$It._(_root),
@@ -7881,23 +7645,6 @@ class _StringsSettingsCustomDataDirIt extends _StringsSettingsCustomDataDirEn {
 	@override String get mustBeDoneSyncing => 'Assicurati che la sincronizzazione sia completa prima di cambiare la directory';
 }
 
-// Path: login.feedbacks
-class _StringsLoginFeedbacksIt extends _StringsLoginFeedbacksEn {
-	_StringsLoginFeedbacksIt._(_StringsIt root) : this._root = root, super._(root);
-
-	@override final _StringsIt _root; // ignore: unused_field
-
-	// Translations
-	@override String get checkUsername => 'Ricontrolla il tuo nome utente o e-mail.';
-	@override String get enterNcPassword => 'Inserisci la tua password Nextcloud.';
-	@override String get enterEncPassword => 'Inserisci la tua password di crittografia.';
-	@override String get checkUrl => 'Per favore, inserisci un URL valido.';
-	@override String get ncLoginFailed => 'Accesso fallito, controlla i tuoi dati e la connessione di rete.';
-	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'Il server indicato esegue Nextcloud ${v} ma questa versione di Saber supporta solo Nextcloud da ${s} a ${t}.';
-	@override String get encLoginFailed => 'Accesso non riuscito, controllare la password di crittografia.';
-	@override String get loginSuccess => 'Accesso riuscito! Si prega di attendere mentre configuriamo...';
-}
-
 // Path: login.form
 class _StringsLoginFormIt extends _StringsLoginFormEn {
 	_StringsLoginFormIt._(_StringsIt root) : this._root = root, super._(root);
@@ -7905,17 +7652,11 @@ class _StringsLoginFormIt extends _StringsLoginFormEn {
 	@override final _StringsIt _root; // ignore: unused_field
 
 	// Translations
-	@override String get useCustomServer => 'Voglio utilizzare un server Nextcloud personalizzato';
-	@override String get customServerUrl => 'URL del server personalizzato';
-	@override String get username => 'Nome utente o email';
-	@override String get ncPassword => 'Password nextcloud';
-	@override String get encPassword => 'Password di crittografata';
 	@override TextSpan agreeToPrivacyPolicy({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [
 		const TextSpan(text: 'Effettuando l\'accesso, accetti la '),
 		linkToPrivacyPolicy('Informativa sulla privacy'),
 		const TextSpan(text: '.'),
 	]);
-	@override String get login => 'Log in';
 }
 
 // Path: login.status
@@ -7992,7 +7733,6 @@ class _StringsProfileQuickLinksIt extends _StringsProfileQuickLinksEn {
 	@override final _StringsIt _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Collegamenti veloci';
 	@override String get serverHomepage => 'Homepage del server';
 	@override String get deleteAccount => 'Elimina account';
 }
@@ -8347,9 +8087,7 @@ class _StringsLoginJa extends _StringsLoginEn {
 
 	// Translations
 	@override String get title => 'ログイン';
-	@override late final _StringsLoginFeedbacksJa feedbacks = _StringsLoginFeedbacksJa._(_root);
 	@override late final _StringsLoginFormJa form = _StringsLoginFormJa._(_root);
-	@override String get seeFaq => '暗号化パスワードなどの詳細については、以下の FAQ を参照してください。';
 	@override TextSpan signup({required InlineSpanBuilder linkToSignup}) => TextSpan(children: [
 		const TextSpan(text: 'まだアカウントをお持ちでないですか？ '),
 		linkToSignup('今すぐ登録'),
@@ -8691,23 +8429,6 @@ class _StringsSettingsCustomDataDirJa extends _StringsSettingsCustomDataDirEn {
 	@override String get mustBeDoneSyncing => 'ディレクトリを変更する前に同期が完了していることを確認してください';
 }
 
-// Path: login.feedbacks
-class _StringsLoginFeedbacksJa extends _StringsLoginFeedbacksEn {
-	_StringsLoginFeedbacksJa._(_StringsJa root) : this._root = root, super._(root);
-
-	@override final _StringsJa _root; // ignore: unused_field
-
-	// Translations
-	@override String get checkUsername => 'ユーザー名またはEメールを再度ご確認ください。';
-	@override String get enterNcPassword => 'Nextcloudのパスワードを入力してください。';
-	@override String get enterEncPassword => '暗号化パスワードを入力してください。';
-	@override String get checkUrl => '有効なURLを入力してください。';
-	@override String get ncLoginFailed => 'ログインに失敗しました。詳細とネットワーク接続を確認してください。';
-	@override String get encLoginFailed => 'ログインに失敗しました。暗号化パスワードを確認してください。';
-	@override String get loginSuccess => 'ログインに成功しました！セットアップ中です。しばらくお待ちください...';
-	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => '指定されたサーバーは Nextcloud ${v} を実行していますが、このバージョンの Saber は Nextcloud ${s} ～ ${t} のみをサポートします。';
-}
-
 // Path: login.form
 class _StringsLoginFormJa extends _StringsLoginFormEn {
 	_StringsLoginFormJa._(_StringsJa root) : this._root = root, super._(root);
@@ -8715,17 +8436,11 @@ class _StringsLoginFormJa extends _StringsLoginFormEn {
 	@override final _StringsJa _root; // ignore: unused_field
 
 	// Translations
-	@override String get useCustomServer => 'カスタムNextcloudサーバーを使いたい';
-	@override String get customServerUrl => 'カスタムサーバーURL';
-	@override String get username => 'ユーザー名またはメールアドレス';
-	@override String get ncPassword => 'Nextcloudのパスワード';
-	@override String get encPassword => '暗号化パスワード';
 	@override TextSpan agreeToPrivacyPolicy({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [
 		const TextSpan(text: 'ログインすることにより、'),
 		linkToPrivacyPolicy('プライベートポリシー'),
 		const TextSpan(text: 'に同意したものとみなされます。'),
 	]);
-	@override String get login => 'ログイン';
 }
 
 // Path: login.status
@@ -8802,7 +8517,6 @@ class _StringsProfileQuickLinksJa extends _StringsProfileQuickLinksEn {
 	@override final _StringsJa _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'クイックリンク';
 	@override String get serverHomepage => 'サーバーホームページ';
 	@override String get deleteAccount => 'アカウントの削除';
 }
@@ -9157,9 +8871,7 @@ class _StringsLoginPtBr extends _StringsLoginEn {
 
 	// Translations
 	@override String get title => 'Login';
-	@override late final _StringsLoginFeedbacksPtBr feedbacks = _StringsLoginFeedbacksPtBr._(_root);
 	@override late final _StringsLoginFormPtBr form = _StringsLoginFormPtBr._(_root);
-	@override String get seeFaq => 'Consulte o FAQ abaixo para obter mais informações, inclusive sobre a senha de criptografia.';
 	@override TextSpan signup({required InlineSpanBuilder linkToSignup}) => TextSpan(children: [
 		const TextSpan(text: 'Ainda não tem uma conta? '),
 		linkToSignup('Registre-se agora'),
@@ -9501,23 +9213,6 @@ class _StringsSettingsCustomDataDirPtBr extends _StringsSettingsCustomDataDirEn 
 	@override String get mustBeDoneSyncing => 'Certifique-se de que a sincronização esteja concluída antes de alterar o diretório';
 }
 
-// Path: login.feedbacks
-class _StringsLoginFeedbacksPtBr extends _StringsLoginFeedbacksEn {
-	_StringsLoginFeedbacksPtBr._(_StringsPtBr root) : this._root = root, super._(root);
-
-	@override final _StringsPtBr _root; // ignore: unused_field
-
-	// Translations
-	@override String get checkUsername => 'Por favor verifique o seu nome de usuário ou e-mail.';
-	@override String get enterNcPassword => 'Por favor digite a sua senha do Nextcloud.';
-	@override String get enterEncPassword => 'Por favor digite a sua senha de criptografia.';
-	@override String get checkUrl => 'Por favor insira uma URL válida.';
-	@override String get ncLoginFailed => 'Falha no login, por favor verifique os seus dados e a conexão de rede.';
-	@override String get encLoginFailed => 'Falha no login, por favor verifique a sua senha de criptografia.';
-	@override String get loginSuccess => 'Login bem-sucedido! Aguarde enquanto configuramos...';
-	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'O servidor fornecido está executando Nextcloud ${v}, mas esta versão do Saber suporta apenas Nextcloud ${s} a ${t}.';
-}
-
 // Path: login.form
 class _StringsLoginFormPtBr extends _StringsLoginFormEn {
 	_StringsLoginFormPtBr._(_StringsPtBr root) : this._root = root, super._(root);
@@ -9525,17 +9220,11 @@ class _StringsLoginFormPtBr extends _StringsLoginFormEn {
 	@override final _StringsPtBr _root; // ignore: unused_field
 
 	// Translations
-	@override String get useCustomServer => 'Eu quero usar um servidor Nextcloud personalizado';
-	@override String get customServerUrl => 'URL do servidor personalizado';
-	@override String get username => 'Nome de usuário ou e-mail';
-	@override String get ncPassword => 'Senha do Nextcloud';
-	@override String get encPassword => 'Senha de criptografia';
 	@override TextSpan agreeToPrivacyPolicy({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [
 		const TextSpan(text: 'Ao fazer login, você concorda com a '),
 		linkToPrivacyPolicy('Política de Privacidade'),
 		const TextSpan(text: '.'),
 	]);
-	@override String get login => 'Login';
 }
 
 // Path: login.status
@@ -9612,7 +9301,6 @@ class _StringsProfileQuickLinksPtBr extends _StringsProfileQuickLinksEn {
 	@override final _StringsPtBr _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Links rápidos';
 	@override String get serverHomepage => 'Página inicial do servidor';
 	@override String get deleteAccount => 'Apagar conta';
 }
@@ -9967,9 +9655,7 @@ class _StringsLoginRu extends _StringsLoginEn {
 
 	// Translations
 	@override String get title => 'Авторизация';
-	@override late final _StringsLoginFeedbacksRu feedbacks = _StringsLoginFeedbacksRu._(_root);
 	@override late final _StringsLoginFormRu form = _StringsLoginFormRu._(_root);
-	@override String get seeFaq => 'Дополнительную информацию, в том числе о пароле шифрования, см. в разделе часто задаваемых вопросов ниже.';
 	@override TextSpan signup({required InlineSpanBuilder linkToSignup}) => TextSpan(children: [
 		const TextSpan(text: 'У вас нет учётной записи? '),
 		linkToSignup('Зарегистрируйтесь сейчас'),
@@ -10312,23 +9998,6 @@ class _StringsSettingsCustomDataDirRu extends _StringsSettingsCustomDataDirEn {
 	@override String get mustBeDoneSyncing => 'Прежде чем менять каталог, убедитесь, что синхронизация завершена.';
 }
 
-// Path: login.feedbacks
-class _StringsLoginFeedbacksRu extends _StringsLoginFeedbacksEn {
-	_StringsLoginFeedbacksRu._(_StringsRu root) : this._root = root, super._(root);
-
-	@override final _StringsRu _root; // ignore: unused_field
-
-	// Translations
-	@override String get checkUsername => 'Дважды проверьте своё имя пользователя или адрес электронной почты.';
-	@override String get enterNcPassword => 'Введите свой пароль Nextcloud.';
-	@override String get enterEncPassword => 'Введите пароль шифрования.';
-	@override String get checkUrl => 'Пожалуйста, введите корректный URL адрес.';
-	@override String get ncLoginFailed => 'Ошибка входа. Проверьте свои данные и подключение к сети.';
-	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'На данном сервере работает Nextcloud ${v}, но эта версия Saber поддерживает только Nextcloud от ${s} до ${t}.';
-	@override String get encLoginFailed => 'Не удалось войти. Проверьте пароль шифрования.';
-	@override String get loginSuccess => 'Вход выполнен успешно! Пожалуйста подождите, пока мы настроим…';
-}
-
 // Path: login.form
 class _StringsLoginFormRu extends _StringsLoginFormEn {
 	_StringsLoginFormRu._(_StringsRu root) : this._root = root, super._(root);
@@ -10336,17 +10005,11 @@ class _StringsLoginFormRu extends _StringsLoginFormEn {
 	@override final _StringsRu _root; // ignore: unused_field
 
 	// Translations
-	@override String get useCustomServer => 'Я буду использовать свой Nextcloud сервер';
-	@override String get customServerUrl => 'Адрес Вашего сервера';
-	@override String get username => 'Имя пользователя или e-mail';
-	@override String get ncPassword => 'Пароль Nextcloud';
-	@override String get encPassword => 'Пароль шифрования';
 	@override TextSpan agreeToPrivacyPolicy({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [
 		const TextSpan(text: 'Авторизуясь, вы соглашаетесь с '),
 		linkToPrivacyPolicy('политикой конфиденциальности'),
 		const TextSpan(text: '.'),
 	]);
-	@override String get login => 'Авторизоваться';
 }
 
 // Path: login.status
@@ -10434,7 +10097,6 @@ class _StringsProfileQuickLinksRu extends _StringsProfileQuickLinksEn {
 	@override final _StringsRu _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Быстрые ссылки';
 	@override String get serverHomepage => 'Домашняя страница сервера';
 	@override String get deleteAccount => 'Удалить учётную запись';
 }
@@ -10789,9 +10451,7 @@ class _StringsLoginTr extends _StringsLoginEn {
 
 	// Translations
 	@override String get title => 'Giriş yap';
-	@override late final _StringsLoginFeedbacksTr feedbacks = _StringsLoginFeedbacksTr._(_root);
 	@override late final _StringsLoginFormTr form = _StringsLoginFormTr._(_root);
-	@override String get seeFaq => 'Şifreleme parolası da dahil olmak üzere daha fazla bilgi için aşağıdaki SSS\'ye bakın.';
 	@override TextSpan signup({required InlineSpanBuilder linkToSignup}) => TextSpan(children: [
 		const TextSpan(text: 'Henüz hesabınız yok mu? '),
 		linkToSignup('Hesap oluşturmak için tıklayın'),
@@ -11133,23 +10793,6 @@ class _StringsSettingsCustomDataDirTr extends _StringsSettingsCustomDataDirEn {
 	@override String get mustBeDoneSyncing => 'Dizini değiştirmeden önce senkronizasyonun tamamlandığından emin olun';
 }
 
-// Path: login.feedbacks
-class _StringsLoginFeedbacksTr extends _StringsLoginFeedbacksEn {
-	_StringsLoginFeedbacksTr._(_StringsTr root) : this._root = root, super._(root);
-
-	@override final _StringsTr _root; // ignore: unused_field
-
-	// Translations
-	@override String get checkUsername => 'Lütfen kullanıcı adınız veya e-posta adresinizi kontrol edin.';
-	@override String get enterNcPassword => 'Lütfen Nextcloud parolanızı girin.';
-	@override String get enterEncPassword => 'Lütfen şifreleme parolanızı girin.';
-	@override String get checkUrl => 'Lütfen geçerli bir URL girin.';
-	@override String get ncLoginFailed => 'Giriş başarısız, Nextcloud parolanızı ve internet bağlantınızı kontrol edin.';
-	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'Bu sunucu Nextcloud\'un ${v} sürümünü kullanıyor ancak Saber\'ın bu versiyonunda Nextcloud ${s} - ${t} sürümleri desteklenmekte.';
-	@override String get encLoginFailed => 'Giriş başarısız, şifreleme parolanızı kontrol ediniz.';
-	@override String get loginSuccess => 'Giriş başarılı! Kurulum gerçekleşirken lütfen bekleyin...';
-}
-
 // Path: login.form
 class _StringsLoginFormTr extends _StringsLoginFormEn {
 	_StringsLoginFormTr._(_StringsTr root) : this._root = root, super._(root);
@@ -11157,17 +10800,11 @@ class _StringsLoginFormTr extends _StringsLoginFormEn {
 	@override final _StringsTr _root; // ignore: unused_field
 
 	// Translations
-	@override String get useCustomServer => 'Farklı bir Nextcloud sunucusu kullanmak istiyorum';
-	@override String get customServerUrl => 'Farklı bir sunucu URL\'i';
-	@override String get username => 'Kullanıcı adı veya e-posta adresi';
-	@override String get ncPassword => 'Nextcloud parolası';
-	@override String get encPassword => 'Şifreleme parolası';
 	@override TextSpan agreeToPrivacyPolicy({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [
 		const TextSpan(text: 'Giriş yaparak '),
 		linkToPrivacyPolicy('Gizlilik Politikasını'),
 		const TextSpan(text: ' kabul edersiniz.'),
 	]);
-	@override String get login => 'Giriş yap';
 }
 
 // Path: login.status
@@ -11244,7 +10881,6 @@ class _StringsProfileQuickLinksTr extends _StringsProfileQuickLinksEn {
 	@override final _StringsTr _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Hızlı linkler';
 	@override String get serverHomepage => 'Sunucu anasayfası';
 	@override String get deleteAccount => 'Hesabı sil';
 }
@@ -11599,9 +11235,7 @@ class _StringsLoginZhHansCn extends _StringsLoginEn {
 
 	// Translations
 	@override String get title => '登录';
-	@override late final _StringsLoginFeedbacksZhHansCn feedbacks = _StringsLoginFeedbacksZhHansCn._(_root);
 	@override late final _StringsLoginFormZhHansCn form = _StringsLoginFormZhHansCn._(_root);
-	@override String get seeFaq => '请参阅下面的常见问题解答以了解更多信息，包括有关加密密码的信息。';
 	@override TextSpan signup({required InlineSpanBuilder linkToSignup}) => TextSpan(children: [
 		const TextSpan(text: '还没有帐户？ '),
 		linkToSignup('立即注册'),
@@ -11943,23 +11577,6 @@ class _StringsSettingsCustomDataDirZhHansCn extends _StringsSettingsCustomDataDi
 	@override String get mustBeDoneSyncing => '在更改目录之前，请确保同步已完成';
 }
 
-// Path: login.feedbacks
-class _StringsLoginFeedbacksZhHansCn extends _StringsLoginFeedbacksEn {
-	_StringsLoginFeedbacksZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
-
-	@override final _StringsZhHansCn _root; // ignore: unused_field
-
-	// Translations
-	@override String get checkUsername => '请仔细检查您的用户名或电子邮件。';
-	@override String get enterNcPassword => '请输入您的 Nextcloud 密码。';
-	@override String get enterEncPassword => '请输入您的加密密码。';
-	@override String get checkUrl => '请输入有效链接。';
-	@override String get ncLoginFailed => '登录失败，请检查您的详细信息和网络连接。';
-	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => '给定服务器正在运行 Nextcloud ${v}，但此版本 Saber 仅支持 Nextcloud ${s} 至 ${t}。';
-	@override String get encLoginFailed => '登录失败，请检查您的加密密码。';
-	@override String get loginSuccess => '登录成功！我们正在设置中，请稍候……';
-}
-
 // Path: login.form
 class _StringsLoginFormZhHansCn extends _StringsLoginFormEn {
 	_StringsLoginFormZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
@@ -11967,17 +11584,11 @@ class _StringsLoginFormZhHansCn extends _StringsLoginFormEn {
 	@override final _StringsZhHansCn _root; // ignore: unused_field
 
 	// Translations
-	@override String get useCustomServer => '我想要使用自定义 Nextcloud 服务器';
-	@override String get customServerUrl => '自定义服务器链接';
-	@override String get username => '用户名或邮箱';
-	@override String get ncPassword => 'Nextcloud 密码';
-	@override String get encPassword => '加密密码';
 	@override TextSpan agreeToPrivacyPolicy({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [
 		const TextSpan(text: '登录即表示您同意 '),
 		linkToPrivacyPolicy('隐私政策'),
 		const TextSpan(text: '。'),
 	]);
-	@override String get login => '登录';
 }
 
 // Path: login.status
@@ -12054,7 +11665,6 @@ class _StringsProfileQuickLinksZhHansCn extends _StringsProfileQuickLinksEn {
 	@override final _StringsZhHansCn _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => '快速链接';
 	@override String get serverHomepage => '服务器主页';
 	@override String get deleteAccount => '删除帐户';
 }
@@ -12409,9 +12019,7 @@ class _StringsLoginZhHantTw extends _StringsLoginEn {
 
 	// Translations
 	@override String get title => '登入';
-	@override late final _StringsLoginFeedbacksZhHantTw feedbacks = _StringsLoginFeedbacksZhHantTw._(_root);
 	@override late final _StringsLoginFormZhHantTw form = _StringsLoginFormZhHantTw._(_root);
-	@override String get seeFaq => '請閱讀下面的常見問題解答以了解有關加密密碼等資訊。';
 	@override TextSpan signup({required InlineSpanBuilder linkToSignup}) => TextSpan(children: [
 		const TextSpan(text: '還沒有帳號？ '),
 		linkToSignup('立即註冊'),
@@ -12754,23 +12362,6 @@ class _StringsSettingsCustomDataDirZhHantTw extends _StringsSettingsCustomDataDi
 	@override String get mustBeDoneSyncing => '更改目錄之前請確保同步已完成';
 }
 
-// Path: login.feedbacks
-class _StringsLoginFeedbacksZhHantTw extends _StringsLoginFeedbacksEn {
-	_StringsLoginFeedbacksZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
-
-	@override final _StringsZhHantTw _root; // ignore: unused_field
-
-	// Translations
-	@override String get checkUsername => '請仔細檢查您的使用者名稱或電子郵件。';
-	@override String get enterNcPassword => '請輸入您的 Nextcloud 密碼。';
-	@override String get enterEncPassword => '請輸入您的加密密碼。';
-	@override String get checkUrl => '請輸入有效連結。';
-	@override String get ncLoginFailed => '登入失敗，請檢查您的詳細資訊和網路連接。';
-	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => '選定的伺服器正在運行 Nextcloud ${v}，但此版本的 Saber 僅支援 Nextcloud ${s} 到 ${t}。';
-	@override String get encLoginFailed => '登入失敗，請檢查您的加密密碼。';
-	@override String get loginSuccess => '登入成功！我們正在設定中，請稍後……';
-}
-
 // Path: login.form
 class _StringsLoginFormZhHantTw extends _StringsLoginFormEn {
 	_StringsLoginFormZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
@@ -12778,17 +12369,11 @@ class _StringsLoginFormZhHantTw extends _StringsLoginFormEn {
 	@override final _StringsZhHantTw _root; // ignore: unused_field
 
 	// Translations
-	@override String get useCustomServer => '我想要使用自訂 Nextcloud 伺服器';
-	@override String get customServerUrl => '自訂伺服器連結';
-	@override String get username => '使用者名稱或電子郵件';
-	@override String get ncPassword => 'Nextcloud 密碼';
-	@override String get encPassword => '加密密碼';
 	@override TextSpan agreeToPrivacyPolicy({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [
 		const TextSpan(text: '登入即表示你同意 '),
 		linkToPrivacyPolicy('隱私政策'),
 		const TextSpan(text: '。'),
 	]);
-	@override String get login => '登入';
 }
 
 // Path: login.status
@@ -12876,7 +12461,6 @@ class _StringsProfileQuickLinksZhHantTw extends _StringsProfileQuickLinksEn {
 	@override final _StringsZhHantTw _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => '快速連結';
 	@override String get serverHomepage => '伺服器主頁';
 	@override String get deleteAccount => '刪除帳戶';
 }

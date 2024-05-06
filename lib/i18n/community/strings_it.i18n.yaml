@@ -143,29 +143,13 @@ settings:
     mustBeDoneSyncing: Assicurati che la sincronizzazione sia completa prima di cambiare la directory
 login:
   title: Login
-  feedbacks:
-    checkUsername: Ricontrolla il tuo nome utente o e-mail.
-    enterNcPassword: Inserisci la tua password Nextcloud.
-    enterEncPassword: Inserisci la tua password di crittografia.
-    checkUrl: "Per favore, inserisci un URL valido."
-    ncLoginFailed: "Accesso fallito, controlla i tuoi dati e la connessione di rete."
-    ncUnsupportedFailure: Il server indicato esegue Nextcloud $v ma questa versione di Saber supporta solo Nextcloud da $s a $t.
-    encLoginFailed: "Accesso non riuscito, controllare la password di crittografia."
-    loginSuccess: "Accesso riuscito! Si prega di attendere mentre configuriamo..."
   form:
-    useCustomServer: Voglio utilizzare un server Nextcloud personalizzato
-    customServerUrl: URL del server personalizzato
-    username: Nome utente o email
-    ncPassword: Password nextcloud
-    encPassword: Password di crittografata
     agreeToPrivacyPolicy(rich): "Effettuando l'accesso, accetti la ${linkToPrivacyPolicy(Informativa sulla privacy)}."
-    login: Log in
   signup(rich): "Non hai ancora un account? ${linkToSignup(Registrati ora)}!"
   status:
     loggedIn: Effettuato l'accesso con Nextcloud
     loggedOut: Disconnesso
     tapToLogin: Tocca per accedere con Nextcloud
-  seeFaq(OUTDATED): "Consulta le domande frequenti di seguito per ulteriori informazioni, inclusa la password di crittografia."
   faq(OUTDATED):
     - q: "Che cos'è Nextcloud?"
       a: "Nextcloud è un server di sincronizzazione file privato, tra le altre cose. Puoi utilizzare il server Saber Nextcloud predefinito, utilizzare un server di terze parti o ospitare autonomamente il tuo per il pieno controllo dei tuoi dati."
@@ -185,7 +169,6 @@ profile:
   title: Il mio profilo
   logout: Log out
   quickLinks:
-    title: Collegamenti veloci
     serverHomepage: Homepage del server
     deleteAccount: Elimina account
   faq:

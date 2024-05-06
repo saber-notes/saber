@@ -143,24 +143,8 @@ settings:
   resyncEverything(OUTDATED): סנכרן הכל מחדש
 login:
   title: התחבר
-  feedbacks:
-    checkUsername: אנא בדוק שוב את שם המשתמש או הדוא"ל שלך.
-    enterNcPassword: הזן את סיסמת NextCloud שלך.
-    enterEncPassword: הזן את סיסמת ההצפנה שלך.
-    checkUrl: הזן כתובת URL חוקית.
-    ncLoginFailed: "הכניסה נכשלה, אנא בדוק את הפרטים שלך ואת חיבור הרשת."
-    encLoginFailed: "הכניסה נכשלה, אנא בדוק את סיסמת ההצפנה שלך."
-    loginSuccess: "ההתחבר בהצלחה! אנא המתן בזמן שאנו מגדירים..."
-    ncUnsupportedFailure(OUTDATED): השרת הנתון מריץ את Nextcloud $v אבל גרסה זו של Saber תומכת רק ב-Nextcloud $s עד $t.
   form:
-    useCustomServer: אני רוצה להשתמש בשרת Nextcloud מותאם אישית
-    customServerUrl: כתובת אתר מותאמת אישית של שרת
-    username: שם משתמש או אימייל
-    ncPassword: סיסמת NextCloud
-    encPassword: סיסמה מוצפנת
     agreeToPrivacyPolicy(rich): "על ידי התחברות, אתה מסכים ל ${linkToPrivacyPolicy(מדיניות הפרטיות)}."
-    login: התחבר
-  seeFaq(OUTDATED): "עיין בשאלות הנפוצות למטה למידע נוסף, כולל על סיסמת ההצפנה."
   signup(rich): "אין לך עוד משתמש ${linkToSignup(הירשם עכשיו)}!"
   status:
     loggedIn: מחובר עם NextCloud
@@ -185,7 +169,6 @@ profile:
   title: הפרופיל שלי
   logout: התנתק
   quickLinks:
-    title: קישורים מהירים
     serverHomepage: דף הבית של השרת
     deleteAccount: מחק משתמש
   faq:

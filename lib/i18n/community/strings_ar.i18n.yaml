@@ -143,24 +143,8 @@ settings:
   resyncEverything(OUTDATED): إعادة ترتيب كل شيء
 login:
   title: تسجيل الدخول
-  feedbacks:
-    checkUsername: يرجى التحقق مرة أخرى من اسم المستخدم أو البريد الإلكتروني الخاص بك.
-    enterNcPassword: الرجاء إدخال كلمة مرور Nextcloud الخاصة بك.
-    enterEncPassword: الرجاء إدخال كلمة مرور التشفير الخاصة بك.
-    checkUrl: أدخل رابط URL صالح من فضلك.
-    ncLoginFailed: فشل تسجيل الدخول ، يرجى التحقق من التفاصيل الخاصة بك واتصال الشبكة.
-    encLoginFailed: فشل تسجيل الدخول ، يرجى التحقق من كلمة مرور التشفير الخاصة بك.
-    loginSuccess: "تم تسجيل الدخول بنجاح! الرجاء الانتظار بينما نقوم بالإعداد ..."
-    ncUnsupportedFailure(OUTDATED): يقوم الخادم المحدد بتشغيل Nextcloud $v ولكن هذا الإصدار من Saber يدعم فقط Nextcloud $s إلى $t.
   form:
-    useCustomServer: أريد استخدام خادم Nextcloud مخصص
-    customServerUrl: عنوان URL مخصص للخادم
-    username: اسم المستخدم أو البريد الالكتروني
-    ncPassword: Nextcloud كلمة المرور
-    encPassword: كلمة مرور التشفير
     agreeToPrivacyPolicy(rich): "بتسجيل الدخول، فإنك توافق على ${linkToPrivacyPolicy(سياسة الخصوصية)}."
-    login: تسجيل الدخول
-  seeFaq(OUTDATED): راجع الأسئلة الشائعة أدناه لمزيد من المعلومات، بما في ذلك معلومات حول كلمة مرور التشفير.
   signup(rich): "لا تملك حسابا حتى الآن؟ ${linkToSignup(سجل حساباً الأن)}!"
   status:
     loggedIn: تم تسجيل الدخول باستخدام Nextcloud
@@ -185,7 +169,6 @@ profile:
   title: ملفي الشخصي
   logout: تسجيل الخروج
   quickLinks:
-    title: روابط سريعة
     serverHomepage: الصفحة الرئيسية للخادم
     deleteAccount: حذف الحساب
   faq:

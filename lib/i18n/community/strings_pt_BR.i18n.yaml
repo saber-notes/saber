@@ -143,24 +143,8 @@ settings:
   resyncEverything(OUTDATED): Resync tudo
 login:
   title: Login
-  feedbacks:
-    checkUsername: Por favor verifique o seu nome de usuário ou e-mail.
-    enterNcPassword: Por favor digite a sua senha do Nextcloud.
-    enterEncPassword: Por favor digite a sua senha de criptografia.
-    checkUrl: Por favor insira uma URL válida.
-    ncLoginFailed: "Falha no login, por favor verifique os seus dados e a conexão de rede."
-    encLoginFailed: "Falha no login, por favor verifique a sua senha de criptografia."
-    loginSuccess: "Login bem-sucedido! Aguarde enquanto configuramos..."
-    ncUnsupportedFailure(OUTDATED): "O servidor fornecido está executando Nextcloud $v, mas esta versão do Saber suporta apenas Nextcloud $s a $t."
   form:
-    useCustomServer: Eu quero usar um servidor Nextcloud personalizado
-    customServerUrl: URL do servidor personalizado
-    username: Nome de usuário ou e-mail
-    ncPassword: Senha do Nextcloud
-    encPassword: Senha de criptografia
     agreeToPrivacyPolicy(rich): "Ao fazer login, você concorda com a ${linkToPrivacyPolicy(Política de Privacidade)}."
-    login: Login
-  seeFaq(OUTDATED): "Consulte o FAQ abaixo para obter mais informações, inclusive sobre a senha de criptografia."
   signup(rich): "Ainda não tem uma conta? ${linkToSignup(Registre-se agora)}!"
   status:
     loggedIn: Logado com o Nextcloud
@@ -185,7 +169,6 @@ profile:
   title: Meu perfil
   logout: Sair
   quickLinks:
-    title: Links rápidos
     serverHomepage: Página inicial do servidor
     deleteAccount: Apagar conta
   faq:
