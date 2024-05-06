@@ -150,21 +150,6 @@ login:
     loggedIn: Bejelentkezve a Nextclouddal
     loggedOut: Kijelentkezve
     tapToLogin: Kattintson a Nextclouddal való bejelentkezéshez
-  faq(OUTDATED):
-    - q: "Mi az a Nextcloud?"
-      a: "A Nextcloud többek között egy privát fájlszinkronizáló szerver. Használhatja az alapértelmezett Saber Nextcloud kiszolgálót, használhat harmadik féltől származó kiszolgálót, vagy saját maga tárolhatja az adatait az adatok teljes ellenőrzéséhez."
-    - q: "Mi a titkosítási jelszó?"
-      a: |-
-        A titkosítási jelszó az adatok titkosítására szolgál, mielőtt elküldené azokat a szervernek. Ezt választja ki, amikor először jelentkezik be a Saberbe, és nem kapcsolódik Nextcloud-fiókjához/jelszavához.
-        Senki sem férhet hozzá a kiszolgálón lévő jegyzeteihez az Ön titkosítási jelszava nélkül. Ez azt is jelenti, hogy ha elfelejti titkosítási jelszavát, elveszíti hozzáférését az adataihoz.
-    - q: "Miért használjunk két jelszót?"
-      a: |-
-        A Nextcloud jelszó a felhő eléréséhez használható. A titkosítási jelszó „összekeveri” az adatait, mielőtt azok elérnék a felhőt.
-        Még akkor is, ha valaki hozzáfér a Nextcloud-fiókjához, jegyzetei biztonságban maradnak, és külön jelszóval titkosítva lesznek. Ez egy második biztonsági réteget biztosít az adatok védelméhez.
-    - q: "Hogyan tudok bejelentkezni, ha 2FA-t használok?"
-      a: "A szokásos Nextcloud-jelszó helyett létre kell hoznia egy „alkalmazásjelszót”. Ezt megteheti a Nextcloud beállításai között a Biztonság > Eszközök és munkamenetek > Új alkalmazásjelszó létrehozása alatt. A titkosítási jelszó nem változik."
-    - q: "Használhatom mindkettőhöz ugyanazt a jelszót?"
-      a: "Igen, de ez kevésbé biztonságos. Mivel a Nextcloud jelszava elküldésre kerül a szervernek, valaki, aki hozzáfér a szerverhez, képes lesz visszafejteni a jegyzeteit. Csak akkor használja ugyanazt a jelszót, ha megbízik a szerver tulajdonosában."
 profile:
   quickLinks:
     serverHomepage(OUTDATED): Szerver honlapja

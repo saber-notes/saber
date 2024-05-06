@@ -150,21 +150,6 @@ login:
     loggedIn: Logado com o Nextcloud
     loggedOut: Desconectado
     tapToLogin: Toque para fazer login com o Nextcloud
-  faq(OUTDATED):
-    - q: "O que é o Nextcloud?"
-      a: "O Nextcloud é um servidor privado de sincronização de arquivos, entre outras coisas. Você pode usar o servidor Nextcloud padrão do Saber, usar um servidor de terceiros ou auto-hospedar o seu próprio servidor para controle total dos seus dados."
-    - q: "O que é uma senha de criptografia?"
-      a: |-
-        A senha de criptografia é usada para criptografar os seus dados antes de eles serem enviados ao servidor. Você a escolhe quando faz login pela primeira vez no Saber, e ela não está relacionada à sua conta/senha do Nextcloud.
-        Ninguém pode acessar as suas notas no servidor sem a sua senha de criptografia. Isso também significa que, se você esquecer a sua senha de criptografia, perderá o acesso aos seus dados.
-    - q: "Por que usar duas senhas?"
-      a: |-
-        A senha do Nextcloud é usada para acessar a nuvem. A senha de criptografia "embaralha" os seus dados antes que eles cheguem à nuvem.
-        Mesmo que alguém obtenha acesso à sua conta do Nextcloud, as suas notas permanecerão seguras e criptografadas com uma senha separada. Isso fornece uma segunda camada de segurança para proteger os seus dados.
-    - q: "Como eu faço login usando autenticação de dois fatores (2FA)?"
-      a: "Em vez de sua senha regular do Nextcloud, você precisará criar uma \"senha de aplicativo\". Você pode fazer isso nas configurações do Nextcloud em Segurança > Dispositivos e sessões > Criar nova senha de aplicativo. A sua senha de criptografia não é afetada."
-    - q: "Posso usar a mesma senha para ambos?"
-      a: "Sim, mas isso é menos seguro. Como a sua senha do Nextcloud é enviada ao servidor, alguém com acesso ao servidor poderá descriptografar as suas notas. Use a mesma senha apenas se você confiar no proprietário do servidor. "
 profile:
   title: Meu perfil
   logout: Sair
