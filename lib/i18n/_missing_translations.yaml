@@ -136,51 +136,47 @@ ar:
         tablature(OUTDATED): Tablature
 cs:
   common:
-    done(OUTDATED): Done
-    continueBtn(OUTDATED): Continue
+    done(OUTDATED): Dokončit
+    continueBtn(OUTDATED): Pokračovat
   login:
-    notYou(rich)(OUTDATED): "Not you? ${undoLogin(Choose another account)}."
+    notYou(rich)(OUTDATED): "Nejste to vy? ${undoLogin(Zvolit jiný účet)}."
     status:
-      hi(OUTDATED): "Hi, $u!"
-      almostDone(OUTDATED): "Almost ready for syncing, tap to finish logging in"
+      hi(OUTDATED): "Zdravím, $u!"
+      almostDone(OUTDATED): "Synchronizace je téměř připravena, pro dokončení přihlášení klepněte sem"
     ncLoginStep:
-      whereToStoreData(OUTDATED): "Choose where you want to store your data:"
-      saberNcServer: Saber's Nextcloud server
-      otherNcServer(OUTDATED): Other Nextcloud server
-      serverUrl(OUTDATED): Server URL
-      loginWithSaber(OUTDATED): Login with Saber
-      loginWithNextcloud(OUTDATED): Login with Nextcloud
+      whereToStoreData(OUTDATED): "Zvolte si, kam chcete ukládat svá data:"
+      saberNcServer: Oficiální Nextcloud server aplikace Saber
+      otherNcServer(OUTDATED): Jiný Nextcloud server
+      serverUrl(OUTDATED): URL adresa serveru
+      loginWithSaber(OUTDATED): Přihlásit přes aplikaci Saber
+      loginWithNextcloud(OUTDATED): Přihlásit přes Nextcloud server
       loginFlow:
-        pleaseAuthorize(OUTDATED): Please authorize Saber to access your Nextcloud account
-        followPrompts(OUTDATED): Please follow the prompts in your browser.
-        browserDidntOpen(OUTDATED): "Browser didn't open? Click here"
+        pleaseAuthorize(OUTDATED): Autorizujte prosím aplikaci Saber k přístupu na váš Nextcloud účet
+        followPrompts(OUTDATED): Následujte prosím kroky ve webovém prohlížeči
+        browserDidntOpen(OUTDATED): "Neotevřel se webový prohlížeč? Klepněte zde"
     encLoginStep:
-      enterEncPassword(OUTDATED): "To protect your data, please enter your encryption password:"
-      newToSaber(OUTDATED): "New to Saber? Just enter a new encryption password."
-      encPassword(OUTDATED): Encryption password
-      encFaqTitle(OUTDATED): Frequently asked questions
-      wrongEncPassword(OUTDATED): Decryption failed with the provided password. Please try entering it again.
-      connectionFailed(OUTDATED): Something went wrong connecting to the server. Please try again later.
+      enterEncPassword(OUTDATED): "Zadejte prosím heslo pro šifrování, abyste chránili svá data:"
+      newToSaber(OUTDATED): "Poprvé v aplikaci Saber? Stačí zadat nové heslo pro šifrování."
+      encPassword(OUTDATED): Heslo pro šifrování
+      encFaqTitle(OUTDATED): Často kladené otázky
+      wrongEncPassword(OUTDATED): Dešifrování pomocí zadaného hesla pro šifrování selhalo. Zkuste ho prosím zadat znovu.
+      connectionFailed(OUTDATED): Při připojování k serveru se něco pokazilo. Zkuste to prosím později.
       encFaq(OUTDATED):
-        - q: "What is an encryption password? Why use two passwords?"
+        - q: "Co je to heslo pro šifrování? Proč používat dvě hesla?"
           a: |-
-            The Nextcloud password is used to access the cloud. The encryption password "scrambles" your data before it ever reaches the cloud.
-            Even if someone gains access to your Nextcloud account, your notes will remain safe and encrypted with a separate password. This provides you a second layer of security to protect your data.
-            No-one can access your notes on the server without your encryption password, but this also means that if you forget your encryption password, you will lose access to your data.
-        - q: "I haven't set an encryption password yet. Where do I get it?"
+            Heslo k Nextcloud účtu se používá k přístupu do cloudu. Heslo pro šifrování „zamaskuje“ vaše data dokonce ještě než dorazí na cloud.
+            I když by někdo získat přístup k vašemu Nextcloud účtu, vaše poznámky zůstanou v bezpečí a zašifrované oddělným heslem. To vám přináší druhou úroveň bezpečnosti ochrany vašich dat.
+            Nikdo k vašim poznámkám nemůže přistoupit bez hesla pro šifrování, což ale také znamená, že pokud své heslo pro šifrování zapomenete, ztratíte přístup ke svým datům.
+        - q: "Ještě jsem heslo pro šifrování nenastavoval. Kde ho získám?"
           a: |-
-            Choose a new encryption password and enter it above.
-            Saber will generate your encryption keys from this password automatically.
-        - q: "Can I use the same password as my Nextcloud account?"
-          a: "Yes, but keep in mind that it would be easier for the server administrator or someone else to access your notes if they gain access to your Nextcloud account."
+            Zvolte si nové heslo pro šifrování a zadejte ho výše.
+            Aplikace Saber z hesla automaticky vygeneruje šifrovací klíče.
+        - q: "Mohu jako heslo pro šifrování použít své heslo od Nextcloud účtu?"
+          a: "Ano, ale mějte na paměti, že bude pro administrátora Nextcloud serveru či kohokoliv jiného, kdo získá přístup k vašemu Nextcloud účtu, jednodušší získat přístup k vašim poznámkám."
   profile:
-    quotaUsage(OUTDATED): You're using $used of $total ($percent)
-    connectedTo(OUTDATED): Connected to
-    faqTitle(OUTDATED): Frequently asked questions
-  editor:
-    menu:
-      watchServer(OUTDATED): Watch for updates on the server
-      watchServerReadOnly(OUTDATED): Editing is disabled while watching the server
+    quotaUsage(OUTDATED): Využíváte $used z $total ($percent)
+    connectedTo(OUTDATED): Připojeno k
+    faqTitle(OUTDATED): Často kladené otázky
 de:
   common:
     done(OUTDATED): Done
