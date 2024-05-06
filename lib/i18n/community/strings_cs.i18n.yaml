@@ -175,8 +175,6 @@ login:
     wrongEncPassword(OUTDATED): Dešifrování se zadaným heslem se nezdařilo. Zkuste jej zadat znovu.
     connectionFailed(OUTDATED): Při připojování k serveru se něco pokazilo. Prosím zkuste to znovu později.
     encFaq(OUTDATED):
-      - q: "Co je to Nextcloud?"
-        a: "Nextcloud je mimo jiné osobní server pro synchronizaci souborů. Můžete používat výchozí Nextcloud server poskytovaný aplikací Saber, použít server hostovaný třetí stranou, nebo vlastní server pro plnou kontrolu nad svými daty."
       - q: "Co je to heslo pro šifrování?"
         a: |-
           Heslo pro šifrování je použito k zašifrování vašich dat před jejich odesláním na server. Zvolíte si ho při prvním přihlášení do aplikace Saber (nikoliv do webového rozhraní Nextcloud serveru), není nijak vázáno na heslo k vašemu Nextcloud účtu nebo na účet samotný.
@@ -189,10 +187,6 @@ login:
         a: |-
           Jednoduše si ho zvolíte právě teď, když se budete výše přihlašovat!
           Heslo pro šifrování si volíte při prvním přihlášení do aplikace Saber (nikoliv do webového rozhraní Nextcloud serveru).
-      - q: "Jak se přihlásím, když používám 2FA?"
-        a: "Místo běžného hesla k Nextcloud účtu si potřebujete vytvořit \"heslo aplikace\". Toho můžete docílit v nastavení Nextcloudu v záložce Zabezpečení > Zařízení a sezení > Vytvořit nové heslo aplikace. Vašeho hesla pro šifrování se to nijak netýká."
-      - q: "Mohu použít stejné heslo k Nextcloud účtu a pro šifrování?"
-        a: "Ano, ale je není to tak bezpečné. Jelikož je heslo k Nextcloud účtu odesíláno na server, kdokoliv s přístupem k serveru může dešifrovat vaše poznámky. Stejné heslo tedy použijte jen v případě, že vlastníkovi Nextcloud serveru důvěřujete."
 profile:
   title: Můj profil
   logout: Odhlásit se

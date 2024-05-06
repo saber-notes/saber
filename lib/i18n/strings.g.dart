@@ -1460,8 +1460,6 @@ class _StringsLoginEncLoginStepAr extends _StringsLoginEncLoginStepEn {
 		_StringsLoginEncLoginStep$encFaq$0i0$Ar._(_root),
 		_StringsLoginEncLoginStep$encFaq$0i1$Ar._(_root),
 		_StringsLoginEncLoginStep$encFaq$0i2$Ar._(_root),
-		_StringsLoginEncLoginStep$encFaq$0i3$Ar._(_root),
-		_StringsLoginEncLoginStep$encFaq$0i4$Ar._(_root),
 	];
 }
 
@@ -1728,8 +1726,8 @@ class _StringsLoginEncLoginStep$encFaq$0i0$Ar extends _StringsLoginEncLoginStep$
 	@override final _StringsAr _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'ما هو Nextcloud؟';
-	@override String get a => 'Nextcloud هو خادم مزامنة ملفات خاص، من بين أشياء أخرى. يمكنك استخدام خادم Saber Nextcloud الافتراضي، أو استخدام خادم جهة خارجية، أو الاستضافة الذاتية الخاصة بك للتحكم الكامل في بياناتك.';
+	@override String get q => 'ما هي كلمة مرور التشفير؟';
+	@override String get a => 'تُستخدم كلمة مرور التشفير لتشفير بياناتك قبل إرسالها إلى الخادم. يمكنك اختيارها عند تسجيل الدخول لأول مرة إلى Saber ،وهي غير مرتبطة بحساب/كلمة مرور Nextcloud الخاصة بك.\nلا يمكن لأحد الوصول إلى ملاحظاتك على الخادم بدون كلمة مرور التشفير الخاصة بك. هذا يعني أيضًا أنك إذا نسيت كلمة مرور التشفير، فستفقد إمكانية الوصول إلى بياناتك.';
 }
 
 // Path: login.encLoginStep.encFaq.1
@@ -1739,35 +1737,13 @@ class _StringsLoginEncLoginStep$encFaq$0i1$Ar extends _StringsLoginEncLoginStep$
 	@override final _StringsAr _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'ما هي كلمة مرور التشفير؟';
-	@override String get a => 'تُستخدم كلمة مرور التشفير لتشفير بياناتك قبل إرسالها إلى الخادم. يمكنك اختيارها عند تسجيل الدخول لأول مرة إلى Saber ،وهي غير مرتبطة بحساب/كلمة مرور Nextcloud الخاصة بك.\nلا يمكن لأحد الوصول إلى ملاحظاتك على الخادم بدون كلمة مرور التشفير الخاصة بك. هذا يعني أيضًا أنك إذا نسيت كلمة مرور التشفير، فستفقد إمكانية الوصول إلى بياناتك.';
+	@override String get q => 'لماذا نستخدم كلمتين من كلمات المرور؟';
+	@override String get a => 'يتم استخدام كلمة مرور Nextcloud للوصول إلى السحابة. كلمة مرور التشفير "تشويش " بياناتك قبل أن تصل إلى السحابة.\nحتى إذا تمكن شخص ما من الوصول إلى حسابك على Nextcloud ،فستظل ملاحظاتك آمنة ومشفرة بكلمة مرور منفصلة. يوفر لك هذا طبقة ثانية من الأمان لحماية بياناتك.';
 }
 
 // Path: login.encLoginStep.encFaq.2
 class _StringsLoginEncLoginStep$encFaq$0i2$Ar extends _StringsLoginEncLoginStep$encFaq$0i2$En {
 	_StringsLoginEncLoginStep$encFaq$0i2$Ar._(_StringsAr root) : this._root = root, super._(root);
-
-	@override final _StringsAr _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => 'لماذا نستخدم كلمتين من كلمات المرور؟';
-	@override String get a => 'يتم استخدام كلمة مرور Nextcloud للوصول إلى السحابة. كلمة مرور التشفير "تشويش " بياناتك قبل أن تصل إلى السحابة.\nحتى إذا تمكن شخص ما من الوصول إلى حسابك على Nextcloud ،فستظل ملاحظاتك آمنة ومشفرة بكلمة مرور منفصلة. يوفر لك هذا طبقة ثانية من الأمان لحماية بياناتك.';
-}
-
-// Path: login.encLoginStep.encFaq.3
-class _StringsLoginEncLoginStep$encFaq$0i3$Ar extends _StringsLoginEncLoginStep$encFaq$0i3$En {
-	_StringsLoginEncLoginStep$encFaq$0i3$Ar._(_StringsAr root) : this._root = root, super._(root);
-
-	@override final _StringsAr _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => 'كيف يمكنني تسجيل الدخول إذا كنت أستخدم المصادقة الثنائية (2FA)؟';
-	@override String get a => 'بدلاً من كلمة مرور Nextcloud العادية، ستحتاج إلى إنشاء "كلمة مرور التطبيق". يمكنك القيام بذلك في إعدادات Nextcloud الخاصة بك ضمن الأمان> الأجهزة والجلسات> إنشاء كلمة مرور جديدة للتطبيق. كلمة مرور التشفير الخاصة بك لا تتأثر.';
-}
-
-// Path: login.encLoginStep.encFaq.4
-class _StringsLoginEncLoginStep$encFaq$0i4$Ar extends _StringsLoginEncLoginStep$encFaq$0i4$En {
-	_StringsLoginEncLoginStep$encFaq$0i4$Ar._(_StringsAr root) : this._root = root, super._(root);
 
 	@override final _StringsAr _root; // ignore: unused_field
 
@@ -2308,9 +2284,6 @@ class _StringsLoginEncLoginStepCs extends _StringsLoginEncLoginStepEn {
 		_StringsLoginEncLoginStep$encFaq$0i0$Cs._(_root),
 		_StringsLoginEncLoginStep$encFaq$0i1$Cs._(_root),
 		_StringsLoginEncLoginStep$encFaq$0i2$Cs._(_root),
-		_StringsLoginEncLoginStep$encFaq$0i3$Cs._(_root),
-		_StringsLoginEncLoginStep$encFaq$0i4$Cs._(_root),
-		_StringsLoginEncLoginStep$encFaq$0i5$Cs._(_root),
 	];
 }
 
@@ -2577,8 +2550,8 @@ class _StringsLoginEncLoginStep$encFaq$0i0$Cs extends _StringsLoginEncLoginStep$
 	@override final _StringsCs _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Co je to Nextcloud?';
-	@override String get a => 'Nextcloud je mimo jiné osobní server pro synchronizaci souborů. Můžete používat výchozí Nextcloud server poskytovaný aplikací Saber, použít server hostovaný třetí stranou, nebo vlastní server pro plnou kontrolu nad svými daty.';
+	@override String get q => 'Co je to heslo pro šifrování?';
+	@override String get a => 'Heslo pro šifrování je použito k zašifrování vašich dat před jejich odesláním na server. Zvolíte si ho při prvním přihlášení do aplikace Saber (nikoliv do webového rozhraní Nextcloud serveru), není nijak vázáno na heslo k vašemu Nextcloud účtu nebo na účet samotný.\nBez jeho znalosti nemůže nikdo přistoupit k vašim poznámkám uloženým na serveru. To také znamená, že pokud ho zapomenete, ztratíte přístup ke svým datům.';
 }
 
 // Path: login.encLoginStep.encFaq.1
@@ -2588,8 +2561,8 @@ class _StringsLoginEncLoginStep$encFaq$0i1$Cs extends _StringsLoginEncLoginStep$
 	@override final _StringsCs _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Co je to heslo pro šifrování?';
-	@override String get a => 'Heslo pro šifrování je použito k zašifrování vašich dat před jejich odesláním na server. Zvolíte si ho při prvním přihlášení do aplikace Saber (nikoliv do webového rozhraní Nextcloud serveru), není nijak vázáno na heslo k vašemu Nextcloud účtu nebo na účet samotný.\nBez jeho znalosti nemůže nikdo přistoupit k vašim poznámkám uloženým na serveru. To také znamená, že pokud ho zapomenete, ztratíte přístup ke svým datům.';
+	@override String get q => 'Proč používat dvě hesla?';
+	@override String get a => 'Heslo k Nextcloud účtu se používá k přístupu do cloudu. Heslo pro šifrování "utají" vaše data ještě před tím, než se na cloud dostanou.\nI když by někdo získat přístup k vašemu Nextcloud účtu, vaše poznámky zůstanou v bezpečí zašifrované vlastním heslem. To vám poskytuje druhou vrstvu ochrany vašich dat.';
 }
 
 // Path: login.encLoginStep.encFaq.2
@@ -2599,41 +2572,8 @@ class _StringsLoginEncLoginStep$encFaq$0i2$Cs extends _StringsLoginEncLoginStep$
 	@override final _StringsCs _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Proč používat dvě hesla?';
-	@override String get a => 'Heslo k Nextcloud účtu se používá k přístupu do cloudu. Heslo pro šifrování "utají" vaše data ještě před tím, než se na cloud dostanou.\nI když by někdo získat přístup k vašemu Nextcloud účtu, vaše poznámky zůstanou v bezpečí zašifrované vlastním heslem. To vám poskytuje druhou vrstvu ochrany vašich dat.';
-}
-
-// Path: login.encLoginStep.encFaq.3
-class _StringsLoginEncLoginStep$encFaq$0i3$Cs extends _StringsLoginEncLoginStep$encFaq$0i3$En {
-	_StringsLoginEncLoginStep$encFaq$0i3$Cs._(_StringsCs root) : this._root = root, super._(root);
-
-	@override final _StringsCs _root; // ignore: unused_field
-
-	// Translations
 	@override String get q => 'Ještě jsem heslo pro šifrování nenastavoval. Kde ho získám?';
 	@override String get a => 'Jednoduše si ho zvolíte právě teď, když se budete výše přihlašovat!\nHeslo pro šifrování si volíte při prvním přihlášení do aplikace Saber (nikoliv do webového rozhraní Nextcloud serveru).';
-}
-
-// Path: login.encLoginStep.encFaq.4
-class _StringsLoginEncLoginStep$encFaq$0i4$Cs extends _StringsLoginEncLoginStep$encFaq$0i4$En {
-	_StringsLoginEncLoginStep$encFaq$0i4$Cs._(_StringsCs root) : this._root = root, super._(root);
-
-	@override final _StringsCs _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => 'Jak se přihlásím, když používám 2FA?';
-	@override String get a => 'Místo běžného hesla k Nextcloud účtu si potřebujete vytvořit "heslo aplikace". Toho můžete docílit v nastavení Nextcloudu v záložce Zabezpečení > Zařízení a sezení > Vytvořit nové heslo aplikace. Vašeho hesla pro šifrování se to nijak netýká.';
-}
-
-// Path: login.encLoginStep.encFaq.5
-class _StringsLoginEncLoginStep$encFaq$0i5$Cs extends _StringsLoginEncLoginStep$encFaq$0i5$En {
-	_StringsLoginEncLoginStep$encFaq$0i5$Cs._(_StringsCs root) : this._root = root, super._(root);
-
-	@override final _StringsCs _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => 'Mohu použít stejné heslo k Nextcloud účtu a pro šifrování?';
-	@override String get a => 'Ano, ale je není to tak bezpečné. Jelikož je heslo k Nextcloud účtu odesíláno na server, kdokoliv s přístupem k serveru může dešifrovat vaše poznámky. Stejné heslo tedy použijte jen v případě, že vlastníkovi Nextcloud serveru důvěřujete.';
 }
 
 // Path: editor.menu.boxFits
@@ -3169,8 +3109,6 @@ class _StringsLoginEncLoginStepDe extends _StringsLoginEncLoginStepEn {
 		_StringsLoginEncLoginStep$encFaq$0i0$De._(_root),
 		_StringsLoginEncLoginStep$encFaq$0i1$De._(_root),
 		_StringsLoginEncLoginStep$encFaq$0i2$De._(_root),
-		_StringsLoginEncLoginStep$encFaq$0i3$De._(_root),
-		_StringsLoginEncLoginStep$encFaq$0i4$De._(_root),
 	];
 }
 
@@ -3437,8 +3375,8 @@ class _StringsLoginEncLoginStep$encFaq$0i0$De extends _StringsLoginEncLoginStep$
 	@override final _StringsDe _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Was ist Nextcloud?';
-	@override String get a => 'Nextcloud ist unter anderem ein privater Dateisynchronisationsserver. Du kannst den Standard-Saber-Nextcloud-Server, einen Drittanbieter-, oder einen selbst-gehosteten Server verwenden, um volle Kontrolle über deine Daten zu behalten.';
+	@override String get q => 'Was ist das Verchlüsselungspasswort?';
+	@override String get a => 'Das Verschlüsselungspasswort wird verwendet, um deine Daten zu verschlüsseln, bevor diese an den Server gesendet werden. Es wird nicht auf dem Server gespeichert und nur von Saber verwendet, um deine Daten zu ver- und entschlüsseln.\nNiemand kann ohne dieses Passwort auf deine Notizen auf dem Server zugreifen. Das bedeutet allerdings auch, dass du, wenn du dein Verschlüsselungspasswort vergisst, den Zugriff auf deine Daten verlierst.';
 }
 
 // Path: login.encLoginStep.encFaq.1
@@ -3448,35 +3386,13 @@ class _StringsLoginEncLoginStep$encFaq$0i1$De extends _StringsLoginEncLoginStep$
 	@override final _StringsDe _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Was ist das Verchlüsselungspasswort?';
-	@override String get a => 'Das Verschlüsselungspasswort wird verwendet, um deine Daten zu verschlüsseln, bevor diese an den Server gesendet werden. Es wird nicht auf dem Server gespeichert und nur von Saber verwendet, um deine Daten zu ver- und entschlüsseln.\nNiemand kann ohne dieses Passwort auf deine Notizen auf dem Server zugreifen. Das bedeutet allerdings auch, dass du, wenn du dein Verschlüsselungspasswort vergisst, den Zugriff auf deine Daten verlierst.';
+	@override String get q => 'Wieso zwei Passwörter?';
+	@override String get a => 'Das Nextcloud-Passwort wird verwendet, um auf die Cloud zuzugreifen. Das Verschlüsselungspasswort „verwürfelt“ deine Daten, bevor diese die Cloud erreichen.\nSelbst wenn jemand Zugriff zu deinem Nextcloud-Konto erlangt, bleiben deine Notizen sicher und verschlüsselt mit einem seperaten Passwort. Dies stellt eine zweite Sicherheitsebene zum Schutz deiner Daten dar.';
 }
 
 // Path: login.encLoginStep.encFaq.2
 class _StringsLoginEncLoginStep$encFaq$0i2$De extends _StringsLoginEncLoginStep$encFaq$0i2$En {
 	_StringsLoginEncLoginStep$encFaq$0i2$De._(_StringsDe root) : this._root = root, super._(root);
-
-	@override final _StringsDe _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => 'Wieso zwei Passwörter?';
-	@override String get a => 'Das Nextcloud-Passwort wird verwendet, um auf die Cloud zuzugreifen. Das Verschlüsselungspasswort „verwürfelt“ deine Daten, bevor diese die Cloud erreichen.\nSelbst wenn jemand Zugriff zu deinem Nextcloud-Konto erlangt, bleiben deine Notizen sicher und verschlüsselt mit einem seperaten Passwort. Dies stellt eine zweite Sicherheitsebene zum Schutz deiner Daten dar.';
-}
-
-// Path: login.encLoginStep.encFaq.3
-class _StringsLoginEncLoginStep$encFaq$0i3$De extends _StringsLoginEncLoginStep$encFaq$0i3$En {
-	_StringsLoginEncLoginStep$encFaq$0i3$De._(_StringsDe root) : this._root = root, super._(root);
-
-	@override final _StringsDe _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => 'Wie melde ich mich an, wenn ich Zwei-Faktor-Authentifikation verwende?';
-	@override String get a => 'Anstatt dein normales Nextcloud-Passwort zu verwenden, musst du ein "App Password" erstellen. Das kannst du in den Nextcloud-Einstellungen unter Sicherheit > Geräte & Sitzungen > Neues App-Passwort erstellen tun. Das betrifft nicht dein Verschlüsselungspasswort.';
-}
-
-// Path: login.encLoginStep.encFaq.4
-class _StringsLoginEncLoginStep$encFaq$0i4$De extends _StringsLoginEncLoginStep$encFaq$0i4$En {
-	_StringsLoginEncLoginStep$encFaq$0i4$De._(_StringsDe root) : this._root = root, super._(root);
 
 	@override final _StringsDe _root; // ignore: unused_field
 
@@ -4017,8 +3933,6 @@ class _StringsLoginEncLoginStepEs extends _StringsLoginEncLoginStepEn {
 		_StringsLoginEncLoginStep$encFaq$0i0$Es._(_root),
 		_StringsLoginEncLoginStep$encFaq$0i1$Es._(_root),
 		_StringsLoginEncLoginStep$encFaq$0i2$Es._(_root),
-		_StringsLoginEncLoginStep$encFaq$0i3$Es._(_root),
-		_StringsLoginEncLoginStep$encFaq$0i4$Es._(_root),
 	];
 }
 
@@ -4285,8 +4199,8 @@ class _StringsLoginEncLoginStep$encFaq$0i0$Es extends _StringsLoginEncLoginStep$
 	@override final _StringsEs _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => '¿Qué es Nextcloud?';
-	@override String get a => 'Nextcloud es un servidor privado de sincronización de archivos, entre otras cosas. Puedes usar el servidor de Saber Nextcloud predeterminado, usar un servidor de terceros o alojar el tuyo propio para tener un control total de tus datos.';
+	@override String get q => '¿Qué es la contraseña de cifrado?';
+	@override String get a => 'La contraseña de cifrado se utiliza para cifrar tus datos antes de enviarlos al servidor. La eliges cuando inicias sesión por primera vez en Saber, y no está relacionada con tu cuenta/contraseña de Nextcloud.\nNadie puede acceder a tus notas en el servidor sin tu contraseña de cifrado. Esto significa que si olvidas tu contraseña de cifrado, perderás el acceso a tus datos.';
 }
 
 // Path: login.encLoginStep.encFaq.1
@@ -4296,35 +4210,13 @@ class _StringsLoginEncLoginStep$encFaq$0i1$Es extends _StringsLoginEncLoginStep$
 	@override final _StringsEs _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => '¿Qué es la contraseña de cifrado?';
-	@override String get a => 'La contraseña de cifrado se utiliza para cifrar tus datos antes de enviarlos al servidor. La eliges cuando inicias sesión por primera vez en Saber, y no está relacionada con tu cuenta/contraseña de Nextcloud.\nNadie puede acceder a tus notas en el servidor sin tu contraseña de cifrado. Esto significa que si olvidas tu contraseña de cifrado, perderás el acceso a tus datos.';
+	@override String get q => '¿Por qué usar dos contraseñas?';
+	@override String get a => 'La contraseña de Nextcloud se utiliza para acceder a la nube. La contraseña de encriptación "codifica" tus datos antes de que lleguen a la nube.\nIncluso si alguien obtiene acceso a tu cuenta de Nextcloud, tus notas permanecerán seguras y encriptadas con una contraseña separada. Esto te proporciona una segunda capa de seguridad para proteger tus datos.';
 }
 
 // Path: login.encLoginStep.encFaq.2
 class _StringsLoginEncLoginStep$encFaq$0i2$Es extends _StringsLoginEncLoginStep$encFaq$0i2$En {
 	_StringsLoginEncLoginStep$encFaq$0i2$Es._(_StringsEs root) : this._root = root, super._(root);
-
-	@override final _StringsEs _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => '¿Por qué usar dos contraseñas?';
-	@override String get a => 'La contraseña de Nextcloud se utiliza para acceder a la nube. La contraseña de encriptación "codifica" tus datos antes de que lleguen a la nube.\nIncluso si alguien obtiene acceso a tu cuenta de Nextcloud, tus notas permanecerán seguras y encriptadas con una contraseña separada. Esto te proporciona una segunda capa de seguridad para proteger tus datos.';
-}
-
-// Path: login.encLoginStep.encFaq.3
-class _StringsLoginEncLoginStep$encFaq$0i3$Es extends _StringsLoginEncLoginStep$encFaq$0i3$En {
-	_StringsLoginEncLoginStep$encFaq$0i3$Es._(_StringsEs root) : this._root = root, super._(root);
-
-	@override final _StringsEs _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => '¿Cómo puedo iniciar sesión si uso autenticación en dos pasos (2FA)?';
-	@override String get a => 'En vez de usar tu contraseña habitual de Nextcloud, deberás crear una "contraseña de aplicación". Puedes hacerlo en la configuración de Nextcloud en Seguridad > Dispositivos y sesiones > Crear nueva contraseña de aplicación. Tu contraseña de cifrado no se ve afectada.';
-}
-
-// Path: login.encLoginStep.encFaq.4
-class _StringsLoginEncLoginStep$encFaq$0i4$Es extends _StringsLoginEncLoginStep$encFaq$0i4$En {
-	_StringsLoginEncLoginStep$encFaq$0i4$Es._(_StringsEs root) : this._root = root, super._(root);
 
 	@override final _StringsEs _root; // ignore: unused_field
 
@@ -4866,8 +4758,6 @@ class _StringsLoginEncLoginStepFa extends _StringsLoginEncLoginStepEn {
 		_StringsLoginEncLoginStep$encFaq$0i0$Fa._(_root),
 		_StringsLoginEncLoginStep$encFaq$0i1$Fa._(_root),
 		_StringsLoginEncLoginStep$encFaq$0i2$Fa._(_root),
-		_StringsLoginEncLoginStep$encFaq$0i3$Fa._(_root),
-		_StringsLoginEncLoginStep$encFaq$0i4$Fa._(_root),
 	];
 }
 
@@ -5134,8 +5024,8 @@ class _StringsLoginEncLoginStep$encFaq$0i0$Fa extends _StringsLoginEncLoginStep$
 	@override final _StringsFa _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Nextcloud چیست؟';
-	@override String get a => 'نکست کلاود یک سرور خصوصی همگام سازی فایل است، در میان چیزهای دیگر. می‌توانید از سرور پیش‌فرض Nextcloud ما استفاده کنید، از یک سرور شخص ثالث استفاده کنید یا برای کنترل کامل داده‌های خود، سرور خود را میزبانی کنید.';
+	@override String get q => 'رمز عبور رمزنگاری چیست؟';
+	@override String get a => 'رمز عبور رمزگذاری برای رمزگذاری داده های شما قبل از ارسال به سرور استفاده می شود.';
 }
 
 // Path: login.encLoginStep.encFaq.1
@@ -5145,35 +5035,13 @@ class _StringsLoginEncLoginStep$encFaq$0i1$Fa extends _StringsLoginEncLoginStep$
 	@override final _StringsFa _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'رمز عبور رمزنگاری چیست؟';
-	@override String get a => 'رمز عبور رمزگذاری برای رمزگذاری داده های شما قبل از ارسال به سرور استفاده می شود.';
+	@override String get q => 'چرا از دو رمز عبور استفاده میشود؟';
+	@override String get a => 'رمز عبور Nextcloud برای دسترسی به ابر استفاده می شود و رمزعبور دوم برای رمزنگاری استفاده میشود';
 }
 
 // Path: login.encLoginStep.encFaq.2
 class _StringsLoginEncLoginStep$encFaq$0i2$Fa extends _StringsLoginEncLoginStep$encFaq$0i2$En {
 	_StringsLoginEncLoginStep$encFaq$0i2$Fa._(_StringsFa root) : this._root = root, super._(root);
-
-	@override final _StringsFa _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => 'چرا از دو رمز عبور استفاده میشود؟';
-	@override String get a => 'رمز عبور Nextcloud برای دسترسی به ابر استفاده می شود و رمزعبور دوم برای رمزنگاری استفاده میشود';
-}
-
-// Path: login.encLoginStep.encFaq.3
-class _StringsLoginEncLoginStep$encFaq$0i3$Fa extends _StringsLoginEncLoginStep$encFaq$0i3$En {
-	_StringsLoginEncLoginStep$encFaq$0i3$Fa._(_StringsFa root) : this._root = root, super._(root);
-
-	@override final _StringsFa _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => 'اگر از 2FA استفاده کنم چگونه وارد سیستم شوم؟';
-	@override String get a => 'به جای رمز عبور عادی Nextcloud خود، باید یک "گذرواژه برنامه" ایجاد کنید. می‌توانید این کار را در تنظیمات Nextcloud خود در بخش امنیت > دستگاه‌ها و جلسات > ایجاد رمز عبور برنامه جدید انجام دهید. رمز رمزگذاری شما تحت تأثیر قرار نمیگیرد است.';
-}
-
-// Path: login.encLoginStep.encFaq.4
-class _StringsLoginEncLoginStep$encFaq$0i4$Fa extends _StringsLoginEncLoginStep$encFaq$0i4$En {
-	_StringsLoginEncLoginStep$encFaq$0i4$Fa._(_StringsFa root) : this._root = root, super._(root);
 
 	@override final _StringsFa _root; // ignore: unused_field
 
@@ -5715,8 +5583,6 @@ class _StringsLoginEncLoginStepFr extends _StringsLoginEncLoginStepEn {
 		_StringsLoginEncLoginStep$encFaq$0i0$Fr._(_root),
 		_StringsLoginEncLoginStep$encFaq$0i1$Fr._(_root),
 		_StringsLoginEncLoginStep$encFaq$0i2$Fr._(_root),
-		_StringsLoginEncLoginStep$encFaq$0i3$Fr._(_root),
-		_StringsLoginEncLoginStep$encFaq$0i4$Fr._(_root),
 	];
 }
 
@@ -5983,8 +5849,8 @@ class _StringsLoginEncLoginStep$encFaq$0i0$Fr extends _StringsLoginEncLoginStep$
 	@override final _StringsFr _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Qu\'est-ce que Nextcloud ?';
-	@override String get a => 'Nextcloud est, entre autres choses, un serveur privé de synchronisation de fichiers. Vous pouvez utiliser le serveur Nextcloud par défaut de Saber, utiliser un serveur tiers ou auto-héberger le vôtre pour un contrôle total de vos données.';
+	@override String get q => 'Qu\'est-ce que le mot de passe de cryptage ?';
+	@override String get a => 'Le mot de passe de cryptage est utilisé pour crypter vos données avant qu\'elles ne soient envoyées au serveur. Vous le créez lors de votre première connexion à Saber, et il est indépendant de votre compte et de votre mot de passe sur Nextcloud.\nPersonne ne peut accéder à vos notes sur le serveur sans votre mot de passe de chiffrement. Cela implique aussi que si vous oubliez votre mot de passe de cryptage, vous perdrez l\'accès à vos données.';
 }
 
 // Path: login.encLoginStep.encFaq.1
@@ -5994,35 +5860,13 @@ class _StringsLoginEncLoginStep$encFaq$0i1$Fr extends _StringsLoginEncLoginStep$
 	@override final _StringsFr _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Qu\'est-ce que le mot de passe de cryptage ?';
-	@override String get a => 'Le mot de passe de cryptage est utilisé pour crypter vos données avant qu\'elles ne soient envoyées au serveur. Vous le créez lors de votre première connexion à Saber, et il est indépendant de votre compte et de votre mot de passe sur Nextcloud.\nPersonne ne peut accéder à vos notes sur le serveur sans votre mot de passe de chiffrement. Cela implique aussi que si vous oubliez votre mot de passe de cryptage, vous perdrez l\'accès à vos données.';
+	@override String get q => 'Pourquoi utiliser deux mots de passe ?';
+	@override String get a => 'Le mot de passe Nextcloud est utilisé pour accéder au nuage (cloud). Le mot de passe de cryptage "brouille" vos données avant même qu\'elles n\'atteignent le nuage.\nMême si quelqu\'un accède à votre compte Nextcloud, vos notes resteront sécurisées et cryptées avec un mot de passe distinct. Cela crée un deuxième niveau de sécurité pour protéger vos données.';
 }
 
 // Path: login.encLoginStep.encFaq.2
 class _StringsLoginEncLoginStep$encFaq$0i2$Fr extends _StringsLoginEncLoginStep$encFaq$0i2$En {
 	_StringsLoginEncLoginStep$encFaq$0i2$Fr._(_StringsFr root) : this._root = root, super._(root);
-
-	@override final _StringsFr _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => 'Pourquoi utiliser deux mots de passe ?';
-	@override String get a => 'Le mot de passe Nextcloud est utilisé pour accéder au nuage (cloud). Le mot de passe de cryptage "brouille" vos données avant même qu\'elles n\'atteignent le nuage.\nMême si quelqu\'un accède à votre compte Nextcloud, vos notes resteront sécurisées et cryptées avec un mot de passe distinct. Cela crée un deuxième niveau de sécurité pour protéger vos données.';
-}
-
-// Path: login.encLoginStep.encFaq.3
-class _StringsLoginEncLoginStep$encFaq$0i3$Fr extends _StringsLoginEncLoginStep$encFaq$0i3$En {
-	_StringsLoginEncLoginStep$encFaq$0i3$Fr._(_StringsFr root) : this._root = root, super._(root);
-
-	@override final _StringsFr _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => 'Comment me connecter si j\'utilise 2FA ?';
-	@override String get a => 'Au lieu d\'utiliser votre mot de passe Nextcloud habituel, vous devrez créer un "mot de passe d\'application". Vous pouvez le faire dans les paramètres de Nextcloud, via Sécurité > Appareils & sessions > Créer un nouveau mot de passe d\'application. Votre mot de passe de cryptage reste inchangé.';
-}
-
-// Path: login.encLoginStep.encFaq.4
-class _StringsLoginEncLoginStep$encFaq$0i4$Fr extends _StringsLoginEncLoginStep$encFaq$0i4$En {
-	_StringsLoginEncLoginStep$encFaq$0i4$Fr._(_StringsFr root) : this._root = root, super._(root);
 
 	@override final _StringsFr _root; // ignore: unused_field
 
@@ -6564,8 +6408,6 @@ class _StringsLoginEncLoginStepHe extends _StringsLoginEncLoginStepEn {
 		_StringsLoginEncLoginStep$encFaq$0i0$He._(_root),
 		_StringsLoginEncLoginStep$encFaq$0i1$He._(_root),
 		_StringsLoginEncLoginStep$encFaq$0i2$He._(_root),
-		_StringsLoginEncLoginStep$encFaq$0i3$He._(_root),
-		_StringsLoginEncLoginStep$encFaq$0i4$He._(_root),
 	];
 }
 
@@ -6832,8 +6674,8 @@ class _StringsLoginEncLoginStep$encFaq$0i0$He extends _StringsLoginEncLoginStep$
 	@override final _StringsHe _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'מה זה Nextcloud?';
-	@override String get a => 'Nextcloud הוא שרת סנכרון קבצים פרטי, בין היתר. אתה יכול להשתמש בשרת ברירת המחדל של Saber Nextcloud, להשתמש בשרת של צד שלישי או לארח בעצמך לשליטה מלאה בנתונים שלך.';
+	@override String get q => 'מהי הסיסמא המוצפנת?';
+	@override String get a => 'סיסמת ההצפנה משמשת להצפנת הנתונים שלך לפני שליחתם לשרת. אתה בוחר את זה כשאתה נכנס לראשונה ל-Saber, וזה לא קשור לחשבון/סיסמת Nextcloud שלך.\nאף אחד לא יכול לגשת להערות שלך בשרת ללא סיסמת ההצפנה שלך. זה גם אומר שאם תשכח את סיסמת ההצפנה שלך, תאבד את הגישה לנתונים שלך.';
 }
 
 // Path: login.encLoginStep.encFaq.1
@@ -6843,35 +6685,13 @@ class _StringsLoginEncLoginStep$encFaq$0i1$He extends _StringsLoginEncLoginStep$
 	@override final _StringsHe _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'מהי הסיסמא המוצפנת?';
-	@override String get a => 'סיסמת ההצפנה משמשת להצפנת הנתונים שלך לפני שליחתם לשרת. אתה בוחר את זה כשאתה נכנס לראשונה ל-Saber, וזה לא קשור לחשבון/סיסמת Nextcloud שלך.\nאף אחד לא יכול לגשת להערות שלך בשרת ללא סיסמת ההצפנה שלך. זה גם אומר שאם תשכח את סיסמת ההצפנה שלך, תאבד את הגישה לנתונים שלך.';
+	@override String get q => 'למה להשתמש בשתי סיסמאות?';
+	@override String get a => 'סיסמת Nextcloud משמשת לגישה לענן. סיסמת ההצפנה "מערבלת" את הנתונים שלך לפני שהם מגיעים לענן.\nגם אם מישהו יקבל גישה לחשבון Nextcloud שלך, ההערות שלך יישארו בטוחות ומוצפנות עם סיסמה נפרדת. זה מספק לך שכבה שנייה של אבטחה כדי להגן על הנתונים שלך.';
 }
 
 // Path: login.encLoginStep.encFaq.2
 class _StringsLoginEncLoginStep$encFaq$0i2$He extends _StringsLoginEncLoginStep$encFaq$0i2$En {
 	_StringsLoginEncLoginStep$encFaq$0i2$He._(_StringsHe root) : this._root = root, super._(root);
-
-	@override final _StringsHe _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => 'למה להשתמש בשתי סיסמאות?';
-	@override String get a => 'סיסמת Nextcloud משמשת לגישה לענן. סיסמת ההצפנה "מערבלת" את הנתונים שלך לפני שהם מגיעים לענן.\nגם אם מישהו יקבל גישה לחשבון Nextcloud שלך, ההערות שלך יישארו בטוחות ומוצפנות עם סיסמה נפרדת. זה מספק לך שכבה שנייה של אבטחה כדי להגן על הנתונים שלך.';
-}
-
-// Path: login.encLoginStep.encFaq.3
-class _StringsLoginEncLoginStep$encFaq$0i3$He extends _StringsLoginEncLoginStep$encFaq$0i3$En {
-	_StringsLoginEncLoginStep$encFaq$0i3$He._(_StringsHe root) : this._root = root, super._(root);
-
-	@override final _StringsHe _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => 'איך אני מתחבר אם אני משתמש ב-2FA?';
-	@override String get a => 'במקום סיסמת Nextcloud הרגילה שלך, תצטרך ליצור "app password". תוכל לעשות זאת בהגדרות Nextcloud שלך תחת אבטחה > מכשירים והפעלות > צור סיסמת אפליקציה חדשה. סיסמת ההצפנה שלך לא מושפעת.';
-}
-
-// Path: login.encLoginStep.encFaq.4
-class _StringsLoginEncLoginStep$encFaq$0i4$He extends _StringsLoginEncLoginStep$encFaq$0i4$En {
-	_StringsLoginEncLoginStep$encFaq$0i4$He._(_StringsHe root) : this._root = root, super._(root);
 
 	@override final _StringsHe _root; // ignore: unused_field
 
@@ -7413,8 +7233,6 @@ class _StringsLoginEncLoginStepHu extends _StringsLoginEncLoginStepEn {
 		_StringsLoginEncLoginStep$encFaq$0i0$Hu._(_root),
 		_StringsLoginEncLoginStep$encFaq$0i1$Hu._(_root),
 		_StringsLoginEncLoginStep$encFaq$0i2$Hu._(_root),
-		_StringsLoginEncLoginStep$encFaq$0i3$Hu._(_root),
-		_StringsLoginEncLoginStep$encFaq$0i4$Hu._(_root),
 	];
 }
 
@@ -7681,8 +7499,8 @@ class _StringsLoginEncLoginStep$encFaq$0i0$Hu extends _StringsLoginEncLoginStep$
 	@override final _StringsHu _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Mi az a Nextcloud?';
-	@override String get a => 'A Nextcloud többek között egy privát fájlszinkronizáló szerver. Használhatja az alapértelmezett Saber Nextcloud kiszolgálót, használhat harmadik féltől származó kiszolgálót, vagy saját maga tárolhatja az adatait az adatok teljes ellenőrzéséhez.';
+	@override String get q => 'Mi a titkosítási jelszó?';
+	@override String get a => 'A titkosítási jelszó az adatok titkosítására szolgál, mielőtt elküldené azokat a szervernek. Ezt választja ki, amikor először jelentkezik be a Saberbe, és nem kapcsolódik Nextcloud-fiókjához/jelszavához.\nSenki sem férhet hozzá a kiszolgálón lévő jegyzeteihez az Ön titkosítási jelszava nélkül. Ez azt is jelenti, hogy ha elfelejti titkosítási jelszavát, elveszíti hozzáférését az adataihoz.';
 }
 
 // Path: login.encLoginStep.encFaq.1
@@ -7692,35 +7510,13 @@ class _StringsLoginEncLoginStep$encFaq$0i1$Hu extends _StringsLoginEncLoginStep$
 	@override final _StringsHu _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Mi a titkosítási jelszó?';
-	@override String get a => 'A titkosítási jelszó az adatok titkosítására szolgál, mielőtt elküldené azokat a szervernek. Ezt választja ki, amikor először jelentkezik be a Saberbe, és nem kapcsolódik Nextcloud-fiókjához/jelszavához.\nSenki sem férhet hozzá a kiszolgálón lévő jegyzeteihez az Ön titkosítási jelszava nélkül. Ez azt is jelenti, hogy ha elfelejti titkosítási jelszavát, elveszíti hozzáférését az adataihoz.';
+	@override String get q => 'Miért használjunk két jelszót?';
+	@override String get a => 'A Nextcloud jelszó a felhő eléréséhez használható. A titkosítási jelszó „összekeveri” az adatait, mielőtt azok elérnék a felhőt.\nMég akkor is, ha valaki hozzáfér a Nextcloud-fiókjához, jegyzetei biztonságban maradnak, és külön jelszóval titkosítva lesznek. Ez egy második biztonsági réteget biztosít az adatok védelméhez.';
 }
 
 // Path: login.encLoginStep.encFaq.2
 class _StringsLoginEncLoginStep$encFaq$0i2$Hu extends _StringsLoginEncLoginStep$encFaq$0i2$En {
 	_StringsLoginEncLoginStep$encFaq$0i2$Hu._(_StringsHu root) : this._root = root, super._(root);
-
-	@override final _StringsHu _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => 'Miért használjunk két jelszót?';
-	@override String get a => 'A Nextcloud jelszó a felhő eléréséhez használható. A titkosítási jelszó „összekeveri” az adatait, mielőtt azok elérnék a felhőt.\nMég akkor is, ha valaki hozzáfér a Nextcloud-fiókjához, jegyzetei biztonságban maradnak, és külön jelszóval titkosítva lesznek. Ez egy második biztonsági réteget biztosít az adatok védelméhez.';
-}
-
-// Path: login.encLoginStep.encFaq.3
-class _StringsLoginEncLoginStep$encFaq$0i3$Hu extends _StringsLoginEncLoginStep$encFaq$0i3$En {
-	_StringsLoginEncLoginStep$encFaq$0i3$Hu._(_StringsHu root) : this._root = root, super._(root);
-
-	@override final _StringsHu _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => 'Hogyan tudok bejelentkezni, ha 2FA-t használok?';
-	@override String get a => 'A szokásos Nextcloud-jelszó helyett létre kell hoznia egy „alkalmazásjelszót”. Ezt megteheti a Nextcloud beállításai között a Biztonság > Eszközök és munkamenetek > Új alkalmazásjelszó létrehozása alatt. A titkosítási jelszó nem változik.';
-}
-
-// Path: login.encLoginStep.encFaq.4
-class _StringsLoginEncLoginStep$encFaq$0i4$Hu extends _StringsLoginEncLoginStep$encFaq$0i4$En {
-	_StringsLoginEncLoginStep$encFaq$0i4$Hu._(_StringsHu root) : this._root = root, super._(root);
 
 	@override final _StringsHu _root; // ignore: unused_field
 
@@ -8262,8 +8058,6 @@ class _StringsLoginEncLoginStepIt extends _StringsLoginEncLoginStepEn {
 		_StringsLoginEncLoginStep$encFaq$0i0$It._(_root),
 		_StringsLoginEncLoginStep$encFaq$0i1$It._(_root),
 		_StringsLoginEncLoginStep$encFaq$0i2$It._(_root),
-		_StringsLoginEncLoginStep$encFaq$0i3$It._(_root),
-		_StringsLoginEncLoginStep$encFaq$0i4$It._(_root),
 	];
 }
 
@@ -8530,8 +8324,8 @@ class _StringsLoginEncLoginStep$encFaq$0i0$It extends _StringsLoginEncLoginStep$
 	@override final _StringsIt _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Che cos\'è Nextcloud?';
-	@override String get a => 'Nextcloud è un server di sincronizzazione file privato, tra le altre cose. Puoi utilizzare il server Saber Nextcloud predefinito, utilizzare un server di terze parti o ospitare autonomamente il tuo per il pieno controllo dei tuoi dati.';
+	@override String get q => 'Qual è la password di crittografia?';
+	@override String get a => 'La password di crittografia viene utilizzata per crittografare i dati prima che vengano inviati al server. Lo scegli quando accedi per la prima volta a Saber e non è correlato al tuo account/password Nextcloud.\nNessuno può accedere alle tue note sul server senza la tua password di crittografia. Ciò significa anche che se dimentichi la password di crittografia, perderai l\'accesso ai tuoi dati.';
 }
 
 // Path: login.encLoginStep.encFaq.1
@@ -8541,35 +8335,13 @@ class _StringsLoginEncLoginStep$encFaq$0i1$It extends _StringsLoginEncLoginStep$
 	@override final _StringsIt _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Qual è la password di crittografia?';
-	@override String get a => 'La password di crittografia viene utilizzata per crittografare i dati prima che vengano inviati al server. Lo scegli quando accedi per la prima volta a Saber e non è correlato al tuo account/password Nextcloud.\nNessuno può accedere alle tue note sul server senza la tua password di crittografia. Ciò significa anche che se dimentichi la password di crittografia, perderai l\'accesso ai tuoi dati.';
+	@override String get q => 'Perché usare due password?';
+	@override String get a => 'La password Nextcloud viene utilizzata per accedere al cloud. La password di crittografia "codifica" i tuoi dati prima che raggiungano il cloud.\nAnche se qualcuno riesce ad accedere al tuo account Nextcloud, le tue note rimarranno al sicuro e crittografate con una password separata. Questo ti fornisce un secondo livello di sicurezza per proteggere i tuoi dati.';
 }
 
 // Path: login.encLoginStep.encFaq.2
 class _StringsLoginEncLoginStep$encFaq$0i2$It extends _StringsLoginEncLoginStep$encFaq$0i2$En {
 	_StringsLoginEncLoginStep$encFaq$0i2$It._(_StringsIt root) : this._root = root, super._(root);
-
-	@override final _StringsIt _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => 'Perché usare due password?';
-	@override String get a => 'La password Nextcloud viene utilizzata per accedere al cloud. La password di crittografia "codifica" i tuoi dati prima che raggiungano il cloud.\nAnche se qualcuno riesce ad accedere al tuo account Nextcloud, le tue note rimarranno al sicuro e crittografate con una password separata. Questo ti fornisce un secondo livello di sicurezza per proteggere i tuoi dati.';
-}
-
-// Path: login.encLoginStep.encFaq.3
-class _StringsLoginEncLoginStep$encFaq$0i3$It extends _StringsLoginEncLoginStep$encFaq$0i3$En {
-	_StringsLoginEncLoginStep$encFaq$0i3$It._(_StringsIt root) : this._root = root, super._(root);
-
-	@override final _StringsIt _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => 'Come faccio ad accedere se utilizzo 2FA?';
-	@override String get a => 'Invece della tua normale password Nextcloud, dovrai creare una "password per l\'app". Puoi farlo nelle impostazioni di Nextcloud in Sicurezza > Dispositivi e sessioni > Crea una nuova password per l\'app. La tua password di crittografia rimane inalterata.';
-}
-
-// Path: login.encLoginStep.encFaq.4
-class _StringsLoginEncLoginStep$encFaq$0i4$It extends _StringsLoginEncLoginStep$encFaq$0i4$En {
-	_StringsLoginEncLoginStep$encFaq$0i4$It._(_StringsIt root) : this._root = root, super._(root);
 
 	@override final _StringsIt _root; // ignore: unused_field
 
@@ -9111,8 +8883,6 @@ class _StringsLoginEncLoginStepJa extends _StringsLoginEncLoginStepEn {
 		_StringsLoginEncLoginStep$encFaq$0i0$Ja._(_root),
 		_StringsLoginEncLoginStep$encFaq$0i1$Ja._(_root),
 		_StringsLoginEncLoginStep$encFaq$0i2$Ja._(_root),
-		_StringsLoginEncLoginStep$encFaq$0i3$Ja._(_root),
-		_StringsLoginEncLoginStep$encFaq$0i4$Ja._(_root),
 	];
 }
 
@@ -9379,8 +9149,8 @@ class _StringsLoginEncLoginStep$encFaq$0i0$Ja extends _StringsLoginEncLoginStep$
 	@override final _StringsJa _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Nextcloudとは？';
-	@override String get a => 'Nextcloudは、プライベートなファイル同期サーバーです。デフォルトのSaber Nextcloudサーバーを使用することも、サードパーティのサーバーを使用することも、データを完全に管理するために自身でホストすることも可能です。';
+	@override String get q => '暗号化パスワードは何ですか？';
+	@override String get a => '暗号化パスワードは、サーバーに送信する前にデータを暗号化するために使用されます。Saberに最初にログインする際に選択するもので、Nextcloudのアカウントやパスワードとは関係ありません。\n暗号化パスワードがなければ、誰もサーバー上のメモにアクセスすることはできません。また、暗号化パスワードを忘れると、データにアクセスすることができなくなります。';
 }
 
 // Path: login.encLoginStep.encFaq.1
@@ -9390,35 +9160,13 @@ class _StringsLoginEncLoginStep$encFaq$0i1$Ja extends _StringsLoginEncLoginStep$
 	@override final _StringsJa _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => '暗号化パスワードは何ですか？';
-	@override String get a => '暗号化パスワードは、サーバーに送信する前にデータを暗号化するために使用されます。Saberに最初にログインする際に選択するもので、Nextcloudのアカウントやパスワードとは関係ありません。\n暗号化パスワードがなければ、誰もサーバー上のメモにアクセスすることはできません。また、暗号化パスワードを忘れると、データにアクセスすることができなくなります。';
+	@override String get q => 'なぜ2つのパスワードを使うのですか？';
+	@override String get a => 'Nextcloudのパスワードはクラウドに接続するために使用されます。暗号化パスワードを用いてデータがクラウドに届く前にデータを "暗号化" します。\nそのため、たとえ誰かがあなたのNextcloudアカウントにアクセスしたとしても、メモは別のパスワードで暗号化されている状態になります。これにより、Saberのデーターは2重に保護されます。';
 }
 
 // Path: login.encLoginStep.encFaq.2
 class _StringsLoginEncLoginStep$encFaq$0i2$Ja extends _StringsLoginEncLoginStep$encFaq$0i2$En {
 	_StringsLoginEncLoginStep$encFaq$0i2$Ja._(_StringsJa root) : this._root = root, super._(root);
-
-	@override final _StringsJa _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => 'なぜ2つのパスワードを使うのですか？';
-	@override String get a => 'Nextcloudのパスワードはクラウドに接続するために使用されます。暗号化パスワードを用いてデータがクラウドに届く前にデータを "暗号化" します。\nそのため、たとえ誰かがあなたのNextcloudアカウントにアクセスしたとしても、メモは別のパスワードで暗号化されている状態になります。これにより、Saberのデーターは2重に保護されます。';
-}
-
-// Path: login.encLoginStep.encFaq.3
-class _StringsLoginEncLoginStep$encFaq$0i3$Ja extends _StringsLoginEncLoginStep$encFaq$0i3$En {
-	_StringsLoginEncLoginStep$encFaq$0i3$Ja._(_StringsJa root) : this._root = root, super._(root);
-
-	@override final _StringsJa _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => '2FAを使用している場合、どのようにログインすればいいですか？';
-	@override String get a => '通常のNextcloudパスワードの代わりに、"アプリパスワード"を作成する必要があります。これはNextcloudの設定で、「セキュリティ」>「デバイスとセッション」>「新しいアプリパスワードを作成」でできます。暗号化パスワードは影響を受けません。';
-}
-
-// Path: login.encLoginStep.encFaq.4
-class _StringsLoginEncLoginStep$encFaq$0i4$Ja extends _StringsLoginEncLoginStep$encFaq$0i4$En {
-	_StringsLoginEncLoginStep$encFaq$0i4$Ja._(_StringsJa root) : this._root = root, super._(root);
 
 	@override final _StringsJa _root; // ignore: unused_field
 
@@ -9960,8 +9708,6 @@ class _StringsLoginEncLoginStepPtBr extends _StringsLoginEncLoginStepEn {
 		_StringsLoginEncLoginStep$encFaq$0i0$PtBr._(_root),
 		_StringsLoginEncLoginStep$encFaq$0i1$PtBr._(_root),
 		_StringsLoginEncLoginStep$encFaq$0i2$PtBr._(_root),
-		_StringsLoginEncLoginStep$encFaq$0i3$PtBr._(_root),
-		_StringsLoginEncLoginStep$encFaq$0i4$PtBr._(_root),
 	];
 }
 
@@ -10228,8 +9974,8 @@ class _StringsLoginEncLoginStep$encFaq$0i0$PtBr extends _StringsLoginEncLoginSte
 	@override final _StringsPtBr _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'O que é o Nextcloud?';
-	@override String get a => 'O Nextcloud é um servidor privado de sincronização de arquivos, entre outras coisas. Você pode usar o servidor Nextcloud padrão do Saber, usar um servidor de terceiros ou auto-hospedar o seu próprio servidor para controle total dos seus dados.';
+	@override String get q => 'O que é uma senha de criptografia?';
+	@override String get a => 'A senha de criptografia é usada para criptografar os seus dados antes de eles serem enviados ao servidor. Você a escolhe quando faz login pela primeira vez no Saber, e ela não está relacionada à sua conta/senha do Nextcloud.\nNinguém pode acessar as suas notas no servidor sem a sua senha de criptografia. Isso também significa que, se você esquecer a sua senha de criptografia, perderá o acesso aos seus dados.';
 }
 
 // Path: login.encLoginStep.encFaq.1
@@ -10239,35 +9985,13 @@ class _StringsLoginEncLoginStep$encFaq$0i1$PtBr extends _StringsLoginEncLoginSte
 	@override final _StringsPtBr _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'O que é uma senha de criptografia?';
-	@override String get a => 'A senha de criptografia é usada para criptografar os seus dados antes de eles serem enviados ao servidor. Você a escolhe quando faz login pela primeira vez no Saber, e ela não está relacionada à sua conta/senha do Nextcloud.\nNinguém pode acessar as suas notas no servidor sem a sua senha de criptografia. Isso também significa que, se você esquecer a sua senha de criptografia, perderá o acesso aos seus dados.';
+	@override String get q => 'Por que usar duas senhas?';
+	@override String get a => 'A senha do Nextcloud é usada para acessar a nuvem. A senha de criptografia "embaralha" os seus dados antes que eles cheguem à nuvem.\nMesmo que alguém obtenha acesso à sua conta do Nextcloud, as suas notas permanecerão seguras e criptografadas com uma senha separada. Isso fornece uma segunda camada de segurança para proteger os seus dados.';
 }
 
 // Path: login.encLoginStep.encFaq.2
 class _StringsLoginEncLoginStep$encFaq$0i2$PtBr extends _StringsLoginEncLoginStep$encFaq$0i2$En {
 	_StringsLoginEncLoginStep$encFaq$0i2$PtBr._(_StringsPtBr root) : this._root = root, super._(root);
-
-	@override final _StringsPtBr _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => 'Por que usar duas senhas?';
-	@override String get a => 'A senha do Nextcloud é usada para acessar a nuvem. A senha de criptografia "embaralha" os seus dados antes que eles cheguem à nuvem.\nMesmo que alguém obtenha acesso à sua conta do Nextcloud, as suas notas permanecerão seguras e criptografadas com uma senha separada. Isso fornece uma segunda camada de segurança para proteger os seus dados.';
-}
-
-// Path: login.encLoginStep.encFaq.3
-class _StringsLoginEncLoginStep$encFaq$0i3$PtBr extends _StringsLoginEncLoginStep$encFaq$0i3$En {
-	_StringsLoginEncLoginStep$encFaq$0i3$PtBr._(_StringsPtBr root) : this._root = root, super._(root);
-
-	@override final _StringsPtBr _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => 'Como eu faço login usando autenticação de dois fatores (2FA)?';
-	@override String get a => 'Em vez de sua senha regular do Nextcloud, você precisará criar uma "senha de aplicativo". Você pode fazer isso nas configurações do Nextcloud em Segurança > Dispositivos e sessões > Criar nova senha de aplicativo. A sua senha de criptografia não é afetada.';
-}
-
-// Path: login.encLoginStep.encFaq.4
-class _StringsLoginEncLoginStep$encFaq$0i4$PtBr extends _StringsLoginEncLoginStep$encFaq$0i4$En {
-	_StringsLoginEncLoginStep$encFaq$0i4$PtBr._(_StringsPtBr root) : this._root = root, super._(root);
 
 	@override final _StringsPtBr _root; // ignore: unused_field
 
@@ -10809,9 +10533,6 @@ class _StringsLoginEncLoginStepRu extends _StringsLoginEncLoginStepEn {
 		_StringsLoginEncLoginStep$encFaq$0i0$Ru._(_root),
 		_StringsLoginEncLoginStep$encFaq$0i1$Ru._(_root),
 		_StringsLoginEncLoginStep$encFaq$0i2$Ru._(_root),
-		_StringsLoginEncLoginStep$encFaq$0i3$Ru._(_root),
-		_StringsLoginEncLoginStep$encFaq$0i4$Ru._(_root),
-		_StringsLoginEncLoginStep$encFaq$0i5$Ru._(_root),
 	];
 }
 
@@ -11078,8 +10799,8 @@ class _StringsLoginEncLoginStep$encFaq$0i0$Ru extends _StringsLoginEncLoginStep$
 	@override final _StringsRu _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Что такое Nextcloud?';
-	@override String get a => 'Nextcloud — это частный сервер синхронизации файлов, помимо всего прочего. Вы можете использовать сервер Saber Nextcloud по умолчанию, использовать сторонний сервер или самостоятельно разместить свой собственный для полного контроля над своими данными.';
+	@override String get q => 'Что такое пароль шифрования?';
+	@override String get a => 'Пароль шифрования используется для шифрования ваших данных перед их отправкой на сервер. Вы выбираете его при первом входе в Saber, и он не связан с вашей учетной записью/паролем Nextcloud.\nНикто не сможет получить доступ к вашим заметкам на сервере без вашего пароля шифрования. Это также означает, что если вы забудете пароль для шифрования, вы потеряете доступ к своим данным.';
 }
 
 // Path: login.encLoginStep.encFaq.1
@@ -11089,8 +10810,8 @@ class _StringsLoginEncLoginStep$encFaq$0i1$Ru extends _StringsLoginEncLoginStep$
 	@override final _StringsRu _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Что такое пароль шифрования?';
-	@override String get a => 'Пароль шифрования используется для шифрования ваших данных перед их отправкой на сервер. Вы выбираете его при первом входе в Saber, и он не связан с вашей учетной записью/паролем Nextcloud.\nНикто не сможет получить доступ к вашим заметкам на сервере без вашего пароля шифрования. Это также означает, что если вы забудете пароль для шифрования, вы потеряете доступ к своим данным.';
+	@override String get q => 'Зачем использовать два пароля?';
+	@override String get a => 'Пароль Nextcloud используется для доступа к облаку. Пароль шифрования «шифрует» ваши данные еще до того, как они попадут в облако.\nДаже если кто-то получит доступ к вашей учетной записи Nextcloud, ваши заметки останутся в безопасности и будут зашифрованы с помощью отдельного пароля. Это обеспечивает вам второй уровень безопасности для защиты ваших данных.';
 }
 
 // Path: login.encLoginStep.encFaq.2
@@ -11100,41 +10821,8 @@ class _StringsLoginEncLoginStep$encFaq$0i2$Ru extends _StringsLoginEncLoginStep$
 	@override final _StringsRu _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Зачем использовать два пароля?';
-	@override String get a => 'Пароль Nextcloud используется для доступа к облаку. Пароль шифрования «шифрует» ваши данные еще до того, как они попадут в облако.\nДаже если кто-то получит доступ к вашей учетной записи Nextcloud, ваши заметки останутся в безопасности и будут зашифрованы с помощью отдельного пароля. Это обеспечивает вам второй уровень безопасности для защиты ваших данных.';
-}
-
-// Path: login.encLoginStep.encFaq.3
-class _StringsLoginEncLoginStep$encFaq$0i3$Ru extends _StringsLoginEncLoginStep$encFaq$0i3$En {
-	_StringsLoginEncLoginStep$encFaq$0i3$Ru._(_StringsRu root) : this._root = root, super._(root);
-
-	@override final _StringsRu _root; // ignore: unused_field
-
-	// Translations
 	@override String get q => 'Я еще не установил пароль шифрования. Где я могу его получить?';
 	@override String get a => 'Просто придумайте его, когда вы войдёте в систему, указанную выше!\nВы придумываете пароль шифрования при первом входе в Saber (приложение, а не веб-сайт сервера).';
-}
-
-// Path: login.encLoginStep.encFaq.4
-class _StringsLoginEncLoginStep$encFaq$0i4$Ru extends _StringsLoginEncLoginStep$encFaq$0i4$En {
-	_StringsLoginEncLoginStep$encFaq$0i4$Ru._(_StringsRu root) : this._root = root, super._(root);
-
-	@override final _StringsRu _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => 'Как мне войти, если я использую 2FA?';
-	@override String get a => 'Вместо обычного пароля Nextcloud Вам нужно будет создать «Пароль приложения». Вы можете сделать это в настройках Nextcloud в разделе «Безопасность» -> «Устройства и сеансы» -> «Создать новый пароль приложения». Ваш пароль шифрования не изменится.';
-}
-
-// Path: login.encLoginStep.encFaq.5
-class _StringsLoginEncLoginStep$encFaq$0i5$Ru extends _StringsLoginEncLoginStep$encFaq$0i5$En {
-	_StringsLoginEncLoginStep$encFaq$0i5$Ru._(_StringsRu root) : this._root = root, super._(root);
-
-	@override final _StringsRu _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => 'Могу ли я использовать один и тот же пароль для обоих приложений?';
-	@override String get a => 'Да, но это менее безопасно. Поскольку ваш пароль Nextcloud отправляется на сервер, кто-то, имеющий доступ к серверу, сможет расшифровать ваши заметки. Используйте тот же пароль, только если вы доверяете владельцу сервера.';
 }
 
 // Path: editor.menu.boxFits
@@ -11670,8 +11358,6 @@ class _StringsLoginEncLoginStepTr extends _StringsLoginEncLoginStepEn {
 		_StringsLoginEncLoginStep$encFaq$0i0$Tr._(_root),
 		_StringsLoginEncLoginStep$encFaq$0i1$Tr._(_root),
 		_StringsLoginEncLoginStep$encFaq$0i2$Tr._(_root),
-		_StringsLoginEncLoginStep$encFaq$0i3$Tr._(_root),
-		_StringsLoginEncLoginStep$encFaq$0i4$Tr._(_root),
 	];
 }
 
@@ -11938,8 +11624,8 @@ class _StringsLoginEncLoginStep$encFaq$0i0$Tr extends _StringsLoginEncLoginStep$
 	@override final _StringsTr _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Nextcloud nedir?';
-	@override String get a => 'Nextcloud sunduğu birçok özelliğin yanı sıra, özel bir dosya senkronizasyon sunucusudur. Varsayılan Saber Nextcloud sunucusunu, 3. parti bir sunucuyu kullanmayı tercih edebilir veya kendi verinizin tam sahipliğini elde etmek için kendi host ettiğiniz sunucunuza bağlanabilirsiniz.';
+	@override String get q => 'Şifreleme parolası nedir?';
+	@override String get a => 'Şifreleme parolası, verilerinizin sunucuya yollanmadan önce şifrelenmesinde kullanılıyor. Saber\'a ilk defa giriş yaptığınızda bu parolayı ayarlayabilirsiniz ve bu parola Nextcloud hesabınız/parolanız ile alakalı değildir.\nŞifreleme parolanız olmadan sunucudaki notlarınıza kimse erişemez. Dolayısıyla eğer şifreleme parolanızı unutursanız verilerinize erişimi de kaybedersiniz.';
 }
 
 // Path: login.encLoginStep.encFaq.1
@@ -11949,35 +11635,13 @@ class _StringsLoginEncLoginStep$encFaq$0i1$Tr extends _StringsLoginEncLoginStep$
 	@override final _StringsTr _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Şifreleme parolası nedir?';
-	@override String get a => 'Şifreleme parolası, verilerinizin sunucuya yollanmadan önce şifrelenmesinde kullanılıyor. Saber\'a ilk defa giriş yaptığınızda bu parolayı ayarlayabilirsiniz ve bu parola Nextcloud hesabınız/parolanız ile alakalı değildir.\nŞifreleme parolanız olmadan sunucudaki notlarınıza kimse erişemez. Dolayısıyla eğer şifreleme parolanızı unutursanız verilerinize erişimi de kaybedersiniz.';
+	@override String get q => 'Neden iki şifre kullanılıyor?';
+	@override String get a => 'Nextcloud parolası bulut sunucuya erişmek için kullanılıyor. Şifreleme parolası, verilerinizin bulut sunucuya yollanmadan önce "karmaşıklaştırılması"nı sağlıyor.\nHerhangi birisi Nextcloud hesabınıza erişebilseydi bile, farklı bir şifreleme parolası kullandığınız için notlarınızı okuyamazdı. Böylece verilerinizin korunması için ikinci bir katman oluşuyor.';
 }
 
 // Path: login.encLoginStep.encFaq.2
 class _StringsLoginEncLoginStep$encFaq$0i2$Tr extends _StringsLoginEncLoginStep$encFaq$0i2$En {
 	_StringsLoginEncLoginStep$encFaq$0i2$Tr._(_StringsTr root) : this._root = root, super._(root);
-
-	@override final _StringsTr _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => 'Neden iki şifre kullanılıyor?';
-	@override String get a => 'Nextcloud parolası bulut sunucuya erişmek için kullanılıyor. Şifreleme parolası, verilerinizin bulut sunucuya yollanmadan önce "karmaşıklaştırılması"nı sağlıyor.\nHerhangi birisi Nextcloud hesabınıza erişebilseydi bile, farklı bir şifreleme parolası kullandığınız için notlarınızı okuyamazdı. Böylece verilerinizin korunması için ikinci bir katman oluşuyor.';
-}
-
-// Path: login.encLoginStep.encFaq.3
-class _StringsLoginEncLoginStep$encFaq$0i3$Tr extends _StringsLoginEncLoginStep$encFaq$0i3$En {
-	_StringsLoginEncLoginStep$encFaq$0i3$Tr._(_StringsTr root) : this._root = root, super._(root);
-
-	@override final _StringsTr _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => 'Eğer Çift Faktörlü Koruma (2FA) kullanıyorsam nasıl giriş yapacağım?';
-	@override String get a => 'Nextcloud parolanız yerine üreteceğiniz "uygulama parolası" ile giriş yapacaksınız. Bu parolayı Nextcloud ayarlarınız içerisinde Güvenlik > Cihazlar & oturumlar > Yeni uygulama parolası üret aşamalarını takip ederek gerçekleştirebilirsiniz. Şifreleme parolanız bundan etkilenmez.';
-}
-
-// Path: login.encLoginStep.encFaq.4
-class _StringsLoginEncLoginStep$encFaq$0i4$Tr extends _StringsLoginEncLoginStep$encFaq$0i4$En {
-	_StringsLoginEncLoginStep$encFaq$0i4$Tr._(_StringsTr root) : this._root = root, super._(root);
 
 	@override final _StringsTr _root; // ignore: unused_field
 
@@ -12519,8 +12183,6 @@ class _StringsLoginEncLoginStepZhHansCn extends _StringsLoginEncLoginStepEn {
 		_StringsLoginEncLoginStep$encFaq$0i0$ZhHansCn._(_root),
 		_StringsLoginEncLoginStep$encFaq$0i1$ZhHansCn._(_root),
 		_StringsLoginEncLoginStep$encFaq$0i2$ZhHansCn._(_root),
-		_StringsLoginEncLoginStep$encFaq$0i3$ZhHansCn._(_root),
-		_StringsLoginEncLoginStep$encFaq$0i4$ZhHansCn._(_root),
 	];
 }
 
@@ -12787,8 +12449,8 @@ class _StringsLoginEncLoginStep$encFaq$0i0$ZhHansCn extends _StringsLoginEncLogi
 	@override final _StringsZhHansCn _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Nextcloud 是什么？';
-	@override String get a => 'Nextcloud 是一个私人文件同步服务器，等等。您可以使用默认的 Saber Nextcloud 服务器、使用第三方服务器或自行托管您自己的服务器以完全控制您的数据。';
+	@override String get q => '加密密码是什么？';
+	@override String get a => '加密密码用于在将数据发送到服务器之前对其进行加密。您在首次登录 Saber 时选择它，它与您的 Nextcloud 帐户密码无关。\n没有您的加密密码，任何人都无法访问您在服务器上的笔记。这也意味着，如果您忘记了加密密码，您将无法访问您的数据。';
 }
 
 // Path: login.encLoginStep.encFaq.1
@@ -12798,35 +12460,13 @@ class _StringsLoginEncLoginStep$encFaq$0i1$ZhHansCn extends _StringsLoginEncLogi
 	@override final _StringsZhHansCn _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => '加密密码是什么？';
-	@override String get a => '加密密码用于在将数据发送到服务器之前对其进行加密。您在首次登录 Saber 时选择它，它与您的 Nextcloud 帐户密码无关。\n没有您的加密密码，任何人都无法访问您在服务器上的笔记。这也意味着，如果您忘记了加密密码，您将无法访问您的数据。';
+	@override String get q => '为什么要使用两个密码？';
+	@override String get a => 'Nextcloud 密码用于访问云端。加密密码会在您的数据到达云端之前对其进行“加密”。\n即使有人获得了您的 Nextcloud 帐户的访问权限，您的笔记也会保持安全并使用单独的密码进行加密。这为您提供了第二层安全保护来保护您的数据。”';
 }
 
 // Path: login.encLoginStep.encFaq.2
 class _StringsLoginEncLoginStep$encFaq$0i2$ZhHansCn extends _StringsLoginEncLoginStep$encFaq$0i2$En {
 	_StringsLoginEncLoginStep$encFaq$0i2$ZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
-
-	@override final _StringsZhHansCn _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => '为什么要使用两个密码？';
-	@override String get a => 'Nextcloud 密码用于访问云端。加密密码会在您的数据到达云端之前对其进行“加密”。\n即使有人获得了您的 Nextcloud 帐户的访问权限，您的笔记也会保持安全并使用单独的密码进行加密。这为您提供了第二层安全保护来保护您的数据。”';
-}
-
-// Path: login.encLoginStep.encFaq.3
-class _StringsLoginEncLoginStep$encFaq$0i3$ZhHansCn extends _StringsLoginEncLoginStep$encFaq$0i3$En {
-	_StringsLoginEncLoginStep$encFaq$0i3$ZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
-
-	@override final _StringsZhHansCn _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => '如果我使用 2FA，我该如何登录？';
-	@override String get a => '您需要创建一个“应用密码”，而不是常规的 Nextcloud 密码。您可以在安全 > 设备和会话 > 创建新应用密码下的 Nextcloud 设置中执行此操作。您的加密密码不受影响。';
-}
-
-// Path: login.encLoginStep.encFaq.4
-class _StringsLoginEncLoginStep$encFaq$0i4$ZhHansCn extends _StringsLoginEncLoginStep$encFaq$0i4$En {
-	_StringsLoginEncLoginStep$encFaq$0i4$ZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
 
 	@override final _StringsZhHansCn _root; // ignore: unused_field
 
@@ -13368,9 +13008,6 @@ class _StringsLoginEncLoginStepZhHantTw extends _StringsLoginEncLoginStepEn {
 		_StringsLoginEncLoginStep$encFaq$0i0$ZhHantTw._(_root),
 		_StringsLoginEncLoginStep$encFaq$0i1$ZhHantTw._(_root),
 		_StringsLoginEncLoginStep$encFaq$0i2$ZhHantTw._(_root),
-		_StringsLoginEncLoginStep$encFaq$0i3$ZhHantTw._(_root),
-		_StringsLoginEncLoginStep$encFaq$0i4$ZhHantTw._(_root),
-		_StringsLoginEncLoginStep$encFaq$0i5$ZhHantTw._(_root),
 	];
 }
 
@@ -13637,8 +13274,8 @@ class _StringsLoginEncLoginStep$encFaq$0i0$ZhHantTw extends _StringsLoginEncLogi
 	@override final _StringsZhHantTw _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => '什麼是 Nextcloud？';
-	@override String get a => 'Nextcloud 是一個私人檔案同步伺服器。您可以使用預設的 Saber Nextcloud 伺服器、第三方伺服器或自託管的伺服器以完全控制您的資料。';
+	@override String get q => '加密密碼是什麼？';
+	@override String get a => '加密密碼用於在將資料傳送到伺服器之前對其進行加密。您在第一次登入 Saber 時建立，它與您的 Nextcloud 帳號/密碼無關。\n如果沒有您的加密密碼，任何人都無法存取您在伺服器上的筆記。這也意味著，如果您忘記加密密碼，您將無法存取您的資料。';
 }
 
 // Path: login.encLoginStep.encFaq.1
@@ -13648,8 +13285,8 @@ class _StringsLoginEncLoginStep$encFaq$0i1$ZhHantTw extends _StringsLoginEncLogi
 	@override final _StringsZhHantTw _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => '加密密碼是什麼？';
-	@override String get a => '加密密碼用於在將資料傳送到伺服器之前對其進行加密。您在第一次登入 Saber 時建立，它與您的 Nextcloud 帳號/密碼無關。\n如果沒有您的加密密碼，任何人都無法存取您在伺服器上的筆記。這也意味著，如果您忘記加密密碼，您將無法存取您的資料。';
+	@override String get q => '為什麼要使用兩個密碼？';
+	@override String get a => 'Nextcloud 密碼用於存取雲端。加密密碼會在資料到達雲端之前混亂您的資料。\n即使有人存取您的 Nextcloud 帳戶，您的筆記也將保持安全並使用單獨的密碼進行加密。這為您提供了第二層安全保護來保護您的資料。';
 }
 
 // Path: login.encLoginStep.encFaq.2
@@ -13659,41 +13296,8 @@ class _StringsLoginEncLoginStep$encFaq$0i2$ZhHantTw extends _StringsLoginEncLogi
 	@override final _StringsZhHantTw _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => '為什麼要使用兩個密碼？';
-	@override String get a => 'Nextcloud 密碼用於存取雲端。加密密碼會在資料到達雲端之前混亂您的資料。\n即使有人存取您的 Nextcloud 帳戶，您的筆記也將保持安全並使用單獨的密碼進行加密。這為您提供了第二層安全保護來保護您的資料。';
-}
-
-// Path: login.encLoginStep.encFaq.3
-class _StringsLoginEncLoginStep$encFaq$0i3$ZhHantTw extends _StringsLoginEncLoginStep$encFaq$0i3$En {
-	_StringsLoginEncLoginStep$encFaq$0i3$ZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
-
-	@override final _StringsZhHantTw _root; // ignore: unused_field
-
-	// Translations
 	@override String get q => '我還沒有設定加密密碼。我在哪裡可以得到它？';
 	@override String get a => '只需在上面登入時選擇一項即可！\n您在首次登入 Saber（應用程式，而不是伺服器網站）時選擇加密密碼。';
-}
-
-// Path: login.encLoginStep.encFaq.4
-class _StringsLoginEncLoginStep$encFaq$0i4$ZhHantTw extends _StringsLoginEncLoginStep$encFaq$0i4$En {
-	_StringsLoginEncLoginStep$encFaq$0i4$ZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
-
-	@override final _StringsZhHantTw _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => '如果我使用 2FA，如何登入？';
-	@override String get a => '您需要建立一個「應用程式密碼」，而不是使用 Nextcloud 密碼。您可以在 Nextcloud 設定中的「安全性」>「裝置和工作階段」>「建立新的應用程式密碼」下執行此操作。您的加密密碼不受影響。';
-}
-
-// Path: login.encLoginStep.encFaq.5
-class _StringsLoginEncLoginStep$encFaq$0i5$ZhHantTw extends _StringsLoginEncLoginStep$encFaq$0i5$En {
-	_StringsLoginEncLoginStep$encFaq$0i5$ZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
-
-	@override final _StringsZhHantTw _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => '我可以為兩者使用相同的密碼嗎？';
-	@override String get a => '可以，但這樣做不太安全。由於您的 Nextcloud 密碼已傳送至伺服器，因此有權存取伺服器的人將能夠解密您的筆記。請在您信任伺服器擁有者時才使用相同的密碼。';
 }
 
 // Path: editor.menu.boxFits
