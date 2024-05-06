@@ -26,7 +26,6 @@ import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/editor/editor.dart';
 import 'package:saber/pages/home/home.dart';
 import 'package:saber/pages/user/login.dart';
-import 'package:saber/pages/user/profile_page.dart';
 import 'package:window_manager/window_manager.dart';
 import 'package:worker_manager/worker_manager.dart';
 import 'package:workmanager/workmanager.dart';
@@ -83,17 +82,21 @@ Future<void> main() async {
 
   HttpOverrides.global = NcHttpOverrides();
   runApp(TranslationProvider(child: const App()));
-  startSyncAfterUsernameLoaded();
+  startSyncAfterLoaded();
   setupBackgroundSync();
 }
 
-void startSyncAfterUsernameLoaded() async {
+void startSyncAfterLoaded() async {
   await Prefs.username.waitUntilLoaded();
+  await Prefs.encPassword.waitUntilLoaded();
 
-  Prefs.username.removeListener(startSyncAfterUsernameLoaded);
-  if (Prefs.username.value.isEmpty) {
+  Prefs.username.removeListener(startSyncAfterLoaded);
+  Prefs.encPassword.removeListener(startSyncAfterLoaded);
+  if (!Prefs.loggedIn) {
     // try again when logged in
-    return Prefs.username.addListener(startSyncAfterUsernameLoaded);
+    Prefs.username.addListener(startSyncAfterLoaded);
+    Prefs.encPassword.addListener(startSyncAfterLoaded);
+    return;
   }
 
   // wait for other prefs to load
@@ -194,8 +197,8 @@ class App extends StatefulWidget {
         builder: (context, state) => const NcLoginPage(),
       ),
       GoRoute(
-        path: RoutePaths.profile,
-        builder: (context, state) => const ProfilePage(),
+        path: '/profile',
+        redirect: (context, state) => RoutePaths.login,
       ),
     ],
   );

@@ -100,7 +100,7 @@ class _RenameFolderDialogState extends State<_RenameFolderDialog> {
           onPressed: () {
             Navigator.of(context).pop();
           },
-          child: Text(t.editor.newerFileFormat.cancel),
+          child: Text(t.common.cancel),
         ),
         CupertinoDialogAction(
           onPressed: () async {

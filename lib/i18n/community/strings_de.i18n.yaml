@@ -1,3 +1,7 @@
+common:
+  cancel: Abbruch
+  done(OUTDATED): Erledigt
+  continueBtn(OUTDATED): Weitermachen
 home:
   tabs:
     home: Startseite
@@ -143,49 +147,49 @@ settings:
     mustBeDoneSyncing: "Stelle sicher, dass die Synchronisierung abgeschlossen ist, bevor du das Verzeichnis änderst"
 login:
   title: Login
-  feedbacks:
-    checkUsername: Bitte überprüfe deinen Benutzernamen oder deine E-Mail.
-    enterNcPassword: Bitte gib dein Nextcloud-Passwort ein.
-    enterEncPassword: Bitte gib dein Verschlüsselungspasswort ein.
-    checkUrl: Bitte gib eine gültige URL an.
-    ncLoginFailed: "Anmeldung fehlgeschlagen, bitte überprüfe deine Angaben und deine Netzwerkverbindung."
-    ncUnsupportedFailure: "Der angegebene Server führt Nextcloud $v aus, aber diese Version von Saber unterstützt nur Nextcloud $s bis $t."
-    encLoginFailed: "Anmeldung fehlgeschlagen, bitte überprüfe dein Verschlüsselungspasswort."
-    loginSuccess: "Anmeldung erfolgreich! Bitte warte, während wir alles einrichten..."
   form:
-    useCustomServer: Ich möchte einen eigenen Nextcloud-Server verwenden
-    customServerUrl: Eigene Server-URL
-    username: Benutzername oder E-Mail
-    ncPassword: Nextcloud-Passwort
-    encPassword: Verschlüsselungspasswort
     agreeToPrivacyPolicy(rich): "Indem du dich anmeldest, stimmst du der ${linkToPrivacyPolicy(Datenschutzrichtlinie)} zu."
-    login: Anmelden
-  seeFaq(OUTDATED): "Weitere Informationen, auch zum Verschlüsselungskennwort, finden Sie in den FAQ unten."
   signup(rich): "Du hast noch kein Konto? ${linkToSignup(Erstelle jetzt eins)}!"
+  notYou(rich, OUTDATED): "${undoLogin(Nicht du)}"
   status:
-    loggedIn: Mit Nextcloud angemeldet
     loggedOut: Nicht angemeldet
     tapToLogin: "Hier tippen, um dich mit Nextcloud anzumelden"
-  faq(OUTDATED):
-    - q: "Was ist Nextcloud?"
-      a: "Nextcloud ist unter anderem ein privater Dateisynchronisationsserver. Du kannst den Standard-Saber-Nextcloud-Server, einen Drittanbieter-, oder einen selbst-gehosteten Server verwenden, um volle Kontrolle über deine Daten zu behalten."
-    - q: "Was ist das Verchlüsselungspasswort?"
-      a: |-
-        Das Verschlüsselungspasswort wird verwendet, um deine Daten zu verschlüsseln, bevor diese an den Server gesendet werden. Es wird nicht auf dem Server gespeichert und nur von Saber verwendet, um deine Daten zu ver- und entschlüsseln.
-        Niemand kann ohne dieses Passwort auf deine Notizen auf dem Server zugreifen. Das bedeutet allerdings auch, dass du, wenn du dein Verschlüsselungspasswort vergisst, den Zugriff auf deine Daten verlierst.
-    - q: "Wieso zwei Passwörter?"
-      a: |-
-        Das Nextcloud-Passwort wird verwendet, um auf die Cloud zuzugreifen. Das Verschlüsselungspasswort „verwürfelt“ deine Daten, bevor diese die Cloud erreichen.
-        Selbst wenn jemand Zugriff zu deinem Nextcloud-Konto erlangt, bleiben deine Notizen sicher und verschlüsselt mit einem seperaten Passwort. Dies stellt eine zweite Sicherheitsebene zum Schutz deiner Daten dar.
-    - q: "Wie melde ich mich an, wenn ich Zwei-Faktor-Authentifikation verwende?"
-      a: "Anstatt dein normales Nextcloud-Passwort zu verwenden, musst du ein \"App Password\" erstellen. Das kannst du in den Nextcloud-Einstellungen unter Sicherheit > Geräte & Sitzungen > Neues App-Passwort erstellen tun. Das betrifft nicht dein Verschlüsselungspasswort."
-    - q: "Kann ich dasselbe Passwort für beide verwenden?"
-      a: "Ja, aber das ist nicht so sicher. Da dein Nextcloud-Passwort an den Server übertragen wird, kann jemand mit Zugriff auf den Server deine Notizen entschlüsseln. Du solltest also nur dasselbe Passwort verwenden, wenn du der Person, die den Server besitzt, vertraust."
+    loggedIn: Mit Nextcloud angemeldet
+    hi(OUTDATED): "Hallo, $u!"
+    almostDone(OUTDATED): "Die Synchronisierung ist fast fertig. Tippen Sie auf, um die Anmeldung abzuschließen"
+  ncLoginStep:
+    loginFlow:
+      pleaseAuthorize(OUTDATED): "Bitte autorisieren Sie Saber, auf Ihr Nextcloud-Konto zuzugreifen"
+      followPrompts(OUTDATED): Bitte folgen Sie den Anweisungen in Ihrem Browser.
+      browserDidntOpen(OUTDATED): Der Browser wurde nicht geöffnet
+    whereToStoreData(OUTDATED): "Wählen Sie, wo Sie Ihre Daten speichern möchten:"
+    saberNcServer(OUTDATED): Der Nextcloud-Server von Saber
+    otherNcServer(OUTDATED): Anderer Nextcloud-Server
+    serverUrl(OUTDATED): Server-URL
+    loginWithSaber(OUTDATED): Melden Sie sich mit Saber an
+    loginWithNextcloud(OUTDATED): Melden Sie sich mit Nextcloud an
+  encLoginStep:
+    enterEncPassword(OUTDATED): "Um Ihre Daten zu schützen, geben Sie bitte Ihr Verschlüsselungspasswort ein:"
+    newToSaber(OUTDATED): Neu bei Saber
+    encPassword(OUTDATED): Verschlüsselungskennwort
+    encFaqTitle(OUTDATED): Häufig gestellte Fragen
+    wrongEncPassword(OUTDATED): Die Entschlüsselung ist mit dem angegebenen Passwort fehlgeschlagen. Bitte versuchen Sie es erneut einzugeben.
+    connectionFailed(OUTDATED): Bei der Verbindung zum Server ist ein Fehler aufgetreten. Bitte versuchen Sie es später noch einmal.
+    encFaq(OUTDATED):
+      - q: "Was ist das Verchlüsselungspasswort?"
+        a: |-
+          Das Verschlüsselungspasswort wird verwendet, um deine Daten zu verschlüsseln, bevor diese an den Server gesendet werden. Es wird nicht auf dem Server gespeichert und nur von Saber verwendet, um deine Daten zu ver- und entschlüsseln.
+          Niemand kann ohne dieses Passwort auf deine Notizen auf dem Server zugreifen. Das bedeutet allerdings auch, dass du, wenn du dein Verschlüsselungspasswort vergisst, den Zugriff auf deine Daten verlierst.
+      - q: "Wieso zwei Passwörter?"
+        a: |-
+          Das Nextcloud-Passwort wird verwendet, um auf die Cloud zuzugreifen. Das Verschlüsselungspasswort „verwürfelt“ deine Daten, bevor diese die Cloud erreichen.
+          Selbst wenn jemand Zugriff zu deinem Nextcloud-Konto erlangt, bleiben deine Notizen sicher und verschlüsselt mit einem seperaten Passwort. Dies stellt eine zweite Sicherheitsebene zum Schutz deiner Daten dar.
+      - q: "Kann ich dasselbe Passwort für beide verwenden?"
+        a: "Ja, aber das ist nicht so sicher. Da dein Nextcloud-Passwort an den Server übertragen wird, kann jemand mit Zugriff auf den Server deine Notizen entschlüsseln. Du solltest also nur dasselbe Passwort verwenden, wenn du der Person, die den Server besitzt, vertraust."
 profile:
   title: Mein Profil
   logout: Abmelden
   quickLinks:
-    title: Schnellzugriff
     serverHomepage: Server-Startseite
     deleteAccount: Account löschen
   faq:
@@ -205,6 +209,9 @@ profile:
         Drücke oben den „@:profile.quickLinks.deleteAccount“-Button und melde dich gegebenenfalls an.
         Wenn du den offiziellen Saber-Server nutzt, wird dein Account automatisch nach einer Woche gelöscht. Du kannst mich während dieser Woche unter adilhanney@disroot.org kontaktieren um die Löschung rückgängig zu machen.
         Wenn du einen anderen Server nutzt, kann es sein, dass du deinen Account nicht löschen kannst: Für mehr Information kannst du in der Datenschutzbestimmung des Servers nachgucken.
+  quotaUsage(OUTDATED): Sie verwenden $used von $total ($percent)
+  connectedTo(OUTDATED): Angeschlossen
+  faqTitle(OUTDATED): Häufig gestellte Fragen
 appInfo:
   licenseNotice: |-
     Saber  Copyright © 2022-$buildYear  Adil Hanney
@@ -308,7 +315,6 @@ editor:
     title: Diese Notiz wurde mit einer neueren Version von Saber bearbeitet
     subtitle: "Durch das Bearbeiten dieser Notiz können Daten verloren gehen. Möchtest du sie trotzdem bearbeiten?"
     allowEditing: Schreibschutz aufheben
-    cancel: Abbruch
   quill:
     typeSomething: Hier tippen...
   hud:

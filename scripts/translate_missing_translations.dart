@@ -1,3 +1,5 @@
+#!/usr/bin/env dart
+
 // Run `dart scripts/translate_app.dart` to generate the changelogs.
 
 // ignore_for_file: avoid_print

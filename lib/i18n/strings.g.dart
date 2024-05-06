@@ -150,6 +150,7 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	late final Translations _root = this; // ignore: unused_field
 
 	// Translations
+	late final _StringsCommonEn common = _StringsCommonEn._(_root);
 	late final _StringsHomeEn home = _StringsHomeEn._(_root);
 	late final _StringsSettingsEn settings = _StringsSettingsEn._(_root);
 	late final _StringsLoginEn login = _StringsLoginEn._(_root);
@@ -157,6 +158,18 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	late final _StringsAppInfoEn appInfo = _StringsAppInfoEn._(_root);
 	late final _StringsUpdateEn update = _StringsUpdateEn._(_root);
 	late final _StringsEditorEn editor = _StringsEditorEn._(_root);
+}
+
+// Path: common
+class _StringsCommonEn {
+	_StringsCommonEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get done => 'Done';
+	String get continueBtn => 'Continue';
+	String get cancel => 'Cancel';
 }
 
 // Path: home
@@ -216,23 +229,20 @@ class _StringsLoginEn {
 
 	// Translations
 	String get title => 'Login';
-	late final _StringsLoginFeedbacksEn feedbacks = _StringsLoginFeedbacksEn._(_root);
 	late final _StringsLoginFormEn form = _StringsLoginFormEn._(_root);
-	String get seeFaq => 'See the FAQ below for more information, including about the encryption password.';
 	TextSpan signup({required InlineSpanBuilder linkToSignup}) => TextSpan(children: [
 		const TextSpan(text: 'Don\'t have an account yet? '),
 		linkToSignup('Sign up now'),
 		const TextSpan(text: '!'),
 	]);
+	TextSpan notYou({required InlineSpanBuilder undoLogin}) => TextSpan(children: [
+		const TextSpan(text: 'Not you? '),
+		undoLogin('Choose another account'),
+		const TextSpan(text: '.'),
+	]);
 	late final _StringsLoginStatusEn status = _StringsLoginStatusEn._(_root);
-	List<dynamic> get faq => [
-		_StringsLogin$faq$0i0$En._(_root),
-		_StringsLogin$faq$0i1$En._(_root),
-		_StringsLogin$faq$0i2$En._(_root),
-		_StringsLogin$faq$0i3$En._(_root),
-		_StringsLogin$faq$0i4$En._(_root),
-		_StringsLogin$faq$0i5$En._(_root),
-	];
+	late final _StringsLoginNcLoginStepEn ncLoginStep = _StringsLoginNcLoginStepEn._(_root);
+	late final _StringsLoginEncLoginStepEn encLoginStep = _StringsLoginEncLoginStepEn._(_root);
 }
 
 // Path: profile
@@ -244,7 +254,10 @@ class _StringsProfileEn {
 	// Translations
 	String get title => 'My profile';
 	String get logout => 'Log out';
+	String quotaUsage({required Object used, required Object total, required Object percent}) => 'You\'re using ${used} of ${total} (${percent})';
+	String get connectedTo => 'Connected to';
 	late final _StringsProfileQuickLinksEn quickLinks = _StringsProfileQuickLinksEn._(_root);
+	String get faqTitle => 'Frequently asked questions';
 	List<dynamic> get faq => [
 		_StringsProfile$faq$0i0$En._(_root),
 		_StringsProfile$faq$0i1$En._(_root),
@@ -561,23 +574,6 @@ class _StringsSettingsCustomDataDirEn {
 	String get mustBeDoneSyncing => 'Make sure syncing is complete before changing the directory';
 }
 
-// Path: login.feedbacks
-class _StringsLoginFeedbacksEn {
-	_StringsLoginFeedbacksEn._(this._root);
-
-	final Translations _root; // ignore: unused_field
-
-	// Translations
-	String get checkUsername => 'Please double check your username or email.';
-	String get enterNcPassword => 'Please enter your Nextcloud password.';
-	String get enterEncPassword => 'Please enter your encryption password.';
-	String get checkUrl => 'Please enter a valid URL.';
-	String get ncLoginFailed => 'Log in failed, please check your details and network connection.';
-	String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'The given server is running Nextcloud ${v} but this version of Saber only supports Nextcloud ${s} to ${t}.';
-	String get encLoginFailed => 'Log in failed, please check your encryption password.';
-	String get loginSuccess => 'Log in successful! Please wait while we set up...';
-}
-
 // Path: login.form
 class _StringsLoginFormEn {
 	_StringsLoginFormEn._(this._root);
@@ -585,17 +581,11 @@ class _StringsLoginFormEn {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
-	String get useCustomServer => 'I want to use a custom Nextcloud server';
-	String get customServerUrl => 'Custom server URL';
-	String get username => 'Username or email';
-	String get ncPassword => 'Nextcloud password';
-	String get encPassword => 'Encryption password';
 	TextSpan agreeToPrivacyPolicy({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [
 		const TextSpan(text: 'By logging in, you agree to the '),
 		linkToPrivacyPolicy('Privacy Policy'),
 		const TextSpan(text: '.'),
 	]);
-	String get login => 'Log in';
 }
 
 // Path: login.status
@@ -605,75 +595,47 @@ class _StringsLoginStatusEn {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
-	String get loggedIn => 'Logged in with Nextcloud';
 	String get loggedOut => 'Logged out';
 	String get tapToLogin => 'Tap to log in with Nextcloud';
+	String hi({required Object u}) => 'Hi, ${u}!';
+	String get almostDone => 'Almost ready for syncing, tap to finish logging in';
+	String get loggedIn => 'Logged in with Nextcloud';
 }
 
-// Path: login.faq.0
-class _StringsLogin$faq$0i0$En {
-	_StringsLogin$faq$0i0$En._(this._root);
+// Path: login.ncLoginStep
+class _StringsLoginNcLoginStepEn {
+	_StringsLoginNcLoginStepEn._(this._root);
 
 	final Translations _root; // ignore: unused_field
 
 	// Translations
-	String get q => 'What is Nextcloud?';
-	String get a => 'Nextcloud is a private file sync server, among other things. You can use the default Saber Nextcloud server, use a third-party server, or self-host your own for full control of your data.';
+	String get whereToStoreData => 'Choose where you want to store your data:';
+	String get saberNcServer => 'Saber\'s Nextcloud server';
+	String get otherNcServer => 'Other Nextcloud server';
+	String get serverUrl => 'Server URL';
+	String get loginWithSaber => 'Login with Saber';
+	String get loginWithNextcloud => 'Login with Nextcloud';
+	late final _StringsLoginNcLoginStepLoginFlowEn loginFlow = _StringsLoginNcLoginStepLoginFlowEn._(_root);
 }
 
-// Path: login.faq.1
-class _StringsLogin$faq$0i1$En {
-	_StringsLogin$faq$0i1$En._(this._root);
+// Path: login.encLoginStep
+class _StringsLoginEncLoginStepEn {
+	_StringsLoginEncLoginStepEn._(this._root);
 
 	final Translations _root; // ignore: unused_field
 
 	// Translations
-	String get q => 'What is the encryption password?';
-	String get a => 'The encryption password is used to encrypt your data before it is sent to the server. You choose it when you first login to Saber (the app, not the server\'s website) and it\'s not related to your Nextcloud account/password.\nNo-one can access your notes on the server without your encryption password. This also means that if you forget your encryption password, you will lose access to your data.';
-}
-
-// Path: login.faq.2
-class _StringsLogin$faq$0i2$En {
-	_StringsLogin$faq$0i2$En._(this._root);
-
-	final Translations _root; // ignore: unused_field
-
-	// Translations
-	String get q => 'Why use two passwords?';
-	String get a => 'The Nextcloud password is used to access the cloud. The encryption password "scrambles" your data before it ever reaches the cloud.\nEven if someone gains access to your Nextcloud account, your notes will remain safe and encrypted with a separate password. This provides you a second layer of security to protect your data.';
-}
-
-// Path: login.faq.3
-class _StringsLogin$faq$0i3$En {
-	_StringsLogin$faq$0i3$En._(this._root);
-
-	final Translations _root; // ignore: unused_field
-
-	// Translations
-	String get q => 'I haven\'t set an encryption password yet. Where do I get it?';
-	String get a => 'Simply choose one now when you log in above!\nYou choose the encryption password when you first log in to Saber (the app, not the server website).';
-}
-
-// Path: login.faq.4
-class _StringsLogin$faq$0i4$En {
-	_StringsLogin$faq$0i4$En._(this._root);
-
-	final Translations _root; // ignore: unused_field
-
-	// Translations
-	String get q => 'How do I login if I use 2FA?';
-	String get a => 'Instead of your regular Nextcloud password, you\'ll need to create an "app password". You can do this in your Nextcloud settings under Security > Devices & sessions > Create new app password. Your encryption password is unaffected.';
-}
-
-// Path: login.faq.5
-class _StringsLogin$faq$0i5$En {
-	_StringsLogin$faq$0i5$En._(this._root);
-
-	final Translations _root; // ignore: unused_field
-
-	// Translations
-	String get q => 'Can I use the same password for both?';
-	String get a => 'Yes, but doing so is less secure. Since your Nextcloud password is sent to the server, someone with access to the server would be able to decrypt your notes. Only use the same password if you trust the server owner.';
+	String get enterEncPassword => 'To protect your data, please enter your encryption password:';
+	String get newToSaber => 'New to Saber? Just enter a new encryption password.';
+	String get encPassword => 'Encryption password';
+	String get encFaqTitle => 'Frequently asked questions';
+	String get wrongEncPassword => 'Decryption failed with the provided password. Please try entering it again.';
+	String get connectionFailed => 'Something went wrong connecting to the server. Please try again later.';
+	List<dynamic> get encFaq => [
+		_StringsLoginEncLoginStep$encFaq$0i0$En._(_root),
+		_StringsLoginEncLoginStep$encFaq$0i1$En._(_root),
+		_StringsLoginEncLoginStep$encFaq$0i2$En._(_root),
+	];
 }
 
 // Path: profile.quickLinks
@@ -683,7 +645,6 @@ class _StringsProfileQuickLinksEn {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
-	String get title => 'Quick links';
 	String get serverHomepage => 'Server homepage';
 	String get deleteAccount => 'Delete account';
 }
@@ -870,7 +831,6 @@ class _StringsEditorNewerFileFormatEn {
 	String get title => 'This note was edited using a newer version of Saber';
 	String get subtitle => 'Editing this note may result in some information being lost. Do you want to ignore this and edit it anyway?';
 	String get allowEditing => 'Allow editing';
-	String get cancel => 'Cancel';
 }
 
 // Path: editor.quill
@@ -920,6 +880,51 @@ class _StringsSettingsPrefDescriptionsPencilSoundSettingEn {
 	String get off => 'No sound';
 	String get onButNotInSilentMode => 'Enabled (unless in silent mode)';
 	String get onAlways => 'Enabled (even in silent mode)';
+}
+
+// Path: login.ncLoginStep.loginFlow
+class _StringsLoginNcLoginStepLoginFlowEn {
+	_StringsLoginNcLoginStepLoginFlowEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get pleaseAuthorize => 'Please authorize Saber to access your Nextcloud account';
+	String get followPrompts => 'Please follow the prompts in your browser.';
+	String get browserDidntOpen => 'Browser didn\'t open? Click here';
+}
+
+// Path: login.encLoginStep.encFaq.0
+class _StringsLoginEncLoginStep$encFaq$0i0$En {
+	_StringsLoginEncLoginStep$encFaq$0i0$En._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get q => 'What is an encryption password? Why use two passwords?';
+	String get a => 'The Nextcloud password is used to access the cloud. The encryption password "scrambles" your data before it ever reaches the cloud.\nEven if someone gains access to your Nextcloud account, your notes will remain safe and encrypted with a separate password. This provides you a second layer of security to protect your data.\nNo-one can access your notes on the server without your encryption password, but this also means that if you forget your encryption password, you will lose access to your data.';
+}
+
+// Path: login.encLoginStep.encFaq.1
+class _StringsLoginEncLoginStep$encFaq$0i1$En {
+	_StringsLoginEncLoginStep$encFaq$0i1$En._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get q => 'I haven\'t set an encryption password yet. Where do I get it?';
+	String get a => 'Choose a new encryption password and enter it above.\nSaber will generate your encryption keys from this password automatically.';
+}
+
+// Path: login.encLoginStep.encFaq.2
+class _StringsLoginEncLoginStep$encFaq$0i2$En {
+	_StringsLoginEncLoginStep$encFaq$0i2$En._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get q => 'Can I use the same password as my Nextcloud account?';
+	String get a => 'Yes, but keep in mind that it would be easier for the server administrator or someone else to access your notes if they gain access to your Nextcloud account.';
 }
 
 // Path: editor.menu.boxFits
@@ -972,6 +977,7 @@ class _StringsAr extends Translations {
 	@override late final _StringsAr _root = this; // ignore: unused_field
 
 	// Translations
+	@override late final _StringsCommonAr common = _StringsCommonAr._(_root);
 	@override late final _StringsHomeAr home = _StringsHomeAr._(_root);
 	@override late final _StringsSettingsAr settings = _StringsSettingsAr._(_root);
 	@override late final _StringsLoginAr login = _StringsLoginAr._(_root);
@@ -979,6 +985,18 @@ class _StringsAr extends Translations {
 	@override late final _StringsAppInfoAr appInfo = _StringsAppInfoAr._(_root);
 	@override late final _StringsUpdateAr update = _StringsUpdateAr._(_root);
 	@override late final _StringsEditorAr editor = _StringsEditorAr._(_root);
+}
+
+// Path: common
+class _StringsCommonAr extends _StringsCommonEn {
+	_StringsCommonAr._(_StringsAr root) : this._root = root, super._(root);
+
+	@override final _StringsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get cancel => 'إلغاء';
+	@override String get done => 'منتهي';
+	@override String get continueBtn => 'يكمل';
 }
 
 // Path: home
@@ -1038,22 +1056,18 @@ class _StringsLoginAr extends _StringsLoginEn {
 
 	// Translations
 	@override String get title => 'تسجيل الدخول';
-	@override late final _StringsLoginFeedbacksAr feedbacks = _StringsLoginFeedbacksAr._(_root);
 	@override late final _StringsLoginFormAr form = _StringsLoginFormAr._(_root);
-	@override String get seeFaq => 'راجع الأسئلة الشائعة أدناه لمزيد من المعلومات، بما في ذلك معلومات حول كلمة مرور التشفير.';
 	@override TextSpan signup({required InlineSpanBuilder linkToSignup}) => TextSpan(children: [
 		const TextSpan(text: 'لا تملك حسابا حتى الآن؟ '),
 		linkToSignup('سجل حساباً الأن'),
 		const TextSpan(text: '!'),
 	]);
+	@override TextSpan notYou({required InlineSpanBuilder undoLogin}) => TextSpan(children: [
+		undoLogin('ليس انت'),
+	]);
 	@override late final _StringsLoginStatusAr status = _StringsLoginStatusAr._(_root);
-	@override List<dynamic> get faq => [
-		_StringsLogin$faq$0i0$Ar._(_root),
-		_StringsLogin$faq$0i1$Ar._(_root),
-		_StringsLogin$faq$0i2$Ar._(_root),
-		_StringsLogin$faq$0i3$Ar._(_root),
-		_StringsLogin$faq$0i4$Ar._(_root),
-	];
+	@override late final _StringsLoginNcLoginStepAr ncLoginStep = _StringsLoginNcLoginStepAr._(_root);
+	@override late final _StringsLoginEncLoginStepAr encLoginStep = _StringsLoginEncLoginStepAr._(_root);
 }
 
 // Path: profile
@@ -1072,6 +1086,9 @@ class _StringsProfileAr extends _StringsProfileEn {
 		_StringsProfile$faq$0i2$Ar._(_root),
 		_StringsProfile$faq$0i3$Ar._(_root),
 	];
+	@override String quotaUsage({required Object used, required Object total, required Object percent}) => 'أنت تستخدم ${used} من ${total} (${percent})';
+	@override String get connectedTo => 'متصلا';
+	@override String get faqTitle => 'أسئلة مكررة';
 }
 
 // Path: appInfo
@@ -1382,23 +1399,6 @@ class _StringsSettingsCustomDataDirAr extends _StringsSettingsCustomDataDirEn {
 	@override String get mustBeDoneSyncing => 'تأكد من اكتمال المزامنة قبل تغيير الدليل';
 }
 
-// Path: login.feedbacks
-class _StringsLoginFeedbacksAr extends _StringsLoginFeedbacksEn {
-	_StringsLoginFeedbacksAr._(_StringsAr root) : this._root = root, super._(root);
-
-	@override final _StringsAr _root; // ignore: unused_field
-
-	// Translations
-	@override String get checkUsername => 'يرجى التحقق مرة أخرى من اسم المستخدم أو البريد الإلكتروني الخاص بك.';
-	@override String get enterNcPassword => 'الرجاء إدخال كلمة مرور Nextcloud الخاصة بك.';
-	@override String get enterEncPassword => 'الرجاء إدخال كلمة مرور التشفير الخاصة بك.';
-	@override String get checkUrl => 'أدخل رابط URL صالح من فضلك.';
-	@override String get ncLoginFailed => 'فشل تسجيل الدخول ، يرجى التحقق من التفاصيل الخاصة بك واتصال الشبكة.';
-	@override String get encLoginFailed => 'فشل تسجيل الدخول ، يرجى التحقق من كلمة مرور التشفير الخاصة بك.';
-	@override String get loginSuccess => 'تم تسجيل الدخول بنجاح! الرجاء الانتظار بينما نقوم بالإعداد ...';
-	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'يقوم الخادم المحدد بتشغيل Nextcloud ${v} ولكن هذا الإصدار من Saber يدعم فقط Nextcloud ${s} إلى ${t}.';
-}
-
 // Path: login.form
 class _StringsLoginFormAr extends _StringsLoginFormEn {
 	_StringsLoginFormAr._(_StringsAr root) : this._root = root, super._(root);
@@ -1406,17 +1406,11 @@ class _StringsLoginFormAr extends _StringsLoginFormEn {
 	@override final _StringsAr _root; // ignore: unused_field
 
 	// Translations
-	@override String get useCustomServer => 'أريد استخدام خادم Nextcloud مخصص';
-	@override String get customServerUrl => 'عنوان URL مخصص للخادم';
-	@override String get username => 'اسم المستخدم أو البريد الالكتروني';
-	@override String get ncPassword => 'Nextcloud كلمة المرور';
-	@override String get encPassword => 'كلمة مرور التشفير';
 	@override TextSpan agreeToPrivacyPolicy({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [
 		const TextSpan(text: 'بتسجيل الدخول، فإنك توافق على '),
 		linkToPrivacyPolicy('سياسة الخصوصية'),
 		const TextSpan(text: '.'),
 	]);
-	@override String get login => 'تسجيل الدخول';
 }
 
 // Path: login.status
@@ -1426,64 +1420,47 @@ class _StringsLoginStatusAr extends _StringsLoginStatusEn {
 	@override final _StringsAr _root; // ignore: unused_field
 
 	// Translations
-	@override String get loggedIn => 'تم تسجيل الدخول باستخدام Nextcloud';
 	@override String get loggedOut => 'تسجيل الخروج';
 	@override String get tapToLogin => 'انقر لتسجيل الدخول باستخدام Nextcloud';
+	@override String get loggedIn => 'تم تسجيل الدخول باستخدام Nextcloud';
+	@override String hi({required Object u}) => 'مرحبًا، ${u}!';
+	@override String get almostDone => 'جاهز تقريبًا للمزامنة، انقر لإنهاء تسجيل الدخول';
 }
 
-// Path: login.faq.0
-class _StringsLogin$faq$0i0$Ar extends _StringsLogin$faq$0i0$En {
-	_StringsLogin$faq$0i0$Ar._(_StringsAr root) : this._root = root, super._(root);
+// Path: login.ncLoginStep
+class _StringsLoginNcLoginStepAr extends _StringsLoginNcLoginStepEn {
+	_StringsLoginNcLoginStepAr._(_StringsAr root) : this._root = root, super._(root);
 
 	@override final _StringsAr _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'ما هو Nextcloud؟';
-	@override String get a => 'Nextcloud هو خادم مزامنة ملفات خاص، من بين أشياء أخرى. يمكنك استخدام خادم Saber Nextcloud الافتراضي، أو استخدام خادم جهة خارجية، أو الاستضافة الذاتية الخاصة بك للتحكم الكامل في بياناتك.';
+	@override late final _StringsLoginNcLoginStepLoginFlowAr loginFlow = _StringsLoginNcLoginStepLoginFlowAr._(_root);
+	@override String get whereToStoreData => 'اختر المكان الذي تريد تخزين بياناتك فيه:';
+	@override String get saberNcServer => 'خادم Saber Nextcloud';
+	@override String get otherNcServer => 'خادم Nextcloud آخر';
+	@override String get serverUrl => 'عنوان URL للخادم';
+	@override String get loginWithSaber => 'تسجيل الدخول مع صابر';
+	@override String get loginWithNextcloud => 'تسجيل الدخول مع Nextcloud';
 }
 
-// Path: login.faq.1
-class _StringsLogin$faq$0i1$Ar extends _StringsLogin$faq$0i1$En {
-	_StringsLogin$faq$0i1$Ar._(_StringsAr root) : this._root = root, super._(root);
+// Path: login.encLoginStep
+class _StringsLoginEncLoginStepAr extends _StringsLoginEncLoginStepEn {
+	_StringsLoginEncLoginStepAr._(_StringsAr root) : this._root = root, super._(root);
 
 	@override final _StringsAr _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'ما هي كلمة مرور التشفير؟';
-	@override String get a => 'تُستخدم كلمة مرور التشفير لتشفير بياناتك قبل إرسالها إلى الخادم. يمكنك اختيارها عند تسجيل الدخول لأول مرة إلى Saber ،وهي غير مرتبطة بحساب/كلمة مرور Nextcloud الخاصة بك.\nلا يمكن لأحد الوصول إلى ملاحظاتك على الخادم بدون كلمة مرور التشفير الخاصة بك. هذا يعني أيضًا أنك إذا نسيت كلمة مرور التشفير، فستفقد إمكانية الوصول إلى بياناتك.';
-}
-
-// Path: login.faq.2
-class _StringsLogin$faq$0i2$Ar extends _StringsLogin$faq$0i2$En {
-	_StringsLogin$faq$0i2$Ar._(_StringsAr root) : this._root = root, super._(root);
-
-	@override final _StringsAr _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => 'لماذا نستخدم كلمتين من كلمات المرور؟';
-	@override String get a => 'يتم استخدام كلمة مرور Nextcloud للوصول إلى السحابة. كلمة مرور التشفير "تشويش " بياناتك قبل أن تصل إلى السحابة.\nحتى إذا تمكن شخص ما من الوصول إلى حسابك على Nextcloud ،فستظل ملاحظاتك آمنة ومشفرة بكلمة مرور منفصلة. يوفر لك هذا طبقة ثانية من الأمان لحماية بياناتك.';
-}
-
-// Path: login.faq.3
-class _StringsLogin$faq$0i3$Ar extends _StringsLogin$faq$0i3$En {
-	_StringsLogin$faq$0i3$Ar._(_StringsAr root) : this._root = root, super._(root);
-
-	@override final _StringsAr _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => 'كيف يمكنني تسجيل الدخول إذا كنت أستخدم المصادقة الثنائية (2FA)؟';
-	@override String get a => 'بدلاً من كلمة مرور Nextcloud العادية، ستحتاج إلى إنشاء "كلمة مرور التطبيق". يمكنك القيام بذلك في إعدادات Nextcloud الخاصة بك ضمن الأمان> الأجهزة والجلسات> إنشاء كلمة مرور جديدة للتطبيق. كلمة مرور التشفير الخاصة بك لا تتأثر.';
-}
-
-// Path: login.faq.4
-class _StringsLogin$faq$0i4$Ar extends _StringsLogin$faq$0i4$En {
-	_StringsLogin$faq$0i4$Ar._(_StringsAr root) : this._root = root, super._(root);
-
-	@override final _StringsAr _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => 'هل يمكنني استخدام نفس كلمة المرور لكليهما؟';
-	@override String get a => 'نعم، لكن القيام بذلك أقل أمانًا. نظرًا لأنه يتم إرسال كلمة مرور Nextcloud الخاصة بك إلى الخادم، فسيتمكن شخص لديه حق الوصول إلى الخادم من فك تشفير ملاحظاتك. استخدم نفس كلمة المرور فقط إذا كنت تثق في مالك الخادم.';
+	@override String get enterEncPassword => 'لحماية بياناتك، يرجى إدخال كلمة مرور التشفير الخاصة بك:';
+	@override String get newToSaber => 'جديد لصابر';
+	@override String get encPassword => 'كلمة مرور التشفير';
+	@override String get encFaqTitle => 'أسئلة مكررة';
+	@override String get wrongEncPassword => 'فشل فك التشفير باستخدام كلمة المرور المقدمة. يرجى محاولة إدخاله مرة أخرى.';
+	@override String get connectionFailed => 'حدث خطأ أثناء الاتصال بالخادم. الرجاء معاودة المحاولة في وقت لاحق.';
+	@override List<dynamic> get encFaq => [
+		_StringsLoginEncLoginStep$encFaq$0i0$Ar._(_root),
+		_StringsLoginEncLoginStep$encFaq$0i1$Ar._(_root),
+		_StringsLoginEncLoginStep$encFaq$0i2$Ar._(_root),
+	];
 }
 
 // Path: profile.quickLinks
@@ -1493,7 +1470,6 @@ class _StringsProfileQuickLinksAr extends _StringsProfileQuickLinksEn {
 	@override final _StringsAr _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'روابط سريعة';
 	@override String get serverHomepage => 'الصفحة الرئيسية للخادم';
 	@override String get deleteAccount => 'حذف الحساب';
 }
@@ -1680,7 +1656,6 @@ class _StringsEditorNewerFileFormatAr extends _StringsEditorNewerFileFormatEn {
 	@override String get title => 'تم تحرير هذه الملاحظة باستخدام إصدار أحدث من Saber';
 	@override String get subtitle => 'قد يؤدي تحرير هذه الملاحظة إلى ضياع بعض المعلومات. هل تريد تجاهل هذا وتعديله على أي حال؟';
 	@override String get allowEditing => 'السماح بالتعديل';
-	@override String get cancel => 'إلغاء';
 }
 
 // Path: editor.quill
@@ -1730,6 +1705,51 @@ class _StringsSettingsPrefDescriptionsPencilSoundSettingAr extends _StringsSetti
 	@override String get off => 'لا صوت';
 	@override String get onButNotInSilentMode => 'ممكّن (ما لم يكن في الوضع الصامت)';
 	@override String get onAlways => 'ممكّن (حتى في الوضع الصامت)';
+}
+
+// Path: login.ncLoginStep.loginFlow
+class _StringsLoginNcLoginStepLoginFlowAr extends _StringsLoginNcLoginStepLoginFlowEn {
+	_StringsLoginNcLoginStepLoginFlowAr._(_StringsAr root) : this._root = root, super._(root);
+
+	@override final _StringsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get pleaseAuthorize => 'يرجى تفويض Saber للوصول إلى حساب Nextcloud الخاص بك';
+	@override String get followPrompts => 'يرجى اتباع المطالبات في المتصفح الخاص بك.';
+	@override String get browserDidntOpen => 'المتصفح لم يفتح';
+}
+
+// Path: login.encLoginStep.encFaq.0
+class _StringsLoginEncLoginStep$encFaq$0i0$Ar extends _StringsLoginEncLoginStep$encFaq$0i0$En {
+	_StringsLoginEncLoginStep$encFaq$0i0$Ar._(_StringsAr root) : this._root = root, super._(root);
+
+	@override final _StringsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'ما هي كلمة مرور التشفير؟';
+	@override String get a => 'تُستخدم كلمة مرور التشفير لتشفير بياناتك قبل إرسالها إلى الخادم. يمكنك اختيارها عند تسجيل الدخول لأول مرة إلى Saber ،وهي غير مرتبطة بحساب/كلمة مرور Nextcloud الخاصة بك.\nلا يمكن لأحد الوصول إلى ملاحظاتك على الخادم بدون كلمة مرور التشفير الخاصة بك. هذا يعني أيضًا أنك إذا نسيت كلمة مرور التشفير، فستفقد إمكانية الوصول إلى بياناتك.';
+}
+
+// Path: login.encLoginStep.encFaq.1
+class _StringsLoginEncLoginStep$encFaq$0i1$Ar extends _StringsLoginEncLoginStep$encFaq$0i1$En {
+	_StringsLoginEncLoginStep$encFaq$0i1$Ar._(_StringsAr root) : this._root = root, super._(root);
+
+	@override final _StringsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'لماذا نستخدم كلمتين من كلمات المرور؟';
+	@override String get a => 'يتم استخدام كلمة مرور Nextcloud للوصول إلى السحابة. كلمة مرور التشفير "تشويش " بياناتك قبل أن تصل إلى السحابة.\nحتى إذا تمكن شخص ما من الوصول إلى حسابك على Nextcloud ،فستظل ملاحظاتك آمنة ومشفرة بكلمة مرور منفصلة. يوفر لك هذا طبقة ثانية من الأمان لحماية بياناتك.';
+}
+
+// Path: login.encLoginStep.encFaq.2
+class _StringsLoginEncLoginStep$encFaq$0i2$Ar extends _StringsLoginEncLoginStep$encFaq$0i2$En {
+	_StringsLoginEncLoginStep$encFaq$0i2$Ar._(_StringsAr root) : this._root = root, super._(root);
+
+	@override final _StringsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'هل يمكنني استخدام نفس كلمة المرور لكليهما؟';
+	@override String get a => 'نعم، لكن القيام بذلك أقل أمانًا. نظرًا لأنه يتم إرسال كلمة مرور Nextcloud الخاصة بك إلى الخادم، فسيتمكن شخص لديه حق الوصول إلى الخادم من فك تشفير ملاحظاتك. استخدم نفس كلمة المرور فقط إذا كنت تثق في مالك الخادم.';
 }
 
 // Path: editor.menu.boxFits
@@ -1782,6 +1802,7 @@ class _StringsCs extends Translations {
 	@override late final _StringsCs _root = this; // ignore: unused_field
 
 	// Translations
+	@override late final _StringsCommonCs common = _StringsCommonCs._(_root);
 	@override late final _StringsHomeCs home = _StringsHomeCs._(_root);
 	@override late final _StringsSettingsCs settings = _StringsSettingsCs._(_root);
 	@override late final _StringsLoginCs login = _StringsLoginCs._(_root);
@@ -1789,6 +1810,18 @@ class _StringsCs extends Translations {
 	@override late final _StringsAppInfoCs appInfo = _StringsAppInfoCs._(_root);
 	@override late final _StringsUpdateCs update = _StringsUpdateCs._(_root);
 	@override late final _StringsEditorCs editor = _StringsEditorCs._(_root);
+}
+
+// Path: common
+class _StringsCommonCs extends _StringsCommonEn {
+	_StringsCommonCs._(_StringsCs root) : this._root = root, super._(root);
+
+	@override final _StringsCs _root; // ignore: unused_field
+
+	// Translations
+	@override String get cancel => 'Zrušit';
+	@override String get done => 'Hotovo';
+	@override String get continueBtn => 'Pokračovat';
 }
 
 // Path: home
@@ -1848,23 +1881,18 @@ class _StringsLoginCs extends _StringsLoginEn {
 
 	// Translations
 	@override String get title => 'Přihlásit se';
-	@override late final _StringsLoginFeedbacksCs feedbacks = _StringsLoginFeedbacksCs._(_root);
 	@override late final _StringsLoginFormCs form = _StringsLoginFormCs._(_root);
-	@override String get seeFaq => 'Více informací, včetně těch o heslu pro šifrování, nalezenete v sekci s častými otázkami umístěné níže.';
 	@override TextSpan signup({required InlineSpanBuilder linkToSignup}) => TextSpan(children: [
 		const TextSpan(text: 'Ještě nemáte účet? '),
 		linkToSignup('Zaregistrujte se'),
 		const TextSpan(text: '!'),
 	]);
+	@override TextSpan notYou({required InlineSpanBuilder undoLogin}) => TextSpan(children: [
+		undoLogin('Né ty'),
+	]);
 	@override late final _StringsLoginStatusCs status = _StringsLoginStatusCs._(_root);
-	@override List<dynamic> get faq => [
-		_StringsLogin$faq$0i0$Cs._(_root),
-		_StringsLogin$faq$0i1$Cs._(_root),
-		_StringsLogin$faq$0i2$Cs._(_root),
-		_StringsLogin$faq$0i3$Cs._(_root),
-		_StringsLogin$faq$0i4$Cs._(_root),
-		_StringsLogin$faq$0i5$Cs._(_root),
-	];
+	@override late final _StringsLoginNcLoginStepCs ncLoginStep = _StringsLoginNcLoginStepCs._(_root);
+	@override late final _StringsLoginEncLoginStepCs encLoginStep = _StringsLoginEncLoginStepCs._(_root);
 }
 
 // Path: profile
@@ -1883,6 +1911,9 @@ class _StringsProfileCs extends _StringsProfileEn {
 		_StringsProfile$faq$0i2$Cs._(_root),
 		_StringsProfile$faq$0i3$Cs._(_root),
 	];
+	@override String quotaUsage({required Object used, required Object total, required Object percent}) => 'Používáte ${used} z ${total} (${percent})';
+	@override String get connectedTo => 'Připojen k';
+	@override String get faqTitle => 'Často kladené otázky';
 }
 
 // Path: appInfo
@@ -2193,23 +2224,6 @@ class _StringsSettingsCustomDataDirCs extends _StringsSettingsCustomDataDirEn {
 	@override String get mustBeDoneSyncing => 'Než změníte datový adresář, ujistěte se, že byla dokončena synchronizace';
 }
 
-// Path: login.feedbacks
-class _StringsLoginFeedbacksCs extends _StringsLoginFeedbacksEn {
-	_StringsLoginFeedbacksCs._(_StringsCs root) : this._root = root, super._(root);
-
-	@override final _StringsCs _root; // ignore: unused_field
-
-	// Translations
-	@override String get checkUsername => 'Zkontrolujte prosím své uživatelské jméno a heslo.';
-	@override String get enterNcPassword => 'Zadejte prosím své heslo k Nextcloud účtu.';
-	@override String get enterEncPassword => 'Zadejte prosím své heslo pro šifrování.';
-	@override String get checkUrl => 'Zadejte prosím správnou URL adresu.';
-	@override String get ncLoginFailed => 'Přihlašování selhalo, zkontrolujte prosím zadané údaje a připojení k internetu.';
-	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'Zadaný server používá Nextcloud ${v}, ale tato verze aplikace Saber podporuje pouze Nextcloud ${s} až ${t}.';
-	@override String get encLoginFailed => 'Přihlašování selhalo, zkontrolujte prosím své heslo pro šifrování.';
-	@override String get loginSuccess => 'Přihlášení bylo úspěšné! Vyčkejte prosím, nastavíme vše potřebné...';
-}
-
 // Path: login.form
 class _StringsLoginFormCs extends _StringsLoginFormEn {
 	_StringsLoginFormCs._(_StringsCs root) : this._root = root, super._(root);
@@ -2217,17 +2231,11 @@ class _StringsLoginFormCs extends _StringsLoginFormEn {
 	@override final _StringsCs _root; // ignore: unused_field
 
 	// Translations
-	@override String get useCustomServer => 'Chci využít vlastní Nextcloud server';
-	@override String get customServerUrl => 'URL adresa vlastního Nextcloud serveru';
-	@override String get username => 'Přihlašovací jméno nebo e-mail';
-	@override String get ncPassword => 'Heslo k Nextcloud účtu';
-	@override String get encPassword => 'Heslo pro šifrování';
 	@override TextSpan agreeToPrivacyPolicy({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [
 		const TextSpan(text: 'Přihlášením souhlasíte se '),
 		linkToPrivacyPolicy('Zásadami ochrany osobních údajů'),
 		const TextSpan(text: '.'),
 	]);
-	@override String get login => 'Přihlásit se';
 }
 
 // Path: login.status
@@ -2237,75 +2245,46 @@ class _StringsLoginStatusCs extends _StringsLoginStatusEn {
 	@override final _StringsCs _root; // ignore: unused_field
 
 	// Translations
-	@override String get loggedIn => 'Jste přihlášeni pomocí Nextcloud účtu';
 	@override String get loggedOut => 'Jste odhlášení';
 	@override String get tapToLogin => 'Klepněte pro přihlášení pomocí Nextcloud účtu';
+	@override String get loggedIn => 'Jste přihlášeni pomocí Nextcloud účtu';
+	@override String hi({required Object u}) => 'Ahoj, ${u}!';
+	@override String get almostDone => 'Téměř připraveno k synchronizaci, klepnutím dokončete přihlášení';
 }
 
-// Path: login.faq.0
-class _StringsLogin$faq$0i0$Cs extends _StringsLogin$faq$0i0$En {
-	_StringsLogin$faq$0i0$Cs._(_StringsCs root) : this._root = root, super._(root);
+// Path: login.ncLoginStep
+class _StringsLoginNcLoginStepCs extends _StringsLoginNcLoginStepEn {
+	_StringsLoginNcLoginStepCs._(_StringsCs root) : this._root = root, super._(root);
 
 	@override final _StringsCs _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Co je to Nextcloud?';
-	@override String get a => 'Nextcloud je mimo jiné osobní server pro synchronizaci souborů. Můžete používat výchozí Nextcloud server poskytovaný aplikací Saber, použít server hostovaný třetí stranou, nebo vlastní server pro plnou kontrolu nad svými daty.';
+	@override late final _StringsLoginNcLoginStepLoginFlowCs loginFlow = _StringsLoginNcLoginStepLoginFlowCs._(_root);
+	@override String get whereToStoreData => 'Vyberte, kam chcete svá data uložit:';
+	@override String get otherNcServer => 'Další server Nextcloud';
+	@override String get serverUrl => 'Adresa URL serveru';
+	@override String get loginWithSaber => 'Přihlaste se pomocí Saber';
+	@override String get loginWithNextcloud => 'Přihlaste se pomocí Nextcloud';
 }
 
-// Path: login.faq.1
-class _StringsLogin$faq$0i1$Cs extends _StringsLogin$faq$0i1$En {
-	_StringsLogin$faq$0i1$Cs._(_StringsCs root) : this._root = root, super._(root);
+// Path: login.encLoginStep
+class _StringsLoginEncLoginStepCs extends _StringsLoginEncLoginStepEn {
+	_StringsLoginEncLoginStepCs._(_StringsCs root) : this._root = root, super._(root);
 
 	@override final _StringsCs _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Co je to heslo pro šifrování?';
-	@override String get a => 'Heslo pro šifrování je použito k zašifrování vašich dat před jejich odesláním na server. Zvolíte si ho při prvním přihlášení do aplikace Saber (nikoliv do webového rozhraní Nextcloud serveru), není nijak vázáno na heslo k vašemu Nextcloud účtu nebo na účet samotný.\nBez jeho znalosti nemůže nikdo přistoupit k vašim poznámkám uloženým na serveru. To také znamená, že pokud ho zapomenete, ztratíte přístup ke svým datům.';
-}
-
-// Path: login.faq.2
-class _StringsLogin$faq$0i2$Cs extends _StringsLogin$faq$0i2$En {
-	_StringsLogin$faq$0i2$Cs._(_StringsCs root) : this._root = root, super._(root);
-
-	@override final _StringsCs _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => 'Proč používat dvě hesla?';
-	@override String get a => 'Heslo k Nextcloud účtu se používá k přístupu do cloudu. Heslo pro šifrování "utají" vaše data ještě před tím, než se na cloud dostanou.\nI když by někdo získat přístup k vašemu Nextcloud účtu, vaše poznámky zůstanou v bezpečí zašifrované vlastním heslem. To vám poskytuje druhou vrstvu ochrany vašich dat.';
-}
-
-// Path: login.faq.3
-class _StringsLogin$faq$0i3$Cs extends _StringsLogin$faq$0i3$En {
-	_StringsLogin$faq$0i3$Cs._(_StringsCs root) : this._root = root, super._(root);
-
-	@override final _StringsCs _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => 'Ještě jsem heslo pro šifrování nenastavoval. Kde ho získám?';
-	@override String get a => 'Jednoduše si ho zvolíte právě teď, když se budete výše přihlašovat!\nHeslo pro šifrování si volíte při prvním přihlášení do aplikace Saber (nikoliv do webového rozhraní Nextcloud serveru).';
-}
-
-// Path: login.faq.4
-class _StringsLogin$faq$0i4$Cs extends _StringsLogin$faq$0i4$En {
-	_StringsLogin$faq$0i4$Cs._(_StringsCs root) : this._root = root, super._(root);
-
-	@override final _StringsCs _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => 'Jak se přihlásím, když používám 2FA?';
-	@override String get a => 'Místo běžného hesla k Nextcloud účtu si potřebujete vytvořit "heslo aplikace". Toho můžete docílit v nastavení Nextcloudu v záložce Zabezpečení > Zařízení a sezení > Vytvořit nové heslo aplikace. Vašeho hesla pro šifrování se to nijak netýká.';
-}
-
-// Path: login.faq.5
-class _StringsLogin$faq$0i5$Cs extends _StringsLogin$faq$0i5$En {
-	_StringsLogin$faq$0i5$Cs._(_StringsCs root) : this._root = root, super._(root);
-
-	@override final _StringsCs _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => 'Mohu použít stejné heslo k Nextcloud účtu a pro šifrování?';
-	@override String get a => 'Ano, ale je není to tak bezpečné. Jelikož je heslo k Nextcloud účtu odesíláno na server, kdokoliv s přístupem k serveru může dešifrovat vaše poznámky. Stejné heslo tedy použijte jen v případě, že vlastníkovi Nextcloud serveru důvěřujete.';
+	@override String get enterEncPassword => 'Chcete-li chránit svá data, zadejte své šifrovací heslo:';
+	@override String get newToSaber => 'Novinka pro Saber';
+	@override String get encPassword => 'Šifrovací heslo';
+	@override String get encFaqTitle => 'Často kladené otázky';
+	@override String get wrongEncPassword => 'Dešifrování se zadaným heslem se nezdařilo. Zkuste jej zadat znovu.';
+	@override String get connectionFailed => 'Při připojování k serveru se něco pokazilo. Prosím zkuste to znovu později.';
+	@override List<dynamic> get encFaq => [
+		_StringsLoginEncLoginStep$encFaq$0i0$Cs._(_root),
+		_StringsLoginEncLoginStep$encFaq$0i1$Cs._(_root),
+		_StringsLoginEncLoginStep$encFaq$0i2$Cs._(_root),
+	];
 }
 
 // Path: profile.quickLinks
@@ -2315,7 +2294,6 @@ class _StringsProfileQuickLinksCs extends _StringsProfileQuickLinksEn {
 	@override final _StringsCs _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Rychlé odkazy';
 	@override String get serverHomepage => 'Webové stránky serveru';
 	@override String get deleteAccount => 'Odstranit účet';
 }
@@ -2502,7 +2480,6 @@ class _StringsEditorNewerFileFormatCs extends _StringsEditorNewerFileFormatEn {
 	@override String get title => 'Tato poznámka byla upravena v novější verzi aplikace Saber';
 	@override String get subtitle => 'Úpravou této poznámky můžete přijít o některé informace. Přejete tuto skutečnost ignorovat a přesto pokračovat k úpravě poznámky?';
 	@override String get allowEditing => 'Povolit úpravy';
-	@override String get cancel => 'Zrušit';
 }
 
 // Path: editor.quill
@@ -2552,6 +2529,51 @@ class _StringsSettingsPrefDescriptionsPencilSoundSettingCs extends _StringsSetti
 	@override String get off => 'Bez zvuku';
 	@override String get onButNotInSilentMode => 'Zapnuto (mimo tichý režim)';
 	@override String get onAlways => 'Zapnuto (i v tichém režimu)';
+}
+
+// Path: login.ncLoginStep.loginFlow
+class _StringsLoginNcLoginStepLoginFlowCs extends _StringsLoginNcLoginStepLoginFlowEn {
+	_StringsLoginNcLoginStepLoginFlowCs._(_StringsCs root) : this._root = root, super._(root);
+
+	@override final _StringsCs _root; // ignore: unused_field
+
+	// Translations
+	@override String get pleaseAuthorize => 'Povolte Saber přístup k vašemu účtu Nextcloud';
+	@override String get followPrompts => 'Postupujte podle pokynů ve vašem prohlížeči.';
+	@override String get browserDidntOpen => 'Prohlížeč se neotevřel';
+}
+
+// Path: login.encLoginStep.encFaq.0
+class _StringsLoginEncLoginStep$encFaq$0i0$Cs extends _StringsLoginEncLoginStep$encFaq$0i0$En {
+	_StringsLoginEncLoginStep$encFaq$0i0$Cs._(_StringsCs root) : this._root = root, super._(root);
+
+	@override final _StringsCs _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Co je to heslo pro šifrování?';
+	@override String get a => 'Heslo pro šifrování je použito k zašifrování vašich dat před jejich odesláním na server. Zvolíte si ho při prvním přihlášení do aplikace Saber (nikoliv do webového rozhraní Nextcloud serveru), není nijak vázáno na heslo k vašemu Nextcloud účtu nebo na účet samotný.\nBez jeho znalosti nemůže nikdo přistoupit k vašim poznámkám uloženým na serveru. To také znamená, že pokud ho zapomenete, ztratíte přístup ke svým datům.';
+}
+
+// Path: login.encLoginStep.encFaq.1
+class _StringsLoginEncLoginStep$encFaq$0i1$Cs extends _StringsLoginEncLoginStep$encFaq$0i1$En {
+	_StringsLoginEncLoginStep$encFaq$0i1$Cs._(_StringsCs root) : this._root = root, super._(root);
+
+	@override final _StringsCs _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Proč používat dvě hesla?';
+	@override String get a => 'Heslo k Nextcloud účtu se používá k přístupu do cloudu. Heslo pro šifrování "utají" vaše data ještě před tím, než se na cloud dostanou.\nI když by někdo získat přístup k vašemu Nextcloud účtu, vaše poznámky zůstanou v bezpečí zašifrované vlastním heslem. To vám poskytuje druhou vrstvu ochrany vašich dat.';
+}
+
+// Path: login.encLoginStep.encFaq.2
+class _StringsLoginEncLoginStep$encFaq$0i2$Cs extends _StringsLoginEncLoginStep$encFaq$0i2$En {
+	_StringsLoginEncLoginStep$encFaq$0i2$Cs._(_StringsCs root) : this._root = root, super._(root);
+
+	@override final _StringsCs _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Ještě jsem heslo pro šifrování nenastavoval. Kde ho získám?';
+	@override String get a => 'Jednoduše si ho zvolíte právě teď, když se budete výše přihlašovat!\nHeslo pro šifrování si volíte při prvním přihlášení do aplikace Saber (nikoliv do webového rozhraní Nextcloud serveru).';
 }
 
 // Path: editor.menu.boxFits
@@ -2604,6 +2626,7 @@ class _StringsDe extends Translations {
 	@override late final _StringsDe _root = this; // ignore: unused_field
 
 	// Translations
+	@override late final _StringsCommonDe common = _StringsCommonDe._(_root);
 	@override late final _StringsHomeDe home = _StringsHomeDe._(_root);
 	@override late final _StringsSettingsDe settings = _StringsSettingsDe._(_root);
 	@override late final _StringsLoginDe login = _StringsLoginDe._(_root);
@@ -2611,6 +2634,18 @@ class _StringsDe extends Translations {
 	@override late final _StringsAppInfoDe appInfo = _StringsAppInfoDe._(_root);
 	@override late final _StringsUpdateDe update = _StringsUpdateDe._(_root);
 	@override late final _StringsEditorDe editor = _StringsEditorDe._(_root);
+}
+
+// Path: common
+class _StringsCommonDe extends _StringsCommonEn {
+	_StringsCommonDe._(_StringsDe root) : this._root = root, super._(root);
+
+	@override final _StringsDe _root; // ignore: unused_field
+
+	// Translations
+	@override String get cancel => 'Abbruch';
+	@override String get done => 'Erledigt';
+	@override String get continueBtn => 'Weitermachen';
 }
 
 // Path: home
@@ -2670,22 +2705,18 @@ class _StringsLoginDe extends _StringsLoginEn {
 
 	// Translations
 	@override String get title => 'Login';
-	@override late final _StringsLoginFeedbacksDe feedbacks = _StringsLoginFeedbacksDe._(_root);
 	@override late final _StringsLoginFormDe form = _StringsLoginFormDe._(_root);
-	@override String get seeFaq => 'Weitere Informationen, auch zum Verschlüsselungskennwort, finden Sie in den FAQ unten.';
 	@override TextSpan signup({required InlineSpanBuilder linkToSignup}) => TextSpan(children: [
 		const TextSpan(text: 'Du hast noch kein Konto? '),
 		linkToSignup('Erstelle jetzt eins'),
 		const TextSpan(text: '!'),
 	]);
+	@override TextSpan notYou({required InlineSpanBuilder undoLogin}) => TextSpan(children: [
+		undoLogin('Nicht du'),
+	]);
 	@override late final _StringsLoginStatusDe status = _StringsLoginStatusDe._(_root);
-	@override List<dynamic> get faq => [
-		_StringsLogin$faq$0i0$De._(_root),
-		_StringsLogin$faq$0i1$De._(_root),
-		_StringsLogin$faq$0i2$De._(_root),
-		_StringsLogin$faq$0i3$De._(_root),
-		_StringsLogin$faq$0i4$De._(_root),
-	];
+	@override late final _StringsLoginNcLoginStepDe ncLoginStep = _StringsLoginNcLoginStepDe._(_root);
+	@override late final _StringsLoginEncLoginStepDe encLoginStep = _StringsLoginEncLoginStepDe._(_root);
 }
 
 // Path: profile
@@ -2704,6 +2735,9 @@ class _StringsProfileDe extends _StringsProfileEn {
 		_StringsProfile$faq$0i2$De._(_root),
 		_StringsProfile$faq$0i3$De._(_root),
 	];
+	@override String quotaUsage({required Object used, required Object total, required Object percent}) => 'Sie verwenden ${used} von ${total} (${percent})';
+	@override String get connectedTo => 'Angeschlossen';
+	@override String get faqTitle => 'Häufig gestellte Fragen';
 }
 
 // Path: appInfo
@@ -3014,23 +3048,6 @@ class _StringsSettingsCustomDataDirDe extends _StringsSettingsCustomDataDirEn {
 	@override String get mustBeDoneSyncing => 'Stelle sicher, dass die Synchronisierung abgeschlossen ist, bevor du das Verzeichnis änderst';
 }
 
-// Path: login.feedbacks
-class _StringsLoginFeedbacksDe extends _StringsLoginFeedbacksEn {
-	_StringsLoginFeedbacksDe._(_StringsDe root) : this._root = root, super._(root);
-
-	@override final _StringsDe _root; // ignore: unused_field
-
-	// Translations
-	@override String get checkUsername => 'Bitte überprüfe deinen Benutzernamen oder deine E-Mail.';
-	@override String get enterNcPassword => 'Bitte gib dein Nextcloud-Passwort ein.';
-	@override String get enterEncPassword => 'Bitte gib dein Verschlüsselungspasswort ein.';
-	@override String get checkUrl => 'Bitte gib eine gültige URL an.';
-	@override String get ncLoginFailed => 'Anmeldung fehlgeschlagen, bitte überprüfe deine Angaben und deine Netzwerkverbindung.';
-	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'Der angegebene Server führt Nextcloud ${v} aus, aber diese Version von Saber unterstützt nur Nextcloud ${s} bis ${t}.';
-	@override String get encLoginFailed => 'Anmeldung fehlgeschlagen, bitte überprüfe dein Verschlüsselungspasswort.';
-	@override String get loginSuccess => 'Anmeldung erfolgreich! Bitte warte, während wir alles einrichten...';
-}
-
 // Path: login.form
 class _StringsLoginFormDe extends _StringsLoginFormEn {
 	_StringsLoginFormDe._(_StringsDe root) : this._root = root, super._(root);
@@ -3038,17 +3055,11 @@ class _StringsLoginFormDe extends _StringsLoginFormEn {
 	@override final _StringsDe _root; // ignore: unused_field
 
 	// Translations
-	@override String get useCustomServer => 'Ich möchte einen eigenen Nextcloud-Server verwenden';
-	@override String get customServerUrl => 'Eigene Server-URL';
-	@override String get username => 'Benutzername oder E-Mail';
-	@override String get ncPassword => 'Nextcloud-Passwort';
-	@override String get encPassword => 'Verschlüsselungspasswort';
 	@override TextSpan agreeToPrivacyPolicy({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [
 		const TextSpan(text: 'Indem du dich anmeldest, stimmst du der '),
 		linkToPrivacyPolicy('Datenschutzrichtlinie'),
 		const TextSpan(text: ' zu.'),
 	]);
-	@override String get login => 'Anmelden';
 }
 
 // Path: login.status
@@ -3058,64 +3069,47 @@ class _StringsLoginStatusDe extends _StringsLoginStatusEn {
 	@override final _StringsDe _root; // ignore: unused_field
 
 	// Translations
-	@override String get loggedIn => 'Mit Nextcloud angemeldet';
 	@override String get loggedOut => 'Nicht angemeldet';
 	@override String get tapToLogin => 'Hier tippen, um dich mit Nextcloud anzumelden';
+	@override String get loggedIn => 'Mit Nextcloud angemeldet';
+	@override String hi({required Object u}) => 'Hallo, ${u}!';
+	@override String get almostDone => 'Die Synchronisierung ist fast fertig. Tippen Sie auf, um die Anmeldung abzuschließen';
 }
 
-// Path: login.faq.0
-class _StringsLogin$faq$0i0$De extends _StringsLogin$faq$0i0$En {
-	_StringsLogin$faq$0i0$De._(_StringsDe root) : this._root = root, super._(root);
+// Path: login.ncLoginStep
+class _StringsLoginNcLoginStepDe extends _StringsLoginNcLoginStepEn {
+	_StringsLoginNcLoginStepDe._(_StringsDe root) : this._root = root, super._(root);
 
 	@override final _StringsDe _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Was ist Nextcloud?';
-	@override String get a => 'Nextcloud ist unter anderem ein privater Dateisynchronisationsserver. Du kannst den Standard-Saber-Nextcloud-Server, einen Drittanbieter-, oder einen selbst-gehosteten Server verwenden, um volle Kontrolle über deine Daten zu behalten.';
+	@override late final _StringsLoginNcLoginStepLoginFlowDe loginFlow = _StringsLoginNcLoginStepLoginFlowDe._(_root);
+	@override String get whereToStoreData => 'Wählen Sie, wo Sie Ihre Daten speichern möchten:';
+	@override String get saberNcServer => 'Der Nextcloud-Server von Saber';
+	@override String get otherNcServer => 'Anderer Nextcloud-Server';
+	@override String get serverUrl => 'Server-URL';
+	@override String get loginWithSaber => 'Melden Sie sich mit Saber an';
+	@override String get loginWithNextcloud => 'Melden Sie sich mit Nextcloud an';
 }
 
-// Path: login.faq.1
-class _StringsLogin$faq$0i1$De extends _StringsLogin$faq$0i1$En {
-	_StringsLogin$faq$0i1$De._(_StringsDe root) : this._root = root, super._(root);
+// Path: login.encLoginStep
+class _StringsLoginEncLoginStepDe extends _StringsLoginEncLoginStepEn {
+	_StringsLoginEncLoginStepDe._(_StringsDe root) : this._root = root, super._(root);
 
 	@override final _StringsDe _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Was ist das Verchlüsselungspasswort?';
-	@override String get a => 'Das Verschlüsselungspasswort wird verwendet, um deine Daten zu verschlüsseln, bevor diese an den Server gesendet werden. Es wird nicht auf dem Server gespeichert und nur von Saber verwendet, um deine Daten zu ver- und entschlüsseln.\nNiemand kann ohne dieses Passwort auf deine Notizen auf dem Server zugreifen. Das bedeutet allerdings auch, dass du, wenn du dein Verschlüsselungspasswort vergisst, den Zugriff auf deine Daten verlierst.';
-}
-
-// Path: login.faq.2
-class _StringsLogin$faq$0i2$De extends _StringsLogin$faq$0i2$En {
-	_StringsLogin$faq$0i2$De._(_StringsDe root) : this._root = root, super._(root);
-
-	@override final _StringsDe _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => 'Wieso zwei Passwörter?';
-	@override String get a => 'Das Nextcloud-Passwort wird verwendet, um auf die Cloud zuzugreifen. Das Verschlüsselungspasswort „verwürfelt“ deine Daten, bevor diese die Cloud erreichen.\nSelbst wenn jemand Zugriff zu deinem Nextcloud-Konto erlangt, bleiben deine Notizen sicher und verschlüsselt mit einem seperaten Passwort. Dies stellt eine zweite Sicherheitsebene zum Schutz deiner Daten dar.';
-}
-
-// Path: login.faq.3
-class _StringsLogin$faq$0i3$De extends _StringsLogin$faq$0i3$En {
-	_StringsLogin$faq$0i3$De._(_StringsDe root) : this._root = root, super._(root);
-
-	@override final _StringsDe _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => 'Wie melde ich mich an, wenn ich Zwei-Faktor-Authentifikation verwende?';
-	@override String get a => 'Anstatt dein normales Nextcloud-Passwort zu verwenden, musst du ein "App Password" erstellen. Das kannst du in den Nextcloud-Einstellungen unter Sicherheit > Geräte & Sitzungen > Neues App-Passwort erstellen tun. Das betrifft nicht dein Verschlüsselungspasswort.';
-}
-
-// Path: login.faq.4
-class _StringsLogin$faq$0i4$De extends _StringsLogin$faq$0i4$En {
-	_StringsLogin$faq$0i4$De._(_StringsDe root) : this._root = root, super._(root);
-
-	@override final _StringsDe _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => 'Kann ich dasselbe Passwort für beide verwenden?';
-	@override String get a => 'Ja, aber das ist nicht so sicher. Da dein Nextcloud-Passwort an den Server übertragen wird, kann jemand mit Zugriff auf den Server deine Notizen entschlüsseln. Du solltest also nur dasselbe Passwort verwenden, wenn du der Person, die den Server besitzt, vertraust.';
+	@override String get enterEncPassword => 'Um Ihre Daten zu schützen, geben Sie bitte Ihr Verschlüsselungspasswort ein:';
+	@override String get newToSaber => 'Neu bei Saber';
+	@override String get encPassword => 'Verschlüsselungskennwort';
+	@override String get encFaqTitle => 'Häufig gestellte Fragen';
+	@override String get wrongEncPassword => 'Die Entschlüsselung ist mit dem angegebenen Passwort fehlgeschlagen. Bitte versuchen Sie es erneut einzugeben.';
+	@override String get connectionFailed => 'Bei der Verbindung zum Server ist ein Fehler aufgetreten. Bitte versuchen Sie es später noch einmal.';
+	@override List<dynamic> get encFaq => [
+		_StringsLoginEncLoginStep$encFaq$0i0$De._(_root),
+		_StringsLoginEncLoginStep$encFaq$0i1$De._(_root),
+		_StringsLoginEncLoginStep$encFaq$0i2$De._(_root),
+	];
 }
 
 // Path: profile.quickLinks
@@ -3125,7 +3119,6 @@ class _StringsProfileQuickLinksDe extends _StringsProfileQuickLinksEn {
 	@override final _StringsDe _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Schnellzugriff';
 	@override String get serverHomepage => 'Server-Startseite';
 	@override String get deleteAccount => 'Account löschen';
 }
@@ -3312,7 +3305,6 @@ class _StringsEditorNewerFileFormatDe extends _StringsEditorNewerFileFormatEn {
 	@override String get title => 'Diese Notiz wurde mit einer neueren Version von Saber bearbeitet';
 	@override String get subtitle => 'Durch das Bearbeiten dieser Notiz können Daten verloren gehen. Möchtest du sie trotzdem bearbeiten?';
 	@override String get allowEditing => 'Schreibschutz aufheben';
-	@override String get cancel => 'Abbruch';
 }
 
 // Path: editor.quill
@@ -3362,6 +3354,51 @@ class _StringsSettingsPrefDescriptionsPencilSoundSettingDe extends _StringsSetti
 	@override String get onAlways => 'Aktiviert (auch im lautlosen Modus)';
 	@override String get off => 'Keinen Ton';
 	@override String get onButNotInSilentMode => 'Aktiviert (außer im stillen Modus)';
+}
+
+// Path: login.ncLoginStep.loginFlow
+class _StringsLoginNcLoginStepLoginFlowDe extends _StringsLoginNcLoginStepLoginFlowEn {
+	_StringsLoginNcLoginStepLoginFlowDe._(_StringsDe root) : this._root = root, super._(root);
+
+	@override final _StringsDe _root; // ignore: unused_field
+
+	// Translations
+	@override String get pleaseAuthorize => 'Bitte autorisieren Sie Saber, auf Ihr Nextcloud-Konto zuzugreifen';
+	@override String get followPrompts => 'Bitte folgen Sie den Anweisungen in Ihrem Browser.';
+	@override String get browserDidntOpen => 'Der Browser wurde nicht geöffnet';
+}
+
+// Path: login.encLoginStep.encFaq.0
+class _StringsLoginEncLoginStep$encFaq$0i0$De extends _StringsLoginEncLoginStep$encFaq$0i0$En {
+	_StringsLoginEncLoginStep$encFaq$0i0$De._(_StringsDe root) : this._root = root, super._(root);
+
+	@override final _StringsDe _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Was ist das Verchlüsselungspasswort?';
+	@override String get a => 'Das Verschlüsselungspasswort wird verwendet, um deine Daten zu verschlüsseln, bevor diese an den Server gesendet werden. Es wird nicht auf dem Server gespeichert und nur von Saber verwendet, um deine Daten zu ver- und entschlüsseln.\nNiemand kann ohne dieses Passwort auf deine Notizen auf dem Server zugreifen. Das bedeutet allerdings auch, dass du, wenn du dein Verschlüsselungspasswort vergisst, den Zugriff auf deine Daten verlierst.';
+}
+
+// Path: login.encLoginStep.encFaq.1
+class _StringsLoginEncLoginStep$encFaq$0i1$De extends _StringsLoginEncLoginStep$encFaq$0i1$En {
+	_StringsLoginEncLoginStep$encFaq$0i1$De._(_StringsDe root) : this._root = root, super._(root);
+
+	@override final _StringsDe _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Wieso zwei Passwörter?';
+	@override String get a => 'Das Nextcloud-Passwort wird verwendet, um auf die Cloud zuzugreifen. Das Verschlüsselungspasswort „verwürfelt“ deine Daten, bevor diese die Cloud erreichen.\nSelbst wenn jemand Zugriff zu deinem Nextcloud-Konto erlangt, bleiben deine Notizen sicher und verschlüsselt mit einem seperaten Passwort. Dies stellt eine zweite Sicherheitsebene zum Schutz deiner Daten dar.';
+}
+
+// Path: login.encLoginStep.encFaq.2
+class _StringsLoginEncLoginStep$encFaq$0i2$De extends _StringsLoginEncLoginStep$encFaq$0i2$En {
+	_StringsLoginEncLoginStep$encFaq$0i2$De._(_StringsDe root) : this._root = root, super._(root);
+
+	@override final _StringsDe _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Kann ich dasselbe Passwort für beide verwenden?';
+	@override String get a => 'Ja, aber das ist nicht so sicher. Da dein Nextcloud-Passwort an den Server übertragen wird, kann jemand mit Zugriff auf den Server deine Notizen entschlüsseln. Du solltest also nur dasselbe Passwort verwenden, wenn du der Person, die den Server besitzt, vertraust.';
 }
 
 // Path: editor.menu.boxFits
@@ -3414,6 +3451,7 @@ class _StringsEs extends Translations {
 	@override late final _StringsEs _root = this; // ignore: unused_field
 
 	// Translations
+	@override late final _StringsCommonEs common = _StringsCommonEs._(_root);
 	@override late final _StringsHomeEs home = _StringsHomeEs._(_root);
 	@override late final _StringsSettingsEs settings = _StringsSettingsEs._(_root);
 	@override late final _StringsLoginEs login = _StringsLoginEs._(_root);
@@ -3421,6 +3459,18 @@ class _StringsEs extends Translations {
 	@override late final _StringsAppInfoEs appInfo = _StringsAppInfoEs._(_root);
 	@override late final _StringsUpdateEs update = _StringsUpdateEs._(_root);
 	@override late final _StringsEditorEs editor = _StringsEditorEs._(_root);
+}
+
+// Path: common
+class _StringsCommonEs extends _StringsCommonEn {
+	_StringsCommonEs._(_StringsEs root) : this._root = root, super._(root);
+
+	@override final _StringsEs _root; // ignore: unused_field
+
+	// Translations
+	@override String get cancel => 'Cancelar';
+	@override String get done => 'Hecho';
+	@override String get continueBtn => 'Continuar';
 }
 
 // Path: home
@@ -3480,21 +3530,17 @@ class _StringsLoginEs extends _StringsLoginEn {
 
 	// Translations
 	@override String get title => 'Iniciar sesión';
-	@override late final _StringsLoginFeedbacksEs feedbacks = _StringsLoginFeedbacksEs._(_root);
 	@override late final _StringsLoginFormEs form = _StringsLoginFormEs._(_root);
-	@override String get seeFaq => 'Consulte las preguntas frecuentes a continuación para obtener más información, incluida la contraseña de cifrado.';
 	@override TextSpan signup({required InlineSpanBuilder linkToSignup}) => TextSpan(children: [
 		const TextSpan(text: '¿Aún no tienes una cuenta? '),
 		linkToSignup('Regístrate ahora'),
 	]);
+	@override TextSpan notYou({required InlineSpanBuilder undoLogin}) => TextSpan(children: [
+		undoLogin('No tú'),
+	]);
 	@override late final _StringsLoginStatusEs status = _StringsLoginStatusEs._(_root);
-	@override List<dynamic> get faq => [
-		_StringsLogin$faq$0i0$Es._(_root),
-		_StringsLogin$faq$0i1$Es._(_root),
-		_StringsLogin$faq$0i2$Es._(_root),
-		_StringsLogin$faq$0i3$Es._(_root),
-		_StringsLogin$faq$0i4$Es._(_root),
-	];
+	@override late final _StringsLoginNcLoginStepEs ncLoginStep = _StringsLoginNcLoginStepEs._(_root);
+	@override late final _StringsLoginEncLoginStepEs encLoginStep = _StringsLoginEncLoginStepEs._(_root);
 }
 
 // Path: profile
@@ -3513,6 +3559,9 @@ class _StringsProfileEs extends _StringsProfileEn {
 		_StringsProfile$faq$0i2$Es._(_root),
 		_StringsProfile$faq$0i3$Es._(_root),
 	];
+	@override String quotaUsage({required Object used, required Object total, required Object percent}) => 'Estás usando ${used} de ${total} (${percent})';
+	@override String get connectedTo => 'Conectado a';
+	@override String get faqTitle => 'Preguntas frecuentes';
 }
 
 // Path: appInfo
@@ -3823,23 +3872,6 @@ class _StringsSettingsCustomDataDirEs extends _StringsSettingsCustomDataDirEn {
 	@override String get mustBeDoneSyncing => 'Asegúrese de que la sincronización esté completa antes de cambiar el directorio';
 }
 
-// Path: login.feedbacks
-class _StringsLoginFeedbacksEs extends _StringsLoginFeedbacksEn {
-	_StringsLoginFeedbacksEs._(_StringsEs root) : this._root = root, super._(root);
-
-	@override final _StringsEs _root; // ignore: unused_field
-
-	// Translations
-	@override String get checkUsername => 'Por favor verifica tu nombre de usuario o correo electrónico.';
-	@override String get enterNcPassword => 'Por favor ingresa tu contraseña de Nextcloud.';
-	@override String get enterEncPassword => 'Por favor introduce tu contraseña de cifrado.';
-	@override String get checkUrl => 'Por favor introduce una dirección URL válida.';
-	@override String get ncLoginFailed => 'No se pudo iniciar sesión, por favor verifica tus datos y conexión a internet.';
-	@override String get encLoginFailed => 'No se pudo iniciar sesión, por favor verifica tu contraseña de cifrado.';
-	@override String get loginSuccess => '¡Inicio de sesión exitoso! Por favor espera mientras configuramos todo...';
-	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'El servidor al que intentas conectar tiene la versión ${v} de Nextcloud pero esta versión de Saber solo admite Nextcloud ${s} a ${t}.';
-}
-
 // Path: login.form
 class _StringsLoginFormEs extends _StringsLoginFormEn {
 	_StringsLoginFormEs._(_StringsEs root) : this._root = root, super._(root);
@@ -3847,17 +3879,11 @@ class _StringsLoginFormEs extends _StringsLoginFormEn {
 	@override final _StringsEs _root; // ignore: unused_field
 
 	// Translations
-	@override String get useCustomServer => 'Quiero utilizar un servidor de Nextcloud personalizado';
-	@override String get customServerUrl => 'Dirección URL del servidor personalizada';
-	@override String get username => 'Nombre de usuario o correo electrónico';
-	@override String get ncPassword => 'Contraseña de Nextcloud';
-	@override String get encPassword => 'Contraseña de cifrado';
 	@override TextSpan agreeToPrivacyPolicy({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [
 		const TextSpan(text: 'Al iniciar sesión, aceptas nuestra '),
 		linkToPrivacyPolicy('Política de privacidad'),
 		const TextSpan(text: '.'),
 	]);
-	@override String get login => 'Iniciar sesión';
 }
 
 // Path: login.status
@@ -3867,64 +3893,47 @@ class _StringsLoginStatusEs extends _StringsLoginStatusEn {
 	@override final _StringsEs _root; // ignore: unused_field
 
 	// Translations
-	@override String get loggedIn => 'Sesión iniciada con Nextcloud';
 	@override String get loggedOut => 'Desconectado';
 	@override String get tapToLogin => 'Toca para iniciar sesión con Nextcloud';
+	@override String get loggedIn => 'Sesión iniciada con Nextcloud';
+	@override String hi({required Object u}) => 'Hola ${u}!';
+	@override String get almostDone => 'Casi listo para sincronizar, toca para finalizar el inicio de sesión';
 }
 
-// Path: login.faq.0
-class _StringsLogin$faq$0i0$Es extends _StringsLogin$faq$0i0$En {
-	_StringsLogin$faq$0i0$Es._(_StringsEs root) : this._root = root, super._(root);
+// Path: login.ncLoginStep
+class _StringsLoginNcLoginStepEs extends _StringsLoginNcLoginStepEn {
+	_StringsLoginNcLoginStepEs._(_StringsEs root) : this._root = root, super._(root);
 
 	@override final _StringsEs _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => '¿Qué es Nextcloud?';
-	@override String get a => 'Nextcloud es un servidor privado de sincronización de archivos, entre otras cosas. Puedes usar el servidor de Saber Nextcloud predeterminado, usar un servidor de terceros o alojar el tuyo propio para tener un control total de tus datos.';
+	@override late final _StringsLoginNcLoginStepLoginFlowEs loginFlow = _StringsLoginNcLoginStepLoginFlowEs._(_root);
+	@override String get whereToStoreData => 'Elige dónde quieres almacenar tus datos:';
+	@override String get saberNcServer => 'Servidor Nextcloud de Saber';
+	@override String get otherNcServer => 'Otro servidor Nextcloud';
+	@override String get serverUrl => 'URL del servidor';
+	@override String get loginWithSaber => 'Iniciar sesión con Saber';
+	@override String get loginWithNextcloud => 'Iniciar sesión con Nextcloud';
 }
 
-// Path: login.faq.1
-class _StringsLogin$faq$0i1$Es extends _StringsLogin$faq$0i1$En {
-	_StringsLogin$faq$0i1$Es._(_StringsEs root) : this._root = root, super._(root);
+// Path: login.encLoginStep
+class _StringsLoginEncLoginStepEs extends _StringsLoginEncLoginStepEn {
+	_StringsLoginEncLoginStepEs._(_StringsEs root) : this._root = root, super._(root);
 
 	@override final _StringsEs _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => '¿Qué es la contraseña de cifrado?';
-	@override String get a => 'La contraseña de cifrado se utiliza para cifrar tus datos antes de enviarlos al servidor. La eliges cuando inicias sesión por primera vez en Saber, y no está relacionada con tu cuenta/contraseña de Nextcloud.\nNadie puede acceder a tus notas en el servidor sin tu contraseña de cifrado. Esto significa que si olvidas tu contraseña de cifrado, perderás el acceso a tus datos.';
-}
-
-// Path: login.faq.2
-class _StringsLogin$faq$0i2$Es extends _StringsLogin$faq$0i2$En {
-	_StringsLogin$faq$0i2$Es._(_StringsEs root) : this._root = root, super._(root);
-
-	@override final _StringsEs _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => '¿Por qué usar dos contraseñas?';
-	@override String get a => 'La contraseña de Nextcloud se utiliza para acceder a la nube. La contraseña de encriptación "codifica" tus datos antes de que lleguen a la nube.\nIncluso si alguien obtiene acceso a tu cuenta de Nextcloud, tus notas permanecerán seguras y encriptadas con una contraseña separada. Esto te proporciona una segunda capa de seguridad para proteger tus datos.';
-}
-
-// Path: login.faq.3
-class _StringsLogin$faq$0i3$Es extends _StringsLogin$faq$0i3$En {
-	_StringsLogin$faq$0i3$Es._(_StringsEs root) : this._root = root, super._(root);
-
-	@override final _StringsEs _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => '¿Cómo puedo iniciar sesión si uso autenticación en dos pasos (2FA)?';
-	@override String get a => 'En vez de usar tu contraseña habitual de Nextcloud, deberás crear una "contraseña de aplicación". Puedes hacerlo en la configuración de Nextcloud en Seguridad > Dispositivos y sesiones > Crear nueva contraseña de aplicación. Tu contraseña de cifrado no se ve afectada.';
-}
-
-// Path: login.faq.4
-class _StringsLogin$faq$0i4$Es extends _StringsLogin$faq$0i4$En {
-	_StringsLogin$faq$0i4$Es._(_StringsEs root) : this._root = root, super._(root);
-
-	@override final _StringsEs _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => '¿Puedo usar la misma contraseña para ambos?';
-	@override String get a => 'Sí, pero hacer esto es menos seguro. Dado que tu contraseña de Nextcloud se envía al servidor, alguien con acceso al servidor podría descifrar tus notas. Solo usa la misma contraseña si confías en el propietario del servidor.';
+	@override String get enterEncPassword => 'Para proteger sus datos, ingrese su contraseña de cifrado:';
+	@override String get newToSaber => 'Nuevo en Saber';
+	@override String get encPassword => 'Contraseña de cifrado';
+	@override String get encFaqTitle => 'Preguntas frecuentes';
+	@override String get wrongEncPassword => 'El descifrado falló con la contraseña proporcionada. Intente ingresarlo nuevamente.';
+	@override String get connectionFailed => 'Algo salió mal al conectarse al servidor. Por favor, inténtelo de nuevo más tarde.';
+	@override List<dynamic> get encFaq => [
+		_StringsLoginEncLoginStep$encFaq$0i0$Es._(_root),
+		_StringsLoginEncLoginStep$encFaq$0i1$Es._(_root),
+		_StringsLoginEncLoginStep$encFaq$0i2$Es._(_root),
+	];
 }
 
 // Path: profile.quickLinks
@@ -3934,7 +3943,6 @@ class _StringsProfileQuickLinksEs extends _StringsProfileQuickLinksEn {
 	@override final _StringsEs _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Enlaces rápidos';
 	@override String get serverHomepage => 'Página de inicio del servidor';
 	@override String get deleteAccount => 'Eliminar cuenta';
 }
@@ -4121,7 +4129,6 @@ class _StringsEditorNewerFileFormatEs extends _StringsEditorNewerFileFormatEn {
 	@override String get title => 'Esta nota fue editada usando una versión más reciente de Saber';
 	@override String get subtitle => 'La edición de esta nota puede resultar en la pérdida de cierta información. ¿Quieres ignorar esto y editarlo de todos modos?';
 	@override String get allowEditing => 'Editar';
-	@override String get cancel => 'Cancelar';
 }
 
 // Path: editor.quill
@@ -4171,6 +4178,51 @@ class _StringsSettingsPrefDescriptionsPencilSoundSettingEs extends _StringsSetti
 	@override String get off => 'Sin sonido';
 	@override String get onButNotInSilentMode => 'Habilitado (a menos que esté en modo silencioso)';
 	@override String get onAlways => 'Habilitado (incluso en modo silencioso)';
+}
+
+// Path: login.ncLoginStep.loginFlow
+class _StringsLoginNcLoginStepLoginFlowEs extends _StringsLoginNcLoginStepLoginFlowEn {
+	_StringsLoginNcLoginStepLoginFlowEs._(_StringsEs root) : this._root = root, super._(root);
+
+	@override final _StringsEs _root; // ignore: unused_field
+
+	// Translations
+	@override String get pleaseAuthorize => 'Autorice a Saber a acceder a su cuenta de Nextcloud';
+	@override String get followPrompts => 'Siga las indicaciones en su navegador.';
+	@override String get browserDidntOpen => 'El navegador no se abrió';
+}
+
+// Path: login.encLoginStep.encFaq.0
+class _StringsLoginEncLoginStep$encFaq$0i0$Es extends _StringsLoginEncLoginStep$encFaq$0i0$En {
+	_StringsLoginEncLoginStep$encFaq$0i0$Es._(_StringsEs root) : this._root = root, super._(root);
+
+	@override final _StringsEs _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => '¿Qué es la contraseña de cifrado?';
+	@override String get a => 'La contraseña de cifrado se utiliza para cifrar tus datos antes de enviarlos al servidor. La eliges cuando inicias sesión por primera vez en Saber, y no está relacionada con tu cuenta/contraseña de Nextcloud.\nNadie puede acceder a tus notas en el servidor sin tu contraseña de cifrado. Esto significa que si olvidas tu contraseña de cifrado, perderás el acceso a tus datos.';
+}
+
+// Path: login.encLoginStep.encFaq.1
+class _StringsLoginEncLoginStep$encFaq$0i1$Es extends _StringsLoginEncLoginStep$encFaq$0i1$En {
+	_StringsLoginEncLoginStep$encFaq$0i1$Es._(_StringsEs root) : this._root = root, super._(root);
+
+	@override final _StringsEs _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => '¿Por qué usar dos contraseñas?';
+	@override String get a => 'La contraseña de Nextcloud se utiliza para acceder a la nube. La contraseña de encriptación "codifica" tus datos antes de que lleguen a la nube.\nIncluso si alguien obtiene acceso a tu cuenta de Nextcloud, tus notas permanecerán seguras y encriptadas con una contraseña separada. Esto te proporciona una segunda capa de seguridad para proteger tus datos.';
+}
+
+// Path: login.encLoginStep.encFaq.2
+class _StringsLoginEncLoginStep$encFaq$0i2$Es extends _StringsLoginEncLoginStep$encFaq$0i2$En {
+	_StringsLoginEncLoginStep$encFaq$0i2$Es._(_StringsEs root) : this._root = root, super._(root);
+
+	@override final _StringsEs _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => '¿Puedo usar la misma contraseña para ambos?';
+	@override String get a => 'Sí, pero hacer esto es menos seguro. Dado que tu contraseña de Nextcloud se envía al servidor, alguien con acceso al servidor podría descifrar tus notas. Solo usa la misma contraseña si confías en el propietario del servidor.';
 }
 
 // Path: editor.menu.boxFits
@@ -4223,6 +4275,7 @@ class _StringsFa extends Translations {
 	@override late final _StringsFa _root = this; // ignore: unused_field
 
 	// Translations
+	@override late final _StringsCommonFa common = _StringsCommonFa._(_root);
 	@override late final _StringsHomeFa home = _StringsHomeFa._(_root);
 	@override late final _StringsSettingsFa settings = _StringsSettingsFa._(_root);
 	@override late final _StringsLoginFa login = _StringsLoginFa._(_root);
@@ -4230,6 +4283,18 @@ class _StringsFa extends Translations {
 	@override late final _StringsAppInfoFa appInfo = _StringsAppInfoFa._(_root);
 	@override late final _StringsUpdateFa update = _StringsUpdateFa._(_root);
 	@override late final _StringsEditorFa editor = _StringsEditorFa._(_root);
+}
+
+// Path: common
+class _StringsCommonFa extends _StringsCommonEn {
+	_StringsCommonFa._(_StringsFa root) : this._root = root, super._(root);
+
+	@override final _StringsFa _root; // ignore: unused_field
+
+	// Translations
+	@override String get cancel => 'لغو';
+	@override String get done => 'انجام شده';
+	@override String get continueBtn => 'ادامه هید';
 }
 
 // Path: home
@@ -4289,22 +4354,18 @@ class _StringsLoginFa extends _StringsLoginEn {
 
 	// Translations
 	@override String get title => 'وارد شدن';
-	@override late final _StringsLoginFeedbacksFa feedbacks = _StringsLoginFeedbacksFa._(_root);
 	@override late final _StringsLoginFormFa form = _StringsLoginFormFa._(_root);
-	@override String get seeFaq => 'برای اطلاعات بیشتر، از جمله در مورد رمز عبور رمزگذاری، سؤالات متداول زیر را ببینید.';
 	@override TextSpan signup({required InlineSpanBuilder linkToSignup}) => TextSpan(children: [
 		const TextSpan(text: 'حساب کاربری ندارید؟ '),
 		linkToSignup('Sign up now'),
 		const TextSpan(text: '!'),
 	]);
+	@override TextSpan notYou({required InlineSpanBuilder undoLogin}) => TextSpan(children: [
+		undoLogin('تو نه'),
+	]);
 	@override late final _StringsLoginStatusFa status = _StringsLoginStatusFa._(_root);
-	@override List<dynamic> get faq => [
-		_StringsLogin$faq$0i0$Fa._(_root),
-		_StringsLogin$faq$0i1$Fa._(_root),
-		_StringsLogin$faq$0i2$Fa._(_root),
-		_StringsLogin$faq$0i3$Fa._(_root),
-		_StringsLogin$faq$0i4$Fa._(_root),
-	];
+	@override late final _StringsLoginNcLoginStepFa ncLoginStep = _StringsLoginNcLoginStepFa._(_root);
+	@override late final _StringsLoginEncLoginStepFa encLoginStep = _StringsLoginEncLoginStepFa._(_root);
 }
 
 // Path: profile
@@ -4323,6 +4384,9 @@ class _StringsProfileFa extends _StringsProfileEn {
 		_StringsProfile$faq$0i2$Fa._(_root),
 		_StringsProfile$faq$0i3$Fa._(_root),
 	];
+	@override String quotaUsage({required Object used, required Object total, required Object percent}) => 'شما از ${used} از ${total} (${percent}) استفاده می‌کنید';
+	@override String get connectedTo => 'مرتبط با';
+	@override String get faqTitle => 'سوالات متداول';
 }
 
 // Path: appInfo
@@ -4633,23 +4697,6 @@ class _StringsSettingsCustomDataDirFa extends _StringsSettingsCustomDataDirEn {
 	@override String get mustBeDoneSyncing => 'قبل از تغییر دایرکتوری مطمئن شوید که همگام سازی کامل شده است';
 }
 
-// Path: login.feedbacks
-class _StringsLoginFeedbacksFa extends _StringsLoginFeedbacksEn {
-	_StringsLoginFeedbacksFa._(_StringsFa root) : this._root = root, super._(root);
-
-	@override final _StringsFa _root; // ignore: unused_field
-
-	// Translations
-	@override String get checkUsername => 'لطفا نام کاربری یا ایمیل خود را دوباره چک کنید';
-	@override String get enterNcPassword => 'لطفا رمز Nextcloud خود را وارد کنید';
-	@override String get enterEncPassword => 'لطفا رمز رمزگذاری خود را وارد کنید';
-	@override String get checkUrl => 'لطفا یک آدرس اینترنتی معتبر وارد کنید';
-	@override String get ncLoginFailed => 'ورود ناموفق بود، لطفاً جزئیات و اتصال شبکه خود را بررسی کنید';
-	@override String get encLoginFailed => 'ورود ناموفق بود، لطفا رمز عبور رمزگذاری خود را بررسی کنید';
-	@override String get loginSuccess => 'با موفقیت وارد شدید لطفا تا راه اندازی صبر کنید';
-	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'سرور داده شده Nextcloud ${v} را اجرا می کند اما این نسخه از Saber فقط از Nextcloud ${s} تا ${t} پشتیبانی می کند.';
-}
-
 // Path: login.form
 class _StringsLoginFormFa extends _StringsLoginFormEn {
 	_StringsLoginFormFa._(_StringsFa root) : this._root = root, super._(root);
@@ -4657,17 +4704,11 @@ class _StringsLoginFormFa extends _StringsLoginFormEn {
 	@override final _StringsFa _root; // ignore: unused_field
 
 	// Translations
-	@override String get useCustomServer => 'من می خواهم از یک سرور Nextcloud سفارشی استفاده کنم';
-	@override String get customServerUrl => 'آدرس اینترنتی سرور سفارشی';
-	@override String get username => 'نام کاربری یا ایمیل';
-	@override String get ncPassword => 'رمز ورود Nextcloud';
-	@override String get encPassword => 'رمز رمزگذاری';
 	@override TextSpan agreeToPrivacyPolicy({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [
 		const TextSpan(text: 'با ورود به سیستم، با قوانین موافقت خواهد شد '),
 		linkToPrivacyPolicy('Privacy Policy'),
 		const TextSpan(text: '.'),
 	]);
-	@override String get login => 'وارد شدن';
 }
 
 // Path: login.status
@@ -4677,64 +4718,47 @@ class _StringsLoginStatusFa extends _StringsLoginStatusEn {
 	@override final _StringsFa _root; // ignore: unused_field
 
 	// Translations
-	@override String get loggedIn => 'وارد شدن با Nextcloud';
 	@override String get loggedOut => 'خروج';
 	@override String get tapToLogin => 'برای ورود با Nextcloud ضربه بزنید';
+	@override String get loggedIn => 'وارد شدن با Nextcloud';
+	@override String hi({required Object u}) => 'سلام، ${u}!';
+	@override String get almostDone => 'تقریباً برای همگام‌سازی آماده است، برای پایان ورود به سیستم ضربه بزنید';
 }
 
-// Path: login.faq.0
-class _StringsLogin$faq$0i0$Fa extends _StringsLogin$faq$0i0$En {
-	_StringsLogin$faq$0i0$Fa._(_StringsFa root) : this._root = root, super._(root);
+// Path: login.ncLoginStep
+class _StringsLoginNcLoginStepFa extends _StringsLoginNcLoginStepEn {
+	_StringsLoginNcLoginStepFa._(_StringsFa root) : this._root = root, super._(root);
 
 	@override final _StringsFa _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Nextcloud چیست؟';
-	@override String get a => 'نکست کلاود یک سرور خصوصی همگام سازی فایل است، در میان چیزهای دیگر. می‌توانید از سرور پیش‌فرض Nextcloud ما استفاده کنید، از یک سرور شخص ثالث استفاده کنید یا برای کنترل کامل داده‌های خود، سرور خود را میزبانی کنید.';
+	@override late final _StringsLoginNcLoginStepLoginFlowFa loginFlow = _StringsLoginNcLoginStepLoginFlowFa._(_root);
+	@override String get whereToStoreData => 'محل ذخیره داده های خود را انتخاب کنید:';
+	@override String get saberNcServer => 'سرور Nextcloud Saber';
+	@override String get otherNcServer => 'سرور Nextcloud دیگر';
+	@override String get serverUrl => 'آدرس سرور';
+	@override String get loginWithSaber => 'با صابر وارد شوید';
+	@override String get loginWithNextcloud => 'با Nextcloud وارد شوید';
 }
 
-// Path: login.faq.1
-class _StringsLogin$faq$0i1$Fa extends _StringsLogin$faq$0i1$En {
-	_StringsLogin$faq$0i1$Fa._(_StringsFa root) : this._root = root, super._(root);
+// Path: login.encLoginStep
+class _StringsLoginEncLoginStepFa extends _StringsLoginEncLoginStepEn {
+	_StringsLoginEncLoginStepFa._(_StringsFa root) : this._root = root, super._(root);
 
 	@override final _StringsFa _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'رمز عبور رمزنگاری چیست؟';
-	@override String get a => 'رمز عبور رمزگذاری برای رمزگذاری داده های شما قبل از ارسال به سرور استفاده می شود.';
-}
-
-// Path: login.faq.2
-class _StringsLogin$faq$0i2$Fa extends _StringsLogin$faq$0i2$En {
-	_StringsLogin$faq$0i2$Fa._(_StringsFa root) : this._root = root, super._(root);
-
-	@override final _StringsFa _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => 'چرا از دو رمز عبور استفاده میشود؟';
-	@override String get a => 'رمز عبور Nextcloud برای دسترسی به ابر استفاده می شود و رمزعبور دوم برای رمزنگاری استفاده میشود';
-}
-
-// Path: login.faq.3
-class _StringsLogin$faq$0i3$Fa extends _StringsLogin$faq$0i3$En {
-	_StringsLogin$faq$0i3$Fa._(_StringsFa root) : this._root = root, super._(root);
-
-	@override final _StringsFa _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => 'اگر از 2FA استفاده کنم چگونه وارد سیستم شوم؟';
-	@override String get a => 'به جای رمز عبور عادی Nextcloud خود، باید یک "گذرواژه برنامه" ایجاد کنید. می‌توانید این کار را در تنظیمات Nextcloud خود در بخش امنیت > دستگاه‌ها و جلسات > ایجاد رمز عبور برنامه جدید انجام دهید. رمز رمزگذاری شما تحت تأثیر قرار نمیگیرد است.';
-}
-
-// Path: login.faq.4
-class _StringsLogin$faq$0i4$Fa extends _StringsLogin$faq$0i4$En {
-	_StringsLogin$faq$0i4$Fa._(_StringsFa root) : this._root = root, super._(root);
-
-	@override final _StringsFa _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => 'آیا می توانم از یک رمز عبور برای هر دو استفاده کنم؟';
-	@override String get a => 'بله، اما انجام این کار امنیت کمتری دارد. از آنجایی که رمز عبور Nextcloud شما به سرور ارسال می شود، شخصی که به سرور دسترسی دارد می تواند یادداشت های شما را رمزگشایی کند. فقط در صورتی از همان رمز عبور استفاده کنید که به مالک سرور اعتماد دارید.';
+	@override String get enterEncPassword => 'برای محافظت از داده های خود، لطفا رمز رمزگذاری خود را وارد کنید:';
+	@override String get newToSaber => 'تازه وارد صابر';
+	@override String get encPassword => 'رمز رمزگذاری';
+	@override String get encFaqTitle => 'سوالات متداول';
+	@override String get wrongEncPassword => 'رمزگشایی با رمز عبور ارائه شده انجام نشد. لطفاً دوباره آن را وارد کنید.';
+	@override String get connectionFailed => 'هنگام اتصال به سرور مشکلی پیش آمد. لطفاً بعداً دوباره امتحان کنید.';
+	@override List<dynamic> get encFaq => [
+		_StringsLoginEncLoginStep$encFaq$0i0$Fa._(_root),
+		_StringsLoginEncLoginStep$encFaq$0i1$Fa._(_root),
+		_StringsLoginEncLoginStep$encFaq$0i2$Fa._(_root),
+	];
 }
 
 // Path: profile.quickLinks
@@ -4744,7 +4768,6 @@ class _StringsProfileQuickLinksFa extends _StringsProfileQuickLinksEn {
 	@override final _StringsFa _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'لینک های سریع';
 	@override String get serverHomepage => 'صفحه اصلی سرور';
 	@override String get deleteAccount => 'حذف حساب';
 }
@@ -4931,7 +4954,6 @@ class _StringsEditorNewerFileFormatFa extends _StringsEditorNewerFileFormatEn {
 	@override String get title => 'این یادداشت با استفاده از نسخه جدیدتر برنامه ویرایش شده است';
 	@override String get subtitle => 'ویرایش این یادداشت ممکن است منجر به از بین رفتن برخی از اطلاعات شود. آیا می خواهید این را نادیده بگیرید و به هر حال آن را ویرایش کنید؟';
 	@override String get allowEditing => 'اجازه ویرایش';
-	@override String get cancel => 'لغو';
 }
 
 // Path: editor.quill
@@ -4981,6 +5003,51 @@ class _StringsSettingsPrefDescriptionsPencilSoundSettingFa extends _StringsSetti
 	@override String get onAlways => 'فعال (حتی در حالت بی صدا)';
 	@override String get off => 'بدون صدا';
 	@override String get onButNotInSilentMode => 'فعال (مگر در حالت بی صدا)';
+}
+
+// Path: login.ncLoginStep.loginFlow
+class _StringsLoginNcLoginStepLoginFlowFa extends _StringsLoginNcLoginStepLoginFlowEn {
+	_StringsLoginNcLoginStepLoginFlowFa._(_StringsFa root) : this._root = root, super._(root);
+
+	@override final _StringsFa _root; // ignore: unused_field
+
+	// Translations
+	@override String get pleaseAuthorize => 'لطفاً به Saber اجازه دسترسی به حساب Nextcloud شما را بدهید';
+	@override String get followPrompts => 'لطفاً دستورات موجود در مرورگر خود را دنبال کنید.';
+	@override String get browserDidntOpen => 'مرورگر باز نشد';
+}
+
+// Path: login.encLoginStep.encFaq.0
+class _StringsLoginEncLoginStep$encFaq$0i0$Fa extends _StringsLoginEncLoginStep$encFaq$0i0$En {
+	_StringsLoginEncLoginStep$encFaq$0i0$Fa._(_StringsFa root) : this._root = root, super._(root);
+
+	@override final _StringsFa _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'رمز عبور رمزنگاری چیست؟';
+	@override String get a => 'رمز عبور رمزگذاری برای رمزگذاری داده های شما قبل از ارسال به سرور استفاده می شود.';
+}
+
+// Path: login.encLoginStep.encFaq.1
+class _StringsLoginEncLoginStep$encFaq$0i1$Fa extends _StringsLoginEncLoginStep$encFaq$0i1$En {
+	_StringsLoginEncLoginStep$encFaq$0i1$Fa._(_StringsFa root) : this._root = root, super._(root);
+
+	@override final _StringsFa _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'چرا از دو رمز عبور استفاده میشود؟';
+	@override String get a => 'رمز عبور Nextcloud برای دسترسی به ابر استفاده می شود و رمزعبور دوم برای رمزنگاری استفاده میشود';
+}
+
+// Path: login.encLoginStep.encFaq.2
+class _StringsLoginEncLoginStep$encFaq$0i2$Fa extends _StringsLoginEncLoginStep$encFaq$0i2$En {
+	_StringsLoginEncLoginStep$encFaq$0i2$Fa._(_StringsFa root) : this._root = root, super._(root);
+
+	@override final _StringsFa _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'آیا می توانم از یک رمز عبور برای هر دو استفاده کنم؟';
+	@override String get a => 'بله، اما انجام این کار امنیت کمتری دارد. از آنجایی که رمز عبور Nextcloud شما به سرور ارسال می شود، شخصی که به سرور دسترسی دارد می تواند یادداشت های شما را رمزگشایی کند. فقط در صورتی از همان رمز عبور استفاده کنید که به مالک سرور اعتماد دارید.';
 }
 
 // Path: editor.menu.boxFits
@@ -5033,6 +5100,7 @@ class _StringsFr extends Translations {
 	@override late final _StringsFr _root = this; // ignore: unused_field
 
 	// Translations
+	@override late final _StringsCommonFr common = _StringsCommonFr._(_root);
 	@override late final _StringsHomeFr home = _StringsHomeFr._(_root);
 	@override late final _StringsSettingsFr settings = _StringsSettingsFr._(_root);
 	@override late final _StringsLoginFr login = _StringsLoginFr._(_root);
@@ -5040,6 +5108,18 @@ class _StringsFr extends Translations {
 	@override late final _StringsAppInfoFr appInfo = _StringsAppInfoFr._(_root);
 	@override late final _StringsUpdateFr update = _StringsUpdateFr._(_root);
 	@override late final _StringsEditorFr editor = _StringsEditorFr._(_root);
+}
+
+// Path: common
+class _StringsCommonFr extends _StringsCommonEn {
+	_StringsCommonFr._(_StringsFr root) : this._root = root, super._(root);
+
+	@override final _StringsFr _root; // ignore: unused_field
+
+	// Translations
+	@override String get cancel => 'Annuler';
+	@override String get done => 'Fait';
+	@override String get continueBtn => 'Continuer';
 }
 
 // Path: home
@@ -5099,22 +5179,18 @@ class _StringsLoginFr extends _StringsLoginEn {
 
 	// Translations
 	@override String get title => 'Connexion';
-	@override late final _StringsLoginFeedbacksFr feedbacks = _StringsLoginFeedbacksFr._(_root);
 	@override late final _StringsLoginFormFr form = _StringsLoginFormFr._(_root);
-	@override String get seeFaq => 'Consultez la FAQ ci-dessous pour plus d\'informations, notamment sur le mot de passe de cryptage.';
 	@override TextSpan signup({required InlineSpanBuilder linkToSignup}) => TextSpan(children: [
 		const TextSpan(text: 'Pas encore de compte ? '),
 		linkToSignup('Sign up now'),
 		const TextSpan(text: ' !'),
 	]);
+	@override TextSpan notYou({required InlineSpanBuilder undoLogin}) => TextSpan(children: [
+		undoLogin('Pas toi'),
+	]);
 	@override late final _StringsLoginStatusFr status = _StringsLoginStatusFr._(_root);
-	@override List<dynamic> get faq => [
-		_StringsLogin$faq$0i0$Fr._(_root),
-		_StringsLogin$faq$0i1$Fr._(_root),
-		_StringsLogin$faq$0i2$Fr._(_root),
-		_StringsLogin$faq$0i3$Fr._(_root),
-		_StringsLogin$faq$0i4$Fr._(_root),
-	];
+	@override late final _StringsLoginNcLoginStepFr ncLoginStep = _StringsLoginNcLoginStepFr._(_root);
+	@override late final _StringsLoginEncLoginStepFr encLoginStep = _StringsLoginEncLoginStepFr._(_root);
 }
 
 // Path: profile
@@ -5133,6 +5209,9 @@ class _StringsProfileFr extends _StringsProfileEn {
 		_StringsProfile$faq$0i2$Fr._(_root),
 		_StringsProfile$faq$0i3$Fr._(_root),
 	];
+	@override String quotaUsage({required Object used, required Object total, required Object percent}) => 'Vous utilisez ${used} sur ${total} (${percent})';
+	@override String get connectedTo => 'Connecté à';
+	@override String get faqTitle => 'Questions fréquemment posées';
 }
 
 // Path: appInfo
@@ -5443,23 +5522,6 @@ class _StringsSettingsCustomDataDirFr extends _StringsSettingsCustomDataDirEn {
 	@override String get mustBeDoneSyncing => 'Assurez-vous que la synchronisation est terminée avant de modifier le répertoire';
 }
 
-// Path: login.feedbacks
-class _StringsLoginFeedbacksFr extends _StringsLoginFeedbacksEn {
-	_StringsLoginFeedbacksFr._(_StringsFr root) : this._root = root, super._(root);
-
-	@override final _StringsFr _root; // ignore: unused_field
-
-	// Translations
-	@override String get checkUsername => 'Veuillez verifier votre nom d\'utilisateur ou votre e-mail.';
-	@override String get enterNcPassword => 'Veuiller saisir votre mot de passe Nextcloud.';
-	@override String get enterEncPassword => 'Veuillez saisir votre mot de passe de cryptage.';
-	@override String get checkUrl => 'Veuillez saisir une URL valide.';
-	@override String get ncLoginFailed => 'La connexion a échoué, veuillez vérifier vos identifiants et votre connexion réseau.';
-	@override String get encLoginFailed => 'La connexion a échoué, veuillez vérifier votre mot de passe de cryptage.';
-	@override String get loginSuccess => 'Connexion reussie ! Veuillez patienter pendant la configuration...';
-	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'Le serveur donné exécute Nextcloud ${v} mais cette version de Saber ne prend en charge que Nextcloud ${s} à ${t}.';
-}
-
 // Path: login.form
 class _StringsLoginFormFr extends _StringsLoginFormEn {
 	_StringsLoginFormFr._(_StringsFr root) : this._root = root, super._(root);
@@ -5467,17 +5529,11 @@ class _StringsLoginFormFr extends _StringsLoginFormEn {
 	@override final _StringsFr _root; // ignore: unused_field
 
 	// Translations
-	@override String get useCustomServer => 'Je veux utiliser un serveur Nextcloud personnalisé';
-	@override String get customServerUrl => 'URL du serveur personnalisé';
-	@override String get username => 'Nom d\'utilisateur ou adresse mel';
-	@override String get ncPassword => 'Mot de passe Nextcloud';
-	@override String get encPassword => 'Mot de passe de cryptage';
 	@override TextSpan agreeToPrivacyPolicy({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [
 		const TextSpan(text: 'En vous connectant, vous acceptez les '),
 		linkToPrivacyPolicy('Privacy Policy'),
 		const TextSpan(text: '.'),
 	]);
-	@override String get login => 'Se connecter';
 }
 
 // Path: login.status
@@ -5487,64 +5543,47 @@ class _StringsLoginStatusFr extends _StringsLoginStatusEn {
 	@override final _StringsFr _root; // ignore: unused_field
 
 	// Translations
-	@override String get loggedIn => 'Connecté avec Nextcloud';
 	@override String get loggedOut => 'Déconnecté';
 	@override String get tapToLogin => 'Appuyer pour vous connecter avec Nextcloud';
+	@override String get loggedIn => 'Connecté avec Nextcloud';
+	@override String hi({required Object u}) => 'Salut, ${u}!';
+	@override String get almostDone => 'Presque prêt pour la synchronisation, appuyez pour terminer la connexion';
 }
 
-// Path: login.faq.0
-class _StringsLogin$faq$0i0$Fr extends _StringsLogin$faq$0i0$En {
-	_StringsLogin$faq$0i0$Fr._(_StringsFr root) : this._root = root, super._(root);
+// Path: login.ncLoginStep
+class _StringsLoginNcLoginStepFr extends _StringsLoginNcLoginStepEn {
+	_StringsLoginNcLoginStepFr._(_StringsFr root) : this._root = root, super._(root);
 
 	@override final _StringsFr _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Qu\'est-ce que Nextcloud ?';
-	@override String get a => 'Nextcloud est, entre autres choses, un serveur privé de synchronisation de fichiers. Vous pouvez utiliser le serveur Nextcloud par défaut de Saber, utiliser un serveur tiers ou auto-héberger le vôtre pour un contrôle total de vos données.';
+	@override late final _StringsLoginNcLoginStepLoginFlowFr loginFlow = _StringsLoginNcLoginStepLoginFlowFr._(_root);
+	@override String get whereToStoreData => 'Choisissez où vous souhaitez stocker vos données :';
+	@override String get saberNcServer => 'Le serveur Nextcloud de Saber';
+	@override String get otherNcServer => 'Autre serveur Nextcloud';
+	@override String get serverUrl => 'URL du serveur';
+	@override String get loginWithSaber => 'Connectez-vous avec Saber';
+	@override String get loginWithNextcloud => 'Connectez-vous avec Nextcloud';
 }
 
-// Path: login.faq.1
-class _StringsLogin$faq$0i1$Fr extends _StringsLogin$faq$0i1$En {
-	_StringsLogin$faq$0i1$Fr._(_StringsFr root) : this._root = root, super._(root);
+// Path: login.encLoginStep
+class _StringsLoginEncLoginStepFr extends _StringsLoginEncLoginStepEn {
+	_StringsLoginEncLoginStepFr._(_StringsFr root) : this._root = root, super._(root);
 
 	@override final _StringsFr _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Qu\'est-ce que le mot de passe de cryptage ?';
-	@override String get a => 'Le mot de passe de cryptage est utilisé pour crypter vos données avant qu\'elles ne soient envoyées au serveur. Vous le créez lors de votre première connexion à Saber, et il est indépendant de votre compte et de votre mot de passe sur Nextcloud.\nPersonne ne peut accéder à vos notes sur le serveur sans votre mot de passe de chiffrement. Cela implique aussi que si vous oubliez votre mot de passe de cryptage, vous perdrez l\'accès à vos données.';
-}
-
-// Path: login.faq.2
-class _StringsLogin$faq$0i2$Fr extends _StringsLogin$faq$0i2$En {
-	_StringsLogin$faq$0i2$Fr._(_StringsFr root) : this._root = root, super._(root);
-
-	@override final _StringsFr _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => 'Pourquoi utiliser deux mots de passe ?';
-	@override String get a => 'Le mot de passe Nextcloud est utilisé pour accéder au nuage (cloud). Le mot de passe de cryptage "brouille" vos données avant même qu\'elles n\'atteignent le nuage.\nMême si quelqu\'un accède à votre compte Nextcloud, vos notes resteront sécurisées et cryptées avec un mot de passe distinct. Cela crée un deuxième niveau de sécurité pour protéger vos données.';
-}
-
-// Path: login.faq.3
-class _StringsLogin$faq$0i3$Fr extends _StringsLogin$faq$0i3$En {
-	_StringsLogin$faq$0i3$Fr._(_StringsFr root) : this._root = root, super._(root);
-
-	@override final _StringsFr _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => 'Comment me connecter si j\'utilise 2FA ?';
-	@override String get a => 'Au lieu d\'utiliser votre mot de passe Nextcloud habituel, vous devrez créer un "mot de passe d\'application". Vous pouvez le faire dans les paramètres de Nextcloud, via Sécurité > Appareils & sessions > Créer un nouveau mot de passe d\'application. Votre mot de passe de cryptage reste inchangé.';
-}
-
-// Path: login.faq.4
-class _StringsLogin$faq$0i4$Fr extends _StringsLogin$faq$0i4$En {
-	_StringsLogin$faq$0i4$Fr._(_StringsFr root) : this._root = root, super._(root);
-
-	@override final _StringsFr _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => 'Puis-je utiliser le même mot de passe pour les deux ?';
-	@override String get a => 'Oui, mais c\'est moins sécurisé. Comme votre mot de passe sur Nextcloud est envoyé au serveur, toute personne qui y aurait accès pourrait decrypter vos notes. N\'utilisez le même mot de passe que si vous faites confiance aux personnes qui gèrent le serveur.';
+	@override String get enterEncPassword => 'Pour protéger vos données, veuillez saisir votre mot de passe de cryptage :';
+	@override String get newToSaber => 'Nouveau sur Saber';
+	@override String get encPassword => 'Mot de passe de cryptage';
+	@override String get encFaqTitle => 'Questions fréquemment posées';
+	@override String get wrongEncPassword => 'Le décryptage a échoué avec le mot de passe fourni. Veuillez réessayer de le saisir.';
+	@override String get connectionFailed => 'Une erreur s\'est produite lors de la connexion au serveur. Veuillez réessayer plus tard.';
+	@override List<dynamic> get encFaq => [
+		_StringsLoginEncLoginStep$encFaq$0i0$Fr._(_root),
+		_StringsLoginEncLoginStep$encFaq$0i1$Fr._(_root),
+		_StringsLoginEncLoginStep$encFaq$0i2$Fr._(_root),
+	];
 }
 
 // Path: profile.quickLinks
@@ -5554,7 +5593,6 @@ class _StringsProfileQuickLinksFr extends _StringsProfileQuickLinksEn {
 	@override final _StringsFr _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Raccourcis';
 	@override String get serverHomepage => 'Page d\'accueil du serveur';
 	@override String get deleteAccount => 'Supprimer le compte';
 }
@@ -5741,7 +5779,6 @@ class _StringsEditorNewerFileFormatFr extends _StringsEditorNewerFileFormatEn {
 	@override String get title => 'Cette note a été modifiée avec une version plus récente de Saber';
 	@override String get subtitle => 'Éditer cette note pourrait entraîner la perte de certaines informations. Voulez-vous la modifier quand même ?';
 	@override String get allowEditing => 'Autoriser les modifications';
-	@override String get cancel => 'Annuler';
 }
 
 // Path: editor.quill
@@ -5791,6 +5828,51 @@ class _StringsSettingsPrefDescriptionsPencilSoundSettingFr extends _StringsSetti
 	@override String get off => 'Pas de son';
 	@override String get onButNotInSilentMode => 'Activé (sauf en mode silencieux)';
 	@override String get onAlways => 'Activé (même en mode silencieux)';
+}
+
+// Path: login.ncLoginStep.loginFlow
+class _StringsLoginNcLoginStepLoginFlowFr extends _StringsLoginNcLoginStepLoginFlowEn {
+	_StringsLoginNcLoginStepLoginFlowFr._(_StringsFr root) : this._root = root, super._(root);
+
+	@override final _StringsFr _root; // ignore: unused_field
+
+	// Translations
+	@override String get pleaseAuthorize => 'Veuillez autoriser Saber à accéder à votre compte Nextcloud';
+	@override String get followPrompts => 'Veuillez suivre les instructions de votre navigateur.';
+	@override String get browserDidntOpen => 'Le navigateur ne s\'est pas ouvert';
+}
+
+// Path: login.encLoginStep.encFaq.0
+class _StringsLoginEncLoginStep$encFaq$0i0$Fr extends _StringsLoginEncLoginStep$encFaq$0i0$En {
+	_StringsLoginEncLoginStep$encFaq$0i0$Fr._(_StringsFr root) : this._root = root, super._(root);
+
+	@override final _StringsFr _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Qu\'est-ce que le mot de passe de cryptage ?';
+	@override String get a => 'Le mot de passe de cryptage est utilisé pour crypter vos données avant qu\'elles ne soient envoyées au serveur. Vous le créez lors de votre première connexion à Saber, et il est indépendant de votre compte et de votre mot de passe sur Nextcloud.\nPersonne ne peut accéder à vos notes sur le serveur sans votre mot de passe de chiffrement. Cela implique aussi que si vous oubliez votre mot de passe de cryptage, vous perdrez l\'accès à vos données.';
+}
+
+// Path: login.encLoginStep.encFaq.1
+class _StringsLoginEncLoginStep$encFaq$0i1$Fr extends _StringsLoginEncLoginStep$encFaq$0i1$En {
+	_StringsLoginEncLoginStep$encFaq$0i1$Fr._(_StringsFr root) : this._root = root, super._(root);
+
+	@override final _StringsFr _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Pourquoi utiliser deux mots de passe ?';
+	@override String get a => 'Le mot de passe Nextcloud est utilisé pour accéder au nuage (cloud). Le mot de passe de cryptage "brouille" vos données avant même qu\'elles n\'atteignent le nuage.\nMême si quelqu\'un accède à votre compte Nextcloud, vos notes resteront sécurisées et cryptées avec un mot de passe distinct. Cela crée un deuxième niveau de sécurité pour protéger vos données.';
+}
+
+// Path: login.encLoginStep.encFaq.2
+class _StringsLoginEncLoginStep$encFaq$0i2$Fr extends _StringsLoginEncLoginStep$encFaq$0i2$En {
+	_StringsLoginEncLoginStep$encFaq$0i2$Fr._(_StringsFr root) : this._root = root, super._(root);
+
+	@override final _StringsFr _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Puis-je utiliser le même mot de passe pour les deux ?';
+	@override String get a => 'Oui, mais c\'est moins sécurisé. Comme votre mot de passe sur Nextcloud est envoyé au serveur, toute personne qui y aurait accès pourrait decrypter vos notes. N\'utilisez le même mot de passe que si vous faites confiance aux personnes qui gèrent le serveur.';
 }
 
 // Path: editor.menu.boxFits
@@ -5843,6 +5925,7 @@ class _StringsHe extends Translations {
 	@override late final _StringsHe _root = this; // ignore: unused_field
 
 	// Translations
+	@override late final _StringsCommonHe common = _StringsCommonHe._(_root);
 	@override late final _StringsHomeHe home = _StringsHomeHe._(_root);
 	@override late final _StringsSettingsHe settings = _StringsSettingsHe._(_root);
 	@override late final _StringsLoginHe login = _StringsLoginHe._(_root);
@@ -5850,6 +5933,18 @@ class _StringsHe extends Translations {
 	@override late final _StringsAppInfoHe appInfo = _StringsAppInfoHe._(_root);
 	@override late final _StringsUpdateHe update = _StringsUpdateHe._(_root);
 	@override late final _StringsEditorHe editor = _StringsEditorHe._(_root);
+}
+
+// Path: common
+class _StringsCommonHe extends _StringsCommonEn {
+	_StringsCommonHe._(_StringsHe root) : this._root = root, super._(root);
+
+	@override final _StringsHe _root; // ignore: unused_field
+
+	// Translations
+	@override String get cancel => 'בטל';
+	@override String get done => 'בוצע';
+	@override String get continueBtn => 'לְהַמשִׁיך';
 }
 
 // Path: home
@@ -5909,22 +6004,18 @@ class _StringsLoginHe extends _StringsLoginEn {
 
 	// Translations
 	@override String get title => 'התחבר';
-	@override late final _StringsLoginFeedbacksHe feedbacks = _StringsLoginFeedbacksHe._(_root);
 	@override late final _StringsLoginFormHe form = _StringsLoginFormHe._(_root);
-	@override String get seeFaq => 'עיין בשאלות הנפוצות למטה למידע נוסף, כולל על סיסמת ההצפנה.';
 	@override TextSpan signup({required InlineSpanBuilder linkToSignup}) => TextSpan(children: [
 		const TextSpan(text: 'אין לך עוד משתמש '),
 		linkToSignup('הירשם עכשיו'),
 		const TextSpan(text: '!'),
 	]);
+	@override TextSpan notYou({required InlineSpanBuilder undoLogin}) => TextSpan(children: [
+		undoLogin('לא אתה'),
+	]);
 	@override late final _StringsLoginStatusHe status = _StringsLoginStatusHe._(_root);
-	@override List<dynamic> get faq => [
-		_StringsLogin$faq$0i0$He._(_root),
-		_StringsLogin$faq$0i1$He._(_root),
-		_StringsLogin$faq$0i2$He._(_root),
-		_StringsLogin$faq$0i3$He._(_root),
-		_StringsLogin$faq$0i4$He._(_root),
-	];
+	@override late final _StringsLoginNcLoginStepHe ncLoginStep = _StringsLoginNcLoginStepHe._(_root);
+	@override late final _StringsLoginEncLoginStepHe encLoginStep = _StringsLoginEncLoginStepHe._(_root);
 }
 
 // Path: profile
@@ -5943,6 +6034,9 @@ class _StringsProfileHe extends _StringsProfileEn {
 		_StringsProfile$faq$0i2$He._(_root),
 		_StringsProfile$faq$0i3$He._(_root),
 	];
+	@override String quotaUsage({required Object used, required Object total, required Object percent}) => 'אתה משתמש ב-${used} של ${total} (${percent})';
+	@override String get connectedTo => 'מחובר ל';
+	@override String get faqTitle => 'שאלות נפוצות';
 }
 
 // Path: appInfo
@@ -6253,23 +6347,6 @@ class _StringsSettingsCustomDataDirHe extends _StringsSettingsCustomDataDirEn {
 	@override String get mustBeDoneSyncing => 'ודא שהסנכרון הושלם לפני שינוי הספרייה';
 }
 
-// Path: login.feedbacks
-class _StringsLoginFeedbacksHe extends _StringsLoginFeedbacksEn {
-	_StringsLoginFeedbacksHe._(_StringsHe root) : this._root = root, super._(root);
-
-	@override final _StringsHe _root; // ignore: unused_field
-
-	// Translations
-	@override String get checkUsername => 'אנא בדוק שוב את שם המשתמש או הדוא"ל שלך.';
-	@override String get enterNcPassword => 'הזן את סיסמת NextCloud שלך.';
-	@override String get enterEncPassword => 'הזן את סיסמת ההצפנה שלך.';
-	@override String get checkUrl => 'הזן כתובת URL חוקית.';
-	@override String get ncLoginFailed => 'הכניסה נכשלה, אנא בדוק את הפרטים שלך ואת חיבור הרשת.';
-	@override String get encLoginFailed => 'הכניסה נכשלה, אנא בדוק את סיסמת ההצפנה שלך.';
-	@override String get loginSuccess => 'ההתחבר בהצלחה! אנא המתן בזמן שאנו מגדירים...';
-	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'השרת הנתון מריץ את Nextcloud ${v} אבל גרסה זו של Saber תומכת רק ב-Nextcloud ${s} עד ${t}.';
-}
-
 // Path: login.form
 class _StringsLoginFormHe extends _StringsLoginFormEn {
 	_StringsLoginFormHe._(_StringsHe root) : this._root = root, super._(root);
@@ -6277,17 +6354,11 @@ class _StringsLoginFormHe extends _StringsLoginFormEn {
 	@override final _StringsHe _root; // ignore: unused_field
 
 	// Translations
-	@override String get useCustomServer => 'אני רוצה להשתמש בשרת Nextcloud מותאם אישית';
-	@override String get customServerUrl => 'כתובת אתר מותאמת אישית של שרת';
-	@override String get username => 'שם משתמש או אימייל';
-	@override String get ncPassword => 'סיסמת NextCloud';
-	@override String get encPassword => 'סיסמה מוצפנת';
 	@override TextSpan agreeToPrivacyPolicy({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [
 		const TextSpan(text: 'על ידי התחברות, אתה מסכים ל '),
 		linkToPrivacyPolicy('מדיניות הפרטיות'),
 		const TextSpan(text: '.'),
 	]);
-	@override String get login => 'התחבר';
 }
 
 // Path: login.status
@@ -6297,64 +6368,47 @@ class _StringsLoginStatusHe extends _StringsLoginStatusEn {
 	@override final _StringsHe _root; // ignore: unused_field
 
 	// Translations
-	@override String get loggedIn => 'מחובר עם NextCloud';
 	@override String get loggedOut => 'מנותק';
 	@override String get tapToLogin => 'לחץ כדי להתחבר עם NextCloud';
+	@override String get loggedIn => 'מחובר עם NextCloud';
+	@override String hi({required Object u}) => 'היי, ${u}!';
+	@override String get almostDone => 'כמעט מוכן לסנכרון, הקש כדי לסיים את הכניסה';
 }
 
-// Path: login.faq.0
-class _StringsLogin$faq$0i0$He extends _StringsLogin$faq$0i0$En {
-	_StringsLogin$faq$0i0$He._(_StringsHe root) : this._root = root, super._(root);
+// Path: login.ncLoginStep
+class _StringsLoginNcLoginStepHe extends _StringsLoginNcLoginStepEn {
+	_StringsLoginNcLoginStepHe._(_StringsHe root) : this._root = root, super._(root);
 
 	@override final _StringsHe _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'מה זה Nextcloud?';
-	@override String get a => 'Nextcloud הוא שרת סנכרון קבצים פרטי, בין היתר. אתה יכול להשתמש בשרת ברירת המחדל של Saber Nextcloud, להשתמש בשרת של צד שלישי או לארח בעצמך לשליטה מלאה בנתונים שלך.';
+	@override late final _StringsLoginNcLoginStepLoginFlowHe loginFlow = _StringsLoginNcLoginStepLoginFlowHe._(_root);
+	@override String get whereToStoreData => 'בחר היכן ברצונך לאחסן את הנתונים שלך:';
+	@override String get saberNcServer => 'שרת Nextcloud של סייבר';
+	@override String get otherNcServer => 'שרת Nextcloud אחר';
+	@override String get serverUrl => 'כתובת האתר של השרת';
+	@override String get loginWithSaber => 'התחבר עם Saber';
+	@override String get loginWithNextcloud => 'התחבר עם Nextcloud';
 }
 
-// Path: login.faq.1
-class _StringsLogin$faq$0i1$He extends _StringsLogin$faq$0i1$En {
-	_StringsLogin$faq$0i1$He._(_StringsHe root) : this._root = root, super._(root);
+// Path: login.encLoginStep
+class _StringsLoginEncLoginStepHe extends _StringsLoginEncLoginStepEn {
+	_StringsLoginEncLoginStepHe._(_StringsHe root) : this._root = root, super._(root);
 
 	@override final _StringsHe _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'מהי הסיסמא המוצפנת?';
-	@override String get a => 'סיסמת ההצפנה משמשת להצפנת הנתונים שלך לפני שליחתם לשרת. אתה בוחר את זה כשאתה נכנס לראשונה ל-Saber, וזה לא קשור לחשבון/סיסמת Nextcloud שלך.\nאף אחד לא יכול לגשת להערות שלך בשרת ללא סיסמת ההצפנה שלך. זה גם אומר שאם תשכח את סיסמת ההצפנה שלך, תאבד את הגישה לנתונים שלך.';
-}
-
-// Path: login.faq.2
-class _StringsLogin$faq$0i2$He extends _StringsLogin$faq$0i2$En {
-	_StringsLogin$faq$0i2$He._(_StringsHe root) : this._root = root, super._(root);
-
-	@override final _StringsHe _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => 'למה להשתמש בשתי סיסמאות?';
-	@override String get a => 'סיסמת Nextcloud משמשת לגישה לענן. סיסמת ההצפנה "מערבלת" את הנתונים שלך לפני שהם מגיעים לענן.\n גם אם מישהו יקבל גישה לחשבון Nextcloud שלך, ההערות שלך יישארו בטוחות ומוצפנות עם סיסמה נפרדת. זה מספק לך שכבה שנייה של אבטחה כדי להגן על הנתונים שלך.';
-}
-
-// Path: login.faq.3
-class _StringsLogin$faq$0i3$He extends _StringsLogin$faq$0i3$En {
-	_StringsLogin$faq$0i3$He._(_StringsHe root) : this._root = root, super._(root);
-
-	@override final _StringsHe _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => 'איך אני מתחבר אם אני משתמש ב-2FA?';
-	@override String get a => 'במקום סיסמת Nextcloud הרגילה שלך, תצטרך ליצור "app password". תוכל לעשות זאת בהגדרות Nextcloud שלך תחת אבטחה > מכשירים והפעלות > צור סיסמת אפליקציה חדשה. סיסמת ההצפנה שלך לא מושפעת.';
-}
-
-// Path: login.faq.4
-class _StringsLogin$faq$0i4$He extends _StringsLogin$faq$0i4$En {
-	_StringsLogin$faq$0i4$He._(_StringsHe root) : this._root = root, super._(root);
-
-	@override final _StringsHe _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => 'Can I use the same password for both?';
-	@override String get a => 'כן, אבל זה פחות מאובטח. מכיוון שסיסמת Nextcloud שלך נשלחת לשרת, מישהו עם גישה לשרת יוכל לפענח את ההערות שלך. השתמש באותה סיסמה רק אם אתה סומך על בעל השרת.';
+	@override String get enterEncPassword => 'כדי להגן על הנתונים שלך, אנא הזן את סיסמת ההצפנה שלך:';
+	@override String get newToSaber => 'חדש בסבר';
+	@override String get encPassword => 'סיסמת הצפנה';
+	@override String get encFaqTitle => 'שאלות נפוצות';
+	@override String get wrongEncPassword => 'הפענוח נכשל עם הסיסמה שסופקה. אנא נסה להזין אותו שוב.';
+	@override String get connectionFailed => 'משהו השתבש בחיבור לשרת. בבקשה נסה שוב מאוחר יותר.';
+	@override List<dynamic> get encFaq => [
+		_StringsLoginEncLoginStep$encFaq$0i0$He._(_root),
+		_StringsLoginEncLoginStep$encFaq$0i1$He._(_root),
+		_StringsLoginEncLoginStep$encFaq$0i2$He._(_root),
+	];
 }
 
 // Path: profile.quickLinks
@@ -6364,7 +6418,6 @@ class _StringsProfileQuickLinksHe extends _StringsProfileQuickLinksEn {
 	@override final _StringsHe _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'קישורים מהירים';
 	@override String get serverHomepage => 'דף הבית של השרת';
 	@override String get deleteAccount => 'מחק משתמש';
 }
@@ -6551,7 +6604,6 @@ class _StringsEditorNewerFileFormatHe extends _StringsEditorNewerFileFormatEn {
 	@override String get title => 'הערה זו נערכה באמצעות גרסה חדשה יותר של Saber';
 	@override String get subtitle => 'עריכת פתק זה עלולה לגרום לאיבוד מידע מסוים. האם אתה רוצה להתאלם מזה בכל מקרה?';
 	@override String get allowEditing => 'אפשר עריכה';
-	@override String get cancel => 'בטל';
 }
 
 // Path: editor.quill
@@ -6601,6 +6653,51 @@ class _StringsSettingsPrefDescriptionsPencilSoundSettingHe extends _StringsSetti
 	@override String get onButNotInSilentMode => 'מופעל (אלא אם כן במצב שקט)';
 	@override String get off => 'אין קול';
 	@override String get onAlways => 'מופעל (אפילו במצב שקט)';
+}
+
+// Path: login.ncLoginStep.loginFlow
+class _StringsLoginNcLoginStepLoginFlowHe extends _StringsLoginNcLoginStepLoginFlowEn {
+	_StringsLoginNcLoginStepLoginFlowHe._(_StringsHe root) : this._root = root, super._(root);
+
+	@override final _StringsHe _root; // ignore: unused_field
+
+	// Translations
+	@override String get pleaseAuthorize => 'אנא אשר לסבר לגשת לחשבון Nextcloud שלך';
+	@override String get followPrompts => 'אנא עקוב אחר ההנחיות בדפדפן שלך.';
+	@override String get browserDidntOpen => 'הדפדפן לא נפתח';
+}
+
+// Path: login.encLoginStep.encFaq.0
+class _StringsLoginEncLoginStep$encFaq$0i0$He extends _StringsLoginEncLoginStep$encFaq$0i0$En {
+	_StringsLoginEncLoginStep$encFaq$0i0$He._(_StringsHe root) : this._root = root, super._(root);
+
+	@override final _StringsHe _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'מהי הסיסמא המוצפנת?';
+	@override String get a => 'סיסמת ההצפנה משמשת להצפנת הנתונים שלך לפני שליחתם לשרת. אתה בוחר את זה כשאתה נכנס לראשונה ל-Saber, וזה לא קשור לחשבון/סיסמת Nextcloud שלך.\nאף אחד לא יכול לגשת להערות שלך בשרת ללא סיסמת ההצפנה שלך. זה גם אומר שאם תשכח את סיסמת ההצפנה שלך, תאבד את הגישה לנתונים שלך.';
+}
+
+// Path: login.encLoginStep.encFaq.1
+class _StringsLoginEncLoginStep$encFaq$0i1$He extends _StringsLoginEncLoginStep$encFaq$0i1$En {
+	_StringsLoginEncLoginStep$encFaq$0i1$He._(_StringsHe root) : this._root = root, super._(root);
+
+	@override final _StringsHe _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'למה להשתמש בשתי סיסמאות?';
+	@override String get a => 'סיסמת Nextcloud משמשת לגישה לענן. סיסמת ההצפנה "מערבלת" את הנתונים שלך לפני שהם מגיעים לענן.\nגם אם מישהו יקבל גישה לחשבון Nextcloud שלך, ההערות שלך יישארו בטוחות ומוצפנות עם סיסמה נפרדת. זה מספק לך שכבה שנייה של אבטחה כדי להגן על הנתונים שלך.';
+}
+
+// Path: login.encLoginStep.encFaq.2
+class _StringsLoginEncLoginStep$encFaq$0i2$He extends _StringsLoginEncLoginStep$encFaq$0i2$En {
+	_StringsLoginEncLoginStep$encFaq$0i2$He._(_StringsHe root) : this._root = root, super._(root);
+
+	@override final _StringsHe _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Can I use the same password for both?';
+	@override String get a => 'כן, אבל זה פחות מאובטח. מכיוון שסיסמת Nextcloud שלך נשלחת לשרת, מישהו עם גישה לשרת יוכל לפענח את ההערות שלך. השתמש באותה סיסמה רק אם אתה סומך על בעל השרת.';
 }
 
 // Path: editor.menu.boxFits
@@ -6653,6 +6750,7 @@ class _StringsHu extends Translations {
 	@override late final _StringsHu _root = this; // ignore: unused_field
 
 	// Translations
+	@override late final _StringsCommonHu common = _StringsCommonHu._(_root);
 	@override late final _StringsHomeHu home = _StringsHomeHu._(_root);
 	@override late final _StringsSettingsHu settings = _StringsSettingsHu._(_root);
 	@override late final _StringsLoginHu login = _StringsLoginHu._(_root);
@@ -6660,6 +6758,18 @@ class _StringsHu extends Translations {
 	@override late final _StringsAppInfoHu appInfo = _StringsAppInfoHu._(_root);
 	@override late final _StringsUpdateHu update = _StringsUpdateHu._(_root);
 	@override late final _StringsEditorHu editor = _StringsEditorHu._(_root);
+}
+
+// Path: common
+class _StringsCommonHu extends _StringsCommonEn {
+	_StringsCommonHu._(_StringsHu root) : this._root = root, super._(root);
+
+	@override final _StringsHu _root; // ignore: unused_field
+
+	// Translations
+	@override String get cancel => 'Mégse';
+	@override String get done => 'Kész';
+	@override String get continueBtn => 'Folytatni';
 }
 
 // Path: home
@@ -6719,22 +6829,18 @@ class _StringsLoginHu extends _StringsLoginEn {
 
 	// Translations
 	@override String get title => 'Bejelentkezés';
-	@override late final _StringsLoginFeedbacksHu feedbacks = _StringsLoginFeedbacksHu._(_root);
 	@override late final _StringsLoginFormHu form = _StringsLoginFormHu._(_root);
-	@override String get seeFaq => 'Tekintse meg az alábbi GYIK-et további információkért, beleértve a titkosítási jelszót is.';
 	@override TextSpan signup({required InlineSpanBuilder linkToSignup}) => TextSpan(children: [
 		const TextSpan(text: 'Még nincsen fiókja? '),
 		linkToSignup('Regisztrálás'),
 		const TextSpan(text: '!'),
 	]);
+	@override TextSpan notYou({required InlineSpanBuilder undoLogin}) => TextSpan(children: [
+		undoLogin('Nem te'),
+	]);
 	@override late final _StringsLoginStatusHu status = _StringsLoginStatusHu._(_root);
-	@override List<dynamic> get faq => [
-		_StringsLogin$faq$0i0$Hu._(_root),
-		_StringsLogin$faq$0i1$Hu._(_root),
-		_StringsLogin$faq$0i2$Hu._(_root),
-		_StringsLogin$faq$0i3$Hu._(_root),
-		_StringsLogin$faq$0i4$Hu._(_root),
-	];
+	@override late final _StringsLoginNcLoginStepHu ncLoginStep = _StringsLoginNcLoginStepHu._(_root);
+	@override late final _StringsLoginEncLoginStepHu encLoginStep = _StringsLoginEncLoginStepHu._(_root);
 }
 
 // Path: profile
@@ -6745,6 +6851,9 @@ class _StringsProfileHu extends _StringsProfileEn {
 
 	// Translations
 	@override late final _StringsProfileQuickLinksHu quickLinks = _StringsProfileQuickLinksHu._(_root);
+	@override String quotaUsage({required Object total, required Object percent, required Object used}) => 'Ön a(z) ${total}-ból (${percent}) ${used}';
+	@override String get connectedTo => 'Csatlakozva valamihez';
+	@override String get faqTitle => 'Gyakran Ismételt Kérdések';
 	@override String get title => 'A profilom';
 	@override String get logout => 'Kijelentkezés';
 	@override List<dynamic> get faq => [
@@ -7063,23 +7172,6 @@ class _StringsSettingsCustomDataDirHu extends _StringsSettingsCustomDataDirEn {
 	@override String get mustBeDoneSyncing => 'A könyvtár módosítása előtt győződjön meg arról, hogy a szinkronizálás befejeződött';
 }
 
-// Path: login.feedbacks
-class _StringsLoginFeedbacksHu extends _StringsLoginFeedbacksEn {
-	_StringsLoginFeedbacksHu._(_StringsHu root) : this._root = root, super._(root);
-
-	@override final _StringsHu _root; // ignore: unused_field
-
-	// Translations
-	@override String get checkUsername => 'Kérjem, ellenőrizze kétszer is a felhasználónevét vagy az e-mail címét';
-	@override String get enterNcPassword => 'Kérem, adja meg a Nextcloud jelszavát';
-	@override String get enterEncPassword => 'Kérem, adja meg a titkosítási jelszavát';
-	@override String get checkUrl => 'Kérem adjon meg egy érvényes URL-címet';
-	@override String get ncLoginFailed => 'A bejelentkezés sikertelen, kérem, ellenőrizze adatait és hálózati kapcsolatát';
-	@override String get encLoginFailed => 'A bejelentkezés sikertelen, kérem, ellenőrizze a titkosítási jelszavát';
-	@override String get loginSuccess => 'Bejelentkezés sikeres! Kérjük, várjon, amíg beüzemeljük...';
-	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'Az adott szerveren a Nextcloud ${v} fut, de a Saber ezen verziója csak a Nextcloud ${s} és ${t} között támogatja.';
-}
-
 // Path: login.form
 class _StringsLoginFormHu extends _StringsLoginFormEn {
 	_StringsLoginFormHu._(_StringsHu root) : this._root = root, super._(root);
@@ -7087,17 +7179,11 @@ class _StringsLoginFormHu extends _StringsLoginFormEn {
 	@override final _StringsHu _root; // ignore: unused_field
 
 	// Translations
-	@override String get useCustomServer => 'Egyéni Nextcloud-kiszolgálót szeretnék használni';
-	@override String get customServerUrl => 'Egyéni kiszolgáló URL-címe';
-	@override String get username => 'Felhasnálónév vagy e-mail';
-	@override String get ncPassword => 'Nextcloud jelszó';
-	@override String get encPassword => 'Titkosítási jelszó';
 	@override TextSpan agreeToPrivacyPolicy({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [
 		const TextSpan(text: 'A bejelentkezéssel elfogadja a '),
 		linkToPrivacyPolicy('Adatvédelmi irányelvek'),
 		const TextSpan(text: '.'),
 	]);
-	@override String get login => 'Bejelentkezés';
 }
 
 // Path: login.status
@@ -7107,64 +7193,47 @@ class _StringsLoginStatusHu extends _StringsLoginStatusEn {
 	@override final _StringsHu _root; // ignore: unused_field
 
 	// Translations
-	@override String get loggedIn => 'Bejelentkezve a Nextclouddal';
 	@override String get loggedOut => 'Kijelentkezve';
 	@override String get tapToLogin => 'Kattintson a Nextclouddal való bejelentkezéshez';
+	@override String get loggedIn => 'Bejelentkezve a Nextclouddal';
+	@override String hi({required Object u}) => 'Szia ${u}!';
+	@override String get almostDone => 'Szinte készen áll a szinkronizálásra, érintse meg a bejelentkezés befejezéséhez';
 }
 
-// Path: login.faq.0
-class _StringsLogin$faq$0i0$Hu extends _StringsLogin$faq$0i0$En {
-	_StringsLogin$faq$0i0$Hu._(_StringsHu root) : this._root = root, super._(root);
+// Path: login.ncLoginStep
+class _StringsLoginNcLoginStepHu extends _StringsLoginNcLoginStepEn {
+	_StringsLoginNcLoginStepHu._(_StringsHu root) : this._root = root, super._(root);
 
 	@override final _StringsHu _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Mi az a Nextcloud?';
-	@override String get a => 'A Nextcloud többek között egy privát fájlszinkronizáló szerver. Használhatja az alapértelmezett Saber Nextcloud kiszolgálót, használhat harmadik féltől származó kiszolgálót, vagy saját maga tárolhatja az adatait az adatok teljes ellenőrzéséhez.';
+	@override late final _StringsLoginNcLoginStepLoginFlowHu loginFlow = _StringsLoginNcLoginStepLoginFlowHu._(_root);
+	@override String get whereToStoreData => 'Válassza ki, hol szeretné tárolni adatait:';
+	@override String get saberNcServer => 'A Saber Nextcloud szervere';
+	@override String get otherNcServer => 'Más Nextcloud szerver';
+	@override String get serverUrl => 'Szerver URL';
+	@override String get loginWithSaber => 'Jelentkezzen be Saber segítségével';
+	@override String get loginWithNextcloud => 'Jelentkezzen be a Nextcloud segítségével';
 }
 
-// Path: login.faq.1
-class _StringsLogin$faq$0i1$Hu extends _StringsLogin$faq$0i1$En {
-	_StringsLogin$faq$0i1$Hu._(_StringsHu root) : this._root = root, super._(root);
+// Path: login.encLoginStep
+class _StringsLoginEncLoginStepHu extends _StringsLoginEncLoginStepEn {
+	_StringsLoginEncLoginStepHu._(_StringsHu root) : this._root = root, super._(root);
 
 	@override final _StringsHu _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Mi a titkosítási jelszó?';
-	@override String get a => 'A titkosítási jelszó az adatok titkosítására szolgál, mielőtt elküldené azokat a szervernek. Ezt választja ki, amikor először jelentkezik be a Saberbe, és nem kapcsolódik Nextcloud-fiókjához/jelszavához.\nSenki sem férhet hozzá a kiszolgálón lévő jegyzeteihez az Ön titkosítási jelszava nélkül. Ez azt is jelenti, hogy ha elfelejti titkosítási jelszavát, elveszíti hozzáférését az adataihoz.';
-}
-
-// Path: login.faq.2
-class _StringsLogin$faq$0i2$Hu extends _StringsLogin$faq$0i2$En {
-	_StringsLogin$faq$0i2$Hu._(_StringsHu root) : this._root = root, super._(root);
-
-	@override final _StringsHu _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => 'Miért használjunk két jelszót?';
-	@override String get a => 'A Nextcloud jelszó a felhő eléréséhez használható. A titkosítási jelszó „összekeveri” az adatait, mielőtt azok elérnék a felhőt.\nMég akkor is, ha valaki hozzáfér a Nextcloud-fiókjához, jegyzetei biztonságban maradnak, és külön jelszóval titkosítva lesznek. Ez egy második biztonsági réteget biztosít az adatok védelméhez.';
-}
-
-// Path: login.faq.3
-class _StringsLogin$faq$0i3$Hu extends _StringsLogin$faq$0i3$En {
-	_StringsLogin$faq$0i3$Hu._(_StringsHu root) : this._root = root, super._(root);
-
-	@override final _StringsHu _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => 'Hogyan tudok bejelentkezni, ha 2FA-t használok?';
-	@override String get a => 'A szokásos Nextcloud-jelszó helyett létre kell hoznia egy „alkalmazásjelszót”. Ezt megteheti a Nextcloud beállításai között a Biztonság > Eszközök és munkamenetek > Új alkalmazásjelszó létrehozása alatt. A titkosítási jelszó nem változik.';
-}
-
-// Path: login.faq.4
-class _StringsLogin$faq$0i4$Hu extends _StringsLogin$faq$0i4$En {
-	_StringsLogin$faq$0i4$Hu._(_StringsHu root) : this._root = root, super._(root);
-
-	@override final _StringsHu _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => 'Használhatom mindkettőhöz ugyanazt a jelszót?';
-	@override String get a => 'Igen, de ez kevésbé biztonságos. Mivel a Nextcloud jelszava elküldésre kerül a szervernek, valaki, aki hozzáfér a szerverhez, képes lesz visszafejteni a jegyzeteit. Csak akkor használja ugyanazt a jelszót, ha megbízik a szerver tulajdonosában.';
+	@override String get enterEncPassword => 'Adatai védelme érdekében adja meg titkosítási jelszavát:';
+	@override String get newToSaber => 'Új a Saber';
+	@override String get encPassword => 'Titkosító jelszó';
+	@override String get encFaqTitle => 'Gyakran Ismételt Kérdések';
+	@override String get wrongEncPassword => 'A visszafejtés nem sikerült a megadott jelszóval. Kérjük, próbálja meg újra megadni.';
+	@override String get connectionFailed => 'Hiba történt a szerverhez való csatlakozáskor. Kérlek, próbáld újra később.';
+	@override List<dynamic> get encFaq => [
+		_StringsLoginEncLoginStep$encFaq$0i0$Hu._(_root),
+		_StringsLoginEncLoginStep$encFaq$0i1$Hu._(_root),
+		_StringsLoginEncLoginStep$encFaq$0i2$Hu._(_root),
+	];
 }
 
 // Path: profile.quickLinks
@@ -7174,7 +7243,6 @@ class _StringsProfileQuickLinksHu extends _StringsProfileQuickLinksEn {
 	@override final _StringsHu _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Gyors linkek';
 	@override String get serverHomepage => 'Szerver honlapja';
 	@override String get deleteAccount => 'Fiók törlése';
 }
@@ -7361,7 +7429,6 @@ class _StringsEditorNewerFileFormatHu extends _StringsEditorNewerFileFormatEn {
 	@override String get title => 'Ezt a jegyzetet a Saber egy újabb verziójával lett szerkesztve';
 	@override String get subtitle => 'A jegyzet szerkesztése bizonyos információk elvesztését eredményezheti. Szeretné ezt figyelmen kívül hagyni, és mégis szerkeszteni?';
 	@override String get allowEditing => 'Szerkesztés engedélyezése';
-	@override String get cancel => 'Mégse';
 }
 
 // Path: editor.quill
@@ -7411,6 +7478,51 @@ class _StringsSettingsPrefDescriptionsPencilSoundSettingHu extends _StringsSetti
 	@override String get off => 'Nincs hang';
 	@override String get onButNotInSilentMode => 'Engedélyezve (kivéve, ha néma módban van)';
 	@override String get onAlways => 'Engedélyezve (néma módban is)';
+}
+
+// Path: login.ncLoginStep.loginFlow
+class _StringsLoginNcLoginStepLoginFlowHu extends _StringsLoginNcLoginStepLoginFlowEn {
+	_StringsLoginNcLoginStepLoginFlowHu._(_StringsHu root) : this._root = root, super._(root);
+
+	@override final _StringsHu _root; // ignore: unused_field
+
+	// Translations
+	@override String get pleaseAuthorize => 'Engedélyezze a Saber-t, hogy hozzáférjen Nextcloud-fiókjához';
+	@override String get followPrompts => 'Kérjük, kövesse a böngészőjében megjelenő utasításokat.';
+	@override String get browserDidntOpen => 'A böngésző nem nyílt meg';
+}
+
+// Path: login.encLoginStep.encFaq.0
+class _StringsLoginEncLoginStep$encFaq$0i0$Hu extends _StringsLoginEncLoginStep$encFaq$0i0$En {
+	_StringsLoginEncLoginStep$encFaq$0i0$Hu._(_StringsHu root) : this._root = root, super._(root);
+
+	@override final _StringsHu _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Mi a titkosítási jelszó?';
+	@override String get a => 'A titkosítási jelszó az adatok titkosítására szolgál, mielőtt elküldené azokat a szervernek. Ezt választja ki, amikor először jelentkezik be a Saberbe, és nem kapcsolódik Nextcloud-fiókjához/jelszavához.\nSenki sem férhet hozzá a kiszolgálón lévő jegyzeteihez az Ön titkosítási jelszava nélkül. Ez azt is jelenti, hogy ha elfelejti titkosítási jelszavát, elveszíti hozzáférését az adataihoz.';
+}
+
+// Path: login.encLoginStep.encFaq.1
+class _StringsLoginEncLoginStep$encFaq$0i1$Hu extends _StringsLoginEncLoginStep$encFaq$0i1$En {
+	_StringsLoginEncLoginStep$encFaq$0i1$Hu._(_StringsHu root) : this._root = root, super._(root);
+
+	@override final _StringsHu _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Miért használjunk két jelszót?';
+	@override String get a => 'A Nextcloud jelszó a felhő eléréséhez használható. A titkosítási jelszó „összekeveri” az adatait, mielőtt azok elérnék a felhőt.\nMég akkor is, ha valaki hozzáfér a Nextcloud-fiókjához, jegyzetei biztonságban maradnak, és külön jelszóval titkosítva lesznek. Ez egy második biztonsági réteget biztosít az adatok védelméhez.';
+}
+
+// Path: login.encLoginStep.encFaq.2
+class _StringsLoginEncLoginStep$encFaq$0i2$Hu extends _StringsLoginEncLoginStep$encFaq$0i2$En {
+	_StringsLoginEncLoginStep$encFaq$0i2$Hu._(_StringsHu root) : this._root = root, super._(root);
+
+	@override final _StringsHu _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Használhatom mindkettőhöz ugyanazt a jelszót?';
+	@override String get a => 'Igen, de ez kevésbé biztonságos. Mivel a Nextcloud jelszava elküldésre kerül a szervernek, valaki, aki hozzáfér a szerverhez, képes lesz visszafejteni a jegyzeteit. Csak akkor használja ugyanazt a jelszót, ha megbízik a szerver tulajdonosában.';
 }
 
 // Path: editor.menu.boxFits
@@ -7463,6 +7575,7 @@ class _StringsIt extends Translations {
 	@override late final _StringsIt _root = this; // ignore: unused_field
 
 	// Translations
+	@override late final _StringsCommonIt common = _StringsCommonIt._(_root);
 	@override late final _StringsHomeIt home = _StringsHomeIt._(_root);
 	@override late final _StringsSettingsIt settings = _StringsSettingsIt._(_root);
 	@override late final _StringsLoginIt login = _StringsLoginIt._(_root);
@@ -7470,6 +7583,18 @@ class _StringsIt extends Translations {
 	@override late final _StringsAppInfoIt appInfo = _StringsAppInfoIt._(_root);
 	@override late final _StringsUpdateIt update = _StringsUpdateIt._(_root);
 	@override late final _StringsEditorIt editor = _StringsEditorIt._(_root);
+}
+
+// Path: common
+class _StringsCommonIt extends _StringsCommonEn {
+	_StringsCommonIt._(_StringsIt root) : this._root = root, super._(root);
+
+	@override final _StringsIt _root; // ignore: unused_field
+
+	// Translations
+	@override String get cancel => 'Cancella';
+	@override String get done => 'Fatto';
+	@override String get continueBtn => 'Continua';
 }
 
 // Path: home
@@ -7529,22 +7654,18 @@ class _StringsLoginIt extends _StringsLoginEn {
 
 	// Translations
 	@override String get title => 'Login';
-	@override late final _StringsLoginFeedbacksIt feedbacks = _StringsLoginFeedbacksIt._(_root);
 	@override late final _StringsLoginFormIt form = _StringsLoginFormIt._(_root);
 	@override TextSpan signup({required InlineSpanBuilder linkToSignup}) => TextSpan(children: [
 		const TextSpan(text: 'Non hai ancora un account? '),
 		linkToSignup('Registrati ora'),
 		const TextSpan(text: '!'),
 	]);
+	@override TextSpan notYou({required InlineSpanBuilder undoLogin}) => TextSpan(children: [
+		undoLogin('Non tu'),
+	]);
 	@override late final _StringsLoginStatusIt status = _StringsLoginStatusIt._(_root);
-	@override String get seeFaq => 'Consulta le domande frequenti di seguito per ulteriori informazioni, inclusa la password di crittografia.';
-	@override List<dynamic> get faq => [
-		_StringsLogin$faq$0i0$It._(_root),
-		_StringsLogin$faq$0i1$It._(_root),
-		_StringsLogin$faq$0i2$It._(_root),
-		_StringsLogin$faq$0i3$It._(_root),
-		_StringsLogin$faq$0i4$It._(_root),
-	];
+	@override late final _StringsLoginNcLoginStepIt ncLoginStep = _StringsLoginNcLoginStepIt._(_root);
+	@override late final _StringsLoginEncLoginStepIt encLoginStep = _StringsLoginEncLoginStepIt._(_root);
 }
 
 // Path: profile
@@ -7563,6 +7684,9 @@ class _StringsProfileIt extends _StringsProfileEn {
 		_StringsProfile$faq$0i2$It._(_root),
 		_StringsProfile$faq$0i3$It._(_root),
 	];
+	@override String quotaUsage({required Object used, required Object total, required Object percent}) => 'Stai utilizzando ${used} su ${total} (${percent})';
+	@override String get connectedTo => 'Collegato a';
+	@override String get faqTitle => 'Domande frequenti';
 }
 
 // Path: appInfo
@@ -7873,23 +7997,6 @@ class _StringsSettingsCustomDataDirIt extends _StringsSettingsCustomDataDirEn {
 	@override String get mustBeDoneSyncing => 'Assicurati che la sincronizzazione sia completa prima di cambiare la directory';
 }
 
-// Path: login.feedbacks
-class _StringsLoginFeedbacksIt extends _StringsLoginFeedbacksEn {
-	_StringsLoginFeedbacksIt._(_StringsIt root) : this._root = root, super._(root);
-
-	@override final _StringsIt _root; // ignore: unused_field
-
-	// Translations
-	@override String get checkUsername => 'Ricontrolla il tuo nome utente o e-mail.';
-	@override String get enterNcPassword => 'Inserisci la tua password Nextcloud.';
-	@override String get enterEncPassword => 'Inserisci la tua password di crittografia.';
-	@override String get checkUrl => 'Per favore, inserisci un URL valido.';
-	@override String get ncLoginFailed => 'Accesso fallito, controlla i tuoi dati e la connessione di rete.';
-	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'Il server indicato esegue Nextcloud ${v} ma questa versione di Saber supporta solo Nextcloud da ${s} a ${t}.';
-	@override String get encLoginFailed => 'Accesso non riuscito, controllare la password di crittografia.';
-	@override String get loginSuccess => 'Accesso riuscito! Si prega di attendere mentre configuriamo...';
-}
-
 // Path: login.form
 class _StringsLoginFormIt extends _StringsLoginFormEn {
 	_StringsLoginFormIt._(_StringsIt root) : this._root = root, super._(root);
@@ -7897,17 +8004,11 @@ class _StringsLoginFormIt extends _StringsLoginFormEn {
 	@override final _StringsIt _root; // ignore: unused_field
 
 	// Translations
-	@override String get useCustomServer => 'Voglio utilizzare un server Nextcloud personalizzato';
-	@override String get customServerUrl => 'URL del server personalizzato';
-	@override String get username => 'Nome utente o email';
-	@override String get ncPassword => 'Password nextcloud';
-	@override String get encPassword => 'Password di crittografata';
 	@override TextSpan agreeToPrivacyPolicy({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [
 		const TextSpan(text: 'Effettuando l\'accesso, accetti la '),
 		linkToPrivacyPolicy('Informativa sulla privacy'),
 		const TextSpan(text: '.'),
 	]);
-	@override String get login => 'Log in';
 }
 
 // Path: login.status
@@ -7917,64 +8018,47 @@ class _StringsLoginStatusIt extends _StringsLoginStatusEn {
 	@override final _StringsIt _root; // ignore: unused_field
 
 	// Translations
-	@override String get loggedIn => 'Effettuato l\'accesso con Nextcloud';
 	@override String get loggedOut => 'Disconnesso';
 	@override String get tapToLogin => 'Tocca per accedere con Nextcloud';
+	@override String get loggedIn => 'Effettuato l\'accesso con Nextcloud';
+	@override String hi({required Object u}) => 'Ciao, ${u}!';
+	@override String get almostDone => 'Quasi pronto per la sincronizzazione, tocca per completare l\'accesso';
 }
 
-// Path: login.faq.0
-class _StringsLogin$faq$0i0$It extends _StringsLogin$faq$0i0$En {
-	_StringsLogin$faq$0i0$It._(_StringsIt root) : this._root = root, super._(root);
+// Path: login.ncLoginStep
+class _StringsLoginNcLoginStepIt extends _StringsLoginNcLoginStepEn {
+	_StringsLoginNcLoginStepIt._(_StringsIt root) : this._root = root, super._(root);
 
 	@override final _StringsIt _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Che cos\'è Nextcloud?';
-	@override String get a => 'Nextcloud è un server di sincronizzazione file privato, tra le altre cose. Puoi utilizzare il server Saber Nextcloud predefinito, utilizzare un server di terze parti o ospitare autonomamente il tuo per il pieno controllo dei tuoi dati.';
+	@override late final _StringsLoginNcLoginStepLoginFlowIt loginFlow = _StringsLoginNcLoginStepLoginFlowIt._(_root);
+	@override String get whereToStoreData => 'Scegli dove vuoi archiviare i tuoi dati:';
+	@override String get saberNcServer => 'Il server Nextcloud di Saber';
+	@override String get otherNcServer => 'Altro server Nextcloud';
+	@override String get serverUrl => 'URL del server';
+	@override String get loginWithSaber => 'Accedi con Saber';
+	@override String get loginWithNextcloud => 'Accedi con Nextcloud';
 }
 
-// Path: login.faq.1
-class _StringsLogin$faq$0i1$It extends _StringsLogin$faq$0i1$En {
-	_StringsLogin$faq$0i1$It._(_StringsIt root) : this._root = root, super._(root);
+// Path: login.encLoginStep
+class _StringsLoginEncLoginStepIt extends _StringsLoginEncLoginStepEn {
+	_StringsLoginEncLoginStepIt._(_StringsIt root) : this._root = root, super._(root);
 
 	@override final _StringsIt _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Qual è la password di crittografia?';
-	@override String get a => 'La password di crittografia viene utilizzata per crittografare i dati prima che vengano inviati al server. Lo scegli quando accedi per la prima volta a Saber e non è correlato al tuo account/password Nextcloud.\nNessuno può accedere alle tue note sul server senza la tua password di crittografia. Ciò significa anche che se dimentichi la password di crittografia, perderai l\'accesso ai tuoi dati.';
-}
-
-// Path: login.faq.2
-class _StringsLogin$faq$0i2$It extends _StringsLogin$faq$0i2$En {
-	_StringsLogin$faq$0i2$It._(_StringsIt root) : this._root = root, super._(root);
-
-	@override final _StringsIt _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => 'Perché usare due password?';
-	@override String get a => 'La password Nextcloud viene utilizzata per accedere al cloud. La password di crittografia "codifica" i tuoi dati prima che raggiungano il cloud.\nAnche se qualcuno riesce ad accedere al tuo account Nextcloud, le tue note rimarranno al sicuro e crittografate con una password separata. Questo ti fornisce un secondo livello di sicurezza per proteggere i tuoi dati.';
-}
-
-// Path: login.faq.3
-class _StringsLogin$faq$0i3$It extends _StringsLogin$faq$0i3$En {
-	_StringsLogin$faq$0i3$It._(_StringsIt root) : this._root = root, super._(root);
-
-	@override final _StringsIt _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => 'Come faccio ad accedere se utilizzo 2FA?';
-	@override String get a => 'Invece della tua normale password Nextcloud, dovrai creare una "password per l\'app". Puoi farlo nelle impostazioni di Nextcloud in Sicurezza > Dispositivi e sessioni > Crea una nuova password per l\'app. La tua password di crittografia rimane inalterata.';
-}
-
-// Path: login.faq.4
-class _StringsLogin$faq$0i4$It extends _StringsLogin$faq$0i4$En {
-	_StringsLogin$faq$0i4$It._(_StringsIt root) : this._root = root, super._(root);
-
-	@override final _StringsIt _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => 'Posso usare la stessa password per entrambi?';
-	@override String get a => 'Sì, ma farlo è meno sicuro. Poiché la tua password Nextcloud viene inviata al server, qualcuno con accesso al server sarebbe in grado di decrittografare le tue note. Usa la stessa password solo se ti fidi del proprietario del server.';
+	@override String get enterEncPassword => 'Per proteggere i tuoi dati, inserisci la password di crittografia:';
+	@override String get newToSaber => 'Nuovo per Saber';
+	@override String get encPassword => 'Password di crittografia';
+	@override String get encFaqTitle => 'Domande frequenti';
+	@override String get wrongEncPassword => 'La decrittografia non è riuscita con la password fornita. Per favore prova a inserirlo di nuovo.';
+	@override String get connectionFailed => 'Qualcosa è andato storto durante la connessione al server. Per favore riprova più tardi.';
+	@override List<dynamic> get encFaq => [
+		_StringsLoginEncLoginStep$encFaq$0i0$It._(_root),
+		_StringsLoginEncLoginStep$encFaq$0i1$It._(_root),
+		_StringsLoginEncLoginStep$encFaq$0i2$It._(_root),
+	];
 }
 
 // Path: profile.quickLinks
@@ -7984,7 +8068,6 @@ class _StringsProfileQuickLinksIt extends _StringsProfileQuickLinksEn {
 	@override final _StringsIt _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Collegamenti veloci';
 	@override String get serverHomepage => 'Homepage del server';
 	@override String get deleteAccount => 'Elimina account';
 }
@@ -8171,7 +8254,6 @@ class _StringsEditorNewerFileFormatIt extends _StringsEditorNewerFileFormatEn {
 	@override String get title => 'Questa nota è stata modificata utilizzando una versione più recente di Saber';
 	@override String get subtitle => 'La modifica di questa nota potrebbe comportare la perdita di alcune informazioni. Vuoi ignorare e modificarla comunque?';
 	@override String get allowEditing => 'Consenti modifica';
-	@override String get cancel => 'Cancella';
 }
 
 // Path: editor.quill
@@ -8221,6 +8303,51 @@ class _StringsSettingsPrefDescriptionsPencilSoundSettingIt extends _StringsSetti
 	@override String get off => 'Nessun suono';
 	@override String get onButNotInSilentMode => 'Abilitato (a meno che non sia in modalità silenziosa)';
 	@override String get onAlways => 'Abilitato (anche in modalità silenziosa)';
+}
+
+// Path: login.ncLoginStep.loginFlow
+class _StringsLoginNcLoginStepLoginFlowIt extends _StringsLoginNcLoginStepLoginFlowEn {
+	_StringsLoginNcLoginStepLoginFlowIt._(_StringsIt root) : this._root = root, super._(root);
+
+	@override final _StringsIt _root; // ignore: unused_field
+
+	// Translations
+	@override String get pleaseAuthorize => 'Autorizza Saber ad accedere al tuo account Nextcloud';
+	@override String get followPrompts => 'Segui le istruzioni nel tuo browser.';
+	@override String get browserDidntOpen => 'Il browser non si è aperto';
+}
+
+// Path: login.encLoginStep.encFaq.0
+class _StringsLoginEncLoginStep$encFaq$0i0$It extends _StringsLoginEncLoginStep$encFaq$0i0$En {
+	_StringsLoginEncLoginStep$encFaq$0i0$It._(_StringsIt root) : this._root = root, super._(root);
+
+	@override final _StringsIt _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Qual è la password di crittografia?';
+	@override String get a => 'La password di crittografia viene utilizzata per crittografare i dati prima che vengano inviati al server. Lo scegli quando accedi per la prima volta a Saber e non è correlato al tuo account/password Nextcloud.\nNessuno può accedere alle tue note sul server senza la tua password di crittografia. Ciò significa anche che se dimentichi la password di crittografia, perderai l\'accesso ai tuoi dati.';
+}
+
+// Path: login.encLoginStep.encFaq.1
+class _StringsLoginEncLoginStep$encFaq$0i1$It extends _StringsLoginEncLoginStep$encFaq$0i1$En {
+	_StringsLoginEncLoginStep$encFaq$0i1$It._(_StringsIt root) : this._root = root, super._(root);
+
+	@override final _StringsIt _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Perché usare due password?';
+	@override String get a => 'La password Nextcloud viene utilizzata per accedere al cloud. La password di crittografia "codifica" i tuoi dati prima che raggiungano il cloud.\nAnche se qualcuno riesce ad accedere al tuo account Nextcloud, le tue note rimarranno al sicuro e crittografate con una password separata. Questo ti fornisce un secondo livello di sicurezza per proteggere i tuoi dati.';
+}
+
+// Path: login.encLoginStep.encFaq.2
+class _StringsLoginEncLoginStep$encFaq$0i2$It extends _StringsLoginEncLoginStep$encFaq$0i2$En {
+	_StringsLoginEncLoginStep$encFaq$0i2$It._(_StringsIt root) : this._root = root, super._(root);
+
+	@override final _StringsIt _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Posso usare la stessa password per entrambi?';
+	@override String get a => 'Sì, ma farlo è meno sicuro. Poiché la tua password Nextcloud viene inviata al server, qualcuno con accesso al server sarebbe in grado di decrittografare le tue note. Usa la stessa password solo se ti fidi del proprietario del server.';
 }
 
 // Path: editor.menu.boxFits
@@ -8273,6 +8400,7 @@ class _StringsJa extends Translations {
 	@override late final _StringsJa _root = this; // ignore: unused_field
 
 	// Translations
+	@override late final _StringsCommonJa common = _StringsCommonJa._(_root);
 	@override late final _StringsHomeJa home = _StringsHomeJa._(_root);
 	@override late final _StringsSettingsJa settings = _StringsSettingsJa._(_root);
 	@override late final _StringsLoginJa login = _StringsLoginJa._(_root);
@@ -8280,6 +8408,18 @@ class _StringsJa extends Translations {
 	@override late final _StringsAppInfoJa appInfo = _StringsAppInfoJa._(_root);
 	@override late final _StringsUpdateJa update = _StringsUpdateJa._(_root);
 	@override late final _StringsEditorJa editor = _StringsEditorJa._(_root);
+}
+
+// Path: common
+class _StringsCommonJa extends _StringsCommonEn {
+	_StringsCommonJa._(_StringsJa root) : this._root = root, super._(root);
+
+	@override final _StringsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get cancel => '取消';
+	@override String get done => '終わり';
+	@override String get continueBtn => '続く';
 }
 
 // Path: home
@@ -8339,22 +8479,18 @@ class _StringsLoginJa extends _StringsLoginEn {
 
 	// Translations
 	@override String get title => 'ログイン';
-	@override late final _StringsLoginFeedbacksJa feedbacks = _StringsLoginFeedbacksJa._(_root);
 	@override late final _StringsLoginFormJa form = _StringsLoginFormJa._(_root);
-	@override String get seeFaq => '暗号化パスワードなどの詳細については、以下の FAQ を参照してください。';
 	@override TextSpan signup({required InlineSpanBuilder linkToSignup}) => TextSpan(children: [
 		const TextSpan(text: 'まだアカウントをお持ちでないですか？ '),
 		linkToSignup('今すぐ登録'),
 		const TextSpan(text: '!'),
 	]);
+	@override TextSpan notYou({required InlineSpanBuilder undoLogin}) => TextSpan(children: [
+		undoLogin('あなたではありません'),
+	]);
 	@override late final _StringsLoginStatusJa status = _StringsLoginStatusJa._(_root);
-	@override List<dynamic> get faq => [
-		_StringsLogin$faq$0i0$Ja._(_root),
-		_StringsLogin$faq$0i1$Ja._(_root),
-		_StringsLogin$faq$0i2$Ja._(_root),
-		_StringsLogin$faq$0i3$Ja._(_root),
-		_StringsLogin$faq$0i4$Ja._(_root),
-	];
+	@override late final _StringsLoginNcLoginStepJa ncLoginStep = _StringsLoginNcLoginStepJa._(_root);
+	@override late final _StringsLoginEncLoginStepJa encLoginStep = _StringsLoginEncLoginStepJa._(_root);
 }
 
 // Path: profile
@@ -8373,6 +8509,9 @@ class _StringsProfileJa extends _StringsProfileEn {
 		_StringsProfile$faq$0i2$Ja._(_root),
 		_StringsProfile$faq$0i3$Ja._(_root),
 	];
+	@override String quotaUsage({required Object total, required Object percent, required Object used}) => '${total} (${percent}) のうち ${used} を使用しています';
+	@override String get connectedTo => 'に接続されています';
+	@override String get faqTitle => 'よくある質問';
 }
 
 // Path: appInfo
@@ -8683,23 +8822,6 @@ class _StringsSettingsCustomDataDirJa extends _StringsSettingsCustomDataDirEn {
 	@override String get mustBeDoneSyncing => 'ディレクトリを変更する前に同期が完了していることを確認してください';
 }
 
-// Path: login.feedbacks
-class _StringsLoginFeedbacksJa extends _StringsLoginFeedbacksEn {
-	_StringsLoginFeedbacksJa._(_StringsJa root) : this._root = root, super._(root);
-
-	@override final _StringsJa _root; // ignore: unused_field
-
-	// Translations
-	@override String get checkUsername => 'ユーザー名またはEメールを再度ご確認ください。';
-	@override String get enterNcPassword => 'Nextcloudのパスワードを入力してください。';
-	@override String get enterEncPassword => '暗号化パスワードを入力してください。';
-	@override String get checkUrl => '有効なURLを入力してください。';
-	@override String get ncLoginFailed => 'ログインに失敗しました。詳細とネットワーク接続を確認してください。';
-	@override String get encLoginFailed => 'ログインに失敗しました。暗号化パスワードを確認してください。';
-	@override String get loginSuccess => 'ログインに成功しました！セットアップ中です。しばらくお待ちください...';
-	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => '指定されたサーバーは Nextcloud ${v} を実行していますが、このバージョンの Saber は Nextcloud ${s} ～ ${t} のみをサポートします。';
-}
-
 // Path: login.form
 class _StringsLoginFormJa extends _StringsLoginFormEn {
 	_StringsLoginFormJa._(_StringsJa root) : this._root = root, super._(root);
@@ -8707,17 +8829,11 @@ class _StringsLoginFormJa extends _StringsLoginFormEn {
 	@override final _StringsJa _root; // ignore: unused_field
 
 	// Translations
-	@override String get useCustomServer => 'カスタムNextcloudサーバーを使いたい';
-	@override String get customServerUrl => 'カスタムサーバーURL';
-	@override String get username => 'ユーザー名またはメールアドレス';
-	@override String get ncPassword => 'Nextcloudのパスワード';
-	@override String get encPassword => '暗号化パスワード';
 	@override TextSpan agreeToPrivacyPolicy({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [
 		const TextSpan(text: 'ログインすることにより、'),
 		linkToPrivacyPolicy('プライベートポリシー'),
 		const TextSpan(text: 'に同意したものとみなされます。'),
 	]);
-	@override String get login => 'ログイン';
 }
 
 // Path: login.status
@@ -8727,64 +8843,47 @@ class _StringsLoginStatusJa extends _StringsLoginStatusEn {
 	@override final _StringsJa _root; // ignore: unused_field
 
 	// Translations
-	@override String get loggedIn => 'Nextcloudでログイン';
 	@override String get loggedOut => 'ログアウト';
 	@override String get tapToLogin => 'タップしてNextcloudにログイン';
+	@override String get loggedIn => 'Nextcloudでログイン';
+	@override String hi({required Object u}) => 'こんにちは、${u}!';
+	@override String get almostDone => '同期の準備がほぼ完了しました。タップしてログインを完了してください';
 }
 
-// Path: login.faq.0
-class _StringsLogin$faq$0i0$Ja extends _StringsLogin$faq$0i0$En {
-	_StringsLogin$faq$0i0$Ja._(_StringsJa root) : this._root = root, super._(root);
+// Path: login.ncLoginStep
+class _StringsLoginNcLoginStepJa extends _StringsLoginNcLoginStepEn {
+	_StringsLoginNcLoginStepJa._(_StringsJa root) : this._root = root, super._(root);
 
 	@override final _StringsJa _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Nextcloudとは？';
-	@override String get a => 'Nextcloudは、プライベートなファイル同期サーバーです。デフォルトのSaber Nextcloudサーバーを使用することも、サードパーティのサーバーを使用することも、データを完全に管理するために自身でホストすることも可能です。';
+	@override late final _StringsLoginNcLoginStepLoginFlowJa loginFlow = _StringsLoginNcLoginStepLoginFlowJa._(_root);
+	@override String get whereToStoreData => 'データを保存する場所を選択します:';
+	@override String get saberNcServer => 'Saber の Nextcloud サーバー';
+	@override String get otherNcServer => '他のNextcloudサーバー';
+	@override String get serverUrl => 'サーバーURL';
+	@override String get loginWithSaber => 'セイバーでログイン';
+	@override String get loginWithNextcloud => 'Nextcloudでログイン';
 }
 
-// Path: login.faq.1
-class _StringsLogin$faq$0i1$Ja extends _StringsLogin$faq$0i1$En {
-	_StringsLogin$faq$0i1$Ja._(_StringsJa root) : this._root = root, super._(root);
+// Path: login.encLoginStep
+class _StringsLoginEncLoginStepJa extends _StringsLoginEncLoginStepEn {
+	_StringsLoginEncLoginStepJa._(_StringsJa root) : this._root = root, super._(root);
 
 	@override final _StringsJa _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => '暗号化パスワードは何ですか？';
-	@override String get a => '暗号化パスワードは、サーバーに送信する前にデータを暗号化するために使用されます。Saberに最初にログインする際に選択するもので、Nextcloudのアカウントやパスワードとは関係ありません。\n暗号化パスワードがなければ、誰もサーバー上のメモにアクセスすることはできません。また、暗号化パスワードを忘れると、データにアクセスすることができなくなります。';
-}
-
-// Path: login.faq.2
-class _StringsLogin$faq$0i2$Ja extends _StringsLogin$faq$0i2$En {
-	_StringsLogin$faq$0i2$Ja._(_StringsJa root) : this._root = root, super._(root);
-
-	@override final _StringsJa _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => 'なぜ2つのパスワードを使うのですか？';
-	@override String get a => 'Nextcloudのパスワードはクラウドに接続するために使用されます。暗号化パスワードを用いてデータがクラウドに届く前にデータを "暗号化" します。\nそのため、たとえ誰かがあなたのNextcloudアカウントにアクセスしたとしても、メモは別のパスワードで暗号化されている状態になります。これにより、Saberのデーターは2重に保護されます。';
-}
-
-// Path: login.faq.3
-class _StringsLogin$faq$0i3$Ja extends _StringsLogin$faq$0i3$En {
-	_StringsLogin$faq$0i3$Ja._(_StringsJa root) : this._root = root, super._(root);
-
-	@override final _StringsJa _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => '2FAを使用している場合、どのようにログインすればいいですか？';
-	@override String get a => '通常のNextcloudパスワードの代わりに、"アプリパスワード"を作成する必要があります。これはNextcloudの設定で、「セキュリティ」>「デバイスとセッション」>「新しいアプリパスワードを作成」でできます。暗号化パスワードは影響を受けません。';
-}
-
-// Path: login.faq.4
-class _StringsLogin$faq$0i4$Ja extends _StringsLogin$faq$0i4$En {
-	_StringsLogin$faq$0i4$Ja._(_StringsJa root) : this._root = root, super._(root);
-
-	@override final _StringsJa _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => '両方に同じパスワードを使用できますか？';
-	@override String get a => '可能ですが、そうすれば安全性が低下します。Nextcloudのパスワードはサーバーに送信されるため、サーバーにアクセスできる人はメモを解読することができます。サーバーの所有者を信頼できる場合にのみ、同じパスワードを使用してください。';
+	@override String get enterEncPassword => 'データを保護するには、暗号化パスワードを入力してください:';
+	@override String get newToSaber => 'セイバー初心者';
+	@override String get encPassword => '暗号化パスワード';
+	@override String get encFaqTitle => 'よくある質問';
+	@override String get wrongEncPassword => '指定されたパスワードでは復号化に失敗しました。もう一度入力してみてください。';
+	@override String get connectionFailed => 'サーバーへの接続中に問題が発生しました。後でもう一度試してください。';
+	@override List<dynamic> get encFaq => [
+		_StringsLoginEncLoginStep$encFaq$0i0$Ja._(_root),
+		_StringsLoginEncLoginStep$encFaq$0i1$Ja._(_root),
+		_StringsLoginEncLoginStep$encFaq$0i2$Ja._(_root),
+	];
 }
 
 // Path: profile.quickLinks
@@ -8794,7 +8893,6 @@ class _StringsProfileQuickLinksJa extends _StringsProfileQuickLinksEn {
 	@override final _StringsJa _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'クイックリンク';
 	@override String get serverHomepage => 'サーバーホームページ';
 	@override String get deleteAccount => 'アカウントの削除';
 }
@@ -8981,7 +9079,6 @@ class _StringsEditorNewerFileFormatJa extends _StringsEditorNewerFileFormatEn {
 	@override String get title => 'このメモは新しいバージョンのSaberを使用して編集されたものです';
 	@override String get subtitle => 'このメモを編集すると、いくつかの情報が失われる可能性があります。これを無視して編集しますか？';
 	@override String get allowEditing => '編集を許可する';
-	@override String get cancel => '取消';
 }
 
 // Path: editor.quill
@@ -9031,6 +9128,51 @@ class _StringsSettingsPrefDescriptionsPencilSoundSettingJa extends _StringsSetti
 	@override String get off => '無音';
 	@override String get onButNotInSilentMode => '有効 (サイレントモードでない場合)';
 	@override String get onAlways => '有効（サイレントモードでも）';
+}
+
+// Path: login.ncLoginStep.loginFlow
+class _StringsLoginNcLoginStepLoginFlowJa extends _StringsLoginNcLoginStepLoginFlowEn {
+	_StringsLoginNcLoginStepLoginFlowJa._(_StringsJa root) : this._root = root, super._(root);
+
+	@override final _StringsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get pleaseAuthorize => 'Saber に Nextcloud アカウントへのアクセスを許可してください';
+	@override String get followPrompts => 'ブラウザの指示に従ってください。';
+	@override String get browserDidntOpen => 'ブラウザが開きませんでした';
+}
+
+// Path: login.encLoginStep.encFaq.0
+class _StringsLoginEncLoginStep$encFaq$0i0$Ja extends _StringsLoginEncLoginStep$encFaq$0i0$En {
+	_StringsLoginEncLoginStep$encFaq$0i0$Ja._(_StringsJa root) : this._root = root, super._(root);
+
+	@override final _StringsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => '暗号化パスワードは何ですか？';
+	@override String get a => '暗号化パスワードは、サーバーに送信する前にデータを暗号化するために使用されます。Saberに最初にログインする際に選択するもので、Nextcloudのアカウントやパスワードとは関係ありません。\n暗号化パスワードがなければ、誰もサーバー上のメモにアクセスすることはできません。また、暗号化パスワードを忘れると、データにアクセスすることができなくなります。';
+}
+
+// Path: login.encLoginStep.encFaq.1
+class _StringsLoginEncLoginStep$encFaq$0i1$Ja extends _StringsLoginEncLoginStep$encFaq$0i1$En {
+	_StringsLoginEncLoginStep$encFaq$0i1$Ja._(_StringsJa root) : this._root = root, super._(root);
+
+	@override final _StringsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'なぜ2つのパスワードを使うのですか？';
+	@override String get a => 'Nextcloudのパスワードはクラウドに接続するために使用されます。暗号化パスワードを用いてデータがクラウドに届く前にデータを "暗号化" します。\nそのため、たとえ誰かがあなたのNextcloudアカウントにアクセスしたとしても、メモは別のパスワードで暗号化されている状態になります。これにより、Saberのデーターは2重に保護されます。';
+}
+
+// Path: login.encLoginStep.encFaq.2
+class _StringsLoginEncLoginStep$encFaq$0i2$Ja extends _StringsLoginEncLoginStep$encFaq$0i2$En {
+	_StringsLoginEncLoginStep$encFaq$0i2$Ja._(_StringsJa root) : this._root = root, super._(root);
+
+	@override final _StringsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => '両方に同じパスワードを使用できますか？';
+	@override String get a => '可能ですが、そうすれば安全性が低下します。Nextcloudのパスワードはサーバーに送信されるため、サーバーにアクセスできる人はメモを解読することができます。サーバーの所有者を信頼できる場合にのみ、同じパスワードを使用してください。';
 }
 
 // Path: editor.menu.boxFits
@@ -9083,6 +9225,7 @@ class _StringsPtBr extends Translations {
 	@override late final _StringsPtBr _root = this; // ignore: unused_field
 
 	// Translations
+	@override late final _StringsCommonPtBr common = _StringsCommonPtBr._(_root);
 	@override late final _StringsHomePtBr home = _StringsHomePtBr._(_root);
 	@override late final _StringsSettingsPtBr settings = _StringsSettingsPtBr._(_root);
 	@override late final _StringsLoginPtBr login = _StringsLoginPtBr._(_root);
@@ -9090,6 +9233,18 @@ class _StringsPtBr extends Translations {
 	@override late final _StringsAppInfoPtBr appInfo = _StringsAppInfoPtBr._(_root);
 	@override late final _StringsUpdatePtBr update = _StringsUpdatePtBr._(_root);
 	@override late final _StringsEditorPtBr editor = _StringsEditorPtBr._(_root);
+}
+
+// Path: common
+class _StringsCommonPtBr extends _StringsCommonEn {
+	_StringsCommonPtBr._(_StringsPtBr root) : this._root = root, super._(root);
+
+	@override final _StringsPtBr _root; // ignore: unused_field
+
+	// Translations
+	@override String get cancel => 'Cancelar';
+	@override String get done => 'Feito';
+	@override String get continueBtn => 'Continuar';
 }
 
 // Path: home
@@ -9149,22 +9304,18 @@ class _StringsLoginPtBr extends _StringsLoginEn {
 
 	// Translations
 	@override String get title => 'Login';
-	@override late final _StringsLoginFeedbacksPtBr feedbacks = _StringsLoginFeedbacksPtBr._(_root);
 	@override late final _StringsLoginFormPtBr form = _StringsLoginFormPtBr._(_root);
-	@override String get seeFaq => 'Consulte o FAQ abaixo para obter mais informações, inclusive sobre a senha de criptografia.';
 	@override TextSpan signup({required InlineSpanBuilder linkToSignup}) => TextSpan(children: [
 		const TextSpan(text: 'Ainda não tem uma conta? '),
 		linkToSignup('Registre-se agora'),
 		const TextSpan(text: '!'),
 	]);
+	@override TextSpan notYou({required InlineSpanBuilder undoLogin}) => TextSpan(children: [
+		undoLogin('Você não'),
+	]);
 	@override late final _StringsLoginStatusPtBr status = _StringsLoginStatusPtBr._(_root);
-	@override List<dynamic> get faq => [
-		_StringsLogin$faq$0i0$PtBr._(_root),
-		_StringsLogin$faq$0i1$PtBr._(_root),
-		_StringsLogin$faq$0i2$PtBr._(_root),
-		_StringsLogin$faq$0i3$PtBr._(_root),
-		_StringsLogin$faq$0i4$PtBr._(_root),
-	];
+	@override late final _StringsLoginNcLoginStepPtBr ncLoginStep = _StringsLoginNcLoginStepPtBr._(_root);
+	@override late final _StringsLoginEncLoginStepPtBr encLoginStep = _StringsLoginEncLoginStepPtBr._(_root);
 }
 
 // Path: profile
@@ -9183,6 +9334,9 @@ class _StringsProfilePtBr extends _StringsProfileEn {
 		_StringsProfile$faq$0i2$PtBr._(_root),
 		_StringsProfile$faq$0i3$PtBr._(_root),
 	];
+	@override String quotaUsage({required Object used, required Object total, required Object percent}) => 'Você está usando ${used} de ${total} (${percent})';
+	@override String get connectedTo => 'Conectado a';
+	@override String get faqTitle => 'Perguntas frequentes';
 }
 
 // Path: appInfo
@@ -9493,23 +9647,6 @@ class _StringsSettingsCustomDataDirPtBr extends _StringsSettingsCustomDataDirEn 
 	@override String get mustBeDoneSyncing => 'Certifique-se de que a sincronização esteja concluída antes de alterar o diretório';
 }
 
-// Path: login.feedbacks
-class _StringsLoginFeedbacksPtBr extends _StringsLoginFeedbacksEn {
-	_StringsLoginFeedbacksPtBr._(_StringsPtBr root) : this._root = root, super._(root);
-
-	@override final _StringsPtBr _root; // ignore: unused_field
-
-	// Translations
-	@override String get checkUsername => 'Por favor verifique o seu nome de usuário ou e-mail.';
-	@override String get enterNcPassword => 'Por favor digite a sua senha do Nextcloud.';
-	@override String get enterEncPassword => 'Por favor digite a sua senha de criptografia.';
-	@override String get checkUrl => 'Por favor insira uma URL válida.';
-	@override String get ncLoginFailed => 'Falha no login, por favor verifique os seus dados e a conexão de rede.';
-	@override String get encLoginFailed => 'Falha no login, por favor verifique a sua senha de criptografia.';
-	@override String get loginSuccess => 'Login bem-sucedido! Aguarde enquanto configuramos...';
-	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'O servidor fornecido está executando Nextcloud ${v}, mas esta versão do Saber suporta apenas Nextcloud ${s} a ${t}.';
-}
-
 // Path: login.form
 class _StringsLoginFormPtBr extends _StringsLoginFormEn {
 	_StringsLoginFormPtBr._(_StringsPtBr root) : this._root = root, super._(root);
@@ -9517,17 +9654,11 @@ class _StringsLoginFormPtBr extends _StringsLoginFormEn {
 	@override final _StringsPtBr _root; // ignore: unused_field
 
 	// Translations
-	@override String get useCustomServer => 'Eu quero usar um servidor Nextcloud personalizado';
-	@override String get customServerUrl => 'URL do servidor personalizado';
-	@override String get username => 'Nome de usuário ou e-mail';
-	@override String get ncPassword => 'Senha do Nextcloud';
-	@override String get encPassword => 'Senha de criptografia';
 	@override TextSpan agreeToPrivacyPolicy({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [
 		const TextSpan(text: 'Ao fazer login, você concorda com a '),
 		linkToPrivacyPolicy('Política de Privacidade'),
 		const TextSpan(text: '.'),
 	]);
-	@override String get login => 'Login';
 }
 
 // Path: login.status
@@ -9537,64 +9668,47 @@ class _StringsLoginStatusPtBr extends _StringsLoginStatusEn {
 	@override final _StringsPtBr _root; // ignore: unused_field
 
 	// Translations
-	@override String get loggedIn => 'Logado com o Nextcloud';
 	@override String get loggedOut => 'Desconectado';
 	@override String get tapToLogin => 'Toque para fazer login com o Nextcloud';
+	@override String get loggedIn => 'Logado com o Nextcloud';
+	@override String hi({required Object u}) => 'Olá, ${u}!';
+	@override String get almostDone => 'Quase pronto para sincronização, toque para finalizar o login';
 }
 
-// Path: login.faq.0
-class _StringsLogin$faq$0i0$PtBr extends _StringsLogin$faq$0i0$En {
-	_StringsLogin$faq$0i0$PtBr._(_StringsPtBr root) : this._root = root, super._(root);
+// Path: login.ncLoginStep
+class _StringsLoginNcLoginStepPtBr extends _StringsLoginNcLoginStepEn {
+	_StringsLoginNcLoginStepPtBr._(_StringsPtBr root) : this._root = root, super._(root);
 
 	@override final _StringsPtBr _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'O que é o Nextcloud?';
-	@override String get a => 'O Nextcloud é um servidor privado de sincronização de arquivos, entre outras coisas. Você pode usar o servidor Nextcloud padrão do Saber, usar um servidor de terceiros ou auto-hospedar o seu próprio servidor para controle total dos seus dados.';
+	@override late final _StringsLoginNcLoginStepLoginFlowPtBr loginFlow = _StringsLoginNcLoginStepLoginFlowPtBr._(_root);
+	@override String get whereToStoreData => 'Escolha onde deseja armazenar seus dados:';
+	@override String get saberNcServer => 'Servidor Nextcloud do Saber';
+	@override String get otherNcServer => 'Outro servidor Nextcloud';
+	@override String get serverUrl => 'URL do servidor';
+	@override String get loginWithSaber => 'Faça login com Saber';
+	@override String get loginWithNextcloud => 'Faça login com Nextcloud';
 }
 
-// Path: login.faq.1
-class _StringsLogin$faq$0i1$PtBr extends _StringsLogin$faq$0i1$En {
-	_StringsLogin$faq$0i1$PtBr._(_StringsPtBr root) : this._root = root, super._(root);
+// Path: login.encLoginStep
+class _StringsLoginEncLoginStepPtBr extends _StringsLoginEncLoginStepEn {
+	_StringsLoginEncLoginStepPtBr._(_StringsPtBr root) : this._root = root, super._(root);
 
 	@override final _StringsPtBr _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'O que é uma senha de criptografia?';
-	@override String get a => 'A senha de criptografia é usada para criptografar os seus dados antes de eles serem enviados ao servidor. Você a escolhe quando faz login pela primeira vez no Saber, e ela não está relacionada à sua conta/senha do Nextcloud.\nNinguém pode acessar as suas notas no servidor sem a sua senha de criptografia. Isso também significa que, se você esquecer a sua senha de criptografia, perderá o acesso aos seus dados.';
-}
-
-// Path: login.faq.2
-class _StringsLogin$faq$0i2$PtBr extends _StringsLogin$faq$0i2$En {
-	_StringsLogin$faq$0i2$PtBr._(_StringsPtBr root) : this._root = root, super._(root);
-
-	@override final _StringsPtBr _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => 'Por que usar duas senhas?';
-	@override String get a => 'A senha do Nextcloud é usada para acessar a nuvem. A senha de criptografia "embaralha" os seus dados antes que eles cheguem à nuvem.\nMesmo que alguém obtenha acesso à sua conta do Nextcloud, as suas notas permanecerão seguras e criptografadas com uma senha separada. Isso fornece uma segunda camada de segurança para proteger os seus dados.';
-}
-
-// Path: login.faq.3
-class _StringsLogin$faq$0i3$PtBr extends _StringsLogin$faq$0i3$En {
-	_StringsLogin$faq$0i3$PtBr._(_StringsPtBr root) : this._root = root, super._(root);
-
-	@override final _StringsPtBr _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => 'Como eu faço login usando autenticação de dois fatores (2FA)?';
-	@override String get a => 'Em vez de sua senha regular do Nextcloud, você precisará criar uma "senha de aplicativo". Você pode fazer isso nas configurações do Nextcloud em Segurança > Dispositivos e sessões > Criar nova senha de aplicativo. A sua senha de criptografia não é afetada.';
-}
-
-// Path: login.faq.4
-class _StringsLogin$faq$0i4$PtBr extends _StringsLogin$faq$0i4$En {
-	_StringsLogin$faq$0i4$PtBr._(_StringsPtBr root) : this._root = root, super._(root);
-
-	@override final _StringsPtBr _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => 'Posso usar a mesma senha para ambos?';
-	@override String get a => 'Sim, mas isso é menos seguro. Como a sua senha do Nextcloud é enviada ao servidor, alguém com acesso ao servidor poderá descriptografar as suas notas. Use a mesma senha apenas se você confiar no proprietário do servidor. ';
+	@override String get enterEncPassword => 'Para proteger seus dados, digite sua senha de criptografia:';
+	@override String get newToSaber => 'Novo no Saber';
+	@override String get encPassword => 'Senha de criptografia';
+	@override String get encFaqTitle => 'Perguntas frequentes';
+	@override String get wrongEncPassword => 'A descriptografia falhou com a senha fornecida. Por favor, tente inseri-lo novamente.';
+	@override String get connectionFailed => 'Algo deu errado ao conectar-se ao servidor. Por favor, tente novamente mais tarde.';
+	@override List<dynamic> get encFaq => [
+		_StringsLoginEncLoginStep$encFaq$0i0$PtBr._(_root),
+		_StringsLoginEncLoginStep$encFaq$0i1$PtBr._(_root),
+		_StringsLoginEncLoginStep$encFaq$0i2$PtBr._(_root),
+	];
 }
 
 // Path: profile.quickLinks
@@ -9604,7 +9718,6 @@ class _StringsProfileQuickLinksPtBr extends _StringsProfileQuickLinksEn {
 	@override final _StringsPtBr _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Links rápidos';
 	@override String get serverHomepage => 'Página inicial do servidor';
 	@override String get deleteAccount => 'Apagar conta';
 }
@@ -9791,7 +9904,6 @@ class _StringsEditorNewerFileFormatPtBr extends _StringsEditorNewerFileFormatEn 
 	@override String get title => 'Esta nota foi editada usando uma versão mais recente do Saber';
 	@override String get subtitle => 'A edição desta nota pode resultar na perda de algumas informações. Deseja ignorar isso e editá-la mesmo assim?';
 	@override String get allowEditing => 'Permitir edição';
-	@override String get cancel => 'Cancelar';
 }
 
 // Path: editor.quill
@@ -9841,6 +9953,51 @@ class _StringsSettingsPrefDescriptionsPencilSoundSettingPtBr extends _StringsSet
 	@override String get off => 'Sem som';
 	@override String get onButNotInSilentMode => 'Ativado (a menos que esteja no modo silencioso)';
 	@override String get onAlways => 'Ativado (mesmo no modo silencioso)';
+}
+
+// Path: login.ncLoginStep.loginFlow
+class _StringsLoginNcLoginStepLoginFlowPtBr extends _StringsLoginNcLoginStepLoginFlowEn {
+	_StringsLoginNcLoginStepLoginFlowPtBr._(_StringsPtBr root) : this._root = root, super._(root);
+
+	@override final _StringsPtBr _root; // ignore: unused_field
+
+	// Translations
+	@override String get pleaseAuthorize => 'Autorize o Saber a acessar sua conta Nextcloud';
+	@override String get followPrompts => 'Por favor, siga as instruções no seu navegador.';
+	@override String get browserDidntOpen => 'O navegador não abriu';
+}
+
+// Path: login.encLoginStep.encFaq.0
+class _StringsLoginEncLoginStep$encFaq$0i0$PtBr extends _StringsLoginEncLoginStep$encFaq$0i0$En {
+	_StringsLoginEncLoginStep$encFaq$0i0$PtBr._(_StringsPtBr root) : this._root = root, super._(root);
+
+	@override final _StringsPtBr _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'O que é uma senha de criptografia?';
+	@override String get a => 'A senha de criptografia é usada para criptografar os seus dados antes de eles serem enviados ao servidor. Você a escolhe quando faz login pela primeira vez no Saber, e ela não está relacionada à sua conta/senha do Nextcloud.\nNinguém pode acessar as suas notas no servidor sem a sua senha de criptografia. Isso também significa que, se você esquecer a sua senha de criptografia, perderá o acesso aos seus dados.';
+}
+
+// Path: login.encLoginStep.encFaq.1
+class _StringsLoginEncLoginStep$encFaq$0i1$PtBr extends _StringsLoginEncLoginStep$encFaq$0i1$En {
+	_StringsLoginEncLoginStep$encFaq$0i1$PtBr._(_StringsPtBr root) : this._root = root, super._(root);
+
+	@override final _StringsPtBr _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Por que usar duas senhas?';
+	@override String get a => 'A senha do Nextcloud é usada para acessar a nuvem. A senha de criptografia "embaralha" os seus dados antes que eles cheguem à nuvem.\nMesmo que alguém obtenha acesso à sua conta do Nextcloud, as suas notas permanecerão seguras e criptografadas com uma senha separada. Isso fornece uma segunda camada de segurança para proteger os seus dados.';
+}
+
+// Path: login.encLoginStep.encFaq.2
+class _StringsLoginEncLoginStep$encFaq$0i2$PtBr extends _StringsLoginEncLoginStep$encFaq$0i2$En {
+	_StringsLoginEncLoginStep$encFaq$0i2$PtBr._(_StringsPtBr root) : this._root = root, super._(root);
+
+	@override final _StringsPtBr _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Posso usar a mesma senha para ambos?';
+	@override String get a => 'Sim, mas isso é menos seguro. Como a sua senha do Nextcloud é enviada ao servidor, alguém com acesso ao servidor poderá descriptografar as suas notas. Use a mesma senha apenas se você confiar no proprietário do servidor. ';
 }
 
 // Path: editor.menu.boxFits
@@ -9893,6 +10050,7 @@ class _StringsRu extends Translations {
 	@override late final _StringsRu _root = this; // ignore: unused_field
 
 	// Translations
+	@override late final _StringsCommonRu common = _StringsCommonRu._(_root);
 	@override late final _StringsHomeRu home = _StringsHomeRu._(_root);
 	@override late final _StringsSettingsRu settings = _StringsSettingsRu._(_root);
 	@override late final _StringsLoginRu login = _StringsLoginRu._(_root);
@@ -9900,6 +10058,18 @@ class _StringsRu extends Translations {
 	@override late final _StringsAppInfoRu appInfo = _StringsAppInfoRu._(_root);
 	@override late final _StringsUpdateRu update = _StringsUpdateRu._(_root);
 	@override late final _StringsEditorRu editor = _StringsEditorRu._(_root);
+}
+
+// Path: common
+class _StringsCommonRu extends _StringsCommonEn {
+	_StringsCommonRu._(_StringsRu root) : this._root = root, super._(root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get cancel => 'Отмена';
+	@override String get done => 'Сделанный';
+	@override String get continueBtn => 'Продолжать';
 }
 
 // Path: home
@@ -9959,23 +10129,18 @@ class _StringsLoginRu extends _StringsLoginEn {
 
 	// Translations
 	@override String get title => 'Авторизация';
-	@override late final _StringsLoginFeedbacksRu feedbacks = _StringsLoginFeedbacksRu._(_root);
 	@override late final _StringsLoginFormRu form = _StringsLoginFormRu._(_root);
-	@override String get seeFaq => 'Дополнительную информацию, в том числе о пароле шифрования, см. в разделе часто задаваемых вопросов ниже.';
 	@override TextSpan signup({required InlineSpanBuilder linkToSignup}) => TextSpan(children: [
 		const TextSpan(text: 'У вас нет учётной записи? '),
 		linkToSignup('Зарегистрируйтесь сейчас'),
 		const TextSpan(text: '!'),
 	]);
+	@override TextSpan notYou({required InlineSpanBuilder undoLogin}) => TextSpan(children: [
+		undoLogin('Не вы'),
+	]);
 	@override late final _StringsLoginStatusRu status = _StringsLoginStatusRu._(_root);
-	@override List<dynamic> get faq => [
-		_StringsLogin$faq$0i0$Ru._(_root),
-		_StringsLogin$faq$0i1$Ru._(_root),
-		_StringsLogin$faq$0i2$Ru._(_root),
-		_StringsLogin$faq$0i3$Ru._(_root),
-		_StringsLogin$faq$0i4$Ru._(_root),
-		_StringsLogin$faq$0i5$Ru._(_root),
-	];
+	@override late final _StringsLoginNcLoginStepRu ncLoginStep = _StringsLoginNcLoginStepRu._(_root);
+	@override late final _StringsLoginEncLoginStepRu encLoginStep = _StringsLoginEncLoginStepRu._(_root);
 }
 
 // Path: profile
@@ -9994,6 +10159,9 @@ class _StringsProfileRu extends _StringsProfileEn {
 		_StringsProfile$faq$0i2$Ru._(_root),
 		_StringsProfile$faq$0i3$Ru._(_root),
 	];
+	@override String quotaUsage({required Object used, required Object total, required Object percent}) => 'Вы используете ${used} из ${total} (${percent})';
+	@override String get connectedTo => 'Подключен к';
+	@override String get faqTitle => 'Часто задаваемые вопросы';
 }
 
 // Path: appInfo
@@ -10304,23 +10472,6 @@ class _StringsSettingsCustomDataDirRu extends _StringsSettingsCustomDataDirEn {
 	@override String get mustBeDoneSyncing => 'Прежде чем менять каталог, убедитесь, что синхронизация завершена.';
 }
 
-// Path: login.feedbacks
-class _StringsLoginFeedbacksRu extends _StringsLoginFeedbacksEn {
-	_StringsLoginFeedbacksRu._(_StringsRu root) : this._root = root, super._(root);
-
-	@override final _StringsRu _root; // ignore: unused_field
-
-	// Translations
-	@override String get checkUsername => 'Дважды проверьте своё имя пользователя или адрес электронной почты.';
-	@override String get enterNcPassword => 'Введите свой пароль Nextcloud.';
-	@override String get enterEncPassword => 'Введите пароль шифрования.';
-	@override String get checkUrl => 'Пожалуйста, введите корректный URL адрес.';
-	@override String get ncLoginFailed => 'Ошибка входа. Проверьте свои данные и подключение к сети.';
-	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'На данном сервере работает Nextcloud ${v}, но эта версия Saber поддерживает только Nextcloud от ${s} до ${t}.';
-	@override String get encLoginFailed => 'Не удалось войти. Проверьте пароль шифрования.';
-	@override String get loginSuccess => 'Вход выполнен успешно! Пожалуйста подождите, пока мы настроим…';
-}
-
 // Path: login.form
 class _StringsLoginFormRu extends _StringsLoginFormEn {
 	_StringsLoginFormRu._(_StringsRu root) : this._root = root, super._(root);
@@ -10328,17 +10479,11 @@ class _StringsLoginFormRu extends _StringsLoginFormEn {
 	@override final _StringsRu _root; // ignore: unused_field
 
 	// Translations
-	@override String get useCustomServer => 'Я буду использовать свой Nextcloud сервер';
-	@override String get customServerUrl => 'Адрес Вашего сервера';
-	@override String get username => 'Имя пользователя или e-mail';
-	@override String get ncPassword => 'Пароль Nextcloud';
-	@override String get encPassword => 'Пароль шифрования';
 	@override TextSpan agreeToPrivacyPolicy({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [
 		const TextSpan(text: 'Авторизуясь, вы соглашаетесь с '),
 		linkToPrivacyPolicy('политикой конфиденциальности'),
 		const TextSpan(text: '.'),
 	]);
-	@override String get login => 'Авторизоваться';
 }
 
 // Path: login.status
@@ -10348,75 +10493,47 @@ class _StringsLoginStatusRu extends _StringsLoginStatusEn {
 	@override final _StringsRu _root; // ignore: unused_field
 
 	// Translations
-	@override String get loggedIn => 'Авторизован в Nextcloud';
 	@override String get loggedOut => 'Не авторизован';
 	@override String get tapToLogin => 'Нажми для авторизации в Nextcloud';
+	@override String get loggedIn => 'Авторизован в Nextcloud';
+	@override String hi({required Object u}) => 'Привет, ${u}!';
+	@override String get almostDone => 'Почти готово к синхронизации. Нажмите, чтобы завершить вход.';
 }
 
-// Path: login.faq.0
-class _StringsLogin$faq$0i0$Ru extends _StringsLogin$faq$0i0$En {
-	_StringsLogin$faq$0i0$Ru._(_StringsRu root) : this._root = root, super._(root);
+// Path: login.ncLoginStep
+class _StringsLoginNcLoginStepRu extends _StringsLoginNcLoginStepEn {
+	_StringsLoginNcLoginStepRu._(_StringsRu root) : this._root = root, super._(root);
 
 	@override final _StringsRu _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Что такое Nextcloud?';
-	@override String get a => 'Nextcloud — это частный сервер синхронизации файлов, помимо всего прочего. Вы можете использовать сервер Saber Nextcloud по умолчанию, использовать сторонний сервер или самостоятельно разместить свой собственный для полного контроля над своими данными.';
+	@override late final _StringsLoginNcLoginStepLoginFlowRu loginFlow = _StringsLoginNcLoginStepLoginFlowRu._(_root);
+	@override String get whereToStoreData => 'Выберите, где вы хотите хранить свои данные:';
+	@override String get saberNcServer => 'Сервер Nextcloud от Saber';
+	@override String get otherNcServer => 'Другой сервер Nextcloud';
+	@override String get serverUrl => 'URL-адрес сервера';
+	@override String get loginWithSaber => 'Войти через Сабер';
+	@override String get loginWithNextcloud => 'Войти через Nextcloud';
 }
 
-// Path: login.faq.1
-class _StringsLogin$faq$0i1$Ru extends _StringsLogin$faq$0i1$En {
-	_StringsLogin$faq$0i1$Ru._(_StringsRu root) : this._root = root, super._(root);
+// Path: login.encLoginStep
+class _StringsLoginEncLoginStepRu extends _StringsLoginEncLoginStepEn {
+	_StringsLoginEncLoginStepRu._(_StringsRu root) : this._root = root, super._(root);
 
 	@override final _StringsRu _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Что такое пароль шифрования?';
-	@override String get a => 'Пароль шифрования используется для шифрования ваших данных перед их отправкой на сервер. Вы выбираете его при первом входе в Saber, и он не связан с вашей учетной записью/паролем Nextcloud.\nНикто не сможет получить доступ к вашим заметкам на сервере без вашего пароля шифрования. Это также означает, что если вы забудете пароль для шифрования, вы потеряете доступ к своим данным.';
-}
-
-// Path: login.faq.2
-class _StringsLogin$faq$0i2$Ru extends _StringsLogin$faq$0i2$En {
-	_StringsLogin$faq$0i2$Ru._(_StringsRu root) : this._root = root, super._(root);
-
-	@override final _StringsRu _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => 'Зачем использовать два пароля?';
-	@override String get a => 'Пароль Nextcloud используется для доступа к облаку. Пароль шифрования «шифрует» ваши данные еще до того, как они попадут в облако.\nДаже если кто-то получит доступ к вашей учетной записи Nextcloud, ваши заметки останутся в безопасности и будут зашифрованы с помощью отдельного пароля. Это обеспечивает вам второй уровень безопасности для защиты ваших данных.';
-}
-
-// Path: login.faq.3
-class _StringsLogin$faq$0i3$Ru extends _StringsLogin$faq$0i3$En {
-	_StringsLogin$faq$0i3$Ru._(_StringsRu root) : this._root = root, super._(root);
-
-	@override final _StringsRu _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => 'Я еще не установил пароль шифрования. Где я могу его получить?';
-	@override String get a => 'Просто придумайте его, когда вы войдёте в систему, указанную выше!\nВы придумываете пароль шифрования при первом входе в Saber (приложение, а не веб-сайт сервера).';
-}
-
-// Path: login.faq.4
-class _StringsLogin$faq$0i4$Ru extends _StringsLogin$faq$0i4$En {
-	_StringsLogin$faq$0i4$Ru._(_StringsRu root) : this._root = root, super._(root);
-
-	@override final _StringsRu _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => 'Как мне войти, если я использую 2FA?';
-	@override String get a => 'Вместо обычного пароля Nextcloud Вам нужно будет создать «Пароль приложения». Вы можете сделать это в настройках Nextcloud в разделе «Безопасность» -> «Устройства и сеансы» -> «Создать новый пароль приложения». Ваш пароль шифрования не изменится.';
-}
-
-// Path: login.faq.5
-class _StringsLogin$faq$0i5$Ru extends _StringsLogin$faq$0i5$En {
-	_StringsLogin$faq$0i5$Ru._(_StringsRu root) : this._root = root, super._(root);
-
-	@override final _StringsRu _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => 'Могу ли я использовать один и тот же пароль для обоих приложений?';
-	@override String get a => 'Да, но это менее безопасно. Поскольку ваш пароль Nextcloud отправляется на сервер, кто-то, имеющий доступ к серверу, сможет расшифровать ваши заметки. Используйте тот же пароль, только если вы доверяете владельцу сервера.';
+	@override String get enterEncPassword => 'Чтобы защитить ваши данные, введите пароль шифрования:';
+	@override String get newToSaber => 'Новое в Сабре';
+	@override String get encPassword => 'Пароль шифрования';
+	@override String get encFaqTitle => 'Часто задаваемые вопросы';
+	@override String get wrongEncPassword => 'Расшифровка не удалась с использованием предоставленного пароля. Пожалуйста, попробуйте ввести его еще раз.';
+	@override String get connectionFailed => 'Что-то пошло не так при подключении к серверу. Пожалуйста, повторите попытку позже.';
+	@override List<dynamic> get encFaq => [
+		_StringsLoginEncLoginStep$encFaq$0i0$Ru._(_root),
+		_StringsLoginEncLoginStep$encFaq$0i1$Ru._(_root),
+		_StringsLoginEncLoginStep$encFaq$0i2$Ru._(_root),
+	];
 }
 
 // Path: profile.quickLinks
@@ -10426,7 +10543,6 @@ class _StringsProfileQuickLinksRu extends _StringsProfileQuickLinksEn {
 	@override final _StringsRu _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Быстрые ссылки';
 	@override String get serverHomepage => 'Домашняя страница сервера';
 	@override String get deleteAccount => 'Удалить учётную запись';
 }
@@ -10613,7 +10729,6 @@ class _StringsEditorNewerFileFormatRu extends _StringsEditorNewerFileFormatEn {
 	@override String get title => 'Эта заметка была отредактирована в более новой версии Saber.';
 	@override String get subtitle => 'Редактирование этой заметки может привести к потере некоторой информации. Вы хотите проигнорировать это и начать редактирование?';
 	@override String get allowEditing => 'Разрешить редактирование';
-	@override String get cancel => 'Отмена';
 }
 
 // Path: editor.quill
@@ -10663,6 +10778,51 @@ class _StringsSettingsPrefDescriptionsPencilSoundSettingRu extends _StringsSetti
 	@override String get off => 'Без звука';
 	@override String get onButNotInSilentMode => 'Включено (кроме тихого режима)';
 	@override String get onAlways => 'Включено (даже в беззвучном режиме)';
+}
+
+// Path: login.ncLoginStep.loginFlow
+class _StringsLoginNcLoginStepLoginFlowRu extends _StringsLoginNcLoginStepLoginFlowEn {
+	_StringsLoginNcLoginStepLoginFlowRu._(_StringsRu root) : this._root = root, super._(root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get pleaseAuthorize => 'Пожалуйста, разрешите Saber доступ к вашей учетной записи Nextcloud.';
+	@override String get followPrompts => 'Пожалуйста, следуйте инструкциям в вашем браузере.';
+	@override String get browserDidntOpen => 'Браузер не открылся';
+}
+
+// Path: login.encLoginStep.encFaq.0
+class _StringsLoginEncLoginStep$encFaq$0i0$Ru extends _StringsLoginEncLoginStep$encFaq$0i0$En {
+	_StringsLoginEncLoginStep$encFaq$0i0$Ru._(_StringsRu root) : this._root = root, super._(root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Что такое пароль шифрования?';
+	@override String get a => 'Пароль шифрования используется для шифрования ваших данных перед их отправкой на сервер. Вы выбираете его при первом входе в Saber, и он не связан с вашей учетной записью/паролем Nextcloud.\nНикто не сможет получить доступ к вашим заметкам на сервере без вашего пароля шифрования. Это также означает, что если вы забудете пароль для шифрования, вы потеряете доступ к своим данным.';
+}
+
+// Path: login.encLoginStep.encFaq.1
+class _StringsLoginEncLoginStep$encFaq$0i1$Ru extends _StringsLoginEncLoginStep$encFaq$0i1$En {
+	_StringsLoginEncLoginStep$encFaq$0i1$Ru._(_StringsRu root) : this._root = root, super._(root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Зачем использовать два пароля?';
+	@override String get a => 'Пароль Nextcloud используется для доступа к облаку. Пароль шифрования «шифрует» ваши данные еще до того, как они попадут в облако.\nДаже если кто-то получит доступ к вашей учетной записи Nextcloud, ваши заметки останутся в безопасности и будут зашифрованы с помощью отдельного пароля. Это обеспечивает вам второй уровень безопасности для защиты ваших данных.';
+}
+
+// Path: login.encLoginStep.encFaq.2
+class _StringsLoginEncLoginStep$encFaq$0i2$Ru extends _StringsLoginEncLoginStep$encFaq$0i2$En {
+	_StringsLoginEncLoginStep$encFaq$0i2$Ru._(_StringsRu root) : this._root = root, super._(root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Я еще не установил пароль шифрования. Где я могу его получить?';
+	@override String get a => 'Просто придумайте его, когда вы войдёте в систему, указанную выше!\nВы придумываете пароль шифрования при первом входе в Saber (приложение, а не веб-сайт сервера).';
 }
 
 // Path: editor.menu.boxFits
@@ -10715,6 +10875,7 @@ class _StringsTr extends Translations {
 	@override late final _StringsTr _root = this; // ignore: unused_field
 
 	// Translations
+	@override late final _StringsCommonTr common = _StringsCommonTr._(_root);
 	@override late final _StringsHomeTr home = _StringsHomeTr._(_root);
 	@override late final _StringsSettingsTr settings = _StringsSettingsTr._(_root);
 	@override late final _StringsLoginTr login = _StringsLoginTr._(_root);
@@ -10722,6 +10883,18 @@ class _StringsTr extends Translations {
 	@override late final _StringsAppInfoTr appInfo = _StringsAppInfoTr._(_root);
 	@override late final _StringsUpdateTr update = _StringsUpdateTr._(_root);
 	@override late final _StringsEditorTr editor = _StringsEditorTr._(_root);
+}
+
+// Path: common
+class _StringsCommonTr extends _StringsCommonEn {
+	_StringsCommonTr._(_StringsTr root) : this._root = root, super._(root);
+
+	@override final _StringsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String get cancel => 'İptal';
+	@override String get done => 'Tamamlamak';
+	@override String get continueBtn => 'Devam etmek';
 }
 
 // Path: home
@@ -10781,22 +10954,18 @@ class _StringsLoginTr extends _StringsLoginEn {
 
 	// Translations
 	@override String get title => 'Giriş yap';
-	@override late final _StringsLoginFeedbacksTr feedbacks = _StringsLoginFeedbacksTr._(_root);
 	@override late final _StringsLoginFormTr form = _StringsLoginFormTr._(_root);
-	@override String get seeFaq => 'Şifreleme parolası da dahil olmak üzere daha fazla bilgi için aşağıdaki SSS\'ye bakın.';
 	@override TextSpan signup({required InlineSpanBuilder linkToSignup}) => TextSpan(children: [
 		const TextSpan(text: 'Henüz hesabınız yok mu? '),
 		linkToSignup('Hesap oluşturmak için tıklayın'),
 		const TextSpan(text: '!'),
 	]);
+	@override TextSpan notYou({required InlineSpanBuilder undoLogin}) => TextSpan(children: [
+		undoLogin('Sen değil'),
+	]);
 	@override late final _StringsLoginStatusTr status = _StringsLoginStatusTr._(_root);
-	@override List<dynamic> get faq => [
-		_StringsLogin$faq$0i0$Tr._(_root),
-		_StringsLogin$faq$0i1$Tr._(_root),
-		_StringsLogin$faq$0i2$Tr._(_root),
-		_StringsLogin$faq$0i3$Tr._(_root),
-		_StringsLogin$faq$0i4$Tr._(_root),
-	];
+	@override late final _StringsLoginNcLoginStepTr ncLoginStep = _StringsLoginNcLoginStepTr._(_root);
+	@override late final _StringsLoginEncLoginStepTr encLoginStep = _StringsLoginEncLoginStepTr._(_root);
 }
 
 // Path: profile
@@ -10815,6 +10984,9 @@ class _StringsProfileTr extends _StringsProfileEn {
 		_StringsProfile$faq$0i2$Tr._(_root),
 		_StringsProfile$faq$0i3$Tr._(_root),
 	];
+	@override String quotaUsage({required Object total, required Object percent, required Object used}) => '${total} (${percent}) değerinden ${used} miktarını kullanıyorsunuz';
+	@override String get connectedTo => 'Bağlı';
+	@override String get faqTitle => 'Sıkça Sorulan Sorular';
 }
 
 // Path: appInfo
@@ -11125,23 +11297,6 @@ class _StringsSettingsCustomDataDirTr extends _StringsSettingsCustomDataDirEn {
 	@override String get mustBeDoneSyncing => 'Dizini değiştirmeden önce senkronizasyonun tamamlandığından emin olun';
 }
 
-// Path: login.feedbacks
-class _StringsLoginFeedbacksTr extends _StringsLoginFeedbacksEn {
-	_StringsLoginFeedbacksTr._(_StringsTr root) : this._root = root, super._(root);
-
-	@override final _StringsTr _root; // ignore: unused_field
-
-	// Translations
-	@override String get checkUsername => 'Lütfen kullanıcı adınız veya e-posta adresinizi kontrol edin.';
-	@override String get enterNcPassword => 'Lütfen Nextcloud parolanızı girin.';
-	@override String get enterEncPassword => 'Lütfen şifreleme parolanızı girin.';
-	@override String get checkUrl => 'Lütfen geçerli bir URL girin.';
-	@override String get ncLoginFailed => 'Giriş başarısız, Nextcloud parolanızı ve internet bağlantınızı kontrol edin.';
-	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => 'Bu sunucu Nextcloud\'un ${v} sürümünü kullanıyor ancak Saber\'ın bu versiyonunda Nextcloud ${s} - ${t} sürümleri desteklenmekte.';
-	@override String get encLoginFailed => 'Giriş başarısız, şifreleme parolanızı kontrol ediniz.';
-	@override String get loginSuccess => 'Giriş başarılı! Kurulum gerçekleşirken lütfen bekleyin...';
-}
-
 // Path: login.form
 class _StringsLoginFormTr extends _StringsLoginFormEn {
 	_StringsLoginFormTr._(_StringsTr root) : this._root = root, super._(root);
@@ -11149,17 +11304,11 @@ class _StringsLoginFormTr extends _StringsLoginFormEn {
 	@override final _StringsTr _root; // ignore: unused_field
 
 	// Translations
-	@override String get useCustomServer => 'Farklı bir Nextcloud sunucusu kullanmak istiyorum';
-	@override String get customServerUrl => 'Farklı bir sunucu URL\'i';
-	@override String get username => 'Kullanıcı adı veya e-posta adresi';
-	@override String get ncPassword => 'Nextcloud parolası';
-	@override String get encPassword => 'Şifreleme parolası';
 	@override TextSpan agreeToPrivacyPolicy({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [
 		const TextSpan(text: 'Giriş yaparak '),
 		linkToPrivacyPolicy('Gizlilik Politikasını'),
 		const TextSpan(text: ' kabul edersiniz.'),
 	]);
-	@override String get login => 'Giriş yap';
 }
 
 // Path: login.status
@@ -11169,64 +11318,47 @@ class _StringsLoginStatusTr extends _StringsLoginStatusEn {
 	@override final _StringsTr _root; // ignore: unused_field
 
 	// Translations
-	@override String get loggedIn => 'Nextcloud\'a giriş yapıldı';
 	@override String get loggedOut => 'Çıkış yapıldı';
 	@override String get tapToLogin => 'Nextcloud oturumu açmak için tıklayın';
+	@override String get loggedIn => 'Nextcloud\'a giriş yapıldı';
+	@override String hi({required Object u}) => 'Merhaba, ${u}!';
+	@override String get almostDone => 'Senkronizasyon için neredeyse hazır; oturum açmayı tamamlamak için dokunun';
 }
 
-// Path: login.faq.0
-class _StringsLogin$faq$0i0$Tr extends _StringsLogin$faq$0i0$En {
-	_StringsLogin$faq$0i0$Tr._(_StringsTr root) : this._root = root, super._(root);
+// Path: login.ncLoginStep
+class _StringsLoginNcLoginStepTr extends _StringsLoginNcLoginStepEn {
+	_StringsLoginNcLoginStepTr._(_StringsTr root) : this._root = root, super._(root);
 
 	@override final _StringsTr _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Nextcloud nedir?';
-	@override String get a => 'Nextcloud sunduğu birçok özelliğin yanı sıra, özel bir dosya senkronizasyon sunucusudur. Varsayılan Saber Nextcloud sunucusunu, 3. parti bir sunucuyu kullanmayı tercih edebilir veya kendi verinizin tam sahipliğini elde etmek için kendi host ettiğiniz sunucunuza bağlanabilirsiniz.';
+	@override late final _StringsLoginNcLoginStepLoginFlowTr loginFlow = _StringsLoginNcLoginStepLoginFlowTr._(_root);
+	@override String get whereToStoreData => 'Verilerinizi nerede saklamak istediğinizi seçin:';
+	@override String get saberNcServer => 'Saber\'nin Nextcloud sunucusu';
+	@override String get otherNcServer => 'Diğer Nextcloud sunucusu';
+	@override String get serverUrl => 'Sunucu URL\'si';
+	@override String get loginWithSaber => 'Saber ile giriş yap';
+	@override String get loginWithNextcloud => 'Nextcloud\'a giriş yapın';
 }
 
-// Path: login.faq.1
-class _StringsLogin$faq$0i1$Tr extends _StringsLogin$faq$0i1$En {
-	_StringsLogin$faq$0i1$Tr._(_StringsTr root) : this._root = root, super._(root);
+// Path: login.encLoginStep
+class _StringsLoginEncLoginStepTr extends _StringsLoginEncLoginStepEn {
+	_StringsLoginEncLoginStepTr._(_StringsTr root) : this._root = root, super._(root);
 
 	@override final _StringsTr _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Şifreleme parolası nedir?';
-	@override String get a => 'Şifreleme parolası, verilerinizin sunucuya yollanmadan önce şifrelenmesinde kullanılıyor. Saber\'a ilk defa giriş yaptığınızda bu parolayı ayarlayabilirsiniz ve bu parola Nextcloud hesabınız/parolanız ile alakalı değildir.\nŞifreleme parolanız olmadan sunucudaki notlarınıza kimse erişemez. Dolayısıyla eğer şifreleme parolanızı unutursanız verilerinize erişimi de kaybedersiniz.';
-}
-
-// Path: login.faq.2
-class _StringsLogin$faq$0i2$Tr extends _StringsLogin$faq$0i2$En {
-	_StringsLogin$faq$0i2$Tr._(_StringsTr root) : this._root = root, super._(root);
-
-	@override final _StringsTr _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => 'Neden iki şifre kullanılıyor?';
-	@override String get a => 'Nextcloud parolası bulut sunucuya erişmek için kullanılıyor. Şifreleme parolası, verilerinizin bulut sunucuya yollanmadan önce "karmaşıklaştırılması"nı sağlıyor.\nHerhangi birisi Nextcloud hesabınıza erişebilseydi bile, farklı bir şifreleme parolası kullandığınız için notlarınızı okuyamazdı. Böylece verilerinizin korunması için ikinci bir katman oluşuyor.';
-}
-
-// Path: login.faq.3
-class _StringsLogin$faq$0i3$Tr extends _StringsLogin$faq$0i3$En {
-	_StringsLogin$faq$0i3$Tr._(_StringsTr root) : this._root = root, super._(root);
-
-	@override final _StringsTr _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => 'Eğer Çift Faktörlü Koruma (2FA) kullanıyorsam nasıl giriş yapacağım?';
-	@override String get a => 'Nextcloud parolanız yerine üreteceğiniz "uygulama parolası" ile giriş yapacaksınız. Bu parolayı Nextcloud ayarlarınız içerisinde Güvenlik > Cihazlar & oturumlar > Yeni uygulama parolası üret aşamalarını takip ederek gerçekleştirebilirsiniz. Şifreleme parolanız bundan etkilenmez.';
-}
-
-// Path: login.faq.4
-class _StringsLogin$faq$0i4$Tr extends _StringsLogin$faq$0i4$En {
-	_StringsLogin$faq$0i4$Tr._(_StringsTr root) : this._root = root, super._(root);
-
-	@override final _StringsTr _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => 'Her ikisi için de aynı parolayı kullanabilir miyim?';
-	@override String get a => 'Evet ancak bu daha az güvenlidir. Nextcloud parolanız sunucuya gönderildiğinden, sunucuya erişimi olan birisi notlarınızın şifresini de çözebilir. Yalnızca sunucu sahibine güveniyorsanız aynı şifreyi kullanın.';
+	@override String get enterEncPassword => 'Verilerinizi korumak için lütfen şifreleme şifrenizi girin:';
+	@override String get newToSaber => 'Saber\'da yeni';
+	@override String get encPassword => 'Şifreleme şifresi';
+	@override String get encFaqTitle => 'Sıkça Sorulan Sorular';
+	@override String get wrongEncPassword => 'Sağlanan parolayla şifre çözme başarısız oldu. Lütfen tekrar girmeyi deneyin.';
+	@override String get connectionFailed => 'Sunucuya bağlanırken bir şeyler ters gitti. Lütfen daha sonra tekrar deneyiniz.';
+	@override List<dynamic> get encFaq => [
+		_StringsLoginEncLoginStep$encFaq$0i0$Tr._(_root),
+		_StringsLoginEncLoginStep$encFaq$0i1$Tr._(_root),
+		_StringsLoginEncLoginStep$encFaq$0i2$Tr._(_root),
+	];
 }
 
 // Path: profile.quickLinks
@@ -11236,7 +11368,6 @@ class _StringsProfileQuickLinksTr extends _StringsProfileQuickLinksEn {
 	@override final _StringsTr _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Hızlı linkler';
 	@override String get serverHomepage => 'Sunucu anasayfası';
 	@override String get deleteAccount => 'Hesabı sil';
 }
@@ -11423,7 +11554,6 @@ class _StringsEditorNewerFileFormatTr extends _StringsEditorNewerFileFormatEn {
 	@override String get title => 'Bu not Saber\'ın yeni bir versiyonunda düzenlenmiş';
 	@override String get subtitle => 'Bu notu düzenlemek veri kaybına sebep olabilir. Bunu görmezden gelerek düzenlemek ister misiniz?';
 	@override String get allowEditing => 'Düzenlemeye izin ver';
-	@override String get cancel => 'İptal';
 }
 
 // Path: editor.quill
@@ -11473,6 +11603,51 @@ class _StringsSettingsPrefDescriptionsPencilSoundSettingTr extends _StringsSetti
 	@override String get off => 'Ses yok';
 	@override String get onButNotInSilentMode => 'Etkin (sessiz modda olmadığı sürece)';
 	@override String get onAlways => 'Etkin (sessiz modda bile)';
+}
+
+// Path: login.ncLoginStep.loginFlow
+class _StringsLoginNcLoginStepLoginFlowTr extends _StringsLoginNcLoginStepLoginFlowEn {
+	_StringsLoginNcLoginStepLoginFlowTr._(_StringsTr root) : this._root = root, super._(root);
+
+	@override final _StringsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String get pleaseAuthorize => 'Lütfen Saber\'a Nextcloud hesabınıza erişmesi için yetki verin';
+	@override String get followPrompts => 'Lütfen tarayıcınızdaki talimatları izleyin.';
+	@override String get browserDidntOpen => 'Tarayıcı açılmadı';
+}
+
+// Path: login.encLoginStep.encFaq.0
+class _StringsLoginEncLoginStep$encFaq$0i0$Tr extends _StringsLoginEncLoginStep$encFaq$0i0$En {
+	_StringsLoginEncLoginStep$encFaq$0i0$Tr._(_StringsTr root) : this._root = root, super._(root);
+
+	@override final _StringsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Şifreleme parolası nedir?';
+	@override String get a => 'Şifreleme parolası, verilerinizin sunucuya yollanmadan önce şifrelenmesinde kullanılıyor. Saber\'a ilk defa giriş yaptığınızda bu parolayı ayarlayabilirsiniz ve bu parola Nextcloud hesabınız/parolanız ile alakalı değildir.\nŞifreleme parolanız olmadan sunucudaki notlarınıza kimse erişemez. Dolayısıyla eğer şifreleme parolanızı unutursanız verilerinize erişimi de kaybedersiniz.';
+}
+
+// Path: login.encLoginStep.encFaq.1
+class _StringsLoginEncLoginStep$encFaq$0i1$Tr extends _StringsLoginEncLoginStep$encFaq$0i1$En {
+	_StringsLoginEncLoginStep$encFaq$0i1$Tr._(_StringsTr root) : this._root = root, super._(root);
+
+	@override final _StringsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Neden iki şifre kullanılıyor?';
+	@override String get a => 'Nextcloud parolası bulut sunucuya erişmek için kullanılıyor. Şifreleme parolası, verilerinizin bulut sunucuya yollanmadan önce "karmaşıklaştırılması"nı sağlıyor.\nHerhangi birisi Nextcloud hesabınıza erişebilseydi bile, farklı bir şifreleme parolası kullandığınız için notlarınızı okuyamazdı. Böylece verilerinizin korunması için ikinci bir katman oluşuyor.';
+}
+
+// Path: login.encLoginStep.encFaq.2
+class _StringsLoginEncLoginStep$encFaq$0i2$Tr extends _StringsLoginEncLoginStep$encFaq$0i2$En {
+	_StringsLoginEncLoginStep$encFaq$0i2$Tr._(_StringsTr root) : this._root = root, super._(root);
+
+	@override final _StringsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Her ikisi için de aynı parolayı kullanabilir miyim?';
+	@override String get a => 'Evet ancak bu daha az güvenlidir. Nextcloud parolanız sunucuya gönderildiğinden, sunucuya erişimi olan birisi notlarınızın şifresini de çözebilir. Yalnızca sunucu sahibine güveniyorsanız aynı şifreyi kullanın.';
 }
 
 // Path: editor.menu.boxFits
@@ -11525,6 +11700,7 @@ class _StringsZhHansCn extends Translations {
 	@override late final _StringsZhHansCn _root = this; // ignore: unused_field
 
 	// Translations
+	@override late final _StringsCommonZhHansCn common = _StringsCommonZhHansCn._(_root);
 	@override late final _StringsHomeZhHansCn home = _StringsHomeZhHansCn._(_root);
 	@override late final _StringsSettingsZhHansCn settings = _StringsSettingsZhHansCn._(_root);
 	@override late final _StringsLoginZhHansCn login = _StringsLoginZhHansCn._(_root);
@@ -11532,6 +11708,18 @@ class _StringsZhHansCn extends Translations {
 	@override late final _StringsAppInfoZhHansCn appInfo = _StringsAppInfoZhHansCn._(_root);
 	@override late final _StringsUpdateZhHansCn update = _StringsUpdateZhHansCn._(_root);
 	@override late final _StringsEditorZhHansCn editor = _StringsEditorZhHansCn._(_root);
+}
+
+// Path: common
+class _StringsCommonZhHansCn extends _StringsCommonEn {
+	_StringsCommonZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
+
+	@override final _StringsZhHansCn _root; // ignore: unused_field
+
+	// Translations
+	@override String get cancel => '取消';
+	@override String get done => '完毕';
+	@override String get continueBtn => '继续';
 }
 
 // Path: home
@@ -11591,22 +11779,18 @@ class _StringsLoginZhHansCn extends _StringsLoginEn {
 
 	// Translations
 	@override String get title => '登录';
-	@override late final _StringsLoginFeedbacksZhHansCn feedbacks = _StringsLoginFeedbacksZhHansCn._(_root);
 	@override late final _StringsLoginFormZhHansCn form = _StringsLoginFormZhHansCn._(_root);
-	@override String get seeFaq => '请参阅下面的常见问题解答以了解更多信息，包括有关加密密码的信息。';
 	@override TextSpan signup({required InlineSpanBuilder linkToSignup}) => TextSpan(children: [
 		const TextSpan(text: '还没有帐户？ '),
 		linkToSignup('立即注册'),
 		const TextSpan(text: '！'),
 	]);
+	@override TextSpan notYou({required InlineSpanBuilder undoLogin}) => TextSpan(children: [
+		undoLogin('不是你'),
+	]);
 	@override late final _StringsLoginStatusZhHansCn status = _StringsLoginStatusZhHansCn._(_root);
-	@override List<dynamic> get faq => [
-		_StringsLogin$faq$0i0$ZhHansCn._(_root),
-		_StringsLogin$faq$0i1$ZhHansCn._(_root),
-		_StringsLogin$faq$0i2$ZhHansCn._(_root),
-		_StringsLogin$faq$0i3$ZhHansCn._(_root),
-		_StringsLogin$faq$0i4$ZhHansCn._(_root),
-	];
+	@override late final _StringsLoginNcLoginStepZhHansCn ncLoginStep = _StringsLoginNcLoginStepZhHansCn._(_root);
+	@override late final _StringsLoginEncLoginStepZhHansCn encLoginStep = _StringsLoginEncLoginStepZhHansCn._(_root);
 }
 
 // Path: profile
@@ -11625,6 +11809,9 @@ class _StringsProfileZhHansCn extends _StringsProfileEn {
 		_StringsProfile$faq$0i2$ZhHansCn._(_root),
 		_StringsProfile$faq$0i3$ZhHansCn._(_root),
 	];
+	@override String quotaUsage({required Object used, required Object total, required Object percent}) => '您正在使用 ${used} 占 ${total} (${percent})';
+	@override String get connectedTo => '连接到';
+	@override String get faqTitle => '经常问的问题';
 }
 
 // Path: appInfo
@@ -11935,23 +12122,6 @@ class _StringsSettingsCustomDataDirZhHansCn extends _StringsSettingsCustomDataDi
 	@override String get mustBeDoneSyncing => '在更改目录之前，请确保同步已完成';
 }
 
-// Path: login.feedbacks
-class _StringsLoginFeedbacksZhHansCn extends _StringsLoginFeedbacksEn {
-	_StringsLoginFeedbacksZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
-
-	@override final _StringsZhHansCn _root; // ignore: unused_field
-
-	// Translations
-	@override String get checkUsername => '请仔细检查您的用户名或电子邮件。';
-	@override String get enterNcPassword => '请输入您的 Nextcloud 密码。';
-	@override String get enterEncPassword => '请输入您的加密密码。';
-	@override String get checkUrl => '请输入有效链接。';
-	@override String get ncLoginFailed => '登录失败，请检查您的详细信息和网络连接。';
-	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => '给定服务器正在运行 Nextcloud ${v}，但此版本 Saber 仅支持 Nextcloud ${s} 至 ${t}。';
-	@override String get encLoginFailed => '登录失败，请检查您的加密密码。';
-	@override String get loginSuccess => '登录成功！我们正在设置中，请稍候……';
-}
-
 // Path: login.form
 class _StringsLoginFormZhHansCn extends _StringsLoginFormEn {
 	_StringsLoginFormZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
@@ -11959,17 +12129,11 @@ class _StringsLoginFormZhHansCn extends _StringsLoginFormEn {
 	@override final _StringsZhHansCn _root; // ignore: unused_field
 
 	// Translations
-	@override String get useCustomServer => '我想要使用自定义 Nextcloud 服务器';
-	@override String get customServerUrl => '自定义服务器链接';
-	@override String get username => '用户名或邮箱';
-	@override String get ncPassword => 'Nextcloud 密码';
-	@override String get encPassword => '加密密码';
 	@override TextSpan agreeToPrivacyPolicy({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [
 		const TextSpan(text: '登录即表示您同意 '),
 		linkToPrivacyPolicy('隐私政策'),
 		const TextSpan(text: '。'),
 	]);
-	@override String get login => '登录';
 }
 
 // Path: login.status
@@ -11979,64 +12143,47 @@ class _StringsLoginStatusZhHansCn extends _StringsLoginStatusEn {
 	@override final _StringsZhHansCn _root; // ignore: unused_field
 
 	// Translations
-	@override String get loggedIn => '已使用 Nextcloud 登录';
 	@override String get loggedOut => '已注销';
 	@override String get tapToLogin => '点击以使用 Nextcloud 登录';
+	@override String get loggedIn => '已使用 Nextcloud 登录';
+	@override String hi({required Object u}) => '嗨，${u}！';
+	@override String get almostDone => '即将同步，点击即可完成登录';
 }
 
-// Path: login.faq.0
-class _StringsLogin$faq$0i0$ZhHansCn extends _StringsLogin$faq$0i0$En {
-	_StringsLogin$faq$0i0$ZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
+// Path: login.ncLoginStep
+class _StringsLoginNcLoginStepZhHansCn extends _StringsLoginNcLoginStepEn {
+	_StringsLoginNcLoginStepZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
 
 	@override final _StringsZhHansCn _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Nextcloud 是什么？';
-	@override String get a => 'Nextcloud 是一个私人文件同步服务器，等等。您可以使用默认的 Saber Nextcloud 服务器、使用第三方服务器或自行托管您自己的服务器以完全控制您的数据。';
+	@override late final _StringsLoginNcLoginStepLoginFlowZhHansCn loginFlow = _StringsLoginNcLoginStepLoginFlowZhHansCn._(_root);
+	@override String get whereToStoreData => '选择您要存储数据的位置：';
+	@override String get saberNcServer => 'Saber 的 Nextcloud 服务器';
+	@override String get otherNcServer => '其他 Nextcloud 服务器';
+	@override String get serverUrl => '服务器地址';
+	@override String get loginWithSaber => '使用 Saber 登录';
+	@override String get loginWithNextcloud => '使用 Nextcloud 登录';
 }
 
-// Path: login.faq.1
-class _StringsLogin$faq$0i1$ZhHansCn extends _StringsLogin$faq$0i1$En {
-	_StringsLogin$faq$0i1$ZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
+// Path: login.encLoginStep
+class _StringsLoginEncLoginStepZhHansCn extends _StringsLoginEncLoginStepEn {
+	_StringsLoginEncLoginStepZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
 
 	@override final _StringsZhHansCn _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => '加密密码是什么？';
-	@override String get a => '加密密码用于在将数据发送到服务器之前对其进行加密。您在首次登录 Saber 时选择它，它与您的 Nextcloud 帐户密码无关。\n没有您的加密密码，任何人都无法访问您在服务器上的笔记。这也意味着，如果您忘记了加密密码，您将无法访问您的数据。';
-}
-
-// Path: login.faq.2
-class _StringsLogin$faq$0i2$ZhHansCn extends _StringsLogin$faq$0i2$En {
-	_StringsLogin$faq$0i2$ZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
-
-	@override final _StringsZhHansCn _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => '为什么要使用两个密码？';
-	@override String get a => 'Nextcloud 密码用于访问云端。加密密码会在您的数据到达云端之前对其进行“加密”。\n即使有人获得了您的 Nextcloud 帐户的访问权限，您的笔记也会保持安全并使用单独的密码进行加密。这为您提供了第二层安全保护来保护您的数据。”';
-}
-
-// Path: login.faq.3
-class _StringsLogin$faq$0i3$ZhHansCn extends _StringsLogin$faq$0i3$En {
-	_StringsLogin$faq$0i3$ZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
-
-	@override final _StringsZhHansCn _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => '如果我使用 2FA，我该如何登录？';
-	@override String get a => '您需要创建一个“应用密码”，而不是常规的 Nextcloud 密码。您可以在安全 > 设备和会话 > 创建新应用密码下的 Nextcloud 设置中执行此操作。您的加密密码不受影响。';
-}
-
-// Path: login.faq.4
-class _StringsLogin$faq$0i4$ZhHansCn extends _StringsLogin$faq$0i4$En {
-	_StringsLogin$faq$0i4$ZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
-
-	@override final _StringsZhHansCn _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => '我可以为两者使用相同的密码吗？';
-	@override String get a => '是的，但这样做不太安全。由于您的 Nextcloud 密码已发送到服务器，因此有权访问服务器的人将能够解密您的笔记。请仅在您信任服务器所有者的情况下使用相同的密码。';
+	@override String get enterEncPassword => '为了保护您的数据，请输入您的加密密码：';
+	@override String get newToSaber => '刚接触Saber';
+	@override String get encPassword => '加密密码';
+	@override String get encFaqTitle => '经常问的问题';
+	@override String get wrongEncPassword => '使用提供的密码解密失败。请尝试再次输入。';
+	@override String get connectionFailed => '连接服务器时出现问题。请稍后再试。';
+	@override List<dynamic> get encFaq => [
+		_StringsLoginEncLoginStep$encFaq$0i0$ZhHansCn._(_root),
+		_StringsLoginEncLoginStep$encFaq$0i1$ZhHansCn._(_root),
+		_StringsLoginEncLoginStep$encFaq$0i2$ZhHansCn._(_root),
+	];
 }
 
 // Path: profile.quickLinks
@@ -12046,7 +12193,6 @@ class _StringsProfileQuickLinksZhHansCn extends _StringsProfileQuickLinksEn {
 	@override final _StringsZhHansCn _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => '快速链接';
 	@override String get serverHomepage => '服务器主页';
 	@override String get deleteAccount => '删除帐户';
 }
@@ -12233,7 +12379,6 @@ class _StringsEditorNewerFileFormatZhHansCn extends _StringsEditorNewerFileForma
 	@override String get title => '此笔记使用新版 Saber 编辑而成';
 	@override String get subtitle => '编辑此笔记可能会导致某些信息丢失。您想忽略并编辑吗？';
 	@override String get allowEditing => '允许编辑';
-	@override String get cancel => '取消';
 }
 
 // Path: editor.quill
@@ -12283,6 +12428,51 @@ class _StringsSettingsPrefDescriptionsPencilSoundSettingZhHansCn extends _String
 	@override String get onButNotInSilentMode => '已启用（除非处于静音模式）';
 	@override String get off => '没有声音';
 	@override String get onAlways => '已启用（即使在静音模式下）';
+}
+
+// Path: login.ncLoginStep.loginFlow
+class _StringsLoginNcLoginStepLoginFlowZhHansCn extends _StringsLoginNcLoginStepLoginFlowEn {
+	_StringsLoginNcLoginStepLoginFlowZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
+
+	@override final _StringsZhHansCn _root; // ignore: unused_field
+
+	// Translations
+	@override String get pleaseAuthorize => '请授权 Saber 访问您的 Nextcloud 帐户';
+	@override String get followPrompts => '请按照浏览器中的提示进行操作。';
+	@override String get browserDidntOpen => '浏览器打不开';
+}
+
+// Path: login.encLoginStep.encFaq.0
+class _StringsLoginEncLoginStep$encFaq$0i0$ZhHansCn extends _StringsLoginEncLoginStep$encFaq$0i0$En {
+	_StringsLoginEncLoginStep$encFaq$0i0$ZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
+
+	@override final _StringsZhHansCn _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => '加密密码是什么？';
+	@override String get a => '加密密码用于在将数据发送到服务器之前对其进行加密。您在首次登录 Saber 时选择它，它与您的 Nextcloud 帐户密码无关。\n没有您的加密密码，任何人都无法访问您在服务器上的笔记。这也意味着，如果您忘记了加密密码，您将无法访问您的数据。';
+}
+
+// Path: login.encLoginStep.encFaq.1
+class _StringsLoginEncLoginStep$encFaq$0i1$ZhHansCn extends _StringsLoginEncLoginStep$encFaq$0i1$En {
+	_StringsLoginEncLoginStep$encFaq$0i1$ZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
+
+	@override final _StringsZhHansCn _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => '为什么要使用两个密码？';
+	@override String get a => 'Nextcloud 密码用于访问云端。加密密码会在您的数据到达云端之前对其进行“加密”。\n即使有人获得了您的 Nextcloud 帐户的访问权限，您的笔记也会保持安全并使用单独的密码进行加密。这为您提供了第二层安全保护来保护您的数据。”';
+}
+
+// Path: login.encLoginStep.encFaq.2
+class _StringsLoginEncLoginStep$encFaq$0i2$ZhHansCn extends _StringsLoginEncLoginStep$encFaq$0i2$En {
+	_StringsLoginEncLoginStep$encFaq$0i2$ZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
+
+	@override final _StringsZhHansCn _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => '我可以为两者使用相同的密码吗？';
+	@override String get a => '是的，但这样做不太安全。由于您的 Nextcloud 密码已发送到服务器，因此有权访问服务器的人将能够解密您的笔记。请仅在您信任服务器所有者的情况下使用相同的密码。';
 }
 
 // Path: editor.menu.boxFits
@@ -12335,6 +12525,7 @@ class _StringsZhHantTw extends Translations {
 	@override late final _StringsZhHantTw _root = this; // ignore: unused_field
 
 	// Translations
+	@override late final _StringsCommonZhHantTw common = _StringsCommonZhHantTw._(_root);
 	@override late final _StringsHomeZhHantTw home = _StringsHomeZhHantTw._(_root);
 	@override late final _StringsSettingsZhHantTw settings = _StringsSettingsZhHantTw._(_root);
 	@override late final _StringsLoginZhHantTw login = _StringsLoginZhHantTw._(_root);
@@ -12342,6 +12533,18 @@ class _StringsZhHantTw extends Translations {
 	@override late final _StringsAppInfoZhHantTw appInfo = _StringsAppInfoZhHantTw._(_root);
 	@override late final _StringsUpdateZhHantTw update = _StringsUpdateZhHantTw._(_root);
 	@override late final _StringsEditorZhHantTw editor = _StringsEditorZhHantTw._(_root);
+}
+
+// Path: common
+class _StringsCommonZhHantTw extends _StringsCommonEn {
+	_StringsCommonZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
+
+	@override final _StringsZhHantTw _root; // ignore: unused_field
+
+	// Translations
+	@override String get cancel => '取消';
+	@override String get done => '完畢';
+	@override String get continueBtn => '繼續';
 }
 
 // Path: home
@@ -12401,23 +12604,18 @@ class _StringsLoginZhHantTw extends _StringsLoginEn {
 
 	// Translations
 	@override String get title => '登入';
-	@override late final _StringsLoginFeedbacksZhHantTw feedbacks = _StringsLoginFeedbacksZhHantTw._(_root);
 	@override late final _StringsLoginFormZhHantTw form = _StringsLoginFormZhHantTw._(_root);
-	@override String get seeFaq => '請閱讀下面的常見問題解答以了解有關加密密碼等資訊。';
 	@override TextSpan signup({required InlineSpanBuilder linkToSignup}) => TextSpan(children: [
 		const TextSpan(text: '還沒有帳號？ '),
 		linkToSignup('立即註冊'),
 		const TextSpan(text: '！'),
 	]);
+	@override TextSpan notYou({required InlineSpanBuilder undoLogin}) => TextSpan(children: [
+		undoLogin('不是你'),
+	]);
 	@override late final _StringsLoginStatusZhHantTw status = _StringsLoginStatusZhHantTw._(_root);
-	@override List<dynamic> get faq => [
-		_StringsLogin$faq$0i0$ZhHantTw._(_root),
-		_StringsLogin$faq$0i1$ZhHantTw._(_root),
-		_StringsLogin$faq$0i2$ZhHantTw._(_root),
-		_StringsLogin$faq$0i3$ZhHantTw._(_root),
-		_StringsLogin$faq$0i4$ZhHantTw._(_root),
-		_StringsLogin$faq$0i5$ZhHantTw._(_root),
-	];
+	@override late final _StringsLoginNcLoginStepZhHantTw ncLoginStep = _StringsLoginNcLoginStepZhHantTw._(_root);
+	@override late final _StringsLoginEncLoginStepZhHantTw encLoginStep = _StringsLoginEncLoginStepZhHantTw._(_root);
 }
 
 // Path: profile
@@ -12436,6 +12634,9 @@ class _StringsProfileZhHantTw extends _StringsProfileEn {
 		_StringsProfile$faq$0i2$ZhHantTw._(_root),
 		_StringsProfile$faq$0i3$ZhHantTw._(_root),
 	];
+	@override String quotaUsage({required Object used, required Object total, required Object percent}) => '您正在使用 ${used} 佔 ${total} (${percent})';
+	@override String get connectedTo => '連接到';
+	@override String get faqTitle => '經常問的問題';
 }
 
 // Path: appInfo
@@ -12746,23 +12947,6 @@ class _StringsSettingsCustomDataDirZhHantTw extends _StringsSettingsCustomDataDi
 	@override String get mustBeDoneSyncing => '更改目錄之前請確保同步已完成';
 }
 
-// Path: login.feedbacks
-class _StringsLoginFeedbacksZhHantTw extends _StringsLoginFeedbacksEn {
-	_StringsLoginFeedbacksZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
-
-	@override final _StringsZhHantTw _root; // ignore: unused_field
-
-	// Translations
-	@override String get checkUsername => '請仔細檢查您的使用者名稱或電子郵件。';
-	@override String get enterNcPassword => '請輸入您的 Nextcloud 密碼。';
-	@override String get enterEncPassword => '請輸入您的加密密碼。';
-	@override String get checkUrl => '請輸入有效連結。';
-	@override String get ncLoginFailed => '登入失敗，請檢查您的詳細資訊和網路連接。';
-	@override String ncUnsupportedFailure({required Object v, required Object s, required Object t}) => '選定的伺服器正在運行 Nextcloud ${v}，但此版本的 Saber 僅支援 Nextcloud ${s} 到 ${t}。';
-	@override String get encLoginFailed => '登入失敗，請檢查您的加密密碼。';
-	@override String get loginSuccess => '登入成功！我們正在設定中，請稍後……';
-}
-
 // Path: login.form
 class _StringsLoginFormZhHantTw extends _StringsLoginFormEn {
 	_StringsLoginFormZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
@@ -12770,17 +12954,11 @@ class _StringsLoginFormZhHantTw extends _StringsLoginFormEn {
 	@override final _StringsZhHantTw _root; // ignore: unused_field
 
 	// Translations
-	@override String get useCustomServer => '我想要使用自訂 Nextcloud 伺服器';
-	@override String get customServerUrl => '自訂伺服器連結';
-	@override String get username => '使用者名稱或電子郵件';
-	@override String get ncPassword => 'Nextcloud 密碼';
-	@override String get encPassword => '加密密碼';
 	@override TextSpan agreeToPrivacyPolicy({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [
 		const TextSpan(text: '登入即表示你同意 '),
 		linkToPrivacyPolicy('隱私政策'),
 		const TextSpan(text: '。'),
 	]);
-	@override String get login => '登入';
 }
 
 // Path: login.status
@@ -12790,75 +12968,47 @@ class _StringsLoginStatusZhHantTw extends _StringsLoginStatusEn {
 	@override final _StringsZhHantTw _root; // ignore: unused_field
 
 	// Translations
-	@override String get loggedIn => '已使用 Nextcloud 登入';
 	@override String get loggedOut => '已登出';
 	@override String get tapToLogin => '點擊以使用 Nextcloud 登入';
+	@override String get loggedIn => '已使用 Nextcloud 登入';
+	@override String hi({required Object u}) => '嗨，${u}！';
+	@override String get almostDone => '即將同步，點擊即可完成登入';
 }
 
-// Path: login.faq.0
-class _StringsLogin$faq$0i0$ZhHantTw extends _StringsLogin$faq$0i0$En {
-	_StringsLogin$faq$0i0$ZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
+// Path: login.ncLoginStep
+class _StringsLoginNcLoginStepZhHantTw extends _StringsLoginNcLoginStepEn {
+	_StringsLoginNcLoginStepZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
 
 	@override final _StringsZhHantTw _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => '什麼是 Nextcloud？';
-	@override String get a => 'Nextcloud 是一個私人檔案同步伺服器。您可以使用預設的 Saber Nextcloud 伺服器、第三方伺服器或自託管的伺服器以完全控制您的資料。';
+	@override late final _StringsLoginNcLoginStepLoginFlowZhHantTw loginFlow = _StringsLoginNcLoginStepLoginFlowZhHantTw._(_root);
+	@override String get whereToStoreData => '選擇您要儲存資料的位置：';
+	@override String get saberNcServer => 'Saber 的 Nextcloud 伺服器';
+	@override String get otherNcServer => '其他 Nextcloud 伺服器';
+	@override String get serverUrl => '伺服器位址';
+	@override String get loginWithSaber => '使用 Saber 登入';
+	@override String get loginWithNextcloud => '使用 Nextcloud 登入';
 }
 
-// Path: login.faq.1
-class _StringsLogin$faq$0i1$ZhHantTw extends _StringsLogin$faq$0i1$En {
-	_StringsLogin$faq$0i1$ZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
+// Path: login.encLoginStep
+class _StringsLoginEncLoginStepZhHantTw extends _StringsLoginEncLoginStepEn {
+	_StringsLoginEncLoginStepZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
 
 	@override final _StringsZhHantTw _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => '加密密碼是什麼？';
-	@override String get a => '加密密碼用於在將資料傳送到伺服器之前對其進行加密。您在第一次登入 Saber 時建立，它與您的 Nextcloud 帳號/密碼無關。\n如果沒有您的加密密碼，任何人都無法存取您在伺服器上的筆記。這也意味著，如果您忘記加密密碼，您將無法存取您的資料。';
-}
-
-// Path: login.faq.2
-class _StringsLogin$faq$0i2$ZhHantTw extends _StringsLogin$faq$0i2$En {
-	_StringsLogin$faq$0i2$ZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
-
-	@override final _StringsZhHantTw _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => '為什麼要使用兩個密碼？';
-	@override String get a => 'Nextcloud 密碼用於存取雲端。加密密碼會在資料到達雲端之前混亂您的資料。\n即使有人存取您的 Nextcloud 帳戶，您的筆記也將保持安全並使用單獨的密碼進行加密。這為您提供了第二層安全保護來保護您的資料。';
-}
-
-// Path: login.faq.3
-class _StringsLogin$faq$0i3$ZhHantTw extends _StringsLogin$faq$0i3$En {
-	_StringsLogin$faq$0i3$ZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
-
-	@override final _StringsZhHantTw _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => '我還沒有設定加密密碼。我在哪裡可以得到它？';
-	@override String get a => '只需在上面登入時選擇一項即可！\n您在首次登入 Saber（應用程式，而不是伺服器網站）時選擇加密密碼。';
-}
-
-// Path: login.faq.4
-class _StringsLogin$faq$0i4$ZhHantTw extends _StringsLogin$faq$0i4$En {
-	_StringsLogin$faq$0i4$ZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
-
-	@override final _StringsZhHantTw _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => '如果我使用 2FA，如何登入？';
-	@override String get a => '您需要建立一個「應用程式密碼」，而不是使用 Nextcloud 密碼。您可以在 Nextcloud 設定中的「安全性」>「裝置和工作階段」>「建立新的應用程式密碼」下執行此操作。您的加密密碼不受影響。';
-}
-
-// Path: login.faq.5
-class _StringsLogin$faq$0i5$ZhHantTw extends _StringsLogin$faq$0i5$En {
-	_StringsLogin$faq$0i5$ZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
-
-	@override final _StringsZhHantTw _root; // ignore: unused_field
-
-	// Translations
-	@override String get q => '我可以為兩者使用相同的密碼嗎？';
-	@override String get a => '可以，但這樣做不太安全。由於您的 Nextcloud 密碼已傳送至伺服器，因此有權存取伺服器的人將能夠解密您的筆記。請在您信任伺服器擁有者時才使用相同的密碼。';
+	@override String get enterEncPassword => '為了保護您的數據，請輸入您的加密密碼：';
+	@override String get newToSaber => '剛接觸Saber';
+	@override String get encPassword => '加密密碼';
+	@override String get encFaqTitle => '經常問的問題';
+	@override String get wrongEncPassword => '使用提供的密碼解密失敗。請嘗試再次輸入。';
+	@override String get connectionFailed => '連接伺服器時出現問題。請稍後再試。';
+	@override List<dynamic> get encFaq => [
+		_StringsLoginEncLoginStep$encFaq$0i0$ZhHantTw._(_root),
+		_StringsLoginEncLoginStep$encFaq$0i1$ZhHantTw._(_root),
+		_StringsLoginEncLoginStep$encFaq$0i2$ZhHantTw._(_root),
+	];
 }
 
 // Path: profile.quickLinks
@@ -12868,7 +13018,6 @@ class _StringsProfileQuickLinksZhHantTw extends _StringsProfileQuickLinksEn {
 	@override final _StringsZhHantTw _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => '快速連結';
 	@override String get serverHomepage => '伺服器主頁';
 	@override String get deleteAccount => '刪除帳戶';
 }
@@ -13055,7 +13204,6 @@ class _StringsEditorNewerFileFormatZhHantTw extends _StringsEditorNewerFileForma
 	@override String get title => '這篇筆記是使用較新版本的 Saber 編輯的';
 	@override String get subtitle => '編輯此筆記可能會導致某些資訊遺失。 您想忽略它並編輯它嗎？';
 	@override String get allowEditing => '允許編輯';
-	@override String get cancel => '取消';
 }
 
 // Path: editor.quill
@@ -13105,6 +13253,51 @@ class _StringsSettingsPrefDescriptionsPencilSoundSettingZhHantTw extends _String
 	@override String get off => '關閉';
 	@override String get onButNotInSilentMode => '已啟用（除非處於靜音模式）';
 	@override String get onAlways => '已啟用（即使在靜音模式下）';
+}
+
+// Path: login.ncLoginStep.loginFlow
+class _StringsLoginNcLoginStepLoginFlowZhHantTw extends _StringsLoginNcLoginStepLoginFlowEn {
+	_StringsLoginNcLoginStepLoginFlowZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
+
+	@override final _StringsZhHantTw _root; // ignore: unused_field
+
+	// Translations
+	@override String get pleaseAuthorize => '請授權 Saber 存取您的 Nextcloud 帳戶';
+	@override String get followPrompts => '請按照瀏覽器中的提示進行操作。';
+	@override String get browserDidntOpen => '瀏覽器打不開';
+}
+
+// Path: login.encLoginStep.encFaq.0
+class _StringsLoginEncLoginStep$encFaq$0i0$ZhHantTw extends _StringsLoginEncLoginStep$encFaq$0i0$En {
+	_StringsLoginEncLoginStep$encFaq$0i0$ZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
+
+	@override final _StringsZhHantTw _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => '加密密碼是什麼？';
+	@override String get a => '加密密碼用於在將資料傳送到伺服器之前對其進行加密。您在第一次登入 Saber 時建立，它與您的 Nextcloud 帳號/密碼無關。\n如果沒有您的加密密碼，任何人都無法存取您在伺服器上的筆記。這也意味著，如果您忘記加密密碼，您將無法存取您的資料。';
+}
+
+// Path: login.encLoginStep.encFaq.1
+class _StringsLoginEncLoginStep$encFaq$0i1$ZhHantTw extends _StringsLoginEncLoginStep$encFaq$0i1$En {
+	_StringsLoginEncLoginStep$encFaq$0i1$ZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
+
+	@override final _StringsZhHantTw _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => '為什麼要使用兩個密碼？';
+	@override String get a => 'Nextcloud 密碼用於存取雲端。加密密碼會在資料到達雲端之前混亂您的資料。\n即使有人存取您的 Nextcloud 帳戶，您的筆記也將保持安全並使用單獨的密碼進行加密。這為您提供了第二層安全保護來保護您的資料。';
+}
+
+// Path: login.encLoginStep.encFaq.2
+class _StringsLoginEncLoginStep$encFaq$0i2$ZhHantTw extends _StringsLoginEncLoginStep$encFaq$0i2$En {
+	_StringsLoginEncLoginStep$encFaq$0i2$ZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
+
+	@override final _StringsZhHantTw _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => '我還沒有設定加密密碼。我在哪裡可以得到它？';
+	@override String get a => '只需在上面登入時選擇一項即可！\n您在首次登入 Saber（應用程式，而不是伺服器網站）時選擇加密密碼。';
 }
 
 // Path: editor.menu.boxFits
