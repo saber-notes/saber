@@ -52,6 +52,7 @@ abstract class Prefs {
 
   /// the password used to login to Nextcloud
   static late final EncPref<String> ncPassword;
+  static late final PlainPref<bool> ncPasswordIsAnAppPassword;
 
   /// the password used to encrypt/decrypt notes
   static late final EncPref<String> encPassword;
@@ -62,6 +63,7 @@ abstract class Prefs {
       url.loaded &&
       username.value.isNotEmpty &&
       ncPassword.value.isNotEmpty &&
+      ncPasswordIsAnAppPassword.loaded &&
       encPassword.value.isNotEmpty;
 
   static late final EncPref<String> key;
@@ -171,6 +173,7 @@ abstract class Prefs {
     url = EncPref('url', '');
     username = EncPref('username', '');
     ncPassword = EncPref('ncPassword', '');
+    ncPasswordIsAnAppPassword = PlainPref('ncPasswordIsAnAppPassword', false);
     encPassword = EncPref('encPassword', '');
 
     key = EncPref('key', '');

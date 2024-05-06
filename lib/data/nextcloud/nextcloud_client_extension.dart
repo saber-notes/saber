@@ -40,6 +40,7 @@ extension NextcloudClientExtension on NextcloudClient {
       url.isNotEmpty ? Uri.parse(url) : defaultNextcloudUri,
       loginName: username,
       password: ncPassword,
+      appPassword: Prefs.ncPasswordIsAnAppPassword.value ? ncPassword : null,
       userAgent: userAgent,
     );
 

@@ -26,6 +26,7 @@ class _DoneLoginStepState extends State<DoneLoginStep> {
     Prefs.url.value = '';
     Prefs.username.value = '';
     Prefs.ncPassword.value = '';
+    Prefs.ncPasswordIsAnAppPassword.value = false;
     Prefs.encPassword.value = '';
     Prefs.pfp.value = null;
     Prefs.lastStorageQuota.value = null;

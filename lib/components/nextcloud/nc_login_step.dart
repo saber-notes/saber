@@ -59,6 +59,7 @@ class _NcLoginStepState extends State<NcLoginStep> {
           : credentials.server;
       Prefs.username.value = username;
       Prefs.ncPassword.value = credentials.appPassword;
+      Prefs.ncPasswordIsAnAppPassword.value = true;
       Prefs.encPassword.value = '';
 
       Prefs.pfp.value = null;
