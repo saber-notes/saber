@@ -1,3 +1,7 @@
+common:
+  cancel: Cancelar
+  done(OUTDATED): Hecho
+  continueBtn(OUTDATED): Continuar
 home:
   tabs:
     home: Inicio
@@ -146,10 +150,46 @@ login:
   form:
     agreeToPrivacyPolicy(rich): "Al iniciar sesión, aceptas nuestra ${linkToPrivacyPolicy(Política de privacidad)}."
   signup(rich): "¿Aún no tienes una cuenta? ${linkToSignup(Regístrate ahora)}"
+  notYou(rich, OUTDATED): "${undoLogin(No tú)}"
   status:
-    loggedIn: Sesión iniciada con Nextcloud
     loggedOut: Desconectado
     tapToLogin: Toca para iniciar sesión con Nextcloud
+    loggedIn: Sesión iniciada con Nextcloud
+    hi(OUTDATED): "Hola $u!"
+    almostDone(OUTDATED): "Casi listo para sincronizar, toca para finalizar el inicio de sesión"
+  ncLoginStep:
+    loginFlow:
+      pleaseAuthorize(OUTDATED): Autorice a Sabre a acceder a su cuenta de Nextcloud
+      followPrompts(OUTDATED): Siga las indicaciones en su navegador.
+      browserDidntOpen(OUTDATED): El navegador no se abrió
+    whereToStoreData(OUTDATED): "Elige dónde quieres almacenar tus datos:"
+    saberNcServer(OUTDATED): Servidor Nextcloud de Sabre
+    otherNcServer(OUTDATED): Otro servidor Nextcloud
+    serverUrl(OUTDATED): URL del servidor
+    loginWithSaber(OUTDATED): Iniciar sesión con Sabre
+    loginWithNextcloud(OUTDATED): Iniciar sesión con Nextcloud
+  encLoginStep:
+    enterEncPassword(OUTDATED): "Para proteger sus datos, ingrese su contraseña de cifrado:"
+    newToSaber(OUTDATED): Nuevo en Sabre
+    encPassword(OUTDATED): Contraseña de cifrado
+    encFaqTitle(OUTDATED): Preguntas frecuentes
+    wrongEncPassword(OUTDATED): El descifrado falló con la contraseña proporcionada. Intente ingresarlo nuevamente.
+    connectionFailed(OUTDATED): "Algo salió mal al conectarse al servidor. Por favor, inténtelo de nuevo más tarde."
+    encFaq(OUTDATED):
+      - q: "¿Qué es Nextcloud?"
+        a: "Nextcloud es un servidor privado de sincronización de archivos, entre otras cosas. Puedes usar el servidor de Saber Nextcloud predeterminado, usar un servidor de terceros o alojar el tuyo propio para tener un control total de tus datos."
+      - q: "¿Qué es la contraseña de cifrado?"
+        a: |-
+          La contraseña de cifrado se utiliza para cifrar tus datos antes de enviarlos al servidor. La eliges cuando inicias sesión por primera vez en Saber, y no está relacionada con tu cuenta/contraseña de Nextcloud.
+          Nadie puede acceder a tus notas en el servidor sin tu contraseña de cifrado. Esto significa que si olvidas tu contraseña de cifrado, perderás el acceso a tus datos.
+      - q: "¿Por qué usar dos contraseñas?"
+        a: |-
+          La contraseña de Nextcloud se utiliza para acceder a la nube. La contraseña de encriptación "codifica" tus datos antes de que lleguen a la nube.
+          Incluso si alguien obtiene acceso a tu cuenta de Nextcloud, tus notas permanecerán seguras y encriptadas con una contraseña separada. Esto te proporciona una segunda capa de seguridad para proteger tus datos.
+      - q: "¿Cómo puedo iniciar sesión si uso autenticación en dos pasos (2FA)?"
+        a: "En vez de usar tu contraseña habitual de Nextcloud, deberás crear una \"contraseña de aplicación\". Puedes hacerlo en la configuración de Nextcloud en Seguridad > Dispositivos y sesiones > Crear nueva contraseña de aplicación. Tu contraseña de cifrado no se ve afectada."
+      - q: "¿Puedo usar la misma contraseña para ambos?"
+        a: "Sí, pero hacer esto es menos seguro. Dado que tu contraseña de Nextcloud se envía al servidor, alguien con acceso al servidor podría descifrar tus notas. Solo usa la misma contraseña si confías en el propietario del servidor."
 profile:
   title: Mi perfil
   logout: Cerrar sesión
@@ -172,6 +212,9 @@ profile:
         Pincha en el botón "@:profile.quickLinks.deleteAccount", e inicia sesión si es necesario.
         Si estás usando el servidor oficial de Saber, tu cuenta se eliminará después de un periodo de una semana. Puedes contactar conmigo en la dirección adilhanney@disroot.org durante este tiempo para cancelar la eliminación.
         Si estás usando un servidor de terceros, puede ser que la opción de eliminar no exista: necesitas consultar la política de privacidad del servidor para más información.
+  quotaUsage(OUTDATED): Estás usando $used de $total ($percent)
+  connectedTo(OUTDATED): Conectado a
+  faqTitle(OUTDATED): Preguntas frecuentes
 appInfo:
   licenseNotice: |-
     Saber  Copyright © 2022-$buildYear  Adil Hanney
@@ -287,5 +330,3 @@ editor:
   pages: Páginas
   untitled: Sin título
   needsToSaveBeforeExiting: Guardando los cambios... Puedes salir del editor de forma segura cuando se haya guardado todo
-common:
-  cancel: Cancelar

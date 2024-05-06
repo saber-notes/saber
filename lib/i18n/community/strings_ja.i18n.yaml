@@ -1,3 +1,7 @@
+common:
+  cancel: 取消
+  done(OUTDATED): 終わり
+  continueBtn(OUTDATED): 続く
 home:
   tabs:
     home: ホーム
@@ -146,10 +150,46 @@ login:
   form:
     agreeToPrivacyPolicy(rich): "ログインすることにより、${linkToPrivacyPolicy(プライベートポリシー)}に同意したものとみなされます。"
   signup(rich): "まだアカウントをお持ちでないですか？ ${linkToSignup(今すぐ登録)}!"
+  notYou(rich, OUTDATED): "${undoLogin(あなたではありません)}"
   status:
-    loggedIn: Nextcloudでログイン
     loggedOut: ログアウト
     tapToLogin: タップしてNextcloudにログイン
+    loggedIn: Nextcloudでログイン
+    hi(OUTDATED): "こんにちは、$u!"
+    almostDone(OUTDATED): 同期の準備がほぼ完了しました。タップしてログインを完了してください
+  ncLoginStep:
+    loginFlow:
+      pleaseAuthorize(OUTDATED): Sabre に Nextcloud アカウントへのアクセスを許可してください
+      followPrompts(OUTDATED): ブラウザの指示に従ってください。
+      browserDidntOpen(OUTDATED): ブラウザが開きませんでした
+    whereToStoreData(OUTDATED): "データを保存する場所を選択します:"
+    saberNcServer(OUTDATED): Sabre の Nextcloud サーバー
+    otherNcServer(OUTDATED): 他のNextcloudサーバー
+    serverUrl(OUTDATED): サーバーURL
+    loginWithSaber(OUTDATED): セイバーでログイン
+    loginWithNextcloud(OUTDATED): Nextcloudでログイン
+  encLoginStep:
+    enterEncPassword(OUTDATED): "データを保護するには、暗号化パスワードを入力してください:"
+    newToSaber(OUTDATED): セイバー初心者
+    encPassword(OUTDATED): 暗号化パスワード
+    encFaqTitle(OUTDATED): よくある質問
+    wrongEncPassword(OUTDATED): 指定されたパスワードでは復号化に失敗しました。もう一度入力してみてください。
+    connectionFailed(OUTDATED): サーバーへの接続中に問題が発生しました。後でもう一度試してください。
+    encFaq(OUTDATED):
+      - q: Nextcloudとは？
+        a: Nextcloudは、プライベートなファイル同期サーバーです。デフォルトのSaber Nextcloudサーバーを使用することも、サードパーティのサーバーを使用することも、データを完全に管理するために自身でホストすることも可能です。
+      - q: 暗号化パスワードは何ですか？
+        a: |-
+          暗号化パスワードは、サーバーに送信する前にデータを暗号化するために使用されます。Saberに最初にログインする際に選択するもので、Nextcloudのアカウントやパスワードとは関係ありません。
+          暗号化パスワードがなければ、誰もサーバー上のメモにアクセスすることはできません。また、暗号化パスワードを忘れると、データにアクセスすることができなくなります。
+      - q: なぜ2つのパスワードを使うのですか？
+        a: |-
+          Nextcloudのパスワードはクラウドに接続するために使用されます。暗号化パスワードを用いてデータがクラウドに届く前にデータを "暗号化" します。
+          そのため、たとえ誰かがあなたのNextcloudアカウントにアクセスしたとしても、メモは別のパスワードで暗号化されている状態になります。これにより、Saberのデーターは2重に保護されます。
+      - q: 2FAを使用している場合、どのようにログインすればいいですか？
+        a: "通常のNextcloudパスワードの代わりに、\"アプリパスワード\"を作成する必要があります。これはNextcloudの設定で、「セキュリティ」>「デバイスとセッション」>「新しいアプリパスワードを作成」でできます。暗号化パスワードは影響を受けません。"
+      - q: 両方に同じパスワードを使用できますか？
+        a: 可能ですが、そうすれば安全性が低下します。Nextcloudのパスワードはサーバーに送信されるため、サーバーにアクセスできる人はメモを解読することができます。サーバーの所有者を信頼できる場合にのみ、同じパスワードを使用してください。
 profile:
   title: プロフィール
   logout: ログアウト
@@ -169,6 +209,9 @@ profile:
         4. 他のデバイスでもログアウトしてログインし直すことをお忘れなく。
     - q: アカウントを削除するにはどうすればよいですか？
       a: "上部の\"@:profile.quickLinks.deleteAccount\"ボタンをタップし、必要であればログインしてください。Saber公式サーバーを利用している場合、1週間の猶予期間の後にアカウントが削除されます。この期間中であれば、adilhanney@disroot.orgまでご連絡いただければ、削除を取り消すことが可能です。サードパーティのサーバーをご利用の場合、アカウントを削除するオプションがない場合があります。詳細については、ご利用のサーバープライバシーポリシーをご確認ください。"
+  quotaUsage(OUTDATED): $total ($percent) のうち $used を使用しています
+  connectedTo(OUTDATED): に接続されています
+  faqTitle(OUTDATED): よくある質問
 appInfo:
   licenseNotice: |-
     Saber  Copyright © 2022-$buildYear  Adil Hanney
@@ -284,5 +327,3 @@ editor:
   pages: ページ
   untitled: 無題
   needsToSaveBeforeExiting: 変更を保存する... 編集が終わったら、エディターを安全に終了することができます。
-common:
-  cancel: 取消
