@@ -1,0 +1,3 @@
+• Újraterveztük a bejelentkezési folyamatot
+• Leállította az automatikus mentés aktiválását egy löket közepén
+• Javítva a ceruza hangeffektus-beállítása, amely nem veszi fel azonnal

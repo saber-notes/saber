@@ -198,6 +198,15 @@
     </screenshots>
 
     <releases>
+        <release version="0.23.0" type="development" date="2024-05-06">
+            <description>
+                <ul>
+                    <li>Redesigned the login process</li>
+                    <li>Stopped the autosave triggering while in the middle of a stroke</li>
+                    <li>Fixed the pencil sound effect setting not being picked up immediately</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.22.0" type="development" date="2024-05-02">
             <description>
                 <ul>
