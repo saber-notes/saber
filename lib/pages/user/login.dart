@@ -81,7 +81,11 @@ class _NcLoginPageState extends State<NcLoginPage> {
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: kToolbarHeight,
-        title: Text(t.login.title),
+        title: Text(switch (step) {
+          LoginStep.waitingForPrefs => '',
+          LoginStep.done => t.profile.title,
+          _ => t.login.title,
+        }),
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(4),
           child: LinearProgressIndicator(

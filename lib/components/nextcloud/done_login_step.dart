@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:saber/data/nextcloud/readable_bytes.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
 
@@ -15,11 +16,14 @@ class DoneLoginStep extends StatefulWidget {
 class _DoneLoginStepState extends State<DoneLoginStep> {
   static const width = 400.0;
 
+  void _logout() {}
+
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
     final screenWidth = MediaQuery.sizeOf(context).width;
+    final quota = Prefs.lastStorageQuota.value;
     return ListView(
       padding: EdgeInsets.symmetric(
         horizontal: screenWidth > width ? (screenWidth - width) / 2 : 16,
@@ -50,6 +54,21 @@ class _DoneLoginStepState extends State<DoneLoginStep> {
                   style: textTheme.headlineSmall),
             ),
           ],
+        ),
+        const SizedBox(height: 16),
+        Text(
+          'You\'re using ${readableBytes(quota?.used)} of ${readableBytes(quota?.total)} (${quota?.relative}%).',
+        ),
+        const SizedBox(height: 4),
+        LinearProgressIndicator(
+          value: (quota?.relative ?? 0) / 100,
+          minHeight: 16,
+          borderRadius: BorderRadius.circular(8),
+        ),
+        const SizedBox(height: 16),
+        ElevatedButton(
+          onPressed: _logout,
+          child: Text(t.profile.logout),
         ),
       ],
     );
