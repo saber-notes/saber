@@ -7,8 +7,8 @@ import 'package:encrypt/encrypt.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/provisioning_api.dart';
 import 'package:nextcloud/webdav.dart';
-import 'package:saber/components/nextcloud/login_group.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
+import 'package:saber/data/nextcloud/errors.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/data/version.dart';
 
