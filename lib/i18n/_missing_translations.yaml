@@ -1150,44 +1150,44 @@ zh-Hans-CN:
     faqTitle(OUTDATED): Frequently asked questions
 zh-Hant-TW:
   common:
-    done(OUTDATED): Done
-    continueBtn(OUTDATED): Continue
+    done(OUTDATED): 完成
+    continueBtn(OUTDATED): 繼續
   login:
-    notYou(rich)(OUTDATED): "Not you? ${undoLogin(Choose another account)}."
+    notYou(rich)(OUTDATED): "不是你？ ${undoLogin(選擇另一個帳號)}。"
     status:
-      hi(OUTDATED): "Hi, $u!"
-      almostDone(OUTDATED): "Almost ready for syncing, tap to finish logging in"
+      hi(OUTDATED): "嗨，$u!"
+      almostDone(OUTDATED): "即將同步，點擊即可完成登入"
     ncLoginStep:
-      whereToStoreData(OUTDATED): "Choose where you want to store your data:"
-      saberNcServer(OUTDATED): Saber's Nextcloud server
-      otherNcServer(OUTDATED): Other Nextcloud server
-      serverUrl(OUTDATED): Server URL
-      loginWithSaber(OUTDATED): Login with Saber
-      loginWithNextcloud(OUTDATED): Login with Nextcloud
+      whereToStoreData(OUTDATED): "選擇您要儲存資料的位置："
+      saberNcServer(OUTDATED): Saber 的 Nextcloud 伺服器
+      otherNcServer(OUTDATED): 其他 Nextcloud 伺服器
+      serverUrl(OUTDATED): 伺服器網址
+      loginWithSaber(OUTDATED): 使用 Saber 登入
+      loginWithNextcloud(OUTDATED): 使用 Nextcloud 登入
       loginFlow:
-        pleaseAuthorize(OUTDATED): Please authorize Saber to access your Nextcloud account
-        followPrompts(OUTDATED): Please follow the prompts in your browser.
-        browserDidntOpen(OUTDATED): "Browser didn't open? Click here"
+        pleaseAuthorize(OUTDATED): 請授權 Saber 存取您的 Nextcloud 帳號
+        followPrompts(OUTDATED): 請按照瀏覽器中的提示進行操作。
+        browserDidntOpen(OUTDATED): "瀏覽器沒打開？點擊這裡"
     encLoginStep:
-      enterEncPassword(OUTDATED): "To protect your data, please enter your encryption password:"
-      newToSaber(OUTDATED): "New to Saber? Just enter a new encryption password."
-      encPassword(OUTDATED): Encryption password
-      encFaqTitle(OUTDATED): Frequently asked questions
-      wrongEncPassword(OUTDATED): Decryption failed with the provided password. Please try entering it again.
-      connectionFailed(OUTDATED): Something went wrong connecting to the server. Please try again later.
+      enterEncPassword(OUTDATED): "為了保護您的資料，請輸入您的加密密碼："
+      newToSaber(OUTDATED): "第一次使用 Saber？只需輸入新的加密密碼即可。"
+      encPassword(OUTDATED): 加密密碼
+      encFaqTitle(OUTDATED): 常見問題
+      wrongEncPassword(OUTDATED): 使用提供的密碼解密失敗。請嘗試再次輸入。
+      connectionFailed(OUTDATED): 連線伺服器時出現問題。請稍後再試。
       encFaq(OUTDATED):
-        - q: "What is an encryption password? Why use two passwords?"
+        - q: "什麼是加密密碼？為什麼要使用兩個密碼？"
           a: |-
-            The Nextcloud password is used to access the cloud. The encryption password "scrambles" your data before it ever reaches the cloud.
-            Even if someone gains access to your Nextcloud account, your notes will remain safe and encrypted with a separate password. This provides you a second layer of security to protect your data.
-            No-one can access your notes on the server without your encryption password, but this also means that if you forget your encryption password, you will lose access to your data.
-        - q: "I haven't set an encryption password yet. Where do I get it?"
+            Nextcloud 密碼用於存取雲端。加密密碼會在資料到達雲端之前混亂您的資料。
+            即使有人訪問您的 Nextcloud 帳號，您的筆記也將保持安全並使用單獨的密碼進行加密。這為您提供了第二層安全保護來保護您的資料。
+            如果沒有加密密碼，任何人都無法存取伺服器上的筆記，但這也意味著如果您忘記加密密碼，您將無法存取您的資料。
+        - q: "我還沒有設定加密密碼。我在哪裡可以得到它？"
           a: |-
-            Choose a new encryption password and enter it above.
-            Saber will generate your encryption keys from this password automatically.
-        - q: "Can I use the same password as my Nextcloud account?"
-          a: "Yes, but keep in mind that it would be easier for the server administrator or someone else to access your notes if they gain access to your Nextcloud account."
+            選擇一個新的加密密碼並在上面輸入。
+            Saber 將自動根據該密碼產生您的加密金鑰。
+        - q: "我可以使用與 Nextcloud 帳號相同的密碼嗎？"
+          a: "可以，但請記住如果伺服器管理員或其他人獲得了您的 Nextcloud 帳號的存取權限，他們將更容易存取您的筆記。"
   profile:
-    quotaUsage(OUTDATED): You're using $used of $total ($percent)
-    connectedTo(OUTDATED): Connected to
-    faqTitle(OUTDATED): Frequently asked questions
+    quotaUsage(OUTDATED): 您已使用 $used，共 $total ($percent)
+    connectedTo(OUTDATED): 連線到
+    faqTitle(OUTDATED): 常見問題
