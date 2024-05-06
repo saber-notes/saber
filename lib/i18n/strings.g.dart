@@ -150,6 +150,7 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	late final Translations _root = this; // ignore: unused_field
 
 	// Translations
+	late final _StringsCommonEn common = _StringsCommonEn._(_root);
 	late final _StringsHomeEn home = _StringsHomeEn._(_root);
 	late final _StringsSettingsEn settings = _StringsSettingsEn._(_root);
 	late final _StringsLoginEn login = _StringsLoginEn._(_root);
@@ -157,6 +158,18 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	late final _StringsAppInfoEn appInfo = _StringsAppInfoEn._(_root);
 	late final _StringsUpdateEn update = _StringsUpdateEn._(_root);
 	late final _StringsEditorEn editor = _StringsEditorEn._(_root);
+}
+
+// Path: common
+class _StringsCommonEn {
+	_StringsCommonEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get done => 'Done';
+	String get continueBtn => 'Continue';
+	String get cancel => 'Cancel';
 }
 
 // Path: home
@@ -228,12 +241,8 @@ class _StringsLoginEn {
 		const TextSpan(text: '.'),
 	]);
 	late final _StringsLoginStatusEn status = _StringsLoginStatusEn._(_root);
-	String get encFaqTitle => 'Frequently asked questions';
-	List<dynamic> get encFaq => [
-		_StringsLogin$encFaq$0i0$En._(_root),
-		_StringsLogin$encFaq$0i1$En._(_root),
-		_StringsLogin$encFaq$0i2$En._(_root),
-	];
+	late final _StringsLoginNcLoginStepEn ncLoginStep = _StringsLoginNcLoginStepEn._(_root);
+	late final _StringsLoginEncLoginStepEn encLoginStep = _StringsLoginEncLoginStepEn._(_root);
 }
 
 // Path: profile
@@ -245,6 +254,8 @@ class _StringsProfileEn {
 	// Translations
 	String get title => 'My profile';
 	String get logout => 'Log out';
+	String quotaUsage({required Object used, required Object total, required Object percent}) => 'You\'re using ${used} of ${total} (${percent})';
+	String get connectedTo => 'Connected to';
 	late final _StringsProfileQuickLinksEn quickLinks = _StringsProfileQuickLinksEn._(_root);
 	String get faqTitle => 'Frequently asked questions';
 	List<dynamic> get faq => [
@@ -591,37 +602,40 @@ class _StringsLoginStatusEn {
 	String get loggedIn => 'Logged in with Nextcloud';
 }
 
-// Path: login.encFaq.0
-class _StringsLogin$encFaq$0i0$En {
-	_StringsLogin$encFaq$0i0$En._(this._root);
+// Path: login.ncLoginStep
+class _StringsLoginNcLoginStepEn {
+	_StringsLoginNcLoginStepEn._(this._root);
 
 	final Translations _root; // ignore: unused_field
 
 	// Translations
-	String get q => 'What is an encryption password? Why use two passwords?';
-	String get a => 'The Nextcloud password is used to access the cloud. The encryption password "scrambles" your data before it ever reaches the cloud.\nEven if someone gains access to your Nextcloud account, your notes will remain safe and encrypted with a separate password. This provides you a second layer of security to protect your data.\nNo-one can access your notes on the server without your encryption password, but this also means that if you forget your encryption password, you will lose access to your data.';
+	String get whereToStoreData => 'Choose where you want to store your data:';
+	String get saberNcServer => 'Saber\'s Nextcloud server';
+	String get otherNcServer => 'Other Nextcloud server';
+	String get serverUrl => 'Server URL';
+	String get loginWithSaber => 'Login with Saber';
+	String get loginWithNextcloud => 'Login with Nextcloud';
+	late final _StringsLoginNcLoginStepLoginFlowEn loginFlow = _StringsLoginNcLoginStepLoginFlowEn._(_root);
 }
 
-// Path: login.encFaq.1
-class _StringsLogin$encFaq$0i1$En {
-	_StringsLogin$encFaq$0i1$En._(this._root);
+// Path: login.encLoginStep
+class _StringsLoginEncLoginStepEn {
+	_StringsLoginEncLoginStepEn._(this._root);
 
 	final Translations _root; // ignore: unused_field
 
 	// Translations
-	String get q => 'I haven\'t set an encryption password yet. Where do I get it?';
-	String get a => 'Choose a new encryption password and enter it above.\nSaber will generate your encryption keys from this password automatically.';
-}
-
-// Path: login.encFaq.2
-class _StringsLogin$encFaq$0i2$En {
-	_StringsLogin$encFaq$0i2$En._(this._root);
-
-	final Translations _root; // ignore: unused_field
-
-	// Translations
-	String get q => 'Can I use the same password as my Nextcloud account?';
-	String get a => 'Yes, but keep in mind that it would be easier for the server administrator or someone else to access your notes if they gain access to your Nextcloud account.';
+	String get enterEncPassword => 'To protect your data, please enter your encryption password:';
+	String get newToSaber => 'New to Saber? Just enter a new encryption password.';
+	String get encPassword => 'Encryption password';
+	String get encFaqTitle => 'Frequently asked questions';
+	String get wrongEncPassword => 'Decryption failed with the provided password. Please try entering it again.';
+	String get connectionFailed => 'Something went wrong connecting to the server. Please try again later.';
+	List<dynamic> get encFaq => [
+		_StringsLoginEncLoginStep$encFaq$0i0$En._(_root),
+		_StringsLoginEncLoginStep$encFaq$0i1$En._(_root),
+		_StringsLoginEncLoginStep$encFaq$0i2$En._(_root),
+	];
 }
 
 // Path: profile.quickLinks
@@ -817,7 +831,6 @@ class _StringsEditorNewerFileFormatEn {
 	String get title => 'This note was edited using a newer version of Saber';
 	String get subtitle => 'Editing this note may result in some information being lost. Do you want to ignore this and edit it anyway?';
 	String get allowEditing => 'Allow editing';
-	String get cancel => 'Cancel';
 }
 
 // Path: editor.quill
@@ -867,6 +880,51 @@ class _StringsSettingsPrefDescriptionsPencilSoundSettingEn {
 	String get off => 'No sound';
 	String get onButNotInSilentMode => 'Enabled (unless in silent mode)';
 	String get onAlways => 'Enabled (even in silent mode)';
+}
+
+// Path: login.ncLoginStep.loginFlow
+class _StringsLoginNcLoginStepLoginFlowEn {
+	_StringsLoginNcLoginStepLoginFlowEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get pleaseAuthorize => 'Please authorize Saber to access your Nextcloud account';
+	String get followPrompts => 'Please follow the prompts in your browser.';
+	String get browserDidntOpen => 'Browser didn\'t open? Click here';
+}
+
+// Path: login.encLoginStep.encFaq.0
+class _StringsLoginEncLoginStep$encFaq$0i0$En {
+	_StringsLoginEncLoginStep$encFaq$0i0$En._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get q => 'What is an encryption password? Why use two passwords?';
+	String get a => 'The Nextcloud password is used to access the cloud. The encryption password "scrambles" your data before it ever reaches the cloud.\nEven if someone gains access to your Nextcloud account, your notes will remain safe and encrypted with a separate password. This provides you a second layer of security to protect your data.\nNo-one can access your notes on the server without your encryption password, but this also means that if you forget your encryption password, you will lose access to your data.';
+}
+
+// Path: login.encLoginStep.encFaq.1
+class _StringsLoginEncLoginStep$encFaq$0i1$En {
+	_StringsLoginEncLoginStep$encFaq$0i1$En._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get q => 'I haven\'t set an encryption password yet. Where do I get it?';
+	String get a => 'Choose a new encryption password and enter it above.\nSaber will generate your encryption keys from this password automatically.';
+}
+
+// Path: login.encLoginStep.encFaq.2
+class _StringsLoginEncLoginStep$encFaq$0i2$En {
+	_StringsLoginEncLoginStep$encFaq$0i2$En._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get q => 'Can I use the same password as my Nextcloud account?';
+	String get a => 'Yes, but keep in mind that it would be easier for the server administrator or someone else to access your notes if they gain access to your Nextcloud account.';
 }
 
 // Path: editor.menu.boxFits
@@ -926,6 +984,7 @@ class _StringsAr extends Translations {
 	@override late final _StringsAppInfoAr appInfo = _StringsAppInfoAr._(_root);
 	@override late final _StringsUpdateAr update = _StringsUpdateAr._(_root);
 	@override late final _StringsEditorAr editor = _StringsEditorAr._(_root);
+	@override late final _StringsCommonAr common = _StringsCommonAr._(_root);
 }
 
 // Path: home
@@ -1060,6 +1119,16 @@ class _StringsEditorAr extends _StringsEditorEn {
 	@override String get pages => 'صفحات';
 	@override String get untitled => 'بدون عنوان';
 	@override String get needsToSaveBeforeExiting => 'حفظ التغييرات... يمكنك الخروج بأمان من المحرر عند الانتهاء';
+}
+
+// Path: common
+class _StringsCommonAr extends _StringsCommonEn {
+	_StringsCommonAr._(_StringsAr root) : this._root = root, super._(root);
+
+	@override final _StringsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get cancel => 'إلغاء';
 }
 
 // Path: home.tabs
@@ -1539,7 +1608,6 @@ class _StringsEditorNewerFileFormatAr extends _StringsEditorNewerFileFormatEn {
 	@override String get title => 'تم تحرير هذه الملاحظة باستخدام إصدار أحدث من Saber';
 	@override String get subtitle => 'قد يؤدي تحرير هذه الملاحظة إلى ضياع بعض المعلومات. هل تريد تجاهل هذا وتعديله على أي حال؟';
 	@override String get allowEditing => 'السماح بالتعديل';
-	@override String get cancel => 'إلغاء';
 }
 
 // Path: editor.quill
@@ -1648,6 +1716,7 @@ class _StringsCs extends Translations {
 	@override late final _StringsAppInfoCs appInfo = _StringsAppInfoCs._(_root);
 	@override late final _StringsUpdateCs update = _StringsUpdateCs._(_root);
 	@override late final _StringsEditorCs editor = _StringsEditorCs._(_root);
+	@override late final _StringsCommonCs common = _StringsCommonCs._(_root);
 }
 
 // Path: home
@@ -1782,6 +1851,16 @@ class _StringsEditorCs extends _StringsEditorEn {
 	@override String get pages => 'Stránky';
 	@override String get untitled => 'Nepojmenovaná poznámka';
 	@override String get needsToSaveBeforeExiting => 'Ukládání změn... Po skončení této operace můžete editor bezpečně opustit';
+}
+
+// Path: common
+class _StringsCommonCs extends _StringsCommonEn {
+	_StringsCommonCs._(_StringsCs root) : this._root = root, super._(root);
+
+	@override final _StringsCs _root; // ignore: unused_field
+
+	// Translations
+	@override String get cancel => 'Zrušit';
 }
 
 // Path: home.tabs
@@ -2261,7 +2340,6 @@ class _StringsEditorNewerFileFormatCs extends _StringsEditorNewerFileFormatEn {
 	@override String get title => 'Tato poznámka byla upravena v novější verzi aplikace Saber';
 	@override String get subtitle => 'Úpravou této poznámky můžete přijít o některé informace. Přejete tuto skutečnost ignorovat a přesto pokračovat k úpravě poznámky?';
 	@override String get allowEditing => 'Povolit úpravy';
-	@override String get cancel => 'Zrušit';
 }
 
 // Path: editor.quill
@@ -2370,6 +2448,7 @@ class _StringsDe extends Translations {
 	@override late final _StringsAppInfoDe appInfo = _StringsAppInfoDe._(_root);
 	@override late final _StringsUpdateDe update = _StringsUpdateDe._(_root);
 	@override late final _StringsEditorDe editor = _StringsEditorDe._(_root);
+	@override late final _StringsCommonDe common = _StringsCommonDe._(_root);
 }
 
 // Path: home
@@ -2504,6 +2583,16 @@ class _StringsEditorDe extends _StringsEditorEn {
 	@override String get pages => 'Seiten';
 	@override String get untitled => 'Unbenannt';
 	@override String get needsToSaveBeforeExiting => 'Deine Änderungen werden gespeichert... Du kannst den Editor ohne Datenverlust verlassen, sobald der Vorgang beendet ist.';
+}
+
+// Path: common
+class _StringsCommonDe extends _StringsCommonEn {
+	_StringsCommonDe._(_StringsDe root) : this._root = root, super._(root);
+
+	@override final _StringsDe _root; // ignore: unused_field
+
+	// Translations
+	@override String get cancel => 'Abbruch';
 }
 
 // Path: home.tabs
@@ -2983,7 +3072,6 @@ class _StringsEditorNewerFileFormatDe extends _StringsEditorNewerFileFormatEn {
 	@override String get title => 'Diese Notiz wurde mit einer neueren Version von Saber bearbeitet';
 	@override String get subtitle => 'Durch das Bearbeiten dieser Notiz können Daten verloren gehen. Möchtest du sie trotzdem bearbeiten?';
 	@override String get allowEditing => 'Schreibschutz aufheben';
-	@override String get cancel => 'Abbruch';
 }
 
 // Path: editor.quill
@@ -3092,6 +3180,7 @@ class _StringsEs extends Translations {
 	@override late final _StringsAppInfoEs appInfo = _StringsAppInfoEs._(_root);
 	@override late final _StringsUpdateEs update = _StringsUpdateEs._(_root);
 	@override late final _StringsEditorEs editor = _StringsEditorEs._(_root);
+	@override late final _StringsCommonEs common = _StringsCommonEs._(_root);
 }
 
 // Path: home
@@ -3225,6 +3314,16 @@ class _StringsEditorEs extends _StringsEditorEn {
 	@override String get pages => 'Páginas';
 	@override String get untitled => 'Sin título';
 	@override String get needsToSaveBeforeExiting => 'Guardando los cambios... Puedes salir del editor de forma segura cuando se haya guardado todo';
+}
+
+// Path: common
+class _StringsCommonEs extends _StringsCommonEn {
+	_StringsCommonEs._(_StringsEs root) : this._root = root, super._(root);
+
+	@override final _StringsEs _root; // ignore: unused_field
+
+	// Translations
+	@override String get cancel => 'Cancelar';
 }
 
 // Path: home.tabs
@@ -3704,7 +3803,6 @@ class _StringsEditorNewerFileFormatEs extends _StringsEditorNewerFileFormatEn {
 	@override String get title => 'Esta nota fue editada usando una versión más reciente de Saber';
 	@override String get subtitle => 'La edición de esta nota puede resultar en la pérdida de cierta información. ¿Quieres ignorar esto y editarlo de todos modos?';
 	@override String get allowEditing => 'Editar';
-	@override String get cancel => 'Cancelar';
 }
 
 // Path: editor.quill
@@ -3813,6 +3911,7 @@ class _StringsFa extends Translations {
 	@override late final _StringsAppInfoFa appInfo = _StringsAppInfoFa._(_root);
 	@override late final _StringsUpdateFa update = _StringsUpdateFa._(_root);
 	@override late final _StringsEditorFa editor = _StringsEditorFa._(_root);
+	@override late final _StringsCommonFa common = _StringsCommonFa._(_root);
 }
 
 // Path: home
@@ -3947,6 +4046,16 @@ class _StringsEditorFa extends _StringsEditorEn {
 	@override String get pages => 'صفحات';
 	@override String get untitled => 'بدون عنوان';
 	@override String get needsToSaveBeforeExiting => 'در حال ذخیره تغییرات شما... می توانید با خیال راحت از ویرایشگر خارج شوید';
+}
+
+// Path: common
+class _StringsCommonFa extends _StringsCommonEn {
+	_StringsCommonFa._(_StringsFa root) : this._root = root, super._(root);
+
+	@override final _StringsFa _root; // ignore: unused_field
+
+	// Translations
+	@override String get cancel => 'لغو';
 }
 
 // Path: home.tabs
@@ -4426,7 +4535,6 @@ class _StringsEditorNewerFileFormatFa extends _StringsEditorNewerFileFormatEn {
 	@override String get title => 'این یادداشت با استفاده از نسخه جدیدتر برنامه ویرایش شده است';
 	@override String get subtitle => 'ویرایش این یادداشت ممکن است منجر به از بین رفتن برخی از اطلاعات شود. آیا می خواهید این را نادیده بگیرید و به هر حال آن را ویرایش کنید؟';
 	@override String get allowEditing => 'اجازه ویرایش';
-	@override String get cancel => 'لغو';
 }
 
 // Path: editor.quill
@@ -4535,6 +4643,7 @@ class _StringsFr extends Translations {
 	@override late final _StringsAppInfoFr appInfo = _StringsAppInfoFr._(_root);
 	@override late final _StringsUpdateFr update = _StringsUpdateFr._(_root);
 	@override late final _StringsEditorFr editor = _StringsEditorFr._(_root);
+	@override late final _StringsCommonFr common = _StringsCommonFr._(_root);
 }
 
 // Path: home
@@ -4669,6 +4778,16 @@ class _StringsEditorFr extends _StringsEditorEn {
 	@override String get pages => 'Pages';
 	@override String get untitled => 'Sans titre';
 	@override String get needsToSaveBeforeExiting => 'Sauvegarde en cours... Vous pourrez quitter l\'éditeur en toute sécurité une fois qu\'elle sera terminée';
+}
+
+// Path: common
+class _StringsCommonFr extends _StringsCommonEn {
+	_StringsCommonFr._(_StringsFr root) : this._root = root, super._(root);
+
+	@override final _StringsFr _root; // ignore: unused_field
+
+	// Translations
+	@override String get cancel => 'Annuler';
 }
 
 // Path: home.tabs
@@ -5148,7 +5267,6 @@ class _StringsEditorNewerFileFormatFr extends _StringsEditorNewerFileFormatEn {
 	@override String get title => 'Cette note a été modifiée avec une version plus récente de Saber';
 	@override String get subtitle => 'Éditer cette note pourrait entraîner la perte de certaines informations. Voulez-vous la modifier quand même ?';
 	@override String get allowEditing => 'Autoriser les modifications';
-	@override String get cancel => 'Annuler';
 }
 
 // Path: editor.quill
@@ -5257,6 +5375,7 @@ class _StringsHe extends Translations {
 	@override late final _StringsAppInfoHe appInfo = _StringsAppInfoHe._(_root);
 	@override late final _StringsUpdateHe update = _StringsUpdateHe._(_root);
 	@override late final _StringsEditorHe editor = _StringsEditorHe._(_root);
+	@override late final _StringsCommonHe common = _StringsCommonHe._(_root);
 }
 
 // Path: home
@@ -5391,6 +5510,16 @@ class _StringsEditorHe extends _StringsEditorEn {
 	@override String get pages => 'דפים';
 	@override String get untitled => 'חסר כותרת';
 	@override String get needsToSaveBeforeExiting => 'שמירת השינויים... אתה יכול לצאת בבטחה מהעורך בסיום';
+}
+
+// Path: common
+class _StringsCommonHe extends _StringsCommonEn {
+	_StringsCommonHe._(_StringsHe root) : this._root = root, super._(root);
+
+	@override final _StringsHe _root; // ignore: unused_field
+
+	// Translations
+	@override String get cancel => 'בטל';
 }
 
 // Path: home.tabs
@@ -5870,7 +5999,6 @@ class _StringsEditorNewerFileFormatHe extends _StringsEditorNewerFileFormatEn {
 	@override String get title => 'הערה זו נערכה באמצעות גרסה חדשה יותר של Saber';
 	@override String get subtitle => 'עריכת פתק זה עלולה לגרום לאיבוד מידע מסוים. האם אתה רוצה להתאלם מזה בכל מקרה?';
 	@override String get allowEditing => 'אפשר עריכה';
-	@override String get cancel => 'בטל';
 }
 
 // Path: editor.quill
@@ -5979,6 +6107,7 @@ class _StringsHu extends Translations {
 	@override late final _StringsAppInfoHu appInfo = _StringsAppInfoHu._(_root);
 	@override late final _StringsUpdateHu update = _StringsUpdateHu._(_root);
 	@override late final _StringsEditorHu editor = _StringsEditorHu._(_root);
+	@override late final _StringsCommonHu common = _StringsCommonHu._(_root);
 }
 
 // Path: home
@@ -6113,6 +6242,16 @@ class _StringsEditorHu extends _StringsEditorEn {
 	@override String get pages => 'Oldalak';
 	@override String get untitled => 'Névtelen';
 	@override String get needsToSaveBeforeExiting => 'A módosítások mentése... Ha kész, nyugodtan kiléphet a szerkesztőből';
+}
+
+// Path: common
+class _StringsCommonHu extends _StringsCommonEn {
+	_StringsCommonHu._(_StringsHu root) : this._root = root, super._(root);
+
+	@override final _StringsHu _root; // ignore: unused_field
+
+	// Translations
+	@override String get cancel => 'Mégse';
 }
 
 // Path: home.tabs
@@ -6592,7 +6731,6 @@ class _StringsEditorNewerFileFormatHu extends _StringsEditorNewerFileFormatEn {
 	@override String get title => 'Ezt a jegyzetet a Saber egy újabb verziójával lett szerkesztve';
 	@override String get subtitle => 'A jegyzet szerkesztése bizonyos információk elvesztését eredményezheti. Szeretné ezt figyelmen kívül hagyni, és mégis szerkeszteni?';
 	@override String get allowEditing => 'Szerkesztés engedélyezése';
-	@override String get cancel => 'Mégse';
 }
 
 // Path: editor.quill
@@ -6701,6 +6839,7 @@ class _StringsIt extends Translations {
 	@override late final _StringsAppInfoIt appInfo = _StringsAppInfoIt._(_root);
 	@override late final _StringsUpdateIt update = _StringsUpdateIt._(_root);
 	@override late final _StringsEditorIt editor = _StringsEditorIt._(_root);
+	@override late final _StringsCommonIt common = _StringsCommonIt._(_root);
 }
 
 // Path: home
@@ -6835,6 +6974,16 @@ class _StringsEditorIt extends _StringsEditorEn {
 	@override String get pages => 'Pagine';
 	@override String get untitled => 'Senza titolo';
 	@override String get needsToSaveBeforeExiting => 'Salvataggio delle modifiche... Puoi tranquillamente uscire dall\'editor quando hai finito';
+}
+
+// Path: common
+class _StringsCommonIt extends _StringsCommonEn {
+	_StringsCommonIt._(_StringsIt root) : this._root = root, super._(root);
+
+	@override final _StringsIt _root; // ignore: unused_field
+
+	// Translations
+	@override String get cancel => 'Cancella';
 }
 
 // Path: home.tabs
@@ -7314,7 +7463,6 @@ class _StringsEditorNewerFileFormatIt extends _StringsEditorNewerFileFormatEn {
 	@override String get title => 'Questa nota è stata modificata utilizzando una versione più recente di Saber';
 	@override String get subtitle => 'La modifica di questa nota potrebbe comportare la perdita di alcune informazioni. Vuoi ignorare e modificarla comunque?';
 	@override String get allowEditing => 'Consenti modifica';
-	@override String get cancel => 'Cancella';
 }
 
 // Path: editor.quill
@@ -7423,6 +7571,7 @@ class _StringsJa extends Translations {
 	@override late final _StringsAppInfoJa appInfo = _StringsAppInfoJa._(_root);
 	@override late final _StringsUpdateJa update = _StringsUpdateJa._(_root);
 	@override late final _StringsEditorJa editor = _StringsEditorJa._(_root);
+	@override late final _StringsCommonJa common = _StringsCommonJa._(_root);
 }
 
 // Path: home
@@ -7557,6 +7706,16 @@ class _StringsEditorJa extends _StringsEditorEn {
 	@override String get pages => 'ページ';
 	@override String get untitled => '無題';
 	@override String get needsToSaveBeforeExiting => '変更を保存する... 編集が終わったら、エディターを安全に終了することができます。';
+}
+
+// Path: common
+class _StringsCommonJa extends _StringsCommonEn {
+	_StringsCommonJa._(_StringsJa root) : this._root = root, super._(root);
+
+	@override final _StringsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get cancel => '取消';
 }
 
 // Path: home.tabs
@@ -8036,7 +8195,6 @@ class _StringsEditorNewerFileFormatJa extends _StringsEditorNewerFileFormatEn {
 	@override String get title => 'このメモは新しいバージョンのSaberを使用して編集されたものです';
 	@override String get subtitle => 'このメモを編集すると、いくつかの情報が失われる可能性があります。これを無視して編集しますか？';
 	@override String get allowEditing => '編集を許可する';
-	@override String get cancel => '取消';
 }
 
 // Path: editor.quill
@@ -8145,6 +8303,7 @@ class _StringsPtBr extends Translations {
 	@override late final _StringsAppInfoPtBr appInfo = _StringsAppInfoPtBr._(_root);
 	@override late final _StringsUpdatePtBr update = _StringsUpdatePtBr._(_root);
 	@override late final _StringsEditorPtBr editor = _StringsEditorPtBr._(_root);
+	@override late final _StringsCommonPtBr common = _StringsCommonPtBr._(_root);
 }
 
 // Path: home
@@ -8279,6 +8438,16 @@ class _StringsEditorPtBr extends _StringsEditorEn {
 	@override String get pages => 'Páginas';
 	@override String get untitled => 'Sem título';
 	@override String get needsToSaveBeforeExiting => 'Salvando as suas alterações... Você pode sair do editor com segurança quando isto terminar';
+}
+
+// Path: common
+class _StringsCommonPtBr extends _StringsCommonEn {
+	_StringsCommonPtBr._(_StringsPtBr root) : this._root = root, super._(root);
+
+	@override final _StringsPtBr _root; // ignore: unused_field
+
+	// Translations
+	@override String get cancel => 'Cancelar';
 }
 
 // Path: home.tabs
@@ -8758,7 +8927,6 @@ class _StringsEditorNewerFileFormatPtBr extends _StringsEditorNewerFileFormatEn 
 	@override String get title => 'Esta nota foi editada usando uma versão mais recente do Saber';
 	@override String get subtitle => 'A edição desta nota pode resultar na perda de algumas informações. Deseja ignorar isso e editá-la mesmo assim?';
 	@override String get allowEditing => 'Permitir edição';
-	@override String get cancel => 'Cancelar';
 }
 
 // Path: editor.quill
@@ -8867,6 +9035,7 @@ class _StringsRu extends Translations {
 	@override late final _StringsAppInfoRu appInfo = _StringsAppInfoRu._(_root);
 	@override late final _StringsUpdateRu update = _StringsUpdateRu._(_root);
 	@override late final _StringsEditorRu editor = _StringsEditorRu._(_root);
+	@override late final _StringsCommonRu common = _StringsCommonRu._(_root);
 }
 
 // Path: home
@@ -9001,6 +9170,16 @@ class _StringsEditorRu extends _StringsEditorEn {
 	@override String get pages => 'Листы';
 	@override String get untitled => 'Без названия';
 	@override String get needsToSaveBeforeExiting => 'Сохраните Ваши изменения... Вы можете безопасно выйти из редактора, когда это будет сделано';
+}
+
+// Path: common
+class _StringsCommonRu extends _StringsCommonEn {
+	_StringsCommonRu._(_StringsRu root) : this._root = root, super._(root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get cancel => 'Отмена';
 }
 
 // Path: home.tabs
@@ -9480,7 +9659,6 @@ class _StringsEditorNewerFileFormatRu extends _StringsEditorNewerFileFormatEn {
 	@override String get title => 'Эта заметка была отредактирована в более новой версии Saber.';
 	@override String get subtitle => 'Редактирование этой заметки может привести к потере некоторой информации. Вы хотите проигнорировать это и начать редактирование?';
 	@override String get allowEditing => 'Разрешить редактирование';
-	@override String get cancel => 'Отмена';
 }
 
 // Path: editor.quill
@@ -9589,6 +9767,7 @@ class _StringsTr extends Translations {
 	@override late final _StringsAppInfoTr appInfo = _StringsAppInfoTr._(_root);
 	@override late final _StringsUpdateTr update = _StringsUpdateTr._(_root);
 	@override late final _StringsEditorTr editor = _StringsEditorTr._(_root);
+	@override late final _StringsCommonTr common = _StringsCommonTr._(_root);
 }
 
 // Path: home
@@ -9723,6 +9902,16 @@ class _StringsEditorTr extends _StringsEditorEn {
 	@override String get pages => 'Sayfalar';
 	@override String get untitled => 'İsimsiz';
 	@override String get needsToSaveBeforeExiting => 'Değişiklikler kaydediliyor... kayıt tamamlandığında editörden güvenli biçimde çıkabilirsiniz.';
+}
+
+// Path: common
+class _StringsCommonTr extends _StringsCommonEn {
+	_StringsCommonTr._(_StringsTr root) : this._root = root, super._(root);
+
+	@override final _StringsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String get cancel => 'İptal';
 }
 
 // Path: home.tabs
@@ -10202,7 +10391,6 @@ class _StringsEditorNewerFileFormatTr extends _StringsEditorNewerFileFormatEn {
 	@override String get title => 'Bu not Saber\'ın yeni bir versiyonunda düzenlenmiş';
 	@override String get subtitle => 'Bu notu düzenlemek veri kaybına sebep olabilir. Bunu görmezden gelerek düzenlemek ister misiniz?';
 	@override String get allowEditing => 'Düzenlemeye izin ver';
-	@override String get cancel => 'İptal';
 }
 
 // Path: editor.quill
@@ -10311,6 +10499,7 @@ class _StringsZhHansCn extends Translations {
 	@override late final _StringsAppInfoZhHansCn appInfo = _StringsAppInfoZhHansCn._(_root);
 	@override late final _StringsUpdateZhHansCn update = _StringsUpdateZhHansCn._(_root);
 	@override late final _StringsEditorZhHansCn editor = _StringsEditorZhHansCn._(_root);
+	@override late final _StringsCommonZhHansCn common = _StringsCommonZhHansCn._(_root);
 }
 
 // Path: home
@@ -10445,6 +10634,16 @@ class _StringsEditorZhHansCn extends _StringsEditorEn {
 	@override String get pages => '页面';
 	@override String get untitled => '未命名';
 	@override String get needsToSaveBeforeExiting => '正在保存您的更改。。。完成后您可以安全地退出编辑器';
+}
+
+// Path: common
+class _StringsCommonZhHansCn extends _StringsCommonEn {
+	_StringsCommonZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
+
+	@override final _StringsZhHansCn _root; // ignore: unused_field
+
+	// Translations
+	@override String get cancel => '取消';
 }
 
 // Path: home.tabs
@@ -10924,7 +11123,6 @@ class _StringsEditorNewerFileFormatZhHansCn extends _StringsEditorNewerFileForma
 	@override String get title => '此笔记使用新版 Saber 编辑而成';
 	@override String get subtitle => '编辑此笔记可能会导致某些信息丢失。您想忽略并编辑吗？';
 	@override String get allowEditing => '允许编辑';
-	@override String get cancel => '取消';
 }
 
 // Path: editor.quill
@@ -11033,6 +11231,7 @@ class _StringsZhHantTw extends Translations {
 	@override late final _StringsAppInfoZhHantTw appInfo = _StringsAppInfoZhHantTw._(_root);
 	@override late final _StringsUpdateZhHantTw update = _StringsUpdateZhHantTw._(_root);
 	@override late final _StringsEditorZhHantTw editor = _StringsEditorZhHantTw._(_root);
+	@override late final _StringsCommonZhHantTw common = _StringsCommonZhHantTw._(_root);
 }
 
 // Path: home
@@ -11167,6 +11366,16 @@ class _StringsEditorZhHantTw extends _StringsEditorEn {
 	@override String get pages => '頁面';
 	@override String get untitled => '無標題';
 	@override String get needsToSaveBeforeExiting => '正在儲存您的變更...完成後您可以安全地退出編輯器';
+}
+
+// Path: common
+class _StringsCommonZhHantTw extends _StringsCommonEn {
+	_StringsCommonZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
+
+	@override final _StringsZhHantTw _root; // ignore: unused_field
+
+	// Translations
+	@override String get cancel => '取消';
 }
 
 // Path: home.tabs
@@ -11646,7 +11855,6 @@ class _StringsEditorNewerFileFormatZhHantTw extends _StringsEditorNewerFileForma
 	@override String get title => '這篇筆記是使用較新版本的 Saber 編輯的';
 	@override String get subtitle => '編輯此筆記可能會導致某些資訊遺失。 您想忽略它並編輯它嗎？';
 	@override String get allowEditing => '允許編輯';
-	@override String get cancel => '取消';
 }
 
 // Path: editor.quill

@@ -105,7 +105,7 @@ class _NcLoginStepState extends State<NcLoginStep> {
           excludeFromSemantics: true,
         ),
         const SizedBox(height: 64),
-        Text('Choose where you want to store your data:',
+        Text(t.login.ncLoginStep.whereToStoreData,
             style: textTheme.headlineSmall),
         Text.rich(
           t.login.form.agreeToPrivacyPolicy(
@@ -131,7 +131,7 @@ class _NcLoginStepState extends State<NcLoginStep> {
             const SizedBox(width: 16),
             Expanded(
               child: Text(
-                'Saber\'s Nextcloud server',
+                t.login.ncLoginStep.saberNcServer,
                 style: textTheme.headlineSmall,
               ),
             ),
@@ -142,7 +142,7 @@ class _NcLoginStepState extends State<NcLoginStep> {
           onPressed: () =>
               startLoginFlow(NextcloudClientExtension.defaultNextcloudUri),
           style: buttonColorStyle(saberColor, onSaberColor),
-          child: const Text('Login with Saber'),
+          child: Text(t.login.ncLoginStep.loginWithSaber),
         ),
         const SizedBox(height: 4),
         Text.rich(
@@ -172,7 +172,7 @@ class _NcLoginStepState extends State<NcLoginStep> {
             const SizedBox(width: 16),
             Expanded(
               child: Text(
-                'Other Nextcloud server',
+                t.login.ncLoginStep.otherNcServer,
                 style: textTheme.headlineSmall,
               ),
             ),
@@ -180,8 +180,8 @@ class _NcLoginStepState extends State<NcLoginStep> {
         ),
         const SizedBox(height: 16),
         TextField(
-          decoration: const InputDecoration(
-            labelText: 'Server URL',
+          decoration: InputDecoration(
+            labelText: t.login.ncLoginStep.serverUrl,
             hintText: 'https://nc.example.com',
           ),
           controller: _serverUrlController,
@@ -205,7 +205,7 @@ class _NcLoginStepState extends State<NcLoginStep> {
               child: child,
             );
           },
-          child: const Text('Login with Nextcloud'),
+          child: Text(t.login.ncLoginStep.loginWithNextcloud),
         ),
       ],
     );
@@ -244,15 +244,14 @@ class _LoginFlowDialogState extends State<_LoginFlowDialog> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog.adaptive(
-      title:
-          const Text('Please authorize Saber to access your Nextcloud account'),
+      title: Text(t.login.ncLoginStep.loginFlow.pleaseAuthorize),
       content: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const Text('Please follow the prompts in your browser.'),
+          Text(t.login.ncLoginStep.loginFlow.followPrompts),
           TextButton(
             onPressed: widget.loginFlow.openInBrowser,
-            child: const Text('Browser didn\'t open? Click here'),
+            child: Text(t.login.ncLoginStep.loginFlow.browserDidntOpen),
           ),
         ],
       ),
@@ -262,10 +261,10 @@ class _LoginFlowDialogState extends State<_LoginFlowDialog> {
             widget.loginFlow.dispose();
             Navigator.of(context).pop();
           },
-          child: const Text('Cancel'),
+          child: Text(t.common.cancel),
         ),
-        const _FakeDoneButton(
-          child: Text('Done'),
+        _FakeDoneButton(
+          child: Text(t.common.done),
         ),
       ],
     );

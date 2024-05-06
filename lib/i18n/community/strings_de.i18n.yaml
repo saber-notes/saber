@@ -276,7 +276,6 @@ editor:
     title: Diese Notiz wurde mit einer neueren Version von Saber bearbeitet
     subtitle: "Durch das Bearbeiten dieser Notiz können Daten verloren gehen. Möchtest du sie trotzdem bearbeiten?"
     allowEditing: Schreibschutz aufheben
-    cancel: Abbruch
   quill:
     typeSomething: Hier tippen...
   hud:
@@ -289,3 +288,5 @@ editor:
   pages: Seiten
   untitled: Unbenannt
   needsToSaveBeforeExiting: "Deine Änderungen werden gespeichert... Du kannst den Editor ohne Datenverlust verlassen, sobald der Vorgang beendet ist."
+common:
+  cancel: Abbruch

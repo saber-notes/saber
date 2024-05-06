@@ -275,7 +275,6 @@ editor:
     title: Esta nota fue editada usando una versión más reciente de Saber
     subtitle: "La edición de esta nota puede resultar en la pérdida de cierta información. ¿Quieres ignorar esto y editarlo de todos modos?"
     allowEditing: Editar
-    cancel: Cancelar
   quill:
     typeSomething: Escribe algo aquí...
   hud:
@@ -288,3 +287,5 @@ editor:
   pages: Páginas
   untitled: Sin título
   needsToSaveBeforeExiting: Guardando los cambios... Puedes salir del editor de forma segura cuando se haya guardado todo
+common:
+  cancel: Cancelar

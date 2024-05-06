@@ -1,3 +1,7 @@
+common:
+  done: Done
+  continueBtn: Continue
+  cancel: Cancel
 home:
   tabs:
     home: Home
@@ -153,23 +157,41 @@ login:
     hi: "Hi, $u!"
     almostDone: "Almost ready for syncing, tap to finish logging in"
     loggedIn: Logged in with Nextcloud
-  encFaqTitle: Frequently asked questions
-  encFaq:
-    - q: "What is an encryption password? Why use two passwords?"
-      a: |-
-        The Nextcloud password is used to access the cloud. The encryption password "scrambles" your data before it ever reaches the cloud.
-        Even if someone gains access to your Nextcloud account, your notes will remain safe and encrypted with a separate password. This provides you a second layer of security to protect your data.
-        No-one can access your notes on the server without your encryption password, but this also means that if you forget your encryption password, you will lose access to your data.
-    - q: "I haven't set an encryption password yet. Where do I get it?"
-      a: |-
-        Choose a new encryption password and enter it above.
-        Saber will generate your encryption keys from this password automatically.
-    - q: "Can I use the same password as my Nextcloud account?"
-      a: |-
-        Yes, but keep in mind that it would be easier for the server administrator or someone else to access your notes if they gain access to your Nextcloud account.
+  ncLoginStep:
+    whereToStoreData: "Choose where you want to store your data:"
+    saberNcServer: Saber's Nextcloud server
+    otherNcServer: Other Nextcloud server
+    serverUrl: Server URL
+    loginWithSaber: Login with Saber
+    loginWithNextcloud: Login with Nextcloud
+    loginFlow:
+      pleaseAuthorize: Please authorize Saber to access your Nextcloud account
+      followPrompts: Please follow the prompts in your browser.
+      browserDidntOpen: "Browser didn't open? Click here"
+  encLoginStep:
+    enterEncPassword: "To protect your data, please enter your encryption password:"
+    newToSaber: "New to Saber? Just enter a new encryption password."
+    encPassword: Encryption password
+    encFaqTitle: Frequently asked questions
+    wrongEncPassword: Decryption failed with the provided password. Please try entering it again.
+    connectionFailed: Something went wrong connecting to the server. Please try again later.
+    encFaq:
+      - q: "What is an encryption password? Why use two passwords?"
+        a: |-
+          The Nextcloud password is used to access the cloud. The encryption password "scrambles" your data before it ever reaches the cloud.
+          Even if someone gains access to your Nextcloud account, your notes will remain safe and encrypted with a separate password. This provides you a second layer of security to protect your data.
+          No-one can access your notes on the server without your encryption password, but this also means that if you forget your encryption password, you will lose access to your data.
+      - q: "I haven't set an encryption password yet. Where do I get it?"
+        a: |-
+          Choose a new encryption password and enter it above.
+          Saber will generate your encryption keys from this password automatically.
+      - q: "Can I use the same password as my Nextcloud account?"
+        a: "Yes, but keep in mind that it would be easier for the server administrator or someone else to access your notes if they gain access to your Nextcloud account."
 profile:
   title: My profile
   logout: Log out
+  quotaUsage: "You're using $used of $total ($percent)"
+  connectedTo: Connected to
   quickLinks:
     serverHomepage: Server homepage
     deleteAccount: Delete account
@@ -294,7 +316,6 @@ editor:
     title: This note was edited using a newer version of Saber
     subtitle: "Editing this note may result in some information being lost. Do you want to ignore this and edit it anyway?"
     allowEditing: Allow editing
-    cancel: Cancel
   quill:
     typeSomething: Type something here...
   hud:

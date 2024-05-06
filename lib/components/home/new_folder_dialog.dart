@@ -62,7 +62,7 @@ class _NewFolderDialogState extends State<NewFolderDialog> {
           onPressed: () {
             Navigator.of(context).pop();
           },
-          child: Text(t.editor.newerFileFormat.cancel),
+          child: Text(t.common.cancel),
         ),
         CupertinoDialogAction(
           onPressed: () {

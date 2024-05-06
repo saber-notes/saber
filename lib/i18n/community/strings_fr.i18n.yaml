@@ -275,7 +275,6 @@ editor:
     title: Cette note a été modifiée avec une version plus récente de Saber
     subtitle: "Éditer cette note pourrait entraîner la perte de certaines informations. Voulez-vous la modifier quand même ?"
     allowEditing: Autoriser les modifications
-    cancel: Annuler
   quill:
     typeSomething: Taper du texte ici...
   hud:
@@ -288,3 +287,5 @@ editor:
   pages: Pages
   untitled: Sans titre
   needsToSaveBeforeExiting: Sauvegarde en cours... Vous pourrez quitter l'éditeur en toute sécurité une fois qu'elle sera terminée
+common:
+  cancel: Annuler

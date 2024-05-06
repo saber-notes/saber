@@ -93,7 +93,7 @@ class _DeleteFolderDialogState extends State<_DeleteFolderDialog> {
       actions: [
         CupertinoDialogAction(
           onPressed: () => Navigator.of(context).pop(),
-          child: Text(t.editor.newerFileFormat.cancel),
+          child: Text(t.common.cancel),
         ),
         CupertinoDialogAction(
           onPressed: deleteAllowed

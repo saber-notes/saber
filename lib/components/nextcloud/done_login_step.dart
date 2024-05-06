@@ -40,7 +40,8 @@ class _DoneLoginStepState extends State<DoneLoginStep> {
     final textTheme = Theme.of(context).textTheme;
     final screenWidth = MediaQuery.sizeOf(context).width;
     final quota = Prefs.lastStorageQuota.value;
-    final server = Prefs.url.value.ifNotEmpty ?? 'Saber\'s Nextcloud server';
+    final server =
+        Prefs.url.value.ifNotEmpty ?? t.login.ncLoginStep.saberNcServer;
     return ListView(
       padding: EdgeInsets.symmetric(
         horizontal: screenWidth > width ? (screenWidth - width) / 2 : 16,
@@ -73,9 +74,11 @@ class _DoneLoginStepState extends State<DoneLoginStep> {
           ],
         ),
         const SizedBox(height: 2),
-        Text(
-          'You\'re using ${readableBytes(quota?.used)} of ${readableBytes(quota?.total)} (${quota?.relative}%).',
-        ),
+        Text(t.profile.quotaUsage(
+          used: readableBytes(quota?.used),
+          total: readableBytes(quota?.total),
+          percent: '${quota?.relative}%',
+        )),
         const SizedBox(height: 2),
         LinearProgressIndicator(
           // At least 4% so the rounded corners render properly
@@ -89,7 +92,7 @@ class _DoneLoginStepState extends State<DoneLoginStep> {
           child: Text(t.profile.logout),
         ),
         const SizedBox(height: 32),
-        const Text('Connected to', style: TextStyle(height: 0.8)),
+        Text(t.profile.connectedTo, style: const TextStyle(height: 0.8)),
         Text(server, style: textTheme.headlineSmall),
         const SizedBox(height: 4),
         Row(

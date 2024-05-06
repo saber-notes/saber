@@ -275,7 +275,6 @@ editor:
     title: Questa nota è stata modificata utilizzando una versione più recente di Saber
     subtitle: "La modifica di questa nota potrebbe comportare la perdita di alcune informazioni. Vuoi ignorare e modificarla comunque?"
     allowEditing: Consenti modifica
-    cancel: Cancella
   quill:
     typeSomething: Scrivi qualcosa qui...
   hud:
@@ -288,3 +287,5 @@ editor:
   pages: Pagine
   untitled: Senza titolo
   needsToSaveBeforeExiting: Salvataggio delle modifiche... Puoi tranquillamente uscire dall'editor quando hai finito
+common:
+  cancel: Cancella

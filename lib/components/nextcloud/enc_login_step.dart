@@ -74,16 +74,16 @@ class _EncLoginStepState extends State<EncLoginStep> {
           ),
         ),
         const SizedBox(height: 32),
-        Text('To protect your data, please enter your encryption password:',
+        Text(t.login.encLoginStep.enterEncPassword,
             style: textTheme.headlineSmall),
         const SizedBox(height: 4),
-        const Text('New to Saber? Just enter a new encryption password.'),
+        Text(t.login.encLoginStep.newToSaber),
         const SizedBox(height: 16),
         TextField(
           controller: _encPasswordController,
           style: GoogleFonts.firaMono(),
-          decoration: const InputDecoration(
-            labelText: 'Encryption password',
+          decoration: InputDecoration(
+            labelText: t.login.encLoginStep.encPassword,
           ),
         ),
         ValueListenableBuilder(
@@ -114,14 +114,15 @@ class _EncLoginStepState extends State<EncLoginStep> {
               child: child,
             );
           },
-          child: const Text('Continue'),
+          child: Text(t.common.continueBtn),
         ),
         const SizedBox(height: 32),
-        Text(t.login.encFaqTitle, style: textTheme.headlineSmall),
+        Text(t.login.encLoginStep.encFaqTitle, style: textTheme.headlineSmall),
         FaqListView(
           shrinkWrap: true,
           items: [
-            for (final item in t.login.encFaq) FaqItem(item.q, item.a),
+            for (final item in t.login.encLoginStep.encFaq)
+              FaqItem(item.q, item.a),
           ],
         ),
       ],
@@ -143,14 +144,12 @@ class _EncLoginStepState extends State<EncLoginStep> {
     } on EncLoginFailure {
       Prefs.encPassword.value = '';
 
-      _errorMessage.value =
-          'Decryption failed with the provided password. Please try entering it again.';
+      _errorMessage.value = t.login.encLoginStep.wrongEncPassword;
     } catch (e) {
       Prefs.encPassword.value = '';
       log.severe('Failed to load encryption key: $e', e);
 
-      _errorMessage.value =
-          'Something went wrong connecting to the server. Please try again.\n\n$e';
+      _errorMessage.value = '${t.login.encLoginStep.connectionFailed}\n\n$e';
 
       if (kDebugMode) rethrow;
     } finally {

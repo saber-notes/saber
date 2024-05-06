@@ -275,7 +275,6 @@ editor:
     title: Tato poznámka byla upravena v novější verzi aplikace Saber
     subtitle: "Úpravou této poznámky můžete přijít o některé informace. Přejete tuto skutečnost ignorovat a přesto pokračovat k úpravě poznámky?"
     allowEditing: Povolit úpravy
-    cancel: Zrušit
   quill:
     typeSomething: Něco sem napište...
   hud:
@@ -288,3 +287,5 @@ editor:
   pages: Stránky
   untitled: Nepojmenovaná poznámka
   needsToSaveBeforeExiting: Ukládání změn... Po skončení této operace můžete editor bezpečně opustit
+common:
+  cancel: Zrušit

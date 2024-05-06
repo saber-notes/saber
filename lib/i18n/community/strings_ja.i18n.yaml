@@ -272,7 +272,6 @@ editor:
     title: このメモは新しいバージョンのSaberを使用して編集されたものです
     subtitle: このメモを編集すると、いくつかの情報が失われる可能性があります。これを無視して編集しますか？
     allowEditing: 編集を許可する
-    cancel: 取消
   quill:
     typeSomething: ここに何かを入力してください...
   hud:
@@ -285,3 +284,5 @@ editor:
   pages: ページ
   untitled: 無題
   needsToSaveBeforeExiting: 変更を保存する... 編集が終わったら、エディターを安全に終了することができます。
+common:
+  cancel: 取消

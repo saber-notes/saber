@@ -275,7 +275,6 @@ editor:
     title: Ezt a jegyzetet a Saber egy újabb verziójával lett szerkesztve
     subtitle: "A jegyzet szerkesztése bizonyos információk elvesztését eredményezheti. Szeretné ezt figyelmen kívül hagyni, és mégis szerkeszteni?"
     allowEditing: Szerkesztés engedélyezése
-    cancel: Mégse
   quill:
     typeSomething: Gépeljen ide valamit...
   hud:
@@ -288,3 +287,5 @@ editor:
   pages: Oldalak
   untitled: Névtelen
   needsToSaveBeforeExiting(OUTDATED): "A módosítások mentése... Ha kész, nyugodtan kiléphet a szerkesztőből"
+common:
+  cancel: Mégse

@@ -274,7 +274,6 @@ editor:
     title: 這篇筆記是使用較新版本的 Saber 編輯的
     subtitle: 編輯此筆記可能會導致某些資訊遺失。 您想忽略它並編輯它嗎？
     allowEditing: 允許編輯
-    cancel: 取消
   quill:
     typeSomething: 在這裡輸入一些內容...
   hud:
@@ -287,3 +286,5 @@ editor:
   pages: 頁面
   untitled: 無標題
   needsToSaveBeforeExiting: 正在儲存您的變更...完成後您可以安全地退出編輯器
+common:
+  cancel: 取消

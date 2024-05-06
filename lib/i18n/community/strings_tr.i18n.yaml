@@ -276,7 +276,6 @@ editor:
     title: Bu not Saber'ın yeni bir versiyonunda düzenlenmiş
     subtitle: "Bu notu düzenlemek veri kaybına sebep olabilir. Bunu görmezden gelerek düzenlemek ister misiniz?"
     allowEditing: Düzenlemeye izin ver
-    cancel: İptal
   quill:
     typeSomething: Buraya bir şey yaz...
   hud:
@@ -289,3 +288,5 @@ editor:
   pages: Sayfalar
   untitled: İsimsiz
   needsToSaveBeforeExiting: Değişiklikler kaydediliyor... kayıt tamamlandığında editörden güvenli biçimde çıkabilirsiniz.
+common:
+  cancel: İptal

@@ -275,7 +275,6 @@ editor:
     title: تم تحرير هذه الملاحظة باستخدام إصدار أحدث من Saber
     subtitle: قد يؤدي تحرير هذه الملاحظة إلى ضياع بعض المعلومات. هل تريد تجاهل هذا وتعديله على أي حال؟
     allowEditing: السماح بالتعديل
-    cancel: إلغاء
   quill:
     typeSomething: اكتب شيئًا هنا...
   hud:
@@ -288,3 +287,5 @@ editor:
   pages: صفحات
   untitled: بدون عنوان
   needsToSaveBeforeExiting: حفظ التغييرات... يمكنك الخروج بأمان من المحرر عند الانتهاء
+common:
+  cancel: إلغاء

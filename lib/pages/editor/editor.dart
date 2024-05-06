@@ -1927,7 +1927,7 @@ class EditorState extends State<Editor> {
             content: Text(t.editor.newerFileFormat.subtitle),
             actions: [
               CupertinoDialogAction(
-                child: Text(t.editor.newerFileFormat.cancel),
+                child: Text(t.common.cancel),
                 onPressed: () => Navigator.pop(context, false),
               ),
               CupertinoDialogAction(

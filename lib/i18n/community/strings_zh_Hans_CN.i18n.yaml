@@ -275,7 +275,6 @@ editor:
     title: 此笔记使用新版 Saber 编辑而成
     subtitle: 编辑此笔记可能会导致某些信息丢失。您想忽略并编辑吗？
     allowEditing: 允许编辑
-    cancel: 取消
   quill:
     typeSomething: 在这里输入...
   hud:
@@ -288,3 +287,5 @@ editor:
   pages: 页面
   untitled: 未命名
   needsToSaveBeforeExiting: 正在保存您的更改。。。完成后您可以安全地退出编辑器
+common:
+  cancel: 取消
