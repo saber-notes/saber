@@ -30,8 +30,12 @@ import 'package:window_manager/window_manager.dart';
 import 'package:worker_manager/worker_manager.dart';
 import 'package:workmanager/workmanager.dart';
 
-Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+Future<void> main({
+  WidgetsBinding? Function() initWidgetsBinding =
+      WidgetsFlutterBinding.ensureInitialized,
+  void Function(Widget) runApp = runApp,
+}) async {
+  initWidgetsBinding();
 
   Logger.root.level = kDebugMode ? Level.INFO : Level.WARNING;
   Logger.root.onRecord.listen((record) {

@@ -144,6 +144,8 @@ dependencies:
 
   audioplayers: ^6.0.0
 
+  simulator: ^0.2.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -175,6 +177,11 @@ dependency_overrides:
     git:
       url: https://github.com/adil192/json2yaml
       ref: fix-string-ends-with-colon
+
+  simulator:
+    git:
+      url: https://github.com/adil192/simulator
+      ref: fix-linux-support
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
