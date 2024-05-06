@@ -250,6 +250,7 @@ class _StringsProfileEn {
 	String get title => 'My profile';
 	String get logout => 'Log out';
 	late final _StringsProfileQuickLinksEn quickLinks = _StringsProfileQuickLinksEn._(_root);
+	String get faqTitle => 'Frequently asked questions';
 	List<dynamic> get faq => [
 		_StringsProfile$faq$0i0$En._(_root),
 		_StringsProfile$faq$0i1$En._(_root),

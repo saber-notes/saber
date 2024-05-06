@@ -195,6 +195,7 @@ profile:
     title: Quick links
     serverHomepage: Server homepage
     deleteAccount: Delete account
+  faqTitle: Frequently asked questions
   faq:
     - q: "Will I lose my notes if I log out?"
       a: No. Your notes will remain both on your device and on the server. They won't be synced with the server until you log back in. Make sure syncing is complete before logging out so you don't lose any data (see the sync progress on the home screen).

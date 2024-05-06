@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:saber/components/misc/faq.dart';
 import 'package:saber/data/extensions/string_extensions.dart';
 import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
 import 'package:saber/data/nextcloud/readable_bytes.dart';
@@ -70,15 +71,16 @@ class _DoneLoginStepState extends State<DoneLoginStep> {
             ),
           ],
         ),
-        const SizedBox(height: 4),
+        const SizedBox(height: 2),
         Text(
           'You\'re using ${readableBytes(quota?.used)} of ${readableBytes(quota?.total)} (${quota?.relative}%).',
         ),
+        const SizedBox(height: 2),
         LinearProgressIndicator(
           // At least 4% so the rounded corners render properly
           value: max((quota?.relative ?? 0) / 100, 0.04),
           minHeight: 32,
-          borderRadius: BorderRadius.circular(8),
+          borderRadius: BorderRadius.circular(6),
         ),
         const SizedBox(height: 4),
         ElevatedButton(
@@ -86,7 +88,7 @@ class _DoneLoginStepState extends State<DoneLoginStep> {
           child: Text(t.profile.logout),
         ),
         const SizedBox(height: 32),
-        Text('Connected to', style: textTheme.bodySmall?.copyWith(height: 1)),
+        const Text('Connected to', style: TextStyle(height: 0.8)),
         Text(server, style: textTheme.headlineSmall),
         const SizedBox(height: 4),
         Row(
@@ -111,6 +113,14 @@ class _DoneLoginStepState extends State<DoneLoginStep> {
                 child: Text(t.profile.quickLinks.deleteAccount),
               ),
             ),
+          ],
+        ),
+        const SizedBox(height: 32),
+        Text(t.profile.faqTitle, style: textTheme.headlineSmall),
+        FaqListView(
+          shrinkWrap: true,
+          items: [
+            for (final item in t.profile.faq) FaqItem(item.q, item.a),
           ],
         ),
       ],

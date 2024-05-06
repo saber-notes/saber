@@ -96,7 +96,7 @@ class ProfilePage extends StatelessWidget {
           ),
           SliverWidthBox(
             width: 350,
-            sliver: SliverFaq(
+            sliver: FaqListSliver(
               items: [
                 for (final item in t.profile.faq) FaqItem(item.q, item.a),
               ],
