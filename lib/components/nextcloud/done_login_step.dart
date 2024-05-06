@@ -21,7 +21,17 @@ class DoneLoginStep extends StatefulWidget {
 class _DoneLoginStepState extends State<DoneLoginStep> {
   static const width = 400.0;
 
-  void _logout() {}
+  void _logout() {
+    Prefs.url.value = '';
+    Prefs.username.value = '';
+    Prefs.ncPassword.value = '';
+    Prefs.encPassword.value = '';
+    Prefs.pfp.value = null;
+    Prefs.lastStorageQuota.value = null;
+    Prefs.key.value = '';
+    Prefs.iv.value = '';
+    widget.recheckCurrentStep();
+  }
 
   @override
   Widget build(BuildContext context) {
