@@ -1,7 +1,7 @@
 common:
+  done: 完成
+  continueBtn: 繼續
   cancel: 取消
-  done(OUTDATED): 完畢
-  continueBtn(OUTDATED): 繼續
 home:
   tabs:
     home: 首頁
@@ -150,50 +150,52 @@ login:
   form:
     agreeToPrivacyPolicy(rich): "登入即表示你同意 ${linkToPrivacyPolicy(隱私政策)}。"
   signup(rich): "還沒有帳號？ ${linkToSignup(立即註冊)}！"
-  notYou(rich, OUTDATED): "${undoLogin(不是你)}"
+  notYou(rich): "不是你？ ${undoLogin(選擇另一個帳號)}。"
   status:
     loggedOut: 已登出
     tapToLogin: 點擊以使用 Nextcloud 登入
+    hi: "嗨，$u!"
+    almostDone: 即將同步，點擊即可完成登入
     loggedIn: 已使用 Nextcloud 登入
-    hi(OUTDATED): 嗨，$u！
-    almostDone(OUTDATED): 即將同步，點擊即可完成登入
   ncLoginStep:
+    whereToStoreData: 選擇您要儲存資料的位置：
+    saberNcServer: Saber 的 Nextcloud 伺服器
+    otherNcServer: 其他 Nextcloud 伺服器
+    serverUrl: 伺服器網址
+    loginWithSaber: 使用 Saber 登入
+    loginWithNextcloud: 使用 Nextcloud 登入
     loginFlow:
-      pleaseAuthorize(OUTDATED): 請授權 Saber 存取您的 Nextcloud 帳戶
-      followPrompts(OUTDATED): 請按照瀏覽器中的提示進行操作。
-      browserDidntOpen(OUTDATED): 瀏覽器打不開
-    whereToStoreData(OUTDATED): 選擇您要儲存資料的位置：
-    saberNcServer(OUTDATED): Saber 的 Nextcloud 伺服器
-    otherNcServer(OUTDATED): 其他 Nextcloud 伺服器
-    serverUrl(OUTDATED): 伺服器位址
-    loginWithSaber(OUTDATED): 使用 Saber 登入
-    loginWithNextcloud(OUTDATED): 使用 Nextcloud 登入
+      pleaseAuthorize: 請授權 Saber 存取您的 Nextcloud 帳號
+      followPrompts: 請按照瀏覽器中的提示進行操作。
+      browserDidntOpen: 瀏覽器沒打開？點擊這裡
   encLoginStep:
-    enterEncPassword(OUTDATED): 為了保護您的數據，請輸入您的加密密碼：
-    newToSaber(OUTDATED): 剛接觸Saber
-    encPassword(OUTDATED): 加密密碼
-    encFaqTitle(OUTDATED): 經常問的問題
-    wrongEncPassword(OUTDATED): 使用提供的密碼解密失敗。請嘗試再次輸入。
-    connectionFailed(OUTDATED): 連接伺服器時出現問題。請稍後再試。
-    encFaq(OUTDATED):
-      - q: 加密密碼是什麼？
-        a: |-
-          加密密碼用於在將資料傳送到伺服器之前對其進行加密。您在第一次登入 Saber 時建立，它與您的 Nextcloud 帳號/密碼無關。
-          如果沒有您的加密密碼，任何人都無法存取您在伺服器上的筆記。這也意味著，如果您忘記加密密碼，您將無法存取您的資料。
-      - q: 為什麼要使用兩個密碼？
+    enterEncPassword: 為了保護您的資料，請輸入您的加密密碼：
+    newToSaber: 第一次使用 Saber？只需輸入新的加密密碼即可。
+    encPassword: 加密密碼
+    encFaqTitle: 常見問題
+    wrongEncPassword: 使用提供的密碼解密失敗。請嘗試再次輸入。
+    connectionFailed: 連線伺服器時出現問題。請稍後再試。
+    encFaq:
+      - q: 什麼是加密密碼？為什麼要使用兩個密碼？
         a: |-
           Nextcloud 密碼用於存取雲端。加密密碼會在資料到達雲端之前混亂您的資料。
-          即使有人存取您的 Nextcloud 帳戶，您的筆記也將保持安全並使用單獨的密碼進行加密。這為您提供了第二層安全保護來保護您的資料。
+          即使有人訪問您的 Nextcloud 帳號，您的筆記也將保持安全並使用單獨的密碼進行加密。這為您提供了第二層安全保護來保護您的資料。
+          如果沒有加密密碼，任何人都無法存取伺服器上的筆記，但這也意味著如果您忘記加密密碼，您將無法存取您的資料。
       - q: 我還沒有設定加密密碼。我在哪裡可以得到它？
         a: |-
-          只需在上面登入時選擇一項即可！
-          您在首次登入 Saber（應用程式，而不是伺服器網站）時選擇加密密碼。
+          選擇一個新的加密密碼並在上面輸入。
+          Saber 將自動根據該密碼產生您的加密金鑰。
+      - q: 我可以使用與 Nextcloud 帳號相同的密碼嗎？
+        a: 可以，但請記住如果伺服器管理員或其他人獲得了您的 Nextcloud 帳號的存取權限，他們將更容易存取您的筆記。
 profile:
   title: 我的個人資料
   logout: 登出
+  quotaUsage: 您已使用 $used，共 $total ($percent)
+  connectedTo: 連線到
   quickLinks:
     serverHomepage: 伺服器主頁
     deleteAccount: 刪除帳戶
+  faqTitle: 常見問題
   faq:
     - q: 如果我登出了，我的筆記會不會不見？
       a: 您的筆記將同時儲存您的裝置和伺服器上。直到您重新登入，它們才會被同步到伺服器上。在登出前，請確保同步工作已經完成，這樣您就不會丟失任何資料（在主畫面上可以看到同步進度）。
@@ -209,9 +211,6 @@ profile:
       a: |-
         點擊上面的「@:profile.quickLinks.deleteAccount」按鈕，如果需要請登入。
         如果您使用的是官方Saber伺服器，您的帳戶將在一周的寬限期後被刪除，您可以在此期間由電子郵件聯繫我：adilhanney@disroot.org，以取消刪除。如果您使用的是第三方伺服器，則可能沒有刪除帳戶的選項，您需要查閱伺服器的隱私權政策以了解更多資訊。
-  quotaUsage(OUTDATED): 您正在使用 $used 佔 $total ($percent)
-  connectedTo(OUTDATED): 連接到
-  faqTitle(OUTDATED): 經常問的問題
 appInfo:
   licenseNotice: |-
     Saber  版權所有 © 2022-$buildYear  Adil Hanney
