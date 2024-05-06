@@ -159,11 +159,11 @@ login:
     almostDone(OUTDATED): جاهز تقريبًا للمزامنة، انقر لإنهاء تسجيل الدخول
   ncLoginStep:
     loginFlow:
-      pleaseAuthorize(OUTDATED): يرجى تفويض Sabre للوصول إلى حساب Nextcloud الخاص بك
+      pleaseAuthorize(OUTDATED): يرجى تفويض Saber للوصول إلى حساب Nextcloud الخاص بك
       followPrompts(OUTDATED): يرجى اتباع المطالبات في المتصفح الخاص بك.
       browserDidntOpen(OUTDATED): المتصفح لم يفتح
     whereToStoreData(OUTDATED): "اختر المكان الذي تريد تخزين بياناتك فيه:"
-    saberNcServer(OUTDATED): خادم Sabre Nextcloud
+    saberNcServer(OUTDATED): خادم Saber Nextcloud
     otherNcServer(OUTDATED): خادم Nextcloud آخر
     serverUrl(OUTDATED): عنوان URL للخادم
     loginWithSaber(OUTDATED): تسجيل الدخول مع صابر

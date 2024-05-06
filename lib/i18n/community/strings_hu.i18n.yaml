@@ -163,14 +163,14 @@ login:
       followPrompts(OUTDATED): "Kérjük, kövesse a böngészőjében megjelenő utasításokat."
       browserDidntOpen(OUTDATED): A böngésző nem nyílt meg
     whereToStoreData(OUTDATED): "Válassza ki, hol szeretné tárolni adatait:"
-    saberNcServer(OUTDATED): A Sabre Nextcloud szervere
+    saberNcServer(OUTDATED): A Saber Nextcloud szervere
     otherNcServer(OUTDATED): Más Nextcloud szerver
     serverUrl(OUTDATED): Szerver URL
-    loginWithSaber(OUTDATED): Jelentkezzen be Sabre segítségével
+    loginWithSaber(OUTDATED): Jelentkezzen be Saber segítségével
     loginWithNextcloud(OUTDATED): Jelentkezzen be a Nextcloud segítségével
   encLoginStep:
     enterEncPassword(OUTDATED): "Adatai védelme érdekében adja meg titkosítási jelszavát:"
-    newToSaber(OUTDATED): Új a Sabre
+    newToSaber(OUTDATED): Új a Saber
     encPassword(OUTDATED): Titkosító jelszó
     encFaqTitle(OUTDATED): Gyakran Ismételt Kérdések
     wrongEncPassword(OUTDATED): "A visszafejtés nem sikerült a megadott jelszóval. Kérjük, próbálja meg újra megadni."

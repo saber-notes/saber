@@ -159,11 +159,11 @@ login:
     almostDone(OUTDATED): 同期の準備がほぼ完了しました。タップしてログインを完了してください
   ncLoginStep:
     loginFlow:
-      pleaseAuthorize(OUTDATED): Sabre に Nextcloud アカウントへのアクセスを許可してください
+      pleaseAuthorize(OUTDATED): Saber に Nextcloud アカウントへのアクセスを許可してください
       followPrompts(OUTDATED): ブラウザの指示に従ってください。
       browserDidntOpen(OUTDATED): ブラウザが開きませんでした
     whereToStoreData(OUTDATED): "データを保存する場所を選択します:"
-    saberNcServer(OUTDATED): Sabre の Nextcloud サーバー
+    saberNcServer(OUTDATED): Saber の Nextcloud サーバー
     otherNcServer(OUTDATED): 他のNextcloudサーバー
     serverUrl(OUTDATED): サーバーURL
     loginWithSaber(OUTDATED): セイバーでログイン

@@ -159,11 +159,11 @@ login:
     almostDone(OUTDATED): "Почти готово к синхронизации. Нажмите, чтобы завершить вход."
   ncLoginStep:
     loginFlow:
-      pleaseAuthorize(OUTDATED): "Пожалуйста, разрешите Sabre доступ к вашей учетной записи Nextcloud."
+      pleaseAuthorize(OUTDATED): "Пожалуйста, разрешите Saber доступ к вашей учетной записи Nextcloud."
       followPrompts(OUTDATED): "Пожалуйста, следуйте инструкциям в вашем браузере."
       browserDidntOpen(OUTDATED): Браузер не открылся
     whereToStoreData(OUTDATED): "Выберите, где вы хотите хранить свои данные:"
-    saberNcServer(OUTDATED): Сервер Nextcloud от Sabre
+    saberNcServer(OUTDATED): Сервер Nextcloud от Saber
     otherNcServer(OUTDATED): Другой сервер Nextcloud
     serverUrl(OUTDATED): URL-адрес сервера
     loginWithSaber(OUTDATED): Войти через Сабер

@@ -159,18 +159,18 @@ login:
     almostDone(OUTDATED): Senkronizasyon için neredeyse hazır; oturum açmayı tamamlamak için dokunun
   ncLoginStep:
     loginFlow:
-      pleaseAuthorize(OUTDATED): Lütfen Sabre'a Nextcloud hesabınıza erişmesi için yetki verin
+      pleaseAuthorize(OUTDATED): Lütfen Saber'a Nextcloud hesabınıza erişmesi için yetki verin
       followPrompts(OUTDATED): Lütfen tarayıcınızdaki talimatları izleyin.
       browserDidntOpen(OUTDATED): Tarayıcı açılmadı
     whereToStoreData(OUTDATED): "Verilerinizi nerede saklamak istediğinizi seçin:"
-    saberNcServer(OUTDATED): Sabre'nin Nextcloud sunucusu
+    saberNcServer(OUTDATED): Saber'nin Nextcloud sunucusu
     otherNcServer(OUTDATED): Diğer Nextcloud sunucusu
     serverUrl(OUTDATED): Sunucu URL'si
-    loginWithSaber(OUTDATED): Sabre ile giriş yap
+    loginWithSaber(OUTDATED): Saber ile giriş yap
     loginWithNextcloud(OUTDATED): Nextcloud'a giriş yapın
   encLoginStep:
     enterEncPassword(OUTDATED): "Verilerinizi korumak için lütfen şifreleme şifrenizi girin:"
-    newToSaber(OUTDATED): Sabre'da yeni
+    newToSaber(OUTDATED): Saber'da yeni
     encPassword(OUTDATED): Şifreleme şifresi
     encFaqTitle(OUTDATED): Sıkça Sorulan Sorular
     wrongEncPassword(OUTDATED): Sağlanan parolayla şifre çözme başarısız oldu. Lütfen tekrar girmeyi deneyin.

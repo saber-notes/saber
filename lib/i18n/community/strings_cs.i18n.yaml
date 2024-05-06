@@ -159,17 +159,17 @@ login:
     almostDone(OUTDATED): "Téměř připraveno k synchronizaci, klepnutím dokončete přihlášení"
   ncLoginStep:
     loginFlow:
-      pleaseAuthorize(OUTDATED): Povolte Sabre přístup k vašemu účtu Nextcloud
+      pleaseAuthorize(OUTDATED): Povolte Saber přístup k vašemu účtu Nextcloud
       followPrompts(OUTDATED): Postupujte podle pokynů ve vašem prohlížeči.
       browserDidntOpen(OUTDATED): Prohlížeč se neotevřel
     whereToStoreData(OUTDATED): "Vyberte, kam chcete svá data uložit:"
     otherNcServer(OUTDATED): Další server Nextcloud
     serverUrl(OUTDATED): Adresa URL serveru
-    loginWithSaber(OUTDATED): Přihlaste se pomocí Sabre
+    loginWithSaber(OUTDATED): Přihlaste se pomocí Saber
     loginWithNextcloud(OUTDATED): Přihlaste se pomocí Nextcloud
   encLoginStep:
     enterEncPassword(OUTDATED): "Chcete-li chránit svá data, zadejte své šifrovací heslo:"
-    newToSaber(OUTDATED): Novinka pro Sabre
+    newToSaber(OUTDATED): Novinka pro Saber
     encPassword(OUTDATED): Šifrovací heslo
     encFaqTitle(OUTDATED): Často kladené otázky
     wrongEncPassword(OUTDATED): Dešifrování se zadaným heslem se nezdařilo. Zkuste jej zadat znovu.

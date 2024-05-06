@@ -159,18 +159,18 @@ login:
     almostDone(OUTDATED): "Presque prêt pour la synchronisation, appuyez pour terminer la connexion"
   ncLoginStep:
     loginFlow:
-      pleaseAuthorize(OUTDATED): Veuillez autoriser Sabre à accéder à votre compte Nextcloud
+      pleaseAuthorize(OUTDATED): Veuillez autoriser Saber à accéder à votre compte Nextcloud
       followPrompts(OUTDATED): Veuillez suivre les instructions de votre navigateur.
       browserDidntOpen(OUTDATED): Le navigateur ne s'est pas ouvert
     whereToStoreData(OUTDATED): "Choisissez où vous souhaitez stocker vos données :"
-    saberNcServer(OUTDATED): Le serveur Nextcloud de Sabre
+    saberNcServer(OUTDATED): Le serveur Nextcloud de Saber
     otherNcServer(OUTDATED): Autre serveur Nextcloud
     serverUrl(OUTDATED): URL du serveur
-    loginWithSaber(OUTDATED): Connectez-vous avec Sabre
+    loginWithSaber(OUTDATED): Connectez-vous avec Saber
     loginWithNextcloud(OUTDATED): Connectez-vous avec Nextcloud
   encLoginStep:
     enterEncPassword(OUTDATED): "Pour protéger vos données, veuillez saisir votre mot de passe de cryptage :"
-    newToSaber(OUTDATED): Nouveau sur Sabre
+    newToSaber(OUTDATED): Nouveau sur Saber
     encPassword(OUTDATED): Mot de passe de cryptage
     encFaqTitle(OUTDATED): Questions fréquemment posées
     wrongEncPassword(OUTDATED): Le décryptage a échoué avec le mot de passe fourni. Veuillez réessayer de le saisir.

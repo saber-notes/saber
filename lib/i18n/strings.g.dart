@@ -1436,7 +1436,7 @@ class _StringsLoginNcLoginStepAr extends _StringsLoginNcLoginStepEn {
 	// Translations
 	@override late final _StringsLoginNcLoginStepLoginFlowAr loginFlow = _StringsLoginNcLoginStepLoginFlowAr._(_root);
 	@override String get whereToStoreData => 'اختر المكان الذي تريد تخزين بياناتك فيه:';
-	@override String get saberNcServer => 'خادم Sabre Nextcloud';
+	@override String get saberNcServer => 'خادم Saber Nextcloud';
 	@override String get otherNcServer => 'خادم Nextcloud آخر';
 	@override String get serverUrl => 'عنوان URL للخادم';
 	@override String get loginWithSaber => 'تسجيل الدخول مع صابر';
@@ -1714,7 +1714,7 @@ class _StringsLoginNcLoginStepLoginFlowAr extends _StringsLoginNcLoginStepLoginF
 	@override final _StringsAr _root; // ignore: unused_field
 
 	// Translations
-	@override String get pleaseAuthorize => 'يرجى تفويض Sabre للوصول إلى حساب Nextcloud الخاص بك';
+	@override String get pleaseAuthorize => 'يرجى تفويض Saber للوصول إلى حساب Nextcloud الخاص بك';
 	@override String get followPrompts => 'يرجى اتباع المطالبات في المتصفح الخاص بك.';
 	@override String get browserDidntOpen => 'المتصفح لم يفتح';
 }
@@ -2263,7 +2263,7 @@ class _StringsLoginNcLoginStepCs extends _StringsLoginNcLoginStepEn {
 	@override String get whereToStoreData => 'Vyberte, kam chcete svá data uložit:';
 	@override String get otherNcServer => 'Další server Nextcloud';
 	@override String get serverUrl => 'Adresa URL serveru';
-	@override String get loginWithSaber => 'Přihlaste se pomocí Sabre';
+	@override String get loginWithSaber => 'Přihlaste se pomocí Saber';
 	@override String get loginWithNextcloud => 'Přihlaste se pomocí Nextcloud';
 }
 
@@ -2275,7 +2275,7 @@ class _StringsLoginEncLoginStepCs extends _StringsLoginEncLoginStepEn {
 
 	// Translations
 	@override String get enterEncPassword => 'Chcete-li chránit svá data, zadejte své šifrovací heslo:';
-	@override String get newToSaber => 'Novinka pro Sabre';
+	@override String get newToSaber => 'Novinka pro Saber';
 	@override String get encPassword => 'Šifrovací heslo';
 	@override String get encFaqTitle => 'Často kladené otázky';
 	@override String get wrongEncPassword => 'Dešifrování se zadaným heslem se nezdařilo. Zkuste jej zadat znovu.';
@@ -2538,7 +2538,7 @@ class _StringsLoginNcLoginStepLoginFlowCs extends _StringsLoginNcLoginStepLoginF
 	@override final _StringsCs _root; // ignore: unused_field
 
 	// Translations
-	@override String get pleaseAuthorize => 'Povolte Sabre přístup k vašemu účtu Nextcloud';
+	@override String get pleaseAuthorize => 'Povolte Saber přístup k vašemu účtu Nextcloud';
 	@override String get followPrompts => 'Postupujte podle pokynů ve vašem prohlížeči.';
 	@override String get browserDidntOpen => 'Prohlížeč se neotevřel';
 }
@@ -3085,10 +3085,10 @@ class _StringsLoginNcLoginStepDe extends _StringsLoginNcLoginStepEn {
 	// Translations
 	@override late final _StringsLoginNcLoginStepLoginFlowDe loginFlow = _StringsLoginNcLoginStepLoginFlowDe._(_root);
 	@override String get whereToStoreData => 'Wählen Sie, wo Sie Ihre Daten speichern möchten:';
-	@override String get saberNcServer => 'Der Nextcloud-Server von Sabre';
+	@override String get saberNcServer => 'Der Nextcloud-Server von Saber';
 	@override String get otherNcServer => 'Anderer Nextcloud-Server';
 	@override String get serverUrl => 'Server-URL';
-	@override String get loginWithSaber => 'Melden Sie sich mit Sabre an';
+	@override String get loginWithSaber => 'Melden Sie sich mit Saber an';
 	@override String get loginWithNextcloud => 'Melden Sie sich mit Nextcloud an';
 }
 
@@ -3100,7 +3100,7 @@ class _StringsLoginEncLoginStepDe extends _StringsLoginEncLoginStepEn {
 
 	// Translations
 	@override String get enterEncPassword => 'Um Ihre Daten zu schützen, geben Sie bitte Ihr Verschlüsselungspasswort ein:';
-	@override String get newToSaber => 'Neu bei Sabre';
+	@override String get newToSaber => 'Neu bei Saber';
 	@override String get encPassword => 'Verschlüsselungskennwort';
 	@override String get encFaqTitle => 'Häufig gestellte Fragen';
 	@override String get wrongEncPassword => 'Die Entschlüsselung ist mit dem angegebenen Passwort fehlgeschlagen. Bitte versuchen Sie es erneut einzugeben.';
@@ -3363,7 +3363,7 @@ class _StringsLoginNcLoginStepLoginFlowDe extends _StringsLoginNcLoginStepLoginF
 	@override final _StringsDe _root; // ignore: unused_field
 
 	// Translations
-	@override String get pleaseAuthorize => 'Bitte autorisieren Sie Sabre, auf Ihr Nextcloud-Konto zuzugreifen';
+	@override String get pleaseAuthorize => 'Bitte autorisieren Sie Saber, auf Ihr Nextcloud-Konto zuzugreifen';
 	@override String get followPrompts => 'Bitte folgen Sie den Anweisungen in Ihrem Browser.';
 	@override String get browserDidntOpen => 'Der Browser wurde nicht geöffnet';
 }
@@ -3909,10 +3909,10 @@ class _StringsLoginNcLoginStepEs extends _StringsLoginNcLoginStepEn {
 	// Translations
 	@override late final _StringsLoginNcLoginStepLoginFlowEs loginFlow = _StringsLoginNcLoginStepLoginFlowEs._(_root);
 	@override String get whereToStoreData => 'Elige dónde quieres almacenar tus datos:';
-	@override String get saberNcServer => 'Servidor Nextcloud de Sabre';
+	@override String get saberNcServer => 'Servidor Nextcloud de Saber';
 	@override String get otherNcServer => 'Otro servidor Nextcloud';
 	@override String get serverUrl => 'URL del servidor';
-	@override String get loginWithSaber => 'Iniciar sesión con Sabre';
+	@override String get loginWithSaber => 'Iniciar sesión con Saber';
 	@override String get loginWithNextcloud => 'Iniciar sesión con Nextcloud';
 }
 
@@ -3924,7 +3924,7 @@ class _StringsLoginEncLoginStepEs extends _StringsLoginEncLoginStepEn {
 
 	// Translations
 	@override String get enterEncPassword => 'Para proteger sus datos, ingrese su contraseña de cifrado:';
-	@override String get newToSaber => 'Nuevo en Sabre';
+	@override String get newToSaber => 'Nuevo en Saber';
 	@override String get encPassword => 'Contraseña de cifrado';
 	@override String get encFaqTitle => 'Preguntas frecuentes';
 	@override String get wrongEncPassword => 'El descifrado falló con la contraseña proporcionada. Intente ingresarlo nuevamente.';
@@ -4187,7 +4187,7 @@ class _StringsLoginNcLoginStepLoginFlowEs extends _StringsLoginNcLoginStepLoginF
 	@override final _StringsEs _root; // ignore: unused_field
 
 	// Translations
-	@override String get pleaseAuthorize => 'Autorice a Sabre a acceder a su cuenta de Nextcloud';
+	@override String get pleaseAuthorize => 'Autorice a Saber a acceder a su cuenta de Nextcloud';
 	@override String get followPrompts => 'Siga las indicaciones en su navegador.';
 	@override String get browserDidntOpen => 'El navegador no se abrió';
 }
@@ -5559,10 +5559,10 @@ class _StringsLoginNcLoginStepFr extends _StringsLoginNcLoginStepEn {
 	// Translations
 	@override late final _StringsLoginNcLoginStepLoginFlowFr loginFlow = _StringsLoginNcLoginStepLoginFlowFr._(_root);
 	@override String get whereToStoreData => 'Choisissez où vous souhaitez stocker vos données :';
-	@override String get saberNcServer => 'Le serveur Nextcloud de Sabre';
+	@override String get saberNcServer => 'Le serveur Nextcloud de Saber';
 	@override String get otherNcServer => 'Autre serveur Nextcloud';
 	@override String get serverUrl => 'URL du serveur';
-	@override String get loginWithSaber => 'Connectez-vous avec Sabre';
+	@override String get loginWithSaber => 'Connectez-vous avec Saber';
 	@override String get loginWithNextcloud => 'Connectez-vous avec Nextcloud';
 }
 
@@ -5574,7 +5574,7 @@ class _StringsLoginEncLoginStepFr extends _StringsLoginEncLoginStepEn {
 
 	// Translations
 	@override String get enterEncPassword => 'Pour protéger vos données, veuillez saisir votre mot de passe de cryptage :';
-	@override String get newToSaber => 'Nouveau sur Sabre';
+	@override String get newToSaber => 'Nouveau sur Saber';
 	@override String get encPassword => 'Mot de passe de cryptage';
 	@override String get encFaqTitle => 'Questions fréquemment posées';
 	@override String get wrongEncPassword => 'Le décryptage a échoué avec le mot de passe fourni. Veuillez réessayer de le saisir.';
@@ -5837,7 +5837,7 @@ class _StringsLoginNcLoginStepLoginFlowFr extends _StringsLoginNcLoginStepLoginF
 	@override final _StringsFr _root; // ignore: unused_field
 
 	// Translations
-	@override String get pleaseAuthorize => 'Veuillez autoriser Sabre à accéder à votre compte Nextcloud';
+	@override String get pleaseAuthorize => 'Veuillez autoriser Saber à accéder à votre compte Nextcloud';
 	@override String get followPrompts => 'Veuillez suivre les instructions de votre navigateur.';
 	@override String get browserDidntOpen => 'Le navigateur ne s\'est pas ouvert';
 }
@@ -7209,10 +7209,10 @@ class _StringsLoginNcLoginStepHu extends _StringsLoginNcLoginStepEn {
 	// Translations
 	@override late final _StringsLoginNcLoginStepLoginFlowHu loginFlow = _StringsLoginNcLoginStepLoginFlowHu._(_root);
 	@override String get whereToStoreData => 'Válassza ki, hol szeretné tárolni adatait:';
-	@override String get saberNcServer => 'A Sabre Nextcloud szervere';
+	@override String get saberNcServer => 'A Saber Nextcloud szervere';
 	@override String get otherNcServer => 'Más Nextcloud szerver';
 	@override String get serverUrl => 'Szerver URL';
-	@override String get loginWithSaber => 'Jelentkezzen be Sabre segítségével';
+	@override String get loginWithSaber => 'Jelentkezzen be Saber segítségével';
 	@override String get loginWithNextcloud => 'Jelentkezzen be a Nextcloud segítségével';
 }
 
@@ -7224,7 +7224,7 @@ class _StringsLoginEncLoginStepHu extends _StringsLoginEncLoginStepEn {
 
 	// Translations
 	@override String get enterEncPassword => 'Adatai védelme érdekében adja meg titkosítási jelszavát:';
-	@override String get newToSaber => 'Új a Sabre';
+	@override String get newToSaber => 'Új a Saber';
 	@override String get encPassword => 'Titkosító jelszó';
 	@override String get encFaqTitle => 'Gyakran Ismételt Kérdések';
 	@override String get wrongEncPassword => 'A visszafejtés nem sikerült a megadott jelszóval. Kérjük, próbálja meg újra megadni.';
@@ -8034,10 +8034,10 @@ class _StringsLoginNcLoginStepIt extends _StringsLoginNcLoginStepEn {
 	// Translations
 	@override late final _StringsLoginNcLoginStepLoginFlowIt loginFlow = _StringsLoginNcLoginStepLoginFlowIt._(_root);
 	@override String get whereToStoreData => 'Scegli dove vuoi archiviare i tuoi dati:';
-	@override String get saberNcServer => 'Il server Nextcloud di Sabre';
+	@override String get saberNcServer => 'Il server Nextcloud di Saber';
 	@override String get otherNcServer => 'Altro server Nextcloud';
 	@override String get serverUrl => 'URL del server';
-	@override String get loginWithSaber => 'Accedi con Sabre';
+	@override String get loginWithSaber => 'Accedi con Saber';
 	@override String get loginWithNextcloud => 'Accedi con Nextcloud';
 }
 
@@ -8049,7 +8049,7 @@ class _StringsLoginEncLoginStepIt extends _StringsLoginEncLoginStepEn {
 
 	// Translations
 	@override String get enterEncPassword => 'Per proteggere i tuoi dati, inserisci la password di crittografia:';
-	@override String get newToSaber => 'Nuovo per Sabre';
+	@override String get newToSaber => 'Nuovo per Saber';
 	@override String get encPassword => 'Password di crittografia';
 	@override String get encFaqTitle => 'Domande frequenti';
 	@override String get wrongEncPassword => 'La decrittografia non è riuscita con la password fornita. Per favore prova a inserirlo di nuovo.';
@@ -8312,7 +8312,7 @@ class _StringsLoginNcLoginStepLoginFlowIt extends _StringsLoginNcLoginStepLoginF
 	@override final _StringsIt _root; // ignore: unused_field
 
 	// Translations
-	@override String get pleaseAuthorize => 'Autorizza Sabre ad accedere al tuo account Nextcloud';
+	@override String get pleaseAuthorize => 'Autorizza Saber ad accedere al tuo account Nextcloud';
 	@override String get followPrompts => 'Segui le istruzioni nel tuo browser.';
 	@override String get browserDidntOpen => 'Il browser non si è aperto';
 }
@@ -8859,7 +8859,7 @@ class _StringsLoginNcLoginStepJa extends _StringsLoginNcLoginStepEn {
 	// Translations
 	@override late final _StringsLoginNcLoginStepLoginFlowJa loginFlow = _StringsLoginNcLoginStepLoginFlowJa._(_root);
 	@override String get whereToStoreData => 'データを保存する場所を選択します:';
-	@override String get saberNcServer => 'Sabre の Nextcloud サーバー';
+	@override String get saberNcServer => 'Saber の Nextcloud サーバー';
 	@override String get otherNcServer => '他のNextcloudサーバー';
 	@override String get serverUrl => 'サーバーURL';
 	@override String get loginWithSaber => 'セイバーでログイン';
@@ -9137,7 +9137,7 @@ class _StringsLoginNcLoginStepLoginFlowJa extends _StringsLoginNcLoginStepLoginF
 	@override final _StringsJa _root; // ignore: unused_field
 
 	// Translations
-	@override String get pleaseAuthorize => 'Sabre に Nextcloud アカウントへのアクセスを許可してください';
+	@override String get pleaseAuthorize => 'Saber に Nextcloud アカウントへのアクセスを許可してください';
 	@override String get followPrompts => 'ブラウザの指示に従ってください。';
 	@override String get browserDidntOpen => 'ブラウザが開きませんでした';
 }
@@ -9684,10 +9684,10 @@ class _StringsLoginNcLoginStepPtBr extends _StringsLoginNcLoginStepEn {
 	// Translations
 	@override late final _StringsLoginNcLoginStepLoginFlowPtBr loginFlow = _StringsLoginNcLoginStepLoginFlowPtBr._(_root);
 	@override String get whereToStoreData => 'Escolha onde deseja armazenar seus dados:';
-	@override String get saberNcServer => 'Servidor Nextcloud do Sabre';
+	@override String get saberNcServer => 'Servidor Nextcloud do Saber';
 	@override String get otherNcServer => 'Outro servidor Nextcloud';
 	@override String get serverUrl => 'URL do servidor';
-	@override String get loginWithSaber => 'Faça login com Sabre';
+	@override String get loginWithSaber => 'Faça login com Saber';
 	@override String get loginWithNextcloud => 'Faça login com Nextcloud';
 }
 
@@ -9699,7 +9699,7 @@ class _StringsLoginEncLoginStepPtBr extends _StringsLoginEncLoginStepEn {
 
 	// Translations
 	@override String get enterEncPassword => 'Para proteger seus dados, digite sua senha de criptografia:';
-	@override String get newToSaber => 'Novo no Sabre';
+	@override String get newToSaber => 'Novo no Saber';
 	@override String get encPassword => 'Senha de criptografia';
 	@override String get encFaqTitle => 'Perguntas frequentes';
 	@override String get wrongEncPassword => 'A descriptografia falhou com a senha fornecida. Por favor, tente inseri-lo novamente.';
@@ -9962,7 +9962,7 @@ class _StringsLoginNcLoginStepLoginFlowPtBr extends _StringsLoginNcLoginStepLogi
 	@override final _StringsPtBr _root; // ignore: unused_field
 
 	// Translations
-	@override String get pleaseAuthorize => 'Autorize o Sabre a acessar sua conta Nextcloud';
+	@override String get pleaseAuthorize => 'Autorize o Saber a acessar sua conta Nextcloud';
 	@override String get followPrompts => 'Por favor, siga as instruções no seu navegador.';
 	@override String get browserDidntOpen => 'O navegador não abriu';
 }
@@ -10509,7 +10509,7 @@ class _StringsLoginNcLoginStepRu extends _StringsLoginNcLoginStepEn {
 	// Translations
 	@override late final _StringsLoginNcLoginStepLoginFlowRu loginFlow = _StringsLoginNcLoginStepLoginFlowRu._(_root);
 	@override String get whereToStoreData => 'Выберите, где вы хотите хранить свои данные:';
-	@override String get saberNcServer => 'Сервер Nextcloud от Sabre';
+	@override String get saberNcServer => 'Сервер Nextcloud от Saber';
 	@override String get otherNcServer => 'Другой сервер Nextcloud';
 	@override String get serverUrl => 'URL-адрес сервера';
 	@override String get loginWithSaber => 'Войти через Сабер';
@@ -10787,7 +10787,7 @@ class _StringsLoginNcLoginStepLoginFlowRu extends _StringsLoginNcLoginStepLoginF
 	@override final _StringsRu _root; // ignore: unused_field
 
 	// Translations
-	@override String get pleaseAuthorize => 'Пожалуйста, разрешите Sabre доступ к вашей учетной записи Nextcloud.';
+	@override String get pleaseAuthorize => 'Пожалуйста, разрешите Saber доступ к вашей учетной записи Nextcloud.';
 	@override String get followPrompts => 'Пожалуйста, следуйте инструкциям в вашем браузере.';
 	@override String get browserDidntOpen => 'Браузер не открылся';
 }
@@ -11334,10 +11334,10 @@ class _StringsLoginNcLoginStepTr extends _StringsLoginNcLoginStepEn {
 	// Translations
 	@override late final _StringsLoginNcLoginStepLoginFlowTr loginFlow = _StringsLoginNcLoginStepLoginFlowTr._(_root);
 	@override String get whereToStoreData => 'Verilerinizi nerede saklamak istediğinizi seçin:';
-	@override String get saberNcServer => 'Sabre\'nin Nextcloud sunucusu';
+	@override String get saberNcServer => 'Saber\'nin Nextcloud sunucusu';
 	@override String get otherNcServer => 'Diğer Nextcloud sunucusu';
 	@override String get serverUrl => 'Sunucu URL\'si';
-	@override String get loginWithSaber => 'Sabre ile giriş yap';
+	@override String get loginWithSaber => 'Saber ile giriş yap';
 	@override String get loginWithNextcloud => 'Nextcloud\'a giriş yapın';
 }
 
@@ -11349,7 +11349,7 @@ class _StringsLoginEncLoginStepTr extends _StringsLoginEncLoginStepEn {
 
 	// Translations
 	@override String get enterEncPassword => 'Verilerinizi korumak için lütfen şifreleme şifrenizi girin:';
-	@override String get newToSaber => 'Sabre\'da yeni';
+	@override String get newToSaber => 'Saber\'da yeni';
 	@override String get encPassword => 'Şifreleme şifresi';
 	@override String get encFaqTitle => 'Sıkça Sorulan Sorular';
 	@override String get wrongEncPassword => 'Sağlanan parolayla şifre çözme başarısız oldu. Lütfen tekrar girmeyi deneyin.';
@@ -11612,7 +11612,7 @@ class _StringsLoginNcLoginStepLoginFlowTr extends _StringsLoginNcLoginStepLoginF
 	@override final _StringsTr _root; // ignore: unused_field
 
 	// Translations
-	@override String get pleaseAuthorize => 'Lütfen Sabre\'a Nextcloud hesabınıza erişmesi için yetki verin';
+	@override String get pleaseAuthorize => 'Lütfen Saber\'a Nextcloud hesabınıza erişmesi için yetki verin';
 	@override String get followPrompts => 'Lütfen tarayıcınızdaki talimatları izleyin.';
 	@override String get browserDidntOpen => 'Tarayıcı açılmadı';
 }
@@ -12159,7 +12159,7 @@ class _StringsLoginNcLoginStepZhHansCn extends _StringsLoginNcLoginStepEn {
 	// Translations
 	@override late final _StringsLoginNcLoginStepLoginFlowZhHansCn loginFlow = _StringsLoginNcLoginStepLoginFlowZhHansCn._(_root);
 	@override String get whereToStoreData => '选择您要存储数据的位置：';
-	@override String get saberNcServer => 'Sabre 的 Nextcloud 服务器';
+	@override String get saberNcServer => 'Saber 的 Nextcloud 服务器';
 	@override String get otherNcServer => '其他 Nextcloud 服务器';
 	@override String get serverUrl => '服务器地址';
 	@override String get loginWithSaber => '使用 Saber 登录';
@@ -12437,7 +12437,7 @@ class _StringsLoginNcLoginStepLoginFlowZhHansCn extends _StringsLoginNcLoginStep
 	@override final _StringsZhHansCn _root; // ignore: unused_field
 
 	// Translations
-	@override String get pleaseAuthorize => '请授权 Sabre 访问您的 Nextcloud 帐户';
+	@override String get pleaseAuthorize => '请授权 Saber 访问您的 Nextcloud 帐户';
 	@override String get followPrompts => '请按照浏览器中的提示进行操作。';
 	@override String get browserDidntOpen => '浏览器打不开';
 }
@@ -12984,7 +12984,7 @@ class _StringsLoginNcLoginStepZhHantTw extends _StringsLoginNcLoginStepEn {
 	// Translations
 	@override late final _StringsLoginNcLoginStepLoginFlowZhHantTw loginFlow = _StringsLoginNcLoginStepLoginFlowZhHantTw._(_root);
 	@override String get whereToStoreData => '選擇您要儲存資料的位置：';
-	@override String get saberNcServer => 'Sabre 的 Nextcloud 伺服器';
+	@override String get saberNcServer => 'Saber 的 Nextcloud 伺服器';
 	@override String get otherNcServer => '其他 Nextcloud 伺服器';
 	@override String get serverUrl => '伺服器位址';
 	@override String get loginWithSaber => '使用 Saber 登入';
@@ -13262,7 +13262,7 @@ class _StringsLoginNcLoginStepLoginFlowZhHantTw extends _StringsLoginNcLoginStep
 	@override final _StringsZhHantTw _root; // ignore: unused_field
 
 	// Translations
-	@override String get pleaseAuthorize => '請授權 Sabre 存取您的 Nextcloud 帳戶';
+	@override String get pleaseAuthorize => '請授權 Saber 存取您的 Nextcloud 帳戶';
 	@override String get followPrompts => '請按照瀏覽器中的提示進行操作。';
 	@override String get browserDidntOpen => '瀏覽器打不開';
 }

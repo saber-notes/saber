@@ -159,11 +159,11 @@ login:
     almostDone(OUTDATED): 即将同步，点击即可完成登录
   ncLoginStep:
     loginFlow:
-      pleaseAuthorize(OUTDATED): 请授权 Sabre 访问您的 Nextcloud 帐户
+      pleaseAuthorize(OUTDATED): 请授权 Saber 访问您的 Nextcloud 帐户
       followPrompts(OUTDATED): 请按照浏览器中的提示进行操作。
       browserDidntOpen(OUTDATED): 浏览器打不开
     whereToStoreData(OUTDATED): 选择您要存储数据的位置：
-    saberNcServer(OUTDATED): Sabre 的 Nextcloud 服务器
+    saberNcServer(OUTDATED): Saber 的 Nextcloud 服务器
     otherNcServer(OUTDATED): 其他 Nextcloud 服务器
     serverUrl(OUTDATED): 服务器地址
     loginWithSaber(OUTDATED): 使用 Saber 登录
