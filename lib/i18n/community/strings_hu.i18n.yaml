@@ -83,6 +83,7 @@ settings:
     editorPromptRename: Új jegyzetek átnevezésére való felszólítás
     hideHomeBackgrounds: Hátterek elrejtése a kezdőképernyőn
     recentColorsDontSavePresets: Ne mentse az előre beállított színeket a legutóbbi színek között
+    refreshCurrentNote(OUTDATED): Az aktuális jegyzet rendszeres frissítése
     pencilSoundSetting(OUTDATED): Ceruza hanghatás
     customDataDir(OUTDATED): Egyedi adatkönyvtár
     autoStraightenLines(OUTDATED): A vonalak automatikus kiegyenesítése
@@ -112,6 +113,7 @@ settings:
       off(OUTDATED): Nincs hang
       onButNotInSilentMode(OUTDATED): "Engedélyezve (kivéve, ha néma módban van)"
       onAlways(OUTDATED): Engedélyezve (néma módban is)
+    refreshCurrentNote(OUTDATED): "Frissíti az éppen megnyitott jegyzetet, ha egy másik eszközön szerkeszti"
     autoStraightenLines(OUTDATED): "Kiegyenesíti a hosszú vonalakat anélkül, hogy az alakos tollat ​​kellene használnia"
     shapeRecognitionDelay(OUTDATED): Milyen gyakran kell frissíteni az alakzat előnézetét
     disableAds(OUTDATED): "A hirdetések segítik a Saber fejlesztését, de tilthatja őket, ha tetszik"
@@ -150,7 +152,6 @@ login:
   form:
     agreeToPrivacyPolicy(rich): "A bejelentkezéssel elfogadja a ${linkToPrivacyPolicy(Adatvédelmi irányelvek)}."
   signup(rich): "Még nincsen fiókja? ${linkToSignup(Regisztrálás)}!"
-  notYou(rich, OUTDATED): "${undoLogin(Nem te)}"
   status:
     loggedOut: Kijelentkezve
     tapToLogin: Kattintson a Nextclouddal való bejelentkezéshez
@@ -186,6 +187,7 @@ login:
           Még akkor is, ha valaki hozzáfér a Nextcloud-fiókjához, jegyzetei biztonságban maradnak, és külön jelszóval titkosítva lesznek. Ez egy második biztonsági réteget biztosít az adatok védelméhez.
       - q: "Használhatom mindkettőhöz ugyanazt a jelszót?"
         a: "Igen, de ez kevésbé biztonságos. Mivel a Nextcloud jelszava elküldésre kerül a szervernek, valaki, aki hozzáfér a szerverhez, képes lesz visszafejteni a jegyzeteit. Csak akkor használja ugyanazt a jelszót, ha megbízik a szerver tulajdonosában."
+  notYou(rich, OUTDATED): "${undoLogin(Nem te)}"
 profile:
   quickLinks:
     serverHomepage(OUTDATED): Szerver honlapja

@@ -95,6 +95,7 @@ settings:
     autosaveDelay: Otomatik kayıt aralığı
     shapeRecognitionDelay: Şekil tanıma gecikmesi
     autoStraightenLines: Çizgileri otomatik düzleştir
+    refreshCurrentNote(OUTDATED): Geçerli notu düzenli aralıklarla yenile
     pencilSoundSetting(OUTDATED): Kalem ses efekti
     customDataDir(OUTDATED): Özel veri dizini
   prefDescriptions:
@@ -120,6 +121,7 @@ settings:
       off(OUTDATED): Ses yok
       onButNotInSilentMode(OUTDATED): Etkin (sessiz modda olmadığı sürece)
       onAlways(OUTDATED): Etkin (sessiz modda bile)
+    refreshCurrentNote(OUTDATED): "Başka bir cihazda düzenliyorsanız, şu anda açık olan notu günceller"
   themeModes:
     system: Sistem teması
     light: Aydınlık
@@ -150,7 +152,6 @@ login:
   form:
     agreeToPrivacyPolicy(rich): "Giriş yaparak ${linkToPrivacyPolicy(Gizlilik Politikasını)} kabul edersiniz."
   signup(rich): "Henüz hesabınız yok mu? ${linkToSignup(Hesap oluşturmak için tıklayın)}!"
-  notYou(rich, OUTDATED): "${undoLogin(Sen değil)}"
   status:
     loggedOut: Çıkış yapıldı
     tapToLogin: Nextcloud oturumu açmak için tıklayın
@@ -186,6 +187,7 @@ login:
           Herhangi birisi Nextcloud hesabınıza erişebilseydi bile, farklı bir şifreleme parolası kullandığınız için notlarınızı okuyamazdı. Böylece verilerinizin korunması için ikinci bir katman oluşuyor.
       - q: "Her ikisi için de aynı parolayı kullanabilir miyim?"
         a: "Evet ancak bu daha az güvenlidir. Nextcloud parolanız sunucuya gönderildiğinden, sunucuya erişimi olan birisi notlarınızın şifresini de çözebilir. Yalnızca sunucu sahibine güveniyorsanız aynı şifreyi kullanın."
+  notYou(rich, OUTDATED): "${undoLogin(Sen değil)}"
 profile:
   title: Profilim
   logout: Çıkış yap

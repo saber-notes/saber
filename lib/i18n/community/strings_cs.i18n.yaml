@@ -97,6 +97,7 @@ settings:
     autoStraightenLines: Automaticky narovnávat čáry
     customDataDir: Vlastní datový adresář
     pencilSoundSetting: Zvukový efekt psaní tužkou
+    refreshCurrentNote(OUTDATED): Pravidelně aktualizujte aktuální poznámku
   prefDescriptions:
     hyperlegibleFont: Font Atkinson Hyperlegible zvyšuje čitelnost pro čtenáře se slabým zrakem
     disableAds: "Reklamy podporují vývoj aplikace Saber, ale pokud chcete, můžete je vypnout"
@@ -120,6 +121,7 @@ settings:
       off: Bez zvuku
       onButNotInSilentMode: Zapnuto (mimo tichý režim)
       onAlways: Zapnuto (i v tichém režimu)
+    refreshCurrentNote(OUTDATED): "Aktualizuje aktuálně otevřenou poznámku, pokud ji upravujete na jiném zařízení"
   themeModes:
     system: Systémový
     light: Světlý
@@ -150,7 +152,6 @@ login:
   form:
     agreeToPrivacyPolicy(rich): "Přihlášením souhlasíte se ${linkToPrivacyPolicy(Zásadami ochrany osobních údajů)}."
   signup(rich): "Ještě nemáte účet? ${linkToSignup(Zaregistrujte se)}!"
-  notYou(rich, OUTDATED): "${undoLogin(Né ty)}"
   status:
     loggedOut: Jste odhlášení
     tapToLogin: Klepněte pro přihlášení pomocí Nextcloud účtu
@@ -187,6 +188,7 @@ login:
         a: |-
           Jednoduše si ho zvolíte právě teď, když se budete výše přihlašovat!
           Heslo pro šifrování si volíte při prvním přihlášení do aplikace Saber (nikoliv do webového rozhraní Nextcloud serveru).
+  notYou(rich, OUTDATED): "${undoLogin(Né ty)}"
 profile:
   title: Můj profil
   logout: Odhlásit se

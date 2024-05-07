@@ -94,6 +94,7 @@ settings:
     printPageIndicators: چاپ نشانگرهای صفحه
     autosaveDelay: تأخیر ذخیره خودکار
     shapeRecognitionDelay: تاخیر در تشخیص شکل
+    refreshCurrentNote(OUTDATED): یادداشت فعلی را به صورت دوره ای بازخوانی کنید
     pencilSoundSetting(OUTDATED): جلوه صدای مداد
     customDataDir(OUTDATED): دایرکتوری داده های سفارشی
     autoStraightenLines(OUTDATED): صاف کردن خودکار خطوط
@@ -119,6 +120,7 @@ settings:
       onAlways(OUTDATED): فعال (حتی در حالت بی صدا)
       off(OUTDATED): بدون صدا
       onButNotInSilentMode(OUTDATED): فعال (مگر در حالت بی صدا)
+    refreshCurrentNote(OUTDATED): اگر یادداشت باز فعلی را در دستگاه دیگری ویرایش می‌کنید، آن را به‌روزرسانی می‌کند
     autoStraightenLines(OUTDATED): خطوط بلند را بدون استفاده از قلم شکل صاف می کند
   themeModes:
     system: سیستم
@@ -150,7 +152,6 @@ login:
   form:
     agreeToPrivacyPolicy(rich): "با ورود به سیستم، با قوانین موافقت خواهد شد ${linkToPrivacyPolicy(Privacy Policy)}."
   signup(rich): "حساب کاربری ندارید؟ ${linkToSignup(Sign up now)}!"
-  notYou(rich, OUTDATED): "${undoLogin(تو نه)}"
   status:
     loggedOut: خروج
     tapToLogin: برای ورود با Nextcloud ضربه بزنید
@@ -182,6 +183,7 @@ login:
         a: رمز عبور Nextcloud برای دسترسی به ابر استفاده می شود و رمزعبور دوم برای رمزنگاری استفاده میشود
       - q: آیا می توانم از یک رمز عبور برای هر دو استفاده کنم؟
         a: بله، اما انجام این کار امنیت کمتری دارد. از آنجایی که رمز عبور Nextcloud شما به سرور ارسال می شود، شخصی که به سرور دسترسی دارد می تواند یادداشت های شما را رمزگشایی کند. فقط در صورتی از همان رمز عبور استفاده کنید که به مالک سرور اعتماد دارید.
+  notYou(rich, OUTDATED): "${undoLogin(تو نه)}"
 profile:
   title: پروفایل من
   logout: خروج

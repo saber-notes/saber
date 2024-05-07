@@ -85,6 +85,7 @@ settings:
     hideHomeBackgrounds: إخفاء الخلفيات على الشاشة الرئيسية
     recentColorsDontSavePresets: لا تحفظ الألوان المعينة مسبقًا كألوان حديثة
     printPageIndicators: طباعة مؤشرات الصفحة
+    refreshCurrentNote(OUTDATED): قم بتحديث الملاحظة الحالية بشكل دوري
     pencilSoundSetting(OUTDATED): تأثير صوت قلم الرصاص
     customDataDir(OUTDATED): دليل البيانات المخصصة
     autoStraightenLines(OUTDATED): تصويب الخطوط تلقائيا
@@ -113,6 +114,7 @@ settings:
       off(OUTDATED): لا صوت
       onButNotInSilentMode(OUTDATED): ممكّن (ما لم يكن في الوضع الصامت)
       onAlways(OUTDATED): ممكّن (حتى في الوضع الصامت)
+    refreshCurrentNote(OUTDATED): يقوم بتحديث الملاحظة المفتوحة حاليًا إذا كنت تقوم بتحريرها على جهاز آخر
     autoStraightenLines(OUTDATED): يقوم بفرد الخطوط الطويلة دون الحاجة إلى استخدام قلم الشكل
     shapeRecognitionDelay(OUTDATED): عدد مرات تحديث معاينة الشكل
     disableAds(OUTDATED): (أدز) يساعد في دعم تطوير (سابر) لكن يمكنك إزالتهم إذا أردت
@@ -150,7 +152,6 @@ login:
   form:
     agreeToPrivacyPolicy(rich): "بتسجيل الدخول، فإنك توافق على ${linkToPrivacyPolicy(سياسة الخصوصية)}."
   signup(rich): "لا تملك حسابا حتى الآن؟ ${linkToSignup(سجل حساباً الأن)}!"
-  notYou(rich, OUTDATED): "${undoLogin(ليس انت)}"
   status:
     loggedOut: تسجيل الخروج
     tapToLogin: انقر لتسجيل الدخول باستخدام Nextcloud
@@ -186,6 +187,7 @@ login:
           حتى إذا تمكن شخص ما من الوصول إلى حسابك على Nextcloud ،فستظل ملاحظاتك آمنة ومشفرة بكلمة مرور منفصلة. يوفر لك هذا طبقة ثانية من الأمان لحماية بياناتك.
       - q: هل يمكنني استخدام نفس كلمة المرور لكليهما؟
         a: نعم، لكن القيام بذلك أقل أمانًا. نظرًا لأنه يتم إرسال كلمة مرور Nextcloud الخاصة بك إلى الخادم، فسيتمكن شخص لديه حق الوصول إلى الخادم من فك تشفير ملاحظاتك. استخدم نفس كلمة المرور فقط إذا كنت تثق في مالك الخادم.
+  notYou(rich, OUTDATED): "${undoLogin(ليس انت)}"
 profile:
   title: ملفي الشخصي
   logout: تسجيل الخروج

@@ -51,6 +51,7 @@ ar:
       autoStraightenLines(OUTDATED): Auto straighten lines
       customDataDir(OUTDATED): Custom data directory
       pencilSoundSetting(OUTDATED): Pencil sound effect
+      refreshCurrentNote(OUTDATED): Refresh current note periodically
     prefDescriptions:
       disableAds(OUTDATED): "Ads help support Saber's development, but you can disable them if you'd like"
       allowInsecureConnections(OUTDATED): (Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates
@@ -67,6 +68,7 @@ ar:
         off(OUTDATED): No sound
         onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
         onAlways(OUTDATED): Enabled (even in silent mode)
+      refreshCurrentNote(OUTDATED): Updates the currently open note if you're editing it on another device
     resyncEverything(OUTDATED): Resync everything
     customDataDir:
       cancel(OUTDATED): Cancel
@@ -136,6 +138,11 @@ cs:
   common:
     done(OUTDATED): Done
     continueBtn(OUTDATED): Continue
+  settings:
+    prefLabels:
+      refreshCurrentNote(OUTDATED): Refresh current note periodically
+    prefDescriptions:
+      refreshCurrentNote(OUTDATED): Updates the currently open note if you're editing it on another device
   login:
     notYou(rich)(OUTDATED): "Not you? ${undoLogin(Choose another account)}."
     status:
@@ -182,11 +189,13 @@ de:
   settings:
     prefLabels:
       pencilSoundSetting(OUTDATED): Pencil sound effect
+      refreshCurrentNote(OUTDATED): Refresh current note periodically
     prefDescriptions:
       pencilSoundSetting:
         off(OUTDATED): No sound
         onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
         onAlways(OUTDATED): Enabled (even in silent mode)
+      refreshCurrentNote(OUTDATED): Updates the currently open note if you're editing it on another device
   login:
     notYou(rich)(OUTDATED): "Not you? ${undoLogin(Choose another account)}."
     status:
@@ -241,6 +250,7 @@ es:
       autoStraightenLines(OUTDATED): Auto straighten lines
       customDataDir(OUTDATED): Custom data directory
       pencilSoundSetting(OUTDATED): Pencil sound effect
+      refreshCurrentNote(OUTDATED): Refresh current note periodically
     prefDescriptions:
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
@@ -248,6 +258,7 @@ es:
         off(OUTDATED): No sound
         onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
         onAlways(OUTDATED): Enabled (even in silent mode)
+      refreshCurrentNote(OUTDATED): Updates the currently open note if you're editing it on another device
     resyncEverything(OUTDATED): Resync everything
     customDataDir:
       cancel(OUTDATED): Cancel
@@ -312,12 +323,14 @@ fa:
       autoStraightenLines(OUTDATED): Auto straighten lines
       customDataDir(OUTDATED): Custom data directory
       pencilSoundSetting(OUTDATED): Pencil sound effect
+      refreshCurrentNote(OUTDATED): Refresh current note periodically
     prefDescriptions:
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
       pencilSoundSetting:
         off(OUTDATED): No sound
         onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
         onAlways(OUTDATED): Enabled (even in silent mode)
+      refreshCurrentNote(OUTDATED): Updates the currently open note if you're editing it on another device
     resyncEverything(OUTDATED): Resync everything
     customDataDir:
       cancel(OUTDATED): Cancel
@@ -377,12 +390,14 @@ fr:
       autoStraightenLines(OUTDATED): Auto straighten lines
       customDataDir(OUTDATED): Custom data directory
       pencilSoundSetting(OUTDATED): Pencil sound effect
+      refreshCurrentNote(OUTDATED): Refresh current note periodically
     prefDescriptions:
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
       pencilSoundSetting:
         off(OUTDATED): No sound
         onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
         onAlways(OUTDATED): Enabled (even in silent mode)
+      refreshCurrentNote(OUTDATED): Updates the currently open note if you're editing it on another device
     customDataDir:
       cancel(OUTDATED): Cancel
       select(OUTDATED): Select
@@ -456,6 +471,7 @@ he:
       autoStraightenLines(OUTDATED): Auto straighten lines
       customDataDir(OUTDATED): Custom data directory
       pencilSoundSetting(OUTDATED): Pencil sound effect
+      refreshCurrentNote(OUTDATED): Refresh current note periodically
     prefDescriptions:
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
@@ -463,6 +479,7 @@ he:
         off(OUTDATED): No sound
         onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
         onAlways(OUTDATED): Enabled (even in silent mode)
+      refreshCurrentNote(OUTDATED): Updates the currently open note if you're editing it on another device
     resyncEverything(OUTDATED): Resync everything
     customDataDir:
       cancel(OUTDATED): Cancel
@@ -596,6 +613,7 @@ hu:
       autoStraightenLines(OUTDATED): Auto straighten lines
       customDataDir(OUTDATED): Custom data directory
       pencilSoundSetting(OUTDATED): Pencil sound effect
+      refreshCurrentNote(OUTDATED): Refresh current note periodically
     prefDescriptions:
       disableAds(OUTDATED): "Ads help support Saber's development, but you can disable them if you'd like"
       allowInsecureConnections(OUTDATED): (Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates
@@ -613,6 +631,7 @@ hu:
         off(OUTDATED): No sound
         onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
         onAlways(OUTDATED): Enabled (even in silent mode)
+      refreshCurrentNote(OUTDATED): Updates the currently open note if you're editing it on another device
     layoutSizes:
       auto(OUTDATED): Auto
       phone(OUTDATED): Phone
@@ -743,6 +762,11 @@ it:
   common:
     done(OUTDATED): Done
     continueBtn(OUTDATED): Continue
+  settings:
+    prefLabels:
+      refreshCurrentNote(OUTDATED): Refresh current note periodically
+    prefDescriptions:
+      refreshCurrentNote(OUTDATED): Updates the currently open note if you're editing it on another device
   login:
     notYou(rich)(OUTDATED): "Not you? ${undoLogin(Choose another account)}."
     status:
@@ -826,6 +850,7 @@ ja:
       autoStraightenLines(OUTDATED): Auto straighten lines
       customDataDir(OUTDATED): Custom data directory
       pencilSoundSetting(OUTDATED): Pencil sound effect
+      refreshCurrentNote(OUTDATED): Refresh current note periodically
     prefDescriptions:
       disableEraserAfterUse(OUTDATED): Automatically switches back to the pen after using the eraser
       hideFingerDrawing:
@@ -840,6 +865,7 @@ ja:
         off(OUTDATED): No sound
         onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
         onAlways(OUTDATED): Enabled (even in silent mode)
+      refreshCurrentNote(OUTDATED): Updates the currently open note if you're editing it on another device
     resyncEverything(OUTDATED): Resync everything
     customDataDir:
       cancel(OUTDATED): Cancel
@@ -925,6 +951,7 @@ pt-BR:
       autoStraightenLines(OUTDATED): Auto straighten lines
       customDataDir(OUTDATED): Custom data directory
       pencilSoundSetting(OUTDATED): Pencil sound effect
+      refreshCurrentNote(OUTDATED): Refresh current note periodically
     prefDescriptions:
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
@@ -932,6 +959,7 @@ pt-BR:
         off(OUTDATED): No sound
         onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
         onAlways(OUTDATED): Enabled (even in silent mode)
+      refreshCurrentNote(OUTDATED): Updates the currently open note if you're editing it on another device
     resyncEverything(OUTDATED): Resync everything
     customDataDir:
       cancel(OUTDATED): Cancel
@@ -995,6 +1023,11 @@ pt-BR:
     menu:
       lineHeightDescription(OUTDATED): Also controls the text size for typed notes
 ru:
+  settings:
+    prefLabels:
+      refreshCurrentNote(OUTDATED): Refresh current note periodically
+    prefDescriptions:
+      refreshCurrentNote(OUTDATED): Updates the currently open note if you're editing it on another device
 tr:
   common:
     done(OUTDATED): Done
@@ -1003,11 +1036,13 @@ tr:
     prefLabels:
       customDataDir(OUTDATED): Custom data directory
       pencilSoundSetting(OUTDATED): Pencil sound effect
+      refreshCurrentNote(OUTDATED): Refresh current note periodically
     prefDescriptions:
       pencilSoundSetting:
         off(OUTDATED): No sound
         onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
         onAlways(OUTDATED): Enabled (even in silent mode)
+      refreshCurrentNote(OUTDATED): Updates the currently open note if you're editing it on another device
     customDataDir:
       cancel(OUTDATED): Cancel
       select(OUTDATED): Select
@@ -1062,11 +1097,13 @@ zh-Hans-CN:
   settings:
     prefLabels:
       pencilSoundSetting(OUTDATED): Pencil sound effect
+      refreshCurrentNote(OUTDATED): Refresh current note periodically
     prefDescriptions:
       pencilSoundSetting:
         off(OUTDATED): No sound
         onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
         onAlways(OUTDATED): Enabled (even in silent mode)
+      refreshCurrentNote(OUTDATED): Updates the currently open note if you're editing it on another device
   login:
     notYou(rich)(OUTDATED): "Not you? ${undoLogin(Choose another account)}."
     status:
@@ -1107,3 +1144,8 @@ zh-Hans-CN:
     connectedTo(OUTDATED): Connected to
     faqTitle(OUTDATED): Frequently asked questions
 zh-Hant-TW:
+  settings:
+    prefLabels:
+      refreshCurrentNote(OUTDATED): Refresh current note periodically
+    prefDescriptions:
+      refreshCurrentNote(OUTDATED): Updates the currently open note if you're editing it on another device

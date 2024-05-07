@@ -1064,12 +1064,12 @@ class _StringsLoginAr extends _StringsLoginEn {
 		linkToSignup('سجل حساباً الأن'),
 		const TextSpan(text: '!'),
 	]);
-	@override TextSpan notYou({required InlineSpanBuilder undoLogin}) => TextSpan(children: [
-		undoLogin('ليس انت'),
-	]);
 	@override late final _StringsLoginStatusAr status = _StringsLoginStatusAr._(_root);
 	@override late final _StringsLoginNcLoginStepAr ncLoginStep = _StringsLoginNcLoginStepAr._(_root);
 	@override late final _StringsLoginEncLoginStepAr encLoginStep = _StringsLoginEncLoginStepAr._(_root);
+	@override TextSpan notYou({required InlineSpanBuilder undoLogin}) => TextSpan(children: [
+		undoLogin('ليس انت'),
+	]);
 }
 
 // Path: profile
@@ -1304,6 +1304,7 @@ class _StringsSettingsPrefLabelsAr extends _StringsSettingsPrefLabelsEn {
 	@override String get hideHomeBackgrounds => 'إخفاء الخلفيات على الشاشة الرئيسية';
 	@override String get recentColorsDontSavePresets => 'لا تحفظ الألوان المعينة مسبقًا كألوان حديثة';
 	@override String get printPageIndicators => 'طباعة مؤشرات الصفحة';
+	@override String get refreshCurrentNote => 'قم بتحديث الملاحظة الحالية بشكل دوري';
 	@override String get pencilSoundSetting => 'تأثير صوت قلم الرصاص';
 	@override String get customDataDir => 'دليل البيانات المخصصة';
 	@override String get autoStraightenLines => 'تصويب الخطوط تلقائيا';
@@ -1334,6 +1335,7 @@ class _StringsSettingsPrefDescriptionsAr extends _StringsSettingsPrefDescription
 	@override String get hideHomeBackgrounds => 'للحصول على مظهر أنظف';
 	@override String get printPageIndicators => 'تظهر مؤشرات الصفحة في الصادرات';
 	@override late final _StringsSettingsPrefDescriptionsPencilSoundSettingAr pencilSoundSetting = _StringsSettingsPrefDescriptionsPencilSoundSettingAr._(_root);
+	@override String get refreshCurrentNote => 'يقوم بتحديث الملاحظة المفتوحة حاليًا إذا كنت تقوم بتحريرها على جهاز آخر';
 	@override String get autoStraightenLines => 'يقوم بفرد الخطوط الطويلة دون الحاجة إلى استخدام قلم الشكل';
 	@override String get shapeRecognitionDelay => 'عدد مرات تحديث معاينة الشكل';
 	@override String get disableAds => '(أدز) يساعد في دعم تطوير (سابر) لكن يمكنك إزالتهم إذا أردت';
@@ -1889,12 +1891,12 @@ class _StringsLoginCs extends _StringsLoginEn {
 		linkToSignup('Zaregistrujte se'),
 		const TextSpan(text: '!'),
 	]);
-	@override TextSpan notYou({required InlineSpanBuilder undoLogin}) => TextSpan(children: [
-		undoLogin('Né ty'),
-	]);
 	@override late final _StringsLoginStatusCs status = _StringsLoginStatusCs._(_root);
 	@override late final _StringsLoginNcLoginStepCs ncLoginStep = _StringsLoginNcLoginStepCs._(_root);
 	@override late final _StringsLoginEncLoginStepCs encLoginStep = _StringsLoginEncLoginStepCs._(_root);
+	@override TextSpan notYou({required InlineSpanBuilder undoLogin}) => TextSpan(children: [
+		undoLogin('Né ty'),
+	]);
 }
 
 // Path: profile
@@ -2141,6 +2143,7 @@ class _StringsSettingsPrefLabelsCs extends _StringsSettingsPrefLabelsEn {
 	@override String get autoStraightenLines => 'Automaticky narovnávat čáry';
 	@override String get customDataDir => 'Vlastní datový adresář';
 	@override String get pencilSoundSetting => 'Zvukový efekt psaní tužkou';
+	@override String get refreshCurrentNote => 'Pravidelně aktualizujte aktuální poznámku';
 }
 
 // Path: settings.prefDescriptions
@@ -2166,6 +2169,7 @@ class _StringsSettingsPrefDescriptionsCs extends _StringsSettingsPrefDescription
 	@override String get autoStraightenLines => 'Automaticky narovná dlouhé čáry, aniž by bylo nutné využít tvarové pero';
 	@override String get shouldAlwaysAlertForUpdates => 'Oznámit dostupnost aktualizací co nejdříve od jejich vydání';
 	@override late final _StringsSettingsPrefDescriptionsPencilSoundSettingCs pencilSoundSetting = _StringsSettingsPrefDescriptionsPencilSoundSettingCs._(_root);
+	@override String get refreshCurrentNote => 'Aktualizuje aktuálně otevřenou poznámku, pokud ji upravujete na jiném zařízení';
 }
 
 // Path: settings.themeModes
@@ -2713,12 +2717,12 @@ class _StringsLoginDe extends _StringsLoginEn {
 		linkToSignup('Erstelle jetzt eins'),
 		const TextSpan(text: '!'),
 	]);
-	@override TextSpan notYou({required InlineSpanBuilder undoLogin}) => TextSpan(children: [
-		undoLogin('Nicht du'),
-	]);
 	@override late final _StringsLoginStatusDe status = _StringsLoginStatusDe._(_root);
 	@override late final _StringsLoginNcLoginStepDe ncLoginStep = _StringsLoginNcLoginStepDe._(_root);
 	@override late final _StringsLoginEncLoginStepDe encLoginStep = _StringsLoginEncLoginStepDe._(_root);
+	@override TextSpan notYou({required InlineSpanBuilder undoLogin}) => TextSpan(children: [
+		undoLogin('Nicht du'),
+	]);
 }
 
 // Path: profile
@@ -2964,6 +2968,7 @@ class _StringsSettingsPrefLabelsDe extends _StringsSettingsPrefLabelsEn {
 	@override String get shapeRecognitionDelay => 'Verzögerung der Formerkennung';
 	@override String get autoStraightenLines => 'Linien automatisch begradigen';
 	@override String get customDataDir => 'Benutzerdefiniertes Verzeichnis';
+	@override String get refreshCurrentNote => 'Aktuelle Notiz regelmäßig aktualisieren';
 	@override String get pencilSoundSetting => 'Bleistift-Soundeffekt';
 }
 
@@ -2990,6 +2995,7 @@ class _StringsSettingsPrefDescriptionsDe extends _StringsSettingsPrefDescription
 	@override String get autoStraightenLines => 'Lange Linien selbst ohne Form-Stift begradigen';
 	@override String get shouldAlwaysAlertForUpdates => 'Über neue Updates informiert bleiben';
 	@override late final _StringsSettingsPrefDescriptionsPencilSoundSettingDe pencilSoundSetting = _StringsSettingsPrefDescriptionsPencilSoundSettingDe._(_root);
+	@override String get refreshCurrentNote => 'Aktualisiert die aktuell geöffnete Notiz, wenn Sie sie auf einem anderen Gerät bearbeiten';
 }
 
 // Path: settings.themeModes
@@ -3537,12 +3543,12 @@ class _StringsLoginEs extends _StringsLoginEn {
 		const TextSpan(text: '¿Aún no tienes una cuenta? '),
 		linkToSignup('Regístrate ahora'),
 	]);
-	@override TextSpan notYou({required InlineSpanBuilder undoLogin}) => TextSpan(children: [
-		undoLogin('No tú'),
-	]);
 	@override late final _StringsLoginStatusEs status = _StringsLoginStatusEs._(_root);
 	@override late final _StringsLoginNcLoginStepEs ncLoginStep = _StringsLoginNcLoginStepEs._(_root);
 	@override late final _StringsLoginEncLoginStepEs encLoginStep = _StringsLoginEncLoginStepEs._(_root);
+	@override TextSpan notYou({required InlineSpanBuilder undoLogin}) => TextSpan(children: [
+		undoLogin('No tú'),
+	]);
 }
 
 // Path: profile
@@ -3785,6 +3791,7 @@ class _StringsSettingsPrefLabelsEs extends _StringsSettingsPrefLabelsEn {
 	@override String get recentColorsLength => 'Número de colores recientes a almacenar';
 	@override String get printPageIndicators => 'Indicadores de página de impresión';
 	@override String get autosaveDelay => 'Retardo en el autoguardado';
+	@override String get refreshCurrentNote => 'Actualizar la nota actual periódicamente';
 	@override String get pencilSoundSetting => 'Efecto de sonido de lápiz';
 	@override String get customDataDir => 'Directorio de datos personalizado';
 	@override String get autoStraightenLines => 'Líneas de enderezamiento automático';
@@ -3812,6 +3819,7 @@ class _StringsSettingsPrefDescriptionsEs extends _StringsSettingsPrefDescription
 	@override String get autosaveDelay => 'Cuánto esperar antes de autoguardar una nota';
 	@override String get shouldAlwaysAlertForUpdates => 'Avísame sobre actualizaciones tan pronto como estén disponibles';
 	@override late final _StringsSettingsPrefDescriptionsPencilSoundSettingEs pencilSoundSetting = _StringsSettingsPrefDescriptionsPencilSoundSettingEs._(_root);
+	@override String get refreshCurrentNote => 'Actualiza la nota actualmente abierta si la estás editando en otro dispositivo';
 	@override String get autoStraightenLines => 'Endereza líneas largas sin tener que usar el rotulador.';
 	@override String get shapeRecognitionDelay => 'Con qué frecuencia actualizar la vista previa de la forma';
 }
@@ -4362,12 +4370,12 @@ class _StringsLoginFa extends _StringsLoginEn {
 		linkToSignup('Sign up now'),
 		const TextSpan(text: '!'),
 	]);
-	@override TextSpan notYou({required InlineSpanBuilder undoLogin}) => TextSpan(children: [
-		undoLogin('تو نه'),
-	]);
 	@override late final _StringsLoginStatusFa status = _StringsLoginStatusFa._(_root);
 	@override late final _StringsLoginNcLoginStepFa ncLoginStep = _StringsLoginNcLoginStepFa._(_root);
 	@override late final _StringsLoginEncLoginStepFa encLoginStep = _StringsLoginEncLoginStepFa._(_root);
+	@override TextSpan notYou({required InlineSpanBuilder undoLogin}) => TextSpan(children: [
+		undoLogin('تو نه'),
+	]);
 }
 
 // Path: profile
@@ -4611,6 +4619,7 @@ class _StringsSettingsPrefLabelsFa extends _StringsSettingsPrefLabelsEn {
 	@override String get printPageIndicators => 'چاپ نشانگرهای صفحه';
 	@override String get autosaveDelay => 'تأخیر ذخیره خودکار';
 	@override String get shapeRecognitionDelay => 'تاخیر در تشخیص شکل';
+	@override String get refreshCurrentNote => 'یادداشت فعلی را به صورت دوره ای بازخوانی کنید';
 	@override String get pencilSoundSetting => 'جلوه صدای مداد';
 	@override String get customDataDir => 'دایرکتوری داده های سفارشی';
 	@override String get autoStraightenLines => 'صاف کردن خودکار خطوط';
@@ -4638,6 +4647,7 @@ class _StringsSettingsPrefDescriptionsFa extends _StringsSettingsPrefDescription
 	@override String get shapeRecognitionDelay => 'به روز رسانی پیشنمایش شکل چند وقت یکبار انجام شود';
 	@override String get shouldAlwaysAlertForUpdates => 'به محض اینکه به‌روزرسانی‌ها در دسترس هستند، به من بگویید';
 	@override late final _StringsSettingsPrefDescriptionsPencilSoundSettingFa pencilSoundSetting = _StringsSettingsPrefDescriptionsPencilSoundSettingFa._(_root);
+	@override String get refreshCurrentNote => 'اگر یادداشت باز فعلی را در دستگاه دیگری ویرایش می‌کنید، آن را به‌روزرسانی می‌کند';
 	@override String get autoStraightenLines => 'خطوط بلند را بدون استفاده از قلم شکل صاف می کند';
 }
 
@@ -5187,12 +5197,12 @@ class _StringsLoginFr extends _StringsLoginEn {
 		linkToSignup('Sign up now'),
 		const TextSpan(text: ' !'),
 	]);
-	@override TextSpan notYou({required InlineSpanBuilder undoLogin}) => TextSpan(children: [
-		undoLogin('Pas toi'),
-	]);
 	@override late final _StringsLoginStatusFr status = _StringsLoginStatusFr._(_root);
 	@override late final _StringsLoginNcLoginStepFr ncLoginStep = _StringsLoginNcLoginStepFr._(_root);
 	@override late final _StringsLoginEncLoginStepFr encLoginStep = _StringsLoginEncLoginStepFr._(_root);
+	@override TextSpan notYou({required InlineSpanBuilder undoLogin}) => TextSpan(children: [
+		undoLogin('Pas toi'),
+	]);
 }
 
 // Path: profile
@@ -5436,6 +5446,7 @@ class _StringsSettingsPrefLabelsFr extends _StringsSettingsPrefLabelsEn {
 	@override String get printPageIndicators => 'Imprimer les numéros de pages';
 	@override String get autosaveDelay => 'Délai entre les sauvegardes automatiques';
 	@override String get shapeRecognitionDelay => 'Délai de reconnaissance de forme';
+	@override String get refreshCurrentNote => 'Actualiser périodiquement la note actuelle';
 	@override String get pencilSoundSetting => 'Effet sonore de crayon';
 	@override String get customDataDir => 'Répertoire de données personnalisé';
 	@override String get autoStraightenLines => 'Redresser automatiquement les lignes';
@@ -5463,6 +5474,7 @@ class _StringsSettingsPrefDescriptionsFr extends _StringsSettingsPrefDescription
 	@override String get shapeRecognitionDelay => 'Avec quelle fréquence mettre à jour la prévisualisation de forme';
 	@override String get shouldAlwaysAlertForUpdates => 'Me prévenir dès qu\'une mise à jour est disponible';
 	@override late final _StringsSettingsPrefDescriptionsPencilSoundSettingFr pencilSoundSetting = _StringsSettingsPrefDescriptionsPencilSoundSettingFr._(_root);
+	@override String get refreshCurrentNote => 'Met à jour la note actuellement ouverte si vous la modifiez sur un autre appareil';
 	@override String get autoStraightenLines => 'Redresse les longues lignes sans avoir à utiliser le stylo de forme';
 }
 
@@ -6012,12 +6024,12 @@ class _StringsLoginHe extends _StringsLoginEn {
 		linkToSignup('הירשם עכשיו'),
 		const TextSpan(text: '!'),
 	]);
-	@override TextSpan notYou({required InlineSpanBuilder undoLogin}) => TextSpan(children: [
-		undoLogin('לא אתה'),
-	]);
 	@override late final _StringsLoginStatusHe status = _StringsLoginStatusHe._(_root);
 	@override late final _StringsLoginNcLoginStepHe ncLoginStep = _StringsLoginNcLoginStepHe._(_root);
 	@override late final _StringsLoginEncLoginStepHe encLoginStep = _StringsLoginEncLoginStepHe._(_root);
+	@override TextSpan notYou({required InlineSpanBuilder undoLogin}) => TextSpan(children: [
+		undoLogin('לא אתה'),
+	]);
 }
 
 // Path: profile
@@ -6259,6 +6271,7 @@ class _StringsSettingsPrefLabelsHe extends _StringsSettingsPrefLabelsEn {
 	@override String get recentColorsDontSavePresets => 'אל תשמור צבעים מוגדרים מראש בצבעים אחרונים';
 	@override String get printPageIndicators => 'הדפסת עמודים מחוונים';
 	@override String get autosaveDelay => 'השהיית שמירה אוטומטית';
+	@override String get refreshCurrentNote => 'רענן את ההערה הנוכחית מעת לעת';
 	@override String get pencilSoundSetting => 'אפקט צליל עיפרון';
 	@override String get customDataDir => 'ספריית נתונים מותאמת אישית';
 	@override String get autoStraightenLines => 'יישור קווים אוטומטית';
@@ -6287,6 +6300,7 @@ class _StringsSettingsPrefDescriptionsHe extends _StringsSettingsPrefDescription
 	@override String get autosaveDelay => 'כמה זמן לחכות לפני שמירת הערה אוטומטית';
 	@override String get shouldAlwaysAlertForUpdates => 'ספר לי על עדכונים ברגע שהם יהיו זמינים';
 	@override late final _StringsSettingsPrefDescriptionsPencilSoundSettingHe pencilSoundSetting = _StringsSettingsPrefDescriptionsPencilSoundSettingHe._(_root);
+	@override String get refreshCurrentNote => 'מעדכן את ההערה הפתוחה כעת אם אתה עורך אותה במכשיר אחר';
 	@override String get autoStraightenLines => 'מיישר קווים ארוכים ללא צורך להשתמש בעט הצורה';
 	@override String get shapeRecognitionDelay => 'באיזו תדירות לעדכן את התצוגה המקדימה של הצורה';
 }
@@ -6837,12 +6851,12 @@ class _StringsLoginHu extends _StringsLoginEn {
 		linkToSignup('Regisztrálás'),
 		const TextSpan(text: '!'),
 	]);
-	@override TextSpan notYou({required InlineSpanBuilder undoLogin}) => TextSpan(children: [
-		undoLogin('Nem te'),
-	]);
 	@override late final _StringsLoginStatusHu status = _StringsLoginStatusHu._(_root);
 	@override late final _StringsLoginNcLoginStepHu ncLoginStep = _StringsLoginNcLoginStepHu._(_root);
 	@override late final _StringsLoginEncLoginStepHu encLoginStep = _StringsLoginEncLoginStepHu._(_root);
+	@override TextSpan notYou({required InlineSpanBuilder undoLogin}) => TextSpan(children: [
+		undoLogin('Nem te'),
+	]);
 }
 
 // Path: profile
@@ -7075,6 +7089,7 @@ class _StringsSettingsPrefLabelsHu extends _StringsSettingsPrefLabelsEn {
 	@override String get editorPromptRename => 'Új jegyzetek átnevezésére való felszólítás';
 	@override String get hideHomeBackgrounds => 'Hátterek elrejtése a kezdőképernyőn';
 	@override String get recentColorsDontSavePresets => 'Ne mentse az előre beállított színeket a legutóbbi színek között';
+	@override String get refreshCurrentNote => 'Az aktuális jegyzet rendszeres frissítése';
 	@override String get pencilSoundSetting => 'Ceruza hanghatás';
 	@override String get customDataDir => 'Egyedi adatkönyvtár';
 	@override String get autoStraightenLines => 'A vonalak automatikus kiegyenesítése';
@@ -7106,6 +7121,7 @@ class _StringsSettingsPrefDescriptionsHu extends _StringsSettingsPrefDescription
 	@override String get editorPromptRename => 'A jegyzeteket később bármikor átnevezheti';
 	@override String get hideHomeBackgrounds => 'Egy letisztultabb megjelenítésért';
 	@override late final _StringsSettingsPrefDescriptionsPencilSoundSettingHu pencilSoundSetting = _StringsSettingsPrefDescriptionsPencilSoundSettingHu._(_root);
+	@override String get refreshCurrentNote => 'Frissíti az éppen megnyitott jegyzetet, ha egy másik eszközön szerkeszti';
 	@override String get autoStraightenLines => 'Kiegyenesíti a hosszú vonalakat anélkül, hogy az alakos tollat ​​kellene használnia';
 	@override String get shapeRecognitionDelay => 'Milyen gyakran kell frissíteni az alakzat előnézetét';
 	@override String get disableAds => 'A hirdetések segítik a Saber fejlesztését, de tilthatja őket, ha tetszik';
@@ -7662,12 +7678,12 @@ class _StringsLoginIt extends _StringsLoginEn {
 		linkToSignup('Registrati ora'),
 		const TextSpan(text: '!'),
 	]);
-	@override TextSpan notYou({required InlineSpanBuilder undoLogin}) => TextSpan(children: [
-		undoLogin('Non tu'),
-	]);
 	@override late final _StringsLoginStatusIt status = _StringsLoginStatusIt._(_root);
 	@override late final _StringsLoginNcLoginStepIt ncLoginStep = _StringsLoginNcLoginStepIt._(_root);
 	@override late final _StringsLoginEncLoginStepIt encLoginStep = _StringsLoginEncLoginStepIt._(_root);
+	@override TextSpan notYou({required InlineSpanBuilder undoLogin}) => TextSpan(children: [
+		undoLogin('Non tu'),
+	]);
 }
 
 // Path: profile
@@ -7914,6 +7930,7 @@ class _StringsSettingsPrefLabelsIt extends _StringsSettingsPrefLabelsEn {
 	@override String get autoStraightenLines => 'Raddrizzamento automatico delle linee';
 	@override String get customDataDir => 'Directory di dati personalizzata';
 	@override String get pencilSoundSetting => 'Effetto sonoro della matita';
+	@override String get refreshCurrentNote => 'Aggiorna periodicamente la nota corrente';
 }
 
 // Path: settings.prefDescriptions
@@ -7939,6 +7956,7 @@ class _StringsSettingsPrefDescriptionsIt extends _StringsSettingsPrefDescription
 	@override String get autoStraightenLines => 'Raddrizza le linee lunghe senza dover utilizzare la penna sagomatrice';
 	@override String get shouldAlwaysAlertForUpdates => 'Segnalami aggiornamenti non appena sono disponibili';
 	@override late final _StringsSettingsPrefDescriptionsPencilSoundSettingIt pencilSoundSetting = _StringsSettingsPrefDescriptionsPencilSoundSettingIt._(_root);
+	@override String get refreshCurrentNote => 'Aggiorna la nota attualmente aperta se la stai modificando su un altro dispositivo';
 }
 
 // Path: settings.themeModes
@@ -8487,12 +8505,12 @@ class _StringsLoginJa extends _StringsLoginEn {
 		linkToSignup('今すぐ登録'),
 		const TextSpan(text: '!'),
 	]);
-	@override TextSpan notYou({required InlineSpanBuilder undoLogin}) => TextSpan(children: [
-		undoLogin('あなたではありません'),
-	]);
 	@override late final _StringsLoginStatusJa status = _StringsLoginStatusJa._(_root);
 	@override late final _StringsLoginNcLoginStepJa ncLoginStep = _StringsLoginNcLoginStepJa._(_root);
 	@override late final _StringsLoginEncLoginStepJa encLoginStep = _StringsLoginEncLoginStepJa._(_root);
+	@override TextSpan notYou({required InlineSpanBuilder undoLogin}) => TextSpan(children: [
+		undoLogin('あなたではありません'),
+	]);
 }
 
 // Path: profile
@@ -8730,6 +8748,7 @@ class _StringsSettingsPrefLabelsJa extends _StringsSettingsPrefLabelsEn {
 	@override String get hideHomeBackgrounds => 'ホーム画面で背景を隠す';
 	@override String get recentColorsDontSavePresets => '最近使用した色をプリセットに登録しない';
 	@override String get printPageIndicators => '印刷ページのインジケーター';
+	@override String get refreshCurrentNote => '現在のノートを定期的に更新する';
 	@override String get pencilSoundSetting => '鉛筆の効果音';
 	@override String get customDataDir => 'カスタムデータディレクトリ';
 	@override String get autoStraightenLines => '線を自動直線化する';
@@ -8759,6 +8778,7 @@ class _StringsSettingsPrefDescriptionsJa extends _StringsSettingsPrefDescription
 	@override String get hideHomeBackgrounds => 'よりクリーンな外観に';
 	@override String get printPageIndicators => 'エクスポートにページインジケーターを表示';
 	@override late final _StringsSettingsPrefDescriptionsPencilSoundSettingJa pencilSoundSetting = _StringsSettingsPrefDescriptionsPencilSoundSettingJa._(_root);
+	@override String get refreshCurrentNote => '別のデバイスで編集している場合は、現在開いているノートを更新します';
 	@override String get autoStraightenLines => 'シェイプペンを使用せずに長い線をまっすぐにします。';
 	@override String get shapeRecognitionDelay => '形状プレビューを更新する頻度';
 	@override String get autosaveDelay => 'メモを自動保存するまでの待ち時間';
@@ -9312,12 +9332,12 @@ class _StringsLoginPtBr extends _StringsLoginEn {
 		linkToSignup('Registre-se agora'),
 		const TextSpan(text: '!'),
 	]);
-	@override TextSpan notYou({required InlineSpanBuilder undoLogin}) => TextSpan(children: [
-		undoLogin('Você não'),
-	]);
 	@override late final _StringsLoginStatusPtBr status = _StringsLoginStatusPtBr._(_root);
 	@override late final _StringsLoginNcLoginStepPtBr ncLoginStep = _StringsLoginNcLoginStepPtBr._(_root);
 	@override late final _StringsLoginEncLoginStepPtBr encLoginStep = _StringsLoginEncLoginStepPtBr._(_root);
+	@override TextSpan notYou({required InlineSpanBuilder undoLogin}) => TextSpan(children: [
+		undoLogin('Você não'),
+	]);
 }
 
 // Path: profile
@@ -9559,6 +9579,7 @@ class _StringsSettingsPrefLabelsPtBr extends _StringsSettingsPrefLabelsEn {
 	@override String get recentColorsDontSavePresets => 'Não salvar as cores predefinidas nas cores recentes';
 	@override String get printPageIndicators => 'Imprimir os indicadores de página';
 	@override String get autosaveDelay => 'Atraso de salvamento automático';
+	@override String get refreshCurrentNote => 'Atualize a nota atual periodicamente';
 	@override String get pencilSoundSetting => 'Efeito sonoro de lápis';
 	@override String get customDataDir => 'Diretório de dados personalizado';
 	@override String get autoStraightenLines => 'Endireitar linhas automaticamente';
@@ -9587,6 +9608,7 @@ class _StringsSettingsPrefDescriptionsPtBr extends _StringsSettingsPrefDescripti
 	@override String get autosaveDelay => 'Quanto tempo esperar antes de salvar automaticamente uma nota';
 	@override String get shouldAlwaysAlertForUpdates => 'Conte-me sobre atualizações assim que elas estiverem disponíveis';
 	@override late final _StringsSettingsPrefDescriptionsPencilSoundSettingPtBr pencilSoundSetting = _StringsSettingsPrefDescriptionsPencilSoundSettingPtBr._(_root);
+	@override String get refreshCurrentNote => 'Atualiza a nota atualmente aberta se você a estiver editando em outro dispositivo';
 	@override String get autoStraightenLines => 'Endireita linhas longas sem precisar usar a caneta modeladora';
 	@override String get shapeRecognitionDelay => 'Com que frequência atualizar a visualização da forma';
 }
@@ -10391,6 +10413,7 @@ class _StringsSettingsPrefLabelsRu extends _StringsSettingsPrefLabelsEn {
 	@override String get autoStraightenLines => 'Автоматическое выпрямление линий';
 	@override String get customDataDir => 'Свой каталог для данных';
 	@override String get pencilSoundSetting => 'Звуковой эффект карандаша';
+	@override String get refreshCurrentNote => 'Периодически обновлять текущую заметку';
 }
 
 // Path: settings.prefDescriptions
@@ -10416,6 +10439,7 @@ class _StringsSettingsPrefDescriptionsRu extends _StringsSettingsPrefDescription
 	@override String get autoStraightenLines => 'Выпрямляет длинные линии без использования фигурного пера';
 	@override String get shouldAlwaysAlertForUpdates => 'Сообщать мне об обновлениях, как только они станут доступны';
 	@override late final _StringsSettingsPrefDescriptionsPencilSoundSettingRu pencilSoundSetting = _StringsSettingsPrefDescriptionsPencilSoundSettingRu._(_root);
+	@override String get refreshCurrentNote => 'Обновляет открытую в данный момент заметку, если вы редактируете ее на другом устройстве.';
 }
 
 // Path: settings.themeModes
@@ -10964,12 +10988,12 @@ class _StringsLoginTr extends _StringsLoginEn {
 		linkToSignup('Hesap oluşturmak için tıklayın'),
 		const TextSpan(text: '!'),
 	]);
-	@override TextSpan notYou({required InlineSpanBuilder undoLogin}) => TextSpan(children: [
-		undoLogin('Sen değil'),
-	]);
 	@override late final _StringsLoginStatusTr status = _StringsLoginStatusTr._(_root);
 	@override late final _StringsLoginNcLoginStepTr ncLoginStep = _StringsLoginNcLoginStepTr._(_root);
 	@override late final _StringsLoginEncLoginStepTr encLoginStep = _StringsLoginEncLoginStepTr._(_root);
+	@override TextSpan notYou({required InlineSpanBuilder undoLogin}) => TextSpan(children: [
+		undoLogin('Sen değil'),
+	]);
 }
 
 // Path: profile
@@ -11214,6 +11238,7 @@ class _StringsSettingsPrefLabelsTr extends _StringsSettingsPrefLabelsEn {
 	@override String get autosaveDelay => 'Otomatik kayıt aralığı';
 	@override String get shapeRecognitionDelay => 'Şekil tanıma gecikmesi';
 	@override String get autoStraightenLines => 'Çizgileri otomatik düzleştir';
+	@override String get refreshCurrentNote => 'Geçerli notu düzenli aralıklarla yenile';
 	@override String get pencilSoundSetting => 'Kalem ses efekti';
 	@override String get customDataDir => 'Özel veri dizini';
 }
@@ -11241,6 +11266,7 @@ class _StringsSettingsPrefDescriptionsTr extends _StringsSettingsPrefDescription
 	@override String get autoStraightenLines => 'Şekil aracını kullanmadığınızda da çizgileri düzleştirir';
 	@override String get shouldAlwaysAlertForUpdates => 'Güncelleme mevcut olduğu gibi bana haber ver';
 	@override late final _StringsSettingsPrefDescriptionsPencilSoundSettingTr pencilSoundSetting = _StringsSettingsPrefDescriptionsPencilSoundSettingTr._(_root);
+	@override String get refreshCurrentNote => 'Başka bir cihazda düzenliyorsanız, şu anda açık olan notu günceller';
 }
 
 // Path: settings.themeModes
@@ -11789,12 +11815,12 @@ class _StringsLoginZhHansCn extends _StringsLoginEn {
 		linkToSignup('立即注册'),
 		const TextSpan(text: '！'),
 	]);
-	@override TextSpan notYou({required InlineSpanBuilder undoLogin}) => TextSpan(children: [
-		undoLogin('不是你'),
-	]);
 	@override late final _StringsLoginStatusZhHansCn status = _StringsLoginStatusZhHansCn._(_root);
 	@override late final _StringsLoginNcLoginStepZhHansCn ncLoginStep = _StringsLoginNcLoginStepZhHansCn._(_root);
 	@override late final _StringsLoginEncLoginStepZhHansCn encLoginStep = _StringsLoginEncLoginStepZhHansCn._(_root);
+	@override TextSpan notYou({required InlineSpanBuilder undoLogin}) => TextSpan(children: [
+		undoLogin('不是你'),
+	]);
 }
 
 // Path: profile
@@ -12040,6 +12066,7 @@ class _StringsSettingsPrefLabelsZhHansCn extends _StringsSettingsPrefLabelsEn {
 	@override String get shapeRecognitionDelay => '形状识别延迟';
 	@override String get autoStraightenLines => '自动拉直线';
 	@override String get customDataDir => '自定义数据目录';
+	@override String get refreshCurrentNote => '定期刷新当前笔记';
 	@override String get pencilSoundSetting => '铅笔音效';
 }
 
@@ -12066,6 +12093,7 @@ class _StringsSettingsPrefDescriptionsZhHansCn extends _StringsSettingsPrefDescr
 	@override String get autoStraightenLines => '拉直长线，无需使用形状笔';
 	@override String get shouldAlwaysAlertForUpdates => '在更新可用时尽快告诉我';
 	@override late final _StringsSettingsPrefDescriptionsPencilSoundSettingZhHansCn pencilSoundSetting = _StringsSettingsPrefDescriptionsPencilSoundSettingZhHansCn._(_root);
+	@override String get refreshCurrentNote => '如果您在其他设备上编辑当前打开的笔记，则更新它';
 }
 
 // Path: settings.themeModes
@@ -12868,6 +12896,7 @@ class _StringsSettingsPrefLabelsZhHantTw extends _StringsSettingsPrefLabelsEn {
 	@override String get autoStraightenLines => '自動拉直線條';
 	@override String get customDataDir => '自訂資料目錄';
 	@override String get pencilSoundSetting => '筆的音效';
+	@override String get refreshCurrentNote => '定期刷新當前筆記';
 }
 
 // Path: settings.prefDescriptions
@@ -12893,6 +12922,7 @@ class _StringsSettingsPrefDescriptionsZhHantTw extends _StringsSettingsPrefDescr
 	@override String get autoStraightenLines => '無需使用形狀筆即可拉直線條';
 	@override String get shouldAlwaysAlertForUpdates => '一旦有更新請告訴我';
 	@override late final _StringsSettingsPrefDescriptionsPencilSoundSettingZhHantTw pencilSoundSetting = _StringsSettingsPrefDescriptionsPencilSoundSettingZhHantTw._(_root);
+	@override String get refreshCurrentNote => '如果您在其他裝置上編輯目前開啟的筆記，則更新它';
 }
 
 // Path: settings.themeModes

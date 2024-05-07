@@ -92,6 +92,7 @@ settings:
     recentColorsDontSavePresets: Não salvar as cores predefinidas nas cores recentes
     printPageIndicators: Imprimir os indicadores de página
     autosaveDelay: Atraso de salvamento automático
+    refreshCurrentNote(OUTDATED): Atualize a nota atual periodicamente
     pencilSoundSetting(OUTDATED): Efeito sonoro de lápis
     customDataDir(OUTDATED): Diretório de dados personalizado
     autoStraightenLines(OUTDATED): Endireitar linhas automaticamente
@@ -118,6 +119,7 @@ settings:
       off(OUTDATED): Sem som
       onButNotInSilentMode(OUTDATED): Ativado (a menos que esteja no modo silencioso)
       onAlways(OUTDATED): Ativado (mesmo no modo silencioso)
+    refreshCurrentNote(OUTDATED): Atualiza a nota atualmente aberta se você a estiver editando em outro dispositivo
     autoStraightenLines(OUTDATED): Endireita linhas longas sem precisar usar a caneta modeladora
     shapeRecognitionDelay(OUTDATED): Com que frequência atualizar a visualização da forma
   themeModes:
@@ -150,7 +152,6 @@ login:
   form:
     agreeToPrivacyPolicy(rich): "Ao fazer login, você concorda com a ${linkToPrivacyPolicy(Política de Privacidade)}."
   signup(rich): "Ainda não tem uma conta? ${linkToSignup(Registre-se agora)}!"
-  notYou(rich, OUTDATED): "${undoLogin(Você não)}"
   status:
     loggedOut: Desconectado
     tapToLogin: Toque para fazer login com o Nextcloud
@@ -186,6 +187,7 @@ login:
           Mesmo que alguém obtenha acesso à sua conta do Nextcloud, as suas notas permanecerão seguras e criptografadas com uma senha separada. Isso fornece uma segunda camada de segurança para proteger os seus dados.
       - q: "Posso usar a mesma senha para ambos?"
         a: "Sim, mas isso é menos seguro. Como a sua senha do Nextcloud é enviada ao servidor, alguém com acesso ao servidor poderá descriptografar as suas notas. Use a mesma senha apenas se você confiar no proprietário do servidor. "
+  notYou(rich, OUTDATED): "${undoLogin(Você não)}"
 profile:
   title: Meu perfil
   logout: Sair

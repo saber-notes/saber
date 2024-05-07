@@ -97,6 +97,7 @@ settings:
     autoStraightenLines: Raddrizzamento automatico delle linee
     customDataDir: Directory di dati personalizzata
     pencilSoundSetting: Effetto sonoro della matita
+    refreshCurrentNote(OUTDATED): Aggiorna periodicamente la nota corrente
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible aumenta la leggibilità per i lettori ipovedenti
     disableAds: "Gli annunci aiutano a supportare lo sviluppo di Saber, ma puoi disattivarli se lo desideri"
@@ -120,6 +121,7 @@ settings:
       off: Nessun suono
       onButNotInSilentMode: Abilitato (a meno che non sia in modalità silenziosa)
       onAlways: Abilitato (anche in modalità silenziosa)
+    refreshCurrentNote(OUTDATED): Aggiorna la nota attualmente aperta se la stai modificando su un altro dispositivo
   themeModes:
     system: Sistema
     light: Chiaro
@@ -150,7 +152,6 @@ login:
   form:
     agreeToPrivacyPolicy(rich): "Effettuando l'accesso, accetti la ${linkToPrivacyPolicy(Informativa sulla privacy)}."
   signup(rich): "Non hai ancora un account? ${linkToSignup(Registrati ora)}!"
-  notYou(rich, OUTDATED): "${undoLogin(Non tu)}"
   status:
     loggedOut: Disconnesso
     tapToLogin: Tocca per accedere con Nextcloud
@@ -186,6 +187,7 @@ login:
           Anche se qualcuno riesce ad accedere al tuo account Nextcloud, le tue note rimarranno al sicuro e crittografate con una password separata. Questo ti fornisce un secondo livello di sicurezza per proteggere i tuoi dati.
       - q: "Posso usare la stessa password per entrambi?"
         a: "Sì, ma farlo è meno sicuro. Poiché la tua password Nextcloud viene inviata al server, qualcuno con accesso al server sarebbe in grado di decrittografare le tue note. Usa la stessa password solo se ti fidi del proprietario del server."
+  notYou(rich, OUTDATED): "${undoLogin(Non tu)}"
 profile:
   title: Il mio profilo
   logout: Log out

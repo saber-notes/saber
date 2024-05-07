@@ -96,6 +96,7 @@ settings:
     shapeRecognitionDelay: Verzögerung der Formerkennung
     autoStraightenLines: Linien automatisch begradigen
     customDataDir: Benutzerdefiniertes Verzeichnis
+    refreshCurrentNote(OUTDATED): Aktuelle Notiz regelmäßig aktualisieren
     pencilSoundSetting(OUTDATED): Bleistift-Soundeffekt
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible verbessert die Lesbarkeit für Menschen mit eingeschränkter Sicht
@@ -120,6 +121,7 @@ settings:
       onAlways(OUTDATED): Aktiviert (auch im lautlosen Modus)
       off(OUTDATED): Keinen Ton
       onButNotInSilentMode(OUTDATED): Aktiviert (außer im stillen Modus)
+    refreshCurrentNote(OUTDATED): "Aktualisiert die aktuell geöffnete Notiz, wenn Sie sie auf einem anderen Gerät bearbeiten"
   themeModes:
     system: System
     light: Hell
@@ -150,7 +152,6 @@ login:
   form:
     agreeToPrivacyPolicy(rich): "Indem du dich anmeldest, stimmst du der ${linkToPrivacyPolicy(Datenschutzrichtlinie)} zu."
   signup(rich): "Du hast noch kein Konto? ${linkToSignup(Erstelle jetzt eins)}!"
-  notYou(rich, OUTDATED): "${undoLogin(Nicht du)}"
   status:
     loggedOut: Nicht angemeldet
     tapToLogin: "Hier tippen, um dich mit Nextcloud anzumelden"
@@ -186,6 +187,7 @@ login:
           Selbst wenn jemand Zugriff zu deinem Nextcloud-Konto erlangt, bleiben deine Notizen sicher und verschlüsselt mit einem seperaten Passwort. Dies stellt eine zweite Sicherheitsebene zum Schutz deiner Daten dar.
       - q: "Kann ich dasselbe Passwort für beide verwenden?"
         a: "Ja, aber das ist nicht so sicher. Da dein Nextcloud-Passwort an den Server übertragen wird, kann jemand mit Zugriff auf den Server deine Notizen entschlüsseln. Du solltest also nur dasselbe Passwort verwenden, wenn du der Person, die den Server besitzt, vertraust."
+  notYou(rich, OUTDATED): "${undoLogin(Nicht du)}"
 profile:
   title: Mein Profil
   logout: Abmelden

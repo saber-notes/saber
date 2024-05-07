@@ -94,6 +94,7 @@ settings:
     printPageIndicators: Imprimer les numéros de pages
     autosaveDelay: Délai entre les sauvegardes automatiques
     shapeRecognitionDelay: Délai de reconnaissance de forme
+    refreshCurrentNote(OUTDATED): Actualiser périodiquement la note actuelle
     pencilSoundSetting(OUTDATED): Effet sonore de crayon
     customDataDir(OUTDATED): Répertoire de données personnalisé
     autoStraightenLines(OUTDATED): Redresser automatiquement les lignes
@@ -119,6 +120,7 @@ settings:
       off(OUTDATED): Pas de son
       onButNotInSilentMode(OUTDATED): Activé (sauf en mode silencieux)
       onAlways(OUTDATED): Activé (même en mode silencieux)
+    refreshCurrentNote(OUTDATED): Met à jour la note actuellement ouverte si vous la modifiez sur un autre appareil
     autoStraightenLines(OUTDATED): Redresse les longues lignes sans avoir à utiliser le stylo de forme
   themeModes:
     system: Système
@@ -150,7 +152,6 @@ login:
   form:
     agreeToPrivacyPolicy(rich): "En vous connectant, vous acceptez les ${linkToPrivacyPolicy(Privacy Policy)}."
   signup(rich): "Pas encore de compte ? ${linkToSignup(Sign up now)} !"
-  notYou(rich, OUTDATED): "${undoLogin(Pas toi)}"
   status:
     loggedOut: Déconnecté
     tapToLogin: Appuyer pour vous connecter avec Nextcloud
@@ -186,6 +187,7 @@ login:
           Même si quelqu'un accède à votre compte Nextcloud, vos notes resteront sécurisées et cryptées avec un mot de passe distinct. Cela crée un deuxième niveau de sécurité pour protéger vos données.
       - q: "Puis-je utiliser le même mot de passe pour les deux ?"
         a: "Oui, mais c'est moins sécurisé. Comme votre mot de passe sur Nextcloud est envoyé au serveur, toute personne qui y aurait accès pourrait decrypter vos notes. N'utilisez le même mot de passe que si vous faites confiance aux personnes qui gèrent le serveur."
+  notYou(rich, OUTDATED): "${undoLogin(Pas toi)}"
 profile:
   title: Mon profil
   logout: Déconnexion

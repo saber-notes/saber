@@ -92,6 +92,7 @@ settings:
     recentColorsDontSavePresets: אל תשמור צבעים מוגדרים מראש בצבעים אחרונים
     printPageIndicators: הדפסת עמודים מחוונים
     autosaveDelay: השהיית שמירה אוטומטית
+    refreshCurrentNote(OUTDATED): רענן את ההערה הנוכחית מעת לעת
     pencilSoundSetting(OUTDATED): אפקט צליל עיפרון
     customDataDir(OUTDATED): ספריית נתונים מותאמת אישית
     autoStraightenLines(OUTDATED): יישור קווים אוטומטית
@@ -118,6 +119,7 @@ settings:
       onButNotInSilentMode(OUTDATED): מופעל (אלא אם כן במצב שקט)
       off(OUTDATED): אין קול
       onAlways(OUTDATED): מופעל (אפילו במצב שקט)
+    refreshCurrentNote(OUTDATED): מעדכן את ההערה הפתוחה כעת אם אתה עורך אותה במכשיר אחר
     autoStraightenLines(OUTDATED): מיישר קווים ארוכים ללא צורך להשתמש בעט הצורה
     shapeRecognitionDelay(OUTDATED): באיזו תדירות לעדכן את התצוגה המקדימה של הצורה
   themeModes:
@@ -150,7 +152,6 @@ login:
   form:
     agreeToPrivacyPolicy(rich): "על ידי התחברות, אתה מסכים ל ${linkToPrivacyPolicy(מדיניות הפרטיות)}."
   signup(rich): "אין לך עוד משתמש ${linkToSignup(הירשם עכשיו)}!"
-  notYou(rich, OUTDATED): "${undoLogin(לא אתה)}"
   status:
     loggedOut: מנותק
     tapToLogin: לחץ כדי להתחבר עם NextCloud
@@ -186,6 +187,7 @@ login:
           גם אם מישהו יקבל גישה לחשבון Nextcloud שלך, ההערות שלך יישארו בטוחות ומוצפנות עם סיסמה נפרדת. זה מספק לך שכבה שנייה של אבטחה כדי להגן על הנתונים שלך.
       - q: "Can I use the same password for both?"
         a: "כן, אבל זה פחות מאובטח. מכיוון שסיסמת Nextcloud שלך נשלחת לשרת, מישהו עם גישה לשרת יוכל לפענח את ההערות שלך. השתמש באותה סיסמה רק אם אתה סומך על בעל השרת."
+  notYou(rich, OUTDATED): "${undoLogin(לא אתה)}"
 profile:
   title: הפרופיל שלי
   logout: התנתק
