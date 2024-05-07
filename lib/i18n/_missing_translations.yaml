@@ -1025,9 +1025,9 @@ pt-BR:
 ru:
   settings:
     prefLabels:
-      refreshCurrentNote(OUTDATED): Refresh current note periodically
+      refreshCurrentNote(OUTDATED): Периодическое обновление заметки
     prefDescriptions:
-      refreshCurrentNote(OUTDATED): Updates the currently open note if you're editing it on another device
+      refreshCurrentNote(OUTDATED): Обновление открытой заметки, если вы редактируете её на другом устройстве
 tr:
   common:
     done(OUTDATED): Done
