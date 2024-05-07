@@ -175,8 +175,6 @@ class EditorState extends State<Editor> {
   ValueNotifier<SavingState> savingState = ValueNotifier(SavingState.saved);
   Timer? _delayedSaveTimer;
 
-  late final Timer? _refreshCurrentNoteTimer;
-
   // used to prevent accidentally drawing when pinch zooming
   int lastSeenPointerCount = 0;
   Timer? _lastSeenPointerCountTimer;
@@ -198,12 +196,11 @@ class EditorState extends State<Editor> {
 
     super.initState();
 
-    _refreshCurrentNoteTimer = Prefs.refreshCurrentNote.value
-        ? Timer.periodic(
-            const Duration(seconds: 10),
-            (_) => _refreshCurrentNote(),
-          )
-        : null;
+    if (Prefs.refreshCurrentNote.value)
+      Timer.periodic(
+        const Duration(seconds: 10),
+        (_) => _refreshCurrentNote(),
+      );
   }
 
   void _initAsync() async {
