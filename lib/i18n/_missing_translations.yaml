@@ -1146,6 +1146,6 @@ zh-Hans-CN:
 zh-Hant-TW:
   settings:
     prefLabels:
-      refreshCurrentNote(OUTDATED): Refresh current note periodically
+      refreshCurrentNote(OUTDATED): 定期重新整理目前筆記
     prefDescriptions:
-      refreshCurrentNote(OUTDATED): Updates the currently open note if you're editing it on another device
+      refreshCurrentNote(OUTDATED): 如果您在其他裝置上編輯目前開啟的筆記就會更新
