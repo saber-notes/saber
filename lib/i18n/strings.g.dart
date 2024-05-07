@@ -489,6 +489,7 @@ class _StringsSettingsPrefLabelsEn {
 	String get autoStraightenLines => 'Auto straighten lines';
 	String get customDataDir => 'Custom data directory';
 	String get pencilSoundSetting => 'Pencil sound effect';
+	String get refreshCurrentNote => 'Refresh current note periodically';
 }
 
 // Path: settings.prefDescriptions
@@ -514,6 +515,7 @@ class _StringsSettingsPrefDescriptionsEn {
 	String get autoStraightenLines => 'Straightens long lines without having to use the shape pen';
 	String get shouldAlwaysAlertForUpdates => 'Tell me about updates as soon as they\'re available';
 	late final _StringsSettingsPrefDescriptionsPencilSoundSettingEn pencilSoundSetting = _StringsSettingsPrefDescriptionsPencilSoundSettingEn._(_root);
+	String get refreshCurrentNote => 'Updates the currently open note if you\'re editing it on another device';
 }
 
 // Path: settings.themeModes

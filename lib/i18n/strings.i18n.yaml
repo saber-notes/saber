@@ -97,6 +97,7 @@ settings:
     autoStraightenLines: Auto straighten lines
     customDataDir: Custom data directory
     pencilSoundSetting: Pencil sound effect
+    refreshCurrentNote: Refresh current note periodically
   prefDescriptions:
     hyperlegibleFont: Increases legibility for users with low vision
     disableAds: "Ads help support Saber's development, but you can disable them if you'd like"
@@ -120,6 +121,7 @@ settings:
       off: No sound
       onButNotInSilentMode: Enabled (unless in silent mode)
       onAlways: Enabled (even in silent mode)
+    refreshCurrentNote: Updates the currently open note if you're editing it on another device
   themeModes:
     system: System
     light: Light

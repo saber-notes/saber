@@ -463,6 +463,12 @@ class _SettingsPageState extends State<SettingsPage> {
                   setState(() {});
                 },
               ),
+              SettingsSwitch(
+                title: t.settings.prefLabels.refreshCurrentNote,
+                subtitle: t.settings.prefDescriptions.refreshCurrentNote,
+                icon: Icons.autorenew,
+                pref: Prefs.refreshCurrentNote,
+              ),
               SettingsSubtitle(subtitle: t.settings.prefCategories.performance),
               SettingsSelection(
                 title: t.settings.prefLabels.maxImageSize,

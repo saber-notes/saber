@@ -97,6 +97,7 @@ abstract class Prefs {
   static late final PlainPref<int> shapeRecognitionDelay;
   static late final PlainPref<bool> autoStraightenLines;
   static late final PlainPref<PencilSoundSetting> pencilSound;
+  static late final PlainPref<bool> refreshCurrentNote;
 
   static late final PlainPref<bool> hideHomeBackgrounds;
   static late final PlainPref<bool> printPageIndicators;
@@ -208,6 +209,7 @@ abstract class Prefs {
     autoStraightenLines = PlainPref('autoStraightenLines', true);
     pencilSound =
         PlainPref('pencilSound', PencilSoundSetting.onButNotInSilentMode);
+    refreshCurrentNote = PlainPref('refreshCurrentNote', false);
 
     hideHomeBackgrounds = PlainPref('hideHomeBackgrounds', false);
     printPageIndicators = PlainPref('printPageIndicators', false);

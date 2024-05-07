@@ -8,6 +8,7 @@ import 'package:logging/logging.dart';
 import 'package:mutex/mutex.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/webdav.dart';
+import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
 import 'package:saber/data/prefs.dart';
@@ -351,6 +352,29 @@ abstract class FileSyncer {
     Prefs.fileSyncAlreadyDeleted.value.removeWhere(
         (filePath) => !deletedFiles.any((file) => file.localPath == filePath));
     Prefs.fileSyncAlreadyDeleted.notifyListeners();
+  }
+
+  /// Updates the currently opened file if it's been modified on the server.
+  /// Returns true if the file was updated.
+  static Future<bool> refreshCurrentNote(EditorCoreInfo coreInfo) async {
+    final String filePathUnencrypted = coreInfo.filePath + Editor.extension;
+
+    final Encrypter encrypter = await _client!.encrypter;
+    final IV iv = IV.fromBase64(Prefs.iv.value);
+    final String encryptedName = await workerManager.execute(
+      () => encrypter.encrypt(filePathUnencrypted, iv: iv).base16,
+      priority: WorkPriority.veryHigh,
+    );
+
+    final syncFile = SyncFile(
+      encryptedName: encryptedName,
+      localPath: filePathUnencrypted,
+    );
+    final needsRefreshing = !await _shouldLocalFileBeKept(syncFile);
+    if (!needsRefreshing) return false;
+
+    log.info('Refreshing $filePathUnencrypted');
+    return await downloadFile(syncFile, awaitWrite: true);
   }
 
   @visibleForTesting

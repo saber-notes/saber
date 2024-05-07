@@ -36,6 +36,7 @@ import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/editor/pencil_sound.dart';
 import 'package:saber/data/extensions/change_notifier_extensions.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
+import 'package:saber/data/nextcloud/file_syncer.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/data/tools/_tool.dart';
 import 'package:saber/data/tools/eraser.dart';
@@ -174,6 +175,8 @@ class EditorState extends State<Editor> {
   ValueNotifier<SavingState> savingState = ValueNotifier(SavingState.saved);
   Timer? _delayedSaveTimer;
 
+  late final Timer? _refreshCurrentNoteTimer;
+
   // used to prevent accidentally drawing when pinch zooming
   int lastSeenPointerCount = 0;
   Timer? _lastSeenPointerCountTimer;
@@ -194,6 +197,13 @@ class EditorState extends State<Editor> {
     _assignKeybindings();
 
     super.initState();
+
+    _refreshCurrentNoteTimer = Prefs.refreshCurrentNote.value
+        ? Timer.periodic(
+            const Duration(seconds: 10),
+            (_) => _refreshCurrentNote(),
+          )
+        : null;
   }
 
   void _initAsync() async {
@@ -818,6 +828,18 @@ class EditorState extends State<Editor> {
       images: const [],
       quillChange: event,
     ));
+  }
+
+  void _refreshCurrentNote() async {
+    if (coreInfo.readOnly) return;
+    if (!Prefs.loggedIn) return;
+    if (!Prefs.refreshCurrentNote.value) return;
+
+    final updated = await FileSyncer.refreshCurrentNote(coreInfo);
+    if (!updated) return;
+
+    // load the updated note
+    _initStrokes();
   }
 
   void autosaveAfterDelay() {
