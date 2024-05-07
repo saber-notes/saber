@@ -11,6 +11,8 @@ import 'package:saber/data/version.dart';
 import 'package:simplytranslate/simplytranslate.dart';
 import 'package:simplytranslate/src/langs/language.dart';
 
+import 'src/fix_spelling.dart';
+
 const nearestLocaleCodes = <String, String>{
   'he': 'iw',
   'zh-Hans-CN': 'zh',
@@ -111,6 +113,7 @@ void main() async {
     }
 
     var translatedChangelog = translations.first;
+    translatedChangelog = fixSpelling(translatedChangelog);
     if (!translatedChangelog.endsWith('\n')) {
       // translations sometimes don't end with a newline
       translatedChangelog += '\n';

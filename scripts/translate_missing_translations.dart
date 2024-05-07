@@ -1,5 +1,4 @@
 #!/usr/bin/env dart
-
 // Run `dart scripts/translate_app.dart` to generate the changelogs.
 
 // ignore_for_file: avoid_print
@@ -10,6 +9,8 @@ import 'dart:math';
 import 'package:simplytranslate/simplytranslate.dart';
 import 'package:simplytranslate/src/langs/language.dart';
 import 'package:yaml/yaml.dart';
+
+import 'src/fix_spelling.dart';
 
 late SimplyTranslator translator;
 
@@ -149,7 +150,7 @@ Future<String?> translateString(
     return null;
   }
 
-  final translatedText = translations.first;
+  var translatedText = translations.first;
   final errorTexts = [
     'Invalid request',
     'None is not supported',
@@ -161,7 +162,7 @@ Future<String?> translateString(
     return english;
   }
 
-  return translatedText;
+  return fixSpelling(translatedText);
 }
 
 bool errorOccurredInTranslatingTree = false;
