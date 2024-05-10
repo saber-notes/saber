@@ -6,34 +6,15 @@ on:
   push:
     tags:
       - '**'
+    branches:
+      - '**'
+    paths:
+      - .github/workflows/linux.yml
 
 jobs:
-  get-version:
-    name: Get version
-    runs-on: ubuntu-latest
-    outputs:
-      buildName: ${{ steps.get_version.outputs.buildName }}
-      buildNumber: ${{ steps.get_version.outputs.buildNumber }}
-    timeout-minutes: 1
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Get version
-        id: get_version
-        run: |
-          # get buildName from lib/data/version.dart
-          buildName=$(grep -oP "(?<=buildName = ').*(?=')" lib/data/version.dart)
-          echo "buildName=$buildName" >> $GITHUB_OUTPUT
-
-          # get buildNumber from lib/data/version.dart
-          buildNumber=$(grep -oP '(?<=buildNumber = ).*(?=;)' lib/data/version.dart)
-          echo "buildNumber=$buildNumber" >> $GITHUB_OUTPUT
-
   build-flutter-app-x86_64:
     name: Build Flutter app (x86_64)
     runs-on: ubuntu-latest
-    needs: get-version
     permissions:
       contents: write
     timeout-minutes: 20
@@ -56,7 +37,7 @@ jobs:
       - name: Install apt dependencies
         uses: awalsh128/cache-apt-pkgs-action@latest
         with:
-          packages: libgtk-3-dev libx11-dev pkg-config cmake ninja-build libblkid-dev libsecret-1-dev libjsoncpp-dev ghostscript
+          packages: libgtk-3-dev libx11-dev pkg-config cmake ninja-build libblkid-dev libsecret-1-dev libjsoncpp-dev ghostscript libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev libunwind-dev
           version: 1.0
           execute_install_scripts: true
 
@@ -88,7 +69,8 @@ jobs:
       - name: Compress Flutter build
         id: compress
         run: |
-          archiveName="Saber_v${{ needs.get-version.outputs.buildName }}_Linux_x86_64.tar.gz"
+          buildName=$(grep -oP "(?<=buildName = ').*(?=')" lib/data/version.dart)
+          archiveName="Saber_v${buildName}_Linux_x86_64.tar.gz"
           echo "archiveName=$archiveName" >> $GITHUB_OUTPUT
 
           mkdir -p AppDir
@@ -121,7 +103,6 @@ jobs:
   build-flutter-app-arm64:
     name: Build Flutter app (arm64)
     runs-on: ubuntu-latest
-    needs: get-version
     permissions:
       contents: write
       packages: write
@@ -167,7 +148,8 @@ jobs:
               sudo \
               bash curl file git unzip xz-utils zip \
               clang cmake ninja-build pkg-config libgtk-3-dev liblzma-dev libstdc++-12-dev \
-              libsecret-1-dev libjsoncpp-dev
+              libsecret-1-dev libjsoncpp-dev \
+              libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev libunwind-dev
 
             echo Creating nonroot user
             useradd -m -d /home/nonroot -s /bin/bash nonroot
@@ -245,7 +227,8 @@ jobs:
       - name: Compress Flutter build
         id: compress
         run: |
-          archiveName="Saber_v${{ needs.get-version.outputs.buildName }}_Linux_arm64.tar.gz"
+          buildName=$(grep -oP "(?<=buildName = ').*(?=')" lib/data/version.dart)
+          archiveName="Saber_v${buildName}_Linux_arm64.tar.gz"
           echo "archiveName=$archiveName" >> $GITHUB_OUTPUT
 
           sudo chown -R $USER:$USER .
@@ -275,7 +258,7 @@ jobs:
 
   build-appimage:
     name: Build AppImage
-    needs: [build-flutter-app-x86_64, get-version]
+    needs: build-flutter-app-x86_64
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -326,7 +309,8 @@ jobs:
         working-directory: appimage
         run: |
           # replace line with "version: latest" with "version: $buildName"
-          sed -i "s/version: latest/version: ${{ needs.get-version.outputs.buildName }}/" AppImageBuilder.yml
+          buildName=$(grep -oP "(?<=buildName = ').*(?=')" ../lib/data/version.dart)
+          sed -i "s/version: latest/version: ${buildName}/" AppImageBuilder.yml
 
       - name: Build AppImage
         working-directory: appimage

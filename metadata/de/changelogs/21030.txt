@@ -1,0 +1,3 @@
+• Dem Laserpointer wurde ein Leuchteffekt hinzugefügt
+• Die Verwendung des Laserpointers löst die automatische Speicherung nicht mehr aus
+• Problem behoben, bei dem die Stiftgrößenauswahl in einer vertikalen Symbolleiste nicht korrekt angezeigt wurde

@@ -424,7 +424,7 @@ class EditorCoreInfo {
     try {
       if (bsonBytes != null) {
         final bsonBinary = BsonBinary.from(bsonBytes);
-        json = BSON().deserialize(bsonBinary);
+        json = BsonCodec.deserialize(bsonBinary);
       } else if (jsonString != null) {
         json = jsonDecode(jsonString);
       } else {
@@ -516,7 +516,7 @@ class EditorCoreInfo {
   }) {
     initialPageIndex = currentPageIndex ?? initialPageIndex;
     final (json, assets) = toJson();
-    final bson = BSON().serialize(json);
+    final bson = BsonCodec.serialize(json);
     return (bson.byteList, assets);
   }
 

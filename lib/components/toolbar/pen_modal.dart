@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:saber/components/theming/row_col.dart';
 import 'package:saber/components/toolbar/size_picker.dart';
+import 'package:saber/data/extensions/axis_extensions.dart';
+import 'package:saber/data/prefs.dart';
 import 'package:saber/data/tools/_tool.dart';
 import 'package:saber/data/tools/highlighter.dart';
 import 'package:saber/data/tools/pen.dart';
@@ -26,6 +29,7 @@ class PenModal extends StatefulWidget {
 class _PenModalState extends State<PenModal> {
   @override
   Widget build(BuildContext context) {
+    final axis = Prefs.editorToolbarAlignment.value.axis.opposite;
     final Tool currentTool = widget.getTool();
     final Pen currentPen;
     if (currentTool is Pen) {
@@ -34,14 +38,16 @@ class _PenModalState extends State<PenModal> {
       return const SizedBox();
     }
 
-    return Row(
+    return RowCol(
+      axis: axis,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         SizePicker(
+          axis: axis,
           pen: currentPen,
         ),
         if (currentPen is! Highlighter && currentPen is! Pencil) ...[
-          const SizedBox(width: 8),
+          const SizedBox.square(dimension: 8),
           IconButton(
             onPressed: () => setState(() {
               widget.setTool(Pen.fountainPen());
@@ -67,6 +73,7 @@ class _PenModalState extends State<PenModal> {
               ),
             ),
           ),
+          const SizedBox.square(dimension: 8),
           IconButton(
             onPressed: () => setState(() {
               widget.setTool(Pen.ballpointPen());
@@ -92,6 +99,7 @@ class _PenModalState extends State<PenModal> {
               ),
             ),
           ),
+          const SizedBox.square(dimension: 8),
           IconButton(
             onPressed: () => setState(() {
               widget.setTool(ShapePen());

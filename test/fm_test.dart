@@ -78,13 +78,24 @@ void main() {
 
     test('moveFile', () async {
       const filePathBefore = '/test_moveFile_before.sbn2';
+      const filePathBeforeA = '/test_moveFile_before.sbn2.0';
+      const filePathBeforeP = '/test_moveFile_before.sbn2.p';
       const filePathAfter = '/test_moveFile_after.sbn2';
+      const filePathAfterA = '/test_moveFile_after.sbn2.0';
+      const filePathAfterP = '/test_moveFile_after.sbn2.p';
       const content = 'test content for $filePathBefore';
+      const contentA = 'test content for $filePathBefore.0';
+      const contentP = 'test content for $filePathBefore.p';
 
-      // write file
+      // write files
       await FileManager.writeFile(filePathBefore, utf8.encode(content),
           awaitWrite: true);
-      // ensure file does not exist (in case of previous test failure
+      await FileManager.writeFile(filePathBeforeA, utf8.encode(contentA),
+          awaitWrite: true);
+      await FileManager.writeFile(filePathBeforeP, utf8.encode(contentP),
+          awaitWrite: true);
+
+      // ensure file does not exist (in case of previous test failure)
       await FileManager.deleteFile(filePathAfter);
 
       // move file
@@ -97,33 +108,61 @@ void main() {
       final fileAfter = File('$rootDir$filePathAfter');
       expect(fileBefore.existsSync(), false);
       expect(fileAfter.existsSync(), true);
-
       // read file
       final readBytes = await FileManager.readFile(filePathAfter);
       final readContent = utf8.decode(readBytes!);
       expect(readContent, content);
 
-      // delete file
-      await fileAfter.delete();
+      final fileBeforeA = File('$rootDir$filePathBeforeA');
+      final fileAfterA = File('$rootDir$filePathAfterA');
+      expect(fileBeforeA.existsSync(), false);
+      expect(fileAfterA.existsSync(), true);
+      // read file
+      final readBytesA = await FileManager.readFile(filePathAfterA);
+      final readContentA = utf8.decode(readBytesA!);
+      expect(readContentA, contentA);
+
+      final fileBeforeP = File('$rootDir$filePathBeforeP');
+      final fileAfterP = File('$rootDir$filePathAfterP');
+      expect(fileBeforeP.existsSync(), false);
+      expect(fileAfterP.existsSync(), true);
+      // read file
+      final readBytesP = await FileManager.readFile(filePathAfterP);
+      final readContentP = utf8.decode(readBytesP!);
+      expect(readContentP, contentP);
+
+      // delete files
+      await Future.wait([
+        fileAfter.delete(),
+        fileAfterA.delete(),
+        fileAfterP.delete(),
+      ]);
     });
 
     test('deleteFile', () async {
-      const filePath = '/test_deleteFile.sbn2';
-      const content = 'test content for $filePath';
+      String filePath = '/test_deleteFile.sbn2';
+      String filePathA = '/test_deleteFile.sbn2.0';
+      String filePathP = '/test_deleteFile.sbn2.p';
+      String content = 'test content for $filePath';
 
-      // write file
+      // write files
       await FileManager.writeFile(filePath, utf8.encode(content),
+          awaitWrite: true);
+      await FileManager.writeFile(filePathA, utf8.encode(content),
+          awaitWrite: true);
+      await FileManager.writeFile(filePathP, utf8.encode(content),
           awaitWrite: true);
 
       // delete file
       await FileManager.deleteFile(filePath);
 
-      // verify file does not exist
-      final file = File('$rootDir$filePath');
-      expect(file.existsSync(), false);
+      // verify files do not exist
+      expect(File('$rootDir$filePath').existsSync(), false);
+      expect(File('$rootDir$filePathA').existsSync(), false);
+      expect(File('$rootDir$filePathP').existsSync(), false);
     });
 
-    test('getChildrenOfDirectory', () async {
+    group('getChildrenOfDirectory', () {
       const dirPath = '/test_getChildrenOfDirectory';
       const fileNames = [
         'test_file1',
@@ -131,33 +170,57 @@ void main() {
         'test_file3',
         'subdir/test_file4',
       ];
-      printOnFailure('fileNames: $fileNames');
 
-      // create files
-      for (final fileName in fileNames) {
-        final file = File('$rootDir$dirPath/$fileName.sbn2');
-        await file.create(recursive: true);
-      }
-      addTearDown(() async {
+      setUp(() async {
+        // create files
+        for (final fileName in fileNames) {
+          final file = File('$rootDir$dirPath/$fileName.sbn2');
+          await file.create(recursive: true);
+          final asset = File('$rootDir$dirPath/$fileName.sbn2.0');
+          await asset.create(recursive: true);
+          final preview = File('$rootDir$dirPath/$fileName.sbn2.p');
+          await preview.create(recursive: true);
+        }
+      });
+      tearDown(() async {
         // delete files
         final dir = Directory('$rootDir$dirPath');
         await dir.delete(recursive: true);
       });
 
-      // get children
-      final children = await FileManager.getChildrenOfDirectory(dirPath);
-      expect(children, isNotNull);
-      printOnFailure('children.files: ${children!.files}');
-      printOnFailure('children.directories: ${children.directories}');
-      expect(children.files.length, 3);
-      expect(children.directories.length, 1);
+      test('without extensions or assets', () async {
+        // get children
+        final children = await FileManager.getChildrenOfDirectory(dirPath);
+        expect(children, isNotNull);
+        printOnFailure('children.files: ${children!.files}');
+        printOnFailure('children.directories: ${children.directories}');
+        expect(children.files.length, 3);
+        expect(children.directories.length, 1);
 
-      // verify children
-      for (final fileName in fileNames) {
-        if (fileName.contains('subdir')) continue;
-        expect(children.files.contains(fileName), true);
-      }
-      expect(children.directories.contains('subdir'), true);
+        // verify children
+        for (final fileName in fileNames) {
+          if (fileName.contains('subdir')) continue;
+          expect(children.files.contains(fileName), true);
+        }
+        expect(children.directories.contains('subdir'), true);
+      });
+
+      test('with extensions and assets', () async {
+        final children = await FileManager.getChildrenOfDirectory(
+          dirPath,
+          includeExtensions: true,
+          includeAssets: true,
+        );
+        expect(children, isNotNull);
+        printOnFailure('childrenWithAssets.files: ${children!.files}');
+        printOnFailure(
+            'childrenWithAssets.directories: ${children.directories}');
+        expect(children.files.length, 9);
+        expect(children.directories.length, 1);
+        expect(children.files.contains('test_file3.sbn2'), true);
+        expect(children.files.contains('test_file3.sbn2.0'), true);
+        expect(children.files.contains('test_file3.sbn2.p'), true);
+      });
     });
 
     test('getRecentlyAccessed', () async {

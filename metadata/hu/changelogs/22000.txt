@@ -1,0 +1,2 @@
+• Szimulált ceruza hangeffektus került hozzáadásra. Alapértelmezés szerint csak akkor van engedélyezve, ha az eszköz nincs némítva.
+• A Nextcloud szinkronizálási problémája kijavítva.

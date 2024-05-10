@@ -1,3 +1,11 @@
+## 1.2.2
+
+- Improved pub.dev scores
+
+## 1.2.1
+
+- Updated the Onyx SDK
+
 ## 1.2.0
 
 - Added an optional `init` method to improve initial performance on non-Onyx Android devices. See the README for more information.

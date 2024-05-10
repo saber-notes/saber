@@ -1,3 +1,7 @@
+common:
+  cancel: 取消
+  done(OUTDATED): 完毕
+  continueBtn(OUTDATED): 继续
 home:
   tabs:
     home: 主页
@@ -90,6 +94,10 @@ settings:
     printPageIndicators: 打印页码
     autosaveDelay: 自动保存延迟
     shapeRecognitionDelay: 形状识别延迟
+    autoStraightenLines: 自动拉直线
+    customDataDir: 自定义数据目录
+    refreshCurrentNote(OUTDATED): 定期刷新当前笔记
+    pencilSoundSetting(OUTDATED): 铅笔音效
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible 字体为低视力读者提高易读性
     disableAds: 广告有助于支持 Saber 的开发，但如果你不喜欢，你可以禁用它们
@@ -107,7 +115,13 @@ settings:
     printPageIndicators: 在导出中显示页码
     autosaveDelay: 自动保存便笺需要等待的时间
     shapeRecognitionDelay: 形状预览更新频率
+    autoStraightenLines: 拉直长线，无需使用形状笔
     shouldAlwaysAlertForUpdates: 在更新可用时尽快告诉我
+    pencilSoundSetting:
+      onButNotInSilentMode(OUTDATED): 已启用（除非处于静音模式）
+      off(OUTDATED): 没有声音
+      onAlways(OUTDATED): 已启用（即使在静音模式下）
+    refreshCurrentNote(OUTDATED): 如果您在其他设备上编辑当前打开的笔记，则更新它
   themeModes:
     system: 系统
     light: 浅色
@@ -128,50 +142,56 @@ settings:
     title: 重置此设置？
     button: 重置
   resyncEverything: 重新同步所有
+  customDataDir:
+    cancel: 取消
+    select: 选择
+    mustBeEmpty: 所选目录必须为空
+    mustBeDoneSyncing: 在更改目录之前，请确保同步已完成
 login:
   title: 登录
-  feedbacks:
-    checkUsername: 请仔细检查您的用户名或电子邮件。
-    enterNcPassword: 请输入您的 Nextcloud 密码。
-    enterEncPassword: 请输入您的加密密码。
-    checkUrl: 请输入有效链接。
-    ncLoginFailed: 登录失败，请检查您的详细信息和网络连接。
-    ncUnsupportedFailure: 给定服务器正在运行 Nextcloud $v，但此版本 Saber 仅支持 Nextcloud $s 至 $t。
-    encLoginFailed: 登录失败，请检查您的加密密码。
-    loginSuccess: 登录成功！我们正在设置中，请稍候……
   form:
-    useCustomServer: 我想要使用自定义 Nextcloud 服务器
-    customServerUrl: 自定义服务器链接
-    username: 用户名或邮箱
-    ncPassword: Nextcloud 密码
-    encPassword: 加密密码
     agreeToPrivacyPolicy(rich): "登录即表示您同意 ${linkToPrivacyPolicy(隐私政策)}。"
-    login: 登录
   signup(rich): "还没有帐户？ ${linkToSignup(立即注册)}！"
   status:
-    loggedIn: 已使用 Nextcloud 登录
     loggedOut: 已注销
     tapToLogin: 点击以使用 Nextcloud 登录
-  faq:
-    - q: Nextcloud 是什么？
-      a: Nextcloud 是一个私人文件同步服务器，等等。您可以使用默认的 Saber Nextcloud 服务器、使用第三方服务器或自行托管您自己的服务器以完全控制您的数据。
-    - q: 加密密码是什么？
-      a: |-
-        加密密码用于在将数据发送到服务器之前对其进行加密。您在首次登录 Saber 时选择它，它与您的 Nextcloud 帐户密码无关。
-        没有您的加密密码，任何人都无法访问您在服务器上的笔记。这也意味着，如果您忘记了加密密码，您将无法访问您的数据。
-    - q: 为什么要使用两个密码？
-      a: |-
-        Nextcloud 密码用于访问云端。加密密码会在您的数据到达云端之前对其进行“加密”。
-        即使有人获得了您的 Nextcloud 帐户的访问权限，您的笔记也会保持安全并使用单独的密码进行加密。这为您提供了第二层安全保护来保护您的数据。”
-    - q: 如果我使用 2FA，我该如何登录？
-      a: "您需要创建一个“应用密码”，而不是常规的 Nextcloud 密码。您可以在安全 > 设备和会话 > 创建新应用密码下的 Nextcloud 设置中执行此操作。您的加密密码不受影响。"
-    - q: 我可以为两者使用相同的密码吗？
-      a: 是的，但这样做不太安全。由于您的 Nextcloud 密码已发送到服务器，因此有权访问服务器的人将能够解密您的笔记。请仅在您信任服务器所有者的情况下使用相同的密码。
+    loggedIn: 已使用 Nextcloud 登录
+    hi(OUTDATED): 嗨，$u！
+    almostDone(OUTDATED): 即将同步，点击即可完成登录
+  ncLoginStep:
+    loginFlow:
+      pleaseAuthorize(OUTDATED): 请授权 Saber 访问您的 Nextcloud 帐户
+      followPrompts(OUTDATED): 请按照浏览器中的提示进行操作。
+      browserDidntOpen(OUTDATED): 浏览器打不开
+    whereToStoreData(OUTDATED): 选择您要存储数据的位置：
+    saberNcServer(OUTDATED): Saber 的 Nextcloud 服务器
+    otherNcServer(OUTDATED): 其他 Nextcloud 服务器
+    serverUrl(OUTDATED): 服务器地址
+    loginWithSaber(OUTDATED): 使用 Saber 登录
+    loginWithNextcloud(OUTDATED): 使用 Nextcloud 登录
+  encLoginStep:
+    enterEncPassword(OUTDATED): 为了保护您的数据，请输入您的加密密码：
+    newToSaber(OUTDATED): 刚接触Saber
+    encPassword(OUTDATED): 加密密码
+    encFaqTitle(OUTDATED): 经常问的问题
+    wrongEncPassword(OUTDATED): 使用提供的密码解密失败。请尝试再次输入。
+    connectionFailed(OUTDATED): 连接服务器时出现问题。请稍后再试。
+    encFaq(OUTDATED):
+      - q: 加密密码是什么？
+        a: |-
+          加密密码用于在将数据发送到服务器之前对其进行加密。您在首次登录 Saber 时选择它，它与您的 Nextcloud 帐户密码无关。
+          没有您的加密密码，任何人都无法访问您在服务器上的笔记。这也意味着，如果您忘记了加密密码，您将无法访问您的数据。
+      - q: 为什么要使用两个密码？
+        a: |-
+          Nextcloud 密码用于访问云端。加密密码会在您的数据到达云端之前对其进行“加密”。
+          即使有人获得了您的 Nextcloud 帐户的访问权限，您的笔记也会保持安全并使用单独的密码进行加密。这为您提供了第二层安全保护来保护您的数据。”
+      - q: 我可以为两者使用相同的密码吗？
+        a: 是的，但这样做不太安全。由于您的 Nextcloud 密码已发送到服务器，因此有权访问服务器的人将能够解密您的笔记。请仅在您信任服务器所有者的情况下使用相同的密码。
+  notYou(rich, OUTDATED): "${undoLogin(不是你)}"
 profile:
   title: 我的用户资料
   logout: 注销
   quickLinks:
-    title: 快速链接
     serverHomepage: 服务器主页
     deleteAccount: 删除帐户
   faq:
@@ -190,6 +210,9 @@ profile:
         点击上面的 "@:profile.quickLinks.deleteAccount" 按钮，并在需要时登录。
         如果您使用的是官方 Saber 服务器，您的帐户将在 1 周的宽限期后被删除。在此期间，您可以通过 adilhanney@disroot.org 与我联系以取消删除。
         如果您使用的是第三方服务器，则可能没有删除帐户的选项：您需要咨询服务器的隐私政策以获取更多信息。
+  quotaUsage(OUTDATED): 您正在使用 $used 占 $total ($percent)
+  connectedTo(OUTDATED): 连接到
+  faqTitle(OUTDATED): 经常问的问题
 appInfo:
   licenseNotice: |-
     Saber  版权所有 © 2022-$buildYear  Adil Hanney
@@ -203,7 +226,7 @@ update:
   updateAvailable: 可用更新
   updateAvailableDescription: 该应用的新版本可用，具有以下变更：
   update: 更新
-  downloadNotAvailableYet(OUTDATED): 您的平台尚无法下载。请稍后回来查看。
+  downloadNotAvailableYet: 该下载在您的平台暂不可用。请稍后重试。
 editor:
   toolbar:
     toggleColors: 切换颜色 (Ctrl C)
@@ -226,7 +249,6 @@ editor:
     laserPointer: 激光笔
   penOptions:
     size: 粗细
-    sizeDragHint: 左右拖动更改粗细
   colors:
     colorPicker: 选色器
     customBrightnessHue: 自定义 $b $h
@@ -271,7 +293,7 @@ editor:
     duplicatePage: 复制页面
     deletePage: 删除页面
     lineHeight: 行高
-    lineHeightDescription: 同时控制文本大小
+    lineHeightDescription: 还控制已输入的笔记的文本大小
     backgroundImageFit: 背景图像拟合
     backgroundPattern: 背景图案
     import: 导入
@@ -294,7 +316,6 @@ editor:
     title: 此笔记使用新版 Saber 编辑而成
     subtitle: 编辑此笔记可能会导致某些信息丢失。您想忽略并编辑吗？
     allowEditing: 允许编辑
-    cancel: 取消
   quill:
     typeSomething: 在这里输入...
   hud:

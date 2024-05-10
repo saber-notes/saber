@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:collection/collection.dart';
 import 'package:fixnum/fixnum.dart';
 import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
@@ -141,11 +142,14 @@ class Stroke {
       penType: json['ty'] ?? (Pen).toString(),
     )..points.addAll(points);
   }
-  // json keys should not be the same as the ones in the StrokeProperties class
   Map<String, dynamic> toJson() {
+    // these json keys should not be the same as the ones in [StrokeOptions.toJson]
     return {
       'shape': null,
-      'p': points.map((PointVector point) => point.toBsonBinary()).toList(),
+      'p': points
+          .where((point) => point.isFinite)
+          .map((PointVector point) => point.toBsonBinary())
+          .toList(),
       'i': pageIndex,
       'ty': penType,
       'pe': pressureEnabled,
@@ -261,11 +265,11 @@ class Stroke {
           '${page.size.height - point.dy}';
     }
 
-    if (polygon.isEmpty) {
-      return '';
-    } else {
-      return "M${polygon.map((point) => toSvgPoint(point)).join("L")}";
-    }
+    // Remove NaN points, and convert to SVG coordinates
+    final svgPoints =
+        polygon.where((offset) => offset.isFinite).map(toSvgPoint);
+
+    return svgPoints.isNotEmpty ? 'M${svgPoints.join('L')}' : '';
   }
 
   double get maxY {
@@ -274,9 +278,84 @@ class Stroke {
 
   RecognizedUnistroke? detectShape() {
     if (points.length < 3) return null;
-    return recognizeUnistroke(
-      points.map((point) => Offset(point.x, point.y)).toList(),
+    return recognizeUnistroke(points);
+  }
+
+  /// Uses the one_dollar_unistroke_recognizer package
+  /// only to recognize straight lines.
+  ///
+  /// In addition, the line must be sufficiently long
+  /// relative to [options.size].
+  bool isStraightLine([int minLength = 5]) {
+    if (points.length < 3) return false;
+
+    final recognized = recognizeUnistroke(
+      points,
+      overrideReferenceUnistrokes: default$1Unistrokes
+          .where((unistroke) => unistroke.name == DefaultUnistrokeNames.line)
+          .toList(),
     );
+    if (recognized == null) return false;
+    assert(recognized.name == DefaultUnistrokeNames.line);
+    if (recognized.score < 0.7) return false;
+
+    final sqrLength = points.first.distanceSquaredTo(points.last);
+    final sqrMinLength = minLength * minLength * options.size * options.size;
+    return sqrLength >= sqrMinLength;
+  }
+
+  /// Replaces the points in this stroke with a straight line.
+  ///
+  /// If the resulting line is close to horizontal or vertical,
+  /// it will be snapped to be exactly horizontal or vertical.
+  void convertToLine() {
+    assert(points.length >= 2);
+
+    // Use the average pressure
+    final pressure = points.map((point) => point.pressure ?? 0.5).average;
+    var firstPoint =
+        PointVector.fromOffset(offset: points.first, pressure: pressure);
+    var lastPoint =
+        PointVector.fromOffset(offset: points.last, pressure: pressure);
+
+    // Snap to the horizontal or vertical axis
+    (firstPoint, lastPoint) = snapLine(firstPoint, lastPoint);
+
+    points.clear();
+    points.add(firstPoint);
+    points.add(lastPoint);
+    points.add(lastPoint);
+    options.isComplete = true;
+    options.start.taperEnabled = false;
+    options.end.taperEnabled = false;
+  }
+
+  /// Snaps a line to either horizontal or vertical
+  /// if the angle is close enough.
+  static (PointVector firstPoint, PointVector lastPoint) snapLine(
+    PointVector firstPoint,
+    PointVector lastPoint,
+  ) {
+    final dx = (lastPoint.dx - firstPoint.dx).abs();
+    final dy = (lastPoint.dy - firstPoint.dy).abs();
+    final angle = atan2(dy, dx);
+
+    const snapAngle = 5 * pi / 180; // 5 degrees
+    if (angle < snapAngle) {
+      // snap to horizontal
+      return (
+        firstPoint,
+        PointVector(lastPoint.dx, firstPoint.dy, lastPoint.pressure)
+      );
+    } else if (angle > pi / 2 - snapAngle) {
+      // snap to vertical
+      return (
+        firstPoint,
+        PointVector(firstPoint.dx, lastPoint.dy, lastPoint.pressure)
+      );
+    } else {
+      return (firstPoint, lastPoint);
+    }
   }
 
   Stroke copy() => Stroke(

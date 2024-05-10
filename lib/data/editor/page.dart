@@ -170,7 +170,8 @@ class EditorPage extends Listenable implements HasSize {
   Map<String, dynamic> toJson(OrderedAssetCache assets) => {
         'w': size.width,
         'h': size.height,
-        if (strokes.isNotEmpty) 's': strokes,
+        if (strokes.isNotEmpty)
+          's': strokes.map((stroke) => stroke.toJson()).toList(),
         if (images.isNotEmpty)
           'i': images.map((image) => image.toJson(assets)).toList(),
         if (!quill.controller.document.isEmpty())

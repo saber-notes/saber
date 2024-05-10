@@ -160,6 +160,10 @@ class RectangleStroke extends Stroke {
   }
 
   @override
+  @Deprecated('We already know the shape is a rectangle.')
+  bool isStraightLine([int minLength = 0]) => false;
+
+  @override
   RectangleStroke copy() => RectangleStroke(
         color: color,
         pressureEnabled: pressureEnabled,

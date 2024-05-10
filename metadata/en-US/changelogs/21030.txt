@@ -1,0 +1,3 @@
+• Added a glow effect to the laser pointer
+• Using the laser pointer no longer triggers the autosave
+• Fixed the pen size picker not displaying correctly in a vertical toolbar

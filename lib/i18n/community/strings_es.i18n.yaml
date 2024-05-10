@@ -1,3 +1,7 @@
+common:
+  cancel: Cancelar
+  done(OUTDATED): Hecho
+  continueBtn(OUTDATED): Continuar
 home:
   tabs:
     home: Inicio
@@ -89,6 +93,10 @@ settings:
     recentColorsLength: Número de colores recientes a almacenar
     printPageIndicators: Indicadores de página de impresión
     autosaveDelay: Retardo en el autoguardado
+    refreshCurrentNote(OUTDATED): Actualizar la nota actual periódicamente
+    pencilSoundSetting(OUTDATED): Efecto de sonido de lápiz
+    customDataDir(OUTDATED): Directorio de datos personalizado
+    autoStraightenLines(OUTDATED): Líneas de enderezamiento automático
     shapeRecognitionDelay(OUTDATED): Retraso en el reconocimiento de formas
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible aumenta la legibilidad para lectores con poca visión
@@ -107,6 +115,12 @@ settings:
     printPageIndicators: Mostrar indicadores de página en las exportaciones
     autosaveDelay: Cuánto esperar antes de autoguardar una nota
     shouldAlwaysAlertForUpdates: Avísame sobre actualizaciones tan pronto como estén disponibles
+    pencilSoundSetting:
+      off(OUTDATED): Sin sonido
+      onButNotInSilentMode(OUTDATED): Habilitado (a menos que esté en modo silencioso)
+      onAlways(OUTDATED): Habilitado (incluso en modo silencioso)
+    refreshCurrentNote(OUTDATED): Actualiza la nota actualmente abierta si la estás editando en otro dispositivo
+    autoStraightenLines(OUTDATED): Endereza líneas largas sin tener que usar el rotulador.
     shapeRecognitionDelay(OUTDATED): Con qué frecuencia actualizar la vista previa de la forma
   themeModes:
     system: Sistema
@@ -127,51 +141,57 @@ settings:
   reset:
     title: "¿Quieres restablecer esta configuración?"
     button: Restablecer
+  customDataDir:
+    cancel(OUTDATED): Cancelar
+    select(OUTDATED): Seleccionar
+    mustBeEmpty(OUTDATED): El directorio seleccionado debe estar vacío.
+    mustBeDoneSyncing(OUTDATED): Asegúrese de que la sincronización esté completa antes de cambiar el directorio
   resyncEverything(OUTDATED): Resync todo
 login:
   title: Iniciar sesión
-  feedbacks:
-    checkUsername: Por favor verifica tu nombre de usuario o correo electrónico.
-    enterNcPassword: Por favor ingresa tu contraseña de Nextcloud.
-    enterEncPassword: Por favor introduce tu contraseña de cifrado.
-    checkUrl: Por favor introduce una dirección URL válida.
-    ncLoginFailed: "No se pudo iniciar sesión, por favor verifica tus datos y conexión a internet."
-    encLoginFailed: "No se pudo iniciar sesión, por favor verifica tu contraseña de cifrado."
-    loginSuccess: "¡Inicio de sesión exitoso! Por favor espera mientras configuramos todo..."
-    ncUnsupportedFailure(OUTDATED): El servidor al que intentas conectar tiene la versión $v de Nextcloud pero esta versión de Saber solo admite Nextcloud $s a $t.
   form:
-    useCustomServer: Quiero utilizar un servidor de Nextcloud personalizado
-    customServerUrl: Dirección URL del servidor personalizada
-    username: Nombre de usuario o correo electrónico
-    ncPassword: Contraseña de Nextcloud
-    encPassword: Contraseña de cifrado
     agreeToPrivacyPolicy(rich): "Al iniciar sesión, aceptas nuestra ${linkToPrivacyPolicy(Política de privacidad)}."
-    login: Iniciar sesión
   signup(rich): "¿Aún no tienes una cuenta? ${linkToSignup(Regístrate ahora)}"
   status:
-    loggedIn: Sesión iniciada con Nextcloud
     loggedOut: Desconectado
     tapToLogin: Toca para iniciar sesión con Nextcloud
-  faq:
-    - q: "¿Qué es Nextcloud?"
-      a: "Nextcloud es un servidor privado de sincronización de archivos, entre otras cosas. Puedes usar el servidor de Saber Nextcloud predeterminado, usar un servidor de terceros o alojar el tuyo propio para tener un control total de tus datos."
-    - q: "¿Qué es la contraseña de cifrado?"
-      a: |-
-        La contraseña de cifrado se utiliza para cifrar tus datos antes de enviarlos al servidor. La eliges cuando inicias sesión por primera vez en Saber, y no está relacionada con tu cuenta/contraseña de Nextcloud.
-        Nadie puede acceder a tus notas en el servidor sin tu contraseña de cifrado. Esto significa que si olvidas tu contraseña de cifrado, perderás el acceso a tus datos.
-    - q: "¿Por qué usar dos contraseñas?"
-      a: |-
-        La contraseña de Nextcloud se utiliza para acceder a la nube. La contraseña de encriptación "codifica" tus datos antes de que lleguen a la nube.
-        Incluso si alguien obtiene acceso a tu cuenta de Nextcloud, tus notas permanecerán seguras y encriptadas con una contraseña separada. Esto te proporciona una segunda capa de seguridad para proteger tus datos.
-    - q: "¿Cómo puedo iniciar sesión si uso autenticación en dos pasos (2FA)?"
-      a: "En vez de usar tu contraseña habitual de Nextcloud, deberás crear una \"contraseña de aplicación\". Puedes hacerlo en la configuración de Nextcloud en Seguridad > Dispositivos y sesiones > Crear nueva contraseña de aplicación. Tu contraseña de cifrado no se ve afectada."
-    - q: "¿Puedo usar la misma contraseña para ambos?"
-      a: "Sí, pero hacer esto es menos seguro. Dado que tu contraseña de Nextcloud se envía al servidor, alguien con acceso al servidor podría descifrar tus notas. Solo usa la misma contraseña si confías en el propietario del servidor."
+    loggedIn: Sesión iniciada con Nextcloud
+    hi(OUTDATED): "Hola $u!"
+    almostDone(OUTDATED): "Casi listo para sincronizar, toca para finalizar el inicio de sesión"
+  ncLoginStep:
+    loginFlow:
+      pleaseAuthorize(OUTDATED): Autorice a Saber a acceder a su cuenta de Nextcloud
+      followPrompts(OUTDATED): Siga las indicaciones en su navegador.
+      browserDidntOpen(OUTDATED): El navegador no se abrió
+    whereToStoreData(OUTDATED): "Elige dónde quieres almacenar tus datos:"
+    saberNcServer(OUTDATED): Servidor Nextcloud de Saber
+    otherNcServer(OUTDATED): Otro servidor Nextcloud
+    serverUrl(OUTDATED): URL del servidor
+    loginWithSaber(OUTDATED): Iniciar sesión con Saber
+    loginWithNextcloud(OUTDATED): Iniciar sesión con Nextcloud
+  encLoginStep:
+    enterEncPassword(OUTDATED): "Para proteger sus datos, ingrese su contraseña de cifrado:"
+    newToSaber(OUTDATED): Nuevo en Saber
+    encPassword(OUTDATED): Contraseña de cifrado
+    encFaqTitle(OUTDATED): Preguntas frecuentes
+    wrongEncPassword(OUTDATED): El descifrado falló con la contraseña proporcionada. Intente ingresarlo nuevamente.
+    connectionFailed(OUTDATED): "Algo salió mal al conectarse al servidor. Por favor, inténtelo de nuevo más tarde."
+    encFaq(OUTDATED):
+      - q: "¿Qué es la contraseña de cifrado?"
+        a: |-
+          La contraseña de cifrado se utiliza para cifrar tus datos antes de enviarlos al servidor. La eliges cuando inicias sesión por primera vez en Saber, y no está relacionada con tu cuenta/contraseña de Nextcloud.
+          Nadie puede acceder a tus notas en el servidor sin tu contraseña de cifrado. Esto significa que si olvidas tu contraseña de cifrado, perderás el acceso a tus datos.
+      - q: "¿Por qué usar dos contraseñas?"
+        a: |-
+          La contraseña de Nextcloud se utiliza para acceder a la nube. La contraseña de encriptación "codifica" tus datos antes de que lleguen a la nube.
+          Incluso si alguien obtiene acceso a tu cuenta de Nextcloud, tus notas permanecerán seguras y encriptadas con una contraseña separada. Esto te proporciona una segunda capa de seguridad para proteger tus datos.
+      - q: "¿Puedo usar la misma contraseña para ambos?"
+        a: "Sí, pero hacer esto es menos seguro. Dado que tu contraseña de Nextcloud se envía al servidor, alguien con acceso al servidor podría descifrar tus notas. Solo usa la misma contraseña si confías en el propietario del servidor."
+  notYou(rich, OUTDATED): "${undoLogin(No tú)}"
 profile:
   title: Mi perfil
   logout: Cerrar sesión
   quickLinks:
-    title: Enlaces rápidos
     serverHomepage: Página de inicio del servidor
     deleteAccount: Eliminar cuenta
   faq:
@@ -190,6 +210,9 @@ profile:
         Pincha en el botón "@:profile.quickLinks.deleteAccount", e inicia sesión si es necesario.
         Si estás usando el servidor oficial de Saber, tu cuenta se eliminará después de un periodo de una semana. Puedes contactar conmigo en la dirección adilhanney@disroot.org durante este tiempo para cancelar la eliminación.
         Si estás usando un servidor de terceros, puede ser que la opción de eliminar no exista: necesitas consultar la política de privacidad del servidor para más información.
+  quotaUsage(OUTDATED): Estás usando $used de $total ($percent)
+  connectedTo(OUTDATED): Conectado a
+  faqTitle(OUTDATED): Preguntas frecuentes
 appInfo:
   licenseNotice: |-
     Saber  Copyright © 2022-$buildYear  Adil Hanney
@@ -226,7 +249,6 @@ editor:
     pencil(OUTDATED): Lápiz
   penOptions:
     size: Tamaño
-    sizeDragHint: Arrastra hacia la izquierda o hacia la derecha para cambiar el tamaño
   colors:
     colorPicker: Selector de color
     customHue: $h personalizado
@@ -271,7 +293,6 @@ editor:
     duplicatePage: Duplicar página
     deletePage: Eliminar página
     lineHeight: Altura de la línea
-    lineHeightDescription: Controla también el tamaño del texto
     backgroundImageFit: Ajuste de la imagen de fondo
     backgroundPattern: Patrón de fondo
     import: Importar
@@ -289,12 +310,12 @@ editor:
       staffs: Pentagrama
       tablature: Tablatura
       cornell: Método Cornell
+    lineHeightDescription(OUTDATED): También controla el tamaño del texto de las notas escritas.
   newerFileFormat:
     readOnlyMode: Modo de solo lectura
     title: Esta nota fue editada usando una versión más reciente de Saber
     subtitle: "La edición de esta nota puede resultar en la pérdida de cierta información. ¿Quieres ignorar esto y editarlo de todos modos?"
     allowEditing: Editar
-    cancel: Cancelar
   quill:
     typeSomething: Escribe algo aquí...
   hud:

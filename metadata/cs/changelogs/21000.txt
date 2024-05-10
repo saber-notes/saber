@@ -1,0 +1,2 @@
+• Dlouhé čáry se nyní automaticky narovnávají, aniž byste museli přepínat na nástroj tvarování (lze konfigurovat v nastavení)
+• Pevné resetování velikostí pera při přepínání mezi typy per

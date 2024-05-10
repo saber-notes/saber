@@ -46,9 +46,61 @@ class FileManager {
     String? documentsDirectory,
     bool shouldWatchRootDirectory = true,
   }) async {
-    FileManager.documentsDirectory = documentsDirectory ??
-        '${(await getApplicationDocumentsDirectory()).path}/$appRootDirectoryPrefix';
+    FileManager.documentsDirectory =
+        documentsDirectory ?? await getDocumentsDirectory();
+
     if (shouldWatchRootDirectory) unawaited(watchRootDirectory());
+  }
+
+  static Future<String> getDocumentsDirectory() async =>
+      Prefs.customDataDir.value ?? await getDefaultDocumentsDirectory();
+
+  static Future<String> getDefaultDocumentsDirectory() async =>
+      '${(await getApplicationDocumentsDirectory()).path}/$appRootDirectoryPrefix';
+
+  static Future<void> migrateDataDir() async {
+    final oldDir = Directory(documentsDirectory);
+    final newDir = Directory(await getDocumentsDirectory());
+    if (oldDir.path == newDir.path) return;
+    log.info('Migrating data directory from $oldDir to $newDir');
+
+    late final oldDirEmpty =
+        oldDir.existsSync() ? oldDir.listSync().isEmpty : true;
+    late final newDirEmpty =
+        newDir.existsSync() ? newDir.listSync().isEmpty : true;
+
+    if (!oldDirEmpty && !newDirEmpty) {
+      log.severe('New and old data directory aren\'t empty, can\'t migrate');
+      return;
+    }
+
+    documentsDirectory = newDir.path;
+    if (oldDirEmpty) {
+      log.fine('Old data directory is empty or missing, nothing to migrate');
+    } else {
+      await moveDirContents(oldDir: oldDir, newDir: newDir);
+      await oldDir.delete();
+    }
+  }
+
+  static Future<void> moveDirContents({
+    required Directory oldDir,
+    required Directory newDir,
+  }) async {
+    String entityPath(FileSystemEntity entity) =>
+        '${newDir.path}/${entity.path.split('/').last}';
+
+    await newDir.create(recursive: true);
+    await Future.wait([
+      await for (final entity in oldDir.list())
+        switch (entity) {
+          (File _) => entity.rename(entityPath(entity)),
+          (Directory _) => moveDirContents(
+              oldDir: oldDir, newDir: Directory(entityPath(entity))),
+          _ => Future.value(
+              () => log.warning('Unknown file entity type: $entity')),
+        }
+    ]);
   }
 
   @visibleForTesting
@@ -318,8 +370,12 @@ class FileManager {
         }
       }
 
+      final previewFile = getFile('$filePath.p');
       await Future.wait([
-        for (final assetNumber in assets) deleteFile('$filePath.$assetNumber'),
+        for (final assetNumber in assets)
+          deleteFile('$filePath.$assetNumber', alsoDeleteAssets: false),
+        if (previewFile.existsSync())
+          deleteFile('$filePath.p', alsoDeleteAssets: false),
       ]);
     }
   }
@@ -385,8 +441,26 @@ class FileManager {
     await directory.delete(recursive: recursive);
   }
 
+  /// Gets the children of a directory, separated into
+  /// [DirectoryChildren.directories] and [DirectoryChildren.files].
+  ///
+  /// If [includeExtensions] is false (default), the extension will be removed
+  /// from the file names. We use this to get all notes in a directory.
+  ///
+  /// If [includeAssets] is true, assets and previews will be included.
+  /// We use this for syncing.
+  ///
+  /// Note: [includeAssets] can't be true without [includeExtension],
+  /// since otherwise we wouldn't be able to tell the difference between notes
+  /// and assets.
   static Future<DirectoryChildren?> getChildrenOfDirectory(
-      String directory) async {
+    String directory, {
+    bool includeExtensions = false,
+    bool includeAssets = false,
+  }) async {
+    assert(!includeAssets || includeExtensions,
+        'includeAssets can\'t be true without includeExtensions');
+
     directory = _sanitisePath(directory);
     if (!directory.endsWith('/')) directory += '/';
 
@@ -402,32 +476,44 @@ class FileManager {
     allChildren = await dir
         .list()
         .map((FileSystemEntity entity) {
-          String filePath = entity.path.substring(documentsDirectory.length);
+          final filePath = entity.path.substring(documentsDirectory.length);
 
-          // remove extension
-          if (filePath.endsWith(Editor.extension)) {
-            filePath = filePath.substring(
-                0, filePath.length - Editor.extension.length);
-          } else if (filePath.endsWith(Editor.extensionOldJson)) {
-            filePath = filePath.substring(
-                0, filePath.length - Editor.extensionOldJson.length);
+          // directories don't need any further processing
+          if (entity is Directory) return filePath;
+
+          // filter out reserved files
+          if (Editor.isReservedPath(filePath)) return null;
+
+          late final isSbn2 = filePath.endsWith(Editor.extension);
+          late final isSbn1 = filePath.endsWith(Editor.extensionOldJson);
+
+          if (!includeExtensions) {
+            if (isSbn2) {
+              return filePath.substring(
+                  0, filePath.length - Editor.extension.length);
+            } else if (isSbn1) {
+              return filePath.substring(
+                  0, filePath.length - Editor.extensionOldJson.length);
+            } else {
+              return null; // filePath is name of some asset
+            }
+          } else if (!includeAssets) {
+            final isAsset = !isSbn2 && !isSbn1;
+            if (isAsset) return null;
           }
 
-          if (Editor.isReservedPath(filePath))
-            return null; // filter out reserved files
-
-          return filePath
-              .substring(directoryPrefixLength); // remove directory prefix
+          return filePath;
         })
         .where((String? file) => file != null)
-        .cast<String>()
+        // remove parent folder
+        .map((file) => file!.substring(directoryPrefixLength))
         .toList();
 
     await Future.wait(allChildren.map((child) async {
       if (await FileManager.isDirectory(directory + child) &&
           !directories.contains(child)) {
         directories.add(child);
-      } else if (assetFileRegex.hasMatch(child)) {
+      } else if (!includeAssets && assetFileRegex.hasMatch(child)) {
         // if the file is an asset, don't add it to the list of files
       } else {
         files.add(child);
@@ -437,13 +523,23 @@ class FileManager {
     return DirectoryChildren(directories, files);
   }
 
-  static Future<List<String>> getAllFiles() async {
+  /// Returns a list of all files recursively in the root directory.
+  ///
+  /// See [getChildrenOfDirectory] for more information on the parameters.
+  static Future<List<String>> getAllFiles({
+    bool includeExtensions = false,
+    bool includeAssets = false,
+  }) async {
     final allFiles = <String>[];
     final directories = <String>['/'];
 
     while (directories.isNotEmpty) {
       final directory = directories.removeLast();
-      final children = await getChildrenOfDirectory(directory);
+      final children = await getChildrenOfDirectory(
+        directory,
+        includeExtensions: includeExtensions,
+        includeAssets: includeAssets,
+      );
       if (children == null) continue;
 
       for (final file in children.files) {

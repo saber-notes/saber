@@ -30,4 +30,6 @@ extension StringExtensions on String {
     buffer.write(substring(stringIndex));
     return buffer.toString();
   }
+
+  String? get ifNotEmpty => isEmpty ? null : this;
 }

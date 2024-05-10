@@ -1,3 +1,7 @@
+common:
+  cancel: Zrušit
+  done(OUTDATED): Hotovo
+  continueBtn(OUTDATED): Pokračovat
 home:
   tabs:
     home: Domů
@@ -90,6 +94,10 @@ settings:
     printPageIndicators: Tisknout čísla stránek
     autosaveDelay: Zpoždění automatického ukládání
     shapeRecognitionDelay: Zpoždění rozpoznávání tvarů
+    autoStraightenLines: Automaticky narovnávat čáry
+    customDataDir: Vlastní datový adresář
+    pencilSoundSetting: Zvukový efekt psaní tužkou
+    refreshCurrentNote(OUTDATED): Pravidelně aktualizujte aktuální poznámku
   prefDescriptions:
     hyperlegibleFont: Font Atkinson Hyperlegible zvyšuje čitelnost pro čtenáře se slabým zrakem
     disableAds: "Reklamy podporují vývoj aplikace Saber, ale pokud chcete, můžete je vypnout"
@@ -107,7 +115,13 @@ settings:
     printPageIndicators: V exportech budou zobrazena čísla stránek
     autosaveDelay: Jak dlouho počkat před automatickým uložením poznámky
     shapeRecognitionDelay: Jak často aktualizovat náhled tvaru
+    autoStraightenLines: "Automaticky narovná dlouhé čáry, aniž by bylo nutné využít tvarové pero"
     shouldAlwaysAlertForUpdates: Oznámit dostupnost aktualizací co nejdříve od jejich vydání
+    pencilSoundSetting:
+      off: Bez zvuku
+      onButNotInSilentMode: Zapnuto (mimo tichý režim)
+      onAlways: Zapnuto (i v tichém režimu)
+    refreshCurrentNote(OUTDATED): "Aktualizuje aktuálně otevřenou poznámku, pokud ji upravujete na jiném zařízení"
   themeModes:
     system: Systémový
     light: Světlý
@@ -128,50 +142,57 @@ settings:
     title: "Chcete resetovat tuto volbu?"
     button: Resetovat
   resyncEverything: Znovu synchronizovat všechny poznámky
+  customDataDir:
+    cancel: Zrušit
+    select: Zvolit
+    mustBeEmpty: Zvolený adresář musí být prázdný
+    mustBeDoneSyncing: "Než změníte datový adresář, ujistěte se, že byla dokončena synchronizace"
 login:
   title: Přihlásit se
-  feedbacks:
-    checkUsername: Zkontrolujte prosím své uživatelské jméno a heslo.
-    enterNcPassword: Zadejte prosím své heslo k Nextcloud účtu.
-    enterEncPassword: Zadejte prosím své heslo pro šifrování.
-    checkUrl: Zadejte prosím správnou URL adresu.
-    ncLoginFailed: "Přihlašování selhalo, zkontrolujte prosím zadané údaje a připojení k internetu."
-    ncUnsupportedFailure: "Zadaný server používá Nextcloud $v, ale tato verze aplikace Saber podporuje pouze Nextcloud $s až $t."
-    encLoginFailed: "Přihlašování selhalo, zkontrolujte prosím své heslo pro šifrování."
-    loginSuccess: "Přihlášení bylo úspěšné! Vyčkejte prosím, nastavíme vše potřebné..."
   form:
-    useCustomServer: Chci využít vlastní Nextcloud server
-    customServerUrl: URL adresa vlastního Nextcloud serveru
-    username: Přihlašovací jméno nebo e-mail
-    ncPassword: Heslo k Nextcloud účtu
-    encPassword: Heslo pro šifrování
     agreeToPrivacyPolicy(rich): "Přihlášením souhlasíte se ${linkToPrivacyPolicy(Zásadami ochrany osobních údajů)}."
-    login: Přihlásit se
   signup(rich): "Ještě nemáte účet? ${linkToSignup(Zaregistrujte se)}!"
   status:
-    loggedIn: Jste přihlášeni pomocí Nextcloud účtu
     loggedOut: Jste odhlášení
     tapToLogin: Klepněte pro přihlášení pomocí Nextcloud účtu
-  faq:
-    - q: "Co je to Nextcloud?"
-      a: "Nextcloud je mimo jiné osobní server pro synchronizaci souborů. Můžete používat výchozí Nextcloud server poskytovaný aplikací Saber, použít server hostovaný třetí stranou, nebo vlastní server pro plnou kontrolu nad svými daty."
-    - q: "K čemu je heslo pro šifrování?"
-      a: |-
-        Heslo pro šifrování je použito k zašifrování vašich dat před jejich odesláním na server. Zvolíte si ho při prvním přihlášení do aplikace Saber, není nijak vázáno na heslo k vašemu Nextcloud účtu nebo na účet samotný.
-        Bez jeho znalosti nemůže nikdo přistoupit k vašim poznámkám uloženým na serveru. To také znamená, že pokud ho zapomenete, ztratíte přístup ke svým datům.
-    - q: "Proč používat dvě hesla?"
-      a: |-
-        Heslo k Nextcloud účtu se používá k přístupu do cloudu. Heslo pro šifrování "utají" vaše data ještě před tím, než se na cloud dostanou.
-        I když by někdo získat přístup k vašemu Nextcloud účtu, vaše poznámky zůstanou v bezpečí zašifrované vlastním heslem. To vám poskytuje druhou vrstvu ochrany vašich dat.
-    - q: "Jak se přihlásím, když používám 2FA?"
-      a: "Místo běžného hesla k Nextcloud účtu si potřebujete vytvořit \"heslo aplikace\". Toho můžete docílit v nastavení Nextcloudu v záložce Zabezpečení > Zařízení a sezení > Vytvořit nové heslo aplikace. Vašeho hesla pro šifrování se to nijak netýká."
-    - q: "Mohu použít stejné heslo k Nextcloud účtu a pro šifrování?"
-      a: "Ano, ale je není to tak bezpečné. Jelikož je heslo k Nextcloud účtu odesíláno na server, kdokoliv s přístupem k serveru může dešifrovat vaše poznámky. Stejné heslo použijte jen v případě, že věříte vlastníkovi serveru."
+    loggedIn: Jste přihlášeni pomocí Nextcloud účtu
+    hi(OUTDATED): "Ahoj, $u!"
+    almostDone(OUTDATED): "Téměř připraveno k synchronizaci, klepnutím dokončete přihlášení"
+  ncLoginStep:
+    loginFlow:
+      pleaseAuthorize(OUTDATED): Povolte Saber přístup k vašemu účtu Nextcloud
+      followPrompts(OUTDATED): Postupujte podle pokynů ve vašem prohlížeči.
+      browserDidntOpen(OUTDATED): Prohlížeč se neotevřel
+    whereToStoreData(OUTDATED): "Vyberte, kam chcete svá data uložit:"
+    otherNcServer(OUTDATED): Další server Nextcloud
+    serverUrl(OUTDATED): Adresa URL serveru
+    loginWithSaber(OUTDATED): Přihlaste se pomocí Saber
+    loginWithNextcloud(OUTDATED): Přihlaste se pomocí Nextcloud
+  encLoginStep:
+    enterEncPassword(OUTDATED): "Chcete-li chránit svá data, zadejte své šifrovací heslo:"
+    newToSaber(OUTDATED): Novinka pro Saber
+    encPassword(OUTDATED): Šifrovací heslo
+    encFaqTitle(OUTDATED): Často kladené otázky
+    wrongEncPassword(OUTDATED): Dešifrování se zadaným heslem se nezdařilo. Zkuste jej zadat znovu.
+    connectionFailed(OUTDATED): Při připojování k serveru se něco pokazilo. Prosím zkuste to znovu později.
+    encFaq(OUTDATED):
+      - q: "Co je to heslo pro šifrování?"
+        a: |-
+          Heslo pro šifrování je použito k zašifrování vašich dat před jejich odesláním na server. Zvolíte si ho při prvním přihlášení do aplikace Saber (nikoliv do webového rozhraní Nextcloud serveru), není nijak vázáno na heslo k vašemu Nextcloud účtu nebo na účet samotný.
+          Bez jeho znalosti nemůže nikdo přistoupit k vašim poznámkám uloženým na serveru. To také znamená, že pokud ho zapomenete, ztratíte přístup ke svým datům.
+      - q: "Proč používat dvě hesla?"
+        a: |-
+          Heslo k Nextcloud účtu se používá k přístupu do cloudu. Heslo pro šifrování "utají" vaše data ještě před tím, než se na cloud dostanou.
+          I když by někdo získat přístup k vašemu Nextcloud účtu, vaše poznámky zůstanou v bezpečí zašifrované vlastním heslem. To vám poskytuje druhou vrstvu ochrany vašich dat.
+      - q: "Ještě jsem heslo pro šifrování nenastavoval. Kde ho získám?"
+        a: |-
+          Jednoduše si ho zvolíte právě teď, když se budete výše přihlašovat!
+          Heslo pro šifrování si volíte při prvním přihlášení do aplikace Saber (nikoliv do webového rozhraní Nextcloud serveru).
+  notYou(rich, OUTDATED): "${undoLogin(Né ty)}"
 profile:
   title: Můj profil
   logout: Odhlásit se
   quickLinks:
-    title: Rychlé odkazy
     serverHomepage: Webové stránky serveru
     deleteAccount: Odstranit účet
   faq:
@@ -190,6 +211,9 @@ profile:
         Klepněte na tlačítko "@:profile.quickLinks.deleteAccount" umístěné výše a přihlašte se, pokud to bude vyžadováno.
         Pokud používáte výchozí server od aplikace Saber, bude váš účet odstraněn po uplynutí týdenní ochranné lhůty. Během této lhůty mě můžete kontaktovat pro odvolání zrušení účtu na adilhanney@disroot.org.
         Pokud používáte server třetí strany, nemusí nabízet možnost odstranění účtu: pro více informací se bude třeba obrátit na zásady ochrany osobních údajů daného serveru.
+  quotaUsage(OUTDATED): Používáte $used z $total ($percent)
+  connectedTo(OUTDATED): Připojen k
+  faqTitle(OUTDATED): Často kladené otázky
 appInfo:
   licenseNotice: |-
     Saber  Copyright © 2022-$buildYear  Adil Hanney
@@ -226,7 +250,6 @@ editor:
     laserPointer: Laserové ukazovátko
   penOptions:
     size: Velikost
-    sizeDragHint: Posunem vlevo nebo vpravo změníte velikost
   colors:
     colorPicker: Vybrat vlastní barvu
     customBrightnessHue: Vlastní $b $h
@@ -271,7 +294,7 @@ editor:
     duplicatePage: Duplikovat stránku
     deletePage: Odstranit stránku
     lineHeight: Výška řádku
-    lineHeightDescription: Ovlivňuje také velikost textu
+    lineHeightDescription: Ovlivňuje také velikost textu psaných poznámek
     backgroundImageFit: Rozložení obrázku na pozadí
     backgroundPattern: Vzor na pozadí
     import: Importovat
@@ -294,7 +317,6 @@ editor:
     title: Tato poznámka byla upravena v novější verzi aplikace Saber
     subtitle: "Úpravou této poznámky můžete přijít o některé informace. Přejete tuto skutečnost ignorovat a přesto pokračovat k úpravě poznámky?"
     allowEditing: Povolit úpravy
-    cancel: Zrušit
   quill:
     typeSomething: Něco sem napište...
   hud:

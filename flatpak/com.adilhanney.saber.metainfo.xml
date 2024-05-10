@@ -8,9 +8,11 @@
 
     <name>Saber: Handwritten Notes</name>
     <summary>The notes app built for handwriting</summary>
-
-    <developer_name>Adil Hanney</developer_name>
     <url type="homepage">https://github.com/saber-notes/saber</url>
+
+    <developer id="com.adilhanney">
+        <name>Adil Hanney</name>
+    </developer>
 
     <metadata_license>MIT</metadata_license>
     <project_license>GPL-3.0-only</project_license>
@@ -95,74 +97,28 @@
         </p>
 
         <p xml:lang="cs">
-            Z pozice vývojáře aplikace Saber vám s nadšením představuji
-            aplikaci, která je revolucí v pořizování poznámek. Saber je
-            ultimátní aplikace pro pořizování ručně psaných poznámek
-            navržená tak, aby pozvedla zážitek z psaní poznámek do nových
-            výšin! Uchopte umění rukopisu a nechte promluvit svou
-            kreativitu díky této funkcemi nabité aplikaci, jenž je
-            poháněna nejmodernějšími technologiemi. Díky intuitivnímu
-            a modernímu prostředí vám Saber umožní přesně a bez námahy
-            zaznamenávat poznámky, kreslit diagramy nebo vepisovat
-            informace do PDF.
+            Saber je aplikace pro psaní poznámek uzpůsobená pro ruční psaní.
         </p>
         <p xml:lang="cs">
-            Když jsem začínal si začínal dělat digitální poznámky, nemohl
-            jsem najít žádnou aplikaci zaměřenou na soukromí a otevřený
-            zdrojový kód, která by splnila mé požadavky, takže jsem
-            nakonec musel používat proprietární aplikaci. Rozhodl jsem se
-            vytvořit Saber, abych dal lidem možnost volby v podobě
-            aplikace orientované na soukromí a otevřený zdrojový kód,
-            které mohou důvěřovat. Saber má kompletně otevřený zdrojový
-            kód, což znamená, že si ho může kdokoliv zkontrolovat
-            a ujistit se, že je bezpečný a dbá na soukromí. Saber šifruje
-            vaše data, která můžete synchronizovat na jakýkoliv
-            kompatibilní server dle vlastní volby, čímž vám dává plnou
-            kontrolu nad vašimi daty.
+            Je navržena pro nejjednodušší a nejintuitivnější možné používání, přičemž stále nabízí unikátní funkce, které opravdu využijete. Navíc je Saber dostupný napříč všemi vašimi zařízeními, velkými i malými, mezi nimiž se bez povšimnutí synchronizuje.
         </p>
         <p xml:lang="cs">
-            Přejete si udělat poznámky na tabletu a přesunout je do
-            počítače? Nebo preferujete psaní poznámek na notebooku
-            a následně je doplňujete na tabletu? Ať již s poznámkami
-            pracujete jakkoliv, Saber váš případ užití pokryje díky
-            podpoře řady platforem umožňující k poznámkám přistupovat
-            kdykoliv, odkudkoliv a z jakéhokoliv zařízení. Saber je
-            k dispozici pro Android, iOS, Windows, macOS a Linux s tím,
-            že vaše poznámky automaticky synchronizuje napříč všemi
-            zařízeními. Pokud nemáte zpřipojení k internetu, Saber
-            poznámky automaticky synchronizuje, jakmile budete zase
-            připojeni.
+            Je na místě poznamenat, že umí invertovat vaše poznámky, pokud jste v temném módu. To vám umožňuje psát bílým inkoustem na černém pozadí, což je daleko příjemnější pro oči v prostředí s nedostatkem světla, jako když učitel ve třídě vypne osvětlení. Obrázky a PDF jsou také invertovány, takže stále můžete bez problému používat digitální výtisky nebo učebnice.
         </p>
         <p xml:lang="cs">
-            Saber nabízí nejlepší digitální zvýrazňovač, jaký jste kdy
-            používali. Potřebovali jste někdy zvýraznit více řádků,
-            ale nesnášíte překrývání tahů zvýrazňovače, které mění
-            barvu? Saber překrytí řeší pomocí pokročilého grafického
-            zpracování, díky němuž udržuje konzistenci barev
-            a poskytuje vám lepší zážitek z použití zvýrazňovače než
-            u tradičního papíru.
+            Saber používá systém dvou hesel, aby ochránil vaše poznámky před kýmkoliv kromě vás, i kdyby měl kompletní přístup k serveru. Můžete bezpečně ukládat své poznámky na oficiální server aplikace Saber, jiný server či dokonce pro tyto účely provozovat svůj vlastní server!
         </p>
         <p xml:lang="cs">
-            Saber má vše, co potřebujete pro to, abyste udržely poznámky
-            organizované. Vytvořte si složky ve složkách ve složkách pro
-            váš vysněný obsah bez omezení počtu zanořených složek.
-            I když může být poznámka pohřbená v hluboko zanořené složce,
-            pořád k ní máte jednoduchý přístup z naposledy upravovaných
-            poznámek na hlavní obrazovce.
+            Aplikace má kompletně otevřené zdrojové kódy, takže si je každý může prohlédnout a přesně vidět, co aplikace dělá a jakým způsobem jsou zpracovává vaše data. Spousta dalších aplikací pro pořizování poznámek má uzavřené zdrojové kódy a je proprietární, což znamená, že co se děje uvnitř, je pro veřejnost záhadou.
         </p>
         <p xml:lang="cs">
-            Saber dokáže vhodně invertovat vaše poznámky, pokud máte
-            aktivní tmavý režim. To znamená, že můžete zakusit
-            plnohodnotnou zkušenost pořizování poznámek v temném režimu,
-            a to včetně obrázků, pro uklidňující a jednotné rozhraní
-            v prostředí s nízkou úrovní světla.
+            Jako někdo, kdo studuje matematiku, mohu říct, že pro mě vždy bylo utrpení zvýrazňovat víceřádkové rovnice v jiných aplikacích, kde zvýrazňovač mění barvu po přetažení již zvýrazněné části. Další problém, který jsem měl v některých aplikacích, spočíval v tom, že se zvýrazňovač vykresloval nad textem, takže se text ztrácel a špatně se četl. Zvýrazňovač aplikace Saber těmito neduhy netrpí. Využívá kompozice plátna k vykreslování zvýrazňovače způsobem, který je konzistentní s tradičním papírem, ba možná i lepší, jelikož řeší překrývání a udržuje konzistenci barev.
         </p>
         <p xml:lang="cs">
-            Objevte úplně nové možnosti zachycování a organizování
-            myšlenek s aplikací Saber. Ať už jste student, profesionál
-            či kreativní duše, Saber je váš důvěrný společník pro
-            digitální ruční psaní. Stáhněte si jej nyní a nechte volně
-            plynout své nápady!
+            Saber má vše, co potřebujete k tomu, abyste dokázali organizovat své poznámky. Tvořte složky uvnitř složek uvnitř složek, jak jen chcete bez omezení na počet zanořených složek. Ačkoliv může být poznámka pohřbena hluboko uvnitř vnořené složky, pořád k ní můžete jednoduše přistoupit, jelikož jsou nejnovější poznámky vždy k dispozici na domovské obrazovce.
+        </p>
+        <p xml:lang="cs">
+            Objevte zcela nový způsob zaznamenávání a organizace vašich myšlenek s aplikací Saber. Ať již jste student, profesionál nebo kreativní duše, Saber je vaším důvěryhodným společníkem pro digitální psaní. Stáhněte si jej nyní a nechte volně plynout své nápady!
         </p>
 
         <p xml:lang="ru">
@@ -242,6 +198,80 @@
     </screenshots>
 
     <releases>
+        <release version="0.23.0" type="development" date="2024-05-06">
+            <description>
+                <ul>
+                    <li>Redesigned the login process</li>
+                    <li>Stopped the autosave triggering while in the middle of a stroke</li>
+                    <li>Fixed the pencil sound effect setting not being picked up immediately</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.22.0" type="development" date="2024-05-02">
+            <description>
+                <ul>
+                    <li>A simulated pencil sound effect has been added.</li>
+                    <li>The Nextcloud syncing issue has been fixed.</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.21.4" type="development" date="2024-04-20">
+            <description>
+                <ul>
+                    <li>The zoom is now snapped to 1.0x when close</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.21.3" type="development" date="2024-03-31">
+            <description>
+                <ul>
+                    <li>Added a glow effect to the laser pointer</li>
+                    <li>Using the laser pointer no longer triggers the autosave</li>
+                    <li>Fixed the pen size picker not displaying correctly in a vertical toolbar</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.21.2" type="development" date="2024-03-14">
+            <description>
+                <ul>
+                    <li>The laser pointer now waits for you to stop writing before fading out</li>
+                    <li>Fixed a bug that caused some PDF pages to get lost</li>
+                    <li>Fixed a bug where thumbnails of deleted notes weren't removed</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.21.1" type="development" date="2024-03-10">
+            <description>
+                <ul>
+                    <li>Reduced false positives when auto straightening lines</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.21.0" type="development" date="2024-03-06">
+            <description>
+                <ul>
+                    <li>Long lines are now automatically straightened without having to switch to the shape tool (configurable in settings)</li>
+                    <li>Fixed pen sizes resetting when you switch between pen types</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.20.3" type="development" date="2024-02-25">
+            <description>
+                <ul>
+                    <li>Fixed PDF exports failing on some notes</li>
+                    <li>Reduced the blurring effect on large pencil sizes</li>
+                    <li>Fixed the "resync everything" button uploading empty files</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.20.2" type="development" date="2024-02-17">
+            <description>
+                <ul>
+                    <li>Changing the pen size is now more intuitive with a slider input</li>
+                    <li>Minor performance and fidelity improvements for the pencil</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.20.1" type="development" date="2024-02-14">
             <description>
                 <ul>

@@ -7,10 +7,6 @@ on:
     branches:
       - main
 
-env:
-  # MAINTENANCE_CHECKS_ENABLED is overridden later
-  MAINTENANCE_CHECKS_ENABLED: true
-
 jobs:
   run-tests:
     name: Run Flutter tests
@@ -20,15 +16,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Remove unneeded files
-        run: |
-          rm -rf assets_raw
-          rm -rf submodules
-
       - name: Install apt dependencies
         uses: awalsh128/cache-apt-pkgs-action@latest
         with:
-          packages: libgtk-3-dev libx11-dev pkg-config cmake ninja-build libblkid-dev libsecret-1-dev libjsoncpp-dev ghostscript
+          packages: libgtk-3-dev libx11-dev pkg-config cmake ninja-build libblkid-dev libsecret-1-dev libjsoncpp-dev ghostscript libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev libunwind-dev
           version: 1.0
           execute_install_scripts: true
 
@@ -50,21 +41,9 @@ jobs:
 
       - run: flutter pub get
 
-      - name: Prepare environment for tests
-        run: |
-          if [ "$GITHUB_REPOSITORY" = "saber-notes/saber" ] && [ "$GITHUB_REF_NAME" = "main" ]; then
-            MAINTENANCE_CHECKS_ENABLED=true
-          else
-            MAINTENANCE_CHECKS_ENABLED=false
-          fi
-          echo "MAINTENANCE_CHECKS_ENABLED=$MAINTENANCE_CHECKS_ENABLED" >> $GITHUB_ENV
-
       - name: Run tests
         id: tests
-        run: |
-          flutter test \
-            --coverage \
-            --dart-define=maintenanceChecksEnabled="${{ env.MAINTENANCE_CHECKS_ENABLED }}"
+        run: flutter test --coverage
 
       - name: Upload to Codecov
         if: success()
@@ -83,3 +62,6 @@ jobs:
         with:
           name: Saber-test-failures
           path: test/failures
+
+      - name: Lints
+        uses: invertase/github-action-dart-analyzer@v3

@@ -1,3 +1,7 @@
+common:
+  cancel: Abbruch
+  done(OUTDATED): Erledigt
+  continueBtn(OUTDATED): Weitermachen
 home:
   tabs:
     home: Startseite
@@ -6,19 +10,21 @@ home:
     settings: Einstellungen
   titles:
     home: Letzte Notizen
+    browse: Durchsuchen
     whiteboard: Whiteboard
     settings: Einstellungen
-    browse(OUTDATED): Durchsuchen
   tooltips:
     newNote: Notiz erstellen
     showUpdateDialog: Aktualisierungsdialog anzeigen
-    exportNote(OUTDATED): Notiz exportieren
+    exportNote: Notiz exportieren
   create:
-    newNote(OUTDATED): Neue Notiz
-    importNote(OUTDATED): Notiz importieren
+    newNote: Neue Notiz
+    importNote: Notiz importieren
   welcome: Willkommen bei Saber
+  invalidFormat: "Die ausgewählte Datei wird nicht unterstützt. Bitte wähle eine Datei mit dem Format sbn, sbn2, sba oder pdf."
   noFiles: Keine Dateien gefunden
   createNewNote: "Drücke die + Schaltfläche, um eine neue Notiz zu erstellen"
+  backFolder: Zum vorherigen Ordner zurück gehen
   newFolder:
     newFolder: Neuer Ordner
     folderName: Ordnername
@@ -35,34 +41,32 @@ home:
     noteNameExists: Notiz mit diesem Namen existiert bereits
   moveNote:
     moveNote: Notiz verschieben
+    moveNotes: Verschiebe $n Notizen
     moveName: verschiebe $f
     move: Verschieben
     renamedTo: Notiz wird umbenannt zu $newName
-    moveNotes(OUTDATED): $n Notizen verschieben
-    multipleRenamedTo(OUTDATED): "Folgende Anmerkungen werden umbenannt:"
-    numberRenamedTo(OUTDATED): "$n Notizen werden umbenannt, um Konflikte zu vermeiden"
+    multipleRenamedTo: "Die folgenden Notizen werden umbenannt:"
+    numberRenamedTo: "$n Notizen werden umbenannt, um Konfilkte zu vermeiden"
+  deleteNote: Notiz löschen
   renameFolder:
-    folderNameEmpty(OUTDATED): Der Ordnername darf nicht leer sein
-    renameFolder(OUTDATED): Ordner umbenennen
-    folderName(OUTDATED): Ordnernamen
-    rename(OUTDATED): Name
-    folderNameContainsSlash(OUTDATED): Der Ordnername darf keinen Schrägstrich enthalten
-    folderNameExists(OUTDATED): Ein Ordner mit diesem Namen existiert bereits
+    renameFolder: Ordner umbenennen
+    folderName: Ordner-Name
+    rename: Umbenennen
+    folderNameEmpty: Ordner-Name darf nicht leer sin
+    folderNameContainsSlash: Order-Name darf keinen Schrägstrich beinhalten
+    folderNameExists: Ein Ordner mit dem Namen existiert bereits
   deleteFolder:
-    deleteName(OUTDATED): $f löschen
-    deleteFolder(OUTDATED): Lösche Ordner
-    delete(OUTDATED): Löschen
-    alsoDeleteContents(OUTDATED): Lösche außerdem alle Notizen in diesem Ordner
-  backFolder(OUTDATED): Zurück zum vorherigen Ordner
-  deleteNote(OUTDATED): Notiz löschen
-  invalidFormat(OUTDATED): "Die ausgewählte Datei wird nicht unterstützt. Bitte wähle eine .sbn-, .sbn2-, .sba oder .pdf-Datei aus."
+    deleteFolder: Ordner löschen
+    deleteName: $f löschen
+    delete: LÖschen
+    alsoDeleteContents: Auch alle Notizen in diesem Ordner löschen
 settings:
   prefCategories:
     general: Allgemein
     writing: Eingabe
-    performance(OUTDATED): Leistung
-    advanced(OUTDATED): Fortgeschritten
-    editor(OUTDATED): Herausgeber
+    editor: Editor
+    performance: Leistung
+    advanced: Erweitert
   prefLabels:
     locale: Sprache
     appTheme: Anwendungsthema
@@ -71,6 +75,7 @@ settings:
     customAccentColor: Benutzerdefinierte Akzentfarbe
     hyperlegibleFont: Hyperlesbare Schrift
     shouldCheckForUpdates: Suche automatisch nach Saber-Aktualisierungen
+    shouldAlwaysAlertForUpdates: Schneller aktualisieren
     disableAds: Werbung deaktivieren
     changeAdsConsent: Werbungsinhalt anpassen
     allowInsecureConnections: Unsichere Verbindung erlauben
@@ -80,34 +85,43 @@ settings:
     preferGreyscale: Graustufen bevorzugen
     maxImageSize: Maximale Bildgröße
     autoClearWhiteboardOnExit: Lösche das Whiteboard nach Verlassen der Anwendung
+    disableEraserAfterUse: Radierer automatisch dekativieren
+    hideFingerDrawingToggle: Umschalter des Finger-Zeichnens ausblenden
     editorPromptRename: Beim Erstellen von Notizen einen Namen erfragen
     hideHomeBackgrounds: Hintergrund auf dem Startbildschirm verbergen
     recentColorsDontSavePresets: Farbvorlagen nicht in den zuletzt genutzten Farben speichern
+    recentColorsLength: Anzahl der zuletzt genutzten Farben
     printPageIndicators: Seitennummerierung drucken
-    shapeRecognitionDelay(OUTDATED): Verzögerung der Formerkennung
-    recentColorsLength(OUTDATED): Wie viele aktuelle Farben gespeichert werden sollen
-    autosaveDelay(OUTDATED): Verzögerung beim automatischen Speichern
-    hideFingerDrawingToggle(OUTDATED): Den Fingerzeichnungsschalter ausblenden
-    shouldAlwaysAlertForUpdates(OUTDATED): Schnellere Updates
-    disableEraserAfterUse(OUTDATED): Deaktivieren Sie den Radierer automatisch
+    autosaveDelay: Verzögerung des automatischen Speicherns
+    shapeRecognitionDelay: Verzögerung der Formerkennung
+    autoStraightenLines: Linien automatisch begradigen
+    customDataDir: Benutzerdefiniertes Verzeichnis
+    refreshCurrentNote(OUTDATED): Aktuelle Notiz regelmäßig aktualisieren
+    pencilSoundSetting(OUTDATED): Bleistift-Soundeffekt
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible verbessert die Lesbarkeit für Menschen mit eingeschränkter Sicht
     disableAds: Die Entwicklung von Saber wird duch Werbung finanziert. Die Werbung kann auf Wunsch deaktiviert werden.
     allowInsecureConnections: (Nicht empfohlen) Saber erlauben sich mit selbstsignierten/unsicheren Zertifikaten zu verbinden
     preferGreyscale: Für E-Ink-Bildschirme
     autoClearWhiteboardOnExit: Es wird dennoch mit deinen anderen Geräten synchronisiert
+    disableEraserAfterUse: Nach dem Nutzen des Radierers automatisch zum Stift zurückwechseln
     maxImageSize: "Bilder, die größer sind, werden komprimiert"
     hideFingerDrawing:
-      fixedOn(OUTDATED): Das Fingerzeichnen ist derzeit aktiviert
-      fixedOff(OUTDATED): Das Fingerzeichnen ist derzeit deaktiviert
-      shown(OUTDATED): Verhindert versehentliches Umschalten
+      shown: Schützt vor versehentlichem Umschalten
+      fixedOn: Finger-Zeichnen ist als aktiviert festgelegt
+      fixedOff: Finger-Zeichnen ist als deaktiviert festgelegt
     editorPromptRename: Notizen können später immer noch umbenannt werden
     hideHomeBackgrounds: Für ein sauberes Aussehen
     printPageIndicators: Seitennummerierung bei Export anzeigen
-    shapeRecognitionDelay(OUTDATED): "Wie oft soll die Formvorschau aktualisiert werden?"
-    autosaveDelay(OUTDATED): "Wartezeit, bevor eine Notiz automatisch gespeichert wird"
-    disableEraserAfterUse(OUTDATED): Schaltet nach Verwendung des Radiergummis automatisch wieder auf den Stift zurück
-    shouldAlwaysAlertForUpdates(OUTDATED): "Informiere mich über Updates, sobald sie verfügbar sind"
+    autosaveDelay: Verzögerung des automatischen Speicherns einer Notiz
+    shapeRecognitionDelay: Häufigkeit der Aktualisierung der Form-Vorschau
+    autoStraightenLines: Lange Linien selbst ohne Form-Stift begradigen
+    shouldAlwaysAlertForUpdates: Über neue Updates informiert bleiben
+    pencilSoundSetting:
+      onAlways(OUTDATED): Aktiviert (auch im lautlosen Modus)
+      off(OUTDATED): Keinen Ton
+      onButNotInSilentMode(OUTDATED): Aktiviert (außer im stillen Modus)
+    refreshCurrentNote(OUTDATED): "Aktualisiert die aktuell geöffnete Notiz, wenn Sie sie auf einem anderen Gerät bearbeiten"
   themeModes:
     system: System
     light: Hell
@@ -127,51 +141,57 @@ settings:
   reset:
     title: "Diese Einstellung zurücksetzen?"
     button: Zurücksetzen
-  resyncEverything(OUTDATED): Alles in Ordnung bringen
+  resyncEverything: Alles neu Synchronisieren
+  customDataDir:
+    cancel: Abbrechen
+    select: Auswählen
+    mustBeEmpty: Ausgewähltes Verzeichnis muss leer sein
+    mustBeDoneSyncing: "Stelle sicher, dass die Synchronisierung abgeschlossen ist, bevor du das Verzeichnis änderst"
 login:
   title: Login
-  feedbacks:
-    checkUsername: Bitte überprüfe deinen Benutzernamen oder deine E-Mail.
-    enterNcPassword: Bitte gib dein Nextcloud-Passwort ein.
-    enterEncPassword: Bitte gib dein Verschlüsselungspasswort ein.
-    checkUrl: Bitte gib eine gültige URL an.
-    ncLoginFailed: "Anmeldung fehlgeschlagen, bitte überprüfe deine Angaben und deine Netzwerkverbindung."
-    encLoginFailed: "Anmeldung fehlgeschlagen, bitte überprüfe dein Verschlüsselungspasswort."
-    loginSuccess: "Anmeldung erfolgreich! Bitte warte, während wir alles einrichten..."
-    ncUnsupportedFailure(OUTDATED): "Der angegebene Nextcloud-Server nutzt Version $v, aber diese Version von Saber unterstützt nur Nextcloud $s bis $t."
   form:
-    useCustomServer: Ich möchte einen eigenen Nextcloud-Server verwenden
-    customServerUrl: Eigene Server-URL
-    username: Benutzername oder E-Mail
-    ncPassword: Nextcloud-Passwort
-    encPassword: Verschlüsselungspasswort
     agreeToPrivacyPolicy(rich): "Indem du dich anmeldest, stimmst du der ${linkToPrivacyPolicy(Datenschutzrichtlinie)} zu."
-    login: Anmelden
   signup(rich): "Du hast noch kein Konto? ${linkToSignup(Erstelle jetzt eins)}!"
   status:
-    loggedIn: Mit Nextcloud angemeldet
     loggedOut: Nicht angemeldet
     tapToLogin: "Hier tippen, um dich mit Nextcloud anzumelden"
-  faq:
-    - q: "Was ist Nextcloud?"
-      a: "Nextcloud ist unter anderem ein privater Dateisynchronisationsserver. Du kannst den Standard-Saber-Nextcloud-Server, einen Drittanbieter-, oder einen selbst-gehosteten Server verwenden, um volle Kontrolle über deine Daten zu behalten."
-    - q: "Was ist das Verchlüsselungspasswort?"
-      a: |-
-        Das Verschlüsselungspasswort wird verwendet, um deine Daten zu verschlüsseln, bevor diese an den Server gesendet werden. Es wird nicht auf dem Server gespeichert und nur von Saber verwendet, um deine Daten zu ver- und entschlüsseln.
-        Niemand kann ohne dieses Passwort auf deine Notizen auf dem Server zugreifen. Das bedeutet allerdings auch, dass du, wenn du dein Verschlüsselungspasswort vergisst, den Zugriff auf deine Daten verlierst.
-    - q: "Wieso zwei Passwörter?"
-      a: |-
-        Das Nextcloud-Passwort wird verwendet, um auf die Cloud zuzugreifen. Das Verschlüsselungspasswort „verwürfelt“ deine Daten, bevor diese die Cloud erreichen.
-        Selbst wenn jemand Zugriff zu deinem Nextcloud-Konto erlangt, bleiben deine Notizen sicher und verschlüsselt mit einem seperaten Passwort. Dies stellt eine zweite Sicherheitsebene zum Schutz deiner Daten dar.
-    - q: "Wie melde ich mich an, wenn ich Zwei-Faktor-Authentifikation verwende?"
-      a: "Anstatt dein normales Nextcloud-Passwort zu verwenden, musst du ein \"App Password\" erstellen. Das kannst du in den Nextcloud-Einstellungen unter Sicherheit > Geräte & Sitzungen > Neues App-Passwort erstellen tun. Das betrifft nicht dein Verschlüsselungspasswort."
-    - q: "Kann ich dasselbe Passwort für beide verwenden?"
-      a: "Ja, aber das ist nicht so sicher. Da dein Nextcloud-Passwort an den Server übertragen wird, kann jemand mit Zugriff auf den Server deine Notizen entschlüsseln. Du solltest also nur dasselbe Passwort verwenden, wenn du der Person, die den Server besitzt, vertraust."
+    loggedIn: Mit Nextcloud angemeldet
+    hi(OUTDATED): "Hallo, $u!"
+    almostDone(OUTDATED): "Die Synchronisierung ist fast fertig. Tippen Sie auf, um die Anmeldung abzuschließen"
+  ncLoginStep:
+    loginFlow:
+      pleaseAuthorize(OUTDATED): "Bitte autorisieren Sie Saber, auf Ihr Nextcloud-Konto zuzugreifen"
+      followPrompts(OUTDATED): Bitte folgen Sie den Anweisungen in Ihrem Browser.
+      browserDidntOpen(OUTDATED): Der Browser wurde nicht geöffnet
+    whereToStoreData(OUTDATED): "Wählen Sie, wo Sie Ihre Daten speichern möchten:"
+    saberNcServer(OUTDATED): Der Nextcloud-Server von Saber
+    otherNcServer(OUTDATED): Anderer Nextcloud-Server
+    serverUrl(OUTDATED): Server-URL
+    loginWithSaber(OUTDATED): Melden Sie sich mit Saber an
+    loginWithNextcloud(OUTDATED): Melden Sie sich mit Nextcloud an
+  encLoginStep:
+    enterEncPassword(OUTDATED): "Um Ihre Daten zu schützen, geben Sie bitte Ihr Verschlüsselungspasswort ein:"
+    newToSaber(OUTDATED): Neu bei Saber
+    encPassword(OUTDATED): Verschlüsselungskennwort
+    encFaqTitle(OUTDATED): Häufig gestellte Fragen
+    wrongEncPassword(OUTDATED): Die Entschlüsselung ist mit dem angegebenen Passwort fehlgeschlagen. Bitte versuchen Sie es erneut einzugeben.
+    connectionFailed(OUTDATED): Bei der Verbindung zum Server ist ein Fehler aufgetreten. Bitte versuchen Sie es später noch einmal.
+    encFaq(OUTDATED):
+      - q: "Was ist das Verchlüsselungspasswort?"
+        a: |-
+          Das Verschlüsselungspasswort wird verwendet, um deine Daten zu verschlüsseln, bevor diese an den Server gesendet werden. Es wird nicht auf dem Server gespeichert und nur von Saber verwendet, um deine Daten zu ver- und entschlüsseln.
+          Niemand kann ohne dieses Passwort auf deine Notizen auf dem Server zugreifen. Das bedeutet allerdings auch, dass du, wenn du dein Verschlüsselungspasswort vergisst, den Zugriff auf deine Daten verlierst.
+      - q: "Wieso zwei Passwörter?"
+        a: |-
+          Das Nextcloud-Passwort wird verwendet, um auf die Cloud zuzugreifen. Das Verschlüsselungspasswort „verwürfelt“ deine Daten, bevor diese die Cloud erreichen.
+          Selbst wenn jemand Zugriff zu deinem Nextcloud-Konto erlangt, bleiben deine Notizen sicher und verschlüsselt mit einem seperaten Passwort. Dies stellt eine zweite Sicherheitsebene zum Schutz deiner Daten dar.
+      - q: "Kann ich dasselbe Passwort für beide verwenden?"
+        a: "Ja, aber das ist nicht so sicher. Da dein Nextcloud-Passwort an den Server übertragen wird, kann jemand mit Zugriff auf den Server deine Notizen entschlüsseln. Du solltest also nur dasselbe Passwort verwenden, wenn du der Person, die den Server besitzt, vertraust."
+  notYou(rich, OUTDATED): "${undoLogin(Nicht du)}"
 profile:
   title: Mein Profil
   logout: Abmelden
   quickLinks:
-    title: Schnellzugriff
     serverHomepage: Server-Startseite
     deleteAccount: Account löschen
   faq:
@@ -191,6 +211,9 @@ profile:
         Drücke oben den „@:profile.quickLinks.deleteAccount“-Button und melde dich gegebenenfalls an.
         Wenn du den offiziellen Saber-Server nutzt, wird dein Account automatisch nach einer Woche gelöscht. Du kannst mich während dieser Woche unter adilhanney@disroot.org kontaktieren um die Löschung rückgängig zu machen.
         Wenn du einen anderen Server nutzt, kann es sein, dass du deinen Account nicht löschen kannst: Für mehr Information kannst du in der Datenschutzbestimmung des Servers nachgucken.
+  quotaUsage(OUTDATED): Sie verwenden $used von $total ($percent)
+  connectedTo(OUTDATED): Angeschlossen
+  faqTitle(OUTDATED): Häufig gestellte Fragen
 appInfo:
   licenseNotice: |-
     Saber  Copyright © 2022-$buildYear  Adil Hanney
@@ -204,7 +227,7 @@ update:
   updateAvailable: Aktualisierung verfügbar
   updateAvailableDescription: "Eine neue Version der App ist verfügbar, mit folgenden Änderungen:"
   update: Aktualisieren
-  downloadNotAvailableYet(OUTDATED): Der Download ist für Ihre Plattform noch nicht verfügbar. Bitte schauen Sie in Kürze noch einmal vorbei.
+  downloadNotAvailableYet: Der Download ist für deine Platform noch nicht verfügbar. Bitte schaue in Kürze noch einmal nach.
 editor:
   toolbar:
     toggleColors: Farben umschalten (Strg + C)
@@ -222,14 +245,17 @@ editor:
     fountainPen: Füllfederhalter
     ballpointPen: Kugelschreiber
     highlighter: Textmarker
+    pencil: Bleistift
+    shapePen: Form-Stift
     laserPointer: Laserpointer
-    pencil(OUTDATED): Bleistift
-    shapePen(OUTDATED): Formstift
   penOptions:
     size: Dicke
-    sizeDragHint: "Nach links oder rechts ziehen, um die Dicke zu ändern"
   colors:
     colorPicker: Farbauswahl
+    customBrightnessHue: Custom $b $h
+    customHue: Custom $h
+    dark: dunkel
+    light: hell
     black: Schwarz
     darkGrey: Dunkelgrau
     grey: Grau
@@ -237,9 +263,11 @@ editor:
     white: Weiß
     red: Rot
     green: Grün
+    cyan: Cyan
     blue: Blau
     yellow: Gelb
     purple: Lila
+    pink: Pink
     orange: Orange
     pastelRed: Pastellfarbenes Rot
     pastelOrange: Pastellfarbenes Orange
@@ -249,11 +277,6 @@ editor:
     pastelBlue: Pastellfarbenes Blau
     pastelPurple: Pastellfarbenes Lila
     pastelPink: Pastellfarbenes Rosa
-    customBrightnessHue(OUTDATED): Benutzerdefiniert $b $h
-    customHue(OUTDATED): Benutzerdefiniert $h
-    dark(OUTDATED): dunkel
-    light(OUTDATED): Licht
-    pink(OUTDATED): Rosa
   imageOptions:
     title: Bildoptionen
     invertible: Invertierbar
@@ -263,7 +286,7 @@ editor:
     delete: Entfernen
   selectionBar:
     delete: Entfernen
-    duplicate(OUTDATED): Duplikat
+    duplicate: Duplizieren
   menu:
     clearPage: Seite $page/$totalPages leeren
     clearAllPages: Alle Seiten löschen
@@ -271,7 +294,7 @@ editor:
     duplicatePage: Seite duplizieren
     deletePage: Seite löschen
     lineHeight: Zeilenhöhe
-    lineHeightDescription: Beeinflusst außerdem die Schriftgröße
+    backgroundImageFit: Background image fit
     backgroundPattern: Hintergrundmuster
     import: Importieren
     boxFits:
@@ -286,15 +309,14 @@ editor:
       grid: Kariert
       dots: Gepunktet
       staffs: Notenpapier
+      tablature: Tablature
       cornell: Cornell-Stil
-      tablature(OUTDATED): Tabulatur
-    backgroundImageFit(OUTDATED): Hintergrundbild
+    lineHeightDescription(OUTDATED): Steuert außerdem die Textgröße für getippte Notizen
   newerFileFormat:
     readOnlyMode: Schreibgeschützter Modus
     title: Diese Notiz wurde mit einer neueren Version von Saber bearbeitet
     subtitle: "Durch das Bearbeiten dieser Notiz können Daten verloren gehen. Möchtest du sie trotzdem bearbeiten?"
     allowEditing: Schreibschutz aufheben
-    cancel: Abbruch
   quill:
     typeSomething: Hier tippen...
   hud:

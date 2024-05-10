@@ -1,0 +1,3 @@
+• Risolto il problema con le esportazioni PDF che non riuscivano su alcune note
+• Ridotto l'effetto sfocato sulle matite di grandi dimensioni
+• Risolto il problema con il pulsante "risincronizza tutto" che caricava file vuoti

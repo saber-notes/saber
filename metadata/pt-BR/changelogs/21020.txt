@@ -1,0 +1,3 @@
+• O ponteiro laser agora espera que você pare de escrever antes de desaparecer
+• Corrigido um bug que fazia com que algumas páginas PDF fossem perdidas
+• Corrigido um bug onde miniaturas de notas excluídas não eram removidas

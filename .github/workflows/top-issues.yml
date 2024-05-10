@@ -1,0 +1,37 @@
+name: Top issues
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - .github/workflows/top-issues.yml
+  schedule:
+    # every day at 10:50 am (random time to avoid spikes in GitHub Actions usage)
+    - cron: '50 10 * * *'
+
+permissions:
+  actions: read
+  checks: read
+  contents: read
+  deployments: read
+  issues: write
+  discussions: read
+  packages: read
+  pages: read
+  pull-requests: write
+  repository-projects: read
+  security-events: read
+  statuses: read
+
+jobs:
+  top-issues:
+    name: Top issues
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run top issues action
+        uses: rickstaa/top-issues-action@v1
+        env:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          top_bugs: true
+          top_features: true
+          top_pull_requests: true

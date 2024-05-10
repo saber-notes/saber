@@ -1,0 +1,2 @@
+• Simüle edilmiş bir kalem ses efekti eklendi. Varsayılan olarak yalnızca cihazınızın sesi kapatılmadığında etkindir.
+• Nextcloud senkronizasyon sorunu düzeltildi.

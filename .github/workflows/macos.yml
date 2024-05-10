@@ -9,34 +9,15 @@ on:
   push:
     tags:
       - '**'
+    branches:
+      - '**'
+    paths:
+      - .github/workflows/macos.yml
 
 jobs:
-  get-version:
-    name: Get version
-    runs-on: ubuntu-latest
-    outputs:
-      buildName: ${{ steps.get_version.outputs.buildName }}
-      buildNumber: ${{ steps.get_version.outputs.buildNumber }}
-    timeout-minutes: 1
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Get version
-        id: get_version
-        run: |
-          # get buildName from lib/data/version.dart
-          buildName=$(grep -oP "(?<=buildName = ').*(?=')" lib/data/version.dart)
-          echo "buildName=$buildName" >> $GITHUB_OUTPUT
-
-          # get buildNumber from lib/data/version.dart
-          buildNumber=$(grep -oP '(?<=buildNumber = ).*(?=;)' lib/data/version.dart)
-          echo "buildNumber=$buildNumber" >> $GITHUB_OUTPUT
-
   build-macos:
     name: Build for macOS
     runs-on: macos-latest
-    needs: get-version
     env:
       APP_STORE_CONNECT_ISSUER_ID: ${{secrets.APP_STORE_CONNECT_ISSUER_ID}}
       APP_STORE_CONNECT_KEY_IDENTIFIER: ${{secrets.APP_STORE_CONNECT_KEY_IDENTIFIER}}
@@ -81,7 +62,9 @@ jobs:
           architecture: x64
 
       - name: Install Codemagic CLI Tools
-        run: pip3 install codemagic-cli-tools
+        run: |
+          brew install pipx
+          pipx install codemagic-cli-tools
 
       - name: Setup keychain
         run: |
@@ -143,7 +126,9 @@ jobs:
       - name: Compress macOS build
         id: compress
         run: |
-          zipName="Saber_v${{ needs.get-version.outputs.buildName }}.app.zip"
+          brew install grep
+          buildName=$(ggrep -oP "(?<=buildName = ').*(?=')" lib/data/version.dart)
+          zipName="Saber_v${buildName}.app.zip"
           echo "zipName=$zipName" >> $GITHUB_OUTPUT
 
           pushd build/macos/Build/Products/Release

@@ -1,60 +1,62 @@
 # <img src="https://github.com/saber-notes/saber/raw/main/assets/icon/icon.png" width="30" height="30" alt="Logo"> Saber
 
+[<img src='https://github.com/saber-notes/saber/blob/main/assets_raw/badges/google-play-badge.png'
+    alt='Ke stažení na Google Play'
+    height=50>][google_play]
+&nbsp;
+[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/f-droid-badge.png"
+    alt="Ke stažení z F-Droidu"
+    height=50>][f-droid]
+&nbsp;
+[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/app-store-badge.svg"
+    alt="Stáhnout v App Store"
+    height=50>][app_store]
+&nbsp;
+[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/windows-badge.png"
+    alt="Stáhnout pro Windows"
+    height=50>][download_windows]
+&nbsp;
+[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/flathub-badge.svg"
+    alt="Stáhnout z Flathubu"
+    height=50>][flathub]
+&nbsp;
+[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/appimage-logo.png"
+    alt="Stáhnout jako AppImage"
+    height=50>][download_appimage]
+&nbsp;
+[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/snap-badge.svg"
+    alt="Stáhnout ze Snap Store"
+    height=50>][snap]
+
 [English](https://github.com/saber-notes/saber/blob/main/README.md) |
 [čeština](https://github.com/saber-notes/saber/blob/main/README-cs.md) |
 [Deutsch](https://github.com/saber-notes/saber/blob/main/README-de.md) |
 [中文 (简体中文, 中国)](https://github.com/saber-notes/saber/blob/main/README-zh-CN.md) |
 [中文 (繁體, 台灣)](https://github.com/saber-notes/saber/blob/main/README-zh-TW.md)
 
-Z pozice vývojáře aplikace Saber vám s nadšením představuji aplikaci, která je revolucí v pořizování poznámek. Saber je ultimátní aplikace pro pořizování ručně psaných poznámek navržená tak, aby pozvedla zážitek z psaní poznámek do nových výšin! Uchopte umění rukopisu a nechte promluvit svou kreativitu díky této funkcemi nabité aplikaci, jenž je poháněna nejmodernějšími technologiemi. Díky intuitivnímu a modernímu prostředí vám Saber umožní přesně a bez námahy zaznamenávat poznámky, kreslit diagramy nebo vepisovat informace do PDF.
+Saber je aplikace pro psaní poznámek uzpůsobená pro ruční psaní.
 
-Když jsem začínal si začínal dělat digitální poznámky, nemohl jsem najít žádnou aplikaci zaměřenou na soukromí a otevřený zdrojový kód, která by splnila mé požadavky, takže jsem nakonec musel používat proprietární aplikaci. Rozhodl jsem se vytvořit Saber, abych dal lidem možnost volby v podobě aplikace orientované na soukromí a otevřený zdrojový kód, které mohou důvěřovat. Saber má kompletně otevřený zdrojový kód, což znamená, že si ho může kdokoliv zkontrolovat a ujistit se, že je bezpečný a dbá na soukromí. Saber šifruje vaše data, která můžete synchronizovat na jakýkoliv kompatibilní server dle vlastní volby, čímž vám dává plnou kontrolu nad vašimi daty.
+Je navržena pro nejjednodušší a nejintuitivnější možné používání, přičemž stále nabízí unikátní funkce, které opravdu využijete. Navíc je Saber dostupný napříč všemi vašimi zařízeními, velkými i malými, mezi nimiž se bez povšimnutí synchronizuje.
 
-Přejete si udělat poznámky na tabletu a přesunout je do počítače? Nebo preferujete psaní poznámek na notebooku a následně je doplňujete na tabletu? Ať již s poznámkami pracujete jakkoliv, Saber váš případ užití pokryje díky podpoře řady platforem umožňující k poznámkám přistupovat kdykoliv, odkudkoliv a z jakéhokoliv zařízení. Saber je k dispozici pro Android, iOS, Windows, macOS a Linux s tím, že vaše poznámky automaticky synchronizuje napříč všemi zařízeními. Pokud nemáte zpřipojení k internetu, Saber poznámky automaticky synchronizuje, jakmile budete zase připojeni.
+Je na místě poznamenat, že umí invertovat vaše poznámky, pokud jste v temném módu. To vám umožňuje psát bílým inkoustem na černém pozadí, což je daleko příjemnější pro oči v prostředí s nedostatkem světla, jako když učitel ve třídě vypne osvětlení. Obrázky a PDF jsou také invertovány, takže stále můžete bez problému používat digitální výtisky nebo učebnice.
 
-Saber nabízí nejlepší digitální zvýrazňovač, jaký jste kdy používali. Potřebovali jste někdy zvýraznit více řádků, ale nesnášíte překrývání tahů zvýrazňovače, které mění barvu? Saber překrytí řeší pomocí pokročilého grafického zpracování, díky němuž udržuje konzistenci barev a poskytuje vám lepší zážitek z použití zvýrazňovače než u tradičního papíru.
+Saber používá systém dvou hesel, aby ochránil vaše poznámky před kýmkoliv kromě vás, i kdyby měl kompletní přístup k serveru. Můžete bezpečně ukládat své poznámky na oficiální server aplikace Saber, jiný server či dokonce pro tyto účely provozovat svůj vlastní server!
 
-Saber má vše, co potřebujete pro to, abyste udržely poznámky organizované. Vytvořte si složky ve složkách ve složkách pro váš vysněný obsah bez omezení počtu zanořených složek. I když může být poznámka pohřbená v hluboko zanořené složce, pořád k ní máte jednoduchý přístup z naposledy upravovaných poznámek na hlavní obrazovce.
+Aplikace má kompletně otevřené zdrojové kódy, takže si je každý může prohlédnout a přesně vidět, co aplikace dělá a jakým způsobem jsou zpracovává vaše data. Spousta dalších aplikací pro pořizování poznámek má uzavřené zdrojové kódy a je proprietární, což znamená, že co se děje uvnitř, je pro veřejnost záhadou.
 
-Saber dokáže vhodně invertovat vaše poznámky, pokud máte aktivní tmavý režim. To znamená, že můžete zakusit plnohodnotnou zkušenost pořizování poznámek v temném režimu, a to včetně obrázků, pro uklidňující a jednotné rozhraní v prostředí s nízkou úrovní světla.
+Jako někdo, kdo studuje matematiku, mohu říct, že pro mě vždy bylo utrpení zvýrazňovat víceřádkové rovnice v jiných aplikacích, kde zvýrazňovač mění barvu po přetažení již zvýrazněné části. Další problém, který jsem měl v některých aplikacích, spočíval v tom, že se zvýrazňovač vykresloval nad textem, takže se text ztrácel a špatně se četl. Zvýrazňovač aplikace Saber těmito neduhy netrpí. Využívá kompozice plátna k vykreslování zvýrazňovače způsobem, který je konzistentní s tradičním papírem, ba možná i lepší, jelikož řeší překrývání a udržuje konzistenci barev.
 
-Objevte úplně nové možnosti zachycování a organizování myšlenek s aplikací Saber. Ať už jste student, profesionál či kreativní duše, Saber je váš důvěrný společník pro digitální ruční psaní. Stáhněte si jej nyní a nechte volně plynout své nápady!
+Saber má vše, co potřebujete k tomu, abyste dokázali organizovat své poznámky. Tvořte složky uvnitř složek uvnitř složek, jak jen chcete bez omezení na počet zanořených složek. Ačkoliv může být poznámka pohřbena hluboko uvnitř vnořené složky, pořád k ní můžete jednoduše přistoupit, jelikož jsou nejnovější poznámky vždy k dispozici na domovské obrazovce.
 
-[<img src='https://github.com/saber-notes/saber/blob/main/assets_raw/badges/google-play-badge.png'
-    alt='Ke stažení na Google Play'
-    height=80>][google_play]
-&nbsp;
-[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/f-droid-badge.png"
-    alt="Ke stažení z F-Droidu"
-    height=80>][f-droid]
-&nbsp;
-[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/app-store-badge.svg"
-    alt="Stáhnout v App Store"
-    height=80>][app_store]
-&nbsp;
-[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/windows-badge.png"
-    alt="Stáhnout pro Windows"
-    height=80>][download_windows]
-&nbsp;
-[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/flathub-badge.svg"
-    alt="Stáhnout z Flathubu"
-    height=80>][flathub]
-&nbsp;
-[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/appimage-logo.png"
-    alt="Stáhnout jako AppImage"
-    height=80>][download_appimage]
-&nbsp;
-[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/snap-badge.svg"
-    alt="Stáhnout ze Snap Store"
-    height=80>][snap]
+Objevte zcela nový způsob zaznamenávání a organizace vašich myšlenek s aplikací Saber. Ať již jste student, profesionál nebo kreativní duše, Saber je vaším důvěryhodným společníkem pro digitální psaní. Stáhněte si jej nyní a nechte volně plynout své nápady!
 
 [![GitHub release (nejnovější vydání)](https://img.shields.io/github/v/release/saber-notes/saber?label=vyd%C3%A1n%C3%AD)](https://github.com/saber-notes/saber/releases/latest)
 [![Flathub](https://img.shields.io/flathub/v/com.adilhanney.saber)](https://flathub.org/apps/details/com.adilhanney.saber)
 [![F-Droid](https://img.shields.io/f-droid/v/com.adilhanney.saber)](https://f-droid.org/en/packages/com.adilhanney.saber/)
 [![Všechna vydání na GitHubu](https://img.shields.io/github/downloads/saber-notes/saber/total?label=sta%C5%BEen%C3%AD%20z%20GitHubu)](https://github.com/saber-notes/saber/releases)
-[![Flathub](https://img.shields.io/flathub/downloads/com.adilhanney.saber?label=Po%C4%8Det%20sta%C5%BEen%C3%AD%20na%20Flathubu)](https://flathub.org/cs/apps/details/com.adilhanney.saber)
-[![Sponzoři na GitHubu](https://img.shields.io/github/sponsors/adil192)](https://github.com/sponsors/adil192)
-[![GitHub](https://img.shields.io/github/license/saber-notes/saber?label=sponzo%C5%99i)](https://github.com/saber-notes/saber/blob/main/LICENSE.md)
+[![Flathub](https://img.shields.io/flathub/downloads/com.adilhanney.saber?label=sta%C5%BEen%C3%AD%20z%20Flathubu)](https://flathub.org/cs/apps/details/com.adilhanney.saber)
+[![Sponzoři na GitHubu](https://img.shields.io/github/sponsors/adil192?label=sponzo%C5%99i)](https://github.com/sponsors/adil192)
+[![GitHub](https://img.shields.io/github/license/saber-notes/saber?label=licence)](https://github.com/saber-notes/saber/blob/main/LICENSE.md)
 [![codecov](https://codecov.io/gh/saber-notes/saber/branch/main/graph/badge.svg?token=EGQSN0THW2)](https://codecov.io/gh/saber-notes/saber)
 
 <details open>
@@ -69,7 +71,7 @@ Objevte úplně nové možnosti zachycování a organizování myšlenek s aplik
 
 ## Features
 
-Podívejte se na [#1 Saber progress][plán vývoje] (anglicky).
+Podívejte se na [#1 plán vývoje aplikace Saber][progress] (anglicky).
 
 ## Instalace
 
@@ -86,7 +88,7 @@ Možnosti:
    - Je třeba poznamenat, že sestavení dostupné na F-Droidu není optimalizované pro zařízení Onyx Boox, které vyžaduje
      [proprietární závislosti](https://github.com/saber-notes/saber/issues/219) od společnosti Onyx.
 
-3. Stažení a instalace `Saber_{verze}.apk` z nejnovějšího [Vydání][releases].
+3. Stažení a instalace `Saber_{verze}.apk` z nejnovějšího [vydání][releases].
 
 #### Linux
 
@@ -94,16 +96,16 @@ Možnost 1 (doporučená):
 Instalace pomocí flatpaku z [Flathubu][flathub]: `flatpak --user install com.adilhanney.saber`.
 
 Možnost 2:
-Stažení `Saber-{verze}-x86_64.AppImage` z nejnovějšího [Vydání][releases],
+Stažení `Saber-{verze}-x86_64.AppImage` z nejnovějšího [vydání][releases],
 nastavení práv pro spuštění `chmod +x Saber-*-x86_64.AppImage` a spuštění.
 
 Možnost 3:
-Díky @soumyaDghosh je k dispozici neoficiální [snap][snap].
-`sudo snap install saber`
+Díky @soumyaDghosh je k dispozici neoficiální [snap][snap]:
+`sudo snap install saber`.
 
 #### Windows
 
-Stažení a instalace `SaberInstaller_{verze}.exe` z nejnovějšího [Vydání][releases].
+Stažení a instalace `SaberInstaller_{verze}.exe` z nejnovějšího [vydání][releases].
 
 Pokud dostáváte chybu ohledně chybějících ddl, ujistěte se, že máte instalované [Visual C++ Redistributable](https://learn.microsoft.com/cs-CZ/cpp/windows/latest-supported-vc-redist).
 
@@ -118,13 +120,13 @@ Stažení aplikace Saber na [App Store][app_store].
 <details>
 <summary>Klepněte pro zobrazení/skrytí instrukcí pro sestavení</summary>
 
-### 1. Instalujte flutter
+### 1. Nainstalujte flutter
 https://docs.flutter.dev/get-started/install
 ### 2. Naklonujte si tento projekt
 ```bash
 git clone https://github.com/saber-notes/saber.git
 ```
-### 3. Získejte závislosti
+### 3. Natáhněte si závislosti
 ```bash
 flutter pub get
 ```
@@ -133,26 +135,26 @@ flutter pub get
 
 Postup pro balíček [super_clipboard](https://pub.dev/packages/super_clipboard)
 se dá shrnout jako:
-- Instalace [Rustu](https://www.rust-lang.org/tools/install)
-- Instalace NDK 26.1.10909125 pro případ, že sestavujete pro Android
+- Nainstalujte [Rustu](https://www.rust-lang.org/tools/install)
+- Nainstalujte NDK 26.1.10909125 v případě, že sestavujete pro Android
 
-### 5. Sestavení pro...
+### 5. Sestavení pro…
 
 #### Linux
 
-`sudo apt install libsecret-1-dev libjsoncpp-dev`
+`sudo apt install libsecret-1-dev libjsoncpp-dev libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev`
 `flutter build linux`
 
-Toto je dostatečné pro použití na vlastím počítači, ale pokud chcete své sestaení distribuovat,
-budete potřebovat použitít předvídatelné prostředí: udělejte fork totoho repozitáře a použijte místo toho GitHub Action
+Toto je dostatečné pro použití na vlastním počítači, ale pokud chcete své sestavení distribuovat,
+budete potřebovat použít předvídatelné prostředí: udělejte fork tohoto repozitáře a použijte místo toho GitHub Action
 [Build for Linux](https://github.com/saber-notes/saber/actions/workflows/linux.yml).
 
 #### Android
 
 `flutter build apk`
 
-Budete potřevoat vygenerovat a podepsat certifikát a vytvořit soubor `android/key.properties`.
-Více informací nahttps://docs.flutter.dev/deployment/android#create-an-upload-keystore
+Budete potřebovat vygenerovat a podepsat certifikát a vytvořit soubor `android/key.properties`.
+Více informací na https://docs.flutter.dev/deployment/android#create-an-upload-keystore
 
 Poznámka: vydání pro [F-Droid][f-droid-manifest] jsou sestavena výrazně odlišně
 ```bash
@@ -171,7 +173,7 @@ pomocí Inno Setup Compiler.
 
 #### iOS and macOS
 
-Pokud máte počítač macOS, můžete
+Pokud máte počítač s macOS, můžete
 [sestavovat pro iOS](https://docs.flutter.dev/deployment/ios#create-an-app-bundle)
 pomocí `flutter build ipa` nebo
 [sestavovat pro macOS](https://docs.flutter.dev/deployment/macos#create-a-build-archive-with-xcode)
@@ -194,7 +196,7 @@ pro manuální sestavení s využitím [Codemagic](https://codemagic.io/start/).
 
 ## Překlady
 
-Veškeré překlady jsou založené na crowdsourcingu. Saber byl zatím přeložen do 
+Veškeré překlady jsou založené na crowdsourcingu. Saber byl zatím přeložen do:
 - angličtiny ([en](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings.i18n.yaml))
 - arabštiny ([ar](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_ar.i18n.yaml))
 - češtiny ([cs](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_cs.i18n.yaml))
@@ -202,6 +204,7 @@ Veškeré překlady jsou založené na crowdsourcingu. Saber byl zatím přelož
 - španělštiny ([es](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_es.i18n.yaml))
 - perštiny ([fa](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_fa.i18n.yaml))
 - francouzštiny ([fr](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_fr.i18n.yaml))
+- hebrejštiny ([he](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_he.i18n.yaml))
 - maďarštiny ([hu](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_hu.i18n.yaml))
 - italštiny ([it](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_it.i18n.yaml))
 - japonštiny ([ja](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_ja.i18n.yaml))
@@ -211,13 +214,14 @@ Veškeré překlady jsou založené na crowdsourcingu. Saber byl zatím přelož
 - zjednodušené čínštiny ([zh_Hans_CN](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_zh_Hans_CN.i18n.yaml))
 - tradiční čínštiny ([zh_Hant_TW](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_zh_Hant_TW.i18n.yaml))
 
+Experimentuji s využitím Weblate pro crowdsourcované překlady. Více informací se dozvíte později.
+
 ### Rozšiřování existujících překladů
 
 Podívejte se do [_missing_translations.yaml](https://github.com/saber-notes/saber/blob/main/lib/i18n/_missing_translations.yaml),
    zda nechybí nějaké překlady.
 
-1. Použijte [tento odkaz](https://github.com/saber-notes/saber/edit/main/lib/i18n/_missing_translations.yaml)
-   pro úpravu `_missing_translations.yaml`.
+1. Pro úpravu `_missing_translations.yaml` použijte [tento odkaz](https://github.com/saber-notes/saber/edit/main/lib/i18n/_missing_translations.yaml).
 2. Aktualizujte soubor `_missing_translations.yaml` pomocí svého překladu, např. aktualizací němčiny (de)
     ```yaml
     de:
@@ -279,13 +283,13 @@ Jsou 2 formáty popisů do obchodů s aplikacemi:
       a já tam zkopíruji překlady ze sekcí uvedených výše.
    
    ii. V [`flatpak/com.adilhanney.saber.metainfo.xml`](https://github.com/saber-notes/saber/blob/main/flatpak/com.adilhanney.saber.metainfo.xml)
-       přijdete před uzavírací značku `</description>` svůj překlad
+       přidejte před uzavírací značku `</description>` svůj překlad
        v následujícím formátu, kde `XX` je kód vašeho jazyka:
     ```html
     <p xml:lang="XX">Váš překlad</p>
     ```
 
-   iii. Ve stejném souboru můžete přeložit záznamy o změnách odbodnou změnou ve
+   iii. Ve stejném souboru můžete přeložit záznamy o změnách obdobnou změnou ve
         značkách `<release>` před jejich uzavírací značkou `</description>`.
 
 
@@ -294,9 +298,9 @@ Jsou 2 formáty popisů do obchodů s aplikacemi:
 Pokud máte rádi Saber, zvažte prosím jeho podporu pomocí
 - Poděkování!
 - Hvězdičky pro projekt na GitHubu
-- Sponzorování prostřednictvím [GitHub Sponsors](https://github.com/sponsors/adil192)
+- Sponzorství prostřednictvím [GitHub Sponsors](https://github.com/sponsors/adil192)
 - Zaslání daru na [PayPal](https://paypal.me/adilhanney)
-- Zakoupení více místa na Nextcloud serveru: podívejte se na [Ceník](pricing.md) (v angličtině)
+- Zakoupení více místa na oficiálním Nextcloud serveru: podívejte se na [Ceník](pricing-cs.md)
 
 ## Poznámky pro vývojáře
 
@@ -312,7 +316,7 @@ Pokud máte rádi Saber, zvažte prosím jeho podporu pomocí
 - Pokud aktualizujete **ikony**, spusťte tyto příkazy:
   - Obecné: `dart run icons_launcher:create`
   - Flatpak ikony: `cd assets/icon && ./resize-icon.sh`
-- Když aktualizujte **překlady**...
+- Když aktualizujte **překlady**…
   - Spusťte tyto příkazy:
     - `dart run slang apply --locale=XX` pro případ, že potřebujete aplikovat _missing_translations.yaml
     - `dart run slang`
@@ -322,8 +326,8 @@ Pokud máte rádi Saber, zvažte prosím jeho podporu pomocí
     - `CFBundleLocalizations` v `macos/Runner/Info.plist`
     - `android/app/src/main/res/xml/locales_config.xml`
     - `lib/data/locales.dart`
-    - `README.md` výše v sekci "Překlady".
-    - a spusťte `dart scripts/translate_changelogs.dart` pro překlad záznamu změn.
+    - `README.md` (a jeho lokalizované varianty) výše v sekci "Překlady".
+    - a pro překlad záznamu změn spusťte `dart scripts/translate_changelogs.dart`.
 
 </details>
 
@@ -332,8 +336,8 @@ Pokud máte rádi Saber, zvažte prosím jeho podporu pomocí
 [google_play]: https://play.google.com/store/apps/details?id=com.adilhanney.saber
 [snap]: https://snapcraft.io/saber
 [app_store]: https://apps.apple.com/cz/app/saber/id1671523739
-[download_windows]: https://github.com/saber-notes/saber/releases/download/v0.14.10/SaberInstaller_v0.14.10.exe
-[download_appimage]: https://github.com/saber-notes/saber/releases/download/v0.14.10/Saber-0.14.10-x86_64.AppImage
+[download_windows]: https://github.com/saber-notes/saber/releases/download/v0.23.0/SaberInstaller_v0.23.0.exe
+[download_appimage]: https://github.com/saber-notes/saber/releases/download/v0.23.0/Saber-0.23.0-x86_64.AppImage
 
 [nextcloud]: https://nc.saber.adil.hanney.org/
 

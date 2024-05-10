@@ -1,3 +1,7 @@
+common:
+  cancel: 取消
+  done(OUTDATED): 終わり
+  continueBtn(OUTDATED): 続く
 home:
   tabs:
     home: ホーム
@@ -84,6 +88,10 @@ settings:
     hideHomeBackgrounds: ホーム画面で背景を隠す
     recentColorsDontSavePresets: 最近使用した色をプリセットに登録しない
     printPageIndicators: 印刷ページのインジケーター
+    refreshCurrentNote(OUTDATED): 現在のノートを定期的に更新する
+    pencilSoundSetting(OUTDATED): 鉛筆の効果音
+    customDataDir(OUTDATED): カスタムデータディレクトリ
+    autoStraightenLines(OUTDATED): 線を自動直線化する
     shapeRecognitionDelay(OUTDATED): 形状認識の遅延
     recentColorsLength(OUTDATED): 最近使用した色を何色保存するか
     autosaveDelay(OUTDATED): 自動保存の遅延
@@ -104,6 +112,12 @@ settings:
     editorPromptRename: メモの名前は後でいつでも変更できます
     hideHomeBackgrounds: よりクリーンな外観に
     printPageIndicators: エクスポートにページインジケーターを表示
+    pencilSoundSetting:
+      off(OUTDATED): 無音
+      onButNotInSilentMode(OUTDATED): 有効 (サイレントモードでない場合)
+      onAlways(OUTDATED): 有効（サイレントモードでも）
+    refreshCurrentNote(OUTDATED): 別のデバイスで編集している場合は、現在開いているノートを更新します
+    autoStraightenLines(OUTDATED): シェイプペンを使用せずに長い線をまっすぐにします。
     shapeRecognitionDelay(OUTDATED): 形状プレビューを更新する頻度
     autosaveDelay(OUTDATED): メモを自動保存するまでの待ち時間
     disableEraserAfterUse(OUTDATED): 消しゴムを使用した後は自動的にペンに戻ります
@@ -127,51 +141,57 @@ settings:
   reset:
     title: この設定をリセットしますか？
     button: リセット
+  customDataDir:
+    cancel(OUTDATED): キャンセル
+    select(OUTDATED): 選択する
+    mustBeEmpty(OUTDATED): 選択したディレクトリは空である必要があります
+    mustBeDoneSyncing(OUTDATED): ディレクトリを変更する前に同期が完了していることを確認してください
   resyncEverything(OUTDATED): すべてを再同期する
 login:
   title: ログイン
-  feedbacks:
-    checkUsername: ユーザー名またはEメールを再度ご確認ください。
-    enterNcPassword: Nextcloudのパスワードを入力してください。
-    enterEncPassword: 暗号化パスワードを入力してください。
-    checkUrl: 有効なURLを入力してください。
-    ncLoginFailed: ログインに失敗しました。詳細とネットワーク接続を確認してください。
-    encLoginFailed: ログインに失敗しました。暗号化パスワードを確認してください。
-    loginSuccess: ログインに成功しました！セットアップ中です。しばらくお待ちください...
-    ncUnsupportedFailure(OUTDATED): 指定されたサーバーは Nextcloud $v を実行していますが、このバージョンの Saber は Nextcloud $s ～ $t のみをサポートします。
   form:
-    useCustomServer: カスタムNextcloudサーバーを使いたい
-    customServerUrl: カスタムサーバーURL
-    username: ユーザー名またはメールアドレス
-    ncPassword: Nextcloudのパスワード
-    encPassword: 暗号化パスワード
     agreeToPrivacyPolicy(rich): "ログインすることにより、${linkToPrivacyPolicy(プライベートポリシー)}に同意したものとみなされます。"
-    login: ログイン
   signup(rich): "まだアカウントをお持ちでないですか？ ${linkToSignup(今すぐ登録)}!"
   status:
-    loggedIn: Nextcloudでログイン
     loggedOut: ログアウト
     tapToLogin: タップしてNextcloudにログイン
-  faq:
-    - q: Nextcloudとは？
-      a: Nextcloudは、プライベートなファイル同期サーバーです。デフォルトのSaber Nextcloudサーバーを使用することも、サードパーティのサーバーを使用することも、データを完全に管理するために自身でホストすることも可能です。
-    - q: 暗号化パスワードは何ですか？
-      a: |-
-        暗号化パスワードは、サーバーに送信する前にデータを暗号化するために使用されます。Saberに最初にログインする際に選択するもので、Nextcloudのアカウントやパスワードとは関係ありません。
-        暗号化パスワードがなければ、誰もサーバー上のメモにアクセスすることはできません。また、暗号化パスワードを忘れると、データにアクセスすることができなくなります。
-    - q: なぜ2つのパスワードを使うのですか？
-      a: |-
-        Nextcloudのパスワードはクラウドに接続するために使用されます。暗号化パスワードを用いてデータがクラウドに届く前にデータを "暗号化" します。
-        そのため、たとえ誰かがあなたのNextcloudアカウントにアクセスしたとしても、メモは別のパスワードで暗号化されている状態になります。これにより、Saberのデーターは2重に保護されます。
-    - q: 2FAを使用している場合、どのようにログインすればいいですか？
-      a: "通常のNextcloudパスワードの代わりに、\"アプリパスワード\"を作成する必要があります。これはNextcloudの設定で、「セキュリティ」>「デバイスとセッション」>「新しいアプリパスワードを作成」でできます。暗号化パスワードは影響を受けません。"
-    - q: 両方に同じパスワードを使用できますか？
-      a: 可能ですが、そうすれば安全性が低下します。Nextcloudのパスワードはサーバーに送信されるため、サーバーにアクセスできる人はメモを解読することができます。サーバーの所有者を信頼できる場合にのみ、同じパスワードを使用してください。
+    loggedIn: Nextcloudでログイン
+    hi(OUTDATED): "こんにちは、$u!"
+    almostDone(OUTDATED): 同期の準備がほぼ完了しました。タップしてログインを完了してください
+  ncLoginStep:
+    loginFlow:
+      pleaseAuthorize(OUTDATED): Saber に Nextcloud アカウントへのアクセスを許可してください
+      followPrompts(OUTDATED): ブラウザの指示に従ってください。
+      browserDidntOpen(OUTDATED): ブラウザが開きませんでした
+    whereToStoreData(OUTDATED): "データを保存する場所を選択します:"
+    saberNcServer(OUTDATED): Saber の Nextcloud サーバー
+    otherNcServer(OUTDATED): 他のNextcloudサーバー
+    serverUrl(OUTDATED): サーバーURL
+    loginWithSaber(OUTDATED): セイバーでログイン
+    loginWithNextcloud(OUTDATED): Nextcloudでログイン
+  encLoginStep:
+    enterEncPassword(OUTDATED): "データを保護するには、暗号化パスワードを入力してください:"
+    newToSaber(OUTDATED): セイバー初心者
+    encPassword(OUTDATED): 暗号化パスワード
+    encFaqTitle(OUTDATED): よくある質問
+    wrongEncPassword(OUTDATED): 指定されたパスワードでは復号化に失敗しました。もう一度入力してみてください。
+    connectionFailed(OUTDATED): サーバーへの接続中に問題が発生しました。後でもう一度試してください。
+    encFaq(OUTDATED):
+      - q: 暗号化パスワードは何ですか？
+        a: |-
+          暗号化パスワードは、サーバーに送信する前にデータを暗号化するために使用されます。Saberに最初にログインする際に選択するもので、Nextcloudのアカウントやパスワードとは関係ありません。
+          暗号化パスワードがなければ、誰もサーバー上のメモにアクセスすることはできません。また、暗号化パスワードを忘れると、データにアクセスすることができなくなります。
+      - q: なぜ2つのパスワードを使うのですか？
+        a: |-
+          Nextcloudのパスワードはクラウドに接続するために使用されます。暗号化パスワードを用いてデータがクラウドに届く前にデータを "暗号化" します。
+          そのため、たとえ誰かがあなたのNextcloudアカウントにアクセスしたとしても、メモは別のパスワードで暗号化されている状態になります。これにより、Saberのデーターは2重に保護されます。
+      - q: 両方に同じパスワードを使用できますか？
+        a: 可能ですが、そうすれば安全性が低下します。Nextcloudのパスワードはサーバーに送信されるため、サーバーにアクセスできる人はメモを解読することができます。サーバーの所有者を信頼できる場合にのみ、同じパスワードを使用してください。
+  notYou(rich, OUTDATED): "${undoLogin(あなたではありません)}"
 profile:
   title: プロフィール
   logout: ログアウト
   quickLinks:
-    title: クイックリンク
     serverHomepage: サーバーホームページ
     deleteAccount: アカウントの削除
   faq:
@@ -187,6 +207,9 @@ profile:
         4. 他のデバイスでもログアウトしてログインし直すことをお忘れなく。
     - q: アカウントを削除するにはどうすればよいですか？
       a: "上部の\"@:profile.quickLinks.deleteAccount\"ボタンをタップし、必要であればログインしてください。Saber公式サーバーを利用している場合、1週間の猶予期間の後にアカウントが削除されます。この期間中であれば、adilhanney@disroot.orgまでご連絡いただければ、削除を取り消すことが可能です。サードパーティのサーバーをご利用の場合、アカウントを削除するオプションがない場合があります。詳細については、ご利用のサーバープライバシーポリシーをご確認ください。"
+  quotaUsage(OUTDATED): $total ($percent) のうち $used を使用しています
+  connectedTo(OUTDATED): に接続されています
+  faqTitle(OUTDATED): よくある質問
 appInfo:
   licenseNotice: |-
     Saber  Copyright © 2022-$buildYear  Adil Hanney
@@ -223,7 +246,6 @@ editor:
     shapePen(OUTDATED): シェイプペン
   penOptions:
     size: サイズ
-    sizeDragHint: 左右にドラッグしてサイズを変更
   colors:
     colorPicker: カラーピッカー
     black: 黒
@@ -268,7 +290,6 @@ editor:
     duplicatePage: 重複したページ
     deletePage: ページの削除
     lineHeight: 行の高さ
-    lineHeightDescription: 文字サイズを調整
     backgroundPattern: 背景パターン
     import: インポート
     boxFits:
@@ -285,13 +306,13 @@ editor:
       staffs: スタッフ
       cornell: 角
       tablature(OUTDATED): タベルチュア
+    lineHeightDescription(OUTDATED): 入力されたメモのテキスト サイズも制御します
     backgroundImageFit(OUTDATED): 背景画像
   newerFileFormat:
     readOnlyMode: 読み取り専用モード
     title: このメモは新しいバージョンのSaberを使用して編集されたものです
     subtitle: このメモを編集すると、いくつかの情報が失われる可能性があります。これを無視して編集しますか？
     allowEditing: 編集を許可する
-    cancel: 取消
   quill:
     typeSomething: ここに何かを入力してください...
   hud:

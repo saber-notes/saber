@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:collection';
 import 'dart:convert';
 import 'dart:io';
@@ -10,6 +11,7 @@ import 'package:nextcloud/provisioning_api.dart';
 import 'package:perfect_freehand/perfect_freehand.dart';
 import 'package:saber/components/canvas/_canvas_background_painter.dart';
 import 'package:saber/components/navbar/responsive_navbar.dart';
+import 'package:saber/data/editor/pencil_sound.dart';
 import 'package:saber/data/flavor_config.dart';
 import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
 import 'package:saber/data/tools/_tool.dart';
@@ -43,20 +45,33 @@ abstract class Prefs {
 
   static late final PlainPref<bool> disableAds;
 
+  static late final PlainPref<String?> customDataDir;
+
   static late final EncPref<bool> allowInsecureConnections;
   static late final EncPref<String> url;
   static late final EncPref<String> username;
 
   /// the password used to login to Nextcloud
   static late final EncPref<String> ncPassword;
+  static late final PlainPref<bool> ncPasswordIsAnAppPassword;
 
   /// the password used to encrypt/decrypt notes
   static late final EncPref<String> encPassword;
+
+  /// Whether the user is logged in and has provided both passwords.
+  /// Please ensure that the relevant Prefs are loaded before using this.
+  static bool get loggedIn =>
+      url.loaded &&
+      username.value.isNotEmpty &&
+      ncPassword.value.isNotEmpty &&
+      ncPasswordIsAnAppPassword.loaded &&
+      encPassword.value.isNotEmpty;
 
   static late final EncPref<String> key;
   static late final EncPref<String> iv;
 
   static late final PlainPref<Uint8List?> pfp;
+  static late final PlainPref<bool> syncInBackground;
 
   static late final PlainPref<ThemeMode> appTheme;
 
@@ -81,6 +96,9 @@ abstract class Prefs {
   static late final PlainPref<bool> editorPromptRename;
   static late final PlainPref<int> autosaveDelay;
   static late final PlainPref<int> shapeRecognitionDelay;
+  static late final PlainPref<bool> autoStraightenLines;
+  static late final PlainPref<PencilSoundSetting> pencilSound;
+  static late final PlainPref<bool> refreshCurrentNote;
 
   static late final PlainPref<bool> hideHomeBackgrounds;
   static late final PlainPref<bool> printPageIndicators;
@@ -115,7 +133,10 @@ abstract class Prefs {
       lastSingleFingerPanLock,
       lastAxisAlignedPanLock;
 
-  static late final PlainPref<bool> hasDraggedSizeIndicatorBefore;
+  @Deprecated('Hint isn\'t needed anymore. '
+      'This Pref exists to deprecate the shared preference.')
+  // ignore: unused_field
+  static late final PlainPref<bool> _hasDraggedSizeIndicatorBefore;
 
   static late final PlainPref<List<String>> recentFiles;
 
@@ -149,16 +170,19 @@ abstract class Prefs {
     }
     disableAds = PlainPref('disableAds', disableAdsDefault);
 
+    customDataDir = PlainPref('customDataDir', null);
     allowInsecureConnections = EncPref('allowInsecureConnections', false);
     url = EncPref('url', '');
     username = EncPref('username', '');
     ncPassword = EncPref('ncPassword', '');
+    ncPasswordIsAnAppPassword = PlainPref('ncPasswordIsAnAppPassword', false);
     encPassword = EncPref('encPassword', '');
 
     key = EncPref('key', '');
     iv = EncPref('iv', '');
 
     pfp = PlainPref('pfp', null);
+    syncInBackground = PlainPref('syncInBackground', true);
 
     appTheme = PlainPref('appTheme', ThemeMode.system);
     platform = PlainPref('platform', defaultTargetPlatform);
@@ -183,6 +207,10 @@ abstract class Prefs {
     editorPromptRename = PlainPref('editorPromptRename', isDesktop);
     autosaveDelay = PlainPref('autosaveDelay', 10000);
     shapeRecognitionDelay = PlainPref('shapeRecognitionDelay', 500);
+    autoStraightenLines = PlainPref('autoStraightenLines', true);
+    pencilSound =
+        PlainPref('pencilSound', PencilSoundSetting.onButNotInSilentMode);
+    refreshCurrentNote = PlainPref('refreshCurrentNote', false);
 
     hideHomeBackgrounds = PlainPref('hideHomeBackgrounds', false);
     printPageIndicators = PlainPref('printPageIndicators', false);
@@ -239,8 +267,10 @@ abstract class Prefs {
         historicalKeys: const ['lastPanLock']);
     lastAxisAlignedPanLock = PlainPref('lastAxisAlignedPanLock', false);
 
-    hasDraggedSizeIndicatorBefore =
-        PlainPref('hasDraggedSizeIndicatorBefore', false);
+    // ignore: deprecated_member_use_from_same_package
+    _hasDraggedSizeIndicatorBefore = PlainPref(
+        '_hasDraggedSizeIndicatorBefore', true,
+        deprecatedKeys: const ['hasDraggedSizeIndicatorBefore']);
 
     recentFiles = PlainPref('recentFiles', [],
         historicalKeys: const ['recentlyAccessed']);
@@ -291,12 +321,6 @@ abstract class IPref<T> extends ValueNotifier<T> {
 
   final T defaultValue;
 
-  bool _loaded = false;
-
-  /// Whether this pref has changes that have yet to be saved to disk.
-  @protected
-  bool _saved = true;
-
   IPref(
     this.key,
     this.defaultValue, {
@@ -306,11 +330,12 @@ abstract class IPref<T> extends ValueNotifier<T> {
         deprecatedKeys = deprecatedKeys ?? [],
         super(defaultValue) {
     if (Prefs.testingMode) {
-      _loaded = true;
+      loaded = true;
+
       return;
     } else {
       _load().then((T? loadedValue) {
-        _loaded = true;
+        loaded = true;
         if (loadedValue != null) {
           value = loadedValue;
         }
@@ -338,13 +363,33 @@ abstract class IPref<T> extends ValueNotifier<T> {
     return super.value;
   }
 
+  bool _loaded = false;
+  Completer<void>? _loadedCompleter = Completer();
   bool get loaded => _loaded;
-  bool get saved => _saved;
+  @protected
+  set loaded(bool loaded) {
+    _loaded = loaded;
+
+    if (loaded) {
+      if (!_loadedCompleter!.isCompleted) _loadedCompleter!.complete();
+      _loadedCompleter = null;
+    }
+  }
+
+  final _saved = ValueNotifier<bool>(true);
+
+  /// Whether this pref has changes that have yet to be saved to disk.
+  bool get saved => _saved.value;
+  @protected
+  set saved(bool saved) {
+    _saved.value = saved;
+  }
 
   Future<void> waitUntilLoaded() async {
-    while (!loaded) {
-      await Future.delayed(const Duration(milliseconds: 10));
-    }
+    if (loaded) return;
+    assert(_loadedCompleter != null,
+        '_loadedCompleter should be non-null until loaded');
+    return _loadedCompleter!.future;
   }
 
   /// Waits until the value has been saved to disk.
@@ -352,9 +397,18 @@ abstract class IPref<T> extends ValueNotifier<T> {
   /// the value will actually be saved to disk.
   @visibleForTesting
   Future<void> waitUntilSaved() async {
-    while (!saved) {
-      await Future.delayed(const Duration(milliseconds: 10));
+    if (saved) return;
+
+    final completer = Completer();
+
+    void listener() {
+      if (!saved) return;
+      _saved.removeListener(listener);
+      completer.complete();
     }
+
+    _saved.addListener(listener);
+    return completer.future;
   }
 
   /// Lets us use notifyListeners outside of the class
@@ -373,6 +427,7 @@ class PlainPref<T> extends IPref<T> {
         T == int ||
         T == double ||
         T == String ||
+        T == typeOf<String?>() ||
         T == typeOf<Uint8List?>() ||
         T == typeOf<List<String>>() ||
         T == typeOf<Set<String>>() ||
@@ -385,7 +440,8 @@ class PlainPref<T> extends IPref<T> {
         T == LayoutSize ||
         T == ToolId ||
         T == CanvasBackgroundPattern ||
-        T == DateTime);
+        T == DateTime ||
+        T == PencilSoundSetting);
   }
 
   @override
@@ -420,7 +476,7 @@ class PlainPref<T> extends IPref<T> {
 
   @override
   Future _save() async {
-    _saved = false;
+    saved = false;
     try {
       _prefs ??= await SharedPreferences.getInstance();
 
@@ -475,11 +531,13 @@ class PlainPref<T> extends IPref<T> {
         } else {
           return await _prefs!.setString(key, date.toIso8601String());
         }
+      } else if (T == PencilSoundSetting) {
+        return await _prefs!.setInt(key, (value as PencilSoundSetting).index);
       } else {
         return await _prefs!.setString(key, value as String);
       }
     } finally {
-      _saved = true;
+      saved = true;
     }
   }
 
@@ -545,6 +603,9 @@ class PlainPref<T> extends IPref<T> {
         String? iso8601 = _prefs!.getString(key);
         if (iso8601 == null) return null;
         return DateTime.parse(iso8601) as T;
+      } else if (T == PencilSoundSetting) {
+        final index = _prefs!.getInt(key);
+        return index != null ? PencilSoundSetting.values[index] as T? : null;
       } else {
         return _prefs!.get(key) as T?;
       }
@@ -601,7 +662,7 @@ class EncPref<T> extends IPref<T> {
 
   @override
   Future _save() async {
-    _saved = false;
+    saved = false;
     try {
       _storage ??= const FlutterSecureStorage();
       if (T == String)
@@ -610,7 +671,7 @@ class EncPref<T> extends IPref<T> {
         return await _storage!.write(key: key, value: jsonEncode(value));
       return await _storage!.write(key: key, value: jsonEncode(value));
     } finally {
-      _saved = true;
+      saved = true;
     }
   }
 

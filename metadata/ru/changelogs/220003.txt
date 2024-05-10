@@ -1,0 +1,1 @@
+metadata/ru/changelogs/22000.txt

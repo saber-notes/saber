@@ -1,3 +1,4 @@
+#!/usr/bin/env dart
 // Run `dart scripts/translate_changelogs.dart` to generate the changelogs.
 
 // ignore_for_file: avoid_print
@@ -10,10 +11,12 @@ import 'package:saber/data/version.dart';
 import 'package:simplytranslate/simplytranslate.dart';
 import 'package:simplytranslate/src/langs/language.dart';
 
-final nearestLocaleCodes = <String, String>{
+import 'src/fix_spelling.dart';
+
+const nearestLocaleCodes = <String, String>{
   'he': 'iw',
-  'zh-Hans-CN': 'zh-cn',
-  'zh-Hant-TW': 'zh-tw',
+  'zh-Hans-CN': 'zh',
+  'zh-Hant-TW': 'zh_HANT',
 };
 
 Future<String> getEnglishChangelog() async {
@@ -27,7 +30,7 @@ Future symlinkChangelog(String localeCode) async {
   final fileFDroid =
       Link('metadata/$localeCode/changelogs/${buildNumber}3.txt');
   if (fileFDroid.existsSync()) return;
-  fileFDroid.create(fileNormal.path);
+  await fileFDroid.create(fileNormal.path);
 }
 
 void main() async {
@@ -72,7 +75,9 @@ void main() async {
     final file = File('metadata/$localeCode/changelogs/$buildNumber.txt');
     if (file.existsSync()) {
       print(
-          '$stepPrefix. Skipped $localeCode ($localeName) because it already exists');
+        '$stepPrefix. '
+        'Skipped $localeCode ($localeName) because it already exists',
+      );
       continue;
     } else {
       print('$stepPrefix. Translating to $localeCode ($localeName)...');
@@ -96,15 +101,10 @@ void main() async {
       print('${' ' * stepPrefix.length}  - Selected $nearestLocaleCode');
     }
 
-    Translation translation;
+    List<String> translations;
     try {
-      translation = await translator
-          .translateSimply(
-            englishChangelog,
-            from: 'en',
-            to: nearestLocaleCode,
-            retries: 3,
-          )
+      translations = await translator
+          .translateLingva(englishChangelog, 'en', nearestLocaleCode)
           .timeout(const Duration(seconds: 5));
     } catch (e) {
       print('${' ' * stepPrefix.length}  ! Translation failed, skipping...');
@@ -112,7 +112,8 @@ void main() async {
       continue;
     }
 
-    var translatedChangelog = translation.translations.text;
+    var translatedChangelog = translations.first;
+    translatedChangelog = fixSpelling(translatedChangelog);
     if (!translatedChangelog.endsWith('\n')) {
       // translations sometimes don't end with a newline
       translatedChangelog += '\n';

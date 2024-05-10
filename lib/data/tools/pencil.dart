@@ -10,7 +10,7 @@ class Pencil extends Pen {
       : super(
           name: t.editor.pens.pencil,
           sizeMin: 1,
-          sizeMax: 25,
+          sizeMax: 15,
           sizeStep: 1,
           icon: pencilIcon,
           options: Prefs.lastPencilOptions.value,

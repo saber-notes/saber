@@ -6,6 +6,10 @@ on:
   push:
     tags:
       - '**'
+    branches:
+      - '**'
+    paths:
+      - .github/workflows/update-landing-page.yml
 
 jobs:
   dispatch:

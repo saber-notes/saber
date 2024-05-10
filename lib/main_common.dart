@@ -8,7 +8,6 @@ import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 import 'package:logging/logging.dart';
 import 'package:onyxsdk_pen/onyxsdk_pen_area.dart';
-import 'package:open_as_default/open_as_default.dart';
 import 'package:path_to_regexp/path_to_regexp.dart';
 import 'package:printing/printing.dart';
 import 'package:receive_sharing_intent/receive_sharing_intent.dart';
@@ -16,6 +15,7 @@ import 'package:saber/components/canvas/invert_shader.dart';
 import 'package:saber/components/canvas/pencil_shader.dart';
 import 'package:saber/components/home/banner_ad_widget.dart';
 import 'package:saber/components/theming/dynamic_material_app.dart';
+import 'package:saber/data/editor/pencil_sound.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/nextcloud/file_syncer.dart';
 import 'package:saber/data/nextcloud/nc_http_overrides.dart';
@@ -26,12 +26,16 @@ import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/editor/editor.dart';
 import 'package:saber/pages/home/home.dart';
 import 'package:saber/pages/user/login.dart';
-import 'package:saber/pages/user/profile_page.dart';
 import 'package:window_manager/window_manager.dart';
 import 'package:worker_manager/worker_manager.dart';
+import 'package:workmanager/workmanager.dart';
 
-Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+Future<void> main({
+  WidgetsBinding? Function() initWidgetsBinding =
+      WidgetsFlutterBinding.ensureInitialized,
+  void Function(Widget) runApp = runApp,
+}) async {
+  initWidgetsBinding();
 
   Logger.root.level = kDebugMode ? Level.INFO : Level.WARNING;
   Logger.root.onRecord.listen((record) {
@@ -52,7 +56,7 @@ Future<void> main() async {
   Prefs.init();
 
   await Future.wait([
-    FileManager.init(),
+    Prefs.customDataDir.waitUntilLoaded().then((_) => FileManager.init()),
     if (Platform.isWindows || Platform.isLinux || Platform.isMacOS)
       windowManager.ensureInitialized(),
     workerManager.init(),
@@ -62,6 +66,7 @@ Future<void> main() async {
     Prefs.allowInsecureConnections.waitUntilLoaded(),
     InvertShader.init(),
     PencilShader.init(),
+    PencilSound.preload(),
     Printing.info().then((info) {
       Editor.canRasterPdf = info.canRaster;
     }),
@@ -72,6 +77,7 @@ Future<void> main() async {
 
   setLocale();
   Prefs.locale.addListener(setLocale);
+  Prefs.customDataDir.addListener(FileManager.migrateDataDir);
 
   LicenseRegistry.addLicense(() async* {
     final license = await rootBundle.loadString('assets/google_fonts/OFL.txt');
@@ -80,16 +86,21 @@ Future<void> main() async {
 
   HttpOverrides.global = NcHttpOverrides();
   runApp(TranslationProvider(child: const App()));
-  startSyncAfterUsernameLoaded();
+  startSyncAfterLoaded();
+  setupBackgroundSync();
 }
 
-void startSyncAfterUsernameLoaded() async {
+void startSyncAfterLoaded() async {
   await Prefs.username.waitUntilLoaded();
+  await Prefs.encPassword.waitUntilLoaded();
 
-  Prefs.username.removeListener(startSyncAfterUsernameLoaded);
-  if (Prefs.username.value.isEmpty) {
+  Prefs.username.removeListener(startSyncAfterLoaded);
+  Prefs.encPassword.removeListener(startSyncAfterLoaded);
+  if (!Prefs.loggedIn) {
     // try again when logged in
-    return Prefs.username.addListener(startSyncAfterUsernameLoaded);
+    Prefs.username.addListener(startSyncAfterLoaded);
+    Prefs.encPassword.addListener(startSyncAfterLoaded);
+    return;
   }
 
   // wait for other prefs to load
@@ -106,6 +117,55 @@ void setLocale() {
   } else {
     LocaleSettings.useDeviceLocale();
   }
+}
+
+void setupBackgroundSync() {
+  if (!Platform.isAndroid && !Platform.isIOS) return;
+  if (!Prefs.syncInBackground.loaded) {
+    return Prefs.syncInBackground.addListener(setupBackgroundSync);
+  } else {
+    Prefs.syncInBackground.removeListener(setupBackgroundSync);
+  }
+  if (!Prefs.syncInBackground.value) return;
+
+  Workmanager().initialize(doBackgroundSync, isInDebugMode: kDebugMode);
+  const uniqueName = 'background-sync';
+  const initialDelay = Duration(hours: 12);
+  final constraints = Constraints(
+    networkType: NetworkType.unmetered,
+    requiresBatteryNotLow: true,
+    requiresCharging: false,
+    requiresDeviceIdle: true,
+    requiresStorageNotLow: true,
+  );
+
+  if (Platform.isAndroid)
+    Workmanager().registerPeriodicTask(uniqueName, uniqueName,
+        frequency: initialDelay,
+        initialDelay: initialDelay,
+        constraints: constraints);
+  else if (Platform.isIOS)
+    Workmanager().registerOneOffTask(uniqueName, uniqueName,
+        initialDelay: initialDelay, constraints: constraints);
+}
+
+@pragma('vm:entry-point')
+void doBackgroundSync() {
+  Workmanager().executeTask((_, __) async {
+    StrokeOptionsExtension.setDefaults();
+    Prefs.init();
+    Editor.canRasterPdf = false;
+
+    await Future.wait([
+      FileManager.init(),
+      workerManager.init(),
+      Prefs.url.waitUntilLoaded(),
+      Prefs.allowInsecureConnections.waitUntilLoaded(),
+    ]);
+
+    final filesSynced = await FileSyncer.startSync(maxFilesToSync: 10);
+    return filesSynced > 0;
+  });
 }
 
 class App extends StatefulWidget {
@@ -141,8 +201,8 @@ class App extends StatefulWidget {
         builder: (context, state) => const NcLoginPage(),
       ),
       GoRoute(
-        path: RoutePaths.profile,
-        builder: (context, state) => const ProfilePage(),
+        path: '/profile',
+        redirect: (context, state) => RoutePaths.login,
       ),
     ],
   );
@@ -203,7 +263,8 @@ class _AppState extends State<App> {
   void setupSharingIntent() {
     if (Platform.isAndroid || Platform.isIOS) {
       // for files opened while the app is closed
-      ReceiveSharingIntent.getInitialMedia()
+      ReceiveSharingIntent.instance
+          .getInitialMedia()
           .then((List<SharedMediaFile> files) {
         for (final file in files) {
           App.openFile(file);
@@ -211,22 +272,12 @@ class _AppState extends State<App> {
       });
 
       // for files opened while the app is open
-      final stream = ReceiveSharingIntent.getMediaStream();
+      final stream = ReceiveSharingIntent.instance.getMediaStream();
       _intentDataStreamSubscription =
           stream.listen((List<SharedMediaFile> files) {
         for (final file in files) {
           App.openFile(file);
         }
-      });
-    }
-
-    if (Platform.isAndroid) {
-      // this only works for files opened while the app is closed
-      OpenAsDefault.getFileIntent.then((File? file) {
-        if (file == null) return;
-        App.openFile(
-          SharedMediaFile(path: file.path, type: SharedMediaType.file),
-        );
       });
     }
   }

@@ -1,0 +1,3 @@
+• Změna velikosti pera je nyní intuitivnější pomocí posuvného vstupu
+• Odstraněn nadbytečný prostor kolem reklamního banneru
+• Menší vylepšení výkonu a věrnosti tužky

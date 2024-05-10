@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class SliverFaq extends StatefulWidget {
-  const SliverFaq({
+class FaqListSliver extends StatelessWidget {
+  const FaqListSliver({
     super.key,
     required this.items,
   });
@@ -9,25 +9,57 @@ class SliverFaq extends StatefulWidget {
   final List<FaqItem> items;
 
   @override
-  State<SliverFaq> createState() => _SliverFaqState();
-}
-
-class _SliverFaqState extends State<SliverFaq> {
-  @override
   Widget build(BuildContext context) {
     return SliverList.builder(
-      itemCount: widget.items.length,
+      itemCount: items.length,
       itemBuilder: (BuildContext context, int index) {
-        return ExpansionTile(
-          title: Text(widget.items[index].question),
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.all(16),
-              child: SelectableText(widget.items[index].answer),
-            ),
-          ],
-        );
+        return _FaqTile(item: items[index]);
       },
+    );
+  }
+}
+
+class FaqListView extends StatelessWidget {
+  const FaqListView({
+    super.key,
+    required this.items,
+    this.shrinkWrap = false,
+  });
+
+  final List<FaqItem> items;
+  final bool shrinkWrap;
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      itemCount: items.length,
+      shrinkWrap: shrinkWrap,
+      itemBuilder: (BuildContext context, int index) {
+        return _FaqTile(item: items[index]);
+      },
+    );
+  }
+}
+
+class _FaqTile extends StatelessWidget {
+  const _FaqTile({
+    // ignore: unused_element
+    super.key,
+    required this.item,
+  });
+
+  final FaqItem item;
+
+  @override
+  Widget build(BuildContext context) {
+    return ExpansionTile(
+      title: Text(item.question),
+      children: [
+        Padding(
+          padding: const EdgeInsets.all(16),
+          child: SelectableText(item.answer),
+        ),
+      ],
     );
   }
 }

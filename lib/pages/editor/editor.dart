@@ -12,6 +12,7 @@ import 'package:flutter_quill/flutter_quill.dart' as flutter_quill;
 import 'package:keybinder/keybinder.dart';
 import 'package:logging/logging.dart';
 import 'package:printing/printing.dart';
+import 'package:saber/components/canvas/_asset_cache.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/canvas.dart';
 import 'package:saber/components/canvas/canvas_gesture_detector.dart';
@@ -32,8 +33,10 @@ import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/data/editor/editor_exporter.dart';
 import 'package:saber/data/editor/editor_history.dart';
 import 'package:saber/data/editor/page.dart';
+import 'package:saber/data/editor/pencil_sound.dart';
 import 'package:saber/data/extensions/change_notifier_extensions.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
+import 'package:saber/data/nextcloud/file_syncer.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/data/tools/_tool.dart';
 import 'package:saber/data/tools/eraser.dart';
@@ -192,6 +195,12 @@ class EditorState extends State<Editor> {
     _assignKeybindings();
 
     super.initState();
+
+    if (Prefs.refreshCurrentNote.value)
+      Timer.periodic(
+        const Duration(seconds: 10),
+        (_) => _refreshCurrentNote(),
+      );
   }
 
   void _initAsync() async {
@@ -550,16 +559,21 @@ class EditorState extends State<Editor> {
     final position = page.renderBox!.globalToLocal(details.focalPoint);
     history.canRedo = false;
 
+    final bool shouldPlayPencilSound;
+
     if (currentTool is Pen) {
+      shouldPlayPencilSound = true;
       (currentTool as Pen)
           .onDragStart(position, page, dragPageIndex!, currentPressure);
     } else if (currentTool is Eraser) {
+      shouldPlayPencilSound = true;
       for (Stroke stroke in (currentTool as Eraser)
           .checkForOverlappingStrokes(position, page.strokes)) {
         page.strokes.remove(stroke);
       }
       removeExcessPages();
     } else if (currentTool is Select) {
+      shouldPlayPencilSound = false;
       Select select = currentTool as Select;
       if (select.doneSelecting &&
           select.selectResult.pageIndex == dragPageIndex! &&
@@ -570,8 +584,14 @@ class EditorState extends State<Editor> {
         history.canRedo = true; // selection doesn't affect history
       }
     } else if (currentTool is LaserPointer) {
+      shouldPlayPencilSound = true;
       (currentTool as LaserPointer).onDragStart(position, page, dragPageIndex!);
+    } else {
+      shouldPlayPencilSound = false;
     }
+
+    if (Prefs.pencilSound.value != PencilSoundSetting.off &&
+        shouldPlayPencilSound) PencilSound.resume();
 
     previousPosition = position;
     moveOffset = Offset.zero;
@@ -588,6 +608,9 @@ class EditorState extends State<Editor> {
     final page = coreInfo.pages[dragPageIndex!];
     final position = page.renderBox!.globalToLocal(details.focalPoint);
     final offset = position - previousPosition;
+
+    if (PencilSound.isPlaying) PencilSound.update(offset.distance);
+
     if (currentTool is Pen) {
       (currentTool as Pen).onDragUpdate(position, currentPressure);
       page.redrawStrokes();
@@ -622,10 +645,19 @@ class EditorState extends State<Editor> {
 
   void onDrawEnd(ScaleEndDetails details) {
     final page = coreInfo.pages[dragPageIndex!];
+    bool shouldSave = true;
+    if (PencilSound.isPlaying) PencilSound.pause();
     setState(() {
       if (currentTool is Pen) {
         Stroke newStroke = (currentTool as Pen).onDragEnd();
         if (newStroke.isEmpty) return;
+
+        if (Prefs.autoStraightenLines.value &&
+            currentTool is! ShapePen &&
+            newStroke.isStraightLine()) {
+          newStroke.convertToLine();
+        }
+
         createPage(newStroke.pageIndex);
         page.insertStroke(newStroke);
         history.recordChange(EditorHistoryItem(
@@ -666,6 +698,7 @@ class EditorState extends State<Editor> {
             ),
           ));
         } else {
+          shouldSave = false;
           select.onDragEnd(page.strokes, page.images);
 
           if (select.selectResult.isEmpty) {
@@ -673,6 +706,7 @@ class EditorState extends State<Editor> {
           }
         }
       } else if (currentTool is LaserPointer) {
+        shouldSave = false;
         Stroke newStroke = (currentTool as LaserPointer).onDragEnd(
           page.redrawStrokes,
           (Stroke stroke) {
@@ -682,7 +716,8 @@ class EditorState extends State<Editor> {
         page.laserStrokes.add(newStroke);
       }
     });
-    autosaveAfterDelay();
+
+    if (shouldSave) autosaveAfterDelay();
   }
 
   void onInteractionEnd(ScaleEndDetails details) {
@@ -792,14 +827,39 @@ class EditorState extends State<Editor> {
     ));
   }
 
+  void _refreshCurrentNote() async {
+    if (coreInfo.readOnly) return;
+    if (!Prefs.loggedIn) return;
+    if (!Prefs.refreshCurrentNote.value) return;
+
+    final updated = await FileSyncer.refreshCurrentNote(coreInfo);
+    if (!updated) return;
+
+    // load the updated note
+    _initStrokes();
+  }
+
   void autosaveAfterDelay() {
-    savingState.value = SavingState.waitingToSave;
-    _delayedSaveTimer?.cancel();
-    if (Prefs.autosaveDelay.value < 0) return;
-    _delayedSaveTimer =
-        Timer(Duration(milliseconds: Prefs.autosaveDelay.value), () {
+    late final void Function() callback;
+
+    void startTimer() {
+      _delayedSaveTimer?.cancel();
+      if (Prefs.autosaveDelay.value < 0) return;
+      _delayedSaveTimer =
+          Timer(Duration(milliseconds: Prefs.autosaveDelay.value), callback);
+    }
+
+    callback = () {
+      if (Pen.currentStroke != null) {
+        // don't save yet if the pen is currently drawing
+        startTimer();
+        return;
+      }
       saveToFile();
-    });
+    };
+
+    savingState.value = SavingState.waitingToSave;
+    startTimer();
   }
 
   Future<void> saveToFile() async {
@@ -820,9 +880,16 @@ class EditorState extends State<Editor> {
     }
 
     final filePath = coreInfo.filePath + Editor.extension;
-    final (bson, assets) = coreInfo.saveToBinary(
-      currentPageIndex: currentPageIndex,
-    );
+    final Uint8List bson;
+    final OrderedAssetCache assets;
+    coreInfo.assetCache.allowRemovingAssets = false;
+    try {
+      (bson, assets) = coreInfo.saveToBinary(
+        currentPageIndex: currentPageIndex,
+      );
+    } finally {
+      coreInfo.assetCache.allowRemovingAssets = true;
+    }
     try {
       await Future.wait([
         FileManager.writeFile(filePath, bson, awaitWrite: true),
@@ -1123,7 +1190,7 @@ class EditorState extends State<Editor> {
       page.backgroundImage = PdfEditorImage(
         id: coreInfo.nextImageId++,
         pdfBytes: pdfBytes,
-        pdfFile: null,
+        pdfFile: pdfFile,
         pdfPage: currentPdfPage,
         pageIndex: coreInfo.pages.length,
         pageSize: pageSize,
@@ -1219,8 +1286,9 @@ class EditorState extends State<Editor> {
 
   Future exportAsPdf(BuildContext context) async {
     final pdf = await EditorExporter.generatePdf(coreInfo, context);
+    final bytes = await pdf.save();
     if (!context.mounted) return;
-    await FileManager.exportFile('${coreInfo.fileName}.pdf', await pdf.save(),
+    await FileManager.exportFile('${coreInfo.fileName}.pdf', bytes,
         context: context);
   }
 
@@ -1878,7 +1946,7 @@ class EditorState extends State<Editor> {
             content: Text(t.editor.newerFileFormat.subtitle),
             actions: [
               CupertinoDialogAction(
-                child: Text(t.editor.newerFileFormat.cancel),
+                child: Text(t.common.cancel),
                 onPressed: () => Navigator.pop(context, false),
               ),
               CupertinoDialogAction(

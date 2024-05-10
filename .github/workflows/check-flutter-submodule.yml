@@ -1,0 +1,25 @@
+name: Check if the Flutter submodule is up to date
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - .github/workflows/check-flutter-submodule.yml
+      - submodules/flutter
+  schedule:
+    # every 2 days at 5:58 am (random time to avoid spikes in GitHub Actions usage)
+    - cron: '58 5 */2 * *'
+
+jobs:
+  check-flutter-submodule:
+    name: Check if the Flutter submodule is up to date
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Dart
+        uses: dart-lang/setup-dart@v1
+
+      - name: Check if the Flutter submodule is up to date
+        run: dart .github/scripts/check_flutter_submodule.dart

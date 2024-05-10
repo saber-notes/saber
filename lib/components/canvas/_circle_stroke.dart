@@ -139,6 +139,10 @@ class CircleStroke extends Stroke {
   }
 
   @override
+  @Deprecated('We already know the shape is a circle.')
+  bool isStraightLine([int minLength = 0]) => false;
+
+  @override
   CircleStroke copy() => CircleStroke(
         color: color,
         pressureEnabled: pressureEnabled,
