@@ -155,7 +155,7 @@ de:
     notYou(rich)(OUTDATED): "Nicht du? ${undoLogin(Wähle ein anderes Konto)}."
     status:
       hi(OUTDATED): "Hi, $u!"
-      almostDone(OUTDATED): "Fast bereit zum Synchronisieren, tippe um die Anmeldung abzuschließen"
+      almostDone(OUTDATED): "Fast bereit zum Synchronisieren. Tippe, um die Anmeldung abzuschließen"
     ncLoginStep:
       whereToStoreData(OUTDATED): "Wähle, wo du deine Daten speichern willst:"
       saberNcServer(OUTDATED): Sabers Nextcloud-Server
@@ -173,7 +173,7 @@ de:
       encPassword(OUTDATED): Verschlüsselungspasswort
       encFaqTitle(OUTDATED): Häufig gestellte Fragen
       wrongEncPassword(OUTDATED): Entschlüsselung mit dem angegebenen Passwort fehlgeschlagen. Bitte versuche es erneut einzugeben.
-      connectionFailed(OUTDATED): Verbindung zum Server fehlgeschlagen. Bitte versuche es apäter erneut.
+      connectionFailed(OUTDATED): Verbindung zum Server fehlgeschlagen. Bitte versuche es später erneut.
       encFaq(OUTDATED):
         - q: "Was ist ein Verschlüsselungspasswort? Wozu zwei Passwörter?"
           a: |-
