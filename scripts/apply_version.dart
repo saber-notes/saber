@@ -10,8 +10,21 @@ import 'package:saber/data/version.dart' as old_version_file;
 final oldVersion = Version.fromName(old_version_file.buildName);
 late final Version newVersion;
 late final String editor;
+late final bool failOnChanges;
+late final bool quiet;
 
 const String dummyChangelog = 'Release_notes_will_be_added_here';
+
+enum ErrorCodes {
+  noError(0),
+  noVersionSpecified(1),
+  noEditorFound(5),
+  changesNeeded(10);
+
+  const ErrorCodes(this.code);
+
+  final int code;
+}
 
 Future<void> main(List<String> args) async {
   parseArgs(args);
@@ -29,12 +42,23 @@ void parseArgs(List<String> args) {
       abbr: 'c',
       help: 'Use custom version number, separated with dots',
     )
+    ..addFlag(
+      'fail-on-changes',
+      abbr: 'f',
+      negatable: false,
+      help: 'Fail if any changes need to be made',
+    )
+    ..addFlag('quiet', abbr: 'q', negatable: false, help: 'Don\'t open editor')
     ..addFlag('help', abbr: 'h', negatable: false, help: 'Show help');
+
   final results = parser.parse(args);
+
+  failOnChanges = results.flag('fail-on-changes');
+  quiet = results.flag('quiet');
 
   if (results.flag('help')) {
     print(parser.usage);
-    exit(0);
+    exit(ErrorCodes.noError.code);
   } else if (results.flag('major')) {
     newVersion = oldVersion.bumpMajor();
   } else if (results.flag('minor')) {
@@ -44,9 +68,9 @@ void parseArgs(List<String> args) {
   } else if (results.option('custom') != null) {
     newVersion = Version.fromName(results['custom']!);
   } else {
-    print('No version bump type specified');
+    print('No version specified');
     print(parser.usage);
-    exit(1);
+    exit(ErrorCodes.noVersionSpecified.code);
   }
 
   print(
@@ -54,6 +78,12 @@ void parseArgs(List<String> args) {
 }
 
 Future<void> findEditor() async {
+  if (quiet) {
+    editor = 'echo';
+    print('Will not open editor');
+    return;
+  }
+
   final whichCode = await Process.run('which', ['code']);
   if (whichCode.exitCode == 0) {
     editor = 'code';
@@ -69,7 +99,7 @@ Future<void> findEditor() async {
   }
 
   print('No editor found. Please set the EDITOR environment variable');
-  exit(3);
+  exit(ErrorCodes.noEditorFound.code);
 }
 
 Future<void> updateAllFiles() async {
@@ -133,6 +163,10 @@ Future<void> updateAllFiles() async {
   if (changelogFile.existsSync()) {
     print('Changelog file already exists');
   } else {
+    if (failOnChanges) {
+      print('Failed: No changelog file found at ${changelogFile.path}');
+      exit(ErrorCodes.changesNeeded.code);
+    }
     print('Creating a blank changelog file');
     await changelogFile.writeAsString('• $dummyChangelog\n');
   }
@@ -142,6 +176,10 @@ Future<void> updateAllFiles() async {
   if (await flatpakFile.contains(RegExp(RegExp.escape(newVersion.buildName)))) {
     print('<release> tag already exists in flatpak file');
   } else {
+    if (failOnChanges) {
+      print('Failed: No release tag found at ${flatpakFile.path}');
+      exit(ErrorCodes.changesNeeded.code);
+    }
     print('Adding a new <release> tag to flatpak file');
     final date = DateFormat('yyyy-MM-dd').format(DateTime.now().toUtc());
     final releaseTag = '''
@@ -171,8 +209,10 @@ Future<void> updateAllFiles() async {
       '  - Add the new release to the App Store: https://appstoreconnect.apple.com/apps/1671523739/appstore');
 
   // open changelog files in editor
-  await Process.run(editor, [changelogFile.path]);
-  await Process.run(editor, [flatpakFile.path]);
+  if (!quiet) {
+    await Process.run(editor, [changelogFile.path]);
+    await Process.run(editor, [flatpakFile.path]);
+  }
 }
 
 extension on File {
@@ -188,13 +228,24 @@ extension on File {
       for (final pattern in replacements.keys) {
         if (pattern.hasMatch(lines[i])) {
           matches++;
+          final oldLine = lines[i];
           lines[i] = lines[i].replaceFirst(pattern, replacements[pattern]!);
+          if (failOnChanges && lines[i] != oldLine) {
+            print('Failed: Changes needed in $path');
+            exit(ErrorCodes.changesNeeded.code);
+          }
         }
       }
     }
     if (lines.last.isNotEmpty) lines.add('');
     await writeAsString(lines.join('\n'));
-    print('Updated $path with $matches / ${replacements.length} replacements');
+
+    if (matches >= replacements.length) {
+      print('Updated $path with all $matches replacements');
+    } else {
+      print('Updated $path with $matches out of ${replacements.length} '
+          'replacements (${replacements.length - matches} missed)');
+    }
   }
 }
 
