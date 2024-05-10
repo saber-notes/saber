@@ -40,16 +40,16 @@ class _SizePickerState extends State<SizePicker> {
               t.editor.penOptions.size,
               style: TextStyle(
                 color: colorScheme.onSurface.withOpacity(0.8),
-                fontSize: widget.toolbarSize.getSizePickerFontSize(),
+                fontSize: widget.toolbarSize.sizePickerFontSize,
                 height: 1,
               ),
             ),
             Text(_prettyNum(widget.pen.options.size)),
           ],
         ),
-        SizedBox(width: widget.toolbarSize.getToolbarPadding()),
+        SizedBox(width: widget.toolbarSize.padding),
         Padding(
-          padding: EdgeInsets.symmetric(vertical: widget.toolbarSize.getToolbarPadding()),
+          padding: EdgeInsets.symmetric(vertical: widget.toolbarSize.padding),
           child: _SizeSlider(
             pen: widget.pen,
             setState: setState,
@@ -75,7 +75,7 @@ class _SizeSlider extends StatelessWidget {
   final void Function(void Function()) setState;
 
   void onDrag(double localDx) {
-    final relX = clampDouble(localDx / toolbarSize.getSizePickerSize().width, 0, 1);
+    final relX = clampDouble(localDx / toolbarSize.sizePickerSize.width, 0, 1);
     final stepsFromMin = (relX * pen.sizeStepsBetweenMinAndMax).round();
     final newSize = pen.sizeMin + stepsFromMin * pen.sizeStep;
     if (newSize == pen.options.size) return;
@@ -91,7 +91,7 @@ class _SizeSlider extends StatelessWidget {
       onHorizontalDragStart: (details) => onDrag(details.localPosition.dx),
       onHorizontalDragUpdate: (details) => onDrag(details.localPosition.dx),
       child: CustomPaint(
-        size: toolbarSize.getSizePickerSize(),
+        size: toolbarSize.sizePickerSize,
         painter: _SizeSliderPainter(
           minSize: pen.sizeMin,
           maxSize: pen.sizeMax,

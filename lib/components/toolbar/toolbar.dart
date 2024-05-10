@@ -166,8 +166,8 @@ class _ToolbarState extends State<Toolbar> {
             Prefs.editorToolbarAlignment.value == AxisDirection.right;
 
     final buttonPadding = isToolbarVertical
-        ? EdgeInsets.symmetric(vertical:  widget.toolbarSize.getToolbarPadding())
-        : EdgeInsets.symmetric(horizontal: widget.toolbarSize.getToolbarPadding());
+        ? EdgeInsets.symmetric(vertical:  widget.toolbarSize.padding)
+        : EdgeInsets.symmetric(horizontal: widget.toolbarSize.padding);
 
     final currentColor = switch (widget.currentTool) {
       Pen pen => pen.color,
@@ -299,7 +299,7 @@ class _ToolbarState extends State<Toolbar> {
                         buttonOptions: QuillSimpleToolbarButtonOptions(
                           base: QuillToolbarBaseButtonOptions(
                             iconTheme: iconTheme,
-                            iconSize: widget.toolbarSize.getButtonSize(), // set toolbar button size
+                            iconSize: widget.toolbarSize.buttonSize, // set toolbar button size
                           ),
                         ),
                         showUndo: false,
@@ -314,11 +314,11 @@ class _ToolbarState extends State<Toolbar> {
           }),
       Center(
         child: Padding(// distance between toolbars
-          padding: EdgeInsets.all(widget.toolbarSize.getToolbarPadding()),
+          padding: EdgeInsets.all(widget.toolbarSize.padding),
           child: Wrap(
             direction: isToolbarVertical ? Axis.vertical : Axis.horizontal,
             alignment: WrapAlignment.center,
-            runSpacing: widget.toolbarSize.getToolbarPadding(), // gap between lines
+            runSpacing: widget.toolbarSize.padding, // gap between lines
             children: [
               ToolbarIconButton(
                 tooltip: Pen.currentPen.name,

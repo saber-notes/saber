@@ -63,8 +63,8 @@ class _PenModalState extends State<PenModal> {
             tooltip: t.editor.pens.fountainPen,
             icon: SvgPicture.asset(
               'assets/images/scribble_fountain.svg',
-              width: widget.toolbarSize.getPenModalSize(),
-              height: widget.toolbarSize.getPenModalSize() / 508 * 374,
+              width: widget.toolbarSize.penModalSize,
+              height: widget.toolbarSize.penModalSize / 508 * 374,
               theme: SvgTheme(
                 currentColor: Pen.currentPen.icon == Pen.fountainPenIcon
                     ? Theme.of(context).colorScheme.secondary
@@ -88,8 +88,8 @@ class _PenModalState extends State<PenModal> {
             tooltip: t.editor.pens.ballpointPen,
             icon: SvgPicture.asset(
               'assets/images/scribble_ballpoint.svg',
-              width: widget.toolbarSize.getPenModalSize(),
-              height: widget.toolbarSize.getPenModalSize() / 508 * 374,
+              width: widget.toolbarSize.penModalSize,
+              height: widget.toolbarSize.penModalSize / 508 * 374,
               theme: SvgTheme(
                 currentColor: Pen.currentPen.icon == Pen.ballpointPenIcon
                     ? Theme.of(context).colorScheme.secondary
@@ -101,7 +101,7 @@ class _PenModalState extends State<PenModal> {
             onPressed: () => setState(() {
               widget.setTool(ShapePen());
             }),
-            iconSize: widget.toolbarSize.getPenModalSize(),
+            iconSize: widget.toolbarSize.penModalSize,
             style: TextButton.styleFrom(
               foregroundColor: Pen.currentPen.icon == ShapePen.shapePenIcon
                   ? Theme.of(context).colorScheme.secondary

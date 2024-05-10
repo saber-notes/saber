@@ -182,14 +182,14 @@ class _ColorBarState extends State<ColorBar> {
       if (Prefs.pinnedColors.value.isNotEmpty) ...[
         ColorOptionSeparatorIcon(
           icon: Icons.pin_drop,
-          size: widget.toolbarSize.getButtonSize(),
+          size: widget.toolbarSize.buttonSize,
         ),
         for (String colorString in Prefs.pinnedColors.value)
           ColorOption(
             isSelected: widget.currentColor?.withAlpha(255).value ==
                 int.parse(colorString),
             enabled: widget.currentColor != null,
-            diameter: widget.toolbarSize.getColorOptionDiameter(),
+            diameter: widget.toolbarSize.colorOptionDiameter,
             onTap: () => widget.setColor(Color(int.parse(colorString))),
             onLongPress: () =>
                 setState(() => ColorBar.toggleColorPinned(colorString)),
@@ -210,7 +210,7 @@ class _ColorBarState extends State<ColorBar> {
 
       ColorOptionSeparatorIcon(
         icon: Icons.history,
-        size: widget.toolbarSize.getButtonSize(),
+        size: widget.toolbarSize.buttonSize,
       ),
 
       // recent colors
@@ -219,7 +219,7 @@ class _ColorBarState extends State<ColorBar> {
           isSelected: widget.currentColor?.withAlpha(255).value ==
               int.parse(colorString),
           enabled: widget.currentColor != null,
-          diameter: widget.toolbarSize.getColorOptionDiameter(),
+          diameter: widget.toolbarSize.colorOptionDiameter,
           onTap: () => widget.setColor(Color(int.parse(colorString))),
           onLongPress: () =>
               setState(() => ColorBar.toggleColorPinned(colorString)),
@@ -244,7 +244,7 @@ class _ColorBarState extends State<ColorBar> {
         ColorOption(
           isSelected: false,
           enabled: widget.currentColor != null,
-          diameter: widget.toolbarSize.getColorOptionDiameter(),
+          diameter: widget.toolbarSize.colorOptionDiameter,
           onTap: null,
           tooltip: null,
           child: DecoratedBox(
@@ -261,7 +261,7 @@ class _ColorBarState extends State<ColorBar> {
 
       ColorOptionSeparatorIcon(
         icon: Icons.palette,
-        size: widget.toolbarSize.getButtonSize(),
+        size: widget.toolbarSize.buttonSize,
       ),
 
       // custom color
@@ -269,16 +269,16 @@ class _ColorBarState extends State<ColorBar> {
         isSelected:
             widget.currentColor?.withAlpha(255).value == pickedColor.value,
         enabled: true,
-        diameter: widget.toolbarSize.getColorOptionDiameter(),
+        diameter: widget.toolbarSize.colorOptionDiameter,
         onTap: () => openColorPicker(context),
         tooltip: t.editor.colors.colorPicker,
         child: DecoratedBox(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             color: Colors.transparent,
             shape: BoxShape.circle,
           ),
         child: Center(child: FaIcon(FontAwesomeIcons.droplet,
-                            size: widget.toolbarSize.getButtonSize(),
+                            size: widget.toolbarSize.buttonSize,
               )
             ),
           ),
@@ -290,7 +290,7 @@ class _ColorBarState extends State<ColorBar> {
           isSelected: widget.currentColor?.withAlpha(255).value ==
               namedColor.color.value,
           enabled: widget.currentColor != null,
-          diameter: widget.toolbarSize.getColorOptionDiameter(),
+          diameter: widget.toolbarSize.colorOptionDiameter,
           onTap: () => widget.setColor(namedColor.color),
           tooltip: namedColor.name,
           child: DecoratedBox(
@@ -308,7 +308,7 @@ class _ColorBarState extends State<ColorBar> {
 
     return Center(
       child: Padding(
-        padding: EdgeInsets.all(widget.toolbarSize.getToolbarPadding()),
+        padding: EdgeInsets.all(widget.toolbarSize.padding),
         child: SingleChildScrollView(
           scrollDirection: widget.axis,
           child: widget.axis == Axis.horizontal

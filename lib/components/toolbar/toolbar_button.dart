@@ -1,81 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:saber/data/prefs.dart';
 
-/// toolbar button size
-enum ToolbarSize {
-  big,
-  normal,
-  small,
-}
+/// toolbar buttons sizes
+enum ToolbarSize{
+  small(buttonSize: 12, padding: 2, colorOptionDiameter: 18, penModalSize: 22, sizePickerFontSize: 8, sizePickerSize: Size(150,18)),
+  normal(buttonSize: 18, padding: 6, colorOptionDiameter: 28, penModalSize: 32, sizePickerFontSize: 10, sizePickerSize: Size(150,28)),
+  big(buttonSize: 22, padding: 8, colorOptionDiameter: 30, penModalSize: 40, sizePickerFontSize: 14, sizePickerSize: Size(150,30));
 
-extension ToolbarSizeGet on ToolbarSize {
-
-  double getButtonSize(){
-    /// return size of toolbar button
-    switch (this){
-      case ToolbarSize.small:
-        return(12.0);
-      case ToolbarSize.normal:
-        return(18.0);
-      case ToolbarSize.big:
-        return(22.0);
-    }
+  const ToolbarSize({
+    required this.buttonSize,
+    required this.padding,
+    required this.colorOptionDiameter,
+    required this.penModalSize,
+    required this.sizePickerFontSize,
+    required this.sizePickerSize,
   }
+  );
 
-  double getToolbarPadding(){
-    /// return padding of toolbar
-    switch (this){
-      case ToolbarSize.small:
-        return(2.0);
-      case ToolbarSize.normal:
-        return(6.0);
-      case ToolbarSize.big:
-        return(8.0);
-    }
-  }
-  double getColorOptionDiameter(){
-    /// return diameter of color option circle
-    switch (this){
-      case ToolbarSize.small:
-        return(18.0);
-      case ToolbarSize.normal:
-        return(25.0);
-      case ToolbarSize.big:
-        return(30.0);
-    }
-  }
-
-  double getPenModalSize(){
-    /// return Size of PenModal icons
-    switch (this){
-      case ToolbarSize.small:
-        return(22);
-      case ToolbarSize.normal:
-        return(32);
-      case ToolbarSize.big:
-        return(40);
-    }
-  }
-
-  double getSizePickerFontSize(){
-    /// return Size of font in pen Size picker
-    switch (this){
-      case ToolbarSize.small:
-        return(8);
-      case ToolbarSize.normal:
-        return(10);
-      case ToolbarSize.big:
-        return(14);
-    }
-  }
-
-  Size getSizePickerSize(){
-    /// return Size of SizePicker slider
-    return(
-        Size(150, getColorOptionDiameter())
-    );
-  }
-
+  final double buttonSize;          // size of button
+  final double padding;             // padding between button
+  final double colorOptionDiameter; // diameter of color option cirle
+  final double penModalSize;        // Size of PenModal icons
+  final double sizePickerFontSize;  //Size of font in pen Size picker
+  final Size sizePickerSize;        // width and height of pen size picker height should be colorOptionDiameter
 }
 
 
@@ -115,19 +62,14 @@ class ToolbarIconButton extends StatelessWidget {
         disabledColor: colorScheme.onSurface.withOpacity(0.4),
         onPressed: (enabled) ? onPressed : null,
         tooltip: tooltip,
-        iconSize: switch (Prefs.editorToolbarSize.value) {
-            ToolbarSize.small => 12,
-            ToolbarSize.normal => 16,
-            ToolbarSize.big => 22,},
-        splashRadius: switch (Prefs.editorToolbarSize.value) {
-            ToolbarSize.small => 12,
-            ToolbarSize.normal => 16,
-            ToolbarSize.big => 22,},
+        iconSize: Prefs.editorToolbarSize.value.buttonSize,
+        splashRadius: Prefs.editorToolbarSize.value.buttonSize,
         visualDensity: VisualDensity.compact,
         icon: child,
       ),
     );
   }
 }
+
 
 

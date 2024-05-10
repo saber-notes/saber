@@ -76,6 +76,7 @@ settings:
     changeAdsConsent: Change ads consent
     allowInsecureConnections: Allow insecure connections
     editorToolbarAlignment: Toolbar position
+    editorToolbarSize: Toolbar button size
     editorToolbarShowInFullscreen: Show the toolbar in fullscreen mode
     editorAutoInvert: Invert notes in dark mode
     preferGreyscale: Prefer greyscale colors
