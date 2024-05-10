@@ -141,60 +141,58 @@ cs:
       watchServerReadOnly(OUTDATED): Editing is disabled while watching the server
 de:
   common:
-    done(OUTDATED): Done
-    continueBtn(OUTDATED): Continue
+    done(OUTDATED): Fertig
+    continueBtn(OUTDATED): Weiter
   settings:
     prefLabels:
-      pencilSoundSetting(OUTDATED): Pencil sound effect
+      pencilSoundSetting(OUTDATED): Bleistiftgeräusch
     prefDescriptions:
       pencilSoundSetting:
-        off(OUTDATED): No sound
-        onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
-        onAlways(OUTDATED): Enabled (even in silent mode)
+        off(OUTDATED): Kein Geräusch
+        onButNotInSilentMode(OUTDATED): Aktiv (außer im Stummmodus)
+        onAlways(OUTDATED): Aktiv (sogar im Stummmodus)
   login:
-    notYou(rich)(OUTDATED): "Not you? ${undoLogin(Choose another account)}."
+    notYou(rich)(OUTDATED): "Nicht du? ${undoLogin(Wähle ein anderes Konto)}."
     status:
       hi(OUTDATED): "Hi, $u!"
-      almostDone(OUTDATED): "Almost ready for syncing, tap to finish logging in"
+      almostDone(OUTDATED): "Fast bereit zum Synchronisieren, tippe um die Anmeldung abzuschließen"
     ncLoginStep:
-      whereToStoreData(OUTDATED): "Choose where you want to store your data:"
-      saberNcServer(OUTDATED): Saber's Nextcloud server
-      otherNcServer(OUTDATED): Other Nextcloud server
+      whereToStoreData(OUTDATED): "Wähle, wo du deine Daten speichern willst:"
+      saberNcServer(OUTDATED): Sabers Nextcloud-Server
+      otherNcServer(OUTDATED): Anderer Nextcloud-Server
       serverUrl(OUTDATED): Server URL
-      loginWithSaber(OUTDATED): Login with Saber
-      loginWithNextcloud(OUTDATED): Login with Nextcloud
+      loginWithSaber(OUTDATED): Mit Saber anmelden
+      loginWithNextcloud(OUTDATED): Mit Nextcloud anmelden
       loginFlow:
-        pleaseAuthorize(OUTDATED): Please authorize Saber to access your Nextcloud account
-        followPrompts(OUTDATED): Please follow the prompts in your browser.
-        browserDidntOpen(OUTDATED): "Browser didn't open? Click here"
+        pleaseAuthorize(OUTDATED): Bitte gib Saber Zugriff auf dein Nextcloud Konto
+        followPrompts(OUTDATED): Bitte folge den Anweisungen in deinem Browser.
+        browserDidntOpen(OUTDATED): "Browser hat sich nicht geöffnet? Klicke hier"
     encLoginStep:
-      enterEncPassword(OUTDATED): "To protect your data, please enter your encryption password:"
-      newToSaber(OUTDATED): "New to Saber? Just enter a new encryption password."
-      encPassword(OUTDATED): Encryption password
-      encFaqTitle(OUTDATED): Frequently asked questions
-      wrongEncPassword(OUTDATED): Decryption failed with the provided password. Please try entering it again.
-      connectionFailed(OUTDATED): Something went wrong connecting to the server. Please try again later.
+      enterEncPassword(OUTDATED): "Gib dein Verschlüsselungspasswort an, um deine Daten zu schützen:"
+      newToSaber(OUTDATED): "Neu bei Saber? Gib einfach ein neues Verschlüsselungspasswort an."
+      encPassword(OUTDATED): Verschlüsselungspasswort
+      encFaqTitle(OUTDATED): Häufig gestellte Fragen
+      wrongEncPassword(OUTDATED): Entschlüsselung mit dem angegebenen Passwort fehlgeschlagen. Bitte versuche es erneut einzugeben.
+      connectionFailed(OUTDATED): Verbindung zum Server fehlgeschlagen. Bitte versuche es apäter erneut.
       encFaq(OUTDATED):
-        - q: "What is an encryption password? Why use two passwords?"
+        - q: "Was ist ein Verschlüsselungspasswort? Wozu zwei Passwörter?"
           a: |-
-            The Nextcloud password is used to access the cloud. The encryption password "scrambles" your data before it ever reaches the cloud.
-            Even if someone gains access to your Nextcloud account, your notes will remain safe and encrypted with a separate password. This provides you a second layer of security to protect your data.
-            No-one can access your notes on the server without your encryption password, but this also means that if you forget your encryption password, you will lose access to your data.
-        - q: "I haven't set an encryption password yet. Where do I get it?"
+            Mit dem Nextcloud-Passwort greifst du auf die Cloud zu. Das Verschlüsselungspasswort schützt deine Daten, bevor sie jemals die Cloud erreichen.
+            Selbst wenn jemand Zugriff zu deinem Nextcloud-Konto erlangt, bleiben deine Notizen sicher und verschlüsselt mit einem separaten Passwort. Das bietet dir eine weitere Sicherheitsschicht zum Schutz deiner Daten.
+            Niemand kann ohne dein Verschlüsselungspasswort auf deine Notizen auf dem Server zugreifen. Das bedeutet allerdings auch, dass du den Zugriff auf deine Daten verlierst, falls du dein Verschlüsselungspasswort vergisst.
+        - q: "Ich habe noch kein Verschlüsselungspasswort festgelegt. Wo bekomme ich das her?"
           a: |-
-            Choose a new encryption password and enter it above.
-            Saber will generate your encryption keys from this password automatically.
-        - q: "Can I use the same password as my Nextcloud account?"
-          a: "Yes, but keep in mind that it would be easier for the server administrator or someone else to access your notes if they gain access to your Nextcloud account."
+            Wähle ein neues Verschlüsselungspasswort und gib es oben ein.
+            Saber wird mit diesem Passwort automatisch deine Schlüssel generieren.
+        - q: "Kann ich das gleiche Passwort wie bei meinem Nextcloud-Konto verwenden?"
+          a: "Ja, aber sei dir bewusst, dass es so für den Serveradministrator oder jemand anderen einfacher wäre, auf deine Notizen zuzugreifen, falls dieser Zugriff auf dein Nextcloud-Konto erlangt."
   profile:
-    quotaUsage(OUTDATED): You're using $used of $total ($percent)
-    connectedTo(OUTDATED): Connected to
-    faqTitle(OUTDATED): Frequently asked questions
+    quotaUsage(OUTDATED): Du verwendest $used von $total ($percent)
+    connectedTo(OUTDATED): Verbunden mit
+    faqTitle(OUTDATED): Häufig gestellte Fragen
   editor:
     menu:
-      lineHeightDescription(OUTDATED): Also controls the text size for typed notes
-      watchServer(OUTDATED): Watch for updates on the server
-      watchServerReadOnly(OUTDATED): Editing is disabled while watching the server
+      lineHeightDescription(OUTDATED): Bestimmt ebenfalls die Textgröße der getippten Notizen
 es:
   common:
     done(OUTDATED): Done
