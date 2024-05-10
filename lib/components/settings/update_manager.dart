@@ -14,6 +14,7 @@ import 'package:saber/components/theming/adaptive_alert_dialog.dart';
 import 'package:saber/data/flavor_config.dart';
 import 'package:saber/data/locales.dart';
 import 'package:saber/data/prefs.dart';
+import 'package:saber/data/saber_version.dart';
 import 'package:saber/data/version.dart' as version;
 import 'package:saber/i18n/strings.g.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -187,24 +188,22 @@ abstract class UpdateManager {
   @visibleForTesting
   static UpdateStatus getUpdateStatus(
       int currentVersionNumber, int newestVersionNumber) {
-    final currentVersion = parseVersionNumber(currentVersionNumber);
-    final newestVersion = parseVersionNumber(newestVersionNumber);
+    final currentVersion =
+        SaberVersion.fromNumber(currentVersionNumber).copyWith(revision: 0);
+    final newestVersion =
+        SaberVersion.fromNumber(newestVersionNumber).copyWith(revision: 0);
 
     // Check if we're up to date
-    if ((newestVersionNumber - newestVersion.silent) <=
-        (currentVersionNumber - currentVersion.silent)) {
+    if (newestVersion.buildNumber <= currentVersion.buildNumber) {
       return UpdateStatus.upToDate;
     }
-    // Now we know that there is a new update available
 
     // Check if the update is low priority
     if (!Prefs.shouldAlwaysAlertForUpdates.value) {
       // Only prompt user every second patch
-      if (currentVersion.major == newestVersion.major &&
-          currentVersion.minor == newestVersion.minor) {
-        if ((newestVersion.patch - currentVersion.patch) < 2) {
-          return UpdateStatus.updateOptional;
-        }
+      if (newestVersion.buildNumber - currentVersion.buildNumber <
+          SaberVersion.fromName('0.0.2').buildNumber) {
+        return UpdateStatus.updateOptional;
       }
 
       // Don't prompt user when patch version is 0 (e.g. 0.15.0)
@@ -215,26 +214,6 @@ abstract class UpdateManager {
     }
 
     return UpdateStatus.updateRecommended;
-  }
-
-  @visibleForTesting
-  static ({int major, int minor, int patch, int silent}) parseVersionNumber(
-      int versionNumber) {
-    // rightmost digit is silent update
-    final silent = versionNumber % 10;
-    // next 2 digits are patch version
-    final patch = (versionNumber ~/ 10) % 100;
-    // next 2 digits are minor version
-    final minor = (versionNumber ~/ 1000) % 100;
-    // next 2 digits are major version
-    final major = (versionNumber ~/ 100000) % 100;
-
-    return (
-      major: major,
-      minor: minor,
-      patch: patch,
-      silent: silent,
-    );
   }
 
   @visibleForTesting

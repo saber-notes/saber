@@ -5,10 +5,11 @@ import 'dart:io';
 
 import 'package:args/args.dart';
 import 'package:intl/intl.dart';
+import 'package:saber/data/saber_version.dart';
 import 'package:saber/data/version.dart' as old_version_file;
 
-final oldVersion = Version.fromName(old_version_file.buildName);
-late final Version newVersion;
+final oldVersion = SaberVersion.fromName(old_version_file.buildName);
+late final SaberVersion newVersion;
 late final String editor;
 late final bool failOnChanges;
 late final bool quiet;
@@ -40,7 +41,7 @@ void parseArgs(List<String> args) {
     ..addOption(
       'custom',
       abbr: 'c',
-      help: 'Use custom version number, separated with dots',
+      help: 'Use a custom buildName (e.g. 0.22.11) or buildNumber (e.g. 22110)',
     )
     ..addFlag(
       'fail-on-changes',
@@ -66,7 +67,17 @@ void parseArgs(List<String> args) {
   } else if (results.flag('patch')) {
     newVersion = oldVersion.bumpPatch();
   } else if (results.option('custom') != null) {
-    newVersion = Version.fromName(results['custom']!);
+    final String custom = results['custom']!;
+    late int? buildNumber = int.tryParse(custom);
+    if (custom.contains('.')) {
+      newVersion = SaberVersion.fromName(custom);
+    } else if (buildNumber != null) {
+      newVersion = SaberVersion.fromNumber(buildNumber);
+    } else {
+      print('Invalid custom version: $custom');
+      print(parser.usage);
+      exit(ErrorCodes.noVersionSpecified.code);
+    }
   } else {
     print('No version specified');
     print(parser.usage);
@@ -247,32 +258,4 @@ extension on File {
           'replacements (${replacements.length - matches} missed)');
     }
   }
-}
-
-class Version {
-  final int major;
-  final int minor;
-  final int patch;
-  final int revision;
-
-  Version(this.major, this.minor, this.patch, [this.revision = 0])
-      : assert(major >= 0 && major < 100),
-        assert(minor >= 0 && minor < 100),
-        assert(patch >= 0 && patch < 100),
-        assert(revision >= 0 && revision < 10);
-
-  factory Version.fromName(String name) {
-    final parts = name.split('.');
-    assert(parts.length == 3);
-    return Version(
-        int.parse(parts[0]), int.parse(parts[1]), int.parse(parts[2]));
-  }
-
-  String get buildName => '$major.$minor.$patch';
-  String get buildNameWithCommas => '$major,$minor,$patch';
-  int get buildNumber => revision + patch * 10 + minor * 1000 + major * 100000;
-
-  Version bumpMajor() => Version(major + 1, 0, 0);
-  Version bumpMinor() => Version(major, minor + 1, 0);
-  Version bumpPatch() => Version(major, minor, patch + 1);
 }

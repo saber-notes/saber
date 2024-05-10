@@ -6,6 +6,7 @@ import 'dart:io';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:saber/components/settings/update_manager.dart';
 import 'package:saber/data/locales.dart';
+import 'package:saber/data/saber_version.dart';
 import 'package:saber/data/version.dart';
 
 const String dummyChangelog = 'Release_notes_will_be_added_here';
@@ -64,8 +65,13 @@ void main() {
   });
 
   test('Test that buildNumber parses to buildName', () {
-    final v = UpdateManager.parseVersionNumber(buildNumber);
-    expect('${v.major}.${v.minor}.${v.patch}', buildName);
+    final fromNumber = SaberVersion.fromNumber(buildNumber);
+    final fromName = SaberVersion.fromName(buildName);
+
+    expect(fromNumber.buildNumberWithoutRevision,
+        equals(fromName.buildNumberWithoutRevision));
+
+    expect(fromNumber.buildName, equals(fromName.buildName));
   });
 
   test('Test that changelog can be downloaded from GitHub', () async {
