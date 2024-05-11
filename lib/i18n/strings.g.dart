@@ -819,6 +819,7 @@ class _StringsEditorMenuEn {
 	String get backgroundPattern => 'Background pattern';
 	String get import => 'Import';
 	String get watchServer => 'Watch for updates on the server';
+	String get watchServerReadOnly => 'Editing is disabled while watching the server';
 	late final _StringsEditorMenuBoxFitsEn boxFits = _StringsEditorMenuBoxFitsEn._(_root);
 	late final _StringsEditorMenuBgPatternsEn bgPatterns = _StringsEditorMenuBgPatternsEn._(_root);
 }

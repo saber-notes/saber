@@ -300,6 +300,7 @@ editor:
     backgroundPattern: Background pattern
     import: Import
     watchServer: Watch for updates on the server
+    watchServerReadOnly: Editing is disabled while watching the server
     boxFits:
       fill: Stretch
       cover: Cover

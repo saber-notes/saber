@@ -1768,9 +1768,16 @@ class EditorState extends State<Editor> {
             const Duration(seconds: 5),
             (_) => _refreshCurrentNote(),
           );
+          coreInfo.readOnlyBecauseWatchingServer |= !coreInfo.readOnly;
+          if (!coreInfo.readOnly) setState(() => coreInfo.readOnly = true);
         } else {
           _watchServerTimer?.cancel();
           _watchServerTimer = null;
+          if (coreInfo.readOnlyBecauseWatchingServer)
+            setState(() {
+              coreInfo.readOnly = false;
+              coreInfo.readOnlyBecauseWatchingServer = false;
+            });
         }
       },
     );
