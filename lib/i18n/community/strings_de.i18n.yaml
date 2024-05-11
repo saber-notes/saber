@@ -1,7 +1,7 @@
 common:
+  done: Fertig
+  continueBtn: Weiter
   cancel: Abbruch
-  done(OUTDATED): Erledigt
-  continueBtn(OUTDATED): Weitermachen
 home:
   tabs:
     home: Startseite
@@ -96,7 +96,7 @@ settings:
     shapeRecognitionDelay: Verzögerung der Formerkennung
     autoStraightenLines: Linien automatisch begradigen
     customDataDir: Benutzerdefiniertes Verzeichnis
-    pencilSoundSetting(OUTDATED): Bleistift-Soundeffekt
+    pencilSoundSetting: Bleistiftgeräusch
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible verbessert die Lesbarkeit für Menschen mit eingeschränkter Sicht
     disableAds: Die Entwicklung von Saber wird duch Werbung finanziert. Die Werbung kann auf Wunsch deaktiviert werden.
@@ -117,9 +117,9 @@ settings:
     autoStraightenLines: Lange Linien selbst ohne Form-Stift begradigen
     shouldAlwaysAlertForUpdates: Über neue Updates informiert bleiben
     pencilSoundSetting:
-      onAlways(OUTDATED): Aktiviert (auch im lautlosen Modus)
-      off(OUTDATED): Keinen Ton
-      onButNotInSilentMode(OUTDATED): Aktiviert (außer im stillen Modus)
+      off: Kein Geräusch
+      onButNotInSilentMode: Aktiv (außer im Stummmodus)
+      onAlways: Aktiv (sogar im Stummmodus)
   themeModes:
     system: System
     light: Hell
@@ -150,48 +150,52 @@ login:
   form:
     agreeToPrivacyPolicy(rich): "Indem du dich anmeldest, stimmst du der ${linkToPrivacyPolicy(Datenschutzrichtlinie)} zu."
   signup(rich): "Du hast noch kein Konto? ${linkToSignup(Erstelle jetzt eins)}!"
+  notYou(rich): "Nicht du? ${undoLogin(Wähle ein anderes Konto)}."
   status:
     loggedOut: Nicht angemeldet
     tapToLogin: "Hier tippen, um dich mit Nextcloud anzumelden"
+    hi: "Hi, $u!"
+    almostDone: "Fast bereit zum Synchronisieren. Tippe, um die Anmeldung abzuschließen"
     loggedIn: Mit Nextcloud angemeldet
-    hi(OUTDATED): "Hallo, $u!"
-    almostDone(OUTDATED): "Die Synchronisierung ist fast fertig. Tippen Sie auf, um die Anmeldung abzuschließen"
   ncLoginStep:
+    whereToStoreData: "Wähle, wo du deine Daten speichern willst:"
+    saberNcServer: Sabers Nextcloud-Server
+    otherNcServer: Anderer Nextcloud-Server
+    serverUrl: Server URL
+    loginWithSaber: Mit Saber anmelden
+    loginWithNextcloud: Mit Nextcloud anmelden
     loginFlow:
-      pleaseAuthorize(OUTDATED): "Bitte autorisieren Sie Saber, auf Ihr Nextcloud-Konto zuzugreifen"
-      followPrompts(OUTDATED): Bitte folgen Sie den Anweisungen in Ihrem Browser.
-      browserDidntOpen(OUTDATED): Der Browser wurde nicht geöffnet
-    whereToStoreData(OUTDATED): "Wählen Sie, wo Sie Ihre Daten speichern möchten:"
-    saberNcServer(OUTDATED): Der Nextcloud-Server von Saber
-    otherNcServer(OUTDATED): Anderer Nextcloud-Server
-    serverUrl(OUTDATED): Server-URL
-    loginWithSaber(OUTDATED): Melden Sie sich mit Saber an
-    loginWithNextcloud(OUTDATED): Melden Sie sich mit Nextcloud an
+      pleaseAuthorize: Bitte gib Saber Zugriff auf dein Nextcloud Konto
+      followPrompts: Bitte folge den Anweisungen in deinem Browser.
+      browserDidntOpen: "Browser hat sich nicht geöffnet? Klicke hier"
   encLoginStep:
-    enterEncPassword(OUTDATED): "Um Ihre Daten zu schützen, geben Sie bitte Ihr Verschlüsselungspasswort ein:"
-    newToSaber(OUTDATED): Neu bei Saber
-    encPassword(OUTDATED): Verschlüsselungskennwort
-    encFaqTitle(OUTDATED): Häufig gestellte Fragen
-    wrongEncPassword(OUTDATED): Die Entschlüsselung ist mit dem angegebenen Passwort fehlgeschlagen. Bitte versuchen Sie es erneut einzugeben.
-    connectionFailed(OUTDATED): Bei der Verbindung zum Server ist ein Fehler aufgetreten. Bitte versuchen Sie es später noch einmal.
-    encFaq(OUTDATED):
-      - q: "Was ist das Verchlüsselungspasswort?"
+    enterEncPassword: "Gib dein Verschlüsselungspasswort an, um deine Daten zu schützen:"
+    newToSaber: "Neu bei Saber? Gib einfach ein neues Verschlüsselungspasswort an."
+    encPassword: Verschlüsselungspasswort
+    encFaqTitle: Häufig gestellte Fragen
+    wrongEncPassword: Entschlüsselung mit dem angegebenen Passwort fehlgeschlagen. Bitte versuche es erneut einzugeben.
+    connectionFailed: Verbindung zum Server fehlgeschlagen. Bitte versuche es später erneut.
+    encFaq:
+      - q: "Was ist ein Verschlüsselungspasswort? Wozu zwei Passwörter?"
         a: |-
-          Das Verschlüsselungspasswort wird verwendet, um deine Daten zu verschlüsseln, bevor diese an den Server gesendet werden. Es wird nicht auf dem Server gespeichert und nur von Saber verwendet, um deine Daten zu ver- und entschlüsseln.
-          Niemand kann ohne dieses Passwort auf deine Notizen auf dem Server zugreifen. Das bedeutet allerdings auch, dass du, wenn du dein Verschlüsselungspasswort vergisst, den Zugriff auf deine Daten verlierst.
-      - q: "Wieso zwei Passwörter?"
+          Mit dem Nextcloud-Passwort greifst du auf die Cloud zu. Das Verschlüsselungspasswort schützt deine Daten, bevor sie jemals die Cloud erreichen.
+          Selbst wenn jemand Zugriff zu deinem Nextcloud-Konto erlangt, bleiben deine Notizen sicher und verschlüsselt mit einem separaten Passwort. Das bietet dir eine weitere Sicherheitsschicht zum Schutz deiner Daten.
+          Niemand kann ohne dein Verschlüsselungspasswort auf deine Notizen auf dem Server zugreifen. Das bedeutet allerdings auch, dass du den Zugriff auf deine Daten verlierst, falls du dein Verschlüsselungspasswort vergisst.
+      - q: "Ich habe noch kein Verschlüsselungspasswort festgelegt. Wo bekomme ich das her?"
         a: |-
-          Das Nextcloud-Passwort wird verwendet, um auf die Cloud zuzugreifen. Das Verschlüsselungspasswort „verwürfelt“ deine Daten, bevor diese die Cloud erreichen.
-          Selbst wenn jemand Zugriff zu deinem Nextcloud-Konto erlangt, bleiben deine Notizen sicher und verschlüsselt mit einem seperaten Passwort. Dies stellt eine zweite Sicherheitsebene zum Schutz deiner Daten dar.
-      - q: "Kann ich dasselbe Passwort für beide verwenden?"
-        a: "Ja, aber das ist nicht so sicher. Da dein Nextcloud-Passwort an den Server übertragen wird, kann jemand mit Zugriff auf den Server deine Notizen entschlüsseln. Du solltest also nur dasselbe Passwort verwenden, wenn du der Person, die den Server besitzt, vertraust."
-  notYou(rich, OUTDATED): "${undoLogin(Nicht du)}"
+          Wähle ein neues Verschlüsselungspasswort und gib es oben ein.
+          Saber wird mit diesem Passwort automatisch deine Schlüssel generieren.
+      - q: "Kann ich das gleiche Passwort wie bei meinem Nextcloud-Konto verwenden?"
+        a: "Ja, aber sei dir bewusst, dass es so für den Serveradministrator oder jemand anderen einfacher wäre, auf deine Notizen zuzugreifen, falls dieser Zugriff auf dein Nextcloud-Konto erlangt."
 profile:
   title: Mein Profil
   logout: Abmelden
+  quotaUsage: Du verwendest $used von $total ($percent)
+  connectedTo: Verbunden mit
   quickLinks:
     serverHomepage: Server-Startseite
     deleteAccount: Account löschen
+  faqTitle: Häufig gestellte Fragen
   faq:
     - q: "Verliere ich meine Notizen, wenn ich mich abmelde?"
       a: "Nein. Deine Notizen bleiben auf deinem Gerät und auf dem Server. Sie werden erst wieder synchronisiert, wenn du dich erneut anmeldest. Um Datenverlust zu vermeiden, solltest du sicherstellen, dass alles korrekt synchronisiert wurde, bevor du dich abmeldest. Dazu kannst du auf dem Startbildschirm den Synchronisationsfortschritt überprüfen."
@@ -209,9 +213,6 @@ profile:
         Drücke oben den „@:profile.quickLinks.deleteAccount“-Button und melde dich gegebenenfalls an.
         Wenn du den offiziellen Saber-Server nutzt, wird dein Account automatisch nach einer Woche gelöscht. Du kannst mich während dieser Woche unter adilhanney@disroot.org kontaktieren um die Löschung rückgängig zu machen.
         Wenn du einen anderen Server nutzt, kann es sein, dass du deinen Account nicht löschen kannst: Für mehr Information kannst du in der Datenschutzbestimmung des Servers nachgucken.
-  quotaUsage(OUTDATED): Sie verwenden $used von $total ($percent)
-  connectedTo(OUTDATED): Angeschlossen
-  faqTitle(OUTDATED): Häufig gestellte Fragen
 appInfo:
   licenseNotice: |-
     Saber  Copyright © 2022-$buildYear  Adil Hanney
@@ -292,11 +293,10 @@ editor:
     duplicatePage: Seite duplizieren
     deletePage: Seite löschen
     lineHeight: Zeilenhöhe
+    lineHeightDescription: Bestimmt ebenfalls die Textgröße der getippten Notizen
     backgroundImageFit: Background image fit
     backgroundPattern: Hintergrundmuster
     import: Importieren
-    watchServer(OUTDATED): Achten Sie auf Updates auf dem Server
-    watchServerReadOnly(OUTDATED): "Während Sie den Server beobachten, ist die Bearbeitung deaktiviert"
     boxFits:
       fill: Dehnen
       cover: Abdecken
@@ -311,7 +311,8 @@ editor:
       staffs: Notenpapier
       tablature: Tablature
       cornell: Cornell-Stil
-    lineHeightDescription(OUTDATED): Steuert außerdem die Textgröße für getippte Notizen
+    watchServer(OUTDATED): Achten Sie auf Updates auf dem Server
+    watchServerReadOnly(OUTDATED): "Während Sie den Server beobachten, ist die Bearbeitung deaktiviert"
   newerFileFormat:
     readOnlyMode: Schreibgeschützter Modus
     title: Diese Notiz wurde mit einer neueren Version von Saber bearbeitet
