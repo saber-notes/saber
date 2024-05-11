@@ -1823,9 +1823,9 @@ class _StringsCommonCs extends _StringsCommonEn {
 	@override final _StringsCs _root; // ignore: unused_field
 
 	// Translations
-	@override String get cancel => 'Zrušit';
-	@override String get done => 'Hotovo';
+	@override String get done => 'Dokončit';
 	@override String get continueBtn => 'Pokračovat';
+	@override String get cancel => 'Zrušit';
 }
 
 // Path: home
@@ -1891,12 +1891,14 @@ class _StringsLoginCs extends _StringsLoginEn {
 		linkToSignup('Zaregistrujte se'),
 		const TextSpan(text: '!'),
 	]);
+	@override TextSpan notYou({required InlineSpanBuilder undoLogin}) => TextSpan(children: [
+		const TextSpan(text: 'Nejste to vy? '),
+		undoLogin('Zvolit jiný účet'),
+		const TextSpan(text: '.'),
+	]);
 	@override late final _StringsLoginStatusCs status = _StringsLoginStatusCs._(_root);
 	@override late final _StringsLoginNcLoginStepCs ncLoginStep = _StringsLoginNcLoginStepCs._(_root);
 	@override late final _StringsLoginEncLoginStepCs encLoginStep = _StringsLoginEncLoginStepCs._(_root);
-	@override TextSpan notYou({required InlineSpanBuilder undoLogin}) => TextSpan(children: [
-		undoLogin('Né ty'),
-	]);
 }
 
 // Path: profile
@@ -1908,16 +1910,16 @@ class _StringsProfileCs extends _StringsProfileEn {
 	// Translations
 	@override String get title => 'Můj profil';
 	@override String get logout => 'Odhlásit se';
+	@override String quotaUsage({required Object used, required Object total, required Object percent}) => 'Využíváte ${used} z ${total} (${percent})';
+	@override String get connectedTo => 'Připojeno k';
 	@override late final _StringsProfileQuickLinksCs quickLinks = _StringsProfileQuickLinksCs._(_root);
+	@override String get faqTitle => 'Často kladené otázky';
 	@override List<dynamic> get faq => [
 		_StringsProfile$faq$0i0$Cs._(_root),
 		_StringsProfile$faq$0i1$Cs._(_root),
 		_StringsProfile$faq$0i2$Cs._(_root),
 		_StringsProfile$faq$0i3$Cs._(_root),
 	];
-	@override String quotaUsage({required Object used, required Object total, required Object percent}) => 'Používáte ${used} z ${total} (${percent})';
-	@override String get connectedTo => 'Připojen k';
-	@override String get faqTitle => 'Často kladené otázky';
 }
 
 // Path: appInfo
@@ -2251,9 +2253,9 @@ class _StringsLoginStatusCs extends _StringsLoginStatusEn {
 	// Translations
 	@override String get loggedOut => 'Jste odhlášení';
 	@override String get tapToLogin => 'Klepněte pro přihlášení pomocí Nextcloud účtu';
+	@override String hi({required Object u}) => 'Zdravím, ${u}!';
+	@override String get almostDone => 'Synchronizace je téměř připravena, pro dokončení přihlášení klepněte sem';
 	@override String get loggedIn => 'Jste přihlášeni pomocí Nextcloud účtu';
-	@override String hi({required Object u}) => 'Ahoj, ${u}!';
-	@override String get almostDone => 'Téměř připraveno k synchronizaci, klepnutím dokončete přihlášení';
 }
 
 // Path: login.ncLoginStep
@@ -2263,12 +2265,13 @@ class _StringsLoginNcLoginStepCs extends _StringsLoginNcLoginStepEn {
 	@override final _StringsCs _root; // ignore: unused_field
 
 	// Translations
+	@override String get whereToStoreData => 'Zvolte si, kam chcete ukládat svá data:';
+	@override String get saberNcServer => 'Oficiální Nextcloud server aplikace Saber';
+	@override String get otherNcServer => 'Jiný Nextcloud server';
+	@override String get serverUrl => 'URL adresa serveru';
+	@override String get loginWithSaber => 'Přihlásit přes aplikaci Saber';
+	@override String get loginWithNextcloud => 'Přihlásit přes Nextcloud server';
 	@override late final _StringsLoginNcLoginStepLoginFlowCs loginFlow = _StringsLoginNcLoginStepLoginFlowCs._(_root);
-	@override String get whereToStoreData => 'Vyberte, kam chcete svá data uložit:';
-	@override String get otherNcServer => 'Další server Nextcloud';
-	@override String get serverUrl => 'Adresa URL serveru';
-	@override String get loginWithSaber => 'Přihlaste se pomocí Saber';
-	@override String get loginWithNextcloud => 'Přihlaste se pomocí Nextcloud';
 }
 
 // Path: login.encLoginStep
@@ -2278,12 +2281,12 @@ class _StringsLoginEncLoginStepCs extends _StringsLoginEncLoginStepEn {
 	@override final _StringsCs _root; // ignore: unused_field
 
 	// Translations
-	@override String get enterEncPassword => 'Chcete-li chránit svá data, zadejte své šifrovací heslo:';
-	@override String get newToSaber => 'Novinka pro Saber';
-	@override String get encPassword => 'Šifrovací heslo';
+	@override String get enterEncPassword => 'Zadejte prosím heslo pro šifrování, abyste chránili svá data:';
+	@override String get newToSaber => 'Poprvé v aplikaci Saber? Stačí zadat nové heslo pro šifrování.';
+	@override String get encPassword => 'Heslo pro šifrování';
 	@override String get encFaqTitle => 'Často kladené otázky';
-	@override String get wrongEncPassword => 'Dešifrování se zadaným heslem se nezdařilo. Zkuste jej zadat znovu.';
-	@override String get connectionFailed => 'Při připojování k serveru se něco pokazilo. Prosím zkuste to znovu později.';
+	@override String get wrongEncPassword => 'Dešifrování pomocí zadaného hesla pro šifrování selhalo. Zkuste ho prosím zadat znovu.';
+	@override String get connectionFailed => 'Při připojování k serveru se něco pokazilo. Zkuste to prosím později.';
 	@override List<dynamic> get encFaq => [
 		_StringsLoginEncLoginStep$encFaq$0i0$Cs._(_root),
 		_StringsLoginEncLoginStep$encFaq$0i1$Cs._(_root),
@@ -2469,10 +2472,10 @@ class _StringsEditorMenuCs extends _StringsEditorMenuEn {
 	@override String get backgroundImageFit => 'Rozložení obrázku na pozadí';
 	@override String get backgroundPattern => 'Vzor na pozadí';
 	@override String get import => 'Importovat';
-	@override String get watchServer => 'Sledujte aktualizace na serveru';
-	@override String get watchServerReadOnly => 'Při sledování serveru jsou úpravy zakázány';
 	@override late final _StringsEditorMenuBoxFitsCs boxFits = _StringsEditorMenuBoxFitsCs._(_root);
 	@override late final _StringsEditorMenuBgPatternsCs bgPatterns = _StringsEditorMenuBgPatternsCs._(_root);
+	@override String get watchServer => 'Sledujte aktualizace na serveru';
+	@override String get watchServerReadOnly => 'Při sledování serveru jsou úpravy zakázány';
 }
 
 // Path: editor.newerFileFormat
@@ -2544,9 +2547,9 @@ class _StringsLoginNcLoginStepLoginFlowCs extends _StringsLoginNcLoginStepLoginF
 	@override final _StringsCs _root; // ignore: unused_field
 
 	// Translations
-	@override String get pleaseAuthorize => 'Povolte Saber přístup k vašemu účtu Nextcloud';
-	@override String get followPrompts => 'Postupujte podle pokynů ve vašem prohlížeči.';
-	@override String get browserDidntOpen => 'Prohlížeč se neotevřel';
+	@override String get pleaseAuthorize => 'Autorizujte prosím aplikaci Saber k přístupu na váš Nextcloud účet';
+	@override String get followPrompts => 'Následujte prosím kroky ve webovém prohlížeči';
+	@override String get browserDidntOpen => 'Neotevřel se webový prohlížeč? Klepněte zde';
 }
 
 // Path: login.encLoginStep.encFaq.0
@@ -2556,8 +2559,8 @@ class _StringsLoginEncLoginStep$encFaq$0i0$Cs extends _StringsLoginEncLoginStep$
 	@override final _StringsCs _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Co je to heslo pro šifrování?';
-	@override String get a => 'Heslo pro šifrování je použito k zašifrování vašich dat před jejich odesláním na server. Zvolíte si ho při prvním přihlášení do aplikace Saber (nikoliv do webového rozhraní Nextcloud serveru), není nijak vázáno na heslo k vašemu Nextcloud účtu nebo na účet samotný.\nBez jeho znalosti nemůže nikdo přistoupit k vašim poznámkám uloženým na serveru. To také znamená, že pokud ho zapomenete, ztratíte přístup ke svým datům.';
+	@override String get q => 'Co je to heslo pro šifrování? Proč používat dvě hesla?';
+	@override String get a => 'Heslo k Nextcloud účtu se používá k přístupu do cloudu. Heslo pro šifrování „zamaskuje“ vaše data dokonce ještě než dorazí na cloud.\nI když by někdo získat přístup k vašemu Nextcloud účtu, vaše poznámky zůstanou v bezpečí a zašifrované oddělným heslem. To vám přináší druhou úroveň bezpečnosti ochrany vašich dat.\nNikdo k vašim poznámkám nemůže přistoupit bez hesla pro šifrování, což ale také znamená, že pokud své heslo pro šifrování zapomenete, ztratíte přístup ke svým datům.';
 }
 
 // Path: login.encLoginStep.encFaq.1
@@ -2567,8 +2570,8 @@ class _StringsLoginEncLoginStep$encFaq$0i1$Cs extends _StringsLoginEncLoginStep$
 	@override final _StringsCs _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Proč používat dvě hesla?';
-	@override String get a => 'Heslo k Nextcloud účtu se používá k přístupu do cloudu. Heslo pro šifrování "utají" vaše data ještě před tím, než se na cloud dostanou.\nI když by někdo získat přístup k vašemu Nextcloud účtu, vaše poznámky zůstanou v bezpečí zašifrované vlastním heslem. To vám poskytuje druhou vrstvu ochrany vašich dat.';
+	@override String get q => 'Ještě jsem heslo pro šifrování nenastavoval. Kde ho získám?';
+	@override String get a => 'Zvolte si nové heslo pro šifrování a zadejte ho výše.\nAplikace Saber z hesla automaticky vygeneruje šifrovací klíče.';
 }
 
 // Path: login.encLoginStep.encFaq.2
@@ -2578,8 +2581,8 @@ class _StringsLoginEncLoginStep$encFaq$0i2$Cs extends _StringsLoginEncLoginStep$
 	@override final _StringsCs _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Ještě jsem heslo pro šifrování nenastavoval. Kde ho získám?';
-	@override String get a => 'Jednoduše si ho zvolíte právě teď, když se budete výše přihlašovat!\nHeslo pro šifrování si volíte při prvním přihlášení do aplikace Saber (nikoliv do webového rozhraní Nextcloud serveru).';
+	@override String get q => 'Mohu jako heslo pro šifrování použít své heslo od Nextcloud účtu?';
+	@override String get a => 'Ano, ale mějte na paměti, že bude pro administrátora Nextcloud serveru či kohokoliv jiného, kdo získá přístup k vašemu Nextcloud účtu, jednodušší získat přístup k vašim poznámkám.';
 }
 
 // Path: editor.menu.boxFits
