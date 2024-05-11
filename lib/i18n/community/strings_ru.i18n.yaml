@@ -97,7 +97,6 @@ settings:
     autoStraightenLines: Автоматическое выпрямление линий
     customDataDir: Свой каталог для данных
     pencilSoundSetting: Звуковой эффект карандаша
-    refreshCurrentNote(OUTDATED): Периодически обновлять текущую заметку
   prefDescriptions:
     hyperlegibleFont: Шрифт Atkinson Hyperlegible повышает разборчивость для читателей с плохим зрением
     disableAds: "Реклама помогает поддерживать разработку Saber, но вы можете отключить её, если захотите."
@@ -121,7 +120,6 @@ settings:
       off: Без звука
       onButNotInSilentMode: Включено (кроме тихого режима)
       onAlways: Включено (даже в беззвучном режиме)
-    refreshCurrentNote(OUTDATED): "Обновляет открытую в данный момент заметку, если вы редактируете ее на другом устройстве."
   themeModes:
     system: Системная
     light: Светлая
@@ -298,6 +296,8 @@ editor:
     backgroundImageFit: Фоновое изображение
     backgroundPattern: Фоновый шаблон
     import: Импорт
+    watchServer(OUTDATED): Следите за обновлениями на сервере
+    watchServerReadOnly(OUTDATED): Редактирование отключено при просмотре сервера
     boxFits:
       fill: Растянуть
       cover: Обрезать

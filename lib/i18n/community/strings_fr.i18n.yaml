@@ -94,7 +94,6 @@ settings:
     printPageIndicators: Imprimer les numéros de pages
     autosaveDelay: Délai entre les sauvegardes automatiques
     shapeRecognitionDelay: Délai de reconnaissance de forme
-    refreshCurrentNote(OUTDATED): Actualiser périodiquement la note actuelle
     pencilSoundSetting(OUTDATED): Effet sonore de crayon
     customDataDir(OUTDATED): Répertoire de données personnalisé
     autoStraightenLines(OUTDATED): Redresser automatiquement les lignes
@@ -120,7 +119,6 @@ settings:
       off(OUTDATED): Pas de son
       onButNotInSilentMode(OUTDATED): Activé (sauf en mode silencieux)
       onAlways(OUTDATED): Activé (même en mode silencieux)
-    refreshCurrentNote(OUTDATED): Met à jour la note actuellement ouverte si vous la modifiez sur un autre appareil
     autoStraightenLines(OUTDATED): Redresse les longues lignes sans avoir à utiliser le stylo de forme
   themeModes:
     system: Système
@@ -296,6 +294,8 @@ editor:
     backgroundImageFit: Adaptation de l'image de fond
     backgroundPattern: Texture de fond
     import: Importer
+    watchServer(OUTDATED): Surveillez les mises à jour sur le serveur
+    watchServerReadOnly(OUTDATED): L'édition est désactivée lorsque vous regardez le serveur
     boxFits:
       fill: S'ajuste
       cover: Couvre

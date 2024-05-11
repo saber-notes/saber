@@ -83,7 +83,6 @@ settings:
     editorPromptRename: Új jegyzetek átnevezésére való felszólítás
     hideHomeBackgrounds: Hátterek elrejtése a kezdőképernyőn
     recentColorsDontSavePresets: Ne mentse az előre beállított színeket a legutóbbi színek között
-    refreshCurrentNote(OUTDATED): Az aktuális jegyzet rendszeres frissítése
     pencilSoundSetting(OUTDATED): Ceruza hanghatás
     customDataDir(OUTDATED): Egyedi adatkönyvtár
     autoStraightenLines(OUTDATED): A vonalak automatikus kiegyenesítése
@@ -113,7 +112,6 @@ settings:
       off(OUTDATED): Nincs hang
       onButNotInSilentMode(OUTDATED): "Engedélyezve (kivéve, ha néma módban van)"
       onAlways(OUTDATED): Engedélyezve (néma módban is)
-    refreshCurrentNote(OUTDATED): "Frissíti az éppen megnyitott jegyzetet, ha egy másik eszközön szerkeszti"
     autoStraightenLines(OUTDATED): "Kiegyenesíti a hosszú vonalakat anélkül, hogy az alakos tollat ​​kellene használnia"
     shapeRecognitionDelay(OUTDATED): Milyen gyakran kell frissíteni az alakzat előnézetét
     disableAds(OUTDATED): "A hirdetések segítik a Saber fejlesztését, de tilthatja őket, ha tetszik"
@@ -291,6 +289,8 @@ editor:
     lineHeight: Vonalmagasság
     backgroundPattern: Háttérminta
     import: Importálás
+    watchServer(OUTDATED): Figyelje a frissítéseket a szerveren
+    watchServerReadOnly(OUTDATED): A szerver figyelése közben a szerkesztés le van tiltva
     boxFits:
       fill: Nyújtás
       cover: Átfed

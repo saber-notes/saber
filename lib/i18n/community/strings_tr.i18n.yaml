@@ -95,7 +95,6 @@ settings:
     autosaveDelay: Otomatik kayıt aralığı
     shapeRecognitionDelay: Şekil tanıma gecikmesi
     autoStraightenLines: Çizgileri otomatik düzleştir
-    refreshCurrentNote(OUTDATED): Geçerli notu düzenli aralıklarla yenile
     pencilSoundSetting(OUTDATED): Kalem ses efekti
     customDataDir(OUTDATED): Özel veri dizini
   prefDescriptions:
@@ -121,7 +120,6 @@ settings:
       off(OUTDATED): Ses yok
       onButNotInSilentMode(OUTDATED): Etkin (sessiz modda olmadığı sürece)
       onAlways(OUTDATED): Etkin (sessiz modda bile)
-    refreshCurrentNote(OUTDATED): "Başka bir cihazda düzenliyorsanız, şu anda açık olan notu günceller"
   themeModes:
     system: Sistem teması
     light: Aydınlık
@@ -297,6 +295,8 @@ editor:
     backgroundImageFit: Arkaplan görüntüsünü sığdır
     backgroundPattern: Arkaplan deseni
     import: İçe aktar
+    watchServer(OUTDATED): Sunucudaki güncellemeleri izleyin
+    watchServerReadOnly(OUTDATED): Sunucuyu izlerken düzenleme devre dışı bırakıldı
     boxFits:
       fill: Yaydır
       cover: Kapla

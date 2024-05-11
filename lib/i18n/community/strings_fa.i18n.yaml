@@ -94,7 +94,6 @@ settings:
     printPageIndicators: چاپ نشانگرهای صفحه
     autosaveDelay: تأخیر ذخیره خودکار
     shapeRecognitionDelay: تاخیر در تشخیص شکل
-    refreshCurrentNote(OUTDATED): یادداشت فعلی را به صورت دوره ای بازخوانی کنید
     pencilSoundSetting(OUTDATED): جلوه صدای مداد
     customDataDir(OUTDATED): دایرکتوری داده های سفارشی
     autoStraightenLines(OUTDATED): صاف کردن خودکار خطوط
@@ -120,7 +119,6 @@ settings:
       onAlways(OUTDATED): فعال (حتی در حالت بی صدا)
       off(OUTDATED): بدون صدا
       onButNotInSilentMode(OUTDATED): فعال (مگر در حالت بی صدا)
-    refreshCurrentNote(OUTDATED): اگر یادداشت باز فعلی را در دستگاه دیگری ویرایش می‌کنید، آن را به‌روزرسانی می‌کند
     autoStraightenLines(OUTDATED): خطوط بلند را بدون استفاده از قلم شکل صاف می کند
   themeModes:
     system: سیستم
@@ -292,6 +290,8 @@ editor:
     backgroundImageFit: مناسب تصویر پس زمینه
     backgroundPattern: الگوی پس زمینه
     import: واردکردن
+    watchServer(OUTDATED): مراقب به روز رسانی ها در سرور باشید
+    watchServerReadOnly(OUTDATED): هنگام تماشای سرور، ویرایش غیرفعال است
     boxFits:
       fill: کش آمدن
       cover: پوشش دادن

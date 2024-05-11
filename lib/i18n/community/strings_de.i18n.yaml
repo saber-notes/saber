@@ -96,7 +96,6 @@ settings:
     shapeRecognitionDelay: Verzögerung der Formerkennung
     autoStraightenLines: Linien automatisch begradigen
     customDataDir: Benutzerdefiniertes Verzeichnis
-    refreshCurrentNote(OUTDATED): Aktuelle Notiz regelmäßig aktualisieren
     pencilSoundSetting(OUTDATED): Bleistift-Soundeffekt
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible verbessert die Lesbarkeit für Menschen mit eingeschränkter Sicht
@@ -121,7 +120,6 @@ settings:
       onAlways(OUTDATED): Aktiviert (auch im lautlosen Modus)
       off(OUTDATED): Keinen Ton
       onButNotInSilentMode(OUTDATED): Aktiviert (außer im stillen Modus)
-    refreshCurrentNote(OUTDATED): "Aktualisiert die aktuell geöffnete Notiz, wenn Sie sie auf einem anderen Gerät bearbeiten"
   themeModes:
     system: System
     light: Hell
@@ -297,6 +295,8 @@ editor:
     backgroundImageFit: Background image fit
     backgroundPattern: Hintergrundmuster
     import: Importieren
+    watchServer(OUTDATED): Achten Sie auf Updates auf dem Server
+    watchServerReadOnly(OUTDATED): "Während Sie den Server beobachten, ist die Bearbeitung deaktiviert"
     boxFits:
       fill: Dehnen
       cover: Abdecken

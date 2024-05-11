@@ -97,7 +97,6 @@ settings:
     autoStraightenLines: Raddrizzamento automatico delle linee
     customDataDir: Directory di dati personalizzata
     pencilSoundSetting: Effetto sonoro della matita
-    refreshCurrentNote(OUTDATED): Aggiorna periodicamente la nota corrente
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible aumenta la leggibilità per i lettori ipovedenti
     disableAds: "Gli annunci aiutano a supportare lo sviluppo di Saber, ma puoi disattivarli se lo desideri"
@@ -121,7 +120,6 @@ settings:
       off: Nessun suono
       onButNotInSilentMode: Abilitato (a meno che non sia in modalità silenziosa)
       onAlways: Abilitato (anche in modalità silenziosa)
-    refreshCurrentNote(OUTDATED): Aggiorna la nota attualmente aperta se la stai modificando su un altro dispositivo
   themeModes:
     system: Sistema
     light: Chiaro
@@ -297,6 +295,8 @@ editor:
     backgroundImageFit: Adattamento immagine di sfondo
     backgroundPattern: Modello di sfondo
     import: Importa
+    watchServer(OUTDATED): Controlla gli aggiornamenti sul server
+    watchServerReadOnly(OUTDATED): La modifica è disabilitata mentre si guarda il server
     boxFits:
       fill: Tratto
       cover: Copertina
