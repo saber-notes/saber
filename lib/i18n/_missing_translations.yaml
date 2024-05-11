@@ -666,51 +666,51 @@ hu:
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
 it:
   common:
-    done(OUTDATED): Done
-    continueBtn(OUTDATED): Continue
+    done(OUTDATED): Fatto
+    continueBtn(OUTDATED): Continua
   login:
-    notYou(rich)(OUTDATED): "Not you? ${undoLogin(Choose another account)}."
+    notYou(rich)(OUTDATED): "Nn sei tu? ${undoLogin(Scegli un altro account)}."
     status:
-      hi(OUTDATED): "Hi, $u!"
-      almostDone(OUTDATED): "Almost ready for syncing, tap to finish logging in"
+      hi(OUTDATED): "Ciao, $u!"
+      almostDone(OUTDATED): "Quasi pronto per la sincronizzazione, tocca per completare l'accesso"
     ncLoginStep:
-      whereToStoreData(OUTDATED): "Choose where you want to store your data:"
-      saberNcServer(OUTDATED): Saber's Nextcloud server
-      otherNcServer(OUTDATED): Other Nextcloud server
-      serverUrl(OUTDATED): Server URL
-      loginWithSaber(OUTDATED): Login with Saber
-      loginWithNextcloud(OUTDATED): Login with Nextcloud
+      whereToStoreData(OUTDATED): "Scegli dove vuoi archiviare i tuoi dati:"
+      saberNcServer(OUTDATED): Il server Nextcloud di Saber
+      otherNcServer(OUTDATED): Altro server Nextcloud
+      serverUrl(OUTDATED): URL Server
+      loginWithSaber(OUTDATED): Accedi con Saber
+      loginWithNextcloud(OUTDATED): Accedi con Nextcloud
       loginFlow:
-        pleaseAuthorize(OUTDATED): Please authorize Saber to access your Nextcloud account
-        followPrompts(OUTDATED): Please follow the prompts in your browser.
-        browserDidntOpen(OUTDATED): "Browser didn't open? Click here"
+        pleaseAuthorize(OUTDATED): Autorizza Saber ad accedere al tuo account Nextcloud
+        followPrompts(OUTDATED): Si prega di seguire le istruzioni nel browser.
+        browserDidntOpen(OUTDATED): "Il browser non si è aperto? clicca qui"
     encLoginStep:
-      enterEncPassword(OUTDATED): "To protect your data, please enter your encryption password:"
-      newToSaber(OUTDATED): "New to Saber? Just enter a new encryption password."
-      encPassword(OUTDATED): Encryption password
-      encFaqTitle(OUTDATED): Frequently asked questions
-      wrongEncPassword(OUTDATED): Decryption failed with the provided password. Please try entering it again.
-      connectionFailed(OUTDATED): Something went wrong connecting to the server. Please try again later.
+      enterEncPassword(OUTDATED): "Per proteggere i tuoi dati, inserisci la password crittografata:"
+      newToSaber(OUTDATED): "Nuovo su Saber? Basta inserire una nuova password crittografata."
+      encPassword(OUTDATED): Password crittografata
+      encFaqTitle(OUTDATED): Domande frequenti
+      wrongEncPassword(OUTDATED): La decrittografia non è riuscita con la password fornita. Per favore prova a inserirla di nuovo.
+      connectionFailed(OUTDATED): Qualcosa è andato storto durante la connessione al server. Per favore riprova più tardi.
       encFaq(OUTDATED):
-        - q: "What is an encryption password? Why use two passwords?"
+        - q: "Cos'è una password crittografata? Perché usare due password?"
           a: |-
-            The Nextcloud password is used to access the cloud. The encryption password "scrambles" your data before it ever reaches the cloud.
-            Even if someone gains access to your Nextcloud account, your notes will remain safe and encrypted with a separate password. This provides you a second layer of security to protect your data.
-            No-one can access your notes on the server without your encryption password, but this also means that if you forget your encryption password, you will lose access to your data.
-        - q: "I haven't set an encryption password yet. Where do I get it?"
+            La password Nextcloud viene utilizzata per accedere al cloud. La password di crittografia "codifica" i tuoi dati prima che raggiungano il cloud.
+             Anche se qualcuno riesce ad accedere al tuo account Nextcloud, le tue note rimarranno al sicuro e crittografate con una password separata. Ciò fornisce un secondo livello di sicurezza per proteggere i tuoi dati.
+             Nessuno può accedere alle tue note sul server senza la tua password di crittografia, ma ciò significa anche che se dimentichi la password di crittografia, perderai l'accesso ai tuoi dati.
+        - q: "Non ho ancora impostato una password di crittografia. Dove lo posso ottenere?"
           a: |-
-            Choose a new encryption password and enter it above.
-            Saber will generate your encryption keys from this password automatically.
-        - q: "Can I use the same password as my Nextcloud account?"
-          a: "Yes, but keep in mind that it would be easier for the server administrator or someone else to access your notes if they gain access to your Nextcloud account."
+            Scegli una nuova password crittografata e inseriscila sopra.
+            Saber genererà automaticamente le chiavi di crittografia da questa password.
+        - q: "Posso utilizzare la stessa password del mio account Nextcloud?"
+          a: "Sì, ma tieni presente che sarebbe più semplice per l'amministratore del server o qualcun altro accedere alle tue note se accedessero al tuo account Nextcloud."
   profile:
-    quotaUsage(OUTDATED): You're using $used of $total ($percent)
-    connectedTo(OUTDATED): Connected to
-    faqTitle(OUTDATED): Frequently asked questions
+    quotaUsage(OUTDATED): Stai $usando di $totale ($percentuale)
+    connectedTo(OUTDATED): Collegato a
+    faqTitle(OUTDATED): Domande frequenti
   editor:
     menu:
-      watchServer(OUTDATED): Watch for updates on the server
-      watchServerReadOnly(OUTDATED): Editing is disabled while watching the server
+      watchServer(OUTDATED): Controlla gli aggiornamenti sul server
+      watchServerReadOnly(OUTDATED): La modifica è disabilitata mentre si guarda il server
 ja:
   common:
     done(OUTDATED): Done
