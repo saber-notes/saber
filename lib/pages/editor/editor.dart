@@ -174,6 +174,7 @@ class EditorState extends State<Editor> {
 
   ValueNotifier<SavingState> savingState = ValueNotifier(SavingState.saved);
   Timer? _delayedSaveTimer;
+  Timer? _watchServerTimer;
 
   // used to prevent accidentally drawing when pinch zooming
   int lastSeenPointerCount = 0;
@@ -195,12 +196,6 @@ class EditorState extends State<Editor> {
     _assignKeybindings();
 
     super.initState();
-
-    if (Prefs.refreshCurrentNote.value)
-      Timer.periodic(
-        const Duration(seconds: 10),
-        (_) => _refreshCurrentNote(),
-      );
   }
 
   void _initAsync() async {
@@ -830,7 +825,6 @@ class EditorState extends State<Editor> {
   void _refreshCurrentNote() async {
     if (coreInfo.readOnly) return;
     if (!Prefs.loggedIn) return;
-    if (!Prefs.refreshCurrentNote.value) return;
 
     final updated = await FileSyncer.refreshCurrentNote(coreInfo);
     if (!updated) return;
@@ -1767,6 +1761,18 @@ class EditorState extends State<Editor> {
       pickPhotos: _pickPhotos,
       importPdf: importPdf,
       canRasterPdf: Editor.canRasterPdf,
+      getIsWatchingServer: () => _watchServerTimer?.isActive ?? false,
+      setIsWatchingServer: (bool watch) {
+        if (watch) {
+          _watchServerTimer ??= Timer.periodic(
+            const Duration(seconds: 5),
+            (_) => _refreshCurrentNote(),
+          );
+        } else {
+          _watchServerTimer?.cancel();
+          _watchServerTimer = null;
+        }
+      },
     );
   }
 

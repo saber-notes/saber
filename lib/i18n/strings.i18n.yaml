@@ -299,6 +299,7 @@ editor:
     backgroundImageFit: Background image fit
     backgroundPattern: Background pattern
     import: Import
+    watchServer: Watch for updates on the server
     boxFits:
       fill: Stretch
       cover: Cover

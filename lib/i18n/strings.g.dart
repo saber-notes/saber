@@ -818,6 +818,7 @@ class _StringsEditorMenuEn {
 	String get backgroundImageFit => 'Background image fit';
 	String get backgroundPattern => 'Background pattern';
 	String get import => 'Import';
+	String get watchServer => 'Watch for updates on the server';
 	late final _StringsEditorMenuBoxFitsEn boxFits = _StringsEditorMenuBoxFitsEn._(_root);
 	late final _StringsEditorMenuBgPatternsEn bgPatterns = _StringsEditorMenuBgPatternsEn._(_root);
 }
