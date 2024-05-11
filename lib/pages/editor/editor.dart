@@ -2029,6 +2029,7 @@ class EditorState extends State<Editor> {
     DynamicMaterialApp.removeFullscreenListener(_setState);
 
     _delayedSaveTimer?.cancel();
+    _watchServerTimer?.cancel();
     _lastSeenPointerCountTimer?.cancel();
 
     _removeKeybindings();
