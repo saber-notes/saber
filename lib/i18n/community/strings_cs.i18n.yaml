@@ -1,7 +1,7 @@
 common:
+  done: Dokončit
+  continueBtn: Pokračovat
   cancel: Zrušit
-  done(OUTDATED): Hotovo
-  continueBtn(OUTDATED): Pokračovat
 home:
   tabs:
     home: Domů
@@ -150,49 +150,52 @@ login:
   form:
     agreeToPrivacyPolicy(rich): "Přihlášením souhlasíte se ${linkToPrivacyPolicy(Zásadami ochrany osobních údajů)}."
   signup(rich): "Ještě nemáte účet? ${linkToSignup(Zaregistrujte se)}!"
+  notYou(rich): "Nejste to vy? ${undoLogin(Zvolit jiný účet)}."
   status:
     loggedOut: Jste odhlášení
     tapToLogin: Klepněte pro přihlášení pomocí Nextcloud účtu
+    hi: "Zdravím, $u!"
+    almostDone: "Synchronizace je téměř připravena, pro dokončení přihlášení klepněte sem"
     loggedIn: Jste přihlášeni pomocí Nextcloud účtu
-    hi(OUTDATED): "Ahoj, $u!"
-    almostDone(OUTDATED): "Téměř připraveno k synchronizaci, klepnutím dokončete přihlášení"
   ncLoginStep:
+    whereToStoreData: "Zvolte si, kam chcete ukládat svá data:"
+    saberNcServer: Oficiální Nextcloud server aplikace Saber
+    otherNcServer: Jiný Nextcloud server
+    serverUrl: URL adresa serveru
+    loginWithSaber: Přihlásit přes aplikaci Saber
+    loginWithNextcloud: Přihlásit přes Nextcloud server
     loginFlow:
-      pleaseAuthorize(OUTDATED): Povolte Saber přístup k vašemu účtu Nextcloud
-      followPrompts(OUTDATED): Postupujte podle pokynů ve vašem prohlížeči.
-      browserDidntOpen(OUTDATED): Prohlížeč se neotevřel
-    whereToStoreData(OUTDATED): "Vyberte, kam chcete svá data uložit:"
-    otherNcServer(OUTDATED): Další server Nextcloud
-    serverUrl(OUTDATED): Adresa URL serveru
-    loginWithSaber(OUTDATED): Přihlaste se pomocí Saber
-    loginWithNextcloud(OUTDATED): Přihlaste se pomocí Nextcloud
+      pleaseAuthorize: Autorizujte prosím aplikaci Saber k přístupu na váš Nextcloud účet
+      followPrompts: Následujte prosím kroky ve webovém prohlížeči
+      browserDidntOpen: "Neotevřel se webový prohlížeč? Klepněte zde"
   encLoginStep:
-    enterEncPassword(OUTDATED): "Chcete-li chránit svá data, zadejte své šifrovací heslo:"
-    newToSaber(OUTDATED): Novinka pro Saber
-    encPassword(OUTDATED): Šifrovací heslo
-    encFaqTitle(OUTDATED): Často kladené otázky
-    wrongEncPassword(OUTDATED): Dešifrování se zadaným heslem se nezdařilo. Zkuste jej zadat znovu.
-    connectionFailed(OUTDATED): Při připojování k serveru se něco pokazilo. Prosím zkuste to znovu později.
-    encFaq(OUTDATED):
-      - q: "Co je to heslo pro šifrování?"
+    enterEncPassword: "Zadejte prosím heslo pro šifrování, abyste chránili svá data:"
+    newToSaber: "Poprvé v aplikaci Saber? Stačí zadat nové heslo pro šifrování."
+    encPassword: Heslo pro šifrování
+    encFaqTitle: Často kladené otázky
+    wrongEncPassword: Dešifrování pomocí zadaného hesla pro šifrování selhalo. Zkuste ho prosím zadat znovu.
+    connectionFailed: Při připojování k serveru se něco pokazilo. Zkuste to prosím později.
+    encFaq:
+      - q: "Co je to heslo pro šifrování? Proč používat dvě hesla?"
         a: |-
-          Heslo pro šifrování je použito k zašifrování vašich dat před jejich odesláním na server. Zvolíte si ho při prvním přihlášení do aplikace Saber (nikoliv do webového rozhraní Nextcloud serveru), není nijak vázáno na heslo k vašemu Nextcloud účtu nebo na účet samotný.
-          Bez jeho znalosti nemůže nikdo přistoupit k vašim poznámkám uloženým na serveru. To také znamená, že pokud ho zapomenete, ztratíte přístup ke svým datům.
-      - q: "Proč používat dvě hesla?"
-        a: |-
-          Heslo k Nextcloud účtu se používá k přístupu do cloudu. Heslo pro šifrování "utají" vaše data ještě před tím, než se na cloud dostanou.
-          I když by někdo získat přístup k vašemu Nextcloud účtu, vaše poznámky zůstanou v bezpečí zašifrované vlastním heslem. To vám poskytuje druhou vrstvu ochrany vašich dat.
+          Heslo k Nextcloud účtu se používá k přístupu do cloudu. Heslo pro šifrování „zamaskuje“ vaše data dokonce ještě než dorazí na cloud.
+          I když by někdo získat přístup k vašemu Nextcloud účtu, vaše poznámky zůstanou v bezpečí a zašifrované oddělným heslem. To vám přináší druhou úroveň bezpečnosti ochrany vašich dat.
+          Nikdo k vašim poznámkám nemůže přistoupit bez hesla pro šifrování, což ale také znamená, že pokud své heslo pro šifrování zapomenete, ztratíte přístup ke svým datům.
       - q: "Ještě jsem heslo pro šifrování nenastavoval. Kde ho získám?"
         a: |-
-          Jednoduše si ho zvolíte právě teď, když se budete výše přihlašovat!
-          Heslo pro šifrování si volíte při prvním přihlášení do aplikace Saber (nikoliv do webového rozhraní Nextcloud serveru).
-  notYou(rich, OUTDATED): "${undoLogin(Né ty)}"
+          Zvolte si nové heslo pro šifrování a zadejte ho výše.
+          Aplikace Saber z hesla automaticky vygeneruje šifrovací klíče.
+      - q: "Mohu jako heslo pro šifrování použít své heslo od Nextcloud účtu?"
+        a: "Ano, ale mějte na paměti, že bude pro administrátora Nextcloud serveru či kohokoliv jiného, kdo získá přístup k vašemu Nextcloud účtu, jednodušší získat přístup k vašim poznámkám."
 profile:
   title: Můj profil
   logout: Odhlásit se
+  quotaUsage: Využíváte $used z $total ($percent)
+  connectedTo: Připojeno k
   quickLinks:
     serverHomepage: Webové stránky serveru
     deleteAccount: Odstranit účet
+  faqTitle: Často kladené otázky
   faq:
     - q: "Ztratím po odhlášení svoje poznámky?"
       a: "Nikoliv. Vaše poznámky zůstanou jak na vašem zařízení, tak na serveru. Dokud se opět nepřihlásíte, nebudou synchronizovány se serverem. Před ohlášením se ujistěte, že byla dokončena synchronizace, abyste předešli ztrátě dat (průběh synchronizace uvidíte na domovské obrazovce)."
@@ -209,9 +212,6 @@ profile:
         Klepněte na tlačítko "@:profile.quickLinks.deleteAccount" umístěné výše a přihlašte se, pokud to bude vyžadováno.
         Pokud používáte výchozí server od aplikace Saber, bude váš účet odstraněn po uplynutí týdenní ochranné lhůty. Během této lhůty mě můžete kontaktovat pro odvolání zrušení účtu na adilhanney@disroot.org.
         Pokud používáte server třetí strany, nemusí nabízet možnost odstranění účtu: pro více informací se bude třeba obrátit na zásady ochrany osobních údajů daného serveru.
-  quotaUsage(OUTDATED): Používáte $used z $total ($percent)
-  connectedTo(OUTDATED): Připojen k
-  faqTitle(OUTDATED): Často kladené otázky
 appInfo:
   licenseNotice: |-
     Saber  Copyright © 2022-$buildYear  Adil Hanney
@@ -296,8 +296,6 @@ editor:
     backgroundImageFit: Rozložení obrázku na pozadí
     backgroundPattern: Vzor na pozadí
     import: Importovat
-    watchServer(OUTDATED): Sledujte aktualizace na serveru
-    watchServerReadOnly(OUTDATED): Při sledování serveru jsou úpravy zakázány
     boxFits:
       fill: Roztáhnout
       cover: Vyplnit
@@ -312,6 +310,8 @@ editor:
       staffs: Notová osnova
       tablature: Tabulatura
       cornell: Cornellova metoda
+    watchServer(OUTDATED): Sledujte aktualizace na serveru
+    watchServerReadOnly(OUTDATED): Při sledování serveru jsou úpravy zakázány
   newerFileFormat:
     readOnlyMode: Otevřít v režimu pouze pro čtení
     title: Tato poznámka byla upravena v novější verzi aplikace Saber
