@@ -138,8 +138,8 @@ cs:
 de:
   editor:
     menu:
-      watchServer(OUTDATED): Watch for updates on the server
-      watchServerReadOnly(OUTDATED): Editing is disabled while watching the server
+      watchServer(OUTDATED): Halte nach Aktualisierungen auf dem Server Ausschau
+      watchServerReadOnly(OUTDATED): Bearbeiten ist deaktiviert, solange du den Server beobachtest
 es:
   common:
     done(OUTDATED): Done
