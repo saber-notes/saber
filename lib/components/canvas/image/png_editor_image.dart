@@ -169,10 +169,21 @@ class PngEditorImage extends EditorImage {
         dstRect = dstRect.topLeft & dstSize;
       }
     }
+//    if (srcRect.topLeft==Offset.zero) {
+//      srcRect = Rect.fromLTWH(324 / 4, 162 / 4, 3 / 4 * 324, 3 / 4 * 162);
+//      dstRect=Rect.fromLTWH(srcRect.left,srcRect.top,srcRect.width*2,srcRect.height*2).shift(Offset(100,100));
+//    }
+
+    dstFullRect=getDstFullRect(); // calculate full image rect
+//    if (dstFullRect.left<0){
+//      dstRect=dstRect.shift(-dstFullRect.topLeft);
+//      dstFullRect=dstFullRect.shift(-dstFullRect.topLeft);
+//    }
 
     if (naturalSize.shortestSide == 0) {
       naturalSize = Size(srcRect.width, srcRect.height);
     }
+
 
     if (isThumbnail) {
       isThumbnail = true; // updates bytes and srcRect
