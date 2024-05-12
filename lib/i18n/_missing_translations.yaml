@@ -998,5 +998,5 @@ zh-Hans-CN:
 zh-Hant-TW:
   editor:
     menu:
-      watchServer(OUTDATED): Watch for updates on the server
-      watchServerReadOnly(OUTDATED): Editing is disabled while watching the server
+      watchServer(OUTDATED): 監視伺服器的更新
+      watchServerReadOnly(OUTDATED): 監視伺服器時無法進行編輯
