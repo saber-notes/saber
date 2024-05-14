@@ -297,6 +297,8 @@ editor:
     backgroundImageFit: Background image fit
     backgroundPattern: Hintergrundmuster
     import: Importieren
+    watchServer: Halte nach Aktualisierungen auf dem Server Ausschau
+    watchServerReadOnly: "Bearbeiten ist deaktiviert, solange du den Server beobachtest"
     boxFits:
       fill: Dehnen
       cover: Abdecken
@@ -311,8 +313,6 @@ editor:
       staffs: Notenpapier
       tablature: Tablature
       cornell: Cornell-Stil
-    watchServer(OUTDATED): Achten Sie auf Updates auf dem Server
-    watchServerReadOnly(OUTDATED): "Während Sie den Server beobachten, ist die Bearbeitung deaktiviert"
   newerFileFormat:
     readOnlyMode: Schreibgeschützter Modus
     title: Diese Notiz wurde mit einer neueren Version von Saber bearbeitet
