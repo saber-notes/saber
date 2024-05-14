@@ -13230,8 +13230,8 @@ class _StringsEditorMenuZhHantTw extends _StringsEditorMenuEn {
 	@override String get backgroundImageFit => '適應背景圖片';
 	@override String get backgroundPattern => '背景圖案';
 	@override String get import => '匯入';
-	@override String get watchServer => '留意伺服器上的更新';
-	@override String get watchServerReadOnly => '觀看伺服器時禁用編輯';
+	@override String get watchServer => '監視伺服器的更新';
+	@override String get watchServerReadOnly => '監視伺服器時無法進行編輯';
 	@override late final _StringsEditorMenuBoxFitsZhHantTw boxFits = _StringsEditorMenuBoxFitsZhHantTw._(_root);
 	@override late final _StringsEditorMenuBgPatternsZhHantTw bgPatterns = _StringsEditorMenuBgPatternsZhHantTw._(_root);
 }

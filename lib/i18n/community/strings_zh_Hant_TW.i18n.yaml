@@ -295,8 +295,8 @@ editor:
     backgroundImageFit: 適應背景圖片
     backgroundPattern: 背景圖案
     import: 匯入
-    watchServer(OUTDATED): 留意伺服器上的更新
-    watchServerReadOnly(OUTDATED): 觀看伺服器時禁用編輯
+    watchServer: 監視伺服器的更新
+    watchServerReadOnly: 監視伺服器時無法進行編輯
     boxFits:
       fill: 拉伸
       cover: 覆蓋
