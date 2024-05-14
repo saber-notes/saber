@@ -77,7 +77,7 @@ dependencies:
   slang: ^3.9.0
   slang_flutter:
 
-  flutter_colorpicker: ^1.0.3
+  flex_color_picker: ^3.4.1
 
   google_fonts: ^6.0.0
 
@@ -184,6 +184,11 @@ dependency_overrides:
     git:
       url: https://github.com/adil192/simulator
       ref: fix-linux-support
+  
+  # https://github.com/mchome/flutter_colorpicker/issues/105
+  flutter_colorpicker:
+    git:
+      url: https://github.com/mchome/flutter_colorpicker
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

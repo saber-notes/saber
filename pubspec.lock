@@ -417,6 +417,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.1.0"
+  flex_color_picker:
+    dependency: "direct main"
+    description:
+      name: flex_color_picker
+      sha256: "5c846437069fb7afdd7ade6bf37e628a71d2ab0787095ddcb1253bf9345d5f3a"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.4.1"
   flex_seed_scheme:
     dependency: "direct main"
     description:
@@ -431,12 +439,13 @@ packages:
     source: sdk
     version: "0.0.0"
   flutter_colorpicker:
-    dependency: "direct main"
+    dependency: "direct overridden"
     description:
-      name: flutter_colorpicker
-      sha256: "458a6ed8ea480eb16ff892aedb4b7092b2804affd7e046591fb03127e8d8ef8b"
-      url: "https://pub.dev"
-    source: hosted
+      path: "."
+      ref: HEAD
+      resolved-ref: "92bdb69a313a56c391ef148c12ef6539bd31253d"
+      url: "https://github.com/mchome/flutter_colorpicker"
+    source: git
     version: "1.0.3"
   flutter_driver:
     dependency: transitive
