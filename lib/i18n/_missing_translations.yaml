@@ -136,10 +136,6 @@ ar:
         tablature(OUTDATED): Tablature
 cs:
 de:
-  editor:
-    menu:
-      watchServer(OUTDATED): Watch for updates on the server
-      watchServerReadOnly(OUTDATED): Editing is disabled while watching the server
 es:
   common:
     done(OUTDATED): Done

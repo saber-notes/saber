@@ -3301,10 +3301,10 @@ class _StringsEditorMenuDe extends _StringsEditorMenuEn {
 	@override String get backgroundImageFit => 'Background image fit';
 	@override String get backgroundPattern => 'Hintergrundmuster';
 	@override String get import => 'Importieren';
+	@override String get watchServer => 'Halte nach Aktualisierungen auf dem Server Ausschau';
+	@override String get watchServerReadOnly => 'Bearbeiten ist deaktiviert, solange du den Server beobachtest';
 	@override late final _StringsEditorMenuBoxFitsDe boxFits = _StringsEditorMenuBoxFitsDe._(_root);
 	@override late final _StringsEditorMenuBgPatternsDe bgPatterns = _StringsEditorMenuBgPatternsDe._(_root);
-	@override String get watchServer => 'Achten Sie auf Updates auf dem Server';
-	@override String get watchServerReadOnly => 'Während Sie den Server beobachten, ist die Bearbeitung deaktiviert';
 }
 
 // Path: editor.newerFileFormat
