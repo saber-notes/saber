@@ -2472,10 +2472,10 @@ class _StringsEditorMenuCs extends _StringsEditorMenuEn {
 	@override String get backgroundImageFit => 'Rozložení obrázku na pozadí';
 	@override String get backgroundPattern => 'Vzor na pozadí';
 	@override String get import => 'Importovat';
+	@override String get watchServer => 'Sledovat aktualizace ze serveru';
+	@override String get watchServerReadOnly => 'Během sledování serveru je vypnuto editování';
 	@override late final _StringsEditorMenuBoxFitsCs boxFits = _StringsEditorMenuBoxFitsCs._(_root);
 	@override late final _StringsEditorMenuBgPatternsCs bgPatterns = _StringsEditorMenuBgPatternsCs._(_root);
-	@override String get watchServer => 'Sledujte aktualizace na serveru';
-	@override String get watchServerReadOnly => 'Při sledování serveru jsou úpravy zakázány';
 }
 
 // Path: editor.newerFileFormat

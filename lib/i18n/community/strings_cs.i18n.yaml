@@ -296,6 +296,8 @@ editor:
     backgroundImageFit: Rozložení obrázku na pozadí
     backgroundPattern: Vzor na pozadí
     import: Importovat
+    watchServer: Sledovat aktualizace ze serveru
+    watchServerReadOnly: Během sledování serveru je vypnuto editování
     boxFits:
       fill: Roztáhnout
       cover: Vyplnit
@@ -310,8 +312,6 @@ editor:
       staffs: Notová osnova
       tablature: Tabulatura
       cornell: Cornellova metoda
-    watchServer(OUTDATED): Sledujte aktualizace na serveru
-    watchServerReadOnly(OUTDATED): Při sledování serveru jsou úpravy zakázány
   newerFileFormat:
     readOnlyMode: Otevřít v režimu pouze pro čtení
     title: Tato poznámka byla upravena v novější verzi aplikace Saber

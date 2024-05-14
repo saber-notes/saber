@@ -135,10 +135,6 @@ ar:
       bgPatterns:
         tablature(OUTDATED): Tablature
 cs:
-  editor:
-    menu:
-      watchServer(OUTDATED): Sledovat aktualizace ze serveru
-      watchServerReadOnly(OUTDATED): Během sledování serveru je vypnuto editování
 de:
   editor:
     menu:
