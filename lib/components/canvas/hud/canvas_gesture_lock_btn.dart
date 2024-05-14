@@ -26,7 +26,7 @@ class CanvasGestureLockBtn extends StatelessWidget {
       onTap: () => setLock(!lock),
       child: Container(
         decoration: BoxDecoration(
-          color: colorScheme.background.withOpacity(0.5),
+          color: colorScheme.surface.withOpacity(0.5),
           borderRadius: BorderRadius.circular(15),
         ),
         padding: const EdgeInsets.all(5),
@@ -37,7 +37,7 @@ class CanvasGestureLockBtn extends StatelessWidget {
                 duration: const Duration(milliseconds: 200),
                 child: Icon(
                   icon,
-                  color: colorScheme.onBackground,
+                  color: colorScheme.onSurface,
                 ),
               ),
         ),

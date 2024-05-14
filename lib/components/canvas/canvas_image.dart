@@ -184,8 +184,7 @@ class _CanvasImageState extends State<CanvasImage> {
               child: DecoratedBox(
                 decoration: BoxDecoration(
                   border: Border.all(
-                    color:
-                        active ? colorScheme.onBackground : Colors.transparent,
+                    color: active ? colorScheme.onSurface : Colors.transparent,
                     width: 2,
                   ),
                 ),
@@ -429,10 +428,10 @@ class _CanvasImageResizeHandle extends StatelessWidget {
                 width: 40,
                 height: 40,
                 decoration: BoxDecoration(
-                  color: colorScheme.onBackground,
+                  color: colorScheme.onSurface,
                   shape: BoxShape.circle,
                   border: Border.all(
-                    color: colorScheme.background,
+                    color: colorScheme.surface,
                     width: 2,
                   ),
                 ),

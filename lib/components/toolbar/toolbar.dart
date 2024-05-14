@@ -268,18 +268,15 @@ class _ToolbarState extends State<Toolbar> {
             final iconTheme = QuillIconTheme(
               iconButtonUnselectedData: IconButtonData(
                 style: baseButtonStyle.copyWith(
-                  backgroundColor:
-                      MaterialStateProperty.all(Colors.transparent),
-                  foregroundColor:
-                      MaterialStateProperty.all(colorScheme.primary),
+                  backgroundColor: WidgetStateProperty.all(Colors.transparent),
+                  foregroundColor: WidgetStateProperty.all(colorScheme.primary),
                 ),
               ),
               iconButtonSelectedData: IconButtonData(
                 style: baseButtonStyle.copyWith(
-                  backgroundColor:
-                      MaterialStateProperty.all(colorScheme.primary),
+                  backgroundColor: WidgetStateProperty.all(colorScheme.primary),
                   foregroundColor:
-                      MaterialStateProperty.all(colorScheme.onPrimary),
+                      WidgetStateProperty.all(colorScheme.onPrimary),
                 ),
               ),
             );
@@ -545,7 +542,7 @@ class _ToolbarState extends State<Toolbar> {
     ];
 
     return Material(
-      color: colorScheme.background,
+      color: colorScheme.surface,
       child: isToolbarVertical
           ? Row(
               textDirection:
