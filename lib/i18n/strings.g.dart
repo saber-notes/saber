@@ -7615,9 +7615,9 @@ class _StringsCommonIt extends _StringsCommonEn {
 	@override final _StringsIt _root; // ignore: unused_field
 
 	// Translations
-	@override String get cancel => 'Cancella';
 	@override String get done => 'Fatto';
 	@override String get continueBtn => 'Continua';
+	@override String get cancel => 'Cancella';
 }
 
 // Path: home
@@ -7683,12 +7683,14 @@ class _StringsLoginIt extends _StringsLoginEn {
 		linkToSignup('Registrati ora'),
 		const TextSpan(text: '!'),
 	]);
+	@override TextSpan notYou({required InlineSpanBuilder undoLogin}) => TextSpan(children: [
+		const TextSpan(text: 'Nn sei tu? '),
+		undoLogin('Scegli un altro account'),
+		const TextSpan(text: '.'),
+	]);
 	@override late final _StringsLoginStatusIt status = _StringsLoginStatusIt._(_root);
 	@override late final _StringsLoginNcLoginStepIt ncLoginStep = _StringsLoginNcLoginStepIt._(_root);
 	@override late final _StringsLoginEncLoginStepIt encLoginStep = _StringsLoginEncLoginStepIt._(_root);
-	@override TextSpan notYou({required InlineSpanBuilder undoLogin}) => TextSpan(children: [
-		undoLogin('Non tu'),
-	]);
 }
 
 // Path: profile
@@ -7700,16 +7702,16 @@ class _StringsProfileIt extends _StringsProfileEn {
 	// Translations
 	@override String get title => 'Il mio profilo';
 	@override String get logout => 'Log out';
+	@override String quotaUsage({required Object used, required Object total, required Object percent}) => 'Stai ${used} di ${total} (${percent})';
+	@override String get connectedTo => 'Collegato a';
 	@override late final _StringsProfileQuickLinksIt quickLinks = _StringsProfileQuickLinksIt._(_root);
+	@override String get faqTitle => 'Domande frequenti';
 	@override List<dynamic> get faq => [
 		_StringsProfile$faq$0i0$It._(_root),
 		_StringsProfile$faq$0i1$It._(_root),
 		_StringsProfile$faq$0i2$It._(_root),
 		_StringsProfile$faq$0i3$It._(_root),
 	];
-	@override String quotaUsage({required Object used, required Object total, required Object percent}) => 'Stai utilizzando ${used} su ${total} (${percent})';
-	@override String get connectedTo => 'Collegato a';
-	@override String get faqTitle => 'Domande frequenti';
 }
 
 // Path: appInfo
@@ -8043,9 +8045,9 @@ class _StringsLoginStatusIt extends _StringsLoginStatusEn {
 	// Translations
 	@override String get loggedOut => 'Disconnesso';
 	@override String get tapToLogin => 'Tocca per accedere con Nextcloud';
-	@override String get loggedIn => 'Effettuato l\'accesso con Nextcloud';
 	@override String hi({required Object u}) => 'Ciao, ${u}!';
 	@override String get almostDone => 'Quasi pronto per la sincronizzazione, tocca per completare l\'accesso';
+	@override String get loggedIn => 'Effettuato l\'accesso con Nextcloud';
 }
 
 // Path: login.ncLoginStep
@@ -8055,13 +8057,13 @@ class _StringsLoginNcLoginStepIt extends _StringsLoginNcLoginStepEn {
 	@override final _StringsIt _root; // ignore: unused_field
 
 	// Translations
-	@override late final _StringsLoginNcLoginStepLoginFlowIt loginFlow = _StringsLoginNcLoginStepLoginFlowIt._(_root);
 	@override String get whereToStoreData => 'Scegli dove vuoi archiviare i tuoi dati:';
 	@override String get saberNcServer => 'Il server Nextcloud di Saber';
 	@override String get otherNcServer => 'Altro server Nextcloud';
-	@override String get serverUrl => 'URL del server';
+	@override String get serverUrl => 'URL Server';
 	@override String get loginWithSaber => 'Accedi con Saber';
 	@override String get loginWithNextcloud => 'Accedi con Nextcloud';
+	@override late final _StringsLoginNcLoginStepLoginFlowIt loginFlow = _StringsLoginNcLoginStepLoginFlowIt._(_root);
 }
 
 // Path: login.encLoginStep
@@ -8071,11 +8073,11 @@ class _StringsLoginEncLoginStepIt extends _StringsLoginEncLoginStepEn {
 	@override final _StringsIt _root; // ignore: unused_field
 
 	// Translations
-	@override String get enterEncPassword => 'Per proteggere i tuoi dati, inserisci la password di crittografia:';
-	@override String get newToSaber => 'Nuovo per Saber';
-	@override String get encPassword => 'Password di crittografia';
+	@override String get enterEncPassword => 'Per proteggere i tuoi dati, inserisci la password crittografata:';
+	@override String get newToSaber => 'Nuovo su Saber? Basta inserire una nuova password crittografata.';
+	@override String get encPassword => 'Password crittografata';
 	@override String get encFaqTitle => 'Domande frequenti';
-	@override String get wrongEncPassword => 'La decrittografia non è riuscita con la password fornita. Per favore prova a inserirlo di nuovo.';
+	@override String get wrongEncPassword => 'La decrittografia non è riuscita con la password fornita. Per favore prova a inserirla di nuovo.';
 	@override String get connectionFailed => 'Qualcosa è andato storto durante la connessione al server. Per favore riprova più tardi.';
 	@override List<dynamic> get encFaq => [
 		_StringsLoginEncLoginStep$encFaq$0i0$It._(_root),
@@ -8338,8 +8340,8 @@ class _StringsLoginNcLoginStepLoginFlowIt extends _StringsLoginNcLoginStepLoginF
 
 	// Translations
 	@override String get pleaseAuthorize => 'Autorizza Saber ad accedere al tuo account Nextcloud';
-	@override String get followPrompts => 'Segui le istruzioni nel tuo browser.';
-	@override String get browserDidntOpen => 'Il browser non si è aperto';
+	@override String get followPrompts => 'Si prega di seguire le istruzioni nel browser.';
+	@override String get browserDidntOpen => 'Il browser non si è aperto? clicca qui';
 }
 
 // Path: login.encLoginStep.encFaq.0
@@ -8349,8 +8351,8 @@ class _StringsLoginEncLoginStep$encFaq$0i0$It extends _StringsLoginEncLoginStep$
 	@override final _StringsIt _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Qual è la password di crittografia?';
-	@override String get a => 'La password di crittografia viene utilizzata per crittografare i dati prima che vengano inviati al server. Lo scegli quando accedi per la prima volta a Saber e non è correlato al tuo account/password Nextcloud.\nNessuno può accedere alle tue note sul server senza la tua password di crittografia. Ciò significa anche che se dimentichi la password di crittografia, perderai l\'accesso ai tuoi dati.';
+	@override String get q => 'Cos\'è una password crittografata? Perché usare due password?';
+	@override String get a => 'La password Nextcloud viene utilizzata per accedere al cloud. La password di crittografia "codifica" i tuoi dati prima che raggiungano il cloud.\n Anche se qualcuno riesce ad accedere al tuo account Nextcloud, le tue note rimarranno al sicuro e crittografate con una password separata. Ciò fornisce un secondo livello di sicurezza per proteggere i tuoi dati.\n Nessuno può accedere alle tue note sul server senza la tua password di crittografia, ma ciò significa anche che se dimentichi la password di crittografia, perderai l\'accesso ai tuoi dati.';
 }
 
 // Path: login.encLoginStep.encFaq.1
@@ -8360,8 +8362,8 @@ class _StringsLoginEncLoginStep$encFaq$0i1$It extends _StringsLoginEncLoginStep$
 	@override final _StringsIt _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Perché usare due password?';
-	@override String get a => 'La password Nextcloud viene utilizzata per accedere al cloud. La password di crittografia "codifica" i tuoi dati prima che raggiungano il cloud.\nAnche se qualcuno riesce ad accedere al tuo account Nextcloud, le tue note rimarranno al sicuro e crittografate con una password separata. Questo ti fornisce un secondo livello di sicurezza per proteggere i tuoi dati.';
+	@override String get q => 'Non ho ancora impostato una password di crittografia. Dove lo posso ottenere?';
+	@override String get a => 'Scegli una nuova password crittografata e inseriscila sopra.\nSaber genererà automaticamente le chiavi di crittografia da questa password.';
 }
 
 // Path: login.encLoginStep.encFaq.2
@@ -8371,8 +8373,8 @@ class _StringsLoginEncLoginStep$encFaq$0i2$It extends _StringsLoginEncLoginStep$
 	@override final _StringsIt _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Posso usare la stessa password per entrambi?';
-	@override String get a => 'Sì, ma farlo è meno sicuro. Poiché la tua password Nextcloud viene inviata al server, qualcuno con accesso al server sarebbe in grado di decrittografare le tue note. Usa la stessa password solo se ti fidi del proprietario del server.';
+	@override String get q => 'Posso utilizzare la stessa password del mio account Nextcloud?';
+	@override String get a => 'Sì, ma tieni presente che sarebbe più semplice per l\'amministratore del server o qualcun altro accedere alle tue note se accedessero al tuo account Nextcloud.';
 }
 
 // Path: editor.menu.boxFits
