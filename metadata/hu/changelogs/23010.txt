@@ -1,0 +1,3 @@
+• Ha táblagépen szeretné szerkeszteni a jegyzeteket, és egyidejűleg meg szeretné tekinteni azokat a számítógépén, a szerkesztő menüben egy új kapcsolóval engedélyezheti az automatikus frissítést.
+• Rögzített kiegyenesített ceruzavonalak, amelyek a végeken elhalványulnak
+• Kis javulás az alkalmazások betöltési idején

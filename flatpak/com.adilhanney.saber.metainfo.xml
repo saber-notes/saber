@@ -198,6 +198,15 @@
     </screenshots>
 
     <releases>
+        <release version="0.23.1" type="development" date="2024-05-14">
+            <description>
+                <ul>
+                    <li>If you like to edit notes on a tablet and simultaneously view them on your computer, there's a new toggle in the editor menu to enable automatic refreshing.</li>
+                    <li>Fixed straightened pencil lines fading out at the ends</li>
+                    <li>Small improvement in app loading times</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.23.0" type="development" date="2024-05-06">
             <description>
                 <ul>
