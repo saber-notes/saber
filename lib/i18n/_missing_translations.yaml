@@ -135,10 +135,6 @@ ar:
       bgPatterns:
         tablature(OUTDATED): Tablature
 cs:
-  editor:
-    menu:
-      watchServer(OUTDATED): Watch for updates on the server
-      watchServerReadOnly(OUTDATED): Editing is disabled while watching the server
 de:
   editor:
     menu:
