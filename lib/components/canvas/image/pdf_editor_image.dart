@@ -236,7 +236,7 @@ class PdfEditorImage extends EditorImage {
     final raster = await Printing.raster(
       pdfBytes!,
       pages: [pdfPage],
-      dpi: PdfPageFormat.inch * (highDpi ? 4 : 2),
+      dpi: PdfPageFormat.inch * (highDpi ? 6 : 2),
     ).single;
     final image = PdfRasterImage(raster);
 
