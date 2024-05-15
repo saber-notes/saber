@@ -43,6 +43,7 @@ parts:
       - curl
       - jq
       - libjsoncpp-dev
+      - libgstreamer1.0-dev
     build-snaps:
       - cmake
     stage-packages:
