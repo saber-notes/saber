@@ -10747,8 +10747,8 @@ class _StringsEditorMenuRu extends _StringsEditorMenuEn {
 	@override String get backgroundImageFit => 'Фоновое изображение';
 	@override String get backgroundPattern => 'Фоновый шаблон';
 	@override String get import => 'Импорт';
-	@override String get watchServer => 'Следите за обновлениями на сервере';
-	@override String get watchServerReadOnly => 'Редактирование отключено при просмотре сервера';
+	@override String get watchServer => 'Следить за обновлениями на сервере';
+	@override String get watchServerReadOnly => 'Редактирование невозможно во время слежки за сервером';
 	@override late final _StringsEditorMenuBoxFitsRu boxFits = _StringsEditorMenuBoxFitsRu._(_root);
 	@override late final _StringsEditorMenuBgPatternsRu bgPatterns = _StringsEditorMenuBgPatternsRu._(_root);
 }
