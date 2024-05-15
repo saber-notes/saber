@@ -874,10 +874,6 @@ pt-BR:
       watchServer(OUTDATED): Watch for updates on the server
       watchServerReadOnly(OUTDATED): Editing is disabled while watching the server
 ru:
-  editor:
-    menu:
-      watchServer(OUTDATED): Следить за обновлениями на сервере
-      watchServerReadOnly(OUTDATED): Редактирование невозможно во время слежки за сервером
 tr:
   common:
     done(OUTDATED): Done

@@ -296,8 +296,8 @@ editor:
     backgroundImageFit: Фоновое изображение
     backgroundPattern: Фоновый шаблон
     import: Импорт
-    watchServer(OUTDATED): Следите за обновлениями на сервере
-    watchServerReadOnly(OUTDATED): Редактирование отключено при просмотре сервера
+    watchServer: Следить за обновлениями на сервере
+    watchServerReadOnly: Редактирование невозможно во время слежки за сервером
     boxFits:
       fill: Растянуть
       cover: Обрезать
