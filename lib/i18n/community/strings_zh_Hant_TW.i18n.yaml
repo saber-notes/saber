@@ -97,7 +97,6 @@ settings:
     autoStraightenLines: 自動拉直線條
     customDataDir: 自訂資料目錄
     pencilSoundSetting: 筆的音效
-    refreshCurrentNote(OUTDATED): 定期刷新當前筆記
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible 字體為低視力讀者提高易讀性
     disableAds: 廣告有助於支持Saber的發展，但如果您不願意，可以禁用它
@@ -121,7 +120,6 @@ settings:
       off: 關閉
       onButNotInSilentMode: 已啟用（除非處於靜音模式）
       onAlways: 已啟用（即使在靜音模式下）
-    refreshCurrentNote(OUTDATED): 如果您在其他裝置上編輯目前開啟的筆記，則更新它
   themeModes:
     system: 系統
     light: 淺色
@@ -297,6 +295,8 @@ editor:
     backgroundImageFit: 適應背景圖片
     backgroundPattern: 背景圖案
     import: 匯入
+    watchServer: 監視伺服器的更新
+    watchServerReadOnly: 監視伺服器時無法進行編輯
     boxFits:
       fill: 拉伸
       cover: 覆蓋

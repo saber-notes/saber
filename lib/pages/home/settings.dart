@@ -162,7 +162,7 @@ class _SettingsPageState extends State<SettingsPage> {
               flexibleSpace: FlexibleSpaceBar(
                 title: Text(
                   t.home.titles.settings,
-                  style: TextStyle(color: colorScheme.onBackground),
+                  style: TextStyle(color: colorScheme.onSurface),
                 ),
                 centerTitle: cupertino,
                 titlePadding: EdgeInsetsDirectional.only(
@@ -462,12 +462,6 @@ class _SettingsPageState extends State<SettingsPage> {
                   PencilSound.setAudioContext();
                   setState(() {});
                 },
-              ),
-              SettingsSwitch(
-                title: t.settings.prefLabels.refreshCurrentNote,
-                subtitle: t.settings.prefDescriptions.refreshCurrentNote,
-                icon: Icons.autorenew,
-                pref: Prefs.refreshCurrentNote,
               ),
               SettingsSubtitle(subtitle: t.settings.prefCategories.performance),
               SettingsSelection(

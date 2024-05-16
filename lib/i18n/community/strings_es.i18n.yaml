@@ -93,7 +93,6 @@ settings:
     recentColorsLength: Número de colores recientes a almacenar
     printPageIndicators: Indicadores de página de impresión
     autosaveDelay: Retardo en el autoguardado
-    refreshCurrentNote(OUTDATED): Actualizar la nota actual periódicamente
     pencilSoundSetting(OUTDATED): Efecto de sonido de lápiz
     customDataDir(OUTDATED): Directorio de datos personalizado
     autoStraightenLines(OUTDATED): Líneas de enderezamiento automático
@@ -119,7 +118,6 @@ settings:
       off(OUTDATED): Sin sonido
       onButNotInSilentMode(OUTDATED): Habilitado (a menos que esté en modo silencioso)
       onAlways(OUTDATED): Habilitado (incluso en modo silencioso)
-    refreshCurrentNote(OUTDATED): Actualiza la nota actualmente abierta si la estás editando en otro dispositivo
     autoStraightenLines(OUTDATED): Endereza líneas largas sin tener que usar el rotulador.
     shapeRecognitionDelay(OUTDATED): Con qué frecuencia actualizar la vista previa de la forma
   themeModes:
@@ -296,6 +294,8 @@ editor:
     backgroundImageFit: Ajuste de la imagen de fondo
     backgroundPattern: Patrón de fondo
     import: Importar
+    watchServer(OUTDATED): Esté atento a las actualizaciones en el servidor.
+    watchServerReadOnly(OUTDATED): La edición está deshabilitada mientras se mira el servidor.
     boxFits:
       fill: Llenar
       cover: Cubrir

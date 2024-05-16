@@ -1,0 +1,3 @@
+• Si vous souhaitez modifier des notes sur une tablette et les afficher simultanément sur votre ordinateur, il existe une nouvelle bascule dans le menu de l'éditeur pour activer l'actualisation automatique.
+• Correction des lignes de crayon redressées qui disparaissent aux extrémités
+• Légère amélioration des temps de chargement des applications

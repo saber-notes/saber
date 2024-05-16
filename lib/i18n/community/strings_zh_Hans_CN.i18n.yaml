@@ -96,7 +96,6 @@ settings:
     shapeRecognitionDelay: 形状识别延迟
     autoStraightenLines: 自动拉直线
     customDataDir: 自定义数据目录
-    refreshCurrentNote(OUTDATED): 定期刷新当前笔记
     pencilSoundSetting(OUTDATED): 铅笔音效
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible 字体为低视力读者提高易读性
@@ -121,7 +120,6 @@ settings:
       onButNotInSilentMode(OUTDATED): 已启用（除非处于静音模式）
       off(OUTDATED): 没有声音
       onAlways(OUTDATED): 已启用（即使在静音模式下）
-    refreshCurrentNote(OUTDATED): 如果您在其他设备上编辑当前打开的笔记，则更新它
   themeModes:
     system: 系统
     light: 浅色
@@ -297,6 +295,8 @@ editor:
     backgroundImageFit: 背景图像拟合
     backgroundPattern: 背景图案
     import: 导入
+    watchServer(OUTDATED): 留意服务器上的更新
+    watchServerReadOnly(OUTDATED): 观看服务器时禁用编辑
     boxFits:
       fill: 拉伸
       cover: 覆盖

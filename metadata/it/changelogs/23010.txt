@@ -1,0 +1,3 @@
+• Se desideri modificare le note su un tablet e contemporaneamente visualizzarle sul tuo computer, c'è un nuovo interruttore nel menu dell'editor per abilitare l'aggiornamento automatico.
+• Risolto il problema per cui le linee della matita raddrizzate sbiadivano alle estremità
+• Piccolo miglioramento nei tempi di caricamento delle app

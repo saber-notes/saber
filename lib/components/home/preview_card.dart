@@ -186,7 +186,7 @@ class _PreviewCardState extends State<PreviewCard> {
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
           closedElevation: expanded ? 4 : 1,
           closedBuilder: (context, action) => card,
-          openColor: colorScheme.background,
+          openColor: colorScheme.surface,
           openBuilder: (context, action) => Editor(path: widget.filePath),
           transitionDuration: transitionDuration,
           routeSettings: RouteSettings(

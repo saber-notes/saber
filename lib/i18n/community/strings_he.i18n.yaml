@@ -92,7 +92,6 @@ settings:
     recentColorsDontSavePresets: אל תשמור צבעים מוגדרים מראש בצבעים אחרונים
     printPageIndicators: הדפסת עמודים מחוונים
     autosaveDelay: השהיית שמירה אוטומטית
-    refreshCurrentNote(OUTDATED): רענן את ההערה הנוכחית מעת לעת
     pencilSoundSetting(OUTDATED): אפקט צליל עיפרון
     customDataDir(OUTDATED): ספריית נתונים מותאמת אישית
     autoStraightenLines(OUTDATED): יישור קווים אוטומטית
@@ -119,7 +118,6 @@ settings:
       onButNotInSilentMode(OUTDATED): מופעל (אלא אם כן במצב שקט)
       off(OUTDATED): אין קול
       onAlways(OUTDATED): מופעל (אפילו במצב שקט)
-    refreshCurrentNote(OUTDATED): מעדכן את ההערה הפתוחה כעת אם אתה עורך אותה במכשיר אחר
     autoStraightenLines(OUTDATED): מיישר קווים ארוכים ללא צורך להשתמש בעט הצורה
     shapeRecognitionDelay(OUTDATED): באיזו תדירות לעדכן את התצוגה המקדימה של הצורה
   themeModes:
@@ -297,6 +295,8 @@ editor:
     backgroundImageFit: התאמת תמונת רקע
     backgroundPattern: תבנית רקע
     import: יבוא
+    watchServer(OUTDATED): שימו לב לעדכונים בשרת
+    watchServerReadOnly(OUTDATED): העריכה מושבתת בזמן צפייה בשרת
     boxFits:
       fill: מתיחה
       cover: כיסוי

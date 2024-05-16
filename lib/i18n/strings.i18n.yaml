@@ -97,7 +97,6 @@ settings:
     autoStraightenLines: Auto straighten lines
     customDataDir: Custom data directory
     pencilSoundSetting: Pencil sound effect
-    refreshCurrentNote: Refresh current note periodically
   prefDescriptions:
     hyperlegibleFont: Increases legibility for users with low vision
     disableAds: "Ads help support Saber's development, but you can disable them if you'd like"
@@ -121,7 +120,6 @@ settings:
       off: No sound
       onButNotInSilentMode: Enabled (unless in silent mode)
       onAlways: Enabled (even in silent mode)
-    refreshCurrentNote: Updates the currently open note if you're editing it on another device
   themeModes:
     system: System
     light: Light
@@ -192,7 +190,7 @@ login:
 profile:
   title: My profile
   logout: Log out
-  quotaUsage: "You're using $used of $total ($percent)"
+  quotaUsage: You're using $used of $total ($percent)
   connectedTo: Connected to
   quickLinks:
     serverHomepage: Server homepage
@@ -299,6 +297,8 @@ editor:
     backgroundImageFit: Background image fit
     backgroundPattern: Background pattern
     import: Import
+    watchServer: Watch for updates on the server
+    watchServerReadOnly: Editing is disabled while watching the server
     boxFits:
       fill: Stretch
       cover: Cover

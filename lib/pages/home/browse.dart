@@ -129,7 +129,7 @@ class _BrowsePageState extends State<BrowsePage> {
                 flexibleSpace: FlexibleSpaceBar(
                   title: Text(
                     title,
-                    style: TextStyle(color: colorScheme.onBackground),
+                    style: TextStyle(color: colorScheme.onSurface),
                   ),
                   centerTitle: cupertino,
                   titlePadding: EdgeInsetsDirectional.only(

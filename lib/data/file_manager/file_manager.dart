@@ -261,6 +261,7 @@ class FileManager {
       String? outputFile = await FilePicker.platform.saveFile(
         fileName: fileName,
         initialDirectory: (await getDownloadsDirectory())?.path,
+        type: FileType.custom,
         allowedExtensions: [fileName.split('.').last],
       );
       if (outputFile != null) {

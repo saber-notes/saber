@@ -51,7 +51,6 @@ ar:
       autoStraightenLines(OUTDATED): Auto straighten lines
       customDataDir(OUTDATED): Custom data directory
       pencilSoundSetting(OUTDATED): Pencil sound effect
-      refreshCurrentNote(OUTDATED): Refresh current note periodically
     prefDescriptions:
       disableAds(OUTDATED): "Ads help support Saber's development, but you can disable them if you'd like"
       allowInsecureConnections(OUTDATED): (Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates
@@ -68,7 +67,6 @@ ar:
         off(OUTDATED): No sound
         onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
         onAlways(OUTDATED): Enabled (even in silent mode)
-      refreshCurrentNote(OUTDATED): Updates the currently open note if you're editing it on another device
     resyncEverything(OUTDATED): Resync everything
     customDataDir:
       cancel(OUTDATED): Cancel
@@ -132,112 +130,12 @@ ar:
     menu:
       lineHeightDescription(OUTDATED): Also controls the text size for typed notes
       backgroundImageFit(OUTDATED): Background image fit
+      watchServer(OUTDATED): Watch for updates on the server
+      watchServerReadOnly(OUTDATED): Editing is disabled while watching the server
       bgPatterns:
         tablature(OUTDATED): Tablature
 cs:
-  common:
-    done(OUTDATED): Done
-    continueBtn(OUTDATED): Continue
-  settings:
-    prefLabels:
-      refreshCurrentNote(OUTDATED): Refresh current note periodically
-    prefDescriptions:
-      refreshCurrentNote(OUTDATED): Updates the currently open note if you're editing it on another device
-  login:
-    notYou(rich)(OUTDATED): "Not you? ${undoLogin(Choose another account)}."
-    status:
-      hi(OUTDATED): "Hi, $u!"
-      almostDone(OUTDATED): "Almost ready for syncing, tap to finish logging in"
-    ncLoginStep:
-      whereToStoreData(OUTDATED): "Choose where you want to store your data:"
-      saberNcServer: Saber's Nextcloud server
-      otherNcServer(OUTDATED): Other Nextcloud server
-      serverUrl(OUTDATED): Server URL
-      loginWithSaber(OUTDATED): Login with Saber
-      loginWithNextcloud(OUTDATED): Login with Nextcloud
-      loginFlow:
-        pleaseAuthorize(OUTDATED): Please authorize Saber to access your Nextcloud account
-        followPrompts(OUTDATED): Please follow the prompts in your browser.
-        browserDidntOpen(OUTDATED): "Browser didn't open? Click here"
-    encLoginStep:
-      enterEncPassword(OUTDATED): "To protect your data, please enter your encryption password:"
-      newToSaber(OUTDATED): "New to Saber? Just enter a new encryption password."
-      encPassword(OUTDATED): Encryption password
-      encFaqTitle(OUTDATED): Frequently asked questions
-      wrongEncPassword(OUTDATED): Decryption failed with the provided password. Please try entering it again.
-      connectionFailed(OUTDATED): Something went wrong connecting to the server. Please try again later.
-      encFaq(OUTDATED):
-        - q: "What is an encryption password? Why use two passwords?"
-          a: |-
-            The Nextcloud password is used to access the cloud. The encryption password "scrambles" your data before it ever reaches the cloud.
-            Even if someone gains access to your Nextcloud account, your notes will remain safe and encrypted with a separate password. This provides you a second layer of security to protect your data.
-            No-one can access your notes on the server without your encryption password, but this also means that if you forget your encryption password, you will lose access to your data.
-        - q: "I haven't set an encryption password yet. Where do I get it?"
-          a: |-
-            Choose a new encryption password and enter it above.
-            Saber will generate your encryption keys from this password automatically.
-        - q: "Can I use the same password as my Nextcloud account?"
-          a: "Yes, but keep in mind that it would be easier for the server administrator or someone else to access your notes if they gain access to your Nextcloud account."
-  profile:
-    quotaUsage(OUTDATED): You're using $used of $total ($percent)
-    connectedTo(OUTDATED): Connected to
-    faqTitle(OUTDATED): Frequently asked questions
 de:
-  common:
-    done(OUTDATED): Done
-    continueBtn(OUTDATED): Continue
-  settings:
-    prefLabels:
-      pencilSoundSetting(OUTDATED): Pencil sound effect
-      refreshCurrentNote(OUTDATED): Refresh current note periodically
-    prefDescriptions:
-      pencilSoundSetting:
-        off(OUTDATED): No sound
-        onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
-        onAlways(OUTDATED): Enabled (even in silent mode)
-      refreshCurrentNote(OUTDATED): Updates the currently open note if you're editing it on another device
-  login:
-    notYou(rich)(OUTDATED): "Not you? ${undoLogin(Choose another account)}."
-    status:
-      hi(OUTDATED): "Hi, $u!"
-      almostDone(OUTDATED): "Almost ready for syncing, tap to finish logging in"
-    ncLoginStep:
-      whereToStoreData(OUTDATED): "Choose where you want to store your data:"
-      saberNcServer(OUTDATED): Saber's Nextcloud server
-      otherNcServer(OUTDATED): Other Nextcloud server
-      serverUrl(OUTDATED): Server URL
-      loginWithSaber(OUTDATED): Login with Saber
-      loginWithNextcloud(OUTDATED): Login with Nextcloud
-      loginFlow:
-        pleaseAuthorize(OUTDATED): Please authorize Saber to access your Nextcloud account
-        followPrompts(OUTDATED): Please follow the prompts in your browser.
-        browserDidntOpen(OUTDATED): "Browser didn't open? Click here"
-    encLoginStep:
-      enterEncPassword(OUTDATED): "To protect your data, please enter your encryption password:"
-      newToSaber(OUTDATED): "New to Saber? Just enter a new encryption password."
-      encPassword(OUTDATED): Encryption password
-      encFaqTitle(OUTDATED): Frequently asked questions
-      wrongEncPassword(OUTDATED): Decryption failed with the provided password. Please try entering it again.
-      connectionFailed(OUTDATED): Something went wrong connecting to the server. Please try again later.
-      encFaq(OUTDATED):
-        - q: "What is an encryption password? Why use two passwords?"
-          a: |-
-            The Nextcloud password is used to access the cloud. The encryption password "scrambles" your data before it ever reaches the cloud.
-            Even if someone gains access to your Nextcloud account, your notes will remain safe and encrypted with a separate password. This provides you a second layer of security to protect your data.
-            No-one can access your notes on the server without your encryption password, but this also means that if you forget your encryption password, you will lose access to your data.
-        - q: "I haven't set an encryption password yet. Where do I get it?"
-          a: |-
-            Choose a new encryption password and enter it above.
-            Saber will generate your encryption keys from this password automatically.
-        - q: "Can I use the same password as my Nextcloud account?"
-          a: "Yes, but keep in mind that it would be easier for the server administrator or someone else to access your notes if they gain access to your Nextcloud account."
-  profile:
-    quotaUsage(OUTDATED): You're using $used of $total ($percent)
-    connectedTo(OUTDATED): Connected to
-    faqTitle(OUTDATED): Frequently asked questions
-  editor:
-    menu:
-      lineHeightDescription(OUTDATED): Also controls the text size for typed notes
 es:
   common:
     done(OUTDATED): Done
@@ -250,7 +148,6 @@ es:
       autoStraightenLines(OUTDATED): Auto straighten lines
       customDataDir(OUTDATED): Custom data directory
       pencilSoundSetting(OUTDATED): Pencil sound effect
-      refreshCurrentNote(OUTDATED): Refresh current note periodically
     prefDescriptions:
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
@@ -258,7 +155,6 @@ es:
         off(OUTDATED): No sound
         onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
         onAlways(OUTDATED): Enabled (even in silent mode)
-      refreshCurrentNote(OUTDATED): Updates the currently open note if you're editing it on another device
     resyncEverything(OUTDATED): Resync everything
     customDataDir:
       cancel(OUTDATED): Cancel
@@ -314,6 +210,8 @@ es:
       customBrightnessHue(OUTDATED): Custom $b $h
     menu:
       lineHeightDescription(OUTDATED): Also controls the text size for typed notes
+      watchServer(OUTDATED): Watch for updates on the server
+      watchServerReadOnly(OUTDATED): Editing is disabled while watching the server
 fa:
   common:
     done(OUTDATED): Done
@@ -323,14 +221,12 @@ fa:
       autoStraightenLines(OUTDATED): Auto straighten lines
       customDataDir(OUTDATED): Custom data directory
       pencilSoundSetting(OUTDATED): Pencil sound effect
-      refreshCurrentNote(OUTDATED): Refresh current note periodically
     prefDescriptions:
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
       pencilSoundSetting:
         off(OUTDATED): No sound
         onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
         onAlways(OUTDATED): Enabled (even in silent mode)
-      refreshCurrentNote(OUTDATED): Updates the currently open note if you're editing it on another device
     resyncEverything(OUTDATED): Resync everything
     customDataDir:
       cancel(OUTDATED): Cancel
@@ -381,6 +277,8 @@ fa:
   editor:
     menu:
       lineHeightDescription(OUTDATED): Also controls the text size for typed notes
+      watchServer(OUTDATED): Watch for updates on the server
+      watchServerReadOnly(OUTDATED): Editing is disabled while watching the server
 fr:
   common:
     done(OUTDATED): Done
@@ -390,14 +288,12 @@ fr:
       autoStraightenLines(OUTDATED): Auto straighten lines
       customDataDir(OUTDATED): Custom data directory
       pencilSoundSetting(OUTDATED): Pencil sound effect
-      refreshCurrentNote(OUTDATED): Refresh current note periodically
     prefDescriptions:
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
       pencilSoundSetting:
         off(OUTDATED): No sound
         onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
         onAlways(OUTDATED): Enabled (even in silent mode)
-      refreshCurrentNote(OUTDATED): Updates the currently open note if you're editing it on another device
     customDataDir:
       cancel(OUTDATED): Cancel
       select(OUTDATED): Select
@@ -447,6 +343,8 @@ fr:
   editor:
     menu:
       lineHeightDescription(OUTDATED): Also controls the text size for typed notes
+      watchServer(OUTDATED): Watch for updates on the server
+      watchServerReadOnly(OUTDATED): Editing is disabled while watching the server
 he:
   common:
     done(OUTDATED): Done
@@ -471,7 +369,6 @@ he:
       autoStraightenLines(OUTDATED): Auto straighten lines
       customDataDir(OUTDATED): Custom data directory
       pencilSoundSetting(OUTDATED): Pencil sound effect
-      refreshCurrentNote(OUTDATED): Refresh current note periodically
     prefDescriptions:
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
@@ -479,7 +376,6 @@ he:
         off(OUTDATED): No sound
         onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
         onAlways(OUTDATED): Enabled (even in silent mode)
-      refreshCurrentNote(OUTDATED): Updates the currently open note if you're editing it on another device
     resyncEverything(OUTDATED): Resync everything
     customDataDir:
       cancel(OUTDATED): Cancel
@@ -540,6 +436,8 @@ he:
       pink(OUTDATED): Pink
     menu:
       lineHeightDescription(OUTDATED): Also controls the text size for typed notes
+      watchServer(OUTDATED): Watch for updates on the server
+      watchServerReadOnly(OUTDATED): Editing is disabled while watching the server
       bgPatterns:
         staffs(OUTDATED): Staffs
         tablature(OUTDATED): Tablature
@@ -613,7 +511,6 @@ hu:
       autoStraightenLines(OUTDATED): Auto straighten lines
       customDataDir(OUTDATED): Custom data directory
       pencilSoundSetting(OUTDATED): Pencil sound effect
-      refreshCurrentNote(OUTDATED): Refresh current note periodically
     prefDescriptions:
       disableAds(OUTDATED): "Ads help support Saber's development, but you can disable them if you'd like"
       allowInsecureConnections(OUTDATED): (Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates
@@ -631,7 +528,6 @@ hu:
         off(OUTDATED): No sound
         onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
         onAlways(OUTDATED): Enabled (even in silent mode)
-      refreshCurrentNote(OUTDATED): Updates the currently open note if you're editing it on another device
     layoutSizes:
       auto(OUTDATED): Auto
       phone(OUTDATED): Phone
@@ -749,6 +645,8 @@ hu:
       deletePage(OUTDATED): Delete page
       lineHeightDescription(OUTDATED): Also controls the text size for typed notes
       backgroundImageFit(OUTDATED): Background image fit
+      watchServer(OUTDATED): Watch for updates on the server
+      watchServerReadOnly(OUTDATED): Editing is disabled while watching the server
       bgPatterns:
         collegeRtl(OUTDATED): College-ruled (Reverse)
         staffs(OUTDATED): Staffs
@@ -759,53 +657,6 @@ hu:
       lockAxisAlignedPan(OUTDATED): Lock panning to horizontal or vertical
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
 it:
-  common:
-    done(OUTDATED): Done
-    continueBtn(OUTDATED): Continue
-  settings:
-    prefLabels:
-      refreshCurrentNote(OUTDATED): Refresh current note periodically
-    prefDescriptions:
-      refreshCurrentNote(OUTDATED): Updates the currently open note if you're editing it on another device
-  login:
-    notYou(rich)(OUTDATED): "Not you? ${undoLogin(Choose another account)}."
-    status:
-      hi(OUTDATED): "Hi, $u!"
-      almostDone(OUTDATED): "Almost ready for syncing, tap to finish logging in"
-    ncLoginStep:
-      whereToStoreData(OUTDATED): "Choose where you want to store your data:"
-      saberNcServer(OUTDATED): Saber's Nextcloud server
-      otherNcServer(OUTDATED): Other Nextcloud server
-      serverUrl(OUTDATED): Server URL
-      loginWithSaber(OUTDATED): Login with Saber
-      loginWithNextcloud(OUTDATED): Login with Nextcloud
-      loginFlow:
-        pleaseAuthorize(OUTDATED): Please authorize Saber to access your Nextcloud account
-        followPrompts(OUTDATED): Please follow the prompts in your browser.
-        browserDidntOpen(OUTDATED): "Browser didn't open? Click here"
-    encLoginStep:
-      enterEncPassword(OUTDATED): "To protect your data, please enter your encryption password:"
-      newToSaber(OUTDATED): "New to Saber? Just enter a new encryption password."
-      encPassword(OUTDATED): Encryption password
-      encFaqTitle(OUTDATED): Frequently asked questions
-      wrongEncPassword(OUTDATED): Decryption failed with the provided password. Please try entering it again.
-      connectionFailed(OUTDATED): Something went wrong connecting to the server. Please try again later.
-      encFaq(OUTDATED):
-        - q: "What is an encryption password? Why use two passwords?"
-          a: |-
-            The Nextcloud password is used to access the cloud. The encryption password "scrambles" your data before it ever reaches the cloud.
-            Even if someone gains access to your Nextcloud account, your notes will remain safe and encrypted with a separate password. This provides you a second layer of security to protect your data.
-            No-one can access your notes on the server without your encryption password, but this also means that if you forget your encryption password, you will lose access to your data.
-        - q: "I haven't set an encryption password yet. Where do I get it?"
-          a: |-
-            Choose a new encryption password and enter it above.
-            Saber will generate your encryption keys from this password automatically.
-        - q: "Can I use the same password as my Nextcloud account?"
-          a: "Yes, but keep in mind that it would be easier for the server administrator or someone else to access your notes if they gain access to your Nextcloud account."
-  profile:
-    quotaUsage(OUTDATED): You're using $used of $total ($percent)
-    connectedTo(OUTDATED): Connected to
-    faqTitle(OUTDATED): Frequently asked questions
 ja:
   common:
     done(OUTDATED): Done
@@ -850,7 +701,6 @@ ja:
       autoStraightenLines(OUTDATED): Auto straighten lines
       customDataDir(OUTDATED): Custom data directory
       pencilSoundSetting(OUTDATED): Pencil sound effect
-      refreshCurrentNote(OUTDATED): Refresh current note periodically
     prefDescriptions:
       disableEraserAfterUse(OUTDATED): Automatically switches back to the pen after using the eraser
       hideFingerDrawing:
@@ -865,7 +715,6 @@ ja:
         off(OUTDATED): No sound
         onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
         onAlways(OUTDATED): Enabled (even in silent mode)
-      refreshCurrentNote(OUTDATED): Updates the currently open note if you're editing it on another device
     resyncEverything(OUTDATED): Resync everything
     customDataDir:
       cancel(OUTDATED): Cancel
@@ -929,6 +778,8 @@ ja:
     menu:
       lineHeightDescription(OUTDATED): Also controls the text size for typed notes
       backgroundImageFit(OUTDATED): Background image fit
+      watchServer(OUTDATED): Watch for updates on the server
+      watchServerReadOnly(OUTDATED): Editing is disabled while watching the server
       bgPatterns:
         tablature(OUTDATED): Tablature
 pt-BR:
@@ -951,7 +802,6 @@ pt-BR:
       autoStraightenLines(OUTDATED): Auto straighten lines
       customDataDir(OUTDATED): Custom data directory
       pencilSoundSetting(OUTDATED): Pencil sound effect
-      refreshCurrentNote(OUTDATED): Refresh current note periodically
     prefDescriptions:
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
@@ -959,7 +809,6 @@ pt-BR:
         off(OUTDATED): No sound
         onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
         onAlways(OUTDATED): Enabled (even in silent mode)
-      refreshCurrentNote(OUTDATED): Updates the currently open note if you're editing it on another device
     resyncEverything(OUTDATED): Resync everything
     customDataDir:
       cancel(OUTDATED): Cancel
@@ -1022,12 +871,9 @@ pt-BR:
       duplicate(OUTDATED): Duplicate
     menu:
       lineHeightDescription(OUTDATED): Also controls the text size for typed notes
+      watchServer(OUTDATED): Watch for updates on the server
+      watchServerReadOnly(OUTDATED): Editing is disabled while watching the server
 ru:
-  settings:
-    prefLabels:
-      refreshCurrentNote(OUTDATED): Refresh current note periodically
-    prefDescriptions:
-      refreshCurrentNote(OUTDATED): Updates the currently open note if you're editing it on another device
 tr:
   common:
     done(OUTDATED): Done
@@ -1036,13 +882,11 @@ tr:
     prefLabels:
       customDataDir(OUTDATED): Custom data directory
       pencilSoundSetting(OUTDATED): Pencil sound effect
-      refreshCurrentNote(OUTDATED): Refresh current note periodically
     prefDescriptions:
       pencilSoundSetting:
         off(OUTDATED): No sound
         onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
         onAlways(OUTDATED): Enabled (even in silent mode)
-      refreshCurrentNote(OUTDATED): Updates the currently open note if you're editing it on another device
     customDataDir:
       cancel(OUTDATED): Cancel
       select(OUTDATED): Select
@@ -1090,6 +934,8 @@ tr:
   editor:
     menu:
       lineHeightDescription(OUTDATED): Also controls the text size for typed notes
+      watchServer(OUTDATED): Watch for updates on the server
+      watchServerReadOnly(OUTDATED): Editing is disabled while watching the server
 zh-Hans-CN:
   common:
     done(OUTDATED): Done
@@ -1097,13 +943,11 @@ zh-Hans-CN:
   settings:
     prefLabels:
       pencilSoundSetting(OUTDATED): Pencil sound effect
-      refreshCurrentNote(OUTDATED): Refresh current note periodically
     prefDescriptions:
       pencilSoundSetting:
         off(OUTDATED): No sound
         onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
         onAlways(OUTDATED): Enabled (even in silent mode)
-      refreshCurrentNote(OUTDATED): Updates the currently open note if you're editing it on another device
   login:
     notYou(rich)(OUTDATED): "Not you? ${undoLogin(Choose another account)}."
     status:
@@ -1143,9 +987,8 @@ zh-Hans-CN:
     quotaUsage(OUTDATED): You're using $used of $total ($percent)
     connectedTo(OUTDATED): Connected to
     faqTitle(OUTDATED): Frequently asked questions
+  editor:
+    menu:
+      watchServer(OUTDATED): Watch for updates on the server
+      watchServerReadOnly(OUTDATED): Editing is disabled while watching the server
 zh-Hant-TW:
-  settings:
-    prefLabels:
-      refreshCurrentNote(OUTDATED): Refresh current note periodically
-    prefDescriptions:
-      refreshCurrentNote(OUTDATED): Updates the currently open note if you're editing it on another device

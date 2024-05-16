@@ -85,7 +85,6 @@ settings:
     hideHomeBackgrounds: إخفاء الخلفيات على الشاشة الرئيسية
     recentColorsDontSavePresets: لا تحفظ الألوان المعينة مسبقًا كألوان حديثة
     printPageIndicators: طباعة مؤشرات الصفحة
-    refreshCurrentNote(OUTDATED): قم بتحديث الملاحظة الحالية بشكل دوري
     pencilSoundSetting(OUTDATED): تأثير صوت قلم الرصاص
     customDataDir(OUTDATED): دليل البيانات المخصصة
     autoStraightenLines(OUTDATED): تصويب الخطوط تلقائيا
@@ -114,7 +113,6 @@ settings:
       off(OUTDATED): لا صوت
       onButNotInSilentMode(OUTDATED): ممكّن (ما لم يكن في الوضع الصامت)
       onAlways(OUTDATED): ممكّن (حتى في الوضع الصامت)
-    refreshCurrentNote(OUTDATED): يقوم بتحديث الملاحظة المفتوحة حاليًا إذا كنت تقوم بتحريرها على جهاز آخر
     autoStraightenLines(OUTDATED): يقوم بفرد الخطوط الطويلة دون الحاجة إلى استخدام قلم الشكل
     shapeRecognitionDelay(OUTDATED): عدد مرات تحديث معاينة الشكل
     disableAds(OUTDATED): (أدز) يساعد في دعم تطوير (سابر) لكن يمكنك إزالتهم إذا أردت
@@ -295,6 +293,8 @@ editor:
     lineHeight: ارتفاع خط
     backgroundPattern: نمط الخلفية
     import: يستورد
+    watchServer(OUTDATED): ترقب التحديثات على الخادم
+    watchServerReadOnly(OUTDATED): تم تعطيل التحرير أثناء مشاهدة الخادم
     boxFits:
       fill: تمتد
       cover: غطاء

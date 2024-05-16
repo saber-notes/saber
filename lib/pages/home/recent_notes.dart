@@ -130,7 +130,7 @@ class _RecentPageState extends State<RecentPage> {
                 flexibleSpace: FlexibleSpaceBar(
                   title: Text(
                     t.home.titles.home,
-                    style: TextStyle(color: colorScheme.onBackground),
+                    style: TextStyle(color: colorScheme.onSurface),
                   ),
                   centerTitle: cupertino,
                   titlePadding: EdgeInsetsDirectional.only(

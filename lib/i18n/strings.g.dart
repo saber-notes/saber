@@ -489,7 +489,6 @@ class _StringsSettingsPrefLabelsEn {
 	String get autoStraightenLines => 'Auto straighten lines';
 	String get customDataDir => 'Custom data directory';
 	String get pencilSoundSetting => 'Pencil sound effect';
-	String get refreshCurrentNote => 'Refresh current note periodically';
 }
 
 // Path: settings.prefDescriptions
@@ -515,7 +514,6 @@ class _StringsSettingsPrefDescriptionsEn {
 	String get autoStraightenLines => 'Straightens long lines without having to use the shape pen';
 	String get shouldAlwaysAlertForUpdates => 'Tell me about updates as soon as they\'re available';
 	late final _StringsSettingsPrefDescriptionsPencilSoundSettingEn pencilSoundSetting = _StringsSettingsPrefDescriptionsPencilSoundSettingEn._(_root);
-	String get refreshCurrentNote => 'Updates the currently open note if you\'re editing it on another device';
 }
 
 // Path: settings.themeModes
@@ -818,6 +816,8 @@ class _StringsEditorMenuEn {
 	String get backgroundImageFit => 'Background image fit';
 	String get backgroundPattern => 'Background pattern';
 	String get import => 'Import';
+	String get watchServer => 'Watch for updates on the server';
+	String get watchServerReadOnly => 'Editing is disabled while watching the server';
 	late final _StringsEditorMenuBoxFitsEn boxFits = _StringsEditorMenuBoxFitsEn._(_root);
 	late final _StringsEditorMenuBgPatternsEn bgPatterns = _StringsEditorMenuBgPatternsEn._(_root);
 }
@@ -1304,7 +1304,6 @@ class _StringsSettingsPrefLabelsAr extends _StringsSettingsPrefLabelsEn {
 	@override String get hideHomeBackgrounds => 'إخفاء الخلفيات على الشاشة الرئيسية';
 	@override String get recentColorsDontSavePresets => 'لا تحفظ الألوان المعينة مسبقًا كألوان حديثة';
 	@override String get printPageIndicators => 'طباعة مؤشرات الصفحة';
-	@override String get refreshCurrentNote => 'قم بتحديث الملاحظة الحالية بشكل دوري';
 	@override String get pencilSoundSetting => 'تأثير صوت قلم الرصاص';
 	@override String get customDataDir => 'دليل البيانات المخصصة';
 	@override String get autoStraightenLines => 'تصويب الخطوط تلقائيا';
@@ -1335,7 +1334,6 @@ class _StringsSettingsPrefDescriptionsAr extends _StringsSettingsPrefDescription
 	@override String get hideHomeBackgrounds => 'للحصول على مظهر أنظف';
 	@override String get printPageIndicators => 'تظهر مؤشرات الصفحة في الصادرات';
 	@override late final _StringsSettingsPrefDescriptionsPencilSoundSettingAr pencilSoundSetting = _StringsSettingsPrefDescriptionsPencilSoundSettingAr._(_root);
-	@override String get refreshCurrentNote => 'يقوم بتحديث الملاحظة المفتوحة حاليًا إذا كنت تقوم بتحريرها على جهاز آخر';
 	@override String get autoStraightenLines => 'يقوم بفرد الخطوط الطويلة دون الحاجة إلى استخدام قلم الشكل';
 	@override String get shapeRecognitionDelay => 'عدد مرات تحديث معاينة الشكل';
 	@override String get disableAds => '(أدز) يساعد في دعم تطوير (سابر) لكن يمكنك إزالتهم إذا أردت';
@@ -1643,6 +1641,8 @@ class _StringsEditorMenuAr extends _StringsEditorMenuEn {
 	@override String get lineHeight => 'ارتفاع خط';
 	@override String get backgroundPattern => 'نمط الخلفية';
 	@override String get import => 'يستورد';
+	@override String get watchServer => 'ترقب التحديثات على الخادم';
+	@override String get watchServerReadOnly => 'تم تعطيل التحرير أثناء مشاهدة الخادم';
 	@override late final _StringsEditorMenuBoxFitsAr boxFits = _StringsEditorMenuBoxFitsAr._(_root);
 	@override late final _StringsEditorMenuBgPatternsAr bgPatterns = _StringsEditorMenuBgPatternsAr._(_root);
 	@override String get lineHeightDescription => 'يتحكم أيضًا في حجم النص للملاحظات المكتوبة';
@@ -1823,9 +1823,9 @@ class _StringsCommonCs extends _StringsCommonEn {
 	@override final _StringsCs _root; // ignore: unused_field
 
 	// Translations
-	@override String get cancel => 'Zrušit';
-	@override String get done => 'Hotovo';
+	@override String get done => 'Dokončit';
 	@override String get continueBtn => 'Pokračovat';
+	@override String get cancel => 'Zrušit';
 }
 
 // Path: home
@@ -1891,12 +1891,14 @@ class _StringsLoginCs extends _StringsLoginEn {
 		linkToSignup('Zaregistrujte se'),
 		const TextSpan(text: '!'),
 	]);
+	@override TextSpan notYou({required InlineSpanBuilder undoLogin}) => TextSpan(children: [
+		const TextSpan(text: 'Nejste to vy? '),
+		undoLogin('Zvolit jiný účet'),
+		const TextSpan(text: '.'),
+	]);
 	@override late final _StringsLoginStatusCs status = _StringsLoginStatusCs._(_root);
 	@override late final _StringsLoginNcLoginStepCs ncLoginStep = _StringsLoginNcLoginStepCs._(_root);
 	@override late final _StringsLoginEncLoginStepCs encLoginStep = _StringsLoginEncLoginStepCs._(_root);
-	@override TextSpan notYou({required InlineSpanBuilder undoLogin}) => TextSpan(children: [
-		undoLogin('Né ty'),
-	]);
 }
 
 // Path: profile
@@ -1908,16 +1910,16 @@ class _StringsProfileCs extends _StringsProfileEn {
 	// Translations
 	@override String get title => 'Můj profil';
 	@override String get logout => 'Odhlásit se';
+	@override String quotaUsage({required Object used, required Object total, required Object percent}) => 'Využíváte ${used} z ${total} (${percent})';
+	@override String get connectedTo => 'Připojeno k';
 	@override late final _StringsProfileQuickLinksCs quickLinks = _StringsProfileQuickLinksCs._(_root);
+	@override String get faqTitle => 'Často kladené otázky';
 	@override List<dynamic> get faq => [
 		_StringsProfile$faq$0i0$Cs._(_root),
 		_StringsProfile$faq$0i1$Cs._(_root),
 		_StringsProfile$faq$0i2$Cs._(_root),
 		_StringsProfile$faq$0i3$Cs._(_root),
 	];
-	@override String quotaUsage({required Object used, required Object total, required Object percent}) => 'Používáte ${used} z ${total} (${percent})';
-	@override String get connectedTo => 'Připojen k';
-	@override String get faqTitle => 'Často kladené otázky';
 }
 
 // Path: appInfo
@@ -2143,7 +2145,6 @@ class _StringsSettingsPrefLabelsCs extends _StringsSettingsPrefLabelsEn {
 	@override String get autoStraightenLines => 'Automaticky narovnávat čáry';
 	@override String get customDataDir => 'Vlastní datový adresář';
 	@override String get pencilSoundSetting => 'Zvukový efekt psaní tužkou';
-	@override String get refreshCurrentNote => 'Pravidelně aktualizujte aktuální poznámku';
 }
 
 // Path: settings.prefDescriptions
@@ -2169,7 +2170,6 @@ class _StringsSettingsPrefDescriptionsCs extends _StringsSettingsPrefDescription
 	@override String get autoStraightenLines => 'Automaticky narovná dlouhé čáry, aniž by bylo nutné využít tvarové pero';
 	@override String get shouldAlwaysAlertForUpdates => 'Oznámit dostupnost aktualizací co nejdříve od jejich vydání';
 	@override late final _StringsSettingsPrefDescriptionsPencilSoundSettingCs pencilSoundSetting = _StringsSettingsPrefDescriptionsPencilSoundSettingCs._(_root);
-	@override String get refreshCurrentNote => 'Aktualizuje aktuálně otevřenou poznámku, pokud ji upravujete na jiném zařízení';
 }
 
 // Path: settings.themeModes
@@ -2253,9 +2253,9 @@ class _StringsLoginStatusCs extends _StringsLoginStatusEn {
 	// Translations
 	@override String get loggedOut => 'Jste odhlášení';
 	@override String get tapToLogin => 'Klepněte pro přihlášení pomocí Nextcloud účtu';
+	@override String hi({required Object u}) => 'Zdravím, ${u}!';
+	@override String get almostDone => 'Synchronizace je téměř připravena, pro dokončení přihlášení klepněte sem';
 	@override String get loggedIn => 'Jste přihlášeni pomocí Nextcloud účtu';
-	@override String hi({required Object u}) => 'Ahoj, ${u}!';
-	@override String get almostDone => 'Téměř připraveno k synchronizaci, klepnutím dokončete přihlášení';
 }
 
 // Path: login.ncLoginStep
@@ -2265,12 +2265,13 @@ class _StringsLoginNcLoginStepCs extends _StringsLoginNcLoginStepEn {
 	@override final _StringsCs _root; // ignore: unused_field
 
 	// Translations
+	@override String get whereToStoreData => 'Zvolte si, kam chcete ukládat svá data:';
+	@override String get saberNcServer => 'Oficiální Nextcloud server aplikace Saber';
+	@override String get otherNcServer => 'Jiný Nextcloud server';
+	@override String get serverUrl => 'URL adresa serveru';
+	@override String get loginWithSaber => 'Přihlásit přes aplikaci Saber';
+	@override String get loginWithNextcloud => 'Přihlásit přes Nextcloud server';
 	@override late final _StringsLoginNcLoginStepLoginFlowCs loginFlow = _StringsLoginNcLoginStepLoginFlowCs._(_root);
-	@override String get whereToStoreData => 'Vyberte, kam chcete svá data uložit:';
-	@override String get otherNcServer => 'Další server Nextcloud';
-	@override String get serverUrl => 'Adresa URL serveru';
-	@override String get loginWithSaber => 'Přihlaste se pomocí Saber';
-	@override String get loginWithNextcloud => 'Přihlaste se pomocí Nextcloud';
 }
 
 // Path: login.encLoginStep
@@ -2280,12 +2281,12 @@ class _StringsLoginEncLoginStepCs extends _StringsLoginEncLoginStepEn {
 	@override final _StringsCs _root; // ignore: unused_field
 
 	// Translations
-	@override String get enterEncPassword => 'Chcete-li chránit svá data, zadejte své šifrovací heslo:';
-	@override String get newToSaber => 'Novinka pro Saber';
-	@override String get encPassword => 'Šifrovací heslo';
+	@override String get enterEncPassword => 'Zadejte prosím heslo pro šifrování, abyste chránili svá data:';
+	@override String get newToSaber => 'Poprvé v aplikaci Saber? Stačí zadat nové heslo pro šifrování.';
+	@override String get encPassword => 'Heslo pro šifrování';
 	@override String get encFaqTitle => 'Často kladené otázky';
-	@override String get wrongEncPassword => 'Dešifrování se zadaným heslem se nezdařilo. Zkuste jej zadat znovu.';
-	@override String get connectionFailed => 'Při připojování k serveru se něco pokazilo. Prosím zkuste to znovu později.';
+	@override String get wrongEncPassword => 'Dešifrování pomocí zadaného hesla pro šifrování selhalo. Zkuste ho prosím zadat znovu.';
+	@override String get connectionFailed => 'Při připojování k serveru se něco pokazilo. Zkuste to prosím později.';
 	@override List<dynamic> get encFaq => [
 		_StringsLoginEncLoginStep$encFaq$0i0$Cs._(_root),
 		_StringsLoginEncLoginStep$encFaq$0i1$Cs._(_root),
@@ -2471,6 +2472,8 @@ class _StringsEditorMenuCs extends _StringsEditorMenuEn {
 	@override String get backgroundImageFit => 'Rozložení obrázku na pozadí';
 	@override String get backgroundPattern => 'Vzor na pozadí';
 	@override String get import => 'Importovat';
+	@override String get watchServer => 'Sledovat aktualizace ze serveru';
+	@override String get watchServerReadOnly => 'Během sledování serveru je vypnuto editování';
 	@override late final _StringsEditorMenuBoxFitsCs boxFits = _StringsEditorMenuBoxFitsCs._(_root);
 	@override late final _StringsEditorMenuBgPatternsCs bgPatterns = _StringsEditorMenuBgPatternsCs._(_root);
 }
@@ -2544,9 +2547,9 @@ class _StringsLoginNcLoginStepLoginFlowCs extends _StringsLoginNcLoginStepLoginF
 	@override final _StringsCs _root; // ignore: unused_field
 
 	// Translations
-	@override String get pleaseAuthorize => 'Povolte Saber přístup k vašemu účtu Nextcloud';
-	@override String get followPrompts => 'Postupujte podle pokynů ve vašem prohlížeči.';
-	@override String get browserDidntOpen => 'Prohlížeč se neotevřel';
+	@override String get pleaseAuthorize => 'Autorizujte prosím aplikaci Saber k přístupu na váš Nextcloud účet';
+	@override String get followPrompts => 'Následujte prosím kroky ve webovém prohlížeči';
+	@override String get browserDidntOpen => 'Neotevřel se webový prohlížeč? Klepněte zde';
 }
 
 // Path: login.encLoginStep.encFaq.0
@@ -2556,8 +2559,8 @@ class _StringsLoginEncLoginStep$encFaq$0i0$Cs extends _StringsLoginEncLoginStep$
 	@override final _StringsCs _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Co je to heslo pro šifrování?';
-	@override String get a => 'Heslo pro šifrování je použito k zašifrování vašich dat před jejich odesláním na server. Zvolíte si ho při prvním přihlášení do aplikace Saber (nikoliv do webového rozhraní Nextcloud serveru), není nijak vázáno na heslo k vašemu Nextcloud účtu nebo na účet samotný.\nBez jeho znalosti nemůže nikdo přistoupit k vašim poznámkám uloženým na serveru. To také znamená, že pokud ho zapomenete, ztratíte přístup ke svým datům.';
+	@override String get q => 'Co je to heslo pro šifrování? Proč používat dvě hesla?';
+	@override String get a => 'Heslo k Nextcloud účtu se používá k přístupu do cloudu. Heslo pro šifrování „zamaskuje“ vaše data dokonce ještě než dorazí na cloud.\nI když by někdo získat přístup k vašemu Nextcloud účtu, vaše poznámky zůstanou v bezpečí a zašifrované oddělným heslem. To vám přináší druhou úroveň bezpečnosti ochrany vašich dat.\nNikdo k vašim poznámkám nemůže přistoupit bez hesla pro šifrování, což ale také znamená, že pokud své heslo pro šifrování zapomenete, ztratíte přístup ke svým datům.';
 }
 
 // Path: login.encLoginStep.encFaq.1
@@ -2567,8 +2570,8 @@ class _StringsLoginEncLoginStep$encFaq$0i1$Cs extends _StringsLoginEncLoginStep$
 	@override final _StringsCs _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Proč používat dvě hesla?';
-	@override String get a => 'Heslo k Nextcloud účtu se používá k přístupu do cloudu. Heslo pro šifrování "utají" vaše data ještě před tím, než se na cloud dostanou.\nI když by někdo získat přístup k vašemu Nextcloud účtu, vaše poznámky zůstanou v bezpečí zašifrované vlastním heslem. To vám poskytuje druhou vrstvu ochrany vašich dat.';
+	@override String get q => 'Ještě jsem heslo pro šifrování nenastavoval. Kde ho získám?';
+	@override String get a => 'Zvolte si nové heslo pro šifrování a zadejte ho výše.\nAplikace Saber z hesla automaticky vygeneruje šifrovací klíče.';
 }
 
 // Path: login.encLoginStep.encFaq.2
@@ -2578,8 +2581,8 @@ class _StringsLoginEncLoginStep$encFaq$0i2$Cs extends _StringsLoginEncLoginStep$
 	@override final _StringsCs _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Ještě jsem heslo pro šifrování nenastavoval. Kde ho získám?';
-	@override String get a => 'Jednoduše si ho zvolíte právě teď, když se budete výše přihlašovat!\nHeslo pro šifrování si volíte při prvním přihlášení do aplikace Saber (nikoliv do webového rozhraní Nextcloud serveru).';
+	@override String get q => 'Mohu jako heslo pro šifrování použít své heslo od Nextcloud účtu?';
+	@override String get a => 'Ano, ale mějte na paměti, že bude pro administrátora Nextcloud serveru či kohokoliv jiného, kdo získá přístup k vašemu Nextcloud účtu, jednodušší získat přístup k vašim poznámkám.';
 }
 
 // Path: editor.menu.boxFits
@@ -2649,9 +2652,9 @@ class _StringsCommonDe extends _StringsCommonEn {
 	@override final _StringsDe _root; // ignore: unused_field
 
 	// Translations
+	@override String get done => 'Fertig';
+	@override String get continueBtn => 'Weiter';
 	@override String get cancel => 'Abbruch';
-	@override String get done => 'Erledigt';
-	@override String get continueBtn => 'Weitermachen';
 }
 
 // Path: home
@@ -2717,12 +2720,14 @@ class _StringsLoginDe extends _StringsLoginEn {
 		linkToSignup('Erstelle jetzt eins'),
 		const TextSpan(text: '!'),
 	]);
+	@override TextSpan notYou({required InlineSpanBuilder undoLogin}) => TextSpan(children: [
+		const TextSpan(text: 'Nicht du? '),
+		undoLogin('Wähle ein anderes Konto'),
+		const TextSpan(text: '.'),
+	]);
 	@override late final _StringsLoginStatusDe status = _StringsLoginStatusDe._(_root);
 	@override late final _StringsLoginNcLoginStepDe ncLoginStep = _StringsLoginNcLoginStepDe._(_root);
 	@override late final _StringsLoginEncLoginStepDe encLoginStep = _StringsLoginEncLoginStepDe._(_root);
-	@override TextSpan notYou({required InlineSpanBuilder undoLogin}) => TextSpan(children: [
-		undoLogin('Nicht du'),
-	]);
 }
 
 // Path: profile
@@ -2734,16 +2739,16 @@ class _StringsProfileDe extends _StringsProfileEn {
 	// Translations
 	@override String get title => 'Mein Profil';
 	@override String get logout => 'Abmelden';
+	@override String quotaUsage({required Object used, required Object total, required Object percent}) => 'Du verwendest ${used} von ${total} (${percent})';
+	@override String get connectedTo => 'Verbunden mit';
 	@override late final _StringsProfileQuickLinksDe quickLinks = _StringsProfileQuickLinksDe._(_root);
+	@override String get faqTitle => 'Häufig gestellte Fragen';
 	@override List<dynamic> get faq => [
 		_StringsProfile$faq$0i0$De._(_root),
 		_StringsProfile$faq$0i1$De._(_root),
 		_StringsProfile$faq$0i2$De._(_root),
 		_StringsProfile$faq$0i3$De._(_root),
 	];
-	@override String quotaUsage({required Object used, required Object total, required Object percent}) => 'Sie verwenden ${used} von ${total} (${percent})';
-	@override String get connectedTo => 'Angeschlossen';
-	@override String get faqTitle => 'Häufig gestellte Fragen';
 }
 
 // Path: appInfo
@@ -2968,8 +2973,7 @@ class _StringsSettingsPrefLabelsDe extends _StringsSettingsPrefLabelsEn {
 	@override String get shapeRecognitionDelay => 'Verzögerung der Formerkennung';
 	@override String get autoStraightenLines => 'Linien automatisch begradigen';
 	@override String get customDataDir => 'Benutzerdefiniertes Verzeichnis';
-	@override String get refreshCurrentNote => 'Aktuelle Notiz regelmäßig aktualisieren';
-	@override String get pencilSoundSetting => 'Bleistift-Soundeffekt';
+	@override String get pencilSoundSetting => 'Bleistiftgeräusch';
 }
 
 // Path: settings.prefDescriptions
@@ -2995,7 +2999,6 @@ class _StringsSettingsPrefDescriptionsDe extends _StringsSettingsPrefDescription
 	@override String get autoStraightenLines => 'Lange Linien selbst ohne Form-Stift begradigen';
 	@override String get shouldAlwaysAlertForUpdates => 'Über neue Updates informiert bleiben';
 	@override late final _StringsSettingsPrefDescriptionsPencilSoundSettingDe pencilSoundSetting = _StringsSettingsPrefDescriptionsPencilSoundSettingDe._(_root);
-	@override String get refreshCurrentNote => 'Aktualisiert die aktuell geöffnete Notiz, wenn Sie sie auf einem anderen Gerät bearbeiten';
 }
 
 // Path: settings.themeModes
@@ -3079,9 +3082,9 @@ class _StringsLoginStatusDe extends _StringsLoginStatusEn {
 	// Translations
 	@override String get loggedOut => 'Nicht angemeldet';
 	@override String get tapToLogin => 'Hier tippen, um dich mit Nextcloud anzumelden';
+	@override String hi({required Object u}) => 'Hi, ${u}!';
+	@override String get almostDone => 'Fast bereit zum Synchronisieren. Tippe, um die Anmeldung abzuschließen';
 	@override String get loggedIn => 'Mit Nextcloud angemeldet';
-	@override String hi({required Object u}) => 'Hallo, ${u}!';
-	@override String get almostDone => 'Die Synchronisierung ist fast fertig. Tippen Sie auf, um die Anmeldung abzuschließen';
 }
 
 // Path: login.ncLoginStep
@@ -3091,13 +3094,13 @@ class _StringsLoginNcLoginStepDe extends _StringsLoginNcLoginStepEn {
 	@override final _StringsDe _root; // ignore: unused_field
 
 	// Translations
-	@override late final _StringsLoginNcLoginStepLoginFlowDe loginFlow = _StringsLoginNcLoginStepLoginFlowDe._(_root);
-	@override String get whereToStoreData => 'Wählen Sie, wo Sie Ihre Daten speichern möchten:';
-	@override String get saberNcServer => 'Der Nextcloud-Server von Saber';
+	@override String get whereToStoreData => 'Wähle, wo du deine Daten speichern willst:';
+	@override String get saberNcServer => 'Sabers Nextcloud-Server';
 	@override String get otherNcServer => 'Anderer Nextcloud-Server';
-	@override String get serverUrl => 'Server-URL';
-	@override String get loginWithSaber => 'Melden Sie sich mit Saber an';
-	@override String get loginWithNextcloud => 'Melden Sie sich mit Nextcloud an';
+	@override String get serverUrl => 'Server URL';
+	@override String get loginWithSaber => 'Mit Saber anmelden';
+	@override String get loginWithNextcloud => 'Mit Nextcloud anmelden';
+	@override late final _StringsLoginNcLoginStepLoginFlowDe loginFlow = _StringsLoginNcLoginStepLoginFlowDe._(_root);
 }
 
 // Path: login.encLoginStep
@@ -3107,12 +3110,12 @@ class _StringsLoginEncLoginStepDe extends _StringsLoginEncLoginStepEn {
 	@override final _StringsDe _root; // ignore: unused_field
 
 	// Translations
-	@override String get enterEncPassword => 'Um Ihre Daten zu schützen, geben Sie bitte Ihr Verschlüsselungspasswort ein:';
-	@override String get newToSaber => 'Neu bei Saber';
-	@override String get encPassword => 'Verschlüsselungskennwort';
+	@override String get enterEncPassword => 'Gib dein Verschlüsselungspasswort an, um deine Daten zu schützen:';
+	@override String get newToSaber => 'Neu bei Saber? Gib einfach ein neues Verschlüsselungspasswort an.';
+	@override String get encPassword => 'Verschlüsselungspasswort';
 	@override String get encFaqTitle => 'Häufig gestellte Fragen';
-	@override String get wrongEncPassword => 'Die Entschlüsselung ist mit dem angegebenen Passwort fehlgeschlagen. Bitte versuchen Sie es erneut einzugeben.';
-	@override String get connectionFailed => 'Bei der Verbindung zum Server ist ein Fehler aufgetreten. Bitte versuchen Sie es später noch einmal.';
+	@override String get wrongEncPassword => 'Entschlüsselung mit dem angegebenen Passwort fehlgeschlagen. Bitte versuche es erneut einzugeben.';
+	@override String get connectionFailed => 'Verbindung zum Server fehlgeschlagen. Bitte versuche es später erneut.';
 	@override List<dynamic> get encFaq => [
 		_StringsLoginEncLoginStep$encFaq$0i0$De._(_root),
 		_StringsLoginEncLoginStep$encFaq$0i1$De._(_root),
@@ -3294,12 +3297,14 @@ class _StringsEditorMenuDe extends _StringsEditorMenuEn {
 	@override String get duplicatePage => 'Seite duplizieren';
 	@override String get deletePage => 'Seite löschen';
 	@override String get lineHeight => 'Zeilenhöhe';
+	@override String get lineHeightDescription => 'Bestimmt ebenfalls die Textgröße der getippten Notizen';
 	@override String get backgroundImageFit => 'Background image fit';
 	@override String get backgroundPattern => 'Hintergrundmuster';
 	@override String get import => 'Importieren';
+	@override String get watchServer => 'Halte nach Aktualisierungen auf dem Server Ausschau';
+	@override String get watchServerReadOnly => 'Bearbeiten ist deaktiviert, solange du den Server beobachtest';
 	@override late final _StringsEditorMenuBoxFitsDe boxFits = _StringsEditorMenuBoxFitsDe._(_root);
 	@override late final _StringsEditorMenuBgPatternsDe bgPatterns = _StringsEditorMenuBgPatternsDe._(_root);
-	@override String get lineHeightDescription => 'Steuert außerdem die Textgröße für getippte Notizen';
 }
 
 // Path: editor.newerFileFormat
@@ -3359,9 +3364,9 @@ class _StringsSettingsPrefDescriptionsPencilSoundSettingDe extends _StringsSetti
 	@override final _StringsDe _root; // ignore: unused_field
 
 	// Translations
-	@override String get onAlways => 'Aktiviert (auch im lautlosen Modus)';
-	@override String get off => 'Keinen Ton';
-	@override String get onButNotInSilentMode => 'Aktiviert (außer im stillen Modus)';
+	@override String get off => 'Kein Geräusch';
+	@override String get onButNotInSilentMode => 'Aktiv (außer im Stummmodus)';
+	@override String get onAlways => 'Aktiv (sogar im Stummmodus)';
 }
 
 // Path: login.ncLoginStep.loginFlow
@@ -3371,9 +3376,9 @@ class _StringsLoginNcLoginStepLoginFlowDe extends _StringsLoginNcLoginStepLoginF
 	@override final _StringsDe _root; // ignore: unused_field
 
 	// Translations
-	@override String get pleaseAuthorize => 'Bitte autorisieren Sie Saber, auf Ihr Nextcloud-Konto zuzugreifen';
-	@override String get followPrompts => 'Bitte folgen Sie den Anweisungen in Ihrem Browser.';
-	@override String get browserDidntOpen => 'Der Browser wurde nicht geöffnet';
+	@override String get pleaseAuthorize => 'Bitte gib Saber Zugriff auf dein Nextcloud Konto';
+	@override String get followPrompts => 'Bitte folge den Anweisungen in deinem Browser.';
+	@override String get browserDidntOpen => 'Browser hat sich nicht geöffnet? Klicke hier';
 }
 
 // Path: login.encLoginStep.encFaq.0
@@ -3383,8 +3388,8 @@ class _StringsLoginEncLoginStep$encFaq$0i0$De extends _StringsLoginEncLoginStep$
 	@override final _StringsDe _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Was ist das Verchlüsselungspasswort?';
-	@override String get a => 'Das Verschlüsselungspasswort wird verwendet, um deine Daten zu verschlüsseln, bevor diese an den Server gesendet werden. Es wird nicht auf dem Server gespeichert und nur von Saber verwendet, um deine Daten zu ver- und entschlüsseln.\nNiemand kann ohne dieses Passwort auf deine Notizen auf dem Server zugreifen. Das bedeutet allerdings auch, dass du, wenn du dein Verschlüsselungspasswort vergisst, den Zugriff auf deine Daten verlierst.';
+	@override String get q => 'Was ist ein Verschlüsselungspasswort? Wozu zwei Passwörter?';
+	@override String get a => 'Mit dem Nextcloud-Passwort greifst du auf die Cloud zu. Das Verschlüsselungspasswort schützt deine Daten, bevor sie jemals die Cloud erreichen.\nSelbst wenn jemand Zugriff zu deinem Nextcloud-Konto erlangt, bleiben deine Notizen sicher und verschlüsselt mit einem separaten Passwort. Das bietet dir eine weitere Sicherheitsschicht zum Schutz deiner Daten.\nNiemand kann ohne dein Verschlüsselungspasswort auf deine Notizen auf dem Server zugreifen. Das bedeutet allerdings auch, dass du den Zugriff auf deine Daten verlierst, falls du dein Verschlüsselungspasswort vergisst.';
 }
 
 // Path: login.encLoginStep.encFaq.1
@@ -3394,8 +3399,8 @@ class _StringsLoginEncLoginStep$encFaq$0i1$De extends _StringsLoginEncLoginStep$
 	@override final _StringsDe _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Wieso zwei Passwörter?';
-	@override String get a => 'Das Nextcloud-Passwort wird verwendet, um auf die Cloud zuzugreifen. Das Verschlüsselungspasswort „verwürfelt“ deine Daten, bevor diese die Cloud erreichen.\nSelbst wenn jemand Zugriff zu deinem Nextcloud-Konto erlangt, bleiben deine Notizen sicher und verschlüsselt mit einem seperaten Passwort. Dies stellt eine zweite Sicherheitsebene zum Schutz deiner Daten dar.';
+	@override String get q => 'Ich habe noch kein Verschlüsselungspasswort festgelegt. Wo bekomme ich das her?';
+	@override String get a => 'Wähle ein neues Verschlüsselungspasswort und gib es oben ein.\nSaber wird mit diesem Passwort automatisch deine Schlüssel generieren.';
 }
 
 // Path: login.encLoginStep.encFaq.2
@@ -3405,8 +3410,8 @@ class _StringsLoginEncLoginStep$encFaq$0i2$De extends _StringsLoginEncLoginStep$
 	@override final _StringsDe _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Kann ich dasselbe Passwort für beide verwenden?';
-	@override String get a => 'Ja, aber das ist nicht so sicher. Da dein Nextcloud-Passwort an den Server übertragen wird, kann jemand mit Zugriff auf den Server deine Notizen entschlüsseln. Du solltest also nur dasselbe Passwort verwenden, wenn du der Person, die den Server besitzt, vertraust.';
+	@override String get q => 'Kann ich das gleiche Passwort wie bei meinem Nextcloud-Konto verwenden?';
+	@override String get a => 'Ja, aber sei dir bewusst, dass es so für den Serveradministrator oder jemand anderen einfacher wäre, auf deine Notizen zuzugreifen, falls dieser Zugriff auf dein Nextcloud-Konto erlangt.';
 }
 
 // Path: editor.menu.boxFits
@@ -3791,7 +3796,6 @@ class _StringsSettingsPrefLabelsEs extends _StringsSettingsPrefLabelsEn {
 	@override String get recentColorsLength => 'Número de colores recientes a almacenar';
 	@override String get printPageIndicators => 'Indicadores de página de impresión';
 	@override String get autosaveDelay => 'Retardo en el autoguardado';
-	@override String get refreshCurrentNote => 'Actualizar la nota actual periódicamente';
 	@override String get pencilSoundSetting => 'Efecto de sonido de lápiz';
 	@override String get customDataDir => 'Directorio de datos personalizado';
 	@override String get autoStraightenLines => 'Líneas de enderezamiento automático';
@@ -3819,7 +3823,6 @@ class _StringsSettingsPrefDescriptionsEs extends _StringsSettingsPrefDescription
 	@override String get autosaveDelay => 'Cuánto esperar antes de autoguardar una nota';
 	@override String get shouldAlwaysAlertForUpdates => 'Avísame sobre actualizaciones tan pronto como estén disponibles';
 	@override late final _StringsSettingsPrefDescriptionsPencilSoundSettingEs pencilSoundSetting = _StringsSettingsPrefDescriptionsPencilSoundSettingEs._(_root);
-	@override String get refreshCurrentNote => 'Actualiza la nota actualmente abierta si la estás editando en otro dispositivo';
 	@override String get autoStraightenLines => 'Endereza líneas largas sin tener que usar el rotulador.';
 	@override String get shapeRecognitionDelay => 'Con qué frecuencia actualizar la vista previa de la forma';
 }
@@ -4123,6 +4126,8 @@ class _StringsEditorMenuEs extends _StringsEditorMenuEn {
 	@override String get backgroundImageFit => 'Ajuste de la imagen de fondo';
 	@override String get backgroundPattern => 'Patrón de fondo';
 	@override String get import => 'Importar';
+	@override String get watchServer => 'Esté atento a las actualizaciones en el servidor.';
+	@override String get watchServerReadOnly => 'La edición está deshabilitada mientras se mira el servidor.';
 	@override late final _StringsEditorMenuBoxFitsEs boxFits = _StringsEditorMenuBoxFitsEs._(_root);
 	@override late final _StringsEditorMenuBgPatternsEs bgPatterns = _StringsEditorMenuBgPatternsEs._(_root);
 	@override String get lineHeightDescription => 'También controla el tamaño del texto de las notas escritas.';
@@ -4619,7 +4624,6 @@ class _StringsSettingsPrefLabelsFa extends _StringsSettingsPrefLabelsEn {
 	@override String get printPageIndicators => 'چاپ نشانگرهای صفحه';
 	@override String get autosaveDelay => 'تأخیر ذخیره خودکار';
 	@override String get shapeRecognitionDelay => 'تاخیر در تشخیص شکل';
-	@override String get refreshCurrentNote => 'یادداشت فعلی را به صورت دوره ای بازخوانی کنید';
 	@override String get pencilSoundSetting => 'جلوه صدای مداد';
 	@override String get customDataDir => 'دایرکتوری داده های سفارشی';
 	@override String get autoStraightenLines => 'صاف کردن خودکار خطوط';
@@ -4647,7 +4651,6 @@ class _StringsSettingsPrefDescriptionsFa extends _StringsSettingsPrefDescription
 	@override String get shapeRecognitionDelay => 'به روز رسانی پیشنمایش شکل چند وقت یکبار انجام شود';
 	@override String get shouldAlwaysAlertForUpdates => 'به محض اینکه به‌روزرسانی‌ها در دسترس هستند، به من بگویید';
 	@override late final _StringsSettingsPrefDescriptionsPencilSoundSettingFa pencilSoundSetting = _StringsSettingsPrefDescriptionsPencilSoundSettingFa._(_root);
-	@override String get refreshCurrentNote => 'اگر یادداشت باز فعلی را در دستگاه دیگری ویرایش می‌کنید، آن را به‌روزرسانی می‌کند';
 	@override String get autoStraightenLines => 'خطوط بلند را بدون استفاده از قلم شکل صاف می کند';
 }
 
@@ -4950,6 +4953,8 @@ class _StringsEditorMenuFa extends _StringsEditorMenuEn {
 	@override String get backgroundImageFit => 'مناسب تصویر پس زمینه';
 	@override String get backgroundPattern => 'الگوی پس زمینه';
 	@override String get import => 'واردکردن';
+	@override String get watchServer => 'مراقب به روز رسانی ها در سرور باشید';
+	@override String get watchServerReadOnly => 'هنگام تماشای سرور، ویرایش غیرفعال است';
 	@override late final _StringsEditorMenuBoxFitsFa boxFits = _StringsEditorMenuBoxFitsFa._(_root);
 	@override late final _StringsEditorMenuBgPatternsFa bgPatterns = _StringsEditorMenuBgPatternsFa._(_root);
 	@override String get lineHeightDescription => 'همچنین اندازه متن را برای یادداشت های تایپ شده کنترل می کند';
@@ -5446,7 +5451,6 @@ class _StringsSettingsPrefLabelsFr extends _StringsSettingsPrefLabelsEn {
 	@override String get printPageIndicators => 'Imprimer les numéros de pages';
 	@override String get autosaveDelay => 'Délai entre les sauvegardes automatiques';
 	@override String get shapeRecognitionDelay => 'Délai de reconnaissance de forme';
-	@override String get refreshCurrentNote => 'Actualiser périodiquement la note actuelle';
 	@override String get pencilSoundSetting => 'Effet sonore de crayon';
 	@override String get customDataDir => 'Répertoire de données personnalisé';
 	@override String get autoStraightenLines => 'Redresser automatiquement les lignes';
@@ -5474,7 +5478,6 @@ class _StringsSettingsPrefDescriptionsFr extends _StringsSettingsPrefDescription
 	@override String get shapeRecognitionDelay => 'Avec quelle fréquence mettre à jour la prévisualisation de forme';
 	@override String get shouldAlwaysAlertForUpdates => 'Me prévenir dès qu\'une mise à jour est disponible';
 	@override late final _StringsSettingsPrefDescriptionsPencilSoundSettingFr pencilSoundSetting = _StringsSettingsPrefDescriptionsPencilSoundSettingFr._(_root);
-	@override String get refreshCurrentNote => 'Met à jour la note actuellement ouverte si vous la modifiez sur un autre appareil';
 	@override String get autoStraightenLines => 'Redresse les longues lignes sans avoir à utiliser le stylo de forme';
 }
 
@@ -5777,6 +5780,8 @@ class _StringsEditorMenuFr extends _StringsEditorMenuEn {
 	@override String get backgroundImageFit => 'Adaptation de l\'image de fond';
 	@override String get backgroundPattern => 'Texture de fond';
 	@override String get import => 'Importer';
+	@override String get watchServer => 'Surveillez les mises à jour sur le serveur';
+	@override String get watchServerReadOnly => 'L\'édition est désactivée lorsque vous regardez le serveur';
 	@override late final _StringsEditorMenuBoxFitsFr boxFits = _StringsEditorMenuBoxFitsFr._(_root);
 	@override late final _StringsEditorMenuBgPatternsFr bgPatterns = _StringsEditorMenuBgPatternsFr._(_root);
 	@override String get lineHeightDescription => 'Contrôle également la taille du texte pour les notes saisies';
@@ -6271,7 +6276,6 @@ class _StringsSettingsPrefLabelsHe extends _StringsSettingsPrefLabelsEn {
 	@override String get recentColorsDontSavePresets => 'אל תשמור צבעים מוגדרים מראש בצבעים אחרונים';
 	@override String get printPageIndicators => 'הדפסת עמודים מחוונים';
 	@override String get autosaveDelay => 'השהיית שמירה אוטומטית';
-	@override String get refreshCurrentNote => 'רענן את ההערה הנוכחית מעת לעת';
 	@override String get pencilSoundSetting => 'אפקט צליל עיפרון';
 	@override String get customDataDir => 'ספריית נתונים מותאמת אישית';
 	@override String get autoStraightenLines => 'יישור קווים אוטומטית';
@@ -6300,7 +6304,6 @@ class _StringsSettingsPrefDescriptionsHe extends _StringsSettingsPrefDescription
 	@override String get autosaveDelay => 'כמה זמן לחכות לפני שמירת הערה אוטומטית';
 	@override String get shouldAlwaysAlertForUpdates => 'ספר לי על עדכונים ברגע שהם יהיו זמינים';
 	@override late final _StringsSettingsPrefDescriptionsPencilSoundSettingHe pencilSoundSetting = _StringsSettingsPrefDescriptionsPencilSoundSettingHe._(_root);
-	@override String get refreshCurrentNote => 'מעדכן את ההערה הפתוחה כעת אם אתה עורך אותה במכשיר אחר';
 	@override String get autoStraightenLines => 'מיישר קווים ארוכים ללא צורך להשתמש בעט הצורה';
 	@override String get shapeRecognitionDelay => 'באיזו תדירות לעדכן את התצוגה המקדימה של הצורה';
 }
@@ -6604,6 +6607,8 @@ class _StringsEditorMenuHe extends _StringsEditorMenuEn {
 	@override String get backgroundImageFit => 'התאמת תמונת רקע';
 	@override String get backgroundPattern => 'תבנית רקע';
 	@override String get import => 'יבוא';
+	@override String get watchServer => 'שימו לב לעדכונים בשרת';
+	@override String get watchServerReadOnly => 'העריכה מושבתת בזמן צפייה בשרת';
 	@override late final _StringsEditorMenuBoxFitsHe boxFits = _StringsEditorMenuBoxFitsHe._(_root);
 	@override late final _StringsEditorMenuBgPatternsHe bgPatterns = _StringsEditorMenuBgPatternsHe._(_root);
 	@override String get lineHeightDescription => 'שולט גם בגודל הטקסט עבור הערות מוקלדות';
@@ -7089,7 +7094,6 @@ class _StringsSettingsPrefLabelsHu extends _StringsSettingsPrefLabelsEn {
 	@override String get editorPromptRename => 'Új jegyzetek átnevezésére való felszólítás';
 	@override String get hideHomeBackgrounds => 'Hátterek elrejtése a kezdőképernyőn';
 	@override String get recentColorsDontSavePresets => 'Ne mentse az előre beállított színeket a legutóbbi színek között';
-	@override String get refreshCurrentNote => 'Az aktuális jegyzet rendszeres frissítése';
 	@override String get pencilSoundSetting => 'Ceruza hanghatás';
 	@override String get customDataDir => 'Egyedi adatkönyvtár';
 	@override String get autoStraightenLines => 'A vonalak automatikus kiegyenesítése';
@@ -7121,7 +7125,6 @@ class _StringsSettingsPrefDescriptionsHu extends _StringsSettingsPrefDescription
 	@override String get editorPromptRename => 'A jegyzeteket később bármikor átnevezheti';
 	@override String get hideHomeBackgrounds => 'Egy letisztultabb megjelenítésért';
 	@override late final _StringsSettingsPrefDescriptionsPencilSoundSettingHu pencilSoundSetting = _StringsSettingsPrefDescriptionsPencilSoundSettingHu._(_root);
-	@override String get refreshCurrentNote => 'Frissíti az éppen megnyitott jegyzetet, ha egy másik eszközön szerkeszti';
 	@override String get autoStraightenLines => 'Kiegyenesíti a hosszú vonalakat anélkül, hogy az alakos tollat ​​kellene használnia';
 	@override String get shapeRecognitionDelay => 'Milyen gyakran kell frissíteni az alakzat előnézetét';
 	@override String get disableAds => 'A hirdetések segítik a Saber fejlesztését, de tilthatja őket, ha tetszik';
@@ -7426,6 +7429,8 @@ class _StringsEditorMenuHu extends _StringsEditorMenuEn {
 	@override String get lineHeight => 'Vonalmagasság';
 	@override String get backgroundPattern => 'Háttérminta';
 	@override String get import => 'Importálás';
+	@override String get watchServer => 'Figyelje a frissítéseket a szerveren';
+	@override String get watchServerReadOnly => 'A szerver figyelése közben a szerkesztés le van tiltva';
 	@override late final _StringsEditorMenuBoxFitsHu boxFits = _StringsEditorMenuBoxFitsHu._(_root);
 	@override late final _StringsEditorMenuBgPatternsHu bgPatterns = _StringsEditorMenuBgPatternsHu._(_root);
 	@override String get lineHeightDescription => 'A beírt jegyzetek szövegméretét is szabályozza';
@@ -7610,9 +7615,9 @@ class _StringsCommonIt extends _StringsCommonEn {
 	@override final _StringsIt _root; // ignore: unused_field
 
 	// Translations
-	@override String get cancel => 'Cancella';
 	@override String get done => 'Fatto';
 	@override String get continueBtn => 'Continua';
+	@override String get cancel => 'Cancella';
 }
 
 // Path: home
@@ -7678,12 +7683,14 @@ class _StringsLoginIt extends _StringsLoginEn {
 		linkToSignup('Registrati ora'),
 		const TextSpan(text: '!'),
 	]);
+	@override TextSpan notYou({required InlineSpanBuilder undoLogin}) => TextSpan(children: [
+		const TextSpan(text: 'Nn sei tu? '),
+		undoLogin('Scegli un altro account'),
+		const TextSpan(text: '.'),
+	]);
 	@override late final _StringsLoginStatusIt status = _StringsLoginStatusIt._(_root);
 	@override late final _StringsLoginNcLoginStepIt ncLoginStep = _StringsLoginNcLoginStepIt._(_root);
 	@override late final _StringsLoginEncLoginStepIt encLoginStep = _StringsLoginEncLoginStepIt._(_root);
-	@override TextSpan notYou({required InlineSpanBuilder undoLogin}) => TextSpan(children: [
-		undoLogin('Non tu'),
-	]);
 }
 
 // Path: profile
@@ -7695,16 +7702,16 @@ class _StringsProfileIt extends _StringsProfileEn {
 	// Translations
 	@override String get title => 'Il mio profilo';
 	@override String get logout => 'Log out';
+	@override String quotaUsage({required Object used, required Object total, required Object percent}) => 'Stai ${used} di ${total} (${percent})';
+	@override String get connectedTo => 'Collegato a';
 	@override late final _StringsProfileQuickLinksIt quickLinks = _StringsProfileQuickLinksIt._(_root);
+	@override String get faqTitle => 'Domande frequenti';
 	@override List<dynamic> get faq => [
 		_StringsProfile$faq$0i0$It._(_root),
 		_StringsProfile$faq$0i1$It._(_root),
 		_StringsProfile$faq$0i2$It._(_root),
 		_StringsProfile$faq$0i3$It._(_root),
 	];
-	@override String quotaUsage({required Object used, required Object total, required Object percent}) => 'Stai utilizzando ${used} su ${total} (${percent})';
-	@override String get connectedTo => 'Collegato a';
-	@override String get faqTitle => 'Domande frequenti';
 }
 
 // Path: appInfo
@@ -7930,7 +7937,6 @@ class _StringsSettingsPrefLabelsIt extends _StringsSettingsPrefLabelsEn {
 	@override String get autoStraightenLines => 'Raddrizzamento automatico delle linee';
 	@override String get customDataDir => 'Directory di dati personalizzata';
 	@override String get pencilSoundSetting => 'Effetto sonoro della matita';
-	@override String get refreshCurrentNote => 'Aggiorna periodicamente la nota corrente';
 }
 
 // Path: settings.prefDescriptions
@@ -7956,7 +7962,6 @@ class _StringsSettingsPrefDescriptionsIt extends _StringsSettingsPrefDescription
 	@override String get autoStraightenLines => 'Raddrizza le linee lunghe senza dover utilizzare la penna sagomatrice';
 	@override String get shouldAlwaysAlertForUpdates => 'Segnalami aggiornamenti non appena sono disponibili';
 	@override late final _StringsSettingsPrefDescriptionsPencilSoundSettingIt pencilSoundSetting = _StringsSettingsPrefDescriptionsPencilSoundSettingIt._(_root);
-	@override String get refreshCurrentNote => 'Aggiorna la nota attualmente aperta se la stai modificando su un altro dispositivo';
 }
 
 // Path: settings.themeModes
@@ -8040,9 +8045,9 @@ class _StringsLoginStatusIt extends _StringsLoginStatusEn {
 	// Translations
 	@override String get loggedOut => 'Disconnesso';
 	@override String get tapToLogin => 'Tocca per accedere con Nextcloud';
-	@override String get loggedIn => 'Effettuato l\'accesso con Nextcloud';
 	@override String hi({required Object u}) => 'Ciao, ${u}!';
 	@override String get almostDone => 'Quasi pronto per la sincronizzazione, tocca per completare l\'accesso';
+	@override String get loggedIn => 'Effettuato l\'accesso con Nextcloud';
 }
 
 // Path: login.ncLoginStep
@@ -8052,13 +8057,13 @@ class _StringsLoginNcLoginStepIt extends _StringsLoginNcLoginStepEn {
 	@override final _StringsIt _root; // ignore: unused_field
 
 	// Translations
-	@override late final _StringsLoginNcLoginStepLoginFlowIt loginFlow = _StringsLoginNcLoginStepLoginFlowIt._(_root);
 	@override String get whereToStoreData => 'Scegli dove vuoi archiviare i tuoi dati:';
 	@override String get saberNcServer => 'Il server Nextcloud di Saber';
 	@override String get otherNcServer => 'Altro server Nextcloud';
-	@override String get serverUrl => 'URL del server';
+	@override String get serverUrl => 'URL Server';
 	@override String get loginWithSaber => 'Accedi con Saber';
 	@override String get loginWithNextcloud => 'Accedi con Nextcloud';
+	@override late final _StringsLoginNcLoginStepLoginFlowIt loginFlow = _StringsLoginNcLoginStepLoginFlowIt._(_root);
 }
 
 // Path: login.encLoginStep
@@ -8068,11 +8073,11 @@ class _StringsLoginEncLoginStepIt extends _StringsLoginEncLoginStepEn {
 	@override final _StringsIt _root; // ignore: unused_field
 
 	// Translations
-	@override String get enterEncPassword => 'Per proteggere i tuoi dati, inserisci la password di crittografia:';
-	@override String get newToSaber => 'Nuovo per Saber';
-	@override String get encPassword => 'Password di crittografia';
+	@override String get enterEncPassword => 'Per proteggere i tuoi dati, inserisci la password crittografata:';
+	@override String get newToSaber => 'Nuovo su Saber? Basta inserire una nuova password crittografata.';
+	@override String get encPassword => 'Password crittografata';
 	@override String get encFaqTitle => 'Domande frequenti';
-	@override String get wrongEncPassword => 'La decrittografia non è riuscita con la password fornita. Per favore prova a inserirlo di nuovo.';
+	@override String get wrongEncPassword => 'La decrittografia non è riuscita con la password fornita. Per favore prova a inserirla di nuovo.';
 	@override String get connectionFailed => 'Qualcosa è andato storto durante la connessione al server. Per favore riprova più tardi.';
 	@override List<dynamic> get encFaq => [
 		_StringsLoginEncLoginStep$encFaq$0i0$It._(_root),
@@ -8259,6 +8264,8 @@ class _StringsEditorMenuIt extends _StringsEditorMenuEn {
 	@override String get backgroundImageFit => 'Adattamento immagine di sfondo';
 	@override String get backgroundPattern => 'Modello di sfondo';
 	@override String get import => 'Importa';
+	@override String get watchServer => 'Controlla gli aggiornamenti sul server';
+	@override String get watchServerReadOnly => 'La modifica è disabilitata mentre si guarda il server';
 	@override late final _StringsEditorMenuBoxFitsIt boxFits = _StringsEditorMenuBoxFitsIt._(_root);
 	@override late final _StringsEditorMenuBgPatternsIt bgPatterns = _StringsEditorMenuBgPatternsIt._(_root);
 }
@@ -8333,8 +8340,8 @@ class _StringsLoginNcLoginStepLoginFlowIt extends _StringsLoginNcLoginStepLoginF
 
 	// Translations
 	@override String get pleaseAuthorize => 'Autorizza Saber ad accedere al tuo account Nextcloud';
-	@override String get followPrompts => 'Segui le istruzioni nel tuo browser.';
-	@override String get browserDidntOpen => 'Il browser non si è aperto';
+	@override String get followPrompts => 'Si prega di seguire le istruzioni nel browser.';
+	@override String get browserDidntOpen => 'Il browser non si è aperto? clicca qui';
 }
 
 // Path: login.encLoginStep.encFaq.0
@@ -8344,8 +8351,8 @@ class _StringsLoginEncLoginStep$encFaq$0i0$It extends _StringsLoginEncLoginStep$
 	@override final _StringsIt _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Qual è la password di crittografia?';
-	@override String get a => 'La password di crittografia viene utilizzata per crittografare i dati prima che vengano inviati al server. Lo scegli quando accedi per la prima volta a Saber e non è correlato al tuo account/password Nextcloud.\nNessuno può accedere alle tue note sul server senza la tua password di crittografia. Ciò significa anche che se dimentichi la password di crittografia, perderai l\'accesso ai tuoi dati.';
+	@override String get q => 'Cos\'è una password crittografata? Perché usare due password?';
+	@override String get a => 'La password Nextcloud viene utilizzata per accedere al cloud. La password di crittografia "codifica" i tuoi dati prima che raggiungano il cloud.\n Anche se qualcuno riesce ad accedere al tuo account Nextcloud, le tue note rimarranno al sicuro e crittografate con una password separata. Ciò fornisce un secondo livello di sicurezza per proteggere i tuoi dati.\n Nessuno può accedere alle tue note sul server senza la tua password di crittografia, ma ciò significa anche che se dimentichi la password di crittografia, perderai l\'accesso ai tuoi dati.';
 }
 
 // Path: login.encLoginStep.encFaq.1
@@ -8355,8 +8362,8 @@ class _StringsLoginEncLoginStep$encFaq$0i1$It extends _StringsLoginEncLoginStep$
 	@override final _StringsIt _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Perché usare due password?';
-	@override String get a => 'La password Nextcloud viene utilizzata per accedere al cloud. La password di crittografia "codifica" i tuoi dati prima che raggiungano il cloud.\nAnche se qualcuno riesce ad accedere al tuo account Nextcloud, le tue note rimarranno al sicuro e crittografate con una password separata. Questo ti fornisce un secondo livello di sicurezza per proteggere i tuoi dati.';
+	@override String get q => 'Non ho ancora impostato una password di crittografia. Dove lo posso ottenere?';
+	@override String get a => 'Scegli una nuova password crittografata e inseriscila sopra.\nSaber genererà automaticamente le chiavi di crittografia da questa password.';
 }
 
 // Path: login.encLoginStep.encFaq.2
@@ -8366,8 +8373,8 @@ class _StringsLoginEncLoginStep$encFaq$0i2$It extends _StringsLoginEncLoginStep$
 	@override final _StringsIt _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Posso usare la stessa password per entrambi?';
-	@override String get a => 'Sì, ma farlo è meno sicuro. Poiché la tua password Nextcloud viene inviata al server, qualcuno con accesso al server sarebbe in grado di decrittografare le tue note. Usa la stessa password solo se ti fidi del proprietario del server.';
+	@override String get q => 'Posso utilizzare la stessa password del mio account Nextcloud?';
+	@override String get a => 'Sì, ma tieni presente che sarebbe più semplice per l\'amministratore del server o qualcun altro accedere alle tue note se accedessero al tuo account Nextcloud.';
 }
 
 // Path: editor.menu.boxFits
@@ -8748,7 +8755,6 @@ class _StringsSettingsPrefLabelsJa extends _StringsSettingsPrefLabelsEn {
 	@override String get hideHomeBackgrounds => 'ホーム画面で背景を隠す';
 	@override String get recentColorsDontSavePresets => '最近使用した色をプリセットに登録しない';
 	@override String get printPageIndicators => '印刷ページのインジケーター';
-	@override String get refreshCurrentNote => '現在のノートを定期的に更新する';
 	@override String get pencilSoundSetting => '鉛筆の効果音';
 	@override String get customDataDir => 'カスタムデータディレクトリ';
 	@override String get autoStraightenLines => '線を自動直線化する';
@@ -8778,7 +8784,6 @@ class _StringsSettingsPrefDescriptionsJa extends _StringsSettingsPrefDescription
 	@override String get hideHomeBackgrounds => 'よりクリーンな外観に';
 	@override String get printPageIndicators => 'エクスポートにページインジケーターを表示';
 	@override late final _StringsSettingsPrefDescriptionsPencilSoundSettingJa pencilSoundSetting = _StringsSettingsPrefDescriptionsPencilSoundSettingJa._(_root);
-	@override String get refreshCurrentNote => '別のデバイスで編集している場合は、現在開いているノートを更新します';
 	@override String get autoStraightenLines => 'シェイプペンを使用せずに長い線をまっすぐにします。';
 	@override String get shapeRecognitionDelay => '形状プレビューを更新する頻度';
 	@override String get autosaveDelay => 'メモを自動保存するまでの待ち時間';
@@ -9084,6 +9089,8 @@ class _StringsEditorMenuJa extends _StringsEditorMenuEn {
 	@override String get lineHeight => '行の高さ';
 	@override String get backgroundPattern => '背景パターン';
 	@override String get import => 'インポート';
+	@override String get watchServer => 'サーバー上の更新を監視する';
+	@override String get watchServerReadOnly => 'サーバー監視中は編集できません';
 	@override late final _StringsEditorMenuBoxFitsJa boxFits = _StringsEditorMenuBoxFitsJa._(_root);
 	@override late final _StringsEditorMenuBgPatternsJa bgPatterns = _StringsEditorMenuBgPatternsJa._(_root);
 	@override String get lineHeightDescription => '入力されたメモのテキスト サイズも制御します';
@@ -9579,7 +9586,6 @@ class _StringsSettingsPrefLabelsPtBr extends _StringsSettingsPrefLabelsEn {
 	@override String get recentColorsDontSavePresets => 'Não salvar as cores predefinidas nas cores recentes';
 	@override String get printPageIndicators => 'Imprimir os indicadores de página';
 	@override String get autosaveDelay => 'Atraso de salvamento automático';
-	@override String get refreshCurrentNote => 'Atualize a nota atual periodicamente';
 	@override String get pencilSoundSetting => 'Efeito sonoro de lápis';
 	@override String get customDataDir => 'Diretório de dados personalizado';
 	@override String get autoStraightenLines => 'Endireitar linhas automaticamente';
@@ -9608,7 +9614,6 @@ class _StringsSettingsPrefDescriptionsPtBr extends _StringsSettingsPrefDescripti
 	@override String get autosaveDelay => 'Quanto tempo esperar antes de salvar automaticamente uma nota';
 	@override String get shouldAlwaysAlertForUpdates => 'Conte-me sobre atualizações assim que elas estiverem disponíveis';
 	@override late final _StringsSettingsPrefDescriptionsPencilSoundSettingPtBr pencilSoundSetting = _StringsSettingsPrefDescriptionsPencilSoundSettingPtBr._(_root);
-	@override String get refreshCurrentNote => 'Atualiza a nota atualmente aberta se você a estiver editando em outro dispositivo';
 	@override String get autoStraightenLines => 'Endireita linhas longas sem precisar usar a caneta modeladora';
 	@override String get shapeRecognitionDelay => 'Com que frequência atualizar a visualização da forma';
 }
@@ -9912,6 +9917,8 @@ class _StringsEditorMenuPtBr extends _StringsEditorMenuEn {
 	@override String get backgroundImageFit => 'Ajustar a imagem de plano de fundo';
 	@override String get backgroundPattern => 'Padrão de plano de fundo';
 	@override String get import => 'Importar';
+	@override String get watchServer => 'Fique atento às atualizações no servidor';
+	@override String get watchServerReadOnly => 'A edição está desativada enquanto observa o servidor';
 	@override late final _StringsEditorMenuBoxFitsPtBr boxFits = _StringsEditorMenuBoxFitsPtBr._(_root);
 	@override late final _StringsEditorMenuBgPatternsPtBr bgPatterns = _StringsEditorMenuBgPatternsPtBr._(_root);
 	@override String get lineHeightDescription => 'Também controla o tamanho do texto para notas digitadas';
@@ -10413,7 +10420,6 @@ class _StringsSettingsPrefLabelsRu extends _StringsSettingsPrefLabelsEn {
 	@override String get autoStraightenLines => 'Автоматическое выпрямление линий';
 	@override String get customDataDir => 'Свой каталог для данных';
 	@override String get pencilSoundSetting => 'Звуковой эффект карандаша';
-	@override String get refreshCurrentNote => 'Периодически обновлять текущую заметку';
 }
 
 // Path: settings.prefDescriptions
@@ -10439,7 +10445,6 @@ class _StringsSettingsPrefDescriptionsRu extends _StringsSettingsPrefDescription
 	@override String get autoStraightenLines => 'Выпрямляет длинные линии без использования фигурного пера';
 	@override String get shouldAlwaysAlertForUpdates => 'Сообщать мне об обновлениях, как только они станут доступны';
 	@override late final _StringsSettingsPrefDescriptionsPencilSoundSettingRu pencilSoundSetting = _StringsSettingsPrefDescriptionsPencilSoundSettingRu._(_root);
-	@override String get refreshCurrentNote => 'Обновляет открытую в данный момент заметку, если вы редактируете ее на другом устройстве.';
 }
 
 // Path: settings.themeModes
@@ -10742,6 +10747,8 @@ class _StringsEditorMenuRu extends _StringsEditorMenuEn {
 	@override String get backgroundImageFit => 'Фоновое изображение';
 	@override String get backgroundPattern => 'Фоновый шаблон';
 	@override String get import => 'Импорт';
+	@override String get watchServer => 'Следить за обновлениями на сервере';
+	@override String get watchServerReadOnly => 'Редактирование невозможно во время слежки за сервером';
 	@override late final _StringsEditorMenuBoxFitsRu boxFits = _StringsEditorMenuBoxFitsRu._(_root);
 	@override late final _StringsEditorMenuBgPatternsRu bgPatterns = _StringsEditorMenuBgPatternsRu._(_root);
 }
@@ -11238,7 +11245,6 @@ class _StringsSettingsPrefLabelsTr extends _StringsSettingsPrefLabelsEn {
 	@override String get autosaveDelay => 'Otomatik kayıt aralığı';
 	@override String get shapeRecognitionDelay => 'Şekil tanıma gecikmesi';
 	@override String get autoStraightenLines => 'Çizgileri otomatik düzleştir';
-	@override String get refreshCurrentNote => 'Geçerli notu düzenli aralıklarla yenile';
 	@override String get pencilSoundSetting => 'Kalem ses efekti';
 	@override String get customDataDir => 'Özel veri dizini';
 }
@@ -11266,7 +11272,6 @@ class _StringsSettingsPrefDescriptionsTr extends _StringsSettingsPrefDescription
 	@override String get autoStraightenLines => 'Şekil aracını kullanmadığınızda da çizgileri düzleştirir';
 	@override String get shouldAlwaysAlertForUpdates => 'Güncelleme mevcut olduğu gibi bana haber ver';
 	@override late final _StringsSettingsPrefDescriptionsPencilSoundSettingTr pencilSoundSetting = _StringsSettingsPrefDescriptionsPencilSoundSettingTr._(_root);
-	@override String get refreshCurrentNote => 'Başka bir cihazda düzenliyorsanız, şu anda açık olan notu günceller';
 }
 
 // Path: settings.themeModes
@@ -11568,6 +11573,8 @@ class _StringsEditorMenuTr extends _StringsEditorMenuEn {
 	@override String get backgroundImageFit => 'Arkaplan görüntüsünü sığdır';
 	@override String get backgroundPattern => 'Arkaplan deseni';
 	@override String get import => 'İçe aktar';
+	@override String get watchServer => 'Sunucudaki güncellemeleri izleyin';
+	@override String get watchServerReadOnly => 'Sunucuyu izlerken düzenleme devre dışı bırakıldı';
 	@override late final _StringsEditorMenuBoxFitsTr boxFits = _StringsEditorMenuBoxFitsTr._(_root);
 	@override late final _StringsEditorMenuBgPatternsTr bgPatterns = _StringsEditorMenuBgPatternsTr._(_root);
 	@override String get lineHeightDescription => 'Ayrıca yazılan notların metin boyutunu da kontrol eder';
@@ -12066,7 +12073,6 @@ class _StringsSettingsPrefLabelsZhHansCn extends _StringsSettingsPrefLabelsEn {
 	@override String get shapeRecognitionDelay => '形状识别延迟';
 	@override String get autoStraightenLines => '自动拉直线';
 	@override String get customDataDir => '自定义数据目录';
-	@override String get refreshCurrentNote => '定期刷新当前笔记';
 	@override String get pencilSoundSetting => '铅笔音效';
 }
 
@@ -12093,7 +12099,6 @@ class _StringsSettingsPrefDescriptionsZhHansCn extends _StringsSettingsPrefDescr
 	@override String get autoStraightenLines => '拉直长线，无需使用形状笔';
 	@override String get shouldAlwaysAlertForUpdates => '在更新可用时尽快告诉我';
 	@override late final _StringsSettingsPrefDescriptionsPencilSoundSettingZhHansCn pencilSoundSetting = _StringsSettingsPrefDescriptionsPencilSoundSettingZhHansCn._(_root);
-	@override String get refreshCurrentNote => '如果您在其他设备上编辑当前打开的笔记，则更新它';
 }
 
 // Path: settings.themeModes
@@ -12396,6 +12401,8 @@ class _StringsEditorMenuZhHansCn extends _StringsEditorMenuEn {
 	@override String get backgroundImageFit => '背景图像拟合';
 	@override String get backgroundPattern => '背景图案';
 	@override String get import => '导入';
+	@override String get watchServer => '留意服务器上的更新';
+	@override String get watchServerReadOnly => '观看服务器时禁用编辑';
 	@override late final _StringsEditorMenuBoxFitsZhHansCn boxFits = _StringsEditorMenuBoxFitsZhHansCn._(_root);
 	@override late final _StringsEditorMenuBgPatternsZhHansCn bgPatterns = _StringsEditorMenuBgPatternsZhHansCn._(_root);
 }
@@ -12896,7 +12903,6 @@ class _StringsSettingsPrefLabelsZhHantTw extends _StringsSettingsPrefLabelsEn {
 	@override String get autoStraightenLines => '自動拉直線條';
 	@override String get customDataDir => '自訂資料目錄';
 	@override String get pencilSoundSetting => '筆的音效';
-	@override String get refreshCurrentNote => '定期刷新當前筆記';
 }
 
 // Path: settings.prefDescriptions
@@ -12922,7 +12928,6 @@ class _StringsSettingsPrefDescriptionsZhHantTw extends _StringsSettingsPrefDescr
 	@override String get autoStraightenLines => '無需使用形狀筆即可拉直線條';
 	@override String get shouldAlwaysAlertForUpdates => '一旦有更新請告訴我';
 	@override late final _StringsSettingsPrefDescriptionsPencilSoundSettingZhHantTw pencilSoundSetting = _StringsSettingsPrefDescriptionsPencilSoundSettingZhHantTw._(_root);
-	@override String get refreshCurrentNote => '如果您在其他裝置上編輯目前開啟的筆記，則更新它';
 }
 
 // Path: settings.themeModes
@@ -13225,6 +13230,8 @@ class _StringsEditorMenuZhHantTw extends _StringsEditorMenuEn {
 	@override String get backgroundImageFit => '適應背景圖片';
 	@override String get backgroundPattern => '背景圖案';
 	@override String get import => '匯入';
+	@override String get watchServer => '監視伺服器的更新';
+	@override String get watchServerReadOnly => '監視伺服器時無法進行編輯';
 	@override late final _StringsEditorMenuBoxFitsZhHantTw boxFits = _StringsEditorMenuBoxFitsZhHantTw._(_root);
 	@override late final _StringsEditorMenuBgPatternsZhHantTw bgPatterns = _StringsEditorMenuBgPatternsZhHantTw._(_root);
 }
