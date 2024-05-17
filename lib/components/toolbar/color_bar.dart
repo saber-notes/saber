@@ -320,6 +320,7 @@ class _ColorBarState extends State<ColorBar> {
         content: SingleChildScrollView(
           child: ColorPicker(
             color: pickedColor,
+            pickersEnabled: const {ColorPickerType.wheel: true},
             onColorChanged: (Color color) {
               pickedColor = color;
             },
