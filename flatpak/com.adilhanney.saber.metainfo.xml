@@ -6,13 +6,18 @@
 <component type="desktop-application">
     <id>com.adilhanney.saber</id>
 
-    <name>Saber: Handwritten Notes</name>
+    <name>Saber</name>
     <summary>The notes app built for handwriting</summary>
     <url type="homepage">https://github.com/saber-notes/saber</url>
 
     <developer id="com.adilhanney">
         <name>Adil Hanney</name>
     </developer>
+
+    <branding>
+        <color type="primary" scheme_preference="light">#fffeac</color>
+        <color type="primary" scheme_preference="dark">#494900</color>
+    </branding>
 
     <metadata_license>MIT</metadata_license>
     <project_license>GPL-3.0-only</project_license>
