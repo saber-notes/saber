@@ -18,7 +18,7 @@ jobs:
   build-ios:
     name: Build for iOS
     runs-on: macos-latest
-    timeout-minutes: 30
+    timeout-minutes: 60
     env:
       APP_STORE_CONNECT_ISSUER_ID: ${{secrets.APP_STORE_CONNECT_ISSUER_ID}}
       APP_STORE_CONNECT_KEY_IDENTIFIER: ${{secrets.APP_STORE_CONNECT_KEY_IDENTIFIER}}

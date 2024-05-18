@@ -106,7 +106,7 @@ jobs:
     permissions:
       contents: write
       packages: write
-    timeout-minutes: 60
+    timeout-minutes: 120
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -122,7 +122,6 @@ jobs:
 
       - name: Build Linux (arm64)
         uses: uraimo/run-on-arch-action@v2
-        timeout-minutes: 120
         with:
           arch: aarch64
           distro: ubuntu_latest
