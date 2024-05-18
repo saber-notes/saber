@@ -1,0 +1,4 @@
+• Zvýšená kvalita vykreslování PDF
+• Zadaný text se nyní správně zarovná s řádky stránky, pokud je povoleno
+• Aktualizována dialogová okna pro výběr barvy
+• Různá vylepšení z nového Flutter 3.22

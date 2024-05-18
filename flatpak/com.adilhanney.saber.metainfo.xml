@@ -198,6 +198,16 @@
     </screenshots>
 
     <releases>
+        <release version="0.23.2" type="development" date="2024-05-18">
+            <description>
+                <ul>
+                    <li>Increased PDF render quality</li>
+                    <li>Typed text now properly aligns with the page lines if enabled</li>
+                    <li>Updated the color picker dialogs</li>
+                    <li>Misc improvements from the new Flutter 3.22</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.23.1" type="development" date="2024-05-14">
             <description>
                 <ul>
