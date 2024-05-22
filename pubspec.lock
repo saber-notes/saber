@@ -37,10 +37,10 @@ packages:
     dependency: "direct main"
     description:
       name: archive
-      sha256: ecf4273855368121b1caed0d10d4513c7241dfc813f7d3c8933b36622ae9b265
+      sha256: "6bd38d335f0954f5fad9c79e614604fbf03a0e5b975923dd001b6ea965ef5b4b"
       url: "https://pub.dev"
     source: hosted
-    version: "3.5.1"
+    version: "3.6.0"
   args:
     dependency: "direct dev"
     description:
@@ -293,10 +293,10 @@ packages:
     dependency: transitive
     description:
       name: dart_quill_delta
-      sha256: "97eba76f654b7cc99737dbc720baee63c58d8a52c92fab27650b8f4f5d20b923"
+      sha256: e302834747f0ce555d82d337f5a55dfd271231f03800ad8131fe9445c676c215
       url: "https://pub.dev"
     source: hosted
-    version: "9.3.12"
+    version: "9.3.19"
   decimal:
     dependency: transitive
     description:
@@ -439,14 +439,13 @@ packages:
     source: sdk
     version: "0.0.0"
   flutter_colorpicker:
-    dependency: "direct overridden"
+    dependency: transitive
     description:
-      path: "."
-      ref: HEAD
-      resolved-ref: "92bdb69a313a56c391ef148c12ef6539bd31253d"
-      url: "https://github.com/mchome/flutter_colorpicker"
-    source: git
-    version: "1.0.3"
+      name: flutter_colorpicker
+      sha256: "969de5f6f9e2a570ac660fb7b501551451ea2a1ab9e2097e89475f60e07816ea"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.0"
   flutter_driver:
     dependency: transitive
     description: flutter
@@ -525,18 +524,18 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_quill
-      sha256: f9f4d4262c7c6c67e26d5b0f07d3863cd8a729d0a973cd932bcf2263a9ce4cad
+      sha256: da6f19abda6662dd3a4da7e16f17492e3205b20d09f68ffd8c0b19ec0688a343
       url: "https://pub.dev"
     source: hosted
-    version: "9.3.12"
+    version: "9.3.19"
   flutter_secure_storage:
     dependency: "direct main"
     description:
       name: flutter_secure_storage
-      sha256: "8496a89eea74e23f92581885f876455d9d460e71201405dffe5f55dfe1155864"
+      sha256: "165164745e6afb5c0e3e3fcc72a012fb9e58496fb26ffb92cf22e16a821e85d0"
       url: "https://pub.dev"
     source: hosted
-    version: "9.2.1"
+    version: "9.2.2"
   flutter_secure_storage_linux:
     dependency: transitive
     description:
@@ -549,10 +548,10 @@ packages:
     dependency: transitive
     description:
       name: flutter_secure_storage_macos
-      sha256: b768a7dab26d6186b68e2831b3104f8968154f0f4fdbf66e7c2dd7bdf299daaf
+      sha256: "1693ab11121a5f925bbea0be725abfcfbbcf36c1e29e571f84a0c0f436147a81"
       url: "https://pub.dev"
     source: hosted
-    version: "3.1.1"
+    version: "3.1.2"
   flutter_secure_storage_platform_interface:
     dependency: transitive
     description:
@@ -628,10 +627,10 @@ packages:
     dependency: "direct main"
     description:
       name: go_router
-      sha256: aa073287b8f43553678e6fa9e8bb9c83212ff76e09542129a8099bbc8db4df65
+      sha256: "6ad5662b014c06c20fa46ab78715c96b2222a7fe4f87bf77e0289592c2539e86"
       url: "https://pub.dev"
     source: hosted
-    version: "14.1.2"
+    version: "14.1.3"
   google_fonts:
     dependency: "direct main"
     description:
@@ -700,10 +699,10 @@ packages:
     dependency: transitive
     description:
       name: image
-      sha256: "4c68bfd5ae83e700b5204c1e74451e7bf3cf750e6843c6e158289cf56bda018e"
+      sha256: "2237616a36c0d69aef7549ab439b833fb7f9fb9fc861af2cc9ac3eedddd69ca8"
       url: "https://pub.dev"
     source: hosted
-    version: "4.1.7"
+    version: "4.2.0"
   image_save:
     dependency: "direct main"
     description:
@@ -1240,12 +1239,11 @@ packages:
   simulator:
     dependency: "direct main"
     description:
-      path: "."
-      ref: fix-linux-support
-      resolved-ref: "44780bdb0728a67736f2ec32272df89d26c01041"
-      url: "https://github.com/adil192/simulator"
-    source: git
-    version: "0.2.0"
+      name: simulator
+      sha256: c6f9d55a1a70ca9381ddc6e9f98318acdff01c018344febf529414ad8cfc18d9
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.3.0"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -1311,18 +1309,18 @@ packages:
     dependency: "direct main"
     description:
       name: super_clipboard
-      sha256: "2b9c6118bf887182096c13646d0ad83e585f026f655e555731ba7743f9d2bee6"
+      sha256: f81058a9b3cadaaf60f37c2a37dd2647c6e5eda4533e335f1512605e3b9fb860
       url: "https://pub.dev"
     source: hosted
-    version: "0.8.13"
+    version: "0.8.15"
   super_native_extensions:
     dependency: transitive
     description:
       name: super_native_extensions
-      sha256: "12f4bee60f94ed4a460795c9b4a52679ba9dd292cb0d154c8fe2438189864f4b"
+      sha256: bb6499c83484c1dbe293e68907a9b6d51e30b699502c5e11940e834c310df261
       url: "https://pub.dev"
     source: hosted
-    version: "0.8.13"
+    version: "0.8.15"
   sync_http:
     dependency: transitive
     description:
@@ -1399,10 +1397,10 @@ packages:
     dependency: transitive
     description:
       name: url_launcher_android
-      sha256: "360a6ed2027f18b73c8d98e159dda67a61b7f2e0f6ec26e86c3ada33b0621775"
+      sha256: "17cd5e205ea615e2c6ea7a77323a11712dffa0720a8a90540db57a01347f9ad9"
       url: "https://pub.dev"
     source: hosted
-    version: "6.3.1"
+    version: "6.3.2"
   url_launcher_ios:
     dependency: transitive
     description:
