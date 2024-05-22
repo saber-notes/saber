@@ -156,14 +156,14 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp>
             SeedColorScheme.fromSeeds(
           brightness: Brightness.light,
           primaryKey: seedColor,
-          background: Colors.white,
+          surface: Colors.white,
           tones: FlexTones.ultraContrast(Brightness.light),
         );
         final ColorScheme highContrastDarkColorScheme =
             SeedColorScheme.fromSeeds(
           brightness: Brightness.dark,
           primaryKey: seedColor,
-          background: Colors.black,
+          surface: Colors.black,
           tones: FlexTones.ultraContrast(Brightness.dark),
         );
 
