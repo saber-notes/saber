@@ -19,7 +19,7 @@ abstract class PencilSound {
     await Prefs.pencilSound.waitUntilLoaded();
     if (!await _soloud.initialized) await SoLoud.instance.init();
 
-    _source ??= await _soloud.loadAsset('audio/white-noise-8117.ogg');
+    _source ??= await _soloud.loadAsset('assets/audio/white-noise-8117.ogg');
   }
 
   static void resume() async {
