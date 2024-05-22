@@ -142,7 +142,7 @@ dependencies:
 
   collection: ^1.0.0
 
-  audioplayers: ^6.0.0
+  flutter_soloud: ^2.0.0
 
   simulator: ^0.3.0
 
