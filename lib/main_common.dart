@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:developer' as dev;
 import 'dart:io';
 
 import 'package:device_info_plus/device_info_plus.dart';
@@ -41,6 +42,17 @@ Future<void> main({
   Logger.root.onRecord.listen((record) {
     // ignore: avoid_print
     print('${record.level.name}: ${record.loggerName}: ${record.message}');
+
+    // also log to devtools
+    dev.log(
+      record.message,
+      time: record.time,
+      level: record.level.value,
+      name: record.loggerName,
+      zone: record.zone,
+      error: record.error,
+      stackTrace: record.stackTrace,
+    );
   });
 
   if (Platform.isAndroid) {
