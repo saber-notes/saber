@@ -28,6 +28,8 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
   void initState() {
     Prefs.username.addListener(_usernameChanged);
     Prefs.encPassword.addListener(_usernameChanged);
+    Prefs.key.addListener(_usernameChanged);
+    Prefs.iv.addListener(_usernameChanged);
     super.initState();
   }
 
@@ -35,6 +37,8 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
   void dispose() {
     Prefs.username.removeListener(_usernameChanged);
     Prefs.encPassword.removeListener(_usernameChanged);
+    Prefs.key.removeListener(_usernameChanged);
+    Prefs.iv.removeListener(_usernameChanged);
     super.dispose();
   }
 
