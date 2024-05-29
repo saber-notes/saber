@@ -42,8 +42,10 @@ parts:
     build-packages:
       - curl
       - jq
+      - libsecret-1-dev
       - libjsoncpp-dev
       - libgstreamer1.0-dev
+      - libgstreamer-plugins-base1.0-dev
     build-snaps:
       - cmake
     stage-packages:
