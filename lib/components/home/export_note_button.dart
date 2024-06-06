@@ -85,6 +85,7 @@ class _ExportNoteButtonState extends State<ExportNoteButton> {
       openCloseDial: isDialOpen,
       childPadding: const EdgeInsets.all(5),
       spaceBetweenChildren: 4,
+      switchLabelPosition: Directionality.of(context) == TextDirection.rtl,
       dialRoot: (context, open, toggleChildren) {
         return _currentlyExporting
             ? const SpinningLoadingIcon()
