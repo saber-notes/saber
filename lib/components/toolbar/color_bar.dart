@@ -136,7 +136,6 @@ class ColorBar extends StatefulWidget {
   /// Returns whether the color is now pinned.
   static bool toggleColorPinned(String colorString) {
     if (Prefs.pinnedColors.value.contains(colorString)) {
-      // TODO(adil192): remove from pinned and add to recent colors
       Prefs.pinnedColors.value.remove(colorString);
       Prefs.recentColorsChronological.value.remove(colorString);
       Prefs.recentColorsPositioned.value.remove(colorString);

@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:material_symbols_icons/symbols.dart';
 import 'package:saber/components/canvas/hud/canvas_gesture_lock_btn.dart';
 import 'package:saber/components/canvas/hud/canvas_zoom_indicator.dart';
 import 'package:saber/i18n/strings.g.dart';
@@ -98,8 +98,7 @@ class _CanvasHudState extends State<CanvasHud> {
                 child: AnimatedRotation(
                   duration: const Duration(milliseconds: 200),
                   turns: widget.axisAlignedPanLock ? 0 : 1 / 8,
-                  // TODO: use [Icons.drag_pan] once it's available
-                  child: const FaIcon(FontAwesomeIcons.arrowsUpDownLeftRight),
+                  child: const Icon(Symbols.drag_pan),
                 ),
               ),
             ),
