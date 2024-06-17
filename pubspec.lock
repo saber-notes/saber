@@ -293,10 +293,10 @@ packages:
     dependency: transitive
     description:
       name: dart_quill_delta
-      sha256: "6fcdc659d210e7dd06d41aff13eaea6a5e6c1a0cf022a2e886854881da36ce01"
+      sha256: e36ec7dc7eccf7382f9bb1dd3a5f7b8cbba9c1fa5e9310cf394a4eb4d66e4c64
       url: "https://pub.dev"
     source: hosted
-    version: "9.3.21"
+    version: "9.4.1"
   decimal:
     dependency: transitive
     description:
@@ -405,10 +405,10 @@ packages:
     dependency: "direct main"
     description:
       name: file_picker
-      sha256: "29c90806ac5f5fb896547720b73b17ee9aed9bba540dc5d91fe29f8c5745b10a"
+      sha256: "2ca051989f69d1b2ca012b2cf3ccf78c70d40144f0861ff2c063493f7c8c3d45"
       url: "https://pub.dev"
     source: hosted
-    version: "8.0.3"
+    version: "8.0.5"
   fixnum:
     dependency: "direct main"
     description:
@@ -524,10 +524,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_quill
-      sha256: "1ecdb81f6fd93691cfa8e6af1f8fe47c53377e0a13137682a18548ddf9d437b6"
+      sha256: c767b093900d5b60237fbf3ad2d744a5b94198164539eba4121226b4944258df
       url: "https://pub.dev"
     source: hosted
-    version: "9.3.21"
+    version: "9.4.1"
   flutter_secure_storage:
     dependency: "direct main"
     description:
@@ -627,10 +627,10 @@ packages:
     dependency: "direct main"
     description:
       name: go_router
-      sha256: abec47eb8c8c36ebf41d0a4c64dbbe7f956e39a012b3aafc530e951bdc12fe3f
+      sha256: cdae1b9c8bd7efadcef6112e81c903662ef2ce105cbd220a04bbb7c3425b5554
       url: "https://pub.dev"
     source: hosted
-    version: "14.1.4"
+    version: "14.2.0"
   google_fonts:
     dependency: "direct main"
     description:
@@ -728,10 +728,10 @@ packages:
     dependency: transitive
     description:
       name: irondash_engine_context
-      sha256: e8398cca5e28dc280c87b8c35a6ff4e15be844eabec51e713631f83903563681
+      sha256: cd7b769db11a2b5243b037c8a9b1ecaef02e1ae27a2d909ffa78c1dad747bb10
       url: "https://pub.dev"
     source: hosted
-    version: "0.5.3"
+    version: "0.5.4"
   irondash_message_channel:
     dependency: transitive
     description:
@@ -857,10 +857,10 @@ packages:
     dependency: "direct main"
     description:
       name: material_symbols_icons
-      sha256: b2d3cbc3c42b8a217715b0d97ff03aebb14b2b4592875736e5599c603fb2db7e
+      sha256: a2c78726048c755f0f90fd2b7c8799cd94338e2e9b7ab6498ae56503262c14bc
       url: "https://pub.dev"
     source: hosted
-    version: "4.2758.0"
+    version: "4.2762.0"
   meta:
     dependency: "direct main"
     description:
@@ -1080,10 +1080,10 @@ packages:
     dependency: transitive
     description:
       name: power_extensions
-      sha256: "9e9092bebe65c05de19eab134f3c2a00afb8857fcb0a8a4571dad1e8289f170c"
+      sha256: ad0e8b2420090d996fe8b7fd32cdf02b9b924b6d4fc0fb0b559ff6aa5e24d5b0
       url: "https://pub.dev"
     source: hosted
-    version: "0.2.2"
+    version: "0.2.3"
   printing:
     dependency: "direct main"
     description:
@@ -1317,18 +1317,18 @@ packages:
     dependency: "direct main"
     description:
       name: super_clipboard
-      sha256: "17978c3dc7b6ebf588a8007448f668ad6aa64733b60ed2ae18152113cca39fa2"
+      sha256: cdab725bac26655ebd189f4d202d694a8cbc1c21e0f0478ccd7829c71716f09b
       url: "https://pub.dev"
     source: hosted
-    version: "0.8.16"
+    version: "0.8.17"
   super_native_extensions:
     dependency: transitive
     description:
       name: super_native_extensions
-      sha256: d2d1259c7e43966173c394ef64475e612bd5822095f6cd1008eb978175ce2f0d
+      sha256: fa55d452d34b7112453afbb9fa4d13c0527ff201630d10d86546497179030544
       url: "https://pub.dev"
     source: hosted
-    version: "0.8.16"
+    version: "0.8.17"
   sync_http:
     dependency: transitive
     description:
@@ -1458,7 +1458,7 @@ packages:
     source: hosted
     version: "3.1.1"
   uuid:
-    dependency: "direct overridden"
+    dependency: transitive
     description:
       name: uuid
       sha256: "814e9e88f21a176ae1359149021870e87f7cddaf633ab678a5d2b0bff7fd1ba8"
