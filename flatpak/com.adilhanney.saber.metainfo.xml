@@ -203,6 +203,15 @@
     </screenshots>
 
     <releases>
+        <release version="0.23.3" type="development" date="2024-06-17">
+            <description>
+                <ul>
+                    <li>Fixed an "almost logged in" message being shown after logging in</li>
+                    <li>Improved some icons</li>
+                    <li>Disabled scrolling with the arrow keys when text editing</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.23.2" type="development" date="2024-05-18">
             <description>
                 <ul>
