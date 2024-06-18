@@ -293,10 +293,10 @@ packages:
     dependency: transitive
     description:
       name: dart_quill_delta
-      sha256: e36ec7dc7eccf7382f9bb1dd3a5f7b8cbba9c1fa5e9310cf394a4eb4d66e4c64
+      sha256: d22447015105b0958544eb514d69fa3b5335b7c991405f018777d7911b67c02f
       url: "https://pub.dev"
     source: hosted
-    version: "9.4.1"
+    version: "9.4.3"
   decimal:
     dependency: transitive
     description:
@@ -524,10 +524,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_quill
-      sha256: c767b093900d5b60237fbf3ad2d744a5b94198164539eba4121226b4944258df
+      sha256: "8d9c81ff68d90686c06b5543bed1461be392f9c470e6d54f6dcba44215f731cd"
       url: "https://pub.dev"
     source: hosted
-    version: "9.4.1"
+    version: "9.4.3"
   flutter_secure_storage:
     dependency: "direct main"
     description:
@@ -968,10 +968,10 @@ packages:
     dependency: transitive
     description:
       name: path_provider_android
-      sha256: "9c96da072b421e98183f9ea7464898428e764bc0ce5567f27ec8693442e72514"
+      sha256: bca87b0165ffd7cdb9cad8edd22d18d2201e886d9a9f19b4fb3452ea7df3a72a
       url: "https://pub.dev"
     source: hosted
-    version: "2.2.5"
+    version: "2.2.6"
   path_provider_foundation:
     dependency: transitive
     description:
