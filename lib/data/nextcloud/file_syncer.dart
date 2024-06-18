@@ -10,6 +10,7 @@ import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/webdav.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
+import 'package:saber/data/nextcloud/errors.dart';
 import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/pages/editor/editor.dart';
@@ -123,7 +124,8 @@ abstract class FileSyncer {
     try {
       // Start downloading files one by one
       while (_downloadQueue.isNotEmpty &&
-          (maxFilesToSync == null || filesSynced < maxFilesToSync)) {
+          Prefs.loggedIn &&
+          filesSynced < (maxFilesToSync ?? double.infinity)) {
         final SyncFile file = _downloadQueue.removeFirst();
         log.finer(
             'startSync: Downloading ${file.localPath} (${file.remotePath})');
@@ -280,10 +282,18 @@ abstract class FileSyncer {
     if (file.name.endsWith(encExtension)) {
       encryptedName =
           file.name.substring(0, file.name.length - encExtension.length);
+    } else if (file.path.path
+        .endsWith(NextcloudClientExtension.configFileUri.path)) {
+      _downloadQueue.addFirst(SyncFile(
+        encryptedName: NextcloudClientExtension.configFileName,
+        localPath: NextcloudClientExtension.configFileName,
+        webDavFile: file,
+      ));
+      return;
     } else {
       log.info('remote file not in recognised encrypted format: ${file.path}');
       return;
-    } // TODO: also sync config.sbc
+    }
 
     // decrypt file path
     String localPath = await workerManager.execute(
@@ -385,6 +395,18 @@ abstract class FileSyncer {
       FileManager.deleteFile(file.localPath);
       Prefs.fileSyncAlreadyDeleted.value.add(file.localPath);
       Prefs.fileSyncAlreadyDeleted.notifyListeners();
+      return true;
+    } else if (file.remotePath
+        .endsWith(NextcloudClientExtension.configFileUri.path)) {
+      // config file changed, try to get key from known enc password
+      try {
+        _client!.loadEncryptionKey(generateKeyIfMissing: false);
+      } on EncLoginFailure {
+        // enc password has changed since the user last logged in, so log out
+        Prefs.encPassword.value = '';
+        Prefs.key.value = '';
+        Prefs.iv.value = '';
+      }
       return true;
     }
 

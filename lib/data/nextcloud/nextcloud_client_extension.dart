@@ -22,8 +22,9 @@ extension NextcloudClientExtension on NextcloudClient {
 
   static const String appRootDirectoryPrefix =
       FileManager.appRootDirectoryPrefix;
+  static const String configFileName = 'config.sbc';
   static final PathUri configFileUri =
-      PathUri.parse('$appRootDirectoryPrefix/config.sbc');
+      PathUri.parse('$appRootDirectoryPrefix/$configFileName');
 
   static const _utf8Decoder = Utf8Decoder(allowMalformed: true);
 
@@ -103,7 +104,9 @@ extension NextcloudClientExtension on NextcloudClient {
     await webdav.put(file, configFileUri);
   }
 
-  Future<String> loadEncryptionKey() async {
+  Future<String> loadEncryptionKey({
+    bool generateKeyIfMissing = true,
+  }) async {
     final Encrypter encrypter = await this.encrypter;
 
     final Map<String, String> config = await getConfig();
@@ -120,6 +123,8 @@ extension NextcloudClientExtension on NextcloudClient {
         throw EncLoginFailure();
       }
     }
+
+    if (!generateKeyIfMissing) throw EncLoginFailure();
 
     final Key key = Key.fromSecureRandom(32);
     final IV iv = IV.fromSecureRandom(16);
