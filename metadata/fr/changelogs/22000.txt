@@ -1,0 +1,2 @@
+• Un effet sonore de crayon simulé a été ajouté. Par défaut, il n'est activé que lorsque votre appareil n'est pas mis en sourdine.
+• Le problème de synchronisation Nextcloud a été résolu.

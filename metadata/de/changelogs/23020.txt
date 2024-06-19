@@ -1,0 +1,4 @@
+• Erhöhte PDF-Renderqualität
+• Eingegebener Text wird jetzt ordnungsgemäß an den Seitenlinien ausgerichtet, wenn diese Option aktiviert ist
+• Die Farbauswahldialoge wurden aktualisiert
+• Verschiedene Verbesserungen gegenüber dem neuen Flutter 3.22

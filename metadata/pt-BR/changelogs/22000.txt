@@ -1,0 +1,2 @@
+• Foi adicionado um efeito sonoro simulado de lápis. Por padrão, ele só está ativado quando o som do seu dispositivo não está desativado.
+• O problema de sincronização do Nextcloud foi corrigido.

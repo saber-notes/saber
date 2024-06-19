@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:collapsible/collapsible.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
@@ -9,6 +11,7 @@ import 'package:saber/components/settings/app_info.dart';
 import 'package:saber/components/settings/nextcloud_profile.dart';
 import 'package:saber/components/settings/settings_button.dart';
 import 'package:saber/components/settings/settings_color.dart';
+import 'package:saber/components/settings/settings_directory_selector.dart';
 import 'package:saber/components/settings/settings_dropdown.dart';
 import 'package:saber/components/settings/settings_selection.dart';
 import 'package:saber/components/settings/settings_subtitle.dart';
@@ -16,6 +19,7 @@ import 'package:saber/components/settings/settings_switch.dart';
 import 'package:saber/components/settings/update_manager.dart';
 import 'package:saber/components/theming/adaptive_alert_dialog.dart';
 import 'package:saber/components/theming/adaptive_toggle_buttons.dart';
+import 'package:saber/data/editor/pencil_sound.dart';
 import 'package:saber/data/flavor_config.dart';
 import 'package:saber/data/locales.dart';
 import 'package:saber/data/prefs.dart';
@@ -83,6 +87,12 @@ abstract class _SettingsPrefs {
     Prefs.editorToolbarAlignment,
     (AxisDirection value) => value.index,
     (int value) => AxisDirection.values[value],
+  );
+
+  static final pencilSound = TransformedPref(
+    Prefs.pencilSound,
+    (PencilSoundSetting value) => value.index,
+    (int value) => PencilSoundSetting.values[value],
   );
 }
 
@@ -152,7 +162,7 @@ class _SettingsPageState extends State<SettingsPage> {
               flexibleSpace: FlexibleSpaceBar(
                 title: Text(
                   t.home.titles.settings,
-                  style: TextStyle(color: colorScheme.onBackground),
+                  style: TextStyle(color: colorScheme.onSurface),
                 ),
                 centerTitle: cupertino,
                 titlePadding: EdgeInsetsDirectional.only(
@@ -435,6 +445,24 @@ class _SettingsPageState extends State<SettingsPage> {
                 icon: Icons.numbers,
                 pref: Prefs.printPageIndicators,
               ),
+              SettingsSelection(
+                title: t.settings.prefLabels.pencilSoundSetting,
+                subtitle: Prefs.pencilSound.value.description,
+                icon: Prefs.pencilSound.value.icon,
+                pref: _SettingsPrefs.pencilSound,
+                optionsWidth: 60,
+                options: [
+                  for (final setting in PencilSoundSetting.values)
+                    ToggleButtonsOption(
+                      setting.index,
+                      Icon(setting.icon, semanticLabel: setting.description),
+                    ),
+                ],
+                afterChange: (_) {
+                  PencilSound.setAudioContext();
+                  setState(() {});
+                },
+              ),
               SettingsSubtitle(subtitle: t.settings.prefCategories.performance),
               SettingsSelection(
                 title: t.settings.prefLabels.maxImageSize,
@@ -479,6 +507,11 @@ class _SettingsPageState extends State<SettingsPage> {
                 pref: Prefs.autoStraightenLines,
               ),
               SettingsSubtitle(subtitle: t.settings.prefCategories.advanced),
+              if (Platform.isAndroid)
+                SettingsDirectorySelector(
+                  title: t.settings.prefLabels.customDataDir,
+                  icon: Icons.folder,
+                ),
               if (requiresManualUpdates ||
                   Prefs.shouldCheckForUpdates.value !=
                       Prefs.shouldCheckForUpdates.defaultValue) ...[

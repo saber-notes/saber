@@ -1,3 +1,7 @@
+common:
+  cancel: إلغاء
+  done(OUTDATED): منتهي
+  continueBtn(OUTDATED): يكمل
 home:
   tabs:
     home: الرئيسية
@@ -81,6 +85,8 @@ settings:
     hideHomeBackgrounds: إخفاء الخلفيات على الشاشة الرئيسية
     recentColorsDontSavePresets: لا تحفظ الألوان المعينة مسبقًا كألوان حديثة
     printPageIndicators: طباعة مؤشرات الصفحة
+    pencilSoundSetting(OUTDATED): تأثير صوت قلم الرصاص
+    customDataDir(OUTDATED): دليل البيانات المخصصة
     autoStraightenLines(OUTDATED): تصويب الخطوط تلقائيا
     shapeRecognitionDelay(OUTDATED): تأخير التعرف على الشكل
     recentColorsLength(OUTDATED): كم عدد الألوان الحديثة التي سيتم تخزينها
@@ -103,6 +109,10 @@ settings:
     editorPromptRename: يمكنك دائمًا إعادة تسمية الملاحظات لاحقًا
     hideHomeBackgrounds: للحصول على مظهر أنظف
     printPageIndicators: تظهر مؤشرات الصفحة في الصادرات
+    pencilSoundSetting:
+      off(OUTDATED): لا صوت
+      onButNotInSilentMode(OUTDATED): ممكّن (ما لم يكن في الوضع الصامت)
+      onAlways(OUTDATED): ممكّن (حتى في الوضع الصامت)
     autoStraightenLines(OUTDATED): يقوم بفرد الخطوط الطويلة دون الحاجة إلى استخدام قلم الشكل
     shapeRecognitionDelay(OUTDATED): عدد مرات تحديث معاينة الشكل
     disableAds(OUTDATED): (أدز) يساعد في دعم تطوير (سابر) لكن يمكنك إزالتهم إذا أردت
@@ -129,51 +139,57 @@ settings:
   reset:
     title: إعادة تعيين هذا الإعداد؟
     button: إعادة تعيين
+  customDataDir:
+    cancel(OUTDATED): يلغي
+    select(OUTDATED): يختار
+    mustBeEmpty(OUTDATED): يجب أن يكون الدليل المحدد فارغًا
+    mustBeDoneSyncing(OUTDATED): تأكد من اكتمال المزامنة قبل تغيير الدليل
   resyncEverything(OUTDATED): إعادة ترتيب كل شيء
 login:
   title: تسجيل الدخول
-  feedbacks:
-    checkUsername: يرجى التحقق مرة أخرى من اسم المستخدم أو البريد الإلكتروني الخاص بك.
-    enterNcPassword: الرجاء إدخال كلمة مرور Nextcloud الخاصة بك.
-    enterEncPassword: الرجاء إدخال كلمة مرور التشفير الخاصة بك.
-    checkUrl: أدخل رابط URL صالح من فضلك.
-    ncLoginFailed: فشل تسجيل الدخول ، يرجى التحقق من التفاصيل الخاصة بك واتصال الشبكة.
-    encLoginFailed: فشل تسجيل الدخول ، يرجى التحقق من كلمة مرور التشفير الخاصة بك.
-    loginSuccess: "تم تسجيل الدخول بنجاح! الرجاء الانتظار بينما نقوم بالإعداد ..."
-    ncUnsupportedFailure(OUTDATED): يقوم الخادم المحدد بتشغيل Nextcloud $v ولكن هذا الإصدار من Saber يدعم فقط Nextcloud $s إلى $t.
   form:
-    useCustomServer: أريد استخدام خادم Nextcloud مخصص
-    customServerUrl: عنوان URL مخصص للخادم
-    username: اسم المستخدم أو البريد الالكتروني
-    ncPassword: Nextcloud كلمة المرور
-    encPassword: كلمة مرور التشفير
     agreeToPrivacyPolicy(rich): "بتسجيل الدخول، فإنك توافق على ${linkToPrivacyPolicy(سياسة الخصوصية)}."
-    login: تسجيل الدخول
   signup(rich): "لا تملك حسابا حتى الآن؟ ${linkToSignup(سجل حساباً الأن)}!"
   status:
-    loggedIn: تم تسجيل الدخول باستخدام Nextcloud
     loggedOut: تسجيل الخروج
     tapToLogin: انقر لتسجيل الدخول باستخدام Nextcloud
-  faq:
-    - q: ما هو Nextcloud؟
-      a: Nextcloud هو خادم مزامنة ملفات خاص، من بين أشياء أخرى. يمكنك استخدام خادم Saber Nextcloud الافتراضي، أو استخدام خادم جهة خارجية، أو الاستضافة الذاتية الخاصة بك للتحكم الكامل في بياناتك.
-    - q: ما هي كلمة مرور التشفير؟
-      a: |-
-        تُستخدم كلمة مرور التشفير لتشفير بياناتك قبل إرسالها إلى الخادم. يمكنك اختيارها عند تسجيل الدخول لأول مرة إلى Saber ،وهي غير مرتبطة بحساب/كلمة مرور Nextcloud الخاصة بك.
-        لا يمكن لأحد الوصول إلى ملاحظاتك على الخادم بدون كلمة مرور التشفير الخاصة بك. هذا يعني أيضًا أنك إذا نسيت كلمة مرور التشفير، فستفقد إمكانية الوصول إلى بياناتك.
-    - q: لماذا نستخدم كلمتين من كلمات المرور؟
-      a: |-
-        يتم استخدام كلمة مرور Nextcloud للوصول إلى السحابة. كلمة مرور التشفير "تشويش " بياناتك قبل أن تصل إلى السحابة.
-        حتى إذا تمكن شخص ما من الوصول إلى حسابك على Nextcloud ،فستظل ملاحظاتك آمنة ومشفرة بكلمة مرور منفصلة. يوفر لك هذا طبقة ثانية من الأمان لحماية بياناتك.
-    - q: كيف يمكنني تسجيل الدخول إذا كنت أستخدم المصادقة الثنائية (2FA)؟
-      a: "بدلاً من كلمة مرور Nextcloud العادية، ستحتاج إلى إنشاء \"كلمة مرور التطبيق\". يمكنك القيام بذلك في إعدادات Nextcloud الخاصة بك ضمن الأمان> الأجهزة والجلسات> إنشاء كلمة مرور جديدة للتطبيق. كلمة مرور التشفير الخاصة بك لا تتأثر."
-    - q: هل يمكنني استخدام نفس كلمة المرور لكليهما؟
-      a: نعم، لكن القيام بذلك أقل أمانًا. نظرًا لأنه يتم إرسال كلمة مرور Nextcloud الخاصة بك إلى الخادم، فسيتمكن شخص لديه حق الوصول إلى الخادم من فك تشفير ملاحظاتك. استخدم نفس كلمة المرور فقط إذا كنت تثق في مالك الخادم.
+    loggedIn: تم تسجيل الدخول باستخدام Nextcloud
+    hi(OUTDATED): "مرحبًا، $u!"
+    almostDone(OUTDATED): جاهز تقريبًا للمزامنة، انقر لإنهاء تسجيل الدخول
+  ncLoginStep:
+    loginFlow:
+      pleaseAuthorize(OUTDATED): يرجى تفويض Saber للوصول إلى حساب Nextcloud الخاص بك
+      followPrompts(OUTDATED): يرجى اتباع المطالبات في المتصفح الخاص بك.
+      browserDidntOpen(OUTDATED): المتصفح لم يفتح
+    whereToStoreData(OUTDATED): "اختر المكان الذي تريد تخزين بياناتك فيه:"
+    saberNcServer(OUTDATED): خادم Saber Nextcloud
+    otherNcServer(OUTDATED): خادم Nextcloud آخر
+    serverUrl(OUTDATED): عنوان URL للخادم
+    loginWithSaber(OUTDATED): تسجيل الدخول مع صابر
+    loginWithNextcloud(OUTDATED): تسجيل الدخول مع Nextcloud
+  encLoginStep:
+    enterEncPassword(OUTDATED): "لحماية بياناتك، يرجى إدخال كلمة مرور التشفير الخاصة بك:"
+    newToSaber(OUTDATED): جديد لصابر
+    encPassword(OUTDATED): كلمة مرور التشفير
+    encFaqTitle(OUTDATED): أسئلة مكررة
+    wrongEncPassword(OUTDATED): فشل فك التشفير باستخدام كلمة المرور المقدمة. يرجى محاولة إدخاله مرة أخرى.
+    connectionFailed(OUTDATED): حدث خطأ أثناء الاتصال بالخادم. الرجاء معاودة المحاولة في وقت لاحق.
+    encFaq(OUTDATED):
+      - q: ما هي كلمة مرور التشفير؟
+        a: |-
+          تُستخدم كلمة مرور التشفير لتشفير بياناتك قبل إرسالها إلى الخادم. يمكنك اختيارها عند تسجيل الدخول لأول مرة إلى Saber ،وهي غير مرتبطة بحساب/كلمة مرور Nextcloud الخاصة بك.
+          لا يمكن لأحد الوصول إلى ملاحظاتك على الخادم بدون كلمة مرور التشفير الخاصة بك. هذا يعني أيضًا أنك إذا نسيت كلمة مرور التشفير، فستفقد إمكانية الوصول إلى بياناتك.
+      - q: لماذا نستخدم كلمتين من كلمات المرور؟
+        a: |-
+          يتم استخدام كلمة مرور Nextcloud للوصول إلى السحابة. كلمة مرور التشفير "تشويش " بياناتك قبل أن تصل إلى السحابة.
+          حتى إذا تمكن شخص ما من الوصول إلى حسابك على Nextcloud ،فستظل ملاحظاتك آمنة ومشفرة بكلمة مرور منفصلة. يوفر لك هذا طبقة ثانية من الأمان لحماية بياناتك.
+      - q: هل يمكنني استخدام نفس كلمة المرور لكليهما؟
+        a: نعم، لكن القيام بذلك أقل أمانًا. نظرًا لأنه يتم إرسال كلمة مرور Nextcloud الخاصة بك إلى الخادم، فسيتمكن شخص لديه حق الوصول إلى الخادم من فك تشفير ملاحظاتك. استخدم نفس كلمة المرور فقط إذا كنت تثق في مالك الخادم.
+  notYou(rich, OUTDATED): "${undoLogin(ليس انت)}"
 profile:
   title: ملفي الشخصي
   logout: تسجيل الخروج
   quickLinks:
-    title: روابط سريعة
     serverHomepage: الصفحة الرئيسية للخادم
     deleteAccount: حذف الحساب
   faq:
@@ -192,6 +208,9 @@ profile:
         انتقل إلى موقع الخادم الخاص بك وقم بتسجيل الدخول. ثم انتقل إلى الإعدادات> حذف الحساب.
         إذا كنت تستخدم خادم Saber الرسمي، فسيتم حذف حسابك بعد فترة سماح مدتها أسبوع. يمكنك الاتصال بي على adilhanney@disroot.org خلال هذه الفترة لإلغاء الحذف.
         إذا كنت تستخدم خادم جهة خارجية، فقد لا يكون هناك خيار لحذف حسابك: ستحتاج إلى استشارة خصوصية الخادم سياسة لمزيد من المعلومات.
+  quotaUsage(OUTDATED): أنت تستخدم $used من $total ($percent)
+  connectedTo(OUTDATED): متصلا
+  faqTitle(OUTDATED): أسئلة مكررة
 appInfo:
   licenseNotice: |-
     Saber حقوق نشر © 2022-$buildYear  Adil Hanney
@@ -272,9 +291,10 @@ editor:
     duplicatePage: تكرار الصفحة
     deletePage: حذف الصفحة
     lineHeight: ارتفاع خط
-    lineHeightDescription: يتحكم أيضًا في حجم النص
     backgroundPattern: نمط الخلفية
     import: يستورد
+    watchServer(OUTDATED): ترقب التحديثات على الخادم
+    watchServerReadOnly(OUTDATED): تم تعطيل التحرير أثناء مشاهدة الخادم
     boxFits:
       fill: تمتد
       cover: غطاء
@@ -289,13 +309,13 @@ editor:
       staffs: موظفون
       cornell: كورنيل
       tablature(OUTDATED): تبلتثر
+    lineHeightDescription(OUTDATED): يتحكم أيضًا في حجم النص للملاحظات المكتوبة
     backgroundImageFit(OUTDATED): الصورة الخلفية
   newerFileFormat:
     readOnlyMode: وضع القراءة فقط
     title: تم تحرير هذه الملاحظة باستخدام إصدار أحدث من Saber
     subtitle: قد يؤدي تحرير هذه الملاحظة إلى ضياع بعض المعلومات. هل تريد تجاهل هذا وتعديله على أي حال؟
     allowEditing: السماح بالتعديل
-    cancel: إلغاء
   quill:
     typeSomething: اكتب شيئًا هنا...
   hud:

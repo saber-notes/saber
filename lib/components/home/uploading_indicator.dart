@@ -51,7 +51,7 @@ class _UploadingIndicatorState extends State<UploadingIndicator> {
 
   @override
   Widget build(BuildContext context) {
-    if (Prefs.username.value.isEmpty) return const SizedBox.shrink();
+    if (!Prefs.loggedIn) return const SizedBox.shrink();
 
     return Positioned(
       top: 0,

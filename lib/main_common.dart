@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:developer' as dev;
 import 'dart:io';
 
 import 'package:device_info_plus/device_info_plus.dart';
@@ -15,6 +16,7 @@ import 'package:saber/components/canvas/invert_shader.dart';
 import 'package:saber/components/canvas/pencil_shader.dart';
 import 'package:saber/components/home/banner_ad_widget.dart';
 import 'package:saber/components/theming/dynamic_material_app.dart';
+import 'package:saber/data/editor/pencil_sound.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/nextcloud/file_syncer.dart';
 import 'package:saber/data/nextcloud/nc_http_overrides.dart';
@@ -25,18 +27,32 @@ import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/editor/editor.dart';
 import 'package:saber/pages/home/home.dart';
 import 'package:saber/pages/user/login.dart';
-import 'package:saber/pages/user/profile_page.dart';
 import 'package:window_manager/window_manager.dart';
 import 'package:worker_manager/worker_manager.dart';
 import 'package:workmanager/workmanager.dart';
 
-Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+Future<void> main({
+  WidgetsBinding? Function() initWidgetsBinding =
+      WidgetsFlutterBinding.ensureInitialized,
+  void Function(Widget) runApp = runApp,
+}) async {
+  initWidgetsBinding();
 
   Logger.root.level = kDebugMode ? Level.INFO : Level.WARNING;
   Logger.root.onRecord.listen((record) {
     // ignore: avoid_print
     print('${record.level.name}: ${record.loggerName}: ${record.message}');
+
+    // also log to devtools
+    dev.log(
+      record.message,
+      time: record.time,
+      level: record.level.value,
+      name: record.loggerName,
+      zone: record.zone,
+      error: record.error,
+      stackTrace: record.stackTrace,
+    );
   });
 
   if (Platform.isAndroid) {
@@ -52,7 +68,7 @@ Future<void> main() async {
   Prefs.init();
 
   await Future.wait([
-    FileManager.init(),
+    Prefs.customDataDir.waitUntilLoaded().then((_) => FileManager.init()),
     if (Platform.isWindows || Platform.isLinux || Platform.isMacOS)
       windowManager.ensureInitialized(),
     workerManager.init(),
@@ -62,6 +78,7 @@ Future<void> main() async {
     Prefs.allowInsecureConnections.waitUntilLoaded(),
     InvertShader.init(),
     PencilShader.init(),
+    PencilSound.preload(),
     Printing.info().then((info) {
       Editor.canRasterPdf = info.canRaster;
     }),
@@ -72,6 +89,7 @@ Future<void> main() async {
 
   setLocale();
   Prefs.locale.addListener(setLocale);
+  Prefs.customDataDir.addListener(FileManager.migrateDataDir);
 
   LicenseRegistry.addLicense(() async* {
     final license = await rootBundle.loadString('assets/google_fonts/OFL.txt');
@@ -80,17 +98,21 @@ Future<void> main() async {
 
   HttpOverrides.global = NcHttpOverrides();
   runApp(TranslationProvider(child: const App()));
-  startSyncAfterUsernameLoaded();
+  startSyncAfterLoaded();
   setupBackgroundSync();
 }
 
-void startSyncAfterUsernameLoaded() async {
+void startSyncAfterLoaded() async {
   await Prefs.username.waitUntilLoaded();
+  await Prefs.encPassword.waitUntilLoaded();
 
-  Prefs.username.removeListener(startSyncAfterUsernameLoaded);
-  if (Prefs.username.value.isEmpty) {
+  Prefs.username.removeListener(startSyncAfterLoaded);
+  Prefs.encPassword.removeListener(startSyncAfterLoaded);
+  if (!Prefs.loggedIn) {
     // try again when logged in
-    return Prefs.username.addListener(startSyncAfterUsernameLoaded);
+    Prefs.username.addListener(startSyncAfterLoaded);
+    Prefs.encPassword.addListener(startSyncAfterLoaded);
+    return;
   }
 
   // wait for other prefs to load
@@ -191,8 +213,8 @@ class App extends StatefulWidget {
         builder: (context, state) => const NcLoginPage(),
       ),
       GoRoute(
-        path: RoutePaths.profile,
-        builder: (context, state) => const ProfilePage(),
+        path: '/profile',
+        redirect: (context, state) => RoutePaths.login,
       ),
     ],
   );
@@ -253,7 +275,8 @@ class _AppState extends State<App> {
   void setupSharingIntent() {
     if (Platform.isAndroid || Platform.isIOS) {
       // for files opened while the app is closed
-      ReceiveSharingIntent.getInitialMedia()
+      ReceiveSharingIntent.instance
+          .getInitialMedia()
           .then((List<SharedMediaFile> files) {
         for (final file in files) {
           App.openFile(file);
@@ -261,7 +284,7 @@ class _AppState extends State<App> {
       });
 
       // for files opened while the app is open
-      final stream = ReceiveSharingIntent.getMediaStream();
+      final stream = ReceiveSharingIntent.instance.getMediaStream();
       _intentDataStreamSubscription =
           stream.listen((List<SharedMediaFile> files) {
         for (final file in files) {

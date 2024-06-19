@@ -8,9 +8,11 @@ import 'package:saber/components/theming/adaptive_icon.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/nextcloud/file_syncer.dart';
 import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
+import 'package:saber/data/nextcloud/readable_bytes.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/data/routes.dart';
 import 'package:saber/i18n/strings.g.dart';
+import 'package:saber/pages/user/login.dart';
 
 typedef Quota = UserDetailsQuota;
 
@@ -19,36 +21,53 @@ class NextcloudProfile extends StatefulWidget {
 
   @override
   State<NextcloudProfile> createState() => _NextcloudProfileState();
-
-  @visibleForTesting
-  static Future<Quota?> getStorageQuota() async {
-    final client = NextcloudClientExtension.withSavedDetails();
-    if (client == null) return null;
-
-    final user = await client.provisioningApi.users.getCurrentUser();
-    Prefs.lastStorageQuota.value = user.body.ocs.data.quota;
-    return Prefs.lastStorageQuota.value;
-  }
 }
 
 class _NextcloudProfileState extends State<NextcloudProfile> {
   @override
+  void initState() {
+    Prefs.username.addListener(_usernameChanged);
+    Prefs.encPassword.addListener(_usernameChanged);
+    Prefs.key.addListener(_usernameChanged);
+    Prefs.iv.addListener(_usernameChanged);
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    Prefs.username.removeListener(_usernameChanged);
+    Prefs.encPassword.removeListener(_usernameChanged);
+    Prefs.key.removeListener(_usernameChanged);
+    Prefs.iv.removeListener(_usernameChanged);
+    super.dispose();
+  }
+
+  late var getStorageQuotaFuture = getStorageQuota();
+  void _usernameChanged() {
+    getStorageQuotaFuture = getStorageQuota();
+    if (mounted) setState(() {});
+  }
+
+  @override
   Widget build(BuildContext context) {
-    final String heading, subheading;
-    final bool loggedIn = Prefs.username.value.isNotEmpty;
-    if (loggedIn) {
-      heading = Prefs.username.value;
-      subheading = t.login.status.loggedIn;
-    } else {
-      heading = t.login.status.loggedOut;
-      subheading = t.login.status.tapToLogin;
-    }
+    final loginStep = NcLoginPage.getCurrentStep();
+    final heading = switch (loginStep) {
+      LoginStep.waitingForPrefs => '',
+      LoginStep.nc => t.login.status.loggedOut,
+      LoginStep.enc ||
+      LoginStep.done =>
+        t.login.status.hi(u: Prefs.username.value),
+    };
+    final subheading = switch (loginStep) {
+      LoginStep.waitingForPrefs => '',
+      LoginStep.nc => t.login.status.tapToLogin,
+      LoginStep.enc => t.login.status.almostDone,
+      LoginStep.done => t.login.status.loggedIn,
+    };
 
     var colorScheme = Theme.of(context).colorScheme;
     return ListTile(
-      onTap: () {
-        context.push(loggedIn ? RoutePaths.profile : RoutePaths.login);
-      },
+      onTap: () => context.push(RoutePaths.login),
       leading: ValueListenableBuilder(
         valueListenable: Prefs.pfp,
         builder: (BuildContext context, Uint8List? pfp, _) {
@@ -72,12 +91,12 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
       ),
       title: Text(heading),
       subtitle: Text(subheading),
-      trailing: loggedIn
+      trailing: loginStep == LoginStep.done
           ? Row(
               mainAxisSize: MainAxisSize.min,
               children: [
                 FutureBuilder(
-                  future: NextcloudProfile.getStorageQuota(),
+                  future: getStorageQuotaFuture,
                   initialData: Prefs.lastStorageQuota.value,
                   builder:
                       (BuildContext context, AsyncSnapshot<Quota?> snapshot) {
@@ -130,37 +149,18 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
     );
   }
 
+  static Future<Quota?> getStorageQuota() async {
+    final client = NextcloudClientExtension.withSavedDetails();
+    if (client == null) return null;
+
+    final user = await client.provisioningApi.users.getCurrentUser();
+    Prefs.lastStorageQuota.value = user.body.ocs.data.quota;
+    return Prefs.lastStorageQuota.value;
+  }
+
   static String readableQuota(Quota? quota) {
     final used = readableBytes(quota?.used);
     final total = readableBytes(quota?.total);
     return '$used / $total';
-  }
-
-  static String readableBytes(num? bytes) {
-    if (bytes == null) {
-      return '... B';
-    } else if (bytes < 1024) {
-      return '$bytes B';
-    } else if (bytes < 1024 * 2) {
-      // e.g. 1.5 KB
-      return '${(bytes / 1024).toStringAsFixed(1)} KB';
-    } else if (bytes < 1024 * 1024) {
-      return '${(bytes / 1024).round()} KB';
-    } else if (bytes < 1024 * 1024 * 2) {
-      // e.g. 1.5 MB
-      return '${(bytes / 1024 / 1024).toStringAsFixed(1)} MB';
-    } else if (bytes < 1024 * 1024 * 1024) {
-      return '${(bytes / 1024 / 1024).round()} MB';
-    } else if (bytes < 1024 * 1024 * 1024 * 2) {
-      // e.g. 1.5 GB
-      return '${(bytes / 1024 / 1024 / 1024).toStringAsFixed(1)} GB';
-    } else if (bytes < 1024 * 1024 * 1024 * 1024) {
-      return '${(bytes / 1024 / 1024 / 1024).round()} GB';
-    } else if (bytes < 1024 * 1024 * 1024 * 1024 * 2) {
-      // e.g. 1.5 TB
-      return '${(bytes / 1024 / 1024 / 1024 / 1024).toStringAsFixed(1)} TB';
-    } else {
-      return '${(bytes / 1024 / 1024 / 1024 / 1024).round()} TB';
-    }
   }
 }

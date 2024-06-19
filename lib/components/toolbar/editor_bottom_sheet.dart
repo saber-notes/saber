@@ -7,6 +7,7 @@ import 'package:saber/components/canvas/image/editor_image.dart';
 import 'package:saber/components/canvas/inner_canvas.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/data/editor/page.dart';
+import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/extensions/box_fit_localized.dart';
 import 'package:saber/i18n/strings.g.dart';
 
@@ -26,6 +27,8 @@ class EditorBottomSheet extends StatefulWidget {
     required this.pickPhotos,
     required this.importPdf,
     required this.canRasterPdf,
+    required this.getIsWatchingServer,
+    required this.setIsWatchingServer,
   });
 
   final bool invert;
@@ -41,6 +44,8 @@ class EditorBottomSheet extends StatefulWidget {
   final Future<int> Function() pickPhotos;
   final Future<bool> Function() importPdf;
   final bool canRasterPdf;
+  final bool Function() getIsWatchingServer;
+  final void Function(bool) setIsWatchingServer;
 
   @override
   State<EditorBottomSheet> createState() => _EditorBottomSheetState();
@@ -290,6 +295,22 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
               ],
             ),
             const SizedBox(height: 16),
+            if (Prefs.loggedIn) ...[
+              StatefulBuilder(builder: (context, setState) {
+                final isWatchingServer = widget.getIsWatchingServer();
+                return CheckboxListTile.adaptive(
+                  value: isWatchingServer,
+                  title: Text(t.editor.menu.watchServer),
+                  subtitle: isWatchingServer
+                      ? Text(t.editor.menu.watchServerReadOnly)
+                      : null,
+                  onChanged: (value) => setState(() {
+                    widget.setIsWatchingServer(value!);
+                  }),
+                );
+              }),
+              const SizedBox(height: 16),
+            ],
           ],
         ),
       ),

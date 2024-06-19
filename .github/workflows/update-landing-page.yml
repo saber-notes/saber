@@ -6,11 +6,15 @@ on:
   push:
     tags:
       - '**'
+    branches:
+      - '**'
+    paths:
+      - .github/workflows/update-landing-page.yml
 
 jobs:
   dispatch:
     runs-on: ubuntu-latest
-    timeout-minutes: 1
+    timeout-minutes: 5
     steps:
       - name: Repository Dispatch
         uses: peter-evans/repository-dispatch@v3

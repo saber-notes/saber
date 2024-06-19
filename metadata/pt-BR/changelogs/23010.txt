@@ -1,0 +1,3 @@
+• Se você gosta de editar notas em um tablet e visualizá-las simultaneamente em seu computador, há uma nova opção no menu do editor para ativar a atualização automática.
+• Corrigidas linhas de lápis endireitadas desaparecendo nas extremidades
+• Pequena melhoria nos tempos de carregamento de aplicativos

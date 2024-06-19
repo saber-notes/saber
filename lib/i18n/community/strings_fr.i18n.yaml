@@ -1,3 +1,7 @@
+common:
+  cancel: Annuler
+  done(OUTDATED): Fait
+  continueBtn(OUTDATED): Continuer
 home:
   tabs:
     home: Accueil
@@ -90,6 +94,8 @@ settings:
     printPageIndicators: Imprimer les numéros de pages
     autosaveDelay: Délai entre les sauvegardes automatiques
     shapeRecognitionDelay: Délai de reconnaissance de forme
+    pencilSoundSetting(OUTDATED): Effet sonore de crayon
+    customDataDir(OUTDATED): Répertoire de données personnalisé
     autoStraightenLines(OUTDATED): Redresser automatiquement les lignes
   prefDescriptions:
     hyperlegibleFont: La fonte Atkinson Hyperlegible améliore la lisibilité pour les personnes malvoyantes
@@ -108,8 +114,12 @@ settings:
     printPageIndicators: Montrer les numéros de pages dans les exportations
     autosaveDelay: Combien de temps attendre avant de sauvegarder automatiquement une note
     shapeRecognitionDelay: Avec quelle fréquence mettre à jour la prévisualisation de forme
-    autoStraightenLines(OUTDATED): Redresse les longues lignes sans avoir à utiliser le stylo de forme
     shouldAlwaysAlertForUpdates: Me prévenir dès qu'une mise à jour est disponible
+    pencilSoundSetting:
+      off(OUTDATED): Pas de son
+      onButNotInSilentMode(OUTDATED): Activé (sauf en mode silencieux)
+      onAlways(OUTDATED): Activé (même en mode silencieux)
+    autoStraightenLines(OUTDATED): Redresse les longues lignes sans avoir à utiliser le stylo de forme
   themeModes:
     system: Système
     light: Clair
@@ -130,50 +140,56 @@ settings:
     title: "Rétablir les valeurs par défaut ?"
     button: Défaut
   resyncEverything: Tout re-syncroniser
+  customDataDir:
+    cancel(OUTDATED): Annuler
+    select(OUTDATED): Sélectionner
+    mustBeEmpty(OUTDATED): Le répertoire sélectionné doit être vide
+    mustBeDoneSyncing(OUTDATED): Assurez-vous que la synchronisation est terminée avant de modifier le répertoire
 login:
   title: Connexion
-  feedbacks:
-    checkUsername: Veuillez verifier votre nom d'utilisateur ou votre e-mail.
-    enterNcPassword: Veuiller saisir votre mot de passe Nextcloud.
-    enterEncPassword: Veuillez saisir votre mot de passe de cryptage.
-    checkUrl: Veuillez saisir une URL valide.
-    ncLoginFailed: "La connexion a échoué, veuillez vérifier vos identifiants et votre connexion réseau."
-    encLoginFailed: "La connexion a échoué, veuillez vérifier votre mot de passe de cryptage."
-    loginSuccess: "Connexion reussie ! Veuillez patienter pendant la configuration..."
-    ncUnsupportedFailure(OUTDATED): Le serveur donné exécute Nextcloud $v mais cette version de Saber ne prend en charge que Nextcloud $s à $t.
   form:
-    useCustomServer: Je veux utiliser un serveur Nextcloud personnalisé
-    customServerUrl: URL du serveur personnalisé
-    username: Nom d'utilisateur ou adresse mel
-    ncPassword: Mot de passe Nextcloud
-    encPassword: Mot de passe de cryptage
     agreeToPrivacyPolicy(rich): "En vous connectant, vous acceptez les ${linkToPrivacyPolicy(Privacy Policy)}."
-    login: Se connecter
   signup(rich): "Pas encore de compte ? ${linkToSignup(Sign up now)} !"
   status:
-    loggedIn: Connecté avec Nextcloud
     loggedOut: Déconnecté
     tapToLogin: Appuyer pour vous connecter avec Nextcloud
-  faq:
-    - q: "Qu'est-ce que Nextcloud ?"
-      a: "Nextcloud est, entre autres choses, un serveur privé de synchronisation de fichiers. Vous pouvez utiliser le serveur Nextcloud par défaut de Saber, utiliser un serveur tiers ou auto-héberger le vôtre pour un contrôle total de vos données."
-    - q: "Qu'est-ce que le mot de passe de cryptage ?"
-      a: |-
-        Le mot de passe de cryptage est utilisé pour crypter vos données avant qu'elles ne soient envoyées au serveur. Vous le créez lors de votre première connexion à Saber, et il est indépendant de votre compte et de votre mot de passe sur Nextcloud.
-        Personne ne peut accéder à vos notes sur le serveur sans votre mot de passe de chiffrement. Cela implique aussi que si vous oubliez votre mot de passe de cryptage, vous perdrez l'accès à vos données.
-    - q: "Pourquoi utiliser deux mots de passe ?"
-      a: |-
-        Le mot de passe Nextcloud est utilisé pour accéder au nuage (cloud). Le mot de passe de cryptage "brouille" vos données avant même qu'elles n'atteignent le nuage.
-        Même si quelqu'un accède à votre compte Nextcloud, vos notes resteront sécurisées et cryptées avec un mot de passe distinct. Cela crée un deuxième niveau de sécurité pour protéger vos données.
-    - q: "Comment me connecter si j'utilise 2FA ?"
-      a: "Au lieu d'utiliser votre mot de passe Nextcloud habituel, vous devrez créer un \"mot de passe d'application\". Vous pouvez le faire dans les paramètres de Nextcloud, via Sécurité > Appareils & sessions > Créer un nouveau mot de passe d'application. Votre mot de passe de cryptage reste inchangé."
-    - q: "Puis-je utiliser le même mot de passe pour les deux ?"
-      a: "Oui, mais c'est moins sécurisé. Comme votre mot de passe sur Nextcloud est envoyé au serveur, toute personne qui y aurait accès pourrait decrypter vos notes. N'utilisez le même mot de passe que si vous faites confiance aux personnes qui gèrent le serveur."
+    loggedIn: Connecté avec Nextcloud
+    hi(OUTDATED): "Salut, $u!"
+    almostDone(OUTDATED): "Presque prêt pour la synchronisation, appuyez pour terminer la connexion"
+  ncLoginStep:
+    loginFlow:
+      pleaseAuthorize(OUTDATED): Veuillez autoriser Saber à accéder à votre compte Nextcloud
+      followPrompts(OUTDATED): Veuillez suivre les instructions de votre navigateur.
+      browserDidntOpen(OUTDATED): Le navigateur ne s'est pas ouvert
+    whereToStoreData(OUTDATED): "Choisissez où vous souhaitez stocker vos données :"
+    saberNcServer(OUTDATED): Le serveur Nextcloud de Saber
+    otherNcServer(OUTDATED): Autre serveur Nextcloud
+    serverUrl(OUTDATED): URL du serveur
+    loginWithSaber(OUTDATED): Connectez-vous avec Saber
+    loginWithNextcloud(OUTDATED): Connectez-vous avec Nextcloud
+  encLoginStep:
+    enterEncPassword(OUTDATED): "Pour protéger vos données, veuillez saisir votre mot de passe de cryptage :"
+    newToSaber(OUTDATED): Nouveau sur Saber
+    encPassword(OUTDATED): Mot de passe de cryptage
+    encFaqTitle(OUTDATED): Questions fréquemment posées
+    wrongEncPassword(OUTDATED): Le décryptage a échoué avec le mot de passe fourni. Veuillez réessayer de le saisir.
+    connectionFailed(OUTDATED): Une erreur s'est produite lors de la connexion au serveur. Veuillez réessayer plus tard.
+    encFaq(OUTDATED):
+      - q: "Qu'est-ce que le mot de passe de cryptage ?"
+        a: |-
+          Le mot de passe de cryptage est utilisé pour crypter vos données avant qu'elles ne soient envoyées au serveur. Vous le créez lors de votre première connexion à Saber, et il est indépendant de votre compte et de votre mot de passe sur Nextcloud.
+          Personne ne peut accéder à vos notes sur le serveur sans votre mot de passe de chiffrement. Cela implique aussi que si vous oubliez votre mot de passe de cryptage, vous perdrez l'accès à vos données.
+      - q: "Pourquoi utiliser deux mots de passe ?"
+        a: |-
+          Le mot de passe Nextcloud est utilisé pour accéder au nuage (cloud). Le mot de passe de cryptage "brouille" vos données avant même qu'elles n'atteignent le nuage.
+          Même si quelqu'un accède à votre compte Nextcloud, vos notes resteront sécurisées et cryptées avec un mot de passe distinct. Cela crée un deuxième niveau de sécurité pour protéger vos données.
+      - q: "Puis-je utiliser le même mot de passe pour les deux ?"
+        a: "Oui, mais c'est moins sécurisé. Comme votre mot de passe sur Nextcloud est envoyé au serveur, toute personne qui y aurait accès pourrait decrypter vos notes. N'utilisez le même mot de passe que si vous faites confiance aux personnes qui gèrent le serveur."
+  notYou(rich, OUTDATED): "${undoLogin(Pas toi)}"
 profile:
   title: Mon profil
   logout: Déconnexion
   quickLinks:
-    title: Raccourcis
     serverHomepage: Page d'accueil du serveur
     deleteAccount: Supprimer le compte
   faq:
@@ -192,6 +208,9 @@ profile:
         Cliquez sur le button "@:profile.quickLinks.deleteAccount" ci-dessus, et connectez-vous si nécessaire.
         Si vous utilisez le serveur Saber officiel, votre compte sera supprimé au bout d'une semaine . Durant cette période, vous pourrez me contacter à adilhanney@disroot.org pour annuler la suppression.
         Si vous utilisez un autre serveur, il n'est pas certain que vous puissiez supprimer votre compte dessus : il vous faudra consulter les règles de confidentialité du serveur pour plus d'informations.
+  quotaUsage(OUTDATED): Vous utilisez $used sur $total ($percent)
+  connectedTo(OUTDATED): Connecté à
+  faqTitle(OUTDATED): Questions fréquemment posées
 appInfo:
   licenseNotice: |-
     Saber  Copyright © 2022-$buildYear  Adil Hanney
@@ -272,10 +291,11 @@ editor:
     duplicatePage: Dupliquer la page
     deletePage: Supprimer la page
     lineHeight: Hauteur de ligne
-    lineHeightDescription: Contrôle aussi la taille du texte
     backgroundImageFit: Adaptation de l'image de fond
     backgroundPattern: Texture de fond
     import: Importer
+    watchServer(OUTDATED): Surveillez les mises à jour sur le serveur
+    watchServerReadOnly(OUTDATED): L'édition est désactivée lorsque vous regardez le serveur
     boxFits:
       fill: S'ajuste
       cover: Couvre
@@ -290,12 +310,12 @@ editor:
       staffs: Staffs
       tablature: Tablature
       cornell: Cornell
+    lineHeightDescription(OUTDATED): Contrôle également la taille du texte pour les notes saisies
   newerFileFormat:
     readOnlyMode: Mode lecture seule
     title: Cette note a été modifiée avec une version plus récente de Saber
     subtitle: "Éditer cette note pourrait entraîner la perte de certaines informations. Voulez-vous la modifier quand même ?"
     allowEditing: Autoriser les modifications
-    cancel: Annuler
   quill:
     typeSomething: Taper du texte ici...
   hud:

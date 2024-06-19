@@ -33,8 +33,10 @@ import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/data/editor/editor_exporter.dart';
 import 'package:saber/data/editor/editor_history.dart';
 import 'package:saber/data/editor/page.dart';
+import 'package:saber/data/editor/pencil_sound.dart';
 import 'package:saber/data/extensions/change_notifier_extensions.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
+import 'package:saber/data/nextcloud/file_syncer.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/data/tools/_tool.dart';
 import 'package:saber/data/tools/eraser.dart';
@@ -172,6 +174,7 @@ class EditorState extends State<Editor> {
 
   ValueNotifier<SavingState> savingState = ValueNotifier(SavingState.saved);
   Timer? _delayedSaveTimer;
+  Timer? _watchServerTimer;
 
   // used to prevent accidentally drawing when pinch zooming
   int lastSeenPointerCount = 0;
@@ -569,16 +572,21 @@ class EditorState extends State<Editor> {
     final position = page.renderBox!.globalToLocal(details.focalPoint);
     history.canRedo = false;
 
+    final bool shouldPlayPencilSound;
+
     if (currentTool is Pen) {
+      shouldPlayPencilSound = true;
       (currentTool as Pen)
           .onDragStart(position, page, dragPageIndex!, currentPressure);
     } else if (currentTool is Eraser) {
+      shouldPlayPencilSound = true;
       for (Stroke stroke in (currentTool as Eraser)
           .checkForOverlappingStrokes(position, page.strokes)) {
         page.strokes.remove(stroke);
       }
       removeExcessPages();
     } else if (currentTool is Select) {
+      shouldPlayPencilSound = false;
       Select select = currentTool as Select;
       if (select.doneSelecting &&
           select.selectResult.pageIndex == dragPageIndex! &&
@@ -589,8 +597,14 @@ class EditorState extends State<Editor> {
         history.canRedo = true; // selection doesn't affect history
       }
     } else if (currentTool is LaserPointer) {
+      shouldPlayPencilSound = true;
       (currentTool as LaserPointer).onDragStart(position, page, dragPageIndex!);
+    } else {
+      shouldPlayPencilSound = false;
     }
+
+    if (Prefs.pencilSound.value != PencilSoundSetting.off &&
+        shouldPlayPencilSound) PencilSound.resume();
 
     previousPosition = position;
     moveOffset = Offset.zero;
@@ -611,6 +625,9 @@ class EditorState extends State<Editor> {
     final page = coreInfo.pages[dragPageIndex!];
     Offset position = page.renderBox!.globalToLocal(details.focalPoint);
     Offset offset = position - previousPosition;
+
+    if (PencilSound.isPlaying) PencilSound.update(offset.distance);
+
     if (currentTool is Pen) {
       (currentTool as Pen).onDragUpdate(position, currentPressure);
       page.redrawStrokes();
@@ -775,6 +792,7 @@ class EditorState extends State<Editor> {
     }
     final page = coreInfo.pages[dragPageIndex!];
     bool shouldSave = true;
+    if (PencilSound.isPlaying) PencilSound.pause();
     setState(() {
       if (currentTool is Pen) {
         Stroke newStroke = (currentTool as Pen).onDragEnd();
@@ -960,14 +978,38 @@ class EditorState extends State<Editor> {
     ));
   }
 
+  void _refreshCurrentNote() async {
+    if (coreInfo.readOnly) return;
+    if (!Prefs.loggedIn) return;
+
+    final updated = await FileSyncer.refreshCurrentNote(coreInfo);
+    if (!updated) return;
+
+    // load the updated note
+    _initStrokes();
+  }
+
   void autosaveAfterDelay() {
-    savingState.value = SavingState.waitingToSave;
-    _delayedSaveTimer?.cancel();
-    if (Prefs.autosaveDelay.value < 0) return;
-    _delayedSaveTimer =
-        Timer(Duration(milliseconds: Prefs.autosaveDelay.value), () {
+    late final void Function() callback;
+
+    void startTimer() {
+      _delayedSaveTimer?.cancel();
+      if (Prefs.autosaveDelay.value < 0) return;
+      _delayedSaveTimer =
+          Timer(Duration(milliseconds: Prefs.autosaveDelay.value), callback);
+    }
+
+    callback = () {
+      if (Pen.currentStroke != null) {
+        // don't save yet if the pen is currently drawing
+        startTimer();
+        return;
+      }
       saveToFile();
-    });
+    };
+
+    savingState.value = SavingState.waitingToSave;
+    startTimer();
   }
 
   Future<void> saveToFile() async {
@@ -1467,6 +1509,7 @@ class EditorState extends State<Editor> {
       pages: coreInfo.pages,
       initialPageIndex: coreInfo.initialPageIndex,
       pageBuilder: pageBuilder,
+      isTextEditing: () => currentTool == Tool.textEditing,
       placeholderPageBuilder: (BuildContext context, int pageIndex) {
         return Canvas(
           path: coreInfo.filePath,
@@ -1875,6 +1918,25 @@ class EditorState extends State<Editor> {
       pickPhotos: _pickPhotos,
       importPdf: importPdf,
       canRasterPdf: Editor.canRasterPdf,
+      getIsWatchingServer: () => _watchServerTimer?.isActive ?? false,
+      setIsWatchingServer: (bool watch) {
+        if (watch) {
+          _watchServerTimer ??= Timer.periodic(
+            const Duration(seconds: 5),
+            (_) => _refreshCurrentNote(),
+          );
+          coreInfo.readOnlyBecauseWatchingServer |= !coreInfo.readOnly;
+          if (!coreInfo.readOnly) setState(() => coreInfo.readOnly = true);
+        } else {
+          _watchServerTimer?.cancel();
+          _watchServerTimer = null;
+          if (coreInfo.readOnlyBecauseWatchingServer)
+            setState(() {
+              coreInfo.readOnly = false;
+              coreInfo.readOnlyBecauseWatchingServer = false;
+            });
+        }
+      },
     );
   }
 
@@ -2054,7 +2116,7 @@ class EditorState extends State<Editor> {
             content: Text(t.editor.newerFileFormat.subtitle),
             actions: [
               CupertinoDialogAction(
-                child: Text(t.editor.newerFileFormat.cancel),
+                child: Text(t.common.cancel),
                 onPressed: () => Navigator.pop(context, false),
               ),
               CupertinoDialogAction(
@@ -2124,6 +2186,7 @@ class EditorState extends State<Editor> {
     DynamicMaterialApp.removeFullscreenListener(_setState);
 
     _delayedSaveTimer?.cancel();
+    _watchServerTimer?.cancel();
     _lastSeenPointerCountTimer?.cancel();
 
     _removeKeybindings();

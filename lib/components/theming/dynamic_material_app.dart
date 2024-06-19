@@ -156,14 +156,14 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp>
             SeedColorScheme.fromSeeds(
           brightness: Brightness.light,
           primaryKey: seedColor,
-          background: Colors.white,
+          surface: Colors.white,
           tones: FlexTones.ultraContrast(Brightness.light),
         );
         final ColorScheme highContrastDarkColorScheme =
             SeedColorScheme.fromSeeds(
           brightness: Brightness.dark,
           primaryKey: seedColor,
-          background: Colors.black,
+          surface: Colors.black,
           tones: FlexTones.ultraContrast(Brightness.dark),
         );
 
@@ -195,7 +195,7 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp>
                       useMaterial3: true,
                       colorScheme: lightColorScheme,
                       textTheme: getTextTheme(Brightness.light),
-                      scaffoldBackgroundColor: lightColorScheme.background,
+                      scaffoldBackgroundColor: lightColorScheme.surface,
                       platform: platform,
                     ),
                 darkTheme: yaruTheme?.darkTheme ??
@@ -203,7 +203,7 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp>
                       useMaterial3: true,
                       colorScheme: darkColorScheme,
                       textTheme: getTextTheme(Brightness.dark),
-                      scaffoldBackgroundColor: darkColorScheme.background,
+                      scaffoldBackgroundColor: darkColorScheme.surface,
                       platform: platform,
                     ),
                 highContrastTheme: yaruHighContrastTheme?.theme ??
@@ -212,7 +212,7 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp>
                       colorScheme: highContrastLightColorScheme,
                       textTheme: getTextTheme(Brightness.light),
                       scaffoldBackgroundColor:
-                          highContrastLightColorScheme.background,
+                          highContrastLightColorScheme.surface,
                       platform: platform,
                     ),
                 highContrastDarkTheme: yaruHighContrastTheme?.darkTheme ??
@@ -221,7 +221,7 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp>
                       colorScheme: highContrastDarkColorScheme,
                       textTheme: getTextTheme(Brightness.dark),
                       scaffoldBackgroundColor:
-                          highContrastDarkColorScheme.background,
+                          highContrastDarkColorScheme.surface,
                       platform: platform,
                     ),
                 debugShowCheckedModeBanner: false,

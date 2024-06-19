@@ -1,0 +1,3 @@
+• Az Android-felhasználók mostantól megváltoztathatják a jegyzetek tárolási mappáját
+• Csökkentette a szöveges eszköztár méretét
+• A zoom közel 1,0-szeresre van állítva

@@ -1,3 +1,7 @@
+common:
+  cancel: لغو
+  done(OUTDATED): انجام شده
+  continueBtn(OUTDATED): ادامه هید
 home:
   tabs:
     home: خانه
@@ -90,6 +94,8 @@ settings:
     printPageIndicators: چاپ نشانگرهای صفحه
     autosaveDelay: تأخیر ذخیره خودکار
     shapeRecognitionDelay: تاخیر در تشخیص شکل
+    pencilSoundSetting(OUTDATED): جلوه صدای مداد
+    customDataDir(OUTDATED): دایرکتوری داده های سفارشی
     autoStraightenLines(OUTDATED): صاف کردن خودکار خطوط
   prefDescriptions:
     hyperlegibleFont: خوانایی را برای خوانندگان کم بینا افزایش می دهد
@@ -108,8 +114,12 @@ settings:
     printPageIndicators: نمایش نشانگرهای صفحه در خروجی
     autosaveDelay: چه مدت باید قبل از ذخیره خودکار یادداشت صبر کرد
     shapeRecognitionDelay: به روز رسانی پیشنمایش شکل چند وقت یکبار انجام شود
-    autoStraightenLines(OUTDATED): خطوط بلند را بدون استفاده از قلم شکل صاف می کند
     shouldAlwaysAlertForUpdates: به محض اینکه به‌روزرسانی‌ها در دسترس هستند، به من بگویید
+    pencilSoundSetting:
+      onAlways(OUTDATED): فعال (حتی در حالت بی صدا)
+      off(OUTDATED): بدون صدا
+      onButNotInSilentMode(OUTDATED): فعال (مگر در حالت بی صدا)
+    autoStraightenLines(OUTDATED): خطوط بلند را بدون استفاده از قلم شکل صاف می کند
   themeModes:
     system: سیستم
     light: روشن
@@ -129,47 +139,53 @@ settings:
   reset:
     title: این تنظیمات را بازنشانی می کنید؟
     button: بازنشانی
+  customDataDir:
+    cancel(OUTDATED): لغو کنید
+    select(OUTDATED): انتخاب کنید
+    mustBeEmpty(OUTDATED): دایرکتوری انتخاب شده باید خالی باشد
+    mustBeDoneSyncing(OUTDATED): قبل از تغییر دایرکتوری مطمئن شوید که همگام سازی کامل شده است
   resyncEverything(OUTDATED): همه چیز را دوباره همگام سازی کنید
 login:
   title: وارد شدن
-  feedbacks:
-    checkUsername: لطفا نام کاربری یا ایمیل خود را دوباره چک کنید
-    enterNcPassword: لطفا رمز Nextcloud خود را وارد کنید
-    enterEncPassword: لطفا رمز رمزگذاری خود را وارد کنید
-    checkUrl: لطفا یک آدرس اینترنتی معتبر وارد کنید
-    ncLoginFailed: ورود ناموفق بود، لطفاً جزئیات و اتصال شبکه خود را بررسی کنید
-    encLoginFailed: ورود ناموفق بود، لطفا رمز عبور رمزگذاری خود را بررسی کنید
-    loginSuccess: با موفقیت وارد شدید لطفا تا راه اندازی صبر کنید
-    ncUnsupportedFailure(OUTDATED): سرور داده شده Nextcloud $v را اجرا می کند اما این نسخه از Saber فقط از Nextcloud $s تا $t پشتیبانی می کند.
   form:
-    useCustomServer: من می خواهم از یک سرور Nextcloud سفارشی استفاده کنم
-    customServerUrl: آدرس اینترنتی سرور سفارشی
-    username: نام کاربری یا ایمیل
-    ncPassword: رمز ورود Nextcloud
-    encPassword: رمز رمزگذاری
     agreeToPrivacyPolicy(rich): "با ورود به سیستم، با قوانین موافقت خواهد شد ${linkToPrivacyPolicy(Privacy Policy)}."
-    login: وارد شدن
   signup(rich): "حساب کاربری ندارید؟ ${linkToSignup(Sign up now)}!"
   status:
-    loggedIn: وارد شدن با Nextcloud
     loggedOut: خروج
     tapToLogin: برای ورود با Nextcloud ضربه بزنید
-  faq:
-    - q: Nextcloud چیست؟
-      a: نکست کلاود یک سرور خصوصی همگام سازی فایل است، در میان چیزهای دیگر. می‌توانید از سرور پیش‌فرض Nextcloud ما استفاده کنید، از یک سرور شخص ثالث استفاده کنید یا برای کنترل کامل داده‌های خود، سرور خود را میزبانی کنید.
-    - q: رمز عبور رمزنگاری چیست؟
-      a: رمز عبور رمزگذاری برای رمزگذاری داده های شما قبل از ارسال به سرور استفاده می شود.
-    - q: چرا از دو رمز عبور استفاده میشود؟
-      a: رمز عبور Nextcloud برای دسترسی به ابر استفاده می شود و رمزعبور دوم برای رمزنگاری استفاده میشود
-    - q: اگر از 2FA استفاده کنم چگونه وارد سیستم شوم؟
-      a: "به جای رمز عبور عادی Nextcloud خود، باید یک \"گذرواژه برنامه\" ایجاد کنید. می‌توانید این کار را در تنظیمات Nextcloud خود در بخش امنیت > دستگاه‌ها و جلسات > ایجاد رمز عبور برنامه جدید انجام دهید. رمز رمزگذاری شما تحت تأثیر قرار نمیگیرد است."
-    - q: آیا می توانم از یک رمز عبور برای هر دو استفاده کنم؟
-      a: بله، اما انجام این کار امنیت کمتری دارد. از آنجایی که رمز عبور Nextcloud شما به سرور ارسال می شود، شخصی که به سرور دسترسی دارد می تواند یادداشت های شما را رمزگشایی کند. فقط در صورتی از همان رمز عبور استفاده کنید که به مالک سرور اعتماد دارید.
+    loggedIn: وارد شدن با Nextcloud
+    hi(OUTDATED): "سلام، $u!"
+    almostDone(OUTDATED): تقریباً برای همگام‌سازی آماده است، برای پایان ورود به سیستم ضربه بزنید
+  ncLoginStep:
+    loginFlow:
+      pleaseAuthorize(OUTDATED): لطفاً به Saber اجازه دسترسی به حساب Nextcloud شما را بدهید
+      followPrompts(OUTDATED): لطفاً دستورات موجود در مرورگر خود را دنبال کنید.
+      browserDidntOpen(OUTDATED): مرورگر باز نشد
+    whereToStoreData(OUTDATED): "محل ذخیره داده های خود را انتخاب کنید:"
+    saberNcServer(OUTDATED): سرور Nextcloud Saber
+    otherNcServer(OUTDATED): سرور Nextcloud دیگر
+    serverUrl(OUTDATED): آدرس سرور
+    loginWithSaber(OUTDATED): با صابر وارد شوید
+    loginWithNextcloud(OUTDATED): با Nextcloud وارد شوید
+  encLoginStep:
+    enterEncPassword(OUTDATED): "برای محافظت از داده های خود، لطفا رمز رمزگذاری خود را وارد کنید:"
+    newToSaber(OUTDATED): تازه وارد صابر
+    encPassword(OUTDATED): رمز رمزگذاری
+    encFaqTitle(OUTDATED): سوالات متداول
+    wrongEncPassword(OUTDATED): رمزگشایی با رمز عبور ارائه شده انجام نشد. لطفاً دوباره آن را وارد کنید.
+    connectionFailed(OUTDATED): هنگام اتصال به سرور مشکلی پیش آمد. لطفاً بعداً دوباره امتحان کنید.
+    encFaq(OUTDATED):
+      - q: رمز عبور رمزنگاری چیست؟
+        a: رمز عبور رمزگذاری برای رمزگذاری داده های شما قبل از ارسال به سرور استفاده می شود.
+      - q: چرا از دو رمز عبور استفاده میشود؟
+        a: رمز عبور Nextcloud برای دسترسی به ابر استفاده می شود و رمزعبور دوم برای رمزنگاری استفاده میشود
+      - q: آیا می توانم از یک رمز عبور برای هر دو استفاده کنم؟
+        a: بله، اما انجام این کار امنیت کمتری دارد. از آنجایی که رمز عبور Nextcloud شما به سرور ارسال می شود، شخصی که به سرور دسترسی دارد می تواند یادداشت های شما را رمزگشایی کند. فقط در صورتی از همان رمز عبور استفاده کنید که به مالک سرور اعتماد دارید.
+  notYou(rich, OUTDATED): "${undoLogin(تو نه)}"
 profile:
   title: پروفایل من
   logout: خروج
   quickLinks:
-    title: لینک های سریع
     serverHomepage: صفحه اصلی سرور
     deleteAccount: حذف حساب
   faq:
@@ -188,6 +204,9 @@ profile:
         روی دکمه "@:profile.quickLinks.deleteAccount" در بالا ضربه بزنید و در صورت نیاز وارد شوید.
         اگر از سرور رسمی Saber استفاده می‌کنید، حساب شما پس از یک هفته مهلت حذف می‌شود. می‌توانید در این مدت با من در adilhanney@disroot.org تماس بگیرید تا حذف را لغو کنید.
         اگر از یک سرور شخص ثالث استفاده می‌کنید، ممکن است گزینه‌ای برای حذف حساب شما وجود نداشته باشد: باید با حفظ حریم خصوصی سرور مشورت کنید. سیاست برای اطلاعات بیشتر
+  quotaUsage(OUTDATED): شما از $used از $total ($percent) استفاده می‌کنید
+  connectedTo(OUTDATED): مرتبط با
+  faqTitle(OUTDATED): سوالات متداول
 appInfo:
   licenseNotice: |-
     Saber  Copyright © 2022-$buildYear  Adil Hanney
@@ -268,10 +287,11 @@ editor:
     duplicatePage: تکرار صفحه
     deletePage: حذف صفحه
     lineHeight: ارتفاع خط
-    lineHeightDescription: همچنین اندازه متن را کنترل می کند
     backgroundImageFit: مناسب تصویر پس زمینه
     backgroundPattern: الگوی پس زمینه
     import: واردکردن
+    watchServer(OUTDATED): مراقب به روز رسانی ها در سرور باشید
+    watchServerReadOnly(OUTDATED): هنگام تماشای سرور، ویرایش غیرفعال است
     boxFits:
       fill: کش آمدن
       cover: پوشش دادن
@@ -286,12 +306,12 @@ editor:
       staffs: کارکنان
       tablature: جدول بندی
       cornell: کرنل
+    lineHeightDescription(OUTDATED): همچنین اندازه متن را برای یادداشت های تایپ شده کنترل می کند
   newerFileFormat:
     readOnlyMode: حالت فقط خواندنی
     title: این یادداشت با استفاده از نسخه جدیدتر برنامه ویرایش شده است
     subtitle: ویرایش این یادداشت ممکن است منجر به از بین رفتن برخی از اطلاعات شود. آیا می خواهید این را نادیده بگیرید و به هر حال آن را ویرایش کنید؟
     allowEditing: اجازه ویرایش
-    cancel: لغو
   quill:
     typeSomething: اینجا چیزی تایپ کنید...
   hud:

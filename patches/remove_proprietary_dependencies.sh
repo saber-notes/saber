@@ -25,7 +25,7 @@ echo -n "Removing Onyx,jitpack maven repo: "
 # check if android/build.gradle contains "repo.boox.com"
 if grep -q "repo.boox.com" "android/build.gradle"; then
   echo "found"
-  sed -i -e '18,24d' android/build.gradle
+  sed -i -e '5,11d' android/build.gradle
 else
   echo "already done"
 fi

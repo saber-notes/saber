@@ -1,0 +1,3 @@
+• Wenn Sie Notizen auf einem Tablet bearbeiten und gleichzeitig auf Ihrem Computer anzeigen möchten, gibt es im Editor-Menü einen neuen Schalter, um die automatische Aktualisierung zu aktivieren.
+• Das Ausbleichen gerade gerichteter Bleistiftlinien an den Enden wurde behoben
+• Kleine Verbesserung der App-Ladezeiten

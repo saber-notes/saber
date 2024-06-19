@@ -1,0 +1,4 @@
+• Arttırılmış PDF oluşturma kalitesi
+• Etkinleştirilirse, yazılan metin artık sayfa satırlarıyla düzgün şekilde hizalanıyor
+• Renk seçici iletişim kutuları güncellendi
+• Yeni Flutter 3.22'den çeşitli iyileştirmeler

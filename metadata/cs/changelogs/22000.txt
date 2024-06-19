@@ -1,0 +1,2 @@
+• Byl přidán simulovaný zvukový efekt tužky. Ve výchozím nastavení je povoleno pouze tehdy, když vaše zařízení není ztlumeno.
+• Problém se synchronizací Nextcloud byl opraven.

@@ -1,3 +1,7 @@
+common:
+  done: Done
+  continueBtn: Continue
+  cancel: Cancel
 home:
   tabs:
     home: Home
@@ -91,6 +95,8 @@ settings:
     autosaveDelay: Auto-save delay
     shapeRecognitionDelay: Shape recognition delay
     autoStraightenLines: Auto straighten lines
+    customDataDir: Custom data directory
+    pencilSoundSetting: Pencil sound effect
   prefDescriptions:
     hyperlegibleFont: Increases legibility for users with low vision
     disableAds: "Ads help support Saber's development, but you can disable them if you'd like"
@@ -110,6 +116,10 @@ settings:
     shapeRecognitionDelay: How often to update the shape preview
     autoStraightenLines: Straightens long lines without having to use the shape pen
     shouldAlwaysAlertForUpdates: Tell me about updates as soon as they're available
+    pencilSoundSetting:
+      off: No sound
+      onButNotInSilentMode: Enabled (unless in silent mode)
+      onAlways: Enabled (even in silent mode)
   themeModes:
     system: System
     light: Light
@@ -130,52 +140,62 @@ settings:
     title: "Reset this setting?"
     button: Reset
   resyncEverything: Resync everything
+  customDataDir:
+    cancel: Cancel
+    select: Select
+    mustBeEmpty: Selected directory must be empty
+    mustBeDoneSyncing: Make sure syncing is complete before changing the directory
 login:
   title: Login
-  feedbacks:
-    checkUsername: Please double check your username or email.
-    enterNcPassword: Please enter your Nextcloud password.
-    enterEncPassword: Please enter your encryption password.
-    checkUrl: Please enter a valid URL.
-    ncLoginFailed: "Log in failed, please check your details and network connection."
-    ncUnsupportedFailure: The given server is running Nextcloud $v but this version of Saber only supports Nextcloud $s to $t.
-    encLoginFailed: "Log in failed, please check your encryption password."
-    loginSuccess: "Log in successful! Please wait while we set up..."
   form:
-    useCustomServer: I want to use a custom Nextcloud server
-    customServerUrl: Custom server URL
-    username: Username or email
-    ncPassword: Nextcloud password
-    encPassword: Encryption password
     agreeToPrivacyPolicy(rich): "By logging in, you agree to the ${linkToPrivacyPolicy(Privacy Policy)}."
-    login: Log in
   signup(rich): "Don't have an account yet? ${linkToSignup(Sign up now)}!"
+  notYou(rich): "Not you? ${undoLogin(Choose another account)}."
   status:
-    loggedIn: Logged in with Nextcloud
     loggedOut: Logged out
     tapToLogin: Tap to log in with Nextcloud
-  faq:
-    - q: "What is Nextcloud?"
-      a: "Nextcloud is a private file sync server, among other things. You can use the default Saber Nextcloud server, use a third-party server, or self-host your own for full control of your data."
-    - q: "What is the encryption password?"
-      a: |-
-        The encryption password is used to encrypt your data before it is sent to the server. You choose it when you first login to Saber, and it's not related to your Nextcloud account/password.
-        No-one can access your notes on the server without your encryption password. This also means that if you forget your encryption password, you will lose access to your data.
-    - q: "Why use two passwords?"
-      a: |-
-        The Nextcloud password is used to access the cloud. The encryption password "scrambles" your data before it ever reaches the cloud.
-        Even if someone gains access to your Nextcloud account, your notes will remain safe and encrypted with a separate password. This provides you a second layer of security to protect your data.
-    - q: "How do I login if I use 2FA?"
-      a: "Instead of your regular Nextcloud password, you'll need to create an \"app password\". You can do this in your Nextcloud settings under Security > Devices & sessions > Create new app password. Your encryption password is unaffected."
-    - q: "Can I use the same password for both?"
-      a: "Yes, but doing so is less secure. Since your Nextcloud password is sent to the server, someone with access to the server would be able to decrypt your notes. Only use the same password if you trust the server owner."
+    hi: "Hi, $u!"
+    almostDone: "Almost ready for syncing, tap to finish logging in"
+    loggedIn: Logged in with Nextcloud
+  ncLoginStep:
+    whereToStoreData: "Choose where you want to store your data:"
+    saberNcServer: Saber's Nextcloud server
+    otherNcServer: Other Nextcloud server
+    serverUrl: Server URL
+    loginWithSaber: Login with Saber
+    loginWithNextcloud: Login with Nextcloud
+    loginFlow:
+      pleaseAuthorize: Please authorize Saber to access your Nextcloud account
+      followPrompts: Please follow the prompts in your browser.
+      browserDidntOpen: "Browser didn't open? Click here"
+  encLoginStep:
+    enterEncPassword: "To protect your data, please enter your encryption password:"
+    newToSaber: "New to Saber? Just enter a new encryption password."
+    encPassword: Encryption password
+    encFaqTitle: Frequently asked questions
+    wrongEncPassword: Decryption failed with the provided password. Please try entering it again.
+    connectionFailed: Something went wrong connecting to the server. Please try again later.
+    encFaq:
+      - q: "What is an encryption password? Why use two passwords?"
+        a: |-
+          The Nextcloud password is used to access the cloud. The encryption password "scrambles" your data before it ever reaches the cloud.
+          Even if someone gains access to your Nextcloud account, your notes will remain safe and encrypted with a separate password. This provides you a second layer of security to protect your data.
+          No-one can access your notes on the server without your encryption password, but this also means that if you forget your encryption password, you will lose access to your data.
+      - q: "I haven't set an encryption password yet. Where do I get it?"
+        a: |-
+          Choose a new encryption password and enter it above.
+          Saber will generate your encryption keys from this password automatically.
+      - q: "Can I use the same password as my Nextcloud account?"
+        a: "Yes, but keep in mind that it would be easier for the server administrator or someone else to access your notes if they gain access to your Nextcloud account."
 profile:
   title: My profile
   logout: Log out
+  quotaUsage: You're using $used of $total ($percent)
+  connectedTo: Connected to
   quickLinks:
-    title: Quick links
     serverHomepage: Server homepage
     deleteAccount: Delete account
+  faqTitle: Frequently asked questions
   faq:
     - q: "Will I lose my notes if I log out?"
       a: No. Your notes will remain both on your device and on the server. They won't be synced with the server until you log back in. Make sure syncing is complete before logging out so you don't lose any data (see the sync progress on the home screen).
@@ -273,10 +293,12 @@ editor:
     duplicatePage: Duplicate page
     deletePage: Delete page
     lineHeight: Line height
-    lineHeightDescription: Also controls the text size
+    lineHeightDescription: Also controls the text size for typed notes
     backgroundImageFit: Background image fit
     backgroundPattern: Background pattern
     import: Import
+    watchServer: Watch for updates on the server
+    watchServerReadOnly: Editing is disabled while watching the server
     boxFits:
       fill: Stretch
       cover: Cover
@@ -296,7 +318,6 @@ editor:
     title: This note was edited using a newer version of Saber
     subtitle: "Editing this note may result in some information being lost. Do you want to ignore this and edit it anyway?"
     allowEditing: Allow editing
-    cancel: Cancel
   quill:
     typeSomething: Type something here...
   hud:

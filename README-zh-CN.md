@@ -140,7 +140,7 @@ flutter pub get
 
 #### Linux
 
-`sudo apt install libsecret-1-dev libjsoncpp-dev`
+`sudo apt install libsecret-1-dev libjsoncpp-dev libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev`
 `flutter build linux`
 
 这对于在您自己的计算机上使用已经足够好了。但是如果您想重新分发您的构建，你需要使用一个可预测的环境：fork 这个仓库并使用 GitHub Action
@@ -327,8 +327,8 @@ Windows 安装器使用 [Inno Setup](https://jrsoftware.org/isinfo.php) 创建�
 [google_play]: https://play.google.com/store/apps/details?id=com.adilhanney.saber
 [snap]: https://snapcraft.io/saber
 [app_store]: https://apps.apple.com/us/app/saber/id1671523739
-[download_windows]: https://github.com/saber-notes/saber/releases/download/v0.21.3/SaberInstaller_v0.21.3.exe
-[download_appimage]: https://github.com/saber-notes/saber/releases/download/v0.21.3/Saber-0.21.3-x86_64.AppImage
+[download_windows]: https://github.com/saber-notes/saber/releases/download/v0.23.3/SaberInstaller_v0.23.3.exe
+[download_appimage]: https://github.com/saber-notes/saber/releases/download/v0.23.3/Saber-0.23.3-x86_64.AppImage
 
 [nextcloud]: https://nc.saber.adil.hanney.org/
 

@@ -241,7 +241,7 @@ class _MoveNoteDialogState extends State<_MoveNoteDialog> {
           onPressed: () {
             Navigator.of(context).pop();
           },
-          child: Text(t.editor.newerFileFormat.cancel),
+          child: Text(t.common.cancel),
         ),
         CupertinoDialogAction(
           onPressed: () async {

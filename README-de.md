@@ -138,7 +138,7 @@ Das Setup für das [super_clipboard](https://pub.dev/packages/super_clipboard)-P
 
 #### Linux
 
-`sudo apt install libsecret-1-dev libjsoncpp-dev`
+`sudo apt install libsecret-1-dev libjsoncpp-dev libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev`
 `flutter build linux`
 
 Dies ist ausreichend um es auf dem eigenen Computer zu benutzen, aber falls du deinen Build anderweitig zur Verfügung stellen möchtest, solltest du ein _Predictable Environment_ verwenden: Forke dieses Repo und nutze stattdessen die Github-Aktion [Build for Linux](https://github.com/saber-notes/saber/actions/workflows/linux.yml).
@@ -322,8 +322,8 @@ Falls dir Saber gefällt, bitte denke darüber nach das Projekt wie folgt zu unt
 [google_play]: https://play.google.com/store/apps/details?id=com.adilhanney.saber
 [snap]: https://snapcraft.io/saber
 [app_store]: https://apps.apple.com/us/app/saber/id1671523739
-[download_windows]: https://github.com/saber-notes/saber/releases/download/v0.21.3/SaberInstaller_v0.21.3.exe
-[download_appimage]: https://github.com/saber-notes/saber/releases/download/v0.21.3/Saber-0.21.3-x86_64.AppImage
+[download_windows]: https://github.com/saber-notes/saber/releases/download/v0.23.3/SaberInstaller_v0.23.3.exe
+[download_appimage]: https://github.com/saber-notes/saber/releases/download/v0.23.3/Saber-0.23.3-x86_64.AppImage
 
 [nextcloud]: https://nc.saber.adil.hanney.org/
 

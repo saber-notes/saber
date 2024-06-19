@@ -1,0 +1,3 @@
+• Uživatelé Androidu nyní mohou změnit složku, kde jsou poznámky uloženy
+• Zmenšena velikost textového panelu nástrojů
+• Při zavření je nyní zoom 1,0x

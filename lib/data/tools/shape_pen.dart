@@ -75,9 +75,8 @@ class ShapePen extends Pen {
         log.info('Detected unknown shape');
         return rawStroke;
       case DefaultUnistrokeNames.line:
-        var (firstPoint, lastPoint) = detectedShape.convertToLine();
-        log.info('Detected line: $firstPoint -> $lastPoint');
-        return rawStroke..convertToLine(firstPoint, lastPoint);
+        log.info('Detected line');
+        return rawStroke..convertToLine();
       case DefaultUnistrokeNames.rectangle:
         final rect = detectedShape.convertToRect();
         log.info('Detected rectangle: $rect');

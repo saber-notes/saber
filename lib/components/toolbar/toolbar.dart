@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:collapsible/collapsible.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -5,6 +7,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_quill/flutter_quill.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:keybinder/keybinder.dart';
+import 'package:material_symbols_icons/symbols.dart';
 import 'package:saber/components/theming/adaptive_icon.dart';
 import 'package:saber/components/theming/dynamic_material_app.dart';
 import 'package:saber/components/toolbar/color_bar.dart';
@@ -266,18 +269,15 @@ class _ToolbarState extends State<Toolbar> {
             final iconTheme = QuillIconTheme(
               iconButtonUnselectedData: IconButtonData(
                 style: baseButtonStyle.copyWith(
-                  backgroundColor:
-                      MaterialStateProperty.all(Colors.transparent),
-                  foregroundColor:
-                      MaterialStateProperty.all(colorScheme.primary),
+                  backgroundColor: WidgetStateProperty.all(Colors.transparent),
+                  foregroundColor: WidgetStateProperty.all(colorScheme.primary),
                 ),
               ),
               iconButtonSelectedData: IconButtonData(
                 style: baseButtonStyle.copyWith(
-                  backgroundColor:
-                      MaterialStateProperty.all(colorScheme.primary),
+                  backgroundColor: WidgetStateProperty.all(colorScheme.primary),
                   foregroundColor:
-                      MaterialStateProperty.all(colorScheme.onPrimary),
+                      WidgetStateProperty.all(colorScheme.onPrimary),
                 ),
               ),
             );
@@ -301,6 +301,9 @@ class _ToolbarState extends State<Toolbar> {
                             iconTheme: iconTheme,
                           ),
                         ),
+                        // scrollable on Android and iOS
+                        multiRowsDisplay:
+                            !Platform.isAndroid && !Platform.isIOS,
                         showUndo: false,
                         showRedo: false,
                         showFontSize: false,
@@ -435,8 +438,7 @@ class _ToolbarState extends State<Toolbar> {
                   widget.setTool(LaserPointer.currentLaserPointer);
                 },
                 padding: buttonPadding,
-                // TODO: use [Icons.stylusLaserPointer] when it's available
-                child: const FaIcon(FontAwesomeIcons.circleDot, size: 16),
+                child: const Icon(Symbols.stylus_laser_pointer),
               ),
               ToolbarIconButton(
                 tooltip: t.editor.toolbar.toggleEraser,
@@ -540,7 +542,7 @@ class _ToolbarState extends State<Toolbar> {
     ];
 
     return Material(
-      color: colorScheme.background,
+      color: colorScheme.surface,
       child: isToolbarVertical
           ? Row(
               textDirection:

@@ -7,7 +7,10 @@ import 'package:flutter/foundation.dart';
 import 'package:logging/logging.dart';
 import 'package:mutex/mutex.dart';
 import 'package:nextcloud/nextcloud.dart';
+import 'package:nextcloud/webdav.dart';
+import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
+import 'package:saber/data/nextcloud/errors.dart';
 import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/pages/editor/editor.dart';
@@ -21,9 +24,11 @@ abstract class FileSyncer {
 
   static PlainPref<Queue<String>> get _uploadQueue => Prefs.fileSyncUploadQueue;
   static final Queue<SyncFile> _downloadQueue = Queue();
-  static CancellableStruct _downloadCancellable = CancellableStruct();
+  static CancellableStruct _downloadCancellable = CancellableStruct()
+    ..cancelled = true;
+  static bool get isDownloading => !_downloadCancellable.cancelled;
 
-  static NextcloudClient? _client;
+  static NextcloudClient? _client = NextcloudClientExtension.withSavedDetails();
 
   static final ValueNotifier<int?> filesDone = ValueNotifier<int?>(null);
   static int get filesToSync =>
@@ -53,8 +58,9 @@ abstract class FileSyncer {
     _downloadCancellable = downloadCancellable;
 
     log.finer('startSync: Creating nextcloud client');
-    if (_client?.loginName != Prefs.username.value) _client = null;
-    _client ??= NextcloudClientExtension.withSavedDetails();
+    if (_client?.authentications?.isEmpty ?? true) {
+      _client = NextcloudClientExtension.withSavedDetails();
+    }
     if (_client == null) return 0;
 
     log.fine('startSync: Starting upload');
@@ -67,8 +73,8 @@ abstract class FileSyncer {
           .propfind(
             PathUri.parse(FileManager.appRootDirectoryPrefix),
             prop: const WebDavPropWithoutValues.fromBools(
-              davgetcontentlength: true,
-              davgetlastmodified: true,
+              davGetcontentlength: true,
+              davGetlastmodified: true,
             ),
           )
           .then((multistatus) => multistatus.toWebDavFiles());
@@ -118,7 +124,8 @@ abstract class FileSyncer {
     try {
       // Start downloading files one by one
       while (_downloadQueue.isNotEmpty &&
-          (maxFilesToSync == null || filesSynced < maxFilesToSync)) {
+          Prefs.loggedIn &&
+          filesSynced < (maxFilesToSync ?? double.infinity)) {
         final SyncFile file = _downloadQueue.removeFirst();
         log.finer(
             'startSync: Downloading ${file.localPath} (${file.remotePath})');
@@ -163,6 +170,7 @@ abstract class FileSyncer {
 
   /// Prevents multiple uploads from happening at once
   static final _uploadMutex = Mutex();
+  static bool get isUploading => _uploadMutex.isLocked;
 
   /// Picks the first filePath from [_uploadQueue] and uploads it
   @visibleForTesting
@@ -170,8 +178,9 @@ abstract class FileSyncer {
     await _uploadQueue.waitUntilLoaded();
     if (_uploadQueue.value.isEmpty) return;
 
-    if (_client?.loginName != Prefs.username.value) _client = null;
-    _client ??= NextcloudClientExtension.withSavedDetails();
+    if (_client?.authentications?.isEmpty ?? true) {
+      _client = NextcloudClientExtension.withSavedDetails();
+    }
     if (_client == null) return;
 
     await _uploadMutex.protect(() async {
@@ -273,10 +282,18 @@ abstract class FileSyncer {
     if (file.name.endsWith(encExtension)) {
       encryptedName =
           file.name.substring(0, file.name.length - encExtension.length);
+    } else if (file.path.path
+        .endsWith(NextcloudClientExtension.configFileUri.path)) {
+      _downloadQueue.addFirst(SyncFile(
+        encryptedName: NextcloudClientExtension.configFileName,
+        localPath: NextcloudClientExtension.configFileName,
+        webDavFile: file,
+      ));
+      return;
     } else {
       log.info('remote file not in recognised encrypted format: ${file.path}');
       return;
-    } // TODO: also sync config.sbc
+    }
 
     // decrypt file path
     String localPath = await workerManager.execute(
@@ -347,6 +364,29 @@ abstract class FileSyncer {
     Prefs.fileSyncAlreadyDeleted.notifyListeners();
   }
 
+  /// Updates the currently opened file if it's been modified on the server.
+  /// Returns true if the file was updated.
+  static Future<bool> refreshCurrentNote(EditorCoreInfo coreInfo) async {
+    final String filePathUnencrypted = coreInfo.filePath + Editor.extension;
+
+    final Encrypter encrypter = await _client!.encrypter;
+    final IV iv = IV.fromBase64(Prefs.iv.value);
+    final String encryptedName = await workerManager.execute(
+      () => encrypter.encrypt(filePathUnencrypted, iv: iv).base16,
+      priority: WorkPriority.veryHigh,
+    );
+
+    final syncFile = SyncFile(
+      encryptedName: encryptedName,
+      localPath: filePathUnencrypted,
+    );
+    final needsRefreshing = !await _shouldLocalFileBeKept(syncFile);
+    if (!needsRefreshing) return false;
+
+    log.info('Refreshing $filePathUnencrypted');
+    return await downloadFile(syncFile, awaitWrite: true);
+  }
+
   @visibleForTesting
   static Future<bool> downloadFile(SyncFile file,
       {bool awaitWrite = false}) async {
@@ -355,6 +395,18 @@ abstract class FileSyncer {
       FileManager.deleteFile(file.localPath);
       Prefs.fileSyncAlreadyDeleted.value.add(file.localPath);
       Prefs.fileSyncAlreadyDeleted.notifyListeners();
+      return true;
+    } else if (file.remotePath
+        .endsWith(NextcloudClientExtension.configFileUri.path)) {
+      // config file changed, try to get key from known enc password
+      try {
+        _client!.loadEncryptionKey(generateKeyIfMissing: false);
+      } on EncLoginFailure {
+        // enc password has changed since the user last logged in, so log out
+        Prefs.encPassword.value = '';
+        Prefs.key.value = '';
+        Prefs.iv.value = '';
+      }
       return true;
     }
 
@@ -421,8 +473,8 @@ abstract class FileSyncer {
             PathUri.parse(file.remotePath),
             depth: WebDavDepth.zero,
             prop: const WebDavPropWithoutValues.fromBools(
-              davgetlastmodified: true,
-              davgetcontentlength: true,
+              davGetlastmodified: true,
+              davGetcontentlength: true,
             ),
           )
           .then((multistatus) => multistatus.toWebDavFiles().single);

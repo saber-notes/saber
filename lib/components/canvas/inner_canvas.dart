@@ -94,7 +94,6 @@ class _InnerCanvasState extends State<InnerCanvas> {
               customStyles: _getQuillStyles(invert: invert),
               scrollable: false,
               autoFocus: false,
-              readOnly: false,
               expands: true,
               placeholder:
                   widget.textEditing ? t.editor.quill.typeSomething : null,

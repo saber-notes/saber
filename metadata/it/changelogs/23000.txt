@@ -1,0 +1,3 @@
+• Riprogettato il processo di accesso
+• Interrotta l'attivazione del salvataggio automatico nel mezzo di una bracciata
+• Risolto il problema con il quale l'impostazione dell'effetto sonoro della matita non veniva rilevata immediatamente

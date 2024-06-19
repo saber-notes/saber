@@ -1,0 +1,3 @@
+• Les utilisateurs d'Android peuvent désormais modifier le dossier dans lequel les notes sont stockées
+• Réduction de la taille de la barre d'outils de texte
+• Le zoom est désormais réglé sur 1,0x lors de la fermeture.
