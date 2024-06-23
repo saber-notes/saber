@@ -82,7 +82,7 @@ extension NextcloudClientExtension on NextcloudClient {
     IV? iv,
     Key? key,
   }) async {
-    encrypter ??= await this.encrypter;
+    encrypter ??= this.encrypter;
     iv ??= IV.fromBase64(Prefs.iv.value);
     key ??= Key.fromBase64(Prefs.key.value);
 
@@ -107,7 +107,7 @@ extension NextcloudClientExtension on NextcloudClient {
   Future<String> loadEncryptionKey({
     bool generateKeyIfMissing = true,
   }) async {
-    final Encrypter encrypter = await this.encrypter;
+    final Encrypter encrypter = this.encrypter;
 
     final Map<String, String> config = await getConfig();
     if (config.containsKey(Prefs.key.key) && config.containsKey(Prefs.iv.key)) {
@@ -148,7 +148,7 @@ extension NextcloudClientExtension on NextcloudClient {
     return user.body.ocs.data.id;
   }
 
-  Future<Encrypter> get encrypter async {
+  Encrypter get encrypter {
     final List<int> encodedPassword =
         utf8.encode(Prefs.encPassword.value + reproducibleSalt);
     final List<int> hashedPasswordBytes = sha256.convert(encodedPassword).bytes;

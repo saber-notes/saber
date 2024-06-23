@@ -69,13 +69,11 @@ class _MoveNoteDialogState extends State<_MoveNoteDialog> {
   late List<bool> oldExtensions =
       widget.filesToMove.map((name) => false).toList();
   Future<void> findOldExtensions() async {
-    final futures = <Future<bool>>[];
-    for (int i = 0; i < widget.filesToMove.length; ++i) {
-      futures.add(FileManager.doesFileExist(
-        '${widget.filesToMove[i]}${Editor.extensionOldJson}',
-      ));
-    }
-    oldExtensions = await Future.wait(futures);
+    oldExtensions = [
+      for (int i = 0; i < widget.filesToMove.length; ++i)
+        FileManager.doesFileExist(
+            '${widget.filesToMove[i]}${Editor.extensionOldJson}')
+    ];
   }
 
   late String _currentFolder;

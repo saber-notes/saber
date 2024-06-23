@@ -222,8 +222,8 @@ class _BrowsePageState extends State<BrowsePage> {
                 onPressed: () async {
                   await Future.wait([
                     for (String filePath in selectedFiles.value)
-                      FileManager.doesFileExist(
-                              filePath + Editor.extensionOldJson)
+                      Future.value(FileManager.doesFileExist(
+                              filePath + Editor.extensionOldJson))
                           .then((oldExtension) => FileManager.deleteFile(
                               filePath +
                                   (oldExtension

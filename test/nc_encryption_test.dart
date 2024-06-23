@@ -30,7 +30,7 @@ void main() {
     final String filePathUnencrypted = '/test.issue.118.${randomString(10)}';
     printOnFailure('File path unencrypted: $filePathUnencrypted');
 
-    final Encrypter encrypter = await client.encrypter;
+    final Encrypter encrypter = client.encrypter;
     final IV iv = IV.fromBase64(Prefs.iv.value);
     final String filePathEncrypted =
         encrypter.encrypt(filePathUnencrypted, iv: iv).base16;

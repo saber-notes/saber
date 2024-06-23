@@ -6,9 +6,9 @@ import 'package:go_router/go_router.dart';
 import 'package:nextcloud/provisioning_api.dart';
 import 'package:saber/components/theming/adaptive_icon.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
-import 'package:saber/data/nextcloud/file_syncer.dart';
 import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
 import 'package:saber/data/nextcloud/readable_bytes.dart';
+import 'package:saber/data/nextcloud/saber_syncer.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/data/routes.dart';
 import 'package:saber/i18n/strings.g.dart';
@@ -135,11 +135,11 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
                   ),
                   tooltip: t.settings.resyncEverything,
                   onPressed: () async {
+                    Prefs.fileSyncResyncEverythingDate.value = DateTime.now();
                     final allFiles = await FileManager.getAllFiles(
                         includeExtensions: true, includeAssets: true);
-                    Prefs.fileSyncResyncEverythingDate.value = DateTime.now();
                     for (final file in allFiles) {
-                      FileSyncer.addToUploadQueue(file);
+                      syncer.uploader.enqueueRel(file);
                     }
                   },
                 ),

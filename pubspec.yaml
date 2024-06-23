@@ -145,6 +145,11 @@ dependencies:
 
   simulator: ^0.3.0
 
+  abstract_sync:
+    git:
+      url: https://github.com/saber-notes/abstract_sync.git
+      ref: 8bb0e77be437754e57061c4173b3ca089d9d673f
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -18,8 +18,8 @@ import 'package:saber/components/home/banner_ad_widget.dart';
 import 'package:saber/components/theming/dynamic_material_app.dart';
 import 'package:saber/data/editor/pencil_sound.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
-import 'package:saber/data/nextcloud/file_syncer.dart';
 import 'package:saber/data/nextcloud/nc_http_overrides.dart';
+import 'package:saber/data/nextcloud/saber_syncer.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/data/routes.dart';
 import 'package:saber/data/tools/stroke_properties.dart';
@@ -119,7 +119,8 @@ void startSyncAfterLoaded() async {
   await Future.delayed(const Duration(milliseconds: 100));
 
   // start syncing
-  FileSyncer.startSync();
+  syncer.uploader.refresh();
+  syncer.downloader.refresh();
 }
 
 void setLocale() {
@@ -175,8 +176,24 @@ void doBackgroundSync() {
       Prefs.allowInsecureConnections.waitUntilLoaded(),
     ]);
 
-    final filesSynced = await FileSyncer.startSync(maxFilesToSync: 10);
-    return filesSynced > 0;
+    /// Only sync a few files to avoid using too much data/battery
+    const maxFilesSynced = 10;
+    var filesSynced = 0;
+    final completer = Completer<bool>();
+    late final StreamSubscription<SaberSyncFile> transferSubscription;
+    void transferListener([_]) {
+      filesSynced++;
+      if (filesSynced >= maxFilesSynced ||
+          syncer.downloader.numPending <= 0 ||
+          completer.isCompleted) {
+        transferSubscription.cancel();
+        if (!completer.isCompleted) completer.complete(filesSynced > 0);
+      }
+    }
+
+    transferSubscription =
+        syncer.downloader.transferStream.listen(transferListener);
+    return completer.future;
   });
 }
 

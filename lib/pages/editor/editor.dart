@@ -36,7 +36,7 @@ import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/editor/pencil_sound.dart';
 import 'package:saber/data/extensions/change_notifier_extensions.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
-import 'package:saber/data/nextcloud/file_syncer.dart';
+import 'package:saber/data/nextcloud/saber_syncer.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/data/tools/_tool.dart';
 import 'package:saber/data/tools/eraser.dart';
@@ -826,11 +826,23 @@ class EditorState extends State<Editor> {
     if (coreInfo.readOnly) return;
     if (!Prefs.loggedIn) return;
 
-    final updated = await FileSyncer.refreshCurrentNote(coreInfo);
-    if (!updated) return;
+    final syncFile =
+        await SaberSyncFile.relative(coreInfo.filePath + Editor.extension);
 
-    // load the updated note
-    _initStrokes();
+    final bestFile = await SaberSyncInterface.getBestFile(syncFile);
+    if (bestFile != BestFile.remote) return;
+
+    late final StreamSubscription<SaberSyncFile> subscription;
+    void listener(SaberSyncFile transferred) {
+      if (transferred != syncFile) return;
+      subscription.cancel();
+      _initStrokes();
+    }
+
+    subscription = syncer.downloader.transferStream.listen(listener);
+
+    await syncer.downloader.enqueue(syncFile: syncFile);
+    syncer.downloader.bringToFront(syncFile);
   }
 
   void autosaveAfterDelay() {
