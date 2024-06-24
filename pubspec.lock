@@ -301,10 +301,10 @@ packages:
     dependency: transitive
     description:
       name: dart_quill_delta
-      sha256: d22447015105b0958544eb514d69fa3b5335b7c991405f018777d7911b67c02f
+      sha256: "9374eded555be05e7ec99be4482dda0b72a8a5b291a84244a54f32692117d974"
       url: "https://pub.dev"
     source: hosted
-    version: "9.4.3"
+    version: "9.4.6"
   decimal:
     dependency: transitive
     description:
@@ -532,10 +532,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_quill
-      sha256: "8d9c81ff68d90686c06b5543bed1461be392f9c470e6d54f6dcba44215f731cd"
+      sha256: "8101c805242016c46671a1950887b3bda3c1c98d2078f99567c587c33b393343"
       url: "https://pub.dev"
     source: hosted
-    version: "9.4.3"
+    version: "9.4.6"
   flutter_secure_storage:
     dependency: "direct main"
     description:
@@ -1269,10 +1269,10 @@ packages:
     dependency: "direct main"
     description:
       name: slang
-      sha256: "0d8a8cbfd7858ed2bd9164a79bfb664ea83f1e124740b28acd0618757fc87ecc"
+      sha256: f68f6d6709890f85efabfb0318e9d694be2ebdd333e57fe5cb50eee449e4e3ab
       url: "https://pub.dev"
     source: hosted
-    version: "3.31.0"
+    version: "3.31.1"
   slang_flutter:
     dependency: "direct main"
     description:
