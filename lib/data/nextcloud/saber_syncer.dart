@@ -100,7 +100,8 @@ class SaberSyncInterface
     if (decryptedPath == NextcloudClientExtension.configFileName)
       return SaberSyncFile(
         remoteFile: remoteFile,
-        localFile: File(NextcloudClientExtension.configFileName),
+        localFile:
+            FileManager.getFile('/${NextcloudClientExtension.configFileName}'),
       );
 
     final relativeLocalPath = '${FileManager.documentsDirectory}$decryptedPath';
@@ -111,7 +112,7 @@ class SaberSyncInterface
 
   @override
   Future<Uint8List> downloadRemoteFile(SaberSyncFile file) async {
-    if (file.localFile.path == NextcloudClientExtension.configFileName) {
+    if (file.localFile.path.endsWith(NextcloudClientExtension.configFileName)) {
       // Config file changed
       try {
         _client!.loadEncryptionKey(generateKeyIfMissing: false);
