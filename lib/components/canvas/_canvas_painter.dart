@@ -33,7 +33,7 @@ class CanvasPainter extends CustomPainter {
 
   final bool invert;
   final List<Stroke> strokes;
-  final List<Stroke> laserStrokes;
+  final List<LaserStroke> laserStrokes;
   final Stroke? currentStroke;
   final SelectResult? currentSelection;
   final Color primaryColor;
@@ -147,8 +147,8 @@ class CanvasPainter extends CustomPainter {
   void _drawCurrentStroke(Canvas canvas) {
     if (currentStroke == null) return;
 
-    if (currentStroke!.penType == (LaserPointer).toString()) {
-      return _drawLaserStroke(canvas, currentStroke!);
+    if (currentStroke! is LaserStroke) {
+      return _drawLaserStroke(canvas, currentStroke as LaserStroke);
     }
 
     final color = currentStroke!.color.withInversion(invert);
@@ -179,7 +179,7 @@ class CanvasPainter extends CustomPainter {
     }
   }
 
-  void _drawLaserStroke(Canvas canvas, Stroke stroke) {
+  void _drawLaserStroke(Canvas canvas, LaserStroke stroke) {
     canvas.drawPath(
       stroke.path,
       Paint()
@@ -188,6 +188,10 @@ class CanvasPainter extends CustomPainter {
           BlurStyle.solid,
           stroke.options.size * 0.5,
         ),
+    );
+    canvas.drawPath(
+      stroke.innerPath,
+      Paint()..color = const Color(0xDDffffff),
     );
   }
 

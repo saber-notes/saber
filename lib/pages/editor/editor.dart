@@ -702,7 +702,7 @@ class EditorState extends State<Editor> {
         }
       } else if (currentTool is LaserPointer) {
         shouldSave = false;
-        Stroke newStroke = (currentTool as LaserPointer).onDragEnd(
+        final newStroke = (currentTool as LaserPointer).onDragEnd(
           page.redrawStrokes,
           (Stroke stroke) {
             page.laserStrokes.remove(stroke);

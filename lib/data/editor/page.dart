@@ -10,6 +10,7 @@ import 'package:saber/components/canvas/image/editor_image.dart';
 import 'package:saber/components/canvas/inner_canvas.dart';
 import 'package:saber/components/canvas/pencil_shader.dart';
 import 'package:saber/data/tools/highlighter.dart';
+import 'package:saber/data/tools/laser_pointer.dart';
 
 typedef CanvasKey = GlobalKey<State<InnerCanvas>>;
 
@@ -46,7 +47,7 @@ class EditorPage extends Listenable implements HasSize {
   late final pencilShader = PencilShader.create();
 
   final List<Stroke> strokes;
-  final List<Stroke> laserStrokes;
+  final List<LaserStroke> laserStrokes;
   final List<EditorImage> images;
   final QuillStruct quill;
 

@@ -15,7 +15,8 @@ class LaserPointer extends Tool {
   @override
   ToolId get toolId => ToolId.laserPointer;
 
-  final color = Colors.red;
+  static const innerColor = Color(0xFFffdddd);
+  static const outerColor = Colors.red;
   final pressureEnabled = false;
   final options = StrokeOptions(
     thinning: 0,
@@ -39,8 +40,8 @@ class LaserPointer extends Tool {
 
   void onDragStart(Offset position, EditorPage page, int pageIndex) {
     isDrawing = true;
-    Pen.currentStroke = Stroke(
-      color: color,
+    Pen.currentStroke = LaserStroke(
+      color: outerColor,
       pressureEnabled: pressureEnabled,
       options: options.copyWith(),
       pageIndex: pageIndex,
@@ -61,7 +62,7 @@ class LaserPointer extends Tool {
     _stopwatch.reset();
   }
 
-  Stroke onDragEnd(
+  LaserStroke onDragEnd(
       VoidCallback redrawPage, void Function(Stroke) deleteStroke) {
     isDrawing = false;
 
@@ -72,7 +73,7 @@ class LaserPointer extends Tool {
       deleteStroke: deleteStroke,
     );
 
-    final Stroke stroke = Pen.currentStroke!
+    final stroke = (Pen.currentStroke! as LaserStroke)
       ..options.isComplete = true
       ..markPolygonNeedsUpdating();
     Pen.currentStroke = null;
@@ -106,5 +107,49 @@ class LaserPointer extends Tool {
 
     deleteStroke(stroke);
     redrawPage();
+  }
+}
+
+class LaserStroke extends Stroke {
+  LaserStroke({
+    required super.color,
+    required super.pressureEnabled,
+    required super.options,
+    required super.pageIndex,
+    required EditorPage super.page,
+    required super.penType,
+  });
+  LaserStroke.convertStroke(Stroke stroke)
+      : super(
+          color: stroke.color,
+          pressureEnabled: stroke.pressureEnabled,
+          options: stroke.options,
+          pageIndex: stroke.pageIndex,
+          page: stroke.page,
+          penType: stroke.penType,
+        ) {
+    points.addAll(stroke.points);
+  }
+
+  @override
+  void updatePolygon() {
+    super.updatePolygon();
+    innerPolygon = _getInnerPolygon();
+    innerPath = _getInnerPath();
+  }
+
+  late List<Offset> innerPolygon = const [];
+  late Path innerPath = Path();
+
+  List<Offset> _getInnerPolygon() => getStroke(
+        points,
+        options: options.copyWith(size: options.size * 0.5),
+      );
+
+  Path _getInnerPath() {
+    if (!options.isComplete)
+      return Path()..addPolygon(innerPolygon, true);
+    else
+      return Stroke.smoothPathFromPolygon(innerPolygon);
   }
 }
