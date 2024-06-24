@@ -1884,7 +1884,7 @@ class _StringsLoginCs extends _StringsLoginEn {
 	@override final _StringsCs _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Přihlásit se';
+	@override String get title => 'Přihlášení';
 	@override late final _StringsLoginFormCs form = _StringsLoginFormCs._(_root);
 	@override TextSpan signup({required InlineSpanBuilder linkToSignup}) => TextSpan(children: [
 		const TextSpan(text: 'Ještě nemáte účet? '),
@@ -2281,7 +2281,7 @@ class _StringsLoginEncLoginStepCs extends _StringsLoginEncLoginStepEn {
 	@override final _StringsCs _root; // ignore: unused_field
 
 	// Translations
-	@override String get enterEncPassword => 'Zadejte prosím heslo pro šifrování, abyste chránili svá data:';
+	@override String get enterEncPassword => 'Pro ochranu svých dat prosím zadejte heslo pro šifrování:';
 	@override String get newToSaber => 'Poprvé v aplikaci Saber? Stačí zadat nové heslo pro šifrování.';
 	@override String get encPassword => 'Heslo pro šifrování';
 	@override String get encFaqTitle => 'Často kladené otázky';
@@ -2335,7 +2335,7 @@ class _StringsProfile$faq$0i2$Cs extends _StringsProfile$faq$0i2$En {
 
 	// Translations
 	@override String get q => 'Jak změním své heslo pro šifrování?';
-	@override String get a => '1. Odhlašte se z aplikace Saber. Před odhlášením se ujistěte, že byla dokončena synchronizace a nepřijdete o žádná data (průběh synchronizace uvidíte na domovské obrazovce).\n2. Přejděte na webovou stránku vašeho serveru a smažte složku \'Saber\'. Tím ze serveru odstraníte všechny poznámky.\n3. Opětovně se přihlašte do aplikace Saber. Při přihlašování můžete zvolit nové heslo pro šifrování.\n4. Nezapomeňte se z aplikace Saber odhlásit a opětovně se do ní přihlásit na ostatních zařízeních.';
+	@override String get a => '1. Odhlašte se z aplikace Saber. Před odhlášením se ujistěte, že byla dokončena synchronizace a nepřijdete o žádná data (průběh synchronizace uvidíte na domovské obrazovce).\n2. Přejděte na webovou stránku vašeho serveru a smažte složku „Saber“. Tím ze serveru odstraníte všechny poznámky.\n3. Opětovně se přihlašte do aplikace Saber. Při přihlašování můžete zvolit nové heslo pro šifrování.\n4. Nezapomeňte se z aplikace Saber odhlásit a opětovně se do ní přihlásit na ostatních zařízeních.';
 }
 
 // Path: profile.faq.3
@@ -2346,7 +2346,7 @@ class _StringsProfile$faq$0i3$Cs extends _StringsProfile$faq$0i3$En {
 
 	// Translations
 	@override String get q => 'Jak odstraním svůj účet?';
-	@override String get a => 'Klepněte na tlačítko "${_root.profile.quickLinks.deleteAccount}" umístěné výše a přihlašte se, pokud to bude vyžadováno.\nPokud používáte výchozí server od aplikace Saber, bude váš účet odstraněn po uplynutí týdenní ochranné lhůty. Během této lhůty mě můžete kontaktovat pro odvolání zrušení účtu na adilhanney@disroot.org.\nPokud používáte server třetí strany, nemusí nabízet možnost odstranění účtu: pro více informací se bude třeba obrátit na zásady ochrany osobních údajů daného serveru.';
+	@override String get a => 'Klepněte na tlačítko „${_root.profile.quickLinks.deleteAccount}“ umístěné výše a přihlašte se, pokud to bude vyžadováno.\nPokud používáte oficiální server od aplikace Saber, bude váš účet odstraněn po uplynutí týdenní ochranné lhůty. Během této lhůty mě můžete kontaktovat pro odvolání zrušení účtu na adilhanney@disroot.org.\nPokud používáte server třetí strany, nemusí nabízet možnost odstranění účtu: pro více informací se bude třeba obrátit na zásady ochrany osobních údajů daného serveru.';
 }
 
 // Path: editor.toolbar
@@ -2560,7 +2560,7 @@ class _StringsLoginEncLoginStep$encFaq$0i0$Cs extends _StringsLoginEncLoginStep$
 
 	// Translations
 	@override String get q => 'Co je to heslo pro šifrování? Proč používat dvě hesla?';
-	@override String get a => 'Heslo k Nextcloud účtu se používá k přístupu do cloudu. Heslo pro šifrování „zamaskuje“ vaše data dokonce ještě než dorazí na cloud.\nI když by někdo získat přístup k vašemu Nextcloud účtu, vaše poznámky zůstanou v bezpečí a zašifrované oddělným heslem. To vám přináší druhou úroveň bezpečnosti ochrany vašich dat.\nNikdo k vašim poznámkám nemůže přistoupit bez hesla pro šifrování, což ale také znamená, že pokud své heslo pro šifrování zapomenete, ztratíte přístup ke svým datům.';
+	@override String get a => 'Heslo k Nextcloud účtu se používá pro přístup do cloudu. Heslo pro šifrování „zamaskuje“ vaše data dokonce ještě, než dorazí na cloud.\nI kdyby někdo získal přístup k vašemu Nextcloud účtu, vaše poznámky zůstanou v bezpečí, zašifrované oddělným heslem. To vám přináší druhou úroveň bezpečnosti ochrany vašich dat.\nNikdo k vašim poznámkám nemůže přistoupit bez hesla pro šifrování, což ale také znamená, že pokud své heslo pro šifrování zapomenete, ztratíte přístup ke svým datům.';
 }
 
 // Path: login.encLoginStep.encFaq.1
