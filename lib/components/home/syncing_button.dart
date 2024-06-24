@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:mutex/mutex.dart';
 import 'package:saber/components/theming/adaptive_icon.dart';
 import 'package:saber/data/nextcloud/saber_syncer.dart';
 import 'package:saber/data/prefs.dart';
@@ -16,6 +17,9 @@ class SyncingButton extends StatefulWidget {
 class _SyncingButtonState extends State<SyncingButton> {
   /// The number of files transferred since we started listening.
   int filesTransferred = 0;
+
+  /// A mutex to prevent multiple refreshes from happening at once.
+  static final _refreshMutex = Mutex();
 
   late final StreamSubscription queueListener, transferListener;
 
@@ -42,30 +46,46 @@ class _SyncingButtonState extends State<SyncingButton> {
     if (mounted) setState(() {});
   }
 
+  /// Returns a value between 0-1 representing the progress of the sync,
+  /// or null if we're still refreshing.
   double? getPercentage() {
+    if (_refreshMutex.isLocked) {
+      // If still refreshing, show an indeterminate progress indicator.
+      return null;
+    }
+
     final numPending = syncer.downloader.numPending;
-    if (numPending == 0) return null;
+    if (numPending == 0) return 1;
 
     return filesTransferred / (filesTransferred + numPending);
+  }
+
+  void onPressed() {
+    assert(Prefs.loggedIn);
+
+    // Don't refresh if we're already refreshing.
+    if (_refreshMutex.isLocked) return;
+
+    // Reset progress indicator
+    filesTransferred = 0;
+    if (mounted) setState(() {});
+
+    _refreshMutex.protect(syncer.downloader.refresh).then((_) {
+      if (mounted) setState(() {});
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     double? percentage = getPercentage();
-    final loggedIn = Prefs.loggedIn;
 
     return IconButton(
-      onPressed: loggedIn
-          ? () {
-              filesTransferred = 0; // reset progress indicator
-              syncer.downloader.refresh();
-            }
-          : null,
+      onPressed: Prefs.loggedIn ? onPressed : null,
       icon: Stack(
         alignment: Alignment.center,
         children: [
           AnimatedOpacity(
-            opacity: (loggedIn && (percentage ?? 0) < 1) ? 1 : 0,
+            opacity: (Prefs.loggedIn && (percentage ?? 0) < 1) ? 1 : 0,
             duration: const Duration(milliseconds: 200),
             child: _AnimatedCircularProgressIndicator(
               duration: const Duration(milliseconds: 200),
