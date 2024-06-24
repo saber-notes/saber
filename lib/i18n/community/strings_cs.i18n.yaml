@@ -190,7 +190,7 @@ login:
 profile:
   title: Můj profil
   logout: Odhlásit se
-  quotaUsage: Využíváte $used z $total ($percent)
+  quotaUsage: Využíváte $used z $total ($percent %)
   connectedTo: Připojeno k
   quickLinks:
     serverHomepage: Webové stránky serveru

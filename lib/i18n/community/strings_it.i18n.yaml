@@ -190,7 +190,7 @@ login:
 profile:
   title: Il mio profilo
   logout: Log out
-  quotaUsage: Stai $used di $total ($percent)
+  quotaUsage: Stai $used di $total ($percent%)
   connectedTo: Collegato a
   quickLinks:
     serverHomepage: Homepage del server

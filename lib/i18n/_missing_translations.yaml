@@ -109,7 +109,7 @@ ar:
         - q: "Can I use the same password as my Nextcloud account?"
           a: "Yes, but keep in mind that it would be easier for the server administrator or someone else to access your notes if they gain access to your Nextcloud account."
   profile:
-    quotaUsage(OUTDATED): You're using $used of $total ($percent)
+    quotaUsage(OUTDATED): You're using $used of $total ($percent%)
     connectedTo(OUTDATED): Connected to
     faqTitle(OUTDATED): Frequently asked questions
   update:
@@ -197,7 +197,7 @@ es:
         - q: "Can I use the same password as my Nextcloud account?"
           a: "Yes, but keep in mind that it would be easier for the server administrator or someone else to access your notes if they gain access to your Nextcloud account."
   profile:
-    quotaUsage(OUTDATED): You're using $used of $total ($percent)
+    quotaUsage(OUTDATED): You're using $used of $total ($percent%)
     connectedTo(OUTDATED): Connected to
     faqTitle(OUTDATED): Frequently asked questions
   update:
@@ -269,7 +269,7 @@ fa:
         - q: "Can I use the same password as my Nextcloud account?"
           a: "Yes, but keep in mind that it would be easier for the server administrator or someone else to access your notes if they gain access to your Nextcloud account."
   profile:
-    quotaUsage(OUTDATED): You're using $used of $total ($percent)
+    quotaUsage(OUTDATED): You're using $used of $total ($percent%)
     connectedTo(OUTDATED): Connected to
     faqTitle(OUTDATED): Frequently asked questions
   update:
@@ -335,7 +335,7 @@ fr:
         - q: "Can I use the same password as my Nextcloud account?"
           a: "Yes, but keep in mind that it would be easier for the server administrator or someone else to access your notes if they gain access to your Nextcloud account."
   profile:
-    quotaUsage(OUTDATED): You're using $used of $total ($percent)
+    quotaUsage(OUTDATED): You're using $used of $total ($percent%)
     connectedTo(OUTDATED): Connected to
     faqTitle(OUTDATED): Frequently asked questions
   update:
@@ -418,7 +418,7 @@ he:
         - q: "Can I use the same password as my Nextcloud account?"
           a: "Yes, but keep in mind that it would be easier for the server administrator or someone else to access your notes if they gain access to your Nextcloud account."
   profile:
-    quotaUsage(OUTDATED): You're using $used of $total ($percent)
+    quotaUsage(OUTDATED): You're using $used of $total ($percent%)
     connectedTo(OUTDATED): Connected to
     faqTitle(OUTDATED): Frequently asked questions
   update:
@@ -576,7 +576,7 @@ hu:
   profile:
     title(OUTDATED): My profile
     logout(OUTDATED): Log out
-    quotaUsage(OUTDATED): You're using $used of $total ($percent)
+    quotaUsage(OUTDATED): You're using $used of $total ($percent%)
     connectedTo(OUTDATED): Connected to
     quickLinks:
       serverHomepage(OUTDATED): Server homepage
@@ -757,7 +757,7 @@ ja:
         - q: "Can I use the same password as my Nextcloud account?"
           a: "Yes, but keep in mind that it would be easier for the server administrator or someone else to access your notes if they gain access to your Nextcloud account."
   profile:
-    quotaUsage(OUTDATED): You're using $used of $total ($percent)
+    quotaUsage(OUTDATED): You're using $used of $total ($percent%)
     connectedTo(OUTDATED): Connected to
     faqTitle(OUTDATED): Frequently asked questions
   update:
@@ -851,7 +851,7 @@ pt-BR:
         - q: "Can I use the same password as my Nextcloud account?"
           a: "Yes, but keep in mind that it would be easier for the server administrator or someone else to access your notes if they gain access to your Nextcloud account."
   profile:
-    quotaUsage(OUTDATED): You're using $used of $total ($percent)
+    quotaUsage(OUTDATED): You're using $used of $total ($percent%)
     connectedTo(OUTDATED): Connected to
     faqTitle(OUTDATED): Frequently asked questions
   update:
@@ -928,7 +928,7 @@ tr:
         - q: "Can I use the same password as my Nextcloud account?"
           a: "Yes, but keep in mind that it would be easier for the server administrator or someone else to access your notes if they gain access to your Nextcloud account."
   profile:
-    quotaUsage(OUTDATED): You're using $used of $total ($percent)
+    quotaUsage(OUTDATED): You're using $used of $total ($percent%)
     connectedTo(OUTDATED): Connected to
     faqTitle(OUTDATED): Frequently asked questions
   editor:
@@ -984,7 +984,7 @@ zh-Hans-CN:
         - q: "Can I use the same password as my Nextcloud account?"
           a: "Yes, but keep in mind that it would be easier for the server administrator or someone else to access your notes if they gain access to your Nextcloud account."
   profile:
-    quotaUsage(OUTDATED): You're using $used of $total ($percent)
+    quotaUsage(OUTDATED): You're using $used of $total ($percent%)
     connectedTo(OUTDATED): Connected to
     faqTitle(OUTDATED): Frequently asked questions
   editor:
