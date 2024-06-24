@@ -51,7 +51,14 @@ class SaberSyncInterface
 
     final changedFiles = <SaberSyncFile>[];
     for (final remoteFile in remoteFiles) {
-      final syncFile = await getSyncFileFromRemoteFile(remoteFile);
+      final SaberSyncFile syncFile;
+      try {
+        syncFile = await getSyncFileFromRemoteFile(remoteFile);
+      } catch (e) {
+        log.warning('Failed to get sync file from remote file: $e', e);
+        continue;
+      }
+
       final bestFile = await getBestFile(syncFile);
       switch (bestFile) {
         case BestFile.local:
