@@ -56,7 +56,7 @@ android {
     }
 
     dependencies {
-        implementation('com.onyx.android.sdk:onyxsdk-device:1.2.27')
-        implementation('com.onyx.android.sdk:onyxsdk-pen:1.4.8')
+        implementation('com.onyx.android.sdk:onyxsdk-device:1.2.21')
+        implementation('com.onyx.android.sdk:onyxsdk-pen:1.4.4')
     }
 }

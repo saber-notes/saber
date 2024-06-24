@@ -1,3 +1,7 @@
+## 1.2.3
+
+- Reverted the SDK update from v1.2.1 to hopefully make this package work again
+
 ## 1.2.2
 
 - Improved pub.dev scores
