@@ -4,12 +4,11 @@ packages:
   abstract_sync:
     dependency: "direct main"
     description:
-      path: "."
-      ref: "57c87bb9d219acb59b4e022a177d2773020cdb6d"
-      resolved-ref: "57c87bb9d219acb59b4e022a177d2773020cdb6d"
-      url: "https://github.com/saber-notes/abstract_sync.git"
-    source: git
-    version: "0.0.1"
+      name: abstract_sync
+      sha256: "157bc1cc546d0de58159408a77d2a4b1fab9527eb0e6123a787a7900719d3162"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.0"
   animated_vector:
     dependency: transitive
     description:
