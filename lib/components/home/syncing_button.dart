@@ -18,9 +18,6 @@ class _SyncingButtonState extends State<SyncingButton> {
   /// The number of files transferred since we started listening.
   int filesTransferred = 0;
 
-  /// A mutex to prevent multiple refreshes from happening at once.
-  static final _refreshMutex = Mutex();
-
   late final StreamSubscription queueListener, transferListener;
 
   @override
@@ -49,7 +46,7 @@ class _SyncingButtonState extends State<SyncingButton> {
   /// Returns a value between 0-1 representing the progress of the sync,
   /// or null if we're still refreshing.
   double? getPercentage() {
-    if (_refreshMutex.isLocked) {
+    if (syncer.downloader.isRefreshing) {
       // If still refreshing, show an indeterminate progress indicator.
       return null;
     }
@@ -64,13 +61,13 @@ class _SyncingButtonState extends State<SyncingButton> {
     assert(Prefs.loggedIn);
 
     // Don't refresh if we're already refreshing.
-    if (_refreshMutex.isLocked) return;
+    if (syncer.downloader.isRefreshing) return;
 
     // Reset progress indicator
     filesTransferred = 0;
     if (mounted) setState(() {});
 
-    _refreshMutex.protect(syncer.downloader.refresh).then((_) {
+    syncer.downloader.refresh().then((_) {
       if (mounted) setState(() {});
     });
   }

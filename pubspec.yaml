@@ -148,7 +148,7 @@ dependencies:
   abstract_sync:
     git:
       url: https://github.com/saber-notes/abstract_sync.git
-      ref: 8bb0e77be437754e57061c4173b3ca089d9d673f
+      ref: 57c87bb9d219acb59b4e022a177d2773020cdb6d
 
 dev_dependencies:
   flutter_test:
