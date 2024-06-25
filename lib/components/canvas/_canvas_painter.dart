@@ -186,7 +186,7 @@ class CanvasPainter extends CustomPainter {
         ..color = stroke.color.withInversion(invert)
         ..maskFilter = MaskFilter.blur(
           BlurStyle.solid,
-          stroke.options.size * 0.5,
+          stroke.options.size * 0.4,
         ),
     );
     canvas.drawPath(

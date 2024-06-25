@@ -15,11 +15,9 @@ class LaserPointer extends Tool {
   @override
   ToolId get toolId => ToolId.laserPointer;
 
-  static const innerColor = Color(0xFFffdddd);
   static const outerColor = Colors.red;
   final pressureEnabled = false;
   final options = StrokeOptions(
-    thinning: 0,
     smoothing: 0.7,
     streamline: 0.7,
   );
@@ -119,11 +117,14 @@ class LaserStroke extends Stroke {
     required EditorPage super.page,
     required super.penType,
   });
+  @visibleForTesting
   LaserStroke.convertStroke(Stroke stroke)
       : super(
           color: stroke.color,
           pressureEnabled: stroke.pressureEnabled,
-          options: stroke.options,
+          options: stroke.options
+            ..streamline = 0.7
+            ..smoothing = 0.7,
           pageIndex: stroke.pageIndex,
           page: stroke.page,
           penType: stroke.penType,
@@ -143,7 +144,7 @@ class LaserStroke extends Stroke {
 
   List<Offset> _getInnerPolygon() => getStroke(
         points,
-        options: options.copyWith(size: options.size * 0.5),
+        options: options.copyWith(size: options.size * 0.4),
       );
 
   Path _getInnerPath() {
