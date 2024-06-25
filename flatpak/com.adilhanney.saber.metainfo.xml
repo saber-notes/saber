@@ -203,6 +203,15 @@
     </screenshots>
 
     <releases>
+        <release version="0.24.0" type="development" date="2024-06-24">
+            <description>
+                <ul>
+                    <li>Major syncing speed improvements</li>
+                    <li>Better handling of outdated encryption passwords</li>
+                    <li>Improved rendering of laser strokes</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.23.3" type="development" date="2024-06-17">
             <description>
                 <ul>
