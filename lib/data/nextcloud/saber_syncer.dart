@@ -352,8 +352,6 @@ class SaberSyncInterface
     NextcloudClient? client,
     String path,
   ) async {
-    if (_decryptMap.containsKey(path)) return _decryptMap[path]!;
-
     // Ignore README.md and other ignored files
     if (_ignoredFiles.any(path.endsWith)) return null;
 
@@ -369,6 +367,9 @@ class SaberSyncInterface
       log.info('remote file not in recognised encrypted format: $path');
       return null;
     }
+
+    if (_decryptMap.containsKey(encryptedName))
+      return _decryptMap[encryptedName]!;
 
     if (client == null)
       throw Exception('Tried to decrypt path without being logged in');
@@ -386,8 +387,8 @@ class SaberSyncInterface
       decrypted = decrypted.substring('null/'.length - 1);
     }
 
-    _encryptMap[decrypted] = path;
-    _decryptMap[path] = decrypted;
+    _encryptMap[decrypted] = encryptedName;
+    _decryptMap[encryptedName] = decrypted;
     return decrypted;
   }
 
