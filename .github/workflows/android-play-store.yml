@@ -34,6 +34,9 @@ jobs:
 
       - name: Remove REQUEST_INSTALL_PACKAGES permission
         run: ./patches/remove_request_install_packages_permission.sh
+      
+      - name: Remove simulator dependency
+        run: ./patches/remove_simulator_dependency.sh
 
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
