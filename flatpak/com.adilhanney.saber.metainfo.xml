@@ -203,6 +203,16 @@
     </screenshots>
 
     <releases>
+        <release version="0.24.1" type="development" date="2024-06-26">
+            <description>
+                <ul>
+                    <li>Reduced the glow effect of laser strokes</li>
+                    <li>The syncer will automatically pick up new files on your device</li>
+                    <li>Fixed a bug where uploading a file would fail after downloading it</li>
+                    <li>Run Saber with a <code>-v</code> flag for more detailed logs</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.24.0" type="development" date="2024-06-24">
             <description>
                 <ul>
