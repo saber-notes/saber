@@ -170,6 +170,8 @@ class FileManager {
     }
   }
 
+  static Directory getRootDirectory() => Directory(documentsDirectory);
+
   /// Writes [toWrite] to [filePath].
   static Future<void> writeFile(String filePath, List<int> toWrite,
       {bool awaitWrite = false, bool alsoUpload = true}) async {

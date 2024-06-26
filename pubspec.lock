@@ -5,10 +5,10 @@ packages:
     dependency: "direct main"
     description:
       name: abstract_sync
-      sha256: "157bc1cc546d0de58159408a77d2a4b1fab9527eb0e6123a787a7900719d3162"
+      sha256: d8bab4809e9c00cd4c9e925fd00de6ab6f117b509793a2b76602ba1e247e74c8
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.0"
+    version: "1.2.0"
   animated_vector:
     dependency: transitive
     description:

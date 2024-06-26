@@ -32,11 +32,27 @@ class SaberSyncInterface
 
   @override
   Future<List<SaberSyncFile>> findLocalChanges() async {
+    while (remoteFiles.isEmpty) {
+      // Wait for [findRemoteChanges] to populate [remoteFiles]
+      await Future.delayed(const Duration(milliseconds: 200));
+    }
+
     final syncFiles = <SaberSyncFile>[];
-    for (final relativeLocalPath in Prefs.fileSyncUploadQueue.value) {
-      final localFile = FileManager.getFile(relativeLocalPath);
+    await for (final localFile
+        in FileManager.getRootDirectory().list(recursive: true)) {
+      if (localFile is! File) continue;
+
       final syncFile = await getSyncFileFromLocalFile(localFile);
-      syncFiles.add(syncFile);
+
+      final bestFile = await getBestFile(syncFile);
+      switch (bestFile) {
+        case BestFile.local:
+          syncFiles.add(syncFile);
+        case BestFile.remote:
+        case BestFile.either:
+          // Remote file is newer, do nothing
+          break;
+      }
     }
     return syncFiles;
   }
@@ -62,10 +78,10 @@ class SaberSyncInterface
       final bestFile = await getBestFile(syncFile);
       switch (bestFile) {
         case BestFile.local:
+        case BestFile.either:
           // Local file is newer, do nothing
           break;
         case BestFile.remote:
-        case BestFile.either:
           changedFiles.add(syncFile);
       }
     }

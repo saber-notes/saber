@@ -145,7 +145,7 @@ dependencies:
 
   simulator: ^0.3.0
 
-  abstract_sync: ^1.0.0
+  abstract_sync: ^1.2.0
 
 dev_dependencies:
   flutter_test:

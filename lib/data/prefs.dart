@@ -139,8 +139,10 @@ abstract class Prefs {
 
   static late final PlainPref<List<String>> recentFiles;
 
-  /// File paths that need to be uploaded to Nextcloud
-  static late final PlainPref<Queue<String>> fileSyncUploadQueue;
+  @Deprecated('We just list the files in the directory now. '
+      'This Pref exists to deprecate the shared preference.')
+  // ignore: unused_field
+  static late final PlainPref<List<String>> _fileSyncUploadQueue;
 
   /// File paths that have been deleted locally
   static late final PlainPref<Set<String>> fileSyncAlreadyDeleted;
@@ -273,7 +275,9 @@ abstract class Prefs {
     recentFiles = PlainPref('recentFiles', [],
         historicalKeys: const ['recentlyAccessed']);
 
-    fileSyncUploadQueue = PlainPref('fileSyncUploadQueue', Queue<String>());
+    // ignore: deprecated_member_use_from_same_package
+    _fileSyncUploadQueue = PlainPref('_fileSyncUploadQueue', const [],
+        deprecatedKeys: const ['fileSyncUploadQueue']);
     fileSyncAlreadyDeleted = PlainPref('fileSyncAlreadyDeleted', {});
     fileSyncCorruptFiles = PlainPref('fileSyncCorruptFiles', {});
     // By default, we resync everything uploaded before v0.18.4, since uploads before then resulted in 0B files.
