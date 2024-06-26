@@ -9,6 +9,10 @@
     <name>Saber</name>
     <summary>The notes app built for handwriting</summary>
     <url type="homepage">https://github.com/saber-notes/saber</url>
+    <url type="bugtracker">https://github.com/saber-notes/saber/issues</url>
+    <url type="donation">https://github.com/sponsors/adil192</url>
+    <url type="donation">https://liberapay.com/adil192</url>
+    <url type="translate">https://github.com/saber-notes/saber#translating</url>
 
     <developer id="com.adilhanney">
         <name>Adil Hanney</name>
