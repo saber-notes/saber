@@ -32,7 +32,7 @@ class SaberSyncInterface
 
   @override
   Future<List<SaberSyncFile>> findLocalChanges() async {
-    while (remoteFiles.isEmpty) {
+    for (var tries = 0; tries < 10 && remoteFiles.isEmpty; ++tries) {
       // Wait for [findRemoteChanges] to populate [remoteFiles]
       await Future.delayed(const Duration(milliseconds: 200));
     }
