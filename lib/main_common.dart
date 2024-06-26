@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:developer' as dev;
 import 'dart:io';
 
+import 'package:args/args.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -31,14 +32,19 @@ import 'package:window_manager/window_manager.dart';
 import 'package:worker_manager/worker_manager.dart';
 import 'package:workmanager/workmanager.dart';
 
-Future<void> main({
+Future<void> main(
+  List<String> args, {
   WidgetsBinding? Function() initWidgetsBinding =
       WidgetsFlutterBinding.ensureInitialized,
   void Function(Widget) runApp = runApp,
 }) async {
   initWidgetsBinding();
 
-  Logger.root.level = kDebugMode ? Level.INFO : Level.WARNING;
+  final parser = ArgParser()..addFlag('verbose', abbr: 'v', negatable: false);
+  final parsedArgs = parser.parse(args);
+
+  Logger.root.level =
+      (kDebugMode || parsedArgs.flag('verbose')) ? Level.INFO : Level.WARNING;
   Logger.root.onRecord.listen((record) {
     // ignore: avoid_print
     print('${record.level.name}: ${record.loggerName}: ${record.message}');
