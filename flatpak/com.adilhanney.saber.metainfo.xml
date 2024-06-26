@@ -33,6 +33,10 @@
         <internet>always</internet>
     </recommends>
 
+    <requires>
+        <display_length compare="ge">360</display_length>
+    </requires>
+
     <provides>
         <mediatype>application/sbn</mediatype>
         <mediatype>application/json</mediatype>
