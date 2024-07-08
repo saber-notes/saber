@@ -226,6 +226,7 @@ class CanvasPainter extends CustomPainter {
         final (center, radius) = shape.convertToCircle();
         canvas.drawCircle(center, radius, shapePaint);
       case DefaultUnistrokeNames.triangle:
+      case DefaultUnistrokeNames.star:
         final polygon = shape.convertToCanonicalPolygon();
         canvas.drawPath(
           Path()..addPolygon(polygon, true),
