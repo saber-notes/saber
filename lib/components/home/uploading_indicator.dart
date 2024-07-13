@@ -1,5 +1,8 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
+import 'package:saber/data/nextcloud/saber_syncer.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/pages/editor/editor.dart';
 
@@ -16,18 +19,20 @@ class UploadingIndicator extends StatefulWidget {
 }
 
 class _UploadingIndicatorState extends State<UploadingIndicator> {
+  late final StreamSubscription transferListener;
+
   @override
   void initState() {
     Prefs.username.addListener(onFileUploaded);
-    Prefs.fileSyncUploadQueue.addListener(onFileUploaded);
+    transferListener = syncer.uploader.transferStream.listen(onFileUploaded);
     super.initState();
   }
 
   /// Called when some file is uploaded (or when login state changes)
-  void onFileUploaded() {
+  void onFileUploaded([SaberSyncFile? _]) {
     final wasInUploadQueue = isInUploadQueue;
     isInUploadQueue = _isInUploadQueue();
-    if (wasInUploadQueue != isInUploadQueue) setState(() {});
+    if (wasInUploadQueue != isInUploadQueue) if (mounted) setState(() {});
   }
 
   bool _matchesPath(String path) {
@@ -37,7 +42,9 @@ class _UploadingIndicatorState extends State<UploadingIndicator> {
     return false;
   }
 
-  bool _isInUploadQueue() => Prefs.fileSyncUploadQueue.value.any((path) {
+  bool _isInUploadQueue() => syncer.uploader.pending.any((syncFile) {
+        final path = syncFile.relativeLocalPath;
+
         if (_matchesPath(path)) return true;
 
         if (FileManager.assetFileRegex.hasMatch(path)) {
@@ -70,7 +77,7 @@ class _UploadingIndicatorState extends State<UploadingIndicator> {
   @override
   void dispose() {
     Prefs.username.removeListener(onFileUploaded);
-    Prefs.fileSyncUploadQueue.removeListener(onFileUploaded);
+    transferListener.cancel();
     super.dispose();
   }
 }

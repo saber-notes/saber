@@ -11,7 +11,7 @@ import 'onyxsdk_pen_platform_interface.dart';
 class OnyxSdkPenArea extends StatefulWidget {
   const OnyxSdkPenArea({
     super.key,
-    this.refreshDelayMs = 1000,
+    this.refreshDelay = const Duration(seconds: 1),
     required this.child,
   });
 
@@ -20,7 +20,7 @@ class OnyxSdkPenArea extends StatefulWidget {
   /// Setting this too low will cause the screen to refresh while the user
   /// is still writing, which will make the screen get stuck in a half-drawn
   /// state.
-  final int refreshDelayMs;
+  final Duration refreshDelay;
 
   final Widget child;
 
@@ -40,7 +40,6 @@ class OnyxSdkPenArea extends StatefulWidget {
 
 class _OnyxSdkPenAreaState extends State<OnyxSdkPenArea> {
   static bool? _isOnyxDevice = (kIsWeb || !Platform.isAndroid) ? false : null;
-
   static Future<bool> _findIsOnyxDevice() async {
     if (_isOnyxDevice != null) return _isOnyxDevice!;
 
@@ -63,16 +62,23 @@ class _OnyxSdkPenAreaState extends State<OnyxSdkPenArea> {
     return _isOnyxDevice = true;
   }
 
+  /// Parameters to pass to the platform side
+  late final creationParams = <String, dynamic>{
+    "refreshDelayMs": widget.refreshDelay.inMilliseconds,
+  };
+
+  /// This is used in the platform side to register the view.
+  static const String viewType = 'onyxsdk_pen_area';
+
+  @override
+  void didUpdateWidget(OnyxSdkPenArea oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    creationParams['refreshDelayMs'] = widget.refreshDelay.inMilliseconds;
+  }
+
   @override
   Widget build(BuildContext context) {
     if (!isOnyxDevice) return widget.child;
-
-    // This is used in the platform side to register the view.
-    const String viewType = 'onyxsdk_pen_area';
-    // Pass parameters to the platform side.
-    final Map<String, dynamic> creationParams = <String, dynamic>{
-      "refreshDelayMs": widget.refreshDelayMs,
-    };
 
     return Stack(
       fit: StackFit.expand,

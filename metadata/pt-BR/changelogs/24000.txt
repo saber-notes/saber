@@ -1,0 +1,3 @@
+• Grandes melhorias na velocidade de sincronização
+• Melhor tratamento de senhas de criptografia desatualizadas
+• Melhor renderização de traços de laser

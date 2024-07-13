@@ -77,7 +77,7 @@ class _DoneLoginStepState extends State<DoneLoginStep> {
         Text(t.profile.quotaUsage(
           used: readableBytes(quota?.used),
           total: readableBytes(quota?.total),
-          percent: '${quota?.relative}%',
+          percent: quota?.relative ?? 0,
         )),
         const SizedBox(height: 2),
         LinearProgressIndicator(

@@ -1,0 +1,3 @@
+• Ridotto l'effetto luminoso dei tratti laser
+• Il sincronizzatore rileverà automaticamente i nuovi file sul tuo dispositivo
+• Risolto un bug per cui il caricamento di un file non riusciva dopo averlo scaricato

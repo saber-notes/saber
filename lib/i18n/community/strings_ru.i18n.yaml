@@ -190,7 +190,7 @@ login:
 profile:
   title: Мой профиль
   logout: Выйти
-  quotaUsage: Вы используете $used из $total ($percent)
+  quotaUsage: Вы используете $used из $total ($percent%)
   connectedTo: Подключен к
   quickLinks:
     serverHomepage: Домашняя страница сервера

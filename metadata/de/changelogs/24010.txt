@@ -1,0 +1,3 @@
+• Der Leuchteffekt von Laserstrichen wurde reduziert
+• Der Syncer nimmt automatisch neue Dateien auf Ihrem Gerät auf
+• Ein Fehler wurde behoben, bei dem das Hochladen einer Datei nach dem Herunterladen fehlschlug

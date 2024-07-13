@@ -9,6 +9,9 @@
     <name>Saber</name>
     <summary>The notes app built for handwriting</summary>
     <url type="homepage">https://github.com/saber-notes/saber</url>
+    <url type="bugtracker">https://github.com/saber-notes/saber/issues</url>
+    <url type="donation">https://github.com/sponsors/adil192</url>
+    <url type="translate">https://github.com/saber-notes/saber#translating</url>
 
     <developer id="com.adilhanney">
         <name>Adil Hanney</name>
@@ -32,6 +35,10 @@
     <recommends>
         <internet>always</internet>
     </recommends>
+
+    <requires>
+        <display_length compare="ge">360</display_length>
+    </requires>
 
     <provides>
         <mediatype>application/sbn</mediatype>
@@ -203,6 +210,34 @@
     </screenshots>
 
     <releases>
+        <release version="0.24.1" type="development" date="2024-06-26">
+            <description>
+                <ul>
+                    <li>Reduced the glow effect of laser strokes</li>
+                    <li>The syncer will automatically pick up new files on your device</li>
+                    <li>Fixed a bug where uploading a file would fail after downloading it</li>
+                    <li>Run Saber with a <code>-v</code> flag for more detailed logs</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.24.0" type="development" date="2024-06-24">
+            <description>
+                <ul>
+                    <li>Major syncing speed improvements</li>
+                    <li>Better handling of outdated encryption passwords</li>
+                    <li>Improved rendering of laser strokes</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.23.3" type="development" date="2024-06-17">
+            <description>
+                <ul>
+                    <li>Fixed an "almost logged in" message being shown after logging in</li>
+                    <li>Improved some icons</li>
+                    <li>Disabled scrolling with the arrow keys when text editing</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.23.2" type="development" date="2024-05-18">
             <description>
                 <ul>

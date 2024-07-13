@@ -1,13 +1,13 @@
-import 'dart:collection';
+import 'dart:async';
 import 'dart:io';
 
-import 'package:encrypt/encrypt.dart';
+import 'package:abstract_sync/abstract_sync.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:nextcloud/webdav.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/flavor_config.dart';
-import 'package:saber/data/nextcloud/file_syncer.dart';
 import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
+import 'package:saber/data/nextcloud/saber_syncer.dart';
 import 'package:saber/data/prefs.dart';
 
 import 'utils/test_mock_channel_handlers.dart';
@@ -38,13 +38,8 @@ void main() {
     printOnFailure('File path local: $filePathLocal');
 
     const List<int> fileContent = [1, 2, 3];
-    final String encryptedPath = await client.encrypter.then((encrypter) {
-      final IV iv = IV.fromBase64(Prefs.iv.value);
-      return encrypter.encrypt(filePathLocal, iv: iv).base16;
-    });
-    final syncFile = SyncFile(
-      encryptedName: encryptedPath,
-      localPath: filePathLocal,
+    final syncFile = await const SaberSyncInterface().getSyncFileFromLocalFile(
+      FileManager.getFile(filePathLocal),
     );
 
     // Create a file (to delete later)
@@ -52,8 +47,9 @@ void main() {
         awaitWrite: true, alsoUpload: false);
 
     // Upload file to Nextcloud
-    Prefs.fileSyncUploadQueue.value = Queue.from([filePathLocal]);
-    await FileSyncer.uploadFileFromQueue();
+    syncer.uploader.clearPending();
+    syncer.uploader.enqueue(syncFile: syncFile);
+    await syncer.uploader.waitUntilEmpty();
 
     // Check that the file exists on Nextcloud
     printOnFailure('Checking if ${syncFile.remotePath} exists on Nextcloud');
@@ -66,8 +62,9 @@ void main() {
     FileManager.deleteFile(filePathLocal, alsoUpload: false);
 
     // Upload deletion to Nextcloud
-    Prefs.fileSyncUploadQueue.value = Queue.from([filePathLocal]);
-    await FileSyncer.uploadFileFromQueue();
+    syncer.uploader.clearPending();
+    syncer.uploader.enqueue(syncFile: syncFile);
+    await syncer.uploader.waitUntilEmpty();
 
     // Check that the file is empty on Nextcloud
     final webDavFile = await webdav
@@ -80,12 +77,28 @@ void main() {
     expect(webDavFile.size, 0, reason: 'File should be empty on Nextcloud');
 
     // Sync the file from Nextcloud
-    syncFile.webDavFile = webDavFile;
-    bool downloaded = await FileSyncer.downloadFile(syncFile, awaitWrite: true);
-    expect(downloaded, true, reason: 'File was not downloaded successfully');
+    syncFile.remoteFile = webDavFile;
+    syncer.downloader.clearPending();
+    syncer.downloader.enqueue(syncFile: syncFile);
+    await syncer.downloader.waitUntilEmpty();
 
     // Check that the file is deleted locally
-    bool exists = await FileManager.doesFileExist(filePathLocal);
+    bool exists = FileManager.doesFileExist(filePathLocal);
     expect(exists, false, reason: 'File is not deleted locally');
   });
+}
+
+extension on SyncerComponent {
+  Future<void> waitUntilEmpty() async {
+    if (numPending <= 0) return;
+
+    final completer = Completer<void>();
+    late final StreamSubscription subscription;
+    subscription = queueStream.listen((event) {
+      if (numPending > 0) return;
+      subscription.cancel();
+      if (!completer.isCompleted) completer.complete();
+    });
+    return completer.future;
+  }
 }

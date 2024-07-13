@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:saber/data/flavor_config.dart';
 import 'package:saber/main_common.dart' as common;
 
-Future<void> main() async {
+Future<void> main(List<String> args) async {
   /// To set the flavor config e.g. for the Play Store, use:
   /// flutter build \
   ///   --dart-define=FLAVOR="Google Play" \
@@ -28,5 +28,5 @@ Future<void> main() async {
     GoogleFonts.config.allowRuntimeFetching = false;
   }
 
-  await common.main();
+  await common.main(args);
 }

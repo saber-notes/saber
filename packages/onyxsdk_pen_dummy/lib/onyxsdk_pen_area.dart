@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 class OnyxSdkPenArea extends StatelessWidget {
   const OnyxSdkPenArea({
     super.key,
-    this.refreshDelayMs = 1000,
+    this.refreshDelay = const Duration(seconds: 1),
     required this.child,
   });
 
-  final int refreshDelayMs;
+  final Duration refreshDelay;
 
   final Widget child;
 

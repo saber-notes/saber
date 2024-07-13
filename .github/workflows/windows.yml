@@ -10,6 +10,7 @@ on:
       - '**'
     paths:
       - .github/workflows/windows.yml
+      - installers/desktop_inno_script.iss
 
 jobs:
   build-windows:
@@ -22,22 +23,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Remove unneeded files
-        shell: bash
-        run: |
-          rm -rf android
-          rm -rf appimage
-          rm -rf assets_raw
-          rm -rf flatpak
-          rm -rf integration_test
-          rm -rf ios
-          rm -rf linux
-          rm -rf macos
-          rm -rf metadata
-          rm -rf snap
-          rm -rf submodules
-          rm -rf test
-
       - name: Setup cache
         uses: actions/cache@v4
         with:
@@ -46,6 +31,10 @@ jobs:
           key: ${{ runner.OS }}-saber-${{ hashFiles('**/pubspec.lock') }}-${{ hashFiles('**/*.dart') }}
           restore-keys: |
             ${{ runner.OS }}-saber-
+      
+      - name: Remove simulator dependency
+        shell: bash
+        run: ./patches/remove_simulator_dependency.sh
 
       - name: Setup Flutter
         uses: subosito/flutter-action@v2

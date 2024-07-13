@@ -22,8 +22,9 @@ extension NextcloudClientExtension on NextcloudClient {
 
   static const String appRootDirectoryPrefix =
       FileManager.appRootDirectoryPrefix;
+  static const String configFileName = 'config.sbc';
   static final PathUri configFileUri =
-      PathUri.parse('$appRootDirectoryPrefix/config.sbc');
+      PathUri.parse('$appRootDirectoryPrefix/$configFileName');
 
   static const _utf8Decoder = Utf8Decoder(allowMalformed: true);
 
@@ -81,7 +82,7 @@ extension NextcloudClientExtension on NextcloudClient {
     IV? iv,
     Key? key,
   }) async {
-    encrypter ??= await this.encrypter;
+    encrypter ??= this.encrypter;
     iv ??= IV.fromBase64(Prefs.iv.value);
     key ??= Key.fromBase64(Prefs.key.value);
 
@@ -103,8 +104,10 @@ extension NextcloudClientExtension on NextcloudClient {
     await webdav.put(file, configFileUri);
   }
 
-  Future<String> loadEncryptionKey() async {
-    final Encrypter encrypter = await this.encrypter;
+  Future<String> loadEncryptionKey({
+    bool generateKeyIfMissing = true,
+  }) async {
+    final Encrypter encrypter = this.encrypter;
 
     final Map<String, String> config = await getConfig();
     if (config.containsKey(Prefs.key.key) && config.containsKey(Prefs.iv.key)) {
@@ -120,6 +123,8 @@ extension NextcloudClientExtension on NextcloudClient {
         throw EncLoginFailure();
       }
     }
+
+    if (!generateKeyIfMissing) throw EncLoginFailure();
 
     final Key key = Key.fromSecureRandom(32);
     final IV iv = IV.fromSecureRandom(16);
@@ -143,7 +148,7 @@ extension NextcloudClientExtension on NextcloudClient {
     return user.body.ocs.data.id;
   }
 
-  Future<Encrypter> get encrypter async {
+  Encrypter get encrypter {
     final List<int> encodedPassword =
         utf8.encode(Prefs.encPassword.value + reproducibleSalt);
     final List<int> hashedPasswordBytes = sha256.convert(encodedPassword).bytes;

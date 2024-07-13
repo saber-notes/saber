@@ -259,14 +259,14 @@ void main() {
       await file.create(recursive: true);
 
       // verify isDirectory
-      expect(await FileManager.isDirectory(dirPath), true);
-      expect(await FileManager.isDirectory(filePath), false);
-      expect(await FileManager.isDirectory(nonExistentPath), false);
+      expect(FileManager.isDirectory(dirPath), true);
+      expect(FileManager.isDirectory(filePath), false);
+      expect(FileManager.isDirectory(nonExistentPath), false);
 
       // verify doesFileExist
-      expect(await FileManager.doesFileExist(filePath), true);
-      expect(await FileManager.doesFileExist(dirPath), false);
-      expect(await FileManager.doesFileExist(nonExistentPath), false);
+      expect(FileManager.doesFileExist(filePath), true);
+      expect(FileManager.doesFileExist(dirPath), false);
+      expect(FileManager.doesFileExist(nonExistentPath), false);
 
       // delete directory and file
       await dir.delete(recursive: true);

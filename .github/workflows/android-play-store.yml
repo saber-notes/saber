@@ -20,22 +20,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Remove unneeded files
-        run: |
-          rm -rf appimage
-          rm -rf assets_raw
-          rm -rf flatpak
-          rm -rf installers
-          rm -rf integration_test
-          rm -rf ios
-          rm -rf linux
-          rm -rf macos
-          rm -rf metadata
-          rm -rf snap
-          rm -rf submodules
-          rm -rf test
-          rm -rf windows
-
       - name: Setup cache
         uses: actions/cache@v4
         with:
@@ -50,6 +34,9 @@ jobs:
 
       - name: Remove REQUEST_INSTALL_PACKAGES permission
         run: ./patches/remove_request_install_packages_permission.sh
+      
+      - name: Remove simulator dependency
+        run: ./patches/remove_simulator_dependency.sh
 
       - name: Setup Flutter
         uses: subosito/flutter-action@v2

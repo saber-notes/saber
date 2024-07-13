@@ -205,7 +205,7 @@ profile:
         4. 他のデバイスでもログアウトしてログインし直すことをお忘れなく。
     - q: アカウントを削除するにはどうすればよいですか？
       a: "上部の\"@:profile.quickLinks.deleteAccount\"ボタンをタップし、必要であればログインしてください。Saber公式サーバーを利用している場合、1週間の猶予期間の後にアカウントが削除されます。この期間中であれば、adilhanney@disroot.orgまでご連絡いただければ、削除を取り消すことが可能です。サードパーティのサーバーをご利用の場合、アカウントを削除するオプションがない場合があります。詳細については、ご利用のサーバープライバシーポリシーをご確認ください。"
-  quotaUsage(OUTDATED): $total ($percent) のうち $used を使用しています
+  quotaUsage(OUTDATED): $total ($percent%) のうち $used を使用しています
   connectedTo(OUTDATED): に接続されています
   faqTitle(OUTDATED): よくある質問
 appInfo:

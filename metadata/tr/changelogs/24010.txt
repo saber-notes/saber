@@ -1,0 +1,3 @@
+• Lazer vuruşlarının parlama etkisi azaltıldı
+• Senkronize edici, cihazınızdaki yeni dosyaları otomatik olarak alacaktır
+• Bir dosyayı indirdikten sonra yüklemenin başarısız olmasına neden olan bir hata düzeltildi

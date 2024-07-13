@@ -1,0 +1,3 @@
+• Redução do efeito de brilho dos traços de laser
+• O sincronizador coletará automaticamente novos arquivos no seu dispositivo
+• Corrigido um bug em que o upload de um arquivo falhava após baixá-lo

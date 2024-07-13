@@ -1,0 +1,3 @@
+• Corrigida uma mensagem de "quase logado" exibida após o login
+• Alguns ícones foram melhorados
+• Rolagem com as teclas de seta desativada ao editar texto

@@ -1,0 +1,3 @@
+• Améliorations majeures de la vitesse de synchronisation
+• Meilleure gestion des mots de passe de chiffrement obsolètes
+• Rendu amélioré des traits laser

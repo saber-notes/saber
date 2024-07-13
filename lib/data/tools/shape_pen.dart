@@ -103,8 +103,9 @@ class ShapePen extends Pen {
           center: center,
         );
       case DefaultUnistrokeNames.triangle:
+      case DefaultUnistrokeNames.star:
         final polygon = detectedShape.convertToCanonicalPolygon();
-        log.info('Detected triangle');
+        log.info('Detected ${detectedShape.name}');
         return Stroke(
           color: color,
           pressureEnabled: pressureEnabled,

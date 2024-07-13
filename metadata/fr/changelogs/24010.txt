@@ -1,0 +1,3 @@
+• Réduction de l'effet lumineux des coups de laser
+• Le synchroniseur récupérera automatiquement les nouveaux fichiers sur votre appareil
+• Correction d'un bug où le téléchargement d'un fichier échouait après l'avoir téléchargé

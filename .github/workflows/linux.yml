@@ -22,18 +22,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Remove unneeded files
-        run: |
-          rm -rf android
-          rm -rf assets_raw
-          rm -rf installers
-          rm -rf integration_test
-          rm -rf ios
-          rm -rf macos
-          rm -rf metadata
-          rm -rf test
-          rm -rf windows
-
       - name: Install apt dependencies
         uses: awalsh128/cache-apt-pkgs-action@latest
         with:
@@ -49,6 +37,9 @@ jobs:
           key: ${{ runner.OS }}-saber-${{ hashFiles('**/pubspec.lock') }}-${{ hashFiles('**/*.dart') }}
           restore-keys: |
             ${{ runner.OS }}-saber-
+      
+      - name: Remove simulator dependency
+        run: ./patches/remove_simulator_dependency.sh
 
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
@@ -208,6 +199,9 @@ jobs:
             export RUSTUP_HOME=/opt/rustup
             export PUB_CACHE=build/pub_cache
 
+            echo Removing simulator dependency
+            ./patches/remove_simulator_dependency.sh
+
             echo flutter pub get
             unsudo flutter pub get
 
@@ -265,18 +259,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
-      - name: Remove unneeded files
-        run: |
-          rm -rf android
-          rm -rf assets_raw
-          rm -rf installers
-          rm -rf integration_test
-          rm -rf ios
-          rm -rf macos
-          rm -rf metadata
-          rm -rf test
-          rm -rf windows
 
       - name: Install AppImage dependencies
         run: |
