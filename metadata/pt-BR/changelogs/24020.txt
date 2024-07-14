@@ -1,0 +1,3 @@
+• Adicionada uma estrela à ferramenta de forma
+• Corrigidos os cantos estranhos em triângulos desenhados com a ferramenta de forma
+• Corrigidos pontos de ponto único que não eram salvos

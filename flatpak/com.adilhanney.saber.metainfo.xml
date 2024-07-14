@@ -210,6 +210,15 @@
     </screenshots>
 
     <releases>
+        <release version="0.24.2" type="development" date="2024-07-14">
+            <description>
+                <ul>
+                  <li>Added a star to the shape tool</li>
+                  <li>Fixed the weird corners on triangles drawn with the shape tool</li>
+                  <li>Fixed single-point dots not being saved</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.24.1" type="development" date="2024-06-26">
             <description>
                 <ul>
