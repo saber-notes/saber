@@ -78,10 +78,10 @@ class SaberSyncInterface
       final bestFile = await getBestFile(syncFile);
       switch (bestFile) {
         case BestFile.local:
-        case BestFile.either:
           // Local file is newer, do nothing
           break;
         case BestFile.remote:
+        case BestFile.either: //local file does not exists
           changedFiles.add(syncFile);
       }
     }

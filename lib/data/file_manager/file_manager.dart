@@ -166,7 +166,13 @@ class FileManager {
     } else {
       assert(filePath.startsWith('/'),
           'Expected filePath to start with a slash, got $filePath');
-      return File(documentsDirectory + filePath);
+      if (filePath.startsWith(documentsDirectory)) {
+        // already contains document directory path
+        return File(filePath);
+      }
+      else {
+        return File(documentsDirectory + filePath);
+      }
     }
   }
 
