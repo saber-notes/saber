@@ -109,18 +109,9 @@ class SaberSyncInterface
 
   @override
   Future<SaberSyncFile> getSyncFileFromRemoteFile(WebDavFile remoteFile) async {
-    final decryptedPath = await decryptPath(client!, remoteFile.path.path);
-    if (decryptedPath == null)
+    final relativeLocalPath = await decryptPath(client!, remoteFile.path.path);
+    if (relativeLocalPath == null)
       throw Exception('Decryption failed for ${remoteFile.path.path}');
-
-    if (decryptedPath == NextcloudClientExtension.configFileName)
-      return SaberSyncFile(
-        remoteFile: remoteFile,
-        localFile:
-            FileManager.getFile('/${NextcloudClientExtension.configFileName}'),
-      );
-
-    final relativeLocalPath = '${FileManager.documentsDirectory}$decryptedPath';
     final localFile = FileManager.getFile(relativeLocalPath);
 
     return SaberSyncFile(remoteFile: remoteFile, localFile: localFile);
@@ -399,19 +390,9 @@ class SaberSyncInterface
     }
 
     // get remote file
-    try {
-      file.remoteFile ??= await _client!.webdav
-          .propfind(
-            PathUri.parse(file.remotePath),
-            depth: WebDavDepth.zero,
-            prop: const WebDavPropWithoutValues.fromBools(
-              davGetlastmodified: true,
-              davGetcontentlength: true,
-            ),
-          )
-          .then((multistatus) => multistatus.toWebDavFiles().single);
-    } catch (e) {
-      // remote file doesn't exist; keep local
+    file.remoteFile ??= await _getWebDavFileUncached(file.remotePath);
+    if (file.remoteFile == null) {
+      // Remote file doesn't exist, keep local
       return BestFile.local;
     }
 
@@ -443,6 +424,10 @@ class SaberSyncInterface
       log.fine('Remote file not cached for $remotePath');
     }
 
+    return await _getWebDavFileUncached(remotePath);
+  }
+
+  static Future<WebDavFile?> _getWebDavFileUncached(String remotePath) async {
     final client = SaberSyncInterface.client;
     if (client == null) return null;
 

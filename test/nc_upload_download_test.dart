@@ -38,6 +38,14 @@ void main() async {
     expect(upBytes.length, greaterThan(0));
     await syncer.interface.uploadRemoteFile(syncFile, upBytes);
 
+    // Get the sync file again, this time starting with the remote file
+    final remoteFile =
+        await syncer.interface.getWebDavFile(syncFile.remotePath);
+    if (remoteFile == null) fail('Remote file not found after upload');
+    final syncFile2 =
+        await syncer.interface.getSyncFileFromRemoteFile(remoteFile);
+    expect(syncFile2, equals(syncFile));
+
     // Download
     final downBytes = await syncer.interface.downloadRemoteFile(syncFile);
     expect(downBytes.length, greaterThan(0));
