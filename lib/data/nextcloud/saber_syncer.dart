@@ -399,19 +399,9 @@ class SaberSyncInterface
     }
 
     // get remote file
-    try {
-      file.remoteFile ??= await _client!.webdav
-          .propfind(
-            PathUri.parse(file.remotePath),
-            depth: WebDavDepth.zero,
-            prop: const WebDavPropWithoutValues.fromBools(
-              davGetlastmodified: true,
-              davGetcontentlength: true,
-            ),
-          )
-          .then((multistatus) => multistatus.toWebDavFiles().single);
-    } catch (e) {
-      // remote file doesn't exist; keep local
+    file.remoteFile ??= await _getWebDavFileUncached(file.remotePath);
+    if (file.remoteFile == null) {
+      // Remote file doesn't exist, keep local
       return BestFile.local;
     }
 
@@ -443,6 +433,10 @@ class SaberSyncInterface
       log.fine('Remote file not cached for $remotePath');
     }
 
+    return await _getWebDavFileUncached(remotePath);
+  }
+
+  static Future<WebDavFile?> _getWebDavFileUncached(String remotePath) async {
     final client = SaberSyncInterface.client;
     if (client == null) return null;
 
