@@ -314,8 +314,8 @@ If you like Saber, please consider supporting it by:
 <summary>Show/hide development notes</summary>
 
 - When updating the **app version**:
-  - Run `./scripts/apply_version.sh <version-name> <version-code>`
-    (Run `./scripts/apply_version.sh --help` for more info)
+  - Run `./scripts/bump_version.sh <version-name> <version-code>`
+    (Run `./scripts/bump_version.sh --help` for more info)
   - Update the changelogs in `metadata/en-US/changelogs/`
     and `flatpak/com.adilhanney.saber.metainfo.xml`,
     and run `dart scripts/translate_changelogs.dart` as directed by the script.

@@ -294,8 +294,8 @@ Falls dir Saber gefällt, bitte denke darüber nach das Projekt wie folgt zu unt
 <summary>Klicken um die Entwicklungshinweise ein- oder ausblenden</summary>
 
 - Beim Update der **app version**:
-  - Führe `./scripts/apply_version.sh <version-name> <version-code>` aus
-    (führe `./scripts/apply_version.sh --help` für mehr Informationen aus)
+  - Führe `./scripts/bump_version.sh <version-name> <version-code>` aus
+    (führe `./scripts/bump_version.sh --help` für mehr Informationen aus)
   - Update die Changelogs in `metadata/en-US/changelogs/`
     und `flatpak/com.adilhanney.saber.metainfo.xml`
     und führe `dart scripts/translate_changelogs.dart` nach Anleitung des Skripts aus.

@@ -292,8 +292,8 @@ Windows 安裝程式是使用 [Inno Setup](https://jrsoftware.org/isinfo.php) �
 <summary>顯示/隱藏開發筆記</summary>
 
 - When updating the **app version**:
-  - Run `./scripts/apply_version.sh <version-name> <version-code>`
-    (Run `./scripts/apply_version.sh --help` for more info)
+  - Run `./scripts/bump_version.sh <version-name> <version-code>`
+    (Run `./scripts/bump_version.sh --help` for more info)
   - Update the changelogs in `metadata/en-US/changelogs/`
     and `flatpak/com.adilhanney.saber.metainfo.xml`,
     and run `dart scripts/translate_changelogs.dart` as directed by the script.

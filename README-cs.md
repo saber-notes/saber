@@ -308,8 +308,8 @@ Pokud máte rádi Saber, zvažte prosím jeho podporu pomocí
 <summary>Zobrazit/skrýt poznámky pro vývojáře</summary>
 
 - Když aktualizujete **verzi aplikace**:
-  - Spusťte `./scripts/apply_version.sh <název-verze> <kód-verze>`
-    (Pro více informací spusťte `./scripts/apply_version.sh --help`)
+  - Spusťte `./scripts/bump_version.sh <název-verze> <kód-verze>`
+    (Pro více informací spusťte `./scripts/bump_version.sh --help`)
   - Aktualizujte záznamy o změnách v `metadata/en-US/changelogs/`
     a `flatpak/com.adilhanney.saber.metainfo.xml`,
     a spusťte `dart scripts/translate_changelogs.dart`, jak je udáno skriptem.

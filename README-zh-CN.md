@@ -301,8 +301,8 @@ Windows 安装器使用 [Inno Setup](https://jrsoftware.org/isinfo.php) 创建�
 <summary>显示/隐藏开发说明</summary>
 
 - 当更新**应用版本**时：
-  - 运行 `./scripts/apply_version.sh <version-name> <version-code>`
-    (运行 `./scripts/apply_version.sh --help` 获取更多信息)
+  - 运行 `./scripts/bump_version.sh <version-name> <version-code>`
+    (运行 `./scripts/bump_version.sh --help` 获取更多信息)
   - 更新 `metadata/en-US/changelogs/` 中的变更日志和 `flatpak/com.adilhanney.saber.metainfo.xml`，并按照剧本的指示运行 `dart scripts/translate_changelogs.dart`。
 - 当更新**图标**时，运行以下命令：
   - 概述：`dart run icons_launcher:create`
