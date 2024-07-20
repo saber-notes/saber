@@ -90,7 +90,7 @@ dependencies:
 
   animations: ^2.0.7
 
-  flutter_quill: ^9.2.2
+  flutter_quill: ^10.0.2
 
   window_manager: ^0.3.0
 
