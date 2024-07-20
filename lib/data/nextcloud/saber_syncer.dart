@@ -109,18 +109,9 @@ class SaberSyncInterface
 
   @override
   Future<SaberSyncFile> getSyncFileFromRemoteFile(WebDavFile remoteFile) async {
-    final decryptedPath = await decryptPath(client!, remoteFile.path.path);
-    if (decryptedPath == null)
+    final relativeLocalPath = await decryptPath(client!, remoteFile.path.path);
+    if (relativeLocalPath == null)
       throw Exception('Decryption failed for ${remoteFile.path.path}');
-
-    if (decryptedPath == NextcloudClientExtension.configFileName)
-      return SaberSyncFile(
-        remoteFile: remoteFile,
-        localFile:
-            FileManager.getFile('/${NextcloudClientExtension.configFileName}'),
-      );
-
-    final relativeLocalPath = '${FileManager.documentsDirectory}$decryptedPath';
     final localFile = FileManager.getFile(relativeLocalPath);
 
     return SaberSyncFile(remoteFile: remoteFile, localFile: localFile);
