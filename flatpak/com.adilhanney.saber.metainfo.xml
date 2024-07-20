@@ -210,6 +210,11 @@
     </screenshots>
 
     <releases>
+        <release version="0.24.3" type="development" date="2024-07-20">
+            <description>
+                <p>Fixed a syncing bug that caused file paths to be decrypted incorrectly, thanks to @QubaB on GitHub</p>
+            </description>
+        </release>
         <release version="0.24.2" type="development" date="2024-07-14">
             <description>
                 <ul>
