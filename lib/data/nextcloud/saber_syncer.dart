@@ -44,12 +44,11 @@ class SaberSyncInterface
 
       final syncFile = await getSyncFileFromLocalFile(localFile);
 
-      final bestFile = await getBestFile(syncFile);
+      final bestFile = await getBestFile(syncFile, bias: BestFile.local);
       switch (bestFile) {
         case BestFile.local:
           syncFiles.add(syncFile);
         case BestFile.remote:
-        case BestFile.either:
           // Remote file is newer, do nothing
           break;
       }
@@ -75,13 +74,19 @@ class SaberSyncInterface
         continue;
       }
 
-      final bestFile = await getBestFile(syncFile);
+      final bestFile = await getBestFile(syncFile, bias: BestFile.remote);
       switch (bestFile) {
         case BestFile.local:
-        case BestFile.either:
           // Local file is newer, do nothing
           break;
         case BestFile.remote:
+          // Remote file is newer or doesn't exist locally
+
+          final remotelyDeleted = syncFile.remoteFile!.size! <= 0;
+          final locallyDeleted = Prefs.fileSyncAlreadyDeleted.value
+              .contains(syncFile.relativeLocalPath);
+          if (remotelyDeleted && locallyDeleted) break;
+
           changedFiles.add(syncFile);
       }
     }
@@ -383,10 +388,15 @@ class SaberSyncInterface
     return decrypted;
   }
 
-  static Future<BestFile> getBestFile(SaberSyncFile file) async {
+  /// Returns the best file to keep, local or remote.
+  /// If the best file can't be determined, [bias] is returned.
+  static Future<BestFile> getBestFile(
+    SaberSyncFile file, {
+    required BestFile bias,
+  }) async {
     if (!file.localFile.existsSync()) {
       // We either have a new remote file or a deleted local file
-      return BestFile.either;
+      return bias;
     }
 
     // get remote file
@@ -503,4 +513,4 @@ extension SaberSyncerComponent on SyncerComponent {
   }
 }
 
-enum BestFile { local, remote, either }
+enum BestFile { local, remote }
