@@ -28,6 +28,7 @@ class _NewFolderDialogState extends State<NewFolderDialog> {
     if (folderName == null || folderName.isEmpty) {
       return t.home.newFolder.folderNameEmpty;
     }
+    folderName = reformatFolderName(folderName);
     if (folderName.contains('/') || folderName.contains('\\')) {
       return t.home.newFolder.folderNameContainsSlash;
     }
@@ -36,6 +37,8 @@ class _NewFolderDialogState extends State<NewFolderDialog> {
     }
     return null;
   }
+
+  String reformatFolderName(String folderName) => folderName.trim();
 
   @override
   Widget build(BuildContext context) {
@@ -67,7 +70,8 @@ class _NewFolderDialogState extends State<NewFolderDialog> {
         CupertinoDialogAction(
           onPressed: () {
             if (!_formKey.currentState!.validate()) return;
-            widget.createFolder(_controller.text);
+            final folderName = reformatFolderName(_controller.text);
+            widget.createFolder(folderName);
             Navigator.of(context).pop();
           },
           child: Text(t.home.newFolder.create),

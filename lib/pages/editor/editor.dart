@@ -977,7 +977,9 @@ class EditorState extends State<Editor> {
 
     if (_filenameFormKey.currentState?.validate() ?? true) {
       coreInfo.filePath = await FileManager.moveFile(
-          coreInfo.filePath + Editor.extension, newName + Editor.extension);
+        coreInfo.filePath + Editor.extension,
+        newName.trim() + Editor.extension,
+      );
       coreInfo.filePath = coreInfo.filePath
           .substring(0, coreInfo.filePath.lastIndexOf(Editor.extension));
       needsNaming = false;
