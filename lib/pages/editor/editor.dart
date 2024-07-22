@@ -829,7 +829,9 @@ class EditorState extends State<Editor> {
     final syncFile =
         await SaberSyncFile.relative(coreInfo.filePath + Editor.extension);
 
-    final bestFile = await SaberSyncInterface.getBestFile(syncFile);
+    // Here the bias doesn't matter, since the local file definitely exists
+    final bestFile =
+        await SaberSyncInterface.getBestFile(syncFile, bias: BestFile.local);
     if (bestFile != BestFile.remote) return;
 
     late final StreamSubscription<SaberSyncFile> subscription;
