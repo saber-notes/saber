@@ -208,7 +208,7 @@ profile:
         Cliquez sur le button "@:profile.quickLinks.deleteAccount" ci-dessus, et connectez-vous si nécessaire.
         Si vous utilisez le serveur Saber officiel, votre compte sera supprimé au bout d'une semaine . Durant cette période, vous pourrez me contacter à adilhanney@disroot.org pour annuler la suppression.
         Si vous utilisez un autre serveur, il n'est pas certain que vous puissiez supprimer votre compte dessus : il vous faudra consulter les règles de confidentialité du serveur pour plus d'informations.
-  quotaUsage(OUTDATED): Vous utilisez $used sur $total ($percent%)
+  quotaUsage(OUTDATED): "Vous utilisez $used sur $total ($percent%)"
   connectedTo(OUTDATED): Connecté à
   faqTitle(OUTDATED): Questions fréquemment posées
 appInfo:

@@ -95,7 +95,7 @@ settings:
     autosaveDelay: Zpoždění automatického ukládání
     shapeRecognitionDelay: Zpoždění rozpoznávání tvarů
     autoStraightenLines: Automaticky narovnávat čáry
-    customDataDir: Vlastní datový adresář
+    customDataDir(OUTDATED): Vlastní datový adresář
     pencilSoundSetting: Zvukový efekt psaní tužkou
   prefDescriptions:
     hyperlegibleFont: Font Atkinson Hyperlegible zvyšuje čitelnost pro čtenáře se slabým zrakem
@@ -143,8 +143,8 @@ settings:
   customDataDir:
     cancel: Zrušit
     select: Zvolit
-    mustBeEmpty: Zvolený adresář musí být prázdný
-    mustBeDoneSyncing: "Než změníte datový adresář, ujistěte se, že byla dokončena synchronizace"
+    mustBeEmpty(OUTDATED): Zvolený adresář musí být prázdný
+    mustBeDoneSyncing(OUTDATED): "Než změníte datový adresář, ujistěte se, že byla dokončena synchronizace"
 login:
   title: Přihlášení
   form:
@@ -190,7 +190,7 @@ login:
 profile:
   title: Můj profil
   logout: Odhlásit se
-  quotaUsage: Využíváte $used z $total ($percent %)
+  quotaUsage: "Využíváte $used z $total ($percent %)"
   connectedTo: Připojeno k
   quickLinks:
     serverHomepage: Webové stránky serveru

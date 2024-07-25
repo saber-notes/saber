@@ -95,7 +95,7 @@ settings:
     autosaveDelay: Auto-save delay
     shapeRecognitionDelay: Shape recognition delay
     autoStraightenLines: Auto straighten lines
-    customDataDir: Custom data directory
+    customDataDir: Custom Saber folder
     pencilSoundSetting: Pencil sound effect
   prefDescriptions:
     hyperlegibleFont: Increases legibility for users with low vision
@@ -143,8 +143,8 @@ settings:
   customDataDir:
     cancel: Cancel
     select: Select
-    mustBeEmpty: Selected directory must be empty
-    mustBeDoneSyncing: Make sure syncing is complete before changing the directory
+    mustBeEmpty: Selected folder must be empty
+    mustBeDoneSyncing: Make sure syncing is complete before changing the folder
 login:
   title: Login
   form:

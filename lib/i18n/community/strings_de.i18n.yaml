@@ -95,7 +95,7 @@ settings:
     autosaveDelay: Verzögerung des automatischen Speicherns
     shapeRecognitionDelay: Verzögerung der Formerkennung
     autoStraightenLines: Linien automatisch begradigen
-    customDataDir: Benutzerdefiniertes Verzeichnis
+    customDataDir(OUTDATED): Benutzerdefiniertes Verzeichnis
     pencilSoundSetting: Bleistiftgeräusch
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible verbessert die Lesbarkeit für Menschen mit eingeschränkter Sicht
@@ -143,8 +143,8 @@ settings:
   customDataDir:
     cancel: Abbrechen
     select: Auswählen
-    mustBeEmpty: Ausgewähltes Verzeichnis muss leer sein
-    mustBeDoneSyncing: "Stelle sicher, dass die Synchronisierung abgeschlossen ist, bevor du das Verzeichnis änderst"
+    mustBeEmpty(OUTDATED): Ausgewähltes Verzeichnis muss leer sein
+    mustBeDoneSyncing(OUTDATED): "Stelle sicher, dass die Synchronisierung abgeschlossen ist, bevor du das Verzeichnis änderst"
 login:
   title: Login
   form:
@@ -190,7 +190,7 @@ login:
 profile:
   title: Mein Profil
   logout: Abmelden
-  quotaUsage: Du verwendest $used von $total ($percent%)
+  quotaUsage: "Du verwendest $used von $total ($percent%)"
   connectedTo: Verbunden mit
   quickLinks:
     serverHomepage: Server-Startseite

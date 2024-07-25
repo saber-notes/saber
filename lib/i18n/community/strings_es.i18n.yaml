@@ -208,7 +208,7 @@ profile:
         Pincha en el botón "@:profile.quickLinks.deleteAccount", e inicia sesión si es necesario.
         Si estás usando el servidor oficial de Saber, tu cuenta se eliminará después de un periodo de una semana. Puedes contactar conmigo en la dirección adilhanney@disroot.org durante este tiempo para cancelar la eliminación.
         Si estás usando un servidor de terceros, puede ser que la opción de eliminar no exista: necesitas consultar la política de privacidad del servidor para más información.
-  quotaUsage(OUTDATED): Estás usando $used de $total ($percent%)
+  quotaUsage(OUTDATED): "Estás usando $used de $total ($percent%)"
   connectedTo(OUTDATED): Conectado a
   faqTitle(OUTDATED): Preguntas frecuentes
 appInfo:

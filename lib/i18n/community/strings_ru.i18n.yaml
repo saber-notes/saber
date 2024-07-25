@@ -95,7 +95,7 @@ settings:
     autosaveDelay: Задержка автосохранения
     shapeRecognitionDelay: Задержка распознавания формы
     autoStraightenLines: Автоматическое выпрямление линий
-    customDataDir: Свой каталог для данных
+    customDataDir(OUTDATED): Свой каталог для данных
     pencilSoundSetting: Звуковой эффект карандаша
   prefDescriptions:
     hyperlegibleFont: Шрифт Atkinson Hyperlegible повышает разборчивость для читателей с плохим зрением
@@ -143,8 +143,8 @@ settings:
   customDataDir:
     cancel: Отмена
     select: Выбрать
-    mustBeEmpty: Выбранный каталог должен быть пустым
-    mustBeDoneSyncing: "Прежде чем менять каталог, убедитесь, что синхронизация завершена."
+    mustBeEmpty(OUTDATED): Выбранный каталог должен быть пустым
+    mustBeDoneSyncing(OUTDATED): "Прежде чем менять каталог, убедитесь, что синхронизация завершена."
 login:
   title: Авторизация
   form:
@@ -190,7 +190,7 @@ login:
 profile:
   title: Мой профиль
   logout: Выйти
-  quotaUsage: Вы используете $used из $total ($percent%)
+  quotaUsage: "Вы используете $used из $total ($percent%)"
   connectedTo: Подключен к
   quickLinks:
     serverHomepage: Домашняя страница сервера

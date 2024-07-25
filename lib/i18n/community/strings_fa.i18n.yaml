@@ -204,7 +204,7 @@ profile:
         روی دکمه "@:profile.quickLinks.deleteAccount" در بالا ضربه بزنید و در صورت نیاز وارد شوید.
         اگر از سرور رسمی Saber استفاده می‌کنید، حساب شما پس از یک هفته مهلت حذف می‌شود. می‌توانید در این مدت با من در adilhanney@disroot.org تماس بگیرید تا حذف را لغو کنید.
         اگر از یک سرور شخص ثالث استفاده می‌کنید، ممکن است گزینه‌ای برای حذف حساب شما وجود نداشته باشد: باید با حفظ حریم خصوصی سرور مشورت کنید. سیاست برای اطلاعات بیشتر
-  quotaUsage(OUTDATED): شما از $used از $total ($percent%) استفاده می‌کنید
+  quotaUsage(OUTDATED): "شما از $used از $total ($percent%) استفاده می‌کنید"
   connectedTo(OUTDATED): مرتبط با
   faqTitle(OUTDATED): سوالات متداول
 appInfo:

@@ -95,7 +95,7 @@ settings:
     autosaveDelay: 自動儲存延遲
     shapeRecognitionDelay: 形狀識別延遲
     autoStraightenLines: 自動拉直線條
-    customDataDir: 自訂資料目錄
+    customDataDir(OUTDATED): 自訂資料目錄
     pencilSoundSetting: 筆的音效
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible 字體為低視力讀者提高易讀性
@@ -143,8 +143,8 @@ settings:
   customDataDir:
     cancel: 取消
     select: 選擇
-    mustBeEmpty: 所選目錄必須是空的
-    mustBeDoneSyncing: 更改目錄之前請確保同步已完成
+    mustBeEmpty(OUTDATED): 所選目錄必須是空的
+    mustBeDoneSyncing(OUTDATED): 更改目錄之前請確保同步已完成
 login:
   title: 登入
   form:
@@ -190,7 +190,7 @@ login:
 profile:
   title: 我的個人資料
   logout: 登出
-  quotaUsage: 您已使用 $used，共 $total ($percent%)
+  quotaUsage: "您已使用 $used，共 $total ($percent%)"
   connectedTo: 連線到
   quickLinks:
     serverHomepage: 伺服器主頁

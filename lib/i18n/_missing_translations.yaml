@@ -49,7 +49,7 @@ ar:
       autosaveDelay(OUTDATED): Auto-save delay
       shapeRecognitionDelay(OUTDATED): Shape recognition delay
       autoStraightenLines(OUTDATED): Auto straighten lines
-      customDataDir(OUTDATED): Custom data directory
+      customDataDir(OUTDATED): Custom Saber folder
       pencilSoundSetting(OUTDATED): Pencil sound effect
     prefDescriptions:
       disableAds(OUTDATED): "Ads help support Saber's development, but you can disable them if you'd like"
@@ -71,8 +71,8 @@ ar:
     customDataDir:
       cancel(OUTDATED): Cancel
       select(OUTDATED): Select
-      mustBeEmpty(OUTDATED): Selected directory must be empty
-      mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the directory
+      mustBeEmpty(OUTDATED): Selected folder must be empty
+      mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the folder
   login:
     notYou(rich)(OUTDATED): "Not you? ${undoLogin(Choose another account)}."
     status:
@@ -109,7 +109,7 @@ ar:
         - q: "Can I use the same password as my Nextcloud account?"
           a: "Yes, but keep in mind that it would be easier for the server administrator or someone else to access your notes if they gain access to your Nextcloud account."
   profile:
-    quotaUsage(OUTDATED): You're using $used of $total ($percent%)
+    quotaUsage(OUTDATED): "You're using $used of $total ($percent%)"
     connectedTo(OUTDATED): Connected to
     faqTitle(OUTDATED): Frequently asked questions
   update:
@@ -146,7 +146,7 @@ es:
     prefLabels:
       shapeRecognitionDelay(OUTDATED): Shape recognition delay
       autoStraightenLines(OUTDATED): Auto straighten lines
-      customDataDir(OUTDATED): Custom data directory
+      customDataDir(OUTDATED): Custom Saber folder
       pencilSoundSetting(OUTDATED): Pencil sound effect
     prefDescriptions:
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
@@ -159,8 +159,8 @@ es:
     customDataDir:
       cancel(OUTDATED): Cancel
       select(OUTDATED): Select
-      mustBeEmpty(OUTDATED): Selected directory must be empty
-      mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the directory
+      mustBeEmpty(OUTDATED): Selected folder must be empty
+      mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the folder
   login:
     notYou(rich)(OUTDATED): "Not you? ${undoLogin(Choose another account)}."
     status:
@@ -197,7 +197,7 @@ es:
         - q: "Can I use the same password as my Nextcloud account?"
           a: "Yes, but keep in mind that it would be easier for the server administrator or someone else to access your notes if they gain access to your Nextcloud account."
   profile:
-    quotaUsage(OUTDATED): You're using $used of $total ($percent%)
+    quotaUsage(OUTDATED): "You're using $used of $total ($percent%)"
     connectedTo(OUTDATED): Connected to
     faqTitle(OUTDATED): Frequently asked questions
   update:
@@ -219,7 +219,7 @@ fa:
   settings:
     prefLabels:
       autoStraightenLines(OUTDATED): Auto straighten lines
-      customDataDir(OUTDATED): Custom data directory
+      customDataDir(OUTDATED): Custom Saber folder
       pencilSoundSetting(OUTDATED): Pencil sound effect
     prefDescriptions:
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
@@ -231,8 +231,8 @@ fa:
     customDataDir:
       cancel(OUTDATED): Cancel
       select(OUTDATED): Select
-      mustBeEmpty(OUTDATED): Selected directory must be empty
-      mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the directory
+      mustBeEmpty(OUTDATED): Selected folder must be empty
+      mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the folder
   login:
     notYou(rich)(OUTDATED): "Not you? ${undoLogin(Choose another account)}."
     status:
@@ -269,7 +269,7 @@ fa:
         - q: "Can I use the same password as my Nextcloud account?"
           a: "Yes, but keep in mind that it would be easier for the server administrator or someone else to access your notes if they gain access to your Nextcloud account."
   profile:
-    quotaUsage(OUTDATED): You're using $used of $total ($percent%)
+    quotaUsage(OUTDATED): "You're using $used of $total ($percent%)"
     connectedTo(OUTDATED): Connected to
     faqTitle(OUTDATED): Frequently asked questions
   update:
@@ -286,7 +286,7 @@ fr:
   settings:
     prefLabels:
       autoStraightenLines(OUTDATED): Auto straighten lines
-      customDataDir(OUTDATED): Custom data directory
+      customDataDir(OUTDATED): Custom Saber folder
       pencilSoundSetting(OUTDATED): Pencil sound effect
     prefDescriptions:
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
@@ -297,8 +297,8 @@ fr:
     customDataDir:
       cancel(OUTDATED): Cancel
       select(OUTDATED): Select
-      mustBeEmpty(OUTDATED): Selected directory must be empty
-      mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the directory
+      mustBeEmpty(OUTDATED): Selected folder must be empty
+      mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the folder
   login:
     notYou(rich)(OUTDATED): "Not you? ${undoLogin(Choose another account)}."
     status:
@@ -335,7 +335,7 @@ fr:
         - q: "Can I use the same password as my Nextcloud account?"
           a: "Yes, but keep in mind that it would be easier for the server administrator or someone else to access your notes if they gain access to your Nextcloud account."
   profile:
-    quotaUsage(OUTDATED): You're using $used of $total ($percent%)
+    quotaUsage(OUTDATED): "You're using $used of $total ($percent%)"
     connectedTo(OUTDATED): Connected to
     faqTitle(OUTDATED): Frequently asked questions
   update:
@@ -367,7 +367,7 @@ he:
       recentColorsLength(OUTDATED): How many recent colors to store
       shapeRecognitionDelay(OUTDATED): Shape recognition delay
       autoStraightenLines(OUTDATED): Auto straighten lines
-      customDataDir(OUTDATED): Custom data directory
+      customDataDir(OUTDATED): Custom Saber folder
       pencilSoundSetting(OUTDATED): Pencil sound effect
     prefDescriptions:
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
@@ -380,8 +380,8 @@ he:
     customDataDir:
       cancel(OUTDATED): Cancel
       select(OUTDATED): Select
-      mustBeEmpty(OUTDATED): Selected directory must be empty
-      mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the directory
+      mustBeEmpty(OUTDATED): Selected folder must be empty
+      mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the folder
   login:
     notYou(rich)(OUTDATED): "Not you? ${undoLogin(Choose another account)}."
     status:
@@ -418,7 +418,7 @@ he:
         - q: "Can I use the same password as my Nextcloud account?"
           a: "Yes, but keep in mind that it would be easier for the server administrator or someone else to access your notes if they gain access to your Nextcloud account."
   profile:
-    quotaUsage(OUTDATED): You're using $used of $total ($percent%)
+    quotaUsage(OUTDATED): "You're using $used of $total ($percent%)"
     connectedTo(OUTDATED): Connected to
     faqTitle(OUTDATED): Frequently asked questions
   update:
@@ -509,7 +509,7 @@ hu:
       autosaveDelay(OUTDATED): Auto-save delay
       shapeRecognitionDelay(OUTDATED): Shape recognition delay
       autoStraightenLines(OUTDATED): Auto straighten lines
-      customDataDir(OUTDATED): Custom data directory
+      customDataDir(OUTDATED): Custom Saber folder
       pencilSoundSetting(OUTDATED): Pencil sound effect
     prefDescriptions:
       disableAds(OUTDATED): "Ads help support Saber's development, but you can disable them if you'd like"
@@ -536,8 +536,8 @@ hu:
     customDataDir:
       cancel(OUTDATED): Cancel
       select(OUTDATED): Select
-      mustBeEmpty(OUTDATED): Selected directory must be empty
-      mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the directory
+      mustBeEmpty(OUTDATED): Selected folder must be empty
+      mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the folder
   login:
     notYou(rich)(OUTDATED): "Not you? ${undoLogin(Choose another account)}."
     status:
@@ -576,7 +576,7 @@ hu:
   profile:
     title(OUTDATED): My profile
     logout(OUTDATED): Log out
-    quotaUsage(OUTDATED): You're using $used of $total ($percent%)
+    quotaUsage(OUTDATED): "You're using $used of $total ($percent%)"
     connectedTo(OUTDATED): Connected to
     quickLinks:
       serverHomepage(OUTDATED): Server homepage
@@ -699,7 +699,7 @@ ja:
       autosaveDelay(OUTDATED): Auto-save delay
       shapeRecognitionDelay(OUTDATED): Shape recognition delay
       autoStraightenLines(OUTDATED): Auto straighten lines
-      customDataDir(OUTDATED): Custom data directory
+      customDataDir(OUTDATED): Custom Saber folder
       pencilSoundSetting(OUTDATED): Pencil sound effect
     prefDescriptions:
       disableEraserAfterUse(OUTDATED): Automatically switches back to the pen after using the eraser
@@ -719,8 +719,8 @@ ja:
     customDataDir:
       cancel(OUTDATED): Cancel
       select(OUTDATED): Select
-      mustBeEmpty(OUTDATED): Selected directory must be empty
-      mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the directory
+      mustBeEmpty(OUTDATED): Selected folder must be empty
+      mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the folder
   login:
     notYou(rich)(OUTDATED): "Not you? ${undoLogin(Choose another account)}."
     status:
@@ -757,7 +757,7 @@ ja:
         - q: "Can I use the same password as my Nextcloud account?"
           a: "Yes, but keep in mind that it would be easier for the server administrator or someone else to access your notes if they gain access to your Nextcloud account."
   profile:
-    quotaUsage(OUTDATED): You're using $used of $total ($percent%)
+    quotaUsage(OUTDATED): "You're using $used of $total ($percent%)"
     connectedTo(OUTDATED): Connected to
     faqTitle(OUTDATED): Frequently asked questions
   update:
@@ -800,7 +800,7 @@ pt-BR:
       recentColorsLength(OUTDATED): How many recent colors to store
       shapeRecognitionDelay(OUTDATED): Shape recognition delay
       autoStraightenLines(OUTDATED): Auto straighten lines
-      customDataDir(OUTDATED): Custom data directory
+      customDataDir(OUTDATED): Custom Saber folder
       pencilSoundSetting(OUTDATED): Pencil sound effect
     prefDescriptions:
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
@@ -813,8 +813,8 @@ pt-BR:
     customDataDir:
       cancel(OUTDATED): Cancel
       select(OUTDATED): Select
-      mustBeEmpty(OUTDATED): Selected directory must be empty
-      mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the directory
+      mustBeEmpty(OUTDATED): Selected folder must be empty
+      mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the folder
   login:
     notYou(rich)(OUTDATED): "Not you? ${undoLogin(Choose another account)}."
     status:
@@ -851,7 +851,7 @@ pt-BR:
         - q: "Can I use the same password as my Nextcloud account?"
           a: "Yes, but keep in mind that it would be easier for the server administrator or someone else to access your notes if they gain access to your Nextcloud account."
   profile:
-    quotaUsage(OUTDATED): You're using $used of $total ($percent%)
+    quotaUsage(OUTDATED): "You're using $used of $total ($percent%)"
     connectedTo(OUTDATED): Connected to
     faqTitle(OUTDATED): Frequently asked questions
   update:
@@ -880,7 +880,7 @@ tr:
     continueBtn(OUTDATED): Continue
   settings:
     prefLabels:
-      customDataDir(OUTDATED): Custom data directory
+      customDataDir(OUTDATED): Custom Saber folder
       pencilSoundSetting(OUTDATED): Pencil sound effect
     prefDescriptions:
       pencilSoundSetting:
@@ -890,8 +890,8 @@ tr:
     customDataDir:
       cancel(OUTDATED): Cancel
       select(OUTDATED): Select
-      mustBeEmpty(OUTDATED): Selected directory must be empty
-      mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the directory
+      mustBeEmpty(OUTDATED): Selected folder must be empty
+      mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the folder
   login:
     notYou(rich)(OUTDATED): "Not you? ${undoLogin(Choose another account)}."
     status:
@@ -928,7 +928,7 @@ tr:
         - q: "Can I use the same password as my Nextcloud account?"
           a: "Yes, but keep in mind that it would be easier for the server administrator or someone else to access your notes if they gain access to your Nextcloud account."
   profile:
-    quotaUsage(OUTDATED): You're using $used of $total ($percent%)
+    quotaUsage(OUTDATED): "You're using $used of $total ($percent%)"
     connectedTo(OUTDATED): Connected to
     faqTitle(OUTDATED): Frequently asked questions
   editor:
@@ -984,7 +984,7 @@ zh-Hans-CN:
         - q: "Can I use the same password as my Nextcloud account?"
           a: "Yes, but keep in mind that it would be easier for the server administrator or someone else to access your notes if they gain access to your Nextcloud account."
   profile:
-    quotaUsage(OUTDATED): You're using $used of $total ($percent%)
+    quotaUsage(OUTDATED): "You're using $used of $total ($percent%)"
     connectedTo(OUTDATED): Connected to
     faqTitle(OUTDATED): Frequently asked questions
   editor:

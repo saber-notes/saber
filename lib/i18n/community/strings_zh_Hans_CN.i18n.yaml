@@ -95,7 +95,7 @@ settings:
     autosaveDelay: 自动保存延迟
     shapeRecognitionDelay: 形状识别延迟
     autoStraightenLines: 自动拉直线
-    customDataDir: 自定义数据目录
+    customDataDir(OUTDATED): 自定义数据目录
     pencilSoundSetting(OUTDATED): 铅笔音效
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible 字体为低视力读者提高易读性
@@ -143,8 +143,8 @@ settings:
   customDataDir:
     cancel: 取消
     select: 选择
-    mustBeEmpty: 所选目录必须为空
-    mustBeDoneSyncing: 在更改目录之前，请确保同步已完成
+    mustBeEmpty(OUTDATED): 所选目录必须为空
+    mustBeDoneSyncing(OUTDATED): 在更改目录之前，请确保同步已完成
 login:
   title: 登录
   form:
@@ -208,7 +208,7 @@ profile:
         点击上面的 "@:profile.quickLinks.deleteAccount" 按钮，并在需要时登录。
         如果您使用的是官方 Saber 服务器，您的帐户将在 1 周的宽限期后被删除。在此期间，您可以通过 adilhanney@disroot.org 与我联系以取消删除。
         如果您使用的是第三方服务器，则可能没有删除帐户的选项：您需要咨询服务器的隐私政策以获取更多信息。
-  quotaUsage(OUTDATED): 您正在使用 $used 占 $total ($percent%)
+  quotaUsage(OUTDATED): "您正在使用 $used 占 $total ($percent%)"
   connectedTo(OUTDATED): 连接到
   faqTitle(OUTDATED): 经常问的问题
 appInfo:

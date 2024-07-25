@@ -190,7 +190,7 @@ profile:
   quickLinks:
     serverHomepage(OUTDATED): Szerver honlapja
     deleteAccount(OUTDATED): Fiók törlése
-  quotaUsage(OUTDATED): Ön a(z) $total-ból ($percent%) $used
+  quotaUsage(OUTDATED): "Ön a(z) $total-ból ($percent%) $used"
   connectedTo(OUTDATED): Csatlakozva valamihez
   faqTitle(OUTDATED): Gyakran Ismételt Kérdések
   title(OUTDATED): A profilom

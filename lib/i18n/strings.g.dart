@@ -254,7 +254,7 @@ class _StringsProfileEn {
 	// Translations
 	String get title => 'My profile';
 	String get logout => 'Log out';
-	String quotaUsage({required Object used, required Object total, required Object percent}) => 'You\'re using ${used} of ${total} (${percent})';
+	String quotaUsage({required Object used, required Object total, required Object percent}) => 'You\'re using ${used} of ${total} (${percent}%)';
 	String get connectedTo => 'Connected to';
 	late final _StringsProfileQuickLinksEn quickLinks = _StringsProfileQuickLinksEn._(_root);
 	String get faqTitle => 'Frequently asked questions';
@@ -487,7 +487,7 @@ class _StringsSettingsPrefLabelsEn {
 	String get autosaveDelay => 'Auto-save delay';
 	String get shapeRecognitionDelay => 'Shape recognition delay';
 	String get autoStraightenLines => 'Auto straighten lines';
-	String get customDataDir => 'Custom data directory';
+	String get customDataDir => 'Custom Saber folder';
 	String get pencilSoundSetting => 'Pencil sound effect';
 }
 
@@ -570,8 +570,8 @@ class _StringsSettingsCustomDataDirEn {
 	// Translations
 	String get cancel => 'Cancel';
 	String get select => 'Select';
-	String get mustBeEmpty => 'Selected directory must be empty';
-	String get mustBeDoneSyncing => 'Make sure syncing is complete before changing the directory';
+	String get mustBeEmpty => 'Selected folder must be empty';
+	String get mustBeDoneSyncing => 'Make sure syncing is complete before changing the folder';
 }
 
 // Path: login.form
@@ -1088,7 +1088,7 @@ class _StringsProfileAr extends _StringsProfileEn {
 		_StringsProfile$faq$0i2$Ar._(_root),
 		_StringsProfile$faq$0i3$Ar._(_root),
 	];
-	@override String quotaUsage({required Object used, required Object total, required Object percent}) => 'أنت تستخدم ${used} من ${total} (${percent})';
+	@override String quotaUsage({required Object used, required Object total, required Object percent}) => 'أنت تستخدم ${used} من ${total} (${percent}%)';
 	@override String get connectedTo => 'متصلا';
 	@override String get faqTitle => 'أسئلة مكررة';
 }
@@ -1910,7 +1910,7 @@ class _StringsProfileCs extends _StringsProfileEn {
 	// Translations
 	@override String get title => 'Můj profil';
 	@override String get logout => 'Odhlásit se';
-	@override String quotaUsage({required Object used, required Object total, required Object percent}) => 'Využíváte ${used} z ${total} (${percent})';
+	@override String quotaUsage({required Object used, required Object total, required Object percent}) => 'Využíváte ${used} z ${total} (${percent} %)';
 	@override String get connectedTo => 'Připojeno k';
 	@override late final _StringsProfileQuickLinksCs quickLinks = _StringsProfileQuickLinksCs._(_root);
 	@override String get faqTitle => 'Často kladené otázky';
@@ -2739,7 +2739,7 @@ class _StringsProfileDe extends _StringsProfileEn {
 	// Translations
 	@override String get title => 'Mein Profil';
 	@override String get logout => 'Abmelden';
-	@override String quotaUsage({required Object used, required Object total, required Object percent}) => 'Du verwendest ${used} von ${total} (${percent})';
+	@override String quotaUsage({required Object used, required Object total, required Object percent}) => 'Du verwendest ${used} von ${total} (${percent}%)';
 	@override String get connectedTo => 'Verbunden mit';
 	@override late final _StringsProfileQuickLinksDe quickLinks = _StringsProfileQuickLinksDe._(_root);
 	@override String get faqTitle => 'Häufig gestellte Fragen';
@@ -3572,7 +3572,7 @@ class _StringsProfileEs extends _StringsProfileEn {
 		_StringsProfile$faq$0i2$Es._(_root),
 		_StringsProfile$faq$0i3$Es._(_root),
 	];
-	@override String quotaUsage({required Object used, required Object total, required Object percent}) => 'Estás usando ${used} de ${total} (${percent})';
+	@override String quotaUsage({required Object used, required Object total, required Object percent}) => 'Estás usando ${used} de ${total} (${percent}%)';
 	@override String get connectedTo => 'Conectado a';
 	@override String get faqTitle => 'Preguntas frecuentes';
 }
@@ -4399,7 +4399,7 @@ class _StringsProfileFa extends _StringsProfileEn {
 		_StringsProfile$faq$0i2$Fa._(_root),
 		_StringsProfile$faq$0i3$Fa._(_root),
 	];
-	@override String quotaUsage({required Object used, required Object total, required Object percent}) => 'شما از ${used} از ${total} (${percent}) استفاده می‌کنید';
+	@override String quotaUsage({required Object used, required Object total, required Object percent}) => 'شما از ${used} از ${total} (${percent}%) استفاده می‌کنید';
 	@override String get connectedTo => 'مرتبط با';
 	@override String get faqTitle => 'سوالات متداول';
 }
@@ -5226,7 +5226,7 @@ class _StringsProfileFr extends _StringsProfileEn {
 		_StringsProfile$faq$0i2$Fr._(_root),
 		_StringsProfile$faq$0i3$Fr._(_root),
 	];
-	@override String quotaUsage({required Object used, required Object total, required Object percent}) => 'Vous utilisez ${used} sur ${total} (${percent})';
+	@override String quotaUsage({required Object used, required Object total, required Object percent}) => 'Vous utilisez ${used} sur ${total} (${percent}%)';
 	@override String get connectedTo => 'Connecté à';
 	@override String get faqTitle => 'Questions fréquemment posées';
 }
@@ -6053,7 +6053,7 @@ class _StringsProfileHe extends _StringsProfileEn {
 		_StringsProfile$faq$0i2$He._(_root),
 		_StringsProfile$faq$0i3$He._(_root),
 	];
-	@override String quotaUsage({required Object used, required Object total, required Object percent}) => 'אתה משתמש ב-${used} של ${total} (${percent})';
+	@override String quotaUsage({required Object used, required Object total, required Object percent}) => 'אתה משתמש ב-${used} של ${total} (${percent}%)';
 	@override String get connectedTo => 'מחובר ל';
 	@override String get faqTitle => 'שאלות נפוצות';
 }
@@ -6872,7 +6872,7 @@ class _StringsProfileHu extends _StringsProfileEn {
 
 	// Translations
 	@override late final _StringsProfileQuickLinksHu quickLinks = _StringsProfileQuickLinksHu._(_root);
-	@override String quotaUsage({required Object total, required Object percent, required Object used}) => 'Ön a(z) ${total}-ból (${percent}) ${used}';
+	@override String quotaUsage({required Object total, required Object percent, required Object used}) => 'Ön a(z) ${total}-ból (${percent}%) ${used}';
 	@override String get connectedTo => 'Csatlakozva valamihez';
 	@override String get faqTitle => 'Gyakran Ismételt Kérdések';
 	@override String get title => 'A profilom';
@@ -7702,7 +7702,7 @@ class _StringsProfileIt extends _StringsProfileEn {
 	// Translations
 	@override String get title => 'Il mio profilo';
 	@override String get logout => 'Log out';
-	@override String quotaUsage({required Object used, required Object total, required Object percent}) => 'Stai ${used} di ${total} (${percent})';
+	@override String quotaUsage({required Object used, required Object total, required Object percent}) => 'Stai ${used} di ${total} (${percent}%)';
 	@override String get connectedTo => 'Collegato a';
 	@override late final _StringsProfileQuickLinksIt quickLinks = _StringsProfileQuickLinksIt._(_root);
 	@override String get faqTitle => 'Domande frequenti';
@@ -8536,7 +8536,7 @@ class _StringsProfileJa extends _StringsProfileEn {
 		_StringsProfile$faq$0i2$Ja._(_root),
 		_StringsProfile$faq$0i3$Ja._(_root),
 	];
-	@override String quotaUsage({required Object total, required Object percent, required Object used}) => '${total} (${percent}) のうち ${used} を使用しています';
+	@override String quotaUsage({required Object total, required Object percent, required Object used}) => '${total} (${percent}%) のうち ${used} を使用しています';
 	@override String get connectedTo => 'に接続されています';
 	@override String get faqTitle => 'よくある質問';
 }
@@ -9363,7 +9363,7 @@ class _StringsProfilePtBr extends _StringsProfileEn {
 		_StringsProfile$faq$0i2$PtBr._(_root),
 		_StringsProfile$faq$0i3$PtBr._(_root),
 	];
-	@override String quotaUsage({required Object used, required Object total, required Object percent}) => 'Você está usando ${used} de ${total} (${percent})';
+	@override String quotaUsage({required Object used, required Object total, required Object percent}) => 'Você está usando ${used} de ${total} (${percent}%)';
 	@override String get connectedTo => 'Conectado a';
 	@override String get faqTitle => 'Perguntas frequentes';
 }
@@ -10185,7 +10185,7 @@ class _StringsProfileRu extends _StringsProfileEn {
 	// Translations
 	@override String get title => 'Мой профиль';
 	@override String get logout => 'Выйти';
-	@override String quotaUsage({required Object used, required Object total, required Object percent}) => 'Вы используете ${used} из ${total} (${percent})';
+	@override String quotaUsage({required Object used, required Object total, required Object percent}) => 'Вы используете ${used} из ${total} (${percent}%)';
 	@override String get connectedTo => 'Подключен к';
 	@override late final _StringsProfileQuickLinksRu quickLinks = _StringsProfileQuickLinksRu._(_root);
 	@override String get faqTitle => 'Часто задаваемые вопросы';
@@ -11019,7 +11019,7 @@ class _StringsProfileTr extends _StringsProfileEn {
 		_StringsProfile$faq$0i2$Tr._(_root),
 		_StringsProfile$faq$0i3$Tr._(_root),
 	];
-	@override String quotaUsage({required Object total, required Object percent, required Object used}) => '${total} (${percent}) değerinden ${used} miktarını kullanıyorsunuz';
+	@override String quotaUsage({required Object total, required Object percent, required Object used}) => '${total} (${percent}%) değerinden ${used} miktarını kullanıyorsunuz';
 	@override String get connectedTo => 'Bağlı';
 	@override String get faqTitle => 'Sıkça Sorulan Sorular';
 }
@@ -11846,7 +11846,7 @@ class _StringsProfileZhHansCn extends _StringsProfileEn {
 		_StringsProfile$faq$0i2$ZhHansCn._(_root),
 		_StringsProfile$faq$0i3$ZhHansCn._(_root),
 	];
-	@override String quotaUsage({required Object used, required Object total, required Object percent}) => '您正在使用 ${used} 占 ${total} (${percent})';
+	@override String quotaUsage({required Object used, required Object total, required Object percent}) => '您正在使用 ${used} 占 ${total} (${percent}%)';
 	@override String get connectedTo => '连接到';
 	@override String get faqTitle => '经常问的问题';
 }
@@ -12668,7 +12668,7 @@ class _StringsProfileZhHantTw extends _StringsProfileEn {
 	// Translations
 	@override String get title => '我的個人資料';
 	@override String get logout => '登出';
-	@override String quotaUsage({required Object used, required Object total, required Object percent}) => '您已使用 ${used}，共 ${total} (${percent})';
+	@override String quotaUsage({required Object used, required Object total, required Object percent}) => '您已使用 ${used}，共 ${total} (${percent}%)';
 	@override String get connectedTo => '連線到';
 	@override late final _StringsProfileQuickLinksZhHantTw quickLinks = _StringsProfileQuickLinksZhHantTw._(_root);
 	@override String get faqTitle => '常見問題';

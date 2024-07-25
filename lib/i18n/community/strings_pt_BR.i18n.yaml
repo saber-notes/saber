@@ -208,7 +208,7 @@ profile:
         Toque no "@:profile.quickLinks.deleteAccount" botão acima, e faça login se necessário.
         Se você estiver usando o servidor oficial do Saber, a sua conta será apagada depois de um período de carência de uma semana. Você pode entrar em contato comigo em adilhanney@disroot.org durante esse período para cancelar a exclusão.
         Se você estiver usando um servidor de terceiros, pode ser que não haja uma opção de apagar a sua conta: você precisará consultar a política de privacidade do servidor para mais informações.
-  quotaUsage(OUTDATED): Você está usando $used de $total ($percent%)
+  quotaUsage(OUTDATED): "Você está usando $used de $total ($percent%)"
   connectedTo(OUTDATED): Conectado a
   faqTitle(OUTDATED): Perguntas frequentes
 appInfo:
