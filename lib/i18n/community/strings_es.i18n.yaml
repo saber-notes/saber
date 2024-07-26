@@ -144,6 +144,7 @@ settings:
     select(OUTDATED): Seleccionar
     mustBeEmpty(OUTDATED): El directorio seleccionado debe estar vacío.
     mustBeDoneSyncing(OUTDATED): Asegúrese de que la sincronización esté completa antes de cambiar el directorio
+  openDataDir(OUTDATED): Abrir carpeta Saber
   resyncEverything(OUTDATED): Resync todo
 login:
   title: Iniciar sesión
@@ -294,8 +295,6 @@ editor:
     backgroundImageFit: Ajuste de la imagen de fondo
     backgroundPattern: Patrón de fondo
     import: Importar
-    watchServer(OUTDATED): Esté atento a las actualizaciones en el servidor.
-    watchServerReadOnly(OUTDATED): La edición está deshabilitada mientras se mira el servidor.
     boxFits:
       fill: Llenar
       cover: Cubrir
@@ -310,6 +309,8 @@ editor:
       staffs: Pentagrama
       tablature: Tablatura
       cornell: Método Cornell
+    watchServer(OUTDATED): Esté atento a las actualizaciones en el servidor.
+    watchServerReadOnly(OUTDATED): La edición está deshabilitada mientras se mira el servidor.
     lineHeightDescription(OUTDATED): También controla el tamaño del texto de las notas escritas.
   newerFileFormat:
     readOnlyMode: Modo de solo lectura

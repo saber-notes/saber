@@ -68,6 +68,7 @@ ar:
         onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
         onAlways(OUTDATED): Enabled (even in silent mode)
     resyncEverything(OUTDATED): Resync everything
+    openDataDir(OUTDATED): Open Saber folder
     customDataDir:
       cancel(OUTDATED): Cancel
       select(OUTDATED): Select
@@ -135,7 +136,21 @@ ar:
       bgPatterns:
         tablature(OUTDATED): Tablature
 cs:
+  settings:
+    prefLabels:
+      customDataDir(OUTDATED): Custom Saber folder
+    openDataDir(OUTDATED): Open Saber folder
+    customDataDir:
+      mustBeEmpty(OUTDATED): Selected folder must be empty
+      mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the folder
 de:
+  settings:
+    prefLabels:
+      customDataDir(OUTDATED): Custom Saber folder
+    openDataDir(OUTDATED): Open Saber folder
+    customDataDir:
+      mustBeEmpty(OUTDATED): Selected folder must be empty
+      mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the folder
 es:
   common:
     done(OUTDATED): Done
@@ -156,6 +171,7 @@ es:
         onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
         onAlways(OUTDATED): Enabled (even in silent mode)
     resyncEverything(OUTDATED): Resync everything
+    openDataDir(OUTDATED): Open Saber folder
     customDataDir:
       cancel(OUTDATED): Cancel
       select(OUTDATED): Select
@@ -228,6 +244,7 @@ fa:
         onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
         onAlways(OUTDATED): Enabled (even in silent mode)
     resyncEverything(OUTDATED): Resync everything
+    openDataDir(OUTDATED): Open Saber folder
     customDataDir:
       cancel(OUTDATED): Cancel
       select(OUTDATED): Select
@@ -294,6 +311,7 @@ fr:
         off(OUTDATED): No sound
         onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
         onAlways(OUTDATED): Enabled (even in silent mode)
+    openDataDir(OUTDATED): Open Saber folder
     customDataDir:
       cancel(OUTDATED): Cancel
       select(OUTDATED): Select
@@ -377,6 +395,7 @@ he:
         onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
         onAlways(OUTDATED): Enabled (even in silent mode)
     resyncEverything(OUTDATED): Resync everything
+    openDataDir(OUTDATED): Open Saber folder
     customDataDir:
       cancel(OUTDATED): Cancel
       select(OUTDATED): Select
@@ -533,6 +552,7 @@ hu:
       phone(OUTDATED): Phone
       tablet(OUTDATED): Tablet
     resyncEverything(OUTDATED): Resync everything
+    openDataDir(OUTDATED): Open Saber folder
     customDataDir:
       cancel(OUTDATED): Cancel
       select(OUTDATED): Select
@@ -657,6 +677,13 @@ hu:
       lockAxisAlignedPan(OUTDATED): Lock panning to horizontal or vertical
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
 it:
+  settings:
+    prefLabels:
+      customDataDir(OUTDATED): Custom Saber folder
+    openDataDir(OUTDATED): Open Saber folder
+    customDataDir:
+      mustBeEmpty(OUTDATED): Selected folder must be empty
+      mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the folder
 ja:
   common:
     done(OUTDATED): Done
@@ -716,6 +743,7 @@ ja:
         onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
         onAlways(OUTDATED): Enabled (even in silent mode)
     resyncEverything(OUTDATED): Resync everything
+    openDataDir(OUTDATED): Open Saber folder
     customDataDir:
       cancel(OUTDATED): Cancel
       select(OUTDATED): Select
@@ -810,6 +838,7 @@ pt-BR:
         onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
         onAlways(OUTDATED): Enabled (even in silent mode)
     resyncEverything(OUTDATED): Resync everything
+    openDataDir(OUTDATED): Open Saber folder
     customDataDir:
       cancel(OUTDATED): Cancel
       select(OUTDATED): Select
@@ -874,6 +903,13 @@ pt-BR:
       watchServer(OUTDATED): Watch for updates on the server
       watchServerReadOnly(OUTDATED): Editing is disabled while watching the server
 ru:
+  settings:
+    prefLabels:
+      customDataDir(OUTDATED): Custom Saber folder
+    openDataDir(OUTDATED): Open Saber folder
+    customDataDir:
+      mustBeEmpty(OUTDATED): Selected folder must be empty
+      mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the folder
 tr:
   common:
     done(OUTDATED): Done
@@ -887,6 +923,7 @@ tr:
         off(OUTDATED): No sound
         onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
         onAlways(OUTDATED): Enabled (even in silent mode)
+    openDataDir(OUTDATED): Open Saber folder
     customDataDir:
       cancel(OUTDATED): Cancel
       select(OUTDATED): Select
@@ -942,12 +979,17 @@ zh-Hans-CN:
     continueBtn(OUTDATED): Continue
   settings:
     prefLabels:
+      customDataDir(OUTDATED): Custom Saber folder
       pencilSoundSetting(OUTDATED): Pencil sound effect
     prefDescriptions:
       pencilSoundSetting:
         off(OUTDATED): No sound
         onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
         onAlways(OUTDATED): Enabled (even in silent mode)
+    openDataDir(OUTDATED): Open Saber folder
+    customDataDir:
+      mustBeEmpty(OUTDATED): Selected folder must be empty
+      mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the folder
   login:
     notYou(rich)(OUTDATED): "Not you? ${undoLogin(Choose another account)}."
     status:
@@ -992,3 +1034,10 @@ zh-Hans-CN:
       watchServer(OUTDATED): Watch for updates on the server
       watchServerReadOnly(OUTDATED): Editing is disabled while watching the server
 zh-Hant-TW:
+  settings:
+    prefLabels:
+      customDataDir(OUTDATED): Custom Saber folder
+    openDataDir(OUTDATED): Open Saber folder
+    customDataDir:
+      mustBeEmpty(OUTDATED): Selected folder must be empty
+      mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the folder

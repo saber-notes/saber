@@ -144,6 +144,7 @@ settings:
     select(OUTDATED): 選択する
     mustBeEmpty(OUTDATED): 選択したディレクトリは空である必要があります
     mustBeDoneSyncing(OUTDATED): ディレクトリを変更する前に同期が完了していることを確認してください
+  openDataDir(OUTDATED): セイバーフォルダを開く
   resyncEverything(OUTDATED): すべてを再同期する
 login:
   title: ログイン
@@ -290,8 +291,6 @@ editor:
     lineHeight: 行の高さ
     backgroundPattern: 背景パターン
     import: インポート
-    watchServer(OUTDATED): サーバー上の更新を監視する
-    watchServerReadOnly(OUTDATED): サーバー監視中は編集できません
     boxFits:
       fill: 貼る
       cover: カバー
@@ -306,6 +305,8 @@ editor:
       staffs: スタッフ
       cornell: 角
       tablature(OUTDATED): タベルチュア
+    watchServer(OUTDATED): サーバー上の更新を監視する
+    watchServerReadOnly(OUTDATED): サーバー監視中は編集できません
     lineHeightDescription(OUTDATED): 入力されたメモのテキスト サイズも制御します
     backgroundImageFit(OUTDATED): 背景画像
   newerFileFormat:

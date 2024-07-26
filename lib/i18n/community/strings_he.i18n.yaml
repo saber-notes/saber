@@ -144,6 +144,7 @@ settings:
     select(OUTDATED): בחר
     mustBeEmpty(OUTDATED): הספרייה שנבחרה חייבת להיות ריקה
     mustBeDoneSyncing(OUTDATED): ודא שהסנכרון הושלם לפני שינוי הספרייה
+  openDataDir(OUTDATED): פתח את תיקיית Saber
   resyncEverything(OUTDATED): סנכרן הכל מחדש
 login:
   title: התחבר
@@ -295,8 +296,6 @@ editor:
     backgroundImageFit: התאמת תמונת רקע
     backgroundPattern: תבנית רקע
     import: יבוא
-    watchServer(OUTDATED): שימו לב לעדכונים בשרת
-    watchServerReadOnly(OUTDATED): העריכה מושבתת בזמן צפייה בשרת
     boxFits:
       fill: מתיחה
       cover: כיסוי
@@ -311,6 +310,8 @@ editor:
       staffs(OUTDATED): צוותים
       tablature(OUTDATED): כרטיסייה
       cornell(OUTDATED): קורנל
+    watchServer(OUTDATED): שימו לב לעדכונים בשרת
+    watchServerReadOnly(OUTDATED): העריכה מושבתת בזמן צפייה בשרת
     lineHeightDescription(OUTDATED): שולט גם בגודל הטקסט עבור הערות מוקלדות
   newerFileFormat:
     readOnlyMode: מצב צפייה בלבד

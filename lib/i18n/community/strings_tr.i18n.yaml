@@ -145,6 +145,7 @@ settings:
     select(OUTDATED): Seçme
     mustBeEmpty(OUTDATED): Seçilen dizin boş olmalıdır
     mustBeDoneSyncing(OUTDATED): Dizini değiştirmeden önce senkronizasyonun tamamlandığından emin olun
+  openDataDir(OUTDATED): Saber klasörünü aç
 login:
   title: Giriş yap
   form:
@@ -295,8 +296,6 @@ editor:
     backgroundImageFit: Arkaplan görüntüsünü sığdır
     backgroundPattern: Arkaplan deseni
     import: İçe aktar
-    watchServer(OUTDATED): Sunucudaki güncellemeleri izleyin
-    watchServerReadOnly(OUTDATED): Sunucuyu izlerken düzenleme devre dışı bırakıldı
     boxFits:
       fill: Yaydır
       cover: Kapla
@@ -311,6 +310,8 @@ editor:
       staffs: Porte (müzik)
       tablature: Nota kağıdı
       cornell: Cornell not şablonu
+    watchServer(OUTDATED): Sunucudaki güncellemeleri izleyin
+    watchServerReadOnly(OUTDATED): Sunucuyu izlerken düzenleme devre dışı bırakıldı
     lineHeightDescription(OUTDATED): Ayrıca yazılan notların metin boyutunu da kontrol eder
   newerFileFormat:
     readOnlyMode: Yalnızca okunabilir mod

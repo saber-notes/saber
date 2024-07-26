@@ -145,6 +145,7 @@ settings:
     select(OUTDATED): Sélectionner
     mustBeEmpty(OUTDATED): Le répertoire sélectionné doit être vide
     mustBeDoneSyncing(OUTDATED): Assurez-vous que la synchronisation est terminée avant de modifier le répertoire
+  openDataDir(OUTDATED): Ouvrir le dossier Saber
 login:
   title: Connexion
   form:
@@ -294,8 +295,6 @@ editor:
     backgroundImageFit: Adaptation de l'image de fond
     backgroundPattern: Texture de fond
     import: Importer
-    watchServer(OUTDATED): Surveillez les mises à jour sur le serveur
-    watchServerReadOnly(OUTDATED): L'édition est désactivée lorsque vous regardez le serveur
     boxFits:
       fill: S'ajuste
       cover: Couvre
@@ -310,6 +309,8 @@ editor:
       staffs: Staffs
       tablature: Tablature
       cornell: Cornell
+    watchServer(OUTDATED): Surveillez les mises à jour sur le serveur
+    watchServerReadOnly(OUTDATED): L'édition est désactivée lorsque vous regardez le serveur
     lineHeightDescription(OUTDATED): Contrôle également la taille du texte pour les notes saisies
   newerFileFormat:
     readOnlyMode: Mode lecture seule

@@ -145,6 +145,7 @@ settings:
     select: 选择
     mustBeEmpty(OUTDATED): 所选目录必须为空
     mustBeDoneSyncing(OUTDATED): 在更改目录之前，请确保同步已完成
+  openDataDir(OUTDATED): 打开 Saber 文件夹
 login:
   title: 登录
   form:
@@ -295,8 +296,6 @@ editor:
     backgroundImageFit: 背景图像拟合
     backgroundPattern: 背景图案
     import: 导入
-    watchServer(OUTDATED): 留意服务器上的更新
-    watchServerReadOnly(OUTDATED): 观看服务器时禁用编辑
     boxFits:
       fill: 拉伸
       cover: 覆盖
@@ -311,6 +310,8 @@ editor:
       staffs: 五线谱
       tablature: 绘画
       cornell: Cornell
+    watchServer(OUTDATED): 留意服务器上的更新
+    watchServerReadOnly(OUTDATED): 观看服务器时禁用编辑
   newerFileFormat:
     readOnlyMode: 只读模式
     title: 此笔记使用新版 Saber 编辑而成

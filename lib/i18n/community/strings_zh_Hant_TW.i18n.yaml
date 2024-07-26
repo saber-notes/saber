@@ -95,8 +95,8 @@ settings:
     autosaveDelay: 自動儲存延遲
     shapeRecognitionDelay: 形狀識別延遲
     autoStraightenLines: 自動拉直線條
-    customDataDir(OUTDATED): 自訂資料目錄
     pencilSoundSetting: 筆的音效
+    customDataDir(OUTDATED): 自訂資料目錄
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible 字體為低視力讀者提高易讀性
     disableAds: 廣告有助於支持Saber的發展，但如果您不願意，可以禁用它
@@ -145,6 +145,7 @@ settings:
     select: 選擇
     mustBeEmpty(OUTDATED): 所選目錄必須是空的
     mustBeDoneSyncing(OUTDATED): 更改目錄之前請確保同步已完成
+  openDataDir(OUTDATED): 開啟Saber資料夾
 login:
   title: 登入
   form:

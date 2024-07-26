@@ -95,8 +95,8 @@ settings:
     autosaveDelay: Задержка автосохранения
     shapeRecognitionDelay: Задержка распознавания формы
     autoStraightenLines: Автоматическое выпрямление линий
-    customDataDir(OUTDATED): Свой каталог для данных
     pencilSoundSetting: Звуковой эффект карандаша
+    customDataDir(OUTDATED): Свой каталог для данных
   prefDescriptions:
     hyperlegibleFont: Шрифт Atkinson Hyperlegible повышает разборчивость для читателей с плохим зрением
     disableAds: "Реклама помогает поддерживать разработку Saber, но вы можете отключить её, если захотите."
@@ -145,6 +145,7 @@ settings:
     select: Выбрать
     mustBeEmpty(OUTDATED): Выбранный каталог должен быть пустым
     mustBeDoneSyncing(OUTDATED): "Прежде чем менять каталог, убедитесь, что синхронизация завершена."
+  openDataDir(OUTDATED): Открыть папку Saber
 login:
   title: Авторизация
   form:

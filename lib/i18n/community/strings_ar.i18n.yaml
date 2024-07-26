@@ -144,6 +144,7 @@ settings:
     select(OUTDATED): يختار
     mustBeEmpty(OUTDATED): يجب أن يكون الدليل المحدد فارغًا
     mustBeDoneSyncing(OUTDATED): تأكد من اكتمال المزامنة قبل تغيير الدليل
+  openDataDir(OUTDATED): افتح مجلد Saber
   resyncEverything(OUTDATED): إعادة ترتيب كل شيء
 login:
   title: تسجيل الدخول
@@ -293,8 +294,6 @@ editor:
     lineHeight: ارتفاع خط
     backgroundPattern: نمط الخلفية
     import: يستورد
-    watchServer(OUTDATED): ترقب التحديثات على الخادم
-    watchServerReadOnly(OUTDATED): تم تعطيل التحرير أثناء مشاهدة الخادم
     boxFits:
       fill: تمتد
       cover: غطاء
@@ -309,6 +308,8 @@ editor:
       staffs: موظفون
       cornell: كورنيل
       tablature(OUTDATED): تبلتثر
+    watchServer(OUTDATED): ترقب التحديثات على الخادم
+    watchServerReadOnly(OUTDATED): تم تعطيل التحرير أثناء مشاهدة الخادم
     lineHeightDescription(OUTDATED): يتحكم أيضًا في حجم النص للملاحظات المكتوبة
     backgroundImageFit(OUTDATED): الصورة الخلفية
   newerFileFormat:

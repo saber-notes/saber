@@ -144,6 +144,7 @@ settings:
     select(OUTDATED): انتخاب کنید
     mustBeEmpty(OUTDATED): دایرکتوری انتخاب شده باید خالی باشد
     mustBeDoneSyncing(OUTDATED): قبل از تغییر دایرکتوری مطمئن شوید که همگام سازی کامل شده است
+  openDataDir(OUTDATED): پوشه Saber را باز کنید
   resyncEverything(OUTDATED): همه چیز را دوباره همگام سازی کنید
 login:
   title: وارد شدن
@@ -290,8 +291,6 @@ editor:
     backgroundImageFit: مناسب تصویر پس زمینه
     backgroundPattern: الگوی پس زمینه
     import: واردکردن
-    watchServer(OUTDATED): مراقب به روز رسانی ها در سرور باشید
-    watchServerReadOnly(OUTDATED): هنگام تماشای سرور، ویرایش غیرفعال است
     boxFits:
       fill: کش آمدن
       cover: پوشش دادن
@@ -306,6 +305,8 @@ editor:
       staffs: کارکنان
       tablature: جدول بندی
       cornell: کرنل
+    watchServer(OUTDATED): مراقب به روز رسانی ها در سرور باشید
+    watchServerReadOnly(OUTDATED): هنگام تماشای سرور، ویرایش غیرفعال است
     lineHeightDescription(OUTDATED): همچنین اندازه متن را برای یادداشت های تایپ شده کنترل می کند
   newerFileFormat:
     readOnlyMode: حالت فقط خواندنی

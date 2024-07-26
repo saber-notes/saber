@@ -1047,6 +1047,7 @@ class _StringsSettingsAr extends _StringsSettingsEn {
 		'يسار',
 	];
 	@override late final _StringsSettingsResetAr reset = _StringsSettingsResetAr._(_root);
+	@override String get openDataDir => 'افتح مجلد Saber';
 	@override late final _StringsSettingsCustomDataDirAr customDataDir = _StringsSettingsCustomDataDirAr._(_root);
 	@override String get resyncEverything => 'إعادة ترتيب كل شيء';
 }
@@ -1642,10 +1643,10 @@ class _StringsEditorMenuAr extends _StringsEditorMenuEn {
 	@override String get lineHeight => 'ارتفاع خط';
 	@override String get backgroundPattern => 'نمط الخلفية';
 	@override String get import => 'يستورد';
-	@override String get watchServer => 'ترقب التحديثات على الخادم';
-	@override String get watchServerReadOnly => 'تم تعطيل التحرير أثناء مشاهدة الخادم';
 	@override late final _StringsEditorMenuBoxFitsAr boxFits = _StringsEditorMenuBoxFitsAr._(_root);
 	@override late final _StringsEditorMenuBgPatternsAr bgPatterns = _StringsEditorMenuBgPatternsAr._(_root);
+	@override String get watchServer => 'ترقب التحديثات على الخادم';
+	@override String get watchServerReadOnly => 'تم تعطيل التحرير أثناء مشاهدة الخادم';
 	@override String get lineHeightDescription => 'يتحكم أيضًا في حجم النص للملاحظات المكتوبة';
 	@override String get backgroundImageFit => 'الصورة الخلفية';
 }
@@ -1875,6 +1876,7 @@ class _StringsSettingsCs extends _StringsSettingsEn {
 	];
 	@override late final _StringsSettingsResetCs reset = _StringsSettingsResetCs._(_root);
 	@override String get resyncEverything => 'Znovu synchronizovat všechny poznámky';
+	@override String get openDataDir => 'Otevřete složku Saber';
 	@override late final _StringsSettingsCustomDataDirCs customDataDir = _StringsSettingsCustomDataDirCs._(_root);
 }
 
@@ -2144,8 +2146,8 @@ class _StringsSettingsPrefLabelsCs extends _StringsSettingsPrefLabelsEn {
 	@override String get autosaveDelay => 'Zpoždění automatického ukládání';
 	@override String get shapeRecognitionDelay => 'Zpoždění rozpoznávání tvarů';
 	@override String get autoStraightenLines => 'Automaticky narovnávat čáry';
-	@override String get customDataDir => 'Vlastní datový adresář';
 	@override String get pencilSoundSetting => 'Zvukový efekt psaní tužkou';
+	@override String get customDataDir => 'Vlastní datový adresář';
 }
 
 // Path: settings.prefDescriptions
@@ -2704,6 +2706,7 @@ class _StringsSettingsDe extends _StringsSettingsEn {
 	];
 	@override late final _StringsSettingsResetDe reset = _StringsSettingsResetDe._(_root);
 	@override String get resyncEverything => 'Alles neu Synchronisieren';
+	@override String get openDataDir => 'Saber-Ordner öffnen';
 	@override late final _StringsSettingsCustomDataDirDe customDataDir = _StringsSettingsCustomDataDirDe._(_root);
 }
 
@@ -2973,8 +2976,8 @@ class _StringsSettingsPrefLabelsDe extends _StringsSettingsPrefLabelsEn {
 	@override String get autosaveDelay => 'Verzögerung des automatischen Speicherns';
 	@override String get shapeRecognitionDelay => 'Verzögerung der Formerkennung';
 	@override String get autoStraightenLines => 'Linien automatisch begradigen';
-	@override String get customDataDir => 'Benutzerdefiniertes Verzeichnis';
 	@override String get pencilSoundSetting => 'Bleistiftgeräusch';
+	@override String get customDataDir => 'Benutzerdefiniertes Verzeichnis';
 }
 
 // Path: settings.prefDescriptions
@@ -3532,6 +3535,7 @@ class _StringsSettingsEs extends _StringsSettingsEn {
 		'Izquierda',
 	];
 	@override late final _StringsSettingsResetEs reset = _StringsSettingsResetEs._(_root);
+	@override String get openDataDir => 'Abrir carpeta Saber';
 	@override late final _StringsSettingsCustomDataDirEs customDataDir = _StringsSettingsCustomDataDirEs._(_root);
 	@override String get resyncEverything => 'Resync todo';
 }
@@ -4127,10 +4131,10 @@ class _StringsEditorMenuEs extends _StringsEditorMenuEn {
 	@override String get backgroundImageFit => 'Ajuste de la imagen de fondo';
 	@override String get backgroundPattern => 'Patrón de fondo';
 	@override String get import => 'Importar';
-	@override String get watchServer => 'Esté atento a las actualizaciones en el servidor.';
-	@override String get watchServerReadOnly => 'La edición está deshabilitada mientras se mira el servidor.';
 	@override late final _StringsEditorMenuBoxFitsEs boxFits = _StringsEditorMenuBoxFitsEs._(_root);
 	@override late final _StringsEditorMenuBgPatternsEs bgPatterns = _StringsEditorMenuBgPatternsEs._(_root);
+	@override String get watchServer => 'Esté atento a las actualizaciones en el servidor.';
+	@override String get watchServerReadOnly => 'La edición está deshabilitada mientras se mira el servidor.';
 	@override String get lineHeightDescription => 'También controla el tamaño del texto de las notas escritas.';
 }
 
@@ -4358,6 +4362,7 @@ class _StringsSettingsFa extends _StringsSettingsEn {
 		'چپ',
 	];
 	@override late final _StringsSettingsResetFa reset = _StringsSettingsResetFa._(_root);
+	@override String get openDataDir => 'پوشه Saber را باز کنید';
 	@override late final _StringsSettingsCustomDataDirFa customDataDir = _StringsSettingsCustomDataDirFa._(_root);
 	@override String get resyncEverything => 'همه چیز را دوباره همگام سازی کنید';
 }
@@ -4954,10 +4959,10 @@ class _StringsEditorMenuFa extends _StringsEditorMenuEn {
 	@override String get backgroundImageFit => 'مناسب تصویر پس زمینه';
 	@override String get backgroundPattern => 'الگوی پس زمینه';
 	@override String get import => 'واردکردن';
-	@override String get watchServer => 'مراقب به روز رسانی ها در سرور باشید';
-	@override String get watchServerReadOnly => 'هنگام تماشای سرور، ویرایش غیرفعال است';
 	@override late final _StringsEditorMenuBoxFitsFa boxFits = _StringsEditorMenuBoxFitsFa._(_root);
 	@override late final _StringsEditorMenuBgPatternsFa bgPatterns = _StringsEditorMenuBgPatternsFa._(_root);
+	@override String get watchServer => 'مراقب به روز رسانی ها در سرور باشید';
+	@override String get watchServerReadOnly => 'هنگام تماشای سرور، ویرایش غیرفعال است';
 	@override String get lineHeightDescription => 'همچنین اندازه متن را برای یادداشت های تایپ شده کنترل می کند';
 }
 
@@ -5186,6 +5191,7 @@ class _StringsSettingsFr extends _StringsSettingsEn {
 	];
 	@override late final _StringsSettingsResetFr reset = _StringsSettingsResetFr._(_root);
 	@override String get resyncEverything => 'Tout re-syncroniser';
+	@override String get openDataDir => 'Ouvrir le dossier Saber';
 	@override late final _StringsSettingsCustomDataDirFr customDataDir = _StringsSettingsCustomDataDirFr._(_root);
 }
 
@@ -5781,10 +5787,10 @@ class _StringsEditorMenuFr extends _StringsEditorMenuEn {
 	@override String get backgroundImageFit => 'Adaptation de l\'image de fond';
 	@override String get backgroundPattern => 'Texture de fond';
 	@override String get import => 'Importer';
-	@override String get watchServer => 'Surveillez les mises à jour sur le serveur';
-	@override String get watchServerReadOnly => 'L\'édition est désactivée lorsque vous regardez le serveur';
 	@override late final _StringsEditorMenuBoxFitsFr boxFits = _StringsEditorMenuBoxFitsFr._(_root);
 	@override late final _StringsEditorMenuBgPatternsFr bgPatterns = _StringsEditorMenuBgPatternsFr._(_root);
+	@override String get watchServer => 'Surveillez les mises à jour sur le serveur';
+	@override String get watchServerReadOnly => 'L\'édition est désactivée lorsque vous regardez le serveur';
 	@override String get lineHeightDescription => 'Contrôle également la taille du texte pour les notes saisies';
 }
 
@@ -6012,6 +6018,7 @@ class _StringsSettingsHe extends _StringsSettingsEn {
 		'שמאל',
 	];
 	@override late final _StringsSettingsResetHe reset = _StringsSettingsResetHe._(_root);
+	@override String get openDataDir => 'פתח את תיקיית Saber';
 	@override late final _StringsSettingsCustomDataDirHe customDataDir = _StringsSettingsCustomDataDirHe._(_root);
 	@override String get resyncEverything => 'סנכרן הכל מחדש';
 }
@@ -6608,10 +6615,10 @@ class _StringsEditorMenuHe extends _StringsEditorMenuEn {
 	@override String get backgroundImageFit => 'התאמת תמונת רקע';
 	@override String get backgroundPattern => 'תבנית רקע';
 	@override String get import => 'יבוא';
-	@override String get watchServer => 'שימו לב לעדכונים בשרת';
-	@override String get watchServerReadOnly => 'העריכה מושבתת בזמן צפייה בשרת';
 	@override late final _StringsEditorMenuBoxFitsHe boxFits = _StringsEditorMenuBoxFitsHe._(_root);
 	@override late final _StringsEditorMenuBgPatternsHe bgPatterns = _StringsEditorMenuBgPatternsHe._(_root);
+	@override String get watchServer => 'שימו לב לעדכונים בשרת';
+	@override String get watchServerReadOnly => 'העריכה מושבתת בזמן צפייה בשרת';
 	@override String get lineHeightDescription => 'שולט גם בגודל הטקסט עבור הערות מוקלדות';
 }
 
@@ -6839,6 +6846,7 @@ class _StringsSettingsHu extends _StringsSettingsEn {
 		'Balra',
 	];
 	@override late final _StringsSettingsResetHu reset = _StringsSettingsResetHu._(_root);
+	@override String get openDataDir => 'Nyissa meg a Saber mappát';
 	@override late final _StringsSettingsCustomDataDirHu customDataDir = _StringsSettingsCustomDataDirHu._(_root);
 	@override String get resyncEverything => 'Resync mindent';
 }
@@ -7430,10 +7438,10 @@ class _StringsEditorMenuHu extends _StringsEditorMenuEn {
 	@override String get lineHeight => 'Vonalmagasság';
 	@override String get backgroundPattern => 'Háttérminta';
 	@override String get import => 'Importálás';
-	@override String get watchServer => 'Figyelje a frissítéseket a szerveren';
-	@override String get watchServerReadOnly => 'A szerver figyelése közben a szerkesztés le van tiltva';
 	@override late final _StringsEditorMenuBoxFitsHu boxFits = _StringsEditorMenuBoxFitsHu._(_root);
 	@override late final _StringsEditorMenuBgPatternsHu bgPatterns = _StringsEditorMenuBgPatternsHu._(_root);
+	@override String get watchServer => 'Figyelje a frissítéseket a szerveren';
+	@override String get watchServerReadOnly => 'A szerver figyelése közben a szerkesztés le van tiltva';
 	@override String get lineHeightDescription => 'A beírt jegyzetek szövegméretét is szabályozza';
 	@override String get backgroundImageFit => 'Háttérkép';
 	@override String clearPage({required Object page, required Object totalPages}) => '${page}/${totalPages} oldal törlése';
@@ -7667,6 +7675,7 @@ class _StringsSettingsIt extends _StringsSettingsEn {
 	];
 	@override late final _StringsSettingsResetIt reset = _StringsSettingsResetIt._(_root);
 	@override String get resyncEverything => 'Risincronizza tutto';
+	@override String get openDataDir => 'Apri cartella Saber';
 	@override late final _StringsSettingsCustomDataDirIt customDataDir = _StringsSettingsCustomDataDirIt._(_root);
 }
 
@@ -7936,8 +7945,8 @@ class _StringsSettingsPrefLabelsIt extends _StringsSettingsPrefLabelsEn {
 	@override String get autosaveDelay => 'Ritardo di salvataggio automatico';
 	@override String get shapeRecognitionDelay => 'Ritardo nel riconoscimento della forma';
 	@override String get autoStraightenLines => 'Raddrizzamento automatico delle linee';
-	@override String get customDataDir => 'Directory di dati personalizzata';
 	@override String get pencilSoundSetting => 'Effetto sonoro della matita';
+	@override String get customDataDir => 'Directory di dati personalizzata';
 }
 
 // Path: settings.prefDescriptions
@@ -8495,6 +8504,7 @@ class _StringsSettingsJa extends _StringsSettingsEn {
 		'左側',
 	];
 	@override late final _StringsSettingsResetJa reset = _StringsSettingsResetJa._(_root);
+	@override String get openDataDir => 'セイバーフォルダを開く';
 	@override late final _StringsSettingsCustomDataDirJa customDataDir = _StringsSettingsCustomDataDirJa._(_root);
 	@override String get resyncEverything => 'すべてを再同期する';
 }
@@ -9090,10 +9100,10 @@ class _StringsEditorMenuJa extends _StringsEditorMenuEn {
 	@override String get lineHeight => '行の高さ';
 	@override String get backgroundPattern => '背景パターン';
 	@override String get import => 'インポート';
-	@override String get watchServer => 'サーバー上の更新を監視する';
-	@override String get watchServerReadOnly => 'サーバー監視中は編集できません';
 	@override late final _StringsEditorMenuBoxFitsJa boxFits = _StringsEditorMenuBoxFitsJa._(_root);
 	@override late final _StringsEditorMenuBgPatternsJa bgPatterns = _StringsEditorMenuBgPatternsJa._(_root);
+	@override String get watchServer => 'サーバー上の更新を監視する';
+	@override String get watchServerReadOnly => 'サーバー監視中は編集できません';
 	@override String get lineHeightDescription => '入力されたメモのテキスト サイズも制御します';
 	@override String get backgroundImageFit => '背景画像';
 }
@@ -9322,6 +9332,7 @@ class _StringsSettingsPtBr extends _StringsSettingsEn {
 		'Esquerda',
 	];
 	@override late final _StringsSettingsResetPtBr reset = _StringsSettingsResetPtBr._(_root);
+	@override String get openDataDir => 'Abra a pasta Saber';
 	@override late final _StringsSettingsCustomDataDirPtBr customDataDir = _StringsSettingsCustomDataDirPtBr._(_root);
 	@override String get resyncEverything => 'Resync tudo';
 }
@@ -9918,10 +9929,10 @@ class _StringsEditorMenuPtBr extends _StringsEditorMenuEn {
 	@override String get backgroundImageFit => 'Ajustar a imagem de plano de fundo';
 	@override String get backgroundPattern => 'Padrão de plano de fundo';
 	@override String get import => 'Importar';
-	@override String get watchServer => 'Fique atento às atualizações no servidor';
-	@override String get watchServerReadOnly => 'A edição está desativada enquanto observa o servidor';
 	@override late final _StringsEditorMenuBoxFitsPtBr boxFits = _StringsEditorMenuBoxFitsPtBr._(_root);
 	@override late final _StringsEditorMenuBgPatternsPtBr bgPatterns = _StringsEditorMenuBgPatternsPtBr._(_root);
+	@override String get watchServer => 'Fique atento às atualizações no servidor';
+	@override String get watchServerReadOnly => 'A edição está desativada enquanto observa o servidor';
 	@override String get lineHeightDescription => 'Também controla o tamanho do texto para notas digitadas';
 }
 
@@ -10150,6 +10161,7 @@ class _StringsSettingsRu extends _StringsSettingsEn {
 	];
 	@override late final _StringsSettingsResetRu reset = _StringsSettingsResetRu._(_root);
 	@override String get resyncEverything => 'Повторная синхронизация всего';
+	@override String get openDataDir => 'Открыть папку Saber';
 	@override late final _StringsSettingsCustomDataDirRu customDataDir = _StringsSettingsCustomDataDirRu._(_root);
 }
 
@@ -10419,8 +10431,8 @@ class _StringsSettingsPrefLabelsRu extends _StringsSettingsPrefLabelsEn {
 	@override String get autosaveDelay => 'Задержка автосохранения';
 	@override String get shapeRecognitionDelay => 'Задержка распознавания формы';
 	@override String get autoStraightenLines => 'Автоматическое выпрямление линий';
-	@override String get customDataDir => 'Свой каталог для данных';
 	@override String get pencilSoundSetting => 'Звуковой эффект карандаша';
+	@override String get customDataDir => 'Свой каталог для данных';
 }
 
 // Path: settings.prefDescriptions
@@ -10979,6 +10991,7 @@ class _StringsSettingsTr extends _StringsSettingsEn {
 	];
 	@override late final _StringsSettingsResetTr reset = _StringsSettingsResetTr._(_root);
 	@override String get resyncEverything => 'Her şeyi yeniden senkronize et';
+	@override String get openDataDir => 'Saber klasörünü aç';
 	@override late final _StringsSettingsCustomDataDirTr customDataDir = _StringsSettingsCustomDataDirTr._(_root);
 }
 
@@ -11574,10 +11587,10 @@ class _StringsEditorMenuTr extends _StringsEditorMenuEn {
 	@override String get backgroundImageFit => 'Arkaplan görüntüsünü sığdır';
 	@override String get backgroundPattern => 'Arkaplan deseni';
 	@override String get import => 'İçe aktar';
-	@override String get watchServer => 'Sunucudaki güncellemeleri izleyin';
-	@override String get watchServerReadOnly => 'Sunucuyu izlerken düzenleme devre dışı bırakıldı';
 	@override late final _StringsEditorMenuBoxFitsTr boxFits = _StringsEditorMenuBoxFitsTr._(_root);
 	@override late final _StringsEditorMenuBgPatternsTr bgPatterns = _StringsEditorMenuBgPatternsTr._(_root);
+	@override String get watchServer => 'Sunucudaki güncellemeleri izleyin';
+	@override String get watchServerReadOnly => 'Sunucuyu izlerken düzenleme devre dışı bırakıldı';
 	@override String get lineHeightDescription => 'Ayrıca yazılan notların metin boyutunu da kontrol eder';
 }
 
@@ -11806,6 +11819,7 @@ class _StringsSettingsZhHansCn extends _StringsSettingsEn {
 	];
 	@override late final _StringsSettingsResetZhHansCn reset = _StringsSettingsResetZhHansCn._(_root);
 	@override String get resyncEverything => '重新同步所有';
+	@override String get openDataDir => '打开 Saber 文件夹';
 	@override late final _StringsSettingsCustomDataDirZhHansCn customDataDir = _StringsSettingsCustomDataDirZhHansCn._(_root);
 }
 
@@ -12402,10 +12416,10 @@ class _StringsEditorMenuZhHansCn extends _StringsEditorMenuEn {
 	@override String get backgroundImageFit => '背景图像拟合';
 	@override String get backgroundPattern => '背景图案';
 	@override String get import => '导入';
-	@override String get watchServer => '留意服务器上的更新';
-	@override String get watchServerReadOnly => '观看服务器时禁用编辑';
 	@override late final _StringsEditorMenuBoxFitsZhHansCn boxFits = _StringsEditorMenuBoxFitsZhHansCn._(_root);
 	@override late final _StringsEditorMenuBgPatternsZhHansCn bgPatterns = _StringsEditorMenuBgPatternsZhHansCn._(_root);
+	@override String get watchServer => '留意服务器上的更新';
+	@override String get watchServerReadOnly => '观看服务器时禁用编辑';
 }
 
 // Path: editor.newerFileFormat
@@ -12633,6 +12647,7 @@ class _StringsSettingsZhHantTw extends _StringsSettingsEn {
 	];
 	@override late final _StringsSettingsResetZhHantTw reset = _StringsSettingsResetZhHantTw._(_root);
 	@override String get resyncEverything => '全部重新同步';
+	@override String get openDataDir => '開啟Saber資料夾';
 	@override late final _StringsSettingsCustomDataDirZhHantTw customDataDir = _StringsSettingsCustomDataDirZhHantTw._(_root);
 }
 
@@ -12902,8 +12917,8 @@ class _StringsSettingsPrefLabelsZhHantTw extends _StringsSettingsPrefLabelsEn {
 	@override String get autosaveDelay => '自動儲存延遲';
 	@override String get shapeRecognitionDelay => '形狀識別延遲';
 	@override String get autoStraightenLines => '自動拉直線條';
-	@override String get customDataDir => '自訂資料目錄';
 	@override String get pencilSoundSetting => '筆的音效';
+	@override String get customDataDir => '自訂資料目錄';
 }
 
 // Path: settings.prefDescriptions
