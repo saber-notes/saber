@@ -218,6 +218,7 @@ class _StringsSettingsEn {
 	];
 	late final _StringsSettingsResetEn reset = _StringsSettingsResetEn._(_root);
 	String get resyncEverything => 'Resync everything';
+	String get openDataDir => 'Open Saber folder';
 	late final _StringsSettingsCustomDataDirEn customDataDir = _StringsSettingsCustomDataDirEn._(_root);
 }
 

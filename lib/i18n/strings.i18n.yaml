@@ -140,6 +140,7 @@ settings:
     title: "Reset this setting?"
     button: Reset
   resyncEverything: Resync everything
+  openDataDir: Open Saber folder
   customDataDir:
     cancel: Cancel
     select: Select
