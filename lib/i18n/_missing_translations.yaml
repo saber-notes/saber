@@ -138,11 +138,11 @@ ar:
 cs:
   settings:
     prefLabels:
-      customDataDir(OUTDATED): Custom Saber folder
-    openDataDir(OUTDATED): Open Saber folder
+      customDataDir(OUTDATED): Vlastní umístění složky aplikace Saber
+    openDataDir(OUTDATED): Otevřít složku aplikace Saber
     customDataDir:
-      mustBeEmpty(OUTDATED): Selected folder must be empty
-      mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the folder
+      mustBeEmpty(OUTDATED): Zvolená složka musí být prázdná
+      mustBeDoneSyncing(OUTDATED): "Než změníte složku, ujistěte se, že byla dokončena synchronizace"
 de:
   settings:
     prefLabels:
