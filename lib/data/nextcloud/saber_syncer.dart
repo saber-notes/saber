@@ -90,6 +90,32 @@ class SaberSyncInterface
           changedFiles.add(syncFile);
       }
     }
+
+    // Prioritize note.sbn2.p over note.sbn2 (so the preview is updated first)
+    final previewSyncFiles = changedFiles
+        .where((syncFile) => syncFile.localFile.path.endsWith('.p'))
+        .toList(growable: false);
+    for (final previewSyncFile in previewSyncFiles) {
+      final previewSyncFileIndex = changedFiles.indexOf(previewSyncFile);
+      final mainSyncFileIndex = changedFiles.indexWhere(
+        (syncFile) =>
+            syncFile.localFile.path ==
+            previewSyncFile.localFile.path
+                .substring(0, previewSyncFile.localFile.path.length - 2),
+      );
+      if (previewSyncFileIndex <= -1 || mainSyncFileIndex <= -1) continue;
+
+      if (previewSyncFileIndex >= mainSyncFileIndex) {
+        changedFiles
+          ..removeAt(previewSyncFileIndex)
+          ..insert(mainSyncFileIndex, previewSyncFile);
+      } else {
+        changedFiles
+          ..removeAt(previewSyncFileIndex)
+          ..insert(mainSyncFileIndex - 1, previewSyncFile);
+      }
+    }
+
     return changedFiles;
   }
 
