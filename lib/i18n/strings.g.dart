@@ -1047,8 +1047,8 @@ class _StringsSettingsAr extends _StringsSettingsEn {
 		'يسار',
 	];
 	@override late final _StringsSettingsResetAr reset = _StringsSettingsResetAr._(_root);
-	@override String get openDataDir => 'افتح مجلد Saber';
 	@override late final _StringsSettingsCustomDataDirAr customDataDir = _StringsSettingsCustomDataDirAr._(_root);
+	@override String get openDataDir => 'افتح مجلد Saber';
 	@override String get resyncEverything => 'إعادة ترتيب كل شيء';
 }
 
@@ -1876,8 +1876,8 @@ class _StringsSettingsCs extends _StringsSettingsEn {
 	];
 	@override late final _StringsSettingsResetCs reset = _StringsSettingsResetCs._(_root);
 	@override String get resyncEverything => 'Znovu synchronizovat všechny poznámky';
-	@override String get openDataDir => 'Otevřete složku Saber';
 	@override late final _StringsSettingsCustomDataDirCs customDataDir = _StringsSettingsCustomDataDirCs._(_root);
+	@override String get openDataDir => 'Otevřete složku Saber';
 }
 
 // Path: login
@@ -2706,8 +2706,8 @@ class _StringsSettingsDe extends _StringsSettingsEn {
 	];
 	@override late final _StringsSettingsResetDe reset = _StringsSettingsResetDe._(_root);
 	@override String get resyncEverything => 'Alles neu Synchronisieren';
-	@override String get openDataDir => 'Saber-Ordner öffnen';
 	@override late final _StringsSettingsCustomDataDirDe customDataDir = _StringsSettingsCustomDataDirDe._(_root);
+	@override String get openDataDir => 'Saber-Ordner öffnen';
 }
 
 // Path: login
@@ -2966,7 +2966,7 @@ class _StringsSettingsPrefLabelsDe extends _StringsSettingsPrefLabelsEn {
 	@override String get preferGreyscale => 'Graustufen bevorzugen';
 	@override String get maxImageSize => 'Maximale Bildgröße';
 	@override String get autoClearWhiteboardOnExit => 'Lösche das Whiteboard nach Verlassen der Anwendung';
-	@override String get disableEraserAfterUse => 'Radierer automatisch dekativieren';
+	@override String get disableEraserAfterUse => 'Radierer automatisch deaktivieren';
 	@override String get hideFingerDrawingToggle => 'Umschalter des Finger-Zeichnens ausblenden';
 	@override String get editorPromptRename => 'Beim Erstellen von Notizen einen Namen erfragen';
 	@override String get hideHomeBackgrounds => 'Hintergrund auf dem Startbildschirm verbergen';
@@ -2989,7 +2989,7 @@ class _StringsSettingsPrefDescriptionsDe extends _StringsSettingsPrefDescription
 	// Translations
 	@override String get hyperlegibleFont => 'Atkinson Hyperlegible verbessert die Lesbarkeit für Menschen mit eingeschränkter Sicht';
 	@override String get disableAds => 'Die Entwicklung von Saber wird duch Werbung finanziert. Die Werbung kann auf Wunsch deaktiviert werden.';
-	@override String get allowInsecureConnections => '(Nicht empfohlen) Saber erlauben sich mit selbstsignierten/unsicheren Zertifikaten zu verbinden';
+	@override String get allowInsecureConnections => '(Nicht empfohlen) Saber erlauben, sich mit selbstsignierten/unsicheren Zertifikaten zu verbinden';
 	@override String get preferGreyscale => 'Für E-Ink-Bildschirme';
 	@override String get autoClearWhiteboardOnExit => 'Es wird dennoch mit deinen anderen Geräten synchronisiert';
 	@override String get disableEraserAfterUse => 'Nach dem Nutzen des Radierers automatisch zum Stift zurückwechseln';
@@ -3535,8 +3535,8 @@ class _StringsSettingsEs extends _StringsSettingsEn {
 		'Izquierda',
 	];
 	@override late final _StringsSettingsResetEs reset = _StringsSettingsResetEs._(_root);
-	@override String get openDataDir => 'Abrir carpeta Saber';
 	@override late final _StringsSettingsCustomDataDirEs customDataDir = _StringsSettingsCustomDataDirEs._(_root);
+	@override String get openDataDir => 'Abrir carpeta Saber';
 	@override String get resyncEverything => 'Resync todo';
 }
 
@@ -4362,8 +4362,8 @@ class _StringsSettingsFa extends _StringsSettingsEn {
 		'چپ',
 	];
 	@override late final _StringsSettingsResetFa reset = _StringsSettingsResetFa._(_root);
-	@override String get openDataDir => 'پوشه Saber را باز کنید';
 	@override late final _StringsSettingsCustomDataDirFa customDataDir = _StringsSettingsCustomDataDirFa._(_root);
+	@override String get openDataDir => 'پوشه Saber را باز کنید';
 	@override String get resyncEverything => 'همه چیز را دوباره همگام سازی کنید';
 }
 
@@ -5191,8 +5191,8 @@ class _StringsSettingsFr extends _StringsSettingsEn {
 	];
 	@override late final _StringsSettingsResetFr reset = _StringsSettingsResetFr._(_root);
 	@override String get resyncEverything => 'Tout re-syncroniser';
-	@override String get openDataDir => 'Ouvrir le dossier Saber';
 	@override late final _StringsSettingsCustomDataDirFr customDataDir = _StringsSettingsCustomDataDirFr._(_root);
+	@override String get openDataDir => 'Ouvrir le dossier Saber';
 }
 
 // Path: login
@@ -6018,8 +6018,8 @@ class _StringsSettingsHe extends _StringsSettingsEn {
 		'שמאל',
 	];
 	@override late final _StringsSettingsResetHe reset = _StringsSettingsResetHe._(_root);
-	@override String get openDataDir => 'פתח את תיקיית Saber';
 	@override late final _StringsSettingsCustomDataDirHe customDataDir = _StringsSettingsCustomDataDirHe._(_root);
+	@override String get openDataDir => 'פתח את תיקיית Saber';
 	@override String get resyncEverything => 'סנכרן הכל מחדש';
 }
 
@@ -6846,8 +6846,8 @@ class _StringsSettingsHu extends _StringsSettingsEn {
 		'Balra',
 	];
 	@override late final _StringsSettingsResetHu reset = _StringsSettingsResetHu._(_root);
-	@override String get openDataDir => 'Nyissa meg a Saber mappát';
 	@override late final _StringsSettingsCustomDataDirHu customDataDir = _StringsSettingsCustomDataDirHu._(_root);
+	@override String get openDataDir => 'Nyissa meg a Saber mappát';
 	@override String get resyncEverything => 'Resync mindent';
 }
 
@@ -7675,8 +7675,8 @@ class _StringsSettingsIt extends _StringsSettingsEn {
 	];
 	@override late final _StringsSettingsResetIt reset = _StringsSettingsResetIt._(_root);
 	@override String get resyncEverything => 'Risincronizza tutto';
-	@override String get openDataDir => 'Apri cartella Saber';
 	@override late final _StringsSettingsCustomDataDirIt customDataDir = _StringsSettingsCustomDataDirIt._(_root);
+	@override String get openDataDir => 'Apri cartella Saber';
 }
 
 // Path: login
@@ -8504,8 +8504,8 @@ class _StringsSettingsJa extends _StringsSettingsEn {
 		'左側',
 	];
 	@override late final _StringsSettingsResetJa reset = _StringsSettingsResetJa._(_root);
-	@override String get openDataDir => 'セイバーフォルダを開く';
 	@override late final _StringsSettingsCustomDataDirJa customDataDir = _StringsSettingsCustomDataDirJa._(_root);
+	@override String get openDataDir => 'セイバーフォルダを開く';
 	@override String get resyncEverything => 'すべてを再同期する';
 }
 
@@ -9332,8 +9332,8 @@ class _StringsSettingsPtBr extends _StringsSettingsEn {
 		'Esquerda',
 	];
 	@override late final _StringsSettingsResetPtBr reset = _StringsSettingsResetPtBr._(_root);
-	@override String get openDataDir => 'Abra a pasta Saber';
 	@override late final _StringsSettingsCustomDataDirPtBr customDataDir = _StringsSettingsCustomDataDirPtBr._(_root);
+	@override String get openDataDir => 'Abra a pasta Saber';
 	@override String get resyncEverything => 'Resync tudo';
 }
 
@@ -10161,8 +10161,8 @@ class _StringsSettingsRu extends _StringsSettingsEn {
 	];
 	@override late final _StringsSettingsResetRu reset = _StringsSettingsResetRu._(_root);
 	@override String get resyncEverything => 'Повторная синхронизация всего';
-	@override String get openDataDir => 'Открыть папку Saber';
 	@override late final _StringsSettingsCustomDataDirRu customDataDir = _StringsSettingsCustomDataDirRu._(_root);
+	@override String get openDataDir => 'Открыть папку Saber';
 }
 
 // Path: login
@@ -10991,8 +10991,8 @@ class _StringsSettingsTr extends _StringsSettingsEn {
 	];
 	@override late final _StringsSettingsResetTr reset = _StringsSettingsResetTr._(_root);
 	@override String get resyncEverything => 'Her şeyi yeniden senkronize et';
-	@override String get openDataDir => 'Saber klasörünü aç';
 	@override late final _StringsSettingsCustomDataDirTr customDataDir = _StringsSettingsCustomDataDirTr._(_root);
+	@override String get openDataDir => 'Saber klasörünü aç';
 }
 
 // Path: login
@@ -11819,8 +11819,8 @@ class _StringsSettingsZhHansCn extends _StringsSettingsEn {
 	];
 	@override late final _StringsSettingsResetZhHansCn reset = _StringsSettingsResetZhHansCn._(_root);
 	@override String get resyncEverything => '重新同步所有';
-	@override String get openDataDir => '打开 Saber 文件夹';
 	@override late final _StringsSettingsCustomDataDirZhHansCn customDataDir = _StringsSettingsCustomDataDirZhHansCn._(_root);
+	@override String get openDataDir => '打开 Saber 文件夹';
 }
 
 // Path: login
@@ -12647,8 +12647,8 @@ class _StringsSettingsZhHantTw extends _StringsSettingsEn {
 	];
 	@override late final _StringsSettingsResetZhHantTw reset = _StringsSettingsResetZhHantTw._(_root);
 	@override String get resyncEverything => '全部重新同步';
-	@override String get openDataDir => '開啟Saber資料夾';
 	@override late final _StringsSettingsCustomDataDirZhHantTw customDataDir = _StringsSettingsCustomDataDirZhHantTw._(_root);
+	@override String get openDataDir => '開啟Saber資料夾';
 }
 
 // Path: login
