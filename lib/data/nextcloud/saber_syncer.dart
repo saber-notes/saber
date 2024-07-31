@@ -44,7 +44,11 @@ class SaberSyncInterface
 
       final syncFile = await getSyncFileFromLocalFile(localFile);
 
-      final bestFile = await getBestFile(syncFile, bias: BestFile.local);
+      final bestFile = await getBestFile(
+        syncFile,
+        onLocalFileNotFound: BestFile.local,
+        onEqualFiles: BestFile.remote,
+      );
       switch (bestFile) {
         case BestFile.local:
           syncFiles.add(syncFile);
@@ -74,7 +78,11 @@ class SaberSyncInterface
         continue;
       }
 
-      final bestFile = await getBestFile(syncFile, bias: BestFile.remote);
+      final bestFile = await getBestFile(
+        syncFile,
+        onLocalFileNotFound: BestFile.remote,
+        onEqualFiles: BestFile.local,
+      );
       switch (bestFile) {
         case BestFile.local:
           // Local file is newer, do nothing
@@ -415,14 +423,19 @@ class SaberSyncInterface
   }
 
   /// Returns the best file to keep, local or remote.
-  /// If the best file can't be determined, [bias] is returned.
+  ///
+  /// If the local file doesn't exist, [onLocalFileNotFound] is returned.
+  ///
+  /// If the remote and local files have the same last modified date,
+  /// [onEqualFiles] is returned.
   static Future<BestFile> getBestFile(
     SaberSyncFile file, {
-    required BestFile bias,
+    required BestFile onLocalFileNotFound,
+    required BestFile onEqualFiles,
   }) async {
     if (!file.localFile.existsSync()) {
       // We either have a new remote file or a deleted local file
-      return bias;
+      return onLocalFileNotFound;
     }
 
     // get remote file
@@ -445,7 +458,10 @@ class SaberSyncInterface
 
     // File exists locally, check if it's newer than the remote file
     final lastModifiedLocal = file.localFile.lastModifiedSync();
-    if (lastModifiedRemote.isAfter(lastModifiedLocal)) {
+    if (lastModifiedRemote.difference(lastModifiedLocal).abs() <
+        const Duration(milliseconds: 500)) {
+      return onEqualFiles;
+    } else if (lastModifiedRemote.isAfter(lastModifiedLocal)) {
       return BestFile.remote;
     } else {
       return BestFile.local;
