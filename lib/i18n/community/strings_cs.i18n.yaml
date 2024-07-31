@@ -95,8 +95,8 @@ settings:
     autosaveDelay: Zpoždění automatického ukládání
     shapeRecognitionDelay: Zpoždění rozpoznávání tvarů
     autoStraightenLines: Automaticky narovnávat čáry
+    customDataDir: Vlastní umístění složky aplikace Saber
     pencilSoundSetting: Zvukový efekt psaní tužkou
-    customDataDir(OUTDATED): Vlastní datový adresář
   prefDescriptions:
     hyperlegibleFont: Font Atkinson Hyperlegible zvyšuje čitelnost pro čtenáře se slabým zrakem
     disableAds: "Reklamy podporují vývoj aplikace Saber, ale pokud chcete, můžete je vypnout"
@@ -140,12 +140,12 @@ settings:
     title: "Chcete resetovat tuto volbu?"
     button: Resetovat
   resyncEverything: Znovu synchronizovat všechny poznámky
+  openDataDir: Otevřít složku aplikace Saber
   customDataDir:
     cancel: Zrušit
     select: Zvolit
-    mustBeEmpty(OUTDATED): Zvolený adresář musí být prázdný
-    mustBeDoneSyncing(OUTDATED): "Než změníte datový adresář, ujistěte se, že byla dokončena synchronizace"
-  openDataDir(OUTDATED): Otevřete složku Saber
+    mustBeEmpty: Zvolená složka musí být prázdná
+    mustBeDoneSyncing: "Než změníte složku, ujistěte se, že byla dokončena synchronizace"
 login:
   title: Přihlášení
   form:

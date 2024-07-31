@@ -1876,8 +1876,8 @@ class _StringsSettingsCs extends _StringsSettingsEn {
 	];
 	@override late final _StringsSettingsResetCs reset = _StringsSettingsResetCs._(_root);
 	@override String get resyncEverything => 'Znovu synchronizovat všechny poznámky';
+	@override String get openDataDir => 'Otevřít složku aplikace Saber';
 	@override late final _StringsSettingsCustomDataDirCs customDataDir = _StringsSettingsCustomDataDirCs._(_root);
-	@override String get openDataDir => 'Otevřete složku Saber';
 }
 
 // Path: login
@@ -2146,8 +2146,8 @@ class _StringsSettingsPrefLabelsCs extends _StringsSettingsPrefLabelsEn {
 	@override String get autosaveDelay => 'Zpoždění automatického ukládání';
 	@override String get shapeRecognitionDelay => 'Zpoždění rozpoznávání tvarů';
 	@override String get autoStraightenLines => 'Automaticky narovnávat čáry';
+	@override String get customDataDir => 'Vlastní umístění složky aplikace Saber';
 	@override String get pencilSoundSetting => 'Zvukový efekt psaní tužkou';
-	@override String get customDataDir => 'Vlastní datový adresář';
 }
 
 // Path: settings.prefDescriptions
@@ -2229,8 +2229,8 @@ class _StringsSettingsCustomDataDirCs extends _StringsSettingsCustomDataDirEn {
 	// Translations
 	@override String get cancel => 'Zrušit';
 	@override String get select => 'Zvolit';
-	@override String get mustBeEmpty => 'Zvolený adresář musí být prázdný';
-	@override String get mustBeDoneSyncing => 'Než změníte datový adresář, ujistěte se, že byla dokončena synchronizace';
+	@override String get mustBeEmpty => 'Zvolená složka musí být prázdná';
+	@override String get mustBeDoneSyncing => 'Než změníte složku, ujistěte se, že byla dokončena synchronizace';
 }
 
 // Path: login.form

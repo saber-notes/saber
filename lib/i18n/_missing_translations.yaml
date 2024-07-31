@@ -136,13 +136,6 @@ ar:
       bgPatterns:
         tablature(OUTDATED): Tablature
 cs:
-  settings:
-    prefLabels:
-      customDataDir(OUTDATED): Vlastní umístění složky aplikace Saber
-    openDataDir(OUTDATED): Otevřít složku aplikace Saber
-    customDataDir:
-      mustBeEmpty(OUTDATED): Zvolená složka musí být prázdná
-      mustBeDoneSyncing(OUTDATED): "Než změníte složku, ujistěte se, že byla dokončena synchronizace"
 de:
   settings:
     prefLabels:
