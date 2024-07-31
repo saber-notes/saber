@@ -85,9 +85,9 @@ class _InnerCanvasState extends State<InnerCanvas> {
 
     Widget? quillEditor = widget.coreInfo.pages.isNotEmpty
         ? QuillEditor(
+            controller:
+                widget.coreInfo.pages[widget.pageIndex].quill.controller,
             configurations: QuillEditorConfigurations(
-              controller:
-                  widget.coreInfo.pages[widget.pageIndex].quill.controller,
               sharedConfigurations: QuillSharedConfigurations(
                 locale: locale,
               ),
@@ -198,7 +198,7 @@ class _InnerCanvasState extends State<InnerCanvas> {
     );
   }
 
-  /// Adapted from "packages://flutter_quill/lib/src/widgets/default_styles.dart"
+  /// Adapted from https://github.com/singerdmx/flutter-quill/blob/master/lib/src/editor/widgets/default_styles.dart
   DefaultStyles _getQuillStyles({required bool invert}) {
     final colorScheme = Theme.of(context).colorScheme;
     final backgroundColor = invert ? Colors.black : Colors.white;
@@ -260,17 +260,38 @@ class _InnerCanvasState extends State<InnerCanvas> {
       ),
     );
 
-    const zeroSpacing = VerticalSpacing(0, 0);
+    const zeroVerticalSpacing = VerticalSpacing(0, 0);
+    const zeroHorizontalSpacing = HorizontalSpacing(0, 0);
 
     return DefaultStyles(
       h1: DefaultTextBlockStyle(
-          textTheme.displayLarge!, zeroSpacing, zeroSpacing, null),
+        textTheme.displayLarge!,
+        zeroHorizontalSpacing,
+        zeroVerticalSpacing,
+        zeroVerticalSpacing,
+        null,
+      ),
       h2: DefaultTextBlockStyle(
-          textTheme.displayMedium!, zeroSpacing, zeroSpacing, null),
+        textTheme.displayMedium!,
+        zeroHorizontalSpacing,
+        zeroVerticalSpacing,
+        zeroVerticalSpacing,
+        null,
+      ),
       h3: DefaultTextBlockStyle(
-          textTheme.displaySmall!, zeroSpacing, zeroSpacing, null),
+        textTheme.displaySmall!,
+        zeroHorizontalSpacing,
+        zeroVerticalSpacing,
+        zeroVerticalSpacing,
+        null,
+      ),
       paragraph: DefaultTextBlockStyle(
-          textTheme.bodyLarge!, zeroSpacing, zeroSpacing, null),
+        textTheme.bodyLarge!,
+        zeroHorizontalSpacing,
+        zeroVerticalSpacing,
+        zeroVerticalSpacing,
+        null,
+      ),
       small: TextStyle(
         fontSize: lineHeight * 0.4,
         height: 1 / 0.4,
@@ -298,18 +319,27 @@ class _InnerCanvasState extends State<InnerCanvas> {
         decoration: TextDecoration.underline,
       ),
       placeHolder: DefaultTextBlockStyle(
-          textTheme.bodyLarge!.copyWith(
-            color: Colors.grey.withOpacity(0.6),
-          ),
-          zeroSpacing,
-          zeroSpacing,
-          null),
+        textTheme.bodyLarge!.copyWith(
+          color: Colors.grey.withOpacity(0.6),
+        ),
+        zeroHorizontalSpacing,
+        zeroVerticalSpacing,
+        zeroVerticalSpacing,
+        null,
+      ),
       lists: DefaultListBlockStyle(
-          textTheme.bodyLarge!, zeroSpacing, zeroSpacing, null, null),
+        textTheme.bodyLarge!,
+        zeroHorizontalSpacing,
+        zeroVerticalSpacing,
+        zeroVerticalSpacing,
+        null,
+        null,
+      ),
       quote: DefaultTextBlockStyle(
         TextStyle(color: textTheme.bodyLarge!.color!.withOpacity(0.6)),
-        zeroSpacing,
-        zeroSpacing,
+        zeroHorizontalSpacing,
+        zeroVerticalSpacing,
+        zeroVerticalSpacing,
         BoxDecoration(
           border: Border(
             left: BorderSide(
@@ -321,19 +351,35 @@ class _InnerCanvasState extends State<InnerCanvas> {
       ),
       code: DefaultTextBlockStyle(
         GoogleFonts.firaMono(textStyle: textTheme.bodyLarge!),
+        zeroHorizontalSpacing,
         VerticalSpacing(-lineHeight * 0.16, lineHeight * 0.8),
-        zeroSpacing,
+        zeroVerticalSpacing,
         BoxDecoration(
           color: Colors.grey.withOpacity(0.2),
           borderRadius: BorderRadius.circular(3),
         ),
       ),
       indent: DefaultTextBlockStyle(
-          textTheme.bodyLarge!, zeroSpacing, zeroSpacing, null),
+        textTheme.bodyLarge!,
+        zeroHorizontalSpacing,
+        zeroVerticalSpacing,
+        zeroVerticalSpacing,
+        null,
+      ),
       align: DefaultTextBlockStyle(
-          textTheme.bodyLarge!, zeroSpacing, zeroSpacing, null),
+        textTheme.bodyLarge!,
+        zeroHorizontalSpacing,
+        zeroVerticalSpacing,
+        zeroVerticalSpacing,
+        null,
+      ),
       leading: DefaultTextBlockStyle(
-          textTheme.bodyLarge!, zeroSpacing, zeroSpacing, null),
+        textTheme.bodyLarge!,
+        zeroHorizontalSpacing,
+        zeroVerticalSpacing,
+        zeroVerticalSpacing,
+        null,
+      ),
       sizeSmall: TextStyle(
         fontSize: textTheme.bodyLarge!.fontSize!,
       ),
