@@ -210,6 +210,16 @@
     </screenshots>
 
     <releases>
+        <release version="0.24.4" type="development" date="2024-07-31">
+            <description>
+                <ul>
+                    <li>Better handling of deleted files and already synced files</li>
+                    <li>Fixed spaces being allowed at the end and start of file names</li>
+                    <li>Added a button in the settings page to open the data directory</li>
+                    <li>More feedback about which files are currently downloading/uploading</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.24.3" type="development" date="2024-07-20">
             <description>
                 <p>Fixed a syncing bug that caused file paths to be decrypted incorrectly, thanks to @QubaB on GitHub</p>

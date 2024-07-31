@@ -327,8 +327,8 @@ Windows 安装器使用 [Inno Setup](https://jrsoftware.org/isinfo.php) 创建�
 [google_play]: https://play.google.com/store/apps/details?id=com.adilhanney.saber
 [snap]: https://snapcraft.io/saber
 [app_store]: https://apps.apple.com/us/app/saber/id1671523739
-[download_windows]: https://github.com/saber-notes/saber/releases/download/v0.24.3/SaberInstaller_v0.24.3.exe
-[download_appimage]: https://github.com/saber-notes/saber/releases/download/v0.24.3/Saber-0.24.3-x86_64.AppImage
+[download_windows]: https://github.com/saber-notes/saber/releases/download/v0.24.4/SaberInstaller_v0.24.4.exe
+[download_appimage]: https://github.com/saber-notes/saber/releases/download/v0.24.4/Saber-0.24.4-x86_64.AppImage
 
 [nextcloud]: https://nc.saber.adil.hanney.org/
 
