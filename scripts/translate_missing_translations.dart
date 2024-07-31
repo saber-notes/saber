@@ -25,8 +25,8 @@ Future<YamlMap> _getMissingTranslations() async {
 String _nearestLocaleCode(String localeCode) {
   const nearestLocaleCodes = <String, String>{
     'he': 'iw',
-    'zh-Hans-CN': 'zh',
-    'zh-Hant-TW': 'zh_HANT',
+    'zh-Hans-CN': 'zh-cn',
+    'zh-Hant-TW': 'zh-tw',
   };
 
   if (LanguageList.contains(localeCode)) {
@@ -139,10 +139,13 @@ Future<String?> translateString(
     '  Translating into $languageCode: '
     '${english.length > 20 ? '${english.substring(0, 20)}...' : english}',
   );
-  List<String> translations;
+
+  String translatedText;
   try {
-    translations = await translator
-        .translateLingva(english, 'en', _nearestLocaleCode(languageCode))
+    translatedText = await translator
+        .translateSimply(english,
+            from: 'en', to: _nearestLocaleCode(languageCode))
+        .then((translation) => translation.translations.text)
         .timeout(const Duration(seconds: 10));
   } catch (e) {
     print('    Translation failed: $e');
@@ -150,7 +153,6 @@ Future<String?> translateString(
     return null;
   }
 
-  var translatedText = translations.first;
   final errorTexts = [
     'Invalid request',
     'None is not supported',
