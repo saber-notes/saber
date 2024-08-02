@@ -167,8 +167,8 @@ login:
     loginWithNextcloud: 使用 Nextcloud 登入
     loginFlow:
       pleaseAuthorize: 請授權 Saber 存取您的 Nextcloud 帳號
-      followPrompts: 請按照瀏覽器中的提示進行操作。
-      browserDidntOpen: 瀏覽器沒打開？點擊這裡
+      followPrompts(OUTDATED): 請按照瀏覽器中的提示進行操作。
+      browserDidntOpen(OUTDATED): 瀏覽器沒打開？點擊這裡
   encLoginStep:
     enterEncPassword: 為了保護您的資料，請輸入您的加密密碼：
     newToSaber: 第一次使用 Saber？只需輸入新的加密密碼即可。

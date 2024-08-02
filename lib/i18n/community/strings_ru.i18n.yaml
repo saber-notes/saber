@@ -167,8 +167,8 @@ login:
     loginWithNextcloud: Войти с помощью Nextcloud
     loginFlow:
       pleaseAuthorize: "Пожалуйста, авторизуйте Saber для доступа к вашей учётной записи Nextcloud"
-      followPrompts: "Пожалуйста, следуйте инструкциям в вашем браузере."
-      browserDidntOpen: "Браузер не открылся? Нажмите сюда"
+      followPrompts(OUTDATED): "Пожалуйста, следуйте инструкциям в вашем браузере."
+      browserDidntOpen(OUTDATED): "Браузер не открылся? Нажмите сюда"
   encLoginStep:
     enterEncPassword: "Чтобы защитить ваши данные, введите пароль шифрования:"
     newToSaber: "Новичок в Saber? Просто введите новый пароль для шифрования."

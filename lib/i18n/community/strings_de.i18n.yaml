@@ -100,7 +100,7 @@ settings:
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible verbessert die Lesbarkeit für Menschen mit eingeschränkter Sicht
     disableAds: Die Entwicklung von Saber wird duch Werbung finanziert. Die Werbung kann auf Wunsch deaktiviert werden.
-    allowInsecureConnections: (Nicht empfohlen) Saber erlauben, sich mit selbstsignierten/unsicheren Zertifikaten zu verbinden
+    allowInsecureConnections: "(Nicht empfohlen) Saber erlauben, sich mit selbstsignierten/unsicheren Zertifikaten zu verbinden"
     preferGreyscale: Für E-Ink-Bildschirme
     autoClearWhiteboardOnExit: Es wird dennoch mit deinen anderen Geräten synchronisiert
     disableEraserAfterUse: Nach dem Nutzen des Radierers automatisch zum Stift zurückwechseln
@@ -167,8 +167,8 @@ login:
     loginWithNextcloud: Mit Nextcloud anmelden
     loginFlow:
       pleaseAuthorize: Bitte gib Saber Zugriff auf dein Nextcloud Konto
-      followPrompts: Bitte folge den Anweisungen in deinem Browser.
-      browserDidntOpen: "Browser hat sich nicht geöffnet? Klicke hier"
+      followPrompts(OUTDATED): Bitte folge den Anweisungen in deinem Browser.
+      browserDidntOpen(OUTDATED): "Browser hat sich nicht geöffnet? Klicke hier"
   encLoginStep:
     enterEncPassword: "Gib dein Verschlüsselungspasswort an, um deine Daten zu schützen:"
     newToSaber: "Neu bei Saber? Gib einfach ein neues Verschlüsselungspasswort an."

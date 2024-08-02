@@ -88,8 +88,8 @@ ar:
       loginWithNextcloud(OUTDATED): Login with Nextcloud
       loginFlow:
         pleaseAuthorize(OUTDATED): Please authorize Saber to access your Nextcloud account
-        followPrompts(OUTDATED): Please follow the prompts in your browser.
-        browserDidntOpen(OUTDATED): "Browser didn't open? Click here"
+        followPrompts(OUTDATED): Please follow the prompts in the Nextcloud interface
+        browserDidntOpen(OUTDATED): "Login page didn't open? Click here"
     encLoginStep:
       enterEncPassword(OUTDATED): "To protect your data, please enter your encryption password:"
       newToSaber(OUTDATED): "New to Saber? Just enter a new encryption password."
@@ -136,6 +136,11 @@ ar:
       bgPatterns:
         tablature(OUTDATED): Tablature
 cs:
+  login:
+    ncLoginStep:
+      loginFlow:
+        followPrompts(OUTDATED): Please follow the prompts in the Nextcloud interface
+        browserDidntOpen(OUTDATED): "Login page didn't open? Click here"
 de:
   settings:
     prefLabels:
@@ -144,6 +149,11 @@ de:
     customDataDir:
       mustBeEmpty(OUTDATED): Selected folder must be empty
       mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the folder
+  login:
+    ncLoginStep:
+      loginFlow:
+        followPrompts(OUTDATED): Please follow the prompts in the Nextcloud interface
+        browserDidntOpen(OUTDATED): "Login page didn't open? Click here"
 es:
   common:
     done(OUTDATED): Done
@@ -184,8 +194,8 @@ es:
       loginWithNextcloud(OUTDATED): Login with Nextcloud
       loginFlow:
         pleaseAuthorize(OUTDATED): Please authorize Saber to access your Nextcloud account
-        followPrompts(OUTDATED): Please follow the prompts in your browser.
-        browserDidntOpen(OUTDATED): "Browser didn't open? Click here"
+        followPrompts(OUTDATED): Please follow the prompts in the Nextcloud interface
+        browserDidntOpen(OUTDATED): "Login page didn't open? Click here"
     encLoginStep:
       enterEncPassword(OUTDATED): "To protect your data, please enter your encryption password:"
       newToSaber(OUTDATED): "New to Saber? Just enter a new encryption password."
@@ -257,8 +267,8 @@ fa:
       loginWithNextcloud(OUTDATED): Login with Nextcloud
       loginFlow:
         pleaseAuthorize(OUTDATED): Please authorize Saber to access your Nextcloud account
-        followPrompts(OUTDATED): Please follow the prompts in your browser.
-        browserDidntOpen(OUTDATED): "Browser didn't open? Click here"
+        followPrompts(OUTDATED): Please follow the prompts in the Nextcloud interface
+        browserDidntOpen(OUTDATED): "Login page didn't open? Click here"
     encLoginStep:
       enterEncPassword(OUTDATED): "To protect your data, please enter your encryption password:"
       newToSaber(OUTDATED): "New to Saber? Just enter a new encryption password."
@@ -324,8 +334,8 @@ fr:
       loginWithNextcloud(OUTDATED): Login with Nextcloud
       loginFlow:
         pleaseAuthorize(OUTDATED): Please authorize Saber to access your Nextcloud account
-        followPrompts(OUTDATED): Please follow the prompts in your browser.
-        browserDidntOpen(OUTDATED): "Browser didn't open? Click here"
+        followPrompts(OUTDATED): Please follow the prompts in the Nextcloud interface
+        browserDidntOpen(OUTDATED): "Login page didn't open? Click here"
     encLoginStep:
       enterEncPassword(OUTDATED): "To protect your data, please enter your encryption password:"
       newToSaber(OUTDATED): "New to Saber? Just enter a new encryption password."
@@ -408,8 +418,8 @@ he:
       loginWithNextcloud(OUTDATED): Login with Nextcloud
       loginFlow:
         pleaseAuthorize(OUTDATED): Please authorize Saber to access your Nextcloud account
-        followPrompts(OUTDATED): Please follow the prompts in your browser.
-        browserDidntOpen(OUTDATED): "Browser didn't open? Click here"
+        followPrompts(OUTDATED): Please follow the prompts in the Nextcloud interface
+        browserDidntOpen(OUTDATED): "Login page didn't open? Click here"
     encLoginStep:
       enterEncPassword(OUTDATED): "To protect your data, please enter your encryption password:"
       newToSaber(OUTDATED): "New to Saber? Just enter a new encryption password."
@@ -565,8 +575,8 @@ hu:
       loginWithNextcloud(OUTDATED): Login with Nextcloud
       loginFlow:
         pleaseAuthorize(OUTDATED): Please authorize Saber to access your Nextcloud account
-        followPrompts(OUTDATED): Please follow the prompts in your browser.
-        browserDidntOpen(OUTDATED): "Browser didn't open? Click here"
+        followPrompts(OUTDATED): Please follow the prompts in the Nextcloud interface
+        browserDidntOpen(OUTDATED): "Login page didn't open? Click here"
     encLoginStep:
       enterEncPassword(OUTDATED): "To protect your data, please enter your encryption password:"
       newToSaber(OUTDATED): "New to Saber? Just enter a new encryption password."
@@ -677,6 +687,11 @@ it:
     customDataDir:
       mustBeEmpty(OUTDATED): Selected folder must be empty
       mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the folder
+  login:
+    ncLoginStep:
+      loginFlow:
+        followPrompts(OUTDATED): Please follow the prompts in the Nextcloud interface
+        browserDidntOpen(OUTDATED): "Login page didn't open? Click here"
 ja:
   common:
     done(OUTDATED): Done
@@ -756,8 +771,8 @@ ja:
       loginWithNextcloud(OUTDATED): Login with Nextcloud
       loginFlow:
         pleaseAuthorize(OUTDATED): Please authorize Saber to access your Nextcloud account
-        followPrompts(OUTDATED): Please follow the prompts in your browser.
-        browserDidntOpen(OUTDATED): "Browser didn't open? Click here"
+        followPrompts(OUTDATED): Please follow the prompts in the Nextcloud interface
+        browserDidntOpen(OUTDATED): "Login page didn't open? Click here"
     encLoginStep:
       enterEncPassword(OUTDATED): "To protect your data, please enter your encryption password:"
       newToSaber(OUTDATED): "New to Saber? Just enter a new encryption password."
@@ -851,8 +866,8 @@ pt-BR:
       loginWithNextcloud(OUTDATED): Login with Nextcloud
       loginFlow:
         pleaseAuthorize(OUTDATED): Please authorize Saber to access your Nextcloud account
-        followPrompts(OUTDATED): Please follow the prompts in your browser.
-        browserDidntOpen(OUTDATED): "Browser didn't open? Click here"
+        followPrompts(OUTDATED): Please follow the prompts in the Nextcloud interface
+        browserDidntOpen(OUTDATED): "Login page didn't open? Click here"
     encLoginStep:
       enterEncPassword(OUTDATED): "To protect your data, please enter your encryption password:"
       newToSaber(OUTDATED): "New to Saber? Just enter a new encryption password."
@@ -903,6 +918,11 @@ ru:
     customDataDir:
       mustBeEmpty(OUTDATED): Selected folder must be empty
       mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the folder
+  login:
+    ncLoginStep:
+      loginFlow:
+        followPrompts(OUTDATED): Please follow the prompts in the Nextcloud interface
+        browserDidntOpen(OUTDATED): "Login page didn't open? Click here"
 tr:
   common:
     done(OUTDATED): Done
@@ -936,8 +956,8 @@ tr:
       loginWithNextcloud(OUTDATED): Login with Nextcloud
       loginFlow:
         pleaseAuthorize(OUTDATED): Please authorize Saber to access your Nextcloud account
-        followPrompts(OUTDATED): Please follow the prompts in your browser.
-        browserDidntOpen(OUTDATED): "Browser didn't open? Click here"
+        followPrompts(OUTDATED): Please follow the prompts in the Nextcloud interface
+        browserDidntOpen(OUTDATED): "Login page didn't open? Click here"
     encLoginStep:
       enterEncPassword(OUTDATED): "To protect your data, please enter your encryption password:"
       newToSaber(OUTDATED): "New to Saber? Just enter a new encryption password."
@@ -997,8 +1017,8 @@ zh-Hans-CN:
       loginWithNextcloud(OUTDATED): Login with Nextcloud
       loginFlow:
         pleaseAuthorize(OUTDATED): Please authorize Saber to access your Nextcloud account
-        followPrompts(OUTDATED): Please follow the prompts in your browser.
-        browserDidntOpen(OUTDATED): "Browser didn't open? Click here"
+        followPrompts(OUTDATED): Please follow the prompts in the Nextcloud interface
+        browserDidntOpen(OUTDATED): "Login page didn't open? Click here"
     encLoginStep:
       enterEncPassword(OUTDATED): "To protect your data, please enter your encryption password:"
       newToSaber(OUTDATED): "New to Saber? Just enter a new encryption password."
@@ -1034,3 +1054,8 @@ zh-Hant-TW:
     customDataDir:
       mustBeEmpty(OUTDATED): Selected folder must be empty
       mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the folder
+  login:
+    ncLoginStep:
+      loginFlow:
+        followPrompts(OUTDATED): Please follow the prompts in the Nextcloud interface
+        browserDidntOpen(OUTDATED): "Login page didn't open? Click here"

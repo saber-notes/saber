@@ -893,8 +893,8 @@ class _StringsLoginNcLoginStepLoginFlowEn {
 
 	// Translations
 	String get pleaseAuthorize => 'Please authorize Saber to access your Nextcloud account';
-	String get followPrompts => 'Please follow the prompts in your browser.';
-	String get browserDidntOpen => 'Browser didn\'t open? Click here';
+	String get followPrompts => 'Please follow the prompts in the Nextcloud interface';
+	String get browserDidntOpen => 'Login page didn\'t open? Click here';
 }
 
 // Path: login.encLoginStep.encFaq.0
