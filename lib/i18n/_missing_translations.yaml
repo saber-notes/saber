@@ -139,8 +139,8 @@ cs:
   login:
     ncLoginStep:
       loginFlow:
-        followPrompts(OUTDATED): Please follow the prompts in the Nextcloud interface
-        browserDidntOpen(OUTDATED): "Login page didn't open? Click here"
+        followPrompts(OUTDATED): Následujte prosím kroky v rozhraní Nextcloud serveru
+        browserDidntOpen(OUTDATED): "Neotevřela se přihlašovací stránka? Klepněte zde"
 de:
   settings:
     prefLabels:
