@@ -1,6 +1,6 @@
+import 'package:flex_color_picker/flex_color_picker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:saber/components/theming/adaptive_alert_dialog.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
@@ -50,16 +50,12 @@ class _SettingsSwitchState extends State<SettingsColor> {
   }
 
   AdaptiveAlertDialog get colorPickerDialog {
-    final platform = Theme.of(context).platform;
-    final cupertino =
-        platform == TargetPlatform.iOS || platform == TargetPlatform.macOS;
     return AdaptiveAlertDialog(
       title: Text(t.settings.accentColorPicker.pickAColor),
       content: SingleChildScrollView(
         child: ColorPicker(
-          colorPickerWidth: cupertino ? 270 : 300,
-          portraitOnly: cupertino,
-          pickerColor: color ?? defaultColor,
+          color: color ?? defaultColor,
+          pickersEnabled: const {ColorPickerType.wheel: true},
           onColorChanged: (Color color) {
             Prefs.accentColor.value = color.value;
           },

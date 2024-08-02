@@ -1,15 +1,36 @@
 @TestOn('linux || mac-os || windows')
+library;
 
 import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:saber/components/settings/update_manager.dart';
 import 'package:saber/data/locales.dart';
+import 'package:saber/data/saber_version.dart';
 import 'package:saber/data/version.dart';
 
 const String dummyChangelog = 'Release_notes_will_be_added_here';
 
 void main() {
+  test('Does bump_version.dart find changes needed?', () async {
+    final result = await Process.run('./scripts/bump_version.dart', [
+      '--custom',
+      buildName,
+      '--fail-on-changes',
+      '--quiet',
+    ]);
+    printOnFailure(result.stdout);
+    printOnFailure(result.stderr);
+
+    final exitCode = result.exitCode;
+    if (exitCode != 0 && exitCode != 10) {
+      throw Exception('Unexpected exit code: $exitCode');
+    }
+    expect(exitCode, isNot(equals(10)),
+        reason: 'Changes needed to be made. '
+            'Please re-run `./scripts/bump_version.dart`');
+  });
+
   test('Check for dummy text in changelogs', () async {
     final File androidMetadata =
         File('metadata/en-US/changelogs/$buildNumber.txt');
@@ -44,8 +65,13 @@ void main() {
   });
 
   test('Test that buildNumber parses to buildName', () {
-    final v = UpdateManager.parseVersionNumber(buildNumber);
-    expect('${v.major}.${v.minor}.${v.patch}', buildName);
+    final fromNumber = SaberVersion.fromNumber(buildNumber);
+    final fromName = SaberVersion.fromName(buildName);
+
+    expect(fromNumber.buildNumberWithoutRevision,
+        equals(fromName.buildNumberWithoutRevision));
+
+    expect(fromNumber.buildName, equals(fromName.buildName));
   });
 
   test('Test that changelog can be downloaded from GitHub', () async {

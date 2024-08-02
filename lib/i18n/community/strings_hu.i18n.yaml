@@ -1,3 +1,7 @@
+common:
+  cancel: Mégse
+  done(OUTDATED): Kész
+  continueBtn(OUTDATED): Folytatni
 home:
   tabs:
     home: Kezdőlap
@@ -140,52 +144,56 @@ settings:
     select(OUTDATED): Válassza ki
     mustBeEmpty(OUTDATED): A kiválasztott könyvtárnak üresnek kell lennie
     mustBeDoneSyncing(OUTDATED): "A könyvtár módosítása előtt győződjön meg arról, hogy a szinkronizálás befejeződött"
+  openDataDir(OUTDATED): Nyissa meg a Saber mappát
   resyncEverything(OUTDATED): Resync mindent
 login:
   title: Bejelentkezés
-  feedbacks:
-    checkUsername: "Kérjem, ellenőrizze kétszer is a felhasználónevét vagy az e-mail címét"
-    enterNcPassword: "Kérem, adja meg a Nextcloud jelszavát"
-    enterEncPassword: "Kérem, adja meg a titkosítási jelszavát"
-    checkUrl: Kérem adjon meg egy érvényes URL-címet
-    ncLoginFailed: "A bejelentkezés sikertelen, kérem, ellenőrizze adatait és hálózati kapcsolatát"
-    encLoginFailed: "A bejelentkezés sikertelen, kérem, ellenőrizze a titkosítási jelszavát"
-    loginSuccess: "Bejelentkezés sikeres! Kérjük, várjon, amíg beüzemeljük..."
-    ncUnsupportedFailure(OUTDATED): "Az adott szerveren a Nextcloud $v fut, de a Saber ezen verziója csak a Nextcloud $s és $t között támogatja."
   form:
-    useCustomServer: Egyéni Nextcloud-kiszolgálót szeretnék használni
-    customServerUrl: Egyéni kiszolgáló URL-címe
-    username: Felhasnálónév vagy e-mail
-    ncPassword: Nextcloud jelszó
-    encPassword: Titkosítási jelszó
     agreeToPrivacyPolicy(rich): "A bejelentkezéssel elfogadja a ${linkToPrivacyPolicy(Adatvédelmi irányelvek)}."
-    login: Bejelentkezés
-  seeFaq(OUTDATED): "Tekintse meg az alábbi GYIK-et további információkért, beleértve a titkosítási jelszót is."
   signup(rich): "Még nincsen fiókja? ${linkToSignup(Regisztrálás)}!"
   status:
-    loggedIn: Bejelentkezve a Nextclouddal
     loggedOut: Kijelentkezve
     tapToLogin: Kattintson a Nextclouddal való bejelentkezéshez
-  faq(OUTDATED):
-    - q: "Mi az a Nextcloud?"
-      a: "A Nextcloud többek között egy privát fájlszinkronizáló szerver. Használhatja az alapértelmezett Saber Nextcloud kiszolgálót, használhat harmadik féltől származó kiszolgálót, vagy saját maga tárolhatja az adatait az adatok teljes ellenőrzéséhez."
-    - q: "Mi a titkosítási jelszó?"
-      a: |-
-        A titkosítási jelszó az adatok titkosítására szolgál, mielőtt elküldené azokat a szervernek. Ezt választja ki, amikor először jelentkezik be a Saberbe, és nem kapcsolódik Nextcloud-fiókjához/jelszavához.
-        Senki sem férhet hozzá a kiszolgálón lévő jegyzeteihez az Ön titkosítási jelszava nélkül. Ez azt is jelenti, hogy ha elfelejti titkosítási jelszavát, elveszíti hozzáférését az adataihoz.
-    - q: "Miért használjunk két jelszót?"
-      a: |-
-        A Nextcloud jelszó a felhő eléréséhez használható. A titkosítási jelszó „összekeveri” az adatait, mielőtt azok elérnék a felhőt.
-        Még akkor is, ha valaki hozzáfér a Nextcloud-fiókjához, jegyzetei biztonságban maradnak, és külön jelszóval titkosítva lesznek. Ez egy második biztonsági réteget biztosít az adatok védelméhez.
-    - q: "Hogyan tudok bejelentkezni, ha 2FA-t használok?"
-      a: "A szokásos Nextcloud-jelszó helyett létre kell hoznia egy „alkalmazásjelszót”. Ezt megteheti a Nextcloud beállításai között a Biztonság > Eszközök és munkamenetek > Új alkalmazásjelszó létrehozása alatt. A titkosítási jelszó nem változik."
-    - q: "Használhatom mindkettőhöz ugyanazt a jelszót?"
-      a: "Igen, de ez kevésbé biztonságos. Mivel a Nextcloud jelszava elküldésre kerül a szervernek, valaki, aki hozzáfér a szerverhez, képes lesz visszafejteni a jegyzeteit. Csak akkor használja ugyanazt a jelszót, ha megbízik a szerver tulajdonosában."
+    loggedIn: Bejelentkezve a Nextclouddal
+    hi(OUTDATED): "Szia $u!"
+    almostDone(OUTDATED): "Szinte készen áll a szinkronizálásra, érintse meg a bejelentkezés befejezéséhez"
+  ncLoginStep:
+    loginFlow:
+      pleaseAuthorize(OUTDATED): "Engedélyezze a Saber-t, hogy hozzáférjen Nextcloud-fiókjához"
+      followPrompts(OUTDATED): "Kérjük, kövesse a böngészőjében megjelenő utasításokat."
+      browserDidntOpen(OUTDATED): A böngésző nem nyílt meg
+    whereToStoreData(OUTDATED): "Válassza ki, hol szeretné tárolni adatait:"
+    saberNcServer(OUTDATED): A Saber Nextcloud szervere
+    otherNcServer(OUTDATED): Más Nextcloud szerver
+    serverUrl(OUTDATED): Szerver URL
+    loginWithSaber(OUTDATED): Jelentkezzen be Saber segítségével
+    loginWithNextcloud(OUTDATED): Jelentkezzen be a Nextcloud segítségével
+  encLoginStep:
+    enterEncPassword(OUTDATED): "Adatai védelme érdekében adja meg titkosítási jelszavát:"
+    newToSaber(OUTDATED): Új a Saber
+    encPassword(OUTDATED): Titkosító jelszó
+    encFaqTitle(OUTDATED): Gyakran Ismételt Kérdések
+    wrongEncPassword(OUTDATED): "A visszafejtés nem sikerült a megadott jelszóval. Kérjük, próbálja meg újra megadni."
+    connectionFailed(OUTDATED): "Hiba történt a szerverhez való csatlakozáskor. Kérlek, próbáld újra később."
+    encFaq(OUTDATED):
+      - q: "Mi a titkosítási jelszó?"
+        a: |-
+          A titkosítási jelszó az adatok titkosítására szolgál, mielőtt elküldené azokat a szervernek. Ezt választja ki, amikor először jelentkezik be a Saberbe, és nem kapcsolódik Nextcloud-fiókjához/jelszavához.
+          Senki sem férhet hozzá a kiszolgálón lévő jegyzeteihez az Ön titkosítási jelszava nélkül. Ez azt is jelenti, hogy ha elfelejti titkosítási jelszavát, elveszíti hozzáférését az adataihoz.
+      - q: "Miért használjunk két jelszót?"
+        a: |-
+          A Nextcloud jelszó a felhő eléréséhez használható. A titkosítási jelszó „összekeveri” az adatait, mielőtt azok elérnék a felhőt.
+          Még akkor is, ha valaki hozzáfér a Nextcloud-fiókjához, jegyzetei biztonságban maradnak, és külön jelszóval titkosítva lesznek. Ez egy második biztonsági réteget biztosít az adatok védelméhez.
+      - q: "Használhatom mindkettőhöz ugyanazt a jelszót?"
+        a: "Igen, de ez kevésbé biztonságos. Mivel a Nextcloud jelszava elküldésre kerül a szervernek, valaki, aki hozzáfér a szerverhez, képes lesz visszafejteni a jegyzeteit. Csak akkor használja ugyanazt a jelszót, ha megbízik a szerver tulajdonosában."
+  notYou(rich, OUTDATED): "${undoLogin(Nem te)}"
 profile:
   quickLinks:
-    title(OUTDATED): Gyors linkek
     serverHomepage(OUTDATED): Szerver honlapja
     deleteAccount(OUTDATED): Fiók törlése
+  quotaUsage(OUTDATED): "Ön a(z) $total-ból ($percent%) $used"
+  connectedTo(OUTDATED): Csatlakozva valamihez
+  faqTitle(OUTDATED): Gyakran Ismételt Kérdések
   title(OUTDATED): A profilom
   logout(OUTDATED): Kijelentkezés
   faq(OUTDATED):
@@ -296,6 +304,8 @@ editor:
       staffs(OUTDATED): Vezetők
       cornell(OUTDATED): Cornell
       tablature(OUTDATED): Tablatúra
+    watchServer(OUTDATED): Figyelje a frissítéseket a szerveren
+    watchServerReadOnly(OUTDATED): A szerver figyelése közben a szerkesztés le van tiltva
     lineHeightDescription(OUTDATED): A beírt jegyzetek szövegméretét is szabályozza
     backgroundImageFit(OUTDATED): Háttérkép
     clearPage(OUTDATED): $page/$totalPages oldal törlése
@@ -307,7 +317,6 @@ editor:
     title: Ezt a jegyzetet a Saber egy újabb verziójával lett szerkesztve
     subtitle: "A jegyzet szerkesztése bizonyos információk elvesztését eredményezheti. Szeretné ezt figyelmen kívül hagyni, és mégis szerkeszteni?"
     allowEditing: Szerkesztés engedélyezése
-    cancel: Mégse
   quill:
     typeSomething: Gépeljen ide valamit...
   hud:

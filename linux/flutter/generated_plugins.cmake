@@ -13,6 +13,7 @@ list(APPEND FLUTTER_PLUGIN_LIST
   super_native_extensions
   url_launcher_linux
   window_manager
+  window_to_front
   yaru_window_linux
 )
 

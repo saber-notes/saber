@@ -20,6 +20,7 @@ import 'package:saber/components/settings/update_manager.dart';
 import 'package:saber/components/theming/adaptive_alert_dialog.dart';
 import 'package:saber/components/theming/adaptive_toggle_buttons.dart';
 import 'package:saber/data/editor/pencil_sound.dart';
+import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/flavor_config.dart';
 import 'package:saber/data/locales.dart';
 import 'package:saber/data/prefs.dart';
@@ -162,7 +163,7 @@ class _SettingsPageState extends State<SettingsPage> {
               flexibleSpace: FlexibleSpaceBar(
                 title: Text(
                   t.home.titles.settings,
-                  style: TextStyle(color: colorScheme.onBackground),
+                  style: TextStyle(color: colorScheme.onSurface),
                 ),
                 centerTitle: cupertino,
                 titlePadding: EdgeInsetsDirectional.only(
@@ -511,6 +512,20 @@ class _SettingsPageState extends State<SettingsPage> {
                 SettingsDirectorySelector(
                   title: t.settings.prefLabels.customDataDir,
                   icon: Icons.folder,
+                ),
+              if (Platform.isWindows || Platform.isLinux || Platform.isMacOS)
+                SettingsButton(
+                  title: t.settings.openDataDir,
+                  icon: Icons.folder_open,
+                  onPressed: () {
+                    if (Platform.isWindows) {
+                      Process.run('explorer', [FileManager.documentsDirectory]);
+                    } else if (Platform.isLinux) {
+                      Process.run('xdg-open', [FileManager.documentsDirectory]);
+                    } else if (Platform.isMacOS) {
+                      Process.run('open', [FileManager.documentsDirectory]);
+                    }
+                  },
                 ),
               if (requiresManualUpdates ||
                   Prefs.shouldCheckForUpdates.value !=

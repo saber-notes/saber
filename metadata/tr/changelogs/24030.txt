@@ -1,0 +1,1 @@
+GitHub'daki @QubaB sayesinde dosya yollarının şifresinin hatalı şekilde çözülmesine neden olan bir senkronizasyon hatası düzeltildi

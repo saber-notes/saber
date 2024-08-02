@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:collection/collection.dart';
 import 'package:fixnum/fixnum.dart';
 import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
@@ -15,11 +16,10 @@ class Stroke {
   static final log = Logger('Stroke');
 
   @visibleForTesting
+  @protected
   final List<PointVector> points = [];
 
-  /// Note that [isEmpty] is also true if there is only one point,
-  /// since it was just initially added in [onDrawStart].
-  bool get isEmpty => points.length <= 1;
+  bool get isEmpty => points.isEmpty;
   int get length => points.length;
 
   int pageIndex;
@@ -221,7 +221,7 @@ class Stroke {
       points,
       options: options,
       rememberSimulatedPressure: rememberSimulatedPressure,
-    ).toList(growable: false);
+    );
 
     if (rememberSimulatedPressure) {
       // Ensure we don't simulate pressure again
@@ -247,6 +247,10 @@ class Stroke {
       return Path()..addPolygon(polygon, true);
     }
 
+    return smoothPathFromPolygon(polygon);
+  }
+
+  static Path smoothPathFromPolygon(List<Offset> polygon) {
     final path = Path();
     path.moveTo(polygon.first.dx, polygon.first.dy);
     for (int i = 1; i < polygon.length - 1; i++) {
@@ -307,18 +311,17 @@ class Stroke {
   ///
   /// If the resulting line is close to horizontal or vertical,
   /// it will be snapped to be exactly horizontal or vertical.
-  void convertToLine([Offset? firstPoint, Offset? lastPoint]) {
+  void convertToLine() {
     assert(points.length >= 2);
 
-    firstPoint ??= points.first;
-    lastPoint ??= points.last;
-    if (firstPoint is! PointVector)
-      firstPoint = PointVector.fromOffset(
-          offset: firstPoint, pressure: points.first.pressure);
-    if (lastPoint is! PointVector)
-      lastPoint = PointVector.fromOffset(
-          offset: lastPoint, pressure: points.last.pressure);
+    // Use the average pressure
+    final pressure = points.map((point) => point.pressure ?? 0.5).average;
+    var firstPoint =
+        PointVector.fromOffset(offset: points.first, pressure: pressure);
+    var lastPoint =
+        PointVector.fromOffset(offset: points.last, pressure: pressure);
 
+    // Snap to the horizontal or vertical axis
     (firstPoint, lastPoint) = snapLine(firstPoint, lastPoint);
 
     points.clear();
@@ -326,6 +329,8 @@ class Stroke {
     points.add(lastPoint);
     points.add(lastPoint);
     options.isComplete = true;
+    options.start.taperEnabled = false;
+    options.end.taperEnabled = false;
   }
 
   /// Snaps a line to either horizontal or vertical

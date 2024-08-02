@@ -36,6 +36,7 @@ import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/editor/pencil_sound.dart';
 import 'package:saber/data/extensions/change_notifier_extensions.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
+import 'package:saber/data/nextcloud/saber_syncer.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/data/tools/_tool.dart';
 import 'package:saber/data/tools/eraser.dart';
@@ -173,6 +174,7 @@ class EditorState extends State<Editor> {
 
   ValueNotifier<SavingState> savingState = ValueNotifier(SavingState.saved);
   Timer? _delayedSaveTimer;
+  Timer? _watchServerTimer;
 
   // used to prevent accidentally drawing when pinch zooming
   int lastSeenPointerCount = 0;
@@ -700,7 +702,7 @@ class EditorState extends State<Editor> {
         }
       } else if (currentTool is LaserPointer) {
         shouldSave = false;
-        Stroke newStroke = (currentTool as LaserPointer).onDragEnd(
+        final newStroke = (currentTool as LaserPointer).onDragEnd(
           page.redrawStrokes,
           (Stroke stroke) {
             page.laserStrokes.remove(stroke);
@@ -820,14 +822,54 @@ class EditorState extends State<Editor> {
     ));
   }
 
+  void _refreshCurrentNote() async {
+    if (coreInfo.readOnly) return;
+    if (!Prefs.loggedIn) return;
+
+    final syncFile =
+        await SaberSyncFile.relative(coreInfo.filePath + Editor.extension);
+
+    final bestFile = await SaberSyncInterface.getBestFile(
+      syncFile,
+      onLocalFileNotFound: BestFile.local,
+      onEqualFiles: BestFile.local,
+    );
+    if (bestFile != BestFile.remote) return;
+
+    late final StreamSubscription<SaberSyncFile> subscription;
+    void listener(SaberSyncFile transferred) {
+      if (transferred != syncFile) return;
+      subscription.cancel();
+      _initStrokes();
+    }
+
+    subscription = syncer.downloader.transferStream.listen(listener);
+
+    await syncer.downloader.enqueue(syncFile: syncFile);
+    syncer.downloader.bringToFront(syncFile);
+  }
+
   void autosaveAfterDelay() {
-    savingState.value = SavingState.waitingToSave;
-    _delayedSaveTimer?.cancel();
-    if (Prefs.autosaveDelay.value < 0) return;
-    _delayedSaveTimer =
-        Timer(Duration(milliseconds: Prefs.autosaveDelay.value), () {
+    late final void Function() callback;
+
+    void startTimer() {
+      _delayedSaveTimer?.cancel();
+      if (Prefs.autosaveDelay.value < 0) return;
+      _delayedSaveTimer =
+          Timer(Duration(milliseconds: Prefs.autosaveDelay.value), callback);
+    }
+
+    callback = () {
+      if (Pen.currentStroke != null) {
+        // don't save yet if the pen is currently drawing
+        startTimer();
+        return;
+      }
       saveToFile();
-    });
+    };
+
+    savingState.value = SavingState.waitingToSave;
+    startTimer();
   }
 
   Future<void> saveToFile() async {
@@ -937,7 +979,9 @@ class EditorState extends State<Editor> {
 
     if (_filenameFormKey.currentState?.validate() ?? true) {
       coreInfo.filePath = await FileManager.moveFile(
-          coreInfo.filePath + Editor.extension, newName + Editor.extension);
+        coreInfo.filePath + Editor.extension,
+        newName.trim() + Editor.extension,
+      );
       coreInfo.filePath = coreInfo.filePath
           .substring(0, coreInfo.filePath.lastIndexOf(Editor.extension));
       needsNaming = false;
@@ -1327,6 +1371,7 @@ class EditorState extends State<Editor> {
       pages: coreInfo.pages,
       initialPageIndex: coreInfo.initialPageIndex,
       pageBuilder: pageBuilder,
+      isTextEditing: () => currentTool == Tool.textEditing,
       placeholderPageBuilder: (BuildContext context, int pageIndex) {
         return Canvas(
           path: coreInfo.filePath,
@@ -1735,6 +1780,25 @@ class EditorState extends State<Editor> {
       pickPhotos: _pickPhotos,
       importPdf: importPdf,
       canRasterPdf: Editor.canRasterPdf,
+      getIsWatchingServer: () => _watchServerTimer?.isActive ?? false,
+      setIsWatchingServer: (bool watch) {
+        if (watch) {
+          _watchServerTimer ??= Timer.periodic(
+            const Duration(seconds: 5),
+            (_) => _refreshCurrentNote(),
+          );
+          coreInfo.readOnlyBecauseWatchingServer |= !coreInfo.readOnly;
+          if (!coreInfo.readOnly) setState(() => coreInfo.readOnly = true);
+        } else {
+          _watchServerTimer?.cancel();
+          _watchServerTimer = null;
+          if (coreInfo.readOnlyBecauseWatchingServer)
+            setState(() {
+              coreInfo.readOnly = false;
+              coreInfo.readOnlyBecauseWatchingServer = false;
+            });
+        }
+      },
     );
   }
 
@@ -1914,7 +1978,7 @@ class EditorState extends State<Editor> {
             content: Text(t.editor.newerFileFormat.subtitle),
             actions: [
               CupertinoDialogAction(
-                child: Text(t.editor.newerFileFormat.cancel),
+                child: Text(t.common.cancel),
                 onPressed: () => Navigator.pop(context, false),
               ),
               CupertinoDialogAction(
@@ -1984,6 +2048,7 @@ class EditorState extends State<Editor> {
     DynamicMaterialApp.removeFullscreenListener(_setState);
 
     _delayedSaveTimer?.cancel();
+    _watchServerTimer?.cancel();
     _lastSeenPointerCountTimer?.cancel();
 
     _removeKeybindings();

@@ -142,7 +142,7 @@ se dá shrnout jako:
 
 #### Linux
 
-`sudo apt install libsecret-1-dev libjsoncpp-dev`
+`sudo apt install libsecret-1-dev libjsoncpp-dev libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev`
 `flutter build linux`
 
 Toto je dostatečné pro použití na vlastním počítači, ale pokud chcete své sestavení distribuovat,
@@ -308,8 +308,8 @@ Pokud máte rádi Saber, zvažte prosím jeho podporu pomocí
 <summary>Zobrazit/skrýt poznámky pro vývojáře</summary>
 
 - Když aktualizujete **verzi aplikace**:
-  - Spusťte `./scripts/apply_version.sh <název-verze> <kód-verze>`
-    (Pro více informací spusťte `./scripts/apply_version.sh --help`)
+  - Spusťte `./scripts/bump_version.sh <název-verze> <kód-verze>`
+    (Pro více informací spusťte `./scripts/bump_version.sh --help`)
   - Aktualizujte záznamy o změnách v `metadata/en-US/changelogs/`
     a `flatpak/com.adilhanney.saber.metainfo.xml`,
     a spusťte `dart scripts/translate_changelogs.dart`, jak je udáno skriptem.
@@ -336,8 +336,8 @@ Pokud máte rádi Saber, zvažte prosím jeho podporu pomocí
 [google_play]: https://play.google.com/store/apps/details?id=com.adilhanney.saber
 [snap]: https://snapcraft.io/saber
 [app_store]: https://apps.apple.com/cz/app/saber/id1671523739
-[download_windows]: https://github.com/saber-notes/saber/releases/download/v0.22.0/SaberInstaller_v0.22.0.exe
-[download_appimage]: https://github.com/saber-notes/saber/releases/download/v0.22.0/Saber-0.22.0-x86_64.AppImage
+[download_windows]: https://github.com/saber-notes/saber/releases/download/v0.24.4/SaberInstaller_v0.24.4.exe
+[download_appimage]: https://github.com/saber-notes/saber/releases/download/v0.24.4/Saber-0.24.4-x86_64.AppImage
 
 [nextcloud]: https://nc.saber.adil.hanney.org/
 

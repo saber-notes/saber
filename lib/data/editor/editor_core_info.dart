@@ -49,6 +49,7 @@ class EditorCoreInfo {
   static const int sbnVersion = 19;
   bool readOnly = false;
   bool readOnlyBecauseOfVersion = false;
+  bool readOnlyBecauseWatchingServer = false;
 
   String filePath;
 

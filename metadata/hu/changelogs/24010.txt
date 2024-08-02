@@ -1,0 +1,3 @@
+• Csökkentette a lézerütések ragyogó hatását
+• A szinkronizáló automatikusan felveszi az új fájlokat az eszközön
+• Kijavítottuk azt a hibát, amely miatt a fájl feltöltése a letöltés után meghiúsult

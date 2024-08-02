@@ -1,0 +1,3 @@
+• Meilleure gestion des fichiers supprimés et des fichiers déjà synchronisés
+• Correction des espaces autorisés à la fin et au début des noms de fichiers
+• Plus de retours sur les fichiers en cours de téléchargement/téléchargement

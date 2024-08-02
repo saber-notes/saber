@@ -33,6 +33,7 @@ class CanvasGestureDetector extends StatefulWidget {
     required this.initialPageIndex,
     required this.pageBuilder,
     required this.placeholderPageBuilder,
+    required this.isTextEditing,
     TransformationController? transformationController,
   }) : _transformationController =
             transformationController ?? TransformationController();
@@ -58,6 +59,8 @@ class CanvasGestureDetector extends StatefulWidget {
   final Widget Function(BuildContext context, int pageIndex) pageBuilder;
   final Widget Function(BuildContext context, int pageIndex)
       placeholderPageBuilder;
+
+  final bool Function() isTextEditing;
 
   late final TransformationController _transformationController;
 
@@ -190,22 +193,22 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
 
   final Map<AxisDirection, Timer> _arrowKeyPanTimers = {};
   void arrowKeyPan(AxisDirection direction, bool pressed) {
-    _arrowKeyPanTimers[direction]?.cancel();
+    _arrowKeyPanTimers.remove(direction)?.cancel();
+    if (!pressed) return;
 
-    if (pressed) {
-      _arrowKeyPanNow(direction);
+    // arrow keys are used to navigate around text
+    if (widget.isTextEditing()) return;
 
-      // Wait for 200ms, then pan every 100ms
-      _arrowKeyPanTimers[direction] =
-          Timer(const Duration(milliseconds: 200), () {
-        _arrowKeyPanTimers[direction] = Timer.periodic(
-          const Duration(milliseconds: 100),
-          (_) => _arrowKeyPanNow(direction),
-        );
+    _arrowKeyPanNow(direction);
+
+    // Wait for 200ms, then pan every 100ms
+    const ms100 = Duration(milliseconds: 100);
+    const ms200 = Duration(milliseconds: 200);
+    _arrowKeyPanTimers[direction] = Timer(ms200, () {
+      _arrowKeyPanTimers[direction] = Timer.periodic(ms100, (_) {
+        _arrowKeyPanNow(direction);
       });
-    } else {
-      _arrowKeyPanTimers.remove(direction);
-    }
+    });
   }
 
   void _arrowKeyPanNow(AxisDirection direction) {
@@ -253,7 +256,6 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
         Keybinding([KeyCode.from(LogicalKeyboardKey.arrowUp)], inclusive: true);
     _downKey = Keybinding([KeyCode.from(LogicalKeyboardKey.arrowDown)],
         inclusive: true);
-    // TODO: disable scroll keybindings when in quill mode
     Keybinder.bind(
         _leftKey, (bool pressed) => arrowKeyPan(AxisDirection.left, pressed));
     Keybinder.bind(

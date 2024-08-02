@@ -1,3 +1,7 @@
+common:
+  cancel: Cancelar
+  done(OUTDATED): Feito
+  continueBtn(OUTDATED): Continuar
 home:
   tabs:
     home: Início
@@ -140,52 +144,53 @@ settings:
     select(OUTDATED): Selecione
     mustBeEmpty(OUTDATED): O diretório selecionado deve estar vazio
     mustBeDoneSyncing(OUTDATED): Certifique-se de que a sincronização esteja concluída antes de alterar o diretório
+  openDataDir(OUTDATED): Abra a pasta Saber
   resyncEverything(OUTDATED): Resync tudo
 login:
   title: Login
-  feedbacks:
-    checkUsername: Por favor verifique o seu nome de usuário ou e-mail.
-    enterNcPassword: Por favor digite a sua senha do Nextcloud.
-    enterEncPassword: Por favor digite a sua senha de criptografia.
-    checkUrl: Por favor insira uma URL válida.
-    ncLoginFailed: "Falha no login, por favor verifique os seus dados e a conexão de rede."
-    encLoginFailed: "Falha no login, por favor verifique a sua senha de criptografia."
-    loginSuccess: "Login bem-sucedido! Aguarde enquanto configuramos..."
-    ncUnsupportedFailure(OUTDATED): "O servidor fornecido está executando Nextcloud $v, mas esta versão do Saber suporta apenas Nextcloud $s a $t."
   form:
-    useCustomServer: Eu quero usar um servidor Nextcloud personalizado
-    customServerUrl: URL do servidor personalizado
-    username: Nome de usuário ou e-mail
-    ncPassword: Senha do Nextcloud
-    encPassword: Senha de criptografia
     agreeToPrivacyPolicy(rich): "Ao fazer login, você concorda com a ${linkToPrivacyPolicy(Política de Privacidade)}."
-    login: Login
-  seeFaq(OUTDATED): "Consulte o FAQ abaixo para obter mais informações, inclusive sobre a senha de criptografia."
   signup(rich): "Ainda não tem uma conta? ${linkToSignup(Registre-se agora)}!"
   status:
-    loggedIn: Logado com o Nextcloud
     loggedOut: Desconectado
     tapToLogin: Toque para fazer login com o Nextcloud
-  faq(OUTDATED):
-    - q: "O que é o Nextcloud?"
-      a: "O Nextcloud é um servidor privado de sincronização de arquivos, entre outras coisas. Você pode usar o servidor Nextcloud padrão do Saber, usar um servidor de terceiros ou auto-hospedar o seu próprio servidor para controle total dos seus dados."
-    - q: "O que é uma senha de criptografia?"
-      a: |-
-        A senha de criptografia é usada para criptografar os seus dados antes de eles serem enviados ao servidor. Você a escolhe quando faz login pela primeira vez no Saber, e ela não está relacionada à sua conta/senha do Nextcloud.
-        Ninguém pode acessar as suas notas no servidor sem a sua senha de criptografia. Isso também significa que, se você esquecer a sua senha de criptografia, perderá o acesso aos seus dados.
-    - q: "Por que usar duas senhas?"
-      a: |-
-        A senha do Nextcloud é usada para acessar a nuvem. A senha de criptografia "embaralha" os seus dados antes que eles cheguem à nuvem.
-        Mesmo que alguém obtenha acesso à sua conta do Nextcloud, as suas notas permanecerão seguras e criptografadas com uma senha separada. Isso fornece uma segunda camada de segurança para proteger os seus dados.
-    - q: "Como eu faço login usando autenticação de dois fatores (2FA)?"
-      a: "Em vez de sua senha regular do Nextcloud, você precisará criar uma \"senha de aplicativo\". Você pode fazer isso nas configurações do Nextcloud em Segurança > Dispositivos e sessões > Criar nova senha de aplicativo. A sua senha de criptografia não é afetada."
-    - q: "Posso usar a mesma senha para ambos?"
-      a: "Sim, mas isso é menos seguro. Como a sua senha do Nextcloud é enviada ao servidor, alguém com acesso ao servidor poderá descriptografar as suas notas. Use a mesma senha apenas se você confiar no proprietário do servidor. "
+    loggedIn: Logado com o Nextcloud
+    hi(OUTDATED): "Olá, $u!"
+    almostDone(OUTDATED): "Quase pronto para sincronização, toque para finalizar o login"
+  ncLoginStep:
+    loginFlow:
+      pleaseAuthorize(OUTDATED): Autorize o Saber a acessar sua conta Nextcloud
+      followPrompts(OUTDATED): "Por favor, siga as instruções no seu navegador."
+      browserDidntOpen(OUTDATED): O navegador não abriu
+    whereToStoreData(OUTDATED): "Escolha onde deseja armazenar seus dados:"
+    saberNcServer(OUTDATED): Servidor Nextcloud do Saber
+    otherNcServer(OUTDATED): Outro servidor Nextcloud
+    serverUrl(OUTDATED): URL do servidor
+    loginWithSaber(OUTDATED): Faça login com Saber
+    loginWithNextcloud(OUTDATED): Faça login com Nextcloud
+  encLoginStep:
+    enterEncPassword(OUTDATED): "Para proteger seus dados, digite sua senha de criptografia:"
+    newToSaber(OUTDATED): Novo no Saber
+    encPassword(OUTDATED): Senha de criptografia
+    encFaqTitle(OUTDATED): Perguntas frequentes
+    wrongEncPassword(OUTDATED): "A descriptografia falhou com a senha fornecida. Por favor, tente inseri-lo novamente."
+    connectionFailed(OUTDATED): "Algo deu errado ao conectar-se ao servidor. Por favor, tente novamente mais tarde."
+    encFaq(OUTDATED):
+      - q: "O que é uma senha de criptografia?"
+        a: |-
+          A senha de criptografia é usada para criptografar os seus dados antes de eles serem enviados ao servidor. Você a escolhe quando faz login pela primeira vez no Saber, e ela não está relacionada à sua conta/senha do Nextcloud.
+          Ninguém pode acessar as suas notas no servidor sem a sua senha de criptografia. Isso também significa que, se você esquecer a sua senha de criptografia, perderá o acesso aos seus dados.
+      - q: "Por que usar duas senhas?"
+        a: |-
+          A senha do Nextcloud é usada para acessar a nuvem. A senha de criptografia "embaralha" os seus dados antes que eles cheguem à nuvem.
+          Mesmo que alguém obtenha acesso à sua conta do Nextcloud, as suas notas permanecerão seguras e criptografadas com uma senha separada. Isso fornece uma segunda camada de segurança para proteger os seus dados.
+      - q: "Posso usar a mesma senha para ambos?"
+        a: "Sim, mas isso é menos seguro. Como a sua senha do Nextcloud é enviada ao servidor, alguém com acesso ao servidor poderá descriptografar as suas notas. Use a mesma senha apenas se você confiar no proprietário do servidor. "
+  notYou(rich, OUTDATED): "${undoLogin(Você não)}"
 profile:
   title: Meu perfil
   logout: Sair
   quickLinks:
-    title: Links rápidos
     serverHomepage: Página inicial do servidor
     deleteAccount: Apagar conta
   faq:
@@ -204,6 +209,9 @@ profile:
         Toque no "@:profile.quickLinks.deleteAccount" botão acima, e faça login se necessário.
         Se você estiver usando o servidor oficial do Saber, a sua conta será apagada depois de um período de carência de uma semana. Você pode entrar em contato comigo em adilhanney@disroot.org durante esse período para cancelar a exclusão.
         Se você estiver usando um servidor de terceiros, pode ser que não haja uma opção de apagar a sua conta: você precisará consultar a política de privacidade do servidor para mais informações.
+  quotaUsage(OUTDATED): "Você está usando $used de $total ($percent%)"
+  connectedTo(OUTDATED): Conectado a
+  faqTitle(OUTDATED): Perguntas frequentes
 appInfo:
   licenseNotice: |-
     Saber  Copyright © 2022-$buildYear  Adil Hanney
@@ -301,13 +309,14 @@ editor:
       staffs: Pentagrama
       tablature: Tablatura
       cornell: Cornell
+    watchServer(OUTDATED): Fique atento às atualizações no servidor
+    watchServerReadOnly(OUTDATED): A edição está desativada enquanto observa o servidor
     lineHeightDescription(OUTDATED): Também controla o tamanho do texto para notas digitadas
   newerFileFormat:
     readOnlyMode: Modo somente leitura
     title: Esta nota foi editada usando uma versão mais recente do Saber
     subtitle: "A edição desta nota pode resultar na perda de algumas informações. Deseja ignorar isso e editá-la mesmo assim?"
     allowEditing: Permitir edição
-    cancel: Cancelar
   quill:
     typeSomething: Digite algo aqui...
   hud:

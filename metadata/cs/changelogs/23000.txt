@@ -1,0 +1,3 @@
+• Přepracován proces přihlašování
+• Zastavilo spouštění automatického ukládání uprostřed tahu
+• Opraveno, že nastavení zvukového efektu tužky nebylo okamžitě načteno

@@ -1,0 +1,3 @@
+• Senkronizasyon hızında önemli iyileştirmeler
+• Güncelliğini yitirmiş şifreleme parolalarının daha iyi işlenmesi
+• Lazer vuruşlarının işlenmesi iyileştirildi

@@ -1,3 +1,4 @@
+#!/usr/bin/env dart
 // Run `dart scripts/translate_app.dart` to generate the changelogs.
 
 // ignore_for_file: avoid_print
@@ -8,6 +9,8 @@ import 'dart:math';
 import 'package:simplytranslate/simplytranslate.dart';
 import 'package:simplytranslate/src/langs/language.dart';
 import 'package:yaml/yaml.dart';
+
+import 'src/fix_spelling.dart';
 
 late SimplyTranslator translator;
 
@@ -22,8 +25,8 @@ Future<YamlMap> _getMissingTranslations() async {
 String _nearestLocaleCode(String localeCode) {
   const nearestLocaleCodes = <String, String>{
     'he': 'iw',
-    'zh-Hans-CN': 'zh',
-    'zh-Hant-TW': 'zh_HANT',
+    'zh-Hans-CN': 'zh-cn',
+    'zh-Hant-TW': 'zh-tw',
   };
 
   if (LanguageList.contains(localeCode)) {
@@ -136,10 +139,13 @@ Future<String?> translateString(
     '  Translating into $languageCode: '
     '${english.length > 20 ? '${english.substring(0, 20)}...' : english}',
   );
-  List<String> translations;
+
+  String translatedText;
   try {
-    translations = await translator
-        .translateLingva(english, 'en', _nearestLocaleCode(languageCode))
+    translatedText = await translator
+        .translateSimply(english,
+            from: 'en', to: _nearestLocaleCode(languageCode))
+        .then((translation) => translation.translations.text)
         .timeout(const Duration(seconds: 10));
   } catch (e) {
     print('    Translation failed: $e');
@@ -147,7 +153,6 @@ Future<String?> translateString(
     return null;
   }
 
-  final translatedText = translations.first;
   final errorTexts = [
     'Invalid request',
     'None is not supported',
@@ -159,7 +164,7 @@ Future<String?> translateString(
     return english;
   }
 
-  return translatedText;
+  return fixSpelling(translatedText);
 }
 
 bool errorOccurredInTranslatingTree = false;

@@ -7,34 +7,42 @@ import 'package:encrypt/encrypt.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/provisioning_api.dart';
 import 'package:nextcloud/webdav.dart';
-import 'package:saber/components/nextcloud/login_group.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
+import 'package:saber/data/nextcloud/errors.dart';
 import 'package:saber/data/prefs.dart';
+import 'package:saber/data/version.dart';
 
 extension NextcloudClientExtension on NextcloudClient {
   static final Uri defaultNextcloudUri =
       Uri.parse('https://nc.saber.adil.hanney.org');
 
+  static final userAgent = 'Saber/$buildName '
+      '(${Platform.operatingSystem}) '
+      'Dart/${Platform.version.split(' ').first}';
+
   static const String appRootDirectoryPrefix =
       FileManager.appRootDirectoryPrefix;
+  static const String configFileName = 'config.sbc';
   static final PathUri configFileUri =
-      PathUri.parse('$appRootDirectoryPrefix/config.sbc');
+      PathUri.parse('$appRootDirectoryPrefix/$configFileName');
 
   static const _utf8Decoder = Utf8Decoder(allowMalformed: true);
 
   static const String reproducibleSalt = r'8MnPs64@R&mF8XjWeLrD';
 
   static NextcloudClient? withSavedDetails() {
+    if (!Prefs.loggedIn) return null;
+
     String url = Prefs.url.value;
     String username = Prefs.username.value;
     String ncPassword = Prefs.ncPassword.value;
-
-    if (username.isEmpty || ncPassword.isEmpty) return null;
 
     final client = NextcloudClient(
       url.isNotEmpty ? Uri.parse(url) : defaultNextcloudUri,
       loginName: username,
       password: ncPassword,
+      appPassword: Prefs.ncPasswordIsAnAppPassword.value ? ncPassword : null,
+      userAgent: userAgent,
     );
 
     void deAuth() {
@@ -74,7 +82,7 @@ extension NextcloudClientExtension on NextcloudClient {
     IV? iv,
     Key? key,
   }) async {
-    encrypter ??= await this.encrypter;
+    encrypter ??= this.encrypter;
     iv ??= IV.fromBase64(Prefs.iv.value);
     key ??= Key.fromBase64(Prefs.key.value);
 
@@ -96,8 +104,10 @@ extension NextcloudClientExtension on NextcloudClient {
     await webdav.put(file, configFileUri);
   }
 
-  Future<String> loadEncryptionKey() async {
-    final Encrypter encrypter = await this.encrypter;
+  Future<String> loadEncryptionKey({
+    bool generateKeyIfMissing = true,
+  }) async {
+    final Encrypter encrypter = this.encrypter;
 
     final Map<String, String> config = await getConfig();
     if (config.containsKey(Prefs.key.key) && config.containsKey(Prefs.iv.key)) {
@@ -113,6 +123,8 @@ extension NextcloudClientExtension on NextcloudClient {
         throw EncLoginFailure();
       }
     }
+
+    if (!generateKeyIfMissing) throw EncLoginFailure();
 
     final Key key = Key.fromSecureRandom(32);
     final IV iv = IV.fromSecureRandom(16);
@@ -132,15 +144,11 @@ extension NextcloudClientExtension on NextcloudClient {
   }
 
   Future<String> getUsername() async {
-    try {
-      final user = await provisioningApi.users.getCurrentUser();
-      return user.body.ocs.data.id;
-    } catch (e) {
-      throw NcLoginFailure();
-    }
+    final user = await provisioningApi.users.getCurrentUser();
+    return user.body.ocs.data.id;
   }
 
-  Future<Encrypter> get encrypter async {
+  Encrypter get encrypter {
     final List<int> encodedPassword =
         utf8.encode(Prefs.encPassword.value + reproducibleSalt);
     final List<int> hashedPasswordBytes = sha256.convert(encodedPassword).bytes;

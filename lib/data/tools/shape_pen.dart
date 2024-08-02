@@ -75,9 +75,8 @@ class ShapePen extends Pen {
         log.info('Detected unknown shape');
         return rawStroke;
       case DefaultUnistrokeNames.line:
-        var (firstPoint, lastPoint) = detectedShape.convertToLine();
-        log.info('Detected line: $firstPoint -> $lastPoint');
-        return rawStroke..convertToLine(firstPoint, lastPoint);
+        log.info('Detected line');
+        return rawStroke..convertToLine();
       case DefaultUnistrokeNames.rectangle:
         final rect = detectedShape.convertToRect();
         log.info('Detected rectangle: $rect');
@@ -104,8 +103,9 @@ class ShapePen extends Pen {
           center: center,
         );
       case DefaultUnistrokeNames.triangle:
+      case DefaultUnistrokeNames.star:
         final polygon = detectedShape.convertToCanonicalPolygon();
-        log.info('Detected triangle');
+        log.info('Detected ${detectedShape.name}');
         return Stroke(
           color: color,
           pressureEnabled: pressureEnabled,

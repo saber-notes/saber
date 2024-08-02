@@ -24,11 +24,6 @@ class InteractiveCanvasViewer extends StatefulWidget {
   InteractiveCanvasViewer({
     super.key,
     this.clipBehavior = Clip.hardEdge,
-    @Deprecated(
-      'Use panAxis instead. '
-      'This feature was deprecated after v3.3.0-0.5.pre.',
-    )
-    this.alignPanAxis = false,
     this.panAxis = PanAxis.free,
     this.boundaryMargin = EdgeInsets.zero,
     this.constrained = true,
@@ -77,11 +72,6 @@ class InteractiveCanvasViewer extends StatefulWidget {
   InteractiveCanvasViewer.builder({
     super.key,
     this.clipBehavior = Clip.hardEdge,
-    @Deprecated(
-      'Use panAxis instead. '
-      'This feature was deprecated after v3.3.0-0.5.pre.',
-    )
-    this.alignPanAxis = false,
     this.panAxis = PanAxis.free,
     this.boundaryMargin = EdgeInsets.zero,
     // These default scale values were eyeballed as reasonable limits for common
@@ -129,25 +119,6 @@ class InteractiveCanvasViewer extends StatefulWidget {
   ///
   /// Defaults to [Clip.hardEdge].
   final Clip clipBehavior;
-
-  /// This property is deprecated, please use [panAxis] instead.
-  ///
-  /// If true, panning is only allowed in the direction of the horizontal axis
-  /// or the vertical axis.
-  ///
-  /// In other words, when this is true, diagonal panning is not allowed. A
-  /// single gesture begun along one axis cannot also cause panning along the
-  /// other axis without stopping and beginning a new gesture. This is a common
-  /// pattern in tables where data is displayed in columns and rows.
-  ///
-  /// See also:
-  ///  * [constrained], which has an example of creating a table that uses
-  ///    alignPanAxis.
-  @Deprecated(
-    'Use panAxis instead. '
-    'This feature was deprecated after v3.3.0-0.5.pre.',
-  )
-  final bool alignPanAxis;
 
   /// When set to [PanAxis.aligned], panning is only allowed in the horizontal
   /// axis or the vertical axis, diagonal panning is not allowed.
@@ -271,7 +242,7 @@ class InteractiveCanvasViewer extends StatefulWidget {
   ///
   /// Defaults to 2.5.
   ///
-  /// Must be greater than zero and greater than minScale.
+  /// Must be greater than zero and greater than [minScale].
   final double maxScale;
 
   /// The minimum allowed scale.
@@ -285,8 +256,7 @@ class InteractiveCanvasViewer extends StatefulWidget {
   ///
   /// Defaults to 0.8.
   ///
-  /// Must be a finite number greater than zero and less
-  /// than maxScale.
+  /// Must be a finite number greater than zero and less than [maxScale].
   final double minScale;
 
   /// Changes the deceleration behavior after a gesture.
@@ -534,7 +504,7 @@ class _InteractiveCanvasViewerState extends State<InteractiveCanvasViewer>
   double _currentRotation = 0; // Rotation of _transformationController.value.
   _GestureType? _gestureType;
 
-  // TODO(justinmc): Add rotateEnabled parameter to the widget and remove this
+  // -TODO(justinmc): Add rotateEnabled parameter to the widget and remove this
   // hardcoded value when the rotation feature is implemented.
   // https://github.com/flutter/flutter/issues/57698
   final bool _rotateEnabled = false;
@@ -585,19 +555,15 @@ class _InteractiveCanvasViewerState extends State<InteractiveCanvasViewer>
       return matrix.clone();
     }
 
-    late final Offset alignedTranslation;
+    final Offset alignedTranslation;
 
     if (_currentAxis != null) {
-      switch (widget.panAxis) {
-        case PanAxis.horizontal:
-          alignedTranslation = _alignAxis(translation, Axis.horizontal);
-        case PanAxis.vertical:
-          alignedTranslation = _alignAxis(translation, Axis.vertical);
-        case PanAxis.aligned:
-          alignedTranslation = _alignAxis(translation, _currentAxis!);
-        case PanAxis.free:
-          alignedTranslation = translation;
-      }
+      alignedTranslation = switch (widget.panAxis) {
+        PanAxis.horizontal => _alignAxis(translation, Axis.horizontal),
+        PanAxis.vertical => _alignAxis(translation, Axis.vertical),
+        PanAxis.aligned => _alignAxis(translation, _currentAxis!),
+        PanAxis.free => translation,
+      };
     } else {
       alignedTranslation = translation;
     }
@@ -642,7 +608,7 @@ class _InteractiveCanvasViewerState extends State<InteractiveCanvasViewer>
       nextTotalTranslation.dx - offendingDistance.dx * currentScale,
       nextTotalTranslation.dy - offendingDistance.dy * currentScale,
     );
-    // TODO(justinmc): This needs some work to handle rotation properly. The
+    // -TODO(justinmc): This needs some work to handle rotation properly. The
     // idea is that the boundaries are axis aligned (boundariesAabbQuad), but
     // calculating the translation to put the viewport inside that Quad is more
     // complicated than this when rotated.
@@ -732,17 +698,11 @@ class _InteractiveCanvasViewerState extends State<InteractiveCanvasViewer>
 
   // Returns true iff the given _GestureType is enabled.
   bool _gestureIsSupported(_GestureType? gestureType) {
-    switch (gestureType) {
-      case _GestureType.rotate:
-        return _rotateEnabled;
-
-      case _GestureType.scale:
-        return widget.scaleEnabled;
-
-      case _GestureType.pan:
-      case null:
-        return widget.panEnabled;
-    }
+    return switch (gestureType) {
+      _GestureType.rotate => _rotateEnabled,
+      _GestureType.scale => widget.scaleEnabled,
+      _GestureType.pan || null => widget.panEnabled,
+    };
   }
 
   // Decide which type of gesture this is by comparing the amount of scale
@@ -916,60 +876,64 @@ class _InteractiveCanvasViewerState extends State<InteractiveCanvasViewer>
       return;
     }
 
-    if (_gestureType == _GestureType.pan) {
-      if (details.velocity.pixelsPerSecond.distance < kMinFlingVelocity) {
-        _currentAxis = null;
-        return;
-      }
-      final Vector3 translationVector =
-          _transformationController!.value.getTranslation();
-      final Offset translation =
-          Offset(translationVector.x, translationVector.y);
-      final FrictionSimulation frictionSimulationX = FrictionSimulation(
-        widget.interactionEndFrictionCoefficient,
-        translation.dx,
-        details.velocity.pixelsPerSecond.dx,
-      );
-      final FrictionSimulation frictionSimulationY = FrictionSimulation(
-        widget.interactionEndFrictionCoefficient,
-        translation.dy,
-        details.velocity.pixelsPerSecond.dy,
-      );
-      final double tFinal = _getFinalTime(
-        details.velocity.pixelsPerSecond.distance,
-        widget.interactionEndFrictionCoefficient,
-      );
-      _animation = Tween<Offset>(
-        begin: translation,
-        end: Offset(frictionSimulationX.finalX, frictionSimulationY.finalX),
-      ).animate(CurvedAnimation(
-        parent: _controller,
-        curve: Curves.decelerate,
-      ));
-      _controller.duration = Duration(milliseconds: (tFinal * 1000).round());
-      _animation!.addListener(_onAnimate);
-      _controller.forward();
-    } else if (_gestureType == _GestureType.scale) {
-      if (details.scaleVelocity.abs() < 0.1) {
-        _currentAxis = null;
-        return;
-      }
-      final double scale = _transformationController!.value.getMaxScaleOnAxis();
-      final FrictionSimulation frictionSimulation = FrictionSimulation(
-          widget.interactionEndFrictionCoefficient * widget.scaleFactor,
-          scale,
-          details.scaleVelocity / 10);
-      final double tFinal = _getFinalTime(
-          details.scaleVelocity.abs(), widget.interactionEndFrictionCoefficient,
-          effectivelyMotionless: 0.1);
-      _scaleAnimation =
-          Tween<double>(begin: scale, end: frictionSimulation.x(tFinal))
-              .animate(CurvedAnimation(
-                  parent: _scaleController, curve: Curves.decelerate));
-      _scaleController.duration =
-          Duration(milliseconds: (tFinal * 1000).round());
-      _scaleAnimation!.addListener(_onScaleAnimate);
-      _scaleController.forward();
+    switch (_gestureType) {
+      case _GestureType.pan:
+        if (details.velocity.pixelsPerSecond.distance < kMinFlingVelocity) {
+          _currentAxis = null;
+          return;
+        }
+        final Vector3 translationVector =
+            _transformationController!.value.getTranslation();
+        final Offset translation =
+            Offset(translationVector.x, translationVector.y);
+        final FrictionSimulation frictionSimulationX = FrictionSimulation(
+          widget.interactionEndFrictionCoefficient,
+          translation.dx,
+          details.velocity.pixelsPerSecond.dx,
+        );
+        final FrictionSimulation frictionSimulationY = FrictionSimulation(
+          widget.interactionEndFrictionCoefficient,
+          translation.dy,
+          details.velocity.pixelsPerSecond.dy,
+        );
+        final double tFinal = _getFinalTime(
+          details.velocity.pixelsPerSecond.distance,
+          widget.interactionEndFrictionCoefficient,
+        );
+        _animation = Tween<Offset>(
+          begin: translation,
+          end: Offset(frictionSimulationX.finalX, frictionSimulationY.finalX),
+        ).animate(CurvedAnimation(
+          parent: _controller,
+          curve: Curves.decelerate,
+        ));
+        _controller.duration = Duration(milliseconds: (tFinal * 1000).round());
+        _animation!.addListener(_onAnimate);
+        _controller.forward();
+      case _GestureType.scale:
+        if (details.scaleVelocity.abs() < 0.1) {
+          _currentAxis = null;
+          return;
+        }
+        final double scale =
+            _transformationController!.value.getMaxScaleOnAxis();
+        final FrictionSimulation frictionSimulation = FrictionSimulation(
+            widget.interactionEndFrictionCoefficient * widget.scaleFactor,
+            scale,
+            details.scaleVelocity / 10);
+        final double tFinal = _getFinalTime(details.scaleVelocity.abs(),
+            widget.interactionEndFrictionCoefficient,
+            effectivelyMotionless: 0.1);
+        _scaleAnimation =
+            Tween<double>(begin: scale, end: frictionSimulation.x(tFinal))
+                .animate(CurvedAnimation(
+                    parent: _scaleController, curve: Curves.decelerate));
+        _scaleController.duration =
+            Duration(milliseconds: (tFinal * 1000).round());
+        _scaleAnimation!.addListener(_onScaleAnimate);
+        _scaleController.forward();
+      case _GestureType.rotate || null:
+        break;
     }
   }
 
@@ -1364,12 +1328,10 @@ Offset _round(Offset offset) {
 // Align the given offset to the given axis by allowing movement only in the
 // axis direction.
 Offset _alignAxis(Offset offset, Axis axis) {
-  switch (axis) {
-    case Axis.horizontal:
-      return Offset(offset.dx, 0);
-    case Axis.vertical:
-      return Offset(0, offset.dy);
-  }
+  return switch (axis) {
+    Axis.horizontal => Offset(offset.dx, 0),
+    Axis.vertical => Offset(0, offset.dy),
+  };
 }
 
 // Given two points, return the axis where the distance between the points is

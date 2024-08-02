@@ -1,0 +1,1 @@
+Ein Synchronisierungsfehler wurde behoben, der dazu führte, dass Dateipfade falsch entschlüsselt wurden. Dank geht an @QubaB auf GitHub.

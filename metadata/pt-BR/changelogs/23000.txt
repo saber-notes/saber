@@ -1,0 +1,3 @@
+• Redesenhamos o processo de login
+• Interrompeu o acionamento do salvamento automático no meio de um golpe
+• Corrigida a configuração do efeito sonoro do lápis que não era captada imediatamente

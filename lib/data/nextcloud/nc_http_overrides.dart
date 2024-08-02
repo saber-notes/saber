@@ -5,6 +5,10 @@ import 'package:saber/data/prefs.dart';
 
 class NcHttpOverrides extends HttpOverrides {
   static String? temporarilyExemptHost;
+
+  /// Temporarily accept a self-signed certificate from [uri]
+  /// (if [Prefs.allowInsecureConnections] is true),
+  /// before you set Prefs.url.
   static void tempAcceptBadCertificateFrom(Uri uri) {
     temporarilyExemptHost = uri.host;
   }

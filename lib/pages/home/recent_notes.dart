@@ -130,7 +130,7 @@ class _RecentPageState extends State<RecentPage> {
                 flexibleSpace: FlexibleSpaceBar(
                   title: Text(
                     t.home.titles.home,
-                    style: TextStyle(color: colorScheme.onBackground),
+                    style: TextStyle(color: colorScheme.onSurface),
                   ),
                   centerTitle: cupertino,
                   titlePadding: EdgeInsetsDirectional.only(
@@ -191,8 +191,8 @@ class _RecentPageState extends State<RecentPage> {
                 onPressed: () async {
                   await Future.wait([
                     for (String filePath in selectedFiles.value)
-                      FileManager.doesFileExist(
-                              filePath + Editor.extensionOldJson)
+                      Future.value(FileManager.doesFileExist(
+                              filePath + Editor.extensionOldJson))
                           .then((oldExtension) => FileManager.deleteFile(
                               filePath +
                                   (oldExtension

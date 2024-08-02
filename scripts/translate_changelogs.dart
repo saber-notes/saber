@@ -1,3 +1,4 @@
+#!/usr/bin/env dart
 // Run `dart scripts/translate_changelogs.dart` to generate the changelogs.
 
 // ignore_for_file: avoid_print
@@ -10,10 +11,12 @@ import 'package:saber/data/version.dart';
 import 'package:simplytranslate/simplytranslate.dart';
 import 'package:simplytranslate/src/langs/language.dart';
 
+import 'src/fix_spelling.dart';
+
 const nearestLocaleCodes = <String, String>{
   'he': 'iw',
-  'zh-Hans-CN': 'zh',
-  'zh-Hant-TW': 'zh_HANT',
+  'zh-Hans-CN': 'zh-cn',
+  'zh-Hant-TW': 'zh-tw',
 };
 
 Future<String> getEnglishChangelog() async {
@@ -98,18 +101,19 @@ void main() async {
       print('${' ' * stepPrefix.length}  - Selected $nearestLocaleCode');
     }
 
-    List<String> translations;
+    String translatedChangelog;
     try {
-      translations = await translator
-          .translateLingva(englishChangelog, 'en', nearestLocaleCode)
-          .timeout(const Duration(seconds: 5));
+      translatedChangelog = await translator
+          .translateSimply(englishChangelog, from: 'en', to: nearestLocaleCode)
+          .then((translation) => translation.translations.text)
+          .timeout(const Duration(seconds: 10));
     } catch (e) {
       print('${' ' * stepPrefix.length}  ! Translation failed, skipping...');
       someTranslationsFailed = true;
       continue;
     }
 
-    var translatedChangelog = translations.first;
+    translatedChangelog = fixSpelling(translatedChangelog);
     if (!translatedChangelog.endsWith('\n')) {
       // translations sometimes don't end with a newline
       translatedChangelog += '\n';

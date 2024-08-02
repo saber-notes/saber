@@ -6,13 +6,21 @@
 <component type="desktop-application">
     <id>com.adilhanney.saber</id>
 
-    <name>Saber: Handwritten Notes</name>
+    <name>Saber</name>
     <summary>The notes app built for handwriting</summary>
     <url type="homepage">https://github.com/saber-notes/saber</url>
+    <url type="bugtracker">https://github.com/saber-notes/saber/issues</url>
+    <url type="donation">https://github.com/sponsors/adil192</url>
+    <url type="translate">https://github.com/saber-notes/saber#translating</url>
 
     <developer id="com.adilhanney">
         <name>Adil Hanney</name>
     </developer>
+
+    <branding>
+        <color type="primary" scheme_preference="light">#fffeac</color>
+        <color type="primary" scheme_preference="dark">#494900</color>
+    </branding>
 
     <metadata_license>MIT</metadata_license>
     <project_license>GPL-3.0-only</project_license>
@@ -27,6 +35,10 @@
     <recommends>
         <internet>always</internet>
     </recommends>
+
+    <requires>
+        <display_length compare="ge">360</display_length>
+    </requires>
 
     <provides>
         <mediatype>application/sbn</mediatype>
@@ -198,6 +210,86 @@
     </screenshots>
 
     <releases>
+        <release version="0.24.4" type="development" date="2024-07-31">
+            <description>
+                <ul>
+                    <li>Better handling of deleted files and already synced files</li>
+                    <li>Fixed spaces being allowed at the end and start of file names</li>
+                    <li>Added a button in the settings page to open the data directory</li>
+                    <li>More feedback about which files are currently downloading/uploading</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.24.3" type="development" date="2024-07-20">
+            <description>
+                <p>Fixed a syncing bug that caused file paths to be decrypted incorrectly, thanks to @QubaB on GitHub</p>
+            </description>
+        </release>
+        <release version="0.24.2" type="development" date="2024-07-14">
+            <description>
+                <ul>
+                  <li>Added a star to the shape tool</li>
+                  <li>Fixed the weird corners on triangles drawn with the shape tool</li>
+                  <li>Fixed single-point dots not being saved</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.24.1" type="development" date="2024-06-26">
+            <description>
+                <ul>
+                    <li>Reduced the glow effect of laser strokes</li>
+                    <li>The syncer will automatically pick up new files on your device</li>
+                    <li>Fixed a bug where uploading a file would fail after downloading it</li>
+                    <li>Run Saber with a <code>-v</code> flag for more detailed logs</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.24.0" type="development" date="2024-06-24">
+            <description>
+                <ul>
+                    <li>Major syncing speed improvements</li>
+                    <li>Better handling of outdated encryption passwords</li>
+                    <li>Improved rendering of laser strokes</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.23.3" type="development" date="2024-06-17">
+            <description>
+                <ul>
+                    <li>Fixed an "almost logged in" message being shown after logging in</li>
+                    <li>Improved some icons</li>
+                    <li>Disabled scrolling with the arrow keys when text editing</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.23.2" type="development" date="2024-05-18">
+            <description>
+                <ul>
+                    <li>Increased PDF render quality</li>
+                    <li>Typed text now properly aligns with the page lines if enabled</li>
+                    <li>Updated the color picker dialogs</li>
+                    <li>Misc improvements from the new Flutter 3.22</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.23.1" type="development" date="2024-05-14">
+            <description>
+                <ul>
+                    <li>If you like to edit notes on a tablet and simultaneously view them on your computer, there's a new toggle in the editor menu to enable automatic refreshing.</li>
+                    <li>Fixed straightened pencil lines fading out at the ends</li>
+                    <li>Small improvement in app loading times</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.23.0" type="development" date="2024-05-06">
+            <description>
+                <ul>
+                    <li>Redesigned the login process</li>
+                    <li>Stopped the autosave triggering while in the middle of a stroke</li>
+                    <li>Fixed the pencil sound effect setting not being picked up immediately</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.22.0" type="development" date="2024-05-02">
             <description>
                 <ul>
@@ -717,7 +809,7 @@
                     <li>Fonts are now bundled with the app, so they aren't downloaded on first use</li>
                 </ul>
             </description>
-        </release>  
+        </release>
         <release version="0.11.3" type="development" date="2023-04-09">
             <description>
                 <ul>
@@ -729,7 +821,7 @@
                     <li>Upgraded to Flutter 3.7.10</li>
                 </ul>
             </description>
-        </release>  
+        </release>
         <release version="0.11.2" type="development" date="2023-04-05">
             <description>
                 <ul>
@@ -737,14 +829,14 @@
                     <li>Added more options in the background image section of the editor menu</li>
                 </ul>
             </description>
-        </release>  
+        </release>
         <release version="0.11.1" type="development" date="2023-04-03">
             <description>
                 <ul>
                     <li>Fixed pasting images taken from the Windows Snipping Tool</li>
                 </ul>
             </description>
-        </release>  
+        </release>
         <release version="0.11.0" type="development" date="2023-04-03">
             <description>
                 <ul>
@@ -752,7 +844,7 @@
                     <li>Images that are used multiple times are now only stored once</li>
                 </ul>
             </description>
-        </release>  
+        </release>
         <release version="0.10.0" type="development" date="2023-04-01">
             <description>
                 <ul>
@@ -762,7 +854,7 @@
                     <li>Upgraded to Flutter 3.7.9</li>
                 </ul>
             </description>
-        </release>  
+        </release>
         <release version="0.9.12" type="development" date="2023-03-30">
             <description>
                 <ul>
@@ -782,14 +874,14 @@
                     <li>Fixed a minor bug on the Settings page</li>
                 </ul>
             </description>
-        </release>  
+        </release>
         <release version="0.9.10" type="development" date="2023-03-20">
             <description>
                 <ul>
                     <li>Fixed updating issue on Android devices</li>
                 </ul>
             </description>
-        </release>  
+        </release>
         <release version="0.9.9" type="development" date="2023-03-20">
             <description>
                 <ul>
@@ -802,7 +894,7 @@
                     <li>Minor visual tweaks</li>
                 </ul>
             </description>
-        </release>  
+        </release>
         <release version="0.9.8" type="development" date="2023-03-12">
             <description>
                 <ul>
@@ -818,7 +910,7 @@
                     <li>Upgrade to Flutter 3.7.7.</li>
                 </ul>
             </description>
-        </release>  
+        </release>
         <release version="0.9.6" type="development" date="2023-03-05">
             <description>
                 <ul>
@@ -832,7 +924,7 @@
                     <li>Upgrade to Flutter 3.7.6</li>
                 </ul>
             </description>
-        </release>  
+        </release>
         <release version="0.9.5" type="development" date="2023-02-24">
             <description>
                 <ul>
@@ -844,7 +936,7 @@
                     <li>Upgraded to Flutter 3.7.5.</li>
                 </ul>
             </description>
-        </release>  
+        </release>
         <release version="0.9.4" type="development" date="2023-02-21">
             <description>
                 <ul>
@@ -858,7 +950,7 @@
                     <li>Svg compatibility improvements.</li>
                 </ul>
             </description>
-        </release>  
+        </release>
         <release version="0.9.3" type="development" date="2023-02-16">
             <description>
                 <ul>
@@ -870,7 +962,7 @@
                     <li>Minor visual tweaks</li>
                 </ul>
             </description>
-        </release>  
+        </release>
         <release version="0.9.2" type="development" date="2023-02-12">
             <description>
                 <ul>
@@ -881,14 +973,14 @@
                     <li>Fixed the selection area being displayed on all pages</li>
                 </ul>
             </description>
-        </release>  
+        </release>
         <release version="0.9.1" type="development" date="2023-02-10">
             <description>
                 <ul>
                     <li>Fixed a bug where pages with background images would be automatically removed when the rest of the page was erased</li>
                 </ul>
             </description>
-        </release>  
+        </release>
         <release version="0.9.0" type="development" date="2023-02-10">
             <description>
                 <ul>
@@ -899,7 +991,7 @@
                     <li>Fixed going into fullscreen on the whiteboard for Android devices</li>
                 </ul>
             </description>
-        </release>  
+        </release>
         <release version="0.8.1" type="development" date="2023-02-05">
             <description>
                 <ul>
@@ -911,7 +1003,7 @@
                     <li>Discontinued the web version of Saber</li>
                 </ul>
             </description>
-        </release>  
+        </release>
         <release version="0.8.0" type="development" date="2023-02-01">
             <description>
                 <ul>
@@ -923,7 +1015,7 @@
                     <li>Images on the home screen no longer 'flicker' while syncing</li>
                 </ul>
             </description>
-        </release>  
+        </release>
         <release version="0.7.0" type="development" date="2023-01-30">
             <description>
                 <ul>
@@ -934,7 +1026,7 @@
                     <li>You can now configure how much images are compressed in settings</li>
                 </ul>
             </description>
-        </release>  
+        </release>
         <release version="0.6.0" type="development" date="2023-01-28">
             <description>
                 <ul>
@@ -944,7 +1036,7 @@
                     <li>Upgraded to Flutter 3.7.0</li>
                 </ul>
             </description>
-        </release>  
+        </release>
         <release version="0.5.8" type="development" date="2023-01-23">
             <description>
                 <ul>
@@ -953,7 +1045,7 @@
                     <li>macOS users can opt in to insecure storage, because Saber can't access the keychain without an Apple Developer account</li>
                 </ul>
             </description>
-        </release>  
+        </release>
         <release version="0.5.7" type="development" date="2023-01-19">
             <description>
                 <ul>
@@ -965,7 +1057,7 @@
                     <li>The Settings page is organised into categories</li>
                 </ul>
             </description>
-        </release>  
+        </release>
         <release version="0.5.6" type="development" date="2023-01-15">
             <description>
                 <ul>

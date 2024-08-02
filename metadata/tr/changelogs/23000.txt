@@ -1,0 +1,3 @@
+• Oturum açma süreci yeniden tasarlandı
+• Bir vuruşun ortasındayken otomatik kaydetme tetiklemesi durduruldu
+• Kalem ses efekti ayarının hemen seçilmemesi düzeltildi

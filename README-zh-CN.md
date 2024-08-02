@@ -140,7 +140,7 @@ flutter pub get
 
 #### Linux
 
-`sudo apt install libsecret-1-dev libjsoncpp-dev`
+`sudo apt install libsecret-1-dev libjsoncpp-dev libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev`
 `flutter build linux`
 
 这对于在您自己的计算机上使用已经足够好了。但是如果您想重新分发您的构建，你需要使用一个可预测的环境：fork 这个仓库并使用 GitHub Action
@@ -301,8 +301,8 @@ Windows 安装器使用 [Inno Setup](https://jrsoftware.org/isinfo.php) 创建�
 <summary>显示/隐藏开发说明</summary>
 
 - 当更新**应用版本**时：
-  - 运行 `./scripts/apply_version.sh <version-name> <version-code>`
-    (运行 `./scripts/apply_version.sh --help` 获取更多信息)
+  - 运行 `./scripts/bump_version.sh <version-name> <version-code>`
+    (运行 `./scripts/bump_version.sh --help` 获取更多信息)
   - 更新 `metadata/en-US/changelogs/` 中的变更日志和 `flatpak/com.adilhanney.saber.metainfo.xml`，并按照剧本的指示运行 `dart scripts/translate_changelogs.dart`。
 - 当更新**图标**时，运行以下命令：
   - 概述：`dart run icons_launcher:create`
@@ -327,8 +327,8 @@ Windows 安装器使用 [Inno Setup](https://jrsoftware.org/isinfo.php) 创建�
 [google_play]: https://play.google.com/store/apps/details?id=com.adilhanney.saber
 [snap]: https://snapcraft.io/saber
 [app_store]: https://apps.apple.com/us/app/saber/id1671523739
-[download_windows]: https://github.com/saber-notes/saber/releases/download/v0.22.0/SaberInstaller_v0.22.0.exe
-[download_appimage]: https://github.com/saber-notes/saber/releases/download/v0.22.0/Saber-0.22.0-x86_64.AppImage
+[download_windows]: https://github.com/saber-notes/saber/releases/download/v0.24.4/SaberInstaller_v0.24.4.exe
+[download_appimage]: https://github.com/saber-notes/saber/releases/download/v0.24.4/Saber-0.24.4-x86_64.AppImage
 
 [nextcloud]: https://nc.saber.adil.hanney.org/
 

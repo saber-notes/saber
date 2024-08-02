@@ -1,0 +1,3 @@
+• Se redujo el efecto de brillo de los trazos láser.
+• El sincronizador recogerá automáticamente nuevos archivos en su dispositivo
+• Se corrigió un error por el cual la carga de un archivo fallaba después de descargarlo.

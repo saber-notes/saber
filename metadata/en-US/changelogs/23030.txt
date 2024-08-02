@@ -1,0 +1,3 @@
+• Fixed an "almost logged in" message being shown after logging in
+• Improved some icons
+• Disabled scrolling with the arrow keys when text editing

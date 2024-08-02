@@ -121,7 +121,7 @@ class _RenameNoteDialogState extends State<_RenameNoteDialog> {
           onPressed: () {
             Navigator.of(context).pop();
           },
-          child: Text(t.editor.newerFileFormat.cancel),
+          child: Text(t.common.cancel),
         ),
         CupertinoDialogAction(
           onPressed: () async {

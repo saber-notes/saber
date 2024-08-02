@@ -30,10 +30,6 @@ else
   echo "already done"
 fi
 
-# Update flavor
-echo "Updating flavor to FOSS"
-sed -i -e "s!flavor: null,!flavor: 'FOSS',!" lib/main.dart
-
 # Remove google_mobile_ads package and related code
 echo "Removing Google Ads"
 # Remove google_mobile_ads from pubspec.yaml

@@ -1,3 +1,7 @@
+common:
+  cancel: בטל
+  done(OUTDATED): בוצע
+  continueBtn(OUTDATED): לְהַמשִׁיך
 home:
   tabs:
     home: בית
@@ -140,52 +144,53 @@ settings:
     select(OUTDATED): בחר
     mustBeEmpty(OUTDATED): הספרייה שנבחרה חייבת להיות ריקה
     mustBeDoneSyncing(OUTDATED): ודא שהסנכרון הושלם לפני שינוי הספרייה
+  openDataDir(OUTDATED): פתח את תיקיית Saber
   resyncEverything(OUTDATED): סנכרן הכל מחדש
 login:
   title: התחבר
-  feedbacks:
-    checkUsername: אנא בדוק שוב את שם המשתמש או הדוא"ל שלך.
-    enterNcPassword: הזן את סיסמת NextCloud שלך.
-    enterEncPassword: הזן את סיסמת ההצפנה שלך.
-    checkUrl: הזן כתובת URL חוקית.
-    ncLoginFailed: "הכניסה נכשלה, אנא בדוק את הפרטים שלך ואת חיבור הרשת."
-    encLoginFailed: "הכניסה נכשלה, אנא בדוק את סיסמת ההצפנה שלך."
-    loginSuccess: "ההתחבר בהצלחה! אנא המתן בזמן שאנו מגדירים..."
-    ncUnsupportedFailure(OUTDATED): השרת הנתון מריץ את Nextcloud $v אבל גרסה זו של Saber תומכת רק ב-Nextcloud $s עד $t.
   form:
-    useCustomServer: אני רוצה להשתמש בשרת Nextcloud מותאם אישית
-    customServerUrl: כתובת אתר מותאמת אישית של שרת
-    username: שם משתמש או אימייל
-    ncPassword: סיסמת NextCloud
-    encPassword: סיסמה מוצפנת
     agreeToPrivacyPolicy(rich): "על ידי התחברות, אתה מסכים ל ${linkToPrivacyPolicy(מדיניות הפרטיות)}."
-    login: התחבר
-  seeFaq(OUTDATED): "עיין בשאלות הנפוצות למטה למידע נוסף, כולל על סיסמת ההצפנה."
   signup(rich): "אין לך עוד משתמש ${linkToSignup(הירשם עכשיו)}!"
   status:
-    loggedIn: מחובר עם NextCloud
     loggedOut: מנותק
     tapToLogin: לחץ כדי להתחבר עם NextCloud
-  faq(OUTDATED):
-    - q: "מה זה Nextcloud?"
-      a: "Nextcloud הוא שרת סנכרון קבצים פרטי, בין היתר. אתה יכול להשתמש בשרת ברירת המחדל של Saber Nextcloud, להשתמש בשרת של צד שלישי או לארח בעצמך לשליטה מלאה בנתונים שלך."
-    - q: "מהי הסיסמא המוצפנת?"
-      a: |-
-        סיסמת ההצפנה משמשת להצפנת הנתונים שלך לפני שליחתם לשרת. אתה בוחר את זה כשאתה נכנס לראשונה ל-Saber, וזה לא קשור לחשבון/סיסמת Nextcloud שלך.
-        אף אחד לא יכול לגשת להערות שלך בשרת ללא סיסמת ההצפנה שלך. זה גם אומר שאם תשכח את סיסמת ההצפנה שלך, תאבד את הגישה לנתונים שלך.
-    - q: "למה להשתמש בשתי סיסמאות?"
-      a: |-
-        סיסמת Nextcloud משמשת לגישה לענן. סיסמת ההצפנה "מערבלת" את הנתונים שלך לפני שהם מגיעים לענן.
-         גם אם מישהו יקבל גישה לחשבון Nextcloud שלך, ההערות שלך יישארו בטוחות ומוצפנות עם סיסמה נפרדת. זה מספק לך שכבה שנייה של אבטחה כדי להגן על הנתונים שלך.
-    - q: "איך אני מתחבר אם אני משתמש ב-2FA?"
-      a: "במקום סיסמת Nextcloud הרגילה שלך, תצטרך ליצור \"app password\". תוכל לעשות זאת בהגדרות Nextcloud שלך תחת אבטחה > מכשירים והפעלות > צור סיסמת אפליקציה חדשה. סיסמת ההצפנה שלך לא מושפעת."
-    - q: "Can I use the same password for both?"
-      a: "כן, אבל זה פחות מאובטח. מכיוון שסיסמת Nextcloud שלך נשלחת לשרת, מישהו עם גישה לשרת יוכל לפענח את ההערות שלך. השתמש באותה סיסמה רק אם אתה סומך על בעל השרת."
+    loggedIn: מחובר עם NextCloud
+    hi(OUTDATED): "היי, $u!"
+    almostDone(OUTDATED): "כמעט מוכן לסנכרון, הקש כדי לסיים את הכניסה"
+  ncLoginStep:
+    loginFlow:
+      pleaseAuthorize(OUTDATED): אנא אשר לסבר לגשת לחשבון Nextcloud שלך
+      followPrompts(OUTDATED): אנא עקוב אחר ההנחיות בדפדפן שלך.
+      browserDidntOpen(OUTDATED): הדפדפן לא נפתח
+    whereToStoreData(OUTDATED): "בחר היכן ברצונך לאחסן את הנתונים שלך:"
+    saberNcServer(OUTDATED): שרת Nextcloud של סייבר
+    otherNcServer(OUTDATED): שרת Nextcloud אחר
+    serverUrl(OUTDATED): כתובת האתר של השרת
+    loginWithSaber(OUTDATED): התחבר עם Saber
+    loginWithNextcloud(OUTDATED): התחבר עם Nextcloud
+  encLoginStep:
+    enterEncPassword(OUTDATED): "כדי להגן על הנתונים שלך, אנא הזן את סיסמת ההצפנה שלך:"
+    newToSaber(OUTDATED): חדש בסבר
+    encPassword(OUTDATED): סיסמת הצפנה
+    encFaqTitle(OUTDATED): שאלות נפוצות
+    wrongEncPassword(OUTDATED): הפענוח נכשל עם הסיסמה שסופקה. אנא נסה להזין אותו שוב.
+    connectionFailed(OUTDATED): משהו השתבש בחיבור לשרת. בבקשה נסה שוב מאוחר יותר.
+    encFaq(OUTDATED):
+      - q: "מהי הסיסמא המוצפנת?"
+        a: |-
+          סיסמת ההצפנה משמשת להצפנת הנתונים שלך לפני שליחתם לשרת. אתה בוחר את זה כשאתה נכנס לראשונה ל-Saber, וזה לא קשור לחשבון/סיסמת Nextcloud שלך.
+          אף אחד לא יכול לגשת להערות שלך בשרת ללא סיסמת ההצפנה שלך. זה גם אומר שאם תשכח את סיסמת ההצפנה שלך, תאבד את הגישה לנתונים שלך.
+      - q: "למה להשתמש בשתי סיסמאות?"
+        a: |-
+          סיסמת Nextcloud משמשת לגישה לענן. סיסמת ההצפנה "מערבלת" את הנתונים שלך לפני שהם מגיעים לענן.
+          גם אם מישהו יקבל גישה לחשבון Nextcloud שלך, ההערות שלך יישארו בטוחות ומוצפנות עם סיסמה נפרדת. זה מספק לך שכבה שנייה של אבטחה כדי להגן על הנתונים שלך.
+      - q: "Can I use the same password for both?"
+        a: "כן, אבל זה פחות מאובטח. מכיוון שסיסמת Nextcloud שלך נשלחת לשרת, מישהו עם גישה לשרת יוכל לפענח את ההערות שלך. השתמש באותה סיסמה רק אם אתה סומך על בעל השרת."
+  notYou(rich, OUTDATED): "${undoLogin(לא אתה)}"
 profile:
   title: הפרופיל שלי
   logout: התנתק
   quickLinks:
-    title: קישורים מהירים
     serverHomepage: דף הבית של השרת
     deleteAccount: מחק משתמש
   faq:
@@ -205,6 +210,9 @@ profile:
         הקש על הלחצן "@:profile.quickLinks.deleteAccount" למעלה, והיכנס במידת הצורך.
          אם אתה משתמש בשרת Saber הרשמי, החשבון שלך יימחק לאחר תקופת חסד של שבוע. ניתן ליצור איתי קשר בכתובת adilhanney@disroot.org במהלך תקופה זו כדי לבטל את המחיקה.
          אם אתה משתמש בשרת של צד שלישי, ייתכן שלא תהיה אפשרות למחוק את חשבונך: תצטרך לעיין במדיניות הפרטיות של השרת לקבלת מידע נוסף.
+  quotaUsage(OUTDATED): "אתה משתמש ב-$used של $total ($percent%)"
+  connectedTo(OUTDATED): מחובר ל
+  faqTitle(OUTDATED): שאלות נפוצות
 appInfo:
   licenseNotice: |-
     Saber  Copyright © 2022-$buildYear  Adil Hanney
@@ -302,13 +310,14 @@ editor:
       staffs(OUTDATED): צוותים
       tablature(OUTDATED): כרטיסייה
       cornell(OUTDATED): קורנל
+    watchServer(OUTDATED): שימו לב לעדכונים בשרת
+    watchServerReadOnly(OUTDATED): העריכה מושבתת בזמן צפייה בשרת
     lineHeightDescription(OUTDATED): שולט גם בגודל הטקסט עבור הערות מוקלדות
   newerFileFormat:
     readOnlyMode: מצב צפייה בלבד
     title: הערה זו נערכה באמצעות גרסה חדשה יותר של Saber
     subtitle: "עריכת פתק זה עלולה לגרום לאיבוד מידע מסוים. האם אתה רוצה להתאלם מזה בכל מקרה?"
     allowEditing: אפשר עריכה
-    cancel: בטל
   quill:
     typeSomething: תכתוב משהו פה...
   hud:

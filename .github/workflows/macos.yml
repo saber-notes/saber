@@ -23,26 +23,10 @@ jobs:
       APP_STORE_CONNECT_KEY_IDENTIFIER: ${{secrets.APP_STORE_CONNECT_KEY_IDENTIFIER}}
       APP_STORE_CONNECT_PRIVATE_KEY: ${{secrets.APP_STORE_CONNECT_PRIVATE_KEY}}
       APP_STORE_CERTIFICATE_KEY: ${{secrets.APP_STORE_CERTIFICATE_KEY}}
-    timeout-minutes: 30
+    timeout-minutes: 60
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
-      - name: Remove unneeded files
-        run: |
-          rm -rf android
-          rm -rf appimage
-          rm -rf assets_raw
-          rm -rf flatpak
-          rm -rf installers
-          rm -rf integration_test
-          rm -rf ios
-          rm -rf linux
-          rm -rf metadata
-          rm -rf snap
-          rm -rf submodules
-          rm -rf test
-          rm -rf windows
 
       - name: Setup cache
         uses: actions/cache@v4
@@ -52,6 +36,9 @@ jobs:
           key: ${{ runner.OS }}-saber-${{ hashFiles('**/pubspec.lock') }}-${{ hashFiles('**/*.dart') }}
           restore-keys: |
             ${{ runner.OS }}-saber-
+      
+      - name: Remove simulator dependency
+        run: ./patches/remove_simulator_dependency.sh
 
       - name: Install Flutter
         uses: subosito/flutter-action@v2
@@ -62,9 +49,7 @@ jobs:
           architecture: x64
 
       - name: Install Codemagic CLI Tools
-        run: |
-          brew install pipx
-          pipx install codemagic-cli-tools
+        run: pipx install codemagic-cli-tools
 
       - name: Setup keychain
         run: |
@@ -76,7 +61,7 @@ jobs:
             --certificate-key=@env:APP_STORE_CERTIFICATE_KEY \
             --create
 
-          app-store-connect list-certificates \
+          app-store-connect certificates list \
             --type MAC_INSTALLER_DISTRIBUTION \
             --certificate-key=@env:APP_STORE_CERTIFICATE_KEY \
             --save

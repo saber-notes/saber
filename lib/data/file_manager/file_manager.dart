@@ -9,7 +9,7 @@ import 'package:image_save/image_save.dart';
 import 'package:intl/intl.dart' show DateFormat;
 import 'package:logging/logging.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:saber/data/nextcloud/file_syncer.dart';
+import 'package:saber/data/nextcloud/saber_syncer.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/editor/editor.dart';
@@ -87,20 +87,16 @@ class FileManager {
     required Directory oldDir,
     required Directory newDir,
   }) async {
-    String entityPath(FileSystemEntity entity) =>
-        '${newDir.path}/${entity.path.split('/').last}';
-
     await newDir.create(recursive: true);
-    await Future.wait([
-      await for (final entity in oldDir.list())
-        switch (entity) {
-          (File _) => entity.rename(entityPath(entity)),
-          (Directory _) => moveDirContents(
-              oldDir: oldDir, newDir: Directory(entityPath(entity))),
-          _ => Future.value(
-              () => log.warning('Unknown file entity type: $entity')),
-        }
-    ]);
+    await for (final entity in oldDir.list()) {
+      final entityPath = '${newDir.path}/${entity.path.split('/').last}';
+      switch (entity) {
+        case File _:
+          await entity.rename(entityPath);
+        case Directory _:
+          await moveDirContents(oldDir: oldDir, newDir: Directory(entityPath));
+      }
+    }
   }
 
   @visibleForTesting
@@ -174,6 +170,8 @@ class FileManager {
     }
   }
 
+  static Directory getRootDirectory() => Directory(documentsDirectory);
+
   /// Writes [toWrite] to [filePath].
   static Future<void> writeFile(String filePath, List<int> toWrite,
       {bool awaitWrite = false, bool alsoUpload = true}) async {
@@ -200,7 +198,7 @@ class FileManager {
 
     void afterWrite() {
       broadcastFileWrite(FileOperationType.write, filePath);
-      if (alsoUpload) FileSyncer.addToUploadQueue(filePath);
+      if (alsoUpload) syncer.uploader.enqueueRel(filePath);
       if (filePath.endsWith(Editor.extension)) {
         _removeReferences(
             '${filePath.substring(0, filePath.length - Editor.extension.length)}'
@@ -261,6 +259,7 @@ class FileManager {
       String? outputFile = await FilePicker.platform.saveFile(
         fileName: fileName,
         initialDirectory: (await getDownloadsDirectory())?.path,
+        type: FileType.custom,
         allowedExtensions: [fileName.split('.').last],
       );
       if (outputFile != null) {
@@ -308,8 +307,8 @@ class FileManager {
       log.warning('Tried to move non-existent file from $fromPath to $toPath');
     }
 
-    FileSyncer.addToUploadQueue(fromPath);
-    FileSyncer.addToUploadQueue(toPath);
+    syncer.uploader.enqueueRel(fromPath);
+    syncer.uploader.enqueueRel(toPath);
 
     _renameReferences(fromPath, toPath);
     broadcastFileWrite(FileOperationType.delete, fromPath);
@@ -354,7 +353,7 @@ class FileManager {
     if (!file.existsSync()) return;
     await file.delete();
 
-    if (alsoUpload) FileSyncer.addToUploadQueue(filePath);
+    if (alsoUpload) syncer.uploader.enqueueRel(filePath);
 
     _removeReferences(filePath);
     broadcastFileWrite(FileOperationType.delete, filePath);
@@ -510,7 +509,7 @@ class FileManager {
         .toList();
 
     await Future.wait(allChildren.map((child) async {
-      if (await FileManager.isDirectory(directory + child) &&
+      if (FileManager.isDirectory(directory + child) &&
           !directories.contains(child)) {
         directories.add(child);
       } else if (!includeAssets && assetFileRegex.hasMatch(child)) {
@@ -574,19 +573,19 @@ class FileManager {
 
   /// Returns whether the [filePath] is a directory or file.
   /// Behaviour is undefined if [filePath] is not a valid path.
-  static Future<bool> isDirectory(String filePath) async {
+  static bool isDirectory(String filePath) {
     filePath = _sanitisePath(filePath);
     final Directory directory = Directory(documentsDirectory + filePath);
     return directory.existsSync();
   }
 
-  static Future<bool> doesFileExist(String filePath) async {
+  static bool doesFileExist(String filePath) {
     filePath = _sanitisePath(filePath);
     final File file = getFile(filePath);
     return file.existsSync();
   }
 
-  static Future<DateTime> lastModified(String filePath) async {
+  static DateTime lastModified(String filePath) {
     filePath = _sanitisePath(filePath);
     final File file = getFile(filePath);
     return file.lastModifiedSync();
@@ -636,8 +635,8 @@ class FileManager {
 
     int i = 1;
     while (true) {
-      if (!await doesFileExist(newFilePath + Editor.extension) &&
-          !await doesFileExist(newFilePath + Editor.extensionOldJson)) break;
+      if (!doesFileExist(newFilePath + Editor.extension) &&
+          !doesFileExist(newFilePath + Editor.extensionOldJson)) break;
       if (newFilePath + Editor.extension == currentPath) break;
       if (newFilePath + Editor.extensionOldJson == currentPath) break;
       i++;

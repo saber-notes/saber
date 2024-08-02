@@ -314,8 +314,8 @@ If you like Saber, please consider supporting it by:
 <summary>Show/hide development notes</summary>
 
 - When updating the **app version**:
-  - Run `./scripts/apply_version.sh <version-name> <version-code>`
-    (Run `./scripts/apply_version.sh --help` for more info)
+  - Run `./scripts/bump_version.sh <version-name> <version-code>`
+    (Run `./scripts/bump_version.sh --help` for more info)
   - Update the changelogs in `metadata/en-US/changelogs/`
     and `flatpak/com.adilhanney.saber.metainfo.xml`,
     and run `dart scripts/translate_changelogs.dart` as directed by the script.
@@ -342,8 +342,8 @@ If you like Saber, please consider supporting it by:
 [google_play]: https://play.google.com/store/apps/details?id=com.adilhanney.saber
 [snap]: https://snapcraft.io/saber
 [app_store]: https://apps.apple.com/us/app/saber/id1671523739
-[download_windows]: https://github.com/saber-notes/saber/releases/download/v0.22.0/SaberInstaller_v0.22.0.exe
-[download_appimage]: https://github.com/saber-notes/saber/releases/download/v0.22.0/Saber-0.22.0-x86_64.AppImage
+[download_windows]: https://github.com/saber-notes/saber/releases/download/v0.24.4/SaberInstaller_v0.24.4.exe
+[download_appimage]: https://github.com/saber-notes/saber/releases/download/v0.24.4/Saber-0.24.4-x86_64.AppImage
 
 [nextcloud]: https://nc.saber.adil.hanney.org/
 

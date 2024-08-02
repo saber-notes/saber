@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "Saber"
-#define MyAppVersion "0.22.0"
+#define MyAppVersion "0.24.4"
 #define MyAppPublisher "Adil Hanney"
 #define MyAppURL "https://github.com/saber-notes/saber"
 #define MyAppExeName "saber.exe"
@@ -33,8 +33,8 @@ Compression=lzma
 SolidCompression=yes
 WizardStyle=modern
 ; 64 bit only
-ArchitecturesAllowed=x64
-ArchitecturesInstallIn64BitMode=x64
+ArchitecturesAllowed=x64compatible
+ArchitecturesInstallIn64BitMode=x64compatible
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"

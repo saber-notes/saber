@@ -1,3 +1,7 @@
+common:
+  done: Fertig
+  continueBtn: Weiter
+  cancel: Abbruch
 home:
   tabs:
     home: Startseite
@@ -81,7 +85,7 @@ settings:
     preferGreyscale: Graustufen bevorzugen
     maxImageSize: Maximale Bildgröße
     autoClearWhiteboardOnExit: Lösche das Whiteboard nach Verlassen der Anwendung
-    disableEraserAfterUse: Radierer automatisch dekativieren
+    disableEraserAfterUse: Radierer automatisch deaktivieren
     hideFingerDrawingToggle: Umschalter des Finger-Zeichnens ausblenden
     editorPromptRename: Beim Erstellen von Notizen einen Namen erfragen
     hideHomeBackgrounds: Hintergrund auf dem Startbildschirm verbergen
@@ -91,12 +95,12 @@ settings:
     autosaveDelay: Verzögerung des automatischen Speicherns
     shapeRecognitionDelay: Verzögerung der Formerkennung
     autoStraightenLines: Linien automatisch begradigen
-    customDataDir: Benutzerdefiniertes Verzeichnis
-    pencilSoundSetting(OUTDATED): Bleistift-Soundeffekt
+    pencilSoundSetting: Bleistiftgeräusch
+    customDataDir(OUTDATED): Benutzerdefiniertes Verzeichnis
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible verbessert die Lesbarkeit für Menschen mit eingeschränkter Sicht
     disableAds: Die Entwicklung von Saber wird duch Werbung finanziert. Die Werbung kann auf Wunsch deaktiviert werden.
-    allowInsecureConnections: (Nicht empfohlen) Saber erlauben sich mit selbstsignierten/unsicheren Zertifikaten zu verbinden
+    allowInsecureConnections: "(Nicht empfohlen) Saber erlauben, sich mit selbstsignierten/unsicheren Zertifikaten zu verbinden"
     preferGreyscale: Für E-Ink-Bildschirme
     autoClearWhiteboardOnExit: Es wird dennoch mit deinen anderen Geräten synchronisiert
     disableEraserAfterUse: Nach dem Nutzen des Radierers automatisch zum Stift zurückwechseln
@@ -113,9 +117,9 @@ settings:
     autoStraightenLines: Lange Linien selbst ohne Form-Stift begradigen
     shouldAlwaysAlertForUpdates: Über neue Updates informiert bleiben
     pencilSoundSetting:
-      onAlways(OUTDATED): Aktiviert (auch im lautlosen Modus)
-      off(OUTDATED): Keinen Ton
-      onButNotInSilentMode(OUTDATED): Aktiviert (außer im stillen Modus)
+      off: Kein Geräusch
+      onButNotInSilentMode: Aktiv (außer im Stummmodus)
+      onAlways: Aktiv (sogar im Stummmodus)
   themeModes:
     system: System
     light: Hell
@@ -139,55 +143,60 @@ settings:
   customDataDir:
     cancel: Abbrechen
     select: Auswählen
-    mustBeEmpty: Ausgewähltes Verzeichnis muss leer sein
-    mustBeDoneSyncing: "Stelle sicher, dass die Synchronisierung abgeschlossen ist, bevor du das Verzeichnis änderst"
+    mustBeEmpty(OUTDATED): Ausgewähltes Verzeichnis muss leer sein
+    mustBeDoneSyncing(OUTDATED): "Stelle sicher, dass die Synchronisierung abgeschlossen ist, bevor du das Verzeichnis änderst"
+  openDataDir(OUTDATED): Saber-Ordner öffnen
 login:
   title: Login
-  feedbacks:
-    checkUsername: Bitte überprüfe deinen Benutzernamen oder deine E-Mail.
-    enterNcPassword: Bitte gib dein Nextcloud-Passwort ein.
-    enterEncPassword: Bitte gib dein Verschlüsselungspasswort ein.
-    checkUrl: Bitte gib eine gültige URL an.
-    ncLoginFailed: "Anmeldung fehlgeschlagen, bitte überprüfe deine Angaben und deine Netzwerkverbindung."
-    ncUnsupportedFailure: "Der angegebene Server führt Nextcloud $v aus, aber diese Version von Saber unterstützt nur Nextcloud $s bis $t."
-    encLoginFailed: "Anmeldung fehlgeschlagen, bitte überprüfe dein Verschlüsselungspasswort."
-    loginSuccess: "Anmeldung erfolgreich! Bitte warte, während wir alles einrichten..."
   form:
-    useCustomServer: Ich möchte einen eigenen Nextcloud-Server verwenden
-    customServerUrl: Eigene Server-URL
-    username: Benutzername oder E-Mail
-    ncPassword: Nextcloud-Passwort
-    encPassword: Verschlüsselungspasswort
     agreeToPrivacyPolicy(rich): "Indem du dich anmeldest, stimmst du der ${linkToPrivacyPolicy(Datenschutzrichtlinie)} zu."
-    login: Anmelden
-  seeFaq(OUTDATED): "Weitere Informationen, auch zum Verschlüsselungskennwort, finden Sie in den FAQ unten."
   signup(rich): "Du hast noch kein Konto? ${linkToSignup(Erstelle jetzt eins)}!"
+  notYou(rich): "Nicht du? ${undoLogin(Wähle ein anderes Konto)}."
   status:
-    loggedIn: Mit Nextcloud angemeldet
     loggedOut: Nicht angemeldet
     tapToLogin: "Hier tippen, um dich mit Nextcloud anzumelden"
-  faq(OUTDATED):
-    - q: "Was ist Nextcloud?"
-      a: "Nextcloud ist unter anderem ein privater Dateisynchronisationsserver. Du kannst den Standard-Saber-Nextcloud-Server, einen Drittanbieter-, oder einen selbst-gehosteten Server verwenden, um volle Kontrolle über deine Daten zu behalten."
-    - q: "Was ist das Verchlüsselungspasswort?"
-      a: |-
-        Das Verschlüsselungspasswort wird verwendet, um deine Daten zu verschlüsseln, bevor diese an den Server gesendet werden. Es wird nicht auf dem Server gespeichert und nur von Saber verwendet, um deine Daten zu ver- und entschlüsseln.
-        Niemand kann ohne dieses Passwort auf deine Notizen auf dem Server zugreifen. Das bedeutet allerdings auch, dass du, wenn du dein Verschlüsselungspasswort vergisst, den Zugriff auf deine Daten verlierst.
-    - q: "Wieso zwei Passwörter?"
-      a: |-
-        Das Nextcloud-Passwort wird verwendet, um auf die Cloud zuzugreifen. Das Verschlüsselungspasswort „verwürfelt“ deine Daten, bevor diese die Cloud erreichen.
-        Selbst wenn jemand Zugriff zu deinem Nextcloud-Konto erlangt, bleiben deine Notizen sicher und verschlüsselt mit einem seperaten Passwort. Dies stellt eine zweite Sicherheitsebene zum Schutz deiner Daten dar.
-    - q: "Wie melde ich mich an, wenn ich Zwei-Faktor-Authentifikation verwende?"
-      a: "Anstatt dein normales Nextcloud-Passwort zu verwenden, musst du ein \"App Password\" erstellen. Das kannst du in den Nextcloud-Einstellungen unter Sicherheit > Geräte & Sitzungen > Neues App-Passwort erstellen tun. Das betrifft nicht dein Verschlüsselungspasswort."
-    - q: "Kann ich dasselbe Passwort für beide verwenden?"
-      a: "Ja, aber das ist nicht so sicher. Da dein Nextcloud-Passwort an den Server übertragen wird, kann jemand mit Zugriff auf den Server deine Notizen entschlüsseln. Du solltest also nur dasselbe Passwort verwenden, wenn du der Person, die den Server besitzt, vertraust."
+    hi: "Hi, $u!"
+    almostDone: "Fast bereit zum Synchronisieren. Tippe, um die Anmeldung abzuschließen"
+    loggedIn: Mit Nextcloud angemeldet
+  ncLoginStep:
+    whereToStoreData: "Wähle, wo du deine Daten speichern willst:"
+    saberNcServer: Sabers Nextcloud-Server
+    otherNcServer: Anderer Nextcloud-Server
+    serverUrl: Server URL
+    loginWithSaber: Mit Saber anmelden
+    loginWithNextcloud: Mit Nextcloud anmelden
+    loginFlow:
+      pleaseAuthorize: Bitte gib Saber Zugriff auf dein Nextcloud Konto
+      followPrompts(OUTDATED): Bitte folge den Anweisungen in deinem Browser.
+      browserDidntOpen(OUTDATED): "Browser hat sich nicht geöffnet? Klicke hier"
+  encLoginStep:
+    enterEncPassword: "Gib dein Verschlüsselungspasswort an, um deine Daten zu schützen:"
+    newToSaber: "Neu bei Saber? Gib einfach ein neues Verschlüsselungspasswort an."
+    encPassword: Verschlüsselungspasswort
+    encFaqTitle: Häufig gestellte Fragen
+    wrongEncPassword: Entschlüsselung mit dem angegebenen Passwort fehlgeschlagen. Bitte versuche es erneut einzugeben.
+    connectionFailed: Verbindung zum Server fehlgeschlagen. Bitte versuche es später erneut.
+    encFaq:
+      - q: "Was ist ein Verschlüsselungspasswort? Wozu zwei Passwörter?"
+        a: |-
+          Mit dem Nextcloud-Passwort greifst du auf die Cloud zu. Das Verschlüsselungspasswort schützt deine Daten, bevor sie jemals die Cloud erreichen.
+          Selbst wenn jemand Zugriff zu deinem Nextcloud-Konto erlangt, bleiben deine Notizen sicher und verschlüsselt mit einem separaten Passwort. Das bietet dir eine weitere Sicherheitsschicht zum Schutz deiner Daten.
+          Niemand kann ohne dein Verschlüsselungspasswort auf deine Notizen auf dem Server zugreifen. Das bedeutet allerdings auch, dass du den Zugriff auf deine Daten verlierst, falls du dein Verschlüsselungspasswort vergisst.
+      - q: "Ich habe noch kein Verschlüsselungspasswort festgelegt. Wo bekomme ich das her?"
+        a: |-
+          Wähle ein neues Verschlüsselungspasswort und gib es oben ein.
+          Saber wird mit diesem Passwort automatisch deine Schlüssel generieren.
+      - q: "Kann ich das gleiche Passwort wie bei meinem Nextcloud-Konto verwenden?"
+        a: "Ja, aber sei dir bewusst, dass es so für den Serveradministrator oder jemand anderen einfacher wäre, auf deine Notizen zuzugreifen, falls dieser Zugriff auf dein Nextcloud-Konto erlangt."
 profile:
   title: Mein Profil
   logout: Abmelden
+  quotaUsage: "Du verwendest $used von $total ($percent%)"
+  connectedTo: Verbunden mit
   quickLinks:
-    title: Schnellzugriff
     serverHomepage: Server-Startseite
     deleteAccount: Account löschen
+  faqTitle: Häufig gestellte Fragen
   faq:
     - q: "Verliere ich meine Notizen, wenn ich mich abmelde?"
       a: "Nein. Deine Notizen bleiben auf deinem Gerät und auf dem Server. Sie werden erst wieder synchronisiert, wenn du dich erneut anmeldest. Um Datenverlust zu vermeiden, solltest du sicherstellen, dass alles korrekt synchronisiert wurde, bevor du dich abmeldest. Dazu kannst du auf dem Startbildschirm den Synchronisationsfortschritt überprüfen."
@@ -285,9 +294,12 @@ editor:
     duplicatePage: Seite duplizieren
     deletePage: Seite löschen
     lineHeight: Zeilenhöhe
+    lineHeightDescription: Bestimmt ebenfalls die Textgröße der getippten Notizen
     backgroundImageFit: Background image fit
     backgroundPattern: Hintergrundmuster
     import: Importieren
+    watchServer: Halte nach Aktualisierungen auf dem Server Ausschau
+    watchServerReadOnly: "Bearbeiten ist deaktiviert, solange du den Server beobachtest"
     boxFits:
       fill: Dehnen
       cover: Abdecken
@@ -302,13 +314,11 @@ editor:
       staffs: Notenpapier
       tablature: Tablature
       cornell: Cornell-Stil
-    lineHeightDescription(OUTDATED): Steuert außerdem die Textgröße für getippte Notizen
   newerFileFormat:
     readOnlyMode: Schreibgeschützter Modus
     title: Diese Notiz wurde mit einer neueren Version von Saber bearbeitet
     subtitle: "Durch das Bearbeiten dieser Notiz können Daten verloren gehen. Möchtest du sie trotzdem bearbeiten?"
     allowEditing: Schreibschutz aufheben
-    cancel: Abbruch
   quill:
     typeSomething: Hier tippen...
   hud:

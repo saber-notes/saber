@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:collection';
 import 'dart:convert';
 import 'dart:io';
@@ -52,9 +53,19 @@ abstract class Prefs {
 
   /// the password used to login to Nextcloud
   static late final EncPref<String> ncPassword;
+  static late final PlainPref<bool> ncPasswordIsAnAppPassword;
 
   /// the password used to encrypt/decrypt notes
   static late final EncPref<String> encPassword;
+
+  /// Whether the user is logged in and has provided both passwords.
+  /// Please ensure that the relevant Prefs are loaded before using this.
+  static bool get loggedIn =>
+      url.loaded &&
+      username.value.isNotEmpty &&
+      ncPassword.value.isNotEmpty &&
+      ncPasswordIsAnAppPassword.loaded &&
+      encPassword.value.isNotEmpty;
 
   static late final EncPref<String> key;
   static late final EncPref<String> iv;
@@ -128,8 +139,10 @@ abstract class Prefs {
 
   static late final PlainPref<List<String>> recentFiles;
 
-  /// File paths that need to be uploaded to Nextcloud
-  static late final PlainPref<Queue<String>> fileSyncUploadQueue;
+  @Deprecated('We just list the files in the directory now. '
+      'This Pref exists to deprecate the shared preference.')
+  // ignore: unused_field
+  static late final PlainPref<List<String>> _fileSyncUploadQueue;
 
   /// File paths that have been deleted locally
   static late final PlainPref<Set<String>> fileSyncAlreadyDeleted;
@@ -163,6 +176,7 @@ abstract class Prefs {
     url = EncPref('url', '');
     username = EncPref('username', '');
     ncPassword = EncPref('ncPassword', '');
+    ncPasswordIsAnAppPassword = PlainPref('ncPasswordIsAnAppPassword', false);
     encPassword = EncPref('encPassword', '');
 
     key = EncPref('key', '');
@@ -261,7 +275,9 @@ abstract class Prefs {
     recentFiles = PlainPref('recentFiles', [],
         historicalKeys: const ['recentlyAccessed']);
 
-    fileSyncUploadQueue = PlainPref('fileSyncUploadQueue', Queue<String>());
+    // ignore: deprecated_member_use_from_same_package
+    _fileSyncUploadQueue = PlainPref('_fileSyncUploadQueue', const [],
+        deprecatedKeys: const ['fileSyncUploadQueue']);
     fileSyncAlreadyDeleted = PlainPref('fileSyncAlreadyDeleted', {});
     fileSyncCorruptFiles = PlainPref('fileSyncCorruptFiles', {});
     // By default, we resync everything uploaded before v0.18.4, since uploads before then resulted in 0B files.
@@ -307,12 +323,6 @@ abstract class IPref<T> extends ValueNotifier<T> {
 
   final T defaultValue;
 
-  bool _loaded = false;
-
-  /// Whether this pref has changes that have yet to be saved to disk.
-  @protected
-  bool _saved = true;
-
   IPref(
     this.key,
     this.defaultValue, {
@@ -322,11 +332,12 @@ abstract class IPref<T> extends ValueNotifier<T> {
         deprecatedKeys = deprecatedKeys ?? [],
         super(defaultValue) {
     if (Prefs.testingMode) {
-      _loaded = true;
+      loaded = true;
+
       return;
     } else {
       _load().then((T? loadedValue) {
-        _loaded = true;
+        loaded = true;
         if (loadedValue != null) {
           value = loadedValue;
         }
@@ -354,13 +365,33 @@ abstract class IPref<T> extends ValueNotifier<T> {
     return super.value;
   }
 
+  bool _loaded = false;
+  Completer<void>? _loadedCompleter = Completer();
   bool get loaded => _loaded;
-  bool get saved => _saved;
+  @protected
+  set loaded(bool loaded) {
+    _loaded = loaded;
+
+    if (loaded) {
+      if (!_loadedCompleter!.isCompleted) _loadedCompleter!.complete();
+      _loadedCompleter = null;
+    }
+  }
+
+  final _saved = ValueNotifier<bool>(true);
+
+  /// Whether this pref has changes that have yet to be saved to disk.
+  bool get saved => _saved.value;
+  @protected
+  set saved(bool saved) {
+    _saved.value = saved;
+  }
 
   Future<void> waitUntilLoaded() async {
-    while (!loaded) {
-      await Future.delayed(const Duration(milliseconds: 10));
-    }
+    if (loaded) return;
+    assert(_loadedCompleter != null,
+        '_loadedCompleter should be non-null until loaded');
+    return _loadedCompleter!.future;
   }
 
   /// Waits until the value has been saved to disk.
@@ -368,9 +399,18 @@ abstract class IPref<T> extends ValueNotifier<T> {
   /// the value will actually be saved to disk.
   @visibleForTesting
   Future<void> waitUntilSaved() async {
-    while (!saved) {
-      await Future.delayed(const Duration(milliseconds: 10));
+    if (saved) return;
+
+    final completer = Completer();
+
+    void listener() {
+      if (!saved) return;
+      _saved.removeListener(listener);
+      completer.complete();
     }
+
+    _saved.addListener(listener);
+    return completer.future;
   }
 
   /// Lets us use notifyListeners outside of the class
@@ -438,7 +478,7 @@ class PlainPref<T> extends IPref<T> {
 
   @override
   Future _save() async {
-    _saved = false;
+    saved = false;
     try {
       _prefs ??= await SharedPreferences.getInstance();
 
@@ -499,7 +539,7 @@ class PlainPref<T> extends IPref<T> {
         return await _prefs!.setString(key, value as String);
       }
     } finally {
-      _saved = true;
+      saved = true;
     }
   }
 
@@ -624,7 +664,7 @@ class EncPref<T> extends IPref<T> {
 
   @override
   Future _save() async {
-    _saved = false;
+    saved = false;
     try {
       _storage ??= const FlutterSecureStorage();
       if (T == String)
@@ -633,7 +673,7 @@ class EncPref<T> extends IPref<T> {
         return await _storage!.write(key: key, value: jsonEncode(value));
       return await _storage!.write(key: key, value: jsonEncode(value));
     } finally {
-      _saved = true;
+      saved = true;
     }
   }
 
