@@ -250,7 +250,7 @@ class _LoginFlowDialogState extends State<_LoginFlowDialog> {
         children: [
           Text(t.login.ncLoginStep.loginFlow.followPrompts),
           TextButton(
-            onPressed: widget.loginFlow.openInBrowser,
+            onPressed: widget.loginFlow.openLoginUrl,
             child: Text(t.login.ncLoginStep.loginFlow.browserDidntOpen),
           ),
         ],

@@ -1,5 +1,7 @@
 import 'dart:async';
+import 'dart:io';
 
+import 'package:flutter_web_auth_2/flutter_web_auth_2.dart';
 import 'package:http/http.dart' as http;
 import 'package:logging/logging.dart';
 import 'package:nextcloud/core.dart';
@@ -26,11 +28,23 @@ class SaberLoginFlow {
 
   LoginFlowV2? init;
 
-  Future<bool> openInBrowser() async {
-    if (init == null) return false;
-    final loginLink = Uri.parse(init!.login);
-    log.info('Opening login link in app: $loginLink');
-    return launchUrl(loginLink);
+  Future<void> openLoginUrl() async {
+    final init = this.init;
+    if (init == null) return;
+
+    if (Platform.isMacOS || Platform.isIOS || Platform.isAndroid) {
+      // Use FlutterWebAuth2 which returns to Saber when authenticated
+      log.info('Opening login link in-app: ${init.login}');
+      await FlutterWebAuth2.authenticate(
+        url: init.login,
+        callbackUrlScheme: 'nc',
+      );
+    } else {
+      // Use url_launcher to open the link in the default browser
+      log.info('Opening login link in browser: ${init.login}');
+      final loginLink = Uri.parse(init.login);
+      await launchUrl(loginLink);
+    }
   }
 
   Future<void> _run() async {
@@ -41,7 +55,7 @@ class SaberLoginFlow {
       init = await flowClient.init().then((response) => response.body);
       log.info('init: $init');
 
-      openInBrowser();
+      openLoginUrl();
 
       _pollTimer?.cancel();
       _pollTimer = Timer.periodic(

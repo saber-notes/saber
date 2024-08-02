@@ -149,6 +149,8 @@ dependencies:
 
   args: ^2.5.0
 
+  flutter_web_auth_2: ^3.1.2
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -13,6 +13,7 @@ list(APPEND FLUTTER_PLUGIN_LIST
   super_native_extensions
   url_launcher_windows
   window_manager
+  window_to_front
 )
 
 list(APPEND FLUTTER_FFI_PLUGIN_LIST
