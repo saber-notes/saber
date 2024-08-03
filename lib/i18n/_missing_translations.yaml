@@ -147,7 +147,7 @@ de:
   login:
     ncLoginStep:
       loginFlow:
-        followPrompts(OUTDATED): Bitte folge den Anweisungen in der Nextcloud Oberfläche
+        followPrompts(OUTDATED): Bitte folge den Anweisungen in der Nextcloud-Oberfläche
         browserDidntOpen(OUTDATED): "Die Anmeldeseite hat sich nicht geöffnet? Klicke hier"
 es:
   common:
