@@ -139,16 +139,16 @@ cs:
 de:
   settings:
     prefLabels:
-      customDataDir(OUTDATED): Custom Saber folder
-    openDataDir(OUTDATED): Open Saber folder
+      customDataDir(OUTDATED): Eigener Saber-Ordner
+    openDataDir(OUTDATED): Saber-Ordner öffnen
     customDataDir:
-      mustBeEmpty(OUTDATED): Selected folder must be empty
-      mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the folder
+      mustBeEmpty(OUTDATED): Ausgewählter Ordner muss leer sein
+      mustBeDoneSyncing(OUTDATED): Stelle sicher, dass die Synchronisierung abgeschlossen ist, bevor du den Ordner wechselst
   login:
     ncLoginStep:
       loginFlow:
-        followPrompts(OUTDATED): Please follow the prompts in the Nextcloud interface
-        browserDidntOpen(OUTDATED): "Login page didn't open? Click here"
+        followPrompts(OUTDATED): Bitte folge den Anweisungen in der Nextcloud Oberfläche
+        browserDidntOpen(OUTDATED): "Die Anmeldeseite hat sich nicht geöffnet? Klicke hier"
 es:
   common:
     done(OUTDATED): Done
