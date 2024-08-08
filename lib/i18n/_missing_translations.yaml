@@ -900,68 +900,6 @@ ru:
         followPrompts(OUTDATED): Please follow the prompts in the Nextcloud interface
         browserDidntOpen(OUTDATED): "Login page didn't open? Click here"
 tr:
-  common:
-    done(OUTDATED): Tamamlandı
-    continueBtn(OUTDATED): Devam
-  settings:
-    prefLabels:
-      customDataDir(OUTDATED): Özel Saber klasörü
-      pencilSoundSetting(OUTDATED): Kurşun kalem ses efekti
-    prefDescriptions:
-      pencilSoundSetting:
-        off(OUTDATED): Ses yok
-        onButNotInSilentMode(OUTDATED): Etkin (sessiz modda değilse)
-        onAlways(OUTDATED): Etkin (sessiz modda da)
-    openDataDir(OUTDATED): Saber klasörünü aç
-    customDataDir:
-      cancel(OUTDATED): İptal
-      select(OUTDATED): Seç
-      mustBeEmpty(OUTDATED): Seçilen klasör boş olmalı
-      mustBeDoneSyncing(OUTDATED): Klasörü değiştirmeden önce senkronizasyonun tamamlandığından emin olun
-  login:
-    notYou(rich)(OUTDATED): "Siz değil misiniz? ${undoLogin(Başka bir hesap seçin)}."
-    status:
-      hi(OUTDATED): "Merhaba, $u!"
-      almostDone(OUTDATED): "Senkronizasyona hazırız, giriş yapmayı tamamlamak için tıklayın"
-    ncLoginStep:
-      whereToStoreData(OUTDATED): "Verilerinizi nerede saklamak istediğinizi seçin:"
-      saberNcServer(OUTDATED): Saber'ın resmi Nextcloud sunucus
-      otherNcServer(OUTDATED): Diğer Nextcloud sunucusu
-      serverUrl(OUTDATED): Sunucu URL'i
-      loginWithSaber(OUTDATED): Saber ile giriş yap
-      loginWithNextcloud(OUTDATED): Nextcloud ile giriş yap
-      loginFlow:
-        pleaseAuthorize(OUTDATED): Lütfen Saber'ın Nextcloud hesabınıza erişmesine izin verin
-        followPrompts(OUTDATED): Lütfen Nextcloud arayüzündeki aşamaları takip edin
-        browserDidntOpen(OUTDATED): "Giriş sayfası açılmadıysa buraya tıklayın"
-    encLoginStep:
-      enterEncPassword(OUTDATED): "Verilerinizi korumak için lütfen şifreleme parolanızı girin:"
-      newToSaber(OUTDATED): "Saber'da ilk seferiniz mi? Yeni bir şifreleme parolası girin."
-      encPassword(OUTDATED): Şifreleme parolası
-      encFaqTitle(OUTDATED): Sıkça sorulan sorular
-      wrongEncPassword(OUTDATED): Verilen parola ile şifre çözülemedi. Lütfen parolayı tekrar girin.
-      connectionFailed(OUTDATED): Sunucuya bağlanılamadı. Lütfen daha sonra tekrar deneyin.
-      encFaq(OUTDATED):
-        - q: "Şifreleme parolası nedir? Neden iki parola kullanıyorum?"
-          a: |-
-            Nextcloud parolası bulutta oturum açmak için kullanılıyor. Şifreleme parolası ise verilerinizi buluta aktarmadan önce gizlemek için kullanılıyor.
-            Eğer birisi Nextcloud hesabınızı ele geçirseydi bile notlarınız güvenli ve şifreli kalmaya devam edecekti. Böylece ikinci bir güvenlik katmanı sağlamış oluyoruz.
-            Buluttaki verilerinize, şifreleme parolası olmayan kimse erişemez; dolayısıyla bu parolayı kaybetmeniz durumunda siz de erişemezsiniz.
-        - q: "Henüz bir şifreleme parolası belirlemedim. Nereden alacağım?"
-          a: |-
-            Yeni bir şifreleme parolası belirleyip yukarıya yazın.
-            Saber şifreleme anahtarını bu parolayı kullanarak üretecek.
-        - q: "Nextcloud parolamla şifreleme parolam aynı olabilir mi?"
-          a: "Evet fakat unutmayın ki bu durumda Nextcloud parolanıza sahip herhangi birisi notlarınıza da erişebilir."
-  profile:
-    quotaUsage(OUTDATED): "Toplam $total alanın $used kadarını ($percent%) kullandınız"
-    connectedTo(OUTDATED): Bağlanılan sunucu 
-    faqTitle(OUTDATED): Sıkça sorulan sorular
-  editor:
-    menu:
-      lineHeightDescription(OUTDATED): Klavye girişi olan notların metin boyutunu da kontrol eder 
-      watchServer(OUTDATED): Sunucudaki değişiklikleri izle
-      watchServerReadOnly(OUTDATED): Sunucu izlenirken düzenleme yapılamaz
 zh-Hans-CN:
   common:
     done(OUTDATED): Done
