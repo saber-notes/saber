@@ -1040,15 +1040,3 @@ zh-Hans-CN:
       watchServer(OUTDATED): Watch for updates on the server
       watchServerReadOnly(OUTDATED): Editing is disabled while watching the server
 zh-Hant-TW:
-  settings:
-    prefLabels:
-      customDataDir(OUTDATED): 自訂 Saber 資料夾
-    openDataDir(OUTDATED): 開啟 Saber 資料夾
-    customDataDir:
-      mustBeEmpty(OUTDATED): 選擇的資料夾必須是空的
-      mustBeDoneSyncing(OUTDATED): 更改資料夾之前確保同步已完成
-  login:
-    ncLoginStep:
-      loginFlow:
-        followPrompts(OUTDATED): 請依照 Nextcloud 介面的提示進行操作
-        browserDidntOpen(OUTDATED): "登入頁面打不開？點擊這裡"

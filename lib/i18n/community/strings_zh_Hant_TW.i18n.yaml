@@ -95,8 +95,8 @@ settings:
     autosaveDelay: 自動儲存延遲
     shapeRecognitionDelay: 形狀識別延遲
     autoStraightenLines: 自動拉直線條
+    customDataDir: 自訂 Saber 資料夾
     pencilSoundSetting: 筆的音效
-    customDataDir(OUTDATED): 自訂資料目錄
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible 字體為低視力讀者提高易讀性
     disableAds: 廣告有助於支持Saber的發展，但如果您不願意，可以禁用它
@@ -140,12 +140,12 @@ settings:
     title: "重設此設定?"
     button: 重設
   resyncEverything: 全部重新同步
+  openDataDir: 開啟 Saber 資料夾
   customDataDir:
     cancel: 取消
     select: 選擇
-    mustBeEmpty(OUTDATED): 所選目錄必須是空的
-    mustBeDoneSyncing(OUTDATED): 更改目錄之前請確保同步已完成
-  openDataDir(OUTDATED): 開啟Saber資料夾
+    mustBeEmpty: 選擇的資料夾必須是空的
+    mustBeDoneSyncing: 更改資料夾之前確保同步已完成
 login:
   title: 登入
   form:
@@ -167,8 +167,8 @@ login:
     loginWithNextcloud: 使用 Nextcloud 登入
     loginFlow:
       pleaseAuthorize: 請授權 Saber 存取您的 Nextcloud 帳號
-      followPrompts(OUTDATED): 請按照瀏覽器中的提示進行操作。
-      browserDidntOpen(OUTDATED): 瀏覽器沒打開？點擊這裡
+      followPrompts: 請依照 Nextcloud 介面的提示進行操作
+      browserDidntOpen: 登入頁面打不開？點擊這裡
   encLoginStep:
     enterEncPassword: 為了保護您的資料，請輸入您的加密密碼：
     newToSaber: 第一次使用 Saber？只需輸入新的加密密碼即可。
