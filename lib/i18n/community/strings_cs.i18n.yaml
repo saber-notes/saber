@@ -167,8 +167,8 @@ login:
     loginWithNextcloud: Přihlásit přes Nextcloud server
     loginFlow:
       pleaseAuthorize: Autorizujte prosím aplikaci Saber k přístupu na váš Nextcloud účet
-      followPrompts(OUTDATED): Následujte prosím kroky ve webovém prohlížeči
-      browserDidntOpen(OUTDATED): "Neotevřel se webový prohlížeč? Klepněte zde"
+      followPrompts: Následujte prosím kroky v rozhraní Nextcloud serveru
+      browserDidntOpen: "Neotevřela se přihlašovací stránka? Klepněte zde"
   encLoginStep:
     enterEncPassword: "Pro ochranu svých dat prosím zadejte heslo pro šifrování:"
     newToSaber: "Poprvé v aplikaci Saber? Stačí zadat nové heslo pro šifrování."

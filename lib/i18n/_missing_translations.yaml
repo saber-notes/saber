@@ -136,11 +136,6 @@ ar:
       bgPatterns:
         tablature(OUTDATED): Tablature
 cs:
-  login:
-    ncLoginStep:
-      loginFlow:
-        followPrompts(OUTDATED): Please follow the prompts in the Nextcloud interface
-        browserDidntOpen(OUTDATED): "Login page didn't open? Click here"
 de:
   settings:
     prefLabels:
