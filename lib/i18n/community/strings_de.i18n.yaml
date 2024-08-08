@@ -95,8 +95,8 @@ settings:
     autosaveDelay: Verzögerung des automatischen Speicherns
     shapeRecognitionDelay: Verzögerung der Formerkennung
     autoStraightenLines: Linien automatisch begradigen
+    customDataDir: Eigener Saber-Ordner
     pencilSoundSetting: Bleistiftgeräusch
-    customDataDir(OUTDATED): Benutzerdefiniertes Verzeichnis
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible verbessert die Lesbarkeit für Menschen mit eingeschränkter Sicht
     disableAds: Die Entwicklung von Saber wird duch Werbung finanziert. Die Werbung kann auf Wunsch deaktiviert werden.
@@ -140,12 +140,12 @@ settings:
     title: "Diese Einstellung zurücksetzen?"
     button: Zurücksetzen
   resyncEverything: Alles neu Synchronisieren
+  openDataDir: Saber-Ordner öffnen
   customDataDir:
     cancel: Abbrechen
     select: Auswählen
-    mustBeEmpty(OUTDATED): Ausgewähltes Verzeichnis muss leer sein
-    mustBeDoneSyncing(OUTDATED): "Stelle sicher, dass die Synchronisierung abgeschlossen ist, bevor du das Verzeichnis änderst"
-  openDataDir(OUTDATED): Saber-Ordner öffnen
+    mustBeEmpty: Ausgewählter Ordner muss leer sein
+    mustBeDoneSyncing: "Stelle sicher, dass die Synchronisierung abgeschlossen ist, bevor du den Ordner wechselst"
 login:
   title: Login
   form:
@@ -167,8 +167,8 @@ login:
     loginWithNextcloud: Mit Nextcloud anmelden
     loginFlow:
       pleaseAuthorize: Bitte gib Saber Zugriff auf dein Nextcloud Konto
-      followPrompts(OUTDATED): Bitte folge den Anweisungen in deinem Browser.
-      browserDidntOpen(OUTDATED): "Browser hat sich nicht geöffnet? Klicke hier"
+      followPrompts: Bitte folge den Anweisungen in der Nextcloud-Oberfläche
+      browserDidntOpen: "Die Anmeldeseite hat sich nicht geöffnet? Klicke hier"
   encLoginStep:
     enterEncPassword: "Gib dein Verschlüsselungspasswort an, um deine Daten zu schützen:"
     newToSaber: "Neu bei Saber? Gib einfach ein neues Verschlüsselungspasswort an."

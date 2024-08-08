@@ -2706,8 +2706,8 @@ class _StringsSettingsDe extends _StringsSettingsEn {
 	];
 	@override late final _StringsSettingsResetDe reset = _StringsSettingsResetDe._(_root);
 	@override String get resyncEverything => 'Alles neu Synchronisieren';
-	@override late final _StringsSettingsCustomDataDirDe customDataDir = _StringsSettingsCustomDataDirDe._(_root);
 	@override String get openDataDir => 'Saber-Ordner öffnen';
+	@override late final _StringsSettingsCustomDataDirDe customDataDir = _StringsSettingsCustomDataDirDe._(_root);
 }
 
 // Path: login
@@ -2976,8 +2976,8 @@ class _StringsSettingsPrefLabelsDe extends _StringsSettingsPrefLabelsEn {
 	@override String get autosaveDelay => 'Verzögerung des automatischen Speicherns';
 	@override String get shapeRecognitionDelay => 'Verzögerung der Formerkennung';
 	@override String get autoStraightenLines => 'Linien automatisch begradigen';
+	@override String get customDataDir => 'Eigener Saber-Ordner';
 	@override String get pencilSoundSetting => 'Bleistiftgeräusch';
-	@override String get customDataDir => 'Benutzerdefiniertes Verzeichnis';
 }
 
 // Path: settings.prefDescriptions
@@ -3059,8 +3059,8 @@ class _StringsSettingsCustomDataDirDe extends _StringsSettingsCustomDataDirEn {
 	// Translations
 	@override String get cancel => 'Abbrechen';
 	@override String get select => 'Auswählen';
-	@override String get mustBeEmpty => 'Ausgewähltes Verzeichnis muss leer sein';
-	@override String get mustBeDoneSyncing => 'Stelle sicher, dass die Synchronisierung abgeschlossen ist, bevor du das Verzeichnis änderst';
+	@override String get mustBeEmpty => 'Ausgewählter Ordner muss leer sein';
+	@override String get mustBeDoneSyncing => 'Stelle sicher, dass die Synchronisierung abgeschlossen ist, bevor du den Ordner wechselst';
 }
 
 // Path: login.form
@@ -3381,8 +3381,8 @@ class _StringsLoginNcLoginStepLoginFlowDe extends _StringsLoginNcLoginStepLoginF
 
 	// Translations
 	@override String get pleaseAuthorize => 'Bitte gib Saber Zugriff auf dein Nextcloud Konto';
-	@override String get followPrompts => 'Bitte folge den Anweisungen in deinem Browser.';
-	@override String get browserDidntOpen => 'Browser hat sich nicht geöffnet? Klicke hier';
+	@override String get followPrompts => 'Bitte folge den Anweisungen in der Nextcloud-Oberfläche';
+	@override String get browserDidntOpen => 'Die Anmeldeseite hat sich nicht geöffnet? Klicke hier';
 }
 
 // Path: login.encLoginStep.encFaq.0
