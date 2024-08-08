@@ -900,68 +900,6 @@ ru:
         followPrompts(OUTDATED): Please follow the prompts in the Nextcloud interface
         browserDidntOpen(OUTDATED): "Login page didn't open? Click here"
 tr:
-  common:
-    done(OUTDATED): Done
-    continueBtn(OUTDATED): Continue
-  settings:
-    prefLabels:
-      customDataDir(OUTDATED): Custom Saber folder
-      pencilSoundSetting(OUTDATED): Pencil sound effect
-    prefDescriptions:
-      pencilSoundSetting:
-        off(OUTDATED): No sound
-        onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
-        onAlways(OUTDATED): Enabled (even in silent mode)
-    openDataDir(OUTDATED): Open Saber folder
-    customDataDir:
-      cancel(OUTDATED): Cancel
-      select(OUTDATED): Select
-      mustBeEmpty(OUTDATED): Selected folder must be empty
-      mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the folder
-  login:
-    notYou(rich)(OUTDATED): "Not you? ${undoLogin(Choose another account)}."
-    status:
-      hi(OUTDATED): "Hi, $u!"
-      almostDone(OUTDATED): "Almost ready for syncing, tap to finish logging in"
-    ncLoginStep:
-      whereToStoreData(OUTDATED): "Choose where you want to store your data:"
-      saberNcServer(OUTDATED): Saber's Nextcloud server
-      otherNcServer(OUTDATED): Other Nextcloud server
-      serverUrl(OUTDATED): Server URL
-      loginWithSaber(OUTDATED): Login with Saber
-      loginWithNextcloud(OUTDATED): Login with Nextcloud
-      loginFlow:
-        pleaseAuthorize(OUTDATED): Please authorize Saber to access your Nextcloud account
-        followPrompts(OUTDATED): Please follow the prompts in the Nextcloud interface
-        browserDidntOpen(OUTDATED): "Login page didn't open? Click here"
-    encLoginStep:
-      enterEncPassword(OUTDATED): "To protect your data, please enter your encryption password:"
-      newToSaber(OUTDATED): "New to Saber? Just enter a new encryption password."
-      encPassword(OUTDATED): Encryption password
-      encFaqTitle(OUTDATED): Frequently asked questions
-      wrongEncPassword(OUTDATED): Decryption failed with the provided password. Please try entering it again.
-      connectionFailed(OUTDATED): Something went wrong connecting to the server. Please try again later.
-      encFaq(OUTDATED):
-        - q: "What is an encryption password? Why use two passwords?"
-          a: |-
-            The Nextcloud password is used to access the cloud. The encryption password "scrambles" your data before it ever reaches the cloud.
-            Even if someone gains access to your Nextcloud account, your notes will remain safe and encrypted with a separate password. This provides you a second layer of security to protect your data.
-            No-one can access your notes on the server without your encryption password, but this also means that if you forget your encryption password, you will lose access to your data.
-        - q: "I haven't set an encryption password yet. Where do I get it?"
-          a: |-
-            Choose a new encryption password and enter it above.
-            Saber will generate your encryption keys from this password automatically.
-        - q: "Can I use the same password as my Nextcloud account?"
-          a: "Yes, but keep in mind that it would be easier for the server administrator or someone else to access your notes if they gain access to your Nextcloud account."
-  profile:
-    quotaUsage(OUTDATED): "You're using $used of $total ($percent%)"
-    connectedTo(OUTDATED): Connected to
-    faqTitle(OUTDATED): Frequently asked questions
-  editor:
-    menu:
-      lineHeightDescription(OUTDATED): Also controls the text size for typed notes
-      watchServer(OUTDATED): Watch for updates on the server
-      watchServerReadOnly(OUTDATED): Editing is disabled while watching the server
 zh-Hans-CN:
   common:
     done(OUTDATED): Done

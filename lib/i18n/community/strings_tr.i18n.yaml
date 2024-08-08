@@ -1,7 +1,7 @@
 common:
+  done: Tamamlandı
+  continueBtn: Devam
   cancel: İptal
-  done(OUTDATED): Tamamlamak
-  continueBtn(OUTDATED): Devam etmek
 home:
   tabs:
     home: Giriş
@@ -95,8 +95,8 @@ settings:
     autosaveDelay: Otomatik kayıt aralığı
     shapeRecognitionDelay: Şekil tanıma gecikmesi
     autoStraightenLines: Çizgileri otomatik düzleştir
-    pencilSoundSetting(OUTDATED): Kalem ses efekti
-    customDataDir(OUTDATED): Özel veri dizini
+    customDataDir: Özel Saber klasörü
+    pencilSoundSetting: Kurşun kalem ses efekti
   prefDescriptions:
     hyperlegibleFont: "Atkinson Hyperlegible, görme sorunu yaşayanların okumasını kolaylaştıran bir fonttur"
     disableAds: Reklamlar Saber'ın geliştirilmesine yardım ediyor fakat dilerseniz devre dışı bırakabilirsiniz
@@ -117,9 +117,9 @@ settings:
     autoStraightenLines: Şekil aracını kullanmadığınızda da çizgileri düzleştirir
     shouldAlwaysAlertForUpdates: Güncelleme mevcut olduğu gibi bana haber ver
     pencilSoundSetting:
-      off(OUTDATED): Ses yok
-      onButNotInSilentMode(OUTDATED): Etkin (sessiz modda olmadığı sürece)
-      onAlways(OUTDATED): Etkin (sessiz modda bile)
+      off: Ses yok
+      onButNotInSilentMode: Etkin (sessiz modda değilse)
+      onAlways: Etkin (sessiz modda da)
   themeModes:
     system: Sistem teması
     light: Aydınlık
@@ -140,59 +140,63 @@ settings:
     title: "Ayarı sıfırlamak istiyor musunuz?"
     button: Sıfırla
   resyncEverything: Her şeyi yeniden senkronize et
+  openDataDir: Saber klasörünü aç
   customDataDir:
-    cancel(OUTDATED): İptal etmek
-    select(OUTDATED): Seçme
-    mustBeEmpty(OUTDATED): Seçilen dizin boş olmalıdır
-    mustBeDoneSyncing(OUTDATED): Dizini değiştirmeden önce senkronizasyonun tamamlandığından emin olun
-  openDataDir(OUTDATED): Saber klasörünü aç
+    cancel: İptal
+    select: Seç
+    mustBeEmpty: Seçilen klasör boş olmalı
+    mustBeDoneSyncing: Klasörü değiştirmeden önce senkronizasyonun tamamlandığından emin olun
 login:
   title: Giriş yap
   form:
     agreeToPrivacyPolicy(rich): "Giriş yaparak ${linkToPrivacyPolicy(Gizlilik Politikasını)} kabul edersiniz."
   signup(rich): "Henüz hesabınız yok mu? ${linkToSignup(Hesap oluşturmak için tıklayın)}!"
+  notYou(rich): "Siz değil misiniz? ${undoLogin(Başka bir hesap seçin)}."
   status:
     loggedOut: Çıkış yapıldı
     tapToLogin: Nextcloud oturumu açmak için tıklayın
+    hi: "Merhaba, $u!"
+    almostDone: "Senkronizasyona hazırız, giriş yapmayı tamamlamak için tıklayın"
     loggedIn: Nextcloud'a giriş yapıldı
-    hi(OUTDATED): "Merhaba, $u!"
-    almostDone(OUTDATED): Senkronizasyon için neredeyse hazır; oturum açmayı tamamlamak için dokunun
   ncLoginStep:
+    whereToStoreData: "Verilerinizi nerede saklamak istediğinizi seçin:"
+    saberNcServer: Saber'ın resmi Nextcloud sunucus
+    otherNcServer: Diğer Nextcloud sunucusu
+    serverUrl: Sunucu URL'i
+    loginWithSaber: Saber ile giriş yap
+    loginWithNextcloud: Nextcloud ile giriş yap
     loginFlow:
-      pleaseAuthorize(OUTDATED): Lütfen Saber'a Nextcloud hesabınıza erişmesi için yetki verin
-      followPrompts(OUTDATED): Lütfen tarayıcınızdaki talimatları izleyin.
-      browserDidntOpen(OUTDATED): Tarayıcı açılmadı
-    whereToStoreData(OUTDATED): "Verilerinizi nerede saklamak istediğinizi seçin:"
-    saberNcServer(OUTDATED): Saber'nin Nextcloud sunucusu
-    otherNcServer(OUTDATED): Diğer Nextcloud sunucusu
-    serverUrl(OUTDATED): Sunucu URL'si
-    loginWithSaber(OUTDATED): Saber ile giriş yap
-    loginWithNextcloud(OUTDATED): Nextcloud'a giriş yapın
+      pleaseAuthorize: Lütfen Saber'ın Nextcloud hesabınıza erişmesine izin verin
+      followPrompts: Lütfen Nextcloud arayüzündeki aşamaları takip edin
+      browserDidntOpen: Giriş sayfası açılmadıysa buraya tıklayın
   encLoginStep:
-    enterEncPassword(OUTDATED): "Verilerinizi korumak için lütfen şifreleme şifrenizi girin:"
-    newToSaber(OUTDATED): Saber'da yeni
-    encPassword(OUTDATED): Şifreleme şifresi
-    encFaqTitle(OUTDATED): Sıkça Sorulan Sorular
-    wrongEncPassword(OUTDATED): Sağlanan parolayla şifre çözme başarısız oldu. Lütfen tekrar girmeyi deneyin.
-    connectionFailed(OUTDATED): Sunucuya bağlanırken bir şeyler ters gitti. Lütfen daha sonra tekrar deneyiniz.
-    encFaq(OUTDATED):
-      - q: "Şifreleme parolası nedir?"
+    enterEncPassword: "Verilerinizi korumak için lütfen şifreleme parolanızı girin:"
+    newToSaber: "Saber'da ilk seferiniz mi? Yeni bir şifreleme parolası girin."
+    encPassword: Şifreleme parolası
+    encFaqTitle: Sıkça sorulan sorular
+    wrongEncPassword: Verilen parola ile şifre çözülemedi. Lütfen parolayı tekrar girin.
+    connectionFailed: Sunucuya bağlanılamadı. Lütfen daha sonra tekrar deneyin.
+    encFaq:
+      - q: "Şifreleme parolası nedir? Neden iki parola kullanıyorum?"
         a: |-
-          Şifreleme parolası, verilerinizin sunucuya yollanmadan önce şifrelenmesinde kullanılıyor. Saber'a ilk defa giriş yaptığınızda bu parolayı ayarlayabilirsiniz ve bu parola Nextcloud hesabınız/parolanız ile alakalı değildir.
-          Şifreleme parolanız olmadan sunucudaki notlarınıza kimse erişemez. Dolayısıyla eğer şifreleme parolanızı unutursanız verilerinize erişimi de kaybedersiniz.
-      - q: "Neden iki şifre kullanılıyor?"
+          Nextcloud parolası bulutta oturum açmak için kullanılıyor. Şifreleme parolası ise verilerinizi buluta aktarmadan önce gizlemek için kullanılıyor.
+          Eğer birisi Nextcloud hesabınızı ele geçirseydi bile notlarınız güvenli ve şifreli kalmaya devam edecekti. Böylece ikinci bir güvenlik katmanı sağlamış oluyoruz.
+          Buluttaki verilerinize, şifreleme parolası olmayan kimse erişemez; dolayısıyla bu parolayı kaybetmeniz durumunda siz de erişemezsiniz.
+      - q: "Henüz bir şifreleme parolası belirlemedim. Nereden alacağım?"
         a: |-
-          Nextcloud parolası bulut sunucuya erişmek için kullanılıyor. Şifreleme parolası, verilerinizin bulut sunucuya yollanmadan önce "karmaşıklaştırılması"nı sağlıyor.
-          Herhangi birisi Nextcloud hesabınıza erişebilseydi bile, farklı bir şifreleme parolası kullandığınız için notlarınızı okuyamazdı. Böylece verilerinizin korunması için ikinci bir katman oluşuyor.
-      - q: "Her ikisi için de aynı parolayı kullanabilir miyim?"
-        a: "Evet ancak bu daha az güvenlidir. Nextcloud parolanız sunucuya gönderildiğinden, sunucuya erişimi olan birisi notlarınızın şifresini de çözebilir. Yalnızca sunucu sahibine güveniyorsanız aynı şifreyi kullanın."
-  notYou(rich, OUTDATED): "${undoLogin(Sen değil)}"
+          Yeni bir şifreleme parolası belirleyip yukarıya yazın.
+          Saber şifreleme anahtarını bu parolayı kullanarak üretecek.
+      - q: "Nextcloud parolamla şifreleme parolam aynı olabilir mi?"
+        a: Evet fakat unutmayın ki bu durumda Nextcloud parolanıza sahip herhangi birisi notlarınıza da erişebilir.
 profile:
   title: Profilim
   logout: Çıkış yap
+  quotaUsage: "Toplam $total alanın $used kadarını ($percent%) kullandınız"
+  connectedTo: Bağlanılan sunucu
   quickLinks:
     serverHomepage: Sunucu anasayfası
     deleteAccount: Hesabı sil
+  faqTitle: Sıkça sorulan sorular
   faq:
     - q: "Çıkış yaparsam notlarımı kaybedecek miyim?"
       a: Hayır. Notlarınız hem cihazınızda hem de sunucuda tutuluyor olacak. Siz tekrardan giriş yapana dek notlarınız senkronize edilmeyecek. Veri kaybı yaşamamak için çıkış yapmadan önce senkronizasyonun tamamlandığından emin olun (ana sayfada senkronizasyon ilerlemesini görebilirsiniz).
@@ -209,9 +213,6 @@ profile:
         Üstte yer alan "@:profile.quickLinks.deleteAccount" butonuna tıklayın, gerekirse giriş yapın.
         Eğer resmi Saber sunucusunu kullanıyorsanız hesabınız 1 haftalık bekleme süresinden sonra silinecek. adilhanney@disroot.org adresinden benimle iletişime geçerek silinme talebini iptal edebilirsiniz.
         Eğer üçüncü parti bir sunucu kullanıyorsanız hesabınızı silme seçeneği sunulmuyor olabilir: daha fazla bilgi için ilgili sunucunun gizlilik politikasını inceleyin.
-  quotaUsage(OUTDATED): "$total ($percent%) değerinden $used miktarını kullanıyorsunuz"
-  connectedTo(OUTDATED): Bağlı
-  faqTitle(OUTDATED): Sıkça Sorulan Sorular
 appInfo:
   licenseNotice: |-
     Saber  Copyright © 2022-$buildYear  Adil Hanney
@@ -293,9 +294,12 @@ editor:
     duplicatePage: Sayfayı çoğalt
     deletePage: Sayfayı sil
     lineHeight: Satır aralığı
+    lineHeightDescription: Klavye girişi olan notların metin boyutunu da kontrol eder
     backgroundImageFit: Arkaplan görüntüsünü sığdır
     backgroundPattern: Arkaplan deseni
     import: İçe aktar
+    watchServer: Sunucudaki değişiklikleri izle
+    watchServerReadOnly: Sunucu izlenirken düzenleme yapılamaz
     boxFits:
       fill: Yaydır
       cover: Kapla
@@ -310,9 +314,6 @@ editor:
       staffs: Porte (müzik)
       tablature: Nota kağıdı
       cornell: Cornell not şablonu
-    watchServer(OUTDATED): Sunucudaki güncellemeleri izleyin
-    watchServerReadOnly(OUTDATED): Sunucuyu izlerken düzenleme devre dışı bırakıldı
-    lineHeightDescription(OUTDATED): Ayrıca yazılan notların metin boyutunu da kontrol eder
   newerFileFormat:
     readOnlyMode: Yalnızca okunabilir mod
     title: Bu not Saber'ın yeni bir versiyonunda düzenlenmiş
