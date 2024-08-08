@@ -136,11 +136,6 @@ ar:
       bgPatterns:
         tablature(OUTDATED): Tablature
 cs:
-  login:
-    ncLoginStep:
-      loginFlow:
-        followPrompts(OUTDATED): Následujte prosím kroky v rozhraní Nextcloud serveru
-        browserDidntOpen(OUTDATED): "Neotevřela se přihlašovací stránka? Klepněte zde"
 de:
   settings:
     prefLabels:

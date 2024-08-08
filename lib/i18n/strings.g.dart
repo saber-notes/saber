@@ -2551,8 +2551,8 @@ class _StringsLoginNcLoginStepLoginFlowCs extends _StringsLoginNcLoginStepLoginF
 
 	// Translations
 	@override String get pleaseAuthorize => 'Autorizujte prosím aplikaci Saber k přístupu na váš Nextcloud účet';
-	@override String get followPrompts => 'Následujte prosím kroky ve webovém prohlížeči';
-	@override String get browserDidntOpen => 'Neotevřel se webový prohlížeč? Klepněte zde';
+	@override String get followPrompts => 'Následujte prosím kroky v rozhraní Nextcloud serveru';
+	@override String get browserDidntOpen => 'Neotevřela se přihlašovací stránka? Klepněte zde';
 }
 
 // Path: login.encLoginStep.encFaq.0
