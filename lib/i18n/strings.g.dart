@@ -7675,8 +7675,8 @@ class _StringsSettingsIt extends _StringsSettingsEn {
 	];
 	@override late final _StringsSettingsResetIt reset = _StringsSettingsResetIt._(_root);
 	@override String get resyncEverything => 'Risincronizza tutto';
-	@override late final _StringsSettingsCustomDataDirIt customDataDir = _StringsSettingsCustomDataDirIt._(_root);
 	@override String get openDataDir => 'Apri cartella Saber';
+	@override late final _StringsSettingsCustomDataDirIt customDataDir = _StringsSettingsCustomDataDirIt._(_root);
 }
 
 // Path: login
@@ -7945,8 +7945,8 @@ class _StringsSettingsPrefLabelsIt extends _StringsSettingsPrefLabelsEn {
 	@override String get autosaveDelay => 'Ritardo di salvataggio automatico';
 	@override String get shapeRecognitionDelay => 'Ritardo nel riconoscimento della forma';
 	@override String get autoStraightenLines => 'Raddrizzamento automatico delle linee';
+	@override String get customDataDir => 'Cartella Saber personalizzata';
 	@override String get pencilSoundSetting => 'Effetto sonoro della matita';
-	@override String get customDataDir => 'Directory di dati personalizzata';
 }
 
 // Path: settings.prefDescriptions
@@ -8028,8 +8028,8 @@ class _StringsSettingsCustomDataDirIt extends _StringsSettingsCustomDataDirEn {
 	// Translations
 	@override String get cancel => 'Annulla';
 	@override String get select => 'Seleziona';
-	@override String get mustBeEmpty => 'La directory selezionata deve essere vuota';
-	@override String get mustBeDoneSyncing => 'Assicurati che la sincronizzazione sia completa prima di cambiare la directory';
+	@override String get mustBeEmpty => 'La cartella selezionata deve essere vuota';
+	@override String get mustBeDoneSyncing => 'Assicurati che la sincronizzazione sia completa prima di cambiare cartella';
 }
 
 // Path: login.form
