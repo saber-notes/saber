@@ -12647,8 +12647,8 @@ class _StringsSettingsZhHantTw extends _StringsSettingsEn {
 	];
 	@override late final _StringsSettingsResetZhHantTw reset = _StringsSettingsResetZhHantTw._(_root);
 	@override String get resyncEverything => '全部重新同步';
+	@override String get openDataDir => '開啟 Saber 資料夾';
 	@override late final _StringsSettingsCustomDataDirZhHantTw customDataDir = _StringsSettingsCustomDataDirZhHantTw._(_root);
-	@override String get openDataDir => '開啟Saber資料夾';
 }
 
 // Path: login
@@ -12917,8 +12917,8 @@ class _StringsSettingsPrefLabelsZhHantTw extends _StringsSettingsPrefLabelsEn {
 	@override String get autosaveDelay => '自動儲存延遲';
 	@override String get shapeRecognitionDelay => '形狀識別延遲';
 	@override String get autoStraightenLines => '自動拉直線條';
+	@override String get customDataDir => '自訂 Saber 資料夾';
 	@override String get pencilSoundSetting => '筆的音效';
-	@override String get customDataDir => '自訂資料目錄';
 }
 
 // Path: settings.prefDescriptions
@@ -13000,8 +13000,8 @@ class _StringsSettingsCustomDataDirZhHantTw extends _StringsSettingsCustomDataDi
 	// Translations
 	@override String get cancel => '取消';
 	@override String get select => '選擇';
-	@override String get mustBeEmpty => '所選目錄必須是空的';
-	@override String get mustBeDoneSyncing => '更改目錄之前請確保同步已完成';
+	@override String get mustBeEmpty => '選擇的資料夾必須是空的';
+	@override String get mustBeDoneSyncing => '更改資料夾之前確保同步已完成';
 }
 
 // Path: login.form
@@ -13322,8 +13322,8 @@ class _StringsLoginNcLoginStepLoginFlowZhHantTw extends _StringsLoginNcLoginStep
 
 	// Translations
 	@override String get pleaseAuthorize => '請授權 Saber 存取您的 Nextcloud 帳號';
-	@override String get followPrompts => '請按照瀏覽器中的提示進行操作。';
-	@override String get browserDidntOpen => '瀏覽器沒打開？點擊這裡';
+	@override String get followPrompts => '請依照 Nextcloud 介面的提示進行操作';
+	@override String get browserDidntOpen => '登入頁面打不開？點擊這裡';
 }
 
 // Path: login.encLoginStep.encFaq.0
