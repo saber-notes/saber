@@ -137,18 +137,6 @@ ar:
         tablature(OUTDATED): Tablature
 cs:
 de:
-  settings:
-    prefLabels:
-      customDataDir(OUTDATED): Custom Saber folder
-    openDataDir(OUTDATED): Open Saber folder
-    customDataDir:
-      mustBeEmpty(OUTDATED): Selected folder must be empty
-      mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the folder
-  login:
-    ncLoginStep:
-      loginFlow:
-        followPrompts(OUTDATED): Please follow the prompts in the Nextcloud interface
-        browserDidntOpen(OUTDATED): "Login page didn't open? Click here"
 es:
   common:
     done(OUTDATED): Done
