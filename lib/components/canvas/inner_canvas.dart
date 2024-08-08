@@ -260,36 +260,33 @@ class _InnerCanvasState extends State<InnerCanvas> {
       ),
     );
 
-    const zeroVerticalSpacing = VerticalSpacing(0, 0);
-    const zeroHorizontalSpacing = HorizontalSpacing(0, 0);
-
     return DefaultStyles(
       h1: DefaultTextBlockStyle(
         textTheme.displayLarge!,
-        zeroHorizontalSpacing,
-        zeroVerticalSpacing,
-        zeroVerticalSpacing,
+        HorizontalSpacing.zero,
+        VerticalSpacing.zero,
+        VerticalSpacing.zero,
         null,
       ),
       h2: DefaultTextBlockStyle(
         textTheme.displayMedium!,
-        zeroHorizontalSpacing,
-        zeroVerticalSpacing,
-        zeroVerticalSpacing,
+        HorizontalSpacing.zero,
+        VerticalSpacing.zero,
+        VerticalSpacing.zero,
         null,
       ),
       h3: DefaultTextBlockStyle(
         textTheme.displaySmall!,
-        zeroHorizontalSpacing,
-        zeroVerticalSpacing,
-        zeroVerticalSpacing,
+        HorizontalSpacing.zero,
+        VerticalSpacing.zero,
+        VerticalSpacing.zero,
         null,
       ),
       paragraph: DefaultTextBlockStyle(
         textTheme.bodyLarge!,
-        zeroHorizontalSpacing,
-        zeroVerticalSpacing,
-        zeroVerticalSpacing,
+        HorizontalSpacing.zero,
+        VerticalSpacing.zero,
+        VerticalSpacing.zero,
         null,
       ),
       small: TextStyle(
@@ -322,24 +319,24 @@ class _InnerCanvasState extends State<InnerCanvas> {
         textTheme.bodyLarge!.copyWith(
           color: Colors.grey.withOpacity(0.6),
         ),
-        zeroHorizontalSpacing,
-        zeroVerticalSpacing,
-        zeroVerticalSpacing,
+        HorizontalSpacing.zero,
+        VerticalSpacing.zero,
+        VerticalSpacing.zero,
         null,
       ),
       lists: DefaultListBlockStyle(
         textTheme.bodyLarge!,
-        zeroHorizontalSpacing,
-        zeroVerticalSpacing,
-        zeroVerticalSpacing,
+        HorizontalSpacing.zero,
+        VerticalSpacing.zero,
+        VerticalSpacing.zero,
         null,
         null,
       ),
       quote: DefaultTextBlockStyle(
         TextStyle(color: textTheme.bodyLarge!.color!.withOpacity(0.6)),
-        zeroHorizontalSpacing,
-        zeroVerticalSpacing,
-        zeroVerticalSpacing,
+        HorizontalSpacing.zero,
+        VerticalSpacing.zero,
+        VerticalSpacing.zero,
         BoxDecoration(
           border: Border(
             left: BorderSide(
@@ -351,9 +348,9 @@ class _InnerCanvasState extends State<InnerCanvas> {
       ),
       code: DefaultTextBlockStyle(
         GoogleFonts.firaMono(textStyle: textTheme.bodyLarge!),
-        zeroHorizontalSpacing,
+        HorizontalSpacing.zero,
         VerticalSpacing(-lineHeight * 0.16, lineHeight * 0.8),
-        zeroVerticalSpacing,
+        VerticalSpacing.zero,
         BoxDecoration(
           color: Colors.grey.withOpacity(0.2),
           borderRadius: BorderRadius.circular(3),
@@ -361,23 +358,23 @@ class _InnerCanvasState extends State<InnerCanvas> {
       ),
       indent: DefaultTextBlockStyle(
         textTheme.bodyLarge!,
-        zeroHorizontalSpacing,
-        zeroVerticalSpacing,
-        zeroVerticalSpacing,
+        HorizontalSpacing.zero,
+        VerticalSpacing.zero,
+        VerticalSpacing.zero,
         null,
       ),
       align: DefaultTextBlockStyle(
         textTheme.bodyLarge!,
-        zeroHorizontalSpacing,
-        zeroVerticalSpacing,
-        zeroVerticalSpacing,
+        HorizontalSpacing.zero,
+        VerticalSpacing.zero,
+        VerticalSpacing.zero,
         null,
       ),
       leading: DefaultTextBlockStyle(
         textTheme.bodyLarge!,
-        zeroHorizontalSpacing,
-        zeroVerticalSpacing,
-        zeroVerticalSpacing,
+        HorizontalSpacing.zero,
+        VerticalSpacing.zero,
+        VerticalSpacing.zero,
         null,
       ),
       sizeSmall: TextStyle(
