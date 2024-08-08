@@ -117,8 +117,10 @@ abstract class UpdateManager {
                   ? null
                   : () {
                       if (directDownloadLink != null) {
-                        _directlyDownloadUpdate(directDownloadLink)
-                            .then((_) => Navigator.pop(context));
+                        _directlyDownloadUpdate(directDownloadLink).then((_) {
+                          directDownloadStarted = false;
+                          if (context.mounted) setState(() {});
+                        });
                         setState(() => directDownloadStarted = true);
                       } else {
                         launchUrl(AppInfo.releasesUrl);
