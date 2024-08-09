@@ -1,5 +1,6 @@
 import 'dart:ui' as ui;
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 typedef ShaderBuilder = ui.FragmentShader? Function(ui.Image, Size);
@@ -31,6 +32,10 @@ class ShaderImage extends StatefulWidget {
 
   @override
   State<ShaderImage> createState() => _ShaderImageState();
+
+  /// Used in golden tests to replace FileImages with MemoryImages.
+  @visibleForTesting
+  static Map<ImageProvider, MemoryImage> imageSubstitutions = {};
 }
 
 class _ShaderImageState extends State<ShaderImage> {
@@ -49,14 +54,20 @@ class _ShaderImageState extends State<ShaderImage> {
   @override
   void didUpdateWidget(ShaderImage oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if (widget.image != oldWidget.image) {
+    if (substituteImage(widget.image) != substituteImage(oldWidget.image)) {
       _getImage();
     }
   }
 
+  static ImageProvider substituteImage(ImageProvider image) {
+    if (!kDebugMode) return image;
+    return ShaderImage.imageSubstitutions[image] ?? image;
+  }
+
   void _getImage() {
     final ImageStream? oldImageStream = _imageStream;
-    _imageStream = widget.image.resolve(createLocalImageConfiguration(context));
+    _imageStream = substituteImage(widget.image)
+        .resolve(createLocalImageConfiguration(context));
     if (_imageStream!.key != oldImageStream?.key) {
       // If the keys are the same, then we got the same image back, and so we don't
       // need to update the listeners. If the key changed, though, we must make sure

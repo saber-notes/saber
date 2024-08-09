@@ -25,10 +25,7 @@ class _VerticalNavbarState extends State<VerticalNavbar> {
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
-    final backgroundColor = Color.alphaBlend(
-      colorScheme.primary.withOpacity(0.05),
-      colorScheme.surface,
-    );
+    final backgroundColor = colorScheme.surfaceContainer;
 
     return DecoratedBox(
       decoration: BoxDecoration(

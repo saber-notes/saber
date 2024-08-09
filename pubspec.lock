@@ -647,6 +647,21 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "14.2.3"
+  golden_screenshot:
+    dependency: "direct dev"
+    description:
+      path: "../golden_screenshot"
+      relative: true
+    source: path
+    version: "1.0.2"
+  golden_toolkit:
+    dependency: transitive
+    description:
+      name: golden_toolkit
+      sha256: "8f74adab33154fe7b731395782797021f97d2edc52f7bfb85ff4f1b5c4a215f0"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.15.0"
   google_fonts:
     dependency: "direct main"
     description:
