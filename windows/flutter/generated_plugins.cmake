@@ -7,6 +7,7 @@ list(APPEND FLUTTER_PLUGIN_LIST
   dynamic_color
   flutter_secure_storage_windows
   irondash_engine_context
+  permission_handler_windows
   printing
   screen_retriever
   share_plus

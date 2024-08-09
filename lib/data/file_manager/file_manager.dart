@@ -2,17 +2,19 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:archive/archive_io.dart';
+import 'package:device_info_plus/device_info_plus.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
-import 'package:image_save/image_save.dart';
 import 'package:intl/intl.dart' show DateFormat;
 import 'package:logging/logging.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:saber/data/nextcloud/saber_syncer.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/editor/editor.dart';
+import 'package:saver_gallery/saver_gallery.dart';
 import 'package:share_plus/share_plus.dart';
 
 /// A collection of cross-platform utility functions for working with a virtual file system.
@@ -233,12 +235,17 @@ class FileManager {
 
     if (Platform.isAndroid || Platform.isIOS) {
       if (isImage) {
+        // request permission
+        final permissionGranted = await _requestPhotosPermission();
         // save image to gallery
-        await ImageSave.saveImage(
-          Uint8List.fromList(bytes),
-          fileName,
-          albumName: 'Saber',
-        );
+        if (permissionGranted) {
+          await SaverGallery.saveImage(
+            Uint8List.fromList(bytes),
+            name: fileName,
+            androidRelativePath: 'Pictures/Saber',
+            androidExistNotSave: true,
+          );
+        }
       } else {
         // share file
         tempFile = await getTempFile();
@@ -270,6 +277,23 @@ class FileManager {
 
     // delete temp file if it isn't null
     await tempFile?.delete();
+  }
+
+  static Future<bool> _requestPhotosPermission() async {
+    if (Platform.isIOS) {
+      return await Permission.photosAddOnly.request().isGranted;
+    } else if (!Platform.isAndroid) {
+      return true;
+    }
+
+    final sdkInt = await DeviceInfoPlugin()
+        .androidInfo
+        .then((info) => info.version.sdkInt);
+    if (sdkInt > 33) {
+      return await Permission.photos.request().isGranted;
+    } else {
+      return await Permission.storage.request().isGranted;
+    }
   }
 
   /// Moves a file from [fromPath] to [toPath], returning its final path.
