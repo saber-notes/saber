@@ -119,10 +119,10 @@ void _screenshot({
         await tester.loadFonts();
 
         await tester.pumpFrames(widget, const Duration(seconds: 1));
-        await expectLater(
-          find.byWidget(child),
-          matchesGoldenFile('${device.goldenFolder}$goldenFileName.png'),
-        );
+
+        await tester.expectScreenshot(matchesGoldenFile(
+          '${device.goldenFolder}$goldenFileName.png',
+        ));
 
         debugDisableShadows = true;
       });
