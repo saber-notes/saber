@@ -171,7 +171,7 @@ dev_dependencies:
 
   yaml: ^3.1.2
 
-  golden_screenshot: ^1.0.2
+  golden_screenshot: ^1.1.0
 
 dependency_overrides:
   # Because printing >=5.13.2 depends on web ^1.0.0 and share_plus 10.0.0 depends on web ^0.5.0, printing >=5.13.2 is incompatible with share_plus 10.0.0.
@@ -182,9 +182,6 @@ dependency_overrides:
     git:
       url: https://github.com/adil192/json2yaml
       ref: fix-string-ends-with-colon
-  
-  golden_screenshot:
-    path: ../golden_screenshot
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
