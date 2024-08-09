@@ -814,6 +814,8 @@ class _StringsEditorMenuEn {
 	String get deletePage => 'Delete page';
 	String get lineHeight => 'Line height';
 	String get lineHeightDescription => 'Also controls the text size for typed notes';
+	String get lineWeight => 'Line weight';
+	String get lineWeightDescription => 'Background line weight';
 	String get backgroundImageFit => 'Background image fit';
 	String get backgroundPattern => 'Background pattern';
 	String get import => 'Import';
