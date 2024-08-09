@@ -1040,10 +1040,10 @@ packages:
     dependency: "direct main"
     description:
       name: pdf
-      sha256: "81d5522bddc1ef5c28e8f0ee40b71708761753c163e0c93a40df56fd515ea0f0"
+      sha256: "05df53f8791587402493ac97b9869d3824eccbc77d97855f4545cf72df3cae07"
       url: "https://pub.dev"
     source: hosted
-    version: "3.11.0"
+    version: "3.11.1"
   pdf_widget_wrapper:
     dependency: transitive
     description:
@@ -1341,18 +1341,18 @@ packages:
     dependency: "direct main"
     description:
       name: super_clipboard
-      sha256: c72d2ae8c3a66b20a104523add86b7c2813b1d4cced893a9764b84fb97ac8e2a
+      sha256: "74098001413e075cc53dee72b68c32eaffc10709df41806800393abaa6dac9d5"
       url: "https://pub.dev"
     source: hosted
-    version: "0.8.18"
+    version: "0.8.19"
   super_native_extensions:
     dependency: transitive
     description:
       name: super_native_extensions
-      sha256: b03f19e54744b65940a7c2cb4f93abd4819b5355aa3464d7b3c9a013b6b76db1
+      sha256: c24676825c9f3ae844676a843d45ad186f2270539ffe72be4277753e46d14e29
       url: "https://pub.dev"
     source: hosted
-    version: "0.8.18"
+    version: "0.8.19"
   sync_http:
     dependency: transitive
     description:
