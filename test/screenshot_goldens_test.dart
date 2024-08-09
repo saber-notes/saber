@@ -46,19 +46,22 @@ void main() {
           ]),
         ]));
 
-    Prefs.recentFiles.value = [];
-    setUpAll(() => Future.wait(Directory('test/demo_notes/')
-            .listSync()
-            .whereType<File>()
-            .map((file) async {
-          /// The file name starting with a slash
-          final fileName = file.path.substring(file.path.lastIndexOf('/'));
-          if (fileName.endsWith('.sbn2') || fileName.endsWith('.sbn')) {
-            Prefs.recentFiles.value.add(fileName);
-          }
-          final bytes = await file.readAsBytes();
-          return FileManager.getFile(fileName).writeAsBytes(bytes);
-        })));
+    setUpAll(() async {
+      final recentFiles = <String>[];
+      await Future.wait(Directory('test/demo_notes/')
+          .listSync()
+          .whereType<File>()
+          .map((file) async {
+        /// The file name starting with a slash
+        final fileName = file.path.substring(file.path.lastIndexOf('/'));
+        if (fileName.endsWith('.sbn2') || fileName.endsWith('.sbn')) {
+          recentFiles.add(fileName);
+        }
+        final bytes = await file.readAsBytes();
+        return FileManager.getFile(fileName).writeAsBytes(bytes);
+      }));
+      Prefs.recentFiles.value = recentFiles..sort();
+    });
 
     final colorScheme = ColorScheme.fromSeed(
       seedColor: const Color(0xffdae2ff),
