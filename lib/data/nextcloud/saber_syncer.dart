@@ -392,7 +392,7 @@ class SaberSyncInterface
           path.lastIndexOf('/') + 1, path.length - encExtension.length);
     } else if (path.endsWith(NextcloudClientExtension.configFileUri.path)) {
       // Config file is a special case, it's not encrypted
-      return NextcloudClientExtension.configFileName;
+      return '/${NextcloudClientExtension.configFileName}';
     } else {
       log.info('remote file not in recognised encrypted format: $path');
       return null;
