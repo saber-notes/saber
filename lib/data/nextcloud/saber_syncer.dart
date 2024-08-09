@@ -329,7 +329,12 @@ class SaberSyncInterface
               davGetlastmodified: true,
             ),
           )
-          .then((multistatus) => multistatus.toWebDavFiles());
+          .then((multistatus) => multistatus
+              .toWebDavFiles()
+              // ignore root directory itself
+              .where((file) =>
+                  file.path.path != '${FileManager.appRootDirectoryPrefix}/')
+              .toList());
     } on DynamiteStatusCodeException catch (e, st) {
       if (e.statusCode == HttpStatus.notFound) {
         log.info('findRemoteFiles: Creating app directory', e);
