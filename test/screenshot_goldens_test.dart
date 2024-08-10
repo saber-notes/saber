@@ -12,6 +12,7 @@ import 'package:saber/components/home/banner_ad_widget.dart';
 import 'package:saber/components/home/syncing_button.dart';
 import 'package:saber/components/settings/app_info.dart';
 import 'package:saber/components/settings/nextcloud_profile.dart';
+import 'package:saber/components/theming/font_fallbacks.dart';
 import 'package:saber/components/theming/yaru_builder.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/flavor_config.dart';
@@ -59,6 +60,7 @@ void main() {
           InvertShader.init(),
           PencilShader.init(),
           GoogleFonts.pendingFonts([
+            GoogleFonts.inter(),
             GoogleFonts.neucha(),
             GoogleFonts.dekko(),
             GoogleFonts.firaMono(),
@@ -88,7 +90,7 @@ void main() {
     );
     final materialTheme = ThemeData(
       colorScheme: colorScheme,
-      textTheme: GoogleFonts.interTextTheme(),
+      textTheme: GoogleFonts.interTextTheme().withFallbacks(),
       scaffoldBackgroundColor: colorScheme.surface,
     );
     final yaruVariant = YaruBuilder.findClosestYaruVariant(colorScheme.primary);
