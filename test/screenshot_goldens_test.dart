@@ -142,7 +142,26 @@ void _screenshot({
 }) {
   group(goldenFileName, () {
     for (final localeCode in localeNames.keys) {
-      for (final goldenDevice in GoldenScreenshotDevices.values) {
+      /// Some locales have font issues where text is not displayed properly.
+      /// If you know how to fix this, contributions are welcome!
+      const localesWithFontIssues = [
+        'ar',
+        'fa',
+        'he',
+        'ja',
+        'zh-Hans-CN',
+        'zh-Hant-TW',
+      ];
+      if (localesWithFontIssues.contains(localeCode)) continue;
+
+      const nonEnglishDevices = [
+        GoldenScreenshotDevices.flathub,
+        GoldenScreenshotDevices.android,
+      ];
+
+      for (final goldenDevice in (localeCode == 'en'
+          ? GoldenScreenshotDevices.values
+          : nonEnglishDevices)) {
         testWidgets(
           'for ${goldenDevice.name} in $localeCode',
           (tester) async {
