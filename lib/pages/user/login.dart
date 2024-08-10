@@ -7,7 +7,13 @@ import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
 
 class NcLoginPage extends StatefulWidget {
-  const NcLoginPage({super.key});
+  const NcLoginPage({
+    super.key,
+    @visibleForTesting this.forceAppBarLeading = false,
+  });
+
+  /// Whether to force the AppBar to have a leading back button
+  final bool forceAppBarLeading;
 
   static final Uri signupUrl = Uri.parse(
       'https://nc.saber.adil.hanney.org/index.php/apps/registration/');
@@ -86,6 +92,12 @@ class _NcLoginPageState extends State<NcLoginPage> {
           LoginStep.done => t.profile.title,
           _ => t.login.title,
         }),
+        leading: widget.forceAppBarLeading
+            ? IconButton(
+                icon: const Icon(Icons.arrow_back),
+                onPressed: () => Navigator.of(context).pop(),
+              )
+            : null,
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(4),
           child: LinearProgressIndicator(

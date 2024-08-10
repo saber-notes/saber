@@ -17,6 +17,7 @@ import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/editor/editor.dart';
 import 'package:saber/pages/home/home.dart';
+import 'package:saber/pages/user/login.dart';
 import 'package:yaru/yaru.dart';
 
 import 'utils/test_mock_channel_handlers.dart';
@@ -94,6 +95,14 @@ void main() {
       goldenFileName: 'editor',
       child: Editor(
         path: '/Metric Spaces Week 1',
+      ),
+    );
+    _screenshot(
+      materialTheme: materialTheme,
+      yaruTheme: yaruTheme,
+      goldenFileName: 'login',
+      child: const NcLoginPage(
+        forceAppBarLeading: true,
       ),
     );
   });
