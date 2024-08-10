@@ -15,6 +15,7 @@ import 'package:saber/components/settings/nextcloud_profile.dart';
 import 'package:saber/components/theming/yaru_builder.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/flavor_config.dart';
+import 'package:saber/data/locales.dart';
 import 'package:saber/data/prefs.dart' hide Quota;
 import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/editor/editor.dart';
@@ -138,50 +139,66 @@ void _screenshot({
   required Widget child,
 }) {
   group(goldenFileName, () {
-    for (final device in ScreenshotDevice.values) {
-      testWidgets('for ${device.name}', (tester) async {
-        debugDisableShadows = false;
+    for (final localeCode in localeNames.keys) {
+      for (final goldenDevice in GoldenScreenshotDevices.values) {
+        testWidgets(
+          'for ${goldenDevice.name} in $localeCode',
+          (tester) async {
+            final device = goldenDevice.device;
+            LocaleSettings.setLocaleRaw(localeCode);
 
-        if (goldenFileName == '4_settings') {
-          NextcloudProfile.forceLoginStep = LoginStep.done;
-          addTearDown(() => NextcloudProfile.forceLoginStep = null);
-        }
+            debugDisableShadows = false;
 
-        final widget = ScreenshotApp(
-          theme: switch (device.platform) {
-            TargetPlatform.linux => yaruTheme.theme,
-            _ => materialTheme,
+            if (goldenFileName == '4_settings') {
+              NextcloudProfile.forceLoginStep = LoginStep.done;
+              addTearDown(() => NextcloudProfile.forceLoginStep = null);
+            }
+
+            final widget = ScreenshotApp(
+              theme: switch (device.platform) {
+                TargetPlatform.linux => yaruTheme.theme,
+                _ => materialTheme,
+              },
+              device: device,
+              frameColors: frameColors,
+              child: TranslationProvider(
+                child: child,
+              ),
+            );
+            await tester.pumpWidget(widget);
+
+            if (child is Editor) {
+              final editorState =
+                  tester.state<EditorState>(find.byType(Editor));
+              while (editorState.coreInfo.isEmpty) {
+                await tester.runAsync(
+                    () => Future.delayed(const Duration(milliseconds: 100)));
+              }
+              await tester.pump();
+            }
+
+            await tester.pump();
+            await tester.precacheImagesInWidgetTree();
+            await tester.precacheShaderImagesInWidgetTree();
+            await tester.precacheTopbarImages();
+            await tester.loadFonts();
+            await tester.pumpFrames(widget, const Duration(milliseconds: 100));
+
+            await tester.expectScreenshot(
+              device,
+              goldenFileName,
+              langCode: switch (localeCode) {
+                'en' => 'en-US',
+                _ => localeCode,
+              },
+            );
+
+            debugDisableShadows = true;
           },
-          device: device,
-          frameColors: frameColors,
-          child: TranslationProvider(
-            child: child,
-          ),
+          skip: localeCode != 'en' &&
+              !const bool.fromEnvironment('localize_screenshots'),
         );
-        await tester.pumpWidget(widget);
-
-        if (child is Editor) {
-          final editorState = tester.state<EditorState>(find.byType(Editor));
-          while (editorState.coreInfo.isEmpty) {
-            await tester.runAsync(
-                () => Future.delayed(const Duration(milliseconds: 100)));
-          }
-          await tester.pump();
-        }
-
-        await tester.pump();
-        await tester.precacheImagesInWidgetTree();
-        await tester.precacheShaderImagesInWidgetTree();
-        await tester.precacheTopbarImages();
-        await tester.loadFonts();
-        await tester.pumpFrames(widget, const Duration(milliseconds: 100));
-
-        await tester.expectScreenshot(matchesGoldenFile(
-          '${device.goldenFolder}$goldenFileName.png',
-        ));
-
-        debugDisableShadows = true;
-      });
+      }
     }
   });
 }
