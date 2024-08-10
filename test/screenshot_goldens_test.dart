@@ -14,6 +14,8 @@ import 'package:saber/components/theming/yaru_builder.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/flavor_config.dart';
 import 'package:saber/data/prefs.dart';
+import 'package:saber/i18n/strings.g.dart';
+import 'package:saber/pages/editor/editor.dart';
 import 'package:saber/pages/home/home.dart';
 import 'package:yaru/yaru.dart';
 
@@ -86,6 +88,14 @@ void main() {
       goldenFileName: 'home',
       child: const HomePage(subpage: HomePage.recentSubpage, path: ''),
     );
+    _screenshot(
+      materialTheme: materialTheme,
+      yaruTheme: yaruTheme,
+      goldenFileName: 'editor',
+      child: Editor(
+        path: '/Metric Spaces Week 1',
+      ),
+    );
   });
 }
 
@@ -108,17 +118,27 @@ void _screenshot({
           },
           device: device,
           frameColors: frameColors,
-          child: child,
+          child: TranslationProvider(
+            child: child,
+          ),
         );
         await tester.pumpWidget(widget);
-        await tester.pumpFrames(widget, const Duration(seconds: 1));
 
+        if (child is Editor) {
+          final editorState = tester.state<EditorState>(find.byType(Editor));
+          while (editorState.coreInfo.isEmpty) {
+            await tester.runAsync(
+                () => Future.delayed(const Duration(milliseconds: 100)));
+          }
+          await tester.pump();
+        }
+
+        await tester.pump();
         await tester.precacheImagesInWidgetTree();
         await tester.precacheShaderImagesInWidgetTree();
         await tester.precacheTopbarImages();
         await tester.loadFonts();
-
-        await tester.pumpFrames(widget, const Duration(seconds: 1));
+        await tester.pumpFrames(widget, const Duration(milliseconds: 100));
 
         await tester.expectScreenshot(matchesGoldenFile(
           '${device.goldenFolder}$goldenFileName.png',

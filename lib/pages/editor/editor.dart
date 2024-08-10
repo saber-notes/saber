@@ -2046,6 +2046,7 @@ class EditorState extends State<Editor> {
     })();
 
     DynamicMaterialApp.removeFullscreenListener(_setState);
+    PdfEditorImage.cancelCheckIfHighDpiNeeded();
 
     _delayedSaveTimer?.cancel();
     _watchServerTimer?.cancel();

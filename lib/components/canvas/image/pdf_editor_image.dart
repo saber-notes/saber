@@ -336,4 +336,9 @@ class PdfEditorImage extends EditorImage {
       ),
     );
   }
+
+  static void cancelCheckIfHighDpiNeeded() {
+    _checkIfHighDpiNeededDebounce?.cancel();
+    _checkIfHighDpiNeededDebounce = null;
+  }
 }
