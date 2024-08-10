@@ -101,13 +101,13 @@ void main() {
       frameColors: homeFrameColors,
       materialTheme: materialTheme,
       yaruTheme: yaruTheme,
-      goldenFileName: 'home',
+      goldenFileName: '1_home',
       child: const HomePage(subpage: HomePage.recentSubpage, path: ''),
     );
     _screenshot(
       materialTheme: materialTheme,
       yaruTheme: yaruTheme,
-      goldenFileName: 'editor',
+      goldenFileName: '2_editor',
       child: Editor(
         path: '/Metric Spaces Week 1',
       ),
@@ -115,7 +115,7 @@ void main() {
     _screenshot(
       materialTheme: materialTheme,
       yaruTheme: yaruTheme,
-      goldenFileName: 'login',
+      goldenFileName: '3_login',
       child: const NcLoginPage(
         forceAppBarLeading: true,
       ),
@@ -124,7 +124,7 @@ void main() {
       frameColors: homeFrameColors,
       materialTheme: materialTheme,
       yaruTheme: yaruTheme,
-      goldenFileName: 'settings',
+      goldenFileName: '4_settings',
       child: const HomePage(subpage: HomePage.settingsSubpage, path: ''),
     );
   });
@@ -142,7 +142,7 @@ void _screenshot({
       testWidgets('for ${device.name}', (tester) async {
         debugDisableShadows = false;
 
-        if (goldenFileName == 'settings') {
+        if (goldenFileName == '4_settings') {
           NextcloudProfile.forceLoginStep = LoginStep.done;
           addTearDown(() => NextcloudProfile.forceLoginStep = null);
         }
