@@ -21,6 +21,10 @@ class NextcloudProfile extends StatefulWidget {
 
   @override
   State<NextcloudProfile> createState() => _NextcloudProfileState();
+
+  /// If non-null, this will be used instead of the actual login state.
+  @visibleForTesting
+  static LoginStep? forceLoginStep;
 }
 
 class _NextcloudProfileState extends State<NextcloudProfile> {
@@ -50,7 +54,8 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
 
   @override
   Widget build(BuildContext context) {
-    final loginStep = NcLoginPage.getCurrentStep();
+    final loginStep =
+        NextcloudProfile.forceLoginStep ?? NcLoginPage.getCurrentStep();
     final heading = switch (loginStep) {
       LoginStep.waitingForPrefs => '',
       LoginStep.nc => t.login.status.loggedOut,
@@ -150,6 +155,9 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
   }
 
   static Future<Quota?> getStorageQuota() async {
+    if (NextcloudProfile.forceLoginStep != null)
+      return Prefs.lastStorageQuota.value;
+
     final client = NextcloudClientExtension.withSavedDetails();
     if (client == null) return null;
 

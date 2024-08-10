@@ -10,10 +10,12 @@ import 'package:saber/components/canvas/pencil_shader.dart';
 import 'package:saber/components/canvas/shader_image.dart';
 import 'package:saber/components/home/banner_ad_widget.dart';
 import 'package:saber/components/home/syncing_button.dart';
+import 'package:saber/components/settings/app_info.dart';
+import 'package:saber/components/settings/nextcloud_profile.dart';
 import 'package:saber/components/theming/yaru_builder.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/flavor_config.dart';
-import 'package:saber/data/prefs.dart';
+import 'package:saber/data/prefs.dart' hide Quota;
 import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/editor/editor.dart';
 import 'package:saber/pages/home/home.dart';
@@ -37,6 +39,19 @@ void main() {
     Prefs.init();
     AdState.init();
     SyncingButton.forceButtonActive = true;
+    AppInfo.showDebugMessage = false;
+
+    Prefs.username.value = 'myusername';
+
+    const quotaUsed = 17 * 1024 * 1024; // 17 MB
+    const quotaTotal = 5 * 1024 * 1024 * 1024; // 5 GB
+    Prefs.lastStorageQuota.value = Quota.fromJson({
+      'free': quotaTotal - quotaUsed,
+      'used': quotaUsed,
+      'total': quotaTotal,
+      'relative': quotaUsed / quotaTotal * 100,
+      'quota': quotaTotal,
+    });
 
     setUpAll(() => Future.wait([
           FileManager.init(),
@@ -105,6 +120,13 @@ void main() {
         forceAppBarLeading: true,
       ),
     );
+    _screenshot(
+      frameColors: homeFrameColors,
+      materialTheme: materialTheme,
+      yaruTheme: yaruTheme,
+      goldenFileName: 'settings',
+      child: const HomePage(subpage: HomePage.settingsSubpage, path: ''),
+    );
   });
 }
 
@@ -119,6 +141,11 @@ void _screenshot({
     for (final device in ScreenshotDevice.values) {
       testWidgets('for ${device.name}', (tester) async {
         debugDisableShadows = false;
+
+        if (goldenFileName == 'settings') {
+          NextcloudProfile.forceLoginStep = LoginStep.done;
+          addTearDown(() => NextcloudProfile.forceLoginStep = null);
+        }
 
         final widget = ScreenshotApp(
           theme: switch (device.platform) {
