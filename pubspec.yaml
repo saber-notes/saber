@@ -171,7 +171,7 @@ dev_dependencies:
 
   yaml: ^3.1.2
 
-  golden_screenshot: ^1.2.0
+  golden_screenshot: ^1.5.0
 
 dependency_overrides:
   # Because printing >=5.13.2 depends on web ^1.0.0 and share_plus 10.0.0 depends on web ^0.5.0, printing >=5.13.2 is incompatible with share_plus 10.0.0.
