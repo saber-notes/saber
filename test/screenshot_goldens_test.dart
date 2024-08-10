@@ -217,7 +217,7 @@ void _screenshot({
             debugDisableShadows = true;
           },
           skip: localeCode != 'en' &&
-              !const bool.fromEnvironment('localize_screenshots'),
+              !const bool.fromEnvironment('LOCALIZE_SCREENSHOTS'),
         );
       }
     }

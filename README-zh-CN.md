@@ -64,9 +64,10 @@ Saber 可以满足您整理笔记的一切需求。您可以随心所欲地创�
 <summary>轻按显示/隐藏屏幕截图</summary>
 
 <div>
-<img src="https://github.com/saber-notes/saber/raw/main/metadata/en-US/images/phoneScreenshots/home.png" width="250">
-<img src="https://github.com/saber-notes/saber/raw/main/metadata/en-US/images/phoneScreenshots/editor.png" width="250">
-<img src="https://github.com/saber-notes/saber/raw/main/metadata/en-US/images/phoneScreenshots/settings.png" width="250">
+<img src="https://github.com/saber-notes/saber/raw/main/metadata/en-US/images/phoneScreenshots/1_home.png" width="180">
+<img src="https://github.com/saber-notes/saber/raw/main/metadata/en-US/images/phoneScreenshots/2_editor.png" width="180">
+<img src="https://github.com/saber-notes/saber/raw/main/metadata/en-US/images/phoneScreenshots/3_login.png" width="180">
+<img src="https://github.com/saber-notes/saber/raw/main/metadata/en-US/images/phoneScreenshots/4_settings.png" width="180">
 </div>
 </details>
 

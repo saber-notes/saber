@@ -63,9 +63,10 @@ Saber具有使筆記井井有條所需的一切功能。在無限嵌套的資料
 <summary>點擊即可顯示/隱藏螢幕截圖</summary>
 
 <div>
-<img src="https://github.com/saber-notes/saber/raw/main/metadata/en-US/images/phoneScreenshots/home.png" width="250">
-<img src="https://github.com/saber-notes/saber/raw/main/metadata/en-US/images/phoneScreenshots/editor.png" width="250">
-<img src="https://github.com/saber-notes/saber/raw/main/metadata/en-US/images/phoneScreenshots/settings.png" width="250">
+<img src="https://github.com/saber-notes/saber/raw/main/metadata/en-US/images/phoneScreenshots/1_home.png" width="180">
+<img src="https://github.com/saber-notes/saber/raw/main/metadata/en-US/images/phoneScreenshots/2_editor.png" width="180">
+<img src="https://github.com/saber-notes/saber/raw/main/metadata/en-US/images/phoneScreenshots/3_login.png" width="180">
+<img src="https://github.com/saber-notes/saber/raw/main/metadata/en-US/images/phoneScreenshots/4_settings.png" width="180">
 </div>
 </details>
 

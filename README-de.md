@@ -61,9 +61,10 @@ Entdecke einen völlig neuen Weg um mit Saber deine Gedanken zu sammeln und zu o
 <summary>Klicken um Screenshots ein- oder auszublenden</summary>
 
 <div>
-<img src="https://github.com/saber-notes/saber/raw/main/metadata/en-US/images/phoneScreenshots/home.png" width="250">
-<img src="https://github.com/saber-notes/saber/raw/main/metadata/en-US/images/phoneScreenshots/editor.png" width="250">
-<img src="https://github.com/saber-notes/saber/raw/main/metadata/en-US/images/phoneScreenshots/settings.png" width="250">
+<img src="https://github.com/saber-notes/saber/raw/main/metadata/de/images/phoneScreenshots/1_home.png" width="180">
+<img src="https://github.com/saber-notes/saber/raw/main/metadata/de/images/phoneScreenshots/2_editor.png" width="180">
+<img src="https://github.com/saber-notes/saber/raw/main/metadata/de/images/phoneScreenshots/3_login.png" width="180">
+<img src="https://github.com/saber-notes/saber/raw/main/metadata/de/images/phoneScreenshots/4_settings.png" width="180">
 </div>
 </details>
 

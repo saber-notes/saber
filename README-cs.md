@@ -63,9 +63,10 @@ Objevte zcela nový způsob zaznamenávání a organizace vašich myšlenek s ap
 <summary>Klepněte pro zobrazení/skrytí snímků obrazovky</summary>
 
 <div>
-<img src="https://github.com/saber-notes/saber/raw/main/metadata/en-US/images/phoneScreenshots/home.png" width="250">
-<img src="https://github.com/saber-notes/saber/raw/main/metadata/en-US/images/phoneScreenshots/editor.png" width="250">
-<img src="https://github.com/saber-notes/saber/raw/main/metadata/en-US/images/phoneScreenshots/settings.png" width="250">
+<img src="https://github.com/saber-notes/saber/raw/main/metadata/cs/images/phoneScreenshots/1_home.png" width="180">
+<img src="https://github.com/saber-notes/saber/raw/main/metadata/cs/images/phoneScreenshots/2_editor.png" width="180">
+<img src="https://github.com/saber-notes/saber/raw/main/metadata/cs/images/phoneScreenshots/3_login.png" width="180">
+<img src="https://github.com/saber-notes/saber/raw/main/metadata/cs/images/phoneScreenshots/4_settings.png" width="180">
 </div>
 </details>
 
