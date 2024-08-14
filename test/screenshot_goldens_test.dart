@@ -140,6 +140,15 @@ void _screenshot({
   required String goldenFileName,
   required Widget child,
 }) {
+  const allScreenshots = bool.fromEnvironment('ALL_SCREENSHOTS');
+  final chosenLocaleCodes = allScreenshots ? localeNames.keys : const ['en'];
+  const chosenGoldenDevices = allScreenshots
+      ? GoldenScreenshotDevices.values
+      : [
+          GoldenScreenshotDevices.flathub,
+          GoldenScreenshotDevices.android,
+        ];
+
   group(goldenFileName, () {
     for (final localeCode in localeNames.keys) {
       /// Some locales have font issues where text is not displayed properly.
@@ -154,14 +163,7 @@ void _screenshot({
       ];
       if (localesWithFontIssues.contains(localeCode)) continue;
 
-      const nonEnglishDevices = [
-        GoldenScreenshotDevices.flathub,
-        GoldenScreenshotDevices.android,
-      ];
-
-      for (final goldenDevice in (localeCode == 'en'
-          ? GoldenScreenshotDevices.values
-          : nonEnglishDevices)) {
+      for (final goldenDevice in GoldenScreenshotDevices.values) {
         testWidgets(
           'for ${goldenDevice.name} in $localeCode',
           (tester) async {
@@ -216,8 +218,8 @@ void _screenshot({
 
             debugDisableShadows = true;
           },
-          skip: localeCode != 'en' &&
-              !const bool.fromEnvironment('LOCALIZE_SCREENSHOTS'),
+          skip: !chosenLocaleCodes.contains(localeCode) ||
+              !chosenGoldenDevices.contains(goldenDevice),
         );
       }
     }
