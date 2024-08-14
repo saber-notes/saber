@@ -47,6 +47,9 @@ jobs:
           distribution: 'microsoft'
           java-version: '17'
 
+      - name: Disable Flutter CLI animations
+        run: flutter config --no-cli-animations
+
       - run: flutter pub get
 
       - name: Build apk
@@ -129,6 +132,9 @@ jobs:
         with:
           distribution: 'microsoft'
           java-version: '17'
+
+      - name: Disable Flutter CLI animations
+        run: flutter config --no-cli-animations
 
       - run: flutter pub get
 

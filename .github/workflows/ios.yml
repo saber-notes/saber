@@ -67,6 +67,9 @@ jobs:
 
           xcode-project use-profiles
 
+      - name: Disable Flutter CLI animations
+        run: flutter config --no-cli-animations
+
       - run: flutter pub get
       - run: find . -name "Podfile" -execdir pod install \;
 
