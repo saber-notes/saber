@@ -43,6 +43,9 @@ jobs:
           cache: true
           cache-key: 'flutter-:os:-:channel:-:version:-:arch:'
 
+      - name: Disable Flutter CLI animations
+        run: flutter config --no-cli-animations
+
       - run: flutter pub get
 
       - name: Build Windows

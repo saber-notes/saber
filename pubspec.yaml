@@ -15,7 +15,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 0.24.4+24040
+version: 0.24.5+24050
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
@@ -86,7 +86,8 @@ dependencies:
 
   defer_pointer: ^0.0.2
 
-  image_save: ^5.0.0
+  permission_handler: ^11.3.1
+  saver_gallery: ^3.0.5
 
   animations: ^2.0.7
 
@@ -110,7 +111,7 @@ dependencies:
 
   path_drawing: ^1.0.1
 
-  printing: ^5.10.1
+  printing: ^5.13.2
 
   open_filex: ^4.3.2
 
@@ -131,7 +132,7 @@ dependencies:
 
   device_info_plus: ^10.0.1
 
-  yaru: ^4.0.0
+  yaru: ^5.0.0
 
   one_dollar_unistroke_recognizer: ^1.1.1
 
@@ -168,11 +169,14 @@ dev_dependencies:
 
   simplytranslate: ^2.0.1
 
-  auto_screenshot: ^0.0.2
-
   yaml: ^3.1.2
 
+  golden_screenshot: ^2.0.1
+
 dependency_overrides:
+  # Because printing >=5.13.2 depends on web ^1.0.0 and share_plus 10.0.0 depends on web ^0.5.0, printing >=5.13.2 is incompatible with share_plus 10.0.0.
+  web: ^1.0.0
+
   # https://github.com/alexei-sintotski/json2yaml/pull/30
   json2yaml:
     git:
@@ -247,26 +251,3 @@ icons_launcher:
     macos:
       enable: true
       image_path: "assets/icon/icon_macos.png"
-
-auto_screenshot:
-  bundle_id:
-    android: com.adilhanney.saber
-    ios: com.adilhanney.saber
-  devices:
-    - iPhone 8 Plus
-    - iPhone 14 Plus
-
-    - iPad Pro (12.9-inch) (2nd generation)
-    - iPad Pro (12.9-inch) (6th generation)
-
-    - Pixel_6_Pro_API_33
-    - Nexus_10_API_33
-  base_url:
-    android: https://saber.adil.hanney.org
-    ios: applinks://saber.adil.hanney.org
-  screenshot:
-    - home/recent
-    - edit?path=/Algebraic Structures 2 Week 1
-    - home/whiteboard
-    - home/settings
-    - login

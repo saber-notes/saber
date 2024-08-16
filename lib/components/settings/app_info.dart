@@ -22,9 +22,12 @@ class AppInfo extends StatelessWidget {
         'v$buildName',
         if (FlavorConfig.flavor.isNotEmpty) FlavorConfig.flavor,
         if (FlavorConfig.dirty) t.appInfo.dirty,
-        if (kDebugMode) t.appInfo.debug,
+        if (kDebugMode && showDebugMessage) t.appInfo.debug,
         '($buildNumber)',
       ].join(' ');
+
+  @visibleForTesting
+  static bool showDebugMessage = true;
 
   @override
   Widget build(BuildContext context) {

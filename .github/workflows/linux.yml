@@ -51,6 +51,9 @@ jobs:
           cache: true
           cache-key: 'flutter-:os:-:channel:-:version:-:arch:'
 
+      - name: Disable Flutter CLI animations
+        run: flutter config --no-cli-animations
+
       - run: flutter pub get
 
       - name: Build Linux (x86_64)
@@ -207,6 +210,9 @@ jobs:
 
             echo Removing proprietary dependencies
             ./patches/remove_proprietary_dependencies.sh
+
+            echo Disabling Flutter CLI animations
+            unsudo flutter config --no-cli-animations
 
             echo flutter pub get
             unsudo flutter pub get

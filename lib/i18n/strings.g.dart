@@ -2551,8 +2551,8 @@ class _StringsLoginNcLoginStepLoginFlowCs extends _StringsLoginNcLoginStepLoginF
 
 	// Translations
 	@override String get pleaseAuthorize => 'Autorizujte prosím aplikaci Saber k přístupu na váš Nextcloud účet';
-	@override String get followPrompts => 'Následujte prosím kroky ve webovém prohlížeči';
-	@override String get browserDidntOpen => 'Neotevřel se webový prohlížeč? Klepněte zde';
+	@override String get followPrompts => 'Následujte prosím kroky v rozhraní Nextcloud serveru';
+	@override String get browserDidntOpen => 'Neotevřela se přihlašovací stránka? Klepněte zde';
 }
 
 // Path: login.encLoginStep.encFaq.0
@@ -2706,8 +2706,8 @@ class _StringsSettingsDe extends _StringsSettingsEn {
 	];
 	@override late final _StringsSettingsResetDe reset = _StringsSettingsResetDe._(_root);
 	@override String get resyncEverything => 'Alles neu Synchronisieren';
-	@override late final _StringsSettingsCustomDataDirDe customDataDir = _StringsSettingsCustomDataDirDe._(_root);
 	@override String get openDataDir => 'Saber-Ordner öffnen';
+	@override late final _StringsSettingsCustomDataDirDe customDataDir = _StringsSettingsCustomDataDirDe._(_root);
 }
 
 // Path: login
@@ -2976,8 +2976,8 @@ class _StringsSettingsPrefLabelsDe extends _StringsSettingsPrefLabelsEn {
 	@override String get autosaveDelay => 'Verzögerung des automatischen Speicherns';
 	@override String get shapeRecognitionDelay => 'Verzögerung der Formerkennung';
 	@override String get autoStraightenLines => 'Linien automatisch begradigen';
+	@override String get customDataDir => 'Eigener Saber-Ordner';
 	@override String get pencilSoundSetting => 'Bleistiftgeräusch';
-	@override String get customDataDir => 'Benutzerdefiniertes Verzeichnis';
 }
 
 // Path: settings.prefDescriptions
@@ -3059,8 +3059,8 @@ class _StringsSettingsCustomDataDirDe extends _StringsSettingsCustomDataDirEn {
 	// Translations
 	@override String get cancel => 'Abbrechen';
 	@override String get select => 'Auswählen';
-	@override String get mustBeEmpty => 'Ausgewähltes Verzeichnis muss leer sein';
-	@override String get mustBeDoneSyncing => 'Stelle sicher, dass die Synchronisierung abgeschlossen ist, bevor du das Verzeichnis änderst';
+	@override String get mustBeEmpty => 'Ausgewählter Ordner muss leer sein';
+	@override String get mustBeDoneSyncing => 'Stelle sicher, dass die Synchronisierung abgeschlossen ist, bevor du den Ordner wechselst';
 }
 
 // Path: login.form
@@ -3381,8 +3381,8 @@ class _StringsLoginNcLoginStepLoginFlowDe extends _StringsLoginNcLoginStepLoginF
 
 	// Translations
 	@override String get pleaseAuthorize => 'Bitte gib Saber Zugriff auf dein Nextcloud Konto';
-	@override String get followPrompts => 'Bitte folge den Anweisungen in deinem Browser.';
-	@override String get browserDidntOpen => 'Browser hat sich nicht geöffnet? Klicke hier';
+	@override String get followPrompts => 'Bitte folge den Anweisungen in der Nextcloud-Oberfläche';
+	@override String get browserDidntOpen => 'Die Anmeldeseite hat sich nicht geöffnet? Klicke hier';
 }
 
 // Path: login.encLoginStep.encFaq.0
@@ -7675,8 +7675,8 @@ class _StringsSettingsIt extends _StringsSettingsEn {
 	];
 	@override late final _StringsSettingsResetIt reset = _StringsSettingsResetIt._(_root);
 	@override String get resyncEverything => 'Risincronizza tutto';
-	@override late final _StringsSettingsCustomDataDirIt customDataDir = _StringsSettingsCustomDataDirIt._(_root);
 	@override String get openDataDir => 'Apri cartella Saber';
+	@override late final _StringsSettingsCustomDataDirIt customDataDir = _StringsSettingsCustomDataDirIt._(_root);
 }
 
 // Path: login
@@ -7945,8 +7945,8 @@ class _StringsSettingsPrefLabelsIt extends _StringsSettingsPrefLabelsEn {
 	@override String get autosaveDelay => 'Ritardo di salvataggio automatico';
 	@override String get shapeRecognitionDelay => 'Ritardo nel riconoscimento della forma';
 	@override String get autoStraightenLines => 'Raddrizzamento automatico delle linee';
+	@override String get customDataDir => 'Cartella Saber personalizzata';
 	@override String get pencilSoundSetting => 'Effetto sonoro della matita';
-	@override String get customDataDir => 'Directory di dati personalizzata';
 }
 
 // Path: settings.prefDescriptions
@@ -8028,8 +8028,8 @@ class _StringsSettingsCustomDataDirIt extends _StringsSettingsCustomDataDirEn {
 	// Translations
 	@override String get cancel => 'Annulla';
 	@override String get select => 'Seleziona';
-	@override String get mustBeEmpty => 'La directory selezionata deve essere vuota';
-	@override String get mustBeDoneSyncing => 'Assicurati che la sincronizzazione sia completa prima di cambiare la directory';
+	@override String get mustBeEmpty => 'La cartella selezionata deve essere vuota';
+	@override String get mustBeDoneSyncing => 'Assicurati che la sincronizzazione sia completa prima di cambiare cartella';
 }
 
 // Path: login.form
@@ -10940,9 +10940,9 @@ class _StringsCommonTr extends _StringsCommonEn {
 	@override final _StringsTr _root; // ignore: unused_field
 
 	// Translations
+	@override String get done => 'Tamamlandı';
+	@override String get continueBtn => 'Devam';
 	@override String get cancel => 'İptal';
-	@override String get done => 'Tamamlamak';
-	@override String get continueBtn => 'Devam etmek';
 }
 
 // Path: home
@@ -10991,8 +10991,8 @@ class _StringsSettingsTr extends _StringsSettingsEn {
 	];
 	@override late final _StringsSettingsResetTr reset = _StringsSettingsResetTr._(_root);
 	@override String get resyncEverything => 'Her şeyi yeniden senkronize et';
-	@override late final _StringsSettingsCustomDataDirTr customDataDir = _StringsSettingsCustomDataDirTr._(_root);
 	@override String get openDataDir => 'Saber klasörünü aç';
+	@override late final _StringsSettingsCustomDataDirTr customDataDir = _StringsSettingsCustomDataDirTr._(_root);
 }
 
 // Path: login
@@ -11009,12 +11009,14 @@ class _StringsLoginTr extends _StringsLoginEn {
 		linkToSignup('Hesap oluşturmak için tıklayın'),
 		const TextSpan(text: '!'),
 	]);
+	@override TextSpan notYou({required InlineSpanBuilder undoLogin}) => TextSpan(children: [
+		const TextSpan(text: 'Siz değil misiniz? '),
+		undoLogin('Başka bir hesap seçin'),
+		const TextSpan(text: '.'),
+	]);
 	@override late final _StringsLoginStatusTr status = _StringsLoginStatusTr._(_root);
 	@override late final _StringsLoginNcLoginStepTr ncLoginStep = _StringsLoginNcLoginStepTr._(_root);
 	@override late final _StringsLoginEncLoginStepTr encLoginStep = _StringsLoginEncLoginStepTr._(_root);
-	@override TextSpan notYou({required InlineSpanBuilder undoLogin}) => TextSpan(children: [
-		undoLogin('Sen değil'),
-	]);
 }
 
 // Path: profile
@@ -11026,16 +11028,16 @@ class _StringsProfileTr extends _StringsProfileEn {
 	// Translations
 	@override String get title => 'Profilim';
 	@override String get logout => 'Çıkış yap';
+	@override String quotaUsage({required Object total, required Object used, required Object percent}) => 'Toplam ${total} alanın ${used} kadarını (${percent}%) kullandınız';
+	@override String get connectedTo => 'Bağlanılan sunucu';
 	@override late final _StringsProfileQuickLinksTr quickLinks = _StringsProfileQuickLinksTr._(_root);
+	@override String get faqTitle => 'Sıkça sorulan sorular';
 	@override List<dynamic> get faq => [
 		_StringsProfile$faq$0i0$Tr._(_root),
 		_StringsProfile$faq$0i1$Tr._(_root),
 		_StringsProfile$faq$0i2$Tr._(_root),
 		_StringsProfile$faq$0i3$Tr._(_root),
 	];
-	@override String quotaUsage({required Object total, required Object percent, required Object used}) => '${total} (${percent}%) değerinden ${used} miktarını kullanıyorsunuz';
-	@override String get connectedTo => 'Bağlı';
-	@override String get faqTitle => 'Sıkça Sorulan Sorular';
 }
 
 // Path: appInfo
@@ -11259,8 +11261,8 @@ class _StringsSettingsPrefLabelsTr extends _StringsSettingsPrefLabelsEn {
 	@override String get autosaveDelay => 'Otomatik kayıt aralığı';
 	@override String get shapeRecognitionDelay => 'Şekil tanıma gecikmesi';
 	@override String get autoStraightenLines => 'Çizgileri otomatik düzleştir';
-	@override String get pencilSoundSetting => 'Kalem ses efekti';
-	@override String get customDataDir => 'Özel veri dizini';
+	@override String get customDataDir => 'Özel Saber klasörü';
+	@override String get pencilSoundSetting => 'Kurşun kalem ses efekti';
 }
 
 // Path: settings.prefDescriptions
@@ -11340,10 +11342,10 @@ class _StringsSettingsCustomDataDirTr extends _StringsSettingsCustomDataDirEn {
 	@override final _StringsTr _root; // ignore: unused_field
 
 	// Translations
-	@override String get cancel => 'İptal etmek';
-	@override String get select => 'Seçme';
-	@override String get mustBeEmpty => 'Seçilen dizin boş olmalıdır';
-	@override String get mustBeDoneSyncing => 'Dizini değiştirmeden önce senkronizasyonun tamamlandığından emin olun';
+	@override String get cancel => 'İptal';
+	@override String get select => 'Seç';
+	@override String get mustBeEmpty => 'Seçilen klasör boş olmalı';
+	@override String get mustBeDoneSyncing => 'Klasörü değiştirmeden önce senkronizasyonun tamamlandığından emin olun';
 }
 
 // Path: login.form
@@ -11369,9 +11371,9 @@ class _StringsLoginStatusTr extends _StringsLoginStatusEn {
 	// Translations
 	@override String get loggedOut => 'Çıkış yapıldı';
 	@override String get tapToLogin => 'Nextcloud oturumu açmak için tıklayın';
-	@override String get loggedIn => 'Nextcloud\'a giriş yapıldı';
 	@override String hi({required Object u}) => 'Merhaba, ${u}!';
-	@override String get almostDone => 'Senkronizasyon için neredeyse hazır; oturum açmayı tamamlamak için dokunun';
+	@override String get almostDone => 'Senkronizasyona hazırız, giriş yapmayı tamamlamak için tıklayın';
+	@override String get loggedIn => 'Nextcloud\'a giriş yapıldı';
 }
 
 // Path: login.ncLoginStep
@@ -11381,13 +11383,13 @@ class _StringsLoginNcLoginStepTr extends _StringsLoginNcLoginStepEn {
 	@override final _StringsTr _root; // ignore: unused_field
 
 	// Translations
-	@override late final _StringsLoginNcLoginStepLoginFlowTr loginFlow = _StringsLoginNcLoginStepLoginFlowTr._(_root);
 	@override String get whereToStoreData => 'Verilerinizi nerede saklamak istediğinizi seçin:';
-	@override String get saberNcServer => 'Saber\'nin Nextcloud sunucusu';
+	@override String get saberNcServer => 'Saber\'ın resmi Nextcloud sunucus';
 	@override String get otherNcServer => 'Diğer Nextcloud sunucusu';
-	@override String get serverUrl => 'Sunucu URL\'si';
+	@override String get serverUrl => 'Sunucu URL\'i';
 	@override String get loginWithSaber => 'Saber ile giriş yap';
-	@override String get loginWithNextcloud => 'Nextcloud\'a giriş yapın';
+	@override String get loginWithNextcloud => 'Nextcloud ile giriş yap';
+	@override late final _StringsLoginNcLoginStepLoginFlowTr loginFlow = _StringsLoginNcLoginStepLoginFlowTr._(_root);
 }
 
 // Path: login.encLoginStep
@@ -11397,12 +11399,12 @@ class _StringsLoginEncLoginStepTr extends _StringsLoginEncLoginStepEn {
 	@override final _StringsTr _root; // ignore: unused_field
 
 	// Translations
-	@override String get enterEncPassword => 'Verilerinizi korumak için lütfen şifreleme şifrenizi girin:';
-	@override String get newToSaber => 'Saber\'da yeni';
-	@override String get encPassword => 'Şifreleme şifresi';
-	@override String get encFaqTitle => 'Sıkça Sorulan Sorular';
-	@override String get wrongEncPassword => 'Sağlanan parolayla şifre çözme başarısız oldu. Lütfen tekrar girmeyi deneyin.';
-	@override String get connectionFailed => 'Sunucuya bağlanırken bir şeyler ters gitti. Lütfen daha sonra tekrar deneyiniz.';
+	@override String get enterEncPassword => 'Verilerinizi korumak için lütfen şifreleme parolanızı girin:';
+	@override String get newToSaber => 'Saber\'da ilk seferiniz mi? Yeni bir şifreleme parolası girin.';
+	@override String get encPassword => 'Şifreleme parolası';
+	@override String get encFaqTitle => 'Sıkça sorulan sorular';
+	@override String get wrongEncPassword => 'Verilen parola ile şifre çözülemedi. Lütfen parolayı tekrar girin.';
+	@override String get connectionFailed => 'Sunucuya bağlanılamadı. Lütfen daha sonra tekrar deneyin.';
 	@override List<dynamic> get encFaq => [
 		_StringsLoginEncLoginStep$encFaq$0i0$Tr._(_root),
 		_StringsLoginEncLoginStep$encFaq$0i1$Tr._(_root),
@@ -11584,14 +11586,14 @@ class _StringsEditorMenuTr extends _StringsEditorMenuEn {
 	@override String get duplicatePage => 'Sayfayı çoğalt';
 	@override String get deletePage => 'Sayfayı sil';
 	@override String get lineHeight => 'Satır aralığı';
+	@override String get lineHeightDescription => 'Klavye girişi olan notların metin boyutunu da kontrol eder';
 	@override String get backgroundImageFit => 'Arkaplan görüntüsünü sığdır';
 	@override String get backgroundPattern => 'Arkaplan deseni';
 	@override String get import => 'İçe aktar';
+	@override String get watchServer => 'Sunucudaki değişiklikleri izle';
+	@override String get watchServerReadOnly => 'Sunucu izlenirken düzenleme yapılamaz';
 	@override late final _StringsEditorMenuBoxFitsTr boxFits = _StringsEditorMenuBoxFitsTr._(_root);
 	@override late final _StringsEditorMenuBgPatternsTr bgPatterns = _StringsEditorMenuBgPatternsTr._(_root);
-	@override String get watchServer => 'Sunucudaki güncellemeleri izleyin';
-	@override String get watchServerReadOnly => 'Sunucuyu izlerken düzenleme devre dışı bırakıldı';
-	@override String get lineHeightDescription => 'Ayrıca yazılan notların metin boyutunu da kontrol eder';
 }
 
 // Path: editor.newerFileFormat
@@ -11652,8 +11654,8 @@ class _StringsSettingsPrefDescriptionsPencilSoundSettingTr extends _StringsSetti
 
 	// Translations
 	@override String get off => 'Ses yok';
-	@override String get onButNotInSilentMode => 'Etkin (sessiz modda olmadığı sürece)';
-	@override String get onAlways => 'Etkin (sessiz modda bile)';
+	@override String get onButNotInSilentMode => 'Etkin (sessiz modda değilse)';
+	@override String get onAlways => 'Etkin (sessiz modda da)';
 }
 
 // Path: login.ncLoginStep.loginFlow
@@ -11663,9 +11665,9 @@ class _StringsLoginNcLoginStepLoginFlowTr extends _StringsLoginNcLoginStepLoginF
 	@override final _StringsTr _root; // ignore: unused_field
 
 	// Translations
-	@override String get pleaseAuthorize => 'Lütfen Saber\'a Nextcloud hesabınıza erişmesi için yetki verin';
-	@override String get followPrompts => 'Lütfen tarayıcınızdaki talimatları izleyin.';
-	@override String get browserDidntOpen => 'Tarayıcı açılmadı';
+	@override String get pleaseAuthorize => 'Lütfen Saber\'ın Nextcloud hesabınıza erişmesine izin verin';
+	@override String get followPrompts => 'Lütfen Nextcloud arayüzündeki aşamaları takip edin';
+	@override String get browserDidntOpen => 'Giriş sayfası açılmadıysa buraya tıklayın';
 }
 
 // Path: login.encLoginStep.encFaq.0
@@ -11675,8 +11677,8 @@ class _StringsLoginEncLoginStep$encFaq$0i0$Tr extends _StringsLoginEncLoginStep$
 	@override final _StringsTr _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Şifreleme parolası nedir?';
-	@override String get a => 'Şifreleme parolası, verilerinizin sunucuya yollanmadan önce şifrelenmesinde kullanılıyor. Saber\'a ilk defa giriş yaptığınızda bu parolayı ayarlayabilirsiniz ve bu parola Nextcloud hesabınız/parolanız ile alakalı değildir.\nŞifreleme parolanız olmadan sunucudaki notlarınıza kimse erişemez. Dolayısıyla eğer şifreleme parolanızı unutursanız verilerinize erişimi de kaybedersiniz.';
+	@override String get q => 'Şifreleme parolası nedir? Neden iki parola kullanıyorum?';
+	@override String get a => 'Nextcloud parolası bulutta oturum açmak için kullanılıyor. Şifreleme parolası ise verilerinizi buluta aktarmadan önce gizlemek için kullanılıyor.\nEğer birisi Nextcloud hesabınızı ele geçirseydi bile notlarınız güvenli ve şifreli kalmaya devam edecekti. Böylece ikinci bir güvenlik katmanı sağlamış oluyoruz.\nBuluttaki verilerinize, şifreleme parolası olmayan kimse erişemez; dolayısıyla bu parolayı kaybetmeniz durumunda siz de erişemezsiniz.';
 }
 
 // Path: login.encLoginStep.encFaq.1
@@ -11686,8 +11688,8 @@ class _StringsLoginEncLoginStep$encFaq$0i1$Tr extends _StringsLoginEncLoginStep$
 	@override final _StringsTr _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Neden iki şifre kullanılıyor?';
-	@override String get a => 'Nextcloud parolası bulut sunucuya erişmek için kullanılıyor. Şifreleme parolası, verilerinizin bulut sunucuya yollanmadan önce "karmaşıklaştırılması"nı sağlıyor.\nHerhangi birisi Nextcloud hesabınıza erişebilseydi bile, farklı bir şifreleme parolası kullandığınız için notlarınızı okuyamazdı. Böylece verilerinizin korunması için ikinci bir katman oluşuyor.';
+	@override String get q => 'Henüz bir şifreleme parolası belirlemedim. Nereden alacağım?';
+	@override String get a => 'Yeni bir şifreleme parolası belirleyip yukarıya yazın.\nSaber şifreleme anahtarını bu parolayı kullanarak üretecek.';
 }
 
 // Path: login.encLoginStep.encFaq.2
@@ -11697,8 +11699,8 @@ class _StringsLoginEncLoginStep$encFaq$0i2$Tr extends _StringsLoginEncLoginStep$
 	@override final _StringsTr _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Her ikisi için de aynı parolayı kullanabilir miyim?';
-	@override String get a => 'Evet ancak bu daha az güvenlidir. Nextcloud parolanız sunucuya gönderildiğinden, sunucuya erişimi olan birisi notlarınızın şifresini de çözebilir. Yalnızca sunucu sahibine güveniyorsanız aynı şifreyi kullanın.';
+	@override String get q => 'Nextcloud parolamla şifreleme parolam aynı olabilir mi?';
+	@override String get a => 'Evet fakat unutmayın ki bu durumda Nextcloud parolanıza sahip herhangi birisi notlarınıza da erişebilir.';
 }
 
 // Path: editor.menu.boxFits
@@ -12647,8 +12649,8 @@ class _StringsSettingsZhHantTw extends _StringsSettingsEn {
 	];
 	@override late final _StringsSettingsResetZhHantTw reset = _StringsSettingsResetZhHantTw._(_root);
 	@override String get resyncEverything => '全部重新同步';
+	@override String get openDataDir => '開啟 Saber 資料夾';
 	@override late final _StringsSettingsCustomDataDirZhHantTw customDataDir = _StringsSettingsCustomDataDirZhHantTw._(_root);
-	@override String get openDataDir => '開啟Saber資料夾';
 }
 
 // Path: login
@@ -12917,8 +12919,8 @@ class _StringsSettingsPrefLabelsZhHantTw extends _StringsSettingsPrefLabelsEn {
 	@override String get autosaveDelay => '自動儲存延遲';
 	@override String get shapeRecognitionDelay => '形狀識別延遲';
 	@override String get autoStraightenLines => '自動拉直線條';
+	@override String get customDataDir => '自訂 Saber 資料夾';
 	@override String get pencilSoundSetting => '筆的音效';
-	@override String get customDataDir => '自訂資料目錄';
 }
 
 // Path: settings.prefDescriptions
@@ -13000,8 +13002,8 @@ class _StringsSettingsCustomDataDirZhHantTw extends _StringsSettingsCustomDataDi
 	// Translations
 	@override String get cancel => '取消';
 	@override String get select => '選擇';
-	@override String get mustBeEmpty => '所選目錄必須是空的';
-	@override String get mustBeDoneSyncing => '更改目錄之前請確保同步已完成';
+	@override String get mustBeEmpty => '選擇的資料夾必須是空的';
+	@override String get mustBeDoneSyncing => '更改資料夾之前確保同步已完成';
 }
 
 // Path: login.form
@@ -13322,8 +13324,8 @@ class _StringsLoginNcLoginStepLoginFlowZhHantTw extends _StringsLoginNcLoginStep
 
 	// Translations
 	@override String get pleaseAuthorize => '請授權 Saber 存取您的 Nextcloud 帳號';
-	@override String get followPrompts => '請按照瀏覽器中的提示進行操作。';
-	@override String get browserDidntOpen => '瀏覽器沒打開？點擊這裡';
+	@override String get followPrompts => '請依照 Nextcloud 介面的提示進行操作';
+	@override String get browserDidntOpen => '登入頁面打不開？點擊這裡';
 }
 
 // Path: login.encLoginStep.encFaq.0

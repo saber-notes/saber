@@ -11,6 +11,10 @@ class SyncingButton extends StatefulWidget {
 
   @override
   State<SyncingButton> createState() => _SyncingButtonState();
+
+  /// Whether to force the button to look tappable (for screenshots).
+  @visibleForTesting
+  static bool forceButtonActive = false;
 }
 
 class _SyncingButtonState extends State<SyncingButton> {
@@ -76,7 +80,11 @@ class _SyncingButtonState extends State<SyncingButton> {
     double? percentage = getPercentage();
 
     return IconButton(
-      onPressed: Prefs.loggedIn ? onPressed : null,
+      onPressed: Prefs.loggedIn
+          ? onPressed
+          : SyncingButton.forceButtonActive
+              ? () {}
+              : null,
       icon: Stack(
         alignment: Alignment.center,
         children: [

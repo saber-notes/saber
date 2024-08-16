@@ -329,7 +329,12 @@ class SaberSyncInterface
               davGetlastmodified: true,
             ),
           )
-          .then((multistatus) => multistatus.toWebDavFiles());
+          .then((multistatus) => multistatus
+              .toWebDavFiles()
+              // ignore root directory itself
+              .where((file) =>
+                  file.path.path != '${FileManager.appRootDirectoryPrefix}/')
+              .toList());
     } on DynamiteStatusCodeException catch (e, st) {
       if (e.statusCode == HttpStatus.notFound) {
         log.info('findRemoteFiles: Creating app directory', e);
@@ -392,7 +397,7 @@ class SaberSyncInterface
           path.lastIndexOf('/') + 1, path.length - encExtension.length);
     } else if (path.endsWith(NextcloudClientExtension.configFileUri.path)) {
       // Config file is a special case, it's not encrypted
-      return NextcloudClientExtension.configFileName;
+      return '/${NextcloudClientExtension.configFileName}';
     } else {
       log.info('remote file not in recognised encrypted format: $path');
       return null;

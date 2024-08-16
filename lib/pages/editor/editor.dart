@@ -1619,7 +1619,7 @@ class EditorState extends State<Editor> {
         // don't allow user to go back until saving is done
         return PopScope(
           canPop: savingState == SavingState.saved,
-          onPopInvoked: (didPop) {
+          onPopInvokedWithResult: (didPop, _) {
             switch (savingState) {
               case SavingState.waitingToSave:
                 assert(!didPop);
@@ -2046,6 +2046,7 @@ class EditorState extends State<Editor> {
     })();
 
     DynamicMaterialApp.removeFullscreenListener(_setState);
+    PdfEditorImage.cancelCheckIfHighDpiNeeded();
 
     _delayedSaveTimer?.cancel();
     _watchServerTimer?.cancel();
