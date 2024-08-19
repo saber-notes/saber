@@ -141,9 +141,9 @@ cs:
 de:
   settings:
     prefLabels:
-      simplifiedHomeLayout(OUTDATED): Simplified home layout
+      simplifiedHomeLayout(OUTDATED): Vereinfachtes Startbildschirmlayout
     prefDescriptions:
-      simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
+      simplifiedHomeLayout(OUTDATED): Legt eine feste Höhe für jede Notizvorschau fest
 es:
   common:
     done(OUTDATED): Done
