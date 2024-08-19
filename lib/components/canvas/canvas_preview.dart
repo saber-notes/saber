@@ -41,9 +41,8 @@ class CanvasPreview extends StatelessWidget {
       future: future,
       builder: (context, snapshot) {
         final data = snapshot.data;
-        if (data == null) {
-          return const CircularProgressIndicator.adaptive();
-        }
+        if (data == null) return const Icon(Icons.note, size: 48);
+
         return CanvasPreview(
           key: key,
           coreInfo: data.$1,

@@ -161,10 +161,12 @@ class _PreviewCardState extends State<PreviewCard> {
                       ),
                     ],
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(8),
-                    child: Text(widget.filePath
-                        .substring(widget.filePath.lastIndexOf('/') + 1)),
+                  Center(
+                    child: Padding(
+                      padding: const EdgeInsets.all(8),
+                      child: Text(widget.filePath
+                          .substring(widget.filePath.lastIndexOf('/') + 1)),
+                    ),
                   ),
                 ],
               ),
