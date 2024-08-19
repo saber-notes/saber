@@ -112,6 +112,7 @@ class _PreviewCardState extends State<PreviewCard> {
                                   image: thumbnail.image!,
                                 )
                               : FittedBox(
+                                  alignment: Alignment.topCenter,
                                   child: ClipRect(
                                     child: CanvasPreview.fromFile(
                                       key: ValueKey(

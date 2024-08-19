@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:saber/components/home/preview_card.dart';
 import 'package:saber/data/extensions/change_notifier_extensions.dart';
+import 'package:saber/data/prefs.dart';
 
 class MasonryFiles extends StatefulWidget {
   const MasonryFiles({
@@ -32,36 +33,51 @@ class _MasonryFilesState extends State<MasonryFiles> {
     widget.selectedFiles.notifyListenersPlease();
   }
 
+  Widget itemBuilder(context, index) {
+    if (index >= widget.files.length) {
+      return const SizedBox.shrink();
+    }
+
+    final file = widget.files[index];
+    return ValueListenableBuilder(
+      valueListenable: isAnythingSelected,
+      builder: (context, isAnythingSelected, _) {
+        return PreviewCard(
+          filePath: file,
+          toggleSelection: toggleSelection,
+          selected: widget.selectedFiles.value.contains(file),
+          isAnythingSelected: isAnythingSelected,
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     isAnythingSelected.value = widget.selectedFiles.value.isNotEmpty;
 
     return SliverPadding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-      sliver: SliverMasonryGrid.count(
-        childCount: widget.files.length,
-        crossAxisCount: widget.crossAxisCount,
-        mainAxisSpacing: 8,
-        crossAxisSpacing: 8,
-        itemBuilder: (context, index) {
-          if (index >= widget.files.length) {
-            return const SizedBox.shrink();
-          }
-
-          final file = widget.files[index];
-          return ValueListenableBuilder(
-            valueListenable: isAnythingSelected,
-            builder: (context, isAnythingSelected, _) {
-              return PreviewCard(
-                filePath: file,
-                toggleSelection: toggleSelection,
-                selected: widget.selectedFiles.value.contains(file),
-                isAnythingSelected: isAnythingSelected,
-              );
-            },
-          );
-        },
-      ),
+      sliver: Prefs.simplifiedHomeLayout.value
+          ? SliverGrid.builder(
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: widget.crossAxisCount,
+                mainAxisSpacing: 8,
+                crossAxisSpacing: 8,
+                // This aspect ratio was chosen to fit an A4 page and
+                // two lines for the title.
+                childAspectRatio: 0.60,
+              ),
+              itemCount: widget.files.length,
+              itemBuilder: itemBuilder,
+            )
+          : SliverMasonryGrid.count(
+              crossAxisCount: widget.crossAxisCount,
+              mainAxisSpacing: 8,
+              crossAxisSpacing: 8,
+              childCount: widget.files.length,
+              itemBuilder: itemBuilder,
+            ),
     );
   }
 }

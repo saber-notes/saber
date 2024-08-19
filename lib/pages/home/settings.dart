@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:material_symbols_icons/symbols.dart';
 import 'package:saber/components/home/banner_ad_widget.dart';
 import 'package:saber/components/navbar/responsive_navbar.dart';
 import 'package:saber/components/settings/app_info.dart';
@@ -506,6 +507,13 @@ class _SettingsPageState extends State<SettingsPage> {
                 subtitle: t.settings.prefDescriptions.autoStraightenLines,
                 icon: Icons.straighten,
                 pref: Prefs.autoStraightenLines,
+              ),
+              SettingsSwitch(
+                title: t.settings.prefLabels.simplifiedHomeLayout,
+                subtitle: t.settings.prefDescriptions.simplifiedHomeLayout,
+                iconBuilder: (simplified) =>
+                    simplified ? Icons.grid_view : Symbols.browse,
+                pref: Prefs.simplifiedHomeLayout,
               ),
               SettingsSubtitle(subtitle: t.settings.prefCategories.advanced),
               if (Platform.isAndroid)
