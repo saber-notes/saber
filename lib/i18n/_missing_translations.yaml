@@ -140,9 +140,9 @@ ar:
 cs:
   settings:
     prefLabels:
-      simplifiedHomeLayout(OUTDATED): Simplified home layout
+      simplifiedHomeLayout(OUTDATED): Zjednodušené rozložení domovské obrazovky
     prefDescriptions:
-      simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
+      simplifiedHomeLayout(OUTDATED): Nastaví pevnou výšku pro každý náhled poznámky
 de:
   settings:
     prefLabels:
