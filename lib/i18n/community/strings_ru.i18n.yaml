@@ -95,6 +95,7 @@ settings:
     autosaveDelay: Задержка автосохранения
     shapeRecognitionDelay: Задержка распознавания формы
     autoStraightenLines: Автоматическое выпрямление линий
+    simplifiedHomeLayout(OUTDATED): Упрощенная планировка дома
     pencilSoundSetting: Звуковой эффект карандаша
     customDataDir(OUTDATED): Свой каталог для данных
   prefDescriptions:
@@ -115,6 +116,7 @@ settings:
     autosaveDelay: Время ожидания до автосохранения заметки
     shapeRecognitionDelay: Как часто обновлять предварительный просмотр формы
     autoStraightenLines: Выпрямляет длинные линии без использования фигурного пера
+    simplifiedHomeLayout(OUTDATED): Устанавливает фиксированную высоту для каждого предварительного просмотра заметки
     shouldAlwaysAlertForUpdates: "Сообщать мне об обновлениях, как только они станут доступны"
     pencilSoundSetting:
       off: Без звука

@@ -95,6 +95,7 @@ settings:
     autosaveDelay: Verzögerung des automatischen Speicherns
     shapeRecognitionDelay: Verzögerung der Formerkennung
     autoStraightenLines: Linien automatisch begradigen
+    simplifiedHomeLayout(OUTDATED): Vereinfachtes Home-Layout
     customDataDir: Eigener Saber-Ordner
     pencilSoundSetting: Bleistiftgeräusch
   prefDescriptions:
@@ -115,6 +116,7 @@ settings:
     autosaveDelay: Verzögerung des automatischen Speicherns einer Notiz
     shapeRecognitionDelay: Häufigkeit der Aktualisierung der Form-Vorschau
     autoStraightenLines: Lange Linien selbst ohne Form-Stift begradigen
+    simplifiedHomeLayout(OUTDATED): Legt eine feste Höhe für jede Notizvorschau fest
     shouldAlwaysAlertForUpdates: Über neue Updates informiert bleiben
     pencilSoundSetting:
       off: Kein Geräusch

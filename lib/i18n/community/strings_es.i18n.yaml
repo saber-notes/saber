@@ -93,6 +93,7 @@ settings:
     recentColorsLength: Número de colores recientes a almacenar
     printPageIndicators: Indicadores de página de impresión
     autosaveDelay: Retardo en el autoguardado
+    simplifiedHomeLayout(OUTDATED): Disposición simplificada de la casa
     pencilSoundSetting(OUTDATED): Efecto de sonido de lápiz
     customDataDir(OUTDATED): Directorio de datos personalizado
     autoStraightenLines(OUTDATED): Líneas de enderezamiento automático
@@ -113,6 +114,7 @@ settings:
     hideHomeBackgrounds: Para una vista más limpia
     printPageIndicators: Mostrar indicadores de página en las exportaciones
     autosaveDelay: Cuánto esperar antes de autoguardar una nota
+    simplifiedHomeLayout(OUTDATED): Establece una altura fija para cada vista previa de nota
     shouldAlwaysAlertForUpdates: Avísame sobre actualizaciones tan pronto como estén disponibles
     pencilSoundSetting:
       off(OUTDATED): Sin sonido

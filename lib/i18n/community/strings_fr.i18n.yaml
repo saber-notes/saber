@@ -94,6 +94,7 @@ settings:
     printPageIndicators: Imprimer les numéros de pages
     autosaveDelay: Délai entre les sauvegardes automatiques
     shapeRecognitionDelay: Délai de reconnaissance de forme
+    simplifiedHomeLayout(OUTDATED): Aménagement d'une maison simplifié
     pencilSoundSetting(OUTDATED): Effet sonore de crayon
     customDataDir(OUTDATED): Répertoire de données personnalisé
     autoStraightenLines(OUTDATED): Redresser automatiquement les lignes
@@ -114,6 +115,7 @@ settings:
     printPageIndicators: Montrer les numéros de pages dans les exportations
     autosaveDelay: Combien de temps attendre avant de sauvegarder automatiquement une note
     shapeRecognitionDelay: Avec quelle fréquence mettre à jour la prévisualisation de forme
+    simplifiedHomeLayout(OUTDATED): Définit une hauteur fixe pour chaque aperçu de note
     shouldAlwaysAlertForUpdates: Me prévenir dès qu'une mise à jour est disponible
     pencilSoundSetting:
       off(OUTDATED): Pas de son

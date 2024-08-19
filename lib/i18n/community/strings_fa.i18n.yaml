@@ -94,6 +94,7 @@ settings:
     printPageIndicators: چاپ نشانگرهای صفحه
     autosaveDelay: تأخیر ذخیره خودکار
     shapeRecognitionDelay: تاخیر در تشخیص شکل
+    simplifiedHomeLayout(OUTDATED): چیدمان خانه ساده شده
     pencilSoundSetting(OUTDATED): جلوه صدای مداد
     customDataDir(OUTDATED): دایرکتوری داده های سفارشی
     autoStraightenLines(OUTDATED): صاف کردن خودکار خطوط
@@ -114,6 +115,7 @@ settings:
     printPageIndicators: نمایش نشانگرهای صفحه در خروجی
     autosaveDelay: چه مدت باید قبل از ذخیره خودکار یادداشت صبر کرد
     shapeRecognitionDelay: به روز رسانی پیشنمایش شکل چند وقت یکبار انجام شود
+    simplifiedHomeLayout(OUTDATED): یک ارتفاع ثابت برای پیش نمایش هر یادداشت تنظیم می کند
     shouldAlwaysAlertForUpdates: به محض اینکه به‌روزرسانی‌ها در دسترس هستند، به من بگویید
     pencilSoundSetting:
       onAlways(OUTDATED): فعال (حتی در حالت بی صدا)

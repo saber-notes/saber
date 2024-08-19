@@ -92,6 +92,7 @@ settings:
     recentColorsDontSavePresets: אל תשמור צבעים מוגדרים מראש בצבעים אחרונים
     printPageIndicators: הדפסת עמודים מחוונים
     autosaveDelay: השהיית שמירה אוטומטית
+    simplifiedHomeLayout(OUTDATED): פריסת בית פשוטה
     pencilSoundSetting(OUTDATED): אפקט צליל עיפרון
     customDataDir(OUTDATED): ספריית נתונים מותאמת אישית
     autoStraightenLines(OUTDATED): יישור קווים אוטומטית
@@ -113,6 +114,7 @@ settings:
     hideHomeBackgrounds: למראה נקי יותר
     printPageIndicators: הצג מחווני עמודים בייצוא
     autosaveDelay: כמה זמן לחכות לפני שמירת הערה אוטומטית
+    simplifiedHomeLayout(OUTDATED): מגדיר גובה קבוע עבור כל תצוגה מקדימה של הערה
     shouldAlwaysAlertForUpdates: ספר לי על עדכונים ברגע שהם יהיו זמינים
     pencilSoundSetting:
       onButNotInSilentMode(OUTDATED): מופעל (אלא אם כן במצב שקט)

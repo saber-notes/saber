@@ -95,6 +95,7 @@ settings:
     autosaveDelay: 自動儲存延遲
     shapeRecognitionDelay: 形狀識別延遲
     autoStraightenLines: 自動拉直線條
+    simplifiedHomeLayout(OUTDATED): 簡化的家居佈局
     customDataDir: 自訂 Saber 資料夾
     pencilSoundSetting: 筆的音效
   prefDescriptions:
@@ -115,6 +116,7 @@ settings:
     autosaveDelay: 自動儲存筆記之前等待多少時間
     shapeRecognitionDelay: 多久更新一次形狀預覽
     autoStraightenLines: 無需使用形狀筆即可拉直線條
+    simplifiedHomeLayout(OUTDATED): 為每個筆記預覽設定固定高度
     shouldAlwaysAlertForUpdates: 一旦有更新請告訴我
     pencilSoundSetting:
       off: 關閉

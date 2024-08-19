@@ -95,6 +95,7 @@ settings:
     autosaveDelay: Otomatik kayıt aralığı
     shapeRecognitionDelay: Şekil tanıma gecikmesi
     autoStraightenLines: Çizgileri otomatik düzleştir
+    simplifiedHomeLayout(OUTDATED): Basitleştirilmiş ev düzeni
     customDataDir: Özel Saber klasörü
     pencilSoundSetting: Kurşun kalem ses efekti
   prefDescriptions:
@@ -115,6 +116,7 @@ settings:
     autosaveDelay: Bir notu otomatik kaydetmeden önce ne kadar bekleneceğini ayarlar
     shapeRecognitionDelay: Çizilen şekilleri tanımlama sıklığını belirler
     autoStraightenLines: Şekil aracını kullanmadığınızda da çizgileri düzleştirir
+    simplifiedHomeLayout(OUTDATED): Her not önizlemesi için sabit bir yükseklik ayarlar
     shouldAlwaysAlertForUpdates: Güncelleme mevcut olduğu gibi bana haber ver
     pencilSoundSetting:
       off: Ses yok

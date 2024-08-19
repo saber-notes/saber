@@ -49,6 +49,7 @@ ar:
       autosaveDelay(OUTDATED): Auto-save delay
       shapeRecognitionDelay(OUTDATED): Shape recognition delay
       autoStraightenLines(OUTDATED): Auto straighten lines
+      simplifiedHomeLayout(OUTDATED): Simplified home layout
       customDataDir(OUTDATED): Custom Saber folder
       pencilSoundSetting(OUTDATED): Pencil sound effect
     prefDescriptions:
@@ -62,6 +63,7 @@ ar:
       autosaveDelay(OUTDATED): How long to wait before auto-saving a note
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
+      simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
       shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
       pencilSoundSetting:
         off(OUTDATED): No sound
@@ -136,7 +138,17 @@ ar:
       bgPatterns:
         tablature(OUTDATED): Tablature
 cs:
+  settings:
+    prefLabels:
+      simplifiedHomeLayout(OUTDATED): Simplified home layout
+    prefDescriptions:
+      simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
 de:
+  settings:
+    prefLabels:
+      simplifiedHomeLayout(OUTDATED): Simplified home layout
+    prefDescriptions:
+      simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
 es:
   common:
     done(OUTDATED): Done
@@ -147,11 +159,13 @@ es:
     prefLabels:
       shapeRecognitionDelay(OUTDATED): Shape recognition delay
       autoStraightenLines(OUTDATED): Auto straighten lines
+      simplifiedHomeLayout(OUTDATED): Simplified home layout
       customDataDir(OUTDATED): Custom Saber folder
       pencilSoundSetting(OUTDATED): Pencil sound effect
     prefDescriptions:
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
+      simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
       pencilSoundSetting:
         off(OUTDATED): No sound
         onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
@@ -221,10 +235,12 @@ fa:
   settings:
     prefLabels:
       autoStraightenLines(OUTDATED): Auto straighten lines
+      simplifiedHomeLayout(OUTDATED): Simplified home layout
       customDataDir(OUTDATED): Custom Saber folder
       pencilSoundSetting(OUTDATED): Pencil sound effect
     prefDescriptions:
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
+      simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
       pencilSoundSetting:
         off(OUTDATED): No sound
         onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
@@ -289,10 +305,12 @@ fr:
   settings:
     prefLabels:
       autoStraightenLines(OUTDATED): Auto straighten lines
+      simplifiedHomeLayout(OUTDATED): Simplified home layout
       customDataDir(OUTDATED): Custom Saber folder
       pencilSoundSetting(OUTDATED): Pencil sound effect
     prefDescriptions:
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
+      simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
       pencilSoundSetting:
         off(OUTDATED): No sound
         onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
@@ -371,11 +389,13 @@ he:
       recentColorsLength(OUTDATED): How many recent colors to store
       shapeRecognitionDelay(OUTDATED): Shape recognition delay
       autoStraightenLines(OUTDATED): Auto straighten lines
+      simplifiedHomeLayout(OUTDATED): Simplified home layout
       customDataDir(OUTDATED): Custom Saber folder
       pencilSoundSetting(OUTDATED): Pencil sound effect
     prefDescriptions:
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
+      simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
       pencilSoundSetting:
         off(OUTDATED): No sound
         onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
@@ -514,6 +534,7 @@ hu:
       autosaveDelay(OUTDATED): Auto-save delay
       shapeRecognitionDelay(OUTDATED): Shape recognition delay
       autoStraightenLines(OUTDATED): Auto straighten lines
+      simplifiedHomeLayout(OUTDATED): Simplified home layout
       customDataDir(OUTDATED): Custom Saber folder
       pencilSoundSetting(OUTDATED): Pencil sound effect
     prefDescriptions:
@@ -528,6 +549,7 @@ hu:
       autosaveDelay(OUTDATED): How long to wait before auto-saving a note
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
+      simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
       shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
       pencilSoundSetting:
         off(OUTDATED): No sound
@@ -663,6 +685,11 @@ hu:
       lockAxisAlignedPan(OUTDATED): Lock panning to horizontal or vertical
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
 it:
+  settings:
+    prefLabels:
+      simplifiedHomeLayout(OUTDATED): Simplified home layout
+    prefDescriptions:
+      simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
   login:
     ncLoginStep:
       loginFlow:
@@ -710,6 +737,7 @@ ja:
       autosaveDelay(OUTDATED): Auto-save delay
       shapeRecognitionDelay(OUTDATED): Shape recognition delay
       autoStraightenLines(OUTDATED): Auto straighten lines
+      simplifiedHomeLayout(OUTDATED): Simplified home layout
       customDataDir(OUTDATED): Custom Saber folder
       pencilSoundSetting(OUTDATED): Pencil sound effect
     prefDescriptions:
@@ -721,6 +749,7 @@ ja:
       autosaveDelay(OUTDATED): How long to wait before auto-saving a note
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
+      simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
       shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
       pencilSoundSetting:
         off(OUTDATED): No sound
@@ -812,11 +841,13 @@ pt-BR:
       recentColorsLength(OUTDATED): How many recent colors to store
       shapeRecognitionDelay(OUTDATED): Shape recognition delay
       autoStraightenLines(OUTDATED): Auto straighten lines
+      simplifiedHomeLayout(OUTDATED): Simplified home layout
       customDataDir(OUTDATED): Custom Saber folder
       pencilSoundSetting(OUTDATED): Pencil sound effect
     prefDescriptions:
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
+      simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
       pencilSoundSetting:
         off(OUTDATED): No sound
         onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
@@ -889,7 +920,10 @@ pt-BR:
 ru:
   settings:
     prefLabels:
+      simplifiedHomeLayout(OUTDATED): Simplified home layout
       customDataDir(OUTDATED): Custom Saber folder
+    prefDescriptions:
+      simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
     openDataDir(OUTDATED): Open Saber folder
     customDataDir:
       mustBeEmpty(OUTDATED): Selected folder must be empty
@@ -900,15 +934,22 @@ ru:
         followPrompts(OUTDATED): Please follow the prompts in the Nextcloud interface
         browserDidntOpen(OUTDATED): "Login page didn't open? Click here"
 tr:
+  settings:
+    prefLabels:
+      simplifiedHomeLayout(OUTDATED): Simplified home layout
+    prefDescriptions:
+      simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
 zh-Hans-CN:
   common:
     done(OUTDATED): Done
     continueBtn(OUTDATED): Continue
   settings:
     prefLabels:
+      simplifiedHomeLayout(OUTDATED): Simplified home layout
       customDataDir(OUTDATED): Custom Saber folder
       pencilSoundSetting(OUTDATED): Pencil sound effect
     prefDescriptions:
+      simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
       pencilSoundSetting:
         off(OUTDATED): No sound
         onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
@@ -961,3 +1002,8 @@ zh-Hans-CN:
       watchServer(OUTDATED): Watch for updates on the server
       watchServerReadOnly(OUTDATED): Editing is disabled while watching the server
 zh-Hant-TW:
+  settings:
+    prefLabels:
+      simplifiedHomeLayout(OUTDATED): Simplified home layout
+    prefDescriptions:
+      simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview

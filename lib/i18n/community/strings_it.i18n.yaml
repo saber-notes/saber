@@ -95,6 +95,7 @@ settings:
     autosaveDelay: Ritardo di salvataggio automatico
     shapeRecognitionDelay: Ritardo nel riconoscimento della forma
     autoStraightenLines: Raddrizzamento automatico delle linee
+    simplifiedHomeLayout(OUTDATED): Disposizione semplificata della casa
     customDataDir: Cartella Saber personalizzata
     pencilSoundSetting: Effetto sonoro della matita
   prefDescriptions:
@@ -115,6 +116,7 @@ settings:
     autosaveDelay: Quanto tempo aspettare prima di salvare automaticamente una nota
     shapeRecognitionDelay: Quanto spesso aggiornare l'anteprima della forma
     autoStraightenLines: Raddrizza le linee lunghe senza dover utilizzare la penna sagomatrice
+    simplifiedHomeLayout(OUTDATED): Imposta un'altezza fissa per ogni anteprima della nota
     shouldAlwaysAlertForUpdates: Segnalami aggiornamenti non appena sono disponibili
     pencilSoundSetting:
       off: Nessun suono
