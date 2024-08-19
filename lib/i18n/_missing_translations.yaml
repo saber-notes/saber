@@ -682,14 +682,14 @@ hu:
 it:
   settings:
     prefLabels:
-      simplifiedHomeLayout(OUTDATED): Simplified home layout
+      simplifiedHomeLayout(OUTDATED): Layout semplificato della home
     prefDescriptions:
-      simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
+      simplifiedHomeLayout(OUTDATED): Imposta un'altezza fissa per ogni anteprima della nota
   login:
     ncLoginStep:
       loginFlow:
-        followPrompts(OUTDATED): Please follow the prompts in the Nextcloud interface
-        browserDidntOpen(OUTDATED): "Login page didn't open? Click here"
+        followPrompts(OUTDATED): Seguire le istruzioni nell'interfaccia Nextcloud
+        browserDidntOpen(OUTDATED): "La pagina di accesso non si è aperta? Clicca qui"
 ja:
   common:
     done(OUTDATED): Done
