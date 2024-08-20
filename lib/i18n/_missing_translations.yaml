@@ -984,6 +984,6 @@ zh-Hans-CN:
 zh-Hant-TW:
   settings:
     prefLabels:
-      simplifiedHomeLayout(OUTDATED): Simplified home layout
+      simplifiedHomeLayout(OUTDATED): 簡化首頁佈局
     prefDescriptions:
-      simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
+      simplifiedHomeLayout(OUTDATED): 為每個筆記預覽設定固定高度
