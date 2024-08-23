@@ -52,7 +52,7 @@ dependencies:
 
   url_launcher: ^6.1.8
 
-  nextcloud: ^6.0.0
+  nextcloud: ^7.0.0
 
   collapsible: ^1.0.0
 
