@@ -7963,7 +7963,7 @@ class _StringsSettingsPrefLabelsIt extends _StringsSettingsPrefLabelsEn {
 	@override String get autosaveDelay => 'Ritardo di salvataggio automatico';
 	@override String get shapeRecognitionDelay => 'Ritardo nel riconoscimento della forma';
 	@override String get autoStraightenLines => 'Raddrizzamento automatico delle linee';
-	@override String get simplifiedHomeLayout => 'Disposizione semplificata della casa';
+	@override String get simplifiedHomeLayout => 'Layout semplificato della home';
 	@override String get customDataDir => 'Cartella Saber personalizzata';
 	@override String get pencilSoundSetting => 'Effetto sonoro della matita';
 }
@@ -8370,8 +8370,8 @@ class _StringsLoginNcLoginStepLoginFlowIt extends _StringsLoginNcLoginStepLoginF
 
 	// Translations
 	@override String get pleaseAuthorize => 'Autorizza Saber ad accedere al tuo account Nextcloud';
-	@override String get followPrompts => 'Si prega di seguire le istruzioni nel browser.';
-	@override String get browserDidntOpen => 'Il browser non si è aperto? clicca qui';
+	@override String get followPrompts => 'Seguire le istruzioni nell\'interfaccia Nextcloud';
+	@override String get browserDidntOpen => 'La pagina di accesso non si è aperta? Clicca qui';
 }
 
 // Path: login.encLoginStep.encFaq.0

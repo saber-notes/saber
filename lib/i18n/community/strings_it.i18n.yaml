@@ -95,7 +95,7 @@ settings:
     autosaveDelay: Ritardo di salvataggio automatico
     shapeRecognitionDelay: Ritardo nel riconoscimento della forma
     autoStraightenLines: Raddrizzamento automatico delle linee
-    simplifiedHomeLayout(OUTDATED): Disposizione semplificata della casa
+    simplifiedHomeLayout: Layout semplificato della home
     customDataDir: Cartella Saber personalizzata
     pencilSoundSetting: Effetto sonoro della matita
   prefDescriptions:
@@ -116,7 +116,7 @@ settings:
     autosaveDelay: Quanto tempo aspettare prima di salvare automaticamente una nota
     shapeRecognitionDelay: Quanto spesso aggiornare l'anteprima della forma
     autoStraightenLines: Raddrizza le linee lunghe senza dover utilizzare la penna sagomatrice
-    simplifiedHomeLayout(OUTDATED): Imposta un'altezza fissa per ogni anteprima della nota
+    simplifiedHomeLayout: Imposta un'altezza fissa per ogni anteprima della nota
     shouldAlwaysAlertForUpdates: Segnalami aggiornamenti non appena sono disponibili
     pencilSoundSetting:
       off: Nessun suono
@@ -169,8 +169,8 @@ login:
     loginWithNextcloud: Accedi con Nextcloud
     loginFlow:
       pleaseAuthorize: Autorizza Saber ad accedere al tuo account Nextcloud
-      followPrompts(OUTDATED): Si prega di seguire le istruzioni nel browser.
-      browserDidntOpen(OUTDATED): "Il browser non si è aperto? clicca qui"
+      followPrompts: Seguire le istruzioni nell'interfaccia Nextcloud
+      browserDidntOpen: "La pagina di accesso non si è aperta? Clicca qui"
   encLoginStep:
     enterEncPassword: "Per proteggere i tuoi dati, inserisci la password crittografata:"
     newToSaber: "Nuovo su Saber? Basta inserire una nuova password crittografata."

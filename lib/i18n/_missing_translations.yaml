@@ -680,16 +680,6 @@ hu:
       lockAxisAlignedPan(OUTDATED): Lock panning to horizontal or vertical
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
 it:
-  settings:
-    prefLabels:
-      simplifiedHomeLayout(OUTDATED): Layout semplificato della home
-    prefDescriptions:
-      simplifiedHomeLayout(OUTDATED): Imposta un'altezza fissa per ogni anteprima della nota
-  login:
-    ncLoginStep:
-      loginFlow:
-        followPrompts(OUTDATED): Seguire le istruzioni nell'interfaccia Nextcloud
-        browserDidntOpen(OUTDATED): "La pagina di accesso non si è aperta? Clicca qui"
 ja:
   common:
     done(OUTDATED): Done
