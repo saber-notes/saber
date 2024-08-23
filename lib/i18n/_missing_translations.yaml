@@ -139,11 +139,6 @@ ar:
         tablature(OUTDATED): Tablature
 cs:
 de:
-  settings:
-    prefLabels:
-      simplifiedHomeLayout(OUTDATED): Simplified home layout
-    prefDescriptions:
-      simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
 es:
   common:
     done(OUTDATED): Done
