@@ -982,8 +982,3 @@ zh-Hans-CN:
       watchServer(OUTDATED): Watch for updates on the server
       watchServerReadOnly(OUTDATED): Editing is disabled while watching the server
 zh-Hant-TW:
-  settings:
-    prefLabels:
-      simplifiedHomeLayout(OUTDATED): 簡化首頁佈局
-    prefDescriptions:
-      simplifiedHomeLayout(OUTDATED): 為每個筆記預覽設定固定高度

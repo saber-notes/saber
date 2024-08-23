@@ -12949,7 +12949,7 @@ class _StringsSettingsPrefLabelsZhHantTw extends _StringsSettingsPrefLabelsEn {
 	@override String get autosaveDelay => '自動儲存延遲';
 	@override String get shapeRecognitionDelay => '形狀識別延遲';
 	@override String get autoStraightenLines => '自動拉直線條';
-	@override String get simplifiedHomeLayout => '簡化的家居佈局';
+	@override String get simplifiedHomeLayout => '簡化首頁佈局';
 	@override String get customDataDir => '自訂 Saber 資料夾';
 	@override String get pencilSoundSetting => '筆的音效';
 }
