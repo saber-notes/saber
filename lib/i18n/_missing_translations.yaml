@@ -139,11 +139,6 @@ ar:
         tablature(OUTDATED): Tablature
 cs:
 de:
-  settings:
-    prefLabels:
-      simplifiedHomeLayout(OUTDATED): Vereinfachtes Startbildschirmlayout
-    prefDescriptions:
-      simplifiedHomeLayout(OUTDATED): Legt eine feste Höhe für jede Notizvorschau fest
 es:
   common:
     done(OUTDATED): Done
