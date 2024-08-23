@@ -2150,7 +2150,7 @@ class _StringsSettingsPrefLabelsCs extends _StringsSettingsPrefLabelsEn {
 	@override String get autosaveDelay => 'Zpoždění automatického ukládání';
 	@override String get shapeRecognitionDelay => 'Zpoždění rozpoznávání tvarů';
 	@override String get autoStraightenLines => 'Automaticky narovnávat čáry';
-	@override String get simplifiedHomeLayout => 'Zjednodušené uspořádání domu';
+	@override String get simplifiedHomeLayout => 'Zjednodušené rozložení domovské obrazovky';
 	@override String get customDataDir => 'Vlastní umístění složky aplikace Saber';
 	@override String get pencilSoundSetting => 'Zvukový efekt psaní tužkou';
 }

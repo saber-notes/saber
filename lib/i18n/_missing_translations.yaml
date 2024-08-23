@@ -138,11 +138,6 @@ ar:
       bgPatterns:
         tablature(OUTDATED): Tablature
 cs:
-  settings:
-    prefLabels:
-      simplifiedHomeLayout(OUTDATED): Zjednodušené rozložení domovské obrazovky
-    prefDescriptions:
-      simplifiedHomeLayout(OUTDATED): Nastaví pevnou výšku pro každý náhled poznámky
 de:
   settings:
     prefLabels:
