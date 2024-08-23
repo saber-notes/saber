@@ -50,7 +50,7 @@ class SaberLoginFlow {
   Future<void> _run() async {
     _catchHttpError(() async {
       final client = NextcloudClient(serverUrl,
-          userAgent: NextcloudClientExtension.userAgent);
+          httpClient: NextcloudClientExtension.newHttpClient());
       final flowClient = client.core.clientFlowLoginV2;
       init = await flowClient.init().then((response) => response.body);
       log.info('init: $init');

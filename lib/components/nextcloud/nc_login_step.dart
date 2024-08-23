@@ -49,7 +49,7 @@ class _NcLoginStepState extends State<NcLoginStep> {
         Uri.parse(credentials.server),
         loginName: credentials.loginName,
         appPassword: credentials.appPassword,
-        userAgent: NextcloudClientExtension.userAgent,
+        httpClient: NextcloudClientExtension.newHttpClient(),
       );
       final username = await client.getUsername();
 

@@ -18,13 +18,14 @@ class NcHttpOverrides extends HttpOverrides {
   @override
   HttpClient createHttpClient(SecurityContext? context) {
     return super.createHttpClient(context)
-      ..badCertificateCallback = _badCertificateCallback;
+      ..badCertificateCallback = badCertificateCallback;
   }
 
   // Called when encountering a self-signed certificate.
   // Returns true if the certificate should be accepted,
   // false if it should be rejected.
-  bool _badCertificateCallback(X509Certificate cert, String host, int port) {
+  static bool badCertificateCallback(
+      X509Certificate cert, String host, int port) {
     if (!Prefs.allowInsecureConnections.loaded || !Prefs.url.loaded) {
       log.severe(
           'The Prefs [allowInsecureConnections] or [url] are not loaded yet. Make sure to await pref.waitUntilLoaded() for both.');
