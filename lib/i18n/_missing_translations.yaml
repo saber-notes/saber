@@ -916,8 +916,8 @@ ru:
 tr:
   settings:
     prefLabels:
-      simplifiedHomeLayout(OUTDATED): Simplified home layout
+      simplifiedHomeLayout(OUTDATED): Sadeleştirilmiş ana ekran düzeni
     prefDescriptions:
-      simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
+      simplifiedHomeLayout(OUTDATED): Not önizlemelerinin uzunluklarını eşitler
 zh-Hans-CN:
 zh-Hant-TW:
