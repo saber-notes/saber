@@ -921,64 +921,64 @@ tr:
       simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
 zh-Hans-CN:
   common:
-    done(OUTDATED): Done
-    continueBtn(OUTDATED): Continue
+    done(OUTDATED): 完成
+    continueBtn(OUTDATED): 继续
   settings:
     prefLabels:
-      simplifiedHomeLayout(OUTDATED): Simplified home layout
-      customDataDir(OUTDATED): Custom Saber folder
-      pencilSoundSetting(OUTDATED): Pencil sound effect
+      simplifiedHomeLayout(OUTDATED): 简化主页布局
+      customDataDir(OUTDATED): 自定义 Saber 文件夹
+      pencilSoundSetting(OUTDATED): 铅笔音效
     prefDescriptions:
-      simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
+      simplifiedHomeLayout(OUTDATED): 为每个笔记预览设置固定高度
       pencilSoundSetting:
-        off(OUTDATED): No sound
-        onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
-        onAlways(OUTDATED): Enabled (even in silent mode)
-    openDataDir(OUTDATED): Open Saber folder
+        off(OUTDATED): 没有音效
+        onButNotInSilentMode(OUTDATED): 启用（除非在静音模式下）
+        onAlways(OUTDATED): 启用（即使在静音模式下）
+    openDataDir(OUTDATED): 打开 Saber 文件夹
     customDataDir:
-      mustBeEmpty(OUTDATED): Selected folder must be empty
-      mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the folder
+      mustBeEmpty(OUTDATED): 所选文件夹必须为空
+      mustBeDoneSyncing(OUTDATED): 更改文件夹前，请确保同步已完成
   login:
-    notYou(rich)(OUTDATED): "Not you? ${undoLogin(Choose another account)}."
+    notYou(rich)(OUTDATED): "不是您吗？${undoLogin(Choose another account)}."
     status:
-      hi(OUTDATED): "Hi, $u!"
-      almostDone(OUTDATED): "Almost ready for syncing, tap to finish logging in"
+      hi(OUTDATED): "欢迎，$u!"
+      almostDone(OUTDATED): "即将准备好同步，点击完成登录"
     ncLoginStep:
-      whereToStoreData(OUTDATED): "Choose where you want to store your data:"
-      saberNcServer(OUTDATED): Saber's Nextcloud server
-      otherNcServer(OUTDATED): Other Nextcloud server
-      serverUrl(OUTDATED): Server URL
-      loginWithSaber(OUTDATED): Login with Saber
-      loginWithNextcloud(OUTDATED): Login with Nextcloud
+      whereToStoreData(OUTDATED): "选择数据存储位置："
+      saberNcServer(OUTDATED): Saber 的 Nextcloud 服务器
+      otherNcServer(OUTDATED): 其他 Nextcloud 服务器
+      serverUrl(OUTDATED): 服务器 URL
+      loginWithSaber(OUTDATED): 使用 Saber 登录
+      loginWithNextcloud(OUTDATED): 使用 Nextcloud 登录
       loginFlow:
-        pleaseAuthorize(OUTDATED): Please authorize Saber to access your Nextcloud account
-        followPrompts(OUTDATED): Please follow the prompts in the Nextcloud interface
-        browserDidntOpen(OUTDATED): "Login page didn't open? Click here"
+        pleaseAuthorize(OUTDATED): 请授权 Saber 访问您的 Nextcloud 帐户
+        followPrompts(OUTDATED): 请按照 Nextcloud 界面中的提示操作
+        browserDidntOpen(OUTDATED): "登录页面没有打开？点击这里"
     encLoginStep:
-      enterEncPassword(OUTDATED): "To protect your data, please enter your encryption password:"
-      newToSaber(OUTDATED): "New to Saber? Just enter a new encryption password."
-      encPassword(OUTDATED): Encryption password
-      encFaqTitle(OUTDATED): Frequently asked questions
-      wrongEncPassword(OUTDATED): Decryption failed with the provided password. Please try entering it again.
-      connectionFailed(OUTDATED): Something went wrong connecting to the server. Please try again later.
+      enterEncPassword(OUTDATED): "为了保护您的数据，请输入您的加密密码："
+      newToSaber(OUTDATED): "Saber 新手？只需输入新的加密密码即可。"
+      encPassword(OUTDATED): 加密密码
+      encFaqTitle(OUTDATED): 常见问题解答
+      wrongEncPassword(OUTDATED): 使用提供的密码解密失败。请再次尝试输入。
+      connectionFailed(OUTDATED): 连接到服务器时出错。请稍后重试。
       encFaq(OUTDATED):
-        - q: "What is an encryption password? Why use two passwords?"
+        - q: "什么是加密密码？为什么要使用两个密码？"
           a: |-
-            The Nextcloud password is used to access the cloud. The encryption password "scrambles" your data before it ever reaches the cloud.
-            Even if someone gains access to your Nextcloud account, your notes will remain safe and encrypted with a separate password. This provides you a second layer of security to protect your data.
-            No-one can access your notes on the server without your encryption password, but this also means that if you forget your encryption password, you will lose access to your data.
-        - q: "I haven't set an encryption password yet. Where do I get it?"
+            Nextcloud 密码用于访问云。加密密码会在您的数据到达云之前对其进行“加扰”。
+            即使有人获得了您的 Nextcloud 帐户的访问权限，您的笔记也将保持安全并使用单独的密码进行加密。这为您提供了第二层安全保护，以保护您的数据。
+            没有您的加密密码，任何人都无法访问您在服务器上的笔记，但这也意味着如果您忘记了加密密码，您将无法访问您的数据。
+        - q: "我还没有设置加密密码。我在哪里可以买到它？"
           a: |-
-            Choose a new encryption password and enter it above.
-            Saber will generate your encryption keys from this password automatically.
-        - q: "Can I use the same password as my Nextcloud account?"
-          a: "Yes, but keep in mind that it would be easier for the server administrator or someone else to access your notes if they gain access to your Nextcloud account."
+            选择新的加密密码并在上面输入。
+            Saber 将从此密码自动生成您的加密密钥。
+        - q: "我可以使用与我的 Nextcloud 帐户相同的密码吗？"
+          a: "是的，但请记住，如果服务器管理员或其他人可以访问您的 Nextcloud 帐户，他们将更容易访问您的笔记。"
   profile:
-    quotaUsage(OUTDATED): "You're using $used of $total ($percent%)"
-    connectedTo(OUTDATED): Connected to
-    faqTitle(OUTDATED): Frequently asked questions
+    quotaUsage(OUTDATED): "您已使用 $used，共 $total（$percent%）"
+    connectedTo(OUTDATED): 连接到
+    faqTitle(OUTDATED): 常见问题解答
   editor:
     menu:
-      watchServer(OUTDATED): Watch for updates on the server
-      watchServerReadOnly(OUTDATED): Editing is disabled while watching the server
+      watchServer(OUTDATED): 监视服务器上的更新
+      watchServerReadOnly(OUTDATED): 监视服务器时禁用编辑
 zh-Hant-TW:
