@@ -900,19 +900,19 @@ pt-BR:
 ru:
   settings:
     prefLabels:
-      simplifiedHomeLayout(OUTDATED): Simplified home layout
-      customDataDir(OUTDATED): Custom Saber folder
+      simplifiedHomeLayout(OUTDATED): Упрощённый главный экран
+      customDataDir(OUTDATED): Свой каталог Saber
     prefDescriptions:
-      simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
-    openDataDir(OUTDATED): Open Saber folder
+      simplifiedHomeLayout(OUTDATED): Фиксированная высота предварительного просмотра каждой заметки
+    openDataDir(OUTDATED): Открыть папку Saber
     customDataDir:
-      mustBeEmpty(OUTDATED): Selected folder must be empty
-      mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the folder
+      mustBeEmpty(OUTDATED): Выбранный каталог должен быть пустым
+      mustBeDoneSyncing(OUTDATED): Перед изменением каталога убедитесь, что синхронизация завершена
   login:
     ncLoginStep:
       loginFlow:
-        followPrompts(OUTDATED): Please follow the prompts in the Nextcloud interface
-        browserDidntOpen(OUTDATED): "Login page didn't open? Click here"
+        followPrompts(OUTDATED): Пожалуйста, следуйте инструкциям в интерфейсе Nextcloud
+        browserDidntOpen(OUTDATED): "Страница входа в систему не открылась? Нажмите сюда"
 tr:
 zh-Hans-CN:
 zh-Hant-TW:
