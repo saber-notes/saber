@@ -77,10 +77,10 @@ packages:
     dependency: "direct main"
     description:
       name: audioplayers
-      sha256: "752039d6aa752597c98ec212e9759519061759e402e7da59a511f39d43aa07d2"
+      sha256: c346ba5a39dc208f1bab55fc239855f573d69b0e832402114bf0b793622adc4d
       url: "https://pub.dev"
     source: hosted
-    version: "6.0.0"
+    version: "6.1.0"
   audioplayers_android:
     dependency: transitive
     description:
@@ -117,10 +117,10 @@ packages:
     dependency: transitive
     description:
       name: audioplayers_web
-      sha256: db8fc420dadf80da18e2286c18e746fb4c3b2c5adbf0c963299dde046828886d
+      sha256: "3609bdf0e05e66a3d9750ee40b1e37f2a622c4edb796cc600b53a90a30a2ace4"
       url: "https://pub.dev"
     source: hosted
-    version: "5.0.0"
+    version: "5.0.1"
   audioplayers_windows:
     dependency: transitive
     description:
@@ -285,10 +285,10 @@ packages:
     dependency: transitive
     description:
       name: dart_quill_delta
-      sha256: "962d558f6aad766d5781e7b232c954ba3305a7152d640fa866a6fd3f66f794a3"
+      sha256: c3bd333a08986d5ac084ed1cd7eedad14db297ce4742a4ac8dd9b723ac800be4
       url: "https://pub.dev"
     source: hosted
-    version: "10.4.3"
+    version: "10.5.6"
   decimal:
     dependency: transitive
     description:
@@ -421,10 +421,10 @@ packages:
     dependency: "direct main"
     description:
       name: flex_seed_scheme
-      sha256: cc08c81879ecfd2ab840664ce4770980da0b8a319e35f51bcf763849b7f7596b
+      sha256: "86470c8dc470f55dd3e28a6d30e3253a1c176df32903263d7daeabfc0c77dbd4"
       url: "https://pub.dev"
     source: hosted
-    version: "3.1.2"
+    version: "3.2.0"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -508,18 +508,18 @@ packages:
     dependency: transitive
     description:
       name: flutter_plugin_android_lifecycle
-      sha256: "9d98bd47ef9d34e803d438f17fd32b116d31009f534a6fa5ce3a1167f189a6de"
+      sha256: "9ee02950848f61c4129af3d6ec84a1cfc0e47931abc746b03e7a3bc3e8ff6eda"
       url: "https://pub.dev"
     source: hosted
-    version: "2.0.21"
+    version: "2.0.22"
   flutter_quill:
     dependency: "direct main"
     description:
       name: flutter_quill
-      sha256: "9adca4096f6de5c1c9e13ff211779c256d10dc1dc903e57fce76513e1f99434a"
+      sha256: a204902f569bf59538933c977f71bf0003005abf317e2f21fa48ee28a54ab0e1
       url: "https://pub.dev"
     source: hosted
-    version: "10.4.3"
+    version: "10.5.6"
   flutter_quill_delta_from_html:
     dependency: transitive
     description:
@@ -881,10 +881,10 @@ packages:
     dependency: transitive
     description:
       name: mime
-      sha256: "2e123074287cc9fd6c09de8336dae606d1ddb88d9ac47358826db698c176a1f2"
+      sha256: "801fd0b26f14a4a58ccb09d5892c3fbdeff209594300a542492cf13fba9d247a"
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.5"
+    version: "1.0.6"
   mutex:
     dependency: "direct main"
     description:
@@ -1184,10 +1184,10 @@ packages:
     dependency: transitive
     description:
       name: quiver
-      sha256: b1c1ac5ce6688d77f65f3375a9abb9319b3cb32486bdc7a1e0fdf004d7ba4e47
+      sha256: ea0b925899e64ecdfbf9c7becb60d5b50e706ade44a85b2363be2a22d88117d2
       url: "https://pub.dev"
     source: hosted
-    version: "3.2.1"
+    version: "3.2.2"
   rational:
     dependency: transitive
     description:
@@ -1216,10 +1216,10 @@ packages:
     dependency: "direct main"
     description:
       name: saver_gallery
-      sha256: fbd52d7b3095f6463faef3372a2d9c02e7a95af2b1cc7493494f19174b422b2b
+      sha256: "5f4123ec1cd5ed9fcd93198ab30ffe0c7746afcbf6846445432de93240fa7b4e"
       url: "https://pub.dev"
     source: hosted
-    version: "3.0.5"
+    version: "3.0.6"
   screen_retriever:
     dependency: transitive
     description:
@@ -1264,10 +1264,10 @@ packages:
     dependency: transitive
     description:
       name: shared_preferences_android
-      sha256: a7e8467e9181cef109f601e3f65765685786c1a738a83d7fbbde377589c0d974
+      sha256: "480ba4345773f56acda9abf5f50bd966f581dac5d514e5fc4a18c62976bbba7e"
       url: "https://pub.dev"
     source: hosted
-    version: "2.3.1"
+    version: "2.3.2"
   shared_preferences_foundation:
     dependency: transitive
     description:
@@ -1333,10 +1333,10 @@ packages:
     dependency: "direct main"
     description:
       name: slang
-      sha256: f68f6d6709890f85efabfb0318e9d694be2ebdd333e57fe5cb50eee449e4e3ab
+      sha256: a2f704508bf9f209b71c881347bd27de45309651e9bd63570e4dd6ed2a77fbd2
       url: "https://pub.dev"
     source: hosted
-    version: "3.31.1"
+    version: "3.31.2"
   slang_flutter:
     dependency: "direct main"
     description:
@@ -1389,18 +1389,18 @@ packages:
     dependency: "direct main"
     description:
       name: super_clipboard
-      sha256: "74098001413e075cc53dee72b68c32eaffc10709df41806800393abaa6dac9d5"
+      sha256: "71d2a81e0e3a8c5d6339715a42f8dd42c6def02c0c805a23d45611010de39fbe"
       url: "https://pub.dev"
     source: hosted
-    version: "0.8.19"
+    version: "0.8.20"
   super_native_extensions:
     dependency: transitive
     description:
       name: super_native_extensions
-      sha256: c24676825c9f3ae844676a843d45ad186f2270539ffe72be4277753e46d14e29
+      sha256: "9d674b8c71e16f586b3967e67a6faa83c35e3d9ea4f64bca8551badfddf992cb"
       url: "https://pub.dev"
     source: hosted
-    version: "0.8.19"
+    version: "0.8.20"
   sync_http:
     dependency: transitive
     description:
@@ -1533,10 +1533,10 @@ packages:
     dependency: transitive
     description:
       name: uuid
-      sha256: "83d37c7ad7aaf9aa8e275490669535c8080377cfa7a7004c24dfac53afffaa90"
+      sha256: f33d6bb662f0e4f79dcd7ada2e6170f3b3a2530c28fc41f49a411ddedd576a77
       url: "https://pub.dev"
     source: hosted
-    version: "4.4.2"
+    version: "4.5.0"
   vector_graphics:
     dependency: transitive
     description:
