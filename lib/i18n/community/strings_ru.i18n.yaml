@@ -95,9 +95,9 @@ settings:
     autosaveDelay: Задержка автосохранения
     shapeRecognitionDelay: Задержка распознавания формы
     autoStraightenLines: Автоматическое выпрямление линий
-    simplifiedHomeLayout(OUTDATED): Упрощенная планировка дома
+    simplifiedHomeLayout: Упрощённый главный экран
+    customDataDir: Свой каталог Saber
     pencilSoundSetting: Звуковой эффект карандаша
-    customDataDir(OUTDATED): Свой каталог для данных
   prefDescriptions:
     hyperlegibleFont: Шрифт Atkinson Hyperlegible повышает разборчивость для читателей с плохим зрением
     disableAds: "Реклама помогает поддерживать разработку Saber, но вы можете отключить её, если захотите."
@@ -116,7 +116,7 @@ settings:
     autosaveDelay: Время ожидания до автосохранения заметки
     shapeRecognitionDelay: Как часто обновлять предварительный просмотр формы
     autoStraightenLines: Выпрямляет длинные линии без использования фигурного пера
-    simplifiedHomeLayout(OUTDATED): Устанавливает фиксированную высоту для каждого предварительного просмотра заметки
+    simplifiedHomeLayout: Фиксированная высота предварительного просмотра каждой заметки
     shouldAlwaysAlertForUpdates: "Сообщать мне об обновлениях, как только они станут доступны"
     pencilSoundSetting:
       off: Без звука
@@ -142,12 +142,12 @@ settings:
     title: "Сбросить эту настройку?"
     button: Сбросить
   resyncEverything: Повторная синхронизация всего
+  openDataDir: Открыть папку Saber
   customDataDir:
     cancel: Отмена
     select: Выбрать
-    mustBeEmpty(OUTDATED): Выбранный каталог должен быть пустым
-    mustBeDoneSyncing(OUTDATED): "Прежде чем менять каталог, убедитесь, что синхронизация завершена."
-  openDataDir(OUTDATED): Открыть папку Saber
+    mustBeEmpty: Выбранный каталог должен быть пустым
+    mustBeDoneSyncing: "Перед изменением каталога убедитесь, что синхронизация завершена"
 login:
   title: Авторизация
   form:
@@ -169,8 +169,8 @@ login:
     loginWithNextcloud: Войти с помощью Nextcloud
     loginFlow:
       pleaseAuthorize: "Пожалуйста, авторизуйте Saber для доступа к вашей учётной записи Nextcloud"
-      followPrompts(OUTDATED): "Пожалуйста, следуйте инструкциям в вашем браузере."
-      browserDidntOpen(OUTDATED): "Браузер не открылся? Нажмите сюда"
+      followPrompts: "Пожалуйста, следуйте инструкциям в интерфейсе Nextcloud"
+      browserDidntOpen: "Страница входа в систему не открылась? Нажмите сюда"
   encLoginStep:
     enterEncPassword: "Чтобы защитить ваши данные, введите пароль шифрования:"
     newToSaber: "Новичок в Saber? Просто введите новый пароль для шифрования."

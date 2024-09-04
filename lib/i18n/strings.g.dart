@@ -10185,8 +10185,8 @@ class _StringsSettingsRu extends _StringsSettingsEn {
 	];
 	@override late final _StringsSettingsResetRu reset = _StringsSettingsResetRu._(_root);
 	@override String get resyncEverything => 'Повторная синхронизация всего';
-	@override late final _StringsSettingsCustomDataDirRu customDataDir = _StringsSettingsCustomDataDirRu._(_root);
 	@override String get openDataDir => 'Открыть папку Saber';
+	@override late final _StringsSettingsCustomDataDirRu customDataDir = _StringsSettingsCustomDataDirRu._(_root);
 }
 
 // Path: login
@@ -10455,9 +10455,9 @@ class _StringsSettingsPrefLabelsRu extends _StringsSettingsPrefLabelsEn {
 	@override String get autosaveDelay => 'Задержка автосохранения';
 	@override String get shapeRecognitionDelay => 'Задержка распознавания формы';
 	@override String get autoStraightenLines => 'Автоматическое выпрямление линий';
-	@override String get simplifiedHomeLayout => 'Упрощенная планировка дома';
+	@override String get simplifiedHomeLayout => 'Упрощённый главный экран';
+	@override String get customDataDir => 'Свой каталог Saber';
 	@override String get pencilSoundSetting => 'Звуковой эффект карандаша';
-	@override String get customDataDir => 'Свой каталог для данных';
 }
 
 // Path: settings.prefDescriptions
@@ -10481,7 +10481,7 @@ class _StringsSettingsPrefDescriptionsRu extends _StringsSettingsPrefDescription
 	@override String get autosaveDelay => 'Время ожидания до автосохранения заметки';
 	@override String get shapeRecognitionDelay => 'Как часто обновлять предварительный просмотр формы';
 	@override String get autoStraightenLines => 'Выпрямляет длинные линии без использования фигурного пера';
-	@override String get simplifiedHomeLayout => 'Устанавливает фиксированную высоту для каждого предварительного просмотра заметки';
+	@override String get simplifiedHomeLayout => 'Фиксированная высота предварительного просмотра каждой заметки';
 	@override String get shouldAlwaysAlertForUpdates => 'Сообщать мне об обновлениях, как только они станут доступны';
 	@override late final _StringsSettingsPrefDescriptionsPencilSoundSettingRu pencilSoundSetting = _StringsSettingsPrefDescriptionsPencilSoundSettingRu._(_root);
 }
@@ -10541,7 +10541,7 @@ class _StringsSettingsCustomDataDirRu extends _StringsSettingsCustomDataDirEn {
 	@override String get cancel => 'Отмена';
 	@override String get select => 'Выбрать';
 	@override String get mustBeEmpty => 'Выбранный каталог должен быть пустым';
-	@override String get mustBeDoneSyncing => 'Прежде чем менять каталог, убедитесь, что синхронизация завершена.';
+	@override String get mustBeDoneSyncing => 'Перед изменением каталога убедитесь, что синхронизация завершена';
 }
 
 // Path: login.form
@@ -10862,8 +10862,8 @@ class _StringsLoginNcLoginStepLoginFlowRu extends _StringsLoginNcLoginStepLoginF
 
 	// Translations
 	@override String get pleaseAuthorize => 'Пожалуйста, авторизуйте Saber для доступа к вашей учётной записи Nextcloud';
-	@override String get followPrompts => 'Пожалуйста, следуйте инструкциям в вашем браузере.';
-	@override String get browserDidntOpen => 'Браузер не открылся? Нажмите сюда';
+	@override String get followPrompts => 'Пожалуйста, следуйте инструкциям в интерфейсе Nextcloud';
+	@override String get browserDidntOpen => 'Страница входа в систему не открылась? Нажмите сюда';
 }
 
 // Path: login.encLoginStep.encFaq.0

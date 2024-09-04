@@ -898,21 +898,6 @@ pt-BR:
       watchServer(OUTDATED): Watch for updates on the server
       watchServerReadOnly(OUTDATED): Editing is disabled while watching the server
 ru:
-  settings:
-    prefLabels:
-      simplifiedHomeLayout(OUTDATED): Упрощённый главный экран
-      customDataDir(OUTDATED): Свой каталог Saber
-    prefDescriptions:
-      simplifiedHomeLayout(OUTDATED): Фиксированная высота предварительного просмотра каждой заметки
-    openDataDir(OUTDATED): Открыть папку Saber
-    customDataDir:
-      mustBeEmpty(OUTDATED): Выбранный каталог должен быть пустым
-      mustBeDoneSyncing(OUTDATED): Перед изменением каталога убедитесь, что синхронизация завершена
-  login:
-    ncLoginStep:
-      loginFlow:
-        followPrompts(OUTDATED): Пожалуйста, следуйте инструкциям в интерфейсе Nextcloud
-        browserDidntOpen(OUTDATED): "Страница входа в систему не открылась? Нажмите сюда"
 tr:
 zh-Hans-CN:
 zh-Hant-TW:
