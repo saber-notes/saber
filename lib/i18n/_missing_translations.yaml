@@ -898,21 +898,6 @@ pt-BR:
       watchServer(OUTDATED): Watch for updates on the server
       watchServerReadOnly(OUTDATED): Editing is disabled while watching the server
 ru:
-  settings:
-    prefLabels:
-      simplifiedHomeLayout(OUTDATED): Simplified home layout
-      customDataDir(OUTDATED): Custom Saber folder
-    prefDescriptions:
-      simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
-    openDataDir(OUTDATED): Open Saber folder
-    customDataDir:
-      mustBeEmpty(OUTDATED): Selected folder must be empty
-      mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the folder
-  login:
-    ncLoginStep:
-      loginFlow:
-        followPrompts(OUTDATED): Please follow the prompts in the Nextcloud interface
-        browserDidntOpen(OUTDATED): "Login page didn't open? Click here"
 tr:
 zh-Hans-CN:
 zh-Hant-TW:
