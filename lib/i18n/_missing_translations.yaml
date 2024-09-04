@@ -914,10 +914,5 @@ ru:
         followPrompts(OUTDATED): Please follow the prompts in the Nextcloud interface
         browserDidntOpen(OUTDATED): "Login page didn't open? Click here"
 tr:
-  settings:
-    prefLabels:
-      simplifiedHomeLayout(OUTDATED): Sadeleştirilmiş ana ekran düzeni
-    prefDescriptions:
-      simplifiedHomeLayout(OUTDATED): Not önizlemelerinin uzunluklarını eşitler
 zh-Hans-CN:
 zh-Hant-TW:
