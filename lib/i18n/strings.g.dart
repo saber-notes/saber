@@ -11287,7 +11287,7 @@ class _StringsSettingsPrefLabelsTr extends _StringsSettingsPrefLabelsEn {
 	@override String get autosaveDelay => 'Otomatik kayıt aralığı';
 	@override String get shapeRecognitionDelay => 'Şekil tanıma gecikmesi';
 	@override String get autoStraightenLines => 'Çizgileri otomatik düzleştir';
-	@override String get simplifiedHomeLayout => 'Basitleştirilmiş ev düzeni';
+	@override String get simplifiedHomeLayout => 'Sadeleştirilmiş ana ekran düzeni';
 	@override String get customDataDir => 'Özel Saber klasörü';
 	@override String get pencilSoundSetting => 'Kurşun kalem ses efekti';
 }
@@ -11313,7 +11313,7 @@ class _StringsSettingsPrefDescriptionsTr extends _StringsSettingsPrefDescription
 	@override String get autosaveDelay => 'Bir notu otomatik kaydetmeden önce ne kadar bekleneceğini ayarlar';
 	@override String get shapeRecognitionDelay => 'Çizilen şekilleri tanımlama sıklığını belirler';
 	@override String get autoStraightenLines => 'Şekil aracını kullanmadığınızda da çizgileri düzleştirir';
-	@override String get simplifiedHomeLayout => 'Her not önizlemesi için sabit bir yükseklik ayarlar';
+	@override String get simplifiedHomeLayout => 'Not önizlemelerinin uzunluklarını eşitler';
 	@override String get shouldAlwaysAlertForUpdates => 'Güncelleme mevcut olduğu gibi bana haber ver';
 	@override late final _StringsSettingsPrefDescriptionsPencilSoundSettingTr pencilSoundSetting = _StringsSettingsPrefDescriptionsPencilSoundSettingTr._(_root);
 }

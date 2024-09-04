@@ -56,7 +56,9 @@ void main() {
     });
 
     setUpAll(() => Future.wait([
-          FileManager.init(),
+          FileManager.init(
+            shouldWatchRootDirectory: false,
+          ),
           InvertShader.init(),
           PencilShader.init(),
           GoogleFonts.pendingFonts([
