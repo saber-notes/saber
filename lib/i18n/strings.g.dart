@@ -11798,9 +11798,9 @@ class _StringsCommonZhHansCn extends _StringsCommonEn {
 	@override final _StringsZhHansCn _root; // ignore: unused_field
 
 	// Translations
-	@override String get cancel => '取消';
-	@override String get done => '完毕';
+	@override String get done => '完成';
 	@override String get continueBtn => '继续';
+	@override String get cancel => '取消';
 }
 
 // Path: home
@@ -11849,8 +11849,8 @@ class _StringsSettingsZhHansCn extends _StringsSettingsEn {
 	];
 	@override late final _StringsSettingsResetZhHansCn reset = _StringsSettingsResetZhHansCn._(_root);
 	@override String get resyncEverything => '重新同步所有';
-	@override late final _StringsSettingsCustomDataDirZhHansCn customDataDir = _StringsSettingsCustomDataDirZhHansCn._(_root);
 	@override String get openDataDir => '打开 Saber 文件夹';
+	@override late final _StringsSettingsCustomDataDirZhHansCn customDataDir = _StringsSettingsCustomDataDirZhHansCn._(_root);
 }
 
 // Path: login
@@ -11867,12 +11867,14 @@ class _StringsLoginZhHansCn extends _StringsLoginEn {
 		linkToSignup('立即注册'),
 		const TextSpan(text: '！'),
 	]);
+	@override TextSpan notYou({required InlineSpanBuilder undoLogin}) => TextSpan(children: [
+		const TextSpan(text: '不是您吗？'),
+		undoLogin('Choose another account'),
+		const TextSpan(text: '.'),
+	]);
 	@override late final _StringsLoginStatusZhHansCn status = _StringsLoginStatusZhHansCn._(_root);
 	@override late final _StringsLoginNcLoginStepZhHansCn ncLoginStep = _StringsLoginNcLoginStepZhHansCn._(_root);
 	@override late final _StringsLoginEncLoginStepZhHansCn encLoginStep = _StringsLoginEncLoginStepZhHansCn._(_root);
-	@override TextSpan notYou({required InlineSpanBuilder undoLogin}) => TextSpan(children: [
-		undoLogin('不是你'),
-	]);
 }
 
 // Path: profile
@@ -11884,16 +11886,16 @@ class _StringsProfileZhHansCn extends _StringsProfileEn {
 	// Translations
 	@override String get title => '我的用户资料';
 	@override String get logout => '注销';
+	@override String quotaUsage({required Object used, required Object total, required Object percent}) => '您已使用 ${used}，共 ${total}（${percent}%）';
+	@override String get connectedTo => '连接到';
 	@override late final _StringsProfileQuickLinksZhHansCn quickLinks = _StringsProfileQuickLinksZhHansCn._(_root);
+	@override String get faqTitle => '常见问题解答';
 	@override List<dynamic> get faq => [
 		_StringsProfile$faq$0i0$ZhHansCn._(_root),
 		_StringsProfile$faq$0i1$ZhHansCn._(_root),
 		_StringsProfile$faq$0i2$ZhHansCn._(_root),
 		_StringsProfile$faq$0i3$ZhHansCn._(_root),
 	];
-	@override String quotaUsage({required Object used, required Object total, required Object percent}) => '您正在使用 ${used} 占 ${total} (${percent}%)';
-	@override String get connectedTo => '连接到';
-	@override String get faqTitle => '经常问的问题';
 }
 
 // Path: appInfo
@@ -12117,8 +12119,8 @@ class _StringsSettingsPrefLabelsZhHansCn extends _StringsSettingsPrefLabelsEn {
 	@override String get autosaveDelay => '自动保存延迟';
 	@override String get shapeRecognitionDelay => '形状识别延迟';
 	@override String get autoStraightenLines => '自动拉直线';
-	@override String get simplifiedHomeLayout => '简化家居布局';
-	@override String get customDataDir => '自定义数据目录';
+	@override String get simplifiedHomeLayout => '简化主页布局';
+	@override String get customDataDir => '自定义 Saber 文件夹';
 	@override String get pencilSoundSetting => '铅笔音效';
 }
 
@@ -12202,8 +12204,8 @@ class _StringsSettingsCustomDataDirZhHansCn extends _StringsSettingsCustomDataDi
 	// Translations
 	@override String get cancel => '取消';
 	@override String get select => '选择';
-	@override String get mustBeEmpty => '所选目录必须为空';
-	@override String get mustBeDoneSyncing => '在更改目录之前，请确保同步已完成';
+	@override String get mustBeEmpty => '所选文件夹必须为空';
+	@override String get mustBeDoneSyncing => '更改文件夹前，请确保同步已完成';
 }
 
 // Path: login.form
@@ -12229,9 +12231,9 @@ class _StringsLoginStatusZhHansCn extends _StringsLoginStatusEn {
 	// Translations
 	@override String get loggedOut => '已注销';
 	@override String get tapToLogin => '点击以使用 Nextcloud 登录';
+	@override String hi({required Object u}) => '欢迎，${u}!';
+	@override String get almostDone => '即将准备好同步，点击完成登录';
 	@override String get loggedIn => '已使用 Nextcloud 登录';
-	@override String hi({required Object u}) => '嗨，${u}！';
-	@override String get almostDone => '即将同步，点击即可完成登录';
 }
 
 // Path: login.ncLoginStep
@@ -12241,13 +12243,13 @@ class _StringsLoginNcLoginStepZhHansCn extends _StringsLoginNcLoginStepEn {
 	@override final _StringsZhHansCn _root; // ignore: unused_field
 
 	// Translations
-	@override late final _StringsLoginNcLoginStepLoginFlowZhHansCn loginFlow = _StringsLoginNcLoginStepLoginFlowZhHansCn._(_root);
-	@override String get whereToStoreData => '选择您要存储数据的位置：';
+	@override String get whereToStoreData => '选择数据存储位置：';
 	@override String get saberNcServer => 'Saber 的 Nextcloud 服务器';
 	@override String get otherNcServer => '其他 Nextcloud 服务器';
-	@override String get serverUrl => '服务器地址';
+	@override String get serverUrl => '服务器 URL';
 	@override String get loginWithSaber => '使用 Saber 登录';
 	@override String get loginWithNextcloud => '使用 Nextcloud 登录';
+	@override late final _StringsLoginNcLoginStepLoginFlowZhHansCn loginFlow = _StringsLoginNcLoginStepLoginFlowZhHansCn._(_root);
 }
 
 // Path: login.encLoginStep
@@ -12258,11 +12260,11 @@ class _StringsLoginEncLoginStepZhHansCn extends _StringsLoginEncLoginStepEn {
 
 	// Translations
 	@override String get enterEncPassword => '为了保护您的数据，请输入您的加密密码：';
-	@override String get newToSaber => '刚接触Saber';
+	@override String get newToSaber => 'Saber 新手？只需输入新的加密密码即可。';
 	@override String get encPassword => '加密密码';
-	@override String get encFaqTitle => '经常问的问题';
-	@override String get wrongEncPassword => '使用提供的密码解密失败。请尝试再次输入。';
-	@override String get connectionFailed => '连接服务器时出现问题。请稍后再试。';
+	@override String get encFaqTitle => '常见问题解答';
+	@override String get wrongEncPassword => '使用提供的密码解密失败。请再次尝试输入。';
+	@override String get connectionFailed => '连接到服务器时出错。请稍后重试。';
 	@override List<dynamic> get encFaq => [
 		_StringsLoginEncLoginStep$encFaq$0i0$ZhHansCn._(_root),
 		_StringsLoginEncLoginStep$encFaq$0i1$ZhHansCn._(_root),
@@ -12448,10 +12450,10 @@ class _StringsEditorMenuZhHansCn extends _StringsEditorMenuEn {
 	@override String get backgroundImageFit => '背景图像拟合';
 	@override String get backgroundPattern => '背景图案';
 	@override String get import => '导入';
+	@override String get watchServer => '监视服务器上的更新';
+	@override String get watchServerReadOnly => '监视服务器时禁用编辑';
 	@override late final _StringsEditorMenuBoxFitsZhHansCn boxFits = _StringsEditorMenuBoxFitsZhHansCn._(_root);
 	@override late final _StringsEditorMenuBgPatternsZhHansCn bgPatterns = _StringsEditorMenuBgPatternsZhHansCn._(_root);
-	@override String get watchServer => '留意服务器上的更新';
-	@override String get watchServerReadOnly => '观看服务器时禁用编辑';
 }
 
 // Path: editor.newerFileFormat
@@ -12511,9 +12513,9 @@ class _StringsSettingsPrefDescriptionsPencilSoundSettingZhHansCn extends _String
 	@override final _StringsZhHansCn _root; // ignore: unused_field
 
 	// Translations
-	@override String get onButNotInSilentMode => '已启用（除非处于静音模式）';
-	@override String get off => '没有声音';
-	@override String get onAlways => '已启用（即使在静音模式下）';
+	@override String get off => '没有音效';
+	@override String get onButNotInSilentMode => '启用（除非在静音模式下）';
+	@override String get onAlways => '启用（即使在静音模式下）';
 }
 
 // Path: login.ncLoginStep.loginFlow
@@ -12524,8 +12526,8 @@ class _StringsLoginNcLoginStepLoginFlowZhHansCn extends _StringsLoginNcLoginStep
 
 	// Translations
 	@override String get pleaseAuthorize => '请授权 Saber 访问您的 Nextcloud 帐户';
-	@override String get followPrompts => '请按照浏览器中的提示进行操作。';
-	@override String get browserDidntOpen => '浏览器打不开';
+	@override String get followPrompts => '请按照 Nextcloud 界面中的提示操作';
+	@override String get browserDidntOpen => '登录页面没有打开？点击这里';
 }
 
 // Path: login.encLoginStep.encFaq.0
@@ -12535,8 +12537,8 @@ class _StringsLoginEncLoginStep$encFaq$0i0$ZhHansCn extends _StringsLoginEncLogi
 	@override final _StringsZhHansCn _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => '加密密码是什么？';
-	@override String get a => '加密密码用于在将数据发送到服务器之前对其进行加密。您在首次登录 Saber 时选择它，它与您的 Nextcloud 帐户密码无关。\n没有您的加密密码，任何人都无法访问您在服务器上的笔记。这也意味着，如果您忘记了加密密码，您将无法访问您的数据。';
+	@override String get q => '什么是加密密码？为什么要使用两个密码？';
+	@override String get a => 'Nextcloud 密码用于访问云。加密密码会在您的数据到达云之前对其进行“加扰”。\n即使有人获得了您的 Nextcloud 帐户的访问权限，您的笔记也将保持安全并使用单独的密码进行加密。这为您提供了第二层安全保护，以保护您的数据。\n没有您的加密密码，任何人都无法访问您在服务器上的笔记，但这也意味着如果您忘记了加密密码，您将无法访问您的数据。';
 }
 
 // Path: login.encLoginStep.encFaq.1
@@ -12546,8 +12548,8 @@ class _StringsLoginEncLoginStep$encFaq$0i1$ZhHansCn extends _StringsLoginEncLogi
 	@override final _StringsZhHansCn _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => '为什么要使用两个密码？';
-	@override String get a => 'Nextcloud 密码用于访问云端。加密密码会在您的数据到达云端之前对其进行“加密”。\n即使有人获得了您的 Nextcloud 帐户的访问权限，您的笔记也会保持安全并使用单独的密码进行加密。这为您提供了第二层安全保护来保护您的数据。”';
+	@override String get q => '我还没有设置加密密码。我在哪里可以买到它？';
+	@override String get a => '选择新的加密密码并在上面输入。\nSaber 将从此密码自动生成您的加密密钥。';
 }
 
 // Path: login.encLoginStep.encFaq.2
@@ -12557,8 +12559,8 @@ class _StringsLoginEncLoginStep$encFaq$0i2$ZhHansCn extends _StringsLoginEncLogi
 	@override final _StringsZhHansCn _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => '我可以为两者使用相同的密码吗？';
-	@override String get a => '是的，但这样做不太安全。由于您的 Nextcloud 密码已发送到服务器，因此有权访问服务器的人将能够解密您的笔记。请仅在您信任服务器所有者的情况下使用相同的密码。';
+	@override String get q => '我可以使用与我的 Nextcloud 帐户相同的密码吗？';
+	@override String get a => '是的，但请记住，如果服务器管理员或其他人可以访问您的 Nextcloud 帐户，他们将更容易访问您的笔记。';
 }
 
 // Path: editor.menu.boxFits
