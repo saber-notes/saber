@@ -105,8 +105,6 @@ dependencies:
   onyxsdk_pen:
     path: packages/onyxsdk_pen
 
-  flex_seed_scheme: ^3.0.0
-
   screenshot: ^3.0.0
 
   path_drawing: ^1.0.1

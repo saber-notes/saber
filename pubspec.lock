@@ -418,7 +418,7 @@ packages:
     source: hosted
     version: "3.5.1"
   flex_seed_scheme:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: flex_seed_scheme
       sha256: "86470c8dc470f55dd3e28a6d30e3253a1c176df32903263d7daeabfc0c77dbd4"
