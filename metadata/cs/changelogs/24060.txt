@@ -1,0 +1,4 @@
+• Opravena aplikace, která nerozpoznala, pokud jste změnili heslo pro šifrování na jiném zařízení
+• Přidána záložní písma pro znaky jiné než latinka
+• Při načítání aplikace se spoustou starších poznámek dochází k menšímu poklesu rámců
+• Přidána možnost použití zjednodušeného rozložení domovské obrazovky pro výkon na zařízeních nižší třídy

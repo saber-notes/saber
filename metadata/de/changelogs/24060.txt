@@ -1,0 +1,4 @@
+• Problem behoben, bei dem die App nicht erkannte, ob Sie Ihr Verschlüsselungskennwort auf einem anderen Gerät geändert haben
+• Ersatzschriftarten für nicht-lateinische Zeichen hinzugefügt
+• Frame-Drops beim Laden der App mit vielen älteren Notizen reduziert
+• Option hinzugefügt, um ein vereinfachtes Home-Bildschirmlayout für die Leistung auf Low-End-Geräten zu verwenden

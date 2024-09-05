@@ -1,0 +1,4 @@
+• Correction de l'application qui ne reconnaissait pas si vous aviez modifié votre mot de passe de cryptage sur un autre appareil
+• Ajout de polices de secours pour les caractères non latins
+• Réduction des pertes d'images lors du chargement de l'application avec de nombreuses notes héritées
+• Ajout d'une option permettant d'utiliser une disposition d'écran d'accueil simplifiée pour les performances sur les appareils bas de gamme

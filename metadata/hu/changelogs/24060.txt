@@ -1,0 +1,4 @@
+• Javítottuk, hogy az alkalmazás nem ismeri fel, ha megváltoztatta a titkosítási jelszavát egy másik eszközön
+• Tartalék betűtípusok hozzáadva a nem latin karakterekhez
+• Csökkentett keretesések az alkalmazás betöltésekor, sok örökölt jegyzettel
+• Lehetőséget adtunk az egyszerűsített kezdőképernyő-elrendezés használatára az alsó kategóriás eszközökön való teljesítmény érdekében
