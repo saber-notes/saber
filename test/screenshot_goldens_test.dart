@@ -95,6 +95,12 @@ void main() {
       textTheme: GoogleFonts.interTextTheme().withFallbacks(),
       scaffoldBackgroundColor: colorScheme.surface,
     );
+    final cupertinoTheme = ThemeData(
+      colorScheme: colorScheme,
+      textTheme: GoogleFonts.interTextTheme().withFallbacks(),
+      scaffoldBackgroundColor: colorScheme.surface,
+      platform: TargetPlatform.iOS,
+    );
     final yaruVariant = YaruBuilder.findClosestYaruVariant(colorScheme.primary);
     final yaruTheme = YaruThemeData(variant: yaruVariant, useMaterial3: true);
 
@@ -105,12 +111,14 @@ void main() {
     _screenshot(
       frameColors: homeFrameColors,
       materialTheme: materialTheme,
+      cupertinoTheme: cupertinoTheme,
       yaruTheme: yaruTheme,
       goldenFileName: '1_home',
       child: const HomePage(subpage: HomePage.recentSubpage, path: ''),
     );
     _screenshot(
       materialTheme: materialTheme,
+      cupertinoTheme: cupertinoTheme,
       yaruTheme: yaruTheme,
       goldenFileName: '2_editor',
       child: Editor(
@@ -119,6 +127,7 @@ void main() {
     );
     _screenshot(
       materialTheme: materialTheme,
+      cupertinoTheme: cupertinoTheme,
       yaruTheme: yaruTheme,
       goldenFileName: '3_login',
       child: const NcLoginPage(
@@ -128,6 +137,7 @@ void main() {
     _screenshot(
       frameColors: homeFrameColors,
       materialTheme: materialTheme,
+      cupertinoTheme: cupertinoTheme,
       yaruTheme: yaruTheme,
       goldenFileName: '4_settings',
       child: const HomePage(subpage: HomePage.settingsSubpage, path: ''),
@@ -138,6 +148,7 @@ void main() {
 void _screenshot({
   ScreenshotFrameColors? frameColors,
   required ThemeData materialTheme,
+  required ThemeData cupertinoTheme,
   required YaruThemeData yaruTheme,
   required String goldenFileName,
   required Widget child,
@@ -176,6 +187,7 @@ void _screenshot({
     for (final (localeCode, goldenDevice) in localeDeviceMatrix) {
       testWidgets('for ${goldenDevice.name} in $localeCode', (tester) async {
         final device = goldenDevice.device;
+        Prefs.platform.value = device.platform;
         LocaleSettings.setLocaleRaw(localeCode);
 
         debugDisableShadows = false;
@@ -188,6 +200,7 @@ void _screenshot({
         final widget = ScreenshotApp(
           theme: switch (device.platform) {
             TargetPlatform.linux => yaruTheme.theme,
+            TargetPlatform.iOS || TargetPlatform.macOS => cupertinoTheme,
             _ => materialTheme,
           },
           device: device,

@@ -259,6 +259,11 @@ class _SettingsPageState extends State<SettingsPage> {
                   ),
                   ToggleButtonsOption(
                     () {
+                      // Hack to allow screenshot golden tests
+                      if (kDebugMode &&
+                          (Prefs.platform.value == TargetPlatform.iOS ||
+                              Prefs.platform.value == TargetPlatform.macOS))
+                        return Prefs.platform.value.index;
                       if (usesCupertinoByDefault)
                         return defaultTargetPlatform.index;
                       return TargetPlatform.iOS.index;
