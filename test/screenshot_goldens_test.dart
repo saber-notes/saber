@@ -142,88 +142,89 @@ void _screenshot({
   required String goldenFileName,
   required Widget child,
 }) {
+  /// Some locales have font issues where text is not displayed properly.
+  /// If you know how to fix this, contributions are welcome!
+  const localesWithFontIssues = {
+    'ar',
+    'fa',
+    'he',
+    'ja',
+    'zh-Hans-CN',
+    'zh-Hant-TW',
+  };
   const allScreenshots = bool.fromEnvironment('ALL_SCREENSHOTS');
-  final chosenLocaleCodes = allScreenshots ? localeNames.keys : const ['en'];
-  const chosenGoldenDevices = allScreenshots
-      ? GoldenScreenshotDevices.values
-      : [
-          GoldenScreenshotDevices.flathub,
-          GoldenScreenshotDevices.android,
-        ];
+  final localeDeviceMatrix = allScreenshots
+      ? {
+          // for english, do all devices
+          for (final goldenDevice in GoldenScreenshotDevices.values)
+            ('en', goldenDevice),
+          // for other locales (except those with font issues)
+          // create screenshots for flathub and android only
+          for (final locale in localeNames.keys)
+            if (!localesWithFontIssues.contains(locale)) ...[
+              (locale, GoldenScreenshotDevices.flathub),
+              (locale, GoldenScreenshotDevices.android),
+            ],
+        }
+      : {
+          // limited screenshots are used to speed up tests
+          ('en', GoldenScreenshotDevices.flathub),
+          ('en', GoldenScreenshotDevices.android),
+        };
 
   group(goldenFileName, () {
-    for (final localeCode in localeNames.keys) {
-      /// Some locales have font issues where text is not displayed properly.
-      /// If you know how to fix this, contributions are welcome!
-      const localesWithFontIssues = [
-        'ar',
-        'fa',
-        'he',
-        'ja',
-        'zh-Hans-CN',
-        'zh-Hant-TW',
-      ];
-      if (localesWithFontIssues.contains(localeCode)) continue;
+    for (final (localeCode, goldenDevice) in localeDeviceMatrix) {
+      testWidgets('for ${goldenDevice.name} in $localeCode', (tester) async {
+        final device = goldenDevice.device;
+        LocaleSettings.setLocaleRaw(localeCode);
 
-      for (final goldenDevice in GoldenScreenshotDevices.values) {
-        testWidgets(
-          'for ${goldenDevice.name} in $localeCode',
-          (tester) async {
-            final device = goldenDevice.device;
-            LocaleSettings.setLocaleRaw(localeCode);
+        debugDisableShadows = false;
 
-            debugDisableShadows = false;
+        if (goldenFileName == '4_settings') {
+          NextcloudProfile.forceLoginStep = LoginStep.done;
+          addTearDown(() => NextcloudProfile.forceLoginStep = null);
+        }
 
-            if (goldenFileName == '4_settings') {
-              NextcloudProfile.forceLoginStep = LoginStep.done;
-              addTearDown(() => NextcloudProfile.forceLoginStep = null);
-            }
-
-            final widget = ScreenshotApp(
-              theme: switch (device.platform) {
-                TargetPlatform.linux => yaruTheme.theme,
-                _ => materialTheme,
-              },
-              device: device,
-              frameColors: frameColors,
-              child: TranslationProvider(
-                child: child,
-              ),
-            );
-            await tester.pumpWidget(widget);
-
-            if (child is Editor) {
-              final editorState =
-                  tester.state<EditorState>(find.byType(Editor));
-              while (editorState.coreInfo.isEmpty) {
-                await tester.runAsync(
-                    () => Future.delayed(const Duration(milliseconds: 100)));
-              }
-              await tester.pump();
-            }
-
-            await tester.pump();
-            await tester.precacheImagesInWidgetTree();
-            await tester.precacheShaderImagesInWidgetTree();
-            await tester.precacheTopbarImages();
-            await tester.loadFonts();
-            await tester.pumpFrames(widget, const Duration(milliseconds: 100));
-
-            await tester.expectScreenshot(
-              device,
-              goldenFileName,
-              langCode: switch (localeCode) {
-                'en' => 'en-US',
-                _ => localeCode,
-              },
-            );
-
-            debugDisableShadows = true;
+        final widget = ScreenshotApp(
+          theme: switch (device.platform) {
+            TargetPlatform.linux => yaruTheme.theme,
+            _ => materialTheme,
           },
-          skip: !chosenLocaleCodes.contains(localeCode) ||
-              !chosenGoldenDevices.contains(goldenDevice),
+          device: device,
+          frameColors: frameColors,
+          child: TranslationProvider(
+            child: child,
+          ),
         );
-      }
+        await tester.pumpWidget(widget);
+
+        if (child is Editor) {
+          final editorState = tester.state<EditorState>(find.byType(Editor));
+          while (editorState.coreInfo.isEmpty) {
+            await tester.runAsync(
+                () => Future.delayed(const Duration(milliseconds: 100)));
+          }
+          await tester.pump();
+        }
+
+        await tester.pump();
+        await tester.precacheImagesInWidgetTree();
+        await tester.precacheShaderImagesInWidgetTree();
+        await tester.precacheTopbarImages();
+        await tester.loadFonts();
+        await tester.pumpFrames(widget, const Duration(milliseconds: 100));
+
+        await tester.expectScreenshot(
+          device,
+          goldenFileName,
+          langCode: switch (localeCode) {
+            'en' => 'en-US',
+            _ => localeCode,
+          },
+        );
+
+        debugDisableShadows = true;
+      });
     }
   });
 }
