@@ -99,6 +99,7 @@ abstract class Prefs {
   static late final PlainPref<bool> autoStraightenLines;
   static late final PlainPref<PencilSoundSetting> pencilSound;
 
+  static late final PlainPref<bool> simplifiedHomeLayout;
   static late final PlainPref<bool> hideHomeBackgrounds;
   static late final PlainPref<bool> printPageIndicators;
 
@@ -212,6 +213,7 @@ abstract class Prefs {
     pencilSound =
         PlainPref('pencilSound', PencilSoundSetting.onButNotInSilentMode);
 
+    simplifiedHomeLayout = PlainPref('simplifiedHomeLayout', false);
     hideHomeBackgrounds = PlainPref('hideHomeBackgrounds', false);
     printPageIndicators = PlainPref('printPageIndicators', false);
 

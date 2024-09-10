@@ -95,6 +95,7 @@ settings:
     autosaveDelay: Auto-save delay
     shapeRecognitionDelay: Shape recognition delay
     autoStraightenLines: Auto straighten lines
+    simplifiedHomeLayout: Simplified home layout
     customDataDir: Custom Saber folder
     pencilSoundSetting: Pencil sound effect
   prefDescriptions:
@@ -115,6 +116,7 @@ settings:
     autosaveDelay: How long to wait before auto-saving a note
     shapeRecognitionDelay: How often to update the shape preview
     autoStraightenLines: Straightens long lines without having to use the shape pen
+    simplifiedHomeLayout: Sets a fixed height for each note preview
     shouldAlwaysAlertForUpdates: Tell me about updates as soon as they're available
     pencilSoundSetting:
       off: No sound

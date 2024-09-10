@@ -1,7 +1,6 @@
 import 'dart:io';
 
 import 'package:dynamic_color/dynamic_color.dart';
-import 'package:flex_seed_scheme/flex_seed_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -129,13 +128,13 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp>
 
         if (Prefs.accentColor.loaded && Prefs.accentColor.value != 0) {
           seedColor = Color(Prefs.accentColor.value);
-          lightColorScheme = SeedColorScheme.fromSeeds(
+          lightColorScheme = ColorScheme.fromSeed(
             brightness: Brightness.light,
-            primaryKey: seedColor,
+            seedColor: seedColor,
           );
-          darkColorScheme = SeedColorScheme.fromSeeds(
+          darkColorScheme = ColorScheme.fromSeed(
             brightness: Brightness.dark,
-            primaryKey: seedColor,
+            seedColor: seedColor,
           );
         } else if (lightDynamic != null && darkDynamic != null) {
           lightColorScheme = lightDynamic.harmonized();
@@ -143,29 +142,27 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp>
           seedColor = lightColorScheme.primary;
         } else {
           seedColor = widget.defaultSwatch;
-          lightColorScheme = SeedColorScheme.fromSeeds(
+          lightColorScheme = ColorScheme.fromSeed(
             brightness: Brightness.light,
-            primaryKey: seedColor,
+            seedColor: seedColor,
           );
-          darkColorScheme = SeedColorScheme.fromSeeds(
+          darkColorScheme = ColorScheme.fromSeed(
             brightness: Brightness.dark,
-            primaryKey: seedColor,
+            seedColor: seedColor,
           );
         }
 
-        final ColorScheme highContrastLightColorScheme =
-            SeedColorScheme.fromSeeds(
+        final highContrastLightColorScheme = ColorScheme.fromSeed(
           brightness: Brightness.light,
-          primaryKey: seedColor,
+          seedColor: seedColor,
           surface: Colors.white,
-          tones: FlexTones.ultraContrast(Brightness.light),
+          contrastLevel: 1,
         );
-        final ColorScheme highContrastDarkColorScheme =
-            SeedColorScheme.fromSeeds(
+        final highContrastDarkColorScheme = ColorScheme.fromSeed(
           brightness: Brightness.dark,
-          primaryKey: seedColor,
+          seedColor: seedColor,
           surface: Colors.black,
-          tones: FlexTones.ultraContrast(Brightness.dark),
+          contrastLevel: 1,
         );
 
         final TargetPlatform? platform = switch (Prefs.platform.value) {

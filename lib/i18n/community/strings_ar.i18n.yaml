@@ -85,6 +85,7 @@ settings:
     hideHomeBackgrounds: إخفاء الخلفيات على الشاشة الرئيسية
     recentColorsDontSavePresets: لا تحفظ الألوان المعينة مسبقًا كألوان حديثة
     printPageIndicators: طباعة مؤشرات الصفحة
+    simplifiedHomeLayout(OUTDATED): تخطيط المنزل المبسط
     pencilSoundSetting(OUTDATED): تأثير صوت قلم الرصاص
     customDataDir(OUTDATED): دليل البيانات المخصصة
     autoStraightenLines(OUTDATED): تصويب الخطوط تلقائيا
@@ -109,6 +110,7 @@ settings:
     editorPromptRename: يمكنك دائمًا إعادة تسمية الملاحظات لاحقًا
     hideHomeBackgrounds: للحصول على مظهر أنظف
     printPageIndicators: تظهر مؤشرات الصفحة في الصادرات
+    simplifiedHomeLayout(OUTDATED): تعيين ارتفاع ثابت لكل معاينة ملاحظة
     pencilSoundSetting:
       off(OUTDATED): لا صوت
       onButNotInSilentMode(OUTDATED): ممكّن (ما لم يكن في الوضع الصامت)

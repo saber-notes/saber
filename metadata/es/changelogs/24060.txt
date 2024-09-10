@@ -1,0 +1,4 @@
+• Se solucionó el problema de que la aplicación no reconociera si había cambiado su contraseña de cifrado en otro dispositivo
+• Se agregaron fuentes de respaldo para caracteres no latinos
+• Se redujeron las caídas de cuadros al cargar la aplicación con muchas notas antiguas
+• Se agregó una opción para usar un diseño de pantalla de inicio simplificado para un mejor rendimiento en dispositivos de gama baja

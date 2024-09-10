@@ -49,6 +49,7 @@ ar:
       autosaveDelay(OUTDATED): Auto-save delay
       shapeRecognitionDelay(OUTDATED): Shape recognition delay
       autoStraightenLines(OUTDATED): Auto straighten lines
+      simplifiedHomeLayout(OUTDATED): Simplified home layout
       customDataDir(OUTDATED): Custom Saber folder
       pencilSoundSetting(OUTDATED): Pencil sound effect
     prefDescriptions:
@@ -62,6 +63,7 @@ ar:
       autosaveDelay(OUTDATED): How long to wait before auto-saving a note
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
+      simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
       shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
       pencilSoundSetting:
         off(OUTDATED): No sound
@@ -147,11 +149,13 @@ es:
     prefLabels:
       shapeRecognitionDelay(OUTDATED): Shape recognition delay
       autoStraightenLines(OUTDATED): Auto straighten lines
+      simplifiedHomeLayout(OUTDATED): Simplified home layout
       customDataDir(OUTDATED): Custom Saber folder
       pencilSoundSetting(OUTDATED): Pencil sound effect
     prefDescriptions:
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
+      simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
       pencilSoundSetting:
         off(OUTDATED): No sound
         onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
@@ -221,10 +225,12 @@ fa:
   settings:
     prefLabels:
       autoStraightenLines(OUTDATED): Auto straighten lines
+      simplifiedHomeLayout(OUTDATED): Simplified home layout
       customDataDir(OUTDATED): Custom Saber folder
       pencilSoundSetting(OUTDATED): Pencil sound effect
     prefDescriptions:
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
+      simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
       pencilSoundSetting:
         off(OUTDATED): No sound
         onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
@@ -289,10 +295,12 @@ fr:
   settings:
     prefLabels:
       autoStraightenLines(OUTDATED): Auto straighten lines
+      simplifiedHomeLayout(OUTDATED): Simplified home layout
       customDataDir(OUTDATED): Custom Saber folder
       pencilSoundSetting(OUTDATED): Pencil sound effect
     prefDescriptions:
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
+      simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
       pencilSoundSetting:
         off(OUTDATED): No sound
         onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
@@ -371,11 +379,13 @@ he:
       recentColorsLength(OUTDATED): How many recent colors to store
       shapeRecognitionDelay(OUTDATED): Shape recognition delay
       autoStraightenLines(OUTDATED): Auto straighten lines
+      simplifiedHomeLayout(OUTDATED): Simplified home layout
       customDataDir(OUTDATED): Custom Saber folder
       pencilSoundSetting(OUTDATED): Pencil sound effect
     prefDescriptions:
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
+      simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
       pencilSoundSetting:
         off(OUTDATED): No sound
         onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
@@ -514,6 +524,7 @@ hu:
       autosaveDelay(OUTDATED): Auto-save delay
       shapeRecognitionDelay(OUTDATED): Shape recognition delay
       autoStraightenLines(OUTDATED): Auto straighten lines
+      simplifiedHomeLayout(OUTDATED): Simplified home layout
       customDataDir(OUTDATED): Custom Saber folder
       pencilSoundSetting(OUTDATED): Pencil sound effect
     prefDescriptions:
@@ -528,6 +539,7 @@ hu:
       autosaveDelay(OUTDATED): How long to wait before auto-saving a note
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
+      simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
       shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
       pencilSoundSetting:
         off(OUTDATED): No sound
@@ -663,11 +675,6 @@ hu:
       lockAxisAlignedPan(OUTDATED): Lock panning to horizontal or vertical
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
 it:
-  login:
-    ncLoginStep:
-      loginFlow:
-        followPrompts(OUTDATED): Please follow the prompts in the Nextcloud interface
-        browserDidntOpen(OUTDATED): "Login page didn't open? Click here"
 ja:
   common:
     done(OUTDATED): Done
@@ -710,6 +717,7 @@ ja:
       autosaveDelay(OUTDATED): Auto-save delay
       shapeRecognitionDelay(OUTDATED): Shape recognition delay
       autoStraightenLines(OUTDATED): Auto straighten lines
+      simplifiedHomeLayout(OUTDATED): Simplified home layout
       customDataDir(OUTDATED): Custom Saber folder
       pencilSoundSetting(OUTDATED): Pencil sound effect
     prefDescriptions:
@@ -721,6 +729,7 @@ ja:
       autosaveDelay(OUTDATED): How long to wait before auto-saving a note
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
+      simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
       shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
       pencilSoundSetting:
         off(OUTDATED): No sound
@@ -812,11 +821,13 @@ pt-BR:
       recentColorsLength(OUTDATED): How many recent colors to store
       shapeRecognitionDelay(OUTDATED): Shape recognition delay
       autoStraightenLines(OUTDATED): Auto straighten lines
+      simplifiedHomeLayout(OUTDATED): Simplified home layout
       customDataDir(OUTDATED): Custom Saber folder
       pencilSoundSetting(OUTDATED): Pencil sound effect
     prefDescriptions:
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
+      simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
       pencilSoundSetting:
         off(OUTDATED): No sound
         onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
@@ -887,77 +898,6 @@ pt-BR:
       watchServer(OUTDATED): Watch for updates on the server
       watchServerReadOnly(OUTDATED): Editing is disabled while watching the server
 ru:
-  settings:
-    prefLabels:
-      customDataDir(OUTDATED): Custom Saber folder
-    openDataDir(OUTDATED): Open Saber folder
-    customDataDir:
-      mustBeEmpty(OUTDATED): Selected folder must be empty
-      mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the folder
-  login:
-    ncLoginStep:
-      loginFlow:
-        followPrompts(OUTDATED): Please follow the prompts in the Nextcloud interface
-        browserDidntOpen(OUTDATED): "Login page didn't open? Click here"
 tr:
 zh-Hans-CN:
-  common:
-    done(OUTDATED): Done
-    continueBtn(OUTDATED): Continue
-  settings:
-    prefLabels:
-      customDataDir(OUTDATED): Custom Saber folder
-      pencilSoundSetting(OUTDATED): Pencil sound effect
-    prefDescriptions:
-      pencilSoundSetting:
-        off(OUTDATED): No sound
-        onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
-        onAlways(OUTDATED): Enabled (even in silent mode)
-    openDataDir(OUTDATED): Open Saber folder
-    customDataDir:
-      mustBeEmpty(OUTDATED): Selected folder must be empty
-      mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the folder
-  login:
-    notYou(rich)(OUTDATED): "Not you? ${undoLogin(Choose another account)}."
-    status:
-      hi(OUTDATED): "Hi, $u!"
-      almostDone(OUTDATED): "Almost ready for syncing, tap to finish logging in"
-    ncLoginStep:
-      whereToStoreData(OUTDATED): "Choose where you want to store your data:"
-      saberNcServer(OUTDATED): Saber's Nextcloud server
-      otherNcServer(OUTDATED): Other Nextcloud server
-      serverUrl(OUTDATED): Server URL
-      loginWithSaber(OUTDATED): Login with Saber
-      loginWithNextcloud(OUTDATED): Login with Nextcloud
-      loginFlow:
-        pleaseAuthorize(OUTDATED): Please authorize Saber to access your Nextcloud account
-        followPrompts(OUTDATED): Please follow the prompts in the Nextcloud interface
-        browserDidntOpen(OUTDATED): "Login page didn't open? Click here"
-    encLoginStep:
-      enterEncPassword(OUTDATED): "To protect your data, please enter your encryption password:"
-      newToSaber(OUTDATED): "New to Saber? Just enter a new encryption password."
-      encPassword(OUTDATED): Encryption password
-      encFaqTitle(OUTDATED): Frequently asked questions
-      wrongEncPassword(OUTDATED): Decryption failed with the provided password. Please try entering it again.
-      connectionFailed(OUTDATED): Something went wrong connecting to the server. Please try again later.
-      encFaq(OUTDATED):
-        - q: "What is an encryption password? Why use two passwords?"
-          a: |-
-            The Nextcloud password is used to access the cloud. The encryption password "scrambles" your data before it ever reaches the cloud.
-            Even if someone gains access to your Nextcloud account, your notes will remain safe and encrypted with a separate password. This provides you a second layer of security to protect your data.
-            No-one can access your notes on the server without your encryption password, but this also means that if you forget your encryption password, you will lose access to your data.
-        - q: "I haven't set an encryption password yet. Where do I get it?"
-          a: |-
-            Choose a new encryption password and enter it above.
-            Saber will generate your encryption keys from this password automatically.
-        - q: "Can I use the same password as my Nextcloud account?"
-          a: "Yes, but keep in mind that it would be easier for the server administrator or someone else to access your notes if they gain access to your Nextcloud account."
-  profile:
-    quotaUsage(OUTDATED): "You're using $used of $total ($percent%)"
-    connectedTo(OUTDATED): Connected to
-    faqTitle(OUTDATED): Frequently asked questions
-  editor:
-    menu:
-      watchServer(OUTDATED): Watch for updates on the server
-      watchServerReadOnly(OUTDATED): Editing is disabled while watching the server
 zh-Hant-TW:

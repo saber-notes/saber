@@ -488,6 +488,7 @@ class _StringsSettingsPrefLabelsEn {
 	String get autosaveDelay => 'Auto-save delay';
 	String get shapeRecognitionDelay => 'Shape recognition delay';
 	String get autoStraightenLines => 'Auto straighten lines';
+	String get simplifiedHomeLayout => 'Simplified home layout';
 	String get customDataDir => 'Custom Saber folder';
 	String get pencilSoundSetting => 'Pencil sound effect';
 }
@@ -513,6 +514,7 @@ class _StringsSettingsPrefDescriptionsEn {
 	String get autosaveDelay => 'How long to wait before auto-saving a note';
 	String get shapeRecognitionDelay => 'How often to update the shape preview';
 	String get autoStraightenLines => 'Straightens long lines without having to use the shape pen';
+	String get simplifiedHomeLayout => 'Sets a fixed height for each note preview';
 	String get shouldAlwaysAlertForUpdates => 'Tell me about updates as soon as they\'re available';
 	late final _StringsSettingsPrefDescriptionsPencilSoundSettingEn pencilSoundSetting = _StringsSettingsPrefDescriptionsPencilSoundSettingEn._(_root);
 }
@@ -1306,6 +1308,7 @@ class _StringsSettingsPrefLabelsAr extends _StringsSettingsPrefLabelsEn {
 	@override String get hideHomeBackgrounds => 'إخفاء الخلفيات على الشاشة الرئيسية';
 	@override String get recentColorsDontSavePresets => 'لا تحفظ الألوان المعينة مسبقًا كألوان حديثة';
 	@override String get printPageIndicators => 'طباعة مؤشرات الصفحة';
+	@override String get simplifiedHomeLayout => 'تخطيط المنزل المبسط';
 	@override String get pencilSoundSetting => 'تأثير صوت قلم الرصاص';
 	@override String get customDataDir => 'دليل البيانات المخصصة';
 	@override String get autoStraightenLines => 'تصويب الخطوط تلقائيا';
@@ -1335,6 +1338,7 @@ class _StringsSettingsPrefDescriptionsAr extends _StringsSettingsPrefDescription
 	@override String get editorPromptRename => 'يمكنك دائمًا إعادة تسمية الملاحظات لاحقًا';
 	@override String get hideHomeBackgrounds => 'للحصول على مظهر أنظف';
 	@override String get printPageIndicators => 'تظهر مؤشرات الصفحة في الصادرات';
+	@override String get simplifiedHomeLayout => 'تعيين ارتفاع ثابت لكل معاينة ملاحظة';
 	@override late final _StringsSettingsPrefDescriptionsPencilSoundSettingAr pencilSoundSetting = _StringsSettingsPrefDescriptionsPencilSoundSettingAr._(_root);
 	@override String get autoStraightenLines => 'يقوم بفرد الخطوط الطويلة دون الحاجة إلى استخدام قلم الشكل';
 	@override String get shapeRecognitionDelay => 'عدد مرات تحديث معاينة الشكل';
@@ -2146,6 +2150,7 @@ class _StringsSettingsPrefLabelsCs extends _StringsSettingsPrefLabelsEn {
 	@override String get autosaveDelay => 'Zpoždění automatického ukládání';
 	@override String get shapeRecognitionDelay => 'Zpoždění rozpoznávání tvarů';
 	@override String get autoStraightenLines => 'Automaticky narovnávat čáry';
+	@override String get simplifiedHomeLayout => 'Zjednodušené rozložení domovské obrazovky';
 	@override String get customDataDir => 'Vlastní umístění složky aplikace Saber';
 	@override String get pencilSoundSetting => 'Zvukový efekt psaní tužkou';
 }
@@ -2171,6 +2176,7 @@ class _StringsSettingsPrefDescriptionsCs extends _StringsSettingsPrefDescription
 	@override String get autosaveDelay => 'Jak dlouho počkat před automatickým uložením poznámky';
 	@override String get shapeRecognitionDelay => 'Jak často aktualizovat náhled tvaru';
 	@override String get autoStraightenLines => 'Automaticky narovná dlouhé čáry, aniž by bylo nutné využít tvarové pero';
+	@override String get simplifiedHomeLayout => 'Nastaví pevnou výšku pro každý náhled poznámky';
 	@override String get shouldAlwaysAlertForUpdates => 'Oznámit dostupnost aktualizací co nejdříve od jejich vydání';
 	@override late final _StringsSettingsPrefDescriptionsPencilSoundSettingCs pencilSoundSetting = _StringsSettingsPrefDescriptionsPencilSoundSettingCs._(_root);
 }
@@ -2976,6 +2982,7 @@ class _StringsSettingsPrefLabelsDe extends _StringsSettingsPrefLabelsEn {
 	@override String get autosaveDelay => 'Verzögerung des automatischen Speicherns';
 	@override String get shapeRecognitionDelay => 'Verzögerung der Formerkennung';
 	@override String get autoStraightenLines => 'Linien automatisch begradigen';
+	@override String get simplifiedHomeLayout => 'Vereinfachtes Startbildschirmlayout';
 	@override String get customDataDir => 'Eigener Saber-Ordner';
 	@override String get pencilSoundSetting => 'Bleistiftgeräusch';
 }
@@ -3001,6 +3008,7 @@ class _StringsSettingsPrefDescriptionsDe extends _StringsSettingsPrefDescription
 	@override String get autosaveDelay => 'Verzögerung des automatischen Speicherns einer Notiz';
 	@override String get shapeRecognitionDelay => 'Häufigkeit der Aktualisierung der Form-Vorschau';
 	@override String get autoStraightenLines => 'Lange Linien selbst ohne Form-Stift begradigen';
+	@override String get simplifiedHomeLayout => 'Legt eine feste Höhe für jede Notizvorschau fest';
 	@override String get shouldAlwaysAlertForUpdates => 'Über neue Updates informiert bleiben';
 	@override late final _StringsSettingsPrefDescriptionsPencilSoundSettingDe pencilSoundSetting = _StringsSettingsPrefDescriptionsPencilSoundSettingDe._(_root);
 }
@@ -3801,6 +3809,7 @@ class _StringsSettingsPrefLabelsEs extends _StringsSettingsPrefLabelsEn {
 	@override String get recentColorsLength => 'Número de colores recientes a almacenar';
 	@override String get printPageIndicators => 'Indicadores de página de impresión';
 	@override String get autosaveDelay => 'Retardo en el autoguardado';
+	@override String get simplifiedHomeLayout => 'Disposición simplificada de la casa';
 	@override String get pencilSoundSetting => 'Efecto de sonido de lápiz';
 	@override String get customDataDir => 'Directorio de datos personalizado';
 	@override String get autoStraightenLines => 'Líneas de enderezamiento automático';
@@ -3826,6 +3835,7 @@ class _StringsSettingsPrefDescriptionsEs extends _StringsSettingsPrefDescription
 	@override String get hideHomeBackgrounds => 'Para una vista más limpia';
 	@override String get printPageIndicators => 'Mostrar indicadores de página en las exportaciones';
 	@override String get autosaveDelay => 'Cuánto esperar antes de autoguardar una nota';
+	@override String get simplifiedHomeLayout => 'Establece una altura fija para cada vista previa de nota';
 	@override String get shouldAlwaysAlertForUpdates => 'Avísame sobre actualizaciones tan pronto como estén disponibles';
 	@override late final _StringsSettingsPrefDescriptionsPencilSoundSettingEs pencilSoundSetting = _StringsSettingsPrefDescriptionsPencilSoundSettingEs._(_root);
 	@override String get autoStraightenLines => 'Endereza líneas largas sin tener que usar el rotulador.';
@@ -4630,6 +4640,7 @@ class _StringsSettingsPrefLabelsFa extends _StringsSettingsPrefLabelsEn {
 	@override String get printPageIndicators => 'چاپ نشانگرهای صفحه';
 	@override String get autosaveDelay => 'تأخیر ذخیره خودکار';
 	@override String get shapeRecognitionDelay => 'تاخیر در تشخیص شکل';
+	@override String get simplifiedHomeLayout => 'چیدمان خانه ساده شده';
 	@override String get pencilSoundSetting => 'جلوه صدای مداد';
 	@override String get customDataDir => 'دایرکتوری داده های سفارشی';
 	@override String get autoStraightenLines => 'صاف کردن خودکار خطوط';
@@ -4655,6 +4666,7 @@ class _StringsSettingsPrefDescriptionsFa extends _StringsSettingsPrefDescription
 	@override String get printPageIndicators => 'نمایش نشانگرهای صفحه در خروجی';
 	@override String get autosaveDelay => 'چه مدت باید قبل از ذخیره خودکار یادداشت صبر کرد';
 	@override String get shapeRecognitionDelay => 'به روز رسانی پیشنمایش شکل چند وقت یکبار انجام شود';
+	@override String get simplifiedHomeLayout => 'یک ارتفاع ثابت برای پیش نمایش هر یادداشت تنظیم می کند';
 	@override String get shouldAlwaysAlertForUpdates => 'به محض اینکه به‌روزرسانی‌ها در دسترس هستند، به من بگویید';
 	@override late final _StringsSettingsPrefDescriptionsPencilSoundSettingFa pencilSoundSetting = _StringsSettingsPrefDescriptionsPencilSoundSettingFa._(_root);
 	@override String get autoStraightenLines => 'خطوط بلند را بدون استفاده از قلم شکل صاف می کند';
@@ -5458,6 +5470,7 @@ class _StringsSettingsPrefLabelsFr extends _StringsSettingsPrefLabelsEn {
 	@override String get printPageIndicators => 'Imprimer les numéros de pages';
 	@override String get autosaveDelay => 'Délai entre les sauvegardes automatiques';
 	@override String get shapeRecognitionDelay => 'Délai de reconnaissance de forme';
+	@override String get simplifiedHomeLayout => 'Aménagement d\'une maison simplifié';
 	@override String get pencilSoundSetting => 'Effet sonore de crayon';
 	@override String get customDataDir => 'Répertoire de données personnalisé';
 	@override String get autoStraightenLines => 'Redresser automatiquement les lignes';
@@ -5483,6 +5496,7 @@ class _StringsSettingsPrefDescriptionsFr extends _StringsSettingsPrefDescription
 	@override String get printPageIndicators => 'Montrer les numéros de pages dans les exportations';
 	@override String get autosaveDelay => 'Combien de temps attendre avant de sauvegarder automatiquement une note';
 	@override String get shapeRecognitionDelay => 'Avec quelle fréquence mettre à jour la prévisualisation de forme';
+	@override String get simplifiedHomeLayout => 'Définit une hauteur fixe pour chaque aperçu de note';
 	@override String get shouldAlwaysAlertForUpdates => 'Me prévenir dès qu\'une mise à jour est disponible';
 	@override late final _StringsSettingsPrefDescriptionsPencilSoundSettingFr pencilSoundSetting = _StringsSettingsPrefDescriptionsPencilSoundSettingFr._(_root);
 	@override String get autoStraightenLines => 'Redresse les longues lignes sans avoir à utiliser le stylo de forme';
@@ -6284,6 +6298,7 @@ class _StringsSettingsPrefLabelsHe extends _StringsSettingsPrefLabelsEn {
 	@override String get recentColorsDontSavePresets => 'אל תשמור צבעים מוגדרים מראש בצבעים אחרונים';
 	@override String get printPageIndicators => 'הדפסת עמודים מחוונים';
 	@override String get autosaveDelay => 'השהיית שמירה אוטומטית';
+	@override String get simplifiedHomeLayout => 'פריסת בית פשוטה';
 	@override String get pencilSoundSetting => 'אפקט צליל עיפרון';
 	@override String get customDataDir => 'ספריית נתונים מותאמת אישית';
 	@override String get autoStraightenLines => 'יישור קווים אוטומטית';
@@ -6310,6 +6325,7 @@ class _StringsSettingsPrefDescriptionsHe extends _StringsSettingsPrefDescription
 	@override String get hideHomeBackgrounds => 'למראה נקי יותר';
 	@override String get printPageIndicators => 'הצג מחווני עמודים בייצוא';
 	@override String get autosaveDelay => 'כמה זמן לחכות לפני שמירת הערה אוטומטית';
+	@override String get simplifiedHomeLayout => 'מגדיר גובה קבוע עבור כל תצוגה מקדימה של הערה';
 	@override String get shouldAlwaysAlertForUpdates => 'ספר לי על עדכונים ברגע שהם יהיו זמינים';
 	@override late final _StringsSettingsPrefDescriptionsPencilSoundSettingHe pencilSoundSetting = _StringsSettingsPrefDescriptionsPencilSoundSettingHe._(_root);
 	@override String get autoStraightenLines => 'מיישר קווים ארוכים ללא צורך להשתמש בעט הצורה';
@@ -7103,6 +7119,7 @@ class _StringsSettingsPrefLabelsHu extends _StringsSettingsPrefLabelsEn {
 	@override String get editorPromptRename => 'Új jegyzetek átnevezésére való felszólítás';
 	@override String get hideHomeBackgrounds => 'Hátterek elrejtése a kezdőképernyőn';
 	@override String get recentColorsDontSavePresets => 'Ne mentse az előre beállított színeket a legutóbbi színek között';
+	@override String get simplifiedHomeLayout => 'Egyszerűsített otthoni elrendezés';
 	@override String get pencilSoundSetting => 'Ceruza hanghatás';
 	@override String get customDataDir => 'Egyedi adatkönyvtár';
 	@override String get autoStraightenLines => 'A vonalak automatikus kiegyenesítése';
@@ -7133,6 +7150,7 @@ class _StringsSettingsPrefDescriptionsHu extends _StringsSettingsPrefDescription
 	@override late final _StringsSettingsPrefDescriptionsHideFingerDrawingHu hideFingerDrawing = _StringsSettingsPrefDescriptionsHideFingerDrawingHu._(_root);
 	@override String get editorPromptRename => 'A jegyzeteket később bármikor átnevezheti';
 	@override String get hideHomeBackgrounds => 'Egy letisztultabb megjelenítésért';
+	@override String get simplifiedHomeLayout => 'Rögzített magasságot állít be minden hangjegy előnézetéhez';
 	@override late final _StringsSettingsPrefDescriptionsPencilSoundSettingHu pencilSoundSetting = _StringsSettingsPrefDescriptionsPencilSoundSettingHu._(_root);
 	@override String get autoStraightenLines => 'Kiegyenesíti a hosszú vonalakat anélkül, hogy az alakos tollat ​​kellene használnia';
 	@override String get shapeRecognitionDelay => 'Milyen gyakran kell frissíteni az alakzat előnézetét';
@@ -7945,6 +7963,7 @@ class _StringsSettingsPrefLabelsIt extends _StringsSettingsPrefLabelsEn {
 	@override String get autosaveDelay => 'Ritardo di salvataggio automatico';
 	@override String get shapeRecognitionDelay => 'Ritardo nel riconoscimento della forma';
 	@override String get autoStraightenLines => 'Raddrizzamento automatico delle linee';
+	@override String get simplifiedHomeLayout => 'Layout semplificato della home';
 	@override String get customDataDir => 'Cartella Saber personalizzata';
 	@override String get pencilSoundSetting => 'Effetto sonoro della matita';
 }
@@ -7970,6 +7989,7 @@ class _StringsSettingsPrefDescriptionsIt extends _StringsSettingsPrefDescription
 	@override String get autosaveDelay => 'Quanto tempo aspettare prima di salvare automaticamente una nota';
 	@override String get shapeRecognitionDelay => 'Quanto spesso aggiornare l\'anteprima della forma';
 	@override String get autoStraightenLines => 'Raddrizza le linee lunghe senza dover utilizzare la penna sagomatrice';
+	@override String get simplifiedHomeLayout => 'Imposta un\'altezza fissa per ogni anteprima della nota';
 	@override String get shouldAlwaysAlertForUpdates => 'Segnalami aggiornamenti non appena sono disponibili';
 	@override late final _StringsSettingsPrefDescriptionsPencilSoundSettingIt pencilSoundSetting = _StringsSettingsPrefDescriptionsPencilSoundSettingIt._(_root);
 }
@@ -8350,8 +8370,8 @@ class _StringsLoginNcLoginStepLoginFlowIt extends _StringsLoginNcLoginStepLoginF
 
 	// Translations
 	@override String get pleaseAuthorize => 'Autorizza Saber ad accedere al tuo account Nextcloud';
-	@override String get followPrompts => 'Si prega di seguire le istruzioni nel browser.';
-	@override String get browserDidntOpen => 'Il browser non si è aperto? clicca qui';
+	@override String get followPrompts => 'Seguire le istruzioni nell\'interfaccia Nextcloud';
+	@override String get browserDidntOpen => 'La pagina di accesso non si è aperta? Clicca qui';
 }
 
 // Path: login.encLoginStep.encFaq.0
@@ -8766,6 +8786,7 @@ class _StringsSettingsPrefLabelsJa extends _StringsSettingsPrefLabelsEn {
 	@override String get hideHomeBackgrounds => 'ホーム画面で背景を隠す';
 	@override String get recentColorsDontSavePresets => '最近使用した色をプリセットに登録しない';
 	@override String get printPageIndicators => '印刷ページのインジケーター';
+	@override String get simplifiedHomeLayout => '簡素化されたホームレイアウト';
 	@override String get pencilSoundSetting => '鉛筆の効果音';
 	@override String get customDataDir => 'カスタムデータディレクトリ';
 	@override String get autoStraightenLines => '線を自動直線化する';
@@ -8794,6 +8815,7 @@ class _StringsSettingsPrefDescriptionsJa extends _StringsSettingsPrefDescription
 	@override String get editorPromptRename => 'メモの名前は後でいつでも変更できます';
 	@override String get hideHomeBackgrounds => 'よりクリーンな外観に';
 	@override String get printPageIndicators => 'エクスポートにページインジケーターを表示';
+	@override String get simplifiedHomeLayout => '各ノートのプレビューに固定の高さを設定します';
 	@override late final _StringsSettingsPrefDescriptionsPencilSoundSettingJa pencilSoundSetting = _StringsSettingsPrefDescriptionsPencilSoundSettingJa._(_root);
 	@override String get autoStraightenLines => 'シェイプペンを使用せずに長い線をまっすぐにします。';
 	@override String get shapeRecognitionDelay => '形状プレビューを更新する頻度';
@@ -9598,6 +9620,7 @@ class _StringsSettingsPrefLabelsPtBr extends _StringsSettingsPrefLabelsEn {
 	@override String get recentColorsDontSavePresets => 'Não salvar as cores predefinidas nas cores recentes';
 	@override String get printPageIndicators => 'Imprimir os indicadores de página';
 	@override String get autosaveDelay => 'Atraso de salvamento automático';
+	@override String get simplifiedHomeLayout => 'Layout simplificado da casa';
 	@override String get pencilSoundSetting => 'Efeito sonoro de lápis';
 	@override String get customDataDir => 'Diretório de dados personalizado';
 	@override String get autoStraightenLines => 'Endireitar linhas automaticamente';
@@ -9624,6 +9647,7 @@ class _StringsSettingsPrefDescriptionsPtBr extends _StringsSettingsPrefDescripti
 	@override String get hideHomeBackgrounds => 'Para uma aparência mais limpa';
 	@override String get printPageIndicators => 'Mostrar os indicadores de página nas exportações';
 	@override String get autosaveDelay => 'Quanto tempo esperar antes de salvar automaticamente uma nota';
+	@override String get simplifiedHomeLayout => 'Define uma altura fixa para cada pré-visualização de nota';
 	@override String get shouldAlwaysAlertForUpdates => 'Conte-me sobre atualizações assim que elas estiverem disponíveis';
 	@override late final _StringsSettingsPrefDescriptionsPencilSoundSettingPtBr pencilSoundSetting = _StringsSettingsPrefDescriptionsPencilSoundSettingPtBr._(_root);
 	@override String get autoStraightenLines => 'Endireita linhas longas sem precisar usar a caneta modeladora';
@@ -10161,8 +10185,8 @@ class _StringsSettingsRu extends _StringsSettingsEn {
 	];
 	@override late final _StringsSettingsResetRu reset = _StringsSettingsResetRu._(_root);
 	@override String get resyncEverything => 'Повторная синхронизация всего';
-	@override late final _StringsSettingsCustomDataDirRu customDataDir = _StringsSettingsCustomDataDirRu._(_root);
 	@override String get openDataDir => 'Открыть папку Saber';
+	@override late final _StringsSettingsCustomDataDirRu customDataDir = _StringsSettingsCustomDataDirRu._(_root);
 }
 
 // Path: login
@@ -10431,8 +10455,9 @@ class _StringsSettingsPrefLabelsRu extends _StringsSettingsPrefLabelsEn {
 	@override String get autosaveDelay => 'Задержка автосохранения';
 	@override String get shapeRecognitionDelay => 'Задержка распознавания формы';
 	@override String get autoStraightenLines => 'Автоматическое выпрямление линий';
+	@override String get simplifiedHomeLayout => 'Упрощённый главный экран';
+	@override String get customDataDir => 'Свой каталог Saber';
 	@override String get pencilSoundSetting => 'Звуковой эффект карандаша';
-	@override String get customDataDir => 'Свой каталог для данных';
 }
 
 // Path: settings.prefDescriptions
@@ -10456,6 +10481,7 @@ class _StringsSettingsPrefDescriptionsRu extends _StringsSettingsPrefDescription
 	@override String get autosaveDelay => 'Время ожидания до автосохранения заметки';
 	@override String get shapeRecognitionDelay => 'Как часто обновлять предварительный просмотр формы';
 	@override String get autoStraightenLines => 'Выпрямляет длинные линии без использования фигурного пера';
+	@override String get simplifiedHomeLayout => 'Фиксированная высота предварительного просмотра каждой заметки';
 	@override String get shouldAlwaysAlertForUpdates => 'Сообщать мне об обновлениях, как только они станут доступны';
 	@override late final _StringsSettingsPrefDescriptionsPencilSoundSettingRu pencilSoundSetting = _StringsSettingsPrefDescriptionsPencilSoundSettingRu._(_root);
 }
@@ -10515,7 +10541,7 @@ class _StringsSettingsCustomDataDirRu extends _StringsSettingsCustomDataDirEn {
 	@override String get cancel => 'Отмена';
 	@override String get select => 'Выбрать';
 	@override String get mustBeEmpty => 'Выбранный каталог должен быть пустым';
-	@override String get mustBeDoneSyncing => 'Прежде чем менять каталог, убедитесь, что синхронизация завершена.';
+	@override String get mustBeDoneSyncing => 'Перед изменением каталога убедитесь, что синхронизация завершена';
 }
 
 // Path: login.form
@@ -10836,8 +10862,8 @@ class _StringsLoginNcLoginStepLoginFlowRu extends _StringsLoginNcLoginStepLoginF
 
 	// Translations
 	@override String get pleaseAuthorize => 'Пожалуйста, авторизуйте Saber для доступа к вашей учётной записи Nextcloud';
-	@override String get followPrompts => 'Пожалуйста, следуйте инструкциям в вашем браузере.';
-	@override String get browserDidntOpen => 'Браузер не открылся? Нажмите сюда';
+	@override String get followPrompts => 'Пожалуйста, следуйте инструкциям в интерфейсе Nextcloud';
+	@override String get browserDidntOpen => 'Страница входа в систему не открылась? Нажмите сюда';
 }
 
 // Path: login.encLoginStep.encFaq.0
@@ -11261,6 +11287,7 @@ class _StringsSettingsPrefLabelsTr extends _StringsSettingsPrefLabelsEn {
 	@override String get autosaveDelay => 'Otomatik kayıt aralığı';
 	@override String get shapeRecognitionDelay => 'Şekil tanıma gecikmesi';
 	@override String get autoStraightenLines => 'Çizgileri otomatik düzleştir';
+	@override String get simplifiedHomeLayout => 'Sadeleştirilmiş ana ekran düzeni';
 	@override String get customDataDir => 'Özel Saber klasörü';
 	@override String get pencilSoundSetting => 'Kurşun kalem ses efekti';
 }
@@ -11286,6 +11313,7 @@ class _StringsSettingsPrefDescriptionsTr extends _StringsSettingsPrefDescription
 	@override String get autosaveDelay => 'Bir notu otomatik kaydetmeden önce ne kadar bekleneceğini ayarlar';
 	@override String get shapeRecognitionDelay => 'Çizilen şekilleri tanımlama sıklığını belirler';
 	@override String get autoStraightenLines => 'Şekil aracını kullanmadığınızda da çizgileri düzleştirir';
+	@override String get simplifiedHomeLayout => 'Not önizlemelerinin uzunluklarını eşitler';
 	@override String get shouldAlwaysAlertForUpdates => 'Güncelleme mevcut olduğu gibi bana haber ver';
 	@override late final _StringsSettingsPrefDescriptionsPencilSoundSettingTr pencilSoundSetting = _StringsSettingsPrefDescriptionsPencilSoundSettingTr._(_root);
 }
@@ -11770,9 +11798,9 @@ class _StringsCommonZhHansCn extends _StringsCommonEn {
 	@override final _StringsZhHansCn _root; // ignore: unused_field
 
 	// Translations
-	@override String get cancel => '取消';
-	@override String get done => '完毕';
+	@override String get done => '完成';
 	@override String get continueBtn => '继续';
+	@override String get cancel => '取消';
 }
 
 // Path: home
@@ -11821,8 +11849,8 @@ class _StringsSettingsZhHansCn extends _StringsSettingsEn {
 	];
 	@override late final _StringsSettingsResetZhHansCn reset = _StringsSettingsResetZhHansCn._(_root);
 	@override String get resyncEverything => '重新同步所有';
-	@override late final _StringsSettingsCustomDataDirZhHansCn customDataDir = _StringsSettingsCustomDataDirZhHansCn._(_root);
 	@override String get openDataDir => '打开 Saber 文件夹';
+	@override late final _StringsSettingsCustomDataDirZhHansCn customDataDir = _StringsSettingsCustomDataDirZhHansCn._(_root);
 }
 
 // Path: login
@@ -11839,12 +11867,14 @@ class _StringsLoginZhHansCn extends _StringsLoginEn {
 		linkToSignup('立即注册'),
 		const TextSpan(text: '！'),
 	]);
+	@override TextSpan notYou({required InlineSpanBuilder undoLogin}) => TextSpan(children: [
+		const TextSpan(text: '不是您吗？'),
+		undoLogin('Choose another account'),
+		const TextSpan(text: '.'),
+	]);
 	@override late final _StringsLoginStatusZhHansCn status = _StringsLoginStatusZhHansCn._(_root);
 	@override late final _StringsLoginNcLoginStepZhHansCn ncLoginStep = _StringsLoginNcLoginStepZhHansCn._(_root);
 	@override late final _StringsLoginEncLoginStepZhHansCn encLoginStep = _StringsLoginEncLoginStepZhHansCn._(_root);
-	@override TextSpan notYou({required InlineSpanBuilder undoLogin}) => TextSpan(children: [
-		undoLogin('不是你'),
-	]);
 }
 
 // Path: profile
@@ -11856,16 +11886,16 @@ class _StringsProfileZhHansCn extends _StringsProfileEn {
 	// Translations
 	@override String get title => '我的用户资料';
 	@override String get logout => '注销';
+	@override String quotaUsage({required Object used, required Object total, required Object percent}) => '您已使用 ${used}，共 ${total}（${percent}%）';
+	@override String get connectedTo => '连接到';
 	@override late final _StringsProfileQuickLinksZhHansCn quickLinks = _StringsProfileQuickLinksZhHansCn._(_root);
+	@override String get faqTitle => '常见问题解答';
 	@override List<dynamic> get faq => [
 		_StringsProfile$faq$0i0$ZhHansCn._(_root),
 		_StringsProfile$faq$0i1$ZhHansCn._(_root),
 		_StringsProfile$faq$0i2$ZhHansCn._(_root),
 		_StringsProfile$faq$0i3$ZhHansCn._(_root),
 	];
-	@override String quotaUsage({required Object used, required Object total, required Object percent}) => '您正在使用 ${used} 占 ${total} (${percent}%)';
-	@override String get connectedTo => '连接到';
-	@override String get faqTitle => '经常问的问题';
 }
 
 // Path: appInfo
@@ -12089,7 +12119,8 @@ class _StringsSettingsPrefLabelsZhHansCn extends _StringsSettingsPrefLabelsEn {
 	@override String get autosaveDelay => '自动保存延迟';
 	@override String get shapeRecognitionDelay => '形状识别延迟';
 	@override String get autoStraightenLines => '自动拉直线';
-	@override String get customDataDir => '自定义数据目录';
+	@override String get simplifiedHomeLayout => '简化主页布局';
+	@override String get customDataDir => '自定义 Saber 文件夹';
 	@override String get pencilSoundSetting => '铅笔音效';
 }
 
@@ -12114,6 +12145,7 @@ class _StringsSettingsPrefDescriptionsZhHansCn extends _StringsSettingsPrefDescr
 	@override String get autosaveDelay => '自动保存便笺需要等待的时间';
 	@override String get shapeRecognitionDelay => '形状预览更新频率';
 	@override String get autoStraightenLines => '拉直长线，无需使用形状笔';
+	@override String get simplifiedHomeLayout => '为每个笔记预览设置固定高度';
 	@override String get shouldAlwaysAlertForUpdates => '在更新可用时尽快告诉我';
 	@override late final _StringsSettingsPrefDescriptionsPencilSoundSettingZhHansCn pencilSoundSetting = _StringsSettingsPrefDescriptionsPencilSoundSettingZhHansCn._(_root);
 }
@@ -12172,8 +12204,8 @@ class _StringsSettingsCustomDataDirZhHansCn extends _StringsSettingsCustomDataDi
 	// Translations
 	@override String get cancel => '取消';
 	@override String get select => '选择';
-	@override String get mustBeEmpty => '所选目录必须为空';
-	@override String get mustBeDoneSyncing => '在更改目录之前，请确保同步已完成';
+	@override String get mustBeEmpty => '所选文件夹必须为空';
+	@override String get mustBeDoneSyncing => '更改文件夹前，请确保同步已完成';
 }
 
 // Path: login.form
@@ -12199,9 +12231,9 @@ class _StringsLoginStatusZhHansCn extends _StringsLoginStatusEn {
 	// Translations
 	@override String get loggedOut => '已注销';
 	@override String get tapToLogin => '点击以使用 Nextcloud 登录';
+	@override String hi({required Object u}) => '欢迎，${u}!';
+	@override String get almostDone => '即将准备好同步，点击完成登录';
 	@override String get loggedIn => '已使用 Nextcloud 登录';
-	@override String hi({required Object u}) => '嗨，${u}！';
-	@override String get almostDone => '即将同步，点击即可完成登录';
 }
 
 // Path: login.ncLoginStep
@@ -12211,13 +12243,13 @@ class _StringsLoginNcLoginStepZhHansCn extends _StringsLoginNcLoginStepEn {
 	@override final _StringsZhHansCn _root; // ignore: unused_field
 
 	// Translations
-	@override late final _StringsLoginNcLoginStepLoginFlowZhHansCn loginFlow = _StringsLoginNcLoginStepLoginFlowZhHansCn._(_root);
-	@override String get whereToStoreData => '选择您要存储数据的位置：';
+	@override String get whereToStoreData => '选择数据存储位置：';
 	@override String get saberNcServer => 'Saber 的 Nextcloud 服务器';
 	@override String get otherNcServer => '其他 Nextcloud 服务器';
-	@override String get serverUrl => '服务器地址';
+	@override String get serverUrl => '服务器 URL';
 	@override String get loginWithSaber => '使用 Saber 登录';
 	@override String get loginWithNextcloud => '使用 Nextcloud 登录';
+	@override late final _StringsLoginNcLoginStepLoginFlowZhHansCn loginFlow = _StringsLoginNcLoginStepLoginFlowZhHansCn._(_root);
 }
 
 // Path: login.encLoginStep
@@ -12228,11 +12260,11 @@ class _StringsLoginEncLoginStepZhHansCn extends _StringsLoginEncLoginStepEn {
 
 	// Translations
 	@override String get enterEncPassword => '为了保护您的数据，请输入您的加密密码：';
-	@override String get newToSaber => '刚接触Saber';
+	@override String get newToSaber => 'Saber 新手？只需输入新的加密密码即可。';
 	@override String get encPassword => '加密密码';
-	@override String get encFaqTitle => '经常问的问题';
-	@override String get wrongEncPassword => '使用提供的密码解密失败。请尝试再次输入。';
-	@override String get connectionFailed => '连接服务器时出现问题。请稍后再试。';
+	@override String get encFaqTitle => '常见问题解答';
+	@override String get wrongEncPassword => '使用提供的密码解密失败。请再次尝试输入。';
+	@override String get connectionFailed => '连接到服务器时出错。请稍后重试。';
 	@override List<dynamic> get encFaq => [
 		_StringsLoginEncLoginStep$encFaq$0i0$ZhHansCn._(_root),
 		_StringsLoginEncLoginStep$encFaq$0i1$ZhHansCn._(_root),
@@ -12418,10 +12450,10 @@ class _StringsEditorMenuZhHansCn extends _StringsEditorMenuEn {
 	@override String get backgroundImageFit => '背景图像拟合';
 	@override String get backgroundPattern => '背景图案';
 	@override String get import => '导入';
+	@override String get watchServer => '监视服务器上的更新';
+	@override String get watchServerReadOnly => '监视服务器时禁用编辑';
 	@override late final _StringsEditorMenuBoxFitsZhHansCn boxFits = _StringsEditorMenuBoxFitsZhHansCn._(_root);
 	@override late final _StringsEditorMenuBgPatternsZhHansCn bgPatterns = _StringsEditorMenuBgPatternsZhHansCn._(_root);
-	@override String get watchServer => '留意服务器上的更新';
-	@override String get watchServerReadOnly => '观看服务器时禁用编辑';
 }
 
 // Path: editor.newerFileFormat
@@ -12481,9 +12513,9 @@ class _StringsSettingsPrefDescriptionsPencilSoundSettingZhHansCn extends _String
 	@override final _StringsZhHansCn _root; // ignore: unused_field
 
 	// Translations
-	@override String get onButNotInSilentMode => '已启用（除非处于静音模式）';
-	@override String get off => '没有声音';
-	@override String get onAlways => '已启用（即使在静音模式下）';
+	@override String get off => '没有音效';
+	@override String get onButNotInSilentMode => '启用（除非在静音模式下）';
+	@override String get onAlways => '启用（即使在静音模式下）';
 }
 
 // Path: login.ncLoginStep.loginFlow
@@ -12494,8 +12526,8 @@ class _StringsLoginNcLoginStepLoginFlowZhHansCn extends _StringsLoginNcLoginStep
 
 	// Translations
 	@override String get pleaseAuthorize => '请授权 Saber 访问您的 Nextcloud 帐户';
-	@override String get followPrompts => '请按照浏览器中的提示进行操作。';
-	@override String get browserDidntOpen => '浏览器打不开';
+	@override String get followPrompts => '请按照 Nextcloud 界面中的提示操作';
+	@override String get browserDidntOpen => '登录页面没有打开？点击这里';
 }
 
 // Path: login.encLoginStep.encFaq.0
@@ -12505,8 +12537,8 @@ class _StringsLoginEncLoginStep$encFaq$0i0$ZhHansCn extends _StringsLoginEncLogi
 	@override final _StringsZhHansCn _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => '加密密码是什么？';
-	@override String get a => '加密密码用于在将数据发送到服务器之前对其进行加密。您在首次登录 Saber 时选择它，它与您的 Nextcloud 帐户密码无关。\n没有您的加密密码，任何人都无法访问您在服务器上的笔记。这也意味着，如果您忘记了加密密码，您将无法访问您的数据。';
+	@override String get q => '什么是加密密码？为什么要使用两个密码？';
+	@override String get a => 'Nextcloud 密码用于访问云。加密密码会在您的数据到达云之前对其进行“加扰”。\n即使有人获得了您的 Nextcloud 帐户的访问权限，您的笔记也将保持安全并使用单独的密码进行加密。这为您提供了第二层安全保护，以保护您的数据。\n没有您的加密密码，任何人都无法访问您在服务器上的笔记，但这也意味着如果您忘记了加密密码，您将无法访问您的数据。';
 }
 
 // Path: login.encLoginStep.encFaq.1
@@ -12516,8 +12548,8 @@ class _StringsLoginEncLoginStep$encFaq$0i1$ZhHansCn extends _StringsLoginEncLogi
 	@override final _StringsZhHansCn _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => '为什么要使用两个密码？';
-	@override String get a => 'Nextcloud 密码用于访问云端。加密密码会在您的数据到达云端之前对其进行“加密”。\n即使有人获得了您的 Nextcloud 帐户的访问权限，您的笔记也会保持安全并使用单独的密码进行加密。这为您提供了第二层安全保护来保护您的数据。”';
+	@override String get q => '我还没有设置加密密码。我在哪里可以买到它？';
+	@override String get a => '选择新的加密密码并在上面输入。\nSaber 将从此密码自动生成您的加密密钥。';
 }
 
 // Path: login.encLoginStep.encFaq.2
@@ -12527,8 +12559,8 @@ class _StringsLoginEncLoginStep$encFaq$0i2$ZhHansCn extends _StringsLoginEncLogi
 	@override final _StringsZhHansCn _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => '我可以为两者使用相同的密码吗？';
-	@override String get a => '是的，但这样做不太安全。由于您的 Nextcloud 密码已发送到服务器，因此有权访问服务器的人将能够解密您的笔记。请仅在您信任服务器所有者的情况下使用相同的密码。';
+	@override String get q => '我可以使用与我的 Nextcloud 帐户相同的密码吗？';
+	@override String get a => '是的，但请记住，如果服务器管理员或其他人可以访问您的 Nextcloud 帐户，他们将更容易访问您的笔记。';
 }
 
 // Path: editor.menu.boxFits
@@ -12919,6 +12951,7 @@ class _StringsSettingsPrefLabelsZhHantTw extends _StringsSettingsPrefLabelsEn {
 	@override String get autosaveDelay => '自動儲存延遲';
 	@override String get shapeRecognitionDelay => '形狀識別延遲';
 	@override String get autoStraightenLines => '自動拉直線條';
+	@override String get simplifiedHomeLayout => '簡化首頁佈局';
 	@override String get customDataDir => '自訂 Saber 資料夾';
 	@override String get pencilSoundSetting => '筆的音效';
 }
@@ -12944,6 +12977,7 @@ class _StringsSettingsPrefDescriptionsZhHantTw extends _StringsSettingsPrefDescr
 	@override String get autosaveDelay => '自動儲存筆記之前等待多少時間';
 	@override String get shapeRecognitionDelay => '多久更新一次形狀預覽';
 	@override String get autoStraightenLines => '無需使用形狀筆即可拉直線條';
+	@override String get simplifiedHomeLayout => '為每個筆記預覽設定固定高度';
 	@override String get shouldAlwaysAlertForUpdates => '一旦有更新請告訴我';
 	@override late final _StringsSettingsPrefDescriptionsPencilSoundSettingZhHantTw pencilSoundSetting = _StringsSettingsPrefDescriptionsPencilSoundSettingZhHantTw._(_root);
 }

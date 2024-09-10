@@ -4,6 +4,7 @@ import 'dart:typed_data';
 
 import 'package:crypto/crypto.dart';
 import 'package:encrypt/encrypt.dart';
+import 'package:http/io_client.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/provisioning_api.dart';
 import 'package:nextcloud/webdav.dart';
@@ -19,6 +20,9 @@ extension NextcloudClientExtension on NextcloudClient {
   static final userAgent = 'Saber/$buildName '
       '(${Platform.operatingSystem}) '
       'Dart/${Platform.version.split(' ').first}';
+  static IOClient newHttpClient() => IOClient(
+        HttpClient()..userAgent = userAgent,
+      );
 
   static const String appRootDirectoryPrefix =
       FileManager.appRootDirectoryPrefix;
@@ -42,7 +46,7 @@ extension NextcloudClientExtension on NextcloudClient {
       loginName: username,
       password: ncPassword,
       appPassword: Prefs.ncPasswordIsAnAppPassword.value ? ncPassword : null,
-      userAgent: userAgent,
+      httpClient: NextcloudClientExtension.newHttpClient(),
     );
 
     void deAuth() {

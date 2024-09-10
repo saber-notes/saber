@@ -214,6 +214,16 @@
     </screenshots>
 
     <releases>
+        <release version="0.24.6" type="development" date="2024-09-05">
+            <description>
+                <ul>
+                    <li>Fixed the app not recognizing if you've changed your encryption password on another device</li>
+                    <li>Added fallback fonts for non-latin characters</li>
+                    <li>Reduced frame drops when loading the app with lots of legacy notes</li>
+                    <li>Added an option to use a simplified home screen layout for performance on low-end devices</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.24.5" type="development" date="2024-08-08">
             <description>
                 <ul>

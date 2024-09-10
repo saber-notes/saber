@@ -50,7 +50,7 @@ class SaberLoginFlow {
   Future<void> _run() async {
     _catchHttpError(() async {
       final client = NextcloudClient(serverUrl,
-          userAgent: NextcloudClientExtension.userAgent);
+          httpClient: NextcloudClientExtension.newHttpClient());
       final flowClient = client.core.clientFlowLoginV2;
       init = await flowClient.init().then((response) => response.body);
       log.info('init: $init');
@@ -62,7 +62,11 @@ class SaberLoginFlow {
         const Duration(seconds: 1),
         (_) => _catch404Error(() async {
           // Throws 404 if not logged in yet
-          final poll = await flowClient.poll(token: init!.poll.token);
+          final poll = await flowClient.poll(
+            $body: ClientFlowLoginV2PollRequestApplicationJson(
+              (b) => b..token = init!.poll.token,
+            ),
+          );
 
           _pollTimer?.cancel();
           if (!completer.isCompleted) completer.complete(poll.body);

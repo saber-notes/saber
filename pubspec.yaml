@@ -15,7 +15,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 0.24.5+24050
+version: 0.24.6+24060
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
@@ -52,7 +52,7 @@ dependencies:
 
   url_launcher: ^6.1.8
 
-  nextcloud: ^6.0.0
+  nextcloud: ^7.0.0
 
   collapsible: ^1.0.0
 
@@ -104,8 +104,6 @@ dependencies:
 
   onyxsdk_pen:
     path: packages/onyxsdk_pen
-
-  flex_seed_scheme: ^3.0.0
 
   screenshot: ^3.0.0
 
@@ -174,9 +172,6 @@ dev_dependencies:
   golden_screenshot: ^2.0.1
 
 dependency_overrides:
-  # Because printing >=5.13.2 depends on web ^1.0.0 and share_plus 10.0.0 depends on web ^0.5.0, printing >=5.13.2 is incompatible with share_plus 10.0.0.
-  web: ^1.0.0
-
   # https://github.com/alexei-sintotski/json2yaml/pull/30
   json2yaml:
     git:

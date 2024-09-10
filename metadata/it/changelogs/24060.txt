@@ -1,0 +1,4 @@
+• Risolto il problema per cui l'app non riconosceva se avevi cambiato la password di crittografia su un altro dispositivo
+• Aggiunti font di fallback per caratteri non latini
+• Ridotto calo di frame durante il caricamento dell'app con molte note legacy
+• Aggiunta un'opzione per usare un layout semplificato della schermata iniziale per le prestazioni sui dispositivi di fascia bassa
