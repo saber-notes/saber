@@ -61,10 +61,10 @@ packages:
     dependency: transitive
     description:
       name: asn1lib
-      sha256: "58082b3f0dca697204dbab0ef9ff208bfaea7767ea771076af9a343488428dda"
+      sha256: "2ca377ad4d677bbadca278e0ba4da4e057b80a10b927bfc8f7d8bda8fe2ceb75"
       url: "https://pub.dev"
     source: hosted
-    version: "1.5.3"
+    version: "1.5.4"
   async:
     dependency: transitive
     description:
@@ -285,10 +285,10 @@ packages:
     dependency: transitive
     description:
       name: dart_quill_delta
-      sha256: c3bd333a08986d5ac084ed1cd7eedad14db297ce4742a4ac8dd9b723ac800be4
+      sha256: "9bd664215452470315bb1a14d8792412c353db6156265980f9718a8671382307"
       url: "https://pub.dev"
     source: hosted
-    version: "10.5.6"
+    version: "10.5.19"
   decimal:
     dependency: transitive
     description:
@@ -421,10 +421,10 @@ packages:
     dependency: transitive
     description:
       name: flex_seed_scheme
-      sha256: "86470c8dc470f55dd3e28a6d30e3253a1c176df32903263d7daeabfc0c77dbd4"
+      sha256: "7d97ba5c20f0e5cb1e3e2c17c865e1f797d129de31fc1f75d2dcce9470d6373c"
       url: "https://pub.dev"
     source: hosted
-    version: "3.2.0"
+    version: "3.3.0"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -516,10 +516,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_quill
-      sha256: a204902f569bf59538933c977f71bf0003005abf317e2f21fa48ee28a54ab0e1
+      sha256: "4eb46b3a74f91b7e565de527ed4d402aebcc8fef7dd4b6236c37fc8d35f7848a"
       url: "https://pub.dev"
     source: hosted
-    version: "10.5.6"
+    version: "10.5.19"
   flutter_quill_delta_from_html:
     dependency: transitive
     description:
@@ -651,10 +651,10 @@ packages:
     dependency: "direct dev"
     description:
       name: golden_screenshot
-      sha256: "35c286f73cc53c27f1b86272122607cf71dc9fbcd3c8d6840fbaff546194111a"
+      sha256: a294eaad3ed06b647d4578d0f300c396305581c74f63803339b3a17a825a8287
       url: "https://pub.dev"
     source: hosted
-    version: "2.0.1"
+    version: "2.1.0"
   golden_toolkit:
     dependency: transitive
     description:
@@ -865,10 +865,10 @@ packages:
     dependency: "direct main"
     description:
       name: material_symbols_icons
-      sha256: b72bf7566d024d51627dce81b1b98539830a0e3ffbb5784989aa3e97c8493160
+      sha256: "66416c4e30bd363508e12669634fc4f3250b83b69e862de67f4f9c480cf42414"
       url: "https://pub.dev"
     source: hosted
-    version: "4.2784.0"
+    version: "4.2785.1"
   meta:
     dependency: "direct main"
     description:
@@ -1080,10 +1080,10 @@ packages:
     dependency: transitive
     description:
       name: permission_handler_platform_interface
-      sha256: fe0ffe274d665be8e34f9c59705441a7d248edebbe5d9e3ec2665f88b79358ea
+      sha256: e9c8eadee926c4532d0305dff94b85bf961f16759c3af791486613152af4b4f9
       url: "https://pub.dev"
     source: hosted
-    version: "4.2.2"
+    version: "4.2.3"
   permission_handler_windows:
     dependency: transitive
     description:
@@ -1180,6 +1180,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.2"
+  quill_native_bridge:
+    dependency: transitive
+    description:
+      name: quill_native_bridge
+      sha256: "6094c53e122b2a2ddb3daf784e6209f84901f8e41d2fdccaedf9b29105c0e980"
+      url: "https://pub.dev"
+    source: hosted
+    version: "10.5.19"
   quiver:
     dependency: transitive
     description:
@@ -1389,18 +1397,18 @@ packages:
     dependency: "direct main"
     description:
       name: super_clipboard
-      sha256: "71d2a81e0e3a8c5d6339715a42f8dd42c6def02c0c805a23d45611010de39fbe"
+      sha256: cfeb142360fac67e0da1ca339accb892eb790c6528a218a008eef1709d96ed0f
       url: "https://pub.dev"
     source: hosted
-    version: "0.8.20"
+    version: "0.8.22"
   super_native_extensions:
     dependency: transitive
     description:
       name: super_native_extensions
-      sha256: "9d674b8c71e16f586b3967e67a6faa83c35e3d9ea4f64bca8551badfddf992cb"
+      sha256: "6a7cfb7d212da7023b86fb99c736081e9c2cd982265d15dc5fe6381a32dbc875"
       url: "https://pub.dev"
     source: hosted
-    version: "0.8.20"
+    version: "0.8.22"
   sync_http:
     dependency: transitive
     description:
@@ -1653,10 +1661,10 @@ packages:
     dependency: transitive
     description:
       name: win32_registry
-      sha256: "723b7f851e5724c55409bb3d5a32b203b3afe8587eaf5dafb93a5fed8ecda0d6"
+      sha256: "21ec76dfc731550fd3e2ce7a33a9ea90b828fdf19a5c3bcf556fa992cfa99852"
       url: "https://pub.dev"
     source: hosted
-    version: "1.1.4"
+    version: "1.1.5"
   window_manager:
     dependency: "direct main"
     description:
@@ -1677,10 +1685,10 @@ packages:
     dependency: "direct main"
     description:
       name: worker_manager
-      sha256: "8de97b794040a988b41f475ab0efa03015cc8dff8e130fa3606043572abb4a2c"
+      sha256: bee503f785e6e3a6354a61197ab5a5dce563c228a5a5e89e878dd90e113a9ce3
       url: "https://pub.dev"
     source: hosted
-    version: "7.0.3"
+    version: "7.1.0"
   workmanager:
     dependency: "direct main"
     description:
@@ -1770,5 +1778,5 @@ packages:
     source: hosted
     version: "0.0.3"
 sdks:
-  dart: ">=3.5.0 <4.0.0"
+  dart: ">=3.5.1 <4.0.0"
   flutter: ">=3.24.0"
