@@ -498,6 +498,7 @@ class EditorState extends State<Editor> {
   /// Used to record a move in the history.
   Offset moveOffset = Offset.zero;
 
+  bool currentGestureIsDrawing = false;
   int? dragPageIndex;
   double? currentPressure;
   bool isDrawGesture(ScaleStartDetails details) {
@@ -540,6 +541,7 @@ class EditorState extends State<Editor> {
   }
 
   void onDrawStart(ScaleStartDetails details) {
+    currentGestureIsDrawing = true;
     final page = coreInfo.pages[dragPageIndex!];
     final position = page.renderBox!.globalToLocal(details.focalPoint);
     history.canRedo = false;
@@ -629,6 +631,7 @@ class EditorState extends State<Editor> {
   }
 
   void onDrawEnd(ScaleEndDetails details) {
+    currentGestureIsDrawing = false;
     final page = coreInfo.pages[dragPageIndex!];
     bool shouldSave = true;
     if (PencilSound.isPlaying) PencilSound.pause();
@@ -653,7 +656,8 @@ class EditorState extends State<Editor> {
         ));
       } else if (currentTool is Eraser) {
         final erased = (currentTool as Eraser).onDragEnd();
-        if (stylusButtonPressed || Prefs.disableEraserAfterUse.value) {
+        if (tmpTool != null &&
+            (stylusButtonPressed || Prefs.disableEraserAfterUse.value)) {
           // restore previous tool
           stylusButtonPressed = false;
           currentTool = tmpTool!;
@@ -721,13 +725,19 @@ class EditorState extends State<Editor> {
     // whether the stylus button is or was pressed
     stylusButtonPressed = stylusButtonPressed || buttonPressed;
 
-    // if needed, switch to eraser
-    if (!stylusButtonPressed) return;
-    if (currentTool is Eraser) return;
-    if (currentTool is Pen && dragPageIndex != null) {
-      // if the pen is currently drawing, end the stroke
-      (currentTool as Pen).onDragEnd();
+    if (currentGestureIsDrawing) return;
+
+    if (!buttonPressed) {
+      if (tmpTool != null) {
+        // was pressed while hovering, but no longer is
+        currentTool = tmpTool!;
+        tmpTool = null;
+        setState(() {});
+      }
+      return;
     }
+    if (currentTool is Eraser) return;
+
     tmpTool = currentTool;
     currentTool = Eraser();
     setState(() {});

@@ -392,25 +392,35 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
 
   void _listenerPointerEvent(PointerEvent event) {
     double? pressure;
-    bool stylusButtonPressed = false;
 
     if (event.kind == PointerDeviceKind.stylus) {
       pressure = event.pressure;
-      stylusButtonPressed = event.buttons == kPrimaryStylusButton;
     } else if (event.kind == PointerDeviceKind.invertedStylus) {
       pressure = event.pressure;
-      stylusButtonPressed = true; // treat eraser as stylus button
     } else if (Platform.isLinux && event.pressureMin != event.pressureMax) {
       // if min == max, then the device isn't pressure sensitive
       pressure = event.pressure;
     }
 
     widget.onPressureChanged(pressure);
-    widget.onStylusButtonChanged(stylusButtonPressed);
+  }
+
+  bool stylusButtonWasPressed = false;
+
+  void _listenerPointerHoverEvent(PointerEvent event) {
+    // Apparently flutter synthesizes a hover event on pointer down,
+    // so these need to be excluded here.
+    if (event.kind == PointerDeviceKind.stylus && !event.synthesized) {
+      if (stylusButtonWasPressed != (event.buttons == kPrimaryStylusButton)) {
+        stylusButtonWasPressed = event.buttons == kPrimaryStylusButton;
+        widget.onStylusButtonChanged(stylusButtonWasPressed);
+      }
+    }
   }
 
   void _listenerPointerUpEvent(PointerEvent event) {
     widget.onPressureChanged(null);
+    stylusButtonWasPressed = false;
     widget.onStylusButtonChanged(false);
   }
 
@@ -424,6 +434,7 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
           onPointerDown: _listenerPointerEvent,
           onPointerMove: _listenerPointerEvent,
           onPointerUp: _listenerPointerUpEvent,
+          onPointerHover: _listenerPointerHoverEvent,
           child: GestureDetector(
             child: LayoutBuilder(
               builder: (BuildContext context, BoxConstraints containerBounds) {
