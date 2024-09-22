@@ -508,7 +508,7 @@ class EditorState extends State<Editor> {
   /// Used to record a move in the history.
   Offset moveOffset = Offset.zero;
 
-  bool currentGestureIsDrawing = false;
+  bool isHovering = true;
   int? dragPageIndex;
   double? currentPressure;
   bool isDrawGesture(ScaleStartDetails details) {
@@ -551,7 +551,6 @@ class EditorState extends State<Editor> {
   }
 
   void onDrawStart(ScaleStartDetails details) {
-    currentGestureIsDrawing = true;
     final page = coreInfo.pages[dragPageIndex!];
     final position = page.renderBox!.globalToLocal(details.focalPoint);
     history.canRedo = false;
@@ -641,7 +640,6 @@ class EditorState extends State<Editor> {
   }
 
   void onDrawEnd(ScaleEndDetails details) {
-    currentGestureIsDrawing = false;
     final page = coreInfo.pages[dragPageIndex!];
     bool shouldSave = true;
     if (PencilSound.isPlaying) PencilSound.pause();
@@ -731,26 +729,32 @@ class EditorState extends State<Editor> {
     currentPressure = pressure == 0 ? null : pressure;
   }
 
+  void onHovering() {
+    isHovering = true;
+  }
+
+  void onHoveringEnd() {
+    isHovering = false;
+  }
+
   void onStylusButtonChanged(bool buttonPressed) {
     // whether the stylus button is or was pressed
     stylusButtonPressed = stylusButtonPressed || buttonPressed;
 
-    if (currentGestureIsDrawing) return;
-
-    if (!buttonPressed) {
-      if (tmpTool != null) {
-        // was pressed while hovering, but no longer is
-        currentTool = tmpTool!;
-        tmpTool = null;
+    if (isHovering) {
+      if (buttonPressed) {
+        if (currentTool is Eraser) return;
+        tmpTool = currentTool;
+        currentTool = Eraser();
         setState(() {});
+      } else {
+        if (tmpTool != null) {
+          currentTool = tmpTool!;
+          tmpTool = null;
+          setState(() {});
+        }
       }
-      return;
     }
-    if (currentTool is Eraser) return;
-
-    tmpTool = currentTool;
-    currentTool = Eraser();
-    setState(() {});
   }
 
   void onMoveImage(EditorImage image, Rect offset) {
@@ -1374,6 +1378,8 @@ class EditorState extends State<Editor> {
       onDrawStart: onDrawStart,
       onDrawUpdate: onDrawUpdate,
       onDrawEnd: onDrawEnd,
+      onHovering: onHovering,
+      onHoveringEnd: onHoveringEnd,
       onStylusButtonChanged: onStylusButtonChanged,
       onPressureChanged: onPressureChanged,
       undo: undo,
