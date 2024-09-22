@@ -27,6 +27,8 @@ class CanvasGestureDetector extends StatefulWidget {
     required this.onDrawUpdate,
     required this.onDrawEnd,
     required this.onPressureChanged,
+    required this.onHovering,
+    required this.onHoveringEnd,
     required this.onStylusButtonChanged,
     required this.undo,
     required this.redo,
@@ -50,6 +52,8 @@ class CanvasGestureDetector extends StatefulWidget {
   /// Called when the pressure of the stylus changes,
   /// pressure is negative if stylus button is pressed
   final ValueChanged<double?> onPressureChanged;
+  final VoidCallback onHovering;
+  final VoidCallback onHoveringEnd;
   final ValueChanged<bool> onStylusButtonChanged;
 
   final VoidCallback undo;
@@ -408,9 +412,14 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
   bool stylusButtonWasPressed = false;
 
   void _listenerPointerHoverEvent(PointerEvent event) {
+    if (event.kind != PointerDeviceKind.stylus) return;
+
     // Apparently flutter synthesizes a hover event on pointer down,
-    // so these need to be excluded here.
-    if (event.kind == PointerDeviceKind.stylus && !event.synthesized) {
+    // so these are used to detect when hovering ends
+    if (event.synthesized) {
+      widget.onHoveringEnd();
+    } else {
+      widget.onHovering();
       if (stylusButtonWasPressed != (event.buttons == kPrimaryStylusButton)) {
         stylusButtonWasPressed = event.buttons == kPrimaryStylusButton;
         widget.onStylusButtonChanged(stylusButtonWasPressed);
