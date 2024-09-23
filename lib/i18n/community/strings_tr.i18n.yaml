@@ -76,8 +76,6 @@ settings:
     hyperlegibleFont: Hyperlegible font
     shouldCheckForUpdates: Otomatik olarak Saber güncellemelerini kontrol et
     shouldAlwaysAlertForUpdates: Hızlı güncellemeler
-    disableAds: Reklamları devre dışı bırak
-    changeAdsConsent: Reklam iznini değiştir
     allowInsecureConnections: Güvensiz bağlantılara izin ver
     editorToolbarAlignment: Editör araç çubuğunun yerleşimi
     editorToolbarShowInFullscreen: Editör araç kutusunu tam ekranda göster
@@ -100,7 +98,6 @@ settings:
     pencilSoundSetting: Kurşun kalem ses efekti
   prefDescriptions:
     hyperlegibleFont: "Atkinson Hyperlegible, görme sorunu yaşayanların okumasını kolaylaştıran bir fonttur"
-    disableAds: Reklamlar Saber'ın geliştirilmesine yardım ediyor fakat dilerseniz devre dışı bırakabilirsiniz
     allowInsecureConnections: (Önerilmez) Saber'ın kendinden imzalı/güvensiz sertifika kullanan sunuculara bağlanmasına izin verir
     preferGreyscale: E-mürekkep ekranlar için
     autoClearWhiteboardOnExit: Diğer cihazlarınıza senkronize edilmeye devam edecek

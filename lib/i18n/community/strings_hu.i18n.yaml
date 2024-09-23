@@ -89,9 +89,7 @@ settings:
     autoStraightenLines(OUTDATED): A vonalak automatikus kiegyenesítése
     shapeRecognitionDelay(OUTDATED): Alakfelismerési késleltetés
     recentColorsLength(OUTDATED): Hány friss színt kell tárolni
-    changeAdsConsent(OUTDATED): A hirdetések megváltoztatása beleegyezik
     layoutSize(OUTDATED): Elrendezés típusa
-    disableAds(OUTDATED): Hirdetések letiltása
     printPageIndicators(OUTDATED): Nyomtatási oldaljelzők
     allowInsecureConnections(OUTDATED): Engedélyezze a nem biztonságos kapcsolatokat
     autosaveDelay(OUTDATED): Auto-save késleltetés
@@ -116,7 +114,6 @@ settings:
       onAlways(OUTDATED): Engedélyezve (néma módban is)
     autoStraightenLines(OUTDATED): "Kiegyenesíti a hosszú vonalakat anélkül, hogy az alakos tollat ​​kellene használnia"
     shapeRecognitionDelay(OUTDATED): Milyen gyakran kell frissíteni az alakzat előnézetét
-    disableAds(OUTDATED): "A hirdetések segítik a Saber fejlesztését, de tilthatja őket, ha tetszik"
     printPageIndicators(OUTDATED): Mutasson oldalmutatókat az exportban
     allowInsecureConnections(OUTDATED): "(Nem ajánlott) Engedélyezze a Saber-nek, hogy csatlakozzon önaláírt/nem megbízható tanúsítványokkal rendelkező szerverekhez"
     autosaveDelay(OUTDATED): Mennyi ideig kell várni a jegyzet automatikus mentése előtt

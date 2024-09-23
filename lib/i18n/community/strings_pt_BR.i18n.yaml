@@ -76,8 +76,6 @@ settings:
     hyperlegibleFont: Fonte hiperlegível
     shouldCheckForUpdates: Verificar automaticamente as atualizações do Saber
     shouldAlwaysAlertForUpdates: Atualizações mais rápidas
-    disableAds: Desativar anúncios
-    changeAdsConsent: Alterar o consentimento de anúncios
     allowInsecureConnections: Permitir conexões inseguras
     editorToolbarAlignment: Alinhamento da barra de ferramentas do editor
     editorToolbarShowInFullscreen: Mostrar a barra de ferramentas do editor no modo de tela cheia
@@ -100,7 +98,6 @@ settings:
     recentColorsLength(OUTDATED): Quantas cores recentes armazenar
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible aumenta a legibilidade para leitores com baixa visão
-    disableAds: "Os anúncios ajudam no desenvolvimento do Saber, mas você pode desativá-los se quiser"
     allowInsecureConnections: (Não recomendado) Permitir que o Saber se conecte a servidores com certificados autoassinados/não-confiáveis
     preferGreyscale: Para telas e-ink
     autoClearWhiteboardOnExit: Ainda será sincronizado com seus outros dispositivos

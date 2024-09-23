@@ -6,7 +6,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:material_symbols_icons/symbols.dart';
-import 'package:saber/components/home/banner_ad_widget.dart';
 import 'package:saber/components/navbar/responsive_navbar.dart';
 import 'package:saber/components/settings/app_info.dart';
 import 'package:saber/components/settings/nextcloud_profile.dart';
@@ -558,24 +557,6 @@ class _SettingsPageState extends State<SettingsPage> {
                         t.settings.prefDescriptions.shouldAlwaysAlertForUpdates,
                     icon: Icons.system_security_update_warning,
                     pref: Prefs.shouldAlwaysAlertForUpdates,
-                  ),
-                ),
-              ],
-              if (AdState.adsSupported) ...[
-                SettingsSwitch(
-                  title: t.settings.prefLabels.disableAds,
-                  subtitle: t.settings.prefDescriptions.disableAds,
-                  icon: FontAwesomeIcons.rectangleAd,
-                  pref: Prefs.disableAds,
-                  afterChange: (_) => setState(() {}),
-                ),
-                Collapsible(
-                  collapsed: Prefs.disableAds.value,
-                  axis: CollapsibleAxis.vertical,
-                  child: SettingsButton(
-                    title: t.settings.prefLabels.changeAdsConsent,
-                    icon: FontAwesomeIcons.cookieBite,
-                    onPressed: () => AdState.showConsentForm(),
                   ),
                 ),
               ],

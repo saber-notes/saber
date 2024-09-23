@@ -76,8 +76,6 @@ settings:
     hyperlegibleFont: Hyperlesbare Schrift
     shouldCheckForUpdates: Suche automatisch nach Saber-Aktualisierungen
     shouldAlwaysAlertForUpdates: Schneller aktualisieren
-    disableAds: Werbung deaktivieren
-    changeAdsConsent: Werbungsinhalt anpassen
     allowInsecureConnections: Unsichere Verbindung erlauben
     editorToolbarAlignment: Position der Werkzeugleiste
     editorToolbarShowInFullscreen: Zeige die Werkzeugleiste im Vollbild
@@ -100,7 +98,6 @@ settings:
     pencilSoundSetting: Bleistiftgeräusch
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible verbessert die Lesbarkeit für Menschen mit eingeschränkter Sicht
-    disableAds: Die Entwicklung von Saber wird duch Werbung finanziert. Die Werbung kann auf Wunsch deaktiviert werden.
     allowInsecureConnections: "(Nicht empfohlen) Saber erlauben, sich mit selbstsignierten/unsicheren Zertifikaten zu verbinden"
     preferGreyscale: Für E-Ink-Bildschirme
     autoClearWhiteboardOnExit: Es wird dennoch mit deinen anderen Geräten synchronisiert

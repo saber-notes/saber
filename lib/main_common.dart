@@ -3,7 +3,6 @@ import 'dart:developer' as dev;
 import 'dart:io';
 
 import 'package:args/args.dart';
-import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -15,7 +14,6 @@ import 'package:printing/printing.dart';
 import 'package:receive_sharing_intent/receive_sharing_intent.dart';
 import 'package:saber/components/canvas/invert_shader.dart';
 import 'package:saber/components/canvas/pencil_shader.dart';
-import 'package:saber/components/home/banner_ad_widget.dart';
 import 'package:saber/components/theming/dynamic_material_app.dart';
 import 'package:saber/data/editor/pencil_sound.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
@@ -61,15 +59,6 @@ Future<void> main(
     );
   });
 
-  if (Platform.isAndroid) {
-    final deviceInfo = DeviceInfoPlugin();
-    final androidInfo = await deviceInfo.androidInfo;
-    Logger.root
-        .fine('androidInfo.version.release: ${androidInfo.version.release}');
-    Prefs.androidVersion =
-        int.tryParse(androidInfo.version.release) ?? Prefs.androidVersion;
-  }
-
   StrokeOptionsExtension.setDefaults();
   Prefs.init();
 
@@ -79,7 +68,6 @@ Future<void> main(
       windowManager.ensureInitialized(),
     workerManager.init(),
     Prefs.locale.waitUntilLoaded(),
-    Prefs.disableAds.waitUntilLoaded(),
     Prefs.url.waitUntilLoaded(),
     Prefs.allowInsecureConnections.waitUntilLoaded(),
     InvertShader.init(),
@@ -90,8 +78,6 @@ Future<void> main(
     }),
     OnyxSdkPenArea.init(),
   ]);
-
-  AdState.init();
 
   setLocale();
   Prefs.locale.addListener(setLocale);

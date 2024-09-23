@@ -76,8 +76,6 @@ settings:
     hyperlegibleFont: Atkinson Hyperlegible font
     shouldCheckForUpdates: Check for Saber updates
     shouldAlwaysAlertForUpdates: Faster updates
-    disableAds: Disable ads
-    changeAdsConsent: Change ads consent
     allowInsecureConnections: Allow insecure connections
     editorToolbarAlignment: Toolbar position
     editorToolbarShowInFullscreen: Show the toolbar in fullscreen mode
@@ -100,7 +98,6 @@ settings:
     pencilSoundSetting: Pencil sound effect
   prefDescriptions:
     hyperlegibleFont: Increases legibility for users with low vision
-    disableAds: "Ads help support Saber's development, but you can disable them if you'd like"
     allowInsecureConnections: (Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates
     preferGreyscale: For e-ink displays
     autoClearWhiteboardOnExit: Clears the whiteboard after you exit the app
@@ -193,7 +190,7 @@ login:
 profile:
   title: My profile
   logout: Log out
-  quotaUsage: You're using $used of $total ($percent%)
+  quotaUsage: "You're using $used of $total ($percent%)"
   connectedTo: Connected to
   quickLinks:
     serverHomepage: Server homepage

@@ -117,9 +117,6 @@ dependencies:
 
   fast_image_resizer: ^0.0.2
 
-  google_mobile_ads: ^5.0.0
-  app_tracking_transparency: ^2.0.4
-
   bson: ^5.0.0
 
   flutter_speed_dial: ^7.0.0

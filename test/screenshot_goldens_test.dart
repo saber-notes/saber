@@ -8,7 +8,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:saber/components/canvas/invert_shader.dart';
 import 'package:saber/components/canvas/pencil_shader.dart';
 import 'package:saber/components/canvas/shader_image.dart';
-import 'package:saber/components/home/banner_ad_widget.dart';
 import 'package:saber/components/home/syncing_button.dart';
 import 'package:saber/components/settings/app_info.dart';
 import 'package:saber/components/settings/nextcloud_profile.dart';
@@ -39,7 +38,6 @@ void main() {
     FlavorConfig.setup();
     Prefs.testingMode = true;
     Prefs.init();
-    AdState.init();
     SyncingButton.forceButtonActive = true;
     AppInfo.showDebugMessage = false;
 

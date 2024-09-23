@@ -76,8 +76,6 @@ settings:
     hyperlegibleFont: Lépe čitelný font
     shouldCheckForUpdates: Automaticky kontrolovat dostupnost aktualizací aplikace Saber
     shouldAlwaysAlertForUpdates: Rychlejší aktualizace
-    disableAds: Vypnout reklamy
-    changeAdsConsent: Změnit předvolby pro reklamy
     allowInsecureConnections: Povolit nezabezpečená připojení
     editorToolbarAlignment: Umístění nabídky editoru
     editorToolbarShowInFullscreen: Zobrazovat nabídku editoru v režimu celé obrazovky
@@ -100,7 +98,6 @@ settings:
     pencilSoundSetting: Zvukový efekt psaní tužkou
   prefDescriptions:
     hyperlegibleFont: Font Atkinson Hyperlegible zvyšuje čitelnost pro čtenáře se slabým zrakem
-    disableAds: "Reklamy podporují vývoj aplikace Saber, ale pokud chcete, můžete je vypnout"
     allowInsecureConnections: (Nedoporučuje se) Povolit aplikaci Saber připojovat se k serverům se samopodepsaným/nedůvěryhodným certifikátem.
     preferGreyscale: Pro elektronické čtečky knih s e-ink displejem
     autoClearWhiteboardOnExit: Bude synchronizováno do dalších zařízení

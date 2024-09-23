@@ -76,8 +76,6 @@ settings:
     hyperlegibleFont: גופן Atkinson Hyperreadible
     shouldCheckForUpdates: בדוק אם קיימים עדכוני Saber
     shouldAlwaysAlertForUpdates: עדכונים מהירים יותר
-    disableAds: השבת פרסומות
-    changeAdsConsent: שנה את הסכמת המודעות
     allowInsecureConnections: אפשר חיבורים לא מאובטחים
     editorToolbarAlignment: מיקום סרגל הכלים
     editorToolbarShowInFullscreen: הצג את סרגל הכלים במצב מסך מלא
@@ -100,7 +98,6 @@ settings:
     recentColorsLength(OUTDATED): כמה צבעים אחרונים לאחסן
   prefDescriptions:
     hyperlegibleFont: מגביר את הקריאות למשתמשים עם ראייה לקויה
-    disableAds: "מודעות עוזרות לתמוך בפיתוח של סאבר, אבל אתה יכול להשבית אותן אם תרצה"
     allowInsecureConnections: (לא מומלץ) אפשר לסבר להתחבר לשרתים עם אישורים חתומים/לא מהימנים
     preferGreyscale: עבור תצוגות דיו אלקטרוני
     autoClearWhiteboardOnExit: מנקה את לוח הציור לאחר היציאה מהאפליקציה

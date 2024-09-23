@@ -76,8 +76,6 @@ settings:
     hyperlegibleFont: فونت بیش از حد خوانا
     shouldCheckForUpdates: به‌روزرسانی‌ برنامه را به‌طور خودکار بررسی کنید
     shouldAlwaysAlertForUpdates: به روز رسانی سریع تر
-    disableAds: غیرفعال کردن تبلیغات
-    changeAdsConsent: تغییر رضایت تبلیغات
     allowInsecureConnections: به اتصالات ناامن اجازه دهید
     editorToolbarAlignment: تراز کردن نوار ابزار ویرایشگر
     editorToolbarShowInFullscreen: نوار ابزار ویرایشگر را در حالت تمام صفحه نمایش دهید
@@ -100,7 +98,6 @@ settings:
     autoStraightenLines(OUTDATED): صاف کردن خودکار خطوط
   prefDescriptions:
     hyperlegibleFont: خوانایی را برای خوانندگان کم بینا افزایش می دهد
-    disableAds: تبلیغات به پشتیبانی از توسعه Saber کمک می کند، اما در صورت تمایل می توانید آنها را غیرفعال کنید
     allowInsecureConnections: (توصیه نمی شود) به Saber اجازه دهید به سرورهایی با گواهینامه های خودامضا/غیر قابل اعتماد متصل شود
     preferGreyscale: برای نمایشگر های e-ink
     autoClearWhiteboardOnExit: همچنان با دستگاه‌های دیگر شما همگام‌سازی می‌شود

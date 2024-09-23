@@ -76,8 +76,6 @@ settings:
     hyperlegibleFont: Fonte Hyperlegible
     shouldCheckForUpdates: Rechercher automatiquement les mises à jour
     shouldAlwaysAlertForUpdates: M'alerter à chaque mise à jour
-    disableAds: Désactiver les publicités
-    changeAdsConsent: Modifier le consentement aux publicités
     allowInsecureConnections: Autoriser les connexions non sécurisées
     editorToolbarAlignment: Position de la barre d'outils
     editorToolbarShowInFullscreen: Afficher la barre d'outils en mode plein écran
@@ -100,7 +98,6 @@ settings:
     autoStraightenLines(OUTDATED): Redresser automatiquement les lignes
   prefDescriptions:
     hyperlegibleFont: La fonte Atkinson Hyperlegible améliore la lisibilité pour les personnes malvoyantes
-    disableAds: "Les publicités aident au développement de Saber, mais vous pouvez les désactiver si vous le souhaitez"
     allowInsecureConnections: (Déconseillé) Autoriser Saber à se connecter à des serveurs dont les certificats sont auto-signés/non-sécurisé
     preferGreyscale: Pour les couleurs de stylos proposées
     autoClearWhiteboardOnExit: Il restera synchronisé avec vos autres appareils

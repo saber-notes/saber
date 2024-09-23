@@ -12,9 +12,6 @@
     <!-- Install update APKs -->
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
 
-    <!-- Show ads -->
-    <uses-permission android:name="com.google.android.gms.permission.AD_ID"/>
-
    <application
         android:label="Saber"
         android:name="${applicationName}"
@@ -149,13 +146,5 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
-
-        <meta-data
-            android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-1312561055261176~3317824400"/>
-        <!-- Delay app measurement until MobileAds.initialize() is called. -->
-        <meta-data
-            android:name="com.google.android.gms.ads.DELAY_APP_MEASUREMENT_INIT"
-            android:value="true"/>
     </application>
 </manifest>

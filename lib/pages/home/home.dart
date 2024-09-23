@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:saber/components/home/banner_ad_widget.dart';
 import 'package:saber/components/navbar/responsive_navbar.dart';
 import 'package:saber/components/settings/update_manager.dart';
 import 'package:saber/components/theming/dynamic_material_app.dart';
@@ -67,19 +66,7 @@ class _HomePageState extends State<HomePage> {
 
     return ResponsiveNavbar(
       selectedIndex: HomePage.subpages.indexOf(widget.subpage),
-      body: AdState.adsEnabled
-          ? Column(
-              children: [
-                Expanded(child: body),
-                SafeArea(
-                  top: false,
-                  child: BannerAdWidget.adaptive(
-                    screenWidth: MediaQuery.sizeOf(context).width,
-                  ),
-                ),
-              ],
-            )
-          : body,
+      body: body,
     );
   }
 
