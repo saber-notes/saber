@@ -297,6 +297,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.0.2"
+  desktop_webview_window:
+    dependency: transitive
+    description:
+      name: desktop_webview_window
+      sha256: "57cf20d81689d5cbb1adfd0017e96b669398a669d927906073b0e42fc64111c0"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.2.3"
   device_info_plus:
     dependency: "direct main"
     description:
@@ -601,18 +609,18 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_web_auth_2
-      sha256: "4d3d2fd3d26bf1a26b3beafd4b4b899c0ffe10dc99af25abc58ffe24e991133c"
+      sha256: "366b7cb97ee3e6c64d59ba6d59f28d88ecff22cd4e21abd7f989d304869fb3aa"
       url: "https://pub.dev"
     source: hosted
-    version: "3.1.2"
+    version: "4.0.0"
   flutter_web_auth_2_platform_interface:
     dependency: transitive
     description:
       name: flutter_web_auth_2_platform_interface
-      sha256: e8669e262005a8354389ba2971f0fc1c36188481234ff50d013aaf993f30f739
+      sha256: f9c2d9ccf07327c8d2cc9db2b7625577f5e3efb78a2a91fb5d5b858b948c368b
       url: "https://pub.dev"
     source: hosted
-    version: "3.1.0"
+    version: "4.0.0"
   flutter_web_plugins:
     dependency: transitive
     description: flutter
@@ -699,10 +707,10 @@ packages:
     dependency: "direct dev"
     description:
       name: icons_launcher
-      sha256: "9b514ffed6ed69b232fd2bf34c44878c8526be71fc74129a658f35c04c9d4a9d"
+      sha256: a7c83fbc837dc6f81944ef35c3756f533bb2aba32fcca5cbcdb2dbcd877d5ae9
       url: "https://pub.dev"
     source: hosted
-    version: "2.1.7"
+    version: "3.0.0"
   image:
     dependency: transitive
     description:
@@ -1605,10 +1613,10 @@ packages:
     dependency: "direct main"
     description:
       name: window_manager
-      sha256: "8699323b30da4cdbe2aa2e7c9de567a6abd8a97d9a5c850a3c86dcd0b34bbfbf"
+      sha256: ab8b2a7f97543d3db2b506c9d875e637149d48ee0c6a5cb5f5fd6e0dac463792
       url: "https://pub.dev"
     source: hosted
-    version: "0.3.9"
+    version: "0.4.2"
   window_to_front:
     dependency: transitive
     description:
@@ -1693,18 +1701,18 @@ packages:
     dependency: transitive
     description:
       name: yaru_window_manager
-      sha256: "2d358263d19ae6598df21d6d8c0d25e75c79a82f459b63b0013a13e395c48b23"
+      sha256: b36c909fa082a7cb6e2f259d4357e16f08d3d8ab086685b81d1916e457100d1e
       url: "https://pub.dev"
     source: hosted
-    version: "0.1.2"
+    version: "0.1.2+1"
   yaru_window_platform_interface:
     dependency: transitive
     description:
       name: yaru_window_platform_interface
-      sha256: e9f8cd34e207d7f7b771ae70dee347ed974cee06b981819c4181b3e474e52254
+      sha256: "93493d7e17a9e887ffa94c518bc5a4b3eb5425c009446e3294c689cb1a87b7e1"
       url: "https://pub.dev"
     source: hosted
-    version: "0.1.2"
+    version: "0.1.2+1"
   yaru_window_web:
     dependency: transitive
     description:
@@ -1715,4 +1723,4 @@ packages:
     version: "0.0.3"
 sdks:
   dart: ">=3.5.1 <4.0.0"
-  flutter: ">=3.24.0"
+  flutter: ">=3.24.3"

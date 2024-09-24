@@ -93,7 +93,7 @@ dependencies:
 
   flutter_quill: ^10.0.2
 
-  window_manager: ^0.3.0
+  window_manager: ^0.4.2
 
   worker_manager: ^7.0.1
   workmanager: ^0.5.0
@@ -143,7 +143,7 @@ dependencies:
 
   args: ^2.5.0
 
-  flutter_web_auth_2: ^3.1.2
+  flutter_web_auth_2: ^4.0.0
 
 dev_dependencies:
   flutter_test:
@@ -158,7 +158,7 @@ dev_dependencies:
   # rules and activating additional ones.
   flutter_lints: ^4.0.0
 
-  icons_launcher: ^2.1.0
+  icons_launcher: ^3.0.0
 
   simplytranslate: ^2.0.1
 
