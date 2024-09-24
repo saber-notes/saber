@@ -185,8 +185,7 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/icon/resized/icon-16x16.png
-    - assets/icon/resized/icon-128x128.png
+    - assets/icon/icon.svg
     - assets/images/
     - assets/google_fonts/
     - assets/audio/
@@ -234,8 +233,10 @@ icons_launcher:
     ios:
       enable: true
       image_path: "assets/icon/icon_opaque.png"
+      dark_path: "assets/icon/icon_ios_dark.png"
+      tinted_path: "assets/icon/icon_ios_tintable.png"
     linux:
-      enable: true
+      enable: false # handled separately by flatpak, appimage, and snap
     windows:
       enable: true
     macos:

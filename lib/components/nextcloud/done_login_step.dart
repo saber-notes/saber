@@ -60,8 +60,7 @@ class _DoneLoginStepState extends State<DoneLoginStep> {
           children: [
             if (Prefs.pfp.value == null)
               if (Prefs.url.value.isEmpty)
-                Image.asset('assets/icon/resized/icon-128x128.png',
-                    width: 32, height: 32)
+                SvgPicture.asset('assets/icon/icon.svg', width: 32, height: 32)
               else
                 const Icon(Icons.account_circle, size: 32)
             else

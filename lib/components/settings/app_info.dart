@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:saber/data/flavor_config.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/data/version.dart';
@@ -43,11 +44,8 @@ class AppInfo extends StatelessWidget {
   void _showAboutDialog(BuildContext context) => showAboutDialog(
         context: context,
         applicationVersion: info,
-        applicationIcon: Image.asset(
-          'assets/icon/resized/icon-128x128.png',
-          width: 50,
-          height: 50,
-        ),
+        applicationIcon:
+            SvgPicture.asset('assets/icon/icon.svg', width: 50, height: 50),
         applicationLegalese: t.appInfo.licenseNotice(buildYear: buildYear),
         children: [
           const SizedBox(height: 10),

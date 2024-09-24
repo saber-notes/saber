@@ -123,11 +123,7 @@ class _NcLoginStepState extends State<NcLoginStep> {
         Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            Image.asset(
-              'assets/icon/resized/icon-128x128.png',
-              width: 32,
-              height: 32,
-            ),
+            SvgPicture.asset('assets/icon/icon.svg', width: 32, height: 32),
             const SizedBox(width: 16),
             Expanded(
               child: Text(
