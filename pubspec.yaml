@@ -139,8 +139,6 @@ dependencies:
 
   audioplayers: ^6.0.0
 
-  simulator: ^0.3.0
-
   abstract_sync: ^1.2.0
 
   args: ^2.5.0

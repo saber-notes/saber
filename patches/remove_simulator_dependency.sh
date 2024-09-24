@@ -1,7 +1,3 @@
 #!/bin/bash
 
-# Remove `simulator` from pubspec.yaml
-sed -i -e '/simulator/d' pubspec.yaml
-
-# Delete `main_simulator.dart` entry point (replace with `main.dart`)
-cp lib/main.dart lib/main_simulator.dart
+echo "The remove_simulator_dependency patch is no longer necessary: please remove it from your CI workflow."

@@ -38,9 +38,6 @@ jobs:
           restore-keys: |
             ${{ runner.OS }}-saber-
       
-      - name: Remove simulator dependency
-        run: ./patches/remove_simulator_dependency.sh
-      
       - name: Remove proprietary dependencies
         run: ./patches/remove_proprietary_dependencies.sh
 
@@ -204,9 +201,6 @@ jobs:
             export CARGO_HOME=/opt/cargo
             export RUSTUP_HOME=/opt/rustup
             export PUB_CACHE=build/pub_cache
-
-            echo Removing simulator dependency
-            ./patches/remove_simulator_dependency.sh
 
             echo Removing proprietary dependencies
             ./patches/remove_proprietary_dependencies.sh

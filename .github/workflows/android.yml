@@ -31,9 +31,6 @@ jobs:
           restore-keys: |
             ${{ runner.OS }}-saber-
       
-      - name: Remove simulator dependency
-        run: ./patches/remove_simulator_dependency.sh
-      
       - name: Setup keystore
         run: |
           echo "${{ secrets.SIGNING_KEY }}" | base64 -d > android/android.keystore
@@ -111,9 +108,6 @@ jobs:
 
       - name: Remove proprietary dependencies
         run: ./patches/remove_proprietary_dependencies.sh
-      
-      - name: Remove simulator dependency
-        run: ./patches/remove_simulator_dependency.sh
       
       - name: Setup keystore
         run: |

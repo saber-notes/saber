@@ -813,14 +813,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.2.0"
-  macos_window_utils:
-    dependency: transitive
-    description:
-      name: macos_window_utils
-      sha256: "230be594d26f6dee92c5a1544f4242d25138a5bfb9f185b27f14de3949ef0be8"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.5.0"
   markdown:
     dependency: transitive
     description:
@@ -1308,14 +1300,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.2.1+3"
-  simulator:
-    dependency: "direct main"
-    description:
-      name: simulator
-      sha256: "33fbd1110639191a2d6f1c07e5ee5e6486879a58f79e1bcff9b7bbe0e18e0fd8"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.3.2"
   sky_engine:
     dependency: transitive
     description: flutter
