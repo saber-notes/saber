@@ -214,6 +214,13 @@
     </screenshots>
 
     <releases>
+        <release version="0.24.7" type="development" date="2024-09-25">
+            <description>
+                <ul>
+                    <li>The app icon has been slightly tweaked and vectorized to have more natural curves.</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.24.6" type="development" date="2024-09-05">
             <description>
                 <ul>
