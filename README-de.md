@@ -139,7 +139,7 @@ Das Setup für das [super_clipboard](https://pub.dev/packages/super_clipboard)-P
 
 #### Linux
 
-`sudo apt install libsecret-1-dev libjsoncpp-dev libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev`
+`sudo apt install libsecret-1-dev libjsoncpp-dev libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev webkit2gtk-4.1-dev`
 `flutter build linux`
 
 Dies ist ausreichend um es auf dem eigenen Computer zu benutzen, aber falls du deinen Build anderweitig zur Verfügung stellen möchtest, solltest du ein _Predictable Environment_ verwenden: Forke dieses Repo und nutze stattdessen die Github-Aktion [Build for Linux](https://github.com/saber-notes/saber/actions/workflows/linux.yml).

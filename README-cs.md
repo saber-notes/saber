@@ -143,7 +143,7 @@ se dá shrnout jako:
 
 #### Linux
 
-`sudo apt install libsecret-1-dev libjsoncpp-dev libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev`
+`sudo apt install libsecret-1-dev libjsoncpp-dev libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev webkit2gtk-4.1-dev`
 `flutter build linux`
 
 Toto je dostatečné pro použití na vlastním počítači, ale pokud chcete své sestavení distribuovat,
