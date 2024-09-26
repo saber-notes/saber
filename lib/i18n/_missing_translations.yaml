@@ -14,7 +14,7 @@ ar:
       newNote(OUTDATED): انشاء ملاحظة جديدة
       importNote(OUTDATED): استيراد ملاحظة
     invalidFormat(OUTDATED): " صيغة الملف الذي اخترته ليست مدعومة, الرجاء اختيار ملف  sbn او sbn2 او sba او pdf " 
-    backFolder(OUTDATED): الرجوع الى الملف السابق
+    backFolder(OUTDATED): الرجوع الى المجلد السابق
     moveNote:
       moveNotes(OUTDATED):  ملاحظات $n نقل
       moveName(OUTDATED):  $f نقل
@@ -22,57 +22,57 @@ ar:
       numberRenamedTo(OUTDATED): ملاحظة سيتم اعادة تسميتها لتجنب تضارب تشابه الاسماء $n 
     deleteNote(OUTDATED): حذف الملاحظة
     renameFolder:
-      renameFolder(OUTDATED): اعادة تسمية الملف
-      folderName(OUTDATED): Folder name
-      rename(OUTDATED): Rename
-      folderNameEmpty(OUTDATED): Folder name can't be empty
-      folderNameContainsSlash(OUTDATED): Folder name can't contain a slash
-      folderNameExists(OUTDATED): A folder with this name already exists
+      renameFolder(OUTDATED): اعادة تسمية المجلد
+      folderName(OUTDATED): اسم المجلد
+      rename(OUTDATED): اعادة تسمية
+      folderNameEmpty(OUTDATED): لا يمكن أن يكون اسم المجلد فارغًا
+      folderNameContainsSlash(OUTDATED): لا يمكن أن يحتوي اسم المجلد على شرطة مائلة
+      folderNameExists(OUTDATED): يوجد بالفعل مجلد بهذا الاسم
     deleteFolder:
-      deleteFolder(OUTDATED): Delete folder
-      deleteName(OUTDATED): Delete $f
-      delete(OUTDATED): Delete
-      alsoDeleteContents(OUTDATED): Also delete all notes inside this folder
+      deleteFolder(OUTDATED): حذف المجلد
+      deleteName(OUTDATED): $f حذف 
+      delete(OUTDATED): حذف
+      alsoDeleteContents(OUTDATED): حذف جميع الملاحظات داخل هذا المجلد أيضًا
   settings:
     prefCategories:
-      editor(OUTDATED): Editor
-      performance(OUTDATED): Performance
-      advanced(OUTDATED): Advanced
+      editor(OUTDATED): المحرر
+      performance(OUTDATED): الأداء
+      advanced(OUTDATED): متقدم
     prefLabels:
-      shouldAlwaysAlertForUpdates(OUTDATED): Faster updates
-      allowInsecureConnections(OUTDATED): Allow insecure connections
-      disableEraserAfterUse(OUTDATED): Auto-disable the eraser
-      hideFingerDrawingToggle(OUTDATED): Hide the finger drawing toggle
-      recentColorsLength(OUTDATED): How many recent colors to store
-      autosaveDelay(OUTDATED): Auto-save delay
-      shapeRecognitionDelay(OUTDATED): Shape recognition delay
-      autoStraightenLines(OUTDATED): Auto straighten lines
-      simplifiedHomeLayout(OUTDATED): Simplified home layout
-      customDataDir(OUTDATED): Custom Saber folder
-      pencilSoundSetting(OUTDATED): Pencil sound effect
+      shouldAlwaysAlertForUpdates(OUTDATED): تحديثات أسرع
+      allowInsecureConnections(OUTDATED): السماح بالاتصالات غير الآمنة
+      disableEraserAfterUse(OUTDATED): تعطيل الممحاة تلقائيًا بعد الاستخدام
+      hideFingerDrawingToggle(OUTDATED): إخفاء زر الرسم بالإصبع
+      recentColorsLength(OUTDATED): كم عدد الألوان الحديثة التي يجب تخزينها
+      autosaveDelay(OUTDATED): تأخير الحفظ التلقائي
+      shapeRecognitionDelay(OUTDATED): تأخير التعرف على الأشكال
+      autoStraightenLines(OUTDATED): استقامة الخطوط تلقائيًا
+      simplifiedHomeLayout(OUTDATED): تخطيط الصفحة الرئيسية المبسط
+      customDataDir(OUTDATED):  مخصص Saber مجلد
+      pencilSoundSetting(OUTDATED): تأثير صوت القلم
     prefDescriptions:
-      allowInsecureConnections(OUTDATED): (Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates
-      disableEraserAfterUse(OUTDATED): Automatically switches back to the pen after using the eraser
+      allowInsecureConnections(OUTDATED): (غير موصى به) بالاتصال بالخوادم بشهادات غير موثوقة/موقعة ذاتيًا Saber السماح لـ
+      disableEraserAfterUse(OUTDATED): التبديل تلقائيًا إلى القلم بعد استخدام الممحاة
       hideFingerDrawing:
-        shown(OUTDATED): Prevents accidental toggling
-        fixedOn(OUTDATED): Finger drawing is fixed as enabled
-        fixedOff(OUTDATED): Finger drawing is fixed as disabled
-      autosaveDelay(OUTDATED): How long to wait before auto-saving a note
-      shapeRecognitionDelay(OUTDATED): How often to update the shape preview
-      autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
-      simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
-      shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
+        shown(OUTDATED): يمنع التبديل العرضي
+        fixedOn(OUTDATED): تم تفعيل الرسم بالإصبع
+        fixedOff(OUTDATED): تم تعطيل الرسم بالإصبع
+      autosaveDelay(OUTDATED): الوقت الذي يجب الانتظار قبل الحفظ التلقائي للملاحظة
+      shapeRecognitionDelay(OUTDATED): عدد مرات تحديث معاينة الشكل
+      autoStraightenLines(OUTDATED): استقامة الخطوط الطويلة بدون الحاجة لاستخدام قلم الشكل
+      simplifiedHomeLayout(OUTDATED): تعيين ارتفاع ثابت لكل معاينة ملاحظة
+      shouldAlwaysAlertForUpdates(OUTDATED): أبلغني عن التحديثات بمجرد توفرها
       pencilSoundSetting:
-        off(OUTDATED): No sound
-        onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
-        onAlways(OUTDATED): Enabled (even in silent mode)
-    resyncEverything(OUTDATED): Resync everything
-    openDataDir(OUTDATED): Open Saber folder
+        off(OUTDATED):  بدون صوت
+        onButNotInSilentMode(OUTDATED): مفعل (ما لم يكن في وضع الصامت)
+        onAlways(OUTDATED): مفعل (حتى في وضع الصامت)
+    resyncEverything(OUTDATED): إعادة مزامنة كل شيء
+    openDataDir(OUTDATED): Saber فتح مجلد
     customDataDir:
-      cancel(OUTDATED): Cancel
-      select(OUTDATED): Select
-      mustBeEmpty(OUTDATED): Selected folder must be empty
-      mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the folder
+      cancel(OUTDATED): إلغاء
+      select(OUTDATED): تحديد
+      mustBeEmpty(OUTDATED): يجب أن يكون المجلد المحدد فارغًا
+      mustBeDoneSyncing(OUTDATED): تأكد من اكتمال المزامنة قبل تغيير المجلد
   logs:
     logs: Logs
     viewLogs: View logs
@@ -80,23 +80,23 @@ ar:
     noLogs: "No logs here!"
     logsAreTemporary: Logs are only kept until you close the app
   login:
-    notYou(rich)(OUTDATED): "Not you? ${undoLogin(Choose another account)}."
+    notYou(rich)(OUTDATED):  "ليس أنت؟ ${undoLogin(اختيار حساب آخر)}."
     status:
-      hi(OUTDATED): "Hi, $u!"
-      almostDone(OUTDATED): "Almost ready for syncing, tap to finish logging in"
+      hi(OUTDATED): "!$u،مرحبًا"
+      almostDone(OUTDATED):  "على وشك الانتهاء من المزامنة، اضغط لإنهاء تسجيل الدخول"
     ncLoginStep:
-      whereToStoreData(OUTDATED): "Choose where you want to store your data:"
-      saberNcServer(OUTDATED): Saber's Nextcloud server
-      otherNcServer(OUTDATED): Other Nextcloud server
-      serverUrl(OUTDATED): Server URL
-      loginWithSaber(OUTDATED): Login with Saber
-      loginWithNextcloud(OUTDATED): Login with Nextcloud
+      whereToStoreData(OUTDATED):  "اختر المكان الذي تريد تخزين بياناتك فيه:"
+      saberNcServer(OUTDATED): Nextcloud الى Saber خادم  
+      otherNcServer(OUTDATED): اخر Nextcloud خادم
+      serverUrl(OUTDATED):  عنوان الخادم
+      loginWithSaber(OUTDATED): Saber تسجيل الدخول باستخدام 
+      loginWithNextcloud(OUTDATED): Nextcloud تسجيل الدخول باستخدام 
       loginFlow:
-        pleaseAuthorize(OUTDATED): Please authorize Saber to access your Nextcloud account
-        followPrompts(OUTDATED): Please follow the prompts in the Nextcloud interface
-        browserDidntOpen(OUTDATED): "Login page didn't open? Click here"
+        pleaseAuthorize(OUTDATED): الخاص بك Nextcloud للوصول إلى حساب Saber الرجاء تفويض  
+        followPrompts(OUTDATED): Nextcloud الرجاء اتباع الإرشادات في واجهة 
+        browserDidntOpen(OUTDATED): "لم تفتح صفحة تسجيل الدخول؟ اضغط هنا"
     encLoginStep:
-      enterEncPassword(OUTDATED): "To protect your data, please enter your encryption password:"
+      enterEncPassword(OUTDATED): "لحماية بياناتك، يرجى إدخال كلمة مرور التشفير:"
       newToSaber(OUTDATED): "New to Saber? Just enter a new encryption password."
       encPassword(OUTDATED): Encryption password
       encFaqTitle(OUTDATED): Frequently asked questions
