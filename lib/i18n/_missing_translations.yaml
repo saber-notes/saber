@@ -97,23 +97,24 @@ ar:
         browserDidntOpen(OUTDATED): "لم تفتح صفحة تسجيل الدخول؟ اضغط هنا"
     encLoginStep:
       enterEncPassword(OUTDATED): "لحماية بياناتك، يرجى إدخال كلمة مرور التشفير:"
-      newToSaber(OUTDATED): "New to Saber? Just enter a new encryption password."
-      encPassword(OUTDATED): Encryption password
-      encFaqTitle(OUTDATED): Frequently asked questions
-      wrongEncPassword(OUTDATED): Decryption failed with the provided password. Please try entering it again.
-      connectionFailed(OUTDATED): Something went wrong connecting to the server. Please try again later.
+      newToSaber(OUTDATED): "؟ فقط أدخل كلمة مرور تشفير جديدةSaber جديد على"
+      encPassword(OUTDATED): كلمة مرور التشفير
+      encFaqTitle(OUTDATED): الأسئلة الشائعة
+      wrongEncPassword(OUTDATED): فشل فك التشفير باستخدام كلمة المرور المقدمة. يرجى المحاولة مرة أخرى.
+      connectionFailed(OUTDATED): حدث خطأ ما أثناء الاتصال بالخادم. يرجى المحاولة لاحقًا.
       encFaq(OUTDATED):
-        - q: "What is an encryption password? Why use two passwords?"
+        - q:  "ما هي كلمة مرور التشفير؟ لماذا استخدام كلمتي مرور؟"
           a: |-
-            The Nextcloud password is used to access the cloud. The encryption password "scrambles" your data before it ever reaches the cloud.
-            Even if someone gains access to your Nextcloud account, your notes will remain safe and encrypted with a separate password. This provides you a second layer of security to protect your data.
-            No-one can access your notes on the server without your encryption password, but this also means that if you forget your encryption password, you will lose access to your data.
-        - q: "I haven't set an encryption password yet. Where do I get it?"
+            تُستخدم للوصول إلى السحابة. بينما كلمة مرور التشفير "تشفر" بياناتك قبل وصولها إلى السحابة  Nextcloud كلمة مرور .
+            الخاص بك، ستظل ملاحظاتك آمنة ومشفرة بكلمة مرور منفصلة. هذا يوفر لك طبقة ثانية من الأمان لحماية بياناتك Nextcloud حتى إذا تمكن شخص ما من الوصول إلى حساب .
+            لا يمكن لأحد الوصول إلى ملاحظاتك على الخادم بدون كلمة مرور التشفير الخاصة بك، ولكن هذا يعني أيضًا أنه إذا نسيت كلمة مرور التشفير، ستفقد الوصول إلى بياناتك.
+        - q: "لم أقم بتعيين كلمة مرور تشفير حتى الآن. من أين أحصل عليها؟"
           a: |-
-            Choose a new encryption password and enter it above.
-            Saber will generate your encryption keys from this password automatically.
-        - q: "Can I use the same password as my Nextcloud account?"
-          a: "Yes, but keep in mind that it would be easier for the server administrator or someone else to access your notes if they gain access to your Nextcloud account."
+            اختر كلمة مرور تشفير جديدة وأدخلها أعلاه.
+            بإنشاء مفاتيح التشفير الخاصة بك تلقائيًا من هذه الكلمة Saber سيقوم .
+        - q: "الخاص بي؟ Nextcloud هل يمكنني استخدام نفس كلمة المرور لحساب"
+          a: "الخاص بك Nextcloud نعم، ولكن ضع في اعتبارك أنه سيكون من الأسهل على مدير الخادم أو أي شخص آخر الوصول إلى ملاحظاتك إذا تمكن من الوصول إلى حساب."
+profile:
   profile:
     quotaUsage(OUTDATED): "You're using $used of $total ($percent%)"
     connectedTo(OUTDATED): Connected to
