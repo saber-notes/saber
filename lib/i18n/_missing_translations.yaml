@@ -3,26 +3,26 @@
   - "After editing this file, you can run 'dart run slang apply --locale=<locale>' to quickly apply the newly added translations."
 ar:
   common:
-    done(OUTDATED): Done
-    continueBtn(OUTDATED): Continue
+    done(OUTDATED): تم
+    continueBtn(OUTDATED): متابعة
   home:
     titles:
-      browse(OUTDATED): Browse
+      browse(OUTDATED): تصفح
     tooltips:
-      exportNote(OUTDATED): Export note
+      exportNote(OUTDATED): تصدير ملاحظة
     create:
-      newNote(OUTDATED): New note
-      importNote(OUTDATED): Import note
-    invalidFormat(OUTDATED): "The file you selected is not supported. Please select an sbn, sbn2, sba, or pdf file."
-    backFolder(OUTDATED): Go back to the previous folder
+      newNote(OUTDATED): انشاء ملاحظة جديدة
+      importNote(OUTDATED): استيراد ملاحظة
+    invalidFormat(OUTDATED): " صيغة الملف الذي اخترته ليست مدعومة, الرجاء اختيار ملف  sbn او sbn2 او sba او pdf " 
+    backFolder(OUTDATED): الرجوع الى الملف السابق
     moveNote:
-      moveNotes(OUTDATED): Move $n notes
-      moveName(OUTDATED): Move $f
-      multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
-      numberRenamedTo(OUTDATED): $n notes will be renamed to avoid conflicts
-    deleteNote(OUTDATED): Delete note
+      moveNotes(OUTDATED):  ملاحظات $n نقل
+      moveName(OUTDATED):  $f نقل
+      multipleRenamedTo(OUTDATED): "الملاحظات التالية سيتم اعادة تسميتها:"
+      numberRenamedTo(OUTDATED): ملاحظة سيتم اعادة تسميتها لتجنب تضارب تشابه الاسماء $n 
+    deleteNote(OUTDATED): حذف الملاحظة
     renameFolder:
-      renameFolder(OUTDATED): Rename folder
+      renameFolder(OUTDATED): اعادة تسمية الملف
       folderName(OUTDATED): Folder name
       rename(OUTDATED): Rename
       folderNameEmpty(OUTDATED): Folder name can't be empty
