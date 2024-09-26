@@ -116,31 +116,31 @@ ar:
           a: "الخاص بك Nextcloud نعم، ولكن ضع في اعتبارك أنه سيكون من الأسهل على مدير الخادم أو أي شخص آخر الوصول إلى ملاحظاتك إذا تمكن من الوصول إلى حساب."
 profile:
   profile:
-    quotaUsage(OUTDATED): "You're using $used of $total ($percent%)"
-    connectedTo(OUTDATED): Connected to
-    faqTitle(OUTDATED): Frequently asked questions
+    quotaUsage(OUTDATED): " $total ($percent%) من $used أنت تستخدم "
+    connectedTo(OUTDATED): متصل بـ
+    faqTitle(OUTDATED): الأسئلة الشائعة
   update:
-    downloadNotAvailableYet(OUTDATED): The download isn't available yet for your platform. Please check back shortly.
+    downloadNotAvailableYet(OUTDATED): التنزيل غير متاح بعد لمنصتك. يرجى التحقق قريبًا.
   editor:
     pens:
-      pencil(OUTDATED): Pencil
-      shapePen(OUTDATED): Shape pen
+      pencil(OUTDATED): قلم رصاص
+      shapePen(OUTDATED): قلم الأشكال
     colors:
-      customBrightnessHue(OUTDATED): Custom $b $h
-      customHue(OUTDATED): Custom $h
-      dark(OUTDATED): dark
-      light(OUTDATED): light
-      cyan(OUTDATED): Cyan
-      pink(OUTDATED): Pink
+       customBrightnessHue(OUTDATED): $h $b  مخصص
+   customHue(OUTDATED): $h مخصص
+   dark(OUTDATED): داكن
+   light(OUTDATED): فاتح
+   cyan(OUTDATED): سماوي
+   pink(OUTDATED): وردي
     selectionBar:
-      duplicate(OUTDATED): Duplicate
+      duplicate(OUTDATED): تكرار
     menu:
-      lineHeightDescription(OUTDATED): Also controls the text size for typed notes
-      backgroundImageFit(OUTDATED): Background image fit
-      watchServer(OUTDATED): Watch for updates on the server
-      watchServerReadOnly(OUTDATED): Editing is disabled while watching the server
+      lineHeightDescription(OUTDATED): يتحكم أيضًا في حجم النص للملاحظات المكتوبة
+      backgroundImageFit(OUTDATED): تناسب صورة الخلفية
+      watchServer(OUTDATED): راقب التحديثات على الخادم
+      watchServerReadOnly(OUTDATED): تم تعطيل التحرير أثناء مراقبة الخادم
       bgPatterns:
-        tablature(OUTDATED): Tablature
+        tablature(OUTDATED): لوحة
 cs:
   logs:
     logs: Logs
