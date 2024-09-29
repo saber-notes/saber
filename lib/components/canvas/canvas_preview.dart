@@ -23,18 +23,16 @@ class CanvasPreview extends StatelessWidget {
     Key? key,
     required String filePath,
   }) {
-    final Future<_CacheItem> future;
-    if (_previewCache.containsKey(filePath)) {
-      future = _previewCache[filePath]!;
-    } else {
-      _previewCache[filePath] = future = () async {
+    final future = _previewCache.putIfAbsent(
+      filePath,
+      () async {
         final coreInfo = await EditorCoreInfo.loadFromFilePath(filePath);
         final pageHeight = coreInfo.pages.isNotEmpty
             ? coreInfo.pages[0].previewHeight(lineHeight: coreInfo.lineHeight)
             : EditorPage.defaultHeight * 0.1;
         return (coreInfo, pageHeight);
-      }();
-    }
+      },
+    );
 
     return FutureBuilder(
       key: key,
