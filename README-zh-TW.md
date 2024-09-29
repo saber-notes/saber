@@ -146,8 +146,13 @@ flutter pub get
 
 #### Linux
 
-`sudo apt install libsecret-1-dev libjsoncpp-dev libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev webkit2gtk-4.1-dev`
-`flutter build linux`
+```bash
+sudo apt install libsecret-1-dev libjsoncpp-dev libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev webkit2gtk-4.1-dev
+# Or for Fedora...
+sudo dnf install libsecret-devel jsoncpp-devel gstreamer1-devel gstreamer1-plugins-base-devel webkit2gtk4.1-devel
+
+flutter build linux
+```
 
 這足以在您自己的電腦上使用，但如果您想重新分發您的構建，
 您需要使用可預測的環境：分叉此倉庫並使用 GitHub Action

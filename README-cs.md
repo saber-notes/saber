@@ -143,8 +143,13 @@ se dá shrnout jako:
 
 #### Linux
 
-`sudo apt install libsecret-1-dev libjsoncpp-dev libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev webkit2gtk-4.1-dev`
-`flutter build linux`
+```bash
+sudo apt install libsecret-1-dev libjsoncpp-dev libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev webkit2gtk-4.1-dev
+# Or for Fedora...
+sudo dnf install libsecret-devel jsoncpp-devel gstreamer1-devel gstreamer1-plugins-base-devel webkit2gtk4.1-devel
+
+flutter build linux
+```
 
 Toto je dostatečné pro použití na vlastním počítači, ale pokud chcete své sestavení distribuovat,
 budete potřebovat použít předvídatelné prostředí: udělejte fork tohoto repozitáře a použijte místo toho GitHub Action
