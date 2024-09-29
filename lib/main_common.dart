@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:developer' as dev;
 import 'dart:io';
 
 import 'package:args/args.dart';
@@ -46,18 +45,19 @@ Future<void> main(
   Logger.root.onRecord.listen((record) {
     // ignore: avoid_print
     print('${record.level.name}: ${record.loggerName}: ${record.message}');
-
-    // also log to devtools
-    dev.log(
-      record.message,
-      time: record.time,
-      level: record.level.value,
-      name: record.loggerName,
-      zone: record.zone,
-      error: record.error,
-      stackTrace: record.stackTrace,
-    );
   });
+
+  final errorLogger = Logger('ErrorLogger');
+  FlutterError.onError = (details) {
+    errorLogger.severe(
+        details.exceptionAsString(), details.exception, details.stack);
+    FlutterError.presentError(details);
+  };
+  PlatformDispatcher.instance.onError = (error, stackTrace) {
+    errorLogger.severe(error, stackTrace);
+    // Returns false in debug mode so the error is printed to stderr
+    return !kDebugMode;
+  };
 
   StrokeOptionsExtension.setDefaults();
   Prefs.init();
