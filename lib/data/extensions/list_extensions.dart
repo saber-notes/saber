@@ -7,6 +7,14 @@ extension ListExtensions<T> on List<T> {
       return this[index] as D;
     }
   }
+
+  T? getOrNull(int index) {
+    if (index < 0 || index >= length) {
+      return null;
+    } else {
+      return this[index];
+    }
+  }
 }
 
 Type _typeOf<T>() => T;

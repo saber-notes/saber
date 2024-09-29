@@ -1,13 +1,17 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:saber/components/canvas/inner_canvas.dart';
+import 'package:saber/components/home/grid_folders.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/data/editor/page.dart';
+import 'package:saber/data/extensions/list_extensions.dart';
 import 'package:saber/data/prefs.dart';
 
 typedef _CacheItem = (EditorCoreInfo coreInfo, double pageHeight);
 
-class CanvasPreview extends StatelessWidget {
-  const CanvasPreview({
+class CanvasPreview extends StatelessWidget implements PreferredSizeWidget {
+  CanvasPreview({
     super.key,
     this.pageIndex = 0,
     required this.height,
@@ -18,7 +22,12 @@ class CanvasPreview extends StatelessWidget {
   final double? height;
   final EditorCoreInfo coreInfo;
 
-  static final _previewCache = <String, Future<_CacheItem>>{};
+  late final pageSize =
+      coreInfo.pages.getOrNull(pageIndex)?.size ?? EditorPage.defaultSize;
+  @override
+  late final preferredSize = Size(pageSize.width, height ?? pageSize.height);
+
+  static final _previewCache = <String, FutureOr<_CacheItem>>{};
   static Widget fromFile({
     Key? key,
     required String filePath,
@@ -34,12 +43,26 @@ class CanvasPreview extends StatelessWidget {
       },
     );
 
+    if (future is _CacheItem) {
+      // Don't use FutureBuilder which first builds with null
+      return CanvasPreview(
+        key: key,
+        coreInfo: future.$1,
+        height: future.$2,
+      );
+    }
+
     return FutureBuilder(
       key: key,
       future: future,
       builder: (context, snapshot) {
         final data = snapshot.data;
         if (data == null) return const Icon(Icons.note, size: 48);
+
+        if (_previewCache[filePath] is Future<_CacheItem>) {
+          // Store result of future to make rebuilds faster
+          _previewCache[filePath] = data;
+        }
 
         return CanvasPreview(
           key: key,
@@ -52,15 +75,10 @@ class CanvasPreview extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final pageSize = coreInfo.pages.isNotEmpty
-        ? coreInfo.pages[pageIndex].size
-        : EditorPage.defaultSize;
-    final widgetSize = Size(pageSize.width, height ?? pageSize.height);
-
     return InnerCanvas(
       pageIndex: pageIndex,
-      width: widgetSize.width,
-      height: widgetSize.height,
+      width: preferredSize.width,
+      height: preferredSize.height,
       isPreview: true,
       coreInfo: coreInfo,
       currentStroke: null,
