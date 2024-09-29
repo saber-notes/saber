@@ -52,25 +52,22 @@ class CanvasPreview extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size pageSize = coreInfo.pages.isNotEmpty
+    final pageSize = coreInfo.pages.isNotEmpty
         ? coreInfo.pages[pageIndex].size
         : EditorPage.defaultSize;
+    final widgetSize = Size(pageSize.width, height ?? pageSize.height);
 
-    return SizedOverflowBox(
-      size: Size(pageSize.width, height ?? pageSize.height),
-      alignment: Alignment.topCenter,
-      child: InnerCanvas(
-        pageIndex: pageIndex,
-        width: pageSize.width,
-        height: pageSize.height,
-        isPreview: true,
-        coreInfo: coreInfo,
-        currentStroke: null,
-        currentStrokeDetectedShape: null,
-        currentSelection: null,
-        hideBackground: Prefs.hideHomeBackgrounds.value,
-        currentToolIsSelect: false,
-      ),
+    return InnerCanvas(
+      pageIndex: pageIndex,
+      width: widgetSize.width,
+      height: widgetSize.height,
+      isPreview: true,
+      coreInfo: coreInfo,
+      currentStroke: null,
+      currentStrokeDetectedShape: null,
+      currentSelection: null,
+      hideBackground: Prefs.hideHomeBackgrounds.value,
+      currentToolIsSelect: false,
     );
   }
 }
