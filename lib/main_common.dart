@@ -24,6 +24,7 @@ import 'package:saber/data/tools/stroke_properties.dart';
 import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/editor/editor.dart';
 import 'package:saber/pages/home/home.dart';
+import 'package:saber/pages/logs.dart';
 import 'package:saber/pages/user/login.dart';
 import 'package:window_manager/window_manager.dart';
 import 'package:worker_manager/worker_manager.dart';
@@ -43,6 +44,8 @@ Future<void> main(
   Logger.root.level =
       (kDebugMode || parsedArgs.flag('verbose')) ? Level.INFO : Level.WARNING;
   Logger.root.onRecord.listen((record) {
+    logsHistory.add(record);
+
     // ignore: avoid_print
     print('${record.level.name}: ${record.loggerName}: ${record.message}');
   });
@@ -224,6 +227,10 @@ class App extends StatefulWidget {
       GoRoute(
         path: '/profile',
         redirect: (context, state) => RoutePaths.login,
+      ),
+      GoRoute(
+        path: RoutePaths.logs,
+        builder: (context, state) => const LogsPage(),
       ),
     ],
   );

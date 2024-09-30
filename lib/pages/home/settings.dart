@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:go_router/go_router.dart';
 import 'package:material_symbols_icons/symbols.dart';
 import 'package:saber/components/navbar/responsive_navbar.dart';
 import 'package:saber/components/settings/app_info.dart';
@@ -24,6 +25,7 @@ import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/flavor_config.dart';
 import 'package:saber/data/locales.dart';
 import 'package:saber/data/prefs.dart';
+import 'package:saber/data/routes.dart';
 import 'package:saber/data/tools/shape_pen.dart';
 import 'package:saber/i18n/strings.g.dart';
 
@@ -565,6 +567,12 @@ class _SettingsPageState extends State<SettingsPage> {
                 subtitle: t.settings.prefDescriptions.allowInsecureConnections,
                 icon: Icons.private_connectivity,
                 pref: Prefs.allowInsecureConnections,
+              ),
+              SettingsButton(
+                title: t.logs.viewLogs,
+                subtitle: t.logs.debuggingInfo,
+                icon: Icons.receipt_long,
+                onPressed: () => context.push(RoutePaths.logs),
               ),
             ],
           )),

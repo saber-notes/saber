@@ -153,6 +153,7 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	late final _StringsCommonEn common = _StringsCommonEn._(_root);
 	late final _StringsHomeEn home = _StringsHomeEn._(_root);
 	late final _StringsSettingsEn settings = _StringsSettingsEn._(_root);
+	late final _StringsLogsEn logs = _StringsLogsEn._(_root);
 	late final _StringsLoginEn login = _StringsLoginEn._(_root);
 	late final _StringsProfileEn profile = _StringsProfileEn._(_root);
 	late final _StringsAppInfoEn appInfo = _StringsAppInfoEn._(_root);
@@ -220,6 +221,18 @@ class _StringsSettingsEn {
 	String get resyncEverything => 'Resync everything';
 	String get openDataDir => 'Open Saber folder';
 	late final _StringsSettingsCustomDataDirEn customDataDir = _StringsSettingsCustomDataDirEn._(_root);
+}
+
+// Path: logs
+class _StringsLogsEn {
+	_StringsLogsEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get logs => 'Logs';
+	String get viewLogs => 'View logs';
+	String get debuggingInfo => 'Logs contain information useful for debugging and development';
 }
 
 // Path: login

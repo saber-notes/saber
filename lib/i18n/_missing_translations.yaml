@@ -73,6 +73,10 @@ ar:
       select(OUTDATED): Select
       mustBeEmpty(OUTDATED): Selected folder must be empty
       mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the folder
+  logs:
+    logs: Logs
+    viewLogs: View logs
+    debuggingInfo: Logs contain information useful for debugging and development
   login:
     notYou(rich)(OUTDATED): "Not you? ${undoLogin(Choose another account)}."
     status:
@@ -135,7 +139,15 @@ ar:
       bgPatterns:
         tablature(OUTDATED): Tablature
 cs:
+  logs:
+    logs: Logs
+    viewLogs: View logs
+    debuggingInfo: Logs contain information useful for debugging and development
 de:
+  logs:
+    logs: Logs
+    viewLogs: View logs
+    debuggingInfo: Logs contain information useful for debugging and development
 es:
   common:
     done(OUTDATED): Done
@@ -164,6 +176,10 @@ es:
       select(OUTDATED): Select
       mustBeEmpty(OUTDATED): Selected folder must be empty
       mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the folder
+  logs:
+    logs: Logs
+    viewLogs: View logs
+    debuggingInfo: Logs contain information useful for debugging and development
   login:
     notYou(rich)(OUTDATED): "Not you? ${undoLogin(Choose another account)}."
     status:
@@ -239,6 +255,10 @@ fa:
       select(OUTDATED): Select
       mustBeEmpty(OUTDATED): Selected folder must be empty
       mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the folder
+  logs:
+    logs: Logs
+    viewLogs: View logs
+    debuggingInfo: Logs contain information useful for debugging and development
   login:
     notYou(rich)(OUTDATED): "Not you? ${undoLogin(Choose another account)}."
     status:
@@ -308,6 +328,10 @@ fr:
       select(OUTDATED): Select
       mustBeEmpty(OUTDATED): Selected folder must be empty
       mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the folder
+  logs:
+    logs: Logs
+    viewLogs: View logs
+    debuggingInfo: Logs contain information useful for debugging and development
   login:
     notYou(rich)(OUTDATED): "Not you? ${undoLogin(Choose another account)}."
     status:
@@ -394,6 +418,10 @@ he:
       select(OUTDATED): Select
       mustBeEmpty(OUTDATED): Selected folder must be empty
       mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the folder
+  logs:
+    logs: Logs
+    viewLogs: View logs
+    debuggingInfo: Logs contain information useful for debugging and development
   login:
     notYou(rich)(OUTDATED): "Not you? ${undoLogin(Choose another account)}."
     status:
@@ -550,6 +578,10 @@ hu:
       select(OUTDATED): Select
       mustBeEmpty(OUTDATED): Selected folder must be empty
       mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the folder
+  logs:
+    logs: Logs
+    viewLogs: View logs
+    debuggingInfo: Logs contain information useful for debugging and development
   login:
     notYou(rich)(OUTDATED): "Not you? ${undoLogin(Choose another account)}."
     status:
@@ -669,6 +701,10 @@ hu:
       lockAxisAlignedPan(OUTDATED): Lock panning to horizontal or vertical
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
 it:
+  logs:
+    logs: Logs
+    viewLogs: View logs
+    debuggingInfo: Logs contain information useful for debugging and development
 ja:
   common:
     done(OUTDATED): Done
@@ -736,6 +772,10 @@ ja:
       select(OUTDATED): Select
       mustBeEmpty(OUTDATED): Selected folder must be empty
       mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the folder
+  logs:
+    logs: Logs
+    viewLogs: View logs
+    debuggingInfo: Logs contain information useful for debugging and development
   login:
     notYou(rich)(OUTDATED): "Not you? ${undoLogin(Choose another account)}."
     status:
@@ -833,6 +873,10 @@ pt-BR:
       select(OUTDATED): Select
       mustBeEmpty(OUTDATED): Selected folder must be empty
       mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the folder
+  logs:
+    logs: Logs
+    viewLogs: View logs
+    debuggingInfo: Logs contain information useful for debugging and development
   login:
     notYou(rich)(OUTDATED): "Not you? ${undoLogin(Choose another account)}."
     status:
@@ -892,6 +936,22 @@ pt-BR:
       watchServer(OUTDATED): Watch for updates on the server
       watchServerReadOnly(OUTDATED): Editing is disabled while watching the server
 ru:
+  logs:
+    logs: Logs
+    viewLogs: View logs
+    debuggingInfo: Logs contain information useful for debugging and development
 tr:
+  logs:
+    logs: Logs
+    viewLogs: View logs
+    debuggingInfo: Logs contain information useful for debugging and development
 zh-Hans-CN:
+  logs:
+    logs: Logs
+    viewLogs: View logs
+    debuggingInfo: Logs contain information useful for debugging and development
 zh-Hant-TW:
+  logs:
+    logs: Logs
+    viewLogs: View logs
+    debuggingInfo: Logs contain information useful for debugging and development
