@@ -586,11 +586,11 @@ hu:
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
 it:
   logs:
-    logs(OUTDATED): Logs
-    viewLogs(OUTDATED): View logs
-    debuggingInfo(OUTDATED): Logs contain information useful for debugging and development
-    noLogs(OUTDATED): "No logs here!"
-    logsAreTemporary(OUTDATED): Logs are only kept until you close the app
+    logs(OUTDATED): Log
+    viewLogs(OUTDATED): Visualizza log
+    debuggingInfo(OUTDATED): I log contengono informazioni utili per il debug e lo sviluppo
+    noLogs(OUTDATED): "Niente log qui!"
+    logsAreTemporary(OUTDATED): I log vengono conservati solo finché non chiudi l'app
 ja:
   common:
     done(OUTDATED): Done
