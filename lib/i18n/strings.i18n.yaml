@@ -149,6 +149,8 @@ logs:
   logs: Logs
   viewLogs: View logs
   debuggingInfo: Logs contain information useful for debugging and development
+  noLogs: No logs here!
+  logsAreTemporary: Logs are only kept until you close the app
 login:
   title: Login
   form:

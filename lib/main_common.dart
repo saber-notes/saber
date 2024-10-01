@@ -50,17 +50,20 @@ Future<void> main(
     print('${record.level.name}: ${record.loggerName}: ${record.message}');
   });
 
-  final errorLogger = Logger('ErrorLogger');
-  FlutterError.onError = (details) {
-    errorLogger.severe(
-        details.exceptionAsString(), details.exception, details.stack);
-    FlutterError.presentError(details);
-  };
-  PlatformDispatcher.instance.onError = (error, stackTrace) {
-    errorLogger.severe(error, stackTrace);
-    // Returns false in debug mode so the error is printed to stderr
-    return !kDebugMode;
-  };
+  // For some reason, logging errors breaks hot reload while debugging.
+  if (!kDebugMode) {
+    final errorLogger = Logger('ErrorLogger');
+    FlutterError.onError = (details) {
+      errorLogger.severe(
+          details.exceptionAsString(), details.exception, details.stack);
+      FlutterError.presentError(details);
+    };
+    PlatformDispatcher.instance.onError = (error, stackTrace) {
+      errorLogger.severe(error, stackTrace);
+      // Returns false in debug mode so the error is printed to stderr
+      return !kDebugMode;
+    };
+  }
 
   StrokeOptionsExtension.setDefaults();
   Prefs.init();

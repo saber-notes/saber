@@ -77,6 +77,8 @@ ar:
     logs: Logs
     viewLogs: View logs
     debuggingInfo: Logs contain information useful for debugging and development
+    noLogs: "No logs here!"
+    logsAreTemporary: Logs are only kept until you close the app
   login:
     notYou(rich)(OUTDATED): "Not you? ${undoLogin(Choose another account)}."
     status:
@@ -143,11 +145,15 @@ cs:
     logs: Logs
     viewLogs: View logs
     debuggingInfo: Logs contain information useful for debugging and development
+    noLogs: "No logs here!"
+    logsAreTemporary: Logs are only kept until you close the app
 de:
   logs:
     logs: Logs
     viewLogs: View logs
     debuggingInfo: Logs contain information useful for debugging and development
+    noLogs: "No logs here!"
+    logsAreTemporary: Logs are only kept until you close the app
 es:
   common:
     done(OUTDATED): Done
@@ -180,6 +186,8 @@ es:
     logs: Logs
     viewLogs: View logs
     debuggingInfo: Logs contain information useful for debugging and development
+    noLogs: "No logs here!"
+    logsAreTemporary: Logs are only kept until you close the app
   login:
     notYou(rich)(OUTDATED): "Not you? ${undoLogin(Choose another account)}."
     status:
@@ -259,6 +267,8 @@ fa:
     logs: Logs
     viewLogs: View logs
     debuggingInfo: Logs contain information useful for debugging and development
+    noLogs: "No logs here!"
+    logsAreTemporary: Logs are only kept until you close the app
   login:
     notYou(rich)(OUTDATED): "Not you? ${undoLogin(Choose another account)}."
     status:
@@ -332,6 +342,8 @@ fr:
     logs: Logs
     viewLogs: View logs
     debuggingInfo: Logs contain information useful for debugging and development
+    noLogs: "No logs here!"
+    logsAreTemporary: Logs are only kept until you close the app
   login:
     notYou(rich)(OUTDATED): "Not you? ${undoLogin(Choose another account)}."
     status:
@@ -422,6 +434,8 @@ he:
     logs: Logs
     viewLogs: View logs
     debuggingInfo: Logs contain information useful for debugging and development
+    noLogs: "No logs here!"
+    logsAreTemporary: Logs are only kept until you close the app
   login:
     notYou(rich)(OUTDATED): "Not you? ${undoLogin(Choose another account)}."
     status:
@@ -582,6 +596,8 @@ hu:
     logs: Logs
     viewLogs: View logs
     debuggingInfo: Logs contain information useful for debugging and development
+    noLogs: "No logs here!"
+    logsAreTemporary: Logs are only kept until you close the app
   login:
     notYou(rich)(OUTDATED): "Not you? ${undoLogin(Choose another account)}."
     status:
@@ -705,6 +721,8 @@ it:
     logs: Logs
     viewLogs: View logs
     debuggingInfo: Logs contain information useful for debugging and development
+    noLogs: "No logs here!"
+    logsAreTemporary: Logs are only kept until you close the app
 ja:
   common:
     done(OUTDATED): Done
@@ -776,6 +794,8 @@ ja:
     logs: Logs
     viewLogs: View logs
     debuggingInfo: Logs contain information useful for debugging and development
+    noLogs: "No logs here!"
+    logsAreTemporary: Logs are only kept until you close the app
   login:
     notYou(rich)(OUTDATED): "Not you? ${undoLogin(Choose another account)}."
     status:
@@ -877,6 +897,8 @@ pt-BR:
     logs: Logs
     viewLogs: View logs
     debuggingInfo: Logs contain information useful for debugging and development
+    noLogs: "No logs here!"
+    logsAreTemporary: Logs are only kept until you close the app
   login:
     notYou(rich)(OUTDATED): "Not you? ${undoLogin(Choose another account)}."
     status:
@@ -940,18 +962,26 @@ ru:
     logs: Logs
     viewLogs: View logs
     debuggingInfo: Logs contain information useful for debugging and development
+    noLogs: "No logs here!"
+    logsAreTemporary: Logs are only kept until you close the app
 tr:
   logs:
     logs: Logs
     viewLogs: View logs
     debuggingInfo: Logs contain information useful for debugging and development
+    noLogs: "No logs here!"
+    logsAreTemporary: Logs are only kept until you close the app
 zh-Hans-CN:
   logs:
     logs: Logs
     viewLogs: View logs
     debuggingInfo: Logs contain information useful for debugging and development
+    noLogs: "No logs here!"
+    logsAreTemporary: Logs are only kept until you close the app
 zh-Hant-TW:
   logs:
     logs: Logs
     viewLogs: View logs
     debuggingInfo: Logs contain information useful for debugging and development
+    noLogs: "No logs here!"
+    logsAreTemporary: Logs are only kept until you close the app

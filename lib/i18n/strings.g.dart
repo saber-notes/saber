@@ -233,6 +233,8 @@ class _StringsLogsEn {
 	String get logs => 'Logs';
 	String get viewLogs => 'View logs';
 	String get debuggingInfo => 'Logs contain information useful for debugging and development';
+	String get noLogs => 'No logs here!';
+	String get logsAreTemporary => 'Logs are only kept until you close the app';
 }
 
 // Path: login

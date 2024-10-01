@@ -36,9 +36,12 @@ extension FallbackTextStyle on TextStyle {
     'Dekko',
   ];
 
-  TextStyle withFallbacks() => copyWith(
+  TextStyle withFallbacks([
+    List<String> fallbacks = sansSerifFallbacks,
+  ]) =>
+      copyWith(
         fontFamilyFallback: fontFamilyFallback == null
-            ? sansSerifFallbacks
-            : [...fontFamilyFallback!, ...sansSerifFallbacks],
+            ? fallbacks
+            : [...fontFamilyFallback!, ...fallbacks],
       );
 }
