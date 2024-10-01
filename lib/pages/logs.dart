@@ -5,7 +5,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:logging/logging.dart';
 import 'package:saber/components/theming/adaptive_icon.dart';
-import 'package:saber/components/theming/dynamic_material_app.dart';
 import 'package:saber/components/theming/font_fallbacks.dart';
 import 'package:saber/i18n/strings.g.dart';
 
