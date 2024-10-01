@@ -73,12 +73,6 @@ ar:
       select(OUTDATED): تحديد
       mustBeEmpty(OUTDATED): يجب أن يكون المجلد المحدد فارغًا
       mustBeDoneSyncing(OUTDATED): تأكد من اكتمال المزامنة قبل تغيير المجلد
-  logs:
-    logs: Logs
-    viewLogs: View logs
-    debuggingInfo: Logs contain information useful for debugging and development
-    noLogs: "No logs here!"
-    logsAreTemporary: Logs are only kept until you close the app
   login:
     notYou(rich)(OUTDATED):  "ليس أنت؟ ${undoLogin(اختيار حساب آخر)}."
     status:
@@ -114,7 +108,6 @@ ar:
             بإنشاء مفاتيح التشفير الخاصة بك تلقائيًا من هذه الكلمة Saber سيقوم .
         - q: "الخاص بي؟ Nextcloud هل يمكنني استخدام نفس كلمة المرور لحساب"
           a: "الخاص بك Nextcloud نعم، ولكن ضع في اعتبارك أنه سيكون من الأسهل على مدير الخادم أو أي شخص آخر الوصول إلى ملاحظاتك إذا تمكن من الوصول إلى حساب."
-profile:
   profile:
     quotaUsage(OUTDATED): " $total ($percent%) من $used أنت تستخدم "
     connectedTo(OUTDATED): متصل بـ
@@ -126,12 +119,12 @@ profile:
       pencil(OUTDATED): قلم رصاص
       shapePen(OUTDATED): قلم الأشكال
     colors:
-       customBrightnessHue(OUTDATED): $h $b  مخصص
-   customHue(OUTDATED): $h مخصص
-   dark(OUTDATED): داكن
-   light(OUTDATED): فاتح
-   cyan(OUTDATED): سماوي
-   pink(OUTDATED): وردي
+      customBrightnessHue(OUTDATED): $h $b  مخصص
+      customHue(OUTDATED): $h مخصص
+      dark(OUTDATED): داكن
+      light(OUTDATED): فاتح
+      cyan(OUTDATED): سماوي
+      pink(OUTDATED): وردي
     selectionBar:
       duplicate(OUTDATED): تكرار
     menu:
