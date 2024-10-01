@@ -111,12 +111,12 @@ settings:
     hideHomeBackgrounds: למראה נקי יותר
     printPageIndicators: הצג מחווני עמודים בייצוא
     autosaveDelay: כמה זמן לחכות לפני שמירת הערה אוטומטית
-    simplifiedHomeLayout(OUTDATED): מגדיר גובה קבוע עבור כל תצוגה מקדימה של הערה
     shouldAlwaysAlertForUpdates: ספר לי על עדכונים ברגע שהם יהיו זמינים
     pencilSoundSetting:
       onButNotInSilentMode(OUTDATED): מופעל (אלא אם כן במצב שקט)
       off(OUTDATED): אין קול
       onAlways(OUTDATED): מופעל (אפילו במצב שקט)
+    simplifiedHomeLayout(OUTDATED): מגדיר גובה קבוע עבור כל תצוגה מקדימה של הערה
     autoStraightenLines(OUTDATED): מיישר קווים ארוכים ללא צורך להשתמש בעט הצורה
     shapeRecognitionDelay(OUTDATED): באיזו תדירות לעדכן את התצוגה המקדימה של הצורה
   themeModes:
@@ -145,6 +145,12 @@ settings:
     mustBeDoneSyncing(OUTDATED): ודא שהסנכרון הושלם לפני שינוי הספרייה
   openDataDir(OUTDATED): פתח את תיקיית Saber
   resyncEverything(OUTDATED): סנכרן הכל מחדש
+logs:
+  logs(OUTDATED): יומנים
+  viewLogs(OUTDATED): הצג יומנים
+  debuggingInfo(OUTDATED): יומנים מכילים מידע שימושי עבור איתור באגים ופיתוח
+  noLogs(OUTDATED): "אין כאן יומנים!"
+  logsAreTemporary(OUTDATED): יומנים נשמרים רק עד לסגירת האפליקציה
 login:
   title: התחבר
   form:

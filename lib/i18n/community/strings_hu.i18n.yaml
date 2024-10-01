@@ -107,11 +107,11 @@ settings:
       fixedOff(OUTDATED): Az ujjrajzolás letiltva van rögzítve
     editorPromptRename: A jegyzeteket később bármikor átnevezheti
     hideHomeBackgrounds: Egy letisztultabb megjelenítésért
-    simplifiedHomeLayout(OUTDATED): Rögzített magasságot állít be minden hangjegy előnézetéhez
     pencilSoundSetting:
       off(OUTDATED): Nincs hang
       onButNotInSilentMode(OUTDATED): "Engedélyezve (kivéve, ha néma módban van)"
       onAlways(OUTDATED): Engedélyezve (néma módban is)
+    simplifiedHomeLayout(OUTDATED): Rögzített magasságot állít be minden hangjegy előnézetéhez
     autoStraightenLines(OUTDATED): "Kiegyenesíti a hosszú vonalakat anélkül, hogy az alakos tollat ​​kellene használnia"
     shapeRecognitionDelay(OUTDATED): Milyen gyakran kell frissíteni az alakzat előnézetét
     printPageIndicators(OUTDATED): Mutasson oldalmutatókat az exportban
@@ -145,6 +145,12 @@ settings:
     mustBeDoneSyncing(OUTDATED): "A könyvtár módosítása előtt győződjön meg arról, hogy a szinkronizálás befejeződött"
   openDataDir(OUTDATED): Nyissa meg a Saber mappát
   resyncEverything(OUTDATED): Resync mindent
+logs:
+  logs(OUTDATED): Naplók
+  viewLogs(OUTDATED): Naplók megtekintése
+  debuggingInfo(OUTDATED): A naplók a hibakereséshez és a fejlesztéshez hasznos információkat tartalmaznak
+  noLogs(OUTDATED): "Itt nincsenek naplók!"
+  logsAreTemporary(OUTDATED): A naplókat csak az alkalmazás bezárásáig őrizzük meg
 login:
   title: Bejelentkezés
   form:

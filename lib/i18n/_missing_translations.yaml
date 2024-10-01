@@ -3,25 +3,25 @@
   - "After editing this file, you can run 'dart run slang apply --locale=<locale>' to quickly apply the newly added translations."
 ar:
   logs:
-    logs: Logs
-    viewLogs: View logs
-    debuggingInfo: Logs contain information useful for debugging and development
-    noLogs: "No logs here!"
-    logsAreTemporary: Logs are only kept until you close the app
+    logs(OUTDATED): Logs
+    viewLogs(OUTDATED): View logs
+    debuggingInfo(OUTDATED): Logs contain information useful for debugging and development
+    noLogs(OUTDATED): "No logs here!"
+    logsAreTemporary(OUTDATED): Logs are only kept until you close the app
 cs:
   logs:
-    logs: Logs
-    viewLogs: View logs
-    debuggingInfo: Logs contain information useful for debugging and development
-    noLogs: "No logs here!"
-    logsAreTemporary: Logs are only kept until you close the app
+    logs(OUTDATED): Logs
+    viewLogs(OUTDATED): View logs
+    debuggingInfo(OUTDATED): Logs contain information useful for debugging and development
+    noLogs(OUTDATED): "No logs here!"
+    logsAreTemporary(OUTDATED): Logs are only kept until you close the app
 de:
   logs:
-    logs: Logs
-    viewLogs: View logs
-    debuggingInfo: Logs contain information useful for debugging and development
-    noLogs: "No logs here!"
-    logsAreTemporary: Logs are only kept until you close the app
+    logs(OUTDATED): Logs
+    viewLogs(OUTDATED): View logs
+    debuggingInfo(OUTDATED): Logs contain information useful for debugging and development
+    noLogs(OUTDATED): "No logs here!"
+    logsAreTemporary(OUTDATED): Logs are only kept until you close the app
 es:
   common:
     done(OUTDATED): Done
@@ -51,11 +51,11 @@ es:
       mustBeEmpty(OUTDATED): Selected folder must be empty
       mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the folder
   logs:
-    logs: Logs
-    viewLogs: View logs
-    debuggingInfo: Logs contain information useful for debugging and development
-    noLogs: "No logs here!"
-    logsAreTemporary: Logs are only kept until you close the app
+    logs(OUTDATED): Logs
+    viewLogs(OUTDATED): View logs
+    debuggingInfo(OUTDATED): Logs contain information useful for debugging and development
+    noLogs(OUTDATED): "No logs here!"
+    logsAreTemporary(OUTDATED): Logs are only kept until you close the app
   login:
     notYou(rich)(OUTDATED): "Not you? ${undoLogin(Choose another account)}."
     status:
@@ -132,11 +132,11 @@ fa:
       mustBeEmpty(OUTDATED): Selected folder must be empty
       mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the folder
   logs:
-    logs: Logs
-    viewLogs: View logs
-    debuggingInfo: Logs contain information useful for debugging and development
-    noLogs: "No logs here!"
-    logsAreTemporary: Logs are only kept until you close the app
+    logs(OUTDATED): Logs
+    viewLogs(OUTDATED): View logs
+    debuggingInfo(OUTDATED): Logs contain information useful for debugging and development
+    noLogs(OUTDATED): "No logs here!"
+    logsAreTemporary(OUTDATED): Logs are only kept until you close the app
   login:
     notYou(rich)(OUTDATED): "Not you? ${undoLogin(Choose another account)}."
     status:
@@ -207,11 +207,11 @@ fr:
       mustBeEmpty(OUTDATED): Selected folder must be empty
       mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the folder
   logs:
-    logs: Logs
-    viewLogs: View logs
-    debuggingInfo: Logs contain information useful for debugging and development
-    noLogs: "No logs here!"
-    logsAreTemporary: Logs are only kept until you close the app
+    logs(OUTDATED): Logs
+    viewLogs(OUTDATED): View logs
+    debuggingInfo(OUTDATED): Logs contain information useful for debugging and development
+    noLogs(OUTDATED): "No logs here!"
+    logsAreTemporary(OUTDATED): Logs are only kept until you close the app
   login:
     notYou(rich)(OUTDATED): "Not you? ${undoLogin(Choose another account)}."
     status:
@@ -299,11 +299,11 @@ he:
       mustBeEmpty(OUTDATED): Selected folder must be empty
       mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the folder
   logs:
-    logs: Logs
-    viewLogs: View logs
-    debuggingInfo: Logs contain information useful for debugging and development
-    noLogs: "No logs here!"
-    logsAreTemporary: Logs are only kept until you close the app
+    logs(OUTDATED): Logs
+    viewLogs(OUTDATED): View logs
+    debuggingInfo(OUTDATED): Logs contain information useful for debugging and development
+    noLogs(OUTDATED): "No logs here!"
+    logsAreTemporary(OUTDATED): Logs are only kept until you close the app
   login:
     notYou(rich)(OUTDATED): "Not you? ${undoLogin(Choose another account)}."
     status:
@@ -461,11 +461,11 @@ hu:
       mustBeEmpty(OUTDATED): Selected folder must be empty
       mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the folder
   logs:
-    logs: Logs
-    viewLogs: View logs
-    debuggingInfo: Logs contain information useful for debugging and development
-    noLogs: "No logs here!"
-    logsAreTemporary: Logs are only kept until you close the app
+    logs(OUTDATED): Logs
+    viewLogs(OUTDATED): View logs
+    debuggingInfo(OUTDATED): Logs contain information useful for debugging and development
+    noLogs(OUTDATED): "No logs here!"
+    logsAreTemporary(OUTDATED): Logs are only kept until you close the app
   login:
     notYou(rich)(OUTDATED): "Not you? ${undoLogin(Choose another account)}."
     status:
@@ -586,11 +586,11 @@ hu:
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
 it:
   logs:
-    logs: Logs
-    viewLogs: View logs
-    debuggingInfo: Logs contain information useful for debugging and development
-    noLogs: "No logs here!"
-    logsAreTemporary: Logs are only kept until you close the app
+    logs(OUTDATED): Logs
+    viewLogs(OUTDATED): View logs
+    debuggingInfo(OUTDATED): Logs contain information useful for debugging and development
+    noLogs(OUTDATED): "No logs here!"
+    logsAreTemporary(OUTDATED): Logs are only kept until you close the app
 ja:
   common:
     done(OUTDATED): Done
@@ -659,11 +659,11 @@ ja:
       mustBeEmpty(OUTDATED): Selected folder must be empty
       mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the folder
   logs:
-    logs: Logs
-    viewLogs: View logs
-    debuggingInfo: Logs contain information useful for debugging and development
-    noLogs: "No logs here!"
-    logsAreTemporary: Logs are only kept until you close the app
+    logs(OUTDATED): Logs
+    viewLogs(OUTDATED): View logs
+    debuggingInfo(OUTDATED): Logs contain information useful for debugging and development
+    noLogs(OUTDATED): "No logs here!"
+    logsAreTemporary(OUTDATED): Logs are only kept until you close the app
   login:
     notYou(rich)(OUTDATED): "Not you? ${undoLogin(Choose another account)}."
     status:
@@ -762,11 +762,11 @@ pt-BR:
       mustBeEmpty(OUTDATED): Selected folder must be empty
       mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the folder
   logs:
-    logs: Logs
-    viewLogs: View logs
-    debuggingInfo: Logs contain information useful for debugging and development
-    noLogs: "No logs here!"
-    logsAreTemporary: Logs are only kept until you close the app
+    logs(OUTDATED): Logs
+    viewLogs(OUTDATED): View logs
+    debuggingInfo(OUTDATED): Logs contain information useful for debugging and development
+    noLogs(OUTDATED): "No logs here!"
+    logsAreTemporary(OUTDATED): Logs are only kept until you close the app
   login:
     notYou(rich)(OUTDATED): "Not you? ${undoLogin(Choose another account)}."
     status:
@@ -827,29 +827,29 @@ pt-BR:
       watchServerReadOnly(OUTDATED): Editing is disabled while watching the server
 ru:
   logs:
-    logs: Logs
-    viewLogs: View logs
-    debuggingInfo: Logs contain information useful for debugging and development
-    noLogs: "No logs here!"
-    logsAreTemporary: Logs are only kept until you close the app
+    logs(OUTDATED): Logs
+    viewLogs(OUTDATED): View logs
+    debuggingInfo(OUTDATED): Logs contain information useful for debugging and development
+    noLogs(OUTDATED): "No logs here!"
+    logsAreTemporary(OUTDATED): Logs are only kept until you close the app
 tr:
   logs:
-    logs: Logs
-    viewLogs: View logs
-    debuggingInfo: Logs contain information useful for debugging and development
-    noLogs: "No logs here!"
-    logsAreTemporary: Logs are only kept until you close the app
+    logs(OUTDATED): Logs
+    viewLogs(OUTDATED): View logs
+    debuggingInfo(OUTDATED): Logs contain information useful for debugging and development
+    noLogs(OUTDATED): "No logs here!"
+    logsAreTemporary(OUTDATED): Logs are only kept until you close the app
 zh-Hans-CN:
   logs:
-    logs: Logs
-    viewLogs: View logs
-    debuggingInfo: Logs contain information useful for debugging and development
-    noLogs: "No logs here!"
-    logsAreTemporary: Logs are only kept until you close the app
+    logs(OUTDATED): Logs
+    viewLogs(OUTDATED): View logs
+    debuggingInfo(OUTDATED): Logs contain information useful for debugging and development
+    noLogs(OUTDATED): "No logs here!"
+    logsAreTemporary(OUTDATED): Logs are only kept until you close the app
 zh-Hant-TW:
   logs:
-    logs: Logs
-    viewLogs: View logs
-    debuggingInfo: Logs contain information useful for debugging and development
-    noLogs: "No logs here!"
-    logsAreTemporary: Logs are only kept until you close the app
+    logs(OUTDATED): Logs
+    viewLogs(OUTDATED): View logs
+    debuggingInfo(OUTDATED): Logs contain information useful for debugging and development
+    noLogs(OUTDATED): "No logs here!"
+    logsAreTemporary(OUTDATED): Logs are only kept until you close the app

@@ -112,12 +112,12 @@ settings:
     printPageIndicators: نمایش نشانگرهای صفحه در خروجی
     autosaveDelay: چه مدت باید قبل از ذخیره خودکار یادداشت صبر کرد
     shapeRecognitionDelay: به روز رسانی پیشنمایش شکل چند وقت یکبار انجام شود
-    simplifiedHomeLayout(OUTDATED): یک ارتفاع ثابت برای پیش نمایش هر یادداشت تنظیم می کند
     shouldAlwaysAlertForUpdates: به محض اینکه به‌روزرسانی‌ها در دسترس هستند، به من بگویید
     pencilSoundSetting:
       onAlways(OUTDATED): فعال (حتی در حالت بی صدا)
       off(OUTDATED): بدون صدا
       onButNotInSilentMode(OUTDATED): فعال (مگر در حالت بی صدا)
+    simplifiedHomeLayout(OUTDATED): یک ارتفاع ثابت برای پیش نمایش هر یادداشت تنظیم می کند
     autoStraightenLines(OUTDATED): خطوط بلند را بدون استفاده از قلم شکل صاف می کند
   themeModes:
     system: سیستم
@@ -145,6 +145,12 @@ settings:
     mustBeDoneSyncing(OUTDATED): قبل از تغییر دایرکتوری مطمئن شوید که همگام سازی کامل شده است
   openDataDir(OUTDATED): پوشه Saber را باز کنید
   resyncEverything(OUTDATED): همه چیز را دوباره همگام سازی کنید
+logs:
+  logs(OUTDATED): سیاههها
+  viewLogs(OUTDATED): مشاهده سیاهههای مربوط
+  debuggingInfo(OUTDATED): گزارش ها حاوی اطلاعات مفیدی برای اشکال زدایی و توسعه هستند
+  noLogs(OUTDATED): "اینجا هیچ گزارشی وجود ندارد!"
+  logsAreTemporary(OUTDATED): گزارش‌ها فقط تا زمانی که برنامه را ببندید نگهداری می‌شوند
 login:
   title: وارد شدن
   form:

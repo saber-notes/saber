@@ -145,6 +145,12 @@ settings:
     select: Seleziona
     mustBeEmpty: La cartella selezionata deve essere vuota
     mustBeDoneSyncing: Assicurati che la sincronizzazione sia completa prima di cambiare cartella
+logs:
+  logs(OUTDATED): Registri
+  viewLogs(OUTDATED): Visualizza i registri
+  debuggingInfo(OUTDATED): I registri contengono informazioni utili per il debug e lo sviluppo
+  noLogs(OUTDATED): "Nessun registro qui!"
+  logsAreTemporary(OUTDATED): I registri vengono conservati solo fino alla chiusura dell'app
 login:
   title: Login
   form:

@@ -997,6 +997,7 @@ class _StringsAr extends Translations {
 	@override late final _StringsCommonAr common = _StringsCommonAr._(_root);
 	@override late final _StringsHomeAr home = _StringsHomeAr._(_root);
 	@override late final _StringsSettingsAr settings = _StringsSettingsAr._(_root);
+	@override late final _StringsLogsAr logs = _StringsLogsAr._(_root);
 	@override late final _StringsLoginAr login = _StringsLoginAr._(_root);
 	@override late final _StringsProfileAr profile = _StringsProfileAr._(_root);
 	@override late final _StringsAppInfoAr appInfo = _StringsAppInfoAr._(_root);
@@ -1064,6 +1065,20 @@ class _StringsSettingsAr extends _StringsSettingsEn {
 	@override String get resyncEverything => 'إعادة مزامنة كل شيء';
 	@override String get openDataDir => 'Saber فتح مجلد';
 	@override late final _StringsSettingsCustomDataDirAr customDataDir = _StringsSettingsCustomDataDirAr._(_root);
+}
+
+// Path: logs
+class _StringsLogsAr extends _StringsLogsEn {
+	_StringsLogsAr._(_StringsAr root) : this._root = root, super._(root);
+
+	@override final _StringsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get logs => 'السجلات';
+	@override String get viewLogs => 'عرض السجلات';
+	@override String get debuggingInfo => 'تحتوي السجلات على معلومات مفيدة لتصحيح الأخطاء والتطوير';
+	@override String get noLogs => 'لا يوجد سجلات هنا!';
+	@override String get logsAreTemporary => 'يتم الاحتفاظ بالسجلات فقط حتى تقوم بإغلاق التطبيق';
 }
 
 // Path: login
@@ -1826,6 +1841,7 @@ class _StringsCs extends Translations {
 	@override late final _StringsCommonCs common = _StringsCommonCs._(_root);
 	@override late final _StringsHomeCs home = _StringsHomeCs._(_root);
 	@override late final _StringsSettingsCs settings = _StringsSettingsCs._(_root);
+	@override late final _StringsLogsCs logs = _StringsLogsCs._(_root);
 	@override late final _StringsLoginCs login = _StringsLoginCs._(_root);
 	@override late final _StringsProfileCs profile = _StringsProfileCs._(_root);
 	@override late final _StringsAppInfoCs appInfo = _StringsAppInfoCs._(_root);
@@ -1893,6 +1909,20 @@ class _StringsSettingsCs extends _StringsSettingsEn {
 	@override String get resyncEverything => 'Znovu synchronizovat všechny poznámky';
 	@override String get openDataDir => 'Otevřít složku aplikace Saber';
 	@override late final _StringsSettingsCustomDataDirCs customDataDir = _StringsSettingsCustomDataDirCs._(_root);
+}
+
+// Path: logs
+class _StringsLogsCs extends _StringsLogsEn {
+	_StringsLogsCs._(_StringsCs root) : this._root = root, super._(root);
+
+	@override final _StringsCs _root; // ignore: unused_field
+
+	// Translations
+	@override String get logs => 'Protokoly';
+	@override String get viewLogs => 'Zobrazit protokoly';
+	@override String get debuggingInfo => 'Protokoly obsahují informace užitečné pro ladění a vývoj';
+	@override String get noLogs => 'Nejsou zde žádné záznamy!';
+	@override String get logsAreTemporary => 'Protokoly se uchovávají pouze do doby, než aplikaci zavřete';
 }
 
 // Path: login
@@ -2655,6 +2685,7 @@ class _StringsDe extends Translations {
 	@override late final _StringsCommonDe common = _StringsCommonDe._(_root);
 	@override late final _StringsHomeDe home = _StringsHomeDe._(_root);
 	@override late final _StringsSettingsDe settings = _StringsSettingsDe._(_root);
+	@override late final _StringsLogsDe logs = _StringsLogsDe._(_root);
 	@override late final _StringsLoginDe login = _StringsLoginDe._(_root);
 	@override late final _StringsProfileDe profile = _StringsProfileDe._(_root);
 	@override late final _StringsAppInfoDe appInfo = _StringsAppInfoDe._(_root);
@@ -2722,6 +2753,20 @@ class _StringsSettingsDe extends _StringsSettingsEn {
 	@override String get resyncEverything => 'Alles neu Synchronisieren';
 	@override String get openDataDir => 'Saber-Ordner öffnen';
 	@override late final _StringsSettingsCustomDataDirDe customDataDir = _StringsSettingsCustomDataDirDe._(_root);
+}
+
+// Path: logs
+class _StringsLogsDe extends _StringsLogsEn {
+	_StringsLogsDe._(_StringsDe root) : this._root = root, super._(root);
+
+	@override final _StringsDe _root; // ignore: unused_field
+
+	// Translations
+	@override String get logs => 'Protokolle';
+	@override String get viewLogs => 'Protokolle anzeigen';
+	@override String get debuggingInfo => 'Protokolle enthalten Informationen, die für die Fehlerbehebung und Entwicklung nützlich sind';
+	@override String get noLogs => 'Hier gibt es keine Protokolle!';
+	@override String get logsAreTemporary => 'Protokolle werden nur so lange gespeichert, bis Sie die App schließen';
 }
 
 // Path: login
@@ -3484,6 +3529,7 @@ class _StringsEs extends Translations {
 	@override late final _StringsCommonEs common = _StringsCommonEs._(_root);
 	@override late final _StringsHomeEs home = _StringsHomeEs._(_root);
 	@override late final _StringsSettingsEs settings = _StringsSettingsEs._(_root);
+	@override late final _StringsLogsEs logs = _StringsLogsEs._(_root);
 	@override late final _StringsLoginEs login = _StringsLoginEs._(_root);
 	@override late final _StringsProfileEs profile = _StringsProfileEs._(_root);
 	@override late final _StringsAppInfoEs appInfo = _StringsAppInfoEs._(_root);
@@ -3551,6 +3597,20 @@ class _StringsSettingsEs extends _StringsSettingsEn {
 	@override late final _StringsSettingsCustomDataDirEs customDataDir = _StringsSettingsCustomDataDirEs._(_root);
 	@override String get openDataDir => 'Abrir carpeta Saber';
 	@override String get resyncEverything => 'Resync todo';
+}
+
+// Path: logs
+class _StringsLogsEs extends _StringsLogsEn {
+	_StringsLogsEs._(_StringsEs root) : this._root = root, super._(root);
+
+	@override final _StringsEs _root; // ignore: unused_field
+
+	// Translations
+	@override String get logs => 'Registros';
+	@override String get viewLogs => 'Ver registros';
+	@override String get debuggingInfo => 'Los registros contienen información útil para la depuración y el desarrollo.';
+	@override String get noLogs => '¡Aquí no hay registros!';
+	@override String get logsAreTemporary => 'Los registros solo se conservan hasta que cierras la aplicación.';
 }
 
 // Path: login
@@ -4310,6 +4370,7 @@ class _StringsFa extends Translations {
 	@override late final _StringsCommonFa common = _StringsCommonFa._(_root);
 	@override late final _StringsHomeFa home = _StringsHomeFa._(_root);
 	@override late final _StringsSettingsFa settings = _StringsSettingsFa._(_root);
+	@override late final _StringsLogsFa logs = _StringsLogsFa._(_root);
 	@override late final _StringsLoginFa login = _StringsLoginFa._(_root);
 	@override late final _StringsProfileFa profile = _StringsProfileFa._(_root);
 	@override late final _StringsAppInfoFa appInfo = _StringsAppInfoFa._(_root);
@@ -4377,6 +4438,20 @@ class _StringsSettingsFa extends _StringsSettingsEn {
 	@override late final _StringsSettingsCustomDataDirFa customDataDir = _StringsSettingsCustomDataDirFa._(_root);
 	@override String get openDataDir => 'پوشه Saber را باز کنید';
 	@override String get resyncEverything => 'همه چیز را دوباره همگام سازی کنید';
+}
+
+// Path: logs
+class _StringsLogsFa extends _StringsLogsEn {
+	_StringsLogsFa._(_StringsFa root) : this._root = root, super._(root);
+
+	@override final _StringsFa _root; // ignore: unused_field
+
+	// Translations
+	@override String get logs => 'سیاههها';
+	@override String get viewLogs => 'مشاهده سیاهههای مربوط';
+	@override String get debuggingInfo => 'گزارش ها حاوی اطلاعات مفیدی برای اشکال زدایی و توسعه هستند';
+	@override String get noLogs => 'اینجا هیچ گزارشی وجود ندارد!';
+	@override String get logsAreTemporary => 'گزارش‌ها فقط تا زمانی که برنامه را ببندید نگهداری می‌شوند';
 }
 
 // Path: login
@@ -5137,6 +5212,7 @@ class _StringsFr extends Translations {
 	@override late final _StringsCommonFr common = _StringsCommonFr._(_root);
 	@override late final _StringsHomeFr home = _StringsHomeFr._(_root);
 	@override late final _StringsSettingsFr settings = _StringsSettingsFr._(_root);
+	@override late final _StringsLogsFr logs = _StringsLogsFr._(_root);
 	@override late final _StringsLoginFr login = _StringsLoginFr._(_root);
 	@override late final _StringsProfileFr profile = _StringsProfileFr._(_root);
 	@override late final _StringsAppInfoFr appInfo = _StringsAppInfoFr._(_root);
@@ -5204,6 +5280,20 @@ class _StringsSettingsFr extends _StringsSettingsEn {
 	@override String get resyncEverything => 'Tout re-syncroniser';
 	@override late final _StringsSettingsCustomDataDirFr customDataDir = _StringsSettingsCustomDataDirFr._(_root);
 	@override String get openDataDir => 'Ouvrir le dossier Saber';
+}
+
+// Path: logs
+class _StringsLogsFr extends _StringsLogsEn {
+	_StringsLogsFr._(_StringsFr root) : this._root = root, super._(root);
+
+	@override final _StringsFr _root; // ignore: unused_field
+
+	// Translations
+	@override String get logs => 'Journaux';
+	@override String get viewLogs => 'Afficher les journaux';
+	@override String get debuggingInfo => 'Les journaux contiennent des informations utiles pour le débogage et le développement';
+	@override String get noLogs => 'Pas de journaux ici !';
+	@override String get logsAreTemporary => 'Les journaux ne sont conservés que jusqu\'à la fermeture de l\'application';
 }
 
 // Path: login
@@ -5964,6 +6054,7 @@ class _StringsHe extends Translations {
 	@override late final _StringsCommonHe common = _StringsCommonHe._(_root);
 	@override late final _StringsHomeHe home = _StringsHomeHe._(_root);
 	@override late final _StringsSettingsHe settings = _StringsSettingsHe._(_root);
+	@override late final _StringsLogsHe logs = _StringsLogsHe._(_root);
 	@override late final _StringsLoginHe login = _StringsLoginHe._(_root);
 	@override late final _StringsProfileHe profile = _StringsProfileHe._(_root);
 	@override late final _StringsAppInfoHe appInfo = _StringsAppInfoHe._(_root);
@@ -6031,6 +6122,20 @@ class _StringsSettingsHe extends _StringsSettingsEn {
 	@override late final _StringsSettingsCustomDataDirHe customDataDir = _StringsSettingsCustomDataDirHe._(_root);
 	@override String get openDataDir => 'פתח את תיקיית Saber';
 	@override String get resyncEverything => 'סנכרן הכל מחדש';
+}
+
+// Path: logs
+class _StringsLogsHe extends _StringsLogsEn {
+	_StringsLogsHe._(_StringsHe root) : this._root = root, super._(root);
+
+	@override final _StringsHe _root; // ignore: unused_field
+
+	// Translations
+	@override String get logs => 'יומנים';
+	@override String get viewLogs => 'הצג יומנים';
+	@override String get debuggingInfo => 'יומנים מכילים מידע שימושי עבור איתור באגים ופיתוח';
+	@override String get noLogs => 'אין כאן יומנים!';
+	@override String get logsAreTemporary => 'יומנים נשמרים רק עד לסגירת האפליקציה';
 }
 
 // Path: login
@@ -6791,6 +6896,7 @@ class _StringsHu extends Translations {
 	@override late final _StringsCommonHu common = _StringsCommonHu._(_root);
 	@override late final _StringsHomeHu home = _StringsHomeHu._(_root);
 	@override late final _StringsSettingsHu settings = _StringsSettingsHu._(_root);
+	@override late final _StringsLogsHu logs = _StringsLogsHu._(_root);
 	@override late final _StringsLoginHu login = _StringsLoginHu._(_root);
 	@override late final _StringsProfileHu profile = _StringsProfileHu._(_root);
 	@override late final _StringsAppInfoHu appInfo = _StringsAppInfoHu._(_root);
@@ -6858,6 +6964,20 @@ class _StringsSettingsHu extends _StringsSettingsEn {
 	@override late final _StringsSettingsCustomDataDirHu customDataDir = _StringsSettingsCustomDataDirHu._(_root);
 	@override String get openDataDir => 'Nyissa meg a Saber mappát';
 	@override String get resyncEverything => 'Resync mindent';
+}
+
+// Path: logs
+class _StringsLogsHu extends _StringsLogsEn {
+	_StringsLogsHu._(_StringsHu root) : this._root = root, super._(root);
+
+	@override final _StringsHu _root; // ignore: unused_field
+
+	// Translations
+	@override String get logs => 'Naplók';
+	@override String get viewLogs => 'Naplók megtekintése';
+	@override String get debuggingInfo => 'A naplók a hibakereséshez és a fejlesztéshez hasznos információkat tartalmaznak';
+	@override String get noLogs => 'Itt nincsenek naplók!';
+	@override String get logsAreTemporary => 'A naplókat csak az alkalmazás bezárásáig őrizzük meg';
 }
 
 // Path: login
@@ -7618,6 +7738,7 @@ class _StringsIt extends Translations {
 	@override late final _StringsCommonIt common = _StringsCommonIt._(_root);
 	@override late final _StringsHomeIt home = _StringsHomeIt._(_root);
 	@override late final _StringsSettingsIt settings = _StringsSettingsIt._(_root);
+	@override late final _StringsLogsIt logs = _StringsLogsIt._(_root);
 	@override late final _StringsLoginIt login = _StringsLoginIt._(_root);
 	@override late final _StringsProfileIt profile = _StringsProfileIt._(_root);
 	@override late final _StringsAppInfoIt appInfo = _StringsAppInfoIt._(_root);
@@ -7685,6 +7806,20 @@ class _StringsSettingsIt extends _StringsSettingsEn {
 	@override String get resyncEverything => 'Risincronizza tutto';
 	@override String get openDataDir => 'Apri cartella Saber';
 	@override late final _StringsSettingsCustomDataDirIt customDataDir = _StringsSettingsCustomDataDirIt._(_root);
+}
+
+// Path: logs
+class _StringsLogsIt extends _StringsLogsEn {
+	_StringsLogsIt._(_StringsIt root) : this._root = root, super._(root);
+
+	@override final _StringsIt _root; // ignore: unused_field
+
+	// Translations
+	@override String get logs => 'Registri';
+	@override String get viewLogs => 'Visualizza i registri';
+	@override String get debuggingInfo => 'I registri contengono informazioni utili per il debug e lo sviluppo';
+	@override String get noLogs => 'Nessun registro qui!';
+	@override String get logsAreTemporary => 'I registri vengono conservati solo fino alla chiusura dell\'app';
 }
 
 // Path: login
@@ -8447,6 +8582,7 @@ class _StringsJa extends Translations {
 	@override late final _StringsCommonJa common = _StringsCommonJa._(_root);
 	@override late final _StringsHomeJa home = _StringsHomeJa._(_root);
 	@override late final _StringsSettingsJa settings = _StringsSettingsJa._(_root);
+	@override late final _StringsLogsJa logs = _StringsLogsJa._(_root);
 	@override late final _StringsLoginJa login = _StringsLoginJa._(_root);
 	@override late final _StringsProfileJa profile = _StringsProfileJa._(_root);
 	@override late final _StringsAppInfoJa appInfo = _StringsAppInfoJa._(_root);
@@ -8514,6 +8650,20 @@ class _StringsSettingsJa extends _StringsSettingsEn {
 	@override late final _StringsSettingsCustomDataDirJa customDataDir = _StringsSettingsCustomDataDirJa._(_root);
 	@override String get openDataDir => 'セイバーフォルダを開く';
 	@override String get resyncEverything => 'すべてを再同期する';
+}
+
+// Path: logs
+class _StringsLogsJa extends _StringsLogsEn {
+	_StringsLogsJa._(_StringsJa root) : this._root = root, super._(root);
+
+	@override final _StringsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get logs => 'ログ';
+	@override String get viewLogs => 'ログを表示';
+	@override String get debuggingInfo => 'ログにはデバッグや開発に役立つ情報が含まれています';
+	@override String get noLogs => 'ここにはログはありません!';
+	@override String get logsAreTemporary => 'ログはアプリを閉じるまで保存されます';
 }
 
 // Path: login
@@ -9274,6 +9424,7 @@ class _StringsPtBr extends Translations {
 	@override late final _StringsCommonPtBr common = _StringsCommonPtBr._(_root);
 	@override late final _StringsHomePtBr home = _StringsHomePtBr._(_root);
 	@override late final _StringsSettingsPtBr settings = _StringsSettingsPtBr._(_root);
+	@override late final _StringsLogsPtBr logs = _StringsLogsPtBr._(_root);
 	@override late final _StringsLoginPtBr login = _StringsLoginPtBr._(_root);
 	@override late final _StringsProfilePtBr profile = _StringsProfilePtBr._(_root);
 	@override late final _StringsAppInfoPtBr appInfo = _StringsAppInfoPtBr._(_root);
@@ -9341,6 +9492,20 @@ class _StringsSettingsPtBr extends _StringsSettingsEn {
 	@override late final _StringsSettingsCustomDataDirPtBr customDataDir = _StringsSettingsCustomDataDirPtBr._(_root);
 	@override String get openDataDir => 'Abra a pasta Saber';
 	@override String get resyncEverything => 'Resync tudo';
+}
+
+// Path: logs
+class _StringsLogsPtBr extends _StringsLogsEn {
+	_StringsLogsPtBr._(_StringsPtBr root) : this._root = root, super._(root);
+
+	@override final _StringsPtBr _root; // ignore: unused_field
+
+	// Translations
+	@override String get logs => 'Registros';
+	@override String get viewLogs => 'Ver logs';
+	@override String get debuggingInfo => 'Os logs contêm informações úteis para depuração e desenvolvimento';
+	@override String get noLogs => 'Nenhum registro aqui!';
+	@override String get logsAreTemporary => 'Os registros são mantidos somente até você fechar o aplicativo';
 }
 
 // Path: login
@@ -10101,6 +10266,7 @@ class _StringsRu extends Translations {
 	@override late final _StringsCommonRu common = _StringsCommonRu._(_root);
 	@override late final _StringsHomeRu home = _StringsHomeRu._(_root);
 	@override late final _StringsSettingsRu settings = _StringsSettingsRu._(_root);
+	@override late final _StringsLogsRu logs = _StringsLogsRu._(_root);
 	@override late final _StringsLoginRu login = _StringsLoginRu._(_root);
 	@override late final _StringsProfileRu profile = _StringsProfileRu._(_root);
 	@override late final _StringsAppInfoRu appInfo = _StringsAppInfoRu._(_root);
@@ -10168,6 +10334,20 @@ class _StringsSettingsRu extends _StringsSettingsEn {
 	@override String get resyncEverything => 'Повторная синхронизация всего';
 	@override String get openDataDir => 'Открыть папку Saber';
 	@override late final _StringsSettingsCustomDataDirRu customDataDir = _StringsSettingsCustomDataDirRu._(_root);
+}
+
+// Path: logs
+class _StringsLogsRu extends _StringsLogsEn {
+	_StringsLogsRu._(_StringsRu root) : this._root = root, super._(root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get logs => 'Журналы';
+	@override String get viewLogs => 'Посмотреть журналы';
+	@override String get debuggingInfo => 'Логи содержат информацию, полезную для отладки и разработки.';
+	@override String get noLogs => 'Здесь нет журналов!';
+	@override String get logsAreTemporary => 'Журналы хранятся только до тех пор, пока вы не закроете приложение.';
 }
 
 // Path: login
@@ -10930,6 +11110,7 @@ class _StringsTr extends Translations {
 	@override late final _StringsCommonTr common = _StringsCommonTr._(_root);
 	@override late final _StringsHomeTr home = _StringsHomeTr._(_root);
 	@override late final _StringsSettingsTr settings = _StringsSettingsTr._(_root);
+	@override late final _StringsLogsTr logs = _StringsLogsTr._(_root);
 	@override late final _StringsLoginTr login = _StringsLoginTr._(_root);
 	@override late final _StringsProfileTr profile = _StringsProfileTr._(_root);
 	@override late final _StringsAppInfoTr appInfo = _StringsAppInfoTr._(_root);
@@ -10997,6 +11178,20 @@ class _StringsSettingsTr extends _StringsSettingsEn {
 	@override String get resyncEverything => 'Her şeyi yeniden senkronize et';
 	@override String get openDataDir => 'Saber klasörünü aç';
 	@override late final _StringsSettingsCustomDataDirTr customDataDir = _StringsSettingsCustomDataDirTr._(_root);
+}
+
+// Path: logs
+class _StringsLogsTr extends _StringsLogsEn {
+	_StringsLogsTr._(_StringsTr root) : this._root = root, super._(root);
+
+	@override final _StringsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String get logs => 'Günlükler';
+	@override String get viewLogs => 'Günlükleri görüntüle';
+	@override String get debuggingInfo => 'Günlükler hata ayıklama ve geliştirme için yararlı bilgiler içerir';
+	@override String get noLogs => 'Burada kayıt yok!';
+	@override String get logsAreTemporary => 'Günlükler yalnızca uygulamayı kapatana kadar tutulur';
 }
 
 // Path: login
@@ -11759,6 +11954,7 @@ class _StringsZhHansCn extends Translations {
 	@override late final _StringsCommonZhHansCn common = _StringsCommonZhHansCn._(_root);
 	@override late final _StringsHomeZhHansCn home = _StringsHomeZhHansCn._(_root);
 	@override late final _StringsSettingsZhHansCn settings = _StringsSettingsZhHansCn._(_root);
+	@override late final _StringsLogsZhHansCn logs = _StringsLogsZhHansCn._(_root);
 	@override late final _StringsLoginZhHansCn login = _StringsLoginZhHansCn._(_root);
 	@override late final _StringsProfileZhHansCn profile = _StringsProfileZhHansCn._(_root);
 	@override late final _StringsAppInfoZhHansCn appInfo = _StringsAppInfoZhHansCn._(_root);
@@ -11826,6 +12022,20 @@ class _StringsSettingsZhHansCn extends _StringsSettingsEn {
 	@override String get resyncEverything => '重新同步所有';
 	@override String get openDataDir => '打开 Saber 文件夹';
 	@override late final _StringsSettingsCustomDataDirZhHansCn customDataDir = _StringsSettingsCustomDataDirZhHansCn._(_root);
+}
+
+// Path: logs
+class _StringsLogsZhHansCn extends _StringsLogsEn {
+	_StringsLogsZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
+
+	@override final _StringsZhHansCn _root; // ignore: unused_field
+
+	// Translations
+	@override String get logs => '日志';
+	@override String get viewLogs => '查看日志';
+	@override String get debuggingInfo => '日志包含对调试和开发有用的信息';
+	@override String get noLogs => '这里没有日志！';
+	@override String get logsAreTemporary => '日志仅保留到您关闭应用程序为止';
 }
 
 // Path: login
@@ -12588,6 +12798,7 @@ class _StringsZhHantTw extends Translations {
 	@override late final _StringsCommonZhHantTw common = _StringsCommonZhHantTw._(_root);
 	@override late final _StringsHomeZhHantTw home = _StringsHomeZhHantTw._(_root);
 	@override late final _StringsSettingsZhHantTw settings = _StringsSettingsZhHantTw._(_root);
+	@override late final _StringsLogsZhHantTw logs = _StringsLogsZhHantTw._(_root);
 	@override late final _StringsLoginZhHantTw login = _StringsLoginZhHantTw._(_root);
 	@override late final _StringsProfileZhHantTw profile = _StringsProfileZhHantTw._(_root);
 	@override late final _StringsAppInfoZhHantTw appInfo = _StringsAppInfoZhHantTw._(_root);
@@ -12655,6 +12866,20 @@ class _StringsSettingsZhHantTw extends _StringsSettingsEn {
 	@override String get resyncEverything => '全部重新同步';
 	@override String get openDataDir => '開啟 Saber 資料夾';
 	@override late final _StringsSettingsCustomDataDirZhHantTw customDataDir = _StringsSettingsCustomDataDirZhHantTw._(_root);
+}
+
+// Path: logs
+class _StringsLogsZhHantTw extends _StringsLogsEn {
+	_StringsLogsZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
+
+	@override final _StringsZhHantTw _root; // ignore: unused_field
+
+	// Translations
+	@override String get logs => '紀錄';
+	@override String get viewLogs => '查看日誌';
+	@override String get debuggingInfo => '日誌包含對調試和開發有用的信息';
+	@override String get noLogs => '這裡沒有日誌！';
+	@override String get logsAreTemporary => '日誌僅保留到您關閉應用程式為止';
 }
 
 // Path: login

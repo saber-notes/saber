@@ -111,12 +111,12 @@ settings:
     hideHomeBackgrounds: Para una vista más limpia
     printPageIndicators: Mostrar indicadores de página en las exportaciones
     autosaveDelay: Cuánto esperar antes de autoguardar una nota
-    simplifiedHomeLayout(OUTDATED): Establece una altura fija para cada vista previa de nota
     shouldAlwaysAlertForUpdates: Avísame sobre actualizaciones tan pronto como estén disponibles
     pencilSoundSetting:
       off(OUTDATED): Sin sonido
       onButNotInSilentMode(OUTDATED): Habilitado (a menos que esté en modo silencioso)
       onAlways(OUTDATED): Habilitado (incluso en modo silencioso)
+    simplifiedHomeLayout(OUTDATED): Establece una altura fija para cada vista previa de nota
     autoStraightenLines(OUTDATED): Endereza líneas largas sin tener que usar el rotulador.
     shapeRecognitionDelay(OUTDATED): Con qué frecuencia actualizar la vista previa de la forma
   themeModes:
@@ -145,6 +145,12 @@ settings:
     mustBeDoneSyncing(OUTDATED): Asegúrese de que la sincronización esté completa antes de cambiar el directorio
   openDataDir(OUTDATED): Abrir carpeta Saber
   resyncEverything(OUTDATED): Resync todo
+logs:
+  logs(OUTDATED): Registros
+  viewLogs(OUTDATED): Ver registros
+  debuggingInfo(OUTDATED): Los registros contienen información útil para la depuración y el desarrollo.
+  noLogs(OUTDATED): "¡Aquí no hay registros!"
+  logsAreTemporary(OUTDATED): Los registros solo se conservan hasta que cierras la aplicación.
 login:
   title: Iniciar sesión
   form:

@@ -109,11 +109,11 @@ settings:
     editorPromptRename: メモの名前は後でいつでも変更できます
     hideHomeBackgrounds: よりクリーンな外観に
     printPageIndicators: エクスポートにページインジケーターを表示
-    simplifiedHomeLayout(OUTDATED): 各ノートのプレビューに固定の高さを設定します
     pencilSoundSetting:
       off(OUTDATED): 無音
       onButNotInSilentMode(OUTDATED): 有効 (サイレントモードでない場合)
       onAlways(OUTDATED): 有効（サイレントモードでも）
+    simplifiedHomeLayout(OUTDATED): 各ノートのプレビューに固定の高さを設定します
     autoStraightenLines(OUTDATED): シェイプペンを使用せずに長い線をまっすぐにします。
     shapeRecognitionDelay(OUTDATED): 形状プレビューを更新する頻度
     autosaveDelay(OUTDATED): メモを自動保存するまでの待ち時間
@@ -145,6 +145,12 @@ settings:
     mustBeDoneSyncing(OUTDATED): ディレクトリを変更する前に同期が完了していることを確認してください
   openDataDir(OUTDATED): セイバーフォルダを開く
   resyncEverything(OUTDATED): すべてを再同期する
+logs:
+  logs(OUTDATED): ログ
+  viewLogs(OUTDATED): ログを表示
+  debuggingInfo(OUTDATED): ログにはデバッグや開発に役立つ情報が含まれています
+  noLogs(OUTDATED): "ここにはログはありません!"
+  logsAreTemporary(OUTDATED): ログはアプリを閉じるまで保存されます
 login:
   title: ログイン
   form:
