@@ -1,0 +1,3 @@
+• Prestazioni di scorrimento migliorate e rimozione degli spostamenti di layout
+• I caricamenti non riusciti vengono ora ritentati a intervalli sempre più lunghi
+• Aggiunta una pagina di log in fondo alle impostazioni

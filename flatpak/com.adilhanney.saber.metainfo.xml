@@ -214,6 +214,15 @@
     </screenshots>
 
     <releases>
+        <release version="0.25.0" type="development" date="2024-10-01">
+            <description>
+                <ul>
+                    <li>Improved scrolling performance and removed layout shifts</li>
+                    <li>Failed uploads are now retried at increasingly long intervals</li>
+                    <li>Added a logs page at the bottom of settings</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.24.7" type="development" date="2024-09-25">
             <description>
                 <ul>

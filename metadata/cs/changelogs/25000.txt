@@ -1,0 +1,3 @@
+• Vylepšený výkon posouvání a odstraněné posuny rozvržení
+• Neúspěšné nahrávání se nyní opakuje ve stále delších intervalech
+• Přidána stránka s protokoly ve spodní části nastavení

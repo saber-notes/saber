@@ -1,0 +1,3 @@
+• Se mejoró el rendimiento del desplazamiento y se eliminaron los cambios de diseño
+• Las cargas fallidas ahora se vuelven a intentar a intervalos cada vez más largos
+• Se agregó una página de registros en la parte inferior de la configuración
