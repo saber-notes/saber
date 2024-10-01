@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
-import 'package:saber/components/nextcloud/enc_login_step.dart';
 import 'package:saber/i18n/strings.g.dart';
 
 final logsHistory = _LogsHistory();

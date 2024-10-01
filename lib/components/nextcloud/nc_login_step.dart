@@ -64,7 +64,7 @@ class _NcLoginStepState extends State<NcLoginStep> {
 
       Prefs.pfp.value = null;
       client.core.avatar
-          .getAvatar(userId: username, size: 512)
+          .getAvatar(userId: username, size: AvatarGetAvatarSize.$512)
           .then((response) => response.body)
           .then((pfp) => Prefs.pfp.value = pfp);
 
