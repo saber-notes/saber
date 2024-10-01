@@ -51,7 +51,7 @@ Saber má vše, co potřebujete k tomu, abyste dokázali organizovat své pozná
 
 Objevte zcela nový způsob zaznamenávání a organizace vašich myšlenek s aplikací Saber. Ať již jste student, profesionál nebo kreativní duše, Saber je vaším důvěryhodným společníkem pro digitální psaní. Stáhněte si jej nyní a nechte volně plynout své nápady!
 
-[![GitHub release (nejnovější vydání)](https://img.shields.io/github/v/release/saber-notes/saber?label=vyd%C3%A1n%C3%AD)](https://github.com/saber-notes/saber/releases/latest)
+[![Vydání na GitHubu (nejnovější)](https://img.shields.io/github/v/release/saber-notes/saber?label=vyd%C3%A1n%C3%AD)](https://github.com/saber-notes/saber/releases/latest)
 [![Flathub](https://img.shields.io/flathub/v/com.adilhanney.saber)](https://flathub.org/apps/details/com.adilhanney.saber)
 [![F-Droid](https://img.shields.io/f-droid/v/com.adilhanney.saber)](https://f-droid.org/en/packages/com.adilhanney.saber/)
 [![Všechna vydání na GitHubu](https://img.shields.io/github/downloads/saber-notes/saber/total?label=sta%C5%BEen%C3%AD%20z%20GitHubu)](https://github.com/saber-notes/saber/releases)
@@ -102,7 +102,7 @@ Stažení `Saber-{verze}-x86_64.AppImage` z nejnovějšího [vydání][releases]
 nastavení práv pro spuštění `chmod +x Saber-*-x86_64.AppImage` a spuštění.
 
 Možnost 3:
-Díky @soumyaDghosh je k dispozici neoficiální [snap][snap]:
+Díky @soumyaDghosh je k dispozici neoficiální [snap][snap] balíček:
 `sudo snap install saber`.
 
 #### Windows
@@ -137,7 +137,7 @@ flutter pub get
 
 Postup pro balíček [super_clipboard](https://pub.dev/packages/super_clipboard)
 se dá shrnout jako:
-- Nainstalujte [Rustu](https://www.rust-lang.org/tools/install)
+- Nainstalujte [Rust](https://www.rust-lang.org/tools/install)
 - Nainstalujte NDK 26.1.10909125 v případě, že sestavujete pro Android
 
 ### 5. Sestavení pro…
