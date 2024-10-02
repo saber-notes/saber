@@ -46,7 +46,7 @@ parts:
       - libjsoncpp-dev
       - libgstreamer1.0-dev
       - libgstreamer-plugins-base1.0-dev
-      - webkit2gtk-4.1-dev
+      - libwebkit2gtk-4.1-dev
     build-snaps:
       - cmake
     stage-packages:
