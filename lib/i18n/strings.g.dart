@@ -320,6 +320,7 @@ class _StringsEditorEn {
 	late final _StringsEditorToolbarEn toolbar = _StringsEditorToolbarEn._(_root);
 	late final _StringsEditorPensEn pens = _StringsEditorPensEn._(_root);
 	late final _StringsEditorPenOptionsEn penOptions = _StringsEditorPenOptionsEn._(_root);
+	late final _StringsEditorCameraEn camera = _StringsEditorCameraEn._(_root);
 	late final _StringsEditorColorsEn colors = _StringsEditorColorsEn._(_root);
 	late final _StringsEditorImageOptionsEn imageOptions = _StringsEditorImageOptionsEn._(_root);
 	late final _StringsEditorSelectionBarEn selectionBar = _StringsEditorSelectionBarEn._(_root);
@@ -719,6 +720,7 @@ class _StringsEditorToolbarEn {
 	String get select => 'Select';
 	String get toggleEraser => 'Toggle eraser (Ctrl E)';
 	String get photo => 'Images';
+	String get camera => 'Take photo';
 	String get text => 'Text';
 	String get toggleFingerDrawing => 'Toggle finger drawing (Ctrl F)';
 	String get undo => 'Undo';
@@ -751,6 +753,16 @@ class _StringsEditorPenOptionsEn {
 
 	// Translations
 	String get size => 'Size';
+}
+
+// Path: editor.campea
+class _StringsEditorCameraEn {
+	_StringsEditorCameraEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get takePhoto => 'Take photo';
 }
 
 // Path: editor.colors

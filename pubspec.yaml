@@ -136,6 +136,7 @@ dependencies:
   mutex: ^3.1.0
 
   collection: ^1.0.0
+  camera: ^0.10.5+9
 
   audioplayers: ^6.0.0
 

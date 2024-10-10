@@ -44,6 +44,7 @@ class Toolbar extends StatefulWidget {
     required this.isRedoPossible,
     required this.toggleFingerDrawing,
     required this.pickPhoto,
+    required this.takePhoto,
     required this.paste,
     required this.duplicateSelection,
     required this.deleteSelection,
@@ -70,6 +71,7 @@ class Toolbar extends StatefulWidget {
   final VoidCallback toggleFingerDrawing;
 
   final VoidCallback pickPhoto;
+  final VoidCallback takePhoto;
 
   final VoidCallback paste;
 
@@ -456,6 +458,16 @@ class _ToolbarState extends State<Toolbar> {
                 child: const AdaptiveIcon(
                   icon: Icons.photo,
                   cupertinoIcon: CupertinoIcons.photo,
+                ),
+              ),
+              ToolbarIconButton(
+                tooltip: t.editor.toolbar.camera,
+                enabled: !widget.readOnly,
+                onPressed: widget.takePhoto,
+                padding: buttonPadding,
+                child: const AdaptiveIcon(
+                  icon: Icons.camera_alt,
+                  cupertinoIcon: CupertinoIcons.camera,
                 ),
               ),
               ToolbarIconButton(
