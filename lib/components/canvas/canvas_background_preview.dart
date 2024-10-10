@@ -16,6 +16,7 @@ class CanvasBackgroundPreview extends StatelessWidget {
     this.overrideBoxFit,
     required this.pageSize,
     required this.lineHeight,
+    required this.lineWeight,
   });
 
   final bool selected;
@@ -26,6 +27,7 @@ class CanvasBackgroundPreview extends StatelessWidget {
   final BoxFit? overrideBoxFit;
   final Size pageSize;
   final int lineHeight;
+  final int lineWeight;
 
   static const double fixedWidth = 150;
 
@@ -74,6 +76,7 @@ class CanvasBackgroundPreview extends StatelessWidget {
                     }
                   }(),
                   lineHeight: lineHeight,
+                  lineWeight: lineWeight,
                   primaryColor: colorScheme.primary
                       .withSaturation(selected ? 1 : 0)
                       .withOpacity(selected ? 1 : 0.5),

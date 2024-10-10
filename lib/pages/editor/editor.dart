@@ -1758,6 +1758,12 @@ class EditorState extends State<Editor> {
         Prefs.lastLineHeight.value = lineHeight;
         autosaveAfterDelay();
       }),
+      setLineWeight: (lineWeight) => setState(() {
+        if (coreInfo.readOnly) return;
+        coreInfo.lineWeight = lineWeight;
+        Prefs.lastLineWeight.value = lineWeight;
+        autosaveAfterDelay();
+      }),
       removeBackgroundImage: () => setState(() {
         if (coreInfo.readOnly) return;
 
