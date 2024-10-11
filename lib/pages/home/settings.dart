@@ -329,6 +329,15 @@ class _SettingsPageState extends State<SettingsPage> {
                 },
                 pref: Prefs.hyperlegibleFont,
               ),
+              SettingsSwitch(
+                title: 'Sync notes only over WiFi',
+                subtitle: 'If disabled mobile data may be used to sync notes',
+                iconBuilder: (i) => switch (Prefs.platform.value) {
+                  TargetPlatform.iOS || TargetPlatform.macOS => Icons.wifi_rounded,
+                  _ => Icons.wifi_sharp,
+                },
+                pref: Prefs.onlySyncOverWifi,
+              ),
               SettingsSubtitle(subtitle: t.settings.prefCategories.writing),
               SettingsSwitch(
                 title: t.settings.prefLabels.preferGreyscale,
