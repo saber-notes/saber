@@ -7,13 +7,14 @@
 #include "generated_plugin_registrant.h"
 
 #include <audioplayers_windows/audioplayers_windows_plugin.h>
+#include <connectivity_plus/connectivity_plus_windows_plugin.h>
 #include <desktop_webview_window/desktop_webview_window_plugin.h>
 #include <dynamic_color/dynamic_color_plugin_c_api.h>
 #include <flutter_secure_storage_windows/flutter_secure_storage_windows_plugin.h>
 #include <irondash_engine_context/irondash_engine_context_plugin_c_api.h>
 #include <permission_handler_windows/permission_handler_windows_plugin.h>
 #include <printing/printing_plugin.h>
-#include <screen_retriever/screen_retriever_plugin.h>
+#include <screen_retriever_windows/screen_retriever_windows_plugin_c_api.h>
 #include <share_plus/share_plus_windows_plugin_c_api.h>
 #include <super_native_extensions/super_native_extensions_plugin_c_api.h>
 #include <url_launcher_windows/url_launcher_windows.h>
@@ -23,6 +24,8 @@
 void RegisterPlugins(flutter::PluginRegistry* registry) {
   AudioplayersWindowsPluginRegisterWithRegistrar(
       registry->GetRegistrarForPlugin("AudioplayersWindowsPlugin"));
+  ConnectivityPlusWindowsPluginRegisterWithRegistrar(
+      registry->GetRegistrarForPlugin("ConnectivityPlusWindowsPlugin"));
   DesktopWebviewWindowPluginRegisterWithRegistrar(
       registry->GetRegistrarForPlugin("DesktopWebviewWindowPlugin"));
   DynamicColorPluginCApiRegisterWithRegistrar(
@@ -35,8 +38,8 @@ void RegisterPlugins(flutter::PluginRegistry* registry) {
       registry->GetRegistrarForPlugin("PermissionHandlerWindowsPlugin"));
   PrintingPluginRegisterWithRegistrar(
       registry->GetRegistrarForPlugin("PrintingPlugin"));
-  ScreenRetrieverPluginRegisterWithRegistrar(
-      registry->GetRegistrarForPlugin("ScreenRetrieverPlugin"));
+  ScreenRetrieverWindowsPluginCApiRegisterWithRegistrar(
+      registry->GetRegistrarForPlugin("ScreenRetrieverWindowsPluginCApi"));
   SharePlusWindowsPluginCApiRegisterWithRegistrar(
       registry->GetRegistrarForPlugin("SharePlusWindowsPluginCApi"));
   SuperNativeExtensionsPluginCApiRegisterWithRegistrar(
