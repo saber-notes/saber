@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:saber/components/notifs/snackbar.dart';
 import 'package:saber/components/theming/adaptive_icon.dart';
 import 'package:saber/data/nextcloud/saber_syncer.dart';
 import 'package:saber/data/prefs.dart';
@@ -46,6 +47,11 @@ class _SyncingButtonState extends State<SyncingButton> {
     if (mounted) setState(() {});
   }
 
+  void _snackBarSyncOnlyOverWifi() {
+    if (!mounted) return;
+    SnackBarNotification.show(context, message: 'Wifi is not connected, disable "sync only over wifi" in settings to use mobile data.'); // fixme
+  }
+
   /// Returns a value between 0-1 representing the progress of the sync,
   /// or null if we're still refreshing.
   double? getPercentage() {
@@ -60,8 +66,13 @@ class _SyncingButtonState extends State<SyncingButton> {
     return filesTransferred / (filesTransferred + numPending);
   }
 
-  void onPressed() {
+  void onPressed() async {
     assert(Prefs.loggedIn);
+
+    if (!(await SaberSyncInterface.shouldSync())) {
+      _snackBarSyncOnlyOverWifi();
+      return;
+    }
 
     // Don't refresh if we're already refreshing.
     if (syncer.downloader.isRefreshing) return;
