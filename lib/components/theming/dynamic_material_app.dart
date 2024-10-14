@@ -55,6 +55,12 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp>
     with WindowListener {
   bool requiresCustomFont = false;
 
+  static const _pageTransitionsTheme = PageTransitionsTheme(
+    builders: {
+      TargetPlatform.android: PredictiveBackPageTransitionsBuilder(),
+    },
+  );
+
   @override
   void initState() {
     Prefs.appTheme.addListener(onChanged);
@@ -195,6 +201,7 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp>
                       textTheme: getTextTheme(Brightness.light),
                       scaffoldBackgroundColor: lightColorScheme.surface,
                       platform: platform,
+                      pageTransitionsTheme: _pageTransitionsTheme,
                     ),
                 darkTheme: yaruTheme?.darkTheme ??
                     ThemeData(
@@ -203,6 +210,7 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp>
                       textTheme: getTextTheme(Brightness.dark),
                       scaffoldBackgroundColor: darkColorScheme.surface,
                       platform: platform,
+                      pageTransitionsTheme: _pageTransitionsTheme,
                     ),
                 highContrastTheme: yaruHighContrastTheme?.theme ??
                     ThemeData(
@@ -212,6 +220,7 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp>
                       scaffoldBackgroundColor:
                           highContrastLightColorScheme.surface,
                       platform: platform,
+                      pageTransitionsTheme: _pageTransitionsTheme,
                     ),
                 highContrastDarkTheme: yaruHighContrastTheme?.darkTheme ??
                     ThemeData(
@@ -221,6 +230,7 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp>
                       scaffoldBackgroundColor:
                           highContrastDarkColorScheme.surface,
                       platform: platform,
+                      pageTransitionsTheme: _pageTransitionsTheme,
                     ),
                 debugShowCheckedModeBanner: false,
               );
