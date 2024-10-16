@@ -21,6 +21,7 @@ import 'package:saber/components/canvas/canvas_preview.dart';
 import 'package:saber/components/canvas/image/editor_image.dart';
 import 'package:saber/components/canvas/save_indicator.dart';
 import 'package:saber/components/navbar/responsive_navbar.dart';
+import 'package:saber/components/notifs/snackbar.dart';
 import 'package:saber/components/theming/adaptive_alert_dialog.dart';
 import 'package:saber/components/theming/adaptive_icon.dart';
 import 'package:saber/components/theming/dynamic_material_app.dart';
@@ -1731,9 +1732,7 @@ class EditorState extends State<Editor> {
 
   void snackBarNeedsToSaveBeforeExiting() {
     if (!mounted) return;
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-      content: Text(t.editor.needsToSaveBeforeExiting),
-    ));
+    SnackBarNotification.show(context, message: t.editor.needsToSaveBeforeExiting);
   }
 
   Widget bottomSheet(BuildContext context) {

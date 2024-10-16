@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:abstract_sync/abstract_sync.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:encrypt/encrypt.dart';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart';
@@ -22,6 +23,16 @@ final syncer = Syncer<SaberSyncInterface, SaberSyncFile, File, WebDavFile>(
 class SaberSyncInterface
     extends AbstractSyncInterface<SaberSyncFile, File, WebDavFile> {
   const SaberSyncInterface();
+
+  static Future<bool> shouldSync() async {
+    if (Prefs.onlySyncOverWifi.value) {
+      final List<ConnectivityResult> connRes = await Connectivity().checkConnectivity();
+      if (!connRes.contains(ConnectivityResult.wifi)) {
+        return false;
+      }
+    }
+    return true;
+  }
 
   static final log = Logger('SaberSyncInterface');
 

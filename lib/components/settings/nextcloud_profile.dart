@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nextcloud/provisioning_api.dart';
+import 'package:saber/components/notifs/snackbar.dart';
 import 'package:saber/components/theming/adaptive_icon.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
@@ -52,6 +53,19 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
     if (mounted) setState(() {});
   }
 
+  void _resyncEverything() async {
+    Prefs.fileSyncResyncEverythingDate.value = DateTime.now();
+    final allFiles = await FileManager.getAllFiles(includeExtensions: true, includeAssets: true);
+    for (final file in allFiles) {
+      syncer.uploader.enqueueRel(file);
+    }
+  }
+
+  void _snackBarSyncOnlyOverWifi() {
+    if (!mounted) return;
+    SnackBarNotification.show(context, message: 'Wifi is not connected, disable "sync only over wifi" in settings to use mobile data.'); // fixme
+  }
+
   @override
   Widget build(BuildContext context) {
     final loginStep =
@@ -71,6 +85,7 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
     };
 
     var colorScheme = Theme.of(context).colorScheme;
+
     return ListTile(
       onTap: () => context.push(RoutePaths.login),
       leading: ValueListenableBuilder(
@@ -140,12 +155,11 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
                   ),
                   tooltip: t.settings.resyncEverything,
                   onPressed: () async {
-                    Prefs.fileSyncResyncEverythingDate.value = DateTime.now();
-                    final allFiles = await FileManager.getAllFiles(
-                        includeExtensions: true, includeAssets: true);
-                    for (final file in allFiles) {
-                      syncer.uploader.enqueueRel(file);
+                    if (!(await SaberSyncInterface.shouldSync())) {
+                      _snackBarSyncOnlyOverWifi();
+                      return;
                     }
+                    _resyncEverything();
                   },
                 ),
               ],

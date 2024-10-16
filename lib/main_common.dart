@@ -161,7 +161,10 @@ void setupBackgroundSync() {
 }
 
 @pragma('vm:entry-point')
-void doBackgroundSync() {
+void doBackgroundSync() async {
+  if (!(await SaberSyncInterface.shouldSync())) {
+    return; // FIXME: should we warn user in this case?
+  }
   Workmanager().executeTask((_, __) async {
     StrokeOptionsExtension.setDefaults();
     Prefs.init();

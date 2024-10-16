@@ -62,6 +62,7 @@ abstract class Prefs {
 
   static late final PlainPref<Uint8List?> pfp;
   static late final PlainPref<bool> syncInBackground;
+  static late final PlainPref<bool> onlySyncOverWifi;
 
   static late final PlainPref<ThemeMode> appTheme;
 
@@ -168,6 +169,7 @@ abstract class Prefs {
 
     pfp = PlainPref('pfp', null);
     syncInBackground = PlainPref('syncInBackground', true);
+    onlySyncOverWifi = PlainPref('onlySyncOverWifi', true);
 
     appTheme = PlainPref('appTheme', ThemeMode.system);
     platform = PlainPref('platform', defaultTargetPlatform);

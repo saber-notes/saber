@@ -144,6 +144,7 @@ dependencies:
   args: ^2.5.0
 
   flutter_web_auth_2: ^4.0.0
+  connectivity_plus: ^6.0.5
 
 dev_dependencies:
   flutter_test:
