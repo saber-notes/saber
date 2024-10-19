@@ -214,6 +214,13 @@
     </screenshots>
 
     <releases>
+        <release version="0.25.1" type="development" date="2024-10-19">
+            <description>
+                <ul>
+                    <li>Fixed a bug with custom Nextcloud servers hosted at a subdirectory, thanks to provokateurin</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.25.0" type="development" date="2024-10-01">
             <description>
                 <ul>
