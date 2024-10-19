@@ -7815,11 +7815,11 @@ class _StringsLogsIt extends _StringsLogsEn {
 	@override final _StringsIt _root; // ignore: unused_field
 
 	// Translations
-	@override String get logs => 'Registri';
-	@override String get viewLogs => 'Visualizza i registri';
-	@override String get debuggingInfo => 'I registri contengono informazioni utili per il debug e lo sviluppo';
-	@override String get noLogs => 'Nessun registro qui!';
-	@override String get logsAreTemporary => 'I registri vengono conservati solo fino alla chiusura dell\'app';
+	@override String get logs => 'Log';
+	@override String get viewLogs => 'Visualizza log';
+	@override String get debuggingInfo => 'I log contengono informazioni utili per il debug e lo sviluppo';
+	@override String get noLogs => 'Niente log qui!';
+	@override String get logsAreTemporary => 'I log vengono conservati solo finché non chiudi l\'app';
 }
 
 // Path: login
