@@ -4,7 +4,6 @@ import 'dart:io';
 import 'package:abstract_sync/abstract_sync.dart';
 import 'package:encrypt/encrypt.dart';
 import 'package:flutter/foundation.dart';
-import 'package:http/http.dart';
 import 'package:logging/logging.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:nextcloud/webdav.dart';
@@ -283,20 +282,11 @@ class SaberSyncInterface
     if (client == null)
       throw Exception('Tried to upload file without being logged in');
 
-    try {
-      await client.webdav.put(
-        encryptedBytes,
-        PathUri.parse(file.remotePath),
-        lastModified: lastModified,
-      );
-    } on ClientException catch (e) {
-      // TODO(adil192): https://github.com/nextcloud/neon/issues/2532
-      if (e.message.contains('status code 204')) {
-        return;
-      } else {
-        rethrow;
-      }
-    }
+    await client.webdav.put(
+      encryptedBytes,
+      PathUri.parse(file.remotePath),
+      lastModified: lastModified,
+    );
   }
 
   static NextcloudClient? _client;
