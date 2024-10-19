@@ -889,10 +889,10 @@ packages:
     dependency: "direct main"
     description:
       name: nextcloud
-      sha256: "96e08068b1ad66d8b355846f24b8da1f160241adbf19c343e97bd55ebf557639"
+      sha256: db6ea63e8babb9cd2783ae16457762a2cd67eaecd229980be0521b07d57fa8b6
       url: "https://pub.dev"
     source: hosted
-    version: "8.0.0"
+    version: "8.1.0"
   one_dollar_unistroke_recognizer:
     dependency: "direct main"
     description:
