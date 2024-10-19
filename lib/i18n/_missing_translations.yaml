@@ -585,12 +585,6 @@ hu:
       lockAxisAlignedPan(OUTDATED): Lock panning to horizontal or vertical
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
 it:
-  logs:
-    logs(OUTDATED): Logs
-    viewLogs(OUTDATED): View logs
-    debuggingInfo(OUTDATED): Logs contain information useful for debugging and development
-    noLogs(OUTDATED): "No logs here!"
-    logsAreTemporary(OUTDATED): Logs are only kept until you close the app
 ja:
   common:
     done(OUTDATED): Done
