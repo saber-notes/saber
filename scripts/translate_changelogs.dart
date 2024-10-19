@@ -25,12 +25,10 @@ Future<String> getEnglishChangelog() async {
   return changelog;
 }
 
-Future symlinkChangelog(String localeCode) async {
-  final fileNormal = File('metadata/$localeCode/changelogs/$buildNumber.txt');
-  final fileFDroid =
-      Link('metadata/$localeCode/changelogs/${buildNumber}3.txt');
-  if (fileFDroid.existsSync()) return;
-  await fileFDroid.create(fileNormal.path);
+Future copyChangelogForFdroid(String localeCode) async {
+  final normal = File('metadata/$localeCode/changelogs/$buildNumber.txt');
+  final fdroid = File('metadata/$localeCode/changelogs/${buildNumber}3.txt');
+  await normal.copy(fdroid.path);
 }
 
 void main() async {
@@ -67,7 +65,7 @@ void main() async {
     final stepPrefix = '${(i + 1).toString().padLeft(total.length)}/$total';
 
     if (localeCode == 'en') {
-      await symlinkChangelog('en-US');
+      await copyChangelogForFdroid('en-US');
       print('$stepPrefix. Skipped $localeCode ($localeName)');
       continue;
     }
@@ -156,7 +154,7 @@ void main() async {
 
     await file.create(recursive: true);
     await file.writeAsString(translatedChangelog);
-    await symlinkChangelog(localeCode);
+    await copyChangelogForFdroid(localeCode);
   }
 
   if (someTranslationsFailed) {
