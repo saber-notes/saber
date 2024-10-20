@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:camera/camera.dart';
 import 'package:collapsible/collapsible.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/cupertino.dart';
@@ -11,6 +12,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_quill/flutter_quill.dart' as flutter_quill;
 import 'package:keybinder/keybinder.dart';
 import 'package:logging/logging.dart';
+import 'package:path/path.dart' as path;
 import 'package:printing/printing.dart';
 import 'package:saber/components/canvas/_asset_cache.dart';
 import 'package:saber/components/canvas/_stroke.dart';
@@ -26,6 +28,7 @@ import 'package:saber/components/theming/adaptive_icon.dart';
 import 'package:saber/components/theming/dynamic_material_app.dart';
 import 'package:saber/components/toolbar/color_bar.dart';
 import 'package:saber/components/toolbar/editor_bottom_sheet.dart';
+import 'package:saber/components/toolbar/editor_camera.dart';
 import 'package:saber/components/toolbar/editor_page_manager.dart';
 import 'package:saber/components/toolbar/toolbar.dart';
 import 'package:saber/data/editor/_color_change.dart';
@@ -1112,6 +1115,95 @@ class EditorState extends State<Editor> {
     return images.length;
   }
 
+
+
+// functions taking photos
+
+  /// function called when photo is taken by camera
+  void parsePhotoName(
+      String photoName  // name of photo created by camera
+      ) async{
+    // use the Select tool so that the user can move the new image
+    currentTool = Select.currentSelect;
+
+
+    final jpgFile = File(photoName);
+    final Uint8List jpgBytes;
+    try {
+      jpgBytes = await jpgFile.readAsBytes();
+    } catch (e) {
+      log.severe('Failed to read file when importing $photoName: $e', e);
+      return;
+    }
+    List<EditorImage> images = [
+          PngEditorImage(
+            id: coreInfo.nextImageId++,
+            extension: path.extension(photoName),
+            imageProvider: MemoryImage(jpgBytes),
+            pageIndex: currentPageIndex,
+            pageSize: coreInfo.pages[currentPageIndex].size,
+            onMoveImage: onMoveImage,
+            onDeleteImage: onDeleteImage,
+            onMiscChange: autosaveAfterDelay,
+            onLoad: () => setState(() {}),
+            assetCache: coreInfo.assetCache,
+          ),
+    ];
+
+    history.recordChange(EditorHistoryItem(
+      type: EditorHistoryItemType.draw,
+      pageIndex: currentPageIndex,
+      strokes: [],
+      images: images,
+    ));
+    createPage(currentPageIndex);
+    coreInfo.pages[currentPageIndex].images.addAll(images);
+    autosaveAfterDelay();
+//    return images.length;
+  }
+
+  void _takePhoto() async {
+    ///  take photo by camera
+    if (coreInfo.readOnly) return;
+
+    WidgetsFlutterBinding.ensureInitialized();
+    // Obtain a list of the available cameras on the device.
+
+    try {
+      final cameras = await availableCameras();
+      // Get a specific camera from the list of available cameras.
+      final CameraDescription camera= cameras.first;
+
+      // show camera dialog and wait until it ends
+      await showDialog(
+          context: context,
+          builder: (context) { return AlertDialog(
+            title: Text(t.editor.camera.takePhoto),
+            content: takePhoto(context,
+              camera,
+              ),
+          );
+          }
+      );
+      return;
+    } catch (e) {
+      // If an error occurs, log the error to the console.
+      log.warning(e.toString());
+      return; // no image taken
+    }
+  }
+
+  /// widget calling camera
+  Widget takePhoto(BuildContext context,
+      CameraDescription camera,
+      ){
+    return TakePictureScreen(
+      camera: camera,
+      onFileNameChanged: parsePhotoName,
+    );
+  }
+
+
   Future<List<_PhotoInfo>> _pickPhotosWithFilePicker() async {
     final FilePickerResult? result = await FilePicker.platform.pickFiles(
       type: FileType.custom,
@@ -1574,6 +1666,7 @@ class EditorState extends State<Editor> {
             });
           },
           pickPhoto: _pickPhotos,
+          takePhoto: _takePhoto,
           paste: paste,
           exportAsSba: exportAsSba,
           exportAsPdf: exportAsPdf,
@@ -1736,6 +1829,7 @@ class EditorState extends State<Editor> {
     ));
   }
 
+
   Widget bottomSheet(BuildContext context) {
     final Brightness brightness = Theme.of(context).brightness;
     final bool invert =
@@ -1856,6 +1950,7 @@ class EditorState extends State<Editor> {
       coreInfo: coreInfo,
     );
   }
+
 
   Widget pageManager(BuildContext context) {
     return EditorPageManager(
