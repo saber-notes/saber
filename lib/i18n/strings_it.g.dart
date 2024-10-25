@@ -71,6 +71,8 @@ class _TranslationsHomeIt extends TranslationsHomeEn {
 	@override late final _TranslationsHomeNewFolderIt newFolder = _TranslationsHomeNewFolderIt._(_root);
 	@override late final _TranslationsHomeRenameNoteIt renameNote = _TranslationsHomeRenameNoteIt._(_root);
 	@override late final _TranslationsHomeMoveNoteIt moveNote = _TranslationsHomeMoveNoteIt._(_root);
+	@override String get selectAllNotes => 'Seleziona tutto';
+	@override String get deselectAllNotes => 'Deseleziona tutto';
 	@override String get deleteNote => 'Elimina nota';
 	@override late final _TranslationsHomeRenameFolderIt renameFolder = _TranslationsHomeRenameFolderIt._(_root);
 	@override late final _TranslationsHomeDeleteFolderIt deleteFolder = _TranslationsHomeDeleteFolderIt._(_root);
