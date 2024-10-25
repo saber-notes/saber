@@ -64,7 +64,7 @@ class _NcLoginStepState extends State<NcLoginStep> {
 
       Prefs.pfp.value = null;
       client.core.avatar
-          .getAvatar(userId: username, size: 512)
+          .getAvatar(userId: username, size: AvatarGetAvatarSize.$512)
           .then((response) => response.body)
           .then((pfp) => Prefs.pfp.value = pfp);
 
@@ -123,11 +123,7 @@ class _NcLoginStepState extends State<NcLoginStep> {
         Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            Image.asset(
-              'assets/icon/resized/icon-128x128.png',
-              width: 32,
-              height: 32,
-            ),
+            SvgPicture.asset('assets/icon/icon.svg', width: 32, height: 32),
             const SizedBox(width: 16),
             Expanded(
               child: Text(

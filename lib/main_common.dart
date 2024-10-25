@@ -1,9 +1,7 @@
 import 'dart:async';
-import 'dart:developer' as dev;
 import 'dart:io';
 
 import 'package:args/args.dart';
-import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -15,7 +13,6 @@ import 'package:printing/printing.dart';
 import 'package:receive_sharing_intent/receive_sharing_intent.dart';
 import 'package:saber/components/canvas/invert_shader.dart';
 import 'package:saber/components/canvas/pencil_shader.dart';
-import 'package:saber/components/home/banner_ad_widget.dart';
 import 'package:saber/components/theming/dynamic_material_app.dart';
 import 'package:saber/data/editor/pencil_sound.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
@@ -27,6 +24,7 @@ import 'package:saber/data/tools/stroke_properties.dart';
 import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/editor/editor.dart';
 import 'package:saber/pages/home/home.dart';
+import 'package:saber/pages/logs.dart';
 import 'package:saber/pages/user/login.dart';
 import 'package:window_manager/window_manager.dart';
 import 'package:worker_manager/worker_manager.dart';
@@ -46,28 +44,25 @@ Future<void> main(
   Logger.root.level =
       (kDebugMode || parsedArgs.flag('verbose')) ? Level.INFO : Level.WARNING;
   Logger.root.onRecord.listen((record) {
+    logsHistory.add(record);
+
     // ignore: avoid_print
     print('${record.level.name}: ${record.loggerName}: ${record.message}');
-
-    // also log to devtools
-    dev.log(
-      record.message,
-      time: record.time,
-      level: record.level.value,
-      name: record.loggerName,
-      zone: record.zone,
-      error: record.error,
-      stackTrace: record.stackTrace,
-    );
   });
 
-  if (Platform.isAndroid) {
-    final deviceInfo = DeviceInfoPlugin();
-    final androidInfo = await deviceInfo.androidInfo;
-    Logger.root
-        .fine('androidInfo.version.release: ${androidInfo.version.release}');
-    Prefs.androidVersion =
-        int.tryParse(androidInfo.version.release) ?? Prefs.androidVersion;
+  // For some reason, logging errors breaks hot reload while debugging.
+  if (!kDebugMode) {
+    final errorLogger = Logger('ErrorLogger');
+    FlutterError.onError = (details) {
+      errorLogger.severe(
+          details.exceptionAsString(), details.exception, details.stack);
+      FlutterError.presentError(details);
+    };
+    PlatformDispatcher.instance.onError = (error, stackTrace) {
+      errorLogger.severe(error, stackTrace);
+      // Returns false in debug mode so the error is printed to stderr
+      return !kDebugMode;
+    };
   }
 
   StrokeOptionsExtension.setDefaults();
@@ -79,7 +74,6 @@ Future<void> main(
       windowManager.ensureInitialized(),
     workerManager.init(),
     Prefs.locale.waitUntilLoaded(),
-    Prefs.disableAds.waitUntilLoaded(),
     Prefs.url.waitUntilLoaded(),
     Prefs.allowInsecureConnections.waitUntilLoaded(),
     InvertShader.init(),
@@ -90,8 +84,6 @@ Future<void> main(
     }),
     OnyxSdkPenArea.init(),
   ]);
-
-  AdState.init();
 
   setLocale();
   Prefs.locale.addListener(setLocale);
@@ -238,6 +230,10 @@ class App extends StatefulWidget {
       GoRoute(
         path: '/profile',
         redirect: (context, state) => RoutePaths.login,
+      ),
+      GoRoute(
+        path: RoutePaths.logs,
+        builder: (context, state) => const LogsPage(),
       ),
     ],
   );

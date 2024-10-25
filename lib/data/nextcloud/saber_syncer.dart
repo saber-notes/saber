@@ -267,7 +267,7 @@ class SaberSyncInterface
     SaberSyncFile file,
     // ignore: avoid_renaming_method_parameters
     Uint8List encryptedBytes,
-  ) {
+  ) async {
     DateTime lastModified;
     try {
       lastModified = file.localFile.lastModifiedSync();
@@ -282,7 +282,7 @@ class SaberSyncInterface
     if (client == null)
       throw Exception('Tried to upload file without being logged in');
 
-    return client.webdav.put(
+    await client.webdav.put(
       encryptedBytes,
       PathUri.parse(file.remotePath),
       lastModified: lastModified,

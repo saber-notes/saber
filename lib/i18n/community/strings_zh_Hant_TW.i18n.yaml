@@ -76,8 +76,6 @@ settings:
     hyperlegibleFont: 易讀字體
     shouldCheckForUpdates: 自動檢查 Saber 更新
     shouldAlwaysAlertForUpdates: 更快的更新
-    disableAds: 禁用廣告
-    changeAdsConsent: 修改廣告同意書
     allowInsecureConnections: 允許不安全的連結
     editorToolbarAlignment: 編輯器工具列的對齊方式
     editorToolbarShowInFullscreen: 在全螢幕模式中顯示編輯器工具列
@@ -100,7 +98,6 @@ settings:
     pencilSoundSetting: 筆的音效
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible 字體為低視力讀者提高易讀性
-    disableAds: 廣告有助於支持Saber的發展，但如果您不願意，可以禁用它
     allowInsecureConnections: （不推薦）允許Saber連結到具有自簽名/不受信任證書的伺服器
     preferGreyscale: 用於電子紙螢幕
     autoClearWhiteboardOnExit: 它仍會同步到您的其他裝置
@@ -148,6 +145,12 @@ settings:
     select: 選擇
     mustBeEmpty: 選擇的資料夾必須是空的
     mustBeDoneSyncing: 更改資料夾之前確保同步已完成
+logs:
+  logs(OUTDATED): 紀錄
+  viewLogs(OUTDATED): 查看日誌
+  debuggingInfo(OUTDATED): 日誌包含對調試和開發有用的信息
+  noLogs(OUTDATED): 這裡沒有日誌！
+  logsAreTemporary(OUTDATED): 日誌僅保留到您關閉應用程式為止
 login:
   title: 登入
   form:

@@ -153,6 +153,7 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	late final _StringsCommonEn common = _StringsCommonEn._(_root);
 	late final _StringsHomeEn home = _StringsHomeEn._(_root);
 	late final _StringsSettingsEn settings = _StringsSettingsEn._(_root);
+	late final _StringsLogsEn logs = _StringsLogsEn._(_root);
 	late final _StringsLoginEn login = _StringsLoginEn._(_root);
 	late final _StringsProfileEn profile = _StringsProfileEn._(_root);
 	late final _StringsAppInfoEn appInfo = _StringsAppInfoEn._(_root);
@@ -220,6 +221,20 @@ class _StringsSettingsEn {
 	String get resyncEverything => 'Resync everything';
 	String get openDataDir => 'Open Saber folder';
 	late final _StringsSettingsCustomDataDirEn customDataDir = _StringsSettingsCustomDataDirEn._(_root);
+}
+
+// Path: logs
+class _StringsLogsEn {
+	_StringsLogsEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get logs => 'Logs';
+	String get viewLogs => 'View logs';
+	String get debuggingInfo => 'Logs contain information useful for debugging and development';
+	String get noLogs => 'No logs here!';
+	String get logsAreTemporary => 'Logs are only kept until you close the app';
 }
 
 // Path: login
@@ -469,8 +484,6 @@ class _StringsSettingsPrefLabelsEn {
 	String get hyperlegibleFont => 'Atkinson Hyperlegible font';
 	String get shouldCheckForUpdates => 'Check for Saber updates';
 	String get shouldAlwaysAlertForUpdates => 'Faster updates';
-	String get disableAds => 'Disable ads';
-	String get changeAdsConsent => 'Change ads consent';
 	String get allowInsecureConnections => 'Allow insecure connections';
 	String get editorToolbarAlignment => 'Toolbar position';
 	String get editorToolbarShowInFullscreen => 'Show the toolbar in fullscreen mode';
@@ -501,7 +514,6 @@ class _StringsSettingsPrefDescriptionsEn {
 
 	// Translations
 	String get hyperlegibleFont => 'Increases legibility for users with low vision';
-	String get disableAds => 'Ads help support Saber\'s development, but you can disable them if you\'d like';
 	String get allowInsecureConnections => '(Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates';
 	String get preferGreyscale => 'For e-ink displays';
 	String get autoClearWhiteboardOnExit => 'Clears the whiteboard after you exit the app';
@@ -985,6 +997,7 @@ class _StringsAr extends Translations {
 	@override late final _StringsCommonAr common = _StringsCommonAr._(_root);
 	@override late final _StringsHomeAr home = _StringsHomeAr._(_root);
 	@override late final _StringsSettingsAr settings = _StringsSettingsAr._(_root);
+	@override late final _StringsLogsAr logs = _StringsLogsAr._(_root);
 	@override late final _StringsLoginAr login = _StringsLoginAr._(_root);
 	@override late final _StringsProfileAr profile = _StringsProfileAr._(_root);
 	@override late final _StringsAppInfoAr appInfo = _StringsAppInfoAr._(_root);
@@ -999,9 +1012,9 @@ class _StringsCommonAr extends _StringsCommonEn {
 	@override final _StringsAr _root; // ignore: unused_field
 
 	// Translations
+	@override String get done => 'تم';
+	@override String get continueBtn => 'متابعة';
 	@override String get cancel => 'إلغاء';
-	@override String get done => 'منتهي';
-	@override String get continueBtn => 'يكمل';
 }
 
 // Path: home
@@ -1016,16 +1029,16 @@ class _StringsHomeAr extends _StringsHomeEn {
 	@override late final _StringsHomeTooltipsAr tooltips = _StringsHomeTooltipsAr._(_root);
 	@override late final _StringsHomeCreateAr create = _StringsHomeCreateAr._(_root);
 	@override String get welcome => 'مرحباً بك في Saber';
+	@override String get invalidFormat => ' صيغة الملف الذي اخترته ليست مدعومة, الرجاء اختيار ملف  sbn او sbn2 او sba او pdf ';
 	@override String get noFiles => 'لم يتم العثور على ملفات';
 	@override String get createNewNote => 'اضغط على زر + لإنشاء ملاحظة جديدة';
+	@override String get backFolder => 'الرجوع الى المجلد السابق';
 	@override late final _StringsHomeNewFolderAr newFolder = _StringsHomeNewFolderAr._(_root);
 	@override late final _StringsHomeRenameNoteAr renameNote = _StringsHomeRenameNoteAr._(_root);
 	@override late final _StringsHomeMoveNoteAr moveNote = _StringsHomeMoveNoteAr._(_root);
+	@override String get deleteNote => 'حذف الملاحظة';
 	@override late final _StringsHomeRenameFolderAr renameFolder = _StringsHomeRenameFolderAr._(_root);
 	@override late final _StringsHomeDeleteFolderAr deleteFolder = _StringsHomeDeleteFolderAr._(_root);
-	@override String get backFolder => 'ارجع إلى المجلد السابق';
-	@override String get deleteNote => 'حذف الملاحظة';
-	@override String get invalidFormat => 'الملف الذي حددته غير مدعوم. الرجاء تحديد ملف .sbn، .sbn2, .sba أو .pdf.';
 }
 
 // Path: settings
@@ -1049,9 +1062,23 @@ class _StringsSettingsAr extends _StringsSettingsEn {
 		'يسار',
 	];
 	@override late final _StringsSettingsResetAr reset = _StringsSettingsResetAr._(_root);
+	@override String get resyncEverything => 'إعادة مزامنة كل شيء';
+	@override String get openDataDir => 'Saber فتح مجلد';
 	@override late final _StringsSettingsCustomDataDirAr customDataDir = _StringsSettingsCustomDataDirAr._(_root);
-	@override String get openDataDir => 'افتح مجلد Saber';
-	@override String get resyncEverything => 'إعادة ترتيب كل شيء';
+}
+
+// Path: logs
+class _StringsLogsAr extends _StringsLogsEn {
+	_StringsLogsAr._(_StringsAr root) : this._root = root, super._(root);
+
+	@override final _StringsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get logs => 'السجلات';
+	@override String get viewLogs => 'عرض السجلات';
+	@override String get debuggingInfo => 'تحتوي السجلات على معلومات مفيدة لتصحيح الأخطاء والتطوير';
+	@override String get noLogs => 'لا يوجد سجلات هنا!';
+	@override String get logsAreTemporary => 'يتم الاحتفاظ بالسجلات فقط حتى تقوم بإغلاق التطبيق';
 }
 
 // Path: login
@@ -1068,12 +1095,14 @@ class _StringsLoginAr extends _StringsLoginEn {
 		linkToSignup('سجل حساباً الأن'),
 		const TextSpan(text: '!'),
 	]);
+	@override TextSpan notYou({required InlineSpanBuilder undoLogin}) => TextSpan(children: [
+		const TextSpan(text: 'ليس أنت؟ '),
+		undoLogin('اختيار حساب آخر'),
+		const TextSpan(text: '.'),
+	]);
 	@override late final _StringsLoginStatusAr status = _StringsLoginStatusAr._(_root);
 	@override late final _StringsLoginNcLoginStepAr ncLoginStep = _StringsLoginNcLoginStepAr._(_root);
 	@override late final _StringsLoginEncLoginStepAr encLoginStep = _StringsLoginEncLoginStepAr._(_root);
-	@override TextSpan notYou({required InlineSpanBuilder undoLogin}) => TextSpan(children: [
-		undoLogin('ليس انت'),
-	]);
 }
 
 // Path: profile
@@ -1085,16 +1114,16 @@ class _StringsProfileAr extends _StringsProfileEn {
 	// Translations
 	@override String get title => 'ملفي الشخصي';
 	@override String get logout => 'تسجيل الخروج';
+	@override String quotaUsage({required Object total, required Object percent, required Object used}) => ' ${total} (${percent}%) من ${used} أنت تستخدم ';
+	@override String get connectedTo => 'متصل بـ';
 	@override late final _StringsProfileQuickLinksAr quickLinks = _StringsProfileQuickLinksAr._(_root);
+	@override String get faqTitle => 'الأسئلة الشائعة';
 	@override List<dynamic> get faq => [
 		_StringsProfile$faq$0i0$Ar._(_root),
 		_StringsProfile$faq$0i1$Ar._(_root),
 		_StringsProfile$faq$0i2$Ar._(_root),
 		_StringsProfile$faq$0i3$Ar._(_root),
 	];
-	@override String quotaUsage({required Object used, required Object total, required Object percent}) => 'أنت تستخدم ${used} من ${total} (${percent}%)';
-	@override String get connectedTo => 'متصلا';
-	@override String get faqTitle => 'أسئلة مكررة';
 }
 
 // Path: appInfo
@@ -1122,7 +1151,7 @@ class _StringsUpdateAr extends _StringsUpdateEn {
 	@override String get updateAvailable => 'تحديث متاح';
 	@override String get updateAvailableDescription => 'يتوفر إصدار جديد من التطبيق مع هذه التغييرات:';
 	@override String get update => 'تحديث';
-	@override String get downloadNotAvailableYet => 'التنزيل غير متاح بعد لنظامك الأساسي. يرجى التحقق مرة أخرى قريبا.';
+	@override String get downloadNotAvailableYet => 'التنزيل غير متاح بعد لمنصتك. يرجى التحقق قريبًا.';
 }
 
 // Path: editor
@@ -1168,9 +1197,9 @@ class _StringsHomeTitlesAr extends _StringsHomeTitlesEn {
 
 	// Translations
 	@override String get home => 'الملاحظات الأخيرة';
+	@override String get browse => 'تصفح';
 	@override String get whiteboard => 'السبورة';
 	@override String get settings => 'الإعدادات';
-	@override String get browse => 'تصفح';
 }
 
 // Path: home.tooltips
@@ -1182,7 +1211,7 @@ class _StringsHomeTooltipsAr extends _StringsHomeTooltipsEn {
 	// Translations
 	@override String get newNote => 'محلاظة جديدة';
 	@override String get showUpdateDialog => 'إظهار مربع حوار التحديث';
-	@override String get exportNote => 'ملاحظة التصدير';
+	@override String get exportNote => 'تصدير ملاحظة';
 }
 
 // Path: home.create
@@ -1192,8 +1221,8 @@ class _StringsHomeCreateAr extends _StringsHomeCreateEn {
 	@override final _StringsAr _root; // ignore: unused_field
 
 	// Translations
-	@override String get importNote => 'مذكرة استيراد';
-	@override String get newNote => 'مذكرة جديدة';
+	@override String get newNote => 'انشاء ملاحظة جديدة';
+	@override String get importNote => 'استيراد ملاحظة';
 }
 
 // Path: home.newFolder
@@ -1234,12 +1263,12 @@ class _StringsHomeMoveNoteAr extends _StringsHomeMoveNoteEn {
 
 	// Translations
 	@override String get moveNote => 'تحريك الملاحظة';
+	@override String moveNotes({required Object n}) => 'ملاحظات ${n} نقل';
+	@override String moveName({required Object f}) => '${f} نقل';
 	@override String get move => 'تحريك';
 	@override String renamedTo({required Object newName}) => 'ستتم إعادة تسمية الملاحظة إلى ${newName}';
-	@override String moveNotes({required Object n}) => 'نقل ${n} الملاحظات';
-	@override String get multipleRenamedTo => 'وستعاد تسمية الملاحظات التالية:';
-	@override String numberRenamedTo({required Object n}) => 'ستتم إعادة تسمية الملاحظات ${n} لتجنب التعارضات';
-	@override String moveName({required Object f}) => 'نقل ${f}';
+	@override String get multipleRenamedTo => 'الملاحظات التالية سيتم اعادة تسميتها:';
+	@override String numberRenamedTo({required Object n}) => 'ملاحظة سيتم اعادة تسميتها لتجنب تضارب تشابه الاسماء ${n}';
 }
 
 // Path: home.renameFolder
@@ -1249,12 +1278,12 @@ class _StringsHomeRenameFolderAr extends _StringsHomeRenameFolderEn {
 	@override final _StringsAr _root; // ignore: unused_field
 
 	// Translations
-	@override String get folderName => 'إسم الملف';
-	@override String get folderNameExists => 'يوجد مجلد بهذا الاسم بالفعل';
-	@override String get rename => 'إعادة تسمية';
-	@override String get folderNameEmpty => 'لا يمكن أن يكون اسماً فارغاً';
+	@override String get renameFolder => 'اعادة تسمية المجلد';
+	@override String get folderName => 'اسم المجلد';
+	@override String get rename => 'اعادة تسمية';
+	@override String get folderNameEmpty => 'لا يمكن أن يكون اسم المجلد فارغًا';
 	@override String get folderNameContainsSlash => 'لا يمكن أن يحتوي اسم المجلد على شرطة مائلة';
-	@override String get renameFolder => 'إعادة تسمية المجلد';
+	@override String get folderNameExists => 'يوجد بالفعل مجلد بهذا الاسم';
 }
 
 // Path: home.deleteFolder
@@ -1264,10 +1293,10 @@ class _StringsHomeDeleteFolderAr extends _StringsHomeDeleteFolderEn {
 	@override final _StringsAr _root; // ignore: unused_field
 
 	// Translations
-	@override String deleteName({required Object f}) => 'حذف ${f}';
-	@override String get deleteFolder => 'احذف المجلد';
-	@override String get alsoDeleteContents => 'احذف أيضًا جميع الملاحظات الموجودة داخل هذا المجلد';
-	@override String get delete => 'يمسح';
+	@override String get deleteFolder => 'حذف المجلد';
+	@override String deleteName({required Object f}) => '${f} حذف';
+	@override String get delete => 'حذف';
+	@override String get alsoDeleteContents => 'حذف جميع الملاحظات داخل هذا المجلد أيضًا';
 }
 
 // Path: settings.prefCategories
@@ -1279,8 +1308,8 @@ class _StringsSettingsPrefCategoriesAr extends _StringsSettingsPrefCategoriesEn 
 	// Translations
 	@override String get general => 'عام';
 	@override String get writing => 'كتابة';
-	@override String get performance => 'أداء';
-	@override String get editor => 'محرر';
+	@override String get editor => 'المحرر';
+	@override String get performance => 'الأداء';
 	@override String get advanced => 'متقدم';
 }
 
@@ -1298,29 +1327,27 @@ class _StringsSettingsPrefLabelsAr extends _StringsSettingsPrefLabelsEn {
 	@override String get customAccentColor => 'لون التمييز المخصص';
 	@override String get hyperlegibleFont => 'Hyperlegible خط';
 	@override String get shouldCheckForUpdates => 'تحقق تلقائيًا من وجود تحديثات Saber';
+	@override String get shouldAlwaysAlertForUpdates => 'تحديثات أسرع';
+	@override String get allowInsecureConnections => 'السماح بالاتصالات غير الآمنة';
 	@override String get editorToolbarAlignment => 'محاذاة شريط أدوات المحرر';
 	@override String get editorToolbarShowInFullscreen => 'أظهر شريط أدوات المحرر في وضع ملء الشاشة';
 	@override String get editorAutoInvert => 'اقلب الملاحظات في الوضع المظلم';
 	@override String get preferGreyscale => 'تفضيل الألوان الرمادية';
 	@override String get maxImageSize => 'الحجم الأقصى للصورة';
 	@override String get autoClearWhiteboardOnExit => 'امسح السبورة بعد الخروج من التطبيق';
+	@override String get disableEraserAfterUse => 'تعطيل الممحاة تلقائيًا بعد الاستخدام';
+	@override String get hideFingerDrawingToggle => 'إخفاء زر الرسم بالإصبع';
 	@override String get editorPromptRename => 'مطالبتك بإعادة تسمية الملاحظات الجديدة';
 	@override String get hideHomeBackgrounds => 'إخفاء الخلفيات على الشاشة الرئيسية';
 	@override String get recentColorsDontSavePresets => 'لا تحفظ الألوان المعينة مسبقًا كألوان حديثة';
+	@override String get recentColorsLength => 'كم عدد الألوان الحديثة التي يجب تخزينها';
 	@override String get printPageIndicators => 'طباعة مؤشرات الصفحة';
-	@override String get simplifiedHomeLayout => 'تخطيط المنزل المبسط';
-	@override String get pencilSoundSetting => 'تأثير صوت قلم الرصاص';
-	@override String get customDataDir => 'دليل البيانات المخصصة';
-	@override String get autoStraightenLines => 'تصويب الخطوط تلقائيا';
-	@override String get shapeRecognitionDelay => 'تأخير التعرف على الشكل';
-	@override String get recentColorsLength => 'كم عدد الألوان الحديثة التي سيتم تخزينها';
-	@override String get changeAdsConsent => 'تغيير موافقة الإعلانات';
-	@override String get disableAds => 'عطل الاعلانات';
-	@override String get allowInsecureConnections => 'السماح بعلاقات غير آمنة';
 	@override String get autosaveDelay => 'تأخير الحفظ التلقائي';
-	@override String get hideFingerDrawingToggle => 'إخفاء تبديل رسم الإصبع';
-	@override String get shouldAlwaysAlertForUpdates => 'التحديثات السريعة';
-	@override String get disableEraserAfterUse => 'تعطيل تلقائي للممحاة';
+	@override String get shapeRecognitionDelay => 'تأخير التعرف على الأشكال';
+	@override String get autoStraightenLines => 'استقامة الخطوط تلقائيًا';
+	@override String get simplifiedHomeLayout => 'تخطيط الصفحة الرئيسية المبسط';
+	@override String get customDataDir => 'مخصص Saber مجلد';
+	@override String get pencilSoundSetting => 'تأثير صوت القلم';
 }
 
 // Path: settings.prefDescriptions
@@ -1331,22 +1358,21 @@ class _StringsSettingsPrefDescriptionsAr extends _StringsSettingsPrefDescription
 
 	// Translations
 	@override String get hyperlegibleFont => 'يزيد Atkinson Hyperlegible من وضوح الرؤية للقراء الذين يعانون من ضعف في الرؤية';
+	@override String get allowInsecureConnections => '(غير موصى به) بالاتصال بالخوادم بشهادات غير موثوقة/موقعة ذاتيًا Saber السماح لـ';
 	@override String get preferGreyscale => 'لشاشات الحبر الإلكتروني';
 	@override String get autoClearWhiteboardOnExit => 'ستظل متزامنة مع أجهزتك الأخرى';
+	@override String get disableEraserAfterUse => 'التبديل تلقائيًا إلى القلم بعد استخدام الممحاة';
 	@override String get maxImageSize => 'سيتم ضغط الصور الأكبر من هذا';
 	@override late final _StringsSettingsPrefDescriptionsHideFingerDrawingAr hideFingerDrawing = _StringsSettingsPrefDescriptionsHideFingerDrawingAr._(_root);
 	@override String get editorPromptRename => 'يمكنك دائمًا إعادة تسمية الملاحظات لاحقًا';
 	@override String get hideHomeBackgrounds => 'للحصول على مظهر أنظف';
 	@override String get printPageIndicators => 'تظهر مؤشرات الصفحة في الصادرات';
-	@override String get simplifiedHomeLayout => 'تعيين ارتفاع ثابت لكل معاينة ملاحظة';
-	@override late final _StringsSettingsPrefDescriptionsPencilSoundSettingAr pencilSoundSetting = _StringsSettingsPrefDescriptionsPencilSoundSettingAr._(_root);
-	@override String get autoStraightenLines => 'يقوم بفرد الخطوط الطويلة دون الحاجة إلى استخدام قلم الشكل';
+	@override String get autosaveDelay => 'الوقت الذي يجب الانتظار قبل الحفظ التلقائي للملاحظة';
 	@override String get shapeRecognitionDelay => 'عدد مرات تحديث معاينة الشكل';
-	@override String get disableAds => '(أدز) يساعد في دعم تطوير (سابر) لكن يمكنك إزالتهم إذا أردت';
-	@override String get allowInsecureConnections => '(غير مستحسن) السماح لـ Saber بالاتصال بالخوادم ذات الشهادات الموقعة ذاتيًا / غير الموثوق بها';
-	@override String get autosaveDelay => 'كم من الوقت للانتظار قبل تقديم مذكرة';
-	@override String get disableEraserAfterUse => 'يعود تلقائيًا إلى القلم بعد استخدام الممحاة';
-	@override String get shouldAlwaysAlertForUpdates => 'أخبرني عن التحديثات بمجرد توفرها';
+	@override String get autoStraightenLines => 'استقامة الخطوط الطويلة بدون الحاجة لاستخدام قلم الشكل';
+	@override String get simplifiedHomeLayout => 'تعيين ارتفاع ثابت لكل معاينة ملاحظة';
+	@override String get shouldAlwaysAlertForUpdates => 'أبلغني عن التحديثات بمجرد توفرها';
+	@override late final _StringsSettingsPrefDescriptionsPencilSoundSettingAr pencilSoundSetting = _StringsSettingsPrefDescriptionsPencilSoundSettingAr._(_root);
 }
 
 // Path: settings.themeModes
@@ -1401,10 +1427,10 @@ class _StringsSettingsCustomDataDirAr extends _StringsSettingsCustomDataDirEn {
 	@override final _StringsAr _root; // ignore: unused_field
 
 	// Translations
-	@override String get cancel => 'يلغي';
-	@override String get select => 'يختار';
-	@override String get mustBeEmpty => 'يجب أن يكون الدليل المحدد فارغًا';
-	@override String get mustBeDoneSyncing => 'تأكد من اكتمال المزامنة قبل تغيير الدليل';
+	@override String get cancel => 'إلغاء';
+	@override String get select => 'تحديد';
+	@override String get mustBeEmpty => 'يجب أن يكون المجلد المحدد فارغًا';
+	@override String get mustBeDoneSyncing => 'تأكد من اكتمال المزامنة قبل تغيير المجلد';
 }
 
 // Path: login.form
@@ -1430,9 +1456,9 @@ class _StringsLoginStatusAr extends _StringsLoginStatusEn {
 	// Translations
 	@override String get loggedOut => 'تسجيل الخروج';
 	@override String get tapToLogin => 'انقر لتسجيل الدخول باستخدام Nextcloud';
+	@override String hi({required Object u}) => '!${u}،مرحبًا';
+	@override String get almostDone => 'على وشك الانتهاء من المزامنة، اضغط لإنهاء تسجيل الدخول';
 	@override String get loggedIn => 'تم تسجيل الدخول باستخدام Nextcloud';
-	@override String hi({required Object u}) => 'مرحبًا، ${u}!';
-	@override String get almostDone => 'جاهز تقريبًا للمزامنة، انقر لإنهاء تسجيل الدخول';
 }
 
 // Path: login.ncLoginStep
@@ -1442,13 +1468,13 @@ class _StringsLoginNcLoginStepAr extends _StringsLoginNcLoginStepEn {
 	@override final _StringsAr _root; // ignore: unused_field
 
 	// Translations
-	@override late final _StringsLoginNcLoginStepLoginFlowAr loginFlow = _StringsLoginNcLoginStepLoginFlowAr._(_root);
 	@override String get whereToStoreData => 'اختر المكان الذي تريد تخزين بياناتك فيه:';
-	@override String get saberNcServer => 'خادم Saber Nextcloud';
-	@override String get otherNcServer => 'خادم Nextcloud آخر';
-	@override String get serverUrl => 'عنوان URL للخادم';
-	@override String get loginWithSaber => 'تسجيل الدخول مع صابر';
-	@override String get loginWithNextcloud => 'تسجيل الدخول مع Nextcloud';
+	@override String get saberNcServer => 'Nextcloud الى Saber خادم';
+	@override String get otherNcServer => 'اخر Nextcloud خادم';
+	@override String get serverUrl => 'عنوان الخادم';
+	@override String get loginWithSaber => 'Saber تسجيل الدخول باستخدام';
+	@override String get loginWithNextcloud => 'Nextcloud تسجيل الدخول باستخدام';
+	@override late final _StringsLoginNcLoginStepLoginFlowAr loginFlow = _StringsLoginNcLoginStepLoginFlowAr._(_root);
 }
 
 // Path: login.encLoginStep
@@ -1458,12 +1484,12 @@ class _StringsLoginEncLoginStepAr extends _StringsLoginEncLoginStepEn {
 	@override final _StringsAr _root; // ignore: unused_field
 
 	// Translations
-	@override String get enterEncPassword => 'لحماية بياناتك، يرجى إدخال كلمة مرور التشفير الخاصة بك:';
-	@override String get newToSaber => 'جديد لصابر';
+	@override String get enterEncPassword => 'لحماية بياناتك، يرجى إدخال كلمة مرور التشفير:';
+	@override String get newToSaber => '؟ فقط أدخل كلمة مرور تشفير جديدةSaber جديد على';
 	@override String get encPassword => 'كلمة مرور التشفير';
-	@override String get encFaqTitle => 'أسئلة مكررة';
-	@override String get wrongEncPassword => 'فشل فك التشفير باستخدام كلمة المرور المقدمة. يرجى محاولة إدخاله مرة أخرى.';
-	@override String get connectionFailed => 'حدث خطأ أثناء الاتصال بالخادم. الرجاء معاودة المحاولة في وقت لاحق.';
+	@override String get encFaqTitle => 'الأسئلة الشائعة';
+	@override String get wrongEncPassword => 'فشل فك التشفير باستخدام كلمة المرور المقدمة. يرجى المحاولة مرة أخرى.';
+	@override String get connectionFailed => 'حدث خطأ ما أثناء الاتصال بالخادم. يرجى المحاولة لاحقًا.';
 	@override List<dynamic> get encFaq => [
 		_StringsLoginEncLoginStep$encFaq$0i0$Ar._(_root),
 		_StringsLoginEncLoginStep$encFaq$0i1$Ar._(_root),
@@ -1556,9 +1582,9 @@ class _StringsEditorPensAr extends _StringsEditorPensEn {
 	@override String get fountainPen => 'قلم حبر';
 	@override String get ballpointPen => 'قلم برأس كروي';
 	@override String get highlighter => 'هايلايتر';
+	@override String get pencil => 'قلم رصاص';
+	@override String get shapePen => 'قلم الأشكال';
 	@override String get laserPointer => 'مؤشر الليزر';
-	@override String get pencil => 'قلم';
-	@override String get shapePen => 'قلم الشكل';
 }
 
 // Path: editor.penOptions
@@ -1579,6 +1605,10 @@ class _StringsEditorColorsAr extends _StringsEditorColorsEn {
 
 	// Translations
 	@override String get colorPicker => 'أداة انتقاء اللون';
+	@override String customBrightnessHue({required Object h, required Object b}) => '${h} ${b}  مخصص';
+	@override String customHue({required Object h}) => '${h} مخصص';
+	@override String get dark => 'داكن';
+	@override String get light => 'فاتح';
 	@override String get black => 'أسود';
 	@override String get darkGrey => 'الرمادي الداكن';
 	@override String get grey => 'رمادي';
@@ -1586,9 +1616,11 @@ class _StringsEditorColorsAr extends _StringsEditorColorsEn {
 	@override String get white => 'أبيض';
 	@override String get red => 'أحمر';
 	@override String get green => 'أخضر';
+	@override String get cyan => 'سماوي';
 	@override String get blue => 'أزرق';
 	@override String get yellow => 'أصفر';
 	@override String get purple => 'أرجواني';
+	@override String get pink => 'وردي';
 	@override String get orange => 'برتقالي';
 	@override String get pastelRed => 'باستيل أحمر';
 	@override String get pastelOrange => 'برتقال باستيل';
@@ -1598,12 +1630,6 @@ class _StringsEditorColorsAr extends _StringsEditorColorsEn {
 	@override String get pastelBlue => 'الباستيل الأزرق';
 	@override String get pastelPurple => 'الباستيل الأرجواني';
 	@override String get pastelPink => 'الباستيل الوردي';
-	@override String customBrightnessHue({required Object b, required Object h}) => 'مخصص ${b} ${h}';
-	@override String customHue({required Object h}) => 'مخصص ${h}';
-	@override String get dark => 'مظلم';
-	@override String get light => 'ضوء';
-	@override String get cyan => 'ازرق سماوي';
-	@override String get pink => 'لون القرنفل';
 }
 
 // Path: editor.imageOptions
@@ -1629,7 +1655,7 @@ class _StringsEditorSelectionBarAr extends _StringsEditorSelectionBarEn {
 
 	// Translations
 	@override String get delete => 'حذف';
-	@override String get duplicate => 'ينسخ';
+	@override String get duplicate => 'تكرار';
 }
 
 // Path: editor.menu
@@ -1645,14 +1671,14 @@ class _StringsEditorMenuAr extends _StringsEditorMenuEn {
 	@override String get duplicatePage => 'تكرار الصفحة';
 	@override String get deletePage => 'حذف الصفحة';
 	@override String get lineHeight => 'ارتفاع خط';
+	@override String get lineHeightDescription => 'يتحكم أيضًا في حجم النص للملاحظات المكتوبة';
+	@override String get backgroundImageFit => 'تناسب صورة الخلفية';
 	@override String get backgroundPattern => 'نمط الخلفية';
 	@override String get import => 'يستورد';
+	@override String get watchServer => 'راقب التحديثات على الخادم';
+	@override String get watchServerReadOnly => 'تم تعطيل التحرير أثناء مراقبة الخادم';
 	@override late final _StringsEditorMenuBoxFitsAr boxFits = _StringsEditorMenuBoxFitsAr._(_root);
 	@override late final _StringsEditorMenuBgPatternsAr bgPatterns = _StringsEditorMenuBgPatternsAr._(_root);
-	@override String get watchServer => 'ترقب التحديثات على الخادم';
-	@override String get watchServerReadOnly => 'تم تعطيل التحرير أثناء مشاهدة الخادم';
-	@override String get lineHeightDescription => 'يتحكم أيضًا في حجم النص للملاحظات المكتوبة';
-	@override String get backgroundImageFit => 'الصورة الخلفية';
 }
 
 // Path: editor.newerFileFormat
@@ -1701,8 +1727,8 @@ class _StringsSettingsPrefDescriptionsHideFingerDrawingAr extends _StringsSettin
 
 	// Translations
 	@override String get shown => 'يمنع التبديل العرضي';
-	@override String get fixedOn => 'تم إصلاح رسم الإصبع على أنه ممكن';
-	@override String get fixedOff => 'تم إصلاح رسم الإصبع على أنه معطل';
+	@override String get fixedOn => 'تم تفعيل الرسم بالإصبع';
+	@override String get fixedOff => 'تم تعطيل الرسم بالإصبع';
 }
 
 // Path: settings.prefDescriptions.pencilSoundSetting
@@ -1712,9 +1738,9 @@ class _StringsSettingsPrefDescriptionsPencilSoundSettingAr extends _StringsSetti
 	@override final _StringsAr _root; // ignore: unused_field
 
 	// Translations
-	@override String get off => 'لا صوت';
-	@override String get onButNotInSilentMode => 'ممكّن (ما لم يكن في الوضع الصامت)';
-	@override String get onAlways => 'ممكّن (حتى في الوضع الصامت)';
+	@override String get off => 'بدون صوت';
+	@override String get onButNotInSilentMode => 'مفعل (ما لم يكن في وضع الصامت)';
+	@override String get onAlways => 'مفعل (حتى في وضع الصامت)';
 }
 
 // Path: login.ncLoginStep.loginFlow
@@ -1724,9 +1750,9 @@ class _StringsLoginNcLoginStepLoginFlowAr extends _StringsLoginNcLoginStepLoginF
 	@override final _StringsAr _root; // ignore: unused_field
 
 	// Translations
-	@override String get pleaseAuthorize => 'يرجى تفويض Saber للوصول إلى حساب Nextcloud الخاص بك';
-	@override String get followPrompts => 'يرجى اتباع المطالبات في المتصفح الخاص بك.';
-	@override String get browserDidntOpen => 'المتصفح لم يفتح';
+	@override String get pleaseAuthorize => 'الخاص بك Nextcloud للوصول إلى حساب Saber الرجاء تفويض';
+	@override String get followPrompts => 'Nextcloud الرجاء اتباع الإرشادات في واجهة';
+	@override String get browserDidntOpen => 'لم تفتح صفحة تسجيل الدخول؟ اضغط هنا';
 }
 
 // Path: login.encLoginStep.encFaq.0
@@ -1736,8 +1762,8 @@ class _StringsLoginEncLoginStep$encFaq$0i0$Ar extends _StringsLoginEncLoginStep$
 	@override final _StringsAr _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'ما هي كلمة مرور التشفير؟';
-	@override String get a => 'تُستخدم كلمة مرور التشفير لتشفير بياناتك قبل إرسالها إلى الخادم. يمكنك اختيارها عند تسجيل الدخول لأول مرة إلى Saber ،وهي غير مرتبطة بحساب/كلمة مرور Nextcloud الخاصة بك.\nلا يمكن لأحد الوصول إلى ملاحظاتك على الخادم بدون كلمة مرور التشفير الخاصة بك. هذا يعني أيضًا أنك إذا نسيت كلمة مرور التشفير، فستفقد إمكانية الوصول إلى بياناتك.';
+	@override String get q => 'ما هي كلمة مرور التشفير؟ لماذا استخدام كلمتي مرور؟';
+	@override String get a => 'تُستخدم للوصول إلى السحابة. بينما كلمة مرور التشفير "تشفر" بياناتك قبل وصولها إلى السحابة  Nextcloud كلمة مرور .\nالخاص بك، ستظل ملاحظاتك آمنة ومشفرة بكلمة مرور منفصلة. هذا يوفر لك طبقة ثانية من الأمان لحماية بياناتك Nextcloud حتى إذا تمكن شخص ما من الوصول إلى حساب .\nلا يمكن لأحد الوصول إلى ملاحظاتك على الخادم بدون كلمة مرور التشفير الخاصة بك، ولكن هذا يعني أيضًا أنه إذا نسيت كلمة مرور التشفير، ستفقد الوصول إلى بياناتك.';
 }
 
 // Path: login.encLoginStep.encFaq.1
@@ -1747,8 +1773,8 @@ class _StringsLoginEncLoginStep$encFaq$0i1$Ar extends _StringsLoginEncLoginStep$
 	@override final _StringsAr _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'لماذا نستخدم كلمتين من كلمات المرور؟';
-	@override String get a => 'يتم استخدام كلمة مرور Nextcloud للوصول إلى السحابة. كلمة مرور التشفير "تشويش " بياناتك قبل أن تصل إلى السحابة.\nحتى إذا تمكن شخص ما من الوصول إلى حسابك على Nextcloud ،فستظل ملاحظاتك آمنة ومشفرة بكلمة مرور منفصلة. يوفر لك هذا طبقة ثانية من الأمان لحماية بياناتك.';
+	@override String get q => 'لم أقم بتعيين كلمة مرور تشفير حتى الآن. من أين أحصل عليها؟';
+	@override String get a => 'اختر كلمة مرور تشفير جديدة وأدخلها أعلاه.\nبإنشاء مفاتيح التشفير الخاصة بك تلقائيًا من هذه الكلمة Saber سيقوم .';
 }
 
 // Path: login.encLoginStep.encFaq.2
@@ -1758,8 +1784,8 @@ class _StringsLoginEncLoginStep$encFaq$0i2$Ar extends _StringsLoginEncLoginStep$
 	@override final _StringsAr _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'هل يمكنني استخدام نفس كلمة المرور لكليهما؟';
-	@override String get a => 'نعم، لكن القيام بذلك أقل أمانًا. نظرًا لأنه يتم إرسال كلمة مرور Nextcloud الخاصة بك إلى الخادم، فسيتمكن شخص لديه حق الوصول إلى الخادم من فك تشفير ملاحظاتك. استخدم نفس كلمة المرور فقط إذا كنت تثق في مالك الخادم.';
+	@override String get q => 'الخاص بي؟ Nextcloud هل يمكنني استخدام نفس كلمة المرور لحساب';
+	@override String get a => 'الخاص بك Nextcloud نعم، ولكن ضع في اعتبارك أنه سيكون من الأسهل على مدير الخادم أو أي شخص آخر الوصول إلى ملاحظاتك إذا تمكن من الوصول إلى حساب.';
 }
 
 // Path: editor.menu.boxFits
@@ -1788,8 +1814,8 @@ class _StringsEditorMenuBgPatternsAr extends _StringsEditorMenuBgPatternsEn {
 	@override String get grid => 'شبكة';
 	@override String get dots => 'نقاط';
 	@override String get staffs => 'موظفون';
+	@override String get tablature => 'لوحة';
 	@override String get cornell => 'كورنيل';
-	@override String get tablature => 'تبلتثر';
 }
 
 // Path: <root>
@@ -1815,6 +1841,7 @@ class _StringsCs extends Translations {
 	@override late final _StringsCommonCs common = _StringsCommonCs._(_root);
 	@override late final _StringsHomeCs home = _StringsHomeCs._(_root);
 	@override late final _StringsSettingsCs settings = _StringsSettingsCs._(_root);
+	@override late final _StringsLogsCs logs = _StringsLogsCs._(_root);
 	@override late final _StringsLoginCs login = _StringsLoginCs._(_root);
 	@override late final _StringsProfileCs profile = _StringsProfileCs._(_root);
 	@override late final _StringsAppInfoCs appInfo = _StringsAppInfoCs._(_root);
@@ -1882,6 +1909,20 @@ class _StringsSettingsCs extends _StringsSettingsEn {
 	@override String get resyncEverything => 'Znovu synchronizovat všechny poznámky';
 	@override String get openDataDir => 'Otevřít složku aplikace Saber';
 	@override late final _StringsSettingsCustomDataDirCs customDataDir = _StringsSettingsCustomDataDirCs._(_root);
+}
+
+// Path: logs
+class _StringsLogsCs extends _StringsLogsEn {
+	_StringsLogsCs._(_StringsCs root) : this._root = root, super._(root);
+
+	@override final _StringsCs _root; // ignore: unused_field
+
+	// Translations
+	@override String get logs => 'Protokoly';
+	@override String get viewLogs => 'Zobrazit protokoly';
+	@override String get debuggingInfo => 'Protokoly obsahují informace užitečné pro ladění a vývoj';
+	@override String get noLogs => 'Nejsou zde žádné záznamy!';
+	@override String get logsAreTemporary => 'Protokoly se uchovávají pouze do doby, než aplikaci zavřete';
 }
 
 // Path: login
@@ -2131,8 +2172,6 @@ class _StringsSettingsPrefLabelsCs extends _StringsSettingsPrefLabelsEn {
 	@override String get hyperlegibleFont => 'Lépe čitelný font';
 	@override String get shouldCheckForUpdates => 'Automaticky kontrolovat dostupnost aktualizací aplikace Saber';
 	@override String get shouldAlwaysAlertForUpdates => 'Rychlejší aktualizace';
-	@override String get disableAds => 'Vypnout reklamy';
-	@override String get changeAdsConsent => 'Změnit předvolby pro reklamy';
 	@override String get allowInsecureConnections => 'Povolit nezabezpečená připojení';
 	@override String get editorToolbarAlignment => 'Umístění nabídky editoru';
 	@override String get editorToolbarShowInFullscreen => 'Zobrazovat nabídku editoru v režimu celé obrazovky';
@@ -2163,7 +2202,6 @@ class _StringsSettingsPrefDescriptionsCs extends _StringsSettingsPrefDescription
 
 	// Translations
 	@override String get hyperlegibleFont => 'Font Atkinson Hyperlegible zvyšuje čitelnost pro čtenáře se slabým zrakem';
-	@override String get disableAds => 'Reklamy podporují vývoj aplikace Saber, ale pokud chcete, můžete je vypnout';
 	@override String get allowInsecureConnections => '(Nedoporučuje se) Povolit aplikaci Saber připojovat se k serverům se samopodepsaným/nedůvěryhodným certifikátem.';
 	@override String get preferGreyscale => 'Pro elektronické čtečky knih s e-ink displejem';
 	@override String get autoClearWhiteboardOnExit => 'Bude synchronizováno do dalších zařízení';
@@ -2647,6 +2685,7 @@ class _StringsDe extends Translations {
 	@override late final _StringsCommonDe common = _StringsCommonDe._(_root);
 	@override late final _StringsHomeDe home = _StringsHomeDe._(_root);
 	@override late final _StringsSettingsDe settings = _StringsSettingsDe._(_root);
+	@override late final _StringsLogsDe logs = _StringsLogsDe._(_root);
 	@override late final _StringsLoginDe login = _StringsLoginDe._(_root);
 	@override late final _StringsProfileDe profile = _StringsProfileDe._(_root);
 	@override late final _StringsAppInfoDe appInfo = _StringsAppInfoDe._(_root);
@@ -2714,6 +2753,20 @@ class _StringsSettingsDe extends _StringsSettingsEn {
 	@override String get resyncEverything => 'Alles neu Synchronisieren';
 	@override String get openDataDir => 'Saber-Ordner öffnen';
 	@override late final _StringsSettingsCustomDataDirDe customDataDir = _StringsSettingsCustomDataDirDe._(_root);
+}
+
+// Path: logs
+class _StringsLogsDe extends _StringsLogsEn {
+	_StringsLogsDe._(_StringsDe root) : this._root = root, super._(root);
+
+	@override final _StringsDe _root; // ignore: unused_field
+
+	// Translations
+	@override String get logs => 'Protokolle';
+	@override String get viewLogs => 'Protokolle anzeigen';
+	@override String get debuggingInfo => 'Protokolle enthalten Informationen, die für die Fehlerbehebung und Entwicklung nützlich sind';
+	@override String get noLogs => 'Hier gibt es keine Protokolle!';
+	@override String get logsAreTemporary => 'Protokolle werden nur so lange gespeichert, bis Sie die App schließen';
 }
 
 // Path: login
@@ -2963,8 +3016,6 @@ class _StringsSettingsPrefLabelsDe extends _StringsSettingsPrefLabelsEn {
 	@override String get hyperlegibleFont => 'Hyperlesbare Schrift';
 	@override String get shouldCheckForUpdates => 'Suche automatisch nach Saber-Aktualisierungen';
 	@override String get shouldAlwaysAlertForUpdates => 'Schneller aktualisieren';
-	@override String get disableAds => 'Werbung deaktivieren';
-	@override String get changeAdsConsent => 'Werbungsinhalt anpassen';
 	@override String get allowInsecureConnections => 'Unsichere Verbindung erlauben';
 	@override String get editorToolbarAlignment => 'Position der Werkzeugleiste';
 	@override String get editorToolbarShowInFullscreen => 'Zeige die Werkzeugleiste im Vollbild';
@@ -2995,7 +3046,6 @@ class _StringsSettingsPrefDescriptionsDe extends _StringsSettingsPrefDescription
 
 	// Translations
 	@override String get hyperlegibleFont => 'Atkinson Hyperlegible verbessert die Lesbarkeit für Menschen mit eingeschränkter Sicht';
-	@override String get disableAds => 'Die Entwicklung von Saber wird duch Werbung finanziert. Die Werbung kann auf Wunsch deaktiviert werden.';
 	@override String get allowInsecureConnections => '(Nicht empfohlen) Saber erlauben, sich mit selbstsignierten/unsicheren Zertifikaten zu verbinden';
 	@override String get preferGreyscale => 'Für E-Ink-Bildschirme';
 	@override String get autoClearWhiteboardOnExit => 'Es wird dennoch mit deinen anderen Geräten synchronisiert';
@@ -3479,6 +3529,7 @@ class _StringsEs extends Translations {
 	@override late final _StringsCommonEs common = _StringsCommonEs._(_root);
 	@override late final _StringsHomeEs home = _StringsHomeEs._(_root);
 	@override late final _StringsSettingsEs settings = _StringsSettingsEs._(_root);
+	@override late final _StringsLogsEs logs = _StringsLogsEs._(_root);
 	@override late final _StringsLoginEs login = _StringsLoginEs._(_root);
 	@override late final _StringsProfileEs profile = _StringsProfileEs._(_root);
 	@override late final _StringsAppInfoEs appInfo = _StringsAppInfoEs._(_root);
@@ -3546,6 +3597,20 @@ class _StringsSettingsEs extends _StringsSettingsEn {
 	@override late final _StringsSettingsCustomDataDirEs customDataDir = _StringsSettingsCustomDataDirEs._(_root);
 	@override String get openDataDir => 'Abrir carpeta Saber';
 	@override String get resyncEverything => 'Resync todo';
+}
+
+// Path: logs
+class _StringsLogsEs extends _StringsLogsEn {
+	_StringsLogsEs._(_StringsEs root) : this._root = root, super._(root);
+
+	@override final _StringsEs _root; // ignore: unused_field
+
+	// Translations
+	@override String get logs => 'Registros';
+	@override String get viewLogs => 'Ver registros';
+	@override String get debuggingInfo => 'Los registros contienen información útil para la depuración y el desarrollo.';
+	@override String get noLogs => '¡Aquí no hay registros!';
+	@override String get logsAreTemporary => 'Los registros solo se conservan hasta que cierras la aplicación.';
 }
 
 // Path: login
@@ -3792,8 +3857,6 @@ class _StringsSettingsPrefLabelsEs extends _StringsSettingsPrefLabelsEn {
 	@override String get hyperlegibleFont => 'Fuente hiperlegible';
 	@override String get shouldCheckForUpdates => 'Buscar actualizaciones de Saber automáticamente';
 	@override String get shouldAlwaysAlertForUpdates => 'Actualizaciones más rápidas';
-	@override String get disableAds => 'Desactivar anuncios';
-	@override String get changeAdsConsent => 'Cambiar el consentimiento de los anuncios';
 	@override String get allowInsecureConnections => 'Permitir conexiones inseguras';
 	@override String get editorToolbarAlignment => 'Alineación de la barra de herramientas del editor';
 	@override String get editorToolbarShowInFullscreen => 'Mostrar la barra de herramientas del editor en el modo de pantalla completa';
@@ -3824,7 +3887,6 @@ class _StringsSettingsPrefDescriptionsEs extends _StringsSettingsPrefDescription
 
 	// Translations
 	@override String get hyperlegibleFont => 'Atkinson Hyperlegible aumenta la legibilidad para lectores con poca visión';
-	@override String get disableAds => 'Los anuncios ayudan al desarrollo de Saber, pero puedes desactivarlos si lo prefieres';
 	@override String get allowInsecureConnections => '(No recomendado) Autorizar a Saber a conectarse a servidores con certificados autofirmados o no fiables';
 	@override String get preferGreyscale => 'Para pantallas con tinta electrónica';
 	@override String get autoClearWhiteboardOnExit => 'Aún se sincronizará con tus otros dispositivos';
@@ -3835,9 +3897,9 @@ class _StringsSettingsPrefDescriptionsEs extends _StringsSettingsPrefDescription
 	@override String get hideHomeBackgrounds => 'Para una vista más limpia';
 	@override String get printPageIndicators => 'Mostrar indicadores de página en las exportaciones';
 	@override String get autosaveDelay => 'Cuánto esperar antes de autoguardar una nota';
-	@override String get simplifiedHomeLayout => 'Establece una altura fija para cada vista previa de nota';
 	@override String get shouldAlwaysAlertForUpdates => 'Avísame sobre actualizaciones tan pronto como estén disponibles';
 	@override late final _StringsSettingsPrefDescriptionsPencilSoundSettingEs pencilSoundSetting = _StringsSettingsPrefDescriptionsPencilSoundSettingEs._(_root);
+	@override String get simplifiedHomeLayout => 'Establece una altura fija para cada vista previa de nota';
 	@override String get autoStraightenLines => 'Endereza líneas largas sin tener que usar el rotulador.';
 	@override String get shapeRecognitionDelay => 'Con qué frecuencia actualizar la vista previa de la forma';
 }
@@ -4308,6 +4370,7 @@ class _StringsFa extends Translations {
 	@override late final _StringsCommonFa common = _StringsCommonFa._(_root);
 	@override late final _StringsHomeFa home = _StringsHomeFa._(_root);
 	@override late final _StringsSettingsFa settings = _StringsSettingsFa._(_root);
+	@override late final _StringsLogsFa logs = _StringsLogsFa._(_root);
 	@override late final _StringsLoginFa login = _StringsLoginFa._(_root);
 	@override late final _StringsProfileFa profile = _StringsProfileFa._(_root);
 	@override late final _StringsAppInfoFa appInfo = _StringsAppInfoFa._(_root);
@@ -4375,6 +4438,20 @@ class _StringsSettingsFa extends _StringsSettingsEn {
 	@override late final _StringsSettingsCustomDataDirFa customDataDir = _StringsSettingsCustomDataDirFa._(_root);
 	@override String get openDataDir => 'پوشه Saber را باز کنید';
 	@override String get resyncEverything => 'همه چیز را دوباره همگام سازی کنید';
+}
+
+// Path: logs
+class _StringsLogsFa extends _StringsLogsEn {
+	_StringsLogsFa._(_StringsFa root) : this._root = root, super._(root);
+
+	@override final _StringsFa _root; // ignore: unused_field
+
+	// Translations
+	@override String get logs => 'سیاههها';
+	@override String get viewLogs => 'مشاهده سیاهههای مربوط';
+	@override String get debuggingInfo => 'گزارش ها حاوی اطلاعات مفیدی برای اشکال زدایی و توسعه هستند';
+	@override String get noLogs => 'اینجا هیچ گزارشی وجود ندارد!';
+	@override String get logsAreTemporary => 'گزارش‌ها فقط تا زمانی که برنامه را ببندید نگهداری می‌شوند';
 }
 
 // Path: login
@@ -4622,8 +4699,6 @@ class _StringsSettingsPrefLabelsFa extends _StringsSettingsPrefLabelsEn {
 	@override String get hyperlegibleFont => 'فونت بیش از حد خوانا';
 	@override String get shouldCheckForUpdates => 'به‌روزرسانی‌ برنامه را به‌طور خودکار بررسی کنید';
 	@override String get shouldAlwaysAlertForUpdates => 'به روز رسانی سریع تر';
-	@override String get disableAds => 'غیرفعال کردن تبلیغات';
-	@override String get changeAdsConsent => 'تغییر رضایت تبلیغات';
 	@override String get allowInsecureConnections => 'به اتصالات ناامن اجازه دهید';
 	@override String get editorToolbarAlignment => 'تراز کردن نوار ابزار ویرایشگر';
 	@override String get editorToolbarShowInFullscreen => 'نوار ابزار ویرایشگر را در حالت تمام صفحه نمایش دهید';
@@ -4654,7 +4729,6 @@ class _StringsSettingsPrefDescriptionsFa extends _StringsSettingsPrefDescription
 
 	// Translations
 	@override String get hyperlegibleFont => 'خوانایی را برای خوانندگان کم بینا افزایش می دهد';
-	@override String get disableAds => 'تبلیغات به پشتیبانی از توسعه Saber کمک می کند، اما در صورت تمایل می توانید آنها را غیرفعال کنید';
 	@override String get allowInsecureConnections => '(توصیه نمی شود) به Saber اجازه دهید به سرورهایی با گواهینامه های خودامضا/غیر قابل اعتماد متصل شود';
 	@override String get preferGreyscale => 'برای نمایشگر های e-ink';
 	@override String get autoClearWhiteboardOnExit => 'همچنان با دستگاه‌های دیگر شما همگام‌سازی می‌شود';
@@ -4666,9 +4740,9 @@ class _StringsSettingsPrefDescriptionsFa extends _StringsSettingsPrefDescription
 	@override String get printPageIndicators => 'نمایش نشانگرهای صفحه در خروجی';
 	@override String get autosaveDelay => 'چه مدت باید قبل از ذخیره خودکار یادداشت صبر کرد';
 	@override String get shapeRecognitionDelay => 'به روز رسانی پیشنمایش شکل چند وقت یکبار انجام شود';
-	@override String get simplifiedHomeLayout => 'یک ارتفاع ثابت برای پیش نمایش هر یادداشت تنظیم می کند';
 	@override String get shouldAlwaysAlertForUpdates => 'به محض اینکه به‌روزرسانی‌ها در دسترس هستند، به من بگویید';
 	@override late final _StringsSettingsPrefDescriptionsPencilSoundSettingFa pencilSoundSetting = _StringsSettingsPrefDescriptionsPencilSoundSettingFa._(_root);
+	@override String get simplifiedHomeLayout => 'یک ارتفاع ثابت برای پیش نمایش هر یادداشت تنظیم می کند';
 	@override String get autoStraightenLines => 'خطوط بلند را بدون استفاده از قلم شکل صاف می کند';
 }
 
@@ -5138,6 +5212,7 @@ class _StringsFr extends Translations {
 	@override late final _StringsCommonFr common = _StringsCommonFr._(_root);
 	@override late final _StringsHomeFr home = _StringsHomeFr._(_root);
 	@override late final _StringsSettingsFr settings = _StringsSettingsFr._(_root);
+	@override late final _StringsLogsFr logs = _StringsLogsFr._(_root);
 	@override late final _StringsLoginFr login = _StringsLoginFr._(_root);
 	@override late final _StringsProfileFr profile = _StringsProfileFr._(_root);
 	@override late final _StringsAppInfoFr appInfo = _StringsAppInfoFr._(_root);
@@ -5205,6 +5280,20 @@ class _StringsSettingsFr extends _StringsSettingsEn {
 	@override String get resyncEverything => 'Tout re-syncroniser';
 	@override late final _StringsSettingsCustomDataDirFr customDataDir = _StringsSettingsCustomDataDirFr._(_root);
 	@override String get openDataDir => 'Ouvrir le dossier Saber';
+}
+
+// Path: logs
+class _StringsLogsFr extends _StringsLogsEn {
+	_StringsLogsFr._(_StringsFr root) : this._root = root, super._(root);
+
+	@override final _StringsFr _root; // ignore: unused_field
+
+	// Translations
+	@override String get logs => 'Journaux';
+	@override String get viewLogs => 'Afficher les journaux';
+	@override String get debuggingInfo => 'Les journaux contiennent des informations utiles pour le débogage et le développement';
+	@override String get noLogs => 'Pas de journaux ici !';
+	@override String get logsAreTemporary => 'Les journaux ne sont conservés que jusqu\'à la fermeture de l\'application';
 }
 
 // Path: login
@@ -5452,8 +5541,6 @@ class _StringsSettingsPrefLabelsFr extends _StringsSettingsPrefLabelsEn {
 	@override String get hyperlegibleFont => 'Fonte Hyperlegible';
 	@override String get shouldCheckForUpdates => 'Rechercher automatiquement les mises à jour';
 	@override String get shouldAlwaysAlertForUpdates => 'M\'alerter à chaque mise à jour';
-	@override String get disableAds => 'Désactiver les publicités';
-	@override String get changeAdsConsent => 'Modifier le consentement aux publicités';
 	@override String get allowInsecureConnections => 'Autoriser les connexions non sécurisées';
 	@override String get editorToolbarAlignment => 'Position de la barre d\'outils';
 	@override String get editorToolbarShowInFullscreen => 'Afficher la barre d\'outils en mode plein écran';
@@ -5484,7 +5571,6 @@ class _StringsSettingsPrefDescriptionsFr extends _StringsSettingsPrefDescription
 
 	// Translations
 	@override String get hyperlegibleFont => 'La fonte Atkinson Hyperlegible améliore la lisibilité pour les personnes malvoyantes';
-	@override String get disableAds => 'Les publicités aident au développement de Saber, mais vous pouvez les désactiver si vous le souhaitez';
 	@override String get allowInsecureConnections => '(Déconseillé) Autoriser Saber à se connecter à des serveurs dont les certificats sont auto-signés/non-sécurisé';
 	@override String get preferGreyscale => 'Pour les couleurs de stylos proposées';
 	@override String get autoClearWhiteboardOnExit => 'Il restera synchronisé avec vos autres appareils';
@@ -5496,9 +5582,9 @@ class _StringsSettingsPrefDescriptionsFr extends _StringsSettingsPrefDescription
 	@override String get printPageIndicators => 'Montrer les numéros de pages dans les exportations';
 	@override String get autosaveDelay => 'Combien de temps attendre avant de sauvegarder automatiquement une note';
 	@override String get shapeRecognitionDelay => 'Avec quelle fréquence mettre à jour la prévisualisation de forme';
-	@override String get simplifiedHomeLayout => 'Définit une hauteur fixe pour chaque aperçu de note';
 	@override String get shouldAlwaysAlertForUpdates => 'Me prévenir dès qu\'une mise à jour est disponible';
 	@override late final _StringsSettingsPrefDescriptionsPencilSoundSettingFr pencilSoundSetting = _StringsSettingsPrefDescriptionsPencilSoundSettingFr._(_root);
+	@override String get simplifiedHomeLayout => 'Définit une hauteur fixe pour chaque aperçu de note';
 	@override String get autoStraightenLines => 'Redresse les longues lignes sans avoir à utiliser le stylo de forme';
 }
 
@@ -5968,6 +6054,7 @@ class _StringsHe extends Translations {
 	@override late final _StringsCommonHe common = _StringsCommonHe._(_root);
 	@override late final _StringsHomeHe home = _StringsHomeHe._(_root);
 	@override late final _StringsSettingsHe settings = _StringsSettingsHe._(_root);
+	@override late final _StringsLogsHe logs = _StringsLogsHe._(_root);
 	@override late final _StringsLoginHe login = _StringsLoginHe._(_root);
 	@override late final _StringsProfileHe profile = _StringsProfileHe._(_root);
 	@override late final _StringsAppInfoHe appInfo = _StringsAppInfoHe._(_root);
@@ -6035,6 +6122,20 @@ class _StringsSettingsHe extends _StringsSettingsEn {
 	@override late final _StringsSettingsCustomDataDirHe customDataDir = _StringsSettingsCustomDataDirHe._(_root);
 	@override String get openDataDir => 'פתח את תיקיית Saber';
 	@override String get resyncEverything => 'סנכרן הכל מחדש';
+}
+
+// Path: logs
+class _StringsLogsHe extends _StringsLogsEn {
+	_StringsLogsHe._(_StringsHe root) : this._root = root, super._(root);
+
+	@override final _StringsHe _root; // ignore: unused_field
+
+	// Translations
+	@override String get logs => 'יומנים';
+	@override String get viewLogs => 'הצג יומנים';
+	@override String get debuggingInfo => 'יומנים מכילים מידע שימושי עבור איתור באגים ופיתוח';
+	@override String get noLogs => 'אין כאן יומנים!';
+	@override String get logsAreTemporary => 'יומנים נשמרים רק עד לסגירת האפליקציה';
 }
 
 // Path: login
@@ -6282,8 +6383,6 @@ class _StringsSettingsPrefLabelsHe extends _StringsSettingsPrefLabelsEn {
 	@override String get hyperlegibleFont => 'גופן Atkinson Hyperreadible';
 	@override String get shouldCheckForUpdates => 'בדוק אם קיימים עדכוני Saber';
 	@override String get shouldAlwaysAlertForUpdates => 'עדכונים מהירים יותר';
-	@override String get disableAds => 'השבת פרסומות';
-	@override String get changeAdsConsent => 'שנה את הסכמת המודעות';
 	@override String get allowInsecureConnections => 'אפשר חיבורים לא מאובטחים';
 	@override String get editorToolbarAlignment => 'מיקום סרגל הכלים';
 	@override String get editorToolbarShowInFullscreen => 'הצג את סרגל הכלים במצב מסך מלא';
@@ -6314,7 +6413,6 @@ class _StringsSettingsPrefDescriptionsHe extends _StringsSettingsPrefDescription
 
 	// Translations
 	@override String get hyperlegibleFont => 'מגביר את הקריאות למשתמשים עם ראייה לקויה';
-	@override String get disableAds => 'מודעות עוזרות לתמוך בפיתוח של סאבר, אבל אתה יכול להשבית אותן אם תרצה';
 	@override String get allowInsecureConnections => '(לא מומלץ) אפשר לסבר להתחבר לשרתים עם אישורים חתומים/לא מהימנים';
 	@override String get preferGreyscale => 'עבור תצוגות דיו אלקטרוני';
 	@override String get autoClearWhiteboardOnExit => 'מנקה את לוח הציור לאחר היציאה מהאפליקציה';
@@ -6325,9 +6423,9 @@ class _StringsSettingsPrefDescriptionsHe extends _StringsSettingsPrefDescription
 	@override String get hideHomeBackgrounds => 'למראה נקי יותר';
 	@override String get printPageIndicators => 'הצג מחווני עמודים בייצוא';
 	@override String get autosaveDelay => 'כמה זמן לחכות לפני שמירת הערה אוטומטית';
-	@override String get simplifiedHomeLayout => 'מגדיר גובה קבוע עבור כל תצוגה מקדימה של הערה';
 	@override String get shouldAlwaysAlertForUpdates => 'ספר לי על עדכונים ברגע שהם יהיו זמינים';
 	@override late final _StringsSettingsPrefDescriptionsPencilSoundSettingHe pencilSoundSetting = _StringsSettingsPrefDescriptionsPencilSoundSettingHe._(_root);
+	@override String get simplifiedHomeLayout => 'מגדיר גובה קבוע עבור כל תצוגה מקדימה של הערה';
 	@override String get autoStraightenLines => 'מיישר קווים ארוכים ללא צורך להשתמש בעט הצורה';
 	@override String get shapeRecognitionDelay => 'באיזו תדירות לעדכן את התצוגה המקדימה של הצורה';
 }
@@ -6798,6 +6896,7 @@ class _StringsHu extends Translations {
 	@override late final _StringsCommonHu common = _StringsCommonHu._(_root);
 	@override late final _StringsHomeHu home = _StringsHomeHu._(_root);
 	@override late final _StringsSettingsHu settings = _StringsSettingsHu._(_root);
+	@override late final _StringsLogsHu logs = _StringsLogsHu._(_root);
 	@override late final _StringsLoginHu login = _StringsLoginHu._(_root);
 	@override late final _StringsProfileHu profile = _StringsProfileHu._(_root);
 	@override late final _StringsAppInfoHu appInfo = _StringsAppInfoHu._(_root);
@@ -6865,6 +6964,20 @@ class _StringsSettingsHu extends _StringsSettingsEn {
 	@override late final _StringsSettingsCustomDataDirHu customDataDir = _StringsSettingsCustomDataDirHu._(_root);
 	@override String get openDataDir => 'Nyissa meg a Saber mappát';
 	@override String get resyncEverything => 'Resync mindent';
+}
+
+// Path: logs
+class _StringsLogsHu extends _StringsLogsEn {
+	_StringsLogsHu._(_StringsHu root) : this._root = root, super._(root);
+
+	@override final _StringsHu _root; // ignore: unused_field
+
+	// Translations
+	@override String get logs => 'Naplók';
+	@override String get viewLogs => 'Naplók megtekintése';
+	@override String get debuggingInfo => 'A naplók a hibakereséshez és a fejlesztéshez hasznos információkat tartalmaznak';
+	@override String get noLogs => 'Itt nincsenek naplók!';
+	@override String get logsAreTemporary => 'A naplókat csak az alkalmazás bezárásáig őrizzük meg';
 }
 
 // Path: login
@@ -7125,9 +7238,7 @@ class _StringsSettingsPrefLabelsHu extends _StringsSettingsPrefLabelsEn {
 	@override String get autoStraightenLines => 'A vonalak automatikus kiegyenesítése';
 	@override String get shapeRecognitionDelay => 'Alakfelismerési késleltetés';
 	@override String get recentColorsLength => 'Hány friss színt kell tárolni';
-	@override String get changeAdsConsent => 'A hirdetések megváltoztatása beleegyezik';
 	@override String get layoutSize => 'Elrendezés típusa';
-	@override String get disableAds => 'Hirdetések letiltása';
 	@override String get printPageIndicators => 'Nyomtatási oldaljelzők';
 	@override String get allowInsecureConnections => 'Engedélyezze a nem biztonságos kapcsolatokat';
 	@override String get autosaveDelay => 'Auto-save késleltetés';
@@ -7150,11 +7261,10 @@ class _StringsSettingsPrefDescriptionsHu extends _StringsSettingsPrefDescription
 	@override late final _StringsSettingsPrefDescriptionsHideFingerDrawingHu hideFingerDrawing = _StringsSettingsPrefDescriptionsHideFingerDrawingHu._(_root);
 	@override String get editorPromptRename => 'A jegyzeteket később bármikor átnevezheti';
 	@override String get hideHomeBackgrounds => 'Egy letisztultabb megjelenítésért';
-	@override String get simplifiedHomeLayout => 'Rögzített magasságot állít be minden hangjegy előnézetéhez';
 	@override late final _StringsSettingsPrefDescriptionsPencilSoundSettingHu pencilSoundSetting = _StringsSettingsPrefDescriptionsPencilSoundSettingHu._(_root);
+	@override String get simplifiedHomeLayout => 'Rögzített magasságot állít be minden hangjegy előnézetéhez';
 	@override String get autoStraightenLines => 'Kiegyenesíti a hosszú vonalakat anélkül, hogy az alakos tollat ​​kellene használnia';
 	@override String get shapeRecognitionDelay => 'Milyen gyakran kell frissíteni az alakzat előnézetét';
-	@override String get disableAds => 'A hirdetések segítik a Saber fejlesztését, de tilthatja őket, ha tetszik';
 	@override String get printPageIndicators => 'Mutasson oldalmutatókat az exportban';
 	@override String get allowInsecureConnections => '(Nem ajánlott) Engedélyezze a Saber-nek, hogy csatlakozzon önaláírt/nem megbízható tanúsítványokkal rendelkező szerverekhez';
 	@override String get autosaveDelay => 'Mennyi ideig kell várni a jegyzet automatikus mentése előtt';
@@ -7628,6 +7738,7 @@ class _StringsIt extends Translations {
 	@override late final _StringsCommonIt common = _StringsCommonIt._(_root);
 	@override late final _StringsHomeIt home = _StringsHomeIt._(_root);
 	@override late final _StringsSettingsIt settings = _StringsSettingsIt._(_root);
+	@override late final _StringsLogsIt logs = _StringsLogsIt._(_root);
 	@override late final _StringsLoginIt login = _StringsLoginIt._(_root);
 	@override late final _StringsProfileIt profile = _StringsProfileIt._(_root);
 	@override late final _StringsAppInfoIt appInfo = _StringsAppInfoIt._(_root);
@@ -7695,6 +7806,20 @@ class _StringsSettingsIt extends _StringsSettingsEn {
 	@override String get resyncEverything => 'Risincronizza tutto';
 	@override String get openDataDir => 'Apri cartella Saber';
 	@override late final _StringsSettingsCustomDataDirIt customDataDir = _StringsSettingsCustomDataDirIt._(_root);
+}
+
+// Path: logs
+class _StringsLogsIt extends _StringsLogsEn {
+	_StringsLogsIt._(_StringsIt root) : this._root = root, super._(root);
+
+	@override final _StringsIt _root; // ignore: unused_field
+
+	// Translations
+	@override String get logs => 'Log';
+	@override String get viewLogs => 'Visualizza log';
+	@override String get debuggingInfo => 'I log contengono informazioni utili per il debug e lo sviluppo';
+	@override String get noLogs => 'Niente log qui!';
+	@override String get logsAreTemporary => 'I log vengono conservati solo finché non chiudi l\'app';
 }
 
 // Path: login
@@ -7944,8 +8069,6 @@ class _StringsSettingsPrefLabelsIt extends _StringsSettingsPrefLabelsEn {
 	@override String get hyperlegibleFont => 'Carattere iperleggibile';
 	@override String get shouldCheckForUpdates => 'Controlla automaticamente gli aggiornamenti di Saber';
 	@override String get shouldAlwaysAlertForUpdates => 'Aggiornamenti veloci';
-	@override String get disableAds => 'Disattiva annunci';
-	@override String get changeAdsConsent => 'Modifica il consenso agli annunci';
 	@override String get allowInsecureConnections => 'Consenti connessioni non sicure';
 	@override String get editorToolbarAlignment => 'Allineamento della barra degli strumenti dell\'editor';
 	@override String get editorToolbarShowInFullscreen => 'Mostra la barra degli strumenti dell\'editor in modalità a schermo intero';
@@ -7976,7 +8099,6 @@ class _StringsSettingsPrefDescriptionsIt extends _StringsSettingsPrefDescription
 
 	// Translations
 	@override String get hyperlegibleFont => 'Atkinson Hyperlegible aumenta la leggibilità per i lettori ipovedenti';
-	@override String get disableAds => 'Gli annunci aiutano a supportare lo sviluppo di Saber, ma puoi disattivarli se lo desideri';
 	@override String get allowInsecureConnections => '(Non consigliato) Consenti a Saber di connettersi ai server con certificati autofirmati/non attendibili';
 	@override String get preferGreyscale => 'Per display e-ink';
 	@override String get autoClearWhiteboardOnExit => 'Sarà comunque sincronizzato con gli altri tuoi dispositivi';
@@ -8460,6 +8582,7 @@ class _StringsJa extends Translations {
 	@override late final _StringsCommonJa common = _StringsCommonJa._(_root);
 	@override late final _StringsHomeJa home = _StringsHomeJa._(_root);
 	@override late final _StringsSettingsJa settings = _StringsSettingsJa._(_root);
+	@override late final _StringsLogsJa logs = _StringsLogsJa._(_root);
 	@override late final _StringsLoginJa login = _StringsLoginJa._(_root);
 	@override late final _StringsProfileJa profile = _StringsProfileJa._(_root);
 	@override late final _StringsAppInfoJa appInfo = _StringsAppInfoJa._(_root);
@@ -8527,6 +8650,20 @@ class _StringsSettingsJa extends _StringsSettingsEn {
 	@override late final _StringsSettingsCustomDataDirJa customDataDir = _StringsSettingsCustomDataDirJa._(_root);
 	@override String get openDataDir => 'セイバーフォルダを開く';
 	@override String get resyncEverything => 'すべてを再同期する';
+}
+
+// Path: logs
+class _StringsLogsJa extends _StringsLogsEn {
+	_StringsLogsJa._(_StringsJa root) : this._root = root, super._(root);
+
+	@override final _StringsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get logs => 'ログ';
+	@override String get viewLogs => 'ログを表示';
+	@override String get debuggingInfo => 'ログにはデバッグや開発に役立つ情報が含まれています';
+	@override String get noLogs => 'ここにはログはありません!';
+	@override String get logsAreTemporary => 'ログはアプリを閉じるまで保存されます';
 }
 
 // Path: login
@@ -8773,8 +8910,6 @@ class _StringsSettingsPrefLabelsJa extends _StringsSettingsPrefLabelsEn {
 	@override String get customAccentColor => 'オリジナルの色';
 	@override String get hyperlegibleFont => 'Hyperlegible フォント';
 	@override String get shouldCheckForUpdates => 'Saberの更新を自動的に確認する';
-	@override String get disableAds => '広告を表示しない';
-	@override String get changeAdsConsent => '広告の同意を変更する';
 	@override String get allowInsecureConnections => '安全でない接続を許可する';
 	@override String get editorToolbarAlignment => '編集ツールバーの位置調整';
 	@override String get editorToolbarShowInFullscreen => 'フルスクリーンモードで編集ツールバーを表示する';
@@ -8806,7 +8941,6 @@ class _StringsSettingsPrefDescriptionsJa extends _StringsSettingsPrefDescription
 
 	// Translations
 	@override String get hyperlegibleFont => 'Atkinson Hyperlegibleは、弱視読者の読みやすさを向上させます。';
-	@override String get disableAds => '広告はSaberの開発支援に貢献できますが、必要に応じて無効にすることも可能です';
 	@override String get allowInsecureConnections => '(非推奨) Saber が自己署名/信頼できない証明書を持つサーバーに接続できるようにする';
 	@override String get preferGreyscale => 'e-inkディスプレイ用';
 	@override String get autoClearWhiteboardOnExit => '他のデバイスと同期されます';
@@ -8815,8 +8949,8 @@ class _StringsSettingsPrefDescriptionsJa extends _StringsSettingsPrefDescription
 	@override String get editorPromptRename => 'メモの名前は後でいつでも変更できます';
 	@override String get hideHomeBackgrounds => 'よりクリーンな外観に';
 	@override String get printPageIndicators => 'エクスポートにページインジケーターを表示';
-	@override String get simplifiedHomeLayout => '各ノートのプレビューに固定の高さを設定します';
 	@override late final _StringsSettingsPrefDescriptionsPencilSoundSettingJa pencilSoundSetting = _StringsSettingsPrefDescriptionsPencilSoundSettingJa._(_root);
+	@override String get simplifiedHomeLayout => '各ノートのプレビューに固定の高さを設定します';
 	@override String get autoStraightenLines => 'シェイプペンを使用せずに長い線をまっすぐにします。';
 	@override String get shapeRecognitionDelay => '形状プレビューを更新する頻度';
 	@override String get autosaveDelay => 'メモを自動保存するまでの待ち時間';
@@ -9290,6 +9424,7 @@ class _StringsPtBr extends Translations {
 	@override late final _StringsCommonPtBr common = _StringsCommonPtBr._(_root);
 	@override late final _StringsHomePtBr home = _StringsHomePtBr._(_root);
 	@override late final _StringsSettingsPtBr settings = _StringsSettingsPtBr._(_root);
+	@override late final _StringsLogsPtBr logs = _StringsLogsPtBr._(_root);
 	@override late final _StringsLoginPtBr login = _StringsLoginPtBr._(_root);
 	@override late final _StringsProfilePtBr profile = _StringsProfilePtBr._(_root);
 	@override late final _StringsAppInfoPtBr appInfo = _StringsAppInfoPtBr._(_root);
@@ -9357,6 +9492,20 @@ class _StringsSettingsPtBr extends _StringsSettingsEn {
 	@override late final _StringsSettingsCustomDataDirPtBr customDataDir = _StringsSettingsCustomDataDirPtBr._(_root);
 	@override String get openDataDir => 'Abra a pasta Saber';
 	@override String get resyncEverything => 'Resync tudo';
+}
+
+// Path: logs
+class _StringsLogsPtBr extends _StringsLogsEn {
+	_StringsLogsPtBr._(_StringsPtBr root) : this._root = root, super._(root);
+
+	@override final _StringsPtBr _root; // ignore: unused_field
+
+	// Translations
+	@override String get logs => 'Registros';
+	@override String get viewLogs => 'Ver logs';
+	@override String get debuggingInfo => 'Os logs contêm informações úteis para depuração e desenvolvimento';
+	@override String get noLogs => 'Nenhum registro aqui!';
+	@override String get logsAreTemporary => 'Os registros são mantidos somente até você fechar o aplicativo';
 }
 
 // Path: login
@@ -9604,8 +9753,6 @@ class _StringsSettingsPrefLabelsPtBr extends _StringsSettingsPrefLabelsEn {
 	@override String get hyperlegibleFont => 'Fonte hiperlegível';
 	@override String get shouldCheckForUpdates => 'Verificar automaticamente as atualizações do Saber';
 	@override String get shouldAlwaysAlertForUpdates => 'Atualizações mais rápidas';
-	@override String get disableAds => 'Desativar anúncios';
-	@override String get changeAdsConsent => 'Alterar o consentimento de anúncios';
 	@override String get allowInsecureConnections => 'Permitir conexões inseguras';
 	@override String get editorToolbarAlignment => 'Alinhamento da barra de ferramentas do editor';
 	@override String get editorToolbarShowInFullscreen => 'Mostrar a barra de ferramentas do editor no modo de tela cheia';
@@ -9636,7 +9783,6 @@ class _StringsSettingsPrefDescriptionsPtBr extends _StringsSettingsPrefDescripti
 
 	// Translations
 	@override String get hyperlegibleFont => 'Atkinson Hyperlegible aumenta a legibilidade para leitores com baixa visão';
-	@override String get disableAds => 'Os anúncios ajudam no desenvolvimento do Saber, mas você pode desativá-los se quiser';
 	@override String get allowInsecureConnections => '(Não recomendado) Permitir que o Saber se conecte a servidores com certificados autoassinados/não-confiáveis';
 	@override String get preferGreyscale => 'Para telas e-ink';
 	@override String get autoClearWhiteboardOnExit => 'Ainda será sincronizado com seus outros dispositivos';
@@ -9647,9 +9793,9 @@ class _StringsSettingsPrefDescriptionsPtBr extends _StringsSettingsPrefDescripti
 	@override String get hideHomeBackgrounds => 'Para uma aparência mais limpa';
 	@override String get printPageIndicators => 'Mostrar os indicadores de página nas exportações';
 	@override String get autosaveDelay => 'Quanto tempo esperar antes de salvar automaticamente uma nota';
-	@override String get simplifiedHomeLayout => 'Define uma altura fixa para cada pré-visualização de nota';
 	@override String get shouldAlwaysAlertForUpdates => 'Conte-me sobre atualizações assim que elas estiverem disponíveis';
 	@override late final _StringsSettingsPrefDescriptionsPencilSoundSettingPtBr pencilSoundSetting = _StringsSettingsPrefDescriptionsPencilSoundSettingPtBr._(_root);
+	@override String get simplifiedHomeLayout => 'Define uma altura fixa para cada pré-visualização de nota';
 	@override String get autoStraightenLines => 'Endireita linhas longas sem precisar usar a caneta modeladora';
 	@override String get shapeRecognitionDelay => 'Com que frequência atualizar a visualização da forma';
 }
@@ -10120,6 +10266,7 @@ class _StringsRu extends Translations {
 	@override late final _StringsCommonRu common = _StringsCommonRu._(_root);
 	@override late final _StringsHomeRu home = _StringsHomeRu._(_root);
 	@override late final _StringsSettingsRu settings = _StringsSettingsRu._(_root);
+	@override late final _StringsLogsRu logs = _StringsLogsRu._(_root);
 	@override late final _StringsLoginRu login = _StringsLoginRu._(_root);
 	@override late final _StringsProfileRu profile = _StringsProfileRu._(_root);
 	@override late final _StringsAppInfoRu appInfo = _StringsAppInfoRu._(_root);
@@ -10187,6 +10334,20 @@ class _StringsSettingsRu extends _StringsSettingsEn {
 	@override String get resyncEverything => 'Повторная синхронизация всего';
 	@override String get openDataDir => 'Открыть папку Saber';
 	@override late final _StringsSettingsCustomDataDirRu customDataDir = _StringsSettingsCustomDataDirRu._(_root);
+}
+
+// Path: logs
+class _StringsLogsRu extends _StringsLogsEn {
+	_StringsLogsRu._(_StringsRu root) : this._root = root, super._(root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get logs => 'Журналы';
+	@override String get viewLogs => 'Посмотреть журналы';
+	@override String get debuggingInfo => 'Логи содержат информацию, полезную для отладки и разработки.';
+	@override String get noLogs => 'Здесь нет журналов!';
+	@override String get logsAreTemporary => 'Журналы хранятся только до тех пор, пока вы не закроете приложение.';
 }
 
 // Path: login
@@ -10436,8 +10597,6 @@ class _StringsSettingsPrefLabelsRu extends _StringsSettingsPrefLabelsEn {
 	@override String get hyperlegibleFont => 'Гипер разборчивый шрифт';
 	@override String get shouldCheckForUpdates => 'Автоматически проверять обновления Saber';
 	@override String get shouldAlwaysAlertForUpdates => 'Быстрые обновления';
-	@override String get disableAds => 'Отключить рекламу';
-	@override String get changeAdsConsent => 'Согласие на рекламу';
 	@override String get allowInsecureConnections => 'Разрешить небезопасные соединения';
 	@override String get editorToolbarAlignment => 'Панель инструментов редактора';
 	@override String get editorToolbarShowInFullscreen => 'Показывать инструменты в полноэкранном режиме';
@@ -10468,7 +10627,6 @@ class _StringsSettingsPrefDescriptionsRu extends _StringsSettingsPrefDescription
 
 	// Translations
 	@override String get hyperlegibleFont => 'Шрифт Atkinson Hyperlegible повышает разборчивость для читателей с плохим зрением';
-	@override String get disableAds => 'Реклама помогает поддерживать разработку Saber, но вы можете отключить её, если захотите.';
 	@override String get allowInsecureConnections => '(Не рекомендуется) Разрешить Saber подключаться к серверам с самоподписанными/ненадёжными сертификатами.';
 	@override String get preferGreyscale => 'Для e-ink экранов';
 	@override String get autoClearWhiteboardOnExit => 'Это будет синхронизировано с другими вашими устройствами';
@@ -10952,6 +11110,7 @@ class _StringsTr extends Translations {
 	@override late final _StringsCommonTr common = _StringsCommonTr._(_root);
 	@override late final _StringsHomeTr home = _StringsHomeTr._(_root);
 	@override late final _StringsSettingsTr settings = _StringsSettingsTr._(_root);
+	@override late final _StringsLogsTr logs = _StringsLogsTr._(_root);
 	@override late final _StringsLoginTr login = _StringsLoginTr._(_root);
 	@override late final _StringsProfileTr profile = _StringsProfileTr._(_root);
 	@override late final _StringsAppInfoTr appInfo = _StringsAppInfoTr._(_root);
@@ -11019,6 +11178,20 @@ class _StringsSettingsTr extends _StringsSettingsEn {
 	@override String get resyncEverything => 'Her şeyi yeniden senkronize et';
 	@override String get openDataDir => 'Saber klasörünü aç';
 	@override late final _StringsSettingsCustomDataDirTr customDataDir = _StringsSettingsCustomDataDirTr._(_root);
+}
+
+// Path: logs
+class _StringsLogsTr extends _StringsLogsEn {
+	_StringsLogsTr._(_StringsTr root) : this._root = root, super._(root);
+
+	@override final _StringsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String get logs => 'Günlükler';
+	@override String get viewLogs => 'Günlükleri görüntüle';
+	@override String get debuggingInfo => 'Günlükler hata ayıklama ve geliştirme için yararlı bilgiler içerir';
+	@override String get noLogs => 'Burada kayıt yok!';
+	@override String get logsAreTemporary => 'Günlükler yalnızca uygulamayı kapatana kadar tutulur';
 }
 
 // Path: login
@@ -11268,8 +11441,6 @@ class _StringsSettingsPrefLabelsTr extends _StringsSettingsPrefLabelsEn {
 	@override String get hyperlegibleFont => 'Hyperlegible font';
 	@override String get shouldCheckForUpdates => 'Otomatik olarak Saber güncellemelerini kontrol et';
 	@override String get shouldAlwaysAlertForUpdates => 'Hızlı güncellemeler';
-	@override String get disableAds => 'Reklamları devre dışı bırak';
-	@override String get changeAdsConsent => 'Reklam iznini değiştir';
 	@override String get allowInsecureConnections => 'Güvensiz bağlantılara izin ver';
 	@override String get editorToolbarAlignment => 'Editör araç çubuğunun yerleşimi';
 	@override String get editorToolbarShowInFullscreen => 'Editör araç kutusunu tam ekranda göster';
@@ -11300,7 +11471,6 @@ class _StringsSettingsPrefDescriptionsTr extends _StringsSettingsPrefDescription
 
 	// Translations
 	@override String get hyperlegibleFont => 'Atkinson Hyperlegible, görme sorunu yaşayanların okumasını kolaylaştıran bir fonttur';
-	@override String get disableAds => 'Reklamlar Saber\'ın geliştirilmesine yardım ediyor fakat dilerseniz devre dışı bırakabilirsiniz';
 	@override String get allowInsecureConnections => '(Önerilmez) Saber\'ın kendinden imzalı/güvensiz sertifika kullanan sunuculara bağlanmasına izin verir';
 	@override String get preferGreyscale => 'E-mürekkep ekranlar için';
 	@override String get autoClearWhiteboardOnExit => 'Diğer cihazlarınıza senkronize edilmeye devam edecek';
@@ -11784,6 +11954,7 @@ class _StringsZhHansCn extends Translations {
 	@override late final _StringsCommonZhHansCn common = _StringsCommonZhHansCn._(_root);
 	@override late final _StringsHomeZhHansCn home = _StringsHomeZhHansCn._(_root);
 	@override late final _StringsSettingsZhHansCn settings = _StringsSettingsZhHansCn._(_root);
+	@override late final _StringsLogsZhHansCn logs = _StringsLogsZhHansCn._(_root);
 	@override late final _StringsLoginZhHansCn login = _StringsLoginZhHansCn._(_root);
 	@override late final _StringsProfileZhHansCn profile = _StringsProfileZhHansCn._(_root);
 	@override late final _StringsAppInfoZhHansCn appInfo = _StringsAppInfoZhHansCn._(_root);
@@ -11851,6 +12022,20 @@ class _StringsSettingsZhHansCn extends _StringsSettingsEn {
 	@override String get resyncEverything => '重新同步所有';
 	@override String get openDataDir => '打开 Saber 文件夹';
 	@override late final _StringsSettingsCustomDataDirZhHansCn customDataDir = _StringsSettingsCustomDataDirZhHansCn._(_root);
+}
+
+// Path: logs
+class _StringsLogsZhHansCn extends _StringsLogsEn {
+	_StringsLogsZhHansCn._(_StringsZhHansCn root) : this._root = root, super._(root);
+
+	@override final _StringsZhHansCn _root; // ignore: unused_field
+
+	// Translations
+	@override String get logs => '日志';
+	@override String get viewLogs => '查看日志';
+	@override String get debuggingInfo => '日志包含对调试和开发有用的信息';
+	@override String get noLogs => '这里没有日志！';
+	@override String get logsAreTemporary => '日志仅保留到您关闭应用程序为止';
 }
 
 // Path: login
@@ -12100,8 +12285,6 @@ class _StringsSettingsPrefLabelsZhHansCn extends _StringsSettingsPrefLabelsEn {
 	@override String get hyperlegibleFont => '易读字体';
 	@override String get shouldCheckForUpdates => '自动检查 Saber 更新';
 	@override String get shouldAlwaysAlertForUpdates => '更快的更新提醒';
-	@override String get disableAds => '禁用广告';
-	@override String get changeAdsConsent => '更改广告许可';
 	@override String get allowInsecureConnections => '允许不安全的连接';
 	@override String get editorToolbarAlignment => '编辑工具栏对齐方式';
 	@override String get editorToolbarShowInFullscreen => '在全屏模式中显示编辑菜单栏';
@@ -12132,7 +12315,6 @@ class _StringsSettingsPrefDescriptionsZhHansCn extends _StringsSettingsPrefDescr
 
 	// Translations
 	@override String get hyperlegibleFont => 'Atkinson Hyperlegible 字体为低视力读者提高易读性';
-	@override String get disableAds => '广告有助于支持 Saber 的开发，但如果你不喜欢，你可以禁用它们';
 	@override String get allowInsecureConnections => '（不推荐）允许 Saber 连接到具有自签名/不受信任证书的服务器';
 	@override String get preferGreyscale => '用于电子墨水显示器';
 	@override String get autoClearWhiteboardOnExit => '这将会同步到您的其他设备';
@@ -12616,6 +12798,7 @@ class _StringsZhHantTw extends Translations {
 	@override late final _StringsCommonZhHantTw common = _StringsCommonZhHantTw._(_root);
 	@override late final _StringsHomeZhHantTw home = _StringsHomeZhHantTw._(_root);
 	@override late final _StringsSettingsZhHantTw settings = _StringsSettingsZhHantTw._(_root);
+	@override late final _StringsLogsZhHantTw logs = _StringsLogsZhHantTw._(_root);
 	@override late final _StringsLoginZhHantTw login = _StringsLoginZhHantTw._(_root);
 	@override late final _StringsProfileZhHantTw profile = _StringsProfileZhHantTw._(_root);
 	@override late final _StringsAppInfoZhHantTw appInfo = _StringsAppInfoZhHantTw._(_root);
@@ -12683,6 +12866,20 @@ class _StringsSettingsZhHantTw extends _StringsSettingsEn {
 	@override String get resyncEverything => '全部重新同步';
 	@override String get openDataDir => '開啟 Saber 資料夾';
 	@override late final _StringsSettingsCustomDataDirZhHantTw customDataDir = _StringsSettingsCustomDataDirZhHantTw._(_root);
+}
+
+// Path: logs
+class _StringsLogsZhHantTw extends _StringsLogsEn {
+	_StringsLogsZhHantTw._(_StringsZhHantTw root) : this._root = root, super._(root);
+
+	@override final _StringsZhHantTw _root; // ignore: unused_field
+
+	// Translations
+	@override String get logs => '紀錄';
+	@override String get viewLogs => '查看日誌';
+	@override String get debuggingInfo => '日誌包含對調試和開發有用的信息';
+	@override String get noLogs => '這裡沒有日誌！';
+	@override String get logsAreTemporary => '日誌僅保留到您關閉應用程式為止';
 }
 
 // Path: login
@@ -12932,8 +13129,6 @@ class _StringsSettingsPrefLabelsZhHantTw extends _StringsSettingsPrefLabelsEn {
 	@override String get hyperlegibleFont => '易讀字體';
 	@override String get shouldCheckForUpdates => '自動檢查 Saber 更新';
 	@override String get shouldAlwaysAlertForUpdates => '更快的更新';
-	@override String get disableAds => '禁用廣告';
-	@override String get changeAdsConsent => '修改廣告同意書';
 	@override String get allowInsecureConnections => '允許不安全的連結';
 	@override String get editorToolbarAlignment => '編輯器工具列的對齊方式';
 	@override String get editorToolbarShowInFullscreen => '在全螢幕模式中顯示編輯器工具列';
@@ -12964,7 +13159,6 @@ class _StringsSettingsPrefDescriptionsZhHantTw extends _StringsSettingsPrefDescr
 
 	// Translations
 	@override String get hyperlegibleFont => 'Atkinson Hyperlegible 字體為低視力讀者提高易讀性';
-	@override String get disableAds => '廣告有助於支持Saber的發展，但如果您不願意，可以禁用它';
 	@override String get allowInsecureConnections => '（不推薦）允許Saber連結到具有自簽名/不受信任證書的伺服器';
 	@override String get preferGreyscale => '用於電子紙螢幕';
 	@override String get autoClearWhiteboardOnExit => '它仍會同步到您的其他裝置';

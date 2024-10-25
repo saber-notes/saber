@@ -32,7 +32,8 @@
 [čeština](https://github.com/saber-notes/saber/blob/main/README-cs.md) |
 [Deutsch](https://github.com/saber-notes/saber/blob/main/README-de.md) |
 [中文 (简体中文, 中国)](https://github.com/saber-notes/saber/blob/main/README-zh-CN.md) |
-[中文 (繁體, 台灣)](https://github.com/saber-notes/saber/blob/main/README-zh-TW.md)
+[中文 (繁體, 台灣)](https://github.com/saber-notes/saber/blob/main/README-zh-TW.md) |
+[العربية](https://github.com/saber-notes/saber/blob/main/README-ar.md) 
 
 Saber是一個專為手寫而生的筆記應用程式。
 
@@ -146,8 +147,13 @@ flutter pub get
 
 #### Linux
 
-`sudo apt install libsecret-1-dev libjsoncpp-dev libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev`
-`flutter build linux`
+```bash
+sudo apt install libsecret-1-dev libjsoncpp-dev libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev webkit2gtk-4.1-dev
+# Or for Fedora...
+sudo dnf install libsecret-devel jsoncpp-devel gstreamer1-devel gstreamer1-plugins-base-devel webkit2gtk4.1-devel
+
+flutter build linux
+```
 
 這足以在您自己的電腦上使用，但如果您想重新分發您的構建，
 您需要使用可預測的環境：分叉此倉庫並使用 GitHub Action
@@ -321,8 +327,8 @@ Windows 安裝程式是使用 [Inno Setup](https://jrsoftware.org/isinfo.php) �
 [google_play]: https://play.google.com/store/apps/details?id=com.adilhanney.saber
 [snap]: https://snapcraft.io/saber
 [app_store]: https://apps.apple.com/us/app/saber/id1671523739
-[download_windows]: https://github.com/saber-notes/saber/releases/download/v0.24.6/SaberInstaller_v0.24.6.exe
-[download_appimage]: https://github.com/saber-notes/saber/releases/download/v0.24.6/Saber-0.24.6-x86_64.AppImage
+[download_windows]: https://github.com/saber-notes/saber/releases/download/v0.25.1/SaberInstaller_v0.25.1.exe
+[download_appimage]: https://github.com/saber-notes/saber/releases/download/v0.25.1/Saber-0.25.1-x86_64.AppImage
 [nextcloud]: https://nc.saber.adil.hanney.org/
 [privacy]: https://github.com/saber-notes/saber/blob/main/privacy_policy.md
 [license]: https://github.com/saber-notes/saber/blob/main/LICENSE.md

@@ -32,7 +32,8 @@
 [čeština](https://github.com/saber-notes/saber/blob/main/README-cs.md) |
 [Deutsch](https://github.com/saber-notes/saber/blob/main/README-de.md) |
 [中文 (简体中文, 中国)](https://github.com/saber-notes/saber/blob/main/README-zh-CN.md) |
-[中文 (繁體, 台灣)](https://github.com/saber-notes/saber/blob/main/README-zh-TW.md)
+[中文 (繁體, 台灣)](https://github.com/saber-notes/saber/blob/main/README-zh-TW.md) |
+[العربية](https://github.com/saber-notes/saber/blob/main/README-ar.md) 
 
 Saber is the notes app built for handwriting.
 
@@ -145,8 +146,13 @@ package can be summarised as:
 
 #### Linux
 
-`sudo apt install libsecret-1-dev libjsoncpp-dev libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev`
-`flutter build linux`
+```bash
+sudo apt install libsecret-1-dev libjsoncpp-dev libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev webkit2gtk-4.1-dev
+# Or for Fedora...
+sudo dnf install libsecret-devel jsoncpp-devel gstreamer1-devel gstreamer1-plugins-base-devel webkit2gtk4.1-devel
+
+flutter build linux
+```
 
 This is good enough for using on your own computer, but if you want to redistribute your build,
 you need to use a predictable environment: fork this repo and use the GitHub Action
@@ -343,8 +349,8 @@ If you like Saber, please consider supporting it by:
 [google_play]: https://play.google.com/store/apps/details?id=com.adilhanney.saber
 [snap]: https://snapcraft.io/saber
 [app_store]: https://apps.apple.com/us/app/saber/id1671523739
-[download_windows]: https://github.com/saber-notes/saber/releases/download/v0.24.6/SaberInstaller_v0.24.6.exe
-[download_appimage]: https://github.com/saber-notes/saber/releases/download/v0.24.6/Saber-0.24.6-x86_64.AppImage
+[download_windows]: https://github.com/saber-notes/saber/releases/download/v0.25.1/SaberInstaller_v0.25.1.exe
+[download_appimage]: https://github.com/saber-notes/saber/releases/download/v0.25.1/Saber-0.25.1-x86_64.AppImage
 
 [nextcloud]: https://nc.saber.adil.hanney.org/
 

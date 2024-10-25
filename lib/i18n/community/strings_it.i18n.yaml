@@ -76,8 +76,6 @@ settings:
     hyperlegibleFont: Carattere iperleggibile
     shouldCheckForUpdates: Controlla automaticamente gli aggiornamenti di Saber
     shouldAlwaysAlertForUpdates: Aggiornamenti veloci
-    disableAds: Disattiva annunci
-    changeAdsConsent: Modifica il consenso agli annunci
     allowInsecureConnections: Consenti connessioni non sicure
     editorToolbarAlignment: Allineamento della barra degli strumenti dell'editor
     editorToolbarShowInFullscreen: Mostra la barra degli strumenti dell'editor in modalità a schermo intero
@@ -100,7 +98,6 @@ settings:
     pencilSoundSetting: Effetto sonoro della matita
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible aumenta la leggibilità per i lettori ipovedenti
-    disableAds: "Gli annunci aiutano a supportare lo sviluppo di Saber, ma puoi disattivarli se lo desideri"
     allowInsecureConnections: (Non consigliato) Consenti a Saber di connettersi ai server con certificati autofirmati/non attendibili
     preferGreyscale: Per display e-ink
     autoClearWhiteboardOnExit: Sarà comunque sincronizzato con gli altri tuoi dispositivi
@@ -148,6 +145,12 @@ settings:
     select: Seleziona
     mustBeEmpty: La cartella selezionata deve essere vuota
     mustBeDoneSyncing: Assicurati che la sincronizzazione sia completa prima di cambiare cartella
+logs:
+  logs: Log
+  viewLogs: Visualizza log
+  debuggingInfo: I log contengono informazioni utili per il debug e lo sviluppo
+  noLogs: "Niente log qui!"
+  logsAreTemporary: I log vengono conservati solo finché non chiudi l'app
 login:
   title: Login
   form:

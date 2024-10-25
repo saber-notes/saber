@@ -1,7 +1,7 @@
 common:
+  done: تم
+  continueBtn: متابعة
   cancel: إلغاء
-  done(OUTDATED): منتهي
-  continueBtn(OUTDATED): يكمل
 home:
   tabs:
     home: الرئيسية
@@ -10,19 +10,21 @@ home:
     settings: الإعدادات
   titles:
     home: الملاحظات الأخيرة
+    browse: تصفح
     whiteboard: السبورة
     settings: الإعدادات
-    browse(OUTDATED): تصفح
   tooltips:
     newNote: محلاظة جديدة
     showUpdateDialog: إظهار مربع حوار التحديث
-    exportNote(OUTDATED): ملاحظة التصدير
+    exportNote: تصدير ملاحظة
   create:
-    importNote(OUTDATED): مذكرة استيراد
-    newNote(OUTDATED): مذكرة جديدة
+    newNote: انشاء ملاحظة جديدة
+    importNote: استيراد ملاحظة
   welcome: مرحباً بك في Saber
+  invalidFormat: " صيغة الملف الذي اخترته ليست مدعومة, الرجاء اختيار ملف  sbn او sbn2 او sba او pdf "
   noFiles: لم يتم العثور على ملفات
   createNewNote: اضغط على زر + لإنشاء ملاحظة جديدة
+  backFolder: الرجوع الى المجلد السابق
   newFolder:
     newFolder: مجلد جديد
     folderName: إسم المجلد
@@ -39,34 +41,32 @@ home:
     noteNameExists: توجد بالفعل ملاحظة بهذا الاسم
   moveNote:
     moveNote: تحريك الملاحظة
+    moveNotes: ملاحظات $n نقل
+    moveName: $f نقل
     move: تحريك
     renamedTo: ستتم إعادة تسمية الملاحظة إلى $newName
-    moveNotes(OUTDATED): نقل $n الملاحظات
-    multipleRenamedTo(OUTDATED): "وستعاد تسمية الملاحظات التالية:"
-    numberRenamedTo(OUTDATED): ستتم إعادة تسمية الملاحظات $n لتجنب التعارضات
-    moveName(OUTDATED): نقل $f
+    multipleRenamedTo: "الملاحظات التالية سيتم اعادة تسميتها:"
+    numberRenamedTo: ملاحظة سيتم اعادة تسميتها لتجنب تضارب تشابه الاسماء $n
+  deleteNote: حذف الملاحظة
   renameFolder:
-    folderName(OUTDATED): إسم الملف
-    folderNameExists(OUTDATED): يوجد مجلد بهذا الاسم بالفعل
-    rename(OUTDATED): إعادة تسمية
-    folderNameEmpty(OUTDATED): لا يمكن أن يكون اسماً فارغاً
-    folderNameContainsSlash(OUTDATED): لا يمكن أن يحتوي اسم المجلد على شرطة مائلة
-    renameFolder(OUTDATED): إعادة تسمية المجلد
+    renameFolder: اعادة تسمية المجلد
+    folderName: اسم المجلد
+    rename: اعادة تسمية
+    folderNameEmpty: لا يمكن أن يكون اسم المجلد فارغًا
+    folderNameContainsSlash: لا يمكن أن يحتوي اسم المجلد على شرطة مائلة
+    folderNameExists: يوجد بالفعل مجلد بهذا الاسم
   deleteFolder:
-    deleteName(OUTDATED): حذف $f
-    deleteFolder(OUTDATED): احذف المجلد
-    alsoDeleteContents(OUTDATED): احذف أيضًا جميع الملاحظات الموجودة داخل هذا المجلد
-    delete(OUTDATED): يمسح
-  backFolder(OUTDATED): ارجع إلى المجلد السابق
-  deleteNote(OUTDATED): حذف الملاحظة
-  invalidFormat(OUTDATED): "الملف الذي حددته غير مدعوم. الرجاء تحديد ملف .sbn، .sbn2, .sba أو .pdf."
+    deleteFolder: حذف المجلد
+    deleteName: $f حذف
+    delete: حذف
+    alsoDeleteContents: حذف جميع الملاحظات داخل هذا المجلد أيضًا
 settings:
   prefCategories:
     general: عام
     writing: كتابة
-    performance(OUTDATED): أداء
-    editor(OUTDATED): محرر
-    advanced(OUTDATED): متقدم
+    editor: المحرر
+    performance: الأداء
+    advanced: متقدم
   prefLabels:
     locale: لغة التطبيق
     appTheme: مظهر التطبيق
@@ -75,53 +75,50 @@ settings:
     customAccentColor: لون التمييز المخصص
     hyperlegibleFont: Hyperlegible خط
     shouldCheckForUpdates: تحقق تلقائيًا من وجود تحديثات Saber
+    shouldAlwaysAlertForUpdates: تحديثات أسرع
+    allowInsecureConnections: السماح بالاتصالات غير الآمنة
     editorToolbarAlignment: محاذاة شريط أدوات المحرر
     editorToolbarShowInFullscreen: أظهر شريط أدوات المحرر في وضع ملء الشاشة
     editorAutoInvert: اقلب الملاحظات في الوضع المظلم
     preferGreyscale: تفضيل الألوان الرمادية
     maxImageSize: الحجم الأقصى للصورة
     autoClearWhiteboardOnExit: امسح السبورة بعد الخروج من التطبيق
+    disableEraserAfterUse: تعطيل الممحاة تلقائيًا بعد الاستخدام
+    hideFingerDrawingToggle: إخفاء زر الرسم بالإصبع
     editorPromptRename: مطالبتك بإعادة تسمية الملاحظات الجديدة
     hideHomeBackgrounds: إخفاء الخلفيات على الشاشة الرئيسية
     recentColorsDontSavePresets: لا تحفظ الألوان المعينة مسبقًا كألوان حديثة
+    recentColorsLength: كم عدد الألوان الحديثة التي يجب تخزينها
     printPageIndicators: طباعة مؤشرات الصفحة
-    simplifiedHomeLayout(OUTDATED): تخطيط المنزل المبسط
-    pencilSoundSetting(OUTDATED): تأثير صوت قلم الرصاص
-    customDataDir(OUTDATED): دليل البيانات المخصصة
-    autoStraightenLines(OUTDATED): تصويب الخطوط تلقائيا
-    shapeRecognitionDelay(OUTDATED): تأخير التعرف على الشكل
-    recentColorsLength(OUTDATED): كم عدد الألوان الحديثة التي سيتم تخزينها
-    changeAdsConsent(OUTDATED): تغيير موافقة الإعلانات
-    disableAds(OUTDATED): عطل الاعلانات
-    allowInsecureConnections(OUTDATED): السماح بعلاقات غير آمنة
-    autosaveDelay(OUTDATED): تأخير الحفظ التلقائي
-    hideFingerDrawingToggle(OUTDATED): إخفاء تبديل رسم الإصبع
-    shouldAlwaysAlertForUpdates(OUTDATED): التحديثات السريعة
-    disableEraserAfterUse(OUTDATED): تعطيل تلقائي للممحاة
+    autosaveDelay: تأخير الحفظ التلقائي
+    shapeRecognitionDelay: تأخير التعرف على الأشكال
+    autoStraightenLines: استقامة الخطوط تلقائيًا
+    simplifiedHomeLayout: تخطيط الصفحة الرئيسية المبسط
+    customDataDir: مخصص Saber مجلد
+    pencilSoundSetting: تأثير صوت القلم
   prefDescriptions:
     hyperlegibleFont: يزيد Atkinson Hyperlegible من وضوح الرؤية للقراء الذين يعانون من ضعف في الرؤية
+    allowInsecureConnections: (غير موصى به) بالاتصال بالخوادم بشهادات غير موثوقة/موقعة ذاتيًا Saber السماح لـ
     preferGreyscale: لشاشات الحبر الإلكتروني
     autoClearWhiteboardOnExit: ستظل متزامنة مع أجهزتك الأخرى
+    disableEraserAfterUse: التبديل تلقائيًا إلى القلم بعد استخدام الممحاة
     maxImageSize: سيتم ضغط الصور الأكبر من هذا
     hideFingerDrawing:
-      shown(OUTDATED): يمنع التبديل العرضي
-      fixedOn(OUTDATED): تم إصلاح رسم الإصبع على أنه ممكن
-      fixedOff(OUTDATED): تم إصلاح رسم الإصبع على أنه معطل
+      shown: يمنع التبديل العرضي
+      fixedOn: تم تفعيل الرسم بالإصبع
+      fixedOff: تم تعطيل الرسم بالإصبع
     editorPromptRename: يمكنك دائمًا إعادة تسمية الملاحظات لاحقًا
     hideHomeBackgrounds: للحصول على مظهر أنظف
     printPageIndicators: تظهر مؤشرات الصفحة في الصادرات
-    simplifiedHomeLayout(OUTDATED): تعيين ارتفاع ثابت لكل معاينة ملاحظة
+    autosaveDelay: الوقت الذي يجب الانتظار قبل الحفظ التلقائي للملاحظة
+    shapeRecognitionDelay: عدد مرات تحديث معاينة الشكل
+    autoStraightenLines: استقامة الخطوط الطويلة بدون الحاجة لاستخدام قلم الشكل
+    simplifiedHomeLayout: تعيين ارتفاع ثابت لكل معاينة ملاحظة
+    shouldAlwaysAlertForUpdates: أبلغني عن التحديثات بمجرد توفرها
     pencilSoundSetting:
-      off(OUTDATED): لا صوت
-      onButNotInSilentMode(OUTDATED): ممكّن (ما لم يكن في الوضع الصامت)
-      onAlways(OUTDATED): ممكّن (حتى في الوضع الصامت)
-    autoStraightenLines(OUTDATED): يقوم بفرد الخطوط الطويلة دون الحاجة إلى استخدام قلم الشكل
-    shapeRecognitionDelay(OUTDATED): عدد مرات تحديث معاينة الشكل
-    disableAds(OUTDATED): (أدز) يساعد في دعم تطوير (سابر) لكن يمكنك إزالتهم إذا أردت
-    allowInsecureConnections(OUTDATED): (غير مستحسن) السماح لـ Saber بالاتصال بالخوادم ذات الشهادات الموقعة ذاتيًا / غير الموثوق بها
-    autosaveDelay(OUTDATED): كم من الوقت للانتظار قبل تقديم مذكرة
-    disableEraserAfterUse(OUTDATED): يعود تلقائيًا إلى القلم بعد استخدام الممحاة
-    shouldAlwaysAlertForUpdates(OUTDATED): أخبرني عن التحديثات بمجرد توفرها
+      off: بدون صوت
+      onButNotInSilentMode: مفعل (ما لم يكن في وضع الصامت)
+      onAlways: مفعل (حتى في وضع الصامت)
   themeModes:
     system: النظام
     light: ساطع
@@ -141,60 +138,70 @@ settings:
   reset:
     title: إعادة تعيين هذا الإعداد؟
     button: إعادة تعيين
+  resyncEverything: إعادة مزامنة كل شيء
+  openDataDir: Saber فتح مجلد
   customDataDir:
-    cancel(OUTDATED): يلغي
-    select(OUTDATED): يختار
-    mustBeEmpty(OUTDATED): يجب أن يكون الدليل المحدد فارغًا
-    mustBeDoneSyncing(OUTDATED): تأكد من اكتمال المزامنة قبل تغيير الدليل
-  openDataDir(OUTDATED): افتح مجلد Saber
-  resyncEverything(OUTDATED): إعادة ترتيب كل شيء
+    cancel: إلغاء
+    select: تحديد
+    mustBeEmpty: يجب أن يكون المجلد المحدد فارغًا
+    mustBeDoneSyncing: تأكد من اكتمال المزامنة قبل تغيير المجلد
+logs:
+  logs(OUTDATED): السجلات
+  viewLogs(OUTDATED): عرض السجلات
+  debuggingInfo(OUTDATED): تحتوي السجلات على معلومات مفيدة لتصحيح الأخطاء والتطوير
+  noLogs(OUTDATED): "لا يوجد سجلات هنا!"
+  logsAreTemporary(OUTDATED): يتم الاحتفاظ بالسجلات فقط حتى تقوم بإغلاق التطبيق
 login:
   title: تسجيل الدخول
   form:
     agreeToPrivacyPolicy(rich): "بتسجيل الدخول، فإنك توافق على ${linkToPrivacyPolicy(سياسة الخصوصية)}."
   signup(rich): "لا تملك حسابا حتى الآن؟ ${linkToSignup(سجل حساباً الأن)}!"
+  notYou(rich): "ليس أنت؟ ${undoLogin(اختيار حساب آخر)}."
   status:
     loggedOut: تسجيل الخروج
     tapToLogin: انقر لتسجيل الدخول باستخدام Nextcloud
+    hi: "!$u،مرحبًا"
+    almostDone: على وشك الانتهاء من المزامنة، اضغط لإنهاء تسجيل الدخول
     loggedIn: تم تسجيل الدخول باستخدام Nextcloud
-    hi(OUTDATED): "مرحبًا، $u!"
-    almostDone(OUTDATED): جاهز تقريبًا للمزامنة، انقر لإنهاء تسجيل الدخول
   ncLoginStep:
+    whereToStoreData: "اختر المكان الذي تريد تخزين بياناتك فيه:"
+    saberNcServer: Nextcloud الى Saber خادم
+    otherNcServer: اخر Nextcloud خادم
+    serverUrl: عنوان الخادم
+    loginWithSaber: Saber تسجيل الدخول باستخدام
+    loginWithNextcloud: Nextcloud تسجيل الدخول باستخدام
     loginFlow:
-      pleaseAuthorize(OUTDATED): يرجى تفويض Saber للوصول إلى حساب Nextcloud الخاص بك
-      followPrompts(OUTDATED): يرجى اتباع المطالبات في المتصفح الخاص بك.
-      browserDidntOpen(OUTDATED): المتصفح لم يفتح
-    whereToStoreData(OUTDATED): "اختر المكان الذي تريد تخزين بياناتك فيه:"
-    saberNcServer(OUTDATED): خادم Saber Nextcloud
-    otherNcServer(OUTDATED): خادم Nextcloud آخر
-    serverUrl(OUTDATED): عنوان URL للخادم
-    loginWithSaber(OUTDATED): تسجيل الدخول مع صابر
-    loginWithNextcloud(OUTDATED): تسجيل الدخول مع Nextcloud
+      pleaseAuthorize: الخاص بك Nextcloud للوصول إلى حساب Saber الرجاء تفويض
+      followPrompts: Nextcloud الرجاء اتباع الإرشادات في واجهة
+      browserDidntOpen: لم تفتح صفحة تسجيل الدخول؟ اضغط هنا
   encLoginStep:
-    enterEncPassword(OUTDATED): "لحماية بياناتك، يرجى إدخال كلمة مرور التشفير الخاصة بك:"
-    newToSaber(OUTDATED): جديد لصابر
-    encPassword(OUTDATED): كلمة مرور التشفير
-    encFaqTitle(OUTDATED): أسئلة مكررة
-    wrongEncPassword(OUTDATED): فشل فك التشفير باستخدام كلمة المرور المقدمة. يرجى محاولة إدخاله مرة أخرى.
-    connectionFailed(OUTDATED): حدث خطأ أثناء الاتصال بالخادم. الرجاء معاودة المحاولة في وقت لاحق.
-    encFaq(OUTDATED):
-      - q: ما هي كلمة مرور التشفير؟
+    enterEncPassword: "لحماية بياناتك، يرجى إدخال كلمة مرور التشفير:"
+    newToSaber: ؟ فقط أدخل كلمة مرور تشفير جديدةSaber جديد على
+    encPassword: كلمة مرور التشفير
+    encFaqTitle: الأسئلة الشائعة
+    wrongEncPassword: فشل فك التشفير باستخدام كلمة المرور المقدمة. يرجى المحاولة مرة أخرى.
+    connectionFailed: حدث خطأ ما أثناء الاتصال بالخادم. يرجى المحاولة لاحقًا.
+    encFaq:
+      - q: ما هي كلمة مرور التشفير؟ لماذا استخدام كلمتي مرور؟
         a: |-
-          تُستخدم كلمة مرور التشفير لتشفير بياناتك قبل إرسالها إلى الخادم. يمكنك اختيارها عند تسجيل الدخول لأول مرة إلى Saber ،وهي غير مرتبطة بحساب/كلمة مرور Nextcloud الخاصة بك.
-          لا يمكن لأحد الوصول إلى ملاحظاتك على الخادم بدون كلمة مرور التشفير الخاصة بك. هذا يعني أيضًا أنك إذا نسيت كلمة مرور التشفير، فستفقد إمكانية الوصول إلى بياناتك.
-      - q: لماذا نستخدم كلمتين من كلمات المرور؟
+          تُستخدم للوصول إلى السحابة. بينما كلمة مرور التشفير "تشفر" بياناتك قبل وصولها إلى السحابة  Nextcloud كلمة مرور .
+          الخاص بك، ستظل ملاحظاتك آمنة ومشفرة بكلمة مرور منفصلة. هذا يوفر لك طبقة ثانية من الأمان لحماية بياناتك Nextcloud حتى إذا تمكن شخص ما من الوصول إلى حساب .
+          لا يمكن لأحد الوصول إلى ملاحظاتك على الخادم بدون كلمة مرور التشفير الخاصة بك، ولكن هذا يعني أيضًا أنه إذا نسيت كلمة مرور التشفير، ستفقد الوصول إلى بياناتك.
+      - q: لم أقم بتعيين كلمة مرور تشفير حتى الآن. من أين أحصل عليها؟
         a: |-
-          يتم استخدام كلمة مرور Nextcloud للوصول إلى السحابة. كلمة مرور التشفير "تشويش " بياناتك قبل أن تصل إلى السحابة.
-          حتى إذا تمكن شخص ما من الوصول إلى حسابك على Nextcloud ،فستظل ملاحظاتك آمنة ومشفرة بكلمة مرور منفصلة. يوفر لك هذا طبقة ثانية من الأمان لحماية بياناتك.
-      - q: هل يمكنني استخدام نفس كلمة المرور لكليهما؟
-        a: نعم، لكن القيام بذلك أقل أمانًا. نظرًا لأنه يتم إرسال كلمة مرور Nextcloud الخاصة بك إلى الخادم، فسيتمكن شخص لديه حق الوصول إلى الخادم من فك تشفير ملاحظاتك. استخدم نفس كلمة المرور فقط إذا كنت تثق في مالك الخادم.
-  notYou(rich, OUTDATED): "${undoLogin(ليس انت)}"
+          اختر كلمة مرور تشفير جديدة وأدخلها أعلاه.
+          بإنشاء مفاتيح التشفير الخاصة بك تلقائيًا من هذه الكلمة Saber سيقوم .
+      - q: الخاص بي؟ Nextcloud هل يمكنني استخدام نفس كلمة المرور لحساب
+        a: الخاص بك Nextcloud نعم، ولكن ضع في اعتبارك أنه سيكون من الأسهل على مدير الخادم أو أي شخص آخر الوصول إلى ملاحظاتك إذا تمكن من الوصول إلى حساب.
 profile:
   title: ملفي الشخصي
   logout: تسجيل الخروج
+  quotaUsage: " $total ($percent%) من $used أنت تستخدم "
+  connectedTo: متصل بـ
   quickLinks:
     serverHomepage: الصفحة الرئيسية للخادم
     deleteAccount: حذف الحساب
+  faqTitle: الأسئلة الشائعة
   faq:
     - q: هل سأفقد ملاحظاتي إذا قمت بتسجيل الخروج؟
       a: لا. ستظل ملاحظاتك على كل من جهازك وعلى الخادم. لن تتم مزامنتها مع الخادم حتى تقوم بتسجيل الدخول مرة أخرى. تأكد من اكتمال المزامنة قبل تسجيل الخروج حتى لا تفقد أي بيانات (انظر تقدم المزامنة على الشاشة الرئيسية).
@@ -211,9 +218,6 @@ profile:
         انتقل إلى موقع الخادم الخاص بك وقم بتسجيل الدخول. ثم انتقل إلى الإعدادات> حذف الحساب.
         إذا كنت تستخدم خادم Saber الرسمي، فسيتم حذف حسابك بعد فترة سماح مدتها أسبوع. يمكنك الاتصال بي على adilhanney@disroot.org خلال هذه الفترة لإلغاء الحذف.
         إذا كنت تستخدم خادم جهة خارجية، فقد لا يكون هناك خيار لحذف حسابك: ستحتاج إلى استشارة خصوصية الخادم سياسة لمزيد من المعلومات.
-  quotaUsage(OUTDATED): "أنت تستخدم $used من $total ($percent%)"
-  connectedTo(OUTDATED): متصلا
-  faqTitle(OUTDATED): أسئلة مكررة
 appInfo:
   licenseNotice: |-
     Saber حقوق نشر © 2022-$buildYear  Adil Hanney
@@ -227,7 +231,7 @@ update:
   updateAvailable: تحديث متاح
   updateAvailableDescription: "يتوفر إصدار جديد من التطبيق مع هذه التغييرات:"
   update: تحديث
-  downloadNotAvailableYet(OUTDATED): التنزيل غير متاح بعد لنظامك الأساسي. يرجى التحقق مرة أخرى قريبا.
+  downloadNotAvailableYet: التنزيل غير متاح بعد لمنصتك. يرجى التحقق قريبًا.
 editor:
   toolbar:
     toggleColors: تبديل الألوان (Ctrl C)
@@ -245,13 +249,17 @@ editor:
     fountainPen: قلم حبر
     ballpointPen: قلم برأس كروي
     highlighter: هايلايتر
+    pencil: قلم رصاص
+    shapePen: قلم الأشكال
     laserPointer: مؤشر الليزر
-    pencil(OUTDATED): قلم
-    shapePen(OUTDATED): قلم الشكل
   penOptions:
     size: حجم
   colors:
     colorPicker: أداة انتقاء اللون
+    customBrightnessHue: $h $b  مخصص
+    customHue: $h مخصص
+    dark: داكن
+    light: فاتح
     black: أسود
     darkGrey: الرمادي الداكن
     grey: رمادي
@@ -259,9 +267,11 @@ editor:
     white: أبيض
     red: أحمر
     green: أخضر
+    cyan: سماوي
     blue: أزرق
     yellow: أصفر
     purple: أرجواني
+    pink: وردي
     orange: برتقالي
     pastelRed: باستيل أحمر
     pastelOrange: برتقال باستيل
@@ -271,12 +281,6 @@ editor:
     pastelBlue: الباستيل الأزرق
     pastelPurple: الباستيل الأرجواني
     pastelPink: الباستيل الوردي
-    customBrightnessHue(OUTDATED): مخصص $b $h
-    customHue(OUTDATED): مخصص $h
-    dark(OUTDATED): مظلم
-    light(OUTDATED): ضوء
-    cyan(OUTDATED): ازرق سماوي
-    pink(OUTDATED): لون القرنفل
   imageOptions:
     title: خيارات الصورة
     invertible: قابل للعكس
@@ -286,7 +290,7 @@ editor:
     delete: حذف
   selectionBar:
     delete: حذف
-    duplicate(OUTDATED): ينسخ
+    duplicate: تكرار
   menu:
     clearPage: تنظيف الصفحة $page/$totalPages
     clearAllPages: امسح كل الصفحات
@@ -294,8 +298,12 @@ editor:
     duplicatePage: تكرار الصفحة
     deletePage: حذف الصفحة
     lineHeight: ارتفاع خط
+    lineHeightDescription: يتحكم أيضًا في حجم النص للملاحظات المكتوبة
+    backgroundImageFit: تناسب صورة الخلفية
     backgroundPattern: نمط الخلفية
     import: يستورد
+    watchServer: راقب التحديثات على الخادم
+    watchServerReadOnly: تم تعطيل التحرير أثناء مراقبة الخادم
     boxFits:
       fill: تمتد
       cover: غطاء
@@ -308,12 +316,8 @@ editor:
       grid: شبكة
       dots: نقاط
       staffs: موظفون
+      tablature: لوحة
       cornell: كورنيل
-      tablature(OUTDATED): تبلتثر
-    watchServer(OUTDATED): ترقب التحديثات على الخادم
-    watchServerReadOnly(OUTDATED): تم تعطيل التحرير أثناء مشاهدة الخادم
-    lineHeightDescription(OUTDATED): يتحكم أيضًا في حجم النص للملاحظات المكتوبة
-    backgroundImageFit(OUTDATED): الصورة الخلفية
   newerFileFormat:
     readOnlyMode: وضع القراءة فقط
     title: تم تحرير هذه الملاحظة باستخدام إصدار أحدث من Saber

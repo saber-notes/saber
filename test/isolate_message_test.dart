@@ -46,8 +46,7 @@ void main() {
     });
 
     test('With small PNG image', () async {
-      final imageBytes =
-          await File('assets/icon/resized/icon-16x16.png').readAsBytes();
+      final imageBytes = await File('assets/icon/icon.png').readAsBytes();
       final coreInfo = EditorCoreInfo(filePath: '', readOnly: false);
       coreInfo.pages = [
         EditorPage(

@@ -76,8 +76,6 @@ settings:
     hyperlegibleFont: 易读字体
     shouldCheckForUpdates: 自动检查 Saber 更新
     shouldAlwaysAlertForUpdates: 更快的更新提醒
-    disableAds: 禁用广告
-    changeAdsConsent: 更改广告许可
     allowInsecureConnections: 允许不安全的连接
     editorToolbarAlignment: 编辑工具栏对齐方式
     editorToolbarShowInFullscreen: 在全屏模式中显示编辑菜单栏
@@ -100,7 +98,6 @@ settings:
     pencilSoundSetting: 铅笔音效
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible 字体为低视力读者提高易读性
-    disableAds: 广告有助于支持 Saber 的开发，但如果你不喜欢，你可以禁用它们
     allowInsecureConnections: （不推荐）允许 Saber 连接到具有自签名/不受信任证书的服务器
     preferGreyscale: 用于电子墨水显示器
     autoClearWhiteboardOnExit: 这将会同步到您的其他设备
@@ -148,6 +145,12 @@ settings:
     select: 选择
     mustBeEmpty: 所选文件夹必须为空
     mustBeDoneSyncing: 更改文件夹前，请确保同步已完成
+logs:
+  logs(OUTDATED): 日志
+  viewLogs(OUTDATED): 查看日志
+  debuggingInfo(OUTDATED): 日志包含对调试和开发有用的信息
+  noLogs(OUTDATED): 这里没有日志！
+  logsAreTemporary(OUTDATED): 日志仅保留到您关闭应用程序为止
 login:
   title: 登录
   form:

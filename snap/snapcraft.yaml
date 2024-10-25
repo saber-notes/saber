@@ -36,7 +36,7 @@ parts:
   saber:
     after: [rustup]
     source: https://github.com/saber-notes/saber.git
-    source-tag: 'v0.24.6'
+    source-tag: 'v0.25.1'
     plugin: flutter
     #build-attributes: [enable-patchelf]
     build-packages:
@@ -46,6 +46,7 @@ parts:
       - libjsoncpp-dev
       - libgstreamer1.0-dev
       - libgstreamer-plugins-base1.0-dev
+      - libwebkit2gtk-4.1-dev
     build-snaps:
       - cmake
     stage-packages:

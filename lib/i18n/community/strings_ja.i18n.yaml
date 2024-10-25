@@ -75,8 +75,6 @@ settings:
     customAccentColor: オリジナルの色
     hyperlegibleFont: Hyperlegible フォント
     shouldCheckForUpdates: Saberの更新を自動的に確認する
-    disableAds: 広告を表示しない
-    changeAdsConsent: 広告の同意を変更する
     allowInsecureConnections: 安全でない接続を許可する
     editorToolbarAlignment: 編集ツールバーの位置調整
     editorToolbarShowInFullscreen: フルスクリーンモードで編集ツールバーを表示する
@@ -100,7 +98,6 @@ settings:
     disableEraserAfterUse(OUTDATED): 消しゴムを自動的に無効にする
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegibleは、弱視読者の読みやすさを向上させます。
-    disableAds: 広告はSaberの開発支援に貢献できますが、必要に応じて無効にすることも可能です
     allowInsecureConnections: (非推奨) Saber が自己署名/信頼できない証明書を持つサーバーに接続できるようにする
     preferGreyscale: e-inkディスプレイ用
     autoClearWhiteboardOnExit: 他のデバイスと同期されます
@@ -112,11 +109,11 @@ settings:
     editorPromptRename: メモの名前は後でいつでも変更できます
     hideHomeBackgrounds: よりクリーンな外観に
     printPageIndicators: エクスポートにページインジケーターを表示
-    simplifiedHomeLayout(OUTDATED): 各ノートのプレビューに固定の高さを設定します
     pencilSoundSetting:
       off(OUTDATED): 無音
       onButNotInSilentMode(OUTDATED): 有効 (サイレントモードでない場合)
       onAlways(OUTDATED): 有効（サイレントモードでも）
+    simplifiedHomeLayout(OUTDATED): 各ノートのプレビューに固定の高さを設定します
     autoStraightenLines(OUTDATED): シェイプペンを使用せずに長い線をまっすぐにします。
     shapeRecognitionDelay(OUTDATED): 形状プレビューを更新する頻度
     autosaveDelay(OUTDATED): メモを自動保存するまでの待ち時間
@@ -148,6 +145,12 @@ settings:
     mustBeDoneSyncing(OUTDATED): ディレクトリを変更する前に同期が完了していることを確認してください
   openDataDir(OUTDATED): セイバーフォルダを開く
   resyncEverything(OUTDATED): すべてを再同期する
+logs:
+  logs(OUTDATED): ログ
+  viewLogs(OUTDATED): ログを表示
+  debuggingInfo(OUTDATED): ログにはデバッグや開発に役立つ情報が含まれています
+  noLogs(OUTDATED): "ここにはログはありません!"
+  logsAreTemporary(OUTDATED): ログはアプリを閉じるまで保存されます
 login:
   title: ログイン
   form:

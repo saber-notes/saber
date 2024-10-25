@@ -76,8 +76,6 @@ settings:
     hyperlegibleFont: Fonte hiperlegível
     shouldCheckForUpdates: Verificar automaticamente as atualizações do Saber
     shouldAlwaysAlertForUpdates: Atualizações mais rápidas
-    disableAds: Desativar anúncios
-    changeAdsConsent: Alterar o consentimento de anúncios
     allowInsecureConnections: Permitir conexões inseguras
     editorToolbarAlignment: Alinhamento da barra de ferramentas do editor
     editorToolbarShowInFullscreen: Mostrar a barra de ferramentas do editor no modo de tela cheia
@@ -100,7 +98,6 @@ settings:
     recentColorsLength(OUTDATED): Quantas cores recentes armazenar
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible aumenta a legibilidade para leitores com baixa visão
-    disableAds: "Os anúncios ajudam no desenvolvimento do Saber, mas você pode desativá-los se quiser"
     allowInsecureConnections: (Não recomendado) Permitir que o Saber se conecte a servidores com certificados autoassinados/não-confiáveis
     preferGreyscale: Para telas e-ink
     autoClearWhiteboardOnExit: Ainda será sincronizado com seus outros dispositivos
@@ -114,12 +111,12 @@ settings:
     hideHomeBackgrounds: Para uma aparência mais limpa
     printPageIndicators: Mostrar os indicadores de página nas exportações
     autosaveDelay: Quanto tempo esperar antes de salvar automaticamente uma nota
-    simplifiedHomeLayout(OUTDATED): Define uma altura fixa para cada pré-visualização de nota
     shouldAlwaysAlertForUpdates: Conte-me sobre atualizações assim que elas estiverem disponíveis
     pencilSoundSetting:
       off(OUTDATED): Sem som
       onButNotInSilentMode(OUTDATED): Ativado (a menos que esteja no modo silencioso)
       onAlways(OUTDATED): Ativado (mesmo no modo silencioso)
+    simplifiedHomeLayout(OUTDATED): Define uma altura fixa para cada pré-visualização de nota
     autoStraightenLines(OUTDATED): Endireita linhas longas sem precisar usar a caneta modeladora
     shapeRecognitionDelay(OUTDATED): Com que frequência atualizar a visualização da forma
   themeModes:
@@ -148,6 +145,12 @@ settings:
     mustBeDoneSyncing(OUTDATED): Certifique-se de que a sincronização esteja concluída antes de alterar o diretório
   openDataDir(OUTDATED): Abra a pasta Saber
   resyncEverything(OUTDATED): Resync tudo
+logs:
+  logs(OUTDATED): Registros
+  viewLogs(OUTDATED): Ver logs
+  debuggingInfo(OUTDATED): Os logs contêm informações úteis para depuração e desenvolvimento
+  noLogs(OUTDATED): "Nenhum registro aqui!"
+  logsAreTemporary(OUTDATED): Os registros são mantidos somente até você fechar o aplicativo
 login:
   title: Login
   form:

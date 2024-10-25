@@ -76,8 +76,6 @@ settings:
     hyperlegibleFont: Гипер разборчивый шрифт
     shouldCheckForUpdates: Автоматически проверять обновления Saber
     shouldAlwaysAlertForUpdates: Быстрые обновления
-    disableAds: Отключить рекламу
-    changeAdsConsent: Согласие на рекламу
     allowInsecureConnections: Разрешить небезопасные соединения
     editorToolbarAlignment: Панель инструментов редактора
     editorToolbarShowInFullscreen: Показывать инструменты в полноэкранном режиме
@@ -100,7 +98,6 @@ settings:
     pencilSoundSetting: Звуковой эффект карандаша
   prefDescriptions:
     hyperlegibleFont: Шрифт Atkinson Hyperlegible повышает разборчивость для читателей с плохим зрением
-    disableAds: "Реклама помогает поддерживать разработку Saber, но вы можете отключить её, если захотите."
     allowInsecureConnections: (Не рекомендуется) Разрешить Saber подключаться к серверам с самоподписанными/ненадёжными сертификатами.
     preferGreyscale: Для e-ink экранов
     autoClearWhiteboardOnExit: Это будет синхронизировано с другими вашими устройствами
@@ -148,6 +145,12 @@ settings:
     select: Выбрать
     mustBeEmpty: Выбранный каталог должен быть пустым
     mustBeDoneSyncing: "Перед изменением каталога убедитесь, что синхронизация завершена"
+logs:
+  logs(OUTDATED): Журналы
+  viewLogs(OUTDATED): Посмотреть журналы
+  debuggingInfo(OUTDATED): "Логи содержат информацию, полезную для отладки и разработки."
+  noLogs(OUTDATED): "Здесь нет журналов!"
+  logsAreTemporary(OUTDATED): "Журналы хранятся только до тех пор, пока вы не закроете приложение."
 login:
   title: Авторизация
   form:

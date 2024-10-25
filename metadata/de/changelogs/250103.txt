@@ -1,0 +1,3 @@
+• Ein Fehler mit benutzerdefinierten Nextcloud-Servern, die in einem Unterverzeichnis gehostet wurden, wurde behoben, danke an provokateurin
+• Einige Medienberechtigungen wurden entfernt, die nicht verwendet wurden
+• Androids vorausschauende Back-Animationen wurden aktiviert

@@ -49,7 +49,8 @@ class GridFolders extends StatelessWidget {
         crossAxisCount: crossAxisCount,
         mainAxisSpacing: 8,
         itemBuilder: (context, index) {
-          final cardType = extraCards.get(index, _FolderCardType.realFolder);
+          final cardType =
+              extraCards.getOrNull(index) ?? _FolderCardType.realFolder;
           final folderName = cardType == _FolderCardType.realFolder
               ? folders[index - extraCards.length]
               : null;

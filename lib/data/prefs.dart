@@ -29,21 +29,11 @@ abstract class Prefs {
   @visibleForTesting
   static bool testingMode = false;
 
-  /// The current Android version.
-  ///
-  /// If the user is on Android 9 or older, we can't use
-  /// platform views (e.g. ads) performantly.
-  ///
-  /// If the device is not an Android device, this will be 9999.
-  static int androidVersion = 9999;
-
   /// If true, a warning will be printed if a pref is accessed before it is loaded.
   ///
   /// If [testingMode] is true, the warning will not be printed even if this is true.
   @visibleForTesting
   static bool warnIfPrefAccessedBeforeLoaded = true;
-
-  static late final PlainPref<bool> disableAds;
 
   static late final PlainPref<String?> customDataDir;
 
@@ -165,13 +155,6 @@ abstract class Prefs {
   static late final PlainPref<String> locale;
 
   static void init() {
-    final disableAdsDefault = androidVersion < 10;
-    if (disableAdsDefault) {
-      log.info(
-          'Disabling ads because Android version ($androidVersion) is < 10');
-    }
-    disableAds = PlainPref('disableAds', disableAdsDefault);
-
     customDataDir = PlainPref('customDataDir', null);
     allowInsecureConnections = EncPref('allowInsecureConnections', false);
     url = EncPref('url', '');

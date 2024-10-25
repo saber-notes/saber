@@ -32,7 +32,8 @@
 [čeština](https://github.com/saber-notes/saber/blob/main/README-cs.md) |
 [Deutsch](https://github.com/saber-notes/saber/blob/main/README-de.md) |
 [中文 (简体中文, 中国)](https://github.com/saber-notes/saber/blob/main/README-zh-CN.md) |
-[中文 (繁體, 台灣)](https://github.com/saber-notes/saber/blob/main/README-zh-TW.md)
+[中文 (繁體, 台灣)](https://github.com/saber-notes/saber/blob/main/README-zh-TW.md) |
+[العربية](https://github.com/saber-notes/saber/blob/main/README-ar.md) 
 
 Als der Entwickler von Saber freue ich mich dir eine App vorzustellen, die deine Art Notizen zu erstellen revolutionieren soll. Saber ist die ultimative handschriftliche Notizen-App, designt um deine Erfahrung beim Erstellen von Notizen zu verbessern! Erfreue dich an der Kunst der Handschrift und lasse mit dieser funktionsreichen, von modernen Technologien unterstützten App deiner Kreativität freien Lauf. Sabers intuitives und modernes Interface macht es spielend leicht Notizen niederzuschreiben, Diagramme zu zeichnen oder PDFs zu kommentieren.
 
@@ -139,8 +140,13 @@ Das Setup für das [super_clipboard](https://pub.dev/packages/super_clipboard)-P
 
 #### Linux
 
-`sudo apt install libsecret-1-dev libjsoncpp-dev libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev`
-`flutter build linux`
+```bash
+sudo apt install libsecret-1-dev libjsoncpp-dev libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev webkit2gtk-4.1-dev
+# Or for Fedora...
+sudo dnf install libsecret-devel jsoncpp-devel gstreamer1-devel gstreamer1-plugins-base-devel webkit2gtk4.1-devel
+
+flutter build linux
+```
 
 Dies ist ausreichend um es auf dem eigenen Computer zu benutzen, aber falls du deinen Build anderweitig zur Verfügung stellen möchtest, solltest du ein _Predictable Environment_ verwenden: Forke dieses Repo und nutze stattdessen die Github-Aktion [Build for Linux](https://github.com/saber-notes/saber/actions/workflows/linux.yml).
 
@@ -323,8 +329,8 @@ Falls dir Saber gefällt, bitte denke darüber nach das Projekt wie folgt zu unt
 [google_play]: https://play.google.com/store/apps/details?id=com.adilhanney.saber
 [snap]: https://snapcraft.io/saber
 [app_store]: https://apps.apple.com/us/app/saber/id1671523739
-[download_windows]: https://github.com/saber-notes/saber/releases/download/v0.24.6/SaberInstaller_v0.24.6.exe
-[download_appimage]: https://github.com/saber-notes/saber/releases/download/v0.24.6/Saber-0.24.6-x86_64.AppImage
+[download_windows]: https://github.com/saber-notes/saber/releases/download/v0.25.1/SaberInstaller_v0.25.1.exe
+[download_appimage]: https://github.com/saber-notes/saber/releases/download/v0.25.1/Saber-0.25.1-x86_64.AppImage
 
 [nextcloud]: https://nc.saber.adil.hanney.org/
 

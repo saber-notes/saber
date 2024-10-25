@@ -25,7 +25,7 @@ jobs:
       - name: Install apt dependencies
         uses: awalsh128/cache-apt-pkgs-action@latest
         with:
-          packages: libgtk-3-dev libx11-dev pkg-config cmake ninja-build libblkid-dev libsecret-1-dev libjsoncpp-dev ghostscript libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev libunwind-dev
+          packages: libgtk-3-dev libx11-dev pkg-config cmake ninja-build libblkid-dev libsecret-1-dev libjsoncpp-dev ghostscript libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev libunwind-dev webkit2gtk-4.1-dev
           version: 1.0
           execute_install_scripts: true
 
@@ -37,9 +37,6 @@ jobs:
           key: ${{ runner.OS }}-saber-${{ hashFiles('**/pubspec.lock') }}-${{ hashFiles('**/*.dart') }}
           restore-keys: |
             ${{ runner.OS }}-saber-
-      
-      - name: Remove simulator dependency
-        run: ./patches/remove_simulator_dependency.sh
       
       - name: Remove proprietary dependencies
         run: ./patches/remove_proprietary_dependencies.sh
@@ -77,8 +74,8 @@ jobs:
           install -Dm644 flatpak/com.adilhanney.saber.metainfo.xml -t AppDir/share/metainfo/
           install -Dm644 flatpak/com.adilhanney.saber.metainfo.xml -t AppDir/usr/share/metainfo/
 
-          install -Dm644 assets/icon/resized/icon-512x512.png AppDir/share/icons/hicolor/512x512/apps/com.adilhanney.saber.png
-          install -Dm644 assets/icon/resized/icon-512x512.png AppDir/usr/share/icons/hicolor/512x512/apps/com.adilhanney.saber.png
+          install -Dm644 assets/icon/icon.svg AppDir/share/icons/hicolor/scalable/apps/com.adilhanney.saber.svg
+          install -Dm644 assets/icon/icon.svg AppDir/usr/share/icons/hicolor/scalable/apps/com.adilhanney.saber.svg
 
           install -Dm644 flatpak/com.adilhanney.saber.desktop -t AppDir/share/applications/
 
@@ -144,7 +141,7 @@ jobs:
               sudo \
               bash curl file git unzip xz-utils zip \
               clang cmake ninja-build pkg-config libgtk-3-dev liblzma-dev libstdc++-12-dev \
-              libsecret-1-dev libjsoncpp-dev \
+              libsecret-1-dev libjsoncpp-dev webkit2gtk-4.1-dev \
               libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev libunwind-dev
 
             echo Creating nonroot user
@@ -205,9 +202,6 @@ jobs:
             export RUSTUP_HOME=/opt/rustup
             export PUB_CACHE=build/pub_cache
 
-            echo Removing simulator dependency
-            ./patches/remove_simulator_dependency.sh
-
             echo Removing proprietary dependencies
             ./patches/remove_proprietary_dependencies.sh
 
@@ -241,8 +235,8 @@ jobs:
           install -Dm644 flatpak/com.adilhanney.saber.metainfo.xml -t AppDir/share/metainfo/
           install -Dm644 flatpak/com.adilhanney.saber.metainfo.xml -t AppDir/usr/share/metainfo/
 
-          install -Dm644 assets/icon/resized/icon-512x512.png AppDir/share/icons/hicolor/512x512/apps/com.adilhanney.saber.png
-          install -Dm644 assets/icon/resized/icon-512x512.png AppDir/usr/share/icons/hicolor/512x512/apps/com.adilhanney.saber.png
+          install -Dm644 assets/icon/icon.svg AppDir/share/icons/hicolor/scalable/apps/com.adilhanney.saber.svg
+          install -Dm644 assets/icon/icon.svg AppDir/usr/share/icons/hicolor/scalable/apps/com.adilhanney.saber.svg
 
           install -Dm644 flatpak/com.adilhanney.saber.desktop -t AppDir/share/applications/
 

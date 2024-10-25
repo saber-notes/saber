@@ -26,6 +26,10 @@ The application uses third-party services to provide certain features.
 
 #### Google AdMob
 
+Update: As of 23 September 2024, ads have been removed from the development version of the application
+and will soon be removed from the stable version. Please disregard this section if you are using
+Saber v0.24.7 or later.
+
 Certain versions of the application are supported by Google AdMob ads including Google's ad network
 and other GDPR-compliant ad networks:
 - The iOS version available on the App Store

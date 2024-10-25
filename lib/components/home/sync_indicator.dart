@@ -84,7 +84,8 @@ class _SyncIndicatorState extends State<SyncIndicator> {
                 child: switch (status) {
                   _SyncIndicatorStatus.done => null,
                   _SyncIndicatorStatus.uploading => const Icon(Icons.upload),
-                  _SyncIndicatorStatus.downloading => const Icon(Icons.download),
+                  _SyncIndicatorStatus.downloading =>
+                    const Icon(Icons.download),
                   _SyncIndicatorStatus.merging => const Icon(Icons.sync),
                 },
               );

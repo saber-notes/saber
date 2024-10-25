@@ -1,0 +1,3 @@
+• Amélioration des performances de défilement et suppression des décalages de mise en page
+• Les téléchargements échoués sont désormais réessayés à des intervalles de plus en plus longs
+• Ajout d'une page de journaux en bas des paramètres
