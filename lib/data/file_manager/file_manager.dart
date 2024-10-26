@@ -241,9 +241,9 @@ class FileManager {
         if (permissionGranted) {
           await SaverGallery.saveImage(
             Uint8List.fromList(bytes),
-            name: fileName,
+            fileName: fileName,
             androidRelativePath: 'Pictures/Saber',
-            androidExistNotSave: true,
+            skipIfExists: true,
           );
         }
       } else {

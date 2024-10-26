@@ -73,7 +73,7 @@ dependencies:
 
   regexed_validator: ^2.0.0+1
 
-  slang: ^3.9.0
+  slang: ^4.1.0
   slang_flutter:
 
   flex_color_picker: ^3.4.1
@@ -87,7 +87,7 @@ dependencies:
   defer_pointer: ^0.0.2
 
   permission_handler: ^11.3.1
-  saver_gallery: ^3.0.5
+  saver_gallery: ^4.0.0
 
   animations: ^2.0.7
 
