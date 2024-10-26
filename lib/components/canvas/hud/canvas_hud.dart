@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:material_symbols_icons/symbols.dart';
 import 'package:saber/components/canvas/hud/canvas_gesture_lock_btn.dart';
 import 'package:saber/components/canvas/hud/canvas_zoom_indicator.dart';
+import 'package:saber/data/extensions/matrix4_extensions.dart';
 import 'package:saber/i18n/strings.g.dart';
 
 class CanvasHud extends StatefulWidget {
@@ -109,7 +110,7 @@ class _CanvasHudState extends State<CanvasHud> {
                 animation: widget.transformationController,
                 builder: (context, _) => CanvasZoomIndicator(
                   scale:
-                      widget.transformationController.value.getMaxScaleOnAxis(),
+                      widget.transformationController.value.approxScale,
                   resetZoom: widget.resetZoom,
                 ),
               ),

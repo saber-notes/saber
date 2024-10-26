@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:saber/components/canvas/canvas_gesture_detector.dart';
+import 'package:saber/data/extensions/matrix4_extensions.dart';
 
 void main() {
   const containerBounds = BoxConstraints(
@@ -18,7 +19,7 @@ void main() {
       containerBounds: containerBounds,
     );
     expect(newMatrix, isNotNull);
-    final scale = newMatrix!.getMaxScaleOnAxis();
+    final scale = newMatrix!.approxScale;
     expect(scale, 1.1);
     final translation = newMatrix.getTranslation();
     expect(translation.x, moreOrLessEquals(-5));
@@ -33,7 +34,7 @@ void main() {
       containerBounds: containerBounds,
     );
     expect(newMatrix, isNotNull);
-    final scale = newMatrix!.getMaxScaleOnAxis();
+    final scale = newMatrix!.approxScale;
     expect(scale, 0.9);
     final translation = newMatrix.getTranslation();
     expect(translation.x, moreOrLessEquals(5));
@@ -48,7 +49,7 @@ void main() {
       containerBounds: containerBounds,
     );
     expect(newMatrix, isNotNull);
-    final scale = newMatrix!.getMaxScaleOnAxis();
+    final scale = newMatrix!.approxScale;
     expect(scale, 1.1);
     final translation = newMatrix.getTranslation();
     expect(translation.x, moreOrLessEquals(105));

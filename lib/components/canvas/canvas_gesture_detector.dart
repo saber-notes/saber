@@ -12,6 +12,7 @@ import 'package:saber/components/canvas/hud/canvas_hud.dart';
 import 'package:saber/components/canvas/interactive_canvas.dart';
 import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/extensions/change_notifier_extensions.dart';
+import 'package:saber/data/extensions/matrix4_extensions.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/pages/editor/editor.dart';
 import 'package:vector_math/vector_math_64.dart';
@@ -144,7 +145,7 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
   /// If zooming is locked, this is the zoom level.
   /// Otherwise, this is null.
   late double? zoomLockedValue = Prefs.lastZoomLock.value
-      ? widget._transformationController.value.getMaxScaleOnAxis()
+      ? widget._transformationController.value.approxScale
       : null;
 
   /// Whether single-finger panning is locked.
@@ -173,7 +174,7 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
     required Matrix4 transformation,
     required BoxConstraints containerBounds,
   }) {
-    final oldScale = transformation.getMaxScaleOnAxis();
+    final oldScale = transformation.approxScale;
     final newScale = oldScale + scaleDelta;
 
     if (newScale < CanvasGestureDetector.kMinScale) return null;
@@ -317,7 +318,7 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
       // if we're opening the same note, restore the last transform
       widget._transformationController.value = transformCacheItem.transform;
       if (zoomLockedValue != null) {
-        zoomLockedValue = transformCacheItem.transform.getMaxScaleOnAxis();
+        zoomLockedValue = transformCacheItem.transform.approxScale;
       }
     } else if (widget.initialPageIndex != null) {
       // if we're opening a different note, scroll to the last recorded page
@@ -336,7 +337,7 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
   /// If the scale is less than 1, centers the pages horizontally.
   /// Otherwise, prevents the user from scrolling past the edges.
   void onTransformChanged() {
-    final scale = widget._transformationController.value.getMaxScaleOnAxis();
+    final scale = widget._transformationController.value.approxScale;
     final translation = widget._transformationController.value.getTranslation();
 
     double adjustmentX = 0;
@@ -378,7 +379,7 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
   /// Resets the zoom level to 1.0x
   void resetZoom() {
     final transformation = widget._transformationController.value;
-    final scale = transformation.getMaxScaleOnAxis();
+    final scale = transformation.approxScale;
     if (scale == 1) return;
 
     widget._transformationController.value = setZoom(
@@ -474,7 +475,7 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
             zoomLock: zoomLockedValue != null,
             setZoomLock: (bool zoomLock) => setState(() {
               zoomLockedValue = zoomLock
-                  ? widget._transformationController.value.getMaxScaleOnAxis()
+                  ? widget._transformationController.value.approxScale
                   : null;
               Prefs.lastZoomLock.value = zoomLock;
             }),

@@ -35,6 +35,7 @@ import 'package:saber/data/editor/editor_history.dart';
 import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/editor/pencil_sound.dart';
 import 'package:saber/data/extensions/change_notifier_extensions.dart';
+import 'package:saber/data/extensions/matrix4_extensions.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/nextcloud/saber_syncer.dart';
 import 'package:saber/data/prefs.dart';
@@ -108,7 +109,7 @@ class EditorState extends State<Editor> {
       TransformationController()
         ..addListener(() {
           PdfEditorImage.checkIfHighDpiNeeded(
-            getZoom: () => _transformationController.value.getMaxScaleOnAxis(),
+            getZoom: () => _transformationController.value.approxScale,
             getScrollY: () => scrollY,
             pages: coreInfo.pages,
             screenWidth: _canvasGestureDetectorKey
@@ -118,7 +119,7 @@ class EditorState extends State<Editor> {
         });
   double get scrollY {
     final transformation = _transformationController.value;
-    final scale = transformation.getMaxScaleOnAxis();
+    final scale = transformation.approxScale;
     final translation = transformation.getTranslation();
     final gestureDetector = _canvasGestureDetectorKey.currentState;
 
@@ -1839,7 +1840,7 @@ class EditorState extends State<Editor> {
         setState(() {});
       },
       currentToolIsSelect: currentTool is Select,
-      currentScale: _transformationController.value.getMaxScaleOnAxis(),
+      currentScale: _transformationController.value.approxScale,
     );
   }
 
