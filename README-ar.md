@@ -202,21 +202,21 @@ flutter build apk --dart-define=OFFLINE_FONTS_ONLY="true"
 
 جميع الترجمات مصدرها المجتمع. حتى الآن تم ترجمة تطبيق Saber إلى:
 - الانجليزية ([en](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings.i18n.yaml))
-- العربية ([ar](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_ar.i18n.yaml))
-- التشيكية ([cs](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_cs.i18n.yaml))
-- الالمانية ([de](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_de.i18n.yaml))
-- الاسبانية ([es](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_es.i18n.yaml))
-- الفارسية ([fa](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_fa.i18n.yaml))
-- الفرنسية ([fr](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_fr.i18n.yaml))
-- العبرية ([he](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_he.i18n.yaml))
-- الهنغارية ([hu](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_hu.i18n.yaml))
-- الايطالية ([it](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_it.i18n.yaml))
-- اليابانية ([ja](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_ja.i18n.yaml))
-- البرتغالية البرازيلية ([pt_BR](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_pt_BR.i18n.yaml))
-- الروسية ([ru](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_ru.i18n.yaml))
-- التركية ([tr](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_tr.i18n.yaml))
-- الصينية المبسطة ([zh_Hans_CN](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_zh_Hans_CN.i18n.yaml))
-- الصينية التقليدية ([zh_Hant_TW](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_zh_Hant_TW.i18n.yaml))
+- العربية ([ar](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_ar.i18n.yaml))
+- التشيكية ([cs](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_cs.i18n.yaml))
+- الالمانية ([de](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_de.i18n.yaml))
+- الاسبانية ([es](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_es.i18n.yaml))
+- الفارسية ([fa](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_fa.i18n.yaml))
+- الفرنسية ([fr](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_fr.i18n.yaml))
+- العبرية ([he](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_he.i18n.yaml))
+- الهنغارية ([hu](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_hu.i18n.yaml))
+- الايطالية ([it](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_it.i18n.yaml))
+- اليابانية ([ja](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_ja.i18n.yaml))
+- البرتغالية البرازيلية ([pt_BR](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_pt_BR.i18n.yaml))
+- الروسية ([ru](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_ru.i18n.yaml))
+- التركية ([tr](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_tr.i18n.yaml))
+- الصينية المبسطة ([zh_Hans_CN](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_zh_Hans_CN.i18n.yaml))
+- الصينية التقليدية ([zh_Hant_TW](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_zh_Hant_TW.i18n.yaml))
 
 قوم حاليًا بتجربة استخدام 
 [Weblate](https://hosted.weblate.org/projects/saber-notes/saber/)
@@ -244,8 +244,8 @@ flutter build apk --dart-define=OFFLINE_FONTS_ONLY="true"
 
 1. ابحث عن كود اللغة الخاص بك [هنا](https://saimana.com/list-of-country-locale-code/),
    ثل hi للهندية، fr للفرنسية، bn للبنغالية، ar للعربية، إلخ
-2. استخدم [هذا الرابط](https://github.com/saber-notes/saber/new/main/lib/i18n/community)
-    لإنشاء ملف جديد في `lib/i18n/community/` يدعى `strings_XX.i18n.yaml`
+2. استخدم [هذا الرابط](https://github.com/saber-notes/saber/new/main/lib/i18n/)
+    لإنشاء ملف جديد في `lib/i18n/` يدعى `strings_XX.i18n.yaml`
    حيث يمثل `XX` كود اللغة الخاصة بك.
 3. انسخ محتويات ملف موجود مثل 
    [`lib/i18n/strings.i18n.yaml`](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings.i18n.yaml)

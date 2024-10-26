@@ -209,20 +209,20 @@ Windows 安裝程式是使用 [Inno Setup](https://jrsoftware.org/isinfo.php) �
 所有翻譯都是群眾外包的。 Saber 目前已被翻譯成：
 
 - 英文 ([en](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings.i18n.yaml))
-- 阿拉伯文 ([ar](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_ar.i18n.yaml))
-- 捷克文 ([cs](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_cs.i18n.yaml))
-- 德文 ([de](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_de.i18n.yaml))
-- 西班牙文 ([es](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_es.i18n.yaml))
-- 波斯文 ([fa](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_fa.i18n.yaml))
-- 法文 ([fr](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_fr.i18n.yaml))
-- 匈牙利文 ([hu](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_hu.i18n.yaml))
-- 義大利文 ([it](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_it.i18n.yaml))
-- 日文 ([ja](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_ja.i18n.yaml))
-- 葡萄牙語（巴西） ([pt_BR](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_pt_BR.i18n.yaml))
-- 俄文 ([ru](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_ru.i18n.yaml))
-- 土耳其文 ([tr](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_tr.i18n.yaml))
-- 簡體中文 ([zh_Hans_CN](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_zh_Hans_CN.i18n.yaml))
-- 繁體中文 ([zh_Hant_TW](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_zh_Hant_TW.i18n.yaml))
+- 阿拉伯文 ([ar](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_ar.i18n.yaml))
+- 捷克文 ([cs](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_cs.i18n.yaml))
+- 德文 ([de](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_de.i18n.yaml))
+- 西班牙文 ([es](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_es.i18n.yaml))
+- 波斯文 ([fa](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_fa.i18n.yaml))
+- 法文 ([fr](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_fr.i18n.yaml))
+- 匈牙利文 ([hu](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_hu.i18n.yaml))
+- 義大利文 ([it](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_it.i18n.yaml))
+- 日文 ([ja](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_ja.i18n.yaml))
+- 葡萄牙語（巴西） ([pt_BR](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_pt_BR.i18n.yaml))
+- 俄文 ([ru](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_ru.i18n.yaml))
+- 土耳其文 ([tr](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_tr.i18n.yaml))
+- 簡體中文 ([zh_Hans_CN](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_zh_Hans_CN.i18n.yaml))
+- 繁體中文 ([zh_Hant_TW](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_zh_Hant_TW.i18n.yaml))
 
 ### 擴展現有語言
 
@@ -245,7 +245,7 @@ Windows 安裝程式是使用 [Inno Setup](https://jrsoftware.org/isinfo.php) �
 ### 添加新語言
 
 1. 在[此處](https://saimana.com/list-of-country-locale-code/)查找您的區域代碼，例如 `hi` 代表印地文， `fr` 代表法文， `bn` 代表孟加拉文， `ar` 代表阿拉伯文，等等。
-2. 使用[此連結](https://github.com/saber-notes/saber/new/main/lib/i18n/community)在 `lib/i18n/community/` 中創建一個名為 `strings_XX.i18n.yaml` 的新檔案，其中 `XX` 是您的區代域碼。
+2. 使用[此連結](https://github.com/saber-notes/saber/new/main/lib/i18n)在 `lib/i18n/` 中創建一個名為 `strings_XX.i18n.yaml` 的新檔案，其中 `XX` 是您的區代域碼。
 3. 複製現有檔案的內容，例如 [`lib/i18n/strings.i18n.yaml`](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings.i18n.yaml) ，並將字串替換為您自己的翻譯。如果您不知道字串的翻譯，只需刪除該行即可。
 4. 打開拉取請求！
 

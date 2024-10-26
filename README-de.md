@@ -197,20 +197,20 @@ um manuell mit [Codemagic](https://codemagic.io/start/) zu builden.
 
 Alle Übersetzungen sind crowd-sourced. Saber wurde bisher in die folgenden Sprachen übersetzt:
 - Englisch ([en](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings.i18n.yaml))
-- Arabisch ([ar](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_ar.i18n.yaml))
-- Tschechisch ([cs](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_cs.i18n.yaml))
-- Deutsch ([de](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_de.i18n.yaml))
-- Spanisch ([es](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_es.i18n.yaml))
-- Persisch ([fa](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_fa.i18n.yaml))
-- Französisch ([fr](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_fr.i18n.yaml))
-- Ungarisch ([hu](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_hu.i18n.yaml))
-- Italienisch ([it](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_it.i18n.yaml))
-- Japanisch ([ja](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_ja.i18n.yaml))
-- Brazilianisch Portuguese ([pt_BR](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_pt_BR.i18n.yaml))
-- Russisch ([ru](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_ru.i18n.yaml))
-- Türkisch ([tr](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_tr.i18n.yaml))
-- Chinesisch (vereinfacht) ([zh_Hans_CN](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_zh_Hans_CN.i18n.yaml))
-- Chinesisch (traditionell) ([zh_Hant_TW](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_zh_Hant_TW.i18n.yaml))
+- Arabisch ([ar](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_ar.i18n.yaml))
+- Tschechisch ([cs](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_cs.i18n.yaml))
+- Deutsch ([de](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_de.i18n.yaml))
+- Spanisch ([es](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_es.i18n.yaml))
+- Persisch ([fa](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_fa.i18n.yaml))
+- Französisch ([fr](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_fr.i18n.yaml))
+- Ungarisch ([hu](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_hu.i18n.yaml))
+- Italienisch ([it](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_it.i18n.yaml))
+- Japanisch ([ja](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_ja.i18n.yaml))
+- Brazilianisch Portuguese ([pt_BR](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_pt_BR.i18n.yaml))
+- Russisch ([ru](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_ru.i18n.yaml))
+- Türkisch ([tr](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_tr.i18n.yaml))
+- Chinesisch (vereinfacht) ([zh_Hans_CN](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_zh_Hans_CN.i18n.yaml))
+- Chinesisch (traditionell) ([zh_Hant_TW](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_zh_Hant_TW.i18n.yaml))
 
 ### Existierende Übersetzungen erweitern
 
@@ -236,8 +236,8 @@ um zu überprüfen ob Übersetzungen fehlen.
 
 1. Suche [hier](https://de.wikipedia.org/wiki/Liste_der_ISO-639-1-Codes) nach den zweistelligen Locale-Codes,
    z. B. `hi` für Hindi, `fr` für Französisch, `bn` für Bengalisch, `ar` für Arabisch, etc.
-2. Benutze [diesen Link](https://github.com/saber-notes/saber/new/main/lib/i18n/community)
-   um eine neue Datei in `lib/i18n/community/` mit dem Namen `strings_XX.i18n.yaml` zu erstellen, wobei 
+2. Benutze [diesen Link](https://github.com/saber-notes/saber/new/main/lib/i18n)
+   um eine neue Datei in `lib/i18n/` mit dem Namen `strings_XX.i18n.yaml` zu erstellen, wobei 
    `XX` der herausgesuchte Locale-Code ist.
 3. Kopiere den Inhalt in eine existierende Datei, wie z. B.
    [`lib/i18n/strings.i18n.yaml`](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings.i18n.yaml)

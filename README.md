@@ -208,21 +208,21 @@ to manually build with [Codemagic](https://codemagic.io/start/).
 
 All translations are crowd-sourced. Saber has so far been translated into:
 - English ([en](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings.i18n.yaml))
-- Arabic ([ar](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_ar.i18n.yaml))
-- Czech ([cs](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_cs.i18n.yaml))
-- German ([de](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_de.i18n.yaml))
-- Spanish ([es](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_es.i18n.yaml))
-- Persian ([fa](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_fa.i18n.yaml))
-- French ([fr](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_fr.i18n.yaml))
-- Hebrew ([he](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_he.i18n.yaml))
-- Hungarian ([hu](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_hu.i18n.yaml))
-- Italian ([it](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_it.i18n.yaml))
-- Japanese ([ja](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_ja.i18n.yaml))
-- Brazilian Portuguese ([pt_BR](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_pt_BR.i18n.yaml))
-- Russian ([ru](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_ru.i18n.yaml))
-- Turkish ([tr](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_tr.i18n.yaml))
-- Chinese Simplified ([zh_Hans_CN](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_zh_Hans_CN.i18n.yaml))
-- Chinese Traditional ([zh_Hant_TW](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_zh_Hant_TW.i18n.yaml))
+- Arabic ([ar](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_ar.i18n.yaml))
+- Czech ([cs](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_cs.i18n.yaml))
+- German ([de](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_de.i18n.yaml))
+- Spanish ([es](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_es.i18n.yaml))
+- Persian ([fa](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_fa.i18n.yaml))
+- French ([fr](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_fr.i18n.yaml))
+- Hebrew ([he](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_he.i18n.yaml))
+- Hungarian ([hu](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_hu.i18n.yaml))
+- Italian ([it](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_it.i18n.yaml))
+- Japanese ([ja](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_ja.i18n.yaml))
+- Brazilian Portuguese ([pt_BR](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_pt_BR.i18n.yaml))
+- Russian ([ru](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_ru.i18n.yaml))
+- Turkish ([tr](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_tr.i18n.yaml))
+- Chinese Simplified ([zh_Hans_CN](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_zh_Hans_CN.i18n.yaml))
+- Chinese Traditional ([zh_Hant_TW](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_zh_Hant_TW.i18n.yaml))
 
 I'm experimenting with using
 [Weblate](https://hosted.weblate.org/projects/saber-notes/saber/)
@@ -252,8 +252,8 @@ Check [_missing_translations.yaml](https://github.com/saber-notes/saber/blob/mai
 
 1. Look for your locale code [here](https://saimana.com/list-of-country-locale-code/),
    e.g. `hi` for Hindi, `fr` for French, `bn` for Bengali, `ar` for Arabic, etc.
-2. Use [this link](https://github.com/saber-notes/saber/new/main/lib/i18n/community)
-   to create a new file in `lib/i18n/community/` called `strings_XX.i18n.yaml`
+2. Use [this link](https://github.com/saber-notes/saber/new/main/lib/i18n)
+   to create a new file in `lib/i18n/` called `strings_XX.i18n.yaml`
    where `XX` is your locale code.
 3. Copy the contents of an existing file like
    [`lib/i18n/strings.i18n.yaml`](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings.i18n.yaml)

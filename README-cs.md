@@ -205,21 +205,21 @@ pro manuální sestavení s využitím [Codemagic](https://codemagic.io/start/).
 
 Veškeré překlady jsou založené na crowdsourcingu. Saber byl zatím přeložen do:
 - angličtiny ([en](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings.i18n.yaml))
-- arabštiny ([ar](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_ar.i18n.yaml))
-- češtiny ([cs](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_cs.i18n.yaml))
-- němčiny ([de](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_de.i18n.yaml))
-- španělštiny ([es](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_es.i18n.yaml))
-- perštiny ([fa](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_fa.i18n.yaml))
-- francouzštiny ([fr](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_fr.i18n.yaml))
-- hebrejštiny ([he](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_he.i18n.yaml))
-- maďarštiny ([hu](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_hu.i18n.yaml))
-- italštiny ([it](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_it.i18n.yaml))
-- japonštiny ([ja](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_ja.i18n.yaml))
-- portugalské brazilštiny ([pt_BR](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_pt_BR.i18n.yaml))
-- ruštiny ([ru](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_ru.i18n.yaml))
-- turečtiny ([tr](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_tr.i18n.yaml))
-- zjednodušené čínštiny ([zh_Hans_CN](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_zh_Hans_CN.i18n.yaml))
-- tradiční čínštiny ([zh_Hant_TW](https://github.com/saber-notes/saber/blob/main/lib/i18n/community/strings_zh_Hant_TW.i18n.yaml))
+- arabštiny ([ar](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_ar.i18n.yaml))
+- češtiny ([cs](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_cs.i18n.yaml))
+- němčiny ([de](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_de.i18n.yaml))
+- španělštiny ([es](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_es.i18n.yaml))
+- perštiny ([fa](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_fa.i18n.yaml))
+- francouzštiny ([fr](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_fr.i18n.yaml))
+- hebrejštiny ([he](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_he.i18n.yaml))
+- maďarštiny ([hu](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_hu.i18n.yaml))
+- italštiny ([it](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_it.i18n.yaml))
+- japonštiny ([ja](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_ja.i18n.yaml))
+- portugalské brazilštiny ([pt_BR](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_pt_BR.i18n.yaml))
+- ruštiny ([ru](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_ru.i18n.yaml))
+- turečtiny ([tr](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_tr.i18n.yaml))
+- zjednodušené čínštiny ([zh_Hans_CN](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_zh_Hans_CN.i18n.yaml))
+- tradiční čínštiny ([zh_Hant_TW](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_zh_Hant_TW.i18n.yaml))
 
 Experimentuji s využitím Weblate pro crowdsourcované překlady. Více informací se dozvíte později.
 
@@ -246,8 +246,8 @@ Podívejte se do [_missing_translations.yaml](https://github.com/saber-notes/sab
 
 1. Najděte [zde](https://saimana.com/list-of-country-locale-code/) svůj kód jazyka,
    např. `hi` pro hindštinu, `fr` pro francouzštinu, `bn` for bengálštinu, `ar` pro arabštinu atd.
-2. Použijte [tento odkaz](https://github.com/saber-notes/saber/new/main/lib/i18n/community)
-   pro vytvoření nového souboru v `lib/i18n/community/` nazvaného `strings_XX.i18n.yaml`,
+2. Použijte [tento odkaz](https://github.com/saber-notes/saber/new/main/lib/i18n)
+   pro vytvoření nového souboru v `lib/i18n/` nazvaného `strings_XX.i18n.yaml`,
    kde `XX` je kód vašeho jazyka.
 3. Zkopírujte obsah existujícího souboru jako (v ideálním případě anglického)
    [`lib/i18n/strings.i18n.yaml`](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings.i18n.yaml)

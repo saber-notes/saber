@@ -6,7 +6,7 @@ void main() {
   test('Check that Saber isn\'t misspelled', () async {
     final List<File> files = [
       File('lib/i18n/_missing_translations.yaml'),
-      ...Directory('lib/i18n/community').listSync().whereType<File>(),
+      ...Directory('lib/i18n').listSync().whereType<File>(),
 
       // Metadata files like metadata/XX/full_description.txt
       ...Directory('metadata')
