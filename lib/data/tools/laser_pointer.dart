@@ -134,13 +134,18 @@ class LaserStroke extends Stroke {
 
   List<Offset>? _innerPolygon;
   List<Offset> get innerPolygon => _innerPolygon ??= getStroke(
-        Stroke.skipPoints(points, 6),
+        points,
         options: options.copyWith(size: options.size * 0.4),
       );
 
   Path? _innerPath;
   Path get innerPath =>
       _innerPath ??= Stroke.smoothPathFromPolygon(innerPolygon);
+
+  /// Disables low quality to make sure the polygon exactly matches
+  /// [innerPolygon].
+  @override
+  List<Offset> get lowQualityPolygon => highQualityPolygon;
 
   @override
   void shift(Offset offset) {

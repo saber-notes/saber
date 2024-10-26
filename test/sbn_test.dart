@@ -294,7 +294,7 @@ Widget _buildCanvas({
                 currentSelection: null,
                 setAsBackground: null,
                 currentToolIsSelect: false,
-                currentScale: double.minPositive,
+                currentScale: double.maxFinite,
               ),
             ),
           ),

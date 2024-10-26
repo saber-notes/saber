@@ -209,8 +209,8 @@ void _screenshot({
         );
         await tester.pumpWidget(widget);
 
-        if (child is Editor) {
-          final editorState = tester.state<EditorState>(find.byType(Editor));
+        for (final editorState
+            in tester.stateList<EditorState>(find.byType(Editor))) {
           while (editorState.coreInfo.isEmpty) {
             await tester.runAsync(
                 () => Future.delayed(const Duration(milliseconds: 100)));
