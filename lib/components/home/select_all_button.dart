@@ -16,14 +16,18 @@ class SelectAllNotesButton extends StatelessWidget {
   final void Function() deselectAll;
 
   bool get areAllFilesSelected {
-    return selectedFiles.length == allFiles.length;
+    for (String file in allFiles) {
+      if (!selectedFiles.contains(file)) return false;
+    }
+    return true;
   }
 
   @override
   Widget build(BuildContext context) {
     return IconButton(
       padding: EdgeInsets.zero,
-      tooltip: areAllFilesSelected ? t.home.deselectAllNotes : t.home.selectAllNotes ,
+      tooltip:
+          areAllFilesSelected ? t.home.deselectAllNotes : t.home.selectAllNotes,
       onPressed: () {
         if (areAllFilesSelected)
           deselectAll();
