@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:golden_screenshot/golden_screenshot.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:saber/components/canvas/canvas.dart';
 import 'package:saber/components/canvas/image/editor_image.dart';
@@ -103,6 +104,7 @@ void main() {
                 context: tester.binding.rootElement!,
                 page: page,
               ));
+          await tester.loadFonts();
           await tester.pumpWidget(_buildCanvas(
             brightness: Brightness.light,
             path: path,
@@ -122,6 +124,7 @@ void main() {
                 context: tester.binding.rootElement!,
                 page: page,
               ));
+          await tester.loadFonts();
           await tester.pumpWidget(_buildCanvas(
             brightness: Brightness.dark,
             path: path,
@@ -223,6 +226,7 @@ void main() {
             context: tester.binding.rootElement!,
             page: importedCoreInfo.pages.first,
           ));
+      await tester.loadFonts();
       await tester.pumpWidget(_buildCanvas(
         brightness: Brightness.light,
         path: importedPath,

@@ -8,6 +8,7 @@ import 'package:perfect_freehand/perfect_freehand.dart';
 import 'package:saber/components/canvas/_circle_stroke.dart';
 import 'package:saber/components/canvas/_rectangle_stroke.dart';
 import 'package:saber/components/canvas/_stroke.dart';
+import 'package:saber/components/theming/font_fallbacks.dart';
 import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/extensions/color_extensions.dart';
 import 'package:saber/data/tools/highlighter.dart';
@@ -274,6 +275,8 @@ class CanvasPainter extends CustomPainter {
       ..pushStyle(TextStyle(
         color: Colors.black.withInversion(invert).withOpacity(0.5),
         fontSize: _pageIndicatorFontSize,
+        fontFamily: 'Roboto',
+        fontFamilyFallback: FallbackTextStyle.sansSerifFallbacks,
       ))
       ..addText('${pageIndex + 1} / $totalPages');
 

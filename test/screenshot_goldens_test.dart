@@ -186,7 +186,7 @@ void _screenshot({
       testWidgets('for ${goldenDevice.name} in $localeCode', (tester) async {
         final device = goldenDevice.device;
         Prefs.platform.value = device.platform;
-        LocaleSettings.setLocaleRaw(localeCode);
+        await tester.runAsync(() => LocaleSettings.setLocaleRaw(localeCode));
 
         debugDisableShadows = false;
 
