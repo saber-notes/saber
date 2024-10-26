@@ -77,39 +77,28 @@ class RectangleStroke extends Stroke {
   @override
   int get length => 100;
 
-  /// A list of points that form the
-  /// rectangle's perimeter.
-  /// Each side has 25 points.
+  /// A list of points that form the rectangle's perimeter.
+  /// Each side has 24/N points.
   @override
-  List<Offset> get polygon => super.polygon;
+  List<Offset> getPolygon(int N) => [
+        // left side
+        for (int i = 0; i < 24 / N; ++i)
+          Offset(rect.left, rect.top + rect.height * i / 24),
+        // bottom side
+        for (int i = 0; i < 24 / N; ++i)
+          Offset(rect.left + rect.width * i / 24, rect.bottom),
+        // right side
+        for (int i = 0; i < 24 / N; ++i)
+          Offset(rect.right, rect.bottom - rect.height * i / 24),
+        // top side
+        for (int i = 0; i < 24 / N; ++i)
+          Offset(rect.right - rect.width * i / 24, rect.top),
+      ];
 
+  /// Returns a [Path] with four lines for each side of the rectangle.
   @override
-  void updatePolygon() {
-    lastPolygon = _getPolygon();
-    lastPath = Path()..addRect(rect);
-    polygonNeedsUpdating = false;
-  }
-
-  List<Offset> _getPolygon() {
-    final polygon = <Offset>[];
-    for (int i = 0; i < 25; ++i) {
-      // left side
-      polygon.add(Offset(rect.left, rect.top + rect.height * i / 25));
-    }
-    for (int i = 0; i < 25; ++i) {
-      // bottom side
-      polygon.add(Offset(rect.left + rect.width * i / 25, rect.bottom));
-    }
-    for (int i = 0; i < 25; ++i) {
-      // right side
-      polygon.add(Offset(rect.right, rect.bottom - rect.height * i / 25));
-    }
-    for (int i = 0; i < 25; ++i) {
-      // top side
-      polygon.add(Offset(rect.right - rect.width * i / 25, rect.top));
-    }
-    return polygon;
-  }
+  Path getPath(List<Offset> polygon, {bool smooth = true}) =>
+      Path()..addRect(rect);
 
   @override
   @Deprecated('Cannot add points to a rectangle stroke.')
@@ -145,7 +134,7 @@ class RectangleStroke extends Stroke {
   @override
   void shift(Offset offset) {
     rect = rect.shift(offset);
-    polygonNeedsUpdating = true;
+    super.shift(offset);
   }
 
   @override
@@ -154,7 +143,7 @@ class RectangleStroke extends Stroke {
     return RecognizedUnistroke(
       DefaultUnistrokeNames.rectangle,
       1,
-      originalPoints: polygon,
+      originalPoints: lowQualityPolygon,
       referenceUnistrokes: default$1Unistrokes,
     );
   }

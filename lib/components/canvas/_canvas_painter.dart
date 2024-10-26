@@ -29,6 +29,7 @@ class CanvasPainter extends CustomPainter {
     required this.showPageIndicator,
     required this.pageIndex,
     required this.totalPages,
+    required this.currentScale,
   });
 
   final bool invert;
@@ -37,11 +38,11 @@ class CanvasPainter extends CustomPainter {
   final Stroke? currentStroke;
   final SelectResult? currentSelection;
   final Color primaryColor;
-
   final EditorPage page;
   final bool showPageIndicator;
   final int pageIndex;
   final int totalPages;
+  final double currentScale;
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -84,7 +85,7 @@ class CanvasPainter extends CustomPainter {
         lastColor = color;
       }
 
-      canvas.drawPath(stroke.path, Paint()..color = color);
+      canvas.drawPath(_selectPath(stroke), Paint()..color = color);
     }
 
     if (needToRestoreCanvasLayer) canvas.restore();
@@ -135,11 +136,11 @@ class CanvasPainter extends CustomPainter {
         );
       } else if (stroke.length <= 2) {
         // a dot
-        final bounds = stroke.path.getBounds();
+        final bounds = stroke.lowQualityPath.getBounds();
         final radius = max(bounds.size.width, stroke.options.size) / 2;
         canvas.drawCircle(bounds.center, radius, paint);
       } else {
-        canvas.drawPath(stroke.path, paint);
+        canvas.drawPath(_selectPath(stroke), paint);
       }
     }
   }
@@ -168,20 +169,21 @@ class CanvasPainter extends CustomPainter {
 
     if (currentStroke!.length <= 2) {
       // a dot
-      final bounds = currentStroke!.path.getBounds();
+      final bounds = currentStroke!.highQualityPath.getBounds();
       final radius = max(
         bounds.size.width * 0.5,
         currentStroke!.options.size * 0.25,
       );
       canvas.drawCircle(bounds.center, radius, paint);
     } else {
-      canvas.drawPath(currentStroke!.path, paint);
+      // Current stroke always uses high quality
+      canvas.drawPath(currentStroke!.highQualityPath, paint);
     }
   }
 
   void _drawLaserStroke(Canvas canvas, LaserStroke stroke) {
     canvas.drawPath(
-      stroke.path,
+      _selectPath(stroke),
       Paint()
         ..color = stroke.color.withInversion(invert)
         ..maskFilter = MaskFilter.blur(
@@ -293,4 +295,9 @@ class CanvasPainter extends CustomPainter {
         BlurStyle.normal,
         min(size * 0.3, 5),
       );
+
+  Path _selectPath(Stroke stroke) => switch (currentScale) {
+        < 1 => stroke.lowQualityPath,
+        _ => stroke.highQualityPath,
+      };
 }

@@ -9,6 +9,7 @@ import 'package:perfect_freehand/perfect_freehand.dart';
 import 'package:saber/components/canvas/_circle_stroke.dart';
 import 'package:saber/components/canvas/_rectangle_stroke.dart';
 import 'package:saber/data/editor/page.dart';
+import 'package:saber/data/extensions/list_extensions.dart';
 import 'package:saber/data/extensions/point_extensions.dart';
 import 'package:saber/data/tools/pen.dart';
 
@@ -33,42 +34,33 @@ class Stroke {
   bool pressureEnabled;
   final StrokeOptions options;
 
-  @protected
-  bool polygonNeedsUpdating = true;
-  @protected
-  late List<Offset> lastPolygon = const [];
-  @protected
-  late Path lastPath = Path();
+  List<Offset>? _lowQualityPolygon, _highQualityPolygon;
+  List<Offset> get lowQualityPolygon => _lowQualityPolygon ??= getPolygon(
+        // Use every 12th point, or exactly 6 evenly spaced points.
+        min(12, points.length ~/ 6),
+      );
+  List<Offset> get highQualityPolygon => _highQualityPolygon ??= getPolygon(1);
 
-  List<Offset> get polygon {
-    if (polygonNeedsUpdating) updatePolygon();
-    return lastPolygon;
-  }
-
-  Path get path {
-    if (polygonNeedsUpdating) updatePolygon();
-    return lastPath;
-  }
-
-  @protected
-  void updatePolygon() {
-    polygonNeedsUpdating = false;
-    lastPolygon = _getPolygon();
-    lastPath = _getPath();
-  }
+  Path? _lowQualityPath, _highQualityPath;
+  Path get lowQualityPath =>
+      _lowQualityPath ??= getPath(lowQualityPolygon, smooth: false);
+  Path get highQualityPath => _highQualityPath ??= getPath(highQualityPolygon);
 
   void shift(Offset offset) {
     if (offset == Offset.zero) return;
 
-    for (int i = 0; i < points.length; i++) {
-      points[i] += offset;
-    }
-
-    polygonNeedsUpdating = true;
+    points.shift(offset);
+    _lowQualityPolygon?.shift(offset);
+    _highQualityPolygon?.shift(offset);
+    _lowQualityPath?.shift(offset);
+    _highQualityPath?.shift(offset);
   }
 
   void markPolygonNeedsUpdating() {
-    polygonNeedsUpdating = true;
+    _lowQualityPolygon = null;
+    _highQualityPolygon = null;
+    _lowQualityPath = null;
+    _highQualityPath = null;
   }
 
   Stroke({
@@ -164,7 +156,7 @@ class Stroke {
     }
 
     points.add(PointVector(point.dx, point.dy, pressure));
-    polygonNeedsUpdating = true;
+    markPolygonNeedsUpdating();
   }
 
   void addPoints(List<Offset> points) {
@@ -175,7 +167,7 @@ class Stroke {
 
   void popFirstPoint() {
     points.removeAt(0);
-    polygonNeedsUpdating = true;
+    markPolygonNeedsUpdating();
   }
 
   /// Points that are closer than this
@@ -210,15 +202,16 @@ class Stroke {
     }
   }
 
-  List<Offset> _getPolygon() {
+  @protected
+  List<Offset> getPolygon(int N) {
     if (!pressureEnabled) {
       options.simulatePressure = false;
     }
     final rememberSimulatedPressure =
-        options.simulatePressure && options.isComplete;
+        N <= 1 && options.simulatePressure && options.isComplete;
 
     final polygon = getStroke(
-      points,
+      skipPoints(points, N),
       options: options,
       rememberSimulatedPressure: rememberSimulatedPressure,
     );
@@ -228,8 +221,6 @@ class Stroke {
       options.simulatePressure = false;
       // Remove points that are too close together
       optimisePoints();
-      // Get polygon again with slightly different input
-      return _getPolygon();
     }
 
     return polygon;
@@ -237,17 +228,27 @@ class Stroke {
 
   /// Returns a [Path] that represents the stroke.
   ///
-  /// If the stroke is not complete,
-  /// the path will just follow the polygon for performance.
+  /// If [smooth] is true, and the stroke is complete,
+  /// the path will be a smooth curve between the points in [polygon].
   ///
-  /// If the stroke is complete,
-  /// the path will be a smooth curve between the points.
-  Path _getPath() {
-    if (!options.isComplete) {
-      return Path()..addPolygon(polygon, true);
+  /// Otherwise, the path will use straight lines between each point
+  /// in [polygon] for performance.
+  @protected
+  Path getPath(List<Offset> polygon, {bool smooth = true}) {
+    if (smooth && options.isComplete) {
+      return smoothPathFromPolygon(polygon);
     }
 
-    return smoothPathFromPolygon(polygon);
+    return Path()..addPolygon(polygon, true);
+  }
+
+  /// Returns a list with every Nth point in [points].
+  static List<PointVector> skipPoints(List<PointVector> points, int N) {
+    if (N == 1) return points;
+    return [
+      for (int i = 0; i < points.length; i += N) points[i],
+      points.last,
+    ];
   }
 
   static Path smoothPathFromPolygon(List<Offset> polygon) {
@@ -270,7 +271,7 @@ class Stroke {
 
     // Remove NaN points, and convert to SVG coordinates
     final svgPoints =
-        polygon.where((offset) => offset.isFinite).map(toSvgPoint);
+        highQualityPolygon.where((offset) => offset.isFinite).map(toSvgPoint);
 
     return svgPoints.isNotEmpty ? 'M${svgPoints.join('L')}' : '';
   }

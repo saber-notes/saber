@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:perfect_freehand/perfect_freehand.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/data/editor/page.dart';
-
+import 'package:saber/data/extensions/list_extensions.dart';
 import 'package:saber/data/tools/_tool.dart';
 import 'package:saber/data/tools/pen.dart';
 
@@ -132,25 +132,27 @@ class LaserStroke extends Stroke {
     points.addAll(stroke.points);
   }
 
-  @override
-  void updatePolygon() {
-    super.updatePolygon();
-    innerPolygon = _getInnerPolygon();
-    innerPath = _getInnerPath();
-  }
-
-  late List<Offset> innerPolygon = const [];
-  late Path innerPath = Path();
-
-  List<Offset> _getInnerPolygon() => getStroke(
-        points,
+  List<Offset>? _innerPolygon;
+  List<Offset> get innerPolygon => _innerPolygon ??= getStroke(
+        Stroke.skipPoints(points, 6),
         options: options.copyWith(size: options.size * 0.4),
       );
 
-  Path _getInnerPath() {
-    if (!options.isComplete)
-      return Path()..addPolygon(innerPolygon, true);
-    else
-      return Stroke.smoothPathFromPolygon(innerPolygon);
+  Path? _innerPath;
+  Path get innerPath =>
+      _innerPath ??= Stroke.smoothPathFromPolygon(innerPolygon);
+
+  @override
+  void shift(Offset offset) {
+    _innerPolygon?.shift(offset);
+    _innerPath?.shift(offset);
+    super.shift(offset);
+  }
+
+  @override
+  void markPolygonNeedsUpdating() {
+    _innerPolygon = null;
+    _innerPath = null;
+    super.markPolygonNeedsUpdating();
   }
 }

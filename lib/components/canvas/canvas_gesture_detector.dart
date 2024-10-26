@@ -516,15 +516,10 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
       quad.point3,
     ];
 
-    final List<double> xValues =
-        points.map((Vector3 point) => point.x).toList();
-    final List<double> yValues =
-        points.map((Vector3 point) => point.y).toList();
-
-    final double left = xValues.reduce(min);
-    final double right = xValues.reduce(max);
-    final double top = yValues.reduce(min);
-    final double bottom = yValues.reduce(max);
+    final double left = points.map((point) => point.x).reduce(min);
+    final double right = points.map((point) => point.x).reduce(max);
+    final double top = points.map((point) => point.y).reduce(min);
+    final double bottom = points.map((point) => point.y).reduce(max);
 
     return Rect.fromLTRB(left, top, right, bottom);
   }

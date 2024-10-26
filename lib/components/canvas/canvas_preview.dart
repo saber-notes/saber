@@ -85,6 +85,7 @@ class CanvasPreview extends StatelessWidget implements PreferredSizeWidget {
       currentSelection: null,
       hideBackground: Prefs.hideHomeBackgrounds.value,
       currentToolIsSelect: false,
+      currentScale: double.minPositive,
     );
   }
 }

@@ -35,12 +35,10 @@ class Select extends Tool {
 
     Map<Color, int> colorDistribution = <Color, int>{};
     for (Stroke stroke in selectResult.strokes) {
-      int strokeSize = stroke.polygon.length;
-
       colorDistribution.update(
         stroke.color,
-        (value) => value + strokeSize,
-        ifAbsent: () => strokeSize,
+        (value) => value + stroke.length,
+        ifAbsent: () => stroke.length,
       );
     }
     assert(colorDistribution.isNotEmpty);
@@ -75,7 +73,7 @@ class Select extends Tool {
     for (int i = 0; i < strokes.length; i++) {
       final stroke = strokes[i];
       final percentInside =
-          polygonPercentInside(selectResult.path, stroke.polygon);
+          polygonPercentInside(selectResult.path, stroke.lowQualityPolygon);
       if (percentInside > minPercentInside) {
         selectResult.strokes.add(stroke);
       }

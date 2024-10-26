@@ -1385,6 +1385,7 @@ class EditorState extends State<Editor> {
           placeholder: true,
           setAsBackground: null,
           currentToolIsSelect: currentTool is Select,
+          currentScale: double.minPositive,
         );
       },
       transformationController: _transformationController,
@@ -1838,6 +1839,7 @@ class EditorState extends State<Editor> {
         setState(() {});
       },
       currentToolIsSelect: currentTool is Select,
+      currentScale: _transformationController.value.getMaxScaleOnAxis(),
     );
   }
 

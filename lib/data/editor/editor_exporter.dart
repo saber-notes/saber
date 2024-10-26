@@ -112,7 +112,7 @@ abstract class EditorExporter {
                     } else if (stroke.length <= 2) {
                       // a dot
                       shouldFillShape = true;
-                      final bounds = stroke.path.getBounds();
+                      final bounds = stroke.lowQualityPath.getBounds();
                       final radius =
                           max(bounds.size.width, stroke.options.size * 0.5) / 2;
                       pdfGraphics.drawEllipse(
@@ -196,6 +196,7 @@ abstract class EditorExporter {
             currentStrokeDetectedShape: null,
             currentSelection: null,
             currentToolIsSelect: false,
+            currentScale: double.maxFinite,
           ),
         ),
       ),

@@ -79,20 +79,21 @@ class CircleStroke extends Stroke {
   @override
   int get length => 25;
 
-  /// A list of 25 points that form a circle
+  /// A list of 24/N points that form a circle
   /// with [center] and [radius].
   @override
-  List<Offset> get polygon => super.polygon;
-
-  @override
-  void updatePolygon() {
-    lastPolygon = List.generate(25, (i) => i / 25 * 2 * pi)
+  List<Offset> getPolygon(int N) {
+    final numPoints = 24 ~/ N;
+    return List.generate(numPoints, (i) => i / numPoints * 2 * pi)
         .map((radians) => Offset(cos(radians), sin(radians)))
         .map((unitDir) => unitDir * radius + center)
         .toList();
-    lastPath = Path()..addOval(Rect.fromCircle(center: center, radius: radius));
-    polygonNeedsUpdating = false;
   }
+
+  /// Returns a [Path] that forms a circle with [center] and [radius].
+  @override
+  Path getPath(List<Offset> polygon, {bool smooth = true}) =>
+      Path()..addOval(Rect.fromCircle(center: center, radius: radius));
 
   @override
   @Deprecated('Cannot add points to a circle stroke.')
@@ -124,7 +125,7 @@ class CircleStroke extends Stroke {
   @override
   void shift(Offset offset) {
     center += offset;
-    polygonNeedsUpdating = true;
+    super.shift(offset);
   }
 
   @override
@@ -133,7 +134,7 @@ class CircleStroke extends Stroke {
     return RecognizedUnistroke(
       DefaultUnistrokeNames.circle,
       1,
-      originalPoints: polygon,
+      originalPoints: lowQualityPolygon,
       referenceUnistrokes: default$1Unistrokes,
     );
   }

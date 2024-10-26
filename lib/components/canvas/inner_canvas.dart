@@ -31,6 +31,7 @@ class InnerCanvas extends StatefulWidget {
     this.onRenderObjectChange,
     this.hideBackground = false,
     required this.currentToolIsSelect,
+    required this.currentScale,
   });
 
   final int pageIndex;
@@ -51,6 +52,8 @@ class InnerCanvas extends StatefulWidget {
 
   final bool hideBackground;
   final bool currentToolIsSelect;
+
+  final double currentScale;
 
   static const Color defaultBackgroundColor = Color(0xFFFCFCFC);
 
@@ -150,6 +153,7 @@ class _InnerCanvasState extends State<InnerCanvas> {
               (!widget.isPrint || Prefs.printPageIndicators.value),
           pageIndex: widget.pageIndex,
           totalPages: widget.coreInfo.pages.length,
+          currentScale: widget.currentScale,
         ),
         isComplex: true,
         willChange: true,

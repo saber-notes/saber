@@ -43,21 +43,20 @@ class Eraser extends Tool {
   static bool _shouldStrokeBeErased(
       Offset eraserPos, Stroke stroke, double sqrSize) {
     if (stroke.length <= 3) {
-      if (stroke.path.contains(eraserPos)) return true;
+      if (stroke.lowQualityPath.contains(eraserPos)) return true;
     }
 
     /// skip checking every few vertices for performance
-    final int verticesToSkip;
-    if (stroke.polygon.length < 100) {
-      verticesToSkip = 0;
-    } else if (stroke.polygon.length < 1000) {
-      verticesToSkip = 1;
-    } else {
-      verticesToSkip = 2;
-    }
+    final int verticesToSkip = switch (stroke.lowQualityPolygon.length) {
+      < 100 => 0,
+      < 1000 => 1,
+      _ => 2,
+    };
 
-    for (int i = 0; i < stroke.polygon.length; i += verticesToSkip + 1) {
-      final Offset strokeVertex = stroke.polygon[i];
+    for (int i = 0;
+        i < stroke.lowQualityPolygon.length;
+        i += verticesToSkip + 1) {
+      final Offset strokeVertex = stroke.lowQualityPolygon[i];
       if (sqrDistanceBetween(strokeVertex, eraserPos) <= sqrSize) return true;
     }
     return false;
