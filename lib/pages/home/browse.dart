@@ -10,6 +10,7 @@ import 'package:saber/components/home/move_note_button.dart';
 import 'package:saber/components/home/new_note_button.dart';
 import 'package:saber/components/home/no_files.dart';
 import 'package:saber/components/home/rename_note_button.dart';
+import 'package:saber/components/home/select_all_button.dart';
 import 'package:saber/components/home/syncing_button.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/routes.dart';
@@ -30,6 +31,13 @@ class BrowsePage extends StatefulWidget {
 
 class _BrowsePageState extends State<BrowsePage> {
   DirectoryChildren? children;
+
+  List<String> get notesInCwd {
+    return [
+      for (String filePath in children?.files ?? const [])
+        "${path ?? ""}/$filePath",
+    ];
+  }
 
   final List<String?> pathHistory = [];
   String? path;
@@ -185,10 +193,7 @@ class _BrowsePageState extends State<BrowsePage> {
                 ),
                 sliver: MasonryFiles(
                   crossAxisCount: crossAxisCount,
-                  files: [
-                    for (String filePath in children?.files ?? const [])
-                      "${path ?? ""}/$filePath",
-                  ],
+                  files: notesInCwd,
                   selectedFiles: selectedFiles,
                 ),
               ),
@@ -233,6 +238,17 @@ class _BrowsePageState extends State<BrowsePage> {
                   selectedFiles.value = [];
                 },
                 icon: const Icon(Icons.delete_forever),
+              ),
+              SelectAllNotesButton(
+                selectedFiles: selectedFiles.value,
+                allFiles: notesInCwd,
+                selectAll: () => {
+                  selectedFiles.value.clear(),
+                  for (String filePath in notesInCwd)
+                    selectedFiles.value.add(filePath),
+                  setState(() {})
+                },
+                deselectAll: () => {selectedFiles.value = []},
               ),
               ExportNoteButton(
                 selectedFiles: selectedFiles.value,
