@@ -1,6 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.onyxsdk_pen_example">
+    xmlns:tools="http://schemas.android.com/tools">
    <application
         android:label="onyxsdk_pen_example"
         android:name="${applicationName}"

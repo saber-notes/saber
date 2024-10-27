@@ -7,7 +7,9 @@ You should be able to smoothly draw on the screen with your stylus.
 With your finger, it'll be as laggy as a regular app.
 ''';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await OnyxSdkPenArea.init();
   runApp(const MyApp());
 }
 
