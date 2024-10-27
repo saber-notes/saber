@@ -68,8 +68,8 @@ class CanvasGestureDetector extends StatefulWidget {
   @override
   State<CanvasGestureDetector> createState() => CanvasGestureDetectorState();
 
-  static const double kMinScale = 0.3;
-  static const double kMaxScale = 5;
+  static const kMinScale = 0.3;
+  static const kMaxScale = 10.0;
 
   static double getTopOfPage({
     required int pageIndex,
