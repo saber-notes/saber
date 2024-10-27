@@ -173,9 +173,6 @@ dependency_overrides:
       url: https://github.com/adil192/json2yaml
       ref: fix-string-ends-with-colon
 
-  # https://github.com/HrX03/animated_vector/issues/5
-  animated_vector: <0.2.1
-
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
