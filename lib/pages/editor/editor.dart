@@ -105,18 +105,7 @@ class EditorState extends State<Editor> {
   late EditorCoreInfo coreInfo = EditorCoreInfo(filePath: '');
 
   final _canvasGestureDetectorKey = GlobalKey<CanvasGestureDetectorState>();
-  late final TransformationController _transformationController =
-      TransformationController()
-        ..addListener(() {
-          PdfEditorImage.checkIfHighDpiNeeded(
-            getZoom: () => _transformationController.value.approxScale,
-            getScrollY: () => scrollY,
-            pages: coreInfo.pages,
-            screenWidth: _canvasGestureDetectorKey
-                    .currentState?.containerBounds.maxWidth ??
-                double.infinity,
-          );
-        });
+  final _transformationController = TransformationController();
   double get scrollY {
     final transformation = _transformationController.value;
     final scale = transformation.approxScale;
@@ -2049,7 +2038,6 @@ class EditorState extends State<Editor> {
     })();
 
     DynamicMaterialApp.removeFullscreenListener(_setState);
-    PdfEditorImage.cancelCheckIfHighDpiNeeded();
 
     _delayedSaveTimer?.cancel();
     _watchServerTimer?.cancel();

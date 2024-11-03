@@ -133,6 +133,7 @@ class SvgEditorImage extends EditorImage {
     if (srcRect.shortestSide == 0 || dstRect.shortestSide == 0) {
       final pictureInfo = await vg.loadPicture(svgLoader, null);
       naturalSize = pictureInfo.size;
+      pictureInfo.picture.dispose();
 
       if (srcRect.shortestSide == 0) {
         srcRect = srcRect.topLeft & naturalSize;
@@ -145,7 +146,7 @@ class SvgEditorImage extends EditorImage {
       }
     }
 
-    if (naturalSize.shortestSide == 0) {
+    if (naturalSize == Size.zero) {
       naturalSize = Size(srcRect.width, srcRect.height);
     }
   }
