@@ -302,7 +302,7 @@ class SaberSyncInterface
   ///
   /// This is set in [findRemoteFiles], and may be empty
   /// or incomplete if [findRemoteFiles] has not been called recently.
-  static List<WebDavFile> remoteFiles = const [];
+  static var remoteFiles = <WebDavFile>{};
 
   /// A cache map to encrypt file paths.
   /// e.g. '/path/to/file.sbn2' -> 'L3BhdGgvdG8vZmlsZS5zYm4y'
@@ -316,9 +316,9 @@ class SaberSyncInterface
   /// Use [decryptPath] to decrypt a path instead of accessing this directly.
   static final _decryptMap = <String, String>{};
 
-  static Future<List<WebDavFile>> findRemoteFiles() async {
+  static Future<Set<WebDavFile>> findRemoteFiles() async {
     final client = SaberSyncInterface.client;
-    if (client == null) return const [];
+    if (client == null) return {};
 
     try {
       return await client.webdav
@@ -334,7 +334,7 @@ class SaberSyncInterface
               // ignore root directory itself
               .where((file) =>
                   file.path.path != '${FileManager.appRootDirectoryPrefix}/')
-              .toList());
+              .toSet());
     } on DynamiteStatusCodeException catch (e, st) {
       if (e.statusCode == HttpStatus.notFound) {
         log.info('findRemoteFiles: Creating app directory', e);
@@ -345,19 +345,19 @@ class SaberSyncInterface
             .getConfig()
             .then((config) => client.generateConfig(config: config))
             .then((config) => client.setConfig(config));
-        return const [];
+        return {};
       } else {
         log.severe('Failed to get list of remote files: $e', e, st);
         if (kDebugMode) rethrow;
-        return const [];
+        return {};
       }
     } on SocketException catch (e, st) {
       log.warning('findRemoteFiles: Network error: $e', e, st);
-      return const [];
+      return {};
     } catch (e, st) {
       log.severe('findRemoteFiles: Unknown error: $e', e, st);
       if (kDebugMode) rethrow;
-      return const [];
+      return {};
     }
   }
 
@@ -444,7 +444,8 @@ class SaberSyncInterface
     }
 
     // get remote file
-    file.remoteFile ??= await _getWebDavFileUncached(file.remotePath);
+    file.remoteFile ??=
+        await _getWebDavFileStatic(file.remotePath, useCache: false);
     if (file.remoteFile == null) {
       // Remote file doesn't exist, keep local
       return BestFile.local;
@@ -473,15 +474,32 @@ class SaberSyncInterface
     }
   }
 
-  Future<WebDavFile?> getWebDavFile(String remotePath) async {
+  Future<WebDavFile?> getWebDavFile(
+    String remotePath, {
+    bool useCache = true,
+  }) =>
+      _getWebDavFileStatic(
+        remotePath,
+        useCache: useCache,
+      );
+
+  static Future<WebDavFile?> _getWebDavFileStatic(
+    String remotePath, {
+    bool useCache = true,
+  }) async {
+    WebDavFile? webDavFile;
+
     try {
-      return remoteFiles
+      webDavFile = remoteFiles
           .firstWhere((remoteFile) => remoteFile.path.path == remotePath);
+      if (useCache) return webDavFile;
     } on StateError {
       log.fine('Remote file not cached for $remotePath');
     }
 
-    return await _getWebDavFileUncached(remotePath);
+    webDavFile = await _getWebDavFileUncached(remotePath) ?? webDavFile;
+    if (webDavFile != null) remoteFiles.add(webDavFile);
+    return webDavFile;
   }
 
   static Future<WebDavFile?> _getWebDavFileUncached(String remotePath) async {
