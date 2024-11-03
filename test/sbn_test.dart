@@ -93,6 +93,9 @@ void main() {
                 .addAll(page.strokes.map(LaserStroke.convertStroke));
             page.strokes.clear();
           }
+          if (coreInfo.pages.length > 1 && coreInfo.pages.last.isEmpty) {
+            coreInfo.pages.removeLast();
+          }
         });
         tearDownAll(() {
           FileManager.shouldUseRawFilePath = false;
