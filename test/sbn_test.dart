@@ -8,7 +8,6 @@ import 'package:golden_screenshot/golden_screenshot.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:saber/components/canvas/canvas.dart';
 import 'package:saber/components/canvas/image/editor_image.dart';
-import 'package:saber/components/canvas/invert_shader.dart';
 import 'package:saber/components/canvas/pencil_shader.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/data/editor/editor_exporter.dart';
@@ -38,7 +37,6 @@ void main() {
 
     setUpAll(() => Future.wait([
           FileManager.init(),
-          InvertShader.init(),
           PencilShader.init(),
           GoogleFonts.pendingFonts([
             GoogleFonts.neucha(),

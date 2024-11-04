@@ -168,8 +168,7 @@ class SvgEditorImage extends EditorImage {
     required BuildContext context,
     required BoxFit? overrideBoxFit,
     required bool isBackground,
-    required bool shaderEnabled,
-    required ShaderBuilder shaderBuilder,
+    required bool invert,
   }) {
     final BoxFit boxFit;
     if (overrideBoxFit != null) {
@@ -180,10 +179,8 @@ class SvgEditorImage extends EditorImage {
       boxFit = BoxFit.fill;
     }
 
-    return ShaderSampler(
-      shaderEnabled: shaderEnabled,
-      shaderBuilder: shaderBuilder,
-      prepareForSnapshot: () => precache(context),
+    return InvertWidget(
+      invert: invert,
       child: SvgPicture(
         svgLoader,
         fit: boxFit,

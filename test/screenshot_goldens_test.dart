@@ -5,9 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:golden_screenshot/golden_screenshot.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:saber/components/canvas/invert_shader.dart';
 import 'package:saber/components/canvas/pencil_shader.dart';
-import 'package:saber/components/canvas/shader_image.dart';
 import 'package:saber/components/home/syncing_button.dart';
 import 'package:saber/components/settings/app_info.dart';
 import 'package:saber/components/settings/nextcloud_profile.dart';
@@ -57,7 +55,6 @@ void main() {
           FileManager.init(
             shouldWatchRootDirectory: false,
           ),
-          InvertShader.init(),
           PencilShader.init(),
           GoogleFonts.pendingFonts([
             GoogleFonts.inter(),
@@ -220,7 +217,6 @@ void _screenshot({
 
         await tester.pump();
         await tester.precacheImagesInWidgetTree();
-        await tester.precacheShaderImagesInWidgetTree();
         await tester.precacheTopbarImages();
         await tester.loadFonts();
         await tester.pumpFrames(widget, const Duration(milliseconds: 100));
@@ -238,38 +234,4 @@ void _screenshot({
       });
     }
   });
-}
-
-extension on WidgetTester {
-  Future<void> precacheShaderImagesInWidgetTree({
-    bool skipOffstage = true,
-  }) async {
-    final imageWidgets = widgetList<ShaderImage>(find.byType(
-      ShaderImage,
-      skipOffstage: skipOffstage,
-    ));
-    final imageProviders = <ImageProvider>[];
-    for (final widget in imageWidgets) {
-      var imageProvider = widget.image;
-
-      if (imageProvider is FileImage) {
-        final memoryImage = await runAsync(
-            () => convertFileImageToMemoryImage(imageProvider as FileImage));
-        ShaderImage.imageSubstitutions[imageProvider] = memoryImage!;
-        imageProvider = memoryImage;
-      }
-
-      imageProviders.add(imageProvider);
-    }
-    return precacheImages(imageProviders);
-  }
-
-  /// Trying to precache FileImages causes the test to hang
-  /// for some reason. To work around this, we convert the
-  /// FileImage to a MemoryImage and precache that instead.
-  static Future<MemoryImage> convertFileImageToMemoryImage(
-      FileImage fileImage) async {
-    final bytes = await fileImage.file.readAsBytes();
-    return MemoryImage(bytes);
-  }
 }

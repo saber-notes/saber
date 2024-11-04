@@ -195,8 +195,7 @@ class PngEditorImage extends EditorImage {
     required BuildContext context,
     required BoxFit? overrideBoxFit,
     required bool isBackground,
-    required bool shaderEnabled,
-    required ShaderBuilder shaderBuilder,
+    required bool invert,
   }) {
     final BoxFit boxFit;
     if (overrideBoxFit != null) {
@@ -207,11 +206,12 @@ class PngEditorImage extends EditorImage {
       boxFit = BoxFit.fill;
     }
 
-    return ShaderImage(
-      shaderEnabled: shaderEnabled,
-      shaderBuilder: shaderBuilder,
-      image: imageProvider!,
-      fit: boxFit,
+    return InvertWidget(
+      invert: invert,
+      child: Image(
+        image: imageProvider!,
+        fit: boxFit,
+      ),
     );
   }
 

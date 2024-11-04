@@ -5,7 +5,6 @@ import 'package:perfect_freehand/perfect_freehand.dart';
 import 'package:saber/components/canvas/_asset_cache.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/image/editor_image.dart';
-import 'package:saber/components/canvas/invert_shader.dart';
 import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/tools/select.dart';
 
@@ -65,8 +64,6 @@ void main() {
   });
 
   test('Test that the select tool selects the right images', () async {
-    await InvertShader.init();
-
     Select select = Select.currentSelect;
 
     // Drag gesture in a 10x10 square shape, on page 0

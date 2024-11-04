@@ -219,7 +219,6 @@ flutter:
   # see https://flutter.dev/custom-fonts/#from-packages
 
   shaders:
-    - shaders/invert.frag
     - shaders/pencil.frag
 
 

@@ -12,8 +12,7 @@ import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
 import 'package:pdfrx/pdfrx.dart';
 import 'package:saber/components/canvas/_asset_cache.dart';
-import 'package:saber/components/canvas/shader_image.dart';
-import 'package:saber/components/canvas/shader_sampler.dart';
+import 'package:saber/components/canvas/invert_widget.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/pages/editor/editor.dart';
@@ -223,8 +222,7 @@ sealed class EditorImage extends ChangeNotifier {
     required BuildContext context,
     required BoxFit? overrideBoxFit,
     required bool isBackground,
-    required bool shaderEnabled,
-    required ShaderBuilder shaderBuilder,
+    required bool invert,
   });
 
   EditorImage copy();

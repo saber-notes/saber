@@ -11,7 +11,6 @@ import 'package:onyxsdk_pen/onyxsdk_pen_area.dart';
 import 'package:path_to_regexp/path_to_regexp.dart';
 import 'package:printing/printing.dart';
 import 'package:receive_sharing_intent/receive_sharing_intent.dart';
-import 'package:saber/components/canvas/invert_shader.dart';
 import 'package:saber/components/canvas/pencil_shader.dart';
 import 'package:saber/components/theming/dynamic_material_app.dart';
 import 'package:saber/data/editor/pencil_sound.dart';
@@ -76,7 +75,6 @@ Future<void> main(
     Prefs.locale.waitUntilLoaded(),
     Prefs.url.waitUntilLoaded(),
     Prefs.allowInsecureConnections.waitUntilLoaded(),
-    InvertShader.init(),
     PencilShader.init(),
     PencilSound.preload(),
     Printing.info().then((info) {

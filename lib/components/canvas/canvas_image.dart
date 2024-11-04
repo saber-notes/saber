@@ -1,11 +1,9 @@
 import 'dart:math';
-import 'dart:ui' as ui;
 
 import 'package:defer_pointer/defer_pointer.dart';
 import 'package:flutter/material.dart';
 import 'package:saber/components/canvas/canvas_image_dialog.dart';
 import 'package:saber/components/canvas/image/editor_image.dart';
-import 'package:saber/components/canvas/invert_shader.dart';
 import 'package:saber/components/theming/adaptive_alert_dialog.dart';
 import 'package:saber/data/extensions/change_notifier_extensions.dart';
 import 'package:saber/data/prefs.dart';
@@ -71,8 +69,6 @@ class _CanvasImageState extends State<CanvasImage> {
   }
 
   Brightness imageBrightness = Brightness.light;
-
-  late ui.FragmentShader shader = InvertShader.create();
 
   Rect panStartRect = Rect.zero;
   Offset panStartPosition = Offset.zero;
@@ -206,13 +202,7 @@ class _CanvasImageState extends State<CanvasImage> {
                           context: context,
                           overrideBoxFit: widget.overrideBoxFit,
                           isBackground: widget.isBackground,
-                          shaderEnabled: imageBrightness == Brightness.dark,
-                          shaderBuilder: (ui.Image image, Size size) {
-                            shader.setFloat(0, size.width);
-                            shader.setFloat(1, size.height);
-                            shader.setImageSampler(0, image);
-                            return shader;
-                          },
+                          invert: imageBrightness == Brightness.dark,
                         ),
                       ),
                     ),

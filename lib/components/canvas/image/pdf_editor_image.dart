@@ -160,35 +160,20 @@ class PdfEditorImage extends EditorImage {
     required BuildContext context,
     required BoxFit? overrideBoxFit,
     required bool isBackground,
-    required bool shaderEnabled,
-    required ShaderBuilder shaderBuilder,
+    required bool invert,
   }) {
-    final BoxFit boxFit;
-    if (overrideBoxFit != null) {
-      boxFit = overrideBoxFit;
-    } else if (isBackground) {
-      boxFit = backgroundFit;
-    } else {
-      boxFit = BoxFit.fill;
-    }
-
     return ValueListenableBuilder(
       valueListenable: _pdfDocument,
       builder: (context, pdfDocument, child) {
         if (pdfDocument == null) {
           return SizedBox.fromSize(size: srcRect.size);
         }
-        return ShaderSampler(
-          shaderEnabled: shaderEnabled,
-          shaderBuilder: shaderBuilder,
-          prepareForSnapshot: () => precache(context),
+        return InvertWidget(
+          invert: invert,
           child: PdfPageView(
             document: pdfDocument,
             pageNumber: pdfPage + 1,
-            pageSizeCallback: (widgetSize, pdfPage) {
-              final fittedSizes = applyBoxFit(boxFit, srcRect.size, widgetSize);
-              return fittedSizes.destination;
-            },
+            pageSizeCallback: (widgetSize, pdfPage) => dstRect.size,
           ),
         );
       },
