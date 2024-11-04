@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 import 'dart:isolate';
+import 'dart:math';
 import 'dart:ui' as ui;
 
 import 'package:fast_image_resizer/fast_image_resizer.dart';
@@ -12,6 +13,7 @@ import 'package:logging/logging.dart';
 import 'package:meta/meta.dart';
 import 'package:pdfrx/pdfrx.dart';
 import 'package:saber/components/canvas/_asset_cache.dart';
+import 'package:saber/components/canvas/canvas_image.dart';
 import 'package:saber/components/canvas/invert_widget.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/prefs.dart';
@@ -48,10 +50,22 @@ sealed class EditorImage extends ChangeNotifier {
 
   Rect srcRect = Rect.zero;
 
-  Rect _dstRect = Rect.zero;
+  late Rect _dstRect =
+      Rect.fromLTWH(0, 0, CanvasImage.minImageSize, CanvasImage.minImageSize);
   Rect get dstRect => _dstRect;
   set dstRect(Rect dstRect) {
     _dstRect = dstRect;
+    if (_dstRect.width < CanvasImage.minImageSize ||
+        _dstRect.height < CanvasImage.minImageSize) {
+      final scale = max(CanvasImage.minImageSize / _dstRect.width,
+          CanvasImage.minImageSize / _dstRect.height);
+      _dstRect = Rect.fromLTWH(
+        _dstRect.left,
+        _dstRect.top,
+        _dstRect.width * scale,
+        _dstRect.height * scale,
+      );
+    }
     notifyListeners();
   }
 
