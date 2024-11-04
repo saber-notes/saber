@@ -427,6 +427,8 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
           child: GestureDetector(
             onSecondaryTapUp: (TapUpDetails details) => widget.undo(),
             onTertiaryTapUp: (TapUpDetails details) => widget.redo(),
+            // Double tap and drag to switch to eraser
+            onDoubleTapDown: (details) => widget.onStylusButtonChanged(true),
             child: LayoutBuilder(
               builder: (BuildContext context, BoxConstraints containerBounds) {
                 this.containerBounds = containerBounds;
