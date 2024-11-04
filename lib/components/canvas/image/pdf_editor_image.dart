@@ -173,7 +173,6 @@ class PdfEditorImage extends EditorImage {
           child: PdfPageView(
             document: pdfDocument,
             pageNumber: pdfPage + 1,
-            pageSizeCallback: (widgetSize, pdfPage) => dstRect.size,
           ),
         );
       },
