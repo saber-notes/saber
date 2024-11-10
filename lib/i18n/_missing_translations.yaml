@@ -9,12 +9,6 @@ ar:
     noLogs(OUTDATED): "No logs here!"
     logsAreTemporary(OUTDATED): Logs are only kept until you close the app
 cs:
-  logs:
-    logs(OUTDATED): Logs
-    viewLogs(OUTDATED): View logs
-    debuggingInfo(OUTDATED): Logs contain information useful for debugging and development
-    noLogs(OUTDATED): "No logs here!"
-    logsAreTemporary(OUTDATED): Logs are only kept until you close the app
 de:
   logs:
     logs(OUTDATED): Logs
