@@ -1279,10 +1279,11 @@ packages:
   receive_sharing_intent:
     dependency: "direct main"
     description:
-      name: receive_sharing_intent
-      sha256: ec76056e4d258ad708e76d85591d933678625318e411564dcb9059048ca3a593
-      url: "https://pub.dev"
-    source: hosted
+      path: "."
+      ref: deec27f3dd36d6c9f51c22d0026baa7b6f0850a3
+      resolved-ref: deec27f3dd36d6c9f51c22d0026baa7b6f0850a3
+      url: "https://github.com/ad-angelo/receive_sharing_intent"
+    source: git
     version: "1.8.1"
   regexed_validator:
     dependency: "direct main"

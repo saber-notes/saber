@@ -93,7 +93,7 @@ flutter {
 }
 
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.21"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.9.25"
     implementation 'com.google.android.material:material:1.9.0'
 }
 

@@ -175,6 +175,12 @@ dependency_overrides:
       url: https://github.com/adil192/json2yaml
       ref: fix-string-ends-with-colon
 
+  # https://github.com/KasemJaffer/receive_sharing_intent/pull/333
+  receive_sharing_intent:
+    git:
+      url: https://github.com/ad-angelo/receive_sharing_intent
+      ref: deec27f3dd36d6c9f51c22d0026baa7b6f0850a3
+
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
