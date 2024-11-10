@@ -879,6 +879,8 @@ class EditorState extends State<Editor> {
         savingState.value = SavingState.saving;
     }
 
+    await _renameFileNow();
+
     final filePath = coreInfo.filePath + Editor.extension;
     final Uint8List bson;
     final OrderedAssetCache assets;
@@ -967,7 +969,8 @@ class EditorState extends State<Editor> {
     final newName = filenameTextEditingController.text;
     if (newName == coreInfo.fileName) return;
 
-    if (_filenameFormKey.currentState?.validate() ?? true) {
+    if (_filenameFormKey.currentState?.validate() ??
+        _validateFilenameTextField(newName) == null) {
       coreInfo.filePath = await FileManager.moveFile(
         coreInfo.filePath + Editor.extension,
         newName.trim() + Editor.extension,
