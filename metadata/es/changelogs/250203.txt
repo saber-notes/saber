@@ -1,0 +1,7 @@
+• Las imágenes invertidas ahora deberían tener una calidad superior
+• Los archivos PDF ahora deberían procesarse más rápidamente
+• Actualizaciones del SDK utilizado para dispositivos de tinta electrónica Onyx
+• El zoom máximo se ha incrementado de 5x a 10x
+• Los trazos ahora se procesan con una calidad inferior cuando se hace zoom hacia afuera
+• Se corrigió un error cuando se cambia el nombre de un lienzo justo después de cerrar el editor
+...

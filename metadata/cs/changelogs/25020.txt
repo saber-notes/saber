@@ -1,0 +1,7 @@
+• Převrácené obrázky by nyní měly mít vyšší kvalitu
+• Soubory PDF by se nyní měly vykreslovat rychleji
+• Aktualizace sdk používaného pro e-ink zařízení Onyx
+• Maximální zoom byl zvýšen z 5x na 10x
+• Tahy jsou nyní při oddálení vykreslovány v nižší kvalitě
+• Opravena chyba při přejmenování plátna hned po zavření editoru
+• Opravena chyba, kdy klepání se stisknutým tlačítkem stylusu způsobovalo další vracení

@@ -1,0 +1,7 @@
+• A fordított képeknek most jobb minőségűnek kell lenniük
+• A PDF-fájlok gyorsabban jelennek meg
+• Az Onyx e-ink eszközökhöz használt sdk frissítései
+• A maximális zoom 5x-ről 10x-re nőtt
+• Kicsinyítéskor a körvonalak most gyengébb minőségben jelennek meg
+• Kijavítottunk egy hibát, amikor a vásznat közvetlenül a szerkesztő bezárása után nevezték át
+• Kijavítottunk egy hibát, ahol az érintőceruza nyomott gombjával való koppintás extra visszavonásokat okozott

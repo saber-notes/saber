@@ -1,0 +1,7 @@
+• Invertierte Bilder sollten jetzt eine höhere Qualität haben
+• PDFs sollten jetzt schneller gerendert werden
+• Aktualisierungen des SDK für Onyx E-Ink-Geräte
+• Der maximale Zoom wurde von 5x auf 10x erhöht
+• Striche werden jetzt beim Herauszoomen in geringerer Qualität gerendert
+• Ein Fehler wurde behoben, bei dem eine Leinwand direkt nach dem Schließen des Editors umbenannt wurde
+...
