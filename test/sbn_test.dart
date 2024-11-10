@@ -223,6 +223,11 @@ void main() {
               ));
       if (importedCoreInfo == null) fail('Failed to load imported core info');
 
+      if (importedCoreInfo.pages.length > 1 &&
+          importedCoreInfo.pages.last.isEmpty) {
+        importedCoreInfo.pages.removeLast();
+      }
+
       await tester.runAsync(() => _precacheImages(
             context: tester.binding.rootElement!,
             page: importedCoreInfo.pages.first,
