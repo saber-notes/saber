@@ -425,8 +425,6 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
           onPointerMove: _listenerPointerEvent,
           onPointerUp: _listenerPointerUpEvent,
           child: GestureDetector(
-            onSecondaryTapUp: (TapUpDetails details) => widget.undo(),
-            onTertiaryTapUp: (TapUpDetails details) => widget.redo(),
             child: LayoutBuilder(
               builder: (BuildContext context, BoxConstraints containerBounds) {
                 this.containerBounds = containerBounds;
