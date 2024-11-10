@@ -835,9 +835,3 @@ zh-Hans-CN:
     noLogs(OUTDATED): "No logs here!"
     logsAreTemporary(OUTDATED): Logs are only kept until you close the app
 zh-Hant-TW:
-  logs:
-    logs(OUTDATED): Logs
-    viewLogs(OUTDATED): View logs
-    debuggingInfo(OUTDATED): Logs contain information useful for debugging and development
-    noLogs(OUTDATED): "No logs here!"
-    logsAreTemporary(OUTDATED): Logs are only kept until you close the app
