@@ -9,12 +9,6 @@ ar:
     noLogs(OUTDATED): "No logs here!"
     logsAreTemporary(OUTDATED): Logs are only kept until you close the app
 cs:
-  logs:
-    logs(OUTDATED): Logy
-    viewLogs(OUTDATED): Zobrazit logy
-    debuggingInfo(OUTDATED): Logy obsahují informace užitečné pro ladění a vývoj
-    noLogs(OUTDATED): "Nejsou k dispozici žádné logy!"
-    logsAreTemporary(OUTDATED): Logy jsou zachovány pouze do uzavření aplikace
 de:
   logs:
     logs(OUTDATED): Logs

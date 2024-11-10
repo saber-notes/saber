@@ -146,11 +146,11 @@ settings:
     mustBeEmpty: Zvolená složka musí být prázdná
     mustBeDoneSyncing: "Než změníte složku, ujistěte se, že byla dokončena synchronizace"
 logs:
-  logs(OUTDATED): Protokoly
-  viewLogs(OUTDATED): Zobrazit protokoly
-  debuggingInfo(OUTDATED): Protokoly obsahují informace užitečné pro ladění a vývoj
-  noLogs(OUTDATED): "Nejsou zde žádné záznamy!"
-  logsAreTemporary(OUTDATED): "Protokoly se uchovávají pouze do doby, než aplikaci zavřete"
+  logs: Logy
+  viewLogs: Zobrazit logy
+  debuggingInfo: Logy obsahují informace užitečné pro ladění a vývoj
+  noLogs: "Nejsou k dispozici žádné logy!"
+  logsAreTemporary: Logy jsou zachovány pouze do uzavření aplikace
 login:
   title: Přihlášení
   form:
