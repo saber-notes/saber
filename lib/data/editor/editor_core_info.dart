@@ -61,6 +61,7 @@ class EditorCoreInfo {
   Color? backgroundColor;
   CanvasBackgroundPattern backgroundPattern;
   int lineHeight;
+  int lineThickness;
   List<EditorPage> pages;
 
   /// Stores the current page index so that it can be restored when the file is reloaded.
@@ -74,6 +75,7 @@ class EditorCoreInfo {
     backgroundColor: null,
     backgroundPattern: CanvasBackgroundPattern.none,
     lineHeight: Prefs.lastLineHeight.value,
+    lineThickness: Prefs.lastLineThickness.value,
     pages: [],
     initialPageIndex: null,
     assetCache: null,
@@ -95,6 +97,7 @@ class EditorCoreInfo {
   })  : nextImageId = 0,
         backgroundPattern = Prefs.lastBackgroundPattern.value,
         lineHeight = Prefs.lastLineHeight.value,
+        lineThickness = Prefs.lastLineThickness.value,
         pages = [],
         assetCache = AssetCache();
 
@@ -106,6 +109,7 @@ class EditorCoreInfo {
     this.backgroundColor,
     required this.backgroundPattern,
     required this.lineHeight,
+    required this.lineThickness,
     required this.pages,
     required this.initialPageIndex,
     required AssetCache? assetCache,
@@ -168,6 +172,7 @@ class EditorCoreInfo {
         return CanvasBackgroundPattern.none;
       }(),
       lineHeight: json['l'] as int? ?? Prefs.lastLineHeight.value,
+      lineThickness: json['lt'] as int? ?? Prefs.lastLineThickness.value,
       pages: _parsePagesJson(
         json['z'] as List?,
         inlineAssets: inlineAssets,
@@ -202,6 +207,7 @@ class EditorCoreInfo {
   })  : nextImageId = 0,
         backgroundPattern = CanvasBackgroundPattern.none,
         lineHeight = Prefs.lastLineHeight.value,
+        lineThickness = Prefs.lastLineThickness.value,
         pages = [],
         assetCache = AssetCache() {
     _migrateOldStrokesAndImages(
@@ -468,6 +474,7 @@ class EditorCoreInfo {
       'b': backgroundColor?.toARGB32(),
       'p': backgroundPattern.name,
       'l': lineHeight,
+      'lt': lineThickness,
       'z': pages.map((EditorPage page) => page.toJson(assets)).toList(),
       'c': initialPageIndex,
     };
@@ -536,6 +543,7 @@ class EditorCoreInfo {
     Color? backgroundColor,
     CanvasBackgroundPattern? backgroundPattern,
     int? lineHeight,
+    int? lineThickness,
     QuillController? quillController,
     List<EditorPage>? pages,
   }) {
@@ -548,6 +556,7 @@ class EditorCoreInfo {
       backgroundColor: backgroundColor ?? this.backgroundColor,
       backgroundPattern: backgroundPattern ?? this.backgroundPattern,
       lineHeight: lineHeight ?? this.lineHeight,
+      lineThickness: lineThickness ?? this.lineThickness,
       pages: pages ?? this.pages,
       initialPageIndex: initialPageIndex,
       assetCache: assetCache,
