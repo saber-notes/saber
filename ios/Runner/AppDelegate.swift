@@ -2,7 +2,7 @@ import UIKit
 import Flutter
 import workmanager
 
-@UIApplicationMain
+@main
 @objc class AppDelegate: FlutterAppDelegate {
   /// Registers all pubspec-referenced Flutter plugins in the given registry
   static func registerPlugins(with registry: FlutterPluginRegistry) {
