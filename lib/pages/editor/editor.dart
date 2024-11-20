@@ -498,6 +498,7 @@ class EditorState extends State<Editor> {
   /// Used to record a move in the history.
   Offset moveOffset = Offset.zero;
 
+  bool isHovering = true;
   int? dragPageIndex;
   double? currentPressure;
   bool isDrawGesture(ScaleStartDetails details) {
@@ -653,7 +654,8 @@ class EditorState extends State<Editor> {
         ));
       } else if (currentTool is Eraser) {
         final erased = (currentTool as Eraser).onDragEnd();
-        if (stylusButtonPressed || Prefs.disableEraserAfterUse.value) {
+        if (tmpTool != null &&
+            (stylusButtonPressed || Prefs.disableEraserAfterUse.value)) {
           // restore previous tool
           stylusButtonPressed = false;
           currentTool = tmpTool!;
@@ -717,20 +719,32 @@ class EditorState extends State<Editor> {
     currentPressure = pressure == 0 ? null : pressure;
   }
 
+  void onHovering() {
+    isHovering = true;
+  }
+
+  void onHoveringEnd() {
+    isHovering = false;
+  }
+
   void onStylusButtonChanged(bool buttonPressed) {
     // whether the stylus button is or was pressed
     stylusButtonPressed = stylusButtonPressed || buttonPressed;
 
-    // if needed, switch to eraser
-    if (!stylusButtonPressed) return;
-    if (currentTool is Eraser) return;
-    if (currentTool is Pen && dragPageIndex != null) {
-      // if the pen is currently drawing, end the stroke
-      (currentTool as Pen).onDragEnd();
+    if (isHovering) {
+      if (buttonPressed) {
+        if (currentTool is Eraser) return;
+        tmpTool = currentTool;
+        currentTool = Eraser();
+        setState(() {});
+      } else {
+        if (tmpTool != null) {
+          currentTool = tmpTool!;
+          tmpTool = null;
+          setState(() {});
+        }
+      }
     }
-    tmpTool = currentTool;
-    currentTool = Eraser();
-    setState(() {});
   }
 
   void onMoveImage(EditorImage image, Rect offset) {
@@ -1357,6 +1371,8 @@ class EditorState extends State<Editor> {
       onDrawStart: onDrawStart,
       onDrawUpdate: onDrawUpdate,
       onDrawEnd: onDrawEnd,
+      onHovering: onHovering,
+      onHoveringEnd: onHoveringEnd,
       onStylusButtonChanged: onStylusButtonChanged,
       onPressureChanged: onPressureChanged,
       undo: undo,
