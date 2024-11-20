@@ -815,11 +815,11 @@ pt-BR:
       watchServerReadOnly(OUTDATED): Editing is disabled while watching the server
 ru:
   logs:
-    logs(OUTDATED): Logs
-    viewLogs(OUTDATED): View logs
-    debuggingInfo(OUTDATED): Logs contain information useful for debugging and development
-    noLogs(OUTDATED): "No logs here!"
-    logsAreTemporary(OUTDATED): Logs are only kept until you close the app
+    logs(OUTDATED): Жерналы
+    viewLogs(OUTDATED): Просмотр журналов
+    debuggingInfo(OUTDATED): Журналы содержат информацию, полезную для отладки и разработки
+    noLogs(OUTDATED): "Здесь нет журналов!"
+    logsAreTemporary(OUTDATED): Журналы хранятся пока вы не закроете приложение
 tr:
   logs:
     logs(OUTDATED): Logs
