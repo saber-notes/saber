@@ -27,6 +27,9 @@
 [<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/snap-badge.svg"
     alt="Get it from the Snap Store"
     height=50>][snap]
+[<img src="https://github.com/jyo64/saber/tree/main/assets_raw/badges/copr.png"
+    alt="Get it from the Snap Store"
+    height=50>][copr]
 
 [English](https://github.com/saber-notes/saber/blob/main/README.md) |
 [čeština](https://github.com/saber-notes/saber/blob/main/README-cs.md) |
@@ -351,6 +354,7 @@ If you like Saber, please consider supporting it by:
 [app_store]: https://apps.apple.com/us/app/saber/id1671523739
 [download_windows]: https://github.com/saber-notes/saber/releases/download/v0.25.2/SaberInstaller_v0.25.2.exe
 [download_appimage]: https://github.com/saber-notes/saber/releases/download/v0.25.2/Saber-0.25.2-x86_64.AppImage
+[copr]: https://copr.fedorainfracloud.org/coprs/jyo64/Saber/
 
 [nextcloud]: https://nc.saber.adil.hanney.org/
 
