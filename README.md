@@ -27,7 +27,7 @@
 [<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/snap-badge.svg"
     alt="Get it from the Snap Store"
     height=50>][snap]
-[<img src="https://github.com/jyo64/saber/blob/main/assets_raw/badges/copr.png"
+[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/copr.png"
     alt="Get it from Fedora Copr"
     height=50>][copr]
 
