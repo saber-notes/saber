@@ -48,6 +48,11 @@ home:
     multipleRenamedTo: "Le note seguenti verranno rinominate:"
     numberRenamedTo: $n le note verranno rinominate per evitare conflitti
   deleteNote: Elimina nota
+  sortNames: 
+    alphabetical: Alfabetico
+    lastModified: Ultima Modifica
+    sizeOnDisk: Dimensioni
+    increasing: Crescente
   renameFolder: 
     renameFolder: Rinomina cartella
     folderName: Nome cartella

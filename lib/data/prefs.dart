@@ -122,6 +122,11 @@ class Stows {
   final printPageIndicators =
       PlainStow('printPageIndicators', false, volatile: !_isOnMainIsolate);
 
+  final sortFunctionIdx =
+      PlainStow('sortFunctionIdx', 0, volatile: !_isOnMainIsolate);
+  final isSortIncreasing =
+      PlainStow('isSortIncreasing', true, volatile: !_isOnMainIsolate);
+
   final maxImageSize =
       PlainStow<double>('maxImageSize', 1000, volatile: !_isOnMainIsolate);
 
