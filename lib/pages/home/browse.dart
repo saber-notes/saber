@@ -188,9 +188,7 @@ class _BrowsePageState extends State<BrowsePage> {
                 await FileManager.deleteDirectory(folderPath);
                 findChildrenOfPath();
               },
-              folders: folders
-                  .map((e) => e.split('/').last)
-                  .toList(),
+              folders: folders.map((e) => e.split('/').last).toList(),
             ),
             if (children == null) ...[
               // loading

@@ -1,5 +1,4 @@
 import 'dart:io';
-import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
@@ -58,7 +57,8 @@ class SortNotes {
   static DateTime _getDirLastModified(Directory dir) {
     assert(dir.existsSync());
     DateTime out = dir.statSync().modified;
-    for (FileSystemEntity entity in dir.listSync(recursive: true, followLinks: false)) {
+    for (FileSystemEntity entity
+        in dir.listSync(recursive: true, followLinks: false)) {
       if (entity is File && entity.absolute.path.endsWith(Editor.extension)) {
         final DateTime curFileModified = entity.lastModifiedSync();
         if (curFileModified.isAfter(out)) out = curFileModified;
@@ -86,7 +86,8 @@ class SortNotes {
   static int _getDirSize(Directory dir) {
     assert(dir.existsSync());
     int out = 0;
-    for (FileSystemEntity entity in dir.listSync(recursive: true, followLinks: false)) {
+    for (FileSystemEntity entity
+        in dir.listSync(recursive: true, followLinks: false)) {
       if (entity is File && entity.absolute.path.endsWith(Editor.extension)) {
         final int curFileSize = entity.lengthSync();
         out += curFileSize;
