@@ -109,8 +109,7 @@ class _CanvasHudState extends State<CanvasHud> {
               child: AnimatedBuilder(
                 animation: widget.transformationController,
                 builder: (context, _) => CanvasZoomIndicator(
-                  scale:
-                      widget.transformationController.value.approxScale,
+                  scale: widget.transformationController.value.approxScale,
                   resetZoom: widget.resetZoom,
                 ),
               ),

@@ -167,7 +167,7 @@ class _CanvasImageDialogItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
     return Material(
-      color: colorScheme.primary.withOpacity(0.05),
+      color: colorScheme.primary.withValues(alpha: 0.05),
       borderRadius: BorderRadius.circular(8),
       child: InkWell(
         onTap: onTap,

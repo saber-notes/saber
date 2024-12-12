@@ -333,7 +333,7 @@ class _PermanentTooltip extends StatelessWidget {
     return DecoratedBox(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
-        color: colorScheme.surface.withOpacity(0.8),
+        color: colorScheme.surface.withValues(alpha: 0.8),
       ),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 8),

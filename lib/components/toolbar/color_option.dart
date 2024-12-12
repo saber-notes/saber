@@ -81,7 +81,7 @@ class ColorOptionSeparatorIcon extends StatelessWidget {
           colorScheme.primary,
           0.2,
         )!
-            .withOpacity(0.7),
+            .withValues(alpha: 0.7),
       ),
     );
   }

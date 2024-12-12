@@ -61,7 +61,7 @@ class _FileTreeBranchState extends State<FileTreeBranch> {
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
     final backgroundColor = Color.alphaBlend(
-      colorScheme.primary.withOpacity(0.05),
+      colorScheme.primary.withValues(alpha: 0.05),
       colorScheme.surface,
     );
 

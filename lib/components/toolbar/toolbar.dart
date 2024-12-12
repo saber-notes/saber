@@ -397,8 +397,9 @@ class _ToolbarState extends State<Toolbar> {
                         width: 18,
                         height: 18,
                         decoration: BoxDecoration(
-                          color:
-                              currentColor.withInversion(invert).withOpacity(1),
+                          color: currentColor
+                              .withInversion(invert)
+                              .withValues(alpha: 1),
                           shape: BoxShape.circle,
                           border: Border.all(
                             color: colorScheme.primary,

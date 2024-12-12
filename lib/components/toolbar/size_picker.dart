@@ -43,7 +43,7 @@ class _SizePickerState extends State<SizePicker> {
             Text(
               t.editor.penOptions.size,
               style: TextStyle(
-                color: colorScheme.onSurface.withOpacity(0.8),
+                color: colorScheme.onSurface.withValues(alpha: 0.8),
                 fontSize: 10,
                 height: 1,
               ),
@@ -121,7 +121,7 @@ class _SizeSlider extends StatelessWidget {
             minSize: pen.sizeMin,
             maxSize: pen.sizeMax,
             currentSize: pen.options.size,
-            trackColor: colorScheme.onSurface.withOpacity(0.2),
+            trackColor: colorScheme.onSurface.withValues(alpha: 0.2),
             thumbColor: colorScheme.primary,
           ),
         ),

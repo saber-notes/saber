@@ -42,9 +42,9 @@ class CanvasBackgroundPainter extends CustomPainter {
       lineHeight: lineHeight,
     )) {
       if (element.secondaryColor) {
-        paint.color = secondaryColor.withOpacity(preview ? 0.5 : 0.2);
+        paint.color = secondaryColor.withValues(alpha: preview ? 0.5 : 0.2);
       } else {
-        paint.color = primaryColor.withOpacity(preview ? 0.5 : 0.2);
+        paint.color = primaryColor.withValues(alpha: preview ? 0.5 : 0.2);
       }
 
       if (element.isLine) {

@@ -75,7 +75,7 @@ class CanvasPainter extends CustomPainter {
     for (Stroke stroke in strokes) {
       if (stroke.penType != (Highlighter).toString()) continue;
 
-      final color = stroke.color.withOpacity(1).withInversion(invert);
+      final color = stroke.color.withValues(alpha: 1).withInversion(invert);
 
       if (color != lastColor) {
         // new layer for each color
@@ -109,9 +109,9 @@ class CanvasPainter extends CustomPainter {
       if (stroke.penType == (Pencil).toString()) {
         paint.color = Colors.white;
         paint.shader = page.pencilShader
-          ..setFloat(0, color.red / 255)
-          ..setFloat(1, color.green / 255)
-          ..setFloat(2, color.blue / 255);
+          ..setFloat(0, color.r)
+          ..setFloat(1, color.g)
+          ..setFloat(2, color.b);
         paint.maskFilter = _getPencilMaskFilter(stroke.options.size);
       }
 
@@ -162,9 +162,9 @@ class CanvasPainter extends CustomPainter {
     if (currentStroke!.penType == (Pencil).toString()) {
       paint.color = Colors.white;
       paint.shader = page.pencilShader
-        ..setFloat(0, color.red / 255)
-        ..setFloat(1, color.green / 255)
-        ..setFloat(2, color.blue / 255);
+        ..setFloat(0, color.r)
+        ..setFloat(1, color.g)
+        ..setFloat(2, color.b);
       paint.maskFilter = _getPencilMaskFilter(currentStroke!.options.size);
     }
 
@@ -204,7 +204,7 @@ class CanvasPainter extends CustomPainter {
 
     final color = currentStroke?.color.withInversion(invert) ?? Colors.black;
     final shapePaint = Paint()
-      ..color = Color.lerp(color, primaryColor, 0.5)!.withOpacity(0.7)
+      ..color = Color.lerp(color, primaryColor, 0.5)!.withValues(alpha: 0.7)
       ..style = PaintingStyle.stroke
       ..strokeWidth = currentStroke?.options.size ?? 3;
 
@@ -244,7 +244,7 @@ class CanvasPainter extends CustomPainter {
     // draw translucent fill
     canvas.drawPath(
       currentSelection!.path,
-      Paint()..color = primaryColor.withOpacity(0.1),
+      Paint()..color = primaryColor.withValues(alpha: 0.1),
     );
 
     // draw dashed stroke
@@ -273,7 +273,7 @@ class CanvasPainter extends CustomPainter {
 
     ParagraphBuilder builder = ParagraphBuilder(style)
       ..pushStyle(TextStyle(
-        color: Colors.black.withInversion(invert).withOpacity(0.5),
+        color: Colors.black.withInversion(invert).withValues(alpha: 0.5),
         fontSize: _pageIndicatorFontSize,
         fontFamily: 'Roboto',
         fontFamilyFallback: FallbackTextStyle.sansSerifFallbacks,

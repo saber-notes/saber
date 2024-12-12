@@ -105,7 +105,7 @@ class _GridFolderState extends State<_GridFolder> {
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
     final cardElevatedColor = Color.alphaBlend(
-      colorScheme.primary.withOpacity(0.05),
+      colorScheme.primary.withValues(alpha: 0.05),
       colorScheme.surface,
     );
     return MouseRegion(
@@ -193,9 +193,9 @@ class _GridFolderState extends State<_GridFolder> {
                                     begin: Alignment.topCenter,
                                     end: Alignment.bottomCenter,
                                     colors: [
-                                      cardElevatedColor.withOpacity(0.3),
-                                      cardElevatedColor.withOpacity(0.9),
-                                      cardElevatedColor.withOpacity(1),
+                                      cardElevatedColor.withValues(alpha: 0.3),
+                                      cardElevatedColor.withValues(alpha: 0.9),
+                                      cardElevatedColor.withValues(alpha: 1),
                                     ],
                                   ),
                                 ),

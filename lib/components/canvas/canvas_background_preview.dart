@@ -44,7 +44,7 @@ class CanvasBackgroundPreview extends StatelessWidget {
         border: Border.all(
           color: colorScheme.primary
               .withSaturation(selected ? 1 : 0)
-              .withOpacity(selected ? 1 : 0.1),
+              .withValues(alpha: selected ? 1 : 0.1),
           width: 2,
         ),
         borderRadius: BorderRadius.circular(8),
@@ -76,10 +76,10 @@ class CanvasBackgroundPreview extends StatelessWidget {
                   lineHeight: lineHeight,
                   primaryColor: colorScheme.primary
                       .withSaturation(selected ? 1 : 0)
-                      .withOpacity(selected ? 1 : 0.5),
+                      .withValues(alpha: selected ? 1 : 0.5),
                   secondaryColor: colorScheme.secondary
                       .withSaturation(selected ? 1 : 0)
-                      .withOpacity(selected ? 1 : 0.5),
+                      .withValues(alpha: selected ? 1 : 0.5),
                   preview: true,
                 ),
               ),

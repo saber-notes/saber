@@ -245,21 +245,21 @@ class _InnerCanvasState extends State<InnerCanvas> {
         fontSize: lineHeight * 1.15,
         height: 1 / 1.15,
         decoration: TextDecoration.underline,
-        decorationColor: defaultStyle.color?.withOpacity(0.6),
+        decorationColor: defaultStyle.color?.withValues(alpha: 0.6),
         decorationThickness: 3,
       ),
       displayMedium: defaultStyle.copyWith(
         fontSize: lineHeight * 1,
         height: 1 / 1,
         decoration: TextDecoration.underline,
-        decorationColor: defaultStyle.color?.withOpacity(0.5),
+        decorationColor: defaultStyle.color?.withValues(alpha: 0.5),
         decorationThickness: 3,
       ),
       displaySmall: defaultStyle.copyWith(
         fontSize: lineHeight * 0.9,
         height: 1 / 0.9,
         decoration: TextDecoration.underline,
-        decorationColor: defaultStyle.color?.withOpacity(0.4),
+        decorationColor: defaultStyle.color?.withValues(alpha: 0.4),
         decorationThickness: 3,
       ),
     );
@@ -321,7 +321,7 @@ class _InnerCanvasState extends State<InnerCanvas> {
       ),
       placeHolder: DefaultTextBlockStyle(
         textTheme.bodyLarge!.copyWith(
-          color: Colors.grey.withOpacity(0.6),
+          color: Colors.grey.withValues(alpha: 0.6),
         ),
         HorizontalSpacing.zero,
         VerticalSpacing.zero,
@@ -337,14 +337,14 @@ class _InnerCanvasState extends State<InnerCanvas> {
         null,
       ),
       quote: DefaultTextBlockStyle(
-        TextStyle(color: textTheme.bodyLarge!.color!.withOpacity(0.6)),
+        TextStyle(color: textTheme.bodyLarge!.color!.withValues(alpha: 0.6)),
         HorizontalSpacing.zero,
         VerticalSpacing.zero,
         VerticalSpacing.zero,
         BoxDecoration(
           border: Border(
             left: BorderSide(
-              color: textTheme.bodyLarge!.color!.withOpacity(0.6),
+              color: textTheme.bodyLarge!.color!.withValues(alpha: 0.6),
               width: 4,
             ),
           ),
@@ -356,7 +356,7 @@ class _InnerCanvasState extends State<InnerCanvas> {
         VerticalSpacing(-lineHeight * 0.16, lineHeight * 0.8),
         VerticalSpacing.zero,
         BoxDecoration(
-          color: Colors.grey.withOpacity(0.2),
+          color: Colors.grey.withValues(alpha: 0.2),
           borderRadius: BorderRadius.circular(3),
         ),
       ),

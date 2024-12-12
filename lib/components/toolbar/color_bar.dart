@@ -194,7 +194,7 @@ class _ColorBarState extends State<ColorBar> {
                     Color(int.parse(colorString)).withInversion(widget.invert),
                 shape: BoxShape.circle,
                 border: Border.all(
-                  color: colorScheme.onSurface.withOpacity(0.2),
+                  color: colorScheme.onSurface.withValues(alpha: 0.2),
                   width: 1,
                 ),
               ),
@@ -221,7 +221,7 @@ class _ColorBarState extends State<ColorBar> {
               color: Color(int.parse(colorString)).withInversion(widget.invert),
               shape: BoxShape.circle,
               border: Border.all(
-                color: colorScheme.onSurface.withOpacity(0.2),
+                color: colorScheme.onSurface.withValues(alpha: 0.2),
                 width: 1,
               ),
             ),
@@ -243,7 +243,7 @@ class _ColorBarState extends State<ColorBar> {
               color: Colors.transparent,
               shape: BoxShape.circle,
               border: Border.all(
-                color: colorScheme.onSurface.withOpacity(0.2),
+                color: colorScheme.onSurface.withValues(alpha: 0.2),
                 width: 1,
               ),
             ),
@@ -283,7 +283,7 @@ class _ColorBarState extends State<ColorBar> {
               color: namedColor.color.withInversion(widget.invert),
               shape: BoxShape.circle,
               border: Border.all(
-                color: colorScheme.onSurface.withOpacity(0.2),
+                color: colorScheme.onSurface.withValues(alpha: 0.2),
                 width: 1,
               ),
             ),

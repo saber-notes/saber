@@ -80,7 +80,7 @@ class _AdaptiveTextFieldState extends State<AdaptiveTextField> {
                 obscureText: obscureText,
                 decoration: BoxDecoration(
                   border: Border.all(
-                      color: colorScheme.onSurface.withOpacity(0.12)),
+                      color: colorScheme.onSurface.withValues(alpha: 0.12)),
                   borderRadius: BorderRadius.circular(8),
                 ),
                 style: TextStyle(color: colorScheme.onSurface),
@@ -123,7 +123,7 @@ class _AdaptiveTextFieldState extends State<AdaptiveTextField> {
           decoration: InputDecoration(
             labelText: widget.placeholder,
             labelStyle:
-                TextStyle(color: colorScheme.onSurface.withOpacity(0.5)),
+                TextStyle(color: colorScheme.onSurface.withValues(alpha: 0.5)),
             prefixIcon: widget.prefixIcon,
             suffixIcon: suffixIcon != null
                 ? FocusTraversalOrder(
@@ -134,8 +134,8 @@ class _AdaptiveTextFieldState extends State<AdaptiveTextField> {
             contentPadding:
                 const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
             border: OutlineInputBorder(
-              borderSide:
-                  BorderSide(color: colorScheme.onSurface.withOpacity(0.12)),
+              borderSide: BorderSide(
+                  color: colorScheme.onSurface.withValues(alpha: 0.12)),
               borderRadius: BorderRadius.circular(8),
             ),
           ),

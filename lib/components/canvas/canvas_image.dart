@@ -213,7 +213,7 @@ class _CanvasImageState extends State<CanvasImage> {
           ),
           if (widget.selected) // tint image if selected
             ColoredBox(
-              color: colorScheme.primary.withOpacity(0.5),
+              color: colorScheme.primary.withValues(alpha: 0.5),
             ),
           if (!widget.readOnly)
             for (double x = -20; x <= 20; x += 20)

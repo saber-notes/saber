@@ -17,7 +17,7 @@ class CanvasZoomIndicator extends StatelessWidget {
       onTap: resetZoom,
       child: Container(
         decoration: BoxDecoration(
-          color: colorScheme.surface.withOpacity(0.5),
+          color: colorScheme.surface.withValues(alpha: 0.5),
           borderRadius: BorderRadius.circular(15),
         ),
         padding: const EdgeInsets.all(5),
