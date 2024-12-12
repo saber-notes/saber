@@ -111,7 +111,7 @@ dependencies:
 
   printing: ^5.13.2
 
-  open_filex: ^4.3.2
+  open_file: ^3.5.10
 
   super_clipboard: ^0.9.0-dev.3
 

@@ -6,7 +6,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:logging/logging.dart';
-import 'package:open_filex/open_filex.dart';
+import 'package:open_file/open_file.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:saber/components/nextcloud/spinning_loading_icon.dart';
 import 'package:saber/components/settings/app_info.dart';
@@ -270,7 +270,7 @@ abstract class UpdateManager {
     final file = File('${tempDir.path}/$fileName');
     await file.writeAsBytes(bytes);
 
-    OpenFilex.open(file.path);
+    await OpenFile.open(file.path);
   }
 
   @visibleForTesting
