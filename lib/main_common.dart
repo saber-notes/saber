@@ -88,8 +88,16 @@ Future<void> main(
   Prefs.customDataDir.addListener(FileManager.migrateDataDir);
 
   LicenseRegistry.addLicense(() async* {
-    final license = await rootBundle.loadString('assets/google_fonts/OFL.txt');
-    yield LicenseEntryWithLineBreaks(['google_fonts'], license);
+    for (final licenseFile in const [
+      'assets/google_fonts/Atkinson_Hyperlegible/OFL.txt',
+      'assets/google_fonts/Dekko/OFL.txt',
+      'assets/google_fonts/Fira_Mono/OFL.txt',
+      'assets/google_fonts/Inter/OFL.txt',
+      'assets/google_fonts/Neucha/OFL.txt',
+    ]) {
+      final license = await rootBundle.loadString(licenseFile);
+      yield LicenseEntryWithLineBreaks(const ['google_fonts'], license);
+    }
   });
 
   HttpOverrides.global = NcHttpOverrides();

@@ -195,7 +195,11 @@ flutter:
   assets:
     - assets/icon/icon.svg
     - assets/images/
-    - assets/google_fonts/
+    - assets/google_fonts/Atkinson_Hyperlegible/
+    - assets/google_fonts/Dekko/
+    - assets/google_fonts/Fira_Mono/
+    - assets/google_fonts/Inter/
+    - assets/google_fonts/Neucha/
     - assets/audio/
 
   # An image asset can refer to one or more resolution-specific "variants", see
