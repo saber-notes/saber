@@ -110,6 +110,10 @@ Saber具有使筆記井井有條所需的一切功能。在無限嵌套的資料
 感謝 @soumyaDghosh，有一個非官方的 [snap][snap] 可用。
 `sudo snap install saber`
 
+選項 4：
+There's an unofficial Fedora Copr [repo][copr] available thanks to @jyo64.
+`sudo dnf copr enable jyo64/Saber && sudo dnf install saber`
+
 #### Windows
 
 從最新的 [Release][releases] 下載並安裝 `SaberInstaller_{version}.exe`。

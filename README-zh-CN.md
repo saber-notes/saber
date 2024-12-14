@@ -109,6 +109,10 @@ Saber 可以满足您整理笔记的一切需求。您可以随心所欲地创�
 有一个非官方的 [snap][snap] 渠道，感谢  @soumyaDghosh。
 `sudo snap install saber`
 
+选项 4：
+There's an unofficial Fedora Copr [repo][copr] available thanks to @jyo64.
+`sudo dnf copr enable jyo64/Saber && sudo dnf install saber`
+
 #### Windows
 
 从最新的 [Release][releases] 现在和安装`SaberInstaller_{version}.exe`。

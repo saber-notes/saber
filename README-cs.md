@@ -110,6 +110,10 @@ Možnost 3:
 Díky @soumyaDghosh je k dispozici neoficiální [snap][snap] balíček:
 `sudo snap install saber`.
 
+Možnost 4:
+There's an unofficial Fedora Copr [repo][copr] available thanks to @jyo64.
+`sudo dnf copr enable jyo64/Saber && sudo dnf install saber`
+
 #### Windows
 
 Stažení a instalace `SaberInstaller_{verze}.exe` z nejnovějšího [vydání][releases].

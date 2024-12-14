@@ -110,6 +110,9 @@ Unofficial packages:
 هناك حزمة [snap][snap] غير رسمية متوفرة بفضل @soumyaDghosh.
 باستخدام `sudo snap install saber`
 
+الخيار 4:
+There's an unofficial Fedora Copr [repo][copr] available thanks to @jyo64.
+`sudo dnf copr enable jyo64/Saber && sudo dnf install saber`
 
 #### ويندوز Windows
 
