@@ -275,8 +275,8 @@ class CanvasPainter extends CustomPainter {
       ..pushStyle(TextStyle(
         color: Colors.black.withInversion(invert).withValues(alpha: 0.5),
         fontSize: _pageIndicatorFontSize,
-        fontFamily: 'Roboto',
-        fontFamilyFallback: FallbackTextStyle.sansSerifFallbacks,
+        fontFamily: 'Inter',
+        fontFamilyFallback: saberSansSerifFontFallbacks,
       ))
       ..addText('${pageIndex + 1} / $totalPages');
 

@@ -163,7 +163,7 @@ flutter pub get
 يتم بناء الإصدارات مفتوحة المصدر FOSS/[F-Droid][f-droid-manifest] بطريقة مختلفة قليلاً:
 ```bash
 ./patches/remove_proprietary_dependencies.sh
-flutter build apk --dart-define=OFFLINE_FONTS_ONLY="true"
+flutter build apk
 ```
 
 #### ويندوز Windows

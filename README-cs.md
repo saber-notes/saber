@@ -166,7 +166,7 @@ Více informací na https://docs.flutter.dev/deployment/android#create-an-upload
 Poznámka: vydání pro [F-Droid][f-droid-manifest] jsou sestavena výrazně odlišně
 ```bash
 ./patches/remove_proprietary_dependencies.sh
-flutter build apk --dart-define=OFFLINE_FONTS_ONLY="true"
+flutter build apk
 ```
 
 #### Windows

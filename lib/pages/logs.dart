@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:logging/logging.dart';
 import 'package:saber/components/theming/adaptive_icon.dart';
 import 'package:saber/components/theming/font_fallbacks.dart';
@@ -181,19 +180,12 @@ class _LogsItem extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 child: Text(
                   record.stackTrace.toString(),
-                  style: GoogleFonts.firaMono(
+                  style: TextStyle(
+                    fontFamily: 'FiraMono',
+                    fontFamilyFallback: saberMonoFontFallbacks,
                     fontSize: 11,
-                    color: const Color(0xFFFFFFFF),
-                  ).withFallbacks([
-                    'Fira Mono',
-                    'ui-monospace',
-                    'Cascadia Code',
-                    'Source Code Pro',
-                    'Menlo',
-                    'Consolas',
-                    'DejaVu Sans Mono',
-                    'monospace',
-                  ]),
+                    color: Colors.white,
+                  ),
                 ),
               ),
             ),

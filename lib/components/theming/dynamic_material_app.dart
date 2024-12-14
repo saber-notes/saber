@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:go_router/go_router.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:saber/components/theming/font_fallbacks.dart';
 import 'package:saber/components/theming/yaru_builder.dart';
 import 'package:saber/data/prefs.dart';
@@ -112,13 +111,15 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp>
 
   TextTheme? getTextTheme(Brightness brightness) {
     if (Prefs.hyperlegibleFont.loaded && Prefs.hyperlegibleFont.value) {
-      return GoogleFonts.atkinsonHyperlegibleTextTheme(
-        ThemeData(brightness: brightness).textTheme,
-      ).withFallbacks();
+      return ThemeData(brightness: brightness).textTheme.withFont(
+            fontFamily: 'AtkinsonHyperlegible',
+            fontFamilyFallback: saberSansSerifFontFallbacks,
+          );
     } else if (requiresCustomFont) {
-      return GoogleFonts.interTextTheme(
-        ThemeData(brightness: brightness).textTheme,
-      ).withFallbacks();
+      return ThemeData(brightness: brightness).textTheme.withFont(
+            fontFamily: 'Inter',
+            fontFamilyFallback: saberSansSerifFontFallbacks,
+          );
     } else {
       return null;
     }

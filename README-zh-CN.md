@@ -163,7 +163,7 @@ flutter build linux
 FOSS/[F-Droid][f-droid-manifest] 构建的方式略有不同：
 ```bash
 ./patches/remove_proprietary_dependencies.sh
-flutter build apk --dart-define=OFFLINE_FONTS_ONLY="true"
+flutter build apk
 ```
 
 #### Windows

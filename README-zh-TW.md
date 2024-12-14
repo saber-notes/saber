@@ -169,7 +169,7 @@ flutter build linux
 注意：[F-Droid][f-droid-manifest] 版本的構建略有不同：
 ```bash
 ./patches/remove_proprietary_dependencies.sh
-flutter build apk --dart-define=OFFLINE_FONTS_ONLY="true"
+flutter build apk
 ```
 
 #### Windows

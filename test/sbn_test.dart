@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:golden_screenshot/golden_screenshot.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:saber/components/canvas/canvas.dart';
 import 'package:saber/components/canvas/image/editor_image.dart';
 import 'package:saber/components/canvas/pencil_shader.dart';
@@ -38,11 +37,6 @@ void main() {
     setUpAll(() => Future.wait([
           FileManager.init(),
           PencilShader.init(),
-          GoogleFonts.pendingFonts([
-            GoogleFonts.neucha(),
-            GoogleFonts.dekko(),
-            GoogleFonts.firaMono(),
-          ]),
         ]));
 
     const laserSbn = 'v17_laser_pointer.sbn2';

@@ -78,8 +78,6 @@ dependencies:
 
   flex_color_picker: ^3.4.1
 
-  google_fonts: ^6.0.0
-
   font_awesome_flutter: ^10.3.0
 
   flutter_svg: ^2.0.0+1
@@ -227,6 +225,34 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+  fonts:
+    - family: AtkinsonHyperlegible
+      fonts:
+        - asset: assets/google_fonts/Atkinson_Hyperlegible/AtkinsonHyperlegible-Regular.ttf
+        - asset: assets/google_fonts/Atkinson_Hyperlegible/AtkinsonHyperlegible-Italic.ttf
+          style: italic
+        - asset: assets/google_fonts/Atkinson_Hyperlegible/AtkinsonHyperlegible-Bold.ttf
+          weight: 700
+        - asset: assets/google_fonts/Atkinson_Hyperlegible/AtkinsonHyperlegible-BoldItalic.ttf
+          weight: 700
+    - family: Dekko
+      fonts:
+        - asset: assets/google_fonts/Dekko/Dekko-Regular.ttf
+    - family: FiraMono
+      fonts:
+        - asset: assets/google_fonts/Fira_Mono/FiraMono-Regular.ttf
+        - asset: assets/google_fonts/Fira_Mono/FiraMono-Medium.ttf
+          weight: 500
+        - asset: assets/google_fonts/Fira_Mono/FiraMono-Bold.ttf
+          weight: 700
+    - family: Inter
+      fonts:
+        - asset: assets/google_fonts/Inter/Inter-VariableFont_opsz,wght.ttf
+        - asset: assets/google_fonts/Inter/Inter-Italic-VariableFont_opsz,wght.ttf
+          style: italic
+    - family: Neucha
+      fonts:
+        - asset: assets/google_fonts/Neucha/Neucha-Regular.ttf
 
   shaders:
     - shaders/pencil.frag

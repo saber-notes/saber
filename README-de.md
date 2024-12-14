@@ -160,7 +160,7 @@ Mehr Informationen in der [Flutter-Dokumentation](https://docs.flutter.dev/deplo
 Hinweis: [F-Droid][f-droid-manifest]-Veröffentlichungen sind leicht anders gebuildet:
 ```bash
 ./patches/remove_proprietary_dependencies.sh
-flutter build apk --dart-define=OFFLINE_FONTS_ONLY="true"
+flutter build apk
 ```
 
 #### Windows

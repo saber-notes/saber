@@ -169,7 +169,7 @@ Note:
 FOSS/[F-Droid][f-droid-manifest] builds are done slightly differently:
 ```bash
 ./patches/remove_proprietary_dependencies.sh
-flutter build apk --dart-define=OFFLINE_FONTS_ONLY="true"
+flutter build apk
 ```
 
 #### Windows

@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:golden_screenshot/golden_screenshot.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:saber/components/canvas/pencil_shader.dart';
 import 'package:saber/components/home/syncing_button.dart';
 import 'package:saber/components/settings/app_info.dart';
@@ -56,12 +55,6 @@ void main() {
             shouldWatchRootDirectory: false,
           ),
           PencilShader.init(),
-          GoogleFonts.pendingFonts([
-            GoogleFonts.inter(),
-            GoogleFonts.neucha(),
-            GoogleFonts.dekko(),
-            GoogleFonts.firaMono(),
-          ]),
         ]));
 
     setUpAll(() async {
@@ -87,12 +80,18 @@ void main() {
     );
     final materialTheme = ThemeData(
       colorScheme: colorScheme,
-      textTheme: GoogleFonts.interTextTheme().withFallbacks(),
+      textTheme: ThemeData(brightness: Brightness.light).textTheme.withFont(
+            fontFamily: 'Inter',
+            fontFamilyFallback: saberSansSerifFontFallbacks,
+          ),
       scaffoldBackgroundColor: colorScheme.surface,
     );
     final cupertinoTheme = ThemeData(
       colorScheme: colorScheme,
-      textTheme: GoogleFonts.interTextTheme().withFallbacks(),
+      textTheme: ThemeData(brightness: Brightness.light).textTheme.withFont(
+            fontFamily: 'Inter',
+            fontFamilyFallback: saberSansSerifFontFallbacks,
+          ),
       scaffoldBackgroundColor: colorScheme.surface,
       platform: TargetPlatform.iOS,
     );
