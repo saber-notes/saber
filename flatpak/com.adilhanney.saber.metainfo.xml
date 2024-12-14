@@ -214,6 +214,13 @@
     </screenshots>
 
     <releases>
+        <release version="0.25.3" type="development" date="2024-12-14">
+            <description>
+                <ul>
+                    <li>Possible performance improvements from updated dependencies</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.25.2" type="development" date="2024-11-10">
             <description>
                 <ul>

@@ -1,0 +1,3 @@
+• Se solucionó el problema de que AppImage no se abría para algunos usuarios de Linux
+• Se agregó un mejor soporte para pasar el lápiz por encima
+• Posibles mejoras de rendimiento a partir de dependencias actualizadas, incluido un nuevo motor de renderizado en Android

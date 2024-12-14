@@ -1,0 +1,3 @@
+• Javítva, hogy az AppImage egyes Linux-felhasználóknál nem nyílik meg
+• Jobb támogatás a toll lebegtetéséhez
+• Lehetséges teljesítményjavítások a frissített függőségek miatt, beleértve az Android új renderelőmotorját
