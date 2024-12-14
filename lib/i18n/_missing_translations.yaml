@@ -814,12 +814,6 @@ pt-BR:
       watchServer(OUTDATED): Watch for updates on the server
       watchServerReadOnly(OUTDATED): Editing is disabled while watching the server
 ru:
-  logs:
-    logs(OUTDATED): Жерналы
-    viewLogs(OUTDATED): Просмотр журналов
-    debuggingInfo(OUTDATED): Журналы содержат информацию, полезную для отладки и разработки
-    noLogs(OUTDATED): "Здесь нет журналов!"
-    logsAreTemporary(OUTDATED): Журналы хранятся пока вы не закроете приложение
 tr:
   logs:
     logs(OUTDATED): Logs
