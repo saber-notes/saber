@@ -93,6 +93,9 @@ abstract class Prefs {
   static late final PlainPref<bool> hideHomeBackgrounds;
   static late final PlainPref<bool> printPageIndicators;
 
+  static late final PlainPref<int> sortFunctionIdx;
+  static late final PlainPref<bool> isSortIncreasing;
+
   static late final PlainPref<double> maxImageSize;
 
   static late final PlainPref<bool> autoClearWhiteboardOnExit;
@@ -199,6 +202,9 @@ abstract class Prefs {
     simplifiedHomeLayout = PlainPref('simplifiedHomeLayout', false);
     hideHomeBackgrounds = PlainPref('hideHomeBackgrounds', false);
     printPageIndicators = PlainPref('printPageIndicators', false);
+
+    sortFunctionIdx = PlainPref('sortFunctionIdx', 0);
+    isSortIncreasing = PlainPref('isSortIncreasing', true);
 
     maxImageSize = PlainPref('maxImageSize', 1000);
 
