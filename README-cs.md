@@ -23,10 +23,15 @@
 [<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/appimage-logo.png"
     alt="Stáhnout jako AppImage"
     height=50>][download_appimage]
-&nbsp;
+
+Unofficial packages:
 [<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/snap-badge.svg"
     alt="Stáhnout ze Snap Store"
     height=50>][snap]
+&nbsp;
+[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/copr.png"
+    alt="Get it from Fedora Copr"
+    height=50>][copr]
 
 [English](https://github.com/saber-notes/saber/blob/main/README.md) |
 [čeština](https://github.com/saber-notes/saber/blob/main/README-cs.md) |
