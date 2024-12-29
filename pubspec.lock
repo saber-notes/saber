@@ -675,10 +675,10 @@ packages:
     dependency: "direct dev"
     description:
       name: golden_screenshot
-      sha256: "7e939af2e309265937dbce348b573d01fdd5085bb72b721cb8be32736fa26b82"
+      sha256: "9460629238509f8618d411621f9ca2328ece656d0fcab87ec009e76e7eb35b15"
       url: "https://pub.dev"
     source: hosted
-    version: "3.0.1"
+    version: "3.0.2"
   golden_toolkit:
     dependency: transitive
     description:
