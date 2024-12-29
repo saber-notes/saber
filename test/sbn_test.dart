@@ -108,7 +108,7 @@ void main() {
           ));
           await tester.pumpAndSettle();
 
-          tester.useScreenshotComparator(allowedDiffPercent: 0.1);
+          tester.useFuzzyComparator(allowedDiffPercent: 0.1);
           await expectLater(
             find.byType(Canvas),
             matchesGoldenFile('sbn_examples/$sbnName.light.png'),
@@ -129,7 +129,7 @@ void main() {
           ));
           await tester.pumpAndSettle();
 
-          tester.useScreenshotComparator(allowedDiffPercent: 0.1);
+          tester.useFuzzyComparator(allowedDiffPercent: 0.1);
           await expectLater(
             find.byType(Canvas),
             matchesGoldenFile('sbn_examples/$sbnName.dark.png'),
@@ -167,7 +167,7 @@ void main() {
               ),
             ));
 
-            tester.useScreenshotComparator(allowedDiffPercent: 0.1);
+            tester.useFuzzyComparator(allowedDiffPercent: 0.1);
             await expectLater(
               find.byType(Image),
               matchesGoldenFile('sbn_examples/$sbnName.pdf.png'),
@@ -238,7 +238,7 @@ void main() {
       ));
       await tester.pumpAndSettle();
 
-      tester.useScreenshotComparator(allowedDiffPercent: 0.1);
+      tester.useFuzzyComparator(allowedDiffPercent: 0.1);
       await expectLater(
         find.byType(Canvas),
         matchesGoldenFile('sbn_examples/v19_separate_assets.sbn2.light.png'),

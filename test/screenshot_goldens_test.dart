@@ -98,12 +98,7 @@ void main() {
     final yaruVariant = YaruBuilder.findClosestYaruVariant(colorScheme.primary);
     final yaruTheme = YaruThemeData(variant: yaruVariant, useMaterial3: true);
 
-    final homeFrameColors = ScreenshotFrameColors(
-      bottomBar: colorScheme.surfaceContainer,
-    );
-
     _screenshot(
-      frameColors: homeFrameColors,
       materialTheme: materialTheme,
       cupertinoTheme: cupertinoTheme,
       yaruTheme: yaruTheme,
@@ -129,7 +124,6 @@ void main() {
       ),
     );
     _screenshot(
-      frameColors: homeFrameColors,
       materialTheme: materialTheme,
       cupertinoTheme: cupertinoTheme,
       yaruTheme: yaruTheme,

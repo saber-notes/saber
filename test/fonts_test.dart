@@ -33,7 +33,7 @@ void main() {
     await tester.loadFonts();
     await tester.pumpAndSettle();
 
-    tester.useScreenshotComparator(allowedDiffPercent: 0.1);
+    tester.useFuzzyComparator(allowedDiffPercent: 0.1);
     await expectLater(
       find.byType(Column),
       matchesGoldenFile('goldens/fonts.png'),
