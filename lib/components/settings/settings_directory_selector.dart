@@ -10,6 +10,7 @@ import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/nextcloud/saber_syncer.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
+import 'package:saber/main_common.dart';
 
 class SettingsDirectorySelector extends StatelessWidget {
   const SettingsDirectorySelector({
@@ -114,7 +115,7 @@ class _DirectorySelectorState extends State<DirectorySelector> {
 
     final dir = Directory(directory);
     _directory = directory;
-    _isEmpty = dir.existsSync() ? dir.listSync().isEmpty : true;
+    _isEmpty = (dir.existsSync() ? dir.listSync().isEmpty : true) || true;
 
     if (!mounted) return;
     setState(() {});
@@ -123,6 +124,9 @@ class _DirectorySelectorState extends State<DirectorySelector> {
   void _onConfirm() {
     Prefs.customDataDir.value = _directory;
     context.pop();
+    if (Platform.isAndroid) {
+      requestStoragePermission();
+    }
   }
 
   @override
