@@ -9,11 +9,11 @@ import 'package:saber/pages/editor/editor.dart';
 class SortNotes {
   SortNotes._();
 
-  static final Map<String, void Function(List<String>, bool)> _sortFunctions = {
-    t.home.sortNames.alphabetical: _sortNotesAlpha,
-    t.home.sortNames.lastModified: _sortNotesLastModified,
-    t.home.sortNames.sizeOnDisk: _sortNotesSize,
-  };
+  static final List<void Function(List<String>, bool)> _sortFunctions = [
+    _sortNotesAlpha,
+    _sortNotesLastModified,
+    _sortNotesSize,
+  ];
   static final PlainPref<int> _sortFunctionIdx = Prefs.sortFunctionIdx;
   static final PlainPref<bool> _isIncreasingOrder = Prefs.isSortIncreasing;
 
@@ -43,8 +43,7 @@ class SortNotes {
 
   static void sortNotes(List<String> filePaths, {bool forced = false}) {
     if (_isNeeded || forced) {
-      _sortFunctions[_sortFunctions.keys.elementAt(sortFunctionIdx)]!
-          .call(filePaths, isIncreasingOrder);
+      _sortFunctions[sortFunctionIdx].call(filePaths, isIncreasingOrder);
       _isNeeded = false;
     }
   }
@@ -144,7 +143,12 @@ class _SortButtonDialog extends StatefulWidget {
 class _SortButtonDialogState extends State<_SortButtonDialog> {
   @override
   Widget build(BuildContext context) {
-    final List<String> sortNames = SortNotes._sortFunctions.keys.toList();
+    // Needs to match the order of _sortFunctions
+    final List<String> sortNames = [
+      t.home.sortNames.alphabetical,
+      t.home.sortNames.lastModified,
+      t.home.sortNames.sizeOnDisk,
+    ];
 
     return Align(
       alignment: Alignment.topRight,
