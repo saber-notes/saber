@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 import 'dart:math';
 
 import 'package:audioplayers/audioplayers.dart';
@@ -31,7 +32,9 @@ abstract class PencilSound {
   static Future<void> setAudioContext() =>
       AudioPlayer.global.setAudioContext(AudioContextConfig(
         // Prevents the pencil sound interrupting other audio, like music.
-        focus: AudioContextConfigFocus.mixWithOthers,
+        focus: Platform.isIOS
+            ? AudioContextConfigFocus.gain
+            : AudioContextConfigFocus.mixWithOthers,
         // Doesn't play the sound when the device is in silent mode.
         respectSilence: Prefs.pencilSound.value.respectSilence,
       ).build());
