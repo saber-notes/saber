@@ -105,6 +105,7 @@ class FileManager {
   static Future<void> watchRootDirectory() async {
     Directory rootDir = Directory(documentsDirectory);
     await rootDir.create(recursive: true);
+    if (Platform.isIOS) return;
     rootDir.watch(recursive: true).listen((FileSystemEvent event) {
       final type = event.type == FileSystemEvent.create ||
               event.type == FileSystemEvent.modify ||
