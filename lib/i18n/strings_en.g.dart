@@ -710,6 +710,8 @@ class TranslationsEditorMenuEn {
 	String get deletePage => 'Delete page';
 	String get lineHeight => 'Line height';
 	String get lineHeightDescription => 'Also controls the text size for typed notes';
+	String get lineThickness => 'Line thickness';
+	String get lineThicknessDescription => 'Background line thickness';
 	String get backgroundImageFit => 'Background image fit';
 	String get backgroundPattern => 'Background pattern';
 	String get import => 'Import';
