@@ -50,6 +50,8 @@ class Stroke {
     if (offset == Offset.zero) return;
 
     points.shift(offset);
+    markPolygonNeedsUpdating();
+
     _lowQualityPolygon?.shift(offset);
     _highQualityPolygon?.shift(offset);
     _lowQualityPath?.shift(offset);
