@@ -353,6 +353,12 @@ class _SettingsPageState extends State<SettingsPage> {
                 pref: Prefs.disableEraserAfterUse,
               ),
               SettingsSwitch(
+                title: t.settings.prefLabels.eraserOnStylusButtonPressAndRelease,
+                subtitle: t.settings.prefDescriptions.eraserOnStylusButtonPressAndRelease,
+                icon: FontAwesomeIcons.eraser,
+                pref: Prefs.eraserOnStylusButtonPressAndRelease,
+              ),
+              SettingsSwitch(
                 title: t.settings.prefLabels.hideFingerDrawingToggle,
                 subtitle: () {
                   if (!Prefs.hideFingerDrawingToggle.value) {
@@ -588,3 +594,4 @@ class _SettingsPageState extends State<SettingsPage> {
     super.dispose();
   }
 }
+
