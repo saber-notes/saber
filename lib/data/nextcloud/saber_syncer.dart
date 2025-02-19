@@ -230,7 +230,7 @@ class SaberSyncInterface
     assert(decryptedData.isNotEmpty,
         'Decrypted data is empty but encryptedBytes.length is ${encryptedBytes.length}');
     await FileManager.writeFile(file.relativeLocalPath, decryptedData,
-        alsoUpload: false, lastModified: file.remoteFile?.lastModified););  // write remote file to local and set time stamp from remote file!
+        alsoUpload: false, lastModified: file.remoteFile?.lastModified);  // write remote file to local and set time stamp from remote file!
   }
 
   @override
