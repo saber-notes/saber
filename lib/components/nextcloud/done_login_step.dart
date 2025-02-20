@@ -22,16 +22,23 @@ class DoneLoginStep extends StatefulWidget {
 class _DoneLoginStepState extends State<DoneLoginStep> {
   static const width = 400.0;
 
-  void _logout() {
+  void _logout() async {
     Prefs.url.value = '';
+    await Prefs.url.waitUntilSaved(); // wait for write value is finished
     Prefs.username.value = '';
+    await Prefs.username.waitUntilSaved(); // wait for write value is finished
     Prefs.ncPassword.value = '';
+    await Prefs.ncPassword.waitUntilSaved(); // wait for write value is finished
     Prefs.ncPasswordIsAnAppPassword.value = false;
+    await Prefs.ncPasswordIsAnAppPassword.waitUntilSaved(); // wait for write value is finished
     Prefs.encPassword.value = '';
+    await Prefs.encPassword.waitUntilSaved(); // wait for write value is finished
     Prefs.pfp.value = null;
     Prefs.lastStorageQuota.value = null;
     Prefs.key.value = '';
+    await Prefs.key.waitUntilSaved(); // wait for write value is finished
     Prefs.iv.value = '';
+    await Prefs.iv.waitUntilSaved(); // wait for write value is finished
     widget.recheckCurrentStep();
   }
 

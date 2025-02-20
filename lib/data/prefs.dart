@@ -48,17 +48,20 @@ abstract class Prefs {
   /// the password used to encrypt/decrypt notes
   static late final EncPref<String> encPassword;
 
+  static late final EncPref<String> key;
+  static late final EncPref<String> iv;
+
+
   /// Whether the user is logged in and has provided both passwords.
   /// Please ensure that the relevant Prefs are loaded before using this.
   static bool get loggedIn =>
       url.loaded &&
-      username.value.isNotEmpty &&
-      ncPassword.value.isNotEmpty &&
-      ncPasswordIsAnAppPassword.loaded &&
-      encPassword.value.isNotEmpty;
+          username.value.isNotEmpty &&
+          ncPassword.value.isNotEmpty &&
+          ncPasswordIsAnAppPassword.loaded &&
+          encPassword.value.isNotEmpty;
 
-  static late final EncPref<String> key;
-  static late final EncPref<String> iv;
+
 
   static late final PlainPref<Uint8List?> pfp;
   static late final PlainPref<bool> syncInBackground;
@@ -154,17 +157,26 @@ abstract class Prefs {
 
   static late final PlainPref<String> locale;
 
+  Future<void> waitForCriticalValues() async {
+    await Future.wait([
+      url.waitUntilLoaded(),
+      key.waitUntilLoaded(),
+      iv.waitUntilLoaded(),
+    ]);
+  }
+
   static void init() {
     customDataDir = PlainPref('customDataDir', null);
-    allowInsecureConnections = EncPref('allowInsecureConnections', false);
-    url = EncPref('url', '');
-    username = EncPref('username', '');
-    ncPassword = EncPref('ncPassword', '');
+    allowInsecureConnections = EncPref<bool>('allowInsecureConnections', false);
+    allowInsecureConnections.waitUntilLoaded();
+    url = EncPref<String>('url', '');
+    username = EncPref<String>('username', '');
+    ncPassword = EncPref<String>('ncPassword', '');
     ncPasswordIsAnAppPassword = PlainPref('ncPasswordIsAnAppPassword', false);
-    encPassword = EncPref('encPassword', '');
+    encPassword = EncPref<String>('encPassword', '');
 
-    key = EncPref('key', '');
-    iv = EncPref('iv', '');
+    key = EncPref<String>('key', '');
+    iv = EncPref<String>('iv', '');
 
     pfp = PlainPref('pfp', null);
     syncInBackground = PlainPref('syncInBackground', true);
@@ -299,6 +311,7 @@ abstract class Prefs {
 
 abstract class IPref<T> extends ValueNotifier<T> {
   final String key;
+  static final log = Logger('IPrefs');
 
   /// The keys that were used in the past for this Pref. If one of these keys is found, the value will be migrated to the current key.
   final List<String> historicalKeys;
@@ -323,6 +336,7 @@ abstract class IPref<T> extends ValueNotifier<T> {
     } else {
       _load().then((T? loadedValue) {
         loaded = true;
+        log.info('Reading: (${this.key}) ${loadedValue}');
         if (loadedValue != null) {
           value = loadedValue;
         }
@@ -382,7 +396,7 @@ abstract class IPref<T> extends ValueNotifier<T> {
   /// Waits until the value has been saved to disk.
   /// Note that there is no guarantee with shared preferences that
   /// the value will actually be saved to disk.
-  @visibleForTesting
+  //@visibleForTesting
   Future<void> waitUntilSaved() async {
     if (saved) return;
 
@@ -609,8 +623,67 @@ class PlainPref<T> extends IPref<T> {
   }
 }
 
+class SecureStorageManager {
+  // class managing reading and writing keys to secure storage
+  // we have only one class doing this
+  static final SecureStorageManager instance = SecureStorageManager._();
+  final _storage = const FlutterSecureStorage();
+  static final log = Logger('Prefs-SecureStorage');
+
+  SecureStorageManager._();
+
+  Future<void> writeValue(String key, String value) async {
+    // write value to secure storage
+    //print('Starting write for key: $key');
+    try {
+      await _storage.write(key: key, value: value);
+      //print('Success write for key: $key');
+    } catch (e) {
+      log.info('Error writing key $key: $e');
+      throw e;
+    } finally {
+      //print('Finished write attempt for key: $key');
+    }
+  }
+
+  Future<String?> readValue(String key) async {
+    // read value from secure storage
+    //print('Starting read for key: $key');
+    try {
+      final value=await _storage.read(key: key);
+      //print('Success read for key: $key, value exists: ${value != null}');
+      return value;
+    } catch (e) {
+      log.info('Error reading key $key: $e');
+      //print('Error reading key $key: $e');
+      throw e;  // Re-throw to handle in calling code
+    } finally {
+      //print('Finished read attempt for key: $key');
+    }
+  }
+
+  Future<void> deleteValue(String key) async {
+    await _storage.delete(key: key);
+  }
+
+  Future<Map<String, String>> readAllValues() async {
+    return await _storage.readAll();
+  }
+
+  // Helper method for bool values
+  Future<void> writeBool(String key, bool value) async {
+    await writeValue(key, value.toString());
+  }
+
+  Future<bool?> readBool(String key) async {
+    final value = await readValue(key);
+    return value != null ? value.toLowerCase() == 'true' : null;
+  }
+}
+
 class EncPref<T> extends IPref<T> {
-  FlutterSecureStorage? _storage;
+  final _manager = SecureStorageManager.instance;  // one common SeruceStorage access
+  static final log = Logger('EncPrefs');
 
   EncPref(super.key, super.defaultValue,
       {super.historicalKeys, super.deprecatedKeys}) {
@@ -618,77 +691,111 @@ class EncPref<T> extends IPref<T> {
   }
 
   @override
+  Future<T?> getValueWithKey(String key) async {
+    try {
+      final String? value = await _manager.readValue(key);
+      return _parseString(value);
+    } catch (e) {
+      log.severe('Error loading $key: $e', e);
+      return null;
+    }
+  }
+
+  @override
+  Future<void> _save() async {
+    // save value which was changed
+    saved = false;
+    //print('Starting save for key: $key'); // Add debug print
+    try {
+      if (T == String) {
+        await _manager.writeValue(key,value as String);
+        //print('Write completed for key: $key'); // Debug print
+      } else if (T == bool) {
+        await _manager.writeValue(key,value.toString());
+        //print('Write completed for key: $key'); // Debug print
+      } else {
+        await _manager.writeValue(key, jsonEncode(value));
+        //print('Write completed for key: $key'); // Debug print
+      }
+      // Add verification read
+      //print('Verifying save for key: $key'); // Debug print
+      final savedValue = await _manager.readValue(key);
+      if (savedValue == null) {
+        throw Exception('Value of key {$key} was not saved properly');
+      }
+      //print('Verification successful for key: $key'); // Debug print
+    } finally {
+      saved = true;
+      //print('Save marked as complete for key: $key');
+    }
+  }
+
+  @override
   Future<T?> _load() async {
-    _storage ??= const FlutterSecureStorage();
+    // read value
+    try {
+      T? currentValue = await getValueWithKey(key);
+      log.info('Reading: ($key)');
 
-    T? currentValue = await getValueWithKey(key);
-    if (currentValue != null) return currentValue;
+      if (currentValue != null) return currentValue;
 
-    for (String key in historicalKeys) {
-      currentValue = await getValueWithKey(key);
-      if (currentValue == null) continue;
+      // Try historical keys
+      for (String historicalKey in historicalKeys) {
+        currentValue = await getValueWithKey(historicalKey);
+        if (currentValue == null) continue;
 
-      // migrate to new key
-      await _save();
-      _storage!.delete(key: key);
+        // Migrate to new key
+        value = currentValue;
+        await _save();
+        await _manager.deleteValue(historicalKey);
+        log.info('Migrated value from $historicalKey to $key');
+        return currentValue;
+      }
 
-      return currentValue;
+      // Clean up deprecated keys
+      for (String deprecatedKey in deprecatedKeys) {
+        await _manager.deleteValue(deprecatedKey);
+        log.info('Deleted deprecated key: $deprecatedKey');
+      }
+
+      return null;
+    } catch (e, stackTrace) {
+      log.severe('Error loading $key', e, stackTrace);
+      rethrow;
     }
-
-    for (String key in deprecatedKeys) {
-      _storage!.delete(key: key);
-    }
-
-    return null;
   }
 
   @override
   Future<void> _afterLoad() async {
-    _storage = null;
-  }
-
-  @override
-  Future _save() async {
-    saved = false;
-    try {
-      _storage ??= const FlutterSecureStorage();
-      if (T == String)
-        return await _storage!.write(key: key, value: value as String);
-      if (T == bool)
-        return await _storage!.write(key: key, value: jsonEncode(value));
-      return await _storage!.write(key: key, value: jsonEncode(value));
-    } finally {
-      saved = true;
-    }
-  }
-
-  @override
-  Future<T?> getValueWithKey(String key) async {
-    try {
-      final String? value = await _storage!.read(key: key);
-      return _parseString(value);
-    } catch (e) {
-      Prefs.log.severe('Error loading $key: $e', e);
-      return null;
-    }
+    // No need to clear storage instance anymore
   }
 
   T? _parseString(String? value) {
     if (value == null || value.isEmpty) return null;
 
-    if (T == String) {
-      return value as T;
-    } else if (T == bool) {
-      return jsonDecode(value) as T;
-    } else {
-      return List<String>.from(jsonDecode(value)) as T;
+    try {
+      if (T == String) {
+        return value as T;
+      } else if (T == bool) {
+        return jsonDecode(value) as T;
+      } else {
+        return List<String>.from(jsonDecode(value)) as T;
+      }
+    } catch (e, stackTrace) {
+      log.severe('Error parsing value for key $key: $value', e, stackTrace);
+      rethrow;
     }
   }
 
   @override
   Future<void> delete() async {
-    _storage ??= const FlutterSecureStorage();
-    await _storage!.delete(key: key);
+    try {
+      await _manager.deleteValue(key);
+      log.info('Deleted key: $key');
+    } catch (e, stackTrace) {
+      log.severe('Error deleting $key', e, stackTrace);
+      rethrow;
+    }
   }
 }
 
