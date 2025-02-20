@@ -135,7 +135,7 @@ dependencies:
 
   collection: ^1.0.0
 
-  audioplayers: ^6.1.2
+  audioplayers: ^6.0.0
 
   abstract_sync: ^1.3.0
 
