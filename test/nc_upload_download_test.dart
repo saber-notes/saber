@@ -17,8 +17,11 @@ void main() async {
     Prefs.init();
 
     Prefs.username.value = 'test.issue.118';
+    await Prefs.username.waitUntilSaved();
     Prefs.ncPassword.value = 'riNLA-2fXWY-Kay3x-jEMX5-bZr6m';
+    await Prefs.ncPassword.waitUntilSaved();
     Prefs.encPassword.value = 'test.issue.118';
+    await Prefs.encPassword.waitUntilSaved();
 
     final client = SaberSyncInterface.client!;
     await client.loadEncryptionKey();

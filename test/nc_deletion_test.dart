@@ -25,8 +25,11 @@ void main() {
     await FileManager.init();
 
     Prefs.username.value = 'test.deletion';
+    await Prefs.username.waitUntilSaved();
     Prefs.ncPassword.value = 'PRmjb-NWLzz-Gisq5-TAbtj-RbpWP';
+    await Prefs.ncPassword.waitUntilSaved();
     Prefs.encPassword.value = 'test.deletion';
+    await Prefs.encPassword.waitUntilSaved();
 
     final client = NextcloudClientExtension.withSavedDetails()!;
     final webdav = client.webdav;

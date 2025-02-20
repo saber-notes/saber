@@ -165,8 +165,11 @@ class SaberSyncInterface
       } on EncLoginFailure {
         // enc password has changed since the user last logged in, so log out
         Prefs.encPassword.value = '';
+        await Prefs.encPassword.waitUntilSaved();
         Prefs.key.value = '';
+        await Prefs.key.waitUntilSaved();
         Prefs.iv.value = '';
+        await Prefs.iv.waitUntilSaved();
       }
       return Uint8List(0);
     } else if (file.remoteFile?.size == 0) {
