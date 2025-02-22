@@ -136,7 +136,15 @@ void main() {
           );
         });
 
-        if (sbnName != laserSbn)
+        if (sbnName != laserSbn) {
+          bool hasGhostscript = true;
+          try {
+            Process.runSync('gs', ['--version']);
+          } catch (e) {
+            print('Please install Ghostscript to test PDF exports. $e');
+            hasGhostscript = false;
+          }
+
           testWidgets('(PDF)', (tester) async {
             final context = await _getBuildContext(tester, page.size);
 
@@ -172,7 +180,8 @@ void main() {
               find.byType(Image),
               matchesGoldenFile('sbn_examples/$sbnName.pdf.png'),
             );
-          });
+          }, skip: !hasGhostscript);
+        }
       });
     }
 
