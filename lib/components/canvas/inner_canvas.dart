@@ -80,20 +80,11 @@ class _InnerCanvasState extends State<InnerCanvas> {
 
     final page = widget.coreInfo.pages[widget.pageIndex];
 
-    /// [locale] doesn't matter for the preview or print views,
-    /// and [TranslationProvider] isn't available in the test environment.
-    final locale = (widget.isPreview || widget.isPrint)
-        ? null
-        : TranslationProvider.of(context).flutterLocale;
-
     Widget? quillEditor = widget.coreInfo.pages.isNotEmpty
         ? QuillEditor(
             controller:
                 widget.coreInfo.pages[widget.pageIndex].quill.controller,
-            configurations: QuillEditorConfigurations(
-              sharedConfigurations: QuillSharedConfigurations(
-                locale: locale,
-              ),
+            config: QuillEditorConfig(
               customStyles: _getQuillStyles(invert: invert),
               scrollable: false,
               autoFocus: false,

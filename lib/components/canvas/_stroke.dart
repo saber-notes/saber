@@ -141,7 +141,7 @@ class Stroke {
       'i': pageIndex,
       'ty': penType,
       'pe': pressureEnabled,
-      'c': color.value,
+      'c': color.toARGB32(),
     }..addAll(options.toJson());
   }
 

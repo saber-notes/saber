@@ -288,12 +288,9 @@ class _ToolbarState extends State<Toolbar> {
               maintainState: false,
               collapsed: !widget.textEditing || quill == null,
               child: quill != null
-                  ? QuillToolbar.simple(
+                  ? QuillSimpleToolbar(
                       controller: quill.controller,
-                      configurations: QuillSimpleToolbarConfigurations(
-                        sharedConfigurations: QuillSharedConfigurations(
-                          locale: TranslationProvider.of(context).flutterLocale,
-                        ),
+                      config: QuillSimpleToolbarConfig(
                         axis:
                             isToolbarVertical ? Axis.vertical : Axis.horizontal,
                         buttonOptions: QuillSimpleToolbarButtonOptions(

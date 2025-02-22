@@ -37,7 +37,7 @@ class DeleteFolderButton extends StatelessWidget {
 
 class _DeleteFolderDialog extends StatefulWidget {
   const _DeleteFolderDialog({
-    // ignore: unused_element
+    // ignore: unused_element_parameter
     super.key,
     required this.folderName,
     required this.deleteFolder,

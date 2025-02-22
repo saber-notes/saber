@@ -700,7 +700,7 @@ class FileManager {
 
     if (extension == '.sba') {
       final inputStream = InputFileStream(path);
-      final archive = ZipDecoder().decodeBuffer(inputStream);
+      final archive = ZipDecoder().decodeStream(inputStream);
 
       final mainFile = archive.files.cast<ArchiveFile?>().firstWhere(
             (file) => file!.name.endsWith('sbn') || file.name.endsWith('sbn2'),
@@ -716,7 +716,7 @@ class FileManager {
         intendedExtension: mainFileExtension,
       );
       final mainFileContents = () {
-        final output = OutputStream();
+        final output = OutputMemoryStream();
         mainFile.writeContent(output);
         return output.getBytes();
       }();
@@ -739,7 +739,7 @@ class FileManager {
         if (assetNumber < 0) continue;
 
         final assetBytes = () {
-          final output = OutputStream();
+          final output = OutputMemoryStream();
           file.writeContent(output);
           return output.getBytes();
         }();

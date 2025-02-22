@@ -67,7 +67,7 @@ class _SizePickerState extends State<SizePicker> {
 
 class _SizeSlider extends StatelessWidget {
   const _SizeSlider({
-    // ignore: unused_element
+    // ignore: unused_element_parameter
     super.key,
     required this.pen,
     required this.axis,

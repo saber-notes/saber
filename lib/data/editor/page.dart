@@ -183,12 +183,12 @@ class EditorPage extends Listenable implements HasSize {
   /// Inserts a stroke, while keeping the strokes sorted by
   /// pen type and color.
   void insertStroke(Stroke newStroke) {
-    int newStrokeColor = newStroke.color.value;
+    int newStrokeColor = newStroke.color.toARGB32();
 
     int index = 0;
     for (final Stroke stroke in strokes) {
       int penTypeComparison = stroke.penType.compareTo(newStroke.penType);
-      int color = stroke.color.value;
+      int color = stroke.color.toARGB32();
       if (penTypeComparison > 0) {
         break; // this stroke's pen type comes after the new stroke's pen type
       } else if (stroke.penType == (Highlighter).toString() &&
@@ -208,7 +208,7 @@ class EditorPage extends Listenable implements HasSize {
       int penTypeComparison = a.penType.compareTo(b.penType);
       if (penTypeComparison != 0) return penTypeComparison;
       if (a.penType != (Highlighter).toString()) return 0;
-      return a.color.value.compareTo(b.color.value);
+      return a.color.toARGB32().compareTo(b.color.toARGB32());
     });
   }
 
