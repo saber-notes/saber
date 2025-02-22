@@ -176,10 +176,18 @@ class FileManager {
   static Directory getRootDirectory() => Directory(documentsDirectory);
 
   /// Writes [toWrite] to [filePath].
-  static Future<void> writeFile(String filePath, List<int> toWrite,
-      {bool awaitWrite = false, bool alsoUpload = true, DateTime? lastModified}) async {
-        // if lastModified  is used, then last modified time stamp is set after file write
-        // it is used when downloading remote file, to set the same time stamp as has the file
+  ///
+  /// The file at [toPath] will have its last modified timestamp set to
+  /// [lastModified], if specified.
+  /// This is useful when downloading remote files, to make sure that the
+  /// timestamp is the same locally and remotely.
+  static Future<void> writeFile(
+    String filePath,
+    List<int> toWrite, {
+    bool awaitWrite = false,
+    bool alsoUpload = true,
+    DateTime? lastModified,
+  }) async {
     filePath = _sanitisePath(filePath);
     log.fine('Writing to $filePath');
 
@@ -201,9 +209,7 @@ class FileManager {
     ]);
 
     void afterWrite() {
-      if (lastModified != null){
-        // want to set timestamp of last modification. Used when downloading remote file, to put the same time stamp
-        // to avoid synchronization of newly created file back to remote.
+      if (lastModified != null) {
         file.setLastModified(lastModified);
       }
       broadcastFileWrite(FileOperationType.write, filePath);
