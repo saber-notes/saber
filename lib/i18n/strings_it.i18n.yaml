@@ -299,6 +299,8 @@ editor:
     deletePage: Elimina pagina
     lineHeight: Altezza della linea
     lineHeightDescription: Controlla anche la dimensione del testo per le note digitate
+    lineThickness(OUTDATED): Spessore della linea
+    lineThicknessDescription(OUTDATED): Spessore della linea di sfondo
     backgroundImageFit: Adattamento immagine di sfondo
     backgroundPattern: Modello di sfondo
     import: Importa

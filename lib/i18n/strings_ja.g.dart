@@ -704,6 +704,8 @@ class _TranslationsEditorMenuJa extends TranslationsEditorMenuEn {
 	@override String get duplicatePage => '重複したページ';
 	@override String get deletePage => 'ページの削除';
 	@override String get lineHeight => '行の高さ';
+	@override String get lineThickness => '線の厚さ';
+	@override String get lineThicknessDescription => '背景線の厚さ';
 	@override String get backgroundPattern => '背景パターン';
 	@override String get import => 'インポート';
 	@override late final _TranslationsEditorMenuBoxFitsJa boxFits = _TranslationsEditorMenuBoxFitsJa._(_root);

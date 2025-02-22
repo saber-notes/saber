@@ -707,6 +707,8 @@ class _TranslationsEditorMenuZhHansCn extends TranslationsEditorMenuEn {
 	@override String get deletePage => '删除页面';
 	@override String get lineHeight => '行高';
 	@override String get lineHeightDescription => '还控制已输入的笔记的文本大小';
+	@override String get lineThickness => '线厚度';
+	@override String get lineThicknessDescription => '背景线厚度';
 	@override String get backgroundImageFit => '背景图像拟合';
 	@override String get backgroundPattern => '背景图案';
 	@override String get import => '导入';

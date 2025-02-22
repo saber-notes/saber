@@ -703,6 +703,8 @@ class _TranslationsEditorMenuEs extends TranslationsEditorMenuEn {
 	@override String get duplicatePage => 'Duplicar página';
 	@override String get deletePage => 'Eliminar página';
 	@override String get lineHeight => 'Altura de la línea';
+	@override String get lineThickness => 'Espesor de línea';
+	@override String get lineThicknessDescription => 'Grosor de la línea de fondo';
 	@override String get backgroundImageFit => 'Ajuste de la imagen de fondo';
 	@override String get backgroundPattern => 'Patrón de fondo';
 	@override String get import => 'Importar';
