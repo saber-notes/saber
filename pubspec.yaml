@@ -180,6 +180,13 @@ dependency_overrides:
       url: https://github.com/ad-angelo/receive_sharing_intent
       ref: deec27f3dd36d6c9f51c22d0026baa7b6f0850a3
 
+  # https://github.com/fluttercommunity/flutter_workmanager/issues/588
+  workmanager:
+    git:
+      url: https://github.com/fluttercommunity/flutter_workmanager.git
+      path: workmanager
+      ref: main
+
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
