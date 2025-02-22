@@ -144,6 +144,7 @@ dependencies:
   flutter_web_auth_2: ^4.0.0
 
   pdfrx: ^1.0.85
+  path: ^1.9.1
 
 dev_dependencies:
   flutter_test:

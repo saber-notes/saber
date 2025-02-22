@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:golden_screenshot/golden_screenshot.dart';
+import 'package:path/path.dart' as p;
 import 'package:saber/components/canvas/canvas.dart';
 import 'package:saber/components/canvas/image/editor_image.dart';
 import 'package:saber/components/canvas/pencil_shader.dart';
@@ -138,18 +139,18 @@ void main() {
 
         if (sbnName != laserSbn) {
           bool hasGhostscript = true;
-          try {
-            Process.runSync('gs', ['--version'], runInShell: true);
-          } catch (e) {
-            debugPrint('Please install Ghostscript to test PDF exports. $e');
+          final gsCheck =
+              Process.runSync('gs', ['--version'], runInShell: true);
+          if (gsCheck.exitCode != 0) {
+            debugPrint('Please install Ghostscript to test PDF exports.');
             hasGhostscript = false;
           }
 
           testWidgets('(PDF)', (tester) async {
             final context = await _getBuildContext(tester, page.size);
 
-            final pdfFile = File('/tmp/$sbnName.pdf');
-            final pngFile = File('/tmp/$sbnName.pdf.png');
+            final pdfFile = File(p.join(tmpDir, '$sbnName.pdf'));
+            final pngFile = File(p.join(tmpDir, '$sbnName.pdf.png'));
 
             // Generate PDF file and write to disk
             await tester.runAsync(() async {
