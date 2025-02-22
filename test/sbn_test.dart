@@ -139,9 +139,9 @@ void main() {
         if (sbnName != laserSbn) {
           bool hasGhostscript = true;
           try {
-            Process.runSync('gs', ['--version']);
+            Process.runSync('gs', ['--version'], runInShell: true);
           } catch (e) {
-            print('Please install Ghostscript to test PDF exports. $e');
+            debugPrint('Please install Ghostscript to test PDF exports. $e');
             hasGhostscript = false;
           }
 
@@ -160,7 +160,8 @@ void main() {
 
             // Convert PDF to PNG with Ghostscript
             await tester.runAsync(() => Process.run(
-                'gs', ['-sDEVICE=pngalpha', '-o', pngFile.path, pdfFile.path]));
+                'gs', ['-sDEVICE=pngalpha', '-o', pngFile.path, pdfFile.path],
+                runInShell: true));
 
             // Load PNG from disk
             final pdfImage = await tester.runAsync(() => pngFile.readAsBytes());
