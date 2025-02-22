@@ -163,7 +163,7 @@ jobs:
               echo Flutter not installed, installing...
               mkdir -p /opt/flutter
               chown -R nonroot /opt/flutter
-              unsudo git clone https://github.com/flutter/flutter.git -b stable --depth 1 /opt/flutter
+              unsudo git clone https://github.com/flutter/flutter.git -b stable /opt/flutter
             else
               echo Flutter already installed, updating...
               chown -R nonroot /opt/flutter
