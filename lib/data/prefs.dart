@@ -35,6 +35,13 @@ abstract class Prefs {
   @visibleForTesting
   static bool warnIfPrefAccessedBeforeLoaded = true;
 
+  /// Returns whether you can use Prefs.
+  ///
+  /// This may be false if [init] has not been called yet,
+  /// or on a non-main isolate.
+  static bool get available => _available;
+  static bool _available = false;
+
   static late final PlainPref<String?> customDataDir;
 
   static late final EncPref<bool> allowInsecureConnections;
@@ -118,6 +125,8 @@ abstract class Prefs {
       lastPencilColor,
       lastShapePenColor;
   static late final PlainPref<CanvasBackgroundPattern> lastBackgroundPattern;
+  static const defaultLineHeight = 40;
+  static const defaultLineThickness = 3;
   static late final PlainPref<int> lastLineHeight;
   static late final PlainPref<int> lastLineThickness;
   static late final PlainPref<bool> lastZoomLock,
@@ -156,6 +165,8 @@ abstract class Prefs {
   static late final PlainPref<String> locale;
 
   static void init() {
+    _available = true;
+
     customDataDir = PlainPref('customDataDir', null);
     allowInsecureConnections = EncPref('allowInsecureConnections', false);
     url = EncPref('url', '');
@@ -247,8 +258,8 @@ abstract class Prefs {
 
     lastBackgroundPattern =
         PlainPref('lastBackgroundPattern', CanvasBackgroundPattern.none);
-    lastLineHeight = PlainPref('lastLineHeight', 40);
-    lastLineThickness = PlainPref('lastLineThickness', 3);
+    lastLineHeight = PlainPref('lastLineHeight', defaultLineHeight);
+    lastLineThickness = PlainPref('lastLineThickness', defaultLineThickness);
     lastZoomLock = PlainPref('lastZoomLock', false);
     lastSingleFingerPanLock = PlainPref('lastSingleFingerPanLock', false,
         historicalKeys: const ['lastPanLock']);
