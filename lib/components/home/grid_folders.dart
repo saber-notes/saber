@@ -72,7 +72,7 @@ class GridFolders extends StatelessWidget {
 
 class _GridFolder extends StatefulWidget {
   const _GridFolder({
-    // ignore: unused_element
+    // ignore: unused_element_parameter
     super.key,
     required this.cardType,
     required this.folderName,

@@ -48,7 +48,7 @@ dependencies:
   path_provider: ^2.0.11
 
   shared_preferences: ^2.0.17
-  flutter_secure_storage: ^9.0.0
+  flutter_secure_storage: ^10.0.0-beta.4
 
   url_launcher: ^6.1.8
 
@@ -69,7 +69,7 @@ dependencies:
 
   pdf: ^3.8.4
   share_plus: ^10.0.0
-  file_picker: ^8.1.7
+  file_picker: ^9.0.0
 
   regexed_validator: ^2.0.0+1
 
@@ -89,14 +89,14 @@ dependencies:
 
   animations: ^2.0.7
 
-  flutter_quill: ^10.0.2
+  flutter_quill: ^11.0.0
 
   window_manager: ^0.4.2
 
   worker_manager: ^7.0.1
   workmanager: ^0.5.0
 
-  archive: ^3.4.6
+  archive: ^4.0.3
 
   receive_sharing_intent: ^1.6.7
 

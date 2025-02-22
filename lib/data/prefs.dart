@@ -236,13 +236,13 @@ abstract class Prefs {
         PlainPref('lastShapePenProperties', Pen.shapePenOptions);
 
     lastFountainPenColor =
-        PlainPref('lastFountainPenColor', Colors.black.value);
+        PlainPref('lastFountainPenColor', Colors.black.toARGB32());
     lastBallpointPenColor =
-        PlainPref('lastBallpointPenColor', Colors.black.value);
+        PlainPref('lastBallpointPenColor', Colors.black.toARGB32());
     lastHighlighterColor = PlainPref('lastHighlighterColor',
-        Colors.yellow.withAlpha(Highlighter.alpha).value);
-    lastPencilColor = PlainPref('lastPencilColor', Colors.black.value);
-    lastShapePenColor = PlainPref('lastShapePenColor', Colors.black.value);
+        Colors.yellow.withAlpha(Highlighter.alpha).toARGB32());
+    lastPencilColor = PlainPref('lastPencilColor', Colors.black.toARGB32());
+    lastShapePenColor = PlainPref('lastShapePenColor', Colors.black.toARGB32());
 
     lastBackgroundPattern =
         PlainPref('lastBackgroundPattern', CanvasBackgroundPattern.none);

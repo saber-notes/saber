@@ -320,7 +320,7 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
 
 class _PermanentTooltip extends StatelessWidget {
   const _PermanentTooltip({
-    // ignore: unused_element
+    // ignore: unused_element_parameter
     super.key,
     required this.text,
   });

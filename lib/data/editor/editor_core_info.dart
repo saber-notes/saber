@@ -465,7 +465,7 @@ class EditorCoreInfo {
     final json = {
       'v': sbnVersion,
       'ni': nextImageId,
-      'b': backgroundColor?.value,
+      'b': backgroundColor?.toARGB32(),
       'p': backgroundPattern.name,
       'l': lineHeight,
       'z': pages.map((EditorPage page) => page.toJson(assets)).toList(),
@@ -508,7 +508,7 @@ class EditorCoreInfo {
             ))),
     ]);
 
-    return ZipEncoder().encode(archive)!;
+    return ZipEncoder().encode(archive);
   }
 
   /// Returns the bson bytes and the assets.

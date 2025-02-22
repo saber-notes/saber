@@ -57,7 +57,7 @@ class _SettingsSwitchState extends State<SettingsColor> {
           color: color ?? defaultColor,
           pickersEnabled: const {ColorPickerType.wheel: true},
           onColorChanged: (Color color) {
-            Prefs.accentColor.value = color.value;
+            Prefs.accentColor.value = color.toARGB32();
           },
         ),
       ),
@@ -113,14 +113,14 @@ class _SettingsSwitchState extends State<SettingsColor> {
             value: color != null,
             onChanged: (bool? value) {
               if (value == null) return;
-              widget.pref.value = value ? defaultColor.value : 0;
+              widget.pref.value = value ? defaultColor.toARGB32() : 0;
             },
           )
         ],
       ),
       onTap: () async {
         int previousColor = widget.pref.value;
-        widget.pref.value = defaultColor.value; // enable custom accent color
+        widget.pref.value = defaultColor.toARGB32(); // enable accent color
 
         bool? confirmChange = await showDialog(
           context: context,
