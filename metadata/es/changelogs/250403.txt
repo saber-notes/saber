@@ -1,0 +1,2 @@
+Ahora puede personalizar el grosor de línea de su patrón de fondo,
+y los archivos descargados desde el servidor ahora tienen la marca de tiempo adecuada, evitando que se sincronicen repetidamente.
