@@ -129,13 +129,10 @@ class SaberSyncInterface
 
   @override
   Future<SaberSyncFile> getSyncFileFromLocalFile(File localFile) async {
-    String relativePath =
-        localFile.path.substring(FileManager.documentsDirectory.length);
-    String separator=Platform.pathSeparator;
-    if (separator != "/") {
-      // I am on windows - replace \ with /
-      relativePath=relativePath.replaceAll("\\","/");
-    }
+    final relativePath = localFile.path
+        .substring(FileManager.documentsDirectory.length)
+        // Compensate for Windows using backslashes
+        .replaceAll(Platform.pathSeparator, '/');
 
     assert(relativePath.startsWith('/'));
     final encryptedName = await encryptPath(client, relativePath);
@@ -229,8 +226,13 @@ class SaberSyncInterface
     );
     assert(decryptedData.isNotEmpty,
         'Decrypted data is empty but encryptedBytes.length is ${encryptedBytes.length}');
-    await FileManager.writeFile(file.relativeLocalPath, decryptedData,
-        alsoUpload: false, lastModified: file.remoteFile?.lastModified);  // write remote file to local and set time stamp from remote file!
+    await FileManager.writeFile(
+      file.relativeLocalPath,
+      decryptedData,
+      alsoUpload: false,
+      // Local file should have the same last modified date as remote
+      lastModified: file.remoteFile?.lastModified,
+    );
   }
 
   @override
