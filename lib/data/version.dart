@@ -8,4 +8,4 @@ const int buildNumber = 25030;
 const String buildName = '0.25.3';
 
 /// The year in which the current version was released.
-const int buildYear = 2024;
+const int buildYear = 2025;
