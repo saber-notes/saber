@@ -196,7 +196,9 @@ class FileManager {
     final File file = getFile(filePath);
     await _createFileDirectory(filePath);
     Future writeFuture = Future.wait([
-      file.writeAsBytes(toWrite),
+      file.writeAsBytes(toWrite).then((file) async {
+        if (lastModified != null) await file.setLastModified(lastModified);
+      }),
       // if we're using a new format, also delete the old file
       if (filePath.endsWith(Editor.extension))
         getFile(
@@ -209,9 +211,6 @@ class FileManager {
     ]);
 
     void afterWrite() {
-      if (lastModified != null) {
-        file.setLastModified(lastModified);
-      }
       broadcastFileWrite(FileOperationType.write, filePath);
       if (alsoUpload) syncer.uploader.enqueueRel(filePath);
       if (filePath.endsWith(Editor.extension)) {
