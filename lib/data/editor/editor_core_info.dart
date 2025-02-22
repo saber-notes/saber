@@ -171,8 +171,14 @@ class EditorCoreInfo {
         }
         return CanvasBackgroundPattern.none;
       }(),
-      lineHeight: json['l'] as int? ?? Prefs.lastLineHeight.value,
-      lineThickness: json['lt'] as int? ?? Prefs.lastLineThickness.value,
+      lineHeight: json['l'] as int? ??
+          (Prefs.available
+              ? Prefs.lastLineHeight.value
+              : Prefs.defaultLineHeight),
+      lineThickness: json['lt'] as int? ??
+          (Prefs.available
+              ? Prefs.lastLineThickness.value
+              : Prefs.defaultLineThickness),
       pages: _parsePagesJson(
         json['z'] as List?,
         inlineAssets: inlineAssets,
