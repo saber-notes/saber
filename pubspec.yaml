@@ -183,7 +183,7 @@ dependency_overrides:
   # https://github.com/fluttercommunity/flutter_workmanager/issues/588
   workmanager:
     git:
-      url: https://github.com/fluttercommunity/flutter_workmanager.git
+      url: https://github.com/fluttercommunity/flutter_workmanager
       path: workmanager
       ref: main
 

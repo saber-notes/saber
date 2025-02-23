@@ -1864,7 +1864,7 @@ packages:
       path: workmanager
       ref: main
       resolved-ref: "4ce065135dc1b91fee918f81596b42a56850391d"
-      url: "https://github.com/fluttercommunity/flutter_workmanager.git"
+      url: "https://github.com/fluttercommunity/flutter_workmanager"
     source: git
     version: "0.5.2"
   xdg_directories:
