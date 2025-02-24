@@ -127,7 +127,9 @@ jobs:
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          channel: stable
+          # Workaround for https://github.com/subosito/flutter-action/issues/345, needs to be removed when fixed
+          channel: master
+          flutter-version: 3.29.0
           cache: true
           cache-key: 'flutter-:os:-:channel:-:version:-:arch:'
 
