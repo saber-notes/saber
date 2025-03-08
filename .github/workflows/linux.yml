@@ -13,13 +13,26 @@ on:
       - appimage/AppImageBuilder.yml
 
 jobs:
-
-  build-flutter-app-x86_64:
-    name: Build Flutter app (x86_64)
-    runs-on: ubuntu-latest
+  build-linux:
+    strategy:
+      fail-fast: false
+      matrix:
+        arch:
+          - runs-on: ubuntu-latest
+            cache-name: saber
+            target-platform: linux-x64
+            flutter-output-folder: build/linux/x64/release/bundle
+            archive-suffix: x86_64
+          - runs-on: ubuntu-24.04-arm
+            cache-name: saberarm64
+            target-platform: linux-arm64
+            flutter-output-folder: build/linux/arm64/release/bundle
+            archive-suffix: arm64
+    runs-on: ${{ matrix.arch.runs-on }}
     permissions:
       contents: write
     timeout-minutes: 20
+    name: Build Linux (${{ matrix.arch.target-platform }})
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -31,87 +44,10 @@ jobs:
         with:
           path: |
             build
-          key: ${{ runner.OS }}-saber-${{ hashFiles('**/pubspec.lock') }}-${{ hashFiles('**/*.dart') }}
+          key: ${{ runner.OS }}-${{ matrix.arch.cache-name }}-${{ hashFiles('**/pubspec.lock') }}-${{ hashFiles('**/*.dart') }}
           restore-keys: |
-            ${{ runner.OS }}-saber-
-      
-      - name: Remove proprietary dependencies
-        run: ./patches/remove_proprietary_dependencies.sh
+            ${{ runner.OS }}-${{ matrix.arch.cache-name }}-
 
-      - name: Setup Flutter
-        uses: subosito/flutter-action@v2
-        with:
-          channel: stable
-          cache: true
-          cache-key: 'flutter-:os:-:channel:-:version:-:arch:'
-
-      - name: Disable Flutter CLI animations
-        run: flutter config --no-cli-animations
-
-      - run: flutter pub get
-
-      - name: Build Linux (x86_64)
-        run: |
-          flutter build linux \
-            --dart-define=DIRTY=$DIRTY
-        env:
-          DIRTY: ${{ !startsWith(github.ref, 'refs/tags/') }}
-
-      - name: Compress Flutter build
-        id: compress
-        run: |
-          buildName=$(grep -oP "(?<=buildName = ').*(?=')" lib/data/version.dart)
-          archiveName="Saber_v${buildName}_Linux_x86_64.tar.gz"
-          echo "archiveName=$archiveName" >> $GITHUB_OUTPUT
-
-          mkdir -p AppDir
-          mv build/linux/x64/release/bundle/* AppDir
-          chmod +x AppDir/saber
-
-          install -Dm644 flatpak/com.adilhanney.saber.metainfo.xml -t AppDir/share/metainfo/
-          install -Dm644 flatpak/com.adilhanney.saber.metainfo.xml -t AppDir/usr/share/metainfo/
-
-          install -Dm644 assets/icon/icon.svg AppDir/share/icons/hicolor/scalable/apps/com.adilhanney.saber.svg
-          install -Dm644 assets/icon/icon.svg AppDir/usr/share/icons/hicolor/scalable/apps/com.adilhanney.saber.svg
-
-          install -Dm644 flatpak/com.adilhanney.saber.desktop -t AppDir/share/applications/
-
-          tar -C AppDir -cvf $archiveName .
-
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: Saber-Archive-x86_64
-          path: ${{ steps.compress.outputs.archiveName }}
-
-      - name: Upload to GitHub release
-        uses: svenstaro/upload-release-action@v2
-        if: ${{ startsWith(github.ref, 'refs/tags/') }}
-        with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: ${{ steps.compress.outputs.archiveName }}
-
-  build-flutter-app-arm64:
-    name: Build Flutter app (arm64)
-    runs-on: ubuntu-24.04-arm
-    permissions:
-      contents: write
-    timeout-minutes: 20
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - uses: "./.github/shared_workflows/install_apt_dependencies"
-
-      - name: Setup cache
-        uses: actions/cache@v4
-        with:
-          path: |
-            build
-          key: ${{ runner.OS }}-saberarm64-${{ hashFiles('**/pubspec.lock') }}-${{ hashFiles('**/*.dart') }}
-          restore-keys: |
-            ${{ runner.OS }}-saberarm64-
-      
       - name: Remove proprietary dependencies
         run: ./patches/remove_proprietary_dependencies.sh
 
@@ -120,7 +56,7 @@ jobs:
         with:
           # Workaround for https://github.com/subosito/flutter-action/issues/345, needs to be removed when fixed
           channel: master
-          flutter-version: 3.29.0
+          flutter-version: 3.29.1
           cache: true
           cache-key: 'flutter-:os:-:channel:-:version:-:arch:'
 
@@ -129,23 +65,21 @@ jobs:
 
       - run: flutter pub get
 
-      - name: Build Linux (x86_64)
+      - name: Build Linux (${{ matrix.arch.target-platform }})
         run: |
           flutter build linux \
-            --target-platform linux-arm64 \
-            --dart-define=DIRTY=$DIRTY
-        env:
-          DIRTY: ${{ !startsWith(github.ref, 'refs/tags/') }}
+            --target-platform ${{ matrix.arch.target-platform }} \
+            --dart-define=DIRTY=${{ !startsWith(github.ref, 'refs/tags/') }}
 
       - name: Compress Flutter build
         id: compress
         run: |
           buildName=$(grep -oP "(?<=buildName = ').*(?=')" lib/data/version.dart)
-          archiveName="Saber_v${buildName}_Linux_arm64.tar.gz"
+          archiveName="Saber_v${buildName}_Linux_${{ matrix.arch.archive-suffix }}.tar.gz"
           echo "archiveName=$archiveName" >> $GITHUB_OUTPUT
-          
+
           mkdir -p AppDir
-          mv build/linux/arm64/release/bundle/* AppDir
+          mv ${{ matrix.arch.flutter-output-folder }}/* AppDir
           chmod +x AppDir/saber
 
           install -Dm644 flatpak/com.adilhanney.saber.metainfo.xml -t AppDir/share/metainfo/
@@ -157,13 +91,13 @@ jobs:
           install -Dm644 flatpak/com.adilhanney.saber.desktop -t AppDir/share/applications/
 
           tar -C AppDir -cvf $archiveName .
-      
+
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: Saber-Archive-arm64
+          name: Saber-Archive-${{ matrix.arch.archive-suffix }}
           path: ${{ steps.compress.outputs.archiveName }}
-      
+
       - name: Upload to GitHub release
         uses: svenstaro/upload-release-action@v2
         if: ${{ startsWith(github.ref, 'refs/tags/') }}
@@ -173,7 +107,7 @@ jobs:
 
   build-appimage:
     name: Build AppImage
-    needs: build-flutter-app-x86_64
+    needs: build-linux
     runs-on: ubuntu-latest
     permissions:
       contents: write
