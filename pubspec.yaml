@@ -177,8 +177,8 @@ dependency_overrides:
   # https://github.com/KasemJaffer/receive_sharing_intent/pull/333
   receive_sharing_intent:
     git:
-      url: https://github.com/ad-angelo/receive_sharing_intent
-      ref: deec27f3dd36d6c9f51c22d0026baa7b6f0850a3
+      url: https://github.com/KasemJaffer/receive_sharing_intent
+      ref: 2cea396843cd3ab1b5ec4334be4233864637874e
 
   # https://github.com/fluttercommunity/flutter_workmanager/issues/588
   workmanager:
