@@ -9,6 +9,7 @@ import 'package:saber/components/home/masonry_files.dart';
 import 'package:saber/components/home/move_note_button.dart';
 import 'package:saber/components/home/new_note_button.dart';
 import 'package:saber/components/home/rename_note_button.dart';
+import 'package:saber/components/home/select_all_button.dart';
 import 'package:saber/components/home/syncing_button.dart';
 import 'package:saber/components/home/welcome.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
@@ -202,6 +203,17 @@ class _RecentPageState extends State<RecentPage> {
                   selectedFiles.value = [];
                 },
                 icon: const Icon(Icons.delete_forever),
+              ),
+              SelectAllNotesButton(
+                selectedFiles: selectedFiles.value,
+                allFiles: filePaths,
+                selectAll: () => {
+                  selectedFiles.value.clear(),
+                  for (String file in filePaths)
+                    selectedFiles.value.add(file),
+                  setState(() {}),
+                },
+                deselectAll: () => selectedFiles.value = [],
               ),
               ExportNoteButton(
                 selectedFiles: selectedFiles.value,
