@@ -299,6 +299,8 @@ editor:
     deletePage: حذف الصفحة
     lineHeight: ارتفاع خط
     lineHeightDescription: يتحكم أيضًا في حجم النص للملاحظات المكتوبة
+    lineThickness(OUTDATED): سمك الخط
+    lineThicknessDescription(OUTDATED): سماكة خط الخلفية
     backgroundImageFit: تناسب صورة الخلفية
     backgroundPattern: نمط الخلفية
     import: يستورد

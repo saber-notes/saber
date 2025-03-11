@@ -293,6 +293,8 @@ editor:
     duplicatePage: تکرار صفحه
     deletePage: حذف صفحه
     lineHeight: ارتفاع خط
+    lineThickness(OUTDATED): ضخامت خط
+    lineThicknessDescription(OUTDATED): ضخامت خط پس زمینه
     backgroundImageFit: مناسب تصویر پس زمینه
     backgroundPattern: الگوی پس زمینه
     import: واردکردن

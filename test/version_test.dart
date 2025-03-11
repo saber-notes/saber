@@ -13,12 +13,17 @@ const String dummyChangelog = 'Release_notes_will_be_added_here';
 
 void main() {
   test('Does bump_version.dart find changes needed?', () async {
-    final result = await Process.run('./scripts/bump_version.dart', [
-      '--custom',
-      buildName,
-      '--fail-on-changes',
-      '--quiet',
-    ]);
+    final result = await Process.run(
+      'dart',
+      [
+        './scripts/bump_version.dart',
+        '--custom',
+        buildName,
+        '--fail-on-changes',
+        '--quiet',
+      ],
+      runInShell: true,
+    );
     printOnFailure(result.stdout);
     printOnFailure(result.stderr);
 

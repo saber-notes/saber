@@ -300,6 +300,8 @@ editor:
     deletePage: Seite löschen
     lineHeight: Zeilenhöhe
     lineHeightDescription: Bestimmt ebenfalls die Textgröße der getippten Notizen
+    lineThickness(OUTDATED): Liniendicke
+    lineThicknessDescription(OUTDATED): Hintergrundliniendicke
     backgroundImageFit: Background image fit
     backgroundPattern: Hintergrundmuster
     import: Importieren

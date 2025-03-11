@@ -181,7 +181,7 @@ class _ColorBarState extends State<ColorBar> {
         ),
         for (String colorString in Prefs.pinnedColors.value)
           ColorOption(
-            isSelected: widget.currentColor?.withAlpha(255).value ==
+            isSelected: widget.currentColor?.withAlpha(255).toARGB32() ==
                 int.parse(colorString),
             enabled: widget.currentColor != null,
             onTap: () => widget.setColor(Color(int.parse(colorString))),
@@ -209,7 +209,7 @@ class _ColorBarState extends State<ColorBar> {
       // recent colors
       for (String colorString in Prefs.recentColorsPositioned.value.reversed)
         ColorOption(
-          isSelected: widget.currentColor?.withAlpha(255).value ==
+          isSelected: widget.currentColor?.withAlpha(255).toARGB32() ==
               int.parse(colorString),
           enabled: widget.currentColor != null,
           onTap: () => widget.setColor(Color(int.parse(colorString))),
@@ -256,8 +256,8 @@ class _ColorBarState extends State<ColorBar> {
 
       // custom color
       ColorOption(
-        isSelected:
-            widget.currentColor?.withAlpha(255).value == pickedColor.value,
+        isSelected: widget.currentColor?.withAlpha(255).toARGB32() ==
+            pickedColor.toARGB32(),
         enabled: true,
         onTap: () => openColorPicker(context),
         tooltip: t.editor.colors.colorPicker,
@@ -273,8 +273,8 @@ class _ColorBarState extends State<ColorBar> {
       // color presets
       for (NamedColor namedColor in ColorBar.colorPresets)
         ColorOption(
-          isSelected: widget.currentColor?.withAlpha(255).value ==
-              namedColor.color.value,
+          isSelected: widget.currentColor?.withAlpha(255).toARGB32() ==
+              namedColor.color.toARGB32(),
           enabled: widget.currentColor != null,
           onTap: () => widget.setColor(namedColor.color),
           tooltip: namedColor.name,

@@ -298,6 +298,8 @@ editor:
     duplicatePage: שכפל דף
     deletePage: מחק דף
     lineHeight: גובה הקו
+    lineThickness(OUTDATED): עובי קו
+    lineThicknessDescription(OUTDATED): עובי קו רקע
     backgroundImageFit: התאמת תמונת רקע
     backgroundPattern: תבנית רקע
     import: יבוא

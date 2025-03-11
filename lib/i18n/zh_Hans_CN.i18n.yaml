@@ -299,6 +299,8 @@ editor:
     deletePage: 删除页面
     lineHeight: 行高
     lineHeightDescription: 还控制已输入的笔记的文本大小
+    lineThickness(OUTDATED): 线厚度
+    lineThicknessDescription(OUTDATED): 背景线厚度
     backgroundImageFit: 背景图像拟合
     backgroundPattern: 背景图案
     import: 导入

@@ -68,7 +68,7 @@ class RectangleStroke extends Stroke {
       'rw': rect.width,
       'rh': rect.height,
       'pe': pressureEnabled,
-      'c': color.value,
+      'c': color.toARGB32(),
     }..addAll(options.toJson());
   }
 

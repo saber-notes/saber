@@ -707,6 +707,8 @@ class _TranslationsEditorMenuRu extends TranslationsEditorMenuEn {
 	@override String get deletePage => 'Удалить страницу';
 	@override String get lineHeight => 'Высота строки';
 	@override String get lineHeightDescription => 'Также управляет размером текста для напечатанных заметок';
+	@override String get lineThickness => 'Линия толщина';
+	@override String get lineThicknessDescription => 'Фотовая линия толщина';
 	@override String get backgroundImageFit => 'Фоновое изображение';
 	@override String get backgroundPattern => 'Фоновый шаблон';
 	@override String get import => 'Импорт';

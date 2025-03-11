@@ -1,0 +1,2 @@
+Agora você pode personalizar a espessura da linha do seu padrão de fundo,
+e os arquivos baixados do servidor agora têm o carimbo de data e hora adequados, impedindo -os de serem sincronizados repetidamente.

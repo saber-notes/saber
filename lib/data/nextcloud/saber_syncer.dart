@@ -129,8 +129,11 @@ class SaberSyncInterface
 
   @override
   Future<SaberSyncFile> getSyncFileFromLocalFile(File localFile) async {
-    final relativePath =
-        localFile.path.substring(FileManager.documentsDirectory.length);
+    final relativePath = localFile.path
+        .substring(FileManager.documentsDirectory.length)
+        // Compensate for Windows using backslashes
+        .replaceAll(Platform.pathSeparator, '/');
+
     assert(relativePath.startsWith('/'));
     final encryptedName = await encryptPath(client, relativePath);
     final remotePath = '${FileManager.appRootDirectoryPrefix}/'
@@ -223,8 +226,13 @@ class SaberSyncInterface
     );
     assert(decryptedData.isNotEmpty,
         'Decrypted data is empty but encryptedBytes.length is ${encryptedBytes.length}');
-    await FileManager.writeFile(file.relativeLocalPath, decryptedData,
-        alsoUpload: false);
+    await FileManager.writeFile(
+      file.relativeLocalPath,
+      decryptedData,
+      alsoUpload: false,
+      // Local file should have the same last modified date as remote
+      lastModified: file.remoteFile?.lastModified,
+    );
   }
 
   @override

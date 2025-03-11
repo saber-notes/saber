@@ -293,6 +293,8 @@ editor:
   menu:
     clearAllPages: Összes oldal törlése
     lineHeight: Vonalmagasság
+    lineThickness(OUTDATED): Vonalvastagság
+    lineThicknessDescription(OUTDATED): Háttérvonal vastagsága
     backgroundPattern: Háttérminta
     import: Importálás
     boxFits:

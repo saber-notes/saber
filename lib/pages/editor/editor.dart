@@ -1051,7 +1051,7 @@ class EditorState extends State<Editor> {
       }
     }
 
-    final String newColorString = color.value.toString();
+    final String newColorString = color.toARGB32().toString();
 
     // migrate from old pref format
     if (Prefs.recentColorsChronological.value.length !=
@@ -1795,6 +1795,12 @@ class EditorState extends State<Editor> {
         if (coreInfo.readOnly) return;
         coreInfo.lineHeight = lineHeight;
         Prefs.lastLineHeight.value = lineHeight;
+        autosaveAfterDelay();
+      }),
+      setLineThickness: (lineThickness) => setState(() {
+        if (coreInfo.readOnly) return;
+        coreInfo.lineThickness = lineThickness;
+        Prefs.lastLineThickness.value = lineThickness;
         autosaveAfterDelay();
       }),
       removeBackgroundImage: () => setState(() {

@@ -41,7 +41,7 @@ class RenameNoteButton extends StatelessWidget {
 
 class _RenameNoteDialog extends StatefulWidget {
   const _RenameNoteDialog({
-    // ignore: unused_element
+    // ignore: unused_element_parameter
     super.key,
     required this.existingPath,
     required this.unselectNotes,

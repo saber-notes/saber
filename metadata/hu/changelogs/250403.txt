@@ -1,0 +1,2 @@
+Most már testreszabhatja a háttérmintázat vonalvastagságát,
+És a szerverről letöltött fájlok most már a megfelelő időbélyegzővel rendelkeznek, megakadályozva őket, hogy többször szinkronizálódjanak.
