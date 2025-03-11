@@ -225,7 +225,7 @@ class _NcLoginStepState extends State<NcLoginStep> {
 }
 
 class _LoginFlowDialog extends StatefulWidget {
-  // ignore: unused_element
+  // ignore: unused_element_parameter
   const _LoginFlowDialog({super.key, required this.loginFlow});
 
   final SaberLoginFlow loginFlow;
@@ -281,7 +281,7 @@ class _LoginFlowDialogState extends State<_LoginFlowDialog> {
 ///
 /// When pressed, the text will be replaced with a spinner for 10 seconds.
 class _FakeDoneButton extends StatefulWidget {
-  // ignore: unused_element
+  // ignore: unused_element_parameter
   const _FakeDoneButton({super.key, required this.child});
 
   final Widget child;

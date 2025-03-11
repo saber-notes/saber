@@ -299,6 +299,8 @@ editor:
     deletePage: Удалить страницу
     lineHeight: Высота строки
     lineHeightDescription: Также управляет размером текста для напечатанных заметок
+    lineThickness(OUTDATED): Линия толщина
+    lineThicknessDescription(OUTDATED): Фотовая линия толщина
     backgroundImageFit: Фоновое изображение
     backgroundPattern: Фоновый шаблон
     import: Импорт

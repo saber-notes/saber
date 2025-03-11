@@ -300,6 +300,8 @@ editor:
     deletePage: Sayfayı sil
     lineHeight: Satır aralığı
     lineHeightDescription: Klavye girişi olan notların metin boyutunu da kontrol eder
+    lineThickness(OUTDATED): Çizgi kalınlığı
+    lineThicknessDescription(OUTDATED): Arka plan çizgisi kalınlığı
     backgroundImageFit: Arkaplan görüntüsünü sığdır
     backgroundPattern: Arkaplan deseni
     import: İçe aktar

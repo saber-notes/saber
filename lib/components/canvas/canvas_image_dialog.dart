@@ -152,7 +152,7 @@ class _CanvasImageDialogState extends State<CanvasImageDialog> {
 
 class _CanvasImageDialogItem extends StatelessWidget {
   const _CanvasImageDialogItem({
-    // ignore: unused_element
+    // ignore: unused_element_parameter
     super.key,
     required this.onTap,
     required this.title,

@@ -43,7 +43,7 @@ class FaqListView extends StatelessWidget {
 
 class _FaqTile extends StatelessWidget {
   const _FaqTile({
-    // ignore: unused_element
+    // ignore: unused_element_parameter
     super.key,
     required this.item,
   });

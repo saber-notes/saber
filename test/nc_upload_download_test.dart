@@ -5,11 +5,12 @@ import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
 import 'package:saber/data/nextcloud/saber_syncer.dart';
 import 'package:saber/data/prefs.dart';
 
+import 'utils/test_mock_channel_handlers.dart';
 import 'utils/test_random.dart';
 
 void main() async {
   test('Upload and download file', () async {
-    FileManager.documentsDirectory = '/tmp/nc_upload_download_test/'
+    FileManager.documentsDirectory = '$tmpDir/nc_upload_download_test/'
         '${FileManager.appRootDirectoryPrefix}';
 
     FlavorConfig.setup();

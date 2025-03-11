@@ -39,7 +39,7 @@ class MoveNoteButton extends StatelessWidget {
 
 class _MoveNoteDialog extends StatefulWidget {
   const _MoveNoteDialog({
-    // ignore: unused_element
+    // ignore: unused_element_parameter
     super.key,
     required this.filesToMove,
     required this.unselectNotes,

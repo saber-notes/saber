@@ -1,0 +1,2 @@
+Ora puoi personalizzare lo spessore della linea del tuo modello di sfondo,
+E i file scaricati dal server ora hanno il timestamp corretto, impedendo loro di essere sincronizzati ripetutamente.

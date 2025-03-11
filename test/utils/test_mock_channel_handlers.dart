@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 
@@ -19,15 +21,17 @@ void setupMockFlutterSecureStorage() {
   });
 }
 
+final tmpDir = Directory.systemTemp.path;
+
 void setupMockPathProvider() {
   const channel = MethodChannel('plugins.flutter.io/path_provider');
   TestWidgetsFlutterBinding.ensureInitialized();
   TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
       .setMockMethodCallHandler(channel, (MethodCall methodCall) async {
     if (methodCall.method == 'getApplicationDocumentsDirectory') {
-      return '/tmp/saber-test-docs';
+      return '$tmpDir/saber-test-docs';
     } else if (methodCall.method == 'getTemporaryDirectory') {
-      return '/tmp/saber-test-tmp';
+      return '$tmpDir/saber-test-tmp';
     }
     return null;
   });

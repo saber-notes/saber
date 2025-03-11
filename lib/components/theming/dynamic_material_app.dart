@@ -4,6 +4,7 @@ import 'package:dynamic_color/dynamic_color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_quill/flutter_quill.dart';
 import 'package:go_router/go_router.dart';
 import 'package:saber/components/theming/font_fallbacks.dart';
 import 'package:saber/components/theming/yaru_builder.dart';
@@ -190,7 +191,10 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp>
                 routerDelegate: widget.router.routerDelegate,
                 locale: TranslationProvider.of(context).flutterLocale,
                 supportedLocales: AppLocaleUtils.supportedLocales,
-                localizationsDelegates: GlobalMaterialLocalizations.delegates,
+                localizationsDelegates: const [
+                  ...GlobalMaterialLocalizations.delegates,
+                  FlutterQuillLocalizations.delegate,
+                ],
                 title: widget.title,
                 themeMode: Prefs.appTheme.loaded
                     ? Prefs.appTheme.value

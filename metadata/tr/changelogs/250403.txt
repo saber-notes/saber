@@ -1,0 +1,2 @@
+Artık arka plan modelinizin çizgi kalınlığını özelleştirebilirsiniz,
+ve sunucudan indirilen dosyalar artık uygun zaman damgasına sahip ve tekrar tekrar senkronize edilmelerini engelliyor.

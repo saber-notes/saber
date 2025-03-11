@@ -297,6 +297,8 @@ editor:
     duplicatePage: Dupliquer la page
     deletePage: Supprimer la page
     lineHeight: Hauteur de ligne
+    lineThickness(OUTDATED): Épaisseur de ligne
+    lineThicknessDescription(OUTDATED): Épaisseur de ligne de fond
     backgroundImageFit: Adaptation de l'image de fond
     backgroundPattern: Texture de fond
     import: Importer

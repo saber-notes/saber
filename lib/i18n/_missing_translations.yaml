@@ -8,7 +8,15 @@ ar:
     debuggingInfo(OUTDATED): Logs contain information useful for debugging and development
     noLogs(OUTDATED): "No logs here!"
     logsAreTemporary(OUTDATED): Logs are only kept until you close the app
+  editor:
+    menu:
+      lineThickness(OUTDATED): Line thickness
+      lineThicknessDescription(OUTDATED): Background line thickness
 cs:
+  editor:
+    menu:
+      lineThickness(OUTDATED): Line thickness
+      lineThicknessDescription(OUTDATED): Background line thickness
 de:
   logs:
     logs(OUTDATED): Logs
@@ -16,6 +24,10 @@ de:
     debuggingInfo(OUTDATED): Logs contain information useful for debugging and development
     noLogs(OUTDATED): "No logs here!"
     logsAreTemporary(OUTDATED): Logs are only kept until you close the app
+  editor:
+    menu:
+      lineThickness(OUTDATED): Line thickness
+      lineThicknessDescription(OUTDATED): Background line thickness
 es:
   common:
     done(OUTDATED): Done
@@ -99,6 +111,8 @@ es:
       customBrightnessHue(OUTDATED): Custom $b $h
     menu:
       lineHeightDescription(OUTDATED): Also controls the text size for typed notes
+      lineThickness(OUTDATED): Line thickness
+      lineThicknessDescription(OUTDATED): Background line thickness
       watchServer(OUTDATED): Watch for updates on the server
       watchServerReadOnly(OUTDATED): Editing is disabled while watching the server
 fa:
@@ -175,6 +189,8 @@ fa:
   editor:
     menu:
       lineHeightDescription(OUTDATED): Also controls the text size for typed notes
+      lineThickness(OUTDATED): Line thickness
+      lineThicknessDescription(OUTDATED): Background line thickness
       watchServer(OUTDATED): Watch for updates on the server
       watchServerReadOnly(OUTDATED): Editing is disabled while watching the server
 fr:
@@ -250,6 +266,8 @@ fr:
   editor:
     menu:
       lineHeightDescription(OUTDATED): Also controls the text size for typed notes
+      lineThickness(OUTDATED): Line thickness
+      lineThicknessDescription(OUTDATED): Background line thickness
       watchServer(OUTDATED): Watch for updates on the server
       watchServerReadOnly(OUTDATED): Editing is disabled while watching the server
 he:
@@ -352,6 +370,8 @@ he:
       pink(OUTDATED): Pink
     menu:
       lineHeightDescription(OUTDATED): Also controls the text size for typed notes
+      lineThickness(OUTDATED): Line thickness
+      lineThicknessDescription(OUTDATED): Background line thickness
       watchServer(OUTDATED): Watch for updates on the server
       watchServerReadOnly(OUTDATED): Editing is disabled while watching the server
       bgPatterns:
@@ -566,6 +586,8 @@ hu:
       duplicatePage(OUTDATED): Duplicate page
       deletePage(OUTDATED): Delete page
       lineHeightDescription(OUTDATED): Also controls the text size for typed notes
+      lineThickness(OUTDATED): Line thickness
+      lineThicknessDescription(OUTDATED): Background line thickness
       backgroundImageFit(OUTDATED): Background image fit
       watchServer(OUTDATED): Watch for updates on the server
       watchServerReadOnly(OUTDATED): Editing is disabled while watching the server
@@ -579,6 +601,10 @@ hu:
       lockAxisAlignedPan(OUTDATED): Lock panning to horizontal or vertical
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
 it:
+  editor:
+    menu:
+      lineThickness(OUTDATED): Line thickness
+      lineThicknessDescription(OUTDATED): Background line thickness
 ja:
   common:
     done(OUTDATED): Done
@@ -708,6 +734,8 @@ ja:
       duplicate(OUTDATED): Duplicate
     menu:
       lineHeightDescription(OUTDATED): Also controls the text size for typed notes
+      lineThickness(OUTDATED): Line thickness
+      lineThicknessDescription(OUTDATED): Background line thickness
       backgroundImageFit(OUTDATED): Background image fit
       watchServer(OUTDATED): Watch for updates on the server
       watchServerReadOnly(OUTDATED): Editing is disabled while watching the server
@@ -811,9 +839,15 @@ pt-BR:
       duplicate(OUTDATED): Duplicate
     menu:
       lineHeightDescription(OUTDATED): Also controls the text size for typed notes
+      lineThickness(OUTDATED): Line thickness
+      lineThicknessDescription(OUTDATED): Background line thickness
       watchServer(OUTDATED): Watch for updates on the server
       watchServerReadOnly(OUTDATED): Editing is disabled while watching the server
 ru:
+  editor:
+    menu:
+      lineThickness(OUTDATED): Line thickness
+      lineThicknessDescription(OUTDATED): Background line thickness
 tr:
   logs:
     logs(OUTDATED): Logs
@@ -821,6 +855,10 @@ tr:
     debuggingInfo(OUTDATED): Logs contain information useful for debugging and development
     noLogs(OUTDATED): "No logs here!"
     logsAreTemporary(OUTDATED): Logs are only kept until you close the app
+  editor:
+    menu:
+      lineThickness(OUTDATED): Line thickness
+      lineThicknessDescription(OUTDATED): Background line thickness
 zh-Hans-CN:
   logs:
     logs(OUTDATED): Logs
@@ -828,4 +866,12 @@ zh-Hans-CN:
     debuggingInfo(OUTDATED): Logs contain information useful for debugging and development
     noLogs(OUTDATED): "No logs here!"
     logsAreTemporary(OUTDATED): Logs are only kept until you close the app
+  editor:
+    menu:
+      lineThickness(OUTDATED): Line thickness
+      lineThicknessDescription(OUTDATED): Background line thickness
 zh-Hant-TW:
+  editor:
+    menu:
+      lineThickness(OUTDATED): Line thickness
+      lineThicknessDescription(OUTDATED): Background line thickness

@@ -77,15 +77,16 @@ abstract class EditorExporter {
               child: pw.CustomPaint(
                 foregroundPainter: (PdfGraphics pdfGraphics, PdfPoint size) {
                   final backgroundColor = PdfColor.fromInt(
-                    coreInfo.backgroundColor?.value ??
-                        InnerCanvas.defaultBackgroundColor.value,
+                    coreInfo.backgroundColor?.toARGB32() ??
+                        InnerCanvas.defaultBackgroundColor.toARGB32(),
                   ).flatten();
 
                   final strokes = page.strokes
                       .where((stroke) => !_shouldRasterizeStroke(stroke));
                   for (final stroke in strokes) {
-                    final strokeColor = PdfColor.fromInt(stroke.color.value)
-                        .flatten(background: backgroundColor);
+                    final strokeColor =
+                        PdfColor.fromInt(stroke.color.toARGB32())
+                            .flatten(background: backgroundColor);
 
                     /// Whether we need to fill the shape, or draw its stroke
                     final bool shouldFillShape;

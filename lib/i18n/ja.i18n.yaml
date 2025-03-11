@@ -294,6 +294,8 @@ editor:
     duplicatePage: 重複したページ
     deletePage: ページの削除
     lineHeight: 行の高さ
+    lineThickness(OUTDATED): 線の厚さ
+    lineThicknessDescription(OUTDATED): 背景線の厚さ
     backgroundPattern: 背景パターン
     import: インポート
     boxFits:
