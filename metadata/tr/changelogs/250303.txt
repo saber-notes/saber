@@ -1,0 +1,3 @@
+• Bazı Linux kullanıcıları için AppImage'ın açılmaması düzeltildi
+• Kalemle gezinme için daha iyi destek eklendi
+• Android'de yeni bir işleme motoru da dahil olmak üzere güncellenmiş bağımlılıklardan olası performans iyileştirmeleri

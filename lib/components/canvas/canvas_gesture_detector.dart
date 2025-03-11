@@ -12,6 +12,7 @@ import 'package:saber/components/canvas/hud/canvas_hud.dart';
 import 'package:saber/components/canvas/interactive_canvas.dart';
 import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/extensions/change_notifier_extensions.dart';
+import 'package:saber/data/extensions/matrix4_extensions.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/pages/editor/editor.dart';
 import 'package:vector_math/vector_math_64.dart';
@@ -26,6 +27,8 @@ class CanvasGestureDetector extends StatefulWidget {
     required this.onDrawUpdate,
     required this.onDrawEnd,
     required this.onPressureChanged,
+    required this.onHovering,
+    required this.onHoveringEnd,
     required this.onStylusButtonChanged,
     required this.undo,
     required this.redo,
@@ -49,6 +52,8 @@ class CanvasGestureDetector extends StatefulWidget {
   /// Called when the pressure of the stylus changes,
   /// pressure is negative if stylus button is pressed
   final ValueChanged<double?> onPressureChanged;
+  final VoidCallback onHovering;
+  final VoidCallback onHoveringEnd;
   final ValueChanged<bool> onStylusButtonChanged;
 
   final VoidCallback undo;
@@ -67,8 +72,8 @@ class CanvasGestureDetector extends StatefulWidget {
   @override
   State<CanvasGestureDetector> createState() => CanvasGestureDetectorState();
 
-  static const double kMinScale = 0.3;
-  static const double kMaxScale = 5;
+  static const kMinScale = 0.3;
+  static const kMaxScale = 10.0;
 
   static double getTopOfPage({
     required int pageIndex,
@@ -144,7 +149,7 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
   /// If zooming is locked, this is the zoom level.
   /// Otherwise, this is null.
   late double? zoomLockedValue = Prefs.lastZoomLock.value
-      ? widget._transformationController.value.getMaxScaleOnAxis()
+      ? widget._transformationController.value.approxScale
       : null;
 
   /// Whether single-finger panning is locked.
@@ -173,7 +178,7 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
     required Matrix4 transformation,
     required BoxConstraints containerBounds,
   }) {
-    final oldScale = transformation.getMaxScaleOnAxis();
+    final oldScale = transformation.approxScale;
     final newScale = oldScale + scaleDelta;
 
     if (newScale < CanvasGestureDetector.kMinScale) return null;
@@ -317,7 +322,7 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
       // if we're opening the same note, restore the last transform
       widget._transformationController.value = transformCacheItem.transform;
       if (zoomLockedValue != null) {
-        zoomLockedValue = transformCacheItem.transform.getMaxScaleOnAxis();
+        zoomLockedValue = transformCacheItem.transform.approxScale;
       }
     } else if (widget.initialPageIndex != null) {
       // if we're opening a different note, scroll to the last recorded page
@@ -336,7 +341,7 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
   /// If the scale is less than 1, centers the pages horizontally.
   /// Otherwise, prevents the user from scrolling past the edges.
   void onTransformChanged() {
-    final scale = widget._transformationController.value.getMaxScaleOnAxis();
+    final scale = widget._transformationController.value.approxScale;
     final translation = widget._transformationController.value.getTranslation();
 
     double adjustmentX = 0;
@@ -378,7 +383,7 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
   /// Resets the zoom level to 1.0x
   void resetZoom() {
     final transformation = widget._transformationController.value;
-    final scale = transformation.getMaxScaleOnAxis();
+    final scale = transformation.approxScale;
     if (scale == 1) return;
 
     widget._transformationController.value = setZoom(
@@ -391,25 +396,40 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
 
   void _listenerPointerEvent(PointerEvent event) {
     double? pressure;
-    bool stylusButtonPressed = false;
 
     if (event.kind == PointerDeviceKind.stylus) {
       pressure = event.pressure;
-      stylusButtonPressed = event.buttons == kPrimaryStylusButton;
     } else if (event.kind == PointerDeviceKind.invertedStylus) {
       pressure = event.pressure;
-      stylusButtonPressed = true; // treat eraser as stylus button
     } else if (Platform.isLinux && event.pressureMin != event.pressureMax) {
       // if min == max, then the device isn't pressure sensitive
       pressure = event.pressure;
     }
 
     widget.onPressureChanged(pressure);
-    widget.onStylusButtonChanged(stylusButtonPressed);
+  }
+
+  bool stylusButtonWasPressed = false;
+
+  void _listenerPointerHoverEvent(PointerEvent event) {
+    if (event.kind != PointerDeviceKind.stylus) return;
+
+    // Apparently flutter synthesizes a hover event on pointer down,
+    // so these are used to detect when hovering ends
+    if (event.synthesized) {
+      widget.onHoveringEnd();
+    } else {
+      widget.onHovering();
+      if (stylusButtonWasPressed != (event.buttons == kPrimaryStylusButton)) {
+        stylusButtonWasPressed = event.buttons == kPrimaryStylusButton;
+        widget.onStylusButtonChanged(stylusButtonWasPressed);
+      }
+    }
   }
 
   void _listenerPointerUpEvent(PointerEvent event) {
     widget.onPressureChanged(null);
+    stylusButtonWasPressed = false;
     widget.onStylusButtonChanged(false);
   }
 
@@ -423,9 +443,8 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
           onPointerDown: _listenerPointerEvent,
           onPointerMove: _listenerPointerEvent,
           onPointerUp: _listenerPointerUpEvent,
+          onPointerHover: _listenerPointerHoverEvent,
           child: GestureDetector(
-            onSecondaryTapUp: (TapUpDetails details) => widget.undo(),
-            onTertiaryTapUp: (TapUpDetails details) => widget.redo(),
             child: LayoutBuilder(
               builder: (BuildContext context, BoxConstraints containerBounds) {
                 this.containerBounds = containerBounds;
@@ -474,7 +493,7 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
             zoomLock: zoomLockedValue != null,
             setZoomLock: (bool zoomLock) => setState(() {
               zoomLockedValue = zoomLock
-                  ? widget._transformationController.value.getMaxScaleOnAxis()
+                  ? widget._transformationController.value.approxScale
                   : null;
               Prefs.lastZoomLock.value = zoomLock;
             }),
@@ -527,7 +546,7 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
 
 class _PagesBuilder extends StatelessWidget {
   const _PagesBuilder({
-    // ignore: unused_element
+    // ignore: unused_element_parameter
     super.key,
     required this.pages,
     required this.pageBuilder,

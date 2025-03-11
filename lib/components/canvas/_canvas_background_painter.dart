@@ -9,6 +9,7 @@ class CanvasBackgroundPainter extends CustomPainter {
     required this.backgroundColor,
     this.backgroundPattern = CanvasBackgroundPattern.none,
     required this.lineHeight,
+    required this.lineThickness,
     this.primaryColor = Colors.blue,
     this.secondaryColor = Colors.red,
     this.preview = false,
@@ -22,6 +23,7 @@ class CanvasBackgroundPainter extends CustomPainter {
 
   /// The height between each line in the background pattern
   final int lineHeight;
+  final int lineThickness;
   final Color primaryColor, secondaryColor;
 
   /// Whether to draw the background pattern in a preview mode (more opaque).
@@ -35,22 +37,22 @@ class CanvasBackgroundPainter extends CustomPainter {
     paint.color = backgroundColor.withInversion(invert);
     canvas.drawRect(canvasRect, paint);
 
-    paint.strokeWidth = 3;
+    paint.strokeWidth = lineThickness.toDouble();
     for (PatternElement element in getPatternElements(
       pattern: backgroundPattern,
       size: size,
       lineHeight: lineHeight,
     )) {
       if (element.secondaryColor) {
-        paint.color = secondaryColor.withOpacity(preview ? 0.5 : 0.2);
+        paint.color = secondaryColor.withValues(alpha: preview ? 0.5 : 0.2);
       } else {
-        paint.color = primaryColor.withOpacity(preview ? 0.5 : 0.2);
+        paint.color = primaryColor.withValues(alpha: preview ? 0.5 : 0.2);
       }
 
       if (element.isLine) {
         canvas.drawLine(element.start, element.end, paint);
       } else {
-        canvas.drawCircle(element.start, 4, paint);
+        canvas.drawCircle(element.start, paint.strokeWidth * 4 / 3, paint);
       }
     }
   }

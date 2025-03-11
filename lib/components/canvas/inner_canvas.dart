@@ -1,13 +1,13 @@
 import 'package:defer_pointer/defer_pointer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_quill/flutter_quill.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:one_dollar_unistroke_recognizer/one_dollar_unistroke_recognizer.dart';
 import 'package:saber/components/canvas/_canvas_background_painter.dart';
 import 'package:saber/components/canvas/_canvas_painter.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/canvas_image.dart';
 import 'package:saber/components/canvas/image/editor_image.dart';
+import 'package:saber/components/theming/font_fallbacks.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/data/tools/select.dart';
@@ -80,20 +80,11 @@ class _InnerCanvasState extends State<InnerCanvas> {
 
     final page = widget.coreInfo.pages[widget.pageIndex];
 
-    /// [locale] doesn't matter for the preview or print views,
-    /// and [TranslationProvider] isn't available in the test environment.
-    final locale = (widget.isPreview || widget.isPrint)
-        ? null
-        : TranslationProvider.of(context).flutterLocale;
-
     Widget? quillEditor = widget.coreInfo.pages.isNotEmpty
         ? QuillEditor(
             controller:
                 widget.coreInfo.pages[widget.pageIndex].quill.controller,
-            configurations: QuillEditorConfigurations(
-              sharedConfigurations: QuillSharedConfigurations(
-                locale: locale,
-              ),
+            config: QuillEditorConfig(
               customStyles: _getQuillStyles(invert: invert),
               scrollable: false,
               autoFocus: false,
@@ -137,6 +128,7 @@ class _InnerCanvasState extends State<InnerCanvas> {
             }
           }(),
           lineHeight: widget.coreInfo.lineHeight,
+          lineThickness: widget.coreInfo.lineThickness,
           primaryColor: colorScheme.primary,
           secondaryColor: colorScheme.secondary,
         ),
@@ -208,31 +200,10 @@ class _InnerCanvasState extends State<InnerCanvas> {
     final backgroundColor = invert ? Colors.black : Colors.white;
     final lineHeight = widget.coreInfo.lineHeight;
 
-    // Load handwriting fonts
-    final neucha = GoogleFonts.neucha();
-    final dekko = GoogleFonts.dekko();
-    final fontFamily = neucha.fontFamily ?? 'Neucha';
-    final fontFamilyFallback = [
-      if (neucha.fontFamily != null) neucha.fontFamily!,
-      'Neucha',
-      if (dekko.fontFamily != null) dekko.fontFamily!,
-      'Dekko',
-      // Fallback fonts from https://github.com/system-fonts/modern-font-stacks#handwritten
-      'Segoe Print',
-      'Bradley Hand',
-      'Chilanka',
-      'TSCu_Comic',
-      'Coming Soon',
-      'casual',
-      'cursive',
-      'handwriting',
-      'sans-serif',
-    ];
-
     final defaultStyle = TextStyle(
       inherit: false,
-      fontFamily: fontFamily,
-      fontFamilyFallback: fontFamilyFallback,
+      fontFamily: 'Neucha',
+      fontFamilyFallback: saberHandwritingFontFallbacks,
       color: invert ? Colors.white : Colors.black,
     );
 
@@ -245,21 +216,21 @@ class _InnerCanvasState extends State<InnerCanvas> {
         fontSize: lineHeight * 1.15,
         height: 1 / 1.15,
         decoration: TextDecoration.underline,
-        decorationColor: defaultStyle.color?.withOpacity(0.6),
+        decorationColor: defaultStyle.color?.withValues(alpha: 0.6),
         decorationThickness: 3,
       ),
       displayMedium: defaultStyle.copyWith(
         fontSize: lineHeight * 1,
         height: 1 / 1,
         decoration: TextDecoration.underline,
-        decorationColor: defaultStyle.color?.withOpacity(0.5),
+        decorationColor: defaultStyle.color?.withValues(alpha: 0.5),
         decorationThickness: 3,
       ),
       displaySmall: defaultStyle.copyWith(
         fontSize: lineHeight * 0.9,
         height: 1 / 0.9,
         decoration: TextDecoration.underline,
-        decorationColor: defaultStyle.color?.withOpacity(0.4),
+        decorationColor: defaultStyle.color?.withValues(alpha: 0.4),
         decorationThickness: 3,
       ),
     );
@@ -308,12 +279,23 @@ class _InnerCanvasState extends State<InnerCanvas> {
         // Also see https://github.com/singerdmx/flutter-quill/issues/1014
         backgroundColor: Colors.transparent,
         radius: const Radius.circular(3),
-        style: GoogleFonts.firaMono(textStyle: textTheme.bodyLarge!).copyWith(
+        style: textTheme.bodyLarge!.copyWith(
+          fontFamily: 'FiraMono',
+          fontFamilyFallback: saberMonoFontFallbacks,
           backgroundColor: Color.lerp(backgroundColor, Colors.grey, 0.2),
         ),
-        header1: GoogleFonts.firaMono(textStyle: textTheme.displayLarge!),
-        header2: GoogleFonts.firaMono(textStyle: textTheme.displayMedium!),
-        header3: GoogleFonts.firaMono(textStyle: textTheme.displaySmall!),
+        header1: textTheme.displayLarge!.copyWith(
+          fontFamily: 'FiraMono',
+          fontFamilyFallback: saberMonoFontFallbacks,
+        ),
+        header2: textTheme.displayMedium!.copyWith(
+          fontFamily: 'FiraMono',
+          fontFamilyFallback: saberMonoFontFallbacks,
+        ),
+        header3: textTheme.displaySmall!.copyWith(
+          fontFamily: 'FiraMono',
+          fontFamilyFallback: saberMonoFontFallbacks,
+        ),
       ),
       link: TextStyle(
         color: colorScheme.secondary,
@@ -321,7 +303,7 @@ class _InnerCanvasState extends State<InnerCanvas> {
       ),
       placeHolder: DefaultTextBlockStyle(
         textTheme.bodyLarge!.copyWith(
-          color: Colors.grey.withOpacity(0.6),
+          color: Colors.grey.withValues(alpha: 0.6),
         ),
         HorizontalSpacing.zero,
         VerticalSpacing.zero,
@@ -337,26 +319,29 @@ class _InnerCanvasState extends State<InnerCanvas> {
         null,
       ),
       quote: DefaultTextBlockStyle(
-        TextStyle(color: textTheme.bodyLarge!.color!.withOpacity(0.6)),
+        TextStyle(color: textTheme.bodyLarge!.color!.withValues(alpha: 0.6)),
         HorizontalSpacing.zero,
         VerticalSpacing.zero,
         VerticalSpacing.zero,
         BoxDecoration(
           border: Border(
             left: BorderSide(
-              color: textTheme.bodyLarge!.color!.withOpacity(0.6),
+              color: textTheme.bodyLarge!.color!.withValues(alpha: 0.6),
               width: 4,
             ),
           ),
         ),
       ),
       code: DefaultTextBlockStyle(
-        GoogleFonts.firaMono(textStyle: textTheme.bodyLarge!),
+        textTheme.bodyLarge!.copyWith(
+          fontFamily: 'FiraMono',
+          fontFamilyFallback: saberMonoFontFallbacks,
+        ),
         HorizontalSpacing.zero,
         VerticalSpacing(-lineHeight * 0.16, lineHeight * 0.8),
         VerticalSpacing.zero,
         BoxDecoration(
-          color: Colors.grey.withOpacity(0.2),
+          color: Colors.grey.withValues(alpha: 0.2),
           borderRadius: BorderRadius.circular(3),
         ),
       ),

@@ -49,8 +49,8 @@ class Canvas extends StatelessWidget {
           decoration: BoxDecoration(
             boxShadow: [
               BoxShadow(
-                color:
-                    Colors.black.withOpacity(0.1), // dark regardless of theme
+                color: Colors.black
+                    .withValues(alpha: 0.1), // dark regardless of theme
                 blurRadius: 10,
                 spreadRadius: 2,
               )

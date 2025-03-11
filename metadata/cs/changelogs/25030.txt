@@ -1,0 +1,3 @@
+• Opraveno, že se AppImage neotevřel některým uživatelům Linuxu
+• Přidána lepší podpora pro vznášení stylusu
+• Možná vylepšení výkonu díky aktualizovaným závislostem, včetně nového vykreslovacího jádra v systému Android

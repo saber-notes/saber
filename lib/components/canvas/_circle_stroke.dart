@@ -70,7 +70,7 @@ class CircleStroke extends Stroke {
       'cy': center.dy,
       'r': radius,
       'pe': pressureEnabled,
-      'c': color.value,
+      'c': color.toARGB32(),
     }..addAll(options.toJson());
   }
 

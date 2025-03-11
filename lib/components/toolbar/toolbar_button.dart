@@ -32,7 +32,7 @@ class ToolbarIconButton extends StatelessWidget {
       child: IconButton(
         color:
             (selected && enabled) ? colorScheme.onPrimary : colorScheme.primary,
-        disabledColor: colorScheme.onSurface.withOpacity(0.4),
+        disabledColor: colorScheme.onSurface.withValues(alpha: 0.4),
         onPressed: (enabled) ? onPressed : null,
         tooltip: tooltip,
         iconSize: 20,

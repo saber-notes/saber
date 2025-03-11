@@ -707,6 +707,8 @@ class _TranslationsEditorMenuAr extends TranslationsEditorMenuEn {
 	@override String get deletePage => 'حذف الصفحة';
 	@override String get lineHeight => 'ارتفاع خط';
 	@override String get lineHeightDescription => 'يتحكم أيضًا في حجم النص للملاحظات المكتوبة';
+	@override String get lineThickness => 'سمك الخط';
+	@override String get lineThicknessDescription => 'سماكة خط الخلفية';
 	@override String get backgroundImageFit => 'تناسب صورة الخلفية';
 	@override String get backgroundPattern => 'نمط الخلفية';
 	@override String get import => 'يستورد';

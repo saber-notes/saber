@@ -6,11 +6,13 @@ list(APPEND FLUTTER_PLUGIN_LIST
   audioplayers_linux
   desktop_webview_window
   dynamic_color
+  file_selector_linux
   flutter_secure_storage_linux
   gtk
   irondash_engine_context
+  open_file_linux
   printing
-  screen_retriever
+  screen_retriever_linux
   super_native_extensions
   url_launcher_linux
   window_manager
@@ -19,6 +21,7 @@ list(APPEND FLUTTER_PLUGIN_LIST
 )
 
 list(APPEND FLUTTER_FFI_PLUGIN_LIST
+  pdfrx
 )
 
 set(PLUGIN_BUNDLED_LIBRARIES)

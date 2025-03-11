@@ -1,0 +1,2 @@
+Sie können jetzt die Liniendicke Ihres Hintergrundmusters anpassen.
+und Dateien, die vom Server heruntergeladen wurden, haben jetzt den richtigen Zeitstempel, um zu verhindern, dass sie wiederholt synchronisiert werden.

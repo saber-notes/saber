@@ -700,6 +700,8 @@ class _TranslationsEditorMenuHu extends TranslationsEditorMenuEn {
 	// Translations
 	@override String get clearAllPages => 'Összes oldal törlése';
 	@override String get lineHeight => 'Vonalmagasság';
+	@override String get lineThickness => 'Vonalvastagság';
+	@override String get lineThicknessDescription => 'Háttérvonal vastagsága';
 	@override String get backgroundPattern => 'Háttérminta';
 	@override String get import => 'Importálás';
 	@override late final _TranslationsEditorMenuBoxFitsHu boxFits = _TranslationsEditorMenuBoxFitsHu._(_root);

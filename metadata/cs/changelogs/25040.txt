@@ -1,0 +1,2 @@
+Nyní můžete přizpůsobit tloušťku linky vašeho vzoru pozadí,
+A soubory stažené ze serveru mají nyní správné časové razítko, což jim brání opakování synchronizace.

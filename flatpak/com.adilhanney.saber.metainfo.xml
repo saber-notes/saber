@@ -214,6 +214,32 @@
     </screenshots>
 
     <releases>
+        <release version="0.25.4" type="development" date="2025-02-22">
+            <description>
+                You can now customize the line thickness of your background pattern,
+                and files downloaded from the server now have the proper timestamp, preventing them from being synced repeatedly.
+            </description>
+        </release>
+        <release version="0.25.3" type="development" date="2024-12-14">
+            <description>
+                <ul>
+                    <li>Possible performance improvements from updated dependencies</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.25.2" type="development" date="2024-11-10">
+            <description>
+                <ul>
+                    <li>Inverted images should now be higher quality</li>
+                    <li>PDFs should now render more quickly</li>
+                    <li>Updates to the sdk used for Onyx e-ink devices</li>
+                    <li>The max zoom has been increased from 5x to 10x</li>
+                    <li>Strokes are now rendered at a lower quality when zoomed out</li>
+                    <li>Fixed a bug when a canvas is renamed just after closing the editor</li>
+                    <li>Fixed a bug where tapping with the stylus button pressed caused extra undos</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.25.1" type="development" date="2024-10-19">
             <description>
                 <ul>

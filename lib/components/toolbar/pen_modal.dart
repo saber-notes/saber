@@ -57,7 +57,10 @@ class _PenModalState extends State<PenModal> {
                   ? Theme.of(context).colorScheme.secondary
                   : Theme.of(context).colorScheme.onSurface,
               backgroundColor: Pen.currentPen.icon == Pen.fountainPenIcon
-                  ? Theme.of(context).colorScheme.secondary.withOpacity(0.1)
+                  ? Theme.of(context)
+                      .colorScheme
+                      .secondary
+                      .withValues(alpha: 0.1)
                   : Colors.transparent,
               shape: const CircleBorder(),
             ),
@@ -83,7 +86,10 @@ class _PenModalState extends State<PenModal> {
                   ? Theme.of(context).colorScheme.secondary
                   : Theme.of(context).colorScheme.onSurface,
               backgroundColor: Pen.currentPen.icon == Pen.ballpointPenIcon
-                  ? Theme.of(context).colorScheme.secondary.withOpacity(0.1)
+                  ? Theme.of(context)
+                      .colorScheme
+                      .secondary
+                      .withValues(alpha: 0.1)
                   : Colors.transparent,
               shape: const CircleBorder(),
             ),
@@ -109,7 +115,10 @@ class _PenModalState extends State<PenModal> {
                   ? Theme.of(context).colorScheme.secondary
                   : Theme.of(context).colorScheme.onSurface,
               backgroundColor: Pen.currentPen.icon == ShapePen.shapePenIcon
-                  ? Theme.of(context).colorScheme.secondary.withOpacity(0.1)
+                  ? Theme.of(context)
+                      .colorScheme
+                      .secondary
+                      .withValues(alpha: 0.1)
                   : Colors.transparent,
               shape: const CircleBorder(),
             ),

@@ -15,7 +15,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 0.25.1+25010
+version: 0.25.4+25040
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
@@ -48,7 +48,7 @@ dependencies:
   path_provider: ^2.0.11
 
   shared_preferences: ^2.0.17
-  flutter_secure_storage: ^9.0.0
+  flutter_secure_storage: ^10.0.0-beta.4
 
   url_launcher: ^6.1.8
 
@@ -69,7 +69,7 @@ dependencies:
 
   pdf: ^3.8.4
   share_plus: ^10.0.0
-  file_picker: ^8.0.0+1
+  file_picker: ^9.0.0
 
   regexed_validator: ^2.0.0+1
 
@@ -77,8 +77,6 @@ dependencies:
   slang_flutter:
 
   flex_color_picker: ^3.4.1
-
-  google_fonts: ^6.0.0
 
   font_awesome_flutter: ^10.3.0
 
@@ -91,14 +89,14 @@ dependencies:
 
   animations: ^2.0.7
 
-  flutter_quill: ^10.0.2
+  flutter_quill: ^11.0.0
 
   window_manager: ^0.4.2
 
   worker_manager: ^7.0.1
   workmanager: ^0.5.0
 
-  archive: ^3.4.6
+  archive: ^4.0.3
 
   receive_sharing_intent: ^1.6.7
 
@@ -111,9 +109,9 @@ dependencies:
 
   printing: ^5.13.2
 
-  open_filex: ^4.3.2
+  open_file: ^3.5.10
 
-  super_clipboard: ^0.8.0
+  super_clipboard: ^0.9.0-dev.3
 
   fast_image_resizer: ^0.0.2
 
@@ -125,9 +123,9 @@ dependencies:
 
   fixnum: ^1.1.0
 
-  device_info_plus: ^10.0.1
+  device_info_plus: ^11.1.1
 
-  yaru: ^5.0.0
+  yaru: ^7.0.0
 
   one_dollar_unistroke_recognizer: ^1.1.1
 
@@ -144,6 +142,9 @@ dependencies:
   args: ^2.5.0
 
   flutter_web_auth_2: ^4.0.0
+
+  pdfrx: ^1.0.85
+  path: ^1.9.1
 
 dev_dependencies:
   flutter_test:
@@ -164,7 +165,7 @@ dev_dependencies:
 
   yaml: ^3.1.2
 
-  golden_screenshot: ^2.0.1
+  golden_screenshot: ^3.0.2
 
 dependency_overrides:
   # https://github.com/alexei-sintotski/json2yaml/pull/30
@@ -173,8 +174,18 @@ dependency_overrides:
       url: https://github.com/adil192/json2yaml
       ref: fix-string-ends-with-colon
 
-  # https://github.com/HrX03/animated_vector/issues/5
-  animated_vector: <0.2.1
+  # https://github.com/KasemJaffer/receive_sharing_intent/pull/333
+  receive_sharing_intent:
+    git:
+      url: https://github.com/KasemJaffer/receive_sharing_intent
+      ref: 2cea396843cd3ab1b5ec4334be4233864637874e
+
+  # https://github.com/fluttercommunity/flutter_workmanager/issues/588
+  workmanager:
+    git:
+      url: https://github.com/fluttercommunity/flutter_workmanager
+      path: workmanager
+      ref: main
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -190,7 +201,11 @@ flutter:
   assets:
     - assets/icon/icon.svg
     - assets/images/
-    - assets/google_fonts/
+    - assets/google_fonts/Atkinson_Hyperlegible/
+    - assets/google_fonts/Dekko/
+    - assets/google_fonts/Fira_Mono/
+    - assets/google_fonts/Inter/
+    - assets/google_fonts/Neucha/
     - assets/audio/
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -218,9 +233,36 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+  fonts:
+    - family: AtkinsonHyperlegible
+      fonts:
+        - asset: assets/google_fonts/Atkinson_Hyperlegible/AtkinsonHyperlegible-Regular.ttf
+        - asset: assets/google_fonts/Atkinson_Hyperlegible/AtkinsonHyperlegible-Italic.ttf
+          style: italic
+        - asset: assets/google_fonts/Atkinson_Hyperlegible/AtkinsonHyperlegible-Bold.ttf
+          weight: 700
+        - asset: assets/google_fonts/Atkinson_Hyperlegible/AtkinsonHyperlegible-BoldItalic.ttf
+          weight: 700
+    - family: Dekko
+      fonts:
+        - asset: assets/google_fonts/Dekko/Dekko-Regular.ttf
+    - family: FiraMono
+      fonts:
+        - asset: assets/google_fonts/Fira_Mono/FiraMono-Regular.ttf
+        - asset: assets/google_fonts/Fira_Mono/FiraMono-Medium.ttf
+          weight: 500
+        - asset: assets/google_fonts/Fira_Mono/FiraMono-Bold.ttf
+          weight: 700
+    - family: Inter
+      fonts:
+        - asset: assets/google_fonts/Inter/Inter-VariableFont_opsz,wght.ttf
+        - asset: assets/google_fonts/Inter/Inter-Italic-VariableFont_opsz,wght.ttf
+          style: italic
+    - family: Neucha
+      fonts:
+        - asset: assets/google_fonts/Neucha/Neucha-Regular.ttf
 
   shaders:
-    - shaders/invert.frag
     - shaders/pencil.frag
 
 

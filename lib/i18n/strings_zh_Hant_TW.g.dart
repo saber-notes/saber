@@ -109,9 +109,9 @@ class _TranslationsLogsZhHantTw extends TranslationsLogsEn {
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
 	// Translations
-	@override String get logs => '紀錄';
+	@override String get logs => '日誌';
 	@override String get viewLogs => '查看日誌';
-	@override String get debuggingInfo => '日誌包含對調試和開發有用的信息';
+	@override String get debuggingInfo => '日誌包含對偵錯和開發有用的資訊';
 	@override String get noLogs => '這裡沒有日誌！';
 	@override String get logsAreTemporary => '日誌僅保留到您關閉應用程式為止';
 }
@@ -707,6 +707,8 @@ class _TranslationsEditorMenuZhHantTw extends TranslationsEditorMenuEn {
 	@override String get deletePage => '刪除頁面';
 	@override String get lineHeight => '行高';
 	@override String get lineHeightDescription => '同時控制輸入筆記的文字大小';
+	@override String get lineThickness => '線厚度';
+	@override String get lineThicknessDescription => '背景線厚度';
 	@override String get backgroundImageFit => '適應背景圖片';
 	@override String get backgroundPattern => '背景圖案';
 	@override String get import => '匯入';

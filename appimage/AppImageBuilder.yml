@@ -14,10 +14,10 @@ AppDir:
     - amd64
     allow_unauthenticated: true
     sources:
-    - sourceline: deb http://archive.ubuntu.com/ubuntu/ jammy main restricted universe multiverse
-    - sourceline: deb http://archive.ubuntu.com/ubuntu/ jammy-updates main restricted universe multiverse
-    - sourceline: deb http://archive.ubuntu.com/ubuntu/ jammy-backports main restricted universe multiverse
-    - sourceline: deb http://security.ubuntu.com/ubuntu jammy-security main restricted universe multiverse
+    - sourceline: deb http://archive.ubuntu.com/ubuntu/ noble main restricted universe multiverse
+    - sourceline: deb http://archive.ubuntu.com/ubuntu/ noble-updates main restricted universe multiverse
+    - sourceline: deb http://archive.ubuntu.com/ubuntu/ noble-backports main restricted universe multiverse
+    - sourceline: deb http://security.ubuntu.com/ubuntu noble-security main restricted universe multiverse
     include:
     - libgtk-3-0
     - librsvg2-common
@@ -32,6 +32,14 @@ AppDir:
     - usr/share/doc/*/changelog.*
     - usr/share/doc/*/NEWS.*
     - usr/share/doc/*/TODO.*
+
+  runtime:
+    env:
+      APPDIR_LIBRARY_PATH: '$APPDIR/usr/lib/x86_64-linux-gnu:$APPDIR/lib/x86_64-linux-gnu:$APPDIR/usr/lib:$APPDIR/usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders'
+      GTK_EXE_PREFIX: $APPDIR/usr
+      GTK_DATA_PREFIX: $APPDIR
+      XDG_DATA_DIRS: $APPDIR/share:$XDG_DATA_DIRS
+
   test:
     ubuntu-bionic:
       image: appimagecrafters/tests-env:ubuntu-bionic

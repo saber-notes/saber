@@ -1,0 +1,7 @@
+• Imagens invertidas agora devem ter qualidade superior
+• PDFs agora devem renderizar mais rapidamente
+• Atualizações no sdk usado para dispositivos Onyx e-ink
+• O zoom máximo foi aumentado de 5x para 10x
+• Os traços agora são renderizados em qualidade inferior quando diminuídos
+• Corrigido um bug quando uma tela é renomeada logo após fechar o editor
+• Corrigido um bug onde tocar com o botão da caneta pressionado causava desfazer extras

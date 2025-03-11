@@ -221,8 +221,8 @@ Future<void> updateAllFiles() async {
 
   // open changelog files in editor
   if (!quiet) {
-    await Process.run(editor, [changelogFile.path]);
-    await Process.run(editor, [flatpakFile.path]);
+    await Process.run(editor, [changelogFile.path], runInShell: true);
+    await Process.run(editor, [flatpakFile.path], runInShell: true);
   }
 }
 

@@ -32,8 +32,9 @@ if (keystorePropertiesFile.exists()) {
 }
 
 android {
-    compileSdkVersion 34
-    ndkVersion "26.1.10909125"
+    namespace 'com.adilhanney.saber'
+    compileSdkVersion 35
+    ndkVersion "26.3.11579264"
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
@@ -93,7 +94,7 @@ flutter {
 }
 
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.7.21"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.9.25"
     implementation 'com.google.android.material:material:1.9.0'
 }
 

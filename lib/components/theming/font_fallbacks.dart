@@ -1,47 +1,79 @@
 import 'package:flutter/material.dart';
 
-extension FallbackTextTheme on TextTheme {
-  TextTheme withFallbacks() => copyWith(
-        displayLarge: displayLarge?.withFallbacks(),
-        displayMedium: displayMedium?.withFallbacks(),
-        displaySmall: displaySmall?.withFallbacks(),
-        headlineLarge: headlineLarge?.withFallbacks(),
-        headlineMedium: headlineMedium?.withFallbacks(),
-        headlineSmall: headlineSmall?.withFallbacks(),
-        titleLarge: titleLarge?.withFallbacks(),
-        titleMedium: titleMedium?.withFallbacks(),
-        titleSmall: titleSmall?.withFallbacks(),
-        bodyLarge: bodyLarge?.withFallbacks(),
-        bodyMedium: bodyMedium?.withFallbacks(),
-        bodySmall: bodySmall?.withFallbacks(),
-        labelLarge: labelLarge?.withFallbacks(),
-        labelMedium: labelMedium?.withFallbacks(),
-        labelSmall: labelSmall?.withFallbacks(),
-      );
-}
+const saberSansSerifFontFallbacks = [
+  'Inter',
+  'Noto Sans',
+  'Roboto',
+  'Droid Sans',
+  'Liberation Sans',
+  'Fira Sans',
+  'Cantarell',
+  'Sans',
+  'system-ui',
+  'sans-serif',
+  'Neucha',
+  'Dekko',
+];
+const saberMonoFontFallbacks = [
+  'Fira Mono',
+  'ui-monospace',
+  'Cascadia Code',
+  'Source Code Pro',
+  'Menlo',
+  'Consolas',
+  'DejaVu Sans Mono',
+  'monospace',
+];
+const saberHandwritingFontFallbacks = [
+  'Neucha',
+  'Dekko',
+  // Fallback fonts from https://github.com/system-fonts/modern-font-stacks#handwritten
+  'Segoe Print',
+  'Bradley Hand',
+  'Chilanka',
+  'TSCu_Comic',
+  'Coming Soon',
+  'casual',
+  'cursive',
+  'handwriting',
+  ...saberSansSerifFontFallbacks,
+];
 
-extension FallbackTextStyle on TextStyle {
-  static const sansSerifFallbacks = [
-    'Inter',
-    'Noto Sans',
-    'Roboto',
-    'Droid Sans',
-    'Liberation Sans',
-    'Fira Sans',
-    'Cantarell',
-    'Sans',
-    'system-ui',
-    'sans-serif',
-    'Neucha',
-    'Dekko',
-  ];
-
-  TextStyle withFallbacks([
-    List<String> fallbacks = sansSerifFallbacks,
-  ]) =>
+extension TextThemeExtension on TextTheme {
+  TextTheme withFont({
+    required String? fontFamily,
+    required List<String>? fontFamilyFallback,
+  }) =>
       copyWith(
-        fontFamilyFallback: fontFamilyFallback == null
-            ? fallbacks
-            : [...fontFamilyFallback!, ...fallbacks],
+        displayLarge: displayLarge?.copyWith(
+            fontFamily: fontFamily, fontFamilyFallback: fontFamilyFallback),
+        displayMedium: displayMedium?.copyWith(
+            fontFamily: fontFamily, fontFamilyFallback: fontFamilyFallback),
+        displaySmall: displaySmall?.copyWith(
+            fontFamily: fontFamily, fontFamilyFallback: fontFamilyFallback),
+        headlineLarge: headlineLarge?.copyWith(
+            fontFamily: fontFamily, fontFamilyFallback: fontFamilyFallback),
+        headlineMedium: headlineMedium?.copyWith(
+            fontFamily: fontFamily, fontFamilyFallback: fontFamilyFallback),
+        headlineSmall: headlineSmall?.copyWith(
+            fontFamily: fontFamily, fontFamilyFallback: fontFamilyFallback),
+        titleLarge: titleLarge?.copyWith(
+            fontFamily: fontFamily, fontFamilyFallback: fontFamilyFallback),
+        titleMedium: titleMedium?.copyWith(
+            fontFamily: fontFamily, fontFamilyFallback: fontFamilyFallback),
+        titleSmall: titleSmall?.copyWith(
+            fontFamily: fontFamily, fontFamilyFallback: fontFamilyFallback),
+        bodyLarge: bodyLarge?.copyWith(
+            fontFamily: fontFamily, fontFamilyFallback: fontFamilyFallback),
+        bodyMedium: bodyMedium?.copyWith(
+            fontFamily: fontFamily, fontFamilyFallback: fontFamilyFallback),
+        bodySmall: bodySmall?.copyWith(
+            fontFamily: fontFamily, fontFamilyFallback: fontFamilyFallback),
+        labelLarge: labelLarge?.copyWith(
+            fontFamily: fontFamily, fontFamilyFallback: fontFamilyFallback),
+        labelMedium: labelMedium?.copyWith(
+            fontFamily: fontFamily, fontFamilyFallback: fontFamilyFallback),
+        labelSmall: labelSmall?.copyWith(
+            fontFamily: fontFamily, fontFamilyFallback: fontFamilyFallback),
       );
 }

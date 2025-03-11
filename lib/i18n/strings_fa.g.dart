@@ -704,6 +704,8 @@ class _TranslationsEditorMenuFa extends TranslationsEditorMenuEn {
 	@override String get duplicatePage => 'تکرار صفحه';
 	@override String get deletePage => 'حذف صفحه';
 	@override String get lineHeight => 'ارتفاع خط';
+	@override String get lineThickness => 'ضخامت خط';
+	@override String get lineThicknessDescription => 'ضخامت خط پس زمینه';
 	@override String get backgroundImageFit => 'مناسب تصویر پس زمینه';
 	@override String get backgroundPattern => 'الگوی پس زمینه';
 	@override String get import => 'واردکردن';

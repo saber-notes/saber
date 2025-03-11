@@ -1,0 +1,3 @@
+• Problem behoben, bei dem das AppImage bei manchen Linux-Benutzern nicht geöffnet wurde
+• Bessere Unterstützung für das Hovern mit dem Stift hinzugefügt
+• Mögliche Leistungsverbesserungen durch aktualisierte Abhängigkeiten, einschließlich einer neuen Rendering-Engine für Android

@@ -8,6 +8,8 @@ class PdfEditorImage extends EditorImage {
   /// that the pdf will be loaded from.
   final File? pdfFile;
 
+  final _pdfDocument = ValueNotifier<PdfDocument?>(null);
+
   static final log = Logger('PdfEditorImage');
 
   PdfEditorImage({
@@ -107,14 +109,7 @@ class PdfEditorImage extends EditorImage {
     assert(!json.containsKey('a'));
     assert(!json.containsKey('b'));
 
-    // try to find the pdf in the cache
-    pdfBytes ??= assetCache.get(pdfFile!);
-    if (pdfBytes != null) {
-      json['a'] = assets.add(pdfBytes!);
-    } else {
-      json['a'] = assets.add(pdfFile!);
-    }
-
+    json['a'] = assets.add(pdfFile ?? pdfBytes!);
     json['pdfi'] = pdfPage;
 
     return json;
@@ -125,56 +120,39 @@ class PdfEditorImage extends EditorImage {
     assert(srcRect.isEmpty);
     assert(!naturalSize.isEmpty);
 
-    pdfBytes ??= assetCache.get(pdfFile!);
-    pdfBytes ??= await pdfFile!.readAsBytes();
-    assetCache.addImage(this, pdfFile, pdfBytes!);
-
     if (dstRect.isEmpty) {
-      final Size dstSize = pageSize != null
+      final dstSize = pageSize != null
           ? EditorImage.resize(naturalSize, pageSize!)
           : naturalSize;
       dstRect = dstRect.topLeft & dstSize;
     }
+
+    _pdfDocument.value ??= pdfFile != null
+        ? await PdfDocument.openFile(pdfFile!.path)
+        : await PdfDocument.openData(pdfBytes!);
   }
 
   @override
-  Future<void> loadIn() async {
-    await super.loadIn();
-
-    pdfBytes ??= assetCache.get(pdfFile!);
-    pdfBytes ??= await pdfFile!.readAsBytes();
-    assetCache.addImage(this, pdfFile, pdfBytes!);
-  }
+  Future<void> loadIn() async => await super.loadIn();
 
   @override
-  Future<bool> loadOut() async {
-    final shouldLoadOut = await super.loadOut();
-    if (!shouldLoadOut) return false;
+  Future<bool> loadOut() async => await super.loadOut();
 
-    if (pdfFile != null) {
-      pdfBytes = null;
-      assetCache.removeImage(this);
-    }
-
-    return true;
-  }
-
-  BuildContext? _lastPrecacheContext;
   @override
   Future<void> precache(BuildContext context) async {
-    _lastPrecacheContext = context;
-    lowDpiFuture ??= _getRasterizedWithDpi(highDpi: false);
-    final memoryImage = await lowDpiFuture!;
+    if (_pdfDocument.value != null) return;
 
-    return await _precacheImage(memoryImage);
-  }
+    final completer = Completer<void>();
 
-  Future<void> _precacheImage(ImageProvider imageProvider) async {
-    final context = _lastPrecacheContext;
-    if (context == null) return;
-    if (!context.mounted) return;
+    void onDocumentSet() {
+      if (_pdfDocument.value == null) return;
+      if (completer.isCompleted) return;
+      completer.complete();
+      _pdfDocument.removeListener(onDocumentSet);
+    }
 
-    return await precacheImage(imageProvider, context);
+    _pdfDocument.addListener(onDocumentSet);
+    return completer.future;
   }
 
   @override
@@ -182,72 +160,24 @@ class PdfEditorImage extends EditorImage {
     required BuildContext context,
     required BoxFit? overrideBoxFit,
     required bool isBackground,
-    required bool shaderEnabled,
-    required ShaderBuilder shaderBuilder,
+    required bool invert,
   }) {
-    final BoxFit boxFit;
-    if (overrideBoxFit != null) {
-      boxFit = overrideBoxFit;
-    } else if (isBackground) {
-      boxFit = backgroundFit;
-    } else {
-      boxFit = BoxFit.fill;
-    }
-
-    if (loadedIn) {
-      lowDpiFuture ??= _getRasterizedWithDpi(highDpi: false);
-    }
-
     return ValueListenableBuilder(
-      valueListenable: anyDpiRaster,
-      builder: (context, imageProvider, child) {
-        if (imageProvider == null) {
-          return const Center(child: CircularProgressIndicator.adaptive());
+      valueListenable: _pdfDocument,
+      builder: (context, pdfDocument, child) {
+        if (pdfDocument == null) {
+          return SizedBox.fromSize(size: srcRect.size);
         }
-        return ShaderImage(
-          shaderEnabled: shaderEnabled,
-          shaderBuilder: shaderBuilder,
-          image: imageProvider,
-          fit: boxFit,
+        return InvertWidget(
+          invert: invert,
+          child: PdfPageView(
+            document: pdfDocument,
+            pageNumber: pdfPage + 1,
+            decoration: BoxDecoration(),
+          ),
         );
       },
     );
-  }
-
-  /// This is equal to [highDpiRaster] if not null, otherwise [lowDpiRaster].
-  ///
-  /// Don't set this directly. [lowDpiRaster] and [highDpiRaster]
-  /// automatically update this value.
-  late final ValueNotifier<ImageProvider?> anyDpiRaster = ValueNotifier(null);
-  Future<ImageProvider>? lowDpiFuture;
-  late final ValueNotifier<ImageProvider?> lowDpiRaster = ValueNotifier(null)
-    ..addListener(() {
-      anyDpiRaster.value = highDpiRaster.value ?? lowDpiRaster.value;
-    });
-  Future<ImageProvider>? highDpiFuture;
-  late final ValueNotifier<ImageProvider?> highDpiRaster = ValueNotifier(null)
-    ..addListener(() {
-      anyDpiRaster.value = highDpiRaster.value ?? lowDpiRaster.value;
-    });
-
-  Future<ImageProvider> _getRasterizedWithDpi({required bool highDpi}) async {
-    if (pdfBytes == null) await loadIn();
-
-    final raster = await Printing.raster(
-      pdfBytes!,
-      pages: [pdfPage],
-      dpi: PdfPageFormat.inch * (highDpi ? 6 : 2),
-    ).single;
-    final image = PdfRasterImage(raster);
-
-    if (highDpi) {
-      // precache the new image so we don't flash an empty image
-      await _precacheImage(image);
-
-      return highDpiRaster.value = image;
-    } else {
-      return lowDpiRaster.value = image;
-    }
   }
 
   @override
@@ -270,75 +200,4 @@ class PdfEditorImage extends EditorImage {
         naturalSize: naturalSize,
         isThumbnail: isThumbnail,
       );
-
-  static Timer? _checkIfHighDpiNeededDebounce;
-  static Future<void> _checkIfHighDpiNeededDebounceCallback({
-    required double Function() getZoom,
-    required double Function() getScrollY,
-    required List<EditorPage> pages,
-    required double screenWidth,
-  }) async {
-    _checkIfHighDpiNeededDebounce = null;
-
-    final zoom = getZoom();
-    final highDpiNeeded = zoom > 1.5;
-
-    final currentPageIndex = CanvasGestureDetector.getPageIndex(
-      scrollY: getScrollY(),
-      pages: pages,
-      screenWidth: screenWidth,
-    );
-
-    for (int pageIndex = 0; pageIndex < pages.length; pageIndex++) {
-      // high dpi on current page, the page before, and the page after
-      final highDpiPage =
-          highDpiNeeded && (pageIndex - currentPageIndex).abs() <= 1;
-
-      final page = pages[pageIndex];
-      for (final image in [...page.images, page.backgroundImage]) {
-        if (image == null) continue;
-        if (image is! PdfEditorImage) continue;
-
-        // skip pdfs that aren't loaded in/visible
-        if (!image.loadedIn) continue;
-
-        if (highDpiPage) {
-          if (image.highDpiFuture != null) continue;
-          image.highDpiFuture = image._getRasterizedWithDpi(
-            highDpi: true,
-          );
-        } else {
-          image.highDpiFuture = null;
-          image.highDpiRaster.value?.evict().ignore();
-          image.highDpiRaster.value = null;
-        }
-      }
-    }
-  }
-
-  /// When a user has not moved for 500ms,
-  /// check if they are zoomed in to a PDF page,
-  /// and increase the raster dpi if needed.
-  static void checkIfHighDpiNeeded({
-    required double Function() getZoom,
-    required double Function() getScrollY,
-    required List<EditorPage> pages,
-    required double screenWidth,
-  }) {
-    _checkIfHighDpiNeededDebounce?.cancel();
-    _checkIfHighDpiNeededDebounce = Timer(
-      const Duration(milliseconds: 500),
-      () => _checkIfHighDpiNeededDebounceCallback(
-        getZoom: getZoom,
-        getScrollY: getScrollY,
-        pages: pages,
-        screenWidth: screenWidth,
-      ),
-    );
-  }
-
-  static void cancelCheckIfHighDpiNeeded() {
-    _checkIfHighDpiNeededDebounce?.cancel();
-    _checkIfHighDpiNeededDebounce = null;
-  }
 }

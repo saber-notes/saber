@@ -23,10 +23,15 @@
 [<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/appimage-logo.png"
     alt="Stáhnout jako AppImage"
     height=50>][download_appimage]
-&nbsp;
+
+Unofficial packages:
 [<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/snap-badge.svg"
     alt="Stáhnout ze Snap Store"
     height=50>][snap]
+&nbsp;
+[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/copr.png"
+    alt="Get it from Fedora Copr"
+    height=50>][copr]
 
 [English](https://github.com/saber-notes/saber/blob/main/README.md) |
 [čeština](https://github.com/saber-notes/saber/blob/main/README-cs.md) |
@@ -105,6 +110,10 @@ Možnost 3:
 Díky @soumyaDghosh je k dispozici neoficiální [snap][snap] balíček:
 `sudo snap install saber`.
 
+Možnost 4:
+There's an unofficial Fedora Copr [repo][copr] available thanks to @jyo64.
+`sudo dnf copr enable jyo64/Saber && sudo dnf install saber`
+
 #### Windows
 
 Stažení a instalace `SaberInstaller_{verze}.exe` z nejnovějšího [vydání][releases].
@@ -166,7 +175,7 @@ Více informací na https://docs.flutter.dev/deployment/android#create-an-upload
 Poznámka: vydání pro [F-Droid][f-droid-manifest] jsou sestavena výrazně odlišně
 ```bash
 ./patches/remove_proprietary_dependencies.sh
-flutter build apk --dart-define=OFFLINE_FONTS_ONLY="true"
+flutter build apk
 ```
 
 #### Windows
@@ -343,8 +352,8 @@ Pokud máte rádi Saber, zvažte prosím jeho podporu pomocí
 [google_play]: https://play.google.com/store/apps/details?id=com.adilhanney.saber
 [snap]: https://snapcraft.io/saber
 [app_store]: https://apps.apple.com/cz/app/saber/id1671523739
-[download_windows]: https://github.com/saber-notes/saber/releases/download/v0.25.1/SaberInstaller_v0.25.1.exe
-[download_appimage]: https://github.com/saber-notes/saber/releases/download/v0.25.1/Saber-0.25.1-x86_64.AppImage
+[download_windows]: https://github.com/saber-notes/saber/releases/download/v0.25.4/SaberInstaller_v0.25.4.exe
+[download_appimage]: https://github.com/saber-notes/saber/releases/download/v0.25.4/Saber-0.25.4-x86_64.AppImage
 
 [nextcloud]: https://nc.saber.adil.hanney.org/
 

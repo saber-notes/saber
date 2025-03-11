@@ -152,7 +152,7 @@ class _CanvasImageDialogState extends State<CanvasImageDialog> {
 
 class _CanvasImageDialogItem extends StatelessWidget {
   const _CanvasImageDialogItem({
-    // ignore: unused_element
+    // ignore: unused_element_parameter
     super.key,
     required this.onTap,
     required this.title,
@@ -167,7 +167,7 @@ class _CanvasImageDialogItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
     return Material(
-      color: colorScheme.primary.withOpacity(0.05),
+      color: colorScheme.primary.withValues(alpha: 0.05),
       borderRadius: BorderRadius.circular(8),
       child: InkWell(
         onTap: onTap,

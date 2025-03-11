@@ -35,10 +35,7 @@ class Stroke {
   final StrokeOptions options;
 
   List<Offset>? _lowQualityPolygon, _highQualityPolygon;
-  List<Offset> get lowQualityPolygon => _lowQualityPolygon ??= getPolygon(
-        // Use every 12th point, or exactly 6 evenly spaced points.
-        min(12, points.length ~/ 6),
-      );
+  List<Offset> get lowQualityPolygon => _lowQualityPolygon ??= getPolygon(6);
   List<Offset> get highQualityPolygon => _highQualityPolygon ??= getPolygon(1);
 
   Path? _lowQualityPath, _highQualityPath;
@@ -146,7 +143,7 @@ class Stroke {
       'i': pageIndex,
       'ty': penType,
       'pe': pressureEnabled,
-      'c': color.value,
+      'c': color.toARGB32(),
     }..addAll(options.toJson());
   }
 
@@ -247,9 +244,10 @@ class Stroke {
   /// Returns a list with every Nth point in [points].
   static List<PointVector> skipPoints(List<PointVector> points, int N) {
     if (N == 1) return points;
+    if (points.length < N * 4) return points;
     return [
       for (int i = 0; i < points.length; i += N) points[i],
-      points.last,
+      if (points.length % N != 0) points.last,
     ];
   }
 

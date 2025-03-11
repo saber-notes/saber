@@ -1,0 +1,3 @@
+• Correction du problème d'ouverture de l'AppImage pour certains utilisateurs Linux
+• Ajout d'une meilleure prise en charge du survol du stylet
+• Améliorations possibles des performances grâce aux dépendances mises à jour, notamment un nouveau moteur de rendu sur Android

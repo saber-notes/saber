@@ -1,11 +1,12 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:animations/animations.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:saber/components/canvas/canvas_preview.dart';
-import 'package:saber/components/canvas/invert_shader.dart';
-import 'package:saber/components/canvas/shader_image.dart';
+import 'package:saber/components/canvas/invert_widget.dart';
 import 'package:saber/components/home/sync_indicator.dart';
 import 'package:saber/components/navbar/responsive_navbar.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
@@ -33,7 +34,6 @@ class PreviewCard extends StatefulWidget {
 class _PreviewCardState extends State<PreviewCard> {
   final expanded = ValueNotifier(false);
   final thumbnail = _ThumbnailState();
-  late final shader = InvertShader.create();
 
   @override
   void initState() {
@@ -47,9 +47,15 @@ class _PreviewCardState extends State<PreviewCard> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    thumbnail.image = FileImage(
-      FileManager.getFile('${widget.filePath}${Editor.extension}.p'),
-    );
+
+    final imageFile =
+        FileManager.getFile('${widget.filePath}${Editor.extension}.p');
+    if (kDebugMode && Platform.environment.containsKey('FLUTTER_TEST')) {
+      // Avoid FileImages in tests
+      thumbnail.image = MemoryImage(imageFile.readAsBytesSync());
+    } else {
+      thumbnail.image = FileImage(imageFile);
+    }
   }
 
   StreamSubscription? fileWriteSubscription;
@@ -87,7 +93,7 @@ class _PreviewCardState extends State<PreviewCard> {
         onSecondaryTap: _toggleCardSelection,
         onLongPress: _toggleCardSelection,
         child: ColoredBox(
-          color: colorScheme.primary.withOpacity(0.05),
+          color: colorScheme.primary.withValues(alpha: 0.05),
           child: Stack(
             children: [
               Column(
@@ -99,17 +105,13 @@ class _PreviewCardState extends State<PreviewCard> {
                         animation: thumbnail,
                         builder: (context, _) => AnimatedSwitcher(
                           duration: const Duration(milliseconds: 300),
-                          child: thumbnail.image?.file.existsSync() ?? false
-                              ? ShaderImage(
-                                  key: ValueKey(thumbnail.updateCount),
-                                  shaderEnabled: invert,
-                                  shaderBuilder: (image, size) {
-                                    shader.setFloat(0, size.width);
-                                    shader.setFloat(1, size.height);
-                                    shader.setImageSampler(0, image);
-                                    return shader;
-                                  },
-                                  image: thumbnail.image!,
+                          child: thumbnail.doesImageExist
+                              ? InvertWidget(
+                                  invert: invert,
+                                  child: Image(
+                                    key: ValueKey(thumbnail.updateCount),
+                                    image: thumbnail.image!,
+                                  ),
                                 )
                               : FittedBox(
                                   alignment: Alignment.topCenter,
@@ -147,14 +149,15 @@ class _PreviewCardState extends State<PreviewCard> {
                                   begin: Alignment.topCenter,
                                   end: Alignment.bottomCenter,
                                   colors: [
-                                    colorScheme.surface.withOpacity(0.2),
-                                    colorScheme.surface.withOpacity(0.8),
-                                    colorScheme.surface.withOpacity(1),
+                                    colorScheme.surface.withValues(alpha: 0.2),
+                                    colorScheme.surface.withValues(alpha: 0.8),
+                                    colorScheme.surface.withValues(alpha: 1),
                                   ],
                                 ),
                               ),
                               child: ColoredBox(
-                                color: colorScheme.primary.withOpacity(0.05),
+                                color:
+                                    colorScheme.primary.withValues(alpha: 0.05),
                               ),
                             ),
                           ),
@@ -221,16 +224,22 @@ class _PreviewCardState extends State<PreviewCard> {
 
 class _ThumbnailState extends ChangeNotifier {
   int updateCount = 0;
-  FileImage? _image;
+  ImageProvider? _image;
 
   void markAsChanged() {
     ++updateCount;
     notifyListeners();
   }
 
-  FileImage? get image => _image;
-  set image(FileImage? image) {
+  ImageProvider? get image => _image;
+  set image(ImageProvider? image) {
     _image = image;
     markAsChanged();
   }
+
+  bool get doesImageExist => switch (image) {
+        (FileImage fileImage) => fileImage.file.existsSync(),
+        null => false,
+        _ => true,
+      };
 }

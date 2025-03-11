@@ -4,10 +4,10 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:golden_screenshot/golden_screenshot.dart';
+import 'package:path/path.dart' as p;
 import 'package:saber/components/canvas/canvas.dart';
 import 'package:saber/components/canvas/image/editor_image.dart';
-import 'package:saber/components/canvas/invert_shader.dart';
 import 'package:saber/components/canvas/pencil_shader.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/data/editor/editor_exporter.dart';
@@ -37,13 +37,7 @@ void main() {
 
     setUpAll(() => Future.wait([
           FileManager.init(),
-          InvertShader.init(),
           PencilShader.init(),
-          GoogleFonts.pendingFonts([
-            GoogleFonts.neucha(),
-            GoogleFonts.dekko(),
-            GoogleFonts.firaMono(),
-          ]),
         ]));
 
     const laserSbn = 'v17_laser_pointer.sbn2';
@@ -92,6 +86,9 @@ void main() {
                 .addAll(page.strokes.map(LaserStroke.convertStroke));
             page.strokes.clear();
           }
+          if (coreInfo.pages.length > 1 && coreInfo.pages.last.isEmpty) {
+            coreInfo.pages.removeLast();
+          }
         });
         tearDownAll(() {
           FileManager.shouldUseRawFilePath = false;
@@ -103,6 +100,7 @@ void main() {
                 context: tester.binding.rootElement!,
                 page: page,
               ));
+          await tester.loadFonts();
           await tester.pumpWidget(_buildCanvas(
             brightness: Brightness.light,
             path: path,
@@ -111,6 +109,7 @@ void main() {
           ));
           await tester.pumpAndSettle();
 
+          tester.useFuzzyComparator(allowedDiffPercent: 0.1);
           await expectLater(
             find.byType(Canvas),
             matchesGoldenFile('sbn_examples/$sbnName.light.png'),
@@ -122,6 +121,7 @@ void main() {
                 context: tester.binding.rootElement!,
                 page: page,
               ));
+          await tester.loadFonts();
           await tester.pumpWidget(_buildCanvas(
             brightness: Brightness.dark,
             path: path,
@@ -130,18 +130,27 @@ void main() {
           ));
           await tester.pumpAndSettle();
 
+          tester.useFuzzyComparator(allowedDiffPercent: 0.1);
           await expectLater(
             find.byType(Canvas),
             matchesGoldenFile('sbn_examples/$sbnName.dark.png'),
           );
         });
 
-        if (sbnName != laserSbn)
+        if (sbnName != laserSbn) {
+          bool hasGhostscript = true;
+          final gsCheck =
+              Process.runSync('gs', ['--version'], runInShell: true);
+          if (gsCheck.exitCode != 0) {
+            debugPrint('Please install Ghostscript to test PDF exports.');
+            hasGhostscript = false;
+          }
+
           testWidgets('(PDF)', (tester) async {
             final context = await _getBuildContext(tester, page.size);
 
-            final pdfFile = File('/tmp/$sbnName.pdf');
-            final pngFile = File('/tmp/$sbnName.pdf.png');
+            final pdfFile = File(p.join(tmpDir, '$sbnName.pdf'));
+            final pngFile = File(p.join(tmpDir, '$sbnName.pdf.png'));
 
             // Generate PDF file and write to disk
             await tester.runAsync(() async {
@@ -152,7 +161,8 @@ void main() {
 
             // Convert PDF to PNG with Ghostscript
             await tester.runAsync(() => Process.run(
-                'gs', ['-sDEVICE=pngalpha', '-o', pngFile.path, pdfFile.path]));
+                'gs', ['-sDEVICE=pngalpha', '-o', pngFile.path, pdfFile.path],
+                runInShell: true));
 
             // Load PNG from disk
             final pdfImage = await tester.runAsync(() => pngFile.readAsBytes());
@@ -167,11 +177,13 @@ void main() {
               ),
             ));
 
+            tester.useFuzzyComparator(allowedDiffPercent: 0.1);
             await expectLater(
               find.byType(Image),
               matchesGoldenFile('sbn_examples/$sbnName.pdf.png'),
             );
-          });
+          }, skip: !hasGhostscript);
+        }
       });
     }
 
@@ -219,10 +231,16 @@ void main() {
               ));
       if (importedCoreInfo == null) fail('Failed to load imported core info');
 
+      if (importedCoreInfo.pages.length > 1 &&
+          importedCoreInfo.pages.last.isEmpty) {
+        importedCoreInfo.pages.removeLast();
+      }
+
       await tester.runAsync(() => _precacheImages(
             context: tester.binding.rootElement!,
             page: importedCoreInfo.pages.first,
           ));
+      await tester.loadFonts();
       await tester.pumpWidget(_buildCanvas(
         brightness: Brightness.light,
         path: importedPath,
@@ -231,6 +249,7 @@ void main() {
       ));
       await tester.pumpAndSettle();
 
+      tester.useFuzzyComparator(allowedDiffPercent: 0.1);
       await expectLater(
         find.byType(Canvas),
         matchesGoldenFile('sbn_examples/v19_separate_assets.sbn2.light.png'),
@@ -294,7 +313,7 @@ Widget _buildCanvas({
                 currentSelection: null,
                 setAsBackground: null,
                 currentToolIsSelect: false,
-                currentScale: double.minPositive,
+                currentScale: double.maxFinite,
               ),
             ),
           ),

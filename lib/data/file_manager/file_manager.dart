@@ -105,6 +105,7 @@ class FileManager {
   static Future<void> watchRootDirectory() async {
     Directory rootDir = Directory(documentsDirectory);
     await rootDir.create(recursive: true);
+    if (Platform.isIOS) return;
     rootDir.watch(recursive: true).listen((FileSystemEvent event) {
       final type = event.type == FileSystemEvent.create ||
               event.type == FileSystemEvent.modify ||
@@ -175,8 +176,18 @@ class FileManager {
   static Directory getRootDirectory() => Directory(documentsDirectory);
 
   /// Writes [toWrite] to [filePath].
-  static Future<void> writeFile(String filePath, List<int> toWrite,
-      {bool awaitWrite = false, bool alsoUpload = true}) async {
+  ///
+  /// The file at [toPath] will have its last modified timestamp set to
+  /// [lastModified], if specified.
+  /// This is useful when downloading remote files, to make sure that the
+  /// timestamp is the same locally and remotely.
+  static Future<void> writeFile(
+    String filePath,
+    List<int> toWrite, {
+    bool awaitWrite = false,
+    bool alsoUpload = true,
+    DateTime? lastModified,
+  }) async {
     filePath = _sanitisePath(filePath);
     log.fine('Writing to $filePath');
 
@@ -185,8 +196,9 @@ class FileManager {
     final File file = getFile(filePath);
     await _createFileDirectory(filePath);
     Future writeFuture = Future.wait([
-      file.writeAsBytes(toWrite),
-
+      file.writeAsBytes(toWrite).then((file) async {
+        if (lastModified != null) await file.setLastModified(lastModified);
+      }),
       // if we're using a new format, also delete the old file
       if (filePath.endsWith(Editor.extension))
         getFile(
@@ -699,7 +711,7 @@ class FileManager {
 
     if (extension == '.sba') {
       final inputStream = InputFileStream(path);
-      final archive = ZipDecoder().decodeBuffer(inputStream);
+      final archive = ZipDecoder().decodeStream(inputStream);
 
       final mainFile = archive.files.cast<ArchiveFile?>().firstWhere(
             (file) => file!.name.endsWith('sbn') || file.name.endsWith('sbn2'),
@@ -715,7 +727,7 @@ class FileManager {
         intendedExtension: mainFileExtension,
       );
       final mainFileContents = () {
-        final output = OutputStream();
+        final output = OutputMemoryStream();
         mainFile.writeContent(output);
         return output.getBytes();
       }();
@@ -738,7 +750,7 @@ class FileManager {
         if (assetNumber < 0) continue;
 
         final assetBytes = () {
-          final output = OutputStream();
+          final output = OutputMemoryStream();
           file.writeContent(output);
           return output.getBytes();
         }();

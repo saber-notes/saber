@@ -1,3 +1,7 @@
+## 1.2.4
+
+- Fix Note Air 3 - Add Hidden API Bypass for SDK30+ and init RxManager (https://github.com/saber-notes/saber/pull/1378)
+
 ## 1.2.3
 
 - Reverted the SDK update from v1.2.1 to hopefully make this package work again

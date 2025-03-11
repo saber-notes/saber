@@ -704,6 +704,8 @@ class _TranslationsEditorMenuHe extends TranslationsEditorMenuEn {
 	@override String get duplicatePage => 'שכפל דף';
 	@override String get deletePage => 'מחק דף';
 	@override String get lineHeight => 'גובה הקו';
+	@override String get lineThickness => 'עובי קו';
+	@override String get lineThicknessDescription => 'עובי קו רקע';
 	@override String get backgroundImageFit => 'התאמת תמונת רקע';
 	@override String get backgroundPattern => 'תבנית רקע';
 	@override String get import => 'יבוא';

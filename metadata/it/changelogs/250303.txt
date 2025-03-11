@@ -1,0 +1,3 @@
+• Corretto il problema dell'AppImage che non si apriva per alcuni utenti Linux
+• Aggiunto un supporto migliore per il passaggio del mouse sullo stilo
+• Possibili miglioramenti delle prestazioni dalle dipendenze aggiornate, incluso un nuovo motore di rendering su Android

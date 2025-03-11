@@ -109,11 +109,11 @@ class _TranslationsLogsCs extends TranslationsLogsEn {
 	final TranslationsCs _root; // ignore: unused_field
 
 	// Translations
-	@override String get logs => 'Protokoly';
-	@override String get viewLogs => 'Zobrazit protokoly';
-	@override String get debuggingInfo => 'Protokoly obsahují informace užitečné pro ladění a vývoj';
-	@override String get noLogs => 'Nejsou zde žádné záznamy!';
-	@override String get logsAreTemporary => 'Protokoly se uchovávají pouze do doby, než aplikaci zavřete';
+	@override String get logs => 'Logy';
+	@override String get viewLogs => 'Zobrazit logy';
+	@override String get debuggingInfo => 'Logy obsahují informace užitečné pro ladění a vývoj';
+	@override String get noLogs => 'Nejsou k dispozici žádné logy!';
+	@override String get logsAreTemporary => 'Logy jsou zachovány pouze do uzavření aplikace';
 }
 
 // Path: login
@@ -707,6 +707,8 @@ class _TranslationsEditorMenuCs extends TranslationsEditorMenuEn {
 	@override String get deletePage => 'Odstranit stránku';
 	@override String get lineHeight => 'Výška řádku';
 	@override String get lineHeightDescription => 'Ovlivňuje také velikost textu psaných poznámek';
+	@override String get lineThickness => 'Tloušťka linky';
+	@override String get lineThicknessDescription => 'Tloušťka linie na pozadí';
 	@override String get backgroundImageFit => 'Rozložení obrázku na pozadí';
 	@override String get backgroundPattern => 'Vzor na pozadí';
 	@override String get import => 'Importovat';

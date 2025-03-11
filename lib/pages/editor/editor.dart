@@ -35,6 +35,7 @@ import 'package:saber/data/editor/editor_history.dart';
 import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/editor/pencil_sound.dart';
 import 'package:saber/data/extensions/change_notifier_extensions.dart';
+import 'package:saber/data/extensions/matrix4_extensions.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/nextcloud/saber_syncer.dart';
 import 'package:saber/data/prefs.dart';
@@ -104,21 +105,10 @@ class EditorState extends State<Editor> {
   late EditorCoreInfo coreInfo = EditorCoreInfo(filePath: '');
 
   final _canvasGestureDetectorKey = GlobalKey<CanvasGestureDetectorState>();
-  late final TransformationController _transformationController =
-      TransformationController()
-        ..addListener(() {
-          PdfEditorImage.checkIfHighDpiNeeded(
-            getZoom: () => _transformationController.value.getMaxScaleOnAxis(),
-            getScrollY: () => scrollY,
-            pages: coreInfo.pages,
-            screenWidth: _canvasGestureDetectorKey
-                    .currentState?.containerBounds.maxWidth ??
-                double.infinity,
-          );
-        });
+  final _transformationController = TransformationController();
   double get scrollY {
     final transformation = _transformationController.value;
-    final scale = transformation.getMaxScaleOnAxis();
+    final scale = transformation.approxScale;
     final translation = transformation.getTranslation();
     final gestureDetector = _canvasGestureDetectorKey.currentState;
 
@@ -508,6 +498,7 @@ class EditorState extends State<Editor> {
   /// Used to record a move in the history.
   Offset moveOffset = Offset.zero;
 
+  bool isHovering = true;
   int? dragPageIndex;
   double? currentPressure;
   bool isDrawGesture(ScaleStartDetails details) {
@@ -663,7 +654,8 @@ class EditorState extends State<Editor> {
         ));
       } else if (currentTool is Eraser) {
         final erased = (currentTool as Eraser).onDragEnd();
-        if (stylusButtonPressed || Prefs.disableEraserAfterUse.value) {
+        if (tmpTool != null &&
+            (stylusButtonPressed || Prefs.disableEraserAfterUse.value)) {
           // restore previous tool
           stylusButtonPressed = false;
           currentTool = tmpTool!;
@@ -727,20 +719,32 @@ class EditorState extends State<Editor> {
     currentPressure = pressure == 0 ? null : pressure;
   }
 
+  void onHovering() {
+    isHovering = true;
+  }
+
+  void onHoveringEnd() {
+    isHovering = false;
+  }
+
   void onStylusButtonChanged(bool buttonPressed) {
     // whether the stylus button is or was pressed
     stylusButtonPressed = stylusButtonPressed || buttonPressed;
 
-    // if needed, switch to eraser
-    if (!stylusButtonPressed) return;
-    if (currentTool is Eraser) return;
-    if (currentTool is Pen && dragPageIndex != null) {
-      // if the pen is currently drawing, end the stroke
-      (currentTool as Pen).onDragEnd();
+    if (isHovering) {
+      if (buttonPressed) {
+        if (currentTool is Eraser) return;
+        tmpTool = currentTool;
+        currentTool = Eraser();
+        setState(() {});
+      } else {
+        if (tmpTool != null) {
+          currentTool = tmpTool!;
+          tmpTool = null;
+          setState(() {});
+        }
+      }
     }
-    tmpTool = currentTool;
-    currentTool = Eraser();
-    setState(() {});
   }
 
   void onMoveImage(EditorImage image, Rect offset) {
@@ -889,6 +893,8 @@ class EditorState extends State<Editor> {
         savingState.value = SavingState.saving;
     }
 
+    await _renameFileNow();
+
     final filePath = coreInfo.filePath + Editor.extension;
     final Uint8List bson;
     final OrderedAssetCache assets;
@@ -977,7 +983,8 @@ class EditorState extends State<Editor> {
     final newName = filenameTextEditingController.text;
     if (newName == coreInfo.fileName) return;
 
-    if (_filenameFormKey.currentState?.validate() ?? true) {
+    if (_filenameFormKey.currentState?.validate() ??
+        _validateFilenameTextField(newName) == null) {
       coreInfo.filePath = await FileManager.moveFile(
         coreInfo.filePath + Editor.extension,
         newName.trim() + Editor.extension,
@@ -1015,7 +1022,7 @@ class EditorState extends State<Editor> {
       }
     }
 
-    final String newColorString = color.value.toString();
+    final String newColorString = color.toARGB32().toString();
 
     // migrate from old pref format
     if (Prefs.recentColorsChronological.value.length !=
@@ -1364,6 +1371,8 @@ class EditorState extends State<Editor> {
       onDrawStart: onDrawStart,
       onDrawUpdate: onDrawUpdate,
       onDrawEnd: onDrawEnd,
+      onHovering: onHovering,
+      onHoveringEnd: onHoveringEnd,
       onStylusButtonChanged: onStylusButtonChanged,
       onPressureChanged: onPressureChanged,
       undo: undo,
@@ -1759,6 +1768,12 @@ class EditorState extends State<Editor> {
         Prefs.lastLineHeight.value = lineHeight;
         autosaveAfterDelay();
       }),
+      setLineThickness: (lineThickness) => setState(() {
+        if (coreInfo.readOnly) return;
+        coreInfo.lineThickness = lineThickness;
+        Prefs.lastLineThickness.value = lineThickness;
+        autosaveAfterDelay();
+      }),
       removeBackgroundImage: () => setState(() {
         if (coreInfo.readOnly) return;
 
@@ -1839,7 +1854,7 @@ class EditorState extends State<Editor> {
         setState(() {});
       },
       currentToolIsSelect: currentTool is Select,
-      currentScale: _transformationController.value.getMaxScaleOnAxis(),
+      currentScale: _transformationController.value.approxScale,
     );
   }
 
@@ -2048,7 +2063,6 @@ class EditorState extends State<Editor> {
     })();
 
     DynamicMaterialApp.removeFullscreenListener(_setState);
-    PdfEditorImage.cancelCheckIfHighDpiNeeded();
 
     _delayedSaveTimer?.cancel();
     _watchServerTimer?.cancel();

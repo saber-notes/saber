@@ -32,6 +32,10 @@
 	<string>NSApplication</string>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
+	<key>NSCameraUsageDescription</key>
+	<string>Take photos to add to your notes</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Include your photos in your notes</string>
 	<key>CFBundleLocalizations</key>
 	<array>
 		<string>en</string>

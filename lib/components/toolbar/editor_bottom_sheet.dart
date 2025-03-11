@@ -19,6 +19,7 @@ class EditorBottomSheet extends StatefulWidget {
     required this.currentPageIndex,
     required this.setBackgroundPattern,
     required this.setLineHeight,
+    required this.setLineThickness,
     required this.removeBackgroundImage,
     required this.redrawImage,
     required this.clearPage,
@@ -36,6 +37,7 @@ class EditorBottomSheet extends StatefulWidget {
   final int? currentPageIndex;
   final void Function(CanvasBackgroundPattern) setBackgroundPattern;
   final void Function(int) setLineHeight;
+  final void Function(int) setLineThickness;
   final VoidCallback removeBackgroundImage;
   final VoidCallback redrawImage;
   final VoidCallback clearPage;
@@ -160,6 +162,7 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
                             overrideBoxFit: boxFit,
                             pageSize: pageSize,
                             lineHeight: widget.coreInfo.lineHeight,
+                            lineThickness: widget.coreInfo.lineThickness,
                           ),
                           Positioned(
                             bottom: previewSize.height * 0.1,
@@ -220,6 +223,7 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
                           backgroundImage: null, // focus on background pattern
                           pageSize: pageSize,
                           lineHeight: widget.coreInfo.lineHeight,
+                          lineThickness: widget.coreInfo.lineThickness,
                         ),
                         Positioned(
                           bottom: previewSize.height * 0.1,
@@ -258,6 +262,30 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
                     divisions: 8,
                     onChanged: (double value) => setState(() {
                       widget.setLineHeight(value.toInt());
+                    }),
+                  ),
+                ),
+              ],
+            ),
+            Text(
+              t.editor.menu.lineThickness,
+              style: Theme.of(context).textTheme.titleMedium,
+            ),
+            Text(
+              t.editor.menu.lineThicknessDescription,
+              style: Theme.of(context).textTheme.bodyMedium,
+            ),
+            Row(
+              children: [
+                Text(widget.coreInfo.lineThickness.toString()),
+                Expanded(
+                  child: Slider(
+                    value: widget.coreInfo.lineThickness.toDouble(),
+                    min: 1,
+                    max: 5,
+                    divisions: 4,
+                    onChanged: (double value) => setState(() {
+                      widget.setLineThickness(value.toInt());
                     }),
                   ),
                 ),
@@ -320,7 +348,7 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
 
 class _PermanentTooltip extends StatelessWidget {
   const _PermanentTooltip({
-    // ignore: unused_element
+    // ignore: unused_element_parameter
     super.key,
     required this.text,
   });
@@ -333,7 +361,7 @@ class _PermanentTooltip extends StatelessWidget {
     return DecoratedBox(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
-        color: colorScheme.surface.withOpacity(0.8),
+        color: colorScheme.surface.withValues(alpha: 0.8),
       ),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 8),

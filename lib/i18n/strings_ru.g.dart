@@ -109,11 +109,11 @@ class _TranslationsLogsRu extends TranslationsLogsEn {
 	final TranslationsRu _root; // ignore: unused_field
 
 	// Translations
-	@override String get logs => 'Журналы';
-	@override String get viewLogs => 'Посмотреть журналы';
-	@override String get debuggingInfo => 'Логи содержат информацию, полезную для отладки и разработки.';
+	@override String get logs => 'Жерналы';
+	@override String get viewLogs => 'Просмотр журналов';
+	@override String get debuggingInfo => 'Журналы содержат информацию, полезную для отладки и разработки';
 	@override String get noLogs => 'Здесь нет журналов!';
-	@override String get logsAreTemporary => 'Журналы хранятся только до тех пор, пока вы не закроете приложение.';
+	@override String get logsAreTemporary => 'Журналы хранятся пока вы не закроете приложение';
 }
 
 // Path: login
@@ -707,6 +707,8 @@ class _TranslationsEditorMenuRu extends TranslationsEditorMenuEn {
 	@override String get deletePage => 'Удалить страницу';
 	@override String get lineHeight => 'Высота строки';
 	@override String get lineHeightDescription => 'Также управляет размером текста для напечатанных заметок';
+	@override String get lineThickness => 'Линия толщина';
+	@override String get lineThicknessDescription => 'Фотовая линия толщина';
 	@override String get backgroundImageFit => 'Фоновое изображение';
 	@override String get backgroundPattern => 'Фоновый шаблон';
 	@override String get import => 'Импорт';

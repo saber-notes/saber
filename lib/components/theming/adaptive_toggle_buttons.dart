@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class AdaptiveToggleButtons<T> extends StatelessWidget {
+class AdaptiveToggleButtons<T extends Object> extends StatelessWidget {
   const AdaptiveToggleButtons({
     super.key,
     required this.value,
