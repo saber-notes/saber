@@ -30,18 +30,6 @@ import 'package:worker_manager/worker_manager.dart';
 import 'package:workmanager/workmanager.dart';
 import 'package:permission_handler/permission_handler.dart';
 
-Future<void> requestStoragePermission() async {
-  final status = await Permission.manageExternalStorage.request();
-  if (status.isGranted) {
-    // Permission is granted
-  } else if (status.isDenied) {
-    // Permission is denied
-  } else if (status.isPermanentlyDenied) {
-    // Permission is permanently denied
-    openAppSettings(); // Open app settings to manually grant permission
-  }
-}
-
 Future<void> main(
   List<String> args, {
   WidgetsBinding? Function() initWidgetsBinding =

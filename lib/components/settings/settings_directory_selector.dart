@@ -4,6 +4,7 @@ import 'package:file_picker/file_picker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:saber/components/theming/adaptive_alert_dialog.dart';
 import 'package:saber/components/theming/font_fallbacks.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
@@ -121,11 +122,43 @@ class _DirectorySelectorState extends State<DirectorySelector> {
     setState(() {});
   }
 
+  Future<void> requestStoragePermission() async {
+    final status = await Permission.manageExternalStorage.request();
+    if (status.isGranted) {
+      // Permission is granted, no need to do anything
+    } else if (status.isDenied) {
+      // Permission is denied
+      openAppSettings(); // Open app settings to manually grant permission
+    } else if (status.isPermanentlyDenied) {
+      // Permission is permanently denied
+      openAppSettings(); // Open app settings to manually grant permission
+    }
+  }
+
   void _onConfirm() {
     Prefs.customDataDir.value = _directory;
     context.pop();
-    if (Platform.isAndroid) {
-      requestStoragePermission();
+    if (Platform.isAndroid && !_directory.startsWith('/data/user/')) {
+      showDialog(
+          context: context,
+          builder: (context) => AdaptiveAlertDialog(
+                  title: Text(t.settings.customDataDir.grantPermission),
+                  content:
+                      Text(t.settings.customDataDir.grantPermissionExplenation),
+                  actions: [
+                    CupertinoDialogAction(
+                      onPressed: () => context.pop(),
+                      child: Text(t.settings.customDataDir.cancel),
+                    ),
+                    CupertinoDialogAction(
+                      isDefaultAction: true,
+                      onPressed: () {
+                        context.pop();
+                        requestStoragePermission();
+                      },
+                      child: Text(t.settings.customDataDir.yes),
+                    ),
+                  ]));
     }
   }
 
