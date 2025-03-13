@@ -28,7 +28,6 @@ import 'package:saber/pages/user/login.dart';
 import 'package:window_manager/window_manager.dart';
 import 'package:worker_manager/worker_manager.dart';
 import 'package:workmanager/workmanager.dart';
-import 'package:permission_handler/permission_handler.dart';
 
 Future<void> main(
   List<String> args, {
