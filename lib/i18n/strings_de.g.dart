@@ -707,6 +707,8 @@ class _TranslationsEditorMenuDe extends TranslationsEditorMenuEn {
 	@override String get deletePage => 'Seite löschen';
 	@override String get lineHeight => 'Zeilenhöhe';
 	@override String get lineHeightDescription => 'Bestimmt ebenfalls die Textgröße der getippten Notizen';
+	@override String get lineThickness => 'Liniendicke';
+	@override String get lineThicknessDescription => 'Hintergrundliniendicke';
 	@override String get backgroundImageFit => 'Background image fit';
 	@override String get backgroundPattern => 'Hintergrundmuster';
 	@override String get import => 'Importieren';

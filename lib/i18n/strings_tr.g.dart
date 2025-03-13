@@ -707,6 +707,8 @@ class _TranslationsEditorMenuTr extends TranslationsEditorMenuEn {
 	@override String get deletePage => 'Sayfayı sil';
 	@override String get lineHeight => 'Satır aralığı';
 	@override String get lineHeightDescription => 'Klavye girişi olan notların metin boyutunu da kontrol eder';
+	@override String get lineThickness => 'Çizgi kalınlığı';
+	@override String get lineThicknessDescription => 'Arka plan çizgisi kalınlığı';
 	@override String get backgroundImageFit => 'Arkaplan görüntüsünü sığdır';
 	@override String get backgroundPattern => 'Arkaplan deseni';
 	@override String get import => 'İçe aktar';

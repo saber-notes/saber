@@ -298,6 +298,8 @@ editor:
     deletePage: 刪除頁面
     lineHeight: 行高
     lineHeightDescription: 同時控制輸入筆記的文字大小
+    lineThickness(OUTDATED): 線厚度
+    lineThicknessDescription(OUTDATED): 背景線厚度
     backgroundImageFit: 適應背景圖片
     backgroundPattern: 背景圖案
     import: 匯入

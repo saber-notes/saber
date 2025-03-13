@@ -69,7 +69,7 @@ class _ExportNoteButtonState extends State<ExportNoteButton> {
       }
       await FileManager.exportFile(
         '${files.first.name}.zip',
-        Uint8List.fromList(ZipEncoder().encode(archive)!),
+        Uint8List.fromList(ZipEncoder().encode(archive)),
         context: context,
       );
     }

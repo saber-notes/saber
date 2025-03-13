@@ -35,6 +35,13 @@ abstract class Prefs {
   @visibleForTesting
   static bool warnIfPrefAccessedBeforeLoaded = true;
 
+  /// Returns whether you can use Prefs.
+  ///
+  /// This may be false if [init] has not been called yet,
+  /// or on a non-main isolate.
+  static bool get available => _available;
+  static bool _available = false;
+
   static late final PlainPref<String?> customDataDir;
 
   static late final EncPref<bool> allowInsecureConnections;
@@ -118,7 +125,10 @@ abstract class Prefs {
       lastPencilColor,
       lastShapePenColor;
   static late final PlainPref<CanvasBackgroundPattern> lastBackgroundPattern;
+  static const defaultLineHeight = 40;
+  static const defaultLineThickness = 3;
   static late final PlainPref<int> lastLineHeight;
+  static late final PlainPref<int> lastLineThickness;
   static late final PlainPref<bool> lastZoomLock,
       lastSingleFingerPanLock,
       lastAxisAlignedPanLock;
@@ -155,6 +165,8 @@ abstract class Prefs {
   static late final PlainPref<String> locale;
 
   static void init() {
+    _available = true;
+
     customDataDir = PlainPref('customDataDir', null);
     allowInsecureConnections = EncPref('allowInsecureConnections', false);
     url = EncPref('url', '');
@@ -236,17 +248,18 @@ abstract class Prefs {
         PlainPref('lastShapePenProperties', Pen.shapePenOptions);
 
     lastFountainPenColor =
-        PlainPref('lastFountainPenColor', Colors.black.value);
+        PlainPref('lastFountainPenColor', Colors.black.toARGB32());
     lastBallpointPenColor =
-        PlainPref('lastBallpointPenColor', Colors.black.value);
+        PlainPref('lastBallpointPenColor', Colors.black.toARGB32());
     lastHighlighterColor = PlainPref('lastHighlighterColor',
-        Colors.yellow.withAlpha(Highlighter.alpha).value);
-    lastPencilColor = PlainPref('lastPencilColor', Colors.black.value);
-    lastShapePenColor = PlainPref('lastShapePenColor', Colors.black.value);
+        Colors.yellow.withAlpha(Highlighter.alpha).toARGB32());
+    lastPencilColor = PlainPref('lastPencilColor', Colors.black.toARGB32());
+    lastShapePenColor = PlainPref('lastShapePenColor', Colors.black.toARGB32());
 
     lastBackgroundPattern =
         PlainPref('lastBackgroundPattern', CanvasBackgroundPattern.none);
-    lastLineHeight = PlainPref('lastLineHeight', 40);
+    lastLineHeight = PlainPref('lastLineHeight', defaultLineHeight);
+    lastLineThickness = PlainPref('lastLineThickness', defaultLineThickness);
     lastZoomLock = PlainPref('lastZoomLock', false);
     lastSingleFingerPanLock = PlainPref('lastSingleFingerPanLock', false,
         historicalKeys: const ['lastPanLock']);

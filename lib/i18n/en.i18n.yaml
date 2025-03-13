@@ -300,6 +300,8 @@ editor:
     deletePage: Delete page
     lineHeight: Line height
     lineHeightDescription: Also controls the text size for typed notes
+    lineThickness: Line thickness
+    lineThicknessDescription: Background line thickness
     backgroundImageFit: Background image fit
     backgroundPattern: Background pattern
     import: Import
