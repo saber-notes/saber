@@ -11,7 +11,6 @@ import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/nextcloud/saber_syncer.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
-import 'package:saber/main_common.dart';
 
 class SettingsDirectorySelector extends StatelessWidget {
   const SettingsDirectorySelector({
