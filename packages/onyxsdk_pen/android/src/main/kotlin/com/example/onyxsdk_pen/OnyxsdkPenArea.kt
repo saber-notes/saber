@@ -12,14 +12,29 @@ import com.onyx.android.sdk.data.note.TouchPoint
 import com.onyx.android.sdk.pen.RawInputCallback
 import com.onyx.android.sdk.pen.TouchHelper
 import com.onyx.android.sdk.pen.data.TouchPointList
+import com.onyx.android.sdk.pen.NeoBrushPen
+import com.onyx.android.sdk.pen.NeoCharcoalPenV2
+import com.onyx.android.sdk.pen.NeoMarkerPen
+import com.onyx.android.sdk.pen.NeoFountainPen
+import com.onyx.android.sdk.pen.NeoPen
+import com.onyx.android.sdk.api.device.epd.EpdController
 import io.flutter.plugin.platform.PlatformView
 import java.util.Timer
 import java.util.TimerTask
 
 internal class OnyxsdkPenArea(context: Context, id: Int, creationParams: Map<String?, Any?>?) : PlatformView {
+    enum class StrokeStyle {
+	FountainPen,
+	Pen,
+	Brush,
+	Pencil,
+	Marker
+    }
     companion object {
         private val pointsToRedraw = 20
-        private val strokeWidth = 3f
+        var strokeWidth = 3f
+	var strokeStyle = StrokeStyle.FountainPen
+	var strokeColor = Color.YELLOW
     }
 
     private val touchHelper: TouchHelper by lazy { TouchHelper.create(view, callback) }
@@ -30,15 +45,24 @@ internal class OnyxsdkPenArea(context: Context, id: Int, creationParams: Map<Str
     }
 
     private val paint: Paint = Paint()
+    private val deviceMaxPressure = EpdController.getMaxTouchPressure()
     private var pointsSinceLastRedraw = 0
 
     private val currentStroke: ArrayList<TouchPoint> = ArrayList()
 
     private var refreshTimerTask: TimerTask? = null
-    private val refreshDelayMs: Long by lazy { creationParams?.get("refreshDelayMs") as? Long ?: 1000 }
+    private val refreshDelayMs: Long by lazy { creationParams?.get("refreshDelayMs") as? Long ?: 100 }
 
     private val callback: RawInputCallback = object: RawInputCallback() {
         fun reset() {
+	    touchHelper.setStrokeStyle(strokeStyleToOnyx(strokeStyle))
+	    if (strokeStyle == StrokeStyle.Marker) {
+		touchHelper.setStrokeWidth(strokeWidth * 2)
+	    } else {
+		touchHelper.setStrokeWidth(strokeWidth)
+	    }
+	    touchHelper.setStrokeColor(strokeColor)
+	    
             currentStroke.clear()
             pointsSinceLastRedraw = 0
             drawPreview()
@@ -102,18 +126,18 @@ internal class OnyxsdkPenArea(context: Context, id: Int, creationParams: Map<Str
         }
     }
 
+    private fun strokeStyleToOnyx(style: StrokeStyle): Int {
+	return when (style) {
+	    StrokeStyle.FountainPen -> TouchHelper.STROKE_STYLE_FOUNTAIN
+	    StrokeStyle.Pen -> TouchHelper.STROKE_STYLE_CHARCOAL_V2
+	    StrokeStyle.Brush -> TouchHelper.STROKE_STYLE_NEO_BRUSH
+	    StrokeStyle.Pencil -> TouchHelper.STROKE_STYLE_PENCIL
+	    StrokeStyle.Marker -> TouchHelper.STROKE_STYLE_MARKER
+	}
+    }
+
     fun drawPreview() {
-        val canvas: Canvas = view.getHolder().lockCanvas() ?: return
-        canvas.drawColor(Color.WHITE)
-
-        for (i in 0 until currentStroke.size - 1) {
-            val p1 = currentStroke[i]
-            val p2 = currentStroke[i + 1]
-
-            canvas.drawLine(p1.getX(), p1.getY(), p2.getX(), p2.getY(), paint)
-        }
-
-        view.getHolder().unlockCanvasAndPost(canvas)
+	currentStroke.clear()
     }
 
     init {
@@ -128,9 +152,8 @@ internal class OnyxsdkPenArea(context: Context, id: Int, creationParams: Map<Str
         }
 
         paint.setStrokeWidth(strokeWidth)
-        paint.setColor(Color.BLACK)
+        paint.setColor(strokeColor)
 
-        touchHelper.setStrokeWidth(strokeWidth)
         touchHelper.openRawDrawing()
         touchHelper.setRawDrawingEnabled(true)
         touchHelper.setRawDrawingRenderEnabled(false)
