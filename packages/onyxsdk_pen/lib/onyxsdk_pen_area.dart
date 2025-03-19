@@ -12,6 +12,9 @@ class OnyxSdkPenArea extends StatefulWidget {
   const OnyxSdkPenArea({
     super.key,
     this.refreshDelay = const Duration(seconds: 1),
+    this.strokeStyle = 0,
+    this.strokeColor = 0,
+    this.strokeWidth = 3.0,
     required this.child,
   });
 
@@ -21,6 +24,9 @@ class OnyxSdkPenArea extends StatefulWidget {
   /// is still writing, which will make the screen get stuck in a half-drawn
   /// state.
   final Duration refreshDelay;
+  final int strokeStyle;
+  final int strokeColor;
+  final double strokeWidth;
 
   final Widget child;
 
@@ -65,7 +71,11 @@ class _OnyxSdkPenAreaState extends State<OnyxSdkPenArea> {
   /// Parameters to pass to the platform side
   late final creationParams = <String, dynamic>{
     "refreshDelayMs": widget.refreshDelay.inMilliseconds,
+    "strokeStyle": widget.strokeStyle,
+    "strokeColor": widget.strokeColor,
+    "strokeWidth": widget.strokeWidth,
   };
+  late final channel = MethodChannel('onyxsdk_pen_area');
 
   /// This is used in the platform side to register the view.
   static const String viewType = 'onyxsdk_pen_area';
@@ -73,13 +83,18 @@ class _OnyxSdkPenAreaState extends State<OnyxSdkPenArea> {
   @override
   void didUpdateWidget(OnyxSdkPenArea oldWidget) {
     super.didUpdateWidget(oldWidget);
+    
     creationParams['refreshDelayMs'] = widget.refreshDelay.inMilliseconds;
+    creationParams['strokeStyle'] = widget.strokeStyle;
+    creationParams['strokeColor'] = widget.strokeColor;
+    creationParams['strokeWidth'] = widget.strokeWidth;
+    channel.invokeMethod('updateStroke', creationParams);
   }
 
   @override
   Widget build(BuildContext context) {
     if (!isOnyxDevice) return widget.child;
-
+    creationParams.forEach((k, v) => print('$k: $v'));
     return Stack(
       fit: StackFit.expand,
       children: [

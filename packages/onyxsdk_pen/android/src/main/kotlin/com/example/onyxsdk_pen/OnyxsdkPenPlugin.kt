@@ -16,7 +16,8 @@ class OnyxsdkPenPlugin: FlutterPlugin, MethodCallHandler {
   ///
   /// This local reference serves to register the plugin with the Flutter Engine and unregister it
   /// when the Flutter Engine is detached from the Activity
-  private lateinit var channel : MethodChannel
+    private lateinit var channel : MethodChannel
+    private lateinit var channelInstance : MethodChannel
 
   override fun onAttachedToEngine(@NonNull binding: FlutterPlugin.FlutterPluginBinding) {
     channel = MethodChannel(binding.binaryMessenger, "onyxsdk_pen")
@@ -28,7 +29,7 @@ class OnyxsdkPenPlugin: FlutterPlugin, MethodCallHandler {
 
     binding
       .platformViewRegistry
-      .registerViewFactory("onyxsdk_pen_area", OnyxsdkPenAreaFactory())
+      .registerViewFactory("onyxsdk_pen_area", OnyxsdkPenAreaFactory(binding.binaryMessenger))
   }
 
   override fun onMethodCall(@NonNull call: MethodCall, @NonNull result: Result) {

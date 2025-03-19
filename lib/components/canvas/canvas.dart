@@ -6,7 +6,13 @@ import 'package:saber/components/canvas/image/editor_image.dart';
 import 'package:saber/components/canvas/inner_canvas.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/data/editor/page.dart';
+import 'package:saber/data/tools/_tool.dart';
+import 'package:saber/data/tools/highlighter.dart';
+import 'package:saber/data/tools/eraser.dart';
+import 'package:saber/data/tools/pencil.dart';
+import 'package:saber/data/tools/laser_pointer.dart';
 import 'package:saber/data/tools/select.dart';
+import 'package:saber/data/tools/pen.dart';
 
 class Canvas extends StatelessWidget {
   const Canvas({
@@ -20,7 +26,7 @@ class Canvas extends StatelessWidget {
     required this.currentStrokeDetectedShape,
     required this.currentSelection,
     required this.setAsBackground,
-    required this.currentToolIsSelect,
+    required this.currentTool,
     required this.currentScale,
     this.placeholder = false,
   });
@@ -37,12 +43,54 @@ class Canvas extends StatelessWidget {
 
   final void Function(EditorImage image)? setAsBackground;
 
-  final bool currentToolIsSelect;
+  final Tool currentTool;
   final double currentScale;
   final bool placeholder;
 
+  int toolToOnyx(Tool currentTool) {
+    if (placeholder) return 5;
+    if (currentTool is Pencil) {
+      return 3;
+    } else if (currentTool is Highlighter) {
+      return 4;
+    } else if (currentTool is Eraser) {
+      return 4;
+    } else if (currentTool is Select) {
+      return 3;
+    } else if (currentTool is LaserPointer) {
+      return 4;
+    } else if (currentTool is Pen) {
+      if ((currentTool as Pen).isPressureEnabled()) {
+        return 0;
+      } else {
+        return 1;
+      }
+    } else {
+      return 5;
+    }
+  }
+
+  int getColor() {
+      if (currentTool is Pen) {
+        var color = (currentTool as Pen).color.toARGB32();
+      	print('color is $color');
+        return color;
+      } else {
+        return 0;
+      }
+  }
+  double getWidth() {
+      if (currentTool is Highlighter) {
+        print('highlighter detected');
+        return 50.0;
+      } else {
+        return 5;
+      }
+  }
+  
   @override
   Widget build(BuildContext context) {
+    print('currentTool: $currentTool');
     return Center(
       child: FittedBox(
         child: DecoratedBox(
@@ -62,6 +110,10 @@ class Canvas extends StatelessWidget {
                     width: page.size.width,
                     height: page.size.height,
                     child: OnyxSdkPenArea(
+		      refreshDelay: const Duration(seconds: 1),
+		      strokeStyle: toolToOnyx(currentTool),
+		      strokeColor: getColor(),
+		      strokeWidth: getWidth(),
                       child: InnerCanvas(
                         key: page.innerCanvasKey,
                         pageIndex: pageIndex,
@@ -74,7 +126,7 @@ class Canvas extends StatelessWidget {
                         currentStrokeDetectedShape: currentStrokeDetectedShape,
                         currentSelection: currentSelection,
                         setAsBackground: setAsBackground,
-                        currentToolIsSelect: currentToolIsSelect,
+                        currentToolIsSelect: currentTool is Select,
                         currentScale: currentScale,
                       ),
                     ),

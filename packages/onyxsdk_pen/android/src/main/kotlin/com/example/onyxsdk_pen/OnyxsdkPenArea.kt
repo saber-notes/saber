@@ -17,25 +17,49 @@ import com.onyx.android.sdk.pen.NeoCharcoalPenV2
 import com.onyx.android.sdk.pen.NeoMarkerPen
 import com.onyx.android.sdk.pen.NeoFountainPen
 import com.onyx.android.sdk.pen.NeoPen
+import com.onyx.android.sdk.pen.style.StrokeStyle
 import com.onyx.android.sdk.api.device.epd.EpdController
 import io.flutter.plugin.platform.PlatformView
+import io.flutter.plugin.common.MethodChannel
+import io.flutter.plugin.common.MethodChannel.MethodCallHandler
+import io.flutter.plugin.common.MethodChannel.Result
+import io.flutter.plugin.common.BinaryMessenger
+import io.flutter.plugin.common.MethodCall
 import java.util.Timer
 import java.util.TimerTask
+import androidx.annotation.NonNull
 
-internal class OnyxsdkPenArea(context: Context, id: Int, creationParams: Map<String?, Any?>?) : PlatformView {
-    enum class StrokeStyle {
-	FountainPen,
-	Pen,
-	Brush,
-	Pencil,
-	Marker
+internal class OnyxsdkPenArea(context: Context, messenger: BinaryMessenger, id: Int, creationParams: Map<String?, Any?>?) : PlatformView, MethodCallHandler {
+    enum class StrokeStyle(val Id: Int) {
+	FountainPen(0),
+	Pen(1),
+	Brush(2),
+	Pencil(3),
+	Marker(4)
     }
+    private val channel: MethodChannel = MethodChannel(messenger, "onyxsdk_pen_area")
     companion object {
         private val pointsToRedraw = 20
-        var strokeWidth = 3f
-	var strokeStyle = StrokeStyle.FountainPen
-	var strokeColor = Color.YELLOW
+
     }
+    private var strokeWidth = 0.0f
+    var strokeColor = Color.BLACK
+    var strokeStyle = StrokeStyle.FountainPen
+
+    private fun updateStroke(paramsRef: Map<String, Any>?) {
+	strokeColor = paramsRef?.get("strokeColor") as? Int ?: Color.BLACK
+	strokeWidth = (paramsRef?.get("strokeWidth") as? Double ?: 3.0).toFloat()
+	strokeStyle = when (paramsRef?.get("strokeStyle") as? Int ?: 0) {
+	    0 -> StrokeStyle.FountainPen
+	    1 -> StrokeStyle.Pen
+	    2 -> StrokeStyle.Brush
+	    3 -> StrokeStyle.Pencil
+	    4 -> StrokeStyle.Marker
+	    else -> StrokeStyle.Pen
+	}
+	Log.d("SABERSTROKEUPDATE", "color: %d, width: %f, style: %s".format(strokeColor, strokeWidth, strokeStyle.name))
+    }
+
 
     private val touchHelper: TouchHelper by lazy { TouchHelper.create(view, callback) }
 
@@ -51,16 +75,12 @@ internal class OnyxsdkPenArea(context: Context, id: Int, creationParams: Map<Str
     private val currentStroke: ArrayList<TouchPoint> = ArrayList()
 
     private var refreshTimerTask: TimerTask? = null
-    private val refreshDelayMs: Long by lazy { creationParams?.get("refreshDelayMs") as? Long ?: 100 }
+    private val refreshDelayMs: Long by lazy { creationParams?.get("refreshDelayMs") as? Long ?: 1000 }
 
     private val callback: RawInputCallback = object: RawInputCallback() {
         fun reset() {
 	    touchHelper.setStrokeStyle(strokeStyleToOnyx(strokeStyle))
-	    if (strokeStyle == StrokeStyle.Marker) {
-		touchHelper.setStrokeWidth(strokeWidth * 2)
-	    } else {
-		touchHelper.setStrokeWidth(strokeWidth)
-	    }
+	    touchHelper.setStrokeWidth(strokeWidth)
 	    touchHelper.setStrokeColor(strokeColor)
 	    
             currentStroke.clear()
@@ -141,6 +161,7 @@ internal class OnyxsdkPenArea(context: Context, id: Int, creationParams: Map<Str
     }
 
     init {
+	channel.setMethodCallHandler(this)
         view.addOnLayoutChangeListener { _, _, _, _, _, _, _, _, _ ->
             val limit = Rect()
             val exclude = emptyList<Rect>()
@@ -161,6 +182,16 @@ internal class OnyxsdkPenArea(context: Context, id: Int, creationParams: Map<Str
         drawPreview()
     }
 
+    override fun onMethodCall(@NonNull call: MethodCall, @NonNull result: Result) {
+	if (call.method == "updateStroke") {
+	    val params = call.arguments<Map<String, Any>?>()
+	    updateStroke(params)
+	    result.success(null)
+	} else {
+	    result.notImplemented()
+	}
+    }
+    
     override fun dispose() {
         touchHelper.closeRawDrawing()
     }
