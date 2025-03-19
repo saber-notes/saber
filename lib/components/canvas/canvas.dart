@@ -7,12 +7,12 @@ import 'package:saber/components/canvas/inner_canvas.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/tools/_tool.dart';
-import 'package:saber/data/tools/highlighter.dart';
 import 'package:saber/data/tools/eraser.dart';
-import 'package:saber/data/tools/pencil.dart';
+import 'package:saber/data/tools/highlighter.dart';
 import 'package:saber/data/tools/laser_pointer.dart';
-import 'package:saber/data/tools/select.dart';
 import 'package:saber/data/tools/pen.dart';
+import 'package:saber/data/tools/pencil.dart';
+import 'package:saber/data/tools/select.dart';
 
 class Canvas extends StatelessWidget {
   const Canvas({
@@ -60,7 +60,7 @@ class Canvas extends StatelessWidget {
     } else if (currentTool is LaserPointer) {
       return 1;
     } else if (currentTool is Pen) {
-      if ((currentTool as Pen).isPressureEnabled()) {
+      if (currentTool.isPressureEnabled()) {
         return 2;
       } else {
         return 1;
@@ -86,7 +86,7 @@ class Canvas extends StatelessWidget {
           return baseSize * 2;
         }
       } else {
-        return 3.0;
+        return 3;
       }
   }
   
