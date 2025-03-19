@@ -54,14 +54,14 @@ class Canvas extends StatelessWidget {
     } else if (currentTool is Highlighter) {
       return 4;
     } else if (currentTool is Eraser) {
-      return 4;
+      return 1;
     } else if (currentTool is Select) {
       return 3;
     } else if (currentTool is LaserPointer) {
       return 4;
     } else if (currentTool is Pen) {
       if ((currentTool as Pen).isPressureEnabled()) {
-        return 0;
+        return 2;
       } else {
         return 1;
       }
@@ -81,10 +81,11 @@ class Canvas extends StatelessWidget {
   }
   double getWidth() {
       if (currentTool is Highlighter) {
-        print('highlighter detected');
-        return 50.0;
+        return (currentTool as Pen).getSize() * currentScale * 2;
+      } else if (currentTool is Pen) {
+        return (currentTool as Pen).getSize() * currentScale;
       } else {
-        return 5;
+        return 3.0;
       }
   }
   

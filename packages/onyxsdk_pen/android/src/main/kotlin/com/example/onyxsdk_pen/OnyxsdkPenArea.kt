@@ -17,7 +17,6 @@ import com.onyx.android.sdk.pen.NeoCharcoalPenV2
 import com.onyx.android.sdk.pen.NeoMarkerPen
 import com.onyx.android.sdk.pen.NeoFountainPen
 import com.onyx.android.sdk.pen.NeoPen
-import com.onyx.android.sdk.pen.style.StrokeStyle
 import com.onyx.android.sdk.api.device.epd.EpdController
 import io.flutter.plugin.platform.PlatformView
 import io.flutter.plugin.common.MethodChannel
@@ -47,7 +46,45 @@ internal class OnyxsdkPenArea(context: Context, messenger: BinaryMessenger, id: 
     var strokeStyle = StrokeStyle.FountainPen
 
     private fun updateStroke(paramsRef: Map<String, Any>?) {
-	strokeColor = paramsRef?.get("strokeColor") as? Int ?: Color.BLACK
+	/*
+	 Flutter ints are variable width
+	 Personally, I think it is utterly dumb. I hope there is a way to fix
+	 int size in flutter (why would you need 64 bits to store srgb??),
+	 but unless or until there isn't, this stupidity should be performed
+	 */
+	val pureColor = (paramsRef?.get("strokeColor") as? Long)?.toInt()
+			      ?: paramsRef?.get("strokeColor") as? Int
+			      ?: Color.BLACK
+	/*
+	 ONYXSDK Pen saturates the colors. Whatever it deems as "light" (luma < 128?)
+	 gets automagically turned to white. Transparency is also accounted apparently.
+	 Unless this is some case-by-case situation, if resulting color, assuming
+	 being drawn on absolutely white background, with a fully opaque brush
+	 is lighter than a certain unknown arbitrary threshold, it turns white,
+	 otherwise, is saturated to max.
+	 These thoughts are, however, purely observational. Nothing in documentation
+	 says this and no binary artifacts have been decompiled to come to these
+	 conclusions. Thus, feel free to correct my incompetence if I turn out wrong
+	 */
+	var dest = FloatArray(3)
+	Color.RGBToHSV(
+	    Color.red(pureColor),
+	    Color.green(pureColor),
+	    Color.blue(pureColor),
+	    dest
+	)
+	dest[1] = 1.0f /* saturation */
+	/*
+	 I suppose rounding value is reasonable, but I want color to show
+	 So clamp to black if it's visually indistinguishable from black
+	 and to colorful otherwise. E.g. brown will look red instead of black
+	*/
+	if (dest[2] < 0.2) {
+	    dest[2] = 0.0f
+	} else {
+	    dest[2] = 1.0f
+	}
+	strokeColor = Color.HSVToColor(dest)
 	strokeWidth = (paramsRef?.get("strokeWidth") as? Double ?: 3.0).toFloat()
 	strokeStyle = when (paramsRef?.get("strokeStyle") as? Int ?: 0) {
 	    0 -> StrokeStyle.FountainPen
@@ -149,9 +186,9 @@ internal class OnyxsdkPenArea(context: Context, messenger: BinaryMessenger, id: 
     private fun strokeStyleToOnyx(style: StrokeStyle): Int {
 	return when (style) {
 	    StrokeStyle.FountainPen -> TouchHelper.STROKE_STYLE_FOUNTAIN
-	    StrokeStyle.Pen -> TouchHelper.STROKE_STYLE_CHARCOAL_V2
+	    StrokeStyle.Pen -> TouchHelper.STROKE_STYLE_PENCIL
 	    StrokeStyle.Brush -> TouchHelper.STROKE_STYLE_NEO_BRUSH
-	    StrokeStyle.Pencil -> TouchHelper.STROKE_STYLE_PENCIL
+	    StrokeStyle.Pencil -> TouchHelper.STROKE_STYLE_CHARCOAL_V2
 	    StrokeStyle.Marker -> TouchHelper.STROKE_STYLE_MARKER
 	}
     }

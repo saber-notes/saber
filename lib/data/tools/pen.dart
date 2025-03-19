@@ -75,6 +75,9 @@ class Pen extends Tool {
   bool isPressureEnabled() {
     return pressureEnabled;
   }
+  double getSize() {
+    return options.size;
+  }
 
   void onDragStart(
       Offset position, EditorPage page, int pageIndex, double? pressure) {
