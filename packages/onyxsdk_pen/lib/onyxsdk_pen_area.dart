@@ -94,7 +94,6 @@ class _OnyxSdkPenAreaState extends State<OnyxSdkPenArea> {
   @override
   Widget build(BuildContext context) {
     if (!isOnyxDevice) return widget.child;
-    creationParams.forEach((k, v) => print('$k: $v'));
     return Stack(
       fit: StackFit.expand,
       children: [

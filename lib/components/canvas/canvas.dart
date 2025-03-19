@@ -56,9 +56,9 @@ class Canvas extends StatelessWidget {
     } else if (currentTool is Eraser) {
       return 1;
     } else if (currentTool is Select) {
-      return 3;
+      return 1;
     } else if (currentTool is LaserPointer) {
-      return 4;
+      return 1;
     } else if (currentTool is Pen) {
       if ((currentTool as Pen).isPressureEnabled()) {
         return 2;
@@ -72,18 +72,19 @@ class Canvas extends StatelessWidget {
 
   int getColor() {
       if (currentTool is Pen) {
-        var color = (currentTool as Pen).color.toARGB32();
-      	print('color is $color');
-        return color;
+        return (currentTool as Pen).color.toARGB32();
       } else {
-        return 0;
+        return Colors.black.toARGB32();
       }
   }
   double getWidth() {
-      if (currentTool is Highlighter) {
-        return (currentTool as Pen).getSize() * currentScale * 2;
-      } else if (currentTool is Pen) {
-        return (currentTool as Pen).getSize() * currentScale;
+      if (currentTool is Pen) {
+        double baseSize = (currentTool as Pen).getSize() * currentScale;
+        if ((currentTool as Pen).isPressureEnabled()) {
+          return baseSize;
+        } else {
+          return baseSize * 2;
+        }
       } else {
         return 3.0;
       }
@@ -91,7 +92,6 @@ class Canvas extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    print('currentTool: $currentTool');
     return Center(
       child: FittedBox(
         child: DecoratedBox(
@@ -111,10 +111,10 @@ class Canvas extends StatelessWidget {
                     width: page.size.width,
                     height: page.size.height,
                     child: OnyxSdkPenArea(
-		      refreshDelay: const Duration(seconds: 1),
-		      strokeStyle: toolToOnyx(currentTool),
-		      strokeColor: getColor(),
-		      strokeWidth: getWidth(),
+                      refreshDelay: const Duration(seconds: 1),
+                      strokeStyle: toolToOnyx(currentTool),
+                      strokeColor: getColor(),
+                      strokeWidth: getWidth(),
                       child: InnerCanvas(
                         key: page.innerCanvasKey,
                         pageIndex: pageIndex,

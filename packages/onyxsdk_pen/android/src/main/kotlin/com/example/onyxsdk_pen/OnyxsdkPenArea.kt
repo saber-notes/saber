@@ -5,19 +5,12 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.Rect
-import android.util.Log
 import android.view.SurfaceView
 import android.view.View
 import com.onyx.android.sdk.data.note.TouchPoint
 import com.onyx.android.sdk.pen.RawInputCallback
 import com.onyx.android.sdk.pen.TouchHelper
 import com.onyx.android.sdk.pen.data.TouchPointList
-import com.onyx.android.sdk.pen.NeoBrushPen
-import com.onyx.android.sdk.pen.NeoCharcoalPenV2
-import com.onyx.android.sdk.pen.NeoMarkerPen
-import com.onyx.android.sdk.pen.NeoFountainPen
-import com.onyx.android.sdk.pen.NeoPen
-import com.onyx.android.sdk.api.device.epd.EpdController
 import io.flutter.plugin.platform.PlatformView
 import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
@@ -29,72 +22,88 @@ import java.util.TimerTask
 import androidx.annotation.NonNull
 
 internal class OnyxsdkPenArea(context: Context, messenger: BinaryMessenger, id: Int, creationParams: Map<String?, Any?>?) : PlatformView, MethodCallHandler {
+
     enum class StrokeStyle(val Id: Int) {
-	FountainPen(0),
-	Pen(1),
-	Brush(2),
-	Pencil(3),
-	Marker(4)
+        FountainPen(0),
+        Pen(1),
+        Brush(2),
+        Pencil(3),
+        Marker(4)
     }
+
     private val channel: MethodChannel = MethodChannel(messenger, "onyxsdk_pen_area")
+
     companion object {
         private val pointsToRedraw = 20
-
     }
+
     private var strokeWidth = 0.0f
-    var strokeColor = Color.BLACK
-    var strokeStyle = StrokeStyle.FountainPen
+    private var strokeColor = Color.BLACK
+    private var strokeStyle = StrokeStyle.FountainPen
 
     private fun updateStroke(paramsRef: Map<String, Any>?) {
-	/*
-	 Flutter ints are variable width
-	 Personally, I think it is utterly dumb. I hope there is a way to fix
-	 int size in flutter (why would you need 64 bits to store srgb??),
-	 but unless or until there isn't, this stupidity should be performed
-	 */
-	val pureColor = (paramsRef?.get("strokeColor") as? Long)?.toInt()
-			      ?: paramsRef?.get("strokeColor") as? Int
-			      ?: Color.BLACK
-	/*
-	 ONYXSDK Pen saturates the colors. Whatever it deems as "light" (luma < 128?)
-	 gets automagically turned to white. Transparency is also accounted apparently.
-	 Unless this is some case-by-case situation, if resulting color, assuming
-	 being drawn on absolutely white background, with a fully opaque brush
-	 is lighter than a certain unknown arbitrary threshold, it turns white,
-	 otherwise, is saturated to max.
-	 These thoughts are, however, purely observational. Nothing in documentation
-	 says this and no binary artifacts have been decompiled to come to these
-	 conclusions. Thus, feel free to correct my incompetence if I turn out wrong
-	 */
-	var dest = FloatArray(3)
-	Color.RGBToHSV(
-	    Color.red(pureColor),
-	    Color.green(pureColor),
-	    Color.blue(pureColor),
-	    dest
-	)
-	dest[1] = 1.0f /* saturation */
-	/*
-	 I suppose rounding value is reasonable, but I want color to show
-	 So clamp to black if it's visually indistinguishable from black
-	 and to colorful otherwise. E.g. brown will look red instead of black
-	*/
-	if (dest[2] < 0.2) {
-	    dest[2] = 0.0f
-	} else {
-	    dest[2] = 1.0f
-	}
-	strokeColor = Color.HSVToColor(dest)
-	strokeWidth = (paramsRef?.get("strokeWidth") as? Double ?: 3.0).toFloat()
-	strokeStyle = when (paramsRef?.get("strokeStyle") as? Int ?: 0) {
-	    0 -> StrokeStyle.FountainPen
-	    1 -> StrokeStyle.Pen
-	    2 -> StrokeStyle.Brush
-	    3 -> StrokeStyle.Pencil
-	    4 -> StrokeStyle.Marker
-	    else -> StrokeStyle.Pen
-	}
-	Log.d("SABERSTROKEUPDATE", "color: %d, width: %f, style: %s".format(strokeColor, strokeWidth, strokeStyle.name))
+        /*
+         Flutter ints are variable width
+         Personally, I think it is utterly dumb. I hope there is a way to fix
+         int size in flutter (why would you need 64 bits to store srgb??),
+         but unless or until there isn't, this stupidity should be performed
+         */
+        val pureColor = (paramsRef?.get("strokeColor") as? Long)?.toInt()
+                              ?: paramsRef?.get("strokeColor") as? Int
+                              ?: Color.BLACK
+        /*
+         ONYXSDK Pen saturates the colors. Whatever it deems as "light" (luma < 128?)
+         gets automagically turned to white. Transparency is also accounted apparently.
+         Unless this is some case-by-case situation, if resulting color, assuming
+         being drawn on absolutely white background, with a fully opaque brush
+         is lighter than a certain unknown arbitrary threshold, it turns white,
+         otherwise, is saturated to max.
+         These thoughts are, however, purely observational. Nothing in documentation
+         says this and no binary artifacts have been decompiled to come to these
+         conclusions. Thus, feel free to correct my incompetence if I turn out wrong
+         */
+        var dest = FloatArray(3)
+        Color.RGBToHSV(
+            Color.red(pureColor),
+            Color.green(pureColor),
+            Color.blue(pureColor),
+            dest
+        )
+        /*
+         Saturation
+         I suppose clamping is a sound idea, but the extremes to which the lib
+         takes them are unacceptable. Make it white if visually indistinguishable
+         from white and colorful otherwise.
+        */
+        if (dest[1] < 0.05) {
+            dest[1] = 0.0f
+        } else {
+            dest[1] = 1.0f
+        }
+        /*
+         Value
+         I want color to show
+         So clamp to black if it's visually indistinguishable from black
+         and to colorful otherwise. E.g. brown will look red instead of black
+        */
+        if (dest[2] < 0.2) {
+            dest[2] = 0.0f
+        } else {
+            dest[2] = 1.0f
+        }
+        strokeColor = Color.HSVToColor(dest)
+        strokeWidth = (paramsRef?.get("strokeWidth") as? Double ?: 3.0).toFloat()
+        strokeStyle = when (paramsRef?.get("strokeStyle") as? Int ?: 0) {
+            0 -> StrokeStyle.FountainPen
+            1 -> StrokeStyle.Pen
+            2 -> StrokeStyle.Brush
+            3 -> StrokeStyle.Pencil
+            4 -> StrokeStyle.Marker
+            else -> StrokeStyle.Pen
+        }
+        touchHelper.setStrokeStyle(strokeStyleToOnyx(strokeStyle))
+        touchHelper.setStrokeWidth(strokeWidth)
+        touchHelper.setStrokeColor(strokeColor)
     }
 
 
@@ -106,7 +115,6 @@ internal class OnyxsdkPenArea(context: Context, messenger: BinaryMessenger, id: 
     }
 
     private val paint: Paint = Paint()
-    private val deviceMaxPressure = EpdController.getMaxTouchPressure()
     private var pointsSinceLastRedraw = 0
 
     private val currentStroke: ArrayList<TouchPoint> = ArrayList()
@@ -116,10 +124,6 @@ internal class OnyxsdkPenArea(context: Context, messenger: BinaryMessenger, id: 
 
     private val callback: RawInputCallback = object: RawInputCallback() {
         fun reset() {
-	    touchHelper.setStrokeStyle(strokeStyleToOnyx(strokeStyle))
-	    touchHelper.setStrokeWidth(strokeWidth)
-	    touchHelper.setStrokeColor(strokeColor)
-	    
             currentStroke.clear()
             pointsSinceLastRedraw = 0
             drawPreview()
@@ -184,21 +188,21 @@ internal class OnyxsdkPenArea(context: Context, messenger: BinaryMessenger, id: 
     }
 
     private fun strokeStyleToOnyx(style: StrokeStyle): Int {
-	return when (style) {
-	    StrokeStyle.FountainPen -> TouchHelper.STROKE_STYLE_FOUNTAIN
-	    StrokeStyle.Pen -> TouchHelper.STROKE_STYLE_PENCIL
-	    StrokeStyle.Brush -> TouchHelper.STROKE_STYLE_NEO_BRUSH
-	    StrokeStyle.Pencil -> TouchHelper.STROKE_STYLE_CHARCOAL_V2
-	    StrokeStyle.Marker -> TouchHelper.STROKE_STYLE_MARKER
-	}
+        return when (style) {
+            StrokeStyle.FountainPen -> TouchHelper.STROKE_STYLE_FOUNTAIN
+            StrokeStyle.Pen -> TouchHelper.STROKE_STYLE_PENCIL
+            StrokeStyle.Brush -> TouchHelper.STROKE_STYLE_NEO_BRUSH
+            StrokeStyle.Pencil -> TouchHelper.STROKE_STYLE_CHARCOAL
+            StrokeStyle.Marker -> TouchHelper.STROKE_STYLE_MARKER
+        }
     }
 
     fun drawPreview() {
-	currentStroke.clear()
+        currentStroke.clear()
     }
 
     init {
-	channel.setMethodCallHandler(this)
+        channel.setMethodCallHandler(this)
         view.addOnLayoutChangeListener { _, _, _, _, _, _, _, _, _ ->
             val limit = Rect()
             val exclude = emptyList<Rect>()
@@ -220,13 +224,13 @@ internal class OnyxsdkPenArea(context: Context, messenger: BinaryMessenger, id: 
     }
 
     override fun onMethodCall(@NonNull call: MethodCall, @NonNull result: Result) {
-	if (call.method == "updateStroke") {
-	    val params = call.arguments<Map<String, Any>?>()
-	    updateStroke(params)
-	    result.success(null)
-	} else {
-	    result.notImplemented()
-	}
+        if (call.method == "updateStroke") {
+            val params = call.arguments<Map<String, Any>?>()
+            updateStroke(params)
+            result.success(null)
+        } else {
+            result.notImplemented()
+        }
     }
     
     override fun dispose() {
