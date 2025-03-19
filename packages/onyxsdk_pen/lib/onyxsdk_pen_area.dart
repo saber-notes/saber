@@ -88,7 +88,7 @@ class _OnyxSdkPenAreaState extends State<OnyxSdkPenArea> {
     creationParams['strokeStyle'] = widget.strokeStyle;
     creationParams['strokeColor'] = widget.strokeColor;
     creationParams['strokeWidth'] = widget.strokeWidth;
-    channel.invokeMethod('updateStroke', creationParams);
+    channel.invokeMethod('updateStroke', creationParams).catchError((e) {});
   }
 
   @override
