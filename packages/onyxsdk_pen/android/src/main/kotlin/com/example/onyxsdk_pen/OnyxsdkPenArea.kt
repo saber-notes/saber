@@ -11,6 +11,8 @@ import com.onyx.android.sdk.data.note.TouchPoint
 import com.onyx.android.sdk.pen.RawInputCallback
 import com.onyx.android.sdk.pen.TouchHelper
 import com.onyx.android.sdk.pen.data.TouchPointList
+import com.onyx.android.sdk.api.device.epd.EpdController
+import com.onyx.android.sdk.api.device.epd.UpdateMode
 import io.flutter.plugin.platform.PlatformView
 import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
@@ -144,6 +146,7 @@ internal class OnyxsdkPenArea(context: Context, messenger: BinaryMessenger, id: 
             refreshTimerTask = object : TimerTask() {
                 override fun run() {
                     touchHelper.setRawDrawingEnabled(false)
+                    EpdController.invalidate(view, UpdateMode.GC);
                     touchHelper.setRawDrawingEnabled(true)
                 }
             }
