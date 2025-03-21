@@ -231,11 +231,21 @@ internal class OnyxsdkPenArea(context: Context, messenger: BinaryMessenger, id: 
             val params = call.arguments<Map<String, Any>?>()
             updateStroke(params)
             result.success(null)
+        } else if (call.method == "setDraw") {
+            if (call.arguments<Boolean>()!!) {
+                touchHelper.openRawDrawing()
+                touchHelper.setRawDrawingEnabled(true)
+                touchHelper.setRawDrawingRenderEnabled(true)
+            } else {
+                touchHelper.closeRawDrawing()
+            }
+
+            result.success(null)
         } else {
             result.notImplemented()
         }
     }
-    
+
     override fun dispose() {
         touchHelper.closeRawDrawing()
     }

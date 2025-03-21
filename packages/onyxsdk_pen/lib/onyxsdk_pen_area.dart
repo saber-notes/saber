@@ -44,7 +44,7 @@ class OnyxSdkPenArea extends StatefulWidget {
   }
 }
 
-class _OnyxSdkPenAreaState extends State<OnyxSdkPenArea> {
+class _OnyxSdkPenAreaState extends State<OnyxSdkPenArea> with WidgetsBindingObserver {
   static bool? _isOnyxDevice = (kIsWeb || !Platform.isAndroid) ? false : null;
   static Future<bool> _findIsOnyxDevice() async {
     if (_isOnyxDevice != null) return _isOnyxDevice!;
@@ -90,6 +90,25 @@ class _OnyxSdkPenAreaState extends State<OnyxSdkPenArea> {
     creationParams['strokeWidth'] = widget.strokeWidth;
     channel.invokeMethod('updateStroke', creationParams).catchError((e) {});
   }
+
+  @override
+  void initState() {
+    WidgetsBinding.instance.addObserver(this);
+    super.initState();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) async {
+    switch (state) {
+      case AppLifecycleState.resumed:
+        channel.invokeMethod('setDraw', true).catchError((e) {});
+        break;
+      case AppLifecycleState.paused:
+        channel.invokeMethod('setDraw', false).catchError((e) {});
+        break;
+      default:
+    }
+}
 
   @override
   Widget build(BuildContext context) {
