@@ -3,11 +3,11 @@
 Saber is an application developed by Adil Hanney that
 facilitates the user in creating and organising handwritten notes.
 
-This privacy policy will change as the app evolves: you can view any changes on this page
-and can track the app's progress through the
-[Saber progress discussion](https://github.com/saber-notes/saber/discussions/1)
-and the changelogs on the
-[Releases](https://github.com/saber-notes/saber/releases) page.
+This privacy policy may be updated from time to time.
+You can view the latest privacy policy at
+https://saber.adil.hanney.org/privacy_policy,
+and you can view the history of changes to the privacy policy on
+[GitHub](https://github.com/saber-notes/saber/commits/main/privacy_policy.md).
 
 ## What data does the application use?
 
