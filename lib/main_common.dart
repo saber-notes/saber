@@ -36,7 +36,6 @@ Future<void> main(
   void Function(Widget) runApp = runApp,
 }) async {
   initWidgetsBinding();
-
   final parser = ArgParser()..addFlag('verbose', abbr: 'v', negatable: false);
   final parsedArgs = parser.parse(args);
 
