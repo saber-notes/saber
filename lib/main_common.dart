@@ -74,6 +74,11 @@ Future<void> main(
     workerManager.init(),
     Prefs.locale.waitUntilLoaded(),
     Prefs.url.waitUntilLoaded(),
+    Prefs.username.waitUntilLoaded(),
+    Prefs.encPassword.waitUntilLoaded(),
+    Prefs.iv.waitUntilLoaded(),
+    Prefs.key.waitUntilLoaded(),
+    Prefs.ncPassword.waitUntilLoaded(),
     Prefs.allowInsecureConnections.waitUntilLoaded(),
     PencilShader.init(),
     PencilSound.preload(),
@@ -84,6 +89,7 @@ Future<void> main(
   ]);
 
   setLocale();
+
   Prefs.locale.addListener(setLocale);
   Prefs.customDataDir.addListener(FileManager.migrateDataDir);
 
@@ -108,12 +114,15 @@ Future<void> main(
 
 void startSyncAfterLoaded() async {
   await Prefs.username.waitUntilLoaded();
+  await Prefs.url.waitUntilLoaded();
   await Prefs.encPassword.waitUntilLoaded();
 
   Prefs.username.removeListener(startSyncAfterLoaded);
+  Prefs.url.removeListener(startSyncAfterLoaded);
   Prefs.encPassword.removeListener(startSyncAfterLoaded);
   if (!Prefs.loggedIn) {
     // try again when logged in
+    Prefs.url.addListener(startSyncAfterLoaded);
     Prefs.username.addListener(startSyncAfterLoaded);
     Prefs.encPassword.addListener(startSyncAfterLoaded);
     return;
