@@ -47,6 +47,8 @@ home:
     renamedTo: La nota verrà rinominata in $newName
     multipleRenamedTo: "Le note seguenti verranno rinominate:"
     numberRenamedTo: $n le note verranno rinominate per evitare conflitti
+  selectAllNotes: Seleziona tutto
+  deselectAllNotes: Deseleziona tutto
   deleteNote: Elimina nota
   renameFolder:
     renameFolder: Rinomina cartella
