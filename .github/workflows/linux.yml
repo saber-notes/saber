@@ -13,39 +13,50 @@ on:
       - appimage/AppImageBuilder.yml
 
 jobs:
-  build-flutter-app-x86_64:
-    name: Build Flutter app (x86_64)
-    runs-on: ubuntu-latest
+  build-linux:
+    strategy:
+      fail-fast: false
+      matrix:
+        arch:
+          - runs-on: ubuntu-latest
+            cache-name: saber
+            target-platform: linux-x64
+            flutter-output-folder: build/linux/x64/release/bundle
+            archive-suffix: x86_64
+          - runs-on: ubuntu-24.04-arm
+            cache-name: saberarm64
+            target-platform: linux-arm64
+            flutter-output-folder: build/linux/arm64/release/bundle
+            archive-suffix: arm64
+    runs-on: ${{ matrix.arch.runs-on }}
     permissions:
       contents: write
     timeout-minutes: 20
+    name: Build Linux (${{ matrix.arch.target-platform }})
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Install apt dependencies
-        uses: awalsh128/cache-apt-pkgs-action@latest
-        with:
-          packages: libgtk-3-dev libx11-dev pkg-config cmake ninja-build libblkid-dev libsecret-1-dev libjsoncpp-dev ghostscript libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev libunwind-dev webkit2gtk-4.1-dev
-          version: 1.0
-          execute_install_scripts: true
+      - uses: "./.github/shared_workflows/install_apt_dependencies"
 
       - name: Setup cache
         uses: actions/cache@v4
         with:
           path: |
             build
-          key: ${{ runner.OS }}-saber-${{ hashFiles('**/pubspec.lock') }}-${{ hashFiles('**/*.dart') }}
+          key: ${{ runner.OS }}-${{ matrix.arch.cache-name }}-${{ hashFiles('**/pubspec.lock') }}-${{ hashFiles('**/*.dart') }}
           restore-keys: |
-            ${{ runner.OS }}-saber-
-      
+            ${{ runner.OS }}-${{ matrix.arch.cache-name }}-
+
       - name: Remove proprietary dependencies
         run: ./patches/remove_proprietary_dependencies.sh
 
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          channel: stable
+          # Workaround for https://github.com/subosito/flutter-action/issues/345, needs to be removed when fixed
+          channel: master
+          flutter-version: 3.29.1
           cache: true
           cache-key: 'flutter-:os:-:channel:-:version:-:arch:'
 
@@ -54,22 +65,21 @@ jobs:
 
       - run: flutter pub get
 
-      - name: Build Linux (x86_64)
+      - name: Build Linux (${{ matrix.arch.target-platform }})
         run: |
           flutter build linux \
-            --dart-define=DIRTY=$DIRTY
-        env:
-          DIRTY: ${{ !startsWith(github.ref, 'refs/tags/') }}
+            --target-platform ${{ matrix.arch.target-platform }} \
+            --dart-define=DIRTY=${{ !startsWith(github.ref, 'refs/tags/') }}
 
       - name: Compress Flutter build
         id: compress
         run: |
           buildName=$(grep -oP "(?<=buildName = ').*(?=')" lib/data/version.dart)
-          archiveName="Saber_v${buildName}_Linux_x86_64.tar.gz"
+          archiveName="Saber_v${buildName}_Linux_${{ matrix.arch.archive-suffix }}.tar.gz"
           echo "archiveName=$archiveName" >> $GITHUB_OUTPUT
 
           mkdir -p AppDir
-          mv build/linux/x64/release/bundle/* AppDir
+          mv ${{ matrix.arch.flutter-output-folder }}/* AppDir
           chmod +x AppDir/saber
 
           install -Dm644 flatpak/com.adilhanney.saber.metainfo.xml -t AppDir/share/metainfo/
@@ -85,170 +95,9 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: Saber-Archive-x86_64
+          name: Saber-Archive-${{ matrix.arch.archive-suffix }}
           path: ${{ steps.compress.outputs.archiveName }}
 
-      - name: Upload to GitHub release
-        uses: svenstaro/upload-release-action@v2
-        if: ${{ startsWith(github.ref, 'refs/tags/') }}
-        with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: ${{ steps.compress.outputs.archiveName }}
-
-  build-flutter-app-arm64:
-    name: Build Flutter app (arm64)
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      packages: write
-    timeout-minutes: 120
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Setup cache
-        uses: actions/cache@v4
-        with:
-          path: |
-            build
-          key: ${{ runner.OS }}-saberarm64-${{ hashFiles('**/pubspec.lock') }}-${{ hashFiles('**/*.dart') }}
-          restore-keys: |
-            ${{ runner.OS }}-saberarm64-
-
-      - name: Build Linux (arm64)
-        uses: uraimo/run-on-arch-action@v2
-        with:
-          arch: aarch64
-          distro: ubuntu_latest
-          githubToken: ${{ github.token }}
-
-          setup: |
-            mkdir -p "${PWD}/AppDir"
-            mkdir -p "${PWD}/build/pub_cache"
-          dockerRunArgs: |
-            --volume "${PWD}/AppDir:/AppDir"
-
-          install: |
-            quiet () {
-              output=`"$@" 2>&1` || echo $output
-            }
-            unsudo () {
-              sudo -u nonroot env "PATH=$PATH" "CARGO_HOME=$CARGO_HOME" "RUSTUP_HOME=$RUSTUP_HOME" PUB_CACHE="$PUB_CACHE" "$@"
-            }
-
-            echo Installing dependencies
-            quiet apt-get update -qq -y
-            quiet apt-get install -qq -y \
-              sudo \
-              bash curl file git unzip xz-utils zip \
-              clang cmake ninja-build pkg-config libgtk-3-dev liblzma-dev libstdc++-12-dev \
-              libsecret-1-dev libjsoncpp-dev webkit2gtk-4.1-dev \
-              libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev libunwind-dev
-
-            echo Creating nonroot user
-            useradd -m -d /home/nonroot -s /bin/bash nonroot
-            echo 'export PATH="$PATH:/opt/flutter/bin"' >> /home/nonroot/.bashrc
-            echo 'export PATH="$PATH:/opt/cargo/bin"' >> /home/nonroot/.bashrc
-            echo 'export CARGO_HOME=/opt/cargo' >> /home/nonroot/.bashrc
-            echo 'export RUSTUP_HOME=/opt/rustup' >> /home/nonroot/.bashrc
-            echo 'export PUB_CACHE=build/pub_cache' >> /home/nonroot/.bashrc
-            export PATH="$PATH:/opt/flutter/bin"
-            export PATH="$PATH:/opt/cargo/bin"
-            export CARGO_HOME=/opt/cargo
-            export RUSTUP_HOME=/opt/rustup
-            export PUB_CACHE=build/pub_cache
-
-            echo Installing Flutter
-            if [ -z "$(which flutter)" ]; then
-              echo Flutter not installed, installing...
-              mkdir -p /opt/flutter
-              chown -R nonroot /opt/flutter
-              unsudo git clone https://github.com/flutter/flutter.git -b stable --depth 1 /opt/flutter
-            else
-              echo Flutter already installed, updating...
-              chown -R nonroot /opt/flutter
-              unsudo flutter upgrade
-            fi
-
-            echo flutter doctor
-            unsudo flutter doctor -v
-
-            echo Precaching Flutter
-            unsudo flutter precache --no-universal --linux
-
-            echo Installing Rust
-            mkdir -p $CARGO_HOME
-            mkdir -p $RUSTUP_HOME
-            mkdir -p "$RUSTUP_HOME/tmp"
-            chown -R nonroot $CARGO_HOME
-            chown -R nonroot $RUSTUP_HOME
-            unsudo curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -q -y
-            chmod -R a+rw $CARGO_HOME
-            chmod -R a+rw $RUSTUP_HOME
-            unsudo ls -l $CARGO_HOME/bin
-            unsudo which rustup
-
-          run: |
-            unsudo () {
-              sudo -u nonroot env "PATH=$PATH" "CARGO_HOME=$CARGO_HOME" "RUSTUP_HOME=$RUSTUP_HOME" PUB_CACHE="$PUB_CACHE" "$@"
-            }
-
-            echo Setting up environment
-            chown -R nonroot .
-            chown -R nonroot /opt/flutter
-            chown -R nonroot /opt/cargo
-            export PATH="$PATH:/opt/flutter/bin"
-            export PATH="$PATH:/opt/cargo/bin"
-            export CARGO_HOME=/opt/cargo
-            export RUSTUP_HOME=/opt/rustup
-            export PUB_CACHE=build/pub_cache
-
-            echo Removing proprietary dependencies
-            ./patches/remove_proprietary_dependencies.sh
-
-            echo Disabling Flutter CLI animations
-            unsudo flutter config --no-cli-animations
-
-            echo flutter pub get
-            unsudo flutter pub get
-
-            echo Verifying that rustup is installed
-            unsudo which rustup
-
-            echo Building
-            unsudo flutter build linux \
-              --target-platform linux-arm64 \
-              --dart-define=DIRTY=${{ !startsWith(github.ref, 'refs/tags/') }}
-            mv build/linux/arm64/release/bundle/* /AppDir/
-            chown -R nonroot /AppDir/
-            chmod -R a+rw /AppDir/
-            chmod a+x /AppDir/saber
-
-      - name: Compress Flutter build
-        id: compress
-        run: |
-          buildName=$(grep -oP "(?<=buildName = ').*(?=')" lib/data/version.dart)
-          archiveName="Saber_v${buildName}_Linux_arm64.tar.gz"
-          echo "archiveName=$archiveName" >> $GITHUB_OUTPUT
-
-          sudo chown -R $USER:$USER .
-
-          install -Dm644 flatpak/com.adilhanney.saber.metainfo.xml -t AppDir/share/metainfo/
-          install -Dm644 flatpak/com.adilhanney.saber.metainfo.xml -t AppDir/usr/share/metainfo/
-
-          install -Dm644 assets/icon/icon.svg AppDir/share/icons/hicolor/scalable/apps/com.adilhanney.saber.svg
-          install -Dm644 assets/icon/icon.svg AppDir/usr/share/icons/hicolor/scalable/apps/com.adilhanney.saber.svg
-
-          install -Dm644 flatpak/com.adilhanney.saber.desktop -t AppDir/share/applications/
-
-          tar -C AppDir -cvf $archiveName .
-      
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: Saber-Archive-arm64
-          path: ${{ steps.compress.outputs.archiveName }}
-      
       - name: Upload to GitHub release
         uses: svenstaro/upload-release-action@v2
         if: ${{ startsWith(github.ref, 'refs/tags/') }}
@@ -258,7 +107,7 @@ jobs:
 
   build-appimage:
     name: Build AppImage
-    needs: build-flutter-app-x86_64
+    needs: build-linux
     runs-on: ubuntu-latest
     permissions:
       contents: write

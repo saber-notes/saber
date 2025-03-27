@@ -52,7 +52,7 @@ class CanvasBackgroundPainter extends CustomPainter {
       if (element.isLine) {
         canvas.drawLine(element.start, element.end, paint);
       } else {
-        canvas.drawCircle(element.start, 4, paint);
+        canvas.drawCircle(element.start, paint.strokeWidth * 4 / 3, paint);
       }
     }
   }

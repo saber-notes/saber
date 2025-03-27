@@ -1,13 +1,13 @@
-# Privacy Policy - Saber
+# Saber's Privacy Policy
 
 Saber is an application developed by Adil Hanney that
 facilitates the user in creating and organising handwritten notes.
 
-This privacy policy will change as the app evolves: you can view any changes on this page
-and can track the app's progress through the
-[Saber progress discussion](https://github.com/saber-notes/saber/discussions/1)
-and the changelogs on the
-[Releases](https://github.com/saber-notes/saber/releases) page.
+This privacy policy may be updated from time to time.
+You can view the latest privacy policy at
+https://saber.adil.hanney.org/privacy_policy,
+and you can view the history of changes to the privacy policy on
+[GitHub](https://github.com/saber-notes/saber/commits/main/privacy_policy.md).
 
 ## What data does the application use?
 
@@ -18,29 +18,12 @@ Data the application uses includes the user's:
 - Notes (including images and backgrounds): Used for the main functionality of the application
 - In-app settings: Used to customise the application to the user's preferences
 - Online cloud service (referred to as "the cloud") credentials including the server URI, username, and passwords: Used to enable syncing between devices
-- Data used by third-parties (see below)
 
-### Third-party data usage
+## Ads
 
-The application uses third-party services to provide certain features.
-
-#### Google AdMob
-
-Update: As of 23 September 2024, ads have been removed from the development version of the application
-and will soon be removed from the stable version. Please disregard this section if you are using
-Saber v0.24.7 or later.
-
-Certain versions of the application are supported by Google AdMob ads including Google's ad network
-and other GDPR-compliant ad networks:
-- The iOS version available on the App Store
-- The Android version available on the Google Play Store
-- The Android version available from the repo's [Releases](https://github.com/saber-notes/saber/releases) page on GitHub
-
-Note that the Android version available on F-Droid does not use Google AdMob or contain ads.
-
-AdMob may collect data about you, including your device's advertising ID, IP address, and location. You can read more about [how Google uses data from apps that use their services](https://policies.google.com/technologies/partner-sites).
-
-When you first open Saber, you will be asked to choose between personalized ads and non-personalized ads. You can change this at any time on the Settings page, or disable ads completely. 
+Saber has been ad-free since September 2024.
+If you are using a version of the application older than v0.4.7,
+please update to the latest version.
 
 ## How is the cloud used?
 
@@ -68,9 +51,10 @@ so they're unreadable to the server owner.
 
 - All information provided during the sign-up process, including but not limited to your username and email address.
 - Information about any device that connects to the server, including but not limited to the device's operating system, browser, and IP address.
-- An encrypted (scrambled) form of your notes. However, the server owner can see:
+- An encrypted (scrambled) form of your notes. The server owner cannot read the notes, but they can see metadata like:
   - The size of each note.
   - The number of notes you have.
+  - The encrypted names of your notes.
   - The last time you edited a note, when it was created, and when you last synced.
 - An encrypted (scrambled) form of your encryption key. This is required to enable cross-device syncing.
 - Nextcloud is general-purpose software, so the server owner can see any other files you upload
