@@ -374,6 +374,7 @@ class TranslationsSettingsPrefLabelsEn {
 	String get maxImageSize => 'Maximum image size';
 	String get autoClearWhiteboardOnExit => 'Auto-clear the whiteboard';
 	String get disableEraserAfterUse => 'Auto-disable the eraser';
+	String get eraserOnStylusButtonPressAndRelease => 'Eraser on stylus button press and release';
 	String get hideFingerDrawingToggle => 'Hide the finger drawing toggle';
 	String get editorPromptRename => 'Prompt you to rename new notes';
 	String get hideHomeBackgrounds => 'Hide backgrounds on the home screen';
@@ -400,6 +401,7 @@ class TranslationsSettingsPrefDescriptionsEn {
 	String get preferGreyscale => 'For e-ink displays';
 	String get autoClearWhiteboardOnExit => 'Clears the whiteboard after you exit the app';
 	String get disableEraserAfterUse => 'Automatically switches back to the pen after using the eraser';
+	String get eraserOnStylusButtonPressAndRelease => 'Switch to eraser pressing stylus button and releasing it';
 	String get maxImageSize => 'Larger images will be compressed';
 	late final TranslationsSettingsPrefDescriptionsHideFingerDrawingEn hideFingerDrawing = TranslationsSettingsPrefDescriptionsHideFingerDrawingEn.internal(_root);
 	String get editorPromptRename => 'You can always rename notes later';
