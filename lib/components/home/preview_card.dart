@@ -4,11 +4,9 @@ import 'dart:io';
 import 'package:animations/animations.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:saber/components/canvas/canvas_preview.dart';
 import 'package:saber/components/canvas/invert_widget.dart';
 import 'package:saber/components/home/sync_indicator.dart';
-import 'package:saber/components/navbar/responsive_navbar.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/data/routes.dart';
@@ -198,17 +196,9 @@ class _PreviewCardState extends State<PreviewCard> {
           routeSettings: RouteSettings(
             name: RoutePaths.editFilePath(widget.filePath),
           ),
-          onClosed: (_) async {
+          onClosed: (_) {
             thumbnail.image?.evict();
             thumbnail.markAsChanged();
-
-            await Future.delayed(transitionDuration);
-            if (!context.mounted) return;
-            if (!GoRouterState.of(context)
-                .uri
-                .toString()
-                .startsWith(RoutePaths.prefixOfHome)) return;
-            ResponsiveNavbar.setAndroidNavBarColor(theme);
           },
         );
       },
