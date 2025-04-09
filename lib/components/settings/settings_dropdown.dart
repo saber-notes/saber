@@ -103,9 +103,14 @@ class _SettingsDropdownState<T> extends State<SettingsDropdown<T>> {
             for (final option in widget.options)
               DropdownMenuItem<T>(
                 value: option.value,
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16),
-                  child: option.widget,
+                child: ConstrainedBox(
+                  constraints: BoxConstraints(
+                    maxWidth: MediaQuery.sizeOf(context).width * 0.45,
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    child: option.widget,
+                  ),
                 ),
               ),
           ],
