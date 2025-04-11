@@ -299,8 +299,8 @@ editor:
     deletePage: Odstranit stránku
     lineHeight: Výška řádku
     lineHeightDescription: Ovlivňuje také velikost textu psaných poznámek
-    lineThickness(OUTDATED): Tloušťka linky
-    lineThicknessDescription(OUTDATED): Tloušťka linie na pozadí
+    lineThickness: Tloušťka linek
+    lineThicknessDescription: Tloušťka čar ve vzoru na pozadí
     backgroundImageFit: Rozložení obrázku na pozadí
     backgroundPattern: Vzor na pozadí
     import: Importovat

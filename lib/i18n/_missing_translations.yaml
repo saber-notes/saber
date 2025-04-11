@@ -13,10 +13,6 @@ ar:
       lineThickness(OUTDATED): Line thickness
       lineThicknessDescription(OUTDATED): Background line thickness
 cs:
-  editor:
-    menu:
-      lineThickness(OUTDATED): Tloušťka linek
-      lineThicknessDescription(OUTDATED): Tloušťka čar ve vzoru na pozadí
 de:
   logs:
     logs(OUTDATED): Logs
