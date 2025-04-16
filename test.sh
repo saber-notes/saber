@@ -56,6 +56,14 @@ if ! docker images --format '{{.Repository}}' | grep -w "$IMAGE_NAME" > /dev/nul
     docker build -t "$IMAGE_NAME" -f "$DOCKERFILE_PATH" "$(dirname $DOCKERFILE_PATH)"
 fi
 
+# Make sure mounts exist
+mkdir -p .github/docker/.pub-cache
+mkdir -p .github/docker/.dart_tool
+mkdir -p .github/docker/build
+touch .github/docker/.flutter-plugins
+touch .github/docker/.flutter-plugins-dependencies
+touch .github/docker/pubspec.lock
+
 # Start or create container from image
 if docker ps -a --format '{{.Names}}' | grep -w "$CONTAINER_NAME" > /dev/null; then
     echo "Starting existing container $CONTAINER_NAME"
@@ -70,15 +78,15 @@ else
         APP_PATH="$(pwd)"
     fi
 
-    # Create docker cache directory
-    mkdir -p .github/docker/.pub-cache
-    mkdir -p .github/docker/.dart_tool
-
     # Run container
     docker run -dit --name "$CONTAINER_NAME" \
         -v "$APP_PATH":/app \
-        -v "$APP_PATH/.github/docker/.pub-cache":/app/.pub-cache \
+        -v "$APP_PATH/.github/docker/.pub-cache":/root/.pub-cache \
         -v "$APP_PATH/.github/docker/.dart_tool":/app/.dart_tool \
+        -v "$APP_PATH/.github/docker/build":/app/build \
+        -v "$APP_PATH/.github/docker/.flutter-plugins":/app/.flutter-plugins \
+        -v "$APP_PATH/.github/docker/.flutter-plugins-dependencies":/app/.flutter-plugins-dependencies \
+        -v "$APP_PATH/.github/docker/pubspec.lock":/app/pubspec.lock \
         "$IMAGE_NAME"
     docker exec -it "$CONTAINER_NAME" flutter pub get
 fi
