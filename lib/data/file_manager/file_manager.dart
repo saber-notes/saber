@@ -30,12 +30,7 @@ class FileManager {
   /// Realistically, this value never changes.
   static late String documentsDirectory;
 
-  static final StreamController<FileOperation> fileWriteStream =
-      StreamController.broadcast(
-    onListen: () => _fileWriteStreamIsListening = true,
-    onCancel: () => _fileWriteStreamIsListening = false,
-  );
-  static bool _fileWriteStreamIsListening = false;
+  static final fileWriteStream = StreamController<FileOperation>.broadcast();
 
   // TODO(adil192): Implement or remove this
   static String _sanitisePath(String path) => File(path).path;
@@ -123,7 +118,7 @@ class FileManager {
 
   @visibleForTesting
   static void broadcastFileWrite(FileOperationType type, String path) async {
-    if (!_fileWriteStreamIsListening) return;
+    if (!fileWriteStream.hasListener) return;
 
     // remove extension
     if (path.endsWith(Editor.extension)) {
