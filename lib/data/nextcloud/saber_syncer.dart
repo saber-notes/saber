@@ -188,8 +188,9 @@ class SaberSyncInterface
   Future<void> writeLocalFile(
     SaberSyncFile file,
     // ignore: avoid_renaming_method_parameters
-    Uint8List encryptedBytes,
-  ) async {
+    Uint8List encryptedBytes, {
+    @visibleForTesting bool awaitWrite = false,
+  }) async {
     if (file.localFile.path == NextcloudClientExtension.configFileName) {
       // Config file changed, already handled in [downloadRemoteFile]
       return;
@@ -229,6 +230,7 @@ class SaberSyncInterface
     await FileManager.writeFile(
       file.relativeLocalPath,
       decryptedData,
+      awaitWrite: awaitWrite,
       alsoUpload: false,
       // Local file should have the same last modified date as remote
       lastModified: file.remoteFile?.lastModified,

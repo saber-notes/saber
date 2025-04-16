@@ -51,7 +51,8 @@ void main() async {
     final downBytes = await syncer.interface.downloadRemoteFile(syncFile);
     expect(downBytes.length, greaterThan(0));
     expect(downBytes, equals(upBytes));
-    await syncer.interface.writeLocalFile(syncFile, downBytes);
+    await syncer.interface
+        .writeLocalFile(syncFile, downBytes, awaitWrite: true);
     expect(await localFile.readAsString(), equals(content));
   });
 }
