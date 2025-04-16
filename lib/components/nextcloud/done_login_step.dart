@@ -39,6 +39,7 @@ class _DoneLoginStepState extends State<DoneLoginStep> {
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     final screenWidth = MediaQuery.sizeOf(context).width;
+    final screenHeight = MediaQuery.sizeOf(context).height;
     final quota = Prefs.lastStorageQuota.value;
     final server =
         Prefs.url.value.ifNotEmpty ?? t.login.ncLoginStep.saberNcServer;
@@ -49,13 +50,17 @@ class _DoneLoginStepState extends State<DoneLoginStep> {
       ),
       children: [
         const SizedBox(height: 16),
-        SvgPicture.asset(
-          'assets/images/undraw_my_files_swob.svg',
-          width: width,
-          height: width * 576 / 844.6693,
-          excludeFromSemantics: true,
-        ),
-        const SizedBox(height: 64),
+        if (screenHeight > 500) ...[
+          SvgPicture.asset(
+            'assets/images/undraw_my_files_swob.svg',
+            width: width,
+            height: min(width * 576 / 844.6693, screenHeight * 0.25),
+            excludeFromSemantics: true,
+          ),
+          SizedBox(
+            height: min(64, screenHeight * 0.05),
+          ),
+        ],
         Row(
           children: [
             if (Prefs.pfp.value == null)
