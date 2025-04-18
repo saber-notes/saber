@@ -1,0 +1,3 @@
+• Şeffaf navigasyon çubukları için daha iyi destek
+• Küçük ekranlarda çok fazla yer kaplayan bazı UI öğeleri düzeltildi
+• "Noktalar" arka plan deseninin çizgi kalınlığı ayarına uymasını sağladı

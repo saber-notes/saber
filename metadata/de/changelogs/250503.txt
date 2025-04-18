@@ -1,0 +1,3 @@
+• Bessere Unterstützung für transparente Navigationsstangen
+• Einige UI-Elemente wurden auf kleinen Bildschirmen zu viel Platz einbezogen
+• Das Hintergrundmuster der "Punkte" befolgen die Einstellung der Liniendicke

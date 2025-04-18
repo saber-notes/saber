@@ -214,6 +214,14 @@
     </screenshots>
 
     <releases>
+        <release version="0.25.5" type="development" date="2025-04-18">
+            <description>
+                <ul>
+                    <li>Fixed some UI elements taking up too much space on small-ish screens</li>
+                    <li>Made the "dots" background pattern obey the line thickness setting</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.25.4" type="development" date="2025-02-22">
             <description>
                 You can now customize the line thickness of your background pattern,

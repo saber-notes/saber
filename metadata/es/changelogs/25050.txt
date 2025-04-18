@@ -1,0 +1,3 @@
+• Un mejor soporte para barras de navegación transparentes
+• Se arregló algunos elementos de interfaz de usuario que ocupaban demasiado espacio en pantallas pequeñas
+• Hizo que el patrón de fondo de "puntos" obedezca la configuración del grosor de la línea
