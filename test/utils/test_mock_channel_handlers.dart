@@ -50,24 +50,37 @@ void setupMockPrinting() {
 }
 
 void setupMockAudioplayers() {
-  TestWidgetsFlutterBinding.ensureInitialized();
+  final binding = TestWidgetsFlutterBinding.ensureInitialized();
 
-  const channel = MethodChannel('xyz.luan/audioplayers');
-  TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
-      .setMockMethodCallHandler(channel, (MethodCall methodCall) async {
-    if (methodCall.method == 'create') {
-      return true;
-    }
-    return null;
-  });
+  binding.defaultBinaryMessenger.setMockMethodCallHandler(
+    MethodChannel('xyz.luan/audioplayers'),
+    (MethodCall methodCall) async {
+      if (methodCall.method == 'create') return true;
+      return null;
+    },
+  );
 
-  const playerChannel =
-      MethodChannel('xyz.luan/audioplayers/events/pencilSoundEffect');
-  TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
-      .setMockMethodCallHandler(playerChannel, (MethodCall methodCall) async {
-    if (methodCall.method == 'listen') {
-      return true;
-    }
-    return null;
-  });
+  binding.defaultBinaryMessenger.setMockMethodCallHandler(
+    MethodChannel('xyz.luan/audioplayers.global'),
+    (MethodCall methodCall) async {
+      if (methodCall.method == 'init') return true;
+      return null;
+    },
+  );
+
+  binding.defaultBinaryMessenger.setMockMethodCallHandler(
+    MethodChannel('xyz.luan/audioplayers.global/events'),
+    (MethodCall methodCall) async {
+      if (methodCall.method == 'listen') return true;
+      return null;
+    },
+  );
+
+  binding.defaultBinaryMessenger.setMockMethodCallHandler(
+    MethodChannel('xyz.luan/audioplayers/events/pencilSoundEffect'),
+    (MethodCall methodCall) async {
+      if (methodCall.method == 'listen') return true;
+      return null;
+    },
+  );
 }
