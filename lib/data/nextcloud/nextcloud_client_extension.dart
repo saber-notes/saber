@@ -120,7 +120,9 @@ extension NextcloudClientExtension on NextcloudClient {
       try {
         final String key = encrypter.decrypt64(encryptedKey, iv: iv);
         Prefs.key.value = key;
+        await Prefs.key.waitUntilSaved();
         Prefs.iv.value = iv.base64;
+        await Prefs.iv.waitUntilSaved();
         return key;
       } catch (e) {
         // can't decrypt, so we need to get the previous encryption key (user's password)
@@ -142,8 +144,9 @@ extension NextcloudClientExtension on NextcloudClient {
     await setConfig(config);
 
     Prefs.key.value = key.base64;
+    await Prefs.key.waitUntilSaved();
     Prefs.iv.value = iv.base64;
-
+    await Prefs.iv.waitUntilSaved();
     return key.base64;
   }
 
