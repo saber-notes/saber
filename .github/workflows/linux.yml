@@ -43,7 +43,11 @@ jobs:
         uses: actions/cache@v4
         with:
           path: |
-            build
+            .dart_tool/
+            build/
+            .flutter-plugins
+            .flutter-plugins-dependencies
+            pubspec.lock
           key: ${{ runner.OS }}-${{ matrix.arch.cache-name }}-${{ hashFiles('**/pubspec.lock') }}-${{ hashFiles('**/*.dart') }}
           restore-keys: |
             ${{ runner.OS }}-${{ matrix.arch.cache-name }}-
