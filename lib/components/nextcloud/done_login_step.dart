@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:logging/logging.dart';
 import 'package:saber/components/misc/faq.dart';
 import 'package:saber/data/extensions/string_extensions.dart';
 import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
@@ -22,6 +23,8 @@ class DoneLoginStep extends StatefulWidget {
 class _DoneLoginStepState extends State<DoneLoginStep> {
   static const width = 400.0;
 
+  late final log = Logger('DoneLoginStep');
+
   void _logout() {
     Prefs.url.value = '';
     Prefs.username.value = '';
@@ -41,8 +44,11 @@ class _DoneLoginStepState extends State<DoneLoginStep> {
     final screenWidth = MediaQuery.sizeOf(context).width;
     final screenHeight = MediaQuery.sizeOf(context).height;
     final quota = Prefs.lastStorageQuota.value;
-    final server =
+    final serverName =
         Prefs.url.value.ifNotEmpty ?? t.login.ncLoginStep.saberNcServer;
+    late final serverUri = Prefs.url.value.isEmpty
+        ? NextcloudClientExtension.defaultNextcloudUri
+        : Uri.parse(Prefs.url.value);
     return ListView(
       padding: EdgeInsets.symmetric(
         horizontal: screenWidth > width ? (screenWidth - width) / 2 : 16,
@@ -86,7 +92,7 @@ class _DoneLoginStepState extends State<DoneLoginStep> {
         const SizedBox(height: 2),
         LinearProgressIndicator(
           // At least 4% so the rounded corners render properly
-          value: max((quota?.relative ?? 0) / 100, 0.04),
+          value: (quota?.relative ?? 0).clamp(4, 100) / 100,
           minHeight: 32,
           borderRadius: BorderRadius.circular(6),
         ),
@@ -97,18 +103,17 @@ class _DoneLoginStepState extends State<DoneLoginStep> {
         ),
         const SizedBox(height: 32),
         Text(t.profile.connectedTo, style: const TextStyle(height: 0.8)),
-        Text(server, style: textTheme.headlineSmall),
+        Text(serverName, style: textTheme.headlineSmall),
         const SizedBox(height: 4),
         Row(
           children: [
             Flexible(
               fit: FlexFit.tight,
               child: ElevatedButton(
-                onPressed: () => launchUrl(
-                  Prefs.url.value.isEmpty
-                      ? NextcloudClientExtension.defaultNextcloudUri
-                      : Uri.parse(Prefs.url.value),
-                ),
+                onPressed: () {
+                  log.info('Opening URL: $serverUri');
+                  launchUrl(serverUri);
+                },
                 child: Text(t.profile.quickLinks.serverHomepage),
               ),
             ),
@@ -116,8 +121,11 @@ class _DoneLoginStepState extends State<DoneLoginStep> {
             Flexible(
               fit: FlexFit.tight,
               child: ElevatedButton(
-                onPressed: () => launchUrl(
-                    Uri.parse('$server/index.php/settings/user/drop_account')),
+                onPressed: () {
+                  final url = '$serverUri/index.php/settings/user/drop_account';
+                  log.info('Opening URL: $url');
+                  launchUrl(Uri.parse(url));
+                },
                 child: Text(t.profile.quickLinks.deleteAccount),
               ),
             ),
