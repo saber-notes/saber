@@ -24,13 +24,13 @@
     alt="Stáhnout jako AppImage"
     height=50>][download_appimage]
 
-Unofficial packages:
+Neoficiální balíčky:
 [<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/snap-badge.svg"
     alt="Stáhnout ze Snap Store"
     height=50>][snap]
 &nbsp;
 [<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/copr.png"
-    alt="Get it from Fedora Copr"
+    alt="Získat z Fedora Copr"
     height=50>][copr]
 
 [English](https://github.com/saber-notes/saber/blob/main/README.md) |
@@ -352,8 +352,9 @@ Pokud máte rádi Saber, zvažte prosím jeho podporu pomocí
 [google_play]: https://play.google.com/store/apps/details?id=com.adilhanney.saber
 [snap]: https://snapcraft.io/saber
 [app_store]: https://apps.apple.com/cz/app/saber/id1671523739
-[download_windows]: https://github.com/saber-notes/saber/releases/download/v0.25.4/SaberInstaller_v0.25.4.exe
-[download_appimage]: https://github.com/saber-notes/saber/releases/download/v0.25.4/Saber-0.25.4-x86_64.AppImage
+[download_windows]: https://github.com/saber-notes/saber/releases/download/v0.25.5/SaberInstaller_v0.25.5.exe
+[download_appimage]: https://github.com/saber-notes/saber/releases/download/v0.25.5/Saber-0.25.5-x86_64.AppImage
+[copr]: https://copr.fedorainfracloud.org/coprs/jyo64/Saber/
 
 [nextcloud]: https://nc.saber.adil.hanney.org/
 

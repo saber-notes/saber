@@ -1,0 +1,3 @@
+• Meilleur support pour les barres de navigation transparentes
+• Correction de certains éléments d'interface utilisateur prenant trop d'espace sur les écrans petits
+• Faire le motif de fond des "points" obéissez au réglage de l'épaisseur de la ligne

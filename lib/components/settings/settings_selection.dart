@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:saber/components/settings/settings_dropdown.dart';
 import 'package:saber/components/theming/adaptive_toggle_buttons.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/pages/home/settings.dart';
@@ -68,19 +69,26 @@ class _SettingsSelectionState<T extends num>
     final expSelectionWidth = widget.options.length * widget.optionsWidth;
     final useDropdownInstead =
         MediaQuery.sizeOf(context).width * 0.48 < expSelectionWidth;
+    if (useDropdownInstead) {
+      // Use dropdown if there isn't enough horizontal space
+      return SettingsDropdown<T>(
+        pref: widget.pref,
+        options: widget.options,
+        title: widget.title,
+        subtitle: widget.subtitle,
+        icon: widget.icon,
+        iconBuilder: widget.iconBuilder,
+        afterChange: widget.afterChange,
+      );
+    }
 
     return ListTile(
       onTap: () {
-        if (useDropdownInstead) {
-          dropdownFocusNode.requestFocus();
-        } else {
-          // cycle through options
-          final int i = widget.options.indexWhere(
-              (ToggleButtonsOption option) =>
-                  option.value == widget.pref.value);
-          widget.pref.value =
-              widget.options[(i + 1) % widget.options.length].value;
-        }
+        // cycle through options
+        final int i = widget.options.indexWhere(
+            (ToggleButtonsOption option) => option.value == widget.pref.value);
+        widget.pref.value =
+            widget.options[(i + 1) % widget.options.length].value;
       },
       onLongPress: () {
         SettingsPage.showResetDialog(
@@ -105,38 +113,18 @@ class _SettingsSelectionState<T extends num>
       ),
       subtitle:
           Text(widget.subtitle ?? '', style: const TextStyle(fontSize: 13)),
-      trailing: !useDropdownInstead
-          ? AdaptiveToggleButtons(
-              value: widget.pref.value,
-              options: widget.options,
-              onChange: (T? value) {
-                // setState is automatically called when the pref changes
-                if (value != null) {
-                  widget.pref.value = value;
-                }
-              },
-              optionsWidth: widget.optionsWidth,
-              optionsHeight: widget.optionsHeight,
-            )
-          : DropdownButton<T>(
-              value: widget.pref.value,
-              onChanged: (T? value) {
-                if (value == null) return;
-                widget.pref.value = value;
-              },
-              items: widget.options.map((ToggleButtonsOption<T> option) {
-                return DropdownMenuItem<T>(
-                  value: option.value,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 16),
-                    child: option.widget,
-                  ),
-                );
-              }).toList(),
-              focusNode: dropdownFocusNode,
-              borderRadius: BorderRadius.circular(32),
-              underline: const SizedBox.shrink(),
-            ),
+      trailing: AdaptiveToggleButtons(
+        value: widget.pref.value,
+        options: widget.options,
+        onChange: (T? value) {
+          // setState is automatically called when the pref changes
+          if (value != null) {
+            widget.pref.value = value;
+          }
+        },
+        optionsWidth: widget.optionsWidth,
+        optionsHeight: widget.optionsHeight,
+      ),
     );
   }
 

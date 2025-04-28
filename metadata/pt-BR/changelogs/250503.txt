@@ -1,0 +1,3 @@
+• Melhor suporte para barras de navegação transparentes
+• Corrigido alguns elementos da interface do usuário ocupando muito espaço em telas pequenas
+• fez o padrão de fundo "pontos" obedecer à configuração da espessura da linha

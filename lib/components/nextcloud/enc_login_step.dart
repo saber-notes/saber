@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -42,6 +44,7 @@ class _EncLoginStepState extends State<EncLoginStep> {
     final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
     final screenWidth = MediaQuery.sizeOf(context).width;
+    final screenHeight = MediaQuery.sizeOf(context).height;
     return ListView(
       padding: EdgeInsets.symmetric(
         horizontal: screenWidth > width ? (screenWidth - width) / 2 : 16,
@@ -49,13 +52,17 @@ class _EncLoginStepState extends State<EncLoginStep> {
       ),
       children: [
         const SizedBox(height: 16),
-        SvgPicture.asset(
-          'assets/images/undraw_mobile_encryption_re_yw3o.svg',
-          width: width,
-          height: width * 576 / 844.6693,
-          excludeFromSemantics: true,
-        ),
-        const SizedBox(height: 64),
+        if (screenHeight > 500) ...[
+          SvgPicture.asset(
+            'assets/images/undraw_mobile_encryption_re_yw3o.svg',
+            width: width,
+            height: min(width * 576 / 844.6693, screenHeight * 0.25),
+            excludeFromSemantics: true,
+          ),
+          SizedBox(
+            height: min(64, screenHeight * 0.05),
+          ),
+        ],
         Text(t.login.status.hi(u: Prefs.username.value),
             style: textTheme.headlineSmall),
         Text.rich(

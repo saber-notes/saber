@@ -707,8 +707,8 @@ class _TranslationsEditorMenuCs extends TranslationsEditorMenuEn {
 	@override String get deletePage => 'Odstranit stránku';
 	@override String get lineHeight => 'Výška řádku';
 	@override String get lineHeightDescription => 'Ovlivňuje také velikost textu psaných poznámek';
-	@override String get lineThickness => 'Tloušťka linky';
-	@override String get lineThicknessDescription => 'Tloušťka linie na pozadí';
+	@override String get lineThickness => 'Tloušťka linek';
+	@override String get lineThicknessDescription => 'Tloušťka čar ve vzoru na pozadí';
 	@override String get backgroundImageFit => 'Rozložení obrázku na pozadí';
 	@override String get backgroundPattern => 'Vzor na pozadí';
 	@override String get import => 'Importovat';

@@ -13,10 +13,6 @@ ar:
       lineThickness(OUTDATED): Line thickness
       lineThicknessDescription(OUTDATED): Background line thickness
 cs:
-  editor:
-    menu:
-      lineThickness(OUTDATED): Line thickness
-      lineThicknessDescription(OUTDATED): Background line thickness
 de:
   logs:
     logs(OUTDATED): Logs

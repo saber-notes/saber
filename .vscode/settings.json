@@ -6,9 +6,10 @@
     "editor.formatOnSave": true,
     "dart.doNotFormat": [
         "**/submodules/**",
-        "**/lib/i18n/strings.g.dart"
+        "**/lib/i18n/**.g.dart"
     ],
     "dart.analysisExcludedFolders": [
         "submodules"
-    ]
+    ],
+    "cmake.ignoreCMakeListsMissing": true
 }
