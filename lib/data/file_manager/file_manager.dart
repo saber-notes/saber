@@ -256,16 +256,18 @@ class FileManager {
       } else {
         // share file
         tempFile = await getTempFile();
-        if (Platform.isIOS) {
+        if (Platform.isIOS || Platform.isMacOS) {
           if (!context.mounted) return;
           final box = context.findRenderObject() as RenderBox;
-          await Share.shareXFiles(
-            [XFile(tempFile.path)],
+          await SharePlus.instance.share(ShareParams(
+            files: [XFile(tempFile.path)],
             // iOS requires a sharePositionOrigin for the share sheet to appear
             sharePositionOrigin: box.localToGlobal(Offset.zero) & box.size,
-          );
+          ));
         } else {
-          await Share.shareXFiles([XFile(tempFile.path)]);
+          await SharePlus.instance.share(ShareParams(
+            files: [XFile(tempFile.path)],
+          ));
         }
       }
     } else {
