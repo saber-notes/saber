@@ -1363,7 +1363,7 @@ class EditorState extends State<Editor> {
           currentSelection: null,
           placeholder: true,
           setAsBackground: null,
-          currentToolIsSelect: currentTool is Select,
+          currentTool: currentTool,
           currentScale: double.minPositive,
         );
       },
@@ -1823,7 +1823,7 @@ class EditorState extends State<Editor> {
         autosaveAfterDelay();
         setState(() {});
       },
-      currentToolIsSelect: currentTool is Select,
+      currentTool: currentTool,
       currentScale: _transformationController.value.approxScale,
     );
   }
