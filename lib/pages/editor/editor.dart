@@ -9,6 +9,7 @@ import 'package:flutter/foundation.dart' show kDebugMode;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_quill/flutter_quill.dart' as flutter_quill;
+import 'package:focus_detector/focus_detector.dart';
 import 'package:keybinder/keybinder.dart';
 import 'package:logging/logging.dart';
 import 'package:printing/printing.dart';
@@ -1615,96 +1616,106 @@ class EditorState extends State<Editor> {
           child: child!,
         );
       },
-      child: Scaffold(
-        appBar: DynamicMaterialApp.isFullscreen
-            ? null
-            : AppBar(
-                toolbarHeight: kToolbarHeight,
-                title: widget.customTitle != null
-                    ? Text(widget.customTitle!)
-                    : Form(
-                        key: _filenameFormKey,
-                        autovalidateMode: AutovalidateMode.onUserInteraction,
-                        child: TextFormField(
-                          decoration: const InputDecoration(
-                            border: InputBorder.none,
+      child: FocusDetector(
+        onFocusGained: () {
+          // Key bindings won't work until keyboard is shown at least once for some reason.
+          // This is a workaround to fix that. It should be unnoticable to the user.
+          if (Platform.isAndroid) {
+            SystemChannels.textInput.invokeMethod('TextInput.show');
+            SystemChannels.textInput.invokeMethod('TextInput.hide');
+          }
+        },
+        child: Scaffold(
+          appBar: DynamicMaterialApp.isFullscreen
+              ? null
+              : AppBar(
+                  toolbarHeight: kToolbarHeight,
+                  title: widget.customTitle != null
+                      ? Text(widget.customTitle!)
+                      : Form(
+                          key: _filenameFormKey,
+                          autovalidateMode: AutovalidateMode.onUserInteraction,
+                          child: TextFormField(
+                            decoration: const InputDecoration(
+                              border: InputBorder.none,
+                            ),
+                            controller: filenameTextEditingController,
+                            onChanged: renameFile,
+                            autofocus: needsNaming,
+                            validator: _validateFilenameTextField,
                           ),
-                          controller: filenameTextEditingController,
-                          onChanged: renameFile,
-                          autofocus: needsNaming,
-                          validator: _validateFilenameTextField,
                         ),
+                  leading: SaveIndicator(
+                    savingState: savingState,
+                    triggerSave: saveToFile,
+                  ),
+                  actions: [
+                    IconButton(
+                      icon: const AdaptiveIcon(
+                        icon: Icons.insert_page_break,
+                        cupertinoIcon: CupertinoIcons.add,
                       ),
-                leading: SaveIndicator(
-                  savingState: savingState,
-                  triggerSave: saveToFile,
+                      tooltip: t.editor.menu.insertPage,
+                      onPressed: () => setState(() {
+                        final currentPageIndex = this.currentPageIndex;
+                        insertPageAfter(currentPageIndex);
+                        CanvasGestureDetector.scrollToPage(
+                          pageIndex: currentPageIndex + 1,
+                          pages: coreInfo.pages,
+                          screenWidth: MediaQuery.sizeOf(context).width,
+                          transformationController: _transformationController,
+                        );
+                      }),
+                    ),
+                    IconButton(
+                      icon: const AdaptiveIcon(
+                        icon: Icons.grid_view,
+                        cupertinoIcon: CupertinoIcons.rectangle_grid_2x2,
+                      ),
+                      tooltip: t.editor.pages,
+                      onPressed: () {
+                        showDialog(
+                          context: context,
+                          builder: (context) => AdaptiveAlertDialog(
+                            title: Text(t.editor.pages),
+                            content: pageManager(context),
+                            actions: const [],
+                          ),
+                        );
+                      },
+                    ),
+                    IconButton(
+                      icon: const AdaptiveIcon(
+                        icon: Icons.more_vert,
+                        cupertinoIcon: CupertinoIcons.ellipsis_vertical,
+                      ),
+                      onPressed: () {
+                        showModalBottomSheet(
+                          context: context,
+                          builder: (context) => bottomSheet(context),
+                          isScrollControlled: true,
+                          showDragHandle: true,
+                          backgroundColor: colorScheme.surface,
+                          constraints: const BoxConstraints(
+                            maxWidth: 500,
+                          ),
+                        );
+                      },
+                    )
+                  ],
                 ),
-                actions: [
-                  IconButton(
-                    icon: const AdaptiveIcon(
-                      icon: Icons.insert_page_break,
-                      cupertinoIcon: CupertinoIcons.add,
-                    ),
-                    tooltip: t.editor.menu.insertPage,
-                    onPressed: () => setState(() {
-                      final currentPageIndex = this.currentPageIndex;
-                      insertPageAfter(currentPageIndex);
-                      CanvasGestureDetector.scrollToPage(
-                        pageIndex: currentPageIndex + 1,
-                        pages: coreInfo.pages,
-                        screenWidth: MediaQuery.sizeOf(context).width,
-                        transformationController: _transformationController,
-                      );
-                    }),
-                  ),
-                  IconButton(
-                    icon: const AdaptiveIcon(
-                      icon: Icons.grid_view,
-                      cupertinoIcon: CupertinoIcons.rectangle_grid_2x2,
-                    ),
-                    tooltip: t.editor.pages,
-                    onPressed: () {
-                      showDialog(
-                        context: context,
-                        builder: (context) => AdaptiveAlertDialog(
-                          title: Text(t.editor.pages),
-                          content: pageManager(context),
-                          actions: const [],
-                        ),
-                      );
-                    },
-                  ),
-                  IconButton(
-                    icon: const AdaptiveIcon(
-                      icon: Icons.more_vert,
-                      cupertinoIcon: CupertinoIcons.ellipsis_vertical,
-                    ),
-                    onPressed: () {
-                      showModalBottomSheet(
-                        context: context,
-                        builder: (context) => bottomSheet(context),
-                        isScrollControlled: true,
-                        showDragHandle: true,
-                        backgroundColor: colorScheme.surface,
-                        constraints: const BoxConstraints(
-                          maxWidth: 500,
-                        ),
-                      );
-                    },
-                  )
-                ],
-              ),
-        body: body,
-        floatingActionButton: (DynamicMaterialApp.isFullscreen &&
-                !Prefs.editorToolbarShowInFullscreen.value)
-            ? FloatingActionButton(
-                shape: cupertino ? const CircleBorder() : null,
-                onPressed: () {
-                  DynamicMaterialApp.setFullscreen(false, updateSystem: true);
-                },
-                child: const Icon(Icons.fullscreen_exit),
-              )
-            : null,
+          body: body,
+          floatingActionButton: (DynamicMaterialApp.isFullscreen &&
+                  !Prefs.editorToolbarShowInFullscreen.value)
+              ? FloatingActionButton(
+                  shape: cupertino ? const CircleBorder() : null,
+                  onPressed: () {
+                    DynamicMaterialApp.setFullscreen(false, updateSystem: true);
+                  },
+                  child: const Icon(Icons.fullscreen_exit),
+                )
+              : null,
+        ),
       ),
     );
   }
