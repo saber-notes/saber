@@ -165,7 +165,7 @@ dev_dependencies:
 
   yaml: ^3.1.2
 
-  golden_screenshot: ^3.0.2
+  golden_screenshot: ^3.2.1
 
 dependency_overrides:
   # https://github.com/alexei-sintotski/json2yaml/pull/30
