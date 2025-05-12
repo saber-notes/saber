@@ -23,7 +23,7 @@ jobs:
       - uses: "./.github/shared_workflows/install_apt_dependencies"
 
       - name: Setup cache
-        uses: actions/cache@v4
+        uses: actions/cache/restore@v4
         with:
           path: |
             .dart_tool/
