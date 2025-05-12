@@ -358,8 +358,8 @@ If you like Saber, please consider supporting it by:
 [google_play]: https://play.google.com/store/apps/details?id=com.adilhanney.saber
 [snap]: https://snapcraft.io/saber
 [app_store]: https://apps.apple.com/us/app/saber/id1671523739
-[download_windows]: https://github.com/saber-notes/saber/releases/download/v0.25.5/SaberInstaller_v0.25.5.exe
-[download_appimage]: https://github.com/saber-notes/saber/releases/download/v0.25.5/Saber-0.25.5-x86_64.AppImage
+[download_windows]: https://github.com/saber-notes/saber/releases/download/v0.25.6/SaberInstaller_v0.25.6.exe
+[download_appimage]: https://github.com/saber-notes/saber/releases/download/v0.25.6/Saber-0.25.6-x86_64.AppImage
 [copr]: https://copr.fedorainfracloud.org/coprs/jyo64/Saber/
 
 [nextcloud]: https://nc.saber.adil.hanney.org/

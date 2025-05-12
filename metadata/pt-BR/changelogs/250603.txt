@@ -1,0 +1,2 @@
+• Corrigido a ferramenta de seleção não (visivelmente) movimentos em movimento
+• Corrigido os links do servidor na página da conta

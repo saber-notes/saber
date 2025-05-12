@@ -214,6 +214,14 @@
     </screenshots>
 
     <releases>
+        <release version="0.25.6" type="development" date="2025-05-12">
+            <description>
+                <ul>
+                    <li>Fixed the selection tool not (visibly) moving strokes</li>
+                    <li>Fixed the server links in the account page</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.25.5" type="development" date="2025-04-18">
             <description>
                 <ul>

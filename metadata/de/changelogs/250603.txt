@@ -1,0 +1,2 @@
+• Das Auswahlwerkzeug wurde nicht (sichtbar) bewegende Striche behoben
+• Die Server -Links auf der Kontoseite behoben

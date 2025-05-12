@@ -1,0 +1,2 @@
+• Seçim aracı düzeltildi (görünür bir şekilde) hareketli vuruşlar
+• Hesap sayfasındaki sunucu bağlantıları düzeltildi
