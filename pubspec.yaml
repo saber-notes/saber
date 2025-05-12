@@ -68,7 +68,7 @@ dependencies:
   keybinder: ^1.0.1
 
   pdf: ^3.8.4
-  share_plus: ^10.0.0
+  share_plus: ^11.0.0
   file_picker: ^10.1.2
 
   regexed_validator: ^2.0.0+1
