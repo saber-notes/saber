@@ -1,19 +1,19 @@
-"@@info":
-  - "Here are translations that exist in secondary locales but not in <en>."
+"@@info": 
+  - Here are translations that exist in secondary locales but not in <en>.
   - "[--full enabled] Furthermore, translations not used in 'lib/' according to the 't.<path>' pattern are written into <en>."
-en:
-ar:
-cs:
-de:
-es:
-fa:
-fr:
-he:
-hu:
-it:
-ja:
-pt-BR:
-ru:
-tr:
-zh-Hans-CN:
-zh-Hant-TW:
+en: 
+ar: 
+cs: 
+de: 
+es: 
+fa: 
+fr: 
+he: 
+hu: 
+it: 
+ja: 
+pt-BR: 
+ru: 
+tr: 
+zh-Hans-CN: 
+zh-Hant-TW: 
