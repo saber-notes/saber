@@ -57,7 +57,7 @@ class _SyncingButtonState extends State<SyncingButton> {
     final numPending = syncer.downloader.numPending;
     if (numPending == 0) return 1;
 
-    return filesTransferred / (filesTransferred + numPending);
+    return (0.2 + filesTransferred) / (0.2 + filesTransferred + numPending);
   }
 
   void onPressed() {
