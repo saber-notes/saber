@@ -1902,10 +1902,11 @@ packages:
   yaru:
     dependency: "direct main"
     description:
-      name: yaru
-      sha256: f149399d81ecd3d20bfcc79afd5ddd9bcd7e4c901d5e602a8577fe59c71c8617
-      url: "https://pub.dev"
-    source: hosted
+      path: "."
+      ref: "chore/flutter_3.32.0"
+      resolved-ref: "1d569297c70a90980d54e34104e5db7c3a68c32e"
+      url: "https://github.com/ubuntu/yaru.dart"
+    source: git
     version: "7.0.0"
   yaru_window:
     dependency: transitive

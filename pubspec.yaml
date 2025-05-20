@@ -186,6 +186,12 @@ dependency_overrides:
       url: https://github.com/fluttercommunity/flutter_workmanager
       path: workmanager
       ref: main
+  
+  # https://github.com/ubuntu/yaru.dart/pull/992
+  yaru:
+    git:
+      url: https://github.com/ubuntu/yaru.dart
+      ref: chore/flutter_3.32.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
