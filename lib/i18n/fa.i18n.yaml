@@ -1,45 +1,46 @@
-common:
+common: 
   cancel: لغو
   done(OUTDATED): انجام شده
   continueBtn(OUTDATED): ادامه هید
-home:
-  tabs:
+home: 
+  tabs: 
     home: خانه
     browse: مرور کردن
     whiteboard: وایت برد
     settings: تنظیمات
-  titles:
+  titles: 
     home: یادداشت های اخیر
     browse: مرور کردن
     whiteboard: وایت برد
     settings: تنظیمات
-  tooltips:
+  tooltips: 
     newNote: یادداشت جدید
     showUpdateDialog: نمایش به روز رسانی
     exportNote: صدور یادداشت
-  create:
+  create: 
     newNote: یادداشت جدید
     importNote: یادداشت وارد کنید
   welcome: خوش آمدید
   invalidFormat: فایلی که انتخاب کرده اید پشتیبانی نمی شود. لطفاً یک فایل sbn، sbn2، sba یا pdf را انتخاب کنید.
   noFiles: فایلی پیدا نشد
+  noPreviewAvailable(OUTDATED): پیش نمایش موجود نیست
   createNewNote: برای ساخت یادداشت دکمه + را بزنید
   backFolder: به پوشه قبلی برگردید
-  newFolder:
+  newFolder: 
     newFolder: پوشه جدید
     folderName: نام پوشه
     create: ايجاد كردن
     folderNameEmpty: نام پوشه نمی تواند خالی باشد
     folderNameContainsSlash: نام پوشه نمی تواند دارای اسلش باشد
     folderNameExists: پوشه از قبل وجود دارد
-  renameNote:
+  renameNote: 
     renameNote: تغییر نام یادداشت
     noteName: نام یادداشت
     rename: تغییر نام دهید
     noteNameEmpty: نام یادداشت نمی‌تواند خالی باشد
     noteNameContainsSlash: نام یادداشت نمی‌تواند دارای اسلش باشد
     noteNameExists: یادداشتی با این نام از قبل وجود دارد
-  moveNote:
+  moveNote: 
     moveNote: انتقال یادداشت
     moveNotes: انتقال یادداشت $n
     moveName: انتقال $f
@@ -48,26 +49,26 @@ home:
     multipleRenamedTo: "یادداشت های زیر تغییر نام خواهند داد:"
     numberRenamedTo: $n یادداشت برای جلوگیری از تداخل نام تغییر خواهد کرد
   deleteNote: حذف یادداشت
-  renameFolder:
+  renameFolder: 
     renameFolder: تغییر نام پوشه
     folderName: نام پوشه
     rename: تغییر نام
     folderNameEmpty: نام پوشه نمی تواند خالی باشد
     folderNameContainsSlash: نام پوشه نمی تواند دارای اسلش باشد
     folderNameExists: پوشه ای با این نام از قبل وجود دارد
-  deleteFolder:
+  deleteFolder: 
     deleteFolder: پوشه را حذف کنید
     deleteName: $f را حذف کنید
     delete: حذف
     alsoDeleteContents: همچنین تمام یادداشت های داخل این پوشه را حذف کنید
-settings:
-  prefCategories:
+settings: 
+  prefCategories: 
     general: عمومی
     writing: نوشتن
     editor: ویرایشگر
     performance: کارایی
     advanced: پیشرفته
-  prefLabels:
+  prefLabels: 
     locale: زبان برنامه
     appTheme: تم برنامه
     platform: نوع تم
@@ -96,14 +97,14 @@ settings:
     pencilSoundSetting(OUTDATED): جلوه صدای مداد
     customDataDir(OUTDATED): دایرکتوری داده های سفارشی
     autoStraightenLines(OUTDATED): صاف کردن خودکار خطوط
-  prefDescriptions:
+  prefDescriptions: 
     hyperlegibleFont: خوانایی را برای خوانندگان کم بینا افزایش می دهد
     allowInsecureConnections: (توصیه نمی شود) به Saber اجازه دهید به سرورهایی با گواهینامه های خودامضا/غیر قابل اعتماد متصل شود
     preferGreyscale: برای نمایشگر های e-ink
     autoClearWhiteboardOnExit: همچنان با دستگاه‌های دیگر شما همگام‌سازی می‌شود
     disableEraserAfterUse: پس از استفاده از پاک کن به صورت خودکار به خودکار برمی گردد
     maxImageSize: تصاویر بزرگتر از این فشرده خواهند شد
-    hideFingerDrawing:
+    hideFingerDrawing: 
       shown: از جابجایی تصادفی جلوگیری می کند
       fixedOn: طراحی با انگشت به صورت فعال ثابت شده است
       fixedOff: طراحی با انگشت به عنوان غیرفعال ثابت است
@@ -113,57 +114,57 @@ settings:
     autosaveDelay: چه مدت باید قبل از ذخیره خودکار یادداشت صبر کرد
     shapeRecognitionDelay: به روز رسانی پیشنمایش شکل چند وقت یکبار انجام شود
     shouldAlwaysAlertForUpdates: به محض اینکه به‌روزرسانی‌ها در دسترس هستند، به من بگویید
-    pencilSoundSetting:
+    pencilSoundSetting: 
       onAlways(OUTDATED): فعال (حتی در حالت بی صدا)
       off(OUTDATED): بدون صدا
       onButNotInSilentMode(OUTDATED): فعال (مگر در حالت بی صدا)
     simplifiedHomeLayout(OUTDATED): یک ارتفاع ثابت برای پیش نمایش هر یادداشت تنظیم می کند
     autoStraightenLines(OUTDATED): خطوط بلند را بدون استفاده از قلم شکل صاف می کند
-  themeModes:
+  themeModes: 
     system: سیستم
     light: روشن
     dark: تاریک
-  layoutSizes:
+  layoutSizes: 
     auto: خودکار
     phone: تلفن
     tablet: تبلت
-  accentColorPicker:
+  accentColorPicker: 
     pickAColor: یک رنگ انتخاب کنید
   systemLanguage: زبان سیستم
-  axisDirections:
+  axisDirections: 
     - بالا
     - راست
     - پایین
     - چپ
-  reset:
+  reset: 
     title: این تنظیمات را بازنشانی می کنید؟
     button: بازنشانی
-  customDataDir:
+  customDataDir: 
     cancel(OUTDATED): لغو کنید
     select(OUTDATED): انتخاب کنید
     mustBeEmpty(OUTDATED): دایرکتوری انتخاب شده باید خالی باشد
     mustBeDoneSyncing(OUTDATED): قبل از تغییر دایرکتوری مطمئن شوید که همگام سازی کامل شده است
   openDataDir(OUTDATED): پوشه Saber را باز کنید
   resyncEverything(OUTDATED): همه چیز را دوباره همگام سازی کنید
-logs:
+logs: 
   logs(OUTDATED): سیاههها
   viewLogs(OUTDATED): مشاهده سیاهههای مربوط
   debuggingInfo(OUTDATED): گزارش ها حاوی اطلاعات مفیدی برای اشکال زدایی و توسعه هستند
-  noLogs(OUTDATED): "اینجا هیچ گزارشی وجود ندارد!"
+  noLogs(OUTDATED): اینجا هیچ گزارشی وجود ندارد!
   logsAreTemporary(OUTDATED): گزارش‌ها فقط تا زمانی که برنامه را ببندید نگهداری می‌شوند
-login:
+login: 
   title: وارد شدن
-  form:
-    agreeToPrivacyPolicy(rich): "با ورود به سیستم، با قوانین موافقت خواهد شد ${linkToPrivacyPolicy(Privacy Policy)}."
-  signup(rich): "حساب کاربری ندارید؟ ${linkToSignup(Sign up now)}!"
-  status:
+  form: 
+    agreeToPrivacyPolicy(rich): با ورود به سیستم، با قوانین موافقت خواهد شد ${linkToPrivacyPolicy(Privacy Policy)}.
+  signup(rich): حساب کاربری ندارید؟ ${linkToSignup(Sign up now)}!
+  status: 
     loggedOut: خروج
     tapToLogin: برای ورود با Nextcloud ضربه بزنید
     loggedIn: وارد شدن با Nextcloud
-    hi(OUTDATED): "سلام، $u!"
+    hi(OUTDATED): سلام، $u!
     almostDone(OUTDATED): تقریباً برای همگام‌سازی آماده است، برای پایان ورود به سیستم ضربه بزنید
-  ncLoginStep:
-    loginFlow:
+  ncLoginStep: 
+    loginFlow: 
       pleaseAuthorize(OUTDATED): لطفاً به Saber اجازه دسترسی به حساب Nextcloud شما را بدهید
       followPrompts(OUTDATED): لطفاً دستورات موجود در مرورگر خود را دنبال کنید.
       browserDidntOpen(OUTDATED): مرورگر باز نشد
@@ -173,47 +174,54 @@ login:
     serverUrl(OUTDATED): آدرس سرور
     loginWithSaber(OUTDATED): با صابر وارد شوید
     loginWithNextcloud(OUTDATED): با Nextcloud وارد شوید
-  encLoginStep:
+  encLoginStep: 
     enterEncPassword(OUTDATED): "برای محافظت از داده های خود، لطفا رمز رمزگذاری خود را وارد کنید:"
     newToSaber(OUTDATED): تازه وارد صابر
     encPassword(OUTDATED): رمز رمزگذاری
     encFaqTitle(OUTDATED): سوالات متداول
     wrongEncPassword(OUTDATED): رمزگشایی با رمز عبور ارائه شده انجام نشد. لطفاً دوباره آن را وارد کنید.
     connectionFailed(OUTDATED): هنگام اتصال به سرور مشکلی پیش آمد. لطفاً بعداً دوباره امتحان کنید.
-    encFaq(OUTDATED):
-      - q: رمز عبور رمزنگاری چیست؟
+    encFaq(OUTDATED): 
+      - 
+        q: رمز عبور رمزنگاری چیست؟
         a: رمز عبور رمزگذاری برای رمزگذاری داده های شما قبل از ارسال به سرور استفاده می شود.
-      - q: چرا از دو رمز عبور استفاده میشود؟
+      - 
+        q: چرا از دو رمز عبور استفاده میشود؟
         a: رمز عبور Nextcloud برای دسترسی به ابر استفاده می شود و رمزعبور دوم برای رمزنگاری استفاده میشود
-      - q: آیا می توانم از یک رمز عبور برای هر دو استفاده کنم؟
+      - 
+        q: آیا می توانم از یک رمز عبور برای هر دو استفاده کنم؟
         a: بله، اما انجام این کار امنیت کمتری دارد. از آنجایی که رمز عبور Nextcloud شما به سرور ارسال می شود، شخصی که به سرور دسترسی دارد می تواند یادداشت های شما را رمزگشایی کند. فقط در صورتی از همان رمز عبور استفاده کنید که به مالک سرور اعتماد دارید.
-  notYou(rich, OUTDATED): "${undoLogin(تو نه)}"
-profile:
+  notYou(rich, OUTDATED): ${undoLogin(تو نه)}
+profile: 
   title: پروفایل من
   logout: خروج
-  quickLinks:
+  quickLinks: 
     serverHomepage: صفحه اصلی سرور
     deleteAccount: حذف حساب
-  faq:
-    - q: ایا اگر خارج شوم یادداشت هایم را از دست خواهم داد؟
+  faq: 
+    - 
+      q: ایا اگر خارج شوم یادداشت هایم را از دست خواهم داد؟
       a: خیر. یادداشت‌های شما هم روی دستگاه و هم روی سرور باقی می‌مانند. تا زمانی که دوباره وارد سیستم نشوید با سرور همگام‌سازی نمی‌شوند. قبل از خروج از سیستم مطمئن شوید که همگام‌سازی کامل شده است تا هیچ داده‌ای را از دست ندهید (پیشرفت همگام‌سازی را در صفحه اصلی ببینید).
-    - q: چگونه رمز عبور Nextcloud خود را تغییر دهم؟
-      a: "به وب سایت سرور خود بروید و وارد شوید. سپس به تنظیمات > امنیت > تغییر رمز عبور بروید. پس از تغییر رمز عبور، باید از سیستم خارج شوید و دوباره وارد Saber شوید."
-    - q: چگونه رمز رمزگذاری خود را تغییر دهم؟
+    - 
+      q: چگونه رمز عبور Nextcloud خود را تغییر دهم؟
+      a: به وب سایت سرور خود بروید و وارد شوید. سپس به تنظیمات > امنیت > تغییر رمز عبور بروید. پس از تغییر رمز عبور، باید از سیستم خارج شوید و دوباره وارد Saber شوید.
+    - 
+      q: چگونه رمز رمزگذاری خود را تغییر دهم؟
       a: |-
         1. از Saber خارج شوید. قبل از خروج از سیستم مطمئن شوید که همگام‌سازی کامل شده است تا هیچ داده‌ای را از دست ندهید (پیشرفت همگام‌سازی را در صفحه اصلی ببینید).
         2. به وب سایت سرور خود بروید و پوشه 'Saber' خود را حذف کنید. با این کار تمام یادداشت های شما از سرور حذف می شود.
         3. دوباره وارد سابر شوید. هنگام ورود به سیستم می‌توانید رمز رمزگذاری جدیدی انتخاب کنید.
         4. فراموش نکنید که از سیستم خارج شوید و در دستگاه های دیگر خود نیز دوباره وارد Saber شوید.
-    - q: چگونه می توانم حساب کاربری خود را حذف کنم؟
+    - 
+      q: چگونه می توانم حساب کاربری خود را حذف کنم؟
       a: |-
         روی دکمه "@:profile.quickLinks.deleteAccount" در بالا ضربه بزنید و در صورت نیاز وارد شوید.
         اگر از سرور رسمی Saber استفاده می‌کنید، حساب شما پس از یک هفته مهلت حذف می‌شود. می‌توانید در این مدت با من در adilhanney@disroot.org تماس بگیرید تا حذف را لغو کنید.
         اگر از یک سرور شخص ثالث استفاده می‌کنید، ممکن است گزینه‌ای برای حذف حساب شما وجود نداشته باشد: باید با حفظ حریم خصوصی سرور مشورت کنید. سیاست برای اطلاعات بیشتر
-  quotaUsage(OUTDATED): "شما از $used از $total ($percent%) استفاده می‌کنید"
+  quotaUsage(OUTDATED): شما از $used از $total ($percent%) استفاده می‌کنید
   connectedTo(OUTDATED): مرتبط با
   faqTitle(OUTDATED): سوالات متداول
-appInfo:
+appInfo: 
   licenseNotice: |-
     Saber  Copyright © 2022-$buildYear  Adil Hanney
     این برنامه کاملاً بدون گارانتی ارائه می شود. این نرم‌افزار رایگان است و شما می‌توانید تحت شرایط خاصی آن را مجدداً توزیع کنید
@@ -222,13 +230,13 @@ appInfo:
   sponsorButton: برای حمایت مالی از من یا خرید فضای ذخیره بیشتر، اینجا ضربه بزنید
   licenseButton: برای مشاهده اطلاعات بیشتر مجوز اینجا را ضربه بزنید
   privacyPolicyButton: برای مشاهده سیاست حفظ حریم خصوصی اینجا را ضربه بزنید
-update:
+update: 
   updateAvailable: به‌روزرسانی‌ در دسترس است
   updateAvailableDescription: "نسخه جدیدی از برنامه با این تغییرات در دسترس است:"
   update: بروزرسانی
   downloadNotAvailableYet(OUTDATED): دانلود هنوز برای پلتفرم شما در دسترس نیست. لطفا به زودی دوباره بررسی کنید.
-editor:
-  toolbar:
+editor: 
+  toolbar: 
     toggleColors: تغییر رنگ (Ctrl C)
     select: اتخاب
     toggleEraser: تغییر پاک کن (Ctrl E)
@@ -240,16 +248,16 @@ editor:
     export: صدور (Ctrl Shift S)
     exportAs: "صدور به عنوان:"
     fullscreen: تغییر به تمام صفحه (F11)
-  pens:
+  pens: 
     fountainPen: خودنویس
     ballpointPen: خودکار
     highlighter: هایلایتر
     pencil: مداد
     shapePen: شکل قلم
     laserPointer: اشاره گر لیزری
-  penOptions:
+  penOptions: 
     size: اندازه
-  colors:
+  colors: 
     colorPicker: انتخاب کننده رنگ
     customBrightnessHue: شخصی سازی $b $h
     customHue: شخصی سازی $h
@@ -276,33 +284,31 @@ editor:
     pastelBlue: آبی پاستلی
     pastelPurple: بنفش پاستلی
     pastelPink: صورتی پاستلی
-  imageOptions:
+  imageOptions: 
     title: گزینه های تصویر
     invertible: معکوس پذیر
     download: دانلود
     setAsBackground: قرار دادن به عنوان تصویر زمینه
     removeAsBackground: حذف از پس زمینه
     delete: حذف
-  selectionBar:
+  selectionBar: 
     delete: حذف
     duplicate: تکراری
-  menu:
+  menu: 
     clearPage: صفحه $page/$totalPages را پاک کنید
     clearAllPages: تمام صفحات را پاک کنید
     insertPage: درج صفحه در زیر
     duplicatePage: تکرار صفحه
     deletePage: حذف صفحه
     lineHeight: ارتفاع خط
-    lineThickness(OUTDATED): ضخامت خط
-    lineThicknessDescription(OUTDATED): ضخامت خط پس زمینه
     backgroundImageFit: مناسب تصویر پس زمینه
     backgroundPattern: الگوی پس زمینه
     import: واردکردن
-    boxFits:
+    boxFits: 
       fill: کش آمدن
       cover: پوشش دادن
       contain: محتوی
-    bgPatterns:
+    bgPatterns: 
       none: جای خالی
       college: قوانین کالج
       collegeRtl: تحت حاکمیت دانشگاهی (معکوس)
@@ -312,17 +318,19 @@ editor:
       staffs: کارکنان
       tablature: جدول بندی
       cornell: کرنل
+    lineThickness(OUTDATED): ضخامت خط
+    lineThicknessDescription(OUTDATED): ضخامت خط پس زمینه
     watchServer(OUTDATED): مراقب به روز رسانی ها در سرور باشید
     watchServerReadOnly(OUTDATED): هنگام تماشای سرور، ویرایش غیرفعال است
     lineHeightDescription(OUTDATED): همچنین اندازه متن را برای یادداشت های تایپ شده کنترل می کند
-  newerFileFormat:
+  newerFileFormat: 
     readOnlyMode: حالت فقط خواندنی
     title: این یادداشت با استفاده از نسخه جدیدتر برنامه ویرایش شده است
     subtitle: ویرایش این یادداشت ممکن است منجر به از بین رفتن برخی از اطلاعات شود. آیا می خواهید این را نادیده بگیرید و به هر حال آن را ویرایش کنید؟
     allowEditing: اجازه ویرایش
-  quill:
+  quill: 
     typeSomething: اینجا چیزی تایپ کنید...
-  hud:
+  hud: 
     unlockZoom: قفل زوم را باز کنید
     lockZoom: قفل زوم
     unlockSingleFingerPan: تحرک تک انگشتی را فعال کنید

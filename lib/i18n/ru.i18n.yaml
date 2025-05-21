@@ -1,73 +1,74 @@
-common:
+common: 
   done: Готово
   continueBtn: Продолжить
   cancel: Отмена
-home:
-  tabs:
+home: 
+  tabs: 
     home: Домашняя
     browse: Обзор
     whiteboard: Чистый лист
     settings: Настройки
-  titles:
+  titles: 
     home: Недавние заметки
     browse: Обзор
     whiteboard: Чистый лист
     settings: Настройки
-  tooltips:
+  tooltips: 
     newNote: Новая заметка
     showUpdateDialog: Показывать диалог обновления
     exportNote: Экспортировать заметку
-  create:
+  create: 
     newNote: Новая заметка
     importNote: Импорт заметки
   welcome: Приветствуем в Saber
-  invalidFormat: "Выбранный вами файл не поддерживается. Выберите файл .sbn, .sbn2, .sba или .pdf."
+  invalidFormat: Выбранный вами файл не поддерживается. Выберите файл .sbn, .sbn2, .sba или .pdf.
   noFiles: Файлов ещё нет
+  noPreviewAvailable(OUTDATED): Нет предварительного просмотра
   createNewNote: Нажмите кнопку «+» чтобы создать новую заметку
   backFolder: Вернуться к предыдущей папке
-  newFolder:
+  newFolder: 
     newFolder: Новая папка
     folderName: Имя папки
     create: Создать
     folderNameEmpty: Имя папки не может быть пустым
     folderNameContainsSlash: Имя папки не должно содержать косую черту
     folderNameExists: Папка уже существует
-  renameNote:
+  renameNote: 
     renameNote: Переименовать заметку
     noteName: Название заметки
     rename: Переименовать
     noteNameEmpty: Название заметки не может быть пустым
     noteNameContainsSlash: Название заметки не может содержать косую черту
     noteNameExists: Заметка с таким названием уже существует
-  moveNote:
+  moveNote: 
     moveNote: Переместить заметку
     moveNotes: Переместить $n заметок
     moveName: Переместить $f
     move: Перемещение
     renamedTo: Заметка будет переименована в $newName
     multipleRenamedTo: "Следующие заметки будут переименованы:"
-    numberRenamedTo: "$n заметок будут переименованы, чтобы избежать конфликтов"
+    numberRenamedTo: $n заметок будут переименованы, чтобы избежать конфликтов
   deleteNote: Удалить заметку
-  renameFolder:
+  renameFolder: 
     renameFolder: Переименовать папку
     folderName: Имя папки
     rename: Переименовать
     folderNameEmpty: Имя папки не может быть пустым
     folderNameContainsSlash: Имя папки не может содержать косую черту
     folderNameExists: Папка с таким названием уже существует
-  deleteFolder:
+  deleteFolder: 
     deleteFolder: Удалить папку
     deleteName: Удалить $f
     delete: Удалить
-    alsoDeleteContents: "Также, удалить все заметки в этой папке"
-settings:
-  prefCategories:
+    alsoDeleteContents: Также, удалить все заметки в этой папке
+settings: 
+  prefCategories: 
     general: Общие
     writing: Письмо
     editor: Редактор
     performance: Производительность
     advanced: Дополнительно
-  prefLabels:
+  prefLabels: 
     locale: Язык приложения
     appTheme: Тема оформления
     platform: Тип темы
@@ -96,14 +97,14 @@ settings:
     simplifiedHomeLayout: Упрощённый главный экран
     customDataDir: Свой каталог Saber
     pencilSoundSetting: Звуковой эффект карандаша
-  prefDescriptions:
+  prefDescriptions: 
     hyperlegibleFont: Шрифт Atkinson Hyperlegible повышает разборчивость для читателей с плохим зрением
     allowInsecureConnections: (Не рекомендуется) Разрешить Saber подключаться к серверам с самоподписанными/ненадёжными сертификатами.
     preferGreyscale: Для e-ink экранов
     autoClearWhiteboardOnExit: Это будет синхронизировано с другими вашими устройствами
     disableEraserAfterUse: Автоматически переключается на перо после использования ластика
     maxImageSize: Большие изображения будут сжаты
-    hideFingerDrawing:
+    hideFingerDrawing: 
       shown: Предотвращать случайное переключение
       fixedOn: «Рисование пальцем» зафиксировано как включенное
       fixedOff: «Рисование пальцем» зафиксировано как выключенное
@@ -114,111 +115,118 @@ settings:
     shapeRecognitionDelay: Как часто обновлять предварительный просмотр формы
     autoStraightenLines: Выпрямляет длинные линии без использования фигурного пера
     simplifiedHomeLayout: Фиксированная высота предварительного просмотра каждой заметки
-    shouldAlwaysAlertForUpdates: "Сообщать мне об обновлениях, как только они станут доступны"
-    pencilSoundSetting:
+    shouldAlwaysAlertForUpdates: Сообщать мне об обновлениях, как только они станут доступны
+    pencilSoundSetting: 
       off: Без звука
       onButNotInSilentMode: Включено (кроме тихого режима)
       onAlways: Включено (даже в беззвучном режиме)
-  themeModes:
+  themeModes: 
     system: Системная
     light: Светлая
     dark: Тёмная
-  layoutSizes:
+  layoutSizes: 
     auto: Авто
     phone: Телефон
     tablet: Планшет
-  accentColorPicker:
+  accentColorPicker: 
     pickAColor: Выбери цвет
   systemLanguage: Язык системы
-  axisDirections:
+  axisDirections: 
     - Сверху
     - Справа
     - Снизу
     - Слева
-  reset:
-    title: "Сбросить эту настройку?"
+  reset: 
+    title: Сбросить эту настройку?
     button: Сбросить
   resyncEverything: Повторная синхронизация всего
   openDataDir: Открыть папку Saber
-  customDataDir:
+  customDataDir: 
     cancel: Отмена
     select: Выбрать
     mustBeEmpty: Выбранный каталог должен быть пустым
-    mustBeDoneSyncing: "Перед изменением каталога убедитесь, что синхронизация завершена"
-logs:
+    mustBeDoneSyncing: Перед изменением каталога убедитесь, что синхронизация завершена
+logs: 
   logs: Жерналы
   viewLogs: Просмотр журналов
-  debuggingInfo: "Журналы содержат информацию, полезную для отладки и разработки"
-  noLogs: "Здесь нет журналов!"
+  debuggingInfo: Журналы содержат информацию, полезную для отладки и разработки
+  noLogs: Здесь нет журналов!
   logsAreTemporary: Журналы хранятся пока вы не закроете приложение
-login:
+login: 
   title: Авторизация
-  form:
-    agreeToPrivacyPolicy(rich): "Авторизуясь, вы соглашаетесь с ${linkToPrivacyPolicy(политикой конфиденциальности)}."
-  signup(rich): "У вас нет учётной записи? ${linkToSignup(Зарегистрируйтесь сейчас)}!"
-  notYou(rich): "Не вы? ${undoLogin(Выбрать другую учётную запись)}."
-  status:
+  form: 
+    agreeToPrivacyPolicy(rich): Авторизуясь, вы соглашаетесь с ${linkToPrivacyPolicy(политикой конфиденциальности)}.
+  signup(rich): У вас нет учётной записи? ${linkToSignup(Зарегистрируйтесь сейчас)}!
+  notYou(rich): Не вы? ${undoLogin(Выбрать другую учётную запись)}.
+  status: 
     loggedOut: Не авторизован
     tapToLogin: Нажми для авторизации в Nextcloud
-    hi: "Привет, $u!"
-    almostDone: "Синхронизация почти готова, нажмите, чтобы завершить вход в систему"
+    hi: Привет, $u!
+    almostDone: Синхронизация почти готова, нажмите, чтобы завершить вход в систему
     loggedIn: Авторизован в Nextcloud
-  ncLoginStep:
+  ncLoginStep: 
     whereToStoreData: "Выберите, где вы хотите хранить свои данные:"
     saberNcServer: Saber Nextcloud сервер
     otherNcServer: Другой Nextcloud сервер
     serverUrl: URL-адрес сервера
     loginWithSaber: Войти с помощью Saber
     loginWithNextcloud: Войти с помощью Nextcloud
-    loginFlow:
-      pleaseAuthorize: "Пожалуйста, авторизуйте Saber для доступа к вашей учётной записи Nextcloud"
-      followPrompts: "Пожалуйста, следуйте инструкциям в интерфейсе Nextcloud"
-      browserDidntOpen: "Страница входа в систему не открылась? Нажмите сюда"
-  encLoginStep:
+    loginFlow: 
+      pleaseAuthorize: Пожалуйста, авторизуйте Saber для доступа к вашей учётной записи Nextcloud
+      followPrompts: Пожалуйста, следуйте инструкциям в интерфейсе Nextcloud
+      browserDidntOpen: Страница входа в систему не открылась? Нажмите сюда
+  encLoginStep: 
     enterEncPassword: "Чтобы защитить ваши данные, введите пароль шифрования:"
-    newToSaber: "Новичок в Saber? Просто введите новый пароль для шифрования."
+    newToSaber: Новичок в Saber? Просто введите новый пароль для шифрования.
     encPassword: Пароль шифрования
     encFaqTitle: Часто задаваемые вопросы
-    wrongEncPassword: "Не удалось расшифровать указанным паролем. Пожалуйста, попробуйте ввести его еще раз."
-    connectionFailed: "При подключении к серверу произошла ошибка. Пожалуйста, повторите попытку позже."
-    encFaq:
-      - q: "Что такое пароль шифрования? Зачем использовать два пароля?"
+    wrongEncPassword: Не удалось расшифровать указанным паролем. Пожалуйста, попробуйте ввести его еще раз.
+    connectionFailed: При подключении к серверу произошла ошибка. Пожалуйста, повторите попытку позже.
+    encFaq: 
+      - 
+        q: Что такое пароль шифрования? Зачем использовать два пароля?
         a: |-
           Пароль Nextcloud используется для доступа к облаку. Пароль шифрования "зашифровывает" ваши данные еще до того, как они попадут в облако.
           Даже если кто-то получит доступ к вашей учётной записи Nextcloud, ваши заметки останутся в безопасности и будут зашифрованы с помощью отдельного пароля. Это обеспечивает второй уровень безопасности для защиты ваших данных.
           Никто не сможет получить доступ к вашим заметкам на сервере без вашего пароля шифрования, но это также означает, что если вы забудете свой пароль шифрования, вы потеряете доступ к своим данным.
-      - q: "Я еще не установил пароль для шифрования. Где я могу его получить?"
+      - 
+        q: Я еще не установил пароль для шифрования. Где я могу его получить?
         a: |-
           Придумайте новый пароль для шифрования и введите его выше.
           Saber автоматически сгенерирует ваши ключи шифрования на основе этого пароля.
-      - q: "Могу ли я использовать тот же пароль, что и для моей учётной записи Nextcloud?"
-        a: "Да, но имейте в виду, что администратору сервера или кому-либо ещё будет проще получить доступ к вашим заметкам, если они получат доступ к вашей учётной записи Nextcloud."
-profile:
+      - 
+        q: Могу ли я использовать тот же пароль, что и для моей учётной записи Nextcloud?
+        a: Да, но имейте в виду, что администратору сервера или кому-либо ещё будет проще получить доступ к вашим заметкам, если они получат доступ к вашей учётной записи Nextcloud.
+profile: 
   title: Мой профиль
   logout: Выйти
-  quotaUsage: "Вы используете $used из $total ($percent%)"
+  quotaUsage: Вы используете $used из $total ($percent%)
   connectedTo: Подключен к
-  quickLinks:
+  quickLinks: 
     serverHomepage: Домашняя страница сервера
     deleteAccount: Удалить учётную запись
   faqTitle: Часто задаваемые вопросы
-  faq:
-    - q: "Потеряю ли я свои заметки, если выйду из системы?"
-      a: "Нет. Ваши заметки останутся как на вашем устройстве, так и на сервере. Они не будут синхронизированы с сервером, пока вы снова не войдете в систему. Перед выходом из системы убедитесь, что синхронизация завершена, чтобы не потерять данные (см. синхронизацию на главном экране)."
-    - q: "Как изменить свой пароль Nextcloud?"
-      a: "Перейдите на веб-сайт своего сервера и войдите в систему. Затем перейдите в «Параметры пользователя» > «Безопасность» > «Пароль». Вам нужно будет выйти и снова войти в Saber после смены пароля."
-    - q: "Как изменить свой пароль шифрования?"
+  faq: 
+    - 
+      q: Потеряю ли я свои заметки, если выйду из системы?
+      a: Нет. Ваши заметки останутся как на вашем устройстве, так и на сервере. Они не будут синхронизированы с сервером, пока вы снова не войдете в систему. Перед выходом из системы убедитесь, что синхронизация завершена, чтобы не потерять данные (см. синхронизацию на главном экране).
+    - 
+      q: Как изменить свой пароль Nextcloud?
+      a: Перейдите на веб-сайт своего сервера и войдите в систему. Затем перейдите в «Параметры пользователя» > «Безопасность» > «Пароль». Вам нужно будет выйти и снова войти в Saber после смены пароля.
+    - 
+      q: Как изменить свой пароль шифрования?
       a: |-
         1. Выйдите из Saber. Перед выходом убедитесь, что синхронизация завершена, чтобы не потерять данные (см. синхронизацию на главном экране).
         2. Перейдите на веб-сайт своего сервера и удалите папку «Saber». Это приведет к удалению всех ваших заметок с сервера.
         3. Снова войдите в Saber. Вы можете создать новый пароль шифрования при входе в систему.
         4. Не забудьте выйти и снова войти в Saber на других своих устройствах.
-    - q: "Как я могу удалить свою учётную запись?"
+    - 
+      q: Как я могу удалить свою учётную запись?
       a: |-
         Нажмите кнопку "@:profile.quickLinks.deleteAccount" выше и войдите в систему, если необходимо.
         Если вы используете официальный сервер Saber, ваша учётная запись будет удалена по истечении 1-недельного льготного периода. Вы можете связаться со мной по адресу adilhanney@disroot.org в течение этого периода, чтобы отменить удаление.
         Если вы используете сторонний сервер, то у вас может не быть возможности удалить свою учётную запись. Вам нужно будет ознакомиться с политикой конфиденциальности сервера, для получения дополнительной информации.
-appInfo:
+appInfo: 
   licenseNotice: |-
     Saber  Copyright © 2022-$buildYear  Adil Hanney
     Эта программа поставляется без каких-либо гарантий. Это бесплатное программное обеспечение, и вы можете распространять его при определенных условиях.
@@ -227,13 +235,13 @@ appInfo:
   sponsorButton: Проспонсируйте меня или купите дополнительное пространство
   licenseButton: Просмотрите дополнительную информацию о лицензии
   privacyPolicyButton: Просмотр политики конфиденциальности
-update:
+update: 
   updateAvailable: Доступно обновление
   updateAvailableDescription: "Доступна новая версия приложения со следующими изменениями:"
   update: Обновить
-  downloadNotAvailableYet: "Загрузка недоступна для вашей платформы. Пожалуйста, проверьте ещё раз позже."
-editor:
-  toolbar:
+  downloadNotAvailableYet: Загрузка недоступна для вашей платформы. Пожалуйста, проверьте ещё раз позже.
+editor: 
+  toolbar: 
     toggleColors: Выбор цвета (Ctrl C)
     select: Выделение
     toggleEraser: Ластик (Ctrl E)
@@ -245,16 +253,16 @@ editor:
     export: Экспорт (Ctrl Shift S)
     exportAs: "Сохранить как:"
     fullscreen: Полноэкранный режим (F11)
-  pens:
+  pens: 
     fountainPen: Перьевая ручка
     ballpointPen: Шариковая ручка
     highlighter: Маркер
     pencil: Карандаш
     shapePen: Вид ручки
     laserPointer: Лазерная указка
-  penOptions:
+  penOptions: 
     size: Размер
-  colors:
+  colors: 
     colorPicker: Выбор цвета
     customBrightnessHue: Свой $b $h
     customHue: Свой $h
@@ -281,17 +289,17 @@ editor:
     pastelBlue: Пастельный синий
     pastelPurple: Пастельный фиолетовый
     pastelPink: Пастельный розовый
-  imageOptions:
+  imageOptions: 
     title: Параметры изображения
     invertible: Инвертировать
     download: Сохранить
     setAsBackground: Сделать фоном
     removeAsBackground: Удалить фон
     delete: Удалить
-  selectionBar:
+  selectionBar: 
     delete: Удалить
     duplicate: Дублировать
-  menu:
+  menu: 
     clearPage: Очистить лист $page/$totalPages
     clearAllPages: Очистить все листы
     insertPage: Вставить страницу ниже
@@ -299,18 +307,16 @@ editor:
     deletePage: Удалить страницу
     lineHeight: Высота строки
     lineHeightDescription: Также управляет размером текста для напечатанных заметок
-    lineThickness(OUTDATED): Линия толщина
-    lineThicknessDescription(OUTDATED): Фотовая линия толщина
     backgroundImageFit: Фоновое изображение
     backgroundPattern: Фоновый шаблон
     import: Импорт
     watchServer: Следить за обновлениями на сервере
     watchServerReadOnly: Редактирование невозможно во время слежки за сервером
-    boxFits:
+    boxFits: 
       fill: Растянуть
       cover: Обрезать
       contain: Вместить
-    bgPatterns:
+    bgPatterns: 
       none: Пустой
       college: Школьная тетрадь
       collegeRtl: Школьная тетрадь (Поворот)
@@ -320,14 +326,16 @@ editor:
       staffs: Персональный
       tablature: Табулатура
       cornell: Корнелл
-  newerFileFormat:
+    lineThickness(OUTDATED): Линия толщина
+    lineThicknessDescription(OUTDATED): Фотовая линия толщина
+  newerFileFormat: 
     readOnlyMode: Режим «Только чтение»
     title: Эта заметка была отредактирована в более новой версии Saber.
-    subtitle: "Редактирование этой заметки может привести к потере некоторой информации. Вы хотите проигнорировать это и начать редактирование?"
+    subtitle: Редактирование этой заметки может привести к потере некоторой информации. Вы хотите проигнорировать это и начать редактирование?
     allowEditing: Разрешить редактирование
-  quill:
+  quill: 
     typeSomething: Напишите что-нибудь здесь...
-  hud:
+  hud: 
     unlockZoom: Разблок. увеличение
     lockZoom: Блок. увеличения
     unlockSingleFingerPan: Разрешить панораму одним пальцем
@@ -336,4 +344,4 @@ editor:
     lockAxisAlignedPan: Блокировать панораму по горизонтали или вертикали
   pages: Листы
   untitled: Без названия
-  needsToSaveBeforeExiting: "Сохраните Ваши изменения... Вы можете безопасно выйти из редактора, когда это будет сделано"
+  needsToSaveBeforeExiting: Сохраните Ваши изменения... Вы можете безопасно выйти из редактора, когда это будет сделано

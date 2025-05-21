@@ -69,6 +69,7 @@ class _TranslationsHomeZhHantTw extends TranslationsHomeEn {
 	@override String get welcome => '歡迎使用 Saber';
 	@override String get invalidFormat => '「不支援您選擇的檔案，請選擇 .sbn、.sbn2、.sba 或 .pdf 檔案。」';
 	@override String get noFiles => '未找到檔案';
+	@override String get noPreviewAvailable => '沒有預覽';
 	@override String get createNewNote => '點擊 + 按鈕新增一個筆記';
 	@override String get backFolder => '返回上一個資料夾';
 	@override late final _TranslationsHomeNewFolderZhHantTw newFolder = _TranslationsHomeNewFolderZhHantTw._(_root);
@@ -710,8 +711,6 @@ class _TranslationsEditorMenuZhHantTw extends TranslationsEditorMenuEn {
 	@override String get deletePage => '刪除頁面';
 	@override String get lineHeight => '行高';
 	@override String get lineHeightDescription => '同時控制輸入筆記的文字大小';
-	@override String get lineThickness => '線厚度';
-	@override String get lineThicknessDescription => '背景線厚度';
 	@override String get backgroundImageFit => '適應背景圖片';
 	@override String get backgroundPattern => '背景圖案';
 	@override String get import => '匯入';
@@ -719,6 +718,8 @@ class _TranslationsEditorMenuZhHantTw extends TranslationsEditorMenuEn {
 	@override String get watchServerReadOnly => '監視伺服器時無法進行編輯';
 	@override late final _TranslationsEditorMenuBoxFitsZhHantTw boxFits = _TranslationsEditorMenuBoxFitsZhHantTw._(_root);
 	@override late final _TranslationsEditorMenuBgPatternsZhHantTw bgPatterns = _TranslationsEditorMenuBgPatternsZhHantTw._(_root);
+	@override String get lineThickness => '線厚度';
+	@override String get lineThicknessDescription => '背景線厚度';
 }
 
 // Path: editor.newerFileFormat

@@ -1,43 +1,44 @@
-common:
+common: 
   cancel: Mégse
   done(OUTDATED): Kész
   continueBtn(OUTDATED): Folytatni
-home:
-  tabs:
+home: 
+  tabs: 
     home: Kezdőlap
     browse: Böngészés
     whiteboard: Tábla
     settings: Beállítások
-  titles:
+  titles: 
     home: Legutóbbi jegyzetek
     whiteboard: Whiteboard
     settings: Beállítások
     browse(OUTDATED): Böngészés
-  tooltips:
+  tooltips: 
     newNote: Új jegyzet
     showUpdateDialog: Frissítési párbeszédablak megjelenítése
     exportNote(OUTDATED): Megjegyzés exportálása
-  create:
+  create: 
     newNote(OUTDATED): Új jegyzet
     importNote(OUTDATED): Megjegyzés importálása
   welcome: Üdvözli a Saber
   noFiles: Nem található ilyen fájl
+  noPreviewAvailable(OUTDATED): Nincs elérhető előnézet
   createNewNote: Kattintson a + gombora egy új jegyzet létrehozásához
-  newFolder:
+  newFolder: 
     newFolder(OUTDATED): Új mappa
     folderName(OUTDATED): Mappa neve
     create(OUTDATED): Teremt
     folderNameEmpty(OUTDATED): A mappa neve nem lehet üres
     folderNameContainsSlash(OUTDATED): A mappa neve nem tartalmazhat perjelet
     folderNameExists(OUTDATED): Folder már létezik
-  renameNote:
+  renameNote: 
     renameNote(OUTDATED): Jegyzet átnevezése
     noteName(OUTDATED): Megjegyzés neve
     rename(OUTDATED): Átnevezés
     noteNameEmpty(OUTDATED): A jegyzet neve nem lehet üres
     noteNameContainsSlash(OUTDATED): A jegyzet neve nem tartalmazhat perjelet
     noteNameExists(OUTDATED): Már létezik ilyen nevű jegyzet
-  moveNote:
+  moveNote: 
     moveNotes(OUTDATED): $n jegyzet mozgatása
     numberRenamedTo(OUTDATED): $n jegyzet átnevezésre kerül az ütközések elkerülése érdekében
     multipleRenamedTo(OUTDATED): "A következő megjegyzések átnevezésre kerülnek:"
@@ -45,29 +46,29 @@ home:
     moveName(OUTDATED): Mozgassa $f
     move(OUTDATED): Mozog
     renamedTo(OUTDATED): "A jegyzet a következőre lesz átnevezve: $newName"
-  renameFolder:
+  renameFolder: 
     folderNameEmpty(OUTDATED): A mappa neve nem lehet üres
     renameFolder(OUTDATED): Mappa átnevezése
     folderNameExists(OUTDATED): Már létezik ilyen nevű mappa
     folderName(OUTDATED): Mappa neve
     rename(OUTDATED): Átnevezés
     folderNameContainsSlash(OUTDATED): A mappa neve nem tartalmazhat perjelet
-  deleteFolder:
+  deleteFolder: 
     delete(OUTDATED): Töröl
     alsoDeleteContents(OUTDATED): Törölje az összes jegyzetet ebben a mappában
     deleteFolder(OUTDATED): Mappa törlése
     deleteName(OUTDATED): $f törlése
   backFolder(OUTDATED): Menjen vissza az előző mappába
   deleteNote(OUTDATED): Jegyzet törlése
-  invalidFormat(OUTDATED): "A kiválasztott fájl nem támogatott. Kérjük, válasszon .sbn, .sbn2, .sba vagy .pdf fájlt."
-settings:
-  prefCategories:
+  invalidFormat(OUTDATED): A kiválasztott fájl nem támogatott. Kérjük, válasszon .sbn, .sbn2, .sba vagy .pdf fájlt.
+settings: 
+  prefCategories: 
     general: Általános
     writing: Írás
     performance(OUTDATED): Teljesítmény
     editor(OUTDATED): Szerkesztő
     advanced(OUTDATED): Fejlett
-  prefLabels:
+  prefLabels: 
     locale: Alkalmazás nyelve
     appTheme: Alkalmazás témája
     platform: Téma típusa
@@ -96,76 +97,76 @@ settings:
     hideFingerDrawingToggle(OUTDATED): Az ujjrajzolás kapcsoló elrejtése
     shouldAlwaysAlertForUpdates(OUTDATED): Gyorsabb frissítések
     disableEraserAfterUse(OUTDATED): A radír automatikus letiltása
-  prefDescriptions:
+  prefDescriptions: 
     hyperlegibleFont: Az Atkinson Hyperlegible növeli az olvashatóságot a gyengén látók számára
     preferGreyscale: E-tinta kijelzőkhöz
     autoClearWhiteboardOnExit: Továbbra is szinkronizálva lesz a többi eszközzel
     maxImageSize: Az ennél nagyobb képek tömörítve lesznek
-    hideFingerDrawing:
+    hideFingerDrawing: 
       shown(OUTDATED): Megakadályozza a véletlen átkapcsolást
       fixedOn(OUTDATED): Az ujjlenyomat rögzítése engedélyezett állapotban van
       fixedOff(OUTDATED): Az ujjrajzolás letiltva van rögzítve
     editorPromptRename: A jegyzeteket később bármikor átnevezheti
     hideHomeBackgrounds: Egy letisztultabb megjelenítésért
-    pencilSoundSetting:
+    pencilSoundSetting: 
       off(OUTDATED): Nincs hang
-      onButNotInSilentMode(OUTDATED): "Engedélyezve (kivéve, ha néma módban van)"
+      onButNotInSilentMode(OUTDATED): Engedélyezve (kivéve, ha néma módban van)
       onAlways(OUTDATED): Engedélyezve (néma módban is)
     simplifiedHomeLayout(OUTDATED): Rögzített magasságot állít be minden hangjegy előnézetéhez
-    autoStraightenLines(OUTDATED): "Kiegyenesíti a hosszú vonalakat anélkül, hogy az alakos tollat ​​kellene használnia"
+    autoStraightenLines(OUTDATED): Kiegyenesíti a hosszú vonalakat anélkül, hogy az alakos tollat ​​kellene használnia
     shapeRecognitionDelay(OUTDATED): Milyen gyakran kell frissíteni az alakzat előnézetét
     printPageIndicators(OUTDATED): Mutasson oldalmutatókat az exportban
-    allowInsecureConnections(OUTDATED): "(Nem ajánlott) Engedélyezze a Saber-nek, hogy csatlakozzon önaláírt/nem megbízható tanúsítványokkal rendelkező szerverekhez"
+    allowInsecureConnections(OUTDATED): (Nem ajánlott) Engedélyezze a Saber-nek, hogy csatlakozzon önaláírt/nem megbízható tanúsítványokkal rendelkező szerverekhez
     autosaveDelay(OUTDATED): Mennyi ideig kell várni a jegyzet automatikus mentése előtt
-    shouldAlwaysAlertForUpdates(OUTDATED): "Szóljon nekem a frissítésekről, amint elérhetők"
+    shouldAlwaysAlertForUpdates(OUTDATED): Szóljon nekem a frissítésekről, amint elérhetők
     disableEraserAfterUse(OUTDATED): A radír használata után automatikusan visszavált a tollra
-  themeModes:
+  themeModes: 
     system: Rendszer
     light: Világos
     dark: Sötét
-  layoutSizes:
+  layoutSizes: 
     auto(OUTDATED): Automata
     phone(OUTDATED): Telefon
     tablet(OUTDATED): Tabletta
-  accentColorPicker:
+  accentColorPicker: 
     pickAColor: Szín kiválasztása
   systemLanguage: Rendszerspecifikus nyelve
-  axisDirections:
+  axisDirections: 
     - Fel
     - Jobbra
     - Le
     - Balra
-  reset:
-    title: "Visszaállítsa ezt a beállítást?"
+  reset: 
+    title: Visszaállítsa ezt a beállítást?
     button: Visszaállítás
-  customDataDir:
+  customDataDir: 
     cancel(OUTDATED): Megszünteti
     select(OUTDATED): Válassza ki
     mustBeEmpty(OUTDATED): A kiválasztott könyvtárnak üresnek kell lennie
-    mustBeDoneSyncing(OUTDATED): "A könyvtár módosítása előtt győződjön meg arról, hogy a szinkronizálás befejeződött"
+    mustBeDoneSyncing(OUTDATED): A könyvtár módosítása előtt győződjön meg arról, hogy a szinkronizálás befejeződött
   openDataDir(OUTDATED): Nyissa meg a Saber mappát
   resyncEverything(OUTDATED): Resync mindent
-logs:
+logs: 
   logs(OUTDATED): Naplók
   viewLogs(OUTDATED): Naplók megtekintése
   debuggingInfo(OUTDATED): A naplók a hibakereséshez és a fejlesztéshez hasznos információkat tartalmaznak
-  noLogs(OUTDATED): "Itt nincsenek naplók!"
+  noLogs(OUTDATED): Itt nincsenek naplók!
   logsAreTemporary(OUTDATED): A naplókat csak az alkalmazás bezárásáig őrizzük meg
-login:
+login: 
   title: Bejelentkezés
-  form:
-    agreeToPrivacyPolicy(rich): "A bejelentkezéssel elfogadja a ${linkToPrivacyPolicy(Adatvédelmi irányelvek)}."
-  signup(rich): "Még nincsen fiókja? ${linkToSignup(Regisztrálás)}!"
-  status:
+  form: 
+    agreeToPrivacyPolicy(rich): A bejelentkezéssel elfogadja a ${linkToPrivacyPolicy(Adatvédelmi irányelvek)}.
+  signup(rich): Még nincsen fiókja? ${linkToSignup(Regisztrálás)}!
+  status: 
     loggedOut: Kijelentkezve
     tapToLogin: Kattintson a Nextclouddal való bejelentkezéshez
     loggedIn: Bejelentkezve a Nextclouddal
-    hi(OUTDATED): "Szia $u!"
-    almostDone(OUTDATED): "Szinte készen áll a szinkronizálásra, érintse meg a bejelentkezés befejezéséhez"
-  ncLoginStep:
-    loginFlow:
-      pleaseAuthorize(OUTDATED): "Engedélyezze a Saber-t, hogy hozzáférjen Nextcloud-fiókjához"
-      followPrompts(OUTDATED): "Kérjük, kövesse a böngészőjében megjelenő utasításokat."
+    hi(OUTDATED): Szia $u!
+    almostDone(OUTDATED): Szinte készen áll a szinkronizálásra, érintse meg a bejelentkezés befejezéséhez
+  ncLoginStep: 
+    loginFlow: 
+      pleaseAuthorize(OUTDATED): Engedélyezze a Saber-t, hogy hozzáférjen Nextcloud-fiókjához
+      followPrompts(OUTDATED): Kérjük, kövesse a böngészőjében megjelenő utasításokat.
       browserDidntOpen(OUTDATED): A böngésző nem nyílt meg
     whereToStoreData(OUTDATED): "Válassza ki, hol szeretné tárolni adatait:"
     saberNcServer(OUTDATED): A Saber Nextcloud szervere
@@ -173,51 +174,58 @@ login:
     serverUrl(OUTDATED): Szerver URL
     loginWithSaber(OUTDATED): Jelentkezzen be Saber segítségével
     loginWithNextcloud(OUTDATED): Jelentkezzen be a Nextcloud segítségével
-  encLoginStep:
+  encLoginStep: 
     enterEncPassword(OUTDATED): "Adatai védelme érdekében adja meg titkosítási jelszavát:"
     newToSaber(OUTDATED): Új a Saber
     encPassword(OUTDATED): Titkosító jelszó
     encFaqTitle(OUTDATED): Gyakran Ismételt Kérdések
-    wrongEncPassword(OUTDATED): "A visszafejtés nem sikerült a megadott jelszóval. Kérjük, próbálja meg újra megadni."
-    connectionFailed(OUTDATED): "Hiba történt a szerverhez való csatlakozáskor. Kérlek, próbáld újra később."
-    encFaq(OUTDATED):
-      - q: "Mi a titkosítási jelszó?"
+    wrongEncPassword(OUTDATED): A visszafejtés nem sikerült a megadott jelszóval. Kérjük, próbálja meg újra megadni.
+    connectionFailed(OUTDATED): Hiba történt a szerverhez való csatlakozáskor. Kérlek, próbáld újra később.
+    encFaq(OUTDATED): 
+      - 
+        q: Mi a titkosítási jelszó?
         a: |-
           A titkosítási jelszó az adatok titkosítására szolgál, mielőtt elküldené azokat a szervernek. Ezt választja ki, amikor először jelentkezik be a Saberbe, és nem kapcsolódik Nextcloud-fiókjához/jelszavához.
           Senki sem férhet hozzá a kiszolgálón lévő jegyzeteihez az Ön titkosítási jelszava nélkül. Ez azt is jelenti, hogy ha elfelejti titkosítási jelszavát, elveszíti hozzáférését az adataihoz.
-      - q: "Miért használjunk két jelszót?"
+      - 
+        q: Miért használjunk két jelszót?
         a: |-
           A Nextcloud jelszó a felhő eléréséhez használható. A titkosítási jelszó „összekeveri” az adatait, mielőtt azok elérnék a felhőt.
           Még akkor is, ha valaki hozzáfér a Nextcloud-fiókjához, jegyzetei biztonságban maradnak, és külön jelszóval titkosítva lesznek. Ez egy második biztonsági réteget biztosít az adatok védelméhez.
-      - q: "Használhatom mindkettőhöz ugyanazt a jelszót?"
-        a: "Igen, de ez kevésbé biztonságos. Mivel a Nextcloud jelszava elküldésre kerül a szervernek, valaki, aki hozzáfér a szerverhez, képes lesz visszafejteni a jegyzeteit. Csak akkor használja ugyanazt a jelszót, ha megbízik a szerver tulajdonosában."
-  notYou(rich, OUTDATED): "${undoLogin(Nem te)}"
-profile:
-  quickLinks:
+      - 
+        q: Használhatom mindkettőhöz ugyanazt a jelszót?
+        a: Igen, de ez kevésbé biztonságos. Mivel a Nextcloud jelszava elküldésre kerül a szervernek, valaki, aki hozzáfér a szerverhez, képes lesz visszafejteni a jegyzeteit. Csak akkor használja ugyanazt a jelszót, ha megbízik a szerver tulajdonosában.
+  notYou(rich, OUTDATED): ${undoLogin(Nem te)}
+profile: 
+  quickLinks: 
     serverHomepage(OUTDATED): Szerver honlapja
     deleteAccount(OUTDATED): Fiók törlése
-  quotaUsage(OUTDATED): "Ön a(z) $total-ból ($percent%) $used"
+  quotaUsage(OUTDATED): Ön a(z) $total-ból ($percent%) $used
   connectedTo(OUTDATED): Csatlakozva valamihez
   faqTitle(OUTDATED): Gyakran Ismételt Kérdések
   title(OUTDATED): A profilom
   logout(OUTDATED): Kijelentkezés
-  faq(OUTDATED):
-    - q: "Elveszítem a jegyzeteimet, ha bejelentem?"
-      a: "Nem. Jegyzetei az eszközön és a szerveren is megmaradnak. Nem lesznek szinkronizálva a szerverrel, amíg újra be nem jelentkezik. A kijelentkezés előtt győződjön meg arról, hogy a szinkronizálás befejeződött, hogy ne veszítsen adatot (lásd a szinkronizálás folyamatát a kezdőképernyőn)."
-    - q: "Hogyan változtathatom meg a Nextcloud jelszavamat?"
-      a: "Nyissa meg a szerver webhelyét, és jelentkezzen be. Ezután lépjen a Beállítások > Biztonság > Jelszó módosítása menüpontra. Jelszava megváltoztatása után ki kell jelentkeznie, majd újra be kell jelentkeznie a Saberbe."
-    - q: "Hogyan változtathatom meg a titkosítási jelszavamat?"
+  faq(OUTDATED): 
+    - 
+      q: Elveszítem a jegyzeteimet, ha bejelentem?
+      a: Nem. Jegyzetei az eszközön és a szerveren is megmaradnak. Nem lesznek szinkronizálva a szerverrel, amíg újra be nem jelentkezik. A kijelentkezés előtt győződjön meg arról, hogy a szinkronizálás befejeződött, hogy ne veszítsen adatot (lásd a szinkronizálás folyamatát a kezdőképernyőn).
+    - 
+      q: Hogyan változtathatom meg a Nextcloud jelszavamat?
+      a: Nyissa meg a szerver webhelyét, és jelentkezzen be. Ezután lépjen a Beállítások > Biztonság > Jelszó módosítása menüpontra. Jelszava megváltoztatása után ki kell jelentkeznie, majd újra be kell jelentkeznie a Saberbe.
+    - 
+      q: Hogyan változtathatom meg a titkosítási jelszavamat?
       a: |-
         1. Jelentkezzen ki a Saberből. A kijelentkezés előtt győződjön meg arról, hogy a szinkronizálás befejeződött, hogy ne veszítsen adatot (lásd a szinkronizálás folyamatát a kezdőképernyőn).
         2. Nyissa meg a szerver webhelyét, és törölje a „Saber” mappát. Ezzel törli az összes jegyzetét a szerverről.
         3. Jelentkezzen be újra a Saberbe. Belépéskor választhat új titkosítási jelszót.
         4. Ne felejtsen el kijelentkezni és újra bejelentkezni a Saber szolgáltatásba a többi eszközén sem.
-    - q: "Hogyan törölhetem a fiókomat?"
+    - 
+      q: Hogyan törölhetem a fiókomat?
       a: |-
         Koppintson a fenti "@:profile.quickLinks.deleteAccount" gombra, és ha szükséges, jelentkezzen be.
         Ha a hivatalos Saber szervert használja, fiókja 1 hetes türelmi időszak után törlődik. Ebben az időszakban felveheti velem a kapcsolatot az adilhanney@disroot.org címen a törlés visszavonásához.
         Ha harmadik féltől származó szervert használ, előfordulhat, hogy nincs lehetőség fiókja törlésére: további információkért olvassa el a szerver adatvédelmi szabályzatát.
-appInfo:
+appInfo: 
   licenseNotice: |-
     Saber Copyright © 2022-$buildYear Adil Hanney
     Ez a program nem tartalmaz semmilyen garanciát. Ez egy szabad szoftver, és bizonyos feltételek mellett szabadon terjeszthető.
@@ -226,13 +234,13 @@ appInfo:
   sponsorButton: Ide kattintva támogathat engem vagy vásárolhat több tárhelyet
   licenseButton: További licencinformációk megtekintéséhez kattintson ide
   privacyPolicyButton: Kattintson ide az adatvédelmi nyilatkozat megtekintéséhez
-update:
+update: 
   updateAvailable: Frissítés elérhető
   update: Frissítés
-  downloadNotAvailableYet(OUTDATED): "A letöltés még nem érhető el az Ön platformjára. Kérjük, nézzen vissza rövidesen."
+  downloadNotAvailableYet(OUTDATED): A letöltés még nem érhető el az Ön platformjára. Kérjük, nézzen vissza rövidesen.
   updateAvailableDescription(OUTDATED): "Elérhető az alkalmazás új verziója a következő változtatásokkal:"
-editor:
-  toolbar:
+editor: 
+  toolbar: 
     toggleColors: Színek váltása (Ctrl+C)
     select: Kiválasztás
     toggleEraser: Radír ki-be kapcsolása (Ctrl+E)
@@ -244,16 +252,16 @@ editor:
     export: Exportálás (Ctrl+Shift+S)
     exportAs: "Exportálás mint:"
     fullscreen: Teljes képernyő bekapcsolása (F11)
-  pens:
+  pens: 
     fountainPen: Töltőtoll
     ballpointPen: Golyóstoll
     highlighter: Kiemelő
     pencil(OUTDATED): Ceruza
     shapePen(OUTDATED): Forma toll
     laserPointer(OUTDATED): Lézer mutató
-  penOptions:
+  penOptions: 
     size: Méret
-  colors:
+  colors: 
     customBrightnessHue(OUTDATED): Egyedi $b $h
     customHue(OUTDATED): Egyedi $h
     dark(OUTDATED): sötét
@@ -280,28 +288,26 @@ editor:
     pastelBlue(OUTDATED): Pasztell kék
     pastelPurple(OUTDATED): Pasztell lila
     pastelPink(OUTDATED): Pasztell rózsaszín
-  imageOptions:
+  imageOptions: 
     title: Kép opciók
     invertible: Megfordítható
     download: Letöltés
     setAsBackground: Beállítás háttérképként
     delete: Törlés
     removeAsBackground(OUTDATED): Eltávolítás háttérként
-  selectionBar:
+  selectionBar: 
     delete: Törlés
     duplicate(OUTDATED): Másolat
-  menu:
+  menu: 
     clearAllPages: Összes oldal törlése
     lineHeight: Vonalmagasság
-    lineThickness(OUTDATED): Vonalvastagság
-    lineThicknessDescription(OUTDATED): Háttérvonal vastagsága
     backgroundPattern: Háttérminta
     import: Importálás
-    boxFits:
+    boxFits: 
       fill: Nyújtás
       cover: Átfed
       contain: Tartalmaz
-    bgPatterns:
+    bgPatterns: 
       none: Üres
       college: College-ruled
       lined: Vonalas
@@ -311,6 +317,8 @@ editor:
       staffs(OUTDATED): Vezetők
       cornell(OUTDATED): Cornell
       tablature(OUTDATED): Tablatúra
+    lineThickness(OUTDATED): Vonalvastagság
+    lineThicknessDescription(OUTDATED): Háttérvonal vastagsága
     watchServer(OUTDATED): Figyelje a frissítéseket a szerveren
     watchServerReadOnly(OUTDATED): A szerver figyelése közben a szerkesztés le van tiltva
     lineHeightDescription(OUTDATED): A beírt jegyzetek szövegméretét is szabályozza
@@ -319,14 +327,14 @@ editor:
     insertPage(OUTDATED): Az oldal beszúrása alább
     duplicatePage(OUTDATED): Ismétlődő oldal
     deletePage(OUTDATED): Oldal törlése
-  newerFileFormat:
+  newerFileFormat: 
     readOnlyMode: Csak olvasható mód
     title: Ezt a jegyzetet a Saber egy újabb verziójával lett szerkesztve
-    subtitle: "A jegyzet szerkesztése bizonyos információk elvesztését eredményezheti. Szeretné ezt figyelmen kívül hagyni, és mégis szerkeszteni?"
+    subtitle: A jegyzet szerkesztése bizonyos információk elvesztését eredményezheti. Szeretné ezt figyelmen kívül hagyni, és mégis szerkeszteni?
     allowEditing: Szerkesztés engedélyezése
-  quill:
+  quill: 
     typeSomething: Gépeljen ide valamit...
-  hud:
+  hud: 
     unlockZoom: Nagyítás feloldása
     lockZoom: Nagyítás feloldása
     unlockSingleFingerPan: Egyujjas lapozás engedélyezése
@@ -335,4 +343,4 @@ editor:
     lockAxisAlignedPan(OUTDATED): A pásztázás rögzítése vízszintesre vagy függőlegesre
   pages: Oldalak
   untitled: Névtelen
-  needsToSaveBeforeExiting(OUTDATED): "A módosítások mentése... Ha kész, nyugodtan kiléphet a szerkesztőből"
+  needsToSaveBeforeExiting(OUTDATED): A módosítások mentése... Ha kész, nyugodtan kiléphet a szerkesztőből

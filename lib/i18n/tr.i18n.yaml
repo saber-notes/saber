@@ -1,45 +1,46 @@
-common:
+common: 
   done: Tamamlandı
   continueBtn: Devam
   cancel: İptal
-home:
-  tabs:
+home: 
+  tabs: 
     home: Giriş
     browse: Göz at
     whiteboard: Beyaz tahta
     settings: Ayarlar
-  titles:
+  titles: 
     home: Son notlar
     browse: Göz at
     whiteboard: Beyaz tahta
     settings: Ayarlar
-  tooltips:
+  tooltips: 
     newNote: Yeni not
     showUpdateDialog: Güncelleme diyalogunu göster
     exportNote: Notu dışa aktar
-  create:
+  create: 
     newNote: Yeni not
     importNote: Notu içeri aktar
   welcome: Saber'a hoş geldiniz
-  invalidFormat: "Seçtiğiniz dosya desteklenmiyor. Lütfen bir .sbn, .sbn2, .sba veya .pdf dosyası seçin."
+  invalidFormat: Seçtiğiniz dosya desteklenmiyor. Lütfen bir .sbn, .sbn2, .sba veya .pdf dosyası seçin.
   noFiles: Dosya yok
+  noPreviewAvailable(OUTDATED): Önizleme yok
   createNewNote: Yeni bir not oluşturmak için + butonuna tıklayınız
   backFolder: Önceki klasöre dön
-  newFolder:
+  newFolder: 
     newFolder: Yeni klasör
     folderName: Klasör adı
     create: Oluştur
     folderNameEmpty: Klasör adı boş bırakılamaz
     folderNameContainsSlash: Klasör adı eğik çizgi işareti içeremez
     folderNameExists: Bu isimde bir klasör zaten var
-  renameNote:
+  renameNote: 
     renameNote: Notu yeniden adlandır
     noteName: Not adı
     rename: Yeniden adlandır
     noteNameEmpty: Not adı boş bırakılamaz
     noteNameContainsSlash: Not adı eğik çizgi işareti içeremez
     noteNameExists: Bu isimde bir not zaten var
-  moveNote:
+  moveNote: 
     moveNote: Notu taşı
     moveNotes: $n tane notu taşı
     moveName: $f dosyasını taşı
@@ -48,26 +49,26 @@ home:
     multipleRenamedTo: "Bu notlar yeniden adlandırılacak:"
     numberRenamedTo: $n tane not çakışma olmaması için yeniden adlandırılacak
   deleteNote: Notu sil
-  renameFolder:
+  renameFolder: 
     renameFolder: Klasörü adlandır
     folderName: Klasör ismi
     rename: Yeniden adlandır
     folderNameEmpty: Klasör ismi boş bırakılamaz
     folderNameContainsSlash: Klasör isminde slash kullanılamaz
     folderNameExists: Bu isme sahip bir klasör zaten var
-  deleteFolder:
+  deleteFolder: 
     deleteFolder: Klasörü sil
     deleteName: $f silinecek
     delete: Sil
     alsoDeleteContents: Bu klasördeki tüm notları da sil
-settings:
-  prefCategories:
+settings: 
+  prefCategories: 
     general: Genel
     writing: Yazım
     editor: Editör
     performance: Performans
     advanced: Gelişmiş
-  prefLabels:
+  prefLabels: 
     locale: Uygulama dili
     appTheme: Uygulama teması
     platform: Tema tipi
@@ -96,14 +97,14 @@ settings:
     simplifiedHomeLayout: Sadeleştirilmiş ana ekran düzeni
     customDataDir: Özel Saber klasörü
     pencilSoundSetting: Kurşun kalem ses efekti
-  prefDescriptions:
-    hyperlegibleFont: "Atkinson Hyperlegible, görme sorunu yaşayanların okumasını kolaylaştıran bir fonttur"
+  prefDescriptions: 
+    hyperlegibleFont: Atkinson Hyperlegible, görme sorunu yaşayanların okumasını kolaylaştıran bir fonttur
     allowInsecureConnections: (Önerilmez) Saber'ın kendinden imzalı/güvensiz sertifika kullanan sunuculara bağlanmasına izin verir
     preferGreyscale: E-mürekkep ekranlar için
     autoClearWhiteboardOnExit: Diğer cihazlarınıza senkronize edilmeye devam edecek
     disableEraserAfterUse: Silgiyi kullandıktan sonra otomatik olarak kaleme geçer
     maxImageSize: Bundan daha büyük görseller sıkıştırılacak
-    hideFingerDrawing:
+    hideFingerDrawing: 
       shown: Yanlışlıkla değiştirilmesini engeller
       fixedOn: Parmakla çizim izni verildi ve sabitlendi
       fixedOff: Parmakla çizim izni verilmedi ve sabitlendi
@@ -115,110 +116,117 @@ settings:
     autoStraightenLines: Şekil aracını kullanmadığınızda da çizgileri düzleştirir
     simplifiedHomeLayout: Not önizlemelerinin uzunluklarını eşitler
     shouldAlwaysAlertForUpdates: Güncelleme mevcut olduğu gibi bana haber ver
-    pencilSoundSetting:
+    pencilSoundSetting: 
       off: Ses yok
       onButNotInSilentMode: Etkin (sessiz modda değilse)
       onAlways: Etkin (sessiz modda da)
-  themeModes:
+  themeModes: 
     system: Sistem teması
     light: Aydınlık
     dark: Karanlık
-  layoutSizes:
+  layoutSizes: 
     auto: Otomatik
     phone: Telefon
     tablet: Tablet
-  accentColorPicker:
+  accentColorPicker: 
     pickAColor: Bir renk seçin
   systemLanguage: Sistem dili
-  axisDirections:
+  axisDirections: 
     - Üst
     - Sağ
     - Aşağı
     - Sol
-  reset:
-    title: "Ayarı sıfırlamak istiyor musunuz?"
+  reset: 
+    title: Ayarı sıfırlamak istiyor musunuz?
     button: Sıfırla
   resyncEverything: Her şeyi yeniden senkronize et
   openDataDir: Saber klasörünü aç
-  customDataDir:
+  customDataDir: 
     cancel: İptal
     select: Seç
     mustBeEmpty: Seçilen klasör boş olmalı
     mustBeDoneSyncing: Klasörü değiştirmeden önce senkronizasyonun tamamlandığından emin olun
-logs:
+logs: 
   logs(OUTDATED): Günlükler
   viewLogs(OUTDATED): Günlükleri görüntüle
   debuggingInfo(OUTDATED): Günlükler hata ayıklama ve geliştirme için yararlı bilgiler içerir
-  noLogs(OUTDATED): "Burada kayıt yok!"
+  noLogs(OUTDATED): Burada kayıt yok!
   logsAreTemporary(OUTDATED): Günlükler yalnızca uygulamayı kapatana kadar tutulur
-login:
+login: 
   title: Giriş yap
-  form:
-    agreeToPrivacyPolicy(rich): "Giriş yaparak ${linkToPrivacyPolicy(Gizlilik Politikasını)} kabul edersiniz."
-  signup(rich): "Henüz hesabınız yok mu? ${linkToSignup(Hesap oluşturmak için tıklayın)}!"
-  notYou(rich): "Siz değil misiniz? ${undoLogin(Başka bir hesap seçin)}."
-  status:
+  form: 
+    agreeToPrivacyPolicy(rich): Giriş yaparak ${linkToPrivacyPolicy(Gizlilik Politikasını)} kabul edersiniz.
+  signup(rich): Henüz hesabınız yok mu? ${linkToSignup(Hesap oluşturmak için tıklayın)}!
+  notYou(rich): Siz değil misiniz? ${undoLogin(Başka bir hesap seçin)}.
+  status: 
     loggedOut: Çıkış yapıldı
     tapToLogin: Nextcloud oturumu açmak için tıklayın
-    hi: "Merhaba, $u!"
-    almostDone: "Senkronizasyona hazırız, giriş yapmayı tamamlamak için tıklayın"
+    hi: Merhaba, $u!
+    almostDone: Senkronizasyona hazırız, giriş yapmayı tamamlamak için tıklayın
     loggedIn: Nextcloud'a giriş yapıldı
-  ncLoginStep:
+  ncLoginStep: 
     whereToStoreData: "Verilerinizi nerede saklamak istediğinizi seçin:"
     saberNcServer: Saber'ın resmi Nextcloud sunucus
     otherNcServer: Diğer Nextcloud sunucusu
     serverUrl: Sunucu URL'i
     loginWithSaber: Saber ile giriş yap
     loginWithNextcloud: Nextcloud ile giriş yap
-    loginFlow:
+    loginFlow: 
       pleaseAuthorize: Lütfen Saber'ın Nextcloud hesabınıza erişmesine izin verin
       followPrompts: Lütfen Nextcloud arayüzündeki aşamaları takip edin
       browserDidntOpen: Giriş sayfası açılmadıysa buraya tıklayın
-  encLoginStep:
+  encLoginStep: 
     enterEncPassword: "Verilerinizi korumak için lütfen şifreleme parolanızı girin:"
-    newToSaber: "Saber'da ilk seferiniz mi? Yeni bir şifreleme parolası girin."
+    newToSaber: Saber'da ilk seferiniz mi? Yeni bir şifreleme parolası girin.
     encPassword: Şifreleme parolası
     encFaqTitle: Sıkça sorulan sorular
     wrongEncPassword: Verilen parola ile şifre çözülemedi. Lütfen parolayı tekrar girin.
     connectionFailed: Sunucuya bağlanılamadı. Lütfen daha sonra tekrar deneyin.
-    encFaq:
-      - q: "Şifreleme parolası nedir? Neden iki parola kullanıyorum?"
+    encFaq: 
+      - 
+        q: Şifreleme parolası nedir? Neden iki parola kullanıyorum?
         a: |-
           Nextcloud parolası bulutta oturum açmak için kullanılıyor. Şifreleme parolası ise verilerinizi buluta aktarmadan önce gizlemek için kullanılıyor.
           Eğer birisi Nextcloud hesabınızı ele geçirseydi bile notlarınız güvenli ve şifreli kalmaya devam edecekti. Böylece ikinci bir güvenlik katmanı sağlamış oluyoruz.
           Buluttaki verilerinize, şifreleme parolası olmayan kimse erişemez; dolayısıyla bu parolayı kaybetmeniz durumunda siz de erişemezsiniz.
-      - q: "Henüz bir şifreleme parolası belirlemedim. Nereden alacağım?"
+      - 
+        q: Henüz bir şifreleme parolası belirlemedim. Nereden alacağım?
         a: |-
           Yeni bir şifreleme parolası belirleyip yukarıya yazın.
           Saber şifreleme anahtarını bu parolayı kullanarak üretecek.
-      - q: "Nextcloud parolamla şifreleme parolam aynı olabilir mi?"
+      - 
+        q: Nextcloud parolamla şifreleme parolam aynı olabilir mi?
         a: Evet fakat unutmayın ki bu durumda Nextcloud parolanıza sahip herhangi birisi notlarınıza da erişebilir.
-profile:
+profile: 
   title: Profilim
   logout: Çıkış yap
-  quotaUsage: "Toplam $total alanın $used kadarını ($percent%) kullandınız"
+  quotaUsage: Toplam $total alanın $used kadarını ($percent%) kullandınız
   connectedTo: Bağlanılan sunucu
-  quickLinks:
+  quickLinks: 
     serverHomepage: Sunucu anasayfası
     deleteAccount: Hesabı sil
   faqTitle: Sıkça sorulan sorular
-  faq:
-    - q: "Çıkış yaparsam notlarımı kaybedecek miyim?"
+  faq: 
+    - 
+      q: Çıkış yaparsam notlarımı kaybedecek miyim?
       a: Hayır. Notlarınız hem cihazınızda hem de sunucuda tutuluyor olacak. Siz tekrardan giriş yapana dek notlarınız senkronize edilmeyecek. Veri kaybı yaşamamak için çıkış yapmadan önce senkronizasyonun tamamlandığından emin olun (ana sayfada senkronizasyon ilerlemesini görebilirsiniz).
-    - q: "Nextcloud parolamı nasıl değiştirebilirim?"
-      a: "Sunucu websitesine gidin ve hesabınıza giriş yapın. Arayüzde Ayarlar > Güvenlik > Parola değiştir yolunu takip edin. Parolanızı değiştirdikten sonra Saber'dan çıkış yapıp tekrardan giriş yapmanız gerekecek."
-    - q: "Şifreleme parolamı nasıl değiştirebilirim?"
+    - 
+      q: Nextcloud parolamı nasıl değiştirebilirim?
+      a: Sunucu websitesine gidin ve hesabınıza giriş yapın. Arayüzde Ayarlar > Güvenlik > Parola değiştir yolunu takip edin. Parolanızı değiştirdikten sonra Saber'dan çıkış yapıp tekrardan giriş yapmanız gerekecek.
+    - 
+      q: Şifreleme parolamı nasıl değiştirebilirim?
       a: |-
         "1. Saber'dan çıkış yap. Veri kaybı yaşamamak için çıkış yapmadan önce senkronizasyonun tamamlandığından emin olun (ana sayfada senkronizasyon ilerlemesini görebilirsiniz)."
         2. Sunucu websitesine gidin ve 'Saber' klasörünü silin. Bu sunucudaki tüm notları silecek.
         "3. Saber'a giriş yap. Tekrar giriş yaparken yeni şifreleme parolanızı belirleyebilirsiniz.
         4. Diğer cihazlarınızda da Saber'dan çıkış yapıp tekrar giriş yapmayı unutmayın.
-    - q: "Hesabımı nasıl silebilirim?"
+    - 
+      q: Hesabımı nasıl silebilirim?
       a: |-
         Üstte yer alan "@:profile.quickLinks.deleteAccount" butonuna tıklayın, gerekirse giriş yapın.
         Eğer resmi Saber sunucusunu kullanıyorsanız hesabınız 1 haftalık bekleme süresinden sonra silinecek. adilhanney@disroot.org adresinden benimle iletişime geçerek silinme talebini iptal edebilirsiniz.
         Eğer üçüncü parti bir sunucu kullanıyorsanız hesabınızı silme seçeneği sunulmuyor olabilir: daha fazla bilgi için ilgili sunucunun gizlilik politikasını inceleyin.
-appInfo:
+appInfo: 
   licenseNotice: |-
     Saber  Copyright © 2022-$buildYear  Adil Hanney
     Bu program hiçbir şeyi garanti etmez ve güvence vermez.
@@ -228,13 +236,13 @@ appInfo:
   sponsorButton: Beni sponsorlamak veya daha fazla alan satın almak için buraya tıkla
   licenseButton: Lisans bilgisinin detaylarını görmek için buraya tıkla
   privacyPolicyButton: Gizlilik Politikasını görmek için buraya tıkla
-update:
+update: 
   updateAvailable: Güncelleme var
   updateAvailableDescription: "Uygulamanın şu değişiklikleri içeren yeni bir sürümü mevcut:"
   update: Güncelle
   downloadNotAvailableYet: Bu indirme platformunuz için henüz hazır değil. Lütfen daha sonra tekrar deneyiniz.
-editor:
-  toolbar:
+editor: 
+  toolbar: 
     toggleColors: Renklere geç (Ctrl C)
     select: Seç
     toggleEraser: Silgiyi aktifleştir (Ctrl E)
@@ -246,16 +254,16 @@ editor:
     export: Dışa aktar (Ctrl Shift S)
     exportAs: "Farklı formatta dışa aktar:"
     fullscreen: Tam ekrana geç (F11)
-  pens:
+  pens: 
     fountainPen: Dolma kalem
     ballpointPen: Tükenmez kalem
     highlighter: İşaretleme kalemi
     pencil: Kalem
     shapePen: Şekil kalemi
     laserPointer: Lazer işaretçi
-  penOptions:
+  penOptions: 
     size: Boyut
-  colors:
+  colors: 
     colorPicker: Renk seçici
     customBrightnessHue: Seçili $b $h
     customHue: Seçili $h
@@ -282,17 +290,17 @@ editor:
     pastelBlue: Pastel mavi
     pastelPurple: Pastel mor
     pastelPink: Pastel pembe
-  imageOptions:
+  imageOptions: 
     title: Görüntü ayarları
     invertible: (Rengi) Tersine çevrilebilir
     download: İndir
     setAsBackground: Arkaplan olarak ayarla
     removeAsBackground: Arkaplanı kaldır
     delete: Sil
-  selectionBar:
+  selectionBar: 
     delete: Sil
     duplicate: Çoğalt
-  menu:
+  menu: 
     clearPage: $page/$totalPages numaralı sayfayı temizle
     clearAllPages: Tüm sayfaları temizle
     insertPage: Aşağıya sayfa ekle
@@ -300,18 +308,16 @@ editor:
     deletePage: Sayfayı sil
     lineHeight: Satır aralığı
     lineHeightDescription: Klavye girişi olan notların metin boyutunu da kontrol eder
-    lineThickness(OUTDATED): Çizgi kalınlığı
-    lineThicknessDescription(OUTDATED): Arka plan çizgisi kalınlığı
     backgroundImageFit: Arkaplan görüntüsünü sığdır
     backgroundPattern: Arkaplan deseni
     import: İçe aktar
     watchServer: Sunucudaki değişiklikleri izle
     watchServerReadOnly: Sunucu izlenirken düzenleme yapılamaz
-    boxFits:
+    boxFits: 
       fill: Yaydır
       cover: Kapla
       contain: İçer
-    bgPatterns:
+    bgPatterns: 
       none: Boş
       college: Std. çizgili defter
       collegeRtl: Std. çizgili defter (Tersine çevrik)
@@ -321,14 +327,16 @@ editor:
       staffs: Porte (müzik)
       tablature: Nota kağıdı
       cornell: Cornell not şablonu
-  newerFileFormat:
+    lineThickness(OUTDATED): Çizgi kalınlığı
+    lineThicknessDescription(OUTDATED): Arka plan çizgisi kalınlığı
+  newerFileFormat: 
     readOnlyMode: Yalnızca okunabilir mod
     title: Bu not Saber'ın yeni bir versiyonunda düzenlenmiş
-    subtitle: "Bu notu düzenlemek veri kaybına sebep olabilir. Bunu görmezden gelerek düzenlemek ister misiniz?"
+    subtitle: Bu notu düzenlemek veri kaybına sebep olabilir. Bunu görmezden gelerek düzenlemek ister misiniz?
     allowEditing: Düzenlemeye izin ver
-  quill:
+  quill: 
     typeSomething: Buraya bir şey yaz...
-  hud:
+  hud: 
     unlockZoom: Yakınlaştırma kilidini aç
     lockZoom: Yakınlaştırmayı kilitle
     unlockSingleFingerPan: Tek parmakla kaydırma kilidini aç

@@ -69,6 +69,7 @@ class _TranslationsHomeFr extends TranslationsHomeEn {
 	@override String get welcome => 'Bienvenue dans Saber';
 	@override String get invalidFormat => 'Type de fichier non supporté. Veuillez choisr un fichier .sbn, .sbn2, .sba ou .pdf.';
 	@override String get noFiles => 'Aucun fichier trouvé';
+	@override String get noPreviewAvailable => 'Aucun aperçu disponible';
 	@override String get createNewNote => 'Presser le bouton + pour créer une nouvelle note';
 	@override String get backFolder => 'Retour au dossier précédent';
 	@override late final _TranslationsHomeNewFolderFr newFolder = _TranslationsHomeNewFolderFr._(_root);
@@ -707,13 +708,13 @@ class _TranslationsEditorMenuFr extends TranslationsEditorMenuEn {
 	@override String get duplicatePage => 'Dupliquer la page';
 	@override String get deletePage => 'Supprimer la page';
 	@override String get lineHeight => 'Hauteur de ligne';
-	@override String get lineThickness => 'Épaisseur de ligne';
-	@override String get lineThicknessDescription => 'Épaisseur de ligne de fond';
 	@override String get backgroundImageFit => 'Adaptation de l\'image de fond';
 	@override String get backgroundPattern => 'Texture de fond';
 	@override String get import => 'Importer';
 	@override late final _TranslationsEditorMenuBoxFitsFr boxFits = _TranslationsEditorMenuBoxFitsFr._(_root);
 	@override late final _TranslationsEditorMenuBgPatternsFr bgPatterns = _TranslationsEditorMenuBgPatternsFr._(_root);
+	@override String get lineThickness => 'Épaisseur de ligne';
+	@override String get lineThicknessDescription => 'Épaisseur de ligne de fond';
 	@override String get watchServer => 'Surveillez les mises à jour sur le serveur';
 	@override String get watchServerReadOnly => 'L\'édition est désactivée lorsque vous regardez le serveur';
 	@override String get lineHeightDescription => 'Contrôle également la taille du texte pour les notes saisies';

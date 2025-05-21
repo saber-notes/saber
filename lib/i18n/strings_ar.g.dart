@@ -69,6 +69,7 @@ class _TranslationsHomeAr extends TranslationsHomeEn {
 	@override String get welcome => 'مرحباً بك في Saber';
 	@override String get invalidFormat => ' صيغة الملف الذي اخترته ليست مدعومة, الرجاء اختيار ملف  sbn او sbn2 او sba او pdf ';
 	@override String get noFiles => 'لم يتم العثور على ملفات';
+	@override String get noPreviewAvailable => 'لا معاينة متاحة';
 	@override String get createNewNote => 'اضغط على زر + لإنشاء ملاحظة جديدة';
 	@override String get backFolder => 'الرجوع الى المجلد السابق';
 	@override late final _TranslationsHomeNewFolderAr newFolder = _TranslationsHomeNewFolderAr._(_root);
@@ -710,8 +711,6 @@ class _TranslationsEditorMenuAr extends TranslationsEditorMenuEn {
 	@override String get deletePage => 'حذف الصفحة';
 	@override String get lineHeight => 'ارتفاع خط';
 	@override String get lineHeightDescription => 'يتحكم أيضًا في حجم النص للملاحظات المكتوبة';
-	@override String get lineThickness => 'سمك الخط';
-	@override String get lineThicknessDescription => 'سماكة خط الخلفية';
 	@override String get backgroundImageFit => 'تناسب صورة الخلفية';
 	@override String get backgroundPattern => 'نمط الخلفية';
 	@override String get import => 'يستورد';
@@ -719,6 +718,8 @@ class _TranslationsEditorMenuAr extends TranslationsEditorMenuEn {
 	@override String get watchServerReadOnly => 'تم تعطيل التحرير أثناء مراقبة الخادم';
 	@override late final _TranslationsEditorMenuBoxFitsAr boxFits = _TranslationsEditorMenuBoxFitsAr._(_root);
 	@override late final _TranslationsEditorMenuBgPatternsAr bgPatterns = _TranslationsEditorMenuBgPatternsAr._(_root);
+	@override String get lineThickness => 'سمك الخط';
+	@override String get lineThicknessDescription => 'سماكة خط الخلفية';
 }
 
 // Path: editor.newerFileFormat

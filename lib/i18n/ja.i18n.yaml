@@ -1,43 +1,44 @@
-common:
+common: 
   cancel: 取消
   done(OUTDATED): 終わり
   continueBtn(OUTDATED): 続く
-home:
-  tabs:
+home: 
+  tabs: 
     home: ホーム
     browse: 閲覧
     whiteboard: ホワイトボード
     settings: 設定
-  titles:
+  titles: 
     home: 最近のメモ
     whiteboard: ホワイトボード
     settings: 設定
     browse(OUTDATED): 閲覧
-  tooltips:
+  tooltips: 
     newNote: 新しいメモ
     showUpdateDialog: 更新ダイアログの表示
     exportNote(OUTDATED): エクスポートメモ
-  create:
+  create: 
     newNote(OUTDATED): 新しいメモ
     importNote(OUTDATED): インポートメモ
   welcome: ようこそSaberへ
   noFiles: ファイルが見つかりません
+  noPreviewAvailable(OUTDATED): プレビューは利用できません
   createNewNote: +ボタンで新しくメモを作成
-  newFolder:
+  newFolder: 
     newFolder: 新しいフォルダー
     folderName: フォルダー名
     create: 作成
     folderNameEmpty: フォルダー名は空欄にすることはできません
     folderNameContainsSlash: フォルダー名にはスラッシュを使用できません
     folderNameExists: 同一のフォルダー名がすでに存在します
-  renameNote:
+  renameNote: 
     renameNote: メモのタイトルを変更
     noteName: メモのタイトル
     rename: 名称変更
     noteNameEmpty: メモのタイトルは空欄にすることはできません
     noteNameContainsSlash: メモのタイトルにはスラッシュを使用できません
     noteNameExists: 同一のタイトルがすでに存在します
-  moveNote:
+  moveNote: 
     moveNote: メモを移動
     moveName: $f を移動
     move: 移動
@@ -45,14 +46,14 @@ home:
     moveNotes(OUTDATED): $nのノートを移動する
     multipleRenamedTo(OUTDATED): 次のメモの名前が変更されます。
     numberRenamedTo(OUTDATED): $n のノートは、競合を避けるために名前を変更されます
-  renameFolder:
+  renameFolder: 
     folderNameEmpty(OUTDATED): フォルダー名を空にすることはできません
     renameFolder(OUTDATED): フォルダーの名前を変更する
     folderName(OUTDATED): フォルダ名
     rename(OUTDATED): 名前の変更
     folderNameContainsSlash(OUTDATED): フォルダ名はスラッシュを含まない
     folderNameExists(OUTDATED): この名前のフォルダーはすでに存在します
-  deleteFolder:
+  deleteFolder: 
     deleteFolder(OUTDATED): フォルダの削除
     deleteName(OUTDATED): $fを削除
     delete(OUTDATED): 消去
@@ -60,14 +61,14 @@ home:
   backFolder(OUTDATED): 前のフォルダーに戻ります
   deleteNote(OUTDATED): メモの削除
   invalidFormat(OUTDATED): 選択したファイルはサポートされていません。 .sbn、.sbn2、.sba、または .pdf ファイルを選択してください。
-settings:
-  prefCategories:
+settings: 
+  prefCategories: 
     general: 一般
     writing: 文章
     editor: 編集
     advanced: アドバンスド
     performance(OUTDATED): パフォーマンス
-  prefLabels:
+  prefLabels: 
     locale: アプリの言語
     appTheme: アプリのテーマ
     platform: テーマの種類
@@ -96,20 +97,20 @@ settings:
     hideFingerDrawingToggle(OUTDATED): 指の描画トグルを非表示にする
     shouldAlwaysAlertForUpdates(OUTDATED): アップデートの高速化
     disableEraserAfterUse(OUTDATED): 消しゴムを自動的に無効にする
-  prefDescriptions:
+  prefDescriptions: 
     hyperlegibleFont: Atkinson Hyperlegibleは、弱視読者の読みやすさを向上させます。
     allowInsecureConnections: (非推奨) Saber が自己署名/信頼できない証明書を持つサーバーに接続できるようにする
     preferGreyscale: e-inkディスプレイ用
     autoClearWhiteboardOnExit: 他のデバイスと同期されます
     maxImageSize: これより大きな画像は圧縮されます
-    hideFingerDrawing:
+    hideFingerDrawing: 
       fixedOn(OUTDATED): 指の描画が有効に固定される
       shown(OUTDATED): 偶発的な切り替えを防止します
       fixedOff(OUTDATED): 指の描画が無効に固定される
     editorPromptRename: メモの名前は後でいつでも変更できます
     hideHomeBackgrounds: よりクリーンな外観に
     printPageIndicators: エクスポートにページインジケーターを表示
-    pencilSoundSetting:
+    pencilSoundSetting: 
       off(OUTDATED): 無音
       onButNotInSilentMode(OUTDATED): 有効 (サイレントモードでない場合)
       onAlways(OUTDATED): 有効（サイレントモードでも）
@@ -119,51 +120,51 @@ settings:
     autosaveDelay(OUTDATED): メモを自動保存するまでの待ち時間
     disableEraserAfterUse(OUTDATED): 消しゴムを使用した後は自動的にペンに戻ります
     shouldAlwaysAlertForUpdates(OUTDATED): アップデートが利用可能になり次第お知らせください
-  themeModes:
+  themeModes: 
     system: システム
     light: ライト
     dark: ダーク
-  layoutSizes:
+  layoutSizes: 
     auto: 自動
     phone: 電話
     tablet: タブレット
-  accentColorPicker:
+  accentColorPicker: 
     pickAColor: 色を選択する
   systemLanguage: システムの言語
-  axisDirections:
+  axisDirections: 
     - 上部
     - 右側
     - 下部
     - 左側
-  reset:
+  reset: 
     title: この設定をリセットしますか？
     button: リセット
-  customDataDir:
+  customDataDir: 
     cancel(OUTDATED): キャンセル
     select(OUTDATED): 選択する
     mustBeEmpty(OUTDATED): 選択したディレクトリは空である必要があります
     mustBeDoneSyncing(OUTDATED): ディレクトリを変更する前に同期が完了していることを確認してください
   openDataDir(OUTDATED): セイバーフォルダを開く
   resyncEverything(OUTDATED): すべてを再同期する
-logs:
+logs: 
   logs(OUTDATED): ログ
   viewLogs(OUTDATED): ログを表示
   debuggingInfo(OUTDATED): ログにはデバッグや開発に役立つ情報が含まれています
-  noLogs(OUTDATED): "ここにはログはありません!"
+  noLogs(OUTDATED): ここにはログはありません!
   logsAreTemporary(OUTDATED): ログはアプリを閉じるまで保存されます
-login:
+login: 
   title: ログイン
-  form:
-    agreeToPrivacyPolicy(rich): "ログインすることにより、${linkToPrivacyPolicy(プライベートポリシー)}に同意したものとみなされます。"
-  signup(rich): "まだアカウントをお持ちでないですか？ ${linkToSignup(今すぐ登録)}!"
-  status:
+  form: 
+    agreeToPrivacyPolicy(rich): ログインすることにより、${linkToPrivacyPolicy(プライベートポリシー)}に同意したものとみなされます。
+  signup(rich): まだアカウントをお持ちでないですか？ ${linkToSignup(今すぐ登録)}!
+  status: 
     loggedOut: ログアウト
     tapToLogin: タップしてNextcloudにログイン
     loggedIn: Nextcloudでログイン
-    hi(OUTDATED): "こんにちは、$u!"
+    hi(OUTDATED): こんにちは、$u!
     almostDone(OUTDATED): 同期の準備がほぼ完了しました。タップしてログインを完了してください
-  ncLoginStep:
-    loginFlow:
+  ncLoginStep: 
+    loginFlow: 
       pleaseAuthorize(OUTDATED): Saber に Nextcloud アカウントへのアクセスを許可してください
       followPrompts(OUTDATED): ブラウザの指示に従ってください。
       browserDidntOpen(OUTDATED): ブラウザが開きませんでした
@@ -173,48 +174,55 @@ login:
     serverUrl(OUTDATED): サーバーURL
     loginWithSaber(OUTDATED): セイバーでログイン
     loginWithNextcloud(OUTDATED): Nextcloudでログイン
-  encLoginStep:
+  encLoginStep: 
     enterEncPassword(OUTDATED): "データを保護するには、暗号化パスワードを入力してください:"
     newToSaber(OUTDATED): セイバー初心者
     encPassword(OUTDATED): 暗号化パスワード
     encFaqTitle(OUTDATED): よくある質問
     wrongEncPassword(OUTDATED): 指定されたパスワードでは復号化に失敗しました。もう一度入力してみてください。
     connectionFailed(OUTDATED): サーバーへの接続中に問題が発生しました。後でもう一度試してください。
-    encFaq(OUTDATED):
-      - q: 暗号化パスワードは何ですか？
+    encFaq(OUTDATED): 
+      - 
+        q: 暗号化パスワードは何ですか？
         a: |-
           暗号化パスワードは、サーバーに送信する前にデータを暗号化するために使用されます。Saberに最初にログインする際に選択するもので、Nextcloudのアカウントやパスワードとは関係ありません。
           暗号化パスワードがなければ、誰もサーバー上のメモにアクセスすることはできません。また、暗号化パスワードを忘れると、データにアクセスすることができなくなります。
-      - q: なぜ2つのパスワードを使うのですか？
+      - 
+        q: なぜ2つのパスワードを使うのですか？
         a: |-
           Nextcloudのパスワードはクラウドに接続するために使用されます。暗号化パスワードを用いてデータがクラウドに届く前にデータを "暗号化" します。
           そのため、たとえ誰かがあなたのNextcloudアカウントにアクセスしたとしても、メモは別のパスワードで暗号化されている状態になります。これにより、Saberのデーターは2重に保護されます。
-      - q: 両方に同じパスワードを使用できますか？
+      - 
+        q: 両方に同じパスワードを使用できますか？
         a: 可能ですが、そうすれば安全性が低下します。Nextcloudのパスワードはサーバーに送信されるため、サーバーにアクセスできる人はメモを解読することができます。サーバーの所有者を信頼できる場合にのみ、同じパスワードを使用してください。
-  notYou(rich, OUTDATED): "${undoLogin(あなたではありません)}"
-profile:
+  notYou(rich, OUTDATED): ${undoLogin(あなたではありません)}
+profile: 
   title: プロフィール
   logout: ログアウト
-  quickLinks:
+  quickLinks: 
     serverHomepage: サーバーホームページ
     deleteAccount: アカウントの削除
-  faq:
-    - q: ログアウトするとメモが消えてしまいますか？
+  faq: 
+    - 
+      q: ログアウトするとメモが消えてしまいますか？
       a: いいえ。メモはデバイスとサーバーの両方に残ります。ログインし直すまで、サーバーとは同期されません。データを失わないように、ログアウトする前に同期が完了したことを確認してください（ホーム画面の同期進行状況をご覧ください）。
-    - q: Nextcloudのパスワードを変更する方法を教えてください
-      a: "サーバーのウェブサイトにアクセスし、ログインします。「設定」>「セキュリティ」>「パスワードの変更」を選択します。パスワード変更後は、Saberからログアウトし、再度ログインする必要があります。"
-    - q: 暗号化パスワードの変更方法を教えてください。
+    - 
+      q: Nextcloudのパスワードを変更する方法を教えてください
+      a: サーバーのウェブサイトにアクセスし、ログインします。「設定」>「セキュリティ」>「パスワードの変更」を選択します。パスワード変更後は、Saberからログアウトし、再度ログインする必要があります。
+    - 
+      q: 暗号化パスワードの変更方法を教えてください。
       a: |-
         1. Saberからログアウトする。データが失われないように、ログアウトする前に同期が完了していることを確認してください（ホーム画面で同期の進行状況を確認できます）。
         2. サーバーのウェブサイトにアクセスし、「Saber」フォルダを削除してください。これにより、サーバーからすべてのメモが削除されます。
         3. セーバーに再ログインする。ログイン時に新しい暗号化パスワードを選択できます。
         4. 他のデバイスでもログアウトしてログインし直すことをお忘れなく。
-    - q: アカウントを削除するにはどうすればよいですか？
+    - 
+      q: アカウントを削除するにはどうすればよいですか？
       a: "上部の\"@:profile.quickLinks.deleteAccount\"ボタンをタップし、必要であればログインしてください。Saber公式サーバーを利用している場合、1週間の猶予期間の後にアカウントが削除されます。この期間中であれば、adilhanney@disroot.orgまでご連絡いただければ、削除を取り消すことが可能です。サードパーティのサーバーをご利用の場合、アカウントを削除するオプションがない場合があります。詳細については、ご利用のサーバープライバシーポリシーをご確認ください。"
-  quotaUsage(OUTDATED): "$total ($percent%) のうち $used を使用しています"
+  quotaUsage(OUTDATED): $total ($percent%) のうち $used を使用しています
   connectedTo(OUTDATED): に接続されています
   faqTitle(OUTDATED): よくある質問
-appInfo:
+appInfo: 
   licenseNotice: |-
     Saber  Copyright © 2022-$buildYear  Adil Hanney
     このプログラムには一切の保証がありません。これはフリーソフトウェアであり、一定の条件下で再配布することを歓迎します。
@@ -223,13 +231,13 @@ appInfo:
   sponsorButton: 私のスポンサーになる、またはストレージを購入する際は、ここをタップしてください。
   licenseButton: ライセンス情報を見るには、ここをタップして
   privacyPolicyButton: プライバシーポリシーを見るには、ここをタップして
-update:
+update: 
   updateAvailable: 更新が可能です
   updateAvailableDescription: 新バージョンのアプリがリリースされ、以下の変更があった：
   update: 更新
   downloadNotAvailableYet(OUTDATED): お使いのプラットフォームではまだダウンロードできません。しばらくしてからもう一度ご確認ください。
-editor:
-  toolbar:
+editor: 
+  toolbar: 
     toggleColors: 色の切り替え (Ctrl C)
     select: 選択
     toggleEraser: 消しゴムに切り替え (Ctrl E)
@@ -241,16 +249,16 @@ editor:
     export: エクスポート (Ctrl Shift S)
     exportAs: "次にエキスポート:"
     fullscreen: フルスクリーンに切り替え (F11)
-  pens:
+  pens: 
     fountainPen: 万年筆
     ballpointPen: ボールペン
     highlighter: 蛍光ペン
     laserPointer: レーザーポインター
     pencil(OUTDATED): 鉛筆
     shapePen(OUTDATED): シェイプペン
-  penOptions:
+  penOptions: 
     size: サイズ
-  colors:
+  colors: 
     colorPicker: カラーピッカー
     black: 黒
     darkGrey: 濃い灰色
@@ -277,32 +285,30 @@ editor:
     light(OUTDATED): ライト
     cyan(OUTDATED): シアン
     pink(OUTDATED): ピンク
-  imageOptions:
+  imageOptions: 
     title: 画像オプション
     invertible: 不可逆
     download: ダウンロード
     setAsBackground: 背景に設定
     removeAsBackground: 背景として削除
     delete: 削除
-  selectionBar:
+  selectionBar: 
     delete: 削除
     duplicate(OUTDATED): 重複
-  menu:
+  menu: 
     clearPage: ページを削除 $page/$totalPages
     clearAllPages: すべてのページを消去する
     insertPage: 以下のページを挿入
     duplicatePage: 重複したページ
     deletePage: ページの削除
     lineHeight: 行の高さ
-    lineThickness(OUTDATED): 線の厚さ
-    lineThicknessDescription(OUTDATED): 背景線の厚さ
     backgroundPattern: 背景パターン
     import: インポート
-    boxFits:
+    boxFits: 
       fill: 貼る
       cover: カバー
       contain: コンテイン
-    bgPatterns:
+    bgPatterns: 
       none: 空白
       college: 罫線
       collegeRtl: 罫線 (反転)
@@ -312,18 +318,20 @@ editor:
       staffs: スタッフ
       cornell: 角
       tablature(OUTDATED): タベルチュア
+    lineThickness(OUTDATED): 線の厚さ
+    lineThicknessDescription(OUTDATED): 背景線の厚さ
     watchServer(OUTDATED): サーバー上の更新を監視する
     watchServerReadOnly(OUTDATED): サーバー監視中は編集できません
     lineHeightDescription(OUTDATED): 入力されたメモのテキスト サイズも制御します
     backgroundImageFit(OUTDATED): 背景画像
-  newerFileFormat:
+  newerFileFormat: 
     readOnlyMode: 読み取り専用モード
     title: このメモは新しいバージョンのSaberを使用して編集されたものです
     subtitle: このメモを編集すると、いくつかの情報が失われる可能性があります。これを無視して編集しますか？
     allowEditing: 編集を許可する
-  quill:
+  quill: 
     typeSomething: ここに何かを入力してください...
-  hud:
+  hud: 
     unlockZoom: ズームの解除
     lockZoom: ズームを固定する
     unlockSingleFingerPan: 一本指でのパン操作を有効にする

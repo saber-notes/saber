@@ -1,45 +1,46 @@
-common:
+common: 
   cancel: בטל
   done(OUTDATED): בוצע
   continueBtn(OUTDATED): לְהַמשִׁיך
-home:
-  tabs:
+home: 
+  tabs: 
     home: בית
     browse: דפדף
     whiteboard: לוח לבן
     settings: הגדרות
-  titles:
+  titles: 
     home: פתקים אחרונים
     browse: דפדף
     whiteboard: לוח לבן
     settings: הגדרות
-  tooltips:
+  tooltips: 
     newNote: פתק חדש
     showUpdateDialog: תיבת הדו-שיח הצג עדכון
     exportNote(OUTDATED): ייצא הערה
-  create:
+  create: 
     newNote: פתק חדש
     importNote: יבא פתק
   welcome: ברוכים הבאים ל Saber
   invalidFormat: הקובץ שבחרת אינו תומך. אנא בחר בקובץ .sbn' .sbn2' .sba או .pdf
   noFiles: קבצים לא נמצאו
+  noPreviewAvailable(OUTDATED): אין תצוגה מקדימה זמינה
   createNewNote: הקש על הלחצן + כדי ליצור הערה חדשה
   backFolder: חזור אחורה לתקייה הקודמת
-  newFolder:
+  newFolder: 
     newFolder: תקייה חדשה
     folderName: שם התקייה
     create: צור
     folderNameEmpty: שם התקייה לא יכול להיות ריק
     folderNameContainsSlash: שם התקייה לא יכול להכיל לוכסן
     folderNameExists: תקייה כבר קיימת
-  renameNote:
+  renameNote: 
     renameNote: שנה את שם הפתק
     noteName: שם הפתק
     rename: שנה שם
     noteNameEmpty(OUTDATED): שם הערה לא יכול להיות ריק
     noteNameContainsSlash(OUTDATED): שם הערה לא יכול להכיל קו נטוי
     noteNameExists(OUTDATED): הערה בשם זה כבר קיימת
-  moveNote:
+  moveNote: 
     moveNote: הזז פתק
     moveName: הזז $f
     move: הזז
@@ -48,26 +49,26 @@ home:
     multipleRenamedTo(OUTDATED): "שמות ההערות הבאות ישונו:"
     numberRenamedTo(OUTDATED): השם של $n הערות ישונה כדי למנוע התנגשויות
   deleteNote: מחק פתק
-  renameFolder:
+  renameFolder: 
     renameFolder: שנה את שם התקייה
     folderName: שם התקייה
     rename: שנה שם
     folderNameEmpty: שם התקייה לא יכול להיות ריק
     folderNameContainsSlash: שם התקייה לא יכול להכיל לוכסן
     folderNameExists: תקייה כבר קיימת
-  deleteFolder:
+  deleteFolder: 
     deleteFolder: מחק תקייה
     deleteName: מחק $f
     delete: מחק
     alsoDeleteContents: גם תמחק את כל הפתקים בתקייה זו
-settings:
-  prefCategories:
+settings: 
+  prefCategories: 
     general: כללי
     writing: כתיבה
     editor: עורך
     advanced: מתקדם
     performance(OUTDATED): ביצועים
-  prefLabels:
+  prefLabels: 
     locale: שפת התוכנה
     appTheme: ערכת הנושא של האפליקציה
     platform: סוג ערכת הנושא
@@ -96,14 +97,14 @@ settings:
     autoStraightenLines(OUTDATED): יישור קווים אוטומטית
     shapeRecognitionDelay(OUTDATED): עיכוב זיהוי צורות
     recentColorsLength(OUTDATED): כמה צבעים אחרונים לאחסן
-  prefDescriptions:
+  prefDescriptions: 
     hyperlegibleFont: מגביר את הקריאות למשתמשים עם ראייה לקויה
     allowInsecureConnections: (לא מומלץ) אפשר לסבר להתחבר לשרתים עם אישורים חתומים/לא מהימנים
     preferGreyscale: עבור תצוגות דיו אלקטרוני
     autoClearWhiteboardOnExit: מנקה את לוח הציור לאחר היציאה מהאפליקציה
     disableEraserAfterUse: מעבר אוטומטי חזרה לעט לאחר שימוש במחק
     maxImageSize: תמונות גדולות יותר יידחסו
-    hideFingerDrawing:
+    hideFingerDrawing: 
       shown: מונע החלפת מצב בשוגג
       fixedOn: ציור אצבע קבוע כזמין
       fixedOff: ציור אצבע קבוע כלא זמין
@@ -112,58 +113,58 @@ settings:
     printPageIndicators: הצג מחווני עמודים בייצוא
     autosaveDelay: כמה זמן לחכות לפני שמירת הערה אוטומטית
     shouldAlwaysAlertForUpdates: ספר לי על עדכונים ברגע שהם יהיו זמינים
-    pencilSoundSetting:
+    pencilSoundSetting: 
       onButNotInSilentMode(OUTDATED): מופעל (אלא אם כן במצב שקט)
       off(OUTDATED): אין קול
       onAlways(OUTDATED): מופעל (אפילו במצב שקט)
     simplifiedHomeLayout(OUTDATED): מגדיר גובה קבוע עבור כל תצוגה מקדימה של הערה
     autoStraightenLines(OUTDATED): מיישר קווים ארוכים ללא צורך להשתמש בעט הצורה
     shapeRecognitionDelay(OUTDATED): באיזו תדירות לעדכן את התצוגה המקדימה של הצורה
-  themeModes:
+  themeModes: 
     system: מערכת
     light: בהיר
     dark: כהה
-  layoutSizes:
+  layoutSizes: 
     auto: אוטומטי
     phone: טלפון
     tablet: טאבלט
-  accentColorPicker:
+  accentColorPicker: 
     pickAColor: בחר צבע
   systemLanguage: ברירת מחדל
-  axisDirections:
+  axisDirections: 
     - למעלה
     - ימין
     - למטה
     - שמאל
-  reset:
-    title: "אפס הגדרה זו?"
+  reset: 
+    title: אפס הגדרה זו?
     button: אפס
-  customDataDir:
+  customDataDir: 
     cancel(OUTDATED): לְבַטֵל
     select(OUTDATED): בחר
     mustBeEmpty(OUTDATED): הספרייה שנבחרה חייבת להיות ריקה
     mustBeDoneSyncing(OUTDATED): ודא שהסנכרון הושלם לפני שינוי הספרייה
   openDataDir(OUTDATED): פתח את תיקיית Saber
   resyncEverything(OUTDATED): סנכרן הכל מחדש
-logs:
+logs: 
   logs(OUTDATED): יומנים
   viewLogs(OUTDATED): הצג יומנים
   debuggingInfo(OUTDATED): יומנים מכילים מידע שימושי עבור איתור באגים ופיתוח
-  noLogs(OUTDATED): "אין כאן יומנים!"
+  noLogs(OUTDATED): אין כאן יומנים!
   logsAreTemporary(OUTDATED): יומנים נשמרים רק עד לסגירת האפליקציה
-login:
+login: 
   title: התחבר
-  form:
-    agreeToPrivacyPolicy(rich): "על ידי התחברות, אתה מסכים ל ${linkToPrivacyPolicy(מדיניות הפרטיות)}."
-  signup(rich): "אין לך עוד משתמש ${linkToSignup(הירשם עכשיו)}!"
-  status:
+  form: 
+    agreeToPrivacyPolicy(rich): על ידי התחברות, אתה מסכים ל ${linkToPrivacyPolicy(מדיניות הפרטיות)}.
+  signup(rich): אין לך עוד משתמש ${linkToSignup(הירשם עכשיו)}!
+  status: 
     loggedOut: מנותק
     tapToLogin: לחץ כדי להתחבר עם NextCloud
     loggedIn: מחובר עם NextCloud
-    hi(OUTDATED): "היי, $u!"
-    almostDone(OUTDATED): "כמעט מוכן לסנכרון, הקש כדי לסיים את הכניסה"
-  ncLoginStep:
-    loginFlow:
+    hi(OUTDATED): היי, $u!
+    almostDone(OUTDATED): כמעט מוכן לסנכרון, הקש כדי לסיים את הכניסה
+  ncLoginStep: 
+    loginFlow: 
       pleaseAuthorize(OUTDATED): אנא אשר לסבר לגשת לחשבון Nextcloud שלך
       followPrompts(OUTDATED): אנא עקוב אחר ההנחיות בדפדפן שלך.
       browserDidntOpen(OUTDATED): הדפדפן לא נפתח
@@ -173,52 +174,59 @@ login:
     serverUrl(OUTDATED): כתובת האתר של השרת
     loginWithSaber(OUTDATED): התחבר עם Saber
     loginWithNextcloud(OUTDATED): התחבר עם Nextcloud
-  encLoginStep:
+  encLoginStep: 
     enterEncPassword(OUTDATED): "כדי להגן על הנתונים שלך, אנא הזן את סיסמת ההצפנה שלך:"
     newToSaber(OUTDATED): חדש בסבר
     encPassword(OUTDATED): סיסמת הצפנה
     encFaqTitle(OUTDATED): שאלות נפוצות
     wrongEncPassword(OUTDATED): הפענוח נכשל עם הסיסמה שסופקה. אנא נסה להזין אותו שוב.
     connectionFailed(OUTDATED): משהו השתבש בחיבור לשרת. בבקשה נסה שוב מאוחר יותר.
-    encFaq(OUTDATED):
-      - q: "מהי הסיסמא המוצפנת?"
+    encFaq(OUTDATED): 
+      - 
+        q: מהי הסיסמא המוצפנת?
         a: |-
           סיסמת ההצפנה משמשת להצפנת הנתונים שלך לפני שליחתם לשרת. אתה בוחר את זה כשאתה נכנס לראשונה ל-Saber, וזה לא קשור לחשבון/סיסמת Nextcloud שלך.
           אף אחד לא יכול לגשת להערות שלך בשרת ללא סיסמת ההצפנה שלך. זה גם אומר שאם תשכח את סיסמת ההצפנה שלך, תאבד את הגישה לנתונים שלך.
-      - q: "למה להשתמש בשתי סיסמאות?"
+      - 
+        q: למה להשתמש בשתי סיסמאות?
         a: |-
           סיסמת Nextcloud משמשת לגישה לענן. סיסמת ההצפנה "מערבלת" את הנתונים שלך לפני שהם מגיעים לענן.
           גם אם מישהו יקבל גישה לחשבון Nextcloud שלך, ההערות שלך יישארו בטוחות ומוצפנות עם סיסמה נפרדת. זה מספק לך שכבה שנייה של אבטחה כדי להגן על הנתונים שלך.
-      - q: "Can I use the same password for both?"
-        a: "כן, אבל זה פחות מאובטח. מכיוון שסיסמת Nextcloud שלך נשלחת לשרת, מישהו עם גישה לשרת יוכל לפענח את ההערות שלך. השתמש באותה סיסמה רק אם אתה סומך על בעל השרת."
-  notYou(rich, OUTDATED): "${undoLogin(לא אתה)}"
-profile:
+      - 
+        q: Can I use the same password for both?
+        a: כן, אבל זה פחות מאובטח. מכיוון שסיסמת Nextcloud שלך נשלחת לשרת, מישהו עם גישה לשרת יוכל לפענח את ההערות שלך. השתמש באותה סיסמה רק אם אתה סומך על בעל השרת.
+  notYou(rich, OUTDATED): ${undoLogin(לא אתה)}
+profile: 
   title: הפרופיל שלי
   logout: התנתק
-  quickLinks:
+  quickLinks: 
     serverHomepage: דף הבית של השרת
     deleteAccount: מחק משתמש
-  faq:
-    - q: "אני אאבד את הפתקים שלי אם אני אתנתק?"
+  faq: 
+    - 
+      q: אני אאבד את הפתקים שלי אם אני אתנתק?
       a: לא. ההערות שלך יישארו גם במכשיר וגם בשרת. הם לא יסונכרנו עם השרת עד שתתחבר חזרה. ודא שהסנכרון הושלם לפני היציאה כדי שלא תאבד נתונים (ראה את התקדמות הסנכרון במסך הבית).
-    - q: איך אני משנה את סיסמאת ה NextCloud שלי
-      a: "עבור לאתר השרת שלך והתחבר. לאחר מכן עבור אל הגדרות > אבטחה > שנה סיסמה. תצטרך להתנתק ולהיכנס שוב ל-Saber לאחר שינוי הסיסמה שלך."
-    - q: "איך אני משנה את הסיסמא המוצפנת שלי?"
+    - 
+      q: איך אני משנה את סיסמאת ה NextCloud שלי
+      a: עבור לאתר השרת שלך והתחבר. לאחר מכן עבור אל הגדרות > אבטחה > שנה סיסמה. תצטרך להתנתק ולהיכנס שוב ל-Saber לאחר שינוי הסיסמה שלך.
+    - 
+      q: איך אני משנה את הסיסמא המוצפנת שלי?
       a: |-
         0. ודא שהסנכרון הושלם (ראה את התקדמות הסנכרון במסך הבית).
         1. התנתק מ Saber.
         2. עבור אל אתר האינטרנט של השרת שלך ומחק את התיקיה 'Saber' שלך. פעולה זו תמחק את כל ההערות שלך מהשרת.
         3. היכנס שוב ל-Saber. אתה יכול לבחור סיסמת הצפנה חדשה בעת הכניסה.
         4. אל תשכח להתנתק ולהתחבר שוב ל-Saber גם במכשירים האחרים שלך.
-    - q: "איך אני יכול למחוק את החשבון שלי?"
+    - 
+      q: איך אני יכול למחוק את החשבון שלי?
       a: |-
         הקש על הלחצן "@:profile.quickLinks.deleteAccount" למעלה, והיכנס במידת הצורך.
          אם אתה משתמש בשרת Saber הרשמי, החשבון שלך יימחק לאחר תקופת חסד של שבוע. ניתן ליצור איתי קשר בכתובת adilhanney@disroot.org במהלך תקופה זו כדי לבטל את המחיקה.
          אם אתה משתמש בשרת של צד שלישי, ייתכן שלא תהיה אפשרות למחוק את חשבונך: תצטרך לעיין במדיניות הפרטיות של השרת לקבלת מידע נוסף.
-  quotaUsage(OUTDATED): "אתה משתמש ב-$used של $total ($percent%)"
+  quotaUsage(OUTDATED): אתה משתמש ב-$used של $total ($percent%)
   connectedTo(OUTDATED): מחובר ל
   faqTitle(OUTDATED): שאלות נפוצות
-appInfo:
+appInfo: 
   licenseNotice: |-
     Saber  Copyright © 2022-$buildYear  Adil Hanney
     תוכנית זו מגיעה ללא כל אחריות. זוהי תוכנה חופשית ואתה מוזמן להפיץ אותו מחדש בתנאים מסוימים.
@@ -227,13 +235,13 @@ appInfo:
   sponsorButton: הקש כאן כדי לתת לי חסות או לקנות שטח אחסון נוסף
   licenseButton: הקש כאן כדי להציג פרטי רישיון נוספים
   privacyPolicyButton: הקש כאן כדי להציג את מדיניות הפרטיות
-update:
+update: 
   updateAvailable: עדכון זמין
   updateAvailableDescription: "גרסה חדשה של היישום זמינה עם שינויים אלה:"
   update: עדכן
   downloadNotAvailableYet(OUTDATED): ההורדה עדיין לא זמינה עבור הפלטפורמה שלך. אנא בדוק שוב בקרוב.
-editor:
-  toolbar:
+editor: 
+  toolbar: 
     toggleColors: החלפת מצב צבע (Ctrl C)
     select: בחר
     toggleEraser: החלפת מצב מחק (Ctrl E)
@@ -245,16 +253,16 @@ editor:
     export: יצא (Ctrl Shift S)
     exportAs: "יצא כ:"
     fullscreen: החלפת מצב מסך מלא (F11)
-  pens:
+  pens: 
     fountainPen: עט נובע
     ballpointPen: עט כדורי
     highlighter: מרקר
     laserPointer: סמן לייזר
     pencil(OUTDATED): עִפָּרוֹן
     shapePen(OUTDATED): עט צורה
-  penOptions:
+  penOptions: 
     size: גודל
-  colors:
+  colors: 
     colorPicker: בורר צבעים
     black: שחור
     darkGrey: עפור ככה
@@ -281,33 +289,31 @@ editor:
     light(OUTDATED): אוֹר
     cyan(OUTDATED): טורקיז
     pink(OUTDATED): וָרוֹד
-  imageOptions:
+  imageOptions: 
     title: אפשרויות תמונה
     invertible: הפיך
     download: הורד
     setAsBackground: הגדר כרקע
     removeAsBackground: הסר כרקע
     delete: מחק
-  selectionBar:
+  selectionBar: 
     delete: מחק
     duplicate: שכפל
-  menu:
+  menu: 
     clearPage: נקה דף $page/$totalPages
     clearAllPages: נקה את כל הדפים
     insertPage: הכנס דף מלמטה
     duplicatePage: שכפל דף
     deletePage: מחק דף
     lineHeight: גובה הקו
-    lineThickness(OUTDATED): עובי קו
-    lineThicknessDescription(OUTDATED): עובי קו רקע
     backgroundImageFit: התאמת תמונת רקע
     backgroundPattern: תבנית רקע
     import: יבוא
-    boxFits:
+    boxFits: 
       fill: מתיחה
       cover: כיסוי
       contain: מכיל
-    bgPatterns:
+    bgPatterns: 
       none: ריק
       college: שורות עם קו בצד שמאל
       collegeRtl: שורות עם קו בצד ימין
@@ -317,17 +323,19 @@ editor:
       staffs(OUTDATED): צוותים
       tablature(OUTDATED): כרטיסייה
       cornell(OUTDATED): קורנל
+    lineThickness(OUTDATED): עובי קו
+    lineThicknessDescription(OUTDATED): עובי קו רקע
     watchServer(OUTDATED): שימו לב לעדכונים בשרת
     watchServerReadOnly(OUTDATED): העריכה מושבתת בזמן צפייה בשרת
     lineHeightDescription(OUTDATED): שולט גם בגודל הטקסט עבור הערות מוקלדות
-  newerFileFormat:
+  newerFileFormat: 
     readOnlyMode: מצב צפייה בלבד
     title: הערה זו נערכה באמצעות גרסה חדשה יותר של Saber
-    subtitle: "עריכת פתק זה עלולה לגרום לאיבוד מידע מסוים. האם אתה רוצה להתאלם מזה בכל מקרה?"
+    subtitle: עריכת פתק זה עלולה לגרום לאיבוד מידע מסוים. האם אתה רוצה להתאלם מזה בכל מקרה?
     allowEditing: אפשר עריכה
-  quill:
+  quill: 
     typeSomething: תכתוב משהו פה...
-  hud:
+  hud: 
     unlockZoom: בטל נעילת זום
     lockZoom: נעיל זום
     unlockSingleFingerPan: הפיכת גלילה רציפה באצבע אחת לזמינה

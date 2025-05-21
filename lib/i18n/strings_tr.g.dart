@@ -69,6 +69,7 @@ class _TranslationsHomeTr extends TranslationsHomeEn {
 	@override String get welcome => 'Saber\'a hoş geldiniz';
 	@override String get invalidFormat => 'Seçtiğiniz dosya desteklenmiyor. Lütfen bir .sbn, .sbn2, .sba veya .pdf dosyası seçin.';
 	@override String get noFiles => 'Dosya yok';
+	@override String get noPreviewAvailable => 'Önizleme yok';
 	@override String get createNewNote => 'Yeni bir not oluşturmak için + butonuna tıklayınız';
 	@override String get backFolder => 'Önceki klasöre dön';
 	@override late final _TranslationsHomeNewFolderTr newFolder = _TranslationsHomeNewFolderTr._(_root);
@@ -710,8 +711,6 @@ class _TranslationsEditorMenuTr extends TranslationsEditorMenuEn {
 	@override String get deletePage => 'Sayfayı sil';
 	@override String get lineHeight => 'Satır aralığı';
 	@override String get lineHeightDescription => 'Klavye girişi olan notların metin boyutunu da kontrol eder';
-	@override String get lineThickness => 'Çizgi kalınlığı';
-	@override String get lineThicknessDescription => 'Arka plan çizgisi kalınlığı';
 	@override String get backgroundImageFit => 'Arkaplan görüntüsünü sığdır';
 	@override String get backgroundPattern => 'Arkaplan deseni';
 	@override String get import => 'İçe aktar';
@@ -719,6 +718,8 @@ class _TranslationsEditorMenuTr extends TranslationsEditorMenuEn {
 	@override String get watchServerReadOnly => 'Sunucu izlenirken düzenleme yapılamaz';
 	@override late final _TranslationsEditorMenuBoxFitsTr boxFits = _TranslationsEditorMenuBoxFitsTr._(_root);
 	@override late final _TranslationsEditorMenuBgPatternsTr bgPatterns = _TranslationsEditorMenuBgPatternsTr._(_root);
+	@override String get lineThickness => 'Çizgi kalınlığı';
+	@override String get lineThicknessDescription => 'Arka plan çizgisi kalınlığı';
 }
 
 // Path: editor.newerFileFormat

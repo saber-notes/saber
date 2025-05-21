@@ -69,6 +69,7 @@ class _TranslationsHomeRu extends TranslationsHomeEn {
 	@override String get welcome => 'Приветствуем в Saber';
 	@override String get invalidFormat => 'Выбранный вами файл не поддерживается. Выберите файл .sbn, .sbn2, .sba или .pdf.';
 	@override String get noFiles => 'Файлов ещё нет';
+	@override String get noPreviewAvailable => 'Нет предварительного просмотра';
 	@override String get createNewNote => 'Нажмите кнопку «+» чтобы создать новую заметку';
 	@override String get backFolder => 'Вернуться к предыдущей папке';
 	@override late final _TranslationsHomeNewFolderRu newFolder = _TranslationsHomeNewFolderRu._(_root);
@@ -710,8 +711,6 @@ class _TranslationsEditorMenuRu extends TranslationsEditorMenuEn {
 	@override String get deletePage => 'Удалить страницу';
 	@override String get lineHeight => 'Высота строки';
 	@override String get lineHeightDescription => 'Также управляет размером текста для напечатанных заметок';
-	@override String get lineThickness => 'Линия толщина';
-	@override String get lineThicknessDescription => 'Фотовая линия толщина';
 	@override String get backgroundImageFit => 'Фоновое изображение';
 	@override String get backgroundPattern => 'Фоновый шаблон';
 	@override String get import => 'Импорт';
@@ -719,6 +718,8 @@ class _TranslationsEditorMenuRu extends TranslationsEditorMenuEn {
 	@override String get watchServerReadOnly => 'Редактирование невозможно во время слежки за сервером';
 	@override late final _TranslationsEditorMenuBoxFitsRu boxFits = _TranslationsEditorMenuBoxFitsRu._(_root);
 	@override late final _TranslationsEditorMenuBgPatternsRu bgPatterns = _TranslationsEditorMenuBgPatternsRu._(_root);
+	@override String get lineThickness => 'Линия толщина';
+	@override String get lineThicknessDescription => 'Фотовая линия толщина';
 }
 
 // Path: editor.newerFileFormat

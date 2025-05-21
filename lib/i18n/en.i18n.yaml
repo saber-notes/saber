@@ -23,6 +23,7 @@ home:
   welcome: Welcome to Saber
   invalidFormat: "The file you selected is not supported. Please select an sbn, sbn2, sba, or pdf file."
   noFiles: No files found
+  noPreviewAvailable: No preview available
   createNewNote: Tap the + button to create a new note
   backFolder: Go back to the previous folder
   newFolder:

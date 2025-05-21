@@ -1,45 +1,46 @@
-common:
+common: 
   done: Dokončit
   continueBtn: Pokračovat
   cancel: Zrušit
-home:
-  tabs:
+home: 
+  tabs: 
     home: Domů
     browse: Poznámky
     whiteboard: Tabule
     settings: Nastavení
-  titles:
+  titles: 
     home: Poslední poznámky
     browse: Procházet poznámky
     whiteboard: Tabule
     settings: Nastavení
-  tooltips:
+  tooltips: 
     newNote: Nová poznámka
     showUpdateDialog: Zobrazit dialogové okno aktualizace
     exportNote: Exportovat poznámku
-  create:
+  create: 
     newNote: Nová poznámka
     importNote: Import poznámky
   welcome: Vítejte v aplikaci Saber
-  invalidFormat: "Vybrali jste nepodporovaný soubor. Vyberte prosím soubor s příponou .sbn, .sbn2, .sba nebo .pdf."
+  invalidFormat: Vybrali jste nepodporovaný soubor. Vyberte prosím soubor s příponou .sbn, .sbn2, .sba nebo .pdf.
   noFiles: Žádné poznámky nebyly nalezeny
+  noPreviewAvailable(OUTDATED): Není k dispozici žádný náhled
   createNewNote: Pro přidání nové poznámky klepněte na tlačítko +
   backFolder: Přejít do předchozí složky
-  newFolder:
+  newFolder: 
     newFolder: Nová složka
     folderName: Název složky
     create: Vytvořit
     folderNameEmpty: Název složky nemůže být prázdný
     folderNameContainsSlash: Název složky nemůže obsahovat lomítko
     folderNameExists: Složka s tímto názvem již existuje
-  renameNote:
+  renameNote: 
     renameNote: Přejmenovat poznámku
     noteName: Nový název poznámky
     rename: Přejmenovat
     noteNameEmpty: Název poznámky nemůže být prázdný
     noteNameContainsSlash: Název poznámky nemůže obsahovat lomítko
     noteNameExists: Poznámka s tímto názvem již existuje
-  moveNote:
+  moveNote: 
     moveNote: Přesunout poznámku
     moveNotes: Přesunout $n poznámek
     moveName: Přesun poznámky $f
@@ -48,26 +49,26 @@ home:
     multipleRenamedTo: "Následující poznámky budou přejmenovány:"
     numberRenamedTo: $n poznámek bude přejmenováno
   deleteNote: Odstranit poznámku
-  renameFolder:
+  renameFolder: 
     renameFolder: Přejmenovat složku
     folderName: Název složky
     rename: Přejmenovat
     folderNameEmpty: Název složky nemůže být prázdný
     folderNameContainsSlash: Název složky nemůže obsahovat lomítko
     folderNameExists: Složka s tímto názvem již existuje
-  deleteFolder:
+  deleteFolder: 
     deleteFolder: Odstranit složku
     deleteName: Odstranění složky $f
     delete: Odstranit
     alsoDeleteContents: Se složkou odstranit i obsažené poznámky
-settings:
-  prefCategories:
+settings: 
+  prefCategories: 
     general: Obecné
     writing: Psaní
     editor: Editor
     performance: Výkon
     advanced: Pokročilé
-  prefLabels:
+  prefLabels: 
     locale: Jazyk aplikace
     appTheme: Barva motivu
     platform: Motiv
@@ -96,14 +97,14 @@ settings:
     simplifiedHomeLayout: Zjednodušené rozložení domovské obrazovky
     customDataDir: Vlastní umístění složky aplikace Saber
     pencilSoundSetting: Zvukový efekt psaní tužkou
-  prefDescriptions:
+  prefDescriptions: 
     hyperlegibleFont: Font Atkinson Hyperlegible zvyšuje čitelnost pro čtenáře se slabým zrakem
     allowInsecureConnections: (Nedoporučuje se) Povolit aplikaci Saber připojovat se k serverům se samopodepsaným/nedůvěryhodným certifikátem.
     preferGreyscale: Pro elektronické čtečky knih s e-ink displejem
     autoClearWhiteboardOnExit: Bude synchronizováno do dalších zařízení
     disableEraserAfterUse: Po použití gumy automaticky přepnout zpět na pero
     maxImageSize: Na větší obrázky bude aplikována komprese
-    hideFingerDrawing:
+    hideFingerDrawing: 
       shown: Zabraňuje nechtěnému přepnutí
       fixedOn: Kreslení prstem je napevno zapnuté
       fixedOff: Kreslení prstem je napevno vypnuté
@@ -112,128 +113,135 @@ settings:
     printPageIndicators: V exportech budou zobrazena čísla stránek
     autosaveDelay: Jak dlouho počkat před automatickým uložením poznámky
     shapeRecognitionDelay: Jak často aktualizovat náhled tvaru
-    autoStraightenLines: "Automaticky narovná dlouhé čáry, aniž by bylo nutné využít tvarové pero"
+    autoStraightenLines: Automaticky narovná dlouhé čáry, aniž by bylo nutné využít tvarové pero
     simplifiedHomeLayout: Nastaví pevnou výšku pro každý náhled poznámky
     shouldAlwaysAlertForUpdates: Oznámit dostupnost aktualizací co nejdříve od jejich vydání
-    pencilSoundSetting:
+    pencilSoundSetting: 
       off: Bez zvuku
       onButNotInSilentMode: Zapnuto (mimo tichý režim)
       onAlways: Zapnuto (i v tichém režimu)
-  themeModes:
+  themeModes: 
     system: Systémový
     light: Světlý
     dark: Tmavý
-  layoutSizes:
+  layoutSizes: 
     auto: Automatické
     phone: Telefon
     tablet: Tablet
-  accentColorPicker:
+  accentColorPicker: 
     pickAColor: Výběr vlastní barvy
   systemLanguage: Systémový jazyk
-  axisDirections:
+  axisDirections: 
     - Nahoře
     - Vpravo
     - Dole
     - Vlevo
-  reset:
-    title: "Chcete resetovat tuto volbu?"
+  reset: 
+    title: Chcete resetovat tuto volbu?
     button: Resetovat
   resyncEverything: Znovu synchronizovat všechny poznámky
   openDataDir: Otevřít složku aplikace Saber
-  customDataDir:
+  customDataDir: 
     cancel: Zrušit
     select: Zvolit
     mustBeEmpty: Zvolená složka musí být prázdná
-    mustBeDoneSyncing: "Než změníte složku, ujistěte se, že byla dokončena synchronizace"
-logs:
+    mustBeDoneSyncing: Než změníte složku, ujistěte se, že byla dokončena synchronizace
+logs: 
   logs: Logy
   viewLogs: Zobrazit logy
   debuggingInfo: Logy obsahují informace užitečné pro ladění a vývoj
-  noLogs: "Nejsou k dispozici žádné logy!"
+  noLogs: Nejsou k dispozici žádné logy!
   logsAreTemporary: Logy jsou zachovány pouze do uzavření aplikace
-login:
+login: 
   title: Přihlášení
-  form:
-    agreeToPrivacyPolicy(rich): "Přihlášením souhlasíte se ${linkToPrivacyPolicy(Zásadami ochrany osobních údajů)}."
-  signup(rich): "Ještě nemáte účet? ${linkToSignup(Zaregistrujte se)}!"
-  notYou(rich): "Nejste to vy? ${undoLogin(Zvolit jiný účet)}."
-  status:
+  form: 
+    agreeToPrivacyPolicy(rich): Přihlášením souhlasíte se ${linkToPrivacyPolicy(Zásadami ochrany osobních údajů)}.
+  signup(rich): Ještě nemáte účet? ${linkToSignup(Zaregistrujte se)}!
+  notYou(rich): Nejste to vy? ${undoLogin(Zvolit jiný účet)}.
+  status: 
     loggedOut: Jste odhlášení
     tapToLogin: Klepněte pro přihlášení pomocí Nextcloud účtu
-    hi: "Zdravím, $u!"
-    almostDone: "Synchronizace je téměř připravena, pro dokončení přihlášení klepněte sem"
+    hi: Zdravím, $u!
+    almostDone: Synchronizace je téměř připravena, pro dokončení přihlášení klepněte sem
     loggedIn: Jste přihlášeni pomocí Nextcloud účtu
-  ncLoginStep:
+  ncLoginStep: 
     whereToStoreData: "Zvolte si, kam chcete ukládat svá data:"
     saberNcServer: Oficiální Nextcloud server aplikace Saber
     otherNcServer: Jiný Nextcloud server
     serverUrl: URL adresa serveru
     loginWithSaber: Přihlásit přes aplikaci Saber
     loginWithNextcloud: Přihlásit přes Nextcloud server
-    loginFlow:
+    loginFlow: 
       pleaseAuthorize: Autorizujte prosím aplikaci Saber k přístupu na váš Nextcloud účet
       followPrompts: Následujte prosím kroky v rozhraní Nextcloud serveru
-      browserDidntOpen: "Neotevřela se přihlašovací stránka? Klepněte zde"
-  encLoginStep:
+      browserDidntOpen: Neotevřela se přihlašovací stránka? Klepněte zde
+  encLoginStep: 
     enterEncPassword: "Pro ochranu svých dat prosím zadejte heslo pro šifrování:"
-    newToSaber: "Poprvé v aplikaci Saber? Stačí zadat nové heslo pro šifrování."
+    newToSaber: Poprvé v aplikaci Saber? Stačí zadat nové heslo pro šifrování.
     encPassword: Heslo pro šifrování
     encFaqTitle: Často kladené otázky
     wrongEncPassword: Dešifrování pomocí zadaného hesla pro šifrování selhalo. Zkuste ho prosím zadat znovu.
     connectionFailed: Při připojování k serveru se něco pokazilo. Zkuste to prosím později.
-    encFaq:
-      - q: "Co je to heslo pro šifrování? Proč používat dvě hesla?"
+    encFaq: 
+      - 
+        q: Co je to heslo pro šifrování? Proč používat dvě hesla?
         a: |-
           Heslo k Nextcloud účtu se používá pro přístup do cloudu. Heslo pro šifrování „zamaskuje“ vaše data dokonce ještě, než dorazí na cloud.
           I kdyby někdo získal přístup k vašemu Nextcloud účtu, vaše poznámky zůstanou v bezpečí, zašifrované oddělným heslem. To vám přináší druhou úroveň bezpečnosti ochrany vašich dat.
           Nikdo k vašim poznámkám nemůže přistoupit bez hesla pro šifrování, což ale také znamená, že pokud své heslo pro šifrování zapomenete, ztratíte přístup ke svým datům.
-      - q: "Ještě jsem heslo pro šifrování nenastavoval. Kde ho získám?"
+      - 
+        q: Ještě jsem heslo pro šifrování nenastavoval. Kde ho získám?
         a: |-
           Zvolte si nové heslo pro šifrování a zadejte ho výše.
           Aplikace Saber z hesla automaticky vygeneruje šifrovací klíče.
-      - q: "Mohu jako heslo pro šifrování použít své heslo od Nextcloud účtu?"
-        a: "Ano, ale mějte na paměti, že bude pro administrátora Nextcloud serveru či kohokoliv jiného, kdo získá přístup k vašemu Nextcloud účtu, jednodušší získat přístup k vašim poznámkám."
-profile:
+      - 
+        q: Mohu jako heslo pro šifrování použít své heslo od Nextcloud účtu?
+        a: Ano, ale mějte na paměti, že bude pro administrátora Nextcloud serveru či kohokoliv jiného, kdo získá přístup k vašemu Nextcloud účtu, jednodušší získat přístup k vašim poznámkám.
+profile: 
   title: Můj profil
   logout: Odhlásit se
-  quotaUsage: "Využíváte $used z $total ($percent %)"
+  quotaUsage: Využíváte $used z $total ($percent %)
   connectedTo: Připojeno k
-  quickLinks:
+  quickLinks: 
     serverHomepage: Webové stránky serveru
     deleteAccount: Odstranit účet
   faqTitle: Často kladené otázky
-  faq:
-    - q: "Ztratím po odhlášení svoje poznámky?"
-      a: "Nikoliv. Vaše poznámky zůstanou jak na vašem zařízení, tak na serveru. Dokud se opět nepřihlásíte, nebudou synchronizovány se serverem. Před ohlášením se ujistěte, že byla dokončena synchronizace, abyste předešli ztrátě dat (průběh synchronizace uvidíte na domovské obrazovce)."
-    - q: "Jak změním své heslo k Nextcloud účtu?"
-      a: "Přejděte na webovou stránku vašeho serveru a přihlašte se. Poté přejděte do Nastavení > Zabezpečení > Změnit heslo. Po změně hesla se budete muset odhlásit z aplikace Saber a poté se do ní opětovně přihlásit."
-    - q: "Jak změním své heslo pro šifrování?"
+  faq: 
+    - 
+      q: Ztratím po odhlášení svoje poznámky?
+      a: Nikoliv. Vaše poznámky zůstanou jak na vašem zařízení, tak na serveru. Dokud se opět nepřihlásíte, nebudou synchronizovány se serverem. Před ohlášením se ujistěte, že byla dokončena synchronizace, abyste předešli ztrátě dat (průběh synchronizace uvidíte na domovské obrazovce).
+    - 
+      q: Jak změním své heslo k Nextcloud účtu?
+      a: Přejděte na webovou stránku vašeho serveru a přihlašte se. Poté přejděte do Nastavení > Zabezpečení > Změnit heslo. Po změně hesla se budete muset odhlásit z aplikace Saber a poté se do ní opětovně přihlásit.
+    - 
+      q: Jak změním své heslo pro šifrování?
       a: |-
         1. Odhlašte se z aplikace Saber. Před odhlášením se ujistěte, že byla dokončena synchronizace a nepřijdete o žádná data (průběh synchronizace uvidíte na domovské obrazovce).
         2. Přejděte na webovou stránku vašeho serveru a smažte složku „Saber“. Tím ze serveru odstraníte všechny poznámky.
         3. Opětovně se přihlašte do aplikace Saber. Při přihlašování můžete zvolit nové heslo pro šifrování.
         4. Nezapomeňte se z aplikace Saber odhlásit a opětovně se do ní přihlásit na ostatních zařízeních.
-    - q: "Jak odstraním svůj účet?"
+    - 
+      q: Jak odstraním svůj účet?
       a: |-
         Klepněte na tlačítko „@:profile.quickLinks.deleteAccount“ umístěné výše a přihlašte se, pokud to bude vyžadováno.
         Pokud používáte oficiální server od aplikace Saber, bude váš účet odstraněn po uplynutí týdenní ochranné lhůty. Během této lhůty mě můžete kontaktovat pro odvolání zrušení účtu na adilhanney@disroot.org.
         Pokud používáte server třetí strany, nemusí nabízet možnost odstranění účtu: pro více informací se bude třeba obrátit na zásady ochrany osobních údajů daného serveru.
-appInfo:
+appInfo: 
   licenseNotice: |-
     Saber  Copyright © 2022-$buildYear  Adil Hanney
     Tento program je poskytován bez jakékoliv záruky. Jedná se o software poskytovaný zdarma, který je možné šířit při splnění určitých podmínek.
   dirty: ZKUŠEBNÍ VERZE
   debug: LADÍCÍ VERZE
-  sponsorButton: "Klepněte sem, pokud mě chcete sponzorovat nebo si přikoupit úložiště"
+  sponsorButton: Klepněte sem, pokud mě chcete sponzorovat nebo si přikoupit úložiště
   licenseButton: Klepněte sem pro zobrazení podrobnějších licenčních informací
   privacyPolicyButton: Klepněte sem pro zobrazení zásad ochrany osobních údajů
-update:
+update: 
   updateAvailable: Aktualizace k dispozici
   updateAvailableDescription: "Je k dispozici nová verze aplikace:"
   update: Aktualizovat
   downloadNotAvailableYet: Pro vaši platformu zatím není stažení aplikace dostupné. Zkuste to prosím o něco později.
-editor:
-  toolbar:
+editor: 
+  toolbar: 
     toggleColors: Změnit barvu (Ctrl C)
     select: Výběr
     toggleEraser: Guma (Ctrl E)
@@ -245,16 +253,16 @@ editor:
     export: Exportovat (Ctrl Shift S)
     exportAs: "Exportovat jako:"
     fullscreen: Režim celé obrazovky (F11)
-  pens:
+  pens: 
     fountainPen: Plnící pero
     ballpointPen: Kuličkové pero
     highlighter: Zvýrazňovač
     pencil: Tužka
     shapePen: Pero pro kreslení tvarů
     laserPointer: Laserové ukazovátko
-  penOptions:
+  penOptions: 
     size: Velikost
-  colors:
+  colors: 
     colorPicker: Vybrat vlastní barvu
     customBrightnessHue: Vlastní $b $h
     customHue: Vlastní $h
@@ -281,17 +289,17 @@ editor:
     pastelBlue: Pastelová modrá
     pastelPurple: Pastelová purpurová
     pastelPink: Pastelová růžová
-  imageOptions:
+  imageOptions: 
     title: Možnosti obrázku
     invertible: Invertovat barvy podle motivu
     download: Stáhnout
     setAsBackground: Nastavit na pozadí
     removeAsBackground: Odstranit obrázek z pozadí
     delete: Odstranit
-  selectionBar:
+  selectionBar: 
     delete: Odstranit
     duplicate: Duplikovat
-  menu:
+  menu: 
     clearPage: Smazat obsah stránky $page/$totalPages
     clearAllPages: Smazat všechny stránky
     insertPage: Přidat stránku za tuto
@@ -306,11 +314,11 @@ editor:
     import: Importovat
     watchServer: Sledovat aktualizace ze serveru
     watchServerReadOnly: Během sledování serveru je vypnuto editování
-    boxFits:
+    boxFits: 
       fill: Roztáhnout
       cover: Vyplnit
       contain: Přizpůsobit
-    bgPatterns:
+    bgPatterns: 
       none: Žádný
       college: Linky s okrajem
       collegeRtl: Linky s okrajem (obráceně)
@@ -320,14 +328,14 @@ editor:
       staffs: Notová osnova
       tablature: Tabulatura
       cornell: Cornellova metoda
-  newerFileFormat:
+  newerFileFormat: 
     readOnlyMode: Otevřít v režimu pouze pro čtení
     title: Tato poznámka byla upravena v novější verzi aplikace Saber
-    subtitle: "Úpravou této poznámky můžete přijít o některé informace. Přejete tuto skutečnost ignorovat a přesto pokračovat k úpravě poznámky?"
+    subtitle: Úpravou této poznámky můžete přijít o některé informace. Přejete tuto skutečnost ignorovat a přesto pokračovat k úpravě poznámky?
     allowEditing: Povolit úpravy
-  quill:
+  quill: 
     typeSomething: Něco sem napište...
-  hud:
+  hud: 
     unlockZoom: Odemknout přibližování
     lockZoom: Zamknout přibližování
     unlockSingleFingerPan: Odemknout posouvání jedním prsem

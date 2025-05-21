@@ -1,45 +1,46 @@
-common:
+common: 
   done: تم
   continueBtn: متابعة
   cancel: إلغاء
-home:
-  tabs:
+home: 
+  tabs: 
     home: الرئيسية
     browse: تصفح
     whiteboard: السبورة
     settings: الإعدادات
-  titles:
+  titles: 
     home: الملاحظات الأخيرة
     browse: تصفح
     whiteboard: السبورة
     settings: الإعدادات
-  tooltips:
+  tooltips: 
     newNote: محلاظة جديدة
     showUpdateDialog: إظهار مربع حوار التحديث
     exportNote: تصدير ملاحظة
-  create:
+  create: 
     newNote: انشاء ملاحظة جديدة
     importNote: استيراد ملاحظة
   welcome: مرحباً بك في Saber
   invalidFormat: " صيغة الملف الذي اخترته ليست مدعومة, الرجاء اختيار ملف  sbn او sbn2 او sba او pdf "
   noFiles: لم يتم العثور على ملفات
+  noPreviewAvailable(OUTDATED): لا معاينة متاحة
   createNewNote: اضغط على زر + لإنشاء ملاحظة جديدة
   backFolder: الرجوع الى المجلد السابق
-  newFolder:
+  newFolder: 
     newFolder: مجلد جديد
     folderName: إسم المجلد
     create: إنشاء
     folderNameEmpty: لا يمكن أن يكون اسم المجلد فارغًا
     folderNameContainsSlash: لا يمكن أن يحتوي اسم المجلد على شرطة مائلة
     folderNameExists: المجلد موجود بالفعل
-  renameNote:
+  renameNote: 
     renameNote: إعادة تسمية الملاحظة
     noteName: اسم الملاحظة
     rename: إعادة تسمية
     noteNameEmpty: لا يمكن أن يكون اسم الملاحظة فارغًا
     noteNameContainsSlash: لا يمكن أن يحتوي اسم الملاحظة على شرطة مائلة
     noteNameExists: توجد بالفعل ملاحظة بهذا الاسم
-  moveNote:
+  moveNote: 
     moveNote: تحريك الملاحظة
     moveNotes: ملاحظات $n نقل
     moveName: $f نقل
@@ -48,26 +49,26 @@ home:
     multipleRenamedTo: "الملاحظات التالية سيتم اعادة تسميتها:"
     numberRenamedTo: ملاحظة سيتم اعادة تسميتها لتجنب تضارب تشابه الاسماء $n
   deleteNote: حذف الملاحظة
-  renameFolder:
+  renameFolder: 
     renameFolder: اعادة تسمية المجلد
     folderName: اسم المجلد
     rename: اعادة تسمية
     folderNameEmpty: لا يمكن أن يكون اسم المجلد فارغًا
     folderNameContainsSlash: لا يمكن أن يحتوي اسم المجلد على شرطة مائلة
     folderNameExists: يوجد بالفعل مجلد بهذا الاسم
-  deleteFolder:
+  deleteFolder: 
     deleteFolder: حذف المجلد
     deleteName: $f حذف
     delete: حذف
     alsoDeleteContents: حذف جميع الملاحظات داخل هذا المجلد أيضًا
-settings:
-  prefCategories:
+settings: 
+  prefCategories: 
     general: عام
     writing: كتابة
     editor: المحرر
     performance: الأداء
     advanced: متقدم
-  prefLabels:
+  prefLabels: 
     locale: لغة التطبيق
     appTheme: مظهر التطبيق
     platform: نوع المظهر
@@ -96,14 +97,14 @@ settings:
     simplifiedHomeLayout: تخطيط الصفحة الرئيسية المبسط
     customDataDir: مخصص Saber مجلد
     pencilSoundSetting: تأثير صوت القلم
-  prefDescriptions:
+  prefDescriptions: 
     hyperlegibleFont: يزيد Atkinson Hyperlegible من وضوح الرؤية للقراء الذين يعانون من ضعف في الرؤية
     allowInsecureConnections: (غير موصى به) بالاتصال بالخوادم بشهادات غير موثوقة/موقعة ذاتيًا Saber السماح لـ
     preferGreyscale: لشاشات الحبر الإلكتروني
     autoClearWhiteboardOnExit: ستظل متزامنة مع أجهزتك الأخرى
     disableEraserAfterUse: التبديل تلقائيًا إلى القلم بعد استخدام الممحاة
     maxImageSize: سيتم ضغط الصور الأكبر من هذا
-    hideFingerDrawing:
+    hideFingerDrawing: 
       shown: يمنع التبديل العرضي
       fixedOn: تم تفعيل الرسم بالإصبع
       fixedOff: تم تعطيل الرسم بالإصبع
@@ -115,110 +116,117 @@ settings:
     autoStraightenLines: استقامة الخطوط الطويلة بدون الحاجة لاستخدام قلم الشكل
     simplifiedHomeLayout: تعيين ارتفاع ثابت لكل معاينة ملاحظة
     shouldAlwaysAlertForUpdates: أبلغني عن التحديثات بمجرد توفرها
-    pencilSoundSetting:
+    pencilSoundSetting: 
       off: بدون صوت
       onButNotInSilentMode: مفعل (ما لم يكن في وضع الصامت)
       onAlways: مفعل (حتى في وضع الصامت)
-  themeModes:
+  themeModes: 
     system: النظام
     light: ساطع
     dark: داكن
-  layoutSizes:
+  layoutSizes: 
     auto: آلي
     phone: هاتف
     tablet: لوحي
-  accentColorPicker:
+  accentColorPicker: 
     pickAColor: اختر لوناً
   systemLanguage: لغة النظام
-  axisDirections:
+  axisDirections: 
     - أعلى
     - يمين
     - أسفل
     - يسار
-  reset:
+  reset: 
     title: إعادة تعيين هذا الإعداد؟
     button: إعادة تعيين
   resyncEverything: إعادة مزامنة كل شيء
   openDataDir: Saber فتح مجلد
-  customDataDir:
+  customDataDir: 
     cancel: إلغاء
     select: تحديد
     mustBeEmpty: يجب أن يكون المجلد المحدد فارغًا
     mustBeDoneSyncing: تأكد من اكتمال المزامنة قبل تغيير المجلد
-logs:
+logs: 
   logs(OUTDATED): السجلات
   viewLogs(OUTDATED): عرض السجلات
   debuggingInfo(OUTDATED): تحتوي السجلات على معلومات مفيدة لتصحيح الأخطاء والتطوير
-  noLogs(OUTDATED): "لا يوجد سجلات هنا!"
+  noLogs(OUTDATED): لا يوجد سجلات هنا!
   logsAreTemporary(OUTDATED): يتم الاحتفاظ بالسجلات فقط حتى تقوم بإغلاق التطبيق
-login:
+login: 
   title: تسجيل الدخول
-  form:
-    agreeToPrivacyPolicy(rich): "بتسجيل الدخول، فإنك توافق على ${linkToPrivacyPolicy(سياسة الخصوصية)}."
-  signup(rich): "لا تملك حسابا حتى الآن؟ ${linkToSignup(سجل حساباً الأن)}!"
-  notYou(rich): "ليس أنت؟ ${undoLogin(اختيار حساب آخر)}."
-  status:
+  form: 
+    agreeToPrivacyPolicy(rich): بتسجيل الدخول، فإنك توافق على ${linkToPrivacyPolicy(سياسة الخصوصية)}.
+  signup(rich): لا تملك حسابا حتى الآن؟ ${linkToSignup(سجل حساباً الأن)}!
+  notYou(rich): ليس أنت؟ ${undoLogin(اختيار حساب آخر)}.
+  status: 
     loggedOut: تسجيل الخروج
     tapToLogin: انقر لتسجيل الدخول باستخدام Nextcloud
     hi: "!$u،مرحبًا"
     almostDone: على وشك الانتهاء من المزامنة، اضغط لإنهاء تسجيل الدخول
     loggedIn: تم تسجيل الدخول باستخدام Nextcloud
-  ncLoginStep:
+  ncLoginStep: 
     whereToStoreData: "اختر المكان الذي تريد تخزين بياناتك فيه:"
     saberNcServer: Nextcloud الى Saber خادم
     otherNcServer: اخر Nextcloud خادم
     serverUrl: عنوان الخادم
     loginWithSaber: Saber تسجيل الدخول باستخدام
     loginWithNextcloud: Nextcloud تسجيل الدخول باستخدام
-    loginFlow:
+    loginFlow: 
       pleaseAuthorize: الخاص بك Nextcloud للوصول إلى حساب Saber الرجاء تفويض
       followPrompts: Nextcloud الرجاء اتباع الإرشادات في واجهة
       browserDidntOpen: لم تفتح صفحة تسجيل الدخول؟ اضغط هنا
-  encLoginStep:
+  encLoginStep: 
     enterEncPassword: "لحماية بياناتك، يرجى إدخال كلمة مرور التشفير:"
     newToSaber: ؟ فقط أدخل كلمة مرور تشفير جديدةSaber جديد على
     encPassword: كلمة مرور التشفير
     encFaqTitle: الأسئلة الشائعة
     wrongEncPassword: فشل فك التشفير باستخدام كلمة المرور المقدمة. يرجى المحاولة مرة أخرى.
     connectionFailed: حدث خطأ ما أثناء الاتصال بالخادم. يرجى المحاولة لاحقًا.
-    encFaq:
-      - q: ما هي كلمة مرور التشفير؟ لماذا استخدام كلمتي مرور؟
+    encFaq: 
+      - 
+        q: ما هي كلمة مرور التشفير؟ لماذا استخدام كلمتي مرور؟
         a: |-
           تُستخدم للوصول إلى السحابة. بينما كلمة مرور التشفير "تشفر" بياناتك قبل وصولها إلى السحابة  Nextcloud كلمة مرور .
           الخاص بك، ستظل ملاحظاتك آمنة ومشفرة بكلمة مرور منفصلة. هذا يوفر لك طبقة ثانية من الأمان لحماية بياناتك Nextcloud حتى إذا تمكن شخص ما من الوصول إلى حساب .
           لا يمكن لأحد الوصول إلى ملاحظاتك على الخادم بدون كلمة مرور التشفير الخاصة بك، ولكن هذا يعني أيضًا أنه إذا نسيت كلمة مرور التشفير، ستفقد الوصول إلى بياناتك.
-      - q: لم أقم بتعيين كلمة مرور تشفير حتى الآن. من أين أحصل عليها؟
+      - 
+        q: لم أقم بتعيين كلمة مرور تشفير حتى الآن. من أين أحصل عليها؟
         a: |-
           اختر كلمة مرور تشفير جديدة وأدخلها أعلاه.
           بإنشاء مفاتيح التشفير الخاصة بك تلقائيًا من هذه الكلمة Saber سيقوم .
-      - q: الخاص بي؟ Nextcloud هل يمكنني استخدام نفس كلمة المرور لحساب
+      - 
+        q: الخاص بي؟ Nextcloud هل يمكنني استخدام نفس كلمة المرور لحساب
         a: الخاص بك Nextcloud نعم، ولكن ضع في اعتبارك أنه سيكون من الأسهل على مدير الخادم أو أي شخص آخر الوصول إلى ملاحظاتك إذا تمكن من الوصول إلى حساب.
-profile:
+profile: 
   title: ملفي الشخصي
   logout: تسجيل الخروج
   quotaUsage: " $total ($percent%) من $used أنت تستخدم "
   connectedTo: متصل بـ
-  quickLinks:
+  quickLinks: 
     serverHomepage: الصفحة الرئيسية للخادم
     deleteAccount: حذف الحساب
   faqTitle: الأسئلة الشائعة
-  faq:
-    - q: هل سأفقد ملاحظاتي إذا قمت بتسجيل الخروج؟
+  faq: 
+    - 
+      q: هل سأفقد ملاحظاتي إذا قمت بتسجيل الخروج؟
       a: لا. ستظل ملاحظاتك على كل من جهازك وعلى الخادم. لن تتم مزامنتها مع الخادم حتى تقوم بتسجيل الدخول مرة أخرى. تأكد من اكتمال المزامنة قبل تسجيل الخروج حتى لا تفقد أي بيانات (انظر تقدم المزامنة على الشاشة الرئيسية).
-    - q: كيف يمكنني تغيير كلمة المرور الخاصة بي على Nextcloud؟
-      a: "انتقل إلى موقع الخادم الخاص بك وقم بتسجيل الدخول. ثم انتقل إلى الإعدادات > الأمان > تغيير كلمة المرور. ستحتاج إلى تسجيل الخروج وتسجيل الدخول مرة أخرى إلى Saber بعد تغيير كلمة المرور الخاصة بك."
-    - q: كيف يمكنني تغيير كلمة مرور التشفير الخاصة بي؟
+    - 
+      q: كيف يمكنني تغيير كلمة المرور الخاصة بي على Nextcloud؟
+      a: انتقل إلى موقع الخادم الخاص بك وقم بتسجيل الدخول. ثم انتقل إلى الإعدادات > الأمان > تغيير كلمة المرور. ستحتاج إلى تسجيل الخروج وتسجيل الدخول مرة أخرى إلى Saber بعد تغيير كلمة المرور الخاصة بك.
+    - 
+      q: كيف يمكنني تغيير كلمة مرور التشفير الخاصة بي؟
       a: |-
         1. تسجيل الخروج من Saber. تأكد من اكتمال المزامنة قبل تسجيل الخروج حتى لا تفقد أي بيانات (انظر تقدم المزامنة على الشاشة الرئيسية).
         2. اذهب إلى موقع الخادم الخاص بك واحذف مجلد "Saber" الخاص بك. سيؤدي هذا إلى حذف كافة ملاحظاتك من الخادم.
         3. قم بتسجيل الدخول مرة أخرى إلى Saber. يمكنك اختيار كلمة مرور تشفير جديدة عند تسجيل الدخول.
         4. لا تنس تسجيل الخروج وتسجيل الدخول مرة أخرى إلى Saber على أجهزتك الأخرى أيضًا.
-    - q: كيف يمكنني حذف حسابي؟
+    - 
+      q: كيف يمكنني حذف حسابي؟
       a: |-
         انتقل إلى موقع الخادم الخاص بك وقم بتسجيل الدخول. ثم انتقل إلى الإعدادات> حذف الحساب.
         إذا كنت تستخدم خادم Saber الرسمي، فسيتم حذف حسابك بعد فترة سماح مدتها أسبوع. يمكنك الاتصال بي على adilhanney@disroot.org خلال هذه الفترة لإلغاء الحذف.
         إذا كنت تستخدم خادم جهة خارجية، فقد لا يكون هناك خيار لحذف حسابك: ستحتاج إلى استشارة خصوصية الخادم سياسة لمزيد من المعلومات.
-appInfo:
+appInfo: 
   licenseNotice: |-
     Saber حقوق نشر © 2022-$buildYear  Adil Hanney
     هذا البرنامج لا يأتي مع أي ضمان على الإطلاق. هذا برنامج مجاني، ونرحب بإعادة توزيعه في ظل ظروف معينة.
@@ -227,13 +235,13 @@ appInfo:
   sponsorButton: انقر هنا لتدعمني أو شراء المزيد من مساحة التخزين
   licenseButton: انقر هنا لعرض المزيد من معلومات الترخيص
   privacyPolicyButton: انقر هنا لعرض سياسة الخصوصية
-update:
+update: 
   updateAvailable: تحديث متاح
   updateAvailableDescription: "يتوفر إصدار جديد من التطبيق مع هذه التغييرات:"
   update: تحديث
   downloadNotAvailableYet: التنزيل غير متاح بعد لمنصتك. يرجى التحقق قريبًا.
-editor:
-  toolbar:
+editor: 
+  toolbar: 
     toggleColors: تبديل الألوان (Ctrl C)
     select: اختر
     toggleEraser: تبديل الممحاة (Ctrl E)
@@ -245,16 +253,16 @@ editor:
     export: تصدير (Ctrl Shift S)
     exportAs: "تصدير كـ:"
     fullscreen: تبديل ملء الشاشة (F11)
-  pens:
+  pens: 
     fountainPen: قلم حبر
     ballpointPen: قلم برأس كروي
     highlighter: هايلايتر
     pencil: قلم رصاص
     shapePen: قلم الأشكال
     laserPointer: مؤشر الليزر
-  penOptions:
+  penOptions: 
     size: حجم
-  colors:
+  colors: 
     colorPicker: أداة انتقاء اللون
     customBrightnessHue: $h $b  مخصص
     customHue: $h مخصص
@@ -281,17 +289,17 @@ editor:
     pastelBlue: الباستيل الأزرق
     pastelPurple: الباستيل الأرجواني
     pastelPink: الباستيل الوردي
-  imageOptions:
+  imageOptions: 
     title: خيارات الصورة
     invertible: قابل للعكس
     download: تحميل
     setAsBackground: تعيين كخلفية
     removeAsBackground: إزالة كخلفية
     delete: حذف
-  selectionBar:
+  selectionBar: 
     delete: حذف
     duplicate: تكرار
-  menu:
+  menu: 
     clearPage: تنظيف الصفحة $page/$totalPages
     clearAllPages: امسح كل الصفحات
     insertPage: أدخل الصفحة أدناه
@@ -299,18 +307,16 @@ editor:
     deletePage: حذف الصفحة
     lineHeight: ارتفاع خط
     lineHeightDescription: يتحكم أيضًا في حجم النص للملاحظات المكتوبة
-    lineThickness(OUTDATED): سمك الخط
-    lineThicknessDescription(OUTDATED): سماكة خط الخلفية
     backgroundImageFit: تناسب صورة الخلفية
     backgroundPattern: نمط الخلفية
     import: يستورد
     watchServer: راقب التحديثات على الخادم
     watchServerReadOnly: تم تعطيل التحرير أثناء مراقبة الخادم
-    boxFits:
+    boxFits: 
       fill: تمتد
       cover: غطاء
       contain: يحتوي
-    bgPatterns:
+    bgPatterns: 
       none: فارغ
       college: كلية تحكم
       collegeRtl: محكوم الكلية (عكسي)
@@ -320,14 +326,16 @@ editor:
       staffs: موظفون
       tablature: لوحة
       cornell: كورنيل
-  newerFileFormat:
+    lineThickness(OUTDATED): سمك الخط
+    lineThicknessDescription(OUTDATED): سماكة خط الخلفية
+  newerFileFormat: 
     readOnlyMode: وضع القراءة فقط
     title: تم تحرير هذه الملاحظة باستخدام إصدار أحدث من Saber
     subtitle: قد يؤدي تحرير هذه الملاحظة إلى ضياع بعض المعلومات. هل تريد تجاهل هذا وتعديله على أي حال؟
     allowEditing: السماح بالتعديل
-  quill:
+  quill: 
     typeSomething: اكتب شيئًا هنا...
-  hud:
+  hud: 
     unlockZoom: إلغاء قفل التكبير
     lockZoom: قفل التكبير
     unlockSingleFingerPan: تمكين التحريك بإصبع واحد

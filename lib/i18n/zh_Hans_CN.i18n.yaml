@@ -1,45 +1,46 @@
-common:
+common: 
   done: 完成
   continueBtn: 继续
   cancel: 取消
-home:
-  tabs:
+home: 
+  tabs: 
     home: 主页
     browse: 全部笔记
     whiteboard: 白板
     settings: 设置
-  titles:
+  titles: 
     home: 最近笔记
     browse: 浏览
     whiteboard: 白板
     settings: 设置
-  tooltips:
+  tooltips: 
     newNote: 新建笔记
     showUpdateDialog: 显示更新对话框
     exportNote: 导出笔记
-  create:
+  create: 
     newNote: 新建笔记
     importNote: 导入笔记
   welcome: 欢迎使用 Saber
   invalidFormat: 不支持该文件。请选择 .sbn、.sbn2、.sba 或 .pdf 文件。
   noFiles: 未找到文件
+  noPreviewAvailable(OUTDATED): 没有预览
   createNewNote: 点击 + 按钮新建一个笔记
   backFolder: 回到上一个文件夹
-  newFolder:
+  newFolder: 
     newFolder: 新建文件夹
     folderName: 文件夹名称
     create: 创建
     folderNameEmpty: 文件夹名称不能为空
     folderNameContainsSlash: 文件夹名称不能包含斜杠
     folderNameExists: 文件夹已存在
-  renameNote:
+  renameNote: 
     renameNote: 重命名笔记
     noteName: 笔记名称
     rename: 重命名
     noteNameEmpty: 笔记名称不能为空
     noteNameContainsSlash: 注意名称不能包含斜杠
     noteNameExists: 此名称的笔记已经存在
-  moveNote:
+  moveNote: 
     moveNote: 移动笔记
     moveNotes: 移动 $n 个笔记
     moveName: 移动 $f
@@ -48,26 +49,26 @@ home:
     multipleRenamedTo: 以下笔记将被重命名：
     numberRenamedTo: $n 个笔记将被重命名以避免冲突
   deleteNote: 删除笔记
-  renameFolder:
+  renameFolder: 
     renameFolder: 重命名文件夹
     folderName: 文件夹名称
     rename: 重命名
     folderNameEmpty: 文件夹不能为空
     folderNameContainsSlash: 文件夹名称不能包含斜线
     folderNameExists: 已存在该名称的文件夹
-  deleteFolder:
+  deleteFolder: 
     deleteFolder: 删除文件夹
     deleteName: 删除 $f
     delete: 删除
     alsoDeleteContents: 同时删除此文件夹中的所有笔记
-settings:
-  prefCategories:
+settings: 
+  prefCategories: 
     general: 通用
     writing: 书写
     editor: 编辑器
     performance: 性能
     advanced: 高级
-  prefLabels:
+  prefLabels: 
     locale: 应用语言
     appTheme: 应用主题
     platform: 主题类型
@@ -96,14 +97,14 @@ settings:
     simplifiedHomeLayout: 简化主页布局
     customDataDir: 自定义 Saber 文件夹
     pencilSoundSetting: 铅笔音效
-  prefDescriptions:
+  prefDescriptions: 
     hyperlegibleFont: Atkinson Hyperlegible 字体为低视力读者提高易读性
     allowInsecureConnections: （不推荐）允许 Saber 连接到具有自签名/不受信任证书的服务器
     preferGreyscale: 用于电子墨水显示器
     autoClearWhiteboardOnExit: 这将会同步到您的其他设备
     disableEraserAfterUse: 使用橡皮擦后自动切换回笔
     maxImageSize: 更大的图片将会被压缩
-    hideFingerDrawing:
+    hideFingerDrawing: 
       shown: 防止意外切换
       fixedOn: 手指绘制固定为启用状态
       fixedOff: 手指绘制固定为禁用状态
@@ -115,110 +116,117 @@ settings:
     autoStraightenLines: 拉直长线，无需使用形状笔
     simplifiedHomeLayout: 为每个笔记预览设置固定高度
     shouldAlwaysAlertForUpdates: 在更新可用时尽快告诉我
-    pencilSoundSetting:
+    pencilSoundSetting: 
       off: 没有音效
       onButNotInSilentMode: 启用（除非在静音模式下）
       onAlways: 启用（即使在静音模式下）
-  themeModes:
+  themeModes: 
     system: 系统
     light: 浅色
     dark: 深色
-  layoutSizes:
+  layoutSizes: 
     auto: 自动
     phone: 手机
     tablet: 平板
-  accentColorPicker:
+  accentColorPicker: 
     pickAColor: 选取颜色
   systemLanguage: 系统语言
-  axisDirections:
+  axisDirections: 
     - 上
     - 右
     - 下
     - 左
-  reset:
+  reset: 
     title: 重置此设置？
     button: 重置
   resyncEverything: 重新同步所有
   openDataDir: 打开 Saber 文件夹
-  customDataDir:
+  customDataDir: 
     cancel: 取消
     select: 选择
     mustBeEmpty: 所选文件夹必须为空
     mustBeDoneSyncing: 更改文件夹前，请确保同步已完成
-logs:
+logs: 
   logs(OUTDATED): 日志
   viewLogs(OUTDATED): 查看日志
   debuggingInfo(OUTDATED): 日志包含对调试和开发有用的信息
   noLogs(OUTDATED): 这里没有日志！
   logsAreTemporary(OUTDATED): 日志仅保留到您关闭应用程序为止
-login:
+login: 
   title: 登录
-  form:
-    agreeToPrivacyPolicy(rich): "登录即表示您同意 ${linkToPrivacyPolicy(隐私政策)}。"
-  signup(rich): "还没有帐户？ ${linkToSignup(立即注册)}！"
-  notYou(rich): "不是您吗？${undoLogin(Choose another account)}."
-  status:
+  form: 
+    agreeToPrivacyPolicy(rich): 登录即表示您同意 ${linkToPrivacyPolicy(隐私政策)}。
+  signup(rich): 还没有帐户？ ${linkToSignup(立即注册)}！
+  notYou(rich): 不是您吗？${undoLogin(Choose another account)}.
+  status: 
     loggedOut: 已注销
     tapToLogin: 点击以使用 Nextcloud 登录
-    hi: "欢迎，$u!"
+    hi: 欢迎，$u!
     almostDone: 即将准备好同步，点击完成登录
     loggedIn: 已使用 Nextcloud 登录
-  ncLoginStep:
+  ncLoginStep: 
     whereToStoreData: 选择数据存储位置：
     saberNcServer: Saber 的 Nextcloud 服务器
     otherNcServer: 其他 Nextcloud 服务器
     serverUrl: 服务器 URL
     loginWithSaber: 使用 Saber 登录
     loginWithNextcloud: 使用 Nextcloud 登录
-    loginFlow:
+    loginFlow: 
       pleaseAuthorize: 请授权 Saber 访问您的 Nextcloud 帐户
       followPrompts: 请按照 Nextcloud 界面中的提示操作
       browserDidntOpen: 登录页面没有打开？点击这里
-  encLoginStep:
+  encLoginStep: 
     enterEncPassword: 为了保护您的数据，请输入您的加密密码：
     newToSaber: Saber 新手？只需输入新的加密密码即可。
     encPassword: 加密密码
     encFaqTitle: 常见问题解答
     wrongEncPassword: 使用提供的密码解密失败。请再次尝试输入。
     connectionFailed: 连接到服务器时出错。请稍后重试。
-    encFaq:
-      - q: 什么是加密密码？为什么要使用两个密码？
+    encFaq: 
+      - 
+        q: 什么是加密密码？为什么要使用两个密码？
         a: |-
           Nextcloud 密码用于访问云。加密密码会在您的数据到达云之前对其进行“加扰”。
           即使有人获得了您的 Nextcloud 帐户的访问权限，您的笔记也将保持安全并使用单独的密码进行加密。这为您提供了第二层安全保护，以保护您的数据。
           没有您的加密密码，任何人都无法访问您在服务器上的笔记，但这也意味着如果您忘记了加密密码，您将无法访问您的数据。
-      - q: 我还没有设置加密密码。我在哪里可以买到它？
+      - 
+        q: 我还没有设置加密密码。我在哪里可以买到它？
         a: |-
           选择新的加密密码并在上面输入。
           Saber 将从此密码自动生成您的加密密钥。
-      - q: 我可以使用与我的 Nextcloud 帐户相同的密码吗？
+      - 
+        q: 我可以使用与我的 Nextcloud 帐户相同的密码吗？
         a: 是的，但请记住，如果服务器管理员或其他人可以访问您的 Nextcloud 帐户，他们将更容易访问您的笔记。
-profile:
+profile: 
   title: 我的用户资料
   logout: 注销
-  quotaUsage: "您已使用 $used，共 $total（$percent%）"
+  quotaUsage: 您已使用 $used，共 $total（$percent%）
   connectedTo: 连接到
-  quickLinks:
+  quickLinks: 
     serverHomepage: 服务器主页
     deleteAccount: 删除帐户
   faqTitle: 常见问题解答
-  faq:
-    - q: 如果我注销，我的笔记会丢失吗？
+  faq: 
+    - 
+      q: 如果我注销，我的笔记会丢失吗？
       a: 不会。您的笔记将保留在您的设备和服务器上。在您重新登录之前，它们不会与服务器同步。请确保在注销前完成同步，以免丢失任何数据（请在主屏幕上查看同步进度）。
-    - q: 如何更改我的 Nextcloud 密码？
-      a: "转到您的服务器网站并登录。然后转到设置 > 安全 > 更改密码。更改密码后，您需要注销并重新登录 Saber。"
-    - q: 如何更改我的加密密码？
+    - 
+      q: 如何更改我的 Nextcloud 密码？
+      a: 转到您的服务器网站并登录。然后转到设置 > 安全 > 更改密码。更改密码后，您需要注销并重新登录 Saber。
+    - 
+      q: 如何更改我的加密密码？
       a: |-
         1.退出Saber。请确保在注销前完成同步，以免丢失任何数据（在主屏幕上查看同步进度）。
         2.转到您的服务器网站并删除您的“Saber”文件夹。这将从服务器中删除您的所有笔记。
         3.重新登录 Saber。您可以在登录时选择一个新的加密密码。
         4.不要忘记在您的其他设备上注销并重新登录 Saber。
-    - q: 如何删除我的帐户？
+    - 
+      q: 如何删除我的帐户？
       a: |-
         点击上面的 "@:profile.quickLinks.deleteAccount" 按钮，并在需要时登录。
         如果您使用的是官方 Saber 服务器，您的帐户将在 1 周的宽限期后被删除。在此期间，您可以通过 adilhanney@disroot.org 与我联系以取消删除。
         如果您使用的是第三方服务器，则可能没有删除帐户的选项：您需要咨询服务器的隐私政策以获取更多信息。
-appInfo:
+appInfo: 
   licenseNotice: |-
     Saber  版权所有 © 2022-$buildYear  Adil Hanney
     This program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.
@@ -227,13 +235,13 @@ appInfo:
   sponsorButton: 点击此处赞助我或购买更多存储空间
   licenseButton: 点击此处查看更多许可证信息
   privacyPolicyButton: 点击此处查看隐私政策
-update:
+update: 
   updateAvailable: 可用更新
   updateAvailableDescription: 该应用的新版本可用，具有以下变更：
   update: 更新
   downloadNotAvailableYet: 该下载在您的平台暂不可用。请稍后重试。
-editor:
-  toolbar:
+editor: 
+  toolbar: 
     toggleColors: 切换颜色 (Ctrl C)
     select: 选择
     toggleEraser: 切换橡皮擦 (Ctrl E)
@@ -245,16 +253,16 @@ editor:
     export: 导出 (Ctrl Shift S)
     exportAs: 导出为：
     fullscreen: 切换全屏 (F11)
-  pens:
+  pens: 
     fountainPen: 钢笔
     ballpointPen: 圆珠笔
     highlighter: 荧光笔
     pencil: 铅笔
     shapePen: 形状笔
     laserPointer: 激光笔
-  penOptions:
+  penOptions: 
     size: 粗细
-  colors:
+  colors: 
     colorPicker: 选色器
     customBrightnessHue: 自定义 $b $h
     customHue: 自定义 $h
@@ -281,17 +289,17 @@ editor:
     pastelBlue: 浅蓝色
     pastelPurple: 浅紫色
     pastelPink: 浅粉色
-  imageOptions:
+  imageOptions: 
     title: 图片选项
     invertible: 反转颜色
     download: 下载
     setAsBackground: 设为背景
     removeAsBackground: 作为背景移除
     delete: 删除
-  selectionBar:
+  selectionBar: 
     delete: 删除
     duplicate: 重复
-  menu:
+  menu: 
     clearPage: 清除页面 $page/$totalPages
     clearAllPages: 清除全部页面
     insertPage: 在下方插入页面
@@ -299,18 +307,16 @@ editor:
     deletePage: 删除页面
     lineHeight: 行高
     lineHeightDescription: 还控制已输入的笔记的文本大小
-    lineThickness(OUTDATED): 线厚度
-    lineThicknessDescription(OUTDATED): 背景线厚度
     backgroundImageFit: 背景图像拟合
     backgroundPattern: 背景图案
     import: 导入
     watchServer: 监视服务器上的更新
     watchServerReadOnly: 监视服务器时禁用编辑
-    boxFits:
+    boxFits: 
       fill: 拉伸
       cover: 覆盖
       contain: 包含
-    bgPatterns:
+    bgPatterns: 
       none: 空白
       college: College-ruled
       collegeRtl: College-ruled（反转）
@@ -320,14 +326,16 @@ editor:
       staffs: 五线谱
       tablature: 绘画
       cornell: Cornell
-  newerFileFormat:
+    lineThickness(OUTDATED): 线厚度
+    lineThicknessDescription(OUTDATED): 背景线厚度
+  newerFileFormat: 
     readOnlyMode: 只读模式
     title: 此笔记使用新版 Saber 编辑而成
     subtitle: 编辑此笔记可能会导致某些信息丢失。您想忽略并编辑吗？
     allowEditing: 允许编辑
-  quill:
+  quill: 
     typeSomething: 在这里输入...
-  hud:
+  hud: 
     unlockZoom: 解锁缩放
     lockZoom: 锁定缩放
     unlockSingleFingerPan: 启用单指平移

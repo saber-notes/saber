@@ -1,45 +1,46 @@
-common:
+common: 
   cancel: Cancelar
   done(OUTDATED): Hecho
   continueBtn(OUTDATED): Continuar
-home:
-  tabs:
+home: 
+  tabs: 
     home: Inicio
     browse: Explorar
     whiteboard: Pizarra
     settings: Configuración
-  titles:
+  titles: 
     home: Notas recientes
     browse: Navegar
     whiteboard: Pizarra
     settings: Configuración
-  tooltips:
+  tooltips: 
     newNote: Crear nota
     showUpdateDialog: Mostrar cuadro de diálogo de actualizaciónes
     exportNote: Exportar nota
-  create:
+  create: 
     newNote: Nueva nota
     importNote: Importar nota
   welcome: Te damos la bienvenida a Saber
-  invalidFormat: "El archivo que seleccionaste no es válido. Por favor, selecciona un archivo .sbn, .sbn2, .sba or .pdf."
+  invalidFormat: El archivo que seleccionaste no es válido. Por favor, selecciona un archivo .sbn, .sbn2, .sba or .pdf.
   noFiles: No se ha encontrado ninguna nota
+  noPreviewAvailable(OUTDATED): No hay una vista previa disponible
   createNewNote: Presiona el botón + para crear una nueva nota
   backFolder: Volver a la carpeta anterior
-  newFolder:
+  newFolder: 
     newFolder: Nueva carpeta
     folderName: Nombre de la carpeta
     create: Crear
     folderNameEmpty: El nombre de la carpeta no puede estar vacío
     folderNameContainsSlash: El nombre de la carpeta no puede contener una barra vertical
     folderNameExists: Ya existe una carpeta con este nombre
-  renameNote:
+  renameNote: 
     renameNote: Renombrar nota
     noteName: Nombre de la nota
     rename: Renombrar
     noteNameEmpty: El nombre de la nota no puede estar vacío
     noteNameContainsSlash: El nombre de la nota no puede contener una barra vertical
     noteNameExists: Ya existe una nota con este nombre
-  moveNote:
+  moveNote: 
     moveNote: Mover nota
     moveNotes: Mover $n notas
     moveName: Mover $f
@@ -48,26 +49,26 @@ home:
     multipleRenamedTo: Renombrar las siguientes notas
     numberRenamedTo: $n notas serán renombradas para evitar conflictos
   deleteNote: Eliminar nota
-  renameFolder:
+  renameFolder: 
     renameFolder: Renombrar carpeta
     folderName: Nombre de la carpeta
     rename: Renombrar
     folderNameEmpty: El nombre de la carpeta no puede estar vacío
     folderNameContainsSlash: El nombre de la carpeta no puede contener una barra (/)
     folderNameExists: Ya existe una carpeta con este nombre
-  deleteFolder:
+  deleteFolder: 
     deleteFolder: Eliminar carpeta
     deleteName: Eliminar $f
     delete: Eliminar
     alsoDeleteContents: Eliminar también las notas guardadas dentro de la carpeta
-settings:
-  prefCategories:
+settings: 
+  prefCategories: 
     general: General
     writing: Escritura
     editor: Editor
     advanced: Avanzado
     performance(OUTDATED): Actuación
-  prefLabels:
+  prefLabels: 
     locale: Idioma de la aplicación
     appTheme: Tema de la aplicación
     platform: Tipo de tema
@@ -96,14 +97,14 @@ settings:
     customDataDir(OUTDATED): Directorio de datos personalizado
     autoStraightenLines(OUTDATED): Líneas de enderezamiento automático
     shapeRecognitionDelay(OUTDATED): Retraso en el reconocimiento de formas
-  prefDescriptions:
+  prefDescriptions: 
     hyperlegibleFont: Atkinson Hyperlegible aumenta la legibilidad para lectores con poca visión
     allowInsecureConnections: (No recomendado) Autorizar a Saber a conectarse a servidores con certificados autofirmados o no fiables
     preferGreyscale: Para pantallas con tinta electrónica
     autoClearWhiteboardOnExit: Aún se sincronizará con tus otros dispositivos
     disableEraserAfterUse: Volver automáticamente al bolígrafo tras usar la goma
     maxImageSize: Las imágenes más grandes que este valor serán comprimidas
-    hideFingerDrawing:
+    hideFingerDrawing: 
       shown: Evita cambios accidentales
       fixedOn: Dibujar o escribir con el dedo está activado
       fixedOff: Dibujar o escribir con el dedo está desactivado
@@ -112,58 +113,58 @@ settings:
     printPageIndicators: Mostrar indicadores de página en las exportaciones
     autosaveDelay: Cuánto esperar antes de autoguardar una nota
     shouldAlwaysAlertForUpdates: Avísame sobre actualizaciones tan pronto como estén disponibles
-    pencilSoundSetting:
+    pencilSoundSetting: 
       off(OUTDATED): Sin sonido
       onButNotInSilentMode(OUTDATED): Habilitado (a menos que esté en modo silencioso)
       onAlways(OUTDATED): Habilitado (incluso en modo silencioso)
     simplifiedHomeLayout(OUTDATED): Establece una altura fija para cada vista previa de nota
     autoStraightenLines(OUTDATED): Endereza líneas largas sin tener que usar el rotulador.
     shapeRecognitionDelay(OUTDATED): Con qué frecuencia actualizar la vista previa de la forma
-  themeModes:
+  themeModes: 
     system: Sistema
     light: Claro
     dark: Oscuro
-  layoutSizes:
+  layoutSizes: 
     auto: Auto
     phone: Teléfono
     tablet: Tablet
-  accentColorPicker:
+  accentColorPicker: 
     pickAColor: Elegir un color
   systemLanguage: Idioma del sistema
-  axisDirections:
+  axisDirections: 
     - Arriba
     - Derecha
     - Abajo
     - Izquierda
-  reset:
-    title: "¿Quieres restablecer esta configuración?"
+  reset: 
+    title: ¿Quieres restablecer esta configuración?
     button: Restablecer
-  customDataDir:
+  customDataDir: 
     cancel(OUTDATED): Cancelar
     select(OUTDATED): Seleccionar
     mustBeEmpty(OUTDATED): El directorio seleccionado debe estar vacío.
     mustBeDoneSyncing(OUTDATED): Asegúrese de que la sincronización esté completa antes de cambiar el directorio
   openDataDir(OUTDATED): Abrir carpeta Saber
   resyncEverything(OUTDATED): Resync todo
-logs:
+logs: 
   logs(OUTDATED): Registros
   viewLogs(OUTDATED): Ver registros
   debuggingInfo(OUTDATED): Los registros contienen información útil para la depuración y el desarrollo.
-  noLogs(OUTDATED): "¡Aquí no hay registros!"
+  noLogs(OUTDATED): ¡Aquí no hay registros!
   logsAreTemporary(OUTDATED): Los registros solo se conservan hasta que cierras la aplicación.
-login:
+login: 
   title: Iniciar sesión
-  form:
-    agreeToPrivacyPolicy(rich): "Al iniciar sesión, aceptas nuestra ${linkToPrivacyPolicy(Política de privacidad)}."
-  signup(rich): "¿Aún no tienes una cuenta? ${linkToSignup(Regístrate ahora)}"
-  status:
+  form: 
+    agreeToPrivacyPolicy(rich): Al iniciar sesión, aceptas nuestra ${linkToPrivacyPolicy(Política de privacidad)}.
+  signup(rich): ¿Aún no tienes una cuenta? ${linkToSignup(Regístrate ahora)}
+  status: 
     loggedOut: Desconectado
     tapToLogin: Toca para iniciar sesión con Nextcloud
     loggedIn: Sesión iniciada con Nextcloud
-    hi(OUTDATED): "Hola $u!"
-    almostDone(OUTDATED): "Casi listo para sincronizar, toca para finalizar el inicio de sesión"
-  ncLoginStep:
-    loginFlow:
+    hi(OUTDATED): Hola $u!
+    almostDone(OUTDATED): Casi listo para sincronizar, toca para finalizar el inicio de sesión
+  ncLoginStep: 
+    loginFlow: 
       pleaseAuthorize(OUTDATED): Autorice a Saber a acceder a su cuenta de Nextcloud
       followPrompts(OUTDATED): Siga las indicaciones en su navegador.
       browserDidntOpen(OUTDATED): El navegador no se abrió
@@ -173,51 +174,58 @@ login:
     serverUrl(OUTDATED): URL del servidor
     loginWithSaber(OUTDATED): Iniciar sesión con Saber
     loginWithNextcloud(OUTDATED): Iniciar sesión con Nextcloud
-  encLoginStep:
+  encLoginStep: 
     enterEncPassword(OUTDATED): "Para proteger sus datos, ingrese su contraseña de cifrado:"
     newToSaber(OUTDATED): Nuevo en Saber
     encPassword(OUTDATED): Contraseña de cifrado
     encFaqTitle(OUTDATED): Preguntas frecuentes
     wrongEncPassword(OUTDATED): El descifrado falló con la contraseña proporcionada. Intente ingresarlo nuevamente.
-    connectionFailed(OUTDATED): "Algo salió mal al conectarse al servidor. Por favor, inténtelo de nuevo más tarde."
-    encFaq(OUTDATED):
-      - q: "¿Qué es la contraseña de cifrado?"
+    connectionFailed(OUTDATED): Algo salió mal al conectarse al servidor. Por favor, inténtelo de nuevo más tarde.
+    encFaq(OUTDATED): 
+      - 
+        q: ¿Qué es la contraseña de cifrado?
         a: |-
           La contraseña de cifrado se utiliza para cifrar tus datos antes de enviarlos al servidor. La eliges cuando inicias sesión por primera vez en Saber, y no está relacionada con tu cuenta/contraseña de Nextcloud.
           Nadie puede acceder a tus notas en el servidor sin tu contraseña de cifrado. Esto significa que si olvidas tu contraseña de cifrado, perderás el acceso a tus datos.
-      - q: "¿Por qué usar dos contraseñas?"
+      - 
+        q: ¿Por qué usar dos contraseñas?
         a: |-
           La contraseña de Nextcloud se utiliza para acceder a la nube. La contraseña de encriptación "codifica" tus datos antes de que lleguen a la nube.
           Incluso si alguien obtiene acceso a tu cuenta de Nextcloud, tus notas permanecerán seguras y encriptadas con una contraseña separada. Esto te proporciona una segunda capa de seguridad para proteger tus datos.
-      - q: "¿Puedo usar la misma contraseña para ambos?"
-        a: "Sí, pero hacer esto es menos seguro. Dado que tu contraseña de Nextcloud se envía al servidor, alguien con acceso al servidor podría descifrar tus notas. Solo usa la misma contraseña si confías en el propietario del servidor."
-  notYou(rich, OUTDATED): "${undoLogin(No tú)}"
-profile:
+      - 
+        q: ¿Puedo usar la misma contraseña para ambos?
+        a: Sí, pero hacer esto es menos seguro. Dado que tu contraseña de Nextcloud se envía al servidor, alguien con acceso al servidor podría descifrar tus notas. Solo usa la misma contraseña si confías en el propietario del servidor.
+  notYou(rich, OUTDATED): ${undoLogin(No tú)}
+profile: 
   title: Mi perfil
   logout: Cerrar sesión
-  quickLinks:
+  quickLinks: 
     serverHomepage: Página de inicio del servidor
     deleteAccount: Eliminar cuenta
-  faq:
-    - q: "¿Pierdo mis notas si cierro sesión?"
+  faq: 
+    - 
+      q: ¿Pierdo mis notas si cierro sesión?
       a: No. Tus notas permanecerán tanto en tu dispositivo como en el servidor. Solo no se sincronizarán con el servidor hasta que vuelvas a iniciar sesión. Asegúrate de que la sincronización se completó antes de cerrar la sesión para asegurarte de que no pierdes nada (puedes ver el progreso en la pantalla de inicio).
-    - q: "¿Cómo puedo cambiar mi contraseña de Nextcloud?"
-      a: "Accede a la web de tu servidor e inicia sesión. Luego, accede a Ajustes > Seguridad > Cambiar contraseña. Necesitarás cerrar la sesión e iniciarla de nuevo en Saber tras cambiar la contraseña."
-    - q: "¿Cómo cambio mi contraseña de cifrado?"
+    - 
+      q: ¿Cómo puedo cambiar mi contraseña de Nextcloud?
+      a: Accede a la web de tu servidor e inicia sesión. Luego, accede a Ajustes > Seguridad > Cambiar contraseña. Necesitarás cerrar la sesión e iniciarla de nuevo en Saber tras cambiar la contraseña.
+    - 
+      q: ¿Cómo cambio mi contraseña de cifrado?
       a: |-
         1. Cierra la sesión en Saber. Asegúrate de que la sincronización se completó antes de cerrar la sesión para asegurarte de que no pierdes nada (puedes ver el progreso en la pantalla de inicio).
         2. Accede a la web de tu servidor y elimina la carpeta 'Saber'. Esto eliminará todas las notas del servidor.
         3. Inicia sesión de nuevo en Saber. Puedes elegir una nueva contraseña de cifrado al iniciar la sesión.
         4. No te olvides de cerrar e iniciar la sesión de Saber de nuevo en el resto de tus dispositivos.
-    - q: "¿Cómo puedo eliminar mi cuenta?"
+    - 
+      q: ¿Cómo puedo eliminar mi cuenta?
       a: |-
         Pincha en el botón "@:profile.quickLinks.deleteAccount", e inicia sesión si es necesario.
         Si estás usando el servidor oficial de Saber, tu cuenta se eliminará después de un periodo de una semana. Puedes contactar conmigo en la dirección adilhanney@disroot.org durante este tiempo para cancelar la eliminación.
         Si estás usando un servidor de terceros, puede ser que la opción de eliminar no exista: necesitas consultar la política de privacidad del servidor para más información.
-  quotaUsage(OUTDATED): "Estás usando $used de $total ($percent%)"
+  quotaUsage(OUTDATED): Estás usando $used de $total ($percent%)
   connectedTo(OUTDATED): Conectado a
   faqTitle(OUTDATED): Preguntas frecuentes
-appInfo:
+appInfo: 
   licenseNotice: |-
     Saber  Copyright © 2022-$buildYear  Adil Hanney
     Este programa no tiene ninguna garantía. Es un software libre, y se puede redistribuir bajo ciertas condiciones.
@@ -226,13 +234,13 @@ appInfo:
   sponsorButton: Toca aquí para patrocinarme o comprar más almacenamiento
   licenseButton: Toca aquí para ver más información sobre la licencia
   privacyPolicyButton: Toca aquí para ver nuestra política de privacidad
-update:
+update: 
   updateAvailable: Actualización disponible
   updateAvailableDescription: "Hay una nueva versión de la aplicación disponible. Novedades en esta versión:"
   update: Actualizar
   downloadNotAvailableYet(OUTDATED): La descarga aún no está disponible para su plataforma. Vuelve a consultar en breve.
-editor:
-  toolbar:
+editor: 
+  toolbar: 
     toggleColors: Paleta de colores (Ctrl C)
     select: Seleccionar
     toggleEraser: Borrar (Ctrl E)
@@ -244,16 +252,16 @@ editor:
     export: Exportar (Ctrl Shift S)
     exportAs: "Exportar cómo:"
     fullscreen: Pantalla completa (F11)
-  pens:
+  pens: 
     ballpointPen: Bolígrafo
     highlighter: Resaltador
     shapePen: Bolígrafo con formas
     laserPointer: Puntero láser
     fountainPen(OUTDATED): Estilográfica
     pencil(OUTDATED): Lápiz
-  penOptions:
+  penOptions: 
     size: Tamaño
-  colors:
+  colors: 
     colorPicker: Selector de color
     customHue: $h personalizado
     dark: oscuro
@@ -280,33 +288,31 @@ editor:
     pastelPurple: Morado pastel
     pastelPink: Rosa pastel
     customBrightnessHue(OUTDATED): $h $b personalizado
-  imageOptions:
+  imageOptions: 
     title: Opciones de imagen
     invertible: Invertible
     download: Descargar
     setAsBackground: Usar como fondo
     removeAsBackground: Eliminar como fondo
     delete: Eliminar
-  selectionBar:
+  selectionBar: 
     delete: Eliminar
     duplicate: Duplicar
-  menu:
+  menu: 
     clearPage: Eliminar páginas $page/$totalPages
     clearAllPages: Borrar todas las páginas
     insertPage: Insertar página debajo
     duplicatePage: Duplicar página
     deletePage: Eliminar página
     lineHeight: Altura de la línea
-    lineThickness(OUTDATED): Espesor de línea
-    lineThicknessDescription(OUTDATED): Grosor de la línea de fondo
     backgroundImageFit: Ajuste de la imagen de fondo
     backgroundPattern: Patrón de fondo
     import: Importar
-    boxFits:
+    boxFits: 
       fill: Llenar
       cover: Cubrir
       contain: Contener
-    bgPatterns:
+    bgPatterns: 
       none: En blanco
       college: Rayado universitario
       collegeRtl: Rayado universitario (inverso)
@@ -316,17 +322,19 @@ editor:
       staffs: Pentagrama
       tablature: Tablatura
       cornell: Método Cornell
+    lineThickness(OUTDATED): Espesor de línea
+    lineThicknessDescription(OUTDATED): Grosor de la línea de fondo
     watchServer(OUTDATED): Esté atento a las actualizaciones en el servidor.
     watchServerReadOnly(OUTDATED): La edición está deshabilitada mientras se mira el servidor.
     lineHeightDescription(OUTDATED): También controla el tamaño del texto de las notas escritas.
-  newerFileFormat:
+  newerFileFormat: 
     readOnlyMode: Modo de solo lectura
     title: Esta nota fue editada usando una versión más reciente de Saber
-    subtitle: "La edición de esta nota puede resultar en la pérdida de cierta información. ¿Quieres ignorar esto y editarlo de todos modos?"
+    subtitle: La edición de esta nota puede resultar en la pérdida de cierta información. ¿Quieres ignorar esto y editarlo de todos modos?
     allowEditing: Editar
-  quill:
+  quill: 
     typeSomething: Escribe algo aquí...
-  hud:
+  hud: 
     unlockZoom: Desbloquear zoom
     lockZoom: Bloquear zoom
     unlockSingleFingerPan: Habilitar la panorámica con un solo dedo

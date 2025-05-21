@@ -69,6 +69,7 @@ class _TranslationsHomeEs extends TranslationsHomeEn {
 	@override String get welcome => 'Te damos la bienvenida a Saber';
 	@override String get invalidFormat => 'El archivo que seleccionaste no es válido. Por favor, selecciona un archivo .sbn, .sbn2, .sba or .pdf.';
 	@override String get noFiles => 'No se ha encontrado ninguna nota';
+	@override String get noPreviewAvailable => 'No hay una vista previa disponible';
 	@override String get createNewNote => 'Presiona el botón + para crear una nueva nota';
 	@override String get backFolder => 'Volver a la carpeta anterior';
 	@override late final _TranslationsHomeNewFolderEs newFolder = _TranslationsHomeNewFolderEs._(_root);
@@ -706,13 +707,13 @@ class _TranslationsEditorMenuEs extends TranslationsEditorMenuEn {
 	@override String get duplicatePage => 'Duplicar página';
 	@override String get deletePage => 'Eliminar página';
 	@override String get lineHeight => 'Altura de la línea';
-	@override String get lineThickness => 'Espesor de línea';
-	@override String get lineThicknessDescription => 'Grosor de la línea de fondo';
 	@override String get backgroundImageFit => 'Ajuste de la imagen de fondo';
 	@override String get backgroundPattern => 'Patrón de fondo';
 	@override String get import => 'Importar';
 	@override late final _TranslationsEditorMenuBoxFitsEs boxFits = _TranslationsEditorMenuBoxFitsEs._(_root);
 	@override late final _TranslationsEditorMenuBgPatternsEs bgPatterns = _TranslationsEditorMenuBgPatternsEs._(_root);
+	@override String get lineThickness => 'Espesor de línea';
+	@override String get lineThicknessDescription => 'Grosor de la línea de fondo';
 	@override String get watchServer => 'Esté atento a las actualizaciones en el servidor.';
 	@override String get watchServerReadOnly => 'La edición está deshabilitada mientras se mira el servidor.';
 	@override String get lineHeightDescription => 'También controla el tamaño del texto de las notas escritas.';

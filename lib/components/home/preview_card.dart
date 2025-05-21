@@ -4,12 +4,14 @@ import 'dart:io';
 import 'package:animations/animations.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:saber/components/canvas/canvas_preview.dart';
+import 'package:saber/components/canvas/_stroke.dart';
+import 'package:saber/components/canvas/inner_canvas.dart';
 import 'package:saber/components/canvas/invert_widget.dart';
 import 'package:saber/components/home/sync_indicator.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/data/routes.dart';
+import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/editor/editor.dart';
 
 class PreviewCard extends StatefulWidget {
@@ -103,24 +105,16 @@ class _PreviewCardState extends State<PreviewCard> {
                         animation: thumbnail,
                         builder: (context, _) => AnimatedSwitcher(
                           duration: const Duration(milliseconds: 300),
-                          child: thumbnail.doesImageExist
-                              ? InvertWidget(
-                                  invert: invert,
-                                  child: Image(
-                                    key: ValueKey(thumbnail.updateCount),
-                                    image: thumbnail.image!,
-                                  ),
-                                )
-                              : FittedBox(
-                                  alignment: Alignment.topCenter,
-                                  child: ClipRect(
-                                    child: CanvasPreview.fromFile(
-                                      key: ValueKey(
-                                          'CanvasPreview${thumbnail.updateCount}'),
-                                      filePath: widget.filePath,
-                                    ),
-                                  ),
-                                ),
+                          child: ConstrainedBox(
+                            key: ValueKey(thumbnail.updateCount),
+                            constraints: BoxConstraints(minHeight: 100),
+                            child: InvertWidget(
+                              invert: invert,
+                              child: thumbnail.doesImageExist
+                                  ? Image(image: thumbnail.image!)
+                                  : const _FallbackThumbnail(),
+                            ),
+                          ),
                         ),
                       ),
                       Positioned.fill(
@@ -209,6 +203,27 @@ class _PreviewCardState extends State<PreviewCard> {
   void dispose() {
     fileWriteSubscription?.cancel();
     super.dispose();
+  }
+}
+
+class _FallbackThumbnail extends StatelessWidget {
+  const _FallbackThumbnail();
+
+  @override
+  Widget build(BuildContext context) {
+    return ColoredBox(
+      color: InnerCanvas.defaultBackgroundColor,
+      child: Center(
+        child: Text(
+          t.home.noPreviewAvailable,
+          style: TextTheme.of(context).bodyMedium?.copyWith(
+                color: Stroke.defaultColor.withValues(alpha: 0.7),
+                fontStyle: FontStyle.italic,
+              ),
+          textAlign: TextAlign.center,
+        ),
+      ),
+    );
   }
 }
 

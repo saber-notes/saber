@@ -69,6 +69,7 @@ class _TranslationsHomeFa extends TranslationsHomeEn {
 	@override String get welcome => 'خوش آمدید';
 	@override String get invalidFormat => 'فایلی که انتخاب کرده اید پشتیبانی نمی شود. لطفاً یک فایل sbn، sbn2، sba یا pdf را انتخاب کنید.';
 	@override String get noFiles => 'فایلی پیدا نشد';
+	@override String get noPreviewAvailable => 'پیش نمایش موجود نیست';
 	@override String get createNewNote => 'برای ساخت یادداشت دکمه + را بزنید';
 	@override String get backFolder => 'به پوشه قبلی برگردید';
 	@override late final _TranslationsHomeNewFolderFa newFolder = _TranslationsHomeNewFolderFa._(_root);
@@ -707,13 +708,13 @@ class _TranslationsEditorMenuFa extends TranslationsEditorMenuEn {
 	@override String get duplicatePage => 'تکرار صفحه';
 	@override String get deletePage => 'حذف صفحه';
 	@override String get lineHeight => 'ارتفاع خط';
-	@override String get lineThickness => 'ضخامت خط';
-	@override String get lineThicknessDescription => 'ضخامت خط پس زمینه';
 	@override String get backgroundImageFit => 'مناسب تصویر پس زمینه';
 	@override String get backgroundPattern => 'الگوی پس زمینه';
 	@override String get import => 'واردکردن';
 	@override late final _TranslationsEditorMenuBoxFitsFa boxFits = _TranslationsEditorMenuBoxFitsFa._(_root);
 	@override late final _TranslationsEditorMenuBgPatternsFa bgPatterns = _TranslationsEditorMenuBgPatternsFa._(_root);
+	@override String get lineThickness => 'ضخامت خط';
+	@override String get lineThicknessDescription => 'ضخامت خط پس زمینه';
 	@override String get watchServer => 'مراقب به روز رسانی ها در سرور باشید';
 	@override String get watchServerReadOnly => 'هنگام تماشای سرور، ویرایش غیرفعال است';
 	@override String get lineHeightDescription => 'همچنین اندازه متن را برای یادداشت های تایپ شده کنترل می کند';

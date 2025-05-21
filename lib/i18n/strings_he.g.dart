@@ -69,6 +69,7 @@ class _TranslationsHomeHe extends TranslationsHomeEn {
 	@override String get welcome => 'ברוכים הבאים ל Saber';
 	@override String get invalidFormat => 'הקובץ שבחרת אינו תומך. אנא בחר בקובץ .sbn\' .sbn2\' .sba או .pdf';
 	@override String get noFiles => 'קבצים לא נמצאו';
+	@override String get noPreviewAvailable => 'אין תצוגה מקדימה זמינה';
 	@override String get createNewNote => 'הקש על הלחצן + כדי ליצור הערה חדשה';
 	@override String get backFolder => 'חזור אחורה לתקייה הקודמת';
 	@override late final _TranslationsHomeNewFolderHe newFolder = _TranslationsHomeNewFolderHe._(_root);
@@ -707,13 +708,13 @@ class _TranslationsEditorMenuHe extends TranslationsEditorMenuEn {
 	@override String get duplicatePage => 'שכפל דף';
 	@override String get deletePage => 'מחק דף';
 	@override String get lineHeight => 'גובה הקו';
-	@override String get lineThickness => 'עובי קו';
-	@override String get lineThicknessDescription => 'עובי קו רקע';
 	@override String get backgroundImageFit => 'התאמת תמונת רקע';
 	@override String get backgroundPattern => 'תבנית רקע';
 	@override String get import => 'יבוא';
 	@override late final _TranslationsEditorMenuBoxFitsHe boxFits = _TranslationsEditorMenuBoxFitsHe._(_root);
 	@override late final _TranslationsEditorMenuBgPatternsHe bgPatterns = _TranslationsEditorMenuBgPatternsHe._(_root);
+	@override String get lineThickness => 'עובי קו';
+	@override String get lineThicknessDescription => 'עובי קו רקע';
 	@override String get watchServer => 'שימו לב לעדכונים בשרת';
 	@override String get watchServerReadOnly => 'העריכה מושבתת בזמן צפייה בשרת';
 	@override String get lineHeightDescription => 'שולט גם בגודל הטקסט עבור הערות מוקלדות';

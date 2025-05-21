@@ -1,45 +1,46 @@
-common:
+common: 
   cancel: Cancelar
   done(OUTDATED): Feito
   continueBtn(OUTDATED): Continuar
-home:
-  tabs:
+home: 
+  tabs: 
     home: Início
     browse: Explorar
     whiteboard: Quadro branco
     settings: Configurações
-  titles:
+  titles: 
     home: Notas recentes
     browse: Navegar
     whiteboard: Quadro branco
     settings: Configurações
-  tooltips:
+  tooltips: 
     newNote: Nova nota
     showUpdateDialog: Mostrar caixa de diálogo de atualização
     exportNote(OUTDATED): Nota de exportação
-  create:
+  create: 
     newNote: Nova nota
     importNote: Importar nota
   welcome: Bem-vindo(a) ao Saber
-  invalidFormat: "O arquivo que você selecionou não é suportado. Por favor selecione um arquivo .sbn, .sbn2, .sba ou .pdf."
+  invalidFormat: O arquivo que você selecionou não é suportado. Por favor selecione um arquivo .sbn, .sbn2, .sba ou .pdf.
   noFiles: Nenhum arquivo encontrado
+  noPreviewAvailable(OUTDATED): Nenhuma visualização disponível
   createNewNote: Toque no botão + para criar uma nova nota
   backFolder: Retornar para a pasta anterior
-  newFolder:
+  newFolder: 
     newFolder: Nova pasta
     folderName: Nome da pasta
     create: Criar
     folderNameEmpty: O nome da pasta não pode estar vazio
     folderNameContainsSlash: O nome da pasta não pode conter uma barra
     folderNameExists: A pasta já existe
-  renameNote:
+  renameNote: 
     renameNote: Renomear nota
     noteName: Nome da nota
     rename: Renomear
     noteNameEmpty: O nome da nota não pode estar vazio
     noteNameContainsSlash: O nome da nota não pode conter uma barra
     noteNameExists: Já existe uma nota com este nome
-  moveNote:
+  moveNote: 
     moveNote: Mover a nota
     moveName: Mover $f
     move: Mover
@@ -48,26 +49,26 @@ home:
     multipleRenamedTo(OUTDATED): "As seguintes notas serão renomeadas:"
     numberRenamedTo(OUTDATED): $n notas serão renomeadas para evitar conflitos
   deleteNote: Apagar nota
-  renameFolder:
+  renameFolder: 
     renameFolder: Renomear pasta
     folderName: Nome da pasta
     rename: Renomear
     folderNameEmpty: O nome da pasta não pode estar vazio
     folderNameContainsSlash: O nome da pasta não pode conter uma barra
     folderNameExists: Já existe uma pasta com este nome
-  deleteFolder:
+  deleteFolder: 
     deleteFolder: Apagar pasta
     deleteName: Apagar $f
     delete: Apagar
     alsoDeleteContents: Apagar também todas as notas dentro desta pasta
-settings:
-  prefCategories:
+settings: 
+  prefCategories: 
     general: Geral
     writing: Escrita
     editor: editor
     advanced: Avançado
     performance(OUTDATED): Desempenho
-  prefLabels:
+  prefLabels: 
     locale: Idioma do aplicativo
     appTheme: Tema do aplicativo
     platform: Tipo do tema
@@ -96,14 +97,14 @@ settings:
     autoStraightenLines(OUTDATED): Endireitar linhas automaticamente
     shapeRecognitionDelay(OUTDATED): Atraso no reconhecimento de forma
     recentColorsLength(OUTDATED): Quantas cores recentes armazenar
-  prefDescriptions:
+  prefDescriptions: 
     hyperlegibleFont: Atkinson Hyperlegible aumenta a legibilidade para leitores com baixa visão
     allowInsecureConnections: (Não recomendado) Permitir que o Saber se conecte a servidores com certificados autoassinados/não-confiáveis
     preferGreyscale: Para telas e-ink
     autoClearWhiteboardOnExit: Ainda será sincronizado com seus outros dispositivos
     disableEraserAfterUse: Voltar automaticamente para a caneta depois de usar a borracha
     maxImageSize: Imagens maiores que isso serão compactadas
-    hideFingerDrawing:
+    hideFingerDrawing: 
       shown: Evitar alternância acidental
       fixedOn: O desenho com o dedo está ativado
       fixedOff: O desenho com o dedo está desativado
@@ -112,60 +113,60 @@ settings:
     printPageIndicators: Mostrar os indicadores de página nas exportações
     autosaveDelay: Quanto tempo esperar antes de salvar automaticamente uma nota
     shouldAlwaysAlertForUpdates: Conte-me sobre atualizações assim que elas estiverem disponíveis
-    pencilSoundSetting:
+    pencilSoundSetting: 
       off(OUTDATED): Sem som
       onButNotInSilentMode(OUTDATED): Ativado (a menos que esteja no modo silencioso)
       onAlways(OUTDATED): Ativado (mesmo no modo silencioso)
     simplifiedHomeLayout(OUTDATED): Define uma altura fixa para cada pré-visualização de nota
     autoStraightenLines(OUTDATED): Endireita linhas longas sem precisar usar a caneta modeladora
     shapeRecognitionDelay(OUTDATED): Com que frequência atualizar a visualização da forma
-  themeModes:
+  themeModes: 
     system: Sistema
     light: Claro
     dark: Escuro
-  layoutSizes:
+  layoutSizes: 
     auto: Automático
     phone: Celular
     tablet: Tablet
-  accentColorPicker:
+  accentColorPicker: 
     pickAColor: Selecionar uma cor
   systemLanguage: Idioma do sistema
-  axisDirections:
+  axisDirections: 
     - Em cima
     - Direita
     - Embaixo
     - Esquerda
-  reset:
-    title: "Redefinir esta configuração?"
+  reset: 
+    title: Redefinir esta configuração?
     button: Redefinir
-  customDataDir:
+  customDataDir: 
     cancel(OUTDATED): Cancelar
     select(OUTDATED): Selecione
     mustBeEmpty(OUTDATED): O diretório selecionado deve estar vazio
     mustBeDoneSyncing(OUTDATED): Certifique-se de que a sincronização esteja concluída antes de alterar o diretório
   openDataDir(OUTDATED): Abra a pasta Saber
   resyncEverything(OUTDATED): Resync tudo
-logs:
+logs: 
   logs(OUTDATED): Registros
   viewLogs(OUTDATED): Ver logs
   debuggingInfo(OUTDATED): Os logs contêm informações úteis para depuração e desenvolvimento
-  noLogs(OUTDATED): "Nenhum registro aqui!"
+  noLogs(OUTDATED): Nenhum registro aqui!
   logsAreTemporary(OUTDATED): Os registros são mantidos somente até você fechar o aplicativo
-login:
+login: 
   title: Login
-  form:
-    agreeToPrivacyPolicy(rich): "Ao fazer login, você concorda com a ${linkToPrivacyPolicy(Política de Privacidade)}."
-  signup(rich): "Ainda não tem uma conta? ${linkToSignup(Registre-se agora)}!"
-  status:
+  form: 
+    agreeToPrivacyPolicy(rich): Ao fazer login, você concorda com a ${linkToPrivacyPolicy(Política de Privacidade)}.
+  signup(rich): Ainda não tem uma conta? ${linkToSignup(Registre-se agora)}!
+  status: 
     loggedOut: Desconectado
     tapToLogin: Toque para fazer login com o Nextcloud
     loggedIn: Logado com o Nextcloud
-    hi(OUTDATED): "Olá, $u!"
-    almostDone(OUTDATED): "Quase pronto para sincronização, toque para finalizar o login"
-  ncLoginStep:
-    loginFlow:
+    hi(OUTDATED): Olá, $u!
+    almostDone(OUTDATED): Quase pronto para sincronização, toque para finalizar o login
+  ncLoginStep: 
+    loginFlow: 
       pleaseAuthorize(OUTDATED): Autorize o Saber a acessar sua conta Nextcloud
-      followPrompts(OUTDATED): "Por favor, siga as instruções no seu navegador."
+      followPrompts(OUTDATED): Por favor, siga as instruções no seu navegador.
       browserDidntOpen(OUTDATED): O navegador não abriu
     whereToStoreData(OUTDATED): "Escolha onde deseja armazenar seus dados:"
     saberNcServer(OUTDATED): Servidor Nextcloud do Saber
@@ -173,51 +174,58 @@ login:
     serverUrl(OUTDATED): URL do servidor
     loginWithSaber(OUTDATED): Faça login com Saber
     loginWithNextcloud(OUTDATED): Faça login com Nextcloud
-  encLoginStep:
+  encLoginStep: 
     enterEncPassword(OUTDATED): "Para proteger seus dados, digite sua senha de criptografia:"
     newToSaber(OUTDATED): Novo no Saber
     encPassword(OUTDATED): Senha de criptografia
     encFaqTitle(OUTDATED): Perguntas frequentes
-    wrongEncPassword(OUTDATED): "A descriptografia falhou com a senha fornecida. Por favor, tente inseri-lo novamente."
-    connectionFailed(OUTDATED): "Algo deu errado ao conectar-se ao servidor. Por favor, tente novamente mais tarde."
-    encFaq(OUTDATED):
-      - q: "O que é uma senha de criptografia?"
+    wrongEncPassword(OUTDATED): A descriptografia falhou com a senha fornecida. Por favor, tente inseri-lo novamente.
+    connectionFailed(OUTDATED): Algo deu errado ao conectar-se ao servidor. Por favor, tente novamente mais tarde.
+    encFaq(OUTDATED): 
+      - 
+        q: O que é uma senha de criptografia?
         a: |-
           A senha de criptografia é usada para criptografar os seus dados antes de eles serem enviados ao servidor. Você a escolhe quando faz login pela primeira vez no Saber, e ela não está relacionada à sua conta/senha do Nextcloud.
           Ninguém pode acessar as suas notas no servidor sem a sua senha de criptografia. Isso também significa que, se você esquecer a sua senha de criptografia, perderá o acesso aos seus dados.
-      - q: "Por que usar duas senhas?"
+      - 
+        q: Por que usar duas senhas?
         a: |-
           A senha do Nextcloud é usada para acessar a nuvem. A senha de criptografia "embaralha" os seus dados antes que eles cheguem à nuvem.
           Mesmo que alguém obtenha acesso à sua conta do Nextcloud, as suas notas permanecerão seguras e criptografadas com uma senha separada. Isso fornece uma segunda camada de segurança para proteger os seus dados.
-      - q: "Posso usar a mesma senha para ambos?"
+      - 
+        q: Posso usar a mesma senha para ambos?
         a: "Sim, mas isso é menos seguro. Como a sua senha do Nextcloud é enviada ao servidor, alguém com acesso ao servidor poderá descriptografar as suas notas. Use a mesma senha apenas se você confiar no proprietário do servidor. "
-  notYou(rich, OUTDATED): "${undoLogin(Você não)}"
-profile:
+  notYou(rich, OUTDATED): ${undoLogin(Você não)}
+profile: 
   title: Meu perfil
   logout: Sair
-  quickLinks:
+  quickLinks: 
     serverHomepage: Página inicial do servidor
     deleteAccount: Apagar conta
-  faq:
-    - q: "Eu perderei as minhas notas se eu sair da minha conta?"
-      a: "Não. As suas notas permanecerão tanto no seu dispositivo quanto no servidor. Elas não serão sincronizadas com o servidor até você fazer login novamente. Tenha certeza de que a sincronização foi finalizada antes de sair, de modo que você não perca nenhum dado (veja o progresso da sincronização na tela inicial)."
-    - q: "Como eu mudo a minha senha do Nextcloud?"
-      a: "Vá para o website do seu servidor e faça login. Então vá para Configurações > Segurança > Mudar senha. Você precisará sair da conta e fazer login novamente no Saber depois de mudar a sua senha."
-    - q: "Como eu mudo a minha senha de criptografia?"
+  faq: 
+    - 
+      q: Eu perderei as minhas notas se eu sair da minha conta?
+      a: Não. As suas notas permanecerão tanto no seu dispositivo quanto no servidor. Elas não serão sincronizadas com o servidor até você fazer login novamente. Tenha certeza de que a sincronização foi finalizada antes de sair, de modo que você não perca nenhum dado (veja o progresso da sincronização na tela inicial).
+    - 
+      q: Como eu mudo a minha senha do Nextcloud?
+      a: Vá para o website do seu servidor e faça login. Então vá para Configurações > Segurança > Mudar senha. Você precisará sair da conta e fazer login novamente no Saber depois de mudar a sua senha.
+    - 
+      q: Como eu mudo a minha senha de criptografia?
       a: |-
         1. Saia da sua conta do Saber. Tenha certeza de que a sincronização foi finalizada antes de sair, de modo que você não perca nenhum dado (veja o progresso da sincronização na tela inicial).
         2. Vá para o website do seu servidor e apague a sua pasta do Saber. Isso apagará todas as suas notas do servidor.
         3. Faça login na sua conta do Saber. Você pode escolher uma nova senha de criptografia quando fizer login.
         4. Não se esqueça de sair e fazer login novamente no Saber em seus outros dispositivos também.
-    - q: "Como eu posso apagar a minha conta?"
+    - 
+      q: Como eu posso apagar a minha conta?
       a: |-
         Toque no "@:profile.quickLinks.deleteAccount" botão acima, e faça login se necessário.
         Se você estiver usando o servidor oficial do Saber, a sua conta será apagada depois de um período de carência de uma semana. Você pode entrar em contato comigo em adilhanney@disroot.org durante esse período para cancelar a exclusão.
         Se você estiver usando um servidor de terceiros, pode ser que não haja uma opção de apagar a sua conta: você precisará consultar a política de privacidade do servidor para mais informações.
-  quotaUsage(OUTDATED): "Você está usando $used de $total ($percent%)"
+  quotaUsage(OUTDATED): Você está usando $used de $total ($percent%)
   connectedTo(OUTDATED): Conectado a
   faqTitle(OUTDATED): Perguntas frequentes
-appInfo:
+appInfo: 
   licenseNotice: |-
     Saber  Copyright © 2022-$buildYear  Adil Hanney
     Este programa vem sem absolutamente nenhuma garantia. Este é um software livre e você pode redistribuí-lo sob certas condições.
@@ -226,13 +234,13 @@ appInfo:
   sponsorButton: Toque aqui para me patrocinar ou comprar mais armazenamento
   licenseButton: Toque aqui para ver mais informações de licença
   privacyPolicyButton: Toque aqui para ver a política de privacidade
-update:
+update: 
   updateAvailable: Atualização disponível
   updateAvailableDescription: "Uma nova versão do aplicativo está disponível, com estas mudanças:"
   update: Atualizar
   downloadNotAvailableYet(OUTDATED): O download ainda não está disponível para sua plataforma. Verifique novamente em breve.
-editor:
-  toolbar:
+editor: 
+  toolbar: 
     toggleColors: Paleta de cores (Ctrl C)
     select: Selecionar
     toggleEraser: Borracha (Ctrl E)
@@ -244,16 +252,16 @@ editor:
     export: Exportar (Ctrl Shift S)
     exportAs: "Exportar como:"
     fullscreen: Tela cheia (F11)
-  pens:
+  pens: 
     fountainPen: Caneta tinteiro
     ballpointPen: Caneta esferográfica
     highlighter: Marcador
     laserPointer: Apontador laser
     pencil(OUTDATED): Lápis
     shapePen(OUTDATED): Caneta de forma
-  penOptions:
+  penOptions: 
     size: Tamanho
-  colors:
+  colors: 
     colorPicker: Seletor de cores
     black: Preto
     darkGrey: Cinza escuro
@@ -280,33 +288,31 @@ editor:
     light(OUTDATED): luz
     cyan(OUTDATED): Ciano
     pink(OUTDATED): Rosa
-  imageOptions:
+  imageOptions: 
     title: Opções de imagem
     invertible: Invertível
     download: Download
     setAsBackground: Definir como plano de fundo
     removeAsBackground: Remover como plano de fundo
     delete: Excluir
-  selectionBar:
+  selectionBar: 
     delete: Excluir
     duplicate(OUTDATED): Duplicação
-  menu:
+  menu: 
     clearPage: Limpar a página $page/$totalPages
     clearAllPages: Limpar todas as páginas
     insertPage: Inserir página abaixo
     duplicatePage: Duplicar página
     deletePage: Apagar página
     lineHeight: Altura da linha
-    lineThickness(OUTDATED): Espessura da linha
-    lineThicknessDescription(OUTDATED): Espessura da linha de fundo
     backgroundImageFit: Ajustar a imagem de plano de fundo
     backgroundPattern: Padrão de plano de fundo
     import: Importar
-    boxFits:
+    boxFits: 
       fill: Esticar
       cover: Cobrir
       contain: Conter
-    bgPatterns:
+    bgPatterns: 
       none: Em branco
       college: Pautado com margem
       collegeRtl: Pautado com margem (Invertido)
@@ -316,17 +322,19 @@ editor:
       staffs: Pentagrama
       tablature: Tablatura
       cornell: Cornell
+    lineThickness(OUTDATED): Espessura da linha
+    lineThicknessDescription(OUTDATED): Espessura da linha de fundo
     watchServer(OUTDATED): Fique atento às atualizações no servidor
     watchServerReadOnly(OUTDATED): A edição está desativada enquanto observa o servidor
     lineHeightDescription(OUTDATED): Também controla o tamanho do texto para notas digitadas
-  newerFileFormat:
+  newerFileFormat: 
     readOnlyMode: Modo somente leitura
     title: Esta nota foi editada usando uma versão mais recente do Saber
-    subtitle: "A edição desta nota pode resultar na perda de algumas informações. Deseja ignorar isso e editá-la mesmo assim?"
+    subtitle: A edição desta nota pode resultar na perda de algumas informações. Deseja ignorar isso e editá-la mesmo assim?
     allowEditing: Permitir edição
-  quill:
+  quill: 
     typeSomething: Digite algo aqui...
-  hud:
+  hud: 
     unlockZoom: Desbloquear zoom
     lockZoom: Bloquear zoom
     unlockSingleFingerPan: Ativar rolagem com um dedo

@@ -71,6 +71,7 @@ class TranslationsHomeEn {
 	String get welcome => 'Welcome to Saber';
 	String get invalidFormat => 'The file you selected is not supported. Please select an sbn, sbn2, sba, or pdf file.';
 	String get noFiles => 'No files found';
+	String get noPreviewAvailable => 'No preview available';
 	String get createNewNote => 'Tap the + button to create a new note';
 	String get backFolder => 'Go back to the previous folder';
 	late final TranslationsHomeNewFolderEn newFolder = TranslationsHomeNewFolderEn.internal(_root);

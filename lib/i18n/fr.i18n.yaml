@@ -1,45 +1,46 @@
-common:
+common: 
   cancel: Annuler
   done(OUTDATED): Fait
   continueBtn(OUTDATED): Continuer
-home:
-  tabs:
+home: 
+  tabs: 
     home: Accueil
     browse: Parcourir
     whiteboard: Tableau blanc
     settings: Paramètres
-  titles:
+  titles: 
     home: Notes récentes
     browse: Parcourir
     whiteboard: Tableau blanc
     settings: Paramètres
-  tooltips:
+  tooltips: 
     newNote: Nouvelle note
     showUpdateDialog: Afficher le dialogue de mise à jour
     exportNote: Exporter la note
-  create:
+  create: 
     newNote: Nouvelle note
     importNote: Importer une note
   welcome: Bienvenue dans Saber
-  invalidFormat: "Type de fichier non supporté. Veuillez choisr un fichier .sbn, .sbn2, .sba ou .pdf."
+  invalidFormat: Type de fichier non supporté. Veuillez choisr un fichier .sbn, .sbn2, .sba ou .pdf.
   noFiles: Aucun fichier trouvé
+  noPreviewAvailable(OUTDATED): Aucun aperçu disponible
   createNewNote: Presser le bouton + pour créer une nouvelle note
   backFolder: Retour au dossier précédent
-  newFolder:
+  newFolder: 
     newFolder: Nouveau dossier
     folderName: Nom du dossier
     create: Créer
     folderNameEmpty: Le nom de fichier ne peut pas être vide
     folderNameContainsSlash: Le nom de fichier ne peut pas contenir une barre oblique
     folderNameExists: Un fichier du même nom existe déjà
-  renameNote:
+  renameNote: 
     renameNote: Renommer une note
     noteName: Nom de note
     rename: Renommer
     noteNameEmpty: Le nom de note ne peut pas être vide
     noteNameContainsSlash: Le nom de note ne peut pas contenir une barre oblique
     noteNameExists: Une note du même nom existe déjà
-  moveNote:
+  moveNote: 
     moveNote: Déplacer la note
     moveNotes: Déplacer $n notes
     moveName: Déplacer $f
@@ -48,26 +49,26 @@ home:
     multipleRenamedTo: "Les notes suivantes vont être renommées :"
     numberRenamedTo: $n notes vont être renommées pour résoudre des conflits
   deleteNote: Effacer la note
-  renameFolder:
+  renameFolder: 
     renameFolder: Renommer le dossier
     folderName: Nom de dossier
     rename: Renommer
     folderNameEmpty: Le nom de dossier ne peut pas être vide
     folderNameContainsSlash: Le nom de dossier ne peut pas contenir une barre oblique
     folderNameExists: Un dossier du même nom existe déjà
-  deleteFolder:
+  deleteFolder: 
     deleteFolder: Supprimer le dossier
     deleteName: Supprimer $f
     delete: Supprimer
     alsoDeleteContents: Supprimer aussi toutes les notes rangées dans ce dossier
-settings:
-  prefCategories:
+settings: 
+  prefCategories: 
     general: Général
     writing: Tracé
     editor: Editeur
     performance: Performance
     advanced: Avancé
-  prefLabels:
+  prefLabels: 
     locale: Langue
     appTheme: Thème de l'application
     platform: Type de thème
@@ -96,14 +97,14 @@ settings:
     pencilSoundSetting(OUTDATED): Effet sonore de crayon
     customDataDir(OUTDATED): Répertoire de données personnalisé
     autoStraightenLines(OUTDATED): Redresser automatiquement les lignes
-  prefDescriptions:
+  prefDescriptions: 
     hyperlegibleFont: La fonte Atkinson Hyperlegible améliore la lisibilité pour les personnes malvoyantes
     allowInsecureConnections: (Déconseillé) Autoriser Saber à se connecter à des serveurs dont les certificats sont auto-signés/non-sécurisé
     preferGreyscale: Pour les couleurs de stylos proposées
     autoClearWhiteboardOnExit: Il restera synchronisé avec vos autres appareils
     disableEraserAfterUse: Revenir automatiquement au stylo après usage de la gomme
     maxImageSize: Les images plus grandes seront compressées
-    hideFingerDrawing:
+    hideFingerDrawing: 
       shown: Empêcher l'activation/désactivation accidentelle
       fixedOn: Le tracé au doigt est fixé à activé
       fixedOff: Le tracé au doigt est fixé à désactivé
@@ -113,57 +114,57 @@ settings:
     autosaveDelay: Combien de temps attendre avant de sauvegarder automatiquement une note
     shapeRecognitionDelay: Avec quelle fréquence mettre à jour la prévisualisation de forme
     shouldAlwaysAlertForUpdates: Me prévenir dès qu'une mise à jour est disponible
-    pencilSoundSetting:
+    pencilSoundSetting: 
       off(OUTDATED): Pas de son
       onButNotInSilentMode(OUTDATED): Activé (sauf en mode silencieux)
       onAlways(OUTDATED): Activé (même en mode silencieux)
     simplifiedHomeLayout(OUTDATED): Définit une hauteur fixe pour chaque aperçu de note
     autoStraightenLines(OUTDATED): Redresse les longues lignes sans avoir à utiliser le stylo de forme
-  themeModes:
+  themeModes: 
     system: Système
     light: Clair
     dark: Foncé
-  layoutSizes:
+  layoutSizes: 
     auto: Auto
     phone: Smartphone
     tablet: Tablette
-  accentColorPicker:
+  accentColorPicker: 
     pickAColor: Choisir une couleur
   systemLanguage: Langue système
-  axisDirections:
+  axisDirections: 
     - Haut
     - Droite
     - Bas
     - Gauche
-  reset:
-    title: "Rétablir les valeurs par défaut ?"
+  reset: 
+    title: Rétablir les valeurs par défaut ?
     button: Défaut
   resyncEverything: Tout re-syncroniser
-  customDataDir:
+  customDataDir: 
     cancel(OUTDATED): Annuler
     select(OUTDATED): Sélectionner
     mustBeEmpty(OUTDATED): Le répertoire sélectionné doit être vide
     mustBeDoneSyncing(OUTDATED): Assurez-vous que la synchronisation est terminée avant de modifier le répertoire
   openDataDir(OUTDATED): Ouvrir le dossier Saber
-logs:
+logs: 
   logs(OUTDATED): Journaux
   viewLogs(OUTDATED): Afficher les journaux
   debuggingInfo(OUTDATED): Les journaux contiennent des informations utiles pour le débogage et le développement
-  noLogs(OUTDATED): "Pas de journaux ici !"
+  noLogs(OUTDATED): Pas de journaux ici !
   logsAreTemporary(OUTDATED): Les journaux ne sont conservés que jusqu'à la fermeture de l'application
-login:
+login: 
   title: Connexion
-  form:
-    agreeToPrivacyPolicy(rich): "En vous connectant, vous acceptez les ${linkToPrivacyPolicy(Privacy Policy)}."
-  signup(rich): "Pas encore de compte ? ${linkToSignup(Sign up now)} !"
-  status:
+  form: 
+    agreeToPrivacyPolicy(rich): En vous connectant, vous acceptez les ${linkToPrivacyPolicy(Privacy Policy)}.
+  signup(rich): Pas encore de compte ? ${linkToSignup(Sign up now)} !
+  status: 
     loggedOut: Déconnecté
     tapToLogin: Appuyer pour vous connecter avec Nextcloud
     loggedIn: Connecté avec Nextcloud
-    hi(OUTDATED): "Salut, $u!"
-    almostDone(OUTDATED): "Presque prêt pour la synchronisation, appuyez pour terminer la connexion"
-  ncLoginStep:
-    loginFlow:
+    hi(OUTDATED): Salut, $u!
+    almostDone(OUTDATED): Presque prêt pour la synchronisation, appuyez pour terminer la connexion
+  ncLoginStep: 
+    loginFlow: 
       pleaseAuthorize(OUTDATED): Veuillez autoriser Saber à accéder à votre compte Nextcloud
       followPrompts(OUTDATED): Veuillez suivre les instructions de votre navigateur.
       browserDidntOpen(OUTDATED): Le navigateur ne s'est pas ouvert
@@ -173,51 +174,58 @@ login:
     serverUrl(OUTDATED): URL du serveur
     loginWithSaber(OUTDATED): Connectez-vous avec Saber
     loginWithNextcloud(OUTDATED): Connectez-vous avec Nextcloud
-  encLoginStep:
+  encLoginStep: 
     enterEncPassword(OUTDATED): "Pour protéger vos données, veuillez saisir votre mot de passe de cryptage :"
     newToSaber(OUTDATED): Nouveau sur Saber
     encPassword(OUTDATED): Mot de passe de cryptage
     encFaqTitle(OUTDATED): Questions fréquemment posées
     wrongEncPassword(OUTDATED): Le décryptage a échoué avec le mot de passe fourni. Veuillez réessayer de le saisir.
     connectionFailed(OUTDATED): Une erreur s'est produite lors de la connexion au serveur. Veuillez réessayer plus tard.
-    encFaq(OUTDATED):
-      - q: "Qu'est-ce que le mot de passe de cryptage ?"
+    encFaq(OUTDATED): 
+      - 
+        q: Qu'est-ce que le mot de passe de cryptage ?
         a: |-
           Le mot de passe de cryptage est utilisé pour crypter vos données avant qu'elles ne soient envoyées au serveur. Vous le créez lors de votre première connexion à Saber, et il est indépendant de votre compte et de votre mot de passe sur Nextcloud.
           Personne ne peut accéder à vos notes sur le serveur sans votre mot de passe de chiffrement. Cela implique aussi que si vous oubliez votre mot de passe de cryptage, vous perdrez l'accès à vos données.
-      - q: "Pourquoi utiliser deux mots de passe ?"
+      - 
+        q: Pourquoi utiliser deux mots de passe ?
         a: |-
           Le mot de passe Nextcloud est utilisé pour accéder au nuage (cloud). Le mot de passe de cryptage "brouille" vos données avant même qu'elles n'atteignent le nuage.
           Même si quelqu'un accède à votre compte Nextcloud, vos notes resteront sécurisées et cryptées avec un mot de passe distinct. Cela crée un deuxième niveau de sécurité pour protéger vos données.
-      - q: "Puis-je utiliser le même mot de passe pour les deux ?"
-        a: "Oui, mais c'est moins sécurisé. Comme votre mot de passe sur Nextcloud est envoyé au serveur, toute personne qui y aurait accès pourrait decrypter vos notes. N'utilisez le même mot de passe que si vous faites confiance aux personnes qui gèrent le serveur."
-  notYou(rich, OUTDATED): "${undoLogin(Pas toi)}"
-profile:
+      - 
+        q: Puis-je utiliser le même mot de passe pour les deux ?
+        a: Oui, mais c'est moins sécurisé. Comme votre mot de passe sur Nextcloud est envoyé au serveur, toute personne qui y aurait accès pourrait decrypter vos notes. N'utilisez le même mot de passe que si vous faites confiance aux personnes qui gèrent le serveur.
+  notYou(rich, OUTDATED): ${undoLogin(Pas toi)}
+profile: 
   title: Mon profil
   logout: Déconnexion
-  quickLinks:
+  quickLinks: 
     serverHomepage: Page d'accueil du serveur
     deleteAccount: Supprimer le compte
-  faq:
-    - q: "Vais-je perdre mes notes si je me déconnecte ?"
+  faq: 
+    - 
+      q: Vais-je perdre mes notes si je me déconnecte ?
       a: Non. Vos notes seront conservées à la fois sur votre poste et sur le serveur. Elles ne seront pas synchronisées avec le serveur jusqu'à votre prochaine connexion. Assurez-vous que la synchronisation soit terminée avant de vous déconnecter pour ne perdre aucune donnée (consultez la barre de progression sur l'écran d'accueil).
-    - q: "Comment changer mon mot de passe Nextcloud ?"
-      a: "Allez sur le site web du serveur et connectez-vous. Allez dans Paramètres > Sécurité > Changer mon mot de passe. Vous devrez vous déconnecter et vous reconnecter dans Saber après avoir changé votre mot de passe."
-    - q: "Comment changer mon mot de passe de chiffrement ?"
+    - 
+      q: Comment changer mon mot de passe Nextcloud ?
+      a: Allez sur le site web du serveur et connectez-vous. Allez dans Paramètres > Sécurité > Changer mon mot de passe. Vous devrez vous déconnecter et vous reconnecter dans Saber après avoir changé votre mot de passe.
+    - 
+      q: Comment changer mon mot de passe de chiffrement ?
       a: |-
         1. Déconnectez-vous de Saber. Assurez-vous que la synchronisation soit terminée avant de vous déconnecter afin de ne perdre aucune donnée (consultez la barre de progression sur l'écran d'accueil).
         2. Sur le site web du serveur supprimez votre dossier 'Saber'. Cela supprimera toutes vos notes sur le serveur.
         3. Connectez-vous à nouveau dans Saber. Vous pourrez choisir un nouveau mot de passe de chiffrement à la connexion.
         4. N'oubliez pas de vous déconnecter et vous re-connecter dans Saber sur votre poste également.
-    - q: "Comment puis-je supprimer mon compte ?"
+    - 
+      q: Comment puis-je supprimer mon compte ?
       a: |-
         Cliquez sur le button "@:profile.quickLinks.deleteAccount" ci-dessus, et connectez-vous si nécessaire.
         Si vous utilisez le serveur Saber officiel, votre compte sera supprimé au bout d'une semaine . Durant cette période, vous pourrez me contacter à adilhanney@disroot.org pour annuler la suppression.
         Si vous utilisez un autre serveur, il n'est pas certain que vous puissiez supprimer votre compte dessus : il vous faudra consulter les règles de confidentialité du serveur pour plus d'informations.
-  quotaUsage(OUTDATED): "Vous utilisez $used sur $total ($percent%)"
+  quotaUsage(OUTDATED): Vous utilisez $used sur $total ($percent%)
   connectedTo(OUTDATED): Connecté à
   faqTitle(OUTDATED): Questions fréquemment posées
-appInfo:
+appInfo: 
   licenseNotice: |-
     Saber  Copyright © 2022-$buildYear  Adil Hanney
     Ce programme est livré sans aucune garantie. Il s'agit d'un logiciel libre, et vous pouvez le diffuser sous certaines conditions.
@@ -226,13 +234,13 @@ appInfo:
   sponsorButton: Appuyer ici pour me soutenir ou acheter ou acheter plus d'espace de stockage
   licenseButton: Appuyer ici pour plus d'information de licence
   privacyPolicyButton: Appuyez ici pour voir la politique de confidentialité
-update:
+update: 
   updateAvailable: Mise à jour disponible
   updateAvailableDescription: "Une nouvelle version de cette application est disponible, avec les changements suivants :"
   update: Mettre à jour
   downloadNotAvailableYet(OUTDATED): Le téléchargement n'est pas encore disponible pour votre plateforme. Veuillez revenir sous peu.
-editor:
-  toolbar:
+editor: 
+  toolbar: 
     toggleColors: Afficher/cacher les couleurs (Ctrl C)
     select: Sélectionner
     toggleEraser: Activer/désactiver la gomme (Ctrl E)
@@ -244,16 +252,16 @@ editor:
     export: Exporter (Ctrl Shift S)
     exportAs: "Exporter comme :"
     fullscreen: Basculer en plein ecran (F11)
-  pens:
+  pens: 
     fountainPen: Stylo encre
     ballpointPen: Stylo bille
     highlighter: Surligneur
     pencil: Crayon
     shapePen: Forme du stylo
     laserPointer: Pointeur laser
-  penOptions:
+  penOptions: 
     size: Taille
-  colors:
+  colors: 
     colorPicker: Pipette de couleur
     customBrightnessHue: Personnaliser $b $h
     customHue: Personnaliser $h
@@ -280,33 +288,31 @@ editor:
     pastelBlue: Bleu pâle
     pastelPurple: Violet pâle
     pastelPink: Rose pâle
-  imageOptions:
+  imageOptions: 
     title: Options d'image
     invertible: Couleurs inversibles
     download: Télécharger
     setAsBackground: Utiliser comme fond
     removeAsBackground: Supprimer de l'arrière-plan
     delete: Effacer
-  selectionBar:
+  selectionBar: 
     delete: Effacer
     duplicate: Dupliquer
-  menu:
+  menu: 
     clearPage: Effacer la page $page/$totalPages
     clearAllPages: Effacer toutes les pages
     insertPage: Insérer une page après
     duplicatePage: Dupliquer la page
     deletePage: Supprimer la page
     lineHeight: Hauteur de ligne
-    lineThickness(OUTDATED): Épaisseur de ligne
-    lineThicknessDescription(OUTDATED): Épaisseur de ligne de fond
     backgroundImageFit: Adaptation de l'image de fond
     backgroundPattern: Texture de fond
     import: Importer
-    boxFits:
+    boxFits: 
       fill: S'ajuste
       cover: Couvre
       contain: Contient
-    bgPatterns:
+    bgPatterns: 
       none: Vide
       college: Lignes et marge
       collegeRtl: College-ruled (Reverse)
@@ -316,17 +322,19 @@ editor:
       staffs: Staffs
       tablature: Tablature
       cornell: Cornell
+    lineThickness(OUTDATED): Épaisseur de ligne
+    lineThicknessDescription(OUTDATED): Épaisseur de ligne de fond
     watchServer(OUTDATED): Surveillez les mises à jour sur le serveur
     watchServerReadOnly(OUTDATED): L'édition est désactivée lorsque vous regardez le serveur
     lineHeightDescription(OUTDATED): Contrôle également la taille du texte pour les notes saisies
-  newerFileFormat:
+  newerFileFormat: 
     readOnlyMode: Mode lecture seule
     title: Cette note a été modifiée avec une version plus récente de Saber
-    subtitle: "Éditer cette note pourrait entraîner la perte de certaines informations. Voulez-vous la modifier quand même ?"
+    subtitle: Éditer cette note pourrait entraîner la perte de certaines informations. Voulez-vous la modifier quand même ?
     allowEditing: Autoriser les modifications
-  quill:
+  quill: 
     typeSomething: Taper du texte ici...
-  hud:
+  hud: 
     unlockZoom: Déverrouiller le zoom
     lockZoom: Verrouiller le zoom
     unlockSingleFingerPan: Activer le défilement à un seul doigt

@@ -2,6 +2,8 @@
   - Here are translations that exist in <en> but not in secondary locales.
   - After editing this file, you can run 'dart run slang apply --locale=<locale>' to quickly apply the newly added translations.
 ar: 
+  home: 
+    noPreviewAvailable(OUTDATED): No preview available
   logs: 
     logs(OUTDATED): Logs
     viewLogs(OUTDATED): View logs
@@ -13,7 +15,11 @@ ar:
       lineThickness(OUTDATED): Line thickness
       lineThicknessDescription(OUTDATED): Background line thickness
 cs: 
+  home: 
+    noPreviewAvailable(OUTDATED): No preview available
 de: 
+  home: 
+    noPreviewAvailable(OUTDATED): No preview available
   logs: 
     logs(OUTDATED): Logs
     viewLogs(OUTDATED): View logs
@@ -28,6 +34,8 @@ es:
   common: 
     done(OUTDATED): Done
     continueBtn(OUTDATED): Continue
+  home: 
+    noPreviewAvailable(OUTDATED): No preview available
   settings: 
     prefCategories: 
       performance(OUTDATED): Performance
@@ -118,6 +126,8 @@ fa:
   common: 
     done(OUTDATED): Done
     continueBtn(OUTDATED): Continue
+  home: 
+    noPreviewAvailable(OUTDATED): No preview available
   settings: 
     prefLabels: 
       autoStraightenLines(OUTDATED): Auto straighten lines
@@ -199,6 +209,8 @@ fr:
   common: 
     done(OUTDATED): Done
     continueBtn(OUTDATED): Continue
+  home: 
+    noPreviewAvailable(OUTDATED): No preview available
   settings: 
     prefLabels: 
       autoStraightenLines(OUTDATED): Auto straighten lines
@@ -282,6 +294,7 @@ he:
   home: 
     tooltips: 
       exportNote(OUTDATED): Export note
+    noPreviewAvailable(OUTDATED): No preview available
     renameNote: 
       noteNameEmpty(OUTDATED): Note name can't be empty
       noteNameContainsSlash(OUTDATED): Note name can't contain a slash
@@ -399,6 +412,7 @@ hu:
       newNote(OUTDATED): New note
       importNote(OUTDATED): Import note
     invalidFormat(OUTDATED): The file you selected is not supported. Please select an sbn, sbn2, sba, or pdf file.
+    noPreviewAvailable(OUTDATED): No preview available
     backFolder(OUTDATED): Go back to the previous folder
     newFolder: 
       newFolder(OUTDATED): New folder
@@ -616,6 +630,8 @@ hu:
       lockAxisAlignedPan(OUTDATED): Lock panning to horizontal or vertical
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
 it: 
+  home: 
+    noPreviewAvailable(OUTDATED): No preview available
   editor: 
     menu: 
       lineThickness(OUTDATED): Line thickness
@@ -633,6 +649,7 @@ ja:
       newNote(OUTDATED): New note
       importNote(OUTDATED): Import note
     invalidFormat(OUTDATED): The file you selected is not supported. Please select an sbn, sbn2, sba, or pdf file.
+    noPreviewAvailable(OUTDATED): No preview available
     backFolder(OUTDATED): Go back to the previous folder
     moveNote: 
       moveNotes(OUTDATED): Move $n notes
@@ -766,6 +783,7 @@ pt-BR:
   home: 
     tooltips: 
       exportNote(OUTDATED): Export note
+    noPreviewAvailable(OUTDATED): No preview available
     moveNote: 
       moveNotes(OUTDATED): Move $n notes
       multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
@@ -865,11 +883,15 @@ pt-BR:
       watchServer(OUTDATED): Watch for updates on the server
       watchServerReadOnly(OUTDATED): Editing is disabled while watching the server
 ru: 
+  home: 
+    noPreviewAvailable(OUTDATED): No preview available
   editor: 
     menu: 
       lineThickness(OUTDATED): Line thickness
       lineThicknessDescription(OUTDATED): Background line thickness
 tr: 
+  home: 
+    noPreviewAvailable(OUTDATED): No preview available
   logs: 
     logs(OUTDATED): Logs
     viewLogs(OUTDATED): View logs
@@ -881,6 +903,8 @@ tr:
       lineThickness(OUTDATED): Line thickness
       lineThicknessDescription(OUTDATED): Background line thickness
 zh-Hans-CN: 
+  home: 
+    noPreviewAvailable(OUTDATED): No preview available
   logs: 
     logs(OUTDATED): Logs
     viewLogs(OUTDATED): View logs
@@ -892,6 +916,8 @@ zh-Hans-CN:
       lineThickness(OUTDATED): Line thickness
       lineThicknessDescription(OUTDATED): Background line thickness
 zh-Hant-TW: 
+  home: 
+    noPreviewAvailable(OUTDATED): No preview available
   editor: 
     menu: 
       lineThickness(OUTDATED): Line thickness
