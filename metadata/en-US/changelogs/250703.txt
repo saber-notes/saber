@@ -1,0 +1,3 @@
+• Fixed lag caused by generating previews for old notes (2023 or older). Old notes will now have a placeholder instead of a preview.
+• Added a slight animation between home screen tabs.
+• Minor improvements to the sync button's progress circle.
