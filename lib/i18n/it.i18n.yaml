@@ -98,7 +98,7 @@ settings:
     customDataDir: Cartella Saber personalizzata
     pencilSoundSetting: Effetto sonoro della matita
   prefDescriptions: 
-    hyperlegibleFont: Atkinson Hyperlegible aumenta la leggibilità per i lettori ipovedenti
+    hyperlegibleFont: Atkinson Iperleggibile aumenta la leggibilità per i lettori ipovedenti
     allowInsecureConnections: (Non consigliato) Consenti a Saber di connettersi ai server con certificati autofirmati/non attendibili
     preferGreyscale: Per display e-ink
     autoClearWhiteboardOnExit: Sarà comunque sincronizzato con gli altri tuoi dispositivi
