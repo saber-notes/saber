@@ -1,3 +1,0 @@
-• Lag fixo causado pela geração de visualizações para notas antigas (2023 ou mais). As notas antigas agora terão um espaço reservado em vez de uma prévia.
-• Adicionado uma ligeira animação entre as guias da tela inicial.
-• Pequenas melhorias no círculo de progresso do botão de sincronização.
