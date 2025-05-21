@@ -19,7 +19,7 @@ class SyncingButton extends StatefulWidget {
 
 class _SyncingButtonState extends State<SyncingButton> {
   /// The number of files transferred since we started listening.
-  int filesTransferred = 0;
+  static int filesTransferred = 0;
 
   late final StreamSubscription queueListener, transferListener;
 
@@ -43,6 +43,7 @@ class _SyncingButtonState extends State<SyncingButton> {
   }
 
   void _onUsernameChanged() {
+    filesTransferred = 0;
     if (mounted) setState(() {});
   }
 
@@ -51,11 +52,15 @@ class _SyncingButtonState extends State<SyncingButton> {
   double? getPercentage() {
     if (syncer.downloader.isRefreshing) {
       // If still refreshing, show an indeterminate progress indicator.
+      filesTransferred = 0;
       return null;
     }
 
     final numPending = syncer.downloader.numPending;
-    if (numPending == 0) return 1;
+    if (numPending == 0) {
+      filesTransferred = 0;
+      return 1;
+    }
 
     return (0.2 + filesTransferred) / (0.2 + filesTransferred + numPending);
   }
