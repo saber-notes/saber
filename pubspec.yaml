@@ -168,12 +168,6 @@ dev_dependencies:
   golden_screenshot: ^3.2.1
 
 dependency_overrides:
-  # https://github.com/alexei-sintotski/json2yaml/pull/30
-  json2yaml:
-    git:
-      url: https://github.com/adil192/json2yaml
-      ref: fix-string-ends-with-colon
-
   # https://github.com/KasemJaffer/receive_sharing_intent/pull/333
   receive_sharing_intent:
     git:
@@ -192,6 +186,13 @@ dependency_overrides:
     git:
       url: https://github.com/ubuntu/yaru.dart
       ref: chore/flutter_3.32.0
+
+  # https://github.com/slang-i18n/slang/pull/299
+  slang:
+    git:
+      url: https://github.com/adil192/slang
+      ref: fix/multiline-strings-in-yaml
+      path: slang
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

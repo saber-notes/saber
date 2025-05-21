@@ -796,15 +796,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.7.2"
-  json2yaml:
-    dependency: "direct overridden"
-    description:
-      path: "."
-      ref: fix-string-ends-with-colon
-      resolved-ref: "618fc6b7c57acd17cfa98ef7895a771938374456"
-      url: "https://github.com/adil192/json2yaml"
-    source: git
-    version: "3.0.1"
   json_annotation:
     dependency: transitive
     description:
@@ -1541,10 +1532,11 @@ packages:
   slang:
     dependency: "direct main"
     description:
-      name: slang
-      sha256: "13132690084bef34fb74dbc698a1e5496f97afbcd3eb58e20c09393e77ac46e6"
-      url: "https://pub.dev"
-    source: hosted
+      path: slang
+      ref: "fix/multiline-strings-in-yaml"
+      resolved-ref: "1575c514035346ecd5fe9716c1738413764a5ed5"
+      url: "https://github.com/adil192/slang"
+    source: git
     version: "4.7.1"
   slang_flutter:
     dependency: "direct main"
