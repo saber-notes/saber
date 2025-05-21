@@ -57,10 +57,6 @@ android {
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
-
-        ndk {
-            debugSymbolLevel 'FULL'
-        }
     }
 
     signingConfigs {
