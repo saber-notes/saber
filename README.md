@@ -28,10 +28,6 @@ Unofficial packages:
 [<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/snap-badge.svg"
     alt="Get it from the Snap Store"
     height=50>][snap]
-&nbsp;
-[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/copr.png"
-    alt="Get it from Fedora Copr"
-    height=50>][copr]
 
 [English](https://github.com/saber-notes/saber/blob/main/README.md) |
 [čeština](https://github.com/saber-notes/saber/blob/main/README-cs.md) |
@@ -111,10 +107,6 @@ make it executable with `chmod +x Saber-*-x86_64.AppImage`, then run it.
 Option 3:
 There's an unofficial [snap][snap] available thanks to @soumyaDghosh.
 `sudo snap install saber`
-
-Option 4:
-There's an unofficial Fedora Copr [repo][copr] available thanks to @jyo64.
-`sudo dnf copr enable jyo64/Saber && sudo dnf install saber`
 
 #### Windows
 
@@ -360,7 +352,6 @@ If you like Saber, please consider supporting it by:
 [app_store]: https://apps.apple.com/us/app/saber/id1671523739
 [download_windows]: https://github.com/saber-notes/saber/releases/download/v0.25.7/SaberInstaller_v0.25.7.exe
 [download_appimage]: https://github.com/saber-notes/saber/releases/download/v0.25.7/Saber-0.25.7-x86_64.AppImage
-[copr]: https://copr.fedorainfracloud.org/coprs/jyo64/Saber/
 
 [nextcloud]: https://nc.saber.adil.hanney.org/
 

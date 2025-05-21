@@ -28,10 +28,6 @@ Unofficial packages:
 [<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/snap-badge.svg"
     alt="Get it from the Snap Store"
     height=50>][snap]
-&nbsp;
-[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/copr.png"
-    alt="Get it from Fedora Copr"
-    height=50>][copr]
 
 [English](https://github.com/saber-notes/saber/blob/main/README.md) |
 [čeština](https://github.com/saber-notes/saber/blob/main/README-cs.md) |
@@ -108,10 +104,6 @@ Saber 可以满足您整理笔记的一切需求。您可以随心所欲地创�
 选项 3：
 有一个非官方的 [snap][snap] 渠道，感谢  @soumyaDghosh。
 `sudo snap install saber`
-
-选项 4：
-There's an unofficial Fedora Copr [repo][copr] available thanks to @jyo64.
-`sudo dnf copr enable jyo64/Saber && sudo dnf install saber`
 
 #### Windows
 
