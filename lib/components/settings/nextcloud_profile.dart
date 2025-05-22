@@ -76,22 +76,16 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
       leading: ValueListenableBuilder(
         valueListenable: Prefs.pfp,
         builder: (BuildContext context, Uint8List? pfp, _) {
-          if (pfp == null) {
-            return const Icon(Icons.account_circle, size: 48);
-          } else {
-            return ClipPath(
-              clipper: ShapeBorderClipper(
-                shape: ContinuousRectangleBorder(
-                  borderRadius: BorderRadius.circular(40),
-                ),
-              ),
-              child: Image.memory(
-                pfp,
-                width: 48,
-                height: 48,
-              ),
-            );
-          }
+          return ClipRSuperellipse(
+            borderRadius: BorderRadius.circular(18),
+            child: pfp == null
+                ? const _UnknownPfp(size: 48)
+                : Image.memory(
+                    pfp,
+                    width: 48,
+                    height: 48,
+                  ),
+          );
         },
       ),
       title: Text(heading),
@@ -171,5 +165,28 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
     final used = readableBytes(quota?.used);
     final total = readableBytes(quota?.total);
     return '$used / $total';
+  }
+}
+
+class _UnknownPfp extends StatelessWidget {
+  const _UnknownPfp({required this.size});
+
+  final double size;
+
+  @override
+  Widget build(BuildContext context) {
+    final colorScheme = ColorScheme.of(context);
+    return SizedBox(
+      width: size,
+      height: size,
+      child: ColoredBox(
+        color: colorScheme.primaryContainer,
+        child: Icon(
+          Icons.person,
+          color: colorScheme.onPrimaryContainer,
+          size: size * 0.7,
+        ),
+      ),
+    );
   }
 }
