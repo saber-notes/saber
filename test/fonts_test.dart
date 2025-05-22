@@ -11,7 +11,7 @@ const _appFonts = [
 ];
 
 void main() {
-  testWidgets('Fonts', (tester) async {
+  testGoldens('Fonts', (tester) async {
     await tester.pumpWidget(MaterialApp(
       home: Scaffold(
         body: Center(

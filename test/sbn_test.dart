@@ -95,7 +95,7 @@ void main() {
           EditorImage.shouldLoadOutImmediately = false;
         });
 
-        testWidgets('(Light)', (tester) async {
+        testGoldens('(Light)', (tester) async {
           await tester.runAsync(() => _precacheImages(
                 context: tester.binding.rootElement!,
                 page: page,
@@ -116,7 +116,7 @@ void main() {
           );
         });
 
-        testWidgets('(Dark)', (tester) async {
+        testGoldens('(Dark)', (tester) async {
           await tester.runAsync(() => _precacheImages(
                 context: tester.binding.rootElement!,
                 page: page,
@@ -146,7 +146,7 @@ void main() {
             hasGhostscript = false;
           }
 
-          testWidgets('(PDF)', (tester) async {
+          testGoldens('(PDF)', (tester) async {
             final context = await _getBuildContext(tester, page.size);
 
             final pdfFile = File(p.join(tmpDir, '$sbnName.pdf'));
@@ -187,7 +187,7 @@ void main() {
       });
     }
 
-    testWidgets('SBA export and import', (tester) async {
+    testGoldens('SBA export and import', (tester) async {
       const path = 'test/sbn_examples/v19_separate_assets.sbn2';
       final pathWithoutExtension = path.substring(0, path.lastIndexOf('.'));
 
