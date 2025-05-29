@@ -94,7 +94,7 @@ dependencies:
   window_manager: ^0.4.2
 
   worker_manager: ^7.0.1
-  workmanager: ^0.5.0
+  workmanager: ^0.6.0
 
   archive: ^4.0.3
 
@@ -157,7 +157,7 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^5.0.0
+  flutter_lints: ^6.0.0
 
   icons_launcher: ^3.0.0
 
@@ -174,25 +174,11 @@ dependency_overrides:
       url: https://github.com/KasemJaffer/receive_sharing_intent
       ref: 2cea396843cd3ab1b5ec4334be4233864637874e
 
-  # https://github.com/fluttercommunity/flutter_workmanager/issues/588
-  workmanager:
-    git:
-      url: https://github.com/fluttercommunity/flutter_workmanager
-      path: workmanager
-      ref: main
-  
   # https://github.com/ubuntu/yaru.dart/pull/992
   yaru:
     git:
       url: https://github.com/ubuntu/yaru.dart
-      ref: chore/flutter_3.32.0
-
-  # https://github.com/slang-i18n/slang/pull/299
-  slang:
-    git:
-      url: https://github.com/adil192/slang
-      ref: fix/multiline-strings-in-yaml
-      path: slang
+      ref: main
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
