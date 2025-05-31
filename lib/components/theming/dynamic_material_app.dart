@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:dynamic_color/dynamic_color.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -53,11 +54,15 @@ class DynamicMaterialApp extends StatefulWidget {
 
 class _DynamicMaterialAppState extends State<DynamicMaterialApp>
     with WindowListener {
-  bool requiresCustomFont = false;
-
+  /// Synced with [PageTransitionsTheme._defaultBuilders]
+  /// but with PredictiveBackPageTransitionsBuilder for Android.
   static const _pageTransitionsTheme = PageTransitionsTheme(
     builders: {
       TargetPlatform.android: PredictiveBackPageTransitionsBuilder(),
+      TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
+      TargetPlatform.macOS: CupertinoPageTransitionsBuilder(),
+      TargetPlatform.windows: ZoomPageTransitionsBuilder(),
+      TargetPlatform.linux: ZoomPageTransitionsBuilder(),
     },
   );
 
@@ -67,7 +72,6 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp>
     Prefs.platform.addListener(onChanged);
     Prefs.accentColor.addListener(onChanged);
     Prefs.hyperlegibleFont.addListener(onChanged);
-    decideOnFont();
 
     windowManager.addListener(this);
     SystemChrome.setSystemUIChangeCallback(_onFullscreenChange);
@@ -94,31 +98,10 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp>
         updateSystem: false);
   }
 
-  /// We need to use a custom font if macOS < 10.13,
-  /// see https://github.com/saber-notes/saber/issues/26
-  void decideOnFont() {
-    if (!Platform.isMacOS) return;
-
-    final RegExp numberRegex = RegExp(r'\d+\.\d+'); // e.g. 10.13 or 12.5
-    final RegExpMatch? osVersionMatch =
-        numberRegex.firstMatch(Platform.operatingSystemVersion);
-    if (osVersionMatch == null) return;
-
-    final double osVersion = double.tryParse(osVersionMatch[0] ?? '0') ?? 0;
-    if (osVersion >= 10.13) return;
-
-    requiresCustomFont = true;
-  }
-
   TextTheme? getTextTheme(Brightness brightness) {
     if (Prefs.hyperlegibleFont.loaded && Prefs.hyperlegibleFont.value) {
       return ThemeData(brightness: brightness).textTheme.withFont(
             fontFamily: 'AtkinsonHyperlegible',
-            fontFamilyFallback: saberSansSerifFontFallbacks,
-          );
-    } else if (requiresCustomFont) {
-      return ThemeData(brightness: brightness).textTheme.withFont(
-            fontFamily: 'Inter',
             fontFamilyFallback: saberSansSerifFontFallbacks,
           );
     } else {
@@ -173,11 +156,11 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp>
           contrastLevel: 1,
         );
 
-        final TargetPlatform? platform = switch (Prefs.platform.value) {
+        final platform = switch (Prefs.platform.value) {
           TargetPlatform.iOS => TargetPlatform.iOS,
           TargetPlatform.android => TargetPlatform.android,
           TargetPlatform.linux => TargetPlatform.linux,
-          _ => null,
+          _ => defaultTargetPlatform,
         };
 
         return YaruBuilder(

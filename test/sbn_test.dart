@@ -9,6 +9,7 @@ import 'package:path/path.dart' as p;
 import 'package:saber/components/canvas/canvas.dart';
 import 'package:saber/components/canvas/image/editor_image.dart';
 import 'package:saber/components/canvas/pencil_shader.dart';
+import 'package:saber/components/theming/font_fallbacks.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/data/editor/editor_exporter.dart';
 import 'package:saber/data/editor/page.dart';
@@ -100,7 +101,7 @@ void main() {
                 context: tester.binding.rootElement!,
                 page: page,
               ));
-          await tester.loadFonts();
+          await tester.loadFonts(overriddenFonts: saberSansSerifFontFallbacks);
           await tester.pumpWidget(_buildCanvas(
             brightness: Brightness.light,
             path: path,
@@ -121,7 +122,7 @@ void main() {
                 context: tester.binding.rootElement!,
                 page: page,
               ));
-          await tester.loadFonts();
+          await tester.loadFonts(overriddenFonts: saberSansSerifFontFallbacks);
           await tester.pumpWidget(_buildCanvas(
             brightness: Brightness.dark,
             path: path,
@@ -240,7 +241,7 @@ void main() {
             context: tester.binding.rootElement!,
             page: importedCoreInfo.pages.first,
           ));
-      await tester.loadFonts();
+      await tester.loadFonts(overriddenFonts: saberSansSerifFontFallbacks);
       await tester.pumpWidget(_buildCanvas(
         brightness: Brightness.light,
         path: importedPath,

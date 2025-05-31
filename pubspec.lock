@@ -173,10 +173,10 @@ packages:
     dependency: transitive
     description:
       name: built_value
-      sha256: ea90e81dc4a25a043d9bee692d20ed6d1c4a1662a28c03a96417446c093ed6b4
+      sha256: "082001b5c3dc495d4a42f1d5789990505df20d8547d42507c29050af6933ee27"
       url: "https://pub.dev"
     source: hosted
-    version: "8.9.5"
+    version: "8.10.1"
   chalkdart:
     dependency: transitive
     description:
@@ -527,10 +527,10 @@ packages:
     dependency: "direct dev"
     description:
       name: flutter_lints
-      sha256: "5398f14efa795ffb7a33e9b6a08798b26a180edac4ad7db3f231e40f82ce11e1"
+      sha256: "3105dc8492f6183fb076ccf1f351ac3d60564bff92e20bfc4af9cc1651f4e7e1"
       url: "https://pub.dev"
     source: hosted
-    version: "5.0.0"
+    version: "6.0.0"
   flutter_localizations:
     dependency: "direct main"
     description: flutter
@@ -577,12 +577,13 @@ packages:
     source: hosted
     version: "0.1.0"
   flutter_secure_storage_linux:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
-      name: flutter_secure_storage_linux
-      sha256: "9b4b73127e857cd3117d43a70fa3dddadb6e0b253be62e6a6ab85caa0742182c"
-      url: "https://pub.dev"
-    source: hosted
+      path: flutter_secure_storage_linux
+      ref: patch-2
+      resolved-ref: f076cbb65b075afd6e3b648122987a67306dc298
+      url: "https://github.com/m-berto/flutter_secure_storage.git"
+    source: git
     version: "2.0.1"
   flutter_secure_storage_platform_interface:
     dependency: transitive
@@ -691,18 +692,10 @@ packages:
     dependency: "direct dev"
     description:
       name: golden_screenshot
-      sha256: "0ecff8fde3eaea98d2f19449fb2becf67583cb0e98326b1a6ad47226137099a1"
+      sha256: "8178266a5827eb74caf7547a19d42051e7493a4bbcc206917f62f4830729b6c3"
       url: "https://pub.dev"
     source: hosted
-    version: "3.2.1"
-  golden_toolkit:
-    dependency: transitive
-    description:
-      name: golden_toolkit
-      sha256: "8f74adab33154fe7b731395782797021f97d2edc52f7bfb85ff4f1b5c4a215f0"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.15.0"
+    version: "3.3.0"
   gsettings:
     dependency: transitive
     description:
@@ -773,12 +766,13 @@ packages:
     source: hosted
     version: "0.20.2"
   irondash_engine_context:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
-      name: irondash_engine_context
-      sha256: cd7b769db11a2b5243b037c8a9b1ecaef02e1ae27a2d909ffa78c1dad747bb10
-      url: "https://pub.dev"
-    source: hosted
+      path: "engine_context/dart"
+      ref: "refs/pull/66/head"
+      resolved-ref: e2551d9a3b0272a723b3627c5ef70e01a9e26961
+      url: "https://github.com/irondash/irondash.git"
+    source: git
     version: "0.5.4"
   irondash_message_channel:
     dependency: transitive
@@ -840,10 +834,10 @@ packages:
     dependency: transitive
     description:
       name: lints
-      sha256: c35bb79562d980e9a453fc715854e1ed39e24e7d0297a880ef54e17f9874a9d7
+      sha256: a5e2b223cb7c9c8efdc663ef484fdd95bb243bff242ef5b13e26883547fce9a0
       url: "https://pub.dev"
     source: hosted
-    version: "5.1.1"
+    version: "6.0.0"
   list_utilities:
     dependency: transitive
     description:
@@ -888,10 +882,10 @@ packages:
     dependency: "direct main"
     description:
       name: material_symbols_icons
-      sha256: d45b6c36c3effa8cb51b1afb8698107d5ff1f88fa4631428f34a8a01abc295d7
+      sha256: "7c50901b39d1ad645ee25d920aed008061e1fd541a897b4ebf2c01d966dbf16b"
       url: "https://pub.dev"
     source: hosted
-    version: "4.2815.0"
+    version: "4.2815.1"
   matrix4_transform:
     dependency: transitive
     description:
@@ -1127,10 +1121,10 @@ packages:
     dependency: "direct main"
     description:
       name: pdfrx
-      sha256: "90747e916a64366b8beb69e9ac175e9134df520110543ab284b839102bf4b7e1"
+      sha256: b99d8ccea55f1c7ca853990f19bf9bf48133280143acce755d69908b6001f5b5
       url: "https://pub.dev"
     source: hosted
-    version: "1.1.29"
+    version: "1.1.31"
   perfect_freehand:
     dependency: "direct main"
     description:
@@ -1532,12 +1526,11 @@ packages:
   slang:
     dependency: "direct main"
     description:
-      path: slang
-      ref: "fix/multiline-strings-in-yaml"
-      resolved-ref: "1575c514035346ecd5fe9716c1738413764a5ed5"
-      url: "https://github.com/adil192/slang"
-    source: git
-    version: "4.7.1"
+      name: slang
+      sha256: "6668a08355b370d5cb5446fc869c4492ed23c6433934fe88228876460fedac22"
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.7.2"
   slang_flutter:
     dependency: "direct main"
     description:
@@ -1595,12 +1588,13 @@ packages:
     source: hosted
     version: "0.9.0-dev.6"
   super_native_extensions:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
-      name: super_native_extensions
-      sha256: "09ccc40c475e6f91770eaeb2553bf4803812d7beadc3759aa57d643370619c86"
-      url: "https://pub.dev"
-    source: hosted
+      path: super_native_extensions
+      ref: "refs/pull/525/head"
+      resolved-ref: d3020a8c5acd8555707b3b6477fd744d09f3e22f
+      url: "https://github.com/superlistapp/super_native_extensions.git"
+    source: git
     version: "0.9.0-dev.6"
   sync_http:
     dependency: transitive
@@ -1758,10 +1752,10 @@ packages:
     dependency: transitive
     description:
       name: vector_graphics_compiler
-      sha256: "1b4b9e706a10294258727674a340ae0d6e64a7231980f9f9a3d12e4b42407aad"
+      sha256: "557a315b7d2a6dbb0aaaff84d857967ce6bdc96a63dc6ee2a57ce5a6ee5d3331"
       url: "https://pub.dev"
     source: hosted
-    version: "1.1.16"
+    version: "1.1.17"
   vector_math:
     dependency: "direct main"
     description:
@@ -1853,12 +1847,11 @@ packages:
   workmanager:
     dependency: "direct main"
     description:
-      path: workmanager
-      ref: main
-      resolved-ref: "387d30698678dbf40585fa4732be60a74f9e07ef"
-      url: "https://github.com/fluttercommunity/flutter_workmanager"
-    source: git
-    version: "0.5.2"
+      name: workmanager
+      sha256: f3c3ce6d79cce53eee4a29dd2e8328c25db5ba5d9062fcc5e8f3c71e0af9b7e4
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.6.0"
   xdg_directories:
     dependency: transitive
     description:
@@ -1895,8 +1888,8 @@ packages:
     dependency: "direct main"
     description:
       path: "."
-      ref: "chore/flutter_3.32.0"
-      resolved-ref: "1d569297c70a90980d54e34104e5db7c3a68c32e"
+      ref: main
+      resolved-ref: "1c1876cd9d4b99b8d281cb5a99606e21ffc79102"
       url: "https://github.com/ubuntu/yaru.dart"
     source: git
     version: "7.0.0"
@@ -1941,5 +1934,5 @@ packages:
     source: hosted
     version: "0.0.3+1"
 sdks:
-  dart: ">=3.7.0 <4.0.0"
+  dart: ">=3.8.0 <4.0.0"
   flutter: ">=3.29.0"

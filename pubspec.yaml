@@ -94,7 +94,7 @@ dependencies:
   window_manager: ^0.4.2
 
   worker_manager: ^7.0.1
-  workmanager: ^0.5.0
+  workmanager: ^0.6.0
 
   archive: ^4.0.3
 
@@ -157,7 +157,7 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^5.0.0
+  flutter_lints: ^6.0.0
 
   icons_launcher: ^3.0.0
 
@@ -165,7 +165,7 @@ dev_dependencies:
 
   yaml: ^3.1.2
 
-  golden_screenshot: ^3.2.1
+  golden_screenshot: ^3.3.0
 
 dependency_overrides:
   # https://github.com/KasemJaffer/receive_sharing_intent/pull/333
@@ -174,25 +174,30 @@ dependency_overrides:
       url: https://github.com/KasemJaffer/receive_sharing_intent
       ref: 2cea396843cd3ab1b5ec4334be4233864637874e
 
-  # https://github.com/fluttercommunity/flutter_workmanager/issues/588
-  workmanager:
-    git:
-      url: https://github.com/fluttercommunity/flutter_workmanager
-      path: workmanager
-      ref: main
-  
   # https://github.com/ubuntu/yaru.dart/pull/992
   yaru:
     git:
       url: https://github.com/ubuntu/yaru.dart
-      ref: chore/flutter_3.32.0
+      ref: main
 
-  # https://github.com/slang-i18n/slang/pull/299
-  slang:
+  # https://github.com/juliansteenbakker/flutter_secure_storage/issues/920
+  flutter_secure_storage_linux:
     git:
-      url: https://github.com/adil192/slang
-      ref: fix/multiline-strings-in-yaml
-      path: slang
+      url: https://github.com/m-berto/flutter_secure_storage.git
+      ref: patch-2
+      path: flutter_secure_storage_linux
+
+  # https://github.com/superlistapp/super_native_extensions/issues/524
+  super_native_extensions:
+    git:
+      url: https://github.com/superlistapp/super_native_extensions.git
+      ref: refs/pull/525/head
+      path: super_native_extensions
+  irondash_engine_context:
+    git:
+      url: https://github.com/irondash/irondash.git
+      ref: refs/pull/66/head
+      path: engine_context/dart
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -211,7 +216,6 @@ flutter:
     - assets/google_fonts/Atkinson_Hyperlegible/
     - assets/google_fonts/Dekko/
     - assets/google_fonts/Fira_Mono/
-    - assets/google_fonts/Inter/
     - assets/google_fonts/Neucha/
     - assets/audio/
 
@@ -260,11 +264,6 @@ flutter:
           weight: 500
         - asset: assets/google_fonts/Fira_Mono/FiraMono-Bold.ttf
           weight: 700
-    - family: Inter
-      fonts:
-        - asset: assets/google_fonts/Inter/Inter-VariableFont_opsz,wght.ttf
-        - asset: assets/google_fonts/Inter/Inter-Italic-VariableFont_opsz,wght.ttf
-          style: italic
     - family: Neucha
       fonts:
         - asset: assets/google_fonts/Neucha/Neucha-Regular.ttf

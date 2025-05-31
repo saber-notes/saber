@@ -23,7 +23,7 @@ class SettingsDirectorySelector extends StatelessWidget {
   final IconData icon;
   final ValueChanged<Color?>? afterChange;
 
-  void onPressed(context) async {
+  void onPressed(BuildContext context) async {
     final oldDir = Directory(FileManager.documentsDirectory);
     final oldDirIsEmpty =
         oldDir.existsSync() ? oldDir.listSync().isEmpty : true;

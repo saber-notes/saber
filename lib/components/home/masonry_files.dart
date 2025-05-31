@@ -33,7 +33,7 @@ class _MasonryFilesState extends State<MasonryFiles> {
     widget.selectedFiles.notifyListenersPlease();
   }
 
-  Widget itemBuilder(context, index) {
+  Widget itemBuilder(BuildContext context, int index) {
     if (index >= widget.files.length) {
       return const SizedBox.shrink();
     }
