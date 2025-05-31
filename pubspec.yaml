@@ -204,7 +204,6 @@ flutter:
     - assets/google_fonts/Atkinson_Hyperlegible/
     - assets/google_fonts/Dekko/
     - assets/google_fonts/Fira_Mono/
-    - assets/google_fonts/Inter/
     - assets/google_fonts/Neucha/
     - assets/audio/
 
@@ -253,11 +252,6 @@ flutter:
           weight: 500
         - asset: assets/google_fonts/Fira_Mono/FiraMono-Bold.ttf
           weight: 700
-    - family: Inter
-      fonts:
-        - asset: assets/google_fonts/Inter/Inter-VariableFont_opsz,wght.ttf
-        - asset: assets/google_fonts/Inter/Inter-Italic-VariableFont_opsz,wght.ttf
-          style: italic
     - family: Neucha
       fonts:
         - asset: assets/google_fonts/Neucha/Neucha-Regular.ttf
