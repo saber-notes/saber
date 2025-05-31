@@ -1,0 +1,4 @@
+• Eski notlar (2023 veya daha büyük) için önizlemeler oluşturmanın neden olduğu sabit gecikme. Eski notlar artık önizleme yerine bir yer tutucuya sahip olacak.
+• Ana ekran sekmeleri arasında hafif bir animasyon eklendi.
+• Çeşitli yerlerde küçük kullanıcı arayüzü iyileştirmeleri.
+• Platform temasına küçük düzeltmeler.

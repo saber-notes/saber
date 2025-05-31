@@ -214,6 +214,16 @@
     </screenshots>
 
     <releases>
+        <release version="0.25.8" type="development" date="2025-05-31">
+            <description>
+                <ul>
+                    <li>Fixed lag caused by generating previews for old notes (2023 or older). Old notes will now have a placeholder instead of a preview.</li>
+                    <li>Added a slight animation between home screen tabs.</li>
+                    <li>Minor UI improvements in various places.</li>
+                    <li>Minor fixes to platform theming.</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.25.6" type="development" date="2025-05-12">
             <description>
                 <ul>
