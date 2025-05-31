@@ -187,6 +187,18 @@ dependency_overrides:
       ref: patch-2
       path: flutter_secure_storage_linux
 
+  # https://github.com/superlistapp/super_native_extensions/issues/524
+  super_native_extensions:
+    git:
+      url: https://github.com/superlistapp/super_native_extensions.git
+      ref: refs/pull/525/head
+      path: super_native_extensions
+  irondash_engine_context:
+    git:
+      url: https://github.com/irondash/irondash.git
+      ref: refs/pull/66/head
+      path: engine_context/dart
+
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
