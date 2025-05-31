@@ -23,7 +23,7 @@ home:
   welcome: Vítejte v aplikaci Saber
   invalidFormat: Vybrali jste nepodporovaný soubor. Vyberte prosím soubor s příponou .sbn, .sbn2, .sba nebo .pdf.
   noFiles: Žádné poznámky nebyly nalezeny
-  noPreviewAvailable(OUTDATED): Není k dispozici žádný náhled
+  noPreviewAvailable: Náhled není k dispozici
   createNewNote: Pro přidání nové poznámky klepněte na tlačítko +
   backFolder: Přejít do předchozí složky
   newFolder: 

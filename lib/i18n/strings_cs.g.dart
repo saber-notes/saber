@@ -69,7 +69,7 @@ class _TranslationsHomeCs extends TranslationsHomeEn {
 	@override String get welcome => 'Vítejte v aplikaci Saber';
 	@override String get invalidFormat => 'Vybrali jste nepodporovaný soubor. Vyberte prosím soubor s příponou .sbn, .sbn2, .sba nebo .pdf.';
 	@override String get noFiles => 'Žádné poznámky nebyly nalezeny';
-	@override String get noPreviewAvailable => 'Není k dispozici žádný náhled';
+	@override String get noPreviewAvailable => 'Náhled není k dispozici';
 	@override String get createNewNote => 'Pro přidání nové poznámky klepněte na tlačítko +';
 	@override String get backFolder => 'Přejít do předchozí složky';
 	@override late final _TranslationsHomeNewFolderCs newFolder = _TranslationsHomeNewFolderCs._(_root);
