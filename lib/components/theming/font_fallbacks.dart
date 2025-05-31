@@ -9,9 +9,12 @@ const saberSansSerifFontFallbacks = [
   'Liberation Sans',
   'Fira Sans',
   'Cantarell',
-  'Sans',
   'system-ui',
   'sans-serif',
+  '.SF Pro Display',
+  '.SF Pro Text',
+  '.SF UI Display',
+  '.SF UI Text',
   'Neucha',
   'Dekko',
 ];

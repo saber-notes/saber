@@ -165,7 +165,7 @@ dev_dependencies:
 
   yaml: ^3.1.2
 
-  golden_screenshot: ^3.2.1
+  golden_screenshot: ^3.3.0
 
 dependency_overrides:
   # https://github.com/KasemJaffer/receive_sharing_intent/pull/333

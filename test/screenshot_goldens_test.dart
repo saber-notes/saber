@@ -209,7 +209,7 @@ void _screenshot({
         await tester.pump();
         await tester.precacheImagesInWidgetTree();
         await tester.precacheTopbarImages();
-        await tester.loadFonts();
+        await tester.loadFonts(overriddenFonts: saberSansSerifFontFallbacks);
         await tester.pumpFrames(widget, const Duration(milliseconds: 100));
 
         await tester.expectScreenshot(
