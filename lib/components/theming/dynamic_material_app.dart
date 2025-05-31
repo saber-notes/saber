@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:dynamic_color/dynamic_color.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -173,11 +174,11 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp>
           contrastLevel: 1,
         );
 
-        final TargetPlatform? platform = switch (Prefs.platform.value) {
+        final platform = switch (Prefs.platform.value) {
           TargetPlatform.iOS => TargetPlatform.iOS,
           TargetPlatform.android => TargetPlatform.android,
           TargetPlatform.linux => TargetPlatform.linux,
-          _ => null,
+          _ => defaultTargetPlatform,
         };
 
         return YaruBuilder(
