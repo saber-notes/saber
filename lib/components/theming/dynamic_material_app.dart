@@ -56,9 +56,15 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp>
     with WindowListener {
   bool requiresCustomFont = false;
 
+  /// Synced with [PageTransitionsTheme._defaultBuilders]
+  /// but with PredictiveBackPageTransitionsBuilder for Android.
   static const _pageTransitionsTheme = PageTransitionsTheme(
     builders: {
       TargetPlatform.android: PredictiveBackPageTransitionsBuilder(),
+      TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
+      TargetPlatform.macOS: CupertinoPageTransitionsBuilder(),
+      TargetPlatform.windows: ZoomPageTransitionsBuilder(),
+      TargetPlatform.linux: ZoomPageTransitionsBuilder(),
     },
   );
 
