@@ -54,8 +54,6 @@ class DynamicMaterialApp extends StatefulWidget {
 
 class _DynamicMaterialAppState extends State<DynamicMaterialApp>
     with WindowListener {
-  bool requiresCustomFont = false;
-
   /// Synced with [PageTransitionsTheme._defaultBuilders]
   /// but with PredictiveBackPageTransitionsBuilder for Android.
   static const _pageTransitionsTheme = PageTransitionsTheme(
@@ -74,7 +72,6 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp>
     Prefs.platform.addListener(onChanged);
     Prefs.accentColor.addListener(onChanged);
     Prefs.hyperlegibleFont.addListener(onChanged);
-    decideOnFont();
 
     windowManager.addListener(this);
     SystemChrome.setSystemUIChangeCallback(_onFullscreenChange);
@@ -101,31 +98,10 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp>
         updateSystem: false);
   }
 
-  /// We need to use a custom font if macOS < 10.13,
-  /// see https://github.com/saber-notes/saber/issues/26
-  void decideOnFont() {
-    if (!Platform.isMacOS) return;
-
-    final RegExp numberRegex = RegExp(r'\d+\.\d+'); // e.g. 10.13 or 12.5
-    final RegExpMatch? osVersionMatch =
-        numberRegex.firstMatch(Platform.operatingSystemVersion);
-    if (osVersionMatch == null) return;
-
-    final double osVersion = double.tryParse(osVersionMatch[0] ?? '0') ?? 0;
-    if (osVersion >= 10.13) return;
-
-    requiresCustomFont = true;
-  }
-
   TextTheme? getTextTheme(Brightness brightness) {
     if (Prefs.hyperlegibleFont.loaded && Prefs.hyperlegibleFont.value) {
       return ThemeData(brightness: brightness).textTheme.withFont(
             fontFamily: 'AtkinsonHyperlegible',
-            fontFamilyFallback: saberSansSerifFontFallbacks,
-          );
-    } else if (requiresCustomFont) {
-      return ThemeData(brightness: brightness).textTheme.withFont(
-            fontFamily: 'Inter',
             fontFamilyFallback: saberSansSerifFontFallbacks,
           );
     } else {
