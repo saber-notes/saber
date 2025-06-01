@@ -4,10 +4,17 @@ class OnyxSdkPenArea extends StatelessWidget {
   const OnyxSdkPenArea({
     super.key,
     this.refreshDelay = const Duration(seconds: 1),
+    this.strokeStyle = 0,
+    this.strokeColor = 0,
+    this.strokeWidth = 3.0,
+
     required this.child,
   });
 
   final Duration refreshDelay;
+  final int strokeStyle;
+  final int strokeColor;
+  final double strokeWidth;
 
   final Widget child;
 
