@@ -1,4 +1,4 @@
-name: Update saber-landing page
+name: Update saber_landing page
 
 on:
   # Enable manual run
@@ -20,5 +20,5 @@ jobs:
         uses: peter-evans/repository-dispatch@v3
         with:
           token: ${{ secrets.SABER_LANDING_TOKEN }}
-          repository: saber-notes/saber-landing
+          repository: saber-notes/saber_landing
           event-type: saber-release
