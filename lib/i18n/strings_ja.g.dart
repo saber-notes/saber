@@ -68,13 +68,13 @@ class _TranslationsHomeJa extends TranslationsHomeEn {
 	@override late final _TranslationsHomeCreateJa create = _TranslationsHomeCreateJa._(_root);
 	@override String get welcome => 'ようこそSaberへ';
 	@override String get noFiles => 'ファイルが見つかりません';
-	@override String get noPreviewAvailable => 'プレビューは利用できません';
 	@override String get createNewNote => '+ボタンで新しくメモを作成';
 	@override late final _TranslationsHomeNewFolderJa newFolder = _TranslationsHomeNewFolderJa._(_root);
 	@override late final _TranslationsHomeRenameNoteJa renameNote = _TranslationsHomeRenameNoteJa._(_root);
 	@override late final _TranslationsHomeMoveNoteJa moveNote = _TranslationsHomeMoveNoteJa._(_root);
 	@override late final _TranslationsHomeRenameFolderJa renameFolder = _TranslationsHomeRenameFolderJa._(_root);
 	@override late final _TranslationsHomeDeleteFolderJa deleteFolder = _TranslationsHomeDeleteFolderJa._(_root);
+	@override String get noPreviewAvailable => 'プレビューは利用できません';
 	@override String get backFolder => '前のフォルダーに戻ります';
 	@override String get deleteNote => 'メモの削除';
 	@override String get invalidFormat => '選択したファイルはサポートされていません。 .sbn、.sbn2、.sba、または .pdf ファイルを選択してください。';
@@ -102,6 +102,8 @@ class _TranslationsSettingsJa extends TranslationsSettingsEn {
 	];
 	@override late final _TranslationsSettingsResetJa reset = _TranslationsSettingsResetJa._(_root);
 	@override late final _TranslationsSettingsCustomDataDirJa customDataDir = _TranslationsSettingsCustomDataDirJa._(_root);
+	@override String get autosaveDisabled => '一度もない';
+	@override String get shapeRecognitionDisabled => '一度もない';
 	@override String get openDataDir => 'セイバーフォルダを開く';
 	@override String get resyncEverything => 'すべてを再同期する';
 }
@@ -375,13 +377,13 @@ class _TranslationsSettingsPrefLabelsJa extends TranslationsSettingsPrefLabelsEn
 	@override String get hideHomeBackgrounds => 'ホーム画面で背景を隠す';
 	@override String get recentColorsDontSavePresets => '最近使用した色をプリセットに登録しない';
 	@override String get printPageIndicators => '印刷ページのインジケーター';
+	@override String get autosave => '自動保存';
 	@override String get simplifiedHomeLayout => '簡素化されたホームレイアウト';
 	@override String get pencilSoundSetting => '鉛筆の効果音';
 	@override String get customDataDir => 'カスタムデータディレクトリ';
 	@override String get autoStraightenLines => '線を自動直線化する';
 	@override String get shapeRecognitionDelay => '形状認識の遅延';
 	@override String get recentColorsLength => '最近使用した色を何色保存するか';
-	@override String get autosaveDelay => '自動保存の遅延';
 	@override String get hideFingerDrawingToggle => '指の描画トグルを非表示にする';
 	@override String get shouldAlwaysAlertForUpdates => 'アップデートの高速化';
 	@override String get disableEraserAfterUse => '消しゴムを自動的に無効にする';
@@ -403,11 +405,11 @@ class _TranslationsSettingsPrefDescriptionsJa extends TranslationsSettingsPrefDe
 	@override String get editorPromptRename => 'メモの名前は後でいつでも変更できます';
 	@override String get hideHomeBackgrounds => 'よりクリーンな外観に';
 	@override String get printPageIndicators => 'エクスポートにページインジケーターを表示';
+	@override String get autosave => '短い遅延の後、または決して自動保存しません';
 	@override late final _TranslationsSettingsPrefDescriptionsPencilSoundSettingJa pencilSoundSetting = _TranslationsSettingsPrefDescriptionsPencilSoundSettingJa._(_root);
 	@override String get simplifiedHomeLayout => '各ノートのプレビューに固定の高さを設定します';
 	@override String get autoStraightenLines => 'シェイプペンを使用せずに長い線をまっすぐにします。';
 	@override String get shapeRecognitionDelay => '形状プレビューを更新する頻度';
-	@override String get autosaveDelay => 'メモを自動保存するまでの待ち時間';
 	@override String get disableEraserAfterUse => '消しゴムを使用した後は自動的にペンに戻ります';
 	@override String get shouldAlwaysAlertForUpdates => 'アップデートが利用可能になり次第お知らせください';
 }

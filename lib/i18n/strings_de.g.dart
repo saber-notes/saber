@@ -69,7 +69,6 @@ class _TranslationsHomeDe extends TranslationsHomeEn {
 	@override String get welcome => 'Willkommen bei Saber';
 	@override String get invalidFormat => 'Die ausgewählte Datei wird nicht unterstützt. Bitte wähle eine Datei mit dem Format sbn, sbn2, sba oder pdf.';
 	@override String get noFiles => 'Keine Dateien gefunden';
-	@override String get noPreviewAvailable => 'Keine Vorschau verfügbar';
 	@override String get createNewNote => 'Drücke die + Schaltfläche, um eine neue Notiz zu erstellen';
 	@override String get backFolder => 'Zum vorherigen Ordner zurück gehen';
 	@override late final _TranslationsHomeNewFolderDe newFolder = _TranslationsHomeNewFolderDe._(_root);
@@ -78,6 +77,7 @@ class _TranslationsHomeDe extends TranslationsHomeEn {
 	@override String get deleteNote => 'Notiz löschen';
 	@override late final _TranslationsHomeRenameFolderDe renameFolder = _TranslationsHomeRenameFolderDe._(_root);
 	@override late final _TranslationsHomeDeleteFolderDe deleteFolder = _TranslationsHomeDeleteFolderDe._(_root);
+	@override String get noPreviewAvailable => 'Keine Vorschau verfügbar';
 }
 
 // Path: settings
@@ -104,6 +104,8 @@ class _TranslationsSettingsDe extends TranslationsSettingsEn {
 	@override String get resyncEverything => 'Alles neu Synchronisieren';
 	@override String get openDataDir => 'Saber-Ordner öffnen';
 	@override late final _TranslationsSettingsCustomDataDirDe customDataDir = _TranslationsSettingsCustomDataDirDe._(_root);
+	@override String get autosaveDisabled => 'Niemals';
+	@override String get shapeRecognitionDisabled => 'Niemals';
 }
 
 // Path: logs
@@ -381,7 +383,7 @@ class _TranslationsSettingsPrefLabelsDe extends TranslationsSettingsPrefLabelsEn
 	@override String get recentColorsDontSavePresets => 'Farbvorlagen nicht in den zuletzt genutzten Farben speichern';
 	@override String get recentColorsLength => 'Anzahl der zuletzt genutzten Farben';
 	@override String get printPageIndicators => 'Seitennummerierung drucken';
-	@override String get autosaveDelay => 'Verzögerung des automatischen Speicherns';
+	@override String get autosave => 'Auto-Save';
 	@override String get shapeRecognitionDelay => 'Verzögerung der Formerkennung';
 	@override String get autoStraightenLines => 'Linien automatisch begradigen';
 	@override String get simplifiedHomeLayout => 'Vereinfachtes Startbildschirmlayout';
@@ -406,7 +408,7 @@ class _TranslationsSettingsPrefDescriptionsDe extends TranslationsSettingsPrefDe
 	@override String get editorPromptRename => 'Notizen können später immer noch umbenannt werden';
 	@override String get hideHomeBackgrounds => 'Für ein sauberes Aussehen';
 	@override String get printPageIndicators => 'Seitennummerierung bei Export anzeigen';
-	@override String get autosaveDelay => 'Verzögerung des automatischen Speicherns einer Notiz';
+	@override String get autosave => 'Automatisch nach einer kurzen Verzögerung oder nie';
 	@override String get shapeRecognitionDelay => 'Häufigkeit der Aktualisierung der Form-Vorschau';
 	@override String get autoStraightenLines => 'Lange Linien selbst ohne Form-Stift begradigen';
 	@override String get simplifiedHomeLayout => 'Legt eine feste Höhe für jede Notizvorschau fest';

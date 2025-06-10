@@ -104,6 +104,8 @@ class _TranslationsSettingsCs extends TranslationsSettingsEn {
 	@override String get resyncEverything => 'Znovu synchronizovat všechny poznámky';
 	@override String get openDataDir => 'Otevřít složku aplikace Saber';
 	@override late final _TranslationsSettingsCustomDataDirCs customDataDir = _TranslationsSettingsCustomDataDirCs._(_root);
+	@override String get autosaveDisabled => 'Nikdy';
+	@override String get shapeRecognitionDisabled => 'Nikdy';
 }
 
 // Path: logs
@@ -381,7 +383,7 @@ class _TranslationsSettingsPrefLabelsCs extends TranslationsSettingsPrefLabelsEn
 	@override String get recentColorsDontSavePresets => 'Neukládat přednastavené barvy mezi naposledy použité barvy';
 	@override String get recentColorsLength => 'Kolik naposledy použitých barev se má ukládat';
 	@override String get printPageIndicators => 'Tisknout čísla stránek';
-	@override String get autosaveDelay => 'Zpoždění automatického ukládání';
+	@override String get autosave => 'Automatické posílení';
 	@override String get shapeRecognitionDelay => 'Zpoždění rozpoznávání tvarů';
 	@override String get autoStraightenLines => 'Automaticky narovnávat čáry';
 	@override String get simplifiedHomeLayout => 'Zjednodušené rozložení domovské obrazovky';
@@ -406,7 +408,7 @@ class _TranslationsSettingsPrefDescriptionsCs extends TranslationsSettingsPrefDe
 	@override String get editorPromptRename => 'Poznámky můžete vždy přejmenovat i později';
 	@override String get hideHomeBackgrounds => 'Pro čistější vzhled';
 	@override String get printPageIndicators => 'V exportech budou zobrazena čísla stránek';
-	@override String get autosaveDelay => 'Jak dlouho počkat před automatickým uložením poznámky';
+	@override String get autosave => 'Automaticky ponořte po krátkém zpoždění, nebo nikdy';
 	@override String get shapeRecognitionDelay => 'Jak často aktualizovat náhled tvaru';
 	@override String get autoStraightenLines => 'Automaticky narovná dlouhé čáry, aniž by bylo nutné využít tvarové pero';
 	@override String get simplifiedHomeLayout => 'Nastaví pevnou výšku pro každý náhled poznámky';

@@ -69,7 +69,6 @@ class _TranslationsHomeTr extends TranslationsHomeEn {
 	@override String get welcome => 'Saber\'a hoş geldiniz';
 	@override String get invalidFormat => 'Seçtiğiniz dosya desteklenmiyor. Lütfen bir .sbn, .sbn2, .sba veya .pdf dosyası seçin.';
 	@override String get noFiles => 'Dosya yok';
-	@override String get noPreviewAvailable => 'Önizleme yok';
 	@override String get createNewNote => 'Yeni bir not oluşturmak için + butonuna tıklayınız';
 	@override String get backFolder => 'Önceki klasöre dön';
 	@override late final _TranslationsHomeNewFolderTr newFolder = _TranslationsHomeNewFolderTr._(_root);
@@ -78,6 +77,7 @@ class _TranslationsHomeTr extends TranslationsHomeEn {
 	@override String get deleteNote => 'Notu sil';
 	@override late final _TranslationsHomeRenameFolderTr renameFolder = _TranslationsHomeRenameFolderTr._(_root);
 	@override late final _TranslationsHomeDeleteFolderTr deleteFolder = _TranslationsHomeDeleteFolderTr._(_root);
+	@override String get noPreviewAvailable => 'Önizleme yok';
 }
 
 // Path: settings
@@ -104,6 +104,8 @@ class _TranslationsSettingsTr extends TranslationsSettingsEn {
 	@override String get resyncEverything => 'Her şeyi yeniden senkronize et';
 	@override String get openDataDir => 'Saber klasörünü aç';
 	@override late final _TranslationsSettingsCustomDataDirTr customDataDir = _TranslationsSettingsCustomDataDirTr._(_root);
+	@override String get autosaveDisabled => 'Asla';
+	@override String get shapeRecognitionDisabled => 'Asla';
 }
 
 // Path: logs
@@ -381,7 +383,7 @@ class _TranslationsSettingsPrefLabelsTr extends TranslationsSettingsPrefLabelsEn
 	@override String get recentColorsDontSavePresets => 'Ön tanımlı renkleri son kullanılanlara kaydetme';
 	@override String get recentColorsLength => 'Kaç tane son kullanılan renk saklanacak';
 	@override String get printPageIndicators => 'Sayfa belirteçlerini yazdır';
-	@override String get autosaveDelay => 'Otomatik kayıt aralığı';
+	@override String get autosave => 'Otomatik koruma';
 	@override String get shapeRecognitionDelay => 'Şekil tanıma gecikmesi';
 	@override String get autoStraightenLines => 'Çizgileri otomatik düzleştir';
 	@override String get simplifiedHomeLayout => 'Sadeleştirilmiş ana ekran düzeni';
@@ -406,7 +408,7 @@ class _TranslationsSettingsPrefDescriptionsTr extends TranslationsSettingsPrefDe
 	@override String get editorPromptRename => 'Notlarınızı daha sonra da yeniden adlandırabilirsiniz';
 	@override String get hideHomeBackgrounds => 'Daha sade bir görüntü için';
 	@override String get printPageIndicators => 'Çıktılarda sayfa belirteçlerini göster';
-	@override String get autosaveDelay => 'Bir notu otomatik kaydetmeden önce ne kadar bekleneceğini ayarlar';
+	@override String get autosave => 'Kısa bir gecikmeden sonra otomatik kaydetme veya asla';
 	@override String get shapeRecognitionDelay => 'Çizilen şekilleri tanımlama sıklığını belirler';
 	@override String get autoStraightenLines => 'Şekil aracını kullanmadığınızda da çizgileri düzleştirir';
 	@override String get simplifiedHomeLayout => 'Not önizlemelerinin uzunluklarını eşitler';

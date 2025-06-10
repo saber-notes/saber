@@ -23,7 +23,6 @@ home:
   welcome: ברוכים הבאים ל Saber
   invalidFormat: הקובץ שבחרת אינו תומך. אנא בחר בקובץ .sbn' .sbn2' .sba או .pdf
   noFiles: קבצים לא נמצאו
-  noPreviewAvailable(OUTDATED): אין תצוגה מקדימה זמינה
   createNewNote: הקש על הלחצן + כדי ליצור הערה חדשה
   backFolder: חזור אחורה לתקייה הקודמת
   newFolder: 
@@ -61,6 +60,7 @@ home:
     deleteName: מחק $f
     delete: מחק
     alsoDeleteContents: גם תמחק את כל הפתקים בתקייה זו
+  noPreviewAvailable(OUTDATED): אין תצוגה מקדימה זמינה
 settings: 
   prefCategories: 
     general: כללי
@@ -90,7 +90,7 @@ settings:
     hideHomeBackgrounds: הסתר רקעים במסך הבית
     recentColorsDontSavePresets: אל תשמור צבעים מוגדרים מראש בצבעים אחרונים
     printPageIndicators: הדפסת עמודים מחוונים
-    autosaveDelay: השהיית שמירה אוטומטית
+    autosave(OUTDATED): שמור אוטומטי
     simplifiedHomeLayout(OUTDATED): פריסת בית פשוטה
     pencilSoundSetting(OUTDATED): אפקט צליל עיפרון
     customDataDir(OUTDATED): ספריית נתונים מותאמת אישית
@@ -111,7 +111,7 @@ settings:
     editorPromptRename: תמיד תוכל לשנות את שם הפתקים מאוחר יותר
     hideHomeBackgrounds: למראה נקי יותר
     printPageIndicators: הצג מחווני עמודים בייצוא
-    autosaveDelay: כמה זמן לחכות לפני שמירת הערה אוטומטית
+    autosave(OUTDATED): יש לשעוג אוטומטית לאחר עיכוב קצר, או לעולם
     shouldAlwaysAlertForUpdates: ספר לי על עדכונים ברגע שהם יהיו זמינים
     pencilSoundSetting: 
       onButNotInSilentMode(OUTDATED): מופעל (אלא אם כן במצב שקט)
@@ -144,6 +144,8 @@ settings:
     select(OUTDATED): בחר
     mustBeEmpty(OUTDATED): הספרייה שנבחרה חייבת להיות ריקה
     mustBeDoneSyncing(OUTDATED): ודא שהסנכרון הושלם לפני שינוי הספרייה
+  autosaveDisabled(OUTDATED): לְעוֹלָם לֹא
+  shapeRecognitionDisabled(OUTDATED): לְעוֹלָם לֹא
   openDataDir(OUTDATED): פתח את תיקיית Saber
   resyncEverything(OUTDATED): סנכרן הכל מחדש
 logs: 

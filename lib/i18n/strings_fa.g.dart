@@ -69,7 +69,6 @@ class _TranslationsHomeFa extends TranslationsHomeEn {
 	@override String get welcome => 'خوش آمدید';
 	@override String get invalidFormat => 'فایلی که انتخاب کرده اید پشتیبانی نمی شود. لطفاً یک فایل sbn، sbn2، sba یا pdf را انتخاب کنید.';
 	@override String get noFiles => 'فایلی پیدا نشد';
-	@override String get noPreviewAvailable => 'پیش نمایش موجود نیست';
 	@override String get createNewNote => 'برای ساخت یادداشت دکمه + را بزنید';
 	@override String get backFolder => 'به پوشه قبلی برگردید';
 	@override late final _TranslationsHomeNewFolderFa newFolder = _TranslationsHomeNewFolderFa._(_root);
@@ -78,6 +77,7 @@ class _TranslationsHomeFa extends TranslationsHomeEn {
 	@override String get deleteNote => 'حذف یادداشت';
 	@override late final _TranslationsHomeRenameFolderFa renameFolder = _TranslationsHomeRenameFolderFa._(_root);
 	@override late final _TranslationsHomeDeleteFolderFa deleteFolder = _TranslationsHomeDeleteFolderFa._(_root);
+	@override String get noPreviewAvailable => 'پیش نمایش موجود نیست';
 }
 
 // Path: settings
@@ -102,6 +102,8 @@ class _TranslationsSettingsFa extends TranslationsSettingsEn {
 	];
 	@override late final _TranslationsSettingsResetFa reset = _TranslationsSettingsResetFa._(_root);
 	@override late final _TranslationsSettingsCustomDataDirFa customDataDir = _TranslationsSettingsCustomDataDirFa._(_root);
+	@override String get autosaveDisabled => 'هرگز';
+	@override String get shapeRecognitionDisabled => 'هرگز';
 	@override String get openDataDir => 'پوشه Saber را باز کنید';
 	@override String get resyncEverything => 'همه چیز را دوباره همگام سازی کنید';
 }
@@ -379,7 +381,7 @@ class _TranslationsSettingsPrefLabelsFa extends TranslationsSettingsPrefLabelsEn
 	@override String get recentColorsDontSavePresets => 'رنگ های از پیش تعیین شده را در رنگ های اخیر ذخیره نکنید';
 	@override String get recentColorsLength => 'چند رنگ اخیر برای ذخیره';
 	@override String get printPageIndicators => 'چاپ نشانگرهای صفحه';
-	@override String get autosaveDelay => 'تأخیر ذخیره خودکار';
+	@override String get autosave => 'خودرا';
 	@override String get shapeRecognitionDelay => 'تاخیر در تشخیص شکل';
 	@override String get simplifiedHomeLayout => 'چیدمان خانه ساده شده';
 	@override String get pencilSoundSetting => 'جلوه صدای مداد';
@@ -404,7 +406,7 @@ class _TranslationsSettingsPrefDescriptionsFa extends TranslationsSettingsPrefDe
 	@override String get editorPromptRename => 'همیشه می توانید بعداً نام یادداشت ها را تغییر دهید';
 	@override String get hideHomeBackgrounds => 'برای ظاهری تمیز تر';
 	@override String get printPageIndicators => 'نمایش نشانگرهای صفحه در خروجی';
-	@override String get autosaveDelay => 'چه مدت باید قبل از ذخیره خودکار یادداشت صبر کرد';
+	@override String get autosave => 'پس از یک تأخیر کوتاه ، یا هرگز';
 	@override String get shapeRecognitionDelay => 'به روز رسانی پیشنمایش شکل چند وقت یکبار انجام شود';
 	@override String get shouldAlwaysAlertForUpdates => 'به محض اینکه به‌روزرسانی‌ها در دسترس هستند، به من بگویید';
 	@override late final _TranslationsSettingsPrefDescriptionsPencilSoundSettingFa pencilSoundSetting = _TranslationsSettingsPrefDescriptionsPencilSoundSettingFa._(_root);

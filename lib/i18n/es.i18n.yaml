@@ -23,7 +23,6 @@ home:
   welcome: Te damos la bienvenida a Saber
   invalidFormat: El archivo que seleccionaste no es válido. Por favor, selecciona un archivo .sbn, .sbn2, .sba or .pdf.
   noFiles: No se ha encontrado ninguna nota
-  noPreviewAvailable(OUTDATED): No hay una vista previa disponible
   createNewNote: Presiona el botón + para crear una nueva nota
   backFolder: Volver a la carpeta anterior
   newFolder: 
@@ -61,6 +60,7 @@ home:
     deleteName: Eliminar $f
     delete: Eliminar
     alsoDeleteContents: Eliminar también las notas guardadas dentro de la carpeta
+  noPreviewAvailable(OUTDATED): No hay una vista previa disponible
 settings: 
   prefCategories: 
     general: General
@@ -91,7 +91,7 @@ settings:
     recentColorsDontSavePresets: No guardar colores preestablecidos en los colores recientes
     recentColorsLength: Número de colores recientes a almacenar
     printPageIndicators: Indicadores de página de impresión
-    autosaveDelay: Retardo en el autoguardado
+    autosave(OUTDATED): Auto-Save
     simplifiedHomeLayout(OUTDATED): Disposición simplificada de la casa
     pencilSoundSetting(OUTDATED): Efecto de sonido de lápiz
     customDataDir(OUTDATED): Directorio de datos personalizado
@@ -111,7 +111,7 @@ settings:
     editorPromptRename: Siempre puedes cambiar el nombre de las notas más tarde
     hideHomeBackgrounds: Para una vista más limpia
     printPageIndicators: Mostrar indicadores de página en las exportaciones
-    autosaveDelay: Cuánto esperar antes de autoguardar una nota
+    autosave(OUTDATED): Auto-Save después de un breve retraso, o nunca
     shouldAlwaysAlertForUpdates: Avísame sobre actualizaciones tan pronto como estén disponibles
     pencilSoundSetting: 
       off(OUTDATED): Sin sonido
@@ -144,6 +144,8 @@ settings:
     select(OUTDATED): Seleccionar
     mustBeEmpty(OUTDATED): El directorio seleccionado debe estar vacío.
     mustBeDoneSyncing(OUTDATED): Asegúrese de que la sincronización esté completa antes de cambiar el directorio
+  autosaveDisabled(OUTDATED): Nunca
+  shapeRecognitionDisabled(OUTDATED): Nunca
   openDataDir(OUTDATED): Abrir carpeta Saber
   resyncEverything(OUTDATED): Resync todo
 logs: 

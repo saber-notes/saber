@@ -69,7 +69,6 @@ class _TranslationsHomeHe extends TranslationsHomeEn {
 	@override String get welcome => 'ברוכים הבאים ל Saber';
 	@override String get invalidFormat => 'הקובץ שבחרת אינו תומך. אנא בחר בקובץ .sbn\' .sbn2\' .sba או .pdf';
 	@override String get noFiles => 'קבצים לא נמצאו';
-	@override String get noPreviewAvailable => 'אין תצוגה מקדימה זמינה';
 	@override String get createNewNote => 'הקש על הלחצן + כדי ליצור הערה חדשה';
 	@override String get backFolder => 'חזור אחורה לתקייה הקודמת';
 	@override late final _TranslationsHomeNewFolderHe newFolder = _TranslationsHomeNewFolderHe._(_root);
@@ -78,6 +77,7 @@ class _TranslationsHomeHe extends TranslationsHomeEn {
 	@override String get deleteNote => 'מחק פתק';
 	@override late final _TranslationsHomeRenameFolderHe renameFolder = _TranslationsHomeRenameFolderHe._(_root);
 	@override late final _TranslationsHomeDeleteFolderHe deleteFolder = _TranslationsHomeDeleteFolderHe._(_root);
+	@override String get noPreviewAvailable => 'אין תצוגה מקדימה זמינה';
 }
 
 // Path: settings
@@ -102,6 +102,8 @@ class _TranslationsSettingsHe extends TranslationsSettingsEn {
 	];
 	@override late final _TranslationsSettingsResetHe reset = _TranslationsSettingsResetHe._(_root);
 	@override late final _TranslationsSettingsCustomDataDirHe customDataDir = _TranslationsSettingsCustomDataDirHe._(_root);
+	@override String get autosaveDisabled => 'לְעוֹלָם לֹא';
+	@override String get shapeRecognitionDisabled => 'לְעוֹלָם לֹא';
 	@override String get openDataDir => 'פתח את תיקיית Saber';
 	@override String get resyncEverything => 'סנכרן הכל מחדש';
 }
@@ -378,7 +380,7 @@ class _TranslationsSettingsPrefLabelsHe extends TranslationsSettingsPrefLabelsEn
 	@override String get hideHomeBackgrounds => 'הסתר רקעים במסך הבית';
 	@override String get recentColorsDontSavePresets => 'אל תשמור צבעים מוגדרים מראש בצבעים אחרונים';
 	@override String get printPageIndicators => 'הדפסת עמודים מחוונים';
-	@override String get autosaveDelay => 'השהיית שמירה אוטומטית';
+	@override String get autosave => 'שמור אוטומטי';
 	@override String get simplifiedHomeLayout => 'פריסת בית פשוטה';
 	@override String get pencilSoundSetting => 'אפקט צליל עיפרון';
 	@override String get customDataDir => 'ספריית נתונים מותאמת אישית';
@@ -404,7 +406,7 @@ class _TranslationsSettingsPrefDescriptionsHe extends TranslationsSettingsPrefDe
 	@override String get editorPromptRename => 'תמיד תוכל לשנות את שם הפתקים מאוחר יותר';
 	@override String get hideHomeBackgrounds => 'למראה נקי יותר';
 	@override String get printPageIndicators => 'הצג מחווני עמודים בייצוא';
-	@override String get autosaveDelay => 'כמה זמן לחכות לפני שמירת הערה אוטומטית';
+	@override String get autosave => 'יש לשעוג אוטומטית לאחר עיכוב קצר, או לעולם';
 	@override String get shouldAlwaysAlertForUpdates => 'ספר לי על עדכונים ברגע שהם יהיו זמינים';
 	@override late final _TranslationsSettingsPrefDescriptionsPencilSoundSettingHe pencilSoundSetting = _TranslationsSettingsPrefDescriptionsPencilSoundSettingHe._(_root);
 	@override String get simplifiedHomeLayout => 'מגדיר גובה קבוע עבור כל תצוגה מקדימה של הערה';

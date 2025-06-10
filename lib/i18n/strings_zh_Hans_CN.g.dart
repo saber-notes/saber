@@ -69,7 +69,6 @@ class _TranslationsHomeZhHansCn extends TranslationsHomeEn {
 	@override String get welcome => '欢迎使用 Saber';
 	@override String get invalidFormat => '不支持该文件。请选择 .sbn、.sbn2、.sba 或 .pdf 文件。';
 	@override String get noFiles => '未找到文件';
-	@override String get noPreviewAvailable => '没有预览';
 	@override String get createNewNote => '点击 + 按钮新建一个笔记';
 	@override String get backFolder => '回到上一个文件夹';
 	@override late final _TranslationsHomeNewFolderZhHansCn newFolder = _TranslationsHomeNewFolderZhHansCn._(_root);
@@ -78,6 +77,7 @@ class _TranslationsHomeZhHansCn extends TranslationsHomeEn {
 	@override String get deleteNote => '删除笔记';
 	@override late final _TranslationsHomeRenameFolderZhHansCn renameFolder = _TranslationsHomeRenameFolderZhHansCn._(_root);
 	@override late final _TranslationsHomeDeleteFolderZhHansCn deleteFolder = _TranslationsHomeDeleteFolderZhHansCn._(_root);
+	@override String get noPreviewAvailable => '没有预览';
 }
 
 // Path: settings
@@ -104,6 +104,8 @@ class _TranslationsSettingsZhHansCn extends TranslationsSettingsEn {
 	@override String get resyncEverything => '重新同步所有';
 	@override String get openDataDir => '打开 Saber 文件夹';
 	@override late final _TranslationsSettingsCustomDataDirZhHansCn customDataDir = _TranslationsSettingsCustomDataDirZhHansCn._(_root);
+	@override String get autosaveDisabled => '绝不';
+	@override String get shapeRecognitionDisabled => '绝不';
 }
 
 // Path: logs
@@ -381,7 +383,7 @@ class _TranslationsSettingsPrefLabelsZhHansCn extends TranslationsSettingsPrefLa
 	@override String get recentColorsDontSavePresets => '不在最近使用的颜色中保存预设颜色';
 	@override String get recentColorsLength => '要存储多少种最近的颜色';
 	@override String get printPageIndicators => '打印页码';
-	@override String get autosaveDelay => '自动保存延迟';
+	@override String get autosave => '自动保存';
 	@override String get shapeRecognitionDelay => '形状识别延迟';
 	@override String get autoStraightenLines => '自动拉直线';
 	@override String get simplifiedHomeLayout => '简化主页布局';
@@ -406,7 +408,7 @@ class _TranslationsSettingsPrefDescriptionsZhHansCn extends TranslationsSettings
 	@override String get editorPromptRename => '您可以总是稍后重命名笔记';
 	@override String get hideHomeBackgrounds => '更简洁的外观';
 	@override String get printPageIndicators => '在导出中显示页码';
-	@override String get autosaveDelay => '自动保存便笺需要等待的时间';
+	@override String get autosave => '短暂延迟后自动保存，或者永远不会';
 	@override String get shapeRecognitionDelay => '形状预览更新频率';
 	@override String get autoStraightenLines => '拉直长线，无需使用形状笔';
 	@override String get simplifiedHomeLayout => '为每个笔记预览设置固定高度';

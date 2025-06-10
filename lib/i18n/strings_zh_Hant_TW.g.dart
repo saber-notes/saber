@@ -69,7 +69,6 @@ class _TranslationsHomeZhHantTw extends TranslationsHomeEn {
 	@override String get welcome => '歡迎使用 Saber';
 	@override String get invalidFormat => '「不支援您選擇的檔案，請選擇 .sbn、.sbn2、.sba 或 .pdf 檔案。」';
 	@override String get noFiles => '未找到檔案';
-	@override String get noPreviewAvailable => '沒有預覽';
 	@override String get createNewNote => '點擊 + 按鈕新增一個筆記';
 	@override String get backFolder => '返回上一個資料夾';
 	@override late final _TranslationsHomeNewFolderZhHantTw newFolder = _TranslationsHomeNewFolderZhHantTw._(_root);
@@ -78,6 +77,7 @@ class _TranslationsHomeZhHantTw extends TranslationsHomeEn {
 	@override String get deleteNote => '刪除筆記';
 	@override late final _TranslationsHomeRenameFolderZhHantTw renameFolder = _TranslationsHomeRenameFolderZhHantTw._(_root);
 	@override late final _TranslationsHomeDeleteFolderZhHantTw deleteFolder = _TranslationsHomeDeleteFolderZhHantTw._(_root);
+	@override String get noPreviewAvailable => '沒有預覽';
 }
 
 // Path: settings
@@ -104,6 +104,8 @@ class _TranslationsSettingsZhHantTw extends TranslationsSettingsEn {
 	@override String get resyncEverything => '全部重新同步';
 	@override String get openDataDir => '開啟 Saber 資料夾';
 	@override late final _TranslationsSettingsCustomDataDirZhHantTw customDataDir = _TranslationsSettingsCustomDataDirZhHantTw._(_root);
+	@override String get autosaveDisabled => '絕不';
+	@override String get shapeRecognitionDisabled => '絕不';
 }
 
 // Path: logs
@@ -381,7 +383,7 @@ class _TranslationsSettingsPrefLabelsZhHantTw extends TranslationsSettingsPrefLa
 	@override String get recentColorsDontSavePresets => '不要在最近的顏色中儲存預設顏色';
 	@override String get recentColorsLength => '要儲存多少種最近的顏色';
 	@override String get printPageIndicators => '列印頁碼';
-	@override String get autosaveDelay => '自動儲存延遲';
+	@override String get autosave => '自動保存';
 	@override String get shapeRecognitionDelay => '形狀識別延遲';
 	@override String get autoStraightenLines => '自動拉直線條';
 	@override String get simplifiedHomeLayout => '簡化首頁佈局';
@@ -406,7 +408,7 @@ class _TranslationsSettingsPrefDescriptionsZhHantTw extends TranslationsSettings
 	@override String get editorPromptRename => '您以後隨時可以重新命名筆記';
 	@override String get hideHomeBackgrounds => '為了更乾淨的外觀';
 	@override String get printPageIndicators => '在匯出中顯示頁碼';
-	@override String get autosaveDelay => '自動儲存筆記之前等待多少時間';
+	@override String get autosave => '短暫延遲後自動保存，或者永遠不會';
 	@override String get shapeRecognitionDelay => '多久更新一次形狀預覽';
 	@override String get autoStraightenLines => '無需使用形狀筆即可拉直線條';
 	@override String get simplifiedHomeLayout => '為每個筆記預覽設定固定高度';

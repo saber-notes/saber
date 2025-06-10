@@ -68,13 +68,13 @@ class _TranslationsHomeHu extends TranslationsHomeEn {
 	@override late final _TranslationsHomeCreateHu create = _TranslationsHomeCreateHu._(_root);
 	@override String get welcome => 'Üdvözli a Saber';
 	@override String get noFiles => 'Nem található ilyen fájl';
-	@override String get noPreviewAvailable => 'Nincs elérhető előnézet';
 	@override String get createNewNote => 'Kattintson a + gombora egy új jegyzet létrehozásához';
 	@override late final _TranslationsHomeNewFolderHu newFolder = _TranslationsHomeNewFolderHu._(_root);
 	@override late final _TranslationsHomeRenameNoteHu renameNote = _TranslationsHomeRenameNoteHu._(_root);
 	@override late final _TranslationsHomeMoveNoteHu moveNote = _TranslationsHomeMoveNoteHu._(_root);
 	@override late final _TranslationsHomeRenameFolderHu renameFolder = _TranslationsHomeRenameFolderHu._(_root);
 	@override late final _TranslationsHomeDeleteFolderHu deleteFolder = _TranslationsHomeDeleteFolderHu._(_root);
+	@override String get noPreviewAvailable => 'Nincs elérhető előnézet';
 	@override String get backFolder => 'Menjen vissza az előző mappába';
 	@override String get deleteNote => 'Jegyzet törlése';
 	@override String get invalidFormat => 'A kiválasztott fájl nem támogatott. Kérjük, válasszon .sbn, .sbn2, .sba vagy .pdf fájlt.';
@@ -102,6 +102,8 @@ class _TranslationsSettingsHu extends TranslationsSettingsEn {
 	];
 	@override late final _TranslationsSettingsResetHu reset = _TranslationsSettingsResetHu._(_root);
 	@override late final _TranslationsSettingsCustomDataDirHu customDataDir = _TranslationsSettingsCustomDataDirHu._(_root);
+	@override String get autosaveDisabled => 'Soha';
+	@override String get shapeRecognitionDisabled => 'Soha';
 	@override String get openDataDir => 'Nyissa meg a Saber mappát';
 	@override String get resyncEverything => 'Resync mindent';
 }
@@ -372,6 +374,7 @@ class _TranslationsSettingsPrefLabelsHu extends TranslationsSettingsPrefLabelsEn
 	@override String get editorPromptRename => 'Új jegyzetek átnevezésére való felszólítás';
 	@override String get hideHomeBackgrounds => 'Hátterek elrejtése a kezdőképernyőn';
 	@override String get recentColorsDontSavePresets => 'Ne mentse az előre beállított színeket a legutóbbi színek között';
+	@override String get autosave => 'Automatikus mentés';
 	@override String get simplifiedHomeLayout => 'Egyszerűsített otthoni elrendezés';
 	@override String get pencilSoundSetting => 'Ceruza hanghatás';
 	@override String get customDataDir => 'Egyedi adatkönyvtár';
@@ -381,7 +384,6 @@ class _TranslationsSettingsPrefLabelsHu extends TranslationsSettingsPrefLabelsEn
 	@override String get layoutSize => 'Elrendezés típusa';
 	@override String get printPageIndicators => 'Nyomtatási oldaljelzők';
 	@override String get allowInsecureConnections => 'Engedélyezze a nem biztonságos kapcsolatokat';
-	@override String get autosaveDelay => 'Auto-save késleltetés';
 	@override String get hideFingerDrawingToggle => 'Az ujjrajzolás kapcsoló elrejtése';
 	@override String get shouldAlwaysAlertForUpdates => 'Gyorsabb frissítések';
 	@override String get disableEraserAfterUse => 'A radír automatikus letiltása';
@@ -401,13 +403,13 @@ class _TranslationsSettingsPrefDescriptionsHu extends TranslationsSettingsPrefDe
 	@override late final _TranslationsSettingsPrefDescriptionsHideFingerDrawingHu hideFingerDrawing = _TranslationsSettingsPrefDescriptionsHideFingerDrawingHu._(_root);
 	@override String get editorPromptRename => 'A jegyzeteket később bármikor átnevezheti';
 	@override String get hideHomeBackgrounds => 'Egy letisztultabb megjelenítésért';
+	@override String get autosave => 'Automato-Save rövid késleltetés után, vagy soha';
 	@override late final _TranslationsSettingsPrefDescriptionsPencilSoundSettingHu pencilSoundSetting = _TranslationsSettingsPrefDescriptionsPencilSoundSettingHu._(_root);
 	@override String get simplifiedHomeLayout => 'Rögzített magasságot állít be minden hangjegy előnézetéhez';
 	@override String get autoStraightenLines => 'Kiegyenesíti a hosszú vonalakat anélkül, hogy az alakos tollat ​​kellene használnia';
 	@override String get shapeRecognitionDelay => 'Milyen gyakran kell frissíteni az alakzat előnézetét';
 	@override String get printPageIndicators => 'Mutasson oldalmutatókat az exportban';
 	@override String get allowInsecureConnections => '(Nem ajánlott) Engedélyezze a Saber-nek, hogy csatlakozzon önaláírt/nem megbízható tanúsítványokkal rendelkező szerverekhez';
-	@override String get autosaveDelay => 'Mennyi ideig kell várni a jegyzet automatikus mentése előtt';
 	@override String get shouldAlwaysAlertForUpdates => 'Szóljon nekem a frissítésekről, amint elérhetők';
 	@override String get disableEraserAfterUse => 'A radír használata után automatikusan visszavált a tollra';
 }

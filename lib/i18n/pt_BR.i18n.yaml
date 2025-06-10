@@ -23,7 +23,6 @@ home:
   welcome: Bem-vindo(a) ao Saber
   invalidFormat: O arquivo que você selecionou não é suportado. Por favor selecione um arquivo .sbn, .sbn2, .sba ou .pdf.
   noFiles: Nenhum arquivo encontrado
-  noPreviewAvailable(OUTDATED): Nenhuma visualização disponível
   createNewNote: Toque no botão + para criar uma nova nota
   backFolder: Retornar para a pasta anterior
   newFolder: 
@@ -61,6 +60,7 @@ home:
     deleteName: Apagar $f
     delete: Apagar
     alsoDeleteContents: Apagar também todas as notas dentro desta pasta
+  noPreviewAvailable(OUTDATED): Nenhuma visualização disponível
 settings: 
   prefCategories: 
     general: Geral
@@ -90,7 +90,7 @@ settings:
     hideHomeBackgrounds: Ocultar planos de fundo na tela inicial
     recentColorsDontSavePresets: Não salvar as cores predefinidas nas cores recentes
     printPageIndicators: Imprimir os indicadores de página
-    autosaveDelay: Atraso de salvamento automático
+    autosave(OUTDATED): Save automática
     simplifiedHomeLayout(OUTDATED): Layout simplificado da casa
     pencilSoundSetting(OUTDATED): Efeito sonoro de lápis
     customDataDir(OUTDATED): Diretório de dados personalizado
@@ -111,7 +111,7 @@ settings:
     editorPromptRename: Você pode sempre renomear as notas mais tarde
     hideHomeBackgrounds: Para uma aparência mais limpa
     printPageIndicators: Mostrar os indicadores de página nas exportações
-    autosaveDelay: Quanto tempo esperar antes de salvar automaticamente uma nota
+    autosave(OUTDATED): Salvamento automático após um pequeno atraso, ou nunca
     shouldAlwaysAlertForUpdates: Conte-me sobre atualizações assim que elas estiverem disponíveis
     pencilSoundSetting: 
       off(OUTDATED): Sem som
@@ -144,6 +144,8 @@ settings:
     select(OUTDATED): Selecione
     mustBeEmpty(OUTDATED): O diretório selecionado deve estar vazio
     mustBeDoneSyncing(OUTDATED): Certifique-se de que a sincronização esteja concluída antes de alterar o diretório
+  autosaveDisabled(OUTDATED): Nunca
+  shapeRecognitionDisabled(OUTDATED): Nunca
   openDataDir(OUTDATED): Abra a pasta Saber
   resyncEverything(OUTDATED): Resync tudo
 logs: 

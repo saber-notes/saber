@@ -23,7 +23,6 @@ home:
   welcome: Bienvenue dans Saber
   invalidFormat: Type de fichier non supporté. Veuillez choisr un fichier .sbn, .sbn2, .sba ou .pdf.
   noFiles: Aucun fichier trouvé
-  noPreviewAvailable(OUTDATED): Aucun aperçu disponible
   createNewNote: Presser le bouton + pour créer une nouvelle note
   backFolder: Retour au dossier précédent
   newFolder: 
@@ -61,6 +60,7 @@ home:
     deleteName: Supprimer $f
     delete: Supprimer
     alsoDeleteContents: Supprimer aussi toutes les notes rangées dans ce dossier
+  noPreviewAvailable(OUTDATED): Aucun aperçu disponible
 settings: 
   prefCategories: 
     general: Général
@@ -91,7 +91,7 @@ settings:
     recentColorsDontSavePresets: Ne pas conserver les couleurs pré-définies parmi les couleurs récentes
     recentColorsLength: Nombre de couleurs récentes à conserver
     printPageIndicators: Imprimer les numéros de pages
-    autosaveDelay: Délai entre les sauvegardes automatiques
+    autosave(OUTDATED): S'attacher automatiquement
     shapeRecognitionDelay: Délai de reconnaissance de forme
     simplifiedHomeLayout(OUTDATED): Aménagement d'une maison simplifié
     pencilSoundSetting(OUTDATED): Effet sonore de crayon
@@ -111,7 +111,7 @@ settings:
     editorPromptRename: Vous pourrez toujours les renommer plus tard
     hideHomeBackgrounds: Pour une apparence plus sobre
     printPageIndicators: Montrer les numéros de pages dans les exportations
-    autosaveDelay: Combien de temps attendre avant de sauvegarder automatiquement une note
+    autosave(OUTDATED): S'attacher automatiquement après un court délai, ou jamais
     shapeRecognitionDelay: Avec quelle fréquence mettre à jour la prévisualisation de forme
     shouldAlwaysAlertForUpdates: Me prévenir dès qu'une mise à jour est disponible
     pencilSoundSetting: 
@@ -145,6 +145,8 @@ settings:
     select(OUTDATED): Sélectionner
     mustBeEmpty(OUTDATED): Le répertoire sélectionné doit être vide
     mustBeDoneSyncing(OUTDATED): Assurez-vous que la synchronisation est terminée avant de modifier le répertoire
+  autosaveDisabled(OUTDATED): Jamais
+  shapeRecognitionDisabled(OUTDATED): Jamais
   openDataDir(OUTDATED): Ouvrir le dossier Saber
 logs: 
   logs(OUTDATED): Journaux

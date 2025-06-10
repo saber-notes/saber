@@ -91,7 +91,7 @@ settings:
     recentColorsDontSavePresets: Neukládat přednastavené barvy mezi naposledy použité barvy
     recentColorsLength: Kolik naposledy použitých barev se má ukládat
     printPageIndicators: Tisknout čísla stránek
-    autosaveDelay: Zpoždění automatického ukládání
+    autosave(OUTDATED): Automatické posílení
     shapeRecognitionDelay: Zpoždění rozpoznávání tvarů
     autoStraightenLines: Automaticky narovnávat čáry
     simplifiedHomeLayout: Zjednodušené rozložení domovské obrazovky
@@ -111,7 +111,7 @@ settings:
     editorPromptRename: Poznámky můžete vždy přejmenovat i později
     hideHomeBackgrounds: Pro čistější vzhled
     printPageIndicators: V exportech budou zobrazena čísla stránek
-    autosaveDelay: Jak dlouho počkat před automatickým uložením poznámky
+    autosave(OUTDATED): Automaticky ponořte po krátkém zpoždění, nebo nikdy
     shapeRecognitionDelay: Jak často aktualizovat náhled tvaru
     autoStraightenLines: Automaticky narovná dlouhé čáry, aniž by bylo nutné využít tvarové pero
     simplifiedHomeLayout: Nastaví pevnou výšku pro každý náhled poznámky
@@ -146,6 +146,8 @@ settings:
     select: Zvolit
     mustBeEmpty: Zvolená složka musí být prázdná
     mustBeDoneSyncing: Než změníte složku, ujistěte se, že byla dokončena synchronizace
+  autosaveDisabled(OUTDATED): Nikdy
+  shapeRecognitionDisabled(OUTDATED): Nikdy
 logs: 
   logs: Logy
   viewLogs: Zobrazit logy

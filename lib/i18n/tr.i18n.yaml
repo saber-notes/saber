@@ -23,7 +23,6 @@ home:
   welcome: Saber'a hoş geldiniz
   invalidFormat: Seçtiğiniz dosya desteklenmiyor. Lütfen bir .sbn, .sbn2, .sba veya .pdf dosyası seçin.
   noFiles: Dosya yok
-  noPreviewAvailable(OUTDATED): Önizleme yok
   createNewNote: Yeni bir not oluşturmak için + butonuna tıklayınız
   backFolder: Önceki klasöre dön
   newFolder: 
@@ -61,6 +60,7 @@ home:
     deleteName: $f silinecek
     delete: Sil
     alsoDeleteContents: Bu klasördeki tüm notları da sil
+  noPreviewAvailable(OUTDATED): Önizleme yok
 settings: 
   prefCategories: 
     general: Genel
@@ -91,7 +91,7 @@ settings:
     recentColorsDontSavePresets: Ön tanımlı renkleri son kullanılanlara kaydetme
     recentColorsLength: Kaç tane son kullanılan renk saklanacak
     printPageIndicators: Sayfa belirteçlerini yazdır
-    autosaveDelay: Otomatik kayıt aralığı
+    autosave(OUTDATED): Otomatik koruma
     shapeRecognitionDelay: Şekil tanıma gecikmesi
     autoStraightenLines: Çizgileri otomatik düzleştir
     simplifiedHomeLayout: Sadeleştirilmiş ana ekran düzeni
@@ -111,7 +111,7 @@ settings:
     editorPromptRename: Notlarınızı daha sonra da yeniden adlandırabilirsiniz
     hideHomeBackgrounds: Daha sade bir görüntü için
     printPageIndicators: Çıktılarda sayfa belirteçlerini göster
-    autosaveDelay: Bir notu otomatik kaydetmeden önce ne kadar bekleneceğini ayarlar
+    autosave(OUTDATED): Kısa bir gecikmeden sonra otomatik kaydetme veya asla
     shapeRecognitionDelay: Çizilen şekilleri tanımlama sıklığını belirler
     autoStraightenLines: Şekil aracını kullanmadığınızda da çizgileri düzleştirir
     simplifiedHomeLayout: Not önizlemelerinin uzunluklarını eşitler
@@ -146,6 +146,8 @@ settings:
     select: Seç
     mustBeEmpty: Seçilen klasör boş olmalı
     mustBeDoneSyncing: Klasörü değiştirmeden önce senkronizasyonun tamamlandığından emin olun
+  autosaveDisabled(OUTDATED): Asla
+  shapeRecognitionDisabled(OUTDATED): Asla
 logs: 
   logs(OUTDATED): Günlükler
   viewLogs(OUTDATED): Günlükleri görüntüle

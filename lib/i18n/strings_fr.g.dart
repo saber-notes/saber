@@ -69,7 +69,6 @@ class _TranslationsHomeFr extends TranslationsHomeEn {
 	@override String get welcome => 'Bienvenue dans Saber';
 	@override String get invalidFormat => 'Type de fichier non supporté. Veuillez choisr un fichier .sbn, .sbn2, .sba ou .pdf.';
 	@override String get noFiles => 'Aucun fichier trouvé';
-	@override String get noPreviewAvailable => 'Aucun aperçu disponible';
 	@override String get createNewNote => 'Presser le bouton + pour créer une nouvelle note';
 	@override String get backFolder => 'Retour au dossier précédent';
 	@override late final _TranslationsHomeNewFolderFr newFolder = _TranslationsHomeNewFolderFr._(_root);
@@ -78,6 +77,7 @@ class _TranslationsHomeFr extends TranslationsHomeEn {
 	@override String get deleteNote => 'Effacer la note';
 	@override late final _TranslationsHomeRenameFolderFr renameFolder = _TranslationsHomeRenameFolderFr._(_root);
 	@override late final _TranslationsHomeDeleteFolderFr deleteFolder = _TranslationsHomeDeleteFolderFr._(_root);
+	@override String get noPreviewAvailable => 'Aucun aperçu disponible';
 }
 
 // Path: settings
@@ -103,6 +103,8 @@ class _TranslationsSettingsFr extends TranslationsSettingsEn {
 	@override late final _TranslationsSettingsResetFr reset = _TranslationsSettingsResetFr._(_root);
 	@override String get resyncEverything => 'Tout re-syncroniser';
 	@override late final _TranslationsSettingsCustomDataDirFr customDataDir = _TranslationsSettingsCustomDataDirFr._(_root);
+	@override String get autosaveDisabled => 'Jamais';
+	@override String get shapeRecognitionDisabled => 'Jamais';
 	@override String get openDataDir => 'Ouvrir le dossier Saber';
 }
 
@@ -379,7 +381,7 @@ class _TranslationsSettingsPrefLabelsFr extends TranslationsSettingsPrefLabelsEn
 	@override String get recentColorsDontSavePresets => 'Ne pas conserver les couleurs pré-définies parmi les couleurs récentes';
 	@override String get recentColorsLength => 'Nombre de couleurs récentes à conserver';
 	@override String get printPageIndicators => 'Imprimer les numéros de pages';
-	@override String get autosaveDelay => 'Délai entre les sauvegardes automatiques';
+	@override String get autosave => 'S\'attacher automatiquement';
 	@override String get shapeRecognitionDelay => 'Délai de reconnaissance de forme';
 	@override String get simplifiedHomeLayout => 'Aménagement d\'une maison simplifié';
 	@override String get pencilSoundSetting => 'Effet sonore de crayon';
@@ -404,7 +406,7 @@ class _TranslationsSettingsPrefDescriptionsFr extends TranslationsSettingsPrefDe
 	@override String get editorPromptRename => 'Vous pourrez toujours les renommer plus tard';
 	@override String get hideHomeBackgrounds => 'Pour une apparence plus sobre';
 	@override String get printPageIndicators => 'Montrer les numéros de pages dans les exportations';
-	@override String get autosaveDelay => 'Combien de temps attendre avant de sauvegarder automatiquement une note';
+	@override String get autosave => 'S\'attacher automatiquement après un court délai, ou jamais';
 	@override String get shapeRecognitionDelay => 'Avec quelle fréquence mettre à jour la prévisualisation de forme';
 	@override String get shouldAlwaysAlertForUpdates => 'Me prévenir dès qu\'une mise à jour est disponible';
 	@override late final _TranslationsSettingsPrefDescriptionsPencilSoundSettingFr pencilSoundSetting = _TranslationsSettingsPrefDescriptionsPencilSoundSettingFr._(_root);

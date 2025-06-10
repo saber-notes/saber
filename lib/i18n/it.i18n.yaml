@@ -23,7 +23,6 @@ home:
   welcome: Benvenuto su Saber
   invalidFormat: Il file selezionato non è supportato. Seleziona un file .sbn, .sbn2, .sba o .pdf.
   noFiles: Nessun file trovato
-  noPreviewAvailable(OUTDATED): Nessuna anteprima disponibile
   createNewNote: Tocca il pulsante + per creare una nuova nota
   backFolder: Torna alla cartella precedente
   newFolder: 
@@ -61,6 +60,7 @@ home:
     deleteName: Elimina $f
     delete: Elimina
     alsoDeleteContents: Elimina anche tutte le note all'interno di questa cartella
+  noPreviewAvailable(OUTDATED): Nessuna anteprima disponibile
 settings: 
   prefCategories: 
     general: Generale
@@ -91,7 +91,7 @@ settings:
     recentColorsDontSavePresets: Non salvare i colori preimpostati nei colori recenti
     recentColorsLength: Quanti colori recenti memorizzare
     printPageIndicators: Stampa indicatori di pagina
-    autosaveDelay: Ritardo di salvataggio automatico
+    autosave(OUTDATED): Salvare automaticamente
     shapeRecognitionDelay: Ritardo nel riconoscimento della forma
     autoStraightenLines: Raddrizzamento automatico delle linee
     simplifiedHomeLayout: Layout semplificato della home
@@ -111,7 +111,6 @@ settings:
     editorPromptRename: Puoi sempre rinominare le note in un secondo momento
     hideHomeBackgrounds: Per un aspetto più pulito
     printPageIndicators: Mostra indicatori di pagina nelle esportazioni
-    autosaveDelay: Quanto tempo aspettare prima di salvare automaticamente una nota
     shapeRecognitionDelay: Quanto spesso aggiornare l'anteprima della forma
     autoStraightenLines: Raddrizza le linee lunghe senza dover utilizzare la penna sagomatrice
     simplifiedHomeLayout: Imposta un'altezza fissa per ogni anteprima della nota
@@ -120,6 +119,7 @@ settings:
       off: Nessun suono
       onButNotInSilentMode: Abilitato (a meno che non sia in modalità silenziosa)
       onAlways: Abilitato (anche in modalità silenziosa)
+    autosave(OUTDATED): Salvare automaticamente dopo un breve ritardo o mai
   themeModes: 
     system: Sistema
     light: Chiaro
@@ -146,6 +146,8 @@ settings:
     select: Seleziona
     mustBeEmpty: La cartella selezionata deve essere vuota
     mustBeDoneSyncing: Assicurati che la sincronizzazione sia completa prima di cambiare cartella
+  autosaveDisabled(OUTDATED): Mai
+  shapeRecognitionDisabled(OUTDATED): Mai
 logs: 
   logs: Log
   viewLogs: Visualizza log

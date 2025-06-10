@@ -69,7 +69,6 @@ class _TranslationsHomeRu extends TranslationsHomeEn {
 	@override String get welcome => 'Приветствуем в Saber';
 	@override String get invalidFormat => 'Выбранный вами файл не поддерживается. Выберите файл .sbn, .sbn2, .sba или .pdf.';
 	@override String get noFiles => 'Файлов ещё нет';
-	@override String get noPreviewAvailable => 'Нет предварительного просмотра';
 	@override String get createNewNote => 'Нажмите кнопку «+» чтобы создать новую заметку';
 	@override String get backFolder => 'Вернуться к предыдущей папке';
 	@override late final _TranslationsHomeNewFolderRu newFolder = _TranslationsHomeNewFolderRu._(_root);
@@ -78,6 +77,7 @@ class _TranslationsHomeRu extends TranslationsHomeEn {
 	@override String get deleteNote => 'Удалить заметку';
 	@override late final _TranslationsHomeRenameFolderRu renameFolder = _TranslationsHomeRenameFolderRu._(_root);
 	@override late final _TranslationsHomeDeleteFolderRu deleteFolder = _TranslationsHomeDeleteFolderRu._(_root);
+	@override String get noPreviewAvailable => 'Нет предварительного просмотра';
 }
 
 // Path: settings
@@ -104,6 +104,8 @@ class _TranslationsSettingsRu extends TranslationsSettingsEn {
 	@override String get resyncEverything => 'Повторная синхронизация всего';
 	@override String get openDataDir => 'Открыть папку Saber';
 	@override late final _TranslationsSettingsCustomDataDirRu customDataDir = _TranslationsSettingsCustomDataDirRu._(_root);
+	@override String get autosaveDisabled => 'Никогда';
+	@override String get shapeRecognitionDisabled => 'Никогда';
 }
 
 // Path: logs
@@ -381,7 +383,7 @@ class _TranslationsSettingsPrefLabelsRu extends TranslationsSettingsPrefLabelsEn
 	@override String get recentColorsDontSavePresets => 'Не сохранять предустановленные цвета в последних цветах';
 	@override String get recentColorsLength => 'Количество последних сохраняемых цветов';
 	@override String get printPageIndicators => 'Печатать номера страниц';
-	@override String get autosaveDelay => 'Задержка автосохранения';
+	@override String get autosave => 'Авто-самая';
 	@override String get shapeRecognitionDelay => 'Задержка распознавания формы';
 	@override String get autoStraightenLines => 'Автоматическое выпрямление линий';
 	@override String get simplifiedHomeLayout => 'Упрощённый главный экран';
@@ -406,7 +408,7 @@ class _TranslationsSettingsPrefDescriptionsRu extends TranslationsSettingsPrefDe
 	@override String get editorPromptRename => 'Вы всегда можете переименовать заметки позже';
 	@override String get hideHomeBackgrounds => 'Для чистого вида';
 	@override String get printPageIndicators => 'Показывать номера страниц при экспорте';
-	@override String get autosaveDelay => 'Время ожидания до автосохранения заметки';
+	@override String get autosave => 'Авто-самая после короткой задержки или никогда';
 	@override String get shapeRecognitionDelay => 'Как часто обновлять предварительный просмотр формы';
 	@override String get autoStraightenLines => 'Выпрямляет длинные линии без использования фигурного пера';
 	@override String get simplifiedHomeLayout => 'Фиксированная высота предварительного просмотра каждой заметки';

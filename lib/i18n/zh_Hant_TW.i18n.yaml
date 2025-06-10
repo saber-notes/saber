@@ -23,7 +23,6 @@ home:
   welcome: 歡迎使用 Saber
   invalidFormat: 「不支援您選擇的檔案，請選擇 .sbn、.sbn2、.sba 或 .pdf 檔案。」
   noFiles: 未找到檔案
-  noPreviewAvailable(OUTDATED): 沒有預覽
   createNewNote: 點擊 + 按鈕新增一個筆記
   backFolder: 返回上一個資料夾
   newFolder: 
@@ -61,6 +60,7 @@ home:
     deleteName: 刪除 $f
     delete: 刪除
     alsoDeleteContents: 同時刪除該文件夾內的所有筆記
+  noPreviewAvailable(OUTDATED): 沒有預覽
 settings: 
   prefCategories: 
     general: 一般
@@ -91,7 +91,7 @@ settings:
     recentColorsDontSavePresets: 不要在最近的顏色中儲存預設顏色
     recentColorsLength: 要儲存多少種最近的顏色
     printPageIndicators: 列印頁碼
-    autosaveDelay: 自動儲存延遲
+    autosave(OUTDATED): 自動保存
     shapeRecognitionDelay: 形狀識別延遲
     autoStraightenLines: 自動拉直線條
     simplifiedHomeLayout: 簡化首頁佈局
@@ -111,7 +111,7 @@ settings:
     editorPromptRename: 您以後隨時可以重新命名筆記
     hideHomeBackgrounds: 為了更乾淨的外觀
     printPageIndicators: 在匯出中顯示頁碼
-    autosaveDelay: 自動儲存筆記之前等待多少時間
+    autosave(OUTDATED): 短暫延遲後自動保存，或者永遠不會
     shapeRecognitionDelay: 多久更新一次形狀預覽
     autoStraightenLines: 無需使用形狀筆即可拉直線條
     simplifiedHomeLayout: 為每個筆記預覽設定固定高度
@@ -146,6 +146,8 @@ settings:
     select: 選擇
     mustBeEmpty: 選擇的資料夾必須是空的
     mustBeDoneSyncing: 更改資料夾之前確保同步已完成
+  autosaveDisabled(OUTDATED): 絕不
+  shapeRecognitionDisabled(OUTDATED): 絕不
 logs: 
   logs: 日誌
   viewLogs: 查看日誌

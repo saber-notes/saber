@@ -23,7 +23,6 @@ home:
   welcome: خوش آمدید
   invalidFormat: فایلی که انتخاب کرده اید پشتیبانی نمی شود. لطفاً یک فایل sbn، sbn2، sba یا pdf را انتخاب کنید.
   noFiles: فایلی پیدا نشد
-  noPreviewAvailable(OUTDATED): پیش نمایش موجود نیست
   createNewNote: برای ساخت یادداشت دکمه + را بزنید
   backFolder: به پوشه قبلی برگردید
   newFolder: 
@@ -61,6 +60,7 @@ home:
     deleteName: $f را حذف کنید
     delete: حذف
     alsoDeleteContents: همچنین تمام یادداشت های داخل این پوشه را حذف کنید
+  noPreviewAvailable(OUTDATED): پیش نمایش موجود نیست
 settings: 
   prefCategories: 
     general: عمومی
@@ -91,7 +91,7 @@ settings:
     recentColorsDontSavePresets: رنگ های از پیش تعیین شده را در رنگ های اخیر ذخیره نکنید
     recentColorsLength: چند رنگ اخیر برای ذخیره
     printPageIndicators: چاپ نشانگرهای صفحه
-    autosaveDelay: تأخیر ذخیره خودکار
+    autosave(OUTDATED): خودرا
     shapeRecognitionDelay: تاخیر در تشخیص شکل
     simplifiedHomeLayout(OUTDATED): چیدمان خانه ساده شده
     pencilSoundSetting(OUTDATED): جلوه صدای مداد
@@ -111,7 +111,7 @@ settings:
     editorPromptRename: همیشه می توانید بعداً نام یادداشت ها را تغییر دهید
     hideHomeBackgrounds: برای ظاهری تمیز تر
     printPageIndicators: نمایش نشانگرهای صفحه در خروجی
-    autosaveDelay: چه مدت باید قبل از ذخیره خودکار یادداشت صبر کرد
+    autosave(OUTDATED): پس از یک تأخیر کوتاه ، یا هرگز
     shapeRecognitionDelay: به روز رسانی پیشنمایش شکل چند وقت یکبار انجام شود
     shouldAlwaysAlertForUpdates: به محض اینکه به‌روزرسانی‌ها در دسترس هستند، به من بگویید
     pencilSoundSetting: 
@@ -144,6 +144,8 @@ settings:
     select(OUTDATED): انتخاب کنید
     mustBeEmpty(OUTDATED): دایرکتوری انتخاب شده باید خالی باشد
     mustBeDoneSyncing(OUTDATED): قبل از تغییر دایرکتوری مطمئن شوید که همگام سازی کامل شده است
+  autosaveDisabled(OUTDATED): هرگز
+  shapeRecognitionDisabled(OUTDATED): هرگز
   openDataDir(OUTDATED): پوشه Saber را باز کنید
   resyncEverything(OUTDATED): همه چیز را دوباره همگام سازی کنید
 logs: 

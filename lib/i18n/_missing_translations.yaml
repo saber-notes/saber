@@ -4,6 +4,13 @@
 ar: 
   home: 
     noPreviewAvailable(OUTDATED): No preview available
+  settings: 
+    prefLabels: 
+      autosave(OUTDATED): Auto-save
+    prefDescriptions: 
+      autosave(OUTDATED): Auto-save after a short delay, or never
+    autosaveDisabled(OUTDATED): Never
+    shapeRecognitionDisabled(OUTDATED): Never
   logs: 
     logs(OUTDATED): Logs
     viewLogs(OUTDATED): View logs
@@ -15,9 +22,23 @@ ar:
       lineThickness(OUTDATED): Line thickness
       lineThicknessDescription(OUTDATED): Background line thickness
 cs: 
+  settings: 
+    prefLabels: 
+      autosave(OUTDATED): Auto-save
+    prefDescriptions: 
+      autosave(OUTDATED): Auto-save after a short delay, or never
+    autosaveDisabled(OUTDATED): Never
+    shapeRecognitionDisabled(OUTDATED): Never
 de: 
   home: 
     noPreviewAvailable(OUTDATED): No preview available
+  settings: 
+    prefLabels: 
+      autosave(OUTDATED): Auto-save
+    prefDescriptions: 
+      autosave(OUTDATED): Auto-save after a short delay, or never
+    autosaveDisabled(OUTDATED): Never
+    shapeRecognitionDisabled(OUTDATED): Never
   logs: 
     logs(OUTDATED): Logs
     viewLogs(OUTDATED): View logs
@@ -38,12 +59,14 @@ es:
     prefCategories: 
       performance(OUTDATED): Performance
     prefLabels: 
+      autosave(OUTDATED): Auto-save
       shapeRecognitionDelay(OUTDATED): Shape recognition delay
       autoStraightenLines(OUTDATED): Auto straighten lines
       simplifiedHomeLayout(OUTDATED): Simplified home layout
       customDataDir(OUTDATED): Custom Saber folder
       pencilSoundSetting(OUTDATED): Pencil sound effect
     prefDescriptions: 
+      autosave(OUTDATED): Auto-save after a short delay, or never
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
       simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
@@ -58,6 +81,8 @@ es:
       select(OUTDATED): Select
       mustBeEmpty(OUTDATED): Selected folder must be empty
       mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the folder
+    autosaveDisabled(OUTDATED): Never
+    shapeRecognitionDisabled(OUTDATED): Never
   logs: 
     logs(OUTDATED): Logs
     viewLogs(OUTDATED): View logs
@@ -128,11 +153,13 @@ fa:
     noPreviewAvailable(OUTDATED): No preview available
   settings: 
     prefLabels: 
+      autosave(OUTDATED): Auto-save
       autoStraightenLines(OUTDATED): Auto straighten lines
       simplifiedHomeLayout(OUTDATED): Simplified home layout
       customDataDir(OUTDATED): Custom Saber folder
       pencilSoundSetting(OUTDATED): Pencil sound effect
     prefDescriptions: 
+      autosave(OUTDATED): Auto-save after a short delay, or never
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
       simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
       pencilSoundSetting: 
@@ -146,6 +173,8 @@ fa:
       select(OUTDATED): Select
       mustBeEmpty(OUTDATED): Selected folder must be empty
       mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the folder
+    autosaveDisabled(OUTDATED): Never
+    shapeRecognitionDisabled(OUTDATED): Never
   logs: 
     logs(OUTDATED): Logs
     viewLogs(OUTDATED): View logs
@@ -211,11 +240,13 @@ fr:
     noPreviewAvailable(OUTDATED): No preview available
   settings: 
     prefLabels: 
+      autosave(OUTDATED): Auto-save
       autoStraightenLines(OUTDATED): Auto straighten lines
       simplifiedHomeLayout(OUTDATED): Simplified home layout
       customDataDir(OUTDATED): Custom Saber folder
       pencilSoundSetting(OUTDATED): Pencil sound effect
     prefDescriptions: 
+      autosave(OUTDATED): Auto-save after a short delay, or never
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
       simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
       pencilSoundSetting: 
@@ -228,6 +259,8 @@ fr:
       select(OUTDATED): Select
       mustBeEmpty(OUTDATED): Selected folder must be empty
       mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the folder
+    autosaveDisabled(OUTDATED): Never
+    shapeRecognitionDisabled(OUTDATED): Never
   logs: 
     logs(OUTDATED): Logs
     viewLogs(OUTDATED): View logs
@@ -306,12 +339,14 @@ he:
       performance(OUTDATED): Performance
     prefLabels: 
       recentColorsLength(OUTDATED): How many recent colors to store
+      autosave(OUTDATED): Auto-save
       shapeRecognitionDelay(OUTDATED): Shape recognition delay
       autoStraightenLines(OUTDATED): Auto straighten lines
       simplifiedHomeLayout(OUTDATED): Simplified home layout
       customDataDir(OUTDATED): Custom Saber folder
       pencilSoundSetting(OUTDATED): Pencil sound effect
     prefDescriptions: 
+      autosave(OUTDATED): Auto-save after a short delay, or never
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
       simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
@@ -326,6 +361,8 @@ he:
       select(OUTDATED): Select
       mustBeEmpty(OUTDATED): Selected folder must be empty
       mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the folder
+    autosaveDisabled(OUTDATED): Never
+    shapeRecognitionDisabled(OUTDATED): Never
   logs: 
     logs(OUTDATED): Logs
     viewLogs(OUTDATED): View logs
@@ -460,7 +497,7 @@ hu:
       hideFingerDrawingToggle(OUTDATED): Hide the finger drawing toggle
       recentColorsLength(OUTDATED): How many recent colors to store
       printPageIndicators(OUTDATED): Print page indicators
-      autosaveDelay(OUTDATED): Auto-save delay
+      autosave(OUTDATED): Auto-save
       shapeRecognitionDelay(OUTDATED): Shape recognition delay
       autoStraightenLines(OUTDATED): Auto straighten lines
       simplifiedHomeLayout(OUTDATED): Simplified home layout
@@ -474,7 +511,7 @@ hu:
         fixedOn(OUTDATED): Finger drawing is fixed as enabled
         fixedOff(OUTDATED): Finger drawing is fixed as disabled
       printPageIndicators(OUTDATED): Show page indicators in exports
-      autosaveDelay(OUTDATED): How long to wait before auto-saving a note
+      autosave(OUTDATED): Auto-save after a short delay, or never
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
       simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
@@ -494,6 +531,8 @@ hu:
       select(OUTDATED): Select
       mustBeEmpty(OUTDATED): Selected folder must be empty
       mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the folder
+    autosaveDisabled(OUTDATED): Never
+    shapeRecognitionDisabled(OUTDATED): Never
   logs: 
     logs(OUTDATED): Logs
     viewLogs(OUTDATED): View logs
@@ -630,6 +669,13 @@ hu:
 it: 
   home: 
     noPreviewAvailable(OUTDATED): No preview available
+  settings: 
+    prefLabels: 
+      autosave(OUTDATED): Auto-save
+    prefDescriptions: 
+      autosave(OUTDATED): Auto-save after a short delay, or never
+    autosaveDisabled(OUTDATED): Never
+    shapeRecognitionDisabled(OUTDATED): Never
   editor: 
     menu: 
       lineThickness(OUTDATED): Line thickness
@@ -674,7 +720,7 @@ ja:
       disableEraserAfterUse(OUTDATED): Auto-disable the eraser
       hideFingerDrawingToggle(OUTDATED): Hide the finger drawing toggle
       recentColorsLength(OUTDATED): How many recent colors to store
-      autosaveDelay(OUTDATED): Auto-save delay
+      autosave(OUTDATED): Auto-save
       shapeRecognitionDelay(OUTDATED): Shape recognition delay
       autoStraightenLines(OUTDATED): Auto straighten lines
       simplifiedHomeLayout(OUTDATED): Simplified home layout
@@ -686,7 +732,7 @@ ja:
         shown(OUTDATED): Prevents accidental toggling
         fixedOn(OUTDATED): Finger drawing is fixed as enabled
         fixedOff(OUTDATED): Finger drawing is fixed as disabled
-      autosaveDelay(OUTDATED): How long to wait before auto-saving a note
+      autosave(OUTDATED): Auto-save after a short delay, or never
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
       simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
@@ -702,6 +748,8 @@ ja:
       select(OUTDATED): Select
       mustBeEmpty(OUTDATED): Selected folder must be empty
       mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the folder
+    autosaveDisabled(OUTDATED): Never
+    shapeRecognitionDisabled(OUTDATED): Never
   logs: 
     logs(OUTDATED): Logs
     viewLogs(OUTDATED): View logs
@@ -791,12 +839,14 @@ pt-BR:
       performance(OUTDATED): Performance
     prefLabels: 
       recentColorsLength(OUTDATED): How many recent colors to store
+      autosave(OUTDATED): Auto-save
       shapeRecognitionDelay(OUTDATED): Shape recognition delay
       autoStraightenLines(OUTDATED): Auto straighten lines
       simplifiedHomeLayout(OUTDATED): Simplified home layout
       customDataDir(OUTDATED): Custom Saber folder
       pencilSoundSetting(OUTDATED): Pencil sound effect
     prefDescriptions: 
+      autosave(OUTDATED): Auto-save after a short delay, or never
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
       simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
@@ -811,6 +861,8 @@ pt-BR:
       select(OUTDATED): Select
       mustBeEmpty(OUTDATED): Selected folder must be empty
       mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the folder
+    autosaveDisabled(OUTDATED): Never
+    shapeRecognitionDisabled(OUTDATED): Never
   logs: 
     logs(OUTDATED): Logs
     viewLogs(OUTDATED): View logs
@@ -883,6 +935,13 @@ pt-BR:
 ru: 
   home: 
     noPreviewAvailable(OUTDATED): No preview available
+  settings: 
+    prefLabels: 
+      autosave(OUTDATED): Auto-save
+    prefDescriptions: 
+      autosave(OUTDATED): Auto-save after a short delay, or never
+    autosaveDisabled(OUTDATED): Never
+    shapeRecognitionDisabled(OUTDATED): Never
   editor: 
     menu: 
       lineThickness(OUTDATED): Line thickness
@@ -890,6 +949,13 @@ ru:
 tr: 
   home: 
     noPreviewAvailable(OUTDATED): No preview available
+  settings: 
+    prefLabels: 
+      autosave(OUTDATED): Auto-save
+    prefDescriptions: 
+      autosave(OUTDATED): Auto-save after a short delay, or never
+    autosaveDisabled(OUTDATED): Never
+    shapeRecognitionDisabled(OUTDATED): Never
   logs: 
     logs(OUTDATED): Logs
     viewLogs(OUTDATED): View logs
@@ -903,6 +969,13 @@ tr:
 zh-Hans-CN: 
   home: 
     noPreviewAvailable(OUTDATED): No preview available
+  settings: 
+    prefLabels: 
+      autosave(OUTDATED): Auto-save
+    prefDescriptions: 
+      autosave(OUTDATED): Auto-save after a short delay, or never
+    autosaveDisabled(OUTDATED): Never
+    shapeRecognitionDisabled(OUTDATED): Never
   logs: 
     logs(OUTDATED): Logs
     viewLogs(OUTDATED): View logs
@@ -916,6 +989,13 @@ zh-Hans-CN:
 zh-Hant-TW: 
   home: 
     noPreviewAvailable(OUTDATED): No preview available
+  settings: 
+    prefLabels: 
+      autosave(OUTDATED): Auto-save
+    prefDescriptions: 
+      autosave(OUTDATED): Auto-save after a short delay, or never
+    autosaveDisabled(OUTDATED): Never
+    shapeRecognitionDisabled(OUTDATED): Never
   editor: 
     menu: 
       lineThickness(OUTDATED): Line thickness

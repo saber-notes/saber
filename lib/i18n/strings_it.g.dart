@@ -69,7 +69,6 @@ class _TranslationsHomeIt extends TranslationsHomeEn {
 	@override String get welcome => 'Benvenuto su Saber';
 	@override String get invalidFormat => 'Il file selezionato non è supportato. Seleziona un file .sbn, .sbn2, .sba o .pdf.';
 	@override String get noFiles => 'Nessun file trovato';
-	@override String get noPreviewAvailable => 'Nessuna anteprima disponibile';
 	@override String get createNewNote => 'Tocca il pulsante + per creare una nuova nota';
 	@override String get backFolder => 'Torna alla cartella precedente';
 	@override late final _TranslationsHomeNewFolderIt newFolder = _TranslationsHomeNewFolderIt._(_root);
@@ -78,6 +77,7 @@ class _TranslationsHomeIt extends TranslationsHomeEn {
 	@override String get deleteNote => 'Elimina nota';
 	@override late final _TranslationsHomeRenameFolderIt renameFolder = _TranslationsHomeRenameFolderIt._(_root);
 	@override late final _TranslationsHomeDeleteFolderIt deleteFolder = _TranslationsHomeDeleteFolderIt._(_root);
+	@override String get noPreviewAvailable => 'Nessuna anteprima disponibile';
 }
 
 // Path: settings
@@ -104,6 +104,8 @@ class _TranslationsSettingsIt extends TranslationsSettingsEn {
 	@override String get resyncEverything => 'Risincronizza tutto';
 	@override String get openDataDir => 'Apri cartella Saber';
 	@override late final _TranslationsSettingsCustomDataDirIt customDataDir = _TranslationsSettingsCustomDataDirIt._(_root);
+	@override String get autosaveDisabled => 'Mai';
+	@override String get shapeRecognitionDisabled => 'Mai';
 }
 
 // Path: logs
@@ -381,7 +383,7 @@ class _TranslationsSettingsPrefLabelsIt extends TranslationsSettingsPrefLabelsEn
 	@override String get recentColorsDontSavePresets => 'Non salvare i colori preimpostati nei colori recenti';
 	@override String get recentColorsLength => 'Quanti colori recenti memorizzare';
 	@override String get printPageIndicators => 'Stampa indicatori di pagina';
-	@override String get autosaveDelay => 'Ritardo di salvataggio automatico';
+	@override String get autosave => 'Salvare automaticamente';
 	@override String get shapeRecognitionDelay => 'Ritardo nel riconoscimento della forma';
 	@override String get autoStraightenLines => 'Raddrizzamento automatico delle linee';
 	@override String get simplifiedHomeLayout => 'Layout semplificato della home';
@@ -406,12 +408,12 @@ class _TranslationsSettingsPrefDescriptionsIt extends TranslationsSettingsPrefDe
 	@override String get editorPromptRename => 'Puoi sempre rinominare le note in un secondo momento';
 	@override String get hideHomeBackgrounds => 'Per un aspetto più pulito';
 	@override String get printPageIndicators => 'Mostra indicatori di pagina nelle esportazioni';
-	@override String get autosaveDelay => 'Quanto tempo aspettare prima di salvare automaticamente una nota';
 	@override String get shapeRecognitionDelay => 'Quanto spesso aggiornare l\'anteprima della forma';
 	@override String get autoStraightenLines => 'Raddrizza le linee lunghe senza dover utilizzare la penna sagomatrice';
 	@override String get simplifiedHomeLayout => 'Imposta un\'altezza fissa per ogni anteprima della nota';
 	@override String get shouldAlwaysAlertForUpdates => 'Segnalami aggiornamenti non appena sono disponibili';
 	@override late final _TranslationsSettingsPrefDescriptionsPencilSoundSettingIt pencilSoundSetting = _TranslationsSettingsPrefDescriptionsPencilSoundSettingIt._(_root);
+	@override String get autosave => 'Salvare automaticamente dopo un breve ritardo o mai';
 }
 
 // Path: settings.themeModes

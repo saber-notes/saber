@@ -69,7 +69,6 @@ class _TranslationsHomeAr extends TranslationsHomeEn {
 	@override String get welcome => 'مرحباً بك في Saber';
 	@override String get invalidFormat => ' صيغة الملف الذي اخترته ليست مدعومة, الرجاء اختيار ملف  sbn او sbn2 او sba او pdf ';
 	@override String get noFiles => 'لم يتم العثور على ملفات';
-	@override String get noPreviewAvailable => 'لا معاينة متاحة';
 	@override String get createNewNote => 'اضغط على زر + لإنشاء ملاحظة جديدة';
 	@override String get backFolder => 'الرجوع الى المجلد السابق';
 	@override late final _TranslationsHomeNewFolderAr newFolder = _TranslationsHomeNewFolderAr._(_root);
@@ -78,6 +77,7 @@ class _TranslationsHomeAr extends TranslationsHomeEn {
 	@override String get deleteNote => 'حذف الملاحظة';
 	@override late final _TranslationsHomeRenameFolderAr renameFolder = _TranslationsHomeRenameFolderAr._(_root);
 	@override late final _TranslationsHomeDeleteFolderAr deleteFolder = _TranslationsHomeDeleteFolderAr._(_root);
+	@override String get noPreviewAvailable => 'لا معاينة متاحة';
 }
 
 // Path: settings
@@ -104,6 +104,8 @@ class _TranslationsSettingsAr extends TranslationsSettingsEn {
 	@override String get resyncEverything => 'إعادة مزامنة كل شيء';
 	@override String get openDataDir => 'Saber فتح مجلد';
 	@override late final _TranslationsSettingsCustomDataDirAr customDataDir = _TranslationsSettingsCustomDataDirAr._(_root);
+	@override String get autosaveDisabled => 'أبداً';
+	@override String get shapeRecognitionDisabled => 'أبداً';
 }
 
 // Path: logs
@@ -381,7 +383,7 @@ class _TranslationsSettingsPrefLabelsAr extends TranslationsSettingsPrefLabelsEn
 	@override String get recentColorsDontSavePresets => 'لا تحفظ الألوان المعينة مسبقًا كألوان حديثة';
 	@override String get recentColorsLength => 'كم عدد الألوان الحديثة التي يجب تخزينها';
 	@override String get printPageIndicators => 'طباعة مؤشرات الصفحة';
-	@override String get autosaveDelay => 'تأخير الحفظ التلقائي';
+	@override String get autosave => 'تلقائي';
 	@override String get shapeRecognitionDelay => 'تأخير التعرف على الأشكال';
 	@override String get autoStraightenLines => 'استقامة الخطوط تلقائيًا';
 	@override String get simplifiedHomeLayout => 'تخطيط الصفحة الرئيسية المبسط';
@@ -406,7 +408,7 @@ class _TranslationsSettingsPrefDescriptionsAr extends TranslationsSettingsPrefDe
 	@override String get editorPromptRename => 'يمكنك دائمًا إعادة تسمية الملاحظات لاحقًا';
 	@override String get hideHomeBackgrounds => 'للحصول على مظهر أنظف';
 	@override String get printPageIndicators => 'تظهر مؤشرات الصفحة في الصادرات';
-	@override String get autosaveDelay => 'الوقت الذي يجب الانتظار قبل الحفظ التلقائي للملاحظة';
+	@override String get autosave => 'تلقائي بعد تأخير قصير ، أو أبدا';
 	@override String get shapeRecognitionDelay => 'عدد مرات تحديث معاينة الشكل';
 	@override String get autoStraightenLines => 'استقامة الخطوط الطويلة بدون الحاجة لاستخدام قلم الشكل';
 	@override String get simplifiedHomeLayout => 'تعيين ارتفاع ثابت لكل معاينة ملاحظة';

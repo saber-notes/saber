@@ -23,7 +23,6 @@ home:
   welcome: مرحباً بك في Saber
   invalidFormat: " صيغة الملف الذي اخترته ليست مدعومة, الرجاء اختيار ملف  sbn او sbn2 او sba او pdf "
   noFiles: لم يتم العثور على ملفات
-  noPreviewAvailable(OUTDATED): لا معاينة متاحة
   createNewNote: اضغط على زر + لإنشاء ملاحظة جديدة
   backFolder: الرجوع الى المجلد السابق
   newFolder: 
@@ -61,6 +60,7 @@ home:
     deleteName: $f حذف
     delete: حذف
     alsoDeleteContents: حذف جميع الملاحظات داخل هذا المجلد أيضًا
+  noPreviewAvailable(OUTDATED): لا معاينة متاحة
 settings: 
   prefCategories: 
     general: عام
@@ -91,7 +91,7 @@ settings:
     recentColorsDontSavePresets: لا تحفظ الألوان المعينة مسبقًا كألوان حديثة
     recentColorsLength: كم عدد الألوان الحديثة التي يجب تخزينها
     printPageIndicators: طباعة مؤشرات الصفحة
-    autosaveDelay: تأخير الحفظ التلقائي
+    autosave(OUTDATED): تلقائي
     shapeRecognitionDelay: تأخير التعرف على الأشكال
     autoStraightenLines: استقامة الخطوط تلقائيًا
     simplifiedHomeLayout: تخطيط الصفحة الرئيسية المبسط
@@ -111,7 +111,7 @@ settings:
     editorPromptRename: يمكنك دائمًا إعادة تسمية الملاحظات لاحقًا
     hideHomeBackgrounds: للحصول على مظهر أنظف
     printPageIndicators: تظهر مؤشرات الصفحة في الصادرات
-    autosaveDelay: الوقت الذي يجب الانتظار قبل الحفظ التلقائي للملاحظة
+    autosave(OUTDATED): تلقائي بعد تأخير قصير ، أو أبدا
     shapeRecognitionDelay: عدد مرات تحديث معاينة الشكل
     autoStraightenLines: استقامة الخطوط الطويلة بدون الحاجة لاستخدام قلم الشكل
     simplifiedHomeLayout: تعيين ارتفاع ثابت لكل معاينة ملاحظة
@@ -146,6 +146,8 @@ settings:
     select: تحديد
     mustBeEmpty: يجب أن يكون المجلد المحدد فارغًا
     mustBeDoneSyncing: تأكد من اكتمال المزامنة قبل تغيير المجلد
+  autosaveDisabled(OUTDATED): أبداً
+  shapeRecognitionDisabled(OUTDATED): أبداً
 logs: 
   logs(OUTDATED): السجلات
   viewLogs(OUTDATED): عرض السجلات

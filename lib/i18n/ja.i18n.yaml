@@ -22,7 +22,6 @@ home:
     importNote(OUTDATED): インポートメモ
   welcome: ようこそSaberへ
   noFiles: ファイルが見つかりません
-  noPreviewAvailable(OUTDATED): プレビューは利用できません
   createNewNote: +ボタンで新しくメモを作成
   newFolder: 
     newFolder: 新しいフォルダー
@@ -58,6 +57,7 @@ home:
     deleteName(OUTDATED): $fを削除
     delete(OUTDATED): 消去
     alsoDeleteContents(OUTDATED): このフォルダー内のすべてのメモも削除します
+  noPreviewAvailable(OUTDATED): プレビューは利用できません
   backFolder(OUTDATED): 前のフォルダーに戻ります
   deleteNote(OUTDATED): メモの削除
   invalidFormat(OUTDATED): 選択したファイルはサポートされていません。 .sbn、.sbn2、.sba、または .pdf ファイルを選択してください。
@@ -87,13 +87,13 @@ settings:
     hideHomeBackgrounds: ホーム画面で背景を隠す
     recentColorsDontSavePresets: 最近使用した色をプリセットに登録しない
     printPageIndicators: 印刷ページのインジケーター
+    autosave(OUTDATED): 自動保存
     simplifiedHomeLayout(OUTDATED): 簡素化されたホームレイアウト
     pencilSoundSetting(OUTDATED): 鉛筆の効果音
     customDataDir(OUTDATED): カスタムデータディレクトリ
     autoStraightenLines(OUTDATED): 線を自動直線化する
     shapeRecognitionDelay(OUTDATED): 形状認識の遅延
     recentColorsLength(OUTDATED): 最近使用した色を何色保存するか
-    autosaveDelay(OUTDATED): 自動保存の遅延
     hideFingerDrawingToggle(OUTDATED): 指の描画トグルを非表示にする
     shouldAlwaysAlertForUpdates(OUTDATED): アップデートの高速化
     disableEraserAfterUse(OUTDATED): 消しゴムを自動的に無効にする
@@ -110,6 +110,7 @@ settings:
     editorPromptRename: メモの名前は後でいつでも変更できます
     hideHomeBackgrounds: よりクリーンな外観に
     printPageIndicators: エクスポートにページインジケーターを表示
+    autosave(OUTDATED): 短い遅延の後、または決して自動保存しません
     pencilSoundSetting: 
       off(OUTDATED): 無音
       onButNotInSilentMode(OUTDATED): 有効 (サイレントモードでない場合)
@@ -117,7 +118,6 @@ settings:
     simplifiedHomeLayout(OUTDATED): 各ノートのプレビューに固定の高さを設定します
     autoStraightenLines(OUTDATED): シェイプペンを使用せずに長い線をまっすぐにします。
     shapeRecognitionDelay(OUTDATED): 形状プレビューを更新する頻度
-    autosaveDelay(OUTDATED): メモを自動保存するまでの待ち時間
     disableEraserAfterUse(OUTDATED): 消しゴムを使用した後は自動的にペンに戻ります
     shouldAlwaysAlertForUpdates(OUTDATED): アップデートが利用可能になり次第お知らせください
   themeModes: 
@@ -144,6 +144,8 @@ settings:
     select(OUTDATED): 選択する
     mustBeEmpty(OUTDATED): 選択したディレクトリは空である必要があります
     mustBeDoneSyncing(OUTDATED): ディレクトリを変更する前に同期が完了していることを確認してください
+  autosaveDisabled(OUTDATED): 一度もない
+  shapeRecognitionDisabled(OUTDATED): 一度もない
   openDataDir(OUTDATED): セイバーフォルダを開く
   resyncEverything(OUTDATED): すべてを再同期する
 logs: 

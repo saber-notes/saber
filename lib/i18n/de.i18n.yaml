@@ -23,7 +23,6 @@ home:
   welcome: Willkommen bei Saber
   invalidFormat: Die ausgewählte Datei wird nicht unterstützt. Bitte wähle eine Datei mit dem Format sbn, sbn2, sba oder pdf.
   noFiles: Keine Dateien gefunden
-  noPreviewAvailable(OUTDATED): Keine Vorschau verfügbar
   createNewNote: Drücke die + Schaltfläche, um eine neue Notiz zu erstellen
   backFolder: Zum vorherigen Ordner zurück gehen
   newFolder: 
@@ -61,6 +60,7 @@ home:
     deleteName: $f löschen
     delete: LÖschen
     alsoDeleteContents: Auch alle Notizen in diesem Ordner löschen
+  noPreviewAvailable(OUTDATED): Keine Vorschau verfügbar
 settings: 
   prefCategories: 
     general: Allgemein
@@ -91,7 +91,7 @@ settings:
     recentColorsDontSavePresets: Farbvorlagen nicht in den zuletzt genutzten Farben speichern
     recentColorsLength: Anzahl der zuletzt genutzten Farben
     printPageIndicators: Seitennummerierung drucken
-    autosaveDelay: Verzögerung des automatischen Speicherns
+    autosave(OUTDATED): Auto-Save
     shapeRecognitionDelay: Verzögerung der Formerkennung
     autoStraightenLines: Linien automatisch begradigen
     simplifiedHomeLayout: Vereinfachtes Startbildschirmlayout
@@ -111,7 +111,7 @@ settings:
     editorPromptRename: Notizen können später immer noch umbenannt werden
     hideHomeBackgrounds: Für ein sauberes Aussehen
     printPageIndicators: Seitennummerierung bei Export anzeigen
-    autosaveDelay: Verzögerung des automatischen Speicherns einer Notiz
+    autosave(OUTDATED): Automatisch nach einer kurzen Verzögerung oder nie
     shapeRecognitionDelay: Häufigkeit der Aktualisierung der Form-Vorschau
     autoStraightenLines: Lange Linien selbst ohne Form-Stift begradigen
     simplifiedHomeLayout: Legt eine feste Höhe für jede Notizvorschau fest
@@ -146,6 +146,8 @@ settings:
     select: Auswählen
     mustBeEmpty: Ausgewählter Ordner muss leer sein
     mustBeDoneSyncing: Stelle sicher, dass die Synchronisierung abgeschlossen ist, bevor du den Ordner wechselst
+  autosaveDisabled(OUTDATED): Niemals
+  shapeRecognitionDisabled(OUTDATED): Niemals
 logs: 
   logs(OUTDATED): Protokolle
   viewLogs(OUTDATED): Protokolle anzeigen
