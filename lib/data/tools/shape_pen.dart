@@ -41,7 +41,7 @@ class ShapePen extends Pen {
     assert(Prefs.shapeRecognitionDelay.loaded);
     final ms = Prefs.shapeRecognitionDelay.value;
     if (ms < 0) {
-      return const Duration(seconds: 10);
+      return const Duration(hours: 1);
     } else {
       return Duration(milliseconds: ms);
     }
@@ -51,7 +51,9 @@ class ShapePen extends Pen {
   void onDragUpdate(Offset position, double? pressure) {
     super.onDragUpdate(position, pressure);
 
-    if (_detectShapeDebouncer == null || !_detectShapeDebouncer!.isActive) {
+    final isPreviewEnabled = debounceDuration < const Duration(hours: 1);
+    final isTimerActive = _detectShapeDebouncer?.isActive ?? false;
+    if (isPreviewEnabled && !isTimerActive) {
       _detectShapeDebouncer = Timer(debounceDuration, _detectShape);
     }
   }
