@@ -1,46 +1,46 @@
-common:
+common: 
   done: Done
   continueBtn: Continue
   cancel: Cancel
-home:
-  tabs:
+home: 
+  tabs: 
     home: Home
     browse: Browse
     whiteboard: Whiteboard
     settings: Settings
-  titles:
+  titles: 
     home: Recent notes
     browse: Browse
     whiteboard: Whiteboard
     settings: Settings
-  tooltips:
+  tooltips: 
     newNote: New note
     showUpdateDialog: Show update dialog
     exportNote: Export note
-  create:
+  create: 
     newNote: New note
     importNote: Import note
   welcome: Welcome to Saber
-  invalidFormat: "The file you selected is not supported. Please select an sbn, sbn2, sba, or pdf file."
+  invalidFormat: The file you selected is not supported. Please select an sbn, sbn2, sba, or pdf file.
   noFiles: No files found
   noPreviewAvailable: No preview available
   createNewNote: Tap the + button to create a new note
   backFolder: Go back to the previous folder
-  newFolder:
+  newFolder: 
     newFolder: New folder
     folderName: Folder name
     create: Create
     folderNameEmpty: Folder name can't be empty
     folderNameContainsSlash: Folder name can't contain a slash
     folderNameExists: Folder already exists
-  renameNote:
+  renameNote: 
     renameNote: Rename note
     noteName: Note name
     rename: Rename
     noteNameEmpty: Note name can't be empty
     noteNameContainsSlash: Note name can't contain a slash
     noteNameExists: A note with this name already exists
-  moveNote:
+  moveNote: 
     moveNote: Move note
     moveNotes: Move $n notes
     moveName: Move $f
@@ -49,26 +49,26 @@ home:
     multipleRenamedTo: "The following notes will be renamed:"
     numberRenamedTo: $n notes will be renamed to avoid conflicts
   deleteNote: Delete note
-  renameFolder:
+  renameFolder: 
     renameFolder: Rename folder
     folderName: Folder name
     rename: Rename
     folderNameEmpty: Folder name can't be empty
     folderNameContainsSlash: Folder name can't contain a slash
     folderNameExists: A folder with this name already exists
-  deleteFolder:
+  deleteFolder: 
     deleteFolder: Delete folder
     deleteName: Delete $f
     delete: Delete
     alsoDeleteContents: Also delete all notes inside this folder
-settings:
-  prefCategories:
+settings: 
+  prefCategories: 
     general: General
     writing: Writing
     editor: Editor
     performance: Performance
     advanced: Advanced
-  prefLabels:
+  prefLabels: 
     locale: Language
     appTheme: App theme
     platform: Theme type
@@ -97,14 +97,14 @@ settings:
     simplifiedHomeLayout: Simplified home layout
     customDataDir: Custom Saber folder
     pencilSoundSetting: Pencil sound effect
-  prefDescriptions:
+  prefDescriptions: 
     hyperlegibleFont: Increases legibility for users with low vision
     allowInsecureConnections: (Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates
     preferGreyscale: For e-ink displays
     autoClearWhiteboardOnExit: Clears the whiteboard after you exit the app
     disableEraserAfterUse: Automatically switches back to the pen after using the eraser
     maxImageSize: Larger images will be compressed
-    hideFingerDrawing:
+    hideFingerDrawing: 
       shown: Prevents accidental toggling
       fixedOn: Finger drawing is fixed as enabled
       fixedOff: Finger drawing is fixed as disabled
@@ -116,111 +116,118 @@ settings:
     autoStraightenLines: Straightens long lines without having to use the shape pen
     simplifiedHomeLayout: Sets a fixed height for each note preview
     shouldAlwaysAlertForUpdates: Tell me about updates as soon as they're available
-    pencilSoundSetting:
+    pencilSoundSetting: 
       off: No sound
       onButNotInSilentMode: Enabled (unless in silent mode)
       onAlways: Enabled (even in silent mode)
-  themeModes:
+  themeModes: 
     system: System
     light: Light
     dark: Dark
-  layoutSizes:
+  layoutSizes: 
     auto: Auto
     phone: Phone
     tablet: Tablet
-  accentColorPicker:
+  accentColorPicker: 
     pickAColor: Pick a color
   systemLanguage: Auto
-  axisDirections:
+  axisDirections: 
     - Top
     - Right
     - Bottom
     - Left
-  reset:
-    title: "Reset this setting?"
+  reset: 
+    title: Reset this setting?
     button: Reset
   resyncEverything: Resync everything
   openDataDir: Open Saber folder
-  customDataDir:
+  customDataDir: 
     cancel: Cancel
     select: Select
     mustBeEmpty: Selected folder must be empty
     mustBeDoneSyncing: Make sure syncing is complete before changing the folder
-logs:
+logs: 
   logs: Logs
   viewLogs: View logs
   debuggingInfo: Logs contain information useful for debugging and development
   noLogs: No logs here!
   logsAreTemporary: Logs are only kept until you close the app
-login:
+login: 
   title: Login
-  form:
-    agreeToPrivacyPolicy(rich): "By logging in, you agree to the ${linkToPrivacyPolicy(Privacy Policy)}."
-  signup(rich): "Don't have an account yet? ${linkToSignup(Sign up now)}!"
-  notYou(rich): "Not you? ${undoLogin(Choose another account)}."
-  status:
+  form: 
+    agreeToPrivacyPolicy(rich): By logging in, you agree to the ${linkToPrivacyPolicy(Privacy Policy)}.
+  signup(rich): Don't have an account yet? ${linkToSignup(Sign up now)}!
+  notYou(rich): Not you? ${undoLogin(Choose another account)}.
+  status: 
     loggedOut: Logged out
     tapToLogin: Tap to log in with Nextcloud
-    hi: "Hi, $u!"
-    almostDone: "Almost ready for syncing, tap to finish logging in"
+    hi: Hi, $u!
+    almostDone: Almost ready for syncing, tap to finish logging in
     loggedIn: Logged in with Nextcloud
-  ncLoginStep:
+  ncLoginStep: 
     whereToStoreData: "Choose where you want to store your data:"
     saberNcServer: Saber's Nextcloud server
     otherNcServer: Other Nextcloud server
     serverUrl: Server URL
     loginWithSaber: Login with Saber
     loginWithNextcloud: Login with Nextcloud
-    loginFlow:
+    loginFlow: 
       pleaseAuthorize: Please authorize Saber to access your Nextcloud account
       followPrompts: Please follow the prompts in the Nextcloud interface
-      browserDidntOpen: "Login page didn't open? Click here"
-  encLoginStep:
+      browserDidntOpen: Login page didn't open? Click here
+  encLoginStep: 
     enterEncPassword: "To protect your data, please enter your encryption password:"
-    newToSaber: "New to Saber? Just enter a new encryption password."
+    newToSaber: New to Saber? Just enter a new encryption password.
     encPassword: Encryption password
     encFaqTitle: Frequently asked questions
     wrongEncPassword: Decryption failed with the provided password. Please try entering it again.
     connectionFailed: Something went wrong connecting to the server. Please try again later.
-    encFaq:
-      - q: "What is an encryption password? Why use two passwords?"
+    encFaq: 
+      - 
+        q: What is an encryption password? Why use two passwords?
         a: |-
           The Nextcloud password is used to access the cloud. The encryption password "scrambles" your data before it ever reaches the cloud.
           Even if someone gains access to your Nextcloud account, your notes will remain safe and encrypted with a separate password. This provides you a second layer of security to protect your data.
           No-one can access your notes on the server without your encryption password, but this also means that if you forget your encryption password, you will lose access to your data.
-      - q: "I haven't set an encryption password yet. Where do I get it?"
+      - 
+        q: I haven't set an encryption password yet. Where do I get it?
         a: |-
           Choose a new encryption password and enter it above.
           Saber will generate your encryption keys from this password automatically.
-      - q: "Can I use the same password as my Nextcloud account?"
-        a: "Yes, but keep in mind that it would be easier for the server administrator or someone else to access your notes if they gain access to your Nextcloud account."
-profile:
+      - 
+        q: Can I use the same password as my Nextcloud account?
+        a: Yes, but keep in mind that it would be easier for the server administrator or someone else to access your notes if they gain access to your Nextcloud account.
+profile: 
   title: My profile
   logout: Log out
-  quotaUsage: "You're using $used of $total ($percent%)"
+  quotaUsage: You're using $used of $total ($percent%)
   connectedTo: Connected to
-  quickLinks:
+  quickLinks: 
     serverHomepage: Server homepage
     deleteAccount: Delete account
   faqTitle: Frequently asked questions
-  faq:
-    - q: "Will I lose my notes if I log out?"
+  faq: 
+    - 
+      q: Will I lose my notes if I log out?
       a: No. Your notes will remain both on your device and on the server. They won't be synced with the server until you log back in. Make sure syncing is complete before logging out so you don't lose any data (see the sync progress on the home screen).
-    - q: "How do I change my Nextcloud password?"
-      a: "Go to your server website and log in. Then go to Settings > Security > Change password. You'll need to log out and log back in to Saber after changing your password."
-    - q: "How do I change my encryption password?"
+    - 
+      q: How do I change my Nextcloud password?
+      a: Go to your server website and log in. Then go to Settings > Security > Change password. You'll need to log out and log back in to Saber after changing your password.
+    - 
+      q: How do I change my encryption password?
       a: |-
         0. Make sure syncing is complete (see the sync progress on the home screen).
         1. Log out of Saber.
         2. Go to your server website and delete your 'Saber' folder. This will delete all your notes from the server.
         3. Log back in to Saber. You can choose a new encryption password when logging in.
         4. Don't forget to log out and log back in to Saber on your other devices too.
-    - q: "How can I delete my account?"
+    - 
+      q: How can I delete my account?
       a: |-
         Tap on the "@:profile.quickLinks.deleteAccount" button above, and login if needed.
         If you are using the official Saber server, your account will be deleted after a 1 week grace period. You can contact me at adilhanney@disroot.org during this period to cancel the deletion.
         If you are using a third party server, there might not be an option to delete your account: you'll need to consult the server's privacy policy for more information.
-appInfo:
+appInfo: 
   licenseNotice: |-
     Saber  Copyright © 2022-$buildYear  Adil Hanney
     This program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.
@@ -229,13 +236,13 @@ appInfo:
   sponsorButton: Tap here to sponsor me or buy more storage
   licenseButton: Tap here to view more license information
   privacyPolicyButton: Tap here to view the privacy policy
-update:
+update: 
   updateAvailable: Update available
   updateAvailableDescription: "A new version of the app is available:"
   update: Update
   downloadNotAvailableYet: The download isn't available yet for your platform. Please check back shortly.
-editor:
-  toolbar:
+editor: 
+  toolbar: 
     toggleColors: Toggle colors (Ctrl C)
     select: Select
     toggleEraser: Toggle eraser (Ctrl E)
@@ -247,16 +254,16 @@ editor:
     export: Export (Ctrl Shift S)
     exportAs: "Export as:"
     fullscreen: Toggle fullscreen (F11)
-  pens:
+  pens: 
     fountainPen: Fountain pen
     ballpointPen: Ballpoint pen
     highlighter: Highlighter
     pencil: Pencil
     shapePen: Shape pen
     laserPointer: Laser pointer
-  penOptions:
+  penOptions: 
     size: Size
-  colors:
+  colors: 
     colorPicker: Color picker
     customBrightnessHue: Custom $b $h
     customHue: Custom $h
@@ -283,17 +290,17 @@ editor:
     pastelBlue: Pastel blue
     pastelPurple: Pastel purple
     pastelPink: Pastel pink
-  imageOptions:
+  imageOptions: 
     title: Image options
     invertible: Invertible
     download: Download
     setAsBackground: Set as background
     removeAsBackground: Remove as background
     delete: Delete
-  selectionBar:
+  selectionBar: 
     delete: Delete
     duplicate: Duplicate
-  menu:
+  menu: 
     clearPage: Clear page $page/$totalPages
     clearAllPages: Clear all pages
     insertPage: Insert page below
@@ -308,11 +315,11 @@ editor:
     import: Import
     watchServer: Watch for updates on the server
     watchServerReadOnly: Editing is disabled while watching the server
-    boxFits:
+    boxFits: 
       fill: Stretch
       cover: Cover
       contain: Contain
-    bgPatterns:
+    bgPatterns: 
       none: Blank
       college: College-ruled
       collegeRtl: College-ruled (Reverse)
@@ -322,14 +329,14 @@ editor:
       staffs: Staffs
       tablature: Tablature
       cornell: Cornell
-  newerFileFormat:
+  newerFileFormat: 
     readOnlyMode: Read-only mode
     title: This note was edited using a newer version of Saber
-    subtitle: "Editing this note may result in some information being lost. Do you want to ignore this and edit it anyway?"
+    subtitle: Editing this note may result in some information being lost. Do you want to ignore this and edit it anyway?
     allowEditing: Allow editing
-  quill:
+  quill: 
     typeSomething: Type something here...
-  hud:
+  hud: 
     unlockZoom: Unlock zoom
     lockZoom: Lock zoom
     unlockSingleFingerPan: Enable single-finger panning
