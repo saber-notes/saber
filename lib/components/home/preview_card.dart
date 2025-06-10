@@ -157,11 +157,15 @@ class _PreviewCardState extends State<PreviewCard> {
                       ),
                     ],
                   ),
-                  Center(
+                  Flexible(
                     child: Padding(
                       padding: const EdgeInsets.all(8),
-                      child: Text(widget.filePath
-                          .substring(widget.filePath.lastIndexOf('/') + 1)),
+                      child: Text(
+                        widget.filePath
+                            .substring(widget.filePath.lastIndexOf('/') + 1),
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                      ),
                     ),
                   ),
                 ],
