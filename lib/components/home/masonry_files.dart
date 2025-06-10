@@ -42,11 +42,14 @@ class _MasonryFilesState extends State<MasonryFiles> {
     return ValueListenableBuilder(
       valueListenable: isAnythingSelected,
       builder: (context, isAnythingSelected, _) {
-        return PreviewCard(
-          filePath: file,
-          toggleSelection: toggleSelection,
-          selected: widget.selectedFiles.value.contains(file),
-          isAnythingSelected: isAnythingSelected,
+        return Align(
+          alignment: Alignment.bottomCenter,
+          child: PreviewCard(
+            filePath: file,
+            toggleSelection: toggleSelection,
+            selected: widget.selectedFiles.value.contains(file),
+            isAnythingSelected: isAnythingSelected,
+          ),
         );
       },
     );

@@ -93,7 +93,7 @@ class _PreviewCardState extends State<PreviewCard> {
         onSecondaryTap: _toggleCardSelection,
         onLongPress: _toggleCardSelection,
         child: ColoredBox(
-          color: colorScheme.primary.withValues(alpha: 0.05),
+          color: colorScheme.surfaceContainerLow,
           child: Stack(
             children: [
               Column(
