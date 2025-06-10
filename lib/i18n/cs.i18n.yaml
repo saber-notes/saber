@@ -69,7 +69,7 @@ settings:
     performance: Výkon
     advanced: Pokročilé
   prefLabels: 
-    locale: Jazyk aplikace
+    locale: Jazyk
     appTheme: Barva motivu
     platform: Motiv
     layoutSize: Rozložení uživatelského rozhraní
@@ -130,7 +130,7 @@ settings:
     tablet: Tablet
   accentColorPicker: 
     pickAColor: Výběr vlastní barvy
-  systemLanguage: Systémový jazyk
+  systemLanguage: Zvolit automaticky
   axisDirections: 
     - Nahoře
     - Vpravo
