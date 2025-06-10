@@ -24,11 +24,11 @@ ar:
 cs: 
   settings: 
     prefLabels: 
-      autosave(OUTDATED): Auto-save
+      autosave(OUTDATED): Automatické ukládání
     prefDescriptions: 
-      autosave(OUTDATED): Auto-save after a short delay, or never
-    autosaveDisabled(OUTDATED): Never
-    shapeRecognitionDisabled(OUTDATED): Never
+      autosave(OUTDATED): Poznámky se budou automaticky ukládat po krátké prodlevě, nebo nikdy
+    autosaveDisabled(OUTDATED): Nikdy
+    shapeRecognitionDisabled(OUTDATED): Nikdy
 de: 
   home: 
     noPreviewAvailable(OUTDATED): No preview available
