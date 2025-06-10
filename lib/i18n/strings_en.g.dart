@@ -95,7 +95,7 @@ class TranslationsSettingsEn {
 	late final TranslationsSettingsThemeModesEn themeModes = TranslationsSettingsThemeModesEn.internal(_root);
 	late final TranslationsSettingsLayoutSizesEn layoutSizes = TranslationsSettingsLayoutSizesEn.internal(_root);
 	late final TranslationsSettingsAccentColorPickerEn accentColorPicker = TranslationsSettingsAccentColorPickerEn.internal(_root);
-	String get systemLanguage => 'Default';
+	String get systemLanguage => 'Auto';
 	List<String> get axisDirections => [
 		'Top',
 		'Right',
@@ -361,7 +361,7 @@ class TranslationsSettingsPrefLabelsEn {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
-	String get locale => 'App language';
+	String get locale => 'Language';
 	String get appTheme => 'App theme';
 	String get platform => 'Theme type';
 	String get layoutSize => 'Layout type';

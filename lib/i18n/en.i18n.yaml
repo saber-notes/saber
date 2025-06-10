@@ -69,7 +69,7 @@ settings:
     performance: Performance
     advanced: Advanced
   prefLabels:
-    locale: App language
+    locale: Language
     appTheme: App theme
     platform: Theme type
     layoutSize: Layout type
@@ -130,7 +130,7 @@ settings:
     tablet: Tablet
   accentColorPicker:
     pickAColor: Pick a color
-  systemLanguage: Default
+  systemLanguage: Auto
   axisDirections:
     - Top
     - Right
