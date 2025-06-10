@@ -5,7 +5,7 @@ facilitates the user in creating and organising handwritten notes.
 
 This privacy policy may be updated from time to time.
 You can view the latest privacy policy at
-[saber.adil.hanney.org/privacy_policy](https://saber.adil.hanney.org/privacy_policy),
+[saber.adil.hanney.org/privacy-policy](https://saber.adil.hanney.org/privacy-policy),
 and you can view the history of changes to the privacy policy on
 [GitHub](https://github.com/saber-notes/saber/commits/main/privacy_policy.md).
 
