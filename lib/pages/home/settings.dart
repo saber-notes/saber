@@ -484,14 +484,14 @@ class _SettingsPageState extends State<SettingsPage> {
                 ],
               ),
               SettingsSelection(
-                title: t.settings.prefLabels.autosaveDelay,
-                subtitle: t.settings.prefDescriptions.autosaveDelay,
+                title: t.settings.prefLabels.autosave,
+                subtitle: t.settings.prefDescriptions.autosave,
                 icon: Icons.save,
                 pref: Prefs.autosaveDelay,
-                options: const [
+                options: [
                   ToggleButtonsOption(5000, Text('5s')),
                   ToggleButtonsOption(10000, Text('10s')),
-                  ToggleButtonsOption(-1, Icon(Icons.close)),
+                  ToggleButtonsOption(-1, Text(t.settings.autosaveDisabled)),
                 ],
               ),
               SettingsSelection(
@@ -499,10 +499,11 @@ class _SettingsPageState extends State<SettingsPage> {
                 subtitle: t.settings.prefDescriptions.shapeRecognitionDelay,
                 icon: FontAwesomeIcons.shapes,
                 pref: Prefs.shapeRecognitionDelay,
-                options: const [
+                options: [
                   ToggleButtonsOption(500, Text('0.5s')),
                   ToggleButtonsOption(1000, Text('1s')),
-                  ToggleButtonsOption(-1, Icon(Icons.close)),
+                  ToggleButtonsOption(
+                      -1, Text(t.settings.shapeRecognitionDisabled)),
                 ],
                 afterChange: (ms) {
                   ShapePen.debounceDuration = ShapePen.getDebounceFromPref();

@@ -106,6 +106,8 @@ class TranslationsSettingsEn {
 	String get resyncEverything => 'Resync everything';
 	String get openDataDir => 'Open Saber folder';
 	late final TranslationsSettingsCustomDataDirEn customDataDir = TranslationsSettingsCustomDataDirEn.internal(_root);
+	String get autosaveDisabled => 'Never';
+	String get shapeRecognitionDisabled => 'Never';
 }
 
 // Path: logs
@@ -383,7 +385,7 @@ class TranslationsSettingsPrefLabelsEn {
 	String get recentColorsDontSavePresets => 'Don\'t save preset colors in recent colors';
 	String get recentColorsLength => 'How many recent colors to store';
 	String get printPageIndicators => 'Print page indicators';
-	String get autosaveDelay => 'Auto-save delay';
+	String get autosave => 'Auto-save';
 	String get shapeRecognitionDelay => 'Shape recognition delay';
 	String get autoStraightenLines => 'Auto straighten lines';
 	String get simplifiedHomeLayout => 'Simplified home layout';
@@ -408,7 +410,7 @@ class TranslationsSettingsPrefDescriptionsEn {
 	String get editorPromptRename => 'You can always rename notes later';
 	String get hideHomeBackgrounds => 'For a cleaner look';
 	String get printPageIndicators => 'Show page indicators in exports';
-	String get autosaveDelay => 'How long to wait before auto-saving a note';
+	String get autosave => 'Auto-save after a short delay, or never';
 	String get shapeRecognitionDelay => 'How often to update the shape preview';
 	String get autoStraightenLines => 'Straightens long lines without having to use the shape pen';
 	String get simplifiedHomeLayout => 'Sets a fixed height for each note preview';

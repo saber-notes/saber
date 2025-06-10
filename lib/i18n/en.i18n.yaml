@@ -91,7 +91,7 @@ settings:
     recentColorsDontSavePresets: Don't save preset colors in recent colors
     recentColorsLength: How many recent colors to store
     printPageIndicators: Print page indicators
-    autosaveDelay: Auto-save delay
+    autosave: Auto-save
     shapeRecognitionDelay: Shape recognition delay
     autoStraightenLines: Auto straighten lines
     simplifiedHomeLayout: Simplified home layout
@@ -111,7 +111,7 @@ settings:
     editorPromptRename: You can always rename notes later
     hideHomeBackgrounds: For a cleaner look
     printPageIndicators: Show page indicators in exports
-    autosaveDelay: How long to wait before auto-saving a note
+    autosave: Auto-save after a short delay, or never
     shapeRecognitionDelay: How often to update the shape preview
     autoStraightenLines: Straightens long lines without having to use the shape pen
     simplifiedHomeLayout: Sets a fixed height for each note preview
@@ -146,6 +146,8 @@ settings:
     select: Select
     mustBeEmpty: Selected folder must be empty
     mustBeDoneSyncing: Make sure syncing is complete before changing the folder
+  autosaveDisabled: Never
+  shapeRecognitionDisabled: Never
 logs: 
   logs: Logs
   viewLogs: View logs
