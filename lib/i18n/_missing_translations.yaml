@@ -22,13 +22,6 @@ ar:
       lineThickness(OUTDATED): Line thickness
       lineThicknessDescription(OUTDATED): Background line thickness
 cs: 
-  settings: 
-    prefLabels: 
-      autosave(OUTDATED): Auto-save
-    prefDescriptions: 
-      autosave(OUTDATED): Auto-save after a short delay, or never
-    autosaveDisabled(OUTDATED): Never
-    shapeRecognitionDisabled(OUTDATED): Never
 de: 
   home: 
     noPreviewAvailable(OUTDATED): No preview available

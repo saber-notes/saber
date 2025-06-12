@@ -69,7 +69,7 @@ settings:
     performance: Výkon
     advanced: Pokročilé
   prefLabels: 
-    locale: Jazyk aplikace
+    locale: Jazyk
     appTheme: Barva motivu
     platform: Motiv
     layoutSize: Rozložení uživatelského rozhraní
@@ -91,7 +91,7 @@ settings:
     recentColorsDontSavePresets: Neukládat přednastavené barvy mezi naposledy použité barvy
     recentColorsLength: Kolik naposledy použitých barev se má ukládat
     printPageIndicators: Tisknout čísla stránek
-    autosave(OUTDATED): Automatické posílení
+    autosave: Automatické ukládání
     shapeRecognitionDelay: Zpoždění rozpoznávání tvarů
     autoStraightenLines: Automaticky narovnávat čáry
     simplifiedHomeLayout: Zjednodušené rozložení domovské obrazovky
@@ -111,7 +111,7 @@ settings:
     editorPromptRename: Poznámky můžete vždy přejmenovat i později
     hideHomeBackgrounds: Pro čistější vzhled
     printPageIndicators: V exportech budou zobrazena čísla stránek
-    autosave(OUTDATED): Automaticky ponořte po krátkém zpoždění, nebo nikdy
+    autosave: Poznámky se budou automaticky ukládat po krátké prodlevě, nebo nikdy
     shapeRecognitionDelay: Jak často aktualizovat náhled tvaru
     autoStraightenLines: Automaticky narovná dlouhé čáry, aniž by bylo nutné využít tvarové pero
     simplifiedHomeLayout: Nastaví pevnou výšku pro každý náhled poznámky
@@ -130,7 +130,7 @@ settings:
     tablet: Tablet
   accentColorPicker: 
     pickAColor: Výběr vlastní barvy
-  systemLanguage: Systémový jazyk
+  systemLanguage: Zvolit automaticky
   axisDirections: 
     - Nahoře
     - Vpravo
@@ -146,8 +146,8 @@ settings:
     select: Zvolit
     mustBeEmpty: Zvolená složka musí být prázdná
     mustBeDoneSyncing: Než změníte složku, ujistěte se, že byla dokončena synchronizace
-  autosaveDisabled(OUTDATED): Nikdy
-  shapeRecognitionDisabled(OUTDATED): Nikdy
+  autosaveDisabled: Nikdy
+  shapeRecognitionDisabled: Nikdy
 logs: 
   logs: Logy
   viewLogs: Zobrazit logy
