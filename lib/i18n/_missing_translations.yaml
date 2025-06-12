@@ -22,13 +22,6 @@ ar:
       lineThickness(OUTDATED): Line thickness
       lineThicknessDescription(OUTDATED): Background line thickness
 cs: 
-  settings: 
-    prefLabels: 
-      autosave(OUTDATED): Automatické ukládání
-    prefDescriptions: 
-      autosave(OUTDATED): Poznámky se budou automaticky ukládat po krátké prodlevě, nebo nikdy
-    autosaveDisabled(OUTDATED): Nikdy
-    shapeRecognitionDisabled(OUTDATED): Nikdy
 de: 
   home: 
     noPreviewAvailable(OUTDATED): No preview available

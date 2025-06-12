@@ -93,7 +93,7 @@ class _TranslationsSettingsCs extends TranslationsSettingsEn {
 	@override late final _TranslationsSettingsThemeModesCs themeModes = _TranslationsSettingsThemeModesCs._(_root);
 	@override late final _TranslationsSettingsLayoutSizesCs layoutSizes = _TranslationsSettingsLayoutSizesCs._(_root);
 	@override late final _TranslationsSettingsAccentColorPickerCs accentColorPicker = _TranslationsSettingsAccentColorPickerCs._(_root);
-	@override String get systemLanguage => 'Systémový jazyk';
+	@override String get systemLanguage => 'Zvolit automaticky';
 	@override List<String> get axisDirections => [
 		'Nahoře',
 		'Vpravo',
@@ -361,7 +361,7 @@ class _TranslationsSettingsPrefLabelsCs extends TranslationsSettingsPrefLabelsEn
 	final TranslationsCs _root; // ignore: unused_field
 
 	// Translations
-	@override String get locale => 'Jazyk aplikace';
+	@override String get locale => 'Jazyk';
 	@override String get appTheme => 'Barva motivu';
 	@override String get platform => 'Motiv';
 	@override String get layoutSize => 'Rozložení uživatelského rozhraní';
@@ -383,7 +383,7 @@ class _TranslationsSettingsPrefLabelsCs extends TranslationsSettingsPrefLabelsEn
 	@override String get recentColorsDontSavePresets => 'Neukládat přednastavené barvy mezi naposledy použité barvy';
 	@override String get recentColorsLength => 'Kolik naposledy použitých barev se má ukládat';
 	@override String get printPageIndicators => 'Tisknout čísla stránek';
-	@override String get autosave => 'Automatické posílení';
+	@override String get autosave => 'Automatické ukládání';
 	@override String get shapeRecognitionDelay => 'Zpoždění rozpoznávání tvarů';
 	@override String get autoStraightenLines => 'Automaticky narovnávat čáry';
 	@override String get simplifiedHomeLayout => 'Zjednodušené rozložení domovské obrazovky';
@@ -408,7 +408,7 @@ class _TranslationsSettingsPrefDescriptionsCs extends TranslationsSettingsPrefDe
 	@override String get editorPromptRename => 'Poznámky můžete vždy přejmenovat i později';
 	@override String get hideHomeBackgrounds => 'Pro čistější vzhled';
 	@override String get printPageIndicators => 'V exportech budou zobrazena čísla stránek';
-	@override String get autosave => 'Automaticky ponořte po krátkém zpoždění, nebo nikdy';
+	@override String get autosave => 'Poznámky se budou automaticky ukládat po krátké prodlevě, nebo nikdy';
 	@override String get shapeRecognitionDelay => 'Jak často aktualizovat náhled tvaru';
 	@override String get autoStraightenLines => 'Automaticky narovná dlouhé čáry, aniž by bylo nutné využít tvarové pero';
 	@override String get simplifiedHomeLayout => 'Nastaví pevnou výšku pro každý náhled poznámky';
