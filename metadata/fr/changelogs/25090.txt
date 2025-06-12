@@ -1,0 +1,3 @@
+• Améliorations de petites internes sur la page Paramètres
+• Le paramètre de mise en page simplifié a été modifié afin que les cartes ne soient plus étirées
+• Suppression des références aux sponsors GitHub sur iOS car ils devraient utiliser des achats intégrés

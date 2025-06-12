@@ -214,6 +214,15 @@
     </screenshots>
 
     <releases>
+        <release version="0.25.9" type="development" date="2025-06-12">
+            <description>
+                <ul>
+                    <li>Small UI improvements to the settings page</li>
+                    <li>The simplified home layout setting has been tweaked so the cards are no longer stretched out</li>
+                    <li>Removed references to GitHub Sponsors on iOS since they'd have to use in-app purchases</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.25.8" type="development" date="2025-05-31">
             <description>
                 <ul>
