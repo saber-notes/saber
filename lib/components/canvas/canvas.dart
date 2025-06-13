@@ -6,6 +6,12 @@ import 'package:saber/components/canvas/image/editor_image.dart';
 import 'package:saber/components/canvas/inner_canvas.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/data/editor/page.dart';
+import 'package:saber/data/tools/_tool.dart';
+import 'package:saber/data/tools/eraser.dart';
+import 'package:saber/data/tools/highlighter.dart';
+import 'package:saber/data/tools/laser_pointer.dart';
+import 'package:saber/data/tools/pen.dart';
+import 'package:saber/data/tools/pencil.dart';
 import 'package:saber/data/tools/select.dart';
 
 class Canvas extends StatelessWidget {
@@ -20,7 +26,7 @@ class Canvas extends StatelessWidget {
     required this.currentStrokeDetectedShape,
     required this.currentSelection,
     required this.setAsBackground,
-    required this.currentToolIsSelect,
+    required this.currentTool,
     required this.currentScale,
     this.placeholder = false,
   });
@@ -37,10 +43,53 @@ class Canvas extends StatelessWidget {
 
   final void Function(EditorImage image)? setAsBackground;
 
-  final bool currentToolIsSelect;
+  final Tool currentTool;
   final double currentScale;
   final bool placeholder;
 
+  int toolToOnyx(Tool currentTool) {
+    if (placeholder) return 5;
+    if (currentTool is Pencil) {
+      return 3;
+    } else if (currentTool is Highlighter) {
+      return 4;
+    } else if (currentTool is Eraser) {
+      return 1;
+    } else if (currentTool is Select) {
+      return 1;
+    } else if (currentTool is LaserPointer) {
+      return 1;
+    } else if (currentTool is Pen) {
+      if (currentTool.isPressureEnabled()) {
+        return 2;
+      } else {
+        return 1;
+      }
+    } else {
+      return 5;
+    }
+  }
+
+  int getColor() {
+      if (currentTool is Pen) {
+        return (currentTool as Pen).color.toARGB32();
+      } else {
+        return Colors.black.toARGB32();
+      }
+  }
+  double getWidth() {
+      if (currentTool is Pen) {
+        double baseSize = (currentTool as Pen).getSize() * currentScale;
+        if ((currentTool as Pen).isPressureEnabled()) {
+          return baseSize;
+        } else {
+          return baseSize * 2;
+        }
+      } else {
+        return 3;
+      }
+  }
+  
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -62,6 +111,10 @@ class Canvas extends StatelessWidget {
                     width: page.size.width,
                     height: page.size.height,
                     child: OnyxSdkPenArea(
+                      refreshDelay: const Duration(seconds: 1),
+                      strokeStyle: toolToOnyx(currentTool),
+                      strokeColor: getColor(),
+                      strokeWidth: getWidth(),
                       child: InnerCanvas(
                         key: page.innerCanvasKey,
                         pageIndex: pageIndex,
@@ -74,7 +127,7 @@ class Canvas extends StatelessWidget {
                         currentStrokeDetectedShape: currentStrokeDetectedShape,
                         currentSelection: currentSelection,
                         setAsBackground: setAsBackground,
-                        currentToolIsSelect: currentToolIsSelect,
+                        currentToolIsSelect: currentTool is Select,
                         currentScale: currentScale,
                       ),
                     ),
