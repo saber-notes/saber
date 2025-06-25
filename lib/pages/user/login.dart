@@ -64,12 +64,12 @@ class _NcLoginPageState extends State<NcLoginPage> {
         !stows.key.loaded ||
         !stows.iv.loaded)
       await Future.wait([
-        stows.url.waitUntilLoaded(),
-        stows.username.waitUntilLoaded(),
-        stows.ncPassword.waitUntilLoaded(),
-        stows.encPassword.waitUntilLoaded(),
-        stows.key.waitUntilLoaded(),
-        stows.iv.waitUntilLoaded(),
+        stows.url.waitUntilRead(),
+        stows.username.waitUntilRead(),
+        stows.ncPassword.waitUntilRead(),
+        stows.encPassword.waitUntilRead(),
+        stows.key.waitUntilRead(),
+        stows.iv.waitUntilRead(),
       ]);
 
     recheckCurrentStep();

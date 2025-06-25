@@ -17,6 +17,7 @@ import 'package:saber/data/tools/_tool.dart';
 import 'package:saber/data/tools/highlighter.dart';
 import 'package:saber/data/tools/pen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:stow/stow.dart';
 
 typedef Quota = UserDetailsQuota;
 
@@ -44,250 +45,247 @@ class Stows {
 
   final log = Logger('Stows');
 
-  final customDataDir = PlainPref<String?>('customDataDir', null);
+  final customDataDir =
+      PlainPref<String?>('customDataDir', null, autoRead: _isOnMainIsolate);
 
-  final allowInsecureConnections = EncPref('allowInsecureConnections', false);
-  final url = EncPref('url', '');
-  final username = EncPref('username', '');
+  final allowInsecureConnections =
+      EncPref('allowInsecureConnections', false, autoRead: _isOnMainIsolate);
+  final url = EncPref('url', '', autoRead: _isOnMainIsolate);
+  final username = EncPref('username', '', autoRead: _isOnMainIsolate);
 
   /// the password used to login to Nextcloud
-  final ncPassword = EncPref('ncPassword', '');
+  final ncPassword = EncPref('ncPassword', '', autoRead: _isOnMainIsolate);
   // TODO(adil192): maybe deprecate?
   final ncPasswordIsAnAppPassword =
-      PlainPref('ncPasswordIsAnAppPassword', false);
+      PlainPref('ncPasswordIsAnAppPassword', false, autoRead: _isOnMainIsolate);
 
   /// the password used to encrypt/decrypt notes
-  final encPassword = EncPref('encPassword', '');
+  final encPassword = EncPref('encPassword', '', autoRead: _isOnMainIsolate);
 
   /// Whether the user is logged in and has provided both passwords.
   /// Please ensure that the relevant Prefs are loaded before using this.
   bool get loggedIn =>
-      (url.loaded || !_isOnMainIsolate) &&
       username.value.isNotEmpty &&
       ncPassword.value.isNotEmpty &&
       encPassword.value.isNotEmpty;
 
-  final key = EncPref('key', '');
-  final iv = EncPref('iv', '');
+  final key = EncPref('key', '', autoRead: _isOnMainIsolate);
+  final iv = EncPref('iv', '', autoRead: _isOnMainIsolate);
 
-  final pfp = PlainPref<Uint8List?>('pfp', null);
-  final syncInBackground = PlainPref('syncInBackground', true);
+  final pfp = PlainPref<Uint8List?>('pfp', null, autoRead: _isOnMainIsolate);
+  final syncInBackground =
+      PlainPref('syncInBackground', true, autoRead: _isOnMainIsolate);
 
-  final appTheme = PlainPref('appTheme', ThemeMode.system);
+  final appTheme =
+      PlainPref('appTheme', ThemeMode.system, autoRead: _isOnMainIsolate);
 
   /// The type of platform to theme. Default value is [defaultTargetPlatform].
-  final platform = PlainPref('platform', defaultTargetPlatform);
-  final layoutSize = PlainPref('layoutSize', LayoutSize.auto);
+  final platform =
+      PlainPref('platform', defaultTargetPlatform, autoRead: _isOnMainIsolate);
+  final layoutSize =
+      PlainPref('layoutSize', LayoutSize.auto, autoRead: _isOnMainIsolate);
 
   /// The accent color of the app. If 0, the system accent color will be used.
-  final accentColor = PlainPref('accentColor', 0);
-  final hyperlegibleFont = PlainPref('hyperlegibleFont', false);
+  final accentColor = PlainPref('accentColor', 0, autoRead: _isOnMainIsolate);
+  final hyperlegibleFont =
+      PlainPref('hyperlegibleFont', false, autoRead: _isOnMainIsolate);
 
-  final editorToolbarAlignment =
-      PlainPref('editorToolbarAlignment', AxisDirection.down);
-  final editorToolbarShowInFullscreen =
-      PlainPref('editorToolbarShowInFullscreen', true);
-  final editorFingerDrawing = PlainPref('editorFingerDrawing', true);
+  final editorToolbarAlignment = PlainPref(
+      'editorToolbarAlignment', AxisDirection.down,
+      autoRead: _isOnMainIsolate);
+  final editorToolbarShowInFullscreen = PlainPref(
+      'editorToolbarShowInFullscreen', true,
+      autoRead: _isOnMainIsolate);
+  final editorFingerDrawing =
+      PlainPref('editorFingerDrawing', true, autoRead: _isOnMainIsolate);
   final editorAutoInvert = PlainPref('editorAutoInvert', true,
-      historicalKeys: const ['editorAutoDarken']);
+      historicalKeys: const ['editorAutoDarken'], autoRead: _isOnMainIsolate);
   @Deprecated('Backgrounds are always opaque now. Use [true] instead.')
   final editorOpaqueBackgrounds = PlainPref('__editorOpaqueBackgrounds', true,
-      deprecatedKeys: const ['editorOpaqueBackgrounds']);
-  final preferGreyscale = PlainPref('preferGreyscale', false);
+      deprecatedKeys: const ['editorOpaqueBackgrounds'],
+      autoRead: _isOnMainIsolate);
+  final preferGreyscale =
+      PlainPref('preferGreyscale', false, autoRead: _isOnMainIsolate);
   @Deprecated(
       'Straight line detection now only happens with ShapePen (and happens immediately)')
   final editorStraightenDelay = PlainPref('__editorStraightenDelay', 500,
-      deprecatedKeys: const ['editorStraightenDelay']);
-  final editorPromptRename = PlainPref('editorPromptRename', isDesktop);
-  final autosaveDelay = PlainPref('autosaveDelay', 10000);
-  final shapeRecognitionDelay = PlainPref('shapeRecognitionDelay', 500);
-  final autoStraightenLines = PlainPref('autoStraightenLines', true);
-  final pencilSound =
-      PlainPref('pencilSound', PencilSoundSetting.onButNotInSilentMode);
+      deprecatedKeys: const ['editorStraightenDelay'],
+      autoRead: _isOnMainIsolate);
+  final editorPromptRename =
+      PlainPref('editorPromptRename', isDesktop, autoRead: _isOnMainIsolate);
+  final autosaveDelay =
+      PlainPref('autosaveDelay', 10000, autoRead: _isOnMainIsolate);
+  final shapeRecognitionDelay =
+      PlainPref('shapeRecognitionDelay', 500, autoRead: _isOnMainIsolate);
+  final autoStraightenLines =
+      PlainPref('autoStraightenLines', true, autoRead: _isOnMainIsolate);
+  final pencilSound = PlainPref(
+      'pencilSound', PencilSoundSetting.onButNotInSilentMode,
+      autoRead: _isOnMainIsolate);
 
-  final simplifiedHomeLayout = PlainPref('simplifiedHomeLayout', false);
-  final hideHomeBackgrounds = PlainPref('hideHomeBackgrounds', false);
-  final printPageIndicators = PlainPref('printPageIndicators', false);
+  final simplifiedHomeLayout =
+      PlainPref('simplifiedHomeLayout', false, autoRead: _isOnMainIsolate);
+  final hideHomeBackgrounds =
+      PlainPref('hideHomeBackgrounds', false, autoRead: _isOnMainIsolate);
+  final printPageIndicators =
+      PlainPref('printPageIndicators', false, autoRead: _isOnMainIsolate);
 
-  final maxImageSize = PlainPref<double>('maxImageSize', 1000);
+  final maxImageSize =
+      PlainPref<double>('maxImageSize', 1000, autoRead: _isOnMainIsolate);
 
   final autoClearWhiteboardOnExit =
-      PlainPref('autoClearWhiteboardOnExit', false);
+      PlainPref('autoClearWhiteboardOnExit', false, autoRead: _isOnMainIsolate);
 
-  final disableEraserAfterUse = PlainPref('disableEraserAfterUse', false);
-  final hideFingerDrawingToggle = PlainPref('hideFingerDrawingToggle', false);
+  final disableEraserAfterUse =
+      PlainPref('disableEraserAfterUse', false, autoRead: _isOnMainIsolate);
+  final hideFingerDrawingToggle =
+      PlainPref('hideFingerDrawingToggle', false, autoRead: _isOnMainIsolate);
 
-  final recentColorsChronological =
-      PlainPref('recentColorsChronological', <String>[]);
+  final recentColorsChronological = PlainPref(
+      'recentColorsChronological', <String>[],
+      autoRead: _isOnMainIsolate);
   final recentColorsPositioned = PlainPref('recentColorsPositioned', <String>[],
-      historicalKeys: const ['recentColors']);
-  final pinnedColors = PlainPref('pinnedColors', <String>[]);
-  final recentColorsDontSavePresets = PlainPref('dontSavePresetColors', false);
-  final recentColorsLength = PlainPref('recentColorsLength', 5);
+      historicalKeys: const ['recentColors'], autoRead: _isOnMainIsolate);
+  final pinnedColors =
+      PlainPref('pinnedColors', <String>[], autoRead: _isOnMainIsolate);
+  final recentColorsDontSavePresets =
+      PlainPref('dontSavePresetColors', false, autoRead: _isOnMainIsolate);
+  final recentColorsLength =
+      PlainPref('recentColorsLength', 5, autoRead: _isOnMainIsolate);
 
-  final lastTool = PlainPref('lastTool', ToolId.fountainPen);
+  final lastTool =
+      PlainPref('lastTool', ToolId.fountainPen, autoRead: _isOnMainIsolate);
   final lastFountainPenOptions = PlainPref(
           'lastFountainPenProperties', Pen.fountainPenOptions,
-          deprecatedKeys: const ['lastPenColor']),
-      lastBallpointPenOptions =
-          PlainPref('lastBallpointPenProperties', Pen.ballpointPenOptions),
+          deprecatedKeys: const ['lastPenColor'], autoRead: _isOnMainIsolate),
+      lastBallpointPenOptions = PlainPref(
+          'lastBallpointPenProperties', Pen.ballpointPenOptions,
+          autoRead: _isOnMainIsolate),
       lastHighlighterOptions = PlainPref(
           'lastHighlighterProperties', Pen.highlighterOptions,
-          deprecatedKeys: const ['lastHighlighterColor']),
-      lastPencilOptions = PlainPref('lastPencilProperties', Pen.pencilOptions),
-      lastShapePenOptions =
-          PlainPref('lastShapePenProperties', Pen.shapePenOptions);
-  final lastFountainPenColor =
-          PlainPref('lastFountainPenColor', Colors.black.toARGB32()),
-      lastBallpointPenColor =
-          PlainPref('lastBallpointPenColor', Colors.black.toARGB32()),
+          deprecatedKeys: const ['lastHighlighterColor'],
+          autoRead: _isOnMainIsolate),
+      lastPencilOptions = PlainPref('lastPencilProperties', Pen.pencilOptions,
+          autoRead: _isOnMainIsolate),
+      lastShapePenOptions = PlainPref(
+          'lastShapePenProperties', Pen.shapePenOptions,
+          autoRead: _isOnMainIsolate);
+  final lastFountainPenColor = PlainPref(
+          'lastFountainPenColor', Colors.black.toARGB32(),
+          autoRead: _isOnMainIsolate),
+      lastBallpointPenColor = PlainPref(
+          'lastBallpointPenColor', Colors.black.toARGB32(),
+          autoRead: _isOnMainIsolate),
       lastHighlighterColor = PlainPref('lastHighlighterColor',
-          Colors.yellow.withAlpha(Highlighter.alpha).toARGB32()),
-      lastPencilColor = PlainPref('lastPencilColor', Colors.black.toARGB32()),
-      lastShapePenColor =
-          PlainPref('lastShapePenColor', Colors.black.toARGB32());
-  final lastBackgroundPattern =
-      PlainPref('lastBackgroundPattern', CanvasBackgroundPattern.none);
+          Colors.yellow.withAlpha(Highlighter.alpha).toARGB32(),
+          autoRead: _isOnMainIsolate),
+      lastPencilColor = PlainPref('lastPencilColor', Colors.black.toARGB32(),
+          autoRead: _isOnMainIsolate),
+      lastShapePenColor = PlainPref(
+          'lastShapePenColor', Colors.black.toARGB32(),
+          autoRead: _isOnMainIsolate);
+  final lastBackgroundPattern = PlainPref(
+      'lastBackgroundPattern', CanvasBackgroundPattern.none,
+      autoRead: _isOnMainIsolate);
   static const defaultLineHeight = 40;
   static const defaultLineThickness = 3;
-  final lastLineHeight = PlainPref('lastLineHeight', defaultLineHeight);
-  final lastLineThickness =
-      PlainPref('lastLineThickness', defaultLineThickness);
-  final lastZoomLock = PlainPref('lastZoomLock', false),
+  final lastLineHeight = PlainPref('lastLineHeight', defaultLineHeight,
+      autoRead: _isOnMainIsolate);
+  final lastLineThickness = PlainPref('lastLineThickness', defaultLineThickness,
+      autoRead: _isOnMainIsolate);
+  final lastZoomLock =
+          PlainPref('lastZoomLock', false, autoRead: _isOnMainIsolate),
       lastSingleFingerPanLock = PlainPref('lastSingleFingerPanLock', false,
-          historicalKeys: const ['lastPanLock']),
-      lastAxisAlignedPanLock = PlainPref('lastAxisAlignedPanLock', false);
+          historicalKeys: const ['lastPanLock'], autoRead: _isOnMainIsolate),
+      lastAxisAlignedPanLock = PlainPref('lastAxisAlignedPanLock', false,
+          autoRead: _isOnMainIsolate);
 
   final recentFiles = PlainPref('recentFiles', <String>[],
-      historicalKeys: const ['recentlyAccessed']);
+      historicalKeys: const ['recentlyAccessed'], autoRead: _isOnMainIsolate);
 
   /// File paths that have been deleted locally
-  final fileSyncAlreadyDeleted =
-      PlainPref('fileSyncAlreadyDeleted', <String>{});
+  final fileSyncAlreadyDeleted = PlainPref('fileSyncAlreadyDeleted', <String>{},
+      autoRead: _isOnMainIsolate);
 
   /// File paths that are known to be corrupted on Nextcloud
-  final fileSyncCorruptFiles = PlainPref('fileSyncCorruptFiles', <String>{});
+  final fileSyncCorruptFiles =
+      PlainPref('fileSyncCorruptFiles', <String>{}, autoRead: _isOnMainIsolate);
 
   /// Set when we want to resync everything.
   /// Files on the server older than this date will be
   /// reuploaded with the local version.
   /// By default, we resync everything uploaded before v0.18.4, since uploads before then resulted in 0B files.
   final fileSyncResyncEverythingDate = PlainPref('fileSyncResyncEverythingDate',
-      DateTime.parse('2023-12-10T10:06:31.000Z'));
+      DateTime.parse('2023-12-10T10:06:31.000Z'),
+      autoRead: _isOnMainIsolate);
 
   /// The last storage quota that was fetched from Nextcloud
-  final lastStorageQuota = PlainPref<Quota?>('lastStorageQuota', null);
+  final lastStorageQuota =
+      PlainPref<Quota?>('lastStorageQuota', null, autoRead: _isOnMainIsolate);
 
   final shouldCheckForUpdates = PlainPref('shouldCheckForUpdates',
-      FlavorConfig.shouldCheckForUpdatesByDefault && !Platform.isLinux);
+      FlavorConfig.shouldCheckForUpdatesByDefault && !Platform.isLinux,
+      autoRead: _isOnMainIsolate);
   final shouldAlwaysAlertForUpdates = PlainPref('shouldAlwaysAlertForUpdates',
       (kDebugMode || FlavorConfig.dirty) ? true : false,
-      deprecatedKeys: const ['updatesToIgnore']);
+      deprecatedKeys: const ['updatesToIgnore'], autoRead: _isOnMainIsolate);
 
-  final locale = PlainPref('locale', '');
+  final locale = PlainPref('locale', '', autoRead: _isOnMainIsolate);
 
   static bool get isDesktop =>
       Platform.isLinux || Platform.isWindows || Platform.isMacOS;
 }
 
-abstract class IPref<T> extends ValueNotifier<T> {
-  final String key;
-
+abstract class IPref<T> extends Stow<String, T, Object?> {
   /// The keys that were used in the past for this Pref. If one of these keys is found, the value will be migrated to the current key.
-  final List<String> historicalKeys;
+  @deprecated
+  final List<String> historicalKeys = const [];
 
   /// The keys that were used in the past for a similar Pref. If one of these keys is found, it will be deleted.
-  final List<String> deprecatedKeys;
-
-  final T defaultValue;
+  @deprecated
+  final List<String> deprecatedKeys = const [];
 
   IPref(
-    this.key,
-    this.defaultValue, {
-    List<String>? historicalKeys,
-    List<String>? deprecatedKeys,
-  })  : historicalKeys = historicalKeys ?? [],
-        deprecatedKeys = deprecatedKeys ?? [],
-        super(defaultValue) {
-    _load().then((T? loadedValue) {
-      loaded = true;
-      if (loadedValue != null) {
-        value = loadedValue;
-      }
-      _afterLoad();
-      addListener(_save);
-    });
-  }
-
-  Future<T?> _load();
-  Future<void> _afterLoad();
-  Future<void> _save();
-  @protected
-  Future<T?> getValueWithKey(String key);
+    super.key,
+    super.defaultValue, {
+    @deprecated List<String>? historicalKeys,
+    @deprecated List<String>? deprecatedKeys,
+    super.codec,
+    super.autoRead,
+  });
 
   /// Removes the value from shared preferences, and resets the pref to its default value.
   @visibleForTesting
-  Future<void> delete();
-
-  bool _loaded = false;
-  Completer<void>? _loadedCompleter = Completer();
-  bool get loaded => _loaded;
-  @protected
-  set loaded(bool loaded) {
-    _loaded = loaded;
-
-    if (loaded) {
-      if (!_loadedCompleter!.isCompleted) _loadedCompleter!.complete();
-      _loadedCompleter = null;
-    }
+  @Deprecated('Just set the value to the default value instead')
+  Future<void> delete() async {
+    value = defaultValue;
+    await waitUntilWritten();
   }
 
-  final _saved = ValueNotifier<bool>(true);
+  @Deprecated('No alternative, use [waitUntilRead] if needed')
+  bool get loaded => true;
 
   /// Whether this pref has changes that have yet to be saved to disk.
-  bool get saved => _saved.value;
-  @protected
-  set saved(bool saved) {
-    _saved.value = saved;
-  }
-
-  Future<void> waitUntilLoaded() async {
-    if (loaded) return;
-    assert(_loadedCompleter != null,
-        '_loadedCompleter should be non-null until loaded');
-    return _loadedCompleter!.future;
-  }
+  @Deprecated('No alternative, use [waitUntilWritten] if needed')
+  bool get saved => true;
 
   /// Waits until the value has been saved to disk.
   /// Note that there is no guarantee with shared preferences that
   /// the value will actually be saved to disk.
   @visibleForTesting
-  Future<void> waitUntilSaved() async {
-    if (saved) return;
-
-    final completer = Completer();
-
-    void listener() {
-      if (!saved) return;
-      _saved.removeListener(listener);
-      completer.complete();
-    }
-
-    _saved.addListener(listener);
-    return completer.future;
-  }
-
-  /// Lets us use notifyListeners outside of the class
-  /// as super.notifyListeners is @protected
-  @override
-  void notifyListeners() => super.notifyListeners();
+  @Deprecated('Use [waitUntilWritten] instead')
+  Future<void> waitUntilSaved() => waitUntilWritten();
 }
 
 class PlainPref<T> extends IPref<T> {
-  SharedPreferences? _prefs;
-
-  PlainPref(super.key, super.defaultValue,
-      {super.historicalKeys, super.deprecatedKeys}) {
+  PlainPref(
+    super.key,
+    super.defaultValue, {
+    super.historicalKeys,
+    super.deprecatedKeys,
+    super.codec,
+    super.autoRead,
+  }) {
     // Accepted types
     assert(T == bool ||
         T == int ||
@@ -311,258 +309,175 @@ class PlainPref<T> extends IPref<T> {
   }
 
   @override
-  Future<T?> _load() async {
-    if (!_isOnMainIsolate) return null;
+  Future protectedWrite(T value) async {
+    final prefs = await SharedPreferences.getInstance();
 
-    _prefs ??= await SharedPreferences.getInstance();
-
-    T? currentValue = await getValueWithKey(key);
-    if (currentValue != null) return currentValue;
-
-    for (String historicalKey in historicalKeys) {
-      currentValue = await getValueWithKey(historicalKey);
-      if (currentValue == null) continue;
-
-      // migrate to new key
-      await _save();
-      _prefs!.remove(historicalKey);
-
-      return currentValue;
-    }
-
-    for (String deprecatedKey in deprecatedKeys) {
-      _prefs!.remove(deprecatedKey);
-    }
-
-    return null;
-  }
-
-  @override
-  Future<void> _afterLoad() async {
-    _prefs = null;
-  }
-
-  @override
-  Future _save() async {
-    if (!_isOnMainIsolate) return null;
-
-    saved = false;
-    try {
-      _prefs ??= await SharedPreferences.getInstance();
-
-      if (T == bool) {
-        return await _prefs!.setBool(key, value as bool);
-      } else if (T == int) {
-        return await _prefs!.setInt(key, value as int);
-      } else if (T == double) {
-        return await _prefs!.setDouble(key, value as double);
-      } else if (T == typeOf<Uint8List?>()) {
-        Uint8List? bytes = value as Uint8List?;
-        if (bytes == null) {
-          return await _prefs!.remove(key);
-        } else {
-          return await _prefs!.setString(key, base64Encode(bytes));
-        }
-      } else if (T == typeOf<List<String>>()) {
-        return await _prefs!.setStringList(key, value as List<String>);
-      } else if (T == typeOf<Set<String>>()) {
-        return await _prefs!
-            .setStringList(key, (value as Set<String>).toList());
-      } else if (T == typeOf<Queue<String>>()) {
-        return await _prefs!
-            .setStringList(key, (value as Queue<String>).toList());
-      } else if (T == StrokeOptions) {
-        return await _prefs!.setString(key, jsonEncode(value));
-      } else if (T == typeOf<Quota?>()) {
-        Quota? quota = value as Quota?;
-        if (quota == null) {
-          return await _prefs!.remove(key);
-        } else {
-          return await _prefs!.setStringList(
-              key, [quota.used.toString(), quota.total.toString()]);
-        }
-      } else if (T == AxisDirection) {
-        return await _prefs!.setInt(key, (value as AxisDirection).index);
-      } else if (T == ThemeMode) {
-        return await _prefs!.setInt(key, (value as ThemeMode).index);
-      } else if (T == TargetPlatform) {
-        return await _prefs!.setInt(key, (value as TargetPlatform).index);
-      } else if (T == LayoutSize) {
-        return await _prefs!.setInt(key, (value as LayoutSize).index);
-      } else if (T == ToolId) {
-        return await _prefs!.setString(key, (value as ToolId).id);
-      } else if (T == CanvasBackgroundPattern) {
-        return await _prefs!
-            .setString(key, (value as CanvasBackgroundPattern).name);
-      } else if (T == DateTime) {
-        final date = value as DateTime;
-        if (date.millisecondsSinceEpoch == 0) {
-          return await _prefs!.remove(key);
-        } else {
-          return await _prefs!.setString(key, date.toIso8601String());
-        }
-      } else if (T == PencilSoundSetting) {
-        return await _prefs!.setInt(key, (value as PencilSoundSetting).index);
+    if (T == bool) {
+      return await prefs.setBool(key, value as bool);
+    } else if (T == int) {
+      return await prefs.setInt(key, value as int);
+    } else if (T == double) {
+      return await prefs.setDouble(key, value as double);
+    } else if (T == typeOf<Uint8List?>()) {
+      Uint8List? bytes = value as Uint8List?;
+      if (bytes == null) {
+        return await prefs.remove(key);
       } else {
-        return await _prefs!.setString(key, value as String);
+        return await prefs.setString(key, base64Encode(bytes));
       }
-    } finally {
-      saved = true;
-    }
-  }
-
-  @override
-  Future<T?> getValueWithKey(String key) async {
-    if (!_isOnMainIsolate) return null;
-
-    try {
-      if (!_prefs!.containsKey(key)) {
-        return null;
-      } else if (T == typeOf<Uint8List?>()) {
-        String? base64 = _prefs!.getString(key);
-        if (base64 == null) return null;
-        return base64Decode(base64) as T;
-      } else if (T == typeOf<List<String>>()) {
-        return _prefs!.getStringList(key) as T?;
-      } else if (T == typeOf<Set<String>>()) {
-        return _prefs!.getStringList(key)?.toSet() as T?;
-      } else if (T == typeOf<Queue<String>>()) {
-        List? list = _prefs!.getStringList(key);
-        return list != null ? Queue<String>.from(list) as T : null;
-      } else if (T == StrokeOptions) {
-        return StrokeOptions.fromJson(jsonDecode(_prefs!.getString(key)!))
-            as T?;
-      } else if (T == typeOf<Quota?>()) {
-        List<String>? list = _prefs!.getStringList(key);
-        if (list == null || list.length != 2) return null;
-        int used = int.tryParse(list[0]) ?? 0;
-        int total = int.tryParse(list[1]) ?? 1; // avoid division by zero
-        return Quota.fromJson({
-          'free': total - used,
-          'used': used,
-          'total': total,
-          'relative': used / total * 100,
-          'quota':
-              total, // I don't know what this [quota] field is for, but I don't use it
-        }) as T;
-      } else if (T == AxisDirection) {
-        final index = _prefs!.getInt(key);
-        return index != null ? AxisDirection.values[index] as T? : null;
-      } else if (T == ThemeMode) {
-        final index = _prefs!.getInt(key);
-        return index != null ? ThemeMode.values[index] as T? : null;
-      } else if (T == TargetPlatform) {
-        final index = _prefs!.getInt(key);
-        if (index == null) return null;
-        if (index == -1) return defaultTargetPlatform as T?;
-        return TargetPlatform.values[index] as T?;
-      } else if (T == LayoutSize) {
-        final index = _prefs!.getInt(key);
-        if (index == null) return null;
-        return LayoutSize.values[index] as T?;
-      } else if (T == ToolId) {
-        String id = _prefs!.getString(key)!;
-        return ToolId.values
-            .cast<ToolId?>()
-            .firstWhere((toolId) => toolId?.id == id, orElse: () => null) as T?;
-      } else if (T == CanvasBackgroundPattern) {
-        String name = _prefs!.getString(key)!;
-        return CanvasBackgroundPattern.values
-            .cast<CanvasBackgroundPattern?>()
-            .firstWhere((pattern) => pattern!.name == name,
-                orElse: () => null) as T?;
-      } else if (T == DateTime) {
-        String? iso8601 = _prefs!.getString(key);
-        if (iso8601 == null) return null;
-        return DateTime.parse(iso8601) as T;
-      } else if (T == PencilSoundSetting) {
-        final index = _prefs!.getInt(key);
-        return index != null ? PencilSoundSetting.values[index] as T? : null;
+    } else if (T == typeOf<List<String>>()) {
+      return await prefs.setStringList(key, value as List<String>);
+    } else if (T == typeOf<Set<String>>()) {
+      return await prefs.setStringList(key, (value as Set<String>).toList());
+    } else if (T == typeOf<Queue<String>>()) {
+      return await prefs.setStringList(key, (value as Queue<String>).toList());
+    } else if (T == StrokeOptions) {
+      return await prefs.setString(key, jsonEncode(value));
+    } else if (T == typeOf<Quota?>()) {
+      Quota? quota = value as Quota?;
+      if (quota == null) {
+        return await prefs.remove(key);
       } else {
-        return _prefs!.get(key) as T?;
+        return await prefs.setStringList(
+            key, [quota.used.toString(), quota.total.toString()]);
       }
-    } catch (e) {
-      stows.log.severe('Error loading $key: $e', e);
-      return null;
+    } else if (T == AxisDirection) {
+      return await prefs.setInt(key, (value as AxisDirection).index);
+    } else if (T == ThemeMode) {
+      return await prefs.setInt(key, (value as ThemeMode).index);
+    } else if (T == TargetPlatform) {
+      return await prefs.setInt(key, (value as TargetPlatform).index);
+    } else if (T == LayoutSize) {
+      return await prefs.setInt(key, (value as LayoutSize).index);
+    } else if (T == ToolId) {
+      return await prefs.setString(key, (value as ToolId).id);
+    } else if (T == CanvasBackgroundPattern) {
+      return await prefs.setString(
+          key, (value as CanvasBackgroundPattern).name);
+    } else if (T == DateTime) {
+      final date = value as DateTime;
+      if (date.millisecondsSinceEpoch == 0) {
+        return await prefs.remove(key);
+      } else {
+        return await prefs.setString(key, date.toIso8601String());
+      }
+    } else if (T == PencilSoundSetting) {
+      return await prefs.setInt(key, (value as PencilSoundSetting).index);
+    } else {
+      return await prefs.setString(key, value as String);
     }
   }
 
   @override
-  Future<void> delete() async {
-    if (!_isOnMainIsolate) return;
+  Future<T> protectedRead() async {
+    final prefs = await SharedPreferences.getInstance();
 
-    _prefs ??= await SharedPreferences.getInstance();
-    await _prefs!.remove(key);
+    if (!prefs.containsKey(key)) {
+      return defaultValue;
+    } else if (T == typeOf<Uint8List?>()) {
+      String? base64 = prefs.getString(key);
+      if (base64 == null) return defaultValue;
+      return base64Decode(base64) as T;
+    } else if (T == typeOf<List<String>>()) {
+      return prefs.getStringList(key) as T? ?? defaultValue;
+    } else if (T == typeOf<Set<String>>()) {
+      return prefs.getStringList(key)?.toSet() as T? ?? defaultValue;
+    } else if (T == typeOf<Queue<String>>()) {
+      List? list = prefs.getStringList(key);
+      return list != null ? Queue<String>.from(list) as T : defaultValue;
+    } else if (T == StrokeOptions) {
+      return StrokeOptions.fromJson(jsonDecode(prefs.getString(key)!)) as T;
+    } else if (T == typeOf<Quota?>()) {
+      List<String>? list = prefs.getStringList(key);
+      if (list == null || list.length != 2) return defaultValue;
+      int used = int.tryParse(list[0]) ?? 0;
+      int total = int.tryParse(list[1]) ?? 1; // avoid division by zero
+      return Quota.fromJson({
+        'free': total - used,
+        'used': used,
+        'total': total,
+        'relative': used / total * 100,
+        'quota':
+            total, // I don't know what this [quota] field is for, but I don't use it
+      }) as T;
+    } else if (T == AxisDirection) {
+      final index = prefs.getInt(key);
+      return index != null ? AxisDirection.values[index] as T : defaultValue;
+    } else if (T == ThemeMode) {
+      final index = prefs.getInt(key);
+      return index != null ? ThemeMode.values[index] as T : defaultValue;
+    } else if (T == TargetPlatform) {
+      final index = prefs.getInt(key);
+      if (index == null) return defaultValue;
+      if (index == -1) return defaultTargetPlatform as T;
+      return TargetPlatform.values[index] as T;
+    } else if (T == LayoutSize) {
+      final index = prefs.getInt(key);
+      if (index == null) return defaultValue;
+      return LayoutSize.values[index] as T;
+    } else if (T == ToolId) {
+      String id = prefs.getString(key)!;
+      return ToolId.values.firstWhere((toolId) => toolId.id == id,
+          orElse: () => defaultValue as ToolId) as T;
+    } else if (T == CanvasBackgroundPattern) {
+      String name = prefs.getString(key)!;
+      return CanvasBackgroundPattern.values.firstWhere(
+          (pattern) => pattern.name == name,
+          orElse: () => defaultValue as CanvasBackgroundPattern) as T;
+    } else if (T == DateTime) {
+      String? iso8601 = prefs.getString(key);
+      if (iso8601 == null) return defaultValue;
+      return DateTime.parse(iso8601) as T;
+    } else if (T == PencilSoundSetting) {
+      final index = prefs.getInt(key);
+      return index != null
+          ? PencilSoundSetting.values[index] as T
+          : defaultValue;
+    } else {
+      return prefs.get(key) as T;
+    }
+  }
+
+  @override
+  String toString() {
+    return 'PlainPref<$T>($key, $value, $codec)';
   }
 }
 
 class EncPref<T> extends IPref<T> {
   FlutterSecureStorage? _storage;
 
-  EncPref(super.key, super.defaultValue,
-      {super.historicalKeys, super.deprecatedKeys}) {
+  EncPref(
+    super.key,
+    super.defaultValue, {
+    super.historicalKeys,
+    super.deprecatedKeys,
+    super.codec,
+    super.autoRead,
+  }) {
     assert(T == String || T == typeOf<List<String>>() || T == bool);
   }
 
   @override
-  Future<T?> _load() async {
-    if (!_isOnMainIsolate) return null;
-
+  Future protectedWrite(T value) async {
     _storage ??= const FlutterSecureStorage();
-
-    T? currentValue = await getValueWithKey(key);
-    if (currentValue != null) return currentValue;
-
-    for (String key in historicalKeys) {
-      currentValue = await getValueWithKey(key);
-      if (currentValue == null) continue;
-
-      // migrate to new key
-      await _save();
-      _storage!.delete(key: key);
-
-      return currentValue;
-    }
-
-    for (String key in deprecatedKeys) {
-      _storage!.delete(key: key);
-    }
-
-    return null;
-  }
-
-  @override
-  Future<void> _afterLoad() async {
-    _storage = null;
-  }
-
-  @override
-  Future _save() async {
-    if (!_isOnMainIsolate) return null;
-
-    saved = false;
-    try {
-      _storage ??= const FlutterSecureStorage();
-      if (T == String)
-        return await _storage!.write(key: key, value: value as String);
-      if (T == bool)
-        return await _storage!.write(key: key, value: jsonEncode(value));
+    if (T == String)
+      return await _storage!.write(key: key, value: value as String);
+    if (T == bool)
       return await _storage!.write(key: key, value: jsonEncode(value));
-    } finally {
-      saved = true;
-    }
+    return await _storage!.write(key: key, value: jsonEncode(value));
   }
 
   @override
-  Future<T?> getValueWithKey(String key) async {
-    if (!_isOnMainIsolate) return null;
+  Future<T> protectedRead() async {
+    if (!_isOnMainIsolate) return defaultValue;
 
     try {
       final String? value = await _storage!.read(key: key);
-      return _parseString(value);
+      return _parseString(value) ?? defaultValue;
     } catch (e) {
       stows.log.severe('Error loading $key: $e', e);
-      return null;
+      return defaultValue;
     }
   }
 
@@ -585,6 +500,11 @@ class EncPref<T> extends IPref<T> {
     _storage ??= const FlutterSecureStorage();
     await _storage!.delete(key: key);
   }
+
+  @override
+  String toString() {
+    return 'EncPref<$T>($key, $value, $codec)';
+  }
 }
 
 /// An [IPref] that transforms the value of another [IPref].
@@ -603,31 +523,21 @@ class TransformedPref<T_in, T_out> extends IPref<T_out> {
   @override
   set value(T_out value) => pref.value = reverseTransform(value);
 
-  @override
-  bool get loaded => pref.loaded;
-
-  @override
-  bool get saved => pref.saved;
-
   TransformedPref(this.pref, this.transform, this.reverseTransform)
       : super(pref.key, transform(pref.defaultValue)) {
     pref.addListener(notifyListeners);
   }
 
   @override
-  Future<void> _afterLoad() async {}
+  Future<T_out> protectedRead() async => defaultValue;
 
   @override
-  Future<T_out?> _load() async => null;
+  Future<void> protectedWrite(T_out value) async {}
 
   @override
-  Future<void> _save() async {}
-
-  @override
-  Future<void> delete() async {}
-
-  @override
-  Future<T_out?> getValueWithKey(String key) async => null;
+  String toString() {
+    return 'TransformedPref<$T_in, $T_out>(from ${pref.key}, $value)';
+  }
 }
 
 Type typeOf<T>() => T;

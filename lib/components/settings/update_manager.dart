@@ -38,7 +38,7 @@ abstract class UpdateManager {
     if (!userTriggered) {
       if (status.value == UpdateStatus.upToDate) {
         // check for updates if not already done
-        await stows.shouldCheckForUpdates.waitUntilLoaded();
+        await stows.shouldCheckForUpdates.waitUntilRead();
         if (!stows.shouldCheckForUpdates.value) return;
         status.value = await _checkForUpdate();
       }

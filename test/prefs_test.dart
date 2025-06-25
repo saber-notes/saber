@@ -48,7 +48,7 @@ void main() {
       SharedPreferences.setMockInitialValues({});
 
       IPref<int> intPref = PlainPref('testTransformedPref', 0);
-      await intPref.waitUntilLoaded();
+      await intPref.waitUntilRead();
 
       /// Transforms intPref's value to a bool
       TransformedPref<int, bool> boolPref = TransformedPref(
@@ -101,7 +101,7 @@ Future testPref<T>({
 
   // Delete pref if it already exists
   var pref = prefBuilder();
-  await pref.waitUntilLoaded();
+  await pref.waitUntilRead();
   await pref.delete();
 
   // Check that pref.delete() is idempotent (doesn't throw an error)
@@ -120,7 +120,7 @@ Future testPref<T>({
   expect(pref.value, defaultValue);
   expect(prefChanged, false);
 
-  await pref.waitUntilLoaded();
+  await pref.waitUntilRead();
   expect(pref.loaded, true);
   expect(pref.value, defaultValue);
   expect(prefChanged, false);
@@ -139,7 +139,7 @@ Future testPref<T>({
   pref = prefBuilder();
   expect(pref.loaded, false);
   expect(pref.value, defaultValue);
-  await pref.waitUntilLoaded();
+  await pref.waitUntilRead();
   expect(pref.loaded, true);
   if (useJson) {
     expect(json.encode(pref.value), json.encode(alteredValue));

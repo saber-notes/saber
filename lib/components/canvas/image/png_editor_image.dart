@@ -140,7 +140,7 @@ class PngEditorImage extends EditorImage {
               Size(descriptor.width.toDouble(), descriptor.height.toDouble()));
 
       if (maxSize == null) {
-        await stows.maxImageSize.waitUntilLoaded();
+        await stows.maxImageSize.waitUntilRead();
         maxSize = Size.square(stows.maxImageSize.value);
       }
       final Size reducedSize = EditorImage.resize(naturalSize, maxSize!);

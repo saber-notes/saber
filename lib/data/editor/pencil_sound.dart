@@ -24,7 +24,7 @@ abstract class PencilSound {
   /// Loads the audio file into the audio cache
   /// and sets the audio context.
   static Future<void> preload() => Future.wait([
-        stows.pencilSound.waitUntilLoaded().then((_) => setAudioContext()),
+        stows.pencilSound.waitUntilRead().then((_) => setAudioContext()),
         _player.audioCache.loadPath(_source),
       ]);
 

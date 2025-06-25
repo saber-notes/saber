@@ -586,7 +586,7 @@ class FileManager {
   }
 
   static Future<List<String>> getRecentlyAccessed() async {
-    await stows.recentFiles.waitUntilLoaded();
+    await stows.recentFiles.waitUntilRead();
     return stows.recentFiles.value
         .map((String filePath) {
           if (filePath.endsWith(Editor.extension)) {

@@ -68,13 +68,13 @@ Future<void> main(
   Stows.markAsOnMainIsolate();
 
   await Future.wait([
-    stows.customDataDir.waitUntilLoaded().then((_) => FileManager.init()),
+    stows.customDataDir.waitUntilRead().then((_) => FileManager.init()),
     if (Platform.isWindows || Platform.isLinux || Platform.isMacOS)
       windowManager.ensureInitialized(),
     workerManager.init(),
-    stows.locale.waitUntilLoaded(),
-    stows.url.waitUntilLoaded(),
-    stows.allowInsecureConnections.waitUntilLoaded(),
+    stows.locale.waitUntilRead(),
+    stows.url.waitUntilRead(),
+    stows.allowInsecureConnections.waitUntilRead(),
     PencilShader.init(),
     PencilSound.preload(),
     Printing.info().then((info) {
@@ -106,8 +106,8 @@ Future<void> main(
 }
 
 void startSyncAfterLoaded() async {
-  await stows.username.waitUntilLoaded();
-  await stows.encPassword.waitUntilLoaded();
+  await stows.username.waitUntilRead();
+  await stows.encPassword.waitUntilRead();
 
   stows.username.removeListener(startSyncAfterLoaded);
   stows.encPassword.removeListener(startSyncAfterLoaded);
@@ -174,8 +174,8 @@ void doBackgroundSync() {
     await Future.wait([
       FileManager.init(),
       workerManager.init(),
-      stows.url.waitUntilLoaded(),
-      stows.allowInsecureConnections.waitUntilLoaded(),
+      stows.url.waitUntilRead(),
+      stows.allowInsecureConnections.waitUntilRead(),
     ]);
 
     /// Only sync a few files to avoid using too much data/battery
