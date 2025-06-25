@@ -84,7 +84,7 @@ class _PreviewCardState extends State<PreviewCard> {
     final transitionDuration =
         Duration(milliseconds: disableAnimations ? 0 : 300);
     final invert =
-        theme.brightness == Brightness.dark && Prefs.editorAutoInvert.value;
+        theme.brightness == Brightness.dark && stows.editorAutoInvert.value;
 
     Widget card = MouseRegion(
       cursor: SystemMouseCursors.click,

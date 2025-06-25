@@ -10,7 +10,7 @@ class Whiteboard extends StatelessWidget {
   static const String filePath = '/_whiteboard';
 
   static bool needsToAutoClearWhiteboard =
-      Prefs.autoClearWhiteboardOnExit.value;
+      stows.autoClearWhiteboardOnExit.value;
 
   static final _whiteboardKey =
       GlobalKey<EditorState>(debugLabel: 'whiteboard');

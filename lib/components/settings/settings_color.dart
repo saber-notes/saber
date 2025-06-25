@@ -57,7 +57,7 @@ class _SettingsSwitchState extends State<SettingsColor> {
           color: color ?? defaultColor,
           pickersEnabled: const {ColorPickerType.wheel: true},
           onColorChanged: (Color color) {
-            Prefs.accentColor.value = color.toARGB32();
+            stows.accentColor.value = color.toARGB32();
           },
         ),
       ),

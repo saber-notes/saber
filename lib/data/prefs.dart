@@ -13,7 +13,6 @@ import 'package:saber/components/canvas/_canvas_background_painter.dart';
 import 'package:saber/components/navbar/responsive_navbar.dart';
 import 'package:saber/data/editor/pencil_sound.dart';
 import 'package:saber/data/flavor_config.dart';
-import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
 import 'package:saber/data/tools/_tool.dart';
 import 'package:saber/data/tools/highlighter.dart';
 import 'package:saber/data/tools/pen.dart';
@@ -21,290 +20,171 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 typedef Quota = UserDetailsQuota;
 
-abstract class Prefs {
-  static final log = Logger('Prefs');
+/// If false, all stows are stuck at their default values.
+bool _isOnMainIsolate = false;
 
-  /// If true, the user's preferences will not be loaded and the default values will be used instead.
-  /// The values will not be saved either.
-  @visibleForTesting
-  static bool testingMode = false;
+final stows = Stows();
 
-  /// If true, a warning will be printed if a pref is accessed before it is loaded.
-  ///
-  /// If [testingMode] is true, the warning will not be printed even if this is true.
-  @visibleForTesting
-  static bool warnIfPrefAccessedBeforeLoaded = true;
+class Stows {
+  Stows() {
+    recentColorsLength.addListener(() {
+      // truncate if needed
+      while (recentColorsLength.value < recentColorsPositioned.value.length) {
+        // remove oldest color
+        final removed = recentColorsChronological.value.removeAt(0);
+        recentColorsPositioned.value.remove(removed);
+      }
+    });
+  }
 
-  /// Returns whether you can use Prefs.
-  ///
-  /// This may be false if [init] has not been called yet,
-  /// or on a non-main isolate.
-  static bool get available => _available;
-  static bool _available = false;
+  /// Call this before [runApp] to set [_isOnMainIsolate] to true.
+  static void markAsOnMainIsolate() {
+    _isOnMainIsolate = true;
+  }
 
-  static late final PlainPref<String?> customDataDir;
+  final log = Logger('Stows');
 
-  static late final EncPref<bool> allowInsecureConnections;
-  static late final EncPref<String> url;
-  static late final EncPref<String> username;
+  final customDataDir = PlainPref<String?>('customDataDir', null);
+
+  final allowInsecureConnections = EncPref('allowInsecureConnections', false);
+  final url = EncPref('url', '');
+  final username = EncPref('username', '');
 
   /// the password used to login to Nextcloud
-  static late final EncPref<String> ncPassword;
-  static late final PlainPref<bool> ncPasswordIsAnAppPassword;
+  final ncPassword = EncPref('ncPassword', '');
+  // TODO(adil192): maybe deprecate?
+  final ncPasswordIsAnAppPassword =
+      PlainPref('ncPasswordIsAnAppPassword', false);
 
   /// the password used to encrypt/decrypt notes
-  static late final EncPref<String> encPassword;
+  final encPassword = EncPref('encPassword', '');
 
   /// Whether the user is logged in and has provided both passwords.
   /// Please ensure that the relevant Prefs are loaded before using this.
-  static bool get loggedIn =>
-      url.loaded &&
+  bool get loggedIn =>
+      (url.loaded || !_isOnMainIsolate) &&
       username.value.isNotEmpty &&
       ncPassword.value.isNotEmpty &&
-      ncPasswordIsAnAppPassword.loaded &&
       encPassword.value.isNotEmpty;
 
-  static late final EncPref<String> key;
-  static late final EncPref<String> iv;
+  final key = EncPref('key', '');
+  final iv = EncPref('iv', '');
 
-  static late final PlainPref<Uint8List?> pfp;
-  static late final PlainPref<bool> syncInBackground;
+  final pfp = PlainPref<Uint8List?>('pfp', null);
+  final syncInBackground = PlainPref('syncInBackground', true);
 
-  static late final PlainPref<ThemeMode> appTheme;
+  final appTheme = PlainPref('appTheme', ThemeMode.system);
 
   /// The type of platform to theme. Default value is [defaultTargetPlatform].
-  static late final PlainPref<TargetPlatform> platform;
-  static late final PlainPref<LayoutSize> layoutSize;
+  final platform = PlainPref('platform', defaultTargetPlatform);
+  final layoutSize = PlainPref('layoutSize', LayoutSize.auto);
 
   /// The accent color of the app. If 0, the system accent color will be used.
-  static late final PlainPref<int> accentColor;
-  static late final PlainPref<bool> hyperlegibleFont;
+  final accentColor = PlainPref('accentColor', 0);
+  final hyperlegibleFont = PlainPref('hyperlegibleFont', false);
 
-  static late final PlainPref<AxisDirection> editorToolbarAlignment;
-  static late final PlainPref<bool> editorToolbarShowInFullscreen;
-  static late final PlainPref<bool> editorFingerDrawing;
-  static late final PlainPref<bool> editorAutoInvert;
+  final editorToolbarAlignment =
+      PlainPref('editorToolbarAlignment', AxisDirection.down);
+  final editorToolbarShowInFullscreen =
+      PlainPref('editorToolbarShowInFullscreen', true);
+  final editorFingerDrawing = PlainPref('editorFingerDrawing', true);
+  final editorAutoInvert = PlainPref('editorAutoInvert', true,
+      historicalKeys: const ['editorAutoDarken']);
   @Deprecated('Backgrounds are always opaque now. Use [true] instead.')
-  static late final PlainPref<bool> editorOpaqueBackgrounds;
-  static late final PlainPref<bool> preferGreyscale;
+  final editorOpaqueBackgrounds = PlainPref('__editorOpaqueBackgrounds', true,
+      deprecatedKeys: const ['editorOpaqueBackgrounds']);
+  final preferGreyscale = PlainPref('preferGreyscale', false);
   @Deprecated(
       'Straight line detection now only happens with ShapePen (and happens immediately)')
-  static late final PlainPref<int> editorStraightenDelay;
-  static late final PlainPref<bool> editorPromptRename;
-  static late final PlainPref<int> autosaveDelay;
-  static late final PlainPref<int> shapeRecognitionDelay;
-  static late final PlainPref<bool> autoStraightenLines;
-  static late final PlainPref<PencilSoundSetting> pencilSound;
+  final editorStraightenDelay = PlainPref('__editorStraightenDelay', 500,
+      deprecatedKeys: const ['editorStraightenDelay']);
+  final editorPromptRename = PlainPref('editorPromptRename', isDesktop);
+  final autosaveDelay = PlainPref('autosaveDelay', 10000);
+  final shapeRecognitionDelay = PlainPref('shapeRecognitionDelay', 500);
+  final autoStraightenLines = PlainPref('autoStraightenLines', true);
+  final pencilSound =
+      PlainPref('pencilSound', PencilSoundSetting.onButNotInSilentMode);
 
-  static late final PlainPref<bool> simplifiedHomeLayout;
-  static late final PlainPref<bool> hideHomeBackgrounds;
-  static late final PlainPref<bool> printPageIndicators;
+  final simplifiedHomeLayout = PlainPref('simplifiedHomeLayout', false);
+  final hideHomeBackgrounds = PlainPref('hideHomeBackgrounds', false);
+  final printPageIndicators = PlainPref('printPageIndicators', false);
 
-  static late final PlainPref<double> maxImageSize;
+  final maxImageSize = PlainPref<double>('maxImageSize', 1000);
 
-  static late final PlainPref<bool> autoClearWhiteboardOnExit;
+  final autoClearWhiteboardOnExit =
+      PlainPref('autoClearWhiteboardOnExit', false);
 
-  static late final PlainPref<bool> disableEraserAfterUse;
-  static late final PlainPref<bool> hideFingerDrawingToggle;
+  final disableEraserAfterUse = PlainPref('disableEraserAfterUse', false);
+  final hideFingerDrawingToggle = PlainPref('hideFingerDrawingToggle', false);
 
-  static late final PlainPref<List<String>> recentColorsChronological;
-  static late final PlainPref<List<String>> recentColorsPositioned;
-  static late final PlainPref<List<String>> pinnedColors;
-  static late final PlainPref<bool> recentColorsDontSavePresets;
-  static late final PlainPref<int> recentColorsLength;
+  final recentColorsChronological =
+      PlainPref('recentColorsChronological', <String>[]);
+  final recentColorsPositioned = PlainPref('recentColorsPositioned', <String>[],
+      historicalKeys: const ['recentColors']);
+  final pinnedColors = PlainPref('pinnedColors', <String>[]);
+  final recentColorsDontSavePresets = PlainPref('dontSavePresetColors', false);
+  final recentColorsLength = PlainPref('recentColorsLength', 5);
 
-  static late final PlainPref<ToolId> lastTool;
-  static late final PlainPref<StrokeOptions> lastFountainPenOptions,
-      lastBallpointPenOptions,
-      lastHighlighterOptions,
-      lastPencilOptions,
-      lastShapePenOptions;
-  static late final PlainPref<int> lastFountainPenColor,
-      lastBallpointPenColor,
-      lastHighlighterColor,
-      lastPencilColor,
-      lastShapePenColor;
-  static late final PlainPref<CanvasBackgroundPattern> lastBackgroundPattern;
+  final lastTool = PlainPref('lastTool', ToolId.fountainPen);
+  final lastFountainPenOptions = PlainPref(
+          'lastFountainPenProperties', Pen.fountainPenOptions,
+          deprecatedKeys: const ['lastPenColor']),
+      lastBallpointPenOptions =
+          PlainPref('lastBallpointPenProperties', Pen.ballpointPenOptions),
+      lastHighlighterOptions = PlainPref(
+          'lastHighlighterProperties', Pen.highlighterOptions,
+          deprecatedKeys: const ['lastHighlighterColor']),
+      lastPencilOptions = PlainPref('lastPencilProperties', Pen.pencilOptions),
+      lastShapePenOptions =
+          PlainPref('lastShapePenProperties', Pen.shapePenOptions);
+  final lastFountainPenColor =
+          PlainPref('lastFountainPenColor', Colors.black.toARGB32()),
+      lastBallpointPenColor =
+          PlainPref('lastBallpointPenColor', Colors.black.toARGB32()),
+      lastHighlighterColor = PlainPref('lastHighlighterColor',
+          Colors.yellow.withAlpha(Highlighter.alpha).toARGB32()),
+      lastPencilColor = PlainPref('lastPencilColor', Colors.black.toARGB32()),
+      lastShapePenColor =
+          PlainPref('lastShapePenColor', Colors.black.toARGB32());
+  final lastBackgroundPattern =
+      PlainPref('lastBackgroundPattern', CanvasBackgroundPattern.none);
   static const defaultLineHeight = 40;
   static const defaultLineThickness = 3;
-  static late final PlainPref<int> lastLineHeight;
-  static late final PlainPref<int> lastLineThickness;
-  static late final PlainPref<bool> lastZoomLock,
-      lastSingleFingerPanLock,
-      lastAxisAlignedPanLock;
+  final lastLineHeight = PlainPref('lastLineHeight', defaultLineHeight);
+  final lastLineThickness =
+      PlainPref('lastLineThickness', defaultLineThickness);
+  final lastZoomLock = PlainPref('lastZoomLock', false),
+      lastSingleFingerPanLock = PlainPref('lastSingleFingerPanLock', false,
+          historicalKeys: const ['lastPanLock']),
+      lastAxisAlignedPanLock = PlainPref('lastAxisAlignedPanLock', false);
 
-  @Deprecated('Hint isn\'t needed anymore. '
-      'This Pref exists to deprecate the shared preference.')
-  // ignore: unused_field
-  static late final PlainPref<bool> _hasDraggedSizeIndicatorBefore;
-
-  static late final PlainPref<List<String>> recentFiles;
-
-  @Deprecated('We just list the files in the directory now. '
-      'This Pref exists to deprecate the shared preference.')
-  // ignore: unused_field
-  static late final PlainPref<List<String>> _fileSyncUploadQueue;
+  final recentFiles = PlainPref('recentFiles', <String>[],
+      historicalKeys: const ['recentlyAccessed']);
 
   /// File paths that have been deleted locally
-  static late final PlainPref<Set<String>> fileSyncAlreadyDeleted;
+  final fileSyncAlreadyDeleted =
+      PlainPref('fileSyncAlreadyDeleted', <String>{});
 
   /// File paths that are known to be corrupted on Nextcloud
-  static late final PlainPref<Set<String>> fileSyncCorruptFiles;
+  final fileSyncCorruptFiles = PlainPref('fileSyncCorruptFiles', <String>{});
 
   /// Set when we want to resync everything.
   /// Files on the server older than this date will be
   /// reuploaded with the local version.
-  static late final PlainPref<DateTime> fileSyncResyncEverythingDate;
+  /// By default, we resync everything uploaded before v0.18.4, since uploads before then resulted in 0B files.
+  final fileSyncResyncEverythingDate = PlainPref('fileSyncResyncEverythingDate',
+      DateTime.parse('2023-12-10T10:06:31.000Z'));
 
   /// The last storage quota that was fetched from Nextcloud
-  static late final PlainPref<Quota?> lastStorageQuota;
+  final lastStorageQuota = PlainPref<Quota?>('lastStorageQuota', null);
 
-  static late final PlainPref<bool> shouldCheckForUpdates;
-  static late final PlainPref<bool> shouldAlwaysAlertForUpdates;
+  final shouldCheckForUpdates = PlainPref('shouldCheckForUpdates',
+      FlavorConfig.shouldCheckForUpdatesByDefault && !Platform.isLinux);
+  final shouldAlwaysAlertForUpdates = PlainPref('shouldAlwaysAlertForUpdates',
+      (kDebugMode || FlavorConfig.dirty) ? true : false,
+      deprecatedKeys: const ['updatesToIgnore']);
 
-  static late final PlainPref<String> locale;
-
-  static void init() {
-    _available = true;
-
-    customDataDir = PlainPref('customDataDir', null);
-    allowInsecureConnections = EncPref('allowInsecureConnections', false);
-    url = EncPref('url', '');
-    username = EncPref('username', '');
-    ncPassword = EncPref('ncPassword', '');
-    ncPasswordIsAnAppPassword = PlainPref('ncPasswordIsAnAppPassword', false);
-    encPassword = EncPref('encPassword', '');
-
-    key = EncPref('key', '');
-    iv = EncPref('iv', '');
-
-    pfp = PlainPref('pfp', null);
-    syncInBackground = PlainPref('syncInBackground', true);
-
-    appTheme = PlainPref('appTheme', ThemeMode.system);
-    platform = PlainPref('platform', defaultTargetPlatform);
-    layoutSize = PlainPref('layoutSize', LayoutSize.auto);
-    accentColor = PlainPref('accentColor', 0);
-    hyperlegibleFont = PlainPref('hyperlegibleFont', false);
-
-    editorToolbarAlignment =
-        PlainPref('editorToolbarAlignment', AxisDirection.down);
-    editorToolbarShowInFullscreen =
-        PlainPref('editorToolbarShowInFullscreen', true);
-    editorFingerDrawing = PlainPref('editorFingerDrawing', true);
-    editorAutoInvert = PlainPref('editorAutoInvert', true,
-        historicalKeys: const ['editorAutoDarken']);
-    // ignore: deprecated_member_use_from_same_package
-    editorOpaqueBackgrounds = PlainPref('__editorOpaqueBackgrounds', true,
-        deprecatedKeys: const ['editorOpaqueBackgrounds']);
-    preferGreyscale = PlainPref('preferGreyscale', false);
-    // ignore: deprecated_member_use_from_same_package
-    editorStraightenDelay = PlainPref('__editorStraightenDelay', 500,
-        deprecatedKeys: const ['editorStraightenDelay']);
-    editorPromptRename = PlainPref('editorPromptRename', isDesktop);
-    autosaveDelay = PlainPref('autosaveDelay', 10000);
-    shapeRecognitionDelay = PlainPref('shapeRecognitionDelay', 500);
-    autoStraightenLines = PlainPref('autoStraightenLines', true);
-    pencilSound =
-        PlainPref('pencilSound', PencilSoundSetting.onButNotInSilentMode);
-
-    simplifiedHomeLayout = PlainPref('simplifiedHomeLayout', false);
-    hideHomeBackgrounds = PlainPref('hideHomeBackgrounds', false);
-    printPageIndicators = PlainPref('printPageIndicators', false);
-
-    maxImageSize = PlainPref('maxImageSize', 1000);
-
-    autoClearWhiteboardOnExit = PlainPref('autoClearWhiteboardOnExit', false);
-
-    disableEraserAfterUse = PlainPref('disableEraserAfterUse', false);
-    hideFingerDrawingToggle = PlainPref('hideFingerDrawingToggle', false);
-
-    recentColorsChronological = PlainPref('recentColorsChronological', []);
-    recentColorsPositioned = PlainPref('recentColorsPositioned', [],
-        historicalKeys: const ['recentColors']);
-    pinnedColors = PlainPref('pinnedColors', []);
-    recentColorsDontSavePresets = PlainPref('dontSavePresetColors', false);
-    recentColorsLength = PlainPref('recentColorsLength', 5)
-      ..addListener(() {
-        // truncate if needed
-        while (recentColorsLength.value < recentColorsPositioned.value.length) {
-          // remove oldest color
-          final removed = recentColorsChronological.value.removeAt(0);
-          recentColorsPositioned.value.remove(removed);
-        }
-      });
-
-    lastTool = PlainPref('lastTool', ToolId.fountainPen);
-    lastFountainPenOptions = PlainPref(
-        'lastFountainPenProperties', Pen.fountainPenOptions,
-        deprecatedKeys: const ['lastPenColor']);
-    lastBallpointPenOptions =
-        PlainPref('lastBallpointPenProperties', Pen.ballpointPenOptions);
-    lastHighlighterOptions = PlainPref(
-        'lastHighlighterProperties', Pen.highlighterOptions,
-        deprecatedKeys: const ['lastHighlighterColor']);
-    lastPencilOptions = PlainPref('lastPencilProperties', Pen.pencilOptions);
-    lastShapePenOptions =
-        PlainPref('lastShapePenProperties', Pen.shapePenOptions);
-
-    lastFountainPenColor =
-        PlainPref('lastFountainPenColor', Colors.black.toARGB32());
-    lastBallpointPenColor =
-        PlainPref('lastBallpointPenColor', Colors.black.toARGB32());
-    lastHighlighterColor = PlainPref('lastHighlighterColor',
-        Colors.yellow.withAlpha(Highlighter.alpha).toARGB32());
-    lastPencilColor = PlainPref('lastPencilColor', Colors.black.toARGB32());
-    lastShapePenColor = PlainPref('lastShapePenColor', Colors.black.toARGB32());
-
-    lastBackgroundPattern =
-        PlainPref('lastBackgroundPattern', CanvasBackgroundPattern.none);
-    lastLineHeight = PlainPref('lastLineHeight', defaultLineHeight);
-    lastLineThickness = PlainPref('lastLineThickness', defaultLineThickness);
-    lastZoomLock = PlainPref('lastZoomLock', false);
-    lastSingleFingerPanLock = PlainPref('lastSingleFingerPanLock', false,
-        historicalKeys: const ['lastPanLock']);
-    lastAxisAlignedPanLock = PlainPref('lastAxisAlignedPanLock', false);
-
-    // ignore: deprecated_member_use_from_same_package
-    _hasDraggedSizeIndicatorBefore = PlainPref(
-        '_hasDraggedSizeIndicatorBefore', true,
-        deprecatedKeys: const ['hasDraggedSizeIndicatorBefore']);
-
-    recentFiles = PlainPref('recentFiles', [],
-        historicalKeys: const ['recentlyAccessed']);
-
-    // ignore: deprecated_member_use_from_same_package
-    _fileSyncUploadQueue = PlainPref('_fileSyncUploadQueue', const [],
-        deprecatedKeys: const ['fileSyncUploadQueue']);
-    fileSyncAlreadyDeleted = PlainPref('fileSyncAlreadyDeleted', {});
-    fileSyncCorruptFiles = PlainPref('fileSyncCorruptFiles', {});
-    // By default, we resync everything uploaded before v0.18.4, since uploads before then resulted in 0B files.
-    fileSyncResyncEverythingDate = PlainPref('fileSyncResyncEverythingDate',
-        DateTime.parse('2023-12-10T10:06:31.000Z'));
-    lastStorageQuota = PlainPref('lastStorageQuota', null);
-
-    shouldCheckForUpdates = PlainPref('shouldCheckForUpdates',
-        FlavorConfig.shouldCheckForUpdatesByDefault && !Platform.isLinux);
-    shouldAlwaysAlertForUpdates = PlainPref('shouldAlwaysAlertForUpdates',
-        (kDebugMode || FlavorConfig.dirty) ? true : false,
-        deprecatedKeys: const ['updatesToIgnore']);
-
-    locale = PlainPref('locale', '');
-
-    _migrateEmailToUsername();
-  }
-
-  static void _migrateEmailToUsername() async {
-    await username.waitUntilLoaded();
-    await ncPassword.waitUntilLoaded();
-
-    if (!username.value.contains('@')) return;
-
-    final client = NextcloudClientExtension.withSavedDetails();
-    if (client == null) return;
-
-    username.value = await client.getUsername();
-  }
+  final locale = PlainPref('locale', '');
 
   static bool get isDesktop =>
       Platform.isLinux || Platform.isWindows || Platform.isMacOS;
@@ -329,20 +209,14 @@ abstract class IPref<T> extends ValueNotifier<T> {
   })  : historicalKeys = historicalKeys ?? [],
         deprecatedKeys = deprecatedKeys ?? [],
         super(defaultValue) {
-    if (Prefs.testingMode) {
+    _load().then((T? loadedValue) {
       loaded = true;
-
-      return;
-    } else {
-      _load().then((T? loadedValue) {
-        loaded = true;
-        if (loadedValue != null) {
-          value = loadedValue;
-        }
-        _afterLoad();
-        addListener(_save);
-      });
-    }
+      if (loadedValue != null) {
+        value = loadedValue;
+      }
+      _afterLoad();
+      addListener(_save);
+    });
   }
 
   Future<T?> _load();
@@ -354,14 +228,6 @@ abstract class IPref<T> extends ValueNotifier<T> {
   /// Removes the value from shared preferences, and resets the pref to its default value.
   @visibleForTesting
   Future<void> delete();
-
-  @override
-  T get value {
-    if (!loaded && !Prefs.testingMode && Prefs.warnIfPrefAccessedBeforeLoaded) {
-      Prefs.log.warning("Pref '$key' accessed before it was loaded.");
-    }
-    return super.value;
-  }
 
   bool _loaded = false;
   Completer<void>? _loadedCompleter = Completer();
@@ -446,6 +312,8 @@ class PlainPref<T> extends IPref<T> {
 
   @override
   Future<T?> _load() async {
+    if (!_isOnMainIsolate) return null;
+
     _prefs ??= await SharedPreferences.getInstance();
 
     T? currentValue = await getValueWithKey(key);
@@ -476,6 +344,8 @@ class PlainPref<T> extends IPref<T> {
 
   @override
   Future _save() async {
+    if (!_isOnMainIsolate) return null;
+
     saved = false;
     try {
       _prefs ??= await SharedPreferences.getInstance();
@@ -543,6 +413,8 @@ class PlainPref<T> extends IPref<T> {
 
   @override
   Future<T?> getValueWithKey(String key) async {
+    if (!_isOnMainIsolate) return null;
+
     try {
       if (!_prefs!.containsKey(key)) {
         return null;
@@ -610,13 +482,15 @@ class PlainPref<T> extends IPref<T> {
         return _prefs!.get(key) as T?;
       }
     } catch (e) {
-      Prefs.log.severe('Error loading $key: $e', e);
+      stows.log.severe('Error loading $key: $e', e);
       return null;
     }
   }
 
   @override
   Future<void> delete() async {
+    if (!_isOnMainIsolate) return;
+
     _prefs ??= await SharedPreferences.getInstance();
     await _prefs!.remove(key);
   }
@@ -632,6 +506,8 @@ class EncPref<T> extends IPref<T> {
 
   @override
   Future<T?> _load() async {
+    if (!_isOnMainIsolate) return null;
+
     _storage ??= const FlutterSecureStorage();
 
     T? currentValue = await getValueWithKey(key);
@@ -662,6 +538,8 @@ class EncPref<T> extends IPref<T> {
 
   @override
   Future _save() async {
+    if (!_isOnMainIsolate) return null;
+
     saved = false;
     try {
       _storage ??= const FlutterSecureStorage();
@@ -677,11 +555,13 @@ class EncPref<T> extends IPref<T> {
 
   @override
   Future<T?> getValueWithKey(String key) async {
+    if (!_isOnMainIsolate) return null;
+
     try {
       final String? value = await _storage!.read(key: key);
       return _parseString(value);
     } catch (e) {
-      Prefs.log.severe('Error loading $key: $e', e);
+      stows.log.severe('Error loading $key: $e', e);
       return null;
     }
   }
@@ -700,6 +580,8 @@ class EncPref<T> extends IPref<T> {
 
   @override
   Future<void> delete() async {
+    if (!_isOnMainIsolate) return;
+
     _storage ??= const FlutterSecureStorage();
     await _storage!.delete(key: key);
   }

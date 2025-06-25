@@ -20,13 +20,11 @@ void main() {
     setupMockPathProvider();
 
     FlavorConfig.setup();
-    Prefs.testingMode = true;
-    Prefs.init();
     await FileManager.init();
 
-    Prefs.username.value = 'test.deletion';
-    Prefs.ncPassword.value = 'PRmjb-NWLzz-Gisq5-TAbtj-RbpWP';
-    Prefs.encPassword.value = 'test.deletion';
+    stows.username.value = 'test.deletion';
+    stows.ncPassword.value = 'PRmjb-NWLzz-Gisq5-TAbtj-RbpWP';
+    stows.encPassword.value = 'test.deletion';
 
     final client = NextcloudClientExtension.withSavedDetails()!;
     final webdav = client.webdav;

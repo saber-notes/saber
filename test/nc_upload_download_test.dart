@@ -14,12 +14,10 @@ void main() async {
         '${FileManager.appRootDirectoryPrefix}';
 
     FlavorConfig.setup();
-    Prefs.testingMode = true;
-    Prefs.init();
 
-    Prefs.username.value = 'test.issue.118';
-    Prefs.ncPassword.value = 'riNLA-2fXWY-Kay3x-jEMX5-bZr6m';
-    Prefs.encPassword.value = 'test.issue.118';
+    stows.username.value = 'test.issue.118';
+    stows.ncPassword.value = 'riNLA-2fXWY-Kay3x-jEMX5-bZr6m';
+    stows.encPassword.value = 'test.issue.118';
 
     final client = SaberSyncInterface.client!;
     await client.loadEncryptionKey();

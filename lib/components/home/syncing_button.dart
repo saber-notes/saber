@@ -28,7 +28,7 @@ class _SyncingButtonState extends State<SyncingButton> {
     queueListener = syncer.downloader.queueStream.listen(_onQueueChanged);
     transferListener =
         syncer.downloader.transferStream.listen(_onFileTransferred);
-    Prefs.username.addListener(_onUsernameChanged);
+    stows.username.addListener(_onUsernameChanged);
 
     super.initState();
   }
@@ -66,7 +66,7 @@ class _SyncingButtonState extends State<SyncingButton> {
   }
 
   void onPressed() {
-    assert(Prefs.loggedIn);
+    assert(stows.loggedIn);
 
     // Don't refresh if we're already refreshing.
     if (syncer.downloader.isRefreshing) return;
@@ -85,7 +85,7 @@ class _SyncingButtonState extends State<SyncingButton> {
     double? percentage = getPercentage();
 
     return IconButton(
-      onPressed: Prefs.loggedIn
+      onPressed: stows.loggedIn
           ? onPressed
           : SyncingButton.forceButtonActive
               ? () {}
@@ -94,7 +94,7 @@ class _SyncingButtonState extends State<SyncingButton> {
         alignment: Alignment.center,
         children: [
           AnimatedOpacity(
-            opacity: (Prefs.loggedIn && (percentage ?? 0) < 1) ? 1 : 0,
+            opacity: (stows.loggedIn && (percentage ?? 0) < 1) ? 1 : 0,
             duration: const Duration(milliseconds: 200),
             child: _AnimatedCircularProgressIndicator(
               duration: const Duration(milliseconds: 200),
@@ -114,7 +114,7 @@ class _SyncingButtonState extends State<SyncingButton> {
   void dispose() {
     queueListener.cancel();
     transferListener.cancel();
-    Prefs.username.removeListener(_onUsernameChanged);
+    stows.username.removeListener(_onUsernameChanged);
     super.dispose();
   }
 }

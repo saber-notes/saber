@@ -1,7 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/flavor_config.dart';
-import 'package:saber/data/prefs.dart';
 
 import 'utils/test_mock_channel_handlers.dart';
 
@@ -11,8 +10,6 @@ void main() {
     setupMockPathProvider();
 
     FlavorConfig.setup();
-    Prefs.testingMode = true;
-    Prefs.init();
     await FileManager.init();
 
     const String filePath = '/tests/distinct_name.sbn2';

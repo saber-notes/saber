@@ -96,11 +96,8 @@ Future testPref<T>({
   setupMockFlutterSecureStorage();
   SharedPreferences.setMockInitialValues({});
 
-  // Note that we won't use testingMode because we need the prefs to be saved
-  // // Prefs.testingMode = true;
-  // Note that we won't use Prefs.init() because we aren't using Pref's prefs
-  // // Prefs.init();
-  Prefs.warnIfPrefAccessedBeforeLoaded = false;
+  // Allow using the mocked shared preferences
+  Stows.markAsOnMainIsolate();
 
   // Delete pref if it already exists
   var pref = prefBuilder();

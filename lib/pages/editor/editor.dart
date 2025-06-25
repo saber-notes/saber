@@ -122,22 +122,22 @@ class EditorState extends State<Editor> {
 
   EditorHistory history = EditorHistory();
 
-  late bool needsNaming = widget.needsNaming && Prefs.editorPromptRename.value;
+  late bool needsNaming = widget.needsNaming && stows.editorPromptRename.value;
 
   late Tool _currentTool = () {
-    switch (Prefs.lastTool.value) {
+    switch (stows.lastTool.value) {
       case ToolId.fountainPen:
-        if (Pen.currentPen.toolId != Prefs.lastTool.value) {
+        if (Pen.currentPen.toolId != stows.lastTool.value) {
           Pen.currentPen = Pen.fountainPen();
         }
         return Pen.currentPen;
       case ToolId.ballpointPen:
-        if (Pen.currentPen.toolId != Prefs.lastTool.value) {
+        if (Pen.currentPen.toolId != stows.lastTool.value) {
           Pen.currentPen = Pen.ballpointPen();
         }
         return Pen.currentPen;
       case ToolId.shapePen:
-        if (Pen.currentPen.toolId != Prefs.lastTool.value) {
+        if (Pen.currentPen.toolId != stows.lastTool.value) {
           Pen.currentPen = ShapePen();
         }
         return Pen.currentPen;
@@ -158,7 +158,7 @@ class EditorState extends State<Editor> {
   Tool get currentTool => _currentTool;
   set currentTool(Tool tool) {
     _currentTool = tool;
-    Prefs.lastTool.value = tool.toolId;
+    stows.lastTool.value = tool.toolId;
   }
 
   ValueNotifier<SavingState> savingState = ValueNotifier(SavingState.saved);
@@ -244,7 +244,7 @@ class EditorState extends State<Editor> {
     }
 
     if (coreInfo.filePath == Whiteboard.filePath &&
-        Prefs.autoClearWhiteboardOnExit.value &&
+        stows.autoClearWhiteboardOnExit.value &&
         Whiteboard.needsToAutoClearWhiteboard) {
       // clear whiteboard (and add to history)
       clearAllPages();
@@ -514,7 +514,7 @@ class EditorState extends State<Editor> {
     } else if (details.pointerCount >= 2) {
       // is a zoom gesture, remove accidental stroke
       if (lastSeenPointerCount == 1 &&
-          Prefs.editorFingerDrawing.value &&
+          stows.editorFingerDrawing.value &&
           (currentTool is Pen || currentTool is Eraser)) {
         EditorHistoryItem? item = history.removeAccidentalStroke();
         if (item != null) undo(item);
@@ -531,7 +531,7 @@ class EditorState extends State<Editor> {
 
     if (currentTool == Tool.textEditing) {
       return false;
-    } else if (Prefs.editorFingerDrawing.value || currentPressure != null) {
+    } else if (stows.editorFingerDrawing.value || currentPressure != null) {
       return true;
     } else {
       log.fine('Non-stylus found, rejected stroke');
@@ -575,7 +575,7 @@ class EditorState extends State<Editor> {
       shouldPlayPencilSound = false;
     }
 
-    if (Prefs.pencilSound.value != PencilSoundSetting.off &&
+    if (stows.pencilSound.value != PencilSoundSetting.off &&
         shouldPlayPencilSound) PencilSound.resume();
 
     previousPosition = position;
@@ -637,7 +637,7 @@ class EditorState extends State<Editor> {
         Stroke newStroke = (currentTool as Pen).onDragEnd();
         if (newStroke.isEmpty) return;
 
-        if (Prefs.autoStraightenLines.value &&
+        if (stows.autoStraightenLines.value &&
             currentTool is! ShapePen &&
             newStroke.isStraightLine()) {
           newStroke.convertToLine();
@@ -654,7 +654,7 @@ class EditorState extends State<Editor> {
       } else if (currentTool is Eraser) {
         final erased = (currentTool as Eraser).onDragEnd();
         if (tmpTool != null &&
-            (stylusButtonPressed || Prefs.disableEraserAfterUse.value)) {
+            (stylusButtonPressed || stows.disableEraserAfterUse.value)) {
           // restore previous tool
           stylusButtonPressed = false;
           currentTool = tmpTool!;
@@ -827,7 +827,7 @@ class EditorState extends State<Editor> {
 
   void _refreshCurrentNote() async {
     if (coreInfo.readOnly) return;
-    if (!Prefs.loggedIn) return;
+    if (!stows.loggedIn) return;
 
     final syncFile =
         await SaberSyncFile.relative(coreInfo.filePath + Editor.extension);
@@ -857,9 +857,9 @@ class EditorState extends State<Editor> {
 
     void startTimer() {
       _delayedSaveTimer?.cancel();
-      if (Prefs.autosaveDelay.value < 0) return;
+      if (stows.autosaveDelay.value < 0) return;
       _delayedSaveTimer =
-          Timer(Duration(milliseconds: Prefs.autosaveDelay.value), callback);
+          Timer(Duration(milliseconds: stows.autosaveDelay.value), callback);
     }
 
     callback = () {
@@ -1014,7 +1014,7 @@ class EditorState extends State<Editor> {
   }
 
   void updateColorBar(Color color) {
-    if (Prefs.recentColorsDontSavePresets.value) {
+    if (stows.recentColorsDontSavePresets.value) {
       if (ColorBar.colorPresets
           .any((colorPreset) => colorPreset.color == color)) {
         return;
@@ -1024,39 +1024,39 @@ class EditorState extends State<Editor> {
     final String newColorString = color.toARGB32().toString();
 
     // migrate from old pref format
-    if (Prefs.recentColorsChronological.value.length !=
-        Prefs.recentColorsPositioned.value.length) {
+    if (stows.recentColorsChronological.value.length !=
+        stows.recentColorsPositioned.value.length) {
       log.info(
-          'MIGRATING recentColors: ${Prefs.recentColorsChronological.value.length} vs ${Prefs.recentColorsPositioned.value.length}');
-      Prefs.recentColorsChronological.value =
-          List.of(Prefs.recentColorsPositioned.value);
+          'MIGRATING recentColors: ${stows.recentColorsChronological.value.length} vs ${stows.recentColorsPositioned.value.length}');
+      stows.recentColorsChronological.value =
+          List.of(stows.recentColorsPositioned.value);
     }
 
-    if (Prefs.pinnedColors.value.contains(newColorString)) {
+    if (stows.pinnedColors.value.contains(newColorString)) {
       // do nothing, color is already pinned
-    } else if (Prefs.recentColorsPositioned.value.contains(newColorString)) {
+    } else if (stows.recentColorsPositioned.value.contains(newColorString)) {
       // if it's already a recent color, move it to the top
-      Prefs.recentColorsChronological.value.remove(newColorString);
-      Prefs.recentColorsChronological.value.add(newColorString);
-      Prefs.recentColorsChronological.notifyListeners();
+      stows.recentColorsChronological.value.remove(newColorString);
+      stows.recentColorsChronological.value.add(newColorString);
+      stows.recentColorsChronological.notifyListeners();
     } else {
-      if (Prefs.recentColorsPositioned.value.length >=
-          Prefs.recentColorsLength.value) {
+      if (stows.recentColorsPositioned.value.length >=
+          stows.recentColorsLength.value) {
         // if full, replace the oldest color with the new one
         final String removedColorString =
-            Prefs.recentColorsChronological.value.removeAt(0);
-        Prefs.recentColorsChronological.value.add(newColorString);
+            stows.recentColorsChronological.value.removeAt(0);
+        stows.recentColorsChronological.value.add(newColorString);
         final int removedColorPosition =
-            Prefs.recentColorsPositioned.value.indexOf(removedColorString);
-        Prefs.recentColorsPositioned.value[removedColorPosition] =
+            stows.recentColorsPositioned.value.indexOf(removedColorString);
+        stows.recentColorsPositioned.value[removedColorPosition] =
             newColorString;
       } else {
         // if not full, add the new color to the end
-        Prefs.recentColorsChronological.value.add(newColorString);
-        Prefs.recentColorsPositioned.value.insert(0, newColorString);
+        stows.recentColorsChronological.value.add(newColorString);
+        stows.recentColorsPositioned.value.insert(0, newColorString);
       }
-      Prefs.recentColorsChronological.notifyListeners();
-      Prefs.recentColorsPositioned.notifyListeners();
+      stows.recentColorsChronological.notifyListeners();
+      stows.recentColorsPositioned.notifyListeners();
     }
   }
 
@@ -1330,8 +1330,8 @@ class EditorState extends State<Editor> {
     final cupertino =
         platform == TargetPlatform.iOS || platform == TargetPlatform.macOS;
     final isToolbarVertical =
-        Prefs.editorToolbarAlignment.value == AxisDirection.left ||
-            Prefs.editorToolbarAlignment.value == AxisDirection.right;
+        stows.editorToolbarAlignment.value == AxisDirection.left ||
+            stows.editorToolbarAlignment.value == AxisDirection.right;
 
     final Widget canvas = CanvasGestureDetector(
       key: _canvasGestureDetectorKey,
@@ -1391,10 +1391,10 @@ class EditorState extends State<Editor> {
           ? CollapsibleAxis.horizontal
           : CollapsibleAxis.vertical,
       collapsed: DynamicMaterialApp.isFullscreen &&
-          !Prefs.editorToolbarShowInFullscreen.value,
+          !stows.editorToolbarShowInFullscreen.value,
       maintainState: true,
       child: SafeArea(
-        bottom: Prefs.editorToolbarAlignment.value != AxisDirection.up,
+        bottom: stows.editorToolbarAlignment.value != AxisDirection.up,
         child: Toolbar(
           readOnly: coreInfo.readOnly,
           setTool: (tool) {
@@ -1548,8 +1548,8 @@ class EditorState extends State<Editor> {
           isRedoPossible: history.canRedo,
           toggleFingerDrawing: () {
             setState(() {
-              Prefs.editorFingerDrawing.value =
-                  !Prefs.editorFingerDrawing.value;
+              stows.editorFingerDrawing.value =
+                  !stows.editorFingerDrawing.value;
               lastSeenPointerCount = 0;
             });
           },
@@ -1565,7 +1565,7 @@ class EditorState extends State<Editor> {
     final Widget body;
     if (isToolbarVertical) {
       body = Row(
-        textDirection: Prefs.editorToolbarAlignment.value == AxisDirection.left
+        textDirection: stows.editorToolbarAlignment.value == AxisDirection.left
             ? TextDirection.ltr
             : TextDirection.rtl,
         children: [
@@ -1582,7 +1582,7 @@ class EditorState extends State<Editor> {
     } else {
       body = Column(
         verticalDirection:
-            Prefs.editorToolbarAlignment.value == AxisDirection.up
+            stows.editorToolbarAlignment.value == AxisDirection.up
                 ? VerticalDirection.up
                 : VerticalDirection.down,
         children: [
@@ -1696,7 +1696,7 @@ class EditorState extends State<Editor> {
               ),
         body: body,
         floatingActionButton: (DynamicMaterialApp.isFullscreen &&
-                !Prefs.editorToolbarShowInFullscreen.value)
+                !stows.editorToolbarShowInFullscreen.value)
             ? FloatingActionButton(
                 shape: cupertino ? const CircleBorder() : null,
                 onPressed: () {
@@ -1719,7 +1719,7 @@ class EditorState extends State<Editor> {
   Widget bottomSheet(BuildContext context) {
     final Brightness brightness = Theme.of(context).brightness;
     final bool invert =
-        Prefs.editorAutoInvert.value && brightness == Brightness.dark;
+        stows.editorAutoInvert.value && brightness == Brightness.dark;
     final int currentPageIndex = this.currentPageIndex;
 
     return EditorBottomSheet(
@@ -1729,19 +1729,19 @@ class EditorState extends State<Editor> {
       setBackgroundPattern: (pattern) => setState(() {
         if (coreInfo.readOnly) return;
         coreInfo.backgroundPattern = pattern;
-        Prefs.lastBackgroundPattern.value = pattern;
+        stows.lastBackgroundPattern.value = pattern;
         autosaveAfterDelay();
       }),
       setLineHeight: (lineHeight) => setState(() {
         if (coreInfo.readOnly) return;
         coreInfo.lineHeight = lineHeight;
-        Prefs.lastLineHeight.value = lineHeight;
+        stows.lastLineHeight.value = lineHeight;
         autosaveAfterDelay();
       }),
       setLineThickness: (lineThickness) => setState(() {
         if (coreInfo.readOnly) return;
         coreInfo.lineThickness = lineThickness;
-        Prefs.lastLineThickness.value = lineThickness;
+        stows.lastLineThickness.value = lineThickness;
         autosaveAfterDelay();
       }),
       removeBackgroundImage: () => setState(() {
@@ -2043,11 +2043,11 @@ class EditorState extends State<Editor> {
     coreInfo.dispose();
 
     // manually save pen properties since the listeners don't fire if a property is changed
-    Prefs.lastFountainPenOptions.notifyListeners();
-    Prefs.lastBallpointPenOptions.notifyListeners();
-    Prefs.lastHighlighterOptions.notifyListeners();
-    Prefs.lastPencilOptions.notifyListeners();
-    Prefs.lastShapePenOptions.notifyListeners();
+    stows.lastFountainPenOptions.notifyListeners();
+    stows.lastBallpointPenOptions.notifyListeners();
+    stows.lastHighlighterOptions.notifyListeners();
+    stows.lastPencilOptions.notifyListeners();
+    stows.lastShapePenOptions.notifyListeners();
 
     super.dispose();
   }

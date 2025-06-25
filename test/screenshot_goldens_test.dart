@@ -33,16 +33,14 @@ void main() {
     setupMockPrinting();
 
     FlavorConfig.setup();
-    Prefs.testingMode = true;
-    Prefs.init();
     SyncingButton.forceButtonActive = true;
     AppInfo.showDebugMessage = false;
 
-    Prefs.username.value = 'myusername';
+    stows.username.value = 'myusername';
 
     const quotaUsed = 17 * 1024 * 1024; // 17 MB
     const quotaTotal = 5 * 1024 * 1024 * 1024; // 5 GB
-    Prefs.lastStorageQuota.value = Quota.fromJson({
+    stows.lastStorageQuota.value = Quota.fromJson({
       'free': quotaTotal - quotaUsed,
       'used': quotaUsed,
       'total': quotaTotal,
@@ -71,7 +69,7 @@ void main() {
         final bytes = await file.readAsBytes();
         return FileManager.getFile(fileName).writeAsBytes(bytes);
       }));
-      Prefs.recentFiles.value = recentFiles..sort();
+      stows.recentFiles.value = recentFiles..sort();
     });
 
     final colorScheme = ColorScheme.fromSeed(
@@ -175,7 +173,7 @@ void _screenshot({
     for (final (localeCode, goldenDevice) in localeDeviceMatrix) {
       testGoldens('for ${goldenDevice.name} in $localeCode', (tester) async {
         final device = goldenDevice.device;
-        Prefs.platform.value = device.platform;
+        stows.platform.value = device.platform;
         await tester.runAsync(() => LocaleSettings.setLocaleRaw(localeCode));
 
         if (goldenFileName == '4_settings') {

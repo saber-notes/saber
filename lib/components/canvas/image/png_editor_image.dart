@@ -140,8 +140,8 @@ class PngEditorImage extends EditorImage {
               Size(descriptor.width.toDouble(), descriptor.height.toDouble()));
 
       if (maxSize == null) {
-        await Prefs.maxImageSize.waitUntilLoaded();
-        maxSize = Size.square(Prefs.maxImageSize.value);
+        await stows.maxImageSize.waitUntilLoaded();
+        maxSize = Size.square(stows.maxImageSize.value);
       }
       final Size reducedSize = EditorImage.resize(naturalSize, maxSize!);
       if (naturalSize.width != reducedSize.width && !isThumbnail) {

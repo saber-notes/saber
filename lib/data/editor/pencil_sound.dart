@@ -24,7 +24,7 @@ abstract class PencilSound {
   /// Loads the audio file into the audio cache
   /// and sets the audio context.
   static Future<void> preload() => Future.wait([
-        Prefs.pencilSound.waitUntilLoaded().then((_) => setAudioContext()),
+        stows.pencilSound.waitUntilLoaded().then((_) => setAudioContext()),
         _player.audioCache.loadPath(_source),
       ]);
 
@@ -36,7 +36,7 @@ abstract class PencilSound {
             ? AudioContextConfigFocus.gain
             : AudioContextConfigFocus.mixWithOthers,
         // Doesn't play the sound when the device is in silent mode.
-        respectSilence: Prefs.pencilSound.value.respectSilence,
+        respectSilence: stows.pencilSound.value.respectSilence,
       ).build());
 
   static void resume() {

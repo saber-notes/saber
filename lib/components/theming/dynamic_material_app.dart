@@ -68,10 +68,10 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp>
 
   @override
   void initState() {
-    Prefs.appTheme.addListener(onChanged);
-    Prefs.platform.addListener(onChanged);
-    Prefs.accentColor.addListener(onChanged);
-    Prefs.hyperlegibleFont.addListener(onChanged);
+    stows.appTheme.addListener(onChanged);
+    stows.platform.addListener(onChanged);
+    stows.accentColor.addListener(onChanged);
+    stows.hyperlegibleFont.addListener(onChanged);
 
     windowManager.addListener(this);
     SystemChrome.setSystemUIChangeCallback(_onFullscreenChange);
@@ -99,7 +99,7 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp>
   }
 
   TextTheme? getTextTheme(Brightness brightness) {
-    if (Prefs.hyperlegibleFont.loaded && Prefs.hyperlegibleFont.value) {
+    if (stows.hyperlegibleFont.loaded && stows.hyperlegibleFont.value) {
       return ThemeData(brightness: brightness).textTheme.withFont(
             fontFamily: 'AtkinsonHyperlegible',
             fontFamilyFallback: saberSansSerifFontFallbacks,
@@ -117,8 +117,8 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp>
         final ColorScheme lightColorScheme;
         final ColorScheme darkColorScheme;
 
-        if (Prefs.accentColor.loaded && Prefs.accentColor.value != 0) {
-          seedColor = Color(Prefs.accentColor.value);
+        if (stows.accentColor.loaded && stows.accentColor.value != 0) {
+          seedColor = Color(stows.accentColor.value);
           lightColorScheme = ColorScheme.fromSeed(
             brightness: Brightness.light,
             seedColor: seedColor,
@@ -156,7 +156,7 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp>
           contrastLevel: 1,
         );
 
-        final platform = switch (Prefs.platform.value) {
+        final platform = switch (stows.platform.value) {
           TargetPlatform.iOS => TargetPlatform.iOS,
           TargetPlatform.android => TargetPlatform.android,
           TargetPlatform.linux => TargetPlatform.linux,
@@ -179,8 +179,8 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp>
                   FlutterQuillLocalizations.delegate,
                 ],
                 title: widget.title,
-                themeMode: Prefs.appTheme.loaded
-                    ? Prefs.appTheme.value
+                themeMode: stows.appTheme.loaded
+                    ? stows.appTheme.value
                     : ThemeMode.system,
                 theme: yaruTheme?.theme ??
                     ThemeData(
@@ -229,10 +229,10 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp>
 
   @override
   void dispose() {
-    Prefs.appTheme.removeListener(onChanged);
-    Prefs.platform.removeListener(onChanged);
-    Prefs.accentColor.removeListener(onChanged);
-    Prefs.hyperlegibleFont.removeListener(onChanged);
+    stows.appTheme.removeListener(onChanged);
+    stows.platform.removeListener(onChanged);
+    stows.accentColor.removeListener(onChanged);
+    stows.hyperlegibleFont.removeListener(onChanged);
 
     windowManager.removeListener(this);
     SystemChrome.setSystemUIChangeCallback(null);

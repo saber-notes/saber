@@ -7,7 +7,7 @@ class NcHttpOverrides extends HttpOverrides {
   static String? temporarilyExemptHost;
 
   /// Temporarily accept a self-signed certificate from [uri]
-  /// (if [Prefs.allowInsecureConnections] is true),
+  /// (if [stows.allowInsecureConnections] is true),
   /// before you set Prefs.url.
   static void tempAcceptBadCertificateFrom(Uri uri) {
     temporarilyExemptHost = uri.host;
@@ -26,16 +26,16 @@ class NcHttpOverrides extends HttpOverrides {
   // false if it should be rejected.
   static bool badCertificateCallback(
       X509Certificate cert, String host, int port) {
-    if (!Prefs.allowInsecureConnections.loaded || !Prefs.url.loaded) {
+    if (!stows.allowInsecureConnections.loaded || !stows.url.loaded) {
       log.severe(
           'The Prefs [allowInsecureConnections] or [url] are not loaded yet. Make sure to await pref.waitUntilLoaded() for both.');
       return false;
     }
 
-    if (host == Uri.tryParse(Prefs.url.value)?.host ||
+    if (host == Uri.tryParse(stows.url.value)?.host ||
         host == temporarilyExemptHost) {
       // Allow self-signed certificates for self-hosted Nextcloud servers
-      return Prefs.allowInsecureConnections.value;
+      return stows.allowInsecureConnections.value;
     } else {
       // Reject insecure certificates from other hosts
       return false;

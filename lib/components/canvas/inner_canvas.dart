@@ -67,7 +67,7 @@ class _InnerCanvasState extends State<InnerCanvas> {
     final colorScheme = Theme.of(context).colorScheme;
     final Brightness brightness = Theme.of(context).brightness;
     final bool invert =
-        Prefs.editorAutoInvert.value && brightness == Brightness.dark;
+        stows.editorAutoInvert.value && brightness == Brightness.dark;
     final Color backgroundColor =
         widget.coreInfo.backgroundColor ?? InnerCanvas.defaultBackgroundColor;
 
@@ -142,7 +142,7 @@ class _InnerCanvasState extends State<InnerCanvas> {
           primaryColor: colorScheme.primary,
           page: page,
           showPageIndicator: !widget.isPreview &&
-              (!widget.isPrint || Prefs.printPageIndicators.value),
+              (!widget.isPrint || stows.printPageIndicators.value),
           pageIndex: widget.pageIndex,
           totalPages: widget.coreInfo.pages.length,
           currentScale: widget.currentScale,

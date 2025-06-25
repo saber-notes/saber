@@ -12,11 +12,9 @@ const int v = 5000;
 
 void main() => group('Update manager:', () {
       FlavorConfig.setup();
-      Prefs.testingMode = true;
-      Prefs.init();
 
       test('Test version comparison (release mode)', () {
-        Prefs.shouldAlwaysAlertForUpdates.value = false;
+        stows.shouldAlwaysAlertForUpdates.value = false;
 
         expect(UpdateManager.getUpdateStatus(v, v - 10), UpdateStatus.upToDate);
         expect(UpdateManager.getUpdateStatus(v, v - 1), UpdateStatus.upToDate);
@@ -38,7 +36,7 @@ void main() => group('Update manager:', () {
       });
 
       test('Test version comparison (debug mode)', () {
-        Prefs.shouldAlwaysAlertForUpdates.value = true;
+        stows.shouldAlwaysAlertForUpdates.value = true;
 
         expect(UpdateManager.getUpdateStatus(v, v), UpdateStatus.upToDate);
         expect(UpdateManager.getUpdateStatus(v, v + 1), UpdateStatus.upToDate);

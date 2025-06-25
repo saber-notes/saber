@@ -15,7 +15,6 @@ import 'package:saber/data/editor/editor_exporter.dart';
 import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/flavor_config.dart';
-import 'package:saber/data/prefs.dart';
 import 'package:saber/data/tools/laser_pointer.dart';
 import 'package:saber/data/tools/stroke_properties.dart';
 import 'package:saber/i18n/strings.g.dart';
@@ -33,8 +32,6 @@ void main() {
     setupMockPrinting();
 
     FlavorConfig.setup();
-    Prefs.testingMode = true;
-    Prefs.init();
 
     setUpAll(() => Future.wait([
           FileManager.init(),

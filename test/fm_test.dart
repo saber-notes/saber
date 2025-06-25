@@ -14,8 +14,6 @@ void main() {
     setupMockPathProvider();
 
     FlavorConfig.setup();
-    Prefs.testingMode = true;
-    Prefs.init();
 
     late final String rootDir;
     setUpAll(() async {
@@ -225,7 +223,7 @@ void main() {
 
     test('getRecentlyAccessed', () async {
       // check empty
-      Prefs.recentFiles.value = [];
+      stows.recentFiles.value = [];
       var recentlyAccessed = await FileManager.getRecentlyAccessed();
       expect(recentlyAccessed, isEmpty);
 

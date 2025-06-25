@@ -22,21 +22,21 @@ class NcLoginPage extends StatefulWidget {
   State<NcLoginPage> createState() => _NcLoginPageState();
 
   static LoginStep getCurrentStep() {
-    if (!Prefs.url.loaded ||
-        !Prefs.username.loaded ||
-        !Prefs.ncPassword.loaded ||
-        !Prefs.encPassword.loaded ||
-        !Prefs.key.loaded ||
-        !Prefs.iv.loaded) {
+    if (!stows.url.loaded ||
+        !stows.username.loaded ||
+        !stows.ncPassword.loaded ||
+        !stows.encPassword.loaded ||
+        !stows.key.loaded ||
+        !stows.iv.loaded) {
       return LoginStep.waitingForPrefs;
     }
 
-    if (Prefs.username.value.isEmpty || Prefs.ncPassword.value.isEmpty) {
+    if (stows.username.value.isEmpty || stows.ncPassword.value.isEmpty) {
       return LoginStep.nc;
     }
-    if (Prefs.encPassword.value.isEmpty ||
-        Prefs.key.value.isEmpty ||
-        Prefs.iv.value.isEmpty) {
+    if (stows.encPassword.value.isEmpty ||
+        stows.key.value.isEmpty ||
+        stows.iv.value.isEmpty) {
       return LoginStep.enc;
     }
     return LoginStep.done;
@@ -57,19 +57,19 @@ class _NcLoginPageState extends State<NcLoginPage> {
   Future<void> waitForPrefs() async {
     step = LoginStep.waitingForPrefs;
 
-    if (!Prefs.url.loaded ||
-        !Prefs.username.loaded ||
-        !Prefs.ncPassword.loaded ||
-        !Prefs.encPassword.loaded ||
-        !Prefs.key.loaded ||
-        !Prefs.iv.loaded)
+    if (!stows.url.loaded ||
+        !stows.username.loaded ||
+        !stows.ncPassword.loaded ||
+        !stows.encPassword.loaded ||
+        !stows.key.loaded ||
+        !stows.iv.loaded)
       await Future.wait([
-        Prefs.url.waitUntilLoaded(),
-        Prefs.username.waitUntilLoaded(),
-        Prefs.ncPassword.waitUntilLoaded(),
-        Prefs.encPassword.waitUntilLoaded(),
-        Prefs.key.waitUntilLoaded(),
-        Prefs.iv.waitUntilLoaded(),
+        stows.url.waitUntilLoaded(),
+        stows.username.waitUntilLoaded(),
+        stows.ncPassword.waitUntilLoaded(),
+        stows.encPassword.waitUntilLoaded(),
+        stows.key.waitUntilLoaded(),
+        stows.iv.waitUntilLoaded(),
       ]);
 
     recheckCurrentStep();

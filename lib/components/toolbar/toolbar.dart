@@ -165,11 +165,11 @@ class _ToolbarState extends State<Toolbar> {
     var colorScheme = Theme.of(context).colorScheme;
 
     Brightness brightness = Theme.of(context).brightness;
-    bool invert = Prefs.editorAutoInvert.value && brightness == Brightness.dark;
+    bool invert = stows.editorAutoInvert.value && brightness == Brightness.dark;
 
     final isToolbarVertical =
-        Prefs.editorToolbarAlignment.value == AxisDirection.left ||
-            Prefs.editorToolbarAlignment.value == AxisDirection.right;
+        stows.editorToolbarAlignment.value == AxisDirection.left ||
+            stows.editorToolbarAlignment.value == AxisDirection.right;
 
     final buttonPadding = isToolbarVertical
         ? Toolbar._buttonPaddingVertical
@@ -467,10 +467,10 @@ class _ToolbarState extends State<Toolbar> {
                   cupertinoIcon: CupertinoIcons.text_cursor,
                 ),
               ),
-              if (!Prefs.hideFingerDrawingToggle.value)
+              if (!stows.hideFingerDrawingToggle.value)
                 ToolbarIconButton(
                   tooltip: t.editor.toolbar.toggleFingerDrawing,
-                  selected: Prefs.editorFingerDrawing.value,
+                  selected: stows.editorFingerDrawing.value,
                   enabled: !widget.readOnly,
                   onPressed: widget.toggleFingerDrawing,
                   padding: buttonPadding,
@@ -544,14 +544,14 @@ class _ToolbarState extends State<Toolbar> {
       child: isToolbarVertical
           ? Row(
               textDirection:
-                  Prefs.editorToolbarAlignment.value == AxisDirection.left
+                  stows.editorToolbarAlignment.value == AxisDirection.left
                       ? TextDirection.rtl
                       : TextDirection.ltr,
               children: children,
             )
           : Column(
               verticalDirection:
-                  Prefs.editorToolbarAlignment.value == AxisDirection.down
+                  stows.editorToolbarAlignment.value == AxisDirection.down
                       ? VerticalDirection.down
                       : VerticalDirection.up,
               children: children,

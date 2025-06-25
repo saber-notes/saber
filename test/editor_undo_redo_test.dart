@@ -24,9 +24,7 @@ void main() {
     setupMockAudioplayers();
 
     FlavorConfig.setup();
-    Prefs.testingMode = true;
-    Prefs.init();
-    Prefs.pencilSound.value = PencilSoundSetting.off;
+    stows.pencilSound.value = PencilSoundSetting.off;
     await tester.runAsync(FileManager.init);
 
     const filePath = '/tests/editor_undo_redo_test';
