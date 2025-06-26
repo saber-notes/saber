@@ -60,7 +60,7 @@ jobs:
         with:
           # Workaround for https://github.com/subosito/flutter-action/issues/345, needs to be removed when fixed
           channel: master
-          flutter-version: 3.32.3
+          flutter-version: 3.32.5
           cache: true
           cache-key: 'flutter-:os:-:channel:-:version:-:arch:'
 
