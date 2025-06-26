@@ -49,7 +49,7 @@ class Stows {
       PlainStow<String?>('customDataDir', null, autoRead: _isOnMainIsolate);
 
   final allowInsecureConnections =
-      SecureStow('allowInsecureConnections', false, autoRead: _isOnMainIsolate);
+      SecureStow.bool('allowInsecureConnections', false, autoRead: _isOnMainIsolate);
   final url = SecureStow('url', '', autoRead: _isOnMainIsolate);
   final username = SecureStow('username', '', autoRead: _isOnMainIsolate);
 

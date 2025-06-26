@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:saber/components/settings/nextcloud_profile.dart';
 
-class QuotaCodec extends Codec<Quota, List<String>> {
+class QuotaCodec extends Codec<Quota, List> {
   const QuotaCodec();
 
   @override
@@ -21,11 +21,11 @@ class _QuotaEncoder extends Converter<Quota, List<String>> {
   }
 }
 
-class _QuotaDecoder extends Converter<List<String>, Quota> {
+class _QuotaDecoder extends Converter<List<dynamic>, Quota> {
   const _QuotaDecoder();
 
   @override
-  Quota convert(List<String> input) {
+  Quota convert(List<dynamic> input) {
     if (input.length != 2) {
       throw FormatException('Invalid quota format: $input');
     }

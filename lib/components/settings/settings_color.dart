@@ -42,7 +42,7 @@ class _SettingsSwitchState extends State<SettingsColor> {
 
   void onChanged() {
     Color? color = widget.pref.value;
-    if (color != null) {
+    if (color != null && color != Colors.transparent) {
       defaultColor = color;
     }
     widget.afterChange?.call(color);
@@ -110,7 +110,8 @@ class _SettingsSwitchState extends State<SettingsColor> {
             width: 8,
           ),
           Switch.adaptive(
-            value: widget.pref.value != null,
+            value: widget.pref.value != null &&
+                widget.pref.value != Colors.transparent,
             onChanged: (bool? value) {
               widget.pref.value = value! ? defaultColor : null;
             },
