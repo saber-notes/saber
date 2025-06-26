@@ -49,12 +49,6 @@ void main() {
       'quota': quotaTotal,
     });
     stows.username.value = 'myusername';
-    stows.url.loaded = true;
-    stows.username.loaded = true;
-    stows.ncPassword.loaded = true;
-    stows.encPassword.loaded = true;
-    stows.key.loaded = true;
-    stows.iv.loaded = true;
 
     setUpAll(() => Future.wait([
           FileManager.init(
