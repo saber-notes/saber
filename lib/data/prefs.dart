@@ -86,7 +86,8 @@ class Stows {
       PlainPref('layoutSize', LayoutSize.auto, autoRead: _isOnMainIsolate);
 
   /// The accent color of the app. If 0, the system accent color will be used.
-  final accentColor = PlainPref('accentColor', 0, autoRead: _isOnMainIsolate);
+  final accentColor =
+      PlainPref<Color?>('accentColor', null, autoRead: _isOnMainIsolate);
   final hyperlegibleFont =
       PlainPref('hyperlegibleFont', false, autoRead: _isOnMainIsolate);
 

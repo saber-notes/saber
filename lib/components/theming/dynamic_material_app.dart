@@ -117,8 +117,10 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp>
         final ColorScheme lightColorScheme;
         final ColorScheme darkColorScheme;
 
-        if (stows.accentColor.loaded && stows.accentColor.value != 0) {
-          seedColor = Color(stows.accentColor.value);
+        final chosenAccentColor = stows.accentColor.value;
+        if (chosenAccentColor != null &&
+            chosenAccentColor != Colors.transparent) {
+          seedColor = chosenAccentColor;
           lightColorScheme = ColorScheme.fromSeed(
             brightness: Brightness.light,
             seedColor: seedColor,
