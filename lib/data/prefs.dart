@@ -5,7 +5,6 @@ import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:logging/logging.dart';
 import 'package:nextcloud/provisioning_api.dart';
 import 'package:perfect_freehand/perfect_freehand.dart';
@@ -18,6 +17,7 @@ import 'package:saber/data/tools/highlighter.dart';
 import 'package:saber/data/tools/pen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:stow/stow.dart';
+import 'package:stow_secure/stow_secure.dart';
 
 typedef Quota = UserDetailsQuota;
 
@@ -49,18 +49,18 @@ class Stows {
       PlainPref<String?>('customDataDir', null, autoRead: _isOnMainIsolate);
 
   final allowInsecureConnections =
-      EncPref('allowInsecureConnections', false, autoRead: _isOnMainIsolate);
-  final url = EncPref('url', '', autoRead: _isOnMainIsolate);
-  final username = EncPref('username', '', autoRead: _isOnMainIsolate);
+      SecureStow('allowInsecureConnections', false, autoRead: _isOnMainIsolate);
+  final url = SecureStow('url', '', autoRead: _isOnMainIsolate);
+  final username = SecureStow('username', '', autoRead: _isOnMainIsolate);
 
   /// the password used to login to Nextcloud
-  final ncPassword = EncPref('ncPassword', '', autoRead: _isOnMainIsolate);
+  final ncPassword = SecureStow('ncPassword', '', autoRead: _isOnMainIsolate);
   // TODO(adil192): maybe deprecate?
   final ncPasswordIsAnAppPassword =
       PlainPref('ncPasswordIsAnAppPassword', false, autoRead: _isOnMainIsolate);
 
   /// the password used to encrypt/decrypt notes
-  final encPassword = EncPref('encPassword', '', autoRead: _isOnMainIsolate);
+  final encPassword = SecureStow('encPassword', '', autoRead: _isOnMainIsolate);
 
   /// Whether the user is logged in and has provided both passwords.
   /// Please ensure that the relevant Prefs are loaded before using this.
@@ -69,8 +69,8 @@ class Stows {
       ncPassword.value.isNotEmpty &&
       encPassword.value.isNotEmpty;
 
-  final key = EncPref('key', '', autoRead: _isOnMainIsolate);
-  final iv = EncPref('iv', '', autoRead: _isOnMainIsolate);
+  final key = SecureStow('key', '', autoRead: _isOnMainIsolate);
+  final iv = SecureStow('iv', '', autoRead: _isOnMainIsolate);
 
   final pfp = PlainPref<Uint8List?>('pfp', null, autoRead: _isOnMainIsolate);
   final syncInBackground =
@@ -424,67 +424,6 @@ class PlainPref<T> extends IPref<T> {
   @override
   String toString() {
     return 'PlainPref<$T>($key, $value, $codec)';
-  }
-}
-
-class EncPref<T> extends IPref<T> {
-  FlutterSecureStorage? _storage;
-
-  EncPref(
-    super.key,
-    super.defaultValue, {
-    super.codec,
-    super.autoRead,
-  }) {
-    assert(T == String || T == typeOf<List<String>>() || T == bool);
-  }
-
-  @override
-  Future protectedWrite(T value) async {
-    _storage ??= const FlutterSecureStorage();
-    if (T == String)
-      return await _storage!.write(key: key, value: value as String);
-    if (T == bool)
-      return await _storage!.write(key: key, value: jsonEncode(value));
-    return await _storage!.write(key: key, value: jsonEncode(value));
-  }
-
-  @override
-  Future<T> protectedRead() async {
-    if (!_isOnMainIsolate) return defaultValue;
-
-    try {
-      final String? value = await _storage!.read(key: key);
-      return _parseString(value) ?? defaultValue;
-    } catch (e) {
-      stows.log.severe('Error loading $key: $e', e);
-      return defaultValue;
-    }
-  }
-
-  T? _parseString(String? value) {
-    if (value == null || value.isEmpty) return null;
-
-    if (T == String) {
-      return value as T;
-    } else if (T == bool) {
-      return jsonDecode(value) as T;
-    } else {
-      return List<String>.from(jsonDecode(value)) as T;
-    }
-  }
-
-  @override
-  Future<void> delete() async {
-    if (!_isOnMainIsolate) return;
-
-    _storage ??= const FlutterSecureStorage();
-    await _storage!.delete(key: key);
-  }
-
-  @override
-  String toString() {
-    return 'EncPref<$T>($key, $value, $codec)';
   }
 }
 
