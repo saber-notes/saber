@@ -147,7 +147,7 @@ dependencies:
   path: ^1.9.1
 
   stow: ^0.3.0
-  stow_plain: ^0.2.0
+  stow_plain: ^0.2.1
   stow_secure: ^0.2.0
   stow_codecs: ^1.1.0
 

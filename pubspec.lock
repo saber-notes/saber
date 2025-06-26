@@ -1582,10 +1582,10 @@ packages:
     dependency: "direct main"
     description:
       name: stow_plain
-      sha256: c808e672334c8fe6d26499039466cff8cc34ad0b4794f5b7f67c37a4c55f6518
+      sha256: "64f9bca5094c21e86f2bf8b7e8f7f0000b7b2093dd313cea6e5119ec68f7eac3"
       url: "https://pub.dev"
     source: hosted
-    version: "0.2.0+1"
+    version: "0.2.1"
   stow_secure:
     dependency: "direct main"
     description:

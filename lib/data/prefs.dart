@@ -1,25 +1,25 @@
 import 'dart:async';
-import 'dart:collection';
-import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
-import 'package:nextcloud/provisioning_api.dart';
 import 'package:perfect_freehand/perfect_freehand.dart';
 import 'package:saber/components/canvas/_canvas_background_painter.dart';
 import 'package:saber/components/navbar/responsive_navbar.dart';
+import 'package:saber/components/settings/nextcloud_profile.dart';
+import 'package:saber/data/codecs/base64_codec.dart';
+import 'package:saber/data/codecs/date_time_codec.dart';
+import 'package:saber/data/codecs/quota_codec.dart';
 import 'package:saber/data/editor/pencil_sound.dart';
 import 'package:saber/data/flavor_config.dart';
 import 'package:saber/data/tools/_tool.dart';
 import 'package:saber/data/tools/highlighter.dart';
 import 'package:saber/data/tools/pen.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:stow/stow.dart';
+import 'package:stow_codecs/stow_codecs.dart';
+import 'package:stow_plain/stow_plain.dart';
 import 'package:stow_secure/stow_secure.dart';
-
-typedef Quota = UserDetailsQuota;
 
 /// If false, all stows are stuck at their default values.
 bool _isOnMainIsolate = false;
@@ -46,7 +46,7 @@ class Stows {
   final log = Logger('Stows');
 
   final customDataDir =
-      PlainPref<String?>('customDataDir', null, autoRead: _isOnMainIsolate);
+      PlainStow<String?>('customDataDir', null, autoRead: _isOnMainIsolate);
 
   final allowInsecureConnections =
       SecureStow('allowInsecureConnections', false, autoRead: _isOnMainIsolate);
@@ -57,7 +57,7 @@ class Stows {
   final ncPassword = SecureStow('ncPassword', '', autoRead: _isOnMainIsolate);
   // TODO(adil192): maybe deprecate?
   final ncPasswordIsAnAppPassword =
-      PlainPref('ncPasswordIsAnAppPassword', false, autoRead: _isOnMainIsolate);
+      PlainStow('ncPasswordIsAnAppPassword', false, autoRead: _isOnMainIsolate);
 
   /// the password used to encrypt/decrypt notes
   final encPassword = SecureStow('encPassword', '', autoRead: _isOnMainIsolate);
@@ -72,163 +72,160 @@ class Stows {
   final key = SecureStow('key', '', autoRead: _isOnMainIsolate);
   final iv = SecureStow('iv', '', autoRead: _isOnMainIsolate);
 
-  final pfp = PlainPref<Uint8List?>('pfp', null, autoRead: _isOnMainIsolate);
+  final pfp = PlainStow<Uint8List?>('pfp', null,
+      codec: const Base64StowCodec(), autoRead: _isOnMainIsolate);
   final syncInBackground =
-      PlainPref('syncInBackground', true, autoRead: _isOnMainIsolate);
+      PlainStow('syncInBackground', true, autoRead: _isOnMainIsolate);
 
-  final appTheme =
-      PlainPref('appTheme', ThemeMode.system, autoRead: _isOnMainIsolate);
+  final appTheme = PlainStow('appTheme', ThemeMode.system,
+      codec: EnumCodec(ThemeMode.values), autoRead: _isOnMainIsolate);
 
   /// The type of platform to theme. Default value is [defaultTargetPlatform].
-  final platform =
-      PlainPref('platform', defaultTargetPlatform, autoRead: _isOnMainIsolate);
-  final layoutSize =
-      PlainPref('layoutSize', LayoutSize.auto, autoRead: _isOnMainIsolate);
+  final platform = PlainStow('platform', defaultTargetPlatform,
+      codec: EnumCodec(TargetPlatform.values), autoRead: _isOnMainIsolate);
+  final layoutSize = PlainStow('layoutSize', LayoutSize.auto,
+      codec: LayoutSize.codec, autoRead: _isOnMainIsolate);
 
   /// The accent color of the app. If 0, the system accent color will be used.
-  final accentColor =
-      PlainPref<Color?>('accentColor', null, autoRead: _isOnMainIsolate);
+  final accentColor = PlainStow<Color?>('accentColor', null,
+      codec: ColorCodec(), autoRead: _isOnMainIsolate);
   final hyperlegibleFont =
-      PlainPref('hyperlegibleFont', false, autoRead: _isOnMainIsolate);
+      PlainStow('hyperlegibleFont', false, autoRead: _isOnMainIsolate);
 
-  final editorToolbarAlignment = PlainPref(
+  final editorToolbarAlignment = PlainStow(
       'editorToolbarAlignment', AxisDirection.down,
-      autoRead: _isOnMainIsolate);
-  final editorToolbarShowInFullscreen = PlainPref(
+      codec: EnumCodec(AxisDirection.values), autoRead: _isOnMainIsolate);
+  final editorToolbarShowInFullscreen = PlainStow(
       'editorToolbarShowInFullscreen', true,
       autoRead: _isOnMainIsolate);
   final editorFingerDrawing =
-      PlainPref('editorFingerDrawing', true, autoRead: _isOnMainIsolate);
+      PlainStow('editorFingerDrawing', true, autoRead: _isOnMainIsolate);
   final editorAutoInvert =
-      PlainPref('editorAutoInvert', true, autoRead: _isOnMainIsolate);
-  @Deprecated('Backgrounds are always opaque now. Use [true] instead.')
-  final editorOpaqueBackgrounds =
-      PlainPref('__editorOpaqueBackgrounds', true, autoRead: _isOnMainIsolate);
+      PlainStow('editorAutoInvert', true, autoRead: _isOnMainIsolate);
   final preferGreyscale =
-      PlainPref('preferGreyscale', false, autoRead: _isOnMainIsolate);
-  @Deprecated(
-      'Straight line detection now only happens with ShapePen (and happens immediately)')
-  final editorStraightenDelay =
-      PlainPref('__editorStraightenDelay', 500, autoRead: _isOnMainIsolate);
+      PlainStow('preferGreyscale', false, autoRead: _isOnMainIsolate);
   final editorPromptRename =
-      PlainPref('editorPromptRename', isDesktop, autoRead: _isOnMainIsolate);
+      PlainStow('editorPromptRename', isDesktop, autoRead: _isOnMainIsolate);
   final autosaveDelay =
-      PlainPref('autosaveDelay', 10000, autoRead: _isOnMainIsolate);
+      PlainStow('autosaveDelay', 10000, autoRead: _isOnMainIsolate);
   final shapeRecognitionDelay =
-      PlainPref('shapeRecognitionDelay', 500, autoRead: _isOnMainIsolate);
+      PlainStow('shapeRecognitionDelay', 500, autoRead: _isOnMainIsolate);
   final autoStraightenLines =
-      PlainPref('autoStraightenLines', true, autoRead: _isOnMainIsolate);
-  final pencilSound = PlainPref(
+      PlainStow('autoStraightenLines', true, autoRead: _isOnMainIsolate);
+  final pencilSound = PlainStow(
       'pencilSound', PencilSoundSetting.onButNotInSilentMode,
-      autoRead: _isOnMainIsolate);
+      codec: PencilSoundSetting.codec, autoRead: _isOnMainIsolate);
 
   final simplifiedHomeLayout =
-      PlainPref('simplifiedHomeLayout', false, autoRead: _isOnMainIsolate);
+      PlainStow('simplifiedHomeLayout', false, autoRead: _isOnMainIsolate);
   final hideHomeBackgrounds =
-      PlainPref('hideHomeBackgrounds', false, autoRead: _isOnMainIsolate);
+      PlainStow('hideHomeBackgrounds', false, autoRead: _isOnMainIsolate);
   final printPageIndicators =
-      PlainPref('printPageIndicators', false, autoRead: _isOnMainIsolate);
+      PlainStow('printPageIndicators', false, autoRead: _isOnMainIsolate);
 
   final maxImageSize =
-      PlainPref<double>('maxImageSize', 1000, autoRead: _isOnMainIsolate);
+      PlainStow<double>('maxImageSize', 1000, autoRead: _isOnMainIsolate);
 
   final autoClearWhiteboardOnExit =
-      PlainPref('autoClearWhiteboardOnExit', false, autoRead: _isOnMainIsolate);
+      PlainStow('autoClearWhiteboardOnExit', false, autoRead: _isOnMainIsolate);
 
   final disableEraserAfterUse =
-      PlainPref('disableEraserAfterUse', false, autoRead: _isOnMainIsolate);
+      PlainStow('disableEraserAfterUse', false, autoRead: _isOnMainIsolate);
   final hideFingerDrawingToggle =
-      PlainPref('hideFingerDrawingToggle', false, autoRead: _isOnMainIsolate);
+      PlainStow('hideFingerDrawingToggle', false, autoRead: _isOnMainIsolate);
 
-  final recentColorsChronological = PlainPref(
+  final recentColorsChronological = PlainStow(
       'recentColorsChronological', <String>[],
       autoRead: _isOnMainIsolate);
-  final recentColorsPositioned = PlainPref('recentColorsPositioned', <String>[],
+  final recentColorsPositioned = PlainStow('recentColorsPositioned', <String>[],
       autoRead: _isOnMainIsolate);
   final pinnedColors =
-      PlainPref('pinnedColors', <String>[], autoRead: _isOnMainIsolate);
+      PlainStow('pinnedColors', <String>[], autoRead: _isOnMainIsolate);
   final recentColorsDontSavePresets =
-      PlainPref('dontSavePresetColors', false, autoRead: _isOnMainIsolate);
+      PlainStow('dontSavePresetColors', false, autoRead: _isOnMainIsolate);
   final recentColorsLength =
-      PlainPref('recentColorsLength', 5, autoRead: _isOnMainIsolate);
+      PlainStow('recentColorsLength', 5, autoRead: _isOnMainIsolate);
 
-  final lastTool =
-      PlainPref('lastTool', ToolId.fountainPen, autoRead: _isOnMainIsolate);
-  final lastFountainPenOptions = PlainPref(
+  final lastTool = PlainStow('lastTool', ToolId.fountainPen,
+      codec: ToolId.codec, autoRead: _isOnMainIsolate);
+  static StrokeOptions _strokeOptionsFromJson(Object json) =>
+      StrokeOptions.fromJson(json as Map<String, dynamic>);
+  final lastFountainPenOptions = PlainStow.json(
           'lastFountainPenProperties', Pen.fountainPenOptions,
-          autoRead: _isOnMainIsolate),
-      lastBallpointPenOptions = PlainPref(
+          fromJson: _strokeOptionsFromJson, autoRead: _isOnMainIsolate),
+      lastBallpointPenOptions = PlainStow.json(
           'lastBallpointPenProperties', Pen.ballpointPenOptions,
-          autoRead: _isOnMainIsolate),
-      lastHighlighterOptions = PlainPref(
+          fromJson: _strokeOptionsFromJson, autoRead: _isOnMainIsolate),
+      lastHighlighterOptions = PlainStow.json(
           'lastHighlighterProperties', Pen.highlighterOptions,
-          autoRead: _isOnMainIsolate),
-      lastPencilOptions = PlainPref('lastPencilProperties', Pen.pencilOptions,
-          autoRead: _isOnMainIsolate),
-      lastShapePenOptions = PlainPref(
+          fromJson: _strokeOptionsFromJson, autoRead: _isOnMainIsolate),
+      lastPencilOptions = PlainStow.json(
+          'lastPencilProperties', Pen.pencilOptions,
+          fromJson: _strokeOptionsFromJson, autoRead: _isOnMainIsolate),
+      lastShapePenOptions = PlainStow.json(
           'lastShapePenProperties', Pen.shapePenOptions,
-          autoRead: _isOnMainIsolate);
-  final lastFountainPenColor = PlainPref(
+          fromJson: _strokeOptionsFromJson, autoRead: _isOnMainIsolate);
+  final lastFountainPenColor = PlainStow(
           'lastFountainPenColor', Colors.black.toARGB32(),
           autoRead: _isOnMainIsolate),
-      lastBallpointPenColor = PlainPref(
+      lastBallpointPenColor = PlainStow(
           'lastBallpointPenColor', Colors.black.toARGB32(),
           autoRead: _isOnMainIsolate),
-      lastHighlighterColor = PlainPref('lastHighlighterColor',
+      lastHighlighterColor = PlainStow('lastHighlighterColor',
           Colors.yellow.withAlpha(Highlighter.alpha).toARGB32(),
           autoRead: _isOnMainIsolate),
-      lastPencilColor = PlainPref('lastPencilColor', Colors.black.toARGB32(),
+      lastPencilColor = PlainStow('lastPencilColor', Colors.black.toARGB32(),
           autoRead: _isOnMainIsolate),
-      lastShapePenColor = PlainPref(
+      lastShapePenColor = PlainStow(
           'lastShapePenColor', Colors.black.toARGB32(),
           autoRead: _isOnMainIsolate);
-  final lastBackgroundPattern = PlainPref(
+  final lastBackgroundPattern = PlainStow(
       'lastBackgroundPattern', CanvasBackgroundPattern.none,
-      autoRead: _isOnMainIsolate);
+      codec: CanvasBackgroundPattern.codec, autoRead: _isOnMainIsolate);
   static const defaultLineHeight = 40;
   static const defaultLineThickness = 3;
-  final lastLineHeight = PlainPref('lastLineHeight', defaultLineHeight,
+  final lastLineHeight = PlainStow('lastLineHeight', defaultLineHeight,
       autoRead: _isOnMainIsolate);
-  final lastLineThickness = PlainPref('lastLineThickness', defaultLineThickness,
+  final lastLineThickness = PlainStow('lastLineThickness', defaultLineThickness,
       autoRead: _isOnMainIsolate);
   final lastZoomLock =
-          PlainPref('lastZoomLock', false, autoRead: _isOnMainIsolate),
-      lastSingleFingerPanLock = PlainPref('lastSingleFingerPanLock', false,
+          PlainStow('lastZoomLock', false, autoRead: _isOnMainIsolate),
+      lastSingleFingerPanLock = PlainStow('lastSingleFingerPanLock', false,
           autoRead: _isOnMainIsolate),
-      lastAxisAlignedPanLock = PlainPref('lastAxisAlignedPanLock', false,
+      lastAxisAlignedPanLock = PlainStow('lastAxisAlignedPanLock', false,
           autoRead: _isOnMainIsolate);
 
   final recentFiles =
-      PlainPref('recentFiles', <String>[], autoRead: _isOnMainIsolate);
+      PlainStow('recentFiles', <String>[], autoRead: _isOnMainIsolate);
 
   /// File paths that have been deleted locally
-  final fileSyncAlreadyDeleted = PlainPref('fileSyncAlreadyDeleted', <String>{},
+  final fileSyncAlreadyDeleted = PlainStow('fileSyncAlreadyDeleted', <String>{},
       autoRead: _isOnMainIsolate);
 
   /// File paths that are known to be corrupted on Nextcloud
   final fileSyncCorruptFiles =
-      PlainPref('fileSyncCorruptFiles', <String>{}, autoRead: _isOnMainIsolate);
+      PlainStow('fileSyncCorruptFiles', <String>{}, autoRead: _isOnMainIsolate);
 
   /// Set when we want to resync everything.
   /// Files on the server older than this date will be
   /// reuploaded with the local version.
   /// By default, we resync everything uploaded before v0.18.4, since uploads before then resulted in 0B files.
-  final fileSyncResyncEverythingDate = PlainPref('fileSyncResyncEverythingDate',
+  final fileSyncResyncEverythingDate = PlainStow('fileSyncResyncEverythingDate',
       DateTime.parse('2023-12-10T10:06:31.000Z'),
-      autoRead: _isOnMainIsolate);
+      codec: DateTimeCodec(), autoRead: _isOnMainIsolate);
 
   /// The last storage quota that was fetched from Nextcloud
-  final lastStorageQuota =
-      PlainPref<Quota?>('lastStorageQuota', null, autoRead: _isOnMainIsolate);
+  final lastStorageQuota = PlainStow<Quota?>('lastStorageQuota', null,
+      codec: QuotaCodec(), autoRead: _isOnMainIsolate);
 
-  final shouldCheckForUpdates = PlainPref('shouldCheckForUpdates',
+  final shouldCheckForUpdates = PlainStow('shouldCheckForUpdates',
       FlavorConfig.shouldCheckForUpdatesByDefault && !Platform.isLinux,
       autoRead: _isOnMainIsolate);
-  final shouldAlwaysAlertForUpdates = PlainPref('shouldAlwaysAlertForUpdates',
+  final shouldAlwaysAlertForUpdates = PlainStow('shouldAlwaysAlertForUpdates',
       (kDebugMode || FlavorConfig.dirty) ? true : false,
       autoRead: _isOnMainIsolate);
 
-  final locale = PlainPref('locale', '', autoRead: _isOnMainIsolate);
+  final locale = PlainStow('locale', '', autoRead: _isOnMainIsolate);
 
   static bool get isDesktop =>
       Platform.isLinux || Platform.isWindows || Platform.isMacOS;
@@ -260,171 +257,6 @@ abstract class IPref<T> extends Stow<String, T, Object?> {
   @visibleForTesting
   @Deprecated('Use [waitUntilWritten] instead')
   Future<void> waitUntilSaved() => waitUntilWritten();
-}
-
-class PlainPref<T> extends IPref<T> {
-  PlainPref(
-    super.key,
-    super.defaultValue, {
-    super.codec,
-    super.autoRead,
-  }) {
-    // Accepted types
-    assert(T == bool ||
-        T == int ||
-        T == double ||
-        T == String ||
-        T == typeOf<String?>() ||
-        T == typeOf<Uint8List?>() ||
-        T == typeOf<List<String>>() ||
-        T == typeOf<Set<String>>() ||
-        T == typeOf<Queue<String>>() ||
-        T == StrokeOptions ||
-        T == typeOf<Quota?>() ||
-        T == AxisDirection ||
-        T == ThemeMode ||
-        T == TargetPlatform ||
-        T == LayoutSize ||
-        T == ToolId ||
-        T == CanvasBackgroundPattern ||
-        T == DateTime ||
-        T == PencilSoundSetting);
-  }
-
-  @override
-  Future protectedWrite(T value) async {
-    final prefs = await SharedPreferences.getInstance();
-
-    if (T == bool) {
-      return await prefs.setBool(key, value as bool);
-    } else if (T == int) {
-      return await prefs.setInt(key, value as int);
-    } else if (T == double) {
-      return await prefs.setDouble(key, value as double);
-    } else if (T == typeOf<Uint8List?>()) {
-      Uint8List? bytes = value as Uint8List?;
-      if (bytes == null) {
-        return await prefs.remove(key);
-      } else {
-        return await prefs.setString(key, base64Encode(bytes));
-      }
-    } else if (T == typeOf<List<String>>()) {
-      return await prefs.setStringList(key, value as List<String>);
-    } else if (T == typeOf<Set<String>>()) {
-      return await prefs.setStringList(key, (value as Set<String>).toList());
-    } else if (T == typeOf<Queue<String>>()) {
-      return await prefs.setStringList(key, (value as Queue<String>).toList());
-    } else if (T == StrokeOptions) {
-      return await prefs.setString(key, jsonEncode(value));
-    } else if (T == typeOf<Quota?>()) {
-      Quota? quota = value as Quota?;
-      if (quota == null) {
-        return await prefs.remove(key);
-      } else {
-        return await prefs.setStringList(
-            key, [quota.used.toString(), quota.total.toString()]);
-      }
-    } else if (T == AxisDirection) {
-      return await prefs.setInt(key, (value as AxisDirection).index);
-    } else if (T == ThemeMode) {
-      return await prefs.setInt(key, (value as ThemeMode).index);
-    } else if (T == TargetPlatform) {
-      return await prefs.setInt(key, (value as TargetPlatform).index);
-    } else if (T == LayoutSize) {
-      return await prefs.setInt(key, (value as LayoutSize).index);
-    } else if (T == ToolId) {
-      return await prefs.setString(key, (value as ToolId).id);
-    } else if (T == CanvasBackgroundPattern) {
-      return await prefs.setString(
-          key, (value as CanvasBackgroundPattern).name);
-    } else if (T == DateTime) {
-      final date = value as DateTime;
-      if (date.millisecondsSinceEpoch == 0) {
-        return await prefs.remove(key);
-      } else {
-        return await prefs.setString(key, date.toIso8601String());
-      }
-    } else if (T == PencilSoundSetting) {
-      return await prefs.setInt(key, (value as PencilSoundSetting).index);
-    } else {
-      return await prefs.setString(key, value as String);
-    }
-  }
-
-  @override
-  Future<T> protectedRead() async {
-    final prefs = await SharedPreferences.getInstance();
-
-    if (!prefs.containsKey(key)) {
-      return defaultValue;
-    } else if (T == typeOf<Uint8List?>()) {
-      String? base64 = prefs.getString(key);
-      if (base64 == null) return defaultValue;
-      return base64Decode(base64) as T;
-    } else if (T == typeOf<List<String>>()) {
-      return prefs.getStringList(key) as T? ?? defaultValue;
-    } else if (T == typeOf<Set<String>>()) {
-      return prefs.getStringList(key)?.toSet() as T? ?? defaultValue;
-    } else if (T == typeOf<Queue<String>>()) {
-      List? list = prefs.getStringList(key);
-      return list != null ? Queue<String>.from(list) as T : defaultValue;
-    } else if (T == StrokeOptions) {
-      return StrokeOptions.fromJson(jsonDecode(prefs.getString(key)!)) as T;
-    } else if (T == typeOf<Quota?>()) {
-      List<String>? list = prefs.getStringList(key);
-      if (list == null || list.length != 2) return defaultValue;
-      int used = int.tryParse(list[0]) ?? 0;
-      int total = int.tryParse(list[1]) ?? 1; // avoid division by zero
-      return Quota.fromJson({
-        'free': total - used,
-        'used': used,
-        'total': total,
-        'relative': used / total * 100,
-        'quota':
-            total, // I don't know what this [quota] field is for, but I don't use it
-      }) as T;
-    } else if (T == AxisDirection) {
-      final index = prefs.getInt(key);
-      return index != null ? AxisDirection.values[index] as T : defaultValue;
-    } else if (T == ThemeMode) {
-      final index = prefs.getInt(key);
-      return index != null ? ThemeMode.values[index] as T : defaultValue;
-    } else if (T == TargetPlatform) {
-      final index = prefs.getInt(key);
-      if (index == null) return defaultValue;
-      if (index == -1) return defaultTargetPlatform as T;
-      return TargetPlatform.values[index] as T;
-    } else if (T == LayoutSize) {
-      final index = prefs.getInt(key);
-      if (index == null) return defaultValue;
-      return LayoutSize.values[index] as T;
-    } else if (T == ToolId) {
-      String id = prefs.getString(key)!;
-      return ToolId.values.firstWhere((toolId) => toolId.id == id,
-          orElse: () => defaultValue as ToolId) as T;
-    } else if (T == CanvasBackgroundPattern) {
-      String name = prefs.getString(key)!;
-      return CanvasBackgroundPattern.values.firstWhere(
-          (pattern) => pattern.name == name,
-          orElse: () => defaultValue as CanvasBackgroundPattern) as T;
-    } else if (T == DateTime) {
-      String? iso8601 = prefs.getString(key);
-      if (iso8601 == null) return defaultValue;
-      return DateTime.parse(iso8601) as T;
-    } else if (T == PencilSoundSetting) {
-      final index = prefs.getInt(key);
-      return index != null
-          ? PencilSoundSetting.values[index] as T
-          : defaultValue;
-    } else {
-      return prefs.get(key) as T;
-    }
-  }
-
-  @override
-  String toString() {
-    return 'PlainPref<$T>($key, $value, $codec)';
-  }
 }
 
 /// An [IPref] that transforms the value of another [IPref].
@@ -459,5 +291,3 @@ class TransformedPref<T_in, T_out> extends IPref<T_out> {
     return 'TransformedPref<$T_in, $T_out>(from ${pref.key}, $value)';
   }
 }
-
-Type typeOf<T>() => T;
