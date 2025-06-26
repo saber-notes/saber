@@ -18,6 +18,7 @@ import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/editor/editor.dart';
 import 'package:saber/pages/home/home.dart';
 import 'package:saber/pages/user/login.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:yaru/yaru.dart';
 
 import 'utils/test_mock_channel_handlers.dart';
@@ -31,12 +32,12 @@ void main() {
 
     setupMockPathProvider();
     setupMockPrinting();
+    setupMockFlutterSecureStorage();
+    SharedPreferences.setMockInitialValues({});
 
     FlavorConfig.setup();
     SyncingButton.forceButtonActive = true;
     AppInfo.showDebugMessage = false;
-
-    stows.username.value = 'myusername';
 
     const quotaUsed = 17 * 1024 * 1024; // 17 MB
     const quotaTotal = 5 * 1024 * 1024 * 1024; // 5 GB
@@ -47,6 +48,13 @@ void main() {
       'relative': quotaUsed / quotaTotal * 100,
       'quota': quotaTotal,
     });
+    stows.username.value = 'myusername';
+    stows.url.loaded = true;
+    stows.username.loaded = true;
+    stows.ncPassword.loaded = true;
+    stows.encPassword.loaded = true;
+    stows.key.loaded = true;
+    stows.iv.loaded = true;
 
     setUpAll(() => Future.wait([
           FileManager.init(

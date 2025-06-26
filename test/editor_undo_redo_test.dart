@@ -11,6 +11,7 @@ import 'package:saber/data/flavor_config.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/editor/editor.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'utils/test_mock_channel_handlers.dart';
 
@@ -22,6 +23,7 @@ void main() {
     setupMockPathProvider();
     setupMockPrinting();
     setupMockAudioplayers();
+    SharedPreferences.setMockInitialValues({});
 
     FlavorConfig.setup();
     stows.pencilSound.value = PencilSoundSetting.off;

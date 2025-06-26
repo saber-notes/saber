@@ -1,19 +1,28 @@
+import 'dart:io';
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/flavor_config.dart';
 import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
 import 'package:saber/data/nextcloud/saber_syncer.dart';
 import 'package:saber/data/prefs.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'utils/test_mock_channel_handlers.dart';
 import 'utils/test_random.dart';
 
 void main() async {
   test('Upload and download file', () async {
+    TestWidgetsFlutterBinding.ensureInitialized();
+    HttpOverrides.global = null; // enable http requests in test
+    setupMockPathProvider();
+    setupMockFlutterSecureStorage();
+    SharedPreferences.setMockInitialValues({});
+
     FileManager.documentsDirectory = '$tmpDir/nc_upload_download_test/'
         '${FileManager.appRootDirectoryPrefix}';
-
     FlavorConfig.setup();
+    await FileManager.init();
 
     stows.username.value = 'test.issue.118';
     stows.ncPassword.value = 'riNLA-2fXWY-Kay3x-jEMX5-bZr6m';

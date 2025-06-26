@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/flavor_config.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'utils/test_mock_channel_handlers.dart';
 
@@ -42,6 +43,7 @@ void main() {
     test('system directory watch', () async {
       TestWidgetsFlutterBinding.ensureInitialized();
       setupMockPathProvider();
+      SharedPreferences.setMockInitialValues({});
 
       await FileManager.init();
 
