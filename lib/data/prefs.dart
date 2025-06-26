@@ -514,7 +514,7 @@ class EncPref<T> extends IPref<T> {
 /// (e.g. in a static field) to avoid extraneous
 /// listeners being added to the underlying [IPref].
 class TransformedPref<T_in, T_out> extends IPref<T_out> {
-  final IPref<T_in> pref;
+  final Stow<dynamic, T_in, dynamic> pref;
   final T_out Function(T_in) transform;
   final T_in Function(T_out) reverseTransform;
 

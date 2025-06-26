@@ -5,6 +5,7 @@ import 'package:saber/components/theming/adaptive_alert_dialog.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/home/settings.dart';
+import 'package:stow/stow.dart';
 
 class SettingsColor extends StatefulWidget {
   const SettingsColor({
@@ -23,7 +24,7 @@ class SettingsColor extends StatefulWidget {
   final IconData? icon;
   final IconData? Function(Color?)? iconBuilder;
 
-  final IPref<Color?> pref;
+  final Stow<dynamic, Color?, dynamic> pref;
   final ValueChanged<Color?>? afterChange;
 
   @override

@@ -28,6 +28,7 @@ import 'package:saber/data/prefs.dart';
 import 'package:saber/data/routes.dart';
 import 'package:saber/data/tools/shape_pen.dart';
 import 'package:saber/i18n/strings.g.dart';
+import 'package:stow/stow.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});
@@ -37,7 +38,7 @@ class SettingsPage extends StatefulWidget {
 
   static Future<bool?> showResetDialog({
     required BuildContext context,
-    required IPref pref,
+    required Stow pref,
     required String prefTitle,
   }) async {
     if (pref.value == pref.defaultValue) return null;

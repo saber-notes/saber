@@ -1,8 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:saber/components/theming/adaptive_toggle_buttons.dart';
-import 'package:saber/data/prefs.dart';
 import 'package:saber/pages/home/settings.dart';
+import 'package:stow/stow.dart';
 
 class SettingsDropdown<T> extends StatefulWidget {
   const SettingsDropdown({
@@ -22,7 +22,7 @@ class SettingsDropdown<T> extends StatefulWidget {
   final IconData? icon;
   final IconData? Function(T)? iconBuilder;
 
-  final IPref<T> pref;
+  final Stow<dynamic, T, dynamic> pref;
   final List<ToggleButtonsOption<T>> options;
   final ValueChanged<T>? afterChange;
 

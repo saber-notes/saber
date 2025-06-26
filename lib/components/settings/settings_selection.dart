@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:saber/components/settings/settings_dropdown.dart';
 import 'package:saber/components/theming/adaptive_toggle_buttons.dart';
-import 'package:saber/data/prefs.dart';
 import 'package:saber/pages/home/settings.dart';
+import 'package:stow/stow.dart';
 
 class SettingsSelection<T extends num> extends StatefulWidget {
   const SettingsSelection({
@@ -26,7 +26,7 @@ class SettingsSelection<T extends num> extends StatefulWidget {
   final IconData? icon;
   final IconData? Function(T)? iconBuilder;
 
-  final IPref<T> pref;
+  final Stow<dynamic, T, dynamic> pref;
   final List<ToggleButtonsOption<T>> options;
   final ValueChanged<T>? afterChange;
 
