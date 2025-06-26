@@ -235,53 +235,21 @@ class Stows {
       Platform.isLinux || Platform.isWindows || Platform.isMacOS;
 }
 
-abstract class IPref<T> extends Stow<String, T, Object?> {
-  IPref(
-    super.key,
-    super.defaultValue, {
-    super.codec,
-    super.volatile,
-  });
-
-  /// Removes the value from shared preferences, and resets the pref to its default value.
-  @visibleForTesting
-  @Deprecated('Just set the value to the default value instead')
-  Future<void> delete() async {
-    value = defaultValue;
-    await waitUntilWritten();
-  }
-
-  /// Whether this pref has changes that have yet to be saved to disk.
-  @Deprecated('No alternative, use [waitUntilWritten] if needed')
-  bool get saved => true;
-
-  /// Waits until the value has been saved to disk.
-  /// Note that there is no guarantee with shared preferences that
-  /// the value will actually be saved to disk.
-  @visibleForTesting
-  @Deprecated('Use [waitUntilWritten] instead')
-  Future<void> waitUntilSaved() => waitUntilWritten();
-}
-
-/// An [IPref] that transforms the value of another [IPref].
-///
-/// Only instantiate this once during the lifetime of the app
-/// (e.g. in a static field) to avoid extraneous
-/// listeners being added to the underlying [IPref].
-class TransformedPref<T_in, T_out> extends IPref<T_out> {
-  final Stow<dynamic, T_in, dynamic> pref;
+/// An [Stow] that transforms the value of another [Stow].
+class TransformedStow<T_in, T_out> extends Stow<dynamic, T_out, dynamic> {
+  final Stow<dynamic, T_in, dynamic> parent;
   final T_out Function(T_in) transform;
   final T_in Function(T_out) reverseTransform;
 
   @override
-  T_out get value => transform(pref.value);
+  T_out get value => transform(parent.value);
 
   @override
-  set value(T_out value) => pref.value = reverseTransform(value);
+  set value(T_out value) => parent.value = reverseTransform(value);
 
-  TransformedPref(this.pref, this.transform, this.reverseTransform)
-      : super(pref.key, transform(pref.defaultValue)) {
-    pref.addListener(notifyListeners);
+  TransformedStow(this.parent, this.transform, this.reverseTransform)
+      : super(parent.key, transform(parent.defaultValue), volatile: true) {
+    parent.addListener(notifyListeners);
   }
 
   @override
@@ -292,6 +260,12 @@ class TransformedPref<T_in, T_out> extends IPref<T_out> {
 
   @override
   String toString() {
-    return 'TransformedPref<$T_in, $T_out>(from ${pref.key}, $value)';
+    return 'TransformedPref<$T_in, $T_out>(from ${parent.key}, $value)';
+  }
+
+  @override
+  void dispose() {
+    parent.removeListener(notifyListeners);
+    super.dispose();
   }
 }

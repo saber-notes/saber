@@ -68,32 +68,32 @@ class SettingsPage extends StatefulWidget {
   }
 }
 
-abstract class _SettingsPrefs {
-  static final appTheme = TransformedPref(
+abstract class _SettingsStows {
+  static final appTheme = TransformedStow(
     stows.appTheme,
     (ThemeMode value) => value.index,
     (int value) => ThemeMode.values[value],
   );
 
-  static final platform = TransformedPref(
+  static final platform = TransformedStow(
     stows.platform,
     (TargetPlatform value) => value.index,
     (int value) => TargetPlatform.values[value],
   );
 
-  static final layoutSize = TransformedPref(
+  static final layoutSize = TransformedStow(
     stows.layoutSize,
     (LayoutSize value) => value.index,
     (int value) => LayoutSize.values[value],
   );
 
-  static final editorToolbarAlignment = TransformedPref(
+  static final editorToolbarAlignment = TransformedStow(
     stows.editorToolbarAlignment,
     (AxisDirection value) => value.index,
     (int value) => AxisDirection.values[value],
   );
 
-  static final pencilSound = TransformedPref(
+  static final pencilSound = TransformedStow(
     stows.pencilSound,
     (PencilSoundSetting value) => value.index,
     (int value) => PencilSoundSetting.values[value],
@@ -224,7 +224,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   if (i == ThemeMode.dark.index) return Icons.dark_mode;
                   return null;
                 },
-                pref: _SettingsPrefs.appTheme,
+                pref: _SettingsStows.appTheme,
                 optionsWidth: 60,
                 options: [
                   ToggleButtonsOption(
@@ -248,7 +248,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   TargetPlatform.linux => FontAwesomeIcons.ubuntu,
                   _ => materialIcon,
                 },
-                pref: _SettingsPrefs.platform,
+                pref: _SettingsStows.platform,
                 optionsWidth: 60,
                 options: [
                   ToggleButtonsOption(
@@ -294,7 +294,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   LayoutSize.phone => Icons.smartphone,
                   LayoutSize.tablet => Icons.tablet,
                 },
-                pref: _SettingsPrefs.layoutSize,
+                pref: _SettingsStows.layoutSize,
                 optionsWidth: 60,
                 options: [
                   ToggleButtonsOption(
@@ -374,7 +374,7 @@ class _SettingsPageState extends State<SettingsPage> {
               SettingsSelection(
                 title: t.settings.prefLabels.editorToolbarAlignment,
                 subtitle: t.settings.axisDirections[
-                    _SettingsPrefs.editorToolbarAlignment.value],
+                    _SettingsStows.editorToolbarAlignment.value],
                 iconBuilder: (num i) {
                   if (i is! int || i >= materialDirectionIcons.length)
                     return null;
@@ -382,7 +382,7 @@ class _SettingsPageState extends State<SettingsPage> {
                       ? cupertinoDirectionIcons[i]
                       : materialDirectionIcons[i];
                 },
-                pref: _SettingsPrefs.editorToolbarAlignment,
+                pref: _SettingsStows.editorToolbarAlignment,
                 optionsWidth: 60,
                 options: [
                   for (final AxisDirection direction in AxisDirection.values)
@@ -458,7 +458,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 title: t.settings.prefLabels.pencilSoundSetting,
                 subtitle: stows.pencilSound.value.description,
                 icon: stows.pencilSound.value.icon,
-                pref: _SettingsPrefs.pencilSound,
+                pref: _SettingsStows.pencilSound,
                 optionsWidth: 60,
                 options: [
                   for (final setting in PencilSoundSetting.values)
