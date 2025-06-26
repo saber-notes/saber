@@ -99,19 +99,17 @@ class Stows {
       autoRead: _isOnMainIsolate);
   final editorFingerDrawing =
       PlainPref('editorFingerDrawing', true, autoRead: _isOnMainIsolate);
-  final editorAutoInvert = PlainPref('editorAutoInvert', true,
-      historicalKeys: const ['editorAutoDarken'], autoRead: _isOnMainIsolate);
+  final editorAutoInvert =
+      PlainPref('editorAutoInvert', true, autoRead: _isOnMainIsolate);
   @Deprecated('Backgrounds are always opaque now. Use [true] instead.')
-  final editorOpaqueBackgrounds = PlainPref('__editorOpaqueBackgrounds', true,
-      deprecatedKeys: const ['editorOpaqueBackgrounds'],
-      autoRead: _isOnMainIsolate);
+  final editorOpaqueBackgrounds =
+      PlainPref('__editorOpaqueBackgrounds', true, autoRead: _isOnMainIsolate);
   final preferGreyscale =
       PlainPref('preferGreyscale', false, autoRead: _isOnMainIsolate);
   @Deprecated(
       'Straight line detection now only happens with ShapePen (and happens immediately)')
-  final editorStraightenDelay = PlainPref('__editorStraightenDelay', 500,
-      deprecatedKeys: const ['editorStraightenDelay'],
-      autoRead: _isOnMainIsolate);
+  final editorStraightenDelay =
+      PlainPref('__editorStraightenDelay', 500, autoRead: _isOnMainIsolate);
   final editorPromptRename =
       PlainPref('editorPromptRename', isDesktop, autoRead: _isOnMainIsolate);
   final autosaveDelay =
@@ -146,7 +144,7 @@ class Stows {
       'recentColorsChronological', <String>[],
       autoRead: _isOnMainIsolate);
   final recentColorsPositioned = PlainPref('recentColorsPositioned', <String>[],
-      historicalKeys: const ['recentColors'], autoRead: _isOnMainIsolate);
+      autoRead: _isOnMainIsolate);
   final pinnedColors =
       PlainPref('pinnedColors', <String>[], autoRead: _isOnMainIsolate);
   final recentColorsDontSavePresets =
@@ -158,13 +156,12 @@ class Stows {
       PlainPref('lastTool', ToolId.fountainPen, autoRead: _isOnMainIsolate);
   final lastFountainPenOptions = PlainPref(
           'lastFountainPenProperties', Pen.fountainPenOptions,
-          deprecatedKeys: const ['lastPenColor'], autoRead: _isOnMainIsolate),
+          autoRead: _isOnMainIsolate),
       lastBallpointPenOptions = PlainPref(
           'lastBallpointPenProperties', Pen.ballpointPenOptions,
           autoRead: _isOnMainIsolate),
       lastHighlighterOptions = PlainPref(
           'lastHighlighterProperties', Pen.highlighterOptions,
-          deprecatedKeys: const ['lastHighlighterColor'],
           autoRead: _isOnMainIsolate),
       lastPencilOptions = PlainPref('lastPencilProperties', Pen.pencilOptions,
           autoRead: _isOnMainIsolate),
@@ -197,12 +194,12 @@ class Stows {
   final lastZoomLock =
           PlainPref('lastZoomLock', false, autoRead: _isOnMainIsolate),
       lastSingleFingerPanLock = PlainPref('lastSingleFingerPanLock', false,
-          historicalKeys: const ['lastPanLock'], autoRead: _isOnMainIsolate),
+          autoRead: _isOnMainIsolate),
       lastAxisAlignedPanLock = PlainPref('lastAxisAlignedPanLock', false,
           autoRead: _isOnMainIsolate);
 
-  final recentFiles = PlainPref('recentFiles', <String>[],
-      historicalKeys: const ['recentlyAccessed'], autoRead: _isOnMainIsolate);
+  final recentFiles =
+      PlainPref('recentFiles', <String>[], autoRead: _isOnMainIsolate);
 
   /// File paths that have been deleted locally
   final fileSyncAlreadyDeleted = PlainPref('fileSyncAlreadyDeleted', <String>{},
@@ -229,7 +226,7 @@ class Stows {
       autoRead: _isOnMainIsolate);
   final shouldAlwaysAlertForUpdates = PlainPref('shouldAlwaysAlertForUpdates',
       (kDebugMode || FlavorConfig.dirty) ? true : false,
-      deprecatedKeys: const ['updatesToIgnore'], autoRead: _isOnMainIsolate);
+      autoRead: _isOnMainIsolate);
 
   final locale = PlainPref('locale', '', autoRead: _isOnMainIsolate);
 
@@ -238,19 +235,9 @@ class Stows {
 }
 
 abstract class IPref<T> extends Stow<String, T, Object?> {
-  /// The keys that were used in the past for this Pref. If one of these keys is found, the value will be migrated to the current key.
-  @deprecated
-  final List<String> historicalKeys = const [];
-
-  /// The keys that were used in the past for a similar Pref. If one of these keys is found, it will be deleted.
-  @deprecated
-  final List<String> deprecatedKeys = const [];
-
   IPref(
     super.key,
     super.defaultValue, {
-    @deprecated List<String>? historicalKeys,
-    @deprecated List<String>? deprecatedKeys,
     super.codec,
     super.autoRead,
   });
@@ -262,9 +249,6 @@ abstract class IPref<T> extends Stow<String, T, Object?> {
     value = defaultValue;
     await waitUntilWritten();
   }
-
-  @Deprecated('No alternative, use [waitUntilRead] if needed')
-  bool get loaded => true;
 
   /// Whether this pref has changes that have yet to be saved to disk.
   @Deprecated('No alternative, use [waitUntilWritten] if needed')
@@ -282,8 +266,6 @@ class PlainPref<T> extends IPref<T> {
   PlainPref(
     super.key,
     super.defaultValue, {
-    super.historicalKeys,
-    super.deprecatedKeys,
     super.codec,
     super.autoRead,
   }) {
@@ -451,8 +433,6 @@ class EncPref<T> extends IPref<T> {
   EncPref(
     super.key,
     super.defaultValue, {
-    super.historicalKeys,
-    super.deprecatedKeys,
     super.codec,
     super.autoRead,
   }) {

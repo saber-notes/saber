@@ -99,7 +99,7 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp>
   }
 
   TextTheme? getTextTheme(Brightness brightness) {
-    if (stows.hyperlegibleFont.loaded && stows.hyperlegibleFont.value) {
+    if (stows.hyperlegibleFont.value) {
       return ThemeData(brightness: brightness).textTheme.withFont(
             fontFamily: 'AtkinsonHyperlegible',
             fontFamilyFallback: saberSansSerifFontFallbacks,
