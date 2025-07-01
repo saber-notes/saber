@@ -103,6 +103,106 @@ class SvgEditorImage extends EditorImage {
     );
   }
 
+  // skip image data when reading binary file
+  static void skipImageBinary(
+      BinaryReader reader,
+      Map<String, dynamic> imageInfo, {
+        required List<Uint8List>? inlineAssets,
+        bool isThumbnail = false,
+        required String sbnPath,
+        required AssetCache assetCache,
+      }) {
+    assert(imageInfo['extension'] == '.svg');
+
+    int key;
+    key = reader.readKey();
+    if (key != ImageBinaryKeys.assetId) {
+      throw Exception('pngEditorImage.fromBinary: assetIndex not set');
+    }
+    reader.readIntNoKey(); //assetIndex
+
+/*
+    final String? svgString;
+    File? svgFile;
+    if (assetIndex >= 0) {
+      if (inlineAssets == null) {
+        svgFile =
+            FileManager.getFile('$sbnPath${Editor.extension}.$assetIndex');
+        svgString = assetCache.get(svgFile);
+      } else {
+        svgString = utf8.decode(inlineAssets[assetIndex]);
+      }
+    } //else if (json['b'] != null) {
+    //svgString = json['b'] as String;
+    //}
+    else {
+      log.warning('SvgEditorImage.fromBinary: no svg string found');
+      svgString = '';
+    }
+*/
+  }
+
+
+  factory SvgEditorImage.fromBinary(
+      BinaryReader reader,
+      Map<String, dynamic> imageInfo, {
+        required List<Uint8List>? inlineAssets,
+        bool isThumbnail = false,
+        required String sbnPath,
+        required AssetCache assetCache,
+      }) {
+
+    assert(imageInfo['extension'] == '.svg');
+
+    final int? assetIndex;
+
+    int key;
+    key=reader.readKey();
+    if (key!=ImageBinaryKeys.assetId) {
+      throw Exception('pngEditorImage.fromBinary: assetIndex not set');
+    }
+    assetIndex = reader.readIntNoKey();
+
+    final String? svgString;
+    File? svgFile;
+    if (assetIndex >= 0) {
+      if (inlineAssets == null) {
+        svgFile =
+            FileManager.getFile('$sbnPath${Editor.extension}.$assetIndex');
+        svgString = assetCache.get(svgFile);
+      } else {
+        svgString = utf8.decode(inlineAssets[assetIndex]);
+      }
+    } //else if (json['b'] != null) {
+      //svgString = json['b'] as String;
+    //}
+    else {
+      log.warning('SvgEditorImage.fromBinary: no svg string found');
+      svgString = '';
+    }
+
+    return SvgEditorImage(
+      id: imageInfo['id'], // -1 will be replaced by EditorCoreInfo._handleEmptyImageIds()
+      assetCache: assetCache,
+      svgString: svgString,
+      svgFile: svgFile,
+      pageIndex: imageInfo['pageIndex'] ?? 0,
+      pageSize: Size.infinite,
+      invertible: imageInfo['invertible'] ?? true,
+      backgroundFit: imageInfo['backgroundFit'] != null ? imageInfo['backgroundFit'] : BoxFit.contain,
+      onMoveImage: null,
+      onDeleteImage: null,
+      onMiscChange: null,
+      onLoad: null,
+      newImage: false,
+      dstRect: imageInfo['dstRect'],
+      srcRect: imageInfo['srcRect'],
+      naturalSize: imageInfo['naturalSize'],
+      isThumbnail: isThumbnail,
+    );
+  }
+
+
   @override
   Map<String, dynamic> toJson(OrderedAssetCache assets) {
     final json = super.toJson(assets);
@@ -117,6 +217,16 @@ class SvgEditorImage extends EditorImage {
 
     return json;
   }
+
+  @override
+  void writeBinary(BinaryWriter writer,OrderedAssetCache assets) {
+    super.writeBinary(writer,assets);
+
+    final svgData = _extractSvg();
+    final assetId=assets.add(svgData.string ?? svgData.file!);
+    writer.writeInt(ImageBinaryKeys.assetId,assetId);
+  }
+
 
   ({String? string, File? file}) _extractSvg() => switch (svgLoader) {
         (SvgStringLoader loader) => (

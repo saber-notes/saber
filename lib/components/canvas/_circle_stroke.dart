@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:one_dollar_unistroke_recognizer/one_dollar_unistroke_recognizer.dart';
 import 'package:perfect_freehand/perfect_freehand.dart';
 import 'package:saber/components/canvas/_stroke.dart';
+import 'package:saber/data/editor/binary_writer.dart';
 import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/tools/shape_pen.dart';
 
@@ -72,6 +73,77 @@ class CircleStroke extends Stroke {
       'pe': pressureEnabled,
       'c': color.toARGB32(),
     }..addAll(options.toJson());
+  }
+
+  /// Serializes a Stroke object into a compact binary format.
+  @override
+  void toBinary(BinaryWriter writer) {
+    writer.writeString(StrokeBinaryKeys.shape,"circle");
+    writer.writeInt(StrokeBinaryKeys.pageIndex,pageIndex);
+    writer.writeScaledFloat(StrokeBinaryKeys.cx, center.dx);
+    writer.writeScaledFloat(StrokeBinaryKeys.cy, center.dy);
+    writer.writeScaledFloat(StrokeBinaryKeys.r, radius);
+    writer.writeBool(StrokeBinaryKeys.pressureEnabled,pressureEnabled);
+    writer.writeInt(StrokeBinaryKeys.color,color.toARGB32());
+    options.toBinary(writer); // store stroke options
+    // TODO: Add serialization of StrokeOptions if needed
+  }
+
+  /// Deserializes a Stroke object from binary data starting at [offset].
+  factory CircleStroke.fromBinary(BinaryReader reader,
+      {required HasSize page,
+      }){
+    int key;
+
+    key = reader.readKey();
+    if (key != StrokeBinaryKeys.pageIndex) {
+      throw Exception('StrokefromBinary no pageIndex');
+    }
+    final int pageIndex= reader.readIntNoKey();
+
+    key = reader.readKey();
+    if (key != StrokeBinaryKeys.cx) {
+      throw Exception('StrokefromBinary no cx');
+    }
+    final double cx= reader.readScaledFloat();
+
+    key = reader.readKey();
+    if (key != StrokeBinaryKeys.cy) {
+      throw Exception('StrokefromBinary no cy');
+    }
+    final double cy= reader.readScaledFloat();
+
+    key = reader.readKey();
+    if (key != StrokeBinaryKeys.r) {
+      throw Exception('StrokefromBinary no r');
+    }
+    final double r= reader.readScaledFloat();
+
+    key = reader.readKey();
+    if (key != StrokeBinaryKeys.pressureEnabled) {
+      throw Exception('StrokefromBinary no pressureEnabled');
+    }
+    final bool pressureEnabled = reader.readBoolNoKey();
+
+    key=reader.readKey();
+    if (key!=StrokeBinaryKeys.color) {
+      throw Exception('StrokefromBinary no color');
+    }
+    final Color color = reader.readColor();
+
+    final options = StrokeOptions.fromBinary(reader); // adjust this as per your needs
+
+    return CircleStroke(
+      color: color,
+      pressureEnabled: pressureEnabled,
+      options: options,
+      pageIndex: pageIndex,
+      page: page,
+      penType: (ShapePen).toString(),
+      center: Offset(cx,cy),
+      radius: r,
+    );
+
   }
 
   @override

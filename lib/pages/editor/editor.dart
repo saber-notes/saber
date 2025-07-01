@@ -899,9 +899,17 @@ class EditorState extends State<Editor> {
     final OrderedAssetCache assets;
     coreInfo.assetCache.allowRemovingAssets = false;
     try {
-      (bson, assets) = coreInfo.saveToBinary(
-        currentPageIndex: currentPageIndex,
-      );
+      if (false) {
+        (bson, assets) = coreInfo.saveToBinary(
+          currentPageIndex: currentPageIndex,
+        );
+      }
+      else {
+        // save as binary data directly
+        (bson, assets) = coreInfo.toBinary(
+          currentPageIndex: currentPageIndex,
+        );
+      }
     } finally {
       coreInfo.assetCache.allowRemovingAssets = true;
     }

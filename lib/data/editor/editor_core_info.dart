@@ -13,12 +13,15 @@ import 'package:saber/components/canvas/_asset_cache.dart';
 import 'package:saber/components/canvas/_canvas_background_painter.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/image/editor_image.dart';
+import 'package:saber/data/editor/binary_writer.dart';
 import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/data/tools/stroke_properties.dart';
 import 'package:saber/pages/editor/editor.dart';
 import 'package:worker_manager/worker_manager.dart';
+
+
 
 class EditorCoreInfo {
   static final log = Logger('EditorCoreInfo');
@@ -63,6 +66,7 @@ class EditorCoreInfo {
   int lineHeight;
   int lineThickness;
   List<EditorPage> pages;
+
 
   /// Stores the current page index so that it can be restored when the file is reloaded.
   int? initialPageIndex;
@@ -226,8 +230,10 @@ class EditorCoreInfo {
     _sortStrokes();
   }
 
-  static List<EditorPage> _parsePagesJson(
-    List<dynamic>? pages, {
+  // parse pages from binary
+  static List<EditorPage> _fromBinary(
+      BinaryReader reader,
+      int pagesCount,{
     required List<Uint8List>? inlineAssets,
     required bool readOnly,
     required bool onlyFirstPage,
@@ -235,30 +241,60 @@ class EditorCoreInfo {
     required String sbnPath,
     required AssetCache assetCache,
   }) {
+    if (pagesCount==0) return [];
+    final pages = <EditorPage>[];
+
+    final int count = onlyFirstPage ? 1 : pagesCount;
+
+    for (int i = 0; i < count; i++) {
+      final page = EditorPage.fromBinary(
+        reader,
+        inlineAssets: inlineAssets,
+        readOnly: readOnly,
+        fileVersion: fileVersion,
+        sbnPath: sbnPath,
+        assetCache: assetCache
+      );
+      pages.add(page);
+    }
+
+    return pages;
+  }
+
+  static List<EditorPage> _parsePagesJson(
+      List<dynamic>? pages, {
+        required List<Uint8List>? inlineAssets,
+        required bool readOnly,
+        required bool onlyFirstPage,
+        required int fileVersion,
+        required String sbnPath,
+        required AssetCache assetCache,
+      }) {
     if (pages == null || pages.isEmpty) return [];
     if (pages[0] is List) {
       // old format (list of [width, height])
       return pages
           .take(onlyFirstPage ? 1 : pages.length)
           .map((dynamic page) => EditorPage(
-                width: page[0] as double?,
-                height: page[1] as double?,
-              ))
+        width: page[0] as double?,
+        height: page[1] as double?,
+      ))
           .toList();
     } else {
       return pages
           .take(onlyFirstPage ? 1 : pages.length)
           .map((dynamic page) => EditorPage.fromJson(
-                page as Map<String, dynamic>,
-                inlineAssets: inlineAssets,
-                readOnly: readOnly,
-                fileVersion: fileVersion,
-                sbnPath: sbnPath,
-                assetCache: assetCache,
-              ))
+        page as Map<String, dynamic>,
+        inlineAssets: inlineAssets,
+        readOnly: readOnly,
+        fileVersion: fileVersion,
+        sbnPath: sbnPath,
+        assetCache: assetCache,
+      ))
           .toList();
     }
   }
+
 
   void _handleEmptyImageIds() {
     for (EditorPage page in pages) {
@@ -343,6 +379,131 @@ class EditorCoreInfo {
       page.sortStrokes();
     }
   }
+
+  factory EditorCoreInfo.fromBinary(
+        {required Uint8List buffer,
+        required String filePath,
+        required bool readOnly,
+        required bool onlyFirstPage,
+      }) {
+    final reader=BinaryReader(buffer);
+
+    reader.readIntNoKey();  // read initial #FFFFFFFF indicating binary file
+    int key;
+    final int  fileVersion;
+    key=reader.readKey();
+    if (key==SBNBinaryKeys.version){
+      fileVersion = reader.readIntNoKey();
+    }
+    else {
+      fileVersion=0;
+    }
+    bool readOnlyBecauseOfVersion = fileVersion > sbnVersion;
+    readOnly = readOnly || readOnlyBecauseOfVersion;
+
+    final int nextImageId;
+    final Color? backgroundColor;
+    final String pattern;
+    final int lineHeight;
+    final int lineThickness;
+    final int initialPageIndex;
+    final int pageCount;
+
+    key=reader.readKey();
+    if (key!=SBNBinaryKeys.nextImageId){
+      throw Exception('Editor.fromBinary: version not set');
+    }
+    nextImageId = reader.readIntNoKey();
+
+    // color is not stored if null
+    key=reader.readKey();
+    if (key==SBNBinaryKeys.backgroundColor){
+      // color is stored
+      backgroundColor = reader.readColor();
+
+      // read key of pattern
+      key=reader.readKey();
+    }
+    else {
+      // background color is not stored
+      backgroundColor=null;
+    }
+
+    if (key!=SBNBinaryKeys.backgroundPattern) {
+      throw Exception('Editor.fromBinary: backgroundPattern not set');
+    }
+    // background color was not stored and key read is pattern
+    pattern=reader.readStringNoKey();
+
+    key=reader.readKey();
+    if (key!=SBNBinaryKeys.lineHeight) {
+      throw Exception('Editor.fromBinary: lineHeight not set');
+    }
+    lineHeight = reader.readIntNoKey();
+
+    key=reader.readKey();
+    if (key!=SBNBinaryKeys.lineThickness) {
+      throw Exception('Editor.fromBinary: lineThickness not set');
+    }
+    lineThickness = reader.readIntNoKey();
+
+    key=reader.readKey();
+    if (key!=SBNBinaryKeys.initialPageIndex) {
+      throw Exception('Editor.fromBinary: initialPageIndex not set');
+    }
+    initialPageIndex = reader.readIntNoKey();
+
+    key=reader.readKey();
+    if (key!=SBNBinaryKeys.pageCount) {
+      throw Exception('Editor.fromBinary: pageCound not set');
+    }
+    pageCount = reader.readIntNoKey();
+
+    final List<Uint8List> inlineAssets=[]; // it is not used
+    final assetCache = AssetCache();
+
+    // read pages
+    final List<EditorPage> pages;
+    pages=_fromBinary(
+      reader, pageCount,
+      inlineAssets: inlineAssets,
+      readOnly: readOnly,
+      onlyFirstPage: onlyFirstPage,
+      fileVersion: fileVersion,
+      sbnPath: filePath,
+      assetCache: assetCache,
+    );
+
+    return EditorCoreInfo._(
+      filePath: filePath,
+      readOnly: readOnly,
+      readOnlyBecauseOfVersion: readOnlyBecauseOfVersion,
+      nextImageId: nextImageId,
+      backgroundColor: backgroundColor,
+      backgroundPattern: () {
+        for (CanvasBackgroundPattern p in CanvasBackgroundPattern.values) {
+          if (p.name == pattern) return p;
+        }
+        return CanvasBackgroundPattern.none;
+      }(),
+      lineHeight: lineHeight as int? ??
+          (Prefs.available
+              ? Prefs.lastLineHeight.value
+              : Prefs.defaultLineHeight),
+      lineThickness: lineThickness as int? ??
+          (Prefs.available
+              ? Prefs.lastLineThickness.value
+              : Prefs.defaultLineThickness),
+      pages: pages,
+      initialPageIndex: initialPageIndex,
+      assetCache: assetCache,
+    )
+       .._sortStrokes();
+  }
+
+
+
+
 
   static Future<EditorCoreInfo> loadFromFilePath(
     String path, {
@@ -434,12 +595,24 @@ class EditorCoreInfo {
     bool onlyFirstPage,
   ) {
     final dynamic json;
+    final bool isBinaryFile;
     try {
       if (bsonBytes != null) {
-        final bsonBinary = BsonBinary.from(bsonBytes);
-        json = BsonCodec.deserialize(bsonBinary);
+        isBinaryFile = bsonBytes.length >= 4 &&
+            bsonBytes[0] == 0xFF &&
+            bsonBytes[1] == 0xFF &&
+            bsonBytes[2] == 0xFF &&
+            bsonBytes[3] == 0xFF;
+        if (!isBinaryFile) { // JSON encoded SBN file
+          final bsonBinary = BsonBinary.from(bsonBytes);
+          json = BsonCodec.deserialize(bsonBinary);
+        }
+        else{
+          json=[];
+        }
       } else if (jsonString != null) {
         json = jsonDecode(jsonString);
+        isBinaryFile=false;
       } else {
         throw ArgumentError('Both bsonBytes and jsonString are null');
       }
@@ -447,20 +620,30 @@ class EditorCoreInfo {
       log.severe('Failed to parse file from $path: $e', e);
       rethrow;
     }
-
-    if (json == null) {
-      throw Exception('Failed to parse json from $path');
-    } else if (json is List) {
-      // old format
-      return EditorCoreInfo.fromOldJson(
-        json,
-        filePath: path,
-        readOnly: readOnly,
-        onlyFirstPage: onlyFirstPage,
-      );
-    } else {
-      return EditorCoreInfo.fromJson(
-        json as Map<String, dynamic>,
+    if (!isBinaryFile) { // JSON encoded SBN file
+      if (json == null) {
+          throw Exception('Failed to parse json from $path');
+      } else if (json is List) {
+        // old format
+        return EditorCoreInfo.fromOldJson(
+          json,
+          filePath: path,
+          readOnly: readOnly,
+          onlyFirstPage: onlyFirstPage,
+        );
+      } else {
+        return EditorCoreInfo.fromJson(
+          json as Map<String, dynamic>,
+          filePath: path,
+          readOnly: readOnly,
+          onlyFirstPage: onlyFirstPage,
+        );
+      }
+    }
+    else {
+      // is binary stored SBN file
+      return EditorCoreInfo.fromBinary(
+        buffer: bsonBytes!,
         filePath: path,
         readOnly: readOnly,
         onlyFirstPage: onlyFirstPage,
@@ -487,6 +670,32 @@ class EditorCoreInfo {
 
     return (json, assets);
   }
+
+  /// Returns the json map and a list of assets.
+  /// Assets are stored in separate files.
+  (Uint8List buffer, OrderedAssetCache) toBinary({
+    required int? currentPageIndex,
+  }) {
+    /// This will be populated in various [toJson] methods.
+    final OrderedAssetCache assets = OrderedAssetCache();
+
+    final writer = BinaryWriter();
+    writer.writeIntNoKey(0xFFFFFFFF); // indicates binary file
+    writer.writeInt(SBNBinaryKeys.version, sbnVersion); //sbnVersion);
+    writer.writeInt(SBNBinaryKeys.nextImageId, nextImageId);
+    writer.writeColor(SBNBinaryKeys.backgroundColor, backgroundColor);
+    writer.writeString(SBNBinaryKeys.backgroundPattern,backgroundPattern.name);
+    writer.writeInt(SBNBinaryKeys.lineHeight, lineHeight);
+    writer.writeInt(SBNBinaryKeys.lineThickness, lineThickness);
+    writer.writeInt(SBNBinaryKeys.initialPageIndex,  initialPageIndex ?? -1);
+    writer.writeInt(SBNBinaryKeys.pageCount, pages.length);
+    for (final page in pages) {
+      page.toBinary(writer,assets); // each page uses writer to write its own fields
+    }
+    return (writer.toBytes(), assets);
+  }
+
+
 
   /// Converts the current note as an SBA (Saber Archive) file,
   /// which contains the main bson file and all the assets

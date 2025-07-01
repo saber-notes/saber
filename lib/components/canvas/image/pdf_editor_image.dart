@@ -98,6 +98,113 @@ class PdfEditorImage extends EditorImage {
     );
   }
 
+  // skip image data when reading binary file
+  static void skipImageBinary(
+      BinaryReader reader,
+      Map<String, dynamic> imageInfo, {
+        required List<Uint8List>? inlineAssets,
+        bool isThumbnail = false,
+        required String sbnPath,
+        required AssetCache assetCache,
+      }) {
+    int key;
+    key = reader.readKey();
+    if (key != ImageBinaryKeys.assetId) {
+      throw Exception('pdfEditorImage.fromBinary: assetIndex not set');
+    }
+    reader.readIntNoKey();  //assetIndex
+
+    key = reader.readKey();
+    if (key != ImageBinaryKeys.pdfi) {
+      throw Exception('pdfEditorImage.fromBinary: pdfi not set');
+    }
+    reader.readIntNoKey();  // pdfi
+
+/*
+    final Uint8List? pdfBytes;
+    File? pdfFile;
+    if (assetIndex >=0) {
+      if (inlineAssets == null) {
+        pdfFile =
+            FileManager.getFile('$sbnPath${Editor.extension}.$assetIndex');
+        pdfBytes = assetCache.get(pdfFile);
+      } else {
+        pdfBytes = inlineAssets[assetIndex];
+      }
+    } else {
+      if (kDebugMode) {
+        throw Exception('PdfEditorImage.fromBinary: pdf bytes not found');
+      }
+      pdfBytes = Uint8List(0);
+    }
+*/
+  }
+
+
+    factory PdfEditorImage.fromBinary(
+      BinaryReader reader,
+      Map<String, dynamic> imageInfo, {
+        required List<Uint8List>? inlineAssets,
+        bool isThumbnail = false,
+        required String sbnPath,
+        required AssetCache assetCache,
+      }) {
+    final int? assetIndex;
+
+    int key;
+    key=reader.readKey();
+    if (key!=ImageBinaryKeys.assetId) {
+      throw Exception('pdfEditorImage.fromBinary: assetIndex not set');
+    }
+    assetIndex = reader.readIntNoKey();
+
+    final int pdfi;
+    key=reader.readKey();
+    if (key!=ImageBinaryKeys.pdfi) {
+      throw Exception('pdfEditorImage.fromBinary: pdfi not set');
+    }
+    pdfi = reader.readIntNoKey();
+
+    final Uint8List? pdfBytes;
+    File? pdfFile;
+    if (assetIndex >=0) {
+      if (inlineAssets == null) {
+        pdfFile =
+            FileManager.getFile('$sbnPath${Editor.extension}.$assetIndex');
+        pdfBytes = assetCache.get(pdfFile);
+      } else {
+        pdfBytes = inlineAssets[assetIndex];
+      }
+    } else {
+      if (kDebugMode) {
+        throw Exception('PdfEditorImage.fromBinary: pdf bytes not found');
+      }
+      pdfBytes = Uint8List(0);
+    }
+
+    return PdfEditorImage(
+      id: imageInfo['id'], // -1 will be replaced by EditorCoreInfo._handleEmptyImageIds()
+      assetCache: assetCache,
+      pdfBytes: pdfBytes,
+      pdfFile: pdfFile,
+      pdfPage: pdfi,
+      pageIndex: imageInfo['pageIndex'] ?? 0,
+      pageSize: Size.infinite,
+      invertible: imageInfo['invertible'] ?? true,
+      backgroundFit: imageInfo['backgroundFit'] != null ? imageInfo['backgroundFit'] : BoxFit.contain,
+      onMoveImage: null,
+      onDeleteImage: null,
+      onMiscChange: null,
+      onLoad: null,
+      newImage: false,
+      dstRect: imageInfo['dstRect'],
+      naturalSize: imageInfo['naturalSize'],
+      isThumbnail: isThumbnail,
+    );
+  }
+
+
+
   @override
   Map<String, dynamic> toJson(OrderedAssetCache assets) {
     final json = super.toJson(
@@ -114,6 +221,17 @@ class PdfEditorImage extends EditorImage {
 
     return json;
   }
+
+  @override
+  void writeBinary(BinaryWriter writer,OrderedAssetCache assets) {
+    super.writeBinary(writer,assets);
+
+    final assetId=assets.add(pdfFile ?? pdfBytes!);
+    writer.writeInt(ImageBinaryKeys.assetId,assetId);
+    writer.writeInt(ImageBinaryKeys.pdfi,pdfPage);
+  }
+
+
 
   @override
   Future<void> firstLoad() async {

@@ -1,7 +1,9 @@
 import 'dart:async';
+import 'dart:convert';
 import 'dart:math';
 import 'dart:typed_data';
 
+import 'package:bson/bson.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_quill/flutter_quill.dart';
 import 'package:saber/components/canvas/_asset_cache.dart';
@@ -9,8 +11,11 @@ import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/image/editor_image.dart';
 import 'package:saber/components/canvas/inner_canvas.dart';
 import 'package:saber/components/canvas/pencil_shader.dart';
+import 'package:saber/data/editor/binary_writer.dart';
 import 'package:saber/data/tools/highlighter.dart';
 import 'package:saber/data/tools/laser_pointer.dart';
+
+
 
 typedef CanvasKey = GlobalKey<State<InnerCanvas>>;
 
@@ -180,6 +185,167 @@ class EditorPage extends Listenable implements HasSize {
         if (backgroundImage != null) 'b': backgroundImage?.toJson(assets)
       };
 
+  /// Adds page contents to binary representation of note
+  void toBinary(BinaryWriter writer,OrderedAssetCache assets) {
+    writer.writeInt(PageBinaryKeys.version, 1);
+    writer.writeScaledFloat(PageBinaryKeys.width,size.width);
+    writer.writeScaledFloat(PageBinaryKeys.height,size.height);
+    if (strokes.isNotEmpty) {
+      writer.writeInt(PageBinaryKeys.strokes, strokes.length);
+      for (final stroke in strokes) {
+        stroke.toBinary(writer);
+      }
+    }
+    else {
+      writer.writeInt(PageBinaryKeys.strokes, 0);
+    }
+    if (images.isNotEmpty) {
+      writer.writeInt(PageBinaryKeys.images, images.length);
+      for (final image in images) {
+        image.toBinary(writer,assets);
+      }
+    }
+    else {
+      writer.writeInt(PageBinaryKeys.images, 0);
+    }
+    if (backgroundImage != null) {
+      writer.writeInt(PageBinaryKeys.backgroundImage, 1);
+      backgroundImage?.toBinary(writer, assets);
+    }
+    else{
+      writer.writeInt(PageBinaryKeys.backgroundImage, 0);
+    }
+
+    if (!quill.controller.document.isEmpty()) {
+      // TO DO
+      final quillJson=quill.controller.document.toDelta().toJson();
+      final bson = BsonCodec.serialize(quillJson);
+      writer.writeString(PageBinaryKeys.quill,  utf8.decode(bson.byteList));
+    }
+    else{
+      writer.writeString(PageBinaryKeys.quill,"");
+    }
+  }
+
+  factory EditorPage.fromBinary(
+      BinaryReader reader, {
+        required List<Uint8List>? inlineAssets,
+        required bool readOnly,
+        required int fileVersion,
+        required String sbnPath,
+        required AssetCache assetCache,
+      }) {
+
+    int key;
+    final int  version;
+    key=reader.readKey();
+    if (key!=PageBinaryKeys.version) {
+      throw Exception('page.fromBinary: version not set');
+    }
+    version = reader.readIntNoKey();
+
+    final double width;
+    key=reader.readKey();
+    if (key!=PageBinaryKeys.width){
+      throw Exception('page.fromBinary: width not set');
+    }
+    width = reader.readScaledFloat();
+
+    final double height;
+    key=reader.readKey();
+    if (key!=PageBinaryKeys.height){
+      throw Exception('page.fromBinary: height not set');
+    }
+    height = reader.readScaledFloat();
+    final size = Size(width,height);
+
+    final int  strokesCount;
+    key=reader.readKey();
+    if (key!=PageBinaryKeys.strokes){
+      throw Exception('page.fromBinary: strokes not set');
+    }
+    strokesCount = reader.readIntNoKey();
+    final List<Stroke> strokes=EditorPage.parseStrokesBinary(
+      reader, strokesCount,
+      page: HasSize(size),
+      onlyFirstPage: false,
+      fileVersion: fileVersion);
+
+    final int  imagesCount;
+    key=reader.readKey();
+    if (key!=PageBinaryKeys.images){
+      throw Exception('page.fromBinary: images not set');
+    }
+    imagesCount = reader.readIntNoKey();
+
+    final imagesParsed=EditorPage.parseImagesBinary(
+      reader,imagesCount,
+      inlineAssets: inlineAssets,
+      isThumbnail: readOnly,
+      onlyFirstPage: false,
+      sbnPath: sbnPath,
+      assetCache: assetCache,
+    );
+
+    final int  backgroundImageCnt;
+    key=reader.readKey();
+    if (key!=PageBinaryKeys.backgroundImage){
+      throw Exception('page.fromBinary: backgroundImage not set');
+    }
+    backgroundImageCnt = reader.readIntNoKey();
+
+    final String  quillString;
+    final Map<String, dynamic> quillJson;
+    key=reader.readKey();
+    if (key!=PageBinaryKeys.quill){
+      throw Exception('page.fromBinary: quill not set');
+    }
+    quillString = reader.readStringNoKey();
+    if (quillString!="") {
+      final bytes = utf8.encode(quillString); // Convert String to bytes
+      final bson = BsonBinary.from(bytes);
+      quillJson = BsonCodec.deserialize(bson);
+    }
+    else {
+      quillJson={'q': ""};  //
+    }
+
+    final EditorImage? backgroundImage;
+    if (backgroundImageCnt>0) {
+      final imageInfo=EditorImage.readBinary(reader,assetCache);
+      backgroundImage = EditorPage.parseImageBinary(
+        reader, backgroundImageCnt,
+        imageInfo: imageInfo,
+        inlineAssets: inlineAssets,
+        isThumbnail: false,
+        sbnPath: sbnPath,
+        assetCache: assetCache,
+      );
+    }
+    else {
+      backgroundImage=null;
+    }
+
+    return EditorPage(
+      size: size,
+      strokes: strokes,
+      images: imagesParsed,
+      quill: QuillStruct(
+        controller: quillJson['q'] != ""
+            ? QuillController(
+          document: Document.fromJson(quillJson['q'] as List),
+          selection: const TextSelection.collapsed(offset: 0),
+        )
+            : QuillController.basic(),
+        focusNode: FocusNode(debugLabel: 'Quill Focus Node'),
+      )
+      ,
+      backgroundImage: backgroundImage,
+    );
+  }
+
+
+
   /// Inserts a stroke, while keeping the strokes sorted by
   /// pen type and color.
   void insertStroke(Stroke newStroke) {
@@ -234,6 +400,31 @@ class EditorPage extends Listenable implements HasSize {
           .cast<Stroke>()
           .toList();
 
+
+  static List<Stroke> parseStrokesBinary(
+      BinaryReader reader,
+      int strokesCount,{
+        required HasSize page,
+        required bool onlyFirstPage,
+        required int fileVersion,
+      }) {
+    final strokes = <Stroke>[];
+
+    for (int i = 0; i < strokesCount; i++) {
+      final stroke = Stroke.fromBinary(
+        reader,
+        fileVersion: fileVersion,
+        page: page,
+      );
+
+      if (onlyFirstPage && stroke.pageIndex > 0) {
+        continue;
+      }
+      strokes.add(stroke);
+    }
+    return strokes;
+  }
+
   static List<EditorImage> parseImagesJson(
     List<dynamic>? images, {
     required List<Uint8List>? inlineAssets,
@@ -273,6 +464,65 @@ class EditorPage extends Listenable implements HasSize {
         sbnPath: sbnPath,
         assetCache: assetCache,
       );
+
+  static List<EditorImage> parseImagesBinary(
+      BinaryReader reader,
+      int imagesCount,{
+        required List<Uint8List>? inlineAssets,
+        required bool isThumbnail,
+        required bool onlyFirstPage,
+        required String sbnPath,
+        required AssetCache assetCache,
+      }) {
+    final images = <EditorImage>[];
+
+    for (int i = 0; i < imagesCount; i++) {
+      final imageInfo=EditorImage.readBinary(reader,assetCache);
+      if (onlyFirstPage && imageInfo['pageIndex'] > 0) {
+        // Skip this image
+        EditorImage.skipImageBinary(reader,
+          imageInfo: imageInfo,
+          inlineAssets: inlineAssets,
+          isThumbnail: isThumbnail,
+          sbnPath: sbnPath,
+          assetCache: assetCache,
+        );
+        continue;
+      }
+
+      final image = EditorImage.fromBinary(
+        reader,
+        imageInfo: imageInfo,
+        inlineAssets: inlineAssets,
+        isThumbnail: isThumbnail,
+        sbnPath: sbnPath,
+        assetCache: assetCache,
+      );
+
+      images.add(image);
+    }
+    return images;
+  }
+
+  static EditorImage parseImageBinary(
+      BinaryReader reader,
+      int imageCount,{
+        required Map<String, dynamic> imageInfo,
+        required List<Uint8List>? inlineAssets,
+        required bool isThumbnail,
+        required String sbnPath,
+        required AssetCache assetCache,
+      })=> EditorImage.fromBinary(
+        reader,
+        imageInfo: imageInfo,
+        inlineAssets: inlineAssets,
+        isThumbnail: isThumbnail,
+        sbnPath: sbnPath,
+        assetCache: assetCache,
+        );
+
+
+
 
   final List<VoidCallback> _listeners = [];
   bool _disposed = false;

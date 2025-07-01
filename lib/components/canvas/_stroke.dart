@@ -1,6 +1,4 @@
-import 'dart:convert';
 import 'dart:math';
-import 'dart:typed_data';
 import 'package:collection/collection.dart';
 import 'package:fixnum/fixnum.dart';
 import 'package:flutter/material.dart';
@@ -9,6 +7,7 @@ import 'package:one_dollar_unistroke_recognizer/one_dollar_unistroke_recognizer.
 import 'package:perfect_freehand/perfect_freehand.dart';
 import 'package:saber/components/canvas/_circle_stroke.dart';
 import 'package:saber/components/canvas/_rectangle_stroke.dart';
+import 'package:saber/data/editor/binary_writer.dart';
 import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/extensions/list_extensions.dart';
 import 'package:saber/data/extensions/point_extensions.dart';
@@ -371,112 +370,103 @@ class Stroke {
   )..points.addAll(points);
 
 
-  //////////////////////////////////////////
-  // helpers to store point vectors
-  static Uint8List pointVectorToBinary(PointVector point) {
-    final bd = ByteData(8);
-    bd.setFloat32(0, point.x, Endian.little);
-    bd.setFloat32(4, point.y, Endian.little);
-    return bd.buffer.asUint8List();
-  }
-
-  static PointVector pointVectorFromBinary(Uint8List bytes) {
-    final bd = ByteData.sublistView(bytes);
-    final x = bd.getFloat32(0, Endian.little);
-    final y = bd.getFloat32(4, Endian.little);
-    return PointVector(x, y);
-  }
-  //////////////////////////////////////////
-
-
   /// Serializes a Stroke object into a compact binary format.
-  Uint8List toBinary() {
-    // Serialize only finite points to binary
-    final pointsBytes = points
-        .where((p) => p.isFinite)
-        .map((p) => pointVectorToBinary(p))
-        .toList();
-
-    final pointCount = pointsBytes.length;
-
-    final buffer = BytesBuilder();
-
-    // 1. Write the number of points as uint32 (4 bytes)
-    final meta = ByteData(4);
-    meta.setUint32(0, pointCount, Endian.little);
-    buffer.add(meta.buffer.asUint8List());
-
-    // 2. Write each point's binary data sequentially
-    for (final pb in pointsBytes) {
-      buffer.add(pb); // Assuming each point is a fixed size (e.g., 8 bytes)
+  void toBinary(BinaryWriter writer) {
+    writer.writeString(StrokeBinaryKeys.shape,"");
+    writer.writeInt(StrokeBinaryKeys.pointCount,points.length);
+    writer.writeBool(StrokeBinaryKeys.pressureEnabled,pressureEnabled);
+    for (final point in points) {
+      writer.writeScaledFloatNoKey(point.x);
+      writer.writeScaledFloatNoKey(point.y);
+      if (pressureEnabled){
+        writer.writeScaledFloatNoKey(point.pressure!);
+      }
     }
 
-    // 3. Write pageIndex as int32 (4 bytes)
-    final indexData = ByteData(4);
-    indexData.setInt32(0, pageIndex, Endian.little);
-    buffer.add(indexData.buffer.asUint8List());
+    writer.writeInt(StrokeBinaryKeys.pageIndex,pageIndex);
+    writer.writeString(StrokeBinaryKeys.penType,penType);
+    writer.writeInt(StrokeBinaryKeys.color,color.toARGB32());
 
-    // 4. Write penType length (1 byte) + UTF8-encoded penType string
-    final penBytes = utf8.encode(penType);
-    buffer.add([penBytes.length]);
-    buffer.add(penBytes);
-
-    // 5. Write pressureEnabled as 1 byte (0 or 1)
-    buffer.add([pressureEnabled ? 1 : 0]);
-
-    // 6. Write color as int32 (ARGB format, 4 bytes)
-    final colorData = ByteData(4);
-    colorData.setInt32(0, color.toARGB32(), Endian.little);
-    buffer.add(colorData.buffer.asUint8List());
-
+    options.toBinary(writer); // store stroke options
     // TODO: Add serialization of StrokeOptions if needed
-
-    return buffer.toBytes();
   }
 
   /// Deserializes a Stroke object from binary data starting at [offset].
-  factory Stroke.fromBinary(ByteData data, {
+  factory Stroke.fromBinary(BinaryReader reader, {
     int offset = 0,
     required int fileVersion,
-    required int pageIndex,
     required HasSize page,
   }){
 
+    int key;
+    final int  pointCount;
 
-    int cursor = offset;
-
-    // 1. Read number of points (uint32)
-    final pointCount = data.getUint32(cursor, Endian.little);
-    cursor += 4;
-
-    final points = <PointVector>[];
-    for (int i = 0; i < pointCount; i++) {
-      final pointBytes = data.buffer.asUint8List(cursor, 8);
-      final point = pointVectorFromBinary(pointBytes);
-      points.add(point);
-      cursor += 8;
+    key=reader.readKey();
+    if (key!=StrokeBinaryKeys.shape) {
+      throw Exception('StrokefromBinary no shape');
+    }
+    final shape = reader.readStringNoKey();
+    switch (shape) {
+      case "":
+        break;  // stroke
+      case 'circle':
+        return CircleStroke.fromBinary(reader,page: page);
+      case 'rect':
+        return RectangleStroke.fromBinary(reader,page: page);
+      default:
+        log.severe('StrokeFromBinary Unknown shape: ${shape}');
     }
 
-    // 2. Read pageIndex (int32)
-    final pageIndex = data.getInt32(cursor, Endian.little);
-    cursor += 4;
 
-    // 3. Read penType length (1 byte) and decode UTF8 string
-    final penLen = data.getUint8(cursor++);
-    final penBytes = data.buffer.asUint8List(cursor, penLen);
-    final penType = utf8.decode(penBytes);
-    cursor += penLen;
+    key=reader.readKey();
+    if (key!=StrokeBinaryKeys.pointCount) {
+      throw Exception('StrokefromBinary no pointCount');
+    }
+    pointCount = reader.readIntNoKey();
 
-    // 4. Read pressureEnabled (1 byte, 0 or 1)
-    final pressureEnabled = data.getUint8(cursor++) != 0;
+    final bool pressureEnabled;
+    key=reader.readKey();
+    if (key!=StrokeBinaryKeys.pressureEnabled) {
+      throw Exception('StrokefromBinary no pressureEnabled');
+    }
+    pressureEnabled = reader.readBoolNoKey();
+    final points = <PointVector>[];
+    for (int i = 0; i < pointCount; i++) {
+      double x=reader.readScaledFloat();
+      double y=reader.readScaledFloat();
+      if (pressureEnabled){
+        double pressure=reader.readScaledFloat();
+        points.add(PointVector(x,y,pressure));
+      }
+      else {
+        // no pressure is set
+        points.add(PointVector(x,y));
+      }
+    }
 
-    // 5. Read color (int32 ARGB)
-    final colorInt = data.getInt32(cursor, Endian.little);
-    cursor += 4;
-    final color = Color(colorInt);
+    final int  pageIndex;
+    key=reader.readKey();
+    if (key!=StrokeBinaryKeys.pageIndex) {
+      throw Exception('StrokefromBinary no pageIndex');
+    }
+    pageIndex = reader.readIntNoKey();
+
+    final String  penType;
+    key=reader.readKey();
+    if (key!=StrokeBinaryKeys.penType) {
+      throw Exception('StrokefromBinary no penType');
+    }
+    penType = reader.readStringNoKey();
+
+    final Color color;
+    key=reader.readKey();
+    if (key!=StrokeBinaryKeys.color) {
+      throw Exception('StrokefromBinary no color');
+    }
+    color = reader.readColor();
 
     // Note: In your JSON version you also process options — add them if needed here:
-    final options = StrokeOptions(); // adjust this as per your needs
+    final options = StrokeOptions.fromBinary(reader); // adjust this as per your needs
 
     return Stroke(
       color: color,

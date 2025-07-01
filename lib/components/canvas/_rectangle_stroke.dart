@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:one_dollar_unistroke_recognizer/one_dollar_unistroke_recognizer.dart';
 import 'package:perfect_freehand/perfect_freehand.dart';
 import 'package:saber/components/canvas/_stroke.dart';
+import 'package:saber/data/editor/binary_writer.dart';
 import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/tools/shape_pen.dart';
 
@@ -71,6 +72,89 @@ class RectangleStroke extends Stroke {
       'c': color.toARGB32(),
     }..addAll(options.toJson());
   }
+
+  /// Serializes a Stroke object into a compact binary format.
+  @override
+  void toBinary(BinaryWriter writer) {
+    writer.writeString(StrokeBinaryKeys.shape,"rect");
+    writer.writeInt(StrokeBinaryKeys.pageIndex,pageIndex);
+    writer.writeScaledFloat(StrokeBinaryKeys.left, rect.left);
+    writer.writeScaledFloat(StrokeBinaryKeys.top, rect.top);
+    writer.writeScaledFloat(StrokeBinaryKeys.width, rect.width);
+    writer.writeScaledFloat(StrokeBinaryKeys.height, rect.height);
+    writer.writeBool(StrokeBinaryKeys.pressureEnabled,pressureEnabled);
+    writer.writeInt(StrokeBinaryKeys.color,color.toARGB32());
+    options.toBinary(writer); // store stroke options
+    // TODO: Add serialization of StrokeOptions if needed
+  }
+
+  /// Deserializes a Stroke object from binary data starting at [offset].
+  factory RectangleStroke.fromBinary(BinaryReader reader,
+      {required HasSize page,
+      }){
+    int key;
+
+    key = reader.readKey();
+    if (key != StrokeBinaryKeys.pageIndex) {
+      throw Exception('StrokefromBinary no pageIndex');
+    }
+    final int pageIndex= reader.readIntNoKey();
+
+    key = reader.readKey();
+    if (key != StrokeBinaryKeys.left) {
+      throw Exception('StrokefromBinary no left');
+    }
+    final double left= reader.readScaledFloat();
+
+    key = reader.readKey();
+    if (key != StrokeBinaryKeys.top) {
+      throw Exception('StrokefromBinary no top');
+    }
+    final double top= reader.readScaledFloat();
+
+    key = reader.readKey();
+    if (key != StrokeBinaryKeys.width) {
+      throw Exception('StrokefromBinary no width');
+    }
+    final double width= reader.readScaledFloat();
+
+    key = reader.readKey();
+    if (key != StrokeBinaryKeys.height) {
+      throw Exception('StrokefromBinary no height');
+    }
+    final double height= reader.readScaledFloat();
+
+    key = reader.readKey();
+    if (key != StrokeBinaryKeys.pressureEnabled) {
+      throw Exception('StrokefromBinary no pressureEnabled');
+    }
+    final bool pressureEnabled = reader.readBoolNoKey();
+
+    key=reader.readKey();
+    if (key!=StrokeBinaryKeys.color) {
+      throw Exception('StrokefromBinary no color');
+    }
+    final Color color = reader.readColor();
+
+    final options = StrokeOptions.fromBinary(reader); // adjust this as per your needs
+
+    return RectangleStroke(
+      color: color,
+      pressureEnabled: pressureEnabled,
+      options: options,
+      pageIndex: pageIndex,
+      page: page,
+      penType: (ShapePen).toString(),
+      rect: Rect.fromLTWH(
+        left,
+        top,
+        width,
+        height,
+      ),
+    );
+
+  }
+
 
   @override
   bool get isEmpty => rect.isEmpty;

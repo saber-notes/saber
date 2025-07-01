@@ -15,6 +15,7 @@ import 'package:pdfrx/pdfrx.dart';
 import 'package:saber/components/canvas/_asset_cache.dart';
 import 'package:saber/components/canvas/canvas_image.dart';
 import 'package:saber/components/canvas/invert_widget.dart';
+import 'package:saber/data/editor/binary_writer.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/pages/editor/editor.dart';
@@ -22,6 +23,31 @@ import 'package:saber/pages/editor/editor.dart';
 part 'png_editor_image.dart';
 part 'pdf_editor_image.dart';
 part 'svg_editor_image.dart';
+
+class ImageInfoBinary {
+  final int version;
+  final String extension;
+  final int  pageIndex;
+  final int  id;
+  final bool invertible;
+  final BoxFit backgroundFit;
+  final Rect dstRect;
+  final Rect srcRect;
+  final Size naturalSize;
+
+  ImageInfoBinary({
+    required this.version,
+    required this.extension,
+    required this.pageIndex,
+    required this.id,
+    required this.invertible,
+    required this.backgroundFit,
+    required this.dstRect,
+    required this.srcRect,
+    required this.naturalSize,
+  });
+}
+
 
 /// The data for an image in the editor.
 /// This is listenable for changes to the image's position ([dstRect]).
@@ -161,6 +187,213 @@ sealed class EditorImage extends ChangeNotifier {
         if (naturalSize.width != 0) 'nw': naturalSize.width,
         if (naturalSize.height != 0) 'nh': naturalSize.height,
       };
+
+  /// Call this from subclass to write shared fields.
+  @protected
+  @mustCallSuper
+  void writeBinary(BinaryWriter writer,OrderedAssetCache assets) {
+    // writes binary representation of image
+    writer.writeInt(ImageBinaryKeys.version, 1);
+    writer.writeString(ImageBinaryKeys.extension, extension);
+    writer.writeInt(ImageBinaryKeys.pageIndex, pageIndex);
+    writer.writeInt(ImageBinaryKeys.id, id);
+    writer.writeBool(ImageBinaryKeys.invertible, invertible);
+    writer.writeEnum(ImageBinaryKeys.backgroundFit, backgroundFit);
+
+    writer.writeScaledFloat(ImageBinaryKeys.dstLeft, dstRect.left);
+    writer.writeScaledFloatNoKey(dstRect.top);
+    writer.writeScaledFloatNoKey(dstRect.width);
+    writer.writeScaledFloatNoKey(dstRect.height);
+
+    writer.writeScaledFloat(ImageBinaryKeys.srcLeft, srcRect.left);
+    writer.writeScaledFloatNoKey(srcRect.top);
+    writer.writeScaledFloatNoKey(srcRect.width);
+    writer.writeScaledFloatNoKey(srcRect.height);
+
+    writer.writeScaledFloat(ImageBinaryKeys.naturalWidth, naturalSize.width);
+    writer.writeScaledFloatNoKey(naturalSize.height);
+  }
+
+  void toBinary(BinaryWriter writer,OrderedAssetCache assets) {
+    writeBinary(writer,assets);
+  }
+
+  /// Call this from subclass to write shared fields.
+  static Map<String, dynamic> readBinary(BinaryReader reader,AssetCache assets) {
+    // reads binary representation of image
+    int key;
+    final int  version;
+    key=reader.readKey();
+    if (key==ImageBinaryKeys.version){
+      version = reader.readIntNoKey();
+    }
+    else {
+      version=0;
+    }
+
+    final String extension;
+    key=reader.readKey();
+    if (key!=ImageBinaryKeys.extension) {
+      throw Exception('EditorImage.fromBinary: extension not set');
+    }
+    extension = reader.readStringNoKey();
+
+    final int  pageIndex;
+    key=reader.readKey();
+    if (key!=ImageBinaryKeys.pageIndex) {
+      throw Exception('EditorImage.fromBinary: pageImage not set');
+    }
+    pageIndex = reader.readIntNoKey();
+
+    final int  id;
+    key=reader.readKey();
+    if (key!=ImageBinaryKeys.id) {
+      throw Exception('EditorImage.fromBinary: id not set');
+    }
+    id = reader.readIntNoKey();
+
+    final bool invertible;
+    key=reader.readKey();
+    if (key!=ImageBinaryKeys.invertible) {
+      throw Exception('EditorImage.fromBinary: invertible not set');
+    }
+    invertible = reader.readBoolNoKey();
+
+    final BoxFit backgroundFit;
+    key=reader.readKey();
+    if (key!=ImageBinaryKeys.backgroundFit) {
+      throw Exception('EditorImage.fromBinary: backgroundFit not set');
+    }
+    backgroundFit = reader.readEnum(BoxFit.values) as BoxFit;
+
+    double left;
+    double top;
+    double width;
+    double height;
+    final Rect dstRect;
+    key=reader.readKey();
+    if (key!=ImageBinaryKeys.dstLeft) {
+      throw Exception('EditorImage.fromBinary: dstleft not set');
+    }
+    left = reader.readScaledFloat();
+    top = reader.readScaledFloat();
+    width = reader.readScaledFloat();
+    height = reader.readScaledFloat();
+    dstRect = Rect.fromLTWH(left, top, width, height);
+
+    final Rect srcRect;
+    key=reader.readKey();
+    if (key!=ImageBinaryKeys.srcLeft) {
+      throw Exception('EditorImage.fromBinary: srcleft not set');
+    }
+    left = reader.readScaledFloat();
+    top = reader.readScaledFloat();
+    width = reader.readScaledFloat();
+    height = reader.readScaledFloat();
+    srcRect = Rect.fromLTWH(left, top, width, height);
+
+    final Size naturalSize;
+    key=reader.readKey();
+    if (key!=ImageBinaryKeys.naturalWidth) {
+      throw Exception('EditorImage.fromBinary: size not set');
+    }
+    width = reader.readScaledFloat();
+    height = reader.readScaledFloat();
+    naturalSize=Size(width,height);
+
+    return{
+        'version': version,
+        'extension': extension,
+        'pageIndex': pageIndex,
+        'id': id,
+        'invertible': invertible,
+        'backgroundFit': backgroundFit,
+        'dstRect': dstRect,
+        'srcRect': srcRect,
+        'naturalSize': naturalSize,
+    };
+  }
+
+  // skip image data when reading from binary file
+  static void skipImageBinary(
+      BinaryReader reader, {
+        required Map<String, dynamic> imageInfo,
+        required List<Uint8List>? inlineAssets,
+        bool isThumbnail = false,
+        required String sbnPath,
+        required AssetCache assetCache,
+      }) {
+
+    if (imageInfo['extension'] == '.svg') {
+      SvgEditorImage.skipImageBinary(
+        reader,
+        imageInfo,
+        inlineAssets: inlineAssets,
+        isThumbnail: isThumbnail,
+        sbnPath: sbnPath,
+        assetCache: assetCache,
+      );
+    } else if (imageInfo['extension'] == '.pdf') {
+      PdfEditorImage.skipImageBinary(
+        reader,
+        imageInfo,
+        inlineAssets: inlineAssets,
+        isThumbnail: isThumbnail,
+        sbnPath: sbnPath,
+        assetCache: assetCache,
+      );
+    } else {
+      PngEditorImage.skipImageBinary(
+        reader,
+        imageInfo,
+        inlineAssets: inlineAssets,
+        isThumbnail: isThumbnail,
+        sbnPath: sbnPath,
+        assetCache: assetCache,
+      );
+    }
+  }
+
+
+
+  factory EditorImage.fromBinary(
+      BinaryReader reader, {
+        required Map<String, dynamic> imageInfo,
+        required List<Uint8List>? inlineAssets,
+        bool isThumbnail = false,
+        required String sbnPath,
+        required AssetCache assetCache,
+      }) {
+
+    if (imageInfo['extension'] == '.svg') {
+      return SvgEditorImage.fromBinary(
+        reader,
+        imageInfo,
+        inlineAssets: inlineAssets,
+        isThumbnail: isThumbnail,
+        sbnPath: sbnPath,
+        assetCache: assetCache,
+      );
+    } else if (imageInfo['extension'] == '.pdf') {
+      return PdfEditorImage.fromBinary(
+        reader,
+        imageInfo,
+        inlineAssets: inlineAssets,
+        isThumbnail: isThumbnail,
+        sbnPath: sbnPath,
+        assetCache: assetCache,
+      );
+    } else {
+      return PngEditorImage.fromBinary(
+        reader,
+        imageInfo,
+        inlineAssets: inlineAssets,
+        isThumbnail: isThumbnail,
+        sbnPath: sbnPath,
+        assetCache: assetCache,
+      );
+    }
+  }
 
   /// Images are loaded out after 5 seconds of not being visible.
   ///

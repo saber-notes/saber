@@ -113,11 +113,130 @@ class PngEditorImage extends EditorImage {
     );
   }
 
+  // skip image data when reading binary file
+  static void skipImageBinary(
+      BinaryReader reader,
+      Map<String, dynamic> imageInfo, {
+        required List<Uint8List>? inlineAssets,
+        bool isThumbnail = false,
+        required String sbnPath,
+        required AssetCache assetCache,
+      }) {
+    int key;
+    key=reader.readKey();
+    if (key!=ImageBinaryKeys.assetId) {
+      throw Exception('pngEditorImage.fromBinary: assetIndex not set');
+    }
+    reader.readIntNoKey(); //assetIndex
+
+/*
+    final Uint8List? bytes;
+    File? imageFile;
+    if (assetIndex>=0) {
+      if (inlineAssets == null) {
+        imageFile =
+            FileManager.getFile('$sbnPath${Editor.extension}.$assetIndex');
+        bytes = assetCache.get(imageFile);
+      } else {
+        bytes = inlineAssets[assetIndex];
+      }
+    }// else if (json['b'] != null) {
+    // bytes = Uint8List.fromList((json['b'] as List<dynamic>).cast<int>());
+    //}
+    else {
+      if (kDebugMode) {
+        throw Exception('EditorImage.fromJson: image bytes not found');
+      }
+      bytes = Uint8List(0);
+    }
+*/
+
+  }
+
+
+  factory PngEditorImage.fromBinary(
+      BinaryReader reader,
+      Map<String, dynamic> imageInfo, {
+        required List<Uint8List>? inlineAssets,
+        bool isThumbnail = false,
+        required String sbnPath,
+        required AssetCache assetCache,
+      }) {
+
+
+    final int? assetIndex;
+
+    int key;
+    key=reader.readKey();
+    if (key!=ImageBinaryKeys.assetId) {
+      throw Exception('pngEditorImage.fromBinary: assetIndex not set');
+    }
+    assetIndex = reader.readIntNoKey();
+
+    final Uint8List? bytes;
+    File? imageFile;
+    if (assetIndex>=0) {
+      if (inlineAssets == null) {
+        imageFile =
+            FileManager.getFile('$sbnPath${Editor.extension}.$assetIndex');
+        bytes = assetCache.get(imageFile);
+      } else {
+        bytes = inlineAssets[assetIndex];
+      }
+    }// else if (json['b'] != null) {
+     // bytes = Uint8List.fromList((json['b'] as List<dynamic>).cast<int>());
+    //}
+    else {
+      if (kDebugMode) {
+        throw Exception('EditorImage.fromJson: image bytes not found');
+      }
+      bytes = Uint8List(0);
+    }
+    assert(bytes != null || imageFile != null,
+    'Either bytes or imageFile must be non-null');
+
+    return PngEditorImage(
+      // -1 will be replaced by [EditorCoreInfo._handleEmptyImageIds()]
+      id: imageInfo['id'],
+      assetCache: assetCache,
+      extension: imageInfo['extension'] ?? '.jpg',
+      imageProvider: bytes != null
+          ? MemoryImage(bytes) as ImageProvider
+          : FileImage(imageFile!),
+      pageIndex: imageInfo['pageIndex'] ?? 0,
+      pageSize: Size.infinite,
+      invertible: imageInfo['invertible'] ?? true,
+      backgroundFit: imageInfo['backgroundFit'] != null ? imageInfo['backgroundFit'] : BoxFit.contain,
+      onMoveImage: null,
+      onDeleteImage: null,
+      onMiscChange: null,
+      onLoad: null,
+      newImage: false,
+      dstRect: imageInfo['dstRect'],
+      srcRect: imageInfo['srcRect'],
+      naturalSize: imageInfo['naturalSize'],
+      thumbnailBytes: null,
+      isThumbnail: isThumbnail,
+    );
+  }
+
+
+
   @override
   Map<String, dynamic> toJson(OrderedAssetCache assets) => super.toJson(assets)
     ..addAll({
       if (imageProvider != null) 'a': assets.add(imageProvider!),
     });
+
+  @override
+  void writeBinary(BinaryWriter writer,OrderedAssetCache assets) {
+    super.writeBinary(writer,assets);
+    if (imageProvider != null) {
+      final assetId=assets.add(imageProvider!);
+      writer.writeInt(ImageBinaryKeys.assetId,assetId);
+    }
+  }
+
 
   @override
   Future<void> firstLoad() async {
