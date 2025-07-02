@@ -296,7 +296,6 @@ class EditorPage extends Listenable implements HasSize {
 
     final String  quillString;
     final Map<String, dynamic> quillJson;
-    final List? ql;
     key=reader.readKey();
     if (key!=PageBinaryKeys.quill){
       throw Exception('page.fromBinary: quill not set');

@@ -94,6 +94,7 @@ abstract class Prefs {
   static late final PlainPref<int> autosaveDelay;
   static late final PlainPref<int> shapeRecognitionDelay;
   static late final PlainPref<bool> autoStraightenLines;
+  static late final PlainPref<bool> saveAsBinary;
   static late final PlainPref<PencilSoundSetting> pencilSound;
 
   static late final PlainPref<bool> simplifiedHomeLayout;
@@ -205,6 +206,7 @@ abstract class Prefs {
     autosaveDelay = PlainPref('autosaveDelay', 10000);
     shapeRecognitionDelay = PlainPref('shapeRecognitionDelay', 500);
     autoStraightenLines = PlainPref('autoStraightenLines', true);
+    saveAsBinary = PlainPref('saveAsBinary', false);
     pencilSound =
         PlainPref('pencilSound', PencilSoundSetting.onButNotInSilentMode);
 

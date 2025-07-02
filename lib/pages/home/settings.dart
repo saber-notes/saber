@@ -516,6 +516,12 @@ class _SettingsPageState extends State<SettingsPage> {
                 pref: Prefs.autoStraightenLines,
               ),
               SettingsSwitch(
+                title: t.settings.prefLabels.saveAsBinary,
+                subtitle: t.settings.prefDescriptions.saveAsBinary,
+                icon: Icons.save_sharp,
+                pref: Prefs.saveAsBinary,
+              ),
+              SettingsSwitch(
                 title: t.settings.prefLabels.simplifiedHomeLayout,
                 subtitle: t.settings.prefDescriptions.simplifiedHomeLayout,
                 iconBuilder: (simplified) =>

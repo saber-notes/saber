@@ -899,7 +899,7 @@ class EditorState extends State<Editor> {
     final OrderedAssetCache assets;
     coreInfo.assetCache.allowRemovingAssets = false;
     try {
-      if (false) {
+      if (!Prefs.saveAsBinary.value) {
         (bson, assets) = coreInfo.saveToBinary(
           currentPageIndex: currentPageIndex,
         );
