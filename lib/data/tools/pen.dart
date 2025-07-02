@@ -46,6 +46,18 @@ class Pen extends Tool {
         color = Color(Prefs.lastBallpointPenColor.value),
         toolId = ToolId.ballpointPen;
 
+  Pen.insertPen()
+      : name = t.editor.pens.insertPen,
+        sizeMin = 1,
+        sizeMax = 25,
+        sizeStep = 1,
+        icon = insertPenIcon,
+        options = Prefs.lastBallpointPenOptions.value,
+        pressureEnabled = false,
+        color = Color(Prefs.lastBallpointPenColor.value),
+        toolId = ToolId.insertPen;
+
+
   final String name;
   final double sizeMin, sizeMax, sizeStep;
   late final int sizeStepsBetweenMinAndMax =
@@ -57,6 +69,7 @@ class Pen extends Tool {
 
   static const IconData fountainPenIcon = FontAwesomeIcons.penFancy;
   static const IconData ballpointPenIcon = FontAwesomeIcons.pen;
+  static const IconData insertPenIcon = FontAwesomeIcons.arrowsUpDown;
 
   static Stroke? currentStroke;
   Color color;

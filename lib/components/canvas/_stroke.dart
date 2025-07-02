@@ -277,6 +277,9 @@ class Stroke {
   double get maxY {
     return points.isEmpty ? 0 : points.map((point) => point.y).reduce(max);
   }
+  double get minY {
+    return points.isEmpty ? 0 : points.map((point) => point.y).reduce(min);
+  }
 
   RecognizedUnistroke? detectShape() {
     if (points.length < 3) return null;

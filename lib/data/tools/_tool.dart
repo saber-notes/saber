@@ -23,6 +23,7 @@ class _TextEditingTool extends Tool {
 enum ToolId {
   fountainPen('fountainPen'),
   ballpointPen('ballpointPen'),
+  insertPen('insertPen'),
   highlighter('Highlighter'),
   pencil('Pencil'),
   shapePen('ShapePen'),
