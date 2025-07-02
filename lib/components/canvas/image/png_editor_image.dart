@@ -176,7 +176,7 @@ class PngEditorImage extends EditorImage {
     final Uint8List? bytes;
     File? imageFile;
     if (assetIndex>=0) {
-      if (inlineAssets == null) {
+      if (inlineAssets!.length == 0) {
         imageFile =
             FileManager.getFile('$sbnPath${Editor.extension}.$assetIndex');
         bytes = assetCache.get(imageFile);

@@ -220,7 +220,7 @@ class EditorPage extends Listenable implements HasSize {
       // TO DO
       final quillJson=quill.controller.document.toDelta().toJson();
       final bson = BsonCodec.serialize(quillJson);
-      writer.writeString(PageBinaryKeys.quill,  utf8.decode(bson.byteList));
+      writer.writeString(PageBinaryKeys.quill,  String.fromCharCodes(bson.byteList));
     }
     else{
       writer.writeString(PageBinaryKeys.quill,"");
@@ -296,20 +296,21 @@ class EditorPage extends Listenable implements HasSize {
 
     final String  quillString;
     final Map<String, dynamic> quillJson;
+    final List? ql;
     key=reader.readKey();
     if (key!=PageBinaryKeys.quill){
       throw Exception('page.fromBinary: quill not set');
     }
     quillString = reader.readStringNoKey();
     if (quillString!="") {
-      final bytes = utf8.encode(quillString); // Convert String to bytes
+      final bytes = Uint8List.fromList(quillString.codeUnits); // Convert String to bytes
       final bson = BsonBinary.from(bytes);
-      quillJson = BsonCodec.deserialize(bson);
+      quillJson={'q': BsonCodec.deserialize(bson)};   // and to Json
     }
     else {
       quillJson={'q': ""};  //
     }
-
+    final qList=List.generate(quillJson['q'].length,(index) => quillJson['q']['$index']);
     final EditorImage? backgroundImage;
     if (backgroundImageCnt>0) {
       final imageInfo=EditorImage.readBinary(reader,assetCache);
@@ -333,7 +334,7 @@ class EditorPage extends Listenable implements HasSize {
       quill: QuillStruct(
         controller: quillJson['q'] != ""
             ? QuillController(
-          document: Document.fromJson(quillJson['q'] as List),
+          document: Document.fromJson(qList),
           selection: const TextSelection.collapsed(offset: 0),
         )
             : QuillController.basic(),
