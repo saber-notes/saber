@@ -662,8 +662,8 @@ class EditorState extends State<Editor> {
         }
         else {
           // is insert pen, I must insert free space of the vertical length of stroke
-          double yFirst=newStroke.points[0].y;
-          double yLast=newStroke.points[newStroke.points.length-1].y;
+          double yFirst=newStroke.firstPoint.dy;
+          double yLast=newStroke.lastPoint.dy;
           moveItemsOnPageUpDown(page,dragPageIndex!,yFirst,yLast); // move all items below up/down
         }
       } else if (currentTool is Eraser) {
@@ -727,7 +727,6 @@ class EditorState extends State<Editor> {
       return;  // too small move
     }
 
-    final bool moveDown=yLast>yFirst;
     final double maxY;
     maxY=yFirst; // all items below first point
     List<Stroke> strokesBelow=[];
@@ -769,13 +768,20 @@ class EditorState extends State<Editor> {
       page.size=Size(page.size.width,EditorPage.defaultHeight);
     }
     // and now move items
-    Offset moveOffset=Offset(0.0,shiftY);
-    for(Stroke stroke in strokesBelow){
-      stroke.shift(moveOffset);
-    }
-    for(EditorImage image in imagesBelow){
-      image.dstRect.shift(moveOffset);
-    }
+    setState(() {
+      Offset moveOffset = Offset(0.0, shiftY);
+      for (Stroke stroke in strokesBelow) {
+        stroke.shift(moveOffset);
+      }
+      for (EditorImage image in imagesBelow) {
+        image.dstRect = Rect.fromLTRB(
+          image.dstRect.left,
+          image.dstRect.top+moveOffset.dy,
+          image.dstRect.right,
+          image.dstRect.bottom+moveOffset.dy,
+        );
+      }
+    });
 
     history.recordChange(EditorHistoryItem(
       type: EditorHistoryItemType.move,

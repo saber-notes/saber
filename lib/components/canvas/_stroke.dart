@@ -363,6 +363,14 @@ class Stroke {
     }
   }
 
+  Offset get firstPoint {
+    return(Offset(points[0].x,points[0].y));
+  }
+
+  Offset get lastPoint {
+    return(Offset(points.last.x,points.last.y));
+  }
+
   Stroke copy() => Stroke(
         color: color,
         pressureEnabled: pressureEnabled,
