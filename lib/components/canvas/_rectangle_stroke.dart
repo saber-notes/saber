@@ -84,7 +84,7 @@ class RectangleStroke extends Stroke {
     writer.writeScaledFloat(StrokeBinaryKeys.height, rect.height);
     writer.writeBool(StrokeBinaryKeys.pressureEnabled,pressureEnabled);
     writer.writeInt(StrokeBinaryKeys.color,color.toARGB32());
-    options.toBinary(writer); // store stroke options
+    BinaryOptions().optionsToBinary(writer,options); // store stroke options
     // TODO: Add serialization of StrokeOptions if needed
   }
 
@@ -136,7 +136,7 @@ class RectangleStroke extends Stroke {
     }
     final Color color = reader.readColor();
 
-    final options = StrokeOptions.fromBinary(reader); // adjust this as per your needs
+    final options = BinaryOptions().optionsFromBinary(reader); // adjust this as per your needs
 
     return RectangleStroke(
       color: color,

@@ -388,6 +388,7 @@ class TranslationsSettingsPrefLabelsEn {
 	String get autosave => 'Auto-save';
 	String get shapeRecognitionDelay => 'Shape recognition delay';
 	String get autoStraightenLines => 'Auto straighten lines';
+	String get saveAsBinary => 'Save as binary';
 	String get simplifiedHomeLayout => 'Simplified home layout';
 	String get customDataDir => 'Custom Saber folder';
 	String get pencilSoundSetting => 'Pencil sound effect';
@@ -413,6 +414,7 @@ class TranslationsSettingsPrefDescriptionsEn {
 	String get autosave => 'Auto-save after a short delay, or never';
 	String get shapeRecognitionDelay => 'How often to update the shape preview';
 	String get autoStraightenLines => 'Straightens long lines without having to use the shape pen';
+	String get saveAsBinary => 'Save as binary (faster load)';
 	String get simplifiedHomeLayout => 'Sets a fixed height for each note preview';
 	String get shouldAlwaysAlertForUpdates => 'Tell me about updates as soon as they\'re available';
 	late final TranslationsSettingsPrefDescriptionsPencilSoundSettingEn pencilSoundSetting = TranslationsSettingsPrefDescriptionsPencilSoundSettingEn.internal(_root);

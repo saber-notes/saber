@@ -13,9 +13,144 @@ import 'package:saber/data/extensions/list_extensions.dart';
 import 'package:saber/data/extensions/point_extensions.dart';
 import 'package:saber/data/tools/pen.dart';
 
+class BinaryOptions{
+  /// Serializes a Stroke object into a compact binary format.
+  void optionsToBinary(BinaryWriter writer,StrokeOptions options) {
+    if (options.size!=StrokeOptions.defaultSize){
+      writer.writeFloat(StrokeBinaryKeys.size,options.size);
+    }
+    if (options.thinning!=StrokeOptions.defaultThinning){
+      writer.writeFloat(StrokeBinaryKeys.thinning,options.thinning);
+    }
+    if (options.smoothing!=StrokeOptions.defaultSmoothing){
+      writer.writeFloat(StrokeBinaryKeys.smoothing,options.smoothing);
+    }
+    if (options.streamline!=StrokeOptions.defaultStreamline){
+      writer.writeFloat(StrokeBinaryKeys.streamline,options.streamline);
+    }
+    // easing is not stored!!!
+    if (options.simulatePressure!=StrokeOptions.defaultSimulatePressure){
+      writer.writeBool(StrokeBinaryKeys.simulatePressure,options.simulatePressure);
+    }
+    if (options.isComplete!=StrokeOptions.defaultIsComplete){
+      writer.writeBool(StrokeBinaryKeys.isComplete,options.isComplete);
+    }
+    if (options.start.taperEnabled) {
+      writer.writeBool(StrokeBinaryKeys.startTaperEnabled, options.start.taperEnabled);
+      if (options.start.customTaper != null) {
+        writer.writeFloat(StrokeBinaryKeys.startCustomTaper, options.start.customTaper!);
+      }
+      else {
+//        writer.writeFloat(StrokeBinaryKeys.startCustomTaper, -1.0);
+      }
+    }
+    else {
+      writer.writeBool(StrokeBinaryKeys.startTaperEnabled,options.start.taperEnabled);
+    }
+    if (options.start.cap != StrokeEndOptions.defaultCap){
+      writer.writeBool(StrokeBinaryKeys.endTaperEnabled, options.end.taperEnabled);
+      writer.writeBool(StrokeBinaryKeys.startCap,options.start.cap);
+    }
+    if (options.end.taperEnabled){
+      writer.writeBool(StrokeBinaryKeys.endTaperEnabled, options.end.taperEnabled);
+      if (options.end.customTaper!= null){
+        writer.writeFloat(StrokeBinaryKeys.endCustomTaper,options.end.customTaper!);
+      }
+      else {
+//        writer.writeFloat(StrokeBinaryKeys.endCustomTaper,-1.0);
+      }
+    }
+    else {
+      writer.writeBool(StrokeBinaryKeys.endTaperEnabled, false);
+    }
+    if (options.end.cap != StrokeEndOptions.defaultCap){
+      writer.writeBool(StrokeBinaryKeys.endCap,options.end.cap);
+    }
+    writer.writeKey(StrokeBinaryKeys.endOptions);
+
+  }
+
+  StrokeOptions optionsFromBinary(BinaryReader reader) {
+    int key;
+    double size = StrokeOptions.defaultSize;
+    double thinning = StrokeOptions.defaultThinning;
+    double smoothing = StrokeOptions.defaultSmoothing;
+    double streamLine = StrokeOptions.defaultStreamline;
+    bool simulatePressure = StrokeOptions.defaultSimulatePressure;
+    bool isComplete = StrokeOptions.defaultIsComplete;
+    double? startCustomTaper;
+    double? endCustomTaper;
+    bool startCap = StrokeEndOptions.defaultCap;
+    bool endCap = StrokeEndOptions.defaultCap;
+    bool startTaperEnabled=false;
+    bool endTaperEnabled=false;
+    key = reader.readKey();
+    do {
+      switch (key) {
+        case StrokeBinaryKeys.size :
+          size = reader.readFloat();
+          break;
+        case StrokeBinaryKeys.thinning:
+          thinning = reader.readFloat();
+          break;
+        case StrokeBinaryKeys.smoothing:
+          smoothing = reader.readFloat();
+          break;
+        case StrokeBinaryKeys.streamline:
+          streamLine = reader.readFloat();
+          break;
+        case StrokeBinaryKeys.simulatePressure:
+          simulatePressure = reader.readBoolNoKey();
+          break;
+        case StrokeBinaryKeys.isComplete:
+          isComplete = reader.readBoolNoKey();
+          break;
+        case StrokeBinaryKeys.startTaperEnabled:
+          startTaperEnabled = reader.readBoolNoKey();
+          break;
+        case StrokeBinaryKeys.startCustomTaper:
+          startCustomTaper = reader.readFloat();
+          break;
+        case StrokeBinaryKeys.startCap:
+          startCap = reader.readBoolNoKey();
+          break;
+        case StrokeBinaryKeys.endTaperEnabled:
+          endTaperEnabled = reader.readBoolNoKey();
+          break;
+        case StrokeBinaryKeys.endCustomTaper:
+          endCustomTaper = reader.readFloat();
+          break;
+        case StrokeBinaryKeys.endCap:
+          endCap = reader.readBoolNoKey();
+          break;
+      }
+      key = reader.readKey();
+    } while (key != StrokeBinaryKeys.endOptions);
+
+    final start = StrokeEndOptions.start(
+      customTaper: startCustomTaper,
+      taperEnabled: startTaperEnabled,
+      cap: startCap,
+      easing: StrokeOptions.defaultEasing,
+    );
+    final end = StrokeEndOptions.end(
+      customTaper: endCustomTaper,
+      taperEnabled: endTaperEnabled,
+      cap: endCap,
+      easing: StrokeOptions.defaultEasing,
+    );
+    return StrokeOptions(
+        size: size, thinning: thinning, smoothing: smoothing,streamline: streamLine,
+        easing: StrokeOptions.defaultEasing, simulatePressure: simulatePressure,
+        start: start, end: end,
+        isComplete: isComplete
+    );
+  }
+}
+
+
 class Stroke {
   static final log = Logger('Stroke');
-
   @visibleForTesting
   @protected
   final List<PointVector> points = [];
@@ -369,7 +504,6 @@ class Stroke {
     penType: penType,
   )..points.addAll(points);
 
-
   /// Serializes a Stroke object into a compact binary format.
   void toBinary(BinaryWriter writer) {
     writer.writeString(StrokeBinaryKeys.shape,"");
@@ -387,7 +521,7 @@ class Stroke {
     writer.writeString(StrokeBinaryKeys.penType,penType);
     writer.writeInt(StrokeBinaryKeys.color,color.toARGB32());
 
-    options.toBinary(writer); // store stroke options
+    BinaryOptions().optionsToBinary(writer,options); // store stroke options
     // TODO: Add serialization of StrokeOptions if needed
   }
 
@@ -466,7 +600,7 @@ class Stroke {
     color = reader.readColor();
 
     // Note: In your JSON version you also process options — add them if needed here:
-    final options = StrokeOptions.fromBinary(reader); // adjust this as per your needs
+    final options = BinaryOptions().optionsFromBinary(reader); // adjust this as per your needs
 
     return Stroke(
       color: color,

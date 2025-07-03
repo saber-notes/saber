@@ -10,6 +10,7 @@ import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/tools/shape_pen.dart';
 
 class CircleStroke extends Stroke {
+
   Offset center;
   double radius;
 
@@ -85,7 +86,7 @@ class CircleStroke extends Stroke {
     writer.writeScaledFloat(StrokeBinaryKeys.r, radius);
     writer.writeBool(StrokeBinaryKeys.pressureEnabled,pressureEnabled);
     writer.writeInt(StrokeBinaryKeys.color,color.toARGB32());
-    options.toBinary(writer); // store stroke options
+    BinaryOptions().optionsToBinary(writer,options); // store stroke options
     // TODO: Add serialization of StrokeOptions if needed
   }
 
@@ -131,7 +132,8 @@ class CircleStroke extends Stroke {
     }
     final Color color = reader.readColor();
 
-    final options = StrokeOptions.fromBinary(reader); // adjust this as per your needs
+
+    final options = BinaryOptions().optionsFromBinary(reader); // adjust this as per your needs
 
     return CircleStroke(
       color: color,
