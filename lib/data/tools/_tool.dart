@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:saber/data/prefs.dart';
+import 'package:stow_codecs/stow_codecs.dart';
 
 abstract class Tool {
   @protected
@@ -7,7 +8,7 @@ abstract class Tool {
   const Tool();
 
   /// An identifier for the tool,
-  /// used to save the last-used tool in [Prefs.lastTool].
+  /// used to save the last-used tool in [stows.lastTool].
   ToolId get toolId;
 
   static const Tool textEditing = _TextEditingTool();
@@ -34,4 +35,6 @@ enum ToolId {
 
   final String id;
   const ToolId(this.id);
+
+  static final codec = EnumCodec(values);
 }

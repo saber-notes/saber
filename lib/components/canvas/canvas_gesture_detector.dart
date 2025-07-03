@@ -148,17 +148,17 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
 
   /// If zooming is locked, this is the zoom level.
   /// Otherwise, this is null.
-  late double? zoomLockedValue = Prefs.lastZoomLock.value
+  late double? zoomLockedValue = stows.lastZoomLock.value
       ? widget._transformationController.value.approxScale
       : null;
 
   /// Whether single-finger panning is locked.
   /// Two-finger panning is always enabled.
-  late bool singleFingerPanLock = Prefs.lastSingleFingerPanLock.value;
+  late bool singleFingerPanLock = stows.lastSingleFingerPanLock.value;
 
   /// Whether panning is locked to being horizontal or vertical.
   /// Otherwise, panning can be done in any (i.e. diagonal) direction.
-  late bool axisAlignedPanLock = Prefs.lastAxisAlignedPanLock.value;
+  late bool axisAlignedPanLock = stows.lastAxisAlignedPanLock.value;
 
   void zoomIn() => widget._transformationController.value = setZoom(
         scaleDelta: 0.1,
@@ -495,18 +495,18 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
               zoomLockedValue = zoomLock
                   ? widget._transformationController.value.approxScale
                   : null;
-              Prefs.lastZoomLock.value = zoomLock;
+              stows.lastZoomLock.value = zoomLock;
             }),
             resetZoom: zoomLockedValue != null ? null : resetZoom,
             singleFingerPanLock: singleFingerPanLock,
             setSingleFingerPanLock: (bool singleFingerPanLock) => setState(() {
               this.singleFingerPanLock = singleFingerPanLock;
-              Prefs.lastSingleFingerPanLock.value = singleFingerPanLock;
+              stows.lastSingleFingerPanLock.value = singleFingerPanLock;
             }),
             axisAlignedPanLock: axisAlignedPanLock,
             setAxisAlignedPanLock: (bool axisAlignedPanLock) => setState(() {
               this.axisAlignedPanLock = axisAlignedPanLock;
-              Prefs.lastAxisAlignedPanLock.value = axisAlignedPanLock;
+              stows.lastAxisAlignedPanLock.value = axisAlignedPanLock;
             }),
           ),
         ),

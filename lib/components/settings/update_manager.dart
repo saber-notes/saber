@@ -38,8 +38,8 @@ abstract class UpdateManager {
     if (!userTriggered) {
       if (status.value == UpdateStatus.upToDate) {
         // check for updates if not already done
-        await Prefs.shouldCheckForUpdates.waitUntilLoaded();
-        if (!Prefs.shouldCheckForUpdates.value) return;
+        await stows.shouldCheckForUpdates.waitUntilRead();
+        if (!stows.shouldCheckForUpdates.value) return;
         status.value = await _checkForUpdate();
       }
       if (status.value != UpdateStatus.updateRecommended)
@@ -201,7 +201,7 @@ abstract class UpdateManager {
     }
 
     // Check if the update is low priority
-    if (!Prefs.shouldAlwaysAlertForUpdates.value) {
+    if (!stows.shouldAlwaysAlertForUpdates.value) {
       // Only prompt user every second patch
       if (newestVersion.buildNumber - currentVersion.buildNumber <
           SaberVersion.fromName('0.0.2').buildNumber) {

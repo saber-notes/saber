@@ -4,7 +4,7 @@ import 'dart:io';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/flavor_config.dart';
-import 'package:saber/data/prefs.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'utils/test_mock_channel_handlers.dart';
 
@@ -12,10 +12,8 @@ void main() {
   group('File write stream:', () {
     final List<FileOperation> events = [];
     StreamSubscription<FileOperation>? subscription;
-  
+
     FlavorConfig.setup();
-    Prefs.testingMode = true;
-    Prefs.init();
 
     setUp(() async {
       events.clear();
@@ -45,6 +43,7 @@ void main() {
     test('system directory watch', () async {
       TestWidgetsFlutterBinding.ensureInitialized();
       setupMockPathProvider();
+      SharedPreferences.setMockInitialValues({});
 
       await FileManager.init();
 

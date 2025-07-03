@@ -30,9 +30,9 @@ class Pen extends Tool {
         sizeMax = 25,
         sizeStep = 1,
         icon = fountainPenIcon,
-        options = Prefs.lastFountainPenOptions.value,
+        options = stows.lastFountainPenOptions.value,
         pressureEnabled = true,
-        color = Color(Prefs.lastFountainPenColor.value),
+        color = Color(stows.lastFountainPenColor.value),
         toolId = ToolId.fountainPen;
 
   Pen.ballpointPen()
@@ -41,9 +41,9 @@ class Pen extends Tool {
         sizeMax = 25,
         sizeStep = 1,
         icon = ballpointPenIcon,
-        options = Prefs.lastBallpointPenOptions.value,
+        options = stows.lastBallpointPenOptions.value,
         pressureEnabled = false,
-        color = Color(Prefs.lastBallpointPenColor.value),
+        color = Color(stows.lastBallpointPenColor.value),
         toolId = ToolId.ballpointPen;
 
   Pen.insertPen()

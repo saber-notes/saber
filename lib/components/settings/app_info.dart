@@ -37,7 +37,7 @@ class AppInfo extends StatelessWidget {
     return TextButton(
       onPressed: () => _showAboutDialog(context),
       child: ValueListenableBuilder(
-        valueListenable: Prefs.locale,
+        valueListenable: stows.locale,
         builder: (context, _, __) => Text(info),
       ),
     );

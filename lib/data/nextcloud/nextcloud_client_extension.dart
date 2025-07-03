@@ -35,26 +35,26 @@ extension NextcloudClientExtension on NextcloudClient {
   static const String reproducibleSalt = r'8MnPs64@R&mF8XjWeLrD';
 
   static NextcloudClient? withSavedDetails() {
-    if (!Prefs.loggedIn) return null;
+    if (!stows.loggedIn) return null;
 
-    String url = Prefs.url.value;
-    String username = Prefs.username.value;
-    String ncPassword = Prefs.ncPassword.value;
+    String url = stows.url.value;
+    String username = stows.username.value;
+    String ncPassword = stows.ncPassword.value;
 
     final client = NextcloudClient(
       url.isNotEmpty ? Uri.parse(url) : defaultNextcloudUri,
       loginName: username,
       password: ncPassword,
-      appPassword: Prefs.ncPasswordIsAnAppPassword.value ? ncPassword : null,
+      appPassword: stows.ncPasswordIsAnAppPassword.value ? ncPassword : null,
       httpClient: NextcloudClientExtension.newHttpClient(),
     );
 
     void deAuth() {
-      Prefs.username.removeListener(deAuth);
+      stows.username.removeListener(deAuth);
       client.authentications?.clear();
     }
 
-    Prefs.username.addListener(deAuth);
+    stows.username.addListener(deAuth);
 
     return client;
   }
@@ -73,7 +73,7 @@ extension NextcloudClientExtension on NextcloudClient {
     return decoded.cast<String, String>();
   }
 
-  /// Generates a config using known values (i.e. from [Prefs]),
+  /// Generates a config using known values (i.e. from [stows]),
   /// updating the given [config] in place.
   ///
   /// This is usually preceded by a call to [getConfig]
@@ -87,11 +87,11 @@ extension NextcloudClientExtension on NextcloudClient {
     Key? key,
   }) async {
     encrypter ??= this.encrypter;
-    iv ??= IV.fromBase64(Prefs.iv.value);
-    key ??= Key.fromBase64(Prefs.key.value);
+    iv ??= IV.fromBase64(stows.iv.value);
+    key ??= Key.fromBase64(stows.key.value);
 
-    config[Prefs.key.key] = encrypter.encrypt(key.base64, iv: iv).base64;
-    config[Prefs.iv.key] = iv.base64;
+    config[stows.key.key] = encrypter.encrypt(key.base64, iv: iv).base64;
+    config[stows.iv.key] = iv.base64;
 
     return config;
   }
@@ -114,13 +114,13 @@ extension NextcloudClientExtension on NextcloudClient {
     final Encrypter encrypter = this.encrypter;
 
     final Map<String, String> config = await getConfig();
-    if (config.containsKey(Prefs.key.key) && config.containsKey(Prefs.iv.key)) {
-      final IV iv = IV.fromBase64(config[Prefs.iv.key]!);
-      final String encryptedKey = config[Prefs.key.key]!;
+    if (config.containsKey(stows.key.key) && config.containsKey(stows.iv.key)) {
+      final IV iv = IV.fromBase64(config[stows.iv.key]!);
+      final String encryptedKey = config[stows.key.key]!;
       try {
         final String key = encrypter.decrypt64(encryptedKey, iv: iv);
-        Prefs.key.value = key;
-        Prefs.iv.value = iv.base64;
+        stows.key.value = key;
+        stows.iv.value = iv.base64;
         return key;
       } catch (e) {
         // can't decrypt, so we need to get the previous encryption key (user's password)
@@ -141,8 +141,8 @@ extension NextcloudClientExtension on NextcloudClient {
     );
     await setConfig(config);
 
-    Prefs.key.value = key.base64;
-    Prefs.iv.value = iv.base64;
+    stows.key.value = key.base64;
+    stows.iv.value = iv.base64;
 
     return key.base64;
   }
@@ -154,7 +154,7 @@ extension NextcloudClientExtension on NextcloudClient {
 
   Encrypter get encrypter {
     final List<int> encodedPassword =
-        utf8.encode(Prefs.encPassword.value + reproducibleSalt);
+        utf8.encode(stows.encPassword.value + reproducibleSalt);
     final List<int> hashedPasswordBytes = sha256.convert(encodedPassword).bytes;
     final Key passwordKey = Key(hashedPasswordBytes as Uint8List);
     return Encrypter(AES(passwordKey));

@@ -65,16 +65,16 @@ Future<void> main(
   }
 
   StrokeOptionsExtension.setDefaults();
-  Prefs.init();
+  Stows.markAsOnMainIsolate();
 
   await Future.wait([
-    Prefs.customDataDir.waitUntilLoaded().then((_) => FileManager.init()),
+    stows.customDataDir.waitUntilRead().then((_) => FileManager.init()),
     if (Platform.isWindows || Platform.isLinux || Platform.isMacOS)
       windowManager.ensureInitialized(),
     workerManager.init(),
-    Prefs.locale.waitUntilLoaded(),
-    Prefs.url.waitUntilLoaded(),
-    Prefs.allowInsecureConnections.waitUntilLoaded(),
+    stows.locale.waitUntilRead(),
+    stows.url.waitUntilRead(),
+    stows.allowInsecureConnections.waitUntilRead(),
     PencilShader.init(),
     PencilSound.preload(),
     Printing.info().then((info) {
@@ -84,8 +84,8 @@ Future<void> main(
   ]);
 
   setLocale();
-  Prefs.locale.addListener(setLocale);
-  Prefs.customDataDir.addListener(FileManager.migrateDataDir);
+  stows.locale.addListener(setLocale);
+  stows.customDataDir.addListener(FileManager.migrateDataDir);
 
   LicenseRegistry.addLicense(() async* {
     for (final licenseFile in const [
@@ -106,15 +106,15 @@ Future<void> main(
 }
 
 void startSyncAfterLoaded() async {
-  await Prefs.username.waitUntilLoaded();
-  await Prefs.encPassword.waitUntilLoaded();
+  await stows.username.waitUntilRead();
+  await stows.encPassword.waitUntilRead();
 
-  Prefs.username.removeListener(startSyncAfterLoaded);
-  Prefs.encPassword.removeListener(startSyncAfterLoaded);
-  if (!Prefs.loggedIn) {
+  stows.username.removeListener(startSyncAfterLoaded);
+  stows.encPassword.removeListener(startSyncAfterLoaded);
+  if (!stows.loggedIn) {
     // try again when logged in
-    Prefs.username.addListener(startSyncAfterLoaded);
-    Prefs.encPassword.addListener(startSyncAfterLoaded);
+    stows.username.addListener(startSyncAfterLoaded);
+    stows.encPassword.addListener(startSyncAfterLoaded);
     return;
   }
 
@@ -127,9 +127,9 @@ void startSyncAfterLoaded() async {
 }
 
 void setLocale() {
-  if (Prefs.locale.value.isNotEmpty &&
-      AppLocaleUtils.supportedLocalesRaw.contains(Prefs.locale.value)) {
-    LocaleSettings.setLocaleRaw(Prefs.locale.value);
+  if (stows.locale.value.isNotEmpty &&
+      AppLocaleUtils.supportedLocalesRaw.contains(stows.locale.value)) {
+    LocaleSettings.setLocaleRaw(stows.locale.value);
   } else {
     LocaleSettings.useDeviceLocale();
   }
@@ -137,12 +137,12 @@ void setLocale() {
 
 void setupBackgroundSync() {
   if (!Platform.isAndroid && !Platform.isIOS) return;
-  if (!Prefs.syncInBackground.loaded) {
-    return Prefs.syncInBackground.addListener(setupBackgroundSync);
+  if (!stows.syncInBackground.loaded) {
+    return stows.syncInBackground.addListener(setupBackgroundSync);
   } else {
-    Prefs.syncInBackground.removeListener(setupBackgroundSync);
+    stows.syncInBackground.removeListener(setupBackgroundSync);
   }
-  if (!Prefs.syncInBackground.value) return;
+  if (!stows.syncInBackground.value) return;
 
   Workmanager().initialize(doBackgroundSync, isInDebugMode: kDebugMode);
   const uniqueName = 'background-sync';
@@ -169,14 +169,13 @@ void setupBackgroundSync() {
 void doBackgroundSync() {
   Workmanager().executeTask((_, __) async {
     StrokeOptionsExtension.setDefaults();
-    Prefs.init();
     Editor.canRasterPdf = false;
 
     await Future.wait([
       FileManager.init(),
       workerManager.init(),
-      Prefs.url.waitUntilLoaded(),
-      Prefs.allowInsecureConnections.waitUntilLoaded(),
+      stows.url.waitUntilRead(),
+      stows.allowInsecureConnections.waitUntilRead(),
     ]);
 
     /// Only sync a few files to avoid using too much data/battery

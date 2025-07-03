@@ -63,7 +63,7 @@ class _EncLoginStepState extends State<EncLoginStep> {
             height: min(64, screenHeight * 0.05),
           ),
         ],
-        Text(t.login.status.hi(u: Prefs.username.value),
+        Text(t.login.status.hi(u: stows.username.value),
             style: textTheme.headlineSmall),
         Text.rich(
           t.login.notYou(
@@ -72,9 +72,9 @@ class _EncLoginStepState extends State<EncLoginStep> {
               style: TextStyle(color: colorScheme.link),
               recognizer: TapGestureRecognizer()
                 ..onTap = () {
-                  Prefs.url.value = '';
-                  Prefs.username.value = '';
-                  Prefs.ncPassword.value = '';
+                  stows.url.value = '';
+                  stows.username.value = '';
+                  stows.ncPassword.value = '';
                   widget.recheckCurrentStep();
                 },
             ),
@@ -146,17 +146,17 @@ class _EncLoginStepState extends State<EncLoginStep> {
     if (encPassword.isEmpty) return;
 
     try {
-      Prefs.encPassword.value = encPassword;
+      stows.encPassword.value = encPassword;
       final client = NextcloudClientExtension.withSavedDetails()!;
       _isChecking.value = true;
       await client.loadEncryptionKey();
       widget.recheckCurrentStep();
     } on EncLoginFailure {
-      Prefs.encPassword.value = '';
+      stows.encPassword.value = '';
 
       _errorMessage.value = t.login.encLoginStep.wrongEncPassword;
     } catch (e) {
-      Prefs.encPassword.value = '';
+      stows.encPassword.value = '';
       log.severe('Failed to load encryption key: $e', e);
 
       _errorMessage.value = '${t.login.encLoginStep.connectionFailed}\n\n$e';

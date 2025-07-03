@@ -1,6 +1,9 @@
 {
     "files.exclude": {
-        "submodules/": true
+        "submodules/": true,
+        "**/.dart_tool/": true,
+        "**/.idea/": true,
+        "**/.flutter-plugins-dependencies": true,
     },
     "editor.defaultFormatter": "Dart-Code.dart-code",
     "editor.formatOnSave": true,

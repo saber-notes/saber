@@ -20,9 +20,9 @@ class ShapePen extends Pen {
           sizeMax: 25,
           sizeStep: 1,
           icon: shapePenIcon,
-          options: Prefs.lastShapePenOptions.value,
+          options: stows.lastShapePenOptions.value,
           pressureEnabled: false,
-          color: Color(Prefs.lastShapePenColor.value),
+          color: Color(stows.lastShapePenColor.value),
           toolId: ToolId.shapePen,
         );
 
@@ -38,8 +38,8 @@ class ShapePen extends Pen {
   static Timer? _detectShapeDebouncer;
   static var debounceDuration = getDebounceFromPref();
   static Duration getDebounceFromPref() {
-    assert(Prefs.shapeRecognitionDelay.loaded);
-    final ms = Prefs.shapeRecognitionDelay.value;
+    assert(stows.shapeRecognitionDelay.loaded);
+    final ms = stows.shapeRecognitionDelay.value;
     if (ms < 0) {
       return const Duration(hours: 1);
     } else {

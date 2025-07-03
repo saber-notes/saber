@@ -8,6 +8,7 @@ import 'package:saber/data/prefs.dart';
 import 'package:saber/data/routes.dart';
 import 'package:saber/pages/home/home.dart';
 import 'package:saber/pages/home/whiteboard.dart';
+import 'package:stow_codecs/stow_codecs.dart';
 
 class ResponsiveNavbar extends StatefulWidget {
   const ResponsiveNavbar({
@@ -28,8 +29,8 @@ class ResponsiveNavbar extends StatefulWidget {
 class _ResponsiveNavbarState extends State<ResponsiveNavbar> {
   @override
   void initState() {
-    Prefs.locale.addListener(onChange);
-    Prefs.layoutSize.addListener(onChange);
+    stows.locale.addListener(onChange);
+    stows.layoutSize.addListener(onChange);
     super.initState();
   }
 
@@ -62,7 +63,7 @@ class _ResponsiveNavbarState extends State<ResponsiveNavbar> {
 
   @override
   Widget build(BuildContext context) {
-    ResponsiveNavbar.isLargeScreen = switch (Prefs.layoutSize.value) {
+    ResponsiveNavbar.isLargeScreen = switch (stows.layoutSize.value) {
       LayoutSize.auto => MediaQuery.sizeOf(context).width >= 600,
       LayoutSize.phone => false,
       LayoutSize.tablet => true,
@@ -98,8 +99,8 @@ class _ResponsiveNavbarState extends State<ResponsiveNavbar> {
 
   @override
   void dispose() {
-    Prefs.locale.removeListener(onChange);
-    Prefs.layoutSize.removeListener(onChange);
+    stows.locale.removeListener(onChange);
+    stows.layoutSize.removeListener(onChange);
     super.dispose();
   }
 }
@@ -107,5 +108,7 @@ class _ResponsiveNavbarState extends State<ResponsiveNavbar> {
 enum LayoutSize {
   auto,
   phone,
-  tablet,
+  tablet;
+
+  static final codec = EnumCodec(values);
 }

@@ -116,7 +116,7 @@ class _CanvasImageState extends State<CanvasImage> {
     Brightness currentBrightness = Theme.of(context).brightness;
     if (!widget.image.invertible) currentBrightness = Brightness.light;
 
-    if (Prefs.editorAutoInvert.value && currentBrightness != imageBrightness) {
+    if (stows.editorAutoInvert.value && currentBrightness != imageBrightness) {
       imageBrightness = currentBrightness;
     }
 

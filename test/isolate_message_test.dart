@@ -7,7 +7,7 @@ import 'package:saber/components/canvas/image/editor_image.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/flavor_config.dart';
-import 'package:saber/data/prefs.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 /// This test is to diagnose an issue with sending an `EditorCoreInfo` object
 /// from the isolate to the main thread:
@@ -15,8 +15,7 @@ import 'package:saber/data/prefs.dart';
 void main() {
   group('Isolate messages:', () {
     FlavorConfig.setup();
-    Prefs.testingMode = true;
-    Prefs.init();
+    SharedPreferences.setMockInitialValues({});
 
     test('Empty EditorCoreInfo', () async {
       final coreInfo = EditorCoreInfo.empty;

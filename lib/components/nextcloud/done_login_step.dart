@@ -26,15 +26,15 @@ class _DoneLoginStepState extends State<DoneLoginStep> {
   late final log = Logger('DoneLoginStep');
 
   void _logout() {
-    Prefs.url.value = '';
-    Prefs.username.value = '';
-    Prefs.ncPassword.value = '';
-    Prefs.ncPasswordIsAnAppPassword.value = false;
-    Prefs.encPassword.value = '';
-    Prefs.pfp.value = null;
-    Prefs.lastStorageQuota.value = null;
-    Prefs.key.value = '';
-    Prefs.iv.value = '';
+    stows.url.value = '';
+    stows.username.value = '';
+    stows.ncPassword.value = '';
+    stows.ncPasswordIsAnAppPassword.value = false;
+    stows.encPassword.value = '';
+    stows.pfp.value = null;
+    stows.lastStorageQuota.value = null;
+    stows.key.value = '';
+    stows.iv.value = '';
     widget.recheckCurrentStep();
   }
 
@@ -43,12 +43,12 @@ class _DoneLoginStepState extends State<DoneLoginStep> {
     final textTheme = Theme.of(context).textTheme;
     final screenWidth = MediaQuery.sizeOf(context).width;
     final screenHeight = MediaQuery.sizeOf(context).height;
-    final quota = Prefs.lastStorageQuota.value;
+    final quota = stows.lastStorageQuota.value;
     final serverName =
-        Prefs.url.value.ifNotEmpty ?? t.login.ncLoginStep.saberNcServer;
-    late final serverUri = Prefs.url.value.isEmpty
+        stows.url.value.ifNotEmpty ?? t.login.ncLoginStep.saberNcServer;
+    late final serverUri = stows.url.value.isEmpty
         ? NextcloudClientExtension.defaultNextcloudUri
-        : Uri.parse(Prefs.url.value);
+        : Uri.parse(stows.url.value);
     return ListView(
       padding: EdgeInsets.symmetric(
         horizontal: screenWidth > width ? (screenWidth - width) / 2 : 16,
@@ -69,16 +69,16 @@ class _DoneLoginStepState extends State<DoneLoginStep> {
         ],
         Row(
           children: [
-            if (Prefs.pfp.value == null)
-              if (Prefs.url.value.isEmpty)
+            if (stows.pfp.value == null)
+              if (stows.url.value.isEmpty)
                 SvgPicture.asset('assets/icon/icon.svg', width: 32, height: 32)
               else
                 const Icon(Icons.account_circle, size: 32)
             else
-              Image.memory(Prefs.pfp.value!, width: 32, height: 32),
+              Image.memory(stows.pfp.value!, width: 32, height: 32),
             const SizedBox(width: 16),
             Expanded(
-              child: Text(t.login.status.hi(u: Prefs.username.value),
+              child: Text(t.login.status.hi(u: stows.username.value),
                   style: textTheme.headlineSmall),
             ),
           ],

@@ -1562,6 +1562,38 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.12.1"
+  stow:
+    dependency: "direct main"
+    description:
+      name: stow
+      sha256: "0caa7c292ed44138b0dfb5a30142426f745f2a850ad10999937fb20314a36052"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.4.0"
+  stow_codecs:
+    dependency: "direct main"
+    description:
+      name: stow_codecs
+      sha256: "6f0f2e8d6542317596eb7870fb5afa20bef7cd8617a2badb03cc8f9224aea5d3"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.2.0"
+  stow_plain:
+    dependency: "direct main"
+    description:
+      name: stow_plain
+      sha256: ad75704e212ee3f77f3863c417eab7344efd69fa82c8166df48a00ad81ee0e7a
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.4.0"
+  stow_secure:
+    dependency: "direct main"
+    description:
+      name: stow_secure
+      sha256: "26b827d7be721882fdabf7def4254071eaf47f5bacf68b68fafb0ffb83da2532"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.4.0"
   stream_channel:
     dependency: transitive
     description:

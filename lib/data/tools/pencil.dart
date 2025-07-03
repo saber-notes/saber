@@ -13,9 +13,9 @@ class Pencil extends Pen {
           sizeMax: 15,
           sizeStep: 1,
           icon: pencilIcon,
-          options: Prefs.lastPencilOptions.value,
+          options: stows.lastPencilOptions.value,
           pressureEnabled: true,
-          color: Color(Prefs.lastPencilColor.value),
+          color: Color(stows.lastPencilColor.value),
           toolId: ToolId.pencil,
         );
 
