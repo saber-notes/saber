@@ -50,6 +50,8 @@ extension NextcloudClientExtension on NextcloudClient {
     );
 
     void deAuth() {
+      // Logout if the username changes
+      if (stows.username.value == username) return;
       stows.username.removeListener(deAuth);
       client.authentications?.clear();
     }
