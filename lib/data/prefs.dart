@@ -56,10 +56,6 @@ class Stows {
 
   /// the password used to login to Nextcloud
   final ncPassword = SecureStow('ncPassword', '', volatile: !_isOnMainIsolate);
-  // TODO(adil192): maybe deprecate?
-  final ncPasswordIsAnAppPassword = PlainStow(
-      'ncPasswordIsAnAppPassword', false,
-      volatile: !_isOnMainIsolate);
 
   /// the password used to encrypt/decrypt notes
   final encPassword =

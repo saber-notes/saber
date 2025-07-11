@@ -29,7 +29,6 @@ class _DoneLoginStepState extends State<DoneLoginStep> {
     stows.url.value = '';
     stows.username.value = '';
     stows.ncPassword.value = '';
-    stows.ncPasswordIsAnAppPassword.value = false;
     stows.encPassword.value = '';
     stows.pfp.value = null;
     stows.lastStorageQuota.value = null;

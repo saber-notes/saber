@@ -60,7 +60,6 @@ class _NcLoginStepState extends State<NcLoginStep> {
           : credentials.server;
       stows.username.value = username;
       stows.ncPassword.value = credentials.appPassword;
-      stows.ncPasswordIsAnAppPassword.value = true;
       stows.encPassword.value = '';
 
       stows.pfp.value = null;
