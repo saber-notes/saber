@@ -72,6 +72,13 @@ class Pen extends Tool {
     _currentPen = currentPen;
   }
 
+  bool isPressureEnabled() {
+    return pressureEnabled;
+  }
+  double getSize() {
+    return options.size;
+  }
+
   void onDragStart(
       Offset position, EditorPage page, int pageIndex, double? pressure) {
     currentStroke = Stroke(
