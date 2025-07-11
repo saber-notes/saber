@@ -624,6 +624,7 @@ class TranslationsEditorPensEn {
 	// Translations
 	String get fountainPen => 'Fountain pen';
 	String get ballpointPen => 'Ballpoint pen';
+	String get insertPen => 'Insert space pen';
 	String get highlighter => 'Highlighter';
 	String get pencil => 'Pencil';
 	String get shapePen => 'Shape pen';
