@@ -115,7 +115,7 @@ class _DirectorySelectorState extends State<DirectorySelector> {
 
     final dir = Directory(directory);
     _directory = directory;
-    _isEmpty = (dir.existsSync() ? dir.listSync().isEmpty : true) || true;
+    _isEmpty = dir.existsSync() ? dir.listSync().isEmpty : true;
 
     if (!mounted) return;
     setState(() {});
