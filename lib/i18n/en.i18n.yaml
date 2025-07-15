@@ -49,6 +49,11 @@ home:
     multipleRenamedTo: "The following notes will be renamed:"
     numberRenamedTo: $n notes will be renamed to avoid conflicts
   deleteNote: Delete note
+  sortNames: 
+    alphabetical: Alphabetical
+    lastModified: Last Modified
+    sizeOnDisk: Size
+    increasing: Increasing
   renameFolder: 
     renameFolder: Rename folder
     folderName: Folder name
