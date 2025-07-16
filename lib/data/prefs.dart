@@ -249,10 +249,10 @@ class TransformedStow<T_in, T_out> extends Stow<dynamic, T_out, dynamic> {
   }
 
   @override
-  Future<T_out> protectedRead() async => defaultValue;
+  Future<dynamic> protectedRead() async => null;
 
   @override
-  Future<void> protectedWrite(T_out value) async {}
+  Future<void> protectedWrite(dynamic value) async {}
 
   @override
   String toString() {

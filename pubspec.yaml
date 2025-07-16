@@ -146,9 +146,9 @@ dependencies:
   pdfrx: ^1.0.85
   path: ^1.9.1
 
-  stow: ^0.4.0
-  stow_plain: ^0.4.0
-  stow_secure: ^0.4.0
+  stow: ^0.5.0
+  stow_plain: ^0.5.0
+  stow_secure: ^0.5.0
   stow_codecs: ^1.2.0
 
 dev_dependencies:
