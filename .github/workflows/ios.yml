@@ -40,9 +40,7 @@ jobs:
           architecture: x64
 
       - name: Install Codemagic CLI Tools
-        run: |
-          brew install pipx
-          pipx install codemagic-cli-tools
+        run: pipx install codemagic-cli-tools
 
       - name: Setup keychain
         run: |
@@ -62,7 +60,6 @@ jobs:
         run: flutter config --no-cli-animations
 
       - run: flutter pub get
-      - run: find . -name "Podfile" -execdir pod install \;
 
       - name: Build for iOS
         run: |
