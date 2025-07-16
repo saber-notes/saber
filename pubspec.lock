@@ -1128,10 +1128,10 @@ packages:
     dependency: "direct main"
     description:
       name: pdfrx
-      sha256: "132e07fed4c5bdeeece43be607c914a985bc4234fde71d49d1aa45fb28a7e1c6"
+      sha256: c7f80eac77b38a66f2dc49e5cbfd38ed522da77d42ac6d5552872a17f7262a67
       url: "https://pub.dev"
     source: hosted
-    version: "1.3.2"
+    version: "1.3.3"
   perfect_freehand:
     dependency: "direct main"
     description:
@@ -1574,10 +1574,10 @@ packages:
     dependency: "direct main"
     description:
       name: stow
-      sha256: "0caa7c292ed44138b0dfb5a30142426f745f2a850ad10999937fb20314a36052"
+      sha256: "687fd43de10b207092153367df6b04060dbca490e0b3b1bb4add7239eae679e7"
       url: "https://pub.dev"
     source: hosted
-    version: "0.4.0"
+    version: "0.4.0+1"
   stow_codecs:
     dependency: "direct main"
     description:
@@ -1590,18 +1590,18 @@ packages:
     dependency: "direct main"
     description:
       name: stow_plain
-      sha256: ad75704e212ee3f77f3863c417eab7344efd69fa82c8166df48a00ad81ee0e7a
+      sha256: "073a4b6c99d9d29f4b2e2f160de675c8c3e78637cbb18589d53c6e7946550207"
       url: "https://pub.dev"
     source: hosted
-    version: "0.4.0"
+    version: "0.4.0+1"
   stow_secure:
     dependency: "direct main"
     description:
       name: stow_secure
-      sha256: "26b827d7be721882fdabf7def4254071eaf47f5bacf68b68fafb0ffb83da2532"
+      sha256: f26af45f921788ab993203b19edef75a5717a6e43c127e59dee263eec2d51875
       url: "https://pub.dev"
     source: hosted
-    version: "0.4.0"
+    version: "0.4.0+1"
   stream_channel:
     dependency: transitive
     description:
