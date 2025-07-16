@@ -20,9 +20,11 @@ class BrowsePage extends StatefulWidget {
   const BrowsePage({
     super.key,
     String? path,
+    @visibleForTesting this.overrideChildren,
   }) : initialPath = path;
 
   final String? initialPath;
+  final DirectoryChildren? overrideChildren;
 
   @override
   State<BrowsePage> createState() => _BrowsePageState();
@@ -72,7 +74,8 @@ class _BrowsePageState extends State<BrowsePage> {
       if (!location.startsWith(RoutePaths.prefixOfHome)) return;
     }
 
-    children = await FileManager.getChildrenOfDirectory(path ?? '/');
+    children = widget.overrideChildren ??
+        await FileManager.getChildrenOfDirectory(path ?? '/');
 
     if (mounted) setState(() {});
   }

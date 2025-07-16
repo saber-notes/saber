@@ -52,7 +52,9 @@ class _PreviewCardState extends State<PreviewCard> {
         FileManager.getFile('${widget.filePath}${Editor.extension}.p');
     if (kDebugMode && Platform.environment.containsKey('FLUTTER_TEST')) {
       // Avoid FileImages in tests
-      thumbnail.image = MemoryImage(imageFile.readAsBytesSync());
+      thumbnail.image = imageFile.existsSync()
+          ? MemoryImage(imageFile.readAsBytesSync())
+          : null;
     } else {
       thumbnail.image = FileImage(imageFile);
     }
