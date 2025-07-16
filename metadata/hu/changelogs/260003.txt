@@ -1,0 +1,3 @@
+• Crash javítások
+• A régi bejelentkezési rendszer eltávolított támogatása: A 2024. május előtt bejelentkezett felhasználóknak újra be kell jelentkezniük
+• Frissített tárolási kód a nagyobb megbízhatóság és a kevésbé ismételt kód érdekében

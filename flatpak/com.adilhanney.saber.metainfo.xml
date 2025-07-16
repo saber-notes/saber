@@ -214,6 +214,15 @@
     </screenshots>
 
     <releases>
+        <release version="0.26.0" type="development" date="2025-07-16">
+            <description>
+                <ul>
+                    <li>Crash fixes</li>
+                    <li>Removed support for the old login system: users who logged in before May 2024 may need to log in again</li>
+                    <li>Refactored storage code for more reliability and less repeated code</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.25.9" type="development" date="2025-06-12">
             <description>
                 <ul>

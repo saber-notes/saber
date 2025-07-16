@@ -1,0 +1,3 @@
+• Correzioni di crash
+• Supporto rimosso per il vecchio sistema di accesso: gli utenti che hanno effettuato l'accesso prima di maggio 2024 potrebbero dover accedere di nuovo
+• Codice di archiviazione refattorato per una maggiore affidabilità e un codice meno ripetuto

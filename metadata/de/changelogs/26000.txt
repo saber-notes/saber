@@ -1,0 +1,3 @@
+• Crash -Korrekturen
+• Die Unterstützung des alten Anmeldesystems entfernt: Benutzer, die sich vor Mai 2024 angemeldet haben, müssen sich möglicherweise erneut anmelden
+• Wiederherstellte Speichercode für mehr Zuverlässigkeit und weniger wiederholte Code

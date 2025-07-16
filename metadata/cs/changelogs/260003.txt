@@ -1,0 +1,3 @@
+• Oprava havárie
+• Odstraněná podpora starého přihlašovacího systému: Uživatelé, kteří se přihlásili do května 2024
+• Refaktorovaný úložný kód pro větší spolehlivost a méně opakovaný kód

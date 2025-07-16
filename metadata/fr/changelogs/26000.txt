@@ -1,0 +1,3 @@
+• Fix de crash
+• Suppression de la prise en charge de l'ancien système de connexion: les utilisateurs qui se sont connectés avant mai 2024 peuvent avoir besoin de se connecter à nouveau
+• Code de stockage refactorisé pour plus de fiabilité et un code moins répété

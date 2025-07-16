@@ -1,0 +1,3 @@
+• Çökme düzeltmeleri
+• Eski Oturum Açma Sistemi için Destek Kaldırıldı: Mayıs 2024'ten önce oturum açan kullanıcıların tekrar giriş yapması gerekebilir
+• Daha fazla güvenilirlik ve daha az tekrarlanan kod için yeniden düzenlenmiş depolama kodu
