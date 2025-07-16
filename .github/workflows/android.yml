@@ -36,6 +36,9 @@ jobs:
           key: ${{ runner.OS }}-saber-${{ hashFiles('**/pubspec.lock') }}-${{ hashFiles('**/*.dart') }}
           restore-keys: |
             ${{ runner.OS }}-saber-
+
+      - name: Remove development dependencies
+        run: ./patches/remove_dev_dependencies.sh
       
       - name: Setup keystore
         run: |
@@ -120,6 +123,8 @@ jobs:
 
       - name: Remove proprietary dependencies
         run: ./patches/remove_proprietary_dependencies.sh
+      - name: Remove development dependencies
+        run: ./patches/remove_dev_dependencies.sh
       
       - name: Setup keystore
         run: |
