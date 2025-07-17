@@ -9,6 +9,7 @@ import 'package:saber/components/home/masonry_files.dart';
 import 'package:saber/components/home/move_note_button.dart';
 import 'package:saber/components/home/new_note_button.dart';
 import 'package:saber/components/home/no_files.dart';
+import 'package:saber/components/home/path_components.dart';
 import 'package:saber/components/home/rename_note_button.dart';
 import 'package:saber/components/home/syncing_button.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
@@ -92,6 +93,18 @@ class _BrowsePageState extends State<BrowsePage> {
     findChildrenOfPath();
   }
 
+  void onPathComponentTap(String? newPath) {
+    selectedFiles.value = [];
+    if (newPath == null || newPath.isEmpty || newPath == '/') {
+      newPath = null;
+      pathHistory.clear();
+    }
+    pathHistory.add(path);
+    path = newPath;
+    context.go(HomeRoutes.browseFilePath(path ?? '/'));
+    findChildrenOfPath();
+  }
+
   Future<void> createFolder(String folderName) async {
     final folderPath = '${path ?? ''}/$folderName';
     await FileManager.createFolder(folderPath);
@@ -105,11 +118,6 @@ class _BrowsePageState extends State<BrowsePage> {
     final cupertino =
         platform == TargetPlatform.iOS || platform == TargetPlatform.macOS;
 
-    String title = t.home.titles.browse;
-    if (path?.isNotEmpty ?? false) {
-      title += ': $path';
-    }
-
     final crossAxisCount = MediaQuery.sizeOf(context).width ~/ 300 + 1;
 
     return Scaffold(
@@ -120,29 +128,31 @@ class _BrowsePageState extends State<BrowsePage> {
         ]),
         child: CustomScrollView(
           slivers: [
-            SliverPadding(
-              padding: const EdgeInsets.only(
-                bottom: 8,
-              ),
-              sliver: SliverAppBar(
-                collapsedHeight: kToolbarHeight,
-                expandedHeight: 200,
-                pinned: true,
-                scrolledUnderElevation: 1,
-                flexibleSpace: FlexibleSpaceBar(
-                  title: Text(
-                    title,
-                    style: TextStyle(color: colorScheme.onSurface),
-                  ),
-                  centerTitle: cupertino,
-                  titlePadding: EdgeInsetsDirectional.only(
-                      start: cupertino ? 0 : 16, bottom: 16),
+            SliverAppBar(
+              collapsedHeight: kToolbarHeight,
+              expandedHeight: 200 - 8,
+              pinned: true,
+              scrolledUnderElevation: 1,
+              flexibleSpace: FlexibleSpaceBar(
+                title: Text(
+                  t.home.titles.browse,
+                  style: TextStyle(color: colorScheme.onSurface),
                 ),
-                actions: const [
-                  SyncingButton(),
-                ],
+                centerTitle: cupertino,
+                titlePadding: EdgeInsetsDirectional.only(
+                    start: cupertino ? 0 : 16, bottom: 8),
+              ),
+              actions: const [
+                SyncingButton(),
+              ],
+            ),
+            SliverToBoxAdapter(
+              child: PathComponents(
+                path,
+                onPathComponentTap: onPathComponentTap,
               ),
             ),
+            SliverPadding(padding: const EdgeInsets.only(bottom: 16)),
             GridFolders(
               isAtRoot: path?.isEmpty ?? true,
               crossAxisCount: crossAxisCount,
@@ -182,7 +192,9 @@ class _BrowsePageState extends State<BrowsePage> {
               ),
             ] else ...[
               SliverSafeArea(
+                top: false,
                 minimum: const EdgeInsets.only(
+                  top: 8,
                   // Allow space for the FloatingActionButton
                   bottom: 70,
                 ),
