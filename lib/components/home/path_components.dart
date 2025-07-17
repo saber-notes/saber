@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:saber/data/routes.dart';
 
 class PathComponents extends StatelessWidget {
   PathComponents(String? path, {super.key, required this.onPathComponentTap})
