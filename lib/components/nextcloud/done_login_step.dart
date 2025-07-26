@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:logging/logging.dart';
 import 'package:saber/components/misc/faq.dart';
 import 'package:saber/data/extensions/string_extensions.dart';
 import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
@@ -22,16 +23,17 @@ class DoneLoginStep extends StatefulWidget {
 class _DoneLoginStepState extends State<DoneLoginStep> {
   static const width = 400.0;
 
+  late final log = Logger('DoneLoginStep');
+
   void _logout() {
-    Prefs.url.value = '';
-    Prefs.username.value = '';
-    Prefs.ncPassword.value = '';
-    Prefs.ncPasswordIsAnAppPassword.value = false;
-    Prefs.encPassword.value = '';
-    Prefs.pfp.value = null;
-    Prefs.lastStorageQuota.value = null;
-    Prefs.key.value = '';
-    Prefs.iv.value = '';
+    stows.url.value = '';
+    stows.username.value = '';
+    stows.ncPassword.value = '';
+    stows.encPassword.value = '';
+    stows.pfp.value = null;
+    stows.lastStorageQuota.value = null;
+    stows.key.value = '';
+    stows.iv.value = '';
     widget.recheckCurrentStep();
   }
 
@@ -39,9 +41,13 @@ class _DoneLoginStepState extends State<DoneLoginStep> {
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     final screenWidth = MediaQuery.sizeOf(context).width;
-    final quota = Prefs.lastStorageQuota.value;
-    final server =
-        Prefs.url.value.ifNotEmpty ?? t.login.ncLoginStep.saberNcServer;
+    final screenHeight = MediaQuery.sizeOf(context).height;
+    final quota = stows.lastStorageQuota.value;
+    final serverName =
+        stows.url.value.ifNotEmpty ?? t.login.ncLoginStep.saberNcServer;
+    late final serverUri = stows.url.value.isEmpty
+        ? NextcloudClientExtension.defaultNextcloudUri
+        : Uri.parse(stows.url.value);
     return ListView(
       padding: EdgeInsets.symmetric(
         horizontal: screenWidth > width ? (screenWidth - width) / 2 : 16,
@@ -49,25 +55,29 @@ class _DoneLoginStepState extends State<DoneLoginStep> {
       ),
       children: [
         const SizedBox(height: 16),
-        SvgPicture.asset(
-          'assets/images/undraw_my_files_swob.svg',
-          width: width,
-          height: width * 576 / 844.6693,
-          excludeFromSemantics: true,
-        ),
-        const SizedBox(height: 64),
+        if (screenHeight > 500) ...[
+          SvgPicture.asset(
+            'assets/images/undraw_my_files_swob.svg',
+            width: width,
+            height: min(width * 576 / 844.6693, screenHeight * 0.25),
+            excludeFromSemantics: true,
+          ),
+          SizedBox(
+            height: min(64, screenHeight * 0.05),
+          ),
+        ],
         Row(
           children: [
-            if (Prefs.pfp.value == null)
-              if (Prefs.url.value.isEmpty)
+            if (stows.pfp.value == null)
+              if (stows.url.value.isEmpty)
                 SvgPicture.asset('assets/icon/icon.svg', width: 32, height: 32)
               else
                 const Icon(Icons.account_circle, size: 32)
             else
-              Image.memory(Prefs.pfp.value!, width: 32, height: 32),
+              Image.memory(stows.pfp.value!, width: 32, height: 32),
             const SizedBox(width: 16),
             Expanded(
-              child: Text(t.login.status.hi(u: Prefs.username.value),
+              child: Text(t.login.status.hi(u: stows.username.value),
                   style: textTheme.headlineSmall),
             ),
           ],
@@ -81,7 +91,7 @@ class _DoneLoginStepState extends State<DoneLoginStep> {
         const SizedBox(height: 2),
         LinearProgressIndicator(
           // At least 4% so the rounded corners render properly
-          value: max((quota?.relative ?? 0) / 100, 0.04),
+          value: (quota?.relative ?? 0).clamp(4, 100) / 100,
           minHeight: 32,
           borderRadius: BorderRadius.circular(6),
         ),
@@ -92,18 +102,17 @@ class _DoneLoginStepState extends State<DoneLoginStep> {
         ),
         const SizedBox(height: 32),
         Text(t.profile.connectedTo, style: const TextStyle(height: 0.8)),
-        Text(server, style: textTheme.headlineSmall),
+        Text(serverName, style: textTheme.headlineSmall),
         const SizedBox(height: 4),
         Row(
           children: [
             Flexible(
               fit: FlexFit.tight,
               child: ElevatedButton(
-                onPressed: () => launchUrl(
-                  Prefs.url.value.isEmpty
-                      ? NextcloudClientExtension.defaultNextcloudUri
-                      : Uri.parse(Prefs.url.value),
-                ),
+                onPressed: () {
+                  log.info('Opening URL: $serverUri');
+                  launchUrl(serverUri);
+                },
                 child: Text(t.profile.quickLinks.serverHomepage),
               ),
             ),
@@ -111,8 +120,11 @@ class _DoneLoginStepState extends State<DoneLoginStep> {
             Flexible(
               fit: FlexFit.tight,
               child: ElevatedButton(
-                onPressed: () => launchUrl(
-                    Uri.parse('$server/index.php/settings/user/drop_account')),
+                onPressed: () {
+                  final url = '$serverUri/index.php/settings/user/drop_account';
+                  log.info('Opening URL: $url');
+                  launchUrl(Uri.parse(url));
+                },
                 child: Text(t.profile.quickLinks.deleteAccount),
               ),
             ),

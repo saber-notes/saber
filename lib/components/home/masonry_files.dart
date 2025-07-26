@@ -33,7 +33,7 @@ class _MasonryFilesState extends State<MasonryFiles> {
     widget.selectedFiles.notifyListenersPlease();
   }
 
-  Widget itemBuilder(context, index) {
+  Widget itemBuilder(BuildContext context, int index) {
     if (index >= widget.files.length) {
       return const SizedBox.shrink();
     }
@@ -42,11 +42,14 @@ class _MasonryFilesState extends State<MasonryFiles> {
     return ValueListenableBuilder(
       valueListenable: isAnythingSelected,
       builder: (context, isAnythingSelected, _) {
-        return PreviewCard(
-          filePath: file,
-          toggleSelection: toggleSelection,
-          selected: widget.selectedFiles.value.contains(file),
-          isAnythingSelected: isAnythingSelected,
+        return Align(
+          alignment: Alignment.bottomCenter,
+          child: PreviewCard(
+            filePath: file,
+            toggleSelection: toggleSelection,
+            selected: widget.selectedFiles.value.contains(file),
+            isAnythingSelected: isAnythingSelected,
+          ),
         );
       },
     );
@@ -58,7 +61,7 @@ class _MasonryFilesState extends State<MasonryFiles> {
 
     return SliverPadding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-      sliver: Prefs.simplifiedHomeLayout.value
+      sliver: stows.simplifiedHomeLayout.value
           ? SliverGrid.builder(
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: widget.crossAxisCount,

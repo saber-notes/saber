@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:saber/data/prefs.dart';
 import 'package:saber/pages/home/settings.dart';
+import 'package:stow/stow.dart';
 
 class SettingsSwitch extends StatefulWidget {
   const SettingsSwitch({
@@ -19,7 +19,7 @@ class SettingsSwitch extends StatefulWidget {
   final IconData? icon;
   final IconData? Function(bool)? iconBuilder;
 
-  final IPref<bool> pref;
+  final Stow<dynamic, bool, dynamic> pref;
   final ValueChanged<bool>? afterChange;
 
   @override

@@ -15,6 +15,7 @@ import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/image/editor_image.dart';
 import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
+import 'package:saber/data/flavor_config.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/data/tools/stroke_properties.dart';
 import 'package:saber/pages/editor/editor.dart';
@@ -74,8 +75,8 @@ class EditorCoreInfo {
     nextImageId: 0,
     backgroundColor: null,
     backgroundPattern: CanvasBackgroundPattern.none,
-    lineHeight: Prefs.lastLineHeight.value,
-    lineThickness: Prefs.lastLineThickness.value,
+    lineHeight: stows.lastLineHeight.value,
+    lineThickness: stows.lastLineThickness.value,
     pages: [],
     initialPageIndex: null,
     assetCache: null,
@@ -95,9 +96,9 @@ class EditorCoreInfo {
     this.readOnly =
         true, // default to read-only, until it's loaded with [loadFromFilePath]
   })  : nextImageId = 0,
-        backgroundPattern = Prefs.lastBackgroundPattern.value,
-        lineHeight = Prefs.lastLineHeight.value,
-        lineThickness = Prefs.lastLineThickness.value,
+        backgroundPattern = stows.lastBackgroundPattern.value,
+        lineHeight = stows.lastLineHeight.value,
+        lineThickness = stows.lastLineThickness.value,
         pages = [],
         assetCache = AssetCache();
 
@@ -171,14 +172,8 @@ class EditorCoreInfo {
         }
         return CanvasBackgroundPattern.none;
       }(),
-      lineHeight: json['l'] as int? ??
-          (Prefs.available
-              ? Prefs.lastLineHeight.value
-              : Prefs.defaultLineHeight),
-      lineThickness: json['lt'] as int? ??
-          (Prefs.available
-              ? Prefs.lastLineThickness.value
-              : Prefs.defaultLineThickness),
+      lineHeight: json['l'] as int? ?? stows.lastLineHeight.value,
+      lineThickness: json['lt'] as int? ?? stows.lastLineThickness.value,
       pages: _parsePagesJson(
         json['z'] as List?,
         inlineAssets: inlineAssets,
@@ -212,8 +207,8 @@ class EditorCoreInfo {
     required bool onlyFirstPage,
   })  : nextImageId = 0,
         backgroundPattern = CanvasBackgroundPattern.none,
-        lineHeight = Prefs.lastLineHeight.value,
-        lineThickness = Prefs.lastLineThickness.value,
+        lineHeight = stows.lastLineHeight.value,
+        lineThickness = stows.lastLineThickness.value,
         pages = [],
         assetCache = AssetCache() {
     _migrateOldStrokesAndImages(
@@ -400,6 +395,7 @@ class EditorCoreInfo {
           () async {
             // We need to rerun some "init" methods in the isolate,
             // see https://github.com/saber-notes/saber/issues/1031.
+            FlavorConfig.setup();
             await FileManager.init(
               documentsDirectory: documentsDirectory,
               shouldWatchRootDirectory: false,

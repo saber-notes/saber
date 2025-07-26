@@ -1,0 +1,2 @@
+• Correction de l'outil de sélection pas (visiblement) des traits mobiles
+• Correction des liens de serveur dans la page du compte

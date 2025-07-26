@@ -9,15 +9,16 @@ import 'package:path/path.dart' as p;
 import 'package:saber/components/canvas/canvas.dart';
 import 'package:saber/components/canvas/image/editor_image.dart';
 import 'package:saber/components/canvas/pencil_shader.dart';
+import 'package:saber/components/theming/font_fallbacks.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/data/editor/editor_exporter.dart';
 import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/flavor_config.dart';
-import 'package:saber/data/prefs.dart';
 import 'package:saber/data/tools/laser_pointer.dart';
 import 'package:saber/data/tools/stroke_properties.dart';
 import 'package:saber/i18n/strings.g.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'utils/test_mock_channel_handlers.dart';
 
@@ -32,8 +33,7 @@ void main() {
     setupMockPrinting();
 
     FlavorConfig.setup();
-    Prefs.testingMode = true;
-    Prefs.init();
+    SharedPreferences.setMockInitialValues({});
 
     setUpAll(() => Future.wait([
           FileManager.init(),
@@ -95,12 +95,12 @@ void main() {
           EditorImage.shouldLoadOutImmediately = false;
         });
 
-        testWidgets('(Light)', (tester) async {
+        testGoldens('(Light)', (tester) async {
           await tester.runAsync(() => _precacheImages(
                 context: tester.binding.rootElement!,
                 page: page,
               ));
-          await tester.loadFonts();
+          await tester.loadFonts(overriddenFonts: saberSansSerifFontFallbacks);
           await tester.pumpWidget(_buildCanvas(
             brightness: Brightness.light,
             path: path,
@@ -116,12 +116,12 @@ void main() {
           );
         });
 
-        testWidgets('(Dark)', (tester) async {
+        testGoldens('(Dark)', (tester) async {
           await tester.runAsync(() => _precacheImages(
                 context: tester.binding.rootElement!,
                 page: page,
               ));
-          await tester.loadFonts();
+          await tester.loadFonts(overriddenFonts: saberSansSerifFontFallbacks);
           await tester.pumpWidget(_buildCanvas(
             brightness: Brightness.dark,
             path: path,
@@ -146,7 +146,7 @@ void main() {
             hasGhostscript = false;
           }
 
-          testWidgets('(PDF)', (tester) async {
+          testGoldens('(PDF)', (tester) async {
             final context = await _getBuildContext(tester, page.size);
 
             final pdfFile = File(p.join(tmpDir, '$sbnName.pdf'));
@@ -187,7 +187,7 @@ void main() {
       });
     }
 
-    testWidgets('SBA export and import', (tester) async {
+    testGoldens('SBA export and import', (tester) async {
       const path = 'test/sbn_examples/v19_separate_assets.sbn2';
       final pathWithoutExtension = path.substring(0, path.lastIndexOf('.'));
 
@@ -240,7 +240,7 @@ void main() {
             context: tester.binding.rootElement!,
             page: importedCoreInfo.pages.first,
           ));
-      await tester.loadFonts();
+      await tester.loadFonts(overriddenFonts: saberSansSerifFontFallbacks);
       await tester.pumpWidget(_buildCanvas(
         brightness: Brightness.light,
         path: importedPath,

@@ -13,9 +13,9 @@ import 'strings.g.dart';
 class TranslationsZhHantTw extends Translations {
 	/// You can call this constructor and build your own translation instance of this locale.
 	/// Constructing via the enum [AppLocale.build] is preferred.
-	TranslationsZhHantTw({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver})
+	TranslationsZhHantTw({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver, TranslationMetadata<AppLocale, Translations>? meta})
 		: assert(overrides == null, 'Set "translation_overrides: true" in order to enable this feature.'),
-		  $meta = TranslationMetadata(
+		  $meta = meta ?? TranslationMetadata(
 		    locale: AppLocale.zhHantTw,
 		    overrides: overrides ?? {},
 		    cardinalResolver: cardinalResolver,
@@ -27,6 +27,9 @@ class TranslationsZhHantTw extends Translations {
 	@override final TranslationMetadata<AppLocale, Translations> $meta;
 
 	late final TranslationsZhHantTw _root = this; // ignore: unused_field
+
+	@override 
+	TranslationsZhHantTw $copyWith({TranslationMetadata<AppLocale, Translations>? meta}) => TranslationsZhHantTw(meta: meta ?? this.$meta);
 
 	// Translations
 	@override late final _TranslationsCommonZhHantTw common = _TranslationsCommonZhHantTw._(_root);
@@ -74,6 +77,7 @@ class _TranslationsHomeZhHantTw extends TranslationsHomeEn {
 	@override String get deleteNote => '刪除筆記';
 	@override late final _TranslationsHomeRenameFolderZhHantTw renameFolder = _TranslationsHomeRenameFolderZhHantTw._(_root);
 	@override late final _TranslationsHomeDeleteFolderZhHantTw deleteFolder = _TranslationsHomeDeleteFolderZhHantTw._(_root);
+	@override String get noPreviewAvailable => '沒有預覽';
 }
 
 // Path: settings
@@ -100,6 +104,8 @@ class _TranslationsSettingsZhHantTw extends TranslationsSettingsEn {
 	@override String get resyncEverything => '全部重新同步';
 	@override String get openDataDir => '開啟 Saber 資料夾';
 	@override late final _TranslationsSettingsCustomDataDirZhHantTw customDataDir = _TranslationsSettingsCustomDataDirZhHantTw._(_root);
+	@override String get autosaveDisabled => '絕不';
+	@override String get shapeRecognitionDisabled => '絕不';
 }
 
 // Path: logs
@@ -377,7 +383,7 @@ class _TranslationsSettingsPrefLabelsZhHantTw extends TranslationsSettingsPrefLa
 	@override String get recentColorsDontSavePresets => '不要在最近的顏色中儲存預設顏色';
 	@override String get recentColorsLength => '要儲存多少種最近的顏色';
 	@override String get printPageIndicators => '列印頁碼';
-	@override String get autosaveDelay => '自動儲存延遲';
+	@override String get autosave => '自動保存';
 	@override String get shapeRecognitionDelay => '形狀識別延遲';
 	@override String get autoStraightenLines => '自動拉直線條';
 	@override String get simplifiedHomeLayout => '簡化首頁佈局';
@@ -402,7 +408,7 @@ class _TranslationsSettingsPrefDescriptionsZhHantTw extends TranslationsSettings
 	@override String get editorPromptRename => '您以後隨時可以重新命名筆記';
 	@override String get hideHomeBackgrounds => '為了更乾淨的外觀';
 	@override String get printPageIndicators => '在匯出中顯示頁碼';
-	@override String get autosaveDelay => '自動儲存筆記之前等待多少時間';
+	@override String get autosave => '短暫延遲後自動保存，或者永遠不會';
 	@override String get shapeRecognitionDelay => '多久更新一次形狀預覽';
 	@override String get autoStraightenLines => '無需使用形狀筆即可拉直線條';
 	@override String get simplifiedHomeLayout => '為每個筆記預覽設定固定高度';
@@ -707,8 +713,6 @@ class _TranslationsEditorMenuZhHantTw extends TranslationsEditorMenuEn {
 	@override String get deletePage => '刪除頁面';
 	@override String get lineHeight => '行高';
 	@override String get lineHeightDescription => '同時控制輸入筆記的文字大小';
-	@override String get lineThickness => '線厚度';
-	@override String get lineThicknessDescription => '背景線厚度';
 	@override String get backgroundImageFit => '適應背景圖片';
 	@override String get backgroundPattern => '背景圖案';
 	@override String get import => '匯入';
@@ -716,6 +720,8 @@ class _TranslationsEditorMenuZhHantTw extends TranslationsEditorMenuEn {
 	@override String get watchServerReadOnly => '監視伺服器時無法進行編輯';
 	@override late final _TranslationsEditorMenuBoxFitsZhHantTw boxFits = _TranslationsEditorMenuBoxFitsZhHantTw._(_root);
 	@override late final _TranslationsEditorMenuBgPatternsZhHantTw bgPatterns = _TranslationsEditorMenuBgPatternsZhHantTw._(_root);
+	@override String get lineThickness => '線厚度';
+	@override String get lineThicknessDescription => '背景線厚度';
 }
 
 // Path: editor.newerFileFormat

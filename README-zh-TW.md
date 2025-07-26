@@ -28,10 +28,6 @@ Unofficial packages:
 [<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/snap-badge.svg"
     alt="在 Snap Store 上取得"
     height=50>][snap]
-&nbsp;
-[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/copr.png"
-    alt="Get it from Fedora Copr"
-    height=50>][copr]
 
 [English](https://github.com/saber-notes/saber/blob/main/README.md) |
 [čeština](https://github.com/saber-notes/saber/blob/main/README-cs.md) |
@@ -109,10 +105,6 @@ Saber具有使筆記井井有條所需的一切功能。在無限嵌套的資料
 選項 3：
 感謝 @soumyaDghosh，有一個非官方的 [snap][snap] 可用。
 `sudo snap install saber`
-
-選項 4：
-There's an unofficial Fedora Copr [repo][copr] available thanks to @jyo64.
-`sudo dnf copr enable jyo64/Saber && sudo dnf install saber`
 
 #### Windows
 
@@ -336,8 +328,8 @@ Windows 安裝程式是使用 [Inno Setup](https://jrsoftware.org/isinfo.php) �
 [google_play]: https://play.google.com/store/apps/details?id=com.adilhanney.saber
 [snap]: https://snapcraft.io/saber
 [app_store]: https://apps.apple.com/us/app/saber/id1671523739
-[download_windows]: https://github.com/saber-notes/saber/releases/download/v0.25.4/SaberInstaller_v0.25.4.exe
-[download_appimage]: https://github.com/saber-notes/saber/releases/download/v0.25.4/Saber-0.25.4-x86_64.AppImage
+[download_windows]: https://github.com/saber-notes/saber/releases/download/v0.26.0/SaberInstaller_v0.26.0.exe
+[download_appimage]: https://github.com/saber-notes/saber/releases/download/v0.26.0/Saber-0.26.0-x86_64.AppImage
 [nextcloud]: https://nc.saber.adil.hanney.org/
 [privacy]: https://github.com/saber-notes/saber/blob/main/privacy_policy.md
 [license]: https://github.com/saber-notes/saber/blob/main/LICENSE.md

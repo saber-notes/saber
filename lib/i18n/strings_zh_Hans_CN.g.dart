@@ -13,9 +13,9 @@ import 'strings.g.dart';
 class TranslationsZhHansCn extends Translations {
 	/// You can call this constructor and build your own translation instance of this locale.
 	/// Constructing via the enum [AppLocale.build] is preferred.
-	TranslationsZhHansCn({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver})
+	TranslationsZhHansCn({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver, TranslationMetadata<AppLocale, Translations>? meta})
 		: assert(overrides == null, 'Set "translation_overrides: true" in order to enable this feature.'),
-		  $meta = TranslationMetadata(
+		  $meta = meta ?? TranslationMetadata(
 		    locale: AppLocale.zhHansCn,
 		    overrides: overrides ?? {},
 		    cardinalResolver: cardinalResolver,
@@ -27,6 +27,9 @@ class TranslationsZhHansCn extends Translations {
 	@override final TranslationMetadata<AppLocale, Translations> $meta;
 
 	late final TranslationsZhHansCn _root = this; // ignore: unused_field
+
+	@override 
+	TranslationsZhHansCn $copyWith({TranslationMetadata<AppLocale, Translations>? meta}) => TranslationsZhHansCn(meta: meta ?? this.$meta);
 
 	// Translations
 	@override late final _TranslationsCommonZhHansCn common = _TranslationsCommonZhHansCn._(_root);
@@ -74,6 +77,7 @@ class _TranslationsHomeZhHansCn extends TranslationsHomeEn {
 	@override String get deleteNote => '删除笔记';
 	@override late final _TranslationsHomeRenameFolderZhHansCn renameFolder = _TranslationsHomeRenameFolderZhHansCn._(_root);
 	@override late final _TranslationsHomeDeleteFolderZhHansCn deleteFolder = _TranslationsHomeDeleteFolderZhHansCn._(_root);
+	@override String get noPreviewAvailable => '没有预览';
 }
 
 // Path: settings
@@ -100,6 +104,8 @@ class _TranslationsSettingsZhHansCn extends TranslationsSettingsEn {
 	@override String get resyncEverything => '重新同步所有';
 	@override String get openDataDir => '打开 Saber 文件夹';
 	@override late final _TranslationsSettingsCustomDataDirZhHansCn customDataDir = _TranslationsSettingsCustomDataDirZhHansCn._(_root);
+	@override String get autosaveDisabled => '绝不';
+	@override String get shapeRecognitionDisabled => '绝不';
 }
 
 // Path: logs
@@ -377,7 +383,7 @@ class _TranslationsSettingsPrefLabelsZhHansCn extends TranslationsSettingsPrefLa
 	@override String get recentColorsDontSavePresets => '不在最近使用的颜色中保存预设颜色';
 	@override String get recentColorsLength => '要存储多少种最近的颜色';
 	@override String get printPageIndicators => '打印页码';
-	@override String get autosaveDelay => '自动保存延迟';
+	@override String get autosave => '自动保存';
 	@override String get shapeRecognitionDelay => '形状识别延迟';
 	@override String get autoStraightenLines => '自动拉直线';
 	@override String get simplifiedHomeLayout => '简化主页布局';
@@ -402,7 +408,7 @@ class _TranslationsSettingsPrefDescriptionsZhHansCn extends TranslationsSettings
 	@override String get editorPromptRename => '您可以总是稍后重命名笔记';
 	@override String get hideHomeBackgrounds => '更简洁的外观';
 	@override String get printPageIndicators => '在导出中显示页码';
-	@override String get autosaveDelay => '自动保存便笺需要等待的时间';
+	@override String get autosave => '短暂延迟后自动保存，或者永远不会';
 	@override String get shapeRecognitionDelay => '形状预览更新频率';
 	@override String get autoStraightenLines => '拉直长线，无需使用形状笔';
 	@override String get simplifiedHomeLayout => '为每个笔记预览设置固定高度';
@@ -707,8 +713,6 @@ class _TranslationsEditorMenuZhHansCn extends TranslationsEditorMenuEn {
 	@override String get deletePage => '删除页面';
 	@override String get lineHeight => '行高';
 	@override String get lineHeightDescription => '还控制已输入的笔记的文本大小';
-	@override String get lineThickness => '线厚度';
-	@override String get lineThicknessDescription => '背景线厚度';
 	@override String get backgroundImageFit => '背景图像拟合';
 	@override String get backgroundPattern => '背景图案';
 	@override String get import => '导入';
@@ -716,6 +720,8 @@ class _TranslationsEditorMenuZhHansCn extends TranslationsEditorMenuEn {
 	@override String get watchServerReadOnly => '监视服务器时禁用编辑';
 	@override late final _TranslationsEditorMenuBoxFitsZhHansCn boxFits = _TranslationsEditorMenuBoxFitsZhHansCn._(_root);
 	@override late final _TranslationsEditorMenuBgPatternsZhHansCn bgPatterns = _TranslationsEditorMenuBgPatternsZhHansCn._(_root);
+	@override String get lineThickness => '线厚度';
+	@override String get lineThicknessDescription => '背景线厚度';
 }
 
 // Path: editor.newerFileFormat

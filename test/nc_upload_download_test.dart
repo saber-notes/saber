@@ -1,25 +1,32 @@
+import 'dart:io';
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/flavor_config.dart';
 import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
 import 'package:saber/data/nextcloud/saber_syncer.dart';
 import 'package:saber/data/prefs.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'utils/test_mock_channel_handlers.dart';
 import 'utils/test_random.dart';
 
 void main() async {
   test('Upload and download file', () async {
+    TestWidgetsFlutterBinding.ensureInitialized();
+    HttpOverrides.global = null; // enable http requests in test
+    setupMockPathProvider();
+    setupMockFlutterSecureStorage();
+    SharedPreferences.setMockInitialValues({});
+
     FileManager.documentsDirectory = '$tmpDir/nc_upload_download_test/'
         '${FileManager.appRootDirectoryPrefix}';
-
     FlavorConfig.setup();
-    Prefs.testingMode = true;
-    Prefs.init();
+    await FileManager.init();
 
-    Prefs.username.value = 'test.issue.118';
-    Prefs.ncPassword.value = 'riNLA-2fXWY-Kay3x-jEMX5-bZr6m';
-    Prefs.encPassword.value = 'test.issue.118';
+    stows.username.value = 'test.issue.118';
+    stows.ncPassword.value = 'riNLA-2fXWY-Kay3x-jEMX5-bZr6m';
+    stows.encPassword.value = 'test.issue.118';
 
     final client = SaberSyncInterface.client!;
     await client.loadEncryptionKey();
@@ -51,7 +58,8 @@ void main() async {
     final downBytes = await syncer.interface.downloadRemoteFile(syncFile);
     expect(downBytes.length, greaterThan(0));
     expect(downBytes, equals(upBytes));
-    await syncer.interface.writeLocalFile(syncFile, downBytes);
+    await syncer.interface
+        .writeLocalFile(syncFile, downBytes, awaitWrite: true);
     expect(await localFile.readAsString(), equals(content));
   });
 }

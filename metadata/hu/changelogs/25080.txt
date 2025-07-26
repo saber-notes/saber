@@ -1,0 +1,4 @@
+• Rögzített késés, amelyet a régi jegyzetek előzetes (2023 vagy annál idősebb) előnézeteinek generálása okoz. A régi jegyzeteknek az előnézet helyett helyőrző lesz.
+• Hozzáadott egy enyhe animációt a kezdőképernyő fülek között.
+• Kisebb felhasználói felület fejlesztése különböző helyeken.
+• Kisebb javítások a platformokhoz.

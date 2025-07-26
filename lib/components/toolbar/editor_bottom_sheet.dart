@@ -323,7 +323,7 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
               ],
             ),
             const SizedBox(height: 16),
-            if (Prefs.loggedIn) ...[
+            if (stows.loggedIn) ...[
               StatefulBuilder(builder: (context, setState) {
                 final isWatchingServer = widget.getIsWatchingServer();
                 return CheckboxListTile.adaptive(

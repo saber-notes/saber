@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 import 'package:path_to_regexp/path_to_regexp.dart';
 import 'package:saber/components/canvas/save_indicator.dart';
@@ -9,6 +8,7 @@ import 'package:saber/data/prefs.dart';
 import 'package:saber/data/routes.dart';
 import 'package:saber/pages/home/home.dart';
 import 'package:saber/pages/home/whiteboard.dart';
+import 'package:stow_codecs/stow_codecs.dart';
 
 class ResponsiveNavbar extends StatefulWidget {
   const ResponsiveNavbar({
@@ -24,28 +24,13 @@ class ResponsiveNavbar extends StatefulWidget {
   State<ResponsiveNavbar> createState() => _ResponsiveNavbarState();
 
   static bool isLargeScreen = true;
-  static void setAndroidNavBarColor(ThemeData theme) async {
-    await null;
-
-    final brightness = theme.brightness;
-    final otherBrightness =
-        brightness == Brightness.dark ? Brightness.light : Brightness.dark;
-    final overlayStyle = brightness == Brightness.dark
-        ? SystemUiOverlayStyle.dark
-        : SystemUiOverlayStyle.light;
-
-    SystemChrome.setSystemUIOverlayStyle(overlayStyle.copyWith(
-      systemNavigationBarColor: Colors.transparent,
-      systemNavigationBarIconBrightness: otherBrightness,
-    ));
-  }
 }
 
 class _ResponsiveNavbarState extends State<ResponsiveNavbar> {
   @override
   void initState() {
-    Prefs.locale.addListener(onChange);
-    Prefs.layoutSize.addListener(onChange);
+    stows.locale.addListener(onChange);
+    stows.layoutSize.addListener(onChange);
     super.initState();
   }
 
@@ -78,13 +63,11 @@ class _ResponsiveNavbarState extends State<ResponsiveNavbar> {
 
   @override
   Widget build(BuildContext context) {
-    ResponsiveNavbar.isLargeScreen = switch (Prefs.layoutSize.value) {
+    ResponsiveNavbar.isLargeScreen = switch (stows.layoutSize.value) {
       LayoutSize.auto => MediaQuery.sizeOf(context).width >= 600,
       LayoutSize.phone => false,
       LayoutSize.tablet => true,
     };
-
-    ResponsiveNavbar.setAndroidNavBarColor(Theme.of(context));
 
     if (ResponsiveNavbar.isLargeScreen) {
       return Scaffold(
@@ -116,8 +99,8 @@ class _ResponsiveNavbarState extends State<ResponsiveNavbar> {
 
   @override
   void dispose() {
-    Prefs.locale.removeListener(onChange);
-    Prefs.layoutSize.removeListener(onChange);
+    stows.locale.removeListener(onChange);
+    stows.layoutSize.removeListener(onChange);
     super.dispose();
   }
 }
@@ -125,5 +108,7 @@ class _ResponsiveNavbarState extends State<ResponsiveNavbar> {
 enum LayoutSize {
   auto,
   phone,
-  tablet,
+  tablet;
+
+  static final codec = EnumCodec(values);
 }

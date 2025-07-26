@@ -1,0 +1,4 @@
+• Retraso fijo causado por la generación de avances para notas antiguas (2023 o más). Las notas antiguas ahora tendrán un marcador de posición en lugar de una vista previa.
+• Se agregó una ligera animación entre las pestañas de la pantalla de inicio.
+• Mejoras menores de UI en varios lugares.
+• Se corrige menores al tema de la plataforma.

@@ -49,8 +49,8 @@ class Stroke {
     points.shift(offset);
     _lowQualityPolygon?.shift(offset);
     _highQualityPolygon?.shift(offset);
-    _lowQualityPath?.shift(offset);
-    _highQualityPath?.shift(offset);
+    _lowQualityPath = _lowQualityPath?.shift(offset);
+    _highQualityPath = _highQualityPath?.shift(offset);
   }
 
   void markPolygonNeedsUpdating() {

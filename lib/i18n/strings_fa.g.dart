@@ -13,9 +13,9 @@ import 'strings.g.dart';
 class TranslationsFa extends Translations {
 	/// You can call this constructor and build your own translation instance of this locale.
 	/// Constructing via the enum [AppLocale.build] is preferred.
-	TranslationsFa({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver})
+	TranslationsFa({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver, TranslationMetadata<AppLocale, Translations>? meta})
 		: assert(overrides == null, 'Set "translation_overrides: true" in order to enable this feature.'),
-		  $meta = TranslationMetadata(
+		  $meta = meta ?? TranslationMetadata(
 		    locale: AppLocale.fa,
 		    overrides: overrides ?? {},
 		    cardinalResolver: cardinalResolver,
@@ -27,6 +27,9 @@ class TranslationsFa extends Translations {
 	@override final TranslationMetadata<AppLocale, Translations> $meta;
 
 	late final TranslationsFa _root = this; // ignore: unused_field
+
+	@override 
+	TranslationsFa $copyWith({TranslationMetadata<AppLocale, Translations>? meta}) => TranslationsFa(meta: meta ?? this.$meta);
 
 	// Translations
 	@override late final _TranslationsCommonFa common = _TranslationsCommonFa._(_root);
@@ -74,6 +77,7 @@ class _TranslationsHomeFa extends TranslationsHomeEn {
 	@override String get deleteNote => 'حذف یادداشت';
 	@override late final _TranslationsHomeRenameFolderFa renameFolder = _TranslationsHomeRenameFolderFa._(_root);
 	@override late final _TranslationsHomeDeleteFolderFa deleteFolder = _TranslationsHomeDeleteFolderFa._(_root);
+	@override String get noPreviewAvailable => 'پیش نمایش موجود نیست';
 }
 
 // Path: settings
@@ -98,6 +102,8 @@ class _TranslationsSettingsFa extends TranslationsSettingsEn {
 	];
 	@override late final _TranslationsSettingsResetFa reset = _TranslationsSettingsResetFa._(_root);
 	@override late final _TranslationsSettingsCustomDataDirFa customDataDir = _TranslationsSettingsCustomDataDirFa._(_root);
+	@override String get autosaveDisabled => 'هرگز';
+	@override String get shapeRecognitionDisabled => 'هرگز';
 	@override String get openDataDir => 'پوشه Saber را باز کنید';
 	@override String get resyncEverything => 'همه چیز را دوباره همگام سازی کنید';
 }
@@ -375,7 +381,7 @@ class _TranslationsSettingsPrefLabelsFa extends TranslationsSettingsPrefLabelsEn
 	@override String get recentColorsDontSavePresets => 'رنگ های از پیش تعیین شده را در رنگ های اخیر ذخیره نکنید';
 	@override String get recentColorsLength => 'چند رنگ اخیر برای ذخیره';
 	@override String get printPageIndicators => 'چاپ نشانگرهای صفحه';
-	@override String get autosaveDelay => 'تأخیر ذخیره خودکار';
+	@override String get autosave => 'خودرا';
 	@override String get shapeRecognitionDelay => 'تاخیر در تشخیص شکل';
 	@override String get simplifiedHomeLayout => 'چیدمان خانه ساده شده';
 	@override String get pencilSoundSetting => 'جلوه صدای مداد';
@@ -400,7 +406,7 @@ class _TranslationsSettingsPrefDescriptionsFa extends TranslationsSettingsPrefDe
 	@override String get editorPromptRename => 'همیشه می توانید بعداً نام یادداشت ها را تغییر دهید';
 	@override String get hideHomeBackgrounds => 'برای ظاهری تمیز تر';
 	@override String get printPageIndicators => 'نمایش نشانگرهای صفحه در خروجی';
-	@override String get autosaveDelay => 'چه مدت باید قبل از ذخیره خودکار یادداشت صبر کرد';
+	@override String get autosave => 'پس از یک تأخیر کوتاه ، یا هرگز';
 	@override String get shapeRecognitionDelay => 'به روز رسانی پیشنمایش شکل چند وقت یکبار انجام شود';
 	@override String get shouldAlwaysAlertForUpdates => 'به محض اینکه به‌روزرسانی‌ها در دسترس هستند، به من بگویید';
 	@override late final _TranslationsSettingsPrefDescriptionsPencilSoundSettingFa pencilSoundSetting = _TranslationsSettingsPrefDescriptionsPencilSoundSettingFa._(_root);
@@ -704,13 +710,13 @@ class _TranslationsEditorMenuFa extends TranslationsEditorMenuEn {
 	@override String get duplicatePage => 'تکرار صفحه';
 	@override String get deletePage => 'حذف صفحه';
 	@override String get lineHeight => 'ارتفاع خط';
-	@override String get lineThickness => 'ضخامت خط';
-	@override String get lineThicknessDescription => 'ضخامت خط پس زمینه';
 	@override String get backgroundImageFit => 'مناسب تصویر پس زمینه';
 	@override String get backgroundPattern => 'الگوی پس زمینه';
 	@override String get import => 'واردکردن';
 	@override late final _TranslationsEditorMenuBoxFitsFa boxFits = _TranslationsEditorMenuBoxFitsFa._(_root);
 	@override late final _TranslationsEditorMenuBgPatternsFa bgPatterns = _TranslationsEditorMenuBgPatternsFa._(_root);
+	@override String get lineThickness => 'ضخامت خط';
+	@override String get lineThicknessDescription => 'ضخامت خط پس زمینه';
 	@override String get watchServer => 'مراقب به روز رسانی ها در سرور باشید';
 	@override String get watchServerReadOnly => 'هنگام تماشای سرور، ویرایش غیرفعال است';
 	@override String get lineHeightDescription => 'همچنین اندازه متن را برای یادداشت های تایپ شده کنترل می کند';

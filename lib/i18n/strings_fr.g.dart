@@ -13,9 +13,9 @@ import 'strings.g.dart';
 class TranslationsFr extends Translations {
 	/// You can call this constructor and build your own translation instance of this locale.
 	/// Constructing via the enum [AppLocale.build] is preferred.
-	TranslationsFr({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver})
+	TranslationsFr({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver, TranslationMetadata<AppLocale, Translations>? meta})
 		: assert(overrides == null, 'Set "translation_overrides: true" in order to enable this feature.'),
-		  $meta = TranslationMetadata(
+		  $meta = meta ?? TranslationMetadata(
 		    locale: AppLocale.fr,
 		    overrides: overrides ?? {},
 		    cardinalResolver: cardinalResolver,
@@ -27,6 +27,9 @@ class TranslationsFr extends Translations {
 	@override final TranslationMetadata<AppLocale, Translations> $meta;
 
 	late final TranslationsFr _root = this; // ignore: unused_field
+
+	@override 
+	TranslationsFr $copyWith({TranslationMetadata<AppLocale, Translations>? meta}) => TranslationsFr(meta: meta ?? this.$meta);
 
 	// Translations
 	@override late final _TranslationsCommonFr common = _TranslationsCommonFr._(_root);
@@ -74,6 +77,7 @@ class _TranslationsHomeFr extends TranslationsHomeEn {
 	@override String get deleteNote => 'Effacer la note';
 	@override late final _TranslationsHomeRenameFolderFr renameFolder = _TranslationsHomeRenameFolderFr._(_root);
 	@override late final _TranslationsHomeDeleteFolderFr deleteFolder = _TranslationsHomeDeleteFolderFr._(_root);
+	@override String get noPreviewAvailable => 'Aucun aperçu disponible';
 }
 
 // Path: settings
@@ -99,6 +103,8 @@ class _TranslationsSettingsFr extends TranslationsSettingsEn {
 	@override late final _TranslationsSettingsResetFr reset = _TranslationsSettingsResetFr._(_root);
 	@override String get resyncEverything => 'Tout re-syncroniser';
 	@override late final _TranslationsSettingsCustomDataDirFr customDataDir = _TranslationsSettingsCustomDataDirFr._(_root);
+	@override String get autosaveDisabled => 'Jamais';
+	@override String get shapeRecognitionDisabled => 'Jamais';
 	@override String get openDataDir => 'Ouvrir le dossier Saber';
 }
 
@@ -375,7 +381,7 @@ class _TranslationsSettingsPrefLabelsFr extends TranslationsSettingsPrefLabelsEn
 	@override String get recentColorsDontSavePresets => 'Ne pas conserver les couleurs pré-définies parmi les couleurs récentes';
 	@override String get recentColorsLength => 'Nombre de couleurs récentes à conserver';
 	@override String get printPageIndicators => 'Imprimer les numéros de pages';
-	@override String get autosaveDelay => 'Délai entre les sauvegardes automatiques';
+	@override String get autosave => 'S\'attacher automatiquement';
 	@override String get shapeRecognitionDelay => 'Délai de reconnaissance de forme';
 	@override String get simplifiedHomeLayout => 'Aménagement d\'une maison simplifié';
 	@override String get pencilSoundSetting => 'Effet sonore de crayon';
@@ -400,7 +406,7 @@ class _TranslationsSettingsPrefDescriptionsFr extends TranslationsSettingsPrefDe
 	@override String get editorPromptRename => 'Vous pourrez toujours les renommer plus tard';
 	@override String get hideHomeBackgrounds => 'Pour une apparence plus sobre';
 	@override String get printPageIndicators => 'Montrer les numéros de pages dans les exportations';
-	@override String get autosaveDelay => 'Combien de temps attendre avant de sauvegarder automatiquement une note';
+	@override String get autosave => 'S\'attacher automatiquement après un court délai, ou jamais';
 	@override String get shapeRecognitionDelay => 'Avec quelle fréquence mettre à jour la prévisualisation de forme';
 	@override String get shouldAlwaysAlertForUpdates => 'Me prévenir dès qu\'une mise à jour est disponible';
 	@override late final _TranslationsSettingsPrefDescriptionsPencilSoundSettingFr pencilSoundSetting = _TranslationsSettingsPrefDescriptionsPencilSoundSettingFr._(_root);
@@ -704,13 +710,13 @@ class _TranslationsEditorMenuFr extends TranslationsEditorMenuEn {
 	@override String get duplicatePage => 'Dupliquer la page';
 	@override String get deletePage => 'Supprimer la page';
 	@override String get lineHeight => 'Hauteur de ligne';
-	@override String get lineThickness => 'Épaisseur de ligne';
-	@override String get lineThicknessDescription => 'Épaisseur de ligne de fond';
 	@override String get backgroundImageFit => 'Adaptation de l\'image de fond';
 	@override String get backgroundPattern => 'Texture de fond';
 	@override String get import => 'Importer';
 	@override late final _TranslationsEditorMenuBoxFitsFr boxFits = _TranslationsEditorMenuBoxFitsFr._(_root);
 	@override late final _TranslationsEditorMenuBgPatternsFr bgPatterns = _TranslationsEditorMenuBgPatternsFr._(_root);
+	@override String get lineThickness => 'Épaisseur de ligne';
+	@override String get lineThicknessDescription => 'Épaisseur de ligne de fond';
 	@override String get watchServer => 'Surveillez les mises à jour sur le serveur';
 	@override String get watchServerReadOnly => 'L\'édition est désactivée lorsque vous regardez le serveur';
 	@override String get lineHeightDescription => 'Contrôle également la taille du texte pour les notes saisies';

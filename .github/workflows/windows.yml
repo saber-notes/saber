@@ -27,10 +27,17 @@ jobs:
         uses: actions/cache@v4
         with:
           path: |
-            build
+            .dart_tool/
+            build/
+            .flutter-plugins
+            .flutter-plugins-dependencies
+            pubspec.lock
           key: ${{ runner.OS }}-saber-${{ hashFiles('**/pubspec.lock') }}-${{ hashFiles('**/*.dart') }}
           restore-keys: |
             ${{ runner.OS }}-saber-
+
+      - name: Remove development dependencies
+        run: ./patches/remove_dev_dependencies.sh
 
       - name: Setup Flutter
         uses: subosito/flutter-action@v2

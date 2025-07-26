@@ -9,6 +9,7 @@ import 'package:saber/data/flavor_config.dart';
 import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
 import 'package:saber/data/nextcloud/saber_syncer.dart';
 import 'package:saber/data/prefs.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'utils/test_mock_channel_handlers.dart';
 import 'utils/test_random.dart';
@@ -18,15 +19,15 @@ void main() {
     TestWidgetsFlutterBinding.ensureInitialized();
     HttpOverrides.global = null; // enable http requests in test
     setupMockPathProvider();
+    setupMockFlutterSecureStorage();
+    SharedPreferences.setMockInitialValues({});
 
     FlavorConfig.setup();
-    Prefs.testingMode = true;
-    Prefs.init();
     await FileManager.init();
 
-    Prefs.username.value = 'test.deletion';
-    Prefs.ncPassword.value = 'PRmjb-NWLzz-Gisq5-TAbtj-RbpWP';
-    Prefs.encPassword.value = 'test.deletion';
+    stows.username.value = 'test.deletion';
+    stows.ncPassword.value = 'PRmjb-NWLzz-Gisq5-TAbtj-RbpWP';
+    stows.encPassword.value = 'test.deletion';
 
     final client = NextcloudClientExtension.withSavedDetails()!;
     final webdav = client.webdav;

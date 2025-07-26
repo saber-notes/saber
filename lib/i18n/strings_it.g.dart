@@ -13,9 +13,9 @@ import 'strings.g.dart';
 class TranslationsIt extends Translations {
 	/// You can call this constructor and build your own translation instance of this locale.
 	/// Constructing via the enum [AppLocale.build] is preferred.
-	TranslationsIt({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver})
+	TranslationsIt({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver, TranslationMetadata<AppLocale, Translations>? meta})
 		: assert(overrides == null, 'Set "translation_overrides: true" in order to enable this feature.'),
-		  $meta = TranslationMetadata(
+		  $meta = meta ?? TranslationMetadata(
 		    locale: AppLocale.it,
 		    overrides: overrides ?? {},
 		    cardinalResolver: cardinalResolver,
@@ -27,6 +27,9 @@ class TranslationsIt extends Translations {
 	@override final TranslationMetadata<AppLocale, Translations> $meta;
 
 	late final TranslationsIt _root = this; // ignore: unused_field
+
+	@override 
+	TranslationsIt $copyWith({TranslationMetadata<AppLocale, Translations>? meta}) => TranslationsIt(meta: meta ?? this.$meta);
 
 	// Translations
 	@override late final _TranslationsCommonIt common = _TranslationsCommonIt._(_root);
@@ -74,6 +77,7 @@ class _TranslationsHomeIt extends TranslationsHomeEn {
 	@override String get deleteNote => 'Elimina nota';
 	@override late final _TranslationsHomeRenameFolderIt renameFolder = _TranslationsHomeRenameFolderIt._(_root);
 	@override late final _TranslationsHomeDeleteFolderIt deleteFolder = _TranslationsHomeDeleteFolderIt._(_root);
+	@override String get noPreviewAvailable => 'Nessuna anteprima disponibile';
 }
 
 // Path: settings
@@ -100,6 +104,8 @@ class _TranslationsSettingsIt extends TranslationsSettingsEn {
 	@override String get resyncEverything => 'Risincronizza tutto';
 	@override String get openDataDir => 'Apri cartella Saber';
 	@override late final _TranslationsSettingsCustomDataDirIt customDataDir = _TranslationsSettingsCustomDataDirIt._(_root);
+	@override String get autosaveDisabled => 'Mai';
+	@override String get shapeRecognitionDisabled => 'Mai';
 }
 
 // Path: logs
@@ -377,7 +383,7 @@ class _TranslationsSettingsPrefLabelsIt extends TranslationsSettingsPrefLabelsEn
 	@override String get recentColorsDontSavePresets => 'Non salvare i colori preimpostati nei colori recenti';
 	@override String get recentColorsLength => 'Quanti colori recenti memorizzare';
 	@override String get printPageIndicators => 'Stampa indicatori di pagina';
-	@override String get autosaveDelay => 'Ritardo di salvataggio automatico';
+	@override String get autosave => 'Salvare automaticamente';
 	@override String get shapeRecognitionDelay => 'Ritardo nel riconoscimento della forma';
 	@override String get autoStraightenLines => 'Raddrizzamento automatico delle linee';
 	@override String get simplifiedHomeLayout => 'Layout semplificato della home';
@@ -392,7 +398,7 @@ class _TranslationsSettingsPrefDescriptionsIt extends TranslationsSettingsPrefDe
 	final TranslationsIt _root; // ignore: unused_field
 
 	// Translations
-	@override String get hyperlegibleFont => 'Atkinson Hyperlegible aumenta la leggibilità per i lettori ipovedenti';
+	@override String get hyperlegibleFont => 'Atkinson Iperleggibile aumenta la leggibilità per i lettori ipovedenti';
 	@override String get allowInsecureConnections => '(Non consigliato) Consenti a Saber di connettersi ai server con certificati autofirmati/non attendibili';
 	@override String get preferGreyscale => 'Per display e-ink';
 	@override String get autoClearWhiteboardOnExit => 'Sarà comunque sincronizzato con gli altri tuoi dispositivi';
@@ -402,12 +408,12 @@ class _TranslationsSettingsPrefDescriptionsIt extends TranslationsSettingsPrefDe
 	@override String get editorPromptRename => 'Puoi sempre rinominare le note in un secondo momento';
 	@override String get hideHomeBackgrounds => 'Per un aspetto più pulito';
 	@override String get printPageIndicators => 'Mostra indicatori di pagina nelle esportazioni';
-	@override String get autosaveDelay => 'Quanto tempo aspettare prima di salvare automaticamente una nota';
 	@override String get shapeRecognitionDelay => 'Quanto spesso aggiornare l\'anteprima della forma';
 	@override String get autoStraightenLines => 'Raddrizza le linee lunghe senza dover utilizzare la penna sagomatrice';
 	@override String get simplifiedHomeLayout => 'Imposta un\'altezza fissa per ogni anteprima della nota';
 	@override String get shouldAlwaysAlertForUpdates => 'Segnalami aggiornamenti non appena sono disponibili';
 	@override late final _TranslationsSettingsPrefDescriptionsPencilSoundSettingIt pencilSoundSetting = _TranslationsSettingsPrefDescriptionsPencilSoundSettingIt._(_root);
+	@override String get autosave => 'Salvare automaticamente dopo un breve ritardo o mai';
 }
 
 // Path: settings.themeModes
@@ -707,8 +713,6 @@ class _TranslationsEditorMenuIt extends TranslationsEditorMenuEn {
 	@override String get deletePage => 'Elimina pagina';
 	@override String get lineHeight => 'Altezza della linea';
 	@override String get lineHeightDescription => 'Controlla anche la dimensione del testo per le note digitate';
-	@override String get lineThickness => 'Spessore della linea';
-	@override String get lineThicknessDescription => 'Spessore della linea di sfondo';
 	@override String get backgroundImageFit => 'Adattamento immagine di sfondo';
 	@override String get backgroundPattern => 'Modello di sfondo';
 	@override String get import => 'Importa';
@@ -716,6 +720,8 @@ class _TranslationsEditorMenuIt extends TranslationsEditorMenuEn {
 	@override String get watchServerReadOnly => 'La modifica è disabilitata mentre si guarda il server';
 	@override late final _TranslationsEditorMenuBoxFitsIt boxFits = _TranslationsEditorMenuBoxFitsIt._(_root);
 	@override late final _TranslationsEditorMenuBgPatternsIt bgPatterns = _TranslationsEditorMenuBgPatternsIt._(_root);
+	@override String get lineThickness => 'Spessore della linea';
+	@override String get lineThicknessDescription => 'Spessore della linea di sfondo';
 }
 
 // Path: editor.newerFileFormat

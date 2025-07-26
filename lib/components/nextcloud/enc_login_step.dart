@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -42,6 +44,7 @@ class _EncLoginStepState extends State<EncLoginStep> {
     final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
     final screenWidth = MediaQuery.sizeOf(context).width;
+    final screenHeight = MediaQuery.sizeOf(context).height;
     return ListView(
       padding: EdgeInsets.symmetric(
         horizontal: screenWidth > width ? (screenWidth - width) / 2 : 16,
@@ -49,14 +52,18 @@ class _EncLoginStepState extends State<EncLoginStep> {
       ),
       children: [
         const SizedBox(height: 16),
-        SvgPicture.asset(
-          'assets/images/undraw_mobile_encryption_re_yw3o.svg',
-          width: width,
-          height: width * 576 / 844.6693,
-          excludeFromSemantics: true,
-        ),
-        const SizedBox(height: 64),
-        Text(t.login.status.hi(u: Prefs.username.value),
+        if (screenHeight > 500) ...[
+          SvgPicture.asset(
+            'assets/images/undraw_mobile_encryption_re_yw3o.svg',
+            width: width,
+            height: min(width * 576 / 844.6693, screenHeight * 0.25),
+            excludeFromSemantics: true,
+          ),
+          SizedBox(
+            height: min(64, screenHeight * 0.05),
+          ),
+        ],
+        Text(t.login.status.hi(u: stows.username.value),
             style: textTheme.headlineSmall),
         Text.rich(
           t.login.notYou(
@@ -65,9 +72,9 @@ class _EncLoginStepState extends State<EncLoginStep> {
               style: TextStyle(color: colorScheme.link),
               recognizer: TapGestureRecognizer()
                 ..onTap = () {
-                  Prefs.url.value = '';
-                  Prefs.username.value = '';
-                  Prefs.ncPassword.value = '';
+                  stows.url.value = '';
+                  stows.username.value = '';
+                  stows.ncPassword.value = '';
                   widget.recheckCurrentStep();
                 },
             ),
@@ -139,17 +146,17 @@ class _EncLoginStepState extends State<EncLoginStep> {
     if (encPassword.isEmpty) return;
 
     try {
-      Prefs.encPassword.value = encPassword;
+      stows.encPassword.value = encPassword;
       final client = NextcloudClientExtension.withSavedDetails()!;
       _isChecking.value = true;
       await client.loadEncryptionKey();
       widget.recheckCurrentStep();
     } on EncLoginFailure {
-      Prefs.encPassword.value = '';
+      stows.encPassword.value = '';
 
       _errorMessage.value = t.login.encLoginStep.wrongEncPassword;
     } catch (e) {
-      Prefs.encPassword.value = '';
+      stows.encPassword.value = '';
       log.severe('Failed to load encryption key: $e', e);
 
       _errorMessage.value = '${t.login.encLoginStep.connectionFailed}\n\n$e';

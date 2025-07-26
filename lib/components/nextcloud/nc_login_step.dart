@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:math';
 
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -53,20 +54,19 @@ class _NcLoginStepState extends State<NcLoginStep> {
       );
       final username = await client.getUsername();
 
-      Prefs.url.value = credentials.server ==
+      stows.url.value = credentials.server ==
               NextcloudClientExtension.defaultNextcloudUri.toString()
           ? ''
           : credentials.server;
-      Prefs.username.value = username;
-      Prefs.ncPassword.value = credentials.appPassword;
-      Prefs.ncPasswordIsAnAppPassword.value = true;
-      Prefs.encPassword.value = '';
+      stows.username.value = username;
+      stows.ncPassword.value = credentials.appPassword;
+      stows.encPassword.value = '';
 
-      Prefs.pfp.value = null;
+      stows.pfp.value = null;
       client.core.avatar
           .getAvatar(userId: username, size: AvatarGetAvatarSize.$512)
           .then((response) => response.body)
-          .then((pfp) => Prefs.pfp.value = pfp);
+          .then((pfp) => stows.pfp.value = pfp);
 
       widget.recheckCurrentStep();
     });
@@ -91,6 +91,7 @@ class _NcLoginStepState extends State<NcLoginStep> {
     final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
     final screenWidth = MediaQuery.sizeOf(context).width;
+    final screenHeight = MediaQuery.sizeOf(context).height;
     return ListView(
       padding: EdgeInsets.symmetric(
         horizontal: screenWidth > width ? (screenWidth - width) / 2 : 16,
@@ -98,13 +99,17 @@ class _NcLoginStepState extends State<NcLoginStep> {
       ),
       children: [
         const SizedBox(height: 16),
-        SvgPicture.asset(
-          'assets/images/undraw_cloud_sync_re_02p1.svg',
-          width: width,
-          height: width * 576 / 844.6693,
-          excludeFromSemantics: true,
-        ),
-        const SizedBox(height: 64),
+        if (screenHeight > 500) ...[
+          SvgPicture.asset(
+            'assets/images/undraw_cloud_sync_re_02p1.svg',
+            width: width,
+            height: min(width * 576 / 844.6693, screenHeight * 0.25),
+            excludeFromSemantics: true,
+          ),
+          SizedBox(
+            height: min(64, screenHeight * 0.05),
+          ),
+        ],
         Text(t.login.ncLoginStep.whereToStoreData,
             style: textTheme.headlineSmall),
         Text.rich(

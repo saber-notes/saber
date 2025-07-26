@@ -25,13 +25,20 @@ jobs:
       - uses: "./.github/shared_workflows/install_apt_dependencies"
 
       - name: Setup cache
-        uses: actions/cache@v4
+        uses: actions/cache/restore@v4
         with:
           path: |
-            build
+            .dart_tool/
+            build/
+            .flutter-plugins
+            .flutter-plugins-dependencies
+            pubspec.lock
           key: ${{ runner.OS }}-saber-${{ hashFiles('**/pubspec.lock') }}-${{ hashFiles('**/*.dart') }}
           restore-keys: |
             ${{ runner.OS }}-saber-
+
+      - name: Remove development dependencies
+        run: ./patches/remove_dev_dependencies.sh
       
       - name: Setup keystore
         run: |
@@ -102,16 +109,22 @@ jobs:
       - uses: "./.github/shared_workflows/install_apt_dependencies"
 
       - name: Setup cache
-        uses: actions/cache@v4
+        uses: actions/cache/restore@v4
         with:
           path: |
-            build
+            .dart_tool/
+            build/
+            .flutter-plugins
+            .flutter-plugins-dependencies
+            pubspec.lock
           key: ${{ runner.OS }}-saberfoss-${{ hashFiles('**/pubspec.lock') }}-${{ hashFiles('**/*.dart') }}
           restore-keys: |
             ${{ runner.OS }}-saberfoss-
 
       - name: Remove proprietary dependencies
         run: ./patches/remove_proprietary_dependencies.sh
+      - name: Remove development dependencies
+        run: ./patches/remove_dev_dependencies.sh
       
       - name: Setup keystore
         run: |

@@ -13,11 +13,12 @@ import 'package:saber/components/theming/yaru_builder.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/flavor_config.dart';
 import 'package:saber/data/locales.dart';
-import 'package:saber/data/prefs.dart' hide Quota;
+import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/editor/editor.dart';
 import 'package:saber/pages/home/home.dart';
 import 'package:saber/pages/user/login.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:yaru/yaru.dart';
 
 import 'utils/test_mock_channel_handlers.dart';
@@ -31,24 +32,23 @@ void main() {
 
     setupMockPathProvider();
     setupMockPrinting();
+    setupMockFlutterSecureStorage();
+    SharedPreferences.setMockInitialValues({});
 
     FlavorConfig.setup();
-    Prefs.testingMode = true;
-    Prefs.init();
     SyncingButton.forceButtonActive = true;
     AppInfo.showDebugMessage = false;
 
-    Prefs.username.value = 'myusername';
-
     const quotaUsed = 17 * 1024 * 1024; // 17 MB
     const quotaTotal = 5 * 1024 * 1024 * 1024; // 5 GB
-    Prefs.lastStorageQuota.value = Quota.fromJson({
+    stows.lastStorageQuota.value = Quota.fromJson({
       'free': quotaTotal - quotaUsed,
       'used': quotaUsed,
       'total': quotaTotal,
       'relative': quotaUsed / quotaTotal * 100,
       'quota': quotaTotal,
     });
+    stows.username.value = 'myusername';
 
     setUpAll(() => Future.wait([
           FileManager.init(
@@ -71,7 +71,7 @@ void main() {
         final bytes = await file.readAsBytes();
         return FileManager.getFile(fileName).writeAsBytes(bytes);
       }));
-      Prefs.recentFiles.value = recentFiles..sort();
+      stows.recentFiles.value = recentFiles..sort();
     });
 
     final colorScheme = ColorScheme.fromSeed(
@@ -173,12 +173,10 @@ void _screenshot({
 
   group(goldenFileName, () {
     for (final (localeCode, goldenDevice) in localeDeviceMatrix) {
-      testWidgets('for ${goldenDevice.name} in $localeCode', (tester) async {
+      testGoldens('for ${goldenDevice.name} in $localeCode', (tester) async {
         final device = goldenDevice.device;
-        Prefs.platform.value = device.platform;
+        stows.platform.value = device.platform;
         await tester.runAsync(() => LocaleSettings.setLocaleRaw(localeCode));
-
-        debugDisableShadows = false;
 
         if (goldenFileName == '4_settings') {
           NextcloudProfile.forceLoginStep = LoginStep.done;
@@ -211,7 +209,7 @@ void _screenshot({
         await tester.pump();
         await tester.precacheImagesInWidgetTree();
         await tester.precacheTopbarImages();
-        await tester.loadFonts();
+        await tester.loadFonts(overriddenFonts: saberSansSerifFontFallbacks);
         await tester.pumpFrames(widget, const Duration(milliseconds: 100));
 
         await tester.expectScreenshot(
@@ -222,8 +220,6 @@ void _screenshot({
             _ => localeCode,
           },
         );
-
-        debugDisableShadows = true;
       });
     }
   });

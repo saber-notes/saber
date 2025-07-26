@@ -30,19 +30,19 @@ class NextcloudProfile extends StatefulWidget {
 class _NextcloudProfileState extends State<NextcloudProfile> {
   @override
   void initState() {
-    Prefs.username.addListener(_usernameChanged);
-    Prefs.encPassword.addListener(_usernameChanged);
-    Prefs.key.addListener(_usernameChanged);
-    Prefs.iv.addListener(_usernameChanged);
+    stows.username.addListener(_usernameChanged);
+    stows.encPassword.addListener(_usernameChanged);
+    stows.key.addListener(_usernameChanged);
+    stows.iv.addListener(_usernameChanged);
     super.initState();
   }
 
   @override
   void dispose() {
-    Prefs.username.removeListener(_usernameChanged);
-    Prefs.encPassword.removeListener(_usernameChanged);
-    Prefs.key.removeListener(_usernameChanged);
-    Prefs.iv.removeListener(_usernameChanged);
+    stows.username.removeListener(_usernameChanged);
+    stows.encPassword.removeListener(_usernameChanged);
+    stows.key.removeListener(_usernameChanged);
+    stows.iv.removeListener(_usernameChanged);
     super.dispose();
   }
 
@@ -61,7 +61,7 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
       LoginStep.nc => t.login.status.loggedOut,
       LoginStep.enc ||
       LoginStep.done =>
-        t.login.status.hi(u: Prefs.username.value),
+        t.login.status.hi(u: stows.username.value),
     };
     final subheading = switch (loginStep) {
       LoginStep.waitingForPrefs => '',
@@ -74,24 +74,18 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
     return ListTile(
       onTap: () => context.push(RoutePaths.login),
       leading: ValueListenableBuilder(
-        valueListenable: Prefs.pfp,
+        valueListenable: stows.pfp,
         builder: (BuildContext context, Uint8List? pfp, _) {
-          if (pfp == null) {
-            return const Icon(Icons.account_circle, size: 48);
-          } else {
-            return ClipPath(
-              clipper: ShapeBorderClipper(
-                shape: ContinuousRectangleBorder(
-                  borderRadius: BorderRadius.circular(40),
-                ),
-              ),
-              child: Image.memory(
-                pfp,
-                width: 48,
-                height: 48,
-              ),
-            );
-          }
+          return ClipRSuperellipse(
+            borderRadius: BorderRadius.circular(18),
+            child: pfp == null
+                ? const _UnknownPfp(size: 48)
+                : Image.memory(
+                    pfp,
+                    width: 48,
+                    height: 48,
+                  ),
+          );
         },
       ),
       title: Text(heading),
@@ -102,7 +96,7 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
               children: [
                 FutureBuilder(
                   future: getStorageQuotaFuture,
-                  initialData: Prefs.lastStorageQuota.value,
+                  initialData: stows.lastStorageQuota.value,
                   builder:
                       (BuildContext context, AsyncSnapshot<Quota?> snapshot) {
                     final Quota? quota = snapshot.data;
@@ -141,7 +135,7 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
                   ),
                   tooltip: t.settings.resyncEverything,
                   onPressed: () async {
-                    Prefs.fileSyncResyncEverythingDate.value = DateTime.now();
+                    stows.fileSyncResyncEverythingDate.value = DateTime.now();
                     final allFiles = await FileManager.getAllFiles(
                         includeExtensions: true, includeAssets: true);
                     for (final file in allFiles) {
@@ -157,19 +151,42 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
 
   static Future<Quota?> getStorageQuota() async {
     if (NextcloudProfile.forceLoginStep != null)
-      return Prefs.lastStorageQuota.value;
+      return stows.lastStorageQuota.value;
 
     final client = NextcloudClientExtension.withSavedDetails();
     if (client == null) return null;
 
     final user = await client.provisioningApi.users.getCurrentUser();
-    Prefs.lastStorageQuota.value = user.body.ocs.data.quota;
-    return Prefs.lastStorageQuota.value;
+    stows.lastStorageQuota.value = user.body.ocs.data.quota;
+    return stows.lastStorageQuota.value;
   }
 
   static String readableQuota(Quota? quota) {
     final used = readableBytes(quota?.used);
     final total = readableBytes(quota?.total);
     return '$used / $total';
+  }
+}
+
+class _UnknownPfp extends StatelessWidget {
+  const _UnknownPfp({required this.size});
+
+  final double size;
+
+  @override
+  Widget build(BuildContext context) {
+    final colorScheme = ColorScheme.of(context);
+    return SizedBox(
+      width: size,
+      height: size,
+      child: ColoredBox(
+        color: colorScheme.primaryContainer,
+        child: Icon(
+          Icons.person,
+          color: colorScheme.onPrimaryContainer,
+          size: size * 0.7,
+        ),
+      ),
+    );
   }
 }

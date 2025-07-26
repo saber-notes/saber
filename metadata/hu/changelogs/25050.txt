@@ -1,0 +1,3 @@
+• Jobb támogatás az átlátszó navigációs rudakhoz
+• Javítva néhány felhasználói felületet, amely túl sok helyet foglal el a kishátú képernyőkön
+• A "pontok" háttérmintát engedelmeskedett a vonalvastagság beállításának

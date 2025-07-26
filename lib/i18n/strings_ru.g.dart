@@ -13,9 +13,9 @@ import 'strings.g.dart';
 class TranslationsRu extends Translations {
 	/// You can call this constructor and build your own translation instance of this locale.
 	/// Constructing via the enum [AppLocale.build] is preferred.
-	TranslationsRu({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver})
+	TranslationsRu({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver, TranslationMetadata<AppLocale, Translations>? meta})
 		: assert(overrides == null, 'Set "translation_overrides: true" in order to enable this feature.'),
-		  $meta = TranslationMetadata(
+		  $meta = meta ?? TranslationMetadata(
 		    locale: AppLocale.ru,
 		    overrides: overrides ?? {},
 		    cardinalResolver: cardinalResolver,
@@ -27,6 +27,9 @@ class TranslationsRu extends Translations {
 	@override final TranslationMetadata<AppLocale, Translations> $meta;
 
 	late final TranslationsRu _root = this; // ignore: unused_field
+
+	@override 
+	TranslationsRu $copyWith({TranslationMetadata<AppLocale, Translations>? meta}) => TranslationsRu(meta: meta ?? this.$meta);
 
 	// Translations
 	@override late final _TranslationsCommonRu common = _TranslationsCommonRu._(_root);
@@ -74,6 +77,7 @@ class _TranslationsHomeRu extends TranslationsHomeEn {
 	@override String get deleteNote => 'Удалить заметку';
 	@override late final _TranslationsHomeRenameFolderRu renameFolder = _TranslationsHomeRenameFolderRu._(_root);
 	@override late final _TranslationsHomeDeleteFolderRu deleteFolder = _TranslationsHomeDeleteFolderRu._(_root);
+	@override String get noPreviewAvailable => 'Нет предварительного просмотра';
 }
 
 // Path: settings
@@ -100,6 +104,8 @@ class _TranslationsSettingsRu extends TranslationsSettingsEn {
 	@override String get resyncEverything => 'Повторная синхронизация всего';
 	@override String get openDataDir => 'Открыть папку Saber';
 	@override late final _TranslationsSettingsCustomDataDirRu customDataDir = _TranslationsSettingsCustomDataDirRu._(_root);
+	@override String get autosaveDisabled => 'Никогда';
+	@override String get shapeRecognitionDisabled => 'Никогда';
 }
 
 // Path: logs
@@ -377,7 +383,7 @@ class _TranslationsSettingsPrefLabelsRu extends TranslationsSettingsPrefLabelsEn
 	@override String get recentColorsDontSavePresets => 'Не сохранять предустановленные цвета в последних цветах';
 	@override String get recentColorsLength => 'Количество последних сохраняемых цветов';
 	@override String get printPageIndicators => 'Печатать номера страниц';
-	@override String get autosaveDelay => 'Задержка автосохранения';
+	@override String get autosave => 'Авто-самая';
 	@override String get shapeRecognitionDelay => 'Задержка распознавания формы';
 	@override String get autoStraightenLines => 'Автоматическое выпрямление линий';
 	@override String get simplifiedHomeLayout => 'Упрощённый главный экран';
@@ -402,7 +408,7 @@ class _TranslationsSettingsPrefDescriptionsRu extends TranslationsSettingsPrefDe
 	@override String get editorPromptRename => 'Вы всегда можете переименовать заметки позже';
 	@override String get hideHomeBackgrounds => 'Для чистого вида';
 	@override String get printPageIndicators => 'Показывать номера страниц при экспорте';
-	@override String get autosaveDelay => 'Время ожидания до автосохранения заметки';
+	@override String get autosave => 'Авто-самая после короткой задержки или никогда';
 	@override String get shapeRecognitionDelay => 'Как часто обновлять предварительный просмотр формы';
 	@override String get autoStraightenLines => 'Выпрямляет длинные линии без использования фигурного пера';
 	@override String get simplifiedHomeLayout => 'Фиксированная высота предварительного просмотра каждой заметки';
@@ -707,8 +713,6 @@ class _TranslationsEditorMenuRu extends TranslationsEditorMenuEn {
 	@override String get deletePage => 'Удалить страницу';
 	@override String get lineHeight => 'Высота строки';
 	@override String get lineHeightDescription => 'Также управляет размером текста для напечатанных заметок';
-	@override String get lineThickness => 'Линия толщина';
-	@override String get lineThicknessDescription => 'Фотовая линия толщина';
 	@override String get backgroundImageFit => 'Фоновое изображение';
 	@override String get backgroundPattern => 'Фоновый шаблон';
 	@override String get import => 'Импорт';
@@ -716,6 +720,8 @@ class _TranslationsEditorMenuRu extends TranslationsEditorMenuEn {
 	@override String get watchServerReadOnly => 'Редактирование невозможно во время слежки за сервером';
 	@override late final _TranslationsEditorMenuBoxFitsRu boxFits = _TranslationsEditorMenuBoxFitsRu._(_root);
 	@override late final _TranslationsEditorMenuBgPatternsRu bgPatterns = _TranslationsEditorMenuBgPatternsRu._(_root);
+	@override String get lineThickness => 'Линия толщина';
+	@override String get lineThicknessDescription => 'Фотовая линия толщина';
 }
 
 // Path: editor.newerFileFormat

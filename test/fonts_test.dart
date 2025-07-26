@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:golden_screenshot/golden_screenshot.dart';
+import 'package:saber/components/theming/font_fallbacks.dart';
 
 const _appFonts = [
   'AtkinsonHyperlegible',
   'Dekko',
   'FiraMono',
+  // Note that we no longer bundle Inter with the app, so it should fall back to Roboto in tests.
   'Inter',
   'Neucha'
 ];
 
 void main() {
-  testWidgets('Fonts', (tester) async {
+  testGoldens('Fonts', (tester) async {
     await tester.pumpWidget(MaterialApp(
       home: Scaffold(
         body: Center(
@@ -30,7 +32,7 @@ void main() {
       ),
     ));
 
-    await tester.loadFonts();
+    await tester.loadFonts(overriddenFonts: saberSansSerifFontFallbacks);
     await tester.pumpAndSettle();
 
     tester.useFuzzyComparator(allowedDiffPercent: 0.1);

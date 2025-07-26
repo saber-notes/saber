@@ -1,0 +1,3 @@
+• Kis felhasználói felület fejlesztése a Beállítások oldalon
+• Az egyszerűsített otthoni elrendezés beállítását megcsinálták, így a kártyák már nem húzódnak ki
+• Távolítsa el a GitHub szponzorokra való hivatkozásokat az iOS-on, mivel az alkalmazáson belüli vásárlásokat kellett használniuk

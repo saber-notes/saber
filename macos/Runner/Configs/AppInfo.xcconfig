@@ -11,8 +11,4 @@ PRODUCT_NAME = Saber
 PRODUCT_BUNDLE_IDENTIFIER = com.adilhanney.saber
 
 // The copyright displayed in application information
-PRODUCT_COPYRIGHT = Copyright © 2022 Adil Hanney. This program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.
-
-#include "Pods/Target Support Files/Pods-Runner/Pods-Runner.release.xcconfig"
-#include "Pods/Target Support Files/Pods-Runner/Pods-Runner.profile.xcconfig"
-#include "Pods/Target Support Files/Pods-Runner/Pods-Runner.debug.xcconfig"
+PRODUCT_COPYRIGHT = Copyright © 2025 Adil Hanney. This program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.

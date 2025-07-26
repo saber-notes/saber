@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
+import 'package:stow_codecs/stow_codecs.dart';
 
 /// Emulates the scratchy sound of pencil on paper.
 abstract class PencilSound {
@@ -24,7 +25,7 @@ abstract class PencilSound {
   /// Loads the audio file into the audio cache
   /// and sets the audio context.
   static Future<void> preload() => Future.wait([
-        Prefs.pencilSound.waitUntilLoaded().then((_) => setAudioContext()),
+        stows.pencilSound.waitUntilRead().then((_) => setAudioContext()),
         _player.audioCache.loadPath(_source),
       ]);
 
@@ -36,7 +37,7 @@ abstract class PencilSound {
             ? AudioContextConfigFocus.gain
             : AudioContextConfigFocus.mixWithOthers,
         // Doesn't play the sound when the device is in silent mode.
-        respectSilence: Prefs.pencilSound.value.respectSilence,
+        respectSilence: stows.pencilSound.value.respectSilence,
       ).build());
 
   static void resume() {
@@ -116,4 +117,6 @@ enum PencilSoundSetting {
         PencilSoundSetting.onButNotInSilentMode => true,
         PencilSoundSetting.onAlways => false,
       };
+
+  static final codec = EnumCodec(values);
 }

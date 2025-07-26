@@ -24,14 +24,10 @@
     alt="Stáhnout jako AppImage"
     height=50>][download_appimage]
 
-Unofficial packages:
+Neoficiální balíčky:
 [<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/snap-badge.svg"
     alt="Stáhnout ze Snap Store"
     height=50>][snap]
-&nbsp;
-[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/copr.png"
-    alt="Get it from Fedora Copr"
-    height=50>][copr]
 
 [English](https://github.com/saber-notes/saber/blob/main/README.md) |
 [čeština](https://github.com/saber-notes/saber/blob/main/README-cs.md) |
@@ -109,10 +105,6 @@ nastavení práv pro spuštění `chmod +x Saber-*-x86_64.AppImage` a spuštěn�
 Možnost 3:
 Díky @soumyaDghosh je k dispozici neoficiální [snap][snap] balíček:
 `sudo snap install saber`.
-
-Možnost 4:
-There's an unofficial Fedora Copr [repo][copr] available thanks to @jyo64.
-`sudo dnf copr enable jyo64/Saber && sudo dnf install saber`
 
 #### Windows
 
@@ -352,8 +344,8 @@ Pokud máte rádi Saber, zvažte prosím jeho podporu pomocí
 [google_play]: https://play.google.com/store/apps/details?id=com.adilhanney.saber
 [snap]: https://snapcraft.io/saber
 [app_store]: https://apps.apple.com/cz/app/saber/id1671523739
-[download_windows]: https://github.com/saber-notes/saber/releases/download/v0.25.4/SaberInstaller_v0.25.4.exe
-[download_appimage]: https://github.com/saber-notes/saber/releases/download/v0.25.4/Saber-0.25.4-x86_64.AppImage
+[download_windows]: https://github.com/saber-notes/saber/releases/download/v0.26.0/SaberInstaller_v0.26.0.exe
+[download_appimage]: https://github.com/saber-notes/saber/releases/download/v0.26.0/Saber-0.26.0-x86_64.AppImage
 
 [nextcloud]: https://nc.saber.adil.hanney.org/
 

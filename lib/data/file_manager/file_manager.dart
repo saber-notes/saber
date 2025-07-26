@@ -30,12 +30,7 @@ class FileManager {
   /// Realistically, this value never changes.
   static late String documentsDirectory;
 
-  static final StreamController<FileOperation> fileWriteStream =
-      StreamController.broadcast(
-    onListen: () => _fileWriteStreamIsListening = true,
-    onCancel: () => _fileWriteStreamIsListening = false,
-  );
-  static bool _fileWriteStreamIsListening = false;
+  static final fileWriteStream = StreamController<FileOperation>.broadcast();
 
   // TODO(adil192): Implement or remove this
   static String _sanitisePath(String path) => File(path).path;
@@ -55,7 +50,7 @@ class FileManager {
   }
 
   static Future<String> getDocumentsDirectory() async =>
-      Prefs.customDataDir.value ?? await getDefaultDocumentsDirectory();
+      stows.customDataDir.value ?? await getDefaultDocumentsDirectory();
 
   static Future<String> getDefaultDocumentsDirectory() async =>
       '${(await getApplicationDocumentsDirectory()).path}/$appRootDirectoryPrefix';
@@ -123,7 +118,7 @@ class FileManager {
 
   @visibleForTesting
   static void broadcastFileWrite(FileOperationType type, String path) async {
-    if (!_fileWriteStreamIsListening) return;
+    if (!fileWriteStream.hasListener) return;
 
     // remove extension
     if (path.endsWith(Editor.extension)) {
@@ -261,16 +256,18 @@ class FileManager {
       } else {
         // share file
         tempFile = await getTempFile();
-        if (Platform.isIOS) {
+        if (Platform.isIOS || Platform.isMacOS) {
           if (!context.mounted) return;
           final box = context.findRenderObject() as RenderBox;
-          await Share.shareXFiles(
-            [XFile(tempFile.path)],
+          await SharePlus.instance.share(ShareParams(
+            files: [XFile(tempFile.path)],
             // iOS requires a sharePositionOrigin for the share sheet to appear
             sharePositionOrigin: box.localToGlobal(Offset.zero) & box.size,
-          );
+          ));
         } else {
-          await Share.shareXFiles([XFile(tempFile.path)]);
+          await SharePlus.instance.share(ShareParams(
+            files: [XFile(tempFile.path)],
+          ));
         }
       }
     } else {
@@ -589,8 +586,8 @@ class FileManager {
   }
 
   static Future<List<String>> getRecentlyAccessed() async {
-    await Prefs.recentFiles.waitUntilLoaded();
-    return Prefs.recentFiles.value
+    if (!stows.recentFiles.loaded) await stows.recentFiles.waitUntilRead();
+    return stows.recentFiles.value
         .map((String filePath) {
           if (filePath.endsWith(Editor.extension)) {
             return filePath.substring(
@@ -796,37 +793,37 @@ class FileManager {
   static Future _renameReferences(String fromPath, String toPath) async {
     // rename file in recently accessed
     bool replaced = false;
-    for (int i = 0; i < Prefs.recentFiles.value.length; i++) {
-      if (Prefs.recentFiles.value[i] != fromPath) continue;
+    for (int i = 0; i < stows.recentFiles.value.length; i++) {
+      if (stows.recentFiles.value[i] != fromPath) continue;
       if (!replaced) {
-        Prefs.recentFiles.value[i] = toPath;
+        stows.recentFiles.value[i] = toPath;
         replaced = true;
       } else {
-        Prefs.recentFiles.value.removeAt(i);
+        stows.recentFiles.value.removeAt(i);
       }
     }
-    Prefs.recentFiles.notifyListeners();
+    stows.recentFiles.notifyListeners();
   }
 
   static Future _removeReferences(String filePath) async {
     // remove file from recently accessed
-    for (int i = 0; i < Prefs.recentFiles.value.length; i++) {
-      if (Prefs.recentFiles.value[i] != filePath) continue;
-      Prefs.recentFiles.value.removeAt(i);
+    for (int i = 0; i < stows.recentFiles.value.length; i++) {
+      if (stows.recentFiles.value[i] != filePath) continue;
+      stows.recentFiles.value.removeAt(i);
     }
-    Prefs.recentFiles.notifyListeners();
+    stows.recentFiles.notifyListeners();
   }
 
   static Future _saveFileAsRecentlyAccessed(String filePath) async {
     // don't add assets to recently accessed
     if (assetFileRegex.hasMatch(filePath)) return;
 
-    Prefs.recentFiles.value.remove(filePath);
-    Prefs.recentFiles.value.insert(0, filePath);
-    if (Prefs.recentFiles.value.length > maxRecentlyAccessedFiles)
-      Prefs.recentFiles.value.removeLast();
+    stows.recentFiles.value.remove(filePath);
+    stows.recentFiles.value.insert(0, filePath);
+    if (stows.recentFiles.value.length > maxRecentlyAccessedFiles)
+      stows.recentFiles.value.removeLast();
 
-    Prefs.recentFiles.notifyListeners();
+    stows.recentFiles.notifyListeners();
   }
 
   static const int maxRecentlyAccessedFiles = 30;

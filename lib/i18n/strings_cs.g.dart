@@ -13,9 +13,9 @@ import 'strings.g.dart';
 class TranslationsCs extends Translations {
 	/// You can call this constructor and build your own translation instance of this locale.
 	/// Constructing via the enum [AppLocale.build] is preferred.
-	TranslationsCs({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver})
+	TranslationsCs({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver, TranslationMetadata<AppLocale, Translations>? meta})
 		: assert(overrides == null, 'Set "translation_overrides: true" in order to enable this feature.'),
-		  $meta = TranslationMetadata(
+		  $meta = meta ?? TranslationMetadata(
 		    locale: AppLocale.cs,
 		    overrides: overrides ?? {},
 		    cardinalResolver: cardinalResolver,
@@ -27,6 +27,9 @@ class TranslationsCs extends Translations {
 	@override final TranslationMetadata<AppLocale, Translations> $meta;
 
 	late final TranslationsCs _root = this; // ignore: unused_field
+
+	@override 
+	TranslationsCs $copyWith({TranslationMetadata<AppLocale, Translations>? meta}) => TranslationsCs(meta: meta ?? this.$meta);
 
 	// Translations
 	@override late final _TranslationsCommonCs common = _TranslationsCommonCs._(_root);
@@ -66,6 +69,7 @@ class _TranslationsHomeCs extends TranslationsHomeEn {
 	@override String get welcome => 'Vítejte v aplikaci Saber';
 	@override String get invalidFormat => 'Vybrali jste nepodporovaný soubor. Vyberte prosím soubor s příponou .sbn, .sbn2, .sba nebo .pdf.';
 	@override String get noFiles => 'Žádné poznámky nebyly nalezeny';
+	@override String get noPreviewAvailable => 'Náhled není k dispozici';
 	@override String get createNewNote => 'Pro přidání nové poznámky klepněte na tlačítko +';
 	@override String get backFolder => 'Přejít do předchozí složky';
 	@override late final _TranslationsHomeNewFolderCs newFolder = _TranslationsHomeNewFolderCs._(_root);
@@ -89,7 +93,7 @@ class _TranslationsSettingsCs extends TranslationsSettingsEn {
 	@override late final _TranslationsSettingsThemeModesCs themeModes = _TranslationsSettingsThemeModesCs._(_root);
 	@override late final _TranslationsSettingsLayoutSizesCs layoutSizes = _TranslationsSettingsLayoutSizesCs._(_root);
 	@override late final _TranslationsSettingsAccentColorPickerCs accentColorPicker = _TranslationsSettingsAccentColorPickerCs._(_root);
-	@override String get systemLanguage => 'Systémový jazyk';
+	@override String get systemLanguage => 'Zvolit automaticky';
 	@override List<String> get axisDirections => [
 		'Nahoře',
 		'Vpravo',
@@ -100,6 +104,8 @@ class _TranslationsSettingsCs extends TranslationsSettingsEn {
 	@override String get resyncEverything => 'Znovu synchronizovat všechny poznámky';
 	@override String get openDataDir => 'Otevřít složku aplikace Saber';
 	@override late final _TranslationsSettingsCustomDataDirCs customDataDir = _TranslationsSettingsCustomDataDirCs._(_root);
+	@override String get autosaveDisabled => 'Nikdy';
+	@override String get shapeRecognitionDisabled => 'Nikdy';
 }
 
 // Path: logs
@@ -355,7 +361,7 @@ class _TranslationsSettingsPrefLabelsCs extends TranslationsSettingsPrefLabelsEn
 	final TranslationsCs _root; // ignore: unused_field
 
 	// Translations
-	@override String get locale => 'Jazyk aplikace';
+	@override String get locale => 'Jazyk';
 	@override String get appTheme => 'Barva motivu';
 	@override String get platform => 'Motiv';
 	@override String get layoutSize => 'Rozložení uživatelského rozhraní';
@@ -377,7 +383,7 @@ class _TranslationsSettingsPrefLabelsCs extends TranslationsSettingsPrefLabelsEn
 	@override String get recentColorsDontSavePresets => 'Neukládat přednastavené barvy mezi naposledy použité barvy';
 	@override String get recentColorsLength => 'Kolik naposledy použitých barev se má ukládat';
 	@override String get printPageIndicators => 'Tisknout čísla stránek';
-	@override String get autosaveDelay => 'Zpoždění automatického ukládání';
+	@override String get autosave => 'Automatické ukládání';
 	@override String get shapeRecognitionDelay => 'Zpoždění rozpoznávání tvarů';
 	@override String get autoStraightenLines => 'Automaticky narovnávat čáry';
 	@override String get simplifiedHomeLayout => 'Zjednodušené rozložení domovské obrazovky';
@@ -402,7 +408,7 @@ class _TranslationsSettingsPrefDescriptionsCs extends TranslationsSettingsPrefDe
 	@override String get editorPromptRename => 'Poznámky můžete vždy přejmenovat i později';
 	@override String get hideHomeBackgrounds => 'Pro čistější vzhled';
 	@override String get printPageIndicators => 'V exportech budou zobrazena čísla stránek';
-	@override String get autosaveDelay => 'Jak dlouho počkat před automatickým uložením poznámky';
+	@override String get autosave => 'Poznámky se budou automaticky ukládat po krátké prodlevě, nebo nikdy';
 	@override String get shapeRecognitionDelay => 'Jak často aktualizovat náhled tvaru';
 	@override String get autoStraightenLines => 'Automaticky narovná dlouhé čáry, aniž by bylo nutné využít tvarové pero';
 	@override String get simplifiedHomeLayout => 'Nastaví pevnou výšku pro každý náhled poznámky';
@@ -707,8 +713,8 @@ class _TranslationsEditorMenuCs extends TranslationsEditorMenuEn {
 	@override String get deletePage => 'Odstranit stránku';
 	@override String get lineHeight => 'Výška řádku';
 	@override String get lineHeightDescription => 'Ovlivňuje také velikost textu psaných poznámek';
-	@override String get lineThickness => 'Tloušťka linky';
-	@override String get lineThicknessDescription => 'Tloušťka linie na pozadí';
+	@override String get lineThickness => 'Tloušťka linek';
+	@override String get lineThicknessDescription => 'Tloušťka čar ve vzoru na pozadí';
 	@override String get backgroundImageFit => 'Rozložení obrázku na pozadí';
 	@override String get backgroundPattern => 'Vzor na pozadí';
 	@override String get import => 'Importovat';

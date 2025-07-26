@@ -17,9 +17,9 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 
 	/// You can call this constructor and build your own translation instance of this locale.
 	/// Constructing via the enum [AppLocale.build] is preferred.
-	Translations({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver})
+	Translations({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver, TranslationMetadata<AppLocale, Translations>? meta})
 		: assert(overrides == null, 'Set "translation_overrides: true" in order to enable this feature.'),
-		  $meta = TranslationMetadata(
+		  $meta = meta ?? TranslationMetadata(
 		    locale: AppLocale.en,
 		    overrides: overrides ?? {},
 		    cardinalResolver: cardinalResolver,
@@ -30,6 +30,8 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	@override final TranslationMetadata<AppLocale, Translations> $meta;
 
 	late final Translations _root = this; // ignore: unused_field
+
+	Translations $copyWith({TranslationMetadata<AppLocale, Translations>? meta}) => Translations(meta: meta ?? this.$meta);
 
 	// Translations
 	late final TranslationsCommonEn common = TranslationsCommonEn.internal(_root);
@@ -69,6 +71,7 @@ class TranslationsHomeEn {
 	String get welcome => 'Welcome to Saber';
 	String get invalidFormat => 'The file you selected is not supported. Please select an sbn, sbn2, sba, or pdf file.';
 	String get noFiles => 'No files found';
+	String get noPreviewAvailable => 'No preview available';
 	String get createNewNote => 'Tap the + button to create a new note';
 	String get backFolder => 'Go back to the previous folder';
 	late final TranslationsHomeNewFolderEn newFolder = TranslationsHomeNewFolderEn.internal(_root);
@@ -92,7 +95,7 @@ class TranslationsSettingsEn {
 	late final TranslationsSettingsThemeModesEn themeModes = TranslationsSettingsThemeModesEn.internal(_root);
 	late final TranslationsSettingsLayoutSizesEn layoutSizes = TranslationsSettingsLayoutSizesEn.internal(_root);
 	late final TranslationsSettingsAccentColorPickerEn accentColorPicker = TranslationsSettingsAccentColorPickerEn.internal(_root);
-	String get systemLanguage => 'Default';
+	String get systemLanguage => 'Auto';
 	List<String> get axisDirections => [
 		'Top',
 		'Right',
@@ -103,6 +106,8 @@ class TranslationsSettingsEn {
 	String get resyncEverything => 'Resync everything';
 	String get openDataDir => 'Open Saber folder';
 	late final TranslationsSettingsCustomDataDirEn customDataDir = TranslationsSettingsCustomDataDirEn.internal(_root);
+	String get autosaveDisabled => 'Never';
+	String get shapeRecognitionDisabled => 'Never';
 }
 
 // Path: logs
@@ -358,7 +363,7 @@ class TranslationsSettingsPrefLabelsEn {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
-	String get locale => 'App language';
+	String get locale => 'Language';
 	String get appTheme => 'App theme';
 	String get platform => 'Theme type';
 	String get layoutSize => 'Layout type';
@@ -380,7 +385,7 @@ class TranslationsSettingsPrefLabelsEn {
 	String get recentColorsDontSavePresets => 'Don\'t save preset colors in recent colors';
 	String get recentColorsLength => 'How many recent colors to store';
 	String get printPageIndicators => 'Print page indicators';
-	String get autosaveDelay => 'Auto-save delay';
+	String get autosave => 'Auto-save';
 	String get shapeRecognitionDelay => 'Shape recognition delay';
 	String get autoStraightenLines => 'Auto straighten lines';
 	String get simplifiedHomeLayout => 'Simplified home layout';
@@ -405,7 +410,7 @@ class TranslationsSettingsPrefDescriptionsEn {
 	String get editorPromptRename => 'You can always rename notes later';
 	String get hideHomeBackgrounds => 'For a cleaner look';
 	String get printPageIndicators => 'Show page indicators in exports';
-	String get autosaveDelay => 'How long to wait before auto-saving a note';
+	String get autosave => 'Auto-save after a short delay, or never';
 	String get shapeRecognitionDelay => 'How often to update the shape preview';
 	String get autoStraightenLines => 'Straightens long lines without having to use the shape pen';
 	String get simplifiedHomeLayout => 'Sets a fixed height for each note preview';

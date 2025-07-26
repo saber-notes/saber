@@ -1,8 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:saber/components/theming/adaptive_toggle_buttons.dart';
-import 'package:saber/data/prefs.dart';
 import 'package:saber/pages/home/settings.dart';
+import 'package:stow/stow.dart';
 
 class SettingsDropdown<T> extends StatefulWidget {
   const SettingsDropdown({
@@ -22,7 +22,7 @@ class SettingsDropdown<T> extends StatefulWidget {
   final IconData? icon;
   final IconData? Function(T)? iconBuilder;
 
-  final IPref<T> pref;
+  final Stow<dynamic, T, dynamic> pref;
   final List<ToggleButtonsOption<T>> options;
   final ValueChanged<T>? afterChange;
 
@@ -34,7 +34,7 @@ class SettingsDropdown<T> extends StatefulWidget {
   }
 
   @override
-  State<SettingsDropdown> createState() => _SettingsDropdownState();
+  State<SettingsDropdown> createState() => _SettingsDropdownState<T>();
 }
 
 class _SettingsDropdownState<T> extends State<SettingsDropdown<T>> {
@@ -65,26 +65,6 @@ class _SettingsDropdownState<T> extends State<SettingsDropdown<T>> {
     icon ??= widget.iconBuilder?.call(widget.pref.value);
     icon ??= Icons.settings;
 
-    final dropdown = DropdownButton<T>(
-      value: widget.pref.value,
-      onChanged: (T? value) {
-        if (value == null) return;
-        widget.pref.value = value;
-      },
-      items: widget.options.map((ToggleButtonsOption<T> option) {
-        return DropdownMenuItem<T>(
-          value: option.value,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: option.widget,
-          ),
-        );
-      }).toList(),
-      focusNode: dropdownFocusNode,
-      borderRadius: BorderRadius.circular(32),
-      underline: const SizedBox.shrink(),
-    );
-
     return MergeSemantics(
       child: ListTile(
         onTap: () {
@@ -113,7 +93,31 @@ class _SettingsDropdownState<T> extends State<SettingsDropdown<T>> {
         ),
         subtitle:
             Text(widget.subtitle ?? '', style: const TextStyle(fontSize: 13)),
-        trailing: dropdown,
+        trailing: DropdownButton<T>(
+          value: widget.pref.value,
+          onChanged: (T? value) {
+            if (value == null) return;
+            widget.pref.value = value;
+          },
+          items: [
+            for (final option in widget.options)
+              DropdownMenuItem<T>(
+                value: option.value,
+                child: ConstrainedBox(
+                  constraints: BoxConstraints(
+                    maxWidth: MediaQuery.sizeOf(context).width * 0.45,
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    child: option.widget,
+                  ),
+                ),
+              ),
+          ],
+          focusNode: dropdownFocusNode,
+          borderRadius: BorderRadius.circular(32),
+          underline: const SizedBox.shrink(),
+        ),
       ),
     );
   }

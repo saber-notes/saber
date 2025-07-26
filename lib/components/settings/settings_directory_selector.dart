@@ -23,7 +23,7 @@ class SettingsDirectorySelector extends StatelessWidget {
   final IconData icon;
   final ValueChanged<Color?>? afterChange;
 
-  void onPressed(context) async {
+  void onPressed(BuildContext context) async {
     final oldDir = Directory(FileManager.documentsDirectory);
     final oldDirIsEmpty =
         oldDir.existsSync() ? oldDir.listSync().isEmpty : true;
@@ -52,13 +52,13 @@ class SettingsDirectorySelector extends StatelessWidget {
           style: TextStyle(
             fontSize: 18,
             fontStyle:
-                Prefs.customDataDir.value != Prefs.customDataDir.defaultValue
+                stows.customDataDir.value != stows.customDataDir.defaultValue
                     ? FontStyle.italic
                     : null,
           ),
         ),
         subtitle: ValueListenableBuilder(
-          valueListenable: Prefs.customDataDir,
+          valueListenable: stows.customDataDir,
           builder: (context, _, __) => Text(
             FileManager.documentsDirectory,
             style: const TextStyle(fontSize: 13),
@@ -121,7 +121,7 @@ class _DirectorySelectorState extends State<DirectorySelector> {
   }
 
   void _onConfirm() {
-    Prefs.customDataDir.value = _directory;
+    stows.customDataDir.value = _directory;
     context.pop();
   }
 
@@ -155,7 +155,7 @@ class _DirectorySelectorState extends State<DirectorySelector> {
                 icon: const Icon(Icons.folder),
                 onPressed: _pickDir,
               ),
-              if (Prefs.customDataDir.value != null)
+              if (stows.customDataDir.value != null)
                 IconButton(
                   icon: const Icon(Icons.undo),
                   onPressed: _pickDefaultDir,

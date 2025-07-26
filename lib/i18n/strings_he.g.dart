@@ -13,9 +13,9 @@ import 'strings.g.dart';
 class TranslationsHe extends Translations {
 	/// You can call this constructor and build your own translation instance of this locale.
 	/// Constructing via the enum [AppLocale.build] is preferred.
-	TranslationsHe({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver})
+	TranslationsHe({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver, TranslationMetadata<AppLocale, Translations>? meta})
 		: assert(overrides == null, 'Set "translation_overrides: true" in order to enable this feature.'),
-		  $meta = TranslationMetadata(
+		  $meta = meta ?? TranslationMetadata(
 		    locale: AppLocale.he,
 		    overrides: overrides ?? {},
 		    cardinalResolver: cardinalResolver,
@@ -27,6 +27,9 @@ class TranslationsHe extends Translations {
 	@override final TranslationMetadata<AppLocale, Translations> $meta;
 
 	late final TranslationsHe _root = this; // ignore: unused_field
+
+	@override 
+	TranslationsHe $copyWith({TranslationMetadata<AppLocale, Translations>? meta}) => TranslationsHe(meta: meta ?? this.$meta);
 
 	// Translations
 	@override late final _TranslationsCommonHe common = _TranslationsCommonHe._(_root);
@@ -74,6 +77,7 @@ class _TranslationsHomeHe extends TranslationsHomeEn {
 	@override String get deleteNote => 'מחק פתק';
 	@override late final _TranslationsHomeRenameFolderHe renameFolder = _TranslationsHomeRenameFolderHe._(_root);
 	@override late final _TranslationsHomeDeleteFolderHe deleteFolder = _TranslationsHomeDeleteFolderHe._(_root);
+	@override String get noPreviewAvailable => 'אין תצוגה מקדימה זמינה';
 }
 
 // Path: settings
@@ -98,6 +102,8 @@ class _TranslationsSettingsHe extends TranslationsSettingsEn {
 	];
 	@override late final _TranslationsSettingsResetHe reset = _TranslationsSettingsResetHe._(_root);
 	@override late final _TranslationsSettingsCustomDataDirHe customDataDir = _TranslationsSettingsCustomDataDirHe._(_root);
+	@override String get autosaveDisabled => 'לְעוֹלָם לֹא';
+	@override String get shapeRecognitionDisabled => 'לְעוֹלָם לֹא';
 	@override String get openDataDir => 'פתח את תיקיית Saber';
 	@override String get resyncEverything => 'סנכרן הכל מחדש';
 }
@@ -374,7 +380,7 @@ class _TranslationsSettingsPrefLabelsHe extends TranslationsSettingsPrefLabelsEn
 	@override String get hideHomeBackgrounds => 'הסתר רקעים במסך הבית';
 	@override String get recentColorsDontSavePresets => 'אל תשמור צבעים מוגדרים מראש בצבעים אחרונים';
 	@override String get printPageIndicators => 'הדפסת עמודים מחוונים';
-	@override String get autosaveDelay => 'השהיית שמירה אוטומטית';
+	@override String get autosave => 'שמור אוטומטי';
 	@override String get simplifiedHomeLayout => 'פריסת בית פשוטה';
 	@override String get pencilSoundSetting => 'אפקט צליל עיפרון';
 	@override String get customDataDir => 'ספריית נתונים מותאמת אישית';
@@ -400,7 +406,7 @@ class _TranslationsSettingsPrefDescriptionsHe extends TranslationsSettingsPrefDe
 	@override String get editorPromptRename => 'תמיד תוכל לשנות את שם הפתקים מאוחר יותר';
 	@override String get hideHomeBackgrounds => 'למראה נקי יותר';
 	@override String get printPageIndicators => 'הצג מחווני עמודים בייצוא';
-	@override String get autosaveDelay => 'כמה זמן לחכות לפני שמירת הערה אוטומטית';
+	@override String get autosave => 'יש לשעוג אוטומטית לאחר עיכוב קצר, או לעולם';
 	@override String get shouldAlwaysAlertForUpdates => 'ספר לי על עדכונים ברגע שהם יהיו זמינים';
 	@override late final _TranslationsSettingsPrefDescriptionsPencilSoundSettingHe pencilSoundSetting = _TranslationsSettingsPrefDescriptionsPencilSoundSettingHe._(_root);
 	@override String get simplifiedHomeLayout => 'מגדיר גובה קבוע עבור כל תצוגה מקדימה של הערה';
@@ -704,13 +710,13 @@ class _TranslationsEditorMenuHe extends TranslationsEditorMenuEn {
 	@override String get duplicatePage => 'שכפל דף';
 	@override String get deletePage => 'מחק דף';
 	@override String get lineHeight => 'גובה הקו';
-	@override String get lineThickness => 'עובי קו';
-	@override String get lineThicknessDescription => 'עובי קו רקע';
 	@override String get backgroundImageFit => 'התאמת תמונת רקע';
 	@override String get backgroundPattern => 'תבנית רקע';
 	@override String get import => 'יבוא';
 	@override late final _TranslationsEditorMenuBoxFitsHe boxFits = _TranslationsEditorMenuBoxFitsHe._(_root);
 	@override late final _TranslationsEditorMenuBgPatternsHe bgPatterns = _TranslationsEditorMenuBgPatternsHe._(_root);
+	@override String get lineThickness => 'עובי קו';
+	@override String get lineThicknessDescription => 'עובי קו רקע';
 	@override String get watchServer => 'שימו לב לעדכונים בשרת';
 	@override String get watchServerReadOnly => 'העריכה מושבתת בזמן צפייה בשרת';
 	@override String get lineHeightDescription => 'שולט גם בגודל הטקסט עבור הערות מוקלדות';

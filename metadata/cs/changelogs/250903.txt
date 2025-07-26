@@ -1,0 +1,3 @@
+• Malá vylepšení uživatelského rozhraní na stránce Nastavení
+• Zjednodušené nastavení rozvržení domácnosti bylo vylepšeno, takže karty již nejsou nataženy
+• Odstraněné odkazy na sponzory GitHubu na iOS, protože by museli používat nákupy v aplikaci

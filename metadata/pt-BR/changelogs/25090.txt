@@ -1,0 +1,3 @@
+• Pequenas melhorias na interface do usuário na página de configurações
+• A configuração de layout da casa simplificada foi ajustada para que os cartões não sejam mais esticados
+• Referências removidas aos patrocinadores do GitHub no iOS, já que eles teriam que usar compras no aplicativo

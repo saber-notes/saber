@@ -1,0 +1,2 @@
+• Javítva a kiválasztási eszközt nem (láthatóan) mozgó stroke
+• Javítva a kiszolgáló linkeket a fiók oldalon

@@ -2,15 +2,19 @@ import 'package:flutter/material.dart';
 
 const saberSansSerifFontFallbacks = [
   'Inter',
+  'Adwaita Sans',
   'Noto Sans',
   'Roboto',
   'Droid Sans',
   'Liberation Sans',
   'Fira Sans',
   'Cantarell',
-  'Sans',
   'system-ui',
   'sans-serif',
+  '.SF Pro Display',
+  '.SF Pro Text',
+  '.SF UI Display',
+  '.SF UI Text',
   'Neucha',
   'Dekko',
 ];

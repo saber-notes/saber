@@ -28,6 +28,7 @@ import 'package:saber/data/prefs.dart';
 import 'package:saber/data/routes.dart';
 import 'package:saber/data/tools/shape_pen.dart';
 import 'package:saber/i18n/strings.g.dart';
+import 'package:stow/stow.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});
@@ -37,7 +38,7 @@ class SettingsPage extends StatefulWidget {
 
   static Future<bool?> showResetDialog({
     required BuildContext context,
-    required IPref pref,
+    required Stow pref,
     required String prefTitle,
   }) async {
     if (pref.value == pref.defaultValue) return null;
@@ -67,33 +68,33 @@ class SettingsPage extends StatefulWidget {
   }
 }
 
-abstract class _SettingsPrefs {
-  static final appTheme = TransformedPref(
-    Prefs.appTheme,
+abstract class _SettingsStows {
+  static final appTheme = TransformedStow(
+    stows.appTheme,
     (ThemeMode value) => value.index,
     (int value) => ThemeMode.values[value],
   );
 
-  static final platform = TransformedPref(
-    Prefs.platform,
+  static final platform = TransformedStow(
+    stows.platform,
     (TargetPlatform value) => value.index,
     (int value) => TargetPlatform.values[value],
   );
 
-  static final layoutSize = TransformedPref(
-    Prefs.layoutSize,
+  static final layoutSize = TransformedStow(
+    stows.layoutSize,
     (LayoutSize value) => value.index,
     (int value) => LayoutSize.values[value],
   );
 
-  static final editorToolbarAlignment = TransformedPref(
-    Prefs.editorToolbarAlignment,
+  static final editorToolbarAlignment = TransformedStow(
+    stows.editorToolbarAlignment,
     (AxisDirection value) => value.index,
     (int value) => AxisDirection.values[value],
   );
 
-  static final pencilSound = TransformedPref(
-    Prefs.pencilSound,
+  static final pencilSound = TransformedStow(
+    stows.pencilSound,
     (PencilSoundSetting value) => value.index,
     (int value) => PencilSoundSetting.values[value],
   );
@@ -102,7 +103,7 @@ abstract class _SettingsPrefs {
 class _SettingsPageState extends State<SettingsPage> {
   @override
   void initState() {
-    Prefs.locale.addListener(onChanged);
+    stows.locale.addListener(onChanged);
     UpdateManager.status.addListener(onChanged);
     super.initState();
   }
@@ -200,7 +201,7 @@ class _SettingsPageState extends State<SettingsPage> {
               SettingsDropdown(
                 title: t.settings.prefLabels.locale,
                 icon: cupertino ? CupertinoIcons.globe : Icons.language,
-                pref: Prefs.locale,
+                pref: stows.locale,
                 options: [
                   ToggleButtonsOption('', Text(t.settings.systemLanguage)),
                   ...AppLocaleUtils.supportedLocales.map((locale) {
@@ -223,7 +224,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   if (i == ThemeMode.dark.index) return Icons.dark_mode;
                   return null;
                 },
-                pref: _SettingsPrefs.appTheme,
+                pref: _SettingsStows.appTheme,
                 optionsWidth: 60,
                 options: [
                   ToggleButtonsOption(
@@ -242,12 +243,12 @@ class _SettingsPageState extends State<SettingsPage> {
               ),
               SettingsSelection(
                 title: t.settings.prefLabels.platform,
-                iconBuilder: (i) => switch (Prefs.platform.value) {
+                iconBuilder: (i) => switch (stows.platform.value) {
                   TargetPlatform.iOS || TargetPlatform.macOS => Icons.apple,
                   TargetPlatform.linux => FontAwesomeIcons.ubuntu,
                   _ => materialIcon,
                 },
-                pref: _SettingsPrefs.platform,
+                pref: _SettingsStows.platform,
                 optionsWidth: 60,
                 options: [
                   ToggleButtonsOption(
@@ -262,9 +263,9 @@ class _SettingsPageState extends State<SettingsPage> {
                     () {
                       // Hack to allow screenshot golden tests
                       if (kDebugMode &&
-                          (Prefs.platform.value == TargetPlatform.iOS ||
-                              Prefs.platform.value == TargetPlatform.macOS))
-                        return Prefs.platform.value.index;
+                          (stows.platform.value == TargetPlatform.iOS ||
+                              stows.platform.value == TargetPlatform.macOS))
+                        return stows.platform.value.index;
                       if (usesCupertinoByDefault)
                         return defaultTargetPlatform.index;
                       return TargetPlatform.iOS.index;
@@ -282,7 +283,7 @@ class _SettingsPageState extends State<SettingsPage> {
               ),
               SettingsSelection(
                 title: t.settings.prefLabels.layoutSize,
-                subtitle: switch (Prefs.layoutSize.value) {
+                subtitle: switch (stows.layoutSize.value) {
                   LayoutSize.auto => t.settings.layoutSizes.auto,
                   LayoutSize.phone => t.settings.layoutSizes.phone,
                   LayoutSize.tablet => t.settings.layoutSizes.tablet,
@@ -293,7 +294,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   LayoutSize.phone => Icons.smartphone,
                   LayoutSize.tablet => Icons.tablet,
                 },
-                pref: _SettingsPrefs.layoutSize,
+                pref: _SettingsStows.layoutSize,
                 optionsWidth: 60,
                 options: [
                   ToggleButtonsOption(
@@ -313,7 +314,7 @@ class _SettingsPageState extends State<SettingsPage> {
               SettingsColor(
                 title: t.settings.prefLabels.customAccentColor,
                 icon: Icons.colorize,
-                pref: Prefs.accentColor,
+                pref: stows.accentColor,
               ),
               SettingsSwitch(
                 title: t.settings.prefLabels.hyperlegibleFont,
@@ -327,7 +328,7 @@ class _SettingsPageState extends State<SettingsPage> {
                       ? CupertinoIcons.textformat_alt
                       : Icons.font_download_off;
                 },
-                pref: Prefs.hyperlegibleFont,
+                pref: stows.hyperlegibleFont,
               ),
               SettingsSubtitle(subtitle: t.settings.prefCategories.writing),
               SettingsSwitch(
@@ -338,26 +339,26 @@ class _SettingsPageState extends State<SettingsPage> {
                       ? Icons.monochrome_photos
                       : Icons.enhance_photo_translate;
                 },
-                pref: Prefs.preferGreyscale,
+                pref: stows.preferGreyscale,
               ),
               SettingsSwitch(
                 title: t.settings.prefLabels.autoClearWhiteboardOnExit,
                 subtitle: t.settings.prefDescriptions.autoClearWhiteboardOnExit,
                 icon: Icons.cleaning_services,
-                pref: Prefs.autoClearWhiteboardOnExit,
+                pref: stows.autoClearWhiteboardOnExit,
               ),
               SettingsSwitch(
                 title: t.settings.prefLabels.disableEraserAfterUse,
                 subtitle: t.settings.prefDescriptions.disableEraserAfterUse,
                 icon: FontAwesomeIcons.eraser,
-                pref: Prefs.disableEraserAfterUse,
+                pref: stows.disableEraserAfterUse,
               ),
               SettingsSwitch(
                 title: t.settings.prefLabels.hideFingerDrawingToggle,
                 subtitle: () {
-                  if (!Prefs.hideFingerDrawingToggle.value) {
+                  if (!stows.hideFingerDrawingToggle.value) {
                     return t.settings.prefDescriptions.hideFingerDrawing.shown;
-                  } else if (Prefs.editorFingerDrawing.value) {
+                  } else if (stows.editorFingerDrawing.value) {
                     return t
                         .settings.prefDescriptions.hideFingerDrawing.fixedOn;
                   } else {
@@ -366,14 +367,14 @@ class _SettingsPageState extends State<SettingsPage> {
                   }
                 }(),
                 icon: CupertinoIcons.hand_draw,
-                pref: Prefs.hideFingerDrawingToggle,
+                pref: stows.hideFingerDrawingToggle,
                 afterChange: (_) => setState(() {}),
               ),
               SettingsSubtitle(subtitle: t.settings.prefCategories.editor),
               SettingsSelection(
                 title: t.settings.prefLabels.editorToolbarAlignment,
                 subtitle: t.settings.axisDirections[
-                    _SettingsPrefs.editorToolbarAlignment.value],
+                    _SettingsStows.editorToolbarAlignment.value],
                 iconBuilder: (num i) {
                   if (i is! int || i >= materialDirectionIcons.length)
                     return null;
@@ -381,7 +382,7 @@ class _SettingsPageState extends State<SettingsPage> {
                       ? cupertinoDirectionIcons[i]
                       : materialDirectionIcons[i];
                 },
-                pref: _SettingsPrefs.editorToolbarAlignment,
+                pref: _SettingsStows.editorToolbarAlignment,
                 optionsWidth: 60,
                 options: [
                   for (final AxisDirection direction in AxisDirection.values)
@@ -401,14 +402,14 @@ class _SettingsPageState extends State<SettingsPage> {
               SettingsSwitch(
                 title: t.settings.prefLabels.editorToolbarShowInFullscreen,
                 icon: cupertino ? CupertinoIcons.fullscreen : Icons.fullscreen,
-                pref: Prefs.editorToolbarShowInFullscreen,
+                pref: stows.editorToolbarShowInFullscreen,
               ),
               SettingsSwitch(
                 title: t.settings.prefLabels.editorAutoInvert,
                 iconBuilder: (b) {
                   return b ? Icons.invert_colors_on : Icons.invert_colors_off;
                 },
-                pref: Prefs.editorAutoInvert,
+                pref: stows.editorAutoInvert,
               ),
               SettingsSwitch(
                 title: t.settings.prefLabels.editorPromptRename,
@@ -420,7 +421,7 @@ class _SettingsPageState extends State<SettingsPage> {
                       ? CupertinoIcons.keyboard_chevron_compact_down
                       : Icons.keyboard_hide;
                 },
-                pref: Prefs.editorPromptRename,
+                pref: stows.editorPromptRename,
               ),
               SettingsSwitch(
                 title: t.settings.prefLabels.hideHomeBackgrounds,
@@ -431,17 +432,17 @@ class _SettingsPageState extends State<SettingsPage> {
                       ? CupertinoIcons.photo_fill
                       : Icons.photo_library;
                 },
-                pref: Prefs.hideHomeBackgrounds,
+                pref: stows.hideHomeBackgrounds,
               ),
               SettingsSwitch(
                 title: t.settings.prefLabels.recentColorsDontSavePresets,
                 icon: Icons.palette,
-                pref: Prefs.recentColorsDontSavePresets,
+                pref: stows.recentColorsDontSavePresets,
               ),
               SettingsSelection(
                 title: t.settings.prefLabels.recentColorsLength,
                 icon: Icons.history,
-                pref: Prefs.recentColorsLength,
+                pref: stows.recentColorsLength,
                 options: const [
                   ToggleButtonsOption(5, Text('5')),
                   ToggleButtonsOption(10, Text('10')),
@@ -451,13 +452,13 @@ class _SettingsPageState extends State<SettingsPage> {
                 title: t.settings.prefLabels.printPageIndicators,
                 subtitle: t.settings.prefDescriptions.printPageIndicators,
                 icon: Icons.numbers,
-                pref: Prefs.printPageIndicators,
+                pref: stows.printPageIndicators,
               ),
               SettingsSelection(
                 title: t.settings.prefLabels.pencilSoundSetting,
-                subtitle: Prefs.pencilSound.value.description,
-                icon: Prefs.pencilSound.value.icon,
-                pref: _SettingsPrefs.pencilSound,
+                subtitle: stows.pencilSound.value.description,
+                icon: stows.pencilSound.value.icon,
+                pref: _SettingsStows.pencilSound,
                 optionsWidth: 60,
                 options: [
                   for (final setting in PencilSoundSetting.values)
@@ -476,7 +477,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 title: t.settings.prefLabels.maxImageSize,
                 subtitle: t.settings.prefDescriptions.maxImageSize,
                 icon: Icons.photo_size_select_large,
-                pref: Prefs.maxImageSize,
+                pref: stows.maxImageSize,
                 options: const <ToggleButtonsOption<double>>[
                   ToggleButtonsOption(500, Text('500')),
                   ToggleButtonsOption(1000, Text('1000')),
@@ -484,25 +485,26 @@ class _SettingsPageState extends State<SettingsPage> {
                 ],
               ),
               SettingsSelection(
-                title: t.settings.prefLabels.autosaveDelay,
-                subtitle: t.settings.prefDescriptions.autosaveDelay,
+                title: t.settings.prefLabels.autosave,
+                subtitle: t.settings.prefDescriptions.autosave,
                 icon: Icons.save,
-                pref: Prefs.autosaveDelay,
-                options: const [
+                pref: stows.autosaveDelay,
+                options: [
                   ToggleButtonsOption(5000, Text('5s')),
                   ToggleButtonsOption(10000, Text('10s')),
-                  ToggleButtonsOption(-1, Icon(Icons.close)),
+                  ToggleButtonsOption(-1, Text(t.settings.autosaveDisabled)),
                 ],
               ),
               SettingsSelection(
                 title: t.settings.prefLabels.shapeRecognitionDelay,
                 subtitle: t.settings.prefDescriptions.shapeRecognitionDelay,
                 icon: FontAwesomeIcons.shapes,
-                pref: Prefs.shapeRecognitionDelay,
-                options: const [
+                pref: stows.shapeRecognitionDelay,
+                options: [
                   ToggleButtonsOption(500, Text('0.5s')),
                   ToggleButtonsOption(1000, Text('1s')),
-                  ToggleButtonsOption(-1, Icon(Icons.close)),
+                  ToggleButtonsOption(
+                      -1, Text(t.settings.shapeRecognitionDisabled)),
                 ],
                 afterChange: (ms) {
                   ShapePen.debounceDuration = ShapePen.getDebounceFromPref();
@@ -512,14 +514,14 @@ class _SettingsPageState extends State<SettingsPage> {
                 title: t.settings.prefLabels.autoStraightenLines,
                 subtitle: t.settings.prefDescriptions.autoStraightenLines,
                 icon: Icons.straighten,
-                pref: Prefs.autoStraightenLines,
+                pref: stows.autoStraightenLines,
               ),
               SettingsSwitch(
                 title: t.settings.prefLabels.simplifiedHomeLayout,
                 subtitle: t.settings.prefDescriptions.simplifiedHomeLayout,
                 iconBuilder: (simplified) =>
                     simplified ? Icons.grid_view : Symbols.browse,
-                pref: Prefs.simplifiedHomeLayout,
+                pref: stows.simplifiedHomeLayout,
               ),
               SettingsSubtitle(subtitle: t.settings.prefCategories.advanced),
               if (Platform.isAndroid)
@@ -542,23 +544,23 @@ class _SettingsPageState extends State<SettingsPage> {
                   },
                 ),
               if (requiresManualUpdates ||
-                  Prefs.shouldCheckForUpdates.value !=
-                      Prefs.shouldCheckForUpdates.defaultValue) ...[
+                  stows.shouldCheckForUpdates.value !=
+                      stows.shouldCheckForUpdates.defaultValue) ...[
                 SettingsSwitch(
                   title: t.settings.prefLabels.shouldCheckForUpdates,
                   icon: Icons.system_update,
-                  pref: Prefs.shouldCheckForUpdates,
+                  pref: stows.shouldCheckForUpdates,
                   afterChange: (_) => setState(() {}),
                 ),
                 Collapsible(
-                  collapsed: !Prefs.shouldCheckForUpdates.value,
+                  collapsed: !stows.shouldCheckForUpdates.value,
                   axis: CollapsibleAxis.vertical,
                   child: SettingsSwitch(
                     title: t.settings.prefLabels.shouldAlwaysAlertForUpdates,
                     subtitle:
                         t.settings.prefDescriptions.shouldAlwaysAlertForUpdates,
                     icon: Icons.system_security_update_warning,
-                    pref: Prefs.shouldAlwaysAlertForUpdates,
+                    pref: stows.shouldAlwaysAlertForUpdates,
                   ),
                 ),
               ],
@@ -566,7 +568,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 title: t.settings.prefLabels.allowInsecureConnections,
                 subtitle: t.settings.prefDescriptions.allowInsecureConnections,
                 icon: Icons.private_connectivity,
-                pref: Prefs.allowInsecureConnections,
+                pref: stows.allowInsecureConnections,
               ),
               SettingsButton(
                 title: t.logs.viewLogs,
@@ -583,7 +585,7 @@ class _SettingsPageState extends State<SettingsPage> {
 
   @override
   void dispose() {
-    Prefs.locale.removeListener(onChanged);
+    stows.locale.removeListener(onChanged);
     UpdateManager.status.removeListener(onChanged);
     super.dispose();
   }

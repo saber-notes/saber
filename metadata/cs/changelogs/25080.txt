@@ -1,0 +1,4 @@
+• Opraveno zpoždění způsobené generováním náhledů pro staré poznámky (2023 nebo starší). Staré poznámky budou nyní mít zástupný symbol místo náhledu.
+• Přidán mírná animace mezi kartami na domovské obrazovce.
+• Drobná vylepšení uživatelského rozhraní na různých místech.
+• Drobné opravy na téma platformy.

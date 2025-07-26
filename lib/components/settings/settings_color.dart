@@ -5,6 +5,7 @@ import 'package:saber/components/theming/adaptive_alert_dialog.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/home/settings.dart';
+import 'package:stow/stow.dart';
 
 class SettingsColor extends StatefulWidget {
   const SettingsColor({
@@ -23,7 +24,7 @@ class SettingsColor extends StatefulWidget {
   final IconData? icon;
   final IconData? Function(Color?)? iconBuilder;
 
-  final IPref<int> pref;
+  final Stow<dynamic, Color?, dynamic> pref;
   final ValueChanged<Color?>? afterChange;
 
   @override
@@ -31,8 +32,7 @@ class SettingsColor extends StatefulWidget {
 }
 
 class _SettingsSwitchState extends State<SettingsColor> {
-  Color? get color => widget.pref.value == 0 ? null : Color(widget.pref.value);
-  static Color defaultColor = const Color(0xffffd32e);
+  static var defaultColor = const Color(0xffffd32e);
 
   @override
   void initState() {
@@ -41,8 +41,8 @@ class _SettingsSwitchState extends State<SettingsColor> {
   }
 
   void onChanged() {
-    Color? color = this.color;
-    if (color != null) {
+    Color? color = widget.pref.value;
+    if (color != null && color != Colors.transparent) {
       defaultColor = color;
     }
     widget.afterChange?.call(color);
@@ -54,10 +54,10 @@ class _SettingsSwitchState extends State<SettingsColor> {
       title: Text(t.settings.accentColorPicker.pickAColor),
       content: SingleChildScrollView(
         child: ColorPicker(
-          color: color ?? defaultColor,
+          color: widget.pref.value ?? defaultColor,
           pickersEnabled: const {ColorPickerType.wheel: true},
           onColorChanged: (Color color) {
-            Prefs.accentColor.value = color.toARGB32();
+            stows.accentColor.value = color;
           },
         ),
       ),
@@ -75,7 +75,7 @@ class _SettingsSwitchState extends State<SettingsColor> {
   @override
   Widget build(BuildContext context) {
     IconData? icon = widget.icon;
-    icon ??= widget.iconBuilder?.call(color);
+    icon ??= widget.iconBuilder?.call(widget.pref.value);
     icon ??= Icons.settings;
 
     return ListTile(
@@ -102,7 +102,7 @@ class _SettingsSwitchState extends State<SettingsColor> {
             width: 32,
             height: 32,
             decoration: BoxDecoration(
-              color: color ?? defaultColor,
+              color: widget.pref.value ?? defaultColor,
               shape: BoxShape.circle,
             ),
           ),
@@ -110,17 +110,17 @@ class _SettingsSwitchState extends State<SettingsColor> {
             width: 8,
           ),
           Switch.adaptive(
-            value: color != null,
+            value: widget.pref.value != null &&
+                widget.pref.value != Colors.transparent,
             onChanged: (bool? value) {
-              if (value == null) return;
-              widget.pref.value = value ? defaultColor.toARGB32() : 0;
+              widget.pref.value = value! ? defaultColor : null;
             },
           )
         ],
       ),
       onTap: () async {
-        int previousColor = widget.pref.value;
-        widget.pref.value = defaultColor.toARGB32(); // enable accent color
+        final previousColor = widget.pref.value;
+        widget.pref.value = defaultColor; // enable accent color
 
         bool? confirmChange = await showDialog(
           context: context,

@@ -34,7 +34,7 @@
 		<string>zh_TW</string>
 	</array>
 	<key>CFBundleName</key>
-	<string>saber</string>
+	<string>Saber</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
@@ -78,7 +78,5 @@
 	</array>
 	<key>UISupportsDocumentBrowser</key>
 	<true/>
-	<key>UIViewControllerBasedStatusBarAppearance</key>
-	<false/>
 </dict>
 </plist>

@@ -49,11 +49,11 @@ class _CanvasImageDialogState extends State<CanvasImageDialog> {
     final children = <Widget>[
       MergeSemantics(
         child: _CanvasImageDialogItem(
-          onTap: Prefs.editorAutoInvert.value ? setInvertible : null,
+          onTap: stows.editorAutoInvert.value ? setInvertible : null,
           title: t.editor.imageOptions.invertible,
           child: Switch.adaptive(
             value: widget.image.invertible,
-            onChanged: Prefs.editorAutoInvert.value ? setInvertible : null,
+            onChanged: stows.editorAutoInvert.value ? setInvertible : null,
             thumbIcon: WidgetStateProperty.all(widget.image.invertible
                 ? const Icon(Icons.invert_colors)
                 : const Icon(Icons.invert_colors_off)),

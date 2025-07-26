@@ -13,9 +13,9 @@ import 'strings.g.dart';
 class TranslationsHu extends Translations {
 	/// You can call this constructor and build your own translation instance of this locale.
 	/// Constructing via the enum [AppLocale.build] is preferred.
-	TranslationsHu({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver})
+	TranslationsHu({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver, TranslationMetadata<AppLocale, Translations>? meta})
 		: assert(overrides == null, 'Set "translation_overrides: true" in order to enable this feature.'),
-		  $meta = TranslationMetadata(
+		  $meta = meta ?? TranslationMetadata(
 		    locale: AppLocale.hu,
 		    overrides: overrides ?? {},
 		    cardinalResolver: cardinalResolver,
@@ -27,6 +27,9 @@ class TranslationsHu extends Translations {
 	@override final TranslationMetadata<AppLocale, Translations> $meta;
 
 	late final TranslationsHu _root = this; // ignore: unused_field
+
+	@override 
+	TranslationsHu $copyWith({TranslationMetadata<AppLocale, Translations>? meta}) => TranslationsHu(meta: meta ?? this.$meta);
 
 	// Translations
 	@override late final _TranslationsCommonHu common = _TranslationsCommonHu._(_root);
@@ -71,6 +74,7 @@ class _TranslationsHomeHu extends TranslationsHomeEn {
 	@override late final _TranslationsHomeMoveNoteHu moveNote = _TranslationsHomeMoveNoteHu._(_root);
 	@override late final _TranslationsHomeRenameFolderHu renameFolder = _TranslationsHomeRenameFolderHu._(_root);
 	@override late final _TranslationsHomeDeleteFolderHu deleteFolder = _TranslationsHomeDeleteFolderHu._(_root);
+	@override String get noPreviewAvailable => 'Nincs elérhető előnézet';
 	@override String get backFolder => 'Menjen vissza az előző mappába';
 	@override String get deleteNote => 'Jegyzet törlése';
 	@override String get invalidFormat => 'A kiválasztott fájl nem támogatott. Kérjük, válasszon .sbn, .sbn2, .sba vagy .pdf fájlt.';
@@ -98,6 +102,8 @@ class _TranslationsSettingsHu extends TranslationsSettingsEn {
 	];
 	@override late final _TranslationsSettingsResetHu reset = _TranslationsSettingsResetHu._(_root);
 	@override late final _TranslationsSettingsCustomDataDirHu customDataDir = _TranslationsSettingsCustomDataDirHu._(_root);
+	@override String get autosaveDisabled => 'Soha';
+	@override String get shapeRecognitionDisabled => 'Soha';
 	@override String get openDataDir => 'Nyissa meg a Saber mappát';
 	@override String get resyncEverything => 'Resync mindent';
 }
@@ -368,6 +374,7 @@ class _TranslationsSettingsPrefLabelsHu extends TranslationsSettingsPrefLabelsEn
 	@override String get editorPromptRename => 'Új jegyzetek átnevezésére való felszólítás';
 	@override String get hideHomeBackgrounds => 'Hátterek elrejtése a kezdőképernyőn';
 	@override String get recentColorsDontSavePresets => 'Ne mentse az előre beállított színeket a legutóbbi színek között';
+	@override String get autosave => 'Automatikus mentés';
 	@override String get simplifiedHomeLayout => 'Egyszerűsített otthoni elrendezés';
 	@override String get pencilSoundSetting => 'Ceruza hanghatás';
 	@override String get customDataDir => 'Egyedi adatkönyvtár';
@@ -377,7 +384,6 @@ class _TranslationsSettingsPrefLabelsHu extends TranslationsSettingsPrefLabelsEn
 	@override String get layoutSize => 'Elrendezés típusa';
 	@override String get printPageIndicators => 'Nyomtatási oldaljelzők';
 	@override String get allowInsecureConnections => 'Engedélyezze a nem biztonságos kapcsolatokat';
-	@override String get autosaveDelay => 'Auto-save késleltetés';
 	@override String get hideFingerDrawingToggle => 'Az ujjrajzolás kapcsoló elrejtése';
 	@override String get shouldAlwaysAlertForUpdates => 'Gyorsabb frissítések';
 	@override String get disableEraserAfterUse => 'A radír automatikus letiltása';
@@ -397,13 +403,13 @@ class _TranslationsSettingsPrefDescriptionsHu extends TranslationsSettingsPrefDe
 	@override late final _TranslationsSettingsPrefDescriptionsHideFingerDrawingHu hideFingerDrawing = _TranslationsSettingsPrefDescriptionsHideFingerDrawingHu._(_root);
 	@override String get editorPromptRename => 'A jegyzeteket később bármikor átnevezheti';
 	@override String get hideHomeBackgrounds => 'Egy letisztultabb megjelenítésért';
+	@override String get autosave => 'Automato-Save rövid késleltetés után, vagy soha';
 	@override late final _TranslationsSettingsPrefDescriptionsPencilSoundSettingHu pencilSoundSetting = _TranslationsSettingsPrefDescriptionsPencilSoundSettingHu._(_root);
 	@override String get simplifiedHomeLayout => 'Rögzített magasságot állít be minden hangjegy előnézetéhez';
 	@override String get autoStraightenLines => 'Kiegyenesíti a hosszú vonalakat anélkül, hogy az alakos tollat ​​kellene használnia';
 	@override String get shapeRecognitionDelay => 'Milyen gyakran kell frissíteni az alakzat előnézetét';
 	@override String get printPageIndicators => 'Mutasson oldalmutatókat az exportban';
 	@override String get allowInsecureConnections => '(Nem ajánlott) Engedélyezze a Saber-nek, hogy csatlakozzon önaláírt/nem megbízható tanúsítványokkal rendelkező szerverekhez';
-	@override String get autosaveDelay => 'Mennyi ideig kell várni a jegyzet automatikus mentése előtt';
 	@override String get shouldAlwaysAlertForUpdates => 'Szóljon nekem a frissítésekről, amint elérhetők';
 	@override String get disableEraserAfterUse => 'A radír használata után automatikusan visszavált a tollra';
 }
@@ -700,12 +706,12 @@ class _TranslationsEditorMenuHu extends TranslationsEditorMenuEn {
 	// Translations
 	@override String get clearAllPages => 'Összes oldal törlése';
 	@override String get lineHeight => 'Vonalmagasság';
-	@override String get lineThickness => 'Vonalvastagság';
-	@override String get lineThicknessDescription => 'Háttérvonal vastagsága';
 	@override String get backgroundPattern => 'Háttérminta';
 	@override String get import => 'Importálás';
 	@override late final _TranslationsEditorMenuBoxFitsHu boxFits = _TranslationsEditorMenuBoxFitsHu._(_root);
 	@override late final _TranslationsEditorMenuBgPatternsHu bgPatterns = _TranslationsEditorMenuBgPatternsHu._(_root);
+	@override String get lineThickness => 'Vonalvastagság';
+	@override String get lineThicknessDescription => 'Háttérvonal vastagsága';
 	@override String get watchServer => 'Figyelje a frissítéseket a szerveren';
 	@override String get watchServerReadOnly => 'A szerver figyelése közben a szerkesztés le van tiltva';
 	@override String get lineHeightDescription => 'A beírt jegyzetek szövegméretét is szabályozza';

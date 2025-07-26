@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:dynamic_color/dynamic_color.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -53,21 +54,24 @@ class DynamicMaterialApp extends StatefulWidget {
 
 class _DynamicMaterialAppState extends State<DynamicMaterialApp>
     with WindowListener {
-  bool requiresCustomFont = false;
-
+  /// Synced with [PageTransitionsTheme._defaultBuilders]
+  /// but with PredictiveBackPageTransitionsBuilder for Android.
   static const _pageTransitionsTheme = PageTransitionsTheme(
     builders: {
       TargetPlatform.android: PredictiveBackPageTransitionsBuilder(),
+      TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
+      TargetPlatform.macOS: CupertinoPageTransitionsBuilder(),
+      TargetPlatform.windows: ZoomPageTransitionsBuilder(),
+      TargetPlatform.linux: ZoomPageTransitionsBuilder(),
     },
   );
 
   @override
   void initState() {
-    Prefs.appTheme.addListener(onChanged);
-    Prefs.platform.addListener(onChanged);
-    Prefs.accentColor.addListener(onChanged);
-    Prefs.hyperlegibleFont.addListener(onChanged);
-    decideOnFont();
+    stows.appTheme.addListener(onChanged);
+    stows.platform.addListener(onChanged);
+    stows.accentColor.addListener(onChanged);
+    stows.hyperlegibleFont.addListener(onChanged);
 
     windowManager.addListener(this);
     SystemChrome.setSystemUIChangeCallback(_onFullscreenChange);
@@ -94,31 +98,10 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp>
         updateSystem: false);
   }
 
-  /// We need to use a custom font if macOS < 10.13,
-  /// see https://github.com/saber-notes/saber/issues/26
-  void decideOnFont() {
-    if (!Platform.isMacOS) return;
-
-    final RegExp numberRegex = RegExp(r'\d+\.\d+'); // e.g. 10.13 or 12.5
-    final RegExpMatch? osVersionMatch =
-        numberRegex.firstMatch(Platform.operatingSystemVersion);
-    if (osVersionMatch == null) return;
-
-    final double osVersion = double.tryParse(osVersionMatch[0] ?? '0') ?? 0;
-    if (osVersion >= 10.13) return;
-
-    requiresCustomFont = true;
-  }
-
   TextTheme? getTextTheme(Brightness brightness) {
-    if (Prefs.hyperlegibleFont.loaded && Prefs.hyperlegibleFont.value) {
+    if (stows.hyperlegibleFont.value) {
       return ThemeData(brightness: brightness).textTheme.withFont(
             fontFamily: 'AtkinsonHyperlegible',
-            fontFamilyFallback: saberSansSerifFontFallbacks,
-          );
-    } else if (requiresCustomFont) {
-      return ThemeData(brightness: brightness).textTheme.withFont(
-            fontFamily: 'Inter',
             fontFamilyFallback: saberSansSerifFontFallbacks,
           );
     } else {
@@ -134,8 +117,10 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp>
         final ColorScheme lightColorScheme;
         final ColorScheme darkColorScheme;
 
-        if (Prefs.accentColor.loaded && Prefs.accentColor.value != 0) {
-          seedColor = Color(Prefs.accentColor.value);
+        final chosenAccentColor = stows.accentColor.value;
+        if (chosenAccentColor != null &&
+            chosenAccentColor != Colors.transparent) {
+          seedColor = chosenAccentColor;
           lightColorScheme = ColorScheme.fromSeed(
             brightness: Brightness.light,
             seedColor: seedColor,
@@ -173,11 +158,11 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp>
           contrastLevel: 1,
         );
 
-        final TargetPlatform? platform = switch (Prefs.platform.value) {
+        final platform = switch (stows.platform.value) {
           TargetPlatform.iOS => TargetPlatform.iOS,
           TargetPlatform.android => TargetPlatform.android,
           TargetPlatform.linux => TargetPlatform.linux,
-          _ => null,
+          _ => defaultTargetPlatform,
         };
 
         return YaruBuilder(
@@ -196,8 +181,8 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp>
                   FlutterQuillLocalizations.delegate,
                 ],
                 title: widget.title,
-                themeMode: Prefs.appTheme.loaded
-                    ? Prefs.appTheme.value
+                themeMode: stows.appTheme.loaded
+                    ? stows.appTheme.value
                     : ThemeMode.system,
                 theme: yaruTheme?.theme ??
                     ThemeData(
@@ -246,10 +231,10 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp>
 
   @override
   void dispose() {
-    Prefs.appTheme.removeListener(onChanged);
-    Prefs.platform.removeListener(onChanged);
-    Prefs.accentColor.removeListener(onChanged);
-    Prefs.hyperlegibleFont.removeListener(onChanged);
+    stows.appTheme.removeListener(onChanged);
+    stows.platform.removeListener(onChanged);
+    stows.accentColor.removeListener(onChanged);
+    stows.hyperlegibleFont.removeListener(onChanged);
 
     windowManager.removeListener(this);
     SystemChrome.setSystemUIChangeCallback(null);

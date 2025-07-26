@@ -214,6 +214,50 @@
     </screenshots>
 
     <releases>
+        <release version="0.26.0" type="development" date="2025-07-16">
+            <description>
+                <ul>
+                    <li>Crash fixes</li>
+                    <li>Removed support for the old login system: users who logged in before May 2024 may need to log in again</li>
+                    <li>Refactored storage code for more reliability and less repeated code</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.25.9" type="development" date="2025-06-12">
+            <description>
+                <ul>
+                    <li>Small UI improvements to the settings page</li>
+                    <li>The simplified home layout setting has been tweaked so the cards are no longer stretched out</li>
+                    <li>Removed references to GitHub Sponsors on iOS since they'd have to use in-app purchases</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.25.8" type="development" date="2025-05-31">
+            <description>
+                <ul>
+                    <li>Fixed lag caused by generating previews for old notes (2023 or older). Old notes will now have a placeholder instead of a preview.</li>
+                    <li>Added a slight animation between home screen tabs.</li>
+                    <li>Minor UI improvements in various places.</li>
+                    <li>Minor fixes to platform theming.</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.25.6" type="development" date="2025-05-12">
+            <description>
+                <ul>
+                    <li>Fixed the selection tool not (visibly) moving strokes</li>
+                    <li>Fixed the server links in the account page</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.25.5" type="development" date="2025-04-18">
+            <description>
+                <ul>
+                    <li>Fixed some UI elements taking up too much space on small-ish screens</li>
+                    <li>Made the "dots" background pattern obey the line thickness setting</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.25.4" type="development" date="2025-02-22">
             <description>
                 You can now customize the line thickness of your background pattern,

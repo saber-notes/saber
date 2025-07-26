@@ -4,14 +4,14 @@ import 'dart:io';
 import 'package:animations/animations.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
-import 'package:saber/components/canvas/canvas_preview.dart';
+import 'package:saber/components/canvas/_stroke.dart';
+import 'package:saber/components/canvas/inner_canvas.dart';
 import 'package:saber/components/canvas/invert_widget.dart';
 import 'package:saber/components/home/sync_indicator.dart';
-import 'package:saber/components/navbar/responsive_navbar.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/data/routes.dart';
+import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/editor/editor.dart';
 
 class PreviewCard extends StatefulWidget {
@@ -52,7 +52,9 @@ class _PreviewCardState extends State<PreviewCard> {
         FileManager.getFile('${widget.filePath}${Editor.extension}.p');
     if (kDebugMode && Platform.environment.containsKey('FLUTTER_TEST')) {
       // Avoid FileImages in tests
-      thumbnail.image = MemoryImage(imageFile.readAsBytesSync());
+      thumbnail.image = imageFile.existsSync()
+          ? MemoryImage(imageFile.readAsBytesSync())
+          : null;
     } else {
       thumbnail.image = FileImage(imageFile);
     }
@@ -84,7 +86,7 @@ class _PreviewCardState extends State<PreviewCard> {
     final transitionDuration =
         Duration(milliseconds: disableAnimations ? 0 : 300);
     final invert =
-        theme.brightness == Brightness.dark && Prefs.editorAutoInvert.value;
+        theme.brightness == Brightness.dark && stows.editorAutoInvert.value;
 
     Widget card = MouseRegion(
       cursor: SystemMouseCursors.click,
@@ -93,7 +95,7 @@ class _PreviewCardState extends State<PreviewCard> {
         onSecondaryTap: _toggleCardSelection,
         onLongPress: _toggleCardSelection,
         child: ColoredBox(
-          color: colorScheme.primary.withValues(alpha: 0.05),
+          color: colorScheme.surfaceContainerLow,
           child: Stack(
             children: [
               Column(
@@ -105,24 +107,16 @@ class _PreviewCardState extends State<PreviewCard> {
                         animation: thumbnail,
                         builder: (context, _) => AnimatedSwitcher(
                           duration: const Duration(milliseconds: 300),
-                          child: thumbnail.doesImageExist
-                              ? InvertWidget(
-                                  invert: invert,
-                                  child: Image(
-                                    key: ValueKey(thumbnail.updateCount),
-                                    image: thumbnail.image!,
-                                  ),
-                                )
-                              : FittedBox(
-                                  alignment: Alignment.topCenter,
-                                  child: ClipRect(
-                                    child: CanvasPreview.fromFile(
-                                      key: ValueKey(
-                                          'CanvasPreview${thumbnail.updateCount}'),
-                                      filePath: widget.filePath,
-                                    ),
-                                  ),
-                                ),
+                          child: ConstrainedBox(
+                            key: ValueKey(thumbnail.updateCount),
+                            constraints: BoxConstraints(minHeight: 100),
+                            child: InvertWidget(
+                              invert: invert,
+                              child: thumbnail.doesImageExist
+                                  ? Image(image: thumbnail.image!)
+                                  : const _FallbackThumbnail(),
+                            ),
+                          ),
                         ),
                       ),
                       Positioned.fill(
@@ -165,11 +159,15 @@ class _PreviewCardState extends State<PreviewCard> {
                       ),
                     ],
                   ),
-                  Center(
+                  Flexible(
                     child: Padding(
                       padding: const EdgeInsets.all(8),
-                      child: Text(widget.filePath
-                          .substring(widget.filePath.lastIndexOf('/') + 1)),
+                      child: Text(
+                        widget.filePath
+                            .substring(widget.filePath.lastIndexOf('/') + 1),
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                      ),
                     ),
                   ),
                 ],
@@ -198,17 +196,9 @@ class _PreviewCardState extends State<PreviewCard> {
           routeSettings: RouteSettings(
             name: RoutePaths.editFilePath(widget.filePath),
           ),
-          onClosed: (_) async {
+          onClosed: (_) {
             thumbnail.image?.evict();
             thumbnail.markAsChanged();
-
-            await Future.delayed(transitionDuration);
-            if (!context.mounted) return;
-            if (!GoRouterState.of(context)
-                .uri
-                .toString()
-                .startsWith(RoutePaths.prefixOfHome)) return;
-            ResponsiveNavbar.setAndroidNavBarColor(theme);
           },
         );
       },
@@ -219,6 +209,27 @@ class _PreviewCardState extends State<PreviewCard> {
   void dispose() {
     fileWriteSubscription?.cancel();
     super.dispose();
+  }
+}
+
+class _FallbackThumbnail extends StatelessWidget {
+  const _FallbackThumbnail();
+
+  @override
+  Widget build(BuildContext context) {
+    return ColoredBox(
+      color: InnerCanvas.defaultBackgroundColor,
+      child: Center(
+        child: Text(
+          t.home.noPreviewAvailable,
+          style: TextTheme.of(context).bodyMedium?.copyWith(
+                color: Stroke.defaultColor.withValues(alpha: 0.7),
+                fontStyle: FontStyle.italic,
+              ),
+          textAlign: TextAlign.center,
+        ),
+      ),
+    );
   }
 }
 

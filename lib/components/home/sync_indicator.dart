@@ -25,7 +25,7 @@ class _SyncIndicatorState extends State<SyncIndicator> {
 
   @override
   void initState() {
-    Prefs.username.addListener(onFileTransfer);
+    stows.username.addListener(onFileTransfer);
     uploaderListener = syncer.uploader.transferStream.listen(onFileTransfer);
     downloaderListener =
         syncer.downloader.transferStream.listen(onFileTransfer);
@@ -98,7 +98,7 @@ class _SyncIndicatorState extends State<SyncIndicator> {
 
   @override
   void dispose() {
-    Prefs.username.removeListener(onFileTransfer);
+    stows.username.removeListener(onFileTransfer);
     uploaderListener.cancel();
     downloaderListener.cancel();
     super.dispose();

@@ -20,9 +20,9 @@ class ShapePen extends Pen {
           sizeMax: 25,
           sizeStep: 1,
           icon: shapePenIcon,
-          options: Prefs.lastShapePenOptions.value,
+          options: stows.lastShapePenOptions.value,
           pressureEnabled: false,
-          color: Color(Prefs.lastShapePenColor.value),
+          color: Color(stows.lastShapePenColor.value),
           toolId: ToolId.shapePen,
         );
 
@@ -38,10 +38,10 @@ class ShapePen extends Pen {
   static Timer? _detectShapeDebouncer;
   static var debounceDuration = getDebounceFromPref();
   static Duration getDebounceFromPref() {
-    assert(Prefs.shapeRecognitionDelay.loaded);
-    final ms = Prefs.shapeRecognitionDelay.value;
+    assert(stows.shapeRecognitionDelay.loaded);
+    final ms = stows.shapeRecognitionDelay.value;
     if (ms < 0) {
-      return const Duration(seconds: 10);
+      return const Duration(hours: 1);
     } else {
       return Duration(milliseconds: ms);
     }
@@ -51,7 +51,9 @@ class ShapePen extends Pen {
   void onDragUpdate(Offset position, double? pressure) {
     super.onDragUpdate(position, pressure);
 
-    if (_detectShapeDebouncer == null || !_detectShapeDebouncer!.isActive) {
+    final isPreviewEnabled = debounceDuration < const Duration(hours: 1);
+    final isTimerActive = _detectShapeDebouncer?.isActive ?? false;
+    if (isPreviewEnabled && !isTimerActive) {
       _detectShapeDebouncer = Timer(debounceDuration, _detectShape);
     }
   }
