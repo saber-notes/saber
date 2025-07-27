@@ -30,7 +30,8 @@ internal class OnyxsdkPenArea(context: Context, messenger: BinaryMessenger, id: 
         Pen(1),
         Brush(2),
         Pencil(3),
-        Marker(4)
+        Marker(4),
+        Disabled(5)
     }
 
     private val channel: MethodChannel = MethodChannel(messenger, "onyxsdk_pen_area")
@@ -101,11 +102,28 @@ internal class OnyxsdkPenArea(context: Context, messenger: BinaryMessenger, id: 
             2 -> StrokeStyle.Brush
             3 -> StrokeStyle.Pencil
             4 -> StrokeStyle.Marker
+            5 -> StrokeStyle.Disabled
             else -> StrokeStyle.Pen
         }
-        touchHelper.setStrokeStyle(strokeStyleToOnyx(strokeStyle))
-        touchHelper.setStrokeWidth(strokeWidth)
-        touchHelper.setStrokeColor(strokeColor)
+
+        if (strokeStyle != StrokeStyle.Disabled) {
+            touchHelper.setStrokeStyle(strokeStyleToOnyx(strokeStyle))
+            touchHelper.setStrokeWidth(strokeWidth)
+            touchHelper.setStrokeColor(strokeColor)
+        }
+
+        // I've done at least 10 test builds with different variations of banging
+        // rocks together to make this abhorrent eldritch horror to actually start
+        // behaving and it still sometimes draws if style is disabled and stuff is done
+        // fast enough. Let this be a note for future endeavoring perfectionists.
+        // This specific combination seems to work best and still sometimes fails.
+        // My wild guess is ONYX Note app is dismantling the whole overlay if eraser
+        // is selected or using some hidden APIs. Or I was banging the wrong types of rocks...
+        // TLDR I gave up here. Works good enough, certainly better than just drawing lines.
+        // BTW, doing forceRefresh() and/or setDraw(...) here breaks the overlay altogether ;(
+
+        touchHelper.setRawDrawingEnabled(strokeStyle != StrokeStyle.Disabled)
+        EpdController.invalidate(view, UpdateMode.GC)
     }
 
 
@@ -145,9 +163,7 @@ internal class OnyxsdkPenArea(context: Context, messenger: BinaryMessenger, id: 
             refreshTimerTask?.cancel()
             refreshTimerTask = object : TimerTask() {
                 override fun run() {
-                    touchHelper.setRawDrawingEnabled(false)
-                    EpdController.invalidate(view, UpdateMode.GC);
-                    touchHelper.setRawDrawingEnabled(true)
+                    forceRefresh()
                 }
             }
             Timer().schedule(refreshTimerTask, refreshDelayMs)
@@ -197,11 +213,28 @@ internal class OnyxsdkPenArea(context: Context, messenger: BinaryMessenger, id: 
             StrokeStyle.Brush -> TouchHelper.STROKE_STYLE_NEO_BRUSH
             StrokeStyle.Pencil -> TouchHelper.STROKE_STYLE_CHARCOAL
             StrokeStyle.Marker -> TouchHelper.STROKE_STYLE_MARKER
+            StrokeStyle.Disabled -> TouchHelper.STROKE_STYLE_PENCIL
+        }
+    }
+
+    fun setDraw(enabled: Boolean) {
+        if (enabled) {
+            touchHelper.openRawDrawing()
+            touchHelper.setRawDrawingEnabled(true)
+            touchHelper.setRawDrawingRenderEnabled(true)
+        } else {
+            touchHelper.closeRawDrawing()
         }
     }
 
     fun drawPreview() {
         currentStroke.clear()
+    }
+
+    fun forceRefresh() {
+        touchHelper.setRawDrawingEnabled(false)
+        EpdController.invalidate(view, UpdateMode.GC)
+        touchHelper.setRawDrawingEnabled(true)
     }
 
     init {
@@ -232,14 +265,7 @@ internal class OnyxsdkPenArea(context: Context, messenger: BinaryMessenger, id: 
             updateStroke(params)
             result.success(null)
         } else if (call.method == "setDraw") {
-            if (call.arguments<Boolean>()!!) {
-                touchHelper.openRawDrawing()
-                touchHelper.setRawDrawingEnabled(true)
-                touchHelper.setRawDrawingRenderEnabled(true)
-            } else {
-                touchHelper.closeRawDrawing()
-            }
-
+            setDraw(call.arguments<Boolean>()!!)
             result.success(null)
         } else {
             result.notImplemented()
