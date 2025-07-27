@@ -7,11 +7,7 @@ import 'package:saber/components/canvas/inner_canvas.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/tools/_tool.dart';
-import 'package:saber/data/tools/eraser.dart';
-import 'package:saber/data/tools/highlighter.dart';
-import 'package:saber/data/tools/laser_pointer.dart';
 import 'package:saber/data/tools/pen.dart';
-import 'package:saber/data/tools/pencil.dart';
 import 'package:saber/data/tools/select.dart';
 
 class Canvas extends StatelessWidget {
@@ -49,45 +45,46 @@ class Canvas extends StatelessWidget {
 
   OnyxStrokeStyle getOnyxTool(Tool currentTool) {
     if (placeholder) return OnyxStrokeStyle.pen;
-    if (currentTool is Pencil) {
-      return OnyxStrokeStyle.pencil;
-    } else if (currentTool is Highlighter) {
-      return OnyxStrokeStyle.marker;
-    } else if (currentTool is Eraser) {
-      return OnyxStrokeStyle.disabled;
-    } else if (currentTool is Select) {
-      return OnyxStrokeStyle.pen;
-    } else if (currentTool is LaserPointer) {
-      return OnyxStrokeStyle.pen;
-    } else if (currentTool is Pen) {
-      if (currentTool.pressureEnabled) {
+    switch (currentTool.toolId) {
+      case ToolId.fountainPen:
         return OnyxStrokeStyle.brush;
-      } else {
+      case ToolId.ballpointPen:
         return OnyxStrokeStyle.pen;
-      }
-    } else {
-      return OnyxStrokeStyle.pen;
+      case ToolId.highlighter:
+        return OnyxStrokeStyle.marker;
+      case ToolId.pencil:
+        return OnyxStrokeStyle.pencil;
+      case ToolId.shapePen:
+        return OnyxStrokeStyle.disabled;
+      case ToolId.eraser:
+        return OnyxStrokeStyle.disabled;
+      case ToolId.select:
+        return OnyxStrokeStyle.pen;
+      case ToolId.laserPointer:
+        return OnyxStrokeStyle.pen;
+      default:
+        return OnyxStrokeStyle.disabled;
     }
   }
 
   int getOnyxColor() {
-      if (currentTool is Pen) {
-        return (currentTool as Pen).color.toARGB32();
-      } else {
-        return Colors.black.toARGB32();
-      }
+    if (currentTool is Pen) {
+      return (currentTool as Pen).color.toARGB32();
+    } else {
+      return Colors.black.toARGB32();
+    }
   }
   double getOnyxWidth() {
-      if (currentTool is Pen) {
-        double baseSize = (currentTool as Pen).options.size * currentScale;
-        if ((currentTool as Pen).pressureEnabled) {
-          return baseSize;
-        } else {
-          return baseSize * 2;
-        }
+    if (currentTool is Pen) {
+      double baseSize = (currentTool as Pen).options.size * currentScale;
+      if ((currentTool as Pen).pressureEnabled) {
+        return baseSize;
       } else {
-        return 3;
+        return baseSize * 2;
       }
+    } else {
+      return 3;
+    }
   }
   
   @override
@@ -127,7 +124,7 @@ class Canvas extends StatelessWidget {
                         currentStrokeDetectedShape: currentStrokeDetectedShape,
                         currentSelection: currentSelection,
                         setAsBackground: setAsBackground,
-                        currentToolIsSelect: currentTool is Select,
+                        currentToolIsSelect: currentTool.toolId == ToolId.select,
                         currentScale: currentScale,
                       ),
                     ),
