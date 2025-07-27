@@ -7,12 +7,24 @@ import 'package:flutter/services.dart';
 
 import 'onyxsdk_pen_platform_interface.dart';
 
+enum OnyxStrokeStyle {
+  fountainPen(0),
+  pen(1),
+  brush(2),
+  pencil(3),
+  marker(4),
+  disabled(5);
+
+  const OnyxStrokeStyle(this.value);
+  final int value;
+}
+
 /// Renders a native Android view which uses the Onyx SDK to draw on the screen.
 class OnyxSdkPenArea extends StatefulWidget {
   const OnyxSdkPenArea({
     super.key,
     this.refreshDelay = const Duration(seconds: 1),
-    this.strokeStyle = 0,
+    this.strokeStyle = OnyxStrokeStyle.fountainPen,
     this.strokeColor = 0,
     this.strokeWidth = 3.0,
     required this.child,
@@ -24,7 +36,7 @@ class OnyxSdkPenArea extends StatefulWidget {
   /// is still writing, which will make the screen get stuck in a half-drawn
   /// state.
   final Duration refreshDelay;
-  final int strokeStyle;
+  final OnyxStrokeStyle strokeStyle;
   final int strokeColor;
   final double strokeWidth;
 
@@ -71,7 +83,7 @@ class _OnyxSdkPenAreaState extends State<OnyxSdkPenArea> with WidgetsBindingObse
   /// Parameters to pass to the platform side
   late final creationParams = <String, dynamic>{
     "refreshDelayMs": widget.refreshDelay.inMilliseconds,
-    "strokeStyle": widget.strokeStyle,
+    "strokeStyle": widget.strokeStyle.value,
     "strokeColor": widget.strokeColor,
     "strokeWidth": widget.strokeWidth,
   };
@@ -85,7 +97,7 @@ class _OnyxSdkPenAreaState extends State<OnyxSdkPenArea> with WidgetsBindingObse
     super.didUpdateWidget(oldWidget);
     
     creationParams['refreshDelayMs'] = widget.refreshDelay.inMilliseconds;
-    creationParams['strokeStyle'] = widget.strokeStyle;
+    creationParams['strokeStyle'] = widget.strokeStyle.value;
     creationParams['strokeColor'] = widget.strokeColor;
     creationParams['strokeWidth'] = widget.strokeWidth;
     channel.invokeMethod('updateStroke', creationParams).catchError((e) {});

@@ -47,40 +47,40 @@ class Canvas extends StatelessWidget {
   final double currentScale;
   final bool placeholder;
 
-  int toolToOnyx(Tool currentTool) {
-    if (placeholder) return 5;
+  OnyxStrokeStyle getOnyxTool(Tool currentTool) {
+    if (placeholder) return OnyxStrokeStyle.pen;
     if (currentTool is Pencil) {
-      return 3;
+      return OnyxStrokeStyle.pencil;
     } else if (currentTool is Highlighter) {
-      return 4;
+      return OnyxStrokeStyle.marker;
     } else if (currentTool is Eraser) {
-      return 1;
+      return OnyxStrokeStyle.disabled;
     } else if (currentTool is Select) {
-      return 1;
+      return OnyxStrokeStyle.pen;
     } else if (currentTool is LaserPointer) {
-      return 1;
+      return OnyxStrokeStyle.pen;
     } else if (currentTool is Pen) {
-      if (currentTool.isPressureEnabled()) {
-        return 2;
+      if (currentTool.pressureEnabled) {
+        return OnyxStrokeStyle.brush;
       } else {
-        return 1;
+        return OnyxStrokeStyle.pen;
       }
     } else {
-      return 5;
+      return OnyxStrokeStyle.pen;
     }
   }
 
-  int getColor() {
+  int getOnyxColor() {
       if (currentTool is Pen) {
         return (currentTool as Pen).color.toARGB32();
       } else {
         return Colors.black.toARGB32();
       }
   }
-  double getWidth() {
+  double getOnyxWidth() {
       if (currentTool is Pen) {
-        double baseSize = (currentTool as Pen).getSize() * currentScale;
-        if ((currentTool as Pen).isPressureEnabled()) {
+        double baseSize = (currentTool as Pen).options.size * currentScale;
+        if ((currentTool as Pen).pressureEnabled) {
           return baseSize;
         } else {
           return baseSize * 2;
@@ -112,9 +112,9 @@ class Canvas extends StatelessWidget {
                     height: page.size.height,
                     child: OnyxSdkPenArea(
                       refreshDelay: const Duration(seconds: 1),
-                      strokeStyle: toolToOnyx(currentTool),
-                      strokeColor: getColor(),
-                      strokeWidth: getWidth(),
+                      strokeStyle: getOnyxTool(currentTool),
+                      strokeColor: getOnyxColor(),
+                      strokeWidth: getOnyxWidth(),
                       child: InnerCanvas(
                         key: page.innerCanvasKey,
                         pageIndex: pageIndex,
