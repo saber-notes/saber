@@ -48,6 +48,8 @@ home:
     renamedTo: Note will be renamed to $newName
     multipleRenamedTo: "The following notes will be renamed:"
     numberRenamedTo: $n notes will be renamed to avoid conflicts
+  selectAllNotes: Select all
+  deselectAllNotes: Deselect all
   deleteNote: Delete note
   renameFolder: 
     renameFolder: Rename folder
