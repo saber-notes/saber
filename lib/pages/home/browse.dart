@@ -11,6 +11,7 @@ import 'package:saber/components/home/new_note_button.dart';
 import 'package:saber/components/home/no_files.dart';
 import 'package:saber/components/home/path_components.dart';
 import 'package:saber/components/home/rename_note_button.dart';
+import 'package:saber/components/home/sort_button.dart';
 import 'package:saber/components/home/syncing_button.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/routes.dart';
@@ -33,6 +34,8 @@ class BrowsePage extends StatefulWidget {
 
 class _BrowsePageState extends State<BrowsePage> {
   DirectoryChildren? children;
+  final List<String> files = [];
+  final List<String> folders = [];
 
   final List<String?> pathHistory = [];
   String? path;
@@ -44,6 +47,7 @@ class _BrowsePageState extends State<BrowsePage> {
     path = widget.initialPath;
 
     findChildrenOfPath();
+
     fileWriteSubscription =
         FileManager.fileWriteStream.stream.listen(fileWriteListener);
     selectedFiles.addListener(_setState);
@@ -77,6 +81,16 @@ class _BrowsePageState extends State<BrowsePage> {
 
     children = widget.overrideChildren ??
         await FileManager.getChildrenOfDirectory(path ?? '/');
+    files.clear();
+    for (String filePath in children?.files ?? const []) {
+      files.add("${path ?? ""}/$filePath");
+    }
+    folders.clear();
+    for (String directoryPath in children?.directories ?? const []) {
+      folders.add("${path ?? ""}/$directoryPath");
+    }
+    SortNotes.sortNotes(files, forced: true);
+    SortNotes.sortNotes(folders, forced: true);
 
     if (mounted) setState(() {});
   }
@@ -142,8 +156,18 @@ class _BrowsePageState extends State<BrowsePage> {
                 titlePadding: EdgeInsetsDirectional.only(
                     start: cupertino ? 0 : 16, bottom: 8),
               ),
-              actions: const [
-                SyncingButton(),
+              actions: [
+                const SyncingButton(),
+                SortButton(
+                  callback: () => {
+                    if (SortNotes.isNeeded)
+                      {
+                        SortNotes.sortNotes(files, forced: true),
+                        SortNotes.sortNotes(folders, forced: true),
+                        setState(() {}),
+                      }
+                  },
+                ),
               ],
             ),
             SliverToBoxAdapter(
@@ -177,10 +201,7 @@ class _BrowsePageState extends State<BrowsePage> {
                 await FileManager.deleteDirectory(folderPath);
                 findChildrenOfPath();
               },
-              folders: [
-                for (String directoryPath in children?.directories ?? const [])
-                  directoryPath,
-              ],
+              folders: folders.map((e) => e.split('/').last).toList(),
             ),
             if (children == null) ...[
               // loading
@@ -200,10 +221,7 @@ class _BrowsePageState extends State<BrowsePage> {
                 ),
                 sliver: MasonryFiles(
                   crossAxisCount: crossAxisCount,
-                  files: [
-                    for (String filePath in children?.files ?? const [])
-                      "${path ?? ""}/$filePath",
-                  ],
+                  files: files,
                   selectedFiles: selectedFiles,
                 ),
               ),
