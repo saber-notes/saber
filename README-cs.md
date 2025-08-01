@@ -24,11 +24,6 @@
     alt="Stáhnout jako AppImage"
     height=50>][download_appimage]
 
-Neoficiální balíčky:
-[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/snap-badge.svg"
-    alt="Stáhnout ze Snap Store"
-    height=50>][snap]
-
 [English](https://github.com/saber-notes/saber/blob/main/README.md) |
 [čeština](https://github.com/saber-notes/saber/blob/main/README-cs.md) |
 [Deutsch](https://github.com/saber-notes/saber/blob/main/README-de.md) |

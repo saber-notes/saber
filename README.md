@@ -24,11 +24,6 @@
     alt="Get it as an AppImage"
     height=50>][download_appimage]
 
-Unofficial packages:
-[<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/snap-badge.svg"
-    alt="Get it from the Snap Store"
-    height=50>][snap]
-
 [English](https://github.com/saber-notes/saber/blob/main/README.md) |
 [čeština](https://github.com/saber-notes/saber/blob/main/README-cs.md) |
 [Deutsch](https://github.com/saber-notes/saber/blob/main/README-de.md) |
