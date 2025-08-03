@@ -22,7 +22,7 @@ void main() {
       final filteredEvent =
           await SentryFilter.beforeSend(originalEvent, Hint());
       expect(filteredEvent?.message?.formatted,
-          'Remote file path: Saber/[redacted].sbe');
+          'Remote file path: Saber/abef1289.sbe');
     });
 
     test('Redacts local file paths', () async {
@@ -31,7 +31,7 @@ void main() {
       final filteredEvent =
           await SentryFilter.beforeSend(originalEvent, Hint());
       expect(filteredEvent?.message?.formatted,
-          'Local file path: /path/to/[redacted].sbn2');
+          'Local file path: /path/to/somefile.sbn2');
     });
 
     test('Redacts local asset paths', () async {
@@ -39,17 +39,27 @@ void main() {
           SentryEvent(message: SentryMessage('Asset: $localFile.0'));
       final filteredEvent =
           await SentryFilter.beforeSend(originalEvent, Hint());
-      expect(filteredEvent?.message?.formatted,
-          'Asset: /path/to/[redacted].sbn2.0');
+      expect(
+          filteredEvent?.message?.formatted, 'Asset: /path/to/somefile.sbn2.0');
     });
 
     test('Redacts domain names', () async {
       final originalEvent = SentryEvent(
-          message: SentryMessage('Domain: https://example.com/index.php/#/'));
+          message: SentryMessage('Domain: https://john.doe/nc/index.php/#/'));
       final filteredEvent =
           await SentryFilter.beforeSend(originalEvent, Hint());
       expect(filteredEvent?.message?.formatted,
-          'Domain: https://[redacted]/index.php/#/');
+          'Domain: https://example.com/nc/index.php/#/');
+    });
+
+    test('Redacts login flow token', () async {
+      final originalEvent = SentryEvent(
+          message: SentryMessage(
+              'https://nc.saber.adil.hanney.org/index.php/login/v2/flow/ok8y2HIAYUGg2euh90sdhj'));
+      final filteredEvent =
+          await SentryFilter.beforeSend(originalEvent, Hint());
+      expect(filteredEvent?.message?.formatted,
+          'https://example.com/index.php/login/v2/flow/XXXXXXXXXX');
     });
   });
 }
