@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:saber/data/sentry_filter.dart';
+import 'package:saber/data/sentry/sentry_filter.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 
 void main() {

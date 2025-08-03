@@ -20,15 +20,13 @@ import 'package:saber/data/nextcloud/nc_http_overrides.dart';
 import 'package:saber/data/nextcloud/saber_syncer.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/data/routes.dart';
-import 'package:saber/data/sentry_filter.dart';
+import 'package:saber/data/sentry/sentry_init.dart';
 import 'package:saber/data/tools/stroke_properties.dart';
 import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/editor/editor.dart';
 import 'package:saber/pages/home/home.dart';
 import 'package:saber/pages/logs.dart';
 import 'package:saber/pages/user/login.dart';
-import 'package:sentry_flutter/sentry_flutter.dart';
-import 'package:sentry_logging/sentry_logging.dart';
 import 'package:window_manager/window_manager.dart';
 import 'package:worker_manager/worker_manager.dart';
 import 'package:workmanager/workmanager.dart';
@@ -42,31 +40,11 @@ Future<void> main(List<String> args) async {
   ///   --dart-define=DIRTY="false"
   FlavorConfig.setupFromEnvironment();
 
-  await SentryFlutter.init(
-    (options) {
-      options.dsn =
-          'https://66937061678418b37c7b29cbfa1a0105@o4509780708229120.ingest.de.sentry.io/4509780710654032';
-      options.addIntegration(LoggingIntegration());
-      // Filter data before sending
-      options.beforeSend = SentryFilter.beforeSend;
-      // Reduce data collection
-      options.sendDefaultPii = false;
-      options.enableAutoPerformanceTracing = false;
-      options.enableUserInteractionTracing = false;
-      options.reportViewHierarchyIdentifiers = false;
-      options.useFlutterBreadcrumbTracking();
-      options.enableAppLifecycleBreadcrumbs = false;
-      options.enableBrightnessChangeBreadcrumbs = false;
-      options.enableUserInteractionBreadcrumbs = false;
-      // Native SDK fails on Linux for me
-      options.enableNativeCrashHandling = !Platform.isLinux;
-    },
-    appRunner: () => appRunner(args),
-  );
+  await initSentry(() => appRunner(args));
 }
 
 Future<void> appRunner(List<String> args) async {
-  SentryWidgetsFlutterBinding.ensureInitialized();
+  WidgetsFlutterBinding.ensureInitialized();
 
   final parser = ArgParser()..addFlag('verbose', abbr: 'v', negatable: false);
   final parsedArgs = parser.parse(args);
