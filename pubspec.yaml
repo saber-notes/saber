@@ -151,6 +151,9 @@ dependencies:
   stow_secure: ^0.5.0
   stow_codecs: ^1.2.0
 
+  sentry_flutter: ^9.5.0
+  sentry_logging: ^9.5.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -171,6 +174,8 @@ dev_dependencies:
   yaml: ^3.1.2
 
   golden_screenshot: ^3.3.0
+
+  sentry_dart_plugin: ^3.1.1
 
 dependency_overrides:
   # https://github.com/KasemJaffer/receive_sharing_intent/pull/333
@@ -280,3 +285,9 @@ icons_launcher:
     macos:
       enable: true
       image_path: "assets/icon/icon_macos.png"
+
+sentry:
+  upload_debug_symbols: true
+  upload_source_maps: true
+  project: saber
+  org: saber-yf
