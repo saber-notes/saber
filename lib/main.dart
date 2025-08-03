@@ -47,9 +47,17 @@ Future<void> main(List<String> args) async {
       options.dsn =
           'https://66937061678418b37c7b29cbfa1a0105@o4509780708229120.ingest.de.sentry.io/4509780710654032';
       options.addIntegration(LoggingIntegration());
+      // Filter data before sending
       options.beforeSend = SentryFilter.beforeSend;
-      // Don't send personally identifiable information
+      // Reduce data collection
       options.sendDefaultPii = false;
+      options.enableAutoPerformanceTracing = false;
+      options.enableUserInteractionTracing = false;
+      options.reportViewHierarchyIdentifiers = false;
+      options.useFlutterBreadcrumbTracking();
+      options.enableAppLifecycleBreadcrumbs = false;
+      options.enableBrightnessChangeBreadcrumbs = false;
+      options.enableUserInteractionBreadcrumbs = false;
       // Native SDK fails on Linux for me
       options.enableNativeCrashHandling = !Platform.isLinux;
     },
@@ -58,7 +66,7 @@ Future<void> main(List<String> args) async {
 }
 
 Future<void> appRunner(List<String> args) async {
-  WidgetsFlutterBinding.ensureInitialized();
+  SentryWidgetsFlutterBinding.ensureInitialized();
 
   final parser = ArgParser()..addFlag('verbose', abbr: 'v', negatable: false);
   final parsedArgs = parser.parse(args);
