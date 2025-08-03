@@ -26,6 +26,8 @@ import 'package:saber/pages/editor/editor.dart';
 import 'package:saber/pages/home/home.dart';
 import 'package:saber/pages/logs.dart';
 import 'package:saber/pages/user/login.dart';
+import 'package:sentry_flutter/sentry_flutter.dart';
+import 'package:sentry_logging/sentry_logging.dart';
 import 'package:window_manager/window_manager.dart';
 import 'package:worker_manager/worker_manager.dart';
 import 'package:workmanager/workmanager.dart';
@@ -45,6 +47,21 @@ Future<void> main(List<String> args) async {
     dirty: const bool.fromEnvironment('DIRTY', defaultValue: false),
   );
 
+  await SentryFlutter.init(
+    (options) {
+      options.dsn =
+          'https://66937061678418b37c7b29cbfa1a0105@o4509780708229120.ingest.de.sentry.io/4509780710654032';
+      options.addIntegration(LoggingIntegration());
+      // Don't send personally identifiable information
+      options.sendDefaultPii = false;
+      // Native SDK fails on Linux for me
+      options.enableNativeCrashHandling = !Platform.isLinux;
+    },
+    appRunner: () => appRunner(args),
+  );
+}
+
+Future<void> appRunner(List<String> args) async {
   WidgetsFlutterBinding.ensureInitialized();
 
   final parser = ArgParser()..addFlag('verbose', abbr: 'v', negatable: false);
@@ -110,7 +127,7 @@ Future<void> main(List<String> args) async {
   });
 
   HttpOverrides.global = NcHttpOverrides();
-  runApp(TranslationProvider(child: const App()));
+  runApp(SentryWidget(child: TranslationProvider(child: const App())));
   startSyncAfterLoaded();
   setupBackgroundSync();
 }
