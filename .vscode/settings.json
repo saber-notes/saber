@@ -1,5 +1,8 @@
 {
     "files.exclude": {
+        ".sentry-native": true,
+        "android/.gradle/": true,
+        "android/.kotlin/": true,
         "submodules/": true,
         "**/.dart_tool/": true,
         "**/.idea/": true,
