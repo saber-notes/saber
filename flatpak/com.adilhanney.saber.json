@@ -1,8 +1,8 @@
 {
 	"app-id": "com.adilhanney.saber",
-	"runtime": "org.freedesktop.Platform",
-	"runtime-version": "22.08",
-	"sdk": "org.freedesktop.Sdk",
+	"runtime": "org.gnome.Platform",
+	"runtime-version": "48",
+	"sdk": "org.gnome.Sdk",
 	"command": "saber",
 	"separate-locales": false,
 	"finish-args": [
@@ -19,7 +19,6 @@
 		{
 			"name": "libjsoncpp",
 			"buildsystem": "meson",
-			"only_arches": ["x86_64"],
 			"config-opts": [
 				"--buildtype=release",
 				"--default-library=shared"
@@ -27,8 +26,34 @@
 			"sources": [
 				{
 					"type": "archive",
-					"url": "https://github.com/open-source-parsers/jsoncpp/archive/refs/tags/1.9.5.tar.gz",
-					"sha256": "f409856e5920c18d0c2fb85276e24ee607d2a09b5e7d5f0a371368903c275da2"
+					"url": "https://github.com/open-source-parsers/jsoncpp/archive/refs/tags/1.9.6.tar.gz",
+					"sha256": "f93b6dd7ce796b13d02c108bc9f79812245a82e577581c4c9aabe57075c90ea2",
+					"x-checker-data": {
+						"type": "json",
+						"url": "https://api.github.com/repos/open-source-parsers/jsoncpp/releases/latest",
+						"version-query": ".tag_name",
+						"url-query": ".tag_name | \"https://github.com/open-source-parsers/jsoncpp/archive/refs/tags/\" + . + \".tar.gz\"",
+						"is-main-source": false
+					}
+				}
+			]
+		},
+		{
+			"name": "zenity",
+			"buildsystem": "meson",
+			"config-opts": [
+				"--buildtype=release"
+			],
+			"sources": [
+				{
+					"type": "git",
+					"url": "https://gitlab.gnome.org/GNOME/zenity",
+					"commit": "49f057727f9c215a32397ceb9a7c2782eb4ef474",
+					"tag": "4.1.90",
+					"x-checker-data": {
+						"type": "git",
+						"tag-pattern": "^([\\d.]+)$"
+					}
 				}
 			]
 		},
