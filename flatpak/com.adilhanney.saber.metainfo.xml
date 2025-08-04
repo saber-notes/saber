@@ -260,8 +260,10 @@
         </release>
         <release version="0.25.4" type="development" date="2025-02-22">
             <description>
+                <p>
                 You can now customize the line thickness of your background pattern,
                 and files downloaded from the server now have the proper timestamp, preventing them from being synced repeatedly.
+                </p>
             </description>
         </release>
         <release version="0.25.3" type="development" date="2024-12-14">
