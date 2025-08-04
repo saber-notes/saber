@@ -214,6 +214,15 @@
     </screenshots>
 
     <releases>
+        <release version="0.26.1" type="development" date="2025-08-04">
+            <description>
+                <ul>
+                    <li>Slightly reduced app size</li>
+                    <li>New display of the current folder path in the browse page</li>
+                    <li>In future updates, I'll be adding some error tracking to help me improve the app. It will be opt-in and as anonymous as I can make it.</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.26.0" type="development" date="2025-07-16">
             <description>
                 <ul>

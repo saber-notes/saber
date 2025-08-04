@@ -1,0 +1,3 @@
+• leicht reduzierte App -Größe
+• Neue Anzeige des aktuellen Ordnerpfads auf der Durchsuchenseite
+• In zukünftigen Updates werde ich eine Fehlerverfolgung hinzufügen, um die App zu verbessern. Es wird anonym und so anonym, wie ich es schaffen kann.
