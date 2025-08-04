@@ -28,9 +28,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Remove development dependencies
-        run: ./patches/remove_dev_dependencies.sh
-
       - name: Install Flutter
         uses: subosito/flutter-action@v2
         with:
@@ -60,6 +57,9 @@ jobs:
         run: flutter config --no-cli-animations
 
       - run: flutter pub get
+
+      - name: Remove development dependencies
+        run: ./patches/remove_dev_dependencies.sh
 
       - name: Build for iOS
         run: |

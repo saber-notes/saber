@@ -35,11 +35,6 @@ jobs:
           restore-keys: |
             ${{ runner.OS }}-saber-
 
-      - name: Remove REQUEST_INSTALL_PACKAGES permission
-        run: ./patches/remove_request_install_packages_permission.sh
-      - name: Remove development dependencies
-        run: ./patches/remove_dev_dependencies.sh
-
       - name: Setup keystore
         run: |
           echo "${{ secrets.SIGNING_KEY }}" | base64 -d > android/android.keystore
@@ -65,6 +60,11 @@ jobs:
         run: flutter config --no-cli-animations
 
       - run: flutter pub get
+
+      - name: Remove REQUEST_INSTALL_PACKAGES permission
+        run: ./patches/remove_request_install_packages_permission.sh
+      - name: Remove development dependencies
+        run: ./patches/remove_dev_dependencies.sh
 
       - name: Build aab
         run: |
