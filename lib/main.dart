@@ -154,7 +154,7 @@ void setupBackgroundSync() {
   }
   if (!stows.syncInBackground.value) return;
 
-  Workmanager().initialize(doBackgroundSync, isInDebugMode: kDebugMode);
+  Workmanager().initialize(doBackgroundSync);
   const uniqueName = 'background-sync';
   const initialDelay = Duration(hours: 12);
   final constraints = Constraints(
