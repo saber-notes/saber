@@ -75,123 +75,15 @@ Please see [#1 Saber progress][progress].
 
 ## Install
 
-<details>
-<summary>Tap to show/hide install instructions</summary>
-
-#### Android
-
-Options:
-
-1. Download from the [Play Store][google_play]
-
-2. Download from [F-Droid][f-droid]
-   - Note that the F-Droid build is not optimised for Onyx Boox devices as this would require
-     [proprietary dependencies](https://github.com/saber-notes/saber/issues/219) from Onyx.
-
-3. Download and install `Saber_{version}.apk` from the latest [Release][releases].
-
-#### Linux
-
-Option 1 (recommended):
-Install the flatpak from [Flathub][flathub]: `flatpak --user install com.adilhanney.saber`.
-
-Option 2:
-Download `Saber-{version}-x86_64.AppImage` from the latest [Release][releases],
-make it executable with `chmod +x Saber-*-x86_64.AppImage`, then run it.
-
-Option 3:
-There's an unofficial [snap][snap] available thanks to @soumyaDghosh.
-`sudo snap install saber`
-
-#### Windows
-
-Download and install `SaberInstaller_{version}.exe` from the latest [Release][releases].
-
-If you get missing dll errors, make sure you have [Visual C++ Redistributable](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist) installed.
-
-#### iOS and macOS
-
-Download Saber on the [App Store][app_store].
-
-</details>
+Please see
+[Install Saber](https://github.com/saber-notes/saber/wiki/install)
+on the wiki.
 
 ## Build from source
 
-<details>
-<summary>Tap to show/hide build instructions</summary>
-
-### 1. Install flutter
-https://docs.flutter.dev/get-started/install
-### 2. Clone this project
-```bash
-git clone https://github.com/saber-notes/saber.git
-```
-### 3. Get dependencies
-```bash
-flutter pub get
-```
-
-### 4. Install additional dependencies
-
-Setup for the [super_clipboard](https://pub.dev/packages/super_clipboard)
-package can be summarised as:
-- Install [Rust](https://www.rust-lang.org/tools/install)
-- Install NDK 26.1.10909125 if you're building for Android
-
-### 5. Build for...
-
-#### Linux
-
-```bash
-sudo apt install libsecret-1-dev libjsoncpp-dev libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev webkit2gtk-4.1-dev
-# Or for Fedora...
-sudo dnf install libsecret-devel jsoncpp-devel gstreamer1-devel gstreamer1-plugins-base-devel webkit2gtk4.1-devel
-
-flutter build linux
-```
-
-This is good enough for using on your own computer, but if you want to redistribute your build,
-you need to use a predictable environment: fork this repo and use the GitHub Action
-[Build for Linux](https://github.com/saber-notes/saber/actions/workflows/linux.yml) instead.
-
-#### Android
-
-`flutter build apk`
-
-You may need to generate a signing certificate and create the `android/key.properties` file.
-More information on https://docs.flutter.dev/deployment/android#create-an-upload-keystore
-
-Note:
-FOSS/[F-Droid][f-droid-manifest] builds are done slightly differently:
-```bash
-./patches/remove_proprietary_dependencies.sh
-flutter build apk
-```
-
-#### Windows
-
-`flutter build windows`
-
-The Windows installer is created with [Inno Setup](https://jrsoftware.org/isinfo.php).
-To create an installer of your own, run the above build command, then edit and run
-[installers/desktop_inno_script.iss](https://github.com/saber-notes/saber/blob/main/installers/desktop_inno_script.iss)
-with Inno Setup Compiler.
-
-#### iOS and macOS
-
-If you have a macOS computer, you can
-[build for iOS](https://docs.flutter.dev/deployment/ios#create-an-app-bundle)
-with `flutter build ipa` or
-[build for macOS](https://docs.flutter.dev/deployment/macos#create-a-build-archive-with-xcode)
-with `flutter build macos`.
-
-If you don't, fork this repo and use the GitHub Action
-[Build for macOS and iOS](https://github.com/saber-notes/saber/actions/workflows/apple.yml).
-Alternatively, follow this YouTube tutorial
-[How to compile a flutter application to iPhone with no mac (free | no jailbreak)](https://www.youtube.com/watch?v=m3_6z2wfHiY)
-to manually build with [Codemagic](https://codemagic.io/start/).
-
-</details>
+Please see
+[Build Saber](https://github.com/saber-notes/saber/wiki/build)
+on the wiki.
 
 ## Links
 
