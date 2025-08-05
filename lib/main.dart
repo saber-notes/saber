@@ -54,12 +54,14 @@ Future<void> appRunner(List<String> args) async {
   Logger.root.onRecord.listen((record) {
     logsHistory.add(record);
 
-    // ignore: avoid_print
-    print('${record.level.name}: ${record.loggerName}: ${record.message}');
+    if (!isSentryEnabled) {
+      // ignore: avoid_print
+      print('${record.level.name}: ${record.loggerName}: ${record.message}');
+    }
   });
 
   // For some reason, logging errors breaks hot reload while debugging.
-  if (!kDebugMode) {
+  if (!kDebugMode && !isSentryEnabled) {
     final errorLogger = Logger('ErrorLogger');
     FlutterError.onError = (details) {
       errorLogger.severe(

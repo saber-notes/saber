@@ -1,18 +1,31 @@
 import 'dart:async';
 import 'dart:io';
 
+import 'package:saber/data/prefs.dart';
+import 'package:saber/data/sentry/sentry_consent.dart';
 import 'package:saber/data/sentry/sentry_filter.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:sentry_logging/sentry_logging.dart';
 
 export 'package:sentry_flutter/sentry_flutter.dart' show SentryWidget;
 
-bool get isSentryEnabled {
-  // TODO(adil192): Use an opt-in stow
-  return true;
+bool get isSentryAvailable {
+  return true; // false in the FOSS version of this file
 }
 
+bool get isSentryEnabled => _isSentryEnabled;
+late bool _isSentryEnabled;
+
 FutureOr<void> initSentry(FutureOr<void> Function() appRunner) async {
+  SentryWidgetsFlutterBinding.ensureInitialized();
+  Stows.markAsOnMainIsolate();
+  await stows.sentryConsent.waitUntilRead();
+  _isSentryEnabled = switch (stows.sentryConsent.value) {
+    SentryConsent.unknown => false,
+    SentryConsent.granted => true,
+    SentryConsent.denied => false,
+  };
+
   if (!isSentryEnabled) {
     return appRunner();
   }
