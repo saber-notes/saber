@@ -94,105 +94,9 @@ on the wiki.
 
 ## Translating
 
-All translations are crowd-sourced. Saber has so far been translated into:
-- English ([en](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings.i18n.yaml))
-- Arabic ([ar](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_ar.i18n.yaml))
-- Czech ([cs](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_cs.i18n.yaml))
-- German ([de](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_de.i18n.yaml))
-- Spanish ([es](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_es.i18n.yaml))
-- Persian ([fa](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_fa.i18n.yaml))
-- French ([fr](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_fr.i18n.yaml))
-- Hebrew ([he](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_he.i18n.yaml))
-- Hungarian ([hu](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_hu.i18n.yaml))
-- Italian ([it](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_it.i18n.yaml))
-- Japanese ([ja](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_ja.i18n.yaml))
-- Brazilian Portuguese ([pt_BR](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_pt_BR.i18n.yaml))
-- Russian ([ru](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_ru.i18n.yaml))
-- Turkish ([tr](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_tr.i18n.yaml))
-- Chinese Simplified ([zh_Hans_CN](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_zh_Hans_CN.i18n.yaml))
-- Chinese Traditional ([zh_Hant_TW](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_zh_Hant_TW.i18n.yaml))
-
-I'm experimenting with using
-[Weblate](https://hosted.weblate.org/projects/saber-notes/saber/)
-to crowd-source translations. More information coming soon.
-
-### Extending existing languages
-
-Check [_missing_translations.yaml](https://github.com/saber-notes/saber/blob/main/lib/i18n/_missing_translations.yaml)
-   to see if any translations are missing.
-
-1. Use [this link](https://github.com/saber-notes/saber/edit/main/lib/i18n/_missing_translations.yaml)
-   to edit `_missing_translations.yaml`.
-2. Update your `_missing_translations.yaml` file with your translations, e.g. updating German (de)
-    ```yaml
-    de:
-      editor:
-        newerFileFormat:
-          title: Diese Notiz wurde mit einer neueren Version von Saber bearbeitet
-          subtitle: Wenn du diese Notiz bearbeitest, können Daten verloren gehen. Möchtest du die Notiz trotzdem öffnen?
-          openAnyway: Trotzdem öffnen
-          cancel: Abbruch
-    # ignore the other languages...
-    ```
-3. Open a pull request! I'll do the rest
-
-### Adding a new language
-
-1. Look for your locale code [here](https://saimana.com/list-of-country-locale-code/),
-   e.g. `hi` for Hindi, `fr` for French, `bn` for Bengali, `ar` for Arabic, etc.
-2. Use [this link](https://github.com/saber-notes/saber/new/main/lib/i18n)
-   to create a new file in `lib/i18n/` called `strings_XX.i18n.yaml`
-   where `XX` is your locale code.
-3. Copy the contents of an existing file like
-   [`lib/i18n/strings.i18n.yaml`](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings.i18n.yaml)
-   and replace the translations with your own.
-   If you don't know the translation for a string, just delete the line.
-4. Open a pull request!
-
-Also see [`slang`'s Getting Started](https://pub.dev/packages/slang#getting-started) for more information.
-
-### Translating app store descriptions
-
-We have 2 formats for app store descriptions:
-
-1. F-Droid/Play Store:
-
-   i. Open `metadata/en-US/` and copy the
-      [`full_description.txt`](https://github.com/saber-notes/saber/blob/main/metadata/en-US/full_description.txt)
-      and
-      [`short_description.txt`](https://github.com/saber-notes/saber/blob/main/metadata/en-US/short_description.txt)
-      files into the `metadata/XX/` folder where `XX` is your locale code.
-      Then translate the contents of the files.
-
-   ii. Changelogs are automatically translated from the English version.
-       If you spot a mistake, please edit the translated changelog in
-       `metadata/XX/changelogs/<version-code>.txt` where `XX` is your locale code.
-
-2. Linux .desktop file:
-
-   i. Open
-   [`flatpak/com.adilhanney.saber.desktop`](https://github.com/saber-notes/saber/blob/main/flatpak/com.adilhanney.saber.desktop)
-   and add a line for the `Comment` key with the following format where `XX` is your locale code:
-    ```ini
-    Comment[XX]=Your translation
-    ```
-   If you also need to translate the `Name` key, do the same thing.
-
-3. Flathub (optional):
-
-   i. Since this is slightly more technical, you can skip the Flathub part if you
-      want to and I'll copy the translations from the above section.
-   
-   ii. In [`flatpak/com.adilhanney.saber.metainfo.xml`](https://github.com/saber-notes/saber/blob/main/flatpak/com.adilhanney.saber.metainfo.xml)
-       before the `</description>` closing tag, add a line for your translation
-       with the following format where `XX` is your locale code:
-    ```html
-    <p xml:lang="XX">Your translation</p>
-    ```
-
-   iii. In the same file, you can translate the changelogs by doing the same
-        thing in the `<release>` tags before their `</description>` closing tag.
-
+Please see
+[Translating](https://github.com/saber-notes/saber/wiki/Translating)
+on the wiki.
 
 ## Supporting Saber
 
@@ -205,32 +109,10 @@ If you like Saber, please consider supporting it by:
 
 ## Development notes
 
-<details>
-<summary>Show/hide development notes</summary>
+Please see
+[Maintainer notes](https://github.com/saber-notes/saber/wiki/Maintainer-notes)
+on the wiki.
 
-- When updating the **app version**:
-  - Run `./scripts/bump_version.sh <version-name> <version-code>`
-    (Run `./scripts/bump_version.sh --help` for more info)
-  - Update the changelogs in `metadata/en-US/changelogs/`
-    and `flatpak/com.adilhanney.saber.metainfo.xml`,
-    and run `dart scripts/translate_changelogs.dart` as directed by the script.
-- When updating the **icons**, run the following commands:
-  - General: `dart run icons_launcher:create`
-  - Flatpak icons: `cd assets/icon && ./resize-icon.sh`
-- When updating the **translations**...
-  - Run the following commands:
-    - `dart run slang apply --locale=XX` if you need to apply _missing_translations.yaml
-    - `dart run slang`
-    - `dart run slang analyze --full`
-  - If you're adding a new language, update:
-    - `CFBundleLocalizations` in `ios/Runner/Info.plist`
-    - `CFBundleLocalizations` in `macos/Runner/Info.plist`
-    - `android/app/src/main/res/xml/locales_config.xml`
-    - `lib/data/locales.dart`
-    - `README.md` above in the "Translating" section.
-    - and run `dart scripts/translate_changelogs.dart` to translate the changelog.
-
-</details>
 
 [f-droid]: https://f-droid.org/packages/com.adilhanney.saber/
 [flathub]: https://flathub.org/apps/details/com.adilhanney.saber

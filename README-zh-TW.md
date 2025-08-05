@@ -69,129 +69,20 @@ Saber具有使筆記井井有條所需的一切功能。在無限嵌套的資料
 
 ## 特色
 
-請參閱[#1 Saber progress][progress]。
+請參閱
+[#1 Saber progress][progress]。
 
 ## 安裝
 
-<details>
-<summary>點擊顯示/隱藏安裝說明</summary>
-
-#### Android
-
-選項:
-
-1. 從 [Play 商店][google_play] 下載
-
-2. 從 [F-Droid][f-droid] 下載
-
-   - 請注意，F-Droid 版本並未針對 Onyx Boox 裝置進行最佳化，因為這需要來自 Onyx 的 [專有依賴項](https://github.com/saber-notes/saber/issues/219)。
-
-3. 從最新的 [Release][releases] 下載並安裝 `Saber_{version}.apk`。
-
-#### Linux
-
-選項 1（推薦）：
-從 [Flathub][flathub] 安裝 flatpak： `flatpak --user install com.adilhanney.saber`。
-
-選項 2：
-從最新的 [Release][releases] 下載 `Saber-{version}-x86_64.AppImage`，
-使用 `chmod +x Saber-*-x86_64.AppImage` 使其可執行，然後運行它。
-
-選項 3：
-感謝 @soumyaDghosh，有一個非官方的 [snap][snap] 可用。
-`sudo snap install saber`
-
-#### Windows
-
-從最新的 [Release][releases] 下載並安裝 `SaberInstaller_{version}.exe`。
-
-如果出現缺少 dll 錯誤，請確保安裝了 [Visual C++ Redistributable](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist)。
-
-#### iOS 和 macOS
-
-在 [App Store][app_store] 下載 Saber。
-
-</details>
+請參閱
+[Install Saber](https://github.com/saber-notes/saber/wiki/install)
+在維基上。
 
 ## 從原始碼構建
 
-<details>
-<summary>點擊以顯示/隱藏構建說明</summary>
-
-### 1. 安裝 flutter
-
-https://docs.flutter.dev/get-started/install
-
-### 2. 克隆這個項目
-
-```bash
-git clone https://github.com/saber-notes/saber.git
-```
-
-### 3. 取得依賴項
-
-```bash
-flutter pub get
-```
-
-### 4. 安裝額外的依賴項
-
-[super_clipboard](https://pub.dev/packages/super_clipboard) 的設定
-套件可以概括為： -安裝 [Rust](https://www.rust-lang.org/tools/install) -如果您正在針對 Android 進行構建，請安裝 NDK 26.1.10909125
-
-### 5. 為...構建
-
-#### Linux
-
-```bash
-sudo apt install libsecret-1-dev libjsoncpp-dev libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev webkit2gtk-4.1-dev
-# Or for Fedora...
-sudo dnf install libsecret-devel jsoncpp-devel gstreamer1-devel gstreamer1-plugins-base-devel webkit2gtk4.1-devel
-
-flutter build linux
-```
-
-這足以在您自己的電腦上使用，但如果您想重新分發您的構建，
-您需要使用可預測的環境：分叉此倉庫並使用 GitHub Action
-[為 Linux 構建](https://github.com/saber-notes/saber/actions/workflows/linux.yml)。
-
-#### Android
-
-`flutter build apk`
-
-您可能需要生成簽名證書並創建 `android/key.properties` 檔案。
-有關 https://docs.flutter.dev/deployment/android#create-an-upload-keystore 的更多資訊
-
-注意：[F-Droid][f-droid-manifest] 版本的構建略有不同：
-```bash
-./patches/remove_proprietary_dependencies.sh
-flutter build apk
-```
-
-#### Windows
-
-`flutter build windows`
-
-Windows 安裝程式是使用 [Inno Setup](https://jrsoftware.org/isinfo.php) 創建的。
-要創建您自己的安裝程式，請運行上面的構建指令，然後編輯並運行
-[installers/desktop_inno_script.iss](https://github.com/saber-notes/saber/blob/main/installers/desktop_inno_script.iss)
-使用 Inno 安裝編譯器。
-
-#### iOS and macOS
-
-如果您有 macOS 電腦，您可以
-[針對 iOS 構建](https://docs.flutter.dev/deployment/ios#create-an-app-bundle)
-使用 `flutter build ipa` 或
-[針對 macOS 構建](https://docs.flutter.dev/deployment/macos#create-a-build-archive-with-xcode)
-使用 `flutter build macos`。
-
-如果不這樣做，請分叉此倉庫並使用 GitHub Action
-[針對 macOS 和 iOS 構建](https://github.com/saber-notes/saber/actions/workflows/apple.yml)。
-或者，按照此 YouTube 教學進行操作
-[How to compile a flutter application to iPhone with no mac (free | no jailbreak)](https://www.youtube.com/watch?v=m3_6z2wfHiY)
-使用 [Codemagic](https://codemagic.io/start/) 手動構建。
-
-</details>
+請參閱
+[Build Saber](https://github.com/saber-notes/saber/wiki/build)
+在維基上。
 
 ## 連結
 
@@ -202,82 +93,9 @@ Windows 安裝程式是使用 [Inno Setup](https://jrsoftware.org/isinfo.php) �
 
 ## 翻譯
 
-所有翻譯都是群眾外包的。 Saber 目前已被翻譯成：
-
-- 英文 ([en](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings.i18n.yaml))
-- 阿拉伯文 ([ar](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_ar.i18n.yaml))
-- 捷克文 ([cs](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_cs.i18n.yaml))
-- 德文 ([de](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_de.i18n.yaml))
-- 西班牙文 ([es](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_es.i18n.yaml))
-- 波斯文 ([fa](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_fa.i18n.yaml))
-- 法文 ([fr](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_fr.i18n.yaml))
-- 匈牙利文 ([hu](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_hu.i18n.yaml))
-- 義大利文 ([it](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_it.i18n.yaml))
-- 日文 ([ja](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_ja.i18n.yaml))
-- 葡萄牙語（巴西） ([pt_BR](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_pt_BR.i18n.yaml))
-- 俄文 ([ru](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_ru.i18n.yaml))
-- 土耳其文 ([tr](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_tr.i18n.yaml))
-- 簡體中文 ([zh_Hans_CN](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_zh_Hans_CN.i18n.yaml))
-- 繁體中文 ([zh_Hant_TW](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings_zh_Hant_TW.i18n.yaml))
-
-### 擴展現有語言
-
-檢查 [\_missing_translations.yaml](https://github.com/saber-notes/saber/blob/main/lib/i18n/_missing_translations.yaml) 是否缺少任何翻譯。
-
-1. 使用[此連結](https://github.com/saber-notes/saber/edit/main/lib/i18n/_missing_translations.yaml)編輯 `_missing_translations.yaml`。
-2. 使用您的翻譯更新您的 `_missing_translations.yaml` 檔案，例如更新德文 (de)
-   ```yaml
-   de:
-     editor:
-       newerFileFormat:
-         title: Diese Notiz wurde mit einer neueren Version von Saber bearbeitet
-         subtitle: Wenn du diese Notiz bearbeitest, können Daten verloren gehen. Möchtest du die Notiz trotzdem öffnen?
-         openAnyway: Trotzdem öffnen
-         cancel: Abbruch
-   # 忽略其他語言...
-   ```
-3. 打開拉取請求，剩下的我來做！
-
-### 添加新語言
-
-1. 在[此處](https://saimana.com/list-of-country-locale-code/)查找您的區域代碼，例如 `hi` 代表印地文， `fr` 代表法文， `bn` 代表孟加拉文， `ar` 代表阿拉伯文，等等。
-2. 使用[此連結](https://github.com/saber-notes/saber/new/main/lib/i18n)在 `lib/i18n/` 中創建一個名為 `strings_XX.i18n.yaml` 的新檔案，其中 `XX` 是您的區代域碼。
-3. 複製現有檔案的內容，例如 [`lib/i18n/strings.i18n.yaml`](https://github.com/saber-notes/saber/blob/main/lib/i18n/strings.i18n.yaml) ，並將字串替換為您自己的翻譯。如果您不知道字串的翻譯，只需刪除該行即可。
-4. 打開拉取請求！
-
-另請參閱 [`slang`'s Getting Started](https://pub.dev/packages/slang#getting-started) 了解更多資訊。
-
-### 翻譯應用程式商店描述
-
-我們有 2 種應用程式商店的描述格式：
-
-1. F-Droid/Play Store:
-
-   i. 打開 `metadata/en-US/` 並複制 [`full_description.txt`](https://github.com/saber-notes/saber/blob/main/metadata/en-US/full_description.txt) 和 [`short_description.txt`](https://github.com/saber-notes/saber/blob/main/metadata/en-US/short_description.txt) 檔案放入 `metadata/XX/` 資料夾，其中 `XX` 是您的區域代碼。然後翻譯檔案的內容。
-
-   ii. 變更日誌會自動從英文版本翻譯，如果您發現錯誤，請編輯翻譯後的變更日誌 `metadata/XX/changelogs/<version-code>.txt` 其中 `XX` 是您的區域代碼。
-
-2. Linux .desktop 檔案:
-
-   i. 打開 [`flatpak/com.adilhanney.saber.desktop`](https://github.com/saber-notes/saber/blob/main/flatpak/com.adilhanney.saber.desktop) 並使用以下格式為 `Comment` 鍵添加一行，其中 `XX` 是您的區域代碼：
-
-   ```ini
-   Comment[XX]=您的翻譯
-   ```
-
-   如果您還需要翻譯 `Name` 鍵，請執行相同的操作。
-
-3. Flathub (選擇性):
-
-   i. 由於技術性稍強，您可以跳過 Flathub 部分，我將複製上一步的翻譯。
-
-   ii. 在 [`flatpak/com.adilhanney.saber.metainfo.xml`](https://github.com/saber-notes/saber/blob/main/flatpak/com.adilhanney.saber.metainfo.xml) 在 `</description>` 標記之前，添加一行翻譯內容，使用以下格式，其中 `XX` 是您的區域代碼：
-
-   ```html
-   <p xml:lang="XX">您的翻譯</p>
-   ```
-
-   iii. 在同一個檔案中，您可以透過執行相同的操作來翻譯變更日誌位於 `<release>` 標籤中 `</description>` 標籤之前的內容。
+請參閱
+[Translating](https://github.com/saber-notes/saber/wiki/Translating)
+在維基上。
 
 ## 支持Saber
 
@@ -291,32 +109,10 @@ Windows 安裝程式是使用 [Inno Setup](https://jrsoftware.org/isinfo.php) �
 
 ## 開發筆記
 
-<details>
-<summary>顯示/隱藏開發筆記</summary>
+請參閱
+[Maintainer notes](https://github.com/saber-notes/saber/wiki/Maintainer-notes)
+在維基上。
 
-- When updating the **app version**:
-  - Run `./scripts/bump_version.sh <version-name> <version-code>`
-    (Run `./scripts/bump_version.sh --help` for more info)
-  - Update the changelogs in `metadata/en-US/changelogs/`
-    and `flatpak/com.adilhanney.saber.metainfo.xml`,
-    and run `dart scripts/translate_changelogs.dart` as directed by the script.
-- When updating the **icons**, run the following commands:
-  - General: `dart run icons_launcher:create`
-  - Flatpak icons: `cd assets/icon && ./resize-icon.sh`
-- When updating the **translations**...
-  - Run the following commands:
-    - `dart run slang apply --locale=XX` if you need to apply \_missing_translations.yaml
-    - `dart run slang`
-    - `dart run slang analyze --full`
-  - If you're adding a new language, update:
-    - `CFBundleLocalizations` in `ios/Runner/Info.plist`
-    - `CFBundleLocalizations` in `macos/Runner/Info.plist`
-    - `android/app/src/main/res/xml/locales_config.xml`
-    - `lib/data/locales.dart`
-    - `README.md` above in the "Translating" section.
-    - and run `dart scripts/translate_changelogs.dart` to translate the changelog.
-
-</details>
 
 [f-droid]: https://f-droid.org/packages/com.adilhanney.saber/
 [flathub]: https://flathub.org/apps/details/com.adilhanney.saber
