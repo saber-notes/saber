@@ -25,7 +25,7 @@ class EditorPage extends Listenable implements HasSize {
   static const Size defaultSize = Size(defaultWidth, defaultHeight);
 
   @override
-  final Size size;
+  Size size;
 
   late final CanvasKey innerCanvasKey = CanvasKey();
   RenderBox? _renderBox;

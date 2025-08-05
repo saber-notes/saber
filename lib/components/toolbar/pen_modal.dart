@@ -125,6 +125,26 @@ class _PenModalState extends State<PenModal> {
             tooltip: t.editor.pens.shapePen,
             icon: const FaIcon(ShapePen.shapePenIcon),
           ),
+          const SizedBox.square(dimension: 8),
+          IconButton(
+            onPressed: () => setState(() {
+              widget.setTool(Pen.insertPen());
+            }),
+            style: TextButton.styleFrom(
+              foregroundColor: Pen.currentPen.icon == Pen.insertPenIcon
+                  ? Theme.of(context).colorScheme.secondary
+                  : Theme.of(context).colorScheme.onSurface,
+              backgroundColor: Pen.currentPen.icon == Pen.insertPenIcon
+                  ? Theme.of(context)
+                  .colorScheme
+                  .secondary
+                  .withValues(alpha: 0.1)
+                  : Colors.transparent,
+              shape: const CircleBorder(),
+            ),
+            tooltip: t.editor.pens.insertPen,
+            icon: const FaIcon(Pen.insertPenIcon),
+          ),
         ],
       ],
     );

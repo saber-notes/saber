@@ -277,6 +277,9 @@ class Stroke {
   double get maxY {
     return points.isEmpty ? 0 : points.map((point) => point.y).reduce(max);
   }
+  double get minY {
+    return points.isEmpty ? 0 : points.map((point) => point.y).reduce(min);
+  }
 
   RecognizedUnistroke? detectShape() {
     if (points.length < 3) return null;
@@ -358,6 +361,14 @@ class Stroke {
     } else {
       return (firstPoint, lastPoint);
     }
+  }
+
+  Offset get firstPoint {
+    return(Offset(points[0].x,points[0].y));
+  }
+
+  Offset get lastPoint {
+    return(Offset(points.last.x,points.last.y));
   }
 
   Stroke copy() => Stroke(
