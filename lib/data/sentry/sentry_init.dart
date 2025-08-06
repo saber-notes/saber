@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:io';
 
+import 'package:flutter/foundation.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/data/sentry/sentry_consent.dart';
 import 'package:saber/data/sentry/sentry_filter.dart';
@@ -51,4 +52,11 @@ FutureOr<void> initSentry(FutureOr<void> Function() appRunner) async {
     },
     appRunner: appRunner,
   );
+}
+
+/// Tests typically don't use [initSentry] so this just sets the flag
+/// so we don't get late initialization errors.
+@visibleForTesting
+void disableSentryForTesting() {
+  _isSentryEnabled = false;
 }
