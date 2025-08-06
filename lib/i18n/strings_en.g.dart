@@ -657,6 +657,9 @@ class TranslationsSettingsPrefLabelsEn {
 
 	/// en: 'Pencil sound effect'
 	String get pencilSoundSetting => 'Pencil sound effect';
+
+	/// en: 'Error reporting'
+	String get sentry => 'Error reporting';
 }
 
 // Path: settings.prefDescriptions
@@ -712,6 +715,7 @@ class TranslationsSettingsPrefDescriptionsEn {
 	String get shouldAlwaysAlertForUpdates => 'Tell me about updates as soon as they\'re available';
 
 	late final TranslationsSettingsPrefDescriptionsPencilSoundSettingEn pencilSoundSetting = TranslationsSettingsPrefDescriptionsPencilSoundSettingEn.internal(_root);
+	late final TranslationsSettingsPrefDescriptionsSentryEn sentry = TranslationsSettingsPrefDescriptionsSentryEn.internal(_root);
 }
 
 // Path: settings.themeModes
@@ -1372,6 +1376,27 @@ class TranslationsSettingsPrefDescriptionsPencilSoundSettingEn {
 
 	/// en: 'Enabled (even in silent mode)'
 	String get onAlways => 'Enabled (even in silent mode)';
+}
+
+// Path: settings.prefDescriptions.sentry
+class TranslationsSettingsPrefDescriptionsSentryEn {
+	TranslationsSettingsPrefDescriptionsSentryEn.internal(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+
+	/// en: 'Active'
+	String get active => 'Active';
+
+	/// en: 'Inactive'
+	String get inactive => 'Inactive';
+
+	/// en: 'Active until you restart the app'
+	String get activeUntilRestart => 'Active until you restart the app';
+
+	/// en: 'Inactive until you restart the app'
+	String get inactiveUntilRestart => 'Inactive until you restart the app';
 }
 
 // Path: login.ncLoginStep.loginFlow

@@ -15,6 +15,7 @@ import 'package:saber/components/settings/settings_color.dart';
 import 'package:saber/components/settings/settings_directory_selector.dart';
 import 'package:saber/components/settings/settings_dropdown.dart';
 import 'package:saber/components/settings/settings_selection.dart';
+import 'package:saber/components/settings/settings_sentry.dart';
 import 'package:saber/components/settings/settings_subtitle.dart';
 import 'package:saber/components/settings/settings_switch.dart';
 import 'package:saber/components/settings/update_manager.dart';
@@ -26,6 +27,7 @@ import 'package:saber/data/flavor_config.dart';
 import 'package:saber/data/locales.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/data/routes.dart';
+import 'package:saber/data/sentry/sentry_init.dart';
 import 'package:saber/data/tools/shape_pen.dart';
 import 'package:saber/i18n/strings.g.dart';
 import 'package:stow/stow.dart';
@@ -524,6 +526,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 pref: stows.simplifiedHomeLayout,
               ),
               SettingsSubtitle(subtitle: t.settings.prefCategories.advanced),
+              if (isSentryAvailable) const SettingsSentryConsent(),
               if (Platform.isAndroid)
                 SettingsDirectorySelector(
                   title: t.settings.prefLabels.customDataDir,

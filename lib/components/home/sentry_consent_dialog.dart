@@ -17,6 +17,10 @@ class SentryConsentDialog extends StatelessWidget {
     if (stows.sentryConsent.value != SentryConsent.unknown) return;
 
     // Show the dialog
+    await show(context);
+  }
+
+  static Future<void> show(BuildContext context) {
     return showDialog(
       context: context,
       builder: (context) => const SentryConsentDialog(),

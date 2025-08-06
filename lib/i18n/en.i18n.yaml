@@ -109,6 +109,7 @@ settings:
     simplifiedHomeLayout: Simplified home layout
     customDataDir: Custom Saber folder
     pencilSoundSetting: Pencil sound effect
+    sentry: Error reporting
   prefDescriptions: 
     hyperlegibleFont: Increases legibility for users with low vision
     allowInsecureConnections: (Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates
@@ -132,6 +133,11 @@ settings:
       off: No sound
       onButNotInSilentMode: Enabled (unless in silent mode)
       onAlways: Enabled (even in silent mode)
+    sentry:
+      active: Active
+      inactive: Inactive
+      activeUntilRestart: Active until you restart the app
+      inactiveUntilRestart: Inactive until you restart the app
   themeModes: 
     system: System
     light: Light
