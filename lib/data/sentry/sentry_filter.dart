@@ -11,6 +11,8 @@ abstract class SentryFilter {
   static final domainRegex = RegExp(r'://[a-zA-Z0-9.-]+');
   static final loginFlowRegex = RegExp(r'/flow/[a-zA-Z0-9/-]+');
 
+  static const redacted = '[redacted]';
+
   static FutureOr<SentryEvent?> beforeSend(SentryEvent event, Hint hint) async {
     if (stows.sentryConsent.value != SentryConsent.granted) {
       // The user revoked consent but hasn't restarted the app yet.
@@ -22,7 +24,7 @@ abstract class SentryFilter {
       // Remove SaberSyncFile(...)
       if (message.contains(saberSyncFileRegex)) {
         message =
-            message.replaceAll(saberSyncFileRegex, 'SaberSyncFile([redacted])');
+            message.replaceAll(saberSyncFileRegex, 'SaberSyncFile($redacted)');
         event.message = SentryMessage(message);
       }
 
@@ -48,6 +50,22 @@ abstract class SentryFilter {
       if (message.contains(loginFlowRegex)) {
         message = message.replaceAll(loginFlowRegex, '/flow/XXXXXXXXXX');
         event.message = SentryMessage(message);
+      }
+
+      // Redact current user credentials
+      final credentials = [
+        stows.username.value,
+        stows.ncPassword.value,
+        stows.encPassword.value,
+        stows.key.value,
+        stows.iv.value,
+      ];
+      for (final credential in credentials) {
+        if (credential.isEmpty) continue;
+        if (message!.contains(credential)) {
+          message = message.replaceAll(credential, redacted);
+          event.message = SentryMessage(message);
+        }
       }
     }
     return event;
