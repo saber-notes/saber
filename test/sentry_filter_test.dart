@@ -79,5 +79,40 @@ void main() {
       expect(filteredEvent?.message?.formatted,
           'https://example.com/index.php/login/v2/flow/XXXXXXXXXX');
     });
+
+    test('Redacts username', () async {
+      stows.username.value = 'john.doe';
+      final originalEvent =
+          SentryEvent(message: SentryMessage('john doe john.doe'));
+      final filteredEvent =
+          await SentryFilter.beforeSend(originalEvent, Hint());
+      expect(filteredEvent?.message?.formatted, 'john doe [redacted]');
+    });
+
+    test('Redacts ncPassword and encPassword', () async {
+      const ncPassword = 'myNcPassword';
+      const encPassword = 'myEncPassword';
+      stows.ncPassword.value = ncPassword;
+      stows.encPassword.value = encPassword;
+      final originalEvent = SentryEvent(
+          message: SentryMessage('Passwords: $ncPassword, $encPassword'));
+      final filteredEvent =
+          await SentryFilter.beforeSend(originalEvent, Hint());
+      expect(filteredEvent?.message?.formatted,
+          'Passwords: [redacted], [redacted]');
+    });
+
+    test('Redacts key and iv', () async {
+      const key = '0123456789abcdef';
+      const iv = 'abc123';
+      stows.key.value = key;
+      stows.iv.value = iv;
+      final originalEvent =
+          SentryEvent(message: SentryMessage('Key: $key, IV: $iv'));
+      final filteredEvent =
+          await SentryFilter.beforeSend(originalEvent, Hint());
+      expect(
+          filteredEvent?.message?.formatted, 'Key: [redacted], IV: [redacted]');
+    });
   });
 }
