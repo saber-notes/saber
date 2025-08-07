@@ -1,5 +1,7 @@
 import 'dart:async';
 
+import 'package:saber/data/prefs.dart';
+import 'package:saber/data/sentry/sentry_consent.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 
 abstract class SentryFilter {
@@ -10,6 +12,11 @@ abstract class SentryFilter {
   static final loginFlowRegex = RegExp(r'/flow/[a-zA-Z0-9/-]+');
 
   static FutureOr<SentryEvent?> beforeSend(SentryEvent event, Hint hint) async {
+    if (stows.sentryConsent.value != SentryConsent.granted) {
+      // The user revoked consent but hasn't restarted the app yet.
+      return null;
+    }
+
     var message = event.message?.formatted;
     if (message != null) {
       // Remove SaberSyncFile(...)
