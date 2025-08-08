@@ -119,7 +119,6 @@ class _TranslationsLogsZhHansCn extends TranslationsLogsEn {
 	@override String get viewLogs => '查看日志';
 	@override String get debuggingInfo => '日志包含对调试和开发有用的信息';
 	@override String get noLogs => '这里没有日志！';
-	@override String get logsAreTemporary => '日志仅保留到您关闭应用程序为止';
 }
 
 // Path: login

@@ -153,7 +153,6 @@ logs:
   viewLogs(OUTDATED): Afficher les journaux
   debuggingInfo(OUTDATED): Les journaux contiennent des informations utiles pour le débogage et le développement
   noLogs(OUTDATED): Pas de journaux ici !
-  logsAreTemporary(OUTDATED): Les journaux ne sont conservés que jusqu'à la fermeture de l'application
 login: 
   title: Connexion
   form: 

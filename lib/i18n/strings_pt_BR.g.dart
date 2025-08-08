@@ -119,7 +119,6 @@ class _TranslationsLogsPtBr extends TranslationsLogsEn {
 	@override String get viewLogs => 'Ver logs';
 	@override String get debuggingInfo => 'Os logs contêm informações úteis para depuração e desenvolvimento';
 	@override String get noLogs => 'Nenhum registro aqui!';
-	@override String get logsAreTemporary => 'Os registros são mantidos somente até você fechar o aplicativo';
 }
 
 // Path: login

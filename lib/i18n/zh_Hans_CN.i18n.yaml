@@ -153,7 +153,6 @@ logs:
   viewLogs(OUTDATED): 查看日志
   debuggingInfo(OUTDATED): 日志包含对调试和开发有用的信息
   noLogs(OUTDATED): 这里没有日志！
-  logsAreTemporary(OUTDATED): 日志仅保留到您关闭应用程序为止
 login: 
   title: 登录
   form: 

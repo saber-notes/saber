@@ -157,7 +157,6 @@ logs:
   debuggingInfo(OUTDATED): تحتوي السجلات على معلومات مفيدة لتصحيح الأخطاء 
     والتطوير
   noLogs(OUTDATED): لا يوجد سجلات هنا!
-  logsAreTemporary(OUTDATED): يتم الاحتفاظ بالسجلات فقط حتى تقوم بإغلاق التطبيق
 login:
   title: تسجيل الدخول
   form:

@@ -134,7 +134,7 @@ class LogsPage extends StatelessWidget {
                         ),
                         SizedBox(height: 8),
                         Text(
-                          t.logs.logsAreTemporary,
+                          t.logs.useTheApp,
                           style: TextStyle(color: colorScheme.onSurface),
                         ),
                       ],

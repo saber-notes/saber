@@ -153,7 +153,6 @@ logs:
   viewLogs(OUTDATED): ログを表示
   debuggingInfo(OUTDATED): ログにはデバッグや開発に役立つ情報が含まれています
   noLogs(OUTDATED): ここにはログはありません!
-  logsAreTemporary(OUTDATED): ログはアプリを閉じるまで保存されます
 login: 
   title: ログイン
   form: 

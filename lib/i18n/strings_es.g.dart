@@ -119,7 +119,6 @@ class _TranslationsLogsEs extends TranslationsLogsEn {
 	@override String get viewLogs => 'Ver registros';
 	@override String get debuggingInfo => 'Los registros contienen información útil para la depuración y el desarrollo.';
 	@override String get noLogs => '¡Aquí no hay registros!';
-	@override String get logsAreTemporary => 'Los registros solo se conservan hasta que cierras la aplicación.';
 }
 
 // Path: login

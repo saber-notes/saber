@@ -119,7 +119,6 @@ class _TranslationsLogsRu extends TranslationsLogsEn {
 	@override String get viewLogs => 'Просмотр журналов';
 	@override String get debuggingInfo => 'Журналы содержат информацию, полезную для отладки и разработки';
 	@override String get noLogs => 'Здесь нет журналов!';
-	@override String get logsAreTemporary => 'Журналы хранятся пока вы не закроете приложение';
 }
 
 // Path: login

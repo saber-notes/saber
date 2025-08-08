@@ -119,7 +119,6 @@ class _TranslationsLogsFr extends TranslationsLogsEn {
 	@override String get viewLogs => 'Afficher les journaux';
 	@override String get debuggingInfo => 'Les journaux contiennent des informations utiles pour le débogage et le développement';
 	@override String get noLogs => 'Pas de journaux ici !';
-	@override String get logsAreTemporary => 'Les journaux ne sont conservés que jusqu\'à la fermeture de l\'application';
 }
 
 // Path: login

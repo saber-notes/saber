@@ -119,7 +119,6 @@ class _TranslationsLogsDe extends TranslationsLogsEn {
 	@override String get viewLogs => 'Protokolle anzeigen';
 	@override String get debuggingInfo => 'Protokolle enthalten Informationen, die für die Fehlerbehebung und Entwicklung nützlich sind';
 	@override String get noLogs => 'Hier gibt es keine Protokolle!';
-	@override String get logsAreTemporary => 'Protokolle werden nur so lange gespeichert, bis Sie die App schließen';
 }
 
 // Path: login

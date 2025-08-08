@@ -153,7 +153,6 @@ logs:
   viewLogs: 查看日誌
   debuggingInfo: 日誌包含對偵錯和開發有用的資訊
   noLogs: 這裡沒有日誌！
-  logsAreTemporary: 日誌僅保留到您關閉應用程式為止
 login: 
   title: 登入
   form: 

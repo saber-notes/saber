@@ -175,8 +175,8 @@ class TranslationsLogsEn {
 	/// en: 'No logs here!'
 	String get noLogs => 'No logs here!';
 
-	/// en: 'Logs are only kept until you close the app'
-	String get logsAreTemporary => 'Logs are only kept until you close the app';
+	/// en: 'Logs will appear here as you use the app'
+	String get useTheApp => 'Logs will appear here as you use the app';
 }
 
 // Path: login

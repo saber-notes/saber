@@ -153,7 +153,6 @@ logs:
   viewLogs(OUTDATED): مشاهده سیاهههای مربوط
   debuggingInfo(OUTDATED): گزارش ها حاوی اطلاعات مفیدی برای اشکال زدایی و توسعه هستند
   noLogs(OUTDATED): اینجا هیچ گزارشی وجود ندارد!
-  logsAreTemporary(OUTDATED): گزارش‌ها فقط تا زمانی که برنامه را ببندید نگهداری می‌شوند
 login: 
   title: وارد شدن
   form: 
