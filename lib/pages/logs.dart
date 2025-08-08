@@ -32,6 +32,12 @@ class _LogsHistory extends ChangeNotifier {
     _history.add(record);
     notifyListeners();
   }
+
+  void clear() {
+    _history.clear();
+    _frozenHistory = null;
+    notifyListeners();
+  }
 }
 
 class LogsPage extends StatelessWidget {
@@ -40,8 +46,8 @@ class LogsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: AnimatedBuilder(
-        animation: logsHistory,
+      body: ListenableBuilder(
+        listenable: logsHistory,
         builder: (context, _) {
           final theme = Theme.of(context);
           final colorScheme = theme.colorScheme;
