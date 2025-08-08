@@ -1,8 +1,11 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:saber/components/settings/app_info.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/data/sentry/sentry_consent.dart';
 import 'package:saber/data/sentry/sentry_init.dart';
 import 'package:saber/i18n/strings.g.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class SentryConsentDialog extends StatelessWidget {
   const SentryConsentDialog({super.key});
@@ -32,17 +35,29 @@ class SentryConsentDialog extends StatelessWidget {
     return AlertDialog(
       title: Text(t.sentry.consent.title),
       scrollable: true,
-      content: SelectableText(
-        [
-          t.sentry.consent.description.question,
-          t.sentry.consent.description.scope,
-          if (isSentryEnabled)
-            t.sentry.consent.description.currentlyOn
-          else
-            t.sentry.consent.description.currentlyOff,
-        ].join('\n\n'),
-        // TODO(adil192): add sentry consent to settings
-        // TODO(adil192): add link to privacy policy
+      content: RichText(
+        text: TextSpan(style: TextTheme.of(context).bodyMedium, children: [
+          TextSpan(text: t.sentry.consent.description.question),
+          const TextSpan(text: '\n\n'),
+          TextSpan(text: t.sentry.consent.description.scope),
+          const TextSpan(text: '\n\n'),
+          TextSpan(
+            text: isSentryEnabled
+                ? t.sentry.consent.description.currentlyOn
+                : t.sentry.consent.description.currentlyOff,
+          ),
+          const TextSpan(text: '\n\n'),
+          t.sentry.consent.description.learnMoreInPrivacyPolicy(
+            link: (text) => TextSpan(
+              text: text,
+              style: TextStyle(color: ColorScheme.of(context).primary),
+              recognizer: TapGestureRecognizer()
+                ..onTap = () {
+                  launchUrl(AppInfo.privacyPolicyUrl);
+                },
+            ),
+          ),
+        ]),
       ),
       actions: [
         ElevatedButton(

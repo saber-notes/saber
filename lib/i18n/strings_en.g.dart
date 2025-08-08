@@ -1322,6 +1322,13 @@ class TranslationsSentryConsentDescriptionEn {
 
 	/// en: 'If you revoke consent, please restart the app to disable error reporting.'
 	String get currentlyOn => 'If you revoke consent, please restart the app to disable error reporting.';
+
+	/// en: 'Learn more in the ${link(privacy policy)}.'
+	TextSpan learnMoreInPrivacyPolicy({required InlineSpanBuilder link}) => TextSpan(children: [
+		const TextSpan(text: 'Learn more in the '),
+		link('privacy policy'),
+		const TextSpan(text: '.'),
+	]);
 }
 
 // Path: sentry.consent.answers
