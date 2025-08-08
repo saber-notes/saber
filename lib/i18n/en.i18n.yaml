@@ -69,6 +69,7 @@ sentry:
       scope: The reports may contain information about the error and your device. I've made every effort to filter out personal data but some may remain.
       currentlyOff: If you grant consent, error reporting will be enabled after you restart the app.
       currentlyOn: If you revoke consent, please restart the app to disable error reporting.
+      learnMoreInPrivacyPolicy(rich): Learn more in the ${link(privacy policy)}.
     answers:
       yes: Yes
       no: No
