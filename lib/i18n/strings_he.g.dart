@@ -119,7 +119,6 @@ class _TranslationsLogsHe extends TranslationsLogsEn {
 	@override String get viewLogs => 'הצג יומנים';
 	@override String get debuggingInfo => 'יומנים מכילים מידע שימושי עבור איתור באגים ופיתוח';
 	@override String get noLogs => 'אין כאן יומנים!';
-	@override String get logsAreTemporary => 'יומנים נשמרים רק עד לסגירת האפליקציה';
 }
 
 // Path: login

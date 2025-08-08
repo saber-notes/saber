@@ -153,7 +153,6 @@ logs:
   viewLogs(OUTDATED): Ver registros
   debuggingInfo(OUTDATED): Los registros contienen información útil para la depuración y el desarrollo.
   noLogs(OUTDATED): ¡Aquí no hay registros!
-  logsAreTemporary(OUTDATED): Los registros solo se conservan hasta que cierras la aplicación.
 login: 
   title: Iniciar sesión
   form: 

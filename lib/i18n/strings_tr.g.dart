@@ -119,7 +119,6 @@ class _TranslationsLogsTr extends TranslationsLogsEn {
 	@override String get viewLogs => 'Günlükleri görüntüle';
 	@override String get debuggingInfo => 'Günlükler hata ayıklama ve geliştirme için yararlı bilgiler içerir';
 	@override String get noLogs => 'Burada kayıt yok!';
-	@override String get logsAreTemporary => 'Günlükler yalnızca uygulamayı kapatana kadar tutulur';
 }
 
 // Path: login

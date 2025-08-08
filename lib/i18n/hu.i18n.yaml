@@ -153,7 +153,6 @@ logs:
   viewLogs(OUTDATED): Naplók megtekintése
   debuggingInfo(OUTDATED): A naplók a hibakereséshez és a fejlesztéshez hasznos információkat tartalmaznak
   noLogs(OUTDATED): Itt nincsenek naplók!
-  logsAreTemporary(OUTDATED): A naplókat csak az alkalmazás bezárásáig őrizzük meg
 login: 
   title: Bejelentkezés
   form: 

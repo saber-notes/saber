@@ -20,6 +20,7 @@ import 'package:saber/data/nextcloud/nc_http_overrides.dart';
 import 'package:saber/data/nextcloud/saber_syncer.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/data/routes.dart';
+import 'package:saber/data/sentry/sentry_init.dart';
 import 'package:saber/data/tools/stroke_properties.dart';
 import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/editor/editor.dart';
@@ -45,6 +46,10 @@ Future<void> main(List<String> args) async {
     dirty: const bool.fromEnvironment('DIRTY', defaultValue: false),
   );
 
+  await initSentry(() => appRunner(args));
+}
+
+Future<void> appRunner(List<String> args) async {
   WidgetsFlutterBinding.ensureInitialized();
 
   final parser = ArgParser()..addFlag('verbose', abbr: 'v', negatable: false);
@@ -55,12 +60,14 @@ Future<void> main(List<String> args) async {
   Logger.root.onRecord.listen((record) {
     logsHistory.add(record);
 
-    // ignore: avoid_print
-    print('${record.level.name}: ${record.loggerName}: ${record.message}');
+    if (!isSentryEnabled) {
+      // ignore: avoid_print
+      print('${record.level.name}: ${record.loggerName}: ${record.message}');
+    }
   });
 
   // For some reason, logging errors breaks hot reload while debugging.
-  if (!kDebugMode) {
+  if (!kDebugMode && !isSentryEnabled) {
     final errorLogger = Logger('ErrorLogger');
     FlutterError.onError = (details) {
       errorLogger.severe(
@@ -110,7 +117,7 @@ Future<void> main(List<String> args) async {
   });
 
   HttpOverrides.global = NcHttpOverrides();
-  runApp(TranslationProvider(child: const App()));
+  runApp(SentryWidget(child: TranslationProvider(child: const App())));
   startSyncAfterLoaded();
   setupBackgroundSync();
 }

@@ -13,6 +13,7 @@ import 'package:saber/data/codecs/date_time_codec.dart';
 import 'package:saber/data/codecs/quota_codec.dart';
 import 'package:saber/data/editor/pencil_sound.dart';
 import 'package:saber/data/flavor_config.dart';
+import 'package:saber/data/sentry/sentry_consent.dart';
 import 'package:saber/data/tools/_tool.dart';
 import 'package:saber/data/tools/highlighter.dart';
 import 'package:saber/data/tools/pen.dart';
@@ -226,6 +227,9 @@ class Stows {
       volatile: !_isOnMainIsolate);
 
   final locale = PlainStow('locale', '', volatile: !_isOnMainIsolate);
+
+  final sentryConsent = PlainStow('sentryConsent', SentryConsent.unknown,
+      codec: SentryConsent.codec, volatile: !_isOnMainIsolate);
 
   static bool get isDesktop =>
       Platform.isLinux || Platform.isWindows || Platform.isMacOS;

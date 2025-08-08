@@ -67,7 +67,7 @@ class _TranslationsHomeAr extends TranslationsHomeEn {
 	@override late final _TranslationsHomeTooltipsAr tooltips = _TranslationsHomeTooltipsAr._(_root);
 	@override late final _TranslationsHomeCreateAr create = _TranslationsHomeCreateAr._(_root);
 	@override String get welcome => 'مرحباً بك في Saber';
-	@override String get invalidFormat => ' صيغة الملف الذي اخترته ليست مدعومة, الرجاء اختيار ملف  sbn او sbn2 او sba او pdf ';
+	@override String get invalidFormat => 'صيغة الملف الذي اخترته ليست مدعومة, الرجاء اختيار ملف  sbn او sbn2 او sba او pdf';
 	@override String get noFiles => 'لم يتم العثور على ملفات';
 	@override String get createNewNote => 'اضغط على زر + لإنشاء ملاحظة جديدة';
 	@override String get backFolder => 'الرجوع الى المجلد السابق';
@@ -119,7 +119,6 @@ class _TranslationsLogsAr extends TranslationsLogsEn {
 	@override String get viewLogs => 'عرض السجلات';
 	@override String get debuggingInfo => 'تحتوي السجلات على معلومات مفيدة لتصحيح الأخطاء والتطوير';
 	@override String get noLogs => 'لا يوجد سجلات هنا!';
-	@override String get logsAreTemporary => 'يتم الاحتفاظ بالسجلات فقط حتى تقوم بإغلاق التطبيق';
 }
 
 // Path: login
@@ -155,7 +154,7 @@ class _TranslationsProfileAr extends TranslationsProfileEn {
 	// Translations
 	@override String get title => 'ملفي الشخصي';
 	@override String get logout => 'تسجيل الخروج';
-	@override String quotaUsage({required Object total, required Object percent, required Object used}) => ' ${total} (${percent}%) من ${used} أنت تستخدم ';
+	@override String quotaUsage({required Object total, required Object percent, required Object used}) => '${total} (${percent}%) من ${used} أنت تستخدم';
 	@override String get connectedTo => 'متصل بـ';
 	@override late final _TranslationsProfileQuickLinksAr quickLinks = _TranslationsProfileQuickLinksAr._(_root);
 	@override String get faqTitle => 'الأسئلة الشائعة';

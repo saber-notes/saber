@@ -119,7 +119,6 @@ class _TranslationsLogsIt extends TranslationsLogsEn {
 	@override String get viewLogs => 'Visualizza log';
 	@override String get debuggingInfo => 'I log contengono informazioni utili per il debug e lo sviluppo';
 	@override String get noLogs => 'Niente log qui!';
-	@override String get logsAreTemporary => 'I log vengono conservati solo finché non chiudi l\'app';
 }
 
 // Path: login

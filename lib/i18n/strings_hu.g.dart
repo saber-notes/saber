@@ -119,7 +119,6 @@ class _TranslationsLogsHu extends TranslationsLogsEn {
 	@override String get viewLogs => 'Naplók megtekintése';
 	@override String get debuggingInfo => 'A naplók a hibakereséshez és a fejlesztéshez hasznos információkat tartalmaznak';
 	@override String get noLogs => 'Itt nincsenek naplók!';
-	@override String get logsAreTemporary => 'A naplókat csak az alkalmazás bezárásáig őrizzük meg';
 }
 
 // Path: login
