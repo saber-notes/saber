@@ -153,7 +153,6 @@ logs:
   viewLogs: Zobrazit logy
   debuggingInfo: Logy obsahují informace užitečné pro ladění a vývoj
   noLogs: Nejsou k dispozici žádné logy!
-  logsAreTemporary: Logy jsou zachovány pouze do uzavření aplikace
 login: 
   title: Přihlášení
   form: 

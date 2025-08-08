@@ -153,7 +153,6 @@ logs:
   viewLogs(OUTDATED): Günlükleri görüntüle
   debuggingInfo(OUTDATED): Günlükler hata ayıklama ve geliştirme için yararlı bilgiler içerir
   noLogs(OUTDATED): Burada kayıt yok!
-  logsAreTemporary(OUTDATED): Günlükler yalnızca uygulamayı kapatana kadar tutulur
 login: 
   title: Giriş yap
   form: 

@@ -153,7 +153,6 @@ logs:
   viewLogs(OUTDATED): Protokolle anzeigen
   debuggingInfo(OUTDATED): Protokolle enthalten Informationen, die für die Fehlerbehebung und Entwicklung nützlich sind
   noLogs(OUTDATED): Hier gibt es keine Protokolle!
-  logsAreTemporary(OUTDATED): Protokolle werden nur so lange gespeichert, bis Sie die App schließen
 login: 
   title: Login
   form: 

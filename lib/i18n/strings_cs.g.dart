@@ -119,7 +119,6 @@ class _TranslationsLogsCs extends TranslationsLogsEn {
 	@override String get viewLogs => 'Zobrazit logy';
 	@override String get debuggingInfo => 'Logy obsahují informace užitečné pro ladění a vývoj';
 	@override String get noLogs => 'Nejsou k dispozici žádné logy!';
-	@override String get logsAreTemporary => 'Logy jsou zachovány pouze do uzavření aplikace';
 }
 
 // Path: login

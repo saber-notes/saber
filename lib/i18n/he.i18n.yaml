@@ -153,7 +153,6 @@ logs:
   viewLogs(OUTDATED): הצג יומנים
   debuggingInfo(OUTDATED): יומנים מכילים מידע שימושי עבור איתור באגים ופיתוח
   noLogs(OUTDATED): אין כאן יומנים!
-  logsAreTemporary(OUTDATED): יומנים נשמרים רק עד לסגירת האפליקציה
 login: 
   title: התחבר
   form: 

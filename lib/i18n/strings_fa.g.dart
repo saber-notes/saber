@@ -119,7 +119,6 @@ class _TranslationsLogsFa extends TranslationsLogsEn {
 	@override String get viewLogs => 'مشاهده سیاهههای مربوط';
 	@override String get debuggingInfo => 'گزارش ها حاوی اطلاعات مفیدی برای اشکال زدایی و توسعه هستند';
 	@override String get noLogs => 'اینجا هیچ گزارشی وجود ندارد!';
-	@override String get logsAreTemporary => 'گزارش‌ها فقط تا زمانی که برنامه را ببندید نگهداری می‌شوند';
 }
 
 // Path: login
