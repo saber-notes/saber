@@ -27,4 +27,12 @@ class FlavorConfig {
     _shouldCheckForUpdatesByDefault = shouldCheckForUpdatesByDefault;
     _dirty = dirty;
   }
+
+  static void setupFromEnvironment() => setup(
+        flavor: const String.fromEnvironment('FLAVOR'),
+        appStore: const String.fromEnvironment('APP_STORE'),
+        shouldCheckForUpdatesByDefault:
+            const bool.fromEnvironment('UPDATE_CHECK', defaultValue: true),
+        dirty: const bool.fromEnvironment('DIRTY', defaultValue: false),
+      );
 }

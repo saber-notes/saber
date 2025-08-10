@@ -37,13 +37,7 @@ Future<void> main(List<String> args) async {
   ///   --dart-define=APP_STORE="Google Play" \
   ///   --dart-define=UPDATE_CHECK="false" \
   ///   --dart-define=DIRTY="false"
-  FlavorConfig.setup(
-    flavor: const String.fromEnvironment('FLAVOR'),
-    appStore: const String.fromEnvironment('APP_STORE'),
-    shouldCheckForUpdatesByDefault:
-        const bool.fromEnvironment('UPDATE_CHECK', defaultValue: true),
-    dirty: const bool.fromEnvironment('DIRTY', defaultValue: false),
-  );
+  FlavorConfig.setupFromEnvironment();
 
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -178,6 +172,7 @@ void setupBackgroundSync() {
 @pragma('vm:entry-point')
 void doBackgroundSync() {
   Workmanager().executeTask((_, __) async {
+    FlavorConfig.setupFromEnvironment();
     StrokeOptionsExtension.setDefaults();
     Editor.canRasterPdf = false;
 
