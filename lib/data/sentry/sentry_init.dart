@@ -10,10 +10,18 @@ import 'package:sentry_logging/sentry_logging.dart';
 
 export 'package:sentry_flutter/sentry_flutter.dart' show SentryWidget;
 
-bool get isSentryAvailable {
-  return true; // false in the FOSS version of this file
-}
+/// Whether the Sentry SDK is available for use.
+/// Also see [isSentryEnabled].
+///
+/// This flag will be false if the foss patches were applied before this build,
+/// or if we're on an unsupported platform.
+bool get isSentryAvailable => !Platform.isLinux;
 
+/// Whether Sentry was initialized when the app started.
+///
+/// This flag does not change after initialization. Changes to the user's consent
+/// (mostly*) take place after restarting the app.
+/// (*When revoked, [SentryFilter.beforeSend] discards all further events.)
 bool get isSentryEnabled => _isSentryEnabled;
 late bool _isSentryEnabled;
 
@@ -47,8 +55,6 @@ FutureOr<void> initSentry(FutureOr<void> Function() appRunner) async {
       options.enableAppLifecycleBreadcrumbs = false;
       options.enableBrightnessChangeBreadcrumbs = false;
       options.enableUserInteractionBreadcrumbs = false;
-      // Native SDK fails on Linux for me
-      options.enableNativeCrashHandling = !Platform.isLinux;
     },
     appRunner: appRunner,
   );

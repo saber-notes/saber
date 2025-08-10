@@ -3,7 +3,15 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:saber/data/prefs.dart';
 
+/// Whether the Sentry SDK is available for use.
+/// Also see [isSentryEnabled].
+///
+/// This flag is always false since the foss patches were applied.
 const isSentryAvailable = false;
+
+/// Whether Sentry was initialized when the app started.
+///
+/// This flag is always false since the foss patches were applied.
 const isSentryEnabled = false;
 
 Future<void> initSentry(FutureOr<void> Function() appRunner) async {
