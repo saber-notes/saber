@@ -113,8 +113,8 @@ Saber 可以满足您整理笔记的一切需求。您可以随心所欲地创�
 [google_play]: https://play.google.com/store/apps/details?id=com.adilhanney.saber
 [snap]: https://snapcraft.io/saber
 [app_store]: https://apps.apple.com/us/app/saber/id1671523739
-[download_windows]: https://github.com/saber-notes/saber/releases/download/v0.26.1/SaberInstaller_v0.26.1.exe
-[download_appimage]: https://github.com/saber-notes/saber/releases/download/v0.26.1/Saber-0.26.1-x86_64.AppImage
+[download_windows]: https://github.com/saber-notes/saber/releases/download/v0.26.2/SaberInstaller_v0.26.2.exe
+[download_appimage]: https://github.com/saber-notes/saber/releases/download/v0.26.2/Saber-0.26.2-x86_64.AppImage
 
 [nextcloud]: https://nc.saber.adil.hanney.org/
 

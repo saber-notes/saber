@@ -1,0 +1,1 @@
+This release contains a fix for some users not being able to save files.

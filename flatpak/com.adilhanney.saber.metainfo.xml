@@ -214,6 +214,14 @@
     </screenshots>
 
     <releases>
+        <release version="0.26.2" type="development" date="2025-08-10">
+            <description>
+                <ul>
+                    <li>This release contains a fix for some users not being able to save files.</li>
+                    <li>In future updates, I'll be adding some error tracking to help me improve the app. It will be opt-in and as anonymous as I can make it.</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.26.1" type="development" date="2025-08-04">
             <description>
                 <ul>
