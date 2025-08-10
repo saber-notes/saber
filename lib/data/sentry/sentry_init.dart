@@ -13,9 +13,11 @@ export 'package:sentry_flutter/sentry_flutter.dart' show SentryWidget;
 /// Whether the Sentry SDK is available for use.
 /// Also see [isSentryEnabled].
 ///
-/// This flag will be false if the foss patches were applied before this build,
-/// or if we're on an unsupported platform.
-bool get isSentryAvailable => !Platform.isLinux;
+/// This flag will be:
+/// - false if the foss patches were applied before this build
+/// - false on Linux, except in debug mode
+/// - true otherwise
+bool get isSentryAvailable => kDebugMode || !Platform.isLinux;
 
 /// Whether Sentry was initialized when the app started.
 ///
