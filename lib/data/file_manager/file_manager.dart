@@ -699,8 +699,15 @@ class FileManager {
       assert(extension.startsWith('.')); // extension must start with a dot
     }
 
+    String fileName;
+
     /// The file name without its extension
-    String fileName = path.split('/').last;
+    if (Platform.isWindows) {
+      fileName = path.split('\\').last;
+    }
+    else {
+      fileName = path.split('/').last;
+    }
     fileName = fileName.substring(0, fileName.lastIndexOf('.'));
     final String importedPath;
 
