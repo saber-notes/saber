@@ -22,6 +22,9 @@ Future<void> initSentry(FutureOr<void> Function() appRunner) async {
   return appRunner();
 }
 
+@visibleForTesting
+void populateSentryOptions(dynamic options) {}
+
 /// Tests typically don't use [initSentry] so this just sets the flag
 /// so we don't get late initialization errors.
 @visibleForTesting
