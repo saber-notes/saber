@@ -80,6 +80,7 @@ class _PreviewCardState extends State<PreviewCard> {
 
   @override
   Widget build(BuildContext context) {
+    expanded.value = widget.selected;
     final theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
     final disableAnimations = MediaQuery.disableAnimationsOf(context);
