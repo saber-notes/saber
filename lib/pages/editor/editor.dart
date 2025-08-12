@@ -136,6 +136,11 @@ class EditorState extends State<Editor> {
           Pen.currentPen = Pen.ballpointPen();
         }
         return Pen.currentPen;
+      case ToolId.insertPen:
+        if (Pen.currentPen.toolId != Prefs.lastTool.value) {
+          Pen.currentPen = Pen.insertPen();
+        }
+        return Pen.currentPen;
       case ToolId.shapePen:
         if (Pen.currentPen.toolId != stows.lastTool.value) {
           Pen.currentPen = ShapePen();
@@ -628,6 +633,7 @@ class EditorState extends State<Editor> {
     moveOffset += offset;
   }
 
+
   void onDrawEnd(ScaleEndDetails details) {
     final page = coreInfo.pages[dragPageIndex!];
     bool shouldSave = true;
@@ -643,14 +649,23 @@ class EditorState extends State<Editor> {
           newStroke.convertToLine();
         }
 
-        createPage(newStroke.pageIndex);
-        page.insertStroke(newStroke);
-        history.recordChange(EditorHistoryItem(
-          type: EditorHistoryItemType.draw,
-          pageIndex: dragPageIndex!,
-          strokes: [newStroke],
-          images: [],
-        ));
+        if (currentTool.toolId != ToolId.insertPen) {
+          // normal pen
+          createPage(newStroke.pageIndex);
+          page.insertStroke(newStroke);
+          history.recordChange(EditorHistoryItem(
+            type: EditorHistoryItemType.draw,
+            pageIndex: dragPageIndex!,
+            strokes: [newStroke],
+            images: [],
+          ));
+        }
+        else {
+          // is insert pen, I must insert free space of the vertical length of stroke
+          double yFirst=newStroke.firstPoint.dy;
+          double yLast=newStroke.lastPoint.dy;
+          moveItemsOnPageUpDown(page,dragPageIndex!,yFirst,yLast); // move all items below up/down
+        }
       } else if (currentTool is Eraser) {
         final erased = (currentTool as Eraser).onDragEnd();
         if (tmpTool != null &&
@@ -704,6 +719,82 @@ class EditorState extends State<Editor> {
     });
 
     if (shouldSave) autosaveAfterDelay();
+  }
+
+  // move all items below maxY down by maxY-minY
+  void moveItemsOnPageUpDown(EditorPage page,int pageIndex, double yFirst,double yLast){
+    if ((yFirst-yLast).abs()<1.0){
+      return;  // too small move
+    }
+
+    final double maxY;
+    maxY=yFirst; // all items below first point
+    List<Stroke> strokesBelow=[];
+    double maxStrokesY;
+    maxStrokesY=0.0;
+    for (int i = 0; i < page.strokes.length; i++) {
+      final stroke = page.strokes[i];
+      if (stroke.minY>=maxY) {
+        // stroke is below inserted place
+        strokesBelow.add(stroke); // add stroke to list of interest
+        if (stroke.maxY>maxStrokesY) {
+          maxStrokesY=stroke.maxY;   // the lowest possible point of strokes
+        }
+      }
+    }
+
+    List<EditorImage> imagesBelow=[];
+
+    for (int i = 0; i < page.images.length; i++) {
+      final EditorImage image = page.images[i];
+      if (image.dstRect.top>=maxY){
+        //image is below inserted place
+        imagesBelow.add(image); // add stroke to list of interest
+        if (image.dstRect.bottom>maxStrokesY) {
+          maxStrokesY=image.dstRect.bottom;   // the lowest possible point of images
+        }
+      }
+    }
+    if (strokesBelow.length==0 && imagesBelow.length==0) {
+      return;  // nothing to move
+    }
+    final double shiftY=yLast-yFirst;
+    if (maxStrokesY+shiftY>page.size.height){
+      // must enlarge page
+      page.size=Size(page.size.width,maxStrokesY+shiftY);
+    }
+    if (maxStrokesY+shiftY<EditorPage.defaultHeight){
+      // page will be smaller than default height set it to default height
+      page.size=Size(page.size.width,EditorPage.defaultHeight);
+    }
+    // and now move items
+    setState(() {
+      Offset moveOffset = Offset(0.0, shiftY);
+      for (Stroke stroke in strokesBelow) {
+        stroke.shift(moveOffset);
+      }
+      for (EditorImage image in imagesBelow) {
+        image.dstRect = Rect.fromLTRB(
+          image.dstRect.left,
+          image.dstRect.top+moveOffset.dy,
+          image.dstRect.right,
+          image.dstRect.bottom+moveOffset.dy,
+        );
+      }
+    });
+
+    history.recordChange(EditorHistoryItem(
+      type: EditorHistoryItemType.move,
+      pageIndex: pageIndex,
+      strokes: strokesBelow,
+      images: imagesBelow,
+      offset: Rect.fromLTRB(
+        moveOffset.dx,
+        moveOffset.dy,
+        moveOffset.dx,
+        moveOffset.dy,
+      ),
+    ));
   }
 
   void onInteractionEnd(ScaleEndDetails details) {
