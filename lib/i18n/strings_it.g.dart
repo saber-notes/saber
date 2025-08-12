@@ -75,6 +75,7 @@ class _TranslationsHomeIt extends TranslationsHomeEn {
 	@override late final _TranslationsHomeRenameNoteIt renameNote = _TranslationsHomeRenameNoteIt._(_root);
 	@override late final _TranslationsHomeMoveNoteIt moveNote = _TranslationsHomeMoveNoteIt._(_root);
 	@override String get deleteNote => 'Elimina nota';
+	@override late final _TranslationsHomeSortNamesIt sortNames = _TranslationsHomeSortNamesIt._(_root);
 	@override late final _TranslationsHomeRenameFolderIt renameFolder = _TranslationsHomeRenameFolderIt._(_root);
 	@override late final _TranslationsHomeDeleteFolderIt deleteFolder = _TranslationsHomeDeleteFolderIt._(_root);
 	@override String get noPreviewAvailable => 'Nessuna anteprima disponibile';
@@ -310,6 +311,19 @@ class _TranslationsHomeMoveNoteIt extends TranslationsHomeMoveNoteEn {
 	@override String renamedTo({required Object newName}) => 'La nota verrà rinominata in ${newName}';
 	@override String get multipleRenamedTo => 'Le note seguenti verranno rinominate:';
 	@override String numberRenamedTo({required Object n}) => '${n} le note verranno rinominate per evitare conflitti';
+}
+
+// Path: home.sortNames
+class _TranslationsHomeSortNamesIt extends TranslationsHomeSortNamesEn {
+	_TranslationsHomeSortNamesIt._(TranslationsIt root) : this._root = root, super.internal(root);
+
+	final TranslationsIt _root; // ignore: unused_field
+
+	// Translations
+	@override String get alphabetical => 'Alfabetico';
+	@override String get lastModified => 'Ultima Modifica';
+	@override String get sizeOnDisk => 'Dimensioni';
+	@override String get increasing => 'Crescente';
 }
 
 // Path: home.renameFolder

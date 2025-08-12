@@ -9,6 +9,7 @@ import 'package:saber/components/home/masonry_files.dart';
 import 'package:saber/components/home/move_note_button.dart';
 import 'package:saber/components/home/new_note_button.dart';
 import 'package:saber/components/home/rename_note_button.dart';
+import 'package:saber/components/home/sort_button.dart';
 import 'package:saber/components/home/syncing_button.dart';
 import 'package:saber/components/home/welcome.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
@@ -26,6 +27,7 @@ class RecentPage extends StatefulWidget {
 
 class _RecentPageState extends State<RecentPage> {
   final List<String> filePaths = [];
+
   bool failed = false;
 
   final ValueNotifier<List<String>> selectedFiles = ValueNotifier([]);
@@ -136,8 +138,8 @@ class _RecentPageState extends State<RecentPage> {
                   titlePadding: EdgeInsetsDirectional.only(
                       start: cupertino ? 0 : 16, bottom: 16),
                 ),
-                actions: const [
-                  SyncingButton(),
+                actions: [
+                  const SyncingButton(),
                 ],
               ),
             ),
@@ -155,9 +157,7 @@ class _RecentPageState extends State<RecentPage> {
                 ),
                 sliver: MasonryFiles(
                   crossAxisCount: crossAxisCount,
-                  files: [
-                    for (String filePath in filePaths) filePath,
-                  ],
+                  files: filePaths,
                   selectedFiles: selectedFiles,
                 ),
               ),
