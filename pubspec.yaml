@@ -264,7 +264,7 @@ flutter:
     - shaders/pencil.frag
 
 
-# dart run icons_launcher:create
+# ./scripts/generate_icons.sh
 icons_launcher:
   image_path: "assets/icon/icon.png"
   platforms:

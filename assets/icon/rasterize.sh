@@ -1,7 +1,5 @@
 #!/bin/bash
 
-for svg in *.svg; do
-    png="${svg%.*}.png"
-    echo "Converting $svg to $png"
-    rsvg-convert -o "$png" "$svg" -w 1024 -h 1024
-done
+echo "Please use ./scripts/generate_icons.sh to generate icons instead."
+echo "This rasterize.sh script is no longer used."
+exit 1
