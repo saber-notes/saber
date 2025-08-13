@@ -3,5 +3,5 @@
 for svg in *.svg; do
     png="${svg%.*}.png"
     echo "Converting $svg to $png"
-    magick "$svg" -resize 1024x1024 -background none -transparent white "$png"
+    rsvg-convert -o "$png" "$svg" -w 1024 -h 1024
 done
