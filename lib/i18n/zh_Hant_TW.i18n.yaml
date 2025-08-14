@@ -21,8 +21,9 @@ home:
     newNote: 新增筆記
     importNote: 匯入筆記
   welcome: 歡迎使用 Saber
-  invalidFormat: 「不支援您選擇的檔案，請選擇 .sbn、.sbn2、.sba 或 .pdf 檔案。」
+  invalidFormat: 不支援您選取的檔案，請選擇 .sbn、.sbn2、.sba 或 .pdf 檔案。
   noFiles: 未找到檔案
+  noPreviewAvailable: 無可用的預覽
   createNewNote: 點擊 + 按鈕新增一個筆記
   backFolder: 返回上一個資料夾
   newFolder: 
@@ -45,7 +46,7 @@ home:
     moveName: 移動 $f
     move: 移動
     renamedTo: 筆記將重新命名為 $newName
-    multipleRenamedTo: 「以下筆記將被重新命名：」"
+    multipleRenamedTo: 以下筆記將被重新命名：
     numberRenamedTo: $n 份筆記將被重命名以避免衝突
   deleteNote: 刪除筆記
   renameFolder: 
@@ -60,7 +61,6 @@ home:
     deleteName: 刪除 $f
     delete: 刪除
     alsoDeleteContents: 同時刪除該文件夾內的所有筆記
-  noPreviewAvailable(OUTDATED): 沒有預覽
 sentry: 
   consent: 
     title(OUTDATED): 幫助改善軍刀？
@@ -104,13 +104,13 @@ settings:
     recentColorsDontSavePresets: 不要在最近的顏色中儲存預設顏色
     recentColorsLength: 要儲存多少種最近的顏色
     printPageIndicators: 列印頁碼
-    shapeRecognitionDelay: 形狀識別延遲
+    autosave: 自動儲存
+    shapeRecognitionDelay: 形狀辨識延遲
     autoStraightenLines: 自動拉直線條
     simplifiedHomeLayout: 簡化首頁佈局
     customDataDir: 自訂 Saber 資料夾
     pencilSoundSetting: 筆的音效
     sentry(OUTDATED): 錯誤報告
-    autosave(OUTDATED): 自動保存
   prefDescriptions: 
     hyperlegibleFont: Atkinson Hyperlegible 字體為低視力讀者提高易讀性
     allowInsecureConnections: （不推薦）允許Saber連結到具有自簽名/不受信任證書的伺服器
@@ -125,6 +125,7 @@ settings:
     editorPromptRename: 您以後隨時可以重新命名筆記
     hideHomeBackgrounds: 為了更乾淨的外觀
     printPageIndicators: 在匯出中顯示頁碼
+    autosave: 在短暫延遲後自動儲存，或永不儲存
     shapeRecognitionDelay: 多久更新一次形狀預覽
     autoStraightenLines: 無需使用形狀筆即可拉直線條
     simplifiedHomeLayout: 為每個筆記預覽設定固定高度
@@ -138,7 +139,6 @@ settings:
       inactive(OUTDATED): 不活動
       activeUntilRestart(OUTDATED): 活躍直到重新啟動應用程序
       inactiveUntilRestart(OUTDATED): 不活動直到重新啟動應用程序
-    autosave(OUTDATED): 短暫延遲後自動保存，或者永遠不會
   themeModes: 
     system: 系統
     light: 淺色
@@ -165,8 +165,8 @@ settings:
     select: 選擇
     mustBeEmpty: 選擇的資料夾必須是空的
     mustBeDoneSyncing: 更改資料夾之前確保同步已完成
-  autosaveDisabled(OUTDATED): 絕不
-  shapeRecognitionDisabled(OUTDATED): 絕不
+  autosaveDisabled: 永不
+  shapeRecognitionDisabled: 永不
 logs: 
   logs: 日誌
   viewLogs: 查看日誌
@@ -237,15 +237,17 @@ profile:
     - 
       q: 如何更改我的加密密碼？
       a: |-
-        1. 登出Saber，在登出前確保同步已經完成，這樣您就不會丟失任何資料（在主畫面上可以看到同步進度）。
+        0. 確定同步處理已完成（請參閱主畫面上的同步處理進度）。
+        1. 登出 Saber，在登出前確保同步已經完成，這樣您就不會丟失任何資料（在主畫面上可以看到同步進度）。
         2. 進入您的伺服器網站並登入，刪除「Saber」資料夾，這將從伺服器上刪除您所有的筆記。
-        3. 重新登入到Saber，您可以在登入時選擇一個新的加密密碼。
+        3. 重新登入 Saber，您可以在登入時選擇一個新的加密密碼。
         4. 也不要忘記在您的其他裝置上登出並重新登入Saber。
     - 
       q: 如何刪除我的帳戶？
       a: |-
-        點擊上面的「@:profile.quickLinks.deleteAccount」按鈕，如果需要請登入。
-        如果您使用的是官方Saber伺服器，您的帳戶將在一周的寬限期後被刪除，您可以在此期間由電子郵件聯繫我：adilhanney@disroot.org，以取消刪除。如果您使用的是第三方伺服器，則可能沒有刪除帳戶的選項，您需要查閱伺服器的隱私權政策以了解更多資訊。
+        點選上面的「@:profile.quickLinks.deleteAccount」按鈕，如果需要請登入。
+        如果您使用的是官方 Saber 伺服器，您的帳戶將在一週的寬限期後被刪除，您可以在此期間用電子郵件聯絡我：adilhanney@disroot.org，以取消刪除。
+        如果您使用的是第三方伺服器，則可能沒有刪除帳號的選項，您需要檢視伺服器的隱私權政策以了解更多資訊。
 appInfo: 
   licenseNotice: |-
     Saber  版權所有 © 2022-$buildYear  Adil Hanney
@@ -327,6 +329,8 @@ editor:
     deletePage: 刪除頁面
     lineHeight: 行高
     lineHeightDescription: 同時控制輸入筆記的文字大小
+    lineThickness: 線條粗細
+    lineThicknessDescription: 背景線條粗細
     backgroundImageFit: 適應背景圖片
     backgroundPattern: 背景圖案
     import: 匯入
@@ -339,15 +343,13 @@ editor:
     bgPatterns: 
       none: 空白
       college: College-ruled
-      collegeRtl: College-ruled (反向)
+      collegeRtl: College-ruled（反向）
       lined: 橫線
       grid: 網格
       dots: 點
       staffs: 五線譜
       tablature: 指法譜
       cornell: 康乃爾
-    lineThickness(OUTDATED): 線厚度
-    lineThicknessDescription(OUTDATED): 背景線厚度
   newerFileFormat: 
     readOnlyMode: 唯讀模式
     title: 這篇筆記是使用較新版本的 Saber 編輯的

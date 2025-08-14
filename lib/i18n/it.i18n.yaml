@@ -23,6 +23,7 @@ home:
   welcome: Benvenuto su Saber
   invalidFormat: Il file selezionato non è supportato. Seleziona un file .sbn, .sbn2, .sba o .pdf.
   noFiles: Nessun file trovato
+  noPreviewAvailable: Nessuna anteprima disponibile
   createNewNote: Tocca il pulsante + per creare una nuova nota
   backFolder: Torna alla cartella precedente
   newFolder: 
@@ -60,7 +61,6 @@ home:
     deleteName: Elimina $f
     delete: Elimina
     alsoDeleteContents: Elimina anche tutte le note all'interno di questa cartella
-  noPreviewAvailable(OUTDATED): Nessuna anteprima disponibile
 sentry: 
   consent: 
     title(OUTDATED): Aiutare a migliorare la sciabola?
@@ -104,13 +104,13 @@ settings:
     recentColorsDontSavePresets: Non salvare i colori preimpostati nei colori recenti
     recentColorsLength: Quanti colori recenti memorizzare
     printPageIndicators: Stampa indicatori di pagina
+    autosave: Salvataggio automatico
     shapeRecognitionDelay: Ritardo nel riconoscimento della forma
     autoStraightenLines: Raddrizzamento automatico delle linee
     simplifiedHomeLayout: Layout semplificato della home
     customDataDir: Cartella Saber personalizzata
     pencilSoundSetting: Effetto sonoro della matita
     sentry(OUTDATED): Reporting degli errori
-    autosave(OUTDATED): Salvare automaticamente
   prefDescriptions: 
     hyperlegibleFont: Atkinson Iperleggibile aumenta la leggibilità per i lettori ipovedenti
     allowInsecureConnections: (Non consigliato) Consenti a Saber di connettersi ai server con certificati autofirmati/non attendibili
@@ -125,6 +125,7 @@ settings:
     editorPromptRename: Puoi sempre rinominare le note in un secondo momento
     hideHomeBackgrounds: Per un aspetto più pulito
     printPageIndicators: Mostra indicatori di pagina nelle esportazioni
+    autosave: Salvataggio automatico dopo un breve ritardo o mai
     shapeRecognitionDelay: Quanto spesso aggiornare l'anteprima della forma
     autoStraightenLines: Raddrizza le linee lunghe senza dover utilizzare la penna sagomatrice
     simplifiedHomeLayout: Imposta un'altezza fissa per ogni anteprima della nota
@@ -138,7 +139,6 @@ settings:
       inactive(OUTDATED): Inattivo
       activeUntilRestart(OUTDATED): Attivo fino a quando non riavvia l'app
       inactiveUntilRestart(OUTDATED): Inattivo fino a quando non riavvia l'app
-    autosave(OUTDATED): Salvare automaticamente dopo un breve ritardo o mai
   themeModes: 
     system: Sistema
     light: Chiaro
@@ -165,8 +165,8 @@ settings:
     select: Seleziona
     mustBeEmpty: La cartella selezionata deve essere vuota
     mustBeDoneSyncing: Assicurati che la sincronizzazione sia completa prima di cambiare cartella
-  autosaveDisabled(OUTDATED): Mai
-  shapeRecognitionDisabled(OUTDATED): Mai
+  autosaveDisabled: Mai
+  shapeRecognitionDisabled: Mai
 logs: 
   logs: Log
   viewLogs: Visualizza log
@@ -328,6 +328,8 @@ editor:
     deletePage: Elimina pagina
     lineHeight: Altezza della linea
     lineHeightDescription: Controlla anche la dimensione del testo per le note digitate
+    lineThickness: Spessore della linea
+    lineThicknessDescription: Spessore della linea di sfondo
     backgroundImageFit: Adattamento immagine di sfondo
     backgroundPattern: Modello di sfondo
     import: Importa
@@ -347,8 +349,6 @@ editor:
       staffs: Pentagrammi
       tablature: Tablatura
       cornell: Metodo Cornell
-    lineThickness(OUTDATED): Spessore della linea
-    lineThicknessDescription(OUTDATED): Spessore della linea di sfondo
   newerFileFormat: 
     readOnlyMode: Modalità di sola lettura
     title: Questa nota è stata modificata utilizzando una versione più recente di Saber

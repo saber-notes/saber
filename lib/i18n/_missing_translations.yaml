@@ -817,8 +817,6 @@ hu:
       lockAxisAlignedPan(OUTDATED): Lock panning to horizontal or vertical
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
 it: 
-  home: 
-    noPreviewAvailable(OUTDATED): No preview available
   sentry: 
     consent: 
       title(OUTDATED): Help improve Saber?
@@ -834,23 +832,15 @@ it:
         later(OUTDATED): Ask me later
   settings: 
     prefLabels: 
-      autosave(OUTDATED): Auto-save
       sentry(OUTDATED): Error reporting
     prefDescriptions: 
-      autosave(OUTDATED): Auto-save after a short delay, or never
       sentry: 
         active(OUTDATED): Active
         inactive(OUTDATED): Inactive
         activeUntilRestart(OUTDATED): Active until you restart the app
         inactiveUntilRestart(OUTDATED): Inactive until you restart the app
-    autosaveDisabled(OUTDATED): Never
-    shapeRecognitionDisabled(OUTDATED): Never
   logs: 
     useTheApp(OUTDATED): Logs will appear here as you use the app
-  editor: 
-    menu: 
-      lineThickness(OUTDATED): Line thickness
-      lineThicknessDescription(OUTDATED): Background line thickness
 ja: 
   common: 
     done(OUTDATED): Done
@@ -1255,8 +1245,6 @@ zh-Hans-CN:
       lineThickness(OUTDATED): Line thickness
       lineThicknessDescription(OUTDATED): Background line thickness
 zh-Hant-TW: 
-  home: 
-    noPreviewAvailable(OUTDATED): No preview available
   sentry: 
     consent: 
       title(OUTDATED): Help improve Saber?
@@ -1272,20 +1260,12 @@ zh-Hant-TW:
         later(OUTDATED): Ask me later
   settings: 
     prefLabels: 
-      autosave(OUTDATED): Auto-save
       sentry(OUTDATED): Error reporting
     prefDescriptions: 
-      autosave(OUTDATED): Auto-save after a short delay, or never
       sentry: 
         active(OUTDATED): Active
         inactive(OUTDATED): Inactive
         activeUntilRestart(OUTDATED): Active until you restart the app
         inactiveUntilRestart(OUTDATED): Inactive until you restart the app
-    autosaveDisabled(OUTDATED): Never
-    shapeRecognitionDisabled(OUTDATED): Never
   logs: 
     useTheApp(OUTDATED): Logs will appear here as you use the app
-  editor: 
-    menu: 
-      lineThickness(OUTDATED): Line thickness
-      lineThicknessDescription(OUTDATED): Background line thickness
