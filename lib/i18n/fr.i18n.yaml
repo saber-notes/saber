@@ -61,6 +61,19 @@ home:
     delete: Supprimer
     alsoDeleteContents: Supprimer aussi toutes les notes rangées dans ce dossier
   noPreviewAvailable(OUTDATED): Aucun aperçu disponible
+sentry: 
+  consent: 
+    title(OUTDATED): Aider à améliorer le sabre?
+    description: 
+      question(OUTDATED): Souhaitez-vous signaler automatiquement les erreurs inattendues? Cela m'aide à identifier et à résoudre les problèmes plus rapidement.
+      scope(OUTDATED): Les rapports peuvent contenir des informations sur l'erreur et votre appareil. J'ai fait tout son possible pour filtrer les données personnelles, mais certaines peuvent rester.
+      currentlyOff(OUTDATED): Si vous accordez le consentement, les rapports d'erreur seront activés après le redémarrage de l'application.
+      currentlyOn(OUTDATED): Si vous révoquez le consentement, veuillez redémarrer l'application pour désactiver les rapports d'erreur.
+      learnMoreInPrivacyPolicy(rich, OUTDATED): En savoir plus dans le ${link(Politique de confidentialité)}.
+    answers: 
+      yes(OUTDATED): Oui
+      no(OUTDATED): Non
+      later(OUTDATED): Demandez-moi plus tard
 settings: 
   prefCategories: 
     general: Général
@@ -91,8 +104,9 @@ settings:
     recentColorsDontSavePresets: Ne pas conserver les couleurs pré-définies parmi les couleurs récentes
     recentColorsLength: Nombre de couleurs récentes à conserver
     printPageIndicators: Imprimer les numéros de pages
-    autosave(OUTDATED): S'attacher automatiquement
     shapeRecognitionDelay: Délai de reconnaissance de forme
+    sentry(OUTDATED): Rapports d'erreur
+    autosave(OUTDATED): S'attacher automatiquement
     simplifiedHomeLayout(OUTDATED): Aménagement d'une maison simplifié
     pencilSoundSetting(OUTDATED): Effet sonore de crayon
     customDataDir(OUTDATED): Répertoire de données personnalisé
@@ -111,13 +125,18 @@ settings:
     editorPromptRename: Vous pourrez toujours les renommer plus tard
     hideHomeBackgrounds: Pour une apparence plus sobre
     printPageIndicators: Montrer les numéros de pages dans les exportations
-    autosave(OUTDATED): S'attacher automatiquement après un court délai, ou jamais
     shapeRecognitionDelay: Avec quelle fréquence mettre à jour la prévisualisation de forme
     shouldAlwaysAlertForUpdates: Me prévenir dès qu'une mise à jour est disponible
     pencilSoundSetting: 
       off(OUTDATED): Pas de son
       onButNotInSilentMode(OUTDATED): Activé (sauf en mode silencieux)
       onAlways(OUTDATED): Activé (même en mode silencieux)
+    sentry: 
+      active(OUTDATED): Actif
+      inactive(OUTDATED): Inactif
+      activeUntilRestart(OUTDATED): Actif jusqu'à ce que vous redémarrez l'application
+      inactiveUntilRestart(OUTDATED): Inactif jusqu'à ce que vous redémarrez l'application
+    autosave(OUTDATED): S'attacher automatiquement après un court délai, ou jamais
     simplifiedHomeLayout(OUTDATED): Définit une hauteur fixe pour chaque aperçu de note
     autoStraightenLines(OUTDATED): Redresse les longues lignes sans avoir à utiliser le stylo de forme
   themeModes: 
@@ -149,6 +168,7 @@ settings:
   shapeRecognitionDisabled(OUTDATED): Jamais
   openDataDir(OUTDATED): Ouvrir le dossier Saber
 logs: 
+  useTheApp(OUTDATED): Les journaux apparaîtront ici lorsque vous utilisez l'application
   logs(OUTDATED): Journaux
   viewLogs(OUTDATED): Afficher les journaux
   debuggingInfo(OUTDATED): Les journaux contiennent des informations utiles pour le débogage et le développement

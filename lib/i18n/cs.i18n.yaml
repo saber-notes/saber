@@ -61,6 +61,19 @@ home:
     deleteName: Odstranění složky $f
     delete: Odstranit
     alsoDeleteContents: Se složkou odstranit i obsažené poznámky
+sentry: 
+  consent: 
+    title(OUTDATED): Pomozte vylepšit Saber?
+    description: 
+      question(OUTDATED): Chcete automaticky nahlásit neočekávané chyby? To mi pomáhá rychleji identifikovat a opravit problémy.
+      scope(OUTDATED): Zprávy mohou obsahovat informace o chybě a vašem zařízení. Snažil jsem se odfiltrovat osobní údaje, ale některé mohou zůstat.
+      currentlyOff(OUTDATED): Pokud udělíte souhlas, bude po restartu aplikace povoleno hlášení chyb.
+      currentlyOn(OUTDATED): Pokud zrušíte souhlas, restartujte prosím aplikaci a deaktivujte hlášení chyb.
+      learnMoreInPrivacyPolicy(rich, OUTDATED): Další informace najdete v ${link(zásady ochrany osobních údajů)}.
+    answers: 
+      yes(OUTDATED): Ano
+      no(OUTDATED): Žádný
+      later(OUTDATED): Zeptejte se mě později
 settings: 
   prefCategories: 
     general: Obecné
@@ -97,6 +110,7 @@ settings:
     simplifiedHomeLayout: Zjednodušené rozložení domovské obrazovky
     customDataDir: Vlastní umístění složky aplikace Saber
     pencilSoundSetting: Zvukový efekt psaní tužkou
+    sentry(OUTDATED): Hlášení chyb
   prefDescriptions: 
     hyperlegibleFont: Font Atkinson Hyperlegible zvyšuje čitelnost pro čtenáře se slabým zrakem
     allowInsecureConnections: (Nedoporučuje se) Povolit aplikaci Saber připojovat se k serverům se samopodepsaným/nedůvěryhodným certifikátem.
@@ -120,6 +134,11 @@ settings:
       off: Bez zvuku
       onButNotInSilentMode: Zapnuto (mimo tichý režim)
       onAlways: Zapnuto (i v tichém režimu)
+    sentry: 
+      active(OUTDATED): Aktivní
+      inactive(OUTDATED): Neaktivní
+      activeUntilRestart(OUTDATED): Aktivní až do restartu aplikace
+      inactiveUntilRestart(OUTDATED): Neaktivní, dokud neodpočítáte aplikaci
   themeModes: 
     system: Systémový
     light: Světlý
@@ -153,6 +172,7 @@ logs:
   viewLogs: Zobrazit logy
   debuggingInfo: Logy obsahují informace užitečné pro ladění a vývoj
   noLogs: Nejsou k dispozici žádné logy!
+  useTheApp(OUTDATED): Při použití aplikace se zde objeví protokoly
 login: 
   title: Přihlášení
   form: 

@@ -34,6 +34,7 @@ class TranslationsIt extends Translations {
 	// Translations
 	@override late final _TranslationsCommonIt common = _TranslationsCommonIt._(_root);
 	@override late final _TranslationsHomeIt home = _TranslationsHomeIt._(_root);
+	@override late final _TranslationsSentryIt sentry = _TranslationsSentryIt._(_root);
 	@override late final _TranslationsSettingsIt settings = _TranslationsSettingsIt._(_root);
 	@override late final _TranslationsLogsIt logs = _TranslationsLogsIt._(_root);
 	@override late final _TranslationsLoginIt login = _TranslationsLoginIt._(_root);
@@ -80,6 +81,16 @@ class _TranslationsHomeIt extends TranslationsHomeEn {
 	@override String get noPreviewAvailable => 'Nessuna anteprima disponibile';
 }
 
+// Path: sentry
+class _TranslationsSentryIt extends TranslationsSentryEn {
+	_TranslationsSentryIt._(TranslationsIt root) : this._root = root, super.internal(root);
+
+	final TranslationsIt _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsSentryConsentIt consent = _TranslationsSentryConsentIt._(_root);
+}
+
 // Path: settings
 class _TranslationsSettingsIt extends TranslationsSettingsEn {
 	_TranslationsSettingsIt._(TranslationsIt root) : this._root = root, super.internal(root);
@@ -119,6 +130,7 @@ class _TranslationsLogsIt extends TranslationsLogsEn {
 	@override String get viewLogs => 'Visualizza log';
 	@override String get debuggingInfo => 'I log contengono informazioni utili per il debug e lo sviluppo';
 	@override String get noLogs => 'Niente log qui!';
+	@override String get useTheApp => 'I registri appariranno qui mentre usi l\'app';
 }
 
 // Path: login
@@ -339,6 +351,18 @@ class _TranslationsHomeDeleteFolderIt extends TranslationsHomeDeleteFolderEn {
 	@override String get alsoDeleteContents => 'Elimina anche tutte le note all\'interno di questa cartella';
 }
 
+// Path: sentry.consent
+class _TranslationsSentryConsentIt extends TranslationsSentryConsentEn {
+	_TranslationsSentryConsentIt._(TranslationsIt root) : this._root = root, super.internal(root);
+
+	final TranslationsIt _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Aiutare a migliorare la sciabola?';
+	@override late final _TranslationsSentryConsentDescriptionIt description = _TranslationsSentryConsentDescriptionIt._(_root);
+	@override late final _TranslationsSentryConsentAnswersIt answers = _TranslationsSentryConsentAnswersIt._(_root);
+}
+
 // Path: settings.prefCategories
 class _TranslationsSettingsPrefCategoriesIt extends TranslationsSettingsPrefCategoriesEn {
 	_TranslationsSettingsPrefCategoriesIt._(TranslationsIt root) : this._root = root, super.internal(root);
@@ -382,12 +406,13 @@ class _TranslationsSettingsPrefLabelsIt extends TranslationsSettingsPrefLabelsEn
 	@override String get recentColorsDontSavePresets => 'Non salvare i colori preimpostati nei colori recenti';
 	@override String get recentColorsLength => 'Quanti colori recenti memorizzare';
 	@override String get printPageIndicators => 'Stampa indicatori di pagina';
-	@override String get autosave => 'Salvare automaticamente';
 	@override String get shapeRecognitionDelay => 'Ritardo nel riconoscimento della forma';
 	@override String get autoStraightenLines => 'Raddrizzamento automatico delle linee';
 	@override String get simplifiedHomeLayout => 'Layout semplificato della home';
 	@override String get customDataDir => 'Cartella Saber personalizzata';
 	@override String get pencilSoundSetting => 'Effetto sonoro della matita';
+	@override String get sentry => 'Reporting degli errori';
+	@override String get autosave => 'Salvare automaticamente';
 }
 
 // Path: settings.prefDescriptions
@@ -412,6 +437,7 @@ class _TranslationsSettingsPrefDescriptionsIt extends TranslationsSettingsPrefDe
 	@override String get simplifiedHomeLayout => 'Imposta un\'altezza fissa per ogni anteprima della nota';
 	@override String get shouldAlwaysAlertForUpdates => 'Segnalami aggiornamenti non appena sono disponibili';
 	@override late final _TranslationsSettingsPrefDescriptionsPencilSoundSettingIt pencilSoundSetting = _TranslationsSettingsPrefDescriptionsPencilSoundSettingIt._(_root);
+	@override late final _TranslationsSettingsPrefDescriptionsSentryIt sentry = _TranslationsSettingsPrefDescriptionsSentryIt._(_root);
 	@override String get autosave => 'Salvare automaticamente dopo un breve ritardo o mai';
 }
 
@@ -761,6 +787,36 @@ class _TranslationsEditorHudIt extends TranslationsEditorHudEn {
 	@override String get lockAxisAlignedPan => 'Blocca la panoramica su orizzontale o verticale';
 }
 
+// Path: sentry.consent.description
+class _TranslationsSentryConsentDescriptionIt extends TranslationsSentryConsentDescriptionEn {
+	_TranslationsSentryConsentDescriptionIt._(TranslationsIt root) : this._root = root, super.internal(root);
+
+	final TranslationsIt _root; // ignore: unused_field
+
+	// Translations
+	@override String get question => 'Vorresti segnalare automaticamente errori imprevisti? Questo mi aiuta a identificare e risolvere i problemi più velocemente.';
+	@override String get scope => 'I report possono contenere informazioni sull\'errore e sul dispositivo. Ho fatto ogni sforzo per filtrare i dati personali ma alcuni potrebbero rimanere.';
+	@override String get currentlyOff => 'Se si concede il consenso, il reporting degli errori verrà abilitato dopo il riavvio dell\'app.';
+	@override String get currentlyOn => 'Se si revoca il consenso, riavvia l\'app per disabilitare il report degli errori.';
+	@override TextSpan learnMoreInPrivacyPolicy({required InlineSpanBuilder link}) => TextSpan(children: [
+		const TextSpan(text: 'Ulteriori informazioni in '),
+		link('Privacy Information'),
+		const TextSpan(text: '.'),
+	]);
+}
+
+// Path: sentry.consent.answers
+class _TranslationsSentryConsentAnswersIt extends TranslationsSentryConsentAnswersEn {
+	_TranslationsSentryConsentAnswersIt._(TranslationsIt root) : this._root = root, super.internal(root);
+
+	final TranslationsIt _root; // ignore: unused_field
+
+	// Translations
+	@override String get yes => 'SÌ';
+	@override String get no => 'NO';
+	@override String get later => 'Chiedimi più tardi';
+}
+
 // Path: settings.prefDescriptions.hideFingerDrawing
 class _TranslationsSettingsPrefDescriptionsHideFingerDrawingIt extends TranslationsSettingsPrefDescriptionsHideFingerDrawingEn {
 	_TranslationsSettingsPrefDescriptionsHideFingerDrawingIt._(TranslationsIt root) : this._root = root, super.internal(root);
@@ -783,6 +839,19 @@ class _TranslationsSettingsPrefDescriptionsPencilSoundSettingIt extends Translat
 	@override String get off => 'Nessun suono';
 	@override String get onButNotInSilentMode => 'Abilitato (a meno che non sia in modalità silenziosa)';
 	@override String get onAlways => 'Abilitato (anche in modalità silenziosa)';
+}
+
+// Path: settings.prefDescriptions.sentry
+class _TranslationsSettingsPrefDescriptionsSentryIt extends TranslationsSettingsPrefDescriptionsSentryEn {
+	_TranslationsSettingsPrefDescriptionsSentryIt._(TranslationsIt root) : this._root = root, super.internal(root);
+
+	final TranslationsIt _root; // ignore: unused_field
+
+	// Translations
+	@override String get active => 'Attivo';
+	@override String get inactive => 'Inattivo';
+	@override String get activeUntilRestart => 'Attivo fino a quando non riavvia l\'app';
+	@override String get inactiveUntilRestart => 'Inattivo fino a quando non riavvia l\'app';
 }
 
 // Path: login.ncLoginStep.loginFlow
