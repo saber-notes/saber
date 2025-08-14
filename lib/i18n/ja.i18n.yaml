@@ -110,11 +110,11 @@ settings:
     editorPromptRename: メモの名前は後でいつでも変更できます
     hideHomeBackgrounds: よりクリーンな外観に
     printPageIndicators: エクスポートにページインジケーターを表示
-    autosave(OUTDATED): 短い遅延の後、または決して自動保存しません
     pencilSoundSetting: 
       off(OUTDATED): 無音
       onButNotInSilentMode(OUTDATED): 有効 (サイレントモードでない場合)
       onAlways(OUTDATED): 有効（サイレントモードでも）
+    autosave(OUTDATED): 短い遅延の後、または決して自動保存しません
     simplifiedHomeLayout(OUTDATED): 各ノートのプレビューに固定の高さを設定します
     autoStraightenLines(OUTDATED): シェイプペンを使用せずに長い線をまっすぐにします。
     shapeRecognitionDelay(OUTDATED): 形状プレビューを更新する頻度

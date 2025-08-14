@@ -111,12 +111,12 @@ settings:
     editorPromptRename: Você pode sempre renomear as notas mais tarde
     hideHomeBackgrounds: Para uma aparência mais limpa
     printPageIndicators: Mostrar os indicadores de página nas exportações
-    autosave(OUTDATED): Salvamento automático após um pequeno atraso, ou nunca
     shouldAlwaysAlertForUpdates: Conte-me sobre atualizações assim que elas estiverem disponíveis
     pencilSoundSetting: 
       off(OUTDATED): Sem som
       onButNotInSilentMode(OUTDATED): Ativado (a menos que esteja no modo silencioso)
       onAlways(OUTDATED): Ativado (mesmo no modo silencioso)
+    autosave(OUTDATED): Salvamento automático após um pequeno atraso, ou nunca
     simplifiedHomeLayout(OUTDATED): Define uma altura fixa para cada pré-visualização de nota
     autoStraightenLines(OUTDATED): Endireita linhas longas sem precisar usar a caneta modeladora
     shapeRecognitionDelay(OUTDATED): Com que frequência atualizar a visualização da forma

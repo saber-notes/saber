@@ -91,8 +91,8 @@ settings:
     recentColorsDontSavePresets: رنگ های از پیش تعیین شده را در رنگ های اخیر ذخیره نکنید
     recentColorsLength: چند رنگ اخیر برای ذخیره
     printPageIndicators: چاپ نشانگرهای صفحه
-    autosave(OUTDATED): خودرا
     shapeRecognitionDelay: تاخیر در تشخیص شکل
+    autosave(OUTDATED): خودرا
     simplifiedHomeLayout(OUTDATED): چیدمان خانه ساده شده
     pencilSoundSetting(OUTDATED): جلوه صدای مداد
     customDataDir(OUTDATED): دایرکتوری داده های سفارشی
@@ -111,13 +111,13 @@ settings:
     editorPromptRename: همیشه می توانید بعداً نام یادداشت ها را تغییر دهید
     hideHomeBackgrounds: برای ظاهری تمیز تر
     printPageIndicators: نمایش نشانگرهای صفحه در خروجی
-    autosave(OUTDATED): پس از یک تأخیر کوتاه ، یا هرگز
     shapeRecognitionDelay: به روز رسانی پیشنمایش شکل چند وقت یکبار انجام شود
     shouldAlwaysAlertForUpdates: به محض اینکه به‌روزرسانی‌ها در دسترس هستند، به من بگویید
     pencilSoundSetting: 
       onAlways(OUTDATED): فعال (حتی در حالت بی صدا)
       off(OUTDATED): بدون صدا
       onButNotInSilentMode(OUTDATED): فعال (مگر در حالت بی صدا)
+    autosave(OUTDATED): پس از یک تأخیر کوتاه ، یا هرگز
     simplifiedHomeLayout(OUTDATED): یک ارتفاع ثابت برای پیش نمایش هر یادداشت تنظیم می کند
     autoStraightenLines(OUTDATED): خطوط بلند را بدون استفاده از قلم شکل صاف می کند
   themeModes: 

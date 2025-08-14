@@ -111,12 +111,12 @@ settings:
     editorPromptRename: תמיד תוכל לשנות את שם הפתקים מאוחר יותר
     hideHomeBackgrounds: למראה נקי יותר
     printPageIndicators: הצג מחווני עמודים בייצוא
-    autosave(OUTDATED): יש לשעוג אוטומטית לאחר עיכוב קצר, או לעולם
     shouldAlwaysAlertForUpdates: ספר לי על עדכונים ברגע שהם יהיו זמינים
     pencilSoundSetting: 
       onButNotInSilentMode(OUTDATED): מופעל (אלא אם כן במצב שקט)
       off(OUTDATED): אין קול
       onAlways(OUTDATED): מופעל (אפילו במצב שקט)
+    autosave(OUTDATED): יש לשעוג אוטומטית לאחר עיכוב קצר, או לעולם
     simplifiedHomeLayout(OUTDATED): מגדיר גובה קבוע עבור כל תצוגה מקדימה של הערה
     autoStraightenLines(OUTDATED): מיישר קווים ארוכים ללא צורך להשתמש בעט הצורה
     shapeRecognitionDelay(OUTDATED): באיזו תדירות לעדכן את התצוגה המקדימה של הצורה

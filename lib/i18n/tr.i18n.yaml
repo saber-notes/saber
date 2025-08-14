@@ -91,12 +91,12 @@ settings:
     recentColorsDontSavePresets: Ön tanımlı renkleri son kullanılanlara kaydetme
     recentColorsLength: Kaç tane son kullanılan renk saklanacak
     printPageIndicators: Sayfa belirteçlerini yazdır
-    autosave(OUTDATED): Otomatik koruma
     shapeRecognitionDelay: Şekil tanıma gecikmesi
     autoStraightenLines: Çizgileri otomatik düzleştir
     simplifiedHomeLayout: Sadeleştirilmiş ana ekran düzeni
     customDataDir: Özel Saber klasörü
     pencilSoundSetting: Kurşun kalem ses efekti
+    autosave(OUTDATED): Otomatik koruma
   prefDescriptions: 
     hyperlegibleFont: Atkinson Hyperlegible, görme sorunu yaşayanların okumasını kolaylaştıran bir fonttur
     allowInsecureConnections: (Önerilmez) Saber'ın kendinden imzalı/güvensiz sertifika kullanan sunuculara bağlanmasına izin verir
@@ -111,7 +111,6 @@ settings:
     editorPromptRename: Notlarınızı daha sonra da yeniden adlandırabilirsiniz
     hideHomeBackgrounds: Daha sade bir görüntü için
     printPageIndicators: Çıktılarda sayfa belirteçlerini göster
-    autosave(OUTDATED): Kısa bir gecikmeden sonra otomatik kaydetme veya asla
     shapeRecognitionDelay: Çizilen şekilleri tanımlama sıklığını belirler
     autoStraightenLines: Şekil aracını kullanmadığınızda da çizgileri düzleştirir
     simplifiedHomeLayout: Not önizlemelerinin uzunluklarını eşitler
@@ -120,6 +119,7 @@ settings:
       off: Ses yok
       onButNotInSilentMode: Etkin (sessiz modda değilse)
       onAlways: Etkin (sessiz modda da)
+    autosave(OUTDATED): Kısa bir gecikmeden sonra otomatik kaydetme veya asla
   themeModes: 
     system: Sistem teması
     light: Aydınlık

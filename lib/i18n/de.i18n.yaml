@@ -91,12 +91,12 @@ settings:
     recentColorsDontSavePresets: Farbvorlagen nicht in den zuletzt genutzten Farben speichern
     recentColorsLength: Anzahl der zuletzt genutzten Farben
     printPageIndicators: Seitennummerierung drucken
-    autosave(OUTDATED): Auto-Save
     shapeRecognitionDelay: Verzögerung der Formerkennung
     autoStraightenLines: Linien automatisch begradigen
     simplifiedHomeLayout: Vereinfachtes Startbildschirmlayout
     customDataDir: Eigener Saber-Ordner
     pencilSoundSetting: Bleistiftgeräusch
+    autosave(OUTDATED): Auto-Save
   prefDescriptions: 
     hyperlegibleFont: Atkinson Hyperlegible verbessert die Lesbarkeit für Menschen mit eingeschränkter Sicht
     allowInsecureConnections: (Nicht empfohlen) Saber erlauben, sich mit selbstsignierten/unsicheren Zertifikaten zu verbinden
@@ -111,7 +111,6 @@ settings:
     editorPromptRename: Notizen können später immer noch umbenannt werden
     hideHomeBackgrounds: Für ein sauberes Aussehen
     printPageIndicators: Seitennummerierung bei Export anzeigen
-    autosave(OUTDATED): Automatisch nach einer kurzen Verzögerung oder nie
     shapeRecognitionDelay: Häufigkeit der Aktualisierung der Form-Vorschau
     autoStraightenLines: Lange Linien selbst ohne Form-Stift begradigen
     simplifiedHomeLayout: Legt eine feste Höhe für jede Notizvorschau fest
@@ -120,6 +119,7 @@ settings:
       off: Kein Geräusch
       onButNotInSilentMode: Aktiv (außer im Stummmodus)
       onAlways: Aktiv (sogar im Stummmodus)
+    autosave(OUTDATED): Automatisch nach einer kurzen Verzögerung oder nie
   themeModes: 
     system: System
     light: Hell

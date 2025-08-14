@@ -91,8 +91,8 @@ settings:
     recentColorsDontSavePresets: Ne pas conserver les couleurs pré-définies parmi les couleurs récentes
     recentColorsLength: Nombre de couleurs récentes à conserver
     printPageIndicators: Imprimer les numéros de pages
-    autosave(OUTDATED): S'attacher automatiquement
     shapeRecognitionDelay: Délai de reconnaissance de forme
+    autosave(OUTDATED): S'attacher automatiquement
     simplifiedHomeLayout(OUTDATED): Aménagement d'une maison simplifié
     pencilSoundSetting(OUTDATED): Effet sonore de crayon
     customDataDir(OUTDATED): Répertoire de données personnalisé
@@ -111,13 +111,13 @@ settings:
     editorPromptRename: Vous pourrez toujours les renommer plus tard
     hideHomeBackgrounds: Pour une apparence plus sobre
     printPageIndicators: Montrer les numéros de pages dans les exportations
-    autosave(OUTDATED): S'attacher automatiquement après un court délai, ou jamais
     shapeRecognitionDelay: Avec quelle fréquence mettre à jour la prévisualisation de forme
     shouldAlwaysAlertForUpdates: Me prévenir dès qu'une mise à jour est disponible
     pencilSoundSetting: 
       off(OUTDATED): Pas de son
       onButNotInSilentMode(OUTDATED): Activé (sauf en mode silencieux)
       onAlways(OUTDATED): Activé (même en mode silencieux)
+    autosave(OUTDATED): S'attacher automatiquement après un court délai, ou jamais
     simplifiedHomeLayout(OUTDATED): Définit une hauteur fixe pour chaque aperçu de note
     autoStraightenLines(OUTDATED): Redresse les longues lignes sans avoir à utiliser le stylo de forme
   themeModes: 

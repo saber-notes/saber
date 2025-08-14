@@ -91,12 +91,12 @@ settings:
     recentColorsDontSavePresets: 不在最近使用的颜色中保存预设颜色
     recentColorsLength: 要存储多少种最近的颜色
     printPageIndicators: 打印页码
-    autosave(OUTDATED): 自动保存
     shapeRecognitionDelay: 形状识别延迟
     autoStraightenLines: 自动拉直线
     simplifiedHomeLayout: 简化主页布局
     customDataDir: 自定义 Saber 文件夹
     pencilSoundSetting: 铅笔音效
+    autosave(OUTDATED): 自动保存
   prefDescriptions: 
     hyperlegibleFont: Atkinson Hyperlegible 字体为低视力读者提高易读性
     allowInsecureConnections: （不推荐）允许 Saber 连接到具有自签名/不受信任证书的服务器
@@ -111,7 +111,6 @@ settings:
     editorPromptRename: 您可以总是稍后重命名笔记
     hideHomeBackgrounds: 更简洁的外观
     printPageIndicators: 在导出中显示页码
-    autosave(OUTDATED): 短暂延迟后自动保存，或者永远不会
     shapeRecognitionDelay: 形状预览更新频率
     autoStraightenLines: 拉直长线，无需使用形状笔
     simplifiedHomeLayout: 为每个笔记预览设置固定高度
@@ -120,6 +119,7 @@ settings:
       off: 没有音效
       onButNotInSilentMode: 启用（除非在静音模式下）
       onAlways: 启用（即使在静音模式下）
+    autosave(OUTDATED): 短暂延迟后自动保存，或者永远不会
   themeModes: 
     system: 系统
     light: 浅色

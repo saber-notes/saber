@@ -108,11 +108,11 @@ settings:
       fixedOff(OUTDATED): Az ujjrajzolás letiltva van rögzítve
     editorPromptRename: A jegyzeteket később bármikor átnevezheti
     hideHomeBackgrounds: Egy letisztultabb megjelenítésért
-    autosave(OUTDATED): Automato-Save rövid késleltetés után, vagy soha
     pencilSoundSetting: 
       off(OUTDATED): Nincs hang
       onButNotInSilentMode(OUTDATED): Engedélyezve (kivéve, ha néma módban van)
       onAlways(OUTDATED): Engedélyezve (néma módban is)
+    autosave(OUTDATED): Automato-Save rövid késleltetés után, vagy soha
     simplifiedHomeLayout(OUTDATED): Rögzített magasságot állít be minden hangjegy előnézetéhez
     autoStraightenLines(OUTDATED): Kiegyenesíti a hosszú vonalakat anélkül, hogy az alakos tollat ​​kellene használnia
     shapeRecognitionDelay(OUTDATED): Milyen gyakran kell frissíteni az alakzat előnézetét
