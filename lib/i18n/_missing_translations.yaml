@@ -817,21 +817,30 @@ hu:
       lockAxisAlignedPan(OUTDATED): Lock panning to horizontal or vertical
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
 it: 
-  logs: 
-    useTheApp(OUTDATED): Logs will appear here as you use the app
-  home: 
-    noPreviewAvailable(OUTDATED): Nessuna anteprima disponibile
+  sentry: 
+    consent: 
+      title(OUTDATED): Help improve Saber?
+      description: 
+        question(OUTDATED): Would you like to automatically report unexpected errors? This helps me identify and fix issues faster.
+        scope(OUTDATED): The reports may contain information about the error and your device. I've made every effort to filter out personal data but some may remain.
+        currentlyOff(OUTDATED): If you grant consent, error reporting will be enabled after you restart the app.
+        currentlyOn(OUTDATED): If you revoke consent, please restart the app to disable error reporting.
+        learnMoreInPrivacyPolicy(rich)(OUTDATED): Learn more in the ${link(privacy policy)}.
+      answers: 
+        yes(OUTDATED): Yes
+        no(OUTDATED): No
+        later(OUTDATED): Ask me later
   settings: 
     prefLabels: 
-      autosave(OUTDATED): Salvataggio automatico
+      sentry(OUTDATED): Error reporting
     prefDescriptions: 
-      autosave(OUTDATED): Salvataggio automatico dopo un breve ritardo o mai
-    autosaveDisabled(OUTDATED): Mai
-    shapeRecognitionDisabled(OUTDATED): Mai
-  editor: 
-    menu: 
-      lineThickness(OUTDATED): Spessore della linea
-      lineThicknessDescription(OUTDATED): Spessore della linea di sfondo
+      sentry: 
+        active(OUTDATED): Active
+        inactive(OUTDATED): Inactive
+        activeUntilRestart(OUTDATED): Active until you restart the app
+        inactiveUntilRestart(OUTDATED): Inactive until you restart the app
+  logs: 
+    useTheApp(OUTDATED): Logs will appear here as you use the app
 ja: 
   common: 
     done(OUTDATED): Done
