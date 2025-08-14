@@ -61,6 +61,19 @@ home:
     deleteName: Elimina $f
     delete: Elimina
     alsoDeleteContents: Elimina anche tutte le note all'interno di questa cartella
+sentry: 
+  consent: 
+    title(OUTDATED): Aiutare a migliorare la sciabola?
+    description: 
+      question(OUTDATED): Vorresti segnalare automaticamente errori imprevisti? Questo mi aiuta a identificare e risolvere i problemi più velocemente.
+      scope(OUTDATED): I report possono contenere informazioni sull'errore e sul dispositivo. Ho fatto ogni sforzo per filtrare i dati personali ma alcuni potrebbero rimanere.
+      currentlyOff(OUTDATED): Se si concede il consenso, il reporting degli errori verrà abilitato dopo il riavvio dell'app.
+      currentlyOn(OUTDATED): Se si revoca il consenso, riavvia l'app per disabilitare il report degli errori.
+      learnMoreInPrivacyPolicy(rich, OUTDATED): Ulteriori informazioni in ${link(Privacy Information)}.
+    answers: 
+      yes(OUTDATED): SÌ
+      no(OUTDATED): NO
+      later(OUTDATED): Chiedimi più tardi
 settings: 
   prefCategories: 
     general: Generale
@@ -97,6 +110,7 @@ settings:
     simplifiedHomeLayout: Layout semplificato della home
     customDataDir: Cartella Saber personalizzata
     pencilSoundSetting: Effetto sonoro della matita
+    sentry(OUTDATED): Reporting degli errori
   prefDescriptions: 
     hyperlegibleFont: Atkinson Iperleggibile aumenta la leggibilità per i lettori ipovedenti
     allowInsecureConnections: (Non consigliato) Consenti a Saber di connettersi ai server con certificati autofirmati/non attendibili
@@ -120,6 +134,11 @@ settings:
       off: Nessun suono
       onButNotInSilentMode: Abilitato (a meno che non sia in modalità silenziosa)
       onAlways: Abilitato (anche in modalità silenziosa)
+    sentry: 
+      active(OUTDATED): Attivo
+      inactive(OUTDATED): Inattivo
+      activeUntilRestart(OUTDATED): Attivo fino a quando non riavvia l'app
+      inactiveUntilRestart(OUTDATED): Inattivo fino a quando non riavvia l'app
   themeModes: 
     system: Sistema
     light: Chiaro
@@ -153,7 +172,7 @@ logs:
   viewLogs: Visualizza log
   debuggingInfo: I log contengono informazioni utili per il debug e lo sviluppo
   noLogs: Niente log qui!
-  logsAreTemporary: I log vengono conservati solo finché non chiudi l'app
+  useTheApp(OUTDATED): I registri appariranno qui mentre usi l'app
 login: 
   title: Login
   form: 

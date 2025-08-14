@@ -34,6 +34,7 @@ class TranslationsJa extends Translations {
 	// Translations
 	@override late final _TranslationsCommonJa common = _TranslationsCommonJa._(_root);
 	@override late final _TranslationsHomeJa home = _TranslationsHomeJa._(_root);
+	@override late final _TranslationsSentryJa sentry = _TranslationsSentryJa._(_root);
 	@override late final _TranslationsSettingsJa settings = _TranslationsSettingsJa._(_root);
 	@override late final _TranslationsLogsJa logs = _TranslationsLogsJa._(_root);
 	@override late final _TranslationsLoginJa login = _TranslationsLoginJa._(_root);
@@ -80,6 +81,16 @@ class _TranslationsHomeJa extends TranslationsHomeEn {
 	@override String get invalidFormat => '選択したファイルはサポートされていません。 .sbn、.sbn2、.sba、または .pdf ファイルを選択してください。';
 }
 
+// Path: sentry
+class _TranslationsSentryJa extends TranslationsSentryEn {
+	_TranslationsSentryJa._(TranslationsJa root) : this._root = root, super.internal(root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsSentryConsentJa consent = _TranslationsSentryConsentJa._(_root);
+}
+
 // Path: settings
 class _TranslationsSettingsJa extends TranslationsSettingsEn {
 	_TranslationsSettingsJa._(TranslationsJa root) : this._root = root, super.internal(root);
@@ -115,11 +126,11 @@ class _TranslationsLogsJa extends TranslationsLogsEn {
 	final TranslationsJa _root; // ignore: unused_field
 
 	// Translations
+	@override String get useTheApp => 'アプリを使用すると、ここにログが表示されます';
 	@override String get logs => 'ログ';
 	@override String get viewLogs => 'ログを表示';
 	@override String get debuggingInfo => 'ログにはデバッグや開発に役立つ情報が含まれています';
 	@override String get noLogs => 'ここにはログはありません!';
-	@override String get logsAreTemporary => 'ログはアプリを閉じるまで保存されます';
 }
 
 // Path: login
@@ -338,6 +349,18 @@ class _TranslationsHomeDeleteFolderJa extends TranslationsHomeDeleteFolderEn {
 	@override String get alsoDeleteContents => 'このフォルダー内のすべてのメモも削除します';
 }
 
+// Path: sentry.consent
+class _TranslationsSentryConsentJa extends TranslationsSentryConsentEn {
+	_TranslationsSentryConsentJa._(TranslationsJa root) : this._root = root, super.internal(root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'セイバーの改善を手伝ってください？';
+	@override late final _TranslationsSentryConsentDescriptionJa description = _TranslationsSentryConsentDescriptionJa._(_root);
+	@override late final _TranslationsSentryConsentAnswersJa answers = _TranslationsSentryConsentAnswersJa._(_root);
+}
+
 // Path: settings.prefCategories
 class _TranslationsSettingsPrefCategoriesJa extends TranslationsSettingsPrefCategoriesEn {
 	_TranslationsSettingsPrefCategoriesJa._(TranslationsJa root) : this._root = root, super.internal(root);
@@ -377,6 +400,7 @@ class _TranslationsSettingsPrefLabelsJa extends TranslationsSettingsPrefLabelsEn
 	@override String get hideHomeBackgrounds => 'ホーム画面で背景を隠す';
 	@override String get recentColorsDontSavePresets => '最近使用した色をプリセットに登録しない';
 	@override String get printPageIndicators => '印刷ページのインジケーター';
+	@override String get sentry => 'エラー報告';
 	@override String get autosave => '自動保存';
 	@override String get simplifiedHomeLayout => '簡素化されたホームレイアウト';
 	@override String get pencilSoundSetting => '鉛筆の効果音';
@@ -405,8 +429,9 @@ class _TranslationsSettingsPrefDescriptionsJa extends TranslationsSettingsPrefDe
 	@override String get editorPromptRename => 'メモの名前は後でいつでも変更できます';
 	@override String get hideHomeBackgrounds => 'よりクリーンな外観に';
 	@override String get printPageIndicators => 'エクスポートにページインジケーターを表示';
-	@override String get autosave => '短い遅延の後、または決して自動保存しません';
 	@override late final _TranslationsSettingsPrefDescriptionsPencilSoundSettingJa pencilSoundSetting = _TranslationsSettingsPrefDescriptionsPencilSoundSettingJa._(_root);
+	@override late final _TranslationsSettingsPrefDescriptionsSentryJa sentry = _TranslationsSettingsPrefDescriptionsSentryJa._(_root);
+	@override String get autosave => '短い遅延の後、または決して自動保存しません';
 	@override String get simplifiedHomeLayout => '各ノートのプレビューに固定の高さを設定します';
 	@override String get autoStraightenLines => 'シェイプペンを使用せずに長い線をまっすぐにします。';
 	@override String get shapeRecognitionDelay => '形状プレビューを更新する頻度';
@@ -760,6 +785,36 @@ class _TranslationsEditorHudJa extends TranslationsEditorHudEn {
 	@override String get lockAxisAlignedPan => 'パンニングを水平または垂直にロックする';
 }
 
+// Path: sentry.consent.description
+class _TranslationsSentryConsentDescriptionJa extends TranslationsSentryConsentDescriptionEn {
+	_TranslationsSentryConsentDescriptionJa._(TranslationsJa root) : this._root = root, super.internal(root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get question => '予期しないエラーを自動的に報告しますか？これにより、問題をより速く特定して修正することができます。';
+	@override String get scope => 'レポートには、エラーとデバイスに関する情報が含まれている場合があります。私は個人データを除外するためにあらゆる努力をしましたが、一部は残っているかもしれません。';
+	@override String get currentlyOff => '同意を付与すると、アプリを再起動するとエラーレポートが有効になります。';
+	@override String get currentlyOn => '同意を取り消す場合は、アプリを再起動してエラーレポートを無効にしてください。';
+	@override TextSpan learnMoreInPrivacyPolicy({required InlineSpanBuilder link}) => TextSpan(children: [
+		const TextSpan(text: '詳細については、'),
+		link('プライバシーポリシー'),
+		const TextSpan(text: 'をご覧ください。'),
+	]);
+}
+
+// Path: sentry.consent.answers
+class _TranslationsSentryConsentAnswersJa extends TranslationsSentryConsentAnswersEn {
+	_TranslationsSentryConsentAnswersJa._(TranslationsJa root) : this._root = root, super.internal(root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get yes => 'はい';
+	@override String get no => 'いいえ';
+	@override String get later => '後で私に聞いてください';
+}
+
 // Path: settings.prefDescriptions.hideFingerDrawing
 class _TranslationsSettingsPrefDescriptionsHideFingerDrawingJa extends TranslationsSettingsPrefDescriptionsHideFingerDrawingEn {
 	_TranslationsSettingsPrefDescriptionsHideFingerDrawingJa._(TranslationsJa root) : this._root = root, super.internal(root);
@@ -782,6 +837,19 @@ class _TranslationsSettingsPrefDescriptionsPencilSoundSettingJa extends Translat
 	@override String get off => '無音';
 	@override String get onButNotInSilentMode => '有効 (サイレントモードでない場合)';
 	@override String get onAlways => '有効（サイレントモードでも）';
+}
+
+// Path: settings.prefDescriptions.sentry
+class _TranslationsSettingsPrefDescriptionsSentryJa extends TranslationsSettingsPrefDescriptionsSentryEn {
+	_TranslationsSettingsPrefDescriptionsSentryJa._(TranslationsJa root) : this._root = root, super.internal(root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get active => 'アクティブ';
+	@override String get inactive => '非アクティブ';
+	@override String get activeUntilRestart => 'アプリを再起動するまでアクティブ';
+	@override String get inactiveUntilRestart => 'アプリを再起動するまで、非アクティブになります';
 }
 
 // Path: login.ncLoginStep.loginFlow

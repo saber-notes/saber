@@ -34,6 +34,7 @@ class TranslationsHu extends Translations {
 	// Translations
 	@override late final _TranslationsCommonHu common = _TranslationsCommonHu._(_root);
 	@override late final _TranslationsHomeHu home = _TranslationsHomeHu._(_root);
+	@override late final _TranslationsSentryHu sentry = _TranslationsSentryHu._(_root);
 	@override late final _TranslationsSettingsHu settings = _TranslationsSettingsHu._(_root);
 	@override late final _TranslationsLogsHu logs = _TranslationsLogsHu._(_root);
 	@override late final _TranslationsLoginHu login = _TranslationsLoginHu._(_root);
@@ -80,6 +81,16 @@ class _TranslationsHomeHu extends TranslationsHomeEn {
 	@override String get invalidFormat => 'A kiválasztott fájl nem támogatott. Kérjük, válasszon .sbn, .sbn2, .sba vagy .pdf fájlt.';
 }
 
+// Path: sentry
+class _TranslationsSentryHu extends TranslationsSentryEn {
+	_TranslationsSentryHu._(TranslationsHu root) : this._root = root, super.internal(root);
+
+	final TranslationsHu _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsSentryConsentHu consent = _TranslationsSentryConsentHu._(_root);
+}
+
 // Path: settings
 class _TranslationsSettingsHu extends TranslationsSettingsEn {
 	_TranslationsSettingsHu._(TranslationsHu root) : this._root = root, super.internal(root);
@@ -115,11 +126,11 @@ class _TranslationsLogsHu extends TranslationsLogsEn {
 	final TranslationsHu _root; // ignore: unused_field
 
 	// Translations
+	@override String get useTheApp => 'A naplók itt jelennek meg az alkalmazás használatakor';
 	@override String get logs => 'Naplók';
 	@override String get viewLogs => 'Naplók megtekintése';
 	@override String get debuggingInfo => 'A naplók a hibakereséshez és a fejlesztéshez hasznos információkat tartalmaznak';
 	@override String get noLogs => 'Itt nincsenek naplók!';
-	@override String get logsAreTemporary => 'A naplókat csak az alkalmazás bezárásáig őrizzük meg';
 }
 
 // Path: login
@@ -338,6 +349,18 @@ class _TranslationsHomeDeleteFolderHu extends TranslationsHomeDeleteFolderEn {
 	@override String deleteName({required Object f}) => '${f} törlése';
 }
 
+// Path: sentry.consent
+class _TranslationsSentryConsentHu extends TranslationsSentryConsentEn {
+	_TranslationsSentryConsentHu._(TranslationsHu root) : this._root = root, super.internal(root);
+
+	final TranslationsHu _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Segítsen javítani a kardot?';
+	@override late final _TranslationsSentryConsentDescriptionHu description = _TranslationsSentryConsentDescriptionHu._(_root);
+	@override late final _TranslationsSentryConsentAnswersHu answers = _TranslationsSentryConsentAnswersHu._(_root);
+}
+
 // Path: settings.prefCategories
 class _TranslationsSettingsPrefCategoriesHu extends TranslationsSettingsPrefCategoriesEn {
 	_TranslationsSettingsPrefCategoriesHu._(TranslationsHu root) : this._root = root, super.internal(root);
@@ -374,6 +397,7 @@ class _TranslationsSettingsPrefLabelsHu extends TranslationsSettingsPrefLabelsEn
 	@override String get editorPromptRename => 'Új jegyzetek átnevezésére való felszólítás';
 	@override String get hideHomeBackgrounds => 'Hátterek elrejtése a kezdőképernyőn';
 	@override String get recentColorsDontSavePresets => 'Ne mentse az előre beállított színeket a legutóbbi színek között';
+	@override String get sentry => 'Hibajelentés';
 	@override String get autosave => 'Automatikus mentés';
 	@override String get simplifiedHomeLayout => 'Egyszerűsített otthoni elrendezés';
 	@override String get pencilSoundSetting => 'Ceruza hanghatás';
@@ -403,8 +427,9 @@ class _TranslationsSettingsPrefDescriptionsHu extends TranslationsSettingsPrefDe
 	@override late final _TranslationsSettingsPrefDescriptionsHideFingerDrawingHu hideFingerDrawing = _TranslationsSettingsPrefDescriptionsHideFingerDrawingHu._(_root);
 	@override String get editorPromptRename => 'A jegyzeteket később bármikor átnevezheti';
 	@override String get hideHomeBackgrounds => 'Egy letisztultabb megjelenítésért';
-	@override String get autosave => 'Automato-Save rövid késleltetés után, vagy soha';
 	@override late final _TranslationsSettingsPrefDescriptionsPencilSoundSettingHu pencilSoundSetting = _TranslationsSettingsPrefDescriptionsPencilSoundSettingHu._(_root);
+	@override late final _TranslationsSettingsPrefDescriptionsSentryHu sentry = _TranslationsSettingsPrefDescriptionsSentryHu._(_root);
+	@override String get autosave => 'Automato-Save rövid késleltetés után, vagy soha';
 	@override String get simplifiedHomeLayout => 'Rögzített magasságot állít be minden hangjegy előnézetéhez';
 	@override String get autoStraightenLines => 'Kiegyenesíti a hosszú vonalakat anélkül, hogy az alakos tollat ​​kellene használnia';
 	@override String get shapeRecognitionDelay => 'Milyen gyakran kell frissíteni az alakzat előnézetét';
@@ -760,6 +785,36 @@ class _TranslationsEditorHudHu extends TranslationsEditorHudEn {
 	@override String get lockAxisAlignedPan => 'A pásztázás rögzítése vízszintesre vagy függőlegesre';
 }
 
+// Path: sentry.consent.description
+class _TranslationsSentryConsentDescriptionHu extends TranslationsSentryConsentDescriptionEn {
+	_TranslationsSentryConsentDescriptionHu._(TranslationsHu root) : this._root = root, super.internal(root);
+
+	final TranslationsHu _root; // ignore: unused_field
+
+	// Translations
+	@override String get question => 'Szeretne automatikusan jelenteni a váratlan hibákat? Ez segít a problémák gyorsabb azonosításában és kijavításában.';
+	@override String get scope => 'A jelentések információkat tartalmazhatnak a hibáról és az eszközről. Minden erőfeszítést megtettem a személyes adatok kiszűrésére, de néhány megmaradhat.';
+	@override String get currentlyOff => 'Ha hozzájárulást ad, akkor a hibajelentés engedélyezve lesz az alkalmazás újraindítása után.';
+	@override String get currentlyOn => 'Ha visszavonja az egyetértést, kérjük, indítsa újra az alkalmazást a hibajelentés letiltása érdekében.';
+	@override TextSpan learnMoreInPrivacyPolicy({required InlineSpanBuilder link}) => TextSpan(children: [
+		const TextSpan(text: 'Tudjon meg többet a '),
+		link('adatvédelmi házirend'),
+		const TextSpan(text: ' -ben.'),
+	]);
+}
+
+// Path: sentry.consent.answers
+class _TranslationsSentryConsentAnswersHu extends TranslationsSentryConsentAnswersEn {
+	_TranslationsSentryConsentAnswersHu._(TranslationsHu root) : this._root = root, super.internal(root);
+
+	final TranslationsHu _root; // ignore: unused_field
+
+	// Translations
+	@override String get yes => 'Igen';
+	@override String get no => 'Nem';
+	@override String get later => 'Kérdezd meg később';
+}
+
 // Path: settings.prefDescriptions.hideFingerDrawing
 class _TranslationsSettingsPrefDescriptionsHideFingerDrawingHu extends TranslationsSettingsPrefDescriptionsHideFingerDrawingEn {
 	_TranslationsSettingsPrefDescriptionsHideFingerDrawingHu._(TranslationsHu root) : this._root = root, super.internal(root);
@@ -782,6 +837,19 @@ class _TranslationsSettingsPrefDescriptionsPencilSoundSettingHu extends Translat
 	@override String get off => 'Nincs hang';
 	@override String get onButNotInSilentMode => 'Engedélyezve (kivéve, ha néma módban van)';
 	@override String get onAlways => 'Engedélyezve (néma módban is)';
+}
+
+// Path: settings.prefDescriptions.sentry
+class _TranslationsSettingsPrefDescriptionsSentryHu extends TranslationsSettingsPrefDescriptionsSentryEn {
+	_TranslationsSettingsPrefDescriptionsSentryHu._(TranslationsHu root) : this._root = root, super.internal(root);
+
+	final TranslationsHu _root; // ignore: unused_field
+
+	// Translations
+	@override String get active => 'Aktív';
+	@override String get inactive => 'Tétlen';
+	@override String get activeUntilRestart => 'Aktív, amíg újra nem indítja újra az alkalmazást';
+	@override String get inactiveUntilRestart => 'Inaktív, amíg újra nem indítja újra az alkalmazást';
 }
 
 // Path: login.ncLoginStep.loginFlow

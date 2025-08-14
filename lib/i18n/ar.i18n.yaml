@@ -61,6 +61,19 @@ home:
     delete: حذف
     alsoDeleteContents: حذف جميع الملاحظات داخل هذا المجلد أيضًا
   noPreviewAvailable(OUTDATED): لا معاينة متاحة
+sentry: 
+  consent: 
+    title(OUTDATED): تساعد في تحسين صابر؟
+    description: 
+      question(OUTDATED): هل ترغب في الإبلاغ تلقائيًا عن أخطاء غير متوقعة؟ هذا يساعدني على تحديد وإصلاح المشكلات بشكل أسرع.
+      scope(OUTDATED): قد تحتوي التقارير على معلومات حول الخطأ وجهازك. لقد بذلت كل جهد ممكن لتصفية البيانات الشخصية ولكن قد يبقى البعض.
+      currentlyOff(OUTDATED): إذا منحت موافقة ، فسيتم تمكين الإبلاغ عن الخطأ بعد إعادة تشغيل التطبيق.
+      currentlyOn(OUTDATED): إذا قمت بإلغاء الموافقة ، يرجى إعادة تشغيل التطبيق لتعطيل الإبلاغ عن الخطأ.
+      learnMoreInPrivacyPolicy(rich, OUTDATED): تعرف على المزيد في ${link(سياسة الخصوصية)}.
+    answers: 
+      yes(OUTDATED): نعم
+      no(OUTDATED): لا
+      later(OUTDATED): اسألني لاحقًا
 settings: 
   prefCategories: 
     general: عام
@@ -96,6 +109,7 @@ settings:
     simplifiedHomeLayout: تخطيط الصفحة الرئيسية المبسط
     customDataDir: مخصص Saber مجلد
     pencilSoundSetting: تأثير صوت القلم
+    sentry(OUTDATED): الإبلاغ خطأ
     autosave(OUTDATED): تلقائي
   prefDescriptions: 
     hyperlegibleFont: يزيد Atkinson Hyperlegible من وضوح الرؤية للقراء الذين يعانون من ضعف في الرؤية
@@ -119,6 +133,11 @@ settings:
       off: بدون صوت
       onButNotInSilentMode: مفعل (ما لم يكن في وضع الصامت)
       onAlways: مفعل (حتى في وضع الصامت)
+    sentry: 
+      active(OUTDATED): نشيط
+      inactive(OUTDATED): غير نشط
+      activeUntilRestart(OUTDATED): نشط حتى تقوم بإعادة تشغيل التطبيق
+      inactiveUntilRestart(OUTDATED): غير نشط حتى تقوم بإعادة تشغيل التطبيق
     autosave(OUTDATED): تلقائي بعد تأخير قصير ، أو أبدا
   themeModes: 
     system: النظام
@@ -149,11 +168,11 @@ settings:
   autosaveDisabled(OUTDATED): أبداً
   shapeRecognitionDisabled(OUTDATED): أبداً
 logs: 
+  useTheApp(OUTDATED): ستظهر السجلات هنا أثناء استخدام التطبيق
   logs(OUTDATED): السجلات
   viewLogs(OUTDATED): عرض السجلات
   debuggingInfo(OUTDATED): تحتوي السجلات على معلومات مفيدة لتصحيح الأخطاء والتطوير
   noLogs(OUTDATED): لا يوجد سجلات هنا!
-  logsAreTemporary(OUTDATED): يتم الاحتفاظ بالسجلات فقط حتى تقوم بإغلاق التطبيق
 login: 
   title: تسجيل الدخول
   form: 

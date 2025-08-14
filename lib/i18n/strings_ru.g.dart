@@ -34,6 +34,7 @@ class TranslationsRu extends Translations {
 	// Translations
 	@override late final _TranslationsCommonRu common = _TranslationsCommonRu._(_root);
 	@override late final _TranslationsHomeRu home = _TranslationsHomeRu._(_root);
+	@override late final _TranslationsSentryRu sentry = _TranslationsSentryRu._(_root);
 	@override late final _TranslationsSettingsRu settings = _TranslationsSettingsRu._(_root);
 	@override late final _TranslationsLogsRu logs = _TranslationsLogsRu._(_root);
 	@override late final _TranslationsLoginRu login = _TranslationsLoginRu._(_root);
@@ -80,6 +81,16 @@ class _TranslationsHomeRu extends TranslationsHomeEn {
 	@override String get noPreviewAvailable => 'Нет предварительного просмотра';
 }
 
+// Path: sentry
+class _TranslationsSentryRu extends TranslationsSentryEn {
+	_TranslationsSentryRu._(TranslationsRu root) : this._root = root, super.internal(root);
+
+	final TranslationsRu _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsSentryConsentRu consent = _TranslationsSentryConsentRu._(_root);
+}
+
 // Path: settings
 class _TranslationsSettingsRu extends TranslationsSettingsEn {
 	_TranslationsSettingsRu._(TranslationsRu root) : this._root = root, super.internal(root);
@@ -119,7 +130,7 @@ class _TranslationsLogsRu extends TranslationsLogsEn {
 	@override String get viewLogs => 'Просмотр журналов';
 	@override String get debuggingInfo => 'Журналы содержат информацию, полезную для отладки и разработки';
 	@override String get noLogs => 'Здесь нет журналов!';
-	@override String get logsAreTemporary => 'Журналы хранятся пока вы не закроете приложение';
+	@override String get useTheApp => 'Журналы появятся здесь, когда вы используете приложение';
 }
 
 // Path: login
@@ -340,6 +351,18 @@ class _TranslationsHomeDeleteFolderRu extends TranslationsHomeDeleteFolderEn {
 	@override String get alsoDeleteContents => 'Также, удалить все заметки в этой папке';
 }
 
+// Path: sentry.consent
+class _TranslationsSentryConsentRu extends TranslationsSentryConsentEn {
+	_TranslationsSentryConsentRu._(TranslationsRu root) : this._root = root, super.internal(root);
+
+	final TranslationsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Помочь улучшить саблу?';
+	@override late final _TranslationsSentryConsentDescriptionRu description = _TranslationsSentryConsentDescriptionRu._(_root);
+	@override late final _TranslationsSentryConsentAnswersRu answers = _TranslationsSentryConsentAnswersRu._(_root);
+}
+
 // Path: settings.prefCategories
 class _TranslationsSettingsPrefCategoriesRu extends TranslationsSettingsPrefCategoriesEn {
 	_TranslationsSettingsPrefCategoriesRu._(TranslationsRu root) : this._root = root, super.internal(root);
@@ -383,12 +406,13 @@ class _TranslationsSettingsPrefLabelsRu extends TranslationsSettingsPrefLabelsEn
 	@override String get recentColorsDontSavePresets => 'Не сохранять предустановленные цвета в последних цветах';
 	@override String get recentColorsLength => 'Количество последних сохраняемых цветов';
 	@override String get printPageIndicators => 'Печатать номера страниц';
-	@override String get autosave => 'Авто-самая';
 	@override String get shapeRecognitionDelay => 'Задержка распознавания формы';
 	@override String get autoStraightenLines => 'Автоматическое выпрямление линий';
 	@override String get simplifiedHomeLayout => 'Упрощённый главный экран';
 	@override String get customDataDir => 'Свой каталог Saber';
 	@override String get pencilSoundSetting => 'Звуковой эффект карандаша';
+	@override String get sentry => 'Отчет об ошибках';
+	@override String get autosave => 'Авто-самая';
 }
 
 // Path: settings.prefDescriptions
@@ -408,12 +432,13 @@ class _TranslationsSettingsPrefDescriptionsRu extends TranslationsSettingsPrefDe
 	@override String get editorPromptRename => 'Вы всегда можете переименовать заметки позже';
 	@override String get hideHomeBackgrounds => 'Для чистого вида';
 	@override String get printPageIndicators => 'Показывать номера страниц при экспорте';
-	@override String get autosave => 'Авто-самая после короткой задержки или никогда';
 	@override String get shapeRecognitionDelay => 'Как часто обновлять предварительный просмотр формы';
 	@override String get autoStraightenLines => 'Выпрямляет длинные линии без использования фигурного пера';
 	@override String get simplifiedHomeLayout => 'Фиксированная высота предварительного просмотра каждой заметки';
 	@override String get shouldAlwaysAlertForUpdates => 'Сообщать мне об обновлениях, как только они станут доступны';
 	@override late final _TranslationsSettingsPrefDescriptionsPencilSoundSettingRu pencilSoundSetting = _TranslationsSettingsPrefDescriptionsPencilSoundSettingRu._(_root);
+	@override late final _TranslationsSettingsPrefDescriptionsSentryRu sentry = _TranslationsSettingsPrefDescriptionsSentryRu._(_root);
+	@override String get autosave => 'Авто-самая после короткой задержки или никогда';
 }
 
 // Path: settings.themeModes
@@ -762,6 +787,36 @@ class _TranslationsEditorHudRu extends TranslationsEditorHudEn {
 	@override String get lockAxisAlignedPan => 'Блокировать панораму по горизонтали или вертикали';
 }
 
+// Path: sentry.consent.description
+class _TranslationsSentryConsentDescriptionRu extends TranslationsSentryConsentDescriptionEn {
+	_TranslationsSentryConsentDescriptionRu._(TranslationsRu root) : this._root = root, super.internal(root);
+
+	final TranslationsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get question => 'Хотели бы вы автоматически сообщать о неожиданных ошибках? Это помогает мне быстрее выявлять и исправлять проблемы.';
+	@override String get scope => 'Отчеты могут содержать информацию об ошибке и вашем устройстве. Я приложил все усилия, чтобы отфильтровать личные данные, но некоторые могут остаться.';
+	@override String get currentlyOff => 'Если вы предоставите согласие, отчет об ошибках будет включена после перезапуска приложения.';
+	@override String get currentlyOn => 'Если вы отмените согласие, перезапустите приложение, чтобы отключить отчеты об ошибках.';
+	@override TextSpan learnMoreInPrivacyPolicy({required InlineSpanBuilder link}) => TextSpan(children: [
+		const TextSpan(text: 'Узнайте больше в '),
+		link('Политика конфиденциальности'),
+		const TextSpan(text: '.'),
+	]);
+}
+
+// Path: sentry.consent.answers
+class _TranslationsSentryConsentAnswersRu extends TranslationsSentryConsentAnswersEn {
+	_TranslationsSentryConsentAnswersRu._(TranslationsRu root) : this._root = root, super.internal(root);
+
+	final TranslationsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get yes => 'Да';
+	@override String get no => 'Нет';
+	@override String get later => 'Спроси меня позже';
+}
+
 // Path: settings.prefDescriptions.hideFingerDrawing
 class _TranslationsSettingsPrefDescriptionsHideFingerDrawingRu extends TranslationsSettingsPrefDescriptionsHideFingerDrawingEn {
 	_TranslationsSettingsPrefDescriptionsHideFingerDrawingRu._(TranslationsRu root) : this._root = root, super.internal(root);
@@ -784,6 +839,19 @@ class _TranslationsSettingsPrefDescriptionsPencilSoundSettingRu extends Translat
 	@override String get off => 'Без звука';
 	@override String get onButNotInSilentMode => 'Включено (кроме тихого режима)';
 	@override String get onAlways => 'Включено (даже в беззвучном режиме)';
+}
+
+// Path: settings.prefDescriptions.sentry
+class _TranslationsSettingsPrefDescriptionsSentryRu extends TranslationsSettingsPrefDescriptionsSentryEn {
+	_TranslationsSettingsPrefDescriptionsSentryRu._(TranslationsRu root) : this._root = root, super.internal(root);
+
+	final TranslationsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get active => 'Активный';
+	@override String get inactive => 'Неактивный';
+	@override String get activeUntilRestart => 'Активен, пока вы не перезапустите приложение';
+	@override String get inactiveUntilRestart => 'Неактивен, пока вы не перезапустите приложение';
 }
 
 // Path: login.ncLoginStep.loginFlow

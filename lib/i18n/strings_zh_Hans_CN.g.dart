@@ -34,6 +34,7 @@ class TranslationsZhHansCn extends Translations {
 	// Translations
 	@override late final _TranslationsCommonZhHansCn common = _TranslationsCommonZhHansCn._(_root);
 	@override late final _TranslationsHomeZhHansCn home = _TranslationsHomeZhHansCn._(_root);
+	@override late final _TranslationsSentryZhHansCn sentry = _TranslationsSentryZhHansCn._(_root);
 	@override late final _TranslationsSettingsZhHansCn settings = _TranslationsSettingsZhHansCn._(_root);
 	@override late final _TranslationsLogsZhHansCn logs = _TranslationsLogsZhHansCn._(_root);
 	@override late final _TranslationsLoginZhHansCn login = _TranslationsLoginZhHansCn._(_root);
@@ -80,6 +81,16 @@ class _TranslationsHomeZhHansCn extends TranslationsHomeEn {
 	@override String get noPreviewAvailable => '没有预览';
 }
 
+// Path: sentry
+class _TranslationsSentryZhHansCn extends TranslationsSentryEn {
+	_TranslationsSentryZhHansCn._(TranslationsZhHansCn root) : this._root = root, super.internal(root);
+
+	final TranslationsZhHansCn _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsSentryConsentZhHansCn consent = _TranslationsSentryConsentZhHansCn._(_root);
+}
+
 // Path: settings
 class _TranslationsSettingsZhHansCn extends TranslationsSettingsEn {
 	_TranslationsSettingsZhHansCn._(TranslationsZhHansCn root) : this._root = root, super.internal(root);
@@ -115,11 +126,11 @@ class _TranslationsLogsZhHansCn extends TranslationsLogsEn {
 	final TranslationsZhHansCn _root; // ignore: unused_field
 
 	// Translations
+	@override String get useTheApp => '当您使用该应用时，日志将出现在这里';
 	@override String get logs => '日志';
 	@override String get viewLogs => '查看日志';
 	@override String get debuggingInfo => '日志包含对调试和开发有用的信息';
 	@override String get noLogs => '这里没有日志！';
-	@override String get logsAreTemporary => '日志仅保留到您关闭应用程序为止';
 }
 
 // Path: login
@@ -340,6 +351,18 @@ class _TranslationsHomeDeleteFolderZhHansCn extends TranslationsHomeDeleteFolder
 	@override String get alsoDeleteContents => '同时删除此文件夹中的所有笔记';
 }
 
+// Path: sentry.consent
+class _TranslationsSentryConsentZhHansCn extends TranslationsSentryConsentEn {
+	_TranslationsSentryConsentZhHansCn._(TranslationsZhHansCn root) : this._root = root, super.internal(root);
+
+	final TranslationsZhHansCn _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '帮助改善军刀？';
+	@override late final _TranslationsSentryConsentDescriptionZhHansCn description = _TranslationsSentryConsentDescriptionZhHansCn._(_root);
+	@override late final _TranslationsSentryConsentAnswersZhHansCn answers = _TranslationsSentryConsentAnswersZhHansCn._(_root);
+}
+
 // Path: settings.prefCategories
 class _TranslationsSettingsPrefCategoriesZhHansCn extends TranslationsSettingsPrefCategoriesEn {
 	_TranslationsSettingsPrefCategoriesZhHansCn._(TranslationsZhHansCn root) : this._root = root, super.internal(root);
@@ -383,12 +406,13 @@ class _TranslationsSettingsPrefLabelsZhHansCn extends TranslationsSettingsPrefLa
 	@override String get recentColorsDontSavePresets => '不在最近使用的颜色中保存预设颜色';
 	@override String get recentColorsLength => '要存储多少种最近的颜色';
 	@override String get printPageIndicators => '打印页码';
-	@override String get autosave => '自动保存';
 	@override String get shapeRecognitionDelay => '形状识别延迟';
 	@override String get autoStraightenLines => '自动拉直线';
 	@override String get simplifiedHomeLayout => '简化主页布局';
 	@override String get customDataDir => '自定义 Saber 文件夹';
 	@override String get pencilSoundSetting => '铅笔音效';
+	@override String get sentry => '错误报告';
+	@override String get autosave => '自动保存';
 }
 
 // Path: settings.prefDescriptions
@@ -408,12 +432,13 @@ class _TranslationsSettingsPrefDescriptionsZhHansCn extends TranslationsSettings
 	@override String get editorPromptRename => '您可以总是稍后重命名笔记';
 	@override String get hideHomeBackgrounds => '更简洁的外观';
 	@override String get printPageIndicators => '在导出中显示页码';
-	@override String get autosave => '短暂延迟后自动保存，或者永远不会';
 	@override String get shapeRecognitionDelay => '形状预览更新频率';
 	@override String get autoStraightenLines => '拉直长线，无需使用形状笔';
 	@override String get simplifiedHomeLayout => '为每个笔记预览设置固定高度';
 	@override String get shouldAlwaysAlertForUpdates => '在更新可用时尽快告诉我';
 	@override late final _TranslationsSettingsPrefDescriptionsPencilSoundSettingZhHansCn pencilSoundSetting = _TranslationsSettingsPrefDescriptionsPencilSoundSettingZhHansCn._(_root);
+	@override late final _TranslationsSettingsPrefDescriptionsSentryZhHansCn sentry = _TranslationsSettingsPrefDescriptionsSentryZhHansCn._(_root);
+	@override String get autosave => '短暂延迟后自动保存，或者永远不会';
 }
 
 // Path: settings.themeModes
@@ -762,6 +787,36 @@ class _TranslationsEditorHudZhHansCn extends TranslationsEditorHudEn {
 	@override String get lockAxisAlignedPan => '锁定水平或垂直平移';
 }
 
+// Path: sentry.consent.description
+class _TranslationsSentryConsentDescriptionZhHansCn extends TranslationsSentryConsentDescriptionEn {
+	_TranslationsSentryConsentDescriptionZhHansCn._(TranslationsZhHansCn root) : this._root = root, super.internal(root);
+
+	final TranslationsZhHansCn _root; // ignore: unused_field
+
+	// Translations
+	@override String get question => '您想自动报告意外错误吗？这可以帮助我更快地识别和解决问题。';
+	@override String get scope => '报告可能包含有关错误和设备的信息。我已经尽一切努力过滤了个人数据，但有些可能会保留。';
+	@override String get currentlyOff => '如果您授予同意，则重新启动应用程序后将启用错误报告。';
+	@override String get currentlyOn => '如果您撤销同意，请重新启动该应用程序以禁用错误报告。';
+	@override TextSpan learnMoreInPrivacyPolicy({required InlineSpanBuilder link}) => TextSpan(children: [
+		const TextSpan(text: '在'),
+		link('隐私策略'),
+		const TextSpan(text: '中了解更多信息。'),
+	]);
+}
+
+// Path: sentry.consent.answers
+class _TranslationsSentryConsentAnswersZhHansCn extends TranslationsSentryConsentAnswersEn {
+	_TranslationsSentryConsentAnswersZhHansCn._(TranslationsZhHansCn root) : this._root = root, super.internal(root);
+
+	final TranslationsZhHansCn _root; // ignore: unused_field
+
+	// Translations
+	@override String get yes => '是的';
+	@override String get no => '不';
+	@override String get later => '稍后问我';
+}
+
 // Path: settings.prefDescriptions.hideFingerDrawing
 class _TranslationsSettingsPrefDescriptionsHideFingerDrawingZhHansCn extends TranslationsSettingsPrefDescriptionsHideFingerDrawingEn {
 	_TranslationsSettingsPrefDescriptionsHideFingerDrawingZhHansCn._(TranslationsZhHansCn root) : this._root = root, super.internal(root);
@@ -784,6 +839,19 @@ class _TranslationsSettingsPrefDescriptionsPencilSoundSettingZhHansCn extends Tr
 	@override String get off => '没有音效';
 	@override String get onButNotInSilentMode => '启用（除非在静音模式下）';
 	@override String get onAlways => '启用（即使在静音模式下）';
+}
+
+// Path: settings.prefDescriptions.sentry
+class _TranslationsSettingsPrefDescriptionsSentryZhHansCn extends TranslationsSettingsPrefDescriptionsSentryEn {
+	_TranslationsSettingsPrefDescriptionsSentryZhHansCn._(TranslationsZhHansCn root) : this._root = root, super.internal(root);
+
+	final TranslationsZhHansCn _root; // ignore: unused_field
+
+	// Translations
+	@override String get active => '积极的';
+	@override String get inactive => '不活动';
+	@override String get activeUntilRestart => '活跃直到重新启动应用程序';
+	@override String get inactiveUntilRestart => '不活动直到重新启动应用程序';
 }
 
 // Path: login.ncLoginStep.loginFlow

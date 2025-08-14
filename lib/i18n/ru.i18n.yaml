@@ -61,6 +61,19 @@ home:
     delete: Удалить
     alsoDeleteContents: Также, удалить все заметки в этой папке
   noPreviewAvailable(OUTDATED): Нет предварительного просмотра
+sentry: 
+  consent: 
+    title(OUTDATED): Помочь улучшить саблу?
+    description: 
+      question(OUTDATED): Хотели бы вы автоматически сообщать о неожиданных ошибках? Это помогает мне быстрее выявлять и исправлять проблемы.
+      scope(OUTDATED): Отчеты могут содержать информацию об ошибке и вашем устройстве. Я приложил все усилия, чтобы отфильтровать личные данные, но некоторые могут остаться.
+      currentlyOff(OUTDATED): Если вы предоставите согласие, отчет об ошибках будет включена после перезапуска приложения.
+      currentlyOn(OUTDATED): Если вы отмените согласие, перезапустите приложение, чтобы отключить отчеты об ошибках.
+      learnMoreInPrivacyPolicy(rich, OUTDATED): Узнайте больше в ${link(Политика конфиденциальности)}.
+    answers: 
+      yes(OUTDATED): Да
+      no(OUTDATED): Нет
+      later(OUTDATED): Спроси меня позже
 settings: 
   prefCategories: 
     general: Общие
@@ -96,6 +109,7 @@ settings:
     simplifiedHomeLayout: Упрощённый главный экран
     customDataDir: Свой каталог Saber
     pencilSoundSetting: Звуковой эффект карандаша
+    sentry(OUTDATED): Отчет об ошибках
     autosave(OUTDATED): Авто-самая
   prefDescriptions: 
     hyperlegibleFont: Шрифт Atkinson Hyperlegible повышает разборчивость для читателей с плохим зрением
@@ -119,6 +133,11 @@ settings:
       off: Без звука
       onButNotInSilentMode: Включено (кроме тихого режима)
       onAlways: Включено (даже в беззвучном режиме)
+    sentry: 
+      active(OUTDATED): Активный
+      inactive(OUTDATED): Неактивный
+      activeUntilRestart(OUTDATED): Активен, пока вы не перезапустите приложение
+      inactiveUntilRestart(OUTDATED): Неактивен, пока вы не перезапустите приложение
     autosave(OUTDATED): Авто-самая после короткой задержки или никогда
   themeModes: 
     system: Системная
@@ -153,7 +172,7 @@ logs:
   viewLogs: Просмотр журналов
   debuggingInfo: Журналы содержат информацию, полезную для отладки и разработки
   noLogs: Здесь нет журналов!
-  logsAreTemporary: Журналы хранятся пока вы не закроете приложение
+  useTheApp(OUTDATED): Журналы появятся здесь, когда вы используете приложение
 login: 
   title: Авторизация
   form: 

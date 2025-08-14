@@ -61,6 +61,19 @@ home:
     delete: 删除
     alsoDeleteContents: 同时删除此文件夹中的所有笔记
   noPreviewAvailable(OUTDATED): 没有预览
+sentry: 
+  consent: 
+    title(OUTDATED): 帮助改善军刀？
+    description: 
+      question(OUTDATED): 您想自动报告意外错误吗？这可以帮助我更快地识别和解决问题。
+      scope(OUTDATED): 报告可能包含有关错误和设备的信息。我已经尽一切努力过滤了个人数据，但有些可能会保留。
+      currentlyOff(OUTDATED): 如果您授予同意，则重新启动应用程序后将启用错误报告。
+      currentlyOn(OUTDATED): 如果您撤销同意，请重新启动该应用程序以禁用错误报告。
+      learnMoreInPrivacyPolicy(rich, OUTDATED): 在${link(隐私策略)}中了解更多信息。
+    answers: 
+      yes(OUTDATED): 是的
+      no(OUTDATED): 不
+      later(OUTDATED): 稍后问我
 settings: 
   prefCategories: 
     general: 通用
@@ -96,6 +109,7 @@ settings:
     simplifiedHomeLayout: 简化主页布局
     customDataDir: 自定义 Saber 文件夹
     pencilSoundSetting: 铅笔音效
+    sentry(OUTDATED): 错误报告
     autosave(OUTDATED): 自动保存
   prefDescriptions: 
     hyperlegibleFont: Atkinson Hyperlegible 字体为低视力读者提高易读性
@@ -119,6 +133,11 @@ settings:
       off: 没有音效
       onButNotInSilentMode: 启用（除非在静音模式下）
       onAlways: 启用（即使在静音模式下）
+    sentry: 
+      active(OUTDATED): 积极的
+      inactive(OUTDATED): 不活动
+      activeUntilRestart(OUTDATED): 活跃直到重新启动应用程序
+      inactiveUntilRestart(OUTDATED): 不活动直到重新启动应用程序
     autosave(OUTDATED): 短暂延迟后自动保存，或者永远不会
   themeModes: 
     system: 系统
@@ -149,11 +168,11 @@ settings:
   autosaveDisabled(OUTDATED): 绝不
   shapeRecognitionDisabled(OUTDATED): 绝不
 logs: 
+  useTheApp(OUTDATED): 当您使用该应用时，日志将出现在这里
   logs(OUTDATED): 日志
   viewLogs(OUTDATED): 查看日志
   debuggingInfo(OUTDATED): 日志包含对调试和开发有用的信息
   noLogs(OUTDATED): 这里没有日志！
-  logsAreTemporary(OUTDATED): 日志仅保留到您关闭应用程序为止
 login: 
   title: 登录
   form: 

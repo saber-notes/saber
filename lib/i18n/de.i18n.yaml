@@ -61,6 +61,19 @@ home:
     delete: LÖschen
     alsoDeleteContents: Auch alle Notizen in diesem Ordner löschen
   noPreviewAvailable(OUTDATED): Keine Vorschau verfügbar
+sentry: 
+  consent: 
+    title(OUTDATED): Bessert die Saber?
+    description: 
+      question(OUTDATED): Möchten Sie automatisch unerwartete Fehler melden? Dies hilft mir, Probleme schneller zu identifizieren und zu beheben.
+      scope(OUTDATED): Die Berichte können Informationen über den Fehler und Ihr Gerät enthalten. Ich habe alle Anstrengungen unternommen, um personenbezogene Daten herauszufiltern, aber einige können bleiben.
+      currentlyOff(OUTDATED): Wenn Sie die Einverständniserklärung erteilen, wird die Fehlerberichterstattung nach dem Neustart der App aktiviert.
+      currentlyOn(OUTDATED): Wenn Sie die Einwilligung widerrufen, starten Sie die App neu, um die Fehlerberichterstattung zu deaktivieren.
+      learnMoreInPrivacyPolicy(rich, OUTDATED): Erfahren Sie mehr in der ${link(Datenschutzrichtlinie)}.
+    answers: 
+      yes(OUTDATED): Ja
+      no(OUTDATED): NEIN
+      later(OUTDATED): Fragen Sie mich später
 settings: 
   prefCategories: 
     general: Allgemein
@@ -96,6 +109,7 @@ settings:
     simplifiedHomeLayout: Vereinfachtes Startbildschirmlayout
     customDataDir: Eigener Saber-Ordner
     pencilSoundSetting: Bleistiftgeräusch
+    sentry(OUTDATED): Fehlerberichterstattung
     autosave(OUTDATED): Auto-Save
   prefDescriptions: 
     hyperlegibleFont: Atkinson Hyperlegible verbessert die Lesbarkeit für Menschen mit eingeschränkter Sicht
@@ -119,6 +133,11 @@ settings:
       off: Kein Geräusch
       onButNotInSilentMode: Aktiv (außer im Stummmodus)
       onAlways: Aktiv (sogar im Stummmodus)
+    sentry: 
+      active(OUTDATED): Aktiv
+      inactive(OUTDATED): Inaktiv
+      activeUntilRestart(OUTDATED): Aktiv, bis Sie die App neu starten
+      inactiveUntilRestart(OUTDATED): Inaktiv, bis Sie die App neu starten
     autosave(OUTDATED): Automatisch nach einer kurzen Verzögerung oder nie
   themeModes: 
     system: System
@@ -149,11 +168,11 @@ settings:
   autosaveDisabled(OUTDATED): Niemals
   shapeRecognitionDisabled(OUTDATED): Niemals
 logs: 
+  useTheApp(OUTDATED): Protokolle werden hier angezeigt, wenn Sie die App verwenden
   logs(OUTDATED): Protokolle
   viewLogs(OUTDATED): Protokolle anzeigen
   debuggingInfo(OUTDATED): Protokolle enthalten Informationen, die für die Fehlerbehebung und Entwicklung nützlich sind
   noLogs(OUTDATED): Hier gibt es keine Protokolle!
-  logsAreTemporary(OUTDATED): Protokolle werden nur so lange gespeichert, bis Sie die App schließen
 login: 
   title: Login
   form: 

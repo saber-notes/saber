@@ -34,6 +34,7 @@ class TranslationsHe extends Translations {
 	// Translations
 	@override late final _TranslationsCommonHe common = _TranslationsCommonHe._(_root);
 	@override late final _TranslationsHomeHe home = _TranslationsHomeHe._(_root);
+	@override late final _TranslationsSentryHe sentry = _TranslationsSentryHe._(_root);
 	@override late final _TranslationsSettingsHe settings = _TranslationsSettingsHe._(_root);
 	@override late final _TranslationsLogsHe logs = _TranslationsLogsHe._(_root);
 	@override late final _TranslationsLoginHe login = _TranslationsLoginHe._(_root);
@@ -80,6 +81,16 @@ class _TranslationsHomeHe extends TranslationsHomeEn {
 	@override String get noPreviewAvailable => 'אין תצוגה מקדימה זמינה';
 }
 
+// Path: sentry
+class _TranslationsSentryHe extends TranslationsSentryEn {
+	_TranslationsSentryHe._(TranslationsHe root) : this._root = root, super.internal(root);
+
+	final TranslationsHe _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsSentryConsentHe consent = _TranslationsSentryConsentHe._(_root);
+}
+
 // Path: settings
 class _TranslationsSettingsHe extends TranslationsSettingsEn {
 	_TranslationsSettingsHe._(TranslationsHe root) : this._root = root, super.internal(root);
@@ -115,11 +126,11 @@ class _TranslationsLogsHe extends TranslationsLogsEn {
 	final TranslationsHe _root; // ignore: unused_field
 
 	// Translations
+	@override String get useTheApp => 'יומנים יופיעו כאן בזמן שאתה משתמש באפליקציה';
 	@override String get logs => 'יומנים';
 	@override String get viewLogs => 'הצג יומנים';
 	@override String get debuggingInfo => 'יומנים מכילים מידע שימושי עבור איתור באגים ופיתוח';
 	@override String get noLogs => 'אין כאן יומנים!';
-	@override String get logsAreTemporary => 'יומנים נשמרים רק עד לסגירת האפליקציה';
 }
 
 // Path: login
@@ -338,6 +349,18 @@ class _TranslationsHomeDeleteFolderHe extends TranslationsHomeDeleteFolderEn {
 	@override String get alsoDeleteContents => 'גם תמחק את כל הפתקים בתקייה זו';
 }
 
+// Path: sentry.consent
+class _TranslationsSentryConsentHe extends TranslationsSentryConsentEn {
+	_TranslationsSentryConsentHe._(TranslationsHe root) : this._root = root, super.internal(root);
+
+	final TranslationsHe _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'לעזור בשיפור סאבר?';
+	@override late final _TranslationsSentryConsentDescriptionHe description = _TranslationsSentryConsentDescriptionHe._(_root);
+	@override late final _TranslationsSentryConsentAnswersHe answers = _TranslationsSentryConsentAnswersHe._(_root);
+}
+
 // Path: settings.prefCategories
 class _TranslationsSettingsPrefCategoriesHe extends TranslationsSettingsPrefCategoriesEn {
 	_TranslationsSettingsPrefCategoriesHe._(TranslationsHe root) : this._root = root, super.internal(root);
@@ -380,6 +403,7 @@ class _TranslationsSettingsPrefLabelsHe extends TranslationsSettingsPrefLabelsEn
 	@override String get hideHomeBackgrounds => 'הסתר רקעים במסך הבית';
 	@override String get recentColorsDontSavePresets => 'אל תשמור צבעים מוגדרים מראש בצבעים אחרונים';
 	@override String get printPageIndicators => 'הדפסת עמודים מחוונים';
+	@override String get sentry => 'דיווח שגיאות';
 	@override String get autosave => 'שמור אוטומטי';
 	@override String get simplifiedHomeLayout => 'פריסת בית פשוטה';
 	@override String get pencilSoundSetting => 'אפקט צליל עיפרון';
@@ -406,9 +430,10 @@ class _TranslationsSettingsPrefDescriptionsHe extends TranslationsSettingsPrefDe
 	@override String get editorPromptRename => 'תמיד תוכל לשנות את שם הפתקים מאוחר יותר';
 	@override String get hideHomeBackgrounds => 'למראה נקי יותר';
 	@override String get printPageIndicators => 'הצג מחווני עמודים בייצוא';
-	@override String get autosave => 'יש לשעוג אוטומטית לאחר עיכוב קצר, או לעולם';
 	@override String get shouldAlwaysAlertForUpdates => 'ספר לי על עדכונים ברגע שהם יהיו זמינים';
 	@override late final _TranslationsSettingsPrefDescriptionsPencilSoundSettingHe pencilSoundSetting = _TranslationsSettingsPrefDescriptionsPencilSoundSettingHe._(_root);
+	@override late final _TranslationsSettingsPrefDescriptionsSentryHe sentry = _TranslationsSettingsPrefDescriptionsSentryHe._(_root);
+	@override String get autosave => 'יש לשעוג אוטומטית לאחר עיכוב קצר, או לעולם';
 	@override String get simplifiedHomeLayout => 'מגדיר גובה קבוע עבור כל תצוגה מקדימה של הערה';
 	@override String get autoStraightenLines => 'מיישר קווים ארוכים ללא צורך להשתמש בעט הצורה';
 	@override String get shapeRecognitionDelay => 'באיזו תדירות לעדכן את התצוגה המקדימה של הצורה';
@@ -760,6 +785,36 @@ class _TranslationsEditorHudHe extends TranslationsEditorHudEn {
 	@override String get lockAxisAlignedPan => 'נעילת גלילה רציפה לאופקית או אנכית';
 }
 
+// Path: sentry.consent.description
+class _TranslationsSentryConsentDescriptionHe extends TranslationsSentryConsentDescriptionEn {
+	_TranslationsSentryConsentDescriptionHe._(TranslationsHe root) : this._root = root, super.internal(root);
+
+	final TranslationsHe _root; // ignore: unused_field
+
+	// Translations
+	@override String get question => 'האם ברצונך לדווח אוטומטית על שגיאות בלתי צפויות? זה עוזר לי לזהות ולתקן בעיות מהר יותר.';
+	@override String get scope => 'הדוחות עשויים להכיל מידע על השגיאה והמכשיר שלך. עשיתי כל מאמץ לסנן נתונים אישיים אך חלקם עשויים להישאר.';
+	@override String get currentlyOff => 'אם אתה מעניק הסכמה, דיווח שגיאות יופעל לאחר שתפעיל מחדש את האפליקציה.';
+	@override String get currentlyOn => 'אם תבטל הסכמה, הפעל מחדש את האפליקציה כדי להשבית את דיווח השגיאות.';
+	@override TextSpan learnMoreInPrivacyPolicy({required InlineSpanBuilder link}) => TextSpan(children: [
+		const TextSpan(text: 'למידע נוסף ב- '),
+		link('מדיניות פרטיות'),
+		const TextSpan(text: '.'),
+	]);
+}
+
+// Path: sentry.consent.answers
+class _TranslationsSentryConsentAnswersHe extends TranslationsSentryConsentAnswersEn {
+	_TranslationsSentryConsentAnswersHe._(TranslationsHe root) : this._root = root, super.internal(root);
+
+	final TranslationsHe _root; // ignore: unused_field
+
+	// Translations
+	@override String get yes => 'כֵּן';
+	@override String get no => 'לֹא';
+	@override String get later => 'שאל אותי אחר כך';
+}
+
 // Path: settings.prefDescriptions.hideFingerDrawing
 class _TranslationsSettingsPrefDescriptionsHideFingerDrawingHe extends TranslationsSettingsPrefDescriptionsHideFingerDrawingEn {
 	_TranslationsSettingsPrefDescriptionsHideFingerDrawingHe._(TranslationsHe root) : this._root = root, super.internal(root);
@@ -782,6 +837,19 @@ class _TranslationsSettingsPrefDescriptionsPencilSoundSettingHe extends Translat
 	@override String get onButNotInSilentMode => 'מופעל (אלא אם כן במצב שקט)';
 	@override String get off => 'אין קול';
 	@override String get onAlways => 'מופעל (אפילו במצב שקט)';
+}
+
+// Path: settings.prefDescriptions.sentry
+class _TranslationsSettingsPrefDescriptionsSentryHe extends TranslationsSettingsPrefDescriptionsSentryEn {
+	_TranslationsSettingsPrefDescriptionsSentryHe._(TranslationsHe root) : this._root = root, super.internal(root);
+
+	final TranslationsHe _root; // ignore: unused_field
+
+	// Translations
+	@override String get active => 'פָּעִיל';
+	@override String get inactive => 'לֹא פָּעִיל';
+	@override String get activeUntilRestart => 'פעיל עד שתפעיל מחדש את האפליקציה';
+	@override String get inactiveUntilRestart => 'לא פעיל עד שתפעיל מחדש את האפליקציה';
 }
 
 // Path: login.ncLoginStep.loginFlow

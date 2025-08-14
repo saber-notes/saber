@@ -61,6 +61,19 @@ home:
     deleteName: Delete $f
     delete: Delete
     alsoDeleteContents: Also delete all notes inside this folder
+sentry:
+  consent:
+    title: Help improve Saber?
+    description:
+      question: Would you like to automatically report unexpected errors? This helps me identify and fix issues faster.
+      scope: The reports may contain information about the error and your device. I've made every effort to filter out personal data but some may remain.
+      currentlyOff: If you grant consent, error reporting will be enabled after you restart the app.
+      currentlyOn: If you revoke consent, please restart the app to disable error reporting.
+      learnMoreInPrivacyPolicy(rich): Learn more in the ${link(privacy policy)}.
+    answers:
+      yes: Yes
+      no: No
+      later: Ask me later
 settings: 
   prefCategories: 
     general: General
@@ -97,6 +110,7 @@ settings:
     simplifiedHomeLayout: Simplified home layout
     customDataDir: Custom Saber folder
     pencilSoundSetting: Pencil sound effect
+    sentry: Error reporting
   prefDescriptions: 
     hyperlegibleFont: Increases legibility for users with low vision
     allowInsecureConnections: (Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates
@@ -120,6 +134,11 @@ settings:
       off: No sound
       onButNotInSilentMode: Enabled (unless in silent mode)
       onAlways: Enabled (even in silent mode)
+    sentry:
+      active: Active
+      inactive: Inactive
+      activeUntilRestart: Active until you restart the app
+      inactiveUntilRestart: Inactive until you restart the app
   themeModes: 
     system: System
     light: Light
@@ -153,7 +172,7 @@ logs:
   viewLogs: View logs
   debuggingInfo: Logs contain information useful for debugging and development
   noLogs: No logs here!
-  logsAreTemporary: Logs are only kept until you close the app
+  useTheApp: Logs will appear here as you use the app
 login: 
   title: Login
   form: 

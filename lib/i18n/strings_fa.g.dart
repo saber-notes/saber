@@ -34,6 +34,7 @@ class TranslationsFa extends Translations {
 	// Translations
 	@override late final _TranslationsCommonFa common = _TranslationsCommonFa._(_root);
 	@override late final _TranslationsHomeFa home = _TranslationsHomeFa._(_root);
+	@override late final _TranslationsSentryFa sentry = _TranslationsSentryFa._(_root);
 	@override late final _TranslationsSettingsFa settings = _TranslationsSettingsFa._(_root);
 	@override late final _TranslationsLogsFa logs = _TranslationsLogsFa._(_root);
 	@override late final _TranslationsLoginFa login = _TranslationsLoginFa._(_root);
@@ -80,6 +81,16 @@ class _TranslationsHomeFa extends TranslationsHomeEn {
 	@override String get noPreviewAvailable => 'پیش نمایش موجود نیست';
 }
 
+// Path: sentry
+class _TranslationsSentryFa extends TranslationsSentryEn {
+	_TranslationsSentryFa._(TranslationsFa root) : this._root = root, super.internal(root);
+
+	final TranslationsFa _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsSentryConsentFa consent = _TranslationsSentryConsentFa._(_root);
+}
+
 // Path: settings
 class _TranslationsSettingsFa extends TranslationsSettingsEn {
 	_TranslationsSettingsFa._(TranslationsFa root) : this._root = root, super.internal(root);
@@ -115,11 +126,11 @@ class _TranslationsLogsFa extends TranslationsLogsEn {
 	final TranslationsFa _root; // ignore: unused_field
 
 	// Translations
+	@override String get useTheApp => 'هنگام استفاده از برنامه ، سیاههها در اینجا ظاهر می شوند';
 	@override String get logs => 'سیاههها';
 	@override String get viewLogs => 'مشاهده سیاهههای مربوط';
 	@override String get debuggingInfo => 'گزارش ها حاوی اطلاعات مفیدی برای اشکال زدایی و توسعه هستند';
 	@override String get noLogs => 'اینجا هیچ گزارشی وجود ندارد!';
-	@override String get logsAreTemporary => 'گزارش‌ها فقط تا زمانی که برنامه را ببندید نگهداری می‌شوند';
 }
 
 // Path: login
@@ -338,6 +349,18 @@ class _TranslationsHomeDeleteFolderFa extends TranslationsHomeDeleteFolderEn {
 	@override String get alsoDeleteContents => 'همچنین تمام یادداشت های داخل این پوشه را حذف کنید';
 }
 
+// Path: sentry.consent
+class _TranslationsSentryConsentFa extends TranslationsSentryConsentEn {
+	_TranslationsSentryConsentFa._(TranslationsFa root) : this._root = root, super.internal(root);
+
+	final TranslationsFa _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'به بهبود صابر کمک می کنید؟';
+	@override late final _TranslationsSentryConsentDescriptionFa description = _TranslationsSentryConsentDescriptionFa._(_root);
+	@override late final _TranslationsSentryConsentAnswersFa answers = _TranslationsSentryConsentAnswersFa._(_root);
+}
+
 // Path: settings.prefCategories
 class _TranslationsSettingsPrefCategoriesFa extends TranslationsSettingsPrefCategoriesEn {
 	_TranslationsSettingsPrefCategoriesFa._(TranslationsFa root) : this._root = root, super.internal(root);
@@ -381,8 +404,9 @@ class _TranslationsSettingsPrefLabelsFa extends TranslationsSettingsPrefLabelsEn
 	@override String get recentColorsDontSavePresets => 'رنگ های از پیش تعیین شده را در رنگ های اخیر ذخیره نکنید';
 	@override String get recentColorsLength => 'چند رنگ اخیر برای ذخیره';
 	@override String get printPageIndicators => 'چاپ نشانگرهای صفحه';
-	@override String get autosave => 'خودرا';
 	@override String get shapeRecognitionDelay => 'تاخیر در تشخیص شکل';
+	@override String get sentry => 'گزارش خطا';
+	@override String get autosave => 'خودرا';
 	@override String get simplifiedHomeLayout => 'چیدمان خانه ساده شده';
 	@override String get pencilSoundSetting => 'جلوه صدای مداد';
 	@override String get customDataDir => 'دایرکتوری داده های سفارشی';
@@ -406,10 +430,11 @@ class _TranslationsSettingsPrefDescriptionsFa extends TranslationsSettingsPrefDe
 	@override String get editorPromptRename => 'همیشه می توانید بعداً نام یادداشت ها را تغییر دهید';
 	@override String get hideHomeBackgrounds => 'برای ظاهری تمیز تر';
 	@override String get printPageIndicators => 'نمایش نشانگرهای صفحه در خروجی';
-	@override String get autosave => 'پس از یک تأخیر کوتاه ، یا هرگز';
 	@override String get shapeRecognitionDelay => 'به روز رسانی پیشنمایش شکل چند وقت یکبار انجام شود';
 	@override String get shouldAlwaysAlertForUpdates => 'به محض اینکه به‌روزرسانی‌ها در دسترس هستند، به من بگویید';
 	@override late final _TranslationsSettingsPrefDescriptionsPencilSoundSettingFa pencilSoundSetting = _TranslationsSettingsPrefDescriptionsPencilSoundSettingFa._(_root);
+	@override late final _TranslationsSettingsPrefDescriptionsSentryFa sentry = _TranslationsSettingsPrefDescriptionsSentryFa._(_root);
+	@override String get autosave => 'پس از یک تأخیر کوتاه ، یا هرگز';
 	@override String get simplifiedHomeLayout => 'یک ارتفاع ثابت برای پیش نمایش هر یادداشت تنظیم می کند';
 	@override String get autoStraightenLines => 'خطوط بلند را بدون استفاده از قلم شکل صاف می کند';
 }
@@ -760,6 +785,31 @@ class _TranslationsEditorHudFa extends TranslationsEditorHudEn {
 	@override String get lockAxisAlignedPan => 'پانینگ را به صورت افقی یا عمودی قفل کنید';
 }
 
+// Path: sentry.consent.description
+class _TranslationsSentryConsentDescriptionFa extends TranslationsSentryConsentDescriptionEn {
+	_TranslationsSentryConsentDescriptionFa._(TranslationsFa root) : this._root = root, super.internal(root);
+
+	final TranslationsFa _root; // ignore: unused_field
+
+	// Translations
+	@override String get question => 'آیا دوست دارید به طور خودکار خطاهای غیر منتظره را گزارش کنید؟ این به من کمک می کند تا مسائل را سریعتر شناسایی و رفع کنم.';
+	@override String get scope => 'گزارش ها ممکن است حاوی اطلاعاتی در مورد خطا و دستگاه شما باشد. من تمام تلاش خود را برای فیلتر کردن داده های شخصی کردم اما برخی ممکن است باقی بمانند.';
+	@override String get currentlyOff => 'اگر رضایت دهید ، گزارش خطا پس از شروع مجدد برنامه فعال می شود.';
+	@override String get currentlyOn => 'اگر رضایت را لغو کردید ، لطفاً برنامه را برای غیرفعال کردن گزارش خطا مجدداً راه اندازی کنید.';
+}
+
+// Path: sentry.consent.answers
+class _TranslationsSentryConsentAnswersFa extends TranslationsSentryConsentAnswersEn {
+	_TranslationsSentryConsentAnswersFa._(TranslationsFa root) : this._root = root, super.internal(root);
+
+	final TranslationsFa _root; // ignore: unused_field
+
+	// Translations
+	@override String get yes => 'بله';
+	@override String get no => 'هیچ';
+	@override String get later => 'بعداً از من بپرس';
+}
+
 // Path: settings.prefDescriptions.hideFingerDrawing
 class _TranslationsSettingsPrefDescriptionsHideFingerDrawingFa extends TranslationsSettingsPrefDescriptionsHideFingerDrawingEn {
 	_TranslationsSettingsPrefDescriptionsHideFingerDrawingFa._(TranslationsFa root) : this._root = root, super.internal(root);
@@ -782,6 +832,19 @@ class _TranslationsSettingsPrefDescriptionsPencilSoundSettingFa extends Translat
 	@override String get onAlways => 'فعال (حتی در حالت بی صدا)';
 	@override String get off => 'بدون صدا';
 	@override String get onButNotInSilentMode => 'فعال (مگر در حالت بی صدا)';
+}
+
+// Path: settings.prefDescriptions.sentry
+class _TranslationsSettingsPrefDescriptionsSentryFa extends TranslationsSettingsPrefDescriptionsSentryEn {
+	_TranslationsSettingsPrefDescriptionsSentryFa._(TranslationsFa root) : this._root = root, super.internal(root);
+
+	final TranslationsFa _root; // ignore: unused_field
+
+	// Translations
+	@override String get active => 'فعال';
+	@override String get inactive => 'غیر فعال';
+	@override String get activeUntilRestart => 'فعال باشید تا زمانی که برنامه را مجدداً راه اندازی کنید';
+	@override String get inactiveUntilRestart => 'تا زمانی که برنامه را مجدداً راه اندازی کنید غیرفعال است';
 }
 
 // Path: login.ncLoginStep.loginFlow

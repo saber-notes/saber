@@ -61,6 +61,17 @@ home:
     delete: Apagar
     alsoDeleteContents: Apagar também todas as notas dentro desta pasta
   noPreviewAvailable(OUTDATED): Nenhuma visualização disponível
+sentry: 
+  consent: 
+    description: 
+      question(OUTDATED): Você gostaria de relatar automaticamente erros inesperados? Isso me ajuda a identificar e corrigir problemas mais rapidamente.
+      scope(OUTDATED): Os relatórios podem conter informações sobre o erro e seu dispositivo. Fiz todos os esforços para filtrar dados pessoais, mas alguns podem permanecer.
+      currentlyOff(OUTDATED): Se você conceder consentimento, o erro de erro será ativado após o reiniciar o aplicativo.
+      currentlyOn(OUTDATED): Se você revogar o consentimento, reinicie o aplicativo para desativar os relatórios de erros.
+      learnMoreInPrivacyPolicy(rich, OUTDATED): Saiba mais na ${link(Política de Privacidade)}.
+    answers: 
+      yes(OUTDATED): Sim
+      later(OUTDATED): Pergunte -me mais tarde
 settings: 
   prefCategories: 
     general: Geral
@@ -90,6 +101,7 @@ settings:
     hideHomeBackgrounds: Ocultar planos de fundo na tela inicial
     recentColorsDontSavePresets: Não salvar as cores predefinidas nas cores recentes
     printPageIndicators: Imprimir os indicadores de página
+    sentry(OUTDATED): Relatório de erro
     autosave(OUTDATED): Save automática
     simplifiedHomeLayout(OUTDATED): Layout simplificado da casa
     pencilSoundSetting(OUTDATED): Efeito sonoro de lápis
@@ -116,6 +128,11 @@ settings:
       off(OUTDATED): Sem som
       onButNotInSilentMode(OUTDATED): Ativado (a menos que esteja no modo silencioso)
       onAlways(OUTDATED): Ativado (mesmo no modo silencioso)
+    sentry: 
+      active(OUTDATED): Ativo
+      inactive(OUTDATED): Inativo
+      activeUntilRestart(OUTDATED): Ativo até você reiniciar o aplicativo
+      inactiveUntilRestart(OUTDATED): Inativo até você reiniciar o aplicativo
     autosave(OUTDATED): Salvamento automático após um pequeno atraso, ou nunca
     simplifiedHomeLayout(OUTDATED): Define uma altura fixa para cada pré-visualização de nota
     autoStraightenLines(OUTDATED): Endireita linhas longas sem precisar usar a caneta modeladora
@@ -149,11 +166,11 @@ settings:
   openDataDir(OUTDATED): Abra a pasta Saber
   resyncEverything(OUTDATED): Resync tudo
 logs: 
+  useTheApp(OUTDATED): Os logs aparecerão aqui enquanto você usa o aplicativo
   logs(OUTDATED): Registros
   viewLogs(OUTDATED): Ver logs
   debuggingInfo(OUTDATED): Os logs contêm informações úteis para depuração e desenvolvimento
   noLogs(OUTDATED): Nenhum registro aqui!
-  logsAreTemporary(OUTDATED): Os registros são mantidos somente até você fechar o aplicativo
 login: 
   title: Login
   form: 

@@ -61,6 +61,19 @@ home:
     delete: Sil
     alsoDeleteContents: Bu klasördeki tüm notları da sil
   noPreviewAvailable(OUTDATED): Önizleme yok
+sentry: 
+  consent: 
+    title(OUTDATED): Saber geliştirmeye yardımcı olur mu?
+    description: 
+      question(OUTDATED): Beklenmedik hataları otomatik olarak bildirmek ister misiniz? Bu, sorunları daha hızlı tanımlamama ve düzeltmeme yardımcı olur.
+      scope(OUTDATED): Raporlar hata ve cihazınız hakkında bilgi içerebilir. Kişisel verileri filtrelemek için her türlü çabayı gösterdim, ancak bazıları kalabilir.
+      currentlyOff(OUTDATED): Onay verirseniz, uygulamayı yeniden başlattıktan sonra hata raporlaması etkinleştirilir.
+      currentlyOn(OUTDATED): Onayı iptal ederseniz, hata raporlamasını devre dışı bırakmak için lütfen uygulamayı yeniden başlatın.
+      learnMoreInPrivacyPolicy(rich, OUTDATED): ${link(Gizlilik Politikası)} 'da daha fazla bilgi edinin.
+    answers: 
+      yes(OUTDATED): Evet
+      no(OUTDATED): HAYIR
+      later(OUTDATED): Bana sonra sor
 settings: 
   prefCategories: 
     general: Genel
@@ -96,6 +109,7 @@ settings:
     simplifiedHomeLayout: Sadeleştirilmiş ana ekran düzeni
     customDataDir: Özel Saber klasörü
     pencilSoundSetting: Kurşun kalem ses efekti
+    sentry(OUTDATED): Hata raporlama
     autosave(OUTDATED): Otomatik koruma
   prefDescriptions: 
     hyperlegibleFont: Atkinson Hyperlegible, görme sorunu yaşayanların okumasını kolaylaştıran bir fonttur
@@ -119,6 +133,11 @@ settings:
       off: Ses yok
       onButNotInSilentMode: Etkin (sessiz modda değilse)
       onAlways: Etkin (sessiz modda da)
+    sentry: 
+      active(OUTDATED): Aktif
+      inactive(OUTDATED): Aktif olmayan
+      activeUntilRestart(OUTDATED): Uygulamayı yeniden başlatana kadar etkin
+      inactiveUntilRestart(OUTDATED): Uygulamayı yeniden başlatana kadar aktif olmayan
     autosave(OUTDATED): Kısa bir gecikmeden sonra otomatik kaydetme veya asla
   themeModes: 
     system: Sistem teması
@@ -149,11 +168,11 @@ settings:
   autosaveDisabled(OUTDATED): Asla
   shapeRecognitionDisabled(OUTDATED): Asla
 logs: 
+  useTheApp(OUTDATED): Uygulamayı kullanırken günlükler burada görünecektir
   logs(OUTDATED): Günlükler
   viewLogs(OUTDATED): Günlükleri görüntüle
   debuggingInfo(OUTDATED): Günlükler hata ayıklama ve geliştirme için yararlı bilgiler içerir
   noLogs(OUTDATED): Burada kayıt yok!
-  logsAreTemporary(OUTDATED): Günlükler yalnızca uygulamayı kapatana kadar tutulur
 login: 
   title: Giriş yap
   form: 

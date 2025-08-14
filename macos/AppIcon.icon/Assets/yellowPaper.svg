@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
+<defs>
+  <linearGradient id="yellowPaper" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stop-color="#faca22" />
+    <stop offset="100%" stop-color="#ffd32e" />
+  </linearGradient>
+</defs>
+
+<path fill="url(#yellowPaper)" d="M0 0V800.0557L170.25 799.7357C354.224 799.3894 352.151 799.4461 389 793.7448 440.239 785.8167 450.043 780.8678 487.949 743.7975 643.85 592.2025 673.909 563.2901 691.506 546.8891 758.64 484.319 770.252 470.3251 779.781 440.5063 790.784 406.0739 798.168 340.3514 799.235 267.3418L801 0H0" fill-rule="evenodd"/>
+</svg>
