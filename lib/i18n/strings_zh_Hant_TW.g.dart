@@ -68,8 +68,9 @@ class _TranslationsHomeZhHantTw extends TranslationsHomeEn {
 	@override late final _TranslationsHomeTooltipsZhHantTw tooltips = _TranslationsHomeTooltipsZhHantTw._(_root);
 	@override late final _TranslationsHomeCreateZhHantTw create = _TranslationsHomeCreateZhHantTw._(_root);
 	@override String get welcome => '歡迎使用 Saber';
-	@override String get invalidFormat => '「不支援您選擇的檔案，請選擇 .sbn、.sbn2、.sba 或 .pdf 檔案。」';
+	@override String get invalidFormat => '不支援您選取的檔案，請選擇 .sbn、.sbn2、.sba 或 .pdf 檔案。';
 	@override String get noFiles => '未找到檔案';
+	@override String get noPreviewAvailable => '無可用的預覽';
 	@override String get createNewNote => '點擊 + 按鈕新增一個筆記';
 	@override String get backFolder => '返回上一個資料夾';
 	@override late final _TranslationsHomeNewFolderZhHantTw newFolder = _TranslationsHomeNewFolderZhHantTw._(_root);
@@ -78,7 +79,6 @@ class _TranslationsHomeZhHantTw extends TranslationsHomeEn {
 	@override String get deleteNote => '刪除筆記';
 	@override late final _TranslationsHomeRenameFolderZhHantTw renameFolder = _TranslationsHomeRenameFolderZhHantTw._(_root);
 	@override late final _TranslationsHomeDeleteFolderZhHantTw deleteFolder = _TranslationsHomeDeleteFolderZhHantTw._(_root);
-	@override String get noPreviewAvailable => '沒有預覽';
 }
 
 // Path: sentry
@@ -115,8 +115,8 @@ class _TranslationsSettingsZhHantTw extends TranslationsSettingsEn {
 	@override String get resyncEverything => '全部重新同步';
 	@override String get openDataDir => '開啟 Saber 資料夾';
 	@override late final _TranslationsSettingsCustomDataDirZhHantTw customDataDir = _TranslationsSettingsCustomDataDirZhHantTw._(_root);
-	@override String get autosaveDisabled => '絕不';
-	@override String get shapeRecognitionDisabled => '絕不';
+	@override String get autosaveDisabled => '永不';
+	@override String get shapeRecognitionDisabled => '永不';
 }
 
 // Path: logs
@@ -319,7 +319,7 @@ class _TranslationsHomeMoveNoteZhHantTw extends TranslationsHomeMoveNoteEn {
 	@override String moveName({required Object f}) => '移動 ${f}';
 	@override String get move => '移動';
 	@override String renamedTo({required Object newName}) => '筆記將重新命名為 ${newName}';
-	@override String get multipleRenamedTo => '「以下筆記將被重新命名：」"';
+	@override String get multipleRenamedTo => '以下筆記將被重新命名：';
 	@override String numberRenamedTo({required Object n}) => '${n} 份筆記將被重命名以避免衝突';
 }
 
@@ -406,13 +406,13 @@ class _TranslationsSettingsPrefLabelsZhHantTw extends TranslationsSettingsPrefLa
 	@override String get recentColorsDontSavePresets => '不要在最近的顏色中儲存預設顏色';
 	@override String get recentColorsLength => '要儲存多少種最近的顏色';
 	@override String get printPageIndicators => '列印頁碼';
-	@override String get shapeRecognitionDelay => '形狀識別延遲';
+	@override String get autosave => '自動儲存';
+	@override String get shapeRecognitionDelay => '形狀辨識延遲';
 	@override String get autoStraightenLines => '自動拉直線條';
 	@override String get simplifiedHomeLayout => '簡化首頁佈局';
 	@override String get customDataDir => '自訂 Saber 資料夾';
 	@override String get pencilSoundSetting => '筆的音效';
 	@override String get sentry => '錯誤報告';
-	@override String get autosave => '自動保存';
 }
 
 // Path: settings.prefDescriptions
@@ -432,13 +432,13 @@ class _TranslationsSettingsPrefDescriptionsZhHantTw extends TranslationsSettings
 	@override String get editorPromptRename => '您以後隨時可以重新命名筆記';
 	@override String get hideHomeBackgrounds => '為了更乾淨的外觀';
 	@override String get printPageIndicators => '在匯出中顯示頁碼';
+	@override String get autosave => '在短暫延遲後自動儲存，或永不儲存';
 	@override String get shapeRecognitionDelay => '多久更新一次形狀預覽';
 	@override String get autoStraightenLines => '無需使用形狀筆即可拉直線條';
 	@override String get simplifiedHomeLayout => '為每個筆記預覽設定固定高度';
 	@override String get shouldAlwaysAlertForUpdates => '一旦有更新請告訴我';
 	@override late final _TranslationsSettingsPrefDescriptionsPencilSoundSettingZhHantTw pencilSoundSetting = _TranslationsSettingsPrefDescriptionsPencilSoundSettingZhHantTw._(_root);
 	@override late final _TranslationsSettingsPrefDescriptionsSentryZhHantTw sentry = _TranslationsSettingsPrefDescriptionsSentryZhHantTw._(_root);
-	@override String get autosave => '短暫延遲後自動保存，或者永遠不會';
 }
 
 // Path: settings.themeModes
@@ -604,7 +604,7 @@ class _TranslationsProfile$faq$0i2$ZhHantTw extends TranslationsProfile$faq$0i2$
 
 	// Translations
 	@override String get q => '如何更改我的加密密碼？';
-	@override String get a => '1. 登出Saber，在登出前確保同步已經完成，這樣您就不會丟失任何資料（在主畫面上可以看到同步進度）。\n2. 進入您的伺服器網站並登入，刪除「Saber」資料夾，這將從伺服器上刪除您所有的筆記。\n3. 重新登入到Saber，您可以在登入時選擇一個新的加密密碼。\n4. 也不要忘記在您的其他裝置上登出並重新登入Saber。';
+	@override String get a => '0. 確定同步處理已完成（請參閱主畫面上的同步處理進度）。\n1. 登出 Saber，在登出前確保同步已經完成，這樣您就不會丟失任何資料（在主畫面上可以看到同步進度）。\n2. 進入您的伺服器網站並登入，刪除「Saber」資料夾，這將從伺服器上刪除您所有的筆記。\n3. 重新登入 Saber，您可以在登入時選擇一個新的加密密碼。\n4. 也不要忘記在您的其他裝置上登出並重新登入Saber。';
 }
 
 // Path: profile.faq.3
@@ -615,7 +615,7 @@ class _TranslationsProfile$faq$0i3$ZhHantTw extends TranslationsProfile$faq$0i3$
 
 	// Translations
 	@override String get q => '如何刪除我的帳戶？';
-	@override String get a => '點擊上面的「${_root.profile.quickLinks.deleteAccount}」按鈕，如果需要請登入。\n如果您使用的是官方Saber伺服器，您的帳戶將在一周的寬限期後被刪除，您可以在此期間由電子郵件聯繫我：adilhanney@disroot.org，以取消刪除。如果您使用的是第三方伺服器，則可能沒有刪除帳戶的選項，您需要查閱伺服器的隱私權政策以了解更多資訊。';
+	@override String get a => '點選上面的「${_root.profile.quickLinks.deleteAccount}」按鈕，如果需要請登入。\n如果您使用的是官方 Saber 伺服器，您的帳戶將在一週的寬限期後被刪除，您可以在此期間用電子郵件聯絡我：adilhanney@disroot.org，以取消刪除。\n如果您使用的是第三方伺服器，則可能沒有刪除帳號的選項，您需要檢視伺服器的隱私權政策以了解更多資訊。';
 }
 
 // Path: editor.toolbar
@@ -738,6 +738,8 @@ class _TranslationsEditorMenuZhHantTw extends TranslationsEditorMenuEn {
 	@override String get deletePage => '刪除頁面';
 	@override String get lineHeight => '行高';
 	@override String get lineHeightDescription => '同時控制輸入筆記的文字大小';
+	@override String get lineThickness => '線條粗細';
+	@override String get lineThicknessDescription => '背景線條粗細';
 	@override String get backgroundImageFit => '適應背景圖片';
 	@override String get backgroundPattern => '背景圖案';
 	@override String get import => '匯入';
@@ -745,8 +747,6 @@ class _TranslationsEditorMenuZhHantTw extends TranslationsEditorMenuEn {
 	@override String get watchServerReadOnly => '監視伺服器時無法進行編輯';
 	@override late final _TranslationsEditorMenuBoxFitsZhHantTw boxFits = _TranslationsEditorMenuBoxFitsZhHantTw._(_root);
 	@override late final _TranslationsEditorMenuBgPatternsZhHantTw bgPatterns = _TranslationsEditorMenuBgPatternsZhHantTw._(_root);
-	@override String get lineThickness => '線厚度';
-	@override String get lineThicknessDescription => '背景線厚度';
 }
 
 // Path: editor.newerFileFormat
@@ -920,7 +920,7 @@ class _TranslationsEditorMenuBgPatternsZhHantTw extends TranslationsEditorMenuBg
 	// Translations
 	@override String get none => '空白';
 	@override String get college => 'College-ruled';
-	@override String get collegeRtl => 'College-ruled (反向)';
+	@override String get collegeRtl => 'College-ruled（反向）';
 	@override String get lined => '橫線';
 	@override String get grid => '網格';
 	@override String get dots => '點';

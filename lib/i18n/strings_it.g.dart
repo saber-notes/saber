@@ -70,6 +70,7 @@ class _TranslationsHomeIt extends TranslationsHomeEn {
 	@override String get welcome => 'Benvenuto su Saber';
 	@override String get invalidFormat => 'Il file selezionato non è supportato. Seleziona un file .sbn, .sbn2, .sba o .pdf.';
 	@override String get noFiles => 'Nessun file trovato';
+	@override String get noPreviewAvailable => 'Nessuna anteprima disponibile';
 	@override String get createNewNote => 'Tocca il pulsante + per creare una nuova nota';
 	@override String get backFolder => 'Torna alla cartella precedente';
 	@override late final _TranslationsHomeNewFolderIt newFolder = _TranslationsHomeNewFolderIt._(_root);
@@ -78,7 +79,6 @@ class _TranslationsHomeIt extends TranslationsHomeEn {
 	@override String get deleteNote => 'Elimina nota';
 	@override late final _TranslationsHomeRenameFolderIt renameFolder = _TranslationsHomeRenameFolderIt._(_root);
 	@override late final _TranslationsHomeDeleteFolderIt deleteFolder = _TranslationsHomeDeleteFolderIt._(_root);
-	@override String get noPreviewAvailable => 'Nessuna anteprima disponibile';
 }
 
 // Path: sentry
@@ -406,13 +406,13 @@ class _TranslationsSettingsPrefLabelsIt extends TranslationsSettingsPrefLabelsEn
 	@override String get recentColorsDontSavePresets => 'Non salvare i colori preimpostati nei colori recenti';
 	@override String get recentColorsLength => 'Quanti colori recenti memorizzare';
 	@override String get printPageIndicators => 'Stampa indicatori di pagina';
+	@override String get autosave => 'Salvataggio automatico';
 	@override String get shapeRecognitionDelay => 'Ritardo nel riconoscimento della forma';
 	@override String get autoStraightenLines => 'Raddrizzamento automatico delle linee';
 	@override String get simplifiedHomeLayout => 'Layout semplificato della home';
 	@override String get customDataDir => 'Cartella Saber personalizzata';
 	@override String get pencilSoundSetting => 'Effetto sonoro della matita';
 	@override String get sentry => 'Reporting degli errori';
-	@override String get autosave => 'Salvare automaticamente';
 }
 
 // Path: settings.prefDescriptions
@@ -432,13 +432,13 @@ class _TranslationsSettingsPrefDescriptionsIt extends TranslationsSettingsPrefDe
 	@override String get editorPromptRename => 'Puoi sempre rinominare le note in un secondo momento';
 	@override String get hideHomeBackgrounds => 'Per un aspetto più pulito';
 	@override String get printPageIndicators => 'Mostra indicatori di pagina nelle esportazioni';
+	@override String get autosave => 'Salvataggio automatico dopo un breve ritardo o mai';
 	@override String get shapeRecognitionDelay => 'Quanto spesso aggiornare l\'anteprima della forma';
 	@override String get autoStraightenLines => 'Raddrizza le linee lunghe senza dover utilizzare la penna sagomatrice';
 	@override String get simplifiedHomeLayout => 'Imposta un\'altezza fissa per ogni anteprima della nota';
 	@override String get shouldAlwaysAlertForUpdates => 'Segnalami aggiornamenti non appena sono disponibili';
 	@override late final _TranslationsSettingsPrefDescriptionsPencilSoundSettingIt pencilSoundSetting = _TranslationsSettingsPrefDescriptionsPencilSoundSettingIt._(_root);
 	@override late final _TranslationsSettingsPrefDescriptionsSentryIt sentry = _TranslationsSettingsPrefDescriptionsSentryIt._(_root);
-	@override String get autosave => 'Salvare automaticamente dopo un breve ritardo o mai';
 }
 
 // Path: settings.themeModes
@@ -738,6 +738,8 @@ class _TranslationsEditorMenuIt extends TranslationsEditorMenuEn {
 	@override String get deletePage => 'Elimina pagina';
 	@override String get lineHeight => 'Altezza della linea';
 	@override String get lineHeightDescription => 'Controlla anche la dimensione del testo per le note digitate';
+	@override String get lineThickness => 'Spessore della linea';
+	@override String get lineThicknessDescription => 'Spessore della linea di sfondo';
 	@override String get backgroundImageFit => 'Adattamento immagine di sfondo';
 	@override String get backgroundPattern => 'Modello di sfondo';
 	@override String get import => 'Importa';
@@ -745,8 +747,6 @@ class _TranslationsEditorMenuIt extends TranslationsEditorMenuEn {
 	@override String get watchServerReadOnly => 'La modifica è disabilitata mentre si guarda il server';
 	@override late final _TranslationsEditorMenuBoxFitsIt boxFits = _TranslationsEditorMenuBoxFitsIt._(_root);
 	@override late final _TranslationsEditorMenuBgPatternsIt bgPatterns = _TranslationsEditorMenuBgPatternsIt._(_root);
-	@override String get lineThickness => 'Spessore della linea';
-	@override String get lineThicknessDescription => 'Spessore della linea di sfondo';
 }
 
 // Path: editor.newerFileFormat
