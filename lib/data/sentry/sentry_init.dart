@@ -15,9 +15,11 @@ export 'package:sentry_flutter/sentry_flutter.dart' show SentryWidget;
 ///
 /// This flag will be:
 /// - false if the foss patches were applied before this build
-/// - false on Linux, except in debug mode
+/// - false on Linux (except in tests)
 /// - true otherwise
-bool get isSentryAvailable => kDebugMode || !Platform.isLinux;
+bool get isSentryAvailable =>
+    !Platform.isLinux ||
+    (kDebugMode && Platform.environment.containsKey('FLUTTER_TEST'));
 
 /// Whether Sentry was initialized when the app started.
 ///
