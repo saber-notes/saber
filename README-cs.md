@@ -67,28 +67,28 @@ Objevte zcela nový způsob zaznamenávání a organizace vašich myšlenek s ap
 </div>
 </details>
 
-## Features
+## Funkce
 
 Podívejte se na
-[#1 plán vývoje aplikace Saber][progress]
+[#1 Plán vývoje aplikace Saber][progress]
 (anglicky).
 
 ## Instalace
 
-Podívejte se na
-[Install Saber](https://github.com/saber-notes/saber/wiki/install)
+Podívejte se na wiki stránku
+[Instalace aplikace Saber](https://github.com/saber-notes/saber/wiki/install)
 (anglicky).
 
 ## Sestavení ze zdrojového kódu
 
-Podívejte se na
-[Build Saber](https://github.com/saber-notes/saber/wiki/build)
+Podívejte se na wiki stránku
+[Sestavení aplikace Saber](https://github.com/saber-notes/saber/wiki/build)
 (anglicky).
 
 ## Překlady
 
-Podívejte se na
-[Translating](https://github.com/saber-notes/saber/wiki/Translating)
+Podívejte se na wiki stránku
+[Překlady](https://github.com/saber-notes/saber/wiki/Translating)
 (anglicky).
 
 ## Podpora aplikace Saber
@@ -102,8 +102,8 @@ Pokud máte rádi Saber, zvažte prosím jeho podporu pomocí
 
 ## Poznámky pro vývojáře
 
-Podívejte se na
-[Maintainer notes](https://github.com/saber-notes/saber/wiki/Maintainer-notes)
+Podívejte se na wiki stránku
+[Poznámky pro vývojáře](https://github.com/saber-notes/saber/wiki/Maintainer-notes)
 (anglicky).
 
 
