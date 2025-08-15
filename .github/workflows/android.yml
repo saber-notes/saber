@@ -49,7 +49,6 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           channel: stable
-          flutter-version: 3.32.8
           cache: true
           cache-key: 'flutter-:os:-:channel:-:version:-:arch:'
 
@@ -134,7 +133,6 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           channel: stable
-          flutter-version: 3.32.8
           cache: true
           cache-key: 'flutter-:os:-:channel:-:version:-:arch:'
 
