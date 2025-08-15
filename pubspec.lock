@@ -429,10 +429,10 @@ packages:
     dependency: "direct main"
     description:
       name: file_picker
-      sha256: "970d33d79e1da667b6da222575fd7f2e30e323ca76251504477e6d51405b2d9a"
+      sha256: ef7d2a085c1b1d69d17b6842d0734aad90156de08df6bd3c12496d0bd6ddf8e2
       url: "https://pub.dev"
     source: hosted
-    version: "10.2.4"
+    version: "10.3.1"
   file_selector_linux:
     dependency: transitive
     description:
@@ -817,10 +817,10 @@ packages:
     dependency: transitive
     description:
       name: jni
-      sha256: cfd663ec90d87ec6abd338da7e21189e503bf6753a0027c1862796f5826adba6
+      sha256: d2c361082d554d4593c3012e26f6b188f902acd291330f13d6427641a92b3da1
       url: "https://pub.dev"
     source: hosted
-    version: "0.14.1"
+    version: "0.14.2"
   js:
     dependency: transitive
     description:
@@ -1064,18 +1064,18 @@ packages:
     dependency: transitive
     description:
       name: package_info_plus
-      sha256: "7976bfe4c583170d6cdc7077e3237560b364149fcd268b5f53d95a991963b191"
+      sha256: "16eee997588c60225bda0488b6dcfac69280a6b7a3cf02c741895dd370a02968"
       url: "https://pub.dev"
     source: hosted
-    version: "8.3.0"
+    version: "8.3.1"
   package_info_plus_platform_interface:
     dependency: transitive
     description:
       name: package_info_plus_platform_interface
-      sha256: "6c935fb612dff8e3cc9632c2b301720c77450a126114126ffaafe28d2e87956c"
+      sha256: "202a487f08836a592a6bd4f901ac69b3a8f146af552bbd14407b6b41e1c3f086"
       url: "https://pub.dev"
     source: hosted
-    version: "3.2.0"
+    version: "3.2.1"
   packages_extensions:
     dependency: transitive
     description:
@@ -1521,10 +1521,10 @@ packages:
     dependency: transitive
     description:
       name: sentry
-      sha256: e33638161982fb5deea36751800f7e83d9e4da79e2ff2e822dd92b6b6ddcee8b
+      sha256: d9f3dcf1ecdd600cf9ce134f622383adde5423ecfdaf0ca9b20fbc1c44849337
       url: "https://pub.dev"
     source: hosted
-    version: "9.5.0"
+    version: "9.6.0"
   sentry_dart_plugin:
     dependency: "direct dev"
     description:
@@ -1537,34 +1537,34 @@ packages:
     dependency: "direct main"
     description:
       name: sentry_flutter
-      sha256: "3abb443a6308504478c4b4061016ee8b7f83aa569f9f3c7f019de7ce91832ea6"
+      sha256: "37deb4ef8837d10b5c1f527ec18591f8d2d2da9c34f19b3d97ccbbe7f84077c0"
       url: "https://pub.dev"
     source: hosted
-    version: "9.5.0"
+    version: "9.6.0"
   sentry_logging:
     dependency: "direct main"
     description:
       name: sentry_logging
-      sha256: "610c95b9a4f1167639eefd1df66b93681d1b22e28e3ebd1c71db3a74c7815ac1"
+      sha256: "040046d5fe79b94b1c73069031547c066ab37bcbd18c029dc3ceeb9b5d0c67c5"
       url: "https://pub.dev"
     source: hosted
-    version: "9.5.0"
+    version: "9.6.0"
   share_plus:
     dependency: "direct main"
     description:
       name: share_plus
-      sha256: b2961506569e28948d75ec346c28775bb111986bb69dc6a20754a457e3d97fa0
+      sha256: d7dc0630a923883c6328ca31b89aa682bacbf2f8304162d29f7c6aaff03a27a1
       url: "https://pub.dev"
     source: hosted
-    version: "11.0.0"
+    version: "11.1.0"
   share_plus_platform_interface:
     dependency: transitive
     description:
       name: share_plus_platform_interface
-      sha256: "1032d392bc5d2095a77447a805aa3f804d2ae6a4d5eef5e6ebb3bd94c1bc19ef"
+      sha256: "88023e53a13429bd65d8e85e11a9b484f49d4c190abbd96c7932b74d6927cc9a"
       url: "https://pub.dev"
     source: hosted
-    version: "6.0.0"
+    version: "6.1.0"
   shared_preferences:
     dependency: "direct main"
     description:
@@ -1974,10 +1974,10 @@ packages:
     dependency: "direct main"
     description:
       name: window_manager
-      sha256: "732896e1416297c63c9e3fb95aea72d0355f61390263982a47fd519169dc5059"
+      sha256: "7eb6d6c4164ec08e1bf978d6e733f3cebe792e2a23fb07cbca25c2872bfdbdcd"
       url: "https://pub.dev"
     source: hosted
-    version: "0.4.3"
+    version: "0.5.1"
   window_to_front:
     dependency: transitive
     description:
@@ -2070,42 +2070,42 @@ packages:
     dependency: transitive
     description:
       name: yaru_window
-      sha256: bc2a1df3c6f33477b47f84bf0a9325df411dbb7bd483ac88e5bc1c019d2f2560
+      sha256: "58539a9abe9901891dadce142c7a5d303920b780dd0f7bd21f076a80adeeb744"
       url: "https://pub.dev"
     source: hosted
-    version: "0.2.1+1"
+    version: "0.2.2"
   yaru_window_linux:
     dependency: transitive
     description:
       name: yaru_window_linux
-      sha256: "46a1a0743dfd45794cdaf8c5b3a48771ab73632b50a693f59c83b07988e96689"
+      sha256: "885ad0ba5832d350c42862ce02da478599ef550280eb7f6b15285481fcff6f53"
       url: "https://pub.dev"
     source: hosted
-    version: "0.2.1"
+    version: "0.2.2"
   yaru_window_manager:
     dependency: transitive
     description:
       name: yaru_window_manager
-      sha256: b36c909fa082a7cb6e2f259d4357e16f08d3d8ab086685b81d1916e457100d1e
+      sha256: "6288fd6ccd8bb9d5be56073c6f277e2da08dd38e346507bf88bc9332b08dd180"
       url: "https://pub.dev"
     source: hosted
-    version: "0.1.2+1"
+    version: "0.1.3"
   yaru_window_platform_interface:
     dependency: transitive
     description:
       name: yaru_window_platform_interface
-      sha256: "93493d7e17a9e887ffa94c518bc5a4b3eb5425c009446e3294c689cb1a87b7e1"
+      sha256: d514387cc96750112ecf1933b6f12a1912beca199178d00052c0e87a94e232fa
       url: "https://pub.dev"
     source: hosted
-    version: "0.1.2+1"
+    version: "0.1.3"
   yaru_window_web:
     dependency: transitive
     description:
       name: yaru_window_web
-      sha256: "31468aeb515f72d5eeddcd62773094a4f48fee96f7f0494f8ce53ad3b38054f1"
+      sha256: cf4d79e0760fbdcb78d4bbca3b5563f99518629224b9e5611f0ebd592befe1d9
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.3+1"
+    version: "0.0.4"
 sdks:
   dart: ">=3.8.1 <4.0.0"
   flutter: ">=3.32.7"

@@ -91,7 +91,7 @@ dependencies:
 
   flutter_quill: ^11.0.0
 
-  window_manager: ^0.4.2
+  window_manager: ^0.5.1
 
   worker_manager: ^7.0.1
   workmanager: ^0.9.0
