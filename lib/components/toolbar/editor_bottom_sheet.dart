@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:saber/components/canvas/_canvas_background_painter.dart';
 import 'package:saber/components/canvas/canvas_background_preview.dart';
 import 'package:saber/components/canvas/canvas_image_dialog.dart';
-import 'package:saber/components/canvas/image/editor_image.dart';
 import 'package:saber/components/canvas/inner_canvas.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/data/editor/page.dart';
+import 'package:saber/data/extensions/list_extensions.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/extensions/box_fit_localized.dart';
 import 'package:saber/i18n/strings.g.dart';
@@ -62,16 +62,9 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
 
   @override
   Widget build(BuildContext context) {
-    final Size pageSize;
-    final EditorImage? backgroundImage;
-    if (widget.currentPageIndex != null) {
-      final page = widget.coreInfo.pages[widget.currentPageIndex!];
-      pageSize = page.size;
-      backgroundImage = page.backgroundImage;
-    } else {
-      pageSize = EditorPage.defaultSize;
-      backgroundImage = null;
-    }
+    final page = widget.coreInfo.pages.getOrNull(widget.currentPageIndex ?? -1);
+    final pageSize = page?.size ?? EditorPage.defaultSize;
+    final backgroundImage = page?.backgroundImage;
 
     final previewSize = Size(
       CanvasBackgroundPreview.fixedWidth,
@@ -146,13 +139,13 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
                     return InkWell(
                       borderRadius: BorderRadius.circular(8),
                       onTap: () => setState(() {
-                        backgroundImage?.backgroundFit = boxFit;
+                        backgroundImage.backgroundFit = boxFit;
                         widget.redrawAndSave();
                       }),
                       child: Stack(
                         children: [
                           CanvasBackgroundPreview(
-                            selected: backgroundImage?.backgroundFit == boxFit,
+                            selected: backgroundImage.backgroundFit == boxFit,
                             invert: widget.invert,
                             backgroundColor: widget.coreInfo.backgroundColor ??
                                 InnerCanvas.defaultBackgroundColor,
