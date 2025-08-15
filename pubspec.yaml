@@ -19,7 +19,7 @@ version: 0.26.3+26030
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
-  flutter: ">=3.32.7"
+  flutter: ">=3.35.0"
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -190,6 +190,12 @@ dependency_overrides:
       url: https://github.com/m-berto/flutter_secure_storage.git
       ref: patch-2
       path: flutter_secure_storage_linux
+
+  # https://github.com/ubuntu/yaru.dart/pull/1022
+  yaru:
+    git:
+      url: https://github.com/gev/yaru.dart
+      ref: c32d0c50cb65387beb74f6dc000d312e8a4b78aa
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
