@@ -130,7 +130,7 @@ class _TranslationsLogsCs extends TranslationsLogsEn {
 	@override String get viewLogs => 'Zobrazit logy';
 	@override String get debuggingInfo => 'Logy obsahují informace užitečné pro ladění a vývoj';
 	@override String get noLogs => 'Nejsou k dispozici žádné logy!';
-	@override String get useTheApp => 'Při použití aplikace se zde objeví protokoly';
+	@override String get useTheApp => 'Jakmile aplikaci začnete používat, logy se zobrazí na tomto místě';
 }
 
 // Path: login
@@ -358,7 +358,7 @@ class _TranslationsSentryConsentCs extends TranslationsSentryConsentEn {
 	final TranslationsCs _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Pomozte vylepšit Saber?';
+	@override String get title => 'Chcete pomoct vylepšit aplikaci Saber?';
 	@override late final _TranslationsSentryConsentDescriptionCs description = _TranslationsSentryConsentDescriptionCs._(_root);
 	@override late final _TranslationsSentryConsentAnswersCs answers = _TranslationsSentryConsentAnswersCs._(_root);
 }
@@ -794,14 +794,14 @@ class _TranslationsSentryConsentDescriptionCs extends TranslationsSentryConsentD
 	final TranslationsCs _root; // ignore: unused_field
 
 	// Translations
-	@override String get question => 'Chcete automaticky nahlásit neočekávané chyby? To mi pomáhá rychleji identifikovat a opravit problémy.';
-	@override String get scope => 'Zprávy mohou obsahovat informace o chybě a vašem zařízení. Snažil jsem se odfiltrovat osobní údaje, ale některé mohou zůstat.';
-	@override String get currentlyOff => 'Pokud udělíte souhlas, bude po restartu aplikace povoleno hlášení chyb.';
-	@override String get currentlyOn => 'Pokud zrušíte souhlas, restartujte prosím aplikaci a deaktivujte hlášení chyb.';
+	@override String get question => 'Chtěli byste automaticky nahlašovat neočekávané chyby? Pomohlo by mi to s rychlejší identifikací a opravou.';
+	@override String get scope => 'Hlášení mohou obsahovat informace o chybě a vašem zařízení. Dělal jsem, co bylo v mých silách, abych odfiltroval osobní data, ale i tak mohou některá zůstat.';
+	@override String get currentlyOff => 'Nahlašování chyb se v případě udělení souhlasu zapne po restartu aplikace.';
+	@override String get currentlyOn => 'Po odvolání souhlasu prosím restartujte aplikaci, abyste nahlašování chyb vypnuli.';
 	@override TextSpan learnMoreInPrivacyPolicy({required InlineSpanBuilder link}) => TextSpan(children: [
-		const TextSpan(text: 'Další informace najdete v '),
-		link('zásady ochrany osobních údajů'),
-		const TextSpan(text: '.'),
+		const TextSpan(text: 'Více se dozvíte v '),
+		link('Zásadách ochrany osobních údajů'),
+		const TextSpan(text: ' (anglicky).'),
 	]);
 }
 
@@ -813,8 +813,8 @@ class _TranslationsSentryConsentAnswersCs extends TranslationsSentryConsentAnswe
 
 	// Translations
 	@override String get yes => 'Ano';
-	@override String get no => 'Žádný';
-	@override String get later => 'Zeptejte se mě později';
+	@override String get no => 'Ne';
+	@override String get later => 'Odložit na později';
 }
 
 // Path: settings.prefDescriptions.hideFingerDrawing
@@ -850,8 +850,8 @@ class _TranslationsSettingsPrefDescriptionsSentryCs extends TranslationsSettings
 	// Translations
 	@override String get active => 'Aktivní';
 	@override String get inactive => 'Neaktivní';
-	@override String get activeUntilRestart => 'Aktivní až do restartu aplikace';
-	@override String get inactiveUntilRestart => 'Neaktivní, dokud neodpočítáte aplikaci';
+	@override String get activeUntilRestart => 'Aktivní, dokud nerestartujete aplikaci';
+	@override String get inactiveUntilRestart => 'Neaktivní, dokud nerestartujete aplikaci';
 }
 
 // Path: login.ncLoginStep.loginFlow

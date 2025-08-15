@@ -41,30 +41,6 @@ ar:
       lineThickness(OUTDATED): Line thickness
       lineThicknessDescription(OUTDATED): Background line thickness
 cs: 
-  sentry: 
-    consent: 
-      title(OUTDATED): Chcete pomoct vylepšit aplikaci Saber?
-      description: 
-        question(OUTDATED): Chtěli byste automaticky nahlašovat neočekávané chyby? Pomohlo by mi to s rychlejší identifikací a opravou.
-        scope(OUTDATED): Hlášení mohou obsahovat informace o chybě a vašem zařízení. Dělal jsem, co bylo v mých silách, abych odfiltroval osobní data, ale i tak mohou některá zůstat.
-        currentlyOff(OUTDATED): Nahlašování chyb se v případě udělení souhlasu zapne po restartu aplikace.
-        currentlyOn(OUTDATED): Po odvolání souhlasu prosím restartujte aplikaci, abyste nahlašování chyb vypnuli.
-        learnMoreInPrivacyPolicy(rich)(OUTDATED): Více se dozvíte v ${link(Zásadách ochrany osobních údajů)} (anglicky).
-      answers: 
-        yes(OUTDATED): Ano
-        no(OUTDATED): Ne
-        later(OUTDATED): Odložit na později
-  settings: 
-    prefLabels: 
-      sentry(OUTDATED): Hlášení chyb
-    prefDescriptions: 
-      sentry: 
-        active(OUTDATED): Aktivní
-        inactive(OUTDATED): Neaktivní
-        activeUntilRestart(OUTDATED): Aktivní, dokud nerestartujete aplikaci
-        inactiveUntilRestart(OUTDATED): Neaktivní, dokud nerestartujete aplikaci
-  logs: 
-    useTheApp(OUTDATED): Jakmile aplikaci začnete používat, logy se zobrazí na tomto místě
 de: 
   home: 
     noPreviewAvailable(OUTDATED): No preview available
