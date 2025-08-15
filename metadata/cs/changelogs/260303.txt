@@ -1,0 +1,2 @@
+• Přidáno některé (volitelné) hlášení havárií, které mi pomohou vylepšit aplikaci.
+• Drobné opravy chyb.

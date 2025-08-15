@@ -1,0 +1,2 @@
+• Uygulamayı geliştirmeme yardımcı olmak için bazı (isteğe bağlı) çarpışma raporları eklendi.
+• Küçük hata düzeltmeleri.

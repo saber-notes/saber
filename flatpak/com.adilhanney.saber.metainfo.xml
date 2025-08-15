@@ -214,6 +214,14 @@
     </screenshots>
 
     <releases>
+        <release version="0.26.3" type="development" date="2025-08-15">
+            <description>
+                <ul>
+                    <li>Minor bug fixes</li>
+                    <li>Opt-in error tracking has been added, but isn't supported on Linux at least for now.</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.26.2" type="development" date="2025-08-10">
             <description>
                 <ul>
