@@ -62,7 +62,7 @@ void main() {
         CanvasGestureDetector.kMaxScale,
         CanvasGestureDetector.kMaxScale,
         CanvasGestureDetector.kMaxScale,
-        CanvasGestureDetector.kMaxScale,
+        1,
       );
     final newMatrix = CanvasGestureDetectorState.setZoom(
       scaleDelta: 0.1,
@@ -78,7 +78,7 @@ void main() {
         CanvasGestureDetector.kMinScale,
         CanvasGestureDetector.kMinScale,
         CanvasGestureDetector.kMinScale,
-        CanvasGestureDetector.kMinScale,
+        1,
       );
     final newMatrix = CanvasGestureDetectorState.setZoom(
       scaleDelta: -0.1,
