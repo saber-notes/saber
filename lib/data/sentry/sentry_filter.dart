@@ -6,8 +6,8 @@ import 'package:sentry_flutter/sentry_flutter.dart';
 
 abstract class SentryFilter {
   static final saberSyncFileRegex = RegExp(r'SaberSyncFile\(.+\)');
-  static final remoteFileRegex = RegExp(r'([a-zA-Z0-9]+\.sbe)');
-  static final localFileRegex = RegExp(r'/[a-zA-Z0-9_.-]+\.sbn2');
+  static final remoteFileRegex = RegExp(r'[a-zA-Z0-9]+\.sbe');
+  static final localFileRegex = RegExp(r'[/\\][^/\\]+\.sbn2');
   static final domainRegex = RegExp(r'://[a-zA-Z0-9.-]+');
   static final loginFlowRegex = RegExp(r'/flow/[a-zA-Z0-9/-]+');
   static final ocSessionPassphraseRegex =

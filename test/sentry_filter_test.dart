@@ -59,6 +59,15 @@ void main() {
           'Local file path: /path/to/somefile.sbn2');
     });
 
+    test('Redacts local file paths (Windows)', () async {
+      final originalEvent = SentryEvent(
+          message: SentryMessage('Local file path: \\path\\to\\secrets.sbn2'));
+      final filteredEvent =
+          await SentryFilter.beforeSend(originalEvent, Hint());
+      expect(filteredEvent?.message?.formatted,
+          'Local file path: \\path\\to/somefile.sbn2');
+    });
+
     test('Redacts local asset paths', () async {
       final originalEvent =
           SentryEvent(message: SentryMessage('Asset: $localFile.0'));
