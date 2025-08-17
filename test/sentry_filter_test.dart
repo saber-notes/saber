@@ -87,6 +87,16 @@ void main() {
           'https://example.com/index.php/login/v2/flow/XXXXXXXXXX');
     });
 
+    test('Redacts session passphrase', () async {
+      final originalEvent = SentryEvent(
+          message: SentryMessage(
+              'headers: {set-cookie: oc_sessionPassphrase=Abcdefg%123456%%2F4; path=/; secure; HttpOnly}'));
+      final filteredEvent =
+          await SentryFilter.beforeSend(originalEvent, Hint());
+      expect(filteredEvent?.message?.formatted,
+          'headers: {set-cookie: oc_sessionPassphrase=XXXXXXXXXX; path=/; secure; HttpOnly}');
+    });
+
     test('Redacts username', () async {
       stows.username.value = 'john.doe';
       final originalEvent =

@@ -10,6 +10,8 @@ abstract class SentryFilter {
   static final localFileRegex = RegExp(r'/[a-zA-Z0-9_.-]+\.sbn2');
   static final domainRegex = RegExp(r'://[a-zA-Z0-9.-]+');
   static final loginFlowRegex = RegExp(r'/flow/[a-zA-Z0-9/-]+');
+  static final ocSessionPassphraseRegex =
+      RegExp(r'oc_sessionPassphrase=[^;)}]+');
 
   static const redacted = '[redacted]';
 
@@ -49,6 +51,13 @@ abstract class SentryFilter {
       // Redact login flow token
       if (message.contains(loginFlowRegex)) {
         message = message.replaceAll(loginFlowRegex, '/flow/XXXXXXXXXX');
+        event.message = SentryMessage(message);
+      }
+
+      // Redact session passphrase
+      if (message.contains('oc_sessionPassphrase=')) {
+        message = message.replaceAll(
+            ocSessionPassphraseRegex, 'oc_sessionPassphrase=XXXXXXXXXX');
         event.message = SentryMessage(message);
       }
 
