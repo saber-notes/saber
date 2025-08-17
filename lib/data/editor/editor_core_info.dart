@@ -394,7 +394,7 @@ class EditorCoreInfo {
           () async {
             // We need to rerun some "init" methods in the isolate,
             // see https://github.com/saber-notes/saber/issues/1031.
-            FlavorConfig.setup();
+            FlavorConfig.setupFromEnvironment();
             await FileManager.init(
               documentsDirectory: documentsDirectory,
               shouldWatchRootDirectory: false,
