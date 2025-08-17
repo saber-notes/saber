@@ -699,7 +699,7 @@ class EditorState extends State<Editor> {
             page.laserStrokes.remove(stroke);
           },
         );
-        page.laserStrokes.add(newStroke);
+        if (newStroke != null) page.laserStrokes.add(newStroke);
       }
     });
 
