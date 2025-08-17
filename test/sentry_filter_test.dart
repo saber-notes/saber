@@ -97,6 +97,16 @@ void main() {
           'headers: {set-cookie: oc_sessionPassphrase=XXXXXXXXXX; path=/; secure; HttpOnly}');
     });
 
+    test('Redacts webdav paths', () async {
+      final originalEvent = SentryEvent(
+          message: SentryMessage(
+              'uri=https://website.org/remote.php/webdav/Saber; failed'));
+      final filteredEvent =
+          await SentryFilter.beforeSend(originalEvent, Hint());
+      expect(filteredEvent?.message?.formatted,
+          'uri=https://example.com/remote.php/webdav/path/to/something; failed');
+    });
+
     test('Redacts username', () async {
       stows.username.value = 'john.doe';
       final originalEvent =

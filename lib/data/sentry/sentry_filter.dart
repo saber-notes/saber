@@ -12,6 +12,7 @@ abstract class SentryFilter {
   static final loginFlowRegex = RegExp(r'/flow/[a-zA-Z0-9/-]+');
   static final ocSessionPassphraseRegex =
       RegExp(r'oc_sessionPassphrase=[^;)}]+');
+  static final webdavPathRegex = RegExp(r'/webdav/[^ ;)\],]+');
 
   static const redacted = '[redacted]';
 
@@ -58,6 +59,13 @@ abstract class SentryFilter {
       if (message.contains('oc_sessionPassphrase=')) {
         message = message.replaceAll(
             ocSessionPassphraseRegex, 'oc_sessionPassphrase=XXXXXXXXXX');
+        event.message = SentryMessage(message);
+      }
+
+      // Redact webdav paths
+      if (message.contains(webdavPathRegex)) {
+        message =
+            message.replaceAll(webdavPathRegex, '/webdav/path/to/something');
         event.message = SentryMessage(message);
       }
 
