@@ -27,6 +27,12 @@ abstract class SentryFilter {
     RegExp(r'oc_sessionPassphrase=[^;)}]+'): 'oc_sessionPassphrase=XXXXXXXXXX',
     // WebDAV paths
     RegExp(r'/webdav/[^ ;)\],]+'): '/webdav/path/to/something',
+    // Windows user folder (see https://stackoverflow.com/a/31976060)
+    RegExp(r':[/\\]Users[/\\][^<>"/\\|?*]+'): ':\\Users\\[USER]',
+    // Linux user folder
+    RegExp(r'/home/[^/]+'): '/home/[USER]',
+    // macOS user folder
+    RegExp(r'/Users/[^/]+'): '/Users/[USER]',
   };
 
   /// A list of known user credentials that should be redacted.

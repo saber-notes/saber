@@ -116,6 +116,32 @@ void main() {
           'uri=https://example.com/remote.php/webdav/path/to/something; failed');
     });
 
+    test('Redacts Windows user folder', () async {
+      final originalEvent = SentryEvent(
+          message: SentryMessage('C:\\Users\\bill\\Documents\\Saber'));
+      final filteredEvent =
+          await SentryFilter.beforeSend(originalEvent, Hint());
+      expect(filteredEvent?.message?.formatted,
+          'C:\\Users\\[USER]\\Documents\\Saber');
+    });
+
+    test('Redacts Linux user folder', () async {
+      final originalEvent =
+          SentryEvent(message: SentryMessage('/home/linus/Documents/Saber'));
+      final filteredEvent =
+          await SentryFilter.beforeSend(originalEvent, Hint());
+      expect(filteredEvent?.message?.formatted, '/home/[USER]/Documents/Saber');
+    });
+
+    test('Redacts macOS user folder', () async {
+      final originalEvent =
+          SentryEvent(message: SentryMessage('/Users/steve/Documents/Saber'));
+      final filteredEvent =
+          await SentryFilter.beforeSend(originalEvent, Hint());
+      expect(
+          filteredEvent?.message?.formatted, '/Users/[USER]/Documents/Saber');
+    });
+
     test('Redacts username', () async {
       stows.username.value = 'john.doe';
       final originalEvent =
