@@ -199,9 +199,11 @@ void _screenshot({
           ),
         );
         await tester.pumpWidget(widget);
+        await tester.pump();
 
         for (final editorState
             in tester.stateList<EditorState>(find.byType(Editor))) {
+          // Wait for the editor to load
           while (editorState.coreInfo.isEmpty) {
             await tester.runAsync(
                 () => Future.delayed(const Duration(milliseconds: 100)));
@@ -209,11 +211,10 @@ void _screenshot({
           await tester.pump();
         }
 
-        await tester.pump();
         await tester.precacheImagesInWidgetTree();
         await tester.precacheTopbarImages();
         await tester.loadFonts(overriddenFonts: saberSansSerifFontFallbacks);
-        await tester.pumpFrames(widget, const Duration(milliseconds: 100));
+        await tester.pumpAndSettle();
 
         await tester.expectScreenshot(
           device,
