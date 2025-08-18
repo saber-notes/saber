@@ -39,7 +39,7 @@ FutureOr<void> initSentry(FutureOr<void> Function() appRunner) async {
     SentryConsent.denied => false,
   };
 
-  if (!isSentryEnabled) {
+  if (!isSentryAvailable || !isSentryEnabled) {
     return appRunner();
   }
 
