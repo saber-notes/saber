@@ -30,14 +30,17 @@ abstract class SentryFilter {
   };
 
   /// A list of known user credentials that should be redacted.
+  /// This includes current user credentials and any other credentials we've
+  /// seen since starting the app.
   @visibleForTesting
-  static List<String> getSecrets() => [
-        stows.username.value,
-        stows.ncPassword.value,
-        stows.encPassword.value,
-        stows.key.value,
-        stows.iv.value,
-      ];
+  static Set<String> getSecrets() => _previousSecrets
+    ..add(stows.username.value)
+    ..add(stows.ncPassword.value)
+    ..add(stows.encPassword.value)
+    ..add(stows.key.value)
+    ..add(stows.iv.value);
+
+  static final _previousSecrets = <String>{};
 
   static FutureOr<SentryEvent?> beforeSend(SentryEvent event, Hint hint) async {
     if (stows.sentryConsent.value != SentryConsent.granted) {

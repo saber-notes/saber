@@ -150,5 +150,17 @@ void main() {
       expect(
           filteredEvent?.message?.formatted, 'Key: [redacted], IV: [redacted]');
     });
+
+    test('Redacts previous and current secrets', () async {
+      stows.username.value = 'john.doe';
+      final originalEvent =
+          SentryEvent(message: SentryMessage('john.doe and jane.doe'));
+      var filteredEvent = await SentryFilter.beforeSend(originalEvent, Hint());
+      expect(filteredEvent?.message?.formatted, '[redacted] and jane.doe');
+
+      stows.username.value = 'jane.doe';
+      filteredEvent = await SentryFilter.beforeSend(originalEvent, Hint());
+      expect(filteredEvent?.message?.formatted, '[redacted] and [redacted]');
+    });
   });
 }
