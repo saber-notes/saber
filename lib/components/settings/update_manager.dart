@@ -1,23 +1,17 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:logging/logging.dart';
 import 'package:open_file/open_file.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:saber/components/nextcloud/spinning_loading_icon.dart';
-import 'package:saber/components/settings/app_info.dart';
-import 'package:saber/components/theming/adaptive_alert_dialog.dart';
+import 'package:saber/components/settings/update_dialog.dart';
 import 'package:saber/data/flavor_config.dart';
-import 'package:saber/data/locales.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/data/saber_version.dart';
 import 'package:saber/data/version.dart' as version;
-import 'package:saber/i18n/strings.g.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 abstract class UpdateManager {
   static final log = Logger('UpdateManager');
@@ -47,96 +41,11 @@ abstract class UpdateManager {
       if (_hasShownUpdateDialog) return; // already shown
     }
 
-    String? directDownloadLink = await getLatestDownloadUrl();
-    final canNotDownloadYet =
-        _platformFileRegex.containsKey(defaultTargetPlatform) &&
-            directDownloadLink == null;
-    bool directDownloadStarted = false;
-
-    final currentLocale = LocaleSettings.currentLocale;
-    final String? localeCode;
-    if (currentLocale != AppLocale.en) {
-      localeCode = currentLocale.languageTag;
-    } else {
-      localeCode = null;
-    }
-
-    final String? englishChangelog = await getChangelog();
-    final String? translatedChangelog;
-    if (localeCode != null) {
-      translatedChangelog = await getChangelog(localeCode: localeCode);
-    } else {
-      translatedChangelog = null;
-    }
-    bool showTranslatedChangelog = translatedChangelog != null;
-
     if (!context.mounted) return;
     _hasShownUpdateDialog = true;
     return await showDialog(
       context: context,
-      builder: (context) => StatefulBuilder(
-        builder: (context, setState) => AdaptiveAlertDialog(
-          title: Text(t.update.updateAvailable),
-          content: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text(t.update.updateAvailableDescription),
-              if (showTranslatedChangelog)
-                Text(translatedChangelog!)
-              else if (englishChangelog != null)
-                Text(englishChangelog),
-              if (translatedChangelog != null && englishChangelog != null)
-                TextButton(
-                  onPressed: () => setState(() {
-                    showTranslatedChangelog = !showTranslatedChangelog;
-                  }),
-                  child: Text(
-                    showTranslatedChangelog
-                        ? localeNames[localeCode] ?? localeCode!
-                        : localeNames['en']!,
-                  ),
-                ),
-              if (canNotDownloadYet)
-                Text(
-                  t.update.downloadNotAvailableYet,
-                  style: TextStyle(
-                    color: Theme.of(context).colorScheme.error,
-                  ),
-                ),
-            ],
-          ),
-          actions: [
-            CupertinoDialogAction(
-              onPressed: () => Navigator.pop(context),
-              child: Text(
-                  MaterialLocalizations.of(context).modalBarrierDismissLabel),
-            ),
-            CupertinoDialogAction(
-              onPressed: (directDownloadStarted || canNotDownloadYet)
-                  ? null
-                  : () {
-                      if (directDownloadLink != null) {
-                        _directlyDownloadUpdate(directDownloadLink).then((_) {
-                          directDownloadStarted = false;
-                          if (context.mounted) setState(() {});
-                        });
-                        setState(() => directDownloadStarted = true);
-                      } else {
-                        launchUrl(AppInfo.releasesUrl);
-                      }
-                    },
-              child: () {
-                if (directDownloadStarted) {
-                  return const SpinningLoadingIcon();
-                } else {
-                  return Text(t.update.update);
-                }
-              }(),
-            ),
-          ],
-        ),
-      ),
+      builder: (context) => const UpdateDialog(),
     );
   }
 
@@ -218,7 +127,6 @@ abstract class UpdateManager {
     return UpdateStatus.updateRecommended;
   }
 
-  @visibleForTesting
   static Future<String?> getLatestDownloadUrl([
     String? apiResponse,
     TargetPlatform? platform,
@@ -229,7 +137,7 @@ abstract class UpdateManager {
       if (FlavorConfig.flavor.isNotEmpty) return null;
     }
 
-    if (!_platformFileRegex.containsKey(platform)) return null;
+    if (!UpdateManager.platformFileRegex.containsKey(platform)) return null;
 
     if (apiResponse == null) {
       final http.Response response;
@@ -245,7 +153,7 @@ abstract class UpdateManager {
     }
 
     final Map<String, dynamic> json = jsonDecode(apiResponse);
-    final RegExp platformFileRegex = _platformFileRegex[platform]!;
+    final RegExp platformFileRegex = UpdateManager.platformFileRegex[platform]!;
     final Map<String, dynamic>? asset = (json['assets'] as List).firstWhere(
       (asset) => platformFileRegex.hasMatch(asset['name']),
       orElse: () => null,
@@ -253,7 +161,7 @@ abstract class UpdateManager {
     return asset?['browser_download_url'];
   }
 
-  static final Map<TargetPlatform, RegExp> _platformFileRegex = {
+  static final Map<TargetPlatform, RegExp> platformFileRegex = {
     TargetPlatform.windows: RegExp(r'\.exe'),
 
     // e.g. Saber_v0.9.8.apk not Saber_FOSS_v0.9.8.apk
@@ -261,7 +169,8 @@ abstract class UpdateManager {
   };
 
   /// Downloads the update file from [downloadUrl] and installs it.
-  static Future _directlyDownloadUpdate(String downloadUrl) async {
+  // TODO(adil192): use a downloader like background_downloader for progress
+  static Future<void> directlyDownloadUpdate(String downloadUrl) async {
     final Uint8List bytes = await http.readBytes(Uri.parse(downloadUrl));
 
     final tempDir = await getTemporaryDirectory();
@@ -273,10 +182,9 @@ abstract class UpdateManager {
     await OpenFile.open(file.path);
   }
 
-  @visibleForTesting
   static Future<String?> getChangelog({
-    int? newestVersion,
     String localeCode = 'en-US',
+    @visibleForTesting int? newestVersion,
   }) async {
     newestVersion ??= UpdateManager.newestVersion;
     assert(newestVersion != null);
