@@ -718,7 +718,7 @@ class FileManager {
         log.severe('Failed to find main note in sba: $path');
         return null;
       }
-      final mainFileExtension = '.${mainFile.name.split('.').last}';
+      final mainFileExtension = '.${mainFile.name.split('.').last}'.toLowerCase();
       importedPath = await suffixFilePathToMakeItUnique(
         '${parentDir ?? '/'}$fileName',
         intendedExtension: mainFileExtension,
@@ -765,11 +765,11 @@ class FileManager {
       final fileContents = await file.readAsBytes();
       importedPath = await suffixFilePathToMakeItUnique(
         '${parentDir ?? '/'}$fileName',
-        intendedExtension: extension,
+        intendedExtension: extension.toLowerCase(),
       );
       writeFutures.add(
         writeFile(
-          importedPath + extension,
+          importedPath + extension.toLowerCase(),
           fileContents,
           awaitWrite: awaitWrite,
         ),
