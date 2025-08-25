@@ -706,12 +706,12 @@ class FileManager {
 
     final writeFutures = <Future>[];
 
-    if (extension == '.sba') {
+    if (extension.toLowerCase() == '.sba') {
       final inputStream = InputFileStream(path);
       final archive = ZipDecoder().decodeStream(inputStream);
 
       final mainFile = archive.files.cast<ArchiveFile?>().firstWhere(
-            (file) => file!.name.endsWith('sbn') || file.name.endsWith('sbn2'),
+            (file) => file!.name.toLowerCase().endsWith('sbn') || file.name.toLowerCase().endsWith('sbn2'),
             orElse: () => null,
           );
       if (mainFile == null) {
