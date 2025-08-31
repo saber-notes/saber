@@ -211,7 +211,8 @@ flutter:
   assets:
     - assets/icon/icon.svg
     - assets/images/
-    - assets/google_fonts/Atkinson_Hyperlegible/
+    # TODO(adil192): Do we need fonts as assets in they are defined in fonts section?
+    - assets/google_fonts/Atkinson_Hyperlegible_Next/
     - assets/google_fonts/Dekko/
     - assets/google_fonts/Fira_Mono/
     - assets/google_fonts/Neucha/
@@ -243,15 +244,11 @@ flutter:
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
   fonts:
-    - family: AtkinsonHyperlegible
+    - family: AtkinsonHyperlegibleNext
       fonts:
-        - asset: assets/google_fonts/Atkinson_Hyperlegible/AtkinsonHyperlegible-Regular.ttf
-        - asset: assets/google_fonts/Atkinson_Hyperlegible/AtkinsonHyperlegible-Italic.ttf
+        - asset: assets/google_fonts/Atkinson_Hyperlegible_Next/AtkinsonHyperlegibleNext-VariableFont_wght.ttf
+        - asset: assets/google_fonts/Atkinson_Hyperlegible_Next/AtkinsonHyperlegibleNext-Italic-VariableFont_wght.ttf
           style: italic
-        - asset: assets/google_fonts/Atkinson_Hyperlegible/AtkinsonHyperlegible-Bold.ttf
-          weight: 700
-        - asset: assets/google_fonts/Atkinson_Hyperlegible/AtkinsonHyperlegible-BoldItalic.ttf
-          weight: 700
     - family: Dekko
       fonts:
         - asset: assets/google_fonts/Dekko/Dekko-Regular.ttf

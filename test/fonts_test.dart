@@ -4,7 +4,7 @@ import 'package:golden_screenshot/golden_screenshot.dart';
 import 'package:saber/components/theming/font_fallbacks.dart';
 
 const _appFonts = [
-  'AtkinsonHyperlegible',
+  'AtkinsonHyperlegibleNext',
   'Dekko',
   'FiraMono',
   // Note that we no longer bundle Inter with the app, so it should fall back to Roboto in tests.
