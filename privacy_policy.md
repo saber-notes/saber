@@ -115,6 +115,15 @@ and is available on [GitHub](https://github.com/saber-notes/saber).
 
 3. Sentry: Error logs are already anonymised and it is impossible to identify/delete reports from a specific user or device. If you want to stop further reports, you can disable error tracking in the app settings.
 
+### Unused accounts
+
+To conserve storage space, accounts on the official Saber server that have not been used for over 365 days may be deleted automatically.
+
+You will receive notifications via email 300, 330, and 360 days after your last login,
+giving you the opportunity to log in and prevent deletion if you wish to keep your account.
+
+If you are using another Nextcloud server, please refer to that server's privacy policy or terms of service for information on account deletion policies.
+
 ## Privacy point of contact
 
 This application is developed by Adil Hanney.
