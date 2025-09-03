@@ -30,7 +30,7 @@ of their choice to use as a cloud service.
 For users who don't want to choose a custom Nextcloud server,
 the official Saber server is hosted at
 [nc.saber.adil.hanney.org](https://nc.saber.adil.hanney.org).
-This server is run by Adil Hanney and hosted in the United Kingdom.
+This server is run by me (Adil Hanney) and hosted in the European Union (The Netherlands).
 
 To maintain privacy, all notes are encrypted before being sent to the cloud.
 A randomly generated key is used to encrypt the notes.
