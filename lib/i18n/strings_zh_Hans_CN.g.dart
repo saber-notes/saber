@@ -358,7 +358,7 @@ class _TranslationsSentryConsentZhHansCn extends TranslationsSentryConsentEn {
 	final TranslationsZhHansCn _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => '帮助改善军刀？';
+	@override String get title => '帮助改善 Saber ？';
 	@override late final _TranslationsSentryConsentDescriptionZhHansCn description = _TranslationsSentryConsentDescriptionZhHansCn._(_root);
 	@override late final _TranslationsSentryConsentAnswersZhHansCn answers = _TranslationsSentryConsentAnswersZhHansCn._(_root);
 }
