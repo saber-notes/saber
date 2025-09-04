@@ -77,7 +77,7 @@ Saber 可以满足您整理笔记的一切需求。您可以随心所欲地创�
 
 请阅读
 [Build Saber](https://github.com/saber-notes/saber/wiki/build)
-在维基上。
+在 Wiki 上。
 
 ## 链接
 
@@ -90,7 +90,7 @@ Saber 可以满足您整理笔记的一切需求。您可以随心所欲地创�
 
 请阅读
 [Translating](https://github.com/saber-notes/saber/wiki/Translating)
-在维基上。
+在 Wiki 上。
 
 ## 支持 Saber
 
