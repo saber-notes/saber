@@ -836,9 +836,9 @@ class _TranslationsSettingsPrefDescriptionsPencilSoundSettingZhHansCn extends Tr
 	final TranslationsZhHansCn _root; // ignore: unused_field
 
 	// Translations
-	@override String get off => '没有音效';
-	@override String get onButNotInSilentMode => '启用（除非在静音模式下）';
-	@override String get onAlways => '启用（即使在静音模式下）';
+	@override String get off => '禁用（没有音效）';
+	@override String get onButNotInSilentMode => '启用（排除静音模式）';
+	@override String get onAlways => '启用（包括静音模式）';
 }
 
 // Path: settings.prefDescriptions.sentry
