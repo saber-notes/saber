@@ -59,6 +59,6 @@ android {
     dependencies {
         implementation('com.onyx.android.sdk:onyxsdk-device:1.2.29')
         implementation('com.onyx.android.sdk:onyxsdk-pen:1.4.10.1')
-        implementation("org.lsposed.hiddenapibypass:hiddenapibypass:4.3")
+        implementation("org.lsposed.hiddenapibypass:hiddenapibypass:6.1")
     }
 }
