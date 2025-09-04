@@ -115,8 +115,8 @@ class _TranslationsSettingsZhHansCn extends TranslationsSettingsEn {
 	@override String get resyncEverything => '重新同步所有';
 	@override String get openDataDir => '打开 Saber 文件夹';
 	@override late final _TranslationsSettingsCustomDataDirZhHansCn customDataDir = _TranslationsSettingsCustomDataDirZhHansCn._(_root);
-	@override String get autosaveDisabled => '绝不';
-	@override String get shapeRecognitionDisabled => '绝不';
+	@override String get autosaveDisabled => '永不';
+	@override String get shapeRecognitionDisabled => '永不';
 }
 
 // Path: logs
