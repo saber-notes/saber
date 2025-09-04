@@ -794,7 +794,7 @@ class _TranslationsSentryConsentDescriptionZhHansCn extends TranslationsSentryCo
 	final TranslationsZhHansCn _root; // ignore: unused_field
 
 	// Translations
-	@override String get question => '您想自动报告意外错误吗？这可以帮助我更快地识别和解决问题。';
+	@override String get question => '您想自动报告意外错误吗？这可以帮助我们更快地识别和解决问题。';
 	@override String get scope => '报告可能包含有关错误和设备的信息。我已经尽一切努力过滤了个人数据，但有些可能会保留。';
 	@override String get currentlyOff => '如果您授予同意，则重新启动应用程序后将启用错误报告。';
 	@override String get currentlyOn => '如果您撤销同意，请重新启动该应用程序以禁用错误报告。';
