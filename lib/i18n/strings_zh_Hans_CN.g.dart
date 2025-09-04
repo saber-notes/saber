@@ -919,12 +919,12 @@ class _TranslationsEditorMenuBgPatternsZhHansCn extends TranslationsEditorMenuBg
 
 	// Translations
 	@override String get none => '空白';
-	@override String get college => 'College-ruled';
-	@override String get collegeRtl => 'College-ruled（反转）';
+	@override String get college => '拍纸簿';
+	@override String get collegeRtl => '拍纸簿（右）';
 	@override String get lined => '横线';
 	@override String get grid => '网格';
-	@override String get dots => '点';
-	@override String get staffs => '五线谱';
+	@override String get dots => '点阵';
+	@override String get staffs => '乐谱';
 	@override String get tablature => '绘画';
-	@override String get cornell => 'Cornell';
+	@override String get cornell => '康奈尔';
 }
