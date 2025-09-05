@@ -1,0 +1,3 @@
+• Actualizó la fuente Atkinson Hyperlegible a Atkinson Hyperlegible junto para admitir más idiomas
+• Muy ligero redondeo en el icono de la aplicación
+• correcciones de errores y mejoras de las actualizaciones de dependencia

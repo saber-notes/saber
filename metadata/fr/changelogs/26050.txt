@@ -1,0 +1,3 @@
+• Mise à jour de la police atkinson hyperlegible à Atkinson Hyperlegible ensuite pour soutenir plus de langues
+• Très léger arrondissement sur l'icône de l'application
+• Correction des bogues et améliorations des mises à jour de dépendance
