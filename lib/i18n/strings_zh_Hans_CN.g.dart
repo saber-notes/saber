@@ -438,7 +438,7 @@ class _TranslationsSettingsPrefDescriptionsZhHansCn extends TranslationsSettings
 	@override String get shouldAlwaysAlertForUpdates => '在更新可用时尽快告诉我';
 	@override late final _TranslationsSettingsPrefDescriptionsPencilSoundSettingZhHansCn pencilSoundSetting = _TranslationsSettingsPrefDescriptionsPencilSoundSettingZhHansCn._(_root);
 	@override late final _TranslationsSettingsPrefDescriptionsSentryZhHansCn sentry = _TranslationsSettingsPrefDescriptionsSentryZhHansCn._(_root);
-	@override String get autosave => '在短暂延迟后自动保存，或永不保存';
+	@override String get autosave => '短暂延迟后自动保存笔记内容，或永不保存';
 }
 
 // Path: settings.themeModes
