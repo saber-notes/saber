@@ -259,12 +259,14 @@ class App extends StatefulWidget {
 
     if (file.type != SharedMediaType.file) return;
 
-    final String extension;
+    String extension;
     if (file.path.contains('.')) {
       extension = file.path.split('.').last;
     } else {
       extension = 'sbn2';
     }
+
+    extension = extension.toLowerCase();
 
     if (extension == 'sbn' || extension == 'sbn2' || extension == 'sba') {
       final String? path = await FileManager.importFile(
