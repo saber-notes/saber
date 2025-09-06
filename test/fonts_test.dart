@@ -52,7 +52,7 @@ void main() {
           ),
         ));
 
-        await tester.loadFonts(overriddenFonts: saberSansSerifFontFallbacks);
+        await tester.loadFonts(overriddenFonts: ['Inter', ...kOverriddenFonts]);
         await tester.pumpAndSettle();
 
         tester.useFuzzyComparator(allowedDiffPercent: 0.1);
