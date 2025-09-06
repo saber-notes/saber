@@ -115,8 +115,8 @@ class _TranslationsSettingsZhHansCn extends TranslationsSettingsEn {
 	@override String get resyncEverything => '重新同步所有';
 	@override String get openDataDir => '打开 Saber 文件夹';
 	@override late final _TranslationsSettingsCustomDataDirZhHansCn customDataDir = _TranslationsSettingsCustomDataDirZhHansCn._(_root);
-	@override String get autosaveDisabled => '绝不';
-	@override String get shapeRecognitionDisabled => '绝不';
+	@override String get autosaveDisabled => '永不';
+	@override String get shapeRecognitionDisabled => '永不';
 }
 
 // Path: logs
@@ -358,7 +358,7 @@ class _TranslationsSentryConsentZhHansCn extends TranslationsSentryConsentEn {
 	final TranslationsZhHansCn _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => '帮助改善军刀？';
+	@override String get title => '帮助改善 Saber ？';
 	@override late final _TranslationsSentryConsentDescriptionZhHansCn description = _TranslationsSentryConsentDescriptionZhHansCn._(_root);
 	@override late final _TranslationsSentryConsentAnswersZhHansCn answers = _TranslationsSentryConsentAnswersZhHansCn._(_root);
 }
@@ -398,7 +398,7 @@ class _TranslationsSettingsPrefLabelsZhHansCn extends TranslationsSettingsPrefLa
 	@override String get editorAutoInvert => '在深色模式下使用反色笔记背景';
 	@override String get preferGreyscale => '使用灰度颜色';
 	@override String get maxImageSize => '最大图片大小';
-	@override String get autoClearWhiteboardOnExit => '离开应用后清除白板';
+	@override String get autoClearWhiteboardOnExit => '离开应用后清除白板内容';
 	@override String get disableEraserAfterUse => '自动禁用橡皮擦';
 	@override String get hideFingerDrawingToggle => '隐藏 切换手指绘制';
 	@override String get editorPromptRename => '提示您重命名新笔记';
@@ -427,7 +427,7 @@ class _TranslationsSettingsPrefDescriptionsZhHansCn extends TranslationsSettings
 	@override String get preferGreyscale => '用于电子墨水显示器';
 	@override String get autoClearWhiteboardOnExit => '这将会同步到您的其他设备';
 	@override String get disableEraserAfterUse => '使用橡皮擦后自动切换回笔';
-	@override String get maxImageSize => '更大的图片将会被压缩';
+	@override String get maxImageSize => '超出大小的图片将会被压缩';
 	@override late final _TranslationsSettingsPrefDescriptionsHideFingerDrawingZhHansCn hideFingerDrawing = _TranslationsSettingsPrefDescriptionsHideFingerDrawingZhHansCn._(_root);
 	@override String get editorPromptRename => '您可以总是稍后重命名笔记';
 	@override String get hideHomeBackgrounds => '更简洁的外观';
@@ -438,7 +438,7 @@ class _TranslationsSettingsPrefDescriptionsZhHansCn extends TranslationsSettings
 	@override String get shouldAlwaysAlertForUpdates => '在更新可用时尽快告诉我';
 	@override late final _TranslationsSettingsPrefDescriptionsPencilSoundSettingZhHansCn pencilSoundSetting = _TranslationsSettingsPrefDescriptionsPencilSoundSettingZhHansCn._(_root);
 	@override late final _TranslationsSettingsPrefDescriptionsSentryZhHansCn sentry = _TranslationsSettingsPrefDescriptionsSentryZhHansCn._(_root);
-	@override String get autosave => '短暂延迟后自动保存，或者永远不会';
+	@override String get autosave => '短暂延迟后自动保存笔记内容，或永不保存';
 }
 
 // Path: settings.themeModes
@@ -794,7 +794,7 @@ class _TranslationsSentryConsentDescriptionZhHansCn extends TranslationsSentryCo
 	final TranslationsZhHansCn _root; // ignore: unused_field
 
 	// Translations
-	@override String get question => '您想自动报告意外错误吗？这可以帮助我更快地识别和解决问题。';
+	@override String get question => '您想自动报告意外错误吗？这可以帮助我们更快地识别和解决问题。';
 	@override String get scope => '报告可能包含有关错误和设备的信息。我已经尽一切努力过滤了个人数据，但有些可能会保留。';
 	@override String get currentlyOff => '如果您授予同意，则重新启动应用程序后将启用错误报告。';
 	@override String get currentlyOn => '如果您撤销同意，请重新启动该应用程序以禁用错误报告。';
@@ -836,9 +836,9 @@ class _TranslationsSettingsPrefDescriptionsPencilSoundSettingZhHansCn extends Tr
 	final TranslationsZhHansCn _root; // ignore: unused_field
 
 	// Translations
-	@override String get off => '没有音效';
-	@override String get onButNotInSilentMode => '启用（除非在静音模式下）';
-	@override String get onAlways => '启用（即使在静音模式下）';
+	@override String get off => '禁用（没有音效）';
+	@override String get onButNotInSilentMode => '启用（排除静音模式）';
+	@override String get onAlways => '启用（包括静音模式）';
 }
 
 // Path: settings.prefDescriptions.sentry
@@ -919,12 +919,12 @@ class _TranslationsEditorMenuBgPatternsZhHansCn extends TranslationsEditorMenuBg
 
 	// Translations
 	@override String get none => '空白';
-	@override String get college => 'College-ruled';
-	@override String get collegeRtl => 'College-ruled（反转）';
+	@override String get college => '拍纸簿';
+	@override String get collegeRtl => '拍纸簿（右）';
 	@override String get lined => '横线';
 	@override String get grid => '网格';
-	@override String get dots => '点';
-	@override String get staffs => '五线谱';
+	@override String get dots => '点阵';
+	@override String get staffs => '乐谱';
 	@override String get tablature => '绘画';
-	@override String get cornell => 'Cornell';
+	@override String get cornell => '康奈尔';
 }
