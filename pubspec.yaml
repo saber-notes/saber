@@ -205,11 +205,10 @@ flutter:
   assets:
     - assets/icon/icon.svg
     - assets/images/
-    # TODO(adil192): Do we need fonts as assets in they are defined in fonts section?
-    - assets/google_fonts/Atkinson_Hyperlegible_Next/
-    - assets/google_fonts/Dekko/
-    - assets/google_fonts/Fira_Mono/
-    - assets/google_fonts/Neucha/
+    - assets/google_fonts/Atkinson_Hyperlegible_Next/OFL.txt
+    - assets/google_fonts/Dekko/OFL.txt
+    - assets/google_fonts/Fira_Mono/OFL.txt
+    - assets/google_fonts/Neucha/OFL.txt
     - assets/audio/
 
   # An image asset can refer to one or more resolution-specific "variants", see
