@@ -78,7 +78,7 @@ dependencies:
 
   flex_color_picker: ^3.4.1
 
-  font_awesome_flutter: ^10.3.0
+  font_awesome_flutter: 10.9.0
 
   flutter_svg: ^2.0.0+1
 
@@ -190,12 +190,6 @@ dependency_overrides:
       url: https://github.com/m-berto/flutter_secure_storage.git
       ref: patch-2
       path: flutter_secure_storage_linux
-
-  # https://github.com/ubuntu/yaru.dart/pull/1022
-  yaru:
-    git:
-      url: https://github.com/gev/yaru.dart
-      ref: c32d0c50cb65387beb74f6dc000d312e8a4b78aa
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
