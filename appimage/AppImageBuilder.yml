@@ -61,4 +61,5 @@ AppDir:
       command: ./AppRun
 AppImage:
   arch: x86_64
+  comp: zstd
   update-information: gh-releases-zsync|saber-notes|saber|latest|Saber-*-x86_64.AppImage.zsync
