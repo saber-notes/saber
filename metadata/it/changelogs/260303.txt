@@ -1,0 +1,2 @@
+• Aggiunti alcuni rapporti (opzionali) di crash per aiutarmi a migliorare l'app.
+• Correzioni di bug minori.

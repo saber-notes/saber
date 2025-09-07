@@ -15,11 +15,11 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 0.26.2+26020
+version: 0.26.5+26050
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
-  flutter: ">=3.32.7"
+  flutter: ">=3.35.0"
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -78,7 +78,7 @@ dependencies:
 
   flex_color_picker: ^3.4.1
 
-  font_awesome_flutter: ^10.3.0
+  font_awesome_flutter: 10.9.0
 
   flutter_svg: ^2.0.0+1
 
@@ -91,7 +91,7 @@ dependencies:
 
   flutter_quill: ^11.0.0
 
-  window_manager: ^0.4.2
+  window_manager: ^0.5.1
 
   worker_manager: ^7.0.1
   workmanager: ^0.9.0
@@ -151,6 +151,9 @@ dependencies:
   stow_secure: ^0.5.0
   stow_codecs: ^1.2.0
 
+  sentry_flutter: ^9.5.0
+  sentry_logging: ^9.5.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -171,6 +174,8 @@ dev_dependencies:
   yaml: ^3.1.2
 
   golden_screenshot: ^3.3.0
+
+  sentry_dart_plugin: ^3.1.1
 
 dependency_overrides:
   # https://github.com/KasemJaffer/receive_sharing_intent/pull/333
@@ -200,10 +205,10 @@ flutter:
   assets:
     - assets/icon/icon.svg
     - assets/images/
-    - assets/google_fonts/Atkinson_Hyperlegible/
-    - assets/google_fonts/Dekko/
-    - assets/google_fonts/Fira_Mono/
-    - assets/google_fonts/Neucha/
+    - assets/google_fonts/Atkinson_Hyperlegible_Next/OFL.txt
+    - assets/google_fonts/Dekko/OFL.txt
+    - assets/google_fonts/Fira_Mono/OFL.txt
+    - assets/google_fonts/Neucha/OFL.txt
     - assets/audio/
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -232,15 +237,23 @@ flutter:
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
   fonts:
-    - family: AtkinsonHyperlegible
+    - family: AtkinsonHyperlegibleNext
       fonts:
-        - asset: assets/google_fonts/Atkinson_Hyperlegible/AtkinsonHyperlegible-Regular.ttf
-        - asset: assets/google_fonts/Atkinson_Hyperlegible/AtkinsonHyperlegible-Italic.ttf
+        - asset: assets/google_fonts/Atkinson_Hyperlegible_Next/AtkinsonHyperlegibleNext-Regular.ttf
+          weight: 400
+        - asset: assets/google_fonts/Atkinson_Hyperlegible_Next/AtkinsonHyperlegibleNext-Italic.ttf
+          weight: 400
           style: italic
-        - asset: assets/google_fonts/Atkinson_Hyperlegible/AtkinsonHyperlegible-Bold.ttf
-          weight: 700
-        - asset: assets/google_fonts/Atkinson_Hyperlegible/AtkinsonHyperlegible-BoldItalic.ttf
-          weight: 700
+        - asset: assets/google_fonts/Atkinson_Hyperlegible_Next/AtkinsonHyperlegibleNext-Medium.ttf
+          weight: 500
+        - asset: assets/google_fonts/Atkinson_Hyperlegible_Next/AtkinsonHyperlegibleNext-MediumItalic.ttf
+          weight: 500
+          style: italic
+        - asset: assets/google_fonts/Atkinson_Hyperlegible_Next/AtkinsonHyperlegibleNext-SemiBold.ttf
+          weight: 600
+        - asset: assets/google_fonts/Atkinson_Hyperlegible_Next/AtkinsonHyperlegibleNext-SemiBoldItalic.ttf
+          weight: 600
+          style: italic
     - family: Dekko
       fonts:
         - asset: assets/google_fonts/Dekko/Dekko-Regular.ttf
@@ -259,7 +272,7 @@ flutter:
     - shaders/pencil.frag
 
 
-# dart run icons_launcher:create
+# ./scripts/generate_icons.sh
 icons_launcher:
   image_path: "assets/icon/icon.png"
   platforms:
@@ -280,3 +293,9 @@ icons_launcher:
     macos:
       enable: true
       image_path: "assets/icon/icon_macos.png"
+
+sentry:
+  upload_debug_symbols: true
+  upload_source_maps: true
+  project: saber
+  org: saber-yf

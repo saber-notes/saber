@@ -17,6 +17,7 @@ on:
 jobs:
   build-ios:
     name: Build for iOS
+    # TODO(adil192): Change to macos-latest after 30 August 2025 (https://github.com/actions/runner-images/issues/12520)
     runs-on: macos-15
     timeout-minutes: 60
     env:
@@ -28,13 +29,27 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Setup Xcode
+        run: |
+          echo "Selecting Xcode 16.4..."
+          sudo xcode-select -s /Applications/Xcode_16.4.app
+          xcode-select -p
+          echo
+
+          echo "Running Xcode first launch..."
+          xcodebuild -runFirstLaunch
+          echo
+
+          echo "Downloading iOS platform files..."
+          xcodebuild -downloadPlatform iOS -version 18.0
+          echo
+
       - name: Install Flutter
         uses: subosito/flutter-action@v2
         with:
           channel: stable
           cache: true
           cache-key: 'flutter-:os:-:channel:-:version:-:arch:'
-          architecture: x64
 
       - name: Install Codemagic CLI Tools
         run: pipx install codemagic-cli-tools

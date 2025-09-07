@@ -34,6 +34,7 @@ class TranslationsCs extends Translations {
 	// Translations
 	@override late final _TranslationsCommonCs common = _TranslationsCommonCs._(_root);
 	@override late final _TranslationsHomeCs home = _TranslationsHomeCs._(_root);
+	@override late final _TranslationsSentryCs sentry = _TranslationsSentryCs._(_root);
 	@override late final _TranslationsSettingsCs settings = _TranslationsSettingsCs._(_root);
 	@override late final _TranslationsLogsCs logs = _TranslationsLogsCs._(_root);
 	@override late final _TranslationsLoginCs login = _TranslationsLoginCs._(_root);
@@ -80,6 +81,16 @@ class _TranslationsHomeCs extends TranslationsHomeEn {
 	@override late final _TranslationsHomeDeleteFolderCs deleteFolder = _TranslationsHomeDeleteFolderCs._(_root);
 }
 
+// Path: sentry
+class _TranslationsSentryCs extends TranslationsSentryEn {
+	_TranslationsSentryCs._(TranslationsCs root) : this._root = root, super.internal(root);
+
+	final TranslationsCs _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsSentryConsentCs consent = _TranslationsSentryConsentCs._(_root);
+}
+
 // Path: settings
 class _TranslationsSettingsCs extends TranslationsSettingsEn {
 	_TranslationsSettingsCs._(TranslationsCs root) : this._root = root, super.internal(root);
@@ -119,7 +130,7 @@ class _TranslationsLogsCs extends TranslationsLogsEn {
 	@override String get viewLogs => 'Zobrazit logy';
 	@override String get debuggingInfo => 'Logy obsahují informace užitečné pro ladění a vývoj';
 	@override String get noLogs => 'Nejsou k dispozici žádné logy!';
-	@override String get logsAreTemporary => 'Logy jsou zachovány pouze do uzavření aplikace';
+	@override String get useTheApp => 'Jakmile aplikaci začnete používat, logy se zobrazí na tomto místě';
 }
 
 // Path: login
@@ -340,6 +351,18 @@ class _TranslationsHomeDeleteFolderCs extends TranslationsHomeDeleteFolderEn {
 	@override String get alsoDeleteContents => 'Se složkou odstranit i obsažené poznámky';
 }
 
+// Path: sentry.consent
+class _TranslationsSentryConsentCs extends TranslationsSentryConsentEn {
+	_TranslationsSentryConsentCs._(TranslationsCs root) : this._root = root, super.internal(root);
+
+	final TranslationsCs _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Chcete pomoct vylepšit aplikaci Saber?';
+	@override late final _TranslationsSentryConsentDescriptionCs description = _TranslationsSentryConsentDescriptionCs._(_root);
+	@override late final _TranslationsSentryConsentAnswersCs answers = _TranslationsSentryConsentAnswersCs._(_root);
+}
+
 // Path: settings.prefCategories
 class _TranslationsSettingsPrefCategoriesCs extends TranslationsSettingsPrefCategoriesEn {
 	_TranslationsSettingsPrefCategoriesCs._(TranslationsCs root) : this._root = root, super.internal(root);
@@ -389,6 +412,7 @@ class _TranslationsSettingsPrefLabelsCs extends TranslationsSettingsPrefLabelsEn
 	@override String get simplifiedHomeLayout => 'Zjednodušené rozložení domovské obrazovky';
 	@override String get customDataDir => 'Vlastní umístění složky aplikace Saber';
 	@override String get pencilSoundSetting => 'Zvukový efekt psaní tužkou';
+	@override String get sentry => 'Hlášení chyb';
 }
 
 // Path: settings.prefDescriptions
@@ -414,6 +438,7 @@ class _TranslationsSettingsPrefDescriptionsCs extends TranslationsSettingsPrefDe
 	@override String get simplifiedHomeLayout => 'Nastaví pevnou výšku pro každý náhled poznámky';
 	@override String get shouldAlwaysAlertForUpdates => 'Oznámit dostupnost aktualizací co nejdříve od jejich vydání';
 	@override late final _TranslationsSettingsPrefDescriptionsPencilSoundSettingCs pencilSoundSetting = _TranslationsSettingsPrefDescriptionsPencilSoundSettingCs._(_root);
+	@override late final _TranslationsSettingsPrefDescriptionsSentryCs sentry = _TranslationsSettingsPrefDescriptionsSentryCs._(_root);
 }
 
 // Path: settings.themeModes
@@ -762,6 +787,36 @@ class _TranslationsEditorHudCs extends TranslationsEditorHudEn {
 	@override String get lockAxisAlignedPan => 'Zamknout horizontální a vertikální posouvání';
 }
 
+// Path: sentry.consent.description
+class _TranslationsSentryConsentDescriptionCs extends TranslationsSentryConsentDescriptionEn {
+	_TranslationsSentryConsentDescriptionCs._(TranslationsCs root) : this._root = root, super.internal(root);
+
+	final TranslationsCs _root; // ignore: unused_field
+
+	// Translations
+	@override String get question => 'Chtěli byste automaticky nahlašovat neočekávané chyby? Pomohlo by mi to s rychlejší identifikací a opravou.';
+	@override String get scope => 'Hlášení mohou obsahovat informace o chybě a vašem zařízení. Dělal jsem, co bylo v mých silách, abych odfiltroval osobní data, ale i tak mohou některá zůstat.';
+	@override String get currentlyOff => 'Nahlašování chyb se v případě udělení souhlasu zapne po restartu aplikace.';
+	@override String get currentlyOn => 'Po odvolání souhlasu prosím restartujte aplikaci, abyste nahlašování chyb vypnuli.';
+	@override TextSpan learnMoreInPrivacyPolicy({required InlineSpanBuilder link}) => TextSpan(children: [
+		const TextSpan(text: 'Více se dozvíte v '),
+		link('Zásadách ochrany osobních údajů'),
+		const TextSpan(text: ' (anglicky).'),
+	]);
+}
+
+// Path: sentry.consent.answers
+class _TranslationsSentryConsentAnswersCs extends TranslationsSentryConsentAnswersEn {
+	_TranslationsSentryConsentAnswersCs._(TranslationsCs root) : this._root = root, super.internal(root);
+
+	final TranslationsCs _root; // ignore: unused_field
+
+	// Translations
+	@override String get yes => 'Ano';
+	@override String get no => 'Ne';
+	@override String get later => 'Odložit na později';
+}
+
 // Path: settings.prefDescriptions.hideFingerDrawing
 class _TranslationsSettingsPrefDescriptionsHideFingerDrawingCs extends TranslationsSettingsPrefDescriptionsHideFingerDrawingEn {
 	_TranslationsSettingsPrefDescriptionsHideFingerDrawingCs._(TranslationsCs root) : this._root = root, super.internal(root);
@@ -784,6 +839,19 @@ class _TranslationsSettingsPrefDescriptionsPencilSoundSettingCs extends Translat
 	@override String get off => 'Bez zvuku';
 	@override String get onButNotInSilentMode => 'Zapnuto (mimo tichý režim)';
 	@override String get onAlways => 'Zapnuto (i v tichém režimu)';
+}
+
+// Path: settings.prefDescriptions.sentry
+class _TranslationsSettingsPrefDescriptionsSentryCs extends TranslationsSettingsPrefDescriptionsSentryEn {
+	_TranslationsSettingsPrefDescriptionsSentryCs._(TranslationsCs root) : this._root = root, super.internal(root);
+
+	final TranslationsCs _root; // ignore: unused_field
+
+	// Translations
+	@override String get active => 'Aktivní';
+	@override String get inactive => 'Neaktivní';
+	@override String get activeUntilRestart => 'Aktivní, dokud nerestartujete aplikaci';
+	@override String get inactiveUntilRestart => 'Neaktivní, dokud nerestartujete aplikaci';
 }
 
 // Path: login.ncLoginStep.loginFlow

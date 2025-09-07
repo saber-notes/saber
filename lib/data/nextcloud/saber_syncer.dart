@@ -68,14 +68,14 @@ class SaberSyncInterface
     remoteFiles = await findRemoteFiles();
     if (remoteFiles.isEmpty) return const [];
 
-    final changedFiles = <SaberSyncFile>[];
-    for (final remoteFile in remoteFiles) {
+    final List<SaberSyncFile> changedFiles =
+        await Future.wait(remoteFiles.map((remoteFile) async {
       final SaberSyncFile syncFile;
       try {
         syncFile = await getSyncFileFromRemoteFile(remoteFile);
       } catch (e) {
         log.warning('Failed to get sync file from remote file: $e', e);
-        continue;
+        return null;
       }
 
       final bestFile = await getBestFile(
@@ -86,7 +86,7 @@ class SaberSyncInterface
       switch (bestFile) {
         case BestFile.local:
           // Local file is newer, do nothing
-          break;
+          return null;
         case BestFile.remote:
           // Remote file is newer or doesn't exist locally
 
@@ -95,9 +95,9 @@ class SaberSyncInterface
               .contains(syncFile.relativeLocalPath);
           if (remotelyDeleted && locallyDeleted) break;
 
-          changedFiles.add(syncFile);
+          return syncFile;
       }
-    }
+    })).then((list) => list.nonNulls.toList());
 
     // Prioritize note.sbn2.p over note.sbn2 (so the preview is updated first)
     final previewSyncFiles = changedFiles

@@ -14,11 +14,12 @@ import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/flavor_config.dart';
 import 'package:saber/data/locales.dart';
 import 'package:saber/data/prefs.dart';
+import 'package:saber/data/sentry/sentry_consent.dart';
+import 'package:saber/data/sentry/sentry_init.dart';
 import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/editor/editor.dart';
 import 'package:saber/pages/home/home.dart';
 import 'package:saber/pages/user/login.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:yaru/yaru.dart';
 
 import 'utils/test_mock_channel_handlers.dart';
@@ -32,8 +33,7 @@ void main() {
 
     setupMockPathProvider();
     setupMockPrinting();
-    setupMockFlutterSecureStorage();
-    SharedPreferences.setMockInitialValues({});
+    disableSentryForTesting();
 
     FlavorConfig.setup();
     SyncingButton.forceButtonActive = true;
@@ -49,6 +49,7 @@ void main() {
       'quota': quotaTotal,
     });
     stows.username.value = 'myusername';
+    stows.sentryConsent.value = SentryConsent.granted;
 
     setUpAll(() => Future.wait([
           FileManager.init(
@@ -69,7 +70,9 @@ void main() {
           recentFiles.add(fileName);
         }
         final bytes = await file.readAsBytes();
-        return FileManager.getFile(fileName).writeAsBytes(bytes);
+        final dstFile = FileManager.getFile(fileName);
+        await dstFile.create(recursive: true);
+        return dstFile.writeAsBytes(bytes);
       }));
       stows.recentFiles.value = recentFiles..sort();
     });
@@ -196,9 +199,11 @@ void _screenshot({
           ),
         );
         await tester.pumpWidget(widget);
+        await tester.pump();
 
         for (final editorState
             in tester.stateList<EditorState>(find.byType(Editor))) {
+          // Wait for the editor to load
           while (editorState.coreInfo.isEmpty) {
             await tester.runAsync(
                 () => Future.delayed(const Duration(milliseconds: 100)));
@@ -206,11 +211,10 @@ void _screenshot({
           await tester.pump();
         }
 
-        await tester.pump();
         await tester.precacheImagesInWidgetTree();
         await tester.precacheTopbarImages();
         await tester.loadFonts(overriddenFonts: saberSansSerifFontFallbacks);
-        await tester.pumpFrames(widget, const Duration(milliseconds: 100));
+        await tester.pumpAndSettle();
 
         await tester.expectScreenshot(
           device,

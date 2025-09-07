@@ -1,0 +1,2 @@
+• Piccole ma importanti correzioni di bug grazie a tutti coloro che hanno optato per i rapporti degli errori!
+• Ulteriore evoluzione dei filtri delle informazioni personali. Questi sono implementati sia a livello locale che sul server in modo che le tue informazioni siano sempre sicure.

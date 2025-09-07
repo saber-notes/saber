@@ -67,28 +67,28 @@ Objevte zcela nový způsob zaznamenávání a organizace vašich myšlenek s ap
 </div>
 </details>
 
-## Features
+## Funkce
 
 Podívejte se na
-[#1 plán vývoje aplikace Saber][progress]
+[#1 Plán vývoje aplikace Saber][progress]
 (anglicky).
 
 ## Instalace
 
-Podívejte se na
-[Install Saber](https://github.com/saber-notes/saber/wiki/install)
+Podívejte se na wiki stránku
+[Instalace aplikace Saber](https://github.com/saber-notes/saber/wiki/install)
 (anglicky).
 
 ## Sestavení ze zdrojového kódu
 
-Podívejte se na
-[Build Saber](https://github.com/saber-notes/saber/wiki/build)
+Podívejte se na wiki stránku
+[Sestavení aplikace Saber](https://github.com/saber-notes/saber/wiki/build)
 (anglicky).
 
 ## Překlady
 
-Podívejte se na
-[Translating](https://github.com/saber-notes/saber/wiki/Translating)
+Podívejte se na wiki stránku
+[Překlady](https://github.com/saber-notes/saber/wiki/Translating)
 (anglicky).
 
 ## Podpora aplikace Saber
@@ -102,8 +102,8 @@ Pokud máte rádi Saber, zvažte prosím jeho podporu pomocí
 
 ## Poznámky pro vývojáře
 
-Podívejte se na
-[Maintainer notes](https://github.com/saber-notes/saber/wiki/Maintainer-notes)
+Podívejte se na wiki stránku
+[Poznámky pro vývojáře](https://github.com/saber-notes/saber/wiki/Maintainer-notes)
 (anglicky).
 
 
@@ -112,8 +112,8 @@ Podívejte se na
 [google_play]: https://play.google.com/store/apps/details?id=com.adilhanney.saber
 [snap]: https://snapcraft.io/saber
 [app_store]: https://apps.apple.com/cz/app/saber/id1671523739
-[download_windows]: https://github.com/saber-notes/saber/releases/download/v0.26.2/SaberInstaller_v0.26.2.exe
-[download_appimage]: https://github.com/saber-notes/saber/releases/download/v0.26.2/Saber-0.26.2-x86_64.AppImage
+[download_windows]: https://github.com/saber-notes/saber/releases/download/v0.26.5/SaberInstaller_v0.26.5.exe
+[download_appimage]: https://github.com/saber-notes/saber/releases/download/v0.26.5/Saber-0.26.5-x86_64.AppImage
 
 [nextcloud]: https://nc.saber.adil.hanney.org/
 

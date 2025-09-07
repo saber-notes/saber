@@ -61,6 +61,19 @@ home:
   backFolder(OUTDATED): 前のフォルダーに戻ります
   deleteNote(OUTDATED): メモの削除
   invalidFormat(OUTDATED): 選択したファイルはサポートされていません。 .sbn、.sbn2、.sba、または .pdf ファイルを選択してください。
+sentry: 
+  consent: 
+    description: 
+      question(OUTDATED): 予期しないエラーを自動的に報告しますか？これにより、問題をより速く特定して修正することができます。
+      scope(OUTDATED): レポートには、エラーとデバイスに関する情報が含まれている場合があります。私は個人データを除外するためにあらゆる努力をしましたが、一部は残っているかもしれません。
+      currentlyOff(OUTDATED): 同意を付与すると、アプリを再起動するとエラーレポートが有効になります。
+      currentlyOn(OUTDATED): 同意を取り消す場合は、アプリを再起動してエラーレポートを無効にしてください。
+      learnMoreInPrivacyPolicy(rich, OUTDATED): 詳細については、${link(プライバシーポリシー)}をご覧ください。
+    answers: 
+      yes(OUTDATED): はい
+      no(OUTDATED): いいえ
+      later(OUTDATED): 後で私に聞いてください
+    title(OUTDATED): セイバーの改善を手伝ってください？
 settings: 
   prefCategories: 
     general: 一般
@@ -87,6 +100,7 @@ settings:
     hideHomeBackgrounds: ホーム画面で背景を隠す
     recentColorsDontSavePresets: 最近使用した色をプリセットに登録しない
     printPageIndicators: 印刷ページのインジケーター
+    sentry(OUTDATED): エラー報告
     autosave(OUTDATED): 自動保存
     simplifiedHomeLayout(OUTDATED): 簡素化されたホームレイアウト
     pencilSoundSetting(OUTDATED): 鉛筆の効果音
@@ -110,11 +124,16 @@ settings:
     editorPromptRename: メモの名前は後でいつでも変更できます
     hideHomeBackgrounds: よりクリーンな外観に
     printPageIndicators: エクスポートにページインジケーターを表示
-    autosave(OUTDATED): 短い遅延の後、または決して自動保存しません
     pencilSoundSetting: 
       off(OUTDATED): 無音
       onButNotInSilentMode(OUTDATED): 有効 (サイレントモードでない場合)
       onAlways(OUTDATED): 有効（サイレントモードでも）
+    sentry: 
+      active(OUTDATED): アクティブ
+      inactive(OUTDATED): 非アクティブ
+      activeUntilRestart(OUTDATED): アプリを再起動するまでアクティブ
+      inactiveUntilRestart(OUTDATED): アプリを再起動するまで、非アクティブになります
+    autosave(OUTDATED): 短い遅延の後、または決して自動保存しません
     simplifiedHomeLayout(OUTDATED): 各ノートのプレビューに固定の高さを設定します
     autoStraightenLines(OUTDATED): シェイプペンを使用せずに長い線をまっすぐにします。
     shapeRecognitionDelay(OUTDATED): 形状プレビューを更新する頻度
@@ -140,6 +159,7 @@ settings:
     title: この設定をリセットしますか？
     button: リセット
   customDataDir: 
+    unsupported(OUTDATED): この機能は現在、開発者専用です。それを使用すると、データの損失が発生する可能性があります。
     cancel(OUTDATED): キャンセル
     select(OUTDATED): 選択する
     mustBeEmpty(OUTDATED): 選択したディレクトリは空である必要があります
@@ -149,11 +169,11 @@ settings:
   openDataDir(OUTDATED): セイバーフォルダを開く
   resyncEverything(OUTDATED): すべてを再同期する
 logs: 
+  useTheApp(OUTDATED): アプリを使用すると、ここにログが表示されます
   logs(OUTDATED): ログ
   viewLogs(OUTDATED): ログを表示
   debuggingInfo(OUTDATED): ログにはデバッグや開発に役立つ情報が含まれています
   noLogs(OUTDATED): ここにはログはありません!
-  logsAreTemporary(OUTDATED): ログはアプリを閉じるまで保存されます
 login: 
   title: ログイン
   form: 

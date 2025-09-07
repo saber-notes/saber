@@ -61,6 +61,19 @@ home:
     delete: LÖschen
     alsoDeleteContents: Auch alle Notizen in diesem Ordner löschen
   noPreviewAvailable(OUTDATED): Keine Vorschau verfügbar
+sentry: 
+  consent: 
+    description: 
+      question(OUTDATED): Möchten Sie automatisch unerwartete Fehler melden? Dies hilft mir, Probleme schneller zu identifizieren und zu beheben.
+      scope(OUTDATED): Die Berichte können Informationen über den Fehler und Ihr Gerät enthalten. Ich habe alle Anstrengungen unternommen, um personenbezogene Daten herauszufiltern, aber einige können bleiben.
+      currentlyOff(OUTDATED): Wenn Sie die Einverständniserklärung erteilen, wird die Fehlerberichterstattung nach dem Neustart der App aktiviert.
+      currentlyOn(OUTDATED): Wenn Sie die Einwilligung widerrufen, starten Sie die App neu, um die Fehlerberichterstattung zu deaktivieren.
+      learnMoreInPrivacyPolicy(rich, OUTDATED): Erfahren Sie mehr in der ${link(Datenschutzrichtlinie)}.
+    answers: 
+      yes(OUTDATED): Ja
+      no(OUTDATED): NEIN
+      later(OUTDATED): Fragen Sie mich später
+    title(OUTDATED): Bessert die Saber?
 settings: 
   prefCategories: 
     general: Allgemein
@@ -91,12 +104,13 @@ settings:
     recentColorsDontSavePresets: Farbvorlagen nicht in den zuletzt genutzten Farben speichern
     recentColorsLength: Anzahl der zuletzt genutzten Farben
     printPageIndicators: Seitennummerierung drucken
-    autosave(OUTDATED): Auto-Save
     shapeRecognitionDelay: Verzögerung der Formerkennung
     autoStraightenLines: Linien automatisch begradigen
     simplifiedHomeLayout: Vereinfachtes Startbildschirmlayout
     customDataDir: Eigener Saber-Ordner
     pencilSoundSetting: Bleistiftgeräusch
+    sentry(OUTDATED): Fehlerberichterstattung
+    autosave(OUTDATED): Auto-Save
   prefDescriptions: 
     hyperlegibleFont: Atkinson Hyperlegible verbessert die Lesbarkeit für Menschen mit eingeschränkter Sicht
     allowInsecureConnections: (Nicht empfohlen) Saber erlauben, sich mit selbstsignierten/unsicheren Zertifikaten zu verbinden
@@ -111,7 +125,6 @@ settings:
     editorPromptRename: Notizen können später immer noch umbenannt werden
     hideHomeBackgrounds: Für ein sauberes Aussehen
     printPageIndicators: Seitennummerierung bei Export anzeigen
-    autosave(OUTDATED): Automatisch nach einer kurzen Verzögerung oder nie
     shapeRecognitionDelay: Häufigkeit der Aktualisierung der Form-Vorschau
     autoStraightenLines: Lange Linien selbst ohne Form-Stift begradigen
     simplifiedHomeLayout: Legt eine feste Höhe für jede Notizvorschau fest
@@ -120,6 +133,12 @@ settings:
       off: Kein Geräusch
       onButNotInSilentMode: Aktiv (außer im Stummmodus)
       onAlways: Aktiv (sogar im Stummmodus)
+    sentry: 
+      active(OUTDATED): Aktiv
+      inactive(OUTDATED): Inaktiv
+      activeUntilRestart(OUTDATED): Aktiv, bis Sie die App neu starten
+      inactiveUntilRestart(OUTDATED): Inaktiv, bis Sie die App neu starten
+    autosave(OUTDATED): Automatisch nach einer kurzen Verzögerung oder nie
   themeModes: 
     system: System
     light: Hell
@@ -146,14 +165,15 @@ settings:
     select: Auswählen
     mustBeEmpty: Ausgewählter Ordner muss leer sein
     mustBeDoneSyncing: Stelle sicher, dass die Synchronisierung abgeschlossen ist, bevor du den Ordner wechselst
+    unsupported(OUTDATED): Diese Funktion gilt derzeit nur für Entwickler. Die Verwendung wird wahrscheinlich zu Datenverlust führen.
   autosaveDisabled(OUTDATED): Niemals
   shapeRecognitionDisabled(OUTDATED): Niemals
 logs: 
+  useTheApp(OUTDATED): Protokolle werden hier angezeigt, wenn Sie die App verwenden
   logs(OUTDATED): Protokolle
   viewLogs(OUTDATED): Protokolle anzeigen
   debuggingInfo(OUTDATED): Protokolle enthalten Informationen, die für die Fehlerbehebung und Entwicklung nützlich sind
   noLogs(OUTDATED): Hier gibt es keine Protokolle!
-  logsAreTemporary(OUTDATED): Protokolle werden nur so lange gespeichert, bis Sie die App schließen
 login: 
   title: Login
   form: 

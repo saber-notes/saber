@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:collection';
-import 'dart:io';
 import 'dart:math';
 import 'dart:ui';
 
@@ -26,7 +25,7 @@ class CanvasGestureDetector extends StatefulWidget {
     required this.onDrawStart,
     required this.onDrawUpdate,
     required this.onDrawEnd,
-    required this.onPressureChanged,
+    required this.updatePointerData,
     required this.onHovering,
     required this.onHoveringEnd,
     required this.onStylusButtonChanged,
@@ -49,9 +48,9 @@ class CanvasGestureDetector extends StatefulWidget {
   final ValueChanged<ScaleUpdateDetails> onDrawUpdate;
   final ValueChanged<ScaleEndDetails> onDrawEnd;
 
-  /// Called when the pressure of the stylus changes,
-  /// pressure is negative if stylus button is pressed
-  final ValueChanged<double?> onPressureChanged;
+  /// Called when the pressure of the stylus changes
+  final void Function(PointerDeviceKind kind, double? pressure)
+      updatePointerData;
   final VoidCallback onHovering;
   final VoidCallback onHoveringEnd;
   final ValueChanged<bool> onStylusButtonChanged;
@@ -193,7 +192,8 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
         (transformation.getTranslation() - center) * (newScale / oldScale) +
             center;
 
-    return Matrix4.translation(translation)..scale(newScale);
+    return Matrix4.translation(translation)
+      ..scaleByDouble(newScale, newScale, newScale, 1);
   }
 
   final Map<AxisDirection, Timer> _arrowKeyPanTimers = {};
@@ -220,7 +220,7 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
     final transformation = widget._transformationController.value;
     const panAmount = 50.0;
 
-    transformation.leftTranslate(
+    transformation.leftTranslateByDouble(
       switch (direction) {
         AxisDirection.left => panAmount,
         AxisDirection.right => -panAmount,
@@ -233,6 +233,8 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
         AxisDirection.up => panAmount,
         AxisDirection.down => -panAmount,
       },
+      0,
+      1,
     );
     widget._transformationController.notifyListenersPlease();
   }
@@ -373,10 +375,8 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
     }
 
     if (adjustmentX.abs() > 0.1 || adjustmentY.abs() > 0.1) {
-      widget._transformationController.value.leftTranslate(
-        adjustmentX,
-        adjustmentY,
-      );
+      widget._transformationController.value
+          .leftTranslateByDouble(adjustmentX, adjustmentY, 0, 1);
     }
   }
 
@@ -395,18 +395,20 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
   }
 
   void _listenerPointerEvent(PointerEvent event) {
-    double? pressure;
-
-    if (event.kind == PointerDeviceKind.stylus) {
-      pressure = event.pressure;
-    } else if (event.kind == PointerDeviceKind.invertedStylus) {
-      pressure = event.pressure;
-    } else if (Platform.isLinux && event.pressureMin != event.pressureMax) {
-      // if min == max, then the device isn't pressure sensitive
-      pressure = event.pressure;
+    final double? pressure;
+    if (event.kind == PointerDeviceKind.stylus ||
+        event.kind == PointerDeviceKind.invertedStylus) {
+      if (event.pressureMin != event.pressureMax) {
+        pressure = event.pressure;
+      } else {
+        // Detected as stylus, but no pressure values
+        pressure = null;
+      }
+    } else {
+      pressure = null;
     }
 
-    widget.onPressureChanged(pressure);
+    widget.updatePointerData(event.kind, pressure);
   }
 
   bool stylusButtonWasPressed = false;
@@ -428,7 +430,7 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
   }
 
   void _listenerPointerUpEvent(PointerEvent event) {
-    widget.onPressureChanged(null);
+    widget.updatePointerData(event.kind, null);
     stylusButtonWasPressed = false;
     widget.onStylusButtonChanged(false);
   }
@@ -571,19 +573,21 @@ class _PagesBuilder extends StatelessWidget {
 
     double topOfPage = Editor.gapBetweenPages * 2;
     for (int pageIndex = 0; pageIndex < pages.length; pageIndex++) {
-      final Size pageSize = pages[pageIndex].size;
+      final page = pages[pageIndex];
       final double pageWidth =
-          min(pageSize.width, containerWidth); // because of FittedBox
-      final double pageHeight = pageWidth / pageSize.width * pageSize.height;
+          min(page.size.width, containerWidth); // because of FittedBox
+      final double pageHeight = pageWidth / page.size.width * page.size.height;
       final double bottomOfPage = topOfPage + pageHeight;
 
-      if (topOfPage > boundingBox.bottom || bottomOfPage < boundingBox.top) {
-        pages[pageIndex].isRendered = false;
-        children.add(placeholderPageBuilder(context, pageIndex));
-      } else {
-        pages[pageIndex].isRendered = true;
-        children.add(pageBuilder(context, pageIndex));
-      }
+      final isFocused = page.quill.focusNode.hasFocus;
+      final isInViewport =
+          boundingBox.bottom >= topOfPage && boundingBox.top <= bottomOfPage;
+      final shouldRender = isFocused || isInViewport;
+
+      page.isRendered = shouldRender;
+      children.add(shouldRender
+          ? pageBuilder(context, pageIndex)
+          : placeholderPageBuilder(context, pageIndex));
 
       children.add(const SizedBox.square(dimension: Editor.gapBetweenPages));
 

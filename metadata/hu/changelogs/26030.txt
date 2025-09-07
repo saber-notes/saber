@@ -1,0 +1,2 @@
+• Hozzáadott néhány (opcionális) ütközési jelentést, amely segít az alkalmazás javításában.
+• Kisebb hibajavítások.

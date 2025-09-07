@@ -60,22 +60,25 @@ class LaserPointer extends Tool {
     _stopwatch.reset();
   }
 
-  LaserStroke onDragEnd(
+  LaserStroke? onDragEnd(
       VoidCallback redrawPage, void Function(Stroke) deleteStroke) {
     isDrawing = false;
 
+    final stroke = Pen.currentStroke as LaserStroke?;
+    Pen.currentStroke = null;
+    if (stroke == null) return null;
+
     fadeOutStroke(
-      stroke: Pen.currentStroke!,
+      stroke: stroke,
       strokePointDelays: strokePointDelays,
       redrawPage: redrawPage,
       deleteStroke: deleteStroke,
     );
 
-    final stroke = (Pen.currentStroke! as LaserStroke)
+    final laserStroke = stroke
       ..options.isComplete = true
       ..markPolygonNeedsUpdating();
-    Pen.currentStroke = null;
-    return stroke;
+    return laserStroke;
   }
 
   static const _fadeOutDelay = Duration(seconds: 2);

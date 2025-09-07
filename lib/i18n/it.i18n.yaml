@@ -23,6 +23,7 @@ home:
   welcome: Benvenuto su Saber
   invalidFormat: Il file selezionato non è supportato. Seleziona un file .sbn, .sbn2, .sba o .pdf.
   noFiles: Nessun file trovato
+  noPreviewAvailable: Nessuna anteprima disponibile
   createNewNote: Tocca il pulsante + per creare una nuova nota
   backFolder: Torna alla cartella precedente
   newFolder: 
@@ -60,7 +61,19 @@ home:
     deleteName: Elimina $f
     delete: Elimina
     alsoDeleteContents: Elimina anche tutte le note all'interno di questa cartella
-  noPreviewAvailable(OUTDATED): Nessuna anteprima disponibile
+sentry: 
+  consent: 
+    title: Vuoi aiutaci a migliorare Saber?
+    description: 
+      question: Vuoi segnalare automaticamente gli errori imprevisti? Questo mi aiuta a identificare e risolvere i problemi più velocemente.
+      scope: I report potrebbero contenere informazioni sull'errore e sul tuo dispositivo. Ho fatto tutto il possibile per filtrare i dati personali, ma alcuni potrebbero rimanere.
+      currentlyOff: Se acconsenti, la segnalazione degli errori verrà abilitata dopo il riavvio dell'app.
+      currentlyOn: Se revochi il consenso, riavvia l'app per disattivare la segnalazione degli errori.
+      learnMoreInPrivacyPolicy(rich): Scopri di più in ${link(privacy policy)}.
+    answers: 
+      yes: Yes
+      no: No
+      later: Chiedimelo più tardi
 settings: 
   prefCategories: 
     general: Generale
@@ -91,12 +104,13 @@ settings:
     recentColorsDontSavePresets: Non salvare i colori preimpostati nei colori recenti
     recentColorsLength: Quanti colori recenti memorizzare
     printPageIndicators: Stampa indicatori di pagina
-    autosave(OUTDATED): Salvare automaticamente
+    autosave: Salvataggio automatico
     shapeRecognitionDelay: Ritardo nel riconoscimento della forma
     autoStraightenLines: Raddrizzamento automatico delle linee
     simplifiedHomeLayout: Layout semplificato della home
     customDataDir: Cartella Saber personalizzata
     pencilSoundSetting: Effetto sonoro della matita
+    sentry: Segnalazione di errori
   prefDescriptions: 
     hyperlegibleFont: Atkinson Iperleggibile aumenta la leggibilità per i lettori ipovedenti
     allowInsecureConnections: (Non consigliato) Consenti a Saber di connettersi ai server con certificati autofirmati/non attendibili
@@ -111,6 +125,7 @@ settings:
     editorPromptRename: Puoi sempre rinominare le note in un secondo momento
     hideHomeBackgrounds: Per un aspetto più pulito
     printPageIndicators: Mostra indicatori di pagina nelle esportazioni
+    autosave: Salvataggio automatico dopo un breve ritardo o mai
     shapeRecognitionDelay: Quanto spesso aggiornare l'anteprima della forma
     autoStraightenLines: Raddrizza le linee lunghe senza dover utilizzare la penna sagomatrice
     simplifiedHomeLayout: Imposta un'altezza fissa per ogni anteprima della nota
@@ -119,7 +134,11 @@ settings:
       off: Nessun suono
       onButNotInSilentMode: Abilitato (a meno che non sia in modalità silenziosa)
       onAlways: Abilitato (anche in modalità silenziosa)
-    autosave(OUTDATED): Salvare automaticamente dopo un breve ritardo o mai
+    sentry: 
+      active: Attivo
+      inactive: Non attivo
+      activeUntilRestart: Attivo fino al riavvio dell'app
+      inactiveUntilRestart: Non attivo finché non riavvii l'app
   themeModes: 
     system: Sistema
     light: Chiaro
@@ -146,14 +165,15 @@ settings:
     select: Seleziona
     mustBeEmpty: La cartella selezionata deve essere vuota
     mustBeDoneSyncing: Assicurati che la sincronizzazione sia completa prima di cambiare cartella
-  autosaveDisabled(OUTDATED): Mai
-  shapeRecognitionDisabled(OUTDATED): Mai
+    unsupported(OUTDATED): Questa funzione è attualmente solo per gli sviluppatori. Usandolo probabilmente comporterà la perdita di dati.
+  autosaveDisabled: Mai
+  shapeRecognitionDisabled: Mai
 logs: 
   logs: Log
   viewLogs: Visualizza log
   debuggingInfo: I log contengono informazioni utili per il debug e lo sviluppo
   noLogs: Niente log qui!
-  logsAreTemporary: I log vengono conservati solo finché non chiudi l'app
+  useTheApp: I log appariranno qui mentre usi l'app
 login: 
   title: Login
   form: 
@@ -309,6 +329,8 @@ editor:
     deletePage: Elimina pagina
     lineHeight: Altezza della linea
     lineHeightDescription: Controlla anche la dimensione del testo per le note digitate
+    lineThickness: Spessore della linea
+    lineThicknessDescription: Spessore della linea di sfondo
     backgroundImageFit: Adattamento immagine di sfondo
     backgroundPattern: Modello di sfondo
     import: Importa
@@ -328,8 +350,6 @@ editor:
       staffs: Pentagrammi
       tablature: Tablatura
       cornell: Metodo Cornell
-    lineThickness(OUTDATED): Spessore della linea
-    lineThicknessDescription(OUTDATED): Spessore della linea di sfondo
   newerFileFormat: 
     readOnlyMode: Modalità di sola lettura
     title: Questa nota è stata modificata utilizzando una versione più recente di Saber

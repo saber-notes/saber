@@ -61,6 +61,19 @@ home:
     deleteName: Odstranění složky $f
     delete: Odstranit
     alsoDeleteContents: Se složkou odstranit i obsažené poznámky
+sentry: 
+  consent: 
+    title: Chcete pomoct vylepšit aplikaci Saber?
+    description: 
+      question: Chtěli byste automaticky nahlašovat neočekávané chyby? Pomohlo by mi to s rychlejší identifikací a opravou.
+      scope: Hlášení mohou obsahovat informace o chybě a vašem zařízení. Dělal jsem, co bylo v mých silách, abych odfiltroval osobní data, ale i tak mohou některá zůstat.
+      currentlyOff: Nahlašování chyb se v případě udělení souhlasu zapne po restartu aplikace.
+      currentlyOn: Po odvolání souhlasu prosím restartujte aplikaci, abyste nahlašování chyb vypnuli.
+      learnMoreInPrivacyPolicy(rich): Více se dozvíte v ${link(Zásadách ochrany osobních údajů)} (anglicky).
+    answers: 
+      yes: Ano
+      no: Ne
+      later: Odložit na později
 settings: 
   prefCategories: 
     general: Obecné
@@ -97,6 +110,7 @@ settings:
     simplifiedHomeLayout: Zjednodušené rozložení domovské obrazovky
     customDataDir: Vlastní umístění složky aplikace Saber
     pencilSoundSetting: Zvukový efekt psaní tužkou
+    sentry: Hlášení chyb
   prefDescriptions: 
     hyperlegibleFont: Font Atkinson Hyperlegible zvyšuje čitelnost pro čtenáře se slabým zrakem
     allowInsecureConnections: (Nedoporučuje se) Povolit aplikaci Saber připojovat se k serverům se samopodepsaným/nedůvěryhodným certifikátem.
@@ -120,6 +134,11 @@ settings:
       off: Bez zvuku
       onButNotInSilentMode: Zapnuto (mimo tichý režim)
       onAlways: Zapnuto (i v tichém režimu)
+    sentry: 
+      active: Aktivní
+      inactive: Neaktivní
+      activeUntilRestart: Aktivní, dokud nerestartujete aplikaci
+      inactiveUntilRestart: Neaktivní, dokud nerestartujete aplikaci
   themeModes: 
     system: Systémový
     light: Světlý
@@ -153,7 +172,7 @@ logs:
   viewLogs: Zobrazit logy
   debuggingInfo: Logy obsahují informace užitečné pro ladění a vývoj
   noLogs: Nejsou k dispozici žádné logy!
-  logsAreTemporary: Logy jsou zachovány pouze do uzavření aplikace
+  useTheApp: Jakmile aplikaci začnete používat, logy se zobrazí na tomto místě
 login: 
   title: Přihlášení
   form: 

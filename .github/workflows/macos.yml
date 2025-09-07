@@ -17,7 +17,8 @@ on:
 jobs:
   build-macos:
     name: Build for macOS
-    runs-on: macos-latest
+    # TODO(adil192): Change to macos-latest after 30 August 2025 (https://github.com/actions/runner-images/issues/12520)
+    runs-on: macos-15
     env:
       APP_STORE_CONNECT_ISSUER_ID: ${{secrets.APP_STORE_CONNECT_ISSUER_ID}}
       APP_STORE_CONNECT_KEY_IDENTIFIER: ${{secrets.APP_STORE_CONNECT_KEY_IDENTIFIER}}
@@ -28,13 +29,23 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Setup Xcode
+        run: |
+          echo "Selecting Xcode 16.4..."
+          sudo xcode-select -s /Applications/Xcode_16.4.app
+          xcode-select -p
+          echo
+
+          echo "Running Xcode first launch..."
+          xcodebuild -runFirstLaunch
+          echo
+
       - name: Install Flutter
         uses: subosito/flutter-action@v2
         with:
           channel: stable
           cache: true
           cache-key: 'flutter-:os:-:channel:-:version:-:arch:'
-          architecture: x64
 
       - name: Install Codemagic CLI Tools
         run: pipx install codemagic-cli-tools

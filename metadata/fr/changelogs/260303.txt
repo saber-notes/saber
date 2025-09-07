@@ -1,0 +1,2 @@
+• Ajout de rapports de plantage (facultatifs) pour m'aider à améliorer l'application.
+• Correction de bogues mineurs.

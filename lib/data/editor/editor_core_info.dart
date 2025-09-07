@@ -137,8 +137,7 @@ class EditorCoreInfo {
               (List<dynamic> bytes) => Uint8List.fromList(bytes.cast<int>()),
               (BsonBinary bsonBinary) => bsonBinary.byteList,
               _ => () {
-                  log.severe(
-                      'Invalid asset type in $filePath: ${asset.runtimeType}');
+                  log.severe('Invalid asset type: ${asset.runtimeType}');
                   return Uint8List(0);
                 }(),
             })
@@ -395,7 +394,7 @@ class EditorCoreInfo {
           () async {
             // We need to rerun some "init" methods in the isolate,
             // see https://github.com/saber-notes/saber/issues/1031.
-            FlavorConfig.setup();
+            FlavorConfig.setupFromEnvironment();
             await FileManager.init(
               documentsDirectory: documentsDirectory,
               shouldWatchRootDirectory: false,
@@ -411,7 +410,7 @@ class EditorCoreInfo {
         coreInfo = isolate();
       }
     } catch (e) {
-      log.severe('Failed to load file from $path: $e', e);
+      log.severe('Failed to load file: $e', e);
       if (kDebugMode) {
         rethrow;
       } else {
@@ -440,12 +439,12 @@ class EditorCoreInfo {
         throw ArgumentError('Both bsonBytes and jsonString are null');
       }
     } catch (e) {
-      log.severe('Failed to parse file from $path: $e', e);
+      log.severe('Failed to parse file: $e', e);
       rethrow;
     }
 
     if (json == null) {
-      throw Exception('Failed to parse json from $path');
+      throw Exception('Failed to parse json');
     } else if (json is List) {
       // old format
       return EditorCoreInfo.fromOldJson(

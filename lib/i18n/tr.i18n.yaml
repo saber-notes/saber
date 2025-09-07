@@ -61,6 +61,19 @@ home:
     delete: Sil
     alsoDeleteContents: Bu klasördeki tüm notları da sil
   noPreviewAvailable(OUTDATED): Önizleme yok
+sentry: 
+  consent: 
+    description: 
+      question(OUTDATED): Beklenmedik hataları otomatik olarak bildirmek ister misiniz? Bu, sorunları daha hızlı tanımlamama ve düzeltmeme yardımcı olur.
+      scope(OUTDATED): Raporlar hata ve cihazınız hakkında bilgi içerebilir. Kişisel verileri filtrelemek için her türlü çabayı gösterdim, ancak bazıları kalabilir.
+      currentlyOff(OUTDATED): Onay verirseniz, uygulamayı yeniden başlattıktan sonra hata raporlaması etkinleştirilir.
+      currentlyOn(OUTDATED): Onayı iptal ederseniz, hata raporlamasını devre dışı bırakmak için lütfen uygulamayı yeniden başlatın.
+      learnMoreInPrivacyPolicy(rich, OUTDATED): ${link(Gizlilik Politikası)} 'da daha fazla bilgi edinin.
+    answers: 
+      yes(OUTDATED): Evet
+      no(OUTDATED): HAYIR
+      later(OUTDATED): Bana sonra sor
+    title(OUTDATED): Saber geliştirmeye yardımcı olur mu?
 settings: 
   prefCategories: 
     general: Genel
@@ -91,12 +104,13 @@ settings:
     recentColorsDontSavePresets: Ön tanımlı renkleri son kullanılanlara kaydetme
     recentColorsLength: Kaç tane son kullanılan renk saklanacak
     printPageIndicators: Sayfa belirteçlerini yazdır
-    autosave(OUTDATED): Otomatik koruma
     shapeRecognitionDelay: Şekil tanıma gecikmesi
     autoStraightenLines: Çizgileri otomatik düzleştir
     simplifiedHomeLayout: Sadeleştirilmiş ana ekran düzeni
     customDataDir: Özel Saber klasörü
     pencilSoundSetting: Kurşun kalem ses efekti
+    sentry(OUTDATED): Hata raporlama
+    autosave(OUTDATED): Otomatik koruma
   prefDescriptions: 
     hyperlegibleFont: Atkinson Hyperlegible, görme sorunu yaşayanların okumasını kolaylaştıran bir fonttur
     allowInsecureConnections: (Önerilmez) Saber'ın kendinden imzalı/güvensiz sertifika kullanan sunuculara bağlanmasına izin verir
@@ -111,7 +125,6 @@ settings:
     editorPromptRename: Notlarınızı daha sonra da yeniden adlandırabilirsiniz
     hideHomeBackgrounds: Daha sade bir görüntü için
     printPageIndicators: Çıktılarda sayfa belirteçlerini göster
-    autosave(OUTDATED): Kısa bir gecikmeden sonra otomatik kaydetme veya asla
     shapeRecognitionDelay: Çizilen şekilleri tanımlama sıklığını belirler
     autoStraightenLines: Şekil aracını kullanmadığınızda da çizgileri düzleştirir
     simplifiedHomeLayout: Not önizlemelerinin uzunluklarını eşitler
@@ -120,6 +133,12 @@ settings:
       off: Ses yok
       onButNotInSilentMode: Etkin (sessiz modda değilse)
       onAlways: Etkin (sessiz modda da)
+    sentry: 
+      active(OUTDATED): Aktif
+      inactive(OUTDATED): Aktif olmayan
+      activeUntilRestart(OUTDATED): Uygulamayı yeniden başlatana kadar etkin
+      inactiveUntilRestart(OUTDATED): Uygulamayı yeniden başlatana kadar aktif olmayan
+    autosave(OUTDATED): Kısa bir gecikmeden sonra otomatik kaydetme veya asla
   themeModes: 
     system: Sistem teması
     light: Aydınlık
@@ -146,14 +165,15 @@ settings:
     select: Seç
     mustBeEmpty: Seçilen klasör boş olmalı
     mustBeDoneSyncing: Klasörü değiştirmeden önce senkronizasyonun tamamlandığından emin olun
+    unsupported(OUTDATED): Bu özellik şu anda yalnızca geliştiriciler içindir. Bunu kullanmak muhtemelen veri kaybına neden olacaktır.
   autosaveDisabled(OUTDATED): Asla
   shapeRecognitionDisabled(OUTDATED): Asla
 logs: 
+  useTheApp(OUTDATED): Uygulamayı kullanırken günlükler burada görünecektir
   logs(OUTDATED): Günlükler
   viewLogs(OUTDATED): Günlükleri görüntüle
   debuggingInfo(OUTDATED): Günlükler hata ayıklama ve geliştirme için yararlı bilgiler içerir
   noLogs(OUTDATED): Burada kayıt yok!
-  logsAreTemporary(OUTDATED): Günlükler yalnızca uygulamayı kapatana kadar tutulur
 login: 
   title: Giriş yap
   form: 

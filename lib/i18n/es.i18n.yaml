@@ -61,6 +61,18 @@ home:
     delete: Eliminar
     alsoDeleteContents: Eliminar también las notas guardadas dentro de la carpeta
   noPreviewAvailable(OUTDATED): No hay una vista previa disponible
+sentry: 
+  consent: 
+    description: 
+      question(OUTDATED): ¿Le gustaría informar automáticamente errores inesperados? Esto me ayuda a identificar y solucionar problemas más rápido.
+      scope(OUTDATED): Los informes pueden contener información sobre el error y su dispositivo. He hecho todo lo posible para filtrar datos personales, pero algunos pueden permanecer.
+      currentlyOff(OUTDATED): Si otorga consentimiento, los informes de error se habilitarán después de reiniciar la aplicación.
+      currentlyOn(OUTDATED): Si revoca el consentimiento, reinicie la aplicación para deshabilitar el informe de errores.
+      learnMoreInPrivacyPolicy(rich, OUTDATED): Obtenga más información en ${link(Política de privacidad)}.
+    answers: 
+      yes(OUTDATED): Sí
+      later(OUTDATED): Pregúntame más tarde
+    title(OUTDATED): Ayudar a mejorar el sable?
 settings: 
   prefCategories: 
     general: General
@@ -91,6 +103,7 @@ settings:
     recentColorsDontSavePresets: No guardar colores preestablecidos en los colores recientes
     recentColorsLength: Número de colores recientes a almacenar
     printPageIndicators: Indicadores de página de impresión
+    sentry(OUTDATED): Informes de errores
     autosave(OUTDATED): Auto-Save
     simplifiedHomeLayout(OUTDATED): Disposición simplificada de la casa
     pencilSoundSetting(OUTDATED): Efecto de sonido de lápiz
@@ -111,12 +124,17 @@ settings:
     editorPromptRename: Siempre puedes cambiar el nombre de las notas más tarde
     hideHomeBackgrounds: Para una vista más limpia
     printPageIndicators: Mostrar indicadores de página en las exportaciones
-    autosave(OUTDATED): Auto-Save después de un breve retraso, o nunca
     shouldAlwaysAlertForUpdates: Avísame sobre actualizaciones tan pronto como estén disponibles
     pencilSoundSetting: 
       off(OUTDATED): Sin sonido
       onButNotInSilentMode(OUTDATED): Habilitado (a menos que esté en modo silencioso)
       onAlways(OUTDATED): Habilitado (incluso en modo silencioso)
+    sentry: 
+      active(OUTDATED): Activo
+      inactive(OUTDATED): Inactivo
+      activeUntilRestart(OUTDATED): Activo hasta que reinicie la aplicación
+      inactiveUntilRestart(OUTDATED): Inactivo hasta que reinicie la aplicación
+    autosave(OUTDATED): Auto-Save después de un breve retraso, o nunca
     simplifiedHomeLayout(OUTDATED): Establece una altura fija para cada vista previa de nota
     autoStraightenLines(OUTDATED): Endereza líneas largas sin tener que usar el rotulador.
     shapeRecognitionDelay(OUTDATED): Con qué frecuencia actualizar la vista previa de la forma
@@ -140,6 +158,7 @@ settings:
     title: ¿Quieres restablecer esta configuración?
     button: Restablecer
   customDataDir: 
+    unsupported(OUTDATED): Esta característica es actualmente solo para desarrolladores. Usarlo probablemente dará como resultado la pérdida de datos.
     cancel(OUTDATED): Cancelar
     select(OUTDATED): Seleccionar
     mustBeEmpty(OUTDATED): El directorio seleccionado debe estar vacío.
@@ -149,11 +168,11 @@ settings:
   openDataDir(OUTDATED): Abrir carpeta Saber
   resyncEverything(OUTDATED): Resync todo
 logs: 
+  useTheApp(OUTDATED): Los registros aparecerán aquí mientras usa la aplicación
   logs(OUTDATED): Registros
   viewLogs(OUTDATED): Ver registros
   debuggingInfo(OUTDATED): Los registros contienen información útil para la depuración y el desarrollo.
   noLogs(OUTDATED): ¡Aquí no hay registros!
-  logsAreTemporary(OUTDATED): Los registros solo se conservan hasta que cierras la aplicación.
 login: 
   title: Iniciar sesión
   form: 

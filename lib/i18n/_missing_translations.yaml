@@ -4,11 +4,32 @@
 ar: 
   home: 
     noPreviewAvailable(OUTDATED): No preview available
+  sentry: 
+    consent: 
+      title(OUTDATED): Help improve Saber?
+      description: 
+        question(OUTDATED): Would you like to automatically report unexpected errors? This helps me identify and fix issues faster.
+        scope(OUTDATED): The reports may contain information about the error and your device. I've made every effort to filter out personal data but some may remain.
+        currentlyOff(OUTDATED): If you grant consent, error reporting will be enabled after you restart the app.
+        currentlyOn(OUTDATED): If you revoke consent, please restart the app to disable error reporting.
+        learnMoreInPrivacyPolicy(rich)(OUTDATED): Learn more in the ${link(privacy policy)}.
+      answers: 
+        yes(OUTDATED): Yes
+        no(OUTDATED): No
+        later(OUTDATED): Ask me later
   settings: 
     prefLabels: 
       autosave(OUTDATED): Auto-save
+      sentry(OUTDATED): Error reporting
     prefDescriptions: 
       autosave(OUTDATED): Auto-save after a short delay, or never
+      sentry: 
+        active(OUTDATED): Active
+        inactive(OUTDATED): Inactive
+        activeUntilRestart(OUTDATED): Active until you restart the app
+        inactiveUntilRestart(OUTDATED): Inactive until you restart the app
+    customDataDir: 
+      unsupported(OUTDATED): This feature is currently only for developers. Using it will likely result in data loss.
     autosaveDisabled(OUTDATED): Never
     shapeRecognitionDisabled(OUTDATED): Never
   logs: 
@@ -16,20 +37,44 @@ ar:
     viewLogs(OUTDATED): View logs
     debuggingInfo(OUTDATED): Logs contain information useful for debugging and development
     noLogs(OUTDATED): No logs here!
-    logsAreTemporary(OUTDATED): Logs are only kept until you close the app
+    useTheApp(OUTDATED): Logs will appear here as you use the app
   editor: 
     menu: 
       lineThickness(OUTDATED): Line thickness
       lineThicknessDescription(OUTDATED): Background line thickness
 cs: 
+  settings: 
+    customDataDir: 
+      unsupported: This feature is currently only for developers. Using it will likely result in data loss.
 de: 
   home: 
     noPreviewAvailable(OUTDATED): No preview available
+  sentry: 
+    consent: 
+      title(OUTDATED): Help improve Saber?
+      description: 
+        question(OUTDATED): Would you like to automatically report unexpected errors? This helps me identify and fix issues faster.
+        scope(OUTDATED): The reports may contain information about the error and your device. I've made every effort to filter out personal data but some may remain.
+        currentlyOff(OUTDATED): If you grant consent, error reporting will be enabled after you restart the app.
+        currentlyOn(OUTDATED): If you revoke consent, please restart the app to disable error reporting.
+        learnMoreInPrivacyPolicy(rich)(OUTDATED): Learn more in the ${link(privacy policy)}.
+      answers: 
+        yes(OUTDATED): Yes
+        no(OUTDATED): No
+        later(OUTDATED): Ask me later
   settings: 
     prefLabels: 
       autosave(OUTDATED): Auto-save
+      sentry(OUTDATED): Error reporting
     prefDescriptions: 
       autosave(OUTDATED): Auto-save after a short delay, or never
+      sentry: 
+        active(OUTDATED): Active
+        inactive(OUTDATED): Inactive
+        activeUntilRestart(OUTDATED): Active until you restart the app
+        inactiveUntilRestart(OUTDATED): Inactive until you restart the app
+    customDataDir: 
+      unsupported(OUTDATED): This feature is currently only for developers. Using it will likely result in data loss.
     autosaveDisabled(OUTDATED): Never
     shapeRecognitionDisabled(OUTDATED): Never
   logs: 
@@ -37,7 +82,7 @@ de:
     viewLogs(OUTDATED): View logs
     debuggingInfo(OUTDATED): Logs contain information useful for debugging and development
     noLogs(OUTDATED): No logs here!
-    logsAreTemporary(OUTDATED): Logs are only kept until you close the app
+    useTheApp(OUTDATED): Logs will appear here as you use the app
   editor: 
     menu: 
       lineThickness(OUTDATED): Line thickness
@@ -48,6 +93,19 @@ es:
     continueBtn(OUTDATED): Continue
   home: 
     noPreviewAvailable(OUTDATED): No preview available
+  sentry: 
+    consent: 
+      title(OUTDATED): Help improve Saber?
+      description: 
+        question(OUTDATED): Would you like to automatically report unexpected errors? This helps me identify and fix issues faster.
+        scope(OUTDATED): The reports may contain information about the error and your device. I've made every effort to filter out personal data but some may remain.
+        currentlyOff(OUTDATED): If you grant consent, error reporting will be enabled after you restart the app.
+        currentlyOn(OUTDATED): If you revoke consent, please restart the app to disable error reporting.
+        learnMoreInPrivacyPolicy(rich)(OUTDATED): Learn more in the ${link(privacy policy)}.
+      answers: 
+        yes(OUTDATED): Yes
+        no: No
+        later(OUTDATED): Ask me later
   settings: 
     prefCategories: 
       performance(OUTDATED): Performance
@@ -58,6 +116,7 @@ es:
       simplifiedHomeLayout(OUTDATED): Simplified home layout
       customDataDir(OUTDATED): Custom Saber folder
       pencilSoundSetting(OUTDATED): Pencil sound effect
+      sentry(OUTDATED): Error reporting
     prefDescriptions: 
       autosave(OUTDATED): Auto-save after a short delay, or never
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
@@ -67,6 +126,11 @@ es:
         off(OUTDATED): No sound
         onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
         onAlways(OUTDATED): Enabled (even in silent mode)
+      sentry: 
+        active(OUTDATED): Active
+        inactive(OUTDATED): Inactive
+        activeUntilRestart(OUTDATED): Active until you restart the app
+        inactiveUntilRestart(OUTDATED): Inactive until you restart the app
     resyncEverything(OUTDATED): Resync everything
     openDataDir(OUTDATED): Open Saber folder
     customDataDir: 
@@ -74,6 +138,7 @@ es:
       select(OUTDATED): Select
       mustBeEmpty(OUTDATED): Selected folder must be empty
       mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the folder
+      unsupported(OUTDATED): This feature is currently only for developers. Using it will likely result in data loss.
     autosaveDisabled(OUTDATED): Never
     shapeRecognitionDisabled(OUTDATED): Never
   logs: 
@@ -81,7 +146,7 @@ es:
     viewLogs(OUTDATED): View logs
     debuggingInfo(OUTDATED): Logs contain information useful for debugging and development
     noLogs(OUTDATED): No logs here!
-    logsAreTemporary(OUTDATED): Logs are only kept until you close the app
+    useTheApp(OUTDATED): Logs will appear here as you use the app
   login: 
     notYou(rich)(OUTDATED): Not you? ${undoLogin(Choose another account)}.
     status: 
@@ -144,6 +209,18 @@ fa:
     continueBtn(OUTDATED): Continue
   home: 
     noPreviewAvailable(OUTDATED): No preview available
+  sentry: 
+    consent: 
+      title(OUTDATED): Help improve Saber?
+      description: 
+        question(OUTDATED): Would you like to automatically report unexpected errors? This helps me identify and fix issues faster.
+        scope(OUTDATED): The reports may contain information about the error and your device. I've made every effort to filter out personal data but some may remain.
+        currentlyOff(OUTDATED): If you grant consent, error reporting will be enabled after you restart the app.
+        currentlyOn(OUTDATED): If you revoke consent, please restart the app to disable error reporting.
+      answers: 
+        yes(OUTDATED): Yes
+        no(OUTDATED): No
+        later(OUTDATED): Ask me later
   settings: 
     prefLabels: 
       autosave(OUTDATED): Auto-save
@@ -151,6 +228,7 @@ fa:
       simplifiedHomeLayout(OUTDATED): Simplified home layout
       customDataDir(OUTDATED): Custom Saber folder
       pencilSoundSetting(OUTDATED): Pencil sound effect
+      sentry(OUTDATED): Error reporting
     prefDescriptions: 
       autosave(OUTDATED): Auto-save after a short delay, or never
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
@@ -159,6 +237,11 @@ fa:
         off(OUTDATED): No sound
         onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
         onAlways(OUTDATED): Enabled (even in silent mode)
+      sentry: 
+        active(OUTDATED): Active
+        inactive(OUTDATED): Inactive
+        activeUntilRestart(OUTDATED): Active until you restart the app
+        inactiveUntilRestart(OUTDATED): Inactive until you restart the app
     resyncEverything(OUTDATED): Resync everything
     openDataDir(OUTDATED): Open Saber folder
     customDataDir: 
@@ -166,6 +249,7 @@ fa:
       select(OUTDATED): Select
       mustBeEmpty(OUTDATED): Selected folder must be empty
       mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the folder
+      unsupported(OUTDATED): This feature is currently only for developers. Using it will likely result in data loss.
     autosaveDisabled(OUTDATED): Never
     shapeRecognitionDisabled(OUTDATED): Never
   logs: 
@@ -173,7 +257,7 @@ fa:
     viewLogs(OUTDATED): View logs
     debuggingInfo(OUTDATED): Logs contain information useful for debugging and development
     noLogs(OUTDATED): No logs here!
-    logsAreTemporary(OUTDATED): Logs are only kept until you close the app
+    useTheApp(OUTDATED): Logs will appear here as you use the app
   login: 
     notYou(rich)(OUTDATED): Not you? ${undoLogin(Choose another account)}.
     status: 
@@ -231,6 +315,19 @@ fr:
     continueBtn(OUTDATED): Continue
   home: 
     noPreviewAvailable(OUTDATED): No preview available
+  sentry: 
+    consent: 
+      title(OUTDATED): Help improve Saber?
+      description: 
+        question(OUTDATED): Would you like to automatically report unexpected errors? This helps me identify and fix issues faster.
+        scope(OUTDATED): The reports may contain information about the error and your device. I've made every effort to filter out personal data but some may remain.
+        currentlyOff(OUTDATED): If you grant consent, error reporting will be enabled after you restart the app.
+        currentlyOn(OUTDATED): If you revoke consent, please restart the app to disable error reporting.
+        learnMoreInPrivacyPolicy(rich)(OUTDATED): Learn more in the ${link(privacy policy)}.
+      answers: 
+        yes(OUTDATED): Yes
+        no(OUTDATED): No
+        later(OUTDATED): Ask me later
   settings: 
     prefLabels: 
       autosave(OUTDATED): Auto-save
@@ -238,6 +335,7 @@ fr:
       simplifiedHomeLayout(OUTDATED): Simplified home layout
       customDataDir(OUTDATED): Custom Saber folder
       pencilSoundSetting(OUTDATED): Pencil sound effect
+      sentry(OUTDATED): Error reporting
     prefDescriptions: 
       autosave(OUTDATED): Auto-save after a short delay, or never
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
@@ -246,12 +344,18 @@ fr:
         off(OUTDATED): No sound
         onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
         onAlways(OUTDATED): Enabled (even in silent mode)
+      sentry: 
+        active(OUTDATED): Active
+        inactive(OUTDATED): Inactive
+        activeUntilRestart(OUTDATED): Active until you restart the app
+        inactiveUntilRestart(OUTDATED): Inactive until you restart the app
     openDataDir(OUTDATED): Open Saber folder
     customDataDir: 
       cancel(OUTDATED): Cancel
       select(OUTDATED): Select
       mustBeEmpty(OUTDATED): Selected folder must be empty
       mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the folder
+      unsupported(OUTDATED): This feature is currently only for developers. Using it will likely result in data loss.
     autosaveDisabled(OUTDATED): Never
     shapeRecognitionDisabled(OUTDATED): Never
   logs: 
@@ -259,7 +363,7 @@ fr:
     viewLogs(OUTDATED): View logs
     debuggingInfo(OUTDATED): Logs contain information useful for debugging and development
     noLogs(OUTDATED): No logs here!
-    logsAreTemporary(OUTDATED): Logs are only kept until you close the app
+    useTheApp(OUTDATED): Logs will appear here as you use the app
   login: 
     notYou(rich)(OUTDATED): Not you? ${undoLogin(Choose another account)}.
     status: 
@@ -327,6 +431,19 @@ he:
       moveNotes(OUTDATED): Move $n notes
       multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
       numberRenamedTo(OUTDATED): $n notes will be renamed to avoid conflicts
+  sentry: 
+    consent: 
+      title(OUTDATED): Help improve Saber?
+      description: 
+        question(OUTDATED): Would you like to automatically report unexpected errors? This helps me identify and fix issues faster.
+        scope(OUTDATED): The reports may contain information about the error and your device. I've made every effort to filter out personal data but some may remain.
+        currentlyOff(OUTDATED): If you grant consent, error reporting will be enabled after you restart the app.
+        currentlyOn(OUTDATED): If you revoke consent, please restart the app to disable error reporting.
+        learnMoreInPrivacyPolicy(rich)(OUTDATED): Learn more in the ${link(privacy policy)}.
+      answers: 
+        yes(OUTDATED): Yes
+        no(OUTDATED): No
+        later(OUTDATED): Ask me later
   settings: 
     prefCategories: 
       performance(OUTDATED): Performance
@@ -338,6 +455,7 @@ he:
       simplifiedHomeLayout(OUTDATED): Simplified home layout
       customDataDir(OUTDATED): Custom Saber folder
       pencilSoundSetting(OUTDATED): Pencil sound effect
+      sentry(OUTDATED): Error reporting
     prefDescriptions: 
       autosave(OUTDATED): Auto-save after a short delay, or never
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
@@ -347,6 +465,11 @@ he:
         off(OUTDATED): No sound
         onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
         onAlways(OUTDATED): Enabled (even in silent mode)
+      sentry: 
+        active(OUTDATED): Active
+        inactive(OUTDATED): Inactive
+        activeUntilRestart(OUTDATED): Active until you restart the app
+        inactiveUntilRestart(OUTDATED): Inactive until you restart the app
     resyncEverything(OUTDATED): Resync everything
     openDataDir(OUTDATED): Open Saber folder
     customDataDir: 
@@ -354,6 +477,7 @@ he:
       select(OUTDATED): Select
       mustBeEmpty(OUTDATED): Selected folder must be empty
       mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the folder
+      unsupported(OUTDATED): This feature is currently only for developers. Using it will likely result in data loss.
     autosaveDisabled(OUTDATED): Never
     shapeRecognitionDisabled(OUTDATED): Never
   logs: 
@@ -361,7 +485,7 @@ he:
     viewLogs(OUTDATED): View logs
     debuggingInfo(OUTDATED): Logs contain information useful for debugging and development
     noLogs(OUTDATED): No logs here!
-    logsAreTemporary(OUTDATED): Logs are only kept until you close the app
+    useTheApp(OUTDATED): Logs will appear here as you use the app
   login: 
     notYou(rich)(OUTDATED): Not you? ${undoLogin(Choose another account)}.
     status: 
@@ -477,6 +601,19 @@ hu:
       deleteName(OUTDATED): Delete $f
       delete(OUTDATED): Delete
       alsoDeleteContents(OUTDATED): Also delete all notes inside this folder
+  sentry: 
+    consent: 
+      title(OUTDATED): Help improve Saber?
+      description: 
+        question(OUTDATED): Would you like to automatically report unexpected errors? This helps me identify and fix issues faster.
+        scope(OUTDATED): The reports may contain information about the error and your device. I've made every effort to filter out personal data but some may remain.
+        currentlyOff(OUTDATED): If you grant consent, error reporting will be enabled after you restart the app.
+        currentlyOn(OUTDATED): If you revoke consent, please restart the app to disable error reporting.
+        learnMoreInPrivacyPolicy(rich)(OUTDATED): Learn more in the ${link(privacy policy)}.
+      answers: 
+        yes(OUTDATED): Yes
+        no(OUTDATED): No
+        later(OUTDATED): Ask me later
   settings: 
     prefCategories: 
       editor(OUTDATED): Editor
@@ -496,6 +633,7 @@ hu:
       simplifiedHomeLayout(OUTDATED): Simplified home layout
       customDataDir(OUTDATED): Custom Saber folder
       pencilSoundSetting(OUTDATED): Pencil sound effect
+      sentry(OUTDATED): Error reporting
     prefDescriptions: 
       allowInsecureConnections(OUTDATED): (Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates
       disableEraserAfterUse(OUTDATED): Automatically switches back to the pen after using the eraser
@@ -513,6 +651,11 @@ hu:
         off(OUTDATED): No sound
         onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
         onAlways(OUTDATED): Enabled (even in silent mode)
+      sentry: 
+        active(OUTDATED): Active
+        inactive(OUTDATED): Inactive
+        activeUntilRestart(OUTDATED): Active until you restart the app
+        inactiveUntilRestart(OUTDATED): Inactive until you restart the app
     layoutSizes: 
       auto(OUTDATED): Auto
       phone(OUTDATED): Phone
@@ -524,6 +667,7 @@ hu:
       select(OUTDATED): Select
       mustBeEmpty(OUTDATED): Selected folder must be empty
       mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the folder
+      unsupported(OUTDATED): This feature is currently only for developers. Using it will likely result in data loss.
     autosaveDisabled(OUTDATED): Never
     shapeRecognitionDisabled(OUTDATED): Never
   logs: 
@@ -531,7 +675,7 @@ hu:
     viewLogs(OUTDATED): View logs
     debuggingInfo(OUTDATED): Logs contain information useful for debugging and development
     noLogs(OUTDATED): No logs here!
-    logsAreTemporary(OUTDATED): Logs are only kept until you close the app
+    useTheApp(OUTDATED): Logs will appear here as you use the app
   login: 
     notYou(rich)(OUTDATED): Not you? ${undoLogin(Choose another account)}.
     status: 
@@ -660,19 +804,9 @@ hu:
       lockAxisAlignedPan(OUTDATED): Lock panning to horizontal or vertical
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
 it: 
-  home: 
-    noPreviewAvailable(OUTDATED): No preview available
   settings: 
-    prefLabels: 
-      autosave(OUTDATED): Auto-save
-    prefDescriptions: 
-      autosave(OUTDATED): Auto-save after a short delay, or never
-    autosaveDisabled(OUTDATED): Never
-    shapeRecognitionDisabled(OUTDATED): Never
-  editor: 
-    menu: 
-      lineThickness(OUTDATED): Line thickness
-      lineThicknessDescription(OUTDATED): Background line thickness
+    customDataDir: 
+      unsupported(OUTDATED): This feature is currently only for developers. Using it will likely result in data loss.
 ja: 
   common: 
     done(OUTDATED): Done
@@ -705,6 +839,19 @@ ja:
       deleteName(OUTDATED): Delete $f
       delete(OUTDATED): Delete
       alsoDeleteContents(OUTDATED): Also delete all notes inside this folder
+  sentry: 
+    consent: 
+      title(OUTDATED): Help improve Saber?
+      description: 
+        question(OUTDATED): Would you like to automatically report unexpected errors? This helps me identify and fix issues faster.
+        scope(OUTDATED): The reports may contain information about the error and your device. I've made every effort to filter out personal data but some may remain.
+        currentlyOff(OUTDATED): If you grant consent, error reporting will be enabled after you restart the app.
+        currentlyOn(OUTDATED): If you revoke consent, please restart the app to disable error reporting.
+        learnMoreInPrivacyPolicy(rich)(OUTDATED): Learn more in the ${link(privacy policy)}.
+      answers: 
+        yes(OUTDATED): Yes
+        no(OUTDATED): No
+        later(OUTDATED): Ask me later
   settings: 
     prefCategories: 
       performance(OUTDATED): Performance
@@ -719,6 +866,7 @@ ja:
       simplifiedHomeLayout(OUTDATED): Simplified home layout
       customDataDir(OUTDATED): Custom Saber folder
       pencilSoundSetting(OUTDATED): Pencil sound effect
+      sentry(OUTDATED): Error reporting
     prefDescriptions: 
       disableEraserAfterUse(OUTDATED): Automatically switches back to the pen after using the eraser
       hideFingerDrawing: 
@@ -734,6 +882,11 @@ ja:
         off(OUTDATED): No sound
         onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
         onAlways(OUTDATED): Enabled (even in silent mode)
+      sentry: 
+        active(OUTDATED): Active
+        inactive(OUTDATED): Inactive
+        activeUntilRestart(OUTDATED): Active until you restart the app
+        inactiveUntilRestart(OUTDATED): Inactive until you restart the app
     resyncEverything(OUTDATED): Resync everything
     openDataDir(OUTDATED): Open Saber folder
     customDataDir: 
@@ -741,6 +894,7 @@ ja:
       select(OUTDATED): Select
       mustBeEmpty(OUTDATED): Selected folder must be empty
       mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the folder
+      unsupported(OUTDATED): This feature is currently only for developers. Using it will likely result in data loss.
     autosaveDisabled(OUTDATED): Never
     shapeRecognitionDisabled(OUTDATED): Never
   logs: 
@@ -748,7 +902,7 @@ ja:
     viewLogs(OUTDATED): View logs
     debuggingInfo(OUTDATED): Logs contain information useful for debugging and development
     noLogs(OUTDATED): No logs here!
-    logsAreTemporary(OUTDATED): Logs are only kept until you close the app
+    useTheApp(OUTDATED): Logs will appear here as you use the app
   login: 
     notYou(rich)(OUTDATED): Not you? ${undoLogin(Choose another account)}.
     status: 
@@ -827,6 +981,19 @@ pt-BR:
       moveNotes(OUTDATED): Move $n notes
       multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
       numberRenamedTo(OUTDATED): $n notes will be renamed to avoid conflicts
+  sentry: 
+    consent: 
+      title: Help improve Saber?
+      description: 
+        question(OUTDATED): Would you like to automatically report unexpected errors? This helps me identify and fix issues faster.
+        scope(OUTDATED): The reports may contain information about the error and your device. I've made every effort to filter out personal data but some may remain.
+        currentlyOff(OUTDATED): If you grant consent, error reporting will be enabled after you restart the app.
+        currentlyOn(OUTDATED): If you revoke consent, please restart the app to disable error reporting.
+        learnMoreInPrivacyPolicy(rich)(OUTDATED): Learn more in the ${link(privacy policy)}.
+      answers: 
+        yes(OUTDATED): Yes
+        no(OUTDATED): No
+        later(OUTDATED): Ask me later
   settings: 
     prefCategories: 
       performance(OUTDATED): Performance
@@ -838,6 +1005,7 @@ pt-BR:
       simplifiedHomeLayout(OUTDATED): Simplified home layout
       customDataDir(OUTDATED): Custom Saber folder
       pencilSoundSetting(OUTDATED): Pencil sound effect
+      sentry(OUTDATED): Error reporting
     prefDescriptions: 
       autosave(OUTDATED): Auto-save after a short delay, or never
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
@@ -847,6 +1015,11 @@ pt-BR:
         off(OUTDATED): No sound
         onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
         onAlways(OUTDATED): Enabled (even in silent mode)
+      sentry: 
+        active(OUTDATED): Active
+        inactive(OUTDATED): Inactive
+        activeUntilRestart(OUTDATED): Active until you restart the app
+        inactiveUntilRestart(OUTDATED): Inactive until you restart the app
     resyncEverything(OUTDATED): Resync everything
     openDataDir(OUTDATED): Open Saber folder
     customDataDir: 
@@ -854,6 +1027,7 @@ pt-BR:
       select(OUTDATED): Select
       mustBeEmpty(OUTDATED): Selected folder must be empty
       mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the folder
+      unsupported(OUTDATED): This feature is currently only for developers. Using it will likely result in data loss.
     autosaveDisabled(OUTDATED): Never
     shapeRecognitionDisabled(OUTDATED): Never
   logs: 
@@ -861,7 +1035,7 @@ pt-BR:
     viewLogs(OUTDATED): View logs
     debuggingInfo(OUTDATED): Logs contain information useful for debugging and development
     noLogs(OUTDATED): No logs here!
-    logsAreTemporary(OUTDATED): Logs are only kept until you close the app
+    useTheApp(OUTDATED): Logs will appear here as you use the app
   login: 
     notYou(rich)(OUTDATED): Not you? ${undoLogin(Choose another account)}.
     status: 
@@ -928,13 +1102,36 @@ pt-BR:
 ru: 
   home: 
     noPreviewAvailable(OUTDATED): No preview available
+  sentry: 
+    consent: 
+      title(OUTDATED): Help improve Saber?
+      description: 
+        question(OUTDATED): Would you like to automatically report unexpected errors? This helps me identify and fix issues faster.
+        scope(OUTDATED): The reports may contain information about the error and your device. I've made every effort to filter out personal data but some may remain.
+        currentlyOff(OUTDATED): If you grant consent, error reporting will be enabled after you restart the app.
+        currentlyOn(OUTDATED): If you revoke consent, please restart the app to disable error reporting.
+        learnMoreInPrivacyPolicy(rich)(OUTDATED): Learn more in the ${link(privacy policy)}.
+      answers: 
+        yes(OUTDATED): Yes
+        no(OUTDATED): No
+        later(OUTDATED): Ask me later
   settings: 
     prefLabels: 
       autosave(OUTDATED): Auto-save
+      sentry(OUTDATED): Error reporting
     prefDescriptions: 
       autosave(OUTDATED): Auto-save after a short delay, or never
+      sentry: 
+        active(OUTDATED): Active
+        inactive(OUTDATED): Inactive
+        activeUntilRestart(OUTDATED): Active until you restart the app
+        inactiveUntilRestart(OUTDATED): Inactive until you restart the app
+    customDataDir: 
+      unsupported(OUTDATED): This feature is currently only for developers. Using it will likely result in data loss.
     autosaveDisabled(OUTDATED): Never
     shapeRecognitionDisabled(OUTDATED): Never
+  logs: 
+    useTheApp(OUTDATED): Logs will appear here as you use the app
   editor: 
     menu: 
       lineThickness(OUTDATED): Line thickness
@@ -942,11 +1139,32 @@ ru:
 tr: 
   home: 
     noPreviewAvailable(OUTDATED): No preview available
+  sentry: 
+    consent: 
+      title(OUTDATED): Help improve Saber?
+      description: 
+        question(OUTDATED): Would you like to automatically report unexpected errors? This helps me identify and fix issues faster.
+        scope(OUTDATED): The reports may contain information about the error and your device. I've made every effort to filter out personal data but some may remain.
+        currentlyOff(OUTDATED): If you grant consent, error reporting will be enabled after you restart the app.
+        currentlyOn(OUTDATED): If you revoke consent, please restart the app to disable error reporting.
+        learnMoreInPrivacyPolicy(rich)(OUTDATED): Learn more in the ${link(privacy policy)}.
+      answers: 
+        yes(OUTDATED): Yes
+        no(OUTDATED): No
+        later(OUTDATED): Ask me later
   settings: 
     prefLabels: 
       autosave(OUTDATED): Auto-save
+      sentry(OUTDATED): Error reporting
     prefDescriptions: 
       autosave(OUTDATED): Auto-save after a short delay, or never
+      sentry: 
+        active(OUTDATED): Active
+        inactive(OUTDATED): Inactive
+        activeUntilRestart(OUTDATED): Active until you restart the app
+        inactiveUntilRestart(OUTDATED): Inactive until you restart the app
+    customDataDir: 
+      unsupported(OUTDATED): This feature is currently only for developers. Using it will likely result in data loss.
     autosaveDisabled(OUTDATED): Never
     shapeRecognitionDisabled(OUTDATED): Never
   logs: 
@@ -954,7 +1172,7 @@ tr:
     viewLogs(OUTDATED): View logs
     debuggingInfo(OUTDATED): Logs contain information useful for debugging and development
     noLogs(OUTDATED): No logs here!
-    logsAreTemporary(OUTDATED): Logs are only kept until you close the app
+    useTheApp(OUTDATED): Logs will appear here as you use the app
   editor: 
     menu: 
       lineThickness(OUTDATED): Line thickness
@@ -962,11 +1180,32 @@ tr:
 zh-Hans-CN: 
   home: 
     noPreviewAvailable(OUTDATED): No preview available
+  sentry: 
+    consent: 
+      title(OUTDATED): Help improve Saber?
+      description: 
+        question(OUTDATED): Would you like to automatically report unexpected errors? This helps me identify and fix issues faster.
+        scope(OUTDATED): The reports may contain information about the error and your device. I've made every effort to filter out personal data but some may remain.
+        currentlyOff(OUTDATED): If you grant consent, error reporting will be enabled after you restart the app.
+        currentlyOn(OUTDATED): If you revoke consent, please restart the app to disable error reporting.
+        learnMoreInPrivacyPolicy(rich)(OUTDATED): Learn more in the ${link(privacy policy)}.
+      answers: 
+        yes(OUTDATED): Yes
+        no(OUTDATED): No
+        later(OUTDATED): Ask me later
   settings: 
     prefLabels: 
       autosave(OUTDATED): Auto-save
+      sentry(OUTDATED): Error reporting
     prefDescriptions: 
       autosave(OUTDATED): Auto-save after a short delay, or never
+      sentry: 
+        active(OUTDATED): Active
+        inactive(OUTDATED): Inactive
+        activeUntilRestart(OUTDATED): Active until you restart the app
+        inactiveUntilRestart(OUTDATED): Inactive until you restart the app
+    customDataDir: 
+      unsupported(OUTDATED): This feature is currently only for developers. Using it will likely result in data loss.
     autosaveDisabled(OUTDATED): Never
     shapeRecognitionDisabled(OUTDATED): Never
   logs: 
@@ -974,22 +1213,35 @@ zh-Hans-CN:
     viewLogs(OUTDATED): View logs
     debuggingInfo(OUTDATED): Logs contain information useful for debugging and development
     noLogs(OUTDATED): No logs here!
-    logsAreTemporary(OUTDATED): Logs are only kept until you close the app
+    useTheApp(OUTDATED): Logs will appear here as you use the app
   editor: 
     menu: 
       lineThickness(OUTDATED): Line thickness
       lineThicknessDescription(OUTDATED): Background line thickness
 zh-Hant-TW: 
-  home: 
-    noPreviewAvailable(OUTDATED): No preview available
+  sentry: 
+    consent: 
+      title(OUTDATED): Help improve Saber?
+      description: 
+        question(OUTDATED): Would you like to automatically report unexpected errors? This helps me identify and fix issues faster.
+        scope(OUTDATED): The reports may contain information about the error and your device. I've made every effort to filter out personal data but some may remain.
+        currentlyOff(OUTDATED): If you grant consent, error reporting will be enabled after you restart the app.
+        currentlyOn(OUTDATED): If you revoke consent, please restart the app to disable error reporting.
+        learnMoreInPrivacyPolicy(rich)(OUTDATED): Learn more in the ${link(privacy policy)}.
+      answers: 
+        yes(OUTDATED): Yes
+        no(OUTDATED): No
+        later(OUTDATED): Ask me later
   settings: 
     prefLabels: 
-      autosave(OUTDATED): Auto-save
+      sentry(OUTDATED): Error reporting
     prefDescriptions: 
-      autosave(OUTDATED): Auto-save after a short delay, or never
-    autosaveDisabled(OUTDATED): Never
-    shapeRecognitionDisabled(OUTDATED): Never
-  editor: 
-    menu: 
-      lineThickness(OUTDATED): Line thickness
-      lineThicknessDescription(OUTDATED): Background line thickness
+      sentry: 
+        active(OUTDATED): Active
+        inactive(OUTDATED): Inactive
+        activeUntilRestart(OUTDATED): Active until you restart the app
+        inactiveUntilRestart(OUTDATED): Inactive until you restart the app
+    customDataDir: 
+      unsupported(OUTDATED): This feature is currently only for developers. Using it will likely result in data loss.
+  logs: 
+    useTheApp(OUTDATED): Logs will appear here as you use the app

@@ -11,7 +11,7 @@
     <url type="homepage">https://github.com/saber-notes/saber</url>
     <url type="bugtracker">https://github.com/saber-notes/saber/issues</url>
     <url type="donation">https://github.com/sponsors/adil192</url>
-    <url type="translate">https://github.com/saber-notes/saber#translating</url>
+    <url type="translate">https://github.com/saber-notes/saber/wiki/Translating</url>
 
     <developer id="com.adilhanney">
         <name>Adil Hanney</name>
@@ -214,6 +214,31 @@
     </screenshots>
 
     <releases>
+        <release version="0.26.5" type="development" date="2025-09-05">
+            <description>
+                <ul>
+                    <li>Updated the font Atkinson Hyperlegible to Atkinson Hyperlegible Next to support more languages</li>
+                    <li>Very slight rounding on the app icon</li>
+                    <li>Bug fixes and improvements from dependency updates</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.26.4" type="development" date="2025-08-18">
+            <description>
+                <ul>
+                    <li>Small but important bug fixes thanks to everyone who opted in to error reporting!</li>
+                    <li>Further evolution of the personal information filters. These are implemented both locally and on the server so your information is always safe.</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.26.3" type="development" date="2025-08-15">
+            <description>
+                <ul>
+                    <li>Minor bug fixes</li>
+                    <li>Opt-in error tracking has been added, but isn't supported on Linux at least for now.</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.26.2" type="development" date="2025-08-10">
             <description>
                 <ul>

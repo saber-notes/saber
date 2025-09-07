@@ -1,0 +1,3 @@
+• Aggiornato il carattere Atkinson iperlegibile ad Atkinson iperlegibile accanto a supportare più lingue
+• Arrotondamento molto leggero sull'icona dell'app
+• Correzioni di bug e miglioramenti dagli aggiornamenti delle dipendenze

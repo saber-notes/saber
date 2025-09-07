@@ -214,7 +214,7 @@ Future<void> updateAllFiles() async {
   print('  - ${changelogFile.path}');
   print('  - ${flatpakFile.path}');
   print('And then run:');
-  print('  - dart scripts/translate_changelogs.dart');
+  print('  - ./scripts/translate_changelogs.dart');
   print('Next steps:');
   print(
       '  - Add the new release to the App Store: https://appstoreconnect.apple.com/apps/1671523739/appstore');
