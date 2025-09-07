@@ -261,7 +261,7 @@ class App extends StatefulWidget {
 
     final String extension;
     if (file.path.contains('.')) {
-      extension = file.path.split('.').last;
+      extension = file.path.split('.').last.toLowerCase();
     } else {
       extension = 'sbn2';
     }
