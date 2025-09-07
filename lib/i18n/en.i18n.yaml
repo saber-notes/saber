@@ -165,6 +165,7 @@ settings:
     select: Select
     mustBeEmpty: Selected folder must be empty
     mustBeDoneSyncing: Make sure syncing is complete before changing the folder
+    unsupported: This feature is currently only for developers. Using it will likely result in data loss.
   autosaveDisabled: Never
   shapeRecognitionDisabled: Never
 logs: 

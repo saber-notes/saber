@@ -28,6 +28,8 @@ ar:
         inactive(OUTDATED): Inactive
         activeUntilRestart(OUTDATED): Active until you restart the app
         inactiveUntilRestart(OUTDATED): Inactive until you restart the app
+    customDataDir: 
+      unsupported: This feature is currently only for developers. Using it will likely result in data loss.
     autosaveDisabled(OUTDATED): Never
     shapeRecognitionDisabled(OUTDATED): Never
   logs: 
@@ -41,6 +43,9 @@ ar:
       lineThickness(OUTDATED): Line thickness
       lineThicknessDescription(OUTDATED): Background line thickness
 cs: 
+  settings: 
+    customDataDir: 
+      unsupported: This feature is currently only for developers. Using it will likely result in data loss.
 de: 
   home: 
     noPreviewAvailable(OUTDATED): No preview available
@@ -68,6 +73,8 @@ de:
         inactive(OUTDATED): Inactive
         activeUntilRestart(OUTDATED): Active until you restart the app
         inactiveUntilRestart(OUTDATED): Inactive until you restart the app
+    customDataDir: 
+      unsupported: This feature is currently only for developers. Using it will likely result in data loss.
     autosaveDisabled(OUTDATED): Never
     shapeRecognitionDisabled(OUTDATED): Never
   logs: 
@@ -131,6 +138,7 @@ es:
       select(OUTDATED): Select
       mustBeEmpty(OUTDATED): Selected folder must be empty
       mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the folder
+      unsupported: This feature is currently only for developers. Using it will likely result in data loss.
     autosaveDisabled(OUTDATED): Never
     shapeRecognitionDisabled(OUTDATED): Never
   logs: 
@@ -242,6 +250,7 @@ fa:
       select(OUTDATED): Select
       mustBeEmpty(OUTDATED): Selected folder must be empty
       mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the folder
+      unsupported: This feature is currently only for developers. Using it will likely result in data loss.
     autosaveDisabled(OUTDATED): Never
     shapeRecognitionDisabled(OUTDATED): Never
   logs: 
@@ -347,6 +356,7 @@ fr:
       select(OUTDATED): Select
       mustBeEmpty(OUTDATED): Selected folder must be empty
       mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the folder
+      unsupported: This feature is currently only for developers. Using it will likely result in data loss.
     autosaveDisabled(OUTDATED): Never
     shapeRecognitionDisabled(OUTDATED): Never
   logs: 
@@ -468,6 +478,7 @@ he:
       select(OUTDATED): Select
       mustBeEmpty(OUTDATED): Selected folder must be empty
       mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the folder
+      unsupported: This feature is currently only for developers. Using it will likely result in data loss.
     autosaveDisabled(OUTDATED): Never
     shapeRecognitionDisabled(OUTDATED): Never
   logs: 
@@ -657,6 +668,7 @@ hu:
       select(OUTDATED): Select
       mustBeEmpty(OUTDATED): Selected folder must be empty
       mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the folder
+      unsupported: This feature is currently only for developers. Using it will likely result in data loss.
     autosaveDisabled(OUTDATED): Never
     shapeRecognitionDisabled(OUTDATED): Never
   logs: 
@@ -815,6 +827,8 @@ it:
         inactive(OUTDATED): Inactive
         activeUntilRestart(OUTDATED): Active until you restart the app
         inactiveUntilRestart(OUTDATED): Inactive until you restart the app
+    customDataDir: 
+      unsupported: This feature is currently only for developers. Using it will likely result in data loss.
   logs: 
     useTheApp(OUTDATED): Logs will appear here as you use the app
 ja: 
@@ -904,6 +918,7 @@ ja:
       select(OUTDATED): Select
       mustBeEmpty(OUTDATED): Selected folder must be empty
       mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the folder
+      unsupported: This feature is currently only for developers. Using it will likely result in data loss.
     autosaveDisabled(OUTDATED): Never
     shapeRecognitionDisabled(OUTDATED): Never
   logs: 
@@ -1036,6 +1051,7 @@ pt-BR:
       select(OUTDATED): Select
       mustBeEmpty(OUTDATED): Selected folder must be empty
       mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the folder
+      unsupported: This feature is currently only for developers. Using it will likely result in data loss.
     autosaveDisabled(OUTDATED): Never
     shapeRecognitionDisabled(OUTDATED): Never
   logs: 
@@ -1134,6 +1150,8 @@ ru:
         inactive(OUTDATED): Inactive
         activeUntilRestart(OUTDATED): Active until you restart the app
         inactiveUntilRestart(OUTDATED): Inactive until you restart the app
+    customDataDir: 
+      unsupported: This feature is currently only for developers. Using it will likely result in data loss.
     autosaveDisabled(OUTDATED): Never
     shapeRecognitionDisabled(OUTDATED): Never
   logs: 
@@ -1169,6 +1187,8 @@ tr:
         inactive(OUTDATED): Inactive
         activeUntilRestart(OUTDATED): Active until you restart the app
         inactiveUntilRestart(OUTDATED): Inactive until you restart the app
+    customDataDir: 
+      unsupported: This feature is currently only for developers. Using it will likely result in data loss.
     autosaveDisabled(OUTDATED): Never
     shapeRecognitionDisabled(OUTDATED): Never
   logs: 
@@ -1208,6 +1228,8 @@ zh-Hans-CN:
         inactive(OUTDATED): Inactive
         activeUntilRestart(OUTDATED): Active until you restart the app
         inactiveUntilRestart(OUTDATED): Inactive until you restart the app
+    customDataDir: 
+      unsupported: This feature is currently only for developers. Using it will likely result in data loss.
     autosaveDisabled(OUTDATED): Never
     shapeRecognitionDisabled(OUTDATED): Never
   logs: 
@@ -1243,5 +1265,7 @@ zh-Hant-TW:
         inactive(OUTDATED): Inactive
         activeUntilRestart(OUTDATED): Active until you restart the app
         inactiveUntilRestart(OUTDATED): Inactive until you restart the app
+    customDataDir: 
+      unsupported: This feature is currently only for developers. Using it will likely result in data loss.
   logs: 
     useTheApp(OUTDATED): Logs will appear here as you use the app
