@@ -136,11 +136,9 @@ jobs:
         run: |
           mv Saber_*.tar.gz Saber-Linux-Portable.tar.gz
 
-      - name: Download appimage-builder
-        working-directory: appimage
+      - name: Install appimage-builder
         run: |
-          wget -O appimage-builder-x86_64.AppImage https://github.com/AppImageCrafters/appimage-builder/releases/download/v1.1.0/appimage-builder-1.1.0-x86_64.AppImage
-          chmod +x appimage-builder-x86_64.AppImage
+          sudo pip3 install --ignore-installed git+https://github.com/AppImageCrafters/appimage-builder.git
 
       - name: Prepare build files
         working-directory: appimage
@@ -158,7 +156,7 @@ jobs:
       - name: Build AppImage
         working-directory: appimage
         run: |
-          ./appimage-builder-x86_64.AppImage --skip-test
+          appimage-builder --skip-test
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
