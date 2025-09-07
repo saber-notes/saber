@@ -1,0 +1,3 @@
+• Aktualizováno písmo Atkinson Hyperlegible na Atkinson Hyperlegible vedle podpory více jazyků
+• Velmi mírné zaoblení ikony aplikace
+• Opravy chyb a vylepšení z aktualizací závislosti

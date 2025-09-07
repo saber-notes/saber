@@ -1,0 +1,3 @@
+• Aktualisierte die Schriftart Atkinson hyperlegibel an atkinson hyperlegible neben mehr Sprachen unterstützt
+• Sehr geringfügige Rundung im App -Symbol
+• Fehlerbehebungen und -verbesserungen aus Abhängigkeitsaktualisierungen

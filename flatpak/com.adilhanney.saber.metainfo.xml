@@ -82,11 +82,6 @@
             mind, Saber is your trusted companion for digital handwriting.
             Download now and let your ideas flow freely!
         </p>
-        <p>
-            Note: Saber on Linux currently treats styluses as mouse input,
-            meaning that there is no pressure sensitivity or finger-stylus differentiation.
-            We are presently unable to fix this without proper support in Flutter.
-        </p>
 
         <p xml:lang="zh-Hant-TW">
             Saber是一個專為手寫而生的筆記應用程式。
@@ -219,6 +214,15 @@
     </screenshots>
 
     <releases>
+        <release version="0.26.5" type="development" date="2025-09-05">
+            <description>
+                <ul>
+                    <li>Updated the font Atkinson Hyperlegible to Atkinson Hyperlegible Next to support more languages</li>
+                    <li>Very slight rounding on the app icon</li>
+                    <li>Bug fixes and improvements from dependency updates</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.26.4" type="development" date="2025-08-18">
             <description>
                 <ul>

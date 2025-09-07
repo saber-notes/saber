@@ -17,11 +17,13 @@ class SettingsDirectorySelector extends StatelessWidget {
     required this.title,
     required this.icon,
     this.afterChange,
+    this.isUnsupported = true,
   });
 
   final String title;
   final IconData icon;
   final ValueChanged<Color?>? afterChange;
+  final bool isUnsupported;
 
   void onPressed(BuildContext context) async {
     final oldDir = Directory(FileManager.documentsDirectory);
@@ -139,6 +141,8 @@ class _DirectorySelectorState extends State<DirectorySelector> {
       content: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
+          Text(t.settings.customDataDir.unsupported,
+              style: TextStyle(color: colorScheme.error)),
           Row(
             children: [
               Expanded(

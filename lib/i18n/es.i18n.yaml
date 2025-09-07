@@ -63,7 +63,6 @@ home:
   noPreviewAvailable(OUTDATED): No hay una vista previa disponible
 sentry: 
   consent: 
-    title(OUTDATED): Ayudar a mejorar el sable?
     description: 
       question(OUTDATED): ¿Le gustaría informar automáticamente errores inesperados? Esto me ayuda a identificar y solucionar problemas más rápido.
       scope(OUTDATED): Los informes pueden contener información sobre el error y su dispositivo. He hecho todo lo posible para filtrar datos personales, pero algunos pueden permanecer.
@@ -73,6 +72,7 @@ sentry:
     answers: 
       yes(OUTDATED): Sí
       later(OUTDATED): Pregúntame más tarde
+    title(OUTDATED): Ayudar a mejorar el sable?
 settings: 
   prefCategories: 
     general: General
@@ -158,6 +158,7 @@ settings:
     title: ¿Quieres restablecer esta configuración?
     button: Restablecer
   customDataDir: 
+    unsupported(OUTDATED): Esta característica es actualmente solo para desarrolladores. Usarlo probablemente dará como resultado la pérdida de datos.
     cancel(OUTDATED): Cancelar
     select(OUTDATED): Seleccionar
     mustBeEmpty(OUTDATED): El directorio seleccionado debe estar vacío.

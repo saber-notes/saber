@@ -1,3 +1,7 @@
+## 1.2.5
+
+- Update the hidden API bypass to hopefully prevent Google Play rejections (https://github.com/saber-notes/saber/issues/1514)
+
 ## 1.2.4
 
 - Fix Note Air 3 - Add Hidden API Bypass for SDK30+ and init RxManager (https://github.com/saber-notes/saber/pull/1378)

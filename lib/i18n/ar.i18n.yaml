@@ -63,7 +63,6 @@ home:
   noPreviewAvailable(OUTDATED): لا معاينة متاحة
 sentry: 
   consent: 
-    title(OUTDATED): تساعد في تحسين صابر؟
     description: 
       question(OUTDATED): هل ترغب في الإبلاغ تلقائيًا عن أخطاء غير متوقعة؟ هذا يساعدني على تحديد وإصلاح المشكلات بشكل أسرع.
       scope(OUTDATED): قد تحتوي التقارير على معلومات حول الخطأ وجهازك. لقد بذلت كل جهد ممكن لتصفية البيانات الشخصية ولكن قد يبقى البعض.
@@ -74,6 +73,7 @@ sentry:
       yes(OUTDATED): نعم
       no(OUTDATED): لا
       later(OUTDATED): اسألني لاحقًا
+    title(OUTDATED): تساعد في تحسين صابر؟
 settings: 
   prefCategories: 
     general: عام
@@ -165,6 +165,7 @@ settings:
     select: تحديد
     mustBeEmpty: يجب أن يكون المجلد المحدد فارغًا
     mustBeDoneSyncing: تأكد من اكتمال المزامنة قبل تغيير المجلد
+    unsupported(OUTDATED): هذه الميزة حاليا فقط للمطورين. من المحتمل أن يؤدي استخدامه إلى فقدان البيانات.
   autosaveDisabled(OUTDATED): أبداً
   shapeRecognitionDisabled(OUTDATED): أبداً
 logs: 

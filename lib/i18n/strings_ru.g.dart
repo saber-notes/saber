@@ -358,9 +358,9 @@ class _TranslationsSentryConsentRu extends TranslationsSentryConsentEn {
 	final TranslationsRu _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Помочь улучшить саблу?';
 	@override late final _TranslationsSentryConsentDescriptionRu description = _TranslationsSentryConsentDescriptionRu._(_root);
 	@override late final _TranslationsSentryConsentAnswersRu answers = _TranslationsSentryConsentAnswersRu._(_root);
+	@override String get title => 'Помочь улучшить саблу?';
 }
 
 // Path: settings.prefCategories
@@ -497,6 +497,7 @@ class _TranslationsSettingsCustomDataDirRu extends TranslationsSettingsCustomDat
 	@override String get select => 'Выбрать';
 	@override String get mustBeEmpty => 'Выбранный каталог должен быть пустым';
 	@override String get mustBeDoneSyncing => 'Перед изменением каталога убедитесь, что синхронизация завершена';
+	@override String get unsupported => 'Эта функция в настоящее время предназначена только для разработчиков. Использование, вероятно, приведет к потере данных.';
 }
 
 // Path: login.form

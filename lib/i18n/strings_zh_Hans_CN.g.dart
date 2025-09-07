@@ -358,9 +358,9 @@ class _TranslationsSentryConsentZhHansCn extends TranslationsSentryConsentEn {
 	final TranslationsZhHansCn _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => '帮助改善军刀？';
 	@override late final _TranslationsSentryConsentDescriptionZhHansCn description = _TranslationsSentryConsentDescriptionZhHansCn._(_root);
 	@override late final _TranslationsSentryConsentAnswersZhHansCn answers = _TranslationsSentryConsentAnswersZhHansCn._(_root);
+	@override String get title => '帮助改善军刀？';
 }
 
 // Path: settings.prefCategories
@@ -497,6 +497,7 @@ class _TranslationsSettingsCustomDataDirZhHansCn extends TranslationsSettingsCus
 	@override String get select => '选择';
 	@override String get mustBeEmpty => '所选文件夹必须为空';
 	@override String get mustBeDoneSyncing => '更改文件夹前，请确保同步已完成';
+	@override String get unsupported => '此功能目前仅适用于开发人员。使用它可能会导致数据丢失。';
 }
 
 // Path: login.form

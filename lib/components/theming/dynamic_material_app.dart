@@ -101,7 +101,7 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp>
   TextTheme? getTextTheme(Brightness brightness) {
     if (stows.hyperlegibleFont.value) {
       return ThemeData(brightness: brightness).textTheme.withFont(
-            fontFamily: 'AtkinsonHyperlegible',
+            fontFamily: 'AtkinsonHyperlegibleNext',
             fontFamilyFallback: saberSansSerifFontFallbacks,
           );
     } else {
@@ -184,7 +184,8 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp>
                 themeMode: stows.appTheme.loaded
                     ? stows.appTheme.value
                     : ThemeMode.system,
-                theme: yaruTheme?.theme ??
+                theme: yaruTheme?.theme
+                        ?.copyWith(textTheme: getTextTheme(Brightness.light)) ??
                     ThemeData(
                       useMaterial3: true,
                       colorScheme: lightColorScheme,
@@ -193,7 +194,8 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp>
                       platform: platform,
                       pageTransitionsTheme: _pageTransitionsTheme,
                     ),
-                darkTheme: yaruTheme?.darkTheme ??
+                darkTheme: yaruTheme?.darkTheme
+                        ?.copyWith(textTheme: getTextTheme(Brightness.dark)) ??
                     ThemeData(
                       useMaterial3: true,
                       colorScheme: darkColorScheme,
@@ -202,7 +204,8 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp>
                       platform: platform,
                       pageTransitionsTheme: _pageTransitionsTheme,
                     ),
-                highContrastTheme: yaruHighContrastTheme?.theme ??
+                highContrastTheme: yaruHighContrastTheme?.theme
+                        ?.copyWith(textTheme: getTextTheme(Brightness.light)) ??
                     ThemeData(
                       useMaterial3: true,
                       colorScheme: highContrastLightColorScheme,
@@ -212,7 +215,8 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp>
                       platform: platform,
                       pageTransitionsTheme: _pageTransitionsTheme,
                     ),
-                highContrastDarkTheme: yaruHighContrastTheme?.darkTheme ??
+                highContrastDarkTheme: yaruHighContrastTheme?.darkTheme
+                        ?.copyWith(textTheme: getTextTheme(Brightness.dark)) ??
                     ThemeData(
                       useMaterial3: true,
                       colorScheme: highContrastDarkColorScheme,

@@ -1,0 +1,3 @@
+• Atualizou a font Atkinson hiperlegível para o Atkinson Hiperlegible, ao lado de apoiar mais idiomas
+• arredondamento muito leve no ícone do aplicativo
+• Correções de bugs e melhorias das atualizações de dependência

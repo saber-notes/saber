@@ -1,0 +1,3 @@
+• Daha fazla dili desteklemek için Atkinson Hyperlegable'a Hyperlegable Atkinson yazı tipini güncelledi
+• Uygulama simgesinde çok hafif yuvarlama
+• Bağımlılık güncellemelerinden gelen hata düzeltmeleri ve iyileştirmeler

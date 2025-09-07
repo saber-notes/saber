@@ -358,9 +358,9 @@ class _TranslationsSentryConsentDe extends TranslationsSentryConsentEn {
 	final TranslationsDe _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Bessert die Saber?';
 	@override late final _TranslationsSentryConsentDescriptionDe description = _TranslationsSentryConsentDescriptionDe._(_root);
 	@override late final _TranslationsSentryConsentAnswersDe answers = _TranslationsSentryConsentAnswersDe._(_root);
+	@override String get title => 'Bessert die Saber?';
 }
 
 // Path: settings.prefCategories
@@ -497,6 +497,7 @@ class _TranslationsSettingsCustomDataDirDe extends TranslationsSettingsCustomDat
 	@override String get select => 'Auswählen';
 	@override String get mustBeEmpty => 'Ausgewählter Ordner muss leer sein';
 	@override String get mustBeDoneSyncing => 'Stelle sicher, dass die Synchronisierung abgeschlossen ist, bevor du den Ordner wechselst';
+	@override String get unsupported => 'Diese Funktion gilt derzeit nur für Entwickler. Die Verwendung wird wahrscheinlich zu Datenverlust führen.';
 }
 
 // Path: login.form

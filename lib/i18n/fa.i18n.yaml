@@ -63,8 +63,8 @@ home:
   noPreviewAvailable(OUTDATED): پیش نمایش موجود نیست
 sentry: 
   consent: 
-    title(OUTDATED): به بهبود صابر کمک می کنید؟
     description: 
+      learnMoreInPrivacyPolicy(rich): در لینک ${link(خط مشی رازداری)} بیشتر بیاموزید.
       question(OUTDATED): آیا دوست دارید به طور خودکار خطاهای غیر منتظره را گزارش کنید؟ این به من کمک می کند تا مسائل را سریعتر شناسایی و رفع کنم.
       scope(OUTDATED): گزارش ها ممکن است حاوی اطلاعاتی در مورد خطا و دستگاه شما باشد. من تمام تلاش خود را برای فیلتر کردن داده های شخصی کردم اما برخی ممکن است باقی بمانند.
       currentlyOff(OUTDATED): اگر رضایت دهید ، گزارش خطا پس از شروع مجدد برنامه فعال می شود.
@@ -73,6 +73,7 @@ sentry:
       yes(OUTDATED): بله
       no(OUTDATED): هیچ
       later(OUTDATED): بعداً از من بپرس
+    title(OUTDATED): به بهبود صابر کمک می کنید؟
 settings: 
   prefCategories: 
     general: عمومی
@@ -158,6 +159,7 @@ settings:
     title: این تنظیمات را بازنشانی می کنید؟
     button: بازنشانی
   customDataDir: 
+    unsupported(OUTDATED): این ویژگی در حال حاضر فقط برای توسعه دهندگان است. استفاده از آن احتمالاً منجر به از بین رفتن داده ها خواهد شد.
     cancel(OUTDATED): لغو کنید
     select(OUTDATED): انتخاب کنید
     mustBeEmpty(OUTDATED): دایرکتوری انتخاب شده باید خالی باشد

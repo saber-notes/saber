@@ -15,7 +15,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 0.26.4+26040
+version: 0.26.5+26050
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
@@ -78,7 +78,7 @@ dependencies:
 
   flex_color_picker: ^3.4.1
 
-  font_awesome_flutter: ^10.3.0
+  font_awesome_flutter: 10.9.0
 
   flutter_svg: ^2.0.0+1
 
@@ -191,12 +191,6 @@ dependency_overrides:
       ref: patch-2
       path: flutter_secure_storage_linux
 
-  # https://github.com/ubuntu/yaru.dart/pull/1022
-  yaru:
-    git:
-      url: https://github.com/gev/yaru.dart
-      ref: c32d0c50cb65387beb74f6dc000d312e8a4b78aa
-
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
@@ -211,10 +205,10 @@ flutter:
   assets:
     - assets/icon/icon.svg
     - assets/images/
-    - assets/google_fonts/Atkinson_Hyperlegible/
-    - assets/google_fonts/Dekko/
-    - assets/google_fonts/Fira_Mono/
-    - assets/google_fonts/Neucha/
+    - assets/google_fonts/Atkinson_Hyperlegible_Next/OFL.txt
+    - assets/google_fonts/Dekko/OFL.txt
+    - assets/google_fonts/Fira_Mono/OFL.txt
+    - assets/google_fonts/Neucha/OFL.txt
     - assets/audio/
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -243,15 +237,23 @@ flutter:
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
   fonts:
-    - family: AtkinsonHyperlegible
+    - family: AtkinsonHyperlegibleNext
       fonts:
-        - asset: assets/google_fonts/Atkinson_Hyperlegible/AtkinsonHyperlegible-Regular.ttf
-        - asset: assets/google_fonts/Atkinson_Hyperlegible/AtkinsonHyperlegible-Italic.ttf
+        - asset: assets/google_fonts/Atkinson_Hyperlegible_Next/AtkinsonHyperlegibleNext-Regular.ttf
+          weight: 400
+        - asset: assets/google_fonts/Atkinson_Hyperlegible_Next/AtkinsonHyperlegibleNext-Italic.ttf
+          weight: 400
           style: italic
-        - asset: assets/google_fonts/Atkinson_Hyperlegible/AtkinsonHyperlegible-Bold.ttf
-          weight: 700
-        - asset: assets/google_fonts/Atkinson_Hyperlegible/AtkinsonHyperlegible-BoldItalic.ttf
-          weight: 700
+        - asset: assets/google_fonts/Atkinson_Hyperlegible_Next/AtkinsonHyperlegibleNext-Medium.ttf
+          weight: 500
+        - asset: assets/google_fonts/Atkinson_Hyperlegible_Next/AtkinsonHyperlegibleNext-MediumItalic.ttf
+          weight: 500
+          style: italic
+        - asset: assets/google_fonts/Atkinson_Hyperlegible_Next/AtkinsonHyperlegibleNext-SemiBold.ttf
+          weight: 600
+        - asset: assets/google_fonts/Atkinson_Hyperlegible_Next/AtkinsonHyperlegibleNext-SemiBoldItalic.ttf
+          weight: 600
+          style: italic
     - family: Dekko
       fonts:
         - asset: assets/google_fonts/Dekko/Dekko-Regular.ttf

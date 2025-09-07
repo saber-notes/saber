@@ -1,0 +1,3 @@
+• Frissítette a betűtípust Atkinson hipermezhetetlen Atkinson számára, hogy a több nyelvt támogatja
+• Nagyon enyhe kerekítés az alkalmazás ikonján
+• Hibajavítások és fejlesztések a függőség frissítéseiből

@@ -63,7 +63,6 @@ home:
   noPreviewAvailable(OUTDATED): Aucun aperçu disponible
 sentry: 
   consent: 
-    title(OUTDATED): Aider à améliorer le sabre?
     description: 
       question(OUTDATED): Souhaitez-vous signaler automatiquement les erreurs inattendues? Cela m'aide à identifier et à résoudre les problèmes plus rapidement.
       scope(OUTDATED): Les rapports peuvent contenir des informations sur l'erreur et votre appareil. J'ai fait tout son possible pour filtrer les données personnelles, mais certaines peuvent rester.
@@ -74,6 +73,7 @@ sentry:
       yes(OUTDATED): Oui
       no(OUTDATED): Non
       later(OUTDATED): Demandez-moi plus tard
+    title(OUTDATED): Aider à améliorer le sabre?
 settings: 
   prefCategories: 
     general: Général
@@ -160,6 +160,7 @@ settings:
     button: Défaut
   resyncEverything: Tout re-syncroniser
   customDataDir: 
+    unsupported(OUTDATED): Cette fonctionnalité est actuellement uniquement pour les développeurs. L'utiliser entraînera probablement une perte de données.
     cancel(OUTDATED): Annuler
     select(OUTDATED): Sélectionner
     mustBeEmpty(OUTDATED): Le répertoire sélectionné doit être vide

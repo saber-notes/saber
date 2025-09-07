@@ -30,7 +30,7 @@ of their choice to use as a cloud service.
 For users who don't want to choose a custom Nextcloud server,
 the official Saber server is hosted at
 [nc.saber.adil.hanney.org](https://nc.saber.adil.hanney.org).
-This server is run by Adil Hanney and hosted in the United Kingdom.
+This server is run by me (Adil Hanney) and hosted in the European Union (The Netherlands).
 
 To maintain privacy, all notes are encrypted before being sent to the cloud.
 A randomly generated key is used to encrypt the notes.
@@ -114,6 +114,15 @@ and is available on [GitHub](https://github.com/saber-notes/saber).
       You should see the server's privacy policy for more information.
 
 3. Sentry: Error logs are already anonymised and it is impossible to identify/delete reports from a specific user or device. If you want to stop further reports, you can disable error tracking in the app settings.
+
+### Unused accounts
+
+To conserve storage space, accounts on the official Saber server that have not been used for over 365 days may be deleted automatically.
+
+You will receive notifications via email 300, 330, and 360 days after your last login,
+giving you the opportunity to log in and prevent deletion if you wish to keep your account.
+
+If you are using another Nextcloud server, please refer to that server's privacy policy or terms of service for information on account deletion policies.
 
 ## Privacy point of contact
 

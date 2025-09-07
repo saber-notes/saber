@@ -358,9 +358,9 @@ class _TranslationsSentryConsentAr extends TranslationsSentryConsentEn {
 	final TranslationsAr _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'تساعد في تحسين صابر؟';
 	@override late final _TranslationsSentryConsentDescriptionAr description = _TranslationsSentryConsentDescriptionAr._(_root);
 	@override late final _TranslationsSentryConsentAnswersAr answers = _TranslationsSentryConsentAnswersAr._(_root);
+	@override String get title => 'تساعد في تحسين صابر؟';
 }
 
 // Path: settings.prefCategories
@@ -497,6 +497,7 @@ class _TranslationsSettingsCustomDataDirAr extends TranslationsSettingsCustomDat
 	@override String get select => 'تحديد';
 	@override String get mustBeEmpty => 'يجب أن يكون المجلد المحدد فارغًا';
 	@override String get mustBeDoneSyncing => 'تأكد من اكتمال المزامنة قبل تغيير المجلد';
+	@override String get unsupported => 'هذه الميزة حاليا فقط للمطورين. من المحتمل أن يؤدي استخدامه إلى فقدان البيانات.';
 }
 
 // Path: login.form

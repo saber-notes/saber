@@ -28,6 +28,8 @@ ar:
         inactive(OUTDATED): Inactive
         activeUntilRestart(OUTDATED): Active until you restart the app
         inactiveUntilRestart(OUTDATED): Inactive until you restart the app
+    customDataDir: 
+      unsupported(OUTDATED): This feature is currently only for developers. Using it will likely result in data loss.
     autosaveDisabled(OUTDATED): Never
     shapeRecognitionDisabled(OUTDATED): Never
   logs: 
@@ -41,6 +43,9 @@ ar:
       lineThickness(OUTDATED): Line thickness
       lineThicknessDescription(OUTDATED): Background line thickness
 cs: 
+  settings: 
+    customDataDir: 
+      unsupported: This feature is currently only for developers. Using it will likely result in data loss.
 de: 
   home: 
     noPreviewAvailable(OUTDATED): No preview available
@@ -68,6 +73,8 @@ de:
         inactive(OUTDATED): Inactive
         activeUntilRestart(OUTDATED): Active until you restart the app
         inactiveUntilRestart(OUTDATED): Inactive until you restart the app
+    customDataDir: 
+      unsupported(OUTDATED): This feature is currently only for developers. Using it will likely result in data loss.
     autosaveDisabled(OUTDATED): Never
     shapeRecognitionDisabled(OUTDATED): Never
   logs: 
@@ -131,6 +138,7 @@ es:
       select(OUTDATED): Select
       mustBeEmpty(OUTDATED): Selected folder must be empty
       mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the folder
+      unsupported(OUTDATED): This feature is currently only for developers. Using it will likely result in data loss.
     autosaveDisabled(OUTDATED): Never
     shapeRecognitionDisabled(OUTDATED): Never
   logs: 
@@ -209,7 +217,6 @@ fa:
         scope(OUTDATED): The reports may contain information about the error and your device. I've made every effort to filter out personal data but some may remain.
         currentlyOff(OUTDATED): If you grant consent, error reporting will be enabled after you restart the app.
         currentlyOn(OUTDATED): If you revoke consent, please restart the app to disable error reporting.
-        learnMoreInPrivacyPolicy(rich): Learn more in the ${link(privacy policy)}.
       answers: 
         yes(OUTDATED): Yes
         no(OUTDATED): No
@@ -242,6 +249,7 @@ fa:
       select(OUTDATED): Select
       mustBeEmpty(OUTDATED): Selected folder must be empty
       mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the folder
+      unsupported(OUTDATED): This feature is currently only for developers. Using it will likely result in data loss.
     autosaveDisabled(OUTDATED): Never
     shapeRecognitionDisabled(OUTDATED): Never
   logs: 
@@ -347,6 +355,7 @@ fr:
       select(OUTDATED): Select
       mustBeEmpty(OUTDATED): Selected folder must be empty
       mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the folder
+      unsupported(OUTDATED): This feature is currently only for developers. Using it will likely result in data loss.
     autosaveDisabled(OUTDATED): Never
     shapeRecognitionDisabled(OUTDATED): Never
   logs: 
@@ -468,6 +477,7 @@ he:
       select(OUTDATED): Select
       mustBeEmpty(OUTDATED): Selected folder must be empty
       mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the folder
+      unsupported(OUTDATED): This feature is currently only for developers. Using it will likely result in data loss.
     autosaveDisabled(OUTDATED): Never
     shapeRecognitionDisabled(OUTDATED): Never
   logs: 
@@ -657,6 +667,7 @@ hu:
       select(OUTDATED): Select
       mustBeEmpty(OUTDATED): Selected folder must be empty
       mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the folder
+      unsupported(OUTDATED): This feature is currently only for developers. Using it will likely result in data loss.
     autosaveDisabled(OUTDATED): Never
     shapeRecognitionDisabled(OUTDATED): Never
   logs: 
@@ -793,30 +804,9 @@ hu:
       lockAxisAlignedPan(OUTDATED): Lock panning to horizontal or vertical
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
 it: 
-  sentry: 
-    consent: 
-      title(OUTDATED): Help improve Saber?
-      description: 
-        question(OUTDATED): Would you like to automatically report unexpected errors? This helps me identify and fix issues faster.
-        scope(OUTDATED): The reports may contain information about the error and your device. I've made every effort to filter out personal data but some may remain.
-        currentlyOff(OUTDATED): If you grant consent, error reporting will be enabled after you restart the app.
-        currentlyOn(OUTDATED): If you revoke consent, please restart the app to disable error reporting.
-        learnMoreInPrivacyPolicy(rich)(OUTDATED): Learn more in the ${link(privacy policy)}.
-      answers: 
-        yes(OUTDATED): Yes
-        no(OUTDATED): No
-        later(OUTDATED): Ask me later
   settings: 
-    prefLabels: 
-      sentry(OUTDATED): Error reporting
-    prefDescriptions: 
-      sentry: 
-        active(OUTDATED): Active
-        inactive(OUTDATED): Inactive
-        activeUntilRestart(OUTDATED): Active until you restart the app
-        inactiveUntilRestart(OUTDATED): Inactive until you restart the app
-  logs: 
-    useTheApp(OUTDATED): Logs will appear here as you use the app
+    customDataDir: 
+      unsupported(OUTDATED): This feature is currently only for developers. Using it will likely result in data loss.
 ja: 
   common: 
     done(OUTDATED): Done
@@ -904,6 +894,7 @@ ja:
       select(OUTDATED): Select
       mustBeEmpty(OUTDATED): Selected folder must be empty
       mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the folder
+      unsupported(OUTDATED): This feature is currently only for developers. Using it will likely result in data loss.
     autosaveDisabled(OUTDATED): Never
     shapeRecognitionDisabled(OUTDATED): Never
   logs: 
@@ -1001,7 +992,7 @@ pt-BR:
         learnMoreInPrivacyPolicy(rich)(OUTDATED): Learn more in the ${link(privacy policy)}.
       answers: 
         yes(OUTDATED): Yes
-        no: No
+        no(OUTDATED): No
         later(OUTDATED): Ask me later
   settings: 
     prefCategories: 
@@ -1036,6 +1027,7 @@ pt-BR:
       select(OUTDATED): Select
       mustBeEmpty(OUTDATED): Selected folder must be empty
       mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the folder
+      unsupported(OUTDATED): This feature is currently only for developers. Using it will likely result in data loss.
     autosaveDisabled(OUTDATED): Never
     shapeRecognitionDisabled(OUTDATED): Never
   logs: 
@@ -1134,6 +1126,8 @@ ru:
         inactive(OUTDATED): Inactive
         activeUntilRestart(OUTDATED): Active until you restart the app
         inactiveUntilRestart(OUTDATED): Inactive until you restart the app
+    customDataDir: 
+      unsupported(OUTDATED): This feature is currently only for developers. Using it will likely result in data loss.
     autosaveDisabled(OUTDATED): Never
     shapeRecognitionDisabled(OUTDATED): Never
   logs: 
@@ -1169,6 +1163,8 @@ tr:
         inactive(OUTDATED): Inactive
         activeUntilRestart(OUTDATED): Active until you restart the app
         inactiveUntilRestart(OUTDATED): Inactive until you restart the app
+    customDataDir: 
+      unsupported(OUTDATED): This feature is currently only for developers. Using it will likely result in data loss.
     autosaveDisabled(OUTDATED): Never
     shapeRecognitionDisabled(OUTDATED): Never
   logs: 
@@ -1208,6 +1204,8 @@ zh-Hans-CN:
         inactive(OUTDATED): Inactive
         activeUntilRestart(OUTDATED): Active until you restart the app
         inactiveUntilRestart(OUTDATED): Inactive until you restart the app
+    customDataDir: 
+      unsupported(OUTDATED): This feature is currently only for developers. Using it will likely result in data loss.
     autosaveDisabled(OUTDATED): Never
     shapeRecognitionDisabled(OUTDATED): Never
   logs: 
@@ -1243,5 +1241,7 @@ zh-Hant-TW:
         inactive(OUTDATED): Inactive
         activeUntilRestart(OUTDATED): Active until you restart the app
         inactiveUntilRestart(OUTDATED): Inactive until you restart the app
+    customDataDir: 
+      unsupported(OUTDATED): This feature is currently only for developers. Using it will likely result in data loss.
   logs: 
     useTheApp(OUTDATED): Logs will appear here as you use the app

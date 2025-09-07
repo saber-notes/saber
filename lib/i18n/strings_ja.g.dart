@@ -356,9 +356,9 @@ class _TranslationsSentryConsentJa extends TranslationsSentryConsentEn {
 	final TranslationsJa _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'セイバーの改善を手伝ってください？';
 	@override late final _TranslationsSentryConsentDescriptionJa description = _TranslationsSentryConsentDescriptionJa._(_root);
 	@override late final _TranslationsSentryConsentAnswersJa answers = _TranslationsSentryConsentAnswersJa._(_root);
+	@override String get title => 'セイバーの改善を手伝ってください？';
 }
 
 // Path: settings.prefCategories
@@ -491,6 +491,7 @@ class _TranslationsSettingsCustomDataDirJa extends TranslationsSettingsCustomDat
 	final TranslationsJa _root; // ignore: unused_field
 
 	// Translations
+	@override String get unsupported => 'この機能は現在、開発者専用です。それを使用すると、データの損失が発生する可能性があります。';
 	@override String get cancel => 'キャンセル';
 	@override String get select => '選択する';
 	@override String get mustBeEmpty => '選択したディレクトリは空である必要があります';

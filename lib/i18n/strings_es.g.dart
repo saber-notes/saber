@@ -355,9 +355,9 @@ class _TranslationsSentryConsentEs extends TranslationsSentryConsentEn {
 	final TranslationsEs _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Ayudar a mejorar el sable?';
 	@override late final _TranslationsSentryConsentDescriptionEs description = _TranslationsSentryConsentDescriptionEs._(_root);
 	@override late final _TranslationsSentryConsentAnswersEs answers = _TranslationsSentryConsentAnswersEs._(_root);
+	@override String get title => 'Ayudar a mejorar el sable?';
 }
 
 // Path: settings.prefCategories
@@ -490,6 +490,7 @@ class _TranslationsSettingsCustomDataDirEs extends TranslationsSettingsCustomDat
 	final TranslationsEs _root; // ignore: unused_field
 
 	// Translations
+	@override String get unsupported => 'Esta característica es actualmente solo para desarrolladores. Usarlo probablemente dará como resultado la pérdida de datos.';
 	@override String get cancel => 'Cancelar';
 	@override String get select => 'Seleccionar';
 	@override String get mustBeEmpty => 'El directorio seleccionado debe estar vacío.';

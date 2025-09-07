@@ -800,6 +800,9 @@ class TranslationsSettingsCustomDataDirEn {
 
 	/// en: 'Make sure syncing is complete before changing the folder'
 	String get mustBeDoneSyncing => 'Make sure syncing is complete before changing the folder';
+
+	/// en: 'This feature is currently only for developers. Using it will likely result in data loss.'
+	String get unsupported => 'This feature is currently only for developers. Using it will likely result in data loss.';
 }
 
 // Path: login.form

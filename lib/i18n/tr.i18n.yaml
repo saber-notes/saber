@@ -63,7 +63,6 @@ home:
   noPreviewAvailable(OUTDATED): Önizleme yok
 sentry: 
   consent: 
-    title(OUTDATED): Saber geliştirmeye yardımcı olur mu?
     description: 
       question(OUTDATED): Beklenmedik hataları otomatik olarak bildirmek ister misiniz? Bu, sorunları daha hızlı tanımlamama ve düzeltmeme yardımcı olur.
       scope(OUTDATED): Raporlar hata ve cihazınız hakkında bilgi içerebilir. Kişisel verileri filtrelemek için her türlü çabayı gösterdim, ancak bazıları kalabilir.
@@ -74,6 +73,7 @@ sentry:
       yes(OUTDATED): Evet
       no(OUTDATED): HAYIR
       later(OUTDATED): Bana sonra sor
+    title(OUTDATED): Saber geliştirmeye yardımcı olur mu?
 settings: 
   prefCategories: 
     general: Genel
@@ -165,6 +165,7 @@ settings:
     select: Seç
     mustBeEmpty: Seçilen klasör boş olmalı
     mustBeDoneSyncing: Klasörü değiştirmeden önce senkronizasyonun tamamlandığından emin olun
+    unsupported(OUTDATED): Bu özellik şu anda yalnızca geliştiriciler içindir. Bunu kullanmak muhtemelen veri kaybına neden olacaktır.
   autosaveDisabled(OUTDATED): Asla
   shapeRecognitionDisabled(OUTDATED): Asla
 logs: 

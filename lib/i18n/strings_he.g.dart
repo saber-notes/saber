@@ -356,9 +356,9 @@ class _TranslationsSentryConsentHe extends TranslationsSentryConsentEn {
 	final TranslationsHe _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'לעזור בשיפור סאבר?';
 	@override late final _TranslationsSentryConsentDescriptionHe description = _TranslationsSentryConsentDescriptionHe._(_root);
 	@override late final _TranslationsSentryConsentAnswersHe answers = _TranslationsSentryConsentAnswersHe._(_root);
+	@override String get title => 'לעזור בשיפור סאבר?';
 }
 
 // Path: settings.prefCategories
@@ -491,6 +491,7 @@ class _TranslationsSettingsCustomDataDirHe extends TranslationsSettingsCustomDat
 	final TranslationsHe _root; // ignore: unused_field
 
 	// Translations
+	@override String get unsupported => 'תכונה זו מיועדת כרגע רק למפתחים. השימוש בו ככל הנראה יביא לאובדן נתונים.';
 	@override String get cancel => 'לְבַטֵל';
 	@override String get select => 'בחר';
 	@override String get mustBeEmpty => 'הספרייה שנבחרה חייבת להיות ריקה';
