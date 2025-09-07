@@ -130,7 +130,7 @@ class _TranslationsLogsZhHantTw extends TranslationsLogsEn {
 	@override String get viewLogs => '查看日誌';
 	@override String get debuggingInfo => '日誌包含對偵錯和開發有用的資訊';
 	@override String get noLogs => '這裡沒有日誌！';
-	@override String get useTheApp => '當您使用該應用時，日誌將出現在這裡';
+	@override String get useTheApp => '此應用程式的日誌將出現在這裡';
 }
 
 // Path: login
@@ -358,9 +358,9 @@ class _TranslationsSentryConsentZhHantTw extends TranslationsSentryConsentEn {
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
 	// Translations
+	@override String get title => '幫助改善 Saber？';
 	@override late final _TranslationsSentryConsentDescriptionZhHantTw description = _TranslationsSentryConsentDescriptionZhHantTw._(_root);
 	@override late final _TranslationsSentryConsentAnswersZhHantTw answers = _TranslationsSentryConsentAnswersZhHantTw._(_root);
-	@override String get title => '幫助改善軍刀？';
 }
 
 // Path: settings.prefCategories
@@ -497,7 +497,7 @@ class _TranslationsSettingsCustomDataDirZhHantTw extends TranslationsSettingsCus
 	@override String get select => '選擇';
 	@override String get mustBeEmpty => '選擇的資料夾必須是空的';
 	@override String get mustBeDoneSyncing => '更改資料夾之前確保同步已完成';
-	@override String get unsupported => '此功能目前僅適用於開發人員。使用它可能會導致數據丟失。';
+	@override String get unsupported => '此功能目前僅適用於開發人員，使用它可能會導致資料遺失。';
 }
 
 // Path: login.form
@@ -796,13 +796,13 @@ class _TranslationsSentryConsentDescriptionZhHantTw extends TranslationsSentryCo
 
 	// Translations
 	@override String get question => '您想自動報告意外錯誤嗎？這可以幫助我更快地識別和解決問題。';
-	@override String get scope => '報告可能包含有關錯誤和設備的信息。我已經盡一切努力過濾了個人數據，但有些可能會保留。';
-	@override String get currentlyOff => '如果您授予同意，則重新啟動應用程序後將啟用錯誤報告。';
-	@override String get currentlyOn => '如果您撤銷同意，請重新啟動該應用程序以禁用錯誤報告。';
+	@override String get scope => '報告可能包含有關錯誤和您的裝置資訊。我已經盡一切努力過濾了個人資料，但有些可能仍會保留。';
+	@override String get currentlyOff => '如果您授予同意，則重新啟動應用程式後將啟用錯誤報告。';
+	@override String get currentlyOn => '如果您撤銷同意，請重新啟動該應用程式以禁用錯誤報告。';
 	@override TextSpan learnMoreInPrivacyPolicy({required InlineSpanBuilder link}) => TextSpan(children: [
 		const TextSpan(text: '在'),
-		link('隱私策略'),
-		const TextSpan(text: '中了解更多信息。'),
+		link('privacy policy'),
+		const TextSpan(text: '中了解更多資訊。'),
 	]);
 }
 
@@ -813,9 +813,9 @@ class _TranslationsSentryConsentAnswersZhHantTw extends TranslationsSentryConsen
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
 	// Translations
-	@override String get yes => '是的';
-	@override String get no => '不';
-	@override String get later => '稍後問我';
+	@override String get yes => '同意';
+	@override String get no => '不同意';
+	@override String get later => '稍後再說';
 }
 
 // Path: settings.prefDescriptions.hideFingerDrawing
@@ -849,10 +849,10 @@ class _TranslationsSettingsPrefDescriptionsSentryZhHantTw extends TranslationsSe
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
 	// Translations
-	@override String get active => '積極的';
-	@override String get inactive => '不活動';
-	@override String get activeUntilRestart => '活躍直到重新啟動應用程序';
-	@override String get inactiveUntilRestart => '不活動直到重新啟動應用程序';
+	@override String get active => '啟用';
+	@override String get inactive => '停用';
+	@override String get activeUntilRestart => '啟用直到您重新啟動應用程式';
+	@override String get inactiveUntilRestart => '停用直到您重新啟動應用程式';
 }
 
 // Path: login.ncLoginStep.loginFlow

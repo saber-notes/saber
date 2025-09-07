@@ -9,6 +9,7 @@ import 'package:go_router/go_router.dart';
 import 'package:logging/logging.dart';
 import 'package:onyxsdk_pen/onyxsdk_pen_area.dart';
 import 'package:path_to_regexp/path_to_regexp.dart';
+import 'package:pdfrx/pdfrx.dart';
 import 'package:printing/printing.dart';
 import 'package:receive_sharing_intent/receive_sharing_intent.dart';
 import 'package:saber/components/canvas/pencil_shader.dart';
@@ -97,6 +98,7 @@ Future<void> appRunner(List<String> args) async {
   setLocale();
   stows.locale.addListener(setLocale);
   stows.customDataDir.addListener(FileManager.migrateDataDir);
+  pdfrxFlutterInitialize(dismissPdfiumWasmWarnings: true);
 
   LicenseRegistry.addLicense(() async* {
     for (final licenseFile in const [

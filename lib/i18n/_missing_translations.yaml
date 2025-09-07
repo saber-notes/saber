@@ -1219,29 +1219,3 @@ zh-Hans-CN:
       lineThickness(OUTDATED): Line thickness
       lineThicknessDescription(OUTDATED): Background line thickness
 zh-Hant-TW: 
-  sentry: 
-    consent: 
-      title(OUTDATED): Help improve Saber?
-      description: 
-        question(OUTDATED): Would you like to automatically report unexpected errors? This helps me identify and fix issues faster.
-        scope(OUTDATED): The reports may contain information about the error and your device. I've made every effort to filter out personal data but some may remain.
-        currentlyOff(OUTDATED): If you grant consent, error reporting will be enabled after you restart the app.
-        currentlyOn(OUTDATED): If you revoke consent, please restart the app to disable error reporting.
-        learnMoreInPrivacyPolicy(rich)(OUTDATED): Learn more in the ${link(privacy policy)}.
-      answers: 
-        yes(OUTDATED): Yes
-        no(OUTDATED): No
-        later(OUTDATED): Ask me later
-  settings: 
-    prefLabels: 
-      sentry(OUTDATED): Error reporting
-    prefDescriptions: 
-      sentry: 
-        active(OUTDATED): Active
-        inactive(OUTDATED): Inactive
-        activeUntilRestart(OUTDATED): Active until you restart the app
-        inactiveUntilRestart(OUTDATED): Inactive until you restart the app
-    customDataDir: 
-      unsupported(OUTDATED): This feature is currently only for developers. Using it will likely result in data loss.
-  logs: 
-    useTheApp(OUTDATED): Logs will appear here as you use the app
