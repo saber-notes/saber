@@ -63,7 +63,6 @@ home:
   noPreviewAvailable(OUTDATED): אין תצוגה מקדימה זמינה
 sentry: 
   consent: 
-    title(OUTDATED): לעזור בשיפור סאבר?
     description: 
       question(OUTDATED): האם ברצונך לדווח אוטומטית על שגיאות בלתי צפויות? זה עוזר לי לזהות ולתקן בעיות מהר יותר.
       scope(OUTDATED): הדוחות עשויים להכיל מידע על השגיאה והמכשיר שלך. עשיתי כל מאמץ לסנן נתונים אישיים אך חלקם עשויים להישאר.
@@ -74,6 +73,7 @@ sentry:
       yes(OUTDATED): כֵּן
       no(OUTDATED): לֹא
       later(OUTDATED): שאל אותי אחר כך
+    title(OUTDATED): לעזור בשיפור סאבר?
 settings: 
   prefCategories: 
     general: כללי
@@ -159,6 +159,7 @@ settings:
     title: אפס הגדרה זו?
     button: אפס
   customDataDir: 
+    unsupported(OUTDATED): תכונה זו מיועדת כרגע רק למפתחים. השימוש בו ככל הנראה יביא לאובדן נתונים.
     cancel(OUTDATED): לְבַטֵל
     select(OUTDATED): בחר
     mustBeEmpty(OUTDATED): הספרייה שנבחרה חייבת להיות ריקה

@@ -70,6 +70,7 @@ sentry:
       currentlyOn(OUTDATED): Se você revogar o consentimento, reinicie o aplicativo para desativar os relatórios de erros.
       learnMoreInPrivacyPolicy(rich, OUTDATED): Saiba mais na ${link(Política de Privacidade)}.
     answers: 
+      no(OUTDATED): Não
       yes(OUTDATED): Sim
       later(OUTDATED): Pergunte -me mais tarde
 settings: 
@@ -157,6 +158,7 @@ settings:
     title: Redefinir esta configuração?
     button: Redefinir
   customDataDir: 
+    unsupported(OUTDATED): Atualmente, esse recurso é apenas para desenvolvedores. Usá -lo provavelmente resultará em perda de dados.
     cancel(OUTDATED): Cancelar
     select(OUTDATED): Selecione
     mustBeEmpty(OUTDATED): O diretório selecionado deve estar vazio

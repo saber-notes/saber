@@ -63,7 +63,6 @@ home:
   noPreviewAvailable(OUTDATED): Нет предварительного просмотра
 sentry: 
   consent: 
-    title(OUTDATED): Помочь улучшить саблу?
     description: 
       question(OUTDATED): Хотели бы вы автоматически сообщать о неожиданных ошибках? Это помогает мне быстрее выявлять и исправлять проблемы.
       scope(OUTDATED): Отчеты могут содержать информацию об ошибке и вашем устройстве. Я приложил все усилия, чтобы отфильтровать личные данные, но некоторые могут остаться.
@@ -74,6 +73,7 @@ sentry:
       yes(OUTDATED): Да
       no(OUTDATED): Нет
       later(OUTDATED): Спроси меня позже
+    title(OUTDATED): Помочь улучшить саблу?
 settings: 
   prefCategories: 
     general: Общие
@@ -165,6 +165,7 @@ settings:
     select: Выбрать
     mustBeEmpty: Выбранный каталог должен быть пустым
     mustBeDoneSyncing: Перед изменением каталога убедитесь, что синхронизация завершена
+    unsupported(OUTDATED): Эта функция в настоящее время предназначена только для разработчиков. Использование, вероятно, приведет к потере данных.
   autosaveDisabled(OUTDATED): Никогда
   shapeRecognitionDisabled(OUTDATED): Никогда
 logs: 

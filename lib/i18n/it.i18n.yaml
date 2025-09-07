@@ -63,7 +63,6 @@ home:
     alsoDeleteContents: Elimina anche tutte le note all'interno di questa cartella
 sentry: 
   consent: 
-    title(OUTDATED): Aiutare a migliorare la sciabola?
     description: 
       question(OUTDATED): Vorresti segnalare automaticamente errori imprevisti? Questo mi aiuta a identificare e risolvere i problemi più velocemente.
       scope(OUTDATED): I report possono contenere informazioni sull'errore e sul dispositivo. Ho fatto ogni sforzo per filtrare i dati personali ma alcuni potrebbero rimanere.
@@ -74,6 +73,7 @@ sentry:
       yes(OUTDATED): SÌ
       no(OUTDATED): NO
       later(OUTDATED): Chiedimi più tardi
+    title(OUTDATED): Aiutare a migliorare la sciabola?
 settings: 
   prefCategories: 
     general: Generale
@@ -165,6 +165,7 @@ settings:
     select: Seleziona
     mustBeEmpty: La cartella selezionata deve essere vuota
     mustBeDoneSyncing: Assicurati che la sincronizzazione sia completa prima di cambiare cartella
+    unsupported(OUTDATED): Questa funzione è attualmente solo per gli sviluppatori. Usandolo probabilmente comporterà la perdita di dati.
   autosaveDisabled: Mai
   shapeRecognitionDisabled: Mai
 logs: 

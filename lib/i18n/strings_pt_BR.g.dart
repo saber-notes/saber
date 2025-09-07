@@ -490,6 +490,7 @@ class _TranslationsSettingsCustomDataDirPtBr extends TranslationsSettingsCustomD
 	final TranslationsPtBr _root; // ignore: unused_field
 
 	// Translations
+	@override String get unsupported => 'Atualmente, esse recurso é apenas para desenvolvedores. Usá -lo provavelmente resultará em perda de dados.';
 	@override String get cancel => 'Cancelar';
 	@override String get select => 'Selecione';
 	@override String get mustBeEmpty => 'O diretório selecionado deve estar vazio';
@@ -809,6 +810,7 @@ class _TranslationsSentryConsentAnswersPtBr extends TranslationsSentryConsentAns
 	final TranslationsPtBr _root; // ignore: unused_field
 
 	// Translations
+	@override String get no => 'Não';
 	@override String get yes => 'Sim';
 	@override String get later => 'Pergunte -me mais tarde';
 }

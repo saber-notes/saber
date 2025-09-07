@@ -358,9 +358,9 @@ class _TranslationsSentryConsentIt extends TranslationsSentryConsentEn {
 	final TranslationsIt _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Aiutare a migliorare la sciabola?';
 	@override late final _TranslationsSentryConsentDescriptionIt description = _TranslationsSentryConsentDescriptionIt._(_root);
 	@override late final _TranslationsSentryConsentAnswersIt answers = _TranslationsSentryConsentAnswersIt._(_root);
+	@override String get title => 'Aiutare a migliorare la sciabola?';
 }
 
 // Path: settings.prefCategories
@@ -497,6 +497,7 @@ class _TranslationsSettingsCustomDataDirIt extends TranslationsSettingsCustomDat
 	@override String get select => 'Seleziona';
 	@override String get mustBeEmpty => 'La cartella selezionata deve essere vuota';
 	@override String get mustBeDoneSyncing => 'Assicurati che la sincronizzazione sia completa prima di cambiare cartella';
+	@override String get unsupported => 'Questa funzione è attualmente solo per gli sviluppatori. Usandolo probabilmente comporterà la perdita di dati.';
 }
 
 // Path: login.form

@@ -63,7 +63,6 @@ home:
   invalidFormat(OUTDATED): A kiválasztott fájl nem támogatott. Kérjük, válasszon .sbn, .sbn2, .sba vagy .pdf fájlt.
 sentry: 
   consent: 
-    title(OUTDATED): Segítsen javítani a kardot?
     description: 
       question(OUTDATED): Szeretne automatikusan jelenteni a váratlan hibákat? Ez segít a problémák gyorsabb azonosításában és kijavításában.
       scope(OUTDATED): A jelentések információkat tartalmazhatnak a hibáról és az eszközről. Minden erőfeszítést megtettem a személyes adatok kiszűrésére, de néhány megmaradhat.
@@ -74,6 +73,7 @@ sentry:
       yes(OUTDATED): Igen
       no(OUTDATED): Nem
       later(OUTDATED): Kérdezd meg később
+    title(OUTDATED): Segítsen javítani a kardot?
 settings: 
   prefCategories: 
     general: Általános
@@ -159,6 +159,7 @@ settings:
     title: Visszaállítsa ezt a beállítást?
     button: Visszaállítás
   customDataDir: 
+    unsupported(OUTDATED): Ez a szolgáltatás jelenleg csak a fejlesztők számára készült. A felhasználása valószínűleg adatvesztést eredményez.
     cancel(OUTDATED): Megszünteti
     select(OUTDATED): Válassza ki
     mustBeEmpty(OUTDATED): A kiválasztott könyvtárnak üresnek kell lennie

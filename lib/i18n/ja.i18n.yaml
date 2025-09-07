@@ -63,7 +63,6 @@ home:
   invalidFormat(OUTDATED): 選択したファイルはサポートされていません。 .sbn、.sbn2、.sba、または .pdf ファイルを選択してください。
 sentry: 
   consent: 
-    title(OUTDATED): セイバーの改善を手伝ってください？
     description: 
       question(OUTDATED): 予期しないエラーを自動的に報告しますか？これにより、問題をより速く特定して修正することができます。
       scope(OUTDATED): レポートには、エラーとデバイスに関する情報が含まれている場合があります。私は個人データを除外するためにあらゆる努力をしましたが、一部は残っているかもしれません。
@@ -74,6 +73,7 @@ sentry:
       yes(OUTDATED): はい
       no(OUTDATED): いいえ
       later(OUTDATED): 後で私に聞いてください
+    title(OUTDATED): セイバーの改善を手伝ってください？
 settings: 
   prefCategories: 
     general: 一般
@@ -159,6 +159,7 @@ settings:
     title: この設定をリセットしますか？
     button: リセット
   customDataDir: 
+    unsupported(OUTDATED): この機能は現在、開発者専用です。それを使用すると、データの損失が発生する可能性があります。
     cancel(OUTDATED): キャンセル
     select(OUTDATED): 選択する
     mustBeEmpty(OUTDATED): 選択したディレクトリは空である必要があります

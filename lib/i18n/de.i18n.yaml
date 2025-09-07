@@ -63,7 +63,6 @@ home:
   noPreviewAvailable(OUTDATED): Keine Vorschau verfügbar
 sentry: 
   consent: 
-    title(OUTDATED): Bessert die Saber?
     description: 
       question(OUTDATED): Möchten Sie automatisch unerwartete Fehler melden? Dies hilft mir, Probleme schneller zu identifizieren und zu beheben.
       scope(OUTDATED): Die Berichte können Informationen über den Fehler und Ihr Gerät enthalten. Ich habe alle Anstrengungen unternommen, um personenbezogene Daten herauszufiltern, aber einige können bleiben.
@@ -74,6 +73,7 @@ sentry:
       yes(OUTDATED): Ja
       no(OUTDATED): NEIN
       later(OUTDATED): Fragen Sie mich später
+    title(OUTDATED): Bessert die Saber?
 settings: 
   prefCategories: 
     general: Allgemein
@@ -165,6 +165,7 @@ settings:
     select: Auswählen
     mustBeEmpty: Ausgewählter Ordner muss leer sein
     mustBeDoneSyncing: Stelle sicher, dass die Synchronisierung abgeschlossen ist, bevor du den Ordner wechselst
+    unsupported(OUTDATED): Diese Funktion gilt derzeit nur für Entwickler. Die Verwendung wird wahrscheinlich zu Datenverlust führen.
   autosaveDisabled(OUTDATED): Niemals
   shapeRecognitionDisabled(OUTDATED): Niemals
 logs: 

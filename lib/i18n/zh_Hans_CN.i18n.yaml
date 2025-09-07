@@ -63,7 +63,6 @@ home:
   noPreviewAvailable(OUTDATED): 没有预览
 sentry: 
   consent: 
-    title(OUTDATED): 帮助改善军刀？
     description: 
       question(OUTDATED): 您想自动报告意外错误吗？这可以帮助我更快地识别和解决问题。
       scope(OUTDATED): 报告可能包含有关错误和设备的信息。我已经尽一切努力过滤了个人数据，但有些可能会保留。
@@ -74,6 +73,7 @@ sentry:
       yes(OUTDATED): 是的
       no(OUTDATED): 不
       later(OUTDATED): 稍后问我
+    title(OUTDATED): 帮助改善军刀？
 settings: 
   prefCategories: 
     general: 通用
@@ -165,6 +165,7 @@ settings:
     select: 选择
     mustBeEmpty: 所选文件夹必须为空
     mustBeDoneSyncing: 更改文件夹前，请确保同步已完成
+    unsupported(OUTDATED): 此功能目前仅适用于开发人员。使用它可能会导致数据丢失。
   autosaveDisabled(OUTDATED): 绝不
   shapeRecognitionDisabled(OUTDATED): 绝不
 logs: 

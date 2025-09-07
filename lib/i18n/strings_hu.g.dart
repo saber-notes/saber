@@ -356,9 +356,9 @@ class _TranslationsSentryConsentHu extends TranslationsSentryConsentEn {
 	final TranslationsHu _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Segítsen javítani a kardot?';
 	@override late final _TranslationsSentryConsentDescriptionHu description = _TranslationsSentryConsentDescriptionHu._(_root);
 	@override late final _TranslationsSentryConsentAnswersHu answers = _TranslationsSentryConsentAnswersHu._(_root);
+	@override String get title => 'Segítsen javítani a kardot?';
 }
 
 // Path: settings.prefCategories
@@ -491,6 +491,7 @@ class _TranslationsSettingsCustomDataDirHu extends TranslationsSettingsCustomDat
 	final TranslationsHu _root; // ignore: unused_field
 
 	// Translations
+	@override String get unsupported => 'Ez a szolgáltatás jelenleg csak a fejlesztők számára készült. A felhasználása valószínűleg adatvesztést eredményez.';
 	@override String get cancel => 'Megszünteti';
 	@override String get select => 'Válassza ki';
 	@override String get mustBeEmpty => 'A kiválasztott könyvtárnak üresnek kell lennie';

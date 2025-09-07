@@ -358,9 +358,9 @@ class _TranslationsSentryConsentTr extends TranslationsSentryConsentEn {
 	final TranslationsTr _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Saber geliştirmeye yardımcı olur mu?';
 	@override late final _TranslationsSentryConsentDescriptionTr description = _TranslationsSentryConsentDescriptionTr._(_root);
 	@override late final _TranslationsSentryConsentAnswersTr answers = _TranslationsSentryConsentAnswersTr._(_root);
+	@override String get title => 'Saber geliştirmeye yardımcı olur mu?';
 }
 
 // Path: settings.prefCategories
@@ -497,6 +497,7 @@ class _TranslationsSettingsCustomDataDirTr extends TranslationsSettingsCustomDat
 	@override String get select => 'Seç';
 	@override String get mustBeEmpty => 'Seçilen klasör boş olmalı';
 	@override String get mustBeDoneSyncing => 'Klasörü değiştirmeden önce senkronizasyonun tamamlandığından emin olun';
+	@override String get unsupported => 'Bu özellik şu anda yalnızca geliştiriciler içindir. Bunu kullanmak muhtemelen veri kaybına neden olacaktır.';
 }
 
 // Path: login.form

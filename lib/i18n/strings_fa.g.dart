@@ -356,9 +356,9 @@ class _TranslationsSentryConsentFa extends TranslationsSentryConsentEn {
 	final TranslationsFa _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'به بهبود صابر کمک می کنید؟';
 	@override late final _TranslationsSentryConsentDescriptionFa description = _TranslationsSentryConsentDescriptionFa._(_root);
 	@override late final _TranslationsSentryConsentAnswersFa answers = _TranslationsSentryConsentAnswersFa._(_root);
+	@override String get title => 'به بهبود صابر کمک می کنید؟';
 }
 
 // Path: settings.prefCategories
@@ -491,6 +491,7 @@ class _TranslationsSettingsCustomDataDirFa extends TranslationsSettingsCustomDat
 	final TranslationsFa _root; // ignore: unused_field
 
 	// Translations
+	@override String get unsupported => 'این ویژگی در حال حاضر فقط برای توسعه دهندگان است. استفاده از آن احتمالاً منجر به از بین رفتن داده ها خواهد شد.';
 	@override String get cancel => 'لغو کنید';
 	@override String get select => 'انتخاب کنید';
 	@override String get mustBeEmpty => 'دایرکتوری انتخاب شده باید خالی باشد';
@@ -792,6 +793,11 @@ class _TranslationsSentryConsentDescriptionFa extends TranslationsSentryConsentD
 	final TranslationsFa _root; // ignore: unused_field
 
 	// Translations
+	@override TextSpan learnMoreInPrivacyPolicy({required InlineSpanBuilder link}) => TextSpan(children: [
+		const TextSpan(text: 'در لینک '),
+		link('خط مشی رازداری'),
+		const TextSpan(text: ' بیشتر بیاموزید.'),
+	]);
 	@override String get question => 'آیا دوست دارید به طور خودکار خطاهای غیر منتظره را گزارش کنید؟ این به من کمک می کند تا مسائل را سریعتر شناسایی و رفع کنم.';
 	@override String get scope => 'گزارش ها ممکن است حاوی اطلاعاتی در مورد خطا و دستگاه شما باشد. من تمام تلاش خود را برای فیلتر کردن داده های شخصی کردم اما برخی ممکن است باقی بمانند.';
 	@override String get currentlyOff => 'اگر رضایت دهید ، گزارش خطا پس از شروع مجدد برنامه فعال می شود.';
