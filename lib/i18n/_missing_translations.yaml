@@ -804,32 +804,9 @@ hu:
       lockAxisAlignedPan(OUTDATED): Lock panning to horizontal or vertical
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
 it: 
-  sentry: 
-    consent: 
-      title(OUTDATED): Vuoi aiutaci a migliorare Saber?
-      description: 
-        question(OUTDATED): Vuoi segnalare automaticamente gli errori imprevisti? Questo mi aiuta a identificare e risolvere i problemi più velocemente.
-        scope(OUTDATED): I report potrebbero contenere informazioni sull'errore e sul tuo dispositivo. Ho fatto tutto il possibile per filtrare i dati personali, ma alcuni potrebbero rimanere.
-        currentlyOff(OUTDATED): Se acconsenti, la segnalazione degli errori verrà abilitata dopo il riavvio dell'app.
-        currentlyOn(OUTDATED): Se revochi il consenso, riavvia l'app per disattivare la segnalazione degli errori.
-        learnMoreInPrivacyPolicy(rich)(OUTDATED): Scopri di più in ${link(privacy policy)}.
-      answers: 
-        yes(OUTDATED): Yes
-        no(OUTDATED): No
-        later(OUTDATED): Chiedimelo più tardi
   settings: 
-    prefLabels: 
-      sentry(OUTDATED): Segnalazione di errori
-    prefDescriptions: 
-      sentry: 
-        active(OUTDATED): Attivo
-        inactive(OUTDATED): Non attivo
-        activeUntilRestart(OUTDATED): Attivo fino al riavvio dell'app
-        inactiveUntilRestart(OUTDATED): Non attivo finché non riavvii l'app
     customDataDir: 
       unsupported(OUTDATED): This feature is currently only for developers. Using it will likely result in data loss.
-  logs: 
-    useTheApp(OUTDATED): I log appariranno qui mentre usi l'app
 ja: 
   common: 
     done(OUTDATED): Done
