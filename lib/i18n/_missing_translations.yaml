@@ -1221,27 +1221,27 @@ zh-Hans-CN:
 zh-Hant-TW: 
   sentry: 
     consent: 
-      title(OUTDATED): Help improve Saber?
+      title(OUTDATED): 幫助改善 Saber？
       description: 
-        question(OUTDATED): Would you like to automatically report unexpected errors? This helps me identify and fix issues faster.
-        scope(OUTDATED): The reports may contain information about the error and your device. I've made every effort to filter out personal data but some may remain.
-        currentlyOff(OUTDATED): If you grant consent, error reporting will be enabled after you restart the app.
-        currentlyOn(OUTDATED): If you revoke consent, please restart the app to disable error reporting.
-        learnMoreInPrivacyPolicy(rich)(OUTDATED): Learn more in the ${link(privacy policy)}.
+        question(OUTDATED): 您想自動報告意外錯誤嗎？這可以幫助我更快地識別和解決問題。
+        scope(OUTDATED): 報告可能包含有關錯誤和您的裝置資訊。我已經盡一切努力過濾了個人資料，但有些可能仍會保留。
+        currentlyOff(OUTDATED): 如果您授予同意，則重新啟動應用程式後將啟用錯誤報告。
+        currentlyOn(OUTDATED): 如果您撤銷同意，請重新啟動該應用程式以禁用錯誤報告。
+        learnMoreInPrivacyPolicy(rich)(OUTDATED): 在${link(privacy policy)}中了解更多資訊。
       answers: 
-        yes(OUTDATED): Yes
-        no(OUTDATED): No
-        later(OUTDATED): Ask me later
+        yes(OUTDATED): 同意
+        no(OUTDATED): 不同意
+        later(OUTDATED): 稍後再說
   settings: 
     prefLabels: 
-      sentry(OUTDATED): Error reporting
+      sentry(OUTDATED): 錯誤報告
     prefDescriptions: 
       sentry: 
-        active(OUTDATED): Active
-        inactive(OUTDATED): Inactive
-        activeUntilRestart(OUTDATED): Active until you restart the app
-        inactiveUntilRestart(OUTDATED): Inactive until you restart the app
+        active(OUTDATED): 啟用
+        inactive(OUTDATED): 停用
+        activeUntilRestart(OUTDATED): 啟用直到您重新啟動應用程式
+        inactiveUntilRestart(OUTDATED): 停用直到您重新啟動應用程式
     customDataDir: 
-      unsupported(OUTDATED): This feature is currently only for developers. Using it will likely result in data loss.
+      unsupported(OUTDATED): 此功能目前僅適用於開發人員，使用它可能會導致資料遺失。
   logs: 
-    useTheApp(OUTDATED): Logs will appear here as you use the app
+    useTheApp(OUTDATED): 此應用程式的日誌將出現在這裡
