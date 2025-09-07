@@ -214,6 +214,15 @@
     </screenshots>
 
     <releases>
+        <release version="0.26.6" type="development" date="2025-09-07">
+            <description>
+                <ul>
+                    <li>Major improvements to the stroke drawing algorithm. You'll see less flickering while drawing, better handling of sharp corners mid-stroke, and lose less detail near the end of the stroke.</li>
+                    <li>Added stylus support on Linux. There is no pressure sensitivity, but you can now use your pen to draw and your finger to scroll.</li>
+                    <li>Fixed the Hyperlegible font setting not working with the Linux (Yaru) theme.</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.26.5" type="development" date="2025-09-05">
             <description>
                 <ul>
