@@ -1,7 +1,7 @@
 // Adapted for Saber from Flutter's InteractiveViewer class
 // https://github.com/flutter/flutter/blob/stable/packages/flutter/lib/src/widgets/interactive_viewer.dart
-// Using this commit (Flutter 3.16.0):
-// https://github.com/flutter/flutter/blob/6e5134b0673eabe85fbd898b876185daf5a1b110/packages/flutter/lib/src/widgets/interactive_viewer.dart
+// Using this commit (Flutter 3.35.0):
+// https://github.com/flutter/flutter/blob/1cbf1a4cbf2cd0ba73850e47f4a83dd06a049e82/packages/flutter/lib/src/widgets/interactive_viewer.dart
 
 // Copyright 2014 The Flutter Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
@@ -488,7 +488,8 @@ class InteractiveCanvasViewer extends StatefulWidget {
 
 class _InteractiveCanvasViewerState extends State<InteractiveCanvasViewer>
     with TickerProviderStateMixin {
-  TransformationController? _transformationController;
+  late TransformationController _transformer =
+      widget.transformationController ?? TransformationController();
 
   final GlobalKey _childKey = GlobalKey();
   final GlobalKey _parentKey = GlobalKey();
@@ -658,8 +659,7 @@ class _InteractiveCanvasViewerState extends State<InteractiveCanvasViewer>
 
     // Don't allow a scale that results in an overall scale beyond min/max
     // scale.
-    final double currentScale =
-        _transformationController!.value.getMaxScaleOnAxis();
+    final double currentScale = _transformer.value.getMaxScaleOnAxis();
     final double totalScale = math.max(
       currentScale * scale,
       // Ensure that the scale cannot make the child so big that it can't fit
@@ -685,7 +685,7 @@ class _InteractiveCanvasViewerState extends State<InteractiveCanvasViewer>
     if (rotation == 0) {
       return matrix.clone();
     }
-    final Offset focalPointScene = _transformationController!.toScene(
+    final Offset focalPointScene = _transformer.toScene(
       focalPoint,
     );
     return matrix.clone()
@@ -727,20 +727,20 @@ class _InteractiveCanvasViewerState extends State<InteractiveCanvasViewer>
     if (_controller.isAnimating) {
       _controller.stop();
       _controller.reset();
-      _animation?.removeListener(_onAnimate);
+      _animation?.removeListener(_handleInertiaAnimation);
       _animation = null;
     }
     if (_scaleController.isAnimating) {
       _scaleController.stop();
       _scaleController.reset();
-      _scaleAnimation?.removeListener(_onScaleAnimate);
+      _scaleAnimation?.removeListener(_handleScaleAnimation);
       _scaleAnimation = null;
     }
 
     _gestureType = null;
     _currentAxis = null;
-    _scaleStart = _transformationController!.value.getMaxScaleOnAxis();
-    _referenceFocalPoint = _transformationController!.toScene(
+    _scaleStart = _transformer.value.getMaxScaleOnAxis();
+    _referenceFocalPoint = _transformer.toScene(
       details.localFocalPoint,
     );
     _rotationStart = _currentRotation;
@@ -754,9 +754,9 @@ class _InteractiveCanvasViewerState extends State<InteractiveCanvasViewer>
   // Handle an update to an ongoing gesture. All of pan, scale, and rotate are
   // handled with GestureDetector's scale gesture.
   void _onScaleUpdate(ScaleUpdateDetails details) {
-    final double scale = _transformationController!.value.getMaxScaleOnAxis();
+    final double scale = _transformer.value.getMaxScaleOnAxis();
     _scaleAnimationFocalPoint = details.localFocalPoint;
-    final Offset focalPointScene = _transformationController!.toScene(
+    final Offset focalPointScene = _transformer.toScene(
       details.localFocalPoint,
     );
 
@@ -781,8 +781,8 @@ class _InteractiveCanvasViewerState extends State<InteractiveCanvasViewer>
         // previous call to _onScaleUpdate.
         final double desiredScale = _scaleStart! * details.scale;
         final double scaleChange = desiredScale / scale;
-        _transformationController!.value = _matrixScale(
-          _transformationController!.value,
+        _transformer.value = _matrixScale(
+          _transformer.value,
           scaleChange,
         );
 
@@ -790,11 +790,11 @@ class _InteractiveCanvasViewerState extends State<InteractiveCanvasViewer>
         // the same places in the scene. That means that the focal point of
         // the scale should be on the same place in the scene before and after
         // the scale.
-        final Offset focalPointSceneScaled = _transformationController!.toScene(
+        final Offset focalPointSceneScaled = _transformer.toScene(
           details.localFocalPoint,
         );
-        _transformationController!.value = _matrixTranslate(
-          _transformationController!.value,
+        _transformer.value = _matrixTranslate(
+          _transformer.value,
           focalPointSceneScaled - _referenceFocalPoint!,
         );
 
@@ -803,7 +803,7 @@ class _InteractiveCanvasViewerState extends State<InteractiveCanvasViewer>
         // the translate came in contact with a boundary. In that case, update
         // _referenceFocalPoint so subsequent updates happen in relation to
         // the new effective focal point.
-        final Offset focalPointSceneCheck = _transformationController!.toScene(
+        final Offset focalPointSceneCheck = _transformer.toScene(
           details.localFocalPoint,
         );
         if (_round(_referenceFocalPoint!) != _round(focalPointSceneCheck)) {
@@ -815,8 +815,8 @@ class _InteractiveCanvasViewerState extends State<InteractiveCanvasViewer>
           return;
         }
         final double desiredRotation = _rotationStart! + details.rotation;
-        _transformationController!.value = _matrixRotate(
-          _transformationController!.value,
+        _transformer.value = _matrixRotate(
+          _transformer.value,
           _currentRotation - desiredRotation,
           details.localFocalPoint,
         );
@@ -839,11 +839,11 @@ class _InteractiveCanvasViewerState extends State<InteractiveCanvasViewer>
           // focal point before and after the movement.
           final Offset translationChange =
               focalPointScene - _referenceFocalPoint!;
-          _transformationController!.value = _matrixTranslate(
-            _transformationController!.value,
+          _transformer.value = _matrixTranslate(
+            _transformer.value,
             translationChange,
           );
-          _referenceFocalPoint = _transformationController!.toScene(
+          _referenceFocalPoint = _transformer.toScene(
             details.localFocalPoint,
           );
         }
@@ -864,8 +864,8 @@ class _InteractiveCanvasViewerState extends State<InteractiveCanvasViewer>
     _rotationStart = null;
     _referenceFocalPoint = null;
 
-    _animation?.removeListener(_onAnimate);
-    _scaleAnimation?.removeListener(_onScaleAnimate);
+    _animation?.removeListener(_handleInertiaAnimation);
+    _scaleAnimation?.removeListener(_handleScaleAnimation);
     _controller.reset();
     _scaleController.reset();
 
@@ -880,8 +880,7 @@ class _InteractiveCanvasViewerState extends State<InteractiveCanvasViewer>
           _currentAxis = null;
           return;
         }
-        final Vector3 translationVector =
-            _transformationController!.value.getTranslation();
+        final Vector3 translationVector = _transformer.value.getTranslation();
         final Offset translation =
             Offset(translationVector.x, translationVector.y);
         final FrictionSimulation frictionSimulationX = FrictionSimulation(
@@ -906,15 +905,14 @@ class _InteractiveCanvasViewerState extends State<InteractiveCanvasViewer>
           curve: Curves.decelerate,
         ));
         _controller.duration = Duration(milliseconds: (tFinal * 1000).round());
-        _animation!.addListener(_onAnimate);
+        _animation!.addListener(_handleInertiaAnimation);
         _controller.forward();
       case _GestureType.scale:
         if (details.scaleVelocity.abs() < 0.1) {
           _currentAxis = null;
           return;
         }
-        final double scale =
-            _transformationController!.value.getMaxScaleOnAxis();
+        final double scale = _transformer.value.getMaxScaleOnAxis();
         final FrictionSimulation frictionSimulation = FrictionSimulation(
             widget.interactionEndFrictionCoefficient * widget.scaleFactor,
             scale,
@@ -928,7 +926,7 @@ class _InteractiveCanvasViewerState extends State<InteractiveCanvasViewer>
                     parent: _scaleController, curve: Curves.decelerate));
         _scaleController.duration =
             Duration(milliseconds: (tFinal * 1000).round());
-        _scaleAnimation!.addListener(_onScaleAnimate);
+        _scaleAnimation!.addListener(_handleScaleAnimation);
         _scaleController.forward();
       case _GestureType.rotate || null:
         break;
@@ -937,6 +935,8 @@ class _InteractiveCanvasViewerState extends State<InteractiveCanvasViewer>
 
   // Handle mousewheel and web trackpad scroll events.
   void _receivedPointerSignal(PointerSignalEvent event) {
+    final Offset local = event.localPosition;
+    final Offset global = event.position;
     final double scaleChange;
     if (event is PointerScrollEvent) {
       if (event.kind == PointerDeviceKind.trackpad &&
@@ -945,22 +945,21 @@ class _InteractiveCanvasViewerState extends State<InteractiveCanvasViewer>
         if (!_gestureIsSupported(_GestureType.pan)) return;
 
         final Offset localDelta = PointerEvent.transformDeltaViaPositions(
-          untransformedEndPosition: event.position + event.scrollDelta,
+          untransformedEndPosition: global + event.scrollDelta,
           untransformedDelta: event.scrollDelta,
           transform: event.transform,
         );
 
-        final Offset focalPointScene = _transformationController!.toScene(
-          event.localPosition,
+        final Offset focalPointScene = _transformer.toScene(local);
+
+        final Offset newFocalPointScene = _transformer.toScene(
+          local - localDelta,
         );
 
-        final Offset newFocalPointScene = _transformationController!.toScene(
-          event.localPosition - localDelta,
+        _transformer.value = _matrixTranslate(
+          _transformer.value,
+          newFocalPointScene - focalPointScene,
         );
-
-        _transformationController!.value = _matrixTranslate(
-            _transformationController!.value,
-            newFocalPointScene - focalPointScene);
 
         return;
       }
@@ -977,86 +976,69 @@ class _InteractiveCanvasViewerState extends State<InteractiveCanvasViewer>
 
     if (!_gestureIsSupported(_GestureType.scale)) return;
 
-    final Offset focalPointScene = _transformationController!.toScene(
-      event.localPosition,
-    );
+    final Offset focalPointScene = _transformer.toScene(local);
 
-    _transformationController!.value = _matrixScale(
-      _transformationController!.value,
-      scaleChange,
-    );
+    _transformer.value = _matrixScale(_transformer.value, scaleChange);
 
     // After scaling, translate such that the event's position is at the
     // same scene point before and after the scale.
-    final Offset focalPointSceneScaled = _transformationController!.toScene(
-      event.localPosition,
-    );
-    _transformationController!.value = _matrixTranslate(
-      _transformationController!.value,
+    final Offset focalPointSceneScaled = _transformer.toScene(local);
+    _transformer.value = _matrixTranslate(
+      _transformer.value,
       focalPointSceneScaled - focalPointScene,
     );
   }
 
   // Handle inertia drag animation.
-  void _onAnimate() {
+  void _handleInertiaAnimation() {
     if (!_controller.isAnimating) {
       _currentAxis = null;
-      _animation?.removeListener(_onAnimate);
+      _animation?.removeListener(_handleInertiaAnimation);
       _animation = null;
       _controller.reset();
       return;
     }
     // Translate such that the resulting translation is _animation.value.
-    final Vector3 translationVector =
-        _transformationController!.value.getTranslation();
+    final Vector3 translationVector = _transformer.value.getTranslation();
     final Offset translation = Offset(translationVector.x, translationVector.y);
-    final Offset translationScene = _transformationController!.toScene(
-      translation,
-    );
-    final Offset animationScene = _transformationController!.toScene(
-      _animation!.value,
-    );
-    final Offset translationChangeScene = animationScene - translationScene;
-    _transformationController!.value = _matrixTranslate(
-      _transformationController!.value,
-      translationChangeScene,
+    _transformer.value = _matrixTranslate(
+      _transformer.value,
+      _transformer.toScene(_animation!.value) -
+          _transformer.toScene(translation),
     );
   }
 
   // Handle inertia scale animation.
-  void _onScaleAnimate() {
+  void _handleScaleAnimation() {
     if (!_scaleController.isAnimating) {
       _currentAxis = null;
-      _scaleAnimation?.removeListener(_onScaleAnimate);
+      _scaleAnimation?.removeListener(_handleScaleAnimation);
       _scaleAnimation = null;
       _scaleController.reset();
       return;
     }
     final double desiredScale = _scaleAnimation!.value;
     final double scaleChange =
-        desiredScale / _transformationController!.value.getMaxScaleOnAxis();
-    final Offset referenceFocalPoint = _transformationController!.toScene(
+        desiredScale / _transformer.value.getMaxScaleOnAxis();
+    final Offset referenceFocalPoint = _transformer.toScene(
       _scaleAnimationFocalPoint,
     );
-    _transformationController!.value = _matrixScale(
-      _transformationController!.value,
-      scaleChange,
-    );
+    _transformer.value = _matrixScale(_transformer.value, scaleChange);
 
     // While scaling, translate such that the user's two fingers stay on
     // the same places in the scene. That means that the focal point of
     // the scale should be on the same place in the scene before and after
     // the scale.
-    final Offset focalPointSceneScaled = _transformationController!.toScene(
+    final Offset focalPointSceneScaled = _transformer.toScene(
       _scaleAnimationFocalPoint,
     );
-    _transformationController!.value = _matrixTranslate(
-      _transformationController!.value,
+    _transformer.value = _matrixTranslate(
+      _transformer.value,
       focalPointSceneScaled - referenceFocalPoint,
     );
   }
 
-  void _onTransformationControllerChange() {
+  void _handleTransformation() {
     // A change to the TransformationController's value is a change to the
     // state.
     setState(() {});
@@ -1065,56 +1047,36 @@ class _InteractiveCanvasViewerState extends State<InteractiveCanvasViewer>
   @override
   void initState() {
     super.initState();
-
-    _transformationController =
-        widget.transformationController ?? TransformationController();
-    _transformationController!.addListener(_onTransformationControllerChange);
-    _controller = AnimationController(
-      vsync: this,
-    );
+    _controller = AnimationController(vsync: this);
     _scaleController = AnimationController(vsync: this);
+
+    _transformer.addListener(_handleTransformation);
   }
 
   @override
   void didUpdateWidget(InteractiveCanvasViewer oldWidget) {
     super.didUpdateWidget(oldWidget);
-    // Handle all cases of needing to dispose and initialize
-    // transformationControllers.
-    if (oldWidget.transformationController == null) {
-      if (widget.transformationController != null) {
-        _transformationController!
-            .removeListener(_onTransformationControllerChange);
-        _transformationController!.dispose();
-        _transformationController = widget.transformationController;
-        _transformationController!
-            .addListener(_onTransformationControllerChange);
-      }
-    } else {
-      if (widget.transformationController == null) {
-        _transformationController!
-            .removeListener(_onTransformationControllerChange);
-        _transformationController = TransformationController();
-        _transformationController!
-            .addListener(_onTransformationControllerChange);
-      } else if (widget.transformationController !=
-          oldWidget.transformationController) {
-        _transformationController!
-            .removeListener(_onTransformationControllerChange);
-        _transformationController = widget.transformationController;
-        _transformationController!
-            .addListener(_onTransformationControllerChange);
-      }
+
+    final TransformationController? newController =
+        widget.transformationController;
+    if (newController == oldWidget.transformationController) {
+      return;
     }
+    _transformer.removeListener(_handleTransformation);
+    if (oldWidget.transformationController == null) {
+      _transformer.dispose();
+    }
+    _transformer = newController ?? TransformationController();
+    _transformer.addListener(_handleTransformation);
   }
 
   @override
   void dispose() {
     _controller.dispose();
     _scaleController.dispose();
-    _transformationController!
-        .removeListener(_onTransformationControllerChange);
+    _transformer.removeListener(_handleTransformation);
     if (widget.transformationController == null) {
-      _transformationController!.dispose();
+      _transformer.dispose();
     }
     super.dispose();
   }
@@ -1127,7 +1089,7 @@ class _InteractiveCanvasViewerState extends State<InteractiveCanvasViewer>
         childKey: _childKey,
         clipBehavior: widget.clipBehavior,
         constrained: widget.constrained,
-        matrix: _transformationController!.value,
+        matrix: _transformer.value,
         alignment: widget.alignment,
         child: widget.child!,
       );
@@ -1138,7 +1100,7 @@ class _InteractiveCanvasViewerState extends State<InteractiveCanvasViewer>
       assert(!widget.constrained);
       child = LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
-          final Matrix4 matrix = _transformationController!.value;
+          final Matrix4 matrix = _transformer.value;
           return _InteractiveCanvasViewerBuilt(
             childKey: _childKey,
             clipBehavior: widget.clipBehavior,
