@@ -43,9 +43,6 @@ ar:
       lineThickness(OUTDATED): Line thickness
       lineThicknessDescription(OUTDATED): Background line thickness
 cs: 
-  settings: 
-    customDataDir: 
-      unsupported: Tato funkce je v současné době pouze pro vývojáře. Její využití pravděpodobně povede ke ztrátě dat.
 de: 
   home: 
     noPreviewAvailable(OUTDATED): No preview available
