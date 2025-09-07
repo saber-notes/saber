@@ -86,7 +86,8 @@ class FileManager {
   }) async {
     await newDir.create(recursive: true);
     await for (final entity in oldDir.list()) {
-      final entityPath = '${newDir.path}/${entity.path.split('/').last}';
+      final entityPath =
+          '${newDir.path}/${entity.path.split(RegExp(r'[\\/]')).last}';
       switch (entity) {
         case File _:
           await entity.rename(entityPath);
@@ -700,7 +701,7 @@ class FileManager {
     }
 
     /// The file name without its extension
-    String fileName = path.split('/').last;
+    String fileName = path.split(RegExp(r'[\\/]')).last;
     fileName = fileName.substring(0, fileName.lastIndexOf('.'));
     final String importedPath;
 
