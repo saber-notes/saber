@@ -78,7 +78,7 @@ dependencies:
 
   flex_color_picker: ^3.4.1
 
-  font_awesome_flutter: 10.9.0
+  font_awesome_flutter: 10.10.0
 
   flutter_svg: ^2.0.0+1
 
