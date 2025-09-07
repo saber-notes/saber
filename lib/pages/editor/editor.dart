@@ -6,6 +6,7 @@ import 'package:collapsible/collapsible.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart' show kDebugMode;
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_quill/flutter_quill.dart' as flutter_quill;
@@ -499,6 +500,7 @@ class EditorState extends State<Editor> {
 
   bool isHovering = true;
   int? dragPageIndex;
+  PointerDeviceKind? currentPointerKind;
   double? currentPressure;
   bool isDrawGesture(ScaleStartDetails details) {
     if (coreInfo.readOnly) return false;
@@ -531,7 +533,10 @@ class EditorState extends State<Editor> {
 
     if (currentTool == Tool.textEditing) {
       return false;
-    } else if (stows.editorFingerDrawing.value || currentPressure != null) {
+    } else if (stows.editorFingerDrawing.value ||
+        currentPointerKind == PointerDeviceKind.stylus ||
+        currentPointerKind == PointerDeviceKind.invertedStylus ||
+        currentPressure != null) {
       return true;
     } else {
       log.fine('Non-stylus found, rejected stroke');
@@ -714,8 +719,9 @@ class EditorState extends State<Editor> {
     });
   }
 
-  void onPressureChanged(double? pressure) {
-    currentPressure = pressure == 0 ? null : pressure;
+  void updatePointerData(PointerDeviceKind kind, double? pressure) {
+    currentPointerKind = kind;
+    currentPressure = pressure;
   }
 
   void onHovering() {
@@ -1344,7 +1350,7 @@ class EditorState extends State<Editor> {
       onHovering: onHovering,
       onHoveringEnd: onHoveringEnd,
       onStylusButtonChanged: onStylusButtonChanged,
-      onPressureChanged: onPressureChanged,
+      updatePointerData: updatePointerData,
       undo: undo,
       redo: redo,
       pages: coreInfo.pages,

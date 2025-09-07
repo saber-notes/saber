@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:collection';
-import 'dart:io';
 import 'dart:math';
 import 'dart:ui';
 
@@ -26,7 +25,7 @@ class CanvasGestureDetector extends StatefulWidget {
     required this.onDrawStart,
     required this.onDrawUpdate,
     required this.onDrawEnd,
-    required this.onPressureChanged,
+    required this.updatePointerData,
     required this.onHovering,
     required this.onHoveringEnd,
     required this.onStylusButtonChanged,
@@ -49,9 +48,9 @@ class CanvasGestureDetector extends StatefulWidget {
   final ValueChanged<ScaleUpdateDetails> onDrawUpdate;
   final ValueChanged<ScaleEndDetails> onDrawEnd;
 
-  /// Called when the pressure of the stylus changes,
-  /// pressure is negative if stylus button is pressed
-  final ValueChanged<double?> onPressureChanged;
+  /// Called when the pressure of the stylus changes
+  final void Function(PointerDeviceKind kind, double? pressure)
+      updatePointerData;
   final VoidCallback onHovering;
   final VoidCallback onHoveringEnd;
   final ValueChanged<bool> onStylusButtonChanged;
@@ -396,18 +395,20 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
   }
 
   void _listenerPointerEvent(PointerEvent event) {
-    double? pressure;
-
-    if (event.kind == PointerDeviceKind.stylus) {
-      pressure = event.pressure;
-    } else if (event.kind == PointerDeviceKind.invertedStylus) {
-      pressure = event.pressure;
-    } else if (Platform.isLinux && event.pressureMin != event.pressureMax) {
-      // if min == max, then the device isn't pressure sensitive
-      pressure = event.pressure;
+    final double? pressure;
+    if (event.kind == PointerDeviceKind.stylus ||
+        event.kind == PointerDeviceKind.invertedStylus) {
+      if (event.pressureMin != event.pressureMax) {
+        pressure = event.pressure;
+      } else {
+        // Detected as stylus, but no pressure values
+        pressure = null;
+      }
+    } else {
+      pressure = null;
     }
 
-    widget.onPressureChanged(pressure);
+    widget.updatePointerData(event.kind, pressure);
   }
 
   bool stylusButtonWasPressed = false;
@@ -429,7 +430,7 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
   }
 
   void _listenerPointerUpEvent(PointerEvent event) {
-    widget.onPressureChanged(null);
+    widget.updatePointerData(event.kind, null);
     stylusButtonWasPressed = false;
     widget.onStylusButtonChanged(false);
   }
