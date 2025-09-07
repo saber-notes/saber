@@ -497,6 +497,7 @@ class _TranslationsSettingsCustomDataDirCs extends TranslationsSettingsCustomDat
 	@override String get select => 'Zvolit';
 	@override String get mustBeEmpty => 'Zvolená složka musí být prázdná';
 	@override String get mustBeDoneSyncing => 'Než změníte složku, ujistěte se, že byla dokončena synchronizace';
+	@override String get unsupported => 'Tato funkce je v současné době pouze pro vývojáře. Její využití pravděpodobně povede ke ztrátě dat.';
 }
 
 // Path: login.form

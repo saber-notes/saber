@@ -165,6 +165,7 @@ settings:
     select: Zvolit
     mustBeEmpty: Zvolená složka musí být prázdná
     mustBeDoneSyncing: Než změníte složku, ujistěte se, že byla dokončena synchronizace
+    unsupported: Tato funkce je v současné době pouze pro vývojáře. Její využití pravděpodobně povede ke ztrátě dat.
   autosaveDisabled: Nikdy
   shapeRecognitionDisabled: Nikdy
 logs: 

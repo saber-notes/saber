@@ -43,9 +43,6 @@ ar:
       lineThickness(OUTDATED): Line thickness
       lineThicknessDescription(OUTDATED): Background line thickness
 cs: 
-  settings: 
-    customDataDir: 
-      unsupported: This feature is currently only for developers. Using it will likely result in data loss.
 de: 
   home: 
     noPreviewAvailable(OUTDATED): No preview available
