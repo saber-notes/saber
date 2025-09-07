@@ -45,7 +45,7 @@ ar:
 cs: 
   settings: 
     customDataDir: 
-      unsupported: This feature is currently only for developers. Using it will likely result in data loss.
+      unsupported: Tato funkce je v současné době pouze pro vývojáře. Její využití pravděpodobně povede ke ztrátě dat.
 de: 
   home: 
     noPreviewAvailable(OUTDATED): No preview available
