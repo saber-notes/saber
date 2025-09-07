@@ -52,7 +52,7 @@ class PathComponents extends StatelessWidget {
 
   static List<String> _splitPath(String? path) {
     return (path ?? '')
-        .split('/')
+        .split(RegExp(r'[\\/]'))
         .where((s) => s.isNotEmpty)
         .toList(growable: false);
   }

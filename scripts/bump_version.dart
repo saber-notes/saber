@@ -155,8 +155,8 @@ Future<void> updateAllFiles() async {
   });
 
   // update download link in READMEs
-  final readmes = Directory('.').listSync().whereType<File>().where(
-      (file) => RegExp(r'README.*\.md').hasMatch(file.path.split('/').last));
+  final readmes = Directory('.').listSync().whereType<File>().where((file) =>
+      RegExp(r'README.*\.md').hasMatch(file.path.split(RegExp(r'[\\/]')).last));
   for (final readme in readmes) {
     await readme.replace({
       // e.g. [download_windows]: https://github.com/saber-notes/saber/releases/download/v0.11.0/SaberInstaller_v0.11.0.exe

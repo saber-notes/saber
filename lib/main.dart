@@ -273,9 +273,7 @@ class App extends StatefulWidget {
       _router.push(RoutePaths.editFilePath(path));
     } else if (extension == 'pdf' && Editor.canRasterPdf) {
       final fileNameWithoutExtension = file.path
-          .split('/')
-          .last
-          .split('\\')
+          .split(RegExp(r'[\\/]'))
           .last
           .substring(0, file.path.length - '.pdf'.length);
       final sbnFilePath = await FileManager.suffixFilePathToMakeItUnique(
