@@ -53,7 +53,7 @@ jobs:
           cache-key: 'flutter-:os:-:channel:-:version:-:arch:'
 
       - name: Setup Java
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v5
         with:
           distribution: 'microsoft'
           java-version: '21'
@@ -137,7 +137,7 @@ jobs:
           cache-key: 'flutter-:os:-:channel:-:version:-:arch:'
 
       - name: Setup Java
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v5
         with:
           distribution: 'microsoft'
           java-version: '21'
