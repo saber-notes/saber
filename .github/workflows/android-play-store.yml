@@ -18,7 +18,7 @@ jobs:
     timeout-minutes: 30
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - uses: "./.github/shared_workflows/install_apt_dependencies"
 
@@ -92,7 +92,7 @@ jobs:
     timeout-minutes: 5
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Download artifact
         uses: actions/download-artifact@v4
