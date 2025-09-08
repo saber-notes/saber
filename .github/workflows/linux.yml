@@ -35,7 +35,7 @@ jobs:
     name: Build Linux (${{ matrix.arch.target-platform }})
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - uses: "./.github/shared_workflows/install_apt_dependencies"
 
@@ -120,7 +120,7 @@ jobs:
     timeout-minutes: 10
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Install AppImage dependencies
         run: |
@@ -128,7 +128,7 @@ jobs:
           sudo apt install libfuse2
 
       - name: Download app archive
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v5
         with:
           name: Saber-Archive-x86_64
 
