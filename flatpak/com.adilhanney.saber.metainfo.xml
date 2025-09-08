@@ -214,6 +214,13 @@
     </screenshots>
 
     <releases>
+        <release version="0.26.7" type="development" date="2025-09-08">
+            <description>
+                <ul>
+                    <li>Fixed PDF import issues, thanks @QubaB on GitHub</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.26.6" type="development" date="2025-09-07">
             <description>
                 <ul>
