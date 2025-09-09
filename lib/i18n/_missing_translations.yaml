@@ -45,45 +45,45 @@ ar:
 cs: 
 de: 
   home: 
-    noPreviewAvailable(OUTDATED): No preview available
+    noPreviewAvailable(OUTDATED): Keine Vorschau verfügbar
   sentry: 
     consent: 
-      title(OUTDATED): Help improve Saber?
+      title(OUTDATED): Dabei helfen, Saber zu verbessern?
       description: 
-        question(OUTDATED): Would you like to automatically report unexpected errors? This helps me identify and fix issues faster.
-        scope(OUTDATED): The reports may contain information about the error and your device. I've made every effort to filter out personal data but some may remain.
-        currentlyOff(OUTDATED): If you grant consent, error reporting will be enabled after you restart the app.
-        currentlyOn(OUTDATED): If you revoke consent, please restart the app to disable error reporting.
-        learnMoreInPrivacyPolicy(rich)(OUTDATED): Learn more in the ${link(privacy policy)}.
+        question(OUTDATED): Möchtest du unerwartete Fehler automatisch melden? Das hilft mir dabei, Fehler schneller zu erkennen und zu beheben.
+        scope(OUTDATED): Diese Berichte können Informationen über den Fehler und dein Gerät enthalten. Ich habe mein Bestes getan, um perönliche Daten herauszufiltern, allerdings könnten dennoch welche enthalten sein.
+        currentlyOff(OUTDATED): Wenn du zustimmst, wird die Fehlerberichterstattung beim nächsten Neustart der App aktiviert.
+        currentlyOn(OUTDATED): Falls du deine Zustimmung zurücknimmst, starte bitte die App neu, um die Fehlerberichterstattung zu deaktivieren.
+        learnMoreInPrivacyPolicy(rich)(OUTDATED): Erfahre mehr in der ${link(Datenschutzrichtlinie)}.
       answers: 
-        yes(OUTDATED): Yes
-        no(OUTDATED): No
-        later(OUTDATED): Ask me later
+        yes(OUTDATED): Ja
+        no(OUTDATED): Nein
+        later(OUTDATED): Später erneut fragen
   settings: 
     prefLabels: 
-      autosave(OUTDATED): Auto-save
-      sentry(OUTDATED): Error reporting
+      autosave(OUTDATED): Auto-Speichern
+      sentry(OUTDATED): Fehlerberichterstattung
     prefDescriptions: 
-      autosave(OUTDATED): Auto-save after a short delay, or never
+      autosave(OUTDATED): Nach kurzer Zeit Auto-Speichern oder nie
       sentry: 
-        active(OUTDATED): Active
-        inactive(OUTDATED): Inactive
-        activeUntilRestart(OUTDATED): Active until you restart the app
-        inactiveUntilRestart(OUTDATED): Inactive until you restart the app
+        active(OUTDATED): Aktiv
+        inactive(OUTDATED): Inaktiv
+        activeUntilRestart(OUTDATED): Aktiv bis zum Neustart der App
+        inactiveUntilRestart(OUTDATED): Inaktiv bis zum Neustart der App
     customDataDir: 
-      unsupported(OUTDATED): This feature is currently only for developers. Using it will likely result in data loss.
-    autosaveDisabled(OUTDATED): Never
-    shapeRecognitionDisabled(OUTDATED): Never
+      unsupported(OUTDATED): Die Funktion ist zur Zeit nur für Entwickler gedacht. Die Verwendung führt wahrscheinlich zu Datenverlust.
+    autosaveDisabled(OUTDATED): Nie
+    shapeRecognitionDisabled(OUTDATED): Nie
   logs: 
-    logs(OUTDATED): Logs
-    viewLogs(OUTDATED): View logs
-    debuggingInfo(OUTDATED): Logs contain information useful for debugging and development
-    noLogs(OUTDATED): No logs here!
-    useTheApp(OUTDATED): Logs will appear here as you use the app
+    logs(OUTDATED): Protokolle
+    viewLogs(OUTDATED): Protokolle anzeigen
+    debuggingInfo(OUTDATED): Protokolle enthalten hilfreiche Informationen zur Fehlerbehebung und Entwicklung
+    noLogs(OUTDATED): Keine Protokolle vorhanden!
+    useTheApp(OUTDATED): Protokolle erscheinen hier, wenn du die App verwendest
   editor: 
     menu: 
-      lineThickness(OUTDATED): Line thickness
-      lineThicknessDescription(OUTDATED): Background line thickness
+      lineThickness(OUTDATED): Strichstärke
+      lineThicknessDescription(OUTDATED): Hintergrundstrichstärke
 es: 
   common: 
     done(OUTDATED): Done
