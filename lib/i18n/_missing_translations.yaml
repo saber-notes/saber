@@ -1098,41 +1098,41 @@ pt-BR:
       watchServerReadOnly(OUTDATED): Editing is disabled while watching the server
 ru: 
   home: 
-    noPreviewAvailable(OUTDATED): No preview available
+    noPreviewAvailable(OUTDATED): Предварительный просмотр недоступен
   sentry: 
     consent: 
-      title(OUTDATED): Help improve Saber?
+      title(OUTDATED): Поможете улучшить Saber?
       description: 
-        question(OUTDATED): Would you like to automatically report unexpected errors? This helps me identify and fix issues faster.
-        scope(OUTDATED): The reports may contain information about the error and your device. I've made every effort to filter out personal data but some may remain.
-        currentlyOff(OUTDATED): If you grant consent, error reporting will be enabled after you restart the app.
-        currentlyOn(OUTDATED): If you revoke consent, please restart the app to disable error reporting.
-        learnMoreInPrivacyPolicy(rich)(OUTDATED): Learn more in the ${link(privacy policy)}.
+        question(OUTDATED): Хотели бы вы автоматически сообщать о непредвиденных ошибках? Это помогает мне быстрее выявлять и устранять неполадки.
+        scope(OUTDATED): В отчётах может содержаться информация об ошибке и вашем устройстве. Я приложил все усилия, чтобы отфильтровать личные данные, но некоторые из них могут остаться.
+        currentlyOff(OUTDATED): Если вы дадите согласие, то после перезапуска приложения будут включены отчёты об ошибках.
+        currentlyOn(OUTDATED): Если вы отзовёте свое согласие, пожалуйста, перезапустите приложение, чтобы отключить отчёты об ошибках.
+        learnMoreInPrivacyPolicy(rich)(OUTDATED): Узнайте больше в разделе ${link(privacy policy)}.
       answers: 
-        yes(OUTDATED): Yes
-        no(OUTDATED): No
-        later(OUTDATED): Ask me later
+        yes(OUTDATED): Да
+        no(OUTDATED): Нет
+        later(OUTDATED): Спросить позже
   settings: 
     prefLabels: 
-      autosave(OUTDATED): Auto-save
-      sentry(OUTDATED): Error reporting
+      autosave(OUTDATED): Автосохранение
+      sentry(OUTDATED): Сообщить об ошибке
     prefDescriptions: 
-      autosave(OUTDATED): Auto-save after a short delay, or never
+      autosave(OUTDATED): Автосохранение с задержкой
       sentry: 
-        active(OUTDATED): Active
-        inactive(OUTDATED): Inactive
-        activeUntilRestart(OUTDATED): Active until you restart the app
-        inactiveUntilRestart(OUTDATED): Inactive until you restart the app
+        active(OUTDATED): Активно
+        inactive(OUTDATED): Неактивно
+        activeUntilRestart(OUTDATED): Активно до тех пор, пока вы не перезапустите приложение
+        inactiveUntilRestart(OUTDATED): Неактивно до тех пор, пока вы не перезапустите приложение
     customDataDir: 
-      unsupported(OUTDATED): This feature is currently only for developers. Using it will likely result in data loss.
-    autosaveDisabled(OUTDATED): Never
-    shapeRecognitionDisabled(OUTDATED): Never
+      unsupported(OUTDATED): В настоящее время эта функция доступна только разработчикам. Её использование, скорее всего, приведёт к потере данных.
+    autosaveDisabled(OUTDATED): Никогда
+    shapeRecognitionDisabled(OUTDATED): Никогда
   logs: 
-    useTheApp(OUTDATED): Logs will appear here as you use the app
+    useTheApp(OUTDATED): Журналы будут отображаться по мере использования приложения
   editor: 
     menu: 
-      lineThickness(OUTDATED): Line thickness
-      lineThicknessDescription(OUTDATED): Background line thickness
+      lineThickness(OUTDATED): Толщина линии
+      lineThicknessDescription(OUTDATED): Толщина фоновой линии
 tr: 
   home: 
     noPreviewAvailable(OUTDATED): No preview available
