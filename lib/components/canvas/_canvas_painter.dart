@@ -135,7 +135,7 @@ class CanvasPainter extends CustomPainter {
           ),
           shapePaint,
         );
-      } else if (stroke.length <= 2) {
+      } else if (stroke.length <= 1) {
         // a dot
         final bounds = stroke.lowQualityPath.getBounds();
         final radius = max(bounds.size.width, stroke.options.size) / 2;
