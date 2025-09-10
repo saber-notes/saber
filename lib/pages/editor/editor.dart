@@ -639,7 +639,8 @@ class EditorState extends State<Editor> {
     if (PencilSound.isPlaying) PencilSound.pause();
     setState(() {
       if (currentTool is Pen) {
-        Stroke newStroke = (currentTool as Pen).onDragEnd();
+        final newStroke = (currentTool as Pen).onDragEnd();
+        if (newStroke == null) return;
         if (newStroke.isEmpty) return;
 
         if (stows.autoStraightenLines.value &&
