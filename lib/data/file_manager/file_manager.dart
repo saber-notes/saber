@@ -16,6 +16,7 @@ import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/editor/editor.dart';
 import 'package:saver_gallery/saver_gallery.dart';
 import 'package:share_plus/share_plus.dart';
+import 'package:path/path.dart' as p;
 
 /// A collection of cross-platform utility functions for working with a virtual file system.
 class FileManager {
@@ -76,7 +77,7 @@ class FileManager {
       log.fine('Old data directory is empty or missing, nothing to migrate');
     } else {
       await moveDirContents(oldDir: oldDir, newDir: newDir);
-      await oldDir.delete();
+      await oldDir.delete(recursive: true);
     }
   }
 
@@ -85,14 +86,33 @@ class FileManager {
     required Directory newDir,
   }) async {
     await newDir.create(recursive: true);
-    await for (final entity in oldDir.list()) {
-      final entityPath =
-          '${newDir.path}/${entity.path.split(RegExp(r'[\\/]')).last}';
-      switch (entity) {
-        case File _:
-          await entity.rename(entityPath);
-        case Directory _:
-          await moveDirContents(oldDir: oldDir, newDir: Directory(entityPath));
+
+    await for (final entity in oldDir.list(recursive: true)) {
+      // Get the path under oldDir and map it into newDir.
+      final relative = p.relative(entity.path, from: oldDir.path);
+      final targetPath = p.join(newDir.path, relative);
+
+      if (entity is Directory) {
+        await Directory(targetPath).create(recursive: true);
+        continue;
+      }
+
+      if (entity is File) {
+        // Ensure parent exists
+        await Directory(p.dirname(targetPath)).create(recursive: true);
+
+        try {
+          await entity.rename(targetPath);
+        } on FileSystemException catch (e) {
+          // Cross device move, eg. private to public on android
+          const exdev = 18;
+          if (e.osError?.errorCode == exdev) {
+            await entity.copy(targetPath);
+            await entity.delete();
+          } else {
+            rethrow;
+          }
+        }
       }
     }
   }
