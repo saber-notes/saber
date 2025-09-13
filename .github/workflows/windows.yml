@@ -60,6 +60,9 @@ jobs:
         shell: bash
         run: |
           curl -L -o installers/vc_redist.x64.exe https://aka.ms/vs/17/release/vc_redist.x64.exe
+      
+      - name: Install Inno Setup
+        run: choco install -y innosetup
 
       - name: Build Windows Installer
         run: ISCC.exe installers/desktop_inno_script.iss
