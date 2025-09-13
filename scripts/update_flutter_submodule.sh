@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 
-# Update Flutter version used in F-Droid builds
+# Update local Flutter SDK
+flutter channel stable
+flutter upgrade
+
+# Update Flutter submodule
 pushd submodules/flutter
 git fetch origin
 git reset --hard origin/stable
@@ -8,6 +12,6 @@ git checkout stable
 git pull
 popd
 
-# Update Flutter version used in Linux builds
+# Save the current Flutter version to a file
 FLUTTER_VERSION=$(flutter --version | head -n 1 | awk '{print $2}')
-sed -i -E "s/flutter-version: .*/flutter-version: $FLUTTER_VERSION/" .github/workflows/linux.yml
+echo "$FLUTTER_VERSION" > submodules/.flutter-version
