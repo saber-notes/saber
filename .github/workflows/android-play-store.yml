@@ -56,6 +56,12 @@ jobs:
           distribution: 'microsoft'
           java-version: '21'
 
+      - name: Setup Rust
+        uses: moonrepo/setup-rust@v1
+        with:
+          channel: stable
+          targets: armv7-linux-androideabi,aarch64-linux-android,x86_64-linux-android
+
       - name: Disable Flutter CLI animations
         run: flutter config --no-cli-animations
 
