@@ -15,6 +15,7 @@ jobs:
   build-apk:
     name: Build APK (${{ matrix.foss && 'FOSS' || 'Regular' }})
     strategy:
+      fail-fast: false
       matrix:
         foss: [false, true]
     runs-on: ubuntu-latest
