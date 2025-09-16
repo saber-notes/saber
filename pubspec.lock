@@ -1686,10 +1686,10 @@ packages:
     dependency: "direct main"
     description:
       name: stow_codecs
-      sha256: edfaee5b03d6b23df277889ec80e587e66d48fbbf7f7ef925a9d1046d08a3ec0
+      sha256: c6fbc572fcc4e905cf836e700b8a81f9b62b08cefc0990a4fd83a81ada661d69
       url: "https://pub.dev"
     source: hosted
-    version: "1.2.0+1"
+    version: "1.3.0"
   stow_plain:
     dependency: "direct main"
     description:

@@ -1,25 +1,11 @@
-import 'dart:convert';
+import 'package:stow_codecs/stow_codecs.dart';
 
-class DateTimeCodec extends Codec<DateTime, String> {
+class DateTimeCodec extends AbstractCodec<DateTime, String> {
   const DateTimeCodec();
 
   @override
-  final encoder = const DateTimeEncoder();
+  String encode(DateTime input) => input.toIso8601String();
 
   @override
-  final decoder = const DateTimeDecoder();
-}
-
-class DateTimeEncoder extends Converter<DateTime, String> {
-  const DateTimeEncoder();
-
-  @override
-  String convert(DateTime input) => input.toIso8601String();
-}
-
-class DateTimeDecoder extends Converter<String, DateTime> {
-  const DateTimeDecoder();
-
-  @override
-  DateTime convert(String input) => DateTime.parse(input);
+  DateTime decode(String encoded) => DateTime.parse(encoded);
 }
