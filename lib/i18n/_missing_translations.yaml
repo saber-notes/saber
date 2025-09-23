@@ -1097,42 +1097,6 @@ pt-BR:
       watchServer(OUTDATED): Watch for updates on the server
       watchServerReadOnly(OUTDATED): Editing is disabled while watching the server
 ru: 
-  home: 
-    noPreviewAvailable(OUTDATED): Предварительный просмотр недоступен
-  sentry: 
-    consent: 
-      title(OUTDATED): Поможете улучшить Saber?
-      description: 
-        question(OUTDATED): Хотели бы вы автоматически сообщать о непредвиденных ошибках? Это помогает мне быстрее выявлять и устранять неполадки.
-        scope(OUTDATED): В отчётах может содержаться информация об ошибке и вашем устройстве. Я приложил все усилия, чтобы отфильтровать личные данные, но некоторые из них могут остаться.
-        currentlyOff(OUTDATED): Если вы дадите согласие, то после перезапуска приложения будут включены отчёты об ошибках.
-        currentlyOn(OUTDATED): Если вы отзовёте свое согласие, пожалуйста, перезапустите приложение, чтобы отключить отчёты об ошибках.
-        learnMoreInPrivacyPolicy(rich)(OUTDATED): Узнайте больше в разделе ${link(privacy policy)}.
-      answers: 
-        yes(OUTDATED): Да
-        no(OUTDATED): Нет
-        later(OUTDATED): Спросить позже
-  settings: 
-    prefLabels: 
-      autosave(OUTDATED): Автосохранение
-      sentry(OUTDATED): Сообщить об ошибке
-    prefDescriptions: 
-      autosave(OUTDATED): Автосохранение с задержкой
-      sentry: 
-        active(OUTDATED): Активно
-        inactive(OUTDATED): Неактивно
-        activeUntilRestart(OUTDATED): Активно до тех пор, пока вы не перезапустите приложение
-        inactiveUntilRestart(OUTDATED): Неактивно до тех пор, пока вы не перезапустите приложение
-    customDataDir: 
-      unsupported(OUTDATED): В настоящее время эта функция доступна только разработчикам. Её использование, скорее всего, приведёт к потере данных.
-    autosaveDisabled(OUTDATED): Никогда
-    shapeRecognitionDisabled(OUTDATED): Никогда
-  logs: 
-    useTheApp(OUTDATED): Журналы будут отображаться по мере использования приложения
-  editor: 
-    menu: 
-      lineThickness(OUTDATED): Толщина линии
-      lineThicknessDescription(OUTDATED): Толщина фоновой линии
 tr: 
   home: 
     noPreviewAvailable(OUTDATED): No preview available
