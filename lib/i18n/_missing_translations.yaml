@@ -44,46 +44,6 @@ ar:
       lineThicknessDescription(OUTDATED): Background line thickness
 cs: 
 de: 
-  home: 
-    noPreviewAvailable(OUTDATED): Keine Vorschau verfügbar
-  sentry: 
-    consent: 
-      title(OUTDATED): Dabei helfen, Saber zu verbessern?
-      description: 
-        question(OUTDATED): Möchtest du unerwartete Fehler automatisch melden? Das hilft mir dabei, Fehler schneller zu erkennen und zu beheben.
-        scope(OUTDATED): Diese Berichte können Informationen über den Fehler und dein Gerät enthalten. Ich habe mein Bestes getan, um perönliche Daten herauszufiltern, allerdings könnten dennoch welche enthalten sein.
-        currentlyOff(OUTDATED): Wenn du zustimmst, wird die Fehlerberichterstattung beim nächsten Neustart der App aktiviert.
-        currentlyOn(OUTDATED): Falls du deine Zustimmung zurücknimmst, starte bitte die App neu, um die Fehlerberichterstattung zu deaktivieren.
-        learnMoreInPrivacyPolicy(rich)(OUTDATED): Erfahre mehr in der ${link(Datenschutzrichtlinie)}.
-      answers: 
-        yes(OUTDATED): Ja
-        no(OUTDATED): Nein
-        later(OUTDATED): Später erneut fragen
-  settings: 
-    prefLabels: 
-      autosave(OUTDATED): Auto-Speichern
-      sentry(OUTDATED): Fehlerberichterstattung
-    prefDescriptions: 
-      autosave(OUTDATED): Nach kurzer Zeit Auto-Speichern oder nie
-      sentry: 
-        active(OUTDATED): Aktiv
-        inactive(OUTDATED): Inaktiv
-        activeUntilRestart(OUTDATED): Aktiv bis zum Neustart der App
-        inactiveUntilRestart(OUTDATED): Inaktiv bis zum Neustart der App
-    customDataDir: 
-      unsupported(OUTDATED): Die Funktion ist zur Zeit nur für Entwickler gedacht. Die Verwendung führt wahrscheinlich zu Datenverlust.
-    autosaveDisabled(OUTDATED): Nie
-    shapeRecognitionDisabled(OUTDATED): Nie
-  logs: 
-    logs(OUTDATED): Protokolle
-    viewLogs(OUTDATED): Protokolle anzeigen
-    debuggingInfo(OUTDATED): Protokolle enthalten hilfreiche Informationen zur Fehlerbehebung und Entwicklung
-    noLogs(OUTDATED): Keine Protokolle vorhanden!
-    useTheApp(OUTDATED): Protokolle erscheinen hier, wenn du die App verwendest
-  editor: 
-    menu: 
-      lineThickness(OUTDATED): Strichstärke
-      lineThicknessDescription(OUTDATED): Hintergrundstrichstärke
 es: 
   common: 
     done(OUTDATED): Done
