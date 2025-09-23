@@ -99,7 +99,7 @@ class FileManager {
 
       if (entity is File) {
         // Ensure parent exists
-        await Directory(p.dirname(targetPath)).create(recursive: true);
+        await entity.parent.create(recursive: true);
 
         try {
           await entity.rename(targetPath);
