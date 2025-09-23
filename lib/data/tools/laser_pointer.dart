@@ -64,9 +64,9 @@ class LaserPointer extends Tool {
       VoidCallback redrawPage, void Function(Stroke) deleteStroke) {
     isDrawing = false;
 
-    final stroke = Pen.currentStroke as LaserStroke?;
+    final stroke = Pen.currentStroke;
     Pen.currentStroke = null;
-    if (stroke == null) return null;
+    if (stroke is! LaserStroke) return null;
 
     fadeOutStroke(
       stroke: stroke,
@@ -75,10 +75,9 @@ class LaserPointer extends Tool {
       deleteStroke: deleteStroke,
     );
 
-    final laserStroke = stroke
+    return stroke
       ..options.isComplete = true
       ..markPolygonNeedsUpdating();
-    return laserStroke;
   }
 
   static const _fadeOutDelay = Duration(seconds: 2);

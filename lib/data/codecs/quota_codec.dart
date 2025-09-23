@@ -1,36 +1,21 @@
-import 'dart:convert';
-
 import 'package:saber/components/settings/nextcloud_profile.dart';
+import 'package:stow_codecs/stow_codecs.dart';
 
-class QuotaCodec extends Codec<Quota, List> {
+class QuotaCodec extends AbstractCodec<Quota, List> {
   const QuotaCodec();
 
   @override
-  final encoder = const _QuotaEncoder();
-
-  @override
-  final decoder = const _QuotaDecoder();
-}
-
-class _QuotaEncoder extends Converter<Quota, List<String>> {
-  const _QuotaEncoder();
-
-  @override
-  List<String> convert(Quota input) {
+  List<String> encode(Quota input) {
     return [input.used.toString(), input.total.toString()];
   }
-}
-
-class _QuotaDecoder extends Converter<List<dynamic>, Quota> {
-  const _QuotaDecoder();
 
   @override
-  Quota convert(List<dynamic> input) {
-    if (input.length != 2) {
-      throw FormatException('Invalid quota format: $input');
+  Quota decode(List<dynamic> encoded) {
+    if (encoded.length != 2) {
+      throw FormatException('Invalid quota format: $encoded');
     }
-    final used = int.tryParse(input[0]) ?? 0;
-    final total = int.tryParse(input[1]) ?? 0;
+    final used = int.tryParse(encoded[0]) ?? 0;
+    final total = int.tryParse(encoded[1]) ?? 0;
     return Quota.fromJson({
       'free': total - used,
       'used': used,

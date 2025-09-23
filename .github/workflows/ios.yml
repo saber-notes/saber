@@ -28,6 +28,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v5
+        with:
+          submodules: true
 
       - name: Setup Xcode
         run: |
@@ -44,12 +46,7 @@ jobs:
           xcodebuild -downloadPlatform iOS -version 18.0
           echo
 
-      - name: Install Flutter
-        uses: subosito/flutter-action@v2
-        with:
-          channel: stable
-          cache: true
-          cache-key: 'flutter-:os:-:channel:-:version:-:arch:'
+      - uses: "./.github/shared_workflows/setup_flutter"
 
       - name: Install Codemagic CLI Tools
         run: pipx install codemagic-cli-tools
@@ -58,7 +55,11 @@ jobs:
         run: |
           keychain initialize
 
-          app-store-connect fetch-signing-files $(xcode-project detect-bundle-id) \
+          # Remove the template projects to prevent crash
+          rm -rf submodules/flutter/packages/flutter_tools/templates/app/ios.tmpl/Runner.xcodeproj
+          rm -rf submodules/flutter/packages/flutter_tools/templates/app/macos.tmpl/Runner.xcodeproj
+
+          app-store-connect fetch-signing-files com.adilhanney.saber \
             --platform IOS \
             --type IOS_APP_STORE \
             --certificate-key=@env:APP_STORE_CERTIFICATE_KEY \
