@@ -19,15 +19,12 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v5
+        with:
+          submodules: true
 
       - uses: "./.github/shared_workflows/install_apt_dependencies"
 
-      - name: Setup Flutter
-        uses: subosito/flutter-action@v2
-        with:
-          channel: stable
-          cache: true
-          cache-key: 'flutter-:os:-:channel:-:version:-:arch:'
+      - uses: "./.github/shared_workflows/setup_flutter"
 
       - name: Run tests
         working-directory: packages/onyxsdk_pen

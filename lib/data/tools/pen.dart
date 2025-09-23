@@ -88,15 +88,17 @@ class Pen extends Tool {
   }
 
   void onDragUpdate(Offset position, double? pressure) {
-    currentStroke!.addPoint(position, pressure);
+    currentStroke?.addPoint(position, pressure);
   }
 
-  Stroke onDragEnd() {
-    final Stroke stroke = currentStroke!
+  Stroke? onDragEnd() {
+    final stroke = currentStroke;
+    currentStroke = null;
+    if (stroke == null) return null;
+
+    return stroke
       ..options.isComplete = true
       ..markPolygonNeedsUpdating();
-    currentStroke = null;
-    return stroke;
   }
 
   /// The default stroke options.

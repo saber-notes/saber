@@ -1,4 +1,3 @@
-import 'dart:math';
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
@@ -109,18 +108,6 @@ abstract class EditorExporter {
                         stroke.rect.height,
                         strokeSize / 4,
                         strokeSize / 4,
-                      );
-                    } else if (stroke.length <= 2) {
-                      // a dot
-                      shouldFillShape = true;
-                      final bounds = stroke.lowQualityPath.getBounds();
-                      final radius =
-                          max(bounds.size.width, stroke.options.size * 0.5) / 2;
-                      pdfGraphics.drawEllipse(
-                        bounds.center.dx,
-                        pageSize.height - bounds.center.dy,
-                        radius,
-                        radius,
                       );
                     } else {
                       shouldFillShape = true;

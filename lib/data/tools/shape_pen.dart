@@ -59,12 +59,13 @@ class ShapePen extends Pen {
   }
 
   @override
-  Stroke onDragEnd() {
+  Stroke? onDragEnd() {
     _detectShapeDebouncer?.cancel();
     _detectShapeDebouncer = null;
     _detectShape();
 
     final rawStroke = super.onDragEnd();
+    if (rawStroke == null) return null;
     assert(rawStroke.options.isComplete == true);
 
     final detectedShape = ShapePen.detectedShape;
