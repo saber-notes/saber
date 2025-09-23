@@ -148,7 +148,7 @@ class _DirectorySelectorState extends State<DirectorySelector> {
               Expanded(
                 child: Text(
                   _directory,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 13,
                     fontFamily: 'FiraMono',
                     fontFamilyFallback: saberMonoFontFallbacks,

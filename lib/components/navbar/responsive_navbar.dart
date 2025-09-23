@@ -110,5 +110,5 @@ enum LayoutSize {
   phone,
   tablet;
 
-  static final codec = EnumCodec(values);
+  static const codec = EnumCodec(values);
 }

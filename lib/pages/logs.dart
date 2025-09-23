@@ -70,7 +70,7 @@ class LogsPage extends StatelessWidget {
                 actions: [
                   if (logsHistory.isFrozen)
                     IconButton(
-                      icon: AdaptiveIcon(
+                      icon: const AdaptiveIcon(
                         icon: Icons.play_arrow,
                         cupertinoIcon: CupertinoIcons.play_arrow,
                       ),
@@ -78,14 +78,14 @@ class LogsPage extends StatelessWidget {
                     )
                   else
                     IconButton(
-                      icon: AdaptiveIcon(
+                      icon: const AdaptiveIcon(
                         icon: Icons.pause,
                         cupertinoIcon: CupertinoIcons.pause,
                       ),
                       onPressed: logsHistory.freeze,
                     ),
                   IconButton(
-                    icon: AdaptiveIcon(
+                    icon: const AdaptiveIcon(
                       icon: Icons.copy,
                       cupertinoIcon: CupertinoIcons.doc_on_clipboard,
                     ),
@@ -132,7 +132,7 @@ class LogsPage extends StatelessWidget {
                             fontSize: 24,
                           ),
                         ),
-                        SizedBox(height: 8),
+                        const SizedBox(height: 8),
                         Text(
                           t.logs.useTheApp,
                           style: TextStyle(color: colorScheme.onSurface),
@@ -186,7 +186,7 @@ class _LogsItem extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 child: Text(
                   record.stackTrace.toString(),
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontFamily: 'FiraMono',
                     fontFamilyFallback: saberMonoFontFallbacks,
                     fontSize: 11,

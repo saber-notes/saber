@@ -35,5 +35,5 @@ enum ToolId {
   final String id;
   const ToolId(this.id);
 
-  static final codec = EnumCodec(values);
+  static const codec = EnumCodec(values);
 }

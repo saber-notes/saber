@@ -109,7 +109,7 @@ class _PreviewCardState extends State<PreviewCard> {
                           duration: const Duration(milliseconds: 300),
                           child: ConstrainedBox(
                             key: ValueKey(thumbnail.updateCount),
-                            constraints: BoxConstraints(minHeight: 100),
+                            constraints: const BoxConstraints(minHeight: 100),
                             child: InvertWidget(
                               invert: invert,
                               child: thumbnail.doesImageExist

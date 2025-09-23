@@ -5,5 +5,5 @@ enum SentryConsent {
   granted,
   denied;
 
-  static final codec = EnumCodec(values);
+  static const codec = EnumCodec(values);
 }

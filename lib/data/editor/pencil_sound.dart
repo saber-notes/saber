@@ -118,5 +118,5 @@ enum PencilSoundSetting {
         PencilSoundSetting.onAlways => false,
       };
 
-  static final codec = EnumCodec(values);
+  static const codec = EnumCodec(values);
 }

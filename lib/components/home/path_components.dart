@@ -32,7 +32,7 @@ class PathComponents extends StatelessWidget {
                 onPressed: () {
                   onPathComponentTap(null);
                 },
-                child: Text('/'),
+                child: const Text('/'),
               ),
             for (var i = 0; i < components.length; i++) ...[
               const Icon(Icons.chevron_right, size: 16),
