@@ -9,7 +9,6 @@ import 'package:saber/components/canvas/_canvas_background_painter.dart';
 import 'package:saber/components/navbar/responsive_navbar.dart';
 import 'package:saber/components/settings/nextcloud_profile.dart';
 import 'package:saber/data/codecs/base64_codec.dart';
-import 'package:saber/data/codecs/date_time_codec.dart';
 import 'package:saber/data/codecs/quota_codec.dart';
 import 'package:saber/data/editor/pencil_sound.dart';
 import 'package:saber/data/flavor_config.dart';
