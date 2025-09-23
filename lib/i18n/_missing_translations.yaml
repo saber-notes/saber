@@ -1139,44 +1139,4 @@ tr:
       lineThickness(OUTDATED): Line thickness
       lineThicknessDescription(OUTDATED): Background line thickness
 zh-Hans-CN: 
-  home: 
-    noPreviewAvailable(OUTDATED): 无可用预览
-  sentry: 
-    consent: 
-      title(OUTDATED): 帮助改进 Saber？
-      description: 
-        question(OUTDATED): 您是否希望自动报告意外错误？这有助于我更快地发现和修复问题。
-        scope(OUTDATED): 报告可能包含有关错误和设备的信息。我已尽力过滤个人数据，但仍可能残留部分信息。
-        currentlyOff(OUTDATED): 若同意启用，重启应用后错误报告功能将激活。
-        currentlyOn(OUTDATED): 若撤销同意，请重启应用以禁用错误报告功能。
-        learnMoreInPrivacyPolicy(rich)(OUTDATED): 详见${link(隐私政策)}。
-      answers: 
-        yes(OUTDATED): 同意
-        no(OUTDATED): 拒绝
-        later(OUTDATED): 稍后询问
-  settings: 
-    prefLabels: 
-      autosave(OUTDATED): 自动保存
-      sentry(OUTDATED): 错误报告
-    prefDescriptions: 
-      autosave(OUTDATED): 短暂延迟后自动保存，或永不保存
-      sentry: 
-        active(OUTDATED): 已启用
-        inactive(OUTDATED): 已禁用
-        activeUntilRestart(OUTDATED): 重启前保持启用
-        inactiveUntilRestart(OUTDATED): 重启前保持禁用
-    customDataDir: 
-      unsupported(OUTDATED): 此功能目前仅限开发者使用，可能导致数据丢失
-    autosaveDisabled(OUTDATED): 禁用
-    shapeRecognitionDisabled(OUTDATED): 禁用
-  logs: 
-    logs(OUTDATED): 日志
-    viewLogs(OUTDATED): 查看日志
-    debuggingInfo(OUTDATED): 日志包含用于调试和开发的信息
-    noLogs(OUTDATED): 暂无日志！
-    useTheApp(OUTDATED): 使用应用时日志将显示在此处
-  editor: 
-    menu: 
-      lineThickness(OUTDATED): 线条粗细
-      lineThicknessDescription(OUTDATED): 背景线条粗细
 zh-Hant-TW: 
