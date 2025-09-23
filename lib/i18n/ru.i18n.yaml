@@ -23,6 +23,7 @@ home:
   welcome: Приветствуем в Saber
   invalidFormat: Выбранный вами файл не поддерживается. Выберите файл .sbn, .sbn2, .sba или .pdf.
   noFiles: Файлов ещё нет
+  noPreviewAvailable: Предварительный просмотр недоступен
   createNewNote: Нажмите кнопку «+» чтобы создать новую заметку
   backFolder: Вернуться к предыдущей папке
   newFolder: 
@@ -60,20 +61,19 @@ home:
     deleteName: Удалить $f
     delete: Удалить
     alsoDeleteContents: Также, удалить все заметки в этой папке
-  noPreviewAvailable(OUTDATED): Нет предварительного просмотра
 sentry: 
   consent: 
+    title: Поможете улучшить Saber?
     description: 
-      question(OUTDATED): Хотели бы вы автоматически сообщать о неожиданных ошибках? Это помогает мне быстрее выявлять и исправлять проблемы.
-      scope(OUTDATED): Отчеты могут содержать информацию об ошибке и вашем устройстве. Я приложил все усилия, чтобы отфильтровать личные данные, но некоторые могут остаться.
-      currentlyOff(OUTDATED): Если вы предоставите согласие, отчет об ошибках будет включена после перезапуска приложения.
-      currentlyOn(OUTDATED): Если вы отмените согласие, перезапустите приложение, чтобы отключить отчеты об ошибках.
-      learnMoreInPrivacyPolicy(rich, OUTDATED): Узнайте больше в ${link(Политика конфиденциальности)}.
+      question: Хотели бы вы автоматически сообщать о непредвиденных ошибках? Это помогает мне быстрее выявлять и устранять неполадки.
+      scope: В отчётах может содержаться информация об ошибке и вашем устройстве. Я приложил все усилия, чтобы отфильтровать личные данные, но некоторые из них могут остаться.
+      currentlyOff: Если вы дадите согласие, то после перезапуска приложения будут включены отчёты об ошибках.
+      currentlyOn: Если вы отзовёте свое согласие, пожалуйста, перезапустите приложение, чтобы отключить отчёты об ошибках.
+      learnMoreInPrivacyPolicy(rich): Узнайте больше в разделе ${link(privacy policy)}.
     answers: 
-      yes(OUTDATED): Да
-      no(OUTDATED): Нет
-      later(OUTDATED): Спроси меня позже
-    title(OUTDATED): Помочь улучшить саблу?
+      yes: Да
+      no: Нет
+      later: Спросить позже
 settings: 
   prefCategories: 
     general: Общие
@@ -104,13 +104,13 @@ settings:
     recentColorsDontSavePresets: Не сохранять предустановленные цвета в последних цветах
     recentColorsLength: Количество последних сохраняемых цветов
     printPageIndicators: Печатать номера страниц
+    autosave: Автосохранение
     shapeRecognitionDelay: Задержка распознавания формы
     autoStraightenLines: Автоматическое выпрямление линий
     simplifiedHomeLayout: Упрощённый главный экран
     customDataDir: Свой каталог Saber
     pencilSoundSetting: Звуковой эффект карандаша
-    sentry(OUTDATED): Отчет об ошибках
-    autosave(OUTDATED): Авто-самая
+    sentry: Сообщить об ошибке
   prefDescriptions: 
     hyperlegibleFont: Шрифт Atkinson Hyperlegible повышает разборчивость для читателей с плохим зрением
     allowInsecureConnections: (Не рекомендуется) Разрешить Saber подключаться к серверам с самоподписанными/ненадёжными сертификатами.
@@ -125,6 +125,7 @@ settings:
     editorPromptRename: Вы всегда можете переименовать заметки позже
     hideHomeBackgrounds: Для чистого вида
     printPageIndicators: Показывать номера страниц при экспорте
+    autosave: Автосохранение с задержкой
     shapeRecognitionDelay: Как часто обновлять предварительный просмотр формы
     autoStraightenLines: Выпрямляет длинные линии без использования фигурного пера
     simplifiedHomeLayout: Фиксированная высота предварительного просмотра каждой заметки
@@ -134,11 +135,10 @@ settings:
       onButNotInSilentMode: Включено (кроме тихого режима)
       onAlways: Включено (даже в беззвучном режиме)
     sentry: 
-      active(OUTDATED): Активный
-      inactive(OUTDATED): Неактивный
-      activeUntilRestart(OUTDATED): Активен, пока вы не перезапустите приложение
-      inactiveUntilRestart(OUTDATED): Неактивен, пока вы не перезапустите приложение
-    autosave(OUTDATED): Авто-самая после короткой задержки или никогда
+      active: Активно
+      inactive: Неактивно
+      activeUntilRestart: Активно до тех пор, пока вы не перезапустите приложение
+      inactiveUntilRestart: Неактивно до тех пор, пока вы не перезапустите приложение
   themeModes: 
     system: Системная
     light: Светлая
@@ -165,15 +165,15 @@ settings:
     select: Выбрать
     mustBeEmpty: Выбранный каталог должен быть пустым
     mustBeDoneSyncing: Перед изменением каталога убедитесь, что синхронизация завершена
-    unsupported(OUTDATED): Эта функция в настоящее время предназначена только для разработчиков. Использование, вероятно, приведет к потере данных.
-  autosaveDisabled(OUTDATED): Никогда
-  shapeRecognitionDisabled(OUTDATED): Никогда
+    unsupported: В настоящее время эта функция доступна только разработчикам. Её использование, скорее всего, приведёт к потере данных.
+  autosaveDisabled: Никогда
+  shapeRecognitionDisabled: Никогда
 logs: 
   logs: Жерналы
   viewLogs: Просмотр журналов
   debuggingInfo: Журналы содержат информацию, полезную для отладки и разработки
   noLogs: Здесь нет журналов!
-  useTheApp(OUTDATED): Журналы появятся здесь, когда вы используете приложение
+  useTheApp: Журналы будут отображаться по мере использования приложения
 login: 
   title: Авторизация
   form: 
@@ -329,6 +329,8 @@ editor:
     deletePage: Удалить страницу
     lineHeight: Высота строки
     lineHeightDescription: Также управляет размером текста для напечатанных заметок
+    lineThickness: Толщина линии
+    lineThicknessDescription: Толщина фоновой линии
     backgroundImageFit: Фоновое изображение
     backgroundPattern: Фоновый шаблон
     import: Импорт
@@ -348,8 +350,6 @@ editor:
       staffs: Персональный
       tablature: Табулатура
       cornell: Корнелл
-    lineThickness(OUTDATED): Линия толщина
-    lineThicknessDescription(OUTDATED): Фотовая линия толщина
   newerFileFormat: 
     readOnlyMode: Режим «Только чтение»
     title: Эта заметка была отредактирована в более новой версии Saber.
