@@ -135,11 +135,6 @@ class CanvasPainter extends CustomPainter {
           ),
           shapePaint,
         );
-      } else if (stroke.length <= 2) {
-        // a dot
-        final bounds = stroke.lowQualityPath.getBounds();
-        final radius = max(bounds.size.width, stroke.options.size) / 2;
-        canvas.drawCircle(bounds.center, radius, paint);
       } else {
         canvas.drawPath(_selectPath(stroke), paint);
       }
@@ -168,18 +163,8 @@ class CanvasPainter extends CustomPainter {
       paint.maskFilter = _getPencilMaskFilter(currentStroke!.options.size);
     }
 
-    if (currentStroke!.length <= 2) {
-      // a dot
-      final bounds = currentStroke!.highQualityPath.getBounds();
-      final radius = max(
-        bounds.size.width * 0.5,
-        currentStroke!.options.size * 0.25,
-      );
-      canvas.drawCircle(bounds.center, radius, paint);
-    } else {
-      // Current stroke always uses high quality
-      canvas.drawPath(currentStroke!.highQualityPath, paint);
-    }
+    // Current stroke always uses high quality
+    canvas.drawPath(currentStroke!.highQualityPath, paint);
   }
 
   void _drawLaserStroke(Canvas canvas, LaserStroke stroke) {

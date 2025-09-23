@@ -1,5 +1,5 @@
-name: "Setup"
-description: "Setup Node.js environment and dependencies"
+name: "Install apt dependencies"
+description: "Installs and caches apt dependencies for building Saber"
 
 runs:
   using: "composite"
