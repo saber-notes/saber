@@ -68,6 +68,8 @@ jobs:
         run: ./patches/remove_request_install_packages_permission.sh
       - name: Remove development dependencies
         run: ./patches/remove_dev_dependencies.sh
+      - name: Remove non-Android dependencies
+        run: ./patches/remove_non_android_dependencies.sh
 
       - name: Build aab
         run: |
