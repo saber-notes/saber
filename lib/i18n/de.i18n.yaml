@@ -66,7 +66,7 @@ sentry:
     title: Dabei helfen, Saber zu verbessern?
     description: 
       question: Möchtest du unerwartete Fehler automatisch melden? Das hilft mir dabei, Fehler schneller zu erkennen und zu beheben.
-      scope: Diese Berichte können Informationen über den Fehler und dein Gerät enthalten. Ich habe mein Bestes getan, um perönliche Daten herauszufiltern, allerdings könnten dennoch welche enthalten sein.
+      scope: Diese Berichte können Informationen über den Fehler und dein Gerät enthalten. Ich habe mein Bestes getan, um persönliche Daten herauszufiltern, allerdings könnten dennoch welche enthalten sein.
       currentlyOff: Wenn du zustimmst, wird die Fehlerberichterstattung beim nächsten Neustart der App aktiviert.
       currentlyOn: Falls du deine Zustimmung zurücknimmst, starte bitte die App neu, um die Fehlerberichterstattung zu deaktivieren.
       learnMoreInPrivacyPolicy(rich): Erfahre mehr in der ${link(Datenschutzrichtlinie)}.
