@@ -23,6 +23,7 @@ home:
   welcome: Willkommen bei Saber
   invalidFormat: Die ausgewählte Datei wird nicht unterstützt. Bitte wähle eine Datei mit dem Format sbn, sbn2, sba oder pdf.
   noFiles: Keine Dateien gefunden
+  noPreviewAvailable: Keine Vorschau verfügbar
   createNewNote: Drücke die + Schaltfläche, um eine neue Notiz zu erstellen
   backFolder: Zum vorherigen Ordner zurück gehen
   newFolder: 
@@ -60,20 +61,19 @@ home:
     deleteName: $f löschen
     delete: LÖschen
     alsoDeleteContents: Auch alle Notizen in diesem Ordner löschen
-  noPreviewAvailable(OUTDATED): Keine Vorschau verfügbar
 sentry: 
   consent: 
+    title: Dabei helfen, Saber zu verbessern?
     description: 
-      question(OUTDATED): Möchten Sie automatisch unerwartete Fehler melden? Dies hilft mir, Probleme schneller zu identifizieren und zu beheben.
-      scope(OUTDATED): Die Berichte können Informationen über den Fehler und Ihr Gerät enthalten. Ich habe alle Anstrengungen unternommen, um personenbezogene Daten herauszufiltern, aber einige können bleiben.
-      currentlyOff(OUTDATED): Wenn Sie die Einverständniserklärung erteilen, wird die Fehlerberichterstattung nach dem Neustart der App aktiviert.
-      currentlyOn(OUTDATED): Wenn Sie die Einwilligung widerrufen, starten Sie die App neu, um die Fehlerberichterstattung zu deaktivieren.
-      learnMoreInPrivacyPolicy(rich, OUTDATED): Erfahren Sie mehr in der ${link(Datenschutzrichtlinie)}.
+      question: Möchtest du unerwartete Fehler automatisch melden? Das hilft mir dabei, Fehler schneller zu erkennen und zu beheben.
+      scope: Diese Berichte können Informationen über den Fehler und dein Gerät enthalten. Ich habe mein Bestes getan, um persönliche Daten herauszufiltern, allerdings könnten dennoch welche enthalten sein.
+      currentlyOff: Wenn du zustimmst, wird die Fehlerberichterstattung beim nächsten Neustart der App aktiviert.
+      currentlyOn: Falls du deine Zustimmung zurücknimmst, starte bitte die App neu, um die Fehlerberichterstattung zu deaktivieren.
+      learnMoreInPrivacyPolicy(rich): Erfahre mehr in der ${link(Datenschutzrichtlinie)}.
     answers: 
-      yes(OUTDATED): Ja
-      no(OUTDATED): NEIN
-      later(OUTDATED): Fragen Sie mich später
-    title(OUTDATED): Bessert die Saber?
+      yes: Ja
+      no: Nein
+      later: Später erneut fragen
 settings: 
   prefCategories: 
     general: Allgemein
@@ -104,13 +104,13 @@ settings:
     recentColorsDontSavePresets: Farbvorlagen nicht in den zuletzt genutzten Farben speichern
     recentColorsLength: Anzahl der zuletzt genutzten Farben
     printPageIndicators: Seitennummerierung drucken
+    autosave: Auto-Speichern
     shapeRecognitionDelay: Verzögerung der Formerkennung
     autoStraightenLines: Linien automatisch begradigen
     simplifiedHomeLayout: Vereinfachtes Startbildschirmlayout
     customDataDir: Eigener Saber-Ordner
     pencilSoundSetting: Bleistiftgeräusch
-    sentry(OUTDATED): Fehlerberichterstattung
-    autosave(OUTDATED): Auto-Save
+    sentry: Fehlerberichterstattung
   prefDescriptions: 
     hyperlegibleFont: Atkinson Hyperlegible verbessert die Lesbarkeit für Menschen mit eingeschränkter Sicht
     allowInsecureConnections: (Nicht empfohlen) Saber erlauben, sich mit selbstsignierten/unsicheren Zertifikaten zu verbinden
@@ -125,6 +125,7 @@ settings:
     editorPromptRename: Notizen können später immer noch umbenannt werden
     hideHomeBackgrounds: Für ein sauberes Aussehen
     printPageIndicators: Seitennummerierung bei Export anzeigen
+    autosave: Nach kurzer Zeit Auto-Speichern oder nie
     shapeRecognitionDelay: Häufigkeit der Aktualisierung der Form-Vorschau
     autoStraightenLines: Lange Linien selbst ohne Form-Stift begradigen
     simplifiedHomeLayout: Legt eine feste Höhe für jede Notizvorschau fest
@@ -134,11 +135,10 @@ settings:
       onButNotInSilentMode: Aktiv (außer im Stummmodus)
       onAlways: Aktiv (sogar im Stummmodus)
     sentry: 
-      active(OUTDATED): Aktiv
-      inactive(OUTDATED): Inaktiv
-      activeUntilRestart(OUTDATED): Aktiv, bis Sie die App neu starten
-      inactiveUntilRestart(OUTDATED): Inaktiv, bis Sie die App neu starten
-    autosave(OUTDATED): Automatisch nach einer kurzen Verzögerung oder nie
+      active: Aktiv
+      inactive: Inaktiv
+      activeUntilRestart: Aktiv bis zum Neustart der App
+      inactiveUntilRestart: Inaktiv bis zum Neustart der App
   themeModes: 
     system: System
     light: Hell
@@ -165,15 +165,15 @@ settings:
     select: Auswählen
     mustBeEmpty: Ausgewählter Ordner muss leer sein
     mustBeDoneSyncing: Stelle sicher, dass die Synchronisierung abgeschlossen ist, bevor du den Ordner wechselst
-    unsupported(OUTDATED): Diese Funktion gilt derzeit nur für Entwickler. Die Verwendung wird wahrscheinlich zu Datenverlust führen.
-  autosaveDisabled(OUTDATED): Niemals
-  shapeRecognitionDisabled(OUTDATED): Niemals
+    unsupported: Die Funktion ist zur Zeit nur für Entwickler gedacht. Die Verwendung führt wahrscheinlich zu Datenverlust.
+  autosaveDisabled: Nie
+  shapeRecognitionDisabled: Nie
 logs: 
-  useTheApp(OUTDATED): Protokolle werden hier angezeigt, wenn Sie die App verwenden
-  logs(OUTDATED): Protokolle
-  viewLogs(OUTDATED): Protokolle anzeigen
-  debuggingInfo(OUTDATED): Protokolle enthalten Informationen, die für die Fehlerbehebung und Entwicklung nützlich sind
-  noLogs(OUTDATED): Hier gibt es keine Protokolle!
+  logs: Protokolle
+  viewLogs: Protokolle anzeigen
+  debuggingInfo: Protokolle enthalten hilfreiche Informationen zur Fehlerbehebung und Entwicklung
+  noLogs: Keine Protokolle vorhanden!
+  useTheApp: Protokolle erscheinen hier, wenn du die App verwendest
 login: 
   title: Login
   form: 
@@ -330,6 +330,8 @@ editor:
     deletePage: Seite löschen
     lineHeight: Zeilenhöhe
     lineHeightDescription: Bestimmt ebenfalls die Textgröße der getippten Notizen
+    lineThickness: Strichstärke
+    lineThicknessDescription: Hintergrundstrichstärke
     backgroundImageFit: Background image fit
     backgroundPattern: Hintergrundmuster
     import: Importieren
@@ -349,8 +351,6 @@ editor:
       staffs: Notenpapier
       tablature: Tablature
       cornell: Cornell-Stil
-    lineThickness(OUTDATED): Liniendicke
-    lineThicknessDescription(OUTDATED): Hintergrundliniendicke
   newerFileFormat: 
     readOnlyMode: Schreibgeschützter Modus
     title: Diese Notiz wurde mit einer neueren Version von Saber bearbeitet
