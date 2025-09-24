@@ -283,6 +283,9 @@ class EditorPage extends ChangeNotifier implements HasSize {
   @override
   void dispose() {
     quill.dispose();
+    pencilShader.dispose();
+    isRendered = false;
+    backgroundImage?.dispose();
     super.dispose();
   }
 
