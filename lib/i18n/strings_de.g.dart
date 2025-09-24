@@ -796,7 +796,7 @@ class _TranslationsSentryConsentDescriptionDe extends TranslationsSentryConsentD
 
 	// Translations
 	@override String get question => 'Möchtest du unerwartete Fehler automatisch melden? Das hilft mir dabei, Fehler schneller zu erkennen und zu beheben.';
-	@override String get scope => 'Diese Berichte können Informationen über den Fehler und dein Gerät enthalten. Ich habe mein Bestes getan, um perönliche Daten herauszufiltern, allerdings könnten dennoch welche enthalten sein.';
+	@override String get scope => 'Diese Berichte können Informationen über den Fehler und dein Gerät enthalten. Ich habe mein Bestes getan, um persönliche Daten herauszufiltern, allerdings könnten dennoch welche enthalten sein.';
 	@override String get currentlyOff => 'Wenn du zustimmst, wird die Fehlerberichterstattung beim nächsten Neustart der App aktiviert.';
 	@override String get currentlyOn => 'Falls du deine Zustimmung zurücknimmst, starte bitte die App neu, um die Fehlerberichterstattung zu deaktivieren.';
 	@override TextSpan learnMoreInPrivacyPolicy({required InlineSpanBuilder link}) => TextSpan(children: [
