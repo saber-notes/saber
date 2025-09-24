@@ -68,8 +68,7 @@ dependencies:
   keybinder: ^1.0.1
 
   pdf: ^3.8.4
-  # share_plus 12 requires AGP >=8.13 but F-Droid only supports 8.11 right now: https://gitlab.com/fdroid/admin/-/issues/593
-  share_plus: ^11.0.0
+  share_plus: ^12.0.0
   file_picker: ^10.1.2
 
   regexed_validator: ^2.0.0+1
