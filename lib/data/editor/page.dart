@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:math';
 import 'dart:typed_data';
+import 'dart:ui' show FragmentShader;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_quill/flutter_quill.dart';
@@ -44,7 +45,8 @@ class EditorPage extends ChangeNotifier implements HasSize {
     _renderBox = null;
   }
 
-  late final pencilShader = PencilShader.create();
+  FragmentShader get pencilShader => _pencilShader ??= PencilShader.create();
+  FragmentShader? _pencilShader;
 
   final List<Stroke> strokes;
   final List<LaserStroke> laserStrokes;
@@ -283,7 +285,7 @@ class EditorPage extends ChangeNotifier implements HasSize {
   @override
   void dispose() {
     quill.dispose();
-    pencilShader.dispose();
+    _pencilShader?.dispose();
     isRendered = false;
     backgroundImage?.dispose();
     super.dispose();
