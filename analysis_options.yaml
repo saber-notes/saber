@@ -19,7 +19,7 @@ linter:
   # section below to disable rules from the `package:flutter_lints/flutter.yaml`
   # included above or to enable additional rules. A list of all available lints
   # and their documentation is published at
-  # https://dart-lang.github.io/linter/lints/index.html.
+  # https://dart.dev/tools/linter-rules.
   #
   # Instead of disabling a lint rule for the entire project in the
   # section below, it can also be suppressed for a single line of code
@@ -75,6 +75,11 @@ linter:
     use_string_buffers: true
 
     curly_braces_in_flow_control_structures: false
+
+    prefer_const_constructors: true
+    prefer_const_constructors_in_immutables: true
+    prefer_const_declarations: true
+    prefer_const_literals_to_create_immutables: true
 
 # Additional information about this file can be found at
 # https://dart.dev/guides/language/analysis-options

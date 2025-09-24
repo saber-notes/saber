@@ -70,6 +70,7 @@ class _TranslationsHomeRu extends TranslationsHomeEn {
 	@override String get welcome => 'Приветствуем в Saber';
 	@override String get invalidFormat => 'Выбранный вами файл не поддерживается. Выберите файл .sbn, .sbn2, .sba или .pdf.';
 	@override String get noFiles => 'Файлов ещё нет';
+	@override String get noPreviewAvailable => 'Предварительный просмотр недоступен';
 	@override String get createNewNote => 'Нажмите кнопку «+» чтобы создать новую заметку';
 	@override String get backFolder => 'Вернуться к предыдущей папке';
 	@override late final _TranslationsHomeNewFolderRu newFolder = _TranslationsHomeNewFolderRu._(_root);
@@ -78,7 +79,6 @@ class _TranslationsHomeRu extends TranslationsHomeEn {
 	@override String get deleteNote => 'Удалить заметку';
 	@override late final _TranslationsHomeRenameFolderRu renameFolder = _TranslationsHomeRenameFolderRu._(_root);
 	@override late final _TranslationsHomeDeleteFolderRu deleteFolder = _TranslationsHomeDeleteFolderRu._(_root);
-	@override String get noPreviewAvailable => 'Нет предварительного просмотра';
 }
 
 // Path: sentry
@@ -130,7 +130,7 @@ class _TranslationsLogsRu extends TranslationsLogsEn {
 	@override String get viewLogs => 'Просмотр журналов';
 	@override String get debuggingInfo => 'Журналы содержат информацию, полезную для отладки и разработки';
 	@override String get noLogs => 'Здесь нет журналов!';
-	@override String get useTheApp => 'Журналы появятся здесь, когда вы используете приложение';
+	@override String get useTheApp => 'Журналы будут отображаться по мере использования приложения';
 }
 
 // Path: login
@@ -358,9 +358,9 @@ class _TranslationsSentryConsentRu extends TranslationsSentryConsentEn {
 	final TranslationsRu _root; // ignore: unused_field
 
 	// Translations
+	@override String get title => 'Поможете улучшить Saber?';
 	@override late final _TranslationsSentryConsentDescriptionRu description = _TranslationsSentryConsentDescriptionRu._(_root);
 	@override late final _TranslationsSentryConsentAnswersRu answers = _TranslationsSentryConsentAnswersRu._(_root);
-	@override String get title => 'Помочь улучшить саблу?';
 }
 
 // Path: settings.prefCategories
@@ -406,13 +406,13 @@ class _TranslationsSettingsPrefLabelsRu extends TranslationsSettingsPrefLabelsEn
 	@override String get recentColorsDontSavePresets => 'Не сохранять предустановленные цвета в последних цветах';
 	@override String get recentColorsLength => 'Количество последних сохраняемых цветов';
 	@override String get printPageIndicators => 'Печатать номера страниц';
+	@override String get autosave => 'Автосохранение';
 	@override String get shapeRecognitionDelay => 'Задержка распознавания формы';
 	@override String get autoStraightenLines => 'Автоматическое выпрямление линий';
 	@override String get simplifiedHomeLayout => 'Упрощённый главный экран';
 	@override String get customDataDir => 'Свой каталог Saber';
 	@override String get pencilSoundSetting => 'Звуковой эффект карандаша';
-	@override String get sentry => 'Отчет об ошибках';
-	@override String get autosave => 'Авто-самая';
+	@override String get sentry => 'Сообщить об ошибке';
 }
 
 // Path: settings.prefDescriptions
@@ -432,13 +432,13 @@ class _TranslationsSettingsPrefDescriptionsRu extends TranslationsSettingsPrefDe
 	@override String get editorPromptRename => 'Вы всегда можете переименовать заметки позже';
 	@override String get hideHomeBackgrounds => 'Для чистого вида';
 	@override String get printPageIndicators => 'Показывать номера страниц при экспорте';
+	@override String get autosave => 'Автосохранение с задержкой';
 	@override String get shapeRecognitionDelay => 'Как часто обновлять предварительный просмотр формы';
 	@override String get autoStraightenLines => 'Выпрямляет длинные линии без использования фигурного пера';
 	@override String get simplifiedHomeLayout => 'Фиксированная высота предварительного просмотра каждой заметки';
 	@override String get shouldAlwaysAlertForUpdates => 'Сообщать мне об обновлениях, как только они станут доступны';
 	@override late final _TranslationsSettingsPrefDescriptionsPencilSoundSettingRu pencilSoundSetting = _TranslationsSettingsPrefDescriptionsPencilSoundSettingRu._(_root);
 	@override late final _TranslationsSettingsPrefDescriptionsSentryRu sentry = _TranslationsSettingsPrefDescriptionsSentryRu._(_root);
-	@override String get autosave => 'Авто-самая после короткой задержки или никогда';
 }
 
 // Path: settings.themeModes
@@ -497,7 +497,7 @@ class _TranslationsSettingsCustomDataDirRu extends TranslationsSettingsCustomDat
 	@override String get select => 'Выбрать';
 	@override String get mustBeEmpty => 'Выбранный каталог должен быть пустым';
 	@override String get mustBeDoneSyncing => 'Перед изменением каталога убедитесь, что синхронизация завершена';
-	@override String get unsupported => 'Эта функция в настоящее время предназначена только для разработчиков. Использование, вероятно, приведет к потере данных.';
+	@override String get unsupported => 'В настоящее время эта функция доступна только разработчикам. Её использование, скорее всего, приведёт к потере данных.';
 }
 
 // Path: login.form
@@ -739,6 +739,8 @@ class _TranslationsEditorMenuRu extends TranslationsEditorMenuEn {
 	@override String get deletePage => 'Удалить страницу';
 	@override String get lineHeight => 'Высота строки';
 	@override String get lineHeightDescription => 'Также управляет размером текста для напечатанных заметок';
+	@override String get lineThickness => 'Толщина линии';
+	@override String get lineThicknessDescription => 'Толщина фоновой линии';
 	@override String get backgroundImageFit => 'Фоновое изображение';
 	@override String get backgroundPattern => 'Фоновый шаблон';
 	@override String get import => 'Импорт';
@@ -746,8 +748,6 @@ class _TranslationsEditorMenuRu extends TranslationsEditorMenuEn {
 	@override String get watchServerReadOnly => 'Редактирование невозможно во время слежки за сервером';
 	@override late final _TranslationsEditorMenuBoxFitsRu boxFits = _TranslationsEditorMenuBoxFitsRu._(_root);
 	@override late final _TranslationsEditorMenuBgPatternsRu bgPatterns = _TranslationsEditorMenuBgPatternsRu._(_root);
-	@override String get lineThickness => 'Линия толщина';
-	@override String get lineThicknessDescription => 'Фотовая линия толщина';
 }
 
 // Path: editor.newerFileFormat
@@ -795,13 +795,13 @@ class _TranslationsSentryConsentDescriptionRu extends TranslationsSentryConsentD
 	final TranslationsRu _root; // ignore: unused_field
 
 	// Translations
-	@override String get question => 'Хотели бы вы автоматически сообщать о неожиданных ошибках? Это помогает мне быстрее выявлять и исправлять проблемы.';
-	@override String get scope => 'Отчеты могут содержать информацию об ошибке и вашем устройстве. Я приложил все усилия, чтобы отфильтровать личные данные, но некоторые могут остаться.';
-	@override String get currentlyOff => 'Если вы предоставите согласие, отчет об ошибках будет включена после перезапуска приложения.';
-	@override String get currentlyOn => 'Если вы отмените согласие, перезапустите приложение, чтобы отключить отчеты об ошибках.';
+	@override String get question => 'Хотели бы вы автоматически сообщать о непредвиденных ошибках? Это помогает мне быстрее выявлять и устранять неполадки.';
+	@override String get scope => 'В отчётах может содержаться информация об ошибке и вашем устройстве. Я приложил все усилия, чтобы отфильтровать личные данные, но некоторые из них могут остаться.';
+	@override String get currentlyOff => 'Если вы дадите согласие, то после перезапуска приложения будут включены отчёты об ошибках.';
+	@override String get currentlyOn => 'Если вы отзовёте свое согласие, пожалуйста, перезапустите приложение, чтобы отключить отчёты об ошибках.';
 	@override TextSpan learnMoreInPrivacyPolicy({required InlineSpanBuilder link}) => TextSpan(children: [
-		const TextSpan(text: 'Узнайте больше в '),
-		link('Политика конфиденциальности'),
+		const TextSpan(text: 'Узнайте больше в разделе '),
+		link('privacy policy'),
 		const TextSpan(text: '.'),
 	]);
 }
@@ -815,7 +815,7 @@ class _TranslationsSentryConsentAnswersRu extends TranslationsSentryConsentAnswe
 	// Translations
 	@override String get yes => 'Да';
 	@override String get no => 'Нет';
-	@override String get later => 'Спроси меня позже';
+	@override String get later => 'Спросить позже';
 }
 
 // Path: settings.prefDescriptions.hideFingerDrawing
@@ -849,10 +849,10 @@ class _TranslationsSettingsPrefDescriptionsSentryRu extends TranslationsSettings
 	final TranslationsRu _root; // ignore: unused_field
 
 	// Translations
-	@override String get active => 'Активный';
-	@override String get inactive => 'Неактивный';
-	@override String get activeUntilRestart => 'Активен, пока вы не перезапустите приложение';
-	@override String get inactiveUntilRestart => 'Неактивен, пока вы не перезапустите приложение';
+	@override String get active => 'Активно';
+	@override String get inactive => 'Неактивно';
+	@override String get activeUntilRestart => 'Активно до тех пор, пока вы не перезапустите приложение';
+	@override String get inactiveUntilRestart => 'Неактивно до тех пор, пока вы не перезапустите приложение';
 }
 
 // Path: login.ncLoginStep.loginFlow

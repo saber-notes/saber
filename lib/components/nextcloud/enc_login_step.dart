@@ -88,7 +88,7 @@ class _EncLoginStepState extends State<EncLoginStep> {
         const SizedBox(height: 16),
         TextField(
           controller: _encPasswordController,
-          style: TextStyle(
+          style: const TextStyle(
             fontFamily: 'FiraMono',
             fontFamilyFallback: saberMonoFontFallbacks,
           ),

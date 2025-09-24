@@ -270,5 +270,5 @@ enum CanvasBackgroundPattern {
     }
   }
 
-  static final codec = EnumCodec(values);
+  static const codec = EnumCodec(values);
 }

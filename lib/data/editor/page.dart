@@ -19,7 +19,7 @@ class HasSize {
   final Size size;
 }
 
-class EditorPage extends Listenable implements HasSize {
+class EditorPage extends ChangeNotifier implements HasSize {
   static const double defaultWidth = 1000;
   static const double defaultHeight = defaultWidth * 1.4;
   static const Size defaultSize = Size(defaultWidth, defaultHeight);
@@ -274,33 +274,19 @@ class EditorPage extends Listenable implements HasSize {
         assetCache: assetCache,
       );
 
-  final List<VoidCallback> _listeners = [];
-  bool _disposed = false;
-  bool get disposed => _disposed;
-
   /// Triggers a redraw of the strokes. If you need to redraw images,
   /// call [setState] instead.
   void redrawStrokes() {
-    for (final VoidCallback listener in _listeners) {
-      listener();
-    }
+    notifyListeners();
   }
 
   @override
-  void addListener(VoidCallback listener) {
-    if (_disposed)
-      throw Exception('Cannot add listener to disposed EditorPage');
-    _listeners.add(listener);
-  }
-
-  @override
-  void removeListener(VoidCallback listener) {
-    _listeners.remove(listener);
-  }
-
   void dispose() {
-    _disposed = true;
     quill.dispose();
+    pencilShader.dispose();
+    isRendered = false;
+    backgroundImage?.dispose();
+    super.dispose();
   }
 
   EditorPage copyWith({

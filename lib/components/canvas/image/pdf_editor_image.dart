@@ -173,7 +173,7 @@ class PdfEditorImage extends EditorImage {
           child: PdfPageView(
             document: pdfDocument,
             pageNumber: pdfPage + 1,
-            decoration: BoxDecoration(),
+            decoration: const BoxDecoration(),
           ),
         );
       },

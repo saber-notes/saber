@@ -23,6 +23,7 @@ home:
   welcome: 欢迎使用 Saber
   invalidFormat: 不支持该文件。请选择 .sbn、.sbn2、.sba 或 .pdf 文件。
   noFiles: 未找到文件
+  noPreviewAvailable: 无可用预览
   createNewNote: 点击 + 按钮新建一个笔记
   backFolder: 回到上一个文件夹
   newFolder: 
@@ -60,20 +61,19 @@ home:
     deleteName: 删除 $f
     delete: 删除
     alsoDeleteContents: 同时删除此文件夹中的所有笔记
-  noPreviewAvailable(OUTDATED): 没有预览
 sentry: 
   consent: 
+    title: 帮助改进 Saber？
     description: 
-      question(OUTDATED): 您想自动报告意外错误吗？这可以帮助我更快地识别和解决问题。
-      scope(OUTDATED): 报告可能包含有关错误和设备的信息。我已经尽一切努力过滤了个人数据，但有些可能会保留。
-      currentlyOff(OUTDATED): 如果您授予同意，则重新启动应用程序后将启用错误报告。
-      currentlyOn(OUTDATED): 如果您撤销同意，请重新启动该应用程序以禁用错误报告。
-      learnMoreInPrivacyPolicy(rich, OUTDATED): 在${link(隐私策略)}中了解更多信息。
+      question: 您是否希望自动报告意外错误？这有助于我更快地发现和修复问题。
+      scope: 报告可能包含有关错误和设备的信息。我已尽力过滤个人数据，但仍可能残留部分信息。
+      currentlyOff: 若同意启用，重启应用后错误报告功能将激活。
+      currentlyOn: 若撤销同意，请重启应用以禁用错误报告功能。
+      learnMoreInPrivacyPolicy(rich): 详见${link(隐私政策)}。
     answers: 
-      yes(OUTDATED): 是的
-      no(OUTDATED): 不
-      later(OUTDATED): 稍后问我
-    title(OUTDATED): 帮助改善军刀？
+      yes: 同意
+      no: 拒绝
+      later: 稍后询问
 settings: 
   prefCategories: 
     general: 通用
@@ -104,13 +104,13 @@ settings:
     recentColorsDontSavePresets: 不在最近使用的颜色中保存预设颜色
     recentColorsLength: 要存储多少种最近的颜色
     printPageIndicators: 打印页码
+    autosave: 自动保存
     shapeRecognitionDelay: 形状识别延迟
     autoStraightenLines: 自动拉直线
     simplifiedHomeLayout: 简化主页布局
     customDataDir: 自定义 Saber 文件夹
     pencilSoundSetting: 铅笔音效
-    sentry(OUTDATED): 错误报告
-    autosave(OUTDATED): 自动保存
+    sentry: 错误报告
   prefDescriptions: 
     hyperlegibleFont: Atkinson Hyperlegible 字体为低视力读者提高易读性
     allowInsecureConnections: （不推荐）允许 Saber 连接到具有自签名/不受信任证书的服务器
@@ -125,6 +125,7 @@ settings:
     editorPromptRename: 您可以总是稍后重命名笔记
     hideHomeBackgrounds: 更简洁的外观
     printPageIndicators: 在导出中显示页码
+    autosave: 短暂延迟后自动保存，或永不保存
     shapeRecognitionDelay: 形状预览更新频率
     autoStraightenLines: 拉直长线，无需使用形状笔
     simplifiedHomeLayout: 为每个笔记预览设置固定高度
@@ -134,11 +135,10 @@ settings:
       onButNotInSilentMode: 启用（除非在静音模式下）
       onAlways: 启用（即使在静音模式下）
     sentry: 
-      active(OUTDATED): 积极的
-      inactive(OUTDATED): 不活动
-      activeUntilRestart(OUTDATED): 活跃直到重新启动应用程序
-      inactiveUntilRestart(OUTDATED): 不活动直到重新启动应用程序
-    autosave(OUTDATED): 短暂延迟后自动保存，或者永远不会
+      active: 已启用
+      inactive: 已禁用
+      activeUntilRestart: 重启前保持启用
+      inactiveUntilRestart: 重启前保持禁用
   themeModes: 
     system: 系统
     light: 浅色
@@ -165,15 +165,15 @@ settings:
     select: 选择
     mustBeEmpty: 所选文件夹必须为空
     mustBeDoneSyncing: 更改文件夹前，请确保同步已完成
-    unsupported(OUTDATED): 此功能目前仅适用于开发人员。使用它可能会导致数据丢失。
-  autosaveDisabled(OUTDATED): 绝不
-  shapeRecognitionDisabled(OUTDATED): 绝不
+    unsupported: 此功能目前仅限开发者使用，可能导致数据丢失
+  autosaveDisabled: 禁用
+  shapeRecognitionDisabled: 禁用
 logs: 
-  useTheApp(OUTDATED): 当您使用该应用时，日志将出现在这里
-  logs(OUTDATED): 日志
-  viewLogs(OUTDATED): 查看日志
-  debuggingInfo(OUTDATED): 日志包含对调试和开发有用的信息
-  noLogs(OUTDATED): 这里没有日志！
+  logs: 日志
+  viewLogs: 查看日志
+  debuggingInfo: 日志包含用于调试和开发的信息
+  noLogs: 暂无日志！
+  useTheApp: 使用应用时日志将显示在此处
 login: 
   title: 登录
   form: 
@@ -329,6 +329,8 @@ editor:
     deletePage: 删除页面
     lineHeight: 行高
     lineHeightDescription: 还控制已输入的笔记的文本大小
+    lineThickness: 线条粗细
+    lineThicknessDescription: 背景线条粗细
     backgroundImageFit: 背景图像拟合
     backgroundPattern: 背景图案
     import: 导入
@@ -348,8 +350,6 @@ editor:
       staffs: 五线谱
       tablature: 绘画
       cornell: Cornell
-    lineThickness(OUTDATED): 线厚度
-    lineThicknessDescription(OUTDATED): 背景线厚度
   newerFileFormat: 
     readOnlyMode: 只读模式
     title: 此笔记使用新版 Saber 编辑而成
