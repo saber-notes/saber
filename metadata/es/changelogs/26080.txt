@@ -1,0 +1,4 @@
+• Manejo mejorado de trazos cortos (1-2 puntos).
+• Errores nulos fijos en los manejadores de gestos de lápiz.
+• Se corrigió una pequeña fuga de memoria con los sombreadores de lápiz.
+• Se corrigió parcialmente la migración de directorio de datos personalizado en Android.

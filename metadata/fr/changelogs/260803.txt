@@ -1,0 +1,4 @@
+• Manipulation améliorée de traits courts (1-2 points).
+• Correction des erreurs nulles dans les gestionnaires de gestes de stylo.
+• Correction d'une petite fuite de mémoire avec les shaders crayons.
+• Correction partiellement de la migration du répertoire de données personnalisé sur Android.

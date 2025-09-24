@@ -214,6 +214,16 @@
     </screenshots>
 
     <releases>
+        <release version="0.26.8" type="development" date="2025-09-24">
+            <description>
+                <ul>
+                    <li>Improved handling of short (1-2 point) strokes.</li>
+                    <li>Fixed null errors in pen gesture handlers.</li>
+                    <li>Fixed a small memory leak with the pencil shaders.</li>
+                    <li>Partially fixed the custom data directory migration on Android.</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.26.7" type="development" date="2025-09-08">
             <description>
                 <ul>
