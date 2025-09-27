@@ -1116,6 +1116,7 @@ class EditorState extends State<Editor> {
             onLoad: () => setState(() {}),
             assetCache: coreInfo.assetCache,
             assetCacheAll: coreInfo.assetCacheAll,
+            assetId: cacheId,
           ));
         }
       }
@@ -1196,6 +1197,8 @@ class EditorState extends State<Editor> {
       log.severe('Failed to read file when importing $path: $e', e);
       return false;
     }
+    int? assetIndex = await coreInfo.assetCacheAll.add(pdfBytes);  // add pdf to cache
+
 
     final emptyPage = coreInfo.pages.removeLast();
     assert(emptyPage.isEmpty);
@@ -1234,6 +1237,7 @@ class EditorState extends State<Editor> {
         onLoad: () => setState(() {}),
         assetCache: coreInfo.assetCache,
         assetCacheAll: coreInfo.assetCacheAll,
+        assetId: assetIndex,
       );
       coreInfo.pages.add(page);
       history.recordChange(EditorHistoryItem(

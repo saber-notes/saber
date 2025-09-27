@@ -106,6 +106,7 @@ void main() {
 // ignore: missing_override_of_must_be_overridden
 class TestImage extends PngEditorImage {
   static final _assetCache = AssetCache();
+  static final _assetCacheAll = AssetCacheAll();
 
   TestImage({
     required super.dstRect,
@@ -119,6 +120,8 @@ class TestImage extends PngEditorImage {
           onDeleteImage: null,
           onMiscChange: null,
           assetCache: _assetCache,
+          assetCacheAll:_assetCacheAll,
+          assetId: -1,
         );
 
   @override

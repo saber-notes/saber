@@ -1,9 +1,11 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
+import 'dart:typed_data';
 import 'package:collection/collection.dart';
 import 'package:flutter/painting.dart';
 import 'package:logging/logging.dart';
+import 'package:pdfrx/pdfrx.dart';
 import 'package:saber/components/canvas/image/editor_image.dart';
 
 /// A cache for assets that are loaded from disk.
@@ -158,6 +160,8 @@ class CacheItem {
   final Object value;
   int? previewHash; // quick hash (from first 100KB bytes)
   int? hash;  // hash can be calculated later
+  ImageProvider? _imageProvider;   // image provider for png, svg
+  PdfDocument? _pdfDocument;      // pdf document provider for pdf
 
   // for files only
   final int? fileSize;
@@ -227,8 +231,85 @@ class AssetCacheAll {
   final Map<int, int> _aliasMap = {}; // duplicit indices point to first indice  - updated in finalize
   final Map<int, int> _previewHashIndex = {};   // Map from previewHash → first index in _items
 
+  final Map<int, Future<ImageProvider>> _pendingProviders = {}; // holds currently opening futures to avoid duplicates
+  final Map<int, Future<PdfDocument>> _openingDocs = {};   // Holds currently opening futures to avoid duplicate opens
+
+
 
   final log = Logger('OrderedAssetCache');
+
+  // return pdfDocument of asset it is lazy because it take some time to do it
+  Future<PdfDocument> getPdfDocument(int assetId) {
+    // if already opened, return it immediately
+    final item = _items[assetId];
+    if (item._pdfDocument != null) return Future.value(item._pdfDocument!);
+
+    // if someone else is already opening this doc, return their future
+    final pending = _openingDocs[assetId];
+    if (pending != null) return pending;
+
+    // otherwise start opening
+    final future = _openPdfDocument(item);
+    _openingDocs[assetId] = future;
+
+    // when done, store the PdfDocument in the CacheItem and remove from _openingDocs
+    future.then((doc) {
+      item._pdfDocument = doc;
+      _openingDocs.remove(assetId);
+    });
+
+    return future;
+  }
+
+  // open pdf document
+  Future<PdfDocument> _openPdfDocument(CacheItem item) async {
+    if (item.filePath != null) {
+      return PdfDocument.openFile(item.filePath!);
+    } else if (item.value is Uint8List) {
+      return PdfDocument.openData(item.value as Uint8List);
+    } else {
+      throw StateError('Asset is not a PDF');
+    }
+  }
+
+  Future<ImageProvider> getImageProvider(int assetId) {
+    // return cached provider if already available
+    final item = _items[assetId];
+    if (item._imageProvider != null) return Future.value(item._imageProvider!);
+
+    // if someone else is already creating it, return the pending future
+    final pending = _pendingProviders[assetId];
+    if (pending != null) return pending;
+
+    // otherwise, create the future
+    final future = _createImageProvider(item);
+    _pendingProviders[assetId] = future;
+
+    // when done, store the provider and remove from pending
+    future.then((provider) {
+      item._imageProvider = provider;
+      _pendingProviders.remove(assetId);
+    });
+
+    return future;
+  }
+
+  Future<ImageProvider> _createImageProvider(CacheItem item) async {
+    if (item.value is File) {
+      return FileImage(item.value as File);
+    } else if (item.value is Uint8List) {
+      return MemoryImage(item.value as Uint8List);
+    } else if (item.value is MemoryImage) {
+      return item.value as MemoryImage;
+    } else if (item.value is FileImage) {
+      return item.value as FileImage;
+    } else {
+      throw UnsupportedError("Unsupported type for ImageProvider: ${item.value.runtimeType}");
+    }
+  }
+
+
+
 
   // calculate hash of bytes (all)
   int calculateHash(List<int> bytes) { // fnv1a
@@ -264,8 +345,16 @@ class AssetCacheAll {
   // full hashes are established later
   int addSync(Object value) {
     if (value is File) {
+      log.info('allCache.addSync: value = $value');
       final path = value.path;
       final previewResult=getFilePreviewHash(value);  // calculate preliminary hash of file
+
+      final existingPathIndex = _items.indexWhere((i) => i.filePath == path);
+      if (existingPathIndex != -1) {
+        _items[existingPathIndex].addUse();
+        log.info('allCache.addSync: already in cache {$_items[existingPathIndex]._refCount}');
+        return existingPathIndex;
+      }
 
       // Check if already cached
       if (_previewHashIndex.containsKey(previewResult.previewHash)) {
@@ -274,18 +363,14 @@ class AssetCacheAll {
         return existingIndex;
       }
 
-      final existingPathIndex = _items.indexWhere((i) => i.filePath == path);
-      if (existingPathIndex != -1) return existingPathIndex;
-
       final newItem = CacheItem(value,
-                          filePath: value.path,
-                          previewHash: previewResult.previewHash,
-                          fileSize: previewResult.fileSize)..addUse();
+          filePath: value.path,
+          previewHash: previewResult.previewHash,
+          fileSize: previewResult.fileSize)..addUse();
       _items.add(newItem);
       final index = _items.length - 1;
       _previewHashIndex[previewResult.previewHash] = index;  // add to previously hashed
       return index;
-
     } else if (value is FileImage) {
       final path = value.file.path;
       final File file = File(path);
@@ -311,6 +396,16 @@ class AssetCacheAll {
       return index;
     } else if (value is MemoryImage) { // file images are first compared by file path
       final hash = calculateHash(value.bytes);
+      final newItem = CacheItem(value, hash: hash)..addUse();
+
+      final existingHashIndex = _items.indexOf(newItem);
+      if (existingHashIndex != -1) return existingHashIndex;
+
+      _items.add(newItem);
+      final index = _items.length - 1;
+      return index;
+    } else if (value is List<int>) { // bytes
+      final hash = calculateHash(value);
       final newItem = CacheItem(value, hash: hash)..addUse();
 
       final existingHashIndex = _items.indexOf(newItem);

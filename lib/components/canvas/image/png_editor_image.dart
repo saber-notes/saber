@@ -1,7 +1,13 @@
 part of 'editor_image.dart';
 
 class PngEditorImage extends EditorImage {
+  /// index of asset assigned to this image
+  int assetId;
+
+
   ImageProvider? imageProvider;
+
+  Future<ImageProvider> get imageProvider2 async => await assetCacheAll.getImageProvider(assetId);
 
   Uint8List? thumbnailBytes;
   Size thumbnailSize = Size.zero;
@@ -25,6 +31,7 @@ class PngEditorImage extends EditorImage {
     required super.id,
     required super.assetCache,
     required super.assetCacheAll,
+    required this.assetId,
     required super.extension,
     required this.imageProvider,
     required super.pageIndex,
@@ -53,15 +60,13 @@ class PngEditorImage extends EditorImage {
     required AssetCacheAll assetCacheAll,
   }) {
     final assetIndexJson = json['a'] as int?;
-    final Uint8List? bytes;
+    Uint8List? bytes;
     final int? assetIndex;
     File? imageFile;
     if (assetIndexJson != null) {
       if (inlineAssets == null) {
         imageFile =
             FileManager.getFile('$sbnPath${Editor.extension}.$assetIndexJson');
-        assetIndex=assetCacheAll.addSync(imageFile);
-        bytes = assetCache.get(imageFile);
       } else {
         bytes = inlineAssets[assetIndexJson];
       }
@@ -76,13 +81,25 @@ class PngEditorImage extends EditorImage {
     assert(bytes != null || imageFile != null,
         'Either bytes or imageFile must be non-null');
 
+    // add to asset cache
+    if (imageFile != null) {
+      assetIndex = assetCacheAll.addSync(imageFile);
+    }
+    else {
+      assetIndex = assetCacheAll.addSync(bytes!);
+    }
+    if (assetIndex<0){
+      throw Exception('EditorImage.fromJson: image not in assets');
+    }
+
     return PngEditorImage(
       // -1 will be replaced by [EditorCoreInfo._handleEmptyImageIds()]
       id: json['id'] ?? -1,
       assetCache: assetCache,
       assetCacheAll: assetCacheAll,
+      assetId: assetIndex,
       extension: json['e'] ?? '.jpg',
-      imageProvider: bytes != null
+      imageProvider:  bytes != null
           ? MemoryImage(bytes) as ImageProvider
           : FileImage(imageFile!),
       pageIndex: json['i'] ?? 0,
@@ -225,6 +242,7 @@ class PngEditorImage extends EditorImage {
         id: id,
         assetCache: assetCache,
         assetCacheAll: assetCacheAll,
+        assetId: assetId,
         extension: extension,
         imageProvider: imageProvider,
         pageIndex: pageIndex,

@@ -1,6 +1,9 @@
 part of 'editor_image.dart';
 
 class PdfEditorImage extends EditorImage {
+  /// index of asset assigned to this pdf file
+  int assetId;
+
   Uint8List? pdfBytes;
   final int pdfPage;
 
@@ -16,6 +19,7 @@ class PdfEditorImage extends EditorImage {
     required super.id,
     required super.assetCache,
     required super.assetCacheAll,
+    required this.assetId,
     required this.pdfBytes,
     required this.pdfFile,
     required this.pdfPage,
@@ -51,16 +55,17 @@ class PdfEditorImage extends EditorImage {
     String? extension = json['e'] as String?;
     assert(extension == null || extension == '.pdf');
 
-    final assetIndex = json['a'] as int?;
+    final assetIndexJson = json['a'] as int?;
     final Uint8List? pdfBytes;
+    int? assetIndex;
     File? pdfFile;
-    if (assetIndex != null) {
+    if (assetIndexJson != null) {
       if (inlineAssets == null) {
         pdfFile =
-            FileManager.getFile('$sbnPath${Editor.extension}.$assetIndex');
+            FileManager.getFile('$sbnPath${Editor.extension}.$assetIndexJson');
         pdfBytes = assetCache.get(pdfFile);
       } else {
-        pdfBytes = inlineAssets[assetIndex];
+        pdfBytes = inlineAssets[assetIndexJson];
       }
     } else {
       if (kDebugMode) {
@@ -69,11 +74,26 @@ class PdfEditorImage extends EditorImage {
       pdfBytes = Uint8List(0);
     }
 
+    assert(pdfBytes != null || pdfFile != null,
+    'Either pdfBytes or pdfFile must be non-null');
+
+    // add to asset cache
+    if (pdfFile != null) {
+      assetIndex = assetCacheAll.addSync(pdfFile);
+    }
+    else {
+      assetIndex = assetCacheAll.addSync(pdfBytes!);
+    }
+    if (assetIndex<0){
+      throw Exception('EditorImage.fromJson: pdf image not in assets');
+    }
+
     return PdfEditorImage(
       id: json['id'] ??
           -1, // -1 will be replaced by EditorCoreInfo._handleEmptyImageIds()
       assetCache: assetCache,
       assetCacheAll: assetCacheAll,
+      assetId: assetIndex,
       pdfBytes: pdfBytes,
       pdfFile: pdfFile,
       pdfPage: json['pdfi'],
@@ -130,9 +150,10 @@ class PdfEditorImage extends EditorImage {
       dstRect = dstRect.topLeft & dstSize;
     }
 
-    _pdfDocument.value ??= pdfFile != null
-        ? await PdfDocument.openFile(pdfFile!.path)
-        : await PdfDocument.openData(pdfBytes!);
+    _pdfDocument.value ??= await assetCacheAll.getPdfDocument(assetId);
+//    _pdfDocument.value ??= pdfFile != null
+//        ? await PdfDocument.openFile(pdfFile!.path)
+//        : await PdfDocument.openData(pdfBytes!);
   }
 
   @override
@@ -188,6 +209,7 @@ class PdfEditorImage extends EditorImage {
         id: id,
         assetCache: assetCache,
         assetCacheAll: assetCacheAll,
+        assetId: assetId,
         pdfBytes: pdfBytes,
         pdfPage: pdfPage,
         pdfFile: pdfFile,
