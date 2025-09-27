@@ -34,6 +34,7 @@ sealed class EditorImage extends ChangeNotifier {
   final String extension;
 
   final AssetCache assetCache;
+  final AssetCacheAll assetCacheAll;
 
   bool _isThumbnail = false;
   bool get isThumbnail => _isThumbnail;
@@ -89,6 +90,7 @@ sealed class EditorImage extends ChangeNotifier {
   EditorImage({
     required this.id,
     required this.assetCache,
+    required this.assetCacheAll,
     required this.extension,
     required this.pageIndex,
     required this.pageSize,
@@ -113,6 +115,7 @@ sealed class EditorImage extends ChangeNotifier {
     bool isThumbnail = false,
     required String sbnPath,
     required AssetCache assetCache,
+    required AssetCacheAll assetCacheAll,
   }) {
     String? extension = json['e'];
     if (extension == '.svg') {
@@ -122,6 +125,7 @@ sealed class EditorImage extends ChangeNotifier {
         isThumbnail: isThumbnail,
         sbnPath: sbnPath,
         assetCache: assetCache,
+        assetCacheAll: assetCacheAll,
       );
     } else if (extension == '.pdf') {
       return PdfEditorImage.fromJson(
@@ -130,6 +134,7 @@ sealed class EditorImage extends ChangeNotifier {
         isThumbnail: isThumbnail,
         sbnPath: sbnPath,
         assetCache: assetCache,
+        assetCacheAll: assetCacheAll,
       );
     } else {
       return PngEditorImage.fromJson(
@@ -138,6 +143,7 @@ sealed class EditorImage extends ChangeNotifier {
         isThumbnail: isThumbnail,
         sbnPath: sbnPath,
         assetCache: assetCache,
+        assetCacheAll: assetCacheAll,
       );
     }
   }
