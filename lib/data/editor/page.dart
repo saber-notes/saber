@@ -129,6 +129,7 @@ class EditorPage extends Listenable implements HasSize {
     required int fileVersion,
     required String sbnPath,
     required AssetCache assetCache,
+    required AssetCacheAll assetCacheAll,
   }) {
     final size = Size(json['w'] ?? defaultWidth, json['h'] ?? defaultHeight);
     return EditorPage(
@@ -146,6 +147,7 @@ class EditorPage extends Listenable implements HasSize {
         onlyFirstPage: false,
         sbnPath: sbnPath,
         assetCache: assetCache,
+        assetCacheAll: assetCacheAll,
       ),
       quill: QuillStruct(
         controller: json['q'] != null
@@ -163,6 +165,7 @@ class EditorPage extends Listenable implements HasSize {
               isThumbnail: false,
               sbnPath: sbnPath,
               assetCache: assetCache,
+              assetCacheAll: assetCacheAll,
             )
           : null,
     );
@@ -241,6 +244,7 @@ class EditorPage extends Listenable implements HasSize {
     required bool onlyFirstPage,
     required String sbnPath,
     required AssetCache assetCache,
+    required AssetCacheAll assetCacheAll,
   }) =>
       images
           ?.cast<Map<String, dynamic>>()
@@ -252,6 +256,7 @@ class EditorPage extends Listenable implements HasSize {
               isThumbnail: isThumbnail,
               sbnPath: sbnPath,
               assetCache: assetCache,
+              assetCacheAll: assetCacheAll,
             );
           })
           .where((element) => element != null)
@@ -265,6 +270,7 @@ class EditorPage extends Listenable implements HasSize {
     required bool isThumbnail,
     required String sbnPath,
     required AssetCache assetCache,
+    required AssetCacheAll assetCacheAll,
   }) =>
       EditorImage.fromJson(
         json,
@@ -272,6 +278,7 @@ class EditorPage extends Listenable implements HasSize {
         isThumbnail: isThumbnail,
         sbnPath: sbnPath,
         assetCache: assetCache,
+        assetCacheAll: assetCacheAll,
       );
 
   final List<VoidCallback> _listeners = [];

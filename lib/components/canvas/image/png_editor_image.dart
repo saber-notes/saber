@@ -24,6 +24,7 @@ class PngEditorImage extends EditorImage {
   PngEditorImage({
     required super.id,
     required super.assetCache,
+    required super.assetCacheAll,
     required super.extension,
     required this.imageProvider,
     required super.pageIndex,
@@ -49,17 +50,20 @@ class PngEditorImage extends EditorImage {
     bool isThumbnail = false,
     required String sbnPath,
     required AssetCache assetCache,
+    required AssetCacheAll assetCacheAll,
   }) {
-    final assetIndex = json['a'] as int?;
+    final assetIndexJson = json['a'] as int?;
     final Uint8List? bytes;
+    final int? assetIndex;
     File? imageFile;
-    if (assetIndex != null) {
+    if (assetIndexJson != null) {
       if (inlineAssets == null) {
         imageFile =
-            FileManager.getFile('$sbnPath${Editor.extension}.$assetIndex');
+            FileManager.getFile('$sbnPath${Editor.extension}.$assetIndexJson');
+        assetIndex=assetCacheAll.addSync(imageFile);
         bytes = assetCache.get(imageFile);
       } else {
-        bytes = inlineAssets[assetIndex];
+        bytes = inlineAssets[assetIndexJson];
       }
     } else if (json['b'] != null) {
       bytes = Uint8List.fromList((json['b'] as List<dynamic>).cast<int>());
@@ -76,6 +80,7 @@ class PngEditorImage extends EditorImage {
       // -1 will be replaced by [EditorCoreInfo._handleEmptyImageIds()]
       id: json['id'] ?? -1,
       assetCache: assetCache,
+      assetCacheAll: assetCacheAll,
       extension: json['e'] ?? '.jpg',
       imageProvider: bytes != null
           ? MemoryImage(bytes) as ImageProvider
@@ -219,6 +224,7 @@ class PngEditorImage extends EditorImage {
   PngEditorImage copy() => PngEditorImage(
         id: id,
         assetCache: assetCache,
+        assetCacheAll: assetCacheAll,
         extension: extension,
         imageProvider: imageProvider,
         pageIndex: pageIndex,

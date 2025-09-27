@@ -15,6 +15,7 @@ class PdfEditorImage extends EditorImage {
   PdfEditorImage({
     required super.id,
     required super.assetCache,
+    required super.assetCacheAll,
     required this.pdfBytes,
     required this.pdfFile,
     required this.pdfPage,
@@ -45,6 +46,7 @@ class PdfEditorImage extends EditorImage {
     bool isThumbnail = false,
     required String sbnPath,
     required AssetCache assetCache,
+    required AssetCacheAll assetCacheAll,
   }) {
     String? extension = json['e'] as String?;
     assert(extension == null || extension == '.pdf');
@@ -71,6 +73,7 @@ class PdfEditorImage extends EditorImage {
       id: json['id'] ??
           -1, // -1 will be replaced by EditorCoreInfo._handleEmptyImageIds()
       assetCache: assetCache,
+      assetCacheAll: assetCacheAll,
       pdfBytes: pdfBytes,
       pdfFile: pdfFile,
       pdfPage: json['pdfi'],
@@ -184,6 +187,7 @@ class PdfEditorImage extends EditorImage {
   PdfEditorImage copy() => PdfEditorImage(
         id: id,
         assetCache: assetCache,
+        assetCacheAll: assetCacheAll,
         pdfBytes: pdfBytes,
         pdfPage: pdfPage,
         pdfFile: pdfFile,

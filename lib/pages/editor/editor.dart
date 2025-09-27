@@ -1082,10 +1082,12 @@ class EditorState extends State<Editor> {
     // use the Select tool so that the user can move the new image
     currentTool = Select.currentSelect;
 
-    List<EditorImage> images = [
-      for (final _PhotoInfo photoInfo in photoInfos)
-        if (photoInfo.extension == '.svg')
-          SvgEditorImage(
+    final List<EditorImage> images = [];
+    for (final _PhotoInfo photoInfo in photoInfos) {
+        if (photoInfo.extension == '.svg') {
+          // add photo to cache
+          int cacheId = await coreInfo.assetCacheAll.add(photoInfo.bytes);
+          images.add(SvgEditorImage(
             id: coreInfo.nextImageId++,
             svgString: utf8.decode(photoInfo.bytes),
             svgFile: null,
@@ -1096,9 +1098,13 @@ class EditorState extends State<Editor> {
             onMiscChange: autosaveAfterDelay,
             onLoad: () => setState(() {}),
             assetCache: coreInfo.assetCache,
-          )
-        else
-          PngEditorImage(
+            assetCacheAll: coreInfo.assetCacheAll,
+          ));
+        }
+        else {
+          final mImage=MemoryImage(photoInfo.bytes);
+          int cacheId = await coreInfo.assetCacheAll.add(mImage);
+          images.add(PngEditorImage(
             id: coreInfo.nextImageId++,
             extension: photoInfo.extension,
             imageProvider: MemoryImage(photoInfo.bytes),
@@ -1109,8 +1115,10 @@ class EditorState extends State<Editor> {
             onMiscChange: autosaveAfterDelay,
             onLoad: () => setState(() {}),
             assetCache: coreInfo.assetCache,
-          ),
-    ];
+            assetCacheAll: coreInfo.assetCacheAll,
+          ));
+        }
+      }
 
     history.recordChange(EditorHistoryItem(
       type: EditorHistoryItemType.draw,
@@ -1225,6 +1233,7 @@ class EditorState extends State<Editor> {
         onMiscChange: autosaveAfterDelay,
         onLoad: () => setState(() {}),
         assetCache: coreInfo.assetCache,
+        assetCacheAll: coreInfo.assetCacheAll,
       );
       coreInfo.pages.add(page);
       history.recordChange(EditorHistoryItem(
