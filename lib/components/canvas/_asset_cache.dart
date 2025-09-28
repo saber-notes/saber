@@ -139,29 +139,48 @@ class OrderedAssetCache {
   }
 }
 ///////////////////////////////////////////////////////////////////////////
-///   New approach to cache
-///
-///   current cache problems:
+///   current cache and images problems:
 ///   1. two caches  assetCache (for working), OrderedAssetCache (for writing)
 ///   2. keeping bytes of each asset in memory (do not know if it is problem, but it is problem when adding to cache
 ///                                             because all bytes must be compared with each already added)
-///   3. after first saving of note containing pdf, each page is treated as different pdf
-///         why:   PdfEditorImage class
-///                     1. keeps bytes = whole pdf
-///                     2. creates its own pdfDocument renderer
-///                     3. while saving note is to the OrderedAssetCache added each page of pdf separately as new asset.
-///      when adding new items it s
+///   3. after first saving of note importing  pdf, is pdf saved as one asset because:
+///           1. importPdfFromFilePath   create one File "    final pdfFile = File(path);"
+///               and this File is used to create all instances of pages
+///           2. when saving, all pages are one asset, because File is the same object!!!
 ///
+///   4. when loading note again and saving note, each page is treated as different pdf
+///         why:   PdfEditorImage class
+///             1. when reading fromJson is created "pdfFile =  FileManager.getFile('$sbnPath${Editor.extension}.$assetIndex');"
+///                for each page (even if they are the same asset file)
+///             2. PdfEditorImage constructor is called with this File - each page has its own File!!!
+///                     1. OrderedCache.add adds each page as new asset because each page is different File
+///   5. problems of PdfEditorImage
+///             1. PdfEditorImage keeps bytes of the whole pdf (wasting memory) even if it renders only one page
+///             2. creates its own pdfDocument renderer - for each pdf page is new renderer keeping whole pdf
+///             3. while saving note is to the OrderedAssetCache added each page of pdf separately as new asset.
+///
+///
+///   New approach to cache
 ///
 ///   handles jpg, png, pdf  (not svg yet)
-///   for each photo item provides ValueNotifier<ImageProvider?>  so the same items have the same provider
-///   fore each pdf item provides PdfDocument   every page of pdf use the same provider
+///   for each photo item provides ValueNotifier<ImageProvider?>  so the same items have the same ImageProvider
+///   for each pdf item provides PdfDocument   every page of pdf use the same provider
 ///
-///   during reading note to Editor are new items added using addSync
+///   During reading note to Editor are new items added using addSync - which is fast
+///   addSync method:
+///     1. must treat duplicated assets (especially pdfs created by current OrderedCache)
+///     2. it calculate fast hash from first 100 KB of file and file size, if hash is the same files are "identical"
+///           this is important only for compatibility.
 ///
+///   In Editor is used async method when adding new image
+///   add method:
+///       it compares first paths, file size and then hashes of all cache items
+///       calculation of hash is very time consuming, it will be better for pdfs to extract /Info and read author, creation date, etc.
+///       and use this to recognize different pdfs.
 ///
-///
-///
+///   Cache properties:
+///   1. Every cache item is created and treated as File (path). Even picked Photos are first saved as temporary files and then added to chache.
+///   2. Each item provides PdfDocument  for pdfs or ValueNotifier<ImageProvider?> for images. It saves memory
 
 
 
