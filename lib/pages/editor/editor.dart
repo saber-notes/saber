@@ -906,27 +906,29 @@ class EditorState extends State<Editor> {
     final Uint8List bson;
     final OrderedAssetCache assets;
     coreInfo.assetCache.allowRemovingAssets = false;
+    coreInfo.assetCacheAll.allowRemovingAssets = false;
     try {
+      // go through all pages and prepare Json of each page.
       (bson, assets) = coreInfo.saveToBinary(
         currentPageIndex: currentPageIndex,
       );
     } finally {
       coreInfo.assetCache.allowRemovingAssets = true;
+      coreInfo.assetCacheAll.allowRemovingAssets = true;
     }
     try {
-      await Future.wait([
-        FileManager.writeFile(filePath, bson, awaitWrite: true),
-        for (int i = 0; i < assets.length; ++i)
-          assets.getBytes(i).then((bytes) => FileManager.writeFile(
-                '$filePath.$i',
-                bytes,
-                awaitWrite: true,
-              )),
-        FileManager.removeUnusedAssets(
+      // write note itself
+      await FileManager.writeFile(filePath, bson, awaitWrite: true);
+
+      // write assets
+      for (int i = 0; i < coreInfo.assetCacheAll.length; ++i){
+        final assetFile=coreInfo.assetCacheAll.getAssetFile(i);
+        await FileManager.copyFile(assetFile,'$filePath.$i', awaitWrite: true);
+      }
+      FileManager.removeUnusedAssets(
           filePath,
-          numAssets: assets.length,
-        ),
-      ]);
+          numAssets: coreInfo.assetCacheAll.length,
+      );
       savingState.value = SavingState.saved;
     } catch (e) {
       log.severe('Failed to save file: $e', e);

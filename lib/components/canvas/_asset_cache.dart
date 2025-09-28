@@ -9,6 +9,7 @@ import 'package:logging/logging.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:pdfrx/pdfrx.dart';
 import 'package:saber/components/canvas/image/editor_image.dart';
+import 'package:saber/data/file_manager/file_manager.dart';
 
 /// A cache for assets that are loaded from disk.
 ///
@@ -679,6 +680,18 @@ class AssetCacheAll {
     }
   }
 
+  // return File associated with asset, used to save assets when saving note
+  File getAssetFile(int id){
+    final item = _items[id];
+    if (item.value is File) {
+      return (item.value as File);
+    } else if (item is FileImage) {
+      return (item.value as FileImage).file;
+    } else {
+      throw Exception(
+          'assetCacheAll.getBytes: unknown type ${item.runtimeType}');
+    }
+  }
 
 
   // generate random file name
@@ -800,10 +813,5 @@ class AssetCacheAll {
 
   @override
   String toString() => _items.toString();
-
-  void dispose() {
-    _items.clear();
-    _cache.clear();
-  }
 
 }
