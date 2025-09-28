@@ -140,6 +140,31 @@ class OrderedAssetCache {
 }
 ///////////////////////////////////////////////////////////////////////////
 ///   New approach to cache
+///
+///   current cache problems:
+///   1. two caches  assetCache (for working), OrderedAssetCache (for writing)
+///   2. keeping bytes of each asset in memory (do not know if it is problem, but it is problem when adding to cache
+///                                             because all bytes must be compared with each already added)
+///   3. after first saving of note containing pdf, each page is treated as different pdf
+///         why:   PdfEditorImage class
+///                     1. keeps bytes = whole pdf
+///                     2. creates its own pdfDocument renderer
+///                     3. while saving note is to the OrderedAssetCache added each page of pdf separately as new asset.
+///      when adding new items it s
+///
+///
+///   handles jpg, png, pdf  (not svg yet)
+///   for each photo item provides ValueNotifier<ImageProvider?>  so the same items have the same provider
+///   fore each pdf item provides PdfDocument   every page of pdf use the same provider
+///
+///   during reading note to Editor are new items added using addSync
+///
+///
+///
+///
+
+
+
 
 // class returning preview data
 class PreviewResult {
@@ -266,6 +291,10 @@ class AssetCacheAll {
   final Map<int, int> _previewHashIndex = {};   // Map from previewHash → first index in _items
 
   final Map<int, Future<PdfDocument>> _openingDocs = {};   // Holds currently opening futures to avoid duplicate opens
+
+  /// Whether items from the cache can be removed:
+  /// set to false during file save.
+  bool allowRemovingAssets = true;
 
 
 
@@ -574,9 +603,9 @@ class AssetCacheAll {
   }
 
   // finalize cache after it was filled using addSync - without calculation of hashes
+  // is called after note is read to Editor
   Future<void> finalize() async {
     final Map<int, int> seenHashes = {}; // hash points to first index
-
     for (int i = 0; i < _items.length; i++) {
       final item = _items[i];
       int hash;
@@ -752,4 +781,10 @@ class AssetCacheAll {
 
   @override
   String toString() => _items.toString();
+
+  void dispose() {
+    _items.clear();
+    _cache.clear();
+  }
+
 }
