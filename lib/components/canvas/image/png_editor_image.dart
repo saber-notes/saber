@@ -4,11 +4,7 @@ class PngEditorImage extends EditorImage {
   /// index of asset assigned to this image
   int assetId;
 
-
   ImageProvider? imageProvider;
-
-  Future<ImageProvider> get imageProvider2 async => await assetCacheAll.getImageProvider(assetId);
-
   Uint8List? thumbnailBytes;
   Size thumbnailSize = Size.zero;
 
@@ -86,11 +82,14 @@ class PngEditorImage extends EditorImage {
       assetIndex = assetCacheAll.addSync(imageFile);
     }
     else {
-      assetIndex = assetCacheAll.addSync(bytes!);
+      final tempFile=assetCacheAll.createRuntimeFile(json['e'] ?? '.jpg',bytes!);
+      assetIndex = assetCacheAll.addSync(tempFile);
     }
     if (assetIndex<0){
       throw Exception('EditorImage.fromJson: image not in assets');
     }
+
+    
 
     return PngEditorImage(
       // -1 will be replaced by [EditorCoreInfo._handleEmptyImageIds()]
@@ -99,9 +98,7 @@ class PngEditorImage extends EditorImage {
       assetCacheAll: assetCacheAll,
       assetId: assetIndex,
       extension: json['e'] ?? '.jpg',
-      imageProvider:  bytes != null
-          ? MemoryImage(bytes) as ImageProvider
-          : FileImage(imageFile!),
+      imageProvider:  assetCacheAll.getImageProvider(assetIndex),
       pageIndex: json['i'] ?? 0,
       pageSize: Size.infinite,
       invertible: json['v'] ?? true,
@@ -146,6 +143,7 @@ class PngEditorImage extends EditorImage {
     assert(Isolate.current.debugName == 'main');
 
     if (srcRect.shortestSide == 0 || dstRect.shortestSide == 0) {
+      // when image was picked, its size is not determined. Do it
       final Uint8List bytes;
       if (imageProvider is MemoryImage) {
         bytes = (imageProvider as MemoryImage).bytes;
@@ -175,6 +173,7 @@ class PngEditorImage extends EditorImage {
           height: reducedSize.height.toInt(),
         );
         if (resizedByteData != null) {
+
           imageProvider = MemoryImage(resizedByteData.buffer.asUint8List());
         }
 

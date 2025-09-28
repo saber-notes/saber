@@ -1,10 +1,12 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
+import 'dart:math';
 import 'dart:typed_data';
 import 'package:collection/collection.dart';
 import 'package:flutter/painting.dart';
 import 'package:logging/logging.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:pdfrx/pdfrx.dart';
 import 'package:saber/components/canvas/image/editor_image.dart';
 
@@ -147,14 +149,6 @@ class PreviewResult {
   PreviewResult(this.previewHash, this.fileSize);
 }
 
-
-// combine preview hash and size to "preliminary hash"
-int makeCompositeKey(int previewHash, int fileSize) {
-  // Shift size into high bits, preview hash stays in low bits
-  // -> reduces collisions compared to just XOR
-  return (fileSize.hashCode << 32) ^ previewHash;
-}
-
 // object in cache
 class CacheItem {
   final Object value;
@@ -166,12 +160,12 @@ class CacheItem {
   // for files only
   final int? fileSize;
   final String? filePath; // only for files - for fast comparison without reading file contents
-
+  final String? fileExt;  // file extension
   int _refCount = 0;    // number of references
   bool _released = false;
 
   CacheItem(this.value,
-      {this.hash, this.filePath, this.previewHash, this.fileSize});
+      {this.hash, this.filePath, this.previewHash, this.fileSize, this.fileExt});
 
 
   // increase use of item
@@ -214,7 +208,20 @@ class CacheItem {
     return false; // consider not equal
   }
 
+  @override
+  int get hashCode {
+    // If hash is not null, prefer it (since you compare on it first in ==)
+    if (hash != null) return hash.hashCode;
 
+    // If previewHash is available, use it
+    if (previewHash != null) return previewHash.hashCode;
+
+    // Otherwise fall back to filePath
+    if (filePath != null) return filePath.hashCode;
+
+    // Default fallback
+    return 0;
+  }
 
 
 //  @override
@@ -231,7 +238,6 @@ class AssetCacheAll {
   final Map<int, int> _aliasMap = {}; // duplicit indices point to first indice  - updated in finalize
   final Map<int, int> _previewHashIndex = {};   // Map from previewHash → first index in _items
 
-  final Map<int, Future<ImageProvider>> _pendingProviders = {}; // holds currently opening futures to avoid duplicates
   final Map<int, Future<PdfDocument>> _openingDocs = {};   // Holds currently opening futures to avoid duplicate opens
 
 
@@ -272,44 +278,26 @@ class AssetCacheAll {
     }
   }
 
-  Future<ImageProvider> getImageProvider(int assetId) {
+  // give image provider for asset image
+  ImageProvider getImageProvider(int assetId) {
     // return cached provider if already available
     final item = _items[assetId];
-    if (item._imageProvider != null) return Future.value(item._imageProvider!);
+    if (item._imageProvider != null) return item._imageProvider!;
 
-    // if someone else is already creating it, return the pending future
-    final pending = _pendingProviders[assetId];
-    if (pending != null) return pending;
-
-    // otherwise, create the future
-    final future = _createImageProvider(item);
-    _pendingProviders[assetId] = future;
-
-    // when done, store the provider and remove from pending
-    future.then((provider) {
-      item._imageProvider = provider;
-      _pendingProviders.remove(assetId);
-    });
-
-    return future;
-  }
-
-  Future<ImageProvider> _createImageProvider(CacheItem item) async {
     if (item.value is File) {
-      return FileImage(item.value as File);
+      item._imageProvider = FileImage(item.value as File);
+      return item._imageProvider!;
     } else if (item.value is Uint8List) {
-      return MemoryImage(item.value as Uint8List);
+      item._imageProvider = MemoryImage(item.value as Uint8List);
+      return item._imageProvider!;
     } else if (item.value is MemoryImage) {
       return item.value as MemoryImage;
     } else if (item.value is FileImage) {
       return item.value as FileImage;
     } else {
-      throw UnsupportedError("Unsupported type for ImageProvider: ${item.value.runtimeType}");
+      throw UnsupportedError('Unsupported type for ImageProvider: ${item.value.runtimeType}');
     }
   }
-
-
-
 
   // calculate hash of bytes (all)
   int calculateHash(List<int> bytes) { // fnv1a
@@ -343,11 +331,13 @@ class AssetCacheAll {
 
   // add to cache but read only small part of files - used when reading note from disk
   // full hashes are established later
+  // is used during read of note when it is opened.
+  // everything from new notes sba2 is File!
+  // only old notes provide bytes instead File
   int addSync(Object value) {
     if (value is File) {
       log.info('allCache.addSync: value = $value');
       final path = value.path;
-      final previewResult=getFilePreviewHash(value);  // calculate preliminary hash of file
 
       final existingPathIndex = _items.indexWhere((i) => i.filePath == path);
       if (existingPathIndex != -1) {
@@ -355,6 +345,7 @@ class AssetCacheAll {
         log.info('allCache.addSync: already in cache {$_items[existingPathIndex]._refCount}');
         return existingPathIndex;
       }
+      final previewResult=getFilePreviewHash(value);  // calculate preliminary hash of file
 
       // Check if already cached
       if (_previewHashIndex.containsKey(previewResult.previewHash)) {
@@ -376,6 +367,12 @@ class AssetCacheAll {
       final File file = File(path);
       final previewResult=getFilePreviewHash(file);  // calculate preliminary hash of file
 
+      final existingPathIndex = _items.indexWhere((i) => i.filePath == path);
+      if (existingPathIndex != -1){
+        _items[existingPathIndex].addUse();
+        return existingPathIndex;
+      }
+
       // Check if already cached
       if (_previewHashIndex.containsKey(previewResult.previewHash)) {
         final existingIndex = _previewHashIndex[previewResult.previewHash]!;
@@ -383,8 +380,6 @@ class AssetCacheAll {
         return existingIndex;
       }
 
-      final existingPathIndex = _items.indexWhere((i) => i.filePath == path);
-      if (existingPathIndex != -1) return existingPathIndex;
 
       final newItem = CacheItem(value,
                           filePath: path,
@@ -428,7 +423,8 @@ class AssetCacheAll {
     }
   }
 
-
+// is used from Editor, when adding asset using file picker
+// always is used File!
   Future<int> add(Object value) async {
     if (value is File) { // files are first compared by file path
       final path = value.path;
@@ -436,28 +432,59 @@ class AssetCacheAll {
       // 1. Fast path check
       final existingPathIndex =
       _items.indexWhere((i) => i.filePath == path);
-      if (existingPathIndex != -1) return existingPathIndex;
+      if (existingPathIndex != -1) {
+        _items[existingPathIndex].addUse();
+        return existingPathIndex;
+      }
+      final previewResult=getFilePreviewHash(value);  // calculate preliminary hash of file
 
-      // 2. Otherwise compute expensive content hash
+      // Check if already cached
+      if (_previewHashIndex.containsKey(previewResult.previewHash)) {
+        final existingIndex = _previewHashIndex[previewResult.previewHash]!;
+        _items[existingIndex].addUse();
+        return existingIndex;
+      }
+
+      // compute expensive content hash
       final bytes = await value.readAsBytes();
       final hash = calculateHash(bytes);
 
-      final newItem = CacheItem(value, hash: hash, filePath: path);
+      final newItem = CacheItem(value,
+          filePath: value.path,
+          previewHash: previewResult.previewHash,
+          hash: hash,
+          fileSize: previewResult.fileSize)..addUse();
 
       final existingHashIndex = _items.indexOf(newItem);
-      if (existingHashIndex != -1) return existingHashIndex;
-
+      if (existingHashIndex != -1){
+        _items[existingHashIndex].addUse();
+        return existingHashIndex;
+      }
       _items.add(newItem);
-      return _items.length - 1;
+      final index = _items.length - 1;
+      _previewHashIndex[previewResult.previewHash] = index;  // add to previously hashed
+      return index;
     } else if (value is FileImage) { // file images are first compared by file path
       final path = value.file.path;
 
       // 1. Fast path check
       final existingPathIndex =
       _items.indexWhere((i) => i.filePath == path);
-      if (existingPathIndex != -1) return existingPathIndex;
+      if (existingPathIndex != -1) {
+        _items[existingPathIndex].addUse();
+        return existingPathIndex;
+      }
 
-      // 2. Otherwise compute expensive content hash
+      final File file = File(path);
+      final previewResult=getFilePreviewHash(file);  // calculate preliminary hash of file
+
+      // Check if already cached
+      if (_previewHashIndex.containsKey(previewResult.previewHash)) {
+        final existingIndex = _previewHashIndex[previewResult.previewHash]!;
+        _items[existingIndex].addUse();
+        return existingIndex;
+      }
+
       final bytes = await value.file.readAsBytes();
       final hash = calculateHash(bytes);
 
@@ -542,9 +569,126 @@ class AssetCacheAll {
     }
   }
 
-  /// Vrátí reálný index (přes alias mapu)
+  /// retunr real index through alias map
   int resolveIndex(int index) {
     return _aliasMap[index] ?? index;
+  }
+
+  // generate random file name
+  String generateRandomFileName([String extension = 'txt']) {
+    final timestamp = DateTime.now().millisecondsSinceEpoch;
+    final random = Random().nextInt(1 << 32); // 32-bit random number
+    return 'file_${timestamp}_$random.$extension';
+  }
+
+  // create temporary file from bytes when inline bytes are read
+  Future<File> createRuntimeFile(String ext, Uint8List bytes) async {
+    final dir = await getApplicationSupportDirectory();
+    final file = File('${dir.path}/TmPmP_${generateRandomFileName(ext)}');
+    return await file.writeAsBytes(bytes, flush: true);
+  }
+
+  String readPdfMetadataSync(File file) {
+    if (!file.existsSync()) {
+      log.info('File not found');
+      return '';
+    }
+
+    final fileSize = file.lengthSync();
+    const trailerReadSize = 4096;
+
+    final trailerStart = fileSize > trailerReadSize ? fileSize - trailerReadSize : 0;
+    final trailerLength = fileSize > trailerReadSize ? trailerReadSize : fileSize;
+
+    final raf = file.openSync();
+    final trailerBytes = Uint8List(trailerLength);
+    raf.setPositionSync(trailerStart);
+    raf.readIntoSync(trailerBytes);
+    raf.closeSync();
+
+    final trailerContent = ascii.decode(trailerBytes, allowInvalid: true);
+    final trailerIndex = trailerContent.lastIndexOf('trailer');
+    if (trailerIndex == -1) {
+      log.info('Trailer not found');
+      return '';
+    }
+
+    final trailerSlice = trailerContent.substring(trailerIndex);
+    final infoMatch = RegExp(r'/Info\s+(\d+)\s+(\d+)\s+R').firstMatch(trailerSlice);
+    if (infoMatch == null) {
+      log.info('Info object not found in trailer');
+      return '';
+    }
+
+    final infoObjNumber = int.parse(infoMatch.group(1)!);
+    final infoObjGen = int.parse(infoMatch.group(2)!);
+    log.info('Info object reference: $infoObjNumber $infoObjGen');
+
+    // Find startxref
+    final startxrefIndex = trailerContent.lastIndexOf('startxref');
+    if (startxrefIndex == -1) {
+      log.info('startxref not found');
+      raf.closeSync();
+      return '';
+    }
+
+    final startxrefLine = trailerContent.substring(startxrefIndex).split(RegExp(r'\r?\n'))[1].trim();
+    final xrefOffset = int.tryParse(startxrefLine);
+    if (xrefOffset == null) {
+      log.info('Invalid startxref value');
+      raf.closeSync();
+      return '';
+    }
+
+    // Go to xref table
+    raf.setPositionSync(xrefOffset);
+    final xrefBuffer = Uint8List(8192); // read enough bytes for xref table
+    final bytesRead = raf.readIntoSync(xrefBuffer);
+    final xrefContent = ascii.decode(xrefBuffer.sublist(0, bytesRead), allowInvalid: true);
+
+    // Find object offset in xref table
+    final objPattern = RegExp(r'(\d{10})\s+(\d{5})\s+n');
+    final objMatches = objPattern.allMatches(xrefContent);
+    int? objOffset;
+
+    int currentObjNumber = 0;
+    final subMatches = RegExp(r'(\d+)\s+(\d+)\s+(\d+)\s+n').allMatches(xrefContent);
+    for (final m in subMatches) {
+      final objNum = int.parse(m.group(1)!);
+      final offset = int.parse(m.group(2)!);
+      if (objNum == infoObjNumber) {
+        objOffset = offset;
+        break;
+      }
+    }
+
+    if (objOffset == null) {
+      print('Info object offset not found in xref table');
+      raf.closeSync();
+      return '';
+    }
+
+    // Read Info object directly
+    raf.setPositionSync(objOffset);
+    final objBytes = Uint8List(1024); // read enough for object
+    final objRead = raf.readIntoSync(objBytes);
+    final objContent = ascii.decode(objBytes.sublist(0, objRead), allowInvalid: true);
+
+    final objMatchContent = RegExp(r'obj(.*?)endobj', dotAll: true).firstMatch(objContent);
+    if (objMatchContent == null) {
+      log.info('Info object content not found');
+      raf.closeSync();
+      return '';
+    }
+
+    final infoContent = objMatchContent.group(1)!;
+
+    final titleMatch = RegExp(r'/Title\s+\((.*?)\)').firstMatch(infoContent);
+    final authorMatch = RegExp(r'/Author\s+\((.*?)\)').firstMatch(infoContent);
+    final creationMatch =
+    RegExp(r'/CreationDate\s+\((.*?)\)').firstMatch(infoContent);
+    final String metadata='${titleMatch?.group(1) ?? 'N/A'}${authorMatch?.group(1) ?? 'N/A'}${creationMatch?.group(1) ?? 'N/A'}';
+    return metadata;
   }
 
   @override

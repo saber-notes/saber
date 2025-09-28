@@ -12,6 +12,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_quill/flutter_quill.dart' as flutter_quill;
 import 'package:keybinder/keybinder.dart';
 import 'package:logging/logging.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:printing/printing.dart';
 import 'package:saber/components/canvas/_asset_cache.dart';
 import 'package:saber/components/canvas/_stroke.dart';
@@ -52,7 +53,7 @@ import 'package:saber/pages/home/whiteboard.dart';
 import 'package:screenshot/screenshot.dart';
 import 'package:super_clipboard/super_clipboard.dart';
 
-typedef _PhotoInfo = ({Uint8List bytes, String extension});
+typedef _PhotoInfo = ({Uint8List bytes, String extension, String path});
 
 class Editor extends StatefulWidget {
   Editor({
@@ -1084,9 +1085,11 @@ class EditorState extends State<Editor> {
 
     final List<EditorImage> images = [];
     for (final _PhotoInfo photoInfo in photoInfos) {
+
+
         if (photoInfo.extension == '.svg') {
-          // add photo to cache
-          int cacheId = await coreInfo.assetCacheAll.add(photoInfo.bytes);
+          // add image to assets using its path
+          int assetIndex = await coreInfo.assetCacheAll.add(File(photoInfo.path));
           images.add(SvgEditorImage(
             id: coreInfo.nextImageId++,
             svgString: utf8.decode(photoInfo.bytes),
@@ -1102,12 +1105,12 @@ class EditorState extends State<Editor> {
           ));
         }
         else {
-          final mImage=MemoryImage(photoInfo.bytes);
-          int cacheId = await coreInfo.assetCacheAll.add(mImage);
+          // add image to assets using its path
+          int assetIndex = await coreInfo.assetCacheAll.add(File(photoInfo.path));
           images.add(PngEditorImage(
             id: coreInfo.nextImageId++,
             extension: photoInfo.extension,
-            imageProvider: MemoryImage(photoInfo.bytes),
+            imageProvider: coreInfo.assetCacheAll.getImageProvider(assetIndex),
             pageIndex: currentPageIndex,
             pageSize: coreInfo.pages[currentPageIndex].size,
             onMoveImage: onMoveImage,
@@ -1116,7 +1119,7 @@ class EditorState extends State<Editor> {
             onLoad: () => setState(() {}),
             assetCache: coreInfo.assetCache,
             assetCacheAll: coreInfo.assetCacheAll,
-            assetId: cacheId,
+            assetId: assetIndex,
           ));
         }
       }
@@ -1166,6 +1169,7 @@ class EditorState extends State<Editor> {
           (
             bytes: file.bytes!,
             extension: '.${file.extension}',
+            path: file.path!,
           ),
     ];
   }
@@ -1197,7 +1201,7 @@ class EditorState extends State<Editor> {
       log.severe('Failed to read file when importing $path: $e', e);
       return false;
     }
-    int? assetIndex = await coreInfo.assetCacheAll.add(pdfBytes);  // add pdf to cache
+    int? assetIndex = await coreInfo.assetCacheAll.add(pdfFile);  // add pdf to cache
 
 
     final emptyPage = coreInfo.pages.removeLast();
@@ -1308,6 +1312,7 @@ class EditorState extends State<Editor> {
           photoInfos.add((
             bytes: Uint8List.fromList(bytes),
             extension: extension,
+            path: file.fileName!,
           ));
         },
       );
