@@ -4,7 +4,14 @@ class PngEditorImage extends EditorImage {
   /// index of asset assigned to this image
   int assetId;
 
-  ImageProvider? imageProvider;
+  // ImageProvider is given by assetCacheAll using this notifier
+  final ValueNotifier<ImageProvider?> imageProviderNotifier;
+
+  /// Convenience getter to access current ImageProvider
+  ImageProvider? get imageProvider => imageProviderNotifier.value;
+
+
+
   Uint8List? thumbnailBytes;
   Size thumbnailSize = Size.zero;
 
@@ -16,10 +23,11 @@ class PngEditorImage extends EditorImage {
   set isThumbnail(bool isThumbnail) {
     super.isThumbnail = isThumbnail;
     if (isThumbnail && thumbnailBytes != null) {
-      imageProvider = MemoryImage(thumbnailBytes!);
-      final scale = thumbnailSize.width / naturalSize.width;
-      srcRect = Rect.fromLTWH(srcRect.left * scale, srcRect.top * scale,
-          srcRect.width * scale, srcRect.height * scale);
+      // QBtodo - handle this thumbnail
+      //imageProvider = MemoryImage(thumbnailBytes!);
+      //final scale = thumbnailSize.width / naturalSize.width;
+      //srcRect = Rect.fromLTWH(srcRect.left * scale, srcRect.top * scale,
+      //    srcRect.width * scale, srcRect.height * scale);
     }
   }
 
@@ -29,7 +37,7 @@ class PngEditorImage extends EditorImage {
     required super.assetCacheAll,
     required this.assetId,
     required super.extension,
-    required this.imageProvider,
+    required this.imageProviderNotifier,
     required super.pageIndex,
     required super.pageSize,
     this.maxSize,
@@ -98,7 +106,7 @@ class PngEditorImage extends EditorImage {
       assetCacheAll: assetCacheAll,
       assetId: assetIndex,
       extension: json['e'] ?? '.jpg',
-      imageProvider:  assetCacheAll.getImageProvider(assetIndex),
+      imageProviderNotifier: assetCacheAll.getImageProviderNotifier(assetIndex),
       pageIndex: json['i'] ?? 0,
       pageSize: Size.infinite,
       invertible: json['v'] ?? true,
@@ -173,8 +181,10 @@ class PngEditorImage extends EditorImage {
           height: reducedSize.height.toInt(),
         );
         if (resizedByteData != null) {
-
-          imageProvider = MemoryImage(resizedByteData.buffer.asUint8List());
+          // store resized bytes to temporary file
+          final tempImageFile = await assetCacheAll.createRuntimeFile('.png',resizedByteData.buffer.asUint8List());
+          // replace image
+          assetCacheAll.replaceImage(tempImageFile, assetId);
         }
 
         naturalSize = reducedSize;
@@ -207,8 +217,10 @@ class PngEditorImage extends EditorImage {
 
   @override
   Future<void> precache(BuildContext context) async {
-    if (imageProvider == null) return;
-    return await precacheImage(imageProvider!, context);
+    final provider = imageProviderNotifier.value;
+    if (provider != null) {
+      await precacheImage(provider, context);
+    }
   }
 
   @override
@@ -227,12 +239,21 @@ class PngEditorImage extends EditorImage {
       boxFit = BoxFit.fill;
     }
 
-    return InvertWidget(
-      invert: invert,
-      child: Image(
-        image: imageProvider!,
-        fit: boxFit,
-      ),
+    return ValueListenableBuilder<ImageProvider?>(
+      valueListenable: imageProviderNotifier,
+      builder: (context, provider, _) {
+        if (provider == null) {
+          return const SizedBox.shrink(); // nothing yet
+        }
+
+        return InvertWidget(
+          invert: invert,
+          child: Image(
+            image: provider,
+            fit: boxFit,
+          ),
+        );
+      },
     );
   }
 
@@ -243,7 +264,7 @@ class PngEditorImage extends EditorImage {
         assetCacheAll: assetCacheAll,
         assetId: assetId,
         extension: extension,
-        imageProvider: imageProvider,
+        imageProviderNotifier: imageProviderNotifier,
         pageIndex: pageIndex,
         pageSize: Size.infinite,
         invertible: invertible,
