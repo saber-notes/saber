@@ -240,6 +240,58 @@ class FileManager {
     if (awaitWrite) await writeFuture;
   }
 
+  /// Copies [fileFrom] to [filePath].
+  ///
+  /// The file at [toPath] will have its last modified timestamp set to
+  /// [lastModified], if specified.
+  /// This is useful when downloading remote files, to make sure that the
+  /// timestamp is the same locally and remotely.
+  static Future<void> copyFile(
+      File fileFrom,
+      String filePath,
+      {
+        bool awaitWrite = false,
+        bool alsoUpload = true,
+        DateTime? lastModified,
+      }) async {
+    filePath = _sanitisePath(filePath);
+    if (filePath.startsWith('/')){
+      // cannot copy to root add document directory
+      filePath='$documentsDirectory$filePath';
+    }
+    log.fine('Copying to $filePath');
+
+    await _saveFileAsRecentlyAccessed(filePath);
+    await _createFileDirectory(filePath);
+    final file = await fileFrom.copy(filePath);
+    Future writeFuture = Future.wait([
+      if (lastModified != null) file.setLastModified(lastModified),
+      // if we're using a new format, also delete the old file
+      if (filePath.endsWith(Editor.extension))
+        getFile(
+            '${filePath.substring(0, filePath.length - Editor.extension.length)}'
+                '${Editor.extensionOldJson}')
+            .delete()
+        // ignore if the file doesn't exist
+            .catchError((_) => File(''),
+            test: (e) => e is PathNotFoundException),
+    ]);
+
+    void afterWrite() {
+      broadcastFileWrite(FileOperationType.write, filePath);
+      if (alsoUpload) syncer.uploader.enqueueRel(filePath);
+      if (filePath.endsWith(Editor.extension)) {
+        _removeReferences(
+            '${filePath.substring(0, filePath.length - Editor.extension.length)}'
+                '${Editor.extensionOldJson}');
+      }
+    }
+
+    writeFuture = writeFuture.then((_) => afterWrite());
+    if (awaitWrite) await writeFuture;
+  }
+
+
   static Future<void> createFolder(String folderPath) async {
     folderPath = _sanitisePath(folderPath);
 
