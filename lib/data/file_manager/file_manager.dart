@@ -189,6 +189,18 @@ class FileManager {
     }
   }
 
+  // return file path (add document directory if needed)
+  static String getFilePath(String filePath) {
+    if (shouldUseRawFilePath) {
+      return filePath;
+    } else {
+      assert(filePath.startsWith('/'),
+      'Expected filePath to start with a slash, got $filePath');
+      return '$documentsDirectory$filePath';
+    }
+  }
+
+
   static Directory getRootDirectory() => Directory(documentsDirectory);
 
   /// Writes [toWrite] to [filePath].
@@ -255,14 +267,12 @@ class FileManager {
         DateTime? lastModified,
       }) async {
     filePath = _sanitisePath(filePath);
-    if (filePath.startsWith('/')){
-      // cannot copy to root add document directory
-      filePath='$documentsDirectory$filePath';
-    }
+    await _createFileDirectory(filePath);   // create directory filePath is "relative to saber documents directory")
+
+    filePath = getFilePath(filePath);  // if needed add documents directory to file path to have full path
     log.fine('Copying to $filePath');
 
     await _saveFileAsRecentlyAccessed(filePath);
-    await _createFileDirectory(filePath);
     final file = await fileFrom.copy(filePath);
     Future writeFuture = Future.wait([
       if (lastModified != null) file.setLastModified(lastModified),
