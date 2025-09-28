@@ -1110,7 +1110,7 @@ class EditorState extends State<Editor> {
           images.add(PngEditorImage(
             id: coreInfo.nextImageId++,
             extension: photoInfo.extension,
-            imageProvider: coreInfo.assetCacheAll.getImageProvider(assetIndex),
+            imageProviderNotifier: coreInfo.assetCacheAll.getImageProviderNotifier(assetIndex),
             pageIndex: currentPageIndex,
             pageSize: coreInfo.pages[currentPageIndex].size,
             onMoveImage: onMoveImage,

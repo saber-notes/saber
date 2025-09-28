@@ -2,8 +2,8 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
-import 'dart:typed_data';
 import 'package:collection/collection.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/painting.dart';
 import 'package:logging/logging.dart';
 import 'package:path_provider/path_provider.dart';
@@ -154,7 +154,7 @@ class CacheItem {
   final Object value;
   int? previewHash; // quick hash (from first 100KB bytes)
   int? hash;  // hash can be calculated later
-  ImageProvider? _imageProvider;   // image provider for png, svg
+  final ValueNotifier<ImageProvider?> imageProviderNotifier;  // image provider for png, svg as value listener
   PdfDocument? _pdfDocument;      // pdf document provider for pdf
 
   // for files only
@@ -165,7 +165,13 @@ class CacheItem {
   bool _released = false;
 
   CacheItem(this.value,
-      {this.hash, this.filePath, this.previewHash, this.fileSize, this.fileExt});
+        {this.hash,
+          this.filePath,
+          this.previewHash,
+          this.fileSize,
+          this.fileExt,
+          ValueNotifier<ImageProvider?>? imageProviderNotifier,
+        }): imageProviderNotifier = imageProviderNotifier ?? ValueNotifier(null);
 
 
   // increase use of item
@@ -191,18 +197,18 @@ class CacheItem {
     if (hash != null && other.hash != null) {
       return hash == other.hash;
     }
+    if (filePath != null && other.filePath != null) {
+      if (filePath == other.filePath) {
+        // both file paths are the same
+        return true;
+      }
+    }
 
     // Quick check using previewHash
     if (previewHash != null && other.previewHash != null) {
       if (previewHash != other.previewHash) {
         // preview hashes do not match - assets are different
         return false;
-      }
-    }
-    if (filePath != null && other.filePath != null) {
-      if (filePath == other.filePath) {
-        // both file paths are the same
-        return true;
       }
     }
     return false; // consider not equal
@@ -223,6 +229,27 @@ class CacheItem {
     return 0;
   }
 
+  // give image provider
+  ImageProvider getImageProvider(Object item) {
+    // return cached provider if already available
+    if (item is File) {
+      return FileImage(item);
+    } else if (item is Uint8List) {
+      return MemoryImage(item);
+    } else if (item is MemoryImage) {
+      return  item;
+    } else if (item is FileImage) {
+      return  item;
+    } else {
+      throw UnsupportedError('Unsupported type for ImageProvider: ${item.runtimeType}');
+    }
+  }
+
+  // invalidate image provider notifier value - called in case of image replacement
+  // this causes that new imageProvider will be created
+  void invalidateImageProvider() {
+    imageProviderNotifier.value = null; // will be recreated on next access
+  }
 
 //  @override
 //  int? get hash => filePath?.hash ?? hash;
@@ -278,26 +305,29 @@ class AssetCacheAll {
     }
   }
 
-  // give image provider for asset image
-  ImageProvider getImageProvider(int assetId) {
+  // give image provider notifier for asset image
+  ValueNotifier<ImageProvider?> getImageProviderNotifier(int assetId) {
     // return cached provider if already available
     final item = _items[assetId];
-    if (item._imageProvider != null) return item._imageProvider!;
+    if (item.imageProviderNotifier.value != null) return item.imageProviderNotifier;
 
     if (item.value is File) {
-      item._imageProvider = FileImage(item.value as File);
-      return item._imageProvider!;
+      item.imageProviderNotifier.value = FileImage(item.value as File);
     } else if (item.value is Uint8List) {
-      item._imageProvider = MemoryImage(item.value as Uint8List);
-      return item._imageProvider!;
+      item.imageProviderNotifier.value = MemoryImage(item.value as Uint8List);
     } else if (item.value is MemoryImage) {
-      return item.value as MemoryImage;
+      item.imageProviderNotifier.value = item.value as MemoryImage;
     } else if (item.value is FileImage) {
-      return item.value as FileImage;
+      item.imageProviderNotifier.value = item.value as FileImage;
     } else {
       throw UnsupportedError('Unsupported type for ImageProvider: ${item.value.runtimeType}');
     }
+    return item.imageProviderNotifier;
   }
+
+
+
+
 
   // calculate hash of bytes (all)
   int calculateHash(List<int> bytes) { // fnv1a
@@ -539,7 +569,7 @@ class AssetCacheAll {
       return item.file.readAsBytes();
     } else {
       throw Exception(
-          'OrderedAssetCache.getBytes: unknown type ${item.runtimeType}');
+          'assetCacheAll.getBytes: unknown type ${item.runtimeType}');
     }
   }
 
@@ -573,6 +603,35 @@ class AssetCacheAll {
   int resolveIndex(int index) {
     return _aliasMap[index] ?? index;
   }
+
+  // replace asset by another one - typically when resampling image to lower resolution
+  Future<void> replaceImage(Object value,int id) async {
+    if (value is File) {
+      // compute expensive content hash
+      final bytes = await value.readAsBytes();
+      final hash = calculateHash(bytes);
+      final previewResult=getFilePreviewHash(value);  // calculate preliminary hash of file
+
+      final oldItem=_items[id];
+      // create new Cache item
+      final newItem = CacheItem(value,
+          filePath: value.path,
+          previewHash: previewResult.previewHash,
+          hash: hash,
+          fileSize: previewResult.fileSize,
+          imageProviderNotifier: oldItem.imageProviderNotifier, // keep original Notifier
+      ).._refCount=oldItem._refCount; // keep number of references
+
+      // update original fields
+      _items[id] = newItem;
+      _items[id].invalidateImageProvider;  // invalidate imageProvider so it is newly created when needed
+    } else {
+    throw Exception(
+    'assetCacheAll.replaceImage: unknown type ${value.runtimeType}');
+    }
+  }
+
+
 
   // generate random file name
   String generateRandomFileName([String extension = 'txt']) {
@@ -647,11 +706,11 @@ class AssetCacheAll {
     final xrefContent = ascii.decode(xrefBuffer.sublist(0, bytesRead), allowInvalid: true);
 
     // Find object offset in xref table
-    final objPattern = RegExp(r'(\d{10})\s+(\d{5})\s+n');
-    final objMatches = objPattern.allMatches(xrefContent);
+    //final objPattern = RegExp(r'(\d{10})\s+(\d{5})\s+n');
+    //final objMatches = objPattern.allMatches(xrefContent);
     int? objOffset;
 
-    int currentObjNumber = 0;
+    //nt currentObjNumber = 0;
     final subMatches = RegExp(r'(\d+)\s+(\d+)\s+(\d+)\s+n').allMatches(xrefContent);
     for (final m in subMatches) {
       final objNum = int.parse(m.group(1)!);
@@ -663,7 +722,7 @@ class AssetCacheAll {
     }
 
     if (objOffset == null) {
-      print('Info object offset not found in xref table');
+      log.info('Info object offset not found in xref table');
       raf.closeSync();
       return '';
     }
