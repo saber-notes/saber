@@ -94,7 +94,7 @@ dependencies:
 
   window_manager: ^0.5.1
 
-  worker_manager: ^7.0.1
+  worker_manager: ^7.2.7
   workmanager: ^0.9.0
 
   archive: ^4.0.3
