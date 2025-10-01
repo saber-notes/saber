@@ -34,7 +34,7 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^1.0.5
-  material_symbols_icons: ^4.2758.0
+  material_symbols_icons: ^4.2874.0
 
   dynamic_color: ^1.5.4
 
