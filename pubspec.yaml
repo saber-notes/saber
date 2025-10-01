@@ -168,7 +168,7 @@ dev_dependencies:
   # rules and activating additional ones.
   flutter_lints: ^6.0.0
 
-  icons_launcher: ^3.0.0
+  icons_launcher: ^3.0.3
 
   simplytranslate: ^2.0.1
 
