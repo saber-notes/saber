@@ -1990,10 +1990,10 @@ packages:
     dependency: "direct main"
     description:
       name: worker_manager
-      sha256: af3db5e6c6c8a74ab8f72e25e9d305f8ff60984ca55551397e3c8828ebf30509
+      sha256: "1bce9f894a0c187856f5fc0e150e7fe1facce326f048ca6172947754dac3d4f3"
       url: "https://pub.dev"
     source: hosted
-    version: "7.2.6"
+    version: "7.2.7"
   workmanager:
     dependency: "direct main"
     description:
