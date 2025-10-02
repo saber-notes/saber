@@ -7,7 +7,6 @@ import 'package:fixnum/fixnum.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_quill/flutter_quill.dart';
 import 'package:logging/logging.dart';
 import 'package:saber/components/canvas/_asset_cache.dart';
 import 'package:saber/components/canvas/_canvas_background_painter.dart';
@@ -545,7 +544,6 @@ class EditorCoreInfo {
     CanvasBackgroundPattern? backgroundPattern,
     int? lineHeight,
     int? lineThickness,
-    QuillController? quillController,
     List<EditorPage>? pages,
   }) {
     return EditorCoreInfo._(
