@@ -12,6 +12,7 @@ class SvgEditorImage extends EditorImage {
   SvgEditorImage({
     required super.id,
     required super.assetCache,
+    required super.assetCacheAll,
     required String? svgString,
     required File? svgFile,
     required super.pageIndex,
@@ -45,6 +46,7 @@ class SvgEditorImage extends EditorImage {
     bool isThumbnail = false,
     required String sbnPath,
     required AssetCache assetCache,
+    required AssetCacheAll assetCacheAll,
   }) {
     String? extension = json['e'] as String?;
     assert(extension == null || extension == '.svg');
@@ -71,6 +73,7 @@ class SvgEditorImage extends EditorImage {
       id: json['id'] ??
           -1, // -1 will be replaced by EditorCoreInfo._handleEmptyImageIds()
       assetCache: assetCache,
+      assetCacheAll: assetCacheAll,
       svgString: svgString,
       svgFile: svgFile,
       pageIndex: json['i'] ?? 0,
@@ -195,6 +198,7 @@ class SvgEditorImage extends EditorImage {
       id: id,
       // ignore: deprecated_member_use_from_same_package
       assetCache: assetCache,
+      assetCacheAll: assetCacheAll,
       svgString: svgData.string,
       svgFile: svgData.file,
       pageIndex: pageIndex,
