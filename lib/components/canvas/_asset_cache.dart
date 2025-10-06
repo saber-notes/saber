@@ -6,7 +6,6 @@ import 'package:collection/collection.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/painting.dart';
 import 'package:logging/logging.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:pdfrx/pdfrx.dart';
 import 'package:saber/components/canvas/image/editor_image.dart';
 
@@ -467,14 +466,14 @@ class CacheItem {
 
   // increase use of item
   void addUse() {
-    if (_released) throw StateError('Trying to add use of released CacheItem');
+    //if (_released) throw StateError('Trying to add use of released CacheItem');
     _refCount++;
   }
 
   // when asset is released (no more used)
   void freeUse() {
     if (_refCount > 0) _refCount--;
-    if (_refCount == 0) _released = true;
+    //if (_refCount == 0) _released = true;
   }
 
   bool get isUnused => _refCount == 0;
@@ -677,6 +676,16 @@ class AssetCacheAll {
     } finally {
       raf.closeSync();
     }
+  }
+
+  // remove item use but keep it in cache (in case of undo/redo)
+  void removeUse(int id){
+    _items[id].freeUse();
+  }
+
+  // add item use
+  void addUse(int id){
+    _items[id].addUse();
   }
 
   // Is used during read of note when it is opened.
