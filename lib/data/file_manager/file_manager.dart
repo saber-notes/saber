@@ -270,6 +270,10 @@ class FileManager {
     await _createFileDirectory(filePath);   // create directory filePath is "relative to saber documents directory")
 
     filePath = getFilePath(filePath);  // if needed add documents directory to file path to have full path
+    if (fileFrom.path == filePath){
+      // file is copied to itself, do nothing (it happens when asset is saved with the same name)
+      return;
+    }
     log.fine('Copying to $filePath');
 
     await _saveFileAsRecentlyAccessed(filePath);
