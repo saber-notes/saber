@@ -74,7 +74,7 @@ class PdfEditorImage extends EditorImage {
       assetIndex = assetCacheAll.addSync(tempFile);
     }
 
-    assert(assetIndex >0,
+    assert(assetIndex >=0,
     'Either pdfBytes or pdfFile must be non-null');
 
     // add to asset cache
