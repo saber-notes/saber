@@ -132,7 +132,7 @@ class PdfEditorImage extends EditorImage {
     assert(!json.containsKey('a'));
     assert(!json.containsKey('b'));
 
-    json['a'] = assets.add(pdfFile ?? pdfBytes!);
+    json['a'] = assetId  ;// assets.add(pdfFile ?? pdfBytes!);
     json['pdfi'] = pdfPage;
 
     return json;
