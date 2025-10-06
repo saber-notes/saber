@@ -366,6 +366,19 @@ class EditorState extends State<Editor> {
           for (EditorImage image in item.images) {
             createPage(image.pageIndex);
             coreInfo.pages[image.pageIndex].images.add(image);
+            // increment use of image asset
+            int assetId=-1;
+            if (image is PdfEditorImage){
+              assetId=(image as PdfEditorImage).assetId;
+            } else if (image is PngEditorImage){
+              assetId=(image as PngEditorImage).assetId;
+            } else if (image is SvgEditorImage){
+              assetId=(image as SvgEditorImage).assetId;
+            }
+            if (assetId>=0) {
+              // free use of asset
+              image.assetCacheAll.addUse(assetId);
+            }
             image.newImage = true;
           }
 
@@ -767,6 +780,18 @@ class EditorState extends State<Editor> {
   }
 
   void onDeleteImage(EditorImage image) {
+    int assetId=-1;
+    if (image is PdfEditorImage){
+      assetId=(image as PdfEditorImage).assetId;
+    } else if (image is PngEditorImage){
+      assetId=(image as PngEditorImage).assetId;
+    } else if (image is SvgEditorImage){
+      assetId=(image as SvgEditorImage).assetId;
+    }
+    if (assetId>=0) {
+      // free use of asset
+      image.assetCacheAll.removeUse(assetId);
+    }
     history.recordChange(EditorHistoryItem(
       type: EditorHistoryItemType.erase,
       pageIndex: image.pageIndex,
@@ -1083,15 +1108,15 @@ class EditorState extends State<Editor> {
 
     final List<EditorImage> images = [];
     for (final _PhotoInfo photoInfo in photoInfos) {
-
-
+        if (photoInfo.extension == '.pdf') {
+          // pdf can be selected on android, but it cannot be imported
+          continue;
+        }
         if (photoInfo.extension == '.svg') {
           // add image to assets using its path
           int assetIndex = await coreInfo.assetCacheAll.add(File(photoInfo.path));
           images.add(SvgEditorImage(
             id: coreInfo.nextImageId++,
-            svgString: utf8.decode(photoInfo.bytes),
-            svgFile: null,
             pageIndex: currentPageIndex,
             pageSize: coreInfo.pages[currentPageIndex].size,
             onMoveImage: onMoveImage,
