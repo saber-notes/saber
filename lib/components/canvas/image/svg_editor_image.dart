@@ -10,8 +10,6 @@ class SvgEditorImage extends EditorImage {
     required super.id,
     required super.assetCacheAll,
     required this.assetId,
-    required String? svgString,
-    required File? svgFile,
     required super.pageIndex,
     required super.pageSize,
     super.invertible,
@@ -25,16 +23,12 @@ class SvgEditorImage extends EditorImage {
     super.srcRect,
     super.naturalSize,
     super.isThumbnail,
-  })  : assert(svgString != null || svgFile != null,
-            'svgFile must be set if svgString is null'),
+  })  : assert(assetId >-1 ,
+            'assetId must be set'),
         super(
           extension: '.svg',
         ) {
-    if (svgString != null) {
-      svgLoader = SvgStringLoader(svgString);
-    } else {
-      svgLoader = SvgFileLoader(svgFile!);
-    }
+    svgLoader = SvgFileLoader(assetCacheAll.getAssetFile(assetId));
   }
 
   factory SvgEditorImage.fromJson(
@@ -48,21 +42,22 @@ class SvgEditorImage extends EditorImage {
     assert(extension == null || extension == '.svg');
 
     final assetIndexJson = json['a'] as int?;
+    Uint8List? svgBytes;
     final int? assetIndex;
-    final String? svgString;
     File? svgFile;
     if (assetIndexJson != null) {
       if (inlineAssets == null) {
         svgFile =
             FileManager.getFile('$sbnPath${Editor.extension}.$assetIndexJson');
       } else {
-        svgString = utf8.decode(inlineAssets[assetIndexJson]);
+        svgBytes=inlineAssets[assetIndexJson];
+        svgFile=assetCacheAll.createRuntimeFile(json['e'] ?? '.svg',svgBytes);
       }
     } else if (json['b'] != null) {
-      svgString = json['b'] as String;
+      svgBytes = json['b'];
+      svgFile=assetCacheAll.createRuntimeFile(json['e'] ?? '.svg',svgBytes!);
     } else {
       log.warning('SvgEditorImage.fromJson: no svg string found');
-      svgString = '';
     }
     if (svgFile != null) {
       assetIndex = assetCacheAll.addSync(svgFile);
@@ -79,8 +74,6 @@ class SvgEditorImage extends EditorImage {
           -1, // -1 will be replaced by EditorCoreInfo._handleEmptyImageIds()
       assetCacheAll: assetCacheAll,
       assetId: assetIndex,
-      svgString: svgString,
-      svgFile: svgFile,
       pageIndex: json['i'] ?? 0,
       pageSize: Size.infinite,
       invertible: json['v'] ?? true,
@@ -120,7 +113,7 @@ class SvgEditorImage extends EditorImage {
     assert(!json.containsKey('a'));
     assert(!json.containsKey('b'));
 
-    final svgData = _extractSvg();
+//    final svgData = _extractSvg();
     json['a'] = assetId;
 
     return json;
@@ -198,14 +191,12 @@ class SvgEditorImage extends EditorImage {
 
   @override
   SvgEditorImage copy() {
-    final svgData = _extractSvg();
+    //final svgData = _extractSvg();
     return SvgEditorImage(
       id: id,
       // ignore: deprecated_member_use_from_same_package
       assetCacheAll: assetCacheAll,
       assetId: assetId,
-      svgString: svgData.string,
-      svgFile: svgData.file,
       pageIndex: pageIndex,
       pageSize: Size.infinite,
       invertible: invertible,
