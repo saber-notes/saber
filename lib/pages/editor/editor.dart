@@ -903,16 +903,13 @@ class EditorState extends State<Editor> {
 
     final filePath = coreInfo.filePath + Editor.extension;
     final Uint8List bson;
-    final OrderedAssetCache assets;
-    coreInfo.assetCache.allowRemovingAssets = false;
     coreInfo.assetCacheAll.allowRemovingAssets = false;
     try {
       // go through all pages and prepare Json of each page.
-      (bson, assets) = coreInfo.saveToBinary(
+      (bson) = coreInfo.saveToBinary(
         currentPageIndex: currentPageIndex,
       );
     } finally {
-      coreInfo.assetCache.allowRemovingAssets = true;
       coreInfo.assetCacheAll.allowRemovingAssets = true;
     }
     try {
@@ -1101,8 +1098,8 @@ class EditorState extends State<Editor> {
             onDeleteImage: onDeleteImage,
             onMiscChange: autosaveAfterDelay,
             onLoad: () => setState(() {}),
-            assetCache: coreInfo.assetCache,
             assetCacheAll: coreInfo.assetCacheAll,
+            assetId: assetIndex,
           ));
         }
         else {
@@ -1118,7 +1115,6 @@ class EditorState extends State<Editor> {
             onDeleteImage: onDeleteImage,
             onMiscChange: autosaveAfterDelay,
             onLoad: () => setState(() {}),
-            assetCache: coreInfo.assetCache,
             assetCacheAll: coreInfo.assetCacheAll,
             assetId: assetIndex,
           ));
@@ -1230,7 +1226,6 @@ class EditorState extends State<Editor> {
       );
       page.backgroundImage = PdfEditorImage(
         id: coreInfo.nextImageId++,
-        pdfBytes: pdfBytes,
         pdfFile: pdfFile,
         pdfPage: currentPdfPage,
         pageIndex: coreInfo.pages.length,
@@ -1240,7 +1235,6 @@ class EditorState extends State<Editor> {
         onDeleteImage: onDeleteImage,
         onMiscChange: autosaveAfterDelay,
         onLoad: () => setState(() {}),
-        assetCache: coreInfo.assetCache,
         assetCacheAll: coreInfo.assetCacheAll,
         assetId: assetIndex,
       );

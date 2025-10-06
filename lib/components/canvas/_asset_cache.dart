@@ -443,6 +443,7 @@ class CacheItem {
   final ValueNotifier<ImageProvider?>
       imageProviderNotifier; // image provider for png, svg as value listener
   PdfDocument? _pdfDocument; // pdf document provider for pdf
+  Uint8List? bytes;   // used only when reading inline assets
 
   // for files only
   final int? fileSize;
@@ -460,6 +461,7 @@ class CacheItem {
     this.fileSize,
     this.fileExt,
     this.fileInfo,
+    this.bytes,
     ValueNotifier<ImageProvider?>? imageProviderNotifier,
   }) : imageProviderNotifier = imageProviderNotifier ?? ValueNotifier(null);
 
@@ -916,10 +918,16 @@ class AssetCacheAll {
   }
 
   // create temporary file from bytes when inline bytes are read
-  Future<File> createRuntimeFile(String ext, Uint8List bytes) async {
-    final dir = await getApplicationSupportDirectory();
+  File createRuntimeFile(String ext, Uint8List bytes) {
+    final dir = Directory.systemTemp; // Použití systémového temp adresáře
+//    final dir = await getApplicationSupportDirectory();
     final file = File('${dir.path}/TmPmP_${generateRandomFileName(ext)}');
-    return await file.writeAsBytes(bytes, flush: true);
+    file.writeAsBytesSync(bytes, flush: true);
+    return file;
+  }
+
+  void dispose() {
+    _items.clear();
   }
 
   @override

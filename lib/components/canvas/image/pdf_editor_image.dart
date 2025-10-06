@@ -4,7 +4,6 @@ class PdfEditorImage extends EditorImage {
   /// index of asset assigned to this pdf file
   int assetId;
 
-  Uint8List? pdfBytes;
   final int pdfPage;
 
   /// If the pdf needs to be loaded from disk, this is the File
@@ -17,10 +16,8 @@ class PdfEditorImage extends EditorImage {
 
   PdfEditorImage({
     required super.id,
-    required super.assetCache,
     required super.assetCacheAll,
     required this.assetId,
-    required this.pdfBytes,
     required this.pdfFile,
     required this.pdfPage,
     required super.pageIndex,
@@ -37,8 +34,8 @@ class PdfEditorImage extends EditorImage {
     super.isThumbnail,
   })  : assert(
             !naturalSize.isEmpty, 'naturalSize must be set for PdfEditorImage'),
-        assert(pdfBytes != null || pdfFile != null,
-            'pdfFile must be set if pdfBytes is null'),
+        assert(pdfFile != null,
+            'pdfFile must be set'),
         super(
           extension: '.pdf',
           srcRect: Rect.zero,
@@ -49,7 +46,6 @@ class PdfEditorImage extends EditorImage {
     required List<Uint8List>? inlineAssets,
     bool isThumbnail = false,
     required String sbnPath,
-    required AssetCache assetCache,
     required AssetCacheAll assetCacheAll,
   }) {
     String? extension = json['e'] as String?;
@@ -63,27 +59,25 @@ class PdfEditorImage extends EditorImage {
       if (inlineAssets == null) {
         pdfFile =
             FileManager.getFile('$sbnPath${Editor.extension}.$assetIndexJson');
-        pdfBytes = assetCache.get(pdfFile);
+        assetIndex = assetCacheAll.addSync(pdfFile);
       } else {
         pdfBytes = inlineAssets[assetIndexJson];
+        final tempFile=assetCacheAll.createRuntimeFile('.pdf',pdfBytes); // store to file
+        assetIndex = assetCacheAll.addSync(tempFile);
       }
     } else {
       if (kDebugMode) {
         throw Exception('PdfEditorImage.fromJson: pdf bytes not found');
       }
       pdfBytes = Uint8List(0);
+      final tempFile=assetCacheAll.createRuntimeFile('.pdf',pdfBytes);
+      assetIndex = assetCacheAll.addSync(tempFile);
     }
 
-    assert(pdfBytes != null || pdfFile != null,
+    assert(assetIndex >0,
     'Either pdfBytes or pdfFile must be non-null');
 
     // add to asset cache
-    if (pdfFile != null) {
-      assetIndex = assetCacheAll.addSync(pdfFile);
-    }
-    else {
-      assetIndex = assetCacheAll.addSync(pdfBytes!);
-    }
     if (assetIndex<0){
       throw Exception('EditorImage.fromJson: pdf image not in assets');
     }
@@ -91,10 +85,8 @@ class PdfEditorImage extends EditorImage {
     return PdfEditorImage(
       id: json['id'] ??
           -1, // -1 will be replaced by EditorCoreInfo._handleEmptyImageIds()
-      assetCache: assetCache,
       assetCacheAll: assetCacheAll,
       assetId: assetIndex,
-      pdfBytes: pdfBytes,
       pdfFile: pdfFile,
       pdfPage: json['pdfi'],
       pageIndex: json['i'] ?? 0,
@@ -122,17 +114,15 @@ class PdfEditorImage extends EditorImage {
   }
 
   @override
-  Map<String, dynamic> toJson(OrderedAssetCache assets) {
-    final json = super.toJson(
-      assets,
-    );
+  Map<String, dynamic> toJson() {
+    final json = super.toJson();
 
     // remove non-pdf fields
     json.remove('t'); // thumbnail bytes
     assert(!json.containsKey('a'));
     assert(!json.containsKey('b'));
 
-    json['a'] = assetId  ;// assets.add(pdfFile ?? pdfBytes!);
+    json['a'] = assetId;
     json['pdfi'] = pdfPage;
 
     return json;
@@ -207,10 +197,8 @@ class PdfEditorImage extends EditorImage {
   @override
   PdfEditorImage copy() => PdfEditorImage(
         id: id,
-        assetCache: assetCache,
         assetCacheAll: assetCacheAll,
         assetId: assetId,
-        pdfBytes: pdfBytes,
         pdfPage: pdfPage,
         pdfFile: pdfFile,
         pageIndex: pageIndex,

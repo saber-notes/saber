@@ -33,7 +33,6 @@ sealed class EditorImage extends ChangeNotifier {
   /// This is used when "downloading" the image to the user's photo gallery.
   final String extension;
 
-  final AssetCache assetCache;
   final AssetCacheAll assetCacheAll;
 
   bool _isThumbnail = false;
@@ -89,7 +88,6 @@ sealed class EditorImage extends ChangeNotifier {
   @protected
   EditorImage({
     required this.id,
-    required this.assetCache,
     required this.assetCacheAll,
     required this.extension,
     required this.pageIndex,
@@ -114,7 +112,6 @@ sealed class EditorImage extends ChangeNotifier {
     required List<Uint8List>? inlineAssets,
     bool isThumbnail = false,
     required String sbnPath,
-    required AssetCache assetCache,
     required AssetCacheAll assetCacheAll,
   }) {
     String? extension = json['e'];
@@ -124,7 +121,6 @@ sealed class EditorImage extends ChangeNotifier {
         inlineAssets: inlineAssets,
         isThumbnail: isThumbnail,
         sbnPath: sbnPath,
-        assetCache: assetCache,
         assetCacheAll: assetCacheAll,
       );
     } else if (extension == '.pdf') {
@@ -133,7 +129,6 @@ sealed class EditorImage extends ChangeNotifier {
         inlineAssets: inlineAssets,
         isThumbnail: isThumbnail,
         sbnPath: sbnPath,
-        assetCache: assetCache,
         assetCacheAll: assetCacheAll,
       );
     } else {
@@ -142,7 +137,6 @@ sealed class EditorImage extends ChangeNotifier {
         inlineAssets: inlineAssets,
         isThumbnail: isThumbnail,
         sbnPath: sbnPath,
-        assetCache: assetCache,
         assetCacheAll: assetCacheAll,
       );
     }
@@ -150,7 +144,7 @@ sealed class EditorImage extends ChangeNotifier {
 
   @mustBeOverridden
   @mustCallSuper
-  Map<String, dynamic> toJson(OrderedAssetCache assets) => {
+  Map<String, dynamic> toJson() => {
         'id': id,
         'e': extension,
         'i': pageIndex,

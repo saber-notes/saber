@@ -33,7 +33,6 @@ class PngEditorImage extends EditorImage {
 
   PngEditorImage({
     required super.id,
-    required super.assetCache,
     required super.assetCacheAll,
     required this.assetId,
     required super.extension,
@@ -60,7 +59,6 @@ class PngEditorImage extends EditorImage {
     required List<Uint8List>? inlineAssets,
     bool isThumbnail = false,
     required String sbnPath,
-    required AssetCache assetCache,
     required AssetCacheAll assetCacheAll,
   }) {
     final assetIndexJson = json['a'] as int?;
@@ -102,7 +100,6 @@ class PngEditorImage extends EditorImage {
     return PngEditorImage(
       // -1 will be replaced by [EditorCoreInfo._handleEmptyImageIds()]
       id: json['id'] ?? -1,
-      assetCache: assetCache,
       assetCacheAll: assetCacheAll,
       assetId: assetIndex,
       extension: json['e'] ?? '.jpg',
@@ -141,7 +138,7 @@ class PngEditorImage extends EditorImage {
   }
 
   @override
-  Map<String, dynamic> toJson(OrderedAssetCache assets) => super.toJson(assets)
+  Map<String, dynamic> toJson() => super.toJson()
     ..addAll({
       if (imageProvider != null) 'a': assetId,
     });
@@ -260,7 +257,6 @@ class PngEditorImage extends EditorImage {
   @override
   PngEditorImage copy() => PngEditorImage(
         id: id,
-        assetCache: assetCache,
         assetCacheAll: assetCacheAll,
         assetId: assetId,
         extension: extension,

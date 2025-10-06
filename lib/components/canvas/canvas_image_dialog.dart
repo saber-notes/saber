@@ -70,7 +70,7 @@ class _CanvasImageDialogState extends State<CanvasImageDialog> {
           switch (widget.image) {
             case PdfEditorImage image:
               if (!image.loadedIn) await image.loadIn();
-              bytes = image.pdfBytes!;
+              bytes = await image.assetCacheAll.getBytes(image.assetId);
             case SvgEditorImage image:
               bytes = switch (image.svgLoader) {
                 (SvgStringLoader loader) =>
@@ -80,15 +80,7 @@ class _CanvasImageDialogState extends State<CanvasImageDialog> {
                     image.svgLoader, 'svgLoader', 'Unknown SVG loader type'),
               };
             case PngEditorImage image:
-              if (image.imageProvider is MemoryImage) {
-                bytes = (image.imageProvider as MemoryImage).bytes;
-              } else if (image.imageProvider is FileImage) {
-                bytes =
-                    await (image.imageProvider as FileImage).file.readAsBytes();
-              } else {
-                throw ArgumentError.value(image.imageProvider, 'imageProvider',
-                    'Unknown image provider type');
-              }
+              bytes = await image.assetCacheAll.getBytes(image.assetId);
           }
           if (!context.mounted) return;
           FileManager.exportFile(imageFileName, bytes,

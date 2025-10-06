@@ -130,7 +130,6 @@ class EditorPage extends ChangeNotifier implements HasSize {
     required bool readOnly,
     required int fileVersion,
     required String sbnPath,
-    required AssetCache assetCache,
     required AssetCacheAll assetCacheAll,
   }) {
     final size = Size(json['w'] ?? defaultWidth, json['h'] ?? defaultHeight);
@@ -148,7 +147,6 @@ class EditorPage extends ChangeNotifier implements HasSize {
         isThumbnail: readOnly,
         onlyFirstPage: false,
         sbnPath: sbnPath,
-        assetCache: assetCache,
         assetCacheAll: assetCacheAll,
       ),
       quill: QuillStruct(
@@ -166,23 +164,22 @@ class EditorPage extends ChangeNotifier implements HasSize {
               inlineAssets: inlineAssets,
               isThumbnail: false,
               sbnPath: sbnPath,
-              assetCache: assetCache,
               assetCacheAll: assetCacheAll,
             )
           : null,
     );
   }
 
-  Map<String, dynamic> toJson(OrderedAssetCache assets) => {
+  Map<String, dynamic> toJson() => {
         'w': size.width,
         'h': size.height,
         if (strokes.isNotEmpty)
           's': strokes.map((stroke) => stroke.toJson()).toList(),
         if (images.isNotEmpty)
-          'i': images.map((image) => image.toJson(assets)).toList(),
+          'i': images.map((image) => image.toJson()).toList(),
         if (!quill.controller.document.isEmpty())
           'q': quill.controller.document.toDelta().toJson(),
-        if (backgroundImage != null) 'b': backgroundImage?.toJson(assets)
+        if (backgroundImage != null) 'b': backgroundImage?.toJson()
       };
 
   /// Inserts a stroke, while keeping the strokes sorted by
@@ -245,7 +242,6 @@ class EditorPage extends ChangeNotifier implements HasSize {
     required bool isThumbnail,
     required bool onlyFirstPage,
     required String sbnPath,
-    required AssetCache assetCache,
     required AssetCacheAll assetCacheAll,
   }) =>
       images
@@ -257,7 +253,6 @@ class EditorPage extends ChangeNotifier implements HasSize {
               inlineAssets: inlineAssets,
               isThumbnail: isThumbnail,
               sbnPath: sbnPath,
-              assetCache: assetCache,
               assetCacheAll: assetCacheAll,
             );
           })
@@ -271,7 +266,6 @@ class EditorPage extends ChangeNotifier implements HasSize {
     required List<Uint8List>? inlineAssets,
     required bool isThumbnail,
     required String sbnPath,
-    required AssetCache assetCache,
     required AssetCacheAll assetCacheAll,
   }) =>
       EditorImage.fromJson(
@@ -279,7 +273,6 @@ class EditorPage extends ChangeNotifier implements HasSize {
         inlineAssets: inlineAssets,
         isThumbnail: isThumbnail,
         sbnPath: sbnPath,
-        assetCache: assetCache,
         assetCacheAll: assetCacheAll,
       );
 

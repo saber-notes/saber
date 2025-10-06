@@ -57,7 +57,6 @@ class EditorCoreInfo {
   /// The file name without its parent directories.
   String get fileName => filePath.substring(filePath.lastIndexOf('/') + 1);
 
-  AssetCache assetCache;
   AssetCacheAll assetCacheAll;
   int nextImageId;
   Color? backgroundColor;
@@ -80,7 +79,6 @@ class EditorCoreInfo {
     lineThickness: stows.lastLineThickness.value,
     pages: [],
     initialPageIndex: null,
-    assetCache: null,
     assetCacheAll: null,
   ).._migrateOldStrokesAndImages(
       fileVersion: sbnVersion,
@@ -102,7 +100,6 @@ class EditorCoreInfo {
         lineHeight = stows.lastLineHeight.value,
         lineThickness = stows.lastLineThickness.value,
         pages = [],
-        assetCache = AssetCache(),
         assetCacheAll = AssetCacheAll();
 
   EditorCoreInfo._({
@@ -116,10 +113,8 @@ class EditorCoreInfo {
     required this.lineThickness,
     required this.pages,
     required this.initialPageIndex,
-    required AssetCache? assetCache,
     required AssetCacheAll? assetCacheAll,
-  }) : assetCache = assetCache ?? AssetCache(),
-       assetCacheAll = assetCacheAll ?? AssetCacheAll()
+  }) : assetCacheAll = assetCacheAll ?? AssetCacheAll()
   {
     _handleEmptyImageIds();
   }
@@ -162,7 +157,6 @@ class EditorCoreInfo {
             'Invalid color value: (${json['b'].runtimeType}) ${json['b']}');
     }
 
-    final assetCache = AssetCache();
     final assetCacheAll = AssetCacheAll();
 
     return EditorCoreInfo._(
@@ -187,11 +181,9 @@ class EditorCoreInfo {
         onlyFirstPage: onlyFirstPage,
         fileVersion: fileVersion,
         sbnPath: filePath,
-        assetCache: assetCache,
         assetCacheAll: assetCacheAll,
       ),
       initialPageIndex: json['c'] as int?,
-      assetCache: assetCache,
       assetCacheAll: assetCacheAll,
     )
       .._migrateOldStrokesAndImages(
@@ -218,7 +210,6 @@ class EditorCoreInfo {
         lineHeight = stows.lastLineHeight.value,
         lineThickness = stows.lastLineThickness.value,
         pages = [],
-        assetCache = AssetCache(),
         assetCacheAll = AssetCacheAll(){
     _migrateOldStrokesAndImages(
       fileVersion: 0,
@@ -237,7 +228,6 @@ class EditorCoreInfo {
     required bool onlyFirstPage,
     required int fileVersion,
     required String sbnPath,
-    required AssetCache assetCache,
     required AssetCacheAll assetCacheAll,
   }) {
     if (pages == null || pages.isEmpty) return [];
@@ -259,7 +249,6 @@ class EditorCoreInfo {
                 readOnly: readOnly,
                 fileVersion: fileVersion,
                 sbnPath: sbnPath,
-                assetCache: assetCache,
                 assetCacheAll: assetCacheAll,
               ))
           .toList();
@@ -317,7 +306,6 @@ class EditorCoreInfo {
         isThumbnail: readOnly,
         onlyFirstPage: onlyFirstPage,
         sbnPath: filePath,
-        assetCache: assetCache,
         assetCacheAll: assetCacheAll,
       );
       for (EditorImage image in images) {
@@ -478,10 +466,8 @@ class EditorCoreInfo {
 
   /// Returns the json map and a list of assets.
   /// Assets are stored in separate files.
-  (Map<String, dynamic> json, OrderedAssetCache) toJson() {
+  Map<String, dynamic> toJson() {
     /// This will be populated in various [toJson] methods.
-    final OrderedAssetCache assets = OrderedAssetCache();
-
     final json = {
       'v': sbnVersion,
       'ni': nextImageId,
@@ -489,11 +475,11 @@ class EditorCoreInfo {
       'p': backgroundPattern.name,
       'l': lineHeight,
       'lt': lineThickness,
-      'z': pages.map((EditorPage page) => page.toJson(assets)).toList(),
+      'z': pages.map((EditorPage page) => page.toJson()).toList(),
       'c': initialPageIndex,
     };
 
-    return (json, assets);
+    return (json);
   }
 
   /// Converts the current note as an SBA (Saber Archive) file,
@@ -508,7 +494,7 @@ class EditorCoreInfo {
   Future<List<int>> saveToSba({
     required int? currentPageIndex,
   }) async {
-    final (bson, assets) = saveToBinary(
+    final (bson) = saveToBinary(
       currentPageIndex: currentPageIndex,
     );
     const filePath = 'main${Editor.extension}';
@@ -521,8 +507,8 @@ class EditorCoreInfo {
     ));
 
     await Future.wait([
-      for (int i = 0; i < assets.length; ++i)
-        assets.getBytes(i).then((bytes) => archive.addFile(ArchiveFile(
+      for (int i = 0; i < assetCacheAll.length; ++i)
+        assetCacheAll.getBytes(i).then((bytes) => archive.addFile(ArchiveFile(
               '$filePath.$i',
               bytes.length,
               bytes,
@@ -533,20 +519,20 @@ class EditorCoreInfo {
   }
 
   /// Returns the bson bytes and the assets.
-  (Uint8List bson, OrderedAssetCache assets) saveToBinary({
+  Uint8List saveToBinary({
     required int? currentPageIndex,
   }) {
     initialPageIndex = currentPageIndex ?? initialPageIndex;
-    final (json, assets) = toJson();
+    final (json) = toJson();
     final bson = BsonCodec.serialize(json);
-    return (bson.byteList, assets);
+    return bson.byteList;
   }
 
   void dispose() {
     for (final page in pages) {
       page.dispose();
     }
-    assetCache.dispose();
+    assetCacheAll.dispose();
   }
 
   EditorCoreInfo copyWith({
@@ -573,7 +559,6 @@ class EditorCoreInfo {
       lineThickness: lineThickness ?? this.lineThickness,
       pages: pages ?? this.pages,
       initialPageIndex: initialPageIndex,
-      assetCache: assetCache,
       assetCacheAll: assetCacheAll,
     );
   }
