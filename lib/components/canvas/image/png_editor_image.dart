@@ -140,7 +140,7 @@ class PngEditorImage extends EditorImage {
   @override
   Map<String, dynamic> toJson() => super.toJson()
     ..addAll({
-      if (imageProvider != null) 'a': assetId,
+        'a': assetCacheAll.getAssetIdOnSave(assetId), // assets can be reordered during saving
     });
 
   @override
@@ -179,7 +179,7 @@ class PngEditorImage extends EditorImage {
         );
         if (resizedByteData != null) {
           // store resized bytes to temporary file
-          final tempImageFile = await assetCacheAll.createRuntimeFile('.png',resizedByteData.buffer.asUint8List());
+          final tempImageFile = assetCacheAll.createRuntimeFile('.png',resizedByteData.buffer.asUint8List());
           // replace image
           assetCacheAll.replaceImage(tempImageFile, assetId);
         }

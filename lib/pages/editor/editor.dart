@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:convert';
 import 'dart:io';
 
 import 'package:collapsible/collapsible.dart';
@@ -13,7 +12,6 @@ import 'package:flutter_quill/flutter_quill.dart' as flutter_quill;
 import 'package:keybinder/keybinder.dart';
 import 'package:logging/logging.dart';
 import 'package:printing/printing.dart';
-import 'package:saber/components/canvas/_asset_cache.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/canvas.dart';
 import 'package:saber/components/canvas/canvas_gesture_detector.dart';
@@ -369,11 +367,11 @@ class EditorState extends State<Editor> {
             // increment use of image asset
             int assetId=-1;
             if (image is PdfEditorImage){
-              assetId=(image as PdfEditorImage).assetId;
+              assetId=image.assetId;
             } else if (image is PngEditorImage){
-              assetId=(image as PngEditorImage).assetId;
+              assetId=image.assetId;
             } else if (image is SvgEditorImage){
-              assetId=(image as SvgEditorImage).assetId;
+              assetId=image.assetId;
             }
             if (assetId>=0) {
               // free use of asset
@@ -782,11 +780,11 @@ class EditorState extends State<Editor> {
   void onDeleteImage(EditorImage image) {
     int assetId=-1;
     if (image is PdfEditorImage){
-      assetId=(image as PdfEditorImage).assetId;
+      assetId=image.assetId;
     } else if (image is PngEditorImage){
-      assetId=(image as PngEditorImage).assetId;
+      assetId=image.assetId;
     } else if (image is SvgEditorImage){
-      assetId=(image as SvgEditorImage).assetId;
+      assetId=image.assetId;
     }
     if (assetId>=0) {
       // free use of asset
@@ -929,6 +927,8 @@ class EditorState extends State<Editor> {
     final filePath = coreInfo.filePath + Editor.extension;
     final Uint8List bson;
     coreInfo.assetCacheAll.allowRemovingAssets = false;
+    final fullPath = FileManager.getFilePath(filePath);  // add full path of note
+    await coreInfo.assetCacheAll.renumberBeforeSave(fullPath);  // renumber all assets
     try {
       // go through all pages and prepare Json of each page.
       (bson) = coreInfo.saveToBinary(
@@ -943,8 +943,14 @@ class EditorState extends State<Editor> {
 
       // write assets
       for (int i = 0; i < coreInfo.assetCacheAll.length; ++i){
+        final idSave=coreInfo.assetCacheAll.getAssetIdOnSave(i);
+        if (idSave<0){
+          // asset is not used
+          continue;
+        }
         final assetFile=coreInfo.assetCacheAll.getAssetFile(i);
-        await FileManager.copyFile(assetFile,'$filePath.$i', awaitWrite: true);
+        final newFile='$filePath.$idSave';  // new asset file
+        await FileManager.copyFile(assetFile,newFile, awaitWrite: true);
       }
       FileManager.removeUnusedAssets(
           filePath,

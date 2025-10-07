@@ -2,12 +2,20 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 import 'dart:math';
-import 'package:collection/collection.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/painting.dart';
 import 'package:logging/logging.dart';
 import 'package:pdfrx/pdfrx.dart';
-import 'package:saber/components/canvas/image/editor_image.dart';
+import 'package:saber/data/file_manager/file_manager.dart';
+
+class RandomFileName {
+  // generate random file name
+  static String generateRandomFileName([String extension = 'txt']) {
+    final timestamp = DateTime.now().millisecondsSinceEpoch;
+    final random = Random().nextInt(1 << 32); // 32-bit random number
+    return 'file_${timestamp}_$random.$extension';
+  }
+}
 
 class PdfInfoExtractor {
   /// Extracts /Info dictionary from a PDF file with minimal reads (synchronous)
@@ -252,134 +260,6 @@ class PdfInfoExtractor {
   }
 }
 
-/// A cache for assets that are loaded from disk.
-///
-/// This is the analogue to Flutter's image cache,
-/// but for non-image assets.
-///
-/// There should be one instance of this class per
-/// [EditorCoreInfo] instance.
-class AssetCache {
-  AssetCache();
-
-  final log = Logger('AssetCache');
-
-  /// Maps a file path to its value.
-  final Map<String, Object> _cache = {};
-
-  /// Maps a file path to the visible images that use it.
-  final Map<String, Set<EditorImage>> _images = {};
-
-  /// Whether items from the cache can be removed:
-  /// set to false during file save.
-  bool allowRemovingAssets = true;
-
-  /// Marks [image] as currently visible.
-  ///
-  /// It's safe to call this method multiple times.
-  ///
-  /// [file] is allowed to be null for convenience,
-  /// in which case this function does nothing.
-  void addImage<T extends Object>(EditorImage image, File? file, T value) {
-    if (file == null) return;
-    _images.putIfAbsent(file.path, () => {}).add(image);
-    _cache[file.path] = value;
-  }
-
-  /// Returns null if [file] is not found.
-  T? get<T extends Object>(File file) {
-    return _cache[file.path] as T?;
-  }
-
-  /// Marks [image] as no longer visible.
-  ///
-  /// It's safe to call this method multiple times.
-  ///
-  /// If [image] is the last image using its file,
-  /// the file is also removed from the cache.
-  ///
-  /// Returns whether the image was present in the cache.
-  bool removeImage(EditorImage image) {
-    if (!allowRemovingAssets) return false;
-
-    for (final filePath in _images.keys) {
-      final imagesUsingFile = _images[filePath]!;
-      imagesUsingFile.remove(image);
-
-      if (imagesUsingFile.isEmpty) {
-        _images.remove(filePath);
-        _cache.remove(filePath);
-        return true;
-      }
-    }
-
-    return false;
-  }
-
-  void dispose() {
-    _images.clear();
-    _cache.clear();
-  }
-}
-
-class OrderedAssetCache {
-  OrderedAssetCache();
-
-  final log = Logger('OrderedAssetCache');
-
-  final List<Object> _cache = [];
-
-  /// Adds [value] to the cache if it is not already present and
-  /// returns the index of the added item.
-  int add<T extends Object>(T value) {
-    int index = _cache.indexOf(value);
-    if (index == -1 && value is List<int>) {
-      // Lists need to be compared per item
-      final listEq = const ListEquality().equals;
-      for (int i = 0; i < _cache.length; i++) {
-        final cacheItem = _cache[i];
-        if (cacheItem is! List<int>) continue;
-        if (!listEq(value, cacheItem)) continue;
-
-        index = i;
-        break;
-      }
-    }
-    log.fine('OrderedAssetCache.add: index = $index, value = $value');
-
-    if (index == -1) {
-      _cache.add(value);
-      return _cache.length - 1;
-    } else {
-      return index;
-    }
-  }
-
-  /// The number of (distinct) items in the cache.
-  int get length => _cache.length;
-  bool get isEmpty => _cache.isEmpty;
-  bool get isNotEmpty => _cache.isNotEmpty;
-
-  /// Converts the item at position [index]
-  /// to bytes and returns them.
-  Future<List<int>> getBytes(int index) async {
-    final item = _cache[index];
-    if (item is List<int>) {
-      return item;
-    } else if (item is File) {
-      return item.readAsBytes();
-    } else if (item is String) {
-      return utf8.encode(item);
-    } else if (item is MemoryImage) {
-      return item.bytes;
-    } else if (item is FileImage) {
-      return item.file.readAsBytes();
-    } else {
-      throw Exception(
-          'OrderedAssetCache.getBytes: unknown type ${item.runtimeType}');
-    }
-  }
-}
 ///////////////////////////////////////////////////////////////////////////
 ///   current cache and images problems:
 ///   1. two caches  assetCache (for working), OrderedAssetCache (for writing)
@@ -435,7 +315,7 @@ class PreviewResult {
 
 // object in cache
 class CacheItem {
-  final Object value;
+  Object? value;  // value can change because file can be renamed
   int? previewHash; // quick hash (from first 100KB bytes)
   int? hash; // hash can be calculated later
   String? fileInfo; // file information - /Info of pdf is implemented now
@@ -446,11 +326,10 @@ class CacheItem {
 
   // for files only
   final int? fileSize;
-  final String?
-      filePath; // only for files - for fast comparison without reading file contents
+  String? filePath; // only for files - for fast comparison without reading file contents
   final String? fileExt; // file extension
   int _refCount = 0; // number of references
-  bool _released = false;
+  int  assetIdOnSave=-1;   // id of asset when the note is save (some assets can be skipped)
 
   CacheItem(
     this.value, {
@@ -466,18 +345,15 @@ class CacheItem {
 
   // increase use of item
   void addUse() {
-    //if (_released) throw StateError('Trying to add use of released CacheItem');
     _refCount++;
   }
 
   // when asset is released (no more used)
   void freeUse() {
     if (_refCount > 0) _refCount--;
-    //if (_refCount == 0) _released = true;
   }
-
+  int get refCount => _refCount;
   bool get isUnused => _refCount == 0;
-  bool get isReleased => _released;
 
   @override
   bool operator ==(Object other) {
@@ -494,7 +370,7 @@ class CacheItem {
       }
     }
 
-    if (fileInfo != null && other.fileInfo != null) {
+    if (fileInfo != '' && other.fileInfo != '') {
       if (fileInfo == other.fileInfo) {
         // both file info are the same.
         return true;
@@ -549,12 +425,22 @@ class CacheItem {
     imageProviderNotifier.value = null; // will be recreated on next access
   }
 
+  // move asset file to temporary file to avoid it is overwriten during note save
+  void moveAssetToTemporaryFile() {
+    final dir = FileManager.supportDirectory;
+    String newPath = '${dir.path}/TmPmP_${RandomFileName.generateRandomFileName(fileExt != null ? fileExt! : 'tmp')}'; // update file path
+    value=(value as File).renameSync(newPath);  // rename asset
+    filePath=newPath;
+  }
+
+
+
 //  @override
 //  int? get hash => filePath?.hash ?? hash;
 
   @override
   String toString() =>
-      'CacheItem(path: $filePath, preview=$previewHash, full=$hash, refs=$_refCount, released=$_released)';
+      'CacheItem(path: $filePath, preview=$previewHash, full=$hash, refs=$_refCount)';
 }
 
 // cache manager
@@ -573,6 +459,7 @@ class AssetCacheAll {
   bool allowRemovingAssets = true;
 
   final log = Logger('OrderedAssetCache');
+
 
   // return pdfDocument of asset it is lazy because it take some time to do it
   Future<PdfDocument> getPdfDocument(int assetId) {
@@ -607,6 +494,24 @@ class AssetCacheAll {
       throw StateError('Asset is not a PDF');
     }
   }
+
+
+  // removes image provider of file from image Cache.
+  // important to call this when assets are renamed
+  Future<void> clearImageProvider(int assetId) async {
+    // return cached provider if already available
+    final item = _items[assetId];
+    if (item.imageProviderNotifier.value == null)
+      return;
+    if (item.value is File) {
+      final file=FileImage(item.value as File);
+      final key = await file.obtainKey(ImageConfiguration());
+      imageCache.evict(key);
+    }
+    return;
+  }
+
+
 
   // give image provider notifier for asset image
   ValueNotifier<ImageProvider?> getImageProviderNotifier(int assetId) {
@@ -844,6 +749,50 @@ class AssetCacheAll {
     }
   }
 
+  // return id of asset which must be used on save
+  int getAssetIdOnSave(int index){
+    return _items[index].assetIdOnSave;
+  }
+
+  // this routine should be called before note is saved. It renumbers assets according their usage
+  Future<void> renumberBeforeSave(String noteFilePath) async{
+    int currentId=-1;
+    for (int i = 0; i < _items.length; i++) {
+      final item = _items[i];
+      if (item.refCount > 0) {
+        currentId++;
+        item.assetIdOnSave = currentId;
+        if (item.assetIdOnSave != i) {
+          final newPath = '$noteFilePath.$currentId'; // new asset file
+          if ((item.filePath) != newPath) {
+            // move asset to correct file name
+            await clearImageProvider(i); // remove imageProvider from cache
+            item.value =
+                (item.value as File).renameSync(newPath); // rename asset
+            item.filePath = newPath;
+            item.invalidateImageProvider(); // invalidate image provider so new one is allocated
+            getImageProviderNotifier(i);  // allocate new image provider to enable rendering
+          }
+        }
+      }
+      else {
+        // this item is not used. We should save it to temp directory
+        // in case of undo it can be used again
+        item.assetIdOnSave = -1;
+        if ((item.filePath)!.startsWith(noteFilePath)){
+          // file path of asset is the same as note path - asset file can be overwritten,
+          // move it to the safe location
+          await clearImageProvider(i);  // remove imageProvider from cache
+          item.moveAssetToTemporaryFile(); // move asset to different file
+          item.invalidateImageProvider(); // invalidate image provider so new one is allocated
+          getImageProviderNotifier(i);  // allocate new image provider to enable rendering
+        }
+      }
+    }
+    return;
+  }
+
+
   // finalize cache after it was filled using addSync - without calculation of hashes
   // is called after note is read to Editor
   Future<void> finalize() async {
@@ -919,18 +868,11 @@ class AssetCacheAll {
     }
   }
 
-  // generate random file name
-  String generateRandomFileName([String extension = 'txt']) {
-    final timestamp = DateTime.now().millisecondsSinceEpoch;
-    final random = Random().nextInt(1 << 32); // 32-bit random number
-    return 'file_${timestamp}_$random.$extension';
-  }
-
   // create temporary file from bytes when inline bytes are read
   File createRuntimeFile(String ext, Uint8List bytes) {
     final dir = Directory.systemTemp; // Použití systémového temp adresáře
 //    final dir = await getApplicationSupportDirectory();
-    final file = File('${dir.path}/TmPmP_${generateRandomFileName(ext)}');
+    final file = File('${dir.path}/TmPmP_${RandomFileName.generateRandomFileName(ext)}');
     file.writeAsBytesSync(bytes, flush: true);
     return file;
   }

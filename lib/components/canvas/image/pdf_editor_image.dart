@@ -122,7 +122,7 @@ class PdfEditorImage extends EditorImage {
     assert(!json.containsKey('a'));
     assert(!json.containsKey('b'));
 
-    json['a'] = assetId;
+    json['a'] = assetCacheAll.getAssetIdOnSave(assetId); // assets can be reordered during saving
     json['pdfi'] = pdfPage;
 
     return json;

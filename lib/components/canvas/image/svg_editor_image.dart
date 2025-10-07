@@ -114,20 +114,11 @@ class SvgEditorImage extends EditorImage {
     assert(!json.containsKey('b'));
 
 //    final svgData = _extractSvg();
-    json['a'] = assetId;
+    json['a'] = assetCacheAll.getAssetIdOnSave(assetId); // assets can be reordered during saving
 
     return json;
   }
 
-  ({String? string, File? file}) _extractSvg() => switch (svgLoader) {
-        (SvgStringLoader loader) => (
-            string: loader.provideSvg(null),
-            file: null
-          ),
-        (SvgFileLoader loader) => (string: null, file: loader.file),
-        (_) => throw ArgumentError.value(svgLoader, 'svgLoader',
-            'SvgEditorImage.toJson: svgLoader must be a SvgStringLoader or SvgFileLoader'),
-      };
 
   @override
   Future<void> firstLoad() async {
