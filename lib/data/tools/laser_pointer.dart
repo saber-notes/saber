@@ -93,6 +93,8 @@ class LaserPointer extends Tool {
     for (final delay in strokePointDelays) {
       await Future.delayed(delay);
 
+      if (stroke.length <= 1) break;
+
       stroke.popFirstPoint();
       redrawPage();
 
