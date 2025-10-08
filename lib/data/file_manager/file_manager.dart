@@ -309,6 +309,26 @@ class FileManager {
     if (awaitWrite) await writeFuture;
   }
 
+  /// Marks [fileFrom] as saved - used when saving assets during note save.
+  static Future<void> markFileAsSaved(
+      File fileFrom,
+      {
+        bool awaitWrite = false,
+        bool alsoUpload = true,
+      }) async {
+    log.fine('Marking file as Saved');
+
+    await _saveFileAsRecentlyAccessed(fileFrom.path);
+    broadcastFileWrite(FileOperationType.write, fileFrom.path);
+    if (alsoUpload) syncer.uploader.enqueueRel(fileFrom.path);
+    if (fileFrom.path.endsWith(Editor.extension)) {
+      _removeReferences(
+          '${fileFrom.path.substring(0, fileFrom.path.length - Editor.extension.length)}'
+              '${Editor.extensionOldJson}');
+    }
+  }
+
+
 
   static Future<void> createFolder(String folderPath) async {
     folderPath = _sanitisePath(folderPath);

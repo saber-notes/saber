@@ -941,20 +941,21 @@ class EditorState extends State<Editor> {
       // write note itself
       await FileManager.writeFile(filePath, bson, awaitWrite: true);
 
-      // write assets
+      // write assets was already done in renumberBeforeSave() routine
+      int numAssetUsed=0;
       for (int i = 0; i < coreInfo.assetCacheAll.length; ++i){
         final idSave=coreInfo.assetCacheAll.getAssetIdOnSave(i);
         if (idSave<0){
-          // asset is not used
+          // asset is not used do not save it
           continue;
         }
+        numAssetUsed++;  // increase number of used assets
         final assetFile=coreInfo.assetCacheAll.getAssetFile(i);
-        final newFile='$filePath.$idSave';  // new asset file
-        await FileManager.copyFile(assetFile,newFile, awaitWrite: true);
+        await FileManager.markFileAsSaved(assetFile); // inform application that file was updated
       }
       FileManager.removeUnusedAssets(
           filePath,
-          numAssets: coreInfo.assetCacheAll.length,
+          numAssets: numAssetUsed,
       );
       savingState.value = SavingState.saved;
     } catch (e) {
