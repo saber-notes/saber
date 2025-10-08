@@ -5,15 +5,16 @@ import 'dart:math';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/painting.dart';
 import 'package:logging/logging.dart';
+import 'package:mutex/mutex.dart';
 import 'package:pdfrx/pdfrx.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 
 class RandomFileName {
   // generate random file name
-  static String generateRandomFileName([String extension = 'txt']) {
+  static String generateRandomFileName([String extension = '.txt']) {
     final timestamp = DateTime.now().millisecondsSinceEpoch;
     final random = Random().nextInt(1 << 32); // 32-bit random number
-    return 'file_${timestamp}_$random.$extension';
+    return 'file_${timestamp}_$random$extension';
   }
 }
 
@@ -308,9 +309,8 @@ class PdfInfoExtractor {
 class PreviewResult {
   final int previewHash;
   final int fileSize;
-  final String firstBytes;
   final String fileInfo;   // string containing file information  - now only pdfFile /Info
-  PreviewResult(this.previewHash, this.fileSize, this.firstBytes, this.fileInfo);
+  PreviewResult(this.previewHash, this.fileSize, this.fileInfo);
 }
 
 // object in cache
@@ -454,6 +454,8 @@ class AssetCacheAll {
   final Map<int, Future<PdfDocument>> _openingDocs =
       {}; // Holds currently opening futures to avoid duplicate opens
 
+  final Mutex _mutex = Mutex();   // blocking some operations
+
   /// Whether items from the cache can be removed:
   /// set to false during file save.
   bool allowRemovingAssets = true;
@@ -511,8 +513,6 @@ class AssetCacheAll {
     return;
   }
 
-
-
   // give image provider notifier for asset image
   ValueNotifier<ImageProvider?> getImageProviderNotifier(int assetId) {
     // return cached provider if already available
@@ -536,9 +536,23 @@ class AssetCacheAll {
   }
 
   // calculate hash of bytes (all)
-  int calculateHash(List<int> bytes) {
+  int calculateHash(List<int> bytes,int fileSize) {
     // fnv1a
     int hash = 0x811C9DC5;
+
+    // first 4 bytes will be hashed file size
+    hash ^= (fileSize & 0xFF);           // lowest byte
+    hash = (hash * 0x01000193) & 0xFFFFFFFF;
+
+    hash ^= ((fileSize >> 8) & 0xFF);    // second byte
+    hash = (hash * 0x01000193) & 0xFFFFFFFF;
+
+    hash ^= ((fileSize >> 16) & 0xFF);   // third byte
+    hash = (hash * 0x01000193) & 0xFFFFFFFF;
+
+    hash ^= ((fileSize >> 24) & 0xFF);   // fourth byte
+
+    // and hash of filebytes
     for (var b in bytes) {
       hash ^= b;
       hash = (hash * 0x01000193) & 0xFFFFFFFF;
@@ -549,7 +563,7 @@ class AssetCacheAll {
 // Compute a quick hash based on the first 100 KB of the file.
 // This can be done synchronously to quickly filter duplicates.
 // calculate preview hash of file
-  PreviewResult getFilePreviewHash(File file) {
+  PreviewResult getFilePreviewHash(File file,String extension) {
     final stat = file.statSync(); // get file metadata
     final fileSize = stat.size;
 
@@ -558,10 +572,9 @@ class AssetCacheAll {
       // read either the whole file if small, or just the first 100 KB
       final toRead = fileSize < 100 * 1024 ? fileSize : 100 * 1024;
       final bytes = raf.readSync(toRead);
-      final previewHashBytes = calculateHash(bytes);
-      final firstBytes =latin1.decode(bytes.sublist(0, 4)); // first 4 characters - used to detect PDF file
+      final previewHashBytes = calculateHash(bytes,fileSize);
       String fileInfo='';
-      if (firstBytes == '%PDF') {
+      if (extension == '.pdf') {
         // asset is pdf, get pdf /Info, it is quick
         try {
           final info = PdfInfoExtractor.extractInfo(file);
@@ -571,11 +584,9 @@ class AssetCacheAll {
           fileInfo='';
         }
       }
-
       return PreviewResult(
-          (fileSize.hashCode << 32) ^ previewHashBytes, // previehash is put together from file size and hash of first 100kB
+          previewHashBytes, // previehash is put together from file size and hash of first 100kB
           fileSize, // file size
-          firstBytes, // first 4 bytes - used to recognize pdf file format
           fileInfo
       );
     } finally {
@@ -601,7 +612,12 @@ class AssetCacheAll {
   //       It is why we simply not add every asset, because they can be the same.
   //       add to cache but read only small part of files - used when reading note from disk
   //       full hashes are established later
-  int addSync(Object value) {
+  int addSync(Object value,
+    String extension,
+    String? fileInfo,
+    int? previewHash,
+    int? fileSize,
+    int? hash) {
     if (value is File) {
       log.info('allCache.addSync: value = $value');
       final path = value.path;
@@ -614,9 +630,14 @@ class AssetCacheAll {
             'allCache.addSync: already in cache {$_items[existingPathIndex]._refCount}');
         return existingPathIndex;
       }
-
-      final previewResult =
-          getFilePreviewHash(value); // calculate preliminary hash of file or get Info of pdf file
+      PreviewResult previewResult;
+      if (previewHash != null && fileSize !=null){
+        // file information is stored directly in asset no need to determine it
+        previewResult = PreviewResult(previewHash, fileSize, fileInfo ?? '');
+      }
+      else {
+        previewResult =getFilePreviewHash(value,extension); // calculate preliminary hash of file or get Info of pdf file
+      }
 
       if (previewResult.fileInfo.isNotEmpty){
         // we know information about file (it is pdf) so test it
@@ -642,7 +663,9 @@ class AssetCacheAll {
           filePath: value.path,
           previewHash: previewResult.previewHash,
           fileSize: previewResult.fileSize,
-          fileInfo: previewResult.fileInfo)
+          fileExt: extension,
+          fileInfo: previewResult.fileInfo,
+          hash: hash)
         ..addUse(); // and add use
 
       _items.add(newItem);
@@ -659,67 +682,72 @@ class AssetCacheAll {
 // async add cache is used from Editor, when adding asset using file picker
 // always is used File!
   Future<int> add(Object value) async {
-    if (value is File) {
-      // files are first compared by file path
-      final path = value.path;
+    return await _mutex.protect(() async {
+      if (value is File) {
+        // files are first compared by file path
+        final path = value.path;
+        final extension = '.${value.path.split('.').last.toLowerCase()}';
 
-      // 1. Fast path check
-      final existingPathIndex = _items.indexWhere((i) => i.filePath == path);
-      if (existingPathIndex != -1) {
-        _items[existingPathIndex].addUse();
-        return existingPathIndex;
-      }
-
-      final previewResult =
-          getFilePreviewHash(value); // calculate preliminary hash of file
-
-      if (previewResult.fileInfo.isNotEmpty){
-        // we know information about file (pdf file) so test it
-        final existingFileInfoIndex = _items.indexWhere((i) => i.fileInfo == previewResult.fileInfo);
-        if (existingFileInfoIndex != -1) {
-          // file with this fileInfo already in cache
-          _items[existingFileInfoIndex].addUse();
-          log.info(
-              'allCache.addSync: already in cache {$_items[existingPathIndex]._refCount}');
-          return existingFileInfoIndex;
+        // 1. Fast path check
+        final existingPathIndex = _items.indexWhere((i) => i.filePath == path);
+        if (existingPathIndex != -1) {
+          _items[existingPathIndex].addUse();
+          return existingPathIndex;
         }
+
+        final previewResult =
+        getFilePreviewHash(value,extension); // calculate preliminary hash of file
+
+        if (previewResult.fileInfo.isNotEmpty) {
+          // we know information about file (pdf file) so test it
+          final existingFileInfoIndex = _items.indexWhere((i) =>
+          i.fileInfo == previewResult.fileInfo);
+          if (existingFileInfoIndex != -1) {
+            // file with this fileInfo already in cache
+            _items[existingFileInfoIndex].addUse();
+            log.info(
+                'allCache.addSync: already in cache {$_items[existingPathIndex]._refCount}');
+            return existingFileInfoIndex;
+          }
+        }
+
+        // Check previwHash value
+        if (_previewHashIndex.containsKey(previewResult.previewHash)) {
+          final existingIndex = _previewHashIndex[previewResult.previewHash]!;
+          _items[existingIndex].addUse();
+          return existingIndex;
+        }
+
+        // compute expensive content hash - need to read whole file
+        final bytes = await value.readAsBytes();
+        final hash = calculateHash(bytes,previewResult.fileSize);
+
+        // prepare cache item
+        final newItem = CacheItem(value,
+            filePath: value.path,
+            previewHash: previewResult.previewHash,
+            hash: hash,
+            fileExt: extension,
+            fileSize: previewResult.fileSize,
+            fileInfo: previewResult.fileInfo)
+          ..addUse();
+
+        // check if it is already in cache
+        final existingHashIndex = _items.indexOf(newItem);
+        if (existingHashIndex != -1) {
+          _items[existingHashIndex].addUse();
+          return existingHashIndex;
+        }
+        _items.add(newItem);
+        final index = _items.length - 1;
+        _previewHashIndex[previewResult.previewHash] =
+            index; // add to previously hashed
+        return index;
+      } else {
+        throw Exception(
+            'assetCacheAll.add: unknown type ${value.runtimeType}');
       }
-
-      // Check previwHash value
-      if (_previewHashIndex.containsKey(previewResult.previewHash)) {
-        final existingIndex = _previewHashIndex[previewResult.previewHash]!;
-        _items[existingIndex].addUse();
-        return existingIndex;
-      }
-
-      // compute expensive content hash - need to read whole file
-      final bytes = await value.readAsBytes();
-      final hash = calculateHash(bytes);
-
-      // prepare cache item
-      final newItem = CacheItem(value,
-          filePath: value.path,
-          previewHash: previewResult.previewHash,
-          hash: hash,
-          fileSize: previewResult.fileSize,
-          fileInfo: previewResult.fileInfo)
-        ..addUse();
-
-      // check if it is already in cache
-      final existingHashIndex = _items.indexOf(newItem);
-      if (existingHashIndex != -1) {
-        _items[existingHashIndex].addUse();
-        return existingHashIndex;
-      }
-      _items.add(newItem);
-      final index = _items.length - 1;
-      _previewHashIndex[previewResult.previewHash] =
-          index; // add to previously hashed
-      return index;
-    } else{
-      throw Exception(
-          'assetCacheAll.add: unknown type ${value.runtimeType}');
-    }
+    });
   }
 
   /// The number of (distinct) items in the cache.
@@ -754,42 +782,69 @@ class AssetCacheAll {
     return _items[index].assetIdOnSave;
   }
 
+  // return asset previewHash
+  int getAssetPreviewHash(int index){
+    return _items[index].previewHash!;
+  }
+
+  // return asset Hash
+  int? getAssetHash(int index){
+    return _items[index].hash;
+  }
+
+  // return asset fileInfo
+  String getAssetFileInfo(int index){
+    return _items[index].fileInfo ?? '';
+  }
+
+  // return asset fileSize
+  int getAssetFileSize(int index){
+    return _items[index].fileSize!;
+  }
+
   // this routine should be called before note is saved. It renumbers assets according their usage
   Future<void> renumberBeforeSave(String noteFilePath) async{
-    int currentId=-1;
-    for (int i = 0; i < _items.length; i++) {
-      final item = _items[i];
-      if (item.refCount > 0) {
-        currentId++;
-        item.assetIdOnSave = currentId;
-        if (item.assetIdOnSave != i) {
+    await _mutex.protect(() async {
+      int currentId = -1;
+      for (int i = 0; i < _items.length; i++) {
+        final item = _items[i];
+        if (item.refCount > 0) {
+          currentId++;
           final newPath = '$noteFilePath.$currentId'; // new asset file
+          item.assetIdOnSave = currentId;
           if ((item.filePath) != newPath) {
             // move asset to correct file name
-            await clearImageProvider(i); // remove imageProvider from cache
+            final bool isImage = item.imageProviderNotifier !=null;
+            final bool isPdf = item._pdfDocument !=null;
+            if (isImage) {
+              await clearImageProvider(i); // remove imageProvider from cache
+            } else if (isPdf){
+
+            }
+
             item.value =
                 (item.value as File).renameSync(newPath); // rename asset
             item.filePath = newPath;
             item.invalidateImageProvider(); // invalidate image provider so new one is allocated
-            getImageProviderNotifier(i);  // allocate new image provider to enable rendering
+            getImageProviderNotifier(i); // allocate new image provider to enable rendering
+          }
+        }
+        else {
+          // this item is not used. We should save it to temp directory
+          // in case of undo it can be used again
+          item.assetIdOnSave = -1;
+          if ((item.filePath)!.startsWith(noteFilePath)) {
+            // file path of asset is the same as note path - asset file can be overwritten,
+            // move it to the safe location
+            await clearImageProvider(i); // remove imageProvider from cache
+            item.moveAssetToTemporaryFile(); // move asset to different file
+            item.invalidateImageProvider(); // invalidate image provider so new one is allocated
+            getImageProviderNotifier(i); // allocate new image provider to enable rendering
           }
         }
       }
-      else {
-        // this item is not used. We should save it to temp directory
-        // in case of undo it can be used again
-        item.assetIdOnSave = -1;
-        if ((item.filePath)!.startsWith(noteFilePath)){
-          // file path of asset is the same as note path - asset file can be overwritten,
-          // move it to the safe location
-          await clearImageProvider(i);  // remove imageProvider from cache
-          item.moveAssetToTemporaryFile(); // move asset to different file
-          item.invalidateImageProvider(); // invalidate image provider so new one is allocated
-          getImageProviderNotifier(i);  // allocate new image provider to enable rendering
-        }
-      }
-    }
-    return;
+      return;
+    });
   }
 
 
@@ -803,7 +858,7 @@ class AssetCacheAll {
       int? hashItem = item.hash;
       if (hashItem == 0) {
         final bytes = await getBytes(i);
-        hash = calculateHash(bytes);
+        hash = calculateHash(bytes,_items[i].fileSize!);
         _items[i] = CacheItem(item.value,
             hash: hash, filePath: item.filePath, fileSize: item.fileSize);
       } else {
@@ -826,33 +881,36 @@ class AssetCacheAll {
 
   // replace asset by another one - typically when resampling image to lower resolution
   Future<void> replaceImage(Object value, int id) async {
-    if (value is File) {
-      // compute expensive content hash
-      final bytes = await value.readAsBytes();
-      final hash = calculateHash(bytes);
-      final previewResult =
-          getFilePreviewHash(value); // calculate preliminary hash of file
+    await _mutex.protect(() async {
+      if (value is File) {
+        // compute expensive content hash
+        final bytes = await value.readAsBytes();
+        final previewResult =
+        getFilePreviewHash(value,_items[id].fileExt!); // calculate preliminary hash of file
+        final hash = calculateHash(bytes,previewResult.fileSize);
 
-      final oldItem = _items[id];
-      // create new Cache item
-      final newItem = CacheItem(
-        value,
-        filePath: value.path,
-        previewHash: previewResult.previewHash,
-        hash: hash,
-        fileSize: previewResult.fileSize,
-        imageProviderNotifier:
-            oldItem.imageProviderNotifier, // keep original Notifier
-      ).._refCount = oldItem._refCount; // keep number of references
+        final oldItem = _items[id];
+        // create new Cache item
+        final newItem = CacheItem(
+          value,
+          filePath: value.path,
+          previewHash: previewResult.previewHash,
+          hash: hash,
+          fileSize: previewResult.fileSize,
+          imageProviderNotifier:
+          oldItem.imageProviderNotifier, // keep original Notifier
+        )
+          .._refCount = oldItem._refCount; // keep number of references
 
-      // update original fields
-      _items[id] = newItem;
-      _items[id]
-          .invalidateImageProvider; // invalidate imageProvider so it is newly created when needed
-    } else {
-      throw Exception(
-          'assetCacheAll.replaceImage: unknown type ${value.runtimeType}');
-    }
+        // update original fields
+        _items[id] = newItem;
+        _items[id]
+            .invalidateImageProvider; // invalidate imageProvider so it is newly created when needed
+      } else {
+        throw Exception(
+            'assetCacheAll.replaceImage: unknown type ${value.runtimeType}');
+      }
+    });
   }
 
   // return File associated with asset, used to save assets when saving note
@@ -879,6 +937,9 @@ class AssetCacheAll {
 
   void dispose() {
     _items.clear();
+    _aliasMap.clear();
+    _openingDocs.clear();
+    _previewHashIndex.clear();
   }
 
   @override

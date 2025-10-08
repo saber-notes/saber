@@ -60,7 +60,13 @@ class SvgEditorImage extends EditorImage {
       log.warning('SvgEditorImage.fromJson: no svg string found');
     }
     if (svgFile != null) {
-      assetIndex = assetCacheAll.addSync(svgFile);
+      assetIndex = assetCacheAll.addSync(
+        svgFile,'svg',
+        json.containsKey('ainf') ? json['ainf'] : null,
+        json.containsKey('aph') ? json['aph'].toInt() : null,
+        json.containsKey('afs') ? json['afs'] : null,
+        json.containsKey('ah') ? json['ah'].toInt() : null,
+      );
     }
     else {
       throw Exception('EditorImage.fromJson: svg image not in assets');
@@ -115,6 +121,12 @@ class SvgEditorImage extends EditorImage {
 
 //    final svgData = _extractSvg();
     json['a'] = assetCacheAll.getAssetIdOnSave(assetId); // assets can be reordered during saving
+    json['aph'] = assetCacheAll.getAssetPreviewHash(assetId); // assets prewiewHash
+    json['afs'] = assetCacheAll.getAssetFileSize(assetId); // assets can be reordered during saving
+    if (assetCacheAll.getAssetFileInfo(assetId) != '')
+      json['ainf'] = assetCacheAll.getAssetFileInfo(assetId); // asset file info
+    if (assetCacheAll.getAssetHash(assetId) != null)
+      json['ah'] = assetCacheAll.getAssetHash(assetId); // assets can be reordered during saving
 
     return json;
   }

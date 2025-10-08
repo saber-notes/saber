@@ -52,6 +52,7 @@ class PdfEditorImage extends EditorImage {
     assert(extension == null || extension == '.pdf');
 
     final assetIndexJson = json['a'] as int?;
+
     final Uint8List? pdfBytes;
     int? assetIndex;
     File? pdfFile;
@@ -59,19 +60,29 @@ class PdfEditorImage extends EditorImage {
       if (inlineAssets == null) {
         pdfFile =
             FileManager.getFile('$sbnPath${Editor.extension}.$assetIndexJson');
-        assetIndex = assetCacheAll.addSync(pdfFile);
+        assetIndex = assetCacheAll.addSync(
+            pdfFile,'pdf',
+            json.containsKey('ainf') ? json['ainf'] : null,
+            json.containsKey('aph') ? json['aph'].toInt() : null,
+            json.containsKey('afs') ? json['afs'] : null,
+            json.containsKey('ah') ? json['ah'].toInt() : null,
+        );
       } else {
         pdfBytes = inlineAssets[assetIndexJson];
         final tempFile=assetCacheAll.createRuntimeFile('.pdf',pdfBytes); // store to file
-        assetIndex = assetCacheAll.addSync(tempFile);
+        assetIndex = assetCacheAll.addSync(
+          tempFile,'pdf',
+          json.containsKey('ainf') ? json['ainf'] : null,
+          json.containsKey('aph') ? json['aph'].toInt() : null,
+          json.containsKey('afs') ? json['afs'] : null,
+          json.containsKey('ah') ? json['ah'].toInt() : null,
+        );
       }
     } else {
       if (kDebugMode) {
         throw Exception('PdfEditorImage.fromJson: pdf bytes not found');
       }
-      pdfBytes = Uint8List(0);
-      final tempFile=assetCacheAll.createRuntimeFile('.pdf',pdfBytes);
-      assetIndex = assetCacheAll.addSync(tempFile);
+      assetIndex=-1;
     }
 
     assert(assetIndex >=0,
@@ -124,6 +135,12 @@ class PdfEditorImage extends EditorImage {
 
     json['a'] = assetCacheAll.getAssetIdOnSave(assetId); // assets can be reordered during saving
     json['pdfi'] = pdfPage;
+    json['aph'] = assetCacheAll.getAssetPreviewHash(assetId); // assets prewiewHash
+    json['afs'] = assetCacheAll.getAssetFileSize(assetId); // assets can be reordered during saving
+    if (assetCacheAll.getAssetFileInfo(assetId) != '')
+      json['ainf'] = assetCacheAll.getAssetFileInfo(assetId); // asset file info
+    if (assetCacheAll.getAssetHash(assetId) != null)
+      json['ah'] = assetCacheAll.getAssetHash(assetId); // assets can be reordered during saving
 
     return json;
   }

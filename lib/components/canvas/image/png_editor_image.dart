@@ -62,6 +62,7 @@ class PngEditorImage extends EditorImage {
     required AssetCacheAll assetCacheAll,
   }) {
     final assetIndexJson = json['a'] as int?;
+    String? ext=json['e'] ?? '.jpg';
     Uint8List? bytes;
     final int? assetIndex;
     File? imageFile;
@@ -85,11 +86,23 @@ class PngEditorImage extends EditorImage {
 
     // add to asset cache
     if (imageFile != null) {
-      assetIndex = assetCacheAll.addSync(imageFile);
+      assetIndex = assetCacheAll.addSync(
+        imageFile,ext!,
+        json.containsKey('ainf') ? json['ainf'] : null,
+        json.containsKey('aph') ? json['aph'].toInt() : null,
+        json.containsKey('afs') ? json['afs'] : null,
+        json.containsKey('ah') ? json['ah'].toInt() : null,
+      );
     }
     else {
-      final tempFile=assetCacheAll.createRuntimeFile(json['e'] ?? '.jpg',bytes!);
-      assetIndex = assetCacheAll.addSync(tempFile);
+      final tempFile=assetCacheAll.createRuntimeFile(ext!,bytes!);
+      assetIndex = assetCacheAll.addSync(
+        tempFile,ext,
+        json.containsKey('ainf') ? json['ainf'] : null,
+        json.containsKey('aph') ? json['aph'].toInt() : null,
+        json.containsKey('afs') ? json['afs'] : null,
+        json.containsKey('ah') ? json['ah'].toInt() : null,
+      );
     }
     if (assetIndex<0){
       throw Exception('EditorImage.fromJson: image not in assets');
@@ -102,7 +115,7 @@ class PngEditorImage extends EditorImage {
       id: json['id'] ?? -1,
       assetCacheAll: assetCacheAll,
       assetId: assetIndex,
-      extension: json['e'] ?? '.jpg',
+      extension: ext,
       imageProviderNotifier: assetCacheAll.getImageProviderNotifier(assetIndex),
       pageIndex: json['i'] ?? 0,
       pageSize: Size.infinite,
@@ -141,6 +154,12 @@ class PngEditorImage extends EditorImage {
   Map<String, dynamic> toJson() => super.toJson()
     ..addAll({
         'a': assetCacheAll.getAssetIdOnSave(assetId), // assets can be reordered during saving
+        'aph': assetCacheAll.getAssetPreviewHash(assetId), // assets prewiewHash
+        'afs': assetCacheAll.getAssetFileSize(assetId), // assets can be reordered during saving
+        if (assetCacheAll.getAssetFileInfo(assetId) != '')
+          'ainf': assetCacheAll.getAssetFileInfo(assetId), // asset file info
+        if (assetCacheAll.getAssetHash(assetId) != null)
+          'ah': assetCacheAll.getAssetHash(assetId), // assets can be reordered during saving
     });
 
   @override
