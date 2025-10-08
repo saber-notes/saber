@@ -319,9 +319,13 @@ class CacheItem {
   int? previewHash; // quick hash (from first 100KB bytes)
   int? hash; // hash can be calculated later
   String? fileInfo; // file information - /Info of pdf is implemented now
-  final ValueNotifier<ImageProvider?>
-      imageProviderNotifier; // image provider for png, svg as value listener
+
+  final ValueNotifier<ImageProvider?> imageProviderNotifier; // image provider for png, svg as value listener
+
+
   PdfDocument? _pdfDocument; // pdf document provider for pdf
+  final ValueNotifier<PdfDocument?> pdfDocumentNotifier; // pdfDocument as value listener
+
   Uint8List? bytes;   // used only when reading inline assets
 
   // for files only
@@ -340,8 +344,10 @@ class CacheItem {
     this.fileExt,
     this.fileInfo,
     this.bytes,
+    ValueNotifier<PdfDocument?>? pdfDocumentNotifier,
     ValueNotifier<ImageProvider?>? imageProviderNotifier,
-  }) : imageProviderNotifier = imageProviderNotifier ?? ValueNotifier(null);
+  }) : pdfDocumentNotifier = pdfDocumentNotifier ?? ValueNotifier(null),
+      imageProviderNotifier = imageProviderNotifier ?? ValueNotifier(null);
 
   // increase use of item
   void addUse() {
@@ -463,27 +469,28 @@ class AssetCacheAll {
   final log = Logger('OrderedAssetCache');
 
 
-  // return pdfDocument of asset it is lazy because it take some time to do it
-  Future<PdfDocument> getPdfDocument(int assetId) {
-    // if already opened, return it immediately
+  // pdfDocument notifier for rendering pdfs
+  ValueNotifier<PdfDocument?> getPdfNotifier(int assetId) {
     final item = _items[assetId];
-    if (item._pdfDocument != null) return Future.value(item._pdfDocument!);
 
-    // if someone else is already opening this doc, return their future
-    final pending = _openingDocs[assetId];
-    if (pending != null) return pending;
+    if (item._pdfDocument == null && item.value != null) {
+      // if no one is already opening this doc, return their future
+      if (_openingDocs[assetId] == null) {
+        final future = _openPdfDocument(item);
+        _openingDocs[assetId] = future;
 
-    // otherwise start opening
-    final future = _openPdfDocument(item);
-    _openingDocs[assetId] = future;
+        future.then((doc) {
+          item._pdfDocument = doc;
+          item.pdfDocumentNotifier.value = doc; // notify all widgets
+          _openingDocs.remove(assetId);
+        });
+      }
+    } else if (item._pdfDocument != null) {
+      // if already opened, return it immediately
+      item.pdfDocumentNotifier.value = item._pdfDocument;
+    }
 
-    // when done, store the PdfDocument in the CacheItem and remove from _openingDocs
-    future.then((doc) {
-      item._pdfDocument = doc;
-      _openingDocs.remove(assetId);
-    });
-
-    return future;
+    return item.pdfDocumentNotifier;
   }
 
   // open pdf document

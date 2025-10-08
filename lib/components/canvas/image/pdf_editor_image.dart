@@ -10,7 +10,7 @@ class PdfEditorImage extends EditorImage {
   /// that the pdf will be loaded from.
   final File? pdfFile;
 
-  final _pdfDocument = ValueNotifier<PdfDocument?>(null);
+//  final _pdfDocument = ValueNotifier<PdfDocument?>(null);
 
   static final log = Logger('PdfEditorImage');
 
@@ -157,7 +157,7 @@ class PdfEditorImage extends EditorImage {
       dstRect = dstRect.topLeft & dstSize;
     }
 
-    _pdfDocument.value ??= await assetCacheAll.getPdfDocument(assetId);
+//    _pdfDocument.value ??= await assetCacheAll.getPdfDocument(assetId);
 //    _pdfDocument.value ??= pdfFile != null
 //        ? await PdfDocument.openFile(pdfFile!.path)
 //        : await PdfDocument.openData(pdfBytes!);
@@ -171,19 +171,6 @@ class PdfEditorImage extends EditorImage {
 
   @override
   Future<void> precache(BuildContext context) async {
-    if (_pdfDocument.value != null) return;
-
-    final completer = Completer<void>();
-
-    void onDocumentSet() {
-      if (_pdfDocument.value == null) return;
-      if (completer.isCompleted) return;
-      completer.complete();
-      _pdfDocument.removeListener(onDocumentSet);
-    }
-
-    _pdfDocument.addListener(onDocumentSet);
-    return completer.future;
   }
 
   @override
@@ -193,8 +180,9 @@ class PdfEditorImage extends EditorImage {
     required bool isBackground,
     required bool invert,
   }) {
+    final pdfNotifier = assetCacheAll.getPdfNotifier(assetId);  // value of pdfDocument
     return ValueListenableBuilder(
-      valueListenable: _pdfDocument,
+      valueListenable: pdfNotifier,
       builder: (context, pdfDocument, child) {
         if (pdfDocument == null) {
           return SizedBox.fromSize(size: srcRect.size);
