@@ -117,8 +117,16 @@ jobs:
           popd
 
       - name: Restore keychain
+        run: keychain use-login
+
+      - name: Upload debug files to Sentry
         run: |
-          keychain use-login
+          brew install sentry-cli
+          sentry-cli debug-files upload --include-sources build/macos/
+        env:
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_ORG: saber-yf
+          SENTRY_PROJECT: saber
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
