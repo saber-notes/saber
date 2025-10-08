@@ -29,8 +29,9 @@ runs:
       uses: actions/cache@v4
       with:
         path: |
-          submodules/flutter/**/.dart_tool
-          submodules/flutter/**/bin/cache
+          submodules/flutter/**/.dart_tool/
+          submodules/flutter/bin/cache/
+          submodules/flutter/packages/flutter_tools/
         key: ${{ runner.os }}-${{ runner.arch }}-flutter-${{ env.FLUTTER_HASH }}
 
     - name: Cache Pub
@@ -47,7 +48,10 @@ runs:
     - name: Restore Flutter version information
       shell: bash
       run: |
-        FLUTTER_VERSION=$(cat submodules/.flutter-version)
+        mkdir -p submodules/flutter/bin/cache/
+        cp submodules/.flutter.version.json submodules/flutter/bin/cache/flutter.version.json
+        FLUTTER_VERSION=$(grep flutterVersion submodules/.flutter.version.json | cut -d'"' -f4)
+        echo "Found FLUTTER_VERSION=$FLUTTER_VERSION"
         echo "$FLUTTER_VERSION" > submodules/flutter/version
         git -C submodules/flutter tag -f stable
         git -C submodules/flutter tag -f "$FLUTTER_VERSION"

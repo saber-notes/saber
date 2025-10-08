@@ -13,5 +13,4 @@ git pull
 popd
 
 # Save the current Flutter version to a file
-FLUTTER_VERSION=$(flutter --version | head -n 1 | awk '{print $2}')
-echo "$FLUTTER_VERSION" > submodules/.flutter-version
+cp $(dirname $(which flutter))/cache/flutter.version.json submodules/.flutter.version.json
