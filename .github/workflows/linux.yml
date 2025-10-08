@@ -5,9 +5,9 @@ on:
   workflow_dispatch:
   push:
     tags:
-      - '**'
+      - "**"
     branches:
-      - '**'
+      - "**"
     paths:
       - .github/workflows/linux.yml
       - appimage/AppImageBuilder.yml

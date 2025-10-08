@@ -5,9 +5,9 @@ on:
   workflow_dispatch:
   push:
     tags:
-      - '**'
+      - "**"
     branches:
-      - '**'
+      - "**"
     paths:
       - .github/workflows/android-play-store.yml
 
@@ -50,8 +50,8 @@ jobs:
       - name: Setup Java
         uses: actions/setup-java@v5
         with:
-          distribution: 'microsoft'
-          java-version: '21'
+          distribution: "microsoft"
+          java-version: "21"
 
       - name: Setup Rust
         uses: moonrepo/setup-rust@v1

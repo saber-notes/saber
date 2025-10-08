@@ -3,7 +3,7 @@ coverage:
     patch: false
     project:
       saber:
-        threshold: 5.0
+        threshold: "5.0"
 
 ignore:
   - "packages"
