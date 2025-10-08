@@ -313,13 +313,22 @@ class PreviewResult {
   PreviewResult(this.previewHash, this.fileSize, this.fileInfo);
 }
 
+
+// types of assets in chage
+enum AssetType {
+  image,    // png, jpg, ...
+  pdf,      // pdf
+  svg,      // svg
+  unknown,
+}
+
 // object in cache
 class CacheItem {
   Object? value;  // value can change because file can be renamed
+  final AssetType assetType; // type of asset
   int? previewHash; // quick hash (from first 100KB bytes)
   int? hash; // hash can be calculated later
   String? fileInfo; // file information - /Info of pdf is implemented now
-
   final ValueNotifier<ImageProvider?> imageProviderNotifier; // image provider for png, svg as value listener
 
 
@@ -336,7 +345,7 @@ class CacheItem {
   int  assetIdOnSave=-1;   // id of asset when the note is save (some assets can be skipped)
 
   CacheItem(
-    this.value, {
+    this.value,{
     this.hash,
     this.filePath,
     this.previewHash,
@@ -346,8 +355,28 @@ class CacheItem {
     this.bytes,
     ValueNotifier<PdfDocument?>? pdfDocumentNotifier,
     ValueNotifier<ImageProvider?>? imageProviderNotifier,
-  }) : pdfDocumentNotifier = pdfDocumentNotifier ?? ValueNotifier(null),
+  }) : assetType = _detectTypeFromExtension(fileExt),
+      pdfDocumentNotifier = pdfDocumentNotifier ?? ValueNotifier(null),
       imageProviderNotifier = imageProviderNotifier ?? ValueNotifier(null);
+
+  bool get isImage => assetType == AssetType.image;
+  bool get isPdf => assetType == AssetType.pdf;
+  bool get isSvg => assetType == AssetType.svg;
+
+  // detect asset type according to file extension
+  static AssetType _detectTypeFromExtension(String? extension) {
+    if (extension == null) return AssetType.unknown;
+
+    final ext = extension.toLowerCase();
+    if (['.jpg', '.jpeg', '.png', '.gif', '.bmp'].contains(ext)) {
+      return AssetType.image;
+    } else if (ext == '.pdf') {
+      return AssetType.pdf;
+    } else if (ext == '.svg') {
+      return AssetType.svg;
+    }
+    return AssetType.unknown;
+  }
 
   // increase use of item
   void addUse() {
@@ -432,12 +461,43 @@ class CacheItem {
   }
 
   // move asset file to temporary file to avoid it is overwriten during note save
-  void moveAssetToTemporaryFile() {
+  Future<void> moveAssetToTemporaryFile() async {
     final dir = FileManager.supportDirectory;
     String newPath = '${dir.path}/TmPmP_${RandomFileName.generateRandomFileName(fileExt != null ? fileExt! : 'tmp')}'; // update file path
-    value=(value as File).renameSync(newPath);  // rename asset
+    //value=(value as File).renameSync(newPath);  // rename asset
+    value=await safeMoveFile((value as File),newPath);    // rename asset
     filePath=newPath;
   }
+
+  // function used to rename assets
+  Future<File> safeMoveFile(File source, String newPath) async {
+    try {
+      return await source.rename(newPath);
+    } on FileSystemException catch (e) {
+      if (e.osError?.errorCode == 18) {
+        // Cross-device link, must copy by hand
+        final newFile = await source.copy(newPath);
+        await source.delete();
+        return newFile;
+      }
+      rethrow;
+    }
+  }
+
+  void safeMoveFileSync(File source, File destination) {
+    try {
+      source.renameSync(destination.path);
+    } on FileSystemException catch (e) {
+      if (e.osError?.errorCode == 18) {
+        // Cross-device link – použijeme copySync a deleteSync
+        source.copySync(destination.path);
+        source.deleteSync();
+      } else {
+        rethrow; // zachová původní stacktrace
+      }
+    }
+  }
+
 
 
 
@@ -472,7 +532,9 @@ class AssetCacheAll {
   // pdfDocument notifier for rendering pdfs
   ValueNotifier<PdfDocument?> getPdfNotifier(int assetId) {
     final item = _items[assetId];
-
+    if (item.assetType !=AssetType.pdf){
+      throw('getPdfNotified for non pdf asset');
+    }
     if (item._pdfDocument == null && item.value != null) {
       // if no one is already opening this doc, return their future
       if (_openingDocs[assetId] == null) {
@@ -504,12 +566,34 @@ class AssetCacheAll {
     }
   }
 
+  // removes image provider of file from image Cache.
+  // important to call this when assets are renamed
+  Future<void> clearPdfDocumentNotifier(int assetId) async {
+    // return cached provider if already available
+    final item = _items[assetId];
+    if (item.assetType !=AssetType.pdf){
+      throw('clearPdfDocumentNotifier for non pdf asset');
+    }
+    if (item.pdfDocumentNotifier.value == null)
+      return;
+    if (item.value is File) {
+      item._pdfDocument = null;
+      _openingDocs.remove(assetId);  // clear indicator
+      item.pdfDocumentNotifier.value = null; // set provider to null to inform widgets to reload
+    }
+    return;
+  }
+
+
 
   // removes image provider of file from image Cache.
   // important to call this when assets are renamed
   Future<void> clearImageProvider(int assetId) async {
-    // return cached provider if already available
+    // clear image provider if already available
     final item = _items[assetId];
+    if (item.assetType !=AssetType.image){
+      throw('clearImageProvider for non image asset');
+    }
     if (item.imageProviderNotifier.value == null)
       return;
     if (item.value is File) {
@@ -524,6 +608,9 @@ class AssetCacheAll {
   ValueNotifier<ImageProvider?> getImageProviderNotifier(int assetId) {
     // return cached provider if already available
     final item = _items[assetId];
+    if (item.assetType !=AssetType.image){
+      throw('getImageProviderNotifier for non image asset');
+    }
     if (item.imageProviderNotifier.value != null)
       return item.imageProviderNotifier;
 
@@ -690,6 +777,7 @@ class AssetCacheAll {
 // always is used File!
   Future<int> add(Object value) async {
     return await _mutex.protect(() async {
+      log.info("add mutex taken");
       if (value is File) {
         // files are first compared by file path
         final path = value.path;
@@ -812,6 +900,7 @@ class AssetCacheAll {
   // this routine should be called before note is saved. It renumbers assets according their usage
   Future<void> renumberBeforeSave(String noteFilePath) async{
     await _mutex.protect(() async {
+      log.info("renumber mutex taken");
       int currentId = -1;
       for (int i = 0; i < _items.length; i++) {
         final item = _items[i];
@@ -821,19 +910,19 @@ class AssetCacheAll {
           item.assetIdOnSave = currentId;
           if ((item.filePath) != newPath) {
             // move asset to correct file name
-            final bool isImage = item.imageProviderNotifier !=null;
-            final bool isPdf = item._pdfDocument !=null;
-            if (isImage) {
+            if (item.isImage) {
               await clearImageProvider(i); // remove imageProvider from cache
-            } else if (isPdf){
-
+            } else if (item.isPdf){
             }
-
-            item.value =
-                (item.value as File).renameSync(newPath); // rename asset
+            item.value = await item.safeMoveFile((item.value as File), newPath); // rename asset file
+//            item.value = (item.value as File).renameSync(newPath); // rename asset
             item.filePath = newPath;
-            item.invalidateImageProvider(); // invalidate image provider so new one is allocated
-            getImageProviderNotifier(i); // allocate new image provider to enable rendering
+            if (item.isImage) {
+              item.invalidateImageProvider(); // invalidate image provider so new one is allocated
+              getImageProviderNotifier(i); // allocate new image provider to enable rendering
+            } else if (item.isPdf){
+              clearPdfDocumentNotifier(i);
+            }
           }
         }
         else {
@@ -844,7 +933,7 @@ class AssetCacheAll {
             // file path of asset is the same as note path - asset file can be overwritten,
             // move it to the safe location
             await clearImageProvider(i); // remove imageProvider from cache
-            item.moveAssetToTemporaryFile(); // move asset to different file
+            await item.moveAssetToTemporaryFile(); // move asset to different file
             item.invalidateImageProvider(); // invalidate image provider so new one is allocated
             getImageProviderNotifier(i); // allocate new image provider to enable rendering
           }
@@ -935,12 +1024,13 @@ class AssetCacheAll {
 
   // create temporary file from bytes when inline bytes are read
   File createRuntimeFile(String ext, Uint8List bytes) {
-    final dir = Directory.systemTemp; // Použití systémového temp adresáře
+    final dir = Directory.systemTemp; // use system temp
 //    final dir = await getApplicationSupportDirectory();
     final file = File('${dir.path}/TmPmP_${RandomFileName.generateRandomFileName(ext)}');
     file.writeAsBytesSync(bytes, flush: true);
     return file;
   }
+
 
   void dispose() {
     _items.clear();
