@@ -1270,6 +1270,7 @@ class EditorState extends State<Editor> {
         assetCacheAll: coreInfo.assetCacheAll,
         assetId: assetIndex,
       );
+      coreInfo.assetCacheAll.addUse(assetIndex); // inform that asset is uded more times
       coreInfo.pages.add(page);
       history.recordChange(EditorHistoryItem(
         type: EditorHistoryItemType.insertPage,
