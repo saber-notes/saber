@@ -48,13 +48,22 @@ runs:
     - name: Restore Flutter version information
       shell: bash
       run: |
+        # Copy flutter.version.json
         mkdir -p submodules/flutter/bin/cache/
         cp submodules/.flutter.version.json submodules/flutter/bin/cache/flutter.version.json
+
+        # Extract info
         FLUTTER_VERSION=$(grep flutterVersion submodules/.flutter.version.json | cut -d'"' -f4)
-        echo "Found FLUTTER_VERSION=$FLUTTER_VERSION"
+        FLUTTER_CHANNEL=$(grep channel submodules/.flutter.version.json | cut -d'"' -f4)
+        echo "Found FLUTTER_VERSION=$FLUTTER_VERSION, FLUTTER_CHANNEL=$FLUTTER_CHANNEL"
         echo "$FLUTTER_VERSION" > submodules/flutter/version
-        git -C submodules/flutter tag -f stable
+
+        # Tag the current commit
+        git -C submodules/flutter tag -f "$FLUTTER_CHANNEL"
         git -C submodules/flutter tag -f "$FLUTTER_VERSION"
+
+        # Set branch
+        git checkout -B "$FLUTTER_CHANNEL"
 
     - name: Run flutter doctor
       shell: bash
