@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:perfect_freehand/perfect_freehand.dart';
 import 'package:saber/components/canvas/_stroke.dart';
@@ -53,10 +55,13 @@ class LaserPointer extends Tool {
     _stopwatch.start();
   }
 
-  void onDragUpdate(Offset position) {
+  void onDragUpdate(
+    Offset position, {
+    @visibleForTesting Duration? elapsed,
+  }) {
     isDrawing = true;
     Pen.currentStroke?.addPoint(position);
-    strokePointDelays.add(_stopwatch.elapsed);
+    strokePointDelays.add(elapsed ?? _stopwatch.elapsed);
     _stopwatch.reset();
   }
 
@@ -68,30 +73,32 @@ class LaserPointer extends Tool {
     Pen.currentStroke = null;
     if (stroke is! LaserStroke) return null;
 
-    fadeOutStroke(
+    unawaited(fadeOutStroke(
       stroke: stroke,
       strokePointDelays: strokePointDelays,
       redrawPage: redrawPage,
       deleteStroke: deleteStroke,
-    );
+    ));
 
     return stroke
       ..options.isComplete = true
       ..markPolygonNeedsUpdating();
   }
 
-  static const _fadeOutDelay = Duration(seconds: 2);
   @visibleForTesting
-  static void fadeOutStroke({
-    required Stroke stroke,
+  static const fadeOutDelay = Duration(seconds: 2);
+  @visibleForTesting
+  static Future<void> fadeOutStroke({
+    required LaserStroke stroke,
     required List<Duration> strokePointDelays,
     required VoidCallback redrawPage,
-    required void Function(Stroke) deleteStroke,
+    required void Function(LaserStroke) deleteStroke,
+    @visibleForTesting Future<void> Function(Duration) wait = Future.delayed,
   }) async {
-    await Future.delayed(_fadeOutDelay);
+    await wait(fadeOutDelay);
 
     for (final delay in strokePointDelays) {
-      await Future.delayed(delay);
+      await wait(delay);
 
       if (stroke.length <= 1) break;
 
@@ -101,9 +108,9 @@ class LaserPointer extends Tool {
       if (isDrawing) {
         // if the user starts drawing again, wait until they stop
         const waitTime = Duration(milliseconds: 100);
-        while (isDrawing) await Future.delayed(waitTime);
+        while (isDrawing) await wait(waitTime);
         // now wait the normal delay before continuing
-        await Future.delayed(_fadeOutDelay - waitTime);
+        await wait(fadeOutDelay - waitTime);
       }
     }
 
