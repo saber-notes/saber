@@ -4,25 +4,36 @@ description: "Setup Flutter and caches"
 runs:
   using: "composite"
   steps:
-    - name: Add env variables
+    - name: Set Flutter paths
       shell: bash
       run: |
+        WORKSPACE='${{ github.workspace }}'
         if [ "${{ runner.os }}" == "Windows" ]; then
-          WORKSPACE=$(cygpath -m '${{ github.workspace }}')
-        else
-          WORKSPACE='${{ github.workspace }}'
+          WORKSPACE=$(cygpath -m '${{ github.workspace }}') # Replace backslashes with forward slashes
         fi
         echo "FLUTTER_ROOT=${WORKSPACE}/submodules/flutter" >> $GITHUB_ENV
         echo "PUB_CACHE=${WORKSPACE}/submodules/flutter/.pub-cache" >> $GITHUB_ENV
-        ENGINE_VERSION=$(cat ${WORKSPACE}/submodules/flutter/bin/internal/engine.version)
-        FLUTTER_PACKAGES_VERSION=$(cat ${WORKSPACE}/submodules/flutter/bin/internal/flutter_packages.version)
-        echo "FLUTTER_HASH=${ENGINE_VERSION}-${FLUTTER_PACKAGES_VERSION}" >> $GITHUB_ENV
-
-    - name: Add Flutter to PATH
-      shell: bash
-      run: |
         echo "${{ env.FLUTTER_ROOT }}/bin" >> $GITHUB_PATH
         echo "${{ env.PUB_CACHE }}/bin" >> $GITHUB_PATH
+
+    - name: Process Flutter version
+      shell: bash
+      run: |
+        # Copy .flutter.version.json to flutter/bin/cache
+        mkdir -p submodules/flutter/bin/cache/
+        cp submodules/.flutter.version.json submodules/flutter/bin/cache/flutter.version.json
+
+        # Extract info from .flutter.version.json
+        FLUTTER_VERSION=$(grep flutterVersion submodules/.flutter.version.json | cut -d'"' -f4)
+        FLUTTER_CHANNEL=$(grep channel submodules/.flutter.version.json | cut -d'"' -f4)
+        echo "FLUTTER_VERSION=$FLUTTER_VERSION" >> $GITHUB_ENV
+        echo "FLUTTER_CHANNEL=$FLUTTER_CHANNEL" >> $GITHUB_ENV
+
+        # Flutter version hash for caching
+        FLUTTER_HASH="${FLUTTER_CHANNEL}-${FLUTTER_VERSION}-${{ hashFiles('submodules/flutter/bin/internal/*.version') }}"
+        echo "FLUTTER_HASH=$FLUTTER_HASH" >> $GITHUB_ENV
+
+        echo "Using Flutter version ${FLUTTER_VERSION} on channel ${FLUTTER_CHANNEL}, hash ${FLUTTER_HASH}"
 
     - name: Cache Flutter
       id: cache-flutter
@@ -43,27 +54,17 @@ runs:
         restore-keys: |
           ${{ runner.os }}-${{ runner.arch }}-pub-${{ env.FLUTTER_HASH }}-
 
-    # Flutter relies on tags to identify its own version.
+    # Flutter relies on git to identify its own version.
     # We use a shallow clone for speed which doesn't include tags, so manually set them here.
     - name: Restore Flutter version information
       shell: bash
       run: |
-        # Copy flutter.version.json
-        mkdir -p submodules/flutter/bin/cache/
-        cp submodules/.flutter.version.json submodules/flutter/bin/cache/flutter.version.json
-
-        # Extract info
-        FLUTTER_VERSION=$(grep flutterVersion submodules/.flutter.version.json | cut -d'"' -f4)
-        FLUTTER_CHANNEL=$(grep channel submodules/.flutter.version.json | cut -d'"' -f4)
-        echo "Found FLUTTER_VERSION=$FLUTTER_VERSION, FLUTTER_CHANNEL=$FLUTTER_CHANNEL"
-        echo "$FLUTTER_VERSION" > submodules/flutter/version
+        # Set branch unconditionally
+        git checkout -B "$FLUTTER_CHANNEL"
 
         # Tag the current commit
         git -C submodules/flutter tag -f "$FLUTTER_CHANNEL"
         git -C submodules/flutter tag -f "$FLUTTER_VERSION"
-
-        # Set branch
-        git checkout -B "$FLUTTER_CHANNEL"
 
     - name: Run flutter doctor
       shell: bash
