@@ -12,7 +12,7 @@ runs:
           WORKSPACE=$(cygpath -m '${{ github.workspace }}') # Replace backslashes with forward slashes
         fi
         echo "FLUTTER_ROOT=${WORKSPACE}/submodules/flutter" >> $GITHUB_ENV
-        echo "PUB_CACHE=${WORKSPACE}/submodules/flutter/.pub-cache" >> $GITHUB_ENV
+        echo "PUB_CACHE=${WORKSPACE}/.pub-cache" >> $GITHUB_ENV
         echo "${{ env.FLUTTER_ROOT }}/bin" >> $GITHUB_PATH
         echo "${{ env.PUB_CACHE }}/bin" >> $GITHUB_PATH
 
@@ -49,7 +49,7 @@ runs:
       id: cache-pub
       uses: actions/cache@v4
       with:
-        path: submodules/flutter/.pub-cache
+        path: .pub-cache
         key: ${{ runner.os }}-${{ runner.arch }}-pub-${{ env.FLUTTER_HASH }}-${{ hashFiles('**/pubspec.lock') }}
         restore-keys: |
           ${{ runner.os }}-${{ runner.arch }}-pub-${{ env.FLUTTER_HASH }}-
