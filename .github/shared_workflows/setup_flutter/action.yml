@@ -13,6 +13,10 @@ runs:
         fi
         echo "FLUTTER_ROOT=${WORKSPACE}/submodules/flutter" >> $GITHUB_ENV
         echo "PUB_CACHE=${WORKSPACE}/.pub-cache" >> $GITHUB_ENV
+
+    - name: Add Flutter to PATH
+      shell: bash
+      run: |
         echo "${{ env.FLUTTER_ROOT }}/bin" >> $GITHUB_PATH
         echo "${{ env.PUB_CACHE }}/bin" >> $GITHUB_PATH
 
