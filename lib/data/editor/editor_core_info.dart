@@ -57,6 +57,7 @@ class EditorCoreInfo {
   String get fileName => filePath.substring(filePath.lastIndexOf('/') + 1);
 
   AssetCache assetCache;
+  AssetCacheAll assetCacheAll;
   int nextImageId;
   Color? backgroundColor;
   CanvasBackgroundPattern backgroundPattern;
@@ -79,6 +80,7 @@ class EditorCoreInfo {
     pages: [],
     initialPageIndex: null,
     assetCache: null,
+    assetCacheAll: null,
   ).._migrateOldStrokesAndImages(
       fileVersion: sbnVersion,
       strokesJson: null,
@@ -99,7 +101,8 @@ class EditorCoreInfo {
         lineHeight = stows.lastLineHeight.value,
         lineThickness = stows.lastLineThickness.value,
         pages = [],
-        assetCache = AssetCache();
+        assetCache = AssetCache(),
+        assetCacheAll = AssetCacheAll();
 
   EditorCoreInfo._({
     required this.filePath,
@@ -113,7 +116,10 @@ class EditorCoreInfo {
     required this.pages,
     required this.initialPageIndex,
     required AssetCache? assetCache,
-  }) : assetCache = assetCache ?? AssetCache() {
+    required AssetCacheAll? assetCacheAll,
+  }) : assetCache = assetCache ?? AssetCache(),
+       assetCacheAll = assetCacheAll ?? AssetCacheAll()
+  {
     _handleEmptyImageIds();
   }
 
@@ -156,6 +162,7 @@ class EditorCoreInfo {
     }
 
     final assetCache = AssetCache();
+    final assetCacheAll = AssetCacheAll();
 
     return EditorCoreInfo._(
       filePath: filePath,
@@ -180,9 +187,11 @@ class EditorCoreInfo {
         fileVersion: fileVersion,
         sbnPath: filePath,
         assetCache: assetCache,
+        assetCacheAll: assetCacheAll,
       ),
       initialPageIndex: json['c'] as int?,
       assetCache: assetCache,
+      assetCacheAll: assetCacheAll,
     )
       .._migrateOldStrokesAndImages(
         fileVersion: fileVersion,
@@ -208,7 +217,8 @@ class EditorCoreInfo {
         lineHeight = stows.lastLineHeight.value,
         lineThickness = stows.lastLineThickness.value,
         pages = [],
-        assetCache = AssetCache() {
+        assetCache = AssetCache(),
+        assetCacheAll = AssetCacheAll(){
     _migrateOldStrokesAndImages(
       fileVersion: 0,
       strokesJson: json,
@@ -227,6 +237,7 @@ class EditorCoreInfo {
     required int fileVersion,
     required String sbnPath,
     required AssetCache assetCache,
+    required AssetCacheAll assetCacheAll,
   }) {
     if (pages == null || pages.isEmpty) return [];
     if (pages[0] is List) {
@@ -248,6 +259,7 @@ class EditorCoreInfo {
                 fileVersion: fileVersion,
                 sbnPath: sbnPath,
                 assetCache: assetCache,
+                assetCacheAll: assetCacheAll,
               ))
           .toList();
     }
@@ -305,6 +317,7 @@ class EditorCoreInfo {
         onlyFirstPage: onlyFirstPage,
         sbnPath: filePath,
         assetCache: assetCache,
+        assetCacheAll: assetCacheAll,
       );
       for (EditorImage image in images) {
         if (onlyFirstPage) assert(image.pageIndex == 0);
@@ -559,6 +572,7 @@ class EditorCoreInfo {
       pages: pages ?? this.pages,
       initialPageIndex: initialPageIndex,
       assetCache: assetCache,
+      assetCacheAll: assetCacheAll,
     );
   }
 }

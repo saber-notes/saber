@@ -12,6 +12,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_quill/flutter_quill.dart' as flutter_quill;
 import 'package:keybinder/keybinder.dart';
 import 'package:logging/logging.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:printing/printing.dart';
 import 'package:saber/components/canvas/_asset_cache.dart';
 import 'package:saber/components/canvas/_stroke.dart';
@@ -52,7 +53,7 @@ import 'package:saber/pages/home/whiteboard.dart';
 import 'package:screenshot/screenshot.dart';
 import 'package:super_clipboard/super_clipboard.dart';
 
-typedef _PhotoInfo = ({Uint8List bytes, String extension});
+typedef _PhotoInfo = ({Uint8List bytes, String extension, String path});
 
 class Editor extends StatefulWidget {
   Editor({
@@ -905,27 +906,29 @@ class EditorState extends State<Editor> {
     final Uint8List bson;
     final OrderedAssetCache assets;
     coreInfo.assetCache.allowRemovingAssets = false;
+    coreInfo.assetCacheAll.allowRemovingAssets = false;
     try {
+      // go through all pages and prepare Json of each page.
       (bson, assets) = coreInfo.saveToBinary(
         currentPageIndex: currentPageIndex,
       );
     } finally {
       coreInfo.assetCache.allowRemovingAssets = true;
+      coreInfo.assetCacheAll.allowRemovingAssets = true;
     }
     try {
-      await Future.wait([
-        FileManager.writeFile(filePath, bson, awaitWrite: true),
-        for (int i = 0; i < assets.length; ++i)
-          assets.getBytes(i).then((bytes) => FileManager.writeFile(
-                '$filePath.$i',
-                bytes,
-                awaitWrite: true,
-              )),
-        FileManager.removeUnusedAssets(
+      // write note itself
+      await FileManager.writeFile(filePath, bson, awaitWrite: true);
+
+      // write assets
+      for (int i = 0; i < coreInfo.assetCacheAll.length; ++i){
+        final assetFile=coreInfo.assetCacheAll.getAssetFile(i);
+        await FileManager.copyFile(assetFile,'$filePath.$i', awaitWrite: true);
+      }
+      FileManager.removeUnusedAssets(
           filePath,
-          numAssets: assets.length,
-        ),
-      ]);
+          numAssets: coreInfo.assetCacheAll.length,
+      );
       savingState.value = SavingState.saved;
     } catch (e) {
       log.severe('Failed to save file: $e', e);
@@ -1082,10 +1085,14 @@ class EditorState extends State<Editor> {
     // use the Select tool so that the user can move the new image
     currentTool = Select.currentSelect;
 
-    List<EditorImage> images = [
-      for (final _PhotoInfo photoInfo in photoInfos)
-        if (photoInfo.extension == '.svg')
-          SvgEditorImage(
+    final List<EditorImage> images = [];
+    for (final _PhotoInfo photoInfo in photoInfos) {
+
+
+        if (photoInfo.extension == '.svg') {
+          // add image to assets using its path
+          int assetIndex = await coreInfo.assetCacheAll.add(File(photoInfo.path));
+          images.add(SvgEditorImage(
             id: coreInfo.nextImageId++,
             svgString: utf8.decode(photoInfo.bytes),
             svgFile: null,
@@ -1096,12 +1103,16 @@ class EditorState extends State<Editor> {
             onMiscChange: autosaveAfterDelay,
             onLoad: () => setState(() {}),
             assetCache: coreInfo.assetCache,
-          )
-        else
-          PngEditorImage(
+            assetCacheAll: coreInfo.assetCacheAll,
+          ));
+        }
+        else {
+          // add image to assets using its path
+          int assetIndex = await coreInfo.assetCacheAll.add(File(photoInfo.path));
+          images.add(PngEditorImage(
             id: coreInfo.nextImageId++,
             extension: photoInfo.extension,
-            imageProvider: MemoryImage(photoInfo.bytes),
+            imageProviderNotifier: coreInfo.assetCacheAll.getImageProviderNotifier(assetIndex),
             pageIndex: currentPageIndex,
             pageSize: coreInfo.pages[currentPageIndex].size,
             onMoveImage: onMoveImage,
@@ -1109,8 +1120,11 @@ class EditorState extends State<Editor> {
             onMiscChange: autosaveAfterDelay,
             onLoad: () => setState(() {}),
             assetCache: coreInfo.assetCache,
-          ),
-    ];
+            assetCacheAll: coreInfo.assetCacheAll,
+            assetId: assetIndex,
+          ));
+        }
+      }
 
     history.recordChange(EditorHistoryItem(
       type: EditorHistoryItemType.draw,
@@ -1157,6 +1171,7 @@ class EditorState extends State<Editor> {
           (
             bytes: file.bytes!,
             extension: '.${file.extension}',
+            path: file.path!,
           ),
     ];
   }
@@ -1188,6 +1203,8 @@ class EditorState extends State<Editor> {
       log.severe('Failed to read file when importing $path: $e', e);
       return false;
     }
+    int? assetIndex = await coreInfo.assetCacheAll.add(pdfFile);  // add pdf to cache
+
 
     final emptyPage = coreInfo.pages.removeLast();
     assert(emptyPage.isEmpty);
@@ -1225,6 +1242,8 @@ class EditorState extends State<Editor> {
         onMiscChange: autosaveAfterDelay,
         onLoad: () => setState(() {}),
         assetCache: coreInfo.assetCache,
+        assetCacheAll: coreInfo.assetCacheAll,
+        assetId: assetIndex,
       );
       coreInfo.pages.add(page);
       history.recordChange(EditorHistoryItem(
@@ -1295,6 +1314,7 @@ class EditorState extends State<Editor> {
           photoInfos.add((
             bytes: Uint8List.fromList(bytes),
             extension: extension,
+            path: file.fileName!,
           ));
         },
       );
