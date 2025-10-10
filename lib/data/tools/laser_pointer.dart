@@ -143,20 +143,28 @@ class LaserStroke extends Stroke {
     points.addAll(stroke.points);
   }
 
-  List<Offset>? _innerPolygon;
+  @protected
   List<Offset> get innerPolygon => _innerPolygon ??= getStroke(
         points,
         options: options.copyWith(size: options.size * 0.4),
       );
+  List<Offset>? _innerPolygon;
 
-  Path? _innerPath;
+  /// The inner part of the stroke which is thinner and white
+  /// to create a glowing effect.
   Path get innerPath =>
       _innerPath ??= Stroke.smoothPathFromPolygon(innerPolygon);
+  Path? _innerPath;
 
-  /// Disables low quality to make sure the polygon exactly matches
-  /// [innerPolygon].
+  /// The outer thicker part of the stroke which is colored with [color].
   @override
-  List<Offset> get lowQualityPolygon => highQualityPolygon;
+  List<Offset> get highQualityPolygon => super.highQualityPolygon;
+
+  /// The outer thicker part of the stroke which is colored with [color].
+  ///
+  /// Note that LODs are disabled so that the outer path matches the inner path.
+  @override
+  List<Offset> get lowQualityPolygon => super.highQualityPolygon;
 
   @override
   void shift(Offset offset) {
