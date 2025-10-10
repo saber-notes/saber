@@ -25,8 +25,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v5
-        with:
-          submodules: true
 
       - uses: "./.github/shared_workflows/install_apt_dependencies"
 
@@ -51,7 +49,10 @@ jobs:
           echo "keyAlias=${{ secrets.ALIAS }}" >> android/key.properties
           echo "storeFile=../android.keystore" >> android/key.properties
 
-      - uses: "./.github/shared_workflows/setup_flutter"
+      - name: Setup Flutter
+        uses: adil192/setup-flutter-submodule@v1
+        with:
+          flutter-path: submodules/flutter
 
       - name: Setup Java
         uses: actions/setup-java@v5
