@@ -244,8 +244,8 @@ class Stroke {
     if (N == 1) return points;
     if (points.length < N * 4) return points;
     return [
-      for (int i = 0; i < points.length; i += N) points[i],
-      if (points.length % N != 0) points.last,
+      for (int i = 0; i < points.length - 1; i += N) points[i],
+      points.last,
     ];
   }
 
