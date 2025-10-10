@@ -3,12 +3,13 @@
 # Update local Flutter SDK
 flutter channel stable
 flutter upgrade
+echo
 
 # Update Flutter submodule
 pushd submodules/flutter
 git fetch origin
-git reset --hard origin/stable
 git checkout stable
+git reset --hard origin/stable
 git pull
 popd
 
