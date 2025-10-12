@@ -8,9 +8,9 @@ on:
   workflow_dispatch:
   push:
     tags:
-      - '**'
+      - "**"
     branches:
-      - '**'
+      - "**"
     paths:
       - .github/workflows/macos.yml
 
@@ -28,8 +28,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v5
-        with:
-          submodules: true
 
       - name: Setup Xcode
         run: |
@@ -42,7 +40,10 @@ jobs:
           xcodebuild -runFirstLaunch
           echo
 
-      - uses: "./.github/shared_workflows/setup_flutter"
+      - name: Setup Flutter
+        uses: adil192/setup-flutter-submodule@v1
+        with:
+          flutter-path: submodules/flutter
 
       - name: Install Codemagic CLI Tools
         run: pipx install codemagic-cli-tools
@@ -117,8 +118,16 @@ jobs:
           popd
 
       - name: Restore keychain
+        run: keychain use-login
+
+      - name: Upload debug files to Sentry
         run: |
-          keychain use-login
+          brew install sentry-cli
+          sentry-cli debug-files upload --include-sources build/macos/
+        env:
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_ORG: saber-yf
+          SENTRY_PROJECT: saber
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4

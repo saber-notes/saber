@@ -30,7 +30,7 @@ void main() {
           await tester.pumpAndSettle();
 
           await expectLater(
-            find.byType(BrowsePage),
+            find.byType(MaterialApp),
             matchesGoldenFile('goldens/browse_page_empty_$depth.png'),
           );
         });
@@ -45,7 +45,7 @@ void main() {
           await tester.pumpAndSettle();
 
           await expectLater(
-            find.byType(BrowsePage),
+            find.byType(MaterialApp),
             matchesGoldenFile('goldens/browse_page_non_empty_$depth.png'),
           );
         });
@@ -67,7 +67,7 @@ class _BrowseApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenshotApp(
       device: GoldenScreenshotDevices.android.device,
-      child: BrowsePage(
+      home: BrowsePage(
         path: path,
         overrideChildren: children,
       ),

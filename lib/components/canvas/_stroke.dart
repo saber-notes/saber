@@ -35,7 +35,7 @@ class Stroke {
   final StrokeOptions options;
 
   List<Offset>? _lowQualityPolygon, _highQualityPolygon;
-  List<Offset> get lowQualityPolygon => _lowQualityPolygon ??= getPolygon(6);
+  List<Offset> get lowQualityPolygon => _lowQualityPolygon ??= getPolygon(4);
   List<Offset> get highQualityPolygon => _highQualityPolygon ??= getPolygon(1);
 
   Path? _lowQualityPath, _highQualityPath;
@@ -241,11 +241,20 @@ class Stroke {
 
   /// Returns a list with every Nth point in [points].
   static List<PointVector> skipPoints(List<PointVector> points, int N) {
-    if (N == 1) return points;
-    if (points.length < N * 4) return points;
+    // Nothing is being skipped, just return [points].
+    if (N <= 1) return points;
+
+    // If we have too few points, skip less points
+    final divided = points.length / N;
+    const minDivided = 8;
+    if (divided < minDivided) {
+      N = (N * divided / minDivided).floor();
+      if (N <= 1) return points;
+    }
+
     return [
-      for (int i = 0; i < points.length; i += N) points[i],
-      if (points.length % N != 0) points.last,
+      for (int i = 0; i < points.length - 1; i += N) points[i],
+      points.last,
     ];
   }
 

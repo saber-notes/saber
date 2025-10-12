@@ -6,7 +6,7 @@ on:
       - .github/workflows/top-issues.yml
   schedule:
     # every day at 10:50 am (random time to avoid spikes in GitHub Actions usage)
-    - cron: '50 10 * * *'
+    - cron: "50 10 * * *"
 
 permissions:
   actions: read

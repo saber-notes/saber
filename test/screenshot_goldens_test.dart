@@ -194,7 +194,7 @@ void _screenshot({
           },
           device: device,
           frameColors: frameColors,
-          child: TranslationProvider(
+          home: TranslationProvider(
             child: child,
           ),
         );

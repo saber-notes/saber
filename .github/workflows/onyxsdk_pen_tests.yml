@@ -4,11 +4,11 @@ on:
   workflow_dispatch:
   pull_request:
     paths:
-      - 'packages/onyxsdk_pen/**'
+      - "packages/onyxsdk_pen/**"
       - .github/workflows/onyxsdk_pen_tests.yml
   push:
     paths:
-      - 'packages/onyxsdk_pen/**'
+      - "packages/onyxsdk_pen/**"
       - .github/workflows/onyxsdk_pen_tests.yml
 
 jobs:
@@ -19,12 +19,13 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v5
-        with:
-          submodules: true
 
       - uses: "./.github/shared_workflows/install_apt_dependencies"
 
-      - uses: "./.github/shared_workflows/setup_flutter"
+      - name: Setup Flutter
+        uses: adil192/setup-flutter-submodule@v1
+        with:
+          flutter-path: submodules/flutter
 
       - name: Run tests
         working-directory: packages/onyxsdk_pen

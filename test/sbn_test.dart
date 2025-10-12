@@ -137,6 +137,28 @@ void main() {
           );
         });
 
+        testGoldens('(LOD)', (tester) async {
+          await tester.runAsync(() => _precacheImages(
+                context: tester.binding.rootElement!,
+                page: page,
+              ));
+          await tester.loadFonts(overriddenFonts: saberSansSerifFontFallbacks);
+          await tester.pumpWidget(_buildCanvas(
+            brightness: Brightness.light,
+            path: path,
+            page: page,
+            coreInfo: coreInfo,
+            currentScale: double.minPositive, // Very zoomed out
+          ));
+          await tester.pumpAndSettle();
+
+          tester.useFuzzyComparator(allowedDiffPercent: 0.1);
+          await expectLater(
+            find.byType(Canvas),
+            matchesGoldenFile('sbn_examples/$sbnName.lod.png'),
+          );
+        });
+
         if (sbnName != laserSbn) {
           bool hasGhostscript = true;
           final gsCheck =
@@ -290,6 +312,7 @@ Widget _buildCanvas({
   required String path,
   required EditorPage page,
   required EditorCoreInfo coreInfo,
+  double currentScale = double.maxFinite,
 }) {
   return TranslationProvider(
     child: MaterialApp(
@@ -313,7 +336,7 @@ Widget _buildCanvas({
                 currentSelection: null,
                 setAsBackground: null,
                 currentToolIsSelect: false,
-                currentScale: double.maxFinite,
+                currentScale: currentScale,
               ),
             ),
           ),

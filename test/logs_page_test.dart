@@ -59,7 +59,7 @@ class _LogsApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenshotApp(
       device: GoldenScreenshotDevices.android.device,
-      child: const LogsPage(),
+      home: const LogsPage(),
     );
   }
 }
