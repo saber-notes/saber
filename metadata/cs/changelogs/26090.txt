@@ -1,0 +1,3 @@
+• Opraveno pouzdro na okraj, kdy laserový ukazatel mohl produkovat neplatné tahy.
+• Když jste přiblížili, dosáhly vyšší kvality.
+• Obecná údržba, vylepšené testování a zlepšení zákulisí.
