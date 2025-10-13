@@ -224,22 +224,22 @@ class FileManager {
 
   static File getFile(String filePath) {
     if (shouldUseRawFilePath) {
-      return File(filePath);
+      return File(fixFileNameDelimiters(filePath));
     } else {
       assert(filePath.startsWith('/'),
           'Expected filePath to start with a slash, got $filePath');
-      return File(documentsDirectory + filePath);
+      return File(fixFileNameDelimiters(documentsDirectory + filePath));
     }
   }
 
   // return file path (add document directory if needed)
   static String getFilePath(String filePath) {
     if (shouldUseRawFilePath) {
-      return filePath;
+      return fixFileNameDelimiters(filePath);
     } else {
       assert(filePath.startsWith('/'),
       'Expected filePath to start with a slash, got $filePath');
-      return '$documentsDirectory$filePath';
+      return fixFileNameDelimiters('$documentsDirectory$filePath');
     }
   }
 

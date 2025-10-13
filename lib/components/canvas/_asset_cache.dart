@@ -460,27 +460,57 @@ class CacheItem {
     imageProviderNotifier.value = null; // will be recreated on next access
   }
 
-  // move asset file to temporary file to avoid it is overwriten during note save
+  // move asset file to temporary file to avoid it is overwritten during note save
   Future<void> moveAssetToTemporaryFile() async {
-    final dir = FileManager.supportDirectory;
-    String newPath = '${dir.path}/TmPmP_${RandomFileName.generateRandomFileName(fileExt != null ? fileExt! : 'tmp')}'; // update file path
+    Directory? dir;
+    try {
+      dir = await FileManager.getTmpAssetDir();
+    } catch (e) {
+      dir = FileManager.supportDirectory;
+    }
+    String newPath = FileManager.fixFileNameDelimiters('${dir.path}${Platform.pathSeparator}TmPmP_${RandomFileName.generateRandomFileName(fileExt != null ? fileExt! : 'tmp')}'); // update file path
     //value=(value as File).renameSync(newPath);  // rename asset
     value=await safeMoveFile((value as File),newPath);    // rename asset
     filePath=newPath;
   }
 
+  // copy asset file to temporary file to avoid it is overwritten during note save
+  Future<void> copyAssetToTemporaryFile() async {
+    Directory? dir;
+    try {
+      dir = await FileManager.getTmpAssetDir();
+    } catch (e) {
+      dir = FileManager.supportDirectory;
+    }
+    String newPath = FileManager.fixFileNameDelimiters('${dir.path}${Platform.pathSeparator}TmPmP_${RandomFileName.generateRandomFileName(fileExt != null ? fileExt! : 'tmp')}'); // update file path
+    value=await (value as File).copy(newPath);  // copy asset to new file
+    filePath=newPath;
+  }
+
   // function used to rename assets
   Future<File> safeMoveFile(File source, String newPath) async {
+    // first test if destination directory exists
+    final String parentDirectory = newPath.substring(0, newPath.lastIndexOf(Platform.pathSeparator));
+    await Directory(parentDirectory).create(recursive: true);
     try {
       return await source.rename(newPath);
     } on FileSystemException catch (e) {
-      if (e.osError?.errorCode == 18) {
+      // Cross-device link (Android/Linux = 18, Windows = 17 or 32)
+      final code = e.osError?.errorCode ?? -1;
+      if (code == 18 || code == 17 || code == 32) {
         // Cross-device link, must copy by hand
         final newFile = await source.copy(newPath);
-        await source.delete();
+        try {
+          await source.delete();
+        } on FileSystemException catch (e) {
+          // we at least copied file so continue
+          final code = e.osError?.errorCode ?? -1;
+        }
         return newFile;
       }
-      rethrow;
+      else {
+        rethrow;
+      }
     }
   }
 
@@ -488,12 +518,13 @@ class CacheItem {
     try {
       source.renameSync(destination.path);
     } on FileSystemException catch (e) {
-      if (e.osError?.errorCode == 18) {
-        // Cross-device link – použijeme copySync a deleteSync
+      final code = e.osError?.errorCode ?? -1;
+      if (code == 18 || code == 17 || code == 32) {
+        // Cross-device link – use copySync and deleteSync
         source.copySync(destination.path);
         source.deleteSync();
       } else {
-        rethrow; // zachová původní stacktrace
+        rethrow;
       }
     }
   }
@@ -513,7 +544,7 @@ class CacheItem {
 class AssetCacheAll {
   final List<CacheItem> _items = [];
   final Map<int, int> _aliasMap =
-      {}; // duplicit indices point to first indice  - updated in finalize
+      {}; // duplicite indices point to first indice  - updated in finalize
   final Map<int, int> _previewHashIndex =
       {}; // Map from previewHash → first index in _items
 
@@ -579,6 +610,7 @@ class AssetCacheAll {
     if (item.value is File) {
       item._pdfDocument = null;
       _openingDocs.remove(assetId);  // clear indicator
+      item.pdfDocumentNotifier.value!.dispose();  // free pdf document
       item.pdfDocumentNotifier.value = null; // set provider to null to inform widgets to reload
     }
     return;
@@ -587,7 +619,8 @@ class AssetCacheAll {
 
 
   // removes image provider of file from image Cache.
-  // important to call this when assets are renamed
+  // important to call this when assets are renamed otherwise image cache will provide cached image of file
+  // instead of new image.
   Future<void> clearImageProvider(int assetId) async {
     // clear image provider if already available
     final item = _items[assetId];
@@ -775,7 +808,8 @@ class AssetCacheAll {
 
 // async add cache is used from Editor, when adding asset using file picker
 // always is used File!
-  Future<int> add(Object value) async {
+// by default is file copied to new file before adding to assets
+  Future<int> add(Object value,{bool copyFromSource = true }) async {
     return await _mutex.protect(() async {
       log.info("add mutex taken");
       if (value is File) {
@@ -832,6 +866,11 @@ class AssetCacheAll {
         if (existingHashIndex != -1) {
           _items[existingHashIndex].addUse();
           return existingHashIndex;
+        }
+        // file should be added to assets
+        if (copyFromSource){
+          // copy original file
+          await newItem.copyAssetToTemporaryFile();
         }
         _items.add(newItem);
         final index = _items.length - 1;
@@ -913,6 +952,7 @@ class AssetCacheAll {
             if (item.isImage) {
               await clearImageProvider(i); // remove imageProvider from cache
             } else if (item.isPdf){
+              clearPdfDocumentNotifier(i);
             }
             item.value = await item.safeMoveFile((item.value as File), newPath); // rename asset file
 //            item.value = (item.value as File).renameSync(newPath); // rename asset
@@ -921,7 +961,7 @@ class AssetCacheAll {
               item.invalidateImageProvider(); // invalidate image provider so new one is allocated
               getImageProviderNotifier(i); // allocate new image provider to enable rendering
             } else if (item.isPdf){
-              clearPdfDocumentNotifier(i);
+              // nothing to do with pdf. It's document is created automatically on redraw of widget
             }
           }
         }
@@ -932,10 +972,18 @@ class AssetCacheAll {
           if ((item.filePath)!.startsWith(noteFilePath)) {
             // file path of asset is the same as note path - asset file can be overwritten,
             // move it to the safe location
-            await clearImageProvider(i); // remove imageProvider from cache
+            if (item.isImage) {
+              await clearImageProvider(i); // remove imageProvider from cache
+            } else if (item.isPdf){
+              clearPdfDocumentNotifier(i);
+            }
             await item.moveAssetToTemporaryFile(); // move asset to different file
-            item.invalidateImageProvider(); // invalidate image provider so new one is allocated
-            getImageProviderNotifier(i); // allocate new image provider to enable rendering
+            if (item.isImage) {
+              item.invalidateImageProvider(); // invalidate image provider so new one is allocated
+              getImageProviderNotifier(i); // allocate new image provider to enable rendering
+            } else if (item.isPdf){
+              // nothing to do with pdf. It's document is created automatically on redraw of widget
+            }
           }
         }
       }
@@ -1026,17 +1074,45 @@ class AssetCacheAll {
   File createRuntimeFile(String ext, Uint8List bytes) {
     final dir = Directory.systemTemp; // use system temp
 //    final dir = await getApplicationSupportDirectory();
-    final file = File('${dir.path}/TmPmP_${RandomFileName.generateRandomFileName(ext)}');
+    final file = File('${dir.path}${Platform.pathSeparator}TmPmP_${RandomFileName.generateRandomFileName(ext)}');
     file.writeAsBytesSync(bytes, flush: true);
     return file;
   }
-
 
   void dispose() {
     _items.clear();
     _aliasMap.clear();
     _openingDocs.clear();
     _previewHashIndex.clear();
+    _cleanupTempFiles();
+  }
+
+  // remove all temporary assets which were not used
+  Future<void> _cleanupTempFiles() async {
+    // List all entries in the temporary directory
+    try {
+      final dir = await FileManager.getTmpAssetDir();
+      await for (final entity in dir.list(recursive: false)) {
+        // Check if it's a file (not a directory)
+        if (entity is File) {
+          final fileName = entity.uri.pathSegments.last;
+
+          // Check if the name starts with 'TmPmP'
+          if (fileName.startsWith('TmPmP')) {
+            try {
+              await entity.delete();
+              log.info('AssetCacheAll.dispose - Deleted: $fileName');
+            } catch (e) {
+              log.info('AssetCacheAll.dispose - failed to deleted: $fileName');
+            }
+          }
+        }
+      }
+      await dir.delete(recursive: true);  // delete also temporary directory so it does not show in file lists
+    } catch (e) {
+      log.info('Error deleting assetCacheAll temp files: $e');
+    }
+
   }
 
   @override

@@ -927,7 +927,7 @@ class EditorState extends State<Editor> {
     final filePath = coreInfo.filePath + Editor.extension;
     final Uint8List bson;
     coreInfo.assetCacheAll.allowRemovingAssets = false;
-    final fullPath = FileManager.getFilePath(filePath);  // add full path of note
+    final fullPath = FileManager.fixFileNameDelimiters(FileManager.getFilePath(filePath));  // add full path of note and fix \ or / according to OS
     await coreInfo.assetCacheAll.renumberBeforeSave(fullPath);  // renumber all assets
     try {
       // go through all pages and prepare Json of each page.
@@ -1236,7 +1236,7 @@ class EditorState extends State<Editor> {
     final emptyPage = coreInfo.pages.removeLast();
     assert(emptyPage.isEmpty);
 
-    final raster = Printing.raster(
+    final raster = Printing.raster( // get page size of pdf (raster it in very low quality)
       pdfBytes,
       dpi: 1,
     );
