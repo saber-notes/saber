@@ -58,7 +58,7 @@ class FileManager {
       stows.customDataDir.value ?? await getDefaultDocumentsDirectory();
 
   static Future<String> getDefaultDocumentsDirectory() async =>
-      '${(await getApplicationDocumentsDirectory()).path}/$appRootDirectoryPrefix';
+      '${(await getApplicationDocumentsDirectory()).path}${Platform.pathSeparator}$appRootDirectoryPrefix';
 
   static Future<void> migrateDataDir() async {
     final oldDir = Directory(documentsDirectory);
@@ -118,6 +118,45 @@ class FileManager {
           }
         }
       }
+    }
+  }
+
+  // fix '\' and '/'  according to OS to have all the same
+  static String fixFileNameDelimiters(String filePath){
+    if (Platform.pathSeparator == '\\'){
+      return filePath.replaceAll('/', '\\');
+    }
+    return filePath.replaceAll('\\', '/');
+  }
+
+
+  /// Creates a hidden folder in DocumentsDirectory to store temporary assets
+  /// it is usefully to store temporary files here, because files can be simply renamed when assets change - no need to copy them
+  static Future<Directory> getTmpAssetDir() async {
+    try{
+      final baseDir = Directory(documentsDirectory);
+
+      // Define a hidden subfolder (dot prefix hides it on Unix systems)
+      final hiddenDir = Directory('${baseDir.path}${Platform.pathSeparator}.tmpAssets');
+
+      // Create the folder if it doesn’t exist
+      if (!await hiddenDir.exists()) {
+        await hiddenDir.create(recursive: true);
+
+        // On Windows, add the "hidden" file attribute
+        if (Platform.isWindows) {
+          try {
+            await Process.run('attrib', ['+h', hiddenDir.path]);
+          } catch (e) {
+            log.info('Failed to set hidden attribute: $e');
+          }
+        }
+      }
+      return hiddenDir;
+    }
+    on FileSystemException catch (e) {
+      log.info('getTmpAssetDir $e');
+      rethrow;
     }
   }
 
