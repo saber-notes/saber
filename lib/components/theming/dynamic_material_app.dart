@@ -1,7 +1,6 @@
 import 'dart:io';
 
 import 'package:dynamic_color/dynamic_color.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -12,6 +11,7 @@ import 'package:saber/components/theming/yaru_builder.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
 import 'package:window_manager/window_manager.dart';
+import 'package:yaru/yaru.dart';
 
 class DynamicMaterialApp extends StatefulWidget {
   const DynamicMaterialApp({
@@ -98,7 +98,7 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp>
         updateSystem: false);
   }
 
-  TextTheme? getTextTheme(Brightness brightness) {
+  static TextTheme? getTextTheme(Brightness brightness) {
     if (stows.hyperlegibleFont.value) {
       return ThemeData(brightness: brightness).textTheme.withFont(
             fontFamily: 'AtkinsonHyperlegibleNext',
@@ -109,126 +109,73 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp>
     }
   }
 
+  static ThemeData _themeFromColorScheme(
+          ColorScheme colorScheme, TargetPlatform platform) =>
+      ThemeData(
+        useMaterial3: true,
+        colorScheme: colorScheme,
+        textTheme: getTextTheme(colorScheme.brightness),
+        scaffoldBackgroundColor: colorScheme.surface,
+        platform: platform,
+        pageTransitionsTheme: _pageTransitionsTheme,
+      );
+
   @override
   Widget build(BuildContext context) {
+    var chosenAccentColor = stows.accentColor.value;
+    if ((chosenAccentColor?.a ?? 0) < double.minPositive)
+      chosenAccentColor = null; // discard transparent accent color
+    final platform = stows.platform.value;
+
+    // Use Yaru theme, with or without [chosenAccentColor]
+    if (platform == TargetPlatform.linux) {
+      return YaruBuilder(
+        primary: chosenAccentColor, // if null, falls back to system color
+        builder: (context, yaru, _) {
+          return _ExplicitlyThemedApp(
+            title: widget.title,
+            router: widget.router,
+            themeMode: stows.appTheme.value,
+            theme: yaru.theme ?? yaruLight,
+            darkTheme: yaru.darkTheme ?? yaruDark,
+            highContrastTheme: yaruHighContrastLight,
+            highContrastDarkTheme: yaruHighContrastDark,
+          );
+        },
+      );
+    }
+
+    // Use [chosenAccentColor] with material/cupertino theme
+    if (chosenAccentColor != null) {
+      final lightColorScheme = ColorScheme.fromSeed(
+          brightness: Brightness.light, seedColor: chosenAccentColor);
+      final darkColorScheme = ColorScheme.fromSeed(
+          brightness: Brightness.dark, seedColor: chosenAccentColor);
+
+      return _ExplicitlyThemedApp(
+        title: widget.title,
+        router: widget.router,
+        themeMode: stows.appTheme.value,
+        theme: _themeFromColorScheme(lightColorScheme, platform),
+        darkTheme: _themeFromColorScheme(darkColorScheme, platform),
+      );
+    }
+
+    // Try and use device's accent color, or fall back to defaultSwatch
     return DynamicColorBuilder(
-      builder: (ColorScheme? lightDynamic, ColorScheme? darkDynamic) {
-        final Color seedColor;
-        final ColorScheme lightColorScheme;
-        final ColorScheme darkColorScheme;
+      builder: (ColorScheme? lightColorScheme, ColorScheme? darkColorScheme) {
+        lightColorScheme ??= ColorScheme.fromSeed(
+            brightness: Brightness.light, seedColor: widget.defaultSwatch);
+        darkColorScheme ??= ColorScheme.fromSeed(
+            brightness: Brightness.dark, seedColor: widget.defaultSwatch);
 
-        final chosenAccentColor = stows.accentColor.value;
-        if (chosenAccentColor != null &&
-            chosenAccentColor != Colors.transparent) {
-          seedColor = chosenAccentColor;
-          lightColorScheme = ColorScheme.fromSeed(
-            brightness: Brightness.light,
-            seedColor: seedColor,
-          );
-          darkColorScheme = ColorScheme.fromSeed(
-            brightness: Brightness.dark,
-            seedColor: seedColor,
-          );
-        } else if (lightDynamic != null && darkDynamic != null) {
-          lightColorScheme = lightDynamic.harmonized();
-          darkColorScheme = darkDynamic.harmonized();
-          seedColor = lightColorScheme.primary;
-        } else {
-          seedColor = widget.defaultSwatch;
-          lightColorScheme = ColorScheme.fromSeed(
-            brightness: Brightness.light,
-            seedColor: seedColor,
-          );
-          darkColorScheme = ColorScheme.fromSeed(
-            brightness: Brightness.dark,
-            seedColor: seedColor,
-          );
-        }
-
-        final highContrastLightColorScheme = ColorScheme.fromSeed(
-          brightness: Brightness.light,
-          seedColor: seedColor,
-          surface: Colors.white,
-          contrastLevel: 1,
+        return _ExplicitlyThemedApp(
+          title: widget.title,
+          router: widget.router,
+          themeMode: stows.appTheme.value,
+          theme: _themeFromColorScheme(lightColorScheme, platform),
+          darkTheme: _themeFromColorScheme(darkColorScheme, platform),
         );
-        final highContrastDarkColorScheme = ColorScheme.fromSeed(
-          brightness: Brightness.dark,
-          seedColor: seedColor,
-          surface: Colors.black,
-          contrastLevel: 1,
-        );
-
-        final platform = switch (stows.platform.value) {
-          TargetPlatform.iOS => TargetPlatform.iOS,
-          TargetPlatform.android => TargetPlatform.android,
-          TargetPlatform.linux => TargetPlatform.linux,
-          _ => defaultTargetPlatform,
-        };
-
-        return YaruBuilder(
-            enabled: platform == TargetPlatform.linux,
-            primary: lightColorScheme.primary,
-            builder: (context, yaruTheme, yaruHighContrastTheme) {
-              return MaterialApp.router(
-                routeInformationProvider:
-                    widget.router.routeInformationProvider,
-                routeInformationParser: widget.router.routeInformationParser,
-                routerDelegate: widget.router.routerDelegate,
-                locale: TranslationProvider.of(context).flutterLocale,
-                supportedLocales: AppLocaleUtils.supportedLocales,
-                localizationsDelegates: const [
-                  ...GlobalMaterialLocalizations.delegates,
-                  FlutterQuillLocalizations.delegate,
-                ],
-                title: widget.title,
-                themeMode: stows.appTheme.loaded
-                    ? stows.appTheme.value
-                    : ThemeMode.system,
-                theme: yaruTheme?.theme
-                        ?.copyWith(textTheme: getTextTheme(Brightness.light)) ??
-                    ThemeData(
-                      useMaterial3: true,
-                      colorScheme: lightColorScheme,
-                      textTheme: getTextTheme(Brightness.light),
-                      scaffoldBackgroundColor: lightColorScheme.surface,
-                      platform: platform,
-                      pageTransitionsTheme: _pageTransitionsTheme,
-                    ),
-                darkTheme: yaruTheme?.darkTheme
-                        ?.copyWith(textTheme: getTextTheme(Brightness.dark)) ??
-                    ThemeData(
-                      useMaterial3: true,
-                      colorScheme: darkColorScheme,
-                      textTheme: getTextTheme(Brightness.dark),
-                      scaffoldBackgroundColor: darkColorScheme.surface,
-                      platform: platform,
-                      pageTransitionsTheme: _pageTransitionsTheme,
-                    ),
-                highContrastTheme: yaruHighContrastTheme?.theme
-                        ?.copyWith(textTheme: getTextTheme(Brightness.light)) ??
-                    ThemeData(
-                      useMaterial3: true,
-                      colorScheme: highContrastLightColorScheme,
-                      textTheme: getTextTheme(Brightness.light),
-                      scaffoldBackgroundColor:
-                          highContrastLightColorScheme.surface,
-                      platform: platform,
-                      pageTransitionsTheme: _pageTransitionsTheme,
-                    ),
-                highContrastDarkTheme: yaruHighContrastTheme?.darkTheme
-                        ?.copyWith(textTheme: getTextTheme(Brightness.dark)) ??
-                    ThemeData(
-                      useMaterial3: true,
-                      colorScheme: highContrastDarkColorScheme,
-                      textTheme: getTextTheme(Brightness.dark),
-                      scaffoldBackgroundColor:
-                          highContrastDarkColorScheme.surface,
-                      platform: platform,
-                      pageTransitionsTheme: _pageTransitionsTheme,
-                    ),
-                debugShowCheckedModeBanner: false,
-              );
-            });
       },
     );
   }
@@ -245,4 +192,58 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp>
 
     super.dispose();
   }
+}
+
+class _ExplicitlyThemedApp extends StatelessWidget {
+  const _ExplicitlyThemedApp({
+    required this.title,
+    required this.router,
+    required this.themeMode,
+    required this.theme,
+    required this.darkTheme,
+    this.highContrastTheme,
+    this.highContrastDarkTheme,
+  });
+
+  final String title;
+  final GoRouter router;
+  final ThemeMode themeMode;
+  final ThemeData theme, darkTheme;
+  final ThemeData? highContrastTheme, highContrastDarkTheme;
+
+  @override
+  Widget build(BuildContext context) {
+    final highContrastTheme = this.highContrastTheme ??
+        theme.copyWith(colorScheme: theme.colorScheme.withHighContrast());
+    final highContrastDarkTheme = this.highContrastDarkTheme ??
+        darkTheme.copyWith(colorScheme: theme.colorScheme.withHighContrast());
+
+    return MaterialApp.router(
+      title: title,
+      routeInformationProvider: router.routeInformationProvider,
+      routeInformationParser: router.routeInformationParser,
+      routerDelegate: router.routerDelegate,
+      locale: TranslationProvider.of(context).flutterLocale,
+      supportedLocales: AppLocaleUtils.supportedLocales,
+      localizationsDelegates: const [
+        ...GlobalMaterialLocalizations.delegates,
+        FlutterQuillLocalizations.delegate,
+      ],
+      themeMode: themeMode,
+      theme: theme,
+      darkTheme: darkTheme,
+      highContrastTheme: highContrastTheme,
+      highContrastDarkTheme: highContrastDarkTheme,
+      debugShowCheckedModeBanner: false,
+    );
+  }
+}
+
+extension _ColorSchemeContraster on ColorScheme {
+  ColorScheme withHighContrast() => ColorScheme.fromSeed(
+        brightness: brightness,
+        seedColor: primary,
+        surface: brightness == Brightness.light ? Colors.white : Colors.black,
+        contrastLevel: 1,
+      );
 }

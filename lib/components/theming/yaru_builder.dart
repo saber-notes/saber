@@ -4,18 +4,15 @@ import 'package:yaru/yaru.dart';
 class YaruBuilder extends StatefulWidget {
   const YaruBuilder({
     super.key,
-    this.enabled = true,
     required this.primary,
     required this.builder,
+    this.child,
   });
 
-  final bool enabled;
-  final Color primary;
-  final Widget Function(
-    BuildContext context,
-    YaruThemeData? yaruTheme,
-    YaruThemeData? yaruHighContrastTheme,
-  ) builder;
+  final Color? primary;
+  final Widget Function(BuildContext context, YaruThemeData yaru, Widget? child)
+      builder;
+  final Widget? child;
 
   @override
   State<YaruBuilder> createState() => _YaruBuilderState();
@@ -23,7 +20,8 @@ class YaruBuilder extends StatefulWidget {
   /// Finds the closest yaru theme variant to the given primary color
   /// by comparing their hues.
   @visibleForTesting
-  static YaruVariant findClosestYaruVariant(Color primary) {
+  static YaruVariant? findClosestYaruVariant(Color? primary) {
+    if (primary == null) return null;
     final primaryHue = HSLColor.fromColor(primary).hue;
     return YaruVariant.values
         .map((variant) {
@@ -36,38 +34,25 @@ class YaruBuilder extends StatefulWidget {
 }
 
 class _YaruBuilderState extends State<YaruBuilder> {
-  Color lastPrimary = Colors.orange;
-  YaruVariant closestYaruVariant = YaruVariant.orange;
+  Color? lastPrimary = Colors.orange;
+  YaruVariant? closestYaruVariant = YaruVariant.orange;
 
   @override
   void didUpdateWidget(YaruBuilder oldWidget) {
     super.didUpdateWidget(oldWidget);
 
-    final newPrimary = widget.enabled ? widget.primary : lastPrimary;
-    if (newPrimary != lastPrimary) {
-      closestYaruVariant = YaruBuilder.findClosestYaruVariant(newPrimary);
-      lastPrimary = newPrimary;
+    if (widget.primary != lastPrimary) {
+      closestYaruVariant = YaruBuilder.findClosestYaruVariant(widget.primary);
+      lastPrimary = widget.primary;
     }
   }
 
   @override
   Widget build(BuildContext context) {
-    if (!widget.enabled) {
-      return widget.builder(context, null, null);
-    }
     return YaruTheme(
-      // manually set the yaru color variant
-      data: YaruThemeData(
-        variant: closestYaruVariant,
-        useMaterial3: true,
-      ),
-      builder: (context, yaruTheme, _) {
-        return widget.builder(
-          context,
-          yaruTheme,
-          yaruTheme.copyWith(highContrast: true),
-        );
-      },
+      data: YaruThemeData(useMaterial3: true, variant: closestYaruVariant),
+      builder: widget.builder,
+      child: widget.child,
     );
   }
 }
