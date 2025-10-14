@@ -15,6 +15,7 @@ const saberSansSerifFontFallbacks = [
   'Atkinson Hyperlegible',
   'AtkinsonHyperlegible',
   'sans-serif',
+  'Ubuntu',
   '.SF Pro Display',
   '.SF Pro Text',
   '.SF UI Display',

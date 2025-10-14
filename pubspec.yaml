@@ -192,6 +192,12 @@ dependency_overrides:
       ref: patch-2
       path: flutter_secure_storage_linux
 
+  # https://github.com/ubuntu/yaru.dart/issues/1037
+  yaru:
+    git:
+      url: https://github.com/adil192/yaru.dart.git
+      ref: fix/keep-text-style
+
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 

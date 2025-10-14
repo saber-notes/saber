@@ -2077,10 +2077,9 @@ packages:
   yaru:
     dependency: "direct main"
     description:
-      name: yaru
-      sha256: "67ac8c3dc52a5d69c049056d5fa40b909973e10b36df3cffeb666de867532d79"
-      url: "https://pub.dev"
-    source: hosted
+      path: "../yaru.dart"
+      relative: true
+    source: path
     version: "8.3.0"
   yaru_window:
     dependency: transitive
