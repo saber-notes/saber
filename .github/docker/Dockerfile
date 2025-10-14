@@ -13,10 +13,11 @@ RUN apt-get clean
 
 # Install Flutter
 RUN git clone https://github.com/flutter/flutter.git /opt/flutter --branch stable
-ENV PUB_CACHE=/root/.pub-cache
 RUN mkdir -p /root/.pub-cache/bin/
+ENV FLUTTER_ROOT=/opt/flutter
+ENV PUB_CACHE=/root/.pub-cache
 ENV PATH="/opt/flutter/bin:/root/.pub-cache/bin:$PATH"
-RUN flutter precache --no-universal --linux
+RUN flutter precache --universal
 RUN flutter doctor
 
 # Install rustup
