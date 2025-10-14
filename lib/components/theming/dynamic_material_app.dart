@@ -136,10 +136,14 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp>
             title: widget.title,
             router: widget.router,
             themeMode: stows.appTheme.value,
-            theme: yaru.theme ?? yaruLight,
-            darkTheme: yaru.darkTheme ?? yaruDark,
-            highContrastTheme: yaruHighContrastLight,
-            highContrastDarkTheme: yaruHighContrastDark,
+            theme: (yaru.theme ?? yaruLight)
+                .copyWith(textTheme: getTextTheme(Brightness.light)),
+            darkTheme: (yaru.darkTheme ?? yaruDark)
+                .copyWith(textTheme: getTextTheme(Brightness.dark)),
+            highContrastTheme: yaruHighContrastLight.copyWith(
+                textTheme: getTextTheme(Brightness.light)),
+            highContrastDarkTheme: yaruHighContrastDark.copyWith(
+                textTheme: getTextTheme(Brightness.dark)),
           );
         },
       );

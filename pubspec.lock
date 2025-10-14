@@ -2077,9 +2077,11 @@ packages:
   yaru:
     dependency: "direct main"
     description:
-      path: "../yaru.dart"
-      relative: true
-    source: path
+      path: "."
+      ref: "fix/keep-text-style"
+      resolved-ref: "87779a4a78b793ad86a5d7177f223664e1ae0152"
+      url: "https://github.com/adil192/yaru.dart.git"
+    source: git
     version: "8.3.0"
   yaru_window:
     dependency: transitive
