@@ -60,7 +60,9 @@ fi
 mkdir -p .github/docker/.pub-cache
 mkdir -p .github/docker/.dart_tool
 mkdir -p .github/docker/build
-touch .github/docker/.flutter-plugins
+mkdir -p .github/docker/linux-flutter-ephemeral
+mkdir -p .github/docker/macos-flutter-ephemeral
+mkdir -p .github/docker/windows-flutter-ephemeral
 touch .github/docker/.flutter-plugins-dependencies
 touch .github/docker/pubspec.lock
 
@@ -84,9 +86,11 @@ else
         -v "$APP_PATH/.github/docker/.pub-cache":/root/.pub-cache \
         -v "$APP_PATH/.github/docker/.dart_tool":/app/.dart_tool \
         -v "$APP_PATH/.github/docker/build":/app/build \
-        -v "$APP_PATH/.github/docker/.flutter-plugins":/app/.flutter-plugins \
         -v "$APP_PATH/.github/docker/.flutter-plugins-dependencies":/app/.flutter-plugins-dependencies \
         -v "$APP_PATH/.github/docker/pubspec.lock":/app/pubspec.lock \
+        -v "$APP_PATH/.github/docker/linux-flutter-ephemeral":/app/linux/flutter/ephemeral \
+        -v "$APP_PATH/.github/docker/macos-flutter-ephemeral":/app/macos/Flutter/ephemeral \
+        -v "$APP_PATH/.github/docker/windows-flutter-ephemeral":/app/windows/flutter/ephemeral \
         "$IMAGE_NAME"
     docker exec -it "$CONTAINER_NAME" flutter pub get
 fi
