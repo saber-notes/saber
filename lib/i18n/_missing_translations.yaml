@@ -761,9 +761,6 @@ hu:
       lockAxisAlignedPan(OUTDATED): Lock panning to horizontal or vertical
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
 it: 
-  settings: 
-    customDataDir: 
-      unsupported(OUTDATED): Questa funzionalità è attualmente disponibile solo per gli sviluppatori. Il suo utilizzo comporterà probabilmente la perdita di dati.
 ja: 
   common: 
     done(OUTDATED): Done
