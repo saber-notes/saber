@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:saber/components/theming/adaptive_toggle_buttons.dart';
 import 'package:saber/pages/home/settings.dart';
 import 'package:stow/stow.dart';
+import 'package:yaru/yaru.dart';
 
 class SettingsDropdown<T> extends StatefulWidget {
   const SettingsDropdown({
@@ -38,9 +39,6 @@ class SettingsDropdown<T> extends StatefulWidget {
 }
 
 class _SettingsDropdownState<T> extends State<SettingsDropdown<T>> {
-  late FocusNode dropdownFocusNode =
-      FocusNode(debugLabel: 'dropdownFocusNode(${widget.pref.key})');
-
   @override
   void initState() {
     widget.pref.addListener(onChanged);
@@ -67,9 +65,6 @@ class _SettingsDropdownState<T> extends State<SettingsDropdown<T>> {
 
     return MergeSemantics(
       child: ListTile(
-        onTap: () {
-          dropdownFocusNode.requestFocus();
-        },
         onLongPress: () {
           SettingsPage.showResetDialog(
             context: context,
@@ -93,15 +88,17 @@ class _SettingsDropdownState<T> extends State<SettingsDropdown<T>> {
         ),
         subtitle:
             Text(widget.subtitle ?? '', style: const TextStyle(fontSize: 13)),
-        trailing: DropdownButton<T>(
-          value: widget.pref.value,
-          onChanged: (T? value) {
-            if (value == null) return;
-            widget.pref.value = value;
-          },
-          items: [
+        trailing: YaruPopupMenuButton<T>(
+          initialValue: widget.pref.value,
+          onSelected: (value) => widget.pref.value = value,
+          style: OutlinedButtonTheme.of(context).style ??
+              OutlinedButton.styleFrom(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadiusGeometry.circular(8)),
+              ),
+          itemBuilder: (context) => [
             for (final option in widget.options)
-              DropdownMenuItem<T>(
+              PopupMenuItem(
                 value: option.value,
                 child: ConstrainedBox(
                   constraints: BoxConstraints(
@@ -114,9 +111,9 @@ class _SettingsDropdownState<T> extends State<SettingsDropdown<T>> {
                 ),
               ),
           ],
-          focusNode: dropdownFocusNode,
-          borderRadius: BorderRadius.circular(32),
-          underline: const SizedBox.shrink(),
+          child: widget.options
+              .firstWhere((option) => option.value == widget.pref.value)
+              .widget,
         ),
       ),
     );
