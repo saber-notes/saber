@@ -497,7 +497,7 @@ class _TranslationsSettingsCustomDataDirIt extends TranslationsSettingsCustomDat
 	@override String get select => 'Seleziona';
 	@override String get mustBeEmpty => 'La cartella selezionata deve essere vuota';
 	@override String get mustBeDoneSyncing => 'Assicurati che la sincronizzazione sia completa prima di cambiare cartella';
-	@override String get unsupported => 'Questa funzione è attualmente solo per gli sviluppatori. Usandolo probabilmente comporterà la perdita di dati.';
+	@override String get unsupported => 'Questa funzionalità è attualmente disponibile solo per gli sviluppatori. Il suo utilizzo comporterà probabilmente la perdita di dati.';
 }
 
 // Path: login.form

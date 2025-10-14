@@ -165,7 +165,7 @@ settings:
     select: Seleziona
     mustBeEmpty: La cartella selezionata deve essere vuota
     mustBeDoneSyncing: Assicurati che la sincronizzazione sia completa prima di cambiare cartella
-    unsupported(OUTDATED): Questa funzione è attualmente solo per gli sviluppatori. Usandolo probabilmente comporterà la perdita di dati.
+    unsupported: Questa funzionalità è attualmente disponibile solo per gli sviluppatori. Il suo utilizzo comporterà probabilmente la perdita di dati.
   autosaveDisabled: Mai
   shapeRecognitionDisabled: Mai
 logs: 
