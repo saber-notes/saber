@@ -69,9 +69,11 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
       LoginStep.enc => t.login.status.almostDone,
       LoginStep.done => t.login.status.loggedIn,
     };
+    const pfpSize = 48.0;
 
     var colorScheme = Theme.of(context).colorScheme;
     return ListTile(
+      visualDensity: VisualDensity.standard,
       onTap: () => context.push(RoutePaths.login),
       leading: ValueListenableBuilder(
         valueListenable: stows.pfp,
@@ -79,11 +81,11 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
           return ClipRSuperellipse(
             borderRadius: BorderRadius.circular(18),
             child: pfp == null
-                ? const _UnknownPfp(size: 48)
+                ? const _UnknownPfp(size: pfpSize)
                 : Image.memory(
                     pfp,
-                    width: 48,
-                    height: 48,
+                    width: pfpSize,
+                    height: pfpSize,
                   ),
           );
         },
