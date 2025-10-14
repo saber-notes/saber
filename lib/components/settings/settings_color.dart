@@ -2,6 +2,7 @@ import 'package:flex_color_picker/flex_color_picker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:saber/components/theming/adaptive_alert_dialog.dart';
+import 'package:saber/components/theming/adaptive_switch.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/home/settings.dart';
@@ -109,7 +110,7 @@ class _SettingsSwitchState extends State<SettingsColor> {
           const SizedBox(
             width: 8,
           ),
-          Switch.adaptive(
+          AdaptiveSwitch(
             value: widget.pref.value != null &&
                 widget.pref.value != Colors.transparent,
             onChanged: (bool? value) {

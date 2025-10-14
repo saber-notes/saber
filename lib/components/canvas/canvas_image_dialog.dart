@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:saber/components/canvas/image/editor_image.dart';
 import 'package:saber/components/theming/adaptive_icon.dart';
+import 'package:saber/components/theming/adaptive_switch.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
@@ -51,7 +52,7 @@ class _CanvasImageDialogState extends State<CanvasImageDialog> {
         child: _CanvasImageDialogItem(
           onTap: stows.editorAutoInvert.value ? setInvertible : null,
           title: t.editor.imageOptions.invertible,
-          child: Switch.adaptive(
+          child: AdaptiveSwitch(
             value: widget.image.invertible,
             onChanged: stows.editorAutoInvert.value ? setInvertible : null,
             thumbIcon: WidgetStateProperty.all(widget.image.invertible

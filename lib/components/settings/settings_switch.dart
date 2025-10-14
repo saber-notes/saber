@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:saber/components/theming/adaptive_switch_list_tile.dart';
 import 'package:saber/pages/home/settings.dart';
 import 'package:stow/stow.dart';
 
@@ -52,7 +53,7 @@ class _SettingsSwitchState extends State<SettingsSwitch> {
           prefTitle: widget.title,
         );
       },
-      child: SwitchListTile.adaptive(
+      child: AdaptiveSwitchListTile(
         contentPadding: const EdgeInsets.symmetric(vertical: 4, horizontal: 16),
         secondary: AnimatedSwitcher(
           duration: const Duration(milliseconds: 100),
