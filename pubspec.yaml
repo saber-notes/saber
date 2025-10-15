@@ -144,7 +144,7 @@ dependencies:
 
   flutter_web_auth_2: ^4.0.0
 
-  pdfrx: 2.1.15
+  pdfrx: 2.2.1
   path: ^1.9.1
 
   stow: ^0.5.0
@@ -179,6 +179,8 @@ dev_dependencies:
   sentry_dart_plugin: ^3.1.1
 
 dependency_overrides:
+
+
   # https://github.com/KasemJaffer/receive_sharing_intent/pull/333
   receive_sharing_intent:
     git:
