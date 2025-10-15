@@ -395,7 +395,6 @@ class _TranslationsSettingsPrefLabelsHu extends TranslationsSettingsPrefLabelsEn
 	@override String get maxImageSize => 'Maximális képméret';
 	@override String get autoClearWhiteboardOnExit => 'A tábla törlése az alkalmazásból való kilépés után';
 	@override String get editorPromptRename => 'Új jegyzetek átnevezésére való felszólítás';
-	@override String get hideHomeBackgrounds => 'Hátterek elrejtése a kezdőképernyőn';
 	@override String get recentColorsDontSavePresets => 'Ne mentse az előre beállított színeket a legutóbbi színek között';
 	@override String get sentry => 'Hibajelentés';
 	@override String get autosave => 'Automatikus mentés';
@@ -426,7 +425,6 @@ class _TranslationsSettingsPrefDescriptionsHu extends TranslationsSettingsPrefDe
 	@override String get maxImageSize => 'Az ennél nagyobb képek tömörítve lesznek';
 	@override late final _TranslationsSettingsPrefDescriptionsHideFingerDrawingHu hideFingerDrawing = _TranslationsSettingsPrefDescriptionsHideFingerDrawingHu._(_root);
 	@override String get editorPromptRename => 'A jegyzeteket később bármikor átnevezheti';
-	@override String get hideHomeBackgrounds => 'Egy letisztultabb megjelenítésért';
 	@override late final _TranslationsSettingsPrefDescriptionsPencilSoundSettingHu pencilSoundSetting = _TranslationsSettingsPrefDescriptionsPencilSoundSettingHu._(_root);
 	@override late final _TranslationsSettingsPrefDescriptionsSentryHu sentry = _TranslationsSettingsPrefDescriptionsSentryHu._(_root);
 	@override String get autosave => 'Automato-Save rövid késleltetés után, vagy soha';

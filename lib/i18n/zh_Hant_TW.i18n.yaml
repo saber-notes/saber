@@ -100,7 +100,6 @@ settings:
     disableEraserAfterUse: 自動禁用橡皮擦
     hideFingerDrawingToggle: 隱藏手指繪圖切換開關
     editorPromptRename: 提醒您重新命名新筆記
-    hideHomeBackgrounds: 隱藏主畫面上的背景
     recentColorsDontSavePresets: 不要在最近的顏色中儲存預設顏色
     recentColorsLength: 要儲存多少種最近的顏色
     printPageIndicators: 列印頁碼
@@ -123,7 +122,6 @@ settings:
       fixedOn: 手指繪圖固定為啟用
       fixedOff: 手指繪圖固定為禁用
     editorPromptRename: 您以後隨時可以重新命名筆記
-    hideHomeBackgrounds: 為了更乾淨的外觀
     printPageIndicators: 在匯出中顯示頁碼
     autosave: 在短暫延遲後自動儲存，或永不儲存
     shapeRecognitionDelay: 多久更新一次形狀預覽

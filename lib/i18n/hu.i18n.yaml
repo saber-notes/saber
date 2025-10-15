@@ -95,7 +95,6 @@ settings:
     maxImageSize: Maximális képméret
     autoClearWhiteboardOnExit: A tábla törlése az alkalmazásból való kilépés után
     editorPromptRename: Új jegyzetek átnevezésére való felszólítás
-    hideHomeBackgrounds: Hátterek elrejtése a kezdőképernyőn
     recentColorsDontSavePresets: Ne mentse az előre beállított színeket a legutóbbi színek között
     sentry(OUTDATED): Hibajelentés
     autosave(OUTDATED): Automatikus mentés
@@ -121,7 +120,6 @@ settings:
       fixedOn(OUTDATED): Az ujjlenyomat rögzítése engedélyezett állapotban van
       fixedOff(OUTDATED): Az ujjrajzolás letiltva van rögzítve
     editorPromptRename: A jegyzeteket később bármikor átnevezheti
-    hideHomeBackgrounds: Egy letisztultabb megjelenítésért
     pencilSoundSetting: 
       off(OUTDATED): Nincs hang
       onButNotInSilentMode(OUTDATED): Engedélyezve (kivéve, ha néma módban van)

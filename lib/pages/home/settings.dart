@@ -426,17 +426,6 @@ class _SettingsPageState extends State<SettingsPage> {
                 pref: stows.editorPromptRename,
               ),
               SettingsSwitch(
-                title: t.settings.prefLabels.hideHomeBackgrounds,
-                subtitle: t.settings.prefDescriptions.hideHomeBackgrounds,
-                iconBuilder: (b) {
-                  if (b) return cupertino ? CupertinoIcons.photo : Icons.photo;
-                  return cupertino
-                      ? CupertinoIcons.photo_fill
-                      : Icons.photo_library;
-                },
-                pref: stows.hideHomeBackgrounds,
-              ),
-              SettingsSwitch(
                 title: t.settings.prefLabels.recentColorsDontSavePresets,
                 icon: Icons.palette,
                 pref: stows.recentColorsDontSavePresets,

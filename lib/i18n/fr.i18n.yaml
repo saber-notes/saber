@@ -100,7 +100,6 @@ settings:
     disableEraserAfterUse: Désactiver automatiquement la gomme après usage
     hideFingerDrawingToggle: Cacher l'icône d'activation/désactivation de tracé au doigt
     editorPromptRename: Vous rappeler de renommer les notes
-    hideHomeBackgrounds: Cacher le fond de la page d'accueil
     recentColorsDontSavePresets: Ne pas conserver les couleurs pré-définies parmi les couleurs récentes
     recentColorsLength: Nombre de couleurs récentes à conserver
     printPageIndicators: Imprimer les numéros de pages
@@ -123,7 +122,6 @@ settings:
       fixedOn: Le tracé au doigt est fixé à activé
       fixedOff: Le tracé au doigt est fixé à désactivé
     editorPromptRename: Vous pourrez toujours les renommer plus tard
-    hideHomeBackgrounds: Pour une apparence plus sobre
     printPageIndicators: Montrer les numéros de pages dans les exportations
     shapeRecognitionDelay: Avec quelle fréquence mettre à jour la prévisualisation de forme
     shouldAlwaysAlertForUpdates: Me prévenir dès qu'une mise à jour est disponible

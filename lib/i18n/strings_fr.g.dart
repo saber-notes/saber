@@ -400,7 +400,6 @@ class _TranslationsSettingsPrefLabelsFr extends TranslationsSettingsPrefLabelsEn
 	@override String get disableEraserAfterUse => 'Désactiver automatiquement la gomme après usage';
 	@override String get hideFingerDrawingToggle => 'Cacher l\'icône d\'activation/désactivation de tracé au doigt';
 	@override String get editorPromptRename => 'Vous rappeler de renommer les notes';
-	@override String get hideHomeBackgrounds => 'Cacher le fond de la page d\'accueil';
 	@override String get recentColorsDontSavePresets => 'Ne pas conserver les couleurs pré-définies parmi les couleurs récentes';
 	@override String get recentColorsLength => 'Nombre de couleurs récentes à conserver';
 	@override String get printPageIndicators => 'Imprimer les numéros de pages';
@@ -428,7 +427,6 @@ class _TranslationsSettingsPrefDescriptionsFr extends TranslationsSettingsPrefDe
 	@override String get maxImageSize => 'Les images plus grandes seront compressées';
 	@override late final _TranslationsSettingsPrefDescriptionsHideFingerDrawingFr hideFingerDrawing = _TranslationsSettingsPrefDescriptionsHideFingerDrawingFr._(_root);
 	@override String get editorPromptRename => 'Vous pourrez toujours les renommer plus tard';
-	@override String get hideHomeBackgrounds => 'Pour une apparence plus sobre';
 	@override String get printPageIndicators => 'Montrer les numéros de pages dans les exportations';
 	@override String get shapeRecognitionDelay => 'Avec quelle fréquence mettre à jour la prévisualisation de forme';
 	@override String get shouldAlwaysAlertForUpdates => 'Me prévenir dès qu\'une mise à jour est disponible';

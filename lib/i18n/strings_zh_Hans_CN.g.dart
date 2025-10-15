@@ -402,7 +402,6 @@ class _TranslationsSettingsPrefLabelsZhHansCn extends TranslationsSettingsPrefLa
 	@override String get disableEraserAfterUse => '自动禁用橡皮擦';
 	@override String get hideFingerDrawingToggle => '隐藏 切换手指绘制';
 	@override String get editorPromptRename => '提示您重命名新笔记';
-	@override String get hideHomeBackgrounds => '在主页隐藏背景';
 	@override String get recentColorsDontSavePresets => '不在最近使用的颜色中保存预设颜色';
 	@override String get recentColorsLength => '要存储多少种最近的颜色';
 	@override String get printPageIndicators => '打印页码';
@@ -430,7 +429,6 @@ class _TranslationsSettingsPrefDescriptionsZhHansCn extends TranslationsSettings
 	@override String get maxImageSize => '更大的图片将会被压缩';
 	@override late final _TranslationsSettingsPrefDescriptionsHideFingerDrawingZhHansCn hideFingerDrawing = _TranslationsSettingsPrefDescriptionsHideFingerDrawingZhHansCn._(_root);
 	@override String get editorPromptRename => '您可以总是稍后重命名笔记';
-	@override String get hideHomeBackgrounds => '更简洁的外观';
 	@override String get printPageIndicators => '在导出中显示页码';
 	@override String get autosave => '短暂延迟后自动保存，或永不保存';
 	@override String get shapeRecognitionDelay => '形状预览更新频率';

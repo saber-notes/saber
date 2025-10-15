@@ -400,7 +400,6 @@ class _TranslationsSettingsPrefLabelsFa extends TranslationsSettingsPrefLabelsEn
 	@override String get disableEraserAfterUse => 'پاک کن را به صورت خودکار غیرفعال کنید';
 	@override String get hideFingerDrawingToggle => 'ضامن طراحی انگشت را پنهان کنید';
 	@override String get editorPromptRename => 'از شما می خواهد که نام یادداشت های جدید را تغییر دهید';
-	@override String get hideHomeBackgrounds => 'پس زمینه را در صفحه اصلی پنهان کنید';
 	@override String get recentColorsDontSavePresets => 'رنگ های از پیش تعیین شده را در رنگ های اخیر ذخیره نکنید';
 	@override String get recentColorsLength => 'چند رنگ اخیر برای ذخیره';
 	@override String get printPageIndicators => 'چاپ نشانگرهای صفحه';
@@ -428,7 +427,6 @@ class _TranslationsSettingsPrefDescriptionsFa extends TranslationsSettingsPrefDe
 	@override String get maxImageSize => 'تصاویر بزرگتر از این فشرده خواهند شد';
 	@override late final _TranslationsSettingsPrefDescriptionsHideFingerDrawingFa hideFingerDrawing = _TranslationsSettingsPrefDescriptionsHideFingerDrawingFa._(_root);
 	@override String get editorPromptRename => 'همیشه می توانید بعداً نام یادداشت ها را تغییر دهید';
-	@override String get hideHomeBackgrounds => 'برای ظاهری تمیز تر';
 	@override String get printPageIndicators => 'نمایش نشانگرهای صفحه در خروجی';
 	@override String get shapeRecognitionDelay => 'به روز رسانی پیشنمایش شکل چند وقت یکبار انجام شود';
 	@override String get shouldAlwaysAlertForUpdates => 'به محض اینکه به‌روزرسانی‌ها در دسترس هستند، به من بگویید';

@@ -100,7 +100,6 @@ settings:
     disableEraserAfterUse: پاک کن را به صورت خودکار غیرفعال کنید
     hideFingerDrawingToggle: ضامن طراحی انگشت را پنهان کنید
     editorPromptRename: از شما می خواهد که نام یادداشت های جدید را تغییر دهید
-    hideHomeBackgrounds: پس زمینه را در صفحه اصلی پنهان کنید
     recentColorsDontSavePresets: رنگ های از پیش تعیین شده را در رنگ های اخیر ذخیره نکنید
     recentColorsLength: چند رنگ اخیر برای ذخیره
     printPageIndicators: چاپ نشانگرهای صفحه
@@ -123,7 +122,6 @@ settings:
       fixedOn: طراحی با انگشت به صورت فعال ثابت شده است
       fixedOff: طراحی با انگشت به عنوان غیرفعال ثابت است
     editorPromptRename: همیشه می توانید بعداً نام یادداشت ها را تغییر دهید
-    hideHomeBackgrounds: برای ظاهری تمیز تر
     printPageIndicators: نمایش نشانگرهای صفحه در خروجی
     shapeRecognitionDelay: به روز رسانی پیشنمایش شکل چند وقت یکبار انجام شود
     shouldAlwaysAlertForUpdates: به محض اینکه به‌روزرسانی‌ها در دسترس هستند، به من بگویید

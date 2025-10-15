@@ -628,9 +628,6 @@ class TranslationsSettingsPrefLabelsEn {
 	/// en: 'Prompt you to rename new notes'
 	String get editorPromptRename => 'Prompt you to rename new notes';
 
-	/// en: 'Hide backgrounds on the home screen'
-	String get hideHomeBackgrounds => 'Hide backgrounds on the home screen';
-
 	/// en: 'Don't save preset colors in recent colors'
 	String get recentColorsDontSavePresets => 'Don\'t save preset colors in recent colors';
 
@@ -692,9 +689,6 @@ class TranslationsSettingsPrefDescriptionsEn {
 
 	/// en: 'You can always rename notes later'
 	String get editorPromptRename => 'You can always rename notes later';
-
-	/// en: 'For a cleaner look'
-	String get hideHomeBackgrounds => 'For a cleaner look';
 
 	/// en: 'Show page indicators in exports'
 	String get printPageIndicators => 'Show page indicators in exports';

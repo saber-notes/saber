@@ -100,7 +100,6 @@ settings:
     disableEraserAfterUse: Disattiva automaticamente la gomma
     hideFingerDrawingToggle: Nascondi l'interruttore del disegno con le dita
     editorPromptRename: Richiede di rinominare nuove note
-    hideHomeBackgrounds: Nascondi gli sfondi nella schermata iniziale
     recentColorsDontSavePresets: Non salvare i colori preimpostati nei colori recenti
     recentColorsLength: Quanti colori recenti memorizzare
     printPageIndicators: Stampa indicatori di pagina
@@ -123,7 +122,6 @@ settings:
       fixedOn: Il disegno con le dita è fissato come abilitato
       fixedOff: Il disegno con le dita è fisso come disabilitato
     editorPromptRename: Puoi sempre rinominare le note in un secondo momento
-    hideHomeBackgrounds: Per un aspetto più pulito
     printPageIndicators: Mostra indicatori di pagina nelle esportazioni
     autosave: Salvataggio automatico dopo un breve ritardo o mai
     shapeRecognitionDelay: Quanto spesso aggiornare l'anteprima della forma

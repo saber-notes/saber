@@ -100,7 +100,6 @@ settings:
     disableEraserAfterUse: Автоотключение ластика
     hideFingerDrawingToggle: Скрыть переключатель «Рисование пальцем»
     editorPromptRename: Предлагать переименовывать новые заметки
-    hideHomeBackgrounds: Скрыть фон на главном экране
     recentColorsDontSavePresets: Не сохранять предустановленные цвета в последних цветах
     recentColorsLength: Количество последних сохраняемых цветов
     printPageIndicators: Печатать номера страниц
@@ -123,7 +122,6 @@ settings:
       fixedOn: «Рисование пальцем» зафиксировано как включенное
       fixedOff: «Рисование пальцем» зафиксировано как выключенное
     editorPromptRename: Вы всегда можете переименовать заметки позже
-    hideHomeBackgrounds: Для чистого вида
     printPageIndicators: Показывать номера страниц при экспорте
     autosave: Автосохранение с задержкой
     shapeRecognitionDelay: Как часто обновлять предварительный просмотр формы

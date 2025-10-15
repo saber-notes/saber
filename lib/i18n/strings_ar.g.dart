@@ -402,7 +402,6 @@ class _TranslationsSettingsPrefLabelsAr extends TranslationsSettingsPrefLabelsEn
 	@override String get disableEraserAfterUse => 'تعطيل الممحاة تلقائيًا بعد الاستخدام';
 	@override String get hideFingerDrawingToggle => 'إخفاء زر الرسم بالإصبع';
 	@override String get editorPromptRename => 'مطالبتك بإعادة تسمية الملاحظات الجديدة';
-	@override String get hideHomeBackgrounds => 'إخفاء الخلفيات على الشاشة الرئيسية';
 	@override String get recentColorsDontSavePresets => 'لا تحفظ الألوان المعينة مسبقًا كألوان حديثة';
 	@override String get recentColorsLength => 'كم عدد الألوان الحديثة التي يجب تخزينها';
 	@override String get printPageIndicators => 'طباعة مؤشرات الصفحة';
@@ -430,7 +429,6 @@ class _TranslationsSettingsPrefDescriptionsAr extends TranslationsSettingsPrefDe
 	@override String get maxImageSize => 'سيتم ضغط الصور الأكبر من هذا';
 	@override late final _TranslationsSettingsPrefDescriptionsHideFingerDrawingAr hideFingerDrawing = _TranslationsSettingsPrefDescriptionsHideFingerDrawingAr._(_root);
 	@override String get editorPromptRename => 'يمكنك دائمًا إعادة تسمية الملاحظات لاحقًا';
-	@override String get hideHomeBackgrounds => 'للحصول على مظهر أنظف';
 	@override String get printPageIndicators => 'تظهر مؤشرات الصفحة في الصادرات';
 	@override String get shapeRecognitionDelay => 'عدد مرات تحديث معاينة الشكل';
 	@override String get autoStraightenLines => 'استقامة الخطوط الطويلة بدون الحاجة لاستخدام قلم الشكل';

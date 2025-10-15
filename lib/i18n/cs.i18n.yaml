@@ -100,7 +100,6 @@ settings:
     disableEraserAfterUse: Automaticky vypínat gumu
     hideFingerDrawingToggle: Skrýt přepínač pro kreslení prstem
     editorPromptRename: Vybízet k přejmenování nových poznámek
-    hideHomeBackgrounds: Skrýt pozadí poznámek na hlavní obrazovce
     recentColorsDontSavePresets: Neukládat přednastavené barvy mezi naposledy použité barvy
     recentColorsLength: Kolik naposledy použitých barev se má ukládat
     printPageIndicators: Tisknout čísla stránek
@@ -123,7 +122,6 @@ settings:
       fixedOn: Kreslení prstem je napevno zapnuté
       fixedOff: Kreslení prstem je napevno vypnuté
     editorPromptRename: Poznámky můžete vždy přejmenovat i později
-    hideHomeBackgrounds: Pro čistější vzhled
     printPageIndicators: V exportech budou zobrazena čísla stránek
     autosave: Poznámky se budou automaticky ukládat po krátké prodlevě, nebo nikdy
     shapeRecognitionDelay: Jak často aktualizovat náhled tvaru

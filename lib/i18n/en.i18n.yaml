@@ -100,7 +100,6 @@ settings:
     disableEraserAfterUse: Auto-disable the eraser
     hideFingerDrawingToggle: Hide the finger drawing toggle
     editorPromptRename: Prompt you to rename new notes
-    hideHomeBackgrounds: Hide backgrounds on the home screen
     recentColorsDontSavePresets: Don't save preset colors in recent colors
     recentColorsLength: How many recent colors to store
     printPageIndicators: Print page indicators
@@ -123,7 +122,6 @@ settings:
       fixedOn: Finger drawing is fixed as enabled
       fixedOff: Finger drawing is fixed as disabled
     editorPromptRename: You can always rename notes later
-    hideHomeBackgrounds: For a cleaner look
     printPageIndicators: Show page indicators in exports
     autosave: Auto-save after a short delay, or never
     shapeRecognitionDelay: How often to update the shape preview

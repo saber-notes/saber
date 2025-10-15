@@ -81,7 +81,8 @@ class Stows {
 
   /// The type of platform to theme. Default value is [defaultTargetPlatform].
   final platform = PlainStow('platform', defaultTargetPlatform,
-      codec: const EnumCodec(TargetPlatform.values), volatile: !_isOnMainIsolate);
+      codec: const EnumCodec(TargetPlatform.values),
+      volatile: !_isOnMainIsolate);
   final layoutSize = PlainStow('layoutSize', LayoutSize.auto,
       codec: LayoutSize.codec, volatile: !_isOnMainIsolate);
 
@@ -93,7 +94,8 @@ class Stows {
 
   final editorToolbarAlignment = PlainStow(
       'editorToolbarAlignment', AxisDirection.down,
-      codec: const EnumCodec(AxisDirection.values), volatile: !_isOnMainIsolate);
+      codec: const EnumCodec(AxisDirection.values),
+      volatile: !_isOnMainIsolate);
   final editorToolbarShowInFullscreen = PlainStow(
       'editorToolbarShowInFullscreen', true,
       volatile: !_isOnMainIsolate);
@@ -117,8 +119,6 @@ class Stows {
 
   final simplifiedHomeLayout =
       PlainStow('simplifiedHomeLayout', false, volatile: !_isOnMainIsolate);
-  final hideHomeBackgrounds =
-      PlainStow('hideHomeBackgrounds', false, volatile: !_isOnMainIsolate);
   final printPageIndicators =
       PlainStow('printPageIndicators', false, volatile: !_isOnMainIsolate);
 

@@ -402,7 +402,6 @@ class _TranslationsSettingsPrefLabelsIt extends TranslationsSettingsPrefLabelsEn
 	@override String get disableEraserAfterUse => 'Disattiva automaticamente la gomma';
 	@override String get hideFingerDrawingToggle => 'Nascondi l\'interruttore del disegno con le dita';
 	@override String get editorPromptRename => 'Richiede di rinominare nuove note';
-	@override String get hideHomeBackgrounds => 'Nascondi gli sfondi nella schermata iniziale';
 	@override String get recentColorsDontSavePresets => 'Non salvare i colori preimpostati nei colori recenti';
 	@override String get recentColorsLength => 'Quanti colori recenti memorizzare';
 	@override String get printPageIndicators => 'Stampa indicatori di pagina';
@@ -430,7 +429,6 @@ class _TranslationsSettingsPrefDescriptionsIt extends TranslationsSettingsPrefDe
 	@override String get maxImageSize => 'Le immagini più grandi verranno compresse';
 	@override late final _TranslationsSettingsPrefDescriptionsHideFingerDrawingIt hideFingerDrawing = _TranslationsSettingsPrefDescriptionsHideFingerDrawingIt._(_root);
 	@override String get editorPromptRename => 'Puoi sempre rinominare le note in un secondo momento';
-	@override String get hideHomeBackgrounds => 'Per un aspetto più pulito';
 	@override String get printPageIndicators => 'Mostra indicatori di pagina nelle esportazioni';
 	@override String get autosave => 'Salvataggio automatico dopo un breve ritardo o mai';
 	@override String get shapeRecognitionDelay => 'Quanto spesso aggiornare l\'anteprima della forma';

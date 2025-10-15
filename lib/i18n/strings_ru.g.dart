@@ -402,7 +402,6 @@ class _TranslationsSettingsPrefLabelsRu extends TranslationsSettingsPrefLabelsEn
 	@override String get disableEraserAfterUse => 'Автоотключение ластика';
 	@override String get hideFingerDrawingToggle => 'Скрыть переключатель «Рисование пальцем»';
 	@override String get editorPromptRename => 'Предлагать переименовывать новые заметки';
-	@override String get hideHomeBackgrounds => 'Скрыть фон на главном экране';
 	@override String get recentColorsDontSavePresets => 'Не сохранять предустановленные цвета в последних цветах';
 	@override String get recentColorsLength => 'Количество последних сохраняемых цветов';
 	@override String get printPageIndicators => 'Печатать номера страниц';
@@ -430,7 +429,6 @@ class _TranslationsSettingsPrefDescriptionsRu extends TranslationsSettingsPrefDe
 	@override String get maxImageSize => 'Большие изображения будут сжаты';
 	@override late final _TranslationsSettingsPrefDescriptionsHideFingerDrawingRu hideFingerDrawing = _TranslationsSettingsPrefDescriptionsHideFingerDrawingRu._(_root);
 	@override String get editorPromptRename => 'Вы всегда можете переименовать заметки позже';
-	@override String get hideHomeBackgrounds => 'Для чистого вида';
 	@override String get printPageIndicators => 'Показывать номера страниц при экспорте';
 	@override String get autosave => 'Автосохранение с задержкой';
 	@override String get shapeRecognitionDelay => 'Как часто обновлять предварительный просмотр формы';

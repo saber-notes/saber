@@ -100,7 +100,6 @@ settings:
     disableEraserAfterUse: Radierer automatisch deaktivieren
     hideFingerDrawingToggle: Umschalter des Finger-Zeichnens ausblenden
     editorPromptRename: Beim Erstellen von Notizen einen Namen erfragen
-    hideHomeBackgrounds: Hintergrund auf dem Startbildschirm verbergen
     recentColorsDontSavePresets: Farbvorlagen nicht in den zuletzt genutzten Farben speichern
     recentColorsLength: Anzahl der zuletzt genutzten Farben
     printPageIndicators: Seitennummerierung drucken
@@ -123,7 +122,6 @@ settings:
       fixedOn: Finger-Zeichnen ist als aktiviert festgelegt
       fixedOff: Finger-Zeichnen ist als deaktiviert festgelegt
     editorPromptRename: Notizen können später immer noch umbenannt werden
-    hideHomeBackgrounds: Für ein sauberes Aussehen
     printPageIndicators: Seitennummerierung bei Export anzeigen
     autosave: Nach kurzer Zeit Auto-Speichern oder nie
     shapeRecognitionDelay: Häufigkeit der Aktualisierung der Form-Vorschau

@@ -99,7 +99,6 @@ settings:
     disableEraserAfterUse: Desativar automaticamente a borracha
     hideFingerDrawingToggle: Ocultar o botão de desenho com o dedo
     editorPromptRename: Solicitar que você renomeie novas notas
-    hideHomeBackgrounds: Ocultar planos de fundo na tela inicial
     recentColorsDontSavePresets: Não salvar as cores predefinidas nas cores recentes
     printPageIndicators: Imprimir os indicadores de página
     sentry(OUTDATED): Relatório de erro
@@ -122,7 +121,6 @@ settings:
       fixedOn: O desenho com o dedo está ativado
       fixedOff: O desenho com o dedo está desativado
     editorPromptRename: Você pode sempre renomear as notas mais tarde
-    hideHomeBackgrounds: Para uma aparência mais limpa
     printPageIndicators: Mostrar os indicadores de página nas exportações
     shouldAlwaysAlertForUpdates: Conte-me sobre atualizações assim que elas estiverem disponíveis
     pencilSoundSetting: 

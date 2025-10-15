@@ -99,7 +99,6 @@ settings:
     disableEraserAfterUse: Desactivar automáticamente la goma de borrar
     hideFingerDrawingToggle: Ocultar la opción para activar/desactivar la escritura con el dedo
     editorPromptRename: Solicitarte cambiar el nombre de nuevas notas
-    hideHomeBackgrounds: Ocultar fondos en la pantalla de inicio
     recentColorsDontSavePresets: No guardar colores preestablecidos en los colores recientes
     recentColorsLength: Número de colores recientes a almacenar
     printPageIndicators: Indicadores de página de impresión
@@ -122,7 +121,6 @@ settings:
       fixedOn: Dibujar o escribir con el dedo está activado
       fixedOff: Dibujar o escribir con el dedo está desactivado
     editorPromptRename: Siempre puedes cambiar el nombre de las notas más tarde
-    hideHomeBackgrounds: Para una vista más limpia
     printPageIndicators: Mostrar indicadores de página en las exportaciones
     shouldAlwaysAlertForUpdates: Avísame sobre actualizaciones tan pronto como estén disponibles
     pencilSoundSetting: 

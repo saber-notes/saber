@@ -402,7 +402,6 @@ class _TranslationsSettingsPrefLabelsZhHantTw extends TranslationsSettingsPrefLa
 	@override String get disableEraserAfterUse => '自動禁用橡皮擦';
 	@override String get hideFingerDrawingToggle => '隱藏手指繪圖切換開關';
 	@override String get editorPromptRename => '提醒您重新命名新筆記';
-	@override String get hideHomeBackgrounds => '隱藏主畫面上的背景';
 	@override String get recentColorsDontSavePresets => '不要在最近的顏色中儲存預設顏色';
 	@override String get recentColorsLength => '要儲存多少種最近的顏色';
 	@override String get printPageIndicators => '列印頁碼';
@@ -430,7 +429,6 @@ class _TranslationsSettingsPrefDescriptionsZhHantTw extends TranslationsSettings
 	@override String get maxImageSize => '大於此大小的圖片將被壓縮';
 	@override late final _TranslationsSettingsPrefDescriptionsHideFingerDrawingZhHantTw hideFingerDrawing = _TranslationsSettingsPrefDescriptionsHideFingerDrawingZhHantTw._(_root);
 	@override String get editorPromptRename => '您以後隨時可以重新命名筆記';
-	@override String get hideHomeBackgrounds => '為了更乾淨的外觀';
 	@override String get printPageIndicators => '在匯出中顯示頁碼';
 	@override String get autosave => '在短暫延遲後自動儲存，或永不儲存';
 	@override String get shapeRecognitionDelay => '多久更新一次形狀預覽';

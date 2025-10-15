@@ -100,7 +100,6 @@ settings:
     disableEraserAfterUse: تعطيل الممحاة تلقائيًا بعد الاستخدام
     hideFingerDrawingToggle: إخفاء زر الرسم بالإصبع
     editorPromptRename: مطالبتك بإعادة تسمية الملاحظات الجديدة
-    hideHomeBackgrounds: إخفاء الخلفيات على الشاشة الرئيسية
     recentColorsDontSavePresets: لا تحفظ الألوان المعينة مسبقًا كألوان حديثة
     recentColorsLength: كم عدد الألوان الحديثة التي يجب تخزينها
     printPageIndicators: طباعة مؤشرات الصفحة
@@ -123,7 +122,6 @@ settings:
       fixedOn: تم تفعيل الرسم بالإصبع
       fixedOff: تم تعطيل الرسم بالإصبع
     editorPromptRename: يمكنك دائمًا إعادة تسمية الملاحظات لاحقًا
-    hideHomeBackgrounds: للحصول على مظهر أنظف
     printPageIndicators: تظهر مؤشرات الصفحة في الصادرات
     shapeRecognitionDelay: عدد مرات تحديث معاينة الشكل
     autoStraightenLines: استقامة الخطوط الطويلة بدون الحاجة لاستخدام قلم الشكل
