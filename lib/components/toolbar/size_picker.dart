@@ -1,6 +1,5 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:saber/components/theming/row_col.dart';
 import 'package:saber/data/tools/pen.dart';
 import 'package:saber/i18n/strings.g.dart';
 
@@ -34,8 +33,8 @@ class _SizePickerState extends State<SizePicker> {
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
-    return RowCol(
-      axis: widget.axis,
+    return Flex(
+      direction: widget.axis,
       mainAxisSize: MainAxisSize.min,
       children: [
         Column(
