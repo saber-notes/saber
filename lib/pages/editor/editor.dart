@@ -11,6 +11,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_quill/flutter_quill.dart' as flutter_quill;
 import 'package:keybinder/keybinder.dart';
 import 'package:logging/logging.dart';
+import 'package:pdfrx/pdfrx.dart';
 import 'package:printing/printing.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/canvas.dart';
@@ -1223,46 +1224,62 @@ class EditorState extends State<Editor> {
 
   Future<bool> importPdfFromFilePath(String path) async {
     final pdfFile = File(path);
-    final Uint8List pdfBytes;
-    try {
-      pdfBytes = await pdfFile.readAsBytes();
-    } catch (e) {
-      log.severe('Failed to read file when importing $path: $e', e);
+
+    // Add pdf to cache → returns assetId
+    int? assetIndex = await coreInfo.assetCacheAll.add(pdfFile);
+    if (assetIndex == null) {
+      log.severe('Failed to add PDF to cache');
       return false;
     }
-    int? assetIndex = await coreInfo.assetCacheAll.add(pdfFile);  // add pdf to cache
 
+    // Wait for PdfDocument to be ready to know page size and number of pages
+    final pdfNotifier = coreInfo.assetCacheAll.getPdfNotifier(assetIndex);
+    // Wait until the document is loaded (non-null value)
+    PdfDocument? pdfDocument;
+    pdfDocument = pdfNotifier.value;
+    if (pdfDocument == null) {
+      final completer = Completer<PdfDocument>();
+      late VoidCallback listener;
+      listener = () {
+        if (pdfNotifier.value != null) {
+          completer.complete(pdfNotifier.value!);
+          pdfNotifier.removeListener(listener);
+        }
+      };
+      pdfNotifier.addListener(listener);
+      pdfDocument = await completer.future;
+    }
 
+    // At this point, pdfDocument is guaranteed to be loaded
+    log.info('PDF loaded with ${pdfDocument.pages.length} pages');
+
+    // Remove the temporary page
     final emptyPage = coreInfo.pages.removeLast();
     assert(emptyPage.isEmpty);
 
-    final raster = Printing.raster( // get page size of pdf (raster it in very low quality)
-      pdfBytes,
-      dpi: 1,
-    );
+    // Create pages from the actual PDF document
+    for (int i = 0; i < pdfDocument.pages.length; i++) {
+      final pdfPage = pdfDocument.pages[i]; // PdfPage object
+      final naturalSize = Size(pdfPage.width.toDouble(), pdfPage.height.toDouble());
 
-    int currentPdfPage = -1;
-    await for (final pdfPage in raster) {
-      ++currentPdfPage;
-      assert(currentPdfPage >= 0);
-
-      // resize to [defaultWidth] to keep pen sizes consistent
+      // Scale to your EditorPage default width
       final pageSize = Size(
         EditorPage.defaultWidth,
-        EditorPage.defaultWidth * pdfPage.height / pdfPage.width,
+        EditorPage.defaultWidth * naturalSize.height / naturalSize.width,
       );
 
-      final page = EditorPage(
+      final editorPage = EditorPage(
         width: pageSize.width,
         height: pageSize.height,
       );
-      page.backgroundImage = PdfEditorImage(
+
+      editorPage.backgroundImage = PdfEditorImage(
         id: coreInfo.nextImageId++,
         pdfFile: pdfFile,
-        pdfPage: currentPdfPage,
+        pdfPage: i,
         pageIndex: coreInfo.pages.length,
         pageSize: pageSize,
-        naturalSize: Size(pdfPage.width.toDouble(), pdfPage.height.toDouble()),
+        naturalSize: naturalSize,
         onMoveImage: onMoveImage,
         onDeleteImage: onDeleteImage,
         onMiscChange: autosaveAfterDelay,
@@ -1270,30 +1287,30 @@ class EditorState extends State<Editor> {
         assetCacheAll: coreInfo.assetCacheAll,
         assetId: assetIndex,
       );
-      coreInfo.assetCacheAll.addUse(assetIndex); // inform that asset is uded more times
-      coreInfo.pages.add(page);
+
+      coreInfo.assetCacheAll.addUse(assetIndex);
+      coreInfo.pages.add(editorPage);
+
       history.recordChange(EditorHistoryItem(
         type: EditorHistoryItemType.insertPage,
         pageIndex: coreInfo.pages.length - 1,
         strokes: const [],
         images: const [],
-        page: page,
+        page: editorPage,
       ));
 
-      if (currentPdfPage == 0) {
-        // update ui after we've rastered the first page
-        // so that the user has some indication that the import is working
-        setState(() {});
+      if (i == 0) {
+        setState(() {}); // Update early to show progress
       }
     }
 
     coreInfo.pages.add(emptyPage);
     setState(() {});
-
     autosaveAfterDelay();
 
     return true;
   }
+
 
   Future paste() async {
     /// Maps image formats to their file extension.
