@@ -66,7 +66,7 @@ class _BrowseApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenshotApp(
-      device: GoldenScreenshotDevices.android.device,
+      device: GoldenSmallDevices.android.device,
       home: BrowsePage(
         path: path,
         overrideChildren: children,

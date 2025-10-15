@@ -16,7 +16,7 @@ void main() {
       stows.sentryConsent.value = SentryConsent.unknown;
 
       await tester.pumpWidget(ScreenshotApp(
-        device: GoldenScreenshotDevices.android.device,
+        device: GoldenSmallDevices.android.device,
         home: const HomePage(
           subpage: HomePage.settingsSubpage,
           path: '',
