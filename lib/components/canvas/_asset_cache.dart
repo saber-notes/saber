@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
+import 'dart:isolate';
 import 'dart:math';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/painting.dart';
@@ -359,6 +360,17 @@ class CacheItem {
       pdfDocumentNotifier = pdfDocumentNotifier ?? ValueNotifier(null),
       imageProviderNotifier = imageProviderNotifier ?? ValueNotifier(null);
 
+  /// Placeholder constructor
+  CacheItem.placeholder()
+      : value = null,
+        fileExt = null,
+        fileSize = null,
+        assetType = AssetType.unknown,
+        filePath = null,
+        pdfDocumentNotifier = ValueNotifier(null),
+        imageProviderNotifier = ValueNotifier(null);
+
+
   bool get isImage => assetType == AssetType.image;
   bool get isPdf => assetType == AssetType.pdf;
   bool get isSvg => assetType == AssetType.svg;
@@ -376,6 +388,17 @@ class CacheItem {
       return AssetType.svg;
     }
     return AssetType.unknown;
+  }
+
+  void dispose(){
+    if (isPdf) {
+      if (pdfDocumentNotifier.value == null)
+        return;
+      if (value is File) {
+        _pdfDocument!.dispose();
+        pdfDocumentNotifier.value = null; // set provider to null to inform widgets to reload
+      }
+    }
   }
 
   // increase use of item
@@ -566,30 +589,42 @@ class AssetCacheAll {
     if (item.assetType !=AssetType.pdf){
       throw('getPdfNotified for non pdf asset');
     }
+    log.info('getPdfNotifiert ${assetId}');
     if (item._pdfDocument == null && item.value != null) {
       // if no one is already opening this doc, return their future
       if (_openingDocs[assetId] == null) {
-        final future = _openPdfDocument(item);
-        _openingDocs[assetId] = future;
-
-        future.then((doc) {
+        _openingDocs[assetId] = _openPdfDocument(item)
+            .then((doc) {
+          log.info('_pdfDocument read for $assetId');
           item._pdfDocument = doc;
-          item.pdfDocumentNotifier.value = doc; // notify all widgets
+          item.pdfDocumentNotifier.value = doc; // notify widgets
           _openingDocs.remove(assetId);
+          return doc;
+        }).catchError((e, st) {
+          log.severe('Error opening PDF $assetId: $e\n$st');
+          _openingDocs.remove(assetId);
+          throw e; // ❌ místo `return null`
         });
       }
     } else if (item._pdfDocument != null) {
       // if already opened, return it immediately
-      item.pdfDocumentNotifier.value = item._pdfDocument;
+      if (item.pdfDocumentNotifier.value != item._pdfDocument) {
+        item.pdfDocumentNotifier.value = item._pdfDocument;
+      }
     }
-
+    log.info('_pdfDocument returning');
     return item.pdfDocumentNotifier;
   }
 
   // open pdf document
   Future<PdfDocument> _openPdfDocument(CacheItem item) async {
     if (item.filePath != null) {
-      return PdfDocument.openFile(item.filePath!);
+      log.info('open PdfDocument ${item.filePath!}');
+//      final file = File(item.filePath!);
+//      item.bytes = await file.readAsBytes();
+//      return PdfDocument.openData(item.bytes!);
+      log.info('${Isolate.current.debugName}');
+      return await PdfDocument.openFile(item.filePath!);
     } else if (item.value is Uint8List) {
       return PdfDocument.openData(item.value as Uint8List);
     } else {
@@ -741,6 +776,7 @@ class AssetCacheAll {
   //       full hashes are established later
   int addSync(Object value,
     String extension,
+    int assetIdNote,  // assets of note can be read not in order of asset number.
     String? fileInfo,
     int? previewHash,
     int? fileSize,
@@ -794,9 +830,11 @@ class AssetCacheAll {
           fileInfo: previewResult.fileInfo,
           hash: hash)
         ..addUse(); // and add use
-
-      _items.add(newItem);
-      final index = _items.length - 1;
+      while (_items.length <= assetIdNote) {
+        _items.add(CacheItem.placeholder()); // insert placeholder of asset, it will be filled later
+      }
+      _items[assetIdNote]=newItem;
+      final index = assetIdNote;
       _previewHashIndex[previewResult.previewHash] =
           index; // add to previously hashed
       return index;
@@ -937,16 +975,71 @@ class AssetCacheAll {
   }
 
   // this routine should be called before note is saved. It renumbers assets according their usage
+  // if some asset is deleted (it is kept in undo/redo cache). When undo is used, asset is used again, but if note is saved meantime,
+  // it can occur situation that item[1] is again used, but item[2] has already asset file name *.1 and will be rewriten when item[1] is saved
+  // we must use 2 pass check of file names
   Future<void> renumberBeforeSave(String noteFilePath) async{
     await _mutex.protect(() async {
       log.info("renumber mutex taken");
+
+      // first assign asset number for files
+      log.info("find asset numbers");
       int currentId = -1;
       for (int i = 0; i < _items.length; i++) {
         final item = _items[i];
+        log.info("item $i");
         if (item.refCount > 0) {
           currentId++;
-          final newPath = '$noteFilePath.$currentId'; // new asset file
           item.assetIdOnSave = currentId;
+        }
+        else {
+          // this item is not used. We should save it to temp directory
+          // in case of undo it can be used again
+          item.assetIdOnSave = -1;
+        }
+      }
+
+      log.info("move unused assets to temporary files");
+      for (int i = _items.length - 1; i >= 0; i--) {
+        final item = _items[i];
+        log.info("item $i");
+        if (item.refCount < 1) {
+          // this item is not used. We should save it to temp directory
+          // in case of undo it can be used again
+          log.info("item $i is not used as asset");
+          if ((item.filePath)!.startsWith(noteFilePath)) {
+            log.info("item is from asset and must be saved to temporary directory");
+            // file path of asset is the same as note path - asset file can be overwritten,
+            // move it to the safe location
+            if (item.isImage) {
+              await clearImageProvider(i); // remove imageProvider from cache
+            } else if (item.isPdf){
+              clearPdfDocumentNotifier(i);
+            }
+            try {
+              await item.moveAssetToTemporaryFile(); // move asset to different file
+            } catch (e){
+              log.info('Error saving asset to temporary file');
+            }
+            if (item.isImage) {
+              item.invalidateImageProvider(); // invalidate image provider so new one is allocated
+              getImageProviderNotifier(i); // allocate new image provider to enable rendering
+            } else if (item.isPdf){
+              // nothing to do with pdf. It's document is created automatically on redraw of widget
+            }
+          }
+        }
+      }
+
+
+      log.info("now assetId on Save are assigned and assets can be saved - it is safe to save them in reversed order");
+      for (int i = _items.length - 1; i >= 0; i--) {
+        final item = _items[i];
+        log.info("item $i");
+        if (item.refCount > 0) {
+          currentId=item.assetIdOnSave;  // assign asset number on save
+          final newPath = '$noteFilePath.$currentId'; // new asset file
+          log.info("item $i is used as asset $currentId. item file name ${item.filePath}  and must be saved as $newPath");
           if ((item.filePath) != newPath) {
             // move asset to correct file name
             if (item.isImage) {
@@ -968,23 +1061,7 @@ class AssetCacheAll {
         else {
           // this item is not used. We should save it to temp directory
           // in case of undo it can be used again
-          item.assetIdOnSave = -1;
-          if ((item.filePath)!.startsWith(noteFilePath)) {
-            // file path of asset is the same as note path - asset file can be overwritten,
-            // move it to the safe location
-            if (item.isImage) {
-              await clearImageProvider(i); // remove imageProvider from cache
-            } else if (item.isPdf){
-              clearPdfDocumentNotifier(i);
-            }
-            await item.moveAssetToTemporaryFile(); // move asset to different file
-            if (item.isImage) {
-              item.invalidateImageProvider(); // invalidate image provider so new one is allocated
-              getImageProviderNotifier(i); // allocate new image provider to enable rendering
-            } else if (item.isPdf){
-              // nothing to do with pdf. It's document is created automatically on redraw of widget
-            }
-          }
+          // but it was already moved to temporary file
         }
       }
       return;
@@ -1080,15 +1157,19 @@ class AssetCacheAll {
   }
 
   void dispose() {
+    for (CacheItem item in _items){
+      item.dispose();
+    }
     _items.clear();
+    _cleanupCacheAll();
     _aliasMap.clear();
     _openingDocs.clear();
     _previewHashIndex.clear();
-    _cleanupTempFiles();
   }
 
   // remove all temporary assets which were not used
-  Future<void> _cleanupTempFiles() async {
+  Future<void> _cleanupCacheAll() async {
+
     // List all entries in the temporary directory
     try {
       final dir = await FileManager.getTmpAssetDir();
