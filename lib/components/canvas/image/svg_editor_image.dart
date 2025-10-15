@@ -61,7 +61,7 @@ class SvgEditorImage extends EditorImage {
     }
     if (svgFile != null) {
       assetIndex = assetCacheAll.addSync(
-        svgFile,'.svg',
+        svgFile,'.svg',assetIndexJson!,
         json.containsKey('ainf') ? json['ainf'] : null,
         json.containsKey('aph') ? json['aph'].toInt() : null,
         json.containsKey('afs') ? json['afs'] : null,

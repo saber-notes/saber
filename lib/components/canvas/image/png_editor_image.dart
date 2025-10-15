@@ -87,7 +87,7 @@ class PngEditorImage extends EditorImage {
     // add to asset cache
     if (imageFile != null) {
       assetIndex = assetCacheAll.addSync(
-        imageFile,ext!,
+        imageFile,ext!,assetIndexJson!,
         json.containsKey('ainf') ? json['ainf'] : null,
         json.containsKey('aph') ? json['aph'].toInt() : null,
         json.containsKey('afs') ? json['afs'] : null,
@@ -97,7 +97,7 @@ class PngEditorImage extends EditorImage {
     else {
       final tempFile=assetCacheAll.createRuntimeFile(ext!,bytes!);
       assetIndex = assetCacheAll.addSync(
-        tempFile,ext,
+        tempFile,ext,assetIndexJson!,
         json.containsKey('ainf') ? json['ainf'] : null,
         json.containsKey('aph') ? json['aph'].toInt() : null,
         json.containsKey('afs') ? json['afs'] : null,

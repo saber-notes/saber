@@ -61,7 +61,7 @@ class PdfEditorImage extends EditorImage {
         pdfFile =
             FileManager.getFile('$sbnPath${Editor.extension}.$assetIndexJson');
         assetIndex = assetCacheAll.addSync(
-            pdfFile,'.pdf',
+            pdfFile,'.pdf',assetIndexJson,
             json.containsKey('ainf') ? json['ainf'] : null,
             json.containsKey('aph') ? json['aph'].toInt() : null,
             json.containsKey('afs') ? json['afs'] : null,
@@ -71,7 +71,7 @@ class PdfEditorImage extends EditorImage {
         pdfBytes = inlineAssets[assetIndexJson];
         final tempFile=assetCacheAll.createRuntimeFile('.pdf',pdfBytes); // store to file
         assetIndex = assetCacheAll.addSync(
-          tempFile,'.pdf',
+          tempFile,'.pdf',assetIndexJson,
           json.containsKey('ainf') ? json['ainf'] : null,
           json.containsKey('aph') ? json['aph'].toInt() : null,
           json.containsKey('afs') ? json['afs'] : null,
