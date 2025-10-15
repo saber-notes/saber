@@ -31,9 +31,6 @@ class FileManager {
   /// Realistically, this value never changes.
   static late String documentsDirectory;
 
-  // Support directory is for storing intermediate files (these files can be cleaned after note is saved)
-  static late Directory supportDirectory;
-
   static final fileWriteStream = StreamController<FileOperation>.broadcast();
 
   // TODO(adil192): Implement or remove this
@@ -49,7 +46,6 @@ class FileManager {
   }) async {
     FileManager.documentsDirectory =
         documentsDirectory ?? await getDocumentsDirectory();
-    FileManager.supportDirectory = await getApplicationSupportDirectory();
 
     if (shouldWatchRootDirectory) unawaited(watchRootDirectory());
   }

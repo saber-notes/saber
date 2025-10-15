@@ -488,7 +488,7 @@ class CacheItem {
     try {
       dir = await FileManager.getTmpAssetDir();
     } catch (e) {
-      dir = FileManager.supportDirectory;
+      throw('Error getting temporary directory');
     }
     String newPath = FileManager.fixFileNameDelimiters('${dir.path}${Platform.pathSeparator}TmPmP_${RandomFileName.generateRandomFileName(fileExt != null ? fileExt! : 'tmp')}'); // update file path
     //value=(value as File).renameSync(newPath);  // rename asset
@@ -502,7 +502,7 @@ class CacheItem {
     try {
       dir = await FileManager.getTmpAssetDir();
     } catch (e) {
-      dir = FileManager.supportDirectory;
+      throw('Error getting temporary directory');
     }
     String newPath = FileManager.fixFileNameDelimiters('${dir.path}${Platform.pathSeparator}TmPmP_${RandomFileName.generateRandomFileName(fileExt != null ? fileExt! : 'tmp')}'); // update file path
     value=await (value as File).copy(newPath);  // copy asset to new file
