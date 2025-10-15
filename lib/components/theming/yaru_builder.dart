@@ -34,17 +34,25 @@ class YaruBuilder extends StatefulWidget {
 }
 
 class _YaruBuilderState extends State<YaruBuilder> {
-  Color? lastPrimary = Colors.orange;
-  YaruVariant? closestYaruVariant = YaruVariant.orange;
+  Color? lastPrimary;
+  YaruVariant? closestYaruVariant;
+
+  @override
+  void initState() {
+    super.initState();
+    _updateVariant();
+  }
 
   @override
   void didUpdateWidget(YaruBuilder oldWidget) {
     super.didUpdateWidget(oldWidget);
+    _updateVariant();
+  }
 
-    if (widget.primary != lastPrimary) {
-      closestYaruVariant = YaruBuilder.findClosestYaruVariant(widget.primary);
-      lastPrimary = widget.primary;
-    }
+  void _updateVariant() {
+    if (widget.primary == lastPrimary) return;
+    closestYaruVariant = YaruBuilder.findClosestYaruVariant(widget.primary);
+    lastPrimary = widget.primary;
   }
 
   @override

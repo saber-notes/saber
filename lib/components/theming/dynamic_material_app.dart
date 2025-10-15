@@ -132,18 +132,26 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp>
       return YaruBuilder(
         primary: chosenAccentColor, // if null, falls back to system color
         builder: (context, yaru, _) {
-          return _ExplicitlyThemedApp(
+          return ExplicitlyThemedApp(
             title: widget.title,
             router: widget.router,
             themeMode: stows.appTheme.value,
-            theme: (yaru.theme ?? yaruLight)
-                .copyWith(textTheme: getTextTheme(Brightness.light)),
-            darkTheme: (yaru.darkTheme ?? yaruDark)
-                .copyWith(textTheme: getTextTheme(Brightness.dark)),
+            theme: (yaru.theme ?? yaruLight).copyWith(
+              platform: platform,
+              textTheme: getTextTheme(Brightness.light),
+            ),
+            darkTheme: (yaru.darkTheme ?? yaruDark).copyWith(
+              platform: platform,
+              textTheme: getTextTheme(Brightness.dark),
+            ),
             highContrastTheme: yaruHighContrastLight.copyWith(
-                textTheme: getTextTheme(Brightness.light)),
+              platform: platform,
+              textTheme: getTextTheme(Brightness.light),
+            ),
             highContrastDarkTheme: yaruHighContrastDark.copyWith(
-                textTheme: getTextTheme(Brightness.dark)),
+              platform: platform,
+              textTheme: getTextTheme(Brightness.dark),
+            ),
           );
         },
       );
@@ -156,7 +164,7 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp>
       final darkColorScheme = ColorScheme.fromSeed(
           brightness: Brightness.dark, seedColor: chosenAccentColor);
 
-      return _ExplicitlyThemedApp(
+      return ExplicitlyThemedApp(
         title: widget.title,
         router: widget.router,
         themeMode: stows.appTheme.value,
@@ -173,7 +181,7 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp>
         darkColorScheme ??= ColorScheme.fromSeed(
             brightness: Brightness.dark, seedColor: widget.defaultSwatch);
 
-        return _ExplicitlyThemedApp(
+        return ExplicitlyThemedApp(
           title: widget.title,
           router: widget.router,
           themeMode: stows.appTheme.value,
@@ -198,8 +206,11 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp>
   }
 }
 
-class _ExplicitlyThemedApp extends StatelessWidget {
-  const _ExplicitlyThemedApp({
+@visibleForTesting
+class ExplicitlyThemedApp extends StatelessWidget {
+  @protected
+  const ExplicitlyThemedApp({
+    super.key,
     required this.title,
     required this.router,
     required this.themeMode,
