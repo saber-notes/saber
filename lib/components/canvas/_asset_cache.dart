@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
-import 'dart:isolate';
 import 'dart:math';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/painting.dart';
@@ -623,7 +622,6 @@ class AssetCacheAll {
 //      final file = File(item.filePath!);
 //      item.bytes = await file.readAsBytes();
 //      return PdfDocument.openData(item.bytes!);
-      log.info('${Isolate.current.debugName}');
       return await PdfDocument.openFile(item.filePath!);
     } else if (item.value is Uint8List) {
       return PdfDocument.openData(item.value as Uint8List);
