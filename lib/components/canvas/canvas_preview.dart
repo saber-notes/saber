@@ -5,7 +5,6 @@ import 'package:saber/components/canvas/inner_canvas.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/extensions/list_extensions.dart';
-import 'package:saber/data/prefs.dart';
 
 typedef _CacheItem = (EditorCoreInfo coreInfo, double pageHeight);
 
