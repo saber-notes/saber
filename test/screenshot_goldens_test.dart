@@ -9,7 +9,6 @@ import 'package:saber/components/home/syncing_button.dart';
 import 'package:saber/components/settings/app_info.dart';
 import 'package:saber/components/settings/nextcloud_profile.dart';
 import 'package:saber/components/theming/font_fallbacks.dart';
-import 'package:saber/components/theming/yaru_builder.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/flavor_config.dart';
 import 'package:saber/data/locales.dart';
@@ -98,8 +97,8 @@ void main() {
       scaffoldBackgroundColor: colorScheme.surface,
       platform: TargetPlatform.iOS,
     );
-    final yaruVariant = YaruBuilder.findClosestYaruVariant(colorScheme.primary);
-    final yaruTheme = YaruThemeData(variant: yaruVariant, useMaterial3: true);
+    const yaruTheme =
+        YaruThemeData(variant: YaruVariant.orange, useMaterial3: true);
 
     _screenshot(
       materialTheme: materialTheme,
