@@ -18,6 +18,8 @@ jobs:
   build-ios:
     name: Build for iOS
     runs-on: macos-latest
+    permissions:
+      contents: write
     timeout-minutes: 60
     env:
       APP_STORE_CONNECT_ISSUER_ID: ${{secrets.APP_STORE_CONNECT_ISSUER_ID}}
