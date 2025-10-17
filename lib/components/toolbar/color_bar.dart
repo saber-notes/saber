@@ -171,7 +171,7 @@ class _ColorBarState extends State<ColorBar> {
 
   @override
   Widget build(BuildContext context) {
-    var colorScheme = Theme.of(context).colorScheme;
+    var colorScheme = ColorScheme.of(context);
 
     final children = <Widget>[
       // pinned colors

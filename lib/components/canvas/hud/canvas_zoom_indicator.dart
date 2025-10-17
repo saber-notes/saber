@@ -12,7 +12,7 @@ class CanvasZoomIndicator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
+    final colorScheme = ColorScheme.of(context);
     return InkWell(
       onTap: resetZoom,
       child: Container(

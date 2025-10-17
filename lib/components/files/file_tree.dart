@@ -59,7 +59,7 @@ class _FileTreeBranchState extends State<FileTreeBranch> {
 
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
+    final colorScheme = ColorScheme.of(context);
     final backgroundColor = Color.alphaBlend(
       colorScheme.primary.withValues(alpha: 0.05),
       colorScheme.surface,
@@ -93,7 +93,7 @@ class _FileTreeBranchState extends State<FileTreeBranch> {
                   Expanded(
                     child: Text(
                       widget.path!.substring(widget.path!.lastIndexOf('/') + 1),
-                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                      style: TextTheme.of(context).bodyMedium?.copyWith(
                             fontSize: 14,
                           ),
                       overflow: TextOverflow.ellipsis,

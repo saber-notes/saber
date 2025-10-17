@@ -79,7 +79,7 @@ class _UpdateDialogState extends State<UpdateDialog> {
             Text(
               t.update.downloadNotAvailableYet,
               style: TextStyle(
-                color: Theme.of(context).colorScheme.error,
+                color: ColorScheme.of(context).error,
               ),
             ),
         ],

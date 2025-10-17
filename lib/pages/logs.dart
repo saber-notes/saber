@@ -208,7 +208,7 @@ class _LogLevel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
+    final colorScheme = ColorScheme.of(context);
     return DecoratedBox(
       decoration: BoxDecoration(
         color: switch (level) {

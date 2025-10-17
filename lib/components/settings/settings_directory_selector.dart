@@ -129,7 +129,7 @@ class _DirectorySelectorState extends State<DirectorySelector> {
 
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
+    final colorScheme = ColorScheme.of(context);
 
     final emptyError = widget.mustBeEmpty && !_isEmpty;
     final syncingError = widget.mustBeDoneSyncing &&

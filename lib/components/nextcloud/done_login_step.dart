@@ -39,7 +39,7 @@ class _DoneLoginStepState extends State<DoneLoginStep> {
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
+    final textTheme = TextTheme.of(context);
     final screenWidth = MediaQuery.sizeOf(context).width;
     final screenHeight = MediaQuery.sizeOf(context).height;
     final quota = stows.lastStorageQuota.value;

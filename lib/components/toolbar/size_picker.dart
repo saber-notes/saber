@@ -32,7 +32,7 @@ String _prettyNum(double num) {
 class _SizePickerState extends State<SizePicker> {
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
+    final colorScheme = ColorScheme.of(context);
     return Flex(
       direction: widget.axis,
       mainAxisSize: MainAxisSize.min,
@@ -93,7 +93,7 @@ class _SizeSlider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
+    final colorScheme = ColorScheme.of(context);
     return GestureDetector(
       onHorizontalDragStart: axis == Axis.horizontal
           ? (details) =>

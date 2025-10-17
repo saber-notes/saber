@@ -64,8 +64,8 @@ class InnerCanvas extends StatefulWidget {
 class _InnerCanvasState extends State<InnerCanvas> {
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
-    final Brightness brightness = Theme.of(context).brightness;
+    final colorScheme = ColorScheme.of(context);
+    final Brightness brightness = Theme.brightnessOf(context);
     final bool invert =
         stows.editorAutoInvert.value && brightness == Brightness.dark;
     final Color backgroundColor =
@@ -196,7 +196,7 @@ class _InnerCanvasState extends State<InnerCanvas> {
 
   /// Adapted from https://github.com/singerdmx/flutter-quill/blob/master/lib/src/editor/widgets/default_styles.dart
   DefaultStyles _getQuillStyles({required bool invert}) {
-    final colorScheme = Theme.of(context).colorScheme;
+    final colorScheme = ColorScheme.of(context);
     final backgroundColor = invert ? Colors.black : Colors.white;
     final lineHeight = widget.coreInfo.lineHeight;
 

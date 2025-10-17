@@ -126,7 +126,7 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
             if (backgroundImage != null) ...[
               Text(
                 t.editor.menu.backgroundImageFit,
-                style: Theme.of(context).textTheme.titleMedium,
+                style: TextTheme.of(context).titleMedium,
               ),
               SizedBox(
                 height: previewSize.height,
@@ -188,7 +188,7 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
             ],
             Text(
               t.editor.menu.backgroundPattern,
-              style: Theme.of(context).textTheme.titleMedium,
+              style: TextTheme.of(context).titleMedium,
             ),
             SizedBox(
               height: previewSize.height,
@@ -238,11 +238,11 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
             const SizedBox(height: 16),
             Text(
               t.editor.menu.lineHeight,
-              style: Theme.of(context).textTheme.titleMedium,
+              style: TextTheme.of(context).titleMedium,
             ),
             Text(
               t.editor.menu.lineHeightDescription,
-              style: Theme.of(context).textTheme.bodyMedium,
+              style: TextTheme.of(context).bodyMedium,
             ),
             Row(
               children: [
@@ -262,11 +262,11 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
             ),
             Text(
               t.editor.menu.lineThickness,
-              style: Theme.of(context).textTheme.titleMedium,
+              style: TextTheme.of(context).titleMedium,
             ),
             Text(
               t.editor.menu.lineThicknessDescription,
-              style: Theme.of(context).textTheme.bodyMedium,
+              style: TextTheme.of(context).bodyMedium,
             ),
             Row(
               children: [
@@ -287,7 +287,7 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
             const SizedBox(height: 16),
             Text(
               t.editor.menu.import,
-              style: Theme.of(context).textTheme.titleMedium,
+              style: TextTheme.of(context).titleMedium,
             ),
             Wrap(
               spacing: 8,
@@ -350,7 +350,7 @@ class _PermanentTooltip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
+    final colorScheme = ColorScheme.of(context);
     return DecoratedBox(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),

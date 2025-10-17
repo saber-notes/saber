@@ -111,10 +111,11 @@ class _CanvasImageState extends State<CanvasImage> {
 
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
+    final colorScheme = ColorScheme.of(context);
 
-    Brightness currentBrightness = Theme.of(context).brightness;
-    if (!widget.image.invertible) currentBrightness = Brightness.light;
+    final currentBrightness = widget.image.invertible
+        ? Theme.brightnessOf(context)
+        : Brightness.light;
 
     if (stows.editorAutoInvert.value && currentBrightness != imageBrightness) {
       imageBrightness = currentBrightness;
@@ -304,7 +305,7 @@ class _CanvasImageResizeHandle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
+    final colorScheme = ColorScheme.of(context);
     return Positioned(
       left: (position.dx.sign + 1) / 2 * image.dstRect.width - 20,
       top: (position.dy.sign + 1) / 2 * image.dstRect.height - 20,

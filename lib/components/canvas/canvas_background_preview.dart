@@ -33,7 +33,7 @@ class CanvasBackgroundPreview extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
+    final colorScheme = ColorScheme.of(context);
     final previewSize = Size(
       fixedWidth,
       pageSize.height / pageSize.width * fixedWidth,

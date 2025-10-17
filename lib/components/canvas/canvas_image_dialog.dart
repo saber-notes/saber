@@ -166,7 +166,7 @@ class _CanvasImageDialogItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
+    final colorScheme = ColorScheme.of(context);
     return Material(
       color: colorScheme.primary.withValues(alpha: 0.05),
       borderRadius: BorderRadius.circular(8),

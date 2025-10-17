@@ -21,7 +21,7 @@ class ToolbarIconButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var colorScheme = Theme.of(context).colorScheme;
+    final colorScheme = ColorScheme.of(context);
 
     return Ink(
       decoration: ShapeDecoration(

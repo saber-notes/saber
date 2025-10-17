@@ -162,9 +162,9 @@ class _ToolbarState extends State<Toolbar> {
 
   @override
   Widget build(BuildContext context) {
-    var colorScheme = Theme.of(context).colorScheme;
+    var colorScheme = ColorScheme.of(context);
 
-    Brightness brightness = Theme.of(context).brightness;
+    final brightness = Theme.brightnessOf(context);
     bool invert = stows.editorAutoInvert.value && brightness == Brightness.dark;
 
     final isToolbarVertical =
@@ -264,7 +264,7 @@ class _ToolbarState extends State<Toolbar> {
           valueListenable: widget.quillFocus,
           builder: (context, quill, _) {
             final baseButtonStyle =
-                Theme.of(context).iconButtonTheme.style ?? const ButtonStyle();
+                IconButtonTheme.of(context).style ?? const ButtonStyle();
 
             final iconTheme = QuillIconTheme(
               iconButtonUnselectedData: IconButtonData(

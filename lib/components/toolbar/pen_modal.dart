@@ -53,8 +53,8 @@ class _PenModalState extends State<PenModal> {
             }),
             style: TextButton.styleFrom(
               foregroundColor: Pen.currentPen.icon == Pen.fountainPenIcon
-                  ? Theme.of(context).colorScheme.secondary
-                  : Theme.of(context).colorScheme.onSurface,
+                  ? ColorScheme.of(context).secondary
+                  : ColorScheme.of(context).onSurface,
               backgroundColor: Pen.currentPen.icon == Pen.fountainPenIcon
                   ? Theme.of(context)
                       .colorScheme
@@ -70,8 +70,8 @@ class _PenModalState extends State<PenModal> {
               height: 32 / 508 * 374,
               theme: SvgTheme(
                 currentColor: Pen.currentPen.icon == Pen.fountainPenIcon
-                    ? Theme.of(context).colorScheme.secondary
-                    : Theme.of(context).colorScheme.onSurface,
+                    ? ColorScheme.of(context).secondary
+                    : ColorScheme.of(context).onSurface,
               ),
             ),
           ),
@@ -82,8 +82,8 @@ class _PenModalState extends State<PenModal> {
             }),
             style: TextButton.styleFrom(
               foregroundColor: Pen.currentPen.icon == Pen.ballpointPenIcon
-                  ? Theme.of(context).colorScheme.secondary
-                  : Theme.of(context).colorScheme.onSurface,
+                  ? ColorScheme.of(context).secondary
+                  : ColorScheme.of(context).onSurface,
               backgroundColor: Pen.currentPen.icon == Pen.ballpointPenIcon
                   ? Theme.of(context)
                       .colorScheme
@@ -99,8 +99,8 @@ class _PenModalState extends State<PenModal> {
               height: 32 / 508 * 374,
               theme: SvgTheme(
                 currentColor: Pen.currentPen.icon == Pen.ballpointPenIcon
-                    ? Theme.of(context).colorScheme.secondary
-                    : Theme.of(context).colorScheme.onSurface,
+                    ? ColorScheme.of(context).secondary
+                    : ColorScheme.of(context).onSurface,
               ),
             ),
           ),
@@ -111,8 +111,8 @@ class _PenModalState extends State<PenModal> {
             }),
             style: TextButton.styleFrom(
               foregroundColor: Pen.currentPen.icon == ShapePen.shapePenIcon
-                  ? Theme.of(context).colorScheme.secondary
-                  : Theme.of(context).colorScheme.onSurface,
+                  ? ColorScheme.of(context).secondary
+                  : ColorScheme.of(context).onSurface,
               backgroundColor: Pen.currentPen.icon == ShapePen.shapePenIcon
                   ? Theme.of(context)
                       .colorScheme

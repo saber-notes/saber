@@ -21,7 +21,7 @@ class SelectionBar extends StatelessWidget {
         IconButton(
           onPressed: duplicateSelection,
           style: TextButton.styleFrom(
-            foregroundColor: Theme.of(context).colorScheme.secondary,
+            foregroundColor: ColorScheme.of(context).secondary,
             backgroundColor: Colors.transparent,
             shape: const CircleBorder(),
           ),
@@ -34,7 +34,7 @@ class SelectionBar extends StatelessWidget {
         IconButton(
           onPressed: deleteSelection,
           style: TextButton.styleFrom(
-            foregroundColor: Theme.of(context).colorScheme.secondary,
+            foregroundColor: ColorScheme.of(context).secondary,
             backgroundColor: Colors.transparent,
             shape: const CircleBorder(),
           ),

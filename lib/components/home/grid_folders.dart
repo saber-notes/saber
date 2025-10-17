@@ -103,7 +103,7 @@ class _GridFolderState extends State<_GridFolder> {
 
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
+    final colorScheme = ColorScheme.of(context);
     final cardElevatedColor = Color.alphaBlend(
       colorScheme.primary.withValues(alpha: 0.05),
       colorScheme.surface,

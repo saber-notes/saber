@@ -113,7 +113,7 @@ class _BrowsePageState extends State<BrowsePage> {
 
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
+    final colorScheme = ColorScheme.of(context);
     final platform = Theme.of(context).platform;
     final cupertino =
         platform == TargetPlatform.iOS || platform == TargetPlatform.macOS;

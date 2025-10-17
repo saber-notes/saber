@@ -7,7 +7,7 @@ class Welcome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var textTheme = Theme.of(context).textTheme;
+    var textTheme = TextTheme.of(context);
     return Center(
       child: Padding(
         padding: const EdgeInsets.all(8),

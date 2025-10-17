@@ -21,7 +21,7 @@ class CanvasGestureLockBtn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
+    final colorScheme = ColorScheme.of(context);
     return GestureDetector(
       onTap: () => setLock(!lock),
       child: Container(

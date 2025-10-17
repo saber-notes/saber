@@ -1332,7 +1332,7 @@ class EditorState extends State<Editor> {
 
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
+    final colorScheme = ColorScheme.of(context);
     final platform = Theme.of(context).platform;
     final cupertino =
         platform == TargetPlatform.iOS || platform == TargetPlatform.macOS;
@@ -1724,7 +1724,7 @@ class EditorState extends State<Editor> {
   }
 
   Widget bottomSheet(BuildContext context) {
-    final Brightness brightness = Theme.of(context).brightness;
+    final Brightness brightness = Theme.brightnessOf(context);
     final bool invert =
         stows.editorAutoInvert.value && brightness == Brightness.dark;
     final int currentPageIndex = this.currentPageIndex;
