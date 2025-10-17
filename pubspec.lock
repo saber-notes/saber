@@ -29,10 +29,10 @@ packages:
     dependency: "direct main"
     description:
       name: animations
-      sha256: d3d6dcfb218225bbe68e87ccf6378bbb2e32a94900722c5f81611dad089911cb
+      sha256: a8031b276f0a7986ac907195f10ca7cd04ecf2a8a566bd6dbe03018a9b02b427
       url: "https://pub.dev"
     source: hosted
-    version: "2.0.11"
+    version: "2.1.0"
   ansicolor:
     dependency: transitive
     description:
@@ -556,10 +556,10 @@ packages:
     dependency: transitive
     description:
       name: flutter_plugin_android_lifecycle
-      sha256: b0694b7fb1689b0e6cc193b3f1fcac6423c4f93c74fb20b806c6b6f196db0c31
+      sha256: "306f0596590e077338312f38837f595c04f28d6cdeeac392d3d74df2f0003687"
       url: "https://pub.dev"
     source: hosted
-    version: "2.0.30"
+    version: "2.0.32"
   flutter_quill:
     dependency: "direct main"
     description:
@@ -678,11 +678,12 @@ packages:
   font_awesome_flutter:
     dependency: "direct main"
     description:
-      name: font_awesome_flutter
-      sha256: f50ce90dbe26d977415b9540400d6778bef00894aced6358ae578abd92b14b10
-      url: "https://pub.dev"
-    source: hosted
-    version: "10.9.0"
+      path: "."
+      ref: "fix/remove-spaces-in-asset-name"
+      resolved-ref: cba4e226809fabd8ad9052451441d27730981fa1
+      url: "https://github.com/adil192/font_awesome_flutter.git"
+    source: git
+    version: "10.10.0"
   fuchsia_remote_debug_protocol:
     dependency: transitive
     description: flutter
@@ -708,10 +709,10 @@ packages:
     dependency: "direct main"
     description:
       name: go_router
-      sha256: c752e2d08d088bf83742cb05bf83003f3e9d276ff1519b5c92f9d5e60e5ddd23
+      sha256: e1d7ffb0db475e6e845eb58b44768f50b830e23960e3df6908924acd8f7f70ea
       url: "https://pub.dev"
     source: hosted
-    version: "16.2.4"
+    version: "16.2.5"
   golden_screenshot:
     dependency: "direct dev"
     description:
@@ -1128,10 +1129,10 @@ packages:
     dependency: transitive
     description:
       name: path_provider_android
-      sha256: "993381400e94d18469750e5b9dcb8206f15bc09f9da86b9e44a9b0092a0066db"
+      sha256: e122c5ea805bb6773bb12ce667611265980940145be920cd09a4b0ec0285cb16
       url: "https://pub.dev"
     source: hosted
-    version: "2.2.18"
+    version: "2.2.20"
   path_provider_foundation:
     dependency: transitive
     description:
@@ -1192,18 +1193,18 @@ packages:
     dependency: "direct main"
     description:
       name: pdfrx
-      sha256: e9663e265928dea8ef6f35fde4f9bbfbdafcb894feede38d4bf2b67394051a09
+      sha256: d2e46260b9a9dbb17521f1bbe13e868625c03cf49255cece65ad9c12dec386d2
       url: "https://pub.dev"
     source: hosted
-    version: "2.1.25"
+    version: "2.2.3"
   pdfrx_engine:
     dependency: transitive
     description:
       name: pdfrx_engine
-      sha256: "7327361eb4e63660996a16773b6f57120a267796431cd29d7d3b1150d51934de"
+      sha256: "1fb77d7e9fb99f7b3f4412f63314bb7e8084b9a79827fe90201b20fa6cf173b7"
       url: "https://pub.dev"
     source: hosted
-    version: "0.1.21"
+    version: "0.2.0"
   perfect_freehand:
     dependency: "direct main"
     description:
@@ -1593,10 +1594,10 @@ packages:
     dependency: transitive
     description:
       name: shared_preferences_android
-      sha256: "0b0f98d535319cb5cdd4f65783c2a54ee6d417a2f093dbb18be3e36e4c3d181f"
+      sha256: "34266009473bf71d748912da4bf62d439185226c03e01e2d9687bc65bbfcb713"
       url: "https://pub.dev"
     source: hosted
-    version: "2.4.14"
+    version: "2.4.15"
   shared_preferences_foundation:
     dependency: transitive
     description:
@@ -1654,10 +1655,10 @@ packages:
     dependency: "direct main"
     description:
       name: slang
-      sha256: "47182d10ce284e232f25a02eb74a421a11e7eb6a6fab9ab84fd8182bb0761130"
+      sha256: "59615afd67de95033c0f14a8596d0691a17fa4cbf28eb4af23f00ed58c80b8f6"
       url: "https://pub.dev"
     source: hosted
-    version: "4.9.0"
+    version: "4.9.1"
   slang_flutter:
     dependency: "direct main"
     description:
@@ -1838,10 +1839,10 @@ packages:
     dependency: transitive
     description:
       name: url_launcher_android
-      sha256: c0fb544b9ac7efa10254efaf00a951615c362d1ea1877472f8f6c0fa00fcf15b
+      sha256: "5c8b6c2d89a78f5a1cca70a73d9d5f86c701b36b42f9c9dac7bad592113c28e9"
       url: "https://pub.dev"
     source: hosted
-    version: "6.3.23"
+    version: "6.3.24"
   url_launcher_ios:
     dependency: transitive
     description:
@@ -2078,9 +2079,9 @@ packages:
     dependency: "direct main"
     description:
       path: "."
-      ref: "fix/keep-text-style"
-      resolved-ref: "87779a4a78b793ad86a5d7177f223664e1ae0152"
-      url: "https://github.com/adil192/yaru.dart.git"
+      ref: "1036a53bd70ea6ee09407c3afd5782f77c82fd47"
+      resolved-ref: "1036a53bd70ea6ee09407c3afd5782f77c82fd47"
+      url: "https://github.com/ubuntu/yaru.dart.git"
     source: git
     version: "8.3.0"
   yaru_window:

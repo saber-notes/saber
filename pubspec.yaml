@@ -78,7 +78,7 @@ dependencies:
 
   flex_color_picker: ^3.4.1
 
-  font_awesome_flutter: 10.9.0
+  font_awesome_flutter: ^10.10.1
 
   flutter_svg: ^2.0.0+1
 
@@ -192,11 +192,17 @@ dependency_overrides:
       ref: patch-2
       path: flutter_secure_storage_linux
 
-  # https://github.com/ubuntu/yaru.dart/issues/1037
+  # https://github.com/ubuntu/yaru.dart/pull/1038
   yaru:
     git:
-      url: https://github.com/adil192/yaru.dart.git
-      ref: fix/keep-text-style
+      url: https://github.com/ubuntu/yaru.dart.git
+      ref: 1036a53bd70ea6ee09407c3afd5782f77c82fd47
+  
+  # https://github.com/fluttercommunity/font_awesome_flutter/pull/282
+  font_awesome_flutter:
+    git:
+      url: https://github.com/adil192/font_awesome_flutter.git
+      ref: fix/remove-spaces-in-asset-name
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
