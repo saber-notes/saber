@@ -214,6 +214,14 @@
     </screenshots>
 
     <releases>
+        <release version="0.26.10" type="development" date="2025-10-17">
+            <description>
+                <ul>
+                    <li>Fixed an issue where the pencil sound effect wouldn't stop when you lifted your stylus</li>
+                    <li>Visual improvements especially in the Linux/Yaru theme</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.26.9" type="development" date="2025-10-12">
             <description>
                 <ul>

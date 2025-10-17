@@ -1,0 +1,2 @@
+• Corrigido um problema em que o efeito sonoro do lápis não parava quando você levantava a caneta
+• Melhorias visuais especialmente no tema Linux/Yaru
