@@ -48,7 +48,11 @@ abstract class PencilSound {
   }
 
   static void pause() {
-    if (_player.state == PlayerState.paused) return;
+    if (!isPlaying) {
+      _pauseTimer?.cancel();
+      _player.pause();
+      return;
+    }
 
     const numTicks = 4;
     var tick = 0;
@@ -67,12 +71,17 @@ abstract class PencilSound {
   /// Called when the pointer moves.
   /// [distance] is the distance travelled by the pointer this frame.
   static void update(double distance) {
+    if (!isPlaying) {
+      return;
+    }
+
     const maxVolume = 0.5;
     final speed = min(1, distance / 100);
     _setVolume(speed * maxVolume);
     _player.setPlaybackRate(1 - (1 - speed) * 0.5);
   }
 
+  @protected
   static bool get isPlaying => _player.state == PlayerState.playing;
 
   /// Sets the volume to the average of the current volume and the new volume,
