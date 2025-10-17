@@ -2,18 +2,14 @@ part of 'editor_image.dart';
 
 class SvgEditorImage extends EditorImage {
   late SvgLoader svgLoader;
+  int assetId;
 
   static final log = Logger('SvgEditorImage');
 
-  @override
-  @Deprecated('Use the file directly instead')
-  AssetCache get assetCache => super.assetCache;
-
   SvgEditorImage({
     required super.id,
-    required super.assetCache,
-    required String? svgString,
-    required File? svgFile,
+    required super.assetCacheAll,
+    required this.assetId,
     required super.pageIndex,
     required super.pageSize,
     super.invertible,
@@ -27,16 +23,12 @@ class SvgEditorImage extends EditorImage {
     super.srcRect,
     super.naturalSize,
     super.isThumbnail,
-  })  : assert(svgString != null || svgFile != null,
-            'svgFile must be set if svgString is null'),
+  })  : assert(assetId >-1 ,
+            'assetId must be set'),
         super(
           extension: '.svg',
         ) {
-    if (svgString != null) {
-      svgLoader = SvgStringLoader(svgString);
-    } else {
-      svgLoader = SvgFileLoader(svgFile!);
-    }
+    svgLoader = SvgFileLoader(assetCacheAll.getAssetFile(assetId));
   }
 
   factory SvgEditorImage.fromJson(
@@ -44,35 +36,50 @@ class SvgEditorImage extends EditorImage {
     required List<Uint8List>? inlineAssets,
     bool isThumbnail = false,
     required String sbnPath,
-    required AssetCache assetCache,
+    required AssetCacheAll assetCacheAll,
   }) {
     String? extension = json['e'] as String?;
     assert(extension == null || extension == '.svg');
 
-    final assetIndex = json['a'] as int?;
-    final String? svgString;
+    final assetIndexJson = json['a'] as int?;
+    Uint8List? svgBytes;
+    final int? assetIndex;
     File? svgFile;
-    if (assetIndex != null) {
+    if (assetIndexJson != null) {
       if (inlineAssets == null) {
         svgFile =
-            FileManager.getFile('$sbnPath${Editor.extension}.$assetIndex');
-        svgString = assetCache.get(svgFile);
+            FileManager.getFile('$sbnPath${Editor.extension}.$assetIndexJson');
       } else {
-        svgString = utf8.decode(inlineAssets[assetIndex]);
+        svgBytes=inlineAssets[assetIndexJson];
+        svgFile=assetCacheAll.createRuntimeFile(json['e'] ?? '.svg',svgBytes);
       }
     } else if (json['b'] != null) {
-      svgString = json['b'] as String;
+      svgBytes = json['b'];
+      svgFile=assetCacheAll.createRuntimeFile(json['e'] ?? '.svg',svgBytes!);
     } else {
       log.warning('SvgEditorImage.fromJson: no svg string found');
-      svgString = '';
+    }
+    if (svgFile != null) {
+      assetIndex = assetCacheAll.addSync(
+        svgFile,'.svg',assetIndexJson!,
+        json.containsKey('ainf') ? json['ainf'] : null,
+        json.containsKey('aph') ? json['aph'].toInt() : null,
+        json.containsKey('afs') ? json['afs'] : null,
+        json.containsKey('ah') ? json['ah'].toInt() : null,
+      );
+    }
+    else {
+      throw Exception('EditorImage.fromJson: svg image not in assets');
+    }
+    if (assetIndex<0){
+      throw Exception('EditorImage.fromJson: svg image not in assets');
     }
 
     return SvgEditorImage(
       id: json['id'] ??
           -1, // -1 will be replaced by EditorCoreInfo._handleEmptyImageIds()
-      assetCache: assetCache,
-      svgString: svgString,
-      svgFile: svgFile,
+      assetCacheAll: assetCacheAll,
+      assetId: assetIndex,
       pageIndex: json['i'] ?? 0,
       pageSize: Size.infinite,
       invertible: json['v'] ?? true,
@@ -104,29 +111,26 @@ class SvgEditorImage extends EditorImage {
   }
 
   @override
-  Map<String, dynamic> toJson(OrderedAssetCache assets) {
-    final json = super.toJson(assets);
+  Map<String, dynamic> toJson() {
+    final json = super.toJson();
 
     // remove non-svg fields
     json.remove('t'); // thumbnail bytes
     assert(!json.containsKey('a'));
     assert(!json.containsKey('b'));
 
-    final svgData = _extractSvg();
-    json['a'] = assets.add(svgData.string ?? svgData.file!);
+//    final svgData = _extractSvg();
+    json['a'] = assetCacheAll.getAssetIdOnSave(assetId); // assets can be reordered during saving
+    json['aph'] = assetCacheAll.getAssetPreviewHash(assetId); // assets prewiewHash
+    json['afs'] = assetCacheAll.getAssetFileSize(assetId); // assets can be reordered during saving
+    if (assetCacheAll.getAssetFileInfo(assetId) != '')
+      json['ainf'] = assetCacheAll.getAssetFileInfo(assetId); // asset file info
+    if (assetCacheAll.getAssetHash(assetId) != null)
+      json['ah'] = assetCacheAll.getAssetHash(assetId); // assets can be reordered during saving
 
     return json;
   }
 
-  ({String? string, File? file}) _extractSvg() => switch (svgLoader) {
-        (SvgStringLoader loader) => (
-            string: loader.provideSvg(null),
-            file: null
-          ),
-        (SvgFileLoader loader) => (string: null, file: loader.file),
-        (_) => throw ArgumentError.value(svgLoader, 'svgLoader',
-            'SvgEditorImage.toJson: svgLoader must be a SvgStringLoader or SvgFileLoader'),
-      };
 
   @override
   Future<void> firstLoad() async {
@@ -190,13 +194,12 @@ class SvgEditorImage extends EditorImage {
 
   @override
   SvgEditorImage copy() {
-    final svgData = _extractSvg();
+    //final svgData = _extractSvg();
     return SvgEditorImage(
       id: id,
       // ignore: deprecated_member_use_from_same_package
-      assetCache: assetCache,
-      svgString: svgData.string,
-      svgFile: svgData.file,
+      assetCacheAll: assetCacheAll,
+      assetId: assetId,
       pageIndex: pageIndex,
       pageSize: Size.infinite,
       invertible: invertible,
