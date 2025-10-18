@@ -65,7 +65,7 @@ jobs:
       - name: Setup Rust
         uses: moonrepo/setup-rust@v1
         with:
-          channel: stable
+          # The rust version is read from rust-toolchain.toml
           targets: armv7-linux-androideabi,aarch64-linux-android,x86_64-linux-android
 
       - name: Disable Flutter CLI animations
@@ -75,13 +75,13 @@ jobs:
 
       - name: Remove development dependencies
         run: ./patches/remove_dev_dependencies.sh
-
       - name: Remove proprietary dependencies
         run: ./patches/remove_proprietary_dependencies.sh
         if: matrix.foss
-
       - name: Remove non-Android dependencies
         run: ./patches/remove_non_android_dependencies.sh
+      - name: Patch rust dependencies
+        run: ./patches/patch_rust_versions.sh
 
       - name: Build apk
         run: flutter build apk --dart-define=DIRTY=${{ !startsWith(github.ref, 'refs/tags/') }}
