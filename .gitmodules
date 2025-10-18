@@ -2,6 +2,3 @@
 	path = submodules/flutter
 	url = https://github.com/flutter/flutter.git
 	branch = stable
-[submodule "submodules/shared-modules"]
-	path = submodules/shared-modules
-	url = https://github.com/flathub/shared-modules.git
