@@ -1,0 +1,26 @@
+name: Build unofficial snap
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - .github/workflows/snap.yml
+      - snap/snapcraft.yaml
+
+jobs:
+  build-snap:
+    runs-on: ubuntu-latest
+    timeout-minutes: 59
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+
+      - name: Build snap
+        id: build
+        uses: snapcore/action-build@v1
+
+      - name: Upload snap artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Saber-Snap
+          path: ${{ steps.build.outputs.snap }}
