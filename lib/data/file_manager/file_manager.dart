@@ -54,7 +54,7 @@ class FileManager {
       stows.customDataDir.value ?? await getDefaultDocumentsDirectory();
 
   static Future<String> getDefaultDocumentsDirectory() async =>
-      '${(await getApplicationDocumentsDirectory()).path}/$appRootDirectoryPrefix';
+      '${(await getApplicationDocumentsDirectory()).path}${Platform.pathSeparator}$appRootDirectoryPrefix';
 
   static Future<void> migrateDataDir() async {
     final oldDir = Directory(documentsDirectory);
@@ -114,6 +114,45 @@ class FileManager {
           }
         }
       }
+    }
+  }
+
+  // fix '\' and '/'  according to OS to have all the same
+  static String fixFileNameDelimiters(String filePath){
+    if (Platform.pathSeparator == '\\'){
+      return filePath.replaceAll('/', '\\');
+    }
+    return filePath.replaceAll('\\', '/');
+  }
+
+
+  /// Creates a hidden folder in DocumentsDirectory to store temporary assets
+  /// it is usefully to store temporary files here, because files can be simply renamed when assets change - no need to copy them
+  static Future<Directory> getTmpAssetDir() async {
+    try{
+      final baseDir = Directory(documentsDirectory);
+
+      // Define a hidden subfolder (dot prefix hides it on Unix systems)
+      final hiddenDir = Directory('${baseDir.path}${Platform.pathSeparator}.tmpAssets');
+
+      // Create the folder if it doesn’t exist
+      if (!await hiddenDir.exists()) {
+        await hiddenDir.create(recursive: true);
+
+        // On Windows, add the "hidden" file attribute
+        if (Platform.isWindows) {
+          try {
+            await Process.run('attrib', ['+h', hiddenDir.path]);
+          } catch (e) {
+            log.info('Failed to set hidden attribute: $e');
+          }
+        }
+      }
+      return hiddenDir;
+    }
+    on FileSystemException catch (e) {
+      log.info('getTmpAssetDir $e');
+      rethrow;
     }
   }
 
@@ -181,13 +220,25 @@ class FileManager {
 
   static File getFile(String filePath) {
     if (shouldUseRawFilePath) {
-      return File(filePath);
+      return File(fixFileNameDelimiters(filePath));
     } else {
       assert(filePath.startsWith('/'),
           'Expected filePath to start with a slash, got $filePath');
-      return File(documentsDirectory + filePath);
+      return File(fixFileNameDelimiters(documentsDirectory + filePath));
     }
   }
+
+  // return file path (add document directory if needed)
+  static String getFilePath(String filePath) {
+    if (shouldUseRawFilePath) {
+      return fixFileNameDelimiters(filePath);
+    } else {
+      assert(filePath.startsWith('/'),
+      'Expected filePath to start with a slash, got $filePath');
+      return fixFileNameDelimiters('$documentsDirectory$filePath');
+    }
+  }
+
 
   static Directory getRootDirectory() => Directory(documentsDirectory);
 
@@ -239,6 +290,80 @@ class FileManager {
     writeFuture = writeFuture.then((_) => afterWrite());
     if (awaitWrite) await writeFuture;
   }
+
+  /// Copies [fileFrom] to [filePath].
+  ///
+  /// The file at [toPath] will have its last modified timestamp set to
+  /// [lastModified], if specified.
+  /// This is useful when downloading remote files, to make sure that the
+  /// timestamp is the same locally and remotely.
+  static Future<void> copyFile(
+      File fileFrom,
+      String filePath,
+      {
+        bool awaitWrite = false,
+        bool alsoUpload = true,
+        DateTime? lastModified,
+      }) async {
+    filePath = _sanitisePath(filePath);
+    await _createFileDirectory(filePath);   // create directory filePath is "relative to saber documents directory")
+
+    filePath = getFilePath(filePath);  // if needed add documents directory to file path to have full path
+    if (fileFrom.path == filePath){
+      // file is copied to itself, do nothing (it happens when asset is saved with the same name)
+      return;
+    }
+    log.fine('Copying to $filePath');
+
+    await _saveFileAsRecentlyAccessed(filePath);
+    final file = await fileFrom.copy(filePath);
+    Future writeFuture = Future.wait([
+      if (lastModified != null) file.setLastModified(lastModified),
+      // if we're using a new format, also delete the old file
+      if (filePath.endsWith(Editor.extension))
+        getFile(
+            '${filePath.substring(0, filePath.length - Editor.extension.length)}'
+                '${Editor.extensionOldJson}')
+            .delete()
+        // ignore if the file doesn't exist
+            .catchError((_) => File(''),
+            test: (e) => e is PathNotFoundException),
+    ]);
+
+    void afterWrite() {
+      broadcastFileWrite(FileOperationType.write, filePath);
+      if (alsoUpload) syncer.uploader.enqueueRel(filePath);
+      if (filePath.endsWith(Editor.extension)) {
+        _removeReferences(
+            '${filePath.substring(0, filePath.length - Editor.extension.length)}'
+                '${Editor.extensionOldJson}');
+      }
+    }
+
+    writeFuture = writeFuture.then((_) => afterWrite());
+    if (awaitWrite) await writeFuture;
+  }
+
+  /// Marks [fileFrom] as saved - used when saving assets during note save.
+  static Future<void> markFileAsSaved(
+      File fileFrom,
+      {
+        bool awaitWrite = false,
+        bool alsoUpload = true,
+      }) async {
+    log.fine('Marking file as Saved');
+
+    await _saveFileAsRecentlyAccessed(fileFrom.path);
+    broadcastFileWrite(FileOperationType.write, fileFrom.path);
+    if (alsoUpload) syncer.uploader.enqueueRel(fileFrom.path);
+    if (fileFrom.path.endsWith(Editor.extension)) {
+      _removeReferences(
+          '${fileFrom.path.substring(0, fileFrom.path.length - Editor.extension.length)}'
+              '${Editor.extensionOldJson}');
+    }
+  }
+
+
 
   static Future<void> createFolder(String folderPath) async {
     folderPath = _sanitisePath(folderPath);

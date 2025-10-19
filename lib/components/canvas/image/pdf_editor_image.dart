@@ -1,21 +1,23 @@
 part of 'editor_image.dart';
 
 class PdfEditorImage extends EditorImage {
-  Uint8List? pdfBytes;
+  /// index of asset assigned to this pdf file
+  int assetId;
+
   final int pdfPage;
 
   /// If the pdf needs to be loaded from disk, this is the File
   /// that the pdf will be loaded from.
   final File? pdfFile;
 
-  final _pdfDocument = ValueNotifier<PdfDocument?>(null);
+//  final _pdfDocument = ValueNotifier<PdfDocument?>(null);
 
   static final log = Logger('PdfEditorImage');
 
   PdfEditorImage({
     required super.id,
-    required super.assetCache,
-    required this.pdfBytes,
+    required super.assetCacheAll,
+    required this.assetId,
     required this.pdfFile,
     required this.pdfPage,
     required super.pageIndex,
@@ -32,8 +34,8 @@ class PdfEditorImage extends EditorImage {
     super.isThumbnail,
   })  : assert(
             !naturalSize.isEmpty, 'naturalSize must be set for PdfEditorImage'),
-        assert(pdfBytes != null || pdfFile != null,
-            'pdfFile must be set if pdfBytes is null'),
+        assert(pdfFile != null,
+            'pdfFile must be set'),
         super(
           extension: '.pdf',
           srcRect: Rect.zero,
@@ -44,34 +46,58 @@ class PdfEditorImage extends EditorImage {
     required List<Uint8List>? inlineAssets,
     bool isThumbnail = false,
     required String sbnPath,
-    required AssetCache assetCache,
+    required AssetCacheAll assetCacheAll,
   }) {
     String? extension = json['e'] as String?;
     assert(extension == null || extension == '.pdf');
 
-    final assetIndex = json['a'] as int?;
+    final assetIndexJson = json['a'] as int?;
+
     final Uint8List? pdfBytes;
+    int? assetIndex;
     File? pdfFile;
-    if (assetIndex != null) {
+    if (assetIndexJson != null) {
       if (inlineAssets == null) {
         pdfFile =
-            FileManager.getFile('$sbnPath${Editor.extension}.$assetIndex');
-        pdfBytes = assetCache.get(pdfFile);
+            FileManager.getFile('$sbnPath${Editor.extension}.$assetIndexJson');
+        assetIndex = assetCacheAll.addSync(
+            pdfFile,'.pdf',assetIndexJson,
+            json.containsKey('ainf') ? json['ainf'] : null,
+            json.containsKey('aph') ? json['aph'].toInt() : null,
+            json.containsKey('afs') ? json['afs'] : null,
+            json.containsKey('ah') ? json['ah'].toInt() : null,
+        );
       } else {
-        pdfBytes = inlineAssets[assetIndex];
+        pdfBytes = inlineAssets[assetIndexJson];
+        final tempFile=assetCacheAll.createRuntimeFile('.pdf',pdfBytes); // store to file
+        assetIndex = assetCacheAll.addSync(
+          tempFile,'.pdf',assetIndexJson,
+          json.containsKey('ainf') ? json['ainf'] : null,
+          json.containsKey('aph') ? json['aph'].toInt() : null,
+          json.containsKey('afs') ? json['afs'] : null,
+          json.containsKey('ah') ? json['ah'].toInt() : null,
+        );
       }
     } else {
       if (kDebugMode) {
         throw Exception('PdfEditorImage.fromJson: pdf bytes not found');
       }
-      pdfBytes = Uint8List(0);
+      assetIndex=-1;
+    }
+
+    assert(assetIndex >=0,
+    'Either pdfBytes or pdfFile must be non-null');
+
+    // add to asset cache
+    if (assetIndex<0){
+      throw Exception('EditorImage.fromJson: pdf image not in assets');
     }
 
     return PdfEditorImage(
       id: json['id'] ??
           -1, // -1 will be replaced by EditorCoreInfo._handleEmptyImageIds()
-      assetCache: assetCache,
-      pdfBytes: pdfBytes,
+      assetCacheAll: assetCacheAll,
+      assetId: assetIndex,
       pdfFile: pdfFile,
       pdfPage: json['pdfi'],
       pageIndex: json['i'] ?? 0,
@@ -99,18 +125,22 @@ class PdfEditorImage extends EditorImage {
   }
 
   @override
-  Map<String, dynamic> toJson(OrderedAssetCache assets) {
-    final json = super.toJson(
-      assets,
-    );
+  Map<String, dynamic> toJson() {
+    final json = super.toJson();
 
     // remove non-pdf fields
     json.remove('t'); // thumbnail bytes
     assert(!json.containsKey('a'));
     assert(!json.containsKey('b'));
 
-    json['a'] = assets.add(pdfFile ?? pdfBytes!);
+    json['a'] = assetCacheAll.getAssetIdOnSave(assetId); // assets can be reordered during saving
     json['pdfi'] = pdfPage;
+    json['aph'] = assetCacheAll.getAssetPreviewHash(assetId); // assets prewiewHash
+    json['afs'] = assetCacheAll.getAssetFileSize(assetId); // assets can be reordered during saving
+    if (assetCacheAll.getAssetFileInfo(assetId) != '')
+      json['ainf'] = assetCacheAll.getAssetFileInfo(assetId); // asset file info
+    if (assetCacheAll.getAssetHash(assetId) != null)
+      json['ah'] = assetCacheAll.getAssetHash(assetId); // assets can be reordered during saving
 
     return json;
   }
@@ -127,9 +157,10 @@ class PdfEditorImage extends EditorImage {
       dstRect = dstRect.topLeft & dstSize;
     }
 
-    _pdfDocument.value ??= pdfFile != null
-        ? await PdfDocument.openFile(pdfFile!.path)
-        : await PdfDocument.openData(pdfBytes!);
+//    _pdfDocument.value ??= await assetCacheAll.getPdfDocument(assetId);
+//    _pdfDocument.value ??= pdfFile != null
+//        ? await PdfDocument.openFile(pdfFile!.path)
+//        : await PdfDocument.openData(pdfBytes!);
   }
 
   @override
@@ -140,19 +171,6 @@ class PdfEditorImage extends EditorImage {
 
   @override
   Future<void> precache(BuildContext context) async {
-    if (_pdfDocument.value != null) return;
-
-    final completer = Completer<void>();
-
-    void onDocumentSet() {
-      if (_pdfDocument.value == null) return;
-      if (completer.isCompleted) return;
-      completer.complete();
-      _pdfDocument.removeListener(onDocumentSet);
-    }
-
-    _pdfDocument.addListener(onDocumentSet);
-    return completer.future;
   }
 
   @override
@@ -162,8 +180,9 @@ class PdfEditorImage extends EditorImage {
     required bool isBackground,
     required bool invert,
   }) {
+    final pdfNotifier = assetCacheAll.getPdfNotifier(assetId);  // value of pdfDocument
     return ValueListenableBuilder(
-      valueListenable: _pdfDocument,
+      valueListenable: pdfNotifier,
       builder: (context, pdfDocument, child) {
         if (pdfDocument == null) {
           return SizedBox.fromSize(size: srcRect.size);
@@ -183,8 +202,8 @@ class PdfEditorImage extends EditorImage {
   @override
   PdfEditorImage copy() => PdfEditorImage(
         id: id,
-        assetCache: assetCache,
-        pdfBytes: pdfBytes,
+        assetCacheAll: assetCacheAll,
+        assetId: assetId,
         pdfPage: pdfPage,
         pdfFile: pdfFile,
         pageIndex: pageIndex,

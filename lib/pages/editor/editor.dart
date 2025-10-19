@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:convert';
 import 'dart:io';
 
 import 'package:collapsible/collapsible.dart';
@@ -12,8 +11,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_quill/flutter_quill.dart' as flutter_quill;
 import 'package:keybinder/keybinder.dart';
 import 'package:logging/logging.dart';
+import 'package:pdfrx/pdfrx.dart';
 import 'package:printing/printing.dart';
-import 'package:saber/components/canvas/_asset_cache.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/canvas.dart';
 import 'package:saber/components/canvas/canvas_gesture_detector.dart';
@@ -52,7 +51,7 @@ import 'package:saber/pages/home/whiteboard.dart';
 import 'package:screenshot/screenshot.dart';
 import 'package:super_clipboard/super_clipboard.dart';
 
-typedef _PhotoInfo = ({Uint8List bytes, String extension});
+typedef _PhotoInfo = ({Uint8List bytes, String extension, String path});
 
 class Editor extends StatefulWidget {
   Editor({
@@ -366,6 +365,19 @@ class EditorState extends State<Editor> {
           for (EditorImage image in item.images) {
             createPage(image.pageIndex);
             coreInfo.pages[image.pageIndex].images.add(image);
+            // increment use of image asset
+            int assetId=-1;
+            if (image is PdfEditorImage){
+              assetId=image.assetId;
+            } else if (image is PngEditorImage){
+              assetId=image.assetId;
+            } else if (image is SvgEditorImage){
+              assetId=image.assetId;
+            }
+            if (assetId>=0) {
+              // free use of asset
+              image.assetCacheAll.addUse(assetId);
+            }
             image.newImage = true;
           }
 
@@ -767,6 +779,18 @@ class EditorState extends State<Editor> {
   }
 
   void onDeleteImage(EditorImage image) {
+    int assetId=-1;
+    if (image is PdfEditorImage){
+      assetId=image.assetId;
+    } else if (image is PngEditorImage){
+      assetId=image.assetId;
+    } else if (image is SvgEditorImage){
+      assetId=image.assetId;
+    }
+    if (assetId>=0) {
+      // free use of asset
+      image.assetCacheAll.removeUse(assetId);
+    }
     history.recordChange(EditorHistoryItem(
       type: EditorHistoryItemType.erase,
       pageIndex: image.pageIndex,
@@ -903,29 +927,37 @@ class EditorState extends State<Editor> {
 
     final filePath = coreInfo.filePath + Editor.extension;
     final Uint8List bson;
-    final OrderedAssetCache assets;
-    coreInfo.assetCache.allowRemovingAssets = false;
+    coreInfo.assetCacheAll.allowRemovingAssets = false;
+    final fullPath = FileManager.fixFileNameDelimiters(FileManager.getFilePath(filePath));  // add full path of note and fix \ or / according to OS
+    await coreInfo.assetCacheAll.renumberBeforeSave(fullPath);  // renumber all assets
     try {
-      (bson, assets) = coreInfo.saveToBinary(
+      // go through all pages and prepare Json of each page.
+      (bson) = coreInfo.saveToBinary(
         currentPageIndex: currentPageIndex,
       );
     } finally {
-      coreInfo.assetCache.allowRemovingAssets = true;
+      coreInfo.assetCacheAll.allowRemovingAssets = true;
     }
     try {
-      await Future.wait([
-        FileManager.writeFile(filePath, bson, awaitWrite: true),
-        for (int i = 0; i < assets.length; ++i)
-          assets.getBytes(i).then((bytes) => FileManager.writeFile(
-                '$filePath.$i',
-                bytes,
-                awaitWrite: true,
-              )),
-        FileManager.removeUnusedAssets(
+      // write note itself
+      await FileManager.writeFile(filePath, bson, awaitWrite: true);
+
+      // write assets was already done in renumberBeforeSave() routine
+      int numAssetUsed=0;
+      for (int i = 0; i < coreInfo.assetCacheAll.length; ++i){
+        final idSave=coreInfo.assetCacheAll.getAssetIdOnSave(i);
+        if (idSave<0){
+          // asset is not used do not save it
+          continue;
+        }
+        numAssetUsed++;  // increase number of used assets
+        final assetFile=coreInfo.assetCacheAll.getAssetFile(i);
+        await FileManager.markFileAsSaved(assetFile); // inform application that file was updated
+      }
+      FileManager.removeUnusedAssets(
           filePath,
-          numAssets: assets.length,
-        ),
-      ]);
+          numAssets: numAssetUsed,
+      );
       savingState.value = SavingState.saved;
     } catch (e) {
       log.severe('Failed to save file: $e', e);
@@ -1082,35 +1114,45 @@ class EditorState extends State<Editor> {
     // use the Select tool so that the user can move the new image
     currentTool = Select.currentSelect;
 
-    List<EditorImage> images = [
-      for (final _PhotoInfo photoInfo in photoInfos)
-        if (photoInfo.extension == '.svg')
-          SvgEditorImage(
+    final List<EditorImage> images = [];
+    for (final _PhotoInfo photoInfo in photoInfos) {
+        if (photoInfo.extension == '.pdf') {
+          // pdf can be selected on android, but it cannot be imported
+          continue;
+        }
+        if (photoInfo.extension == '.svg') {
+          // add image to assets using its path
+          int assetIndex = await coreInfo.assetCacheAll.add(File(photoInfo.path));
+          images.add(SvgEditorImage(
             id: coreInfo.nextImageId++,
-            svgString: utf8.decode(photoInfo.bytes),
-            svgFile: null,
             pageIndex: currentPageIndex,
             pageSize: coreInfo.pages[currentPageIndex].size,
             onMoveImage: onMoveImage,
             onDeleteImage: onDeleteImage,
             onMiscChange: autosaveAfterDelay,
             onLoad: () => setState(() {}),
-            assetCache: coreInfo.assetCache,
-          )
-        else
-          PngEditorImage(
+            assetCacheAll: coreInfo.assetCacheAll,
+            assetId: assetIndex,
+          ));
+        }
+        else {
+          // add image to assets using its path
+          int assetIndex = await coreInfo.assetCacheAll.add(File(photoInfo.path));
+          images.add(PngEditorImage(
             id: coreInfo.nextImageId++,
             extension: photoInfo.extension,
-            imageProvider: MemoryImage(photoInfo.bytes),
+            imageProviderNotifier: coreInfo.assetCacheAll.getImageProviderNotifier(assetIndex),
             pageIndex: currentPageIndex,
             pageSize: coreInfo.pages[currentPageIndex].size,
             onMoveImage: onMoveImage,
             onDeleteImage: onDeleteImage,
             onMiscChange: autosaveAfterDelay,
             onLoad: () => setState(() {}),
-            assetCache: coreInfo.assetCache,
-          ),
-    ];
+            assetCacheAll: coreInfo.assetCacheAll,
+            assetId: assetIndex,
+          ));
+        }
+      }
 
     history.recordChange(EditorHistoryItem(
       type: EditorHistoryItemType.draw,
@@ -1157,6 +1199,7 @@ class EditorState extends State<Editor> {
           (
             bytes: file.bytes!,
             extension: '.${file.extension}',
+            path: file.path!,
           ),
     ];
   }
@@ -1181,74 +1224,93 @@ class EditorState extends State<Editor> {
 
   Future<bool> importPdfFromFilePath(String path) async {
     final pdfFile = File(path);
-    final Uint8List pdfBytes;
-    try {
-      pdfBytes = await pdfFile.readAsBytes();
-    } catch (e) {
-      log.severe('Failed to read file when importing $path: $e', e);
+
+    // Add pdf to cache → returns assetId
+    int? assetIndex = await coreInfo.assetCacheAll.add(pdfFile);
+    if (assetIndex == null) {
+      log.severe('Failed to add PDF to cache');
       return false;
     }
 
+    // Wait for PdfDocument to be ready to know page size and number of pages
+    final pdfNotifier = coreInfo.assetCacheAll.getPdfNotifier(assetIndex);
+    // Wait until the document is loaded (non-null value)
+    PdfDocument? pdfDocument;
+    pdfDocument = pdfNotifier.value;
+    if (pdfDocument == null) {
+      final completer = Completer<PdfDocument>();
+      late VoidCallback listener;
+      listener = () {
+        if (pdfNotifier.value != null) {
+          completer.complete(pdfNotifier.value!);
+          pdfNotifier.removeListener(listener);
+        }
+      };
+      pdfNotifier.addListener(listener);
+      pdfDocument = await completer.future;
+    }
+
+    // At this point, pdfDocument is guaranteed to be loaded
+    log.info('PDF loaded with ${pdfDocument.pages.length} pages');
+
+    // Remove the temporary page
     final emptyPage = coreInfo.pages.removeLast();
     assert(emptyPage.isEmpty);
 
-    final raster = Printing.raster(
-      pdfBytes,
-      dpi: 1,
-    );
+    // Create pages from the actual PDF document
+    for (int i = 0; i < pdfDocument.pages.length; i++) {
+      final pdfPage = pdfDocument.pages[i]; // PdfPage object
+      final naturalSize = Size(pdfPage.width.toDouble(), pdfPage.height.toDouble());
 
-    int currentPdfPage = -1;
-    await for (final pdfPage in raster) {
-      ++currentPdfPage;
-      assert(currentPdfPage >= 0);
-
-      // resize to [defaultWidth] to keep pen sizes consistent
+      // Scale to your EditorPage default width
       final pageSize = Size(
         EditorPage.defaultWidth,
-        EditorPage.defaultWidth * pdfPage.height / pdfPage.width,
+        EditorPage.defaultWidth * naturalSize.height / naturalSize.width,
       );
 
-      final page = EditorPage(
+      final editorPage = EditorPage(
         width: pageSize.width,
         height: pageSize.height,
       );
-      page.backgroundImage = PdfEditorImage(
+
+      editorPage.backgroundImage = PdfEditorImage(
         id: coreInfo.nextImageId++,
-        pdfBytes: pdfBytes,
         pdfFile: pdfFile,
-        pdfPage: currentPdfPage,
+        pdfPage: i,
         pageIndex: coreInfo.pages.length,
         pageSize: pageSize,
-        naturalSize: Size(pdfPage.width.toDouble(), pdfPage.height.toDouble()),
+        naturalSize: naturalSize,
         onMoveImage: onMoveImage,
         onDeleteImage: onDeleteImage,
         onMiscChange: autosaveAfterDelay,
         onLoad: () => setState(() {}),
-        assetCache: coreInfo.assetCache,
+        assetCacheAll: coreInfo.assetCacheAll,
+        assetId: assetIndex,
       );
-      coreInfo.pages.add(page);
+
+      coreInfo.assetCacheAll.addUse(assetIndex);
+      coreInfo.pages.add(editorPage);
+
       history.recordChange(EditorHistoryItem(
         type: EditorHistoryItemType.insertPage,
         pageIndex: coreInfo.pages.length - 1,
         strokes: const [],
         images: const [],
-        page: page,
+        page: editorPage,
       ));
 
-      if (currentPdfPage == 0) {
-        // update ui after we've rastered the first page
-        // so that the user has some indication that the import is working
-        setState(() {});
+      if (i == 0) {
+        setState(() {}); // Update early to show progress
       }
     }
 
     coreInfo.pages.add(emptyPage);
     setState(() {});
-
     autosaveAfterDelay();
 
     return true;
   }
+
 
   Future paste() async {
     /// Maps image formats to their file extension.
@@ -1295,6 +1357,7 @@ class EditorState extends State<Editor> {
           photoInfos.add((
             bytes: Uint8List.fromList(bytes),
             extension: extension,
+            path: file.fileName!,
           ));
         },
       );

@@ -1,7 +1,16 @@
 part of 'editor_image.dart';
 
 class PngEditorImage extends EditorImage {
-  ImageProvider? imageProvider;
+  /// index of asset assigned to this image
+  int assetId;
+
+  // ImageProvider is given by assetCacheAll using this notifier
+  final ValueNotifier<ImageProvider?> imageProviderNotifier;
+
+  /// Convenience getter to access current ImageProvider
+  ImageProvider? get imageProvider => imageProviderNotifier.value;
+
+
 
   Uint8List? thumbnailBytes;
   Size thumbnailSize = Size.zero;
@@ -14,18 +23,20 @@ class PngEditorImage extends EditorImage {
   set isThumbnail(bool isThumbnail) {
     super.isThumbnail = isThumbnail;
     if (isThumbnail && thumbnailBytes != null) {
-      imageProvider = MemoryImage(thumbnailBytes!);
-      final scale = thumbnailSize.width / naturalSize.width;
-      srcRect = Rect.fromLTWH(srcRect.left * scale, srcRect.top * scale,
-          srcRect.width * scale, srcRect.height * scale);
+      // QBtodo - handle this thumbnail
+      //imageProvider = MemoryImage(thumbnailBytes!);
+      //final scale = thumbnailSize.width / naturalSize.width;
+      //srcRect = Rect.fromLTWH(srcRect.left * scale, srcRect.top * scale,
+      //    srcRect.width * scale, srcRect.height * scale);
     }
   }
 
   PngEditorImage({
     required super.id,
-    required super.assetCache,
+    required super.assetCacheAll,
+    required this.assetId,
     required super.extension,
-    required this.imageProvider,
+    required this.imageProviderNotifier,
     required super.pageIndex,
     required super.pageSize,
     this.maxSize,
@@ -48,18 +59,19 @@ class PngEditorImage extends EditorImage {
     required List<Uint8List>? inlineAssets,
     bool isThumbnail = false,
     required String sbnPath,
-    required AssetCache assetCache,
+    required AssetCacheAll assetCacheAll,
   }) {
-    final assetIndex = json['a'] as int?;
-    final Uint8List? bytes;
+    final assetIndexJson = json['a'] as int?;
+    String? ext=json['e'] ?? '.jpg';
+    Uint8List? bytes;
+    final int? assetIndex;
     File? imageFile;
-    if (assetIndex != null) {
+    if (assetIndexJson != null) {
       if (inlineAssets == null) {
         imageFile =
-            FileManager.getFile('$sbnPath${Editor.extension}.$assetIndex');
-        bytes = assetCache.get(imageFile);
+            FileManager.getFile('$sbnPath${Editor.extension}.$assetIndexJson');
       } else {
-        bytes = inlineAssets[assetIndex];
+        bytes = inlineAssets[assetIndexJson];
       }
     } else if (json['b'] != null) {
       bytes = Uint8List.fromList((json['b'] as List<dynamic>).cast<int>());
@@ -72,14 +84,39 @@ class PngEditorImage extends EditorImage {
     assert(bytes != null || imageFile != null,
         'Either bytes or imageFile must be non-null');
 
+    // add to asset cache
+    if (imageFile != null) {
+      assetIndex = assetCacheAll.addSync(
+        imageFile,ext!,assetIndexJson!,
+        json.containsKey('ainf') ? json['ainf'] : null,
+        json.containsKey('aph') ? json['aph'].toInt() : null,
+        json.containsKey('afs') ? json['afs'] : null,
+        json.containsKey('ah') ? json['ah'].toInt() : null,
+      );
+    }
+    else {
+      final tempFile=assetCacheAll.createRuntimeFile(ext!,bytes!);
+      assetIndex = assetCacheAll.addSync(
+        tempFile,ext,assetIndexJson!,
+        json.containsKey('ainf') ? json['ainf'] : null,
+        json.containsKey('aph') ? json['aph'].toInt() : null,
+        json.containsKey('afs') ? json['afs'] : null,
+        json.containsKey('ah') ? json['ah'].toInt() : null,
+      );
+    }
+    if (assetIndex<0){
+      throw Exception('EditorImage.fromJson: image not in assets');
+    }
+
+    
+
     return PngEditorImage(
       // -1 will be replaced by [EditorCoreInfo._handleEmptyImageIds()]
       id: json['id'] ?? -1,
-      assetCache: assetCache,
-      extension: json['e'] ?? '.jpg',
-      imageProvider: bytes != null
-          ? MemoryImage(bytes) as ImageProvider
-          : FileImage(imageFile!),
+      assetCacheAll: assetCacheAll,
+      assetId: assetIndex,
+      extension: ext,
+      imageProviderNotifier: assetCacheAll.getImageProviderNotifier(assetIndex),
       pageIndex: json['i'] ?? 0,
       pageSize: Size.infinite,
       invertible: json['v'] ?? true,
@@ -114,9 +151,15 @@ class PngEditorImage extends EditorImage {
   }
 
   @override
-  Map<String, dynamic> toJson(OrderedAssetCache assets) => super.toJson(assets)
+  Map<String, dynamic> toJson() => super.toJson()
     ..addAll({
-      if (imageProvider != null) 'a': assets.add(imageProvider!),
+        'a': assetCacheAll.getAssetIdOnSave(assetId), // assets can be reordered during saving
+        'aph': assetCacheAll.getAssetPreviewHash(assetId), // assets prewiewHash
+        'afs': assetCacheAll.getAssetFileSize(assetId), // assets can be reordered during saving
+        if (assetCacheAll.getAssetFileInfo(assetId) != '')
+          'ainf': assetCacheAll.getAssetFileInfo(assetId), // asset file info
+        if (assetCacheAll.getAssetHash(assetId) != null)
+          'ah': assetCacheAll.getAssetHash(assetId), // assets can be reordered during saving
     });
 
   @override
@@ -124,6 +167,7 @@ class PngEditorImage extends EditorImage {
     assert(Isolate.current.debugName == 'main');
 
     if (srcRect.shortestSide == 0 || dstRect.shortestSide == 0) {
+      // when image was picked, its size is not determined. Do it
       final Uint8List bytes;
       if (imageProvider is MemoryImage) {
         bytes = (imageProvider as MemoryImage).bytes;
@@ -153,7 +197,10 @@ class PngEditorImage extends EditorImage {
           height: reducedSize.height.toInt(),
         );
         if (resizedByteData != null) {
-          imageProvider = MemoryImage(resizedByteData.buffer.asUint8List());
+          // store resized bytes to temporary file
+          final tempImageFile = assetCacheAll.createRuntimeFile('.png',resizedByteData.buffer.asUint8List());
+          // replace image
+          assetCacheAll.replaceImage(tempImageFile, assetId);
         }
 
         naturalSize = reducedSize;
@@ -186,8 +233,10 @@ class PngEditorImage extends EditorImage {
 
   @override
   Future<void> precache(BuildContext context) async {
-    if (imageProvider == null) return;
-    return await precacheImage(imageProvider!, context);
+    final provider = imageProviderNotifier.value;
+    if (provider != null) {
+      await precacheImage(provider, context);
+    }
   }
 
   @override
@@ -206,21 +255,31 @@ class PngEditorImage extends EditorImage {
       boxFit = BoxFit.fill;
     }
 
-    return InvertWidget(
-      invert: invert,
-      child: Image(
-        image: imageProvider!,
-        fit: boxFit,
-      ),
+    return ValueListenableBuilder<ImageProvider?>(
+      valueListenable: imageProviderNotifier,
+      builder: (context, provider, _) {
+        if (provider == null) {
+          return const SizedBox.shrink(); // nothing yet
+        }
+
+        return InvertWidget(
+          invert: invert,
+          child: Image(
+            image: provider,
+            fit: boxFit,
+          ),
+        );
+      },
     );
   }
 
   @override
   PngEditorImage copy() => PngEditorImage(
         id: id,
-        assetCache: assetCache,
+        assetCacheAll: assetCacheAll,
+        assetId: assetId,
         extension: extension,
-        imageProvider: imageProvider,
+        imageProviderNotifier: imageProviderNotifier,
         pageIndex: pageIndex,
         pageSize: Size.infinite,
         invertible: invertible,

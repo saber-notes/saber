@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:convert';
 import 'dart:io';
 import 'dart:isolate';
 import 'dart:math';
@@ -33,7 +32,7 @@ sealed class EditorImage extends ChangeNotifier {
   /// This is used when "downloading" the image to the user's photo gallery.
   final String extension;
 
-  final AssetCache assetCache;
+  final AssetCacheAll assetCacheAll;
 
   bool _isThumbnail = false;
   bool get isThumbnail => _isThumbnail;
@@ -88,7 +87,7 @@ sealed class EditorImage extends ChangeNotifier {
   @protected
   EditorImage({
     required this.id,
-    required this.assetCache,
+    required this.assetCacheAll,
     required this.extension,
     required this.pageIndex,
     required this.pageSize,
@@ -112,7 +111,7 @@ sealed class EditorImage extends ChangeNotifier {
     required List<Uint8List>? inlineAssets,
     bool isThumbnail = false,
     required String sbnPath,
-    required AssetCache assetCache,
+    required AssetCacheAll assetCacheAll,
   }) {
     String? extension = json['e'];
     if (extension == '.svg') {
@@ -121,7 +120,7 @@ sealed class EditorImage extends ChangeNotifier {
         inlineAssets: inlineAssets,
         isThumbnail: isThumbnail,
         sbnPath: sbnPath,
-        assetCache: assetCache,
+        assetCacheAll: assetCacheAll,
       );
     } else if (extension == '.pdf') {
       return PdfEditorImage.fromJson(
@@ -129,7 +128,7 @@ sealed class EditorImage extends ChangeNotifier {
         inlineAssets: inlineAssets,
         isThumbnail: isThumbnail,
         sbnPath: sbnPath,
-        assetCache: assetCache,
+        assetCacheAll: assetCacheAll,
       );
     } else {
       return PngEditorImage.fromJson(
@@ -137,14 +136,14 @@ sealed class EditorImage extends ChangeNotifier {
         inlineAssets: inlineAssets,
         isThumbnail: isThumbnail,
         sbnPath: sbnPath,
-        assetCache: assetCache,
+        assetCacheAll: assetCacheAll,
       );
     }
   }
 
   @mustBeOverridden
   @mustCallSuper
-  Map<String, dynamic> toJson(OrderedAssetCache assets) => {
+  Map<String, dynamic> toJson() => {
         'id': id,
         'e': extension,
         'i': pageIndex,
