@@ -11,15 +11,7 @@ platforms:
   arm64:
 
 parts:
-  rustup:
-    plugin: rust
-    source: .
-    rust-channel: "1.90"
-    override-build: ""
-    override-prime: ""
-
   saber:
-    after: [rustup]
     source: https://github.com/saber-notes/saber.git
     source-tag: 'v0.26.10'
     plugin: flutter
@@ -45,9 +37,7 @@ parts:
     parse-info: [metainfo/com.adilhanney.saber.metainfo.xml]
 
   cleanup:
-    after:  # Make this part run last; list all your other parts here
-      - saber
-      - rustup
+    after: [saber]
     plugin: nil
     build-snaps:
       - core24
