@@ -14,12 +14,12 @@ class SyncingButton extends StatefulWidget {
 
   /// Whether to force the button to look tappable (for screenshots).
   @visibleForTesting
-  static bool forceButtonActive = false;
+  static var forceButtonActive = false;
 }
 
 class _SyncingButtonState extends State<SyncingButton> {
   /// The number of files transferred since we started listening.
-  static int filesTransferred = 0;
+  static var filesTransferred = 0;
 
   late final StreamSubscription queueListener, transferListener;
 
@@ -83,7 +83,7 @@ class _SyncingButtonState extends State<SyncingButton> {
 
   @override
   Widget build(BuildContext context) {
-    double? percentage = getPercentage();
+    final percentage = getPercentage();
 
     return IconButton(
       onPressed: stows.loggedIn

@@ -37,7 +37,7 @@ class FileTreeBranch extends StatefulWidget {
 
 class _FileTreeBranchState extends State<FileTreeBranch> {
   DirectoryChildren? children;
-  bool areChildrenVisible = false;
+  var areChildrenVisible = false;
 
   StreamSubscription? fileWriteSubscription;
 

@@ -7,6 +7,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in Flutter's LICENSE file.
 
+// ignore_for_file: omit_obvious_property_types
+
 import 'dart:math' as math;
 
 import 'package:flutter/foundation.dart' show clampDouble;

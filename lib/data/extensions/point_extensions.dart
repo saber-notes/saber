@@ -17,7 +17,7 @@ extension PointExtensions on PointVector {
     required BsonBinary json,
     Offset offset = Offset.zero,
   }) {
-    Float32List point = json.byteList.buffer.asFloat32List();
+    final point = json.byteList.buffer.asFloat32List();
     return PointVector(
       point[0] + offset.dx,
       point[1] + offset.dy,

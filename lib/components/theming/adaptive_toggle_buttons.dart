@@ -20,8 +20,8 @@ class AdaptiveToggleButtons<T extends Object> extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ThemeData theme = Theme.of(context);
-    bool cupertino =
+    final theme = Theme.of(context);
+    final cupertino =
         theme.platform == TargetPlatform.iOS ||
         theme.platform == TargetPlatform.macOS;
 
@@ -43,9 +43,11 @@ class AdaptiveToggleButtons<T extends Object> extends StatelessWidget {
         onChange(options[index].value);
       },
       isSelected: [
-        for (ToggleButtonsOption option in options) value == option.value,
+        for (final ToggleButtonsOption option in options) value == option.value,
       ],
-      children: [for (ToggleButtonsOption option in options) option.widget],
+      children: [
+        for (final ToggleButtonsOption option in options) option.widget,
+      ],
     );
   }
 

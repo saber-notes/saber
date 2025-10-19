@@ -19,7 +19,7 @@ class Pencil extends Pen {
         toolId: ToolId.pencil,
       );
 
-  static Pencil currentPencil = Pencil();
+  static var currentPencil = Pencil();
 
   static const IconData pencilIcon = FontAwesomeIcons.pencil;
 }

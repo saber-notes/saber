@@ -57,7 +57,7 @@ class _RenameFolderDialog extends StatefulWidget {
 
 class _RenameFolderDialogState extends State<_RenameFolderDialog> {
   final _formKey = GlobalKey<FormState>();
-  final TextEditingController _controller = TextEditingController();
+  final _controller = TextEditingController();
 
   String? validateFolderName(String? folderName) {
     if (folderName == null || folderName.isEmpty) {

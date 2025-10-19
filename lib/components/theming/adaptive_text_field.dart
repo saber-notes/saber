@@ -30,7 +30,7 @@ class AdaptiveTextField extends StatefulWidget {
 }
 
 class _AdaptiveTextFieldState extends State<AdaptiveTextField> {
-  bool obscureText = false;
+  var obscureText = false;
   Widget? get suffixIcon {
     if (!widget.isPassword) return null;
     return IconButton(
@@ -52,9 +52,9 @@ class _AdaptiveTextFieldState extends State<AdaptiveTextField> {
 
   @override
   Widget build(BuildContext context) {
-    ThemeData theme = Theme.of(context);
+    final theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
-    bool cupertino =
+    final cupertino =
         theme.platform == TargetPlatform.iOS ||
         theme.platform == TargetPlatform.macOS;
 

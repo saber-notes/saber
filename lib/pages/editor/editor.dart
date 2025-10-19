@@ -70,12 +70,12 @@ class Editor extends StatefulWidget {
   /// The file extension used by the app.
   /// Files with this extension are
   /// encoded in BSON format.
-  static const String extension = '.sbn2';
+  static const extension = '.sbn2';
 
   /// The old file extension used by the app.
   /// Files with this extension are
   /// encoded in JSON format.
-  static const String extensionOldJson = '.sbn';
+  static const extensionOldJson = '.sbn';
 
   static const double gapBetweenPages = 16;
 
@@ -85,12 +85,12 @@ class Editor extends StatefulWidget {
     return _reservedFilePaths.any((regex) => regex.hasMatch(path));
   }
 
-  static final List<RegExp> _reservedFilePaths = [
+  static final _reservedFilePaths = <RegExp>[
     RegExp(RegExp.escape(Whiteboard.filePath)),
   ];
 
   /// Whether the platform can rasterize a pdf
-  static bool canRasterPdf = true;
+  static var canRasterPdf = true;
 
   @override
   State<Editor> createState() => EditorState();
@@ -99,7 +99,7 @@ class Editor extends StatefulWidget {
 class EditorState extends State<Editor> {
   final log = Logger('EditorState');
 
-  late EditorCoreInfo coreInfo = EditorCoreInfo(filePath: '');
+  late var coreInfo = EditorCoreInfo(filePath: '');
 
   final _canvasGestureDetectorKey = GlobalKey<CanvasGestureDetectorState>();
   final _transformationController = TransformationController();
@@ -118,7 +118,7 @@ class EditorState extends State<Editor> {
     }
   }
 
-  EditorHistory history = EditorHistory();
+  var history = EditorHistory();
 
   late bool needsNaming = widget.needsNaming && stows.editorPromptRename.value;
 
@@ -164,7 +164,7 @@ class EditorState extends State<Editor> {
   Timer? _watchServerTimer;
 
   // used to prevent accidentally drawing when pinch zooming
-  int lastSeenPointerCount = 0;
+  var lastSeenPointerCount = 0;
   Timer? _lastSeenPointerCountTimer;
 
   ValueNotifier<QuillStruct?> quillFocus = ValueNotifier(null);
@@ -173,7 +173,7 @@ class EditorState extends State<Editor> {
   Tool? tmpTool;
 
   /// If the stylus button is pressed, or was pressed during the current draw gesture.
-  bool stylusButtonPressed = false;
+  var stylusButtonPressed = false;
 
   @override
   void initState() {
@@ -216,11 +216,11 @@ class EditorState extends State<Editor> {
     if (coreInfo.isEmpty) {
       createPage(-1);
     } else {
-      for (EditorPage page in coreInfo.pages) {
+      for (final page in coreInfo.pages) {
         page.backgroundImage?.onMoveImage = onMoveImage;
         page.backgroundImage?.onDeleteImage = onDeleteImage;
         page.backgroundImage?.onMiscChange = autosaveAfterDelay;
-        for (EditorImage image in page.images) {
+        for (final image in page.images) {
           image.onMoveImage = onMoveImage;
           image.onDeleteImage = onDeleteImage;
           image.onMiscChange = autosaveAfterDelay;
@@ -301,7 +301,7 @@ class EditorState extends State<Editor> {
       final thisPage = coreInfo.pages[i];
       final prevPage = coreInfo.pages[i - 1];
       if (thisPage.isEmpty && prevPage.isEmpty) {
-        EditorPage page = coreInfo.pages.removeAt(i);
+        final page = coreInfo.pages.removeAt(i);
         page.dispose();
         removedAPage = true;
       } else {
@@ -353,20 +353,20 @@ class EditorState extends State<Editor> {
     setState(() {
       switch (item!.type) {
         case EditorHistoryItemType.draw:
-          for (Stroke stroke in item.strokes) {
+          for (final stroke in item.strokes) {
             coreInfo.pages[stroke.pageIndex].strokes.remove(stroke);
           }
-          for (EditorImage image in item.images) {
+          for (final image in item.images) {
             coreInfo.pages[image.pageIndex].images.remove(image);
           }
           removeExcessPages();
 
         case EditorHistoryItemType.erase:
-          for (Stroke stroke in item.strokes) {
+          for (final stroke in item.strokes) {
             createPage(stroke.pageIndex);
             coreInfo.pages[stroke.pageIndex].insertStroke(stroke);
           }
-          for (EditorImage image in item.images) {
+          for (final image in item.images) {
             createPage(image.pageIndex);
             coreInfo.pages[image.pageIndex].images.add(image);
             image.newImage = true;
@@ -382,10 +382,10 @@ class EditorState extends State<Editor> {
           // fix the page indices of all pages after this one
           for (int i = item.pageIndex + 1; i < coreInfo.pages.length; ++i) {
             final page = coreInfo.pages[i];
-            for (Stroke stroke in page.strokes) {
+            for (final stroke in page.strokes) {
               stroke.pageIndex = i;
             }
-            for (EditorImage image in page.images) {
+            for (final image in page.images) {
               image.pageIndex = i;
             }
             page.backgroundImage?.pageIndex = i;
@@ -398,26 +398,26 @@ class EditorState extends State<Editor> {
           // fix the page indices of all pages after this one
           for (int i = item.pageIndex; i < coreInfo.pages.length; ++i) {
             final page = coreInfo.pages[i];
-            for (Stroke stroke in page.strokes) {
+            for (final stroke in page.strokes) {
               stroke.pageIndex = i;
             }
-            for (EditorImage image in page.images) {
+            for (final image in page.images) {
               image.pageIndex = i;
             }
             page.backgroundImage?.pageIndex = i;
           }
 
         case EditorHistoryItemType.move:
-          for (Stroke stroke in item.strokes) {
+          for (final stroke in item.strokes) {
             stroke.shift(Offset(-item.offset!.left, -item.offset!.top));
           }
-          Select select = Select.currentSelect;
+          final select = Select.currentSelect;
           if (select.doneSelecting) {
             select.selectResult.path = select.selectResult.path.shift(
               Offset(-item.offset!.left, -item.offset!.top),
             );
           }
-          for (EditorImage image in item.images) {
+          for (final image in item.images) {
             image.dstRect = Rect.fromLTRB(
               image.dstRect.left - item.offset!.left,
               image.dstRect.top - item.offset!.top,
@@ -434,7 +434,7 @@ class EditorState extends State<Editor> {
           final quill = coreInfo.pages[item.pageIndex].quill;
           quill.controller.redo();
         case EditorHistoryItemType.changeColor:
-          for (Stroke stroke in item.strokes) {
+          for (final stroke in item.strokes) {
             stroke.color = item.colorChange![stroke]!.previous;
           }
       }
@@ -449,7 +449,7 @@ class EditorState extends State<Editor> {
 
   void redo() {
     if (!history.canRedo) return;
-    EditorHistoryItem item = history.redo();
+    final item = history.redo();
 
     switch (item.type) {
       case EditorHistoryItemType.draw:
@@ -489,7 +489,7 @@ class EditorState extends State<Editor> {
   int? onWhichPageIsFocalPoint(Offset focalPoint) {
     for (int i = 0; i < coreInfo.pages.length; ++i) {
       if (coreInfo.pages[i].renderBox == null) continue;
-      Rect pageBounds = Offset.zero & coreInfo.pages[i].size;
+      final pageBounds = Offset.zero & coreInfo.pages[i].size;
       if (pageBounds.contains(
         coreInfo.pages[i].renderBox!.globalToLocal(focalPoint),
       ))
@@ -506,7 +506,7 @@ class EditorState extends State<Editor> {
   /// Used to record a move in the history.
   Offset moveOffset = Offset.zero;
 
-  bool isHovering = true;
+  var isHovering = true;
   int? dragPageIndex;
   PointerDeviceKind? currentPointerKind;
   double? currentPressure;
@@ -526,7 +526,7 @@ class EditorState extends State<Editor> {
       if (lastSeenPointerCount == 1 &&
           stows.editorFingerDrawing.value &&
           (currentTool is Pen || currentTool is Eraser)) {
-        EditorHistoryItem? item = history.removeAccidentalStroke();
+        final item = history.removeAccidentalStroke();
         if (item != null) undo(item);
       }
       lastSeenPointerCount = details.pointerCount;
@@ -569,7 +569,7 @@ class EditorState extends State<Editor> {
       );
     } else if (currentTool is Eraser) {
       shouldPlayPencilSound = true;
-      for (Stroke stroke in (currentTool as Eraser).checkForOverlappingStrokes(
+      for (final stroke in (currentTool as Eraser).checkForOverlappingStrokes(
         position,
         page.strokes,
       )) {
@@ -578,7 +578,7 @@ class EditorState extends State<Editor> {
       removeExcessPages();
     } else if (currentTool is Select) {
       shouldPlayPencilSound = false;
-      Select select = currentTool as Select;
+      final select = currentTool as Select;
       if (select.doneSelecting &&
           select.selectResult.pageIndex == dragPageIndex! &&
           select.selectResult.path.contains(position)) {
@@ -620,7 +620,7 @@ class EditorState extends State<Editor> {
       (currentTool as Pen).onDragUpdate(position, currentPressure);
       page.redrawStrokes();
     } else if (currentTool is Eraser) {
-      for (Stroke stroke in (currentTool as Eraser).checkForOverlappingStrokes(
+      for (final stroke in (currentTool as Eraser).checkForOverlappingStrokes(
         position,
         page.strokes,
       )) {
@@ -629,12 +629,12 @@ class EditorState extends State<Editor> {
       page.redrawStrokes();
       removeExcessPages();
     } else if (currentTool is Select) {
-      Select select = currentTool as Select;
+      final select = currentTool as Select;
       if (select.doneSelecting) {
-        for (Stroke stroke in select.selectResult.strokes) {
+        for (final stroke in select.selectResult.strokes) {
           stroke.shift(offset);
         }
-        for (EditorImage image in select.selectResult.images) {
+        for (final image in select.selectResult.images) {
           image.dstRect = image.dstRect.shift(offset);
         }
         select.selectResult.path = select.selectResult.path.shift(offset);
@@ -696,7 +696,7 @@ class EditorState extends State<Editor> {
         );
       } else if (currentTool is Select) {
         if (moveOffset == Offset.zero) return;
-        Select select = currentTool as Select;
+        final select = currentTool as Select;
         if (select.doneSelecting) {
           history.recordChange(
             EditorHistoryItem(
@@ -825,7 +825,7 @@ class EditorState extends State<Editor> {
   }
 
   void _onQuillFocusChange() {
-    for (EditorPage page in coreInfo.pages) {
+    for (final page in coreInfo.pages) {
       if (!page.quill.focusNode.hasFocus) continue;
       quillFocus.value = page.quill;
     }
@@ -1063,7 +1063,7 @@ class EditorState extends State<Editor> {
       }
     }
 
-    final String newColorString = color.toARGB32().toString();
+    final newColorString = color.toARGB32().toString();
 
     // migrate from old pref format
     if (stows.recentColorsChronological.value.length !=
@@ -1087,7 +1087,7 @@ class EditorState extends State<Editor> {
       if (stows.recentColorsPositioned.value.length >=
           stows.recentColorsLength.value) {
         // if full, replace the oldest color with the new one
-        final String removedColorString = stows.recentColorsChronological.value
+        final removedColorString = stows.recentColorsChronological.value
             .removeAt(0);
         stows.recentColorsChronological.value.add(newColorString);
         final int removedColorPosition = stows.recentColorsPositioned.value
@@ -1119,7 +1119,7 @@ class EditorState extends State<Editor> {
     // use the Select tool so that the user can move the new image
     currentTool = Select.currentSelect;
 
-    List<EditorImage> images = [
+    final images = [
       for (final _PhotoInfo photoInfo in photoInfos)
         if (photoInfo.extension == '.svg')
           SvgEditorImage(
@@ -1301,7 +1301,7 @@ class EditorState extends State<Editor> {
     final List<_PhotoInfo> photoInfos = [];
     final List<ReadProgress> progresses = [];
 
-    for (SimpleFileFormat format in formats.keys) {
+    for (final format in formats.keys) {
       if (!reader.canProvide(format)) continue;
       final progress = reader.getFile(format, (file) async {
         final stream = file.getStream();
@@ -1512,10 +1512,10 @@ class EditorState extends State<Editor> {
               final strokes = select.selectResult.strokes;
               final images = select.selectResult.images;
 
-              for (Stroke stroke in strokes) {
+              for (final stroke in strokes) {
                 page.strokes.remove(stroke);
               }
-              for (EditorImage image in images) {
+              for (final image in images) {
                 page.images.remove(image);
               }
 
@@ -1548,8 +1548,8 @@ class EditorState extends State<Editor> {
                 if (select.doneSelecting) {
                   final strokes = select.selectResult.strokes;
 
-                  Map<Stroke, ColorChange> colorChange = {};
-                  for (Stroke stroke in strokes) {
+                  final colorChange = <Stroke, ColorChange>{};
+                  for (final stroke in strokes) {
                     colorChange[stroke] = ColorChange(
                       previous: stroke.color,
                       current: color,
@@ -1576,7 +1576,7 @@ class EditorState extends State<Editor> {
           toggleTextEditing: () => setState(() {
             if (currentTool == Tool.textEditing) {
               currentTool = Pen.currentPen;
-              for (EditorPage page in coreInfo.pages) {
+              for (final page in coreInfo.pages) {
                 // unselect text, but maintain cursor position
                 page.quill.controller.moveCursorToPosition(
                   page.quill.controller.selection.extentOffset,
@@ -1765,7 +1765,7 @@ class EditorState extends State<Editor> {
 
   Widget bottomSheet(BuildContext context) {
     final Brightness brightness = Theme.brightnessOf(context);
-    final bool invert =
+    final invert =
         stows.editorAutoInvert.value && brightness == Brightness.dark;
     final int currentPageIndex = this.currentPageIndex;
 
@@ -1974,8 +1974,8 @@ class EditorState extends State<Editor> {
     if (coreInfo.readOnly) return;
     final page = coreInfo.pages[pageIndex];
     setState(() {
-      List<Stroke> removedStrokes = page.strokes.toList();
-      List<EditorImage> removedImages = page.images.toList();
+      final removedStrokes = page.strokes.toList();
+      final removedImages = page.images.toList();
       page.strokes.clear();
       page.images.clear();
       removeExcessPages();
@@ -1994,8 +1994,8 @@ class EditorState extends State<Editor> {
   void clearAllPages() {
     if (coreInfo.readOnly) return;
     setState(() {
-      List<Stroke> removedStrokes = [];
-      List<EditorImage> removedImages = [];
+      final removedStrokes = <Stroke>[];
+      final removedImages = <EditorImage>[];
       for (final page in coreInfo.pages) {
         removedStrokes.addAll(page.strokes);
         removedImages.addAll(page.images);
@@ -2016,7 +2016,7 @@ class EditorState extends State<Editor> {
   }
 
   Future askUserToDisableReadOnly() async {
-    bool disableReadOnly =
+    final disableReadOnly =
         await showDialog(
           context: context,
           builder: (context) => AdaptiveAlertDialog(

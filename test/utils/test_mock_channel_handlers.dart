@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 
-final Map<String, String> _mockSecureStorage = <String, String>{};
+final _mockSecureStorage = <String, String>{};
 void setupMockFlutterSecureStorage() {
   const channel = MethodChannel('plugins.it_nomads.com/flutter_secure_storage');
   TestWidgetsFlutterBinding.ensureInitialized();

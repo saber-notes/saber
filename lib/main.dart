@@ -191,7 +191,7 @@ void setupBackgroundSync() {
 
 @pragma('vm:entry-point')
 void doBackgroundSync() {
-  Workmanager().executeTask((_, __) async {
+  Workmanager().executeTask((_, _) async {
     FlavorConfig.setupFromEnvironment();
     StrokeOptionsExtension.setDefaults();
     Editor.canRasterPdf = false;
@@ -233,7 +233,7 @@ class App extends StatefulWidget {
   static String initialLocation = pathToFunction(RoutePaths.home)({
     'subpage': HomePage.recentSubpage,
   });
-  static final GoRouter _router = GoRouter(
+  static final _router = GoRouter(
     initialLocation: initialLocation,
     routes: <GoRoute>[
       GoRoute(path: '/', redirect: (context, state) => initialLocation),
@@ -276,7 +276,7 @@ class App extends StatefulWidget {
     }
 
     if (extension == 'sbn' || extension == 'sbn2' || extension == 'sba') {
-      final String? path = await FileManager.importFile(
+      final path = await FileManager.importFile(
         file.path,
         null,
         extension: '.$extension',

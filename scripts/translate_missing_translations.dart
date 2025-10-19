@@ -106,7 +106,7 @@ Future<void> translateList(
   List<String> pathOfKeys,
 ) async {
   // first translate all direct descendants that are strings
-  for (int i = 0; i < list.length; ++i) {
+  for (var i = 0; i < list.length; ++i) {
     final pathToKey = [...pathOfKeys, i].join('.');
     if (newlyTranslatedPaths.contains('$languageCode/$pathToKey')) continue;
 
@@ -136,7 +136,7 @@ Future<void> translateList(
   }
 
   // then recurse
-  for (int i = 0; i < list.length; ++i) {
+  for (var i = 0; i < list.length; ++i) {
     // then recurse
     final value = list[i];
     if (value is String) {
@@ -191,7 +191,7 @@ Future<String?> translateString(
   return fixSpelling(translatedText);
 }
 
-bool errorOccurredInTranslatingTree = false;
+var errorOccurredInTranslatingTree = false;
 void main() async {
   final random = Random();
   final missingTranslations = await _getMissingTranslations();
@@ -213,7 +213,7 @@ void main() async {
   );
 
   errorOccurredInTranslatingTree = true;
-  int attempts = 0;
+  var attempts = 0;
   while (errorOccurredInTranslatingTree && attempts < 5) {
     errorOccurredInTranslatingTree = false;
     attempts++;

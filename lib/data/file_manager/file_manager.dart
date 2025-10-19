@@ -25,7 +25,7 @@ class FileManager {
 
   static final log = Logger('FileManager');
 
-  static const String appRootDirectoryPrefix = 'Saber';
+  static const appRootDirectoryPrefix = 'Saber';
 
   /// This isn't final because isolates sometimes init multiple times.
   /// Realistically, this value never changes.
@@ -121,7 +121,7 @@ class FileManager {
 
   @visibleForTesting
   static Future<void> watchRootDirectory() async {
-    Directory rootDir = Directory(documentsDirectory);
+    final rootDir = Directory(documentsDirectory);
     await rootDir.create(recursive: true);
     if (Platform.isIOS) return;
     rootDir.watch(recursive: true).listen((FileSystemEvent event) {
@@ -131,7 +131,7 @@ class FileManager {
               event.type == FileSystemEvent.move
           ? FileOperationType.write
           : FileOperationType.delete;
-      String path = event.path
+      final String path = event.path
           .replaceAll('\\', '/')
           // The path may or may not be relative,
           // so remove the root directory path to make sure it's relative.
@@ -159,7 +159,7 @@ class FileManager {
     filePath = _sanitisePath(filePath);
 
     Uint8List? result;
-    final File file = getFile(filePath);
+    final file = getFile(filePath);
     if (file.existsSync()) {
       result = await file.readAsBytes();
       if (result.isEmpty) result = null;
@@ -180,7 +180,7 @@ class FileManager {
   /// This is useful for testing when test files
   /// aren't in the documents directory.
   @visibleForTesting
-  static bool shouldUseRawFilePath = false;
+  static var shouldUseRawFilePath = false;
 
   static File getFile(String filePath) {
     if (shouldUseRawFilePath) {
@@ -214,7 +214,7 @@ class FileManager {
 
     await _saveFileAsRecentlyAccessed(filePath);
 
-    final File file = getFile(filePath);
+    final file = getFile(filePath);
     await _createFileDirectory(filePath);
     Future writeFuture = Future.wait([
       file.writeAsBytes(toWrite).then((file) async {
@@ -248,7 +248,7 @@ class FileManager {
   static Future<void> createFolder(String folderPath) async {
     folderPath = _sanitisePath(folderPath);
 
-    final Directory dir = Directory(documentsDirectory + folderPath);
+    final dir = Directory(documentsDirectory + folderPath);
     await dir.create(recursive: true);
   }
 
@@ -260,8 +260,8 @@ class FileManager {
   }) async {
     File? tempFile;
     Future<File> getTempFile() async {
-      final String tempFolder = (await getTemporaryDirectory()).path;
-      final File file = File('$tempFolder/$fileName');
+      final tempFolder = (await getTemporaryDirectory()).path;
+      final file = File('$tempFolder/$fileName');
       await file.writeAsBytes(bytes);
       return file;
     }
@@ -300,14 +300,14 @@ class FileManager {
       }
     } else {
       // desktop, open save-as dialog
-      String? outputFile = await FilePicker.platform.saveFile(
+      final outputFile = await FilePicker.platform.saveFile(
         fileName: fileName,
         initialDirectory: (await getDownloadsDirectory())?.path,
         type: FileType.custom,
         allowedExtensions: [fileName.split('.').last],
       );
       if (outputFile != null) {
-        File file = File(outputFile);
+        final file = File(outputFile);
         await file.writeAsBytes(bytes);
       }
     }
@@ -365,8 +365,8 @@ class FileManager {
 
     if (fromPath == toPath) return toPath;
 
-    final File fromFile = getFile(fromPath);
-    final File toFile = getFile(toPath);
+    final fromFile = getFile(fromPath);
+    final toFile = getFile(toPath);
     await _createFileDirectory(toPath);
     if (fromFile.existsSync()) {
       await fromFile.rename(toFile.path);
@@ -419,7 +419,7 @@ class FileManager {
   }) async {
     filePath = _sanitisePath(filePath);
 
-    final File file = getFile(filePath);
+    final file = getFile(filePath);
     if (!file.existsSync()) return;
     await file.delete();
 
@@ -470,7 +470,7 @@ class FileManager {
   static Future renameDirectory(String directoryPath, String newName) async {
     directoryPath = _sanitisePath(directoryPath);
 
-    final Directory directory = Directory(documentsDirectory + directoryPath);
+    final directory = Directory(documentsDirectory + directoryPath);
     if (!directory.existsSync()) return;
 
     /// recursively find children of [directory] for [_renameReferences]
@@ -499,7 +499,7 @@ class FileManager {
   ]) async {
     directoryPath = _sanitisePath(directoryPath);
 
-    final Directory directory = Directory(documentsDirectory + directoryPath);
+    final directory = Directory(documentsDirectory + directoryPath);
     if (!directory.existsSync()) return;
 
     if (recursive) {
@@ -542,10 +542,10 @@ class FileManager {
     final Iterable<String> allChildren;
     final List<String> directories = [], files = [];
 
-    final Directory dir = Directory(documentsDirectory + directory);
+    final dir = Directory(documentsDirectory + directory);
     if (!dir.existsSync()) return null;
 
-    int directoryPrefixLength = directory.endsWith('/')
+    final int directoryPrefixLength = directory.endsWith('/')
         ? directory.length
         : directory.length + 1; // +1 for the trailing slash
     allChildren = await dir
@@ -662,19 +662,19 @@ class FileManager {
   /// Behaviour is undefined if [filePath] is not a valid path.
   static bool isDirectory(String filePath) {
     filePath = _sanitisePath(filePath);
-    final Directory directory = Directory(documentsDirectory + filePath);
+    final directory = Directory(documentsDirectory + filePath);
     return directory.existsSync();
   }
 
   static bool doesFileExist(String filePath) {
     filePath = _sanitisePath(filePath);
-    final File file = getFile(filePath);
+    final file = getFile(filePath);
     return file.existsSync();
   }
 
   static DateTime lastModified(String filePath) {
     filePath = _sanitisePath(filePath);
-    final File file = getFile(filePath);
+    final file = getFile(filePath);
     return file.lastModifiedSync();
   }
 
@@ -805,7 +805,7 @@ class FileManager {
       );
 
       // now import assets
-      for (var file in archive.files) {
+      for (final file in archive.files) {
         if (!file.isFile) continue;
         if (file == mainFile) continue;
 
@@ -852,10 +852,7 @@ class FileManager {
   /// Creates the parent directories of filePath if they don't exist.
   static Future _createFileDirectory(String filePath) async {
     assert(filePath.contains('/'), 'filePath must be a path, not a file name');
-    final String parentDirectory = filePath.substring(
-      0,
-      filePath.lastIndexOf('/'),
-    );
+    final parentDirectory = filePath.substring(0, filePath.lastIndexOf('/'));
     await Directory(
       documentsDirectory + parentDirectory,
     ).create(recursive: true);
@@ -897,7 +894,7 @@ class FileManager {
     stows.recentFiles.notifyListeners();
   }
 
-  static const int maxRecentlyAccessedFiles = 30;
+  static const maxRecentlyAccessedFiles = 30;
 }
 
 class DirectoryChildren {

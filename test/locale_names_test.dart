@@ -5,8 +5,8 @@ import 'package:saber/i18n/strings.g.dart';
 
 void main() {
   test('Test that all supported languages have a localised name', () {
-    for (Locale locale in AppLocaleUtils.supportedLocales) {
-      final String localeCode = locale.toLanguageTag();
+    for (final Locale locale in AppLocaleUtils.supportedLocales) {
+      final localeCode = locale.toLanguageTag();
       expect(
         localeNames.containsKey(localeCode),
         true,

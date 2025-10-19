@@ -91,7 +91,7 @@ class _PreviewCardState extends State<PreviewCard> {
     final invert =
         theme.brightness == Brightness.dark && stows.editorAutoInvert.value;
 
-    Widget card = MouseRegion(
+    final Widget card = MouseRegion(
       cursor: SystemMouseCursors.click,
       child: GestureDetector(
         onTap: widget.isAnythingSelected ? _toggleCardSelection : null,
@@ -238,7 +238,7 @@ class _FallbackThumbnail extends StatelessWidget {
 }
 
 class _ThumbnailState extends ChangeNotifier {
-  int updateCount = 0;
+  var updateCount = 0;
   ImageProvider? _image;
 
   void markAsChanged() {
@@ -253,7 +253,7 @@ class _ThumbnailState extends ChangeNotifier {
   }
 
   bool get doesImageExist => switch (image) {
-    (FileImage fileImage) => fileImage.file.existsSync(),
+    (final FileImage fileImage) => fileImage.file.existsSync(),
     null => false,
     _ => true,
   };

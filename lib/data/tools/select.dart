@@ -6,20 +6,20 @@ import 'package:saber/data/tools/_tool.dart';
 class Select extends Tool {
   Select._();
 
-  static final Select _currentSelect = Select._();
+  static final _currentSelect = Select._();
   static Select get currentSelect => _currentSelect;
 
   /// The minimum ratio of points inside a stroke or image
   /// for it to be selected.
-  static const double minPercentInside = 0.7;
+  static const minPercentInside = 0.7;
 
-  SelectResult selectResult = SelectResult(
+  var selectResult = SelectResult(
     pageIndex: -1,
     strokes: const [],
     images: const [],
     path: Path(),
   );
-  bool doneSelecting = false;
+  var doneSelecting = false;
 
   @override
   ToolId get toolId => ToolId.select;
@@ -33,8 +33,8 @@ class Select extends Tool {
     if (!doneSelecting) return null;
     if (selectResult.strokes.isEmpty) return null;
 
-    Map<Color, int> colorDistribution = <Color, int>{};
-    for (Stroke stroke in selectResult.strokes) {
+    final colorDistribution = <Color, int>{};
+    for (final stroke in selectResult.strokes) {
       colorDistribution.update(
         stroke.color,
         (value) => value + stroke.length,
@@ -92,8 +92,8 @@ class Select extends Tool {
 
   static double rectPercentInside(Path selection, Rect rect) {
     const int gridSize = 5;
-    final double gridCellWidth = rect.width / (gridSize - 1);
-    final double gridCellHeight = rect.height / (gridSize - 1);
+    final gridCellWidth = rect.width / (gridSize - 1);
+    final gridCellHeight = rect.height / (gridSize - 1);
 
     int pointsInside = 0;
     for (int x = 0; x < gridSize; x++) {
@@ -112,7 +112,7 @@ class Select extends Tool {
 
   static double polygonPercentInside(Path selection, List<Offset> polygon) {
     int pointsInside = 0;
-    for (Offset point in polygon) {
+    for (final point in polygon) {
       if (selection.contains(point)) {
         pointsInside++;
       }

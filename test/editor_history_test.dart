@@ -3,15 +3,15 @@ import 'package:saber/data/editor/editor_history.dart';
 
 void main() {
   test('Test editor history', () {
-    final EditorHistory history = EditorHistory();
+    final history = EditorHistory();
 
-    final EditorHistoryItem item1 = EditorHistoryItem(
+    final item1 = EditorHistoryItem(
       type: EditorHistoryItemType.draw,
       pageIndex: 0,
       strokes: [],
       images: [],
     );
-    final EditorHistoryItem item2 = EditorHistoryItem(
+    final item2 = EditorHistoryItem(
       type: EditorHistoryItemType.draw,
       pageIndex: 0,
       strokes: [],

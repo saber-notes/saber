@@ -14,9 +14,9 @@ void main() {
     FlavorConfig.setup();
     await FileManager.init();
 
-    const String filePath = '/tests/distinct_name.sbn2';
-    const String filePath2 = '/tests/distinct_name (2).sbn2';
-    const String filePath3 = '/tests/distinct_name (3).sbn2';
+    const filePath = '/tests/distinct_name.sbn2';
+    const filePath2 = '/tests/distinct_name (2).sbn2';
+    const filePath3 = '/tests/distinct_name (3).sbn2';
     String suffixedPath;
 
     // Make sure files don't exist

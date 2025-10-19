@@ -47,7 +47,7 @@ class PdfEditorImage extends EditorImage {
     required String sbnPath,
     required AssetCache assetCache,
   }) {
-    String? extension = json['e'] as String?;
+    final extension = json['e'] as String?;
     assert(extension == null || extension == '.pdf');
 
     final assetIndex = json['a'] as int?;

@@ -72,10 +72,15 @@ class _NcLoginStepState extends State<NcLoginStep> {
   }
 
   final _serverUrlValid = ValueNotifier(false);
-  late final TextEditingController _serverUrlController =
-      TextEditingController()..addListener(() {
-        _serverUrlValid.value = validator.url(_serverUrlController.text);
-      });
+  late final _serverUrlController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    _serverUrlController.addListener(() {
+      _serverUrlValid.value = validator.url(_serverUrlController.text);
+    });
+  }
 
   @override
   void dispose() {
@@ -289,7 +294,7 @@ class _FakeDoneButton extends StatefulWidget {
 }
 
 class _FakeDoneButtonState extends State<_FakeDoneButton> {
-  bool pressed = false;
+  var pressed = false;
 
   Timer? timer;
 

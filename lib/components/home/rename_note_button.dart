@@ -56,15 +56,15 @@ class _RenameNoteDialog extends StatefulWidget {
 
 class _RenameNoteDialogState extends State<_RenameNoteDialog> {
   final _formKey = GlobalKey<FormState>();
-  final TextEditingController _controller = TextEditingController();
+  final _controller = TextEditingController();
 
   /// The parent folder of the note being renamed,
   /// including the trailing slash.
-  late final String parentFolder = widget.existingPath.substring(
+  late final parentFolder = widget.existingPath.substring(
     0,
     widget.existingPath.lastIndexOf('/') + 1,
   );
-  late final String oldName = widget.existingPath.substring(
+  late final oldName = widget.existingPath.substring(
     widget.existingPath.lastIndexOf('/') + 1,
   );
 

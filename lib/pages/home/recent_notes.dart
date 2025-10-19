@@ -26,7 +26,7 @@ class RecentPage extends StatefulWidget {
 
 class _RecentPageState extends State<RecentPage> {
   final List<String> filePaths = [];
-  bool failed = false;
+  var failed = false;
 
   final ValueNotifier<List<String>> selectedFiles = ValueNotifier([]);
 
@@ -155,7 +155,7 @@ class _RecentPageState extends State<RecentPage> {
                 ),
                 sliver: MasonryFiles(
                   crossAxisCount: crossAxisCount,
-                  files: [for (String filePath in filePaths) filePath],
+                  files: [for (final filePath in filePaths) filePath],
                   selectedFiles: selectedFiles,
                 ),
               ),
@@ -186,7 +186,7 @@ class _RecentPageState extends State<RecentPage> {
                 tooltip: t.home.deleteNote,
                 onPressed: () async {
                   await Future.wait([
-                    for (String filePath in selectedFiles.value)
+                    for (final filePath in selectedFiles.value)
                       Future.value(
                         FileManager.doesFileExist(
                           filePath + Editor.extensionOldJson,

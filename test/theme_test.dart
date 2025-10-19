@@ -34,7 +34,7 @@ void _testTheme({
       '${hasAccent ? 'with-accent' : 'no-accent'}';
   testWidgets(repr, (tester) async {
     final router = GoRouter(
-      routes: [GoRoute(path: '/', builder: (_, __) => const Text('hi'))],
+      routes: [GoRoute(path: '/', builder: (_, _) => const Text('hi'))],
     );
 
     stows.platform.value = platform;

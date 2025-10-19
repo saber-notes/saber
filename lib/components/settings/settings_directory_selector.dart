@@ -62,7 +62,7 @@ class SettingsDirectorySelector extends StatelessWidget {
         ),
         subtitle: ValueListenableBuilder(
           valueListenable: stows.customDataDir,
-          builder: (context, _, __) => Text(
+          builder: (context, _, _) => Text(
             FileManager.documentsDirectory,
             style: const TextStyle(fontSize: 13),
           ),
@@ -92,7 +92,7 @@ class DirectorySelector extends StatefulWidget {
 
 class _DirectorySelectorState extends State<DirectorySelector> {
   late String _directory = widget.initialDirectory;
-  late bool _isEmpty = true;
+  late var _isEmpty = true;
 
   Future<void> _pickDir() async {
     final directory = await FilePicker.platform.getDirectoryPath(

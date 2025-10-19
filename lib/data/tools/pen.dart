@@ -63,7 +63,7 @@ class Pen extends Tool {
   bool pressureEnabled;
   StrokeOptions options;
 
-  static Pen _currentPen = Pen.fountainPen();
+  static var _currentPen = Pen.fountainPen();
   static Pen get currentPen => _currentPen;
   static set currentPen(Pen currentPen) {
     assert(

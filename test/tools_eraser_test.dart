@@ -7,17 +7,17 @@ import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/tools/eraser.dart';
 
-const String _penType = 'testing pen';
-final StrokeOptions _options = StrokeOptions(
+const _penType = 'testing pen';
+final _options = StrokeOptions(
   size: 1, // small size so we have more precision in test
 );
-const Offset _eraserPos = Offset(50, 50);
+const _eraserPos = Offset(50, 50);
 
 void main() {
   test('Test that the eraser tool erases the correct strokes', () {
-    final Eraser eraser = Eraser(size: 10);
+    final eraser = Eraser(size: 10);
 
-    List<Stroke> strokesToErase = [
+    final List<Stroke> strokesToErase = [
       // center
       _strokeWithPoint(_eraserPos),
 
@@ -39,7 +39,7 @@ void main() {
         ..addPoint(_eraserPos + const Offset(20, 20) * eraser.size),
     ];
 
-    List<Stroke> strokesToKeep = [
+    final List<Stroke> strokesToKeep = [
       // > 1 size downwards from center
       _strokeWithPoint(_eraserPos + const Offset(0, 1.1) * eraser.size),
 
@@ -53,13 +53,13 @@ void main() {
       _strokeWithPoint(_eraserPos + const Offset(2, 0) * eraser.size),
     ];
 
-    List<Stroke> strokes = [...strokesToErase, ...strokesToKeep];
-    List<Stroke> erased = eraser.checkForOverlappingStrokes(
+    final strokes = <Stroke>[...strokesToErase, ...strokesToKeep];
+    final List<Stroke> erased = eraser.checkForOverlappingStrokes(
       _eraserPos,
       strokes,
     );
 
-    for (Stroke stroke in strokesToErase) {
+    for (final stroke in strokesToErase) {
       expect(
         erased.contains(stroke),
         true,
@@ -67,7 +67,7 @@ void main() {
       );
     }
 
-    for (Stroke stroke in strokesToKeep) {
+    for (final stroke in strokesToKeep) {
       expect(
         erased.contains(stroke),
         false,
@@ -75,7 +75,7 @@ void main() {
       );
     }
 
-    List<Stroke> erasedStrokes = eraser.onDragEnd();
+    final List<Stroke> erasedStrokes = eraser.onDragEnd();
     expect(
       erasedStrokes.length,
       strokesToErase.length,

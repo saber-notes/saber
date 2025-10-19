@@ -19,7 +19,7 @@ class Highlighter extends Pen {
         toolId: ToolId.highlighter,
       );
 
-  static const int alpha = 100;
+  static const alpha = 100;
 
   static Pen currentHighlighter = Highlighter();
 

@@ -22,7 +22,7 @@ class NewFolderDialog extends StatefulWidget {
 
 class _NewFolderDialogState extends State<NewFolderDialog> {
   final _formKey = GlobalKey<FormState>();
-  final TextEditingController _controller = TextEditingController();
+  final _controller = TextEditingController();
 
   String? validateFolderName(String? folderName) {
     if (folderName == null || folderName.isEmpty) {

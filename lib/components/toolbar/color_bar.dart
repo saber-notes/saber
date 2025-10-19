@@ -88,7 +88,7 @@ class ColorBar extends StatefulWidget {
     ...greyScaleColorOptions,
   ];
   static String findColorName(Color searchColor) {
-    for (NamedColor namedColor in _allColors) {
+    for (final namedColor in _allColors) {
       if (namedColor.color == searchColor) {
         return namedColor.name;
       }
@@ -117,7 +117,7 @@ class ColorBar extends StatefulWidget {
       };
     }
 
-    final String? lightnessName = switch (hsl.lightness) {
+    final lightnessName = switch (hsl.lightness) {
       < 0.35 => t.editor.colors.dark,
       < 0.65 => null,
       _ => t.editor.colors.light,
@@ -164,17 +164,17 @@ class ColorBar extends StatefulWidget {
 }
 
 class _ColorBarState extends State<ColorBar> {
-  static Color pickedColor = const Color.fromRGBO(255, 0, 0, 1);
+  static var pickedColor = const Color.fromRGBO(255, 0, 0, 1);
 
   @override
   Widget build(BuildContext context) {
-    var colorScheme = ColorScheme.of(context);
+    final colorScheme = ColorScheme.of(context);
 
     final children = <Widget>[
       // pinned colors
       if (stows.pinnedColors.value.isNotEmpty) ...[
         const ColorOptionSeparatorIcon(icon: Icons.pin_drop),
-        for (String colorString in stows.pinnedColors.value)
+        for (final colorString in stows.pinnedColors.value)
           ColorOption(
             isSelected:
                 widget.currentColor?.withAlpha(255).toARGB32() ==
@@ -202,7 +202,7 @@ class _ColorBarState extends State<ColorBar> {
       const ColorOptionSeparatorIcon(icon: Icons.history),
 
       // recent colors
-      for (String colorString in stows.recentColorsPositioned.value.reversed)
+      for (final colorString in stows.recentColorsPositioned.value.reversed)
         ColorOption(
           isSelected:
               widget.currentColor?.withAlpha(255).toARGB32() ==
@@ -268,7 +268,7 @@ class _ColorBarState extends State<ColorBar> {
       ),
 
       // color presets
-      for (NamedColor namedColor in ColorBar.colorPresets)
+      for (final namedColor in ColorBar.colorPresets)
         ColorOption(
           isSelected:
               widget.currentColor?.withAlpha(255).toARGB32() ==
@@ -303,7 +303,7 @@ class _ColorBarState extends State<ColorBar> {
   }
 
   void openColorPicker(BuildContext context) async {
-    bool? confirmChange = await showDialog(
+    final bool? confirmChange = await showDialog(
       context: context,
       builder: (BuildContext context) => _colorPickerDialog(context),
     );

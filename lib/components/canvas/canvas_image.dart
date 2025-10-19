@@ -32,7 +32,7 @@ class CanvasImage extends StatefulWidget {
   final bool selected;
 
   /// When notified, all [CanvasImages] will have their [active] property set to false.
-  static ChangeNotifier activeListener = ChangeNotifier();
+  static var activeListener = ChangeNotifier();
 
   /// The minimum size of the interactive area for the image.
   static double minInteractiveSize = 50;
@@ -45,7 +45,7 @@ class CanvasImage extends StatefulWidget {
 }
 
 class _CanvasImageState extends State<CanvasImage> {
-  bool _active = false;
+  var _active = false;
 
   /// Whether this image can be dragged
   bool get active => _active;
@@ -121,7 +121,7 @@ class _CanvasImageState extends State<CanvasImage> {
       imageBrightness = currentBrightness;
     }
 
-    Widget unpositioned = IgnorePointer(
+    final Widget unpositioned = IgnorePointer(
       ignoring: widget.readOnly,
       child: Stack(
         fit: StackFit.expand,
@@ -143,7 +143,7 @@ class _CanvasImageState extends State<CanvasImage> {
               onPanUpdate: active
                   ? (details) {
                       setState(() {
-                        double fivePercent = min(
+                        final fivePercent = min(
                           widget.pageSize.width * 0.05,
                           widget.pageSize.height * 0.05,
                         );
@@ -376,7 +376,7 @@ class _CanvasImageResizeHandle extends StatelessWidget {
                     // preserve aspect ratio if diagonal
                     if (position.dx != 0 && position.dy != 0) {
                       // if diagonal
-                      final double aspectRatio =
+                      final aspectRatio =
                           image.dstRect.width / image.dstRect.height;
                       if (newWidth / newHeight > aspectRatio) {
                         newHeight = newWidth / aspectRatio;

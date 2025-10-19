@@ -172,7 +172,7 @@ void main() {
         });
 
         if (sbnName != laserSbn) {
-          bool hasGhostscript = true;
+          var hasGhostscript = true;
           final gsCheck = Process.runSync('gs', [
             '--version',
           ], runInShell: true);

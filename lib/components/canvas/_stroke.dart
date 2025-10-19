@@ -102,9 +102,9 @@ class Stroke {
 
     final Color color;
     switch (json['c']) {
-      case (int value):
+      case (final int value):
         color = Color(value);
-      case (Int64 value):
+      case (final Int64 value):
         color = Color(value.toInt());
       case null:
         color = defaultColor;
@@ -122,8 +122,8 @@ class Stroke {
         (point) => PointExtensions.fromBsonBinary(json: point, offset: offset),
       );
     } else {
-      // ignore: deprecated_member_use_from_same_package
       points = pointsJson.map(
+        // ignore: deprecated_member_use_from_same_package
         (point) => PointExtensions.fromJson(
           json: Map<String, dynamic>.from(point),
           offset: offset,
@@ -180,7 +180,7 @@ class Stroke {
   /// Points that are closer than this
   /// threshold multiplied by the stroke's size
   /// will be counted as duplicates.
-  static const double _optimisePointsThreshold = 0.1;
+  static const _optimisePointsThreshold = 0.1;
 
   /// Removes points that are too close together. See [_optimisePointsThreshold].
   ///

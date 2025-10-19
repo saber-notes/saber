@@ -18,10 +18,10 @@ class HomePage extends StatefulWidget {
   @override
   State<HomePage> createState() => _HomePageState();
 
-  static const String recentSubpage = 'recent';
-  static const String browseSubpage = 'browse';
-  static const String whiteboardSubpage = 'whiteboard';
-  static const String settingsSubpage = 'settings';
+  static const recentSubpage = 'recent';
+  static const browseSubpage = 'browse';
+  static const whiteboardSubpage = 'whiteboard';
+  static const settingsSubpage = 'settings';
   static const List<String> subpages = [
     recentSubpage,
     browseSubpage,

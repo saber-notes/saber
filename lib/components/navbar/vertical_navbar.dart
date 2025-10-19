@@ -20,7 +20,7 @@ class VerticalNavbar extends StatefulWidget {
 }
 
 class _VerticalNavbarState extends State<VerticalNavbar> {
-  bool expanded = false;
+  var expanded = false;
 
   @override
   Widget build(BuildContext context) {

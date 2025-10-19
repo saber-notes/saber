@@ -32,14 +32,14 @@ class CanvasBackgroundPainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    Rect canvasRect = Offset.zero & size;
-    Paint paint = Paint();
+    final canvasRect = Offset.zero & size;
+    final paint = Paint();
 
     paint.color = backgroundColor.withInversion(invert);
     canvas.drawRect(canvasRect, paint);
 
     paint.strokeWidth = lineThickness.toDouble();
-    for (PatternElement element in getPatternElements(
+    for (final element in getPatternElements(
       pattern: backgroundPattern,
       size: size,
       lineHeight: lineHeight,

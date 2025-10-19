@@ -44,7 +44,7 @@ class _SettingsSwitchState extends State<SettingsColor> {
   }
 
   void onChanged() {
-    Color? color = widget.pref.value;
+    final color = widget.pref.value;
     if (color != null && color != Colors.transparent) {
       defaultColor = color;
     }
@@ -126,7 +126,7 @@ class _SettingsSwitchState extends State<SettingsColor> {
         final previousColor = widget.pref.value;
         widget.pref.value = defaultColor; // enable accent color
 
-        bool? confirmChange = await showDialog(
+        final bool? confirmChange = await showDialog(
           context: context,
           builder: (BuildContext context) => colorPickerDialog,
         );

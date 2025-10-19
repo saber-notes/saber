@@ -17,9 +17,7 @@ class SyncIndicator extends StatefulWidget {
 
 class _SyncIndicatorState extends State<SyncIndicator> {
   late final StreamSubscription uploaderListener, downloaderListener;
-  final ValueNotifier<_SyncIndicatorStatus> status = ValueNotifier(
-    _SyncIndicatorStatus.done,
-  );
+  final status = ValueNotifier(_SyncIndicatorStatus.done);
 
   @override
   void initState() {
@@ -77,7 +75,7 @@ class _SyncIndicatorState extends State<SyncIndicator> {
           padding: const EdgeInsets.all(8),
           child: ValueListenableBuilder(
             valueListenable: status,
-            builder: (context, status, __) {
+            builder: (context, status, _) {
               return AnimatedSwitcher(
                 duration: const Duration(milliseconds: 200),
                 child: switch (status) {

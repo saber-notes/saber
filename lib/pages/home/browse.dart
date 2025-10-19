@@ -181,7 +181,7 @@ class _BrowsePageState extends State<BrowsePage> {
                 findChildrenOfPath();
               },
               folders: [
-                for (String directoryPath in children?.directories ?? const [])
+                for (final directoryPath in children?.directories ?? const [])
                   directoryPath,
               ],
             ),
@@ -202,7 +202,7 @@ class _BrowsePageState extends State<BrowsePage> {
                 sliver: MasonryFiles(
                   crossAxisCount: crossAxisCount,
                   files: [
-                    for (String filePath in children?.files ?? const [])
+                    for (final filePath in children?.files ?? const [])
                       "${path ?? ""}/$filePath",
                   ],
                   selectedFiles: selectedFiles,
@@ -235,7 +235,7 @@ class _BrowsePageState extends State<BrowsePage> {
                 tooltip: t.home.deleteNote,
                 onPressed: () async {
                   await Future.wait([
-                    for (String filePath in selectedFiles.value)
+                    for (final filePath in selectedFiles.value)
                       Future.value(
                         FileManager.doesFileExist(
                           filePath + Editor.extensionOldJson,

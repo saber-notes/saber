@@ -9,7 +9,7 @@ import 'package:saber/data/locales.dart';
 import 'package:saber/data/saber_version.dart';
 import 'package:saber/data/version.dart';
 
-const String dummyChangelog = 'Release_notes_will_be_added_here';
+const dummyChangelog = 'Release_notes_will_be_added_here';
 
 void main() {
   test('Does bump_version.dart find changes needed?', () async {
@@ -37,22 +37,18 @@ void main() {
   });
 
   test('Check for dummy text in changelogs', () async {
-    final File androidMetadata = File(
-      'metadata/en-US/changelogs/$buildNumber.txt',
-    );
+    final androidMetadata = File('metadata/en-US/changelogs/$buildNumber.txt');
     expect(androidMetadata.existsSync(), true);
-    final String androidMetadataContents = await androidMetadata.readAsString();
+    final androidMetadataContents = await androidMetadata.readAsString();
     expect(
       androidMetadataContents.contains(dummyChangelog),
       false,
       reason: 'Dummy text found in Android changelog',
     );
 
-    final File flatpakMetadata = File(
-      'flatpak/com.adilhanney.saber.metainfo.xml',
-    );
+    final flatpakMetadata = File('flatpak/com.adilhanney.saber.metainfo.xml');
     expect(flatpakMetadata.existsSync(), true);
-    final String flatpakMetadataContents = await flatpakMetadata.readAsString();
+    final flatpakMetadataContents = await flatpakMetadata.readAsString();
     expect(
       flatpakMetadataContents.contains(dummyChangelog),
       false,
@@ -61,11 +57,9 @@ void main() {
   });
 
   test('Check that metainfo <release> tags are in the right place', () async {
-    final File flatpakMetadata = File(
-      'flatpak/com.adilhanney.saber.metainfo.xml',
-    );
+    final flatpakMetadata = File('flatpak/com.adilhanney.saber.metainfo.xml');
     expect(flatpakMetadata.existsSync(), true);
-    final String flatpakMetadataContents = await flatpakMetadata.readAsString();
+    final flatpakMetadataContents = await flatpakMetadata.readAsString();
 
     final releasesTag = flatpakMetadataContents.indexOf('<releases');
     expect(
@@ -121,9 +115,7 @@ void main() {
     for (final localeCode in localeNames.keys) {
       if (localeCode == 'en') continue;
 
-      final File file = File(
-        'metadata/$localeCode/changelogs/$buildNumber.txt',
-      );
+      final file = File('metadata/$localeCode/changelogs/$buildNumber.txt');
       expect(
         file.existsSync(),
         true,

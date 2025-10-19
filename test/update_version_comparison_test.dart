@@ -9,7 +9,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 /// Example current build number.
 /// See [buildNumber] in [lib/data/version.dart].
-const int v = 5000;
+const v = 5000;
 
 void main() => group('Update manager:', () {
   FlavorConfig.setup();
@@ -63,7 +63,7 @@ void main() => group('Update manager:', () {
     'Test that the latest version can be parsed from version.dart',
     () async {
       // load local file from lib/data/version.dart
-      String latestVersionFile = await File(
+      final latestVersionFile = await File(
         'lib/data/version.dart',
       ).readAsString();
       expect(

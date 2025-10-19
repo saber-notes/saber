@@ -29,7 +29,7 @@ abstract class UpdateManager {
   );
   static int? newestVersion;
 
-  static bool _hasShownUpdateDialog = false;
+  static var _hasShownUpdateDialog = false;
   static Future<void> showUpdateDialog(
     BuildContext context, {
     bool userTriggered = false,
@@ -183,7 +183,7 @@ abstract class UpdateManager {
   /// Downloads the update file from [downloadUrl] and installs it.
   // TODO(adil192): use a downloader like background_downloader for progress
   static Future<void> directlyDownloadUpdate(String downloadUrl) async {
-    final Uint8List bytes = await http.readBytes(Uri.parse(downloadUrl));
+    final bytes = await http.readBytes(Uri.parse(downloadUrl));
 
     final tempDir = await getTemporaryDirectory();
     final fileName = downloadUrl.substring(downloadUrl.lastIndexOf('/') + 1);

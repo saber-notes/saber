@@ -135,7 +135,7 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
                 child: ListView.separated(
                   scrollDirection: Axis.horizontal,
                   itemCount: imageBoxFits.length,
-                  separatorBuilder: (_, __) => const SizedBox(width: 8),
+                  separatorBuilder: (_, _) => const SizedBox(width: 8),
                   itemBuilder: (context, index) {
                     final boxFit = imageBoxFits[index];
                     return InkWell(
@@ -198,7 +198,7 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
               child: ListView.separated(
                 scrollDirection: Axis.horizontal,
                 itemCount: CanvasBackgroundPattern.values.length,
-                separatorBuilder: (_, __) => const SizedBox(width: 8),
+                separatorBuilder: (_, _) => const SizedBox(width: 8),
                 itemBuilder: (context, index) {
                   final backgroundPattern =
                       CanvasBackgroundPattern.values[index];
@@ -300,7 +300,7 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
               children: [
                 ElevatedButton(
                   onPressed: () async {
-                    int photosPicked = await widget.pickPhotos();
+                    final photosPicked = await widget.pickPhotos();
                     if (photosPicked > 0) {
                       if (!context.mounted) return;
                       Navigator.pop(context);
@@ -311,7 +311,7 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
                 if (widget.canRasterPdf)
                   ElevatedButton(
                     onPressed: () async {
-                      bool pdfImported = await widget.importPdf();
+                      final pdfImported = await widget.importPdf();
                       if (pdfImported) {
                         if (!context.mounted) return;
                         Navigator.pop(context);

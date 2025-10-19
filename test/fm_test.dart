@@ -157,10 +157,10 @@ void main() {
     });
 
     test('deleteFile', () async {
-      String filePath = '/test_deleteFile.sbn2';
-      String filePathA = '/test_deleteFile.sbn2.0';
-      String filePathP = '/test_deleteFile.sbn2.p';
-      String content = 'test content for $filePath';
+      const filePath = '/test_deleteFile.sbn2';
+      const filePathA = '/test_deleteFile.sbn2.0';
+      const filePathP = '/test_deleteFile.sbn2.p';
+      const content = 'test content for $filePath';
 
       // write files
       await FileManager.writeFile(

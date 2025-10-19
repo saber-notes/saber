@@ -14,7 +14,7 @@ late final String editor;
 late final bool failOnChanges;
 late final bool quiet;
 
-const String dummyChangelog = 'Release_notes_will_be_added_here';
+const dummyChangelog = 'Release_notes_will_be_added_here';
 
 enum ErrorCodes {
   noError(0),
@@ -67,8 +67,8 @@ void parseArgs(List<String> args) {
   } else if (results.flag('patch')) {
     newVersion = oldVersion.bumpPatch();
   } else if (results.option('custom') != null) {
-    final String custom = results['custom']!;
-    late int? buildNumber = int.tryParse(custom);
+    final custom = results['custom']!;
+    late final buildNumber = int.tryParse(custom);
     if (custom.contains('.')) {
       newVersion = SaberVersion.fromName(custom);
     } else if (buildNumber != null) {
@@ -242,7 +242,7 @@ extension on File {
   }
 
   Future<void> replace(Map<RegExp, String> replacements) async {
-    int matches = 0;
+    var matches = 0;
     final lines = await readAsLines();
     for (var i = 0; i < lines.length; i++) {
       for (final pattern in replacements.keys) {

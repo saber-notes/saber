@@ -55,7 +55,7 @@ class InnerCanvas extends StatefulWidget {
 
   final double currentScale;
 
-  static const Color defaultBackgroundColor = Color(0xFFFCFCFC);
+  static const defaultBackgroundColor = Color(0xFFFCFCFC);
 
   @override
   State<InnerCanvas> createState() => _InnerCanvasState();
@@ -66,7 +66,7 @@ class _InnerCanvasState extends State<InnerCanvas> {
   Widget build(BuildContext context) {
     final colorScheme = ColorScheme.of(context);
     final Brightness brightness = Theme.brightnessOf(context);
-    final bool invert =
+    final invert =
         stows.editorAutoInvert.value && brightness == Brightness.dark;
     final Color backgroundColor =
         widget.coreInfo.backgroundColor ?? InnerCanvas.defaultBackgroundColor;
@@ -77,7 +77,7 @@ class _InnerCanvasState extends State<InnerCanvas> {
 
     final page = widget.coreInfo.pages[widget.pageIndex];
 
-    Widget? quillEditor = widget.coreInfo.pages.isNotEmpty
+    final quillEditor = widget.coreInfo.pages.isNotEmpty
         ? QuillEditor(
             controller:
                 widget.coreInfo.pages[widget.pageIndex].quill.controller,

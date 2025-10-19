@@ -10,8 +10,8 @@ import 'package:saber/data/tools/select.dart';
 void main() {
   group('Select tool', () {
     test('selects the right strokes', () async {
-      Select select = Select.currentSelect;
-      StrokeOptions options = StrokeOptions(size: 9);
+      final select = Select.currentSelect;
+      final options = StrokeOptions(size: 9);
 
       // Drag gesture in a 10x10 square shape, on page 0
       select.onDragStart(Offset.zero, 0);
@@ -27,7 +27,7 @@ void main() {
 
       const page = HasSize(Size(100, 100));
 
-      List<Stroke> strokes = [
+      final strokes = <Stroke>[
         // index 0 is inside
         Stroke(
           color: Stroke.defaultColor,
@@ -76,7 +76,7 @@ void main() {
     });
 
     test('selects the right images', () async {
-      Select select = Select.currentSelect;
+      final select = Select.currentSelect;
 
       // Drag gesture in a 10x10 square shape, on page 0
       select.onDragStart(Offset.zero, 0);
@@ -90,7 +90,7 @@ void main() {
         reason: 'The page index should be 0',
       );
 
-      List<EditorImage> images = [
+      final List<EditorImage> images = [
         // index 0 is inside (100% in the selection)
         TestImage(dstRect: const Rect.fromLTWH(0, 0, 10, 10)),
         // index 1 is inside (> 70% in the selection)

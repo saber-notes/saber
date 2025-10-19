@@ -23,7 +23,7 @@ class HasSize {
 class EditorPage extends ChangeNotifier implements HasSize {
   static const double defaultWidth = 1000;
   static const double defaultHeight = defaultWidth * 1.4;
-  static const Size defaultSize = Size(defaultWidth, defaultHeight);
+  static const defaultSize = Size(defaultWidth, defaultHeight);
 
   @override
   final Size size;
@@ -35,7 +35,7 @@ class EditorPage extends ChangeNotifier implements HasSize {
         innerCanvasKey.currentState?.context.findRenderObject() as RenderBox?;
   }
 
-  bool _isRendered = false;
+  var _isRendered = false;
   bool get isRendered => _isRendered;
   set isRendered(bool isRendered) {
     if (isRendered == _isRendered) return;
@@ -86,7 +86,7 @@ class EditorPage extends ChangeNotifier implements HasSize {
     }
     if (!quill.controller.document.isEmpty()) {
       // this does not account for text that wraps to the next line
-      int linesOfText = quill.controller.document
+      final int linesOfText = quill.controller.document
           .toPlainText()
           .split('\n')
           .length;
@@ -188,12 +188,12 @@ class EditorPage extends ChangeNotifier implements HasSize {
   /// Inserts a stroke, while keeping the strokes sorted by
   /// pen type and color.
   void insertStroke(Stroke newStroke) {
-    int newStrokeColor = newStroke.color.toARGB32();
+    final int newStrokeColor = newStroke.color.toARGB32();
 
     int index = 0;
-    for (final Stroke stroke in strokes) {
-      int penTypeComparison = stroke.penType.compareTo(newStroke.penType);
-      int color = stroke.color.toARGB32();
+    for (final stroke in strokes) {
+      final penTypeComparison = stroke.penType.compareTo(newStroke.penType);
+      final color = stroke.color.toARGB32();
       if (penTypeComparison > 0) {
         break; // this stroke's pen type comes after the new stroke's pen type
       } else if (stroke.penType == (Highlighter).toString() &&
@@ -210,7 +210,7 @@ class EditorPage extends ChangeNotifier implements HasSize {
   /// Sorts the strokes by pen type and color.
   void sortStrokes() {
     strokes.sort((Stroke a, Stroke b) {
-      int penTypeComparison = a.penType.compareTo(b.penType);
+      final penTypeComparison = a.penType.compareTo(b.penType);
       if (penTypeComparison != 0) return penTypeComparison;
       if (a.penType != (Highlighter).toString()) return 0;
       return a.color.toARGB32().compareTo(b.color.toARGB32());

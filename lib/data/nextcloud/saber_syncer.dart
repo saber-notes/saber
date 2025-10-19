@@ -550,15 +550,15 @@ class SaberSyncInterface
   }
 
   /// the file extension of an encrypted base64 note
-  static const String encExtension = '.sbe';
+  static const encExtension = '.sbe';
 
   /// List of files to ignore on the server.
   /// Prefixed with a slash so we can use [filePath.endsWith]
-  static const List<String> _ignoredFiles = ['/Readme.md'];
+  static const _ignoredFiles = <String>['/Readme.md'];
 }
 
 class SaberSyncFile extends AbstractSyncFile<File, WebDavFile> {
-  late final String relativeLocalPath = localFile.path.substring(
+  late final relativeLocalPath = localFile.path.substring(
     FileManager.documentsDirectory.length,
   );
 

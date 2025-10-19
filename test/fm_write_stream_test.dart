@@ -48,8 +48,8 @@ void main() {
 
       await FileManager.init();
 
-      final String rootDir = FileManager.documentsDirectory;
-      final File file = File('$rootDir/test.sbn2');
+      final rootDir = FileManager.documentsDirectory;
+      final file = File('$rootDir/test.sbn2');
 
       // write to file
       await file.create(recursive: true);

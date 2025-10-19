@@ -46,10 +46,10 @@ class EditorCoreInfo {
   /// - 3: Store page sizes for each page
   /// - 2: Store width and height in sbn
   /// - 1: Store version in sbn
-  static const int sbnVersion = 19;
-  bool readOnly = false;
-  bool readOnlyBecauseOfVersion = false;
-  bool readOnlyBecauseWatchingServer = false;
+  static const sbnVersion = 19;
+  var readOnly = false;
+  var readOnlyBecauseOfVersion = false;
+  var readOnlyBecauseWatchingServer = false;
 
   String filePath;
 
@@ -125,7 +125,7 @@ class EditorCoreInfo {
     required bool onlyFirstPage,
   }) {
     final fileVersion = json['v'] as int? ?? 0;
-    bool readOnlyBecauseOfVersion = fileVersion > sbnVersion;
+    final readOnlyBecauseOfVersion = fileVersion > sbnVersion;
     readOnly = readOnly || readOnlyBecauseOfVersion;
 
     /// Note that inline assets aren't used anymore
@@ -133,10 +133,12 @@ class EditorCoreInfo {
     final List<Uint8List>? inlineAssets = (json['a'] as List?)
         ?.map(
           (asset) => switch (asset) {
-            (String base64) => base64Decode(base64),
-            (Uint8List bytes) => bytes,
-            (List<dynamic> bytes) => Uint8List.fromList(bytes.cast<int>()),
-            (BsonBinary bsonBinary) => bsonBinary.byteList,
+            (final String base64) => base64Decode(base64),
+            (final Uint8List bytes) => bytes,
+            (final List<dynamic> bytes) => Uint8List.fromList(
+              bytes.cast<int>(),
+            ),
+            (final BsonBinary bsonBinary) => bsonBinary.byteList,
             _ => () {
               log.severe('Invalid asset type: ${asset.runtimeType}');
               return Uint8List(0);
@@ -147,9 +149,9 @@ class EditorCoreInfo {
 
     final Color? backgroundColor;
     switch (json['b']) {
-      case (int value):
+      case (final int value):
         backgroundColor = Color(value);
-      case (Int64 value):
+      case (final Int64 value):
         backgroundColor = Color(value.toInt());
       case null:
         backgroundColor = null;
@@ -168,8 +170,8 @@ class EditorCoreInfo {
         nextImageId: json['ni'] as int? ?? 0,
         backgroundColor: backgroundColor,
         backgroundPattern: () {
-          final String? pattern = json['p'] as String?;
-          for (CanvasBackgroundPattern p in CanvasBackgroundPattern.values) {
+          final pattern = json['p'] as String?;
+          for (final p in CanvasBackgroundPattern.values) {
             if (p.name == pattern) return p;
           }
           return CanvasBackgroundPattern.none;
@@ -262,8 +264,8 @@ class EditorCoreInfo {
   }
 
   void _handleEmptyImageIds() {
-    for (EditorPage page in pages) {
-      for (EditorImage image in page.images) {
+    for (final page in pages) {
+      for (final image in page.images) {
         if (image.id == -1) image.id = nextImageId++;
       }
     }
@@ -294,7 +296,7 @@ class EditorCoreInfo {
         onlyFirstPage: onlyFirstPage,
         fileVersion: fileVersion,
       );
-      for (Stroke stroke in strokes) {
+      for (final stroke in strokes) {
         if (onlyFirstPage) assert(stroke.pageIndex == 0);
         while (stroke.pageIndex >= pages.length) {
           pages.add(EditorPage(size: fallbackPageSize));
@@ -312,7 +314,7 @@ class EditorCoreInfo {
         sbnPath: filePath,
         assetCache: assetCache,
       );
-      for (EditorImage image in images) {
+      for (final image in images) {
         if (onlyFirstPage) assert(image.pageIndex == 0);
         while (image.pageIndex >= pages.length) {
           pages.add(EditorPage(size: fallbackPageSize));
@@ -329,8 +331,8 @@ class EditorCoreInfo {
 
     // delete points that are too close to each other
     if (fileVersion < 12) {
-      for (EditorPage page in pages) {
-        for (Stroke stroke in page.strokes) {
+      for (final page in pages) {
+        for (final stroke in page.strokes) {
           stroke.optimisePoints();
         }
       }
@@ -338,7 +340,7 @@ class EditorCoreInfo {
   }
 
   void _sortStrokes() {
-    for (EditorPage page in pages) {
+    for (final page in pages) {
       page.sortStrokes();
     }
   }

@@ -55,7 +55,7 @@ linter:
 
     prefer_if_elements_to_conditional_expressions: true
 
-    prefer_int_literals: true
+    prefer_int_literals: false
 
     unnecessary_breaks: true
 
@@ -75,6 +75,12 @@ linter:
     use_string_buffers: true
 
     curly_braces_in_flow_control_structures: false
+
+    omit_obvious_property_types: true
+    prefer_final_fields: true
+    prefer_final_in_for_each: true
+    prefer_final_locals: true
+    avoid_final_parameters: true
 
     prefer_const_constructors: true
     prefer_const_constructors_in_immutables: true

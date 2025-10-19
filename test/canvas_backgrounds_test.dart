@@ -14,16 +14,16 @@ void main() {
 }
 
 void _testPatternWithLineHeight(
-  final CanvasBackgroundPattern pattern,
-  final int lineHeight,
+  CanvasBackgroundPattern pattern,
+  int lineHeight,
 ) {
   test("'$pattern' with line height $lineHeight", () {
-    const Size size = Size(1000, 1000);
+    const size = Size(1000, 1000);
 
     /// We can't directly compare doubles, so check if they're within a small range (±epsilon)
-    final double epsilon = lineHeight / 100;
+    final epsilon = lineHeight / 100;
 
-    List<PatternElement> elements = CanvasBackgroundPainter.getPatternElements(
+    final elements = CanvasBackgroundPainter.getPatternElements(
       pattern: pattern,
       size: size,
       lineHeight: lineHeight,
@@ -46,7 +46,7 @@ void _testPatternWithLineHeight(
     }
 
     // Check that the elements are within the bounds of the canvas
-    for (PatternElement element in elements) {
+    for (final element in elements) {
       expect(
         element.start.dx,
         lessThanOrEqualTo(size.width),
@@ -70,7 +70,7 @@ void _testPatternWithLineHeight(
     }
 
     // Check we have 2 lineHeights of space at the top
-    for (PatternElement element in elements) {
+    for (final element in elements) {
       if (element.secondaryColor) return; // ignore secondary elements
       expect(
         element.start.dy,
@@ -87,8 +87,8 @@ void _testPatternWithLineHeight(
     }
 
     // Check all elements are lines or all elements are dots
-    bool allLines = elements.every((element) => element.isLine);
-    bool allDots = elements.every((element) => !element.isLine);
+    final allLines = elements.every((element) => element.isLine);
+    final allDots = elements.every((element) => !element.isLine);
     expect(
       allLines || allDots,
       true,
@@ -99,16 +99,16 @@ void _testPatternWithLineHeight(
       // Check spacing
       double lastPosition = -1;
       bool? lastWasHorizontal;
-      for (PatternElement element in elements) {
-        bool isHorizontal = element.start.dy == element.end.dy;
-        bool isVertical = element.start.dx == element.end.dx;
+      for (final element in elements) {
+        final isHorizontal = element.start.dy == element.end.dy;
+        final isVertical = element.start.dx == element.end.dx;
         expect(
           isHorizontal || isVertical,
           true,
           reason: 'Lines should be horizontal or vertical',
         );
 
-        double position = isHorizontal ? element.start.dy : element.start.dx;
+        final position = isHorizontal ? element.start.dy : element.start.dx;
 
         // ignore spacing between a horizontal and a vertical line
         if (lastWasHorizontal != isHorizontal) {
@@ -127,7 +127,7 @@ void _testPatternWithLineHeight(
           );
         }
 
-        double spacing = (position - lastPosition).abs();
+        final spacing = (position - lastPosition).abs();
         double diffFromALine = spacing % lineHeight;
         if (diffFromALine > lineHeight / 2) {
           diffFromALine = lineHeight - diffFromALine;
@@ -147,18 +147,19 @@ void _testPatternWithLineHeight(
   });
 }
 
-void _testRtlPattern(final CanvasBackgroundPattern pattern) {
+void _testRtlPattern(CanvasBackgroundPattern pattern) {
   test("'$pattern'", () {
     const size = Size(1000, 1000);
 
-    List<PatternElement> elements = CanvasBackgroundPainter.getPatternElements(
-      pattern: pattern,
-      size: size,
-      lineHeight: 10,
-    ).toList();
+    final List<PatternElement> elements =
+        CanvasBackgroundPainter.getPatternElements(
+          pattern: pattern,
+          size: size,
+          lineHeight: 10,
+        ).toList();
 
-    int linesOnLeft = 0;
-    int linesOnRight = 0;
+    var linesOnLeft = 0;
+    var linesOnRight = 0;
     for (final element in elements) {
       if (!element.isLine) continue;
 

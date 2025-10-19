@@ -35,10 +35,10 @@ void main() {
     await client.loadEncryptionKey();
 
     // Use a random file name to avoid conflicts with simultaneous tests
-    final String filePathLocal = '/test.deletion.${randomString(10)}';
+    final filePathLocal = '/test.deletion.${randomString(10)}';
     printOnFailure('File path local: $filePathLocal');
 
-    const List<int> fileContent = [1, 2, 3];
+    const fileContent = <int>[1, 2, 3];
     final syncFile = await const SaberSyncInterface().getSyncFileFromLocalFile(
       FileManager.getFile(filePathLocal),
     );
@@ -90,7 +90,7 @@ void main() {
     await syncer.downloader.waitUntilEmpty();
 
     // Check that the file is deleted locally
-    bool exists = FileManager.doesFileExist(filePathLocal);
+    final exists = FileManager.doesFileExist(filePathLocal);
     expect(exists, false, reason: 'File is not deleted locally');
   });
 }

@@ -22,8 +22,8 @@ class AdaptiveAlertDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ThemeData theme = Theme.of(context);
-    bool cupertino =
+    final theme = Theme.of(context);
+    final cupertino =
         theme.platform == TargetPlatform.iOS ||
         theme.platform == TargetPlatform.macOS;
 

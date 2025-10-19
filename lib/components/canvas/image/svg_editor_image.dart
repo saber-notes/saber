@@ -46,7 +46,7 @@ class SvgEditorImage extends EditorImage {
     required String sbnPath,
     required AssetCache assetCache,
   }) {
-    String? extension = json['e'] as String?;
+    final extension = json['e'] as String?;
     assert(extension == null || extension == '.svg');
 
     final assetIndex = json['a'] as int?;
@@ -119,8 +119,11 @@ class SvgEditorImage extends EditorImage {
   }
 
   ({String? string, File? file}) _extractSvg() => switch (svgLoader) {
-    (SvgStringLoader loader) => (string: loader.provideSvg(null), file: null),
-    (SvgFileLoader loader) => (string: null, file: loader.file),
+    (final SvgStringLoader loader) => (
+      string: loader.provideSvg(null),
+      file: null,
+    ),
+    (final SvgFileLoader loader) => (string: null, file: loader.file),
     (_) => throw ArgumentError.value(
       svgLoader,
       'svgLoader',

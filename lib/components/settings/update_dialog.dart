@@ -18,15 +18,15 @@ class UpdateDialog extends StatefulWidget {
 
 class _UpdateDialogState extends State<UpdateDialog> {
   String? directDownloadLink;
-  bool downloadNotAvailableYet = false;
-  bool directDownloadStarted = false;
+  var downloadNotAvailableYet = false;
+  var directDownloadStarted = false;
 
   late final localeCode = LocaleSettings.currentLocale == AppLocale.en
       ? null
       : LocaleSettings.currentLocale.languageTag;
   String? englishChangelog;
   String? translatedChangelog;
-  bool showTranslatedChangelog = true;
+  var showTranslatedChangelog = true;
 
   @override
   void initState() {

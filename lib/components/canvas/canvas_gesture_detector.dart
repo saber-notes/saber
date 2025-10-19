@@ -143,7 +143,7 @@ class CanvasGestureDetector extends StatefulWidget {
 }
 
 class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
-  late BoxConstraints containerBounds = const BoxConstraints();
+  late var containerBounds = const BoxConstraints();
 
   /// If zooming is locked, this is the zoom level.
   /// Otherwise, this is null.
@@ -241,7 +241,7 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
     widget._transformationController.notifyListenersPlease();
   }
 
-  bool _setupKeybindings = false;
+  var _setupKeybindings = false;
   late Keybinding _ctrlPlus, _ctrlEquals, _ctrlMinus;
   late Keybinding _leftKey, _rightKey, _upKey, _downKey;
   void _assignKeybindings() {
@@ -434,7 +434,7 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
     widget.updatePointerData(event.kind, pressure);
   }
 
-  bool stylusButtonWasPressed = false;
+  var stylusButtonWasPressed = false;
 
   void _listenerPointerHoverEvent(PointerEvent event) {
     if (event.kind != PointerDeviceKind.stylus) return;
@@ -562,10 +562,10 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
       quad.point3,
     ];
 
-    final double left = points.map((point) => point.x).reduce(min);
-    final double right = points.map((point) => point.x).reduce(max);
-    final double top = points.map((point) => point.y).reduce(min);
-    final double bottom = points.map((point) => point.y).reduce(max);
+    final left = points.map((point) => point.x).reduce(min);
+    final right = points.map((point) => point.x).reduce(max);
+    final top = points.map((point) => point.y).reduce(min);
+    final bottom = points.map((point) => point.y).reduce(max);
 
     return Rect.fromLTRB(left, top, right, bottom);
   }
@@ -599,12 +599,12 @@ class _PagesBuilder extends StatelessWidget {
     double topOfPage = Editor.gapBetweenPages * 2;
     for (int pageIndex = 0; pageIndex < pages.length; pageIndex++) {
       final page = pages[pageIndex];
-      final double pageWidth = min(
+      final pageWidth = min(
         page.size.width,
         containerWidth,
       ); // because of FittedBox
-      final double pageHeight = pageWidth / page.size.width * page.size.height;
-      final double bottomOfPage = topOfPage + pageHeight;
+      final pageHeight = pageWidth / page.size.width * page.size.height;
+      final bottomOfPage = topOfPage + pageHeight;
 
       final isFocused = page.quill.focusNode.hasFocus;
       final isInViewport =
@@ -630,7 +630,7 @@ class _PagesBuilder extends StatelessWidget {
 
 @visibleForTesting
 class CanvasTransformCache {
-  static const int _maxCacheSize = 5;
+  static const _maxCacheSize = 5;
   static final _cache = LinkedList<CanvasTransformCacheItem>();
 
   CanvasTransformCache._();

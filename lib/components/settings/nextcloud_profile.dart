@@ -70,7 +70,7 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
     };
     const pfpSize = 48.0;
 
-    var colorScheme = ColorScheme.of(context);
+    final colorScheme = ColorScheme.of(context);
     return ListTile(
       visualDensity: VisualDensity.standard,
       onTap: () => context.push(RoutePaths.login),

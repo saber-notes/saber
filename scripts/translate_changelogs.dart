@@ -55,10 +55,10 @@ void main() async {
 
   final localeCodes = localeNames.keys.toList();
 
-  final String total = localeCodes.length.toString();
+  final total = localeCodes.length.toString();
 
   var someTranslationsFailed = false;
-  for (int i = 0; i < localeCodes.length; i++) {
+  for (var i = 0; i < localeCodes.length; i++) {
     final localeCode = localeCodes[i];
     final localeName = localeNames[localeCode];
 

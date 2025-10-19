@@ -34,7 +34,7 @@ class AppInfo extends StatelessWidget {
   ].join(' ');
 
   @visibleForTesting
-  static bool showDebugMessage = true;
+  static var showDebugMessage = true;
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +42,7 @@ class AppInfo extends StatelessWidget {
       onPressed: () => _showAboutDialog(context),
       child: ValueListenableBuilder(
         valueListenable: stows.locale,
-        builder: (context, _, __) => Text(info),
+        builder: (context, _, _) => Text(info),
       ),
     );
   }

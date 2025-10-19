@@ -26,7 +26,7 @@ class Eraser extends Tool {
   ) {
     final List<Stroke> overlapping = [];
     for (int i = 0; i < strokes.length; i++) {
-      final Stroke stroke = strokes[i];
+      final stroke = strokes[i];
       if (_shouldStrokeBeErased(eraserPos, stroke, sqrSize)) {
         overlapping.add(stroke);
         _erased.add(stroke);

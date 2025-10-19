@@ -47,7 +47,7 @@ class CanvasPainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    Rect canvasRect = Offset.zero & size;
+    final canvasRect = Offset.zero & size;
 
     _drawHighlighterStrokes(canvas, canvasRect);
     _drawNonHighlighterStrokes(canvas);
@@ -72,7 +72,7 @@ class CanvasPainter extends CustomPainter {
     bool needToRestoreCanvasLayer = false;
 
     Color? lastColor;
-    for (Stroke stroke in strokes) {
+    for (final stroke in strokes) {
       if (stroke.penType != (Highlighter).toString()) continue;
 
       final color = stroke.color.withValues(alpha: 1).withInversion(invert);
@@ -237,13 +237,13 @@ class CanvasPainter extends CustomPainter {
   void _drawPageIndicator(Canvas canvas, Size pageSize) {
     if (!showPageIndicator) return;
 
-    ParagraphStyle style = ParagraphStyle(
+    final style = ParagraphStyle(
       textAlign: TextAlign.end,
       textDirection: TextDirection.ltr,
       maxLines: 1,
     );
 
-    ParagraphBuilder builder = ParagraphBuilder(style)
+    final ParagraphBuilder builder = ParagraphBuilder(style)
       ..pushStyle(
         TextStyle(
           color: Colors.black.withInversion(invert).withValues(alpha: 0.5),
@@ -254,7 +254,7 @@ class CanvasPainter extends CustomPainter {
       )
       ..addText('${pageIndex + 1} / $totalPages');
 
-    Paragraph paragraph = builder.build();
+    final paragraph = builder.build();
     paragraph.layout(
       ParagraphConstraints(width: pageSize.width - 2 * _pageIndicatorPadding),
     );

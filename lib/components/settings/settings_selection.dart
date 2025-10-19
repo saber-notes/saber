@@ -40,7 +40,7 @@ class SettingsSelection<T extends num> extends StatefulWidget {
 
 class _SettingsSelectionState<T extends num>
     extends State<SettingsSelection<T>> {
-  late FocusNode dropdownFocusNode = FocusNode(
+  late final dropdownFocusNode = FocusNode(
     debugLabel: 'dropdownFocusNode(${widget.pref.key})',
   );
 

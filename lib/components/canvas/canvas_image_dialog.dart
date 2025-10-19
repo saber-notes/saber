@@ -65,30 +65,30 @@ class _CanvasImageDialogState extends State<CanvasImageDialog> {
       ),
       _CanvasImageDialogItem(
         onTap: () async {
-          final String filePathSanitized = widget.filePath.replaceAll(
+          final filePathSanitized = widget.filePath.replaceAll(
             RegExp(r'[^a-zA-Z\d]'),
             '_',
           );
-          final String imageFileName =
+          final imageFileName =
               'image$filePathSanitized${widget.image.id}${widget.image.extension}';
           final List<int> bytes;
           switch (widget.image) {
-            case PdfEditorImage image:
+            case final PdfEditorImage image:
               if (!image.loadedIn) await image.loadIn();
               bytes = image.pdfBytes!;
-            case SvgEditorImage image:
+            case final SvgEditorImage image:
               bytes = switch (image.svgLoader) {
-                (SvgStringLoader loader) => utf8.encode(
+                (final SvgStringLoader loader) => utf8.encode(
                   loader.provideSvg(null),
                 ),
-                (SvgFileLoader loader) => await loader.file.readAsBytes(),
+                (final SvgFileLoader loader) => await loader.file.readAsBytes(),
                 (_) => throw ArgumentError.value(
                   image.svgLoader,
                   'svgLoader',
                   'Unknown SVG loader type',
                 ),
               };
-            case PngEditorImage image:
+            case final PngEditorImage image:
               if (image.imageProvider is MemoryImage) {
                 bytes = (image.imageProvider as MemoryImage).bytes;
               } else if (image.imageProvider is FileImage) {

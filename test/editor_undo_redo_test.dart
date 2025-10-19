@@ -55,7 +55,7 @@ void main() {
 
     // wait for editor to load (i.e. when readOnly is false)
     final editorState = tester.state<EditorState>(find.byType(Editor));
-    for (int i = 0; i < 10; i++) {
+    for (var i = 0; i < 10; i++) {
       if (!editorState.coreInfo.readOnly) break;
       await tester.runAsync(
         () => Future.delayed(const Duration(milliseconds: 10)),

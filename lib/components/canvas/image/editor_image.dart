@@ -35,7 +35,7 @@ sealed class EditorImage extends ChangeNotifier {
 
   final AssetCache assetCache;
 
-  bool _isThumbnail = false;
+  var _isThumbnail = false;
   bool get isThumbnail => _isThumbnail;
   @mustCallSuper
   set isThumbnail(bool isThumbnail) {
@@ -50,7 +50,7 @@ sealed class EditorImage extends ChangeNotifier {
 
   Rect srcRect = Rect.zero;
 
-  late Rect _dstRect = Rect.fromLTWH(
+  late var _dstRect = Rect.fromLTWH(
     0,
     0,
     CanvasImage.minImageSize,
@@ -83,7 +83,7 @@ sealed class EditorImage extends ChangeNotifier {
   Size? pageSize;
 
   /// If the image is new, it will be [active] (draggable) when loaded
-  bool newImage = false;
+  var newImage = false;
 
   /// Whether this image is inverted if Prefs.editorAutoInvert.value
   bool invertible;
@@ -120,7 +120,7 @@ sealed class EditorImage extends ChangeNotifier {
     required String sbnPath,
     required AssetCache assetCache,
   }) {
-    String? extension = json['e'];
+    final extension = json['e'] as String?;
     if (extension == '.svg') {
       return SvgEditorImage.fromJson(
         json,
@@ -174,11 +174,11 @@ sealed class EditorImage extends ChangeNotifier {
   ///
   /// This is useful for tests that can't have pending timers.
   @visibleForTesting
-  static bool shouldLoadOutImmediately = false;
+  static var shouldLoadOutImmediately = false;
 
   Completer? _firstLoadStatus;
   Completer<bool>? _shouldLoadOut;
-  bool _loadedIn = false;
+  var _loadedIn = false;
   bool get loadedIn => _loadedIn;
 
   Future<void> firstLoad();
@@ -249,7 +249,7 @@ sealed class EditorImage extends ChangeNotifier {
 
   /// Resizes [before] to fit inside [max] while maintaining aspect ratio
   @visibleForTesting
-  static Size resize(final Size before, final Size max) {
+  static Size resize(Size before, Size max) {
     double width = before.width,
         height = before.height,
         aspectRatio = width / height;

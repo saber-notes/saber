@@ -32,9 +32,9 @@ class RectangleStroke extends Stroke {
 
     final Color color;
     switch (json['c']) {
-      case (int value):
+      case (final int value):
         color = Color(value);
-      case (Int64 value):
+      case (final Int64 value):
         color = Color(value.toInt());
       case null:
         color = Stroke.defaultColor;

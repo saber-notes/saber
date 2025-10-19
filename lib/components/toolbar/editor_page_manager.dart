@@ -1,9 +1,7 @@
 import 'package:flutter/cupertino.dart' show CupertinoIcons;
 import 'package:flutter/material.dart';
-import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/canvas_gesture_detector.dart';
 import 'package:saber/components/canvas/canvas_preview.dart';
-import 'package:saber/components/canvas/image/editor_image.dart';
 import 'package:saber/components/theming/adaptive_icon.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/i18n/strings.g.dart';
@@ -167,10 +165,10 @@ class _EditorPageManagerState extends State<EditorPageManager> {
 
           // reassign pageIndex of pages' strokes and images
           for (int i = 0; i < widget.coreInfo.pages.length; i++) {
-            for (Stroke stroke in widget.coreInfo.pages[i].strokes) {
+            for (final stroke in widget.coreInfo.pages[i].strokes) {
               stroke.pageIndex = i;
             }
-            for (EditorImage image in widget.coreInfo.pages[i].images) {
+            for (final image in widget.coreInfo.pages[i].images) {
               image.pageIndex = i;
             }
           }

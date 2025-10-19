@@ -146,7 +146,7 @@ class _SettingsPageState extends State<SettingsPage> {
     final cupertino =
         platform == TargetPlatform.iOS || platform == TargetPlatform.macOS;
 
-    final bool requiresManualUpdates = FlavorConfig.appStore.isEmpty;
+    final requiresManualUpdates = FlavorConfig.appStore.isEmpty;
 
     final IconData materialIcon = switch (defaultTargetPlatform) {
       TargetPlatform.windows => FontAwesomeIcons.windows,
@@ -202,8 +202,8 @@ class _SettingsPageState extends State<SettingsPage> {
                   options: [
                     ToggleButtonsOption('', Text(t.settings.systemLanguage)),
                     ...AppLocaleUtils.supportedLocales.map((locale) {
-                      final String localeCode = locale.toLanguageTag();
-                      String? localeName = localeNames[localeCode];
+                      final localeCode = locale.toLanguageTag();
+                      final localeName = localeNames[localeCode];
                       assert(
                         localeName != null,
                         'Missing locale name for $localeCode',

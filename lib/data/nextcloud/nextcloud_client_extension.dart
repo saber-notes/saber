@@ -27,21 +27,21 @@ extension NextcloudClientExtension on NextcloudClient {
 
   static const String appRootDirectoryPrefix =
       FileManager.appRootDirectoryPrefix;
-  static const String configFileName = 'config.sbc';
-  static final PathUri configFileUri = PathUri.parse(
+  static const configFileName = 'config.sbc';
+  static final configFileUri = PathUri.parse(
     '$appRootDirectoryPrefix/$configFileName',
   );
 
   static const _utf8Decoder = Utf8Decoder(allowMalformed: true);
 
-  static const String reproducibleSalt = r'8MnPs64@R&mF8XjWeLrD';
+  static const reproducibleSalt = r'8MnPs64@R&mF8XjWeLrD';
 
   static NextcloudClient? withSavedDetails() {
     if (!stows.loggedIn) return null;
 
-    String url = stows.url.value;
-    String username = stows.username.value;
-    String ncPassword = stows.ncPassword.value;
+    final url = stows.url.value;
+    final username = stows.username.value;
+    final ncPassword = stows.ncPassword.value;
 
     final client = NextcloudClient(
       url.isNotEmpty ? Uri.parse(url) : defaultNextcloudUri,
@@ -102,8 +102,8 @@ extension NextcloudClientExtension on NextcloudClient {
 
   /// Uploads the given [config] to Nextcloud
   Future<void> setConfig(Map<String, String> config) async {
-    String json = jsonEncode(config);
-    Uint8List file = Uint8List.fromList(json.codeUnits);
+    final json = jsonEncode(config);
+    final file = Uint8List.fromList(json.codeUnits);
     try {
       await webdav.mkcol(PathUri.parse(appRootDirectoryPrefix));
     } on DynamiteStatusCodeException catch (e) {
@@ -118,9 +118,9 @@ extension NextcloudClientExtension on NextcloudClient {
     final Map<String, String> config = await getConfig();
     if (config.containsKey(stows.key.key) && config.containsKey(stows.iv.key)) {
       final IV iv = IV.fromBase64(config[stows.iv.key]!);
-      final String encryptedKey = config[stows.key.key]!;
+      final encryptedKey = config[stows.key.key]!;
       try {
-        final String key = encrypter.decrypt64(encryptedKey, iv: iv);
+        final key = encrypter.decrypt64(encryptedKey, iv: iv);
         stows.key.value = key;
         stows.iv.value = iv.base64;
         return key;

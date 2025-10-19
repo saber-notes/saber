@@ -7,7 +7,7 @@ import 'package:saber/pages/editor/editor.dart';
 class Whiteboard extends StatelessWidget {
   const Whiteboard({super.key});
 
-  static const String filePath = '/_whiteboard';
+  static const filePath = '/_whiteboard';
 
   static bool needsToAutoClearWhiteboard =
       stows.autoClearWhiteboardOnExit.value;

@@ -83,12 +83,8 @@ class Toolbar extends StatefulWidget {
   @override
   State<Toolbar> createState() => _ToolbarState();
 
-  static const EdgeInsets _buttonPaddingHorizontal = EdgeInsets.symmetric(
-    horizontal: 6,
-  );
-  static const EdgeInsets _buttonPaddingVertical = EdgeInsets.symmetric(
-    vertical: 6,
-  );
+  static const _buttonPaddingHorizontal = EdgeInsets.symmetric(horizontal: 6);
+  static const _buttonPaddingVertical = EdgeInsets.symmetric(vertical: 6);
 }
 
 class _ToolbarState extends State<Toolbar> {
@@ -176,10 +172,11 @@ class _ToolbarState extends State<Toolbar> {
 
   @override
   Widget build(BuildContext context) {
-    var colorScheme = ColorScheme.of(context);
+    final colorScheme = ColorScheme.of(context);
 
     final brightness = Theme.brightnessOf(context);
-    bool invert = stows.editorAutoInvert.value && brightness == Brightness.dark;
+    final invert =
+        stows.editorAutoInvert.value && brightness == Brightness.dark;
 
     final isToolbarVertical =
         stows.editorToolbarAlignment.value == AxisDirection.left ||
@@ -190,8 +187,8 @@ class _ToolbarState extends State<Toolbar> {
         : Toolbar._buttonPaddingHorizontal;
 
     final currentColor = switch (widget.currentTool) {
-      Pen pen => pen.color,
-      Select select => select.getDominantStrokeColor(),
+      final Pen pen => pen.color,
+      final Select select => select.getDominantStrokeColor(),
       _ => null,
     };
 

@@ -23,7 +23,7 @@ class ResponsiveNavbar extends StatefulWidget {
   @override
   State<ResponsiveNavbar> createState() => _ResponsiveNavbarState();
 
-  static bool isLargeScreen = true;
+  static var isLargeScreen = true;
 }
 
 class _ResponsiveNavbarState extends State<ResponsiveNavbar> {

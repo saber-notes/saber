@@ -22,7 +22,7 @@ class ColorOption extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var colorScheme = ColorScheme.of(context);
+    final colorScheme = ColorScheme.of(context);
     return Tooltip(
       message: tooltip ?? '',
       child: Padding(
@@ -64,7 +64,7 @@ class ColorOptionSeparatorIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var colorScheme = ColorScheme.of(context);
+    final colorScheme = ColorScheme.of(context);
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       child: Icon(

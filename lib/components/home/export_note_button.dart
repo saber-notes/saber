@@ -21,14 +21,14 @@ class ExportNoteButton extends StatefulWidget {
 
 class _ExportNoteButtonState extends State<ExportNoteButton> {
   final ValueNotifier<bool> isDialOpen = ValueNotifier(false);
-  bool _currentlyExporting = false;
+  var _currentlyExporting = false;
 
   Future exportFile(List<String> selectedFiles, bool exportPdf) async {
     setState(() => _currentlyExporting = true);
 
     final files = <ArchiveFile>[];
-    for (String filePath in selectedFiles) {
-      EditorCoreInfo coreInfo = await EditorCoreInfo.loadFromFilePath(filePath);
+    for (final filePath in selectedFiles) {
+      final coreInfo = await EditorCoreInfo.loadFromFilePath(filePath);
       if (!mounted) break;
 
       final fileNameWithoutExtension = coreInfo.filePath.substring(

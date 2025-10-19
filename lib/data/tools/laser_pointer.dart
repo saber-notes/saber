@@ -11,7 +11,7 @@ import 'package:saber/data/tools/pen.dart';
 class LaserPointer extends Tool {
   LaserPointer._();
 
-  static final LaserPointer _currentLaserPointer = LaserPointer._();
+  static final _currentLaserPointer = LaserPointer._();
   static LaserPointer get currentLaserPointer => _currentLaserPointer;
 
   @override
@@ -28,12 +28,12 @@ class LaserPointer extends Tool {
   List<Duration> strokePointDelays = [];
 
   /// Stopwatch used to find the time elapsed since the last point.
-  final Stopwatch _stopwatch = Stopwatch();
+  final _stopwatch = Stopwatch();
 
   /// Whether the user is currently drawing with the laser.
   /// This is used to prevent strokes fading out until the user
   /// has finished drawing.
-  static bool isDrawing = false;
+  static var isDrawing = false;
 
   void onDragStart(Offset position, EditorPage page, int pageIndex) {
     isDrawing = true;

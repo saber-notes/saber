@@ -41,7 +41,7 @@ void _testStrokeSvg(Stroke stroke) {
       .map((e) => Offset(e[0], e[1]))
       .toList();
   final center = stroke.points.first;
-  for (int i = 0; i < stroke.points.length; i++) {
+  for (var i = 0; i < stroke.points.length; i++) {
     final svgPoint = svgPoints[i];
 
     expect(svgPoint.dx, greaterThanOrEqualTo(center.x - _penSize));

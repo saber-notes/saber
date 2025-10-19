@@ -22,7 +22,7 @@ import 'package:stow_plain/stow_plain.dart';
 import 'package:stow_secure/stow_secure.dart';
 
 /// If false, all stows are stuck at their default values.
-bool _isOnMainIsolate = false;
+var _isOnMainIsolate = false;
 
 final stows = Stows();
 
