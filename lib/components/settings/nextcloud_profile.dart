@@ -60,8 +60,7 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
       LoginStep.waitingForPrefs => '',
       LoginStep.nc => t.login.status.loggedOut,
       LoginStep.enc ||
-      LoginStep.done =>
-        t.login.status.hi(u: stows.username.value),
+      LoginStep.done => t.login.status.hi(u: stows.username.value),
     };
     final subheading = switch (loginStep) {
       LoginStep.waitingForPrefs => '',
@@ -82,11 +81,7 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
             borderRadius: BorderRadius.circular(18),
             child: pfp == null
                 ? const _UnknownPfp(size: pfpSize)
-                : Image.memory(
-                    pfp,
-                    width: pfpSize,
-                    height: pfpSize,
-                  ),
+                : Image.memory(pfp, width: pfpSize, height: pfpSize),
           );
         },
       ),
@@ -101,34 +96,35 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
                   initialData: stows.lastStorageQuota.value,
                   builder:
                       (BuildContext context, AsyncSnapshot<Quota?> snapshot) {
-                    final Quota? quota = snapshot.data;
-                    final double? relativePercent;
-                    if (quota != null) {
-                      relativePercent = quota.relative / 100;
-                    } else {
-                      relativePercent = null;
-                    }
+                        final Quota? quota = snapshot.data;
+                        final double? relativePercent;
+                        if (quota != null) {
+                          relativePercent = quota.relative / 100;
+                        } else {
+                          relativePercent = null;
+                        }
 
-                    return Stack(
-                      alignment: Alignment.center,
-                      children: [
-                        CircularProgressIndicator(
-                          value: relativePercent,
-                          backgroundColor:
-                              colorScheme.primary.withValues(alpha: 0.1),
-                          valueColor: AlwaysStoppedAnimation<Color>(
-                            colorScheme.primary.withValues(alpha: 0.5),
-                          ),
-                          strokeWidth: 8,
-                          semanticsLabel: 'Storage usage',
-                          semanticsValue: snapshot.data != null
-                              ? '${snapshot.data}%'
-                              : null,
-                        ),
-                        Text(readableQuota(quota)),
-                      ],
-                    );
-                  },
+                        return Stack(
+                          alignment: Alignment.center,
+                          children: [
+                            CircularProgressIndicator(
+                              value: relativePercent,
+                              backgroundColor: colorScheme.primary.withValues(
+                                alpha: 0.1,
+                              ),
+                              valueColor: AlwaysStoppedAnimation<Color>(
+                                colorScheme.primary.withValues(alpha: 0.5),
+                              ),
+                              strokeWidth: 8,
+                              semanticsLabel: 'Storage usage',
+                              semanticsValue: snapshot.data != null
+                                  ? '${snapshot.data}%'
+                                  : null,
+                            ),
+                            Text(readableQuota(quota)),
+                          ],
+                        );
+                      },
                 ),
                 IconButton(
                   icon: const AdaptiveIcon(
@@ -139,7 +135,9 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
                   onPressed: () async {
                     stows.fileSyncResyncEverythingDate.value = DateTime.now();
                     final allFiles = await FileManager.getAllFiles(
-                        includeExtensions: true, includeAssets: true);
+                      includeExtensions: true,
+                      includeAssets: true,
+                    );
                     for (final file in allFiles) {
                       syncer.uploader.enqueueRel(file);
                     }

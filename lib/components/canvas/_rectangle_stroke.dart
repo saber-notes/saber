@@ -40,7 +40,8 @@ class RectangleStroke extends Stroke {
         color = Stroke.defaultColor;
       default:
         throw Exception(
-            'Invalid color value: (${json['c'].runtimeType}) ${json['c']}');
+          'Invalid color value: (${json['c'].runtimeType}) ${json['c']}',
+        );
     }
 
     return RectangleStroke(
@@ -81,19 +82,19 @@ class RectangleStroke extends Stroke {
   /// Each side has 24/N points.
   @override
   List<Offset> getPolygon(int N) => [
-        // left side
-        for (int i = 0; i < 24 / N; ++i)
-          Offset(rect.left, rect.top + rect.height * i / 24),
-        // bottom side
-        for (int i = 0; i < 24 / N; ++i)
-          Offset(rect.left + rect.width * i / 24, rect.bottom),
-        // right side
-        for (int i = 0; i < 24 / N; ++i)
-          Offset(rect.right, rect.bottom - rect.height * i / 24),
-        // top side
-        for (int i = 0; i < 24 / N; ++i)
-          Offset(rect.right - rect.width * i / 24, rect.top),
-      ];
+    // left side
+    for (int i = 0; i < 24 / N; ++i)
+      Offset(rect.left, rect.top + rect.height * i / 24),
+    // bottom side
+    for (int i = 0; i < 24 / N; ++i)
+      Offset(rect.left + rect.width * i / 24, rect.bottom),
+    // right side
+    for (int i = 0; i < 24 / N; ++i)
+      Offset(rect.right, rect.bottom - rect.height * i / 24),
+    // top side
+    for (int i = 0; i < 24 / N; ++i)
+      Offset(rect.right - rect.width * i / 24, rect.top),
+  ];
 
   /// Returns a [Path] with four lines for each side of the rectangle.
   @override
@@ -154,12 +155,12 @@ class RectangleStroke extends Stroke {
 
   @override
   RectangleStroke copy() => RectangleStroke(
-        color: color,
-        pressureEnabled: pressureEnabled,
-        options: options.copyWith(),
-        pageIndex: pageIndex,
-        page: page,
-        penType: penType,
-        rect: rect,
-      );
+    color: color,
+    pressureEnabled: pressureEnabled,
+    options: options.copyWith(),
+    pageIndex: pageIndex,
+    page: page,
+    penType: penType,
+    rect: rect,
+  );
 }

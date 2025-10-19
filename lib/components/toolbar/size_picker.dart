@@ -4,11 +4,7 @@ import 'package:saber/data/tools/pen.dart';
 import 'package:saber/i18n/strings.g.dart';
 
 class SizePicker extends StatefulWidget {
-  const SizePicker({
-    super.key,
-    required this.axis,
-    required this.pen,
-  });
+  const SizePicker({super.key, required this.axis, required this.pen});
 
   final Axis axis;
   final Pen pen;
@@ -97,19 +93,19 @@ class _SizeSlider extends StatelessWidget {
     return GestureDetector(
       onHorizontalDragStart: axis == Axis.horizontal
           ? (details) =>
-              onDrag(details.localPosition.dx / SizePicker.largeLength)
+                onDrag(details.localPosition.dx / SizePicker.largeLength)
           : null,
       onHorizontalDragUpdate: axis == Axis.horizontal
           ? (details) =>
-              onDrag(details.localPosition.dx / SizePicker.largeLength)
+                onDrag(details.localPosition.dx / SizePicker.largeLength)
           : null,
       onVerticalDragStart: axis == Axis.vertical
           ? (details) =>
-              onDrag(details.localPosition.dy / SizePicker.largeLength)
+                onDrag(details.localPosition.dy / SizePicker.largeLength)
           : null,
       onVerticalDragUpdate: axis == Axis.vertical
           ? (details) =>
-              onDrag(details.localPosition.dy / SizePicker.largeLength)
+                onDrag(details.localPosition.dy / SizePicker.largeLength)
           : null,
       child: RotatedBox(
         quarterTurns: axis == Axis.horizontal ? 0 : 1,

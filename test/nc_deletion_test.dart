@@ -44,8 +44,12 @@ void main() {
     );
 
     // Create a file (to delete later)
-    await FileManager.writeFile(filePathLocal, fileContent,
-        awaitWrite: true, alsoUpload: false);
+    await FileManager.writeFile(
+      filePathLocal,
+      fileContent,
+      awaitWrite: true,
+      alsoUpload: false,
+    );
 
     // Upload file to Nextcloud
     syncer.uploader.clearPending();
@@ -69,11 +73,13 @@ void main() {
 
     // Check that the file is empty on Nextcloud
     final webDavFile = await webdav
-        .propfind(PathUri.parse(syncFile.remotePath),
-            depth: WebDavDepth.zero,
-            prop: const WebDavPropWithoutValues.fromBools(
-              davGetcontentlength: true,
-            ))
+        .propfind(
+          PathUri.parse(syncFile.remotePath),
+          depth: WebDavDepth.zero,
+          prop: const WebDavPropWithoutValues.fromBools(
+            davGetcontentlength: true,
+          ),
+        )
         .then((multistatus) => multistatus.toWebDavFiles().single);
     expect(webDavFile.size, 0, reason: 'File should be empty on Nextcloud');
 

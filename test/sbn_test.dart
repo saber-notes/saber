@@ -35,21 +35,20 @@ void main() {
     FlavorConfig.setup();
     SharedPreferences.setMockInitialValues({});
 
-    setUpAll(() => Future.wait([
-          FileManager.init(),
-          PencilShader.init(),
-        ]));
+    setUpAll(() => Future.wait([FileManager.init(), PencilShader.init()]));
 
     const laserSbn = 'v17_laser_pointer.sbn2';
-    final sbnExamples = Directory('test/sbn_examples/')
-        .listSync()
-        .whereType<File>()
-        .where(
-          (file) => file.path.endsWith('.sbn') || file.path.endsWith('.sbn2'),
-        )
-        .map((file) => file.path.substring('test/sbn_examples/'.length))
-        .toList()
-      ..add(laserSbn);
+    final sbnExamples =
+        Directory('test/sbn_examples/')
+            .listSync()
+            .whereType<File>()
+            .where(
+              (file) =>
+                  file.path.endsWith('.sbn') || file.path.endsWith('.sbn2'),
+            )
+            .map((file) => file.path.substring('test/sbn_examples/'.length))
+            .toList()
+          ..add(laserSbn);
 
     for (final sbnName in sbnExamples) {
       group(sbnName, () {
@@ -82,8 +81,9 @@ void main() {
           }
           if (sbnName == laserSbn) {
             final page = coreInfo.pages.first;
-            page.laserStrokes
-                .addAll(page.strokes.map(LaserStroke.convertStroke));
+            page.laserStrokes.addAll(
+              page.strokes.map(LaserStroke.convertStroke),
+            );
             page.strokes.clear();
           }
           if (coreInfo.pages.length > 1 && coreInfo.pages.last.isEmpty) {
@@ -96,17 +96,21 @@ void main() {
         });
 
         testGoldens('(Light)', (tester) async {
-          await tester.runAsync(() => _precacheImages(
-                context: tester.binding.rootElement!,
-                page: page,
-              ));
+          await tester.runAsync(
+            () => _precacheImages(
+              context: tester.binding.rootElement!,
+              page: page,
+            ),
+          );
           await tester.loadFonts(overriddenFonts: saberSansSerifFontFallbacks);
-          await tester.pumpWidget(_buildCanvas(
-            brightness: Brightness.light,
-            path: path,
-            page: page,
-            coreInfo: coreInfo,
-          ));
+          await tester.pumpWidget(
+            _buildCanvas(
+              brightness: Brightness.light,
+              path: path,
+              page: page,
+              coreInfo: coreInfo,
+            ),
+          );
           await tester.pumpAndSettle();
 
           tester.useFuzzyComparator(allowedDiffPercent: 0.1);
@@ -117,17 +121,21 @@ void main() {
         });
 
         testGoldens('(Dark)', (tester) async {
-          await tester.runAsync(() => _precacheImages(
-                context: tester.binding.rootElement!,
-                page: page,
-              ));
+          await tester.runAsync(
+            () => _precacheImages(
+              context: tester.binding.rootElement!,
+              page: page,
+            ),
+          );
           await tester.loadFonts(overriddenFonts: saberSansSerifFontFallbacks);
-          await tester.pumpWidget(_buildCanvas(
-            brightness: Brightness.dark,
-            path: path,
-            page: page,
-            coreInfo: coreInfo,
-          ));
+          await tester.pumpWidget(
+            _buildCanvas(
+              brightness: Brightness.dark,
+              path: path,
+              page: page,
+              coreInfo: coreInfo,
+            ),
+          );
           await tester.pumpAndSettle();
 
           tester.useFuzzyComparator(allowedDiffPercent: 0.1);
@@ -138,18 +146,22 @@ void main() {
         });
 
         testGoldens('(LOD)', (tester) async {
-          await tester.runAsync(() => _precacheImages(
-                context: tester.binding.rootElement!,
-                page: page,
-              ));
+          await tester.runAsync(
+            () => _precacheImages(
+              context: tester.binding.rootElement!,
+              page: page,
+            ),
+          );
           await tester.loadFonts(overriddenFonts: saberSansSerifFontFallbacks);
-          await tester.pumpWidget(_buildCanvas(
-            brightness: Brightness.light,
-            path: path,
-            page: page,
-            coreInfo: coreInfo,
-            currentScale: double.minPositive, // Very zoomed out
-          ));
+          await tester.pumpWidget(
+            _buildCanvas(
+              brightness: Brightness.light,
+              path: path,
+              page: page,
+              coreInfo: coreInfo,
+              currentScale: double.minPositive, // Very zoomed out
+            ),
+          );
           await tester.pumpAndSettle();
 
           tester.useFuzzyComparator(allowedDiffPercent: 0.1);
@@ -161,8 +173,9 @@ void main() {
 
         if (sbnName != laserSbn) {
           bool hasGhostscript = true;
-          final gsCheck =
-              Process.runSync('gs', ['--version'], runInShell: true);
+          final gsCheck = Process.runSync('gs', [
+            '--version',
+          ], runInShell: true);
           if (gsCheck.exitCode != 0) {
             debugPrint('Please install Ghostscript to test PDF exports.');
             hasGhostscript = false;
@@ -182,22 +195,28 @@ void main() {
             });
 
             // Convert PDF to PNG with Ghostscript
-            await tester.runAsync(() => Process.run(
-                'gs', ['-sDEVICE=pngalpha', '-o', pngFile.path, pdfFile.path],
-                runInShell: true));
+            await tester.runAsync(
+              () => Process.run('gs', [
+                '-sDEVICE=pngalpha',
+                '-o',
+                pngFile.path,
+                pdfFile.path,
+              ], runInShell: true),
+            );
 
             // Load PNG from disk
             final pdfImage = await tester.runAsync(() => pngFile.readAsBytes());
 
             // Precache image and render it
             final pdfImageProvider = MemoryImage(pdfImage!);
-            await tester
-                .runAsync(() => precacheImage(pdfImageProvider, context));
-            await tester.pumpWidget(Center(
-              child: RepaintBoundary(
-                child: Image(image: pdfImageProvider),
+            await tester.runAsync(
+              () => precacheImage(pdfImageProvider, context),
+            );
+            await tester.pumpWidget(
+              Center(
+                child: RepaintBoundary(child: Image(image: pdfImageProvider)),
               ),
-            ));
+            );
 
             tester.useFuzzyComparator(allowedDiffPercent: 0.1);
             await expectLater(
@@ -217,40 +236,39 @@ void main() {
       addTearDown(() => EditorImage.shouldLoadOutImmediately = false);
 
       // copy the file to the temporary directory
-      await tester.runAsync(() => Future.wait([
-            FileManager.getFile('/$path')
-                .create(recursive: true)
-                .then((file) => File(path).copy(file.path)),
-            FileManager.getFile('/$path.0')
-                .create(recursive: true)
-                .then((file) => File('$path.0').copy(file.path)),
-          ]));
+      await tester.runAsync(
+        () => Future.wait([
+          FileManager.getFile(
+            '/$path',
+          ).create(recursive: true).then((file) => File(path).copy(file.path)),
+          FileManager.getFile('/$path.0')
+              .create(recursive: true)
+              .then((file) => File('$path.0').copy(file.path)),
+        ]),
+      );
 
-      final coreInfo =
-          await tester.runAsync(() => EditorCoreInfo.loadFromFilePath(
-                '/$pathWithoutExtension',
-              ));
+      final coreInfo = await tester.runAsync(
+        () => EditorCoreInfo.loadFromFilePath('/$pathWithoutExtension'),
+      );
       if (coreInfo == null) fail('Failed to load core info');
 
-      final sba = await tester.runAsync(() => coreInfo.saveToSba(
-            currentPageIndex: null,
-          ));
+      final sba = await tester.runAsync(
+        () => coreInfo.saveToSba(currentPageIndex: null),
+      );
       if (sba == null) fail('Failed to save SBA');
 
       final sbaFile = File('$pathWithoutExtension.sba');
       await tester.runAsync(() => sbaFile.writeAsBytes(sba));
       addTearDown(sbaFile.delete);
 
-      final importedPath = await tester.runAsync(() => FileManager.importFile(
-            sbaFile.path,
-            null,
-          ));
+      final importedPath = await tester.runAsync(
+        () => FileManager.importFile(sbaFile.path, null),
+      );
       if (importedPath == null) fail('Failed to import SBA');
 
-      final importedCoreInfo =
-          await tester.runAsync(() => EditorCoreInfo.loadFromFilePath(
-                importedPath,
-              ));
+      final importedCoreInfo = await tester.runAsync(
+        () => EditorCoreInfo.loadFromFilePath(importedPath),
+      );
       if (importedCoreInfo == null) fail('Failed to load imported core info');
 
       if (importedCoreInfo.pages.length > 1 &&
@@ -258,17 +276,21 @@ void main() {
         importedCoreInfo.pages.removeLast();
       }
 
-      await tester.runAsync(() => _precacheImages(
-            context: tester.binding.rootElement!,
-            page: importedCoreInfo.pages.first,
-          ));
+      await tester.runAsync(
+        () => _precacheImages(
+          context: tester.binding.rootElement!,
+          page: importedCoreInfo.pages.first,
+        ),
+      );
       await tester.loadFonts(overriddenFonts: saberSansSerifFontFallbacks);
-      await tester.pumpWidget(_buildCanvas(
-        brightness: Brightness.light,
-        path: importedPath,
-        page: importedCoreInfo.pages.first,
-        coreInfo: importedCoreInfo,
-      ));
+      await tester.pumpWidget(
+        _buildCanvas(
+          brightness: Brightness.light,
+          path: importedPath,
+          page: importedCoreInfo.pages.first,
+          coreInfo: importedCoreInfo,
+        ),
+      );
       await tester.pumpAndSettle();
 
       tester.useFuzzyComparator(allowedDiffPercent: 0.1);
@@ -282,27 +304,31 @@ void main() {
 
 /// Provides a [BuildContext] with the necessary inherited widgets
 Future<BuildContext> _getBuildContext(
-    WidgetTester tester, Size pageSize) async {
+  WidgetTester tester,
+  Size pageSize,
+) async {
   final completer = Completer<BuildContext>();
 
-  await tester.pumpWidget(TranslationProvider(
-    child: MaterialApp(
-      home: Center(
-        child: FittedBox(
-          child: SizedBox(
-            width: pageSize.width,
-            height: pageSize.height,
-            child: Builder(
-              builder: (context) {
-                completer.complete(context);
-                return const SizedBox();
-              },
+  await tester.pumpWidget(
+    TranslationProvider(
+      child: MaterialApp(
+        home: Center(
+          child: FittedBox(
+            child: SizedBox(
+              width: pageSize.width,
+              height: pageSize.height,
+              child: Builder(
+                builder: (context) {
+                  completer.complete(context);
+                  return const SizedBox();
+                },
+              ),
             ),
           ),
         ),
       ),
     ),
-  ));
+  );
 
   return completer.future;
 }
@@ -316,9 +342,7 @@ Widget _buildCanvas({
 }) {
   return TranslationProvider(
     child: MaterialApp(
-      theme: ThemeData(
-        brightness: brightness,
-      ),
+      theme: ThemeData(brightness: brightness),
       home: Center(
         child: FittedBox(
           child: SizedBox(
@@ -356,15 +380,15 @@ Future<void> _precacheImages({
     for (final image in page.images)
       if (image is PngEditorImage)
         if (image.imageProvider is FileImage)
-          (image.imageProvider as FileImage)
-              .file
-              .readAsBytes()
-              .then((bytes) => image.imageProvider = MemoryImage(bytes)),
+          (image.imageProvider as FileImage).file.readAsBytes().then(
+            (bytes) => image.imageProvider = MemoryImage(bytes),
+          ),
     if (backgroundImage is PngEditorImage)
       if (backgroundImage.imageProvider is FileImage)
         (backgroundImage.imageProvider as FileImage).file.readAsBytes().then(
-            (bytes) => (page.backgroundImage as PngEditorImage).imageProvider =
-                MemoryImage(bytes)),
+          (bytes) => (page.backgroundImage as PngEditorImage).imageProvider =
+              MemoryImage(bytes),
+        ),
   ]);
 
   // Precache images

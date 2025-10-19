@@ -18,8 +18,9 @@ void main() {
     setUp(() async {
       events.clear();
       await subscription?.cancel();
-      subscription =
-          FileManager.fileWriteStream.stream.listen((FileOperation event) {
+      subscription = FileManager.fileWriteStream.stream.listen((
+        FileOperation event,
+      ) {
         events.add(event);
       });
     });

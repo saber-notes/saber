@@ -14,18 +14,13 @@ class AdaptiveButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
-    bool cupertino = theme.platform == TargetPlatform.iOS ||
+    bool cupertino =
+        theme.platform == TargetPlatform.iOS ||
         theme.platform == TargetPlatform.macOS;
     if (cupertino) {
-      return CupertinoButton(
-        onPressed: onPressed,
-        child: child,
-      );
+      return CupertinoButton(onPressed: onPressed, child: child);
     } else {
-      return ElevatedButton(
-        onPressed: onPressed,
-        child: child,
-      );
+      return ElevatedButton(onPressed: onPressed, child: child);
     }
   }
 }

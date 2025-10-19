@@ -130,7 +130,8 @@ class OrderedAssetCache {
       return item.file.readAsBytes();
     } else {
       throw Exception(
-          'OrderedAssetCache.getBytes: unknown type ${item.runtimeType}');
+        'OrderedAssetCache.getBytes: unknown type ${item.runtimeType}',
+      );
     }
   }
 }

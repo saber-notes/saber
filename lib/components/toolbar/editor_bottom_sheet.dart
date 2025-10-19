@@ -96,12 +96,14 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
                     children: [
                       const Icon(Icons.cleaning_services),
                       const SizedBox(width: 8),
-                      Text(t.editor.menu.clearPage(
-                        page: widget.currentPageIndex == null
-                            ? '?'
-                            : widget.currentPageIndex! + 1,
-                        totalPages: widget.coreInfo.pages.length,
-                      )),
+                      Text(
+                        t.editor.menu.clearPage(
+                          page: widget.currentPageIndex == null
+                              ? '?'
+                              : widget.currentPageIndex! + 1,
+                          totalPages: widget.coreInfo.pages.length,
+                        ),
+                      ),
                     ],
                   ),
                 ),
@@ -147,7 +149,8 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
                           CanvasBackgroundPreview(
                             selected: backgroundImage.backgroundFit == boxFit,
                             invert: widget.invert,
-                            backgroundColor: widget.coreInfo.backgroundColor ??
+                            backgroundColor:
+                                widget.coreInfo.backgroundColor ??
                                 InnerCanvas.defaultBackgroundColor,
                             backgroundPattern:
                                 widget.coreInfo.backgroundPattern,
@@ -207,10 +210,12 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
                     child: Stack(
                       children: [
                         CanvasBackgroundPreview(
-                          selected: widget.coreInfo.backgroundPattern ==
+                          selected:
+                              widget.coreInfo.backgroundPattern ==
                               backgroundPattern,
                           invert: widget.invert,
-                          backgroundColor: widget.coreInfo.backgroundColor ??
+                          backgroundColor:
+                              widget.coreInfo.backgroundColor ??
                               InnerCanvas.defaultBackgroundColor,
                           backgroundPattern: backgroundPattern,
                           backgroundImage: null, // focus on background pattern
@@ -225,7 +230,8 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
                           child: Center(
                             child: _PermanentTooltip(
                               text: CanvasBackgroundPattern.localizedName(
-                                  backgroundPattern),
+                                backgroundPattern,
+                              ),
                             ),
                           ),
                         ),
@@ -317,19 +323,21 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
             ),
             const SizedBox(height: 16),
             if (stows.loggedIn) ...[
-              StatefulBuilder(builder: (context, setState) {
-                final isWatchingServer = widget.getIsWatchingServer();
-                return CheckboxListTile.adaptive(
-                  value: isWatchingServer,
-                  title: Text(t.editor.menu.watchServer),
-                  subtitle: isWatchingServer
-                      ? Text(t.editor.menu.watchServerReadOnly)
-                      : null,
-                  onChanged: (value) => setState(() {
-                    widget.setIsWatchingServer(value!);
-                  }),
-                );
-              }),
+              StatefulBuilder(
+                builder: (context, setState) {
+                  final isWatchingServer = widget.getIsWatchingServer();
+                  return CheckboxListTile.adaptive(
+                    value: isWatchingServer,
+                    title: Text(t.editor.menu.watchServer),
+                    subtitle: isWatchingServer
+                        ? Text(t.editor.menu.watchServerReadOnly)
+                        : null,
+                    onChanged: (value) => setState(() {
+                      widget.setIsWatchingServer(value!);
+                    }),
+                  );
+                },
+              ),
               const SizedBox(height: 16),
             ],
           ],
@@ -362,9 +370,7 @@ class _PermanentTooltip extends StatelessWidget {
           text,
           textAlign: TextAlign.center,
           textWidthBasis: TextWidthBasis.longestLine,
-          style: TextStyle(
-            color: colorScheme.onSurface,
-          ),
+          style: TextStyle(color: colorScheme.onSurface),
         ),
       ),
     );

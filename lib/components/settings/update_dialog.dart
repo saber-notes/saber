@@ -39,7 +39,7 @@ class _UpdateDialogState extends State<UpdateDialog> {
     if (!mounted) return;
     downloadNotAvailableYet =
         UpdateManager.platformFileRegex.containsKey(defaultTargetPlatform) &&
-            directDownloadLink == null;
+        directDownloadLink == null;
 
     englishChangelog = await UpdateManager.getChangelog();
     if (!mounted) return;
@@ -78,17 +78,16 @@ class _UpdateDialogState extends State<UpdateDialog> {
           if (downloadNotAvailableYet)
             Text(
               t.update.downloadNotAvailableYet,
-              style: TextStyle(
-                color: ColorScheme.of(context).error,
-              ),
+              style: TextStyle(color: ColorScheme.of(context).error),
             ),
         ],
       ),
       actions: [
         CupertinoDialogAction(
           onPressed: () => Navigator.pop(context),
-          child:
-              Text(MaterialLocalizations.of(context).modalBarrierDismissLabel),
+          child: Text(
+            MaterialLocalizations.of(context).modalBarrierDismissLabel,
+          ),
         ),
         CupertinoDialogAction(
           onPressed: (directDownloadStarted || downloadNotAvailableYet)
@@ -99,8 +98,9 @@ class _UpdateDialogState extends State<UpdateDialog> {
                     launchUrl(AppInfo.releasesUrl);
                     return;
                   }
-                  UpdateManager.directlyDownloadUpdate(directDownloadLink!)
-                      .then((_) {
+                  UpdateManager.directlyDownloadUpdate(
+                    directDownloadLink!,
+                  ).then((_) {
                     directDownloadStarted = false;
                     if (mounted) setState(() {});
                   });

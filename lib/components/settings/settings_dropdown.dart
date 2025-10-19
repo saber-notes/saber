@@ -15,8 +15,10 @@ class SettingsDropdown<T> extends StatefulWidget {
     required this.pref,
     required this.options,
     this.afterChange,
-  }) : assert(icon == null || iconBuilder == null,
-            'Cannot set both icon and iconBuilder');
+  }) : assert(
+         icon == null || iconBuilder == null,
+         'Cannot set both icon and iconBuilder',
+       );
 
   final String title;
   final String? subtitle;
@@ -55,7 +57,8 @@ class _SettingsDropdownState<T> extends State<SettingsDropdown<T>> {
     if (widget.indexOf(widget.pref.value) == null) {
       if (kDebugMode)
         throw Exception(
-            'SettingsDropdown (${widget.pref.key}): Value ${widget.pref.value} is not in the list of values, set it to ${widget.options.first.value}?');
+          'SettingsDropdown (${widget.pref.key}): Value ${widget.pref.value} is not in the list of values, set it to ${widget.options.first.value}?',
+        );
       widget.pref.value = widget.options.first.value;
     }
 
@@ -86,15 +89,19 @@ class _SettingsDropdownState<T> extends State<SettingsDropdown<T>> {
                 : null,
           ),
         ),
-        subtitle:
-            Text(widget.subtitle ?? '', style: const TextStyle(fontSize: 13)),
+        subtitle: Text(
+          widget.subtitle ?? '',
+          style: const TextStyle(fontSize: 13),
+        ),
         trailing: YaruPopupMenuButton<T>(
           initialValue: widget.pref.value,
           onSelected: (value) => widget.pref.value = value,
-          style: OutlinedButtonTheme.of(context).style ??
+          style:
+              OutlinedButtonTheme.of(context).style ??
               OutlinedButton.styleFrom(
                 shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadiusGeometry.circular(8)),
+                  borderRadius: BorderRadiusGeometry.circular(8),
+                ),
               ),
           itemBuilder: (context) => [
             for (final option in widget.options)

@@ -6,16 +6,12 @@ import 'package:perfect_freehand/perfect_freehand.dart';
 
 extension PointExtensions on PointVector {
   @Deprecated(
-      'Use fromBsonBinary instead; fromJson is only for backward compatibility')
+    'Use fromBsonBinary instead; fromJson is only for backward compatibility',
+  )
   static Point fromJson({
     required Map<String, dynamic> json,
     Offset offset = Offset.zero,
-  }) =>
-      Point(
-        json['x'] + offset.dx,
-        json['y'] + offset.dy,
-        json['p'],
-      );
+  }) => Point(json['x'] + offset.dx, json['y'] + offset.dy, json['p']);
 
   static PointVector fromBsonBinary({
     required BsonBinary json,
@@ -38,9 +34,6 @@ extension PointExtensions on PointVector {
     return BsonBinary.from(point.buffer.asUint8List());
   }
 
-  PointVector operator +(Offset offset) => PointVector(
-        x + offset.dx,
-        y + offset.dy,
-        pressure,
-      );
+  PointVector operator +(Offset offset) =>
+      PointVector(x + offset.dx, y + offset.dy, pressure);
 }

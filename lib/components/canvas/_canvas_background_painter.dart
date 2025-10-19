@@ -122,11 +122,7 @@ class CanvasBackgroundPainter extends CustomPainter {
       case CanvasBackgroundPattern.dots:
         for (double y = lineHeight * 2; y <= size.height; y += lineHeight) {
           for (double x = 0; x <= size.width; x += lineHeight) {
-            yield PatternElement(
-              Offset(x, y),
-              Offset(x, y),
-              isLine: false,
-            );
+            yield PatternElement(Offset(x, y), Offset(x, y), isLine: false);
           }
         }
       case CanvasBackgroundPattern.staffs:
@@ -135,9 +131,11 @@ class CanvasBackgroundPainter extends CustomPainter {
         final staffHeight = lineHeight * staffSpaces;
         final staffSpacing = lineHeight * 3;
 
-        for (double topOfStaff = staffSpacing.toDouble() - lineHeight;
-            topOfStaff + staffHeight < size.height;
-            topOfStaff += staffHeight + staffSpacing) {
+        for (
+          double topOfStaff = staffSpacing.toDouble() - lineHeight;
+          topOfStaff + staffHeight < size.height;
+          topOfStaff += staffHeight + staffSpacing
+        ) {
           // horizontal lines
           for (int line = 0; line < staffSpaces + 1; line++) {
             yield PatternElement(

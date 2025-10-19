@@ -38,7 +38,7 @@ class CanvasGestureDetector extends StatefulWidget {
     required this.isTextEditing,
     TransformationController? transformationController,
   }) : _transformationController =
-            transformationController ?? TransformationController();
+           transformationController ?? TransformationController();
 
   final String filePath;
 
@@ -50,7 +50,7 @@ class CanvasGestureDetector extends StatefulWidget {
 
   /// Called when the pressure of the stylus changes
   final void Function(PointerDeviceKind kind, double? pressure)
-      updatePointerData;
+  updatePointerData;
   final VoidCallback onHovering;
   final VoidCallback onHoveringEnd;
   final ValueChanged<bool> onStylusButtonChanged;
@@ -62,7 +62,7 @@ class CanvasGestureDetector extends StatefulWidget {
   final int? initialPageIndex;
   final Widget Function(BuildContext context, int pageIndex) pageBuilder;
   final Widget Function(BuildContext context, int pageIndex)
-      placeholderPageBuilder;
+  placeholderPageBuilder;
 
   final bool Function() isTextEditing;
 
@@ -159,13 +159,15 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
   /// Otherwise, panning can be done in any (i.e. diagonal) direction.
   late bool axisAlignedPanLock = stows.lastAxisAlignedPanLock.value;
 
-  void zoomIn() => widget._transformationController.value = setZoom(
+  void zoomIn() => widget._transformationController.value =
+      setZoom(
         scaleDelta: 0.1,
         transformation: widget._transformationController.value,
         containerBounds: containerBounds,
       ) ??
       widget._transformationController.value;
-  void zoomOut() => widget._transformationController.value = setZoom(
+  void zoomOut() => widget._transformationController.value =
+      setZoom(
         scaleDelta: -0.1,
         transformation: widget._transformationController.value,
         containerBounds: containerBounds,
@@ -190,7 +192,7 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
     );
     final translation =
         (transformation.getTranslation() - center) * (newScale / oldScale) +
-            center;
+        center;
 
     return Matrix4.translation(translation)
       ..scaleByDouble(newScale, newScale, newScale, 1);
@@ -243,34 +245,50 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
   late Keybinding _ctrlPlus, _ctrlEquals, _ctrlMinus;
   late Keybinding _leftKey, _rightKey, _upKey, _downKey;
   void _assignKeybindings() {
-    _ctrlPlus = Keybinding([KeyCode.ctrl, KeyCode.from(LogicalKeyboardKey.add)],
-        inclusive: true);
-    _ctrlEquals = Keybinding(
-        [KeyCode.ctrl, KeyCode.from(LogicalKeyboardKey.equal)],
-        inclusive: true);
-    _ctrlMinus = Keybinding(
-        [KeyCode.ctrl, KeyCode.from(LogicalKeyboardKey.minus)],
-        inclusive: true);
+    _ctrlPlus = Keybinding([
+      KeyCode.ctrl,
+      KeyCode.from(LogicalKeyboardKey.add),
+    ], inclusive: true);
+    _ctrlEquals = Keybinding([
+      KeyCode.ctrl,
+      KeyCode.from(LogicalKeyboardKey.equal),
+    ], inclusive: true);
+    _ctrlMinus = Keybinding([
+      KeyCode.ctrl,
+      KeyCode.from(LogicalKeyboardKey.minus),
+    ], inclusive: true);
     Keybinder.bind(_ctrlPlus, zoomIn);
     Keybinder.bind(_ctrlEquals, zoomIn);
     Keybinder.bind(_ctrlMinus, zoomOut);
 
-    _leftKey = Keybinding([KeyCode.from(LogicalKeyboardKey.arrowLeft)],
-        inclusive: true);
-    _rightKey = Keybinding([KeyCode.from(LogicalKeyboardKey.arrowRight)],
-        inclusive: true);
-    _upKey =
-        Keybinding([KeyCode.from(LogicalKeyboardKey.arrowUp)], inclusive: true);
-    _downKey = Keybinding([KeyCode.from(LogicalKeyboardKey.arrowDown)],
-        inclusive: true);
+    _leftKey = Keybinding([
+      KeyCode.from(LogicalKeyboardKey.arrowLeft),
+    ], inclusive: true);
+    _rightKey = Keybinding([
+      KeyCode.from(LogicalKeyboardKey.arrowRight),
+    ], inclusive: true);
+    _upKey = Keybinding([
+      KeyCode.from(LogicalKeyboardKey.arrowUp),
+    ], inclusive: true);
+    _downKey = Keybinding([
+      KeyCode.from(LogicalKeyboardKey.arrowDown),
+    ], inclusive: true);
     Keybinder.bind(
-        _leftKey, (bool pressed) => arrowKeyPan(AxisDirection.left, pressed));
+      _leftKey,
+      (bool pressed) => arrowKeyPan(AxisDirection.left, pressed),
+    );
     Keybinder.bind(
-        _rightKey, (bool pressed) => arrowKeyPan(AxisDirection.right, pressed));
+      _rightKey,
+      (bool pressed) => arrowKeyPan(AxisDirection.right, pressed),
+    );
     Keybinder.bind(
-        _upKey, (bool pressed) => arrowKeyPan(AxisDirection.up, pressed));
+      _upKey,
+      (bool pressed) => arrowKeyPan(AxisDirection.up, pressed),
+    );
     Keybinder.bind(
-        _downKey, (bool pressed) => arrowKeyPan(AxisDirection.down, pressed));
+      _downKey,
+      (bool pressed) => arrowKeyPan(AxisDirection.down, pressed),
+    );
 
     _setupKeybindings = true;
   }
@@ -375,8 +393,12 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
     }
 
     if (adjustmentX.abs() > 0.1 || adjustmentY.abs() > 0.1) {
-      widget._transformationController.value
-          .leftTranslateByDouble(adjustmentX, adjustmentY, 0, 1);
+      widget._transformationController.value.leftTranslateByDouble(
+        adjustmentX,
+        adjustmentY,
+        0,
+        1,
+      );
     }
   }
 
@@ -386,7 +408,8 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
     final scale = transformation.approxScale;
     if (scale == 1) return;
 
-    widget._transformationController.value = setZoom(
+    widget._transformationController.value =
+        setZoom(
           scaleDelta: 1 - scale,
           transformation: transformation,
           containerBounds: containerBounds,
@@ -519,7 +542,9 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
   @override
   void dispose() {
     CanvasTransformCache.add(
-        widget.filePath, widget._transformationController.value);
+      widget.filePath,
+      widget._transformationController.value,
+    );
     widget._transformationController.removeListener(onTransformChanged);
     widget._transformationController.dispose();
     _removeKeybindings();
@@ -560,7 +585,7 @@ class _PagesBuilder extends StatelessWidget {
   final List<EditorPage> pages;
   final Widget Function(BuildContext context, int pageIndex) pageBuilder;
   final Widget Function(BuildContext context, int pageIndex)
-      placeholderPageBuilder;
+  placeholderPageBuilder;
   final Rect boundingBox;
   final double containerWidth;
 
@@ -574,8 +599,10 @@ class _PagesBuilder extends StatelessWidget {
     double topOfPage = Editor.gapBetweenPages * 2;
     for (int pageIndex = 0; pageIndex < pages.length; pageIndex++) {
       final page = pages[pageIndex];
-      final double pageWidth =
-          min(page.size.width, containerWidth); // because of FittedBox
+      final double pageWidth = min(
+        page.size.width,
+        containerWidth,
+      ); // because of FittedBox
       final double pageHeight = pageWidth / page.size.width * page.size.height;
       final double bottomOfPage = topOfPage + pageHeight;
 
@@ -585,9 +612,11 @@ class _PagesBuilder extends StatelessWidget {
       final shouldRender = isFocused || isInViewport;
 
       page.isRendered = shouldRender;
-      children.add(shouldRender
-          ? pageBuilder(context, pageIndex)
-          : placeholderPageBuilder(context, pageIndex));
+      children.add(
+        shouldRender
+            ? pageBuilder(context, pageIndex)
+            : placeholderPageBuilder(context, pageIndex),
+      );
 
       children.add(const SizedBox.square(dimension: Editor.gapBetweenPages));
 

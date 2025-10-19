@@ -7,17 +7,17 @@ import 'package:saber/i18n/strings.g.dart';
 
 class Pencil extends Pen {
   Pencil()
-      : super(
-          name: t.editor.pens.pencil,
-          sizeMin: 1,
-          sizeMax: 15,
-          sizeStep: 1,
-          icon: pencilIcon,
-          options: stows.lastPencilOptions.value,
-          pressureEnabled: true,
-          color: Color(stows.lastPencilColor.value),
-          toolId: ToolId.pencil,
-        );
+    : super(
+        name: t.editor.pens.pencil,
+        sizeMin: 1,
+        sizeMax: 15,
+        sizeStep: 1,
+        icon: pencilIcon,
+        options: stows.lastPencilOptions.value,
+        pressureEnabled: true,
+        color: Color(stows.lastPencilColor.value),
+        toolId: ToolId.pencil,
+      );
 
   static Pencil currentPencil = Pencil();
 

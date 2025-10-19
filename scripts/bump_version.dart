@@ -85,7 +85,8 @@ void parseArgs(List<String> args) {
   }
 
   print(
-      'Bumping version from ${oldVersion.buildName} to ${newVersion.buildName}');
+    'Bumping version from ${oldVersion.buildName} to ${newVersion.buildName}',
+  );
 }
 
 Future<void> findEditor() async {
@@ -155,22 +156,28 @@ Future<void> updateAllFiles() async {
   });
 
   // update download link in READMEs
-  final readmes = Directory('.').listSync().whereType<File>().where((file) =>
-      RegExp(r'README.*\.md').hasMatch(file.path.split(RegExp(r'[\\/]')).last));
+  final readmes = Directory('.').listSync().whereType<File>().where(
+    (file) => RegExp(
+      r'README.*\.md',
+    ).hasMatch(file.path.split(RegExp(r'[\\/]')).last),
+  );
   for (final readme in readmes) {
     await readme.replace({
       // e.g. [download_windows]: https://github.com/saber-notes/saber/releases/download/v0.11.0/SaberInstaller_v0.11.0.exe
-      RegExp(r'\[download_windows\]: .+'):
-          '[download_windows]: https://github.com/saber-notes/saber/releases/download/v${newVersion.buildName}/SaberInstaller_v${newVersion.buildName}.exe',
+      RegExp(
+        r'\[download_windows\]: .+',
+      ): '[download_windows]: https://github.com/saber-notes/saber/releases/download/v${newVersion.buildName}/SaberInstaller_v${newVersion.buildName}.exe',
       // e.g. [download_appimage]: https://github.com/saber-notes/saber/releases/download/v0.11.0/Saber-0.11.0-x86_64.AppImage
-      RegExp(r'\[download_appimage\]: .+'):
-          '[download_appimage]: https://github.com/saber-notes/saber/releases/download/v${newVersion.buildName}/Saber-${newVersion.buildName}-x86_64.AppImage',
+      RegExp(
+        r'\[download_appimage\]: .+',
+      ): '[download_appimage]: https://github.com/saber-notes/saber/releases/download/v${newVersion.buildName}/Saber-${newVersion.buildName}-x86_64.AppImage',
     });
   }
 
   // create metadata changelog
-  final changelogFile =
-      File('metadata/en-US/changelogs/${newVersion.buildNumber}.txt');
+  final changelogFile = File(
+    'metadata/en-US/changelogs/${newVersion.buildNumber}.txt',
+  );
   if (changelogFile.existsSync()) {
     print('Changelog file already exists');
   } else {
@@ -193,7 +200,8 @@ Future<void> updateAllFiles() async {
     }
     print('Adding a new <release> tag to flatpak file');
     final date = DateFormat('yyyy-MM-dd').format(DateTime.now().toUtc());
-    final releaseTag = '''
+    final releaseTag =
+        '''
         <release version="${newVersion.buildName}" type="development" date="$date">
             <description>
                 <ul>
@@ -217,7 +225,8 @@ Future<void> updateAllFiles() async {
   print('  - ./scripts/translate_changelogs.dart');
   print('Next steps:');
   print(
-      '  - Add the new release to the App Store: https://appstoreconnect.apple.com/apps/1671523739/appstore');
+    '  - Add the new release to the App Store: https://appstoreconnect.apple.com/apps/1671523739/appstore',
+  );
 
   // open changelog files in editor
   if (!quiet) {
@@ -254,8 +263,10 @@ extension on File {
     if (matches >= replacements.length) {
       print('Updated $path with all $matches replacements');
     } else {
-      print('Updated $path with $matches out of ${replacements.length} '
-          'replacements (${replacements.length - matches} missed)');
+      print(
+        'Updated $path with $matches out of ${replacements.length} '
+        'replacements (${replacements.length - matches} missed)',
+      );
     }
   }
 }

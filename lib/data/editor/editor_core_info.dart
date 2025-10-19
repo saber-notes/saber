@@ -67,25 +67,26 @@ class EditorCoreInfo {
   /// Stores the current page index so that it can be restored when the file is reloaded.
   int? initialPageIndex;
 
-  static final empty = EditorCoreInfo._(
-    filePath: '',
-    readOnly: true,
-    readOnlyBecauseOfVersion: false,
-    nextImageId: 0,
-    backgroundColor: null,
-    backgroundPattern: CanvasBackgroundPattern.none,
-    lineHeight: stows.lastLineHeight.value,
-    lineThickness: stows.lastLineThickness.value,
-    pages: [],
-    initialPageIndex: null,
-    assetCache: null,
-  ).._migrateOldStrokesAndImages(
-      fileVersion: sbnVersion,
-      strokesJson: null,
-      imagesJson: null,
-      inlineAssets: null,
-      onlyFirstPage: true,
-    );
+  static final empty =
+      EditorCoreInfo._(
+        filePath: '',
+        readOnly: true,
+        readOnlyBecauseOfVersion: false,
+        nextImageId: 0,
+        backgroundColor: null,
+        backgroundPattern: CanvasBackgroundPattern.none,
+        lineHeight: stows.lastLineHeight.value,
+        lineThickness: stows.lastLineThickness.value,
+        pages: [],
+        initialPageIndex: null,
+        assetCache: null,
+      ).._migrateOldStrokesAndImages(
+        fileVersion: sbnVersion,
+        strokesJson: null,
+        imagesJson: null,
+        inlineAssets: null,
+        onlyFirstPage: true,
+      );
 
   bool get isEmpty => pages.every((EditorPage page) => page.isEmpty);
   bool get isNotEmpty => !isEmpty;
@@ -94,12 +95,12 @@ class EditorCoreInfo {
     required this.filePath,
     this.readOnly =
         true, // default to read-only, until it's loaded with [loadFromFilePath]
-  })  : nextImageId = 0,
-        backgroundPattern = stows.lastBackgroundPattern.value,
-        lineHeight = stows.lastLineHeight.value,
-        lineThickness = stows.lastLineThickness.value,
-        pages = [],
-        assetCache = AssetCache();
+  }) : nextImageId = 0,
+       backgroundPattern = stows.lastBackgroundPattern.value,
+       lineHeight = stows.lastLineHeight.value,
+       lineThickness = stows.lastLineThickness.value,
+       pages = [],
+       assetCache = AssetCache();
 
   EditorCoreInfo._({
     required this.filePath,
@@ -130,16 +131,18 @@ class EditorCoreInfo {
     /// Note that inline assets aren't used anymore
     /// since sbnVersion 19.
     final List<Uint8List>? inlineAssets = (json['a'] as List?)
-        ?.map((asset) => switch (asset) {
-              (String base64) => base64Decode(base64),
-              (Uint8List bytes) => bytes,
-              (List<dynamic> bytes) => Uint8List.fromList(bytes.cast<int>()),
-              (BsonBinary bsonBinary) => bsonBinary.byteList,
-              _ => () {
-                  log.severe('Invalid asset type: ${asset.runtimeType}');
-                  return Uint8List(0);
-                }(),
-            })
+        ?.map(
+          (asset) => switch (asset) {
+            (String base64) => base64Decode(base64),
+            (Uint8List bytes) => bytes,
+            (List<dynamic> bytes) => Uint8List.fromList(bytes.cast<int>()),
+            (BsonBinary bsonBinary) => bsonBinary.byteList,
+            _ => () {
+              log.severe('Invalid asset type: ${asset.runtimeType}');
+              return Uint8List(0);
+            }(),
+          },
+        )
         .toList();
 
     final Color? backgroundColor;
@@ -152,38 +155,39 @@ class EditorCoreInfo {
         backgroundColor = null;
       default:
         throw Exception(
-            'Invalid color value: (${json['b'].runtimeType}) ${json['b']}');
+          'Invalid color value: (${json['b'].runtimeType}) ${json['b']}',
+        );
     }
 
     final assetCache = AssetCache();
 
     return EditorCoreInfo._(
-      filePath: filePath,
-      readOnly: readOnly,
-      readOnlyBecauseOfVersion: readOnlyBecauseOfVersion,
-      nextImageId: json['ni'] as int? ?? 0,
-      backgroundColor: backgroundColor,
-      backgroundPattern: () {
-        final String? pattern = json['p'] as String?;
-        for (CanvasBackgroundPattern p in CanvasBackgroundPattern.values) {
-          if (p.name == pattern) return p;
-        }
-        return CanvasBackgroundPattern.none;
-      }(),
-      lineHeight: json['l'] as int? ?? stows.lastLineHeight.value,
-      lineThickness: json['lt'] as int? ?? stows.lastLineThickness.value,
-      pages: _parsePagesJson(
-        json['z'] as List?,
-        inlineAssets: inlineAssets,
+        filePath: filePath,
         readOnly: readOnly,
-        onlyFirstPage: onlyFirstPage,
-        fileVersion: fileVersion,
-        sbnPath: filePath,
+        readOnlyBecauseOfVersion: readOnlyBecauseOfVersion,
+        nextImageId: json['ni'] as int? ?? 0,
+        backgroundColor: backgroundColor,
+        backgroundPattern: () {
+          final String? pattern = json['p'] as String?;
+          for (CanvasBackgroundPattern p in CanvasBackgroundPattern.values) {
+            if (p.name == pattern) return p;
+          }
+          return CanvasBackgroundPattern.none;
+        }(),
+        lineHeight: json['l'] as int? ?? stows.lastLineHeight.value,
+        lineThickness: json['lt'] as int? ?? stows.lastLineThickness.value,
+        pages: _parsePagesJson(
+          json['z'] as List?,
+          inlineAssets: inlineAssets,
+          readOnly: readOnly,
+          onlyFirstPage: onlyFirstPage,
+          fileVersion: fileVersion,
+          sbnPath: filePath,
+          assetCache: assetCache,
+        ),
+        initialPageIndex: json['c'] as int?,
         assetCache: assetCache,
-      ),
-      initialPageIndex: json['c'] as int?,
-      assetCache: assetCache,
-    )
+      )
       .._migrateOldStrokesAndImages(
         fileVersion: fileVersion,
         strokesJson: json['s'] as List?,
@@ -203,12 +207,12 @@ class EditorCoreInfo {
     required this.filePath,
     this.readOnly = false,
     required bool onlyFirstPage,
-  })  : nextImageId = 0,
-        backgroundPattern = CanvasBackgroundPattern.none,
-        lineHeight = stows.lastLineHeight.value,
-        lineThickness = stows.lastLineThickness.value,
-        pages = [],
-        assetCache = AssetCache() {
+  }) : nextImageId = 0,
+       backgroundPattern = CanvasBackgroundPattern.none,
+       lineHeight = stows.lastLineHeight.value,
+       lineThickness = stows.lastLineThickness.value,
+       pages = [],
+       assetCache = AssetCache() {
     _migrateOldStrokesAndImages(
       fileVersion: 0,
       strokesJson: json,
@@ -233,22 +237,26 @@ class EditorCoreInfo {
       // old format (list of [width, height])
       return pages
           .take(onlyFirstPage ? 1 : pages.length)
-          .map((dynamic page) => EditorPage(
-                width: page[0] as double?,
-                height: page[1] as double?,
-              ))
+          .map(
+            (dynamic page) => EditorPage(
+              width: page[0] as double?,
+              height: page[1] as double?,
+            ),
+          )
           .toList();
     } else {
       return pages
           .take(onlyFirstPage ? 1 : pages.length)
-          .map((dynamic page) => EditorPage.fromJson(
-                page as Map<String, dynamic>,
-                inlineAssets: inlineAssets,
-                readOnly: readOnly,
-                fileVersion: fileVersion,
-                sbnPath: sbnPath,
-                assetCache: assetCache,
-              ))
+          .map(
+            (dynamic page) => EditorPage.fromJson(
+              page as Map<String, dynamic>,
+              inlineAssets: inlineAssets,
+              readOnly: readOnly,
+              fileVersion: fileVersion,
+              sbnPath: sbnPath,
+              assetCache: assetCache,
+            ),
+          )
           .toList();
     }
   }
@@ -289,9 +297,7 @@ class EditorCoreInfo {
       for (Stroke stroke in strokes) {
         if (onlyFirstPage) assert(stroke.pageIndex == 0);
         while (stroke.pageIndex >= pages.length) {
-          pages.add(EditorPage(
-            size: fallbackPageSize,
-          ));
+          pages.add(EditorPage(size: fallbackPageSize));
         }
         pages[stroke.pageIndex].insertStroke(stroke);
       }
@@ -348,8 +354,9 @@ class EditorCoreInfo {
     if (bsonBytes != null) {
       jsonString = null;
     } else {
-      final jsonBytes =
-          await FileManager.readFile(path + Editor.extensionOldJson);
+      final jsonBytes = await FileManager.readFile(
+        path + Editor.extensionOldJson,
+      );
       jsonString = jsonBytes != null ? utf8.decode(jsonBytes) : null;
     }
 
@@ -378,12 +385,12 @@ class EditorCoreInfo {
     EditorCoreInfo coreInfo;
     try {
       EditorCoreInfo isolate() => _loadFromFileIsolate(
-            jsonString,
-            bsonBytes,
-            path,
-            readOnly,
-            onlyFirstPage,
-          );
+        jsonString,
+        bsonBytes,
+        path,
+        readOnly,
+        onlyFirstPage,
+      );
 
       final length = jsonString?.length ?? bsonBytes!.length;
       if (alwaysUseIsolate || length > 2 * 1024 * 1024) {
@@ -491,28 +498,22 @@ class EditorCoreInfo {
   ///
   /// If [currentPageIndex] isn't null,
   /// [initialPageIndex] will be updated to it before saving.
-  Future<List<int>> saveToSba({
-    required int? currentPageIndex,
-  }) async {
-    final (bson, assets) = saveToBinary(
-      currentPageIndex: currentPageIndex,
-    );
+  Future<List<int>> saveToSba({required int? currentPageIndex}) async {
+    final (bson, assets) = saveToBinary(currentPageIndex: currentPageIndex);
     const filePath = 'main${Editor.extension}';
 
     final archive = Archive();
-    archive.addFile(ArchiveFile(
-      filePath,
-      bson.length,
-      bson,
-    ));
+    archive.addFile(ArchiveFile(filePath, bson.length, bson));
 
     await Future.wait([
       for (int i = 0; i < assets.length; ++i)
-        assets.getBytes(i).then((bytes) => archive.addFile(ArchiveFile(
-              '$filePath.$i',
-              bytes.length,
-              bytes,
-            ))),
+        assets
+            .getBytes(i)
+            .then(
+              (bytes) => archive.addFile(
+                ArchiveFile('$filePath.$i', bytes.length, bytes),
+              ),
+            ),
     ]);
 
     return ZipEncoder().encode(archive);

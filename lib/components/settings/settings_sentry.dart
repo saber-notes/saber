@@ -32,8 +32,10 @@ class SettingsSentryConsent extends StatelessWidget {
       builder: (context, consent, child) {
         final subtitle = _getSubtitle();
         return ListTile(
-          contentPadding:
-              const EdgeInsets.symmetric(vertical: 4, horizontal: 16),
+          contentPadding: const EdgeInsets.symmetric(
+            vertical: 4,
+            horizontal: 16,
+          ),
           leading: const Icon(Icons.bug_report),
           title: Text(
             title,
@@ -41,8 +43,8 @@ class SettingsSentryConsent extends StatelessWidget {
               fontSize: 18,
               fontStyle:
                   stows.sentryConsent.value != stows.sentryConsent.defaultValue
-                      ? FontStyle.italic
-                      : null,
+                  ? FontStyle.italic
+                  : null,
             ),
           ),
           subtitle: Text(subtitle, style: const TextStyle(fontSize: 13)),

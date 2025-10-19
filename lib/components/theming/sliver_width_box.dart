@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 
 class SliverWidthBox extends StatelessWidget {
-  const SliverWidthBox({
-    super.key,
-    required this.width,
-    required this.sliver,
-  });
+  const SliverWidthBox({super.key, required this.width, required this.sliver});
 
   final double width;
   final Widget sliver;
@@ -15,8 +11,9 @@ class SliverWidthBox extends StatelessWidget {
     final windowSize = MediaQuery.sizeOf(context);
     return SliverPadding(
       padding: EdgeInsets.symmetric(
-        horizontal:
-            windowSize.width > width ? (windowSize.width - width) / 2 : 0,
+        horizontal: windowSize.width > width
+            ? (windowSize.width - width) / 2
+            : 0,
       ),
       sliver: sliver,
     );

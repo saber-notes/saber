@@ -36,7 +36,8 @@ class DynamicMaterialApp extends StatefulWidget {
       windowManager.setFullScreen(value);
     } else {
       SystemChrome.setEnabledSystemUIMode(
-          value ? SystemUiMode.immersive : SystemUiMode.edgeToEdge);
+        value ? SystemUiMode.immersive : SystemUiMode.edgeToEdge,
+      );
     }
   }
 
@@ -94,31 +95,34 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp>
   }
 
   Future<void> _onFullscreenChange(bool systemOverlaysAreVisible) async {
-    DynamicMaterialApp.setFullscreen(!systemOverlaysAreVisible,
-        updateSystem: false);
+    DynamicMaterialApp.setFullscreen(
+      !systemOverlaysAreVisible,
+      updateSystem: false,
+    );
   }
 
   static TextTheme? getTextTheme(Brightness brightness) {
     if (stows.hyperlegibleFont.value) {
       return ThemeData(brightness: brightness).textTheme.withFont(
-            fontFamily: 'AtkinsonHyperlegibleNext',
-            fontFamilyFallback: saberSansSerifFontFallbacks,
-          );
+        fontFamily: 'AtkinsonHyperlegibleNext',
+        fontFamilyFallback: saberSansSerifFontFallbacks,
+      );
     } else {
       return null;
     }
   }
 
   static ThemeData _themeFromColorScheme(
-          ColorScheme colorScheme, TargetPlatform platform) =>
-      ThemeData(
-        useMaterial3: true,
-        colorScheme: colorScheme,
-        textTheme: getTextTheme(colorScheme.brightness),
-        scaffoldBackgroundColor: colorScheme.surface,
-        platform: platform,
-        pageTransitionsTheme: _pageTransitionsTheme,
-      );
+    ColorScheme colorScheme,
+    TargetPlatform platform,
+  ) => ThemeData(
+    useMaterial3: true,
+    colorScheme: colorScheme,
+    textTheme: getTextTheme(colorScheme.brightness),
+    scaffoldBackgroundColor: colorScheme.surface,
+    platform: platform,
+    pageTransitionsTheme: _pageTransitionsTheme,
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -160,9 +164,13 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp>
     // Use [chosenAccentColor] with material/cupertino theme
     if (chosenAccentColor != null) {
       final lightColorScheme = ColorScheme.fromSeed(
-          brightness: Brightness.light, seedColor: chosenAccentColor);
+        brightness: Brightness.light,
+        seedColor: chosenAccentColor,
+      );
       final darkColorScheme = ColorScheme.fromSeed(
-          brightness: Brightness.dark, seedColor: chosenAccentColor);
+        brightness: Brightness.dark,
+        seedColor: chosenAccentColor,
+      );
 
       return ExplicitlyThemedApp(
         title: widget.title,
@@ -177,9 +185,13 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp>
     return DynamicColorBuilder(
       builder: (ColorScheme? lightColorScheme, ColorScheme? darkColorScheme) {
         lightColorScheme ??= ColorScheme.fromSeed(
-            brightness: Brightness.light, seedColor: widget.defaultSwatch);
+          brightness: Brightness.light,
+          seedColor: widget.defaultSwatch,
+        );
         darkColorScheme ??= ColorScheme.fromSeed(
-            brightness: Brightness.dark, seedColor: widget.defaultSwatch);
+          brightness: Brightness.dark,
+          seedColor: widget.defaultSwatch,
+        );
 
         return ExplicitlyThemedApp(
           title: widget.title,
@@ -228,9 +240,11 @@ class ExplicitlyThemedApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final highContrastTheme = this.highContrastTheme ??
+    final highContrastTheme =
+        this.highContrastTheme ??
         theme.copyWith(colorScheme: theme.colorScheme.withHighContrast());
-    final highContrastDarkTheme = this.highContrastDarkTheme ??
+    final highContrastDarkTheme =
+        this.highContrastDarkTheme ??
         darkTheme.copyWith(colorScheme: theme.colorScheme.withHighContrast());
 
     return MaterialApp.router(
@@ -256,9 +270,9 @@ class ExplicitlyThemedApp extends StatelessWidget {
 
 extension _ColorSchemeContraster on ColorScheme {
   ColorScheme withHighContrast() => ColorScheme.fromSeed(
-        brightness: brightness,
-        seedColor: primary,
-        surface: brightness == Brightness.light ? Colors.white : Colors.black,
-        contrastLevel: 1,
-      );
+    brightness: brightness,
+    seedColor: primary,
+    surface: brightness == Brightness.light ? Colors.white : Colors.black,
+    contrastLevel: 1,
+  );
 }

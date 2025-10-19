@@ -9,16 +9,16 @@ void setupMockFlutterSecureStorage() {
   TestWidgetsFlutterBinding.ensureInitialized();
   TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
       .setMockMethodCallHandler(channel, (MethodCall methodCall) async {
-    if (methodCall.method == 'delete') {
-      _mockSecureStorage.remove(methodCall.arguments['key'] as String);
-    } else if (methodCall.method == 'write') {
-      _mockSecureStorage[methodCall.arguments['key'] as String] =
-          methodCall.arguments['value'] as String;
-    } else if (methodCall.method == 'read') {
-      return _mockSecureStorage[methodCall.arguments['key'] as String];
-    }
-    return null;
-  });
+        if (methodCall.method == 'delete') {
+          _mockSecureStorage.remove(methodCall.arguments['key'] as String);
+        } else if (methodCall.method == 'write') {
+          _mockSecureStorage[methodCall.arguments['key'] as String] =
+              methodCall.arguments['value'] as String;
+        } else if (methodCall.method == 'read') {
+          return _mockSecureStorage[methodCall.arguments['key'] as String];
+        }
+        return null;
+      });
 }
 
 final tmpDir = Directory.systemTemp.path;
@@ -28,13 +28,13 @@ void setupMockPathProvider() {
   TestWidgetsFlutterBinding.ensureInitialized();
   TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
       .setMockMethodCallHandler(channel, (MethodCall methodCall) async {
-    if (methodCall.method == 'getApplicationDocumentsDirectory') {
-      return '$tmpDir/saber-test-docs';
-    } else if (methodCall.method == 'getTemporaryDirectory') {
-      return '$tmpDir/saber-test-tmp';
-    }
-    return null;
-  });
+        if (methodCall.method == 'getApplicationDocumentsDirectory') {
+          return '$tmpDir/saber-test-docs';
+        } else if (methodCall.method == 'getTemporaryDirectory') {
+          return '$tmpDir/saber-test-tmp';
+        }
+        return null;
+      });
 }
 
 void setupMockPrinting() {
@@ -42,11 +42,11 @@ void setupMockPrinting() {
   TestWidgetsFlutterBinding.ensureInitialized();
   TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
       .setMockMethodCallHandler(channel, (MethodCall methodCall) async {
-    if (methodCall.method == 'printingInfo') {
-      return {}; // [PrintingInfo.unavailable]
-    }
-    return null;
-  });
+        if (methodCall.method == 'printingInfo') {
+          return {}; // [PrintingInfo.unavailable]
+        }
+        return null;
+      });
 }
 
 void setupMockAudioplayers() {

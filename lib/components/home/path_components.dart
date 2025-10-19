@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class PathComponents extends StatelessWidget {
   PathComponents(String? path, {super.key, required this.onPathComponentTap})
-      : components = _splitPath(path);
+    : components = _splitPath(path);
 
   final List<String> components;
   final void Function(String? path) onPathComponentTap;
@@ -17,9 +17,7 @@ class PathComponents extends StatelessWidget {
           tapTargetSize: MaterialTapTargetSize.shrinkWrap,
           minimumSize: const Size(24, 8),
           padding: const EdgeInsets.all(8),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(4),
-          ),
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
         ),
       ),
       child: Padding(
@@ -43,7 +41,7 @@ class PathComponents extends StatelessWidget {
                 },
                 child: Text(components[i]),
               ),
-            ]
+            ],
           ],
         ),
       ),

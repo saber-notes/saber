@@ -21,7 +21,9 @@ class Eraser extends Tool {
 
   /// Returns any [strokes] that are close to the given [eraserPos].
   List<Stroke> checkForOverlappingStrokes(
-      Offset eraserPos, List<Stroke> strokes) {
+    Offset eraserPos,
+    List<Stroke> strokes,
+  ) {
     final List<Stroke> overlapping = [];
     for (int i = 0; i < strokes.length; i++) {
       final Stroke stroke = strokes[i];
@@ -41,7 +43,10 @@ class Eraser extends Tool {
   }
 
   static bool _shouldStrokeBeErased(
-      Offset eraserPos, Stroke stroke, double sqrSize) {
+    Offset eraserPos,
+    Stroke stroke,
+    double sqrSize,
+  ) {
     if (stroke.length <= 3) {
       if (stroke.lowQualityPath.contains(eraserPos)) return true;
     }
@@ -53,9 +58,11 @@ class Eraser extends Tool {
       _ => 2,
     };
 
-    for (int i = 0;
-        i < stroke.lowQualityPolygon.length;
-        i += verticesToSkip + 1) {
+    for (
+      int i = 0;
+      i < stroke.lowQualityPolygon.length;
+      i += verticesToSkip + 1
+    ) {
       final Offset strokeVertex = stroke.lowQualityPolygon[i];
       if (sqrDistanceBetween(strokeVertex, eraserPos) <= sqrSize) return true;
     }

@@ -85,9 +85,7 @@ class _DeleteFolderDialogState extends State<_DeleteFolderDialog> {
                           setState(() => alsoDeleteContents = value!);
                         },
                 ),
-                Expanded(
-                  child: Text(t.home.deleteFolder.alsoDeleteContents),
-                ),
+                Expanded(child: Text(t.home.deleteFolder.alsoDeleteContents)),
               ],
             ),
       actions: [

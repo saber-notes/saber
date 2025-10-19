@@ -62,25 +62,31 @@ class _ExportBarState extends State<ExportBar> {
     final children = <Widget>[
       Text(t.editor.toolbar.exportAs),
       const SizedBox.square(dimension: 8),
-      Builder(builder: (context) {
-        return TextButton(
-          onPressed: _onPressed(widget.exportAsSba, context),
-          child: _buttonChild(widget.exportAsSba, 'SBA'),
-        );
-      }),
-      Builder(builder: (context) {
-        return TextButton(
-          onPressed: _onPressed(widget.exportAsPdf, context),
-          child: _buttonChild(widget.exportAsPdf, 'PDF'),
-        );
-      }),
-      if (kDebugMode)
-        Builder(builder: (context) {
+      Builder(
+        builder: (context) {
           return TextButton(
-            onPressed: _onPressed(widget.exportAsPng, context),
-            child: _buttonChild(widget.exportAsPng, 'PNG'),
+            onPressed: _onPressed(widget.exportAsSba, context),
+            child: _buttonChild(widget.exportAsSba, 'SBA'),
           );
-        }),
+        },
+      ),
+      Builder(
+        builder: (context) {
+          return TextButton(
+            onPressed: _onPressed(widget.exportAsPdf, context),
+            child: _buttonChild(widget.exportAsPdf, 'PDF'),
+          );
+        },
+      ),
+      if (kDebugMode)
+        Builder(
+          builder: (context) {
+            return TextButton(
+              onPressed: _onPressed(widget.exportAsPng, context),
+              child: _buttonChild(widget.exportAsPng, 'PNG'),
+            );
+          },
+        ),
     ];
 
     return Center(

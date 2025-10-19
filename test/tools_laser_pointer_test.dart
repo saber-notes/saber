@@ -57,13 +57,17 @@ void main() {
         redrawPage: () {},
         deleteStroke: (_) {
           printOnFailure('Deleting stroke, length ${stroke.length}');
-          expect(stroke.length, lessThanOrEqualTo(1),
-              reason: 'Stroke should only be deleted at end');
+          expect(
+            stroke.length,
+            lessThanOrEqualTo(1),
+            reason: 'Stroke should only be deleted at end',
+          );
           lastStrokeLength = 0;
         },
         wait: (duration) async {
           printOnFailure(
-              'Waiting for $duration, stroke length ${stroke.length}');
+            'Waiting for $duration, stroke length ${stroke.length}',
+          );
           if (duration == Duration.zero) return; // skip wait before first pop
           expect(stroke.length, lessThan(lastStrokeLength));
           lastStrokeLength = stroke.length;

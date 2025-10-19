@@ -17,8 +17,10 @@ class SettingsColor extends StatefulWidget {
     this.iconBuilder,
     required this.pref,
     this.afterChange,
-  }) : assert(icon == null || iconBuilder == null,
-            'Cannot set both icon and iconBuilder');
+  }) : assert(
+         icon == null || iconBuilder == null,
+         'Cannot set both icon and iconBuilder',
+       );
 
   final String title;
   final String? subtitle;
@@ -94,8 +96,10 @@ class _SettingsSwitchState extends State<SettingsColor> {
               : null,
         ),
       ),
-      subtitle:
-          Text(widget.subtitle ?? '', style: const TextStyle(fontSize: 13)),
+      subtitle: Text(
+        widget.subtitle ?? '',
+        style: const TextStyle(fontSize: 13),
+      ),
       trailing: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -107,16 +111,15 @@ class _SettingsSwitchState extends State<SettingsColor> {
               shape: BoxShape.circle,
             ),
           ),
-          const SizedBox(
-            width: 8,
-          ),
+          const SizedBox(width: 8),
           AdaptiveSwitch(
-            value: widget.pref.value != null &&
+            value:
+                widget.pref.value != null &&
                 widget.pref.value != Colors.transparent,
             onChanged: (bool? value) {
               widget.pref.value = value! ? defaultColor : null;
             },
-          )
+          ),
         ],
       ),
       onTap: () async {

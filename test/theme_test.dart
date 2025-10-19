@@ -28,12 +28,14 @@ void _testTheme({
   required bool hyperlegible,
   required bool hasAccent,
 }) {
-  final repr = '${platform.name}_'
+  final repr =
+      '${platform.name}_'
       '${hyperlegible ? 'hyperlegible' : 'inter'}_'
       '${hasAccent ? 'with-accent' : 'no-accent'}';
   testWidgets(repr, (tester) async {
     final router = GoRouter(
-        routes: [GoRoute(path: '/', builder: (_, __) => const Text('hi'))]);
+      routes: [GoRoute(path: '/', builder: (_, __) => const Text('hi'))],
+    );
 
     stows.platform.value = platform;
     stows.hyperlegibleFont.value = hyperlegible;
@@ -44,25 +46,25 @@ void _testTheme({
       stows.accentColor.value = stows.accentColor.defaultValue;
     });
 
-    await tester.pumpWidget(TranslationProvider(
-        child: DynamicMaterialApp(title: 'title', router: router)));
+    await tester.pumpWidget(
+      TranslationProvider(
+        child: DynamicMaterialApp(title: 'title', router: router),
+      ),
+    );
 
-    final app =
-        tester.widget<ExplicitlyThemedApp>(find.byType(ExplicitlyThemedApp));
+    final app = tester.widget<ExplicitlyThemedApp>(
+      find.byType(ExplicitlyThemedApp),
+    );
     for (final theme in [app.theme, app.darkTheme]) {
       expect(theme.platform, platform);
 
       if (hasAccent) {
         final actualAccent = HSVColor.fromColor(theme.colorScheme.primary);
-        expect([
-          actualAccent.hue,
-          actualAccent.saturation,
-          actualAccent.value
-        ], [
-          inInclusiveRange(90, 150),
-          greaterThan(0.25),
-          greaterThan(0.4)
-        ], reason: 'Accent should be green');
+        expect(
+          [actualAccent.hue, actualAccent.saturation, actualAccent.value],
+          [inInclusiveRange(90, 150), greaterThan(0.25), greaterThan(0.4)],
+          reason: 'Accent should be green',
+        );
       }
 
       final expectedFontFamily = hyperlegible

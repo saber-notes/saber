@@ -29,10 +29,12 @@ class FlavorConfig {
   }
 
   static void setupFromEnvironment() => setup(
-        flavor: const String.fromEnvironment('FLAVOR'),
-        appStore: const String.fromEnvironment('APP_STORE'),
-        shouldCheckForUpdatesByDefault:
-            const bool.fromEnvironment('UPDATE_CHECK', defaultValue: true),
-        dirty: const bool.fromEnvironment('DIRTY', defaultValue: false),
-      );
+    flavor: const String.fromEnvironment('FLAVOR'),
+    appStore: const String.fromEnvironment('APP_STORE'),
+    shouldCheckForUpdatesByDefault: const bool.fromEnvironment(
+      'UPDATE_CHECK',
+      defaultValue: true,
+    ),
+    dirty: const bool.fromEnvironment('DIRTY', defaultValue: false),
+  );
 }

@@ -15,13 +15,12 @@ void main() {
       // The consent dialog will be automatically shown if consent is unknown.
       stows.sentryConsent.value = SentryConsent.unknown;
 
-      await tester.pumpWidget(ScreenshotApp(
-        device: GoldenSmallDevices.android.device,
-        home: const HomePage(
-          subpage: HomePage.settingsSubpage,
-          path: '',
+      await tester.pumpWidget(
+        ScreenshotApp(
+          device: GoldenSmallDevices.android.device,
+          home: const HomePage(subpage: HomePage.settingsSubpage, path: ''),
         ),
-      ));
+      );
 
       await tester.loadFonts();
       await tester.precacheImagesInWidgetTree();

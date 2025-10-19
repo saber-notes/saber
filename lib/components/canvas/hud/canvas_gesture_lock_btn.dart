@@ -32,13 +32,11 @@ class CanvasGestureLockBtn extends StatelessWidget {
         padding: const EdgeInsets.all(5),
         child: Tooltip(
           message: tooltip,
-          child: child ??
+          child:
+              child ??
               AnimatedSwitcher(
                 duration: const Duration(milliseconds: 200),
-                child: Icon(
-                  icon,
-                  color: colorScheme.onSurface,
-                ),
+                child: Icon(icon, color: colorScheme.onSurface),
               ),
         ),
       ),

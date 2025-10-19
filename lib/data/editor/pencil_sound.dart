@@ -25,20 +25,21 @@ abstract class PencilSound {
   /// Loads the audio file into the audio cache
   /// and sets the audio context.
   static Future<void> preload() => Future.wait([
-        stows.pencilSound.waitUntilRead().then((_) => setAudioContext()),
-        _player.audioCache.loadPath(_source),
-      ]);
+    stows.pencilSound.waitUntilRead().then((_) => setAudioContext()),
+    _player.audioCache.loadPath(_source),
+  ]);
 
   /// Updates the `respectSilence` setting in the audio context.
-  static Future<void> setAudioContext() =>
-      AudioPlayer.global.setAudioContext(AudioContextConfig(
-        // Prevents the pencil sound interrupting other audio, like music.
-        focus: Platform.isIOS
-            ? AudioContextConfigFocus.gain
-            : AudioContextConfigFocus.mixWithOthers,
-        // Doesn't play the sound when the device is in silent mode.
-        respectSilence: stows.pencilSound.value.respectSilence,
-      ).build());
+  static Future<void> setAudioContext() => AudioPlayer.global.setAudioContext(
+    AudioContextConfig(
+      // Prevents the pencil sound interrupting other audio, like music.
+      focus: Platform.isIOS
+          ? AudioContextConfigFocus.gain
+          : AudioContextConfigFocus.mixWithOthers,
+      // Doesn't play the sound when the device is in silent mode.
+      respectSilence: stows.pencilSound.value.respectSilence,
+    ).build(),
+  );
 
   static void resume() {
     _pauseTimer?.cancel();
@@ -113,19 +114,19 @@ enum PencilSoundSetting {
   final IconData icon;
 
   String get description => switch (this) {
-        PencilSoundSetting.off =>
-          t.settings.prefDescriptions.pencilSoundSetting.off,
-        PencilSoundSetting.onButNotInSilentMode =>
-          t.settings.prefDescriptions.pencilSoundSetting.onButNotInSilentMode,
-        PencilSoundSetting.onAlways =>
-          t.settings.prefDescriptions.pencilSoundSetting.onAlways,
-      };
+    PencilSoundSetting.off =>
+      t.settings.prefDescriptions.pencilSoundSetting.off,
+    PencilSoundSetting.onButNotInSilentMode =>
+      t.settings.prefDescriptions.pencilSoundSetting.onButNotInSilentMode,
+    PencilSoundSetting.onAlways =>
+      t.settings.prefDescriptions.pencilSoundSetting.onAlways,
+  };
 
   bool get respectSilence => switch (this) {
-        PencilSoundSetting.off => true,
-        PencilSoundSetting.onButNotInSilentMode => true,
-        PencilSoundSetting.onAlways => false,
-      };
+    PencilSoundSetting.off => true,
+    PencilSoundSetting.onButNotInSilentMode => true,
+    PencilSoundSetting.onAlways => false,
+  };
 
   static const codec = EnumCodec(values);
 }

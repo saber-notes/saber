@@ -80,12 +80,13 @@ abstract class EditorExporter {
                         InnerCanvas.defaultBackgroundColor.toARGB32(),
                   ).flatten();
 
-                  final strokes = page.strokes
-                      .where((stroke) => !_shouldRasterizeStroke(stroke));
+                  final strokes = page.strokes.where(
+                    (stroke) => !_shouldRasterizeStroke(stroke),
+                  );
                   for (final stroke in strokes) {
-                    final strokeColor =
-                        PdfColor.fromInt(stroke.color.toARGB32())
-                            .flatten(background: backgroundColor);
+                    final strokeColor = PdfColor.fromInt(
+                      stroke.color.toARGB32(),
+                    ).flatten(background: backgroundColor);
 
                     /// Whether we need to fill the shape, or draw its stroke
                     final bool shouldFillShape;
@@ -174,10 +175,13 @@ abstract class EditorExporter {
             textEditing: false,
             coreInfo: coreInfo.copyWith(
               pages: coreInfo.pages
-                  .map((page) => page.copyWith(
-                        strokes:
-                            page.strokes.where(_shouldRasterizeStroke).toList(),
-                      ))
+                  .map(
+                    (page) => page.copyWith(
+                      strokes: page.strokes
+                          .where(_shouldRasterizeStroke)
+                          .toList(),
+                    ),
+                  )
                   .toList(),
             ),
             currentStroke: null,

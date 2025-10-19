@@ -27,8 +27,9 @@ class SettingsDirectorySelector extends StatelessWidget {
 
   void onPressed(BuildContext context) async {
     final oldDir = Directory(FileManager.documentsDirectory);
-    final oldDirIsEmpty =
-        oldDir.existsSync() ? oldDir.listSync().isEmpty : true;
+    final oldDirIsEmpty = oldDir.existsSync()
+        ? oldDir.listSync().isEmpty
+        : true;
     await showAdaptiveDialog(
       context: context,
       builder: (context) => DirectorySelector(
@@ -55,8 +56,8 @@ class SettingsDirectorySelector extends StatelessWidget {
             fontSize: 18,
             fontStyle:
                 stows.customDataDir.value != stows.customDataDir.defaultValue
-                    ? FontStyle.italic
-                    : null,
+                ? FontStyle.italic
+                : null,
           ),
         ),
         subtitle: ValueListenableBuilder(
@@ -132,7 +133,8 @@ class _DirectorySelectorState extends State<DirectorySelector> {
     final colorScheme = ColorScheme.of(context);
 
     final emptyError = widget.mustBeEmpty && !_isEmpty;
-    final syncingError = widget.mustBeDoneSyncing &&
+    final syncingError =
+        widget.mustBeDoneSyncing &&
         (syncer.uploader.numPending > 0 || syncer.downloader.numPending > 0);
     final anyErrors = emptyError || syncingError;
 
@@ -141,8 +143,10 @@ class _DirectorySelectorState extends State<DirectorySelector> {
       content: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Text(t.settings.customDataDir.unsupported,
-              style: TextStyle(color: colorScheme.error)),
+          Text(
+            t.settings.customDataDir.unsupported,
+            style: TextStyle(color: colorScheme.error),
+          ),
           Row(
             children: [
               Expanded(
@@ -155,10 +159,7 @@ class _DirectorySelectorState extends State<DirectorySelector> {
                   ),
                 ),
               ),
-              IconButton(
-                icon: const Icon(Icons.folder),
-                onPressed: _pickDir,
-              ),
+              IconButton(icon: const Icon(Icons.folder), onPressed: _pickDir),
               if (stows.customDataDir.value != null)
                 IconButton(
                   icon: const Icon(Icons.undo),
@@ -167,11 +168,15 @@ class _DirectorySelectorState extends State<DirectorySelector> {
             ],
           ),
           if (emptyError)
-            Text(t.settings.customDataDir.mustBeEmpty,
-                style: TextStyle(color: colorScheme.error)),
+            Text(
+              t.settings.customDataDir.mustBeEmpty,
+              style: TextStyle(color: colorScheme.error),
+            ),
           if (syncingError)
-            Text(t.settings.customDataDir.mustBeDoneSyncing,
-                style: TextStyle(color: colorScheme.error)),
+            Text(
+              t.settings.customDataDir.mustBeDoneSyncing,
+              style: TextStyle(color: colorScheme.error),
+            ),
         ],
       ),
       actions: [

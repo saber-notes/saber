@@ -7,8 +7,11 @@ void main() {
   test('Test that all supported languages have a localised name', () {
     for (Locale locale in AppLocaleUtils.supportedLocales) {
       final String localeCode = locale.toLanguageTag();
-      expect(localeNames.containsKey(localeCode), true,
-          reason: 'Missing locale name for $localeCode');
+      expect(
+        localeNames.containsKey(localeCode),
+        true,
+        reason: 'Missing locale name for $localeCode',
+      );
     }
   });
 }

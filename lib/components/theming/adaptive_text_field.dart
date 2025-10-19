@@ -54,7 +54,8 @@ class _AdaptiveTextFieldState extends State<AdaptiveTextField> {
   Widget build(BuildContext context) {
     ThemeData theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
-    bool cupertino = theme.platform == TargetPlatform.iOS ||
+    bool cupertino =
+        theme.platform == TargetPlatform.iOS ||
         theme.platform == TargetPlatform.macOS;
 
     TextInputType? keyboardType = widget.keyboardType;
@@ -80,7 +81,8 @@ class _AdaptiveTextFieldState extends State<AdaptiveTextField> {
                 obscureText: obscureText,
                 decoration: BoxDecoration(
                   border: Border.all(
-                      color: colorScheme.onSurface.withValues(alpha: 0.12)),
+                    color: colorScheme.onSurface.withValues(alpha: 0.12),
+                  ),
                   borderRadius: BorderRadius.circular(8),
                 ),
                 style: TextStyle(color: colorScheme.onSurface),
@@ -122,8 +124,9 @@ class _AdaptiveTextFieldState extends State<AdaptiveTextField> {
           validator: widget.validator,
           decoration: InputDecoration(
             labelText: widget.placeholder,
-            labelStyle:
-                TextStyle(color: colorScheme.onSurface.withValues(alpha: 0.5)),
+            labelStyle: TextStyle(
+              color: colorScheme.onSurface.withValues(alpha: 0.5),
+            ),
             prefixIcon: widget.prefixIcon,
             suffixIcon: suffixIcon != null
                 ? FocusTraversalOrder(
@@ -131,11 +134,14 @@ class _AdaptiveTextFieldState extends State<AdaptiveTextField> {
                     child: suffixIcon!,
                   )
                 : null,
-            contentPadding:
-                const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
+            contentPadding: const EdgeInsets.symmetric(
+              vertical: 8,
+              horizontal: 12,
+            ),
             border: OutlineInputBorder(
               borderSide: BorderSide(
-                  color: colorScheme.onSurface.withValues(alpha: 0.12)),
+                color: colorScheme.onSurface.withValues(alpha: 0.12),
+              ),
               borderRadius: BorderRadius.circular(8),
             ),
           ),

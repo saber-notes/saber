@@ -59,8 +59,4 @@ class SaveIndicator extends StatelessWidget {
   }
 }
 
-enum SavingState {
-  waitingToSave,
-  saving,
-  saved,
-}
+enum SavingState { waitingToSave, saving, saved }

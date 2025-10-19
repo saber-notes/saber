@@ -121,18 +121,11 @@ class CanvasPainter extends CustomPainter {
         ..strokeWidth = stroke.options.size;
 
       if (stroke is CircleStroke) {
-        canvas.drawCircle(
-          stroke.center,
-          stroke.radius,
-          shapePaint,
-        );
+        canvas.drawCircle(stroke.center, stroke.radius, shapePaint);
       } else if (stroke is RectangleStroke) {
         final strokeSize = stroke.options.size;
         canvas.drawRRect(
-          RRect.fromRectAndRadius(
-            stroke.rect,
-            Radius.circular(strokeSize / 4),
-          ),
+          RRect.fromRectAndRadius(stroke.rect, Radius.circular(strokeSize / 4)),
           shapePaint,
         );
       } else {
@@ -177,10 +170,7 @@ class CanvasPainter extends CustomPainter {
           stroke.options.size * 0.4,
         ),
     );
-    canvas.drawPath(
-      stroke.innerPath,
-      Paint()..color = const Color(0xDDffffff),
-    );
+    canvas.drawPath(stroke.innerPath, Paint()..color = const Color(0xDDffffff));
   }
 
   void _drawDetectedShape(Canvas canvas) {
@@ -216,10 +206,7 @@ class CanvasPainter extends CustomPainter {
       case DefaultUnistrokeNames.triangle:
       case DefaultUnistrokeNames.star:
         final polygon = shape.convertToCanonicalPolygon();
-        canvas.drawPath(
-          Path()..addPolygon(polygon, true),
-          shapePaint,
-        );
+        canvas.drawPath(Path()..addPolygon(polygon, true), shapePaint);
     }
   }
 
@@ -257,18 +244,20 @@ class CanvasPainter extends CustomPainter {
     );
 
     ParagraphBuilder builder = ParagraphBuilder(style)
-      ..pushStyle(TextStyle(
-        color: Colors.black.withInversion(invert).withValues(alpha: 0.5),
-        fontSize: _pageIndicatorFontSize,
-        fontFamily: 'Inter',
-        fontFamilyFallback: saberSansSerifFontFallbacks,
-      ))
+      ..pushStyle(
+        TextStyle(
+          color: Colors.black.withInversion(invert).withValues(alpha: 0.5),
+          fontSize: _pageIndicatorFontSize,
+          fontFamily: 'Inter',
+          fontFamilyFallback: saberSansSerifFontFallbacks,
+        ),
+      )
       ..addText('${pageIndex + 1} / $totalPages');
 
     Paragraph paragraph = builder.build();
-    paragraph.layout(ParagraphConstraints(
-      width: pageSize.width - 2 * _pageIndicatorPadding,
-    ));
+    paragraph.layout(
+      ParagraphConstraints(width: pageSize.width - 2 * _pageIndicatorPadding),
+    );
 
     canvas.drawParagraph(
       paragraph,
@@ -279,13 +268,11 @@ class CanvasPainter extends CustomPainter {
     );
   }
 
-  static MaskFilter _getPencilMaskFilter(double size) => MaskFilter.blur(
-        BlurStyle.normal,
-        min(size * 0.3, 5),
-      );
+  static MaskFilter _getPencilMaskFilter(double size) =>
+      MaskFilter.blur(BlurStyle.normal, min(size * 0.3, 5));
 
   Path _selectPath(Stroke stroke) => switch (currentScale) {
-        < 1 => stroke.lowQualityPath,
-        _ => stroke.highQualityPath,
-      };
+    < 1 => stroke.lowQualityPath,
+    _ => stroke.highQualityPath,
+  };
 }

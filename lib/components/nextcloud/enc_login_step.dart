@@ -59,12 +59,12 @@ class _EncLoginStepState extends State<EncLoginStep> {
             height: min(width * 576 / 844.6693, screenHeight * 0.25),
             excludeFromSemantics: true,
           ),
-          SizedBox(
-            height: min(64, screenHeight * 0.05),
-          ),
+          SizedBox(height: min(64, screenHeight * 0.05)),
         ],
-        Text(t.login.status.hi(u: stows.username.value),
-            style: textTheme.headlineSmall),
+        Text(
+          t.login.status.hi(u: stows.username.value),
+          style: textTheme.headlineSmall,
+        ),
         Text.rich(
           t.login.notYou(
             undoLogin: (text) => TextSpan(
@@ -81,8 +81,10 @@ class _EncLoginStepState extends State<EncLoginStep> {
           ),
         ),
         const SizedBox(height: 32),
-        Text(t.login.encLoginStep.enterEncPassword,
-            style: textTheme.headlineSmall),
+        Text(
+          t.login.encLoginStep.enterEncPassword,
+          style: textTheme.headlineSmall,
+        ),
         const SizedBox(height: 4),
         Text(t.login.encLoginStep.newToSaber),
         const SizedBox(height: 16),
@@ -102,8 +104,10 @@ class _EncLoginStepState extends State<EncLoginStep> {
             if (errorMessage.isEmpty) return const SizedBox.shrink();
             return Padding(
               padding: const EdgeInsets.only(top: 4),
-              child: Text(errorMessage,
-                  style: TextStyle(color: colorScheme.error)),
+              child: Text(
+                errorMessage,
+                style: TextStyle(color: colorScheme.error),
+              ),
             );
           },
         ),

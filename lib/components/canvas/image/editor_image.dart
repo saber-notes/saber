@@ -50,15 +50,21 @@ sealed class EditorImage extends ChangeNotifier {
 
   Rect srcRect = Rect.zero;
 
-  late Rect _dstRect =
-      Rect.fromLTWH(0, 0, CanvasImage.minImageSize, CanvasImage.minImageSize);
+  late Rect _dstRect = Rect.fromLTWH(
+    0,
+    0,
+    CanvasImage.minImageSize,
+    CanvasImage.minImageSize,
+  );
   Rect get dstRect => _dstRect;
   set dstRect(Rect dstRect) {
     _dstRect = dstRect;
     if (_dstRect.width < CanvasImage.minImageSize ||
         _dstRect.height < CanvasImage.minImageSize) {
-      final scale = max(CanvasImage.minImageSize / _dstRect.width,
-          CanvasImage.minImageSize / _dstRect.height);
+      final scale = max(
+        CanvasImage.minImageSize / _dstRect.width,
+        CanvasImage.minImageSize / _dstRect.height,
+      );
       _dstRect = Rect.fromLTWH(
         _dstRect.left,
         _dstRect.top,
@@ -103,9 +109,9 @@ sealed class EditorImage extends ChangeNotifier {
     Rect dstRect = Rect.zero,
     this.srcRect = Rect.zero,
     bool isThumbnail = false,
-  })  : assert(extension.startsWith('.')),
-        _dstRect = dstRect,
-        _isThumbnail = isThumbnail;
+  }) : assert(extension.startsWith('.')),
+       _dstRect = dstRect,
+       _isThumbnail = isThumbnail;
 
   factory EditorImage.fromJson(
     Map<String, dynamic> json, {
@@ -145,22 +151,22 @@ sealed class EditorImage extends ChangeNotifier {
   @mustBeOverridden
   @mustCallSuper
   Map<String, dynamic> toJson(OrderedAssetCache assets) => {
-        'id': id,
-        'e': extension,
-        'i': pageIndex,
-        'v': invertible,
-        'f': backgroundFit.index,
-        'x': dstRect.left,
-        'y': dstRect.top,
-        'w': dstRect.width,
-        'h': dstRect.height,
-        if (srcRect.left != 0) 'sx': srcRect.left,
-        if (srcRect.top != 0) 'sy': srcRect.top,
-        if (srcRect.width != 0) 'sw': srcRect.width,
-        if (srcRect.height != 0) 'sh': srcRect.height,
-        if (naturalSize.width != 0) 'nw': naturalSize.width,
-        if (naturalSize.height != 0) 'nh': naturalSize.height,
-      };
+    'id': id,
+    'e': extension,
+    'i': pageIndex,
+    'v': invertible,
+    'f': backgroundFit.index,
+    'x': dstRect.left,
+    'y': dstRect.top,
+    'w': dstRect.width,
+    'h': dstRect.height,
+    if (srcRect.left != 0) 'sx': srcRect.left,
+    if (srcRect.top != 0) 'sy': srcRect.top,
+    if (srcRect.width != 0) 'sw': srcRect.width,
+    if (srcRect.height != 0) 'sh': srcRect.height,
+    if (naturalSize.width != 0) 'nw': naturalSize.width,
+    if (naturalSize.height != 0) 'nh': naturalSize.height,
+  };
 
   /// Images are loaded out after 5 seconds of not being visible.
   ///

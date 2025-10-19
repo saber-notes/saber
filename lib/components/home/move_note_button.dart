@@ -66,13 +66,15 @@ class _MoveNoteDialogState extends State<_MoveNoteDialog> {
 
   /// Whether each file uses [Editor.extensionOldJson].
   /// This is populated in [findOldExtensions].
-  late List<bool> oldExtensions =
-      widget.filesToMove.map((name) => false).toList();
+  late List<bool> oldExtensions = widget.filesToMove
+      .map((name) => false)
+      .toList();
   Future<void> findOldExtensions() async {
     oldExtensions = [
       for (int i = 0; i < widget.filesToMove.length; ++i)
         FileManager.doesFileExist(
-            '${widget.filesToMove[i]}${Editor.extensionOldJson}')
+          '${widget.filesToMove[i]}${Editor.extensionOldJson}',
+        ),
     ];
   }
 
@@ -100,8 +102,9 @@ class _MoveNoteDialogState extends State<_MoveNoteDialog> {
   late List<String> changedFileNames = [];
 
   Future findChildrenOfCurrentFolder() async {
-    currentFolderChildren =
-        await FileManager.getChildrenOfDirectory(currentFolder);
+    currentFolderChildren = await FileManager.getChildrenOfDirectory(
+      currentFolder,
+    );
 
     newFileNames = [];
     changedFileNames = [];
@@ -109,8 +112,9 @@ class _MoveNoteDialogState extends State<_MoveNoteDialog> {
       final oldExtension = oldExtensions[i];
       final newFileName = await FileManager.suffixFilePathToMakeItUnique(
         '$currentFolder${originalFileNames[i]}',
-        intendedExtension:
-            oldExtension ? Editor.extensionOldJson : Editor.extension,
+        intendedExtension: oldExtension
+            ? Editor.extensionOldJson
+            : Editor.extension,
         currentPath:
             '${widget.filesToMove[i]}${oldExtension ? Editor.extensionOldJson : Editor.extension}',
       ).then((newPath) => newPath.substring(newPath.lastIndexOf('/') + 1));
@@ -158,12 +162,8 @@ class _MoveNoteDialogState extends State<_MoveNoteDialog> {
   Widget build(BuildContext context) {
     return AdaptiveAlertDialog(
       title: originalFileNames.length < 5
-          ? Text(t.home.moveNote.moveName(
-              f: originalFileNames.join(', '),
-            ))
-          : Text(t.home.moveNote.moveNotes(
-              n: originalFileNames.length,
-            )),
+          ? Text(t.home.moveNote.moveName(f: originalFileNames.join(', ')))
+          : Text(t.home.moveNote.moveNotes(n: originalFileNames.length)),
       content: SizedBox(
         width: 300,
         height: 300,
@@ -183,7 +183,9 @@ class _MoveNoteDialogState extends State<_MoveNoteDialog> {
                           currentFolder = currentFolder.substring(
                             0,
                             currentFolder.lastIndexOf(
-                                    '/', currentFolder.length - 2) +
+                                  '/',
+                                  currentFolder.length - 2,
+                                ) +
                                 1,
                           );
                         } else {
@@ -193,8 +195,9 @@ class _MoveNoteDialogState extends State<_MoveNoteDialog> {
                     },
                     createFolder: createFolder,
                     doesFolderExist: (String folderName) {
-                      return currentFolderChildren?.directories
-                              .contains(folderName) ??
+                      return currentFolderChildren?.directories.contains(
+                            folderName,
+                          ) ??
                           false;
                     },
                     renameFolder: (String oldName, String newName) async {
@@ -204,8 +207,9 @@ class _MoveNoteDialogState extends State<_MoveNoteDialog> {
                     },
                     isFolderEmpty: (String folderName) async {
                       final folderPath = '$currentFolder$folderName';
-                      final children =
-                          await FileManager.getChildrenOfDirectory(folderPath);
+                      final children = await FileManager.getChildrenOfDirectory(
+                        folderPath,
+                      );
                       return children?.isEmpty ?? true;
                     },
                     deleteFolder: (String folderName) async {
@@ -244,8 +248,9 @@ class _MoveNoteDialogState extends State<_MoveNoteDialog> {
         CupertinoDialogAction(
           onPressed: () async {
             for (int i = 0; i < widget.filesToMove.length; ++i) {
-              final extension =
-                  oldExtensions[i] ? Editor.extensionOldJson : Editor.extension;
+              final extension = oldExtensions[i]
+                  ? Editor.extensionOldJson
+                  : Editor.extension;
               await FileManager.moveFile(
                 '${widget.filesToMove[i]}$extension',
                 '$currentFolder${newFileNames[i]}$extension',

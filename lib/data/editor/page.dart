@@ -63,9 +63,7 @@ class EditorPage extends ChangeNotifier implements HasSize {
   bool get isNotEmpty => !isEmpty;
 
   /// The height of the canvas cropped to the content.
-  double previewHeight({
-    required int lineHeight,
-  }) {
+  double previewHeight({required int lineHeight}) {
     // avoid dividing by zero (this should never happen)
     assert(size.height != 0);
     assert(size.width != 0);
@@ -88,8 +86,10 @@ class EditorPage extends ChangeNotifier implements HasSize {
     }
     if (!quill.controller.document.isEmpty()) {
       // this does not account for text that wraps to the next line
-      int linesOfText =
-          quill.controller.document.toPlainText().split('\n').length;
+      int linesOfText = quill.controller.document
+          .toPlainText()
+          .split('\n')
+          .length;
       maxY = max(maxY, linesOfText * lineHeight * 1.5); // ×1.5 fudge factor
     }
 
@@ -112,17 +112,20 @@ class EditorPage extends ChangeNotifier implements HasSize {
     List<EditorImage>? images,
     QuillStruct? quill,
     this.backgroundImage,
-  })  : assert((size == null) || (width == null && height == null),
-            "size and width/height shouldn't both be specified"),
-        size = size ?? Size(width ?? defaultWidth, height ?? defaultHeight),
-        strokes = strokes ?? [],
-        laserStrokes = [],
-        images = images ?? [],
-        quill = quill ??
-            QuillStruct(
-              controller: QuillController.basic(),
-              focusNode: FocusNode(debugLabel: 'Quill Focus Node'),
-            );
+  }) : assert(
+         (size == null) || (width == null && height == null),
+         "size and width/height shouldn't both be specified",
+       ),
+       size = size ?? Size(width ?? defaultWidth, height ?? defaultHeight),
+       strokes = strokes ?? [],
+       laserStrokes = [],
+       images = images ?? [],
+       quill =
+           quill ??
+           QuillStruct(
+             controller: QuillController.basic(),
+             focusNode: FocusNode(debugLabel: 'Quill Focus Node'),
+           );
 
   factory EditorPage.fromJson(
     Map<String, dynamic> json, {
@@ -171,16 +174,16 @@ class EditorPage extends ChangeNotifier implements HasSize {
   }
 
   Map<String, dynamic> toJson(OrderedAssetCache assets) => {
-        'w': size.width,
-        'h': size.height,
-        if (strokes.isNotEmpty)
-          's': strokes.map((stroke) => stroke.toJson()).toList(),
-        if (images.isNotEmpty)
-          'i': images.map((image) => image.toJson(assets)).toList(),
-        if (!quill.controller.document.isEmpty())
-          'q': quill.controller.document.toDelta().toJson(),
-        if (backgroundImage != null) 'b': backgroundImage?.toJson(assets)
-      };
+    'w': size.width,
+    'h': size.height,
+    if (strokes.isNotEmpty)
+      's': strokes.map((stroke) => stroke.toJson()).toList(),
+    if (images.isNotEmpty)
+      'i': images.map((image) => image.toJson(assets)).toList(),
+    if (!quill.controller.document.isEmpty())
+      'q': quill.controller.document.toDelta().toJson(),
+    if (backgroundImage != null) 'b': backgroundImage?.toJson(assets),
+  };
 
   /// Inserts a stroke, while keeping the strokes sorted by
   /// pen type and color.
@@ -219,22 +222,21 @@ class EditorPage extends ChangeNotifier implements HasSize {
     required HasSize page,
     required bool onlyFirstPage,
     required int fileVersion,
-  }) =>
-      (strokes ?? [])
-          .map((dynamic stroke) {
-            final map = stroke as Map<String, dynamic>;
-            final pageIndex = map['i'] ?? 0;
-            if (onlyFirstPage && pageIndex > 0) return null;
-            return Stroke.fromJson(
-              map,
-              fileVersion: fileVersion,
-              pageIndex: pageIndex,
-              page: page,
-            );
-          })
-          .where((element) => element != null)
-          .cast<Stroke>()
-          .toList();
+  }) => (strokes ?? [])
+      .map((dynamic stroke) {
+        final map = stroke as Map<String, dynamic>;
+        final pageIndex = map['i'] ?? 0;
+        if (onlyFirstPage && pageIndex > 0) return null;
+        return Stroke.fromJson(
+          map,
+          fileVersion: fileVersion,
+          pageIndex: pageIndex,
+          page: page,
+        );
+      })
+      .where((element) => element != null)
+      .cast<Stroke>()
+      .toList();
 
   static List<EditorImage> parseImagesJson(
     List<dynamic>? images, {
@@ -267,14 +269,13 @@ class EditorPage extends ChangeNotifier implements HasSize {
     required bool isThumbnail,
     required String sbnPath,
     required AssetCache assetCache,
-  }) =>
-      EditorImage.fromJson(
-        json,
-        inlineAssets: inlineAssets,
-        isThumbnail: isThumbnail,
-        sbnPath: sbnPath,
-        assetCache: assetCache,
-      );
+  }) => EditorImage.fromJson(
+    json,
+    inlineAssets: inlineAssets,
+    isThumbnail: isThumbnail,
+    sbnPath: sbnPath,
+    assetCache: assetCache,
+  );
 
   /// Triggers a redraw of the strokes. If you need to redraw images,
   /// call [setState] instead.
@@ -297,14 +298,13 @@ class EditorPage extends ChangeNotifier implements HasSize {
     List<EditorImage>? images,
     QuillStruct? quill,
     EditorImage? backgroundImage,
-  }) =>
-      EditorPage(
-        size: size ?? this.size,
-        strokes: strokes ?? this.strokes,
-        images: images ?? this.images,
-        quill: quill ?? this.quill,
-        backgroundImage: backgroundImage ?? this.backgroundImage,
-      );
+  }) => EditorPage(
+    size: size ?? this.size,
+    strokes: strokes ?? this.strokes,
+    images: images ?? this.images,
+    quill: quill ?? this.quill,
+    backgroundImage: backgroundImage ?? this.backgroundImage,
+  );
 }
 
 class QuillStruct {
@@ -312,10 +312,7 @@ class QuillStruct {
   late final FocusNode focusNode;
   StreamSubscription? changeSubscription;
 
-  QuillStruct({
-    required this.controller,
-    required this.focusNode,
-  });
+  QuillStruct({required this.controller, required this.focusNode});
 
   void dispose() {
     changeSubscription?.cancel();

@@ -19,10 +19,7 @@ class LaserPointer extends Tool {
 
   static const outerColor = Colors.red;
   final pressureEnabled = false;
-  final options = StrokeOptions(
-    smoothing: 0.7,
-    streamline: 0.7,
-  );
+  final options = StrokeOptions(smoothing: 0.7, streamline: 0.7);
 
   /// List of timings that correspond to the delay between each point
   /// in the stroke. The first point has a delay of 0.
@@ -55,10 +52,7 @@ class LaserPointer extends Tool {
     _stopwatch.start();
   }
 
-  void onDragUpdate(
-    Offset position, {
-    @visibleForTesting Duration? elapsed,
-  }) {
+  void onDragUpdate(Offset position, {@visibleForTesting Duration? elapsed}) {
     isDrawing = true;
     Pen.currentStroke?.addPoint(position);
     strokePointDelays.add(elapsed ?? _stopwatch.elapsed);
@@ -66,19 +60,23 @@ class LaserPointer extends Tool {
   }
 
   LaserStroke? onDragEnd(
-      VoidCallback redrawPage, void Function(Stroke) deleteStroke) {
+    VoidCallback redrawPage,
+    void Function(Stroke) deleteStroke,
+  ) {
     isDrawing = false;
 
     final stroke = Pen.currentStroke;
     Pen.currentStroke = null;
     if (stroke is! LaserStroke) return null;
 
-    unawaited(fadeOutStroke(
-      stroke: stroke,
-      strokePointDelays: strokePointDelays,
-      redrawPage: redrawPage,
-      deleteStroke: deleteStroke,
-    ));
+    unawaited(
+      fadeOutStroke(
+        stroke: stroke,
+        strokePointDelays: strokePointDelays,
+        redrawPage: redrawPage,
+        deleteStroke: deleteStroke,
+      ),
+    );
 
     return stroke
       ..options.isComplete = true
@@ -130,24 +128,24 @@ class LaserStroke extends Stroke {
   });
   @visibleForTesting
   LaserStroke.convertStroke(Stroke stroke)
-      : super(
-          color: stroke.color,
-          pressureEnabled: stroke.pressureEnabled,
-          options: stroke.options
-            ..streamline = 0.7
-            ..smoothing = 0.7,
-          pageIndex: stroke.pageIndex,
-          page: stroke.page,
-          penType: stroke.penType,
-        ) {
+    : super(
+        color: stroke.color,
+        pressureEnabled: stroke.pressureEnabled,
+        options: stroke.options
+          ..streamline = 0.7
+          ..smoothing = 0.7,
+        pageIndex: stroke.pageIndex,
+        page: stroke.page,
+        penType: stroke.penType,
+      ) {
     points.addAll(stroke.points);
   }
 
   @protected
   List<Offset> get innerPolygon => _innerPolygon ??= getStroke(
-        points,
-        options: options.copyWith(size: options.size * 0.4),
-      );
+    points,
+    options: options.copyWith(size: options.size * 0.4),
+  );
   List<Offset>? _innerPolygon;
 
   /// The inner part of the stroke which is thinner and white

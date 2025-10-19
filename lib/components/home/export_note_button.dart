@@ -11,10 +11,7 @@ import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/i18n/strings.g.dart';
 
 class ExportNoteButton extends StatefulWidget {
-  const ExportNoteButton({
-    super.key,
-    required this.selectedFiles,
-  });
+  const ExportNoteButton({super.key, required this.selectedFiles});
 
   final List<String> selectedFiles;
 
@@ -34,24 +31,25 @@ class _ExportNoteButtonState extends State<ExportNoteButton> {
       EditorCoreInfo coreInfo = await EditorCoreInfo.loadFromFilePath(filePath);
       if (!mounted) break;
 
-      final fileNameWithoutExtension =
-          coreInfo.filePath.substring(coreInfo.filePath.lastIndexOf('/') + 1);
+      final fileNameWithoutExtension = coreInfo.filePath.substring(
+        coreInfo.filePath.lastIndexOf('/') + 1,
+      );
 
       if (exportPdf) {
         final pdfDoc = await EditorExporter.generatePdf(coreInfo, context);
         final pdfBytes = await pdfDoc.save();
-        files.add(ArchiveFile(
-          '$fileNameWithoutExtension.pdf',
-          pdfBytes.length,
-          pdfBytes,
-        ));
+        files.add(
+          ArchiveFile(
+            '$fileNameWithoutExtension.pdf',
+            pdfBytes.length,
+            pdfBytes,
+          ),
+        );
       } else {
         final sba = await coreInfo.saveToSba(currentPageIndex: null);
-        files.add(ArchiveFile(
-          '$fileNameWithoutExtension.sba',
-          sba.length,
-          sba,
-        ));
+        files.add(
+          ArchiveFile('$fileNameWithoutExtension.sba', sba.length, sba),
+        );
       }
     }
 

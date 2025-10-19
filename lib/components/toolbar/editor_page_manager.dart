@@ -38,11 +38,11 @@ class EditorPageManager extends StatefulWidget {
 
 class _EditorPageManagerState extends State<EditorPageManager> {
   void scrollToPage(int pageIndex) => CanvasGestureDetector.scrollToPage(
-        pageIndex: pageIndex,
-        pages: widget.coreInfo.pages,
-        screenWidth: MediaQuery.sizeOf(context).width,
-        transformationController: widget.transformationController,
-      );
+    pageIndex: pageIndex,
+    pages: widget.coreInfo.pages,
+    screenWidth: MediaQuery.sizeOf(context).width,
+    transformationController: widget.transformationController,
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +58,7 @@ class _EditorPageManagerState extends State<EditorPageManager> {
         itemBuilder: (context, pageIndex) {
           final isEmptyLastPage =
               pageIndex == widget.coreInfo.pages.length - 1 &&
-                  widget.coreInfo.pages[pageIndex].isEmpty;
+              widget.coreInfo.pages[pageIndex].isEmpty;
           return InkWell(
             key: ValueKey(pageIndex),
             onTap: () => scrollToPage(pageIndex),
@@ -91,9 +91,7 @@ class _EditorPageManagerState extends State<EditorPageManager> {
                           index: pageIndex,
                           child: const Padding(
                             padding: EdgeInsets.all(8),
-                            child: Icon(
-                              Icons.drag_handle,
-                            ),
+                            child: Icon(Icons.drag_handle),
                           ),
                         ),
                       ),
@@ -133,9 +131,9 @@ class _EditorPageManagerState extends State<EditorPageManager> {
                         onPressed: isEmptyLastPage
                             ? null
                             : () => setState(() {
-                                  widget.clearPage(pageIndex);
-                                  scrollToPage(pageIndex);
-                                }),
+                                widget.clearPage(pageIndex);
+                                scrollToPage(pageIndex);
+                              }),
                       ),
                       IconButton(
                         tooltip: t.editor.menu.deletePage,
@@ -146,9 +144,9 @@ class _EditorPageManagerState extends State<EditorPageManager> {
                         onPressed: isEmptyLastPage
                             ? null
                             : () => setState(() {
-                                  widget.deletePage(pageIndex);
-                                  scrollToPage(pageIndex);
-                                }),
+                                widget.deletePage(pageIndex);
+                                scrollToPage(pageIndex);
+                              }),
                       ),
                     ],
                   ),
@@ -162,8 +160,10 @@ class _EditorPageManagerState extends State<EditorPageManager> {
           if (oldIndex < newIndex) {
             newIndex -= 1;
           }
-          widget.coreInfo.pages
-              .insert(newIndex, widget.coreInfo.pages.removeAt(oldIndex));
+          widget.coreInfo.pages.insert(
+            newIndex,
+            widget.coreInfo.pages.removeAt(oldIndex),
+          );
 
           // reassign pageIndex of pages' strokes and images
           for (int i = 0; i < widget.coreInfo.pages.length; i++) {

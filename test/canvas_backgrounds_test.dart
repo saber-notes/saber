@@ -14,7 +14,9 @@ void main() {
 }
 
 void _testPatternWithLineHeight(
-    final CanvasBackgroundPattern pattern, final int lineHeight) {
+  final CanvasBackgroundPattern pattern,
+  final int lineHeight,
+) {
   test("'$pattern' with line height $lineHeight", () {
     const Size size = Size(1000, 1000);
 
@@ -28,25 +30,43 @@ void _testPatternWithLineHeight(
     ).toList();
 
     if (pattern == CanvasBackgroundPattern.none) {
-      expect(elements.isEmpty, true,
-          reason: 'No elements should be returned for the none pattern');
+      expect(
+        elements.isEmpty,
+        true,
+        reason: 'No elements should be returned for the none pattern',
+      );
       return;
     } else {
-      expect(elements.isEmpty, false,
-          reason:
-              'Elements should be returned for patterns other than the none pattern');
+      expect(
+        elements.isEmpty,
+        false,
+        reason:
+            'Elements should be returned for patterns other than the none pattern',
+      );
     }
 
     // Check that the elements are within the bounds of the canvas
     for (PatternElement element in elements) {
-      expect(element.start.dx, lessThanOrEqualTo(size.width),
-          reason: 'element.start not within canvas bounds');
-      expect(element.start.dy, lessThanOrEqualTo(size.height),
-          reason: 'element.start not within canvas bounds');
-      expect(element.end.dx, lessThanOrEqualTo(size.width),
-          reason: 'element.end not within canvas bounds');
-      expect(element.end.dy, lessThanOrEqualTo(size.height),
-          reason: 'element.end not within canvas bounds');
+      expect(
+        element.start.dx,
+        lessThanOrEqualTo(size.width),
+        reason: 'element.start not within canvas bounds',
+      );
+      expect(
+        element.start.dy,
+        lessThanOrEqualTo(size.height),
+        reason: 'element.start not within canvas bounds',
+      );
+      expect(
+        element.end.dx,
+        lessThanOrEqualTo(size.width),
+        reason: 'element.end not within canvas bounds',
+      );
+      expect(
+        element.end.dy,
+        lessThanOrEqualTo(size.height),
+        reason: 'element.end not within canvas bounds',
+      );
     }
 
     // Check we have 2 lineHeights of space at the top
@@ -69,8 +89,11 @@ void _testPatternWithLineHeight(
     // Check all elements are lines or all elements are dots
     bool allLines = elements.every((element) => element.isLine);
     bool allDots = elements.every((element) => !element.isLine);
-    expect(allLines || allDots, true,
-        reason: 'All elements should be lines or all elements should be dots');
+    expect(
+      allLines || allDots,
+      true,
+      reason: 'All elements should be lines or all elements should be dots',
+    );
 
     if (allLines) {
       // Check spacing
@@ -79,8 +102,11 @@ void _testPatternWithLineHeight(
       for (PatternElement element in elements) {
         bool isHorizontal = element.start.dy == element.end.dy;
         bool isVertical = element.start.dx == element.end.dx;
-        expect(isHorizontal || isVertical, true,
-            reason: 'Lines should be horizontal or vertical');
+        expect(
+          isHorizontal || isVertical,
+          true,
+          reason: 'Lines should be horizontal or vertical',
+        );
 
         double position = isHorizontal ? element.start.dy : element.start.dx;
 
@@ -94,8 +120,11 @@ void _testPatternWithLineHeight(
         if (pattern != CanvasBackgroundPattern.cornell) {
           // Cornell has two lines on the same row, so they shouldn't be spaced apart
 
-          expect(position != lastPosition, true,
-              reason: 'Lines should be spaced apart');
+          expect(
+            position != lastPosition,
+            true,
+            reason: 'Lines should be spaced apart',
+          );
         }
 
         double spacing = (position - lastPosition).abs();
@@ -104,9 +133,13 @@ void _testPatternWithLineHeight(
           diffFromALine = lineHeight - diffFromALine;
         }
         printOnFailure(
-            'spacing: $spacing, lineHeight: $lineHeight, diffFromALine: $diffFromALine');
-        expect(diffFromALine, lessThan(epsilon),
-            reason: 'Lines should be spaced in intervals of lineHeight');
+          'spacing: $spacing, lineHeight: $lineHeight, diffFromALine: $diffFromALine',
+        );
+        expect(
+          diffFromALine,
+          lessThan(epsilon),
+          reason: 'Lines should be spaced in intervals of lineHeight',
+        );
 
         lastPosition = position;
       }
@@ -144,7 +177,10 @@ void _testRtlPattern(final CanvasBackgroundPattern pattern) {
         ? linesOnRight >= linesOnLeft * 0.9
         : linesOnLeft >= linesOnRight * 0.9;
     printOnFailure('linesOnLeft: $linesOnLeft, linesOnRight: $linesOnRight');
-    expect(isCorrectlyRtl, true,
-        reason: 'Lines should be on the left in ltr and on the right in rtl');
+    expect(
+      isCorrectlyRtl,
+      true,
+      reason: 'Lines should be on the left in ltr and on the right in rtl',
+    );
   });
 }

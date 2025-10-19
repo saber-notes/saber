@@ -19,7 +19,8 @@ void main() async {
     setupMockFlutterSecureStorage();
     SharedPreferences.setMockInitialValues({});
 
-    FileManager.documentsDirectory = '$tmpDir/nc_upload_download_test/'
+    FileManager.documentsDirectory =
+        '$tmpDir/nc_upload_download_test/'
         '${FileManager.appRootDirectoryPrefix}';
     FlavorConfig.setup();
     await FileManager.init();
@@ -47,19 +48,24 @@ void main() async {
     await syncer.interface.uploadRemoteFile(syncFile, upBytes);
 
     // Get the sync file again, this time starting with the remote file
-    final remoteFile =
-        await syncer.interface.getWebDavFile(syncFile.remotePath);
+    final remoteFile = await syncer.interface.getWebDavFile(
+      syncFile.remotePath,
+    );
     if (remoteFile == null) fail('Remote file not found after upload');
-    final syncFile2 =
-        await syncer.interface.getSyncFileFromRemoteFile(remoteFile);
+    final syncFile2 = await syncer.interface.getSyncFileFromRemoteFile(
+      remoteFile,
+    );
     expect(syncFile2, equals(syncFile));
 
     // Download
     final downBytes = await syncer.interface.downloadRemoteFile(syncFile);
     expect(downBytes.length, greaterThan(0));
     expect(downBytes, equals(upBytes));
-    await syncer.interface
-        .writeLocalFile(syncFile, downBytes, awaitWrite: true);
+    await syncer.interface.writeLocalFile(
+      syncFile,
+      downBytes,
+      awaitWrite: true,
+    );
     expect(await localFile.readAsString(), equals(content));
   });
 }

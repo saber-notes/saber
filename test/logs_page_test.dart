@@ -33,12 +33,27 @@ void main() {
         '<asynchronous suspension>\n',
       );
       logsHistory.clear();
-      logsHistory
-          .add(LogRecord(Level.INFO, 'This is an info log', 'TestLogger'));
-      logsHistory.add(LogRecord(Level.WARNING, 'This is a warning log',
-          'TestLogger', UnimplementedError('Test error'), stackTrace));
-      logsHistory.add(LogRecord(
-          Level.SEVERE, 'Oh no!', 'TestLogger', TypeError(), stackTrace));
+      logsHistory.add(
+        LogRecord(Level.INFO, 'This is an info log', 'TestLogger'),
+      );
+      logsHistory.add(
+        LogRecord(
+          Level.WARNING,
+          'This is a warning log',
+          'TestLogger',
+          UnimplementedError('Test error'),
+          stackTrace,
+        ),
+      );
+      logsHistory.add(
+        LogRecord(
+          Level.SEVERE,
+          'Oh no!',
+          'TestLogger',
+          TypeError(),
+          stackTrace,
+        ),
+      );
 
       await tester.pumpWidget(_LogsApp());
 

@@ -15,8 +15,10 @@ class SentryConsentDialog extends StatelessWidget {
     if (!isSentryAvailable) return;
 
     // Don't ask if consent is already known
-    assert(stows.sentryConsent.loaded,
-        'Sentry consent should be loaded in initSentry');
+    assert(
+      stows.sentryConsent.loaded,
+      'Sentry consent should be loaded in initSentry',
+    );
     if (stows.sentryConsent.value != SentryConsent.unknown) return;
 
     // Show the dialog
@@ -36,28 +38,31 @@ class SentryConsentDialog extends StatelessWidget {
       title: Text(t.sentry.consent.title),
       scrollable: true,
       content: RichText(
-        text: TextSpan(style: TextTheme.of(context).bodyMedium, children: [
-          TextSpan(text: t.sentry.consent.description.question),
-          const TextSpan(text: '\n\n'),
-          TextSpan(text: t.sentry.consent.description.scope),
-          const TextSpan(text: '\n\n'),
-          TextSpan(
-            text: isSentryEnabled
-                ? t.sentry.consent.description.currentlyOn
-                : t.sentry.consent.description.currentlyOff,
-          ),
-          const TextSpan(text: '\n\n'),
-          t.sentry.consent.description.learnMoreInPrivacyPolicy(
-            link: (text) => TextSpan(
-              text: text,
-              style: TextStyle(color: ColorScheme.of(context).primary),
-              recognizer: TapGestureRecognizer()
-                ..onTap = () {
-                  launchUrl(AppInfo.privacyPolicyUrl);
-                },
+        text: TextSpan(
+          style: TextTheme.of(context).bodyMedium,
+          children: [
+            TextSpan(text: t.sentry.consent.description.question),
+            const TextSpan(text: '\n\n'),
+            TextSpan(text: t.sentry.consent.description.scope),
+            const TextSpan(text: '\n\n'),
+            TextSpan(
+              text: isSentryEnabled
+                  ? t.sentry.consent.description.currentlyOn
+                  : t.sentry.consent.description.currentlyOff,
             ),
-          ),
-        ]),
+            const TextSpan(text: '\n\n'),
+            t.sentry.consent.description.learnMoreInPrivacyPolicy(
+              link: (text) => TextSpan(
+                text: text,
+                style: TextStyle(color: ColorScheme.of(context).primary),
+                recognizer: TapGestureRecognizer()
+                  ..onTap = () {
+                    launchUrl(AppInfo.privacyPolicyUrl);
+                  },
+              ),
+            ),
+          ],
+        ),
       ),
       actions: [
         ElevatedButton(

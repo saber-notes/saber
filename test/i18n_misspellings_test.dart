@@ -14,17 +14,22 @@ void main() {
           .whereType<Directory>()
           .expand((dir) => dir.listSync())
           .whereType<File>()
-          .where((file) =>
-              file.path.endsWith('full_description.txt') ||
-              file.path.endsWith('short_description.txt') ||
-              file.path.endsWith('title.txt')),
+          .where(
+            (file) =>
+                file.path.endsWith('full_description.txt') ||
+                file.path.endsWith('short_description.txt') ||
+                file.path.endsWith('title.txt'),
+          ),
     ];
 
     await Future.wait([
       for (final file in files)
         file.readAsString().then((contents) {
-          expect(contents, isNot(contains('Sabre')),
-              reason: 'Saber is misspelled as Sabre in ${file.path}');
+          expect(
+            contents,
+            isNot(contains('Sabre')),
+            reason: 'Saber is misspelled as Sabre in ${file.path}',
+          );
         }),
     ]);
   });

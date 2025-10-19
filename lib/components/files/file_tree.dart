@@ -14,11 +14,9 @@ class FileTree extends StatelessWidget {
     return const Padding(
       padding: EdgeInsets.all(12),
       child: SingleChildScrollView(
-          scrollDirection: Axis.vertical,
-          child: FileTreeBranch(
-            path: null,
-            isDirectory: true,
-          )),
+        scrollDirection: Axis.vertical,
+        child: FileTreeBranch(path: null, isDirectory: true),
+      ),
     );
   }
 }
@@ -84,8 +82,11 @@ class _FileTreeBranchState extends State<FileTreeBranch> {
               child: Row(
                 children: [
                   if (widget.isDirectory) ...[
-                    Icon(areChildrenVisible ? Icons.folder_open : Icons.folder,
-                        color: colorScheme.primary, size: 25),
+                    Icon(
+                      areChildrenVisible ? Icons.folder_open : Icons.folder,
+                      color: colorScheme.primary,
+                      size: 25,
+                    ),
                   ] else ...[
                     const Icon(Icons.insert_drive_file, size: 25),
                   ],
@@ -93,9 +94,9 @@ class _FileTreeBranchState extends State<FileTreeBranch> {
                   Expanded(
                     child: Text(
                       widget.path!.substring(widget.path!.lastIndexOf('/') + 1),
-                      style: TextTheme.of(context).bodyMedium?.copyWith(
-                            fontSize: 14,
-                          ),
+                      style: TextTheme.of(
+                        context,
+                      ).bodyMedium?.copyWith(fontSize: 14),
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),

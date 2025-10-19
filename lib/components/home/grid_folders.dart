@@ -82,8 +82,10 @@ class _GridFolder extends StatefulWidget {
     required this.isFolderEmpty,
     required this.deleteFolder,
     required this.onTap,
-  }) : assert((folderName == null) ^ (cardType == _FolderCardType.realFolder),
-            'Real folders must specify a folder name');
+  }) : assert(
+         (folderName == null) ^ (cardType == _FolderCardType.realFolder),
+         'Real folders must specify a folder name',
+       );
 
   final _FolderCardType cardType;
   final String? folderName;
@@ -178,13 +180,13 @@ class _GridFolderState extends State<_GridFolder> {
                             valueListenable: expanded,
                             builder: (context, expanded, child) =>
                                 AnimatedOpacity(
-                              opacity: expanded ? 1 : 0,
-                              duration: const Duration(milliseconds: 200),
-                              child: IgnorePointer(
-                                ignoring: !expanded,
-                                child: child!,
-                              ),
-                            ),
+                                  opacity: expanded ? 1 : 0,
+                                  duration: const Duration(milliseconds: 200),
+                                  child: IgnorePointer(
+                                    ignoring: !expanded,
+                                    child: child!,
+                                  ),
+                                ),
                             child: GestureDetector(
                               onTap: () => expanded.value = !expanded.value,
                               child: DecoratedBox(
@@ -208,7 +210,9 @@ class _GridFolderState extends State<_GridFolder> {
                                       doesFolderExist: widget.doesFolderExist,
                                       renameFolder: (String folderName) async {
                                         await widget.renameFolder(
-                                            widget.folderName!, folderName);
+                                          widget.folderName!,
+                                          folderName,
+                                        );
                                         expanded.value = false;
                                       },
                                     ),
@@ -244,8 +248,4 @@ class _GridFolderState extends State<_GridFolder> {
   }
 }
 
-enum _FolderCardType {
-  backFolder,
-  newFolder,
-  realFolder;
-}
+enum _FolderCardType { backFolder, newFolder, realFolder }

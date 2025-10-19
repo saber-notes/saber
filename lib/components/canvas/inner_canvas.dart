@@ -72,10 +72,7 @@ class _InnerCanvasState extends State<InnerCanvas> {
         widget.coreInfo.backgroundColor ?? InnerCanvas.defaultBackgroundColor;
 
     if (widget.coreInfo.pages.isEmpty) {
-      return SizedBox(
-        width: widget.width,
-        height: widget.height,
-      );
+      return SizedBox(width: widget.width, height: widget.height);
     }
 
     final page = widget.coreInfo.pages[widget.pageIndex];
@@ -89,8 +86,9 @@ class _InnerCanvasState extends State<InnerCanvas> {
               scrollable: false,
               autoFocus: false,
               expands: true,
-              placeholder:
-                  widget.textEditing ? t.editor.quill.typeSomething : null,
+              placeholder: widget.textEditing
+                  ? t.editor.quill.typeSomething
+                  : null,
               showCursor: true,
               keyboardAppearance: invert ? Brightness.dark : Brightness.light,
               padding: EdgeInsets.only(
@@ -141,7 +139,8 @@ class _InnerCanvasState extends State<InnerCanvas> {
           currentSelection: widget.currentSelection,
           primaryColor: colorScheme.primary,
           page: page,
-          showPageIndicator: !widget.isPreview &&
+          showPageIndicator:
+              !widget.isPreview &&
               (!widget.isPrint || stows.printPageIndicators.value),
           pageIndex: widget.pageIndex,
           totalPages: widget.coreInfo.pages.length,
@@ -182,8 +181,10 @@ class _InnerCanvasState extends State<InnerCanvas> {
                     setAsBackground: widget.setAsBackground,
                     readOnly:
                         widget.coreInfo.readOnly || !widget.currentToolIsSelect,
-                    selected: widget.currentSelection?.images
-                            .contains(page.images[i]) ??
+                    selected:
+                        widget.currentSelection?.images.contains(
+                          page.images[i],
+                        ) ??
                         false,
                   ),
               ],
@@ -264,10 +265,7 @@ class _InnerCanvasState extends State<InnerCanvas> {
         VerticalSpacing.zero,
         null,
       ),
-      small: TextStyle(
-        fontSize: lineHeight * 0.4,
-        height: 1 / 0.4,
-      ),
+      small: TextStyle(fontSize: lineHeight * 0.4, height: 1 / 0.4),
       inlineCode: InlineCodeStyle(
         // [InlineCodeStyle.backgroundColor] is broken right now,
         // so inline code always has a white-ish background.
@@ -366,15 +364,9 @@ class _InnerCanvasState extends State<InnerCanvas> {
         VerticalSpacing.zero,
         null,
       ),
-      sizeSmall: TextStyle(
-        fontSize: textTheme.bodyLarge!.fontSize!,
-      ),
-      sizeLarge: TextStyle(
-        fontSize: textTheme.bodyLarge!.fontSize!,
-      ),
-      sizeHuge: TextStyle(
-        fontSize: textTheme.bodyLarge!.fontSize!,
-      ),
+      sizeSmall: TextStyle(fontSize: textTheme.bodyLarge!.fontSize!),
+      sizeLarge: TextStyle(fontSize: textTheme.bodyLarge!.fontSize!),
+      sizeHuge: TextStyle(fontSize: textTheme.bodyLarge!.fontSize!),
     );
   }
 }

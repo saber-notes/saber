@@ -7,10 +7,7 @@ import 'package:saber/data/prefs.dart';
 import 'package:saber/pages/editor/editor.dart';
 
 class SyncIndicator extends StatefulWidget {
-  const SyncIndicator({
-    super.key,
-    required this.filePath,
-  });
+  const SyncIndicator({super.key, required this.filePath});
 
   final String filePath;
 
@@ -20,15 +17,17 @@ class SyncIndicator extends StatefulWidget {
 
 class _SyncIndicatorState extends State<SyncIndicator> {
   late final StreamSubscription uploaderListener, downloaderListener;
-  final ValueNotifier<_SyncIndicatorStatus> status =
-      ValueNotifier(_SyncIndicatorStatus.done);
+  final ValueNotifier<_SyncIndicatorStatus> status = ValueNotifier(
+    _SyncIndicatorStatus.done,
+  );
 
   @override
   void initState() {
     stows.username.addListener(onFileTransfer);
     uploaderListener = syncer.uploader.transferStream.listen(onFileTransfer);
-    downloaderListener =
-        syncer.downloader.transferStream.listen(onFileTransfer);
+    downloaderListener = syncer.downloader.transferStream.listen(
+      onFileTransfer,
+    );
     super.initState();
   }
 
@@ -56,17 +55,17 @@ class _SyncIndicatorState extends State<SyncIndicator> {
   }
 
   bool _isInQueue(Iterable<SaberSyncFile> pending) => pending.any((syncFile) {
-        final path = syncFile.relativeLocalPath;
+    final path = syncFile.relativeLocalPath;
 
-        if (_matchesPath(path)) return true;
+    if (_matchesPath(path)) return true;
 
-        if (FileManager.assetFileRegex.hasMatch(path)) {
-          final assetOwner = path.substring(0, path.lastIndexOf('.'));
-          if (_matchesPath(assetOwner)) return true;
-        }
+    if (FileManager.assetFileRegex.hasMatch(path)) {
+      final assetOwner = path.substring(0, path.lastIndexOf('.'));
+      if (_matchesPath(assetOwner)) return true;
+    }
 
-        return false;
-      });
+    return false;
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -84,8 +83,9 @@ class _SyncIndicatorState extends State<SyncIndicator> {
                 child: switch (status) {
                   _SyncIndicatorStatus.done => null,
                   _SyncIndicatorStatus.uploading => const Icon(Icons.upload),
-                  _SyncIndicatorStatus.downloading =>
-                    const Icon(Icons.download),
+                  _SyncIndicatorStatus.downloading => const Icon(
+                    Icons.download,
+                  ),
                   _SyncIndicatorStatus.merging => const Icon(Icons.sync),
                 },
               );
@@ -105,9 +105,4 @@ class _SyncIndicatorState extends State<SyncIndicator> {
   }
 }
 
-enum _SyncIndicatorStatus {
-  done,
-  uploading,
-  downloading,
-  merging,
-}
+enum _SyncIndicatorStatus { done, uploading, downloading, merging }

@@ -36,10 +36,10 @@ class CanvasImageDialog extends StatefulWidget {
 
 class _CanvasImageDialogState extends State<CanvasImageDialog> {
   void setInvertible([bool? value]) => setState(() {
-        widget.image.invertible = value ?? !widget.image.invertible;
-        widget.image.onMiscChange?.call();
-        widget.redrawImage();
-      });
+    widget.image.invertible = value ?? !widget.image.invertible;
+    widget.image.onMiscChange?.call();
+    widget.redrawImage();
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -55,16 +55,20 @@ class _CanvasImageDialogState extends State<CanvasImageDialog> {
           child: AdaptiveSwitch(
             value: widget.image.invertible,
             onChanged: stows.editorAutoInvert.value ? setInvertible : null,
-            thumbIcon: WidgetStateProperty.all(widget.image.invertible
-                ? const Icon(Icons.invert_colors)
-                : const Icon(Icons.invert_colors_off)),
+            thumbIcon: WidgetStateProperty.all(
+              widget.image.invertible
+                  ? const Icon(Icons.invert_colors)
+                  : const Icon(Icons.invert_colors_off),
+            ),
           ),
         ),
       ),
       _CanvasImageDialogItem(
         onTap: () async {
-          final String filePathSanitized =
-              widget.filePath.replaceAll(RegExp(r'[^a-zA-Z\d]'), '_');
+          final String filePathSanitized = widget.filePath.replaceAll(
+            RegExp(r'[^a-zA-Z\d]'),
+            '_',
+          );
           final String imageFileName =
               'image$filePathSanitized${widget.image.id}${widget.image.extension}';
           final List<int> bytes;
@@ -74,26 +78,37 @@ class _CanvasImageDialogState extends State<CanvasImageDialog> {
               bytes = image.pdfBytes!;
             case SvgEditorImage image:
               bytes = switch (image.svgLoader) {
-                (SvgStringLoader loader) =>
-                  utf8.encode(loader.provideSvg(null)),
+                (SvgStringLoader loader) => utf8.encode(
+                  loader.provideSvg(null),
+                ),
                 (SvgFileLoader loader) => await loader.file.readAsBytes(),
                 (_) => throw ArgumentError.value(
-                    image.svgLoader, 'svgLoader', 'Unknown SVG loader type'),
+                  image.svgLoader,
+                  'svgLoader',
+                  'Unknown SVG loader type',
+                ),
               };
             case PngEditorImage image:
               if (image.imageProvider is MemoryImage) {
                 bytes = (image.imageProvider as MemoryImage).bytes;
               } else if (image.imageProvider is FileImage) {
-                bytes =
-                    await (image.imageProvider as FileImage).file.readAsBytes();
+                bytes = await (image.imageProvider as FileImage).file
+                    .readAsBytes();
               } else {
-                throw ArgumentError.value(image.imageProvider, 'imageProvider',
-                    'Unknown image provider type');
+                throw ArgumentError.value(
+                  image.imageProvider,
+                  'imageProvider',
+                  'Unknown image provider type',
+                );
               }
           }
           if (!context.mounted) return;
-          FileManager.exportFile(imageFileName, bytes,
-              isImage: true, context: context);
+          FileManager.exportFile(
+            imageFileName,
+            bytes,
+            isImage: true,
+            context: context,
+          );
           Navigator.of(context).pop();
         },
         title: t.editor.imageOptions.download,
@@ -143,10 +158,7 @@ class _CanvasImageDialogState extends State<CanvasImageDialog> {
         child: gridView,
       );
     } else {
-      return SizedBox(
-        width: 250,
-        child: gridView,
-      );
+      return SizedBox(width: 250, child: gridView);
     }
   }
 }
@@ -177,10 +189,7 @@ class _CanvasImageDialogItem extends StatelessWidget {
           child: Column(
             children: [
               Expanded(child: child),
-              Text(
-                title,
-                textAlign: TextAlign.center,
-              ),
+              Text(title, textAlign: TextAlign.center),
             ],
           ),
         ),

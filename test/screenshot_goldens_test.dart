@@ -50,29 +50,30 @@ void main() {
     stows.username.value = 'myusername';
     stows.sentryConsent.value = SentryConsent.granted;
 
-    setUpAll(() => Future.wait([
-          FileManager.init(
-            shouldWatchRootDirectory: false,
-          ),
-          PencilShader.init(),
-        ]));
+    setUpAll(
+      () => Future.wait([
+        FileManager.init(shouldWatchRootDirectory: false),
+        PencilShader.init(),
+      ]),
+    );
 
     setUpAll(() async {
       final recentFiles = <String>[];
-      await Future.wait(Directory('test/demo_notes/')
-          .listSync()
-          .whereType<File>()
-          .map((file) async {
-        /// The file name starting with a slash
-        final fileName = file.path.substring(file.path.lastIndexOf('/'));
-        if (fileName.endsWith('.sbn2') || fileName.endsWith('.sbn')) {
-          recentFiles.add(fileName);
-        }
-        final bytes = await file.readAsBytes();
-        final dstFile = FileManager.getFile(fileName);
-        await dstFile.create(recursive: true);
-        return dstFile.writeAsBytes(bytes);
-      }));
+      await Future.wait(
+        Directory('test/demo_notes/').listSync().whereType<File>().map((
+          file,
+        ) async {
+          /// The file name starting with a slash
+          final fileName = file.path.substring(file.path.lastIndexOf('/'));
+          if (fileName.endsWith('.sbn2') || fileName.endsWith('.sbn')) {
+            recentFiles.add(fileName);
+          }
+          final bytes = await file.readAsBytes();
+          final dstFile = FileManager.getFile(fileName);
+          await dstFile.create(recursive: true);
+          return dstFile.writeAsBytes(bytes);
+        }),
+      );
       stows.recentFiles.value = recentFiles..sort();
     });
 
@@ -83,22 +84,24 @@ void main() {
     final materialTheme = ThemeData(
       colorScheme: colorScheme,
       textTheme: ThemeData(brightness: Brightness.light).textTheme.withFont(
-            fontFamily: 'Inter',
-            fontFamilyFallback: saberSansSerifFontFallbacks,
-          ),
+        fontFamily: 'Inter',
+        fontFamilyFallback: saberSansSerifFontFallbacks,
+      ),
       scaffoldBackgroundColor: colorScheme.surface,
     );
     final cupertinoTheme = ThemeData(
       colorScheme: colorScheme,
       textTheme: ThemeData(brightness: Brightness.light).textTheme.withFont(
-            fontFamily: 'Inter',
-            fontFamilyFallback: saberSansSerifFontFallbacks,
-          ),
+        fontFamily: 'Inter',
+        fontFamilyFallback: saberSansSerifFontFallbacks,
+      ),
       scaffoldBackgroundColor: colorScheme.surface,
       platform: TargetPlatform.iOS,
     );
-    const yaruTheme =
-        YaruThemeData(variant: YaruVariant.orange, useMaterial3: true);
+    const yaruTheme = YaruThemeData(
+      variant: YaruVariant.orange,
+      useMaterial3: true,
+    );
 
     _screenshot(
       materialTheme: materialTheme,
@@ -112,18 +115,14 @@ void main() {
       cupertinoTheme: cupertinoTheme,
       yaruTheme: yaruTheme,
       goldenFileName: '2_editor',
-      child: Editor(
-        path: '/Metric Spaces Week 1',
-      ),
+      child: Editor(path: '/Metric Spaces Week 1'),
     );
     _screenshot(
       materialTheme: materialTheme,
       cupertinoTheme: cupertinoTheme,
       yaruTheme: yaruTheme,
       goldenFileName: '3_login',
-      child: const NcLoginPage(
-        forceAppBarLeading: true,
-      ),
+      child: const NcLoginPage(forceAppBarLeading: true),
     );
     _screenshot(
       materialTheme: materialTheme,
@@ -193,19 +192,19 @@ void _screenshot({
           },
           device: device,
           frameColors: frameColors,
-          home: TranslationProvider(
-            child: child,
-          ),
+          home: TranslationProvider(child: child),
         );
         await tester.pumpWidget(widget);
         await tester.pump();
 
-        for (final editorState
-            in tester.stateList<EditorState>(find.byType(Editor))) {
+        for (final editorState in tester.stateList<EditorState>(
+          find.byType(Editor),
+        )) {
           // Wait for the editor to load
           while (editorState.coreInfo.isEmpty) {
             await tester.runAsync(
-                () => Future.delayed(const Duration(milliseconds: 100)));
+              () => Future.delayed(const Duration(milliseconds: 100)),
+            );
           }
           await tester.pump();
         }

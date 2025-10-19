@@ -26,8 +26,9 @@ class _SyncingButtonState extends State<SyncingButton> {
   @override
   void initState() {
     queueListener = syncer.downloader.queueStream.listen(_onQueueChanged);
-    transferListener =
-        syncer.downloader.transferStream.listen(_onFileTransferred);
+    transferListener = syncer.downloader.transferStream.listen(
+      _onFileTransferred,
+    );
     stows.username.addListener(_onUsernameChanged);
 
     super.initState();
@@ -88,8 +89,8 @@ class _SyncingButtonState extends State<SyncingButton> {
       onPressed: stows.loggedIn
           ? onPressed
           : SyncingButton.forceButtonActive
-              ? () {}
-              : null,
+          ? () {}
+          : null,
       icon: Stack(
         alignment: Alignment.center,
         children: [
@@ -138,9 +139,13 @@ class _AnimatedCircularProgressIndicatorState
 
   @override
   void forEachTween(TweenVisitor<dynamic> visitor) {
-    _valueTween = visitor(_valueTween, widget.percentage ?? 0.0,
-            (dynamic value) => Tween<double>(begin: (value ?? 0.0) as double))
-        as Tween<double>?;
+    _valueTween =
+        visitor(
+              _valueTween,
+              widget.percentage ?? 0.0,
+              (dynamic value) => Tween<double>(begin: (value ?? 0.0) as double),
+            )
+            as Tween<double>?;
   }
 
   @override

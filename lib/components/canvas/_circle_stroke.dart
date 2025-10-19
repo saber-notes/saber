@@ -44,7 +44,8 @@ class CircleStroke extends Stroke {
         color = Stroke.defaultColor;
       default:
         throw Exception(
-            'Invalid color value: (${json['c'].runtimeType}) ${json['c']}');
+          'Invalid color value: (${json['c'].runtimeType}) ${json['c']}',
+        );
     }
 
     return CircleStroke(
@@ -54,10 +55,7 @@ class CircleStroke extends Stroke {
       pageIndex: pageIndex,
       page: page,
       penType: json['ty'] ?? (ShapePen).toString(),
-      center: Offset(
-        json['cx'] ?? 0,
-        json['cy'] ?? 0,
-      ),
+      center: Offset(json['cx'] ?? 0, json['cy'] ?? 0),
       radius: json['r'] ?? 0,
     );
   }
@@ -145,13 +143,13 @@ class CircleStroke extends Stroke {
 
   @override
   CircleStroke copy() => CircleStroke(
-        color: color,
-        pressureEnabled: pressureEnabled,
-        options: options.copyWith(),
-        pageIndex: pageIndex,
-        page: page,
-        penType: penType,
-        center: center,
-        radius: radius,
-      );
+    color: color,
+    pressureEnabled: pressureEnabled,
+    options: options.copyWith(),
+    pageIndex: pageIndex,
+    page: page,
+    penType: penType,
+    center: center,
+    radius: radius,
+  );
 }

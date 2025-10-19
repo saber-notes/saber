@@ -18,8 +18,10 @@ class SettingsSelection<T extends num> extends StatefulWidget {
     this.afterChange,
     this.optionsWidth = 72,
     this.optionsHeight = 40,
-  }) : assert(icon == null || iconBuilder == null,
-            'Cannot set both icon and iconBuilder');
+  }) : assert(
+         icon == null || iconBuilder == null,
+         'Cannot set both icon and iconBuilder',
+       );
 
   final String title;
   final String? subtitle;
@@ -38,8 +40,9 @@ class SettingsSelection<T extends num> extends StatefulWidget {
 
 class _SettingsSelectionState<T extends num>
     extends State<SettingsSelection<T>> {
-  late FocusNode dropdownFocusNode =
-      FocusNode(debugLabel: 'dropdownFocusNode(${widget.pref.key})');
+  late FocusNode dropdownFocusNode = FocusNode(
+    debugLabel: 'dropdownFocusNode(${widget.pref.key})',
+  );
 
   @override
   void initState() {
@@ -55,10 +58,12 @@ class _SettingsSelectionState<T extends num>
   @override
   Widget build(BuildContext context) {
     if (!widget.options.any(
-        (ToggleButtonsOption option) => widget.pref.value == option.value)) {
+      (ToggleButtonsOption option) => widget.pref.value == option.value,
+    )) {
       if (kDebugMode)
         throw Exception(
-            'SettingsSelection (${widget.pref.key}): Value ${widget.pref.value} is not in the list of values, set it to ${widget.options.first.value}?');
+          'SettingsSelection (${widget.pref.key}): Value ${widget.pref.value} is not in the list of values, set it to ${widget.options.first.value}?',
+        );
       widget.pref.value = widget.options.first.value;
     }
 
@@ -86,7 +91,8 @@ class _SettingsSelectionState<T extends num>
       onTap: () {
         // cycle through options
         final int i = widget.options.indexWhere(
-            (ToggleButtonsOption option) => option.value == widget.pref.value);
+          (ToggleButtonsOption option) => option.value == widget.pref.value,
+        );
         widget.pref.value =
             widget.options[(i + 1) % widget.options.length].value;
       },
@@ -111,8 +117,10 @@ class _SettingsSelectionState<T extends num>
               : null,
         ),
       ),
-      subtitle:
-          Text(widget.subtitle ?? '', style: const TextStyle(fontSize: 13)),
+      subtitle: Text(
+        widget.subtitle ?? '',
+        style: const TextStyle(fontSize: 13),
+      ),
       trailing: AdaptiveToggleButtons(
         value: widget.pref.value,
         options: widget.options,

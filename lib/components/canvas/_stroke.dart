@@ -80,11 +80,19 @@ class Stroke {
       case null:
         break;
       case 'circle':
-        return CircleStroke.fromJson(json,
-            fileVersion: fileVersion, pageIndex: pageIndex, page: page);
+        return CircleStroke.fromJson(
+          json,
+          fileVersion: fileVersion,
+          pageIndex: pageIndex,
+          page: page,
+        );
       case 'rect':
-        return RectangleStroke.fromJson(json,
-            fileVersion: fileVersion, pageIndex: pageIndex, page: page);
+        return RectangleStroke.fromJson(
+          json,
+          fileVersion: fileVersion,
+          pageIndex: pageIndex,
+          page: page,
+        );
       default:
         log.severe('Unknown shape: ${json['shape']}');
     }
@@ -102,23 +110,25 @@ class Stroke {
         color = defaultColor;
       default:
         throw Exception(
-            'Invalid color value: (${json['c'].runtimeType}) ${json['c']}');
+          'Invalid color value: (${json['c'].runtimeType}) ${json['c']}',
+        );
     }
 
     final offset = Offset(json['ox'] ?? 0, json['oy'] ?? 0);
     final pointsJson = json['p'] as List<dynamic>;
     final Iterable<PointVector> points;
     if (fileVersion >= 13) {
-      points = pointsJson.map((point) => PointExtensions.fromBsonBinary(
-            json: point,
-            offset: offset,
-          ));
+      points = pointsJson.map(
+        (point) => PointExtensions.fromBsonBinary(json: point, offset: offset),
+      );
     } else {
       // ignore: deprecated_member_use_from_same_package
-      points = pointsJson.map((point) => PointExtensions.fromJson(
-            json: Map<String, dynamic>.from(point),
-            offset: offset,
-          ));
+      points = pointsJson.map(
+        (point) => PointExtensions.fromJson(
+          json: Map<String, dynamic>.from(point),
+          offset: offset,
+        ),
+      );
     }
 
     return Stroke(
@@ -277,8 +287,9 @@ class Stroke {
     }
 
     // Remove NaN points, and convert to SVG coordinates
-    final svgPoints =
-        highQualityPolygon.where((offset) => offset.isFinite).map(toSvgPoint);
+    final svgPoints = highQualityPolygon
+        .where((offset) => offset.isFinite)
+        .map(toSvgPoint);
 
     return svgPoints.isNotEmpty ? 'M${svgPoints.join('L')}' : '';
   }
@@ -324,10 +335,14 @@ class Stroke {
 
     // Use the average pressure
     final pressure = points.map((point) => point.pressure ?? 0.5).average;
-    var firstPoint =
-        PointVector.fromOffset(offset: points.first, pressure: pressure);
-    var lastPoint =
-        PointVector.fromOffset(offset: points.last, pressure: pressure);
+    var firstPoint = PointVector.fromOffset(
+      offset: points.first,
+      pressure: pressure,
+    );
+    var lastPoint = PointVector.fromOffset(
+      offset: points.last,
+      pressure: pressure,
+    );
 
     // Snap to the horizontal or vertical axis
     (firstPoint, lastPoint) = snapLine(firstPoint, lastPoint);
@@ -356,13 +371,13 @@ class Stroke {
       // snap to horizontal
       return (
         firstPoint,
-        PointVector(lastPoint.dx, firstPoint.dy, lastPoint.pressure)
+        PointVector(lastPoint.dx, firstPoint.dy, lastPoint.pressure),
       );
     } else if (angle > pi / 2 - snapAngle) {
       // snap to vertical
       return (
         firstPoint,
-        PointVector(firstPoint.dx, lastPoint.dy, lastPoint.pressure)
+        PointVector(firstPoint.dx, lastPoint.dy, lastPoint.pressure),
       );
     } else {
       return (firstPoint, lastPoint);
@@ -370,11 +385,11 @@ class Stroke {
   }
 
   Stroke copy() => Stroke(
-        color: color,
-        pressureEnabled: pressureEnabled,
-        options: options.copyWith(),
-        pageIndex: pageIndex,
-        page: page,
-        penType: penType,
-      )..points.addAll(points);
+    color: color,
+    pressureEnabled: pressureEnabled,
+    options: options.copyWith(),
+    pageIndex: pageIndex,
+    page: page,
+    penType: penType,
+  )..points.addAll(points);
 }

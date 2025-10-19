@@ -12,8 +12,9 @@ class Whiteboard extends StatelessWidget {
   static bool needsToAutoClearWhiteboard =
       stows.autoClearWhiteboardOnExit.value;
 
-  static final _whiteboardKey =
-      GlobalKey<EditorState>(debugLabel: 'whiteboard');
+  static final _whiteboardKey = GlobalKey<EditorState>(
+    debugLabel: 'whiteboard',
+  );
 
   static SavingState? get savingState =>
       _whiteboardKey.currentState?.savingState.value;

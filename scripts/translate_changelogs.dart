@@ -36,8 +36,9 @@ void main() async {
 
   final useLibreEngine = random.nextBool();
   print('Using ${useLibreEngine ? 'Libre' : 'Google'} translation engine...\n');
-  final translator =
-      SimplyTranslator(useLibreEngine ? EngineType.libre : EngineType.google);
+  final translator = SimplyTranslator(
+    useLibreEngine ? EngineType.libre : EngineType.google,
+  );
 
   final englishChangelog = await getEnglishChangelog();
   print('English changelog for $buildName ($buildNumber):');
@@ -45,8 +46,9 @@ void main() async {
 
   if (englishChangelog.length > 500) {
     print(
-        'Warning: The English changelog has length ${englishChangelog.length}, '
-        'but Google Play only allows 500 characters.');
+      'Warning: The English changelog has length ${englishChangelog.length}, '
+      'but Google Play only allows 500 characters.',
+    );
     print('Please shorten the changelog and try again.');
     return;
   }
@@ -87,11 +89,13 @@ void main() async {
     } else if (nearestLocaleCodes.containsKey(localeCode)) {
       nearestLocaleCode = nearestLocaleCodes[localeCode]!;
     } else if (LanguageList.contains(
-        localeCode.substring(0, localeCode.indexOf('-')))) {
+      localeCode.substring(0, localeCode.indexOf('-')),
+    )) {
       nearestLocaleCode = localeCode.substring(0, localeCode.indexOf('-'));
     } else {
       print(
-          '${' ' * stepPrefix.length}  ! Language not supported, skipping...');
+        '${' ' * stepPrefix.length}  ! Language not supported, skipping...',
+      );
       someTranslationsFailed = true;
       continue;
     }
@@ -142,14 +146,18 @@ void main() async {
       var linesRemoved = -1; // -1 to account for removing the trailing newline
       while (translatedChangelog.length > 500 - suffix.length) {
         final lastNewlineIndex = translatedChangelog.lastIndexOf('\n');
-        translatedChangelog =
-            translatedChangelog.substring(0, lastNewlineIndex);
+        translatedChangelog = translatedChangelog.substring(
+          0,
+          lastNewlineIndex,
+        );
         linesRemoved++;
       }
       translatedChangelog += suffix;
-      print('${' ' * stepPrefix.length}  ! Removed $linesRemoved lines to '
-          'shorten the changelog from $oldLength to '
-          '${translatedChangelog.length} characters (max 500).');
+      print(
+        '${' ' * stepPrefix.length}  ! Removed $linesRemoved lines to '
+        'shorten the changelog from $oldLength to '
+        '${translatedChangelog.length} characters (max 500).',
+      );
     }
 
     await file.create(recursive: true);

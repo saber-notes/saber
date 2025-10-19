@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 
 class FaqListSliver extends StatelessWidget {
-  const FaqListSliver({
-    super.key,
-    required this.items,
-  });
+  const FaqListSliver({super.key, required this.items});
 
   final List<FaqItem> items;
 
@@ -20,11 +17,7 @@ class FaqListSliver extends StatelessWidget {
 }
 
 class FaqListView extends StatelessWidget {
-  const FaqListView({
-    super.key,
-    required this.items,
-    this.shrinkWrap = false,
-  });
+  const FaqListView({super.key, required this.items, this.shrinkWrap = false});
 
   final List<FaqItem> items;
   final bool shrinkWrap;

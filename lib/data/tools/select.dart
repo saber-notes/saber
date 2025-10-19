@@ -72,8 +72,10 @@ class Select extends Tool {
 
     for (int i = 0; i < strokes.length; i++) {
       final stroke = strokes[i];
-      final percentInside =
-          polygonPercentInside(selectResult.path, stroke.lowQualityPolygon);
+      final percentInside = polygonPercentInside(
+        selectResult.path,
+        stroke.lowQualityPolygon,
+      );
       if (percentInside > minPercentInside) {
         selectResult.strokes.add(stroke);
       }
@@ -96,10 +98,9 @@ class Select extends Tool {
     int pointsInside = 0;
     for (int x = 0; x < gridSize; x++) {
       for (int y = 0; y < gridSize; y++) {
-        if (selection.contains(Offset(
-          rect.left + gridCellWidth * x,
-          rect.top + gridCellHeight * y,
-        ))) {
+        if (selection.contains(
+          Offset(rect.left + gridCellWidth * x, rect.top + gridCellHeight * y),
+        )) {
           pointsInside++;
         }
       }

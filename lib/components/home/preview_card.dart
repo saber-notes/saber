@@ -37,8 +37,9 @@ class _PreviewCardState extends State<PreviewCard> {
 
   @override
   void initState() {
-    fileWriteSubscription =
-        FileManager.fileWriteStream.stream.listen(fileWriteListener);
+    fileWriteSubscription = FileManager.fileWriteStream.stream.listen(
+      fileWriteListener,
+    );
 
     expanded.value = widget.selected;
     super.initState();
@@ -48,8 +49,9 @@ class _PreviewCardState extends State<PreviewCard> {
   void didChangeDependencies() {
     super.didChangeDependencies();
 
-    final imageFile =
-        FileManager.getFile('${widget.filePath}${Editor.extension}.p');
+    final imageFile = FileManager.getFile(
+      '${widget.filePath}${Editor.extension}.p',
+    );
     if (kDebugMode && Platform.environment.containsKey('FLUTTER_TEST')) {
       // Avoid FileImages in tests
       thumbnail.image = imageFile.existsSync()
@@ -83,8 +85,9 @@ class _PreviewCardState extends State<PreviewCard> {
     final theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
     final disableAnimations = MediaQuery.disableAnimationsOf(context);
-    final transitionDuration =
-        Duration(milliseconds: disableAnimations ? 0 : 300);
+    final transitionDuration = Duration(
+      milliseconds: disableAnimations ? 0 : 300,
+    );
     final invert =
         theme.brightness == Brightness.dark && stows.editorAutoInvert.value;
 
@@ -128,13 +131,13 @@ class _PreviewCardState extends State<PreviewCard> {
                           valueListenable: expanded,
                           builder: (context, expanded, child) =>
                               AnimatedOpacity(
-                            opacity: expanded ? 1 : 0,
-                            duration: const Duration(milliseconds: 200),
-                            child: IgnorePointer(
-                              ignoring: !expanded,
-                              child: child!,
-                            ),
-                          ),
+                                opacity: expanded ? 1 : 0,
+                                duration: const Duration(milliseconds: 200),
+                                child: IgnorePointer(
+                                  ignoring: !expanded,
+                                  child: child!,
+                                ),
+                              ),
                           child: GestureDetector(
                             onTap: _toggleCardSelection,
                             child: DecoratedBox(
@@ -150,8 +153,9 @@ class _PreviewCardState extends State<PreviewCard> {
                                 ),
                               ),
                               child: ColoredBox(
-                                color:
-                                    colorScheme.primary.withValues(alpha: 0.05),
+                                color: colorScheme.primary.withValues(
+                                  alpha: 0.05,
+                                ),
                               ),
                             ),
                           ),
@@ -163,8 +167,9 @@ class _PreviewCardState extends State<PreviewCard> {
                     child: Padding(
                       padding: const EdgeInsets.all(8),
                       child: Text(
-                        widget.filePath
-                            .substring(widget.filePath.lastIndexOf('/') + 1),
+                        widget.filePath.substring(
+                          widget.filePath.lastIndexOf('/') + 1,
+                        ),
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
                       ),
@@ -172,9 +177,7 @@ class _PreviewCardState extends State<PreviewCard> {
                   ),
                 ],
               ),
-              SyncIndicator(
-                filePath: widget.filePath,
-              ),
+              SyncIndicator(filePath: widget.filePath),
             ],
           ),
         ),
@@ -186,8 +189,9 @@ class _PreviewCardState extends State<PreviewCard> {
       builder: (context, expanded, _) {
         return OpenContainer(
           closedColor: colorScheme.surface,
-          closedShape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+          closedShape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16),
+          ),
           closedElevation: expanded ? 4 : 1,
           closedBuilder: (context, action) => card,
           openColor: colorScheme.surface,
@@ -223,9 +227,9 @@ class _FallbackThumbnail extends StatelessWidget {
         child: Text(
           t.home.noPreviewAvailable,
           style: TextTheme.of(context).bodyMedium?.copyWith(
-                color: Stroke.defaultColor.withValues(alpha: 0.7),
-                fontStyle: FontStyle.italic,
-              ),
+            color: Stroke.defaultColor.withValues(alpha: 0.7),
+            fontStyle: FontStyle.italic,
+          ),
           textAlign: TextAlign.center,
         ),
       ),
@@ -249,8 +253,8 @@ class _ThumbnailState extends ChangeNotifier {
   }
 
   bool get doesImageExist => switch (image) {
-        (FileImage fileImage) => fileImage.file.existsSync(),
-        null => false,
-        _ => true,
-      };
+    (FileImage fileImage) => fileImage.file.existsSync(),
+    null => false,
+    _ => true,
+  };
 }

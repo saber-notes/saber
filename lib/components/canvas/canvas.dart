@@ -49,11 +49,12 @@ class Canvas extends StatelessWidget {
           decoration: BoxDecoration(
             boxShadow: [
               BoxShadow(
-                color: Colors.black
-                    .withValues(alpha: 0.1), // dark regardless of theme
+                color: Colors.black.withValues(
+                  alpha: 0.1,
+                ), // dark regardless of theme
                 blurRadius: 10,
                 spreadRadius: 2,
-              )
+              ),
             ],
           ),
           child: !placeholder
@@ -80,10 +81,7 @@ class Canvas extends StatelessWidget {
                     ),
                   ),
                 )
-              : SizedBox(
-                  width: page.size.width,
-                  height: page.size.height,
-                ),
+              : SizedBox(width: page.size.width, height: page.size.height),
         ),
       ),
     );

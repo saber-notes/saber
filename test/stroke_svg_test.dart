@@ -24,15 +24,13 @@ void main() {
 }
 
 Stroke _stroke(Offset point) => Stroke(
-      color: Stroke.defaultColor,
-      pressureEnabled: Stroke.defaultPressureEnabled,
-      options: StrokeOptions(
-        size: _penSize,
-      ),
-      pageIndex: 0,
-      page: const HasSize(_pageSize),
-      penType: 'testingPen',
-    )..addPoint(point);
+  color: Stroke.defaultColor,
+  pressureEnabled: Stroke.defaultPressureEnabled,
+  options: StrokeOptions(size: _penSize),
+  pageIndex: 0,
+  page: const HasSize(_pageSize),
+  penType: 'testingPen',
+)..addPoint(point);
 
 void _testStrokeSvg(Stroke stroke) {
   final svgPath = stroke.toSvgPath();
@@ -49,9 +47,13 @@ void _testStrokeSvg(Stroke stroke) {
     expect(svgPoint.dx, greaterThanOrEqualTo(center.x - _penSize));
     expect(svgPoint.dx, lessThanOrEqualTo(center.x + _penSize));
 
-    expect(svgPoint.dy,
-        greaterThanOrEqualTo(_pageSize.height - center.y - _penSize));
     expect(
-        svgPoint.dy, lessThanOrEqualTo(_pageSize.height - center.y + _penSize));
+      svgPoint.dy,
+      greaterThanOrEqualTo(_pageSize.height - center.y - _penSize),
+    );
+    expect(
+      svgPoint.dy,
+      lessThanOrEqualTo(_pageSize.height - center.y + _penSize),
+    );
   }
 }

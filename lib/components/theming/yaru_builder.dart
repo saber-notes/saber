@@ -11,7 +11,7 @@ class YaruBuilder extends StatefulWidget {
 
   final Color? primary;
   final Widget Function(BuildContext context, YaruThemeData yaru, Widget? child)
-      builder;
+  builder;
   final Widget? child;
 
   @override

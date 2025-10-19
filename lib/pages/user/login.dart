@@ -16,7 +16,8 @@ class NcLoginPage extends StatefulWidget {
   final bool forceAppBarLeading;
 
   static final Uri signupUrl = Uri.parse(
-      'https://nc.saber.adil.hanney.org/index.php/apps/registration/');
+    'https://nc.saber.adil.hanney.org/index.php/apps/registration/',
+  );
 
   @override
   State<NcLoginPage> createState() => _NcLoginPageState();
@@ -100,15 +101,13 @@ class _NcLoginPageState extends State<NcLoginPage> {
             : null,
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(4),
-          child: LinearProgressIndicator(
-            value: step.progress,
-            minHeight: 4,
-          ),
+          child: LinearProgressIndicator(value: step.progress, minHeight: 4),
         ),
       ),
       body: switch (step) {
-        LoginStep.waitingForPrefs =>
-          const Center(child: CircularProgressIndicator()),
+        LoginStep.waitingForPrefs => const Center(
+          child: CircularProgressIndicator(),
+        ),
         LoginStep.nc => NcLoginStep(recheckCurrentStep: recheckCurrentStep),
         LoginStep.enc => EncLoginStep(recheckCurrentStep: recheckCurrentStep),
         LoginStep.done => DoneLoginStep(recheckCurrentStep: recheckCurrentStep),

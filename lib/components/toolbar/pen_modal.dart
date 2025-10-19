@@ -12,11 +12,7 @@ import 'package:saber/data/tools/shape_pen.dart';
 import 'package:saber/i18n/strings.g.dart';
 
 class PenModal extends StatefulWidget {
-  const PenModal({
-    super.key,
-    required this.getTool,
-    required this.setTool,
-  });
+  const PenModal({super.key, required this.getTool, required this.setTool});
 
   final Tool Function() getTool;
   final void Function(Pen) setTool;
@@ -41,10 +37,7 @@ class _PenModalState extends State<PenModal> {
       direction: axis,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        SizePicker(
-          axis: axis,
-          pen: currentPen,
-        ),
+        SizePicker(axis: axis, pen: currentPen),
         if (currentPen is! Highlighter && currentPen is! Pencil) ...[
           const SizedBox.square(dimension: 8),
           IconButton(
@@ -56,10 +49,9 @@ class _PenModalState extends State<PenModal> {
                   ? ColorScheme.of(context).secondary
                   : ColorScheme.of(context).onSurface,
               backgroundColor: Pen.currentPen.icon == Pen.fountainPenIcon
-                  ? Theme.of(context)
-                      .colorScheme
-                      .secondary
-                      .withValues(alpha: 0.1)
+                  ? Theme.of(
+                      context,
+                    ).colorScheme.secondary.withValues(alpha: 0.1)
                   : Colors.transparent,
               shape: const CircleBorder(),
             ),
@@ -85,10 +77,9 @@ class _PenModalState extends State<PenModal> {
                   ? ColorScheme.of(context).secondary
                   : ColorScheme.of(context).onSurface,
               backgroundColor: Pen.currentPen.icon == Pen.ballpointPenIcon
-                  ? Theme.of(context)
-                      .colorScheme
-                      .secondary
-                      .withValues(alpha: 0.1)
+                  ? Theme.of(
+                      context,
+                    ).colorScheme.secondary.withValues(alpha: 0.1)
                   : Colors.transparent,
               shape: const CircleBorder(),
             ),
@@ -114,10 +105,9 @@ class _PenModalState extends State<PenModal> {
                   ? ColorScheme.of(context).secondary
                   : ColorScheme.of(context).onSurface,
               backgroundColor: Pen.currentPen.icon == ShapePen.shapePenIcon
-                  ? Theme.of(context)
-                      .colorScheme
-                      .secondary
-                      .withValues(alpha: 0.1)
+                  ? Theme.of(
+                      context,
+                    ).colorScheme.secondary.withValues(alpha: 0.1)
                   : Colors.transparent,
               shape: const CircleBorder(),
             ),

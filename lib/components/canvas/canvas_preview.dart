@@ -26,28 +26,18 @@ class CanvasPreview extends StatelessWidget implements PreferredSizeWidget {
   late final preferredSize = Size(pageSize.width, height ?? pageSize.height);
 
   static final _previewCache = <String, FutureOr<_CacheItem>>{};
-  static Widget fromFile({
-    Key? key,
-    required String filePath,
-  }) {
-    final future = _previewCache.putIfAbsent(
-      filePath,
-      () async {
-        final coreInfo = await EditorCoreInfo.loadFromFilePath(filePath);
-        final pageHeight = coreInfo.pages.isNotEmpty
-            ? coreInfo.pages[0].previewHeight(lineHeight: coreInfo.lineHeight)
-            : EditorPage.defaultHeight * 0.1;
-        return (coreInfo, pageHeight);
-      },
-    );
+  static Widget fromFile({Key? key, required String filePath}) {
+    final future = _previewCache.putIfAbsent(filePath, () async {
+      final coreInfo = await EditorCoreInfo.loadFromFilePath(filePath);
+      final pageHeight = coreInfo.pages.isNotEmpty
+          ? coreInfo.pages[0].previewHeight(lineHeight: coreInfo.lineHeight)
+          : EditorPage.defaultHeight * 0.1;
+      return (coreInfo, pageHeight);
+    });
 
     if (future is _CacheItem) {
       // Don't use FutureBuilder which first builds with null
-      return CanvasPreview(
-        key: key,
-        coreInfo: future.$1,
-        height: future.$2,
-      );
+      return CanvasPreview(key: key, coreInfo: future.$1, height: future.$2);
     }
 
     return FutureBuilder(
@@ -62,11 +52,7 @@ class CanvasPreview extends StatelessWidget implements PreferredSizeWidget {
           _previewCache[filePath] = data;
         }
 
-        return CanvasPreview(
-          key: key,
-          coreInfo: data.$1,
-          height: data.$2,
-        );
+        return CanvasPreview(key: key, coreInfo: data.$1, height: data.$2);
       },
     );
   }

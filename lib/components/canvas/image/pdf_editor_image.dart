@@ -30,14 +30,15 @@ class PdfEditorImage extends EditorImage {
     super.dstRect,
     required super.naturalSize,
     super.isThumbnail,
-  })  : assert(
-            !naturalSize.isEmpty, 'naturalSize must be set for PdfEditorImage'),
-        assert(pdfBytes != null || pdfFile != null,
-            'pdfFile must be set if pdfBytes is null'),
-        super(
-          extension: '.pdf',
-          srcRect: Rect.zero,
-        );
+  }) : assert(
+         !naturalSize.isEmpty,
+         'naturalSize must be set for PdfEditorImage',
+       ),
+       assert(
+         pdfBytes != null || pdfFile != null,
+         'pdfFile must be set if pdfBytes is null',
+       ),
+       super(extension: '.pdf', srcRect: Rect.zero);
 
   factory PdfEditorImage.fromJson(
     Map<String, dynamic> json, {
@@ -54,8 +55,9 @@ class PdfEditorImage extends EditorImage {
     File? pdfFile;
     if (assetIndex != null) {
       if (inlineAssets == null) {
-        pdfFile =
-            FileManager.getFile('$sbnPath${Editor.extension}.$assetIndex');
+        pdfFile = FileManager.getFile(
+          '$sbnPath${Editor.extension}.$assetIndex',
+        );
         pdfBytes = assetCache.get(pdfFile);
       } else {
         pdfBytes = inlineAssets[assetIndex];
@@ -68,7 +70,8 @@ class PdfEditorImage extends EditorImage {
     }
 
     return PdfEditorImage(
-      id: json['id'] ??
+      id:
+          json['id'] ??
           -1, // -1 will be replaced by EditorCoreInfo._handleEmptyImageIds()
       assetCache: assetCache,
       pdfBytes: pdfBytes,
@@ -77,8 +80,9 @@ class PdfEditorImage extends EditorImage {
       pageIndex: json['i'] ?? 0,
       pageSize: Size.infinite,
       invertible: json['v'] ?? true,
-      backgroundFit:
-          json['f'] != null ? BoxFit.values[json['f']] : BoxFit.contain,
+      backgroundFit: json['f'] != null
+          ? BoxFit.values[json['f']]
+          : BoxFit.contain,
       onMoveImage: null,
       onDeleteImage: null,
       onMiscChange: null,
@@ -90,19 +94,14 @@ class PdfEditorImage extends EditorImage {
         json['w'] ?? 0,
         json['h'] ?? 0,
       ),
-      naturalSize: Size(
-        json['nw'] ?? 0,
-        json['nh'] ?? 0,
-      ),
+      naturalSize: Size(json['nw'] ?? 0, json['nh'] ?? 0),
       isThumbnail: isThumbnail,
     );
   }
 
   @override
   Map<String, dynamic> toJson(OrderedAssetCache assets) {
-    final json = super.toJson(
-      assets,
-    );
+    final json = super.toJson(assets);
 
     // remove non-pdf fields
     json.remove('t'); // thumbnail bytes
@@ -182,22 +181,22 @@ class PdfEditorImage extends EditorImage {
 
   @override
   PdfEditorImage copy() => PdfEditorImage(
-        id: id,
-        assetCache: assetCache,
-        pdfBytes: pdfBytes,
-        pdfPage: pdfPage,
-        pdfFile: pdfFile,
-        pageIndex: pageIndex,
-        pageSize: Size.infinite,
-        invertible: invertible,
-        backgroundFit: backgroundFit,
-        onMoveImage: onMoveImage,
-        onDeleteImage: onDeleteImage,
-        onMiscChange: onMiscChange,
-        onLoad: onLoad,
-        newImage: true,
-        dstRect: dstRect,
-        naturalSize: naturalSize,
-        isThumbnail: isThumbnail,
-      );
+    id: id,
+    assetCache: assetCache,
+    pdfBytes: pdfBytes,
+    pdfPage: pdfPage,
+    pdfFile: pdfFile,
+    pageIndex: pageIndex,
+    pageSize: Size.infinite,
+    invertible: invertible,
+    backgroundFit: backgroundFit,
+    onMoveImage: onMoveImage,
+    onDeleteImage: onDeleteImage,
+    onMiscChange: onMiscChange,
+    onLoad: onLoad,
+    newImage: true,
+    dstRect: dstRect,
+    naturalSize: naturalSize,
+    isThumbnail: isThumbnail,
+  );
 }

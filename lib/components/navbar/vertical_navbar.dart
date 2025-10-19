@@ -34,9 +34,7 @@ class _VerticalNavbarState extends State<VerticalNavbar> {
       decoration: BoxDecoration(
         color: backgroundColor,
         border: theme.platform == TargetPlatform.linux
-            ? BoxBorder.fromSTEB(
-                end: BorderSide(color: theme.dividerColor),
-              )
+            ? BoxBorder.fromSTEB(end: BorderSide(color: theme.dividerColor))
             : null,
       ),
       child: Column(
