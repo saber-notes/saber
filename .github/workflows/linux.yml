@@ -94,7 +94,7 @@ jobs:
 
           install -Dm644 flatpak/com.adilhanney.saber.desktop -t AppDir/share/applications/
 
-          tar -C AppDir -cvf $archiveName .
+          tar -C AppDir -czvf $archiveName .
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
@@ -142,7 +142,7 @@ jobs:
         working-directory: appimage
         run: |
           mkdir AppDir
-          tar -xvf ../Saber-Linux-Portable.tar.gz -C AppDir
+          tar -xzvf ../Saber-Linux-Portable.tar.gz -C AppDir
 
       - name: Set AppImage version
         working-directory: appimage
