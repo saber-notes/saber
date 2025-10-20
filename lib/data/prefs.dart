@@ -173,7 +173,7 @@ class Stows {
   );
   final pencilSound = PlainStow(
     'pencilSound',
-    PencilSoundSetting.onButNotInSilentMode,
+    PencilSoundSetting.off,
     codec: PencilSoundSetting.codec,
     volatile: !_isOnMainIsolate,
   );
