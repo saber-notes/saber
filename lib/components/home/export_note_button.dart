@@ -4,7 +4,7 @@ import 'package:archive/archive_io.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
-import 'package:saber/components/nextcloud/spinning_loading_icon.dart';
+import 'package:saber/components/theming/adaptive_circular_progress_indicator.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/data/editor/editor_exporter.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
@@ -86,7 +86,7 @@ class _ExportNoteButtonState extends State<ExportNoteButton> {
       switchLabelPosition: Directionality.of(context) == TextDirection.rtl,
       dialRoot: (context, open, toggleChildren) {
         return _currentlyExporting
-            ? const SpinningLoadingIcon()
+            ? AdaptiveCircularProgressIndicator.textStyled()
             : IconButton(
                 padding: EdgeInsets.zero,
                 tooltip: t.home.tooltips.exportNote,

@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:saber/components/nextcloud/spinning_loading_icon.dart';
+import 'package:saber/components/theming/adaptive_circular_progress_indicator.dart';
 import 'package:saber/i18n/strings.g.dart';
 
 class ExportBar extends StatefulWidget {
@@ -53,7 +53,7 @@ class _ExportBarState extends State<ExportBar> {
       return Text(text);
     } else {
       // if this is currently exporting, show a loading icon
-      return const SpinningLoadingIcon();
+      return AdaptiveCircularProgressIndicator.textStyled(alpha: 0.4);
     }
   }
 
