@@ -1,0 +1,40 @@
+name: Check if the Rust version is up to date
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - .github/workflows/check-rust-version.yml
+      - rust-toolchain.toml
+  schedule:
+    # every week at 13:44 (random time to avoid spikes in GitHub Actions usage)
+    - cron: "44 13 * * 0"
+
+jobs:
+  check-rust-version:
+    name: Check if the Rust version is up to date
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+
+      - name: Find local rust version
+        run: |
+          LOCAL_RUST_VERSION=$(cat rust-toolchain.toml | grep 'channel =' | cut -d'"' -f2)
+          echo "Local Rust version: $LOCAL_RUST_VERSION"
+          echo "LOCAL_RUST_VERSION=$LOCAL_RUST_VERSION" >> $GITHUB_ENV
+
+      - name: Find latest stable rust version
+        run: |
+          LATEST_RUST_VERSION=$(curl -s https://api.github.com/repos/rust-lang/rust/releases/latest | grep 'tag_name' | cut -d'"' -f4)
+          echo "Latest stable Rust version: $LATEST_RUST_VERSION"
+          echo "LATEST_RUST_VERSION=$LATEST_RUST_VERSION" >> $GITHUB_ENV
+
+      - name: Compare versions
+        run: |
+          if [ "$LOCAL_RUST_VERSION" != "$LATEST_RUST_VERSION" ]; then
+            echo "Rust version is outdated. Local: $LOCAL_RUST_VERSION, Latest: $LATEST_RUST_VERSION"
+            exit 1
+          else
+            echo "Rust version is up to date. Local: $LOCAL_RUST_VERSION, Latest: $LATEST_RUST_VERSION"
+          fi
