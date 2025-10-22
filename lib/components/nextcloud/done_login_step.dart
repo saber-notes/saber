@@ -95,7 +95,7 @@ class _DoneLoginStepState extends State<DoneLoginStep> {
           // At least 4% so the rounded corners render properly
           value: (quota?.relative ?? 0).clamp(4, 100) / 100,
           minHeight: 32,
-          borderRadius: BorderRadius.circular(6),
+          borderRadius: _elevatedButtonBorderRadiusOf(context),
         ),
         const SizedBox(height: 4),
         ElevatedButton(onPressed: _logout, child: Text(t.profile.logout)),
@@ -137,5 +137,14 @@ class _DoneLoginStepState extends State<DoneLoginStep> {
         ),
       ],
     );
+  }
+}
+
+BorderRadius _elevatedButtonBorderRadiusOf(BuildContext context) {
+  final shape = ElevatedButtonTheme.of(context).style?.shape?.resolve({});
+  if (shape is RoundedRectangleBorder) {
+    return shape.borderRadius.resolve(TextDirection.ltr);
+  } else {
+    return BorderRadius.circular(8);
   }
 }
