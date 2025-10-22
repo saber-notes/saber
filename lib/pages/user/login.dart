@@ -3,6 +3,7 @@ import 'package:logging/logging.dart';
 import 'package:saber/components/nextcloud/done_login_step.dart';
 import 'package:saber/components/nextcloud/enc_login_step.dart';
 import 'package:saber/components/nextcloud/nc_login_step.dart';
+import 'package:saber/components/theming/adaptive_linear_progress_indicator.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
 
@@ -101,7 +102,10 @@ class _NcLoginPageState extends State<NcLoginPage> {
             : null,
         bottom: PreferredSize(
           preferredSize: const Size.fromHeight(4),
-          child: LinearProgressIndicator(value: step.progress, minHeight: 4),
+          child: AdaptiveLinearProgressIndicator(
+            value: step.progress,
+            minHeight: 4,
+          ),
         ),
       ),
       body: switch (step) {
