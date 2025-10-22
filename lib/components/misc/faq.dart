@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:yaru/yaru.dart';
 
 class FaqListSliver extends StatelessWidget {
   const FaqListSliver({super.key, required this.items});
@@ -45,14 +46,12 @@ class _FaqTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ExpansionTile(
-      title: Text(item.question),
-      children: [
-        Padding(
-          padding: const EdgeInsets.all(16),
-          child: SelectableText(item.answer),
-        ),
-      ],
+    return YaruExpandable(
+      header: Text(item.question),
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: SelectableText(item.answer),
+      ),
     );
   }
 }
