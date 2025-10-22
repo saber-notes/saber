@@ -25,6 +25,9 @@ class DynamicMaterialApp extends StatefulWidget {
   final Color defaultSwatch;
   final GoRouter router;
 
+  @override
+  State<DynamicMaterialApp> createState() => DynamicMaterialAppState();
+
   static final ValueNotifier<bool> _isFullscreen = ValueNotifier(false);
   static bool get isFullscreen => _isFullscreen.value;
 
@@ -49,12 +52,6 @@ class DynamicMaterialApp extends StatefulWidget {
     _isFullscreen.removeListener(listener);
   }
 
-  @override
-  State<DynamicMaterialApp> createState() => _DynamicMaterialAppState();
-}
-
-class _DynamicMaterialAppState extends State<DynamicMaterialApp>
-    with WindowListener {
   /// Synced with [PageTransitionsTheme._defaultBuilders]
   /// but with PredictiveBackPageTransitionsBuilder for Android.
   static const _pageTransitionsTheme = PageTransitionsTheme(
@@ -67,6 +64,34 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp>
     },
   );
 
+  @visibleForTesting
+  static TextTheme? getTextTheme(Brightness brightness) {
+    if (stows.hyperlegibleFont.value) {
+      return ThemeData(brightness: brightness).textTheme.withFont(
+        fontFamily: 'AtkinsonHyperlegibleNext',
+        fontFamilyFallback: saberSansSerifFontFallbacks,
+      );
+    } else {
+      return null;
+    }
+  }
+
+  @visibleForTesting
+  static ThemeData themeFromColorScheme(
+    ColorScheme colorScheme,
+    TargetPlatform platform,
+  ) => ThemeData(
+    useMaterial3: true,
+    colorScheme: colorScheme,
+    scaffoldBackgroundColor: colorScheme.surface,
+    textTheme: getTextTheme(colorScheme.brightness),
+    platform: platform,
+    pageTransitionsTheme: _pageTransitionsTheme,
+  );
+}
+
+class DynamicMaterialAppState extends State<DynamicMaterialApp>
+    with WindowListener {
   @override
   void initState() {
     stows.appTheme.addListener(onChanged);
@@ -101,29 +126,6 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp>
     );
   }
 
-  static TextTheme? getTextTheme(Brightness brightness) {
-    if (stows.hyperlegibleFont.value) {
-      return ThemeData(brightness: brightness).textTheme.withFont(
-        fontFamily: 'AtkinsonHyperlegibleNext',
-        fontFamilyFallback: saberSansSerifFontFallbacks,
-      );
-    } else {
-      return null;
-    }
-  }
-
-  static ThemeData _themeFromColorScheme(
-    ColorScheme colorScheme,
-    TargetPlatform platform,
-  ) => ThemeData(
-    useMaterial3: true,
-    colorScheme: colorScheme,
-    textTheme: getTextTheme(colorScheme.brightness),
-    scaffoldBackgroundColor: colorScheme.surface,
-    platform: platform,
-    pageTransitionsTheme: _pageTransitionsTheme,
-  );
-
   @override
   Widget build(BuildContext context) {
     var chosenAccentColor = stows.accentColor.value;
@@ -142,19 +144,19 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp>
             themeMode: stows.appTheme.value,
             theme: (yaru.theme ?? yaruLight).copyWith(
               platform: platform,
-              textTheme: getTextTheme(Brightness.light),
+              textTheme: DynamicMaterialApp.getTextTheme(Brightness.light),
             ),
             darkTheme: (yaru.darkTheme ?? yaruDark).copyWith(
               platform: platform,
-              textTheme: getTextTheme(Brightness.dark),
+              textTheme: DynamicMaterialApp.getTextTheme(Brightness.dark),
             ),
             highContrastTheme: yaruHighContrastLight.copyWith(
               platform: platform,
-              textTheme: getTextTheme(Brightness.light),
+              textTheme: DynamicMaterialApp.getTextTheme(Brightness.light),
             ),
             highContrastDarkTheme: yaruHighContrastDark.copyWith(
               platform: platform,
-              textTheme: getTextTheme(Brightness.dark),
+              textTheme: DynamicMaterialApp.getTextTheme(Brightness.dark),
             ),
           );
         },
@@ -176,8 +178,14 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp>
         title: widget.title,
         router: widget.router,
         themeMode: stows.appTheme.value,
-        theme: _themeFromColorScheme(lightColorScheme, platform),
-        darkTheme: _themeFromColorScheme(darkColorScheme, platform),
+        theme: DynamicMaterialApp.themeFromColorScheme(
+          lightColorScheme,
+          platform,
+        ),
+        darkTheme: DynamicMaterialApp.themeFromColorScheme(
+          darkColorScheme,
+          platform,
+        ),
       );
     }
 
@@ -197,8 +205,14 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp>
           title: widget.title,
           router: widget.router,
           themeMode: stows.appTheme.value,
-          theme: _themeFromColorScheme(lightColorScheme, platform),
-          darkTheme: _themeFromColorScheme(darkColorScheme, platform),
+          theme: DynamicMaterialApp.themeFromColorScheme(
+            lightColorScheme,
+            platform,
+          ),
+          darkTheme: DynamicMaterialApp.themeFromColorScheme(
+            darkColorScheme,
+            platform,
+          ),
         );
       },
     );

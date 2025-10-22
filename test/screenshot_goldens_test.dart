@@ -8,6 +8,7 @@ import 'package:saber/components/canvas/pencil_shader.dart';
 import 'package:saber/components/home/syncing_button.dart';
 import 'package:saber/components/settings/app_info.dart';
 import 'package:saber/components/settings/nextcloud_profile.dart';
+import 'package:saber/components/theming/dynamic_material_app.dart';
 import 'package:saber/components/theming/font_fallbacks.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/flavor_config.dart';
@@ -81,22 +82,13 @@ void main() {
       seedColor: const Color(0xffdae2ff),
       surface: const Color(0xfffefbff),
     );
-    final materialTheme = ThemeData(
-      colorScheme: colorScheme,
-      textTheme: ThemeData(brightness: Brightness.light).textTheme.withFont(
-        fontFamily: 'Inter',
-        fontFamilyFallback: saberSansSerifFontFallbacks,
-      ),
-      scaffoldBackgroundColor: colorScheme.surface,
+    final materialTheme = DynamicMaterialApp.themeFromColorScheme(
+      colorScheme,
+      TargetPlatform.android,
     );
-    final cupertinoTheme = ThemeData(
-      colorScheme: colorScheme,
-      textTheme: ThemeData(brightness: Brightness.light).textTheme.withFont(
-        fontFamily: 'Inter',
-        fontFamilyFallback: saberSansSerifFontFallbacks,
-      ),
-      scaffoldBackgroundColor: colorScheme.surface,
-      platform: TargetPlatform.iOS,
+    final cupertinoTheme = DynamicMaterialApp.themeFromColorScheme(
+      colorScheme,
+      TargetPlatform.iOS,
     );
     const yaruTheme = YaruThemeData(
       variant: YaruVariant.orange,
