@@ -5,9 +5,6 @@ const saberSansSerifFontFallbacks = [
   'Inter',
   'Noto Sans',
   'Roboto',
-  'Droid Sans',
-  'Liberation Sans',
-  'Fira Sans',
   'Cantarell',
   'system-ui',
   'Atkinson Hyperlegible Next',
@@ -25,8 +22,6 @@ const saberSansSerifFontFallbacks = [
   '.SF UI Display',
   '.SF UI Text',
   'Segoe UI',
-  'Neucha',
-  'Dekko',
 ];
 const saberMonoFontFallbacks = [
   'Fira Mono',
