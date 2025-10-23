@@ -1,0 +1,4 @@
+• Uygulama içi güncelleyici artık indirme işleminin ilerleme durumunu gösteriyor
+• Küçük görsel ve performans iyileştirmeleri
+• AppImage'ın Fedora'da çalışmaması düzeltildi
+• Kurşun kalem ses efekti varsayılan olarak devre dışı bırakıldı

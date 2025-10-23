@@ -13,7 +13,7 @@ platforms:
 parts:
   saber:
     source: https://github.com/saber-notes/saber.git
-    source-tag: 'v0.26.10'
+    source-tag: 'v0.26.11'
     plugin: flutter
     build-packages:
       - libsecret-1-dev

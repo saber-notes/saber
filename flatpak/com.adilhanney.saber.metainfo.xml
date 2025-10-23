@@ -214,6 +214,15 @@
     </screenshots>
 
     <releases>
+        <release version="0.26.11" type="development" date="2025-10-23">
+            <description>
+                <ul>
+                    <li>Small visual and performance improvements</li>
+                    <li>Fixed the AppImage not running on Fedora</li>
+                    <li>Disabled the pencil sound effect by default</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.26.10" type="development" date="2025-10-17">
             <description>
                 <ul>

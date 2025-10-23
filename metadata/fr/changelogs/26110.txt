@@ -1,0 +1,4 @@
+• Le programme de mise à jour intégré à l'application affiche désormais la progression du téléchargement.
+• Petites améliorations visuelles et de performances
+• Correction de l'AppImage ne fonctionnant pas sur Fedora
+• Désactivation de l'effet sonore du crayon par défaut
