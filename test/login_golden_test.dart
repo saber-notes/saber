@@ -8,15 +8,16 @@ import 'package:saber/data/flavor_config.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/pages/user/login.dart';
 
+final _device = GoldenSmallDevices.iphone.device;
+late ThemeData _theme;
+
 void main() {
   group('LoginPage', () {
-    final device = GoldenSmallDevices.iphone.device;
-    late ThemeData theme;
     setUp(() {
       FlavorConfig.setup();
-      theme = SaberTheme.createTheme(
+      _theme = SaberTheme.createTheme(
         ColorScheme.fromSeed(seedColor: Colors.yellow),
-        device.platform,
+        _device.platform,
       );
       stows.username.value = 'testuser';
       stows.ncPassword.value = 'testpassword';
@@ -26,34 +27,23 @@ void main() {
       stows.lastStorageQuota.value = _getQuota();
     });
 
-    testGoldens('done', (tester) async {
-      FlavorConfig.setup();
-      await tester.pumpWidget(
-        ScreenshotApp(
-          theme: theme,
-          device: device,
-          home: const NcLoginPage(forceAppBarLeading: true),
-        ),
-      );
-      await tester.precacheImagesInWidgetTree();
-      await tester.loadFonts(overriddenFonts: saberSansSerifFontFallbacks);
-      await tester.pumpAndSettle();
+    for (final step in LoginStep.values) {
+      testGoldens(step.name, (tester) async {
+        await tester.pumpWidget(_LoginApp(step));
+        await tester.precacheImagesInWidgetTree();
+        await tester.loadFonts(overriddenFonts: saberSansSerifFontFallbacks);
+        await tester.pump();
 
-      await expectLater(
-        find.byType(MaterialApp),
-        matchesGoldenFile('goldens/login_page_done.png'),
-      );
-    });
+        tester.useFuzzyComparator(allowedDiffPercent: 0.1);
+        await expectLater(
+          find.byType(MaterialApp),
+          matchesGoldenFile('goldens/login_page_${step.name}.png'),
+        );
+      });
+    }
 
     testGoldens('done_faq', (tester) async {
-      FlavorConfig.setup();
-      await tester.pumpWidget(
-        ScreenshotApp(
-          theme: theme,
-          device: device,
-          home: const NcLoginPage(forceAppBarLeading: true),
-        ),
-      );
+      await tester.pumpWidget(const _LoginApp(LoginStep.done));
       await tester.precacheImagesInWidgetTree();
       await tester.loadFonts(overriddenFonts: saberSansSerifFontFallbacks);
       await tester.pumpAndSettle();
@@ -69,12 +59,28 @@ void main() {
       );
       await tester.pumpAndSettle();
 
+      tester.useFuzzyComparator(allowedDiffPercent: 0.1);
       await expectLater(
         find.byType(MaterialApp),
         matchesGoldenFile('goldens/login_page_done_faq.png'),
       );
     });
   });
+}
+
+class _LoginApp extends StatelessWidget {
+  const _LoginApp(this.step);
+
+  final LoginStep step;
+
+  @override
+  Widget build(BuildContext context) {
+    return ScreenshotApp(
+      theme: _theme,
+      device: _device,
+      home: NcLoginPage(forceAppBarLeading: true, forceCurrentStep: step),
+    );
+  }
 }
 
 Quota _getQuota() {

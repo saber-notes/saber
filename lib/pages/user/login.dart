@@ -11,10 +11,14 @@ class NcLoginPage extends StatefulWidget {
   const NcLoginPage({
     super.key,
     @visibleForTesting this.forceAppBarLeading = false,
+    @visibleForTesting this.forceCurrentStep,
   });
 
   /// Whether to force the AppBar to have a leading back button
   final bool forceAppBarLeading;
+
+  /// If provided, forces the current step to this value (for testing)
+  final LoginStep? forceCurrentStep;
 
   static final Uri signupUrl = Uri.parse(
     'https://nc.saber.adil.hanney.org/index.php/apps/registration/',
@@ -57,6 +61,11 @@ class _NcLoginPageState extends State<NcLoginPage> {
   }
 
   Future<void> waitForPrefs() async {
+    if (widget.forceCurrentStep != null) {
+      step = widget.forceCurrentStep!;
+      return;
+    }
+
     step = LoginStep.waitingForPrefs;
 
     if (!stows.url.loaded ||
@@ -78,6 +87,11 @@ class _NcLoginPageState extends State<NcLoginPage> {
   }
 
   void recheckCurrentStep() {
+    if (widget.forceCurrentStep != null) {
+      step = widget.forceCurrentStep!;
+      return;
+    }
+
     final prevStep = step;
     step = NcLoginPage.getCurrentStep();
 
