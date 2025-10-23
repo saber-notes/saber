@@ -6,7 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_quill/flutter_quill.dart';
 import 'package:go_router/go_router.dart';
-import 'package:saber/components/theming/font_fallbacks.dart';
+import 'package:saber/components/theming/saber_theme.dart';
 import 'package:saber/components/theming/yaru_builder.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
@@ -51,43 +51,6 @@ class DynamicMaterialApp extends StatefulWidget {
   static void removeFullscreenListener(void Function() listener) {
     _isFullscreen.removeListener(listener);
   }
-
-  /// Synced with [PageTransitionsTheme._defaultBuilders]
-  /// but with PredictiveBackPageTransitionsBuilder for Android.
-  static const _pageTransitionsTheme = PageTransitionsTheme(
-    builders: {
-      TargetPlatform.android: PredictiveBackPageTransitionsBuilder(),
-      TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
-      TargetPlatform.macOS: CupertinoPageTransitionsBuilder(),
-      TargetPlatform.windows: ZoomPageTransitionsBuilder(),
-      TargetPlatform.linux: ZoomPageTransitionsBuilder(),
-    },
-  );
-
-  @visibleForTesting
-  static TextTheme? getTextTheme(Brightness brightness) {
-    if (stows.hyperlegibleFont.value) {
-      return ThemeData(brightness: brightness).textTheme.withFont(
-        fontFamily: 'AtkinsonHyperlegibleNext',
-        fontFamilyFallback: saberSansSerifFontFallbacks,
-      );
-    } else {
-      return null;
-    }
-  }
-
-  @visibleForTesting
-  static ThemeData themeFromColorScheme(
-    ColorScheme colorScheme,
-    TargetPlatform platform,
-  ) => ThemeData(
-    useMaterial3: true,
-    colorScheme: colorScheme,
-    scaffoldBackgroundColor: colorScheme.surface,
-    textTheme: getTextTheme(colorScheme.brightness),
-    platform: platform,
-    pageTransitionsTheme: _pageTransitionsTheme,
-  );
 }
 
 class DynamicMaterialAppState extends State<DynamicMaterialApp>
@@ -144,19 +107,19 @@ class DynamicMaterialAppState extends State<DynamicMaterialApp>
             themeMode: stows.appTheme.value,
             theme: (yaru.theme ?? yaruLight).copyWith(
               platform: platform,
-              textTheme: DynamicMaterialApp.getTextTheme(Brightness.light),
+              textTheme: SaberTheme.createTextTheme(Brightness.light),
             ),
             darkTheme: (yaru.darkTheme ?? yaruDark).copyWith(
               platform: platform,
-              textTheme: DynamicMaterialApp.getTextTheme(Brightness.dark),
+              textTheme: SaberTheme.createTextTheme(Brightness.dark),
             ),
             highContrastTheme: yaruHighContrastLight.copyWith(
               platform: platform,
-              textTheme: DynamicMaterialApp.getTextTheme(Brightness.light),
+              textTheme: SaberTheme.createTextTheme(Brightness.light),
             ),
             highContrastDarkTheme: yaruHighContrastDark.copyWith(
               platform: platform,
-              textTheme: DynamicMaterialApp.getTextTheme(Brightness.dark),
+              textTheme: SaberTheme.createTextTheme(Brightness.dark),
             ),
           );
         },
@@ -178,14 +141,8 @@ class DynamicMaterialAppState extends State<DynamicMaterialApp>
         title: widget.title,
         router: widget.router,
         themeMode: stows.appTheme.value,
-        theme: DynamicMaterialApp.themeFromColorScheme(
-          lightColorScheme,
-          platform,
-        ),
-        darkTheme: DynamicMaterialApp.themeFromColorScheme(
-          darkColorScheme,
-          platform,
-        ),
+        theme: SaberTheme.createTheme(lightColorScheme, platform),
+        darkTheme: SaberTheme.createTheme(darkColorScheme, platform),
       );
     }
 
@@ -205,14 +162,8 @@ class DynamicMaterialAppState extends State<DynamicMaterialApp>
           title: widget.title,
           router: widget.router,
           themeMode: stows.appTheme.value,
-          theme: DynamicMaterialApp.themeFromColorScheme(
-            lightColorScheme,
-            platform,
-          ),
-          darkTheme: DynamicMaterialApp.themeFromColorScheme(
-            darkColorScheme,
-            platform,
-          ),
+          theme: SaberTheme.createTheme(lightColorScheme, platform),
+          darkTheme: SaberTheme.createTheme(darkColorScheme, platform),
         );
       },
     );

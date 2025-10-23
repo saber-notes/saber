@@ -45,7 +45,7 @@ jobs:
 
       - name: Run tests
         id: tests
-        run: flutter test --coverage
+        run: flutter test --coverage --no-pub
 
       - name: Upload to Codecov
         if: success()

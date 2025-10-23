@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:golden_screenshot/golden_screenshot.dart';
 import 'package:saber/components/settings/nextcloud_profile.dart';
-import 'package:saber/components/theming/dynamic_material_app.dart';
 import 'package:saber/components/theming/font_fallbacks.dart';
+import 'package:saber/components/theming/saber_theme.dart';
 import 'package:saber/data/flavor_config.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/pages/user/login.dart';
@@ -14,7 +14,7 @@ void main() {
     late ThemeData theme;
     setUp(() {
       FlavorConfig.setup();
-      theme = DynamicMaterialApp.themeFromColorScheme(
+      theme = SaberTheme.createTheme(
         ColorScheme.fromSeed(seedColor: Colors.yellow),
         device.platform,
       );
