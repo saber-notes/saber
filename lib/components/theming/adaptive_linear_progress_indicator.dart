@@ -15,7 +15,6 @@ class AdaptiveLinearProgressIndicator extends LinearProgressIndicator {
     super.stopIndicatorColor,
     super.stopIndicatorRadius,
     super.trackGap,
-    super.year2023 = false,
   });
 
   @override
@@ -60,8 +59,6 @@ class _AdaptiveLinearProgressIndicatorState
       stopIndicatorColor: widget.stopIndicatorColor,
       stopIndicatorRadius: widget.stopIndicatorRadius,
       trackGap: widget.trackGap,
-      // ignore: deprecated_member_use
-      year2023: widget.year2023,
     );
   }
 }

@@ -24,6 +24,11 @@ abstract class SaberTheme {
     textTheme: createTextTheme(colorScheme.brightness),
     platform: platform,
     pageTransitionsTheme: _pageTransitionsTheme,
+    progressIndicatorTheme: const ProgressIndicatorThemeData(
+      // ignore: deprecated_member_use
+      year2023: false,
+      stopIndicatorColor: Colors.transparent,
+    ),
   );
 
   /// Synced with [PageTransitionsTheme._defaultBuilders]
