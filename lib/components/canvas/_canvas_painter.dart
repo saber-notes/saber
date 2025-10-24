@@ -107,12 +107,23 @@ class CanvasPainter extends CustomPainter {
       paint.shader = null;
       paint.maskFilter = null;
       if (stroke.penType == (Pencil).toString()) {
-        paint.color = Colors.white;
-        paint.shader = page.pencilShader
-          ..setFloat(0, color.r)
-          ..setFloat(1, color.g)
-          ..setFloat(2, color.b);
-        paint.maskFilter = _getPencilMaskFilter(stroke.options.size);
+        if (_shouldUsePencilShader) {
+          paint.color = Colors.white;
+          paint.shader = page.pencilShader
+            ..setFloat(0, color.r)
+            ..setFloat(1, color.g)
+            ..setFloat(2, color.b);
+          paint.maskFilter = _getPencilMaskFilter(stroke.options.size);
+        } else {
+          // Fast imitation of pencil when zoomed out
+          final background = invert ? Colors.black : Colors.white;
+          paint.color = Color.lerp(
+            color,
+            background,
+            0.4,
+          )!.withValues(alpha: 0.6);
+          canvas.drawShadow(_selectPath(stroke), color, 3, true);
+        }
       }
 
       late final shapePaint = Paint()
@@ -270,9 +281,11 @@ class CanvasPainter extends CustomPainter {
 
   static MaskFilter _getPencilMaskFilter(double size) =>
       MaskFilter.blur(BlurStyle.normal, min(size * 0.3, 5));
+  bool get _shouldUsePencilShader => currentScale >= _zoomThreshold;
 
+  static const _zoomThreshold = 0.9;
   Path _selectPath(Stroke stroke) => switch (currentScale) {
-    < 0.9 => stroke.lowQualityPath,
+    < _zoomThreshold => stroke.lowQualityPath,
     _ => stroke.highQualityPath,
   };
 }
