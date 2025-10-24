@@ -128,42 +128,44 @@ class DynamicMaterialAppState extends State<DynamicMaterialApp>
 
     // Use [chosenAccentColor] with material/cupertino theme
     if (chosenAccentColor != null) {
-      final lightColorScheme = ColorScheme.fromSeed(
-        brightness: Brightness.light,
-        seedColor: chosenAccentColor,
-      );
-      final darkColorScheme = ColorScheme.fromSeed(
-        brightness: Brightness.dark,
-        seedColor: chosenAccentColor,
-      );
-
       return ExplicitlyThemedApp(
         title: widget.title,
         router: widget.router,
         themeMode: stows.appTheme.value,
-        theme: SaberTheme.createTheme(lightColorScheme, platform),
-        darkTheme: SaberTheme.createTheme(darkColorScheme, platform),
+        theme: SaberTheme.createThemeFromSeed(
+          chosenAccentColor,
+          Brightness.light,
+          platform,
+        ),
+        darkTheme: SaberTheme.createThemeFromSeed(
+          chosenAccentColor,
+          Brightness.dark,
+          platform,
+        ),
       );
     }
 
     // Try and use device's accent color, or fall back to defaultSwatch
     return DynamicColorBuilder(
       builder: (ColorScheme? lightColorScheme, ColorScheme? darkColorScheme) {
-        lightColorScheme ??= ColorScheme.fromSeed(
-          brightness: Brightness.light,
-          seedColor: widget.defaultSwatch,
-        );
-        darkColorScheme ??= ColorScheme.fromSeed(
-          brightness: Brightness.dark,
-          seedColor: widget.defaultSwatch,
-        );
-
         return ExplicitlyThemedApp(
           title: widget.title,
           router: widget.router,
           themeMode: stows.appTheme.value,
-          theme: SaberTheme.createTheme(lightColorScheme, platform),
-          darkTheme: SaberTheme.createTheme(darkColorScheme, platform),
+          theme: lightColorScheme != null
+              ? SaberTheme.createTheme(lightColorScheme, platform)
+              : SaberTheme.createThemeFromSeed(
+                  widget.defaultSwatch,
+                  Brightness.light,
+                  platform,
+                ),
+          darkTheme: darkColorScheme != null
+              ? SaberTheme.createTheme(darkColorScheme, platform)
+              : SaberTheme.createThemeFromSeed(
+                  widget.defaultSwatch,
+                  Brightness.dark,
+                  platform,
+                ),
         );
       },
     );
