@@ -66,4 +66,4 @@ jobs:
           path: test/failures
 
       - name: Lints
-        uses: invertase/github-action-dart-analyzer@v3
+        run: flutter analyze --no-pub
