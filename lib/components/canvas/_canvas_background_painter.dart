@@ -39,6 +39,12 @@ class CanvasBackgroundPainter extends CustomPainter {
     canvas.drawRect(canvasRect, paint);
 
     paint.strokeWidth = lineThickness.toDouble();
+
+    if (backgroundPattern.requiresClipping) {
+      canvas.save();
+      canvas.clipRect(canvasRect);
+    }
+
     for (final element in getPatternElements(
       pattern: backgroundPattern,
       size: size,
@@ -55,6 +61,10 @@ class CanvasBackgroundPainter extends CustomPainter {
       } else {
         canvas.drawCircle(element.start, paint.strokeWidth * 4 / 3, paint);
       }
+    }
+
+    if (backgroundPattern.requiresClipping) {
+      canvas.restore();
     }
   }
 
@@ -225,11 +235,11 @@ enum CanvasBackgroundPattern {
   lined('lined'),
 
   /// A grid of squares
-  grid('grid'),
+  grid('grid', requiresClipping: true),
 
   /// A grid of dots. This is the same as "grid" except it has dots on the
   /// corners instead of the whole square border.
-  dots('dots'),
+  dots('dots', requiresClipping: true),
 
   /// Music staffs
   staffs('staffs'),
@@ -242,8 +252,15 @@ enum CanvasBackgroundPattern {
   /// Cornell notes
   cornell('cornell');
 
+  const CanvasBackgroundPattern(this.name, {this.requiresClipping = false});
+
+  /// The pattern name used for serialization.
+  /// Do not display this to the user: instead use [localizedName].
   final String name;
-  const CanvasBackgroundPattern(this.name);
+
+  /// Whether this pattern has elements along the page edges that may need to be
+  /// clipped.
+  final bool requiresClipping;
 
   static String localizedName(CanvasBackgroundPattern pattern) {
     switch (pattern) {

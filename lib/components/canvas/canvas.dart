@@ -58,26 +58,24 @@ class Canvas extends StatelessWidget {
             ],
           ),
           child: !placeholder
-              ? ClipRect(
-                  child: SizedBox(
-                    width: page.size.width,
-                    height: page.size.height,
-                    child: OnyxSdkPenArea(
-                      child: InnerCanvas(
-                        key: page.innerCanvasKey,
-                        pageIndex: pageIndex,
-                        redrawPageListenable: page,
-                        width: page.size.width,
-                        height: page.size.height,
-                        textEditing: textEditing,
-                        coreInfo: coreInfo,
-                        currentStroke: currentStroke,
-                        currentStrokeDetectedShape: currentStrokeDetectedShape,
-                        currentSelection: currentSelection,
-                        setAsBackground: setAsBackground,
-                        currentToolIsSelect: currentToolIsSelect,
-                        currentScale: currentScale,
-                      ),
+              ? SizedBox(
+                  width: page.size.width,
+                  height: page.size.height,
+                  child: OnyxSdkPenArea(
+                    child: InnerCanvas(
+                      key: page.innerCanvasKey,
+                      pageIndex: pageIndex,
+                      redrawPageListenable: page,
+                      width: page.size.width,
+                      height: page.size.height,
+                      textEditing: textEditing,
+                      coreInfo: coreInfo,
+                      currentStroke: currentStroke,
+                      currentStrokeDetectedShape: currentStrokeDetectedShape,
+                      currentSelection: currentSelection,
+                      setAsBackground: setAsBackground,
+                      currentToolIsSelect: currentToolIsSelect,
+                      currentScale: currentScale,
                     ),
                   ),
                 )
