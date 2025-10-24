@@ -272,7 +272,7 @@ class CanvasPainter extends CustomPainter {
       MaskFilter.blur(BlurStyle.normal, min(size * 0.3, 5));
 
   Path _selectPath(Stroke stroke) => switch (currentScale) {
-    < 1 => stroke.lowQualityPath,
+    < 0.9 => stroke.lowQualityPath,
     _ => stroke.highQualityPath,
   };
 }
