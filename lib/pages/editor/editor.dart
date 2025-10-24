@@ -987,7 +987,7 @@ class EditorState extends State<Editor> {
             width: thumbnailSize.width,
             height: thumbnailSize.height,
             child: FittedBox(
-              child: pagePreviewBuilder(
+              child: pageBuilderForScreenshot(
                 context,
                 pageIndex: 0,
                 previewHeight: previewHeight,
@@ -1876,7 +1876,7 @@ class EditorState extends State<Editor> {
     );
   }
 
-  Widget pagePreviewBuilder(
+  Widget pageBuilderForScreenshot(
     BuildContext context, {
     required int pageIndex,
     double? previewHeight,
@@ -1887,6 +1887,7 @@ class EditorState extends State<Editor> {
       pageIndex: pageIndex,
       height: previewHeight,
       coreInfo: coreInfo,
+      highQuality: true,
     );
   }
 

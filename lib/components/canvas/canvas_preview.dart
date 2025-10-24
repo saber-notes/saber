@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/inner_canvas.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/data/editor/page.dart';
@@ -14,11 +15,15 @@ class CanvasPreview extends StatelessWidget implements PreferredSizeWidget {
     this.pageIndex = 0,
     required this.height,
     required this.coreInfo,
+    this.highQuality = false,
   });
 
   final int pageIndex;
   final double? height;
   final EditorCoreInfo coreInfo;
+
+  /// Whether to draw [Stroke.highQualityPath] or [Stroke.lowQualityPath].
+  final bool highQuality;
 
   late final pageSize =
       coreInfo.pages.getOrNull(pageIndex)?.size ?? EditorPage.defaultSize;
@@ -69,7 +74,7 @@ class CanvasPreview extends StatelessWidget implements PreferredSizeWidget {
       currentStrokeDetectedShape: null,
       currentSelection: null,
       currentToolIsSelect: false,
-      currentScale: double.minPositive,
+      currentScale: highQuality ? double.maxFinite : double.minPositive,
     );
   }
 }
