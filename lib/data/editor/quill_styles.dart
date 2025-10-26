@@ -38,65 +38,100 @@ abstract class SaberQuillStyles {
   }) {
     final backgroundColor = invert ? Colors.black : Colors.white;
 
-    final defaultStyle = TextStyle(
+    final baseStyle = TextStyle(
       inherit: false,
       fontFamily: 'Neucha',
       fontFamilyFallback: saberHandwritingFontFallbacks,
       color: invert ? Colors.white : Colors.black,
+      fontSize: lineHeight * 1,
+      height: 1 / 1,
+      decoration: TextDecoration.none,
     );
-
-    final textTheme = TextTheme(
-      bodyLarge: defaultStyle.copyWith(
+    final textTheme = (
+      bodyLarge: baseStyle.copyWith(
         fontSize: lineHeight * 0.7,
         height: 1 / 0.7,
       ),
-      displayLarge: defaultStyle.copyWith(
+      displayLarge: baseStyle.copyWith(
         fontSize: lineHeight * 1.15,
         height: 1 / 1.15,
         decoration: TextDecoration.underline,
-        decorationColor: defaultStyle.color?.withValues(alpha: 0.6),
+        decorationColor: baseStyle.color?.withValues(alpha: 0.6),
         decorationThickness: 3,
       ),
-      displayMedium: defaultStyle.copyWith(
+      displayMedium: baseStyle.copyWith(
         fontSize: lineHeight * 1,
         height: 1 / 1,
         decoration: TextDecoration.underline,
-        decorationColor: defaultStyle.color?.withValues(alpha: 0.5),
+        decorationColor: baseStyle.color?.withValues(alpha: 0.5),
         decorationThickness: 3,
       ),
-      displaySmall: defaultStyle.copyWith(
+      displaySmall: baseStyle.copyWith(
         fontSize: lineHeight * 0.9,
         height: 1 / 0.9,
         decoration: TextDecoration.underline,
-        decorationColor: defaultStyle.color?.withValues(alpha: 0.4),
+        decorationColor: baseStyle.color?.withValues(alpha: 0.4),
         decorationThickness: 3,
       ),
+    );
+
+    final lineHeightBlockStyle = DefaultTextBlockStyle(
+      baseStyle,
+      HorizontalSpacing.zero,
+      VerticalSpacing.zero,
+      VerticalSpacing.zero,
+      null,
     );
 
     return DefaultStyles(
       h1: DefaultTextBlockStyle(
-        textTheme.displayLarge!,
+        textTheme.displayLarge,
         HorizontalSpacing.zero,
         VerticalSpacing.zero,
         VerticalSpacing.zero,
         null,
       ),
       h2: DefaultTextBlockStyle(
-        textTheme.displayMedium!,
+        textTheme.displayMedium,
         HorizontalSpacing.zero,
         VerticalSpacing.zero,
         VerticalSpacing.zero,
         null,
       ),
       h3: DefaultTextBlockStyle(
-        textTheme.displaySmall!,
+        textTheme.displaySmall,
         HorizontalSpacing.zero,
         VerticalSpacing.zero,
         VerticalSpacing.zero,
         null,
       ),
+      h4: DefaultTextBlockStyle(
+        textTheme.displaySmall,
+        HorizontalSpacing.zero,
+        VerticalSpacing.zero,
+        VerticalSpacing.zero,
+        null,
+      ),
+      h5: DefaultTextBlockStyle(
+        textTheme.displaySmall,
+        HorizontalSpacing.zero,
+        VerticalSpacing.zero,
+        VerticalSpacing.zero,
+        null,
+      ),
+      h6: DefaultTextBlockStyle(
+        textTheme.displaySmall,
+        HorizontalSpacing.zero,
+        VerticalSpacing.zero,
+        VerticalSpacing.zero,
+        null,
+      ),
+      lineHeightNormal: lineHeightBlockStyle,
+      lineHeightTight: lineHeightBlockStyle,
+      lineHeightOneAndHalf: lineHeightBlockStyle,
+      lineHeightDouble: lineHeightBlockStyle,
       paragraph: DefaultTextBlockStyle(
-        textTheme.bodyLarge!,
+        textTheme.bodyLarge,
         HorizontalSpacing.zero,
         VerticalSpacing.zero,
         VerticalSpacing.zero,
@@ -114,36 +149,34 @@ abstract class SaberQuillStyles {
         // Also see https://github.com/singerdmx/flutter-quill/issues/1014
         backgroundColor: Colors.transparent,
         radius: const Radius.circular(3),
-        style: textTheme.bodyLarge!.copyWith(
+        style: textTheme.bodyLarge.copyWith(
           fontFamily: 'FiraMono',
           fontFamilyFallback: saberMonoFontFallbacks,
           backgroundColor: Color.lerp(backgroundColor, Colors.grey, 0.2),
         ),
-        header1: textTheme.displayLarge!.copyWith(
+        header1: textTheme.displayLarge.copyWith(
           fontFamily: 'FiraMono',
           fontFamilyFallback: saberMonoFontFallbacks,
         ),
-        header2: textTheme.displayMedium!.copyWith(
+        header2: textTheme.displayMedium.copyWith(
           fontFamily: 'FiraMono',
           fontFamilyFallback: saberMonoFontFallbacks,
         ),
-        header3: textTheme.displaySmall!.copyWith(
+        header3: textTheme.displaySmall.copyWith(
           fontFamily: 'FiraMono',
           fontFamilyFallback: saberMonoFontFallbacks,
         ),
       ),
       link: TextStyle(color: secondary, decoration: TextDecoration.underline),
       placeHolder: DefaultTextBlockStyle(
-        textTheme.bodyLarge!.copyWith(
-          color: Colors.grey.withValues(alpha: 0.6),
-        ),
+        textTheme.bodyLarge.copyWith(color: Colors.grey.withValues(alpha: 0.6)),
         HorizontalSpacing.zero,
         VerticalSpacing.zero,
         VerticalSpacing.zero,
         null,
       ),
       lists: DefaultListBlockStyle(
-        textTheme.bodyLarge!,
+        textTheme.bodyLarge,
         HorizontalSpacing.zero,
         VerticalSpacing.zero,
         VerticalSpacing.zero,
@@ -151,21 +184,21 @@ abstract class SaberQuillStyles {
         null,
       ),
       quote: DefaultTextBlockStyle(
-        TextStyle(color: textTheme.bodyLarge!.color!.withValues(alpha: 0.6)),
+        TextStyle(color: textTheme.bodyLarge.color!.withValues(alpha: 0.6)),
         HorizontalSpacing.zero,
         VerticalSpacing.zero,
         VerticalSpacing.zero,
         BoxDecoration(
           border: Border(
             left: BorderSide(
-              color: textTheme.bodyLarge!.color!.withValues(alpha: 0.6),
+              color: textTheme.bodyLarge.color!.withValues(alpha: 0.6),
               width: 4,
             ),
           ),
         ),
       ),
       code: DefaultTextBlockStyle(
-        textTheme.bodyLarge!.copyWith(
+        textTheme.bodyLarge.copyWith(
           fontFamily: 'FiraMono',
           fontFamilyFallback: saberMonoFontFallbacks,
         ),
@@ -178,29 +211,38 @@ abstract class SaberQuillStyles {
         ),
       ),
       indent: DefaultTextBlockStyle(
-        textTheme.bodyLarge!,
+        textTheme.bodyLarge,
         HorizontalSpacing.zero,
         VerticalSpacing.zero,
         VerticalSpacing.zero,
         null,
       ),
       align: DefaultTextBlockStyle(
-        textTheme.bodyLarge!,
+        textTheme.bodyLarge,
         HorizontalSpacing.zero,
         VerticalSpacing.zero,
         VerticalSpacing.zero,
         null,
       ),
       leading: DefaultTextBlockStyle(
-        textTheme.bodyLarge!,
+        textTheme.bodyLarge,
         HorizontalSpacing.zero,
         VerticalSpacing.zero,
         VerticalSpacing.zero,
         null,
       ),
-      sizeSmall: TextStyle(fontSize: textTheme.bodyLarge!.fontSize!),
-      sizeLarge: TextStyle(fontSize: textTheme.bodyLarge!.fontSize!),
-      sizeHuge: TextStyle(fontSize: textTheme.bodyLarge!.fontSize!),
+      sizeSmall: TextStyle(
+        fontSize: textTheme.bodyLarge.fontSize!,
+        height: textTheme.bodyLarge.height!,
+      ),
+      sizeLarge: TextStyle(
+        fontSize: textTheme.bodyLarge.fontSize!,
+        height: textTheme.bodyLarge.height!,
+      ),
+      sizeHuge: TextStyle(
+        fontSize: textTheme.bodyLarge.fontSize!,
+        height: textTheme.bodyLarge.height!,
+      ),
     );
   }
 }
