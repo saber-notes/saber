@@ -29,7 +29,6 @@ class InnerCanvas extends StatefulWidget {
     required this.currentSelection,
     this.setAsBackground,
     this.onRenderObjectChange,
-    this.hideBackground = false,
     required this.currentToolIsSelect,
     required this.currentScale,
   });
@@ -50,7 +49,6 @@ class InnerCanvas extends StatefulWidget {
   final void Function(EditorImage image)? setAsBackground;
   final ValueChanged<RenderObject>? onRenderObjectChange;
 
-  final bool hideBackground;
   final bool currentToolIsSelect;
 
   final double currentScale;
@@ -110,16 +108,12 @@ class _InnerCanvasState extends State<InnerCanvas> {
           backgroundColor: () {
             if (page.backgroundImage != null) {
               return Colors.white;
-            } else if (widget.hideBackground) {
-              return InnerCanvas.defaultBackgroundColor;
             } else {
               return backgroundColor;
             }
           }(),
           backgroundPattern: () {
             if (page.backgroundImage != null) {
-              return CanvasBackgroundPattern.none;
-            } else if (widget.hideBackground) {
               return CanvasBackgroundPattern.none;
             } else {
               return widget.coreInfo.backgroundPattern;
