@@ -60,9 +60,21 @@ class CanvasPainter extends CustomPainter {
 
   @override
   bool shouldRepaint(CanvasPainter oldDelegate) {
-    return currentStroke != null ||
-        oldDelegate.currentStroke != null ||
-        strokes.length != oldDelegate.strokes.length;
+    return false ||
+        // Current stroke is being drawn, so always repaint if present
+        (currentStroke != null || oldDelegate.currentStroke != null) ||
+        // Laser strokes are always fading out, so always repaint if present
+        (laserStrokes.isNotEmpty || oldDelegate.laserStrokes.isNotEmpty) ||
+        // Check for any other changes
+        invert != oldDelegate.invert ||
+        strokes.length != oldDelegate.strokes.length ||
+        currentSelection != oldDelegate.currentSelection ||
+        primaryColor != oldDelegate.primaryColor ||
+        page != oldDelegate.page ||
+        showPageIndicator != oldDelegate.showPageIndicator ||
+        pageIndex != oldDelegate.pageIndex ||
+        totalPages != oldDelegate.totalPages ||
+        currentScale != oldDelegate.currentScale;
   }
 
   void _drawHighlighterStrokes(Canvas canvas, Rect canvasRect) {
