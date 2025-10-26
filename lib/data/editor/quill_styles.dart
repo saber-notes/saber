@@ -36,8 +36,6 @@ abstract class SaberQuillStyles {
     required Color secondary,
     required int lineHeight,
   }) {
-    final backgroundColor = invert ? Colors.black : Colors.white;
-
     final baseStyle = TextStyle(
       inherit: false,
       fontFamily: 'Neucha',
@@ -139,20 +137,11 @@ abstract class SaberQuillStyles {
       ),
       small: TextStyle(fontSize: lineHeight * 0.4, height: 1 / 0.4),
       inlineCode: InlineCodeStyle(
-        // [InlineCodeStyle.backgroundColor] is broken right now,
-        // so inline code always has a white-ish background.
-        //
-        // We set [InlineCodeStyle.style.backgroundColor] to make it readable,
-        // but this isn't perfect: see test/sbn_examples/v9_quill.sbn.dark.png
-        // for the issue.
-        //
-        // Also see https://github.com/singerdmx/flutter-quill/issues/1014
-        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.grey.withValues(alpha: 0.2),
         radius: const Radius.circular(3),
         style: textTheme.bodyLarge.copyWith(
           fontFamily: 'FiraMono',
           fontFamilyFallback: saberMonoFontFallbacks,
-          backgroundColor: Color.lerp(backgroundColor, Colors.grey, 0.2),
         ),
         header1: textTheme.displayLarge.copyWith(
           fontFamily: 'FiraMono',
