@@ -199,7 +199,7 @@ class _ToolbarState extends State<Toolbar> {
           : ToolOptions.hide;
     }
 
-    final children = <Widget>[
+    final bars = <Widget>[
       ValueListenableBuilder(
         valueListenable: showExportOptions,
         builder: (context, showExportOptions, child) {
@@ -551,23 +551,19 @@ class _ToolbarState extends State<Toolbar> {
       ),
     ];
 
-    return Material(
-      color: colorScheme.surface,
-      child: isToolbarVertical
-          ? Row(
-              textDirection:
-                  stows.editorToolbarAlignment.value == AxisDirection.left
-                  ? TextDirection.rtl
-                  : TextDirection.ltr,
-              children: children,
-            )
-          : Column(
-              verticalDirection:
-                  stows.editorToolbarAlignment.value == AxisDirection.down
-                  ? VerticalDirection.down
-                  : VerticalDirection.up,
-              children: children,
-            ),
+    return Flex(
+      direction: isToolbarVertical ? Axis.horizontal : Axis.vertical,
+      textDirection: switch (stows.editorToolbarAlignment.value) {
+        AxisDirection.left => TextDirection.rtl,
+        AxisDirection.right => TextDirection.ltr,
+        _ => null,
+      },
+      verticalDirection: switch (stows.editorToolbarAlignment.value) {
+        AxisDirection.down => VerticalDirection.down,
+        AxisDirection.up => VerticalDirection.up,
+        _ => VerticalDirection.down,
+      },
+      children: bars,
     );
   }
 

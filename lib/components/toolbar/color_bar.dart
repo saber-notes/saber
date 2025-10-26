@@ -294,9 +294,7 @@ class _ColorBarState extends State<ColorBar> {
         padding: const EdgeInsets.all(8),
         child: SingleChildScrollView(
           scrollDirection: widget.axis,
-          child: widget.axis == Axis.horizontal
-              ? Row(children: children)
-              : Column(children: children),
+          child: Flex(direction: widget.axis, children: children),
         ),
       ),
     );
