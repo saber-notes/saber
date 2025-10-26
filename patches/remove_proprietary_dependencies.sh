@@ -1,21 +1,27 @@
 #!/usr/bin/env bash
 
-# find "path: packages/onyxsdk_pen" and replace with "path: packages/onyxsdk_pen_dummy"
-echo -n "Replacing onyxsdk_pen with onyxsdk_pen_dummy: "
-# check if pubspec.yaml contains onyxsdk_pen_dummy
-if grep -q "onyxsdk_pen_dummy" pubspec.yaml; then
-  echo "already done"
-else
+echo -n "Removing onyxsdk_pen dependency from pubspec.yaml: "
+if grep -q "onyxsdk_pen" pubspec.yaml; then
   echo "found"
-  sed -i -e 's!/onyxsdk_pen!/onyxsdk_pen_dummy!' pubspec.yaml
+  sed -i -e '/onyxsdk_pen/d' pubspec.yaml
+else
+  echo "already done"
 fi
 
-# find "name: onyxsdk_pen_dummy" and replace with "name: onyxsdk_pen"
-echo -n "Patching onyxsdk_pen_dummy to have name onyxsdk_pen: "
-# check if packages/onyxsdk_pen_dummy/pubspec.yaml contains name: onyxsdk_pen_dummy
-if grep -q "name: onyxsdk_pen_dummy" packages/onyxsdk_pen_dummy/pubspec.yaml; then
+echo -n "Removing onyxsdk_pen usage from lib/main.dart: "
+if grep -q "onyxsdk_pen" lib/main.dart; then
   echo "found"
-  sed -i -e 's!name: onyxsdk_pen_dummy!name: onyxsdk_pen!' packages/onyxsdk_pen_dummy/pubspec.yaml
+  sed -i -e '/onyxsdk_pen/d' lib/main.dart
+  sed -i -e '/OnyxSdkPenArea.init()/d' lib/main.dart
+else
+  echo "already done"
+fi
+
+echo -n "Removing onyxsdk_pen usage from lib/components/canvas/canvas.dart: "
+if grep -q "onyxsdk_pen" lib/components/canvas/canvas.dart; then
+  echo "found"
+  sed -i -e '/onyxsdk_pen/d' lib/components/canvas/canvas.dart
+  sed -i -e 's/OnyxSdkPenArea(/SizedBox(/g' lib/components/canvas/canvas.dart
 else
   echo "already done"
 fi
