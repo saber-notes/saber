@@ -7,8 +7,8 @@ import 'package:saber/components/canvas/_canvas_painter.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/canvas_image.dart';
 import 'package:saber/components/canvas/image/editor_image.dart';
-import 'package:saber/components/theming/font_fallbacks.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
+import 'package:saber/data/editor/quill_styles.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/data/tools/select.dart';
 import 'package:saber/i18n/strings.g.dart';
@@ -80,7 +80,11 @@ class _InnerCanvasState extends State<InnerCanvas> {
             controller:
                 widget.coreInfo.pages[widget.pageIndex].quill.controller,
             config: QuillEditorConfig(
-              customStyles: _getQuillStyles(invert: invert),
+              customStyles: SaberQuillStyles.get(
+                invert: invert,
+                secondary: colorScheme.secondary,
+                lineHeight: widget.coreInfo.lineHeight,
+              ),
               scrollable: false,
               autoFocus: false,
               expands: true,
@@ -186,181 +190,6 @@ class _InnerCanvasState extends State<InnerCanvas> {
           ),
         ),
       ),
-    );
-  }
-
-  /// Adapted from https://github.com/singerdmx/flutter-quill/blob/master/lib/src/editor/widgets/default_styles.dart
-  DefaultStyles _getQuillStyles({required bool invert}) {
-    final colorScheme = ColorScheme.of(context);
-    final backgroundColor = invert ? Colors.black : Colors.white;
-    final lineHeight = widget.coreInfo.lineHeight;
-
-    final defaultStyle = TextStyle(
-      inherit: false,
-      fontFamily: 'Neucha',
-      fontFamilyFallback: saberHandwritingFontFallbacks,
-      color: invert ? Colors.white : Colors.black,
-    );
-
-    final textTheme = TextTheme(
-      bodyLarge: defaultStyle.copyWith(
-        fontSize: lineHeight * 0.7,
-        height: 1 / 0.7,
-      ),
-      displayLarge: defaultStyle.copyWith(
-        fontSize: lineHeight * 1.15,
-        height: 1 / 1.15,
-        decoration: TextDecoration.underline,
-        decorationColor: defaultStyle.color?.withValues(alpha: 0.6),
-        decorationThickness: 3,
-      ),
-      displayMedium: defaultStyle.copyWith(
-        fontSize: lineHeight * 1,
-        height: 1 / 1,
-        decoration: TextDecoration.underline,
-        decorationColor: defaultStyle.color?.withValues(alpha: 0.5),
-        decorationThickness: 3,
-      ),
-      displaySmall: defaultStyle.copyWith(
-        fontSize: lineHeight * 0.9,
-        height: 1 / 0.9,
-        decoration: TextDecoration.underline,
-        decorationColor: defaultStyle.color?.withValues(alpha: 0.4),
-        decorationThickness: 3,
-      ),
-    );
-
-    return DefaultStyles(
-      h1: DefaultTextBlockStyle(
-        textTheme.displayLarge!,
-        HorizontalSpacing.zero,
-        VerticalSpacing.zero,
-        VerticalSpacing.zero,
-        null,
-      ),
-      h2: DefaultTextBlockStyle(
-        textTheme.displayMedium!,
-        HorizontalSpacing.zero,
-        VerticalSpacing.zero,
-        VerticalSpacing.zero,
-        null,
-      ),
-      h3: DefaultTextBlockStyle(
-        textTheme.displaySmall!,
-        HorizontalSpacing.zero,
-        VerticalSpacing.zero,
-        VerticalSpacing.zero,
-        null,
-      ),
-      paragraph: DefaultTextBlockStyle(
-        textTheme.bodyLarge!,
-        HorizontalSpacing.zero,
-        VerticalSpacing.zero,
-        VerticalSpacing.zero,
-        null,
-      ),
-      small: TextStyle(fontSize: lineHeight * 0.4, height: 1 / 0.4),
-      inlineCode: InlineCodeStyle(
-        // [InlineCodeStyle.backgroundColor] is broken right now,
-        // so inline code always has a white-ish background.
-        //
-        // We set [InlineCodeStyle.style.backgroundColor] to make it readable,
-        // but this isn't perfect: see test/sbn_examples/v9_quill.sbn.dark.png
-        // for the issue.
-        //
-        // Also see https://github.com/singerdmx/flutter-quill/issues/1014
-        backgroundColor: Colors.transparent,
-        radius: const Radius.circular(3),
-        style: textTheme.bodyLarge!.copyWith(
-          fontFamily: 'FiraMono',
-          fontFamilyFallback: saberMonoFontFallbacks,
-          backgroundColor: Color.lerp(backgroundColor, Colors.grey, 0.2),
-        ),
-        header1: textTheme.displayLarge!.copyWith(
-          fontFamily: 'FiraMono',
-          fontFamilyFallback: saberMonoFontFallbacks,
-        ),
-        header2: textTheme.displayMedium!.copyWith(
-          fontFamily: 'FiraMono',
-          fontFamilyFallback: saberMonoFontFallbacks,
-        ),
-        header3: textTheme.displaySmall!.copyWith(
-          fontFamily: 'FiraMono',
-          fontFamilyFallback: saberMonoFontFallbacks,
-        ),
-      ),
-      link: TextStyle(
-        color: colorScheme.secondary,
-        decoration: TextDecoration.underline,
-      ),
-      placeHolder: DefaultTextBlockStyle(
-        textTheme.bodyLarge!.copyWith(
-          color: Colors.grey.withValues(alpha: 0.6),
-        ),
-        HorizontalSpacing.zero,
-        VerticalSpacing.zero,
-        VerticalSpacing.zero,
-        null,
-      ),
-      lists: DefaultListBlockStyle(
-        textTheme.bodyLarge!,
-        HorizontalSpacing.zero,
-        VerticalSpacing.zero,
-        VerticalSpacing.zero,
-        null,
-        null,
-      ),
-      quote: DefaultTextBlockStyle(
-        TextStyle(color: textTheme.bodyLarge!.color!.withValues(alpha: 0.6)),
-        HorizontalSpacing.zero,
-        VerticalSpacing.zero,
-        VerticalSpacing.zero,
-        BoxDecoration(
-          border: Border(
-            left: BorderSide(
-              color: textTheme.bodyLarge!.color!.withValues(alpha: 0.6),
-              width: 4,
-            ),
-          ),
-        ),
-      ),
-      code: DefaultTextBlockStyle(
-        textTheme.bodyLarge!.copyWith(
-          fontFamily: 'FiraMono',
-          fontFamilyFallback: saberMonoFontFallbacks,
-        ),
-        HorizontalSpacing.zero,
-        VerticalSpacing(-lineHeight * 0.16, lineHeight * 0.8),
-        VerticalSpacing.zero,
-        BoxDecoration(
-          color: Colors.grey.withValues(alpha: 0.2),
-          borderRadius: BorderRadius.circular(3),
-        ),
-      ),
-      indent: DefaultTextBlockStyle(
-        textTheme.bodyLarge!,
-        HorizontalSpacing.zero,
-        VerticalSpacing.zero,
-        VerticalSpacing.zero,
-        null,
-      ),
-      align: DefaultTextBlockStyle(
-        textTheme.bodyLarge!,
-        HorizontalSpacing.zero,
-        VerticalSpacing.zero,
-        VerticalSpacing.zero,
-        null,
-      ),
-      leading: DefaultTextBlockStyle(
-        textTheme.bodyLarge!,
-        HorizontalSpacing.zero,
-        VerticalSpacing.zero,
-        VerticalSpacing.zero,
-        null,
-      ),
-      sizeSmall: TextStyle(fontSize: textTheme.bodyLarge!.fontSize!),
-      sizeLarge: TextStyle(fontSize: textTheme.bodyLarge!.fontSize!),
-      sizeHuge: TextStyle(fontSize: textTheme.bodyLarge!.fontSize!),
     );
   }
 }
