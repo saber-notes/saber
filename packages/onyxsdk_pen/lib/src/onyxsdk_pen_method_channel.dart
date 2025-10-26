@@ -1,7 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
-
-import 'onyxsdk_pen_platform_interface.dart';
+import 'package:onyxsdk_pen/src/onyxsdk_pen_platform_interface.dart';
 
 /// An implementation of [OnyxsdkPenPlatform] that uses method channels.
 class MethodChannelOnyxsdkPen extends OnyxsdkPenPlatform {

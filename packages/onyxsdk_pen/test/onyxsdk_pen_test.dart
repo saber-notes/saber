@@ -1,7 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:onyxsdk_pen/onyxsdk_pen.dart';
-import 'package:onyxsdk_pen/onyxsdk_pen_platform_interface.dart';
-import 'package:onyxsdk_pen/onyxsdk_pen_method_channel.dart';
+import 'package:onyxsdk_pen/src/onyxsdk_pen_method_channel.dart';
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 
 class MockOnyxsdkPenPlatform

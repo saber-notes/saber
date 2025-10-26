@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 import 'package:logging/logging.dart';
-import 'package:onyxsdk_pen/onyxsdk_pen_area.dart';
+import 'package:onyxsdk_pen/onyxsdk_pen.dart';
 import 'package:path_to_regexp/path_to_regexp.dart';
 import 'package:pdfrx/pdfrx.dart';
 import 'package:printing/printing.dart';

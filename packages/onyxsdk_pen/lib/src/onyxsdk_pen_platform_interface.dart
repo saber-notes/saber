@@ -1,6 +1,5 @@
+import 'package:onyxsdk_pen/src/onyxsdk_pen_method_channel.dart';
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
-
-import 'onyxsdk_pen_method_channel.dart';
 
 abstract class OnyxsdkPenPlatform extends PlatformInterface {
   /// Constructs a OnyxsdkPenPlatform.
@@ -23,5 +22,5 @@ abstract class OnyxsdkPenPlatform extends PlatformInterface {
     _instance = instance;
   }
 
-  Future<bool> isOnyxDevice() => Future<bool>.value(false);
+  Future<bool> isOnyxDevice() async => false;
 }
