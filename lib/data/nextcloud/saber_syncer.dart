@@ -592,10 +592,6 @@ class SaberSyncFile extends AbstractSyncFile<File, WebDavFile> {
   int get hashCode => localFile.path.hashCode;
 }
 
-extension NullableIterable<T> on Iterable<T> {
-  Iterable<T?> castNullable() => cast<T?>();
-}
-
 extension SaberSyncerComponent on SyncerComponent {
   Future<bool> enqueueRel(String relativeFilePath) async {
     if (!stows.loggedIn) return false;

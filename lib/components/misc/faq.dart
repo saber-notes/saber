@@ -1,22 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:yaru/yaru.dart';
 
-class FaqListSliver extends StatelessWidget {
-  const FaqListSliver({super.key, required this.items});
-
-  final List<FaqItem> items;
-
-  @override
-  Widget build(BuildContext context) {
-    return SliverList.builder(
-      itemCount: items.length,
-      itemBuilder: (BuildContext context, int index) {
-        return _FaqTile(item: items[index]);
-      },
-    );
-  }
-}
-
 class FaqListView extends StatelessWidget {
   const FaqListView({super.key, required this.items, this.shrinkWrap = false});
 
