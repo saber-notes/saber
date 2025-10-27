@@ -89,7 +89,7 @@ class ShapePen extends Pen {
           options: rawStroke.options,
           pageIndex: rawStroke.pageIndex,
           page: rawStroke.page,
-          penType: rawStroke.penType,
+          toolId: toolId,
           rect: rect,
         );
       case DefaultUnistrokeNames.circle:
@@ -101,7 +101,7 @@ class ShapePen extends Pen {
           options: rawStroke.options,
           pageIndex: rawStroke.pageIndex,
           page: rawStroke.page,
-          penType: rawStroke.penType,
+          toolId: toolId,
           radius: radius,
           center: center,
         );
@@ -115,7 +115,7 @@ class ShapePen extends Pen {
           options: rawStroke.options,
           pageIndex: rawStroke.pageIndex,
           page: rawStroke.page,
-          penType: rawStroke.penType,
+          toolId: toolId,
         )..addPoints(polygon);
     }
   }

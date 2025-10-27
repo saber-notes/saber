@@ -4,7 +4,7 @@ import 'package:one_dollar_unistroke_recognizer/one_dollar_unistroke_recognizer.
 import 'package:perfect_freehand/perfect_freehand.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/data/editor/page.dart';
-import 'package:saber/data/tools/shape_pen.dart';
+import 'package:saber/data/tools/_tool.dart';
 
 class RectangleStroke extends Stroke {
   Rect rect;
@@ -15,7 +15,7 @@ class RectangleStroke extends Stroke {
     required super.options,
     required super.pageIndex,
     required super.page,
-    required super.penType,
+    required super.toolId,
     required this.rect,
   }) {
     options.isComplete = true;
@@ -50,7 +50,7 @@ class RectangleStroke extends Stroke {
       options: StrokeOptions.fromJson(json),
       pageIndex: pageIndex,
       page: page,
-      penType: json['ty'] ?? (ShapePen).toString(),
+      toolId: ToolId.parsePenType(json['ty'], fallback: ToolId.shapePen),
       rect: Rect.fromLTWH(
         json['rl'] ?? 0,
         json['rt'] ?? 0,
@@ -160,7 +160,7 @@ class RectangleStroke extends Stroke {
     options: options.copyWith(),
     pageIndex: pageIndex,
     page: page,
-    penType: penType,
+    toolId: toolId,
     rect: rect,
   );
 }

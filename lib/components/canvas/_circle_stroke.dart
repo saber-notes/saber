@@ -6,7 +6,7 @@ import 'package:one_dollar_unistroke_recognizer/one_dollar_unistroke_recognizer.
 import 'package:perfect_freehand/perfect_freehand.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/data/editor/page.dart';
-import 'package:saber/data/tools/shape_pen.dart';
+import 'package:saber/data/tools/_tool.dart';
 
 class CircleStroke extends Stroke {
   Offset center;
@@ -18,7 +18,7 @@ class CircleStroke extends Stroke {
     required super.options,
     required super.pageIndex,
     required super.page,
-    required super.penType,
+    required super.toolId,
     required this.center,
     required this.radius,
   }) {
@@ -54,7 +54,7 @@ class CircleStroke extends Stroke {
       options: StrokeOptions.fromJson(json),
       pageIndex: pageIndex,
       page: page,
-      penType: json['ty'] ?? (ShapePen).toString(),
+      toolId: ToolId.parsePenType(json['ty'], fallback: ToolId.shapePen),
       center: Offset(json['cx'] ?? 0, json['cy'] ?? 0),
       radius: json['r'] ?? 0,
     );
@@ -148,7 +148,7 @@ class CircleStroke extends Stroke {
     options: options.copyWith(),
     pageIndex: pageIndex,
     page: page,
-    penType: penType,
+    toolId: toolId,
     center: center,
     radius: radius,
   );

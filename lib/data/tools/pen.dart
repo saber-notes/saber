@@ -86,7 +86,7 @@ class Pen extends Tool {
       options: options.copyWith(isComplete: false),
       pageIndex: pageIndex,
       page: page,
-      penType: runtimeType.toString(),
+      toolId: toolId,
     );
     onDragUpdate(position, pressure);
   }

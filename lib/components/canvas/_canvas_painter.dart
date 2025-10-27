@@ -11,9 +11,9 @@ import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/theming/font_fallbacks.dart';
 import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/extensions/color_extensions.dart';
+import 'package:saber/data/tools/_tool.dart';
 import 'package:saber/data/tools/highlighter.dart';
 import 'package:saber/data/tools/laser_pointer.dart';
-import 'package:saber/data/tools/pencil.dart';
 import 'package:saber/data/tools/select.dart';
 import 'package:saber/data/tools/shape_pen.dart';
 
@@ -85,7 +85,7 @@ class CanvasPainter extends CustomPainter {
 
     Color? lastColor;
     for (final stroke in strokes) {
-      if (stroke.penType != (Highlighter).toString()) continue;
+      if (stroke.toolId != ToolId.highlighter) continue;
 
       final color = stroke.color.withValues(alpha: 1).withInversion(invert);
 
@@ -108,7 +108,7 @@ class CanvasPainter extends CustomPainter {
     late final paint = Paint();
 
     for (final stroke in strokes) {
-      if (stroke.penType == (Highlighter).toString()) continue;
+      if (stroke.toolId == ToolId.highlighter) continue;
 
       var color = stroke.color.withInversion(invert);
       if (currentSelection?.strokes.contains(stroke) ?? false) {
@@ -118,7 +118,7 @@ class CanvasPainter extends CustomPainter {
       paint.color = color;
       paint.shader = null;
       paint.maskFilter = null;
-      if (stroke.penType == (Pencil).toString()) {
+      if (stroke.toolId == ToolId.pencil) {
         if (_shouldUsePencilShader) {
           paint.color = Colors.white;
           paint.shader = page.pencilShader
@@ -170,7 +170,7 @@ class CanvasPainter extends CustomPainter {
     paint.color = color;
     paint.shader = null;
     paint.maskFilter = null;
-    if (currentStroke!.penType == (Pencil).toString()) {
+    if (currentStroke!.toolId == ToolId.pencil) {
       paint.color = Colors.white;
       paint.shader = page.pencilShader
         ..setFloat(0, color.r)

@@ -5,6 +5,7 @@ import 'package:saber/components/canvas/_asset_cache.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/image/editor_image.dart';
 import 'package:saber/data/editor/page.dart';
+import 'package:saber/data/tools/_tool.dart';
 import 'package:saber/data/tools/select.dart';
 
 void main() {
@@ -35,7 +36,7 @@ void main() {
           options: options,
           pageIndex: 0,
           page: page,
-          penType: 'testing pen',
+          toolId: ToolId.fountainPen,
         )..addPoint(const Offset(5, 5)),
         // index > 0 is outside
         Stroke(
@@ -44,7 +45,7 @@ void main() {
           options: options,
           pageIndex: 0,
           page: page,
-          penType: 'testing pen',
+          toolId: ToolId.fountainPen,
         )..addPoint(const Offset(10, 10)),
         Stroke(
           color: Stroke.defaultColor,
@@ -52,7 +53,7 @@ void main() {
           options: options,
           pageIndex: 0,
           page: page,
-          penType: 'testing pen',
+          toolId: ToolId.fountainPen,
         )..addPoint(const Offset(15, 15)),
       ];
 
@@ -192,6 +193,6 @@ Stroke _strokeWithColor(Color color) {
     options: StrokeOptions(),
     pageIndex: 0,
     page: const HasSize(Size.zero),
-    penType: 'testing pen',
+    toolId: ToolId.fountainPen,
   );
 }

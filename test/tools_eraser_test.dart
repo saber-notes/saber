@@ -5,9 +5,9 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:perfect_freehand/perfect_freehand.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/data/editor/page.dart';
+import 'package:saber/data/tools/_tool.dart';
 import 'package:saber/data/tools/eraser.dart';
 
-const _penType = 'testing pen';
 final _options = StrokeOptions(
   size: 1, // small size so we have more precision in test
 );
@@ -95,5 +95,5 @@ Stroke _strokeWithPoint(Offset point) => Stroke(
   options: _options,
   pageIndex: 0,
   page: const HasSize(Size(100, 100)),
-  penType: _penType,
+  toolId: ToolId.fountainPen,
 )..addPoint(point);

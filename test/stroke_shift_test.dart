@@ -3,6 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:perfect_freehand/perfect_freehand.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/data/editor/page.dart';
+import 'package:saber/data/tools/_tool.dart';
 
 void main() {
   test('Stroke.shift(offset)', () {
@@ -12,7 +13,7 @@ void main() {
       options: StrokeOptions(size: double.minPositive),
       pageIndex: 0,
       page: const HasSize(Size(100, 100)),
-      penType: 'testing pen',
+      toolId: ToolId.fountainPen,
     )..addPoint(const Offset(5, 5));
     expect(stroke.points, [const Offset(5, 5)]);
 

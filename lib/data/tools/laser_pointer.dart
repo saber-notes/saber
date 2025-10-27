@@ -43,7 +43,7 @@ class LaserPointer extends Tool {
       options: options.copyWith(),
       pageIndex: pageIndex,
       page: page,
-      penType: runtimeType.toString(),
+      toolId: toolId,
     );
 
     strokePointDelays = [];
@@ -124,7 +124,7 @@ class LaserStroke extends Stroke {
     required super.options,
     required super.pageIndex,
     required EditorPage super.page,
-    required super.penType,
+    required super.toolId,
   });
   @visibleForTesting
   LaserStroke.convertStroke(Stroke stroke)
@@ -136,7 +136,7 @@ class LaserStroke extends Stroke {
           ..smoothing = 0.7,
         pageIndex: stroke.pageIndex,
         page: stroke.page,
-        penType: stroke.penType,
+        toolId: stroke.toolId,
       ) {
     points.addAll(stroke.points);
   }

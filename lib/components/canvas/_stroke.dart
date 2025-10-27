@@ -11,7 +11,7 @@ import 'package:saber/components/canvas/_rectangle_stroke.dart';
 import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/extensions/list_extensions.dart';
 import 'package:saber/data/extensions/point_extensions.dart';
-import 'package:saber/data/tools/pen.dart';
+import 'package:saber/data/tools/_tool.dart';
 
 class Stroke {
   static final log = Logger('Stroke');
@@ -25,7 +25,7 @@ class Stroke {
 
   int pageIndex;
   HasSize page;
-  final String penType;
+  final ToolId toolId;
 
   static const defaultColor = Colors.black;
   static const defaultPressureEnabled = true;
@@ -66,7 +66,7 @@ class Stroke {
     required this.options,
     required this.pageIndex,
     required this.page,
-    required this.penType,
+    required this.toolId,
   });
 
   factory Stroke.fromJson(
@@ -137,7 +137,7 @@ class Stroke {
       options: options,
       pageIndex: pageIndex,
       page: page,
-      penType: json['ty'] ?? (Pen).toString(),
+      toolId: ToolId.parsePenType(json['ty'], fallback: ToolId.fountainPen),
     )..points.addAll(points);
   }
   Map<String, dynamic> toJson() {
@@ -149,7 +149,7 @@ class Stroke {
           .map((PointVector point) => point.toBsonBinary())
           .toList(),
       'i': pageIndex,
-      'ty': penType,
+      'ty': toolId.id,
       'pe': pressureEnabled,
       'c': color.toARGB32(),
     }..addAll(options.toJson());
@@ -390,6 +390,6 @@ class Stroke {
     options: options.copyWith(),
     pageIndex: pageIndex,
     page: page,
-    penType: penType,
+    toolId: toolId,
   )..points.addAll(points);
 }
