@@ -129,12 +129,7 @@ class CanvasPainter extends CustomPainter {
         } else {
           // Fast imitation of pencil when zoomed out
           final background = invert ? Colors.black : Colors.white;
-          paint.color = Color.lerp(
-            color,
-            background,
-            0.4,
-          )!.withValues(alpha: 0.6);
-          canvas.drawShadow(_selectPath(stroke), color, 3, true);
+          paint.color = Color.lerp(background, color, 0.6)!;
         }
       }
 
