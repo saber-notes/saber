@@ -1,0 +1,4 @@
+• Migliorata la qualità delle miniature delle note.
+• Tratti di matita ottimizzati quando si esegue lo zoom indietro.
+• Risolto il contrasto improprio della barra degli strumenti in alcuni temi.
+• Risolto il problema con il collegamento alla politica sulla privacy che non funzionava.

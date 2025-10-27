@@ -1,0 +1,4 @@
+• Melhorou a qualidade das miniaturas das notas.
+• Traços de lápis otimizados quando diminuído o zoom.
+• Corrigido contraste impróprio da barra de ferramentas em determinados temas.
+• Corrigido um link de política de privacidade que não funcionava.
