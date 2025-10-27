@@ -97,7 +97,7 @@ jobs:
           tar -C AppDir -czvf $archiveName .
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: Saber-Archive-${{ matrix.arch.archive-suffix }}
           path: ${{ steps.compress.outputs.archiveName }}
@@ -126,7 +126,7 @@ jobs:
           sudo apt install libfuse2
 
       - name: Download app archive
-        uses: actions/download-artifact@v5
+        uses: actions/download-artifact@v6
         with:
           name: Saber-Archive-x86_64
 
@@ -157,7 +157,7 @@ jobs:
           appimage-builder --skip-test
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: AppImage artifact
           path: appimage/Saber-*-x86_64.AppImage*
