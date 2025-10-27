@@ -16,6 +16,7 @@ parts:
     source-tag: 'v0.26.11'
     plugin: flutter
     build-packages:
+      - execstack
       - libsecret-1-dev
       - libjsoncpp-dev
       - libgstreamer1.0-dev
@@ -23,18 +24,16 @@ parts:
       - openjdk-21-jdk
     build-snaps:
       - cmake
-    stage-packages:
-      - libjsoncpp25
-      - zenity
-    build-environment:
-      - PATH: ${CRAFT_STAGE}/usr/bin:${PATH}
     override-build: |
       craftctl default
       mkdir -p $CRAFT_PART_INSTALL/meta/gui
       mv $CRAFT_PART_SRC/flatpak/com.adilhanney.saber.desktop $CRAFT_PART_INSTALL/meta/gui/saber.desktop
       mkdir $CRAFT_PART_INSTALL/metainfo
       mv $CRAFT_PART_SRC/flatpak/com.adilhanney.saber.metainfo.xml $CRAFT_PART_INSTALL/metainfo/
+      execstack --clear-execstack $CRAFT_PART_INSTALL/lib/libsentry.so
     parse-info: [metainfo/com.adilhanney.saber.metainfo.xml]
+    prime:
+      - -lib/crashpad_handler
 
   cleanup:
     after: [saber]
