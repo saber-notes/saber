@@ -93,7 +93,7 @@ jobs:
           mv build/app/outputs/bundle/release/app-release.aab output/Saber.aab
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: Saber-Android-PlayStore
           path: output/Saber.aab

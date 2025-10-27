@@ -82,7 +82,7 @@ jobs:
           mv installers/SaberInstaller.exe installers/$installerName
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: Saber-Windows
           path: installers/${{ steps.rename.outputs.installerName }}

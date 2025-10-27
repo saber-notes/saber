@@ -60,7 +60,7 @@ jobs:
 
       - name: Upload test failures
         if: failure()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: Saber-test-failures
           path: test/failures
