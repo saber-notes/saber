@@ -38,6 +38,9 @@ jobs:
             ${{ runner.OS }}-saber-
 
       - name: Setup keystore
+        env:
+          SIGNING_KEY: ${{ secrets.SIGNING_KEY }}
+        if: ${{ env.SIGNING_KEY != '' }}
         run: |
           echo "${{ secrets.SIGNING_KEY }}" | base64 -d > android/android.keystore
           echo "storePassword=${{ secrets.KEY_STORE_PASSWORD }}" > android/key.properties
