@@ -21,6 +21,8 @@ RUN mkdir -p /root/.pub-cache/bin/
 ENV FLUTTER_ROOT=/opt/flutter
 ENV PUB_CACHE=/root/.pub-cache
 ENV PATH="/opt/flutter/bin:/root/.pub-cache/bin:$PATH"
+# This ADD command invalidates the Docker cache when a new Flutter release is available
+ADD https://storage.googleapis.com/flutter_infra_release/releases/releases_linux.json /tmp/releases_linux.json
 RUN git clone https://github.com/flutter/flutter.git /opt/flutter --branch stable
 RUN flutter precache --universal
 RUN flutter doctor
