@@ -205,6 +205,8 @@ class ExplicitlyThemedApp extends StatelessWidget {
   final ThemeData theme, darkTheme;
   final ThemeData? highContrastTheme, highContrastDarkTheme;
 
+  static final _materialAppKey = GlobalKey<State<MaterialApp>>();
+
   @override
   Widget build(BuildContext context) {
     final highContrastTheme =
@@ -215,6 +217,7 @@ class ExplicitlyThemedApp extends StatelessWidget {
         darkTheme.copyWith(colorScheme: theme.colorScheme.withHighContrast());
 
     return MaterialApp.router(
+      key: _materialAppKey,
       title: title,
       routeInformationProvider: router.routeInformationProvider,
       routeInformationParser: router.routeInformationParser,
