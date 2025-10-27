@@ -292,7 +292,7 @@ class CanvasPainter extends CustomPainter {
   }
 
   static MaskFilter _getPencilMaskFilter(double size) =>
-      MaskFilter.blur(BlurStyle.normal, min(size * 0.3, 5));
+      MaskFilter.blur(BlurStyle.normal, min(size * 0.2, 3));
   bool get _shouldUsePencilShader => currentScale >= _zoomThreshold;
 
   static const _zoomThreshold = 0.9;
