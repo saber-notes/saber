@@ -88,7 +88,7 @@ settings:
     layoutSize: 布局大小
     customAccentColor: 自定义主题色
     hyperlegibleFont: 易读字体
-    useYaruTitleBar(OUTDATED): 使用主题标题栏
+    useYaruTitleBar: 使用主题化标题栏
     shouldCheckForUpdates: 自动检查 Saber 更新
     shouldAlwaysAlertForUpdates: 更快的更新提醒
     allowInsecureConnections: 允许不安全的连接
