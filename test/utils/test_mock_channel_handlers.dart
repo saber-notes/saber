@@ -84,3 +84,15 @@ void setupMockAudioplayers() {
     },
   );
 }
+
+void setupMockWindowManager() {
+  const channel = MethodChannel('window_manager');
+  TestWidgetsFlutterBinding.ensureInitialized();
+  TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+      .setMockMethodCallHandler(channel, (MethodCall methodCall) async {
+        if (methodCall.method == 'setTitleBarStyle') {
+          return true;
+        }
+        return null;
+      });
+}
