@@ -199,6 +199,13 @@ dependency_overrides:
     git:
       url: https://github.com/ubuntu/yaru.dart.git
       ref: 1036a53bd70ea6ee09407c3afd5782f77c82fd47
+  
+  # https://github.com/slang-i18n/slang/pull/320
+  slang:
+    git:
+      url: https://github.com/adil192/slang.git
+      ref: feat/disable-formatting
+      path: slang
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

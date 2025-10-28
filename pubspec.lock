@@ -1661,10 +1661,11 @@ packages:
   slang:
     dependency: "direct main"
     description:
-      name: slang
-      sha256: bb92f1777d086483251dd1a359d86d174d2ea3f8000eb7f55ad7ef9a1323c9e7
-      url: "https://pub.dev"
-    source: hosted
+      path: slang
+      ref: "feat/disable-formatting"
+      resolved-ref: e503397f887c1721956d4410ed2b1fa4b55e1406
+      url: "https://github.com/adil192/slang.git"
+    source: git
     version: "4.9.2"
   slang_flutter:
     dependency: "direct main"
