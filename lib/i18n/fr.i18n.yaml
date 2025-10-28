@@ -73,7 +73,7 @@ sentry:
       yes(OUTDATED): Oui
       no(OUTDATED): Non
       later(OUTDATED): Demandez-moi plus tard
-    title(OUTDATED): Aider à améliorer le sabre?
+    title(OUTDATED): Aidez-moi à améliorer Saber?
 settings: 
   prefCategories: 
     general: Général

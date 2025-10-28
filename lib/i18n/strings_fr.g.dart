@@ -359,7 +359,7 @@ class _TranslationsSentryConsentFr extends TranslationsSentryConsentEn {
 	// Translations
 	@override late final _TranslationsSentryConsentDescriptionFr description = _TranslationsSentryConsentDescriptionFr._(_root);
 	@override late final _TranslationsSentryConsentAnswersFr answers = _TranslationsSentryConsentAnswersFr._(_root);
-	@override String get title => 'Aider à améliorer le sabre?';
+	@override String get title => 'Aidez-moi à améliorer Saber?';
 }
 
 // Path: settings.prefCategories
