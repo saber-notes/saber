@@ -88,6 +88,7 @@ settings:
     layoutSize: Dimensione layout
     customAccentColor: Colore personalizzato
     hyperlegibleFont: Carattere iperleggibile
+    useYaruTitleBar(OUTDATED): Utilizza la barra del titolo a tema
     shouldCheckForUpdates: Controlla automaticamente gli aggiornamenti di Saber
     shouldAlwaysAlertForUpdates: Aggiornamenti veloci
     allowInsecureConnections: Consenti connessioni non sicure

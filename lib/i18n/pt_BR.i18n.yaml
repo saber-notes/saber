@@ -63,6 +63,7 @@ home:
   noPreviewAvailable(OUTDATED): Nenhuma visualização disponível
 sentry: 
   consent: 
+    title(OUTDATED): Ajudar a melhorar o Saber?
     description: 
       question(OUTDATED): Você gostaria de relatar automaticamente erros inesperados? Isso me ajuda a identificar e corrigir problemas mais rapidamente.
       scope(OUTDATED): Os relatórios podem conter informações sobre o erro e seu dispositivo. Fiz todos os esforços para filtrar dados pessoais, mas alguns podem permanecer.
@@ -87,6 +88,7 @@ settings:
     layoutSize: Tipo de leiaute
     customAccentColor: Cor de destaque personalizada
     hyperlegibleFont: Fonte hiperlegível
+    useYaruTitleBar(OUTDATED): Use barra de título temática
     shouldCheckForUpdates: Verificar automaticamente as atualizações do Saber
     shouldAlwaysAlertForUpdates: Atualizações mais rápidas
     allowInsecureConnections: Permitir conexões inseguras

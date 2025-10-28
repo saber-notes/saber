@@ -390,6 +390,7 @@ class _TranslationsSettingsPrefLabelsIt extends TranslationsSettingsPrefLabelsEn
 	@override String get layoutSize => 'Dimensione layout';
 	@override String get customAccentColor => 'Colore personalizzato';
 	@override String get hyperlegibleFont => 'Carattere iperleggibile';
+	@override String get useYaruTitleBar => 'Utilizza la barra del titolo a tema';
 	@override String get shouldCheckForUpdates => 'Controlla automaticamente gli aggiornamenti di Saber';
 	@override String get shouldAlwaysAlertForUpdates => 'Aggiornamenti veloci';
 	@override String get allowInsecureConnections => 'Consenti connessioni non sicure';
