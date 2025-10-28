@@ -1,0 +1,369 @@
+common: 
+  done: Preta
+  continueBtn: Daŭru
+  cancel: Nuligu
+home: 
+  tabs: 
+    home: Hejmo
+    browse: Foliumu
+    whiteboard: Tabulo
+    settings: Agordoj
+  titles: 
+    home: Lastaj notoj
+    browse: Foliumu
+    whiteboard: Tabulo
+    settings: Agordoj
+  tooltips: 
+    newNote: Nova noto
+    showUpdateDialog: Montru ĝisdatiga dialogo
+    exportNote: Eksportu noton
+  create: 
+    newNote: Nova noto
+    importNote: Enportu noton
+  welcome: Bonvenon al Saber
+  invalidFormat: Via dosiero ne estas subtenata. Bonvolu elekti sbn, sbn2, sba aŭ pdf dosieron.
+  noFiles: Neniu dosiero trovita
+  noPreviewAvailable: Neniu antaŭrigardo havebla
+  createNewNote: Frapu la + butonon por krei novan noton
+  backFolder: Reenu al la antaŭa dosierujo
+  newFolder: 
+    newFolder: Nova dosierujo
+    folderName: Dosierujnomo
+    create: Kreu
+    folderNameEmpty: Dosierujnomo ne estu malplena
+    folderNameContainsSlash: Dosierujnomo ne havu oblikvon
+    folderNameExists: Dosierujo jam ekzistas
+  renameNote: 
+    renameNote: Alinomu noton
+    noteName: Notonomo
+    rename: Alinomu
+    noteNameEmpty: Notonomo ne estu malplena
+    noteNameContainsSlash: Notonomu ne havu oblikvon
+    noteNameExists: Noto kun ĉi tiu nomo jam ekzistas
+  moveNote: 
+    moveNote: Movu noton
+    moveNotes: Movu $n notojn
+    moveName: Movu $f
+    move: Movu
+    renamedTo: Noto alinomiĝos al $newName
+    multipleRenamedTo: "La sekvaj notoj alinomiĝos:"
+    numberRenamedTo: $n notoj alinomiĝos por eviti konfliktojn
+  deleteNote: Forigu noton
+  renameFolder: 
+    renameFolder: Alinomu dosierujon
+    folderName: Dosierujnomo
+    rename: Alinomu
+    folderNameEmpty: Dosierujnomo ne estu malplena
+    folderNameContainsSlash: Dosierujnomo ne havu oblikvon
+    folderNameExists: Dosierujnomo jam estas uzata
+  deleteFolder: 
+    deleteFolder: Forigu dosierujon
+    deleteName: Forigu $f
+    delete: Forigu
+    alsoDeleteContents: Ankaŭ forigu ĉiujn notojn en ĉi tiu dosierujo
+sentry: 
+  consent: 
+    title: Helpu plibonigi Saber
+    description: 
+      question: Ĉu vi aŭtomate raportus neatenditajn erarojn? Tio helpus min identigi kaj solvi problemojn pli rapide.
+      scope: La raportoj enhavus informojn pri la eraro kaj aparato. Mi faris ĉion por kolekti malpli da persondatumojn, sed iuj eble kolektiĝus.
+      currentlyOff: Se vi konsentas, eraroraportado ebligos post rekomencigo de la aplikaĵo.
+      currentlyOn: Se vi malkonsentos, bonvole rekomecigu la aplikaĵon por ne eraroraporti plu.
+      learnMoreInPrivacyPolicy(rich): Lernu pli en la ${link(privacy policy)}.
+    answers: 
+      yes: Jes
+      no: Ne
+      later: Demandu poste
+settings: 
+  prefCategories: 
+    general: Ĝeneralaj
+    writing: Enigaj
+    editor: Redaktilaj
+    performance: Rendimentaj
+    advanced: Altnivelaj
+  prefLabels: 
+    locale: Lingvo
+    appTheme: Heleco
+    platform: Etoso
+    layoutSize: Aranĝo
+    customAccentColor: Kutima akcentokoloro
+    hyperlegibleFont: Superlegebla tiparo
+    useYaruTitleBar(OUTDATED): Uzu teman titolstangon
+    shouldCheckForUpdates: Kontrolu por ĝisdatigoj
+    shouldAlwaysAlertForUpdates: Pli rapidaj ĝisdatigoj
+    allowInsecureConnections: Permesu nesekurajn konektojn
+    editorToolbarAlignment: Pozicio de ilobreto
+    editorToolbarShowInFullscreen: Montru ilobreton en plenekranreĝimo
+    editorAutoInvert: Inversigu notojn en malhelreĝimo
+    preferGreyscale: Preferu grizkolorojn
+    maxImageSize: Maksimuma bildgrandeco
+    autoClearWhiteboardOnExit: Malplenigu la tablon post foriro
+    disableEraserAfterUse: Malaktivigu la forviŝilon
+    hideFingerDrawingToggle: Kaŝu la fingrodesegnan ŝaltilon
+    editorPromptRename: Petu vin alinomi novajn notojn
+    recentColorsDontSavePresets: Ne konservu kolorŝablonon en la lastuzitaj koloroj
+    recentColorsLength: Nombro da lastuzitaj koloroj
+    printPageIndicators: Presu paĝnumeradon
+    autosave: Aŭtomata konservado
+    shapeRecognitionDelay: Prokrasto de formorekono
+    autoStraightenLines: Aŭtomate rektigu liniojn
+    simplifiedHomeLayout: Simpligita ĉefekranaranĝo
+    customDataDir: Kutima Saber-dosierujo
+    pencilSoundSetting: Krajona sonefekto
+    sentry: Erarraportado
+  prefDescriptions: 
+    hyperlegibleFont: Pliigas legeblecon por uzantoj kun malalta vidkapablo
+    allowInsecureConnections: (Nerekomendita) Permesu al Sabero konektiĝi al serviloj kun mem-subskribitaj/nefidindaj atestiloj
+    preferGreyscale: Por ekranoj de bitlegiloj
+    autoClearWhiteboardOnExit: Malplenigas la tabulon post kiam vi foriras la aplikaĵon
+    disableEraserAfterUse: Aŭtomate ŝanĝas reen al la plumo post uzi la forviŝilon
+    maxImageSize: Pli grandaj bildoj densiĝos
+    hideFingerDrawing: 
+      shown: Malhelpas hazardan ŝaltadon
+      fixedOn: Fingrodesegnado estas fiksita kiel ebligita
+      fixedOff: Fingrodesegnado estas fiksita kiel malebligita
+    editorPromptRename: Vi ĉiam povas renomi notojn poste
+    printPageIndicators: Montru paĝnumeradon post eksporto
+    autosave: Aŭtomate konservas post iom da tempo aŭ neniam
+    shapeRecognitionDelay: Ofteco de ĝisdatigo de la formantaŭrigardo
+    autoStraightenLines: Rektigas longajn liniojn sen uzado de la formskribilon
+    simplifiedHomeLayout: Fiksas la alton por ĉiu notantaŭrigardo
+    shouldAlwaysAlertForUpdates: Informu min pri ĝisdatigoj tuj kiam ili disponebliĝos
+    pencilSoundSetting: 
+      off: Silentigita
+      onButNotInSilentMode: Ebligita (krom en silentoreĝimo)
+      onAlways: Ebligita (eĉ en silentoreĝimo)
+    sentry: 
+      active: Aktiva
+      inactive: Malaktiva
+      activeUntilRestart: Aktiva ĝis vi rekomencas la aplikaĵon
+      inactiveUntilRestart: Neaktiva ĝis vi rekomencas la aplikaĵon
+  themeModes: 
+    system: Sistemo
+    light: Hela
+    dark: Malhela
+  layoutSizes: 
+    auto: Aŭtomata
+    phone: Poŝtelefona
+    tablet: Platkomputila
+  accentColorPicker: 
+    pickAColor: Elektu koloron
+  systemLanguage: Aŭtomata
+  axisDirections: 
+    - Supre
+    - Dekstre
+    - Sube
+    - Maldekstre
+  reset: 
+    title: Restarigu agordon?
+    button: Restarigo
+  resyncEverything: Resinkronigu ĉion
+  openDataDir: Malfermu Saber-dosierujon
+  customDataDir: 
+    cancel: Nuligu
+    select: Elektu
+    mustBeEmpty: La elektita dosierujo estu malplena
+    mustBeDoneSyncing: Certigu, ĉu la sinkronigado kompletas antaŭ ŝanĝi dosierujon
+    unsupported: Ĉi tiu funkcio nuntempe estas nur por programistoj. Uzado verŝajne rezultigos datumperdon
+  autosaveDisabled: Neniam
+  shapeRecognitionDisabled: Neniam
+logs: 
+  logs: Protokoloj
+  viewLogs: Vidu protokolojn
+  debuggingInfo: Protokoloj enhavas informojn por sencimigado kaj disvolviĝo
+  noLogs: Neniu protokoloj tie ĉi!
+  useTheApp: Logs will appear here as you use the app
+login: 
+  title: Ensaluto
+  form: 
+    agreeToPrivacyPolicy(rich): Ensalutante, vi konsentas pri la ${linkToPrivacyPolicy(Privacy Policy)}.
+  signup(rich): Ĉu vi ankoraŭ ne havas konton? ${linkToSignup(Sign up now)}!
+  notYou(rich): Ne vi? ${undoLogin(Choose another account)}.
+  status: 
+    loggedOut: Elsalutita
+    tapToLogin: Frapetu por ensaluti per Nextcloud-konto
+    hi: Saluton, $u!
+    almostDone: Preskaŭpreta por sinkronigado, frapetu por fini ensaluton
+    loggedIn: Ensalutita per NextCloud-konto
+  ncLoginStep: 
+    whereToStoreData: "Elektu kie vi volas konservi viajn datumojn:"
+    saberNcServer: Sabera Nextcloud-servilo
+    otherNcServer: Aliaj Nextcloud-serviloj
+    serverUrl: Retadreso de servilo
+    loginWithSaber: Ensalutu per Saber-konto
+    loginWithNextcloud: Ensalutu per Nextcloud-konto
+    loginFlow: 
+      pleaseAuthorize: Bonvolu rajtigi Saber por aliri vian NextCloud-konton
+      followPrompts: Bonvolu sekvi la instrukciojn en la Nextcloud-interfaco
+      browserDidntOpen: Ensalutpaĝo ne malfermiĝis? Alklaku ĉi tie
+  encLoginStep: 
+    enterEncPassword: "To protect your data, please enter your encryption password:"
+    newToSaber: Ĉu vi estas nova uzanto? Nur eniru novan ĉifradopasvorton
+    encPassword: Ĉifradopasvorto
+    encFaqTitle: Oftaj demandoj
+    wrongEncPassword: Malĉifrado per enigita pasvorto malsukcesis. Bonvolu enigi ĝin denove
+    connectionFailed: Konektado al la servilo fiaskis. Bonvolu provi denove poste.
+    encFaq: 
+      - 
+        q: Kio estas ĉifradopasvorto? Kial uzi du pasvortojn?
+        a: |-
+          La pasvorto de Nextcloud estas uzata por aliri la nubon. La ĉifradopasvorto "miksas" vian datumon antaŭ ol ili iam ajn atingas la nubon. 
+          Eĉ se iu akiras aliron al via Nextcloud-konto, viaj notoj restos sekuraj kaj ĉifritaj per aparta pasvorto. Ĉi tio provizas al vi duan tavolon de sekureco por protekti vian datumon. 
+          Neniu povas vidi viajn notojn sur la servilo sen via ĉifradopasvorto, sed ĉi tio ankaŭ signifas, ke se vi forgesas vian ĉifrandopasvorton, vi perdos aliron al viaj datumoj.
+      - 
+        q: Mi ankoraŭ ne agordis ĉifradopasvorton. Kie mi agordis ĝin?
+        a: |-
+          Elektu novan ĉifradopasvorton kaj enigu ĝin supre.
+          Saber aŭtomate generos viajn ĉifradoŝlosilojn el ĉi tiu pasvorto.
+      - 
+        q: Ĉu mi povas uzi la saman pasvorton por mia Nextcloud-konto?
+        a: Jes, sed memoru, ke estus pli facile por la servilestro aŭ iu alia aliri viajn notojn se ili akiras aliron al via Nextcloud-konto.
+profile: 
+  title: Mia profilo
+  logout: Elsalutu
+  quotaUsage: Vi uzas $used el $total ($percent%)
+  connectedTo: Konektita al
+  quickLinks: 
+    serverHomepage: Hejmpaĝo de la servilo
+    deleteAccount: Forigu konton
+  faqTitle: Oftaj demandoj
+  faq: 
+    - 
+      q: Ĉu mi perdos miajn notojn se mi elsalutas?
+      a: Ne. Viaj notoj restos kaj sur via aparato kaj sur la servilo. Ili ne estos sinkronigataj kun la servilo ĝis vi reensalutos. Certigu, ke la sinkronigado estas kompleta antaŭ ol elsaluti, por ke vi ne perdu iujn ajn datumojn (vidu la sinkronigan progreson sur la ĉefekrano).
+    - 
+      q: Kiel mi ŝanĝas mian Nextcloud-pasvorton?
+      a: Iru al la retejo de via servilo kaj ensalutu. Poste iru al Agordoj > Sekureco > Ŝanĝu pasvorton. Elsalutu kaj reensalutu al Saber post via pasvortoŝanĝo.
+    - 
+      q: Kiel mi ŝanĝas mian ĉifradopasvorton?
+      a: |-
+        0. Certigu, ke la sinkronigado estas kompleta (vidu la sinkronigan progreson sur la ĉefekrano).
+        1. Elsalutu el Saber.
+        2. Iru al la retejo de via servilo kaj forigu vian Saber-dosierujon. Ĉi tio forigos ĉiujn viajn notojn de la servilo.
+        3. Reensalutu al Saber. Vi povas elekti novan ĉifradopasvorton dum ensalutado.
+        4. Ne forgesu elsaluti kaj reensaluti al Saber ankaŭ per viaj aliaj aparatoj.
+    - 
+      q: Kiel mi povas forigi mian konton?
+      a: |-
+        Frapetu la butonon "@:profile.quickLinks.deleteAccount" supre, kaj ensalutu se necese.
+        Se vi uzas la oficialan Saber-servilon, via konto estos forigita post 1-semajna indulgoperiodo. Vi povas kontakti min ĉe adilhanney@disroot.org dum ĉi tiu periodo por nuligi la forigon.
+        Se vi uzas eksteran servilon, eble ne estos eblo forigi vian konton: vi devos konsulti la privatecopolitikon de la servilo por pliaj informoj.
+appInfo: 
+  licenseNotice: |-
+    Kopirajto de Saber © 2022-$buildYear Adil Hanney
+    Ĉi tiu programo havas neniun garantion. Ĉi tio estas senpaga programaro, kaj vi bonvenas redistribui ĝin kun certaj kondiĉoj.
+  dirty: MALPURA
+  debug: SENERARIGADO
+  sponsorButton: Frapu ĉi tie por sponsori min aŭ aĉeti pli da memorospaco
+  licenseButton: Frapu ĉi tie por vidi pli da informoj pri la licenco
+  privacyPolicyButton: Frapu ĉi tie por vidi la privatecopolitikon
+update: 
+  updateAvailable: Ĝisdatigo disponebla
+  updateAvailableDescription: "Nova versio de la aplikaĵo disponeblas:"
+  update: Ĝisdatigo
+  downloadNotAvailableYet: La elŝuto ankoraŭ ne disponeblas por via platformo. Bonvolu rekontroli baldaŭ.
+editor: 
+  toolbar: 
+    toggleColors: Ŝaltu kolorojn (Ktrl C)
+    select: Elektu
+    toggleEraser: Ŝaltu forviŝilon (Ktrl E)
+    photo: Bildoj
+    text: Teksto
+    toggleFingerDrawing: Ŝaltu fingrodesegnadon (Ktrl F)
+    undo: Malfaru
+    redo: Refaru
+    export: Eksportu (Ktrl Majuskliga S)
+    exportAs: "Eksportu kiel:"
+    fullscreen: Ŝaltu plenekrane (F11)
+  pens: 
+    fountainPen: Fontoplumo
+    ballpointPen: Globkrajono
+    highlighter: Emfazilo
+    pencil: Krajono
+    shapePen: Formoplumo
+    laserPointer: Lasermontrilo
+  penOptions: 
+    size: Grandeco
+  colors: 
+    colorPicker: Kolorelektilo
+    customBrightnessHue: Kutima $b $h
+    customHue: Kutima $h
+    dark: malhela
+    light: hela
+    black: Nigra
+    darkGrey: Malhelgriza
+    grey: Griza
+    lightGrey: Helgriza
+    white: Blanka
+    red: Ruĝa
+    green: Verda
+    cyan: Cejana
+    blue: Blua
+    yellow: Flava
+    purple: Viola
+    pink: Rozeva
+    orange: Oranĝeva
+    pastelRed: Pastelruĝa
+    pastelOrange: Pasteloranĝeva
+    pastelYellow: Pastelflava
+    pastelGreen: Pastelverda
+    pastelCyan: Pastelcejana
+    pastelBlue: Pastelblua
+    pastelPurple: Pastelviola
+    pastelPink: Pastelrozeva
+  imageOptions: 
+    title: Bildopcioj
+    invertible: Inversigebla
+    download: Elŝuto
+    setAsBackground: Agordu kiel fono
+    removeAsBackground: Forigu kiel fono
+    delete: Forigu
+  selectionBar: 
+    delete: Forigu
+    duplicate: Duobligu
+  menu: 
+    clearPage: Malplenigu paĝon $page/$totalPages
+    clearAllPages: Malplenigu ĉiujn paĝojn
+    insertPage: Enmetu paĝon sube
+    duplicatePage: Duobligu paĝon
+    deletePage: Forigu paĝon
+    lineHeight: Linioalto
+    lineHeightDescription: Ankaŭ regas la tekstograndeco por tajpitaj notoj
+    lineThickness: Liniodikeco
+    lineThicknessDescription: Fonliniodikeco
+    backgroundImageFit: Fonbildĝustigo
+    backgroundPattern: Fonŝablono
+    import: Enportu
+    watchServer: Kontrolu ĝisdatigojn ĉe la servilo
+    watchServerReadOnly: Redaktado estas malŝaltita dum spektado de la servilo
+    boxFits: 
+      fill: Etendu
+      cover: Kovru
+      contain: Enhavu
+    bgPatterns: 
+      none: Malplena
+      college: Linioj (universitata)
+      collegeRtl: Linioj (universitata, inversa)
+      lined: Linioj
+      grid: Krado
+      dots: Punktoj
+      staffs: Notlinioj
+      tablature: Tablaturo
+      cornell: Kornela notmetodo
+  newerFileFormat: 
+    readOnlyMode: Nurlegebla reĝimo
+    title: Ĉi tiu noto estis redaktita per pli nova versio de Saber
+    subtitle: Redakti ĉi tiun noton eble kaŭzos perdon de iuj informoj. Ĉu vi volas malatenti kaj redakti ĝin spite al tio?
+    allowEditing: Permesu redaktadon
+  quill: 
+    typeSomething: Tajpu ion ĉi tie...
+  hud: 
+    unlockZoom: Malŝlosu zomadon
+    lockZoom: Ŝlosu zomadon
+    unlockSingleFingerPan: Malŝlosu movadon per unu fingro
+    lockSingleFingerPan: Ŝlosu movadon per unu fingro
+    unlockAxisAlignedPan: Malŝlosu movadon laŭ aksoj (horizontala/vertikala)
+    lockAxisAlignedPan: Ŝlosu movadon laŭ aksoj (horizontala/vertikala)
+  pages: Paĝoj
+  untitled: Sentitola
+  needsToSaveBeforeExiting: Konservado de viaj ŝanĝoj... Vi povas sekure forlasi la redaktilon, kiam ĝi finos.

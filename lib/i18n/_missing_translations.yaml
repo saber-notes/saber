@@ -51,6 +51,10 @@ de:
   settings: 
     prefLabels: 
       useYaruTitleBar(OUTDATED): Use themed title bar
+eo: 
+  settings: 
+    prefLabels: 
+      useYaruTitleBar: Use themed title bar
 es: 
   common: 
     done(OUTDATED): Done
