@@ -1120,7 +1120,7 @@ tr:
 zh-Hans-CN: 
   settings: 
     prefLabels: 
-      useYaruTitleBar(OUTDATED): Use themed title bar
+      useYaruTitleBar(OUTDATED): 使用主题化标题栏
 zh-Hant-TW: 
   settings: 
     prefLabels: 
