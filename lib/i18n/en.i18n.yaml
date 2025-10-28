@@ -88,6 +88,7 @@ settings:
     layoutSize: Layout type
     customAccentColor: Custom accent color
     hyperlegibleFont: Atkinson Hyperlegible font
+    useYaruTitleBar: Use themed title bar
     shouldCheckForUpdates: Check for Saber updates
     shouldAlwaysAlertForUpdates: Faster updates
     allowInsecureConnections: Allow insecure connections

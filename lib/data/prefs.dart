@@ -124,6 +124,11 @@ class Stows {
     false,
     volatile: !_isOnMainIsolate,
   );
+  final useYaruTitleBar = PlainStow(
+    'useYaruTitleBar',
+    true,
+    volatile: !_isOnMainIsolate,
+  );
 
   final editorToolbarAlignment = PlainStow(
     'editorToolbarAlignment',

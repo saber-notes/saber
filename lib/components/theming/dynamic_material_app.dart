@@ -44,6 +44,13 @@ class DynamicMaterialApp extends StatefulWidget {
     }
   }
 
+  /// Toggles the native titlebar so it doesn't conflict with Yaru's titlebar.
+  static void showOrHideNativeTitleBar() {
+    windowManager.setTitleBarStyle(
+      stows.useYaruTitleBar.value ? TitleBarStyle.hidden : TitleBarStyle.normal,
+    );
+  }
+
   static void addFullscreenListener(void Function() listener) {
     _isFullscreen.addListener(listener);
   }
@@ -61,6 +68,7 @@ class DynamicMaterialAppState extends State<DynamicMaterialApp>
     stows.platform.addListener(onChanged);
     stows.accentColor.addListener(onChanged);
     stows.hyperlegibleFont.addListener(onChanged);
+    stows.useYaruTitleBar.addListener(onChanged);
 
     windowManager.addListener(this);
     SystemChrome.setSystemUIChangeCallback(_onFullscreenChange);
@@ -69,7 +77,7 @@ class DynamicMaterialAppState extends State<DynamicMaterialApp>
   }
 
   void onChanged() {
-    setState(() {});
+    if (mounted) setState(() {});
   }
 
   @override
@@ -121,6 +129,7 @@ class DynamicMaterialAppState extends State<DynamicMaterialApp>
               platform: platform,
               textTheme: SaberTheme.createTextTheme(Brightness.dark),
             ),
+            useYaruTitleBar: stows.useYaruTitleBar.value,
           );
         },
       );
@@ -142,6 +151,7 @@ class DynamicMaterialAppState extends State<DynamicMaterialApp>
           Brightness.dark,
           platform,
         ),
+        useYaruTitleBar: stows.useYaruTitleBar.value,
       );
     }
 
@@ -166,6 +176,7 @@ class DynamicMaterialAppState extends State<DynamicMaterialApp>
                   Brightness.dark,
                   platform,
                 ),
+          useYaruTitleBar: stows.useYaruTitleBar.value,
         );
       },
     );
@@ -177,6 +188,7 @@ class DynamicMaterialAppState extends State<DynamicMaterialApp>
     stows.platform.removeListener(onChanged);
     stows.accentColor.removeListener(onChanged);
     stows.hyperlegibleFont.removeListener(onChanged);
+    stows.useYaruTitleBar.removeListener(onChanged);
 
     windowManager.removeListener(this);
     SystemChrome.setSystemUIChangeCallback(null);
@@ -197,6 +209,7 @@ class ExplicitlyThemedApp extends StatelessWidget {
     required this.darkTheme,
     this.highContrastTheme,
     this.highContrastDarkTheme,
+    required this.useYaruTitleBar,
   });
 
   final String title;
@@ -204,6 +217,7 @@ class ExplicitlyThemedApp extends StatelessWidget {
   final ThemeMode themeMode;
   final ThemeData theme, darkTheme;
   final ThemeData? highContrastTheme, highContrastDarkTheme;
+  final bool useYaruTitleBar;
 
   static final _materialAppKey = GlobalKey<State<MaterialApp>>();
 
@@ -215,6 +229,8 @@ class ExplicitlyThemedApp extends StatelessWidget {
     final highContrastDarkTheme =
         this.highContrastDarkTheme ??
         darkTheme.copyWith(colorScheme: theme.colorScheme.withHighContrast());
+
+    DynamicMaterialApp.showOrHideNativeTitleBar();
 
     return MaterialApp.router(
       key: _materialAppKey,
@@ -234,6 +250,10 @@ class ExplicitlyThemedApp extends StatelessWidget {
       highContrastTheme: highContrastTheme,
       highContrastDarkTheme: highContrastDarkTheme,
       debugShowCheckedModeBanner: false,
+      builder: useYaruTitleBar
+          ? (context, child) =>
+                Scaffold(appBar: const YaruWindowTitleBar(), body: child)
+          : null,
     );
   }
 }
