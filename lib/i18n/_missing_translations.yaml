@@ -779,7 +779,7 @@ hu:
 it: 
   settings: 
     prefLabels: 
-      useYaruTitleBar(OUTDATED): Use themed title bar
+      useYaruTitleBar(OUTDATED): Usare la barra del titolo a tema
 ja: 
   common: 
     done(OUTDATED): Done
