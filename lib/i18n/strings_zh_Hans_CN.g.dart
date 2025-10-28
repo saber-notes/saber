@@ -391,7 +391,7 @@ class _TranslationsSettingsPrefLabelsZhHansCn extends TranslationsSettingsPrefLa
 	@override String get layoutSize => '布局大小';
 	@override String get customAccentColor => '自定义主题色';
 	@override String get hyperlegibleFont => '易读字体';
-	@override String get useYaruTitleBar => '使用主题标题栏';
+	@override String get useYaruTitleBar => '使用主题化标题栏';
 	@override String get shouldCheckForUpdates => '自动检查 Saber 更新';
 	@override String get shouldAlwaysAlertForUpdates => '更快的更新提醒';
 	@override String get allowInsecureConnections => '允许不安全的连接';

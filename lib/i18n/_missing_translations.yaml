@@ -1118,9 +1118,6 @@ tr:
       lineThickness(OUTDATED): Line thickness
       lineThicknessDescription(OUTDATED): Background line thickness
 zh-Hans-CN: 
-  settings: 
-    prefLabels: 
-      useYaruTitleBar(OUTDATED): Use themed title bar
 zh-Hant-TW: 
   settings: 
     prefLabels: 
