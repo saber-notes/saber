@@ -54,7 +54,7 @@ de:
 eo: 
   settings: 
     prefLabels: 
-      useYaruTitleBar: Use themed title bar
+      useYaruTitleBar(OUTDATED): Use themed title bar
 es: 
   common: 
     done(OUTDATED): Done
@@ -1075,9 +1075,6 @@ pt-BR:
       watchServer(OUTDATED): Watch for updates on the server
       watchServerReadOnly(OUTDATED): Editing is disabled while watching the server
 ru: 
-  settings: 
-    prefLabels: 
-      useYaruTitleBar(OUTDATED): Use themed title bar
 tr: 
   home: 
     noPreviewAvailable(OUTDATED): No preview available
