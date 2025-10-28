@@ -126,9 +126,12 @@ class Stows {
   );
   final useYaruTitleBar = PlainStow(
     'useYaruTitleBar',
-    true,
+    canUseYaruTitleBar,
     volatile: !_isOnMainIsolate,
   );
+  @pragma('vm:platform-const')
+  static final canUseYaruTitleBar =
+      Platform.isLinux || Platform.isWindows || Platform.isMacOS;
 
   final editorToolbarAlignment = PlainStow(
     'editorToolbarAlignment',

@@ -46,6 +46,7 @@ class DynamicMaterialApp extends StatefulWidget {
 
   /// Toggles the native titlebar so it doesn't conflict with Yaru's titlebar.
   static void showOrHideNativeTitleBar() {
+    if (!Stows.canUseYaruTitleBar) return;
     windowManager.setTitleBarStyle(
       stows.useYaruTitleBar.value ? TitleBarStyle.hidden : TitleBarStyle.normal,
     );
@@ -250,7 +251,7 @@ class ExplicitlyThemedApp extends StatelessWidget {
       highContrastTheme: highContrastTheme,
       highContrastDarkTheme: highContrastDarkTheme,
       debugShowCheckedModeBanner: false,
-      builder: useYaruTitleBar
+      builder: (Stows.canUseYaruTitleBar && useYaruTitleBar)
           ? (context, child) =>
                 Scaffold(appBar: const YaruWindowTitleBar(), body: child)
           : null,
