@@ -26,7 +26,10 @@ class AdaptiveSwitch extends Switch {
     return YaruSwitch(
       value: value,
       onChanged: onChanged,
-      thumbColor: thumbColor?.resolve(const {}),
+      thumbColor: thumbColor?.resolve({
+        if (value) WidgetState.selected,
+        if (onChanged == null) WidgetState.disabled,
+      }),
       focusNode: focusNode,
       autofocus: autofocus,
       mouseCursor: mouseCursor,

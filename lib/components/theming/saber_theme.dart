@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:saber/components/theming/font_fallbacks.dart';
 import 'package:saber/data/prefs.dart';
@@ -40,6 +41,9 @@ abstract class SaberTheme {
         // ignore: deprecated_member_use
         year2023: false,
         stopIndicatorColor: Colors.transparent,
+      ),
+      cupertinoOverrideTheme: const NoDefaultCupertinoThemeData(
+        applyThemeToAll: true,
       ),
     );
   }
