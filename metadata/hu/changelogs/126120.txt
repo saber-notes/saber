@@ -1,0 +1,1 @@
+A verziót 1.x-re emeltük, hogy tükrözze az alkalmazás érettségét, és hogy a verziószámok értelmesebbek legyenek.

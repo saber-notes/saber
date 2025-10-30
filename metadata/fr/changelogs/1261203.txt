@@ -1,0 +1,1 @@
+La version a été remplacée par 1.x pour refléter la maturité de l'application et pour permettre aux numéros de version d'être plus significatifs.

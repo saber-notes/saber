@@ -214,6 +214,13 @@
     </screenshots>
 
     <releases>
+        <release version="1.26.12" type="development" date="2025-10-30">
+            <description>
+                <ul>
+                    <li>Bumped the version to 1.x to reflect the maturity of the app and to let version numbers be more meaningful.</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.26.12" type="development" date="2025-10-27">
             <description>
                 <ul>

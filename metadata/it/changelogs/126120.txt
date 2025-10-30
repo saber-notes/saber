@@ -1,0 +1,1 @@
+La versione è stata aumentata a 1.x per riflettere la maturità dell'app e per consentire ai numeri di versione di essere più significativi.

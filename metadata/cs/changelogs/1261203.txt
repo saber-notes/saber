@@ -1,0 +1,1 @@
+Verze byla převedena na 1.x, aby odrážela vyspělost aplikace a aby čísla verzí byla smysluplnější.
