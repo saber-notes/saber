@@ -777,9 +777,6 @@ hu:
       lockAxisAlignedPan(OUTDATED): Lock panning to horizontal or vertical
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
 it: 
-  settings: 
-    prefLabels: 
-      useYaruTitleBar(OUTDATED): Usare la barra del titolo a tema
 ja: 
   common: 
     done(OUTDATED): Done
