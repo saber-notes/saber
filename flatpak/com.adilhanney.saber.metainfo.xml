@@ -214,6 +214,16 @@
     </screenshots>
 
     <releases>
+        <release version="1.27.0" type="development" date="2025-10-30">
+            <description>
+                <ul>
+                    <li>Improved the look of pencil strokes and their rendering performance.</li>
+                    <li>Saber now uses a themed title bar (configurable), which responds to light/dark mode changes.</li>
+                    <li>Switches are now themed on the Cupertino (iOS-style) theme.</li>
+                    <li>Added an Esperanto translation.</li>
+                </ul>
+            </description>
+        </release>
         <release version="1.26.12" type="development" date="2025-10-30">
             <description>
                 <ul>

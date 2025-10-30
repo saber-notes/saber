@@ -1,0 +1,4 @@
+• Amélioration de l'apparence des traits de crayon et de leurs performances de rendu. 
+• Saber utilise désormais une barre de titre thématique sous Windows et Linux, qui répond aux changements de mode clair/sombre. 
+• Les commutateurs ont désormais pour thème Cupertino (style iOS). 
+• Ajout d'une traduction en espéranto.

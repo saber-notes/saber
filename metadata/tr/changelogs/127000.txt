@@ -1,0 +1,4 @@
+• Kurşun kalem darbelerinin görünümü ve görüntü oluşturma performansı iyileştirildi.
+• Saber artık Windows ve Linux'ta, aydınlık/karanlık modu değişikliklerine yanıt veren temalı bir başlık çubuğu kullanıyor.
+• Anahtarlar artık Cupertino (iOS tarzı) temasına göre düzenlenmiştir.
+• Esperanto çevirisi eklendi.
