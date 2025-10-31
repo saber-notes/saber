@@ -29,10 +29,11 @@ void main() {
 
     for (final step in LoginStep.values) {
       testGoldens(step.name, (tester) async {
-        await tester.pumpWidget(_LoginApp(step));
+        final app = _LoginApp(step);
+        await tester.pumpWidget(app);
         await tester.precacheImagesInWidgetTree();
         await tester.loadFonts(overriddenFonts: saberSansSerifFontFallbacks);
-        await tester.pump();
+        await tester.pumpFrames(app, const Duration(seconds: 1));
 
         tester.useFuzzyComparator(allowedDiffPercent: 0.1);
         await expectLater(
