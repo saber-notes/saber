@@ -91,20 +91,33 @@ class _SyncingButtonState extends State<SyncingButton> {
           : SyncingButton.forceButtonActive
           ? () {}
           : null,
+      padding: const EdgeInsets.all(4),
+      constraints: const BoxConstraints(
+        minWidth: kMinInteractiveDimension,
+        minHeight: kMinInteractiveDimension,
+      ),
       icon: Stack(
         alignment: Alignment.center,
         children: [
-          AnimatedOpacity(
-            opacity: (stows.loggedIn && (percentage ?? 0) < 1) ? 1 : 0,
-            duration: const Duration(milliseconds: 200),
-            child: _AnimatedCircularProgressIndicator(
+          Positioned.fill(
+            child: AnimatedOpacity(
+              opacity: (stows.loggedIn && (percentage ?? 0) < 1) ? 1 : 0,
               duration: const Duration(milliseconds: 200),
-              percentage: percentage,
+              child: _AnimatedCircularProgressIndicator(
+                duration: const Duration(milliseconds: 200),
+                percentage: percentage,
+              ),
             ),
           ),
-          const AdaptiveIcon(
-            icon: Icons.sync,
-            cupertinoIcon: CupertinoIcons.arrow_2_circlepath,
+          const Padding(
+            padding: EdgeInsets.all(4),
+            child: AspectRatio(
+              aspectRatio: 1,
+              child: AdaptiveIcon(
+                icon: Icons.sync,
+                cupertinoIcon: CupertinoIcons.arrow_2_circlepath,
+              ),
+            ),
           ),
         ],
       ),
