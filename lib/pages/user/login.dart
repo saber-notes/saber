@@ -3,6 +3,7 @@ import 'package:logging/logging.dart';
 import 'package:saber/components/nextcloud/done_login_step.dart';
 import 'package:saber/components/nextcloud/enc_login_step.dart';
 import 'package:saber/components/nextcloud/nc_login_step.dart';
+import 'package:saber/components/theming/adaptive_circular_progress_indicator.dart';
 import 'package:saber/components/theming/adaptive_linear_progress_indicator.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
@@ -124,7 +125,7 @@ class _NcLoginPageState extends State<NcLoginPage> {
       ),
       body: switch (step) {
         LoginStep.waitingForPrefs => const Center(
-          child: CircularProgressIndicator(),
+          child: AdaptiveCircularProgressIndicator(),
         ),
         LoginStep.nc => NcLoginStep(recheckCurrentStep: recheckCurrentStep),
         LoginStep.enc => EncLoginStep(recheckCurrentStep: recheckCurrentStep),

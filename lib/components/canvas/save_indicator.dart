@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:saber/components/theming/adaptive_circular_progress_indicator.dart';
 import 'package:saber/data/routes.dart';
 
 /// Replaces the back button as the
@@ -27,7 +28,7 @@ class SaveIndicator extends StatelessWidget {
             onPressed: () => _onPressed(context),
             icon: switch (savingState.value) {
               SavingState.waitingToSave => const Icon(Icons.save),
-              SavingState.saving => const CircularProgressIndicator.adaptive(),
+              SavingState.saving => const AdaptiveCircularProgressIndicator(),
               SavingState.saved => const Icon(Icons.arrow_back),
             },
           ),

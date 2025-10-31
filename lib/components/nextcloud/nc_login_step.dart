@@ -8,6 +8,7 @@ import 'package:nextcloud/core.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:regexed_validator/regexed_validator.dart';
 import 'package:saber/components/settings/app_info.dart';
+import 'package:saber/components/theming/adaptive_circular_progress_indicator.dart';
 import 'package:saber/data/nextcloud/login_flow.dart';
 import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
 import 'package:saber/data/prefs.dart';
@@ -313,7 +314,7 @@ class _FakeDoneButtonState extends State<_FakeDoneButton> {
         ? const SizedBox(
             width: 16,
             height: 16,
-            child: CircularProgressIndicator(),
+            child: AdaptiveCircularProgressIndicator(),
           )
         : widget.child,
   );
