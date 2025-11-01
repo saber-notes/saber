@@ -94,37 +94,9 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
                 FutureBuilder(
                   future: getStorageQuotaFuture,
                   initialData: stows.lastStorageQuota.value,
-                  builder:
-                      (BuildContext context, AsyncSnapshot<Quota?> snapshot) {
-                        final Quota? quota = snapshot.data;
-                        final double? relativePercent;
-                        if (quota != null) {
-                          relativePercent = quota.relative / 100;
-                        } else {
-                          relativePercent = null;
-                        }
-
-                        return Stack(
-                          alignment: Alignment.center,
-                          children: [
-                            CircularProgressIndicator(
-                              value: relativePercent,
-                              backgroundColor: colorScheme.primary.withValues(
-                                alpha: 0.1,
-                              ),
-                              valueColor: AlwaysStoppedAnimation<Color>(
-                                colorScheme.primary.withValues(alpha: 0.5),
-                              ),
-                              strokeWidth: 8,
-                              semanticsLabel: 'Storage usage',
-                              semanticsValue: snapshot.data != null
-                                  ? '${snapshot.data}%'
-                                  : null,
-                            ),
-                            Text(readableQuota(quota)),
-                          ],
-                        );
-                      },
+                  builder: (context, snapshot) {
+                    return _QuotaSummary(quota: snapshot.data);
+                  },
                 ),
                 IconButton(
                   icon: const AdaptiveIcon(
@@ -160,12 +132,6 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
     stows.lastStorageQuota.value = user.body.ocs.data.quota;
     return stows.lastStorageQuota.value;
   }
-
-  static String readableQuota(Quota? quota) {
-    final used = readableBytes(quota?.used);
-    final total = readableBytes(quota?.total);
-    return '$used / $total';
-  }
 }
 
 class _UnknownPfp extends StatelessWidget {
@@ -188,5 +154,41 @@ class _UnknownPfp extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class _QuotaSummary extends StatelessWidget {
+  const _QuotaSummary({required this.quota});
+
+  final Quota? quota;
+
+  @override
+  Widget build(BuildContext context) {
+    final colorScheme = ColorScheme.of(context);
+
+    return Stack(
+      alignment: Alignment.center,
+      children: [
+        CircularProgressIndicator(
+          value: _percentUsed(quota),
+          backgroundColor: colorScheme.primary.withValues(alpha: 0.1),
+          color: colorScheme.primary.withValues(alpha: 0.5),
+          strokeWidth: 8,
+          semanticsLabel: 'Storage usage',
+        ),
+        Text(_readableQuota(quota)),
+      ],
+    );
+  }
+
+  static String _readableQuota(Quota? quota) {
+    final used = readableBytes(quota?.used);
+    final total = readableBytes(quota?.total);
+    return '$used / $total';
+  }
+
+  static double? _percentUsed(Quota? quota) {
+    if (quota == null) return null;
+    return quota.relative / 100;
   }
 }
