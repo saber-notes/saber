@@ -89,8 +89,8 @@ jobs:
           install -Dm644 flatpak/com.adilhanney.saber.metainfo.xml -t AppDir/share/metainfo/
           install -Dm644 flatpak/com.adilhanney.saber.metainfo.xml -t AppDir/usr/share/metainfo/
 
-          install -Dm644 assets/icon/icon.svg AppDir/share/icons/hicolor/scalable/apps/com.adilhanney.saber.svg
-          install -Dm644 assets/icon/icon.svg AppDir/usr/share/icons/hicolor/scalable/apps/com.adilhanney.saber.svg
+          install -Dm644 assets/icon/icon_linux.svg AppDir/share/icons/hicolor/scalable/apps/com.adilhanney.saber.svg
+          install -Dm644 assets/icon/icon_linux.svg AppDir/usr/share/icons/hicolor/scalable/apps/com.adilhanney.saber.svg
 
           install -Dm644 flatpak/com.adilhanney.saber.desktop -t AppDir/share/applications/
 

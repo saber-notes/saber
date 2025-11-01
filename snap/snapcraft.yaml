@@ -5,7 +5,7 @@ grade: stable
 confinement: strict
 license: GPL-3.0
 compression: lzo
-icon: assets/icon/icon.svg
+icon: assets/icon/icon_linux.svg
 platforms:
   amd64:
   arm64:
