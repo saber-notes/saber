@@ -71,12 +71,12 @@ abstract class HomeRoutes {
     return _routes[index].routePath;
   }
 
-  static List<NavigationDestination> get navigationDestinations =>
-      _routes.map((e) => e.toNavigationDestination()).toList(growable: false);
-  static List<NavigationRailDestination> get navigationRailDestinations =>
-      _routes
-          .map((e) => e.toNavigationRailDestination())
-          .toList(growable: false);
+  static final navigationDestinations = _routes
+      .map((route) => route.toNavigationDestination())
+      .toList(growable: false);
+  static final navigationRailDestinations = _routes
+      .map((route) => route.toNavigationRailDestination())
+      .toList(growable: false);
 }
 
 class _Route {
