@@ -46,7 +46,7 @@ ar:
 cs: 
   settings: 
     prefLabels: 
-      useYaruTitleBar(OUTDATED): Use themed title bar
+      useYaruTitleBar(OUTDATED): Přizpůsobit záhlaví okna aktivnímu motivu
 de: 
   settings: 
     prefLabels: 
