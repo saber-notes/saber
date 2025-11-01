@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:golden_screenshot/golden_screenshot.dart';
-import 'package:saber/components/settings/nextcloud_profile.dart';
 import 'package:saber/components/theming/font_fallbacks.dart';
 import 'package:saber/components/theming/saber_theme.dart';
 import 'package:saber/data/flavor_config.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/pages/user/login.dart';
+
+import 'utils/test_user.dart';
 
 final _device = GoldenSmallDevices.iphone.device;
 late ThemeData _theme;
@@ -24,7 +25,7 @@ void main() {
       stows.encPassword.value = 'encpassword';
       stows.key.value = 'encryptionkey';
       stows.iv.value = 'encryptioniv';
-      stows.lastStorageQuota.value = _getQuota();
+      stows.lastStorageQuota.value = TestUser.getQuota();
     });
 
     for (final step in LoginStep.values) {
@@ -82,16 +83,4 @@ class _LoginApp extends StatelessWidget {
       home: NcLoginPage(forceAppBarLeading: true, forceCurrentStep: step),
     );
   }
-}
-
-Quota _getQuota() {
-  const total = 5 * 1024 * 1024 * 1024; // 5 GB
-  const usedRatio = 1 - 1 / 1.61803;
-  final usedBytes = (total * usedRatio).round();
-  return Quota.fromJson({
-    'free': total - usedBytes,
-    'used': usedBytes,
-    'total': total,
-    'relative': (1000 * usedRatio).round() / 10,
-  });
 }

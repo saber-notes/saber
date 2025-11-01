@@ -5,9 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nextcloud/provisioning_api.dart';
 import 'package:saber/components/theming/adaptive_icon.dart';
+import 'package:saber/components/theming/adaptive_linear_progress_indicator.dart';
+import 'package:saber/data/extensions/quota_extension.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
-import 'package:saber/data/nextcloud/readable_bytes.dart';
 import 'package:saber/data/nextcloud/saber_syncer.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/data/routes.dart';
@@ -70,7 +71,6 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
     };
     const pfpSize = 48.0;
 
-    final colorScheme = ColorScheme.of(context);
     return ListTile(
       visualDensity: VisualDensity.standard,
       onTap: () => context.push(RoutePaths.login),
@@ -90,6 +90,7 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
       trailing: loginStep == LoginStep.done
           ? Row(
               mainAxisSize: MainAxisSize.min,
+              spacing: 8,
               children: [
                 FutureBuilder(
                   future: getStorageQuotaFuture,
@@ -166,29 +167,21 @@ class _QuotaSummary extends StatelessWidget {
   Widget build(BuildContext context) {
     final colorScheme = ColorScheme.of(context);
 
-    return Stack(
-      alignment: Alignment.center,
-      children: [
-        CircularProgressIndicator(
-          value: _percentUsed(quota),
-          backgroundColor: colorScheme.primary.withValues(alpha: 0.1),
-          color: colorScheme.primary.withValues(alpha: 0.5),
-          strokeWidth: 8,
-          semanticsLabel: 'Storage usage',
-        ),
-        Text(_readableQuota(quota)),
-      ],
+    return IntrinsicWidth(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        spacing: 2,
+        children: [
+          AdaptiveLinearProgressIndicator(
+            semanticsLabel: 'Storage usage',
+            value: quota?.progressIndicatorValue,
+            backgroundColor: colorScheme.primary.withValues(alpha: 0.3),
+            color: colorScheme.primary.withValues(alpha: 0.8),
+            minHeight: 8,
+          ),
+          Text(quota.summary),
+        ],
+      ),
     );
-  }
-
-  static String _readableQuota(Quota? quota) {
-    final used = readableBytes(quota?.used);
-    final total = readableBytes(quota?.total);
-    return '$used / $total';
-  }
-
-  static double? _percentUsed(Quota? quota) {
-    if (quota == null) return null;
-    return quota.relative / 100;
   }
 }

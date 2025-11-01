@@ -23,6 +23,7 @@ import 'package:saber/pages/user/login.dart';
 import 'package:yaru/yaru.dart';
 
 import 'utils/test_mock_channel_handlers.dart';
+import 'utils/test_user.dart';
 
 void main() {
   group('Screenshots:', () {
@@ -39,15 +40,7 @@ void main() {
     SyncingButton.forceButtonActive = true;
     AppInfo.showDebugMessage = false;
 
-    const quotaUsed = 17 * 1024 * 1024; // 17 MB
-    const quotaTotal = 5 * 1024 * 1024 * 1024; // 5 GB
-    stows.lastStorageQuota.value = Quota.fromJson({
-      'free': quotaTotal - quotaUsed,
-      'used': quotaUsed,
-      'total': quotaTotal,
-      'relative': quotaUsed / quotaTotal * 100,
-      'quota': quotaTotal,
-    });
+    stows.lastStorageQuota.value = TestUser.getQuota();
     stows.username.value = 'myusername';
     stows.sentryConsent.value = SentryConsent.granted;
 

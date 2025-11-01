@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:logging/logging.dart';
 import 'package:saber/components/misc/faq.dart';
+import 'package:saber/data/extensions/quota_extension.dart';
 import 'package:saber/data/extensions/string_extensions.dart';
 import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
 import 'package:saber/data/nextcloud/readable_bytes.dart';
@@ -92,8 +93,7 @@ class _DoneLoginStepState extends State<DoneLoginStep> {
         ),
         const SizedBox(height: 2),
         LinearProgressIndicator(
-          // At least 4% so the rounded corners render properly
-          value: (quota?.relative ?? 0).clamp(4, 100) / 100,
+          value: quota?.progressIndicatorValue,
           minHeight: 32,
           borderRadius: _elevatedButtonBorderRadiusOf(context),
         ),
