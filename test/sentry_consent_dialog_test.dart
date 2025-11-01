@@ -17,7 +17,7 @@ void main() {
 
       await tester.pumpWidget(
         ScreenshotApp(
-          device: GoldenSmallDevices.android.device,
+          device: GoldenSmallDevices.androidPhone.device,
           home: const HomePage(subpage: HomePage.settingsSubpage, path: ''),
         ),
       );

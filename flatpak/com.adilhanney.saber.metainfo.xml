@@ -197,19 +197,19 @@
     <screenshots>
         <screenshot type="default">
             <caption>The home screen showing recent notes</caption>
-            <image>https://raw.githubusercontent.com/saber-notes/saber/main/metadata/en-US/images/tenInchScreenshots/1_home.png</image>
+            <image>https://raw.githubusercontent.com/saber-notes/saber/main/metadata/en-US/images/flathubScreenshots/1_home.png</image>
         </screenshot>
         <screenshot>
             <caption>The editor showing maths notes about metric spaces</caption>
-            <image>https://raw.githubusercontent.com/saber-notes/saber/main/metadata/en-US/images/tenInchScreenshots/2_editor.png</image>
+            <image>https://raw.githubusercontent.com/saber-notes/saber/main/metadata/en-US/images/flathubScreenshots/2_editor.png</image>
         </screenshot>
         <screenshot>
             <caption>The login page which asks which Nextcloud server you want to use</caption>
-            <image>https://raw.githubusercontent.com/saber-notes/saber/main/metadata/en-US/images/tenInchScreenshots/3_login.png</image>
+            <image>https://raw.githubusercontent.com/saber-notes/saber/main/metadata/en-US/images/flathubScreenshots/3_login.png</image>
         </screenshot>
         <screenshot>
             <caption>The settings page showing that the user is now logged in</caption>
-            <image>https://raw.githubusercontent.com/saber-notes/saber/main/metadata/en-US/images/tenInchScreenshots/4_settings.png</image>
+            <image>https://raw.githubusercontent.com/saber-notes/saber/main/metadata/en-US/images/flathubScreenshots/4_settings.png</image>
         </screenshot>
     </screenshots>
 

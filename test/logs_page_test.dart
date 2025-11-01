@@ -73,7 +73,7 @@ class _LogsApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenshotApp(
-      device: GoldenSmallDevices.android.device,
+      device: GoldenSmallDevices.androidPhone.device,
       home: const LogsPage(),
     );
   }

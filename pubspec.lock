@@ -724,10 +724,10 @@ packages:
     dependency: "direct dev"
     description:
       name: golden_screenshot
-      sha256: "8462eb11849bfcde0d66271c42a8411329e48aed9fa0603f224b6027797a0c2a"
+      sha256: acc2196b62692ee0fd9cddc92ab17312f2b9b9aeb8a0c622e783ca9c68fa2f04
       url: "https://pub.dev"
     source: hosted
-    version: "6.0.0"
+    version: "7.0.0"
   gsettings:
     dependency: transitive
     description:

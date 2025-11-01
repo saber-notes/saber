@@ -148,13 +148,13 @@ void _screenshot({
           for (final locale in localeNames.keys)
             if (!localesWithFontIssues.contains(locale)) ...[
               (locale, GoldenScreenshotDevices.flathub),
-              (locale, GoldenScreenshotDevices.android),
+              (locale, GoldenScreenshotDevices.androidPhone),
             ],
         }
       : {
           // limited screenshots are used to speed up tests
           ('en', GoldenScreenshotDevices.flathub),
-          ('en', GoldenScreenshotDevices.android),
+          ('en', GoldenScreenshotDevices.androidPhone),
         };
 
   group(goldenFileName, () {
@@ -177,7 +177,11 @@ void _screenshot({
           },
           device: device,
           frameColors: frameColors,
-          home: TranslationProvider(child: child),
+          home: ScreenshotConditionalTitlebar(
+            title: const Text('Saber'),
+            device: device,
+            child: TranslationProvider(child: child),
+          ),
         );
         await tester.pumpWidget(widget);
         await tester.pump();
