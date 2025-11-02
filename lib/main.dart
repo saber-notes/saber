@@ -86,10 +86,7 @@ Future<void> appRunner(List<String> args) async {
   await Future.wait([
     stows.customDataDir.waitUntilRead().then((_) => FileManager.init()),
     if (Platform.isWindows || Platform.isLinux || Platform.isMacOS)
-      Future.wait([
-        windowManager.ensureInitialized(),
-        stows.useYaruTitleBar.waitUntilRead(),
-      ]).then((_) => DynamicMaterialApp.showOrHideNativeTitleBar()),
+      windowManager.ensureInitialized(),
     workerManager.init(),
     stows.locale.waitUntilRead(),
     stows.url.waitUntilRead(),

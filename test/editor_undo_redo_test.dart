@@ -23,7 +23,6 @@ void main() {
     setupMockPathProvider();
     setupMockPrinting();
     setupMockAudioplayers();
-    setupMockWindowManager();
     SharedPreferences.setMockInitialValues({});
 
     FlavorConfig.setup();

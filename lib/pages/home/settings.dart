@@ -31,7 +31,6 @@ import 'package:saber/data/sentry/sentry_init.dart';
 import 'package:saber/data/tools/shape_pen.dart';
 import 'package:saber/i18n/strings.g.dart';
 import 'package:stow/stow.dart';
-import 'package:yaru/icons.dart';
 
 class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});
@@ -347,12 +346,6 @@ class _SettingsPageState extends State<SettingsPage> {
                   },
                   pref: stows.hyperlegibleFont,
                 ),
-                if (Platform.isLinux || Platform.isWindows || Platform.isMacOS)
-                  SettingsSwitch(
-                    title: t.settings.prefLabels.useYaruTitleBar,
-                    icon: YaruIcons.window_top_bar,
-                    pref: stows.useYaruTitleBar,
-                  ),
 
                 SettingsSubtitle(subtitle: t.settings.prefCategories.writing),
                 SettingsSwitch(
