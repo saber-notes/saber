@@ -88,7 +88,6 @@ settings:
     layoutSize: نوع چیدمان
     customAccentColor: رنگ سفارشی
     hyperlegibleFont: فونت بیش از حد خوانا
-    useYaruTitleBar(OUTDATED): از نوار عنوان مضمون استفاده کنید
     shouldCheckForUpdates: به‌روزرسانی‌ برنامه را به‌طور خودکار بررسی کنید
     shouldAlwaysAlertForUpdates: به روز رسانی سریع تر
     allowInsecureConnections: به اتصالات ناامن اجازه دهید

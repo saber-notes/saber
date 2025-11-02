@@ -87,7 +87,6 @@ settings:
     platform: Téma típusa
     customAccentColor: Egyéni akcentusszín
     hyperlegibleFont: Hyperlegible betűtipus
-    useYaruTitleBar(OUTDATED): Használjon tematikus címsort
     shouldCheckForUpdates: Automatikusan ellenőrzi a Saber frissítéseket
     editorToolbarAlignment: A szerkesztő eszköztár igazítása
     editorToolbarShowInFullscreen: A szerkesztő eszköztár megjelenítése teljes képernyős módban

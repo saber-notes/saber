@@ -388,7 +388,6 @@ class _TranslationsSettingsPrefLabelsHu extends TranslationsSettingsPrefLabelsEn
 	@override String get platform => 'Téma típusa';
 	@override String get customAccentColor => 'Egyéni akcentusszín';
 	@override String get hyperlegibleFont => 'Hyperlegible betűtipus';
-	@override String get useYaruTitleBar => 'Használjon tematikus címsort';
 	@override String get shouldCheckForUpdates => 'Automatikusan ellenőrzi a Saber frissítéseket';
 	@override String get editorToolbarAlignment => 'A szerkesztő eszköztár igazítása';
 	@override String get editorToolbarShowInFullscreen => 'A szerkesztő eszköztár megjelenítése teljes képernyős módban';

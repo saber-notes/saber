@@ -389,7 +389,6 @@ class _TranslationsSettingsPrefLabelsFa extends TranslationsSettingsPrefLabelsEn
 	@override String get layoutSize => 'نوع چیدمان';
 	@override String get customAccentColor => 'رنگ سفارشی';
 	@override String get hyperlegibleFont => 'فونت بیش از حد خوانا';
-	@override String get useYaruTitleBar => 'از نوار عنوان مضمون استفاده کنید';
 	@override String get shouldCheckForUpdates => 'به‌روزرسانی‌ برنامه را به‌طور خودکار بررسی کنید';
 	@override String get shouldAlwaysAlertForUpdates => 'به روز رسانی سریع تر';
 	@override String get allowInsecureConnections => 'به اتصالات ناامن اجازه دهید';

@@ -88,7 +88,6 @@ settings:
     layoutSize: نوع التخطيط
     customAccentColor: لون التمييز المخصص
     hyperlegibleFont: Hyperlegible خط
-    useYaruTitleBar(OUTDATED): استخدم شريط العنوان تحت عنوان
     shouldCheckForUpdates: تحقق تلقائيًا من وجود تحديثات Saber
     shouldAlwaysAlertForUpdates: تحديثات أسرع
     allowInsecureConnections: السماح بالاتصالات غير الآمنة

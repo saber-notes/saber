@@ -19,7 +19,6 @@ ar:
         later(OUTDATED): Ask me later
   settings: 
     prefLabels: 
-      useYaruTitleBar(OUTDATED): Use themed title bar
       autosave(OUTDATED): Auto-save
       sentry(OUTDATED): Error reporting
     prefDescriptions: 
@@ -44,17 +43,8 @@ ar:
       lineThickness(OUTDATED): Line thickness
       lineThicknessDescription(OUTDATED): Background line thickness
 cs: 
-  settings: 
-    prefLabels: 
-      useYaruTitleBar(OUTDATED): Use themed title bar
 de: 
-  settings: 
-    prefLabels: 
-      useYaruTitleBar(OUTDATED): Use themed title bar
 eo: 
-  settings: 
-    prefLabels: 
-      useYaruTitleBar(OUTDATED): Use themed title bar
 es: 
   common: 
     done(OUTDATED): Done
@@ -78,7 +68,6 @@ es:
     prefCategories: 
       performance(OUTDATED): Performance
     prefLabels: 
-      useYaruTitleBar(OUTDATED): Use themed title bar
       autosave(OUTDATED): Auto-save
       shapeRecognitionDelay(OUTDATED): Shape recognition delay
       autoStraightenLines(OUTDATED): Auto straighten lines
@@ -192,7 +181,6 @@ fa:
         later(OUTDATED): Ask me later
   settings: 
     prefLabels: 
-      useYaruTitleBar(OUTDATED): Use themed title bar
       autosave(OUTDATED): Auto-save
       autoStraightenLines(OUTDATED): Auto straighten lines
       simplifiedHomeLayout(OUTDATED): Simplified home layout
@@ -300,7 +288,6 @@ fr:
         later(OUTDATED): Ask me later
   settings: 
     prefLabels: 
-      useYaruTitleBar(OUTDATED): Use themed title bar
       autosave(OUTDATED): Auto-save
       autoStraightenLines(OUTDATED): Auto straighten lines
       simplifiedHomeLayout(OUTDATED): Simplified home layout
@@ -419,7 +406,6 @@ he:
     prefCategories: 
       performance(OUTDATED): Performance
     prefLabels: 
-      useYaruTitleBar(OUTDATED): Use themed title bar
       recentColorsLength(OUTDATED): How many recent colors to store
       autosave(OUTDATED): Auto-save
       shapeRecognitionDelay(OUTDATED): Shape recognition delay
@@ -593,7 +579,6 @@ hu:
       advanced(OUTDATED): Advanced
     prefLabels: 
       layoutSize(OUTDATED): Layout type
-      useYaruTitleBar(OUTDATED): Use themed title bar
       shouldAlwaysAlertForUpdates(OUTDATED): Faster updates
       allowInsecureConnections(OUTDATED): Allow insecure connections
       disableEraserAfterUse(OUTDATED): Auto-disable the eraser
@@ -826,7 +811,6 @@ ja:
     prefCategories: 
       performance(OUTDATED): Performance
     prefLabels: 
-      useYaruTitleBar(OUTDATED): Use themed title bar
       shouldAlwaysAlertForUpdates(OUTDATED): Faster updates
       disableEraserAfterUse(OUTDATED): Auto-disable the eraser
       hideFingerDrawingToggle(OUTDATED): Hide the finger drawing toggle
@@ -969,7 +953,6 @@ pt-BR:
     prefCategories: 
       performance(OUTDATED): Performance
     prefLabels: 
-      useYaruTitleBar(OUTDATED): Use themed title bar
       recentColorsLength(OUTDATED): How many recent colors to store
       autosave(OUTDATED): Auto-save
       shapeRecognitionDelay(OUTDATED): Shape recognition delay
@@ -1090,7 +1073,6 @@ tr:
         later(OUTDATED): Ask me later
   settings: 
     prefLabels: 
-      useYaruTitleBar(OUTDATED): Use themed title bar
       autosave(OUTDATED): Auto-save
       sentry(OUTDATED): Error reporting
     prefDescriptions: 
@@ -1116,6 +1098,3 @@ tr:
       lineThicknessDescription(OUTDATED): Background line thickness
 zh-Hans-CN: 
 zh-Hant-TW: 
-  settings: 
-    prefLabels: 
-      useYaruTitleBar(OUTDATED): Use themed title bar

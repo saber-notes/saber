@@ -389,7 +389,6 @@ class _TranslationsSettingsPrefLabelsHe extends TranslationsSettingsPrefLabelsEn
 	@override String get layoutSize => 'סוג פריסה';
 	@override String get customAccentColor => 'צבע הדגשה מותאם אישית';
 	@override String get hyperlegibleFont => 'גופן Atkinson Hyperreadible';
-	@override String get useYaruTitleBar => 'השתמש בשורת הכותרת בנושא';
 	@override String get shouldCheckForUpdates => 'בדוק אם קיימים עדכוני Saber';
 	@override String get shouldAlwaysAlertForUpdates => 'עדכונים מהירים יותר';
 	@override String get allowInsecureConnections => 'אפשר חיבורים לא מאובטחים';

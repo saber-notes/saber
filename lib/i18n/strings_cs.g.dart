@@ -391,7 +391,6 @@ class _TranslationsSettingsPrefLabelsCs extends TranslationsSettingsPrefLabelsEn
 	@override String get layoutSize => 'Rozložení uživatelského rozhraní';
 	@override String get customAccentColor => 'Vlastní barevný odstín';
 	@override String get hyperlegibleFont => 'Lépe čitelný font';
-	@override String get useYaruTitleBar => 'Použijte tematický titulní pruh';
 	@override String get shouldCheckForUpdates => 'Automaticky kontrolovat dostupnost aktualizací aplikace Saber';
 	@override String get shouldAlwaysAlertForUpdates => 'Rychlejší aktualizace';
 	@override String get allowInsecureConnections => 'Povolit nezabezpečená připojení';

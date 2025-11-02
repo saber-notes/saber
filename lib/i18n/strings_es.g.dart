@@ -388,7 +388,6 @@ class _TranslationsSettingsPrefLabelsEs extends TranslationsSettingsPrefLabelsEn
 	@override String get layoutSize => 'Tipo de disposición';
 	@override String get customAccentColor => 'Color de acento personalizado';
 	@override String get hyperlegibleFont => 'Fuente hiperlegible';
-	@override String get useYaruTitleBar => 'Usar barra de título temática';
 	@override String get shouldCheckForUpdates => 'Buscar actualizaciones de Saber automáticamente';
 	@override String get shouldAlwaysAlertForUpdates => 'Actualizaciones más rápidas';
 	@override String get allowInsecureConnections => 'Permitir conexiones inseguras';

@@ -391,7 +391,6 @@ class _TranslationsSettingsPrefLabelsRu extends TranslationsSettingsPrefLabelsEn
 	@override String get layoutSize => 'Размер макета';
 	@override String get customAccentColor => 'Свой цвет акцента';
 	@override String get hyperlegibleFont => 'Гипер разборчивый шрифт';
-	@override String get useYaruTitleBar => 'Строка заголовка как в теме';
 	@override String get shouldCheckForUpdates => 'Автоматически проверять обновления Saber';
 	@override String get shouldAlwaysAlertForUpdates => 'Быстрые обновления';
 	@override String get allowInsecureConnections => 'Разрешить небезопасные соединения';

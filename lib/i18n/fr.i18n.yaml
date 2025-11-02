@@ -88,7 +88,6 @@ settings:
     layoutSize: Type de disposition
     customAccentColor: Couleur d'accentuation personnalisée
     hyperlegibleFont: Fonte Hyperlegible
-    useYaruTitleBar(OUTDATED): Utiliser une barre de titre thématique
     shouldCheckForUpdates: Rechercher automatiquement les mises à jour
     shouldAlwaysAlertForUpdates: M'alerter à chaque mise à jour
     allowInsecureConnections: Autoriser les connexions non sécurisées

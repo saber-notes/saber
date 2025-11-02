@@ -88,7 +88,6 @@ settings:
     layoutSize: Rozložení uživatelského rozhraní
     customAccentColor: Vlastní barevný odstín
     hyperlegibleFont: Lépe čitelný font
-    useYaruTitleBar(OUTDATED): Použijte tematický titulní pruh
     shouldCheckForUpdates: Automaticky kontrolovat dostupnost aktualizací aplikace Saber
     shouldAlwaysAlertForUpdates: Rychlejší aktualizace
     allowInsecureConnections: Povolit nezabezpečená připojení

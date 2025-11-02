@@ -88,7 +88,6 @@ settings:
     layoutSize: レイアウトの種類
     customAccentColor: オリジナルの色
     hyperlegibleFont: Hyperlegible フォント
-    useYaruTitleBar(OUTDATED): テーマ別のタイトル バーを使用する
     shouldCheckForUpdates: Saberの更新を自動的に確認する
     allowInsecureConnections: 安全でない接続を許可する
     editorToolbarAlignment: 編集ツールバーの位置調整

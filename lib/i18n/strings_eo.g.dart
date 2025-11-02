@@ -391,7 +391,6 @@ class _TranslationsSettingsPrefLabelsEo extends TranslationsSettingsPrefLabelsEn
 	@override String get layoutSize => 'Aranĝo';
 	@override String get customAccentColor => 'Kutima akcentokoloro';
 	@override String get hyperlegibleFont => 'Superlegebla tiparo';
-	@override String get useYaruTitleBar => 'Uzu teman titolstangon';
 	@override String get shouldCheckForUpdates => 'Kontrolu por ĝisdatigoj';
 	@override String get shouldAlwaysAlertForUpdates => 'Pli rapidaj ĝisdatigoj';
 	@override String get allowInsecureConnections => 'Permesu nesekurajn konektojn';

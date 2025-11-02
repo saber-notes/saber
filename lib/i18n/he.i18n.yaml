@@ -88,7 +88,6 @@ settings:
     layoutSize: סוג פריסה
     customAccentColor: צבע הדגשה מותאם אישית
     hyperlegibleFont: גופן Atkinson Hyperreadible
-    useYaruTitleBar(OUTDATED): השתמש בשורת הכותרת בנושא
     shouldCheckForUpdates: בדוק אם קיימים עדכוני Saber
     shouldAlwaysAlertForUpdates: עדכונים מהירים יותר
     allowInsecureConnections: אפשר חיבורים לא מאובטחים

@@ -391,7 +391,6 @@ class _TranslationsSettingsPrefLabelsTr extends TranslationsSettingsPrefLabelsEn
 	@override String get layoutSize => 'Yerleşim tipi';
 	@override String get customAccentColor => 'Farklı ana renk';
 	@override String get hyperlegibleFont => 'Hyperlegible font';
-	@override String get useYaruTitleBar => 'Temalı başlık çubuğunu kullanın';
 	@override String get shouldCheckForUpdates => 'Otomatik olarak Saber güncellemelerini kontrol et';
 	@override String get shouldAlwaysAlertForUpdates => 'Hızlı güncellemeler';
 	@override String get allowInsecureConnections => 'Güvensiz bağlantılara izin ver';

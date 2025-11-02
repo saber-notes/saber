@@ -88,7 +88,6 @@ settings:
     layoutSize: Aranĝo
     customAccentColor: Kutima akcentokoloro
     hyperlegibleFont: Superlegebla tiparo
-    useYaruTitleBar(OUTDATED): Uzu teman titolstangon
     shouldCheckForUpdates: Kontrolu por ĝisdatigoj
     shouldAlwaysAlertForUpdates: Pli rapidaj ĝisdatigoj
     allowInsecureConnections: Permesu nesekurajn konektojn

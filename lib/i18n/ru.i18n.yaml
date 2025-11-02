@@ -88,7 +88,6 @@ settings:
     layoutSize: Размер макета
     customAccentColor: Свой цвет акцента
     hyperlegibleFont: Гипер разборчивый шрифт
-    useYaruTitleBar: Строка заголовка как в теме
     shouldCheckForUpdates: Автоматически проверять обновления Saber
     shouldAlwaysAlertForUpdates: Быстрые обновления
     allowInsecureConnections: Разрешить небезопасные соединения

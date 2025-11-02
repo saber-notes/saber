@@ -593,9 +593,6 @@ class TranslationsSettingsPrefLabelsEn {
 	/// en: 'Atkinson Hyperlegible font'
 	String get hyperlegibleFont => 'Atkinson Hyperlegible font';
 
-	/// en: 'Use themed title bar'
-	String get useYaruTitleBar => 'Use themed title bar';
-
 	/// en: 'Check for Saber updates'
 	String get shouldCheckForUpdates => 'Check for Saber updates';
 

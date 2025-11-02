@@ -88,7 +88,6 @@ settings:
     layoutSize: Größe des Layouts
     customAccentColor: Benutzerdefinierte Akzentfarbe
     hyperlegibleFont: Hyperlesbare Schrift
-    useYaruTitleBar(OUTDATED): Verwenden Sie eine thematische Titelleiste
     shouldCheckForUpdates: Suche automatisch nach Saber-Aktualisierungen
     shouldAlwaysAlertForUpdates: Schneller aktualisieren
     allowInsecureConnections: Unsichere Verbindung erlauben

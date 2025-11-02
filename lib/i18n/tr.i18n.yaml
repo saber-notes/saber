@@ -88,7 +88,6 @@ settings:
     layoutSize: Yerleşim tipi
     customAccentColor: Farklı ana renk
     hyperlegibleFont: Hyperlegible font
-    useYaruTitleBar(OUTDATED): Temalı başlık çubuğunu kullanın
     shouldCheckForUpdates: Otomatik olarak Saber güncellemelerini kontrol et
     shouldAlwaysAlertForUpdates: Hızlı güncellemeler
     allowInsecureConnections: Güvensiz bağlantılara izin ver

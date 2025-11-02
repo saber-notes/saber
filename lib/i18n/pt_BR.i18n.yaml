@@ -88,7 +88,6 @@ settings:
     layoutSize: Tipo de leiaute
     customAccentColor: Cor de destaque personalizada
     hyperlegibleFont: Fonte hiperlegível
-    useYaruTitleBar(OUTDATED): Use barra de título temática
     shouldCheckForUpdates: Verificar automaticamente as atualizações do Saber
     shouldAlwaysAlertForUpdates: Atualizações mais rápidas
     allowInsecureConnections: Permitir conexões inseguras

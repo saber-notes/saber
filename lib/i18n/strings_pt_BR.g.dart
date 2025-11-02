@@ -389,7 +389,6 @@ class _TranslationsSettingsPrefLabelsPtBr extends TranslationsSettingsPrefLabels
 	@override String get layoutSize => 'Tipo de leiaute';
 	@override String get customAccentColor => 'Cor de destaque personalizada';
 	@override String get hyperlegibleFont => 'Fonte hiperlegível';
-	@override String get useYaruTitleBar => 'Use barra de título temática';
 	@override String get shouldCheckForUpdates => 'Verificar automaticamente as atualizações do Saber';
 	@override String get shouldAlwaysAlertForUpdates => 'Atualizações mais rápidas';
 	@override String get allowInsecureConnections => 'Permitir conexões inseguras';

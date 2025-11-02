@@ -389,7 +389,6 @@ class _TranslationsSettingsPrefLabelsJa extends TranslationsSettingsPrefLabelsEn
 	@override String get layoutSize => 'レイアウトの種類';
 	@override String get customAccentColor => 'オリジナルの色';
 	@override String get hyperlegibleFont => 'Hyperlegible フォント';
-	@override String get useYaruTitleBar => 'テーマ別のタイトル バーを使用する';
 	@override String get shouldCheckForUpdates => 'Saberの更新を自動的に確認する';
 	@override String get allowInsecureConnections => '安全でない接続を許可する';
 	@override String get editorToolbarAlignment => '編集ツールバーの位置調整';

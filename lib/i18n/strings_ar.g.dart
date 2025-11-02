@@ -391,7 +391,6 @@ class _TranslationsSettingsPrefLabelsAr extends TranslationsSettingsPrefLabelsEn
 	@override String get layoutSize => 'نوع التخطيط';
 	@override String get customAccentColor => 'لون التمييز المخصص';
 	@override String get hyperlegibleFont => 'Hyperlegible خط';
-	@override String get useYaruTitleBar => 'استخدم شريط العنوان تحت عنوان';
 	@override String get shouldCheckForUpdates => 'تحقق تلقائيًا من وجود تحديثات Saber';
 	@override String get shouldAlwaysAlertForUpdates => 'تحديثات أسرع';
 	@override String get allowInsecureConnections => 'السماح بالاتصالات غير الآمنة';

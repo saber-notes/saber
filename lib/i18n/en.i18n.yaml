@@ -61,16 +61,16 @@ home:
     deleteName: Delete $f
     delete: Delete
     alsoDeleteContents: Also delete all notes inside this folder
-sentry:
-  consent:
+sentry: 
+  consent: 
     title: Help improve Saber?
-    description:
+    description: 
       question: Would you like to automatically report unexpected errors? This helps me identify and fix issues faster.
       scope: The reports may contain information about the error and your device. I've made every effort to filter out personal data but some may remain.
       currentlyOff: If you grant consent, error reporting will be enabled after you restart the app.
       currentlyOn: If you revoke consent, please restart the app to disable error reporting.
       learnMoreInPrivacyPolicy(rich): Learn more in the ${link(privacy policy)}.
-    answers:
+    answers: 
       yes: Yes
       no: No
       later: Ask me later
@@ -88,7 +88,6 @@ settings:
     layoutSize: Layout type
     customAccentColor: Custom accent color
     hyperlegibleFont: Atkinson Hyperlegible font
-    useYaruTitleBar: Use themed title bar
     shouldCheckForUpdates: Check for Saber updates
     shouldAlwaysAlertForUpdates: Faster updates
     allowInsecureConnections: Allow insecure connections
@@ -133,7 +132,7 @@ settings:
       off: No sound
       onButNotInSilentMode: Enabled (unless in silent mode)
       onAlways: Enabled (even in silent mode)
-    sentry:
+    sentry: 
       active: Active
       inactive: Inactive
       activeUntilRestart: Active until you restart the app
