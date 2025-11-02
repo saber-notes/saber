@@ -169,7 +169,7 @@ void _screenshot({
           addTearDown(() => NextcloudProfile.forceLoginStep = null);
         }
 
-        final widget = ScreenshotApp(
+        final widget = ScreenshotApp.withConditionalTitlebar(
           theme: switch (device.platform) {
             TargetPlatform.linux => yaruTheme.theme,
             TargetPlatform.iOS || TargetPlatform.macOS => cupertinoTheme,
@@ -177,11 +177,8 @@ void _screenshot({
           },
           device: device,
           frameColors: frameColors,
-          home: ScreenshotConditionalTitlebar(
-            title: const Text('Saber'),
-            device: device,
-            child: TranslationProvider(child: child),
-          ),
+          title: 'Saber',
+          home: TranslationProvider(child: child),
         );
         await tester.pumpWidget(widget);
         await tester.pump();

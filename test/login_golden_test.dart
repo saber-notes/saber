@@ -77,9 +77,10 @@ class _LoginApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ScreenshotApp(
+    return ScreenshotApp.withConditionalTitlebar(
       theme: _theme,
       device: _device,
+      title: 'Saber',
       home: NcLoginPage(forceAppBarLeading: true, forceCurrentStep: step),
     );
   }
