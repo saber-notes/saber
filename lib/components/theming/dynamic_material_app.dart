@@ -252,9 +252,46 @@ class ExplicitlyThemedApp extends StatelessWidget {
       highContrastDarkTheme: highContrastDarkTheme,
       debugShowCheckedModeBanner: false,
       builder: (Stows.canUseYaruTitleBar && useYaruTitleBar)
-          ? (context, child) =>
-                Scaffold(appBar: const YaruWindowTitleBar(), body: child)
+          ? _TitledWindow.new
           : null,
+    );
+  }
+}
+
+class _TitledWindow extends StatefulWidget {
+  const _TitledWindow(BuildContext? context, this.child);
+  final Widget? child;
+  @override
+  State<_TitledWindow> createState() => _TitledWindowState();
+}
+
+class _TitledWindowState extends State<_TitledWindow> {
+  static Color _lastBorderColor = Colors.transparent;
+
+  @override
+  void didChangeDependencies() {
+    final borderColor = Color.alphaBlend(
+      YaruTitleBarTheme.of(context).border?.color ??
+          (Theme.brightnessOf(context) == Brightness.light
+              ? Colors.black.withValues(alpha: 0.1)
+              : Colors.white.withValues(alpha: 0.06)),
+      ColorScheme.of(context).surface,
+    );
+    if (borderColor != _lastBorderColor) {
+      _lastBorderColor = borderColor;
+      windowManager.setBackgroundColor(borderColor).catchError((_) {});
+    }
+    super.didChangeDependencies();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(1),
+      child: ColoredBox(
+        color: _lastBorderColor,
+        child: Scaffold(appBar: const YaruWindowTitleBar(), body: widget.child),
+      ),
     );
   }
 }
