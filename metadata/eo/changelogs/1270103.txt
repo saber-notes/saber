@@ -1,0 +1,2 @@
+• Fiksa aŭtomata pleniga subteno sur la ĉifrada pasvorta paĝo.
+• Diversaj UI-plibonigoj.

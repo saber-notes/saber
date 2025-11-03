@@ -1,0 +1,2 @@
+• Correction du support de remplissage automatique sur la page du mot de passe de cryptage. 
+• Diverses améliorations de l'interface utilisateur.

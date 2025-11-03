@@ -1,0 +1,2 @@
+• Javítva az automatikus kitöltési támogatás a titkosítási jelszó oldalon. 
+• Különféle UI fejlesztések.

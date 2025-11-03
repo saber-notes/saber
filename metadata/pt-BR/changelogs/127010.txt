@@ -1,0 +1,2 @@
+• Corrigido o suporte ao preenchimento automático na página de senha criptografada.
+• Várias melhorias na interface do usuário.

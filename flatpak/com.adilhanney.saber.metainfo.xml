@@ -214,6 +214,16 @@
     </screenshots>
 
     <releases>
+        <release version="1.27.1" type="development" date="2025-11-02">
+            <description>
+                <ul>
+                    <li>Various UI improvements.</li>
+                    <li>Removed the themed title bar, replacing it with server-side decorations for better KDE support.</li>
+                    <li>Delayed showing the app until the first frame is rendered, removing the initial black screen on launch.</li>
+                    <li>Resized the app icon to match other Linux apps.</li>
+                </ul>
+            </description>
+        </release>
         <release version="1.27.0" type="development" date="2025-10-30">
             <description>
                 <ul>
