@@ -9,7 +9,7 @@ abstract class TestUser {
       'free': total - usedBytes,
       'used': usedBytes,
       'total': total,
-      'relative': (1000 * usedRatio).round() / 10,
+      'relative': 100 * usedRatio,
     });
   }
 }
