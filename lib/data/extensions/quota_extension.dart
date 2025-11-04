@@ -6,6 +6,10 @@ extension QuotaExtension on Quota {
     // At least 4% so the rounded corners render properly
     return relative.clamp(4, 100) / 100;
   }
+
+  double get percentRounded {
+    return (relative * 10).round() / 10;
+  }
 }
 
 extension MaybeQuotaExtension on Quota? {

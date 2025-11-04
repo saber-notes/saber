@@ -88,7 +88,7 @@ class _DoneLoginStepState extends State<DoneLoginStep> {
           t.profile.quotaUsage(
             used: readableBytes(quota?.used),
             total: readableBytes(quota?.total),
-            percent: quota?.relative ?? 0,
+            percent: quota?.percentRounded ?? 0,
           ),
         ),
         const SizedBox(height: 2),
