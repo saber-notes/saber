@@ -4,10 +4,13 @@
         "android/.gradle/": true,
         "android/.kotlin/": true,
         "submodules/*/*": true,
-        "linux/flutter/ephemeral/": true,
+        "linux/flutter/ephemeral/*": true,
+        "macos/Flutter/ephemeral/*": true,
+        "windows/flutter/ephemeral/*": true,
         "**/.dart_tool/": true,
         "**/.idea/": true,
         "**/.flutter-plugins-dependencies": true,
+        "**/*.iml": true
     },
     "editor.defaultFormatter": "Dart-Code.dart-code",
     "editor.formatOnSave": true,
@@ -18,5 +21,8 @@
     "dart.analysisExcludedFolders": [
         "submodules"
     ],
-    "cmake.ignoreCMakeListsMissing": true
+    "explorer.fileNesting.patterns": {
+        "en.i18n.yaml": "*.i18n.yaml",
+        "strings_en.g.dart": "strings_*.g.dart"
+    }
 }
