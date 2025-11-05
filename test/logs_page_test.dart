@@ -11,8 +11,7 @@ void main() {
 
       await tester.pumpWidget(_LogsApp());
 
-      await tester.loadFonts();
-      await tester.precacheImagesInWidgetTree();
+      await tester.loadAssets();
       await tester.pumpAndSettle();
 
       await expectLater(
@@ -57,8 +56,7 @@ void main() {
 
       await tester.pumpWidget(_LogsApp());
 
-      await tester.loadFonts();
-      await tester.precacheImagesInWidgetTree();
+      await tester.loadAssets();
       await tester.pumpAndSettle();
 
       await expectLater(

@@ -23,8 +23,7 @@ void main() {
         ),
       );
 
-      await tester.loadFonts();
-      await tester.precacheImagesInWidgetTree();
+      await tester.loadAssets();
       await tester.pumpAndSettle();
 
       await expectLater(

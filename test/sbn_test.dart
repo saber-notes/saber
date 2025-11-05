@@ -102,7 +102,7 @@ void main() {
               page: page,
             ),
           );
-          await tester.loadFonts(overriddenFonts: saberSansSerifFontFallbacks);
+          await tester.loadAssets(overriddenFonts: saberSansSerifFontFallbacks);
           await tester.pumpWidget(
             _buildCanvas(
               brightness: Brightness.light,
@@ -113,7 +113,6 @@ void main() {
           );
           await tester.pumpAndSettle();
 
-          tester.useFuzzyComparator(allowedDiffPercent: 0.1);
           await expectLater(
             find.byType(Canvas),
             matchesGoldenFile('sbn_examples/$sbnName.light.png'),
@@ -127,7 +126,7 @@ void main() {
               page: page,
             ),
           );
-          await tester.loadFonts(overriddenFonts: saberSansSerifFontFallbacks);
+          await tester.loadAssets(overriddenFonts: saberSansSerifFontFallbacks);
           await tester.pumpWidget(
             _buildCanvas(
               brightness: Brightness.dark,
@@ -138,7 +137,6 @@ void main() {
           );
           await tester.pumpAndSettle();
 
-          tester.useFuzzyComparator(allowedDiffPercent: 0.1);
           await expectLater(
             find.byType(Canvas),
             matchesGoldenFile('sbn_examples/$sbnName.dark.png'),
@@ -152,7 +150,7 @@ void main() {
               page: page,
             ),
           );
-          await tester.loadFonts(overriddenFonts: saberSansSerifFontFallbacks);
+          await tester.loadAssets(overriddenFonts: saberSansSerifFontFallbacks);
           await tester.pumpWidget(
             _buildCanvas(
               brightness: Brightness.light,
@@ -164,7 +162,6 @@ void main() {
           );
           await tester.pumpAndSettle();
 
-          tester.useFuzzyComparator(allowedDiffPercent: 0.1);
           await expectLater(
             find.byType(Canvas),
             matchesGoldenFile('sbn_examples/$sbnName.lod.png'),
@@ -218,7 +215,6 @@ void main() {
               ),
             );
 
-            tester.useFuzzyComparator(allowedDiffPercent: 0.1);
             await expectLater(
               find.byType(Image),
               matchesGoldenFile('sbn_examples/$sbnName.pdf.png'),
@@ -282,7 +278,7 @@ void main() {
           page: importedCoreInfo.pages.first,
         ),
       );
-      await tester.loadFonts(overriddenFonts: saberSansSerifFontFallbacks);
+      await tester.loadAssets(overriddenFonts: saberSansSerifFontFallbacks);
       await tester.pumpWidget(
         _buildCanvas(
           brightness: Brightness.light,
@@ -293,7 +289,6 @@ void main() {
       );
       await tester.pumpAndSettle();
 
-      tester.useFuzzyComparator(allowedDiffPercent: 0.1);
       await expectLater(
         find.byType(Canvas),
         matchesGoldenFile('sbn_examples/v19_separate_assets.sbn2.light.png'),

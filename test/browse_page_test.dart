@@ -25,8 +25,7 @@ void main() {
       group('at $depth depth:', () {
         testGoldens('Empty', (tester) async {
           await tester.pumpWidget(_BrowseApp(path: path, children: null));
-          await tester.loadFonts();
-          await tester.precacheImagesInWidgetTree();
+          await tester.loadAssets();
           await tester.pumpAndSettle();
 
           await expectLater(
@@ -42,8 +41,7 @@ void main() {
           );
 
           await tester.pumpWidget(_BrowseApp(path: path, children: children));
-          await tester.loadFonts();
-          await tester.precacheImagesInWidgetTree();
+          await tester.loadAssets();
           await tester.pumpAndSettle();
 
           await expectLater(

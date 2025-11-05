@@ -32,11 +32,9 @@ void main() {
       testGoldens(step.name, (tester) async {
         final app = _LoginApp(step);
         await tester.pumpWidget(app);
-        await tester.precacheImagesInWidgetTree();
-        await tester.loadFonts(overriddenFonts: saberSansSerifFontFallbacks);
+        await tester.loadAssets(overriddenFonts: saberSansSerifFontFallbacks);
         await tester.pumpFrames(app, const Duration(seconds: 1));
 
-        tester.useFuzzyComparator(allowedDiffPercent: 0.1);
         await expectLater(
           find.byType(MaterialApp),
           matchesGoldenFile('goldens/login_page_${step.name}.png'),
@@ -46,8 +44,7 @@ void main() {
 
     testGoldens('done_faq', (tester) async {
       await tester.pumpWidget(const _LoginApp(LoginStep.done));
-      await tester.precacheImagesInWidgetTree();
-      await tester.loadFonts(overriddenFonts: saberSansSerifFontFallbacks);
+      await tester.loadAssets(overriddenFonts: saberSansSerifFontFallbacks);
       await tester.pumpAndSettle();
 
       await tester.tap(find.text('How do I change my encryption password?'));
@@ -61,7 +58,6 @@ void main() {
       );
       await tester.pumpAndSettle();
 
-      tester.useFuzzyComparator(allowedDiffPercent: 0.1);
       await expectLater(
         find.byType(MaterialApp),
         matchesGoldenFile('goldens/login_page_done_faq.png'),

@@ -57,10 +57,11 @@ void main() {
           ),
         );
 
-        await tester.loadFonts(overriddenFonts: ['Inter', ...kOverriddenFonts]);
+        await tester.loadAssets(
+          overriddenFonts: ['Inter', ...kOverriddenFonts],
+        );
         await tester.pumpAndSettle();
 
-        tester.useFuzzyComparator(allowedDiffPercent: 0.1);
         await expectLater(
           find.byType(Column),
           matchesGoldenFile('goldens/$font.png'),

@@ -195,9 +195,7 @@ void _screenshot({
           await tester.pump();
         }
 
-        await tester.precacheImagesInWidgetTree();
-        await tester.precacheTopbarImages();
-        await tester.loadFonts(overriddenFonts: saberSansSerifFontFallbacks);
+        await tester.loadAssets(overriddenFonts: saberSansSerifFontFallbacks);
         await tester.pumpAndSettle();
 
         await tester.expectScreenshot(
