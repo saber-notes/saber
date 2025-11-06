@@ -19,8 +19,6 @@ parts:
       - execstack
       - libsecret-1-dev
       - libjsoncpp-dev
-      - libgstreamer1.0-dev
-      - libgstreamer-plugins-base1.0-dev
       - openjdk-21-jdk
     build-snaps:
       - cmake

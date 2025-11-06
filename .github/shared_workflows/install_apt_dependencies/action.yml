@@ -7,6 +7,6 @@ runs:
     - name: Install apt dependencies
       uses: awalsh128/cache-apt-pkgs-action@latest
       with:
-        packages: libgtk-3-dev libx11-dev pkg-config cmake ninja-build curl libcurl4-openssl-dev libblkid-dev libsecret-1-dev libjsoncpp-dev ghostscript libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev libunwind-dev webkit2gtk-4.1-dev
+        packages: libgtk-3-dev libx11-dev pkg-config cmake ninja-build curl libcurl4-openssl-dev libblkid-dev libsecret-1-dev libjsoncpp-dev ghostscript libunwind-dev webkit2gtk-4.1-dev
         version: 1.0
         execute_install_scripts: true
