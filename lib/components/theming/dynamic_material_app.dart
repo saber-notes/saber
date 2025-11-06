@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:dynamic_color/dynamic_color.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -9,6 +10,7 @@ import 'package:go_router/go_router.dart';
 import 'package:saber/components/theming/saber_theme.dart';
 import 'package:saber/components/theming/yaru_builder.dart';
 import 'package:saber/data/prefs.dart';
+import 'package:saber/i18n/extensions/redirecting_localization_delegate.dart';
 import 'package:saber/i18n/strings.g.dart';
 import 'package:window_manager/window_manager.dart';
 import 'package:yaru/yaru.dart';
@@ -225,8 +227,18 @@ class ExplicitlyThemedApp extends StatelessWidget {
       locale: TranslationProvider.of(context).flutterLocale,
       supportedLocales: AppLocaleUtils.supportedLocales,
       localizationsDelegates: const [
-        ...GlobalMaterialLocalizations.delegates,
-        FlutterQuillLocalizations.delegate,
+        RedirectingLocalizationDelegate<CupertinoLocalizations>(
+          GlobalCupertinoLocalizations.delegate,
+        ),
+        RedirectingLocalizationDelegate<MaterialLocalizations>(
+          GlobalMaterialLocalizations.delegate,
+        ),
+        RedirectingLocalizationDelegate<WidgetsLocalizations>(
+          GlobalWidgetsLocalizations.delegate,
+        ),
+        RedirectingLocalizationDelegate<FlutterQuillLocalizations>(
+          FlutterQuillLocalizations.delegate,
+        ),
       ],
       themeMode: themeMode,
       theme: theme,
