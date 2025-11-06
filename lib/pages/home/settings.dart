@@ -21,7 +21,6 @@ import 'package:saber/components/settings/settings_switch.dart';
 import 'package:saber/components/settings/update_manager.dart';
 import 'package:saber/components/theming/adaptive_alert_dialog.dart';
 import 'package:saber/components/theming/adaptive_toggle_buttons.dart';
-import 'package:saber/data/editor/pencil_sound.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/flavor_config.dart';
 import 'package:saber/data/locales.dart';
@@ -93,12 +92,6 @@ abstract class _SettingsStows {
     stows.editorToolbarAlignment,
     (AxisDirection value) => value.index,
     (int value) => AxisDirection.values[value],
-  );
-
-  static final pencilSound = TransformedStow(
-    stows.pencilSound,
-    (PencilSoundSetting value) => value.index,
-    (int value) => PencilSoundSetting.values[value],
   );
 }
 
@@ -476,24 +469,6 @@ class _SettingsPageState extends State<SettingsPage> {
                   subtitle: t.settings.prefDescriptions.printPageIndicators,
                   icon: Icons.numbers,
                   pref: stows.printPageIndicators,
-                ),
-                SettingsSelection(
-                  title: t.settings.prefLabels.pencilSoundSetting,
-                  subtitle: stows.pencilSound.value.description,
-                  icon: stows.pencilSound.value.icon,
-                  pref: _SettingsStows.pencilSound,
-                  optionsWidth: 60,
-                  options: [
-                    for (final setting in PencilSoundSetting.values)
-                      ToggleButtonsOption(
-                        setting.index,
-                        Icon(setting.icon, semanticLabel: setting.description),
-                      ),
-                  ],
-                  afterChange: (_) {
-                    PencilSound.setAudioContext();
-                    setState(() {});
-                  },
                 ),
                 SettingsSubtitle(
                   subtitle: t.settings.prefCategories.performance,

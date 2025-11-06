@@ -33,7 +33,6 @@ import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/data/editor/editor_exporter.dart';
 import 'package:saber/data/editor/editor_history.dart';
 import 'package:saber/data/editor/page.dart';
-import 'package:saber/data/editor/pencil_sound.dart';
 import 'package:saber/data/extensions/change_notifier_extensions.dart';
 import 'package:saber/data/extensions/matrix4_extensions.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
@@ -557,10 +556,7 @@ class EditorState extends State<Editor> {
     final position = page.renderBox!.globalToLocal(details.focalPoint);
     history.canRedo = false;
 
-    final bool shouldPlayPencilSound;
-
     if (currentTool is Pen) {
-      shouldPlayPencilSound = true;
       (currentTool as Pen).onDragStart(
         position,
         page,
@@ -568,7 +564,6 @@ class EditorState extends State<Editor> {
         currentPressure,
       );
     } else if (currentTool is Eraser) {
-      shouldPlayPencilSound = true;
       for (final stroke in (currentTool as Eraser).checkForOverlappingStrokes(
         position,
         page.strokes,
@@ -577,7 +572,6 @@ class EditorState extends State<Editor> {
       }
       removeExcessPages();
     } else if (currentTool is Select) {
-      shouldPlayPencilSound = false;
       final select = currentTool as Select;
       if (select.doneSelecting &&
           select.selectResult.pageIndex == dragPageIndex! &&
@@ -588,15 +582,8 @@ class EditorState extends State<Editor> {
         history.canRedo = true; // selection doesn't affect history
       }
     } else if (currentTool is LaserPointer) {
-      shouldPlayPencilSound = true;
       (currentTool as LaserPointer).onDragStart(position, page, dragPageIndex!);
-    } else {
-      shouldPlayPencilSound = false;
     }
-
-    if (stows.pencilSound.value != PencilSoundSetting.off &&
-        shouldPlayPencilSound)
-      PencilSound.resume();
 
     previousPosition = position;
     moveOffset = Offset.zero;
@@ -613,8 +600,6 @@ class EditorState extends State<Editor> {
     final page = coreInfo.pages[dragPageIndex!];
     final position = page.renderBox!.globalToLocal(details.focalPoint);
     final offset = position - previousPosition;
-
-    PencilSound.update(offset.distance);
 
     if (currentTool is Pen) {
       (currentTool as Pen).onDragUpdate(position, currentPressure);
@@ -653,7 +638,6 @@ class EditorState extends State<Editor> {
   void onDrawEnd(ScaleEndDetails details) {
     final page = coreInfo.pages[dragPageIndex!];
     bool shouldSave = true;
-    PencilSound.pause();
     setState(() {
       if (currentTool is Pen) {
         final newStroke = (currentTool as Pen).onDragEnd();

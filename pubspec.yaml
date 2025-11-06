@@ -136,8 +136,6 @@ dependencies:
 
   collection: ^1.0.0
 
-  audioplayers: ^6.0.0
-
   abstract_sync: ^1.3.0
 
   args: ^2.5.0
@@ -225,7 +223,6 @@ flutter:
     - assets/google_fonts/Dekko/OFL.txt
     - assets/google_fonts/Fira_Mono/OFL.txt
     - assets/google_fonts/Neucha/OFL.txt
-    - assets/audio/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

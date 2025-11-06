@@ -48,39 +48,3 @@ void setupMockPrinting() {
         return null;
       });
 }
-
-void setupMockAudioplayers() {
-  final binding = TestWidgetsFlutterBinding.ensureInitialized();
-
-  binding.defaultBinaryMessenger.setMockMethodCallHandler(
-    const MethodChannel('xyz.luan/audioplayers'),
-    (MethodCall methodCall) async {
-      if (methodCall.method == 'create') return true;
-      return null;
-    },
-  );
-
-  binding.defaultBinaryMessenger.setMockMethodCallHandler(
-    const MethodChannel('xyz.luan/audioplayers.global'),
-    (MethodCall methodCall) async {
-      if (methodCall.method == 'init') return true;
-      return null;
-    },
-  );
-
-  binding.defaultBinaryMessenger.setMockMethodCallHandler(
-    const MethodChannel('xyz.luan/audioplayers.global/events'),
-    (MethodCall methodCall) async {
-      if (methodCall.method == 'listen') return true;
-      return null;
-    },
-  );
-
-  binding.defaultBinaryMessenger.setMockMethodCallHandler(
-    const MethodChannel('xyz.luan/audioplayers/events/pencilSoundEffect'),
-    (MethodCall methodCall) async {
-      if (methodCall.method == 'listen') return true;
-      return null;
-    },
-  );
-}

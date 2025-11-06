@@ -10,7 +10,6 @@ import 'package:saber/components/navbar/responsive_navbar.dart';
 import 'package:saber/components/settings/nextcloud_profile.dart';
 import 'package:saber/data/codecs/base64_codec.dart';
 import 'package:saber/data/codecs/quota_codec.dart';
-import 'package:saber/data/editor/pencil_sound.dart';
 import 'package:saber/data/flavor_config.dart';
 import 'package:saber/data/sentry/sentry_consent.dart';
 import 'package:saber/data/tools/_tool.dart';
@@ -169,12 +168,6 @@ class Stows {
   final autoStraightenLines = PlainStow(
     'autoStraightenLines',
     true,
-    volatile: !_isOnMainIsolate,
-  );
-  final pencilSound = PlainStow(
-    'pencilSound',
-    PencilSoundSetting.off,
-    codec: PencilSoundSetting.codec,
     volatile: !_isOnMainIsolate,
   );
 
