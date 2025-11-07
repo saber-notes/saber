@@ -14,13 +14,17 @@ String readableBytes(num? bytes) {
     i++;
   }
 
-  final unit = units[i];
-  // Return 3 significant figures
-  if (groupedBytes < 10) {
-    return '${groupedBytes.toStringAsFixed(2)} $unit';
+  // Return 3 significant figures, except for bytes which are integers
+  final int decimalPlaces;
+  if (i == 0) {
+    decimalPlaces = 0;
+  } else if (groupedBytes < 10) {
+    decimalPlaces = 2;
   } else if (groupedBytes < 100) {
-    return '${groupedBytes.toStringAsFixed(1)} $unit';
+    decimalPlaces = 1;
   } else {
-    return '${groupedBytes.round()} $unit';
+    decimalPlaces = 0;
   }
+
+  return '${groupedBytes.toStringAsFixed(decimalPlaces)} ${units[i]}';
 }
