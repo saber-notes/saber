@@ -5,6 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:logging/logging.dart';
 import 'package:saber/components/theming/adaptive_icon.dart';
 import 'package:saber/components/theming/font_fallbacks.dart';
+import 'package:saber/components/theming/saber_theme.dart';
 import 'package:saber/i18n/strings.g.dart';
 
 final logsHistory = _LogsHistory();
@@ -51,9 +52,6 @@ class LogsPage extends StatelessWidget {
         builder: (context, _) {
           final theme = Theme.of(context);
           final colorScheme = theme.colorScheme;
-          final cupertino =
-              theme.platform == TargetPlatform.iOS ||
-              theme.platform == TargetPlatform.macOS;
           return CustomScrollView(
             slivers: [
               SliverAppBar(
@@ -66,7 +64,7 @@ class LogsPage extends StatelessWidget {
                     t.logs.logs,
                     style: TextStyle(color: colorScheme.onSurface),
                   ),
-                  centerTitle: cupertino,
+                  centerTitle: theme.platform.isCupertino,
                 ),
                 actions: [
                   if (logsHistory.isFrozen)

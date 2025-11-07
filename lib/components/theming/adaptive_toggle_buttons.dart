@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:saber/components/theming/saber_theme.dart';
 
 class AdaptiveToggleButtons<T extends Object> extends StatelessWidget {
   const AdaptiveToggleButtons({
@@ -20,12 +21,8 @@ class AdaptiveToggleButtons<T extends Object> extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final cupertino =
-        theme.platform == TargetPlatform.iOS ||
-        theme.platform == TargetPlatform.macOS;
-
-    if (cupertino) {
+    final platform = Theme.of(context).platform;
+    if (platform.isCupertino) {
       return _buildCupertino(context);
     } else {
       return _buildMaterial(context);

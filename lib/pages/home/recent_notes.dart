@@ -11,6 +11,7 @@ import 'package:saber/components/home/new_note_button.dart';
 import 'package:saber/components/home/rename_note_button.dart';
 import 'package:saber/components/home/syncing_button.dart';
 import 'package:saber/components/home/welcome.dart';
+import 'package:saber/components/theming/saber_theme.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/data/routes.dart';
@@ -111,8 +112,6 @@ class _RecentPageState extends State<RecentPage> {
   Widget build(BuildContext context) {
     final colorScheme = ColorScheme.of(context);
     final platform = Theme.of(context).platform;
-    final cupertino =
-        platform == TargetPlatform.iOS || platform == TargetPlatform.macOS;
     final crossAxisCount = MediaQuery.sizeOf(context).width ~/ 300 + 1;
     return Scaffold(
       body: RefreshIndicator(
@@ -134,9 +133,9 @@ class _RecentPageState extends State<RecentPage> {
                     t.home.titles.home,
                     style: TextStyle(color: colorScheme.onSurface),
                   ),
-                  centerTitle: cupertino,
+                  centerTitle: platform.isCupertino,
                   titlePadding: EdgeInsetsDirectional.only(
-                    start: cupertino ? 0 : 16,
+                    start: platform.isCupertino ? 0 : 16,
                     bottom: 16,
                   ),
                 ),
@@ -163,7 +162,7 @@ class _RecentPageState extends State<RecentPage> {
           ],
         ),
       ),
-      floatingActionButton: NewNoteButton(cupertino: cupertino),
+      floatingActionButton: NewNoteButton(cupertino: platform.isCupertino),
       persistentFooterButtons: selectedFiles.value.isEmpty
           ? null
           : [

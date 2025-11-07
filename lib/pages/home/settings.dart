@@ -21,6 +21,7 @@ import 'package:saber/components/settings/settings_switch.dart';
 import 'package:saber/components/settings/update_manager.dart';
 import 'package:saber/components/theming/adaptive_alert_dialog.dart';
 import 'package:saber/components/theming/adaptive_toggle_buttons.dart';
+import 'package:saber/components/theming/saber_theme.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/flavor_config.dart';
 import 'package:saber/data/locales.dart';
@@ -136,8 +137,7 @@ class _SettingsPageState extends State<SettingsPage> {
   Widget build(BuildContext context) {
     final colorScheme = ColorScheme.of(context);
     final platform = Theme.of(context).platform;
-    final cupertino =
-        platform == TargetPlatform.iOS || platform == TargetPlatform.macOS;
+    final cupertino = platform.isCupertino;
 
     final requiresManualUpdates = FlavorConfig.appStore.isEmpty;
 
@@ -260,9 +260,7 @@ class _SettingsPageState extends State<SettingsPage> {
                     }(), Icon(materialIcon, semanticLabel: 'Material')),
                     ToggleButtonsOption(() {
                       // Hack to allow screenshot golden tests
-                      if (kDebugMode &&
-                          (stows.platform.value == TargetPlatform.iOS ||
-                              stows.platform.value == TargetPlatform.macOS))
+                      if (kDebugMode && stows.platform.value.isCupertino)
                         return stows.platform.value.index;
                       if (usesCupertinoByDefault)
                         return defaultTargetPlatform.index;

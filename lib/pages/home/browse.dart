@@ -12,6 +12,7 @@ import 'package:saber/components/home/no_files.dart';
 import 'package:saber/components/home/path_components.dart';
 import 'package:saber/components/home/rename_note_button.dart';
 import 'package:saber/components/home/syncing_button.dart';
+import 'package:saber/components/theming/saber_theme.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/routes.dart';
 import 'package:saber/i18n/strings.g.dart';
@@ -117,9 +118,6 @@ class _BrowsePageState extends State<BrowsePage> {
   Widget build(BuildContext context) {
     final colorScheme = ColorScheme.of(context);
     final platform = Theme.of(context).platform;
-    final cupertino =
-        platform == TargetPlatform.iOS || platform == TargetPlatform.macOS;
-
     final crossAxisCount = MediaQuery.sizeOf(context).width ~/ 300 + 1;
 
     return Scaffold(
@@ -140,9 +138,9 @@ class _BrowsePageState extends State<BrowsePage> {
                   t.home.titles.browse,
                   style: TextStyle(color: colorScheme.onSurface),
                 ),
-                centerTitle: cupertino,
+                centerTitle: platform.isCupertino,
                 titlePadding: EdgeInsetsDirectional.only(
-                  start: cupertino ? 0 : 16,
+                  start: platform.isCupertino ? 0 : 16,
                   bottom: 8,
                 ),
               ),
@@ -212,7 +210,10 @@ class _BrowsePageState extends State<BrowsePage> {
           ],
         ),
       ),
-      floatingActionButton: NewNoteButton(cupertino: cupertino, path: path),
+      floatingActionButton: NewNoteButton(
+        cupertino: platform.isCupertino,
+        path: path,
+      ),
       persistentFooterButtons: selectedFiles.value.isEmpty
           ? null
           : [

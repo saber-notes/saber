@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:saber/components/theming/saber_theme.dart';
 
 class AdaptiveIcon extends StatelessWidget {
   const AdaptiveIcon({
@@ -15,10 +16,7 @@ class AdaptiveIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final platform = Theme.of(context).platform;
-    final cupertino =
-        platform == TargetPlatform.iOS || platform == TargetPlatform.macOS;
-
-    if (cupertino) {
+    if (platform.isCupertino) {
       return Icon(cupertinoIcon ?? icon, size: size);
     } else {
       return Icon(icon, size: size);

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:saber/components/canvas/canvas_gesture_detector.dart';
 import 'package:saber/components/canvas/canvas_preview.dart';
 import 'package:saber/components/theming/adaptive_icon.dart';
+import 'package:saber/components/theming/saber_theme.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/i18n/strings.g.dart';
 
@@ -45,8 +46,7 @@ class _EditorPageManagerState extends State<EditorPageManager> {
   @override
   Widget build(BuildContext context) {
     final platform = Theme.of(context).platform;
-    final cupertino =
-        platform == TargetPlatform.iOS || platform == TargetPlatform.macOS;
+    final cupertino = platform.isCupertino;
     return SizedBox(
       width: cupertino ? null : 300,
       height: cupertino ? 600 : null,

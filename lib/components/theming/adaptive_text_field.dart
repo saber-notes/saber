@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:saber/components/theming/saber_theme.dart';
 
 class AdaptiveTextField extends StatefulWidget {
   const AdaptiveTextField({
@@ -54,9 +55,6 @@ class _AdaptiveTextFieldState extends State<AdaptiveTextField> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
-    final cupertino =
-        theme.platform == TargetPlatform.iOS ||
-        theme.platform == TargetPlatform.macOS;
 
     TextInputType? keyboardType = widget.keyboardType;
     if (widget.isPassword) {
@@ -67,7 +65,7 @@ class _AdaptiveTextFieldState extends State<AdaptiveTextField> {
       }
     }
 
-    if (cupertino) {
+    if (theme.platform.isCupertino) {
       return Row(
         children: [
           Expanded(
