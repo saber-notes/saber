@@ -64,8 +64,10 @@ class _ResponsiveNavbarState extends State<ResponsiveNavbar> {
 
   @override
   Widget build(BuildContext context) {
+    final mediaQuery = MediaQuery.of(context);
+
     ResponsiveNavbar.isLargeScreen = switch (stows.layoutSize.value) {
-      LayoutSize.auto => MediaQuery.sizeOf(context).width >= 600,
+      LayoutSize.auto => mediaQuery.size.width >= 600,
       LayoutSize.phone => false,
       LayoutSize.tablet => true,
     };
@@ -90,13 +92,29 @@ class _ResponsiveNavbarState extends State<ResponsiveNavbar> {
       );
     } // else mobile
 
-    return Scaffold(
-      body: widget.body,
-      bottomNavigationBar: HorizontalNavbar(
-        destinations: HomeRoutes.navigationDestinations,
-        selectedIndex: widget.selectedIndex,
-        onDestinationSelected: onDestinationSelected,
-      ),
+    final navbarClearance = HorizontalNavbar.clearanceHeightOf(context);
+    return Stack(
+      children: [
+        MediaQuery(
+          data: mediaQuery.copyWith(
+            padding:
+                mediaQuery.padding + EdgeInsets.only(bottom: navbarClearance),
+            viewPadding:
+                mediaQuery.viewPadding +
+                EdgeInsets.only(bottom: navbarClearance),
+          ),
+          child: widget.body,
+        ),
+        PositionedDirectional(
+          bottom: 0,
+          end: 0,
+          child: HorizontalNavbar(
+            destinations: HomeRoutes.navigationDestinations,
+            selectedIndex: widget.selectedIndex,
+            onDestinationSelected: onDestinationSelected,
+          ),
+        ),
+      ],
     );
   }
 
