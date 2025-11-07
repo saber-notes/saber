@@ -123,4 +123,48 @@ void main() {
       );
     }
   });
+
+  group('SaberVersion class', () {
+    test('getters', () {
+      final version = SaberVersion.fromNumber(127018);
+      expect(version.buildName, '1.27.1');
+      expect(version.buildNameWithCommas, '1,27,1');
+      expect(version.buildNumber, 127018);
+      expect(version.buildNumberWithoutRevision, 127010);
+      expect(version.copyWith(revision: 5).buildNumber, 127015);
+    });
+    test('Equality', () {
+      final version = SaberVersion.fromNumber(127018);
+
+      final sameVersion = SaberVersion.fromNumber(127018);
+      expect(version == sameVersion, true);
+      final sameVersionRevised = SaberVersion.fromNumber(127019);
+      expect(version == sameVersionRevised, true);
+
+      final previousVersion = SaberVersion.fromNumber(127000);
+      expect(version == previousVersion, false);
+      final nextVersion = SaberVersion.fromNumber(127020);
+      expect(version == nextVersion, false);
+    });
+    test('Object overrides', () {
+      final version = SaberVersion.fromNumber(127018);
+      expect(version.toString(), '1.27.1');
+      expect(version.hashCode, Object.hash(1, 27, 1));
+    });
+    test('bumpMajor', () {
+      final version = SaberVersion.fromNumber(127018);
+      final bumped = version.bumpMajor();
+      expect(bumped.buildName, '2.0.0');
+    });
+    test('bumpMinor', () {
+      final version = SaberVersion.fromNumber(127018);
+      final bumped = version.bumpMinor();
+      expect(bumped.buildName, '1.28.0');
+    });
+    test('bumpPatch', () {
+      final version = SaberVersion.fromNumber(127018);
+      final bumped = version.bumpPatch();
+      expect(bumped.buildName, '1.27.2');
+    });
+  });
 }

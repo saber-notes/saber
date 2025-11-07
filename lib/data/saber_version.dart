@@ -61,5 +61,5 @@ class SaberVersion {
       patch == other.patch;
 
   @override
-  int get hashCode => buildNumber;
+  int get hashCode => Object.hash(major, minor, patch);
 }
