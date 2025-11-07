@@ -16,8 +16,9 @@ void main() {
   group('LoginPage', () {
     setUp(() {
       FlavorConfig.setup();
-      _theme = SaberTheme.createTheme(
-        ColorScheme.fromSeed(seedColor: Colors.yellow),
+      _theme = SaberTheme.createThemeFromSeed(
+        Colors.yellow,
+        Brightness.light,
         _device.platform,
       );
       stows.username.value = 'testuser';
