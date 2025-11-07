@@ -26,7 +26,6 @@ abstract class SaberTheme {
     return ThemeData(
       useMaterial3: true,
       colorScheme: colorScheme,
-      scaffoldBackgroundColor: colorScheme.surface,
       textTheme: createTextTheme(colorScheme.brightness),
       platform: platform,
       pageTransitionsTheme: _pageTransitionsTheme,
@@ -93,6 +92,11 @@ abstract class SaberTheme {
     TargetPlatform platform,
   ) {
     return colorScheme.copyWith(
+      surface: platform.isCupertino
+          ? (colorScheme.brightness == Brightness.light
+                ? CupertinoColors.white
+                : CupertinoColors.darkBackgroundGray)
+          : null,
       // Hack: Mimic Material 3 Expressive color schemes by making
       // surfaceContainer much closer to surface.
       // Remove this when Flutter supports M3E natively.
@@ -128,6 +132,12 @@ extension SaberThemePlatform on TargetPlatform {
   /// iOS uses Yaru's colorscheme since it looks more native than M3.
   bool get usesYaruColors => switch (this) {
     TargetPlatform.linux => true,
+    TargetPlatform.iOS => true,
+    TargetPlatform.macOS => true,
+    _ => false,
+  };
+
+  bool get isCupertino => switch (this) {
     TargetPlatform.iOS => true,
     TargetPlatform.macOS => true,
     _ => false,
