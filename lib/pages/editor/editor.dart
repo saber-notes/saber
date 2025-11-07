@@ -2067,14 +2067,7 @@ class EditorState extends State<Editor> {
 
   @override
   void dispose() {
-    (() async {
-      if (_renameTimer?.isActive ?? false) {
-        _renameTimer!.cancel();
-        await _renameFileNow();
-        filenameTextEditingController.dispose();
-      }
-      await saveToFile();
-    })();
+    unawaited(_cleanUpAsync());
 
     DynamicMaterialApp.removeFullscreenListener(_setState);
 
@@ -2084,8 +2077,6 @@ class EditorState extends State<Editor> {
 
     _removeKeybindings();
 
-    coreInfo.dispose();
-
     // manually save pen properties since the listeners don't fire if a property is changed
     stows.lastFountainPenOptions.notifyListeners();
     stows.lastBallpointPenOptions.notifyListeners();
@@ -2094,5 +2085,18 @@ class EditorState extends State<Editor> {
     stows.lastShapePenOptions.notifyListeners();
 
     super.dispose();
+  }
+
+  Future<void> _cleanUpAsync() async {
+    try {
+      if (_renameTimer?.isActive ?? false) {
+        _renameTimer!.cancel();
+        await _renameFileNow();
+        filenameTextEditingController.dispose();
+      }
+      await saveToFile();
+    } finally {
+      coreInfo.dispose();
+    }
   }
 }
