@@ -37,6 +37,7 @@ abstract class SaberTheme {
       cupertinoOverrideTheme: const NoDefaultCupertinoThemeData(
         applyThemeToAll: true,
       ),
+      appBarTheme: const AppBarTheme(centerTitle: false),
     );
   }
 

@@ -161,9 +161,9 @@ class _SettingsPageState extends State<SettingsPage> {
                   t.home.titles.settings,
                   style: TextStyle(color: colorScheme.onSurface),
                 ),
-                centerTitle: cupertino,
-                titlePadding: EdgeInsetsDirectional.only(
-                  start: cupertino ? 0 : 16,
+                centerTitle: false,
+                titlePadding: const EdgeInsetsDirectional.only(
+                  start: 16,
                   bottom: 16,
                 ),
               ),

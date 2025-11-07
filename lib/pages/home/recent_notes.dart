@@ -133,9 +133,9 @@ class _RecentPageState extends State<RecentPage> {
                     t.home.titles.home,
                     style: TextStyle(color: colorScheme.onSurface),
                   ),
-                  centerTitle: platform.isCupertino,
-                  titlePadding: EdgeInsetsDirectional.only(
-                    start: platform.isCupertino ? 0 : 16,
+                  centerTitle: false,
+                  titlePadding: const EdgeInsetsDirectional.only(
+                    start: 16,
                     bottom: 16,
                   ),
                 ),

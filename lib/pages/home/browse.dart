@@ -138,10 +138,10 @@ class _BrowsePageState extends State<BrowsePage> {
                   t.home.titles.browse,
                   style: TextStyle(color: colorScheme.onSurface),
                 ),
-                centerTitle: platform.isCupertino,
-                titlePadding: EdgeInsetsDirectional.only(
-                  start: platform.isCupertino ? 0 : 16,
-                  bottom: 8,
+                centerTitle: false,
+                titlePadding: const EdgeInsetsDirectional.only(
+                  start: 16,
+                  bottom: 8, // less than other pages for path components
                 ),
               ),
               actions: const [SyncingButton()],

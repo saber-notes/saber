@@ -5,7 +5,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:logging/logging.dart';
 import 'package:saber/components/theming/adaptive_icon.dart';
 import 'package:saber/components/theming/font_fallbacks.dart';
-import 'package:saber/components/theming/saber_theme.dart';
 import 'package:saber/i18n/strings.g.dart';
 
 final logsHistory = _LogsHistory();
@@ -64,7 +63,11 @@ class LogsPage extends StatelessWidget {
                     t.logs.logs,
                     style: TextStyle(color: colorScheme.onSurface),
                   ),
-                  centerTitle: theme.platform.isCupertino,
+                  centerTitle: false,
+                  titlePadding: const EdgeInsetsDirectional.only(
+                    start: 16,
+                    bottom: 16,
+                  ),
                 ),
                 actions: [
                   if (logsHistory.isFrozen)
@@ -169,7 +172,7 @@ class _LogsItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8),
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
