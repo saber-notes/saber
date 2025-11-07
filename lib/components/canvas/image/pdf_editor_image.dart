@@ -126,9 +126,11 @@ class PdfEditorImage extends EditorImage {
       dstRect = dstRect.topLeft & dstSize;
     }
 
-    _pdfDocument.value ??= pdfFile != null
-        ? await PdfDocument.openFile(pdfFile!.path)
-        : await PdfDocument.openData(pdfBytes!);
+    assert(id != -1, 'id must be set before firstLoad is called');
+    _pdfDocument.value ??= await assetCache.pdfDocumentCache.load(
+      pdfFile?.path ?? 'inline_pdf_$id.pdf',
+      pdfBytes: pdfBytes,
+    );
   }
 
   @override
@@ -199,4 +201,11 @@ class PdfEditorImage extends EditorImage {
     naturalSize: naturalSize,
     isThumbnail: isThumbnail,
   );
+
+  @override
+  void dispose() {
+    pdfBytes = null;
+    _pdfDocument.dispose();
+    super.dispose();
+  }
 }

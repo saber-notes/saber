@@ -288,6 +288,9 @@ class EditorPage extends ChangeNotifier implements HasSize {
     quill.dispose();
     _pencilShader?.dispose();
     isRendered = false;
+    for (final image in images) {
+      image.dispose();
+    }
     backgroundImage?.dispose();
     super.dispose();
   }

@@ -5,6 +5,7 @@ import 'package:collection/collection.dart';
 import 'package:flutter/painting.dart';
 import 'package:logging/logging.dart';
 import 'package:saber/components/canvas/image/editor_image.dart';
+import 'package:saber/components/canvas/image/pdf_document_cache.dart';
 
 /// A cache for assets that are loaded from disk.
 ///
@@ -17,6 +18,8 @@ class AssetCache {
   AssetCache();
 
   final log = Logger('AssetCache');
+
+  final pdfDocumentCache = PdfDocumentCache();
 
   /// Maps a file path to its value.
   final Map<String, Object> _cache = {};
@@ -73,6 +76,7 @@ class AssetCache {
   void dispose() {
     _images.clear();
     _cache.clear();
+    pdfDocumentCache.dispose();
   }
 }
 
