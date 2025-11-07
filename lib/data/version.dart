@@ -2,10 +2,10 @@
 // Run `./scripts/bump_version.dart --help` for more information.
 
 /// The current app version as an ordinal number.
-const buildNumber = 127010;
+const buildNumber = 127020;
 
 /// The current app version as a string.
-const buildName = '1.27.1';
+const buildName = '1.27.2';
 
 /// The year in which the current version was released.
 const buildYear = 2025;

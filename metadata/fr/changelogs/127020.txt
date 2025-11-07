@@ -1,0 +1,5 @@
+• Correction du blocage de l'application entière si vous choisissez la langue espéranto. 
+• Correction de la barre de navigation ne mettant pas à jour son texte lorsque vous changez de langue. 
+• Correction du pourcentage de stockage utilisé qui n'était pas arrondi. 
+• Libération de mémoire utilisée par les images et les PDF. 
+• Suppression de l'effet sonore du crayon.

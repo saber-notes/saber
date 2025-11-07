@@ -214,6 +214,17 @@
     </screenshots>
 
     <releases>
+        <release version="1.27.2" type="development" date="2025-11-07">
+            <description>
+                <ul>
+                    <li>Fixed the entire app breaking if you choose the Esperanto language.</li>
+                    <li>Fixed the navigation bar not updating its text when you change language.</li>
+                    <li>Fixed the storage used percentage not being rounded.</li>
+                    <li>Freed up memory used by images and PDFs.</li>
+                    <li>Removed the pencil sound effect, and removed the sound+microphone flatpak permission.</li>
+                </ul>
+            </description>
+        </release>
         <release version="1.27.1" type="development" date="2025-11-02">
             <description>
                 <ul>
