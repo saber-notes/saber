@@ -102,27 +102,16 @@ class DynamicMaterialAppState extends State<DynamicMaterialApp>
     if (platform == TargetPlatform.linux) {
       return YaruBuilder(
         primary: chosenAccentColor, // if null, falls back to system color
-        builder: (context, yaru, _) {
+        platform: platform,
+        builder: (context, themes) {
           return ExplicitlyThemedApp(
             title: widget.title,
             router: widget.router,
             themeMode: stows.appTheme.value,
-            theme: (yaru.theme ?? yaruLight).copyWith(
-              platform: platform,
-              textTheme: SaberTheme.createTextTheme(Brightness.light),
-            ),
-            darkTheme: (yaru.darkTheme ?? yaruDark).copyWith(
-              platform: platform,
-              textTheme: SaberTheme.createTextTheme(Brightness.dark),
-            ),
-            highContrastTheme: yaruHighContrastLight.copyWith(
-              platform: platform,
-              textTheme: SaberTheme.createTextTheme(Brightness.light),
-            ),
-            highContrastDarkTheme: yaruHighContrastDark.copyWith(
-              platform: platform,
-              textTheme: SaberTheme.createTextTheme(Brightness.dark),
-            ),
+            theme: themes.theme,
+            darkTheme: themes.darkTheme,
+            highContrastTheme: themes.highContrastTheme,
+            highContrastDarkTheme: themes.highContrastDarkTheme,
           );
         },
       );
@@ -154,17 +143,17 @@ class DynamicMaterialAppState extends State<DynamicMaterialApp>
           title: widget.title,
           router: widget.router,
           themeMode: stows.appTheme.value,
-          theme: lightColorScheme != null
+          theme: (!platform.usesYaruColors && lightColorScheme != null)
               ? SaberTheme.createTheme(lightColorScheme, platform)
               : SaberTheme.createThemeFromSeed(
-                  widget.defaultSwatch,
+                  lightColorScheme?.primary ?? widget.defaultSwatch,
                   Brightness.light,
                   platform,
                 ),
-          darkTheme: darkColorScheme != null
+          darkTheme: (!platform.usesYaruColors && darkColorScheme != null)
               ? SaberTheme.createTheme(darkColorScheme, platform)
               : SaberTheme.createThemeFromSeed(
-                  widget.defaultSwatch,
+                  darkColorScheme?.primary ?? widget.defaultSwatch,
                   Brightness.dark,
                   platform,
                 ),

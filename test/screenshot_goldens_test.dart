@@ -71,21 +71,21 @@ void main() {
       stows.recentFiles.value = recentFiles..sort();
     });
 
-    final colorScheme = ColorScheme.fromSeed(
-      seedColor: const Color(0xffdae2ff),
-      surface: const Color(0xfffefbff),
-    );
-    final materialTheme = SaberTheme.createTheme(
-      colorScheme,
+    const seedColor = YaruColors.blue;
+    final materialTheme = SaberTheme.createThemeFromSeed(
+      seedColor,
+      Brightness.light,
       TargetPlatform.android,
     );
-    final cupertinoTheme = SaberTheme.createTheme(
-      colorScheme,
+    final cupertinoTheme = SaberTheme.createThemeFromSeed(
+      seedColor,
+      Brightness.light,
       TargetPlatform.iOS,
     );
-    const yaruTheme = YaruThemeData(
-      variant: YaruVariant.orange,
-      useMaterial3: true,
+    final yaruTheme = SaberTheme.createThemeFromSeed(
+      seedColor,
+      Brightness.light,
+      TargetPlatform.linux,
     );
 
     _screenshot(
@@ -123,7 +123,7 @@ void _screenshot({
   ScreenshotFrameColors? frameColors,
   required ThemeData materialTheme,
   required ThemeData cupertinoTheme,
-  required YaruThemeData yaruTheme,
+  required ThemeData yaruTheme,
   required String goldenFileName,
   required Widget child,
 }) {
@@ -171,7 +171,7 @@ void _screenshot({
 
         final widget = ScreenshotApp.withConditionalTitlebar(
           theme: switch (device.platform) {
-            TargetPlatform.linux => yaruTheme.theme,
+            TargetPlatform.linux => yaruTheme,
             TargetPlatform.iOS || TargetPlatform.macOS => cupertinoTheme,
             _ => materialTheme,
           },
