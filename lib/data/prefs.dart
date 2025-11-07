@@ -387,7 +387,8 @@ class Stows {
     volatile: !_isOnMainIsolate,
   );
 
-  static bool get isDesktop =>
+  @pragma('vm:platform-const')
+  static final isDesktop =
       Platform.isLinux || Platform.isWindows || Platform.isMacOS;
 }
 
