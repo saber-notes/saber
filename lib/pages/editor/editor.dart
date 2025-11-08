@@ -875,6 +875,8 @@ class EditorState extends State<Editor> {
   }
 
   void autosaveAfterDelay() {
+    if (history.isCurrentStateSaved) return cancelAutosaveAndMarkSaved();
+
     late final void Function() callback;
 
     void startTimer() {
@@ -899,6 +901,11 @@ class EditorState extends State<Editor> {
     startTimer();
   }
 
+  void cancelAutosaveAndMarkSaved() {
+    _delayedSaveTimer?.cancel();
+    savingState.value = SavingState.saved;
+  }
+
   Future<void> saveToFile() async {
     if (coreInfo.readOnly) return;
 
@@ -915,6 +922,7 @@ class EditorState extends State<Editor> {
         _delayedSaveTimer?.cancel();
         savingState.value = SavingState.saving;
     }
+    if (history.isCurrentStateSaved) return cancelAutosaveAndMarkSaved();
 
     await _renameFileNow();
 
@@ -945,6 +953,7 @@ class EditorState extends State<Editor> {
         FileManager.removeUnusedAssets(filePath, numAssets: assets.length),
       ]);
       savingState.value = SavingState.saved;
+      history.markLastChangeAsSaved();
     } catch (e) {
       log.severe('Failed to save file: $e', e);
       savingState.value = SavingState.waitingToSave;

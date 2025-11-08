@@ -20,6 +20,10 @@ class EditorHistory {
   /// See also: [_past]
   final List<EditorHistoryItem> _future = [];
 
+  /// The last saved state in the history.
+  /// This is used to determine whether an autosave is needed.
+  EditorHistoryItem? _lastSaved;
+
   /// True if redo is possible.
   /// We don't directly clear [_future] because we sometimes need to
   /// reject strokes (i.e. accidental strokes when zooming).
@@ -79,6 +83,22 @@ class EditorHistory {
     _past.add(item);
     if (_past.length > maxHistoryLength) _past.removeAt(0);
     _isRedoPossible = false;
+  }
+
+  /// Marks the last change as saved to disk.
+  /// This does not modify the history stacks, but allows us to know
+  /// whether the current state is saved or not.
+  void markLastChangeAsSaved() {
+    _lastSaved = _past.lastOrNull;
+  }
+
+  /// Whether the current state is saved to disk.
+  ///
+  /// Note that this explicitly checks the last change in the history,
+  /// not whether _past is empty. This is because _past items can be discarded
+  /// if the history exceeds [maxHistoryLength].
+  bool get isCurrentStateSaved {
+    return _past.lastOrNull == _lastSaved;
   }
 
   /// Removes the last history item due to a rejected stroke.
