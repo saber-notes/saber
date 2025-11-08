@@ -18,8 +18,8 @@
     </developer>
 
     <branding>
-        <color type="primary" scheme_preference="light">#fffeac</color>
-        <color type="primary" scheme_preference="dark">#494900</color>
+        <color type="primary" scheme_preference="light">#fff6da</color>
+        <color type="primary" scheme_preference="dark">#705600</color>
     </branding>
 
     <metadata_license>MIT</metadata_license>
