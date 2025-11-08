@@ -69,7 +69,7 @@ jobs:
 
           keychain add-certificates
 
-          xcode-project use-profiles
+          xcode-project use-profiles --project macos/*.xcodeproj
 
       - name: Disable Flutter CLI animations
         run: flutter config --no-cli-animations
