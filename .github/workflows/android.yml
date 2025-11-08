@@ -87,7 +87,7 @@ jobs:
         run: ./patches/patch_rust_versions.sh
 
       - name: Build apk
-        run: flutter build apk --dart-define=DIRTY=${{ !startsWith(github.ref, 'refs/tags/') }}
+        run: flutter build apk
 
       - name: Rename apk
         id: rename_apk

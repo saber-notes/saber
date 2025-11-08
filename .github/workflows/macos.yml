@@ -84,8 +84,7 @@ jobs:
           flutter build macos \
             --dart-define=FLAVOR="App Store" \
             --dart-define=APP_STORE="App Store" \
-            --dart-define=UPDATE_CHECK="false" \
-            --dart-define=DIRTY="false"
+            --dart-define=UPDATE_CHECK="false"
 
       - name: Package for App Store
         id: package

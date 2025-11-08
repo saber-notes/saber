@@ -248,7 +248,6 @@ appInfo:
   licenseNotice: |-
     Saber  Copyright © 2022-$buildYear  Adil Hanney
     Este programa no tiene ninguna garantía. Es un software libre, y se puede redistribuir bajo ciertas condiciones.
-  dirty: DIRTY
   debug: DEBUG
   sponsorButton: Toca aquí para patrocinarme o comprar más almacenamiento
   licenseButton: Toca aquí para ver más información sobre la licencia

@@ -250,7 +250,6 @@ appInfo:
   licenseNotice: |-
     Saber Copyright © 2022-$buildYear Adil Hanney
     Questo programma non ha alcuna garanzia. Questo è un software libero e sei libero di ridistribuirlo a determinate condizioni.
-  dirty: GROSSOLANA
   debug: DEBUG
   sponsorButton: Tocca qui per sponsorizzarmi o acquistare altro spazio di archiviazione
   licenseButton: Tocca qui per visualizzare ulteriori informazioni sulla licenza

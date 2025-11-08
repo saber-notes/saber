@@ -187,7 +187,6 @@ class _TranslationsAppInfoEo extends TranslationsAppInfoEn {
 
 	// Translations
 	@override String licenseNotice({required Object buildYear}) => 'Kopirajto de Saber © 2022-${buildYear} Adil Hanney\nĈi tiu programo havas neniun garantion. Ĉi tio estas senpaga programaro, kaj vi bonvenas redistribui ĝin kun certaj kondiĉoj.';
-	@override String get dirty => 'MALPURA';
 	@override String get debug => 'SENERARIGADO';
 	@override String get sponsorButton => 'Frapu ĉi tie por sponsori min aŭ aĉeti pli da memorospaco';
 	@override String get licenseButton => 'Frapu ĉi tie por vidi pli da informoj pri la licenco';

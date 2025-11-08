@@ -185,7 +185,6 @@ class _TranslationsAppInfoHe extends TranslationsAppInfoEn {
 
 	// Translations
 	@override String licenseNotice({required Object buildYear}) => 'Saber  Copyright © 2022-${buildYear}  Adil Hanney\nתוכנית זו מגיעה ללא כל אחריות. זוהי תוכנה חופשית ואתה מוזמן להפיץ אותו מחדש בתנאים מסוימים.';
-	@override String get dirty => 'מלוכלך';
 	@override String get debug => 'דִּיבָּג';
 	@override String get sponsorButton => 'הקש כאן כדי לתת לי חסות או לקנות שטח אחסון נוסף';
 	@override String get licenseButton => 'הקש כאן כדי להציג פרטי רישיון נוספים';

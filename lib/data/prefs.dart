@@ -374,7 +374,7 @@ class Stows {
   );
   final shouldAlwaysAlertForUpdates = PlainStow(
     'shouldAlwaysAlertForUpdates',
-    (kDebugMode || FlavorConfig.dirty) ? true : false,
+    kDebugMode ? true : false,
     volatile: !_isOnMainIsolate,
   );
 

@@ -36,8 +36,7 @@ Future<void> main(List<String> args) async {
   /// flutter build \
   ///   --dart-define=FLAVOR="Google Play" \
   ///   --dart-define=APP_STORE="Google Play" \
-  ///   --dart-define=UPDATE_CHECK="false" \
-  ///   --dart-define=DIRTY="false"
+  ///   --dart-define=UPDATE_CHECK="false"
   FlavorConfig.setupFromEnvironment();
 
   await initSentry(() => appRunner(args));

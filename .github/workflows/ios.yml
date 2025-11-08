@@ -85,7 +85,6 @@ jobs:
             --dart-define=FLAVOR="App Store" \
             --dart-define=APP_STORE="App Store" \
             --dart-define=UPDATE_CHECK="false" \
-            --dart-define=DIRTY="false" \
             --export-options-plist=$HOME/export_options.plist
 
       - name: Move IPA

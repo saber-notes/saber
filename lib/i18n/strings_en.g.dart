@@ -256,9 +256,6 @@ class TranslationsAppInfoEn {
 	/// en: 'Saber Copyright © 2022-$buildYear Adil Hanney This program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.'
 	String licenseNotice({required Object buildYear}) => 'Saber  Copyright © 2022-${buildYear}  Adil Hanney\nThis program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.';
 
-	/// en: 'DIRTY'
-	String get dirty => 'DIRTY';
-
 	/// en: 'DEBUG'
 	String get debug => 'DEBUG';
 

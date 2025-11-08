@@ -251,7 +251,6 @@ appInfo:
   licenseNotice: |-
     Kopirajto de Saber © 2022-$buildYear Adil Hanney
     Ĉi tiu programo havas neniun garantion. Ĉi tio estas senpaga programaro, kaj vi bonvenas redistribui ĝin kun certaj kondiĉoj.
-  dirty: MALPURA
   debug: SENERARIGADO
   sponsorButton: Frapu ĉi tie por sponsori min aŭ aĉeti pli da memorospaco
   licenseButton: Frapu ĉi tie por vidi pli da informoj pri la licenco

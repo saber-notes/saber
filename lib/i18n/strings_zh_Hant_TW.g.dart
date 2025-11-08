@@ -187,7 +187,6 @@ class _TranslationsAppInfoZhHantTw extends TranslationsAppInfoEn {
 
 	// Translations
 	@override String licenseNotice({required Object buildYear}) => 'Saber  版權所有 © 2022-${buildYear}  Adil Hanney\nThis program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.';
-	@override String get dirty => 'DIRTY';
 	@override String get debug => 'DEBUG';
 	@override String get sponsorButton => '點擊此處贊助我或購買更多儲存空間';
 	@override String get licenseButton => '點擊此處查看更多許可證資訊';

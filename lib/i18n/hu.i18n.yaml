@@ -249,7 +249,6 @@ appInfo:
   licenseNotice: |-
     Saber Copyright © 2022-$buildYear Adil Hanney
     Ez a program nem tartalmaz semmilyen garanciát. Ez egy szabad szoftver, és bizonyos feltételek mellett szabadon terjeszthető.
-  dirty: DIRTY
   debug: DEBUG
   sponsorButton: Ide kattintva támogathat engem vagy vásárolhat több tárhelyet
   licenseButton: További licencinformációk megtekintéséhez kattintson ide

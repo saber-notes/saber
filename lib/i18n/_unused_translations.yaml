@@ -2,6 +2,14 @@
   - Here are translations that exist in secondary locales but not in <en>.
   - "[--full enabled] Furthermore, translations not used in 'lib/' according to the 't.<path>' pattern are written into <en>."
 en: 
+  settings: 
+    prefLabels: 
+      pencilSoundSetting: Pencil sound effect
+    prefDescriptions: 
+      pencilSoundSetting: 
+        off: No sound
+        onButNotInSilentMode: Enabled (unless in silent mode)
+        onAlways: Enabled (even in silent mode)
 ar: 
 cs: 
 de: 

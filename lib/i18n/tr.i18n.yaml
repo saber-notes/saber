@@ -251,7 +251,6 @@ appInfo:
     Saber  Copyright © 2022-$buildYear  Adil Hanney
     Bu program hiçbir şeyi garanti etmez ve güvence vermez.
     Bu program özgür (free) bir yazılımdır ve belli koşullar sağlandığında yeniden dağıtıma müsaittir.
-  dirty: TEST
   debug: DEBUG
   sponsorButton: Beni sponsorlamak veya daha fazla alan satın almak için buraya tıkla
   licenseButton: Lisans bilgisinin detaylarını görmek için buraya tıkla

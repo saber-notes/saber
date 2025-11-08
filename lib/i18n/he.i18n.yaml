@@ -250,7 +250,6 @@ appInfo:
   licenseNotice: |-
     Saber  Copyright © 2022-$buildYear  Adil Hanney
     תוכנית זו מגיעה ללא כל אחריות. זוהי תוכנה חופשית ואתה מוזמן להפיץ אותו מחדש בתנאים מסוימים.
-  dirty: מלוכלך
   debug: דִּיבָּג
   sponsorButton: הקש כאן כדי לתת לי חסות או לקנות שטח אחסון נוסף
   licenseButton: הקש כאן כדי להציג פרטי רישיון נוספים

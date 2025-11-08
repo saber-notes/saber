@@ -251,7 +251,6 @@ appInfo:
   licenseNotice: |-
     Saber  Copyright © 2022-$buildYear  Adil Hanney
     This program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.
-  dirty: DIRTY
   debug: DEBUG
   sponsorButton: Tap here to sponsor me or buy more storage
   licenseButton: Tap here to view more license information
