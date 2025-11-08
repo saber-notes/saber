@@ -407,7 +407,6 @@ class _TranslationsSettingsPrefLabelsFr extends TranslationsSettingsPrefLabelsEn
 	@override String get sentry => 'Rapports d\'erreur';
 	@override String get autosave => 'S\'attacher automatiquement';
 	@override String get simplifiedHomeLayout => 'Aménagement d\'une maison simplifié';
-	@override String get pencilSoundSetting => 'Effet sonore de crayon';
 	@override String get customDataDir => 'Répertoire de données personnalisé';
 	@override String get autoStraightenLines => 'Redresser automatiquement les lignes';
 }
@@ -430,7 +429,6 @@ class _TranslationsSettingsPrefDescriptionsFr extends TranslationsSettingsPrefDe
 	@override String get printPageIndicators => 'Montrer les numéros de pages dans les exportations';
 	@override String get shapeRecognitionDelay => 'Avec quelle fréquence mettre à jour la prévisualisation de forme';
 	@override String get shouldAlwaysAlertForUpdates => 'Me prévenir dès qu\'une mise à jour est disponible';
-	@override late final _TranslationsSettingsPrefDescriptionsPencilSoundSettingFr pencilSoundSetting = _TranslationsSettingsPrefDescriptionsPencilSoundSettingFr._(_root);
 	@override late final _TranslationsSettingsPrefDescriptionsSentryFr sentry = _TranslationsSettingsPrefDescriptionsSentryFr._(_root);
 	@override String get autosave => 'S\'attacher automatiquement après un court délai, ou jamais';
 	@override String get simplifiedHomeLayout => 'Définit une hauteur fixe pour chaque aperçu de note';
@@ -824,18 +822,6 @@ class _TranslationsSettingsPrefDescriptionsHideFingerDrawingFr extends Translati
 	@override String get shown => 'Empêcher l\'activation/désactivation accidentelle';
 	@override String get fixedOn => 'Le tracé au doigt est fixé à activé';
 	@override String get fixedOff => 'Le tracé au doigt est fixé à désactivé';
-}
-
-// Path: settings.prefDescriptions.pencilSoundSetting
-class _TranslationsSettingsPrefDescriptionsPencilSoundSettingFr extends TranslationsSettingsPrefDescriptionsPencilSoundSettingEn {
-	_TranslationsSettingsPrefDescriptionsPencilSoundSettingFr._(TranslationsFr root) : this._root = root, super.internal(root);
-
-	final TranslationsFr _root; // ignore: unused_field
-
-	// Translations
-	@override String get off => 'Pas de son';
-	@override String get onButNotInSilentMode => 'Activé (sauf en mode silencieux)';
-	@override String get onAlways => 'Activé (même en mode silencieux)';
 }
 
 // Path: settings.prefDescriptions.sentry

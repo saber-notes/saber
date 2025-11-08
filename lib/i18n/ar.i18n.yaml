@@ -107,7 +107,6 @@ settings:
     autoStraightenLines: استقامة الخطوط تلقائيًا
     simplifiedHomeLayout: تخطيط الصفحة الرئيسية المبسط
     customDataDir: مخصص Saber مجلد
-    pencilSoundSetting: تأثير صوت القلم
     sentry(OUTDATED): الإبلاغ خطأ
     autosave(OUTDATED): تلقائي
   prefDescriptions: 
@@ -127,10 +126,6 @@ settings:
     autoStraightenLines: استقامة الخطوط الطويلة بدون الحاجة لاستخدام قلم الشكل
     simplifiedHomeLayout: تعيين ارتفاع ثابت لكل معاينة ملاحظة
     shouldAlwaysAlertForUpdates: أبلغني عن التحديثات بمجرد توفرها
-    pencilSoundSetting: 
-      off: بدون صوت
-      onButNotInSilentMode: مفعل (ما لم يكن في وضع الصامت)
-      onAlways: مفعل (حتى في وضع الصامت)
     sentry: 
       active(OUTDATED): نشيط
       inactive(OUTDATED): غير نشط

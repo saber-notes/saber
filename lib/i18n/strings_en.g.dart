@@ -650,9 +650,6 @@ class TranslationsSettingsPrefLabelsEn {
 	/// en: 'Custom Saber folder'
 	String get customDataDir => 'Custom Saber folder';
 
-	/// en: 'Pencil sound effect'
-	String get pencilSoundSetting => 'Pencil sound effect';
-
 	/// en: 'Error reporting'
 	String get sentry => 'Error reporting';
 }
@@ -706,7 +703,6 @@ class TranslationsSettingsPrefDescriptionsEn {
 	/// en: 'Tell me about updates as soon as they're available'
 	String get shouldAlwaysAlertForUpdates => 'Tell me about updates as soon as they\'re available';
 
-	late final TranslationsSettingsPrefDescriptionsPencilSoundSettingEn pencilSoundSetting = TranslationsSettingsPrefDescriptionsPencilSoundSettingEn.internal(_root);
 	late final TranslationsSettingsPrefDescriptionsSentryEn sentry = TranslationsSettingsPrefDescriptionsSentryEn.internal(_root);
 }
 
@@ -1360,24 +1356,6 @@ class TranslationsSettingsPrefDescriptionsHideFingerDrawingEn {
 
 	/// en: 'Finger drawing is fixed as disabled'
 	String get fixedOff => 'Finger drawing is fixed as disabled';
-}
-
-// Path: settings.prefDescriptions.pencilSoundSetting
-class TranslationsSettingsPrefDescriptionsPencilSoundSettingEn {
-	TranslationsSettingsPrefDescriptionsPencilSoundSettingEn.internal(this._root);
-
-	final Translations _root; // ignore: unused_field
-
-	// Translations
-
-	/// en: 'No sound'
-	String get off => 'No sound';
-
-	/// en: 'Enabled (unless in silent mode)'
-	String get onButNotInSilentMode => 'Enabled (unless in silent mode)';
-
-	/// en: 'Enabled (even in silent mode)'
-	String get onAlways => 'Enabled (even in silent mode)';
 }
 
 // Path: settings.prefDescriptions.sentry

@@ -107,7 +107,6 @@ settings:
     autoStraightenLines: Çizgileri otomatik düzleştir
     simplifiedHomeLayout: Sadeleştirilmiş ana ekran düzeni
     customDataDir: Özel Saber klasörü
-    pencilSoundSetting: Kurşun kalem ses efekti
     sentry(OUTDATED): Hata raporlama
     autosave(OUTDATED): Otomatik koruma
   prefDescriptions: 
@@ -127,10 +126,6 @@ settings:
     autoStraightenLines: Şekil aracını kullanmadığınızda da çizgileri düzleştirir
     simplifiedHomeLayout: Not önizlemelerinin uzunluklarını eşitler
     shouldAlwaysAlertForUpdates: Güncelleme mevcut olduğu gibi bana haber ver
-    pencilSoundSetting: 
-      off: Ses yok
-      onButNotInSilentMode: Etkin (sessiz modda değilse)
-      onAlways: Etkin (sessiz modda da)
     sentry: 
       active(OUTDATED): Aktif
       inactive(OUTDATED): Aktif olmayan

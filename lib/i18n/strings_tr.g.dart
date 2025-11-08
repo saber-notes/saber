@@ -409,7 +409,6 @@ class _TranslationsSettingsPrefLabelsTr extends TranslationsSettingsPrefLabelsEn
 	@override String get autoStraightenLines => 'Çizgileri otomatik düzleştir';
 	@override String get simplifiedHomeLayout => 'Sadeleştirilmiş ana ekran düzeni';
 	@override String get customDataDir => 'Özel Saber klasörü';
-	@override String get pencilSoundSetting => 'Kurşun kalem ses efekti';
 	@override String get sentry => 'Hata raporlama';
 	@override String get autosave => 'Otomatik koruma';
 }
@@ -434,7 +433,6 @@ class _TranslationsSettingsPrefDescriptionsTr extends TranslationsSettingsPrefDe
 	@override String get autoStraightenLines => 'Şekil aracını kullanmadığınızda da çizgileri düzleştirir';
 	@override String get simplifiedHomeLayout => 'Not önizlemelerinin uzunluklarını eşitler';
 	@override String get shouldAlwaysAlertForUpdates => 'Güncelleme mevcut olduğu gibi bana haber ver';
-	@override late final _TranslationsSettingsPrefDescriptionsPencilSoundSettingTr pencilSoundSetting = _TranslationsSettingsPrefDescriptionsPencilSoundSettingTr._(_root);
 	@override late final _TranslationsSettingsPrefDescriptionsSentryTr sentry = _TranslationsSettingsPrefDescriptionsSentryTr._(_root);
 	@override String get autosave => 'Kısa bir gecikmeden sonra otomatik kaydetme veya asla';
 }
@@ -825,18 +823,6 @@ class _TranslationsSettingsPrefDescriptionsHideFingerDrawingTr extends Translati
 	@override String get shown => 'Yanlışlıkla değiştirilmesini engeller';
 	@override String get fixedOn => 'Parmakla çizim izni verildi ve sabitlendi';
 	@override String get fixedOff => 'Parmakla çizim izni verilmedi ve sabitlendi';
-}
-
-// Path: settings.prefDescriptions.pencilSoundSetting
-class _TranslationsSettingsPrefDescriptionsPencilSoundSettingTr extends TranslationsSettingsPrefDescriptionsPencilSoundSettingEn {
-	_TranslationsSettingsPrefDescriptionsPencilSoundSettingTr._(TranslationsTr root) : this._root = root, super.internal(root);
-
-	final TranslationsTr _root; // ignore: unused_field
-
-	// Translations
-	@override String get off => 'Ses yok';
-	@override String get onButNotInSilentMode => 'Etkin (sessiz modda değilse)';
-	@override String get onAlways => 'Etkin (sessiz modda da)';
 }
 
 // Path: settings.prefDescriptions.sentry

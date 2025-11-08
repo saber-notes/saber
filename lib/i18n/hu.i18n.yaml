@@ -99,7 +99,6 @@ settings:
     sentry(OUTDATED): Hibajelentés
     autosave(OUTDATED): Automatikus mentés
     simplifiedHomeLayout(OUTDATED): Egyszerűsített otthoni elrendezés
-    pencilSoundSetting(OUTDATED): Ceruza hanghatás
     customDataDir(OUTDATED): Egyedi adatkönyvtár
     autoStraightenLines(OUTDATED): A vonalak automatikus kiegyenesítése
     shapeRecognitionDelay(OUTDATED): Alakfelismerési késleltetés
@@ -120,10 +119,6 @@ settings:
       fixedOn(OUTDATED): Az ujjlenyomat rögzítése engedélyezett állapotban van
       fixedOff(OUTDATED): Az ujjrajzolás letiltva van rögzítve
     editorPromptRename: A jegyzeteket később bármikor átnevezheti
-    pencilSoundSetting: 
-      off(OUTDATED): Nincs hang
-      onButNotInSilentMode(OUTDATED): Engedélyezve (kivéve, ha néma módban van)
-      onAlways(OUTDATED): Engedélyezve (néma módban is)
     sentry: 
       active(OUTDATED): Aktív
       inactive(OUTDATED): Tétlen

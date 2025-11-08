@@ -102,7 +102,6 @@ settings:
     sentry(OUTDATED): エラー報告
     autosave(OUTDATED): 自動保存
     simplifiedHomeLayout(OUTDATED): 簡素化されたホームレイアウト
-    pencilSoundSetting(OUTDATED): 鉛筆の効果音
     customDataDir(OUTDATED): カスタムデータディレクトリ
     autoStraightenLines(OUTDATED): 線を自動直線化する
     shapeRecognitionDelay(OUTDATED): 形状認識の遅延
@@ -122,10 +121,6 @@ settings:
       fixedOff(OUTDATED): 指の描画が無効に固定される
     editorPromptRename: メモの名前は後でいつでも変更できます
     printPageIndicators: エクスポートにページインジケーターを表示
-    pencilSoundSetting: 
-      off(OUTDATED): 無音
-      onButNotInSilentMode(OUTDATED): 有効 (サイレントモードでない場合)
-      onAlways(OUTDATED): 有効（サイレントモードでも）
     sentry: 
       active(OUTDATED): アクティブ
       inactive(OUTDATED): 非アクティブ

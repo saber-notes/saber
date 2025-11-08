@@ -410,7 +410,6 @@ class _TranslationsSettingsPrefLabelsEo extends TranslationsSettingsPrefLabelsEn
 	@override String get autoStraightenLines => 'Aŭtomate rektigu liniojn';
 	@override String get simplifiedHomeLayout => 'Simpligita ĉefekranaranĝo';
 	@override String get customDataDir => 'Kutima Saber-dosierujo';
-	@override String get pencilSoundSetting => 'Krajona sonefekto';
 	@override String get sentry => 'Erarraportado';
 }
 
@@ -435,7 +434,6 @@ class _TranslationsSettingsPrefDescriptionsEo extends TranslationsSettingsPrefDe
 	@override String get autoStraightenLines => 'Rektigas longajn liniojn sen uzado de la formskribilon';
 	@override String get simplifiedHomeLayout => 'Fiksas la alton por ĉiu notantaŭrigardo';
 	@override String get shouldAlwaysAlertForUpdates => 'Informu min pri ĝisdatigoj tuj kiam ili disponebliĝos';
-	@override late final _TranslationsSettingsPrefDescriptionsPencilSoundSettingEo pencilSoundSetting = _TranslationsSettingsPrefDescriptionsPencilSoundSettingEo._(_root);
 	@override late final _TranslationsSettingsPrefDescriptionsSentryEo sentry = _TranslationsSettingsPrefDescriptionsSentryEo._(_root);
 }
 
@@ -826,18 +824,6 @@ class _TranslationsSettingsPrefDescriptionsHideFingerDrawingEo extends Translati
 	@override String get shown => 'Malhelpas hazardan ŝaltadon';
 	@override String get fixedOn => 'Fingrodesegnado estas fiksita kiel ebligita';
 	@override String get fixedOff => 'Fingrodesegnado estas fiksita kiel malebligita';
-}
-
-// Path: settings.prefDescriptions.pencilSoundSetting
-class _TranslationsSettingsPrefDescriptionsPencilSoundSettingEo extends TranslationsSettingsPrefDescriptionsPencilSoundSettingEn {
-	_TranslationsSettingsPrefDescriptionsPencilSoundSettingEo._(TranslationsEo root) : this._root = root, super.internal(root);
-
-	final TranslationsEo _root; // ignore: unused_field
-
-	// Translations
-	@override String get off => 'Silentigita';
-	@override String get onButNotInSilentMode => 'Ebligita (krom en silentoreĝimo)';
-	@override String get onAlways => 'Ebligita (eĉ en silentoreĝimo)';
 }
 
 // Path: settings.prefDescriptions.sentry

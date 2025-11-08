@@ -108,7 +108,6 @@ settings:
     autoStraightenLines: Aŭtomate rektigu liniojn
     simplifiedHomeLayout: Simpligita ĉefekranaranĝo
     customDataDir: Kutima Saber-dosierujo
-    pencilSoundSetting: Krajona sonefekto
     sentry: Erarraportado
   prefDescriptions: 
     hyperlegibleFont: Pliigas legeblecon por uzantoj kun malalta vidkapablo
@@ -128,10 +127,6 @@ settings:
     autoStraightenLines: Rektigas longajn liniojn sen uzado de la formskribilon
     simplifiedHomeLayout: Fiksas la alton por ĉiu notantaŭrigardo
     shouldAlwaysAlertForUpdates: Informu min pri ĝisdatigoj tuj kiam ili disponebliĝos
-    pencilSoundSetting: 
-      off: Silentigita
-      onButNotInSilentMode: Ebligita (krom en silentoreĝimo)
-      onAlways: Ebligita (eĉ en silentoreĝimo)
     sentry: 
       active: Aktiva
       inactive: Malaktiva

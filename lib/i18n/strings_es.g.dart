@@ -405,7 +405,6 @@ class _TranslationsSettingsPrefLabelsEs extends TranslationsSettingsPrefLabelsEn
 	@override String get sentry => 'Informes de errores';
 	@override String get autosave => 'Auto-Save';
 	@override String get simplifiedHomeLayout => 'Disposición simplificada de la casa';
-	@override String get pencilSoundSetting => 'Efecto de sonido de lápiz';
 	@override String get customDataDir => 'Directorio de datos personalizado';
 	@override String get autoStraightenLines => 'Líneas de enderezamiento automático';
 	@override String get shapeRecognitionDelay => 'Retraso en el reconocimiento de formas';
@@ -428,7 +427,6 @@ class _TranslationsSettingsPrefDescriptionsEs extends TranslationsSettingsPrefDe
 	@override String get editorPromptRename => 'Siempre puedes cambiar el nombre de las notas más tarde';
 	@override String get printPageIndicators => 'Mostrar indicadores de página en las exportaciones';
 	@override String get shouldAlwaysAlertForUpdates => 'Avísame sobre actualizaciones tan pronto como estén disponibles';
-	@override late final _TranslationsSettingsPrefDescriptionsPencilSoundSettingEs pencilSoundSetting = _TranslationsSettingsPrefDescriptionsPencilSoundSettingEs._(_root);
 	@override late final _TranslationsSettingsPrefDescriptionsSentryEs sentry = _TranslationsSettingsPrefDescriptionsSentryEs._(_root);
 	@override String get autosave => 'Auto-Save después de un breve retraso, o nunca';
 	@override String get simplifiedHomeLayout => 'Establece una altura fija para cada vista previa de nota';
@@ -822,18 +820,6 @@ class _TranslationsSettingsPrefDescriptionsHideFingerDrawingEs extends Translati
 	@override String get shown => 'Evita cambios accidentales';
 	@override String get fixedOn => 'Dibujar o escribir con el dedo está activado';
 	@override String get fixedOff => 'Dibujar o escribir con el dedo está desactivado';
-}
-
-// Path: settings.prefDescriptions.pencilSoundSetting
-class _TranslationsSettingsPrefDescriptionsPencilSoundSettingEs extends TranslationsSettingsPrefDescriptionsPencilSoundSettingEn {
-	_TranslationsSettingsPrefDescriptionsPencilSoundSettingEs._(TranslationsEs root) : this._root = root, super.internal(root);
-
-	final TranslationsEs _root; // ignore: unused_field
-
-	// Translations
-	@override String get off => 'Sin sonido';
-	@override String get onButNotInSilentMode => 'Habilitado (a menos que esté en modo silencioso)';
-	@override String get onAlways => 'Habilitado (incluso en modo silencioso)';
 }
 
 // Path: settings.prefDescriptions.sentry

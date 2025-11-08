@@ -108,7 +108,6 @@ settings:
     autoStraightenLines: Автоматическое выпрямление линий
     simplifiedHomeLayout: Упрощённый главный экран
     customDataDir: Свой каталог Saber
-    pencilSoundSetting: Звуковой эффект карандаша
     sentry: Сообщить об ошибке
   prefDescriptions: 
     hyperlegibleFont: Шрифт Atkinson Hyperlegible повышает разборчивость для читателей с плохим зрением
@@ -128,10 +127,6 @@ settings:
     autoStraightenLines: Выпрямляет длинные линии без использования фигурного пера
     simplifiedHomeLayout: Фиксированная высота предварительного просмотра каждой заметки
     shouldAlwaysAlertForUpdates: Сообщать мне об обновлениях, как только они станут доступны
-    pencilSoundSetting: 
-      off: Без звука
-      onButNotInSilentMode: Включено (кроме тихого режима)
-      onAlways: Включено (даже в беззвучном режиме)
     sentry: 
       active: Активно
       inactive: Неактивно

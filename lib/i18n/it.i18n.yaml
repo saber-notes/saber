@@ -108,7 +108,6 @@ settings:
     autoStraightenLines: Raddrizzamento automatico delle linee
     simplifiedHomeLayout: Layout semplificato della home
     customDataDir: Cartella Saber personalizzata
-    pencilSoundSetting: Effetto sonoro della matita
     sentry: Segnalazione di errori
   prefDescriptions: 
     hyperlegibleFont: Atkinson Iperleggibile aumenta la leggibilità per i lettori ipovedenti
@@ -128,10 +127,6 @@ settings:
     autoStraightenLines: Raddrizza le linee lunghe senza dover utilizzare la penna sagomatrice
     simplifiedHomeLayout: Imposta un'altezza fissa per ogni anteprima della nota
     shouldAlwaysAlertForUpdates: Segnalami aggiornamenti non appena sono disponibili
-    pencilSoundSetting: 
-      off: Nessun suono
-      onButNotInSilentMode: Abilitato (a meno che non sia in modalità silenziosa)
-      onAlways: Abilitato (anche in modalità silenziosa)
     sentry: 
       active: Attivo
       inactive: Non attivo

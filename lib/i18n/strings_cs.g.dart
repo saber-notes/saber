@@ -410,7 +410,6 @@ class _TranslationsSettingsPrefLabelsCs extends TranslationsSettingsPrefLabelsEn
 	@override String get autoStraightenLines => 'Automaticky narovnávat čáry';
 	@override String get simplifiedHomeLayout => 'Zjednodušené rozložení domovské obrazovky';
 	@override String get customDataDir => 'Vlastní umístění složky aplikace Saber';
-	@override String get pencilSoundSetting => 'Zvukový efekt psaní tužkou';
 	@override String get sentry => 'Hlášení chyb';
 }
 
@@ -435,7 +434,6 @@ class _TranslationsSettingsPrefDescriptionsCs extends TranslationsSettingsPrefDe
 	@override String get autoStraightenLines => 'Automaticky narovná dlouhé čáry, aniž by bylo nutné využít tvarové pero';
 	@override String get simplifiedHomeLayout => 'Nastaví pevnou výšku pro každý náhled poznámky';
 	@override String get shouldAlwaysAlertForUpdates => 'Oznámit dostupnost aktualizací co nejdříve od jejich vydání';
-	@override late final _TranslationsSettingsPrefDescriptionsPencilSoundSettingCs pencilSoundSetting = _TranslationsSettingsPrefDescriptionsPencilSoundSettingCs._(_root);
 	@override late final _TranslationsSettingsPrefDescriptionsSentryCs sentry = _TranslationsSettingsPrefDescriptionsSentryCs._(_root);
 }
 
@@ -826,18 +824,6 @@ class _TranslationsSettingsPrefDescriptionsHideFingerDrawingCs extends Translati
 	@override String get shown => 'Zabraňuje nechtěnému přepnutí';
 	@override String get fixedOn => 'Kreslení prstem je napevno zapnuté';
 	@override String get fixedOff => 'Kreslení prstem je napevno vypnuté';
-}
-
-// Path: settings.prefDescriptions.pencilSoundSetting
-class _TranslationsSettingsPrefDescriptionsPencilSoundSettingCs extends TranslationsSettingsPrefDescriptionsPencilSoundSettingEn {
-	_TranslationsSettingsPrefDescriptionsPencilSoundSettingCs._(TranslationsCs root) : this._root = root, super.internal(root);
-
-	final TranslationsCs _root; // ignore: unused_field
-
-	// Translations
-	@override String get off => 'Bez zvuku';
-	@override String get onButNotInSilentMode => 'Zapnuto (mimo tichý režim)';
-	@override String get onAlways => 'Zapnuto (i v tichém režimu)';
 }
 
 // Path: settings.prefDescriptions.sentry

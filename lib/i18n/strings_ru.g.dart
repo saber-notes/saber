@@ -410,7 +410,6 @@ class _TranslationsSettingsPrefLabelsRu extends TranslationsSettingsPrefLabelsEn
 	@override String get autoStraightenLines => 'Автоматическое выпрямление линий';
 	@override String get simplifiedHomeLayout => 'Упрощённый главный экран';
 	@override String get customDataDir => 'Свой каталог Saber';
-	@override String get pencilSoundSetting => 'Звуковой эффект карандаша';
 	@override String get sentry => 'Сообщить об ошибке';
 }
 
@@ -435,7 +434,6 @@ class _TranslationsSettingsPrefDescriptionsRu extends TranslationsSettingsPrefDe
 	@override String get autoStraightenLines => 'Выпрямляет длинные линии без использования фигурного пера';
 	@override String get simplifiedHomeLayout => 'Фиксированная высота предварительного просмотра каждой заметки';
 	@override String get shouldAlwaysAlertForUpdates => 'Сообщать мне об обновлениях, как только они станут доступны';
-	@override late final _TranslationsSettingsPrefDescriptionsPencilSoundSettingRu pencilSoundSetting = _TranslationsSettingsPrefDescriptionsPencilSoundSettingRu._(_root);
 	@override late final _TranslationsSettingsPrefDescriptionsSentryRu sentry = _TranslationsSettingsPrefDescriptionsSentryRu._(_root);
 }
 
@@ -826,18 +824,6 @@ class _TranslationsSettingsPrefDescriptionsHideFingerDrawingRu extends Translati
 	@override String get shown => 'Предотвращать случайное переключение';
 	@override String get fixedOn => '«Рисование пальцем» зафиксировано как включенное';
 	@override String get fixedOff => '«Рисование пальцем» зафиксировано как выключенное';
-}
-
-// Path: settings.prefDescriptions.pencilSoundSetting
-class _TranslationsSettingsPrefDescriptionsPencilSoundSettingRu extends TranslationsSettingsPrefDescriptionsPencilSoundSettingEn {
-	_TranslationsSettingsPrefDescriptionsPencilSoundSettingRu._(TranslationsRu root) : this._root = root, super.internal(root);
-
-	final TranslationsRu _root; // ignore: unused_field
-
-	// Translations
-	@override String get off => 'Без звука';
-	@override String get onButNotInSilentMode => 'Включено (кроме тихого режима)';
-	@override String get onAlways => 'Включено (даже в беззвучном режиме)';
 }
 
 // Path: settings.prefDescriptions.sentry

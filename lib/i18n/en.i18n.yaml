@@ -108,7 +108,6 @@ settings:
     autoStraightenLines: Auto straighten lines
     simplifiedHomeLayout: Simplified home layout
     customDataDir: Custom Saber folder
-    pencilSoundSetting: Pencil sound effect
     sentry: Error reporting
   prefDescriptions: 
     hyperlegibleFont: Increases legibility for users with low vision
@@ -128,10 +127,6 @@ settings:
     autoStraightenLines: Straightens long lines without having to use the shape pen
     simplifiedHomeLayout: Sets a fixed height for each note preview
     shouldAlwaysAlertForUpdates: Tell me about updates as soon as they're available
-    pencilSoundSetting: 
-      off: No sound
-      onButNotInSilentMode: Enabled (unless in silent mode)
-      onAlways: Enabled (even in silent mode)
     sentry: 
       active: Active
       inactive: Inactive

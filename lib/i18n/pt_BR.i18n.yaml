@@ -105,7 +105,6 @@ settings:
     sentry(OUTDATED): Relatório de erro
     autosave(OUTDATED): Save automática
     simplifiedHomeLayout(OUTDATED): Layout simplificado da casa
-    pencilSoundSetting(OUTDATED): Efeito sonoro de lápis
     customDataDir(OUTDATED): Diretório de dados personalizado
     autoStraightenLines(OUTDATED): Endireitar linhas automaticamente
     shapeRecognitionDelay(OUTDATED): Atraso no reconhecimento de forma
@@ -124,10 +123,6 @@ settings:
     editorPromptRename: Você pode sempre renomear as notas mais tarde
     printPageIndicators: Mostrar os indicadores de página nas exportações
     shouldAlwaysAlertForUpdates: Conte-me sobre atualizações assim que elas estiverem disponíveis
-    pencilSoundSetting: 
-      off(OUTDATED): Sem som
-      onButNotInSilentMode(OUTDATED): Ativado (a menos que esteja no modo silencioso)
-      onAlways(OUTDATED): Ativado (mesmo no modo silencioso)
     sentry: 
       active(OUTDATED): Ativo
       inactive(OUTDATED): Inativo

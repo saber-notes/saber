@@ -107,7 +107,6 @@ settings:
     sentry(OUTDATED): گزارش خطا
     autosave(OUTDATED): خودرا
     simplifiedHomeLayout(OUTDATED): چیدمان خانه ساده شده
-    pencilSoundSetting(OUTDATED): جلوه صدای مداد
     customDataDir(OUTDATED): دایرکتوری داده های سفارشی
     autoStraightenLines(OUTDATED): صاف کردن خودکار خطوط
   prefDescriptions: 
@@ -125,10 +124,6 @@ settings:
     printPageIndicators: نمایش نشانگرهای صفحه در خروجی
     shapeRecognitionDelay: به روز رسانی پیشنمایش شکل چند وقت یکبار انجام شود
     shouldAlwaysAlertForUpdates: به محض اینکه به‌روزرسانی‌ها در دسترس هستند، به من بگویید
-    pencilSoundSetting: 
-      onAlways(OUTDATED): فعال (حتی در حالت بی صدا)
-      off(OUTDATED): بدون صدا
-      onButNotInSilentMode(OUTDATED): فعال (مگر در حالت بی صدا)
     sentry: 
       active(OUTDATED): فعال
       inactive(OUTDATED): غیر فعال

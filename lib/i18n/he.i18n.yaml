@@ -105,7 +105,6 @@ settings:
     sentry(OUTDATED): דיווח שגיאות
     autosave(OUTDATED): שמור אוטומטי
     simplifiedHomeLayout(OUTDATED): פריסת בית פשוטה
-    pencilSoundSetting(OUTDATED): אפקט צליל עיפרון
     customDataDir(OUTDATED): ספריית נתונים מותאמת אישית
     autoStraightenLines(OUTDATED): יישור קווים אוטומטית
     shapeRecognitionDelay(OUTDATED): עיכוב זיהוי צורות
@@ -124,10 +123,6 @@ settings:
     editorPromptRename: תמיד תוכל לשנות את שם הפתקים מאוחר יותר
     printPageIndicators: הצג מחווני עמודים בייצוא
     shouldAlwaysAlertForUpdates: ספר לי על עדכונים ברגע שהם יהיו זמינים
-    pencilSoundSetting: 
-      onButNotInSilentMode(OUTDATED): מופעל (אלא אם כן במצב שקט)
-      off(OUTDATED): אין קול
-      onAlways(OUTDATED): מופעל (אפילו במצב שקט)
     sentry: 
       active(OUTDATED): פָּעִיל
       inactive(OUTDATED): לֹא פָּעִיל

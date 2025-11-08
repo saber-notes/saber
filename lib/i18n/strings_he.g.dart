@@ -405,7 +405,6 @@ class _TranslationsSettingsPrefLabelsHe extends TranslationsSettingsPrefLabelsEn
 	@override String get sentry => 'דיווח שגיאות';
 	@override String get autosave => 'שמור אוטומטי';
 	@override String get simplifiedHomeLayout => 'פריסת בית פשוטה';
-	@override String get pencilSoundSetting => 'אפקט צליל עיפרון';
 	@override String get customDataDir => 'ספריית נתונים מותאמת אישית';
 	@override String get autoStraightenLines => 'יישור קווים אוטומטית';
 	@override String get shapeRecognitionDelay => 'עיכוב זיהוי צורות';
@@ -429,7 +428,6 @@ class _TranslationsSettingsPrefDescriptionsHe extends TranslationsSettingsPrefDe
 	@override String get editorPromptRename => 'תמיד תוכל לשנות את שם הפתקים מאוחר יותר';
 	@override String get printPageIndicators => 'הצג מחווני עמודים בייצוא';
 	@override String get shouldAlwaysAlertForUpdates => 'ספר לי על עדכונים ברגע שהם יהיו זמינים';
-	@override late final _TranslationsSettingsPrefDescriptionsPencilSoundSettingHe pencilSoundSetting = _TranslationsSettingsPrefDescriptionsPencilSoundSettingHe._(_root);
 	@override late final _TranslationsSettingsPrefDescriptionsSentryHe sentry = _TranslationsSettingsPrefDescriptionsSentryHe._(_root);
 	@override String get autosave => 'יש לשעוג אוטומטית לאחר עיכוב קצר, או לעולם';
 	@override String get simplifiedHomeLayout => 'מגדיר גובה קבוע עבור כל תצוגה מקדימה של הערה';
@@ -824,18 +822,6 @@ class _TranslationsSettingsPrefDescriptionsHideFingerDrawingHe extends Translati
 	@override String get shown => 'מונע החלפת מצב בשוגג';
 	@override String get fixedOn => 'ציור אצבע קבוע כזמין';
 	@override String get fixedOff => 'ציור אצבע קבוע כלא זמין';
-}
-
-// Path: settings.prefDescriptions.pencilSoundSetting
-class _TranslationsSettingsPrefDescriptionsPencilSoundSettingHe extends TranslationsSettingsPrefDescriptionsPencilSoundSettingEn {
-	_TranslationsSettingsPrefDescriptionsPencilSoundSettingHe._(TranslationsHe root) : this._root = root, super.internal(root);
-
-	final TranslationsHe _root; // ignore: unused_field
-
-	// Translations
-	@override String get onButNotInSilentMode => 'מופעל (אלא אם כן במצב שקט)';
-	@override String get off => 'אין קול';
-	@override String get onAlways => 'מופעל (אפילו במצב שקט)';
 }
 
 // Path: settings.prefDescriptions.sentry

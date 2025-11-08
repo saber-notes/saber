@@ -410,7 +410,6 @@ class _TranslationsSettingsPrefLabelsDe extends TranslationsSettingsPrefLabelsEn
 	@override String get autoStraightenLines => 'Linien automatisch begradigen';
 	@override String get simplifiedHomeLayout => 'Vereinfachtes Startbildschirmlayout';
 	@override String get customDataDir => 'Eigener Saber-Ordner';
-	@override String get pencilSoundSetting => 'Bleistiftgeräusch';
 	@override String get sentry => 'Fehlerberichterstattung';
 }
 
@@ -435,7 +434,6 @@ class _TranslationsSettingsPrefDescriptionsDe extends TranslationsSettingsPrefDe
 	@override String get autoStraightenLines => 'Lange Linien selbst ohne Form-Stift begradigen';
 	@override String get simplifiedHomeLayout => 'Legt eine feste Höhe für jede Notizvorschau fest';
 	@override String get shouldAlwaysAlertForUpdates => 'Über neue Updates informiert bleiben';
-	@override late final _TranslationsSettingsPrefDescriptionsPencilSoundSettingDe pencilSoundSetting = _TranslationsSettingsPrefDescriptionsPencilSoundSettingDe._(_root);
 	@override late final _TranslationsSettingsPrefDescriptionsSentryDe sentry = _TranslationsSettingsPrefDescriptionsSentryDe._(_root);
 }
 
@@ -826,18 +824,6 @@ class _TranslationsSettingsPrefDescriptionsHideFingerDrawingDe extends Translati
 	@override String get shown => 'Schützt vor versehentlichem Umschalten';
 	@override String get fixedOn => 'Finger-Zeichnen ist als aktiviert festgelegt';
 	@override String get fixedOff => 'Finger-Zeichnen ist als deaktiviert festgelegt';
-}
-
-// Path: settings.prefDescriptions.pencilSoundSetting
-class _TranslationsSettingsPrefDescriptionsPencilSoundSettingDe extends TranslationsSettingsPrefDescriptionsPencilSoundSettingEn {
-	_TranslationsSettingsPrefDescriptionsPencilSoundSettingDe._(TranslationsDe root) : this._root = root, super.internal(root);
-
-	final TranslationsDe _root; // ignore: unused_field
-
-	// Translations
-	@override String get off => 'Kein Geräusch';
-	@override String get onButNotInSilentMode => 'Aktiv (außer im Stummmodus)';
-	@override String get onAlways => 'Aktiv (sogar im Stummmodus)';
 }
 
 // Path: settings.prefDescriptions.sentry

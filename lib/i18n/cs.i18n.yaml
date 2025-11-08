@@ -108,7 +108,6 @@ settings:
     autoStraightenLines: Automaticky narovnávat čáry
     simplifiedHomeLayout: Zjednodušené rozložení domovské obrazovky
     customDataDir: Vlastní umístění složky aplikace Saber
-    pencilSoundSetting: Zvukový efekt psaní tužkou
     sentry: Hlášení chyb
   prefDescriptions: 
     hyperlegibleFont: Font Atkinson Hyperlegible zvyšuje čitelnost pro čtenáře se slabým zrakem
@@ -128,10 +127,6 @@ settings:
     autoStraightenLines: Automaticky narovná dlouhé čáry, aniž by bylo nutné využít tvarové pero
     simplifiedHomeLayout: Nastaví pevnou výšku pro každý náhled poznámky
     shouldAlwaysAlertForUpdates: Oznámit dostupnost aktualizací co nejdříve od jejich vydání
-    pencilSoundSetting: 
-      off: Bez zvuku
-      onButNotInSilentMode: Zapnuto (mimo tichý režim)
-      onAlways: Zapnuto (i v tichém režimu)
     sentry: 
       active: Aktivní
       inactive: Neaktivní

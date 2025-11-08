@@ -107,7 +107,6 @@ settings:
     sentry(OUTDATED): Rapports d'erreur
     autosave(OUTDATED): S'attacher automatiquement
     simplifiedHomeLayout(OUTDATED): Aménagement d'une maison simplifié
-    pencilSoundSetting(OUTDATED): Effet sonore de crayon
     customDataDir(OUTDATED): Répertoire de données personnalisé
     autoStraightenLines(OUTDATED): Redresser automatiquement les lignes
   prefDescriptions: 
@@ -125,10 +124,6 @@ settings:
     printPageIndicators: Montrer les numéros de pages dans les exportations
     shapeRecognitionDelay: Avec quelle fréquence mettre à jour la prévisualisation de forme
     shouldAlwaysAlertForUpdates: Me prévenir dès qu'une mise à jour est disponible
-    pencilSoundSetting: 
-      off(OUTDATED): Pas de son
-      onButNotInSilentMode(OUTDATED): Activé (sauf en mode silencieux)
-      onAlways(OUTDATED): Activé (même en mode silencieux)
     sentry: 
       active(OUTDATED): Actif
       inactive(OUTDATED): Inactif

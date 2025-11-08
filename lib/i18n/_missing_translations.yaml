@@ -73,17 +73,12 @@ es:
       autoStraightenLines(OUTDATED): Auto straighten lines
       simplifiedHomeLayout(OUTDATED): Simplified home layout
       customDataDir(OUTDATED): Custom Saber folder
-      pencilSoundSetting(OUTDATED): Pencil sound effect
       sentry(OUTDATED): Error reporting
     prefDescriptions: 
       autosave(OUTDATED): Auto-save after a short delay, or never
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
       simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
-      pencilSoundSetting: 
-        off(OUTDATED): No sound
-        onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
-        onAlways(OUTDATED): Enabled (even in silent mode)
       sentry: 
         active(OUTDATED): Active
         inactive(OUTDATED): Inactive
@@ -185,16 +180,11 @@ fa:
       autoStraightenLines(OUTDATED): Auto straighten lines
       simplifiedHomeLayout(OUTDATED): Simplified home layout
       customDataDir(OUTDATED): Custom Saber folder
-      pencilSoundSetting(OUTDATED): Pencil sound effect
       sentry(OUTDATED): Error reporting
     prefDescriptions: 
       autosave(OUTDATED): Auto-save after a short delay, or never
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
       simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
-      pencilSoundSetting: 
-        off(OUTDATED): No sound
-        onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
-        onAlways(OUTDATED): Enabled (even in silent mode)
       sentry: 
         active(OUTDATED): Active
         inactive(OUTDATED): Inactive
@@ -292,16 +282,11 @@ fr:
       autoStraightenLines(OUTDATED): Auto straighten lines
       simplifiedHomeLayout(OUTDATED): Simplified home layout
       customDataDir(OUTDATED): Custom Saber folder
-      pencilSoundSetting(OUTDATED): Pencil sound effect
       sentry(OUTDATED): Error reporting
     prefDescriptions: 
       autosave(OUTDATED): Auto-save after a short delay, or never
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
       simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
-      pencilSoundSetting: 
-        off(OUTDATED): No sound
-        onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
-        onAlways(OUTDATED): Enabled (even in silent mode)
       sentry: 
         active(OUTDATED): Active
         inactive(OUTDATED): Inactive
@@ -412,17 +397,12 @@ he:
       autoStraightenLines(OUTDATED): Auto straighten lines
       simplifiedHomeLayout(OUTDATED): Simplified home layout
       customDataDir(OUTDATED): Custom Saber folder
-      pencilSoundSetting(OUTDATED): Pencil sound effect
       sentry(OUTDATED): Error reporting
     prefDescriptions: 
       autosave(OUTDATED): Auto-save after a short delay, or never
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
       simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
-      pencilSoundSetting: 
-        off(OUTDATED): No sound
-        onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
-        onAlways(OUTDATED): Enabled (even in silent mode)
       sentry: 
         active(OUTDATED): Active
         inactive(OUTDATED): Inactive
@@ -590,7 +570,6 @@ hu:
       autoStraightenLines(OUTDATED): Auto straighten lines
       simplifiedHomeLayout(OUTDATED): Simplified home layout
       customDataDir(OUTDATED): Custom Saber folder
-      pencilSoundSetting(OUTDATED): Pencil sound effect
       sentry(OUTDATED): Error reporting
     prefDescriptions: 
       allowInsecureConnections(OUTDATED): (Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates
@@ -605,10 +584,6 @@ hu:
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
       simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
       shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
-      pencilSoundSetting: 
-        off(OUTDATED): No sound
-        onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
-        onAlways(OUTDATED): Enabled (even in silent mode)
       sentry: 
         active(OUTDATED): Active
         inactive(OUTDATED): Inactive
@@ -820,7 +795,6 @@ ja:
       autoStraightenLines(OUTDATED): Auto straighten lines
       simplifiedHomeLayout(OUTDATED): Simplified home layout
       customDataDir(OUTDATED): Custom Saber folder
-      pencilSoundSetting(OUTDATED): Pencil sound effect
       sentry(OUTDATED): Error reporting
     prefDescriptions: 
       disableEraserAfterUse(OUTDATED): Automatically switches back to the pen after using the eraser
@@ -833,10 +807,6 @@ ja:
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
       simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
       shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
-      pencilSoundSetting: 
-        off(OUTDATED): No sound
-        onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
-        onAlways(OUTDATED): Enabled (even in silent mode)
       sentry: 
         active(OUTDATED): Active
         inactive(OUTDATED): Inactive
@@ -959,17 +929,12 @@ pt-BR:
       autoStraightenLines(OUTDATED): Auto straighten lines
       simplifiedHomeLayout(OUTDATED): Simplified home layout
       customDataDir(OUTDATED): Custom Saber folder
-      pencilSoundSetting(OUTDATED): Pencil sound effect
       sentry(OUTDATED): Error reporting
     prefDescriptions: 
       autosave(OUTDATED): Auto-save after a short delay, or never
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
       simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
-      pencilSoundSetting: 
-        off(OUTDATED): No sound
-        onButNotInSilentMode(OUTDATED): Enabled (unless in silent mode)
-        onAlways(OUTDATED): Enabled (even in silent mode)
       sentry: 
         active(OUTDATED): Active
         inactive(OUTDATED): Inactive

@@ -405,7 +405,6 @@ class _TranslationsSettingsPrefLabelsPtBr extends TranslationsSettingsPrefLabels
 	@override String get sentry => 'Relatório de erro';
 	@override String get autosave => 'Save automática';
 	@override String get simplifiedHomeLayout => 'Layout simplificado da casa';
-	@override String get pencilSoundSetting => 'Efeito sonoro de lápis';
 	@override String get customDataDir => 'Diretório de dados personalizado';
 	@override String get autoStraightenLines => 'Endireitar linhas automaticamente';
 	@override String get shapeRecognitionDelay => 'Atraso no reconhecimento de forma';
@@ -429,7 +428,6 @@ class _TranslationsSettingsPrefDescriptionsPtBr extends TranslationsSettingsPref
 	@override String get editorPromptRename => 'Você pode sempre renomear as notas mais tarde';
 	@override String get printPageIndicators => 'Mostrar os indicadores de página nas exportações';
 	@override String get shouldAlwaysAlertForUpdates => 'Conte-me sobre atualizações assim que elas estiverem disponíveis';
-	@override late final _TranslationsSettingsPrefDescriptionsPencilSoundSettingPtBr pencilSoundSetting = _TranslationsSettingsPrefDescriptionsPencilSoundSettingPtBr._(_root);
 	@override late final _TranslationsSettingsPrefDescriptionsSentryPtBr sentry = _TranslationsSettingsPrefDescriptionsSentryPtBr._(_root);
 	@override String get autosave => 'Salvamento automático após um pequeno atraso, ou nunca';
 	@override String get simplifiedHomeLayout => 'Define uma altura fixa para cada pré-visualização de nota';
@@ -824,18 +822,6 @@ class _TranslationsSettingsPrefDescriptionsHideFingerDrawingPtBr extends Transla
 	@override String get shown => 'Evitar alternância acidental';
 	@override String get fixedOn => 'O desenho com o dedo está ativado';
 	@override String get fixedOff => 'O desenho com o dedo está desativado';
-}
-
-// Path: settings.prefDescriptions.pencilSoundSetting
-class _TranslationsSettingsPrefDescriptionsPencilSoundSettingPtBr extends TranslationsSettingsPrefDescriptionsPencilSoundSettingEn {
-	_TranslationsSettingsPrefDescriptionsPencilSoundSettingPtBr._(TranslationsPtBr root) : this._root = root, super.internal(root);
-
-	final TranslationsPtBr _root; // ignore: unused_field
-
-	// Translations
-	@override String get off => 'Sem som';
-	@override String get onButNotInSilentMode => 'Ativado (a menos que esteja no modo silencioso)';
-	@override String get onAlways => 'Ativado (mesmo no modo silencioso)';
 }
 
 // Path: settings.prefDescriptions.sentry

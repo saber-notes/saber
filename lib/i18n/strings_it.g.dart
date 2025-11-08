@@ -410,7 +410,6 @@ class _TranslationsSettingsPrefLabelsIt extends TranslationsSettingsPrefLabelsEn
 	@override String get autoStraightenLines => 'Raddrizzamento automatico delle linee';
 	@override String get simplifiedHomeLayout => 'Layout semplificato della home';
 	@override String get customDataDir => 'Cartella Saber personalizzata';
-	@override String get pencilSoundSetting => 'Effetto sonoro della matita';
 	@override String get sentry => 'Segnalazione di errori';
 }
 
@@ -435,7 +434,6 @@ class _TranslationsSettingsPrefDescriptionsIt extends TranslationsSettingsPrefDe
 	@override String get autoStraightenLines => 'Raddrizza le linee lunghe senza dover utilizzare la penna sagomatrice';
 	@override String get simplifiedHomeLayout => 'Imposta un\'altezza fissa per ogni anteprima della nota';
 	@override String get shouldAlwaysAlertForUpdates => 'Segnalami aggiornamenti non appena sono disponibili';
-	@override late final _TranslationsSettingsPrefDescriptionsPencilSoundSettingIt pencilSoundSetting = _TranslationsSettingsPrefDescriptionsPencilSoundSettingIt._(_root);
 	@override late final _TranslationsSettingsPrefDescriptionsSentryIt sentry = _TranslationsSettingsPrefDescriptionsSentryIt._(_root);
 }
 
@@ -826,18 +824,6 @@ class _TranslationsSettingsPrefDescriptionsHideFingerDrawingIt extends Translati
 	@override String get shown => 'Impedisce l\'attivazione accidentale';
 	@override String get fixedOn => 'Il disegno con le dita è fissato come abilitato';
 	@override String get fixedOff => 'Il disegno con le dita è fisso come disabilitato';
-}
-
-// Path: settings.prefDescriptions.pencilSoundSetting
-class _TranslationsSettingsPrefDescriptionsPencilSoundSettingIt extends TranslationsSettingsPrefDescriptionsPencilSoundSettingEn {
-	_TranslationsSettingsPrefDescriptionsPencilSoundSettingIt._(TranslationsIt root) : this._root = root, super.internal(root);
-
-	final TranslationsIt _root; // ignore: unused_field
-
-	// Translations
-	@override String get off => 'Nessun suono';
-	@override String get onButNotInSilentMode => 'Abilitato (a meno che non sia in modalità silenziosa)';
-	@override String get onAlways => 'Abilitato (anche in modalità silenziosa)';
 }
 
 // Path: settings.prefDescriptions.sentry

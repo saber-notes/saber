@@ -410,7 +410,6 @@ class _TranslationsSettingsPrefLabelsZhHansCn extends TranslationsSettingsPrefLa
 	@override String get autoStraightenLines => '自动拉直线';
 	@override String get simplifiedHomeLayout => '简化主页布局';
 	@override String get customDataDir => '自定义 Saber 文件夹';
-	@override String get pencilSoundSetting => '铅笔音效';
 	@override String get sentry => '错误报告';
 }
 
@@ -435,7 +434,6 @@ class _TranslationsSettingsPrefDescriptionsZhHansCn extends TranslationsSettings
 	@override String get autoStraightenLines => '拉直长线，无需使用形状笔';
 	@override String get simplifiedHomeLayout => '为每个笔记预览设置固定高度';
 	@override String get shouldAlwaysAlertForUpdates => '在更新可用时尽快告诉我';
-	@override late final _TranslationsSettingsPrefDescriptionsPencilSoundSettingZhHansCn pencilSoundSetting = _TranslationsSettingsPrefDescriptionsPencilSoundSettingZhHansCn._(_root);
 	@override late final _TranslationsSettingsPrefDescriptionsSentryZhHansCn sentry = _TranslationsSettingsPrefDescriptionsSentryZhHansCn._(_root);
 }
 
@@ -826,18 +824,6 @@ class _TranslationsSettingsPrefDescriptionsHideFingerDrawingZhHansCn extends Tra
 	@override String get shown => '防止意外切换';
 	@override String get fixedOn => '手指绘制固定为启用状态';
 	@override String get fixedOff => '手指绘制固定为禁用状态';
-}
-
-// Path: settings.prefDescriptions.pencilSoundSetting
-class _TranslationsSettingsPrefDescriptionsPencilSoundSettingZhHansCn extends TranslationsSettingsPrefDescriptionsPencilSoundSettingEn {
-	_TranslationsSettingsPrefDescriptionsPencilSoundSettingZhHansCn._(TranslationsZhHansCn root) : this._root = root, super.internal(root);
-
-	final TranslationsZhHansCn _root; // ignore: unused_field
-
-	// Translations
-	@override String get off => '没有音效';
-	@override String get onButNotInSilentMode => '启用（除非在静音模式下）';
-	@override String get onAlways => '启用（即使在静音模式下）';
 }
 
 // Path: settings.prefDescriptions.sentry

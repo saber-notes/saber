@@ -409,7 +409,6 @@ class _TranslationsSettingsPrefLabelsAr extends TranslationsSettingsPrefLabelsEn
 	@override String get autoStraightenLines => 'استقامة الخطوط تلقائيًا';
 	@override String get simplifiedHomeLayout => 'تخطيط الصفحة الرئيسية المبسط';
 	@override String get customDataDir => 'مخصص Saber مجلد';
-	@override String get pencilSoundSetting => 'تأثير صوت القلم';
 	@override String get sentry => 'الإبلاغ خطأ';
 	@override String get autosave => 'تلقائي';
 }
@@ -434,7 +433,6 @@ class _TranslationsSettingsPrefDescriptionsAr extends TranslationsSettingsPrefDe
 	@override String get autoStraightenLines => 'استقامة الخطوط الطويلة بدون الحاجة لاستخدام قلم الشكل';
 	@override String get simplifiedHomeLayout => 'تعيين ارتفاع ثابت لكل معاينة ملاحظة';
 	@override String get shouldAlwaysAlertForUpdates => 'أبلغني عن التحديثات بمجرد توفرها';
-	@override late final _TranslationsSettingsPrefDescriptionsPencilSoundSettingAr pencilSoundSetting = _TranslationsSettingsPrefDescriptionsPencilSoundSettingAr._(_root);
 	@override late final _TranslationsSettingsPrefDescriptionsSentryAr sentry = _TranslationsSettingsPrefDescriptionsSentryAr._(_root);
 	@override String get autosave => 'تلقائي بعد تأخير قصير ، أو أبدا';
 }
@@ -826,18 +824,6 @@ class _TranslationsSettingsPrefDescriptionsHideFingerDrawingAr extends Translati
 	@override String get shown => 'يمنع التبديل العرضي';
 	@override String get fixedOn => 'تم تفعيل الرسم بالإصبع';
 	@override String get fixedOff => 'تم تعطيل الرسم بالإصبع';
-}
-
-// Path: settings.prefDescriptions.pencilSoundSetting
-class _TranslationsSettingsPrefDescriptionsPencilSoundSettingAr extends TranslationsSettingsPrefDescriptionsPencilSoundSettingEn {
-	_TranslationsSettingsPrefDescriptionsPencilSoundSettingAr._(TranslationsAr root) : this._root = root, super.internal(root);
-
-	final TranslationsAr _root; // ignore: unused_field
-
-	// Translations
-	@override String get off => 'بدون صوت';
-	@override String get onButNotInSilentMode => 'مفعل (ما لم يكن في وضع الصامت)';
-	@override String get onAlways => 'مفعل (حتى في وضع الصامت)';
 }
 
 // Path: settings.prefDescriptions.sentry

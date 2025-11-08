@@ -402,7 +402,6 @@ class _TranslationsSettingsPrefLabelsJa extends TranslationsSettingsPrefLabelsEn
 	@override String get sentry => 'エラー報告';
 	@override String get autosave => '自動保存';
 	@override String get simplifiedHomeLayout => '簡素化されたホームレイアウト';
-	@override String get pencilSoundSetting => '鉛筆の効果音';
 	@override String get customDataDir => 'カスタムデータディレクトリ';
 	@override String get autoStraightenLines => '線を自動直線化する';
 	@override String get shapeRecognitionDelay => '形状認識の遅延';
@@ -427,7 +426,6 @@ class _TranslationsSettingsPrefDescriptionsJa extends TranslationsSettingsPrefDe
 	@override late final _TranslationsSettingsPrefDescriptionsHideFingerDrawingJa hideFingerDrawing = _TranslationsSettingsPrefDescriptionsHideFingerDrawingJa._(_root);
 	@override String get editorPromptRename => 'メモの名前は後でいつでも変更できます';
 	@override String get printPageIndicators => 'エクスポートにページインジケーターを表示';
-	@override late final _TranslationsSettingsPrefDescriptionsPencilSoundSettingJa pencilSoundSetting = _TranslationsSettingsPrefDescriptionsPencilSoundSettingJa._(_root);
 	@override late final _TranslationsSettingsPrefDescriptionsSentryJa sentry = _TranslationsSettingsPrefDescriptionsSentryJa._(_root);
 	@override String get autosave => '短い遅延の後、または決して自動保存しません';
 	@override String get simplifiedHomeLayout => '各ノートのプレビューに固定の高さを設定します';
@@ -824,18 +822,6 @@ class _TranslationsSettingsPrefDescriptionsHideFingerDrawingJa extends Translati
 	@override String get fixedOn => '指の描画が有効に固定される';
 	@override String get shown => '偶発的な切り替えを防止します';
 	@override String get fixedOff => '指の描画が無効に固定される';
-}
-
-// Path: settings.prefDescriptions.pencilSoundSetting
-class _TranslationsSettingsPrefDescriptionsPencilSoundSettingJa extends TranslationsSettingsPrefDescriptionsPencilSoundSettingEn {
-	_TranslationsSettingsPrefDescriptionsPencilSoundSettingJa._(TranslationsJa root) : this._root = root, super.internal(root);
-
-	final TranslationsJa _root; // ignore: unused_field
-
-	// Translations
-	@override String get off => '無音';
-	@override String get onButNotInSilentMode => '有効 (サイレントモードでない場合)';
-	@override String get onAlways => '有効（サイレントモードでも）';
 }
 
 // Path: settings.prefDescriptions.sentry
