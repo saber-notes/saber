@@ -48,3 +48,15 @@ void setupMockPrinting() {
         return null;
       });
 }
+
+void setupMockWindowManager() {
+  const channel = MethodChannel('window_manager');
+  TestWidgetsFlutterBinding.ensureInitialized();
+  TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
+      .setMockMethodCallHandler(channel, (MethodCall methodCall) async {
+        if (methodCall.method == 'setFullScreen') {
+          return true;
+        }
+        return null;
+      });
+}
