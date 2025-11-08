@@ -148,12 +148,14 @@ void _screenshot({
           for (final locale in localeNames.keys)
             if (!localesWithFontIssues.contains(locale)) ...[
               (locale, GoldenScreenshotDevices.flathub),
+              (locale, GoldenScreenshotDevices.androidTablet),
               (locale, GoldenScreenshotDevices.androidPhone),
             ],
         }
       : {
           // limited screenshots are used to speed up tests
           ('en', GoldenScreenshotDevices.flathub),
+          ('en', GoldenScreenshotDevices.iphone),
           ('en', GoldenScreenshotDevices.androidPhone),
         };
 
