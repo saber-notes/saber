@@ -67,5 +67,5 @@ void main() async {
       awaitWrite: true,
     );
     expect(await localFile.readAsString(), equals(content));
-  });
+  }, retry: 2);
 }

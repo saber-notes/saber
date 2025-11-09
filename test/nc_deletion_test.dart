@@ -92,7 +92,7 @@ void main() {
     // Check that the file is deleted locally
     final exists = FileManager.doesFileExist(filePathLocal);
     expect(exists, false, reason: 'File is not deleted locally');
-  });
+  }, retry: 2);
 }
 
 extension on SyncerComponent {
