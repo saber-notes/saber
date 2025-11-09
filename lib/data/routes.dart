@@ -26,8 +26,12 @@ abstract class RoutePaths {
 }
 
 abstract class HomeRoutes {
-  static String browseFilePath(String filePath) {
-    return '${getRoute(1)}?path=${Uri.encodeQueryComponent(filePath)}';
+  static String browseFilePath(String? filePath) {
+    var path = getRoute(1);
+    if (filePath != '/' && filePath != '' && filePath != null) {
+      path += '?path=${Uri.encodeQueryComponent(filePath)}';
+    }
+    return path;
   }
 
   static final PathFunction _homeFunction = pathToFunction(RoutePaths.home);
