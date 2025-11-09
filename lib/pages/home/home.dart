@@ -52,12 +52,15 @@ class _HomePageState extends State<HomePage> {
   Widget get body {
     return AnimatedSwitcher(
       duration: const Duration(milliseconds: 300),
-      child: switch (widget.subpage) {
-        HomePage.browseSubpage => BrowsePage(path: widget.path),
-        HomePage.whiteboardSubpage => const Whiteboard(),
-        HomePage.settingsSubpage => const SettingsPage(),
-        _ => const RecentPage(),
-      },
+      child: KeyedSubtree(
+        key: ValueKey(widget.subpage + (widget.path ?? '')),
+        child: switch (widget.subpage) {
+          HomePage.browseSubpage => BrowsePage(path: widget.path),
+          HomePage.whiteboardSubpage => const Whiteboard(),
+          HomePage.settingsSubpage => const SettingsPage(),
+          _ => const RecentPage(),
+        },
+      ),
     );
   }
 
