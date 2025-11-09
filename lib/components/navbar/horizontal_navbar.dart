@@ -169,7 +169,10 @@ class _ToolbarButton extends StatelessWidget {
     final borderRadius = BorderRadius.circular(32);
     final selectedBgColor = platform.isCupertino
         ? colorScheme.onPrimaryContainer.withValues(alpha: 0.15)
-        : colorScheme.surface;
+        : (platform == TargetPlatform.linux &&
+                  colorScheme.brightness == Brightness.light
+              ? colorScheme.shadow.withValues(alpha: 0.15)
+              : colorScheme.surface);
     final bgColor = selected ? selectedBgColor : Colors.transparent;
     final fgColor = selected
         ? (platform.isCupertino
