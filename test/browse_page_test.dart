@@ -62,10 +62,11 @@ class _BrowseApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    BrowsePage.overrideChildren = children;
     return ScreenshotApp.withConditionalTitlebar(
       device: GoldenSmallDevices.androidPhone.device,
       title: 'Saber',
-      home: BrowsePage(path: path, overrideChildren: children),
+      home: BrowsePage(path: path),
     );
   }
 }

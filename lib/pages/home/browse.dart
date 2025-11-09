@@ -19,14 +19,12 @@ import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/editor/editor.dart';
 
 class BrowsePage extends StatefulWidget {
-  const BrowsePage({
-    super.key,
-    String? path,
-    @visibleForTesting this.overrideChildren,
-  }) : initialPath = path;
+  const BrowsePage({super.key, String? path}) : initialPath = path;
 
   final String? initialPath;
-  final DirectoryChildren? overrideChildren;
+
+  @visibleForTesting
+  static DirectoryChildren? overrideChildren;
 
   @override
   State<BrowsePage> createState() => _BrowsePageState();
@@ -78,7 +76,7 @@ class _BrowsePageState extends State<BrowsePage> {
     }
 
     children =
-        widget.overrideChildren ??
+        BrowsePage.overrideChildren ??
         await FileManager.getChildrenOfDirectory(path ?? '/');
 
     if (mounted) setState(() {});
