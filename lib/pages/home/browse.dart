@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:collapsible/collapsible.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:path/path.dart' as p;
 import 'package:saber/components/home/export_note_button.dart';
 import 'package:saber/components/home/grid_folders.dart';
 import 'package:saber/components/home/masonry_files.dart';
@@ -33,7 +34,6 @@ class BrowsePage extends StatefulWidget {
 class _BrowsePageState extends State<BrowsePage> {
   DirectoryChildren? children;
 
-  final List<String?> pathHistory = [];
   String? path;
 
   final ValueNotifier<List<String>> selectedFiles = ValueNotifier([]);
@@ -85,10 +85,9 @@ class _BrowsePageState extends State<BrowsePage> {
   void onDirectoryTap(String folder) {
     selectedFiles.value = [];
     if (folder == '..') {
-      path = pathHistory.isEmpty ? null : pathHistory.removeLast();
+      path = p.dirname(path ?? '/');
     } else {
-      pathHistory.add(path);
-      path = "${path ?? ''}/$folder";
+      path = p.join(path ?? '/', folder);
     }
     context.go(HomeRoutes.browseFilePath(path ?? '/'));
     findChildrenOfPath();
@@ -98,9 +97,7 @@ class _BrowsePageState extends State<BrowsePage> {
     selectedFiles.value = [];
     if (newPath == null || newPath.isEmpty || newPath == '/') {
       newPath = null;
-      pathHistory.clear();
     }
-    pathHistory.add(path);
     path = newPath;
     context.go(HomeRoutes.browseFilePath(path ?? '/'));
     findChildrenOfPath();
