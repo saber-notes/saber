@@ -122,16 +122,27 @@ class GlassyContainer extends StatelessWidget {
         child: ClipRRect(
           clipBehavior: platform.isCupertino ? Clip.antiAlias : Clip.none,
           borderRadius: borderRadius,
-          child: BackdropFilter(
-            enabled: platform.isCupertino,
-            filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),
-            child: Material(
-              type: MaterialType.transparency,
-              color: Colors.transparent,
-              elevation: 3,
-              shadowColor: Colors.white,
+          child: DecoratedBox(
+            decoration: BoxDecoration(
+              border: platform.isCupertino
+                  ? Border.all(
+                      color: Colors.white.withValues(alpha: 0.3),
+                      width: 2,
+                    )
+                  : null,
               borderRadius: borderRadius,
-              child: child,
+            ),
+            child: BackdropFilter(
+              enabled: platform.isCupertino,
+              filter: ImageFilter.blur(sigmaX: 2, sigmaY: 2),
+              child: Material(
+                type: MaterialType.transparency,
+                color: Colors.transparent,
+                elevation: 3,
+                shadowColor: Colors.white,
+                borderRadius: borderRadius,
+                child: child,
+              ),
             ),
           ),
         ),
