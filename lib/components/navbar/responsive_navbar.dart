@@ -93,28 +93,31 @@ class _ResponsiveNavbarState extends State<ResponsiveNavbar> {
     } // else mobile
 
     final navbarClearance = HorizontalNavbar.clearanceHeightOf(context);
-    return Stack(
-      children: [
-        MediaQuery(
-          data: mediaQuery.copyWith(
-            padding:
-                mediaQuery.padding + EdgeInsets.only(bottom: navbarClearance),
-            viewPadding:
-                mediaQuery.viewPadding +
-                EdgeInsets.only(bottom: navbarClearance),
+    return ColoredBox(
+      color: Theme.of(context).scaffoldBackgroundColor,
+      child: Stack(
+        children: [
+          MediaQuery(
+            data: mediaQuery.copyWith(
+              padding:
+                  mediaQuery.padding + EdgeInsets.only(bottom: navbarClearance),
+              viewPadding:
+                  mediaQuery.viewPadding +
+                  EdgeInsets.only(bottom: navbarClearance),
+            ),
+            child: widget.body,
           ),
-          child: widget.body,
-        ),
-        PositionedDirectional(
-          bottom: 0,
-          end: 0,
-          child: HorizontalNavbar(
-            destinations: HomeRoutes.navigationDestinations,
-            selectedIndex: widget.selectedIndex,
-            onDestinationSelected: onDestinationSelected,
+          PositionedDirectional(
+            bottom: 0,
+            end: 0,
+            child: HorizontalNavbar(
+              destinations: HomeRoutes.navigationDestinations,
+              selectedIndex: widget.selectedIndex,
+              onDestinationSelected: onDestinationSelected,
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 
