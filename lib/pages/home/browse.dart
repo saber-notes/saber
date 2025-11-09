@@ -86,6 +86,7 @@ class _BrowsePageState extends State<BrowsePage> {
     selectedFiles.value = [];
     if (folder == '..') {
       path = p.dirname(path ?? '/');
+      if (path == '/') path = null;
     } else {
       path = p.join(path ?? '/', folder);
     }
