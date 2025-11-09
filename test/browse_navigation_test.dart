@@ -36,9 +36,22 @@ void main() {
       await tester.pumpAndSettle();
       expect(find.byIcon(Icons.arrow_back), findsOneWidget);
     });
-    testWidgets('Navigate back folder', (tester) async {
+    testWidgets('Navigate back to root', (tester) async {
       await tester.pumpWidget(const _BrowseApp(path: '/helloworld'));
       await tester.pumpAndSettle();
+      await tester.tap(find.byIcon(Icons.arrow_back));
+      await tester.pumpAndSettle();
+      expect(find.byIcon(Icons.arrow_back), findsNothing);
+    });
+    testWidgets('Navigate back twice to root', (tester) async {
+      await tester.pumpWidget(const _BrowseApp(path: '/helloworld'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('subfolder1'));
+      await tester.pumpAndSettle();
+      expect(find.byIcon(Icons.arrow_back), findsOneWidget);
+      await tester.tap(find.byIcon(Icons.arrow_back));
+      await tester.pumpAndSettle();
+      expect(find.byIcon(Icons.arrow_back), findsOneWidget);
       await tester.tap(find.byIcon(Icons.arrow_back));
       await tester.pumpAndSettle();
       expect(find.byIcon(Icons.arrow_back), findsNothing);
