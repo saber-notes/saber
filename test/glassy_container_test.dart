@@ -72,7 +72,8 @@ class _TestTile extends StatelessWidget {
           fontSize: 32,
           fontWeight: FontWeight.w600,
         ),
-        child: DecoratedBox(
+        // ignore: use_decorated_box // Container applies padding automatically
+        child: Container(
           decoration: BoxDecoration(
             gradient: switch (background) {
               _Background.lightGradient => const LinearGradient(
@@ -91,12 +92,18 @@ class _TestTile extends StatelessWidget {
                 end: Alignment.bottomRight,
               ),
             },
+            border: Border.all(
+              color: brightness == Brightness.light
+                  ? Colors.white
+                  : Colors.black,
+              width: 8,
+            ),
           ),
           child: Stack(
             children: [
               Positioned.fill(
                 child: Text(
-                  '${platform.name} - ${brightness.name}\n${background.name}\n' *
+                  '${platform.name} - ${background.name}\n${brightness.name}\n' *
                       7,
                   softWrap: false,
                   style: TextStyle(
