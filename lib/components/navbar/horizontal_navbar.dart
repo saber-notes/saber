@@ -126,8 +126,8 @@ class GlassyContainer extends StatelessWidget {
             decoration: BoxDecoration(
               border: platform.isCupertino
                   ? Border.all(
-                      color: Colors.white.withValues(alpha: 0.3),
-                      width: 2,
+                      color: CupertinoColors.systemGrey4.withValues(alpha: 0.3),
+                      width: 1,
                     )
                   : null,
               borderRadius: borderRadius,
