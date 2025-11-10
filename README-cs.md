@@ -112,8 +112,8 @@ Podívejte se na wiki stránku
 [google_play]: https://play.google.com/store/apps/details?id=com.adilhanney.saber
 [snap]: https://snapcraft.io/saber
 [app_store]: https://apps.apple.com/cz/app/saber/id1671523739
-[download_windows]: https://github.com/saber-notes/saber/releases/download/v1.27.2/SaberInstaller_v1.27.2.exe
-[download_appimage]: https://github.com/saber-notes/saber/releases/download/v1.27.2/Saber-1.27.2-x86_64.AppImage
+[download_windows]: https://github.com/saber-notes/saber/releases/download/v1.28.0/SaberInstaller_v1.28.0.exe
+[download_appimage]: https://github.com/saber-notes/saber/releases/download/v1.28.0/Saber-1.28.0-x86_64.AppImage
 
 [nextcloud]: https://nc.saber.adil.hanney.org/
 

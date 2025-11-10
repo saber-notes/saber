@@ -1,0 +1,5 @@
+• Se agregó una nueva barra de navegación flotante.
+• Se intentó hacer que el tema de iOS pareciera más nativo y menos Googley.
+• Un autoguardado pendiente ahora se cancela si deshaces todos los cambios.
+• Se mejoró la suavidad de las transiciones de la pantalla de inicio.
+• Se corrigieron algunos errores de manejo de rutas en la página de exploración.

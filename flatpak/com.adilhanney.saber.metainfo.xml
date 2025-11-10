@@ -214,6 +214,16 @@
     </screenshots>
 
     <releases>
+        <release version="1.28.0" type="development" date="2025-11-10">
+            <description>
+                <ul>
+                    <li>Added a new floating navigation bar.</li>
+                    <li>A pending autosave is now cancelled if you undo all changes.</li>
+                    <li>Improved the smoothness of home screen transitions.</li>
+                    <li>Fixed some path handling bugs on the browse page.</li>
+                </ul>
+            </description>
+        </release>
         <release version="1.27.2" type="development" date="2025-11-07">
             <description>
                 <ul>

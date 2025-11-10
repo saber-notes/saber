@@ -1,0 +1,5 @@
+• Adicionada uma nova barra de navegação flutuante. 
+• Tentei fazer com que o tema do iOS parecesse mais nativo e menos Google. 
+• Um salvamento automático pendente será cancelado se você desfazer todas as alterações. 
+• Melhorou a suavidade das transições da tela inicial. 
+• Corrigidos alguns bugs de manipulação de caminhos na página de navegação.

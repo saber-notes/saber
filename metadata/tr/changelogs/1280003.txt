@@ -1,0 +1,5 @@
+• Yeni bir kayan gezinme çubuğu eklendi. 
+• iOS temasının daha yerel ve daha az Google'a özgü bir his vermesi için çabalandı. 
+• Tüm değişiklikleri geri alırsanız, bekleyen bir otomatik kaydetme artık iptal edilir. 
+• Ana ekran geçişlerinin düzgünlüğü iyileştirildi. 
+• Göz atma sayfasındaki bazı yol işleme hataları düzeltildi.

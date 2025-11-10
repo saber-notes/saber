@@ -1,0 +1,5 @@
+• Új lebegő navigációs sáv hozzáadása.
+• Megpróbálta az iOS-témát natívabbnak és kevésbé Google-nak érezni.
+• A függőben lévő automatikus mentés most megszakad, ha visszavon minden változtatást.
+• Javult a kezdőképernyő átmeneteinek simasága.
+• Javítottunk néhány elérési út-kezelési hibát a böngészési oldalon.
