@@ -124,11 +124,10 @@ class GlassyContainer extends StatelessWidget {
           borderRadius: borderRadius,
           child: DecoratedBox(
             decoration: BoxDecoration(
-              border: platform.isCupertino
-                  ? Border.all(
-                      color: CupertinoColors.systemGrey4.withValues(alpha: 0.3),
-                      width: 1,
-                    )
+              border:
+                  (platform.isCupertino &&
+                      colorScheme.brightness == Brightness.dark)
+                  ? _GlintBorder(width: 1)
                   : null,
               borderRadius: borderRadius,
             ),
@@ -230,4 +229,59 @@ class _ToolbarButton extends StatelessWidget {
       ),
     );
   }
+}
+
+/// A border that lights up the top-left and bottom-right corners.
+class _GlintBorder extends Border {
+  _GlintBorder({double width = 1})
+    : super.fromBorderSide(
+        BorderSide(color: const Color(0x33FFFFFF), width: width),
+      );
+
+  static const gradient = LinearGradient(
+    colors: [
+      Color(0x77FFFFFF),
+      Color(0x33FFFFFF),
+      Color(0x00FFFFFF),
+      Color(0x33FFFFFF),
+      Color(0x77FFFFFF),
+    ],
+    stops: [0.0, 0.2, 0.5, 0.8, 1.0],
+    begin: Alignment(-0.5, -1.5),
+    end: Alignment(0.5, 1.5),
+  );
+
+  /// Copied from [BoxBorder._paintUniformBorderWithRadius] but with a
+  /// gradient shader instead of a solid color.
+  @override
+  void paint(
+    Canvas canvas,
+    Rect rect, {
+    TextDirection? textDirection,
+    BoxShape shape = BoxShape.rectangle,
+    BorderRadius? borderRadius,
+  }) {
+    borderRadius ??= BorderRadius.zero;
+    assert(top.style != BorderStyle.none);
+    final paint = Paint()
+      ..color = Colors.white
+      ..shader = gradient.createShader(rect);
+    if (top.width == 0.0) {
+      paint
+        ..style = PaintingStyle.stroke
+        ..strokeWidth = 0.0;
+      canvas.drawRRect(borderRadius.toRRect(rect), paint);
+    } else {
+      final borderRect = borderRadius.toRRect(rect);
+      final inner = borderRect.deflate(top.strokeInset);
+      final outer = borderRect.inflate(top.strokeOutset);
+      canvas.drawDRRect(outer, inner, paint);
+    }
+  }
+
+  @override
+  bool get isUniform => true;
+
+  @override
+  Border scale(double t) => _GlintBorder(width: top.width * t);
 }
