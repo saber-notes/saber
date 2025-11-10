@@ -24,7 +24,7 @@ class _NewNoteButtonState extends State<NewNoteButton> {
 
   @override
   Widget build(BuildContext context) {
-    final materialBorderRadius = BorderRadius.circular(20);
+    final materialBorderRadius = BorderRadius.circular(16);
     return SpeedDial(
       spacing: 3,
       mini: true,
