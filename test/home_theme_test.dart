@@ -37,9 +37,11 @@ void main() {
           await tester.loadAssets();
           await tester.pumpAndSettle();
 
-          await tester.expectScreenshot(
-            GoldenScreenshotDevices.androidPhone.device,
-            'goldens/home_theme_${platform.name}_${brightness.name}',
+          await expectLater(
+            find.byType(MaterialApp),
+            matchesGoldenFile(
+              'goldens/home_theme_${platform.name}_${brightness.name}.png',
+            ),
           );
         });
   });
