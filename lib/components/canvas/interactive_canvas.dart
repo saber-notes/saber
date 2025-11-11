@@ -943,7 +943,8 @@ class _InteractiveCanvasViewerState extends State<InteractiveCanvasViewer>
     final Offset global = event.position;
     final double scaleChange;
     if (event is PointerScrollEvent) {
-      if (!HardwareKeyboard.instance.isControlPressed) {
+      if (!HardwareKeyboard.instance.isControlPressed &&
+          !HardwareKeyboard.instance.isMetaPressed) {
         // Scroll without Ctrl pressed, so treat it as a pan.
         if (!_gestureIsSupported(_GestureType.pan)) return;
 
