@@ -15,6 +15,7 @@ import 'package:flutter/foundation.dart' show clampDouble;
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/physics.dart';
+import 'package:flutter/services.dart';
 import 'package:vector_math/vector_math_64.dart' show Matrix4, Quad, Vector3;
 
 typedef InteractiveCanvasViewerWidgetBuilder =
@@ -942,9 +943,8 @@ class _InteractiveCanvasViewerState extends State<InteractiveCanvasViewer>
     final Offset global = event.position;
     final double scaleChange;
     if (event is PointerScrollEvent) {
-      if (event.kind == PointerDeviceKind.trackpad &&
-          !widget.trackpadScrollCausesScale) {
-        // Trackpad scroll, so treat it as a pan.
+      if (!HardwareKeyboard.instance.isControlPressed) {
+        // Scroll without Ctrl pressed, so treat it as a pan.
         if (!_gestureIsSupported(_GestureType.pan)) return;
 
         final Offset localDelta = PointerEvent.transformDeltaViaPositions(
