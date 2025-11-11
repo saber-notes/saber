@@ -80,6 +80,15 @@ class _PreviewCardState extends State<PreviewCard> {
     widget.toggleSelection(widget.filePath, expanded.value);
   }
 
+  Timer? _refreshThumbnailTimer;
+  void _refreshThumbnailAfterDelay() {
+    _refreshThumbnailTimer?.cancel();
+    _refreshThumbnailTimer = Timer(const Duration(milliseconds: 500), () {
+      thumbnail.image?.evict();
+      thumbnail.markAsChanged();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -200,10 +209,7 @@ class _PreviewCardState extends State<PreviewCard> {
           routeSettings: RouteSettings(
             name: RoutePaths.editFilePath(widget.filePath),
           ),
-          onClosed: (_) {
-            thumbnail.image?.evict();
-            thumbnail.markAsChanged();
-          },
+          onClosed: (_) => _refreshThumbnailAfterDelay(),
         );
       },
     );
@@ -211,6 +217,7 @@ class _PreviewCardState extends State<PreviewCard> {
 
   @override
   void dispose() {
+    _refreshThumbnailTimer?.cancel();
     fileWriteSubscription?.cancel();
     super.dispose();
   }
