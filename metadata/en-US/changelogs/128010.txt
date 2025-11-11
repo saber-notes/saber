@@ -1,0 +1,3 @@
+• Improved animation smoothness when closing a note.
+• Your mouse wheel now scrolls instead of zooming. Hold the Ctrl key to zoom.
+• Made the New Note button less round.

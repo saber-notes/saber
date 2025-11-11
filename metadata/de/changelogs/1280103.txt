@@ -1,0 +1,3 @@
+• Die Glätte der Animation beim Schließen einer Notiz wurde verbessert. 
+• Ihr Mausrad scrollt jetzt statt zu zoomen. Verwenden Sie zum Zoomen das Mausrad mit der Strg-Taste. 
+• Die Schaltfläche „Neue Notiz“ wurde weniger rund.

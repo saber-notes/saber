@@ -1,0 +1,3 @@
+• Amélioration de la fluidité de l'animation lors de la fermeture d'une note. 
+• La molette de votre souris défile désormais au lieu de zoomer. Utilisez la molette de la touche Ctrl de la souris pour zoomer. 
+• Le bouton Nouvelle note est moins rond.

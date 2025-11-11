@@ -1,0 +1,3 @@
+• Migliorata la fluidità dell'animazione alla chiusura di una nota.
+• La rotellina del mouse ora scorre anziché eseguire lo zoom. Utilizzare il tasto Ctrl + rotellina del mouse per ingrandire.
+• Reso meno rotondo il pulsante Nuova nota.

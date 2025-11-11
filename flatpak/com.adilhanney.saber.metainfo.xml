@@ -214,6 +214,15 @@
     </screenshots>
 
     <releases>
+        <release version="1.28.1" type="development" date="2025-11-11">
+            <description>
+                <ul>
+                    <li>Improved animation smoothness when closing a note.</li>
+                    <li>Your mouse wheel now scrolls instead of zooming. Hold the Ctrl key to zoom.</li>
+                    <li>Made the New Note button less round.</li>
+                </ul>
+            </description>
+        </release>
         <release version="1.28.0" type="development" date="2025-11-10">
             <description>
                 <ul>
