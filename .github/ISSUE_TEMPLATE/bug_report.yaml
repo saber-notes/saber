@@ -6,14 +6,6 @@ body:
     attributes:
       value: |
         Thanks for taking the time to fill out this bug report!
-  - type: checkboxes
-    attributes:
-      label: Before submitting an issue, please check the following
-      options:
-        - label: I have searched for similar issues (both open and closed) and cannot find a duplicate
-          required: true
-        - label: I agree to follow the [Code of Conduct](https://github.com/saber-notes/saber/blob/main/CODE_OF_CONDUCT.md)
-          required: true
   - type: textarea
     id: describe-the-bug
     attributes:
@@ -76,3 +68,11 @@ body:
         Screen recordings are especially useful!
     validations:
       required: false
+  - type: checkboxes
+    attributes:
+      label: Before submitting an issue, please check the following
+      options:
+        - label: I have searched for similar issues (both open and closed) and cannot find a duplicate
+          required: true
+        - label: I agree to follow the [Code of Conduct](https://github.com/saber-notes/saber/blob/main/CODE_OF_CONDUCT.md)
+          required: true
