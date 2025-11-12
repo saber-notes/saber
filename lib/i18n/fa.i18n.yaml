@@ -99,6 +99,7 @@ settings:
     autoClearWhiteboardOnExit: پس از خروج از برنامه، وایت برد پاک شود
     disableEraserAfterUse: پاک کن را به صورت خودکار غیرفعال کنید
     hideFingerDrawingToggle: ضامن طراحی انگشت را پنهان کنید
+    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): غیرفعال کردن خودکار طراحی با انگشت
     editorPromptRename: از شما می خواهد که نام یادداشت های جدید را تغییر دهید
     recentColorsDontSavePresets: رنگ های از پیش تعیین شده را در رنگ های اخیر ذخیره نکنید
     recentColorsLength: چند رنگ اخیر برای ذخیره
@@ -120,6 +121,7 @@ settings:
       shown: از جابجایی تصادفی جلوگیری می کند
       fixedOn: طراحی با انگشت به صورت فعال ثابت شده است
       fixedOff: طراحی با انگشت به عنوان غیرفعال ثابت است
+    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): هنگامی که یک قلم شناسایی شد، نقاشی با انگشت را خاموش کنید
     editorPromptRename: همیشه می توانید بعداً نام یادداشت ها را تغییر دهید
     printPageIndicators: نمایش نشانگرهای صفحه در خروجی
     shapeRecognitionDelay: به روز رسانی پیشنمایش شکل چند وقت یکبار انجام شود

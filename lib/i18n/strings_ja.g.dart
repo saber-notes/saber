@@ -396,6 +396,7 @@ class _TranslationsSettingsPrefLabelsJa extends TranslationsSettingsPrefLabelsEn
 	@override String get preferGreyscale => 'グレースケールを優先';
 	@override String get maxImageSize => '最大画像サイズ';
 	@override String get autoClearWhiteboardOnExit => 'アプリを終了したらホワイトボードを消去する';
+	@override String get autoDisableFingerDrawingWhenStylusDetected => '指の描画を自動的に無効にする';
 	@override String get editorPromptRename => '新しいメモの名前を変更するよう促す';
 	@override String get recentColorsDontSavePresets => '最近使用した色をプリセットに登録しない';
 	@override String get printPageIndicators => '印刷ページのインジケーター';
@@ -424,6 +425,7 @@ class _TranslationsSettingsPrefDescriptionsJa extends TranslationsSettingsPrefDe
 	@override String get autoClearWhiteboardOnExit => '他のデバイスと同期されます';
 	@override String get maxImageSize => 'これより大きな画像は圧縮されます';
 	@override late final _TranslationsSettingsPrefDescriptionsHideFingerDrawingJa hideFingerDrawing = _TranslationsSettingsPrefDescriptionsHideFingerDrawingJa._(_root);
+	@override String get autoDisableFingerDrawingWhenStylusDetected => 'スタイラスが検出されたときに指の描画をオフにする';
 	@override String get editorPromptRename => 'メモの名前は後でいつでも変更できます';
 	@override String get printPageIndicators => 'エクスポートにページインジケーターを表示';
 	@override late final _TranslationsSettingsPrefDescriptionsSentryJa sentry = _TranslationsSettingsPrefDescriptionsSentryJa._(_root);

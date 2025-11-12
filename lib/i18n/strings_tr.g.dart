@@ -401,6 +401,7 @@ class _TranslationsSettingsPrefLabelsTr extends TranslationsSettingsPrefLabelsEn
 	@override String get autoClearWhiteboardOnExit => 'Uygulamadan çıkıldığında beyaz tahtayı temizle';
 	@override String get disableEraserAfterUse => 'Silgiden kaleme geçiş';
 	@override String get hideFingerDrawingToggle => 'Parmakla çizme kilidini sakla';
+	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Parmak çizimini otomatik olarak devre dışı bırak';
 	@override String get editorPromptRename => 'Notları yeniden adlandırmak için uyar';
 	@override String get recentColorsDontSavePresets => 'Ön tanımlı renkleri son kullanılanlara kaydetme';
 	@override String get recentColorsLength => 'Kaç tane son kullanılan renk saklanacak';
@@ -427,6 +428,7 @@ class _TranslationsSettingsPrefDescriptionsTr extends TranslationsSettingsPrefDe
 	@override String get disableEraserAfterUse => 'Silgiyi kullandıktan sonra otomatik olarak kaleme geçer';
 	@override String get maxImageSize => 'Bundan daha büyük görseller sıkıştırılacak';
 	@override late final _TranslationsSettingsPrefDescriptionsHideFingerDrawingTr hideFingerDrawing = _TranslationsSettingsPrefDescriptionsHideFingerDrawingTr._(_root);
+	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Bir kalem algılandığında parmakla çizimi kapatın';
 	@override String get editorPromptRename => 'Notlarınızı daha sonra da yeniden adlandırabilirsiniz';
 	@override String get printPageIndicators => 'Çıktılarda sayfa belirteçlerini göster';
 	@override String get shapeRecognitionDelay => 'Çizilen şekilleri tanımlama sıklığını belirler';

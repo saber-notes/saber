@@ -401,6 +401,7 @@ class _TranslationsSettingsPrefLabelsIt extends TranslationsSettingsPrefLabelsEn
 	@override String get autoClearWhiteboardOnExit => 'Svuota la lavagna dopo essere uscito dall\'app';
 	@override String get disableEraserAfterUse => 'Disattiva automaticamente la gomma';
 	@override String get hideFingerDrawingToggle => 'Nascondi l\'interruttore del disegno con le dita';
+	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Disabilita automaticamente il disegno con le dita';
 	@override String get editorPromptRename => 'Richiede di rinominare nuove note';
 	@override String get recentColorsDontSavePresets => 'Non salvare i colori preimpostati nei colori recenti';
 	@override String get recentColorsLength => 'Quanti colori recenti memorizzare';
@@ -427,6 +428,7 @@ class _TranslationsSettingsPrefDescriptionsIt extends TranslationsSettingsPrefDe
 	@override String get disableEraserAfterUse => 'Torna automaticamente alla penna dopo aver utilizzato la gomma';
 	@override String get maxImageSize => 'Le immagini più grandi verranno compresse';
 	@override late final _TranslationsSettingsPrefDescriptionsHideFingerDrawingIt hideFingerDrawing = _TranslationsSettingsPrefDescriptionsHideFingerDrawingIt._(_root);
+	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Disattiva il disegno con le dita quando viene rilevato uno stilo';
 	@override String get editorPromptRename => 'Puoi sempre rinominare le note in un secondo momento';
 	@override String get printPageIndicators => 'Mostra indicatori di pagina nelle esportazioni';
 	@override String get autosave => 'Salvataggio automatico dopo un breve ritardo o mai';

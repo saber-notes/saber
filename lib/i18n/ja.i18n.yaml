@@ -96,6 +96,7 @@ settings:
     preferGreyscale: グレースケールを優先
     maxImageSize: 最大画像サイズ
     autoClearWhiteboardOnExit: アプリを終了したらホワイトボードを消去する
+    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): 指の描画を自動的に無効にする
     editorPromptRename: 新しいメモの名前を変更するよう促す
     recentColorsDontSavePresets: 最近使用した色をプリセットに登録しない
     printPageIndicators: 印刷ページのインジケーター
@@ -119,6 +120,7 @@ settings:
       fixedOn(OUTDATED): 指の描画が有効に固定される
       shown(OUTDATED): 偶発的な切り替えを防止します
       fixedOff(OUTDATED): 指の描画が無効に固定される
+    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): スタイラスが検出されたときに指の描画をオフにする
     editorPromptRename: メモの名前は後でいつでも変更できます
     printPageIndicators: エクスポートにページインジケーターを表示
     sentry: 

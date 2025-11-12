@@ -99,6 +99,7 @@ settings:
     autoClearWhiteboardOnExit: Malplenigu la tablon post foriro
     disableEraserAfterUse: Malaktivigu la forviŝilon
     hideFingerDrawingToggle: Kaŝu la fingrodesegnan ŝaltilon
+    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Aŭtomate malŝalti fingrodesegnadon
     editorPromptRename: Petu vin alinomi novajn notojn
     recentColorsDontSavePresets: Ne konservu kolorŝablonon en la lastuzitaj koloroj
     recentColorsLength: Nombro da lastuzitaj koloroj
@@ -120,6 +121,7 @@ settings:
       shown: Malhelpas hazardan ŝaltadon
       fixedOn: Fingrodesegnado estas fiksita kiel ebligita
       fixedOff: Fingrodesegnado estas fiksita kiel malebligita
+    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Malŝaltu fingrodesegnadon kiam grifelo estas detektita
     editorPromptRename: Vi ĉiam povas renomi notojn poste
     printPageIndicators: Montru paĝnumeradon post eksporto
     autosave: Aŭtomate konservas post iom da tempo aŭ neniam

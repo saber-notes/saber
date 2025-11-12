@@ -394,6 +394,7 @@ class _TranslationsSettingsPrefLabelsHu extends TranslationsSettingsPrefLabelsEn
 	@override String get preferGreyscale => 'Szürkeárnyalatos színek előnyben részesítése';
 	@override String get maxImageSize => 'Maximális képméret';
 	@override String get autoClearWhiteboardOnExit => 'A tábla törlése az alkalmazásból való kilépés után';
+	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Ujjrajzolás automatikus letiltása';
 	@override String get editorPromptRename => 'Új jegyzetek átnevezésére való felszólítás';
 	@override String get recentColorsDontSavePresets => 'Ne mentse az előre beállított színeket a legutóbbi színek között';
 	@override String get sentry => 'Hibajelentés';
@@ -423,6 +424,7 @@ class _TranslationsSettingsPrefDescriptionsHu extends TranslationsSettingsPrefDe
 	@override String get autoClearWhiteboardOnExit => 'Továbbra is szinkronizálva lesz a többi eszközzel';
 	@override String get maxImageSize => 'Az ennél nagyobb képek tömörítve lesznek';
 	@override late final _TranslationsSettingsPrefDescriptionsHideFingerDrawingHu hideFingerDrawing = _TranslationsSettingsPrefDescriptionsHideFingerDrawingHu._(_root);
+	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Kapcsolja ki az ujjal történő rajzolást, ha ceruzát észlel';
 	@override String get editorPromptRename => 'A jegyzeteket később bármikor átnevezheti';
 	@override late final _TranslationsSettingsPrefDescriptionsSentryHu sentry = _TranslationsSettingsPrefDescriptionsSentryHu._(_root);
 	@override String get autosave => 'Automato-Save rövid késleltetés után, vagy soha';

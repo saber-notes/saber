@@ -399,6 +399,7 @@ class _TranslationsSettingsPrefLabelsFa extends TranslationsSettingsPrefLabelsEn
 	@override String get autoClearWhiteboardOnExit => 'پس از خروج از برنامه، وایت برد پاک شود';
 	@override String get disableEraserAfterUse => 'پاک کن را به صورت خودکار غیرفعال کنید';
 	@override String get hideFingerDrawingToggle => 'ضامن طراحی انگشت را پنهان کنید';
+	@override String get autoDisableFingerDrawingWhenStylusDetected => 'غیرفعال کردن خودکار طراحی با انگشت';
 	@override String get editorPromptRename => 'از شما می خواهد که نام یادداشت های جدید را تغییر دهید';
 	@override String get recentColorsDontSavePresets => 'رنگ های از پیش تعیین شده را در رنگ های اخیر ذخیره نکنید';
 	@override String get recentColorsLength => 'چند رنگ اخیر برای ذخیره';
@@ -425,6 +426,7 @@ class _TranslationsSettingsPrefDescriptionsFa extends TranslationsSettingsPrefDe
 	@override String get disableEraserAfterUse => 'پس از استفاده از پاک کن به صورت خودکار به خودکار برمی گردد';
 	@override String get maxImageSize => 'تصاویر بزرگتر از این فشرده خواهند شد';
 	@override late final _TranslationsSettingsPrefDescriptionsHideFingerDrawingFa hideFingerDrawing = _TranslationsSettingsPrefDescriptionsHideFingerDrawingFa._(_root);
+	@override String get autoDisableFingerDrawingWhenStylusDetected => 'هنگامی که یک قلم شناسایی شد، نقاشی با انگشت را خاموش کنید';
 	@override String get editorPromptRename => 'همیشه می توانید بعداً نام یادداشت ها را تغییر دهید';
 	@override String get printPageIndicators => 'نمایش نشانگرهای صفحه در خروجی';
 	@override String get shapeRecognitionDelay => 'به روز رسانی پیشنمایش شکل چند وقت یکبار انجام شود';

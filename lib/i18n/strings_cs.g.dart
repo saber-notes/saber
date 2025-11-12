@@ -401,6 +401,7 @@ class _TranslationsSettingsPrefLabelsCs extends TranslationsSettingsPrefLabelsEn
 	@override String get autoClearWhiteboardOnExit => 'Smazat tabuli po opuštění aplikace';
 	@override String get disableEraserAfterUse => 'Automaticky vypínat gumu';
 	@override String get hideFingerDrawingToggle => 'Skrýt přepínač pro kreslení prstem';
+	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Automaticky deaktivovat kreslení prstem';
 	@override String get editorPromptRename => 'Vybízet k přejmenování nových poznámek';
 	@override String get recentColorsDontSavePresets => 'Neukládat přednastavené barvy mezi naposledy použité barvy';
 	@override String get recentColorsLength => 'Kolik naposledy použitých barev se má ukládat';
@@ -427,6 +428,7 @@ class _TranslationsSettingsPrefDescriptionsCs extends TranslationsSettingsPrefDe
 	@override String get disableEraserAfterUse => 'Po použití gumy automaticky přepnout zpět na pero';
 	@override String get maxImageSize => 'Na větší obrázky bude aplikována komprese';
 	@override late final _TranslationsSettingsPrefDescriptionsHideFingerDrawingCs hideFingerDrawing = _TranslationsSettingsPrefDescriptionsHideFingerDrawingCs._(_root);
+	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Při detekci stylusu vypněte kreslení prstem';
 	@override String get editorPromptRename => 'Poznámky můžete vždy přejmenovat i později';
 	@override String get printPageIndicators => 'V exportech budou zobrazena čísla stránek';
 	@override String get autosave => 'Poznámky se budou automaticky ukládat po krátké prodlevě, nebo nikdy';

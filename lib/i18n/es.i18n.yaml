@@ -98,6 +98,7 @@ settings:
     autoClearWhiteboardOnExit: Borrar la pizarra después de salir de la aplicación
     disableEraserAfterUse: Desactivar automáticamente la goma de borrar
     hideFingerDrawingToggle: Ocultar la opción para activar/desactivar la escritura con el dedo
+    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Desactivar automáticamente el dibujo con los dedos
     editorPromptRename: Solicitarte cambiar el nombre de nuevas notas
     recentColorsDontSavePresets: No guardar colores preestablecidos en los colores recientes
     recentColorsLength: Número de colores recientes a almacenar
@@ -119,6 +120,7 @@ settings:
       shown: Evita cambios accidentales
       fixedOn: Dibujar o escribir con el dedo está activado
       fixedOff: Dibujar o escribir con el dedo está desactivado
+    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Desactivar el dibujo con los dedos cuando se detecta un lápiz
     editorPromptRename: Siempre puedes cambiar el nombre de las notas más tarde
     printPageIndicators: Mostrar indicadores de página en las exportaciones
     shouldAlwaysAlertForUpdates: Avísame sobre actualizaciones tan pronto como estén disponibles

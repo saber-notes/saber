@@ -398,6 +398,7 @@ class _TranslationsSettingsPrefLabelsEs extends TranslationsSettingsPrefLabelsEn
 	@override String get autoClearWhiteboardOnExit => 'Borrar la pizarra después de salir de la aplicación';
 	@override String get disableEraserAfterUse => 'Desactivar automáticamente la goma de borrar';
 	@override String get hideFingerDrawingToggle => 'Ocultar la opción para activar/desactivar la escritura con el dedo';
+	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Desactivar automáticamente el dibujo con los dedos';
 	@override String get editorPromptRename => 'Solicitarte cambiar el nombre de nuevas notas';
 	@override String get recentColorsDontSavePresets => 'No guardar colores preestablecidos en los colores recientes';
 	@override String get recentColorsLength => 'Número de colores recientes a almacenar';
@@ -424,6 +425,7 @@ class _TranslationsSettingsPrefDescriptionsEs extends TranslationsSettingsPrefDe
 	@override String get disableEraserAfterUse => 'Volver automáticamente al bolígrafo tras usar la goma';
 	@override String get maxImageSize => 'Las imágenes más grandes que este valor serán comprimidas';
 	@override late final _TranslationsSettingsPrefDescriptionsHideFingerDrawingEs hideFingerDrawing = _TranslationsSettingsPrefDescriptionsHideFingerDrawingEs._(_root);
+	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Desactivar el dibujo con los dedos cuando se detecta un lápiz';
 	@override String get editorPromptRename => 'Siempre puedes cambiar el nombre de las notas más tarde';
 	@override String get printPageIndicators => 'Mostrar indicadores de página en las exportaciones';
 	@override String get shouldAlwaysAlertForUpdates => 'Avísame sobre actualizaciones tan pronto como estén disponibles';

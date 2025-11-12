@@ -94,6 +94,7 @@ settings:
     preferGreyscale: Szürkeárnyalatos színek előnyben részesítése
     maxImageSize: Maximális képméret
     autoClearWhiteboardOnExit: A tábla törlése az alkalmazásból való kilépés után
+    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Ujjrajzolás automatikus letiltása
     editorPromptRename: Új jegyzetek átnevezésére való felszólítás
     recentColorsDontSavePresets: Ne mentse az előre beállított színeket a legutóbbi színek között
     sentry(OUTDATED): Hibajelentés
@@ -118,6 +119,7 @@ settings:
       shown(OUTDATED): Megakadályozza a véletlen átkapcsolást
       fixedOn(OUTDATED): Az ujjlenyomat rögzítése engedélyezett állapotban van
       fixedOff(OUTDATED): Az ujjrajzolás letiltva van rögzítve
+    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Kapcsolja ki az ujjal történő rajzolást, ha ceruzát észlel
     editorPromptRename: A jegyzeteket később bármikor átnevezheti
     sentry: 
       active(OUTDATED): Aktív

@@ -411,6 +411,7 @@ class _TranslationsSettingsPrefLabelsZhHantTw extends TranslationsSettingsPrefLa
 	@override String get simplifiedHomeLayout => '簡化首頁佈局';
 	@override String get customDataDir => '自訂 Saber 資料夾';
 	@override String get sentry => '錯誤報告';
+	@override String get autoDisableFingerDrawingWhenStylusDetected => '自動禁用手指繪圖';
 }
 
 // Path: settings.prefDescriptions
@@ -427,6 +428,7 @@ class _TranslationsSettingsPrefDescriptionsZhHantTw extends TranslationsSettings
 	@override String get disableEraserAfterUse => '使用橡皮擦後自動切換回筆';
 	@override String get maxImageSize => '大於此大小的圖片將被壓縮';
 	@override late final _TranslationsSettingsPrefDescriptionsHideFingerDrawingZhHantTw hideFingerDrawing = _TranslationsSettingsPrefDescriptionsHideFingerDrawingZhHantTw._(_root);
+	@override String get autoDisableFingerDrawingWhenStylusDetected => '檢測到手寫筆時關閉手指繪圖';
 	@override String get editorPromptRename => '您以後隨時可以重新命名筆記';
 	@override String get printPageIndicators => '在匯出中顯示頁碼';
 	@override String get autosave => '在短暫延遲後自動儲存，或永不儲存';

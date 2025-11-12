@@ -19,9 +19,11 @@ ar:
         later(OUTDATED): Ask me later
   settings: 
     prefLabels: 
+      autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Auto-disable finger drawing
       autosave(OUTDATED): Auto-save
       sentry(OUTDATED): Error reporting
     prefDescriptions: 
+      autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Turn off finger drawing when a stylus is detected
       autosave(OUTDATED): Auto-save after a short delay, or never
       sentry: 
         active(OUTDATED): Active
@@ -43,8 +45,23 @@ ar:
       lineThickness(OUTDATED): Line thickness
       lineThicknessDescription(OUTDATED): Background line thickness
 cs: 
+  settings: 
+    prefLabels: 
+      autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Auto-disable finger drawing
+    prefDescriptions: 
+      autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Turn off finger drawing when a stylus is detected
 de: 
+  settings: 
+    prefLabels: 
+      autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Auto-disable finger drawing
+    prefDescriptions: 
+      autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Turn off finger drawing when a stylus is detected
 eo: 
+  settings: 
+    prefLabels: 
+      autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Auto-disable finger drawing
+    prefDescriptions: 
+      autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Turn off finger drawing when a stylus is detected
 es: 
   common: 
     done(OUTDATED): Done
@@ -68,6 +85,7 @@ es:
     prefCategories: 
       performance(OUTDATED): Performance
     prefLabels: 
+      autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Auto-disable finger drawing
       autosave(OUTDATED): Auto-save
       shapeRecognitionDelay(OUTDATED): Shape recognition delay
       autoStraightenLines(OUTDATED): Auto straighten lines
@@ -75,6 +93,7 @@ es:
       customDataDir(OUTDATED): Custom Saber folder
       sentry(OUTDATED): Error reporting
     prefDescriptions: 
+      autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Turn off finger drawing when a stylus is detected
       autosave(OUTDATED): Auto-save after a short delay, or never
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
@@ -176,12 +195,14 @@ fa:
         later(OUTDATED): Ask me later
   settings: 
     prefLabels: 
+      autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Auto-disable finger drawing
       autosave(OUTDATED): Auto-save
       autoStraightenLines(OUTDATED): Auto straighten lines
       simplifiedHomeLayout(OUTDATED): Simplified home layout
       customDataDir(OUTDATED): Custom Saber folder
       sentry(OUTDATED): Error reporting
     prefDescriptions: 
+      autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Turn off finger drawing when a stylus is detected
       autosave(OUTDATED): Auto-save after a short delay, or never
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
       simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
@@ -278,12 +299,14 @@ fr:
         later(OUTDATED): Ask me later
   settings: 
     prefLabels: 
+      autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Auto-disable finger drawing
       autosave(OUTDATED): Auto-save
       autoStraightenLines(OUTDATED): Auto straighten lines
       simplifiedHomeLayout(OUTDATED): Simplified home layout
       customDataDir(OUTDATED): Custom Saber folder
       sentry(OUTDATED): Error reporting
     prefDescriptions: 
+      autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Turn off finger drawing when a stylus is detected
       autosave(OUTDATED): Auto-save after a short delay, or never
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
       simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
@@ -391,6 +414,7 @@ he:
     prefCategories: 
       performance(OUTDATED): Performance
     prefLabels: 
+      autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Auto-disable finger drawing
       recentColorsLength(OUTDATED): How many recent colors to store
       autosave(OUTDATED): Auto-save
       shapeRecognitionDelay(OUTDATED): Shape recognition delay
@@ -399,6 +423,7 @@ he:
       customDataDir(OUTDATED): Custom Saber folder
       sentry(OUTDATED): Error reporting
     prefDescriptions: 
+      autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Turn off finger drawing when a stylus is detected
       autosave(OUTDATED): Auto-save after a short delay, or never
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
@@ -563,6 +588,7 @@ hu:
       allowInsecureConnections(OUTDATED): Allow insecure connections
       disableEraserAfterUse(OUTDATED): Auto-disable the eraser
       hideFingerDrawingToggle(OUTDATED): Hide the finger drawing toggle
+      autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Auto-disable finger drawing
       recentColorsLength(OUTDATED): How many recent colors to store
       printPageIndicators(OUTDATED): Print page indicators
       autosave(OUTDATED): Auto-save
@@ -578,6 +604,7 @@ hu:
         shown(OUTDATED): Prevents accidental toggling
         fixedOn(OUTDATED): Finger drawing is fixed as enabled
         fixedOff(OUTDATED): Finger drawing is fixed as disabled
+      autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Turn off finger drawing when a stylus is detected
       printPageIndicators(OUTDATED): Show page indicators in exports
       autosave(OUTDATED): Auto-save after a short delay, or never
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
@@ -737,6 +764,11 @@ hu:
       lockAxisAlignedPan(OUTDATED): Lock panning to horizontal or vertical
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
 it: 
+  settings: 
+    prefLabels: 
+      autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Auto-disable finger drawing
+    prefDescriptions: 
+      autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Turn off finger drawing when a stylus is detected
 ja: 
   common: 
     done(OUTDATED): Done
@@ -789,6 +821,7 @@ ja:
       shouldAlwaysAlertForUpdates(OUTDATED): Faster updates
       disableEraserAfterUse(OUTDATED): Auto-disable the eraser
       hideFingerDrawingToggle(OUTDATED): Hide the finger drawing toggle
+      autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Auto-disable finger drawing
       recentColorsLength(OUTDATED): How many recent colors to store
       autosave(OUTDATED): Auto-save
       shapeRecognitionDelay(OUTDATED): Shape recognition delay
@@ -802,6 +835,7 @@ ja:
         shown(OUTDATED): Prevents accidental toggling
         fixedOn(OUTDATED): Finger drawing is fixed as enabled
         fixedOff(OUTDATED): Finger drawing is fixed as disabled
+      autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Turn off finger drawing when a stylus is detected
       autosave(OUTDATED): Auto-save after a short delay, or never
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
@@ -923,6 +957,7 @@ pt-BR:
     prefCategories: 
       performance(OUTDATED): Performance
     prefLabels: 
+      autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Auto-disable finger drawing
       recentColorsLength(OUTDATED): How many recent colors to store
       autosave(OUTDATED): Auto-save
       shapeRecognitionDelay(OUTDATED): Shape recognition delay
@@ -931,6 +966,7 @@ pt-BR:
       customDataDir(OUTDATED): Custom Saber folder
       sentry(OUTDATED): Error reporting
     prefDescriptions: 
+      autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Turn off finger drawing when a stylus is detected
       autosave(OUTDATED): Auto-save after a short delay, or never
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
@@ -1020,6 +1056,11 @@ pt-BR:
       watchServer(OUTDATED): Watch for updates on the server
       watchServerReadOnly(OUTDATED): Editing is disabled while watching the server
 ru: 
+  settings: 
+    prefLabels: 
+      autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Auto-disable finger drawing
+    prefDescriptions: 
+      autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Turn off finger drawing when a stylus is detected
 tr: 
   home: 
     noPreviewAvailable(OUTDATED): No preview available
@@ -1038,9 +1079,11 @@ tr:
         later(OUTDATED): Ask me later
   settings: 
     prefLabels: 
+      autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Auto-disable finger drawing
       autosave(OUTDATED): Auto-save
       sentry(OUTDATED): Error reporting
     prefDescriptions: 
+      autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Turn off finger drawing when a stylus is detected
       autosave(OUTDATED): Auto-save after a short delay, or never
       sentry: 
         active(OUTDATED): Active
@@ -1062,4 +1105,14 @@ tr:
       lineThickness(OUTDATED): Line thickness
       lineThicknessDescription(OUTDATED): Background line thickness
 zh-Hans-CN: 
+  settings: 
+    prefLabels: 
+      autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Auto-disable finger drawing
+    prefDescriptions: 
+      autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Turn off finger drawing when a stylus is detected
 zh-Hant-TW: 
+  settings: 
+    prefLabels: 
+      autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Auto-disable finger drawing
+    prefDescriptions: 
+      autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Turn off finger drawing when a stylus is detected

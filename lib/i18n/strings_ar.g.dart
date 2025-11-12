@@ -401,6 +401,7 @@ class _TranslationsSettingsPrefLabelsAr extends TranslationsSettingsPrefLabelsEn
 	@override String get autoClearWhiteboardOnExit => 'امسح السبورة بعد الخروج من التطبيق';
 	@override String get disableEraserAfterUse => 'تعطيل الممحاة تلقائيًا بعد الاستخدام';
 	@override String get hideFingerDrawingToggle => 'إخفاء زر الرسم بالإصبع';
+	@override String get autoDisableFingerDrawingWhenStylusDetected => 'التعطيل التلقائي لرسم الإصبع';
 	@override String get editorPromptRename => 'مطالبتك بإعادة تسمية الملاحظات الجديدة';
 	@override String get recentColorsDontSavePresets => 'لا تحفظ الألوان المعينة مسبقًا كألوان حديثة';
 	@override String get recentColorsLength => 'كم عدد الألوان الحديثة التي يجب تخزينها';
@@ -427,6 +428,7 @@ class _TranslationsSettingsPrefDescriptionsAr extends TranslationsSettingsPrefDe
 	@override String get disableEraserAfterUse => 'التبديل تلقائيًا إلى القلم بعد استخدام الممحاة';
 	@override String get maxImageSize => 'سيتم ضغط الصور الأكبر من هذا';
 	@override late final _TranslationsSettingsPrefDescriptionsHideFingerDrawingAr hideFingerDrawing = _TranslationsSettingsPrefDescriptionsHideFingerDrawingAr._(_root);
+	@override String get autoDisableFingerDrawingWhenStylusDetected => 'قم بإيقاف تشغيل الرسم بالإصبع عند اكتشاف القلم';
 	@override String get editorPromptRename => 'يمكنك دائمًا إعادة تسمية الملاحظات لاحقًا';
 	@override String get printPageIndicators => 'تظهر مؤشرات الصفحة في الصادرات';
 	@override String get shapeRecognitionDelay => 'عدد مرات تحديث معاينة الشكل';

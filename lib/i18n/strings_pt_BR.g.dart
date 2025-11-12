@@ -356,9 +356,9 @@ class _TranslationsSentryConsentPtBr extends TranslationsSentryConsentEn {
 	final TranslationsPtBr _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Ajudar a melhorar o Saber?';
 	@override late final _TranslationsSentryConsentDescriptionPtBr description = _TranslationsSentryConsentDescriptionPtBr._(_root);
 	@override late final _TranslationsSentryConsentAnswersPtBr answers = _TranslationsSentryConsentAnswersPtBr._(_root);
+	@override String get title => 'Ajudar a melhorar o Saber?';
 }
 
 // Path: settings.prefCategories
@@ -399,6 +399,7 @@ class _TranslationsSettingsPrefLabelsPtBr extends TranslationsSettingsPrefLabels
 	@override String get autoClearWhiteboardOnExit => 'Limpar o quadro branco depois de sair do aplicativo';
 	@override String get disableEraserAfterUse => 'Desativar automaticamente a borracha';
 	@override String get hideFingerDrawingToggle => 'Ocultar o botão de desenho com o dedo';
+	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Desativar automaticamente o desenho do dedo';
 	@override String get editorPromptRename => 'Solicitar que você renomeie novas notas';
 	@override String get recentColorsDontSavePresets => 'Não salvar as cores predefinidas nas cores recentes';
 	@override String get printPageIndicators => 'Imprimir os indicadores de página';
@@ -425,6 +426,7 @@ class _TranslationsSettingsPrefDescriptionsPtBr extends TranslationsSettingsPref
 	@override String get disableEraserAfterUse => 'Voltar automaticamente para a caneta depois de usar a borracha';
 	@override String get maxImageSize => 'Imagens maiores que isso serão compactadas';
 	@override late final _TranslationsSettingsPrefDescriptionsHideFingerDrawingPtBr hideFingerDrawing = _TranslationsSettingsPrefDescriptionsHideFingerDrawingPtBr._(_root);
+	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Desative o desenho com o dedo quando uma caneta for detectada';
 	@override String get editorPromptRename => 'Você pode sempre renomear as notas mais tarde';
 	@override String get printPageIndicators => 'Mostrar os indicadores de página nas exportações';
 	@override String get shouldAlwaysAlertForUpdates => 'Conte-me sobre atualizações assim que elas estiverem disponíveis';

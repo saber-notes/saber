@@ -99,6 +99,7 @@ settings:
     autoClearWhiteboardOnExit: Очищать лист при выходе из приложения
     disableEraserAfterUse: Автоотключение ластика
     hideFingerDrawingToggle: Скрыть переключатель «Рисование пальцем»
+    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Автоматическое отключение рисования пальцем
     editorPromptRename: Предлагать переименовывать новые заметки
     recentColorsDontSavePresets: Не сохранять предустановленные цвета в последних цветах
     recentColorsLength: Количество последних сохраняемых цветов
@@ -120,6 +121,7 @@ settings:
       shown: Предотвращать случайное переключение
       fixedOn: «Рисование пальцем» зафиксировано как включенное
       fixedOff: «Рисование пальцем» зафиксировано как выключенное
+    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Отключить рисование пальцем при обнаружении стилуса
     editorPromptRename: Вы всегда можете переименовать заметки позже
     printPageIndicators: Показывать номера страниц при экспорте
     autosave: Автосохранение с задержкой

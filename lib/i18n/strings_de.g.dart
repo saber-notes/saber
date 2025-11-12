@@ -401,6 +401,7 @@ class _TranslationsSettingsPrefLabelsDe extends TranslationsSettingsPrefLabelsEn
 	@override String get autoClearWhiteboardOnExit => 'Lösche das Whiteboard nach Verlassen der Anwendung';
 	@override String get disableEraserAfterUse => 'Radierer automatisch deaktivieren';
 	@override String get hideFingerDrawingToggle => 'Umschalter des Finger-Zeichnens ausblenden';
+	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Fingerzeichnen automatisch deaktivieren';
 	@override String get editorPromptRename => 'Beim Erstellen von Notizen einen Namen erfragen';
 	@override String get recentColorsDontSavePresets => 'Farbvorlagen nicht in den zuletzt genutzten Farben speichern';
 	@override String get recentColorsLength => 'Anzahl der zuletzt genutzten Farben';
@@ -427,6 +428,7 @@ class _TranslationsSettingsPrefDescriptionsDe extends TranslationsSettingsPrefDe
 	@override String get disableEraserAfterUse => 'Nach dem Nutzen des Radierers automatisch zum Stift zurückwechseln';
 	@override String get maxImageSize => 'Bilder, die größer sind, werden komprimiert';
 	@override late final _TranslationsSettingsPrefDescriptionsHideFingerDrawingDe hideFingerDrawing = _TranslationsSettingsPrefDescriptionsHideFingerDrawingDe._(_root);
+	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Deaktivieren Sie das Zeichnen mit dem Finger, wenn ein Stift erkannt wird';
 	@override String get editorPromptRename => 'Notizen können später immer noch umbenannt werden';
 	@override String get printPageIndicators => 'Seitennummerierung bei Export anzeigen';
 	@override String get autosave => 'Nach kurzer Zeit Auto-Speichern oder nie';

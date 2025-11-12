@@ -399,6 +399,7 @@ class _TranslationsSettingsPrefLabelsHe extends TranslationsSettingsPrefLabelsEn
 	@override String get autoClearWhiteboardOnExit => 'נקה אוטומטית את הלוח הלבן';
 	@override String get disableEraserAfterUse => 'השבת אוטומטית את המחק';
 	@override String get hideFingerDrawingToggle => 'הסתר את מתג ציור האצבע';
+	@override String get autoDisableFingerDrawingWhenStylusDetected => 'השבתה אוטומטית של ציור אצבע';
 	@override String get editorPromptRename => 'מבקש ממך לשנות את שם הערות חדשות';
 	@override String get recentColorsDontSavePresets => 'אל תשמור צבעים מוגדרים מראש בצבעים אחרונים';
 	@override String get printPageIndicators => 'הדפסת עמודים מחוונים';
@@ -425,6 +426,7 @@ class _TranslationsSettingsPrefDescriptionsHe extends TranslationsSettingsPrefDe
 	@override String get disableEraserAfterUse => 'מעבר אוטומטי חזרה לעט לאחר שימוש במחק';
 	@override String get maxImageSize => 'תמונות גדולות יותר יידחסו';
 	@override late final _TranslationsSettingsPrefDescriptionsHideFingerDrawingHe hideFingerDrawing = _TranslationsSettingsPrefDescriptionsHideFingerDrawingHe._(_root);
+	@override String get autoDisableFingerDrawingWhenStylusDetected => 'כבה את ציור האצבע כאשר מזוהה חרט';
 	@override String get editorPromptRename => 'תמיד תוכל לשנות את שם הפתקים מאוחר יותר';
 	@override String get printPageIndicators => 'הצג מחווני עמודים בייצוא';
 	@override String get shouldAlwaysAlertForUpdates => 'ספר לי על עדכונים ברגע שהם יהיו זמינים';

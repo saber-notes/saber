@@ -99,6 +99,7 @@ settings:
     autoClearWhiteboardOnExit: Effacer le tableau blanc quand vous fermez l'application
     disableEraserAfterUse: Désactiver automatiquement la gomme après usage
     hideFingerDrawingToggle: Cacher l'icône d'activation/désactivation de tracé au doigt
+    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Désactivation automatique du dessin au doigt
     editorPromptRename: Vous rappeler de renommer les notes
     recentColorsDontSavePresets: Ne pas conserver les couleurs pré-définies parmi les couleurs récentes
     recentColorsLength: Nombre de couleurs récentes à conserver
@@ -120,6 +121,7 @@ settings:
       shown: Empêcher l'activation/désactivation accidentelle
       fixedOn: Le tracé au doigt est fixé à activé
       fixedOff: Le tracé au doigt est fixé à désactivé
+    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Désactiver le dessin au doigt lorsqu'un stylet est détecté
     editorPromptRename: Vous pourrez toujours les renommer plus tard
     printPageIndicators: Montrer les numéros de pages dans les exportations
     shapeRecognitionDelay: Avec quelle fréquence mettre à jour la prévisualisation de forme

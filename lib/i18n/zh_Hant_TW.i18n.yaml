@@ -109,6 +109,7 @@ settings:
     simplifiedHomeLayout: 簡化首頁佈局
     customDataDir: 自訂 Saber 資料夾
     sentry: 錯誤報告
+    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): 自動禁用手指繪圖
   prefDescriptions: 
     hyperlegibleFont: Atkinson Hyperlegible 字體為低視力讀者提高易讀性
     allowInsecureConnections: （不推薦）允許Saber連結到具有自簽名/不受信任證書的伺服器
@@ -120,6 +121,7 @@ settings:
       shown: 防止意外切換
       fixedOn: 手指繪圖固定為啟用
       fixedOff: 手指繪圖固定為禁用
+    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): 檢測到手寫筆時關閉手指繪圖
     editorPromptRename: 您以後隨時可以重新命名筆記
     printPageIndicators: 在匯出中顯示頁碼
     autosave: 在短暫延遲後自動儲存，或永不儲存
