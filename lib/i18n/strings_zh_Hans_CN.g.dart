@@ -428,7 +428,7 @@ class _TranslationsSettingsPrefDescriptionsZhHansCn extends TranslationsSettings
 	@override String get disableEraserAfterUse => '使用橡皮擦后自动切换回笔';
 	@override String get maxImageSize => '更大的图片将会被压缩';
 	@override late final _TranslationsSettingsPrefDescriptionsHideFingerDrawingZhHansCn hideFingerDrawing = _TranslationsSettingsPrefDescriptionsHideFingerDrawingZhHansCn._(_root);
-	@override String get autoDisableFingerDrawingWhenStylusDetected => '检测到手写笔时关闭手指绘图';
+	@override String get autoDisableFingerDrawingWhenStylusDetected => '当检测到手写笔时关闭手指绘图';
 	@override String get editorPromptRename => '您可以总是稍后重命名笔记';
 	@override String get printPageIndicators => '在导出中显示页码';
 	@override String get autosave => '短暂延迟后自动保存，或永不保存';
