@@ -1107,9 +1107,9 @@ tr:
 zh-Hans-CN: 
   settings: 
     prefLabels: 
-      autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Auto-disable finger drawing
+      autoDisableFingerDrawingWhenStylusDetected(OUTDATED): 自动禁用手指绘图
     prefDescriptions: 
-      autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Turn off finger drawing when a stylus is detected
+      autoDisableFingerDrawingWhenStylusDetected(OUTDATED): 当检测到手写笔时关闭手指绘图
 zh-Hant-TW: 
   settings: 
     prefLabels: 
