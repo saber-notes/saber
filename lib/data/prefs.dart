@@ -205,6 +205,14 @@ class Stows {
     volatile: !_isOnMainIsolate,
   );
 
+  /// People don't know to turn off finger drawing when using a stylus,
+  /// so we can do it automatically.
+  final autoDisableFingerDrawingWhenStylusDetected = PlainStow(
+    'autoDisableFingerDrawingWhenStylusDetected',
+    true,
+    volatile: !_isOnMainIsolate,
+  );
+
   final recentColorsChronological = PlainStow(
     'recentColorsChronological',
     <String>[],

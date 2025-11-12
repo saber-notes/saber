@@ -480,13 +480,18 @@ class _ToolbarState extends State<Toolbar> {
                 ),
               ),
               if (!stows.hideFingerDrawingToggle.value)
-                ToolbarIconButton(
-                  tooltip: t.editor.toolbar.toggleFingerDrawing,
-                  selected: stows.editorFingerDrawing.value,
-                  enabled: !widget.readOnly,
-                  onPressed: widget.toggleFingerDrawing,
-                  padding: buttonPadding,
-                  child: const Icon(CupertinoIcons.hand_draw),
+                ValueListenableBuilder(
+                  valueListenable: stows.editorFingerDrawing,
+                  builder: (context, value, child) {
+                    return ToolbarIconButton(
+                      tooltip: t.editor.toolbar.toggleFingerDrawing,
+                      selected: value,
+                      enabled: !widget.readOnly,
+                      onPressed: widget.toggleFingerDrawing,
+                      padding: buttonPadding,
+                      child: const Icon(CupertinoIcons.hand_draw),
+                    );
+                  },
                 ),
               ToolbarIconButton(
                 tooltip: t.editor.toolbar.fullscreen,

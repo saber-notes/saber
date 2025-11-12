@@ -99,6 +99,7 @@ settings:
     autoClearWhiteboardOnExit: Auto-clear the whiteboard
     disableEraserAfterUse: Auto-disable the eraser
     hideFingerDrawingToggle: Hide the finger drawing toggle
+    autoDisableFingerDrawingWhenStylusDetected: Auto-disable finger drawing
     editorPromptRename: Prompt you to rename new notes
     recentColorsDontSavePresets: Don't save preset colors in recent colors
     recentColorsLength: How many recent colors to store
@@ -120,6 +121,7 @@ settings:
       shown: Prevents accidental toggling
       fixedOn: Finger drawing is fixed as enabled
       fixedOff: Finger drawing is fixed as disabled
+    autoDisableFingerDrawingWhenStylusDetected: Turn off finger drawing when a stylus is detected
     editorPromptRename: You can always rename notes later
     printPageIndicators: Show page indicators in exports
     autosave: Auto-save after a short delay, or never

@@ -418,9 +418,12 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
   }
 
   void _listenerPointerEvent(PointerEvent event) {
+    final isStylus =
+        event.kind == PointerDeviceKind.stylus ||
+        event.kind == PointerDeviceKind.invertedStylus;
+
     final double? pressure;
-    if (event.kind == PointerDeviceKind.stylus ||
-        event.kind == PointerDeviceKind.invertedStylus) {
+    if (isStylus) {
       if (event.pressureMin != event.pressureMax) {
         pressure = event.pressure;
       } else {
@@ -430,8 +433,14 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
     } else {
       pressure = null;
     }
-
     widget.updatePointerData(event.kind, pressure);
+
+    if (isStylus &&
+        stows.autoDisableFingerDrawingWhenStylusDetected.value &&
+        // Don't change if the user has a fixed value for finger drawing
+        !stows.hideFingerDrawingToggle.value) {
+      stows.editorFingerDrawing.value = false;
+    }
   }
 
   var stylusButtonWasPressed = false;

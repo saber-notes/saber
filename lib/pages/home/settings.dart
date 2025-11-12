@@ -362,33 +362,59 @@ class _SettingsPageState extends State<SettingsPage> {
                   icon: FontAwesomeIcons.eraser,
                   pref: stows.disableEraserAfterUse,
                 ),
-                SettingsSwitch(
-                  title: t.settings.prefLabels.hideFingerDrawingToggle,
-                  subtitle: () {
-                    if (!stows.hideFingerDrawingToggle.value) {
-                      return t
-                          .settings
-                          .prefDescriptions
-                          .hideFingerDrawing
-                          .shown;
-                    } else if (stows.editorFingerDrawing.value) {
-                      return t
-                          .settings
-                          .prefDescriptions
-                          .hideFingerDrawing
-                          .fixedOn;
-                    } else {
-                      return t
-                          .settings
-                          .prefDescriptions
-                          .hideFingerDrawing
-                          .fixedOff;
-                    }
-                  }(),
-                  icon: CupertinoIcons.hand_draw,
-                  pref: stows.hideFingerDrawingToggle,
-                  afterChange: (_) => setState(() {}),
+                ValueListenableBuilder(
+                  valueListenable: stows.hideFingerDrawingToggle,
+                  builder: (context, _, _) {
+                    return SettingsSwitch(
+                      title: t.settings.prefLabels.hideFingerDrawingToggle,
+                      subtitle: () {
+                        if (!stows.hideFingerDrawingToggle.value) {
+                          return t
+                              .settings
+                              .prefDescriptions
+                              .hideFingerDrawing
+                              .shown;
+                        } else if (stows.editorFingerDrawing.value) {
+                          return t
+                              .settings
+                              .prefDescriptions
+                              .hideFingerDrawing
+                              .fixedOn;
+                        } else {
+                          return t
+                              .settings
+                              .prefDescriptions
+                              .hideFingerDrawing
+                              .fixedOff;
+                        }
+                      }(),
+                      icon: CupertinoIcons.hand_draw_fill,
+                      pref: stows.hideFingerDrawingToggle,
+                    );
+                  },
                 ),
+                ValueListenableBuilder(
+                  valueListenable: stows.hideFingerDrawingToggle,
+                  builder: (context, hideFingerDrawing, _) {
+                    return Collapsible(
+                      collapsed: hideFingerDrawing,
+                      axis: CollapsibleAxis.vertical,
+                      child: SettingsSwitch(
+                        title: t
+                            .settings
+                            .prefLabels
+                            .autoDisableFingerDrawingWhenStylusDetected,
+                        subtitle: t
+                            .settings
+                            .prefDescriptions
+                            .autoDisableFingerDrawingWhenStylusDetected,
+                        icon: CupertinoIcons.pencil,
+                        pref: stows.autoDisableFingerDrawingWhenStylusDetected,
+                      ),
+                    );
+                  },
+                ),
+
                 SettingsSubtitle(subtitle: t.settings.prefCategories.editor),
                 SettingsSelection(
                   title: t.settings.prefLabels.editorToolbarAlignment,

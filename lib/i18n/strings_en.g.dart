@@ -623,6 +623,9 @@ class TranslationsSettingsPrefLabelsEn {
 	/// en: 'Hide the finger drawing toggle'
 	String get hideFingerDrawingToggle => 'Hide the finger drawing toggle';
 
+	/// en: 'Auto-disable finger drawing'
+	String get autoDisableFingerDrawingWhenStylusDetected => 'Auto-disable finger drawing';
+
 	/// en: 'Prompt you to rename new notes'
 	String get editorPromptRename => 'Prompt you to rename new notes';
 
@@ -681,6 +684,9 @@ class TranslationsSettingsPrefDescriptionsEn {
 	String get maxImageSize => 'Larger images will be compressed';
 
 	late final TranslationsSettingsPrefDescriptionsHideFingerDrawingEn hideFingerDrawing = TranslationsSettingsPrefDescriptionsHideFingerDrawingEn.internal(_root);
+
+	/// en: 'Turn off finger drawing when a stylus is detected'
+	String get autoDisableFingerDrawingWhenStylusDetected => 'Turn off finger drawing when a stylus is detected';
 
 	/// en: 'You can always rename notes later'
 	String get editorPromptRename => 'You can always rename notes later';
