@@ -99,7 +99,7 @@ settings:
     autoClearWhiteboardOnExit: 离开应用后清除白板
     disableEraserAfterUse: 自动禁用橡皮擦
     hideFingerDrawingToggle: 隐藏 切换手指绘制
-    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): 自动禁用手指绘图
+    autoDisableFingerDrawingWhenStylusDetected: 自动禁用手指绘图
     editorPromptRename: 提示您重命名新笔记
     recentColorsDontSavePresets: 不在最近使用的颜色中保存预设颜色
     recentColorsLength: 要存储多少种最近的颜色
@@ -121,7 +121,7 @@ settings:
       shown: 防止意外切换
       fixedOn: 手指绘制固定为启用状态
       fixedOff: 手指绘制固定为禁用状态
-    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): 检测到手写笔时关闭手指绘图
+    autoDisableFingerDrawingWhenStylusDetected: 当检测到手写笔时关闭手指绘图
     editorPromptRename: 您可以总是稍后重命名笔记
     printPageIndicators: 在导出中显示页码
     autosave: 短暂延迟后自动保存，或永不保存
