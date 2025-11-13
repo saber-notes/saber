@@ -229,7 +229,14 @@ class Stroke {
 
     final polygon = getStroke(
       skipPoints(points, quality.N),
-      options: options,
+      options: switch (quality) {
+        .low => options.copyWith(
+          simulatePressure: false,
+          smoothing: 0,
+          streamline: 0,
+        ),
+        .high => options,
+      },
       rememberSimulatedPressure: rememberSimulatedPressure,
     );
 
