@@ -51,11 +51,6 @@ cs:
     prefDescriptions: 
       autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Turn off finger drawing when a stylus is detected
 de: 
-  settings: 
-    prefLabels: 
-      autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Fingerzeichnen automatisch deaktivieren
-    prefDescriptions: 
-      autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Schalte Fingerzeichnen aus, wenn ein Eingabestift erkannt wurde
 eo: 
   settings: 
     prefLabels: 
