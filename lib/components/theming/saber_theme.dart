@@ -28,7 +28,6 @@ abstract class SaberTheme {
       colorScheme: colorScheme,
       textTheme: createTextTheme(colorScheme.brightness),
       platform: platform,
-      pageTransitionsTheme: _pageTransitionsTheme,
       progressIndicatorTheme: const ProgressIndicatorThemeData(
         // ignore: deprecated_member_use
         year2023: false,
@@ -74,18 +73,6 @@ abstract class SaberTheme {
     }
     return createTheme(colorScheme, platform);
   }
-
-  /// Synced with [PageTransitionsTheme._defaultBuilders]
-  /// but with PredictiveBackPageTransitionsBuilder for Android.
-  static const _pageTransitionsTheme = PageTransitionsTheme(
-    builders: {
-      TargetPlatform.android: PredictiveBackPageTransitionsBuilder(),
-      TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
-      TargetPlatform.macOS: CupertinoPageTransitionsBuilder(),
-      TargetPlatform.windows: ZoomPageTransitionsBuilder(),
-      TargetPlatform.linux: ZoomPageTransitionsBuilder(),
-    },
-  );
 
   /// Adjusts certain colors in the [ColorScheme].
   static ColorScheme _adjustColorScheme(
