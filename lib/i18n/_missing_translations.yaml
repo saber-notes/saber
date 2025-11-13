@@ -764,11 +764,6 @@ hu:
       lockAxisAlignedPan(OUTDATED): Lock panning to horizontal or vertical
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
 it: 
-  settings: 
-    prefLabels: 
-      autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Disattiva automaticamente il disegno con le dita
-    prefDescriptions: 
-      autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Disattiva il disegno con le dita quando viene rilevato la stilo
 ja: 
   common: 
     done(OUTDATED): Done
