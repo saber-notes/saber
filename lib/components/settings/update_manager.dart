@@ -24,9 +24,7 @@ abstract class UpdateManager {
   );
 
   /// The availability of an update.
-  static final ValueNotifier<UpdateStatus> status = ValueNotifier(
-    UpdateStatus.upToDate,
-  );
+  static final ValueNotifier<UpdateStatus> status = ValueNotifier(.upToDate);
   static int? newestVersion;
 
   static var _hasShownUpdateDialog = false;
@@ -35,14 +33,13 @@ abstract class UpdateManager {
     bool userTriggered = false,
   }) async {
     if (!userTriggered) {
-      if (status.value == UpdateStatus.upToDate) {
+      if (status.value == .upToDate) {
         // check for updates if not already done
         await stows.shouldCheckForUpdates.waitUntilRead();
         if (!stows.shouldCheckForUpdates.value) return;
         status.value = await _checkForUpdate();
       }
-      if (status.value != UpdateStatus.updateRecommended)
-        return; // no update available
+      if (status.value != .updateRecommended) return; // no update available
       if (_hasShownUpdateDialog) return; // already shown
     }
 
@@ -61,7 +58,7 @@ abstract class UpdateManager {
       newestVersion = await getNewestVersion();
     } catch (e) {
       log.severe('Failed to check for update: $e', e);
-      return UpdateStatus.upToDate;
+      return .upToDate;
     }
 
     return getUpdateStatus(currentVersion, newestVersion ?? 0);
@@ -117,7 +114,7 @@ abstract class UpdateManager {
 
     // Check if we're up to date
     if (newestVersion.buildNumber <= currentVersion.buildNumber) {
-      return UpdateStatus.upToDate;
+      return .upToDate;
     }
 
     // Check if the update is low priority
@@ -125,17 +122,17 @@ abstract class UpdateManager {
       // Only prompt user every second patch
       if (newestVersion.buildNumber - currentVersion.buildNumber <
           SaberVersion.fromName('0.0.2').buildNumber) {
-        return UpdateStatus.updateOptional;
+        return .updateOptional;
       }
 
       // Don't prompt user when patch version is 0 (e.g. 0.15.0)
       // since there might still be bugs to fix
       if (newestVersion.patch == 0) {
-        return UpdateStatus.updateOptional;
+        return .updateOptional;
       }
     }
 
-    return UpdateStatus.updateRecommended;
+    return .updateRecommended;
   }
 
   static Future<String?> getLatestDownloadUrl([
@@ -144,7 +141,7 @@ abstract class UpdateManager {
   ]) async {
     platform ??= defaultTargetPlatform;
 
-    if (platform == TargetPlatform.android) {
+    if (platform == .android) {
       if (FlavorConfig.flavor.isNotEmpty) return null;
     }
 
@@ -174,10 +171,10 @@ abstract class UpdateManager {
   }
 
   static final Map<TargetPlatform, RegExp> platformFileRegex = {
-    TargetPlatform.windows: RegExp(r'\.exe'),
+    .windows: RegExp(r'\.exe'),
 
     // e.g. Saber_v0.9.8.apk not Saber_FOSS_v0.9.8.apk
-    TargetPlatform.android: RegExp(r'Saber_v.*\.apk'),
+    .android: RegExp(r'Saber_v.*\.apk'),
   };
 
   /// Downloads the update file from [downloadUrl] and installs it.

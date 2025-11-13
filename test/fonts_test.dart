@@ -30,7 +30,7 @@ void main() {
                   ),
                   for (final fontWeight in FontWeight.values)
                     Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                      crossAxisAlignment: .start,
                       children: [
                         Text(
                           fontWeight.value.toString(),

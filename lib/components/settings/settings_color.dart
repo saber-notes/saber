@@ -82,7 +82,7 @@ class _SettingsSwitchState extends State<SettingsColor> {
     icon ??= Icons.settings;
 
     return ListTile(
-      contentPadding: const EdgeInsets.symmetric(vertical: 4, horizontal: 16),
+      contentPadding: const .symmetric(vertical: 4, horizontal: 16),
       leading: AnimatedSwitcher(
         duration: const Duration(milliseconds: 100),
         child: Icon(icon, key: ValueKey(icon)),
@@ -101,14 +101,14 @@ class _SettingsSwitchState extends State<SettingsColor> {
         style: const TextStyle(fontSize: 13),
       ),
       trailing: Row(
-        mainAxisSize: MainAxisSize.min,
+        mainAxisSize: .min,
         children: [
           Container(
             width: 32,
             height: 32,
             decoration: BoxDecoration(
               color: widget.pref.value ?? defaultColor,
-              shape: BoxShape.circle,
+              shape: .circle,
             ),
           ),
           const SizedBox(width: 8),

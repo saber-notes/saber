@@ -97,7 +97,7 @@ class _NcLoginStepState extends State<NcLoginStep> {
     final screenWidth = MediaQuery.sizeOf(context).width;
     final screenHeight = MediaQuery.sizeOf(context).height;
     return ListView(
-      padding: EdgeInsets.symmetric(
+      padding: .symmetric(
         horizontal: screenWidth > width ? (screenWidth - width) / 2 : 16,
         vertical: 16,
       ),
@@ -130,7 +130,7 @@ class _NcLoginStepState extends State<NcLoginStep> {
         ),
         const SizedBox(height: 32),
         Row(
-          mainAxisAlignment: MainAxisAlignment.end,
+          mainAxisAlignment: .end,
           children: [
             SvgPicture.asset('assets/icon/icon.svg', width: 32, height: 32),
             const SizedBox(width: 16),
@@ -155,7 +155,7 @@ class _NcLoginStepState extends State<NcLoginStep> {
             linkToSignup: (text) => TextSpan(
               text: text,
               style: TextStyle(
-                color: colorScheme.brightness == Brightness.dark
+                color: colorScheme.brightness == .dark
                     ? saberColor
                     : saberColorDarkened,
               ),
@@ -168,7 +168,7 @@ class _NcLoginStepState extends State<NcLoginStep> {
         ),
         const SizedBox(height: 32),
         Row(
-          mainAxisAlignment: MainAxisAlignment.end,
+          mainAxisAlignment: .end,
           children: [
             SvgPicture.asset(
               'assets/images/nextcloud-logo.svg',
@@ -255,7 +255,7 @@ class _LoginFlowDialogState extends State<_LoginFlowDialog> {
     return AlertDialog.adaptive(
       title: Text(t.login.ncLoginStep.loginFlow.pleaseAuthorize),
       content: Column(
-        mainAxisSize: MainAxisSize.min,
+        mainAxisSize: .min,
         children: [
           Text(t.login.ncLoginStep.loginFlow.followPrompts),
           TextButton(

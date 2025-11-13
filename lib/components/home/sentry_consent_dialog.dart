@@ -2,7 +2,6 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:saber/components/settings/app_info.dart';
 import 'package:saber/data/prefs.dart';
-import 'package:saber/data/sentry/sentry_consent.dart';
 import 'package:saber/data/sentry/sentry_init.dart';
 import 'package:saber/i18n/strings.g.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -19,7 +18,7 @@ class SentryConsentDialog extends StatelessWidget {
       stows.sentryConsent.loaded,
       'Sentry consent should be loaded in initSentry',
     );
-    if (stows.sentryConsent.value != SentryConsent.unknown) return;
+    if (stows.sentryConsent.value != .unknown) return;
 
     // Show the dialog
     await show(context);
@@ -67,22 +66,22 @@ class SentryConsentDialog extends StatelessWidget {
       actions: [
         ElevatedButton(
           onPressed: () {
-            stows.sentryConsent.value = SentryConsent.granted;
+            stows.sentryConsent.value = .granted;
             Navigator.of(context).pop();
           },
           child: Text(t.sentry.consent.answers.yes),
         ),
         ElevatedButton(
           onPressed: () {
-            stows.sentryConsent.value = SentryConsent.denied;
+            stows.sentryConsent.value = .denied;
             Navigator.of(context).pop();
           },
           child: Text(t.sentry.consent.answers.no),
         ),
-        if (stows.sentryConsent.value == SentryConsent.unknown)
+        if (stows.sentryConsent.value == .unknown)
           ElevatedButton(
             onPressed: () {
-              stows.sentryConsent.value = SentryConsent.unknown;
+              stows.sentryConsent.value = .unknown;
               Navigator.of(context).pop();
             },
             child: Text(t.sentry.consent.answers.later),

@@ -189,7 +189,7 @@ class _ColorBarState extends State<ColorBar> {
                 color: Color(
                   int.parse(colorString),
                 ).withInversion(widget.invert),
-                shape: BoxShape.circle,
+                shape: .circle,
                 border: Border.all(
                   color: colorScheme.onSurface.withValues(alpha: 0.2),
                   width: 1,
@@ -215,7 +215,7 @@ class _ColorBarState extends State<ColorBar> {
           child: DecoratedBox(
             decoration: BoxDecoration(
               color: Color(int.parse(colorString)).withInversion(widget.invert),
-              shape: BoxShape.circle,
+              shape: .circle,
               border: Border.all(
                 color: colorScheme.onSurface.withValues(alpha: 0.2),
                 width: 1,
@@ -239,7 +239,7 @@ class _ColorBarState extends State<ColorBar> {
           child: DecoratedBox(
             decoration: BoxDecoration(
               color: Colors.transparent,
-              shape: BoxShape.circle,
+              shape: .circle,
               border: Border.all(
                 color: colorScheme.onSurface.withValues(alpha: 0.2),
                 width: 1,
@@ -259,10 +259,7 @@ class _ColorBarState extends State<ColorBar> {
         onTap: () => openColorPicker(context),
         tooltip: t.editor.colors.colorPicker,
         child: const DecoratedBox(
-          decoration: BoxDecoration(
-            color: Colors.transparent,
-            shape: BoxShape.circle,
-          ),
+          decoration: BoxDecoration(color: Colors.transparent, shape: .circle),
           child: Center(child: FaIcon(FontAwesomeIcons.droplet, size: 16)),
         ),
       ),
@@ -279,7 +276,7 @@ class _ColorBarState extends State<ColorBar> {
           child: DecoratedBox(
             decoration: BoxDecoration(
               color: namedColor.color.withInversion(widget.invert),
-              shape: BoxShape.circle,
+              shape: .circle,
               border: Border.all(
                 color: colorScheme.onSurface.withValues(alpha: 0.2),
                 width: 1,
@@ -291,7 +288,7 @@ class _ColorBarState extends State<ColorBar> {
 
     return Center(
       child: Padding(
-        padding: const EdgeInsets.all(8),
+        padding: const .all(8),
         child: SingleChildScrollView(
           scrollDirection: widget.axis,
           child: Flex(direction: widget.axis, children: children),

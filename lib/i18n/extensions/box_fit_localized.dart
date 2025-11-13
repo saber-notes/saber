@@ -4,11 +4,11 @@ import 'package:saber/i18n/strings.g.dart';
 
 extension BoxFitLocalized on BoxFit {
   String get localizedName {
-    if (this == BoxFit.fill) {
+    if (this == .fill) {
       return t.editor.menu.boxFits.fill;
-    } else if (this == BoxFit.cover) {
+    } else if (this == .cover) {
       return t.editor.menu.boxFits.cover;
-    } else if (this == BoxFit.contain) {
+    } else if (this == .contain) {
       return t.editor.menu.boxFits.contain;
     } else {
       if (kDebugMode) throw Exception('Untranslated box fit: $this');

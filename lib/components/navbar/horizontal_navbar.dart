@@ -36,20 +36,18 @@ class HorizontalNavbar extends StatelessWidget {
 
     return SafeArea(
       child: Padding(
-        padding: const EdgeInsets.all(16),
+        padding: const .all(16),
         child: Align(
           alignment: AlignmentDirectional.bottomEnd,
           child: GlassyContainer(
             child: Padding(
-              padding: platform.isCupertino
-                  ? const EdgeInsets.all(4)
-                  : const EdgeInsets.all(8),
+              padding: platform.isCupertino ? const .all(4) : const .all(8),
               child: Semantics(
                 role: SemanticsRole.tabBar,
                 explicitChildNodes: true,
                 container: true,
                 child: Row(
-                  mainAxisSize: MainAxisSize.min,
+                  mainAxisSize: .min,
                   spacing: platform.isCupertino ? 0 : 4,
                   children: [
                     for (int i = 0; i < destinations.length; i++)
@@ -92,7 +90,7 @@ class GlassyContainer extends StatelessWidget {
     final platform = Theme.of(context).platform;
     final colorScheme = ColorScheme.of(context);
     final height = this.height ?? HorizontalNavbar._heightForPlatform(platform);
-    final borderRadius = this.borderRadius ?? BorderRadius.circular(height / 2);
+    final borderRadius = this.borderRadius ?? .circular(height / 2);
 
     final Color background;
     if (platform.isCupertino) {
@@ -124,9 +122,7 @@ class GlassyContainer extends StatelessWidget {
           borderRadius: borderRadius,
           child: DecoratedBox(
             decoration: BoxDecoration(
-              border:
-                  (platform.isCupertino &&
-                      colorScheme.brightness == Brightness.dark)
+              border: (platform.isCupertino && colorScheme.brightness == .dark)
                   ? _GlintBorder(width: 1)
                   : null,
               borderRadius: borderRadius,
@@ -168,8 +164,7 @@ class _ToolbarButton extends StatelessWidget {
     final borderRadius = BorderRadius.circular(32);
     final selectedBgColor = platform.isCupertino
         ? colorScheme.onPrimaryContainer.withValues(alpha: 0.15)
-        : (platform == TargetPlatform.linux &&
-                  colorScheme.brightness == Brightness.light
+        : (platform == .linux && colorScheme.brightness == .light
               ? colorScheme.shadow.withValues(alpha: 0.15)
               : colorScheme.surface);
     final bgColor = selected ? selectedBgColor : Colors.transparent;
@@ -199,7 +194,7 @@ class _ToolbarButton extends StatelessWidget {
               ? CupertinoColors.systemBlue.withValues(alpha: 0.5)
               : colorScheme.primary.withValues(alpha: 0.5),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: .center,
             children: [
               Flexible(
                 flex: 7,
@@ -214,12 +209,12 @@ class _ToolbarButton extends StatelessWidget {
                   destination.label,
                   style: TextStyle(
                     fontSize: 10,
-                    fontWeight: FontWeight.w500,
+                    fontWeight: .w500,
                     height: 1,
-                    overflow: TextOverflow.clip,
+                    overflow: .clip,
                     color: fgColor,
                   ),
-                  textAlign: TextAlign.center,
+                  textAlign: .center,
                   maxLines: 1,
                 ),
               ),
@@ -258,17 +253,17 @@ class _GlintBorder extends Border {
     Canvas canvas,
     Rect rect, {
     TextDirection? textDirection,
-    BoxShape shape = BoxShape.rectangle,
+    BoxShape shape = .rectangle,
     BorderRadius? borderRadius,
   }) {
-    borderRadius ??= BorderRadius.zero;
-    assert(top.style != BorderStyle.none);
+    borderRadius ??= .zero;
+    assert(top.style != .none);
     final paint = Paint()
       ..color = Colors.white
       ..shader = gradient.createShader(rect);
     if (top.width == 0.0) {
       paint
-        ..style = PaintingStyle.stroke
+        ..style = .stroke
         ..strokeWidth = 0.0;
       canvas.drawRRect(borderRadius.toRRect(rect), paint);
     } else {

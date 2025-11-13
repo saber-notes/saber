@@ -16,12 +16,12 @@ class PathComponents extends StatelessWidget {
           foregroundColor: colorScheme.onSurface,
           tapTargetSize: MaterialTapTargetSize.shrinkWrap,
           minimumSize: const Size(24, 8),
-          padding: const EdgeInsets.all(8),
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
+          padding: const .all(8),
+          shape: RoundedRectangleBorder(borderRadius: .circular(4)),
         ),
       ),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
+        padding: const .symmetric(horizontal: 16),
         child: Wrap(
           crossAxisAlignment: WrapCrossAlignment.center,
           children: [

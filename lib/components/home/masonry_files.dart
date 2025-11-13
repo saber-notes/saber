@@ -43,7 +43,7 @@ class _MasonryFilesState extends State<MasonryFiles> {
       valueListenable: isAnythingSelected,
       builder: (context, isAnythingSelected, _) {
         return Align(
-          alignment: Alignment.bottomCenter,
+          alignment: .bottomCenter,
           child: PreviewCard(
             filePath: file,
             toggleSelection: toggleSelection,
@@ -60,7 +60,7 @@ class _MasonryFilesState extends State<MasonryFiles> {
     isAnythingSelected.value = widget.selectedFiles.value.isNotEmpty;
 
     return SliverPadding(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      padding: const .symmetric(horizontal: 16, vertical: 8),
       sliver: stows.simplifiedHomeLayout.value
           ? SliverGrid.builder(
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(

@@ -5,7 +5,6 @@ import 'package:saber/components/canvas/_asset_cache.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/image/editor_image.dart';
 import 'package:saber/data/editor/page.dart';
-import 'package:saber/data/tools/_tool.dart';
 import 'package:saber/data/tools/select.dart';
 
 void main() {
@@ -36,7 +35,7 @@ void main() {
           options: options,
           pageIndex: 0,
           page: page,
-          toolId: ToolId.fountainPen,
+          toolId: .fountainPen,
         )..addPoint(const Offset(5, 5)),
         // index > 0 is outside
         Stroke(
@@ -45,7 +44,7 @@ void main() {
           options: options,
           pageIndex: 0,
           page: page,
-          toolId: ToolId.fountainPen,
+          toolId: .fountainPen,
         )..addPoint(const Offset(10, 10)),
         Stroke(
           color: Stroke.defaultColor,
@@ -53,7 +52,7 @@ void main() {
           options: options,
           pageIndex: 0,
           page: page,
-          toolId: ToolId.fountainPen,
+          toolId: .fountainPen,
         )..addPoint(const Offset(15, 15)),
       ];
 
@@ -93,11 +92,11 @@ void main() {
 
       final List<EditorImage> images = [
         // index 0 is inside (100% in the selection)
-        TestImage(dstRect: const Rect.fromLTWH(0, 0, 10, 10)),
+        TestImage(dstRect: const .fromLTWH(0, 0, 10, 10)),
         // index 1 is inside (> 70% in the selection)
-        TestImage(dstRect: const Rect.fromLTWH(0, 0, 10 / 0.75, 10 / 0.75)),
+        TestImage(dstRect: const .fromLTWH(0, 0, 10 / 0.75, 10 / 0.75)),
         // index 2 is outside (< 70% in the selection)
-        TestImage(dstRect: const Rect.fromLTWH(0, 0, 10 / 0.6, 10 / 0.6)),
+        TestImage(dstRect: const .fromLTWH(0, 0, 10 / 0.6, 10 / 0.6)),
       ];
 
       select.onDragEnd(const [], images);
@@ -193,6 +192,6 @@ Stroke _strokeWithColor(Color color) {
     options: StrokeOptions(),
     pageIndex: 0,
     page: const HasSize(Size.zero),
-    toolId: ToolId.fountainPen,
+    toolId: .fountainPen,
   );
 }

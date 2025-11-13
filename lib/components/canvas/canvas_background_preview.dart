@@ -49,10 +49,10 @@ class CanvasBackgroundPreview extends StatelessWidget {
               .withValues(alpha: selected ? 1 : 0.1),
           width: 2,
         ),
-        borderRadius: BorderRadius.circular(8),
+        borderRadius: .circular(8),
       ),
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(8),
+        borderRadius: .circular(8),
         child: Stack(
           children: [
             FittedBox(

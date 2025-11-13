@@ -116,9 +116,9 @@ class LogsPage extends StatelessWidget {
               if (logsHistory.history.isEmpty)
                 SliverFillRemaining(
                   child: Padding(
-                    padding: const EdgeInsets.all(16),
+                    padding: const .all(16),
                     child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisAlignment: .center,
                       children: [
                         SvgPicture.asset(
                           'assets/images/undraw_detailed_analysis_re_tk6j.svg',
@@ -174,15 +174,15 @@ class _LogsItem extends StatelessWidget {
     const hPadding = 16.0;
     const vPadding = 8.0;
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: .start,
       children: [
         const SizedBox(height: vPadding),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: hPadding),
+          padding: const .symmetric(horizontal: hPadding),
           child: _LogLevel(level: record.level),
         ),
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: hPadding),
+          padding: const .symmetric(horizontal: hPadding),
           child: Text(record.message),
         ),
         if (record.stackTrace != null)
@@ -222,7 +222,7 @@ class _LogLevel extends StatelessWidget {
           Level.WARNING => colorScheme.tertiary,
           _ => colorScheme.surfaceContainer,
         },
-        borderRadius: BorderRadius.circular(2),
+        borderRadius: .circular(2),
       ),
       child: Text(
         level.name,

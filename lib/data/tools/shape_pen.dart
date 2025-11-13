@@ -8,7 +8,6 @@ import 'package:saber/components/canvas/_circle_stroke.dart';
 import 'package:saber/components/canvas/_rectangle_stroke.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/data/prefs.dart';
-import 'package:saber/data/tools/_tool.dart';
 import 'package:saber/data/tools/pen.dart';
 import 'package:saber/i18n/strings.g.dart';
 
@@ -23,7 +22,7 @@ class ShapePen extends Pen {
         options: stows.lastShapePenOptions.value,
         pressureEnabled: false,
         color: Color(stows.lastShapePenColor.value),
-        toolId: ToolId.shapePen,
+        toolId: .shapePen,
       );
 
   static final log = Logger('ShapePen');

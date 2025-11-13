@@ -70,10 +70,10 @@ void _testTheme({
       final expectedFontFamily = hyperlegible
           ? 'AtkinsonHyperlegibleNext'
           : switch (platform) {
-              TargetPlatform.iOS => RegExp('CupertinoSystem(Display|Text)'),
-              TargetPlatform.linux => 'packages/yaru/Ubuntu',
-              TargetPlatform.macOS => '.AppleSystemUIFont',
-              TargetPlatform.windows => 'Segoe UI',
+              .iOS => RegExp('CupertinoSystem(Display|Text)'),
+              .linux => 'packages/yaru/Ubuntu',
+              .macOS => '.AppleSystemUIFont',
+              .windows => 'Segoe UI',
               _ => 'Roboto',
             };
       for (final font in _extractFonts(theme.textTheme)) {

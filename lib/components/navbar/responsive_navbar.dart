@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:path_to_regexp/path_to_regexp.dart';
-import 'package:saber/components/canvas/save_indicator.dart';
 import 'package:saber/components/navbar/horizontal_navbar.dart';
 import 'package:saber/components/navbar/vertical_navbar.dart';
 import 'package:saber/data/prefs.dart';
@@ -49,12 +48,12 @@ class _ResponsiveNavbarState extends State<ResponsiveNavbar> {
       final savingState = Whiteboard.savingState;
       switch (savingState) {
         case null:
-        case SavingState.saved:
+        case .saved:
           break;
-        case SavingState.waitingToSave:
+        case .waitingToSave:
           Whiteboard.triggerSave();
           return;
-        case SavingState.saving:
+        case .saving:
           return;
       }
     }
@@ -67,9 +66,9 @@ class _ResponsiveNavbarState extends State<ResponsiveNavbar> {
     final mediaQuery = MediaQuery.of(context);
 
     ResponsiveNavbar.isLargeScreen = switch (stows.layoutSize.value) {
-      LayoutSize.auto => mediaQuery.size.width >= 600,
-      LayoutSize.phone => false,
-      LayoutSize.tablet => true,
+      .auto => mediaQuery.size.width >= 600,
+      .phone => false,
+      .tablet => true,
     };
 
     if (ResponsiveNavbar.isLargeScreen) {
@@ -99,11 +98,9 @@ class _ResponsiveNavbarState extends State<ResponsiveNavbar> {
         children: [
           MediaQuery(
             data: mediaQuery.copyWith(
-              padding:
-                  mediaQuery.padding + EdgeInsets.only(bottom: navbarClearance),
+              padding: mediaQuery.padding + .only(bottom: navbarClearance),
               viewPadding:
-                  mediaQuery.viewPadding +
-                  EdgeInsets.only(bottom: navbarClearance),
+                  mediaQuery.viewPadding + .only(bottom: navbarClearance),
             ),
             child: widget.body,
           ),

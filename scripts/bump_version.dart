@@ -70,9 +70,9 @@ void parseArgs(List<String> args) {
     final custom = results['custom']!;
     late final buildNumber = int.tryParse(custom);
     if (custom.contains('.')) {
-      newVersion = SaberVersion.fromName(custom);
+      newVersion = .fromName(custom);
     } else if (buildNumber != null) {
-      newVersion = SaberVersion.fromNumber(buildNumber);
+      newVersion = .fromNumber(buildNumber);
     } else {
       print('Invalid custom version: $custom');
       print(parser.usage);

@@ -35,7 +35,7 @@ class _PenModalState extends State<PenModal> {
 
     return Flex(
       direction: axis,
-      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisAlignment: .center,
       children: [
         SizePicker(axis: axis, pen: currentPen),
         if (currentPen is! Highlighter && currentPen is! Pencil) ...[

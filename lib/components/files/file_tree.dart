@@ -12,7 +12,7 @@ class FileTree extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Padding(
-      padding: EdgeInsets.all(12),
+      padding: .all(12),
       child: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: FileTreeBranch(path: null, isDirectory: true),
@@ -64,7 +64,7 @@ class _FileTreeBranchState extends State<FileTreeBranch> {
     );
 
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: .start,
       children: [
         if (widget.path != null)
           Material(
@@ -97,7 +97,7 @@ class _FileTreeBranchState extends State<FileTreeBranch> {
                       style: TextTheme.of(
                         context,
                       ).bodyMedium?.copyWith(fontSize: 14),
-                      overflow: TextOverflow.ellipsis,
+                      overflow: .ellipsis,
                     ),
                   ),
                 ],
@@ -106,11 +106,9 @@ class _FileTreeBranchState extends State<FileTreeBranch> {
           ),
         if ((widget.path == null || areChildrenVisible) && children != null)
           Padding(
-            padding: (widget.path != null)
-                ? const EdgeInsets.only(left: 25)
-                : EdgeInsets.zero,
+            padding: (widget.path != null) ? const .only(left: 25) : .zero,
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: .start,
               children: [
                 for (var i = 0; i < children!.directories.length; i++)
                   FileTreeBranch(

@@ -15,7 +15,7 @@ class LaserPointer extends Tool {
   static LaserPointer get currentLaserPointer => _currentLaserPointer;
 
   @override
-  ToolId get toolId => ToolId.laserPointer;
+  ToolId get toolId => .laserPointer;
 
   static const outerColor = Colors.red;
   final pressureEnabled = false;

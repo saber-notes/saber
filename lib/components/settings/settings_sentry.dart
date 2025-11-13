@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:saber/components/home/sentry_consent_dialog.dart';
 import 'package:saber/data/prefs.dart';
-import 'package:saber/data/sentry/sentry_consent.dart';
 import 'package:saber/data/sentry/sentry_init.dart';
 import 'package:saber/i18n/strings.g.dart';
 
@@ -11,13 +10,12 @@ class SettingsSentryConsent extends StatelessWidget {
   String _getSubtitle() {
     final isActive = isSentryEnabled;
     if (isActive) {
-      final willStayActive = stows.sentryConsent.value == SentryConsent.granted;
+      final willStayActive = stows.sentryConsent.value == .granted;
       return willStayActive
           ? t.settings.prefDescriptions.sentry.active
           : t.settings.prefDescriptions.sentry.activeUntilRestart;
     } else {
-      final willStayInactive =
-          stows.sentryConsent.value != SentryConsent.granted;
+      final willStayInactive = stows.sentryConsent.value != .granted;
       return willStayInactive
           ? t.settings.prefDescriptions.sentry.inactive
           : t.settings.prefDescriptions.sentry.inactiveUntilRestart;
@@ -32,10 +30,7 @@ class SettingsSentryConsent extends StatelessWidget {
       builder: (context, consent, child) {
         final subtitle = _getSubtitle();
         return ListTile(
-          contentPadding: const EdgeInsets.symmetric(
-            vertical: 4,
-            horizontal: 16,
-          ),
+          contentPadding: const .symmetric(vertical: 4, horizontal: 16),
           leading: const Icon(Icons.bug_report),
           title: Text(
             title,

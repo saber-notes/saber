@@ -26,23 +26,23 @@ class _VerticalNavbarState extends State<VerticalNavbar> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final backgroundColor = switch (theme.platform) {
-      TargetPlatform.linux => Colors.transparent,
+      .linux => Colors.transparent,
       _ => theme.colorScheme.surfaceContainer,
     };
 
     return DecoratedBox(
       decoration: BoxDecoration(
         color: backgroundColor,
-        border: theme.platform == TargetPlatform.linux
+        border: theme.platform == .linux
             ? BoxBorder.fromSTEB(end: BorderSide(color: theme.dividerColor))
             : null,
       ),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: .start,
         children: [
           const SizedBox(height: kToolbarHeight),
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 12),
+            padding: const .symmetric(vertical: 10, horizontal: 12),
             child: TextButton(
               onPressed: () {
                 setState(() {

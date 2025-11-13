@@ -28,7 +28,6 @@ abstract class SaberTheme {
       colorScheme: colorScheme,
       textTheme: createTextTheme(colorScheme.brightness),
       platform: platform,
-      pageTransitionsTheme: _pageTransitionsTheme,
       progressIndicatorTheme: const ProgressIndicatorThemeData(
         // ignore: deprecated_member_use
         year2023: false,
@@ -52,7 +51,7 @@ abstract class SaberTheme {
     bool highContrast = false,
   }) {
     late final yaruVariant = YaruBuilder.getYaruVariant(seedColor);
-    if (platform == TargetPlatform.linux) {
+    if (platform == .linux) {
       return getThemeFromYaru(
         YaruThemeData(variant: yaruVariant),
         brightness,
@@ -63,7 +62,7 @@ abstract class SaberTheme {
 
     final ColorScheme colorScheme;
     if (platform.usesYaruColors) {
-      colorScheme = brightness == Brightness.light
+      colorScheme = brightness == .light
           ? yaruVariant.theme.colorScheme
           : yaruVariant.darkTheme.colorScheme;
     } else {
@@ -75,18 +74,6 @@ abstract class SaberTheme {
     return createTheme(colorScheme, platform);
   }
 
-  /// Synced with [PageTransitionsTheme._defaultBuilders]
-  /// but with PredictiveBackPageTransitionsBuilder for Android.
-  static const _pageTransitionsTheme = PageTransitionsTheme(
-    builders: {
-      TargetPlatform.android: PredictiveBackPageTransitionsBuilder(),
-      TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
-      TargetPlatform.macOS: CupertinoPageTransitionsBuilder(),
-      TargetPlatform.windows: ZoomPageTransitionsBuilder(),
-      TargetPlatform.linux: ZoomPageTransitionsBuilder(),
-    },
-  );
-
   /// Adjusts certain colors in the [ColorScheme].
   static ColorScheme _adjustColorScheme(
     ColorScheme colorScheme,
@@ -94,7 +81,7 @@ abstract class SaberTheme {
   ) {
     return colorScheme.copyWith(
       surface: platform.isCupertino
-          ? (colorScheme.brightness == Brightness.light
+          ? (colorScheme.brightness == .light
                 ? CupertinoColors.white
                 : CupertinoColors.darkBackgroundGray)
           : null,
@@ -116,10 +103,8 @@ abstract class SaberTheme {
     bool highContrast,
   ) {
     final base = highContrast
-        ? (brightness == Brightness.light
-              ? yaruHighContrastLight
-              : yaruHighContrastDark)
-        : (brightness == Brightness.light
+        ? (brightness == .light ? yaruHighContrastLight : yaruHighContrastDark)
+        : (brightness == .light
               ? yaru.theme ?? yaruLight
               : yaru.darkTheme ?? yaruDark);
     return base.copyWith(
@@ -132,15 +117,15 @@ abstract class SaberTheme {
 extension SaberThemePlatform on TargetPlatform {
   /// iOS uses Yaru's colorscheme since it looks more native than M3.
   bool get usesYaruColors => switch (this) {
-    TargetPlatform.linux => true,
-    TargetPlatform.iOS => true,
-    TargetPlatform.macOS => true,
+    .linux => true,
+    .iOS => true,
+    .macOS => true,
     _ => false,
   };
 
   bool get isCupertino => switch (this) {
-    TargetPlatform.iOS => true,
-    TargetPlatform.macOS => true,
+    .iOS => true,
+    .macOS => true,
     _ => false,
   };
 }

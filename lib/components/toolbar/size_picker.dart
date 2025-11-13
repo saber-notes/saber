@@ -31,7 +31,7 @@ class _SizePickerState extends State<SizePicker> {
     final colorScheme = ColorScheme.of(context);
     return Flex(
       direction: widget.axis,
-      mainAxisSize: MainAxisSize.min,
+      mainAxisSize: .min,
       children: [
         Column(
           children: [
@@ -48,7 +48,7 @@ class _SizePickerState extends State<SizePicker> {
         ),
         const SizedBox(width: 8),
         Padding(
-          padding: const EdgeInsets.symmetric(vertical: 8),
+          padding: const .symmetric(vertical: 8),
           child: _SizeSlider(
             pen: widget.pen,
             axis: widget.axis,
@@ -161,7 +161,7 @@ class _SizeSliderPainter extends CustomPainter {
         ..close(),
       Paint()
         ..color = trackColor
-        ..style = PaintingStyle.fill,
+        ..style = .fill,
     );
 
     // thumb
@@ -178,7 +178,7 @@ class _SizeSliderPainter extends CustomPainter {
         ..close(),
       Paint()
         ..color = thumbColor
-        ..style = PaintingStyle.fill,
+        ..style = .fill,
     );
   }
 

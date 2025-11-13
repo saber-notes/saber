@@ -179,15 +179,15 @@ class _CanvasImageDialogItem extends StatelessWidget {
     final colorScheme = ColorScheme.of(context);
     return Material(
       color: colorScheme.primary.withValues(alpha: 0.05),
-      borderRadius: BorderRadius.circular(8),
+      borderRadius: .circular(8),
       child: InkWell(
         onTap: onTap,
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+          padding: const .symmetric(horizontal: 8, vertical: 16),
           child: Column(
             children: [
               Expanded(child: child),
-              Text(title, textAlign: TextAlign.center),
+              Text(title, textAlign: .center),
             ],
           ),
         ),

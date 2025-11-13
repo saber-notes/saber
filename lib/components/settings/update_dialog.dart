@@ -27,7 +27,7 @@ class _UpdateDialogState extends State<UpdateDialog> {
   /// Null if not started yet, or the progress (0.0 to 1.0) of the download.
   final directDownloadProgress = ValueNotifier<double?>(null);
 
-  late final localeCode = LocaleSettings.currentLocale == AppLocale.en
+  late final localeCode = LocaleSettings.currentLocale == .en
       ? null
       : LocaleSettings.currentLocale.languageTag;
   String? englishChangelog;
@@ -95,8 +95,8 @@ class _UpdateDialogState extends State<UpdateDialog> {
     return AdaptiveAlertDialog(
       title: Text(t.update.updateAvailable),
       content: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: .start,
+        mainAxisSize: .min,
         children: [
           Text(t.update.updateAvailableDescription),
 
@@ -128,7 +128,7 @@ class _UpdateDialogState extends State<UpdateDialog> {
             builder: (context, progress, _) {
               if (progress == null) return const SizedBox();
               return Padding(
-                padding: const EdgeInsets.only(top: 16.0),
+                padding: const .only(top: 16.0),
                 child: AdaptiveLinearProgressIndicator(value: progress),
               );
             },

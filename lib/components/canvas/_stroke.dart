@@ -44,7 +44,7 @@ class Stroke {
   Path get highQualityPath => _highQualityPath ??= getPath(highQualityPolygon);
 
   void shift(Offset offset) {
-    if (offset == Offset.zero) return;
+    if (offset == .zero) return;
 
     points.shift(offset);
     _lowQualityPolygon?.shift(offset);
@@ -137,7 +137,7 @@ class Stroke {
       options: options,
       pageIndex: pageIndex,
       page: page,
-      toolId: ToolId.parsePenType(json['ty'], fallback: ToolId.fountainPen),
+      toolId: .parsePenType(json['ty'], fallback: .fountainPen),
     )..points.addAll(points);
   }
   Map<String, dynamic> toJson() {

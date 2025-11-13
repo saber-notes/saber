@@ -122,7 +122,7 @@ class _RecentPageState extends State<RecentPage> {
         child: CustomScrollView(
           slivers: [
             SliverPadding(
-              padding: const EdgeInsets.only(bottom: 8),
+              padding: const .only(bottom: 8),
               sliver: SliverAppBar(
                 collapsedHeight: kToolbarHeight,
                 expandedHeight: 200,
@@ -148,7 +148,7 @@ class _RecentPageState extends State<RecentPage> {
               ),
             ] else ...[
               SliverSafeArea(
-                minimum: const EdgeInsets.only(
+                minimum: const .only(
                   // Allow space for the FloatingActionButton
                   bottom: 70,
                 ),
@@ -181,7 +181,7 @@ class _RecentPageState extends State<RecentPage> {
                 unselectNotes: () => selectedFiles.value = [],
               ),
               IconButton(
-                padding: EdgeInsets.zero,
+                padding: .zero,
                 tooltip: t.home.deleteNote,
                 onPressed: () async {
                   await Future.wait([

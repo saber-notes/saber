@@ -3,7 +3,6 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:perfect_freehand/perfect_freehand.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/data/editor/page.dart';
-import 'package:saber/data/tools/_tool.dart';
 
 const _pageSize = Size(100, 100);
 const _penSize = 1.0;
@@ -30,7 +29,7 @@ Stroke _stroke(Offset point) => Stroke(
   options: StrokeOptions(size: _penSize),
   pageIndex: 0,
   page: const HasSize(_pageSize),
-  toolId: ToolId.fountainPen,
+  toolId: .fountainPen,
 )..addPoint(point);
 
 void _testStrokeSvg(Stroke stroke) {

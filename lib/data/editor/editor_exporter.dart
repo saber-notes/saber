@@ -9,7 +9,6 @@ import 'package:saber/components/canvas/_rectangle_stroke.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/inner_canvas.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
-import 'package:saber/data/tools/_tool.dart';
 import 'package:screenshot/screenshot.dart';
 
 abstract class EditorExporter {
@@ -31,8 +30,7 @@ abstract class EditorExporter {
   /// - Highlighter strokes, because PDFs don't support transparency
   /// - Pencil strokes, which need a special shader to look correct
   static bool _shouldRasterizeStroke(Stroke stroke) {
-    return stroke.toolId == ToolId.highlighter ||
-        stroke.toolId == ToolId.pencil;
+    return stroke.toolId == .highlighter || stroke.toolId == .pencil;
   }
 
   static Future<pw.Document> generatePdf(
@@ -160,7 +158,7 @@ abstract class EditorExporter {
         delegates: GlobalMaterialLocalizations.delegates,
         child: Theme(
           data: ThemeData(
-            brightness: Brightness.light,
+            brightness: .light,
             colorScheme: const ColorScheme.light(
               primary: primaryColor,
               secondary: secondaryColor,

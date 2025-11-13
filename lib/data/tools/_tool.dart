@@ -19,7 +19,7 @@ class _TextEditingTool extends Tool {
   const _TextEditingTool();
 
   @override
-  ToolId get toolId => ToolId.textEditing;
+  ToolId get toolId => .textEditing;
 }
 
 /// An enum of all available tools.
@@ -51,7 +51,7 @@ enum ToolId {
       return fallback;
     }
     if (penType == 'Pen') {
-      return ToolId.fountainPen;
+      return .fountainPen;
     }
     for (final toolId in ToolId.values) {
       if (penType == toolId.id) {
