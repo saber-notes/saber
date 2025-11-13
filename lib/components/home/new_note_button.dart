@@ -29,9 +29,9 @@ class _NewNoteButtonState extends State<NewNoteButton> {
       spacing: 3,
       mini: true,
       openCloseDial: isDialOpen,
-      childPadding: const EdgeInsets.all(5),
+      childPadding: const .all(5),
       spaceBetweenChildren: 4,
-      switchLabelPosition: Directionality.of(context) == TextDirection.rtl,
+      switchLabelPosition: Directionality.of(context) == .rtl,
       shape: widget.cupertino
           ? const CircleBorder()
           : RoundedRectangleBorder(borderRadius: materialBorderRadius),
@@ -47,7 +47,7 @@ class _NewNoteButtonState extends State<NewNoteButton> {
               tooltip: t.home.tooltips.newNote,
               visualDensity: VisualDensity.compact,
               style: IconButton.styleFrom(
-                padding: EdgeInsets.zero,
+                padding: .zero,
                 shape: platform.isCupertino
                     ? const CircleBorder()
                     : RoundedRectangleBorder(

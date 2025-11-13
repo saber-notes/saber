@@ -28,7 +28,7 @@ class InteractiveCanvasViewer extends StatefulWidget {
     super.key,
     this.clipBehavior = Clip.hardEdge,
     this.panAxis = PanAxis.free,
-    this.boundaryMargin = EdgeInsets.zero,
+    this.boundaryMargin = .zero,
     this.constrained = true,
     // These default scale values were eyeballed as reasonable limits for common
     // use cases.
@@ -76,7 +76,7 @@ class InteractiveCanvasViewer extends StatefulWidget {
     super.key,
     this.clipBehavior = Clip.hardEdge,
     this.panAxis = PanAxis.free,
-    this.boundaryMargin = EdgeInsets.zero,
+    this.boundaryMargin = .zero,
     // These default scale values were eyeballed as reasonable limits for common
     // use cases.
     this.maxScale = 2.5,
@@ -254,7 +254,7 @@ class InteractiveCanvasViewer extends StatefulWidget {
   ///
   /// Scale is also affected by [boundaryMargin]. If the scale would result in
   /// viewing beyond the boundary, then it will not be allowed. By default,
-  /// boundaryMargin is EdgeInsets.zero, so scaling below 1.0 will not be
+  /// boundaryMargin is .zero, so scaling below 1.0 will not be
   /// allowed in most cases without first increasing the boundaryMargin.
   ///
   /// Defaults to 0.8.
@@ -545,7 +545,7 @@ class _InteractiveCanvasViewerState extends State<InteractiveCanvasViewer>
   // Return a new matrix representing the given matrix after applying the given
   // translation.
   Matrix4 _matrixTranslate(Matrix4 matrix, Offset translation) {
-    if (translation == Offset.zero) {
+    if (translation == .zero) {
       return matrix.clone();
     }
 
@@ -589,7 +589,7 @@ class _InteractiveCanvasViewerState extends State<InteractiveCanvasViewer>
       boundariesAabbQuad,
       nextViewport,
     );
-    if (offendingDistance == Offset.zero) {
+    if (offendingDistance == .zero) {
       return nextMatrix;
     }
 
@@ -620,7 +620,7 @@ class _InteractiveCanvasViewerState extends State<InteractiveCanvasViewer>
       boundariesAabbQuad,
       correctedViewport,
     );
-    if (offendingCorrectedDistance == Offset.zero) {
+    if (offendingCorrectedDistance == .zero) {
       return correctedMatrix;
     }
 
@@ -1165,7 +1165,7 @@ class _InteractiveCanvasViewerBuilt extends StatelessWidget {
 
     if (!constrained) {
       child = OverflowBox(
-        alignment: Alignment.topLeft,
+        alignment: .topLeft,
         minWidth: 0,
         minHeight: 0,
         // maxWidth: double.infinity,
@@ -1192,7 +1192,7 @@ double _getFinalTime(
   return math.log(effectivelyMotionless / velocity) / math.log(drag / 100);
 }
 
-// Return the translation from the given Matrix4 as an Offset.
+// Return the translation from the given Matrix4 as an .
 Offset _getMatrixTranslation(Matrix4 matrix) {
   final Vector3 nextTranslation = matrix.getTranslation();
   return Offset(nextTranslation.x, nextTranslation.y);
@@ -1238,7 +1238,7 @@ Quad _getAxisAlignedBoundingBoxWithRotation(Rect rect, double rotation) {
 
 // Return the amount that viewport lies outside of boundary. If the viewport
 // is completely contained within the boundary (inclusively), then returns
-// Offset.zero.
+// .zero.
 Offset _exceedsBy(Quad boundary, Quad viewport) {
   final List<Vector3> viewportPoints = <Vector3>[
     viewport.point0,
@@ -1246,7 +1246,7 @@ Offset _exceedsBy(Quad boundary, Quad viewport) {
     viewport.point2,
     viewport.point3,
   ];
-  Offset largestExcess = Offset.zero;
+  Offset largestExcess = .zero;
   for (final Vector3 point in viewportPoints) {
     final Vector3 pointInside = InteractiveCanvasViewer.getNearestPointInside(
       point,

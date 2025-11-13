@@ -81,13 +81,13 @@ class _AdaptiveTextFieldState extends State<AdaptiveTextField> {
                   border: Border.all(
                     color: colorScheme.onSurface.withValues(alpha: 0.12),
                   ),
-                  borderRadius: BorderRadius.circular(8),
+                  borderRadius: .circular(8),
                 ),
                 style: TextStyle(color: colorScheme.onSurface),
                 placeholder: widget.placeholder,
                 prefix: widget.prefixIcon != null
                     ? Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 8),
+                        padding: const .symmetric(horizontal: 8),
                         child: widget.prefixIcon,
                       )
                     : null,
@@ -97,9 +97,9 @@ class _AdaptiveTextFieldState extends State<AdaptiveTextField> {
           ),
           if (suffixIcon != null)
             Align(
-              alignment: Alignment.topCenter,
+              alignment: .topCenter,
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8),
+                padding: const .symmetric(horizontal: 8),
                 child: FocusTraversalOrder(
                   order: NumericFocusOrder(widget.focusOrder.order + 100),
                   child: suffixIcon!,
@@ -132,15 +132,12 @@ class _AdaptiveTextFieldState extends State<AdaptiveTextField> {
                     child: suffixIcon!,
                   )
                 : null,
-            contentPadding: const EdgeInsets.symmetric(
-              vertical: 8,
-              horizontal: 12,
-            ),
+            contentPadding: const .symmetric(vertical: 8, horizontal: 12),
             border: OutlineInputBorder(
               borderSide: BorderSide(
                 color: colorScheme.onSurface.withValues(alpha: 0.12),
               ),
-              borderRadius: BorderRadius.circular(8),
+              borderRadius: .circular(8),
             ),
           ),
         ),

@@ -9,13 +9,10 @@ class SettingsSubtitle extends StatelessWidget {
   Widget build(BuildContext context) {
     final colorScheme = ColorScheme.of(context);
     return Padding(
-      padding: const EdgeInsets.only(top: 32, left: 16, right: 16, bottom: 0),
+      padding: const .only(top: 32, left: 16, right: 16, bottom: 0),
       child: Text(
         subtitle,
-        style: TextStyle(
-          color: colorScheme.primary,
-          fontWeight: FontWeight.w500,
-        ),
+        style: TextStyle(color: colorScheme.primary, fontWeight: .w500),
       ),
     );
   }

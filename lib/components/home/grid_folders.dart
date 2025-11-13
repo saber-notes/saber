@@ -38,20 +38,19 @@ class GridFolders extends StatelessWidget {
   Widget build(BuildContext context) {
     /// The cards that come before the actual folders
     final extraCards = <_FolderCardType>[
-      if (!isAtRoot) _FolderCardType.backFolder,
-      _FolderCardType.newFolder,
+      if (!isAtRoot) .backFolder,
+      .newFolder,
     ];
 
     return SliverPadding(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+      padding: const .symmetric(horizontal: 12, vertical: 8),
       sliver: SliverAlignedGrid.count(
         itemCount: folders.length + extraCards.length,
         crossAxisCount: crossAxisCount,
         mainAxisSpacing: 8,
         itemBuilder: (context, index) {
-          final cardType =
-              extraCards.getOrNull(index) ?? _FolderCardType.realFolder;
-          final folderName = cardType == _FolderCardType.realFolder
+          final cardType = extraCards.getOrNull(index) ?? .realFolder;
+          final folderName = cardType == .realFolder
               ? folders[index - extraCards.length]
               : null;
           return _GridFolder(
@@ -83,7 +82,7 @@ class _GridFolder extends StatefulWidget {
     required this.deleteFolder,
     required this.onTap,
   }) : assert(
-         (folderName == null) ^ (cardType == _FolderCardType.realFolder),
+         (folderName == null) ^ (cardType == .realFolder),
          'Real folders must specify a folder name',
        );
 
@@ -116,7 +115,7 @@ class _GridFolderState extends State<_GridFolder> {
         onTap: () {
           if (expanded.value) return;
           switch (widget.cardType) {
-            case _FolderCardType.newFolder:
+            case .newFolder:
               showDialog(
                 context: context,
                 builder: (context) => NewFolderDialog(
@@ -124,24 +123,24 @@ class _GridFolderState extends State<_GridFolder> {
                   doesFolderExist: widget.doesFolderExist,
                 ),
               );
-            case _FolderCardType.backFolder:
+            case .backFolder:
               widget.onTap('..');
-            case _FolderCardType.realFolder:
+            case .realFolder:
               widget.onTap(widget.folderName!);
           }
         },
-        onLongPress: widget.cardType == _FolderCardType.realFolder
+        onLongPress: widget.cardType == .realFolder
             ? () => expanded.value = !expanded.value
             : null,
-        onSecondaryTap: widget.cardType == _FolderCardType.realFolder
+        onSecondaryTap: widget.cardType == .realFolder
             ? () => expanded.value = !expanded.value
             : null,
         child: Card(
           color: colorScheme.surface,
           child: Padding(
-            padding: const EdgeInsets.all(8),
+            padding: const .all(8),
             child: Column(
-              mainAxisSize: MainAxisSize.min,
+              mainAxisSize: .min,
               children: [
                 SizedBox(
                   width: double.infinity,
@@ -150,31 +149,27 @@ class _GridFolderState extends State<_GridFolder> {
                       Center(
                         child: Tooltip(
                           message: switch (widget.cardType) {
-                            _FolderCardType.backFolder => t.home.backFolder,
-                            _FolderCardType.newFolder =>
-                              t.home.newFolder.newFolder,
-                            _FolderCardType.realFolder => '',
+                            .backFolder => t.home.backFolder,
+                            .newFolder => t.home.newFolder.newFolder,
+                            .realFolder => '',
                           },
                           child: AdaptiveIcon(
                             icon: switch (widget.cardType) {
-                              _FolderCardType.backFolder => Icons.folder_open,
-                              _FolderCardType.newFolder =>
-                                Icons.create_new_folder,
-                              _FolderCardType.realFolder => Icons.folder,
+                              .backFolder => Icons.folder_open,
+                              .newFolder => Icons.create_new_folder,
+                              .realFolder => Icons.folder,
                             },
                             cupertinoIcon: switch (widget.cardType) {
-                              _FolderCardType.backFolder =>
-                                CupertinoIcons.folder_open,
-                              _FolderCardType.newFolder =>
+                              .backFolder => CupertinoIcons.folder_open,
+                              .newFolder =>
                                 CupertinoIcons.folder_fill_badge_plus,
-                              _FolderCardType.realFolder =>
-                                CupertinoIcons.folder_fill,
+                              .realFolder => CupertinoIcons.folder_fill,
                             },
                             size: 50,
                           ),
                         ),
                       ),
-                      if (widget.cardType == _FolderCardType.realFolder)
+                      if (widget.cardType == .realFolder)
                         Positioned.fill(
                           child: ValueListenableBuilder(
                             valueListenable: expanded,
@@ -192,8 +187,8 @@ class _GridFolderState extends State<_GridFolder> {
                               child: DecoratedBox(
                                 decoration: BoxDecoration(
                                   gradient: LinearGradient(
-                                    begin: Alignment.topCenter,
-                                    end: Alignment.bottomCenter,
+                                    begin: .topCenter,
+                                    end: .bottomCenter,
                                     colors: [
                                       cardElevatedColor.withValues(alpha: 0.3),
                                       cardElevatedColor.withValues(alpha: 0.9),
@@ -202,8 +197,8 @@ class _GridFolderState extends State<_GridFolder> {
                                   ),
                                 ),
                                 child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  mainAxisAlignment: .center,
+                                  crossAxisAlignment: .end,
                                   children: [
                                     RenameFolderButton(
                                       folderName: widget.folderName!,
@@ -235,9 +230,9 @@ class _GridFolderState extends State<_GridFolder> {
                 ),
                 const SizedBox(height: 8),
                 switch (widget.cardType) {
-                  _FolderCardType.backFolder => const Icon(Icons.arrow_back),
-                  _FolderCardType.newFolder => Text(t.home.newFolder.newFolder),
-                  _FolderCardType.realFolder => Text(widget.folderName!),
+                  .backFolder => const Icon(Icons.arrow_back),
+                  .newFolder => Text(t.home.newFolder.newFolder),
+                  .realFolder => Text(widget.folderName!),
                 },
               ],
             ),

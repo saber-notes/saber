@@ -6,13 +6,13 @@ void main() {
     final history = EditorHistory();
 
     final item1 = EditorHistoryItem(
-      type: EditorHistoryItemType.draw,
+      type: .draw,
       pageIndex: 0,
       strokes: [],
       images: [],
     );
     final item2 = EditorHistoryItem(
-      type: EditorHistoryItemType.draw,
+      type: .draw,
       pageIndex: 0,
       strokes: [],
       images: [],

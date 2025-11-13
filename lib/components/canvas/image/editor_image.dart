@@ -48,7 +48,7 @@ sealed class EditorImage extends ChangeNotifier {
   void Function()? onMiscChange;
   final VoidCallback? onLoad;
 
-  Rect srcRect = Rect.zero;
+  Rect srcRect = .zero;
 
   late var _dstRect = Rect.fromLTWH(
     0,
@@ -65,7 +65,7 @@ sealed class EditorImage extends ChangeNotifier {
         CanvasImage.minImageSize / _dstRect.width,
         CanvasImage.minImageSize / _dstRect.height,
       );
-      _dstRect = Rect.fromLTWH(
+      _dstRect = .fromLTWH(
         _dstRect.left,
         _dstRect.top,
         _dstRect.width * scale,
@@ -98,16 +98,16 @@ sealed class EditorImage extends ChangeNotifier {
     required this.extension,
     required this.pageIndex,
     required this.pageSize,
-    this.naturalSize = Size.zero,
+    this.naturalSize = .zero,
     this.invertible = true,
-    this.backgroundFit = BoxFit.contain,
+    this.backgroundFit = .contain,
     required this.onMoveImage,
     required this.onDeleteImage,
     required this.onMiscChange,
     this.onLoad,
     this.newImage = true,
-    Rect dstRect = Rect.zero,
-    this.srcRect = Rect.zero,
+    Rect dstRect = .zero,
+    this.srcRect = .zero,
     bool isThumbnail = false,
   }) : assert(extension.startsWith('.')),
        _dstRect = dstRect,

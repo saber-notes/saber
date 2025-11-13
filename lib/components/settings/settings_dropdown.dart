@@ -75,7 +75,7 @@ class _SettingsDropdownState<T> extends State<SettingsDropdown<T>> {
             prefTitle: widget.title,
           );
         },
-        contentPadding: const EdgeInsets.symmetric(vertical: 4, horizontal: 16),
+        contentPadding: const .symmetric(vertical: 4, horizontal: 16),
         leading: AnimatedSwitcher(
           duration: const Duration(milliseconds: 100),
           child: Icon(icon, key: ValueKey(icon)),
@@ -112,7 +112,7 @@ class _SettingsDropdownState<T> extends State<SettingsDropdown<T>> {
                     maxWidth: MediaQuery.sizeOf(context).width * 0.45,
                   ),
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    padding: const .symmetric(horizontal: 16),
                     child: option.widget,
                   ),
                 ),

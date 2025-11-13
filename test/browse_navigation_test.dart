@@ -7,7 +7,6 @@ import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/flavor_config.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/data/routes.dart';
-import 'package:saber/data/sentry/sentry_consent.dart';
 import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/home/browse.dart';
 import 'package:saber/pages/home/home.dart';
@@ -19,7 +18,7 @@ void main() {
     setUp(() {
       FlavorConfig.setup();
       setupMockPathProvider();
-      stows.sentryConsent.value = SentryConsent.granted;
+      stows.sentryConsent.value = .granted;
       FileManager.init(shouldWatchRootDirectory: false);
       BrowsePage.overrideChildren = DirectoryChildren(
         const ['subfolder1', 'subfolder2'],
@@ -66,8 +65,8 @@ class _BrowseApp extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = SaberTheme.createThemeFromSeed(
       Colors.yellow,
-      Brightness.light,
-      TargetPlatform.android,
+      .light,
+      .android,
     );
     final router = GoRouter(
       initialLocation: HomeRoutes.browseFilePath(path ?? ''),

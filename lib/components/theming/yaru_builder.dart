@@ -9,7 +9,7 @@ class YaruBuilder extends StatefulWidget {
   const YaruBuilder({
     super.key,
     required this.primary,
-    this.platform = TargetPlatform.linux,
+    this.platform = .linux,
     required this.builder,
   });
 
@@ -78,25 +78,25 @@ class _YaruBuilderState extends State<YaruBuilder> {
         return widget.builder(context, (
           theme: SaberTheme.getThemeFromYaru(
             yaru,
-            Brightness.light,
+            .light,
             widget.platform,
             false,
           ),
           darkTheme: SaberTheme.getThemeFromYaru(
             yaru,
-            Brightness.dark,
+            .dark,
             widget.platform,
             false,
           ),
           highContrastTheme: SaberTheme.getThemeFromYaru(
             yaru,
-            Brightness.light,
+            .light,
             widget.platform,
             true,
           ),
           highContrastDarkTheme: SaberTheme.getThemeFromYaru(
             yaru,
-            Brightness.dark,
+            .dark,
             widget.platform,
             true,
           ),

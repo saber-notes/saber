@@ -16,7 +16,7 @@ class AdaptiveSwitch extends Switch {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    if (theme.platform == TargetPlatform.linux) {
+    if (theme.platform == .linux) {
       return _buildYaru(context);
     }
     return super.build(context);

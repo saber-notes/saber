@@ -91,13 +91,13 @@ class _SyncingButtonState extends State<SyncingButton> {
           : SyncingButton.forceButtonActive
           ? () {}
           : null,
-      padding: const EdgeInsets.all(4),
+      padding: const .all(4),
       constraints: const BoxConstraints(
         minWidth: kMinInteractiveDimension,
         minHeight: kMinInteractiveDimension,
       ),
       icon: Stack(
-        alignment: Alignment.center,
+        alignment: .center,
         children: [
           Positioned.fill(
             child: AnimatedOpacity(
@@ -110,7 +110,7 @@ class _SyncingButtonState extends State<SyncingButton> {
             ),
           ),
           const Padding(
-            padding: EdgeInsets.all(4),
+            padding: .all(4),
             child: AspectRatio(
               aspectRatio: 1,
               child: AdaptiveIcon(

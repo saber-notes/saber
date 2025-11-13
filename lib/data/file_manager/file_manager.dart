@@ -124,13 +124,19 @@ class FileManager {
     final rootDir = Directory(documentsDirectory);
     await rootDir.create(recursive: true);
     if (Platform.isIOS) return;
-    rootDir.watch(recursive: true).listen((FileSystemEvent event) {
-      final type =
-          event.type == FileSystemEvent.create ||
-              event.type == FileSystemEvent.modify ||
-              event.type == FileSystemEvent.move
-          ? FileOperationType.write
-          : FileOperationType.delete;
+    rootDir.watch(recursive: true).listen((event) {
+      final FileOperationType type = switch (event.type) {
+        FileSystemEvent.delete => .delete,
+        FileSystemEvent.create => .write,
+        FileSystemEvent.modify => .write,
+        FileSystemEvent.move => .write,
+        _ =>
+          kDebugMode
+              ? throw UnimplementedError(
+                  'Unhandled FileSystemEvent type: ${event.type}',
+                )
+              : .write,
+      };
       final String path = event.path
           .replaceAll('\\', '/')
           // The path may or may not be relative,

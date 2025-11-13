@@ -1,7 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:saber/data/flavor_config.dart';
 import 'package:saber/data/prefs.dart';
-import 'package:saber/data/sentry/sentry_consent.dart';
 import 'package:saber/data/sentry/sentry_filter.dart';
 import 'package:saber/data/sentry/sentry_init.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
@@ -13,7 +12,7 @@ void main() {
 
     FlavorConfig.setup();
     setUp(() {
-      stows.sentryConsent.value = SentryConsent.granted;
+      stows.sentryConsent.value = .granted;
     });
 
     test('Filter is used', () {
@@ -23,7 +22,7 @@ void main() {
     });
 
     test('Returns null if consent is not granted', () async {
-      stows.sentryConsent.value = SentryConsent.denied;
+      stows.sentryConsent.value = .denied;
 
       final originalEvent = SentryEvent(
         message: SentryMessage('User revoked consent'),

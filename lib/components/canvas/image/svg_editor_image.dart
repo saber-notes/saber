@@ -76,23 +76,21 @@ class SvgEditorImage extends EditorImage {
       svgString: svgString,
       svgFile: svgFile,
       pageIndex: json['i'] ?? 0,
-      pageSize: Size.infinite,
+      pageSize: .infinite,
       invertible: json['v'] ?? true,
-      backgroundFit: json['f'] != null
-          ? BoxFit.values[json['f']]
-          : BoxFit.contain,
+      backgroundFit: json['f'] != null ? .values[json['f']] : .contain,
       onMoveImage: null,
       onDeleteImage: null,
       onMiscChange: null,
       onLoad: null,
       newImage: false,
-      dstRect: Rect.fromLTWH(
+      dstRect: .fromLTWH(
         json['x'] ?? 0,
         json['y'] ?? 0,
         json['w'] ?? 0,
         json['h'] ?? 0,
       ),
-      srcRect: Rect.fromLTWH(
+      srcRect: .fromLTWH(
         json['sx'] ?? 0,
         json['sy'] ?? 0,
         json['sw'] ?? 0,
@@ -149,7 +147,7 @@ class SvgEditorImage extends EditorImage {
       }
     }
 
-    if (naturalSize == Size.zero) {
+    if (naturalSize == .zero) {
       naturalSize = Size(srcRect.width, srcRect.height);
     }
   }
@@ -179,7 +177,7 @@ class SvgEditorImage extends EditorImage {
     } else if (isBackground) {
       boxFit = backgroundFit;
     } else {
-      boxFit = BoxFit.fill;
+      boxFit = .fill;
     }
 
     return InvertWidget(
@@ -198,7 +196,7 @@ class SvgEditorImage extends EditorImage {
       svgString: svgData.string,
       svgFile: svgData.file,
       pageIndex: pageIndex,
-      pageSize: Size.infinite,
+      pageSize: .infinite,
       invertible: invertible,
       backgroundFit: backgroundFit,
       onMoveImage: onMoveImage,

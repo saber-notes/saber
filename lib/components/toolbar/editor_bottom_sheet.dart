@@ -54,11 +54,7 @@ class EditorBottomSheet extends StatefulWidget {
 }
 
 class _EditorBottomSheetState extends State<EditorBottomSheet> {
-  static const imageBoxFits = <BoxFit>[
-    BoxFit.fill,
-    BoxFit.cover,
-    BoxFit.contain,
-  ];
+  static const imageBoxFits = <BoxFit>[.fill, .cover, .contain];
 
   @override
   Widget build(BuildContext context) {
@@ -77,7 +73,7 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
         dragDevices: PointerDeviceKind.values.toSet(),
       ),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
+        padding: const .symmetric(horizontal: 16),
         child: ListView(
           shrinkWrap: true,
           children: [
@@ -139,7 +135,7 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
                   itemBuilder: (context, index) {
                     final boxFit = imageBoxFits[index];
                     return InkWell(
-                      borderRadius: BorderRadius.circular(8),
+                      borderRadius: .circular(8),
                       onTap: () => setState(() {
                         backgroundImage.backgroundFit = boxFit;
                         widget.redrawAndSave();
@@ -203,7 +199,7 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
                   final backgroundPattern =
                       CanvasBackgroundPattern.values[index];
                   return InkWell(
-                    borderRadius: BorderRadius.circular(8),
+                    borderRadius: .circular(8),
                     onTap: () => setState(() {
                       widget.setBackgroundPattern(backgroundPattern);
                     }),
@@ -361,14 +357,14 @@ class _PermanentTooltip extends StatelessWidget {
     final colorScheme = ColorScheme.of(context);
     return DecoratedBox(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(8),
+        borderRadius: .circular(8),
         color: colorScheme.surface.withValues(alpha: 0.8),
       ),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8),
+        padding: const .symmetric(horizontal: 8),
         child: Text(
           text,
-          textAlign: TextAlign.center,
+          textAlign: .center,
           textWidthBasis: TextWidthBasis.longestLine,
           style: TextStyle(color: colorScheme.onSurface),
         ),

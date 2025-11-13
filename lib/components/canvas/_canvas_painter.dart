@@ -11,7 +11,6 @@ import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/theming/font_fallbacks.dart';
 import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/extensions/color_extensions.dart';
-import 'package:saber/data/tools/_tool.dart';
 import 'package:saber/data/tools/highlighter.dart';
 import 'package:saber/data/tools/laser_pointer.dart';
 import 'package:saber/data/tools/select.dart';
@@ -85,7 +84,7 @@ class CanvasPainter extends CustomPainter {
 
     Color? lastColor;
     for (final stroke in strokes) {
-      if (stroke.toolId != ToolId.highlighter) continue;
+      if (stroke.toolId != .highlighter) continue;
 
       final color = stroke.color.withValues(alpha: 1).withInversion(invert);
 
@@ -108,7 +107,7 @@ class CanvasPainter extends CustomPainter {
     late final paint = Paint();
 
     for (final stroke in strokes) {
-      if (stroke.toolId == ToolId.highlighter) continue;
+      if (stroke.toolId == .highlighter) continue;
 
       var color = stroke.color.withInversion(invert);
       if (currentSelection?.strokes.contains(stroke) ?? false) {
@@ -118,7 +117,7 @@ class CanvasPainter extends CustomPainter {
       paint.color = color;
       paint.shader = null;
       paint.maskFilter = null;
-      if (stroke.toolId == ToolId.pencil) {
+      if (stroke.toolId == .pencil) {
         if (shouldUsePencilShader(stroke.options.size)) {
           paint.color = Colors.white;
           paint.shader = page.pencilShader
@@ -135,7 +134,7 @@ class CanvasPainter extends CustomPainter {
 
       late final shapePaint = Paint()
         ..color = paint.color
-        ..style = PaintingStyle.stroke
+        ..style = .stroke
         ..strokeWidth = stroke.options.size;
 
       if (stroke is CircleStroke) {
@@ -165,7 +164,7 @@ class CanvasPainter extends CustomPainter {
     paint.color = color;
     paint.shader = null;
     paint.maskFilter = null;
-    if (currentStroke!.toolId == ToolId.pencil) {
+    if (currentStroke!.toolId == .pencil) {
       paint.color = Colors.white;
       paint.shader = page.pencilShader
         ..setFloat(0, color.r)
@@ -198,7 +197,7 @@ class CanvasPainter extends CustomPainter {
     final color = currentStroke?.color.withInversion(invert) ?? Colors.black;
     final shapePaint = Paint()
       ..color = Color.lerp(color, primaryColor, 0.5)!.withValues(alpha: 0.7)
-      ..style = PaintingStyle.stroke
+      ..style = .stroke
       ..strokeWidth = currentStroke?.options.size ?? 3;
 
     switch (shape.name) {
@@ -246,7 +245,7 @@ class CanvasPainter extends CustomPainter {
       Paint()
         ..color = primaryColor
         ..strokeWidth = 3
-        ..style = PaintingStyle.stroke,
+        ..style = .stroke,
     );
   }
 
@@ -256,8 +255,8 @@ class CanvasPainter extends CustomPainter {
     if (!showPageIndicator) return;
 
     final style = ParagraphStyle(
-      textAlign: TextAlign.end,
-      textDirection: TextDirection.ltr,
+      textAlign: .end,
+      textDirection: .ltr,
       maxLines: 1,
     );
 

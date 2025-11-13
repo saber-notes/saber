@@ -3,7 +3,6 @@ import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:saber/data/prefs.dart';
-import 'package:saber/data/sentry/sentry_consent.dart';
 import 'package:saber/data/sentry/sentry_filter.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 import 'package:sentry_logging/sentry_logging.dart';
@@ -34,9 +33,9 @@ FutureOr<void> initSentry(FutureOr<void> Function() appRunner) async {
   Stows.markAsOnMainIsolate();
   await stows.sentryConsent.waitUntilRead();
   _isSentryEnabled = switch (stows.sentryConsent.value) {
-    SentryConsent.unknown => false,
-    SentryConsent.granted => true,
-    SentryConsent.denied => false,
+    .unknown => false,
+    .granted => true,
+    .denied => false,
   };
 
   if (!isSentryAvailable || !isSentryEnabled) {

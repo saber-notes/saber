@@ -148,7 +148,7 @@ class _BrowsePageState extends State<BrowsePage> {
                 onPathComponentTap: onPathComponentTap,
               ),
             ),
-            const SliverPadding(padding: EdgeInsets.only(bottom: 16)),
+            const SliverPadding(padding: .only(bottom: 16)),
             GridFolders(
               isAtRoot: path?.isEmpty ?? true,
               crossAxisCount: crossAxisCount,
@@ -188,7 +188,7 @@ class _BrowsePageState extends State<BrowsePage> {
             ] else ...[
               SliverSafeArea(
                 top: false,
-                minimum: const EdgeInsets.only(
+                minimum: const .only(
                   top: 8,
                   // Allow space for the FloatingActionButton
                   bottom: 70,
@@ -228,7 +228,7 @@ class _BrowsePageState extends State<BrowsePage> {
                 unselectNotes: () => selectedFiles.value = [],
               ),
               IconButton(
-                padding: EdgeInsets.zero,
+                padding: .zero,
                 tooltip: t.home.deleteNote,
                 onPressed: () async {
                   await Future.wait([

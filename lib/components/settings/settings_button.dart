@@ -19,7 +19,7 @@ class SettingsButton extends StatelessWidget {
     return InkWell(
       onTap: onPressed,
       child: ListTile(
-        contentPadding: const EdgeInsets.symmetric(vertical: 4, horizontal: 16),
+        contentPadding: const .symmetric(vertical: 4, horizontal: 16),
         leading: AnimatedSwitcher(
           duration: const Duration(milliseconds: 100),
           child: Icon(icon, key: ValueKey(icon)),

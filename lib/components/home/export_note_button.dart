@@ -81,14 +81,14 @@ class _ExportNoteButtonState extends State<ExportNoteButton> {
       spacing: 3,
       mini: true,
       openCloseDial: isDialOpen,
-      childPadding: const EdgeInsets.all(5),
+      childPadding: const .all(5),
       spaceBetweenChildren: 4,
-      switchLabelPosition: Directionality.of(context) == TextDirection.rtl,
+      switchLabelPosition: Directionality.of(context) == .rtl,
       dialRoot: (context, open, toggleChildren) {
         return _currentlyExporting
             ? AdaptiveCircularProgressIndicator.textStyled()
             : IconButton(
-                padding: EdgeInsets.zero,
+                padding: .zero,
                 tooltip: t.home.tooltips.exportNote,
                 onPressed: toggleChildren,
                 icon: const Icon(Icons.share),

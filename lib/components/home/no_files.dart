@@ -10,9 +10,9 @@ class NoFiles extends StatelessWidget {
     final textTheme = TextTheme.of(context);
     return Center(
       child: Padding(
-        padding: const EdgeInsets.all(8),
+        padding: const .all(8),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: .center,
           children: [
             SvgPicture.asset(
               'assets/images/undraw_researching_re_fuod.svg',

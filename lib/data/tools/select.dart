@@ -22,7 +22,7 @@ class Select extends Tool {
   var doneSelecting = false;
 
   @override
-  ToolId get toolId => ToolId.select;
+  ToolId get toolId => .select;
 
   void unselect() {
     doneSelecting = false;

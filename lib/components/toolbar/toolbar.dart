@@ -151,7 +151,7 @@ class _ToolbarState extends State<Toolbar> {
   }
 
   void toggleEraser() {
-    toolOptionsType.value = ToolOptions.hide;
+    toolOptionsType.value = .hide;
     widget.setTool(Eraser()); // this toggles eraser
   }
 
@@ -175,8 +175,7 @@ class _ToolbarState extends State<Toolbar> {
     final colorScheme = ColorScheme.of(context);
 
     final brightness = Theme.brightnessOf(context);
-    final invert =
-        stows.editorAutoInvert.value && brightness == Brightness.dark;
+    final invert = stows.editorAutoInvert.value && brightness == .dark;
 
     final isToolbarVertical =
         stows.editorToolbarAlignment.value == AxisDirection.left ||
@@ -195,8 +194,8 @@ class _ToolbarState extends State<Toolbar> {
     if (widget.currentTool == Select.currentSelect) {
       // Enable selection bar only when selection is done
       toolOptionsType.value = Select.currentSelect.doneSelecting
-          ? ToolOptions.select
-          : ToolOptions.hide;
+          ? .select
+          : .hide;
     }
 
     final bars = <Widget>[
@@ -228,24 +227,22 @@ class _ToolbarState extends State<Toolbar> {
                 ? CollapsibleAxis.horizontal
                 : CollapsibleAxis.vertical,
             maintainState: true,
-            collapsed: toolOptionsType == ToolOptions.hide,
+            collapsed: toolOptionsType == .hide,
             child: switch (toolOptionsType) {
-              ToolOptions.hide => const SizedBox.square(
-                dimension: SizePicker.smallLength,
-              ),
-              ToolOptions.pen => PenModal(
+              .hide => const SizedBox.square(dimension: SizePicker.smallLength),
+              .pen => PenModal(
                 getTool: () => Pen.currentPen,
                 setTool: widget.setTool,
               ),
-              ToolOptions.highlighter => PenModal(
+              .highlighter => PenModal(
                 getTool: () => Highlighter.currentHighlighter,
                 setTool: widget.setTool,
               ),
-              ToolOptions.pencil => PenModal(
+              .pencil => PenModal(
                 getTool: () => Pencil.currentPencil,
                 setTool: widget.setTool,
               ),
-              ToolOptions.select => SelectionBar(
+              .select => SelectionBar(
                 duplicateSelection: widget.duplicateSelection,
                 deleteSelection: widget.deleteSelection,
               ),
@@ -323,7 +320,7 @@ class _ToolbarState extends State<Toolbar> {
       ),
       Center(
         child: Padding(
-          padding: const EdgeInsets.all(8),
+          padding: const .all(8),
           child: Wrap(
             direction: isToolbarVertical ? Axis.vertical : Axis.horizontal,
             alignment: WrapAlignment.center,
@@ -335,13 +332,13 @@ class _ToolbarState extends State<Toolbar> {
                 enabled: !widget.readOnly,
                 onPressed: () {
                   if (widget.currentTool == Pen.currentPen) {
-                    if (toolOptionsType.value == ToolOptions.pen) {
-                      toolOptionsType.value = ToolOptions.hide;
+                    if (toolOptionsType.value == .pen) {
+                      toolOptionsType.value = .hide;
                     } else {
-                      toolOptionsType.value = ToolOptions.pen;
+                      toolOptionsType.value = .pen;
                     }
                   } else {
-                    toolOptionsType.value = ToolOptions.hide;
+                    toolOptionsType.value = .hide;
                     widget.setTool(Pen.currentPen);
                   }
                 },
@@ -354,13 +351,13 @@ class _ToolbarState extends State<Toolbar> {
                 enabled: !widget.readOnly,
                 onPressed: () {
                   if (widget.currentTool == Pencil.currentPencil) {
-                    if (toolOptionsType.value == ToolOptions.pencil) {
-                      toolOptionsType.value = ToolOptions.hide;
+                    if (toolOptionsType.value == .pencil) {
+                      toolOptionsType.value = .hide;
                     } else {
-                      toolOptionsType.value = ToolOptions.pencil;
+                      toolOptionsType.value = .pencil;
                     }
                   } else {
-                    toolOptionsType.value = ToolOptions.hide;
+                    toolOptionsType.value = .hide;
                     widget.setTool(Pencil.currentPencil);
                   }
                 },
@@ -373,13 +370,13 @@ class _ToolbarState extends State<Toolbar> {
                 enabled: !widget.readOnly,
                 onPressed: () {
                   if (widget.currentTool == Highlighter.currentHighlighter) {
-                    if (toolOptionsType.value == ToolOptions.highlighter) {
-                      toolOptionsType.value = ToolOptions.hide;
+                    if (toolOptionsType.value == .highlighter) {
+                      toolOptionsType.value = .hide;
                     } else {
-                      toolOptionsType.value = ToolOptions.highlighter;
+                      toolOptionsType.value = .highlighter;
                     }
                   } else {
-                    toolOptionsType.value = ToolOptions.hide;
+                    toolOptionsType.value = .hide;
                     widget.setTool(Highlighter.currentHighlighter);
                   }
                 },
@@ -407,7 +404,7 @@ class _ToolbarState extends State<Toolbar> {
                           color: currentColor
                               .withInversion(invert)
                               .withValues(alpha: 1),
-                          shape: BoxShape.circle,
+                          shape: .circle,
                           border: Border.all(
                             color: colorScheme.primary,
                             width: 2,
@@ -420,7 +417,7 @@ class _ToolbarState extends State<Toolbar> {
                 selected: widget.currentTool is Select,
                 enabled: !widget.readOnly,
                 onPressed: () {
-                  toolOptionsType.value = ToolOptions.hide;
+                  toolOptionsType.value = .hide;
                   widget.setTool(Select.currentSelect);
                 },
                 padding: buttonPadding,
@@ -444,7 +441,7 @@ class _ToolbarState extends State<Toolbar> {
                     widget.currentTool == LaserPointer.currentLaserPointer,
                 enabled: true, // even in read-only mode
                 onPressed: () {
-                  toolOptionsType.value = ToolOptions.hide;
+                  toolOptionsType.value = .hide;
                   widget.setTool(LaserPointer.currentLaserPointer);
                 },
                 padding: buttonPadding,
@@ -559,8 +556,8 @@ class _ToolbarState extends State<Toolbar> {
     return Flex(
       direction: isToolbarVertical ? Axis.horizontal : Axis.vertical,
       textDirection: switch (stows.editorToolbarAlignment.value) {
-        AxisDirection.left => TextDirection.rtl,
-        AxisDirection.right => TextDirection.ltr,
+        AxisDirection.left => .rtl,
+        AxisDirection.right => .ltr,
         _ => null,
       },
       verticalDirection: switch (stows.editorToolbarAlignment.value) {

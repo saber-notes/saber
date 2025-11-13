@@ -99,7 +99,7 @@ class DynamicMaterialAppState extends State<DynamicMaterialApp>
     final platform = stows.platform.value;
 
     // Use Yaru theme, with or without [chosenAccentColor]
-    if (platform == TargetPlatform.linux) {
+    if (platform == .linux) {
       return YaruBuilder(
         primary: chosenAccentColor, // if null, falls back to system color
         platform: platform,
@@ -125,12 +125,12 @@ class DynamicMaterialAppState extends State<DynamicMaterialApp>
         themeMode: stows.appTheme.value,
         theme: SaberTheme.createThemeFromSeed(
           chosenAccentColor,
-          Brightness.light,
+          .light,
           platform,
         ),
         darkTheme: SaberTheme.createThemeFromSeed(
           chosenAccentColor,
-          Brightness.dark,
+          .dark,
           platform,
         ),
       );
@@ -147,14 +147,14 @@ class DynamicMaterialAppState extends State<DynamicMaterialApp>
               ? SaberTheme.createTheme(lightColorScheme, platform)
               : SaberTheme.createThemeFromSeed(
                   lightColorScheme?.primary ?? widget.defaultSwatch,
-                  Brightness.light,
+                  .light,
                   platform,
                 ),
           darkTheme: (!platform.usesYaruColors && darkColorScheme != null)
               ? SaberTheme.createTheme(darkColorScheme, platform)
               : SaberTheme.createThemeFromSeed(
                   darkColorScheme?.primary ?? widget.defaultSwatch,
-                  Brightness.dark,
+                  .dark,
                   platform,
                 ),
         );
@@ -274,7 +274,7 @@ class _BorderedWindowState extends State<_BorderedWindow> {
   void didChangeDependencies() {
     final borderColor = Color.alphaBlend(
       YaruTitleBarTheme.of(context).border?.color ??
-          (Theme.brightnessOf(context) == Brightness.light
+          (Theme.brightnessOf(context) == .light
               ? Colors.black.withValues(alpha: 0.1)
               : Colors.white.withValues(alpha: 0.06)),
       ColorScheme.of(context).surface,
@@ -298,7 +298,7 @@ class _BorderedWindowState extends State<_BorderedWindow> {
     return showBorder
         ? ColoredBox(
             color: _lastBorderColor,
-            child: Padding(padding: const EdgeInsets.all(1), child: keyedChild),
+            child: Padding(padding: const .all(1), child: keyedChild),
           )
         : keyedChild;
   }
@@ -308,7 +308,7 @@ extension _ColorSchemeContraster on ColorScheme {
   ColorScheme withHighContrast() => ColorScheme.fromSeed(
     brightness: brightness,
     seedColor: primary,
-    surface: brightness == Brightness.light ? Colors.white : Colors.black,
+    surface: brightness == .light ? Colors.white : Colors.black,
     contrastLevel: 1,
   );
 }

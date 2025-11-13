@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:saber/data/prefs.dart';
-import 'package:saber/data/sentry/sentry_consent.dart';
 import 'package:sentry_flutter/sentry_flutter.dart';
 
 abstract class SentryFilter {
@@ -49,7 +48,7 @@ abstract class SentryFilter {
   static final _previousSecrets = <String>{};
 
   static FutureOr<SentryEvent?> beforeSend(SentryEvent event, Hint hint) async {
-    if (stows.sentryConsent.value != SentryConsent.granted) {
+    if (stows.sentryConsent.value != .granted) {
       // The user revoked consent but hasn't restarted the app yet.
       // Return null to discard (not send) this event.
       return null;

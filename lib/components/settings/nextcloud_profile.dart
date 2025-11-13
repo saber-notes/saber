@@ -58,16 +58,15 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
     final loginStep =
         NextcloudProfile.forceLoginStep ?? NcLoginPage.getCurrentStep();
     final heading = switch (loginStep) {
-      LoginStep.waitingForPrefs => '',
-      LoginStep.nc => t.login.status.loggedOut,
-      LoginStep.enc ||
-      LoginStep.done => t.login.status.hi(u: stows.username.value),
+      .waitingForPrefs => '',
+      .nc => t.login.status.loggedOut,
+      .enc || .done => t.login.status.hi(u: stows.username.value),
     };
     final subheading = switch (loginStep) {
-      LoginStep.waitingForPrefs => '',
-      LoginStep.nc => t.login.status.tapToLogin,
-      LoginStep.enc => t.login.status.almostDone,
-      LoginStep.done => t.login.status.loggedIn,
+      .waitingForPrefs => '',
+      .nc => t.login.status.tapToLogin,
+      .enc => t.login.status.almostDone,
+      .done => t.login.status.loggedIn,
     };
     const pfpSize = 48.0;
 
@@ -78,7 +77,7 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
         valueListenable: stows.pfp,
         builder: (BuildContext context, Uint8List? pfp, _) {
           return ClipRSuperellipse(
-            borderRadius: BorderRadius.circular(18),
+            borderRadius: .circular(18),
             child: pfp == null
                 ? const _UnknownPfp(size: pfpSize)
                 : Image.memory(pfp, width: pfpSize, height: pfpSize),
@@ -87,9 +86,9 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
       ),
       title: Text(heading),
       subtitle: Text(subheading),
-      trailing: loginStep == LoginStep.done
+      trailing: loginStep == .done
           ? Row(
-              mainAxisSize: MainAxisSize.min,
+              mainAxisSize: .min,
               spacing: 8,
               children: [
                 FutureBuilder(
@@ -169,7 +168,7 @@ class _QuotaSummary extends StatelessWidget {
 
     return IntrinsicWidth(
       child: Column(
-        mainAxisSize: MainAxisSize.min,
+        mainAxisSize: .min,
         spacing: 2,
         children: [
           AdaptiveLinearProgressIndicator(

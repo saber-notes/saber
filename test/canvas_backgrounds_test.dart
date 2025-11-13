@@ -29,7 +29,7 @@ void _testPatternWithLineHeight(
       lineHeight: lineHeight,
     ).toList();
 
-    if (pattern == CanvasBackgroundPattern.none) {
+    if (pattern == .none) {
       expect(
         elements.isEmpty,
         true,
@@ -117,7 +117,7 @@ void _testPatternWithLineHeight(
           continue;
         }
 
-        if (pattern != CanvasBackgroundPattern.cornell) {
+        if (pattern != .cornell) {
           // Cornell has two lines on the same row, so they shouldn't be spaced apart
 
           expect(

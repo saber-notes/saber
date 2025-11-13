@@ -16,7 +16,7 @@ class SelectionBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisAlignment: .center,
       children: [
         IconButton(
           onPressed: duplicateSelection,

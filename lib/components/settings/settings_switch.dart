@@ -56,7 +56,7 @@ class _SettingsSwitchState extends State<SettingsSwitch> {
         );
       },
       child: AdaptiveSwitchListTile(
-        contentPadding: const EdgeInsets.symmetric(vertical: 4, horizontal: 16),
+        contentPadding: const .symmetric(vertical: 4, horizontal: 16),
         secondary: AnimatedSwitcher(
           duration: const Duration(milliseconds: 100),
           child: Icon(icon, key: ValueKey(icon)),

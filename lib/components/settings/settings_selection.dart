@@ -103,7 +103,7 @@ class _SettingsSelectionState<T extends num>
           prefTitle: widget.title,
         );
       },
-      contentPadding: const EdgeInsets.symmetric(vertical: 4, horizontal: 16),
+      contentPadding: const .symmetric(vertical: 4, horizontal: 16),
       leading: AnimatedSwitcher(
         duration: const Duration(milliseconds: 100),
         child: FaIcon(icon, key: ValueKey(icon)),

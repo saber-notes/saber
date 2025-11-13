@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:saber/components/settings/update_manager.dart';
 import 'package:saber/data/flavor_config.dart';
@@ -15,25 +14,19 @@ void main() {
     });
 
     test('on iOS', () async {
-      final url = await UpdateManager.getLatestDownloadUrl(
-        apiResponse,
-        TargetPlatform.iOS,
-      );
+      final url = await UpdateManager.getLatestDownloadUrl(apiResponse, .iOS);
       expect(url, isNull);
     });
 
     test('on macOS', () async {
-      final url = await UpdateManager.getLatestDownloadUrl(
-        apiResponse,
-        TargetPlatform.macOS,
-      );
+      final url = await UpdateManager.getLatestDownloadUrl(apiResponse, .macOS);
       expect(url, isNull);
     });
 
     test('on Windows', () async {
       final url = await UpdateManager.getLatestDownloadUrl(
         apiResponse,
-        TargetPlatform.windows,
+        .windows,
       );
       expect(url, isNotNull);
       expect(url, startsWith('http'));
@@ -41,17 +34,14 @@ void main() {
     });
 
     test('on Linux', () async {
-      final url = await UpdateManager.getLatestDownloadUrl(
-        apiResponse,
-        TargetPlatform.linux,
-      );
+      final url = await UpdateManager.getLatestDownloadUrl(apiResponse, .linux);
       expect(url, isNull);
     });
 
     test('on Android', () async {
       final url = await UpdateManager.getLatestDownloadUrl(
         apiResponse,
-        TargetPlatform.android,
+        .android,
       );
       expect(url, isNotNull);
       expect(url, startsWith('http'));
