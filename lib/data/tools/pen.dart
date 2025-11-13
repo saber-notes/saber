@@ -114,7 +114,8 @@ class Pen extends Tool {
 
   static StrokeOptions get fountainPenOptions => defaultOptions.copyWith();
   static StrokeOptions get ballpointPenOptions => defaultOptions.copyWith();
-  static StrokeOptions get shapePenOptions => defaultOptions.copyWith();
+  static StrokeOptions get shapePenOptions =>
+      defaultOptions.copyWith(smoothing: 0, streamline: 0);
   static StrokeOptions get highlighterOptions =>
       defaultOptions.copyWith(size: 50);
   static StrokeOptions get pencilOptions => defaultOptions.copyWith(

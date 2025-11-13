@@ -97,8 +97,16 @@ class Stroke {
         log.severe('Unknown shape: ${json['shape']}');
     }
 
+    final ToolId toolId = .parsePenType(json['ty'], fallback: .fountainPen);
+
     final options = StrokeOptions.fromJson(json);
     final pressureEnabled = json['pe'] ?? defaultPressureEnabled;
+    if (toolId == .shapePen) {
+      // Set smoothing and streamline to 0 for ShapePen
+      // to mitigate https://github.com/saber-notes/saber/issues/1587
+      options.smoothing = 0;
+      options.streamline = 0;
+    }
 
     final Color color;
     switch (json['c']) {
@@ -137,7 +145,7 @@ class Stroke {
       options: options,
       pageIndex: pageIndex,
       page: page,
-      toolId: .parsePenType(json['ty'], fallback: .fountainPen),
+      toolId: toolId,
     )..points.addAll(points);
   }
   Map<String, dynamic> toJson() {
