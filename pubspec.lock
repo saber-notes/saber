@@ -1264,10 +1264,10 @@ packages:
     dependency: "direct main"
     description:
       name: perfect_freehand
-      sha256: "399c16dc35a6eb1dee4d9a2c638ff0fe71ebb5e8980ab41261bf4306dafaa4af"
+      sha256: "7a6a591832be33fe82d8ecab68562a794d39837af16e7413fe0ccebdd0c3e3c0"
       url: "https://pub.dev"
     source: hosted
-    version: "2.5.0"
+    version: "2.5.1"
   permission_handler:
     dependency: "direct main"
     description:

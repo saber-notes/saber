@@ -43,7 +43,7 @@ dependencies:
   go_router: ^17.0.0
   path_to_regexp: ^0.4.0
 
-  perfect_freehand: ^2.2.1
+  perfect_freehand: ^2.5.1
 
   path_provider: ^2.0.11
 
