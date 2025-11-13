@@ -99,7 +99,7 @@ settings:
     autoClearWhiteboardOnExit: Svuota la lavagna dopo essere uscito dall'app
     disableEraserAfterUse: Disattiva automaticamente la gomma
     hideFingerDrawingToggle: Nascondi l'interruttore del disegno con le dita
-    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Disabilita automaticamente il disegno con le dita
+    autoDisableFingerDrawingWhenStylusDetected: Disattiva automaticamente il disegno con le dita
     editorPromptRename: Richiede di rinominare nuove note
     recentColorsDontSavePresets: Non salvare i colori preimpostati nei colori recenti
     recentColorsLength: Quanti colori recenti memorizzare
@@ -121,7 +121,7 @@ settings:
       shown: Impedisce l'attivazione accidentale
       fixedOn: Il disegno con le dita è fissato come abilitato
       fixedOff: Il disegno con le dita è fisso come disabilitato
-    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Disattiva il disegno con le dita quando viene rilevato uno stilo
+    autoDisableFingerDrawingWhenStylusDetected: Disattiva il disegno con le dita quando viene rilevato la stilo
     editorPromptRename: Puoi sempre rinominare le note in un secondo momento
     printPageIndicators: Mostra indicatori di pagina nelle esportazioni
     autosave: Salvataggio automatico dopo un breve ritardo o mai
