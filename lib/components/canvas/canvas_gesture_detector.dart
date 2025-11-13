@@ -494,7 +494,7 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
 
                   // we need a non-zero boundary margin so we can zoom out
                   // past the size of the page (for minScale < 1)
-                  boundaryMargin: EdgeInsets.symmetric(
+                  boundaryMargin: .symmetric(
                     vertical: 0,
                     horizontal: screenSize.width * 2,
                   ),

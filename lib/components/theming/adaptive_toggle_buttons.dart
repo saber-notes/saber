@@ -56,7 +56,7 @@ class AdaptiveToggleButtons<T extends Object> extends StatelessWidget {
       ),
       groupValue: value,
       onValueChanged: onChange,
-      padding: const EdgeInsets.all(8),
+      padding: const .all(8),
     );
   }
 }

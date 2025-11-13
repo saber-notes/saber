@@ -28,7 +28,7 @@ class InteractiveCanvasViewer extends StatefulWidget {
     super.key,
     this.clipBehavior = Clip.hardEdge,
     this.panAxis = PanAxis.free,
-    this.boundaryMargin = EdgeInsets.zero,
+    this.boundaryMargin = .zero,
     this.constrained = true,
     // These default scale values were eyeballed as reasonable limits for common
     // use cases.
@@ -76,7 +76,7 @@ class InteractiveCanvasViewer extends StatefulWidget {
     super.key,
     this.clipBehavior = Clip.hardEdge,
     this.panAxis = PanAxis.free,
-    this.boundaryMargin = EdgeInsets.zero,
+    this.boundaryMargin = .zero,
     // These default scale values were eyeballed as reasonable limits for common
     // use cases.
     this.maxScale = 2.5,
@@ -254,7 +254,7 @@ class InteractiveCanvasViewer extends StatefulWidget {
   ///
   /// Scale is also affected by [boundaryMargin]. If the scale would result in
   /// viewing beyond the boundary, then it will not be allowed. By default,
-  /// boundaryMargin is EdgeInsets.zero, so scaling below 1.0 will not be
+  /// boundaryMargin is .zero, so scaling below 1.0 will not be
   /// allowed in most cases without first increasing the boundaryMargin.
   ///
   /// Defaults to 0.8.

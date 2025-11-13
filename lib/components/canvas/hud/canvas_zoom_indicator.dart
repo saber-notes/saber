@@ -20,7 +20,7 @@ class CanvasZoomIndicator extends StatelessWidget {
           color: colorScheme.surface.withValues(alpha: 0.5),
           borderRadius: BorderRadius.circular(15),
         ),
-        padding: const EdgeInsets.all(5),
+        padding: const .all(5),
         child: Text(
           '${scale.toStringAsFixed(1)}x',
           style: TextStyle(color: colorScheme.onSurface),

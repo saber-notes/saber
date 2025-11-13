@@ -77,7 +77,7 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
         dragDevices: PointerDeviceKind.values.toSet(),
       ),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
+        padding: const .symmetric(horizontal: 16),
         child: ListView(
           shrinkWrap: true,
           children: [
@@ -365,7 +365,7 @@ class _PermanentTooltip extends StatelessWidget {
         color: colorScheme.surface.withValues(alpha: 0.8),
       ),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 8),
+        padding: const .symmetric(horizontal: 8),
         child: Text(
           text,
           textAlign: TextAlign.center,

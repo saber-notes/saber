@@ -26,7 +26,7 @@ class ColorOption extends StatelessWidget {
     return Tooltip(
       message: tooltip ?? '',
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 4),
+        padding: const .symmetric(horizontal: 4),
         child: InkWell(
           borderRadius: BorderRadius.circular(diameter / 2),
           onTap: enabled ? onTap : null,
@@ -43,7 +43,7 @@ class ColorOption extends StatelessWidget {
               ),
             ),
             child: Padding(
-              padding: const EdgeInsets.all(3),
+              padding: const .all(3),
               child: AnimatedOpacity(
                 opacity: enabled ? 1 : 0.5,
                 duration: const Duration(milliseconds: 200),
@@ -66,7 +66,7 @@ class ColorOptionSeparatorIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     final colorScheme = ColorScheme.of(context);
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+      padding: const .symmetric(horizontal: 8, vertical: 4),
       child: Icon(
         icon,
         size: 16,

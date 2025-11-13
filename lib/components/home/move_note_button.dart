@@ -19,7 +19,7 @@ class MoveNoteButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IconButton(
-      padding: EdgeInsets.zero,
+      padding: .zero,
       tooltip: t.home.moveNote.moveNote,
       onPressed: () {
         showDialog(

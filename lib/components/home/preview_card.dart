@@ -111,7 +111,7 @@ class _PreviewCardState extends State<PreviewCard> {
           child: Stack(
             children: [
               Column(
-                mainAxisSize: MainAxisSize.min,
+                mainAxisSize: .min,
                 children: [
                   Stack(
                     children: [
@@ -174,7 +174,7 @@ class _PreviewCardState extends State<PreviewCard> {
                   ),
                   Flexible(
                     child: Padding(
-                      padding: const EdgeInsets.all(8),
+                      padding: const .all(8),
                       child: Text(
                         widget.filePath.substring(
                           widget.filePath.lastIndexOf('/') + 1,

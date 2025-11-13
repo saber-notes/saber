@@ -21,7 +21,7 @@ class RenameNoteButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IconButton(
-      padding: EdgeInsets.zero,
+      padding: .zero,
       tooltip: t.home.renameNote.renameNote,
       onPressed: () {
         showDialog(

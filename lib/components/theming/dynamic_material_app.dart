@@ -298,7 +298,7 @@ class _BorderedWindowState extends State<_BorderedWindow> {
     return showBorder
         ? ColoredBox(
             color: _lastBorderColor,
-            child: Padding(padding: const EdgeInsets.all(1), child: keyedChild),
+            child: Padding(padding: const .all(1), child: keyedChild),
           )
         : keyedChild;
   }

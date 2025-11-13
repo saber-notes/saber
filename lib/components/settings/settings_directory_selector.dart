@@ -45,7 +45,7 @@ class SettingsDirectorySelector extends StatelessWidget {
     return InkWell(
       onTap: () => onPressed(context),
       child: ListTile(
-        contentPadding: const EdgeInsets.symmetric(vertical: 4, horizontal: 16),
+        contentPadding: const .symmetric(vertical: 4, horizontal: 16),
         leading: AnimatedSwitcher(
           duration: const Duration(milliseconds: 100),
           child: Icon(icon, key: ValueKey(icon)),
@@ -141,7 +141,7 @@ class _DirectorySelectorState extends State<DirectorySelector> {
     return AdaptiveAlertDialog(
       title: Text(widget.title),
       content: Column(
-        mainAxisSize: MainAxisSize.min,
+        mainAxisSize: .min,
         children: [
           Text(
             t.settings.customDataDir.unsupported,

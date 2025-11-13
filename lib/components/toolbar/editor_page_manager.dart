@@ -61,11 +61,11 @@ class _EditorPageManagerState extends State<EditorPageManager> {
             key: ValueKey(pageIndex),
             onTap: () => scrollToPage(pageIndex),
             child: Padding(
-              padding: const EdgeInsets.all(8),
+              padding: const .all(8),
               child: Column(
                 children: [
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    mainAxisAlignment: .spaceAround,
                     children: [
                       Text(
                         '${pageIndex + 1} / ${widget.coreInfo.pages.length}',
@@ -88,7 +88,7 @@ class _EditorPageManagerState extends State<EditorPageManager> {
                         child: ReorderableDragStartListener(
                           index: pageIndex,
                           child: const Padding(
-                            padding: EdgeInsets.all(8),
+                            padding: .all(8),
                             child: Icon(Icons.drag_handle),
                           ),
                         ),
@@ -96,7 +96,7 @@ class _EditorPageManagerState extends State<EditorPageManager> {
                     ],
                   ),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    mainAxisAlignment: .center,
                     children: [
                       IconButton(
                         tooltip: t.editor.menu.insertPage,

@@ -150,7 +150,7 @@ class _SettingsPageState extends State<SettingsPage> {
       body: CustomScrollView(
         slivers: [
           SliverPadding(
-            padding: const EdgeInsets.only(bottom: 8),
+            padding: const .only(bottom: 8),
             sliver: SliverAppBar(
               collapsedHeight: kToolbarHeight,
               expandedHeight: 200,
@@ -186,7 +186,7 @@ class _SettingsPageState extends State<SettingsPage> {
             sliver: SliverList.list(
               children: [
                 const NextcloudProfile(),
-                const Padding(padding: EdgeInsets.all(8), child: AppInfo()),
+                const Padding(padding: .all(8), child: AppInfo()),
                 SettingsSubtitle(subtitle: t.settings.prefCategories.general),
                 SettingsDropdown(
                   title: t.settings.prefLabels.locale,

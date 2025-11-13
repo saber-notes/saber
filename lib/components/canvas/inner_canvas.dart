@@ -93,7 +93,7 @@ class _InnerCanvasState extends State<InnerCanvas> {
                   : null,
               showCursor: true,
               keyboardAppearance: invert ? Brightness.dark : Brightness.light,
-              padding: EdgeInsets.only(
+              padding: .only(
                 top: widget.coreInfo.lineHeight * 1.2,
                 left: widget.coreInfo.lineHeight * 0.5,
                 right: widget.coreInfo.lineHeight * 0.5,

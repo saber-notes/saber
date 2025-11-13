@@ -36,20 +36,18 @@ class HorizontalNavbar extends StatelessWidget {
 
     return SafeArea(
       child: Padding(
-        padding: const EdgeInsets.all(16),
+        padding: const .all(16),
         child: Align(
           alignment: AlignmentDirectional.bottomEnd,
           child: GlassyContainer(
             child: Padding(
-              padding: platform.isCupertino
-                  ? const EdgeInsets.all(4)
-                  : const EdgeInsets.all(8),
+              padding: platform.isCupertino ? const .all(4) : const .all(8),
               child: Semantics(
                 role: SemanticsRole.tabBar,
                 explicitChildNodes: true,
                 container: true,
                 child: Row(
-                  mainAxisSize: MainAxisSize.min,
+                  mainAxisSize: .min,
                   spacing: platform.isCupertino ? 0 : 4,
                   children: [
                     for (int i = 0; i < destinations.length; i++)
@@ -199,7 +197,7 @@ class _ToolbarButton extends StatelessWidget {
               ? CupertinoColors.systemBlue.withValues(alpha: 0.5)
               : colorScheme.primary.withValues(alpha: 0.5),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: .center,
             children: [
               Flexible(
                 flex: 7,

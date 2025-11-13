@@ -50,7 +50,7 @@ class _DoneLoginStepState extends State<DoneLoginStep> {
         ? NextcloudClientExtension.defaultNextcloudUri
         : Uri.parse(stows.url.value);
     return ListView(
-      padding: EdgeInsets.symmetric(
+      padding: .symmetric(
         horizontal: screenWidth > width ? (screenWidth - width) / 2 : 16,
         vertical: 16,
       ),

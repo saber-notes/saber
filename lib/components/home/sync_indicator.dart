@@ -72,7 +72,7 @@ class _SyncIndicatorState extends State<SyncIndicator> {
       right: 0,
       child: IgnorePointer(
         child: Padding(
-          padding: const EdgeInsets.all(8),
+          padding: const .all(8),
           child: ValueListenableBuilder(
             valueListenable: status,
             builder: (context, status, _) {

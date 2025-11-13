@@ -43,7 +43,7 @@ class GridFolders extends StatelessWidget {
     ];
 
     return SliverPadding(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+      padding: const .symmetric(horizontal: 12, vertical: 8),
       sliver: SliverAlignedGrid.count(
         itemCount: folders.length + extraCards.length,
         crossAxisCount: crossAxisCount,
@@ -139,9 +139,9 @@ class _GridFolderState extends State<_GridFolder> {
         child: Card(
           color: colorScheme.surface,
           child: Padding(
-            padding: const EdgeInsets.all(8),
+            padding: const .all(8),
             child: Column(
-              mainAxisSize: MainAxisSize.min,
+              mainAxisSize: .min,
               children: [
                 SizedBox(
                   width: double.infinity,
@@ -202,8 +202,8 @@ class _GridFolderState extends State<_GridFolder> {
                                   ),
                                 ),
                                 child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  mainAxisAlignment: .center,
+                                  crossAxisAlignment: .end,
                                   children: [
                                     RenameFolderButton(
                                       folderName: widget.folderName!,

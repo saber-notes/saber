@@ -89,7 +89,7 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
       subtitle: Text(subheading),
       trailing: loginStep == LoginStep.done
           ? Row(
-              mainAxisSize: MainAxisSize.min,
+              mainAxisSize: .min,
               spacing: 8,
               children: [
                 FutureBuilder(
@@ -169,7 +169,7 @@ class _QuotaSummary extends StatelessWidget {
 
     return IntrinsicWidth(
       child: Column(
-        mainAxisSize: MainAxisSize.min,
+        mainAxisSize: .min,
         spacing: 2,
         children: [
           AdaptiveLinearProgressIndicator(

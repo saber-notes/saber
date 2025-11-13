@@ -32,10 +32,7 @@ class SettingsSentryConsent extends StatelessWidget {
       builder: (context, consent, child) {
         final subtitle = _getSubtitle();
         return ListTile(
-          contentPadding: const EdgeInsets.symmetric(
-            vertical: 4,
-            horizontal: 16,
-          ),
+          contentPadding: const .symmetric(vertical: 4, horizontal: 16),
           leading: const Icon(Icons.bug_report),
           title: Text(
             title,

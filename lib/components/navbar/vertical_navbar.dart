@@ -38,11 +38,11 @@ class _VerticalNavbarState extends State<VerticalNavbar> {
             : null,
       ),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: .start,
         children: [
           const SizedBox(height: kToolbarHeight),
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 12),
+            padding: const .symmetric(vertical: 10, horizontal: 12),
             child: TextButton(
               onPressed: () {
                 setState(() {

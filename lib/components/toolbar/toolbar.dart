@@ -323,7 +323,7 @@ class _ToolbarState extends State<Toolbar> {
       ),
       Center(
         child: Padding(
-          padding: const EdgeInsets.all(8),
+          padding: const .all(8),
           child: Wrap(
             direction: isToolbarVertical ? Axis.vertical : Axis.horizontal,
             alignment: WrapAlignment.center,

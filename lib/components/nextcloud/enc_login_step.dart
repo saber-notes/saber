@@ -46,7 +46,7 @@ class _EncLoginStepState extends State<EncLoginStep> {
     final screenWidth = MediaQuery.sizeOf(context).width;
     final screenHeight = MediaQuery.sizeOf(context).height;
     return ListView(
-      padding: EdgeInsets.symmetric(
+      padding: .symmetric(
         horizontal: screenWidth > width ? (screenWidth - width) / 2 : 16,
         vertical: 16,
       ),
@@ -105,7 +105,7 @@ class _EncLoginStepState extends State<EncLoginStep> {
           builder: (context, errorMessage, _) {
             if (errorMessage.isEmpty) return const SizedBox.shrink();
             return Padding(
-              padding: const EdgeInsets.only(top: 4),
+              padding: const .only(top: 4),
               child: Text(
                 errorMessage,
                 style: TextStyle(color: colorScheme.error),

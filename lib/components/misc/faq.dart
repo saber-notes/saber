@@ -33,7 +33,7 @@ class _FaqTile extends StatelessWidget {
     return YaruExpandable(
       header: Text(item.question),
       child: Padding(
-        padding: const EdgeInsets.all(16),
+        padding: const .all(16),
         child: SelectableText(item.answer),
       ),
     );

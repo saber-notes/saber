@@ -99,11 +99,9 @@ class _ResponsiveNavbarState extends State<ResponsiveNavbar> {
         children: [
           MediaQuery(
             data: mediaQuery.copyWith(
-              padding:
-                  mediaQuery.padding + EdgeInsets.only(bottom: navbarClearance),
+              padding: mediaQuery.padding + .only(bottom: navbarClearance),
               viewPadding:
-                  mediaQuery.viewPadding +
-                  EdgeInsets.only(bottom: navbarClearance),
+                  mediaQuery.viewPadding + .only(bottom: navbarClearance),
             ),
             child: widget.body,
           ),

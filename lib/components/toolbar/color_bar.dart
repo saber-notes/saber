@@ -291,7 +291,7 @@ class _ColorBarState extends State<ColorBar> {
 
     return Center(
       child: Padding(
-        padding: const EdgeInsets.all(8),
+        padding: const .all(8),
         child: SingleChildScrollView(
           scrollDirection: widget.axis,
           child: Flex(direction: widget.axis, children: children),
