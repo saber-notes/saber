@@ -99,7 +99,7 @@ settings:
     autoClearWhiteboardOnExit: Lösche das Whiteboard nach Verlassen der Anwendung
     disableEraserAfterUse: Radierer automatisch deaktivieren
     hideFingerDrawingToggle: Umschalter des Finger-Zeichnens ausblenden
-    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Fingerzeichnen automatisch deaktivieren
+    autoDisableFingerDrawingWhenStylusDetected: Fingerzeichnen automatisch deaktivieren
     editorPromptRename: Beim Erstellen von Notizen einen Namen erfragen
     recentColorsDontSavePresets: Farbvorlagen nicht in den zuletzt genutzten Farben speichern
     recentColorsLength: Anzahl der zuletzt genutzten Farben
@@ -121,7 +121,7 @@ settings:
       shown: Schützt vor versehentlichem Umschalten
       fixedOn: Finger-Zeichnen ist als aktiviert festgelegt
       fixedOff: Finger-Zeichnen ist als deaktiviert festgelegt
-    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Deaktivieren Sie das Zeichnen mit dem Finger, wenn ein Stift erkannt wird
+    autoDisableFingerDrawingWhenStylusDetected: Schalte Fingerzeichnen aus, wenn ein Eingabestift erkannt wurde
     editorPromptRename: Notizen können später immer noch umbenannt werden
     printPageIndicators: Seitennummerierung bei Export anzeigen
     autosave: Nach kurzer Zeit Auto-Speichern oder nie

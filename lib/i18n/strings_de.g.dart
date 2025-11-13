@@ -428,7 +428,7 @@ class _TranslationsSettingsPrefDescriptionsDe extends TranslationsSettingsPrefDe
 	@override String get disableEraserAfterUse => 'Nach dem Nutzen des Radierers automatisch zum Stift zurückwechseln';
 	@override String get maxImageSize => 'Bilder, die größer sind, werden komprimiert';
 	@override late final _TranslationsSettingsPrefDescriptionsHideFingerDrawingDe hideFingerDrawing = _TranslationsSettingsPrefDescriptionsHideFingerDrawingDe._(_root);
-	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Deaktivieren Sie das Zeichnen mit dem Finger, wenn ein Stift erkannt wird';
+	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Schalte Fingerzeichnen aus, wenn ein Eingabestift erkannt wurde';
 	@override String get editorPromptRename => 'Notizen können später immer noch umbenannt werden';
 	@override String get printPageIndicators => 'Seitennummerierung bei Export anzeigen';
 	@override String get autosave => 'Nach kurzer Zeit Auto-Speichern oder nie';
