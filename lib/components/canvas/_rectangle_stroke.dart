@@ -80,18 +80,18 @@ class RectangleStroke extends Stroke {
   /// A list of points that form the rectangle's perimeter.
   /// Each side has 24/N points.
   @override
-  List<Offset> getPolygon(int N) => [
+  List<Offset> getPolygon({required StrokeQuality quality}) => [
     // left side
-    for (int i = 0; i < 24 / N; ++i)
+    for (int i = 0; i < 24 / quality.N; ++i)
       Offset(rect.left, rect.top + rect.height * i / 24),
     // bottom side
-    for (int i = 0; i < 24 / N; ++i)
+    for (int i = 0; i < 24 / quality.N; ++i)
       Offset(rect.left + rect.width * i / 24, rect.bottom),
     // right side
-    for (int i = 0; i < 24 / N; ++i)
+    for (int i = 0; i < 24 / quality.N; ++i)
       Offset(rect.right, rect.bottom - rect.height * i / 24),
     // top side
-    for (int i = 0; i < 24 / N; ++i)
+    for (int i = 0; i < 24 / quality.N; ++i)
       Offset(rect.right - rect.width * i / 24, rect.top),
   ];
 

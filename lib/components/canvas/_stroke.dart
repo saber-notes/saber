@@ -35,8 +35,10 @@ class Stroke {
   final StrokeOptions options;
 
   List<Offset>? _lowQualityPolygon, _highQualityPolygon;
-  List<Offset> get lowQualityPolygon => _lowQualityPolygon ??= getPolygon(4);
-  List<Offset> get highQualityPolygon => _highQualityPolygon ??= getPolygon(1);
+  List<Offset> get lowQualityPolygon =>
+      _lowQualityPolygon ??= getPolygon(quality: .low);
+  List<Offset> get highQualityPolygon =>
+      _highQualityPolygon ??= getPolygon(quality: .high);
 
   Path? _lowQualityPath, _highQualityPath;
   Path get lowQualityPath =>
@@ -218,15 +220,15 @@ class Stroke {
   }
 
   @protected
-  List<Offset> getPolygon(int N) {
+  List<Offset> getPolygon({required StrokeQuality quality}) {
     if (!pressureEnabled) {
       options.simulatePressure = false;
     }
     final rememberSimulatedPressure =
-        N <= 1 && options.simulatePressure && options.isComplete;
+        quality == .high && options.simulatePressure && options.isComplete;
 
     final polygon = getStroke(
-      skipPoints(points, N),
+      skipPoints(points, quality.N),
       options: options,
       rememberSimulatedPressure: rememberSimulatedPressure,
     );
@@ -400,4 +402,14 @@ class Stroke {
     page: page,
     toolId: toolId,
   )..points.addAll(points);
+}
+
+enum StrokeQuality {
+  low(4),
+  high(1);
+
+  const StrokeQuality(this.N);
+
+  /// We use every Nth point for this quality level.
+  final int N;
 }
