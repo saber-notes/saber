@@ -28,7 +28,7 @@ class ColorOption extends StatelessWidget {
       child: Padding(
         padding: const .symmetric(horizontal: 4),
         child: InkWell(
-          borderRadius: BorderRadius.circular(diameter / 2),
+          borderRadius: .circular(diameter / 2),
           onTap: enabled ? onTap : null,
           onLongPress: enabled ? onLongPress : null,
           onSecondaryTap: enabled ? onLongPress : null,
@@ -36,7 +36,7 @@ class ColorOption extends StatelessWidget {
             width: diameter,
             height: diameter,
             decoration: BoxDecoration(
-              shape: BoxShape.circle,
+              shape: .circle,
               border: Border.all(
                 color: isSelected ? colorScheme.onSurface : Colors.transparent,
                 width: 2,

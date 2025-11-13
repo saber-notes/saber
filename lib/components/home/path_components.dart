@@ -17,7 +17,7 @@ class PathComponents extends StatelessWidget {
           tapTargetSize: MaterialTapTargetSize.shrinkWrap,
           minimumSize: const Size(24, 8),
           padding: const .all(8),
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
+          shape: RoundedRectangleBorder(borderRadius: .circular(4)),
         ),
       ),
       child: Padding(

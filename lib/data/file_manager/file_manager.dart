@@ -125,6 +125,7 @@ class FileManager {
     await rootDir.create(recursive: true);
     if (Platform.isIOS) return;
     rootDir.watch(recursive: true).listen((FileSystemEvent event) {
+      // TODO: Make this more explicit with a switch statement
       final type =
           event.type == FileSystemEvent.create ||
               event.type == FileSystemEvent.modify ||

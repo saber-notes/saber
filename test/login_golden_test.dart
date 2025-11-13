@@ -18,7 +18,7 @@ void main() {
       FlavorConfig.setup();
       _theme = SaberTheme.createThemeFromSeed(
         Colors.yellow,
-        Brightness.light,
+        .light,
         _device.platform,
       );
       stows.username.value = 'testuser';
@@ -44,7 +44,7 @@ void main() {
     }
 
     testGoldens('done_faq', (tester) async {
-      await tester.pumpWidget(const _LoginApp(LoginStep.done));
+      await tester.pumpWidget(const _LoginApp(.done));
       await tester.loadAssets(overriddenFonts: saberSansSerifFontFallbacks);
       await tester.pumpAndSettle();
 

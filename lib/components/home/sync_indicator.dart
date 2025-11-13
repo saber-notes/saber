@@ -35,13 +35,13 @@ class _SyncIndicatorState extends State<SyncIndicator> {
     final isInDownloadQueue = _isInQueue(syncer.downloader.pending);
 
     if (isInUploadQueue && isInDownloadQueue) {
-      status.value = _SyncIndicatorStatus.merging;
+      status.value = .merging;
     } else if (isInUploadQueue) {
-      status.value = _SyncIndicatorStatus.uploading;
+      status.value = .uploading;
     } else if (isInDownloadQueue) {
-      status.value = _SyncIndicatorStatus.downloading;
+      status.value = .downloading;
     } else {
-      status.value = _SyncIndicatorStatus.done;
+      status.value = .done;
     }
   }
 
@@ -79,12 +79,10 @@ class _SyncIndicatorState extends State<SyncIndicator> {
               return AnimatedSwitcher(
                 duration: const Duration(milliseconds: 200),
                 child: switch (status) {
-                  _SyncIndicatorStatus.done => null,
-                  _SyncIndicatorStatus.uploading => const Icon(Icons.upload),
-                  _SyncIndicatorStatus.downloading => const Icon(
-                    Icons.download,
-                  ),
-                  _SyncIndicatorStatus.merging => const Icon(Icons.sync),
+                  .done => null,
+                  .uploading => const Icon(Icons.upload),
+                  .downloading => const Icon(Icons.download),
+                  .merging => const Icon(Icons.sync),
                 },
               );
             },

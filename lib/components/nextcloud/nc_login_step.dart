@@ -155,7 +155,7 @@ class _NcLoginStepState extends State<NcLoginStep> {
             linkToSignup: (text) => TextSpan(
               text: text,
               style: TextStyle(
-                color: colorScheme.brightness == Brightness.dark
+                color: colorScheme.brightness == .dark
                     ? saberColor
                     : saberColorDarkened,
               ),

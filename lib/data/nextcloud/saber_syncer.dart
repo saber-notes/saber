@@ -47,13 +47,13 @@ class SaberSyncInterface
 
       final bestFile = await getBestFile(
         syncFile,
-        onLocalFileNotFound: BestFile.local,
-        onEqualFiles: BestFile.remote,
+        onLocalFileNotFound: .local,
+        onEqualFiles: .remote,
       );
       switch (bestFile) {
-        case BestFile.local:
+        case .local:
           syncFiles.add(syncFile);
-        case BestFile.remote:
+        case .remote:
           // Remote file is newer, do nothing
           break;
       }
@@ -81,14 +81,14 @@ class SaberSyncInterface
 
         final bestFile = await getBestFile(
           syncFile,
-          onLocalFileNotFound: BestFile.remote,
-          onEqualFiles: BestFile.local,
+          onLocalFileNotFound: .remote,
+          onEqualFiles: .local,
         );
         switch (bestFile) {
-          case BestFile.local:
+          case .local:
             // Local file is newer, do nothing
             return null;
-          case BestFile.remote:
+          case .remote:
             // Remote file is newer or doesn't exist locally
 
             final remotelyDeleted = syncFile.remoteFile!.size! <= 0;
@@ -476,19 +476,19 @@ class SaberSyncInterface
     );
     if (file.remoteFile == null) {
       // Remote file doesn't exist, keep local
-      return BestFile.local;
+      return .local;
     }
 
     final lastModifiedRemote = file.remoteFile!.lastModified;
     if (lastModifiedRemote == null) {
       // Remote file doesn't exist, keep local
-      return BestFile.local;
+      return .local;
     } else if (lastModifiedRemote.isBefore(
       stows.fileSyncResyncEverythingDate.value,
     )) {
       // If we've prompted a full resync at [resyncEverythingDate],
       // keep the local file if it was modified before [resyncEverythingDate]
-      return BestFile.local;
+      return .local;
     }
 
     // File exists locally, check if it's newer than the remote file
@@ -497,9 +497,9 @@ class SaberSyncInterface
         const Duration(milliseconds: 500)) {
       return onEqualFiles;
     } else if (lastModifiedRemote.isAfter(lastModifiedLocal)) {
-      return BestFile.remote;
+      return .remote;
     } else {
-      return BestFile.local;
+      return .local;
     }
   }
 

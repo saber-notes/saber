@@ -108,7 +108,7 @@ class _SettingsSwitchState extends State<SettingsColor> {
             height: 32,
             decoration: BoxDecoration(
               color: widget.pref.value ?? defaultColor,
-              shape: BoxShape.circle,
+              shape: .circle,
             ),
           ),
           const SizedBox(width: 8),

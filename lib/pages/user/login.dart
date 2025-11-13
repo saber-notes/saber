@@ -35,25 +35,25 @@ class NcLoginPage extends StatefulWidget {
         !stows.encPassword.loaded ||
         !stows.key.loaded ||
         !stows.iv.loaded) {
-      return LoginStep.waitingForPrefs;
+      return .waitingForPrefs;
     }
 
     if (stows.username.value.isEmpty || stows.ncPassword.value.isEmpty) {
-      return LoginStep.nc;
+      return .nc;
     }
     if (stows.encPassword.value.isEmpty ||
         stows.key.value.isEmpty ||
         stows.iv.value.isEmpty) {
-      return LoginStep.enc;
+      return .enc;
     }
-    return LoginStep.done;
+    return .done;
   }
 }
 
 class _NcLoginPageState extends State<NcLoginPage> {
   final log = Logger('_NcLoginPageState');
 
-  late LoginStep step = LoginStep.waitingForPrefs;
+  late LoginStep step = .waitingForPrefs;
 
   @override
   void initState() {
@@ -67,7 +67,7 @@ class _NcLoginPageState extends State<NcLoginPage> {
       return;
     }
 
-    step = LoginStep.waitingForPrefs;
+    step = .waitingForPrefs;
 
     if (!stows.url.loaded ||
         !stows.username.loaded ||
@@ -105,8 +105,8 @@ class _NcLoginPageState extends State<NcLoginPage> {
       appBar: AppBar(
         toolbarHeight: kToolbarHeight,
         title: Text(switch (step) {
-          LoginStep.waitingForPrefs => '',
-          LoginStep.done => t.profile.title,
+          .waitingForPrefs => '',
+          .done => t.profile.title,
           _ => t.login.title,
         }),
         leading: widget.forceAppBarLeading
@@ -116,7 +116,7 @@ class _NcLoginPageState extends State<NcLoginPage> {
               )
             : null,
         bottom: PreferredSize(
-          preferredSize: const Size.fromHeight(4),
+          preferredSize: const .fromHeight(4),
           child: AdaptiveLinearProgressIndicator(
             value: step.progress,
             minHeight: 4,
@@ -124,12 +124,12 @@ class _NcLoginPageState extends State<NcLoginPage> {
         ),
       ),
       body: switch (step) {
-        LoginStep.waitingForPrefs => const Center(
+        .waitingForPrefs => const Center(
           child: AdaptiveCircularProgressIndicator(),
         ),
-        LoginStep.nc => NcLoginStep(recheckCurrentStep: recheckCurrentStep),
-        LoginStep.enc => EncLoginStep(recheckCurrentStep: recheckCurrentStep),
-        LoginStep.done => DoneLoginStep(recheckCurrentStep: recheckCurrentStep),
+        .nc => NcLoginStep(recheckCurrentStep: recheckCurrentStep),
+        .enc => EncLoginStep(recheckCurrentStep: recheckCurrentStep),
+        .done => DoneLoginStep(recheckCurrentStep: recheckCurrentStep),
       },
     );
   }

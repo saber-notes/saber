@@ -97,7 +97,7 @@ class _SyncingButtonState extends State<SyncingButton> {
         minHeight: kMinInteractiveDimension,
       ),
       icon: Stack(
-        alignment: Alignment.center,
+        alignment: .center,
         children: [
           Positioned.fill(
             child: AnimatedOpacity(

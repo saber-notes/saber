@@ -576,7 +576,7 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
     final top = points.map((point) => point.y).reduce(min);
     final bottom = points.map((point) => point.y).reduce(max);
 
-    return Rect.fromLTRB(left, top, right, bottom);
+    return .fromLTRB(left, top, right, bottom);
   }
 }
 

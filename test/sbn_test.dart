@@ -105,7 +105,7 @@ void main() {
           await tester.loadAssets(overriddenFonts: saberSansSerifFontFallbacks);
           await tester.pumpWidget(
             _buildCanvas(
-              brightness: Brightness.light,
+              brightness: .light,
               path: path,
               page: page,
               coreInfo: coreInfo,
@@ -129,7 +129,7 @@ void main() {
           await tester.loadAssets(overriddenFonts: saberSansSerifFontFallbacks);
           await tester.pumpWidget(
             _buildCanvas(
-              brightness: Brightness.dark,
+              brightness: .dark,
               path: path,
               page: page,
               coreInfo: coreInfo,
@@ -153,7 +153,7 @@ void main() {
           await tester.loadAssets(overriddenFonts: saberSansSerifFontFallbacks);
           await tester.pumpWidget(
             _buildCanvas(
-              brightness: Brightness.light,
+              brightness: .light,
               path: path,
               page: page,
               coreInfo: coreInfo,
@@ -281,7 +281,7 @@ void main() {
       await tester.loadAssets(overriddenFonts: saberSansSerifFontFallbacks);
       await tester.pumpWidget(
         _buildCanvas(
-          brightness: Brightness.light,
+          brightness: .light,
           path: importedPath,
           page: importedCoreInfo.pages.first,
           coreInfo: importedCoreInfo,

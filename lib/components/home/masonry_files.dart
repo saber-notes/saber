@@ -43,7 +43,7 @@ class _MasonryFilesState extends State<MasonryFiles> {
       valueListenable: isAnythingSelected,
       builder: (context, isAnythingSelected, _) {
         return Align(
-          alignment: Alignment.bottomCenter,
+          alignment: .bottomCenter,
           child: PreviewCard(
             filePath: file,
             toggleSelection: toggleSelection,

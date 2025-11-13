@@ -161,7 +161,7 @@ class _SizeSliderPainter extends CustomPainter {
         ..close(),
       Paint()
         ..color = trackColor
-        ..style = PaintingStyle.fill,
+        ..style = .fill,
     );
 
     // thumb
@@ -178,7 +178,7 @@ class _SizeSliderPainter extends CustomPainter {
         ..close(),
       Paint()
         ..color = thumbColor
-        ..style = PaintingStyle.fill,
+        ..style = .fill,
     );
   }
 

@@ -26,14 +26,14 @@ class _VerticalNavbarState extends State<VerticalNavbar> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final backgroundColor = switch (theme.platform) {
-      TargetPlatform.linux => Colors.transparent,
+      .linux => Colors.transparent,
       _ => theme.colorScheme.surfaceContainer,
     };
 
     return DecoratedBox(
       decoration: BoxDecoration(
         color: backgroundColor,
-        border: theme.platform == TargetPlatform.linux
+        border: theme.platform == .linux
             ? BoxBorder.fromSTEB(end: BorderSide(color: theme.dividerColor))
             : null,
       ),

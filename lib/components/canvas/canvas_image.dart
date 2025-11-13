@@ -68,10 +68,10 @@ class _CanvasImageState extends State<CanvasImage> {
     }
   }
 
-  Brightness imageBrightness = Brightness.light;
+  Brightness imageBrightness = .light;
 
-  Rect panStartRect = Rect.zero;
-  Offset panStartPosition = Offset.zero;
+  Rect panStartRect = .zero;
+  Offset panStartPosition = .zero;
 
   @override
   void initState() {
@@ -147,7 +147,7 @@ class _CanvasImageState extends State<CanvasImage> {
                           widget.pageSize.width * 0.05,
                           widget.pageSize.height * 0.05,
                         );
-                        widget.image.dstRect = Rect.fromLTWH(
+                        widget.image.dstRect = .fromLTWH(
                           (widget.image.dstRect.left + details.delta.dx)
                               .clamp(
                                 fivePercent - widget.image.dstRect.width,
@@ -171,14 +171,14 @@ class _CanvasImageState extends State<CanvasImage> {
                       if (panStartRect == widget.image.dstRect) return;
                       widget.image.onMoveImage?.call(
                         widget.image,
-                        Rect.fromLTRB(
+                        .fromLTRB(
                           widget.image.dstRect.left - panStartRect.left,
                           widget.image.dstRect.top - panStartRect.top,
                           widget.image.dstRect.right - panStartRect.right,
                           widget.image.dstRect.bottom - panStartRect.bottom,
                         ),
                       );
-                      panStartRect = Rect.zero;
+                      panStartRect = .zero;
                     }
                   : null,
               child: DecoratedBox(
@@ -210,7 +210,7 @@ class _CanvasImageState extends State<CanvasImage> {
                           context: context,
                           overrideBoxFit: widget.overrideBoxFit,
                           isBackground: widget.isBackground,
-                          invert: imageBrightness == Brightness.dark,
+                          invert: imageBrightness == .dark,
                         ),
                       ),
                     ),
@@ -249,7 +249,7 @@ class _CanvasImageState extends State<CanvasImage> {
     }
     return AnimatedPositioned(
       // no animation if the image is being dragged or it's selected
-      duration: (panStartRect != Rect.zero || widget.selected)
+      duration: (panStartRect != .zero || widget.selected)
           ? Duration.zero
           : const Duration(milliseconds: 300),
       curve: Curves.fastLinearToSlowEaseIn,
@@ -394,12 +394,7 @@ class _CanvasImageResizeHandle extends StatelessWidget {
                       top = image.dstRect.bottom - newHeight;
                     }
 
-                    image.dstRect = Rect.fromLTWH(
-                      left,
-                      top,
-                      newWidth,
-                      newHeight,
-                    );
+                    image.dstRect = .fromLTWH(left, top, newWidth, newHeight);
                     afterDrag();
                   }
                 : null,
@@ -408,14 +403,14 @@ class _CanvasImageResizeHandle extends StatelessWidget {
                     if (parent.panStartRect == image.dstRect) return;
                     image.onMoveImage?.call(
                       image,
-                      Rect.fromLTRB(
+                      .fromLTRB(
                         image.dstRect.left - parent.panStartRect.left,
                         image.dstRect.top - parent.panStartRect.top,
                         image.dstRect.right - parent.panStartRect.right,
                         image.dstRect.bottom - parent.panStartRect.bottom,
                       ),
                     );
-                    parent.panStartRect = Rect.zero;
+                    parent.panStartRect = .zero;
                   }
                 : null,
             child: AnimatedOpacity(
@@ -426,7 +421,7 @@ class _CanvasImageResizeHandle extends StatelessWidget {
                 height: 40,
                 decoration: BoxDecoration(
                   color: colorScheme.onSurface,
-                  shape: BoxShape.circle,
+                  shape: .circle,
                   border: Border.all(color: colorScheme.surface, width: 2),
                 ),
               ),

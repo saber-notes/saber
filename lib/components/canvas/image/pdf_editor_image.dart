@@ -38,7 +38,7 @@ class PdfEditorImage extends EditorImage {
          pdfBytes != null || pdfFile != null,
          'pdfFile must be set if pdfBytes is null',
        ),
-       super(extension: '.pdf', srcRect: Rect.zero);
+       super(extension: '.pdf', srcRect: .zero);
 
   factory PdfEditorImage.fromJson(
     Map<String, dynamic> json, {
@@ -78,17 +78,15 @@ class PdfEditorImage extends EditorImage {
       pdfFile: pdfFile,
       pdfPage: json['pdfi'],
       pageIndex: json['i'] ?? 0,
-      pageSize: Size.infinite,
+      pageSize: .infinite,
       invertible: json['v'] ?? true,
-      backgroundFit: json['f'] != null
-          ? BoxFit.values[json['f']]
-          : BoxFit.contain,
+      backgroundFit: json['f'] != null ? .values[json['f']] : .contain,
       onMoveImage: null,
       onDeleteImage: null,
       onMiscChange: null,
       onLoad: null,
       newImage: false,
-      dstRect: Rect.fromLTWH(
+      dstRect: .fromLTWH(
         json['x'] ?? 0,
         json['y'] ?? 0,
         json['w'] ?? 0,
@@ -189,7 +187,7 @@ class PdfEditorImage extends EditorImage {
     pdfPage: pdfPage,
     pdfFile: pdfFile,
     pageIndex: pageIndex,
-    pageSize: Size.infinite,
+    pageSize: .infinite,
     invertible: invertible,
     backgroundFit: backgroundFit,
     onMoveImage: onMoveImage,

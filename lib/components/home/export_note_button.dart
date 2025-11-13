@@ -83,7 +83,7 @@ class _ExportNoteButtonState extends State<ExportNoteButton> {
       openCloseDial: isDialOpen,
       childPadding: const .all(5),
       spaceBetweenChildren: 4,
-      switchLabelPosition: Directionality.of(context) == TextDirection.rtl,
+      switchLabelPosition: Directionality.of(context) == .rtl,
       dialRoot: (context, open, toggleChildren) {
         return _currentlyExporting
             ? AdaptiveCircularProgressIndicator.textStyled()

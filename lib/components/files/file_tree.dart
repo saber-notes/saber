@@ -97,7 +97,7 @@ class _FileTreeBranchState extends State<FileTreeBranch> {
                       style: TextTheme.of(
                         context,
                       ).bodyMedium?.copyWith(fontSize: 14),
-                      overflow: TextOverflow.ellipsis,
+                      overflow: .ellipsis,
                     ),
                   ),
                 ],

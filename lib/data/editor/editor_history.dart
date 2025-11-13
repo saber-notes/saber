@@ -76,7 +76,7 @@ class EditorHistory {
   /// Adds an item to the [_past] stack.
   void recordChange(EditorHistoryItem item) {
     assert(
-      item.type != EditorHistoryItemType.quillUndoneChange,
+      item.type != .quillUndoneChange,
       'EditorHistoryItemType.quillUndoneChange is just a hack to make undoing quill changes easier. It should just be recorded as a quill change.',
     );
 
@@ -106,10 +106,7 @@ class EditorHistory {
   EditorHistoryItem? removeAccidentalStroke() {
     _isRedoPossible = true;
     if (_past.isEmpty) return null;
-    assert(
-      _past.last.type == EditorHistoryItemType.draw,
-      'Accidental stroke is not a draw',
-    );
+    assert(_past.last.type == .draw, 'Accidental stroke is not a draw');
     assert(
       _past.last.strokes.length == 1,
       'Accidental strokes should be single-stroke',
@@ -151,28 +148,27 @@ class EditorHistoryItem {
     this.quillChange,
     this.colorChange,
   }) : assert(
-         type != EditorHistoryItemType.move || offset != null,
+         type != .move || offset != null,
          'Offset must be provided for move',
        ),
        assert(
-         type != EditorHistoryItemType.deletePage || page != null,
+         type != .deletePage || page != null,
          'Page must be provided for deletePage',
        ),
        assert(
-         type != EditorHistoryItemType.insertPage || page != null,
+         type != .insertPage || page != null,
          'Page must be provided for insertPage',
        ),
        assert(
-         type != EditorHistoryItemType.quillChange || quillChange != null,
+         type != .quillChange || quillChange != null,
          'Quill change must be provided for quillChange',
        ),
        assert(
-         type != EditorHistoryItemType.quillUndoneChange || quillChange != null,
+         type != .quillUndoneChange || quillChange != null,
          'Quill change must be provided for quillUndoneChange',
        ),
        assert(
-         type != EditorHistoryItemType.changeColor ||
-             colorChange?.length == strokes.length,
+         type != .changeColor || colorChange?.length == strokes.length,
          'colorChange must be provided and contain each of strokes',
        );
 

@@ -17,7 +17,7 @@ class Eraser extends Tool {
   Eraser({this.size = 10});
 
   @override
-  ToolId get toolId => ToolId.eraser;
+  ToolId get toolId => .eraser;
 
   /// Returns any [strokes] that are close to the given [eraserPos].
   List<Stroke> checkForOverlappingStrokes(

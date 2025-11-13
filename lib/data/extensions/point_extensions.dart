@@ -10,12 +10,12 @@ extension PointExtensions on PointVector {
   )
   static Point fromJson({
     required Map<String, dynamic> json,
-    Offset offset = Offset.zero,
+    Offset offset = .zero,
   }) => Point(json['x'] + offset.dx, json['y'] + offset.dy, json['p']);
 
   static PointVector fromBsonBinary({
     required BsonBinary json,
-    Offset offset = Offset.zero,
+    Offset offset = .zero,
   }) {
     final point = json.byteList.buffer.asFloat32List();
     return PointVector(

@@ -27,9 +27,9 @@ class SaveIndicator extends StatelessWidget {
             key: ValueKey(savingState.value),
             onPressed: () => _onPressed(context),
             icon: switch (savingState.value) {
-              SavingState.waitingToSave => const Icon(Icons.save),
-              SavingState.saving => const AdaptiveCircularProgressIndicator(),
-              SavingState.saved => const Icon(Icons.arrow_back),
+              .waitingToSave => const Icon(Icons.save),
+              .saving => const AdaptiveCircularProgressIndicator(),
+              .saved => const Icon(Icons.arrow_back),
             },
           ),
         );
@@ -39,11 +39,11 @@ class SaveIndicator extends StatelessWidget {
 
   void _onPressed(BuildContext context) {
     switch (savingState.value) {
-      case SavingState.waitingToSave:
+      case .waitingToSave:
         triggerSave();
-      case SavingState.saving:
+      case .saving:
         break;
-      case SavingState.saved:
+      case .saved:
         _back(context);
     }
   }

@@ -10,7 +10,6 @@ import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/image/editor_image.dart';
 import 'package:saber/components/canvas/inner_canvas.dart';
 import 'package:saber/components/canvas/pencil_shader.dart';
-import 'package:saber/data/tools/_tool.dart';
 import 'package:saber/data/tools/laser_pointer.dart';
 
 typedef CanvasKey = GlobalKey<State<InnerCanvas>>;
@@ -196,7 +195,7 @@ class EditorPage extends ChangeNotifier implements HasSize {
       final color = stroke.color.toARGB32();
       if (penTypeComparison > 0) {
         break; // this stroke's pen type comes after the new stroke's pen type
-      } else if (stroke.toolId == ToolId.highlighter &&
+      } else if (stroke.toolId == .highlighter &&
           penTypeComparison == 0 &&
           color > newStrokeColor) {
         break; // this highlighter color comes after the new highlighter color
@@ -212,7 +211,7 @@ class EditorPage extends ChangeNotifier implements HasSize {
     strokes.sort((Stroke a, Stroke b) {
       final penTypeComparison = a.toolId.id.compareTo(b.toolId.id);
       if (penTypeComparison != 0) return penTypeComparison;
-      if (a.toolId != ToolId.highlighter) return 0;
+      if (a.toolId != .highlighter) return 0;
       return a.color.toARGB32().compareTo(b.color.toARGB32());
     });
   }

@@ -31,7 +31,7 @@ class _NewNoteButtonState extends State<NewNoteButton> {
       openCloseDial: isDialOpen,
       childPadding: const .all(5),
       spaceBetweenChildren: 4,
-      switchLabelPosition: Directionality.of(context) == TextDirection.rtl,
+      switchLabelPosition: Directionality.of(context) == .rtl,
       shape: widget.cupertino
           ? const CircleBorder()
           : RoundedRectangleBorder(borderRadius: materialBorderRadius),

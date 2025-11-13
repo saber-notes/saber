@@ -64,8 +64,7 @@ class _InnerCanvasState extends State<InnerCanvas> {
   Widget build(BuildContext context) {
     final colorScheme = ColorScheme.of(context);
     final Brightness brightness = Theme.brightnessOf(context);
-    final invert =
-        stows.editorAutoInvert.value && brightness == Brightness.dark;
+    final invert = stows.editorAutoInvert.value && brightness == .dark;
     final Color backgroundColor =
         widget.coreInfo.backgroundColor ?? InnerCanvas.defaultBackgroundColor;
 
@@ -92,7 +91,7 @@ class _InnerCanvasState extends State<InnerCanvas> {
                   ? t.editor.quill.typeSomething
                   : null,
               showCursor: true,
-              keyboardAppearance: invert ? Brightness.dark : Brightness.light,
+              keyboardAppearance: invert ? .dark : .light,
               padding: .only(
                 top: widget.coreInfo.lineHeight * 1.2,
                 left: widget.coreInfo.lineHeight * 0.5,

@@ -222,7 +222,7 @@ class _LogLevel extends StatelessWidget {
           Level.WARNING => colorScheme.tertiary,
           _ => colorScheme.surfaceContainer,
         },
-        borderRadius: BorderRadius.circular(2),
+        borderRadius: .circular(2),
       ),
       child: Text(
         level.name,

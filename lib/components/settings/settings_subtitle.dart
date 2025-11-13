@@ -12,10 +12,7 @@ class SettingsSubtitle extends StatelessWidget {
       padding: const .only(top: 32, left: 16, right: 16, bottom: 0),
       child: Text(
         subtitle,
-        style: TextStyle(
-          color: colorScheme.primary,
-          fontWeight: FontWeight.w500,
-        ),
+        style: TextStyle(color: colorScheme.primary, fontWeight: .w500),
       ),
     );
   }

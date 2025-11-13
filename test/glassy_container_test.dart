@@ -13,7 +13,7 @@ void main() {
     FlavorConfig.setup();
     await tester.pumpWidget(
       Directionality(
-        textDirection: TextDirection.ltr,
+        textDirection: .ltr,
         child: FittedBox(
           child: RepaintBoundary(
             child: SizedBox(
@@ -70,32 +70,30 @@ class _TestTile extends StatelessWidget {
       child: DefaultTextStyle(
         style: theme.textTheme.bodyLarge!.copyWith(
           fontSize: 32,
-          fontWeight: FontWeight.w600,
+          fontWeight: .w600,
         ),
         // ignore: use_decorated_box // Container applies padding automatically
         child: Container(
           decoration: BoxDecoration(
             gradient: switch (background) {
-              _Background.lightGradient => const LinearGradient(
+              .lightGradient => const LinearGradient(
                 colors: [Color(0xFFFFFFFF), Color(0xFFCCCCCC)],
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
+                begin: .topLeft,
+                end: .bottomRight,
               ),
-              _Background.darkGradient => const LinearGradient(
+              .darkGradient => const LinearGradient(
                 colors: [Color(0xFF333333), Color(0xFF000000)],
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
+                begin: .topLeft,
+                end: .bottomRight,
               ),
-              _Background.saturatedGradient => const LinearGradient(
+              .saturatedGradient => const LinearGradient(
                 colors: [Colors.blue, Colors.purple],
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
+                begin: .topLeft,
+                end: .bottomRight,
               ),
             },
             border: Border.all(
-              color: brightness == Brightness.light
-                  ? Colors.white
-                  : Colors.black,
+              color: brightness == .light ? Colors.white : Colors.black,
               width: 8,
             ),
           ),
@@ -108,9 +106,9 @@ class _TestTile extends StatelessWidget {
                   softWrap: false,
                   style: TextStyle(
                     color: switch (background) {
-                      _Background.lightGradient => Colors.black,
-                      _Background.darkGradient => Colors.white,
-                      _Background.saturatedGradient => Colors.white,
+                      .lightGradient => Colors.black,
+                      .darkGradient => Colors.white,
+                      .saturatedGradient => Colors.white,
                     },
                   ),
                 ),
@@ -124,12 +122,10 @@ class _TestTile extends StatelessWidget {
                         aspectRatio: 1.2,
                         child: Icon(
                           switch (platform) {
-                            TargetPlatform.iOS ||
-                            TargetPlatform.macOS => Icons.apple,
-                            TargetPlatform.android ||
-                            TargetPlatform.fuchsia => Icons.android,
-                            TargetPlatform.linux => FontAwesomeIcons.linux,
-                            TargetPlatform.windows => FontAwesomeIcons.windows,
+                            .iOS || .macOS => Icons.apple,
+                            .android || .fuchsia => Icons.android,
+                            .linux => FontAwesomeIcons.linux,
+                            .windows => FontAwesomeIcons.windows,
                           },
                           size: 24,
                           color: theme.colorScheme.onSurface,

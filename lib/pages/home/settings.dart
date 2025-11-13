@@ -109,12 +109,12 @@ class _SettingsPageState extends State<SettingsPage> {
   }
 
   static final bool usesCupertinoByDefault = switch (defaultTargetPlatform) {
-    TargetPlatform.iOS => true,
-    TargetPlatform.macOS => true,
+    .iOS => true,
+    .macOS => true,
     _ => false,
   };
   static final bool usesYaruByDefault = switch (defaultTargetPlatform) {
-    TargetPlatform.linux => true,
+    .linux => true,
     _ => false,
   };
   static final bool usesMaterialByDefault =
@@ -142,7 +142,7 @@ class _SettingsPageState extends State<SettingsPage> {
     final requiresManualUpdates = FlavorConfig.appStore.isEmpty;
 
     final IconData materialIcon = switch (defaultTargetPlatform) {
-      TargetPlatform.windows => FontAwesomeIcons.windows,
+      .windows => FontAwesomeIcons.windows,
       _ => Icons.android,
     };
 
@@ -168,7 +168,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 ),
               ),
               actions: [
-                if (UpdateManager.status.value != UpdateStatus.upToDate)
+                if (UpdateManager.status.value != .upToDate)
                   IconButton(
                     tooltip: t.home.tooltips.showUpdateDialog,
                     icon: const Icon(Icons.system_update),
@@ -246,8 +246,8 @@ class _SettingsPageState extends State<SettingsPage> {
                 SettingsSelection(
                   title: t.settings.prefLabels.platform,
                   iconBuilder: (i) => switch (stows.platform.value) {
-                    TargetPlatform.iOS || TargetPlatform.macOS => Icons.apple,
-                    TargetPlatform.linux => FontAwesomeIcons.ubuntu,
+                    .iOS || .macOS => Icons.apple,
+                    .linux => FontAwesomeIcons.ubuntu,
                     _ => materialIcon,
                   },
                   pref: _SettingsStows.platform,
@@ -282,15 +282,15 @@ class _SettingsPageState extends State<SettingsPage> {
                 SettingsSelection(
                   title: t.settings.prefLabels.layoutSize,
                   subtitle: switch (stows.layoutSize.value) {
-                    LayoutSize.auto => t.settings.layoutSizes.auto,
-                    LayoutSize.phone => t.settings.layoutSizes.phone,
-                    LayoutSize.tablet => t.settings.layoutSizes.tablet,
+                    .auto => t.settings.layoutSizes.auto,
+                    .phone => t.settings.layoutSizes.phone,
+                    .tablet => t.settings.layoutSizes.tablet,
                   },
                   afterChange: (_) => setState(() {}),
                   iconBuilder: (i) => switch (LayoutSize.values[i]) {
-                    LayoutSize.auto => Icons.aspect_ratio,
-                    LayoutSize.phone => Icons.smartphone,
-                    LayoutSize.tablet => Icons.tablet,
+                    .auto => Icons.aspect_ratio,
+                    .phone => Icons.smartphone,
+                    .tablet => Icons.tablet,
                   },
                   pref: _SettingsStows.layoutSize,
                   optionsWidth: 60,

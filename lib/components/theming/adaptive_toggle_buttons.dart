@@ -31,7 +31,7 @@ class AdaptiveToggleButtons<T extends Object> extends StatelessWidget {
 
   Widget _buildMaterial(BuildContext context) {
     return ToggleButtons(
-      borderRadius: BorderRadius.circular(1000),
+      borderRadius: .circular(1000),
       constraints: BoxConstraints(
         minWidth: optionsWidth,
         minHeight: optionsHeight,

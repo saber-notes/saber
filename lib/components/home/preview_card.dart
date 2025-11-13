@@ -65,9 +65,9 @@ class _PreviewCardState extends State<PreviewCard> {
   StreamSubscription? fileWriteSubscription;
   void fileWriteListener(FileOperation event) {
     if (event.filePath != widget.filePath) return;
-    if (event.type == FileOperationType.delete) {
+    if (event.type == .delete) {
       thumbnail.image = null;
-    } else if (event.type == FileOperationType.write) {
+    } else if (event.type == .write) {
       thumbnail.image?.evict();
       thumbnail.markAsChanged();
     } else {
@@ -97,8 +97,7 @@ class _PreviewCardState extends State<PreviewCard> {
     final transitionDuration = Duration(
       milliseconds: disableAnimations ? 0 : 300,
     );
-    final invert =
-        theme.brightness == Brightness.dark && stows.editorAutoInvert.value;
+    final invert = theme.brightness == .dark && stows.editorAutoInvert.value;
 
     final Widget card = MouseRegion(
       cursor: SystemMouseCursors.click,
@@ -152,8 +151,8 @@ class _PreviewCardState extends State<PreviewCard> {
                             child: DecoratedBox(
                               decoration: BoxDecoration(
                                 gradient: LinearGradient(
-                                  begin: Alignment.topCenter,
-                                  end: Alignment.bottomCenter,
+                                  begin: .topCenter,
+                                  end: .bottomCenter,
                                   colors: [
                                     colorScheme.surface.withValues(alpha: 0.2),
                                     colorScheme.surface.withValues(alpha: 0.8),
@@ -180,7 +179,7 @@ class _PreviewCardState extends State<PreviewCard> {
                           widget.filePath.lastIndexOf('/') + 1,
                         ),
                         maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
+                        overflow: .ellipsis,
                       ),
                     ),
                   ),
@@ -198,9 +197,7 @@ class _PreviewCardState extends State<PreviewCard> {
       builder: (context, expanded, _) {
         return OpenContainer(
           closedColor: colorScheme.surface,
-          closedShape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16),
-          ),
+          closedShape: RoundedRectangleBorder(borderRadius: .circular(16)),
           closedElevation: expanded ? 4 : 1,
           closedBuilder: (context, action) => card,
           openColor: colorScheme.surface,
@@ -237,7 +234,7 @@ class _FallbackThumbnail extends StatelessWidget {
             color: Stroke.defaultColor.withValues(alpha: 0.7),
             fontStyle: FontStyle.italic,
           ),
-          textAlign: TextAlign.center,
+          textAlign: .center,
         ),
       ),
     );
