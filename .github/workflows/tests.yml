@@ -45,14 +45,7 @@ jobs:
 
       - name: Run tests
         id: tests
-        run: flutter test --coverage --no-pub
-
-      - name: Upload to Codecov
-        if: success()
-        uses: codecov/codecov-action@v5
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-          files: coverage/lcov.info
+        run: flutter test --no-pub
 
       - name: Ensure test failures directory exists
         if: failure()
