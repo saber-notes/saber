@@ -45,10 +45,10 @@ packages:
     dependency: "direct main"
     description:
       name: animations
-      sha256: a8031b276f0a7986ac907195f10ca7cd04ecf2a8a566bd6dbe03018a9b02b427
+      sha256: "18938cefd7dcc04e1ecac0db78973761a01e4bc2d6bfae0cfa596bfeac9e96ab"
       url: "https://pub.dev"
     source: hosted
-    version: "2.1.0"
+    version: "2.1.1"
   ansicolor:
     dependency: transitive
     description:
@@ -1248,18 +1248,18 @@ packages:
     dependency: "direct main"
     description:
       name: pdfrx
-      sha256: cc9513ecdcfb78e1c2af4ca0e014a05dc3e6fd21933ee92e1c956013449905e6
+      sha256: aff4b53b463c2a6417325d47198fdf11e91f18298fe42681ced203bb2cd611c3
       url: "https://pub.dev"
     source: hosted
-    version: "2.2.9"
+    version: "2.2.12"
   pdfrx_engine:
     dependency: transitive
     description:
       name: pdfrx_engine
-      sha256: "092e749e406549cd035da73457a0c17b7526c4123aeeb513727a3f9a0d9c4487"
+      sha256: "46f9b2da314cb4b8fd3d5eace24977b91da0920110fea6f531892c10847dc256"
       url: "https://pub.dev"
     source: hosted
-    version: "0.3.2"
+    version: "0.3.3"
   perfect_freehand:
     dependency: "direct main"
     description:
@@ -1569,10 +1569,10 @@ packages:
     dependency: "direct main"
     description:
       name: saver_gallery
-      sha256: bf59475e50b73d666630bed7a5fdb621fed92d637f64e3c61ce81653ec6a833c
+      sha256: "1d942bd7f4fedc162d9a751e156ebac592e4b81fc2e757af82de9077f3437003"
       url: "https://pub.dev"
     source: hosted
-    version: "4.0.1"
+    version: "4.1.0"
   screen_retriever:
     dependency: transitive
     description:
