@@ -45,11 +45,6 @@ ar:
       lineThickness(OUTDATED): Line thickness
       lineThicknessDescription(OUTDATED): Background line thickness
 cs: 
-  settings: 
-    prefLabels: 
-      autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Automaticky vypínat kreslení prstem
-    prefDescriptions: 
-      autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Kreslení prstem se vypne, pokud je detekován stylus
 de: 
 eo: 
   settings: 
