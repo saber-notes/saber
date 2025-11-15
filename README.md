@@ -118,8 +118,8 @@ on the wiki.
 [google_play]: https://play.google.com/store/apps/details?id=com.adilhanney.saber
 [snap]: https://snapcraft.io/saber
 [app_store]: https://apps.apple.com/us/app/saber/id1671523739
-[download_windows]: https://github.com/saber-notes/saber/releases/download/v1.28.1/SaberInstaller_v1.28.1.exe
-[download_appimage]: https://github.com/saber-notes/saber/releases/download/v1.28.1/Saber-1.28.1-x86_64.AppImage
+[download_windows]: https://github.com/saber-notes/saber/releases/download/v1.28.2/SaberInstaller_v1.28.2.exe
+[download_appimage]: https://github.com/saber-notes/saber/releases/download/v1.28.2/Saber-1.28.2-x86_64.AppImage
 
 [nextcloud]: https://nc.saber.adil.hanney.org/
 

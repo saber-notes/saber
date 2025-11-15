@@ -214,6 +214,18 @@
     </screenshots>
 
     <releases>
+        <release version="1.28.2" type="development" date="2025-11-15">
+            <description>
+                <ul>
+                    <li>To improve ease of use, finger-drawing is automatically disabled if you use a stylus. You can turn off this feature in Settings.</li>
+                    <li>You can now zoom with a mouse by holding the Control or Command key while scrolling.</li>
+                    <li>Fixed strokes from the shape pen getting smushed when you finish drawing them.</li>
+                    <li>Improved the accuracy of the lower quality strokes that are shown when zoomed out.</li>
+                    <li>Fixed numerical (NaN) errors with some strokes.</li>
+                    <li>Updated Flutter to 3.38.</li>
+                </ul>
+            </description>
+        </release>
         <release version="1.28.1" type="development" date="2025-11-11">
             <description>
                 <ul>

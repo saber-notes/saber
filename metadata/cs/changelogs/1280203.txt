@@ -1,0 +1,6 @@
+• Pro usnadnění použití je při použití stylusu automaticky zakázáno kreslení prstem. Tuto funkci můžete vypnout v Nastavení.
+• Nyní můžete přibližovat pomocí myši přidržením klávesy Control nebo Command při posouvání.
+• Opraveno rozmazání tahů tvarového pera, když je dokončíte.
+• Vylepšená přesnost tahů nižší kvality, které se zobrazují při oddálení.
+• Opraveny numerické (NaN) chyby u některých tahů.
+• Aktualizováno Flutter na 3.38.

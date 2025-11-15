@@ -1,0 +1,5 @@
+• Para facilitar o uso, o desenho com o dedo é automaticamente desativado se você usar uma caneta. Você pode desativar esse recurso em Configurações. 
+• Agora você pode aplicar zoom com o mouse mantendo pressionada a tecla Control ou Command enquanto rola. 
+• Corrigidos traços da caneta de forma que ficavam amassados ​​quando você terminava de desenhá-los. 
+• Melhorada a precisão dos traços de qualidade inferior que são mostrados quando o zoom é reduzido. 
+...
