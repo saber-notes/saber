@@ -99,7 +99,7 @@ settings:
     autoClearWhiteboardOnExit: Smazat tabuli po opuštění aplikace
     disableEraserAfterUse: Automaticky vypínat gumu
     hideFingerDrawingToggle: Skrýt přepínač pro kreslení prstem
-    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Automaticky deaktivovat kreslení prstem
+    autoDisableFingerDrawingWhenStylusDetected: Automaticky vypínat kreslení prstem
     editorPromptRename: Vybízet k přejmenování nových poznámek
     recentColorsDontSavePresets: Neukládat přednastavené barvy mezi naposledy použité barvy
     recentColorsLength: Kolik naposledy použitých barev se má ukládat
@@ -121,7 +121,7 @@ settings:
       shown: Zabraňuje nechtěnému přepnutí
       fixedOn: Kreslení prstem je napevno zapnuté
       fixedOff: Kreslení prstem je napevno vypnuté
-    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Při detekci stylusu vypněte kreslení prstem
+    autoDisableFingerDrawingWhenStylusDetected: Kreslení prstem se vypne, pokud je detekován stylus
     editorPromptRename: Poznámky můžete vždy přejmenovat i později
     printPageIndicators: V exportech budou zobrazena čísla stránek
     autosave: Poznámky se budou automaticky ukládat po krátké prodlevě, nebo nikdy

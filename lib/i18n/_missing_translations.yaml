@@ -45,11 +45,6 @@ ar:
       lineThickness(OUTDATED): Line thickness
       lineThicknessDescription(OUTDATED): Background line thickness
 cs: 
-  settings: 
-    prefLabels: 
-      autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Auto-disable finger drawing
-    prefDescriptions: 
-      autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Turn off finger drawing when a stylus is detected
 de: 
 eo: 
   settings: 
