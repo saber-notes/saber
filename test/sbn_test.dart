@@ -50,6 +50,13 @@ void main() {
             .toList()
           ..add(laserSbn);
 
+    var hasGhostscript = true;
+    final gsCheck = Process.runSync('gs', ['--version'], runInShell: true);
+    if (gsCheck.exitCode != 0) {
+      debugPrint('Please install Ghostscript to test PDF exports.');
+      hasGhostscript = false;
+    }
+
     for (final sbnName in sbnExamples) {
       group(sbnName, () {
         final path = sbnName == laserSbn
@@ -169,15 +176,6 @@ void main() {
         });
 
         if (sbnName != laserSbn) {
-          var hasGhostscript = true;
-          final gsCheck = Process.runSync('gs', [
-            '--version',
-          ], runInShell: true);
-          if (gsCheck.exitCode != 0) {
-            debugPrint('Please install Ghostscript to test PDF exports.');
-            hasGhostscript = false;
-          }
-
           testGoldens('(PDF)', (tester) async {
             final context = await _getBuildContext(tester, page.size);
 
@@ -195,6 +193,7 @@ void main() {
             await tester.runAsync(
               () => Process.run('gs', [
                 '-sDEVICE=pngalpha',
+                '-sPageList=1',
                 '-o',
                 pngFile.path,
                 pdfFile.path,
