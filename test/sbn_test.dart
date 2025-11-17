@@ -324,6 +324,9 @@ Future<BuildContext> _getBuildContext(
     ),
   );
 
+  await tester.loadAssets();
+  await tester.pump();
+
   return completer.future;
 }
 
