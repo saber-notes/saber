@@ -17,8 +17,12 @@ class PdfDocumentCache {
     Uint8List? pdfBytes,
   }) async {
     final document = pdfBytes == null
-        ? PdfDocument.openFile(filePath)
-        : PdfDocument.openData(pdfBytes);
+        ? PdfDocument.openFile(filePath, useProgressiveLoading: true)
+        : PdfDocument.openData(
+            pdfBytes,
+            useProgressiveLoading: true,
+            sourceName: filePath,
+          );
     _cache[filePath] = document;
     return document;
   }
