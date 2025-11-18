@@ -17,14 +17,20 @@ Future<void> main() async {
   ]).then((result) => result.stdout as String).then((commit) => commit.trim());
   final latestCommit = allVersions['current_release'][channel];
 
-  final submoduleVersion = (allVersions['releases'] as List).firstWhere(
-    (release) =>
-        release['hash'] == submoduleCommit && release['channel'] == channel,
-  )['version'];
-  final latestVersion = (allVersions['releases'] as List).firstWhere(
-    (release) =>
-        release['hash'] == latestCommit && release['channel'] == channel,
-  )['version'];
+  final submoduleVersion = (allVersions['releases'] as List)
+      .cast<Map<String, dynamic>>()
+      .firstWhereOrNull(
+        (release) =>
+            release['hash'] == submoduleCommit && release['channel'] == channel,
+      )?['version'];
+  print('Submodule version: $submoduleVersion ($submoduleCommit)');
+  final latestVersion = (allVersions['releases'] as List)
+      .cast<Map<String, dynamic>>()
+      .firstWhereOrNull(
+        (release) =>
+            release['hash'] == latestCommit && release['channel'] == channel,
+      )?['version'];
+  print('Latest version: $latestVersion ($latestCommit)');
 
   if (submoduleVersion == latestVersion) {
     print('Flutter submodule ($submoduleVersion) is up to date!');
@@ -34,5 +40,14 @@ Future<void> main() async {
       'Flutter $latestVersion is available on the $channel channel!',
     );
     exit(1);
+  }
+}
+
+extension _OrNull<T> on List<T> {
+  T? firstWhereOrNull(bool Function(T) test) {
+    for (final element in this) {
+      if (test(element)) return element;
+    }
+    return null;
   }
 }
