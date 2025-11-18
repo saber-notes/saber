@@ -12,7 +12,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_quill/flutter_quill.dart' as flutter_quill;
 import 'package:keybinder/keybinder.dart';
 import 'package:logging/logging.dart';
-import 'package:printing/printing.dart';
+import 'package:pdfrx/pdfrx.dart';
 import 'package:saber/components/canvas/_asset_cache.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/canvas.dart';
@@ -1210,24 +1210,13 @@ class EditorState extends State<Editor> {
   }
 
   Future<bool> importPdfFromFilePath(String path) async {
-    final pdfFile = File(path);
-    final Uint8List pdfBytes;
-    try {
-      pdfBytes = await pdfFile.readAsBytes();
-    } catch (e) {
-      log.severe('Failed to read file when importing $path: $e', e);
-      return false;
-    }
+    final pdfDocument = await coreInfo.assetCache.pdfDocumentCache.load(path);
 
     final emptyPage = coreInfo.pages.removeLast();
     assert(emptyPage.isEmpty);
 
-    final raster = Printing.raster(pdfBytes, dpi: 1);
-
-    int currentPdfPage = -1;
-    await for (final pdfPage in raster) {
-      ++currentPdfPage;
-      assert(currentPdfPage >= 0);
+    for (final pdfPage in pdfDocument.pages) {
+      assert(pdfPage.pageNumber >= 1, 'pdfrx page numbers start at 1');
 
       // resize to [defaultWidth] to keep pen sizes consistent
       final pageSize = Size(
@@ -1235,22 +1224,25 @@ class EditorState extends State<Editor> {
         EditorPage.defaultWidth * pdfPage.height / pdfPage.width,
       );
 
-      final page = EditorPage(width: pageSize.width, height: pageSize.height);
-      page.backgroundImage = PdfEditorImage(
-        id: coreInfo.nextImageId++,
-        pdfBytes: pdfBytes,
-        pdfFile: pdfFile,
-        pdfPage: currentPdfPage,
-        pageIndex: coreInfo.pages.length,
-        pageSize: pageSize,
-        naturalSize: Size(pdfPage.width.toDouble(), pdfPage.height.toDouble()),
-        onMoveImage: onMoveImage,
-        onDeleteImage: onDeleteImage,
-        onMiscChange: autosaveAfterDelay,
-        onLoad: () => setState(() {}),
-        assetCache: coreInfo.assetCache,
+      final page = EditorPage(
+        size: pageSize,
+        backgroundImage: PdfEditorImage(
+          id: coreInfo.nextImageId++,
+          pdfBytes: null,
+          pdfFile: File(path),
+          pdfPage: pdfPage.pageNumber - 1,
+          pageIndex: coreInfo.pages.length,
+          pageSize: pageSize,
+          naturalSize: pdfPage.size,
+          onMoveImage: onMoveImage,
+          onDeleteImage: onDeleteImage,
+          onMiscChange: autosaveAfterDelay,
+          onLoad: () => setState(() {}),
+          assetCache: coreInfo.assetCache,
+        ),
       );
       coreInfo.pages.add(page);
+      // TODO(adil192): Group multiple pages into one atomic change
       history.recordChange(
         EditorHistoryItem(
           type: .insertPage,
@@ -1260,16 +1252,10 @@ class EditorState extends State<Editor> {
           page: page,
         ),
       );
-
-      if (currentPdfPage == 0) {
-        // update ui after we've rastered the first page
-        // so that the user has some indication that the import is working
-        setState(() {});
-      }
     }
 
     coreInfo.pages.add(emptyPage);
-    setState(() {});
+    if (mounted) setState(() {});
 
     autosaveAfterDelay();
 
