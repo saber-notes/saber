@@ -55,7 +55,8 @@ class OnyxSdkPenArea extends StatefulWidget {
   }
 }
 
-class _OnyxSdkPenAreaState extends State<OnyxSdkPenArea> with WidgetsBindingObserver {
+class _OnyxSdkPenAreaState extends State<OnyxSdkPenArea>
+    with WidgetsBindingObserver {
   static bool? _isOnyxDevice = (kIsWeb || !Platform.isAndroid) ? false : null;
   static Future<bool> _findIsOnyxDevice() async {
     if (_isOnyxDevice != null) return _isOnyxDevice!;
@@ -94,7 +95,7 @@ class _OnyxSdkPenAreaState extends State<OnyxSdkPenArea> with WidgetsBindingObse
   @override
   void didUpdateWidget(OnyxSdkPenArea oldWidget) {
     super.didUpdateWidget(oldWidget);
-    
+
     creationParams['refreshDelayMs'] = widget.refreshDelay.inMilliseconds;
     creationParams['strokeStyle'] = widget.strokeStyle.value;
     creationParams['strokeColor'] = widget.strokeColor;
@@ -119,7 +120,7 @@ class _OnyxSdkPenAreaState extends State<OnyxSdkPenArea> with WidgetsBindingObse
         break;
       default:
     }
-}
+  }
 
   @override
   Widget build(BuildContext context) {

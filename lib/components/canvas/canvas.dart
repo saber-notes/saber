@@ -74,9 +74,10 @@ class Canvas extends StatelessWidget {
       return Colors.black.toARGB32();
     }
   }
+
   double getOnyxWidth() {
     if (currentTool is Pen) {
-      double baseSize = (currentTool as Pen).options.size * currentScale;
+      final baseSize = (currentTool as Pen).options.size * currentScale;
       if ((currentTool as Pen).pressureEnabled) {
         return baseSize;
       } else {
@@ -86,7 +87,7 @@ class Canvas extends StatelessWidget {
       return 3;
     }
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return Center(
