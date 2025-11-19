@@ -41,11 +41,20 @@ fi
 # Remove docker image and container by running `./test.sh --clean`
 if [[ "$1" == "--clean" ]]; then
     echo 'Stopping docker container'
-    docker stop "$CONTAINER_NAME"
+    docker stop "$CONTAINER_NAME" || true
     echo 'Removing docker container'
-    docker rm -f "$CONTAINER_NAME"
+    docker rm -f "$CONTAINER_NAME" || true
     echo 'Removing docker image'
-    docker rmi -f "$IMAGE_NAME"
+    docker rmi -f "$IMAGE_NAME" || true
+    echo 'Removing cached files'
+    rm -rf .github/docker/.pub-cache
+    rm -rf .github/docker/.dart_tool
+    rm -rf .github/docker/build
+    rm -rf .github/docker/linux-flutter-ephemeral
+    rm -rf .github/docker/macos-flutter-ephemeral
+    rm -rf .github/docker/windows-flutter-ephemeral
+    rm -f .github/docker/.flutter-plugins-dependencies
+    rm -f .github/docker/pubspec.lock
     echo 'Done'
     exit 0
 fi
@@ -53,7 +62,7 @@ fi
 # Build image if it doesn't exist
 if ! docker images --format '{{.Repository}}' | grep -w "$IMAGE_NAME" > /dev/null; then
     echo "Building Docker image '$IMAGE_NAME' from $DOCKERFILE_PATH. This will take a few minutes but only needs to be done once."
-    docker build -t "$IMAGE_NAME" -f "$DOCKERFILE_PATH" "$(dirname $DOCKERFILE_PATH)"
+    docker build -t "$IMAGE_NAME" -f "$DOCKERFILE_PATH" --network host "$(dirname $DOCKERFILE_PATH)"
 fi
 
 # Make sure mounts exist
@@ -82,6 +91,7 @@ else
 
     # Run container
     docker run -dit --name "$CONTAINER_NAME" \
+        -u nonroot \
         -v "$APP_PATH":/app \
         -v "$APP_PATH/.github/docker/.pub-cache":/root/.pub-cache \
         -v "$APP_PATH/.github/docker/.dart_tool":/app/.dart_tool \
