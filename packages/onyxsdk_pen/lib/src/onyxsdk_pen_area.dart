@@ -12,7 +12,7 @@ class OnyxSdkPenArea extends StatefulWidget {
     super.key,
     this.refreshDelay = const Duration(seconds: 1),
     this.strokeStyle = OnyxStrokeStyle.fountainPen,
-    this.strokeColor = 0,
+    this.strokeColor = Colors.black,
     this.strokeWidth = 3.0,
     required this.child,
   });
@@ -24,7 +24,7 @@ class OnyxSdkPenArea extends StatefulWidget {
   /// state.
   final Duration refreshDelay;
   final OnyxStrokeStyle strokeStyle;
-  final int strokeColor;
+  final Color strokeColor;
   final double strokeWidth;
 
   final Widget child;
@@ -72,7 +72,7 @@ class _OnyxSdkPenAreaState extends State<OnyxSdkPenArea>
   late final creationParams = <String, dynamic>{
     "refreshDelayMs": widget.refreshDelay.inMilliseconds,
     "strokeStyle": widget.strokeStyle.value,
-    "strokeColor": widget.strokeColor,
+    "strokeColor": widget.strokeColor.toARGB32(),
     "strokeWidth": widget.strokeWidth,
   };
   late final channel = MethodChannel('onyxsdk_pen_area');
@@ -86,7 +86,7 @@ class _OnyxSdkPenAreaState extends State<OnyxSdkPenArea>
 
     creationParams['refreshDelayMs'] = widget.refreshDelay.inMilliseconds;
     creationParams['strokeStyle'] = widget.strokeStyle.value;
-    creationParams['strokeColor'] = widget.strokeColor;
+    creationParams['strokeColor'] = widget.strokeColor.toARGB32();
     creationParams['strokeWidth'] = widget.strokeWidth;
     channel.invokeMethod('updateStroke', creationParams).catchError((e) {});
   }

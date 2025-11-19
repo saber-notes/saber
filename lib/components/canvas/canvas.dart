@@ -67,11 +67,11 @@ class Canvas extends StatelessWidget {
     }
   }
 
-  int getOnyxColor() {
+  Color getOnyxColor() {
     if (currentTool is Pen) {
-      return (currentTool as Pen).color.toARGB32();
+      return (currentTool as Pen).color;
     } else {
-      return Colors.black.toARGB32();
+      return Colors.black;
     }
   }
 
