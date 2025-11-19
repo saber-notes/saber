@@ -15,6 +15,16 @@ You are responsible for taking user input and drawing it. The
 When used on devices that aren't Onyx Android devices, the `OnyxSdkPenArea` widget will
 just return its child.
 
+## SDK status
+
+If you use this SDK, you may have difficulty publishing your app to Google Play.
+
+The SDK currently doesn't support 16KB page sizes,
+but support is required by Google Play as of November 1st 2025.
+
+The only solution is waiting for an SDK update from Onyx that supports 16KB page sizes.
+Please see [onyx-intl#132](https://github.com/onyx-intl/OnyxAndroidDemo/issues/132) for more information.
+
 ## Getting Started
 
 ### Android
