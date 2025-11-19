@@ -32,7 +32,7 @@ class CanvasImage extends StatefulWidget {
   final bool selected;
 
   /// When notified, all [CanvasImages] will have their [active] property set to false.
-  static ChangeNotifier activeListener = ChangeNotifier();
+  static var activeListener = ChangeNotifier();
 
   /// The minimum size of the interactive area for the image.
   static double minInteractiveSize = 50;
@@ -45,7 +45,7 @@ class CanvasImage extends StatefulWidget {
 }
 
 class _CanvasImageState extends State<CanvasImage> {
-  bool _active = false;
+  var _active = false;
 
   /// Whether this image can be dragged
   bool get active => _active;
@@ -68,10 +68,10 @@ class _CanvasImageState extends State<CanvasImage> {
     }
   }
 
-  Brightness imageBrightness = Brightness.light;
+  Brightness imageBrightness = .light;
 
-  Rect panStartRect = Rect.zero;
-  Offset panStartPosition = Offset.zero;
+  Rect panStartRect = .zero;
+  Offset panStartPosition = .zero;
 
   @override
   void initState() {
@@ -111,16 +111,17 @@ class _CanvasImageState extends State<CanvasImage> {
 
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
+    final colorScheme = ColorScheme.of(context);
 
-    Brightness currentBrightness = Theme.of(context).brightness;
-    if (!widget.image.invertible) currentBrightness = Brightness.light;
+    final currentBrightness = widget.image.invertible
+        ? Theme.brightnessOf(context)
+        : Brightness.light;
 
     if (stows.editorAutoInvert.value && currentBrightness != imageBrightness) {
       imageBrightness = currentBrightness;
     }
 
-    Widget unpositioned = IgnorePointer(
+    final Widget unpositioned = IgnorePointer(
       ignoring: widget.readOnly,
       child: Stack(
         fit: StackFit.expand,
@@ -142,9 +143,11 @@ class _CanvasImageState extends State<CanvasImage> {
               onPanUpdate: active
                   ? (details) {
                       setState(() {
-                        double fivePercent = min(widget.pageSize.width * 0.05,
-                            widget.pageSize.height * 0.05);
-                        widget.image.dstRect = Rect.fromLTWH(
+                        final fivePercent = min(
+                          widget.pageSize.width * 0.05,
+                          widget.pageSize.height * 0.05,
+                        );
+                        widget.image.dstRect = .fromLTWH(
                           (widget.image.dstRect.left + details.delta.dx)
                               .clamp(
                                 fivePercent - widget.image.dstRect.width,
@@ -167,14 +170,15 @@ class _CanvasImageState extends State<CanvasImage> {
                   ? (details) {
                       if (panStartRect == widget.image.dstRect) return;
                       widget.image.onMoveImage?.call(
-                          widget.image,
-                          Rect.fromLTRB(
-                            widget.image.dstRect.left - panStartRect.left,
-                            widget.image.dstRect.top - panStartRect.top,
-                            widget.image.dstRect.right - panStartRect.right,
-                            widget.image.dstRect.bottom - panStartRect.bottom,
-                          ));
-                      panStartRect = Rect.zero;
+                        widget.image,
+                        .fromLTRB(
+                          widget.image.dstRect.left - panStartRect.left,
+                          widget.image.dstRect.top - panStartRect.top,
+                          widget.image.dstRect.right - panStartRect.right,
+                          widget.image.dstRect.bottom - panStartRect.bottom,
+                        ),
+                      );
+                      panStartRect = .zero;
                     }
                   : null,
               child: DecoratedBox(
@@ -188,12 +192,16 @@ class _CanvasImageState extends State<CanvasImage> {
                   child: SizedBox(
                     width: widget.isBackground
                         ? widget.pageSize.width
-                        : max(widget.image.dstRect.width,
-                            CanvasImage.minImageSize),
+                        : max(
+                            widget.image.dstRect.width,
+                            CanvasImage.minImageSize,
+                          ),
                     height: widget.isBackground
                         ? widget.pageSize.height
-                        : max(widget.image.dstRect.height,
-                            CanvasImage.minImageSize),
+                        : max(
+                            widget.image.dstRect.height,
+                            CanvasImage.minImageSize,
+                          ),
                     child: SizedOverflowBox(
                       size: widget.image.srcRect.size,
                       child: Transform.translate(
@@ -202,7 +210,7 @@ class _CanvasImageState extends State<CanvasImage> {
                           context: context,
                           overrideBoxFit: widget.overrideBoxFit,
                           isBackground: widget.isBackground,
-                          invert: imageBrightness == Brightness.dark,
+                          invert: imageBrightness == .dark,
                         ),
                       ),
                     ),
@@ -212,9 +220,7 @@ class _CanvasImageState extends State<CanvasImage> {
             ),
           ),
           if (widget.selected) // tint image if selected
-            ColoredBox(
-              color: colorScheme.primary.withValues(alpha: 0.5),
-            ),
+            ColoredBox(color: colorScheme.primary.withValues(alpha: 0.5)),
           if (!widget.readOnly)
             for (double x = -20; x <= 20; x += 20)
               for (double y = -20; y <= 20; y += 20)
@@ -243,7 +249,7 @@ class _CanvasImageState extends State<CanvasImage> {
     }
     return AnimatedPositioned(
       // no animation if the image is being dragged or it's selected
-      duration: (panStartRect != Rect.zero || widget.selected)
+      duration: (panStartRect != .zero || widget.selected)
           ? Duration.zero
           : const Duration(milliseconds: 300),
       curve: Curves.fastLinearToSlowEaseIn,
@@ -304,7 +310,7 @@ class _CanvasImageResizeHandle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
+    final colorScheme = ColorScheme.of(context);
     return Positioned(
       left: (position.dx.sign + 1) / 2 * image.dstRect.width - 20,
       top: (position.dy.sign + 1) / 2 * image.dstRect.height - 20,
@@ -370,7 +376,7 @@ class _CanvasImageResizeHandle extends StatelessWidget {
                     // preserve aspect ratio if diagonal
                     if (position.dx != 0 && position.dy != 0) {
                       // if diagonal
-                      final double aspectRatio =
+                      final aspectRatio =
                           image.dstRect.width / image.dstRect.height;
                       if (newWidth / newHeight > aspectRatio) {
                         newHeight = newWidth / aspectRatio;
@@ -388,12 +394,7 @@ class _CanvasImageResizeHandle extends StatelessWidget {
                       top = image.dstRect.bottom - newHeight;
                     }
 
-                    image.dstRect = Rect.fromLTWH(
-                      left,
-                      top,
-                      newWidth,
-                      newHeight,
-                    );
+                    image.dstRect = .fromLTWH(left, top, newWidth, newHeight);
                     afterDrag();
                   }
                 : null,
@@ -401,14 +402,15 @@ class _CanvasImageResizeHandle extends StatelessWidget {
                 ? (details) {
                     if (parent.panStartRect == image.dstRect) return;
                     image.onMoveImage?.call(
-                        image,
-                        Rect.fromLTRB(
-                          image.dstRect.left - parent.panStartRect.left,
-                          image.dstRect.top - parent.panStartRect.top,
-                          image.dstRect.right - parent.panStartRect.right,
-                          image.dstRect.bottom - parent.panStartRect.bottom,
-                        ));
-                    parent.panStartRect = Rect.zero;
+                      image,
+                      .fromLTRB(
+                        image.dstRect.left - parent.panStartRect.left,
+                        image.dstRect.top - parent.panStartRect.top,
+                        image.dstRect.right - parent.panStartRect.right,
+                        image.dstRect.bottom - parent.panStartRect.bottom,
+                      ),
+                    );
+                    parent.panStartRect = .zero;
                   }
                 : null,
             child: AnimatedOpacity(
@@ -419,11 +421,8 @@ class _CanvasImageResizeHandle extends StatelessWidget {
                 height: 40,
                 decoration: BoxDecoration(
                   color: colorScheme.onSurface,
-                  shape: BoxShape.circle,
-                  border: Border.all(
-                    color: colorScheme.surface,
-                    width: 2,
-                  ),
+                  shape: .circle,
+                  border: Border.all(color: colorScheme.surface, width: 2),
                 ),
               ),
             ),

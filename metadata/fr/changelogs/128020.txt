@@ -1,0 +1,4 @@
+• Pour améliorer la facilité d'utilisation, le dessin avec les doigts est automatiquement désactivé si vous utilisez un stylet. Vous pouvez désactiver cette fonctionnalité dans Paramètres.
+• Vous pouvez désormais zoomer avec une souris en maintenant la touche Contrôle ou Commande enfoncée pendant le défilement.
+• Correction des traits du stylo de forme qui étaient écrasés lorsque vous avez fini de les dessiner.
+...

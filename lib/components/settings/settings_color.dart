@@ -2,6 +2,7 @@ import 'package:flex_color_picker/flex_color_picker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:saber/components/theming/adaptive_alert_dialog.dart';
+import 'package:saber/components/theming/adaptive_switch.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/home/settings.dart';
@@ -16,8 +17,10 @@ class SettingsColor extends StatefulWidget {
     this.iconBuilder,
     required this.pref,
     this.afterChange,
-  }) : assert(icon == null || iconBuilder == null,
-            'Cannot set both icon and iconBuilder');
+  }) : assert(
+         icon == null || iconBuilder == null,
+         'Cannot set both icon and iconBuilder',
+       );
 
   final String title;
   final String? subtitle;
@@ -41,7 +44,7 @@ class _SettingsSwitchState extends State<SettingsColor> {
   }
 
   void onChanged() {
-    Color? color = widget.pref.value;
+    final color = widget.pref.value;
     if (color != null && color != Colors.transparent) {
       defaultColor = color;
     }
@@ -79,7 +82,7 @@ class _SettingsSwitchState extends State<SettingsColor> {
     icon ??= Icons.settings;
 
     return ListTile(
-      contentPadding: const EdgeInsets.symmetric(vertical: 4, horizontal: 16),
+      contentPadding: const .symmetric(vertical: 4, horizontal: 16),
       leading: AnimatedSwitcher(
         duration: const Duration(milliseconds: 100),
         child: Icon(icon, key: ValueKey(icon)),
@@ -93,36 +96,37 @@ class _SettingsSwitchState extends State<SettingsColor> {
               : null,
         ),
       ),
-      subtitle:
-          Text(widget.subtitle ?? '', style: const TextStyle(fontSize: 13)),
+      subtitle: Text(
+        widget.subtitle ?? '',
+        style: const TextStyle(fontSize: 13),
+      ),
       trailing: Row(
-        mainAxisSize: MainAxisSize.min,
+        mainAxisSize: .min,
         children: [
           Container(
             width: 32,
             height: 32,
             decoration: BoxDecoration(
               color: widget.pref.value ?? defaultColor,
-              shape: BoxShape.circle,
+              shape: .circle,
             ),
           ),
-          const SizedBox(
-            width: 8,
-          ),
-          Switch.adaptive(
-            value: widget.pref.value != null &&
+          const SizedBox(width: 8),
+          AdaptiveSwitch(
+            value:
+                widget.pref.value != null &&
                 widget.pref.value != Colors.transparent,
             onChanged: (bool? value) {
               widget.pref.value = value! ? defaultColor : null;
             },
-          )
+          ),
         ],
       ),
       onTap: () async {
         final previousColor = widget.pref.value;
         widget.pref.value = defaultColor; // enable accent color
 
-        bool? confirmChange = await showDialog(
+        final bool? confirmChange = await showDialog(
           context: context,
           builder: (BuildContext context) => colorPickerDialog,
         );

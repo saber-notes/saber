@@ -21,23 +21,39 @@ class ToolbarIconButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var colorScheme = Theme.of(context).colorScheme;
+    final colorScheme = ColorScheme.of(context);
+    final backgroundColor = WidgetStateProperty.resolveWith((states) {
+      if (states.contains(WidgetState.disabled) ||
+          !states.contains(WidgetState.selected)) {
+        return Colors.transparent;
+      }
+      return colorScheme.primary;
+    });
+    final foregroundColor = WidgetStateProperty.resolveWith((states) {
+      if (states.contains(WidgetState.disabled)) {
+        return colorScheme.onSurface.withValues(alpha: 0.4);
+      }
+      if (states.contains(WidgetState.selected)) {
+        return colorScheme.onPrimary;
+      }
+      return colorScheme.primary;
+    });
+    final buttonStyle = ButtonStyle(
+      backgroundColor: backgroundColor,
+      iconColor: foregroundColor,
+      foregroundColor: foregroundColor,
+      iconSize: const WidgetStatePropertyAll(20),
+      padding: const WidgetStatePropertyAll(EdgeInsets.all(8)),
+      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+    );
 
-    return Ink(
-      decoration: ShapeDecoration(
-        color: (selected && enabled) ? colorScheme.primary : null,
-        shape: const CircleBorder(),
-      ),
+    return Padding(
       padding: padding,
-      child: IconButton(
-        color:
-            (selected && enabled) ? colorScheme.onPrimary : colorScheme.primary,
-        disabledColor: colorScheme.onSurface.withValues(alpha: 0.4),
+      child: IconButton.filled(
+        style: buttonStyle,
         onPressed: (enabled) ? onPressed : null,
         tooltip: tooltip,
-        iconSize: 20,
-        splashRadius: 20,
-        visualDensity: VisualDensity.compact,
+        isSelected: selected,
         icon: child,
       ),
     );

@@ -11,7 +11,7 @@ import 'package:saber/components/canvas/_rectangle_stroke.dart';
 import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/extensions/list_extensions.dart';
 import 'package:saber/data/extensions/point_extensions.dart';
-import 'package:saber/data/tools/pen.dart';
+import 'package:saber/data/tools/_tool.dart';
 
 class Stroke {
   static final log = Logger('Stroke');
@@ -25,7 +25,7 @@ class Stroke {
 
   int pageIndex;
   HasSize page;
-  final String penType;
+  final ToolId toolId;
 
   static const defaultColor = Colors.black;
   static const defaultPressureEnabled = true;
@@ -35,8 +35,10 @@ class Stroke {
   final StrokeOptions options;
 
   List<Offset>? _lowQualityPolygon, _highQualityPolygon;
-  List<Offset> get lowQualityPolygon => _lowQualityPolygon ??= getPolygon(6);
-  List<Offset> get highQualityPolygon => _highQualityPolygon ??= getPolygon(1);
+  List<Offset> get lowQualityPolygon =>
+      _lowQualityPolygon ??= getPolygon(quality: .low);
+  List<Offset> get highQualityPolygon =>
+      _highQualityPolygon ??= getPolygon(quality: .high);
 
   Path? _lowQualityPath, _highQualityPath;
   Path get lowQualityPath =>
@@ -44,7 +46,7 @@ class Stroke {
   Path get highQualityPath => _highQualityPath ??= getPath(highQualityPolygon);
 
   void shift(Offset offset) {
-    if (offset == Offset.zero) return;
+    if (offset == .zero) return;
 
     points.shift(offset);
     _lowQualityPolygon?.shift(offset);
@@ -66,7 +68,7 @@ class Stroke {
     required this.options,
     required this.pageIndex,
     required this.page,
-    required this.penType,
+    required this.toolId,
   });
 
   factory Stroke.fromJson(
@@ -80,45 +82,63 @@ class Stroke {
       case null:
         break;
       case 'circle':
-        return CircleStroke.fromJson(json,
-            fileVersion: fileVersion, pageIndex: pageIndex, page: page);
+        return CircleStroke.fromJson(
+          json,
+          fileVersion: fileVersion,
+          pageIndex: pageIndex,
+          page: page,
+        );
       case 'rect':
-        return RectangleStroke.fromJson(json,
-            fileVersion: fileVersion, pageIndex: pageIndex, page: page);
+        return RectangleStroke.fromJson(
+          json,
+          fileVersion: fileVersion,
+          pageIndex: pageIndex,
+          page: page,
+        );
       default:
         log.severe('Unknown shape: ${json['shape']}');
     }
 
+    final ToolId toolId = .parsePenType(json['ty'], fallback: .fountainPen);
+
     final options = StrokeOptions.fromJson(json);
     final pressureEnabled = json['pe'] ?? defaultPressureEnabled;
+    if (toolId == .shapePen) {
+      // Set smoothing and streamline to 0 for ShapePen
+      // to mitigate https://github.com/saber-notes/saber/issues/1587
+      options.smoothing = 0;
+      options.streamline = 0;
+    }
 
     final Color color;
     switch (json['c']) {
-      case (int value):
+      case (final int value):
         color = Color(value);
-      case (Int64 value):
+      case (final Int64 value):
         color = Color(value.toInt());
       case null:
         color = defaultColor;
       default:
         throw Exception(
-            'Invalid color value: (${json['c'].runtimeType}) ${json['c']}');
+          'Invalid color value: (${json['c'].runtimeType}) ${json['c']}',
+        );
     }
 
     final offset = Offset(json['ox'] ?? 0, json['oy'] ?? 0);
     final pointsJson = json['p'] as List<dynamic>;
     final Iterable<PointVector> points;
     if (fileVersion >= 13) {
-      points = pointsJson.map((point) => PointExtensions.fromBsonBinary(
-            json: point,
-            offset: offset,
-          ));
+      points = pointsJson.map(
+        (point) => PointExtensions.fromBsonBinary(json: point, offset: offset),
+      );
     } else {
-      // ignore: deprecated_member_use_from_same_package
-      points = pointsJson.map((point) => PointExtensions.fromJson(
-            json: Map<String, dynamic>.from(point),
-            offset: offset,
-          ));
+      points = pointsJson.map(
+        // ignore: deprecated_member_use_from_same_package
+        (point) => PointExtensions.fromJson(
+          json: Map<String, dynamic>.from(point),
+          offset: offset,
+        ),
+      );
     }
 
     return Stroke(
@@ -127,7 +147,7 @@ class Stroke {
       options: options,
       pageIndex: pageIndex,
       page: page,
-      penType: json['ty'] ?? (Pen).toString(),
+      toolId: toolId,
     )..points.addAll(points);
   }
   Map<String, dynamic> toJson() {
@@ -139,7 +159,7 @@ class Stroke {
           .map((PointVector point) => point.toBsonBinary())
           .toList(),
       'i': pageIndex,
-      'ty': penType,
+      'ty': toolId.id,
       'pe': pressureEnabled,
       'c': color.toARGB32(),
     }..addAll(options.toJson());
@@ -170,7 +190,7 @@ class Stroke {
   /// Points that are closer than this
   /// threshold multiplied by the stroke's size
   /// will be counted as duplicates.
-  static const double _optimisePointsThreshold = 0.1;
+  static const _optimisePointsThreshold = 0.1;
 
   /// Removes points that are too close together. See [_optimisePointsThreshold].
   ///
@@ -200,16 +220,23 @@ class Stroke {
   }
 
   @protected
-  List<Offset> getPolygon(int N) {
+  List<Offset> getPolygon({required StrokeQuality quality}) {
     if (!pressureEnabled) {
       options.simulatePressure = false;
     }
     final rememberSimulatedPressure =
-        N <= 1 && options.simulatePressure && options.isComplete;
+        quality == .high && options.simulatePressure && options.isComplete;
 
     final polygon = getStroke(
-      skipPoints(points, N),
-      options: options,
+      skipPoints(points, quality.N),
+      options: switch (quality) {
+        .low => options.copyWith(
+          simulatePressure: false,
+          smoothing: 0,
+          streamline: 0,
+        ),
+        .high => options,
+      },
       rememberSimulatedPressure: rememberSimulatedPressure,
     );
 
@@ -241,11 +268,20 @@ class Stroke {
 
   /// Returns a list with every Nth point in [points].
   static List<PointVector> skipPoints(List<PointVector> points, int N) {
-    if (N == 1) return points;
-    if (points.length < N * 4) return points;
+    // Nothing is being skipped, just return [points].
+    if (N <= 1) return points;
+
+    // If we have too few points, skip less points
+    final divided = points.length / N;
+    const minDivided = 8;
+    if (divided < minDivided) {
+      N = (N * divided / minDivided).floor();
+      if (N <= 1) return points;
+    }
+
     return [
-      for (int i = 0; i < points.length; i += N) points[i],
-      if (points.length % N != 0) points.last,
+      for (int i = 0; i < points.length - 1; i += N) points[i],
+      points.last,
     ];
   }
 
@@ -268,8 +304,9 @@ class Stroke {
     }
 
     // Remove NaN points, and convert to SVG coordinates
-    final svgPoints =
-        highQualityPolygon.where((offset) => offset.isFinite).map(toSvgPoint);
+    final svgPoints = highQualityPolygon
+        .where((offset) => offset.isFinite)
+        .map(toSvgPoint);
 
     return svgPoints.isNotEmpty ? 'M${svgPoints.join('L')}' : '';
   }
@@ -315,10 +352,14 @@ class Stroke {
 
     // Use the average pressure
     final pressure = points.map((point) => point.pressure ?? 0.5).average;
-    var firstPoint =
-        PointVector.fromOffset(offset: points.first, pressure: pressure);
-    var lastPoint =
-        PointVector.fromOffset(offset: points.last, pressure: pressure);
+    var firstPoint = PointVector.fromOffset(
+      offset: points.first,
+      pressure: pressure,
+    );
+    var lastPoint = PointVector.fromOffset(
+      offset: points.last,
+      pressure: pressure,
+    );
 
     // Snap to the horizontal or vertical axis
     (firstPoint, lastPoint) = snapLine(firstPoint, lastPoint);
@@ -347,13 +388,13 @@ class Stroke {
       // snap to horizontal
       return (
         firstPoint,
-        PointVector(lastPoint.dx, firstPoint.dy, lastPoint.pressure)
+        PointVector(lastPoint.dx, firstPoint.dy, lastPoint.pressure),
       );
     } else if (angle > pi / 2 - snapAngle) {
       // snap to vertical
       return (
         firstPoint,
-        PointVector(firstPoint.dx, lastPoint.dy, lastPoint.pressure)
+        PointVector(firstPoint.dx, lastPoint.dy, lastPoint.pressure),
       );
     } else {
       return (firstPoint, lastPoint);
@@ -361,11 +402,21 @@ class Stroke {
   }
 
   Stroke copy() => Stroke(
-        color: color,
-        pressureEnabled: pressureEnabled,
-        options: options.copyWith(),
-        pageIndex: pageIndex,
-        page: page,
-        penType: penType,
-      )..points.addAll(points);
+    color: color,
+    pressureEnabled: pressureEnabled,
+    options: options.copyWith(),
+    pageIndex: pageIndex,
+    page: page,
+    toolId: toolId,
+  )..points.addAll(points);
+}
+
+enum StrokeQuality {
+  low(4),
+  high(1);
+
+  const StrokeQuality(this.N);
+
+  /// We use every Nth point for this quality level.
+  final int N;
 }

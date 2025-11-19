@@ -21,7 +21,7 @@ home:
     newNote: انشاء ملاحظة جديدة
     importNote: استيراد ملاحظة
   welcome: مرحباً بك في Saber
-  invalidFormat: " صيغة الملف الذي اخترته ليست مدعومة, الرجاء اختيار ملف  sbn او sbn2 او sba او pdf "
+  invalidFormat: صيغة الملف الذي اخترته ليست مدعومة, الرجاء اختيار ملف  sbn او sbn2 او sba او pdf
   noFiles: لم يتم العثور على ملفات
   createNewNote: اضغط على زر + لإنشاء ملاحظة جديدة
   backFolder: الرجوع الى المجلد السابق
@@ -61,6 +61,19 @@ home:
     delete: حذف
     alsoDeleteContents: حذف جميع الملاحظات داخل هذا المجلد أيضًا
   noPreviewAvailable(OUTDATED): لا معاينة متاحة
+sentry: 
+  consent: 
+    description: 
+      question(OUTDATED): هل ترغب في الإبلاغ تلقائيًا عن أخطاء غير متوقعة؟ هذا يساعدني على تحديد وإصلاح المشكلات بشكل أسرع.
+      scope(OUTDATED): قد تحتوي التقارير على معلومات حول الخطأ وجهازك. لقد بذلت كل جهد ممكن لتصفية البيانات الشخصية ولكن قد يبقى البعض.
+      currentlyOff(OUTDATED): إذا منحت موافقة ، فسيتم تمكين الإبلاغ عن الخطأ بعد إعادة تشغيل التطبيق.
+      currentlyOn(OUTDATED): إذا قمت بإلغاء الموافقة ، يرجى إعادة تشغيل التطبيق لتعطيل الإبلاغ عن الخطأ.
+      learnMoreInPrivacyPolicy(rich, OUTDATED): تعرف على المزيد في ${link(سياسة الخصوصية)}.
+    answers: 
+      yes(OUTDATED): نعم
+      no(OUTDATED): لا
+      later(OUTDATED): اسألني لاحقًا
+    title(OUTDATED): تساعد في تحسين صابر؟
 settings: 
   prefCategories: 
     general: عام
@@ -86,17 +99,17 @@ settings:
     autoClearWhiteboardOnExit: امسح السبورة بعد الخروج من التطبيق
     disableEraserAfterUse: تعطيل الممحاة تلقائيًا بعد الاستخدام
     hideFingerDrawingToggle: إخفاء زر الرسم بالإصبع
+    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): التعطيل التلقائي لرسم الإصبع
     editorPromptRename: مطالبتك بإعادة تسمية الملاحظات الجديدة
-    hideHomeBackgrounds: إخفاء الخلفيات على الشاشة الرئيسية
     recentColorsDontSavePresets: لا تحفظ الألوان المعينة مسبقًا كألوان حديثة
     recentColorsLength: كم عدد الألوان الحديثة التي يجب تخزينها
     printPageIndicators: طباعة مؤشرات الصفحة
-    autosave(OUTDATED): تلقائي
     shapeRecognitionDelay: تأخير التعرف على الأشكال
     autoStraightenLines: استقامة الخطوط تلقائيًا
     simplifiedHomeLayout: تخطيط الصفحة الرئيسية المبسط
     customDataDir: مخصص Saber مجلد
-    pencilSoundSetting: تأثير صوت القلم
+    sentry(OUTDATED): الإبلاغ خطأ
+    autosave(OUTDATED): تلقائي
   prefDescriptions: 
     hyperlegibleFont: يزيد Atkinson Hyperlegible من وضوح الرؤية للقراء الذين يعانون من ضعف في الرؤية
     allowInsecureConnections: (غير موصى به) بالاتصال بالخوادم بشهادات غير موثوقة/موقعة ذاتيًا Saber السماح لـ
@@ -108,18 +121,19 @@ settings:
       shown: يمنع التبديل العرضي
       fixedOn: تم تفعيل الرسم بالإصبع
       fixedOff: تم تعطيل الرسم بالإصبع
+    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): قم بإيقاف تشغيل الرسم بالإصبع عند اكتشاف القلم
     editorPromptRename: يمكنك دائمًا إعادة تسمية الملاحظات لاحقًا
-    hideHomeBackgrounds: للحصول على مظهر أنظف
     printPageIndicators: تظهر مؤشرات الصفحة في الصادرات
-    autosave(OUTDATED): تلقائي بعد تأخير قصير ، أو أبدا
     shapeRecognitionDelay: عدد مرات تحديث معاينة الشكل
     autoStraightenLines: استقامة الخطوط الطويلة بدون الحاجة لاستخدام قلم الشكل
     simplifiedHomeLayout: تعيين ارتفاع ثابت لكل معاينة ملاحظة
     shouldAlwaysAlertForUpdates: أبلغني عن التحديثات بمجرد توفرها
-    pencilSoundSetting: 
-      off: بدون صوت
-      onButNotInSilentMode: مفعل (ما لم يكن في وضع الصامت)
-      onAlways: مفعل (حتى في وضع الصامت)
+    sentry: 
+      active(OUTDATED): نشيط
+      inactive(OUTDATED): غير نشط
+      activeUntilRestart(OUTDATED): نشط حتى تقوم بإعادة تشغيل التطبيق
+      inactiveUntilRestart(OUTDATED): غير نشط حتى تقوم بإعادة تشغيل التطبيق
+    autosave(OUTDATED): تلقائي بعد تأخير قصير ، أو أبدا
   themeModes: 
     system: النظام
     light: ساطع
@@ -146,14 +160,15 @@ settings:
     select: تحديد
     mustBeEmpty: يجب أن يكون المجلد المحدد فارغًا
     mustBeDoneSyncing: تأكد من اكتمال المزامنة قبل تغيير المجلد
+    unsupported(OUTDATED): هذه الميزة حاليا فقط للمطورين. من المحتمل أن يؤدي استخدامه إلى فقدان البيانات.
   autosaveDisabled(OUTDATED): أبداً
   shapeRecognitionDisabled(OUTDATED): أبداً
 logs: 
+  useTheApp(OUTDATED): ستظهر السجلات هنا أثناء استخدام التطبيق
   logs(OUTDATED): السجلات
   viewLogs(OUTDATED): عرض السجلات
   debuggingInfo(OUTDATED): تحتوي السجلات على معلومات مفيدة لتصحيح الأخطاء والتطوير
   noLogs(OUTDATED): لا يوجد سجلات هنا!
-  logsAreTemporary(OUTDATED): يتم الاحتفاظ بالسجلات فقط حتى تقوم بإغلاق التطبيق
 login: 
   title: تسجيل الدخول
   form: 
@@ -202,7 +217,7 @@ login:
 profile: 
   title: ملفي الشخصي
   logout: تسجيل الخروج
-  quotaUsage: " $total ($percent%) من $used أنت تستخدم "
+  quotaUsage: $total ($percent%) من $used أنت تستخدم
   connectedTo: متصل بـ
   quickLinks: 
     serverHomepage: الصفحة الرئيسية للخادم
@@ -232,7 +247,6 @@ appInfo:
   licenseNotice: |-
     Saber حقوق نشر © 2022-$buildYear  Adil Hanney
     هذا البرنامج لا يأتي مع أي ضمان على الإطلاق. هذا برنامج مجاني، ونرحب بإعادة توزيعه في ظل ظروف معينة.
-  dirty: قذر
   debug: تصحيح أخطاء
   sponsorButton: انقر هنا لتدعمني أو شراء المزيد من مساحة التخزين
   licenseButton: انقر هنا لعرض المزيد من معلومات الترخيص

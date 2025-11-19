@@ -8,16 +8,17 @@ on:
   workflow_dispatch:
   push:
     tags:
-      - '**'
+      - "**"
     branches:
-      - '**'
+      - "**"
     paths:
       - .github/workflows/macos.yml
 
 jobs:
   build-macos:
     name: Build for macOS
-    runs-on: macos-latest
+    # TODO(adil192): Change to macos-latest after 30 August 2025 (https://github.com/actions/runner-images/issues/12520)
+    runs-on: macos-15
     env:
       APP_STORE_CONNECT_ISSUER_ID: ${{secrets.APP_STORE_CONNECT_ISSUER_ID}}
       APP_STORE_CONNECT_KEY_IDENTIFIER: ${{secrets.APP_STORE_CONNECT_KEY_IDENTIFIER}}
@@ -26,18 +27,23 @@ jobs:
     timeout-minutes: 60
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
-      - name: Remove development dependencies
-        run: ./patches/remove_dev_dependencies.sh
+      - name: Setup Xcode
+        run: |
+          echo "Selecting Xcode 16.4..."
+          sudo xcode-select -s /Applications/Xcode_16.4.app
+          xcode-select -p
+          echo
 
-      - name: Install Flutter
-        uses: subosito/flutter-action@v2
+          echo "Running Xcode first launch..."
+          xcodebuild -runFirstLaunch
+          echo
+
+      - name: Setup Flutter
+        uses: adil192/setup-flutter-submodule@v1
         with:
-          channel: stable
-          cache: true
-          cache-key: 'flutter-:os:-:channel:-:version:-:arch:'
-          architecture: x64
+          flutter-path: submodules/flutter
 
       - name: Install Codemagic CLI Tools
         run: pipx install codemagic-cli-tools
@@ -46,7 +52,11 @@ jobs:
         run: |
           keychain initialize
 
-          app-store-connect fetch-signing-files $(xcode-project detect-bundle-id) \
+          # Remove the template projects to prevent crash
+          rm -rf submodules/flutter/packages/flutter_tools/templates/app/ios.tmpl/Runner.xcodeproj
+          rm -rf submodules/flutter/packages/flutter_tools/templates/app/macos.tmpl/Runner.xcodeproj
+
+          app-store-connect fetch-signing-files com.adilhanney.saber \
             --platform MAC_OS \
             --type MAC_APP_STORE \
             --certificate-key=@env:APP_STORE_CERTIFICATE_KEY \
@@ -59,20 +69,22 @@ jobs:
 
           keychain add-certificates
 
-          xcode-project use-profiles
+          xcode-project use-profiles --project macos/*.xcodeproj
 
       - name: Disable Flutter CLI animations
         run: flutter config --no-cli-animations
 
       - run: flutter pub get
 
+      - name: Remove development dependencies
+        run: ./patches/remove_dev_dependencies.sh
+
       - name: Build for macOS
         run: |
           flutter build macos \
             --dart-define=FLAVOR="App Store" \
             --dart-define=APP_STORE="App Store" \
-            --dart-define=UPDATE_CHECK="false" \
-            --dart-define=DIRTY="false"
+            --dart-define=UPDATE_CHECK="false"
 
       - name: Package for App Store
         id: package
@@ -105,11 +117,19 @@ jobs:
           popd
 
       - name: Restore keychain
+        run: keychain use-login
+
+      - name: Upload debug files to Sentry
         run: |
-          keychain use-login
+          brew install sentry-cli
+          sentry-cli debug-files upload --include-sources build/macos/
+        env:
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_ORG: saber-yf
+          SENTRY_PROJECT: saber
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: Saber-macOS-Archive
           path: build/macos/Build/Products/Release/${{ steps.compress.outputs.zipName }}

@@ -7,3 +7,7 @@
 /build
 /captures
 .cxx
+
+/gradle/
+/gradlew
+/gradlew.bat

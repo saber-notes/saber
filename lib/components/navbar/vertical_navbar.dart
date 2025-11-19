@@ -20,23 +20,29 @@ class VerticalNavbar extends StatefulWidget {
 }
 
 class _VerticalNavbarState extends State<VerticalNavbar> {
-  bool expanded = false;
+  var expanded = false;
 
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
-    final backgroundColor = colorScheme.surfaceContainer;
+    final theme = Theme.of(context);
+    final backgroundColor = switch (theme.platform) {
+      .linux => Colors.transparent,
+      _ => theme.colorScheme.surfaceContainer,
+    };
 
     return DecoratedBox(
       decoration: BoxDecoration(
         color: backgroundColor,
+        border: theme.platform == .linux
+            ? BoxBorder.fromSTEB(end: BorderSide(color: theme.dividerColor))
+            : null,
       ),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: .start,
         children: [
           const SizedBox(height: kToolbarHeight),
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 12),
+            padding: const .symmetric(vertical: 10, horizontal: 12),
             child: TextButton(
               onPressed: () {
                 setState(() {

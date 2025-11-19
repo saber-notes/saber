@@ -1,0 +1,4 @@
+• Die Qualität der Miniaturansichten von Notizen wurde verbessert.
+• Optimierte Bleistiftstriche beim Verkleinern.
+• Falscher Symbolleistenkontrast in bestimmten Themes behoben.
+• Es wurde ein Fehler behoben, bei dem der Link zur Datenschutzrichtlinie nicht funktionierte.

@@ -1,0 +1,2 @@
+• ¡Se corrigieron un error pequeño pero importante gracias a todos los que optaron por informes de errores!
+• Evolución adicional de los filtros de información personal. Estos se implementan tanto localmente como en el servidor para que su información siempre sea segura.

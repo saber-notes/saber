@@ -25,31 +25,31 @@ class Pen extends Tool {
   });
 
   Pen.fountainPen()
-      : name = t.editor.pens.fountainPen,
-        sizeMin = 1,
-        sizeMax = 25,
-        sizeStep = 1,
-        icon = fountainPenIcon,
-        options = stows.lastFountainPenOptions.value,
-        pressureEnabled = true,
-        color = Color(stows.lastFountainPenColor.value),
-        toolId = ToolId.fountainPen;
+    : name = t.editor.pens.fountainPen,
+      sizeMin = 1,
+      sizeMax = 25,
+      sizeStep = 1,
+      icon = fountainPenIcon,
+      options = stows.lastFountainPenOptions.value,
+      pressureEnabled = true,
+      color = Color(stows.lastFountainPenColor.value),
+      toolId = .fountainPen;
 
   Pen.ballpointPen()
-      : name = t.editor.pens.ballpointPen,
-        sizeMin = 1,
-        sizeMax = 25,
-        sizeStep = 1,
-        icon = ballpointPenIcon,
-        options = stows.lastBallpointPenOptions.value,
-        pressureEnabled = false,
-        color = Color(stows.lastBallpointPenColor.value),
-        toolId = ToolId.ballpointPen;
+    : name = t.editor.pens.ballpointPen,
+      sizeMin = 1,
+      sizeMax = 25,
+      sizeStep = 1,
+      icon = ballpointPenIcon,
+      options = stows.lastBallpointPenOptions.value,
+      pressureEnabled = false,
+      color = Color(stows.lastBallpointPenColor.value),
+      toolId = .ballpointPen;
 
   final String name;
   final double sizeMin, sizeMax, sizeStep;
-  late final int sizeStepsBetweenMinAndMax =
-      ((sizeMax - sizeMin) / sizeStep).round();
+  late final int sizeStepsBetweenMinAndMax = ((sizeMax - sizeMin) / sizeStep)
+      .round();
   final IconData icon;
 
   @override
@@ -63,40 +63,46 @@ class Pen extends Tool {
   bool pressureEnabled;
   StrokeOptions options;
 
-  static Pen _currentPen = Pen.fountainPen();
+  static var _currentPen = Pen.fountainPen();
   static Pen get currentPen => _currentPen;
   static set currentPen(Pen currentPen) {
-    assert(currentPen is! Highlighter,
-        'Use Highlighter.currentHighlighter instead');
+    assert(
+      currentPen is! Highlighter,
+      'Use Highlighter.currentHighlighter instead',
+    );
     assert(currentPen is! Pencil, 'Use Pencil.currentPencil instead');
     _currentPen = currentPen;
   }
 
   void onDragStart(
-      Offset position, EditorPage page, int pageIndex, double? pressure) {
+    Offset position,
+    EditorPage page,
+    int pageIndex,
+    double? pressure,
+  ) {
     currentStroke = Stroke(
       color: color,
       pressureEnabled: pressureEnabled,
-      options: options.copyWith(
-        isComplete: false,
-      ),
+      options: options.copyWith(isComplete: false),
       pageIndex: pageIndex,
       page: page,
-      penType: runtimeType.toString(),
+      toolId: toolId,
     );
     onDragUpdate(position, pressure);
   }
 
   void onDragUpdate(Offset position, double? pressure) {
-    currentStroke!.addPoint(position, pressure);
+    currentStroke?.addPoint(position, pressure);
   }
 
-  Stroke onDragEnd() {
-    final Stroke stroke = currentStroke!
+  Stroke? onDragEnd() {
+    final stroke = currentStroke;
+    currentStroke = null;
+    if (stroke == null) return null;
+
+    return stroke
       ..options.isComplete = true
       ..markPolygonNeedsUpdating();
-    currentStroke = null;
-    return stroke;
   }
 
   /// The default stroke options.
@@ -104,19 +110,17 @@ class Pen extends Tool {
   /// Note that these are different to the default options in [StrokeOptions]
   /// e.g. [StrokeOptions.defaultSize] for historical reasons
   /// (i.e. [StrokeOptions.toJson] does not include default values.)
-  static final defaultOptions = StrokeOptions(
-    size: 5,
-  );
+  static final defaultOptions = StrokeOptions(size: 5);
 
   static StrokeOptions get fountainPenOptions => defaultOptions.copyWith();
   static StrokeOptions get ballpointPenOptions => defaultOptions.copyWith();
-  static StrokeOptions get shapePenOptions => defaultOptions.copyWith();
-  static StrokeOptions get highlighterOptions => defaultOptions.copyWith(
-        size: 50,
-      );
+  static StrokeOptions get shapePenOptions =>
+      defaultOptions.copyWith(smoothing: 0, streamline: 0);
+  static StrokeOptions get highlighterOptions =>
+      defaultOptions.copyWith(size: 50);
   static StrokeOptions get pencilOptions => defaultOptions.copyWith(
-        streamline: 0.1,
-        start: StrokeEndOptions.start(taperEnabled: true, customTaper: 1),
-        end: StrokeEndOptions.end(taperEnabled: true, customTaper: 1),
-      );
+    streamline: 0.1,
+    start: StrokeEndOptions.start(taperEnabled: true, customTaper: 1),
+    end: StrokeEndOptions.end(taperEnabled: true, customTaper: 1),
+  );
 }

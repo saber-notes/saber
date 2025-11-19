@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:saber/components/theming/saber_theme.dart';
 
 class AdaptiveTextField extends StatefulWidget {
   const AdaptiveTextField({
@@ -30,7 +31,7 @@ class AdaptiveTextField extends StatefulWidget {
 }
 
 class _AdaptiveTextFieldState extends State<AdaptiveTextField> {
-  bool obscureText = false;
+  var obscureText = false;
   Widget? get suffixIcon {
     if (!widget.isPassword) return null;
     return IconButton(
@@ -52,10 +53,8 @@ class _AdaptiveTextFieldState extends State<AdaptiveTextField> {
 
   @override
   Widget build(BuildContext context) {
-    ThemeData theme = Theme.of(context);
+    final theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
-    bool cupertino = theme.platform == TargetPlatform.iOS ||
-        theme.platform == TargetPlatform.macOS;
 
     TextInputType? keyboardType = widget.keyboardType;
     if (widget.isPassword) {
@@ -66,7 +65,7 @@ class _AdaptiveTextFieldState extends State<AdaptiveTextField> {
       }
     }
 
-    if (cupertino) {
+    if (theme.platform.isCupertino) {
       return Row(
         children: [
           Expanded(
@@ -80,14 +79,15 @@ class _AdaptiveTextFieldState extends State<AdaptiveTextField> {
                 obscureText: obscureText,
                 decoration: BoxDecoration(
                   border: Border.all(
-                      color: colorScheme.onSurface.withValues(alpha: 0.12)),
-                  borderRadius: BorderRadius.circular(8),
+                    color: colorScheme.onSurface.withValues(alpha: 0.12),
+                  ),
+                  borderRadius: .circular(8),
                 ),
                 style: TextStyle(color: colorScheme.onSurface),
                 placeholder: widget.placeholder,
                 prefix: widget.prefixIcon != null
                     ? Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 8),
+                        padding: const .symmetric(horizontal: 8),
                         child: widget.prefixIcon,
                       )
                     : null,
@@ -97,9 +97,9 @@ class _AdaptiveTextFieldState extends State<AdaptiveTextField> {
           ),
           if (suffixIcon != null)
             Align(
-              alignment: Alignment.topCenter,
+              alignment: .topCenter,
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 8),
+                padding: const .symmetric(horizontal: 8),
                 child: FocusTraversalOrder(
                   order: NumericFocusOrder(widget.focusOrder.order + 100),
                   child: suffixIcon!,
@@ -122,8 +122,9 @@ class _AdaptiveTextFieldState extends State<AdaptiveTextField> {
           validator: widget.validator,
           decoration: InputDecoration(
             labelText: widget.placeholder,
-            labelStyle:
-                TextStyle(color: colorScheme.onSurface.withValues(alpha: 0.5)),
+            labelStyle: TextStyle(
+              color: colorScheme.onSurface.withValues(alpha: 0.5),
+            ),
             prefixIcon: widget.prefixIcon,
             suffixIcon: suffixIcon != null
                 ? FocusTraversalOrder(
@@ -131,12 +132,12 @@ class _AdaptiveTextFieldState extends State<AdaptiveTextField> {
                     child: suffixIcon!,
                   )
                 : null,
-            contentPadding:
-                const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
+            contentPadding: const .symmetric(vertical: 8, horizontal: 12),
             border: OutlineInputBorder(
               borderSide: BorderSide(
-                  color: colorScheme.onSurface.withValues(alpha: 0.12)),
-              borderRadius: BorderRadius.circular(8),
+                color: colorScheme.onSurface.withValues(alpha: 0.12),
+              ),
+              borderRadius: .circular(8),
             ),
           ),
         ),

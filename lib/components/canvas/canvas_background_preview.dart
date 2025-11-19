@@ -33,7 +33,7 @@ class CanvasBackgroundPreview extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
+    final colorScheme = ColorScheme.of(context);
     final previewSize = Size(
       fixedWidth,
       pageSize.height / pageSize.width * fixedWidth,
@@ -49,10 +49,10 @@ class CanvasBackgroundPreview extends StatelessWidget {
               .withValues(alpha: selected ? 1 : 0.1),
           width: 2,
         ),
-        borderRadius: BorderRadius.circular(8),
+        borderRadius: .circular(8),
       ),
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(8),
+        borderRadius: .circular(8),
         child: Stack(
           children: [
             FittedBox(

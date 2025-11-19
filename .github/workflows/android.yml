@@ -5,22 +5,26 @@ on:
   workflow_dispatch:
   push:
     tags:
-      - '**'
+      - "**"
     branches:
-      - '**'
+      - "**"
     paths:
       - .github/workflows/android.yml
 
 jobs:
   build-apk:
-    name: Build APK
+    name: Build APK (${{ matrix.foss && 'FOSS' || 'Regular' }})
+    strategy:
+      fail-fast: false
+      matrix:
+        foss: [false, true]
     runs-on: ubuntu-latest
     permissions:
       contents: write
     timeout-minutes: 30
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - uses: "./.github/shared_workflows/install_apt_dependencies"
 
@@ -30,17 +34,19 @@ jobs:
           path: |
             .dart_tool/
             build/
-            .flutter-plugins
+            linux/flutter/ephemeral/
+            macos/Flutter/ephemeral/
+            windows/flutter/ephemeral/
             .flutter-plugins-dependencies
             pubspec.lock
           key: ${{ runner.OS }}-saber-${{ hashFiles('**/pubspec.lock') }}-${{ hashFiles('**/*.dart') }}
           restore-keys: |
             ${{ runner.OS }}-saber-
 
-      - name: Remove development dependencies
-        run: ./patches/remove_dev_dependencies.sh
-      
       - name: Setup keystore
+        env:
+          SIGNING_KEY: ${{ secrets.SIGNING_KEY }}
+        if: ${{ env.SIGNING_KEY != '' }}
         run: |
           echo "${{ secrets.SIGNING_KEY }}" | base64 -d > android/android.keystore
           echo "storePassword=${{ secrets.KEY_STORE_PASSWORD }}" > android/key.properties
@@ -49,130 +55,58 @@ jobs:
           echo "storeFile=../android.keystore" >> android/key.properties
 
       - name: Setup Flutter
-        uses: subosito/flutter-action@v2
+        uses: adil192/setup-flutter-submodule@v1
         with:
-          channel: stable
-          cache: true
-          cache-key: 'flutter-:os:-:channel:-:version:-:arch:'
+          flutter-path: submodules/flutter
 
       - name: Setup Java
-        uses: actions/setup-java@v4
+        uses: actions/setup-java@v5
         with:
-          distribution: 'microsoft'
-          java-version: '21'
+          distribution: "microsoft"
+          java-version: "21"
+
+      - name: Setup Rust
+        uses: moonrepo/setup-rust@v1
+        with:
+          # The rust version is read from rust-toolchain.toml
+          targets: armv7-linux-androideabi,aarch64-linux-android,x86_64-linux-android
 
       - name: Disable Flutter CLI animations
         run: flutter config --no-cli-animations
 
       - run: flutter pub get
 
-      - name: Build apk
-        run: |
-          flutter build apk \
-            --dart-define=DIRTY=$DIRTY
-        env:
-          DIRTY: ${{ !startsWith(github.ref, 'refs/tags/') }}
-
-      - name: Rename apk
-        id: rename_apk
-        run: |
-          buildName=$(grep -oP "(?<=buildName = ').*(?=')" lib/data/version.dart)
-          apkName="Saber_v${buildName}.apk"
-          echo "apkName=$apkName" >> $GITHUB_OUTPUT
-
-          mkdir -p output
-          mv build/app/outputs/flutter-apk/app-release.apk output/$apkName
-
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: Saber-Android
-          path: output/${{ steps.rename_apk.outputs.apkName }}
-
-      - name: Upload to GitHub release
-        uses: svenstaro/upload-release-action@v2
-        if: ${{ startsWith(github.ref, 'refs/tags/') }}
-        with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: output/${{ steps.rename_apk.outputs.apkName }}
-
-  build-foss-apk:
-    name: Build FOSS APK
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    timeout-minutes: 30
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - uses: "./.github/shared_workflows/install_apt_dependencies"
-
-      - name: Setup cache
-        uses: actions/cache/restore@v4
-        with:
-          path: |
-            .dart_tool/
-            build/
-            .flutter-plugins
-            .flutter-plugins-dependencies
-            pubspec.lock
-          key: ${{ runner.OS }}-saberfoss-${{ hashFiles('**/pubspec.lock') }}-${{ hashFiles('**/*.dart') }}
-          restore-keys: |
-            ${{ runner.OS }}-saberfoss-
-
+      - name: Remove development dependencies
+        run: ./patches/remove_dev_dependencies.sh
       - name: Remove proprietary dependencies
         run: ./patches/remove_proprietary_dependencies.sh
-      - name: Remove development dependencies
-        run: ./patches/remove_dev_dependencies.sh
-      
-      - name: Setup keystore
-        run: |
-          echo "${{ secrets.SIGNING_KEY }}" | base64 -d > android/android.keystore
-          echo "storePassword=${{ secrets.KEY_STORE_PASSWORD }}" > android/key.properties
-          echo "keyPassword=${{ secrets.KEY_PASSWORD }}" >> android/key.properties
-          echo "keyAlias=${{ secrets.ALIAS }}" >> android/key.properties
-          echo "storeFile=../android.keystore" >> android/key.properties
-
-      - name: Setup Flutter
-        uses: subosito/flutter-action@v2
-        with:
-          channel: stable
-          cache: true
-          cache-key: 'flutter-:os:-:channel:-:version:-:arch:'
-
-      - name: Setup Java
-        uses: actions/setup-java@v4
-        with:
-          distribution: 'microsoft'
-          java-version: '21'
-
-      - name: Disable Flutter CLI animations
-        run: flutter config --no-cli-animations
-
-      - run: flutter pub get
+        if: matrix.foss
+      - name: Remove non-Android dependencies
+        run: ./patches/remove_non_android_dependencies.sh
+      - name: Patch rust dependencies
+        run: ./patches/patch_rust_versions.sh
 
       - name: Build apk
-        run: |
-          flutter build apk \
-            --dart-define=DIRTY=$DIRTY
-        env:
-          DIRTY: ${{ !startsWith(github.ref, 'refs/tags/') }}
+        run: flutter build apk
 
       - name: Rename apk
         id: rename_apk
         run: |
           buildName=$(grep -oP "(?<=buildName = ').*(?=')" lib/data/version.dart)
-          apkName="Saber_FOSS_v${buildName}.apk"
+          if [ "${{ matrix.foss }}" = "true" ]; then
+            apkName="Saber_FOSS_v${buildName}.apk"
+          else
+            apkName="Saber_v${buildName}.apk"
+          fi
           echo "apkName=$apkName" >> $GITHUB_OUTPUT
 
           mkdir -p output
           mv build/app/outputs/flutter-apk/app-release.apk output/$apkName
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
-          name: Saber-Android-FOSS
+          name: ${{ matrix.foss && 'Saber-Android-FOSS' || 'Saber-Android' }}
           path: output/${{ steps.rename_apk.outputs.apkName }}
 
       - name: Upload to GitHub release

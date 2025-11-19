@@ -25,27 +25,27 @@ void main() {
       group('at $depth depth:', () {
         testGoldens('Empty', (tester) async {
           await tester.pumpWidget(_BrowseApp(path: path, children: null));
-          await tester.loadFonts();
-          await tester.precacheImagesInWidgetTree();
+          await tester.loadAssets();
           await tester.pumpAndSettle();
 
           await expectLater(
-            find.byType(BrowsePage),
+            find.byType(MaterialApp),
             matchesGoldenFile('goldens/browse_page_empty_$depth.png'),
           );
         });
 
         testGoldens('Non-empty', (tester) async {
-          final children = DirectoryChildren(const ['subfolder1', 'subfolder2'],
-              const ['file1', 'file2', 'file3']);
+          final children = DirectoryChildren(
+            const ['subfolder1', 'subfolder2'],
+            const ['file1', 'file2', 'file3'],
+          );
 
           await tester.pumpWidget(_BrowseApp(path: path, children: children));
-          await tester.loadFonts();
-          await tester.precacheImagesInWidgetTree();
+          await tester.loadAssets();
           await tester.pumpAndSettle();
 
           await expectLater(
-            find.byType(BrowsePage),
+            find.byType(MaterialApp),
             matchesGoldenFile('goldens/browse_page_non_empty_$depth.png'),
           );
         });
@@ -55,22 +55,18 @@ void main() {
 }
 
 class _BrowseApp extends StatelessWidget {
-  const _BrowseApp({
-    required this.path,
-    required this.children,
-  });
+  const _BrowseApp({required this.path, required this.children});
 
   final String? path;
   final DirectoryChildren? children;
 
   @override
   Widget build(BuildContext context) {
-    return ScreenshotApp(
-      device: GoldenScreenshotDevices.android.device,
-      child: BrowsePage(
-        path: path,
-        overrideChildren: children,
-      ),
+    BrowsePage.overrideChildren = children;
+    return ScreenshotApp.withConditionalTitlebar(
+      device: GoldenSmallDevices.androidPhone.device,
+      title: 'Saber',
+      home: BrowsePage(path: path),
     );
   }
 }

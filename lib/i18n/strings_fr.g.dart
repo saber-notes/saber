@@ -3,6 +3,7 @@
 ///
 // coverage:ignore-file
 // ignore_for_file: type=lint, unused_import
+// dart format off
 
 import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
@@ -34,6 +35,7 @@ class TranslationsFr extends Translations {
 	// Translations
 	@override late final _TranslationsCommonFr common = _TranslationsCommonFr._(_root);
 	@override late final _TranslationsHomeFr home = _TranslationsHomeFr._(_root);
+	@override late final _TranslationsSentryFr sentry = _TranslationsSentryFr._(_root);
 	@override late final _TranslationsSettingsFr settings = _TranslationsSettingsFr._(_root);
 	@override late final _TranslationsLogsFr logs = _TranslationsLogsFr._(_root);
 	@override late final _TranslationsLoginFr login = _TranslationsLoginFr._(_root);
@@ -80,6 +82,16 @@ class _TranslationsHomeFr extends TranslationsHomeEn {
 	@override String get noPreviewAvailable => 'Aucun aperçu disponible';
 }
 
+// Path: sentry
+class _TranslationsSentryFr extends TranslationsSentryEn {
+	_TranslationsSentryFr._(TranslationsFr root) : this._root = root, super.internal(root);
+
+	final TranslationsFr _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsSentryConsentFr consent = _TranslationsSentryConsentFr._(_root);
+}
+
 // Path: settings
 class _TranslationsSettingsFr extends TranslationsSettingsEn {
 	_TranslationsSettingsFr._(TranslationsFr root) : this._root = root, super.internal(root);
@@ -115,11 +127,11 @@ class _TranslationsLogsFr extends TranslationsLogsEn {
 	final TranslationsFr _root; // ignore: unused_field
 
 	// Translations
+	@override String get useTheApp => 'Les journaux apparaîtront ici lorsque vous utilisez l\'application';
 	@override String get logs => 'Journaux';
 	@override String get viewLogs => 'Afficher les journaux';
 	@override String get debuggingInfo => 'Les journaux contiennent des informations utiles pour le débogage et le développement';
 	@override String get noLogs => 'Pas de journaux ici !';
-	@override String get logsAreTemporary => 'Les journaux ne sont conservés que jusqu\'à la fermeture de l\'application';
 }
 
 // Path: login
@@ -173,7 +185,6 @@ class _TranslationsAppInfoFr extends TranslationsAppInfoEn {
 
 	// Translations
 	@override String licenseNotice({required Object buildYear}) => 'Saber  Copyright © 2022-${buildYear}  Adil Hanney\nCe programme est livré sans aucune garantie. Il s\'agit d\'un logiciel libre, et vous pouvez le diffuser sous certaines conditions.';
-	@override String get dirty => 'DIRTY';
 	@override String get debug => 'DEBUG';
 	@override String get sponsorButton => 'Appuyer ici pour me soutenir ou acheter ou acheter plus d\'espace de stockage';
 	@override String get licenseButton => 'Appuyer ici pour plus d\'information de licence';
@@ -338,6 +349,18 @@ class _TranslationsHomeDeleteFolderFr extends TranslationsHomeDeleteFolderEn {
 	@override String get alsoDeleteContents => 'Supprimer aussi toutes les notes rangées dans ce dossier';
 }
 
+// Path: sentry.consent
+class _TranslationsSentryConsentFr extends TranslationsSentryConsentEn {
+	_TranslationsSentryConsentFr._(TranslationsFr root) : this._root = root, super.internal(root);
+
+	final TranslationsFr _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsSentryConsentDescriptionFr description = _TranslationsSentryConsentDescriptionFr._(_root);
+	@override late final _TranslationsSentryConsentAnswersFr answers = _TranslationsSentryConsentAnswersFr._(_root);
+	@override String get title => 'Aidez-moi à améliorer Saber?';
+}
+
 // Path: settings.prefCategories
 class _TranslationsSettingsPrefCategoriesFr extends TranslationsSettingsPrefCategoriesEn {
 	_TranslationsSettingsPrefCategoriesFr._(TranslationsFr root) : this._root = root, super.internal(root);
@@ -376,15 +399,15 @@ class _TranslationsSettingsPrefLabelsFr extends TranslationsSettingsPrefLabelsEn
 	@override String get autoClearWhiteboardOnExit => 'Effacer le tableau blanc quand vous fermez l\'application';
 	@override String get disableEraserAfterUse => 'Désactiver automatiquement la gomme après usage';
 	@override String get hideFingerDrawingToggle => 'Cacher l\'icône d\'activation/désactivation de tracé au doigt';
+	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Désactivation automatique du dessin au doigt';
 	@override String get editorPromptRename => 'Vous rappeler de renommer les notes';
-	@override String get hideHomeBackgrounds => 'Cacher le fond de la page d\'accueil';
 	@override String get recentColorsDontSavePresets => 'Ne pas conserver les couleurs pré-définies parmi les couleurs récentes';
 	@override String get recentColorsLength => 'Nombre de couleurs récentes à conserver';
 	@override String get printPageIndicators => 'Imprimer les numéros de pages';
-	@override String get autosave => 'S\'attacher automatiquement';
 	@override String get shapeRecognitionDelay => 'Délai de reconnaissance de forme';
+	@override String get sentry => 'Rapports d\'erreur';
+	@override String get autosave => 'S\'attacher automatiquement';
 	@override String get simplifiedHomeLayout => 'Aménagement d\'une maison simplifié';
-	@override String get pencilSoundSetting => 'Effet sonore de crayon';
 	@override String get customDataDir => 'Répertoire de données personnalisé';
 	@override String get autoStraightenLines => 'Redresser automatiquement les lignes';
 }
@@ -403,13 +426,13 @@ class _TranslationsSettingsPrefDescriptionsFr extends TranslationsSettingsPrefDe
 	@override String get disableEraserAfterUse => 'Revenir automatiquement au stylo après usage de la gomme';
 	@override String get maxImageSize => 'Les images plus grandes seront compressées';
 	@override late final _TranslationsSettingsPrefDescriptionsHideFingerDrawingFr hideFingerDrawing = _TranslationsSettingsPrefDescriptionsHideFingerDrawingFr._(_root);
+	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Désactiver le dessin au doigt lorsqu\'un stylet est détecté';
 	@override String get editorPromptRename => 'Vous pourrez toujours les renommer plus tard';
-	@override String get hideHomeBackgrounds => 'Pour une apparence plus sobre';
 	@override String get printPageIndicators => 'Montrer les numéros de pages dans les exportations';
-	@override String get autosave => 'S\'attacher automatiquement après un court délai, ou jamais';
 	@override String get shapeRecognitionDelay => 'Avec quelle fréquence mettre à jour la prévisualisation de forme';
 	@override String get shouldAlwaysAlertForUpdates => 'Me prévenir dès qu\'une mise à jour est disponible';
-	@override late final _TranslationsSettingsPrefDescriptionsPencilSoundSettingFr pencilSoundSetting = _TranslationsSettingsPrefDescriptionsPencilSoundSettingFr._(_root);
+	@override late final _TranslationsSettingsPrefDescriptionsSentryFr sentry = _TranslationsSettingsPrefDescriptionsSentryFr._(_root);
+	@override String get autosave => 'S\'attacher automatiquement après un court délai, ou jamais';
 	@override String get simplifiedHomeLayout => 'Définit une hauteur fixe pour chaque aperçu de note';
 	@override String get autoStraightenLines => 'Redresse les longues lignes sans avoir à utiliser le stylo de forme';
 }
@@ -466,6 +489,7 @@ class _TranslationsSettingsCustomDataDirFr extends TranslationsSettingsCustomDat
 	final TranslationsFr _root; // ignore: unused_field
 
 	// Translations
+	@override String get unsupported => 'Cette fonctionnalité est actuellement uniquement pour les développeurs. L\'utiliser entraînera probablement une perte de données.';
 	@override String get cancel => 'Annuler';
 	@override String get select => 'Sélectionner';
 	@override String get mustBeEmpty => 'Le répertoire sélectionné doit être vide';
@@ -760,6 +784,36 @@ class _TranslationsEditorHudFr extends TranslationsEditorHudEn {
 	@override String get lockAxisAlignedPan => 'Verrouiller le panoramique à l\'horizontale ou à la verticale';
 }
 
+// Path: sentry.consent.description
+class _TranslationsSentryConsentDescriptionFr extends TranslationsSentryConsentDescriptionEn {
+	_TranslationsSentryConsentDescriptionFr._(TranslationsFr root) : this._root = root, super.internal(root);
+
+	final TranslationsFr _root; // ignore: unused_field
+
+	// Translations
+	@override String get question => 'Souhaitez-vous signaler automatiquement les erreurs inattendues? Cela m\'aide à identifier et à résoudre les problèmes plus rapidement.';
+	@override String get scope => 'Les rapports peuvent contenir des informations sur l\'erreur et votre appareil. J\'ai fait tout son possible pour filtrer les données personnelles, mais certaines peuvent rester.';
+	@override String get currentlyOff => 'Si vous accordez le consentement, les rapports d\'erreur seront activés après le redémarrage de l\'application.';
+	@override String get currentlyOn => 'Si vous révoquez le consentement, veuillez redémarrer l\'application pour désactiver les rapports d\'erreur.';
+	@override TextSpan learnMoreInPrivacyPolicy({required InlineSpanBuilder link}) => TextSpan(children: [
+		const TextSpan(text: 'En savoir plus dans le '),
+		link('Politique de confidentialité'),
+		const TextSpan(text: '.'),
+	]);
+}
+
+// Path: sentry.consent.answers
+class _TranslationsSentryConsentAnswersFr extends TranslationsSentryConsentAnswersEn {
+	_TranslationsSentryConsentAnswersFr._(TranslationsFr root) : this._root = root, super.internal(root);
+
+	final TranslationsFr _root; // ignore: unused_field
+
+	// Translations
+	@override String get yes => 'Oui';
+	@override String get no => 'Non';
+	@override String get later => 'Demandez-moi plus tard';
+}
+
 // Path: settings.prefDescriptions.hideFingerDrawing
 class _TranslationsSettingsPrefDescriptionsHideFingerDrawingFr extends TranslationsSettingsPrefDescriptionsHideFingerDrawingEn {
 	_TranslationsSettingsPrefDescriptionsHideFingerDrawingFr._(TranslationsFr root) : this._root = root, super.internal(root);
@@ -772,16 +826,17 @@ class _TranslationsSettingsPrefDescriptionsHideFingerDrawingFr extends Translati
 	@override String get fixedOff => 'Le tracé au doigt est fixé à désactivé';
 }
 
-// Path: settings.prefDescriptions.pencilSoundSetting
-class _TranslationsSettingsPrefDescriptionsPencilSoundSettingFr extends TranslationsSettingsPrefDescriptionsPencilSoundSettingEn {
-	_TranslationsSettingsPrefDescriptionsPencilSoundSettingFr._(TranslationsFr root) : this._root = root, super.internal(root);
+// Path: settings.prefDescriptions.sentry
+class _TranslationsSettingsPrefDescriptionsSentryFr extends TranslationsSettingsPrefDescriptionsSentryEn {
+	_TranslationsSettingsPrefDescriptionsSentryFr._(TranslationsFr root) : this._root = root, super.internal(root);
 
 	final TranslationsFr _root; // ignore: unused_field
 
 	// Translations
-	@override String get off => 'Pas de son';
-	@override String get onButNotInSilentMode => 'Activé (sauf en mode silencieux)';
-	@override String get onAlways => 'Activé (même en mode silencieux)';
+	@override String get active => 'Actif';
+	@override String get inactive => 'Inactif';
+	@override String get activeUntilRestart => 'Actif jusqu\'à ce que vous redémarrez l\'application';
+	@override String get inactiveUntilRestart => 'Inactif jusqu\'à ce que vous redémarrez l\'application';
 }
 
 // Path: login.ncLoginStep.loginFlow

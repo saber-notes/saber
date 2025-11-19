@@ -23,6 +23,7 @@ home:
   welcome: 欢迎使用 Saber
   invalidFormat: 不支持该文件。请选择 .sbn、.sbn2、.sba 或 .pdf 文件。
   noFiles: 未找到文件
+  noPreviewAvailable: 无可用预览
   createNewNote: 点击 + 按钮新建一个笔记
   backFolder: 回到上一个文件夹
   newFolder: 
@@ -60,7 +61,19 @@ home:
     deleteName: 删除 $f
     delete: 删除
     alsoDeleteContents: 同时删除此文件夹中的所有笔记
-  noPreviewAvailable(OUTDATED): 没有预览
+sentry: 
+  consent: 
+    title: 帮助改进 Saber？
+    description: 
+      question: 您是否希望自动报告意外错误？这有助于我更快地发现和修复问题。
+      scope: 报告可能包含有关错误和设备的信息。我已尽力过滤个人数据，但仍可能残留部分信息。
+      currentlyOff: 若同意启用，重启应用后错误报告功能将激活。
+      currentlyOn: 若撤销同意，请重启应用以禁用错误报告功能。
+      learnMoreInPrivacyPolicy(rich): 详见${link(隐私政策)}。
+    answers: 
+      yes: 同意
+      no: 拒绝
+      later: 稍后询问
 settings: 
   prefCategories: 
     general: 通用
@@ -85,18 +98,18 @@ settings:
     maxImageSize: 最大图片大小
     autoClearWhiteboardOnExit: 离开应用后清除白板
     disableEraserAfterUse: 自动禁用橡皮擦
-    hideFingerDrawingToggle: 隐藏 切换手指绘制
+    hideFingerDrawingToggle: 隐藏 切换手指绘图
+    autoDisableFingerDrawingWhenStylusDetected: 自动禁用手指绘图
     editorPromptRename: 提示您重命名新笔记
-    hideHomeBackgrounds: 在主页隐藏背景
     recentColorsDontSavePresets: 不在最近使用的颜色中保存预设颜色
     recentColorsLength: 要存储多少种最近的颜色
     printPageIndicators: 打印页码
-    autosave(OUTDATED): 自动保存
+    autosave: 自动保存
     shapeRecognitionDelay: 形状识别延迟
     autoStraightenLines: 自动拉直线
     simplifiedHomeLayout: 简化主页布局
     customDataDir: 自定义 Saber 文件夹
-    pencilSoundSetting: 铅笔音效
+    sentry: 错误报告
   prefDescriptions: 
     hyperlegibleFont: Atkinson Hyperlegible 字体为低视力读者提高易读性
     allowInsecureConnections: （不推荐）允许 Saber 连接到具有自签名/不受信任证书的服务器
@@ -106,20 +119,21 @@ settings:
     maxImageSize: 更大的图片将会被压缩
     hideFingerDrawing: 
       shown: 防止意外切换
-      fixedOn: 手指绘制固定为启用状态
-      fixedOff: 手指绘制固定为禁用状态
+      fixedOn: 手指绘图固定为启用状态
+      fixedOff: 手指绘图固定为禁用状态
+    autoDisableFingerDrawingWhenStylusDetected: 当检测到手写笔时关闭手指绘图
     editorPromptRename: 您可以总是稍后重命名笔记
-    hideHomeBackgrounds: 更简洁的外观
     printPageIndicators: 在导出中显示页码
-    autosave(OUTDATED): 短暂延迟后自动保存，或者永远不会
+    autosave: 短暂延迟后自动保存，或永不保存
     shapeRecognitionDelay: 形状预览更新频率
     autoStraightenLines: 拉直长线，无需使用形状笔
     simplifiedHomeLayout: 为每个笔记预览设置固定高度
     shouldAlwaysAlertForUpdates: 在更新可用时尽快告诉我
-    pencilSoundSetting: 
-      off: 没有音效
-      onButNotInSilentMode: 启用（除非在静音模式下）
-      onAlways: 启用（即使在静音模式下）
+    sentry: 
+      active: 已启用
+      inactive: 已禁用
+      activeUntilRestart: 重启前保持启用
+      inactiveUntilRestart: 重启前保持禁用
   themeModes: 
     system: 系统
     light: 浅色
@@ -146,14 +160,15 @@ settings:
     select: 选择
     mustBeEmpty: 所选文件夹必须为空
     mustBeDoneSyncing: 更改文件夹前，请确保同步已完成
-  autosaveDisabled(OUTDATED): 绝不
-  shapeRecognitionDisabled(OUTDATED): 绝不
+    unsupported: 此功能目前仅限开发者使用，可能导致数据丢失
+  autosaveDisabled: 禁用
+  shapeRecognitionDisabled: 禁用
 logs: 
-  logs(OUTDATED): 日志
-  viewLogs(OUTDATED): 查看日志
-  debuggingInfo(OUTDATED): 日志包含对调试和开发有用的信息
-  noLogs(OUTDATED): 这里没有日志！
-  logsAreTemporary(OUTDATED): 日志仅保留到您关闭应用程序为止
+  logs: 日志
+  viewLogs: 查看日志
+  debuggingInfo: 日志包含用于调试和开发的信息
+  noLogs: 暂无日志！
+  useTheApp: 使用应用时日志将显示在此处
 login: 
   title: 登录
   form: 
@@ -231,8 +246,7 @@ profile:
 appInfo: 
   licenseNotice: |-
     Saber  版权所有 © 2022-$buildYear  Adil Hanney
-    This program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.
-  dirty: DIRTY
+    本程序不附带任何担保。这是自由软件，您可以在特定条件下重新分发它。
   debug: DEBUG
   sponsorButton: 点击此处赞助我或购买更多存储空间
   licenseButton: 点击此处查看更多许可证信息
@@ -241,7 +255,7 @@ update:
   updateAvailable: 可用更新
   updateAvailableDescription: 该应用的新版本可用，具有以下变更：
   update: 更新
-  downloadNotAvailableYet: 该下载在您的平台暂不可用。请稍后重试。
+  downloadNotAvailableYet: 您的平台暂无可用的下载版本，请稍后再查看。
 editor: 
   toolbar: 
     toggleColors: 切换颜色 (Ctrl C)
@@ -249,7 +263,7 @@ editor:
     toggleEraser: 切换橡皮擦 (Ctrl E)
     photo: 照片
     text: 文本
-    toggleFingerDrawing: 切换手写 (Ctrl F)
+    toggleFingerDrawing: 切换手指绘图 (Ctrl F)
     undo: 撤销
     redo: 重做
     export: 导出 (Ctrl Shift S)
@@ -300,7 +314,7 @@ editor:
     delete: 删除
   selectionBar: 
     delete: 删除
-    duplicate: 重复
+    duplicate: 复制
   menu: 
     clearPage: 清除页面 $page/$totalPages
     clearAllPages: 清除全部页面
@@ -308,7 +322,9 @@ editor:
     duplicatePage: 复制页面
     deletePage: 删除页面
     lineHeight: 行高
-    lineHeightDescription: 还控制已输入的笔记的文本大小
+    lineHeightDescription: 同时控制已输入的笔记的文本大小
+    lineThickness: 线条粗细
+    lineThicknessDescription: 背景线条粗细
     backgroundImageFit: 背景图像拟合
     backgroundPattern: 背景图案
     import: 导入
@@ -327,9 +343,7 @@ editor:
       dots: 点
       staffs: 五线谱
       tablature: 绘画
-      cornell: Cornell
-    lineThickness(OUTDATED): 线厚度
-    lineThicknessDescription(OUTDATED): 背景线厚度
+      cornell: 康奈尔
   newerFileFormat: 
     readOnlyMode: 只读模式
     title: 此笔记使用新版 Saber 编辑而成
@@ -346,4 +360,4 @@ editor:
     lockAxisAlignedPan: 锁定水平或垂直平移
   pages: 页面
   untitled: 未命名
-  needsToSaveBeforeExiting: 正在保存您的更改。。。完成后您可以安全地退出编辑器
+  needsToSaveBeforeExiting: 正在保存您的更改... 完成后您可以安全地退出编辑器

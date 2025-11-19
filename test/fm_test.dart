@@ -46,8 +46,11 @@ void main() {
       const content = 'test content for $filePath';
 
       // write file
-      await FileManager.writeFile(filePath, utf8.encode(content),
-          awaitWrite: true);
+      await FileManager.writeFile(
+        filePath,
+        utf8.encode(content),
+        awaitWrite: true,
+      );
 
       // read file
       final file = File('$rootDir$filePath');
@@ -63,8 +66,11 @@ void main() {
       const content = 'test content for $filePath';
 
       // write file
-      await FileManager.writeFile(filePath, utf8.encode(content),
-          awaitWrite: true);
+      await FileManager.writeFile(
+        filePath,
+        utf8.encode(content),
+        awaitWrite: true,
+      );
 
       // read file
       final readBytes = await FileManager.readFile(filePath);
@@ -88,19 +94,30 @@ void main() {
       const contentP = 'test content for $filePathBefore.p';
 
       // write files
-      await FileManager.writeFile(filePathBefore, utf8.encode(content),
-          awaitWrite: true);
-      await FileManager.writeFile(filePathBeforeA, utf8.encode(contentA),
-          awaitWrite: true);
-      await FileManager.writeFile(filePathBeforeP, utf8.encode(contentP),
-          awaitWrite: true);
+      await FileManager.writeFile(
+        filePathBefore,
+        utf8.encode(content),
+        awaitWrite: true,
+      );
+      await FileManager.writeFile(
+        filePathBeforeA,
+        utf8.encode(contentA),
+        awaitWrite: true,
+      );
+      await FileManager.writeFile(
+        filePathBeforeP,
+        utf8.encode(contentP),
+        awaitWrite: true,
+      );
 
       // ensure file does not exist (in case of previous test failure)
       await FileManager.deleteFile(filePathAfter);
 
       // move file
-      final filePathActual =
-          await FileManager.moveFile(filePathBefore, filePathAfter);
+      final filePathActual = await FileManager.moveFile(
+        filePathBefore,
+        filePathAfter,
+      );
       expect(filePathActual, filePathAfter);
 
       // verify filePathBefore does not exist, but filePathAfter does
@@ -140,18 +157,27 @@ void main() {
     });
 
     test('deleteFile', () async {
-      String filePath = '/test_deleteFile.sbn2';
-      String filePathA = '/test_deleteFile.sbn2.0';
-      String filePathP = '/test_deleteFile.sbn2.p';
-      String content = 'test content for $filePath';
+      const filePath = '/test_deleteFile.sbn2';
+      const filePathA = '/test_deleteFile.sbn2.0';
+      const filePathP = '/test_deleteFile.sbn2.p';
+      const content = 'test content for $filePath';
 
       // write files
-      await FileManager.writeFile(filePath, utf8.encode(content),
-          awaitWrite: true);
-      await FileManager.writeFile(filePathA, utf8.encode(content),
-          awaitWrite: true);
-      await FileManager.writeFile(filePathP, utf8.encode(content),
-          awaitWrite: true);
+      await FileManager.writeFile(
+        filePath,
+        utf8.encode(content),
+        awaitWrite: true,
+      );
+      await FileManager.writeFile(
+        filePathA,
+        utf8.encode(content),
+        awaitWrite: true,
+      );
+      await FileManager.writeFile(
+        filePathP,
+        utf8.encode(content),
+        awaitWrite: true,
+      );
 
       // delete file
       await FileManager.deleteFile(filePath);
@@ -214,7 +240,8 @@ void main() {
         expect(children, isNotNull);
         printOnFailure('childrenWithAssets.files: ${children!.files}');
         printOnFailure(
-            'childrenWithAssets.directories: ${children.directories}');
+          'childrenWithAssets.directories: ${children.directories}',
+        );
         expect(children.files.length, 9);
         expect(children.directories.length, 1);
         expect(children.files.contains('test_file3.sbn2'), true);

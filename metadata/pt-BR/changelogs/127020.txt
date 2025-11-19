@@ -1,0 +1,5 @@
+• Corrigida a falha completa do aplicativo caso você escolhesse o idioma Esperanto.
+• Corrigida a barra de navegação que não atualizava seu texto quando você alterava o idioma.
+• Corrigido o percentual de armazenamento utilizado não sendo arredondado.
+• Liberou memória usada por imagens e PDFs.
+• Removido o efeito sonoro do lápis.

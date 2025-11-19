@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:saber/components/theming/saber_theme.dart';
 
 class AdaptiveToggleButtons<T extends Object> extends StatelessWidget {
   const AdaptiveToggleButtons({
@@ -9,8 +10,8 @@ class AdaptiveToggleButtons<T extends Object> extends StatelessWidget {
     required this.onChange,
     this.optionsWidth = 72,
     this.optionsHeight = 40,
-  })  : assert(optionsWidth > 0),
-        assert(optionsHeight > 0);
+  }) : assert(optionsWidth > 0),
+       assert(optionsHeight > 0);
 
   final T value;
   final List<ToggleButtonsOption<T>> options;
@@ -20,11 +21,8 @@ class AdaptiveToggleButtons<T extends Object> extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ThemeData theme = Theme.of(context);
-    bool cupertino = theme.platform == TargetPlatform.iOS ||
-        theme.platform == TargetPlatform.macOS;
-
-    if (cupertino) {
+    final platform = Theme.of(context).platform;
+    if (platform.isCupertino) {
       return _buildCupertino(context);
     } else {
       return _buildMaterial(context);
@@ -33,7 +31,7 @@ class AdaptiveToggleButtons<T extends Object> extends StatelessWidget {
 
   Widget _buildMaterial(BuildContext context) {
     return ToggleButtons(
-      borderRadius: BorderRadius.circular(1000),
+      borderRadius: .circular(1000),
       constraints: BoxConstraints(
         minWidth: optionsWidth,
         minHeight: optionsHeight,
@@ -42,21 +40,23 @@ class AdaptiveToggleButtons<T extends Object> extends StatelessWidget {
         onChange(options[index].value);
       },
       isSelected: [
-        for (ToggleButtonsOption option in options) value == option.value,
+        for (final ToggleButtonsOption option in options) value == option.value,
       ],
       children: [
-        for (ToggleButtonsOption option in options) option.widget,
+        for (final ToggleButtonsOption option in options) option.widget,
       ],
     );
   }
 
   Widget _buildCupertino(BuildContext context) {
     return CupertinoSlidingSegmentedControl<T>(
-      children: options.asMap().map((_, ToggleButtonsOption option) =>
-          MapEntry<T, Widget>(option.value, option.widget)),
+      children: options.asMap().map(
+        (_, ToggleButtonsOption option) =>
+            MapEntry<T, Widget>(option.value, option.widget),
+      ),
       groupValue: value,
       onValueChanged: onChange,
-      padding: const EdgeInsets.all(8),
+      padding: const .all(8),
     );
   }
 }

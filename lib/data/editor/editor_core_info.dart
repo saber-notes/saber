@@ -7,7 +7,6 @@ import 'package:fixnum/fixnum.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_quill/flutter_quill.dart';
 import 'package:logging/logging.dart';
 import 'package:saber/components/canvas/_asset_cache.dart';
 import 'package:saber/components/canvas/_canvas_background_painter.dart';
@@ -47,10 +46,10 @@ class EditorCoreInfo {
   /// - 3: Store page sizes for each page
   /// - 2: Store width and height in sbn
   /// - 1: Store version in sbn
-  static const int sbnVersion = 19;
-  bool readOnly = false;
-  bool readOnlyBecauseOfVersion = false;
-  bool readOnlyBecauseWatchingServer = false;
+  static const sbnVersion = 19;
+  var readOnly = false;
+  var readOnlyBecauseOfVersion = false;
+  var readOnlyBecauseWatchingServer = false;
 
   String filePath;
 
@@ -68,25 +67,26 @@ class EditorCoreInfo {
   /// Stores the current page index so that it can be restored when the file is reloaded.
   int? initialPageIndex;
 
-  static final empty = EditorCoreInfo._(
-    filePath: '',
-    readOnly: true,
-    readOnlyBecauseOfVersion: false,
-    nextImageId: 0,
-    backgroundColor: null,
-    backgroundPattern: CanvasBackgroundPattern.none,
-    lineHeight: stows.lastLineHeight.value,
-    lineThickness: stows.lastLineThickness.value,
-    pages: [],
-    initialPageIndex: null,
-    assetCache: null,
-  ).._migrateOldStrokesAndImages(
-      fileVersion: sbnVersion,
-      strokesJson: null,
-      imagesJson: null,
-      inlineAssets: null,
-      onlyFirstPage: true,
-    );
+  static final empty =
+      EditorCoreInfo._(
+        filePath: '',
+        readOnly: true,
+        readOnlyBecauseOfVersion: false,
+        nextImageId: 0,
+        backgroundColor: null,
+        backgroundPattern: .none,
+        lineHeight: stows.lastLineHeight.value,
+        lineThickness: stows.lastLineThickness.value,
+        pages: [],
+        initialPageIndex: null,
+        assetCache: null,
+      ).._migrateOldStrokesAndImages(
+        fileVersion: sbnVersion,
+        strokesJson: null,
+        imagesJson: null,
+        inlineAssets: null,
+        onlyFirstPage: true,
+      );
 
   bool get isEmpty => pages.every((EditorPage page) => page.isEmpty);
   bool get isNotEmpty => !isEmpty;
@@ -95,12 +95,12 @@ class EditorCoreInfo {
     required this.filePath,
     this.readOnly =
         true, // default to read-only, until it's loaded with [loadFromFilePath]
-  })  : nextImageId = 0,
-        backgroundPattern = stows.lastBackgroundPattern.value,
-        lineHeight = stows.lastLineHeight.value,
-        lineThickness = stows.lastLineThickness.value,
-        pages = [],
-        assetCache = AssetCache();
+  }) : nextImageId = 0,
+       backgroundPattern = stows.lastBackgroundPattern.value,
+       lineHeight = stows.lastLineHeight.value,
+       lineThickness = stows.lastLineThickness.value,
+       pages = [],
+       assetCache = AssetCache();
 
   EditorCoreInfo._({
     required this.filePath,
@@ -125,67 +125,71 @@ class EditorCoreInfo {
     required bool onlyFirstPage,
   }) {
     final fileVersion = json['v'] as int? ?? 0;
-    bool readOnlyBecauseOfVersion = fileVersion > sbnVersion;
+    final readOnlyBecauseOfVersion = fileVersion > sbnVersion;
     readOnly = readOnly || readOnlyBecauseOfVersion;
 
     /// Note that inline assets aren't used anymore
     /// since sbnVersion 19.
     final List<Uint8List>? inlineAssets = (json['a'] as List?)
-        ?.map((asset) => switch (asset) {
-              (String base64) => base64Decode(base64),
-              (Uint8List bytes) => bytes,
-              (List<dynamic> bytes) => Uint8List.fromList(bytes.cast<int>()),
-              (BsonBinary bsonBinary) => bsonBinary.byteList,
-              _ => () {
-                  log.severe(
-                      'Invalid asset type in $filePath: ${asset.runtimeType}');
-                  return Uint8List(0);
-                }(),
-            })
+        ?.map(
+          (asset) => switch (asset) {
+            (final String base64) => base64Decode(base64),
+            (final Uint8List bytes) => bytes,
+            (final List<dynamic> bytes) => Uint8List.fromList(
+              bytes.cast<int>(),
+            ),
+            (final BsonBinary bsonBinary) => bsonBinary.byteList,
+            _ => () {
+              log.severe('Invalid asset type: ${asset.runtimeType}');
+              return Uint8List(0);
+            }(),
+          },
+        )
         .toList();
 
     final Color? backgroundColor;
     switch (json['b']) {
-      case (int value):
+      case (final int value):
         backgroundColor = Color(value);
-      case (Int64 value):
+      case (final Int64 value):
         backgroundColor = Color(value.toInt());
       case null:
         backgroundColor = null;
       default:
         throw Exception(
-            'Invalid color value: (${json['b'].runtimeType}) ${json['b']}');
+          'Invalid color value: (${json['b'].runtimeType}) ${json['b']}',
+        );
     }
 
     final assetCache = AssetCache();
 
     return EditorCoreInfo._(
-      filePath: filePath,
-      readOnly: readOnly,
-      readOnlyBecauseOfVersion: readOnlyBecauseOfVersion,
-      nextImageId: json['ni'] as int? ?? 0,
-      backgroundColor: backgroundColor,
-      backgroundPattern: () {
-        final String? pattern = json['p'] as String?;
-        for (CanvasBackgroundPattern p in CanvasBackgroundPattern.values) {
-          if (p.name == pattern) return p;
-        }
-        return CanvasBackgroundPattern.none;
-      }(),
-      lineHeight: json['l'] as int? ?? stows.lastLineHeight.value,
-      lineThickness: json['lt'] as int? ?? stows.lastLineThickness.value,
-      pages: _parsePagesJson(
-        json['z'] as List?,
-        inlineAssets: inlineAssets,
+        filePath: filePath,
         readOnly: readOnly,
-        onlyFirstPage: onlyFirstPage,
-        fileVersion: fileVersion,
-        sbnPath: filePath,
+        readOnlyBecauseOfVersion: readOnlyBecauseOfVersion,
+        nextImageId: json['ni'] as int? ?? 0,
+        backgroundColor: backgroundColor,
+        backgroundPattern: () {
+          final pattern = json['p'] as String?;
+          for (final p in CanvasBackgroundPattern.values) {
+            if (p.name == pattern) return p;
+          }
+          return CanvasBackgroundPattern.none;
+        }(),
+        lineHeight: json['l'] as int? ?? stows.lastLineHeight.value,
+        lineThickness: json['lt'] as int? ?? stows.lastLineThickness.value,
+        pages: _parsePagesJson(
+          json['z'] as List?,
+          inlineAssets: inlineAssets,
+          readOnly: readOnly,
+          onlyFirstPage: onlyFirstPage,
+          fileVersion: fileVersion,
+          sbnPath: filePath,
+          assetCache: assetCache,
+        ),
+        initialPageIndex: json['c'] as int?,
         assetCache: assetCache,
-      ),
-      initialPageIndex: json['c'] as int?,
-      assetCache: assetCache,
-    )
+      )
       .._migrateOldStrokesAndImages(
         fileVersion: fileVersion,
         strokesJson: json['s'] as List?,
@@ -205,12 +209,12 @@ class EditorCoreInfo {
     required this.filePath,
     this.readOnly = false,
     required bool onlyFirstPage,
-  })  : nextImageId = 0,
-        backgroundPattern = CanvasBackgroundPattern.none,
-        lineHeight = stows.lastLineHeight.value,
-        lineThickness = stows.lastLineThickness.value,
-        pages = [],
-        assetCache = AssetCache() {
+  }) : nextImageId = 0,
+       backgroundPattern = .none,
+       lineHeight = stows.lastLineHeight.value,
+       lineThickness = stows.lastLineThickness.value,
+       pages = [],
+       assetCache = AssetCache() {
     _migrateOldStrokesAndImages(
       fileVersion: 0,
       strokesJson: json,
@@ -235,29 +239,33 @@ class EditorCoreInfo {
       // old format (list of [width, height])
       return pages
           .take(onlyFirstPage ? 1 : pages.length)
-          .map((dynamic page) => EditorPage(
-                width: page[0] as double?,
-                height: page[1] as double?,
-              ))
+          .map(
+            (dynamic page) => EditorPage(
+              width: page[0] as double?,
+              height: page[1] as double?,
+            ),
+          )
           .toList();
     } else {
       return pages
           .take(onlyFirstPage ? 1 : pages.length)
-          .map((dynamic page) => EditorPage.fromJson(
-                page as Map<String, dynamic>,
-                inlineAssets: inlineAssets,
-                readOnly: readOnly,
-                fileVersion: fileVersion,
-                sbnPath: sbnPath,
-                assetCache: assetCache,
-              ))
+          .map(
+            (dynamic page) => EditorPage.fromJson(
+              page as Map<String, dynamic>,
+              inlineAssets: inlineAssets,
+              readOnly: readOnly,
+              fileVersion: fileVersion,
+              sbnPath: sbnPath,
+              assetCache: assetCache,
+            ),
+          )
           .toList();
     }
   }
 
   void _handleEmptyImageIds() {
-    for (EditorPage page in pages) {
-      for (EditorImage image in page.images) {
+    for (final page in pages) {
+      for (final image in page.images) {
         if (image.id == -1) image.id = nextImageId++;
       }
     }
@@ -288,12 +296,10 @@ class EditorCoreInfo {
         onlyFirstPage: onlyFirstPage,
         fileVersion: fileVersion,
       );
-      for (Stroke stroke in strokes) {
+      for (final stroke in strokes) {
         if (onlyFirstPage) assert(stroke.pageIndex == 0);
         while (stroke.pageIndex >= pages.length) {
-          pages.add(EditorPage(
-            size: fallbackPageSize,
-          ));
+          pages.add(EditorPage(size: fallbackPageSize));
         }
         pages[stroke.pageIndex].insertStroke(stroke);
       }
@@ -308,7 +314,7 @@ class EditorCoreInfo {
         sbnPath: filePath,
         assetCache: assetCache,
       );
-      for (EditorImage image in images) {
+      for (final image in images) {
         if (onlyFirstPage) assert(image.pageIndex == 0);
         while (image.pageIndex >= pages.length) {
           pages.add(EditorPage(size: fallbackPageSize));
@@ -325,8 +331,8 @@ class EditorCoreInfo {
 
     // delete points that are too close to each other
     if (fileVersion < 12) {
-      for (EditorPage page in pages) {
-        for (Stroke stroke in page.strokes) {
+      for (final page in pages) {
+        for (final stroke in page.strokes) {
           stroke.optimisePoints();
         }
       }
@@ -334,7 +340,7 @@ class EditorCoreInfo {
   }
 
   void _sortStrokes() {
-    for (EditorPage page in pages) {
+    for (final page in pages) {
       page.sortStrokes();
     }
   }
@@ -350,8 +356,9 @@ class EditorCoreInfo {
     if (bsonBytes != null) {
       jsonString = null;
     } else {
-      final jsonBytes =
-          await FileManager.readFile(path + Editor.extensionOldJson);
+      final jsonBytes = await FileManager.readFile(
+        path + Editor.extensionOldJson,
+      );
       jsonString = jsonBytes != null ? utf8.decode(jsonBytes) : null;
     }
 
@@ -380,12 +387,12 @@ class EditorCoreInfo {
     EditorCoreInfo coreInfo;
     try {
       EditorCoreInfo isolate() => _loadFromFileIsolate(
-            jsonString,
-            bsonBytes,
-            path,
-            readOnly,
-            onlyFirstPage,
-          );
+        jsonString,
+        bsonBytes,
+        path,
+        readOnly,
+        onlyFirstPage,
+      );
 
       final length = jsonString?.length ?? bsonBytes!.length;
       if (alwaysUseIsolate || length > 2 * 1024 * 1024) {
@@ -395,7 +402,7 @@ class EditorCoreInfo {
           () async {
             // We need to rerun some "init" methods in the isolate,
             // see https://github.com/saber-notes/saber/issues/1031.
-            FlavorConfig.setup();
+            FlavorConfig.setupFromEnvironment();
             await FileManager.init(
               documentsDirectory: documentsDirectory,
               shouldWatchRootDirectory: false,
@@ -411,7 +418,7 @@ class EditorCoreInfo {
         coreInfo = isolate();
       }
     } catch (e) {
-      log.severe('Failed to load file from $path: $e', e);
+      log.severe('Failed to load file: $e', e);
       if (kDebugMode) {
         rethrow;
       } else {
@@ -440,12 +447,12 @@ class EditorCoreInfo {
         throw ArgumentError('Both bsonBytes and jsonString are null');
       }
     } catch (e) {
-      log.severe('Failed to parse file from $path: $e', e);
+      log.severe('Failed to parse file: $e', e);
       rethrow;
     }
 
     if (json == null) {
-      throw Exception('Failed to parse json from $path');
+      throw Exception('Failed to parse json');
     } else if (json is List) {
       // old format
       return EditorCoreInfo.fromOldJson(
@@ -493,28 +500,22 @@ class EditorCoreInfo {
   ///
   /// If [currentPageIndex] isn't null,
   /// [initialPageIndex] will be updated to it before saving.
-  Future<List<int>> saveToSba({
-    required int? currentPageIndex,
-  }) async {
-    final (bson, assets) = saveToBinary(
-      currentPageIndex: currentPageIndex,
-    );
+  Future<List<int>> saveToSba({required int? currentPageIndex}) async {
+    final (bson, assets) = saveToBinary(currentPageIndex: currentPageIndex);
     const filePath = 'main${Editor.extension}';
 
     final archive = Archive();
-    archive.addFile(ArchiveFile(
-      filePath,
-      bson.length,
-      bson,
-    ));
+    archive.addFile(ArchiveFile(filePath, bson.length, bson));
 
     await Future.wait([
       for (int i = 0; i < assets.length; ++i)
-        assets.getBytes(i).then((bytes) => archive.addFile(ArchiveFile(
-              '$filePath.$i',
-              bytes.length,
-              bytes,
-            ))),
+        assets
+            .getBytes(i)
+            .then(
+              (bytes) => archive.addFile(
+                ArchiveFile('$filePath.$i', bytes.length, bytes),
+              ),
+            ),
     ]);
 
     return ZipEncoder().encode(archive);
@@ -546,7 +547,6 @@ class EditorCoreInfo {
     CanvasBackgroundPattern? backgroundPattern,
     int? lineHeight,
     int? lineThickness,
-    QuillController? quillController,
     List<EditorPage>? pages,
   }) {
     return EditorCoreInfo._(

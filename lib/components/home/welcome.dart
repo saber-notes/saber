@@ -7,12 +7,12 @@ class Welcome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var textTheme = Theme.of(context).textTheme;
+    final textTheme = TextTheme.of(context);
     return Center(
       child: Padding(
-        padding: const EdgeInsets.all(8),
+        padding: const .all(8),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: .center,
           children: [
             SvgPicture.asset(
               'assets/images/undraw_learning_sketching_nd4f.svg',

@@ -14,9 +14,9 @@ void main() {
     FlavorConfig.setup();
     await FileManager.init();
 
-    const String filePath = '/tests/distinct_name.sbn2';
-    const String filePath2 = '/tests/distinct_name (2).sbn2';
-    const String filePath3 = '/tests/distinct_name (3).sbn2';
+    const filePath = '/tests/distinct_name.sbn2';
+    const filePath2 = '/tests/distinct_name (2).sbn2';
+    const filePath3 = '/tests/distinct_name (3).sbn2';
     String suffixedPath;
 
     // Make sure files don't exist
@@ -27,24 +27,41 @@ void main() {
     ]);
 
     suffixedPath = await FileManager.suffixFilePathToMakeItUnique(filePath);
-    expect(suffixedPath == filePath, true,
-        reason: "filePath doesn't exist, so it should be returned as is");
+    expect(
+      suffixedPath == filePath,
+      true,
+      reason: "filePath doesn't exist, so it should be returned as is",
+    );
 
-    await FileManager.writeFile(suffixedPath, [1, 2, 3],
-        awaitWrite: true, alsoUpload: false);
+    await FileManager.writeFile(
+      suffixedPath,
+      [1, 2, 3],
+      awaitWrite: true,
+      alsoUpload: false,
+    );
 
     suffixedPath = await FileManager.suffixFilePathToMakeItUnique(filePath);
-    expect(suffixedPath == filePath2, true,
-        reason:
-            "filePath exists, but filePath2 doesn't, so filePath2 should be returned");
+    expect(
+      suffixedPath == filePath2,
+      true,
+      reason:
+          "filePath exists, but filePath2 doesn't, so filePath2 should be returned",
+    );
 
-    await FileManager.writeFile(suffixedPath, [1, 2, 3],
-        awaitWrite: true, alsoUpload: false);
+    await FileManager.writeFile(
+      suffixedPath,
+      [1, 2, 3],
+      awaitWrite: true,
+      alsoUpload: false,
+    );
 
     suffixedPath = await FileManager.suffixFilePathToMakeItUnique(filePath);
-    expect(suffixedPath == filePath3, true,
-        reason:
-            "filePath and filePath2 exist, but filePath3 doesn't, so filePath3 should be returned");
+    expect(
+      suffixedPath == filePath3,
+      true,
+      reason:
+          "filePath and filePath2 exist, but filePath3 doesn't, so filePath3 should be returned",
+    );
 
     // cleanup
     await Future.wait([

@@ -1,0 +1,2 @@
+• Risolto il problema con il supporto della compilazione automatica nella pagina della password di crittografia.
+• Vari miglioramenti dell'interfaccia utente.

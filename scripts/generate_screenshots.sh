@@ -1,7 +1,5 @@
 #!/bin/bash
 
-flutter test \
-  --reporter expanded \
+./test.sh \
   --update-goldens \
-  --dart-define=ALL_SCREENSHOTS=true \
-  test/screenshot_goldens_test.dart
+  --dart-define=ALL_SCREENSHOTS=true

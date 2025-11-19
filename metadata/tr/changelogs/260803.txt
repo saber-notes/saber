@@ -1,0 +1,4 @@
+• Kısa (1-2 puan) vuruşların iyileştirilmiş kullanımı.
+• Kalem jest işleyicilerinde sabit null hataları.
+• Kalem gölgelendiricileri ile küçük bir bellek sızıntısı düzeltildi.
+• Android'de özel veri dizin geçişini kısmen düzeltti.

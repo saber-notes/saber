@@ -1,0 +1,4 @@
+- A stroke -rajz algoritmus jelentős fejlesztései. Kevesebb pislogást fog látni, miközben rajzol, jobb az éles sarkok kezelése a középső stroke, és kevesebb részletet veszít a stroke vége közelében.
+- Hozzáadott stylus -támogatás a Linuxhoz. Nincs nyomásérzékenység, de most a tollát húzhatja, és az ujját görgetni.
+- Javítva néhány problémát, amikor fájlokat importál a Windows -on, köszönhetően a @zebravogel94349 és a @qubab a github -on.
+...

@@ -1,7 +1,5 @@
 #!/bin/bash
 
-for svg in *.svg; do
-    png="${svg%.*}.png"
-    echo "Converting $svg to $png"
-    magick "$svg" -resize 1024x1024 -background none -transparent white "$png"
-done
+echo "Please use ./scripts/generate_icons.sh to generate icons instead."
+echo "This rasterize.sh script is no longer used."
+exit 1

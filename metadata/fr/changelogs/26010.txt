@@ -1,0 +1,3 @@
+• Taille de l'application légèrement réduite
+• Nouvel affichage du chemin du dossier actuel dans la page Parcourir
+• Dans les futures mises à jour, j'ajouterai un suivi d'erreur pour m'aider à améliorer l'application. Ce sera opt-in et aussi anonyme que possible.

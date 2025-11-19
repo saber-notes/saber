@@ -1,17 +1,19 @@
 import 'dart:io';
 
 import 'package:dynamic_color/dynamic_color.dart';
-import 'package:flutter/foundation.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_quill/flutter_quill.dart';
 import 'package:go_router/go_router.dart';
-import 'package:saber/components/theming/font_fallbacks.dart';
+import 'package:saber/components/theming/saber_theme.dart';
 import 'package:saber/components/theming/yaru_builder.dart';
 import 'package:saber/data/prefs.dart';
+import 'package:saber/i18n/extensions/redirecting_localization_delegate.dart';
 import 'package:saber/i18n/strings.g.dart';
 import 'package:window_manager/window_manager.dart';
+import 'package:yaru/yaru.dart';
 
 class DynamicMaterialApp extends StatefulWidget {
   const DynamicMaterialApp({
@@ -25,6 +27,9 @@ class DynamicMaterialApp extends StatefulWidget {
   final Color defaultSwatch;
   final GoRouter router;
 
+  @override
+  State<DynamicMaterialApp> createState() => DynamicMaterialAppState();
+
   static final ValueNotifier<bool> _isFullscreen = ValueNotifier(false);
   static bool get isFullscreen => _isFullscreen.value;
 
@@ -36,7 +41,8 @@ class DynamicMaterialApp extends StatefulWidget {
       windowManager.setFullScreen(value);
     } else {
       SystemChrome.setEnabledSystemUIMode(
-          value ? SystemUiMode.immersive : SystemUiMode.edgeToEdge);
+        value ? SystemUiMode.immersive : SystemUiMode.edgeToEdge,
+      );
     }
   }
 
@@ -47,25 +53,10 @@ class DynamicMaterialApp extends StatefulWidget {
   static void removeFullscreenListener(void Function() listener) {
     _isFullscreen.removeListener(listener);
   }
-
-  @override
-  State<DynamicMaterialApp> createState() => _DynamicMaterialAppState();
 }
 
-class _DynamicMaterialAppState extends State<DynamicMaterialApp>
+class DynamicMaterialAppState extends State<DynamicMaterialApp>
     with WindowListener {
-  /// Synced with [PageTransitionsTheme._defaultBuilders]
-  /// but with PredictiveBackPageTransitionsBuilder for Android.
-  static const _pageTransitionsTheme = PageTransitionsTheme(
-    builders: {
-      TargetPlatform.android: PredictiveBackPageTransitionsBuilder(),
-      TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
-      TargetPlatform.macOS: CupertinoPageTransitionsBuilder(),
-      TargetPlatform.windows: ZoomPageTransitionsBuilder(),
-      TargetPlatform.linux: ZoomPageTransitionsBuilder(),
-    },
-  );
-
   @override
   void initState() {
     stows.appTheme.addListener(onChanged);
@@ -80,7 +71,7 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp>
   }
 
   void onChanged() {
-    setState(() {});
+    if (mounted) setState(() {});
   }
 
   @override
@@ -94,137 +85,79 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp>
   }
 
   Future<void> _onFullscreenChange(bool systemOverlaysAreVisible) async {
-    DynamicMaterialApp.setFullscreen(!systemOverlaysAreVisible,
-        updateSystem: false);
-  }
-
-  TextTheme? getTextTheme(Brightness brightness) {
-    if (stows.hyperlegibleFont.value) {
-      return ThemeData(brightness: brightness).textTheme.withFont(
-            fontFamily: 'AtkinsonHyperlegible',
-            fontFamilyFallback: saberSansSerifFontFallbacks,
-          );
-    } else {
-      return null;
-    }
+    DynamicMaterialApp.setFullscreen(
+      !systemOverlaysAreVisible,
+      updateSystem: false,
+    );
   }
 
   @override
   Widget build(BuildContext context) {
+    var chosenAccentColor = stows.accentColor.value;
+    if ((chosenAccentColor?.a ?? 0) < double.minPositive)
+      chosenAccentColor = null; // discard transparent accent color
+    final platform = stows.platform.value;
+
+    // Use Yaru theme, with or without [chosenAccentColor]
+    if (platform == .linux) {
+      return YaruBuilder(
+        primary: chosenAccentColor, // if null, falls back to system color
+        platform: platform,
+        builder: (context, themes) {
+          return ExplicitlyThemedApp(
+            title: widget.title,
+            router: widget.router,
+            themeMode: stows.appTheme.value,
+            theme: themes.theme,
+            darkTheme: themes.darkTheme,
+            highContrastTheme: themes.highContrastTheme,
+            highContrastDarkTheme: themes.highContrastDarkTheme,
+          );
+        },
+      );
+    }
+
+    // Use [chosenAccentColor] with material/cupertino theme
+    if (chosenAccentColor != null) {
+      return ExplicitlyThemedApp(
+        title: widget.title,
+        router: widget.router,
+        themeMode: stows.appTheme.value,
+        theme: SaberTheme.createThemeFromSeed(
+          chosenAccentColor,
+          .light,
+          platform,
+        ),
+        darkTheme: SaberTheme.createThemeFromSeed(
+          chosenAccentColor,
+          .dark,
+          platform,
+        ),
+      );
+    }
+
+    // Try and use device's accent color, or fall back to defaultSwatch
     return DynamicColorBuilder(
-      builder: (ColorScheme? lightDynamic, ColorScheme? darkDynamic) {
-        final Color seedColor;
-        final ColorScheme lightColorScheme;
-        final ColorScheme darkColorScheme;
-
-        final chosenAccentColor = stows.accentColor.value;
-        if (chosenAccentColor != null &&
-            chosenAccentColor != Colors.transparent) {
-          seedColor = chosenAccentColor;
-          lightColorScheme = ColorScheme.fromSeed(
-            brightness: Brightness.light,
-            seedColor: seedColor,
-          );
-          darkColorScheme = ColorScheme.fromSeed(
-            brightness: Brightness.dark,
-            seedColor: seedColor,
-          );
-        } else if (lightDynamic != null && darkDynamic != null) {
-          lightColorScheme = lightDynamic.harmonized();
-          darkColorScheme = darkDynamic.harmonized();
-          seedColor = lightColorScheme.primary;
-        } else {
-          seedColor = widget.defaultSwatch;
-          lightColorScheme = ColorScheme.fromSeed(
-            brightness: Brightness.light,
-            seedColor: seedColor,
-          );
-          darkColorScheme = ColorScheme.fromSeed(
-            brightness: Brightness.dark,
-            seedColor: seedColor,
-          );
-        }
-
-        final highContrastLightColorScheme = ColorScheme.fromSeed(
-          brightness: Brightness.light,
-          seedColor: seedColor,
-          surface: Colors.white,
-          contrastLevel: 1,
+      builder: (ColorScheme? lightColorScheme, ColorScheme? darkColorScheme) {
+        return ExplicitlyThemedApp(
+          title: widget.title,
+          router: widget.router,
+          themeMode: stows.appTheme.value,
+          theme: (!platform.usesYaruColors && lightColorScheme != null)
+              ? SaberTheme.createTheme(lightColorScheme, platform)
+              : SaberTheme.createThemeFromSeed(
+                  lightColorScheme?.primary ?? widget.defaultSwatch,
+                  .light,
+                  platform,
+                ),
+          darkTheme: (!platform.usesYaruColors && darkColorScheme != null)
+              ? SaberTheme.createTheme(darkColorScheme, platform)
+              : SaberTheme.createThemeFromSeed(
+                  darkColorScheme?.primary ?? widget.defaultSwatch,
+                  .dark,
+                  platform,
+                ),
         );
-        final highContrastDarkColorScheme = ColorScheme.fromSeed(
-          brightness: Brightness.dark,
-          seedColor: seedColor,
-          surface: Colors.black,
-          contrastLevel: 1,
-        );
-
-        final platform = switch (stows.platform.value) {
-          TargetPlatform.iOS => TargetPlatform.iOS,
-          TargetPlatform.android => TargetPlatform.android,
-          TargetPlatform.linux => TargetPlatform.linux,
-          _ => defaultTargetPlatform,
-        };
-
-        return YaruBuilder(
-            enabled: platform == TargetPlatform.linux,
-            primary: lightColorScheme.primary,
-            builder: (context, yaruTheme, yaruHighContrastTheme) {
-              return MaterialApp.router(
-                routeInformationProvider:
-                    widget.router.routeInformationProvider,
-                routeInformationParser: widget.router.routeInformationParser,
-                routerDelegate: widget.router.routerDelegate,
-                locale: TranslationProvider.of(context).flutterLocale,
-                supportedLocales: AppLocaleUtils.supportedLocales,
-                localizationsDelegates: const [
-                  ...GlobalMaterialLocalizations.delegates,
-                  FlutterQuillLocalizations.delegate,
-                ],
-                title: widget.title,
-                themeMode: stows.appTheme.loaded
-                    ? stows.appTheme.value
-                    : ThemeMode.system,
-                theme: yaruTheme?.theme ??
-                    ThemeData(
-                      useMaterial3: true,
-                      colorScheme: lightColorScheme,
-                      textTheme: getTextTheme(Brightness.light),
-                      scaffoldBackgroundColor: lightColorScheme.surface,
-                      platform: platform,
-                      pageTransitionsTheme: _pageTransitionsTheme,
-                    ),
-                darkTheme: yaruTheme?.darkTheme ??
-                    ThemeData(
-                      useMaterial3: true,
-                      colorScheme: darkColorScheme,
-                      textTheme: getTextTheme(Brightness.dark),
-                      scaffoldBackgroundColor: darkColorScheme.surface,
-                      platform: platform,
-                      pageTransitionsTheme: _pageTransitionsTheme,
-                    ),
-                highContrastTheme: yaruHighContrastTheme?.theme ??
-                    ThemeData(
-                      useMaterial3: true,
-                      colorScheme: highContrastLightColorScheme,
-                      textTheme: getTextTheme(Brightness.light),
-                      scaffoldBackgroundColor:
-                          highContrastLightColorScheme.surface,
-                      platform: platform,
-                      pageTransitionsTheme: _pageTransitionsTheme,
-                    ),
-                highContrastDarkTheme: yaruHighContrastTheme?.darkTheme ??
-                    ThemeData(
-                      useMaterial3: true,
-                      colorScheme: highContrastDarkColorScheme,
-                      textTheme: getTextTheme(Brightness.dark),
-                      scaffoldBackgroundColor:
-                          highContrastDarkColorScheme.surface,
-                      platform: platform,
-                      pageTransitionsTheme: _pageTransitionsTheme,
-                    ),
-                debugShowCheckedModeBanner: false,
-              );
-            });
       },
     );
   }
@@ -241,4 +174,141 @@ class _DynamicMaterialAppState extends State<DynamicMaterialApp>
 
     super.dispose();
   }
+}
+
+@visibleForTesting
+class ExplicitlyThemedApp extends StatelessWidget {
+  @protected
+  const ExplicitlyThemedApp({
+    super.key,
+    required this.title,
+    required this.router,
+    required this.themeMode,
+    required this.theme,
+    required this.darkTheme,
+    this.highContrastTheme,
+    this.highContrastDarkTheme,
+  });
+
+  final String title;
+  final GoRouter router;
+  final ThemeMode themeMode;
+  final ThemeData theme, darkTheme;
+  final ThemeData? highContrastTheme, highContrastDarkTheme;
+
+  static final _materialAppKey = GlobalKey<State<MaterialApp>>();
+
+  @override
+  Widget build(BuildContext context) {
+    final highContrastTheme =
+        this.highContrastTheme ??
+        theme.copyWith(colorScheme: theme.colorScheme.withHighContrast());
+    final highContrastDarkTheme =
+        this.highContrastDarkTheme ??
+        darkTheme.copyWith(colorScheme: theme.colorScheme.withHighContrast());
+
+    return MaterialApp.router(
+      key: _materialAppKey,
+      title: title,
+      routeInformationProvider: router.routeInformationProvider,
+      routeInformationParser: router.routeInformationParser,
+      routerDelegate: router.routerDelegate,
+      locale: TranslationProvider.of(context).flutterLocale,
+      supportedLocales: AppLocaleUtils.supportedLocales,
+      localizationsDelegates: const [
+        RedirectingLocalizationDelegate<CupertinoLocalizations>(
+          GlobalCupertinoLocalizations.delegate,
+        ),
+        RedirectingLocalizationDelegate<MaterialLocalizations>(
+          GlobalMaterialLocalizations.delegate,
+        ),
+        RedirectingLocalizationDelegate<WidgetsLocalizations>(
+          GlobalWidgetsLocalizations.delegate,
+        ),
+        RedirectingLocalizationDelegate<FlutterQuillLocalizations>(
+          FlutterQuillLocalizations.delegate,
+        ),
+      ],
+      themeMode: themeMode,
+      theme: theme,
+      darkTheme: darkTheme,
+      highContrastTheme: highContrastTheme,
+      highContrastDarkTheme: highContrastDarkTheme,
+      debugShowCheckedModeBanner: false,
+      builder: (Platform.isWindows || Platform.isLinux)
+          ? (context, child) => _BorderedWindow(child: child)
+          : null,
+    );
+  }
+}
+
+/// A widget that adds a border around the app window when not in fullscreen.
+class _BorderedWindow extends StatefulWidget {
+  const _BorderedWindow({required this.child});
+  final Widget? child;
+  @override
+  State<_BorderedWindow> createState() => _BorderedWindowState();
+}
+
+class _BorderedWindowState extends State<_BorderedWindow> {
+  static var _lastBorderColor = Colors.transparent;
+  static final _childKey = GlobalKey();
+
+  @override
+  void initState() {
+    super.initState();
+    DynamicMaterialApp.addFullscreenListener(_onFullscreenChanged);
+  }
+
+  @override
+  void dispose() {
+    DynamicMaterialApp.removeFullscreenListener(_onFullscreenChanged);
+    super.dispose();
+  }
+
+  void _onFullscreenChanged() {
+    if (mounted) setState(() {});
+  }
+
+  @override
+  void didChangeDependencies() {
+    final borderColor = Color.alphaBlend(
+      YaruTitleBarTheme.of(context).border?.color ??
+          (Theme.brightnessOf(context) == .light
+              ? Colors.black.withValues(alpha: 0.1)
+              : Colors.white.withValues(alpha: 0.06)),
+      ColorScheme.of(context).surface,
+    );
+    if (borderColor != _lastBorderColor) {
+      _lastBorderColor = borderColor;
+      windowManager.setBackgroundColor(borderColor).catchError((_) {});
+    }
+    super.didChangeDependencies();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    /// Use KeyedSubtree to preserve child state when adding/removing border
+    final keyedChild = KeyedSubtree(
+      key: _childKey,
+      child: widget.child ?? const SizedBox(),
+    );
+
+    final showBorder = !DynamicMaterialApp.isFullscreen;
+    return showBorder
+        ? ColoredBox(
+            color: _lastBorderColor,
+            child: Padding(padding: const .all(1), child: keyedChild),
+          )
+        : keyedChild;
+  }
+}
+
+extension _ColorSchemeContraster on ColorScheme {
+  ColorScheme withHighContrast() => ColorScheme.fromSeed(
+    brightness: brightness,
+    seedColor: primary,
+    surface: brightness == .light ? Colors.white : Colors.black,
+    contrastLevel: 1,
+  );
 }

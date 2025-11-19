@@ -1,0 +1,4 @@
+• A rövid (1-2 pont) löket javított kezelése.
+• Rögzített nullhibák a toll gesztuskezelőiben.
+• Javítson egy kis memóriaszivárgást a ceruza árnyékolókkal.
+• Részben rögzítse az egyéni adatkönyvtár migrációját az Androidon.

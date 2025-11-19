@@ -4,7 +4,7 @@ class PngEditorImage extends EditorImage {
   ImageProvider? imageProvider;
 
   Uint8List? thumbnailBytes;
-  Size thumbnailSize = Size.zero;
+  Size thumbnailSize = .zero;
 
   /// The maximum image size allowed for this image.
   /// If null, Prefs.maxImageSize will be used instead.
@@ -16,8 +16,12 @@ class PngEditorImage extends EditorImage {
     if (isThumbnail && thumbnailBytes != null) {
       imageProvider = MemoryImage(thumbnailBytes!);
       final scale = thumbnailSize.width / naturalSize.width;
-      srcRect = Rect.fromLTWH(srcRect.left * scale, srcRect.top * scale,
-          srcRect.width * scale, srcRect.height * scale);
+      srcRect = .fromLTWH(
+        srcRect.left * scale,
+        srcRect.top * scale,
+        srcRect.width * scale,
+        srcRect.height * scale,
+      );
     }
   }
 
@@ -55,8 +59,9 @@ class PngEditorImage extends EditorImage {
     File? imageFile;
     if (assetIndex != null) {
       if (inlineAssets == null) {
-        imageFile =
-            FileManager.getFile('$sbnPath${Editor.extension}.$assetIndex');
+        imageFile = FileManager.getFile(
+          '$sbnPath${Editor.extension}.$assetIndex',
+        );
         bytes = assetCache.get(imageFile);
       } else {
         bytes = inlineAssets[assetIndex];
@@ -69,8 +74,10 @@ class PngEditorImage extends EditorImage {
       }
       bytes = Uint8List(0);
     }
-    assert(bytes != null || imageFile != null,
-        'Either bytes or imageFile must be non-null');
+    assert(
+      bytes != null || imageFile != null,
+      'Either bytes or imageFile must be non-null',
+    );
 
     return PngEditorImage(
       // -1 will be replaced by [EditorCoreInfo._handleEmptyImageIds()]
@@ -81,31 +88,27 @@ class PngEditorImage extends EditorImage {
           ? MemoryImage(bytes) as ImageProvider
           : FileImage(imageFile!),
       pageIndex: json['i'] ?? 0,
-      pageSize: Size.infinite,
+      pageSize: .infinite,
       invertible: json['v'] ?? true,
-      backgroundFit:
-          json['f'] != null ? BoxFit.values[json['f']] : BoxFit.contain,
+      backgroundFit: json['f'] != null ? .values[json['f']] : .contain,
       onMoveImage: null,
       onDeleteImage: null,
       onMiscChange: null,
       onLoad: null,
       newImage: false,
-      dstRect: Rect.fromLTWH(
+      dstRect: .fromLTWH(
         json['x'] ?? 0,
         json['y'] ?? 0,
         json['w'] ?? 0,
         json['h'] ?? 0,
       ),
-      srcRect: Rect.fromLTWH(
+      srcRect: .fromLTWH(
         json['sx'] ?? 0,
         json['sy'] ?? 0,
         json['sw'] ?? 0,
         json['sh'] ?? 0,
       ),
-      naturalSize: Size(
-        json['nw'] ?? 0,
-        json['nh'] ?? 0,
-      ),
+      naturalSize: Size(json['nw'] ?? 0, json['nh'] ?? 0),
       thumbnailBytes: json['t'] != null
           ? Uint8List.fromList((json['t'] as List<dynamic>).cast<int>())
           : null,
@@ -114,10 +117,9 @@ class PngEditorImage extends EditorImage {
   }
 
   @override
-  Map<String, dynamic> toJson(OrderedAssetCache assets) => super.toJson(assets)
-    ..addAll({
-      if (imageProvider != null) 'a': assets.add(imageProvider!),
-    });
+  Map<String, dynamic> toJson(OrderedAssetCache assets) =>
+      super.toJson(assets)
+        ..addAll({if (imageProvider != null) 'a': assets.add(imageProvider!)});
 
   @override
   Future<void> firstLoad() async {
@@ -131,17 +133,20 @@ class PngEditorImage extends EditorImage {
         bytes = await (imageProvider as FileImage).file.readAsBytes();
       } else {
         throw Exception(
-            'EditorImage.getImage: imageProvider is ${imageProvider.runtimeType}');
+          'EditorImage.getImage: imageProvider is ${imageProvider.runtimeType}',
+        );
       }
 
       naturalSize = await ui.ImmutableBuffer.fromUint8List(bytes)
           .then((buffer) => ui.ImageDescriptor.encoded(buffer))
-          .then((descriptor) =>
-              Size(descriptor.width.toDouble(), descriptor.height.toDouble()));
+          .then(
+            (descriptor) =>
+                Size(descriptor.width.toDouble(), descriptor.height.toDouble()),
+          );
 
       if (maxSize == null) {
         await stows.maxImageSize.waitUntilRead();
-        maxSize = Size.square(stows.maxImageSize.value);
+        maxSize = .square(stows.maxImageSize.value);
       }
       final Size reducedSize = EditorImage.resize(naturalSize, maxSize!);
       if (naturalSize.width != reducedSize.width && !isThumbnail) {
@@ -203,37 +208,34 @@ class PngEditorImage extends EditorImage {
     } else if (isBackground) {
       boxFit = backgroundFit;
     } else {
-      boxFit = BoxFit.fill;
+      boxFit = .fill;
     }
 
     return InvertWidget(
       invert: invert,
-      child: Image(
-        image: imageProvider!,
-        fit: boxFit,
-      ),
+      child: Image(image: imageProvider!, fit: boxFit),
     );
   }
 
   @override
   PngEditorImage copy() => PngEditorImage(
-        id: id,
-        assetCache: assetCache,
-        extension: extension,
-        imageProvider: imageProvider,
-        pageIndex: pageIndex,
-        pageSize: Size.infinite,
-        invertible: invertible,
-        backgroundFit: backgroundFit,
-        onMoveImage: onMoveImage,
-        onDeleteImage: onDeleteImage,
-        onMiscChange: onMiscChange,
-        onLoad: onLoad,
-        newImage: true,
-        dstRect: dstRect,
-        srcRect: srcRect,
-        naturalSize: naturalSize,
-        thumbnailBytes: thumbnailBytes,
-        isThumbnail: isThumbnail,
-      );
+    id: id,
+    assetCache: assetCache,
+    extension: extension,
+    imageProvider: imageProvider,
+    pageIndex: pageIndex,
+    pageSize: .infinite,
+    invertible: invertible,
+    backgroundFit: backgroundFit,
+    onMoveImage: onMoveImage,
+    onDeleteImage: onDeleteImage,
+    onMiscChange: onMiscChange,
+    onLoad: onLoad,
+    newImage: true,
+    dstRect: dstRect,
+    srcRect: srcRect,
+    naturalSize: naturalSize,
+    thumbnailBytes: thumbnailBytes,
+    isThumbnail: isThumbnail,
+  );
 }

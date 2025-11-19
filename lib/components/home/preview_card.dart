@@ -37,8 +37,9 @@ class _PreviewCardState extends State<PreviewCard> {
 
   @override
   void initState() {
-    fileWriteSubscription =
-        FileManager.fileWriteStream.stream.listen(fileWriteListener);
+    fileWriteSubscription = FileManager.fileWriteStream.stream.listen(
+      fileWriteListener,
+    );
 
     expanded.value = widget.selected;
     super.initState();
@@ -48,8 +49,9 @@ class _PreviewCardState extends State<PreviewCard> {
   void didChangeDependencies() {
     super.didChangeDependencies();
 
-    final imageFile =
-        FileManager.getFile('${widget.filePath}${Editor.extension}.p');
+    final imageFile = FileManager.getFile(
+      '${widget.filePath}${Editor.extension}.p',
+    );
     if (kDebugMode && Platform.environment.containsKey('FLUTTER_TEST')) {
       // Avoid FileImages in tests
       thumbnail.image = imageFile.existsSync()
@@ -63,9 +65,9 @@ class _PreviewCardState extends State<PreviewCard> {
   StreamSubscription? fileWriteSubscription;
   void fileWriteListener(FileOperation event) {
     if (event.filePath != widget.filePath) return;
-    if (event.type == FileOperationType.delete) {
+    if (event.type == .delete) {
       thumbnail.image = null;
-    } else if (event.type == FileOperationType.write) {
+    } else if (event.type == .write) {
       thumbnail.image?.evict();
       thumbnail.markAsChanged();
     } else {
@@ -78,17 +80,26 @@ class _PreviewCardState extends State<PreviewCard> {
     widget.toggleSelection(widget.filePath, expanded.value);
   }
 
+  Timer? _refreshThumbnailTimer;
+  void _refreshThumbnailAfterDelay() {
+    _refreshThumbnailTimer?.cancel();
+    _refreshThumbnailTimer = Timer(const Duration(milliseconds: 500), () {
+      thumbnail.image?.evict();
+      thumbnail.markAsChanged();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
     final disableAnimations = MediaQuery.disableAnimationsOf(context);
-    final transitionDuration =
-        Duration(milliseconds: disableAnimations ? 0 : 300);
-    final invert =
-        theme.brightness == Brightness.dark && stows.editorAutoInvert.value;
+    final transitionDuration = Duration(
+      milliseconds: disableAnimations ? 0 : 300,
+    );
+    final invert = theme.brightness == .dark && stows.editorAutoInvert.value;
 
-    Widget card = MouseRegion(
+    final Widget card = MouseRegion(
       cursor: SystemMouseCursors.click,
       child: GestureDetector(
         onTap: widget.isAnythingSelected ? _toggleCardSelection : null,
@@ -99,7 +110,7 @@ class _PreviewCardState extends State<PreviewCard> {
           child: Stack(
             children: [
               Column(
-                mainAxisSize: MainAxisSize.min,
+                mainAxisSize: .min,
                 children: [
                   Stack(
                     children: [
@@ -109,7 +120,7 @@ class _PreviewCardState extends State<PreviewCard> {
                           duration: const Duration(milliseconds: 300),
                           child: ConstrainedBox(
                             key: ValueKey(thumbnail.updateCount),
-                            constraints: BoxConstraints(minHeight: 100),
+                            constraints: const BoxConstraints(minHeight: 100),
                             child: InvertWidget(
                               invert: invert,
                               child: thumbnail.doesImageExist
@@ -128,20 +139,20 @@ class _PreviewCardState extends State<PreviewCard> {
                           valueListenable: expanded,
                           builder: (context, expanded, child) =>
                               AnimatedOpacity(
-                            opacity: expanded ? 1 : 0,
-                            duration: const Duration(milliseconds: 200),
-                            child: IgnorePointer(
-                              ignoring: !expanded,
-                              child: child!,
-                            ),
-                          ),
+                                opacity: expanded ? 1 : 0,
+                                duration: const Duration(milliseconds: 200),
+                                child: IgnorePointer(
+                                  ignoring: !expanded,
+                                  child: child!,
+                                ),
+                              ),
                           child: GestureDetector(
                             onTap: _toggleCardSelection,
                             child: DecoratedBox(
                               decoration: BoxDecoration(
                                 gradient: LinearGradient(
-                                  begin: Alignment.topCenter,
-                                  end: Alignment.bottomCenter,
+                                  begin: .topCenter,
+                                  end: .bottomCenter,
                                   colors: [
                                     colorScheme.surface.withValues(alpha: 0.2),
                                     colorScheme.surface.withValues(alpha: 0.8),
@@ -150,8 +161,9 @@ class _PreviewCardState extends State<PreviewCard> {
                                 ),
                               ),
                               child: ColoredBox(
-                                color:
-                                    colorScheme.primary.withValues(alpha: 0.05),
+                                color: colorScheme.primary.withValues(
+                                  alpha: 0.05,
+                                ),
                               ),
                             ),
                           ),
@@ -161,20 +173,19 @@ class _PreviewCardState extends State<PreviewCard> {
                   ),
                   Flexible(
                     child: Padding(
-                      padding: const EdgeInsets.all(8),
+                      padding: const .all(8),
                       child: Text(
-                        widget.filePath
-                            .substring(widget.filePath.lastIndexOf('/') + 1),
+                        widget.filePath.substring(
+                          widget.filePath.lastIndexOf('/') + 1,
+                        ),
                         maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
+                        overflow: .ellipsis,
                       ),
                     ),
                   ),
                 ],
               ),
-              SyncIndicator(
-                filePath: widget.filePath,
-              ),
+              SyncIndicator(filePath: widget.filePath),
             ],
           ),
         ),
@@ -186,8 +197,7 @@ class _PreviewCardState extends State<PreviewCard> {
       builder: (context, expanded, _) {
         return OpenContainer(
           closedColor: colorScheme.surface,
-          closedShape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+          closedShape: RoundedRectangleBorder(borderRadius: .circular(16)),
           closedElevation: expanded ? 4 : 1,
           closedBuilder: (context, action) => card,
           openColor: colorScheme.surface,
@@ -196,10 +206,7 @@ class _PreviewCardState extends State<PreviewCard> {
           routeSettings: RouteSettings(
             name: RoutePaths.editFilePath(widget.filePath),
           ),
-          onClosed: (_) {
-            thumbnail.image?.evict();
-            thumbnail.markAsChanged();
-          },
+          onClosed: (_) => _refreshThumbnailAfterDelay(),
         );
       },
     );
@@ -207,6 +214,7 @@ class _PreviewCardState extends State<PreviewCard> {
 
   @override
   void dispose() {
+    _refreshThumbnailTimer?.cancel();
     fileWriteSubscription?.cancel();
     super.dispose();
   }
@@ -223,10 +231,10 @@ class _FallbackThumbnail extends StatelessWidget {
         child: Text(
           t.home.noPreviewAvailable,
           style: TextTheme.of(context).bodyMedium?.copyWith(
-                color: Stroke.defaultColor.withValues(alpha: 0.7),
-                fontStyle: FontStyle.italic,
-              ),
-          textAlign: TextAlign.center,
+            color: Stroke.defaultColor.withValues(alpha: 0.7),
+            fontStyle: FontStyle.italic,
+          ),
+          textAlign: .center,
         ),
       ),
     );
@@ -234,7 +242,7 @@ class _FallbackThumbnail extends StatelessWidget {
 }
 
 class _ThumbnailState extends ChangeNotifier {
-  int updateCount = 0;
+  var updateCount = 0;
   ImageProvider? _image;
 
   void markAsChanged() {
@@ -249,8 +257,8 @@ class _ThumbnailState extends ChangeNotifier {
   }
 
   bool get doesImageExist => switch (image) {
-        (FileImage fileImage) => fileImage.file.existsSync(),
-        null => false,
-        _ => true,
-      };
+    (final FileImage fileImage) => fileImage.file.existsSync(),
+    null => false,
+    _ => true,
+  };
 }

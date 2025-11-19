@@ -4,11 +4,11 @@ on:
   workflow_dispatch:
   pull_request:
     paths:
-      - 'packages/onyxsdk_pen/**'
+      - "packages/onyxsdk_pen/**"
       - .github/workflows/onyxsdk_pen_tests.yml
   push:
     paths:
-      - 'packages/onyxsdk_pen/**'
+      - "packages/onyxsdk_pen/**"
       - .github/workflows/onyxsdk_pen_tests.yml
 
 jobs:
@@ -18,16 +18,14 @@ jobs:
     timeout-minutes: 5
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - uses: "./.github/shared_workflows/install_apt_dependencies"
 
       - name: Setup Flutter
-        uses: subosito/flutter-action@v2
+        uses: adil192/setup-flutter-submodule@v1
         with:
-          channel: stable
-          cache: true
-          cache-key: 'flutter-:os:-:channel:-:version:-:arch:'
+          flutter-path: submodules/flutter
 
       - name: Run tests
         working-directory: packages/onyxsdk_pen

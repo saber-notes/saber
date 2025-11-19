@@ -61,6 +61,19 @@ home:
     deleteName: Delete $f
     delete: Delete
     alsoDeleteContents: Also delete all notes inside this folder
+sentry: 
+  consent: 
+    title: Help improve Saber?
+    description: 
+      question: Would you like to automatically report unexpected errors? This helps me identify and fix issues faster.
+      scope: The reports may contain information about the error and your device. I've made every effort to filter out personal data but some may remain.
+      currentlyOff: If you grant consent, error reporting will be enabled after you restart the app.
+      currentlyOn: If you revoke consent, please restart the app to disable error reporting.
+      learnMoreInPrivacyPolicy(rich): Learn more in the ${link(privacy policy)}.
+    answers: 
+      yes: Yes
+      no: No
+      later: Ask me later
 settings: 
   prefCategories: 
     general: General
@@ -86,8 +99,8 @@ settings:
     autoClearWhiteboardOnExit: Auto-clear the whiteboard
     disableEraserAfterUse: Auto-disable the eraser
     hideFingerDrawingToggle: Hide the finger drawing toggle
+    autoDisableFingerDrawingWhenStylusDetected: Auto-disable finger drawing
     editorPromptRename: Prompt you to rename new notes
-    hideHomeBackgrounds: Hide backgrounds on the home screen
     recentColorsDontSavePresets: Don't save preset colors in recent colors
     recentColorsLength: How many recent colors to store
     printPageIndicators: Print page indicators
@@ -96,7 +109,7 @@ settings:
     autoStraightenLines: Auto straighten lines
     simplifiedHomeLayout: Simplified home layout
     customDataDir: Custom Saber folder
-    pencilSoundSetting: Pencil sound effect
+    sentry: Error reporting
   prefDescriptions: 
     hyperlegibleFont: Increases legibility for users with low vision
     allowInsecureConnections: (Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates
@@ -108,18 +121,19 @@ settings:
       shown: Prevents accidental toggling
       fixedOn: Finger drawing is fixed as enabled
       fixedOff: Finger drawing is fixed as disabled
+    autoDisableFingerDrawingWhenStylusDetected: Turn off finger drawing when a stylus is detected
     editorPromptRename: You can always rename notes later
-    hideHomeBackgrounds: For a cleaner look
     printPageIndicators: Show page indicators in exports
     autosave: Auto-save after a short delay, or never
     shapeRecognitionDelay: How often to update the shape preview
     autoStraightenLines: Straightens long lines without having to use the shape pen
     simplifiedHomeLayout: Sets a fixed height for each note preview
     shouldAlwaysAlertForUpdates: Tell me about updates as soon as they're available
-    pencilSoundSetting: 
-      off: No sound
-      onButNotInSilentMode: Enabled (unless in silent mode)
-      onAlways: Enabled (even in silent mode)
+    sentry: 
+      active: Active
+      inactive: Inactive
+      activeUntilRestart: Active until you restart the app
+      inactiveUntilRestart: Inactive until you restart the app
   themeModes: 
     system: System
     light: Light
@@ -146,6 +160,7 @@ settings:
     select: Select
     mustBeEmpty: Selected folder must be empty
     mustBeDoneSyncing: Make sure syncing is complete before changing the folder
+    unsupported: This feature is currently only for developers. Using it will likely result in data loss.
   autosaveDisabled: Never
   shapeRecognitionDisabled: Never
 logs: 
@@ -153,7 +168,7 @@ logs:
   viewLogs: View logs
   debuggingInfo: Logs contain information useful for debugging and development
   noLogs: No logs here!
-  logsAreTemporary: Logs are only kept until you close the app
+  useTheApp: Logs will appear here as you use the app
 login: 
   title: Login
   form: 
@@ -233,7 +248,6 @@ appInfo:
   licenseNotice: |-
     Saber  Copyright © 2022-$buildYear  Adil Hanney
     This program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.
-  dirty: DIRTY
   debug: DEBUG
   sponsorButton: Tap here to sponsor me or buy more storage
   licenseButton: Tap here to view more license information

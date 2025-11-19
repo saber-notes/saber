@@ -8,6 +8,7 @@ import 'package:nextcloud/core.dart';
 import 'package:nextcloud/nextcloud.dart';
 import 'package:regexed_validator/regexed_validator.dart';
 import 'package:saber/components/settings/app_info.dart';
+import 'package:saber/components/theming/adaptive_circular_progress_indicator.dart';
 import 'package:saber/data/nextcloud/login_flow.dart';
 import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
 import 'package:saber/data/prefs.dart';
@@ -40,9 +41,7 @@ class _NcLoginStepState extends State<NcLoginStep> {
 
     showAdaptiveDialog(
       context: context,
-      builder: (context) => _LoginFlowDialog(
-        loginFlow: loginFlow!,
-      ),
+      builder: (context) => _LoginFlowDialog(loginFlow: loginFlow!),
     );
 
     loginFlow!.future.then((credentials) async {
@@ -54,7 +53,8 @@ class _NcLoginStepState extends State<NcLoginStep> {
       );
       final username = await client.getUsername();
 
-      stows.url.value = credentials.server ==
+      stows.url.value =
+          credentials.server ==
               NextcloudClientExtension.defaultNextcloudUri.toString()
           ? ''
           : credentials.server;
@@ -73,11 +73,15 @@ class _NcLoginStepState extends State<NcLoginStep> {
   }
 
   final _serverUrlValid = ValueNotifier(false);
-  late final TextEditingController _serverUrlController =
-      TextEditingController()
-        ..addListener(() {
-          _serverUrlValid.value = validator.url(_serverUrlController.text);
-        });
+  late final _serverUrlController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    _serverUrlController.addListener(() {
+      _serverUrlValid.value = validator.url(_serverUrlController.text);
+    });
+  }
 
   @override
   void dispose() {
@@ -88,12 +92,12 @@ class _NcLoginStepState extends State<NcLoginStep> {
 
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
-    final textTheme = Theme.of(context).textTheme;
+    final colorScheme = ColorScheme.of(context);
+    final textTheme = TextTheme.of(context);
     final screenWidth = MediaQuery.sizeOf(context).width;
     final screenHeight = MediaQuery.sizeOf(context).height;
     return ListView(
-      padding: EdgeInsets.symmetric(
+      padding: .symmetric(
         horizontal: screenWidth > width ? (screenWidth - width) / 2 : 16,
         vertical: 16,
       ),
@@ -106,12 +110,12 @@ class _NcLoginStepState extends State<NcLoginStep> {
             height: min(width * 576 / 844.6693, screenHeight * 0.25),
             excludeFromSemantics: true,
           ),
-          SizedBox(
-            height: min(64, screenHeight * 0.05),
-          ),
+          SizedBox(height: min(64, screenHeight * 0.05)),
         ],
-        Text(t.login.ncLoginStep.whereToStoreData,
-            style: textTheme.headlineSmall),
+        Text(
+          t.login.ncLoginStep.whereToStoreData,
+          style: textTheme.headlineSmall,
+        ),
         Text.rich(
           t.login.form.agreeToPrivacyPolicy(
             linkToPrivacyPolicy: (text) => TextSpan(
@@ -126,7 +130,7 @@ class _NcLoginStepState extends State<NcLoginStep> {
         ),
         const SizedBox(height: 32),
         Row(
-          mainAxisAlignment: MainAxisAlignment.end,
+          mainAxisAlignment: .end,
           children: [
             SvgPicture.asset('assets/icon/icon.svg', width: 32, height: 32),
             const SizedBox(width: 16),
@@ -151,9 +155,10 @@ class _NcLoginStepState extends State<NcLoginStep> {
             linkToSignup: (text) => TextSpan(
               text: text,
               style: TextStyle(
-                  color: colorScheme.brightness == Brightness.dark
-                      ? saberColor
-                      : saberColorDarkened),
+                color: colorScheme.brightness == .dark
+                    ? saberColor
+                    : saberColorDarkened,
+              ),
               recognizer: TapGestureRecognizer()
                 ..onTap = () {
                   launchUrl(NcLoginPage.signupUrl);
@@ -163,7 +168,7 @@ class _NcLoginStepState extends State<NcLoginStep> {
         ),
         const SizedBox(height: 32),
         Row(
-          mainAxisAlignment: MainAxisAlignment.end,
+          mainAxisAlignment: .end,
           children: [
             SvgPicture.asset(
               'assets/images/nextcloud-logo.svg',
@@ -214,7 +219,10 @@ class _NcLoginStepState extends State<NcLoginStep> {
 
   static ButtonStyle buttonColorStyle(Color primary, [Color? onPrimary]) {
     final colorScheme = ColorScheme.fromSeed(
-        seedColor: primary, primary: primary, onPrimary: onPrimary);
+      seedColor: primary,
+      primary: primary,
+      onPrimary: onPrimary,
+    );
     return ElevatedButton.styleFrom(
       backgroundColor: colorScheme.primary,
       foregroundColor: colorScheme.onPrimary,
@@ -247,7 +255,7 @@ class _LoginFlowDialogState extends State<_LoginFlowDialog> {
     return AlertDialog.adaptive(
       title: Text(t.login.ncLoginStep.loginFlow.pleaseAuthorize),
       content: Column(
-        mainAxisSize: MainAxisSize.min,
+        mainAxisSize: .min,
         children: [
           Text(t.login.ncLoginStep.loginFlow.followPrompts),
           TextButton(
@@ -264,9 +272,7 @@ class _LoginFlowDialogState extends State<_LoginFlowDialog> {
           },
           child: Text(t.common.cancel),
         ),
-        _FakeDoneButton(
-          child: Text(t.common.done),
-        ),
+        _FakeDoneButton(child: Text(t.common.done)),
       ],
     );
   }
@@ -289,7 +295,7 @@ class _FakeDoneButton extends StatefulWidget {
 }
 
 class _FakeDoneButtonState extends State<_FakeDoneButton> {
-  bool pressed = false;
+  var pressed = false;
 
   Timer? timer;
 
@@ -303,13 +309,13 @@ class _FakeDoneButtonState extends State<_FakeDoneButton> {
 
   @override
   Widget build(BuildContext context) => TextButton(
-        onPressed: pressed ? null : _onPressed,
-        child: pressed
-            ? const SizedBox(
-                width: 16,
-                height: 16,
-                child: CircularProgressIndicator(),
-              )
-            : widget.child,
-      );
+    onPressed: pressed ? null : _onPressed,
+    child: pressed
+        ? const SizedBox(
+            width: 16,
+            height: 16,
+            child: AdaptiveCircularProgressIndicator(),
+          )
+        : widget.child,
+  );
 }

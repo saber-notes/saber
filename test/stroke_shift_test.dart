@@ -12,7 +12,7 @@ void main() {
       options: StrokeOptions(size: double.minPositive),
       pageIndex: 0,
       page: const HasSize(Size(100, 100)),
-      penType: 'testing pen',
+      toolId: .fountainPen,
     )..addPoint(const Offset(5, 5));
     expect(stroke.points, [const Offset(5, 5)]);
 

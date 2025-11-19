@@ -1,0 +1,1 @@
+Die Version wurde auf 1.x erhöht, um den Reifegrad der App widerzuspiegeln und die Versionsnummern aussagekräftiger zu machen.

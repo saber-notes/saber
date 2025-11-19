@@ -24,6 +24,7 @@ AppDir:
     - zenity
     - libsecret-1-0
     - libjsoncpp25
+    - libwebkit2gtk-4.1-0
   files:
     include: []
     exclude:
@@ -61,4 +62,5 @@ AppDir:
       command: ./AppRun
 AppImage:
   arch: x86_64
+  comp: zstd
   update-information: gh-releases-zsync|saber-notes|saber|latest|Saber-*-x86_64.AppImage.zsync

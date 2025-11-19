@@ -1,0 +1,5 @@
+• Přidán nový plovoucí navigační panel. 
+• Snažili jsme se, aby motiv iOS působil více nativním a méně Googlem. 
+• Nevyřízené automatické ukládání je nyní zrušeno, pokud vrátíte zpět všechny změny. 
+• Vylepšená plynulost přechodů domovské obrazovky. 
+• Opraveny některé chyby zpracování cest na stránce procházení.

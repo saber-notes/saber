@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:one_dollar_unistroke_recognizer/one_dollar_unistroke_recognizer.dart';
-import 'package:onyxsdk_pen/onyxsdk_pen_area.dart';
+import 'package:onyxsdk_pen/onyxsdk_pen.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/image/editor_image.dart';
 import 'package:saber/components/canvas/inner_canvas.dart';
@@ -95,45 +95,41 @@ class Canvas extends StatelessWidget {
           decoration: BoxDecoration(
             boxShadow: [
               BoxShadow(
-                color: Colors.black
-                    .withValues(alpha: 0.1), // dark regardless of theme
+                color: Colors.black.withValues(
+                  alpha: 0.1,
+                ), // dark regardless of theme
                 blurRadius: 10,
                 spreadRadius: 2,
-              )
+              ),
             ],
           ),
           child: !placeholder
-              ? ClipRect(
-                  child: SizedBox(
-                    width: page.size.width,
-                    height: page.size.height,
-                    child: OnyxSdkPenArea(
-                      refreshDelay: const Duration(seconds: 1),
-                      strokeStyle: getOnyxTool(currentTool),
-                      strokeColor: getOnyxColor(),
-                      strokeWidth: getOnyxWidth(),
-                      child: InnerCanvas(
-                        key: page.innerCanvasKey,
-                        pageIndex: pageIndex,
-                        redrawPageListenable: page,
-                        width: page.size.width,
-                        height: page.size.height,
-                        textEditing: textEditing,
-                        coreInfo: coreInfo,
-                        currentStroke: currentStroke,
-                        currentStrokeDetectedShape: currentStrokeDetectedShape,
-                        currentSelection: currentSelection,
-                        setAsBackground: setAsBackground,
-                        currentToolIsSelect: currentTool.toolId == ToolId.select,
-                        currentScale: currentScale,
-                      ),
+              ? SizedBox(
+                  width: page.size.width,
+                  height: page.size.height,
+                  child: OnyxSdkPenArea(
+                    refreshDelay: const Duration(seconds: 1),
+                    strokeStyle: getOnyxTool(currentTool),
+                    strokeColor: getOnyxColor(),
+                    strokeWidth: getOnyxWidth(),
+                    child: InnerCanvas(
+                      key: page.innerCanvasKey,
+                      pageIndex: pageIndex,
+                      redrawPageListenable: page,
+                      width: page.size.width,
+                      height: page.size.height,
+                      textEditing: textEditing,
+                      coreInfo: coreInfo,
+                      currentStroke: currentStroke,
+                      currentStrokeDetectedShape: currentStrokeDetectedShape,
+                      currentSelection: currentSelection,
+                      setAsBackground: setAsBackground,
+                      currentToolIsSelect: currentTool.toolId == ToolId.select,
+                      currentScale: currentScale,
                     ),
                   ),
                 )
-              : SizedBox(
-                  width: page.size.width,
-                  height: page.size.height,
-                ),
+              : SizedBox(width: page.size.width, height: page.size.height),
         ),
       ),
     );

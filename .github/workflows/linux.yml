@@ -5,9 +5,9 @@ on:
   workflow_dispatch:
   push:
     tags:
-      - '**'
+      - "**"
     branches:
-      - '**'
+      - "**"
     paths:
       - .github/workflows/linux.yml
       - appimage/AppImageBuilder.yml
@@ -35,7 +35,7 @@ jobs:
     name: Build Linux (${{ matrix.arch.target-platform }})
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - uses: "./.github/shared_workflows/install_apt_dependencies"
 
@@ -45,37 +45,34 @@ jobs:
           path: |
             .dart_tool/
             build/
-            .flutter-plugins
+            linux/flutter/ephemeral/
+            macos/Flutter/ephemeral/
+            windows/flutter/ephemeral/
             .flutter-plugins-dependencies
             pubspec.lock
           key: ${{ runner.OS }}-${{ matrix.arch.cache-name }}-${{ hashFiles('**/pubspec.lock') }}-${{ hashFiles('**/*.dart') }}
           restore-keys: |
             ${{ runner.OS }}-${{ matrix.arch.cache-name }}-
 
-      - name: Remove proprietary dependencies
-        run: ./patches/remove_proprietary_dependencies.sh
-      - name: Remove development dependencies
-        run: ./patches/remove_dev_dependencies.sh
-
       - name: Setup Flutter
-        uses: subosito/flutter-action@v2
+        uses: adil192/setup-flutter-submodule@v1
         with:
-          # Workaround for https://github.com/subosito/flutter-action/issues/345, needs to be removed when fixed
-          channel: master
-          flutter-version: 3.32.7
-          cache: true
-          cache-key: 'flutter-:os:-:channel:-:version:-:arch:'
+          flutter-path: submodules/flutter
 
       - name: Disable Flutter CLI animations
         run: flutter config --no-cli-animations
 
       - run: flutter pub get
 
+      - name: Remove proprietary dependencies
+        run: ./patches/remove_proprietary_dependencies.sh
+      - name: Remove development dependencies
+        run: ./patches/remove_dev_dependencies.sh
+
       - name: Build Linux (${{ matrix.arch.target-platform }})
         run: |
           flutter build linux \
             --target-platform ${{ matrix.arch.target-platform }} \
-            --dart-define=DIRTY=${{ !startsWith(github.ref, 'refs/tags/') }}
 
       - name: Compress Flutter build
         id: compress
@@ -91,15 +88,15 @@ jobs:
           install -Dm644 flatpak/com.adilhanney.saber.metainfo.xml -t AppDir/share/metainfo/
           install -Dm644 flatpak/com.adilhanney.saber.metainfo.xml -t AppDir/usr/share/metainfo/
 
-          install -Dm644 assets/icon/icon.svg AppDir/share/icons/hicolor/scalable/apps/com.adilhanney.saber.svg
-          install -Dm644 assets/icon/icon.svg AppDir/usr/share/icons/hicolor/scalable/apps/com.adilhanney.saber.svg
+          install -Dm644 assets/icon/icon_linux.svg AppDir/share/icons/hicolor/scalable/apps/com.adilhanney.saber.svg
+          install -Dm644 assets/icon/icon_linux.svg AppDir/usr/share/icons/hicolor/scalable/apps/com.adilhanney.saber.svg
 
           install -Dm644 flatpak/com.adilhanney.saber.desktop -t AppDir/share/applications/
 
-          tar -C AppDir -cvf $archiveName .
+          tar -C AppDir -czvf $archiveName .
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: Saber-Archive-${{ matrix.arch.archive-suffix }}
           path: ${{ steps.compress.outputs.archiveName }}
@@ -120,7 +117,7 @@ jobs:
     timeout-minutes: 10
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Install AppImage dependencies
         run: |
@@ -128,7 +125,7 @@ jobs:
           sudo apt install libfuse2
 
       - name: Download app archive
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v6
         with:
           name: Saber-Archive-x86_64
 
@@ -136,17 +133,15 @@ jobs:
         run: |
           mv Saber_*.tar.gz Saber-Linux-Portable.tar.gz
 
-      - name: Download appimage-builder
-        working-directory: appimage
+      - name: Install appimage-builder
         run: |
-          wget -O appimage-builder-x86_64.AppImage https://github.com/AppImageCrafters/appimage-builder/releases/download/v1.1.0/appimage-builder-1.1.0-x86_64.AppImage
-          chmod +x appimage-builder-x86_64.AppImage
+          sudo pip3 install --ignore-installed git+https://github.com/AppImageCrafters/appimage-builder.git
 
       - name: Prepare build files
         working-directory: appimage
         run: |
           mkdir AppDir
-          tar -xvf ../Saber-Linux-Portable.tar.gz -C AppDir
+          tar -xzvf ../Saber-Linux-Portable.tar.gz -C AppDir
 
       - name: Set AppImage version
         working-directory: appimage
@@ -158,10 +153,10 @@ jobs:
       - name: Build AppImage
         working-directory: appimage
         run: |
-          ./appimage-builder-x86_64.AppImage --skip-test
+          appimage-builder --skip-test
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: AppImage artifact
           path: appimage/Saber-*-x86_64.AppImage*
@@ -173,3 +168,42 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: appimage/Saber-*-x86_64.AppImage*
           file_glob: true
+
+  build-flatpak:
+    name: Build Flatpak
+    needs: build-linux
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    container:
+      image: ghcr.io/flathub-infra/flatpak-github-actions:gnome-48
+      options: --privileged
+    steps:
+      - name: Checkout flathub repo
+        uses: actions/checkout@v5
+        with:
+          repository: flathub/com.adilhanney.saber
+          submodules: recursive
+
+      - name: Download app archive
+        uses: actions/download-artifact@v6
+        with:
+          name: Saber-Archive-x86_64
+
+      - name: Rename app archive
+        run: |
+          mv Saber_*.tar.gz Saber_snapshot.tar.gz
+
+      - name: Patch manifest to use local archive
+        run: |
+          # Add --no-same-owner to tar in build-commands
+          jq '.modules? |= map(if type=="object" and .name=="saber" then .["build-commands"] |= map(if type=="string" then sub("tar -xf "; "tar --no-same-owner -xf ") else . end) else . end)' com.adilhanney.saber.json > tmp.json && mv tmp.json com.adilhanney.saber.json
+
+          # Replace sources with local archive
+          jq '.modules[]? |= if type=="object" and .name=="saber" then .sources = [ {"type":"file","path":"./Saber_snapshot.tar.gz"} ] else . end' com.adilhanney.saber.json > tmp.json && mv tmp.json com.adilhanney.saber.json
+
+      - name: Build Flatpak
+        uses: flatpak/flatpak-github-actions/flatpak-builder@v6
+        with:
+          bundle: Saber_snapshot.flatpak
+          manifest-path: com.adilhanney.saber.json
+          upload-artifact: true

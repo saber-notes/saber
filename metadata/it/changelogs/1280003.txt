@@ -1,0 +1,5 @@
+• Aggiunta una nuova barra di navigazione mobile. 
+• Ho cercato di rendere il tema iOS più nativo e meno Googley. 
+• Un salvataggio automatico in sospeso viene ora annullato se si annullano tutte le modifiche. 
+• Migliorata la fluidità delle transizioni della schermata iniziale. 
+• Risolti alcuni bug di gestione del percorso nella pagina di navigazione.

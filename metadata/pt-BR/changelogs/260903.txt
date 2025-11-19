@@ -1,0 +1,3 @@
+• Corrigido um caso extremo em que o ponteiro laser poderia produzir traços inválidos.
+• Melhorou a qualidade dos traços quando você reduziu o zoom.
+• Manutenção geral, testes aprimorados e melhorias nos bastidores.

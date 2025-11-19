@@ -3,7 +3,6 @@
 #
 
 list(APPEND FLUTTER_PLUGIN_LIST
-  audioplayers_linux
   desktop_webview_window
   dynamic_color
   file_selector_linux
@@ -13,6 +12,7 @@ list(APPEND FLUTTER_PLUGIN_LIST
   open_file_linux
   printing
   screen_retriever_linux
+  sentry_flutter
   super_native_extensions
   url_launcher_linux
   window_manager
@@ -21,7 +21,8 @@ list(APPEND FLUTTER_PLUGIN_LIST
 )
 
 list(APPEND FLUTTER_FFI_PLUGIN_LIST
-  pdfrx
+  jni
+  pdfium_flutter
 )
 
 set(PLUGIN_BUNDLED_LIBRARIES)

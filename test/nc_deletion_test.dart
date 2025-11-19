@@ -35,17 +35,21 @@ void main() {
     await client.loadEncryptionKey();
 
     // Use a random file name to avoid conflicts with simultaneous tests
-    final String filePathLocal = '/test.deletion.${randomString(10)}';
+    final filePathLocal = '/test.deletion.${randomString(10)}';
     printOnFailure('File path local: $filePathLocal');
 
-    const List<int> fileContent = [1, 2, 3];
+    const fileContent = <int>[1, 2, 3];
     final syncFile = await const SaberSyncInterface().getSyncFileFromLocalFile(
       FileManager.getFile(filePathLocal),
     );
 
     // Create a file (to delete later)
-    await FileManager.writeFile(filePathLocal, fileContent,
-        awaitWrite: true, alsoUpload: false);
+    await FileManager.writeFile(
+      filePathLocal,
+      fileContent,
+      awaitWrite: true,
+      alsoUpload: false,
+    );
 
     // Upload file to Nextcloud
     syncer.uploader.clearPending();
@@ -69,11 +73,13 @@ void main() {
 
     // Check that the file is empty on Nextcloud
     final webDavFile = await webdav
-        .propfind(PathUri.parse(syncFile.remotePath),
-            depth: WebDavDepth.zero,
-            prop: const WebDavPropWithoutValues.fromBools(
-              davGetcontentlength: true,
-            ))
+        .propfind(
+          PathUri.parse(syncFile.remotePath),
+          depth: WebDavDepth.zero,
+          prop: const WebDavPropWithoutValues.fromBools(
+            davGetcontentlength: true,
+          ),
+        )
         .then((multistatus) => multistatus.toWebDavFiles().single);
     expect(webDavFile.size, 0, reason: 'File should be empty on Nextcloud');
 
@@ -84,9 +90,9 @@ void main() {
     await syncer.downloader.waitUntilEmpty();
 
     // Check that the file is deleted locally
-    bool exists = FileManager.doesFileExist(filePathLocal);
+    final exists = FileManager.doesFileExist(filePathLocal);
     expect(exists, false, reason: 'File is not deleted locally');
-  });
+  }, retry: 2);
 }
 
 extension on SyncerComponent {

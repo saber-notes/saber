@@ -3,6 +3,7 @@
 ///
 // coverage:ignore-file
 // ignore_for_file: type=lint, unused_import
+// dart format off
 
 import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
@@ -34,6 +35,7 @@ class TranslationsZhHansCn extends Translations {
 	// Translations
 	@override late final _TranslationsCommonZhHansCn common = _TranslationsCommonZhHansCn._(_root);
 	@override late final _TranslationsHomeZhHansCn home = _TranslationsHomeZhHansCn._(_root);
+	@override late final _TranslationsSentryZhHansCn sentry = _TranslationsSentryZhHansCn._(_root);
 	@override late final _TranslationsSettingsZhHansCn settings = _TranslationsSettingsZhHansCn._(_root);
 	@override late final _TranslationsLogsZhHansCn logs = _TranslationsLogsZhHansCn._(_root);
 	@override late final _TranslationsLoginZhHansCn login = _TranslationsLoginZhHansCn._(_root);
@@ -69,6 +71,7 @@ class _TranslationsHomeZhHansCn extends TranslationsHomeEn {
 	@override String get welcome => '欢迎使用 Saber';
 	@override String get invalidFormat => '不支持该文件。请选择 .sbn、.sbn2、.sba 或 .pdf 文件。';
 	@override String get noFiles => '未找到文件';
+	@override String get noPreviewAvailable => '无可用预览';
 	@override String get createNewNote => '点击 + 按钮新建一个笔记';
 	@override String get backFolder => '回到上一个文件夹';
 	@override late final _TranslationsHomeNewFolderZhHansCn newFolder = _TranslationsHomeNewFolderZhHansCn._(_root);
@@ -77,7 +80,16 @@ class _TranslationsHomeZhHansCn extends TranslationsHomeEn {
 	@override String get deleteNote => '删除笔记';
 	@override late final _TranslationsHomeRenameFolderZhHansCn renameFolder = _TranslationsHomeRenameFolderZhHansCn._(_root);
 	@override late final _TranslationsHomeDeleteFolderZhHansCn deleteFolder = _TranslationsHomeDeleteFolderZhHansCn._(_root);
-	@override String get noPreviewAvailable => '没有预览';
+}
+
+// Path: sentry
+class _TranslationsSentryZhHansCn extends TranslationsSentryEn {
+	_TranslationsSentryZhHansCn._(TranslationsZhHansCn root) : this._root = root, super.internal(root);
+
+	final TranslationsZhHansCn _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsSentryConsentZhHansCn consent = _TranslationsSentryConsentZhHansCn._(_root);
 }
 
 // Path: settings
@@ -104,8 +116,8 @@ class _TranslationsSettingsZhHansCn extends TranslationsSettingsEn {
 	@override String get resyncEverything => '重新同步所有';
 	@override String get openDataDir => '打开 Saber 文件夹';
 	@override late final _TranslationsSettingsCustomDataDirZhHansCn customDataDir = _TranslationsSettingsCustomDataDirZhHansCn._(_root);
-	@override String get autosaveDisabled => '绝不';
-	@override String get shapeRecognitionDisabled => '绝不';
+	@override String get autosaveDisabled => '禁用';
+	@override String get shapeRecognitionDisabled => '禁用';
 }
 
 // Path: logs
@@ -117,9 +129,9 @@ class _TranslationsLogsZhHansCn extends TranslationsLogsEn {
 	// Translations
 	@override String get logs => '日志';
 	@override String get viewLogs => '查看日志';
-	@override String get debuggingInfo => '日志包含对调试和开发有用的信息';
-	@override String get noLogs => '这里没有日志！';
-	@override String get logsAreTemporary => '日志仅保留到您关闭应用程序为止';
+	@override String get debuggingInfo => '日志包含用于调试和开发的信息';
+	@override String get noLogs => '暂无日志！';
+	@override String get useTheApp => '使用应用时日志将显示在此处';
 }
 
 // Path: login
@@ -174,8 +186,7 @@ class _TranslationsAppInfoZhHansCn extends TranslationsAppInfoEn {
 	final TranslationsZhHansCn _root; // ignore: unused_field
 
 	// Translations
-	@override String licenseNotice({required Object buildYear}) => 'Saber  版权所有 © 2022-${buildYear}  Adil Hanney\nThis program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.';
-	@override String get dirty => 'DIRTY';
+	@override String licenseNotice({required Object buildYear}) => 'Saber  版权所有 © 2022-${buildYear}  Adil Hanney\n本程序不附带任何担保。这是自由软件，您可以在特定条件下重新分发它。';
 	@override String get debug => 'DEBUG';
 	@override String get sponsorButton => '点击此处赞助我或购买更多存储空间';
 	@override String get licenseButton => '点击此处查看更多许可证信息';
@@ -192,7 +203,7 @@ class _TranslationsUpdateZhHansCn extends TranslationsUpdateEn {
 	@override String get updateAvailable => '可用更新';
 	@override String get updateAvailableDescription => '该应用的新版本可用，具有以下变更：';
 	@override String get update => '更新';
-	@override String get downloadNotAvailableYet => '该下载在您的平台暂不可用。请稍后重试。';
+	@override String get downloadNotAvailableYet => '您的平台暂无可用的下载版本，请稍后再查看。';
 }
 
 // Path: editor
@@ -214,7 +225,7 @@ class _TranslationsEditorZhHansCn extends TranslationsEditorEn {
 	@override late final _TranslationsEditorHudZhHansCn hud = _TranslationsEditorHudZhHansCn._(_root);
 	@override String get pages => '页面';
 	@override String get untitled => '未命名';
-	@override String get needsToSaveBeforeExiting => '正在保存您的更改。。。完成后您可以安全地退出编辑器';
+	@override String get needsToSaveBeforeExiting => '正在保存您的更改... 完成后您可以安全地退出编辑器';
 }
 
 // Path: home.tabs
@@ -340,6 +351,18 @@ class _TranslationsHomeDeleteFolderZhHansCn extends TranslationsHomeDeleteFolder
 	@override String get alsoDeleteContents => '同时删除此文件夹中的所有笔记';
 }
 
+// Path: sentry.consent
+class _TranslationsSentryConsentZhHansCn extends TranslationsSentryConsentEn {
+	_TranslationsSentryConsentZhHansCn._(TranslationsZhHansCn root) : this._root = root, super.internal(root);
+
+	final TranslationsZhHansCn _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '帮助改进 Saber？';
+	@override late final _TranslationsSentryConsentDescriptionZhHansCn description = _TranslationsSentryConsentDescriptionZhHansCn._(_root);
+	@override late final _TranslationsSentryConsentAnswersZhHansCn answers = _TranslationsSentryConsentAnswersZhHansCn._(_root);
+}
+
 // Path: settings.prefCategories
 class _TranslationsSettingsPrefCategoriesZhHansCn extends TranslationsSettingsPrefCategoriesEn {
 	_TranslationsSettingsPrefCategoriesZhHansCn._(TranslationsZhHansCn root) : this._root = root, super.internal(root);
@@ -377,9 +400,9 @@ class _TranslationsSettingsPrefLabelsZhHansCn extends TranslationsSettingsPrefLa
 	@override String get maxImageSize => '最大图片大小';
 	@override String get autoClearWhiteboardOnExit => '离开应用后清除白板';
 	@override String get disableEraserAfterUse => '自动禁用橡皮擦';
-	@override String get hideFingerDrawingToggle => '隐藏 切换手指绘制';
+	@override String get hideFingerDrawingToggle => '隐藏 切换手指绘图';
+	@override String get autoDisableFingerDrawingWhenStylusDetected => '自动禁用手指绘图';
 	@override String get editorPromptRename => '提示您重命名新笔记';
-	@override String get hideHomeBackgrounds => '在主页隐藏背景';
 	@override String get recentColorsDontSavePresets => '不在最近使用的颜色中保存预设颜色';
 	@override String get recentColorsLength => '要存储多少种最近的颜色';
 	@override String get printPageIndicators => '打印页码';
@@ -388,7 +411,7 @@ class _TranslationsSettingsPrefLabelsZhHansCn extends TranslationsSettingsPrefLa
 	@override String get autoStraightenLines => '自动拉直线';
 	@override String get simplifiedHomeLayout => '简化主页布局';
 	@override String get customDataDir => '自定义 Saber 文件夹';
-	@override String get pencilSoundSetting => '铅笔音效';
+	@override String get sentry => '错误报告';
 }
 
 // Path: settings.prefDescriptions
@@ -405,15 +428,15 @@ class _TranslationsSettingsPrefDescriptionsZhHansCn extends TranslationsSettings
 	@override String get disableEraserAfterUse => '使用橡皮擦后自动切换回笔';
 	@override String get maxImageSize => '更大的图片将会被压缩';
 	@override late final _TranslationsSettingsPrefDescriptionsHideFingerDrawingZhHansCn hideFingerDrawing = _TranslationsSettingsPrefDescriptionsHideFingerDrawingZhHansCn._(_root);
+	@override String get autoDisableFingerDrawingWhenStylusDetected => '当检测到手写笔时关闭手指绘图';
 	@override String get editorPromptRename => '您可以总是稍后重命名笔记';
-	@override String get hideHomeBackgrounds => '更简洁的外观';
 	@override String get printPageIndicators => '在导出中显示页码';
-	@override String get autosave => '短暂延迟后自动保存，或者永远不会';
+	@override String get autosave => '短暂延迟后自动保存，或永不保存';
 	@override String get shapeRecognitionDelay => '形状预览更新频率';
 	@override String get autoStraightenLines => '拉直长线，无需使用形状笔';
 	@override String get simplifiedHomeLayout => '为每个笔记预览设置固定高度';
 	@override String get shouldAlwaysAlertForUpdates => '在更新可用时尽快告诉我';
-	@override late final _TranslationsSettingsPrefDescriptionsPencilSoundSettingZhHansCn pencilSoundSetting = _TranslationsSettingsPrefDescriptionsPencilSoundSettingZhHansCn._(_root);
+	@override late final _TranslationsSettingsPrefDescriptionsSentryZhHansCn sentry = _TranslationsSettingsPrefDescriptionsSentryZhHansCn._(_root);
 }
 
 // Path: settings.themeModes
@@ -472,6 +495,7 @@ class _TranslationsSettingsCustomDataDirZhHansCn extends TranslationsSettingsCus
 	@override String get select => '选择';
 	@override String get mustBeEmpty => '所选文件夹必须为空';
 	@override String get mustBeDoneSyncing => '更改文件夹前，请确保同步已完成';
+	@override String get unsupported => '此功能目前仅限开发者使用，可能导致数据丢失';
 }
 
 // Path: login.form
@@ -605,7 +629,7 @@ class _TranslationsEditorToolbarZhHansCn extends TranslationsEditorToolbarEn {
 	@override String get toggleEraser => '切换橡皮擦 (Ctrl E)';
 	@override String get photo => '照片';
 	@override String get text => '文本';
-	@override String get toggleFingerDrawing => '切换手写 (Ctrl F)';
+	@override String get toggleFingerDrawing => '切换手指绘图 (Ctrl F)';
 	@override String get undo => '撤销';
 	@override String get redo => '重做';
 	@override String get export => '导出 (Ctrl Shift S)';
@@ -696,7 +720,7 @@ class _TranslationsEditorSelectionBarZhHansCn extends TranslationsEditorSelectio
 
 	// Translations
 	@override String get delete => '删除';
-	@override String get duplicate => '重复';
+	@override String get duplicate => '复制';
 }
 
 // Path: editor.menu
@@ -712,7 +736,9 @@ class _TranslationsEditorMenuZhHansCn extends TranslationsEditorMenuEn {
 	@override String get duplicatePage => '复制页面';
 	@override String get deletePage => '删除页面';
 	@override String get lineHeight => '行高';
-	@override String get lineHeightDescription => '还控制已输入的笔记的文本大小';
+	@override String get lineHeightDescription => '同时控制已输入的笔记的文本大小';
+	@override String get lineThickness => '线条粗细';
+	@override String get lineThicknessDescription => '背景线条粗细';
 	@override String get backgroundImageFit => '背景图像拟合';
 	@override String get backgroundPattern => '背景图案';
 	@override String get import => '导入';
@@ -720,8 +746,6 @@ class _TranslationsEditorMenuZhHansCn extends TranslationsEditorMenuEn {
 	@override String get watchServerReadOnly => '监视服务器时禁用编辑';
 	@override late final _TranslationsEditorMenuBoxFitsZhHansCn boxFits = _TranslationsEditorMenuBoxFitsZhHansCn._(_root);
 	@override late final _TranslationsEditorMenuBgPatternsZhHansCn bgPatterns = _TranslationsEditorMenuBgPatternsZhHansCn._(_root);
-	@override String get lineThickness => '线厚度';
-	@override String get lineThicknessDescription => '背景线厚度';
 }
 
 // Path: editor.newerFileFormat
@@ -762,6 +786,36 @@ class _TranslationsEditorHudZhHansCn extends TranslationsEditorHudEn {
 	@override String get lockAxisAlignedPan => '锁定水平或垂直平移';
 }
 
+// Path: sentry.consent.description
+class _TranslationsSentryConsentDescriptionZhHansCn extends TranslationsSentryConsentDescriptionEn {
+	_TranslationsSentryConsentDescriptionZhHansCn._(TranslationsZhHansCn root) : this._root = root, super.internal(root);
+
+	final TranslationsZhHansCn _root; // ignore: unused_field
+
+	// Translations
+	@override String get question => '您是否希望自动报告意外错误？这有助于我更快地发现和修复问题。';
+	@override String get scope => '报告可能包含有关错误和设备的信息。我已尽力过滤个人数据，但仍可能残留部分信息。';
+	@override String get currentlyOff => '若同意启用，重启应用后错误报告功能将激活。';
+	@override String get currentlyOn => '若撤销同意，请重启应用以禁用错误报告功能。';
+	@override TextSpan learnMoreInPrivacyPolicy({required InlineSpanBuilder link}) => TextSpan(children: [
+		const TextSpan(text: '详见'),
+		link('隐私政策'),
+		const TextSpan(text: '。'),
+	]);
+}
+
+// Path: sentry.consent.answers
+class _TranslationsSentryConsentAnswersZhHansCn extends TranslationsSentryConsentAnswersEn {
+	_TranslationsSentryConsentAnswersZhHansCn._(TranslationsZhHansCn root) : this._root = root, super.internal(root);
+
+	final TranslationsZhHansCn _root; // ignore: unused_field
+
+	// Translations
+	@override String get yes => '同意';
+	@override String get no => '拒绝';
+	@override String get later => '稍后询问';
+}
+
 // Path: settings.prefDescriptions.hideFingerDrawing
 class _TranslationsSettingsPrefDescriptionsHideFingerDrawingZhHansCn extends TranslationsSettingsPrefDescriptionsHideFingerDrawingEn {
 	_TranslationsSettingsPrefDescriptionsHideFingerDrawingZhHansCn._(TranslationsZhHansCn root) : this._root = root, super.internal(root);
@@ -770,20 +824,21 @@ class _TranslationsSettingsPrefDescriptionsHideFingerDrawingZhHansCn extends Tra
 
 	// Translations
 	@override String get shown => '防止意外切换';
-	@override String get fixedOn => '手指绘制固定为启用状态';
-	@override String get fixedOff => '手指绘制固定为禁用状态';
+	@override String get fixedOn => '手指绘图固定为启用状态';
+	@override String get fixedOff => '手指绘图固定为禁用状态';
 }
 
-// Path: settings.prefDescriptions.pencilSoundSetting
-class _TranslationsSettingsPrefDescriptionsPencilSoundSettingZhHansCn extends TranslationsSettingsPrefDescriptionsPencilSoundSettingEn {
-	_TranslationsSettingsPrefDescriptionsPencilSoundSettingZhHansCn._(TranslationsZhHansCn root) : this._root = root, super.internal(root);
+// Path: settings.prefDescriptions.sentry
+class _TranslationsSettingsPrefDescriptionsSentryZhHansCn extends TranslationsSettingsPrefDescriptionsSentryEn {
+	_TranslationsSettingsPrefDescriptionsSentryZhHansCn._(TranslationsZhHansCn root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHansCn _root; // ignore: unused_field
 
 	// Translations
-	@override String get off => '没有音效';
-	@override String get onButNotInSilentMode => '启用（除非在静音模式下）';
-	@override String get onAlways => '启用（即使在静音模式下）';
+	@override String get active => '已启用';
+	@override String get inactive => '已禁用';
+	@override String get activeUntilRestart => '重启前保持启用';
+	@override String get inactiveUntilRestart => '重启前保持禁用';
 }
 
 // Path: login.ncLoginStep.loginFlow
@@ -858,5 +913,5 @@ class _TranslationsEditorMenuBgPatternsZhHansCn extends TranslationsEditorMenuBg
 	@override String get dots => '点';
 	@override String get staffs => '五线谱';
 	@override String get tablature => '绘画';
-	@override String get cornell => 'Cornell';
+	@override String get cornell => '康奈尔';
 }

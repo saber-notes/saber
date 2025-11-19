@@ -38,21 +38,22 @@ class SaberSyncInterface
     }
 
     final syncFiles = <SaberSyncFile>[];
-    await for (final localFile
-        in FileManager.getRootDirectory().list(recursive: true)) {
+    await for (final localFile in FileManager.getRootDirectory().list(
+      recursive: true,
+    )) {
       if (localFile is! File) continue;
 
       final syncFile = await getSyncFileFromLocalFile(localFile);
 
       final bestFile = await getBestFile(
         syncFile,
-        onLocalFileNotFound: BestFile.local,
-        onEqualFiles: BestFile.remote,
+        onLocalFileNotFound: .local,
+        onEqualFiles: .remote,
       );
       switch (bestFile) {
-        case BestFile.local:
+        case .local:
           syncFiles.add(syncFile);
-        case BestFile.remote:
+        case .remote:
           // Remote file is newer, do nothing
           break;
       }
@@ -68,36 +69,38 @@ class SaberSyncInterface
     remoteFiles = await findRemoteFiles();
     if (remoteFiles.isEmpty) return const [];
 
-    final changedFiles = <SaberSyncFile>[];
-    for (final remoteFile in remoteFiles) {
-      final SaberSyncFile syncFile;
-      try {
-        syncFile = await getSyncFileFromRemoteFile(remoteFile);
-      } catch (e) {
-        log.warning('Failed to get sync file from remote file: $e', e);
-        continue;
-      }
+    final List<SaberSyncFile> changedFiles = await Future.wait(
+      remoteFiles.map((remoteFile) async {
+        final SaberSyncFile syncFile;
+        try {
+          syncFile = await getSyncFileFromRemoteFile(remoteFile);
+        } catch (e) {
+          log.warning('Failed to get sync file from remote file: $e', e);
+          return null;
+        }
 
-      final bestFile = await getBestFile(
-        syncFile,
-        onLocalFileNotFound: BestFile.remote,
-        onEqualFiles: BestFile.local,
-      );
-      switch (bestFile) {
-        case BestFile.local:
-          // Local file is newer, do nothing
-          break;
-        case BestFile.remote:
-          // Remote file is newer or doesn't exist locally
+        final bestFile = await getBestFile(
+          syncFile,
+          onLocalFileNotFound: .remote,
+          onEqualFiles: .local,
+        );
+        switch (bestFile) {
+          case .local:
+            // Local file is newer, do nothing
+            return null;
+          case .remote:
+            // Remote file is newer or doesn't exist locally
 
-          final remotelyDeleted = syncFile.remoteFile!.size! <= 0;
-          final locallyDeleted = stows.fileSyncAlreadyDeleted.value
-              .contains(syncFile.relativeLocalPath);
-          if (remotelyDeleted && locallyDeleted) break;
+            final remotelyDeleted = syncFile.remoteFile!.size! <= 0;
+            final locallyDeleted = stows.fileSyncAlreadyDeleted.value.contains(
+              syncFile.relativeLocalPath,
+            );
+            if (remotelyDeleted && locallyDeleted) break;
 
-          changedFiles.add(syncFile);
-      }
-    }
+            return syncFile;
+        }
+      }),
+    ).then((list) => list.nonNulls.toList());
 
     // Prioritize note.sbn2.p over note.sbn2 (so the preview is updated first)
     final previewSyncFiles = changedFiles
@@ -108,8 +111,10 @@ class SaberSyncInterface
       final mainSyncFileIndex = changedFiles.indexWhere(
         (syncFile) =>
             syncFile.localFile.path ==
-            previewSyncFile.localFile.path
-                .substring(0, previewSyncFile.localFile.path.length - 2),
+            previewSyncFile.localFile.path.substring(
+              0,
+              previewSyncFile.localFile.path.length - 2,
+            ),
       );
       if (previewSyncFileIndex <= -1 || mainSyncFileIndex <= -1) continue;
 
@@ -136,7 +141,8 @@ class SaberSyncInterface
 
     assert(relativePath.startsWith('/'));
     final encryptedName = await encryptPath(client, relativePath);
-    final remotePath = '${FileManager.appRootDirectoryPrefix}/'
+    final remotePath =
+        '${FileManager.appRootDirectoryPrefix}/'
         '$encryptedName'
         '$encExtension';
 
@@ -225,8 +231,10 @@ class SaberSyncInterface
             },
       priority: WorkPriority.highRegular,
     );
-    assert(decryptedData.isNotEmpty,
-        'Decrypted data is empty but encryptedBytes.length is ${encryptedBytes.length}');
+    assert(
+      decryptedData.isNotEmpty,
+      'Decrypted data is empty but encryptedBytes.length is ${encryptedBytes.length}',
+    );
     await FileManager.writeFile(
       file.relativeLocalPath,
       decryptedData,
@@ -339,17 +347,23 @@ class SaberSyncInterface
               davGetlastmodified: true,
             ),
           )
-          .then((multistatus) => multistatus
-              .toWebDavFiles()
-              // ignore root directory itself
-              .where((file) =>
-                  file.path.path != '${FileManager.appRootDirectoryPrefix}/')
-              .toSet());
+          .then(
+            (multistatus) => multistatus
+                .toWebDavFiles()
+                // ignore root directory itself
+                .where(
+                  (file) =>
+                      file.path.path !=
+                      '${FileManager.appRootDirectoryPrefix}/',
+                )
+                .toSet(),
+          );
     } on DynamiteStatusCodeException catch (e, st) {
       if (e.statusCode == HttpStatus.notFound) {
         log.info('findRemoteFiles: Creating app directory', e);
-        await client.webdav
-            .mkcol(PathUri.parse(FileManager.appRootDirectoryPrefix));
+        await client.webdav.mkcol(
+          PathUri.parse(FileManager.appRootDirectoryPrefix),
+        );
         log.info('findRemoteFiles: Generating config');
         await client
             .getConfig()
@@ -404,7 +418,9 @@ class SaberSyncInterface
     if (path.endsWith(encExtension)) {
       // File name without extension
       encryptedName = path.substring(
-          path.lastIndexOf('/') + 1, path.length - encExtension.length);
+        path.lastIndexOf('/') + 1,
+        path.length - encExtension.length,
+      );
     } else if (path.endsWith(NextcloudClientExtension.configFileUri.path)) {
       // Config file is a special case, it's not encrypted
       return '/${NextcloudClientExtension.configFileName}';
@@ -454,22 +470,25 @@ class SaberSyncInterface
     }
 
     // get remote file
-    file.remoteFile ??=
-        await _getWebDavFileStatic(file.remotePath, useCache: false);
+    file.remoteFile ??= await _getWebDavFileStatic(
+      file.remotePath,
+      useCache: false,
+    );
     if (file.remoteFile == null) {
       // Remote file doesn't exist, keep local
-      return BestFile.local;
+      return .local;
     }
 
     final lastModifiedRemote = file.remoteFile!.lastModified;
     if (lastModifiedRemote == null) {
       // Remote file doesn't exist, keep local
-      return BestFile.local;
-    } else if (lastModifiedRemote
-        .isBefore(stows.fileSyncResyncEverythingDate.value)) {
+      return .local;
+    } else if (lastModifiedRemote.isBefore(
+      stows.fileSyncResyncEverythingDate.value,
+    )) {
       // If we've prompted a full resync at [resyncEverythingDate],
       // keep the local file if it was modified before [resyncEverythingDate]
-      return BestFile.local;
+      return .local;
     }
 
     // File exists locally, check if it's newer than the remote file
@@ -478,20 +497,16 @@ class SaberSyncInterface
         const Duration(milliseconds: 500)) {
       return onEqualFiles;
     } else if (lastModifiedRemote.isAfter(lastModifiedLocal)) {
-      return BestFile.remote;
+      return .remote;
     } else {
-      return BestFile.local;
+      return .local;
     }
   }
 
   Future<WebDavFile?> getWebDavFile(
     String remotePath, {
     bool useCache = true,
-  }) =>
-      _getWebDavFileStatic(
-        remotePath,
-        useCache: useCache,
-      );
+  }) => _getWebDavFileStatic(remotePath, useCache: useCache);
 
   static Future<WebDavFile?> _getWebDavFileStatic(
     String remotePath, {
@@ -500,8 +515,9 @@ class SaberSyncInterface
     WebDavFile? webDavFile;
 
     try {
-      webDavFile = remoteFiles
-          .firstWhere((remoteFile) => remoteFile.path.path == remotePath);
+      webDavFile = remoteFiles.firstWhere(
+        (remoteFile) => remoteFile.path.path == remotePath,
+      );
       if (useCache) return webDavFile;
     } on StateError {
       log.fine('Remote file not cached for $remotePath');
@@ -534,18 +550,17 @@ class SaberSyncInterface
   }
 
   /// the file extension of an encrypted base64 note
-  static const String encExtension = '.sbe';
+  static const encExtension = '.sbe';
 
   /// List of files to ignore on the server.
   /// Prefixed with a slash so we can use [filePath.endsWith]
-  static const List<String> _ignoredFiles = [
-    '/Readme.md',
-  ];
+  static const _ignoredFiles = <String>['/Readme.md'];
 }
 
 class SaberSyncFile extends AbstractSyncFile<File, WebDavFile> {
-  late final String relativeLocalPath =
-      localFile.path.substring(FileManager.documentsDirectory.length);
+  late final relativeLocalPath = localFile.path.substring(
+    FileManager.documentsDirectory.length,
+  );
 
   late String remotePath;
 
@@ -553,8 +568,10 @@ class SaberSyncFile extends AbstractSyncFile<File, WebDavFile> {
     required super.remoteFile,
     String? remotePath,
     required super.localFile,
-  }) : assert(remotePath != null || remoteFile != null,
-            'At least one of remotePath or remoteFile must be provided') {
+  }) : assert(
+         remotePath != null || remoteFile != null,
+         'At least one of remotePath or remoteFile must be provided',
+       ) {
     this.remotePath = remotePath ?? remoteFile!.path.path;
   }
 
@@ -573,10 +590,6 @@ class SaberSyncFile extends AbstractSyncFile<File, WebDavFile> {
 
   @override
   int get hashCode => localFile.path.hashCode;
-}
-
-extension NullableIterable<T> on Iterable<T> {
-  Iterable<T?> castNullable() => cast<T?>();
 }
 
 extension SaberSyncerComponent on SyncerComponent {

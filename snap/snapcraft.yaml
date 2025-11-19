@@ -1,80 +1,48 @@
-name: saber # you probably want to 'snapcraft register <name>'
-base: core22 # the base snap is the execution environment for this snap
+name: saber
+base: core24
 adopt-info: saber
-grade: stable # must be 'stable' to release into candidate/stable channels
-confinement: strict # use 'strict' once you have the right plugs and slots
+grade: stable
+confinement: strict
 license: GPL-3.0
 compression: lzo
-icon: assets/icon/icon.png
-donation: https://github.com/sponsors/adil192
-source-code: https://github.com/saber-notes/saber
-issues: https://github.com/saber-notes/saber/issues
-contact: soumyadeepghosh2004@zohomail.in
-architectures:
-  - build-on: amd64
-  - build-on: arm64
-  
+icon: assets/icon/icon_linux.svg
+platforms:
+  amd64:
+  arm64:
+
 parts:
-  rustup:
-    plugin: nil
-    build-packages: [wget]
-    build-environment:
-      - RUSTUP_HOME: $CRAFT_PART_INSTALL/usr/share/rust
-      - CARGO_HOME: $CRAFT_PART_INSTALL/usr/share/rust
-      - CARGO_BUILD_JOBS: $CRAFT_PARALLEL_BUILD_COUNT
-    override-pull: |
-      wget https://sh.rustup.rs -O $CRAFT_PART_SRC/rustup-init.sh
-      chmod +x $CRAFT_PART_SRC/rustup-init.sh
-    override-build: |
-      $CRAFT_PART_SRC/rustup-init.sh -y --no-modify-path
-      mkdir -p $CRAFT_PART_INSTALL/usr/bin
-      for i in `ls $RUSTUP_HOME/bin/`; do
-        ln -s ../share/rust/bin/$i $CRAFT_PART_INSTALL/usr/bin/$i
-      done
-    override-prime: |
-      echo 'Skip Prime'
   saber:
-    after: [rustup]
     source: https://github.com/saber-notes/saber.git
-    source-tag: 'v0.26.0'
+    source-tag: 'v1.28.2'
     plugin: flutter
-    #build-attributes: [enable-patchelf]
     build-packages:
-      - curl
-      - jq
+      - execstack
       - libsecret-1-dev
       - libjsoncpp-dev
-      - libgstreamer1.0-dev
-      - libgstreamer-plugins-base1.0-dev
-      - libwebkit2gtk-4.1-dev
+      - openjdk-21-jdk
     build-snaps:
       - cmake
-    stage-packages:
-      - libjsoncpp25
-      - zenity
-    build-environment:
-      - RUSTUP_HOME: $CRAFT_STAGE/usr/share/rust
-      - CARGO_HOME: $CRAFT_STAGE/usr/share/rust
-      - CARGO_BUILD_JOBS: $CRAFT_PARALLEL_BUILD_COUNT
     override-build: |
       craftctl default
       mkdir -p $CRAFT_PART_INSTALL/meta/gui
       mv $CRAFT_PART_SRC/flatpak/com.adilhanney.saber.desktop $CRAFT_PART_INSTALL/meta/gui/saber.desktop
       mkdir $CRAFT_PART_INSTALL/metainfo
       mv $CRAFT_PART_SRC/flatpak/com.adilhanney.saber.metainfo.xml $CRAFT_PART_INSTALL/metainfo/
+      execstack --clear-execstack $CRAFT_PART_INSTALL/lib/libsentry.so
     parse-info: [metainfo/com.adilhanney.saber.metainfo.xml]
+    prime:
+      - -lib/crashpad_handler
+
   cleanup:
-    after:  # Make this part run last; list all your other parts here
-      - saber
-      - rustup
+    after: [saber]
     plugin: nil
-    build-snaps:  # List all content-snaps and base snaps you're using here
-      - core22
-      - gnome-42-2204
+    build-snaps:
+      - core24
+      - gnome-46-2404
       - gtk-common-themes
     override-prime: |
       set -eux
-      for snap in "core22" "gnome-42-2204" "gtk-common-themes" ; do  # List all content-snaps and base snaps you're using here
+      for snap in "core24" "gnome-46-2404" "gtk-common-themes" ; do
         cd "/snap/$snap/current" && find . -type f,l -exec rm -f "$SNAPCRAFT_PRIME/{}" \;
       done
 

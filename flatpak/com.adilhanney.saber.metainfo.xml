@@ -11,15 +11,15 @@
     <url type="homepage">https://github.com/saber-notes/saber</url>
     <url type="bugtracker">https://github.com/saber-notes/saber/issues</url>
     <url type="donation">https://github.com/sponsors/adil192</url>
-    <url type="translate">https://github.com/saber-notes/saber#translating</url>
+    <url type="translate">https://github.com/saber-notes/saber/wiki/Translating</url>
 
     <developer id="com.adilhanney">
         <name>Adil Hanney</name>
     </developer>
 
     <branding>
-        <color type="primary" scheme_preference="light">#fffeac</color>
-        <color type="primary" scheme_preference="dark">#494900</color>
+        <color type="primary" scheme_preference="light">#fff6da</color>
+        <color type="primary" scheme_preference="dark">#705600</color>
     </branding>
 
     <metadata_license>MIT</metadata_license>
@@ -197,23 +197,196 @@
     <screenshots>
         <screenshot type="default">
             <caption>The home screen showing recent notes</caption>
-            <image>https://raw.githubusercontent.com/saber-notes/saber/main/metadata/en-US/images/tenInchScreenshots/1_home.png</image>
+            <image>https://raw.githubusercontent.com/saber-notes/saber/main/metadata/en-US/images/flathubScreenshots/1_home.png</image>
         </screenshot>
         <screenshot>
             <caption>The editor showing maths notes about metric spaces</caption>
-            <image>https://raw.githubusercontent.com/saber-notes/saber/main/metadata/en-US/images/tenInchScreenshots/2_editor.png</image>
+            <image>https://raw.githubusercontent.com/saber-notes/saber/main/metadata/en-US/images/flathubScreenshots/2_editor.png</image>
         </screenshot>
         <screenshot>
             <caption>The login page which asks which Nextcloud server you want to use</caption>
-            <image>https://raw.githubusercontent.com/saber-notes/saber/main/metadata/en-US/images/tenInchScreenshots/3_login.png</image>
+            <image>https://raw.githubusercontent.com/saber-notes/saber/main/metadata/en-US/images/flathubScreenshots/3_login.png</image>
         </screenshot>
         <screenshot>
             <caption>The settings page showing that the user is now logged in</caption>
-            <image>https://raw.githubusercontent.com/saber-notes/saber/main/metadata/en-US/images/tenInchScreenshots/4_settings.png</image>
+            <image>https://raw.githubusercontent.com/saber-notes/saber/main/metadata/en-US/images/flathubScreenshots/4_settings.png</image>
         </screenshot>
     </screenshots>
 
     <releases>
+        <release version="1.28.2" type="development" date="2025-11-15">
+            <description>
+                <ul>
+                    <li>To improve ease of use, finger-drawing is automatically disabled if you use a stylus. You can turn off this feature in Settings.</li>
+                    <li>You can now zoom with a mouse by holding the Control or Command key while scrolling.</li>
+                    <li>Fixed strokes from the shape pen getting smushed when you finish drawing them.</li>
+                    <li>Improved the accuracy of the lower quality strokes that are shown when zoomed out.</li>
+                    <li>Fixed numerical (NaN) errors with some strokes.</li>
+                    <li>Updated Flutter to 3.38.</li>
+                </ul>
+            </description>
+        </release>
+        <release version="1.28.1" type="development" date="2025-11-11">
+            <description>
+                <ul>
+                    <li>Improved animation smoothness when closing a note.</li>
+                    <li>Your mouse wheel now scrolls instead of zooming. Hold the Ctrl key to zoom.</li>
+                    <li>Made the New Note button less round.</li>
+                </ul>
+            </description>
+        </release>
+        <release version="1.28.0" type="development" date="2025-11-10">
+            <description>
+                <ul>
+                    <li>Added a new floating navigation bar.</li>
+                    <li>A pending autosave is now cancelled if you undo all changes.</li>
+                    <li>Improved the smoothness of home screen transitions.</li>
+                    <li>Fixed some path handling bugs on the browse page.</li>
+                </ul>
+            </description>
+        </release>
+        <release version="1.27.2" type="development" date="2025-11-07">
+            <description>
+                <ul>
+                    <li>Fixed the entire app breaking if you choose the Esperanto language.</li>
+                    <li>Fixed the navigation bar not updating its text when you change language.</li>
+                    <li>Fixed the storage used percentage not being rounded.</li>
+                    <li>Freed up memory used by images and PDFs.</li>
+                    <li>Removed the pencil sound effect, and removed the sound+microphone flatpak permission.</li>
+                </ul>
+            </description>
+        </release>
+        <release version="1.27.1" type="development" date="2025-11-02">
+            <description>
+                <ul>
+                    <li>Various UI improvements.</li>
+                    <li>Removed the themed title bar, replacing it with server-side decorations for better KDE support.</li>
+                    <li>Delayed showing the app until the first frame is rendered, removing the initial black screen on launch.</li>
+                    <li>Resized the app icon to match other Linux apps.</li>
+                </ul>
+            </description>
+        </release>
+        <release version="1.27.0" type="development" date="2025-10-30">
+            <description>
+                <ul>
+                    <li>Improved the look of pencil strokes and their rendering performance.</li>
+                    <li>Saber now uses a themed title bar (configurable), which responds to light/dark mode changes.</li>
+                    <li>Switches are now themed on the Cupertino (iOS-style) theme.</li>
+                    <li>Added an Esperanto translation.</li>
+                </ul>
+            </description>
+        </release>
+        <release version="1.26.12" type="development" date="2025-10-30">
+            <description>
+                <ul>
+                    <li>Bumped the version to 1.x to reflect the maturity of the app and to let version numbers be more meaningful.</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.26.12" type="development" date="2025-10-27">
+            <description>
+                <ul>
+                    <li>Improved the quality of note thumbnails.</li>
+                    <li>Optimized pencil strokes when zoomed out.</li>
+                    <li>Fixed improper toolbar contrast in certain themes.</li>
+                    <li>Fixed a privacy policy link not working.</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.26.11" type="development" date="2025-10-23">
+            <description>
+                <ul>
+                    <li>Small visual and performance improvements</li>
+                    <li>Fixed the AppImage not running on Fedora</li>
+                    <li>Disabled the pencil sound effect by default</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.26.10" type="development" date="2025-10-17">
+            <description>
+                <ul>
+                    <li>Fixed an issue where the pencil sound effect wouldn't stop when you lifted your stylus</li>
+                    <li>Visual improvements especially in the Linux/Yaru theme</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.26.9" type="development" date="2025-10-12">
+            <description>
+                <ul>
+                    <li>Fixed an edge case where the laser pointer could produce invalid strokes.</li>
+                    <li>Made strokes higher quality when you're zoomed out.</li>
+                    <li>General maintenance, improved testing, and behind-the-scenes improvements.</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.26.8" type="development" date="2025-09-24">
+            <description>
+                <ul>
+                    <li>Improved handling of short (1-2 point) strokes.</li>
+                    <li>Fixed null errors in pen gesture handlers.</li>
+                    <li>Fixed a small memory leak with the pencil shaders.</li>
+                    <li>Partially fixed the custom data directory migration on Android.</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.26.7" type="development" date="2025-09-08">
+            <description>
+                <ul>
+                    <li>Fixed PDF import issues, thanks @QubaB on GitHub</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.26.6" type="development" date="2025-09-07">
+            <description>
+                <ul>
+                    <li>Major improvements to the stroke drawing algorithm. You'll see less flickering while drawing, better handling of sharp corners mid-stroke, and lose less detail near the end of the stroke.</li>
+                    <li>Added stylus support on Linux. There is no pressure sensitivity, but you can now use your pen to draw and your finger to scroll.</li>
+                    <li>Fixed the Hyperlegible font setting not working with the Linux (Yaru) theme.</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.26.5" type="development" date="2025-09-05">
+            <description>
+                <ul>
+                    <li>Updated the font Atkinson Hyperlegible to Atkinson Hyperlegible Next to support more languages</li>
+                    <li>Very slight rounding on the app icon</li>
+                    <li>Bug fixes and improvements from dependency updates</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.26.4" type="development" date="2025-08-18">
+            <description>
+                <ul>
+                    <li>Small but important bug fixes thanks to everyone who opted in to error reporting!</li>
+                    <li>Further evolution of the personal information filters. These are implemented both locally and on the server so your information is always safe.</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.26.3" type="development" date="2025-08-15">
+            <description>
+                <ul>
+                    <li>Minor bug fixes</li>
+                    <li>Opt-in error tracking has been added, but isn't supported on Linux at least for now.</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.26.2" type="development" date="2025-08-10">
+            <description>
+                <ul>
+                    <li>This release contains a fix for some users not being able to save files.</li>
+                    <li>In future updates, I'll be adding some error tracking to help me improve the app. It will be opt-in and as anonymous as I can make it.</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.26.1" type="development" date="2025-08-04">
+            <description>
+                <ul>
+                    <li>Slightly reduced app size</li>
+                    <li>New display of the current folder path in the browse page</li>
+                    <li>In future updates, I'll be adding some error tracking to help me improve the app. It will be opt-in and as anonymous as I can make it.</li>
+                </ul>
+            </description>
+        </release>
         <release version="0.26.0" type="development" date="2025-07-16">
             <description>
                 <ul>
@@ -260,8 +433,10 @@
         </release>
         <release version="0.25.4" type="development" date="2025-02-22">
             <description>
+                <p>
                 You can now customize the line thickness of your background pattern,
                 and files downloaded from the server now have the proper timestamp, preventing them from being synced repeatedly.
+                </p>
             </description>
         </release>
         <release version="0.25.3" type="development" date="2024-12-14">

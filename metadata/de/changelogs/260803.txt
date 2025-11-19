@@ -1,0 +1,4 @@
+• Verbesserte Handhabung kurzer (1-2 Punkte) Striche.
+• Nullfehler in Stift -Gestenhandlern behoben.
+• Ein kleines Speicherleck mit den Bleistift -Shadern behoben.
+• Die Migration des benutzerdefinierten Datenverzeichnisses auf Android teilweise behoben.

@@ -1,0 +1,3 @@
+• Mírně zmenšená velikost aplikace
+• Nový zobrazení aktuální cesty složky na stránce procházet
+• V budoucích aktualizacích přidám nějaké sledování chyb, které mi pomohou vylepšit aplikaci. Bude to přihlásit a jak anonymní, jak to dokážu.

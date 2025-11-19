@@ -5,10 +5,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
 import 'package:golden_screenshot/golden_screenshot.dart';
 import 'package:saber/components/theming/dynamic_material_app.dart';
-import 'package:saber/data/editor/pencil_sound.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/flavor_config.dart';
-import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/editor/editor.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -22,11 +20,9 @@ void main() {
 
     setupMockPathProvider();
     setupMockPrinting();
-    setupMockAudioplayers();
     SharedPreferences.setMockInitialValues({});
 
     FlavorConfig.setup();
-    stows.pencilSound.value = PencilSoundSetting.off;
     await tester.runAsync(FileManager.init);
 
     const filePath = '/tests/editor_undo_redo_test';
@@ -46,72 +42,109 @@ void main() {
         ),
       ],
     );
-    await tester.pumpWidget(TranslationProvider(
-      child: DynamicMaterialApp(
-        title: 'Saber',
-        router: router,
+    await tester.pumpWidget(
+      TranslationProvider(
+        child: DynamicMaterialApp(title: 'Saber', router: router),
       ),
-    ));
+    );
     await tester.pumpAndSettle();
 
     // wait for editor to load (i.e. when readOnly is false)
     final editorState = tester.state<EditorState>(find.byType(Editor));
-    for (int i = 0; i < 10; i++) {
+    for (var i = 0; i < 10; i++) {
       if (!editorState.coreInfo.readOnly) break;
-      await tester
-          .runAsync(() => Future.delayed(const Duration(milliseconds: 10)));
+      await tester.runAsync(
+        () => Future.delayed(const Duration(milliseconds: 10)),
+      );
     }
-    expect(editorState.coreInfo.readOnly, isFalse,
-        reason: 'Editor is still read-only');
+    expect(
+      editorState.coreInfo.readOnly,
+      isFalse,
+      reason: 'Editor is still read-only',
+    );
     printOnFailure('Editor core info is loaded');
 
-    IconButton getUndoBtn() => tester.widget<IconButton>(find.ancestor(
-          of: find.byIcon(Icons.undo),
-          matching: find.byType(IconButton),
-        ));
-    IconButton getRedoBtn() => tester.widget<IconButton>(find.ancestor(
-          of: find.byIcon(Icons.redo),
-          matching: find.byType(IconButton),
-        ));
+    IconButton getUndoBtn() => tester.widget<IconButton>(
+      find.ancestor(
+        of: find.byIcon(Icons.undo),
+        matching: find.byType(IconButton),
+      ),
+    );
+    IconButton getRedoBtn() => tester.widget<IconButton>(
+      find.ancestor(
+        of: find.byIcon(Icons.redo),
+        matching: find.byType(IconButton),
+      ),
+    );
 
-    expect(getUndoBtn().onPressed, isNull,
-        reason: 'Undo button should be disabled initially');
-    expect(getRedoBtn().onPressed, isNull,
-        reason: 'Redo button should be disabled initially');
+    expect(
+      getUndoBtn().onPressed,
+      isNull,
+      reason: 'Undo button should be disabled initially',
+    );
+    expect(
+      getRedoBtn().onPressed,
+      isNull,
+      reason: 'Redo button should be disabled initially',
+    );
 
     // draw something
     await drawOnEditor(tester);
     await tester.pumpAndSettle();
-    expect(getUndoBtn().onPressed, isNotNull,
-        reason: 'Undo button should be enabled after first draw');
-    expect(getRedoBtn().onPressed, isNull,
-        reason: 'Redo button should be disabled after first draw');
+    expect(
+      getUndoBtn().onPressed,
+      isNotNull,
+      reason: 'Undo button should be enabled after first draw',
+    );
+    expect(
+      getRedoBtn().onPressed,
+      isNull,
+      reason: 'Redo button should be disabled after first draw',
+    );
 
     // undo
     await tester.tap(find.byIcon(Icons.undo));
     await tester.pump();
-    expect(getUndoBtn().onPressed, isNull,
-        reason: 'Undo button should be disabled after undo');
-    expect(getRedoBtn().onPressed, isNotNull,
-        reason: 'Redo button should be enabled after undo');
+    expect(
+      getUndoBtn().onPressed,
+      isNull,
+      reason: 'Undo button should be disabled after undo',
+    );
+    expect(
+      getRedoBtn().onPressed,
+      isNotNull,
+      reason: 'Redo button should be enabled after undo',
+    );
 
     // redo
     await tester.tap(find.byIcon(Icons.redo));
     await tester.pump();
-    expect(getUndoBtn().onPressed, isNotNull,
-        reason: 'Undo button should be enabled after redo');
-    expect(getRedoBtn().onPressed, isNull,
-        reason: 'Redo button should be disabled after redo');
+    expect(
+      getUndoBtn().onPressed,
+      isNotNull,
+      reason: 'Undo button should be enabled after redo',
+    );
+    expect(
+      getRedoBtn().onPressed,
+      isNull,
+      reason: 'Redo button should be disabled after redo',
+    );
 
     // undo, then draw again
     await tester.tap(find.byIcon(Icons.undo));
     await tester.pump();
     await drawOnEditor(tester);
     await tester.pump();
-    expect(getUndoBtn().onPressed, isNotNull,
-        reason: 'Undo button should be enabled after undo and draw');
-    expect(getRedoBtn().onPressed, isNull,
-        reason: 'Redo button should be disabled after undo and draw');
+    expect(
+      getUndoBtn().onPressed,
+      isNotNull,
+      reason: 'Undo button should be enabled after undo and draw',
+    );
+    expect(
+      getRedoBtn().onPressed,
+      isNull,
+      reason: 'Redo button should be disabled after undo and draw',
+    );
 
     // save file now to supersede the save timer (which would run after the test is finished)
     printOnFailure('Saving file: $filePath${Editor.extension}');
@@ -124,7 +157,7 @@ void main() {
 }
 
 Future drawOnEditor(WidgetTester tester) => tester.timedDrag(
-      find.byType(Editor),
-      const Offset(50, 0),
-      const Duration(milliseconds: 100),
-    );
+  find.byType(Editor),
+  const Offset(50, 0),
+  const Duration(milliseconds: 100),
+);

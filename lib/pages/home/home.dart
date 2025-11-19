@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:saber/components/home/sentry_consent_dialog.dart';
 import 'package:saber/components/navbar/responsive_navbar.dart';
 import 'package:saber/components/settings/update_manager.dart';
 import 'package:saber/components/theming/dynamic_material_app.dart';
@@ -9,11 +10,7 @@ import 'package:saber/pages/home/settings.dart';
 import 'package:saber/pages/home/whiteboard.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({
-    super.key,
-    required this.subpage,
-    required this.path,
-  });
+  const HomePage({super.key, required this.subpage, required this.path});
 
   final String subpage;
   final String? path;
@@ -21,15 +18,15 @@ class HomePage extends StatefulWidget {
   @override
   State<HomePage> createState() => _HomePageState();
 
-  static const String recentSubpage = 'recent';
-  static const String browseSubpage = 'browse';
-  static const String whiteboardSubpage = 'whiteboard';
-  static const String settingsSubpage = 'settings';
+  static const recentSubpage = 'recent';
+  static const browseSubpage = 'browse';
+  static const whiteboardSubpage = 'whiteboard';
+  static const settingsSubpage = 'settings';
   static const List<String> subpages = [
     recentSubpage,
     browseSubpage,
     whiteboardSubpage,
-    settingsSubpage
+    settingsSubpage,
   ];
 }
 
@@ -38,20 +35,32 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     DynamicMaterialApp.addFullscreenListener(_setState);
     super.initState();
-    UpdateManager.showUpdateDialog(context);
+    _showDialogs();
   }
 
-  void _setState() => setState(() {});
+  void _showDialogs() async {
+    await null; // initState must be completed before using context
+    if (!mounted) return;
+    UpdateManager.showUpdateDialog(context);
+    SentryConsentDialog.showIfNeeded(context);
+  }
+
+  void _setState() {
+    if (mounted) setState(() {});
+  }
 
   Widget get body {
     return AnimatedSwitcher(
       duration: const Duration(milliseconds: 300),
-      child: switch (widget.subpage) {
-        HomePage.browseSubpage => BrowsePage(path: widget.path),
-        HomePage.whiteboardSubpage => const Whiteboard(),
-        HomePage.settingsSubpage => const SettingsPage(),
-        _ => const RecentPage(),
-      },
+      child: KeyedSubtree(
+        key: ValueKey(widget.subpage),
+        child: switch (widget.subpage) {
+          HomePage.browseSubpage => BrowsePage(path: widget.path),
+          HomePage.whiteboardSubpage => const Whiteboard(),
+          HomePage.settingsSubpage => const SettingsPage(),
+          _ => const RecentPage(),
+        },
+      ),
     );
   }
 

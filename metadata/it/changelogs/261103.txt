@@ -1,0 +1,4 @@
+• L'aggiornamento in-app ora mostra l'avanzamento del download
+• Piccoli miglioramenti visivi e prestazionali
+• Risolto il problema con AppImage che non veniva eseguito su Fedora
+• Disabilitato l'effetto sonoro della matita per impostazione predefinita

@@ -66,16 +66,18 @@ void main() {
       );
     });
 
-    test('returns last page index when scroll position is beyond last page',
-        () {
-      expect(
-        EditorState.getPageIndexFromScrollPosition(
-          scrollY: 100000,
-          screenWidth: 100,
-          pages: pages,
-        ),
-        2,
-      );
-    });
+    test(
+      'returns last page index when scroll position is beyond last page',
+      () {
+        expect(
+          EditorState.getPageIndexFromScrollPosition(
+            scrollY: 100000,
+            screenWidth: 100,
+            pages: pages,
+          ),
+          2,
+        );
+      },
+    );
   });
 }

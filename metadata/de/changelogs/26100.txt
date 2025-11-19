@@ -1,0 +1,2 @@
+• Es wurde ein Problem behoben, bei dem der Stiftsoundeffekt nicht aufhörte, wenn Sie Ihren Stift anhoben
+• Visuelle Verbesserungen, insbesondere im Linux/Yaru-Theme

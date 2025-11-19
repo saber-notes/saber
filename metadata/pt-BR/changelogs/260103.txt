@@ -1,0 +1,3 @@
+• Tamanho do aplicativo ligeiramente reduzido
+• Nova exibição do caminho da pasta atual na página de navegação
+• Em atualizações futuras, adicionarei algum rastreamento de erros para me ajudar a melhorar o aplicativo. Será optado e por mais anônimo que eu puder.

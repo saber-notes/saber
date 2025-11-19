@@ -1,0 +1,4 @@
+• Um die Benutzerfreundlichkeit zu verbessern, wird das Zeichnen mit dem Finger automatisch deaktiviert, wenn Sie einen Stift verwenden. Sie können diese Funktion in den Einstellungen deaktivieren.
+• Sie können jetzt mit der Maus zoomen, indem Sie beim Scrollen die Strg- oder Befehlstaste gedrückt halten.
+• Problem behoben, bei dem Striche vom Formstift verwischt wurden, wenn Sie mit dem Zeichnen fertig waren.
+...

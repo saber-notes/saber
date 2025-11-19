@@ -5,6 +5,7 @@
 
 // coverage:ignore-file
 // ignore_for_file: type=lint, unused_import
+// dart format off
 
 import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
@@ -15,6 +16,7 @@ export 'package:slang_flutter/slang_flutter.dart';
 import 'strings_ar.g.dart' deferred as l_ar;
 import 'strings_cs.g.dart' deferred as l_cs;
 import 'strings_de.g.dart' deferred as l_de;
+import 'strings_eo.g.dart' deferred as l_eo;
 import 'strings_es.g.dart' deferred as l_es;
 import 'strings_fa.g.dart' deferred as l_fa;
 import 'strings_fr.g.dart' deferred as l_fr;
@@ -40,6 +42,7 @@ enum AppLocale with BaseAppLocale<AppLocale, Translations> {
 	ar(languageCode: 'ar'),
 	cs(languageCode: 'cs'),
 	de(languageCode: 'de'),
+	eo(languageCode: 'eo'),
 	es(languageCode: 'es'),
 	fa(languageCode: 'fa'),
 	fr(languageCode: 'fr'),
@@ -93,6 +96,13 @@ enum AppLocale with BaseAppLocale<AppLocale, Translations> {
 			case AppLocale.de:
 				await l_de.loadLibrary();
 				return l_de.TranslationsDe(
+					overrides: overrides,
+					cardinalResolver: cardinalResolver,
+					ordinalResolver: ordinalResolver,
+				);
+			case AppLocale.eo:
+				await l_eo.loadLibrary();
+				return l_eo.TranslationsEo(
 					overrides: overrides,
 					cardinalResolver: cardinalResolver,
 					ordinalResolver: ordinalResolver,
@@ -211,6 +221,12 @@ enum AppLocale with BaseAppLocale<AppLocale, Translations> {
 				);
 			case AppLocale.de:
 				return l_de.TranslationsDe(
+					overrides: overrides,
+					cardinalResolver: cardinalResolver,
+					ordinalResolver: ordinalResolver,
+				);
+			case AppLocale.eo:
+				return l_eo.TranslationsEo(
 					overrides: overrides,
 					cardinalResolver: cardinalResolver,
 					ordinalResolver: ordinalResolver,

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:logging/logging.dart';
 import 'package:saber/components/misc/faq.dart';
+import 'package:saber/data/extensions/quota_extension.dart';
 import 'package:saber/data/extensions/string_extensions.dart';
 import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
 import 'package:saber/data/nextcloud/readable_bytes.dart';
@@ -39,7 +40,7 @@ class _DoneLoginStepState extends State<DoneLoginStep> {
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
+    final textTheme = TextTheme.of(context);
     final screenWidth = MediaQuery.sizeOf(context).width;
     final screenHeight = MediaQuery.sizeOf(context).height;
     final quota = stows.lastStorageQuota.value;
@@ -49,7 +50,7 @@ class _DoneLoginStepState extends State<DoneLoginStep> {
         ? NextcloudClientExtension.defaultNextcloudUri
         : Uri.parse(stows.url.value);
     return ListView(
-      padding: EdgeInsets.symmetric(
+      padding: .symmetric(
         horizontal: screenWidth > width ? (screenWidth - width) / 2 : 16,
         vertical: 16,
       ),
@@ -62,9 +63,7 @@ class _DoneLoginStepState extends State<DoneLoginStep> {
             height: min(width * 576 / 844.6693, screenHeight * 0.25),
             excludeFromSemantics: true,
           ),
-          SizedBox(
-            height: min(64, screenHeight * 0.05),
-          ),
+          SizedBox(height: min(64, screenHeight * 0.05)),
         ],
         Row(
           children: [
@@ -77,29 +76,29 @@ class _DoneLoginStepState extends State<DoneLoginStep> {
               Image.memory(stows.pfp.value!, width: 32, height: 32),
             const SizedBox(width: 16),
             Expanded(
-              child: Text(t.login.status.hi(u: stows.username.value),
-                  style: textTheme.headlineSmall),
+              child: Text(
+                t.login.status.hi(u: stows.username.value),
+                style: textTheme.headlineSmall,
+              ),
             ),
           ],
         ),
         const SizedBox(height: 2),
-        Text(t.profile.quotaUsage(
-          used: readableBytes(quota?.used),
-          total: readableBytes(quota?.total),
-          percent: quota?.relative ?? 0,
-        )),
+        Text(
+          t.profile.quotaUsage(
+            used: readableBytes(quota?.used),
+            total: readableBytes(quota?.total),
+            percent: quota?.percentRounded ?? 0,
+          ),
+        ),
         const SizedBox(height: 2),
         LinearProgressIndicator(
-          // At least 4% so the rounded corners render properly
-          value: (quota?.relative ?? 0).clamp(4, 100) / 100,
+          value: quota?.progressIndicatorValue,
           minHeight: 32,
-          borderRadius: BorderRadius.circular(6),
+          borderRadius: _elevatedButtonBorderRadiusOf(context),
         ),
         const SizedBox(height: 4),
-        ElevatedButton(
-          onPressed: _logout,
-          child: Text(t.profile.logout),
-        ),
+        ElevatedButton(onPressed: _logout, child: Text(t.profile.logout)),
         const SizedBox(height: 32),
         Text(t.profile.connectedTo, style: const TextStyle(height: 0.8)),
         Text(serverName, style: textTheme.headlineSmall),
@@ -134,11 +133,18 @@ class _DoneLoginStepState extends State<DoneLoginStep> {
         Text(t.profile.faqTitle, style: textTheme.headlineSmall),
         FaqListView(
           shrinkWrap: true,
-          items: [
-            for (final item in t.profile.faq) FaqItem(item.q, item.a),
-          ],
+          items: [for (final item in t.profile.faq) FaqItem(item.q, item.a)],
         ),
       ],
     );
+  }
+}
+
+BorderRadius _elevatedButtonBorderRadiusOf(BuildContext context) {
+  final shape = ElevatedButtonTheme.of(context).style?.shape?.resolve({});
+  if (shape is RoundedRectangleBorder) {
+    return shape.borderRadius.resolve(TextDirection.ltr);
+  } else {
+    return .circular(8);
   }
 }

@@ -7,7 +7,7 @@ on:
       - submodules/flutter
   schedule:
     # every 2 days at 5:58 am (random time to avoid spikes in GitHub Actions usage)
-    - cron: '58 5 */2 * *'
+    - cron: "58 5 */2 * *"
 
 jobs:
   check-flutter-submodule:
@@ -16,7 +16,7 @@ jobs:
     timeout-minutes: 5
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Setup Dart
         uses: dart-lang/setup-dart@v1

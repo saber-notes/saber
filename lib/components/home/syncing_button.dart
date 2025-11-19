@@ -14,20 +14,21 @@ class SyncingButton extends StatefulWidget {
 
   /// Whether to force the button to look tappable (for screenshots).
   @visibleForTesting
-  static bool forceButtonActive = false;
+  static var forceButtonActive = false;
 }
 
 class _SyncingButtonState extends State<SyncingButton> {
   /// The number of files transferred since we started listening.
-  static int filesTransferred = 0;
+  static var filesTransferred = 0;
 
   late final StreamSubscription queueListener, transferListener;
 
   @override
   void initState() {
     queueListener = syncer.downloader.queueStream.listen(_onQueueChanged);
-    transferListener =
-        syncer.downloader.transferStream.listen(_onFileTransferred);
+    transferListener = syncer.downloader.transferStream.listen(
+      _onFileTransferred,
+    );
     stows.username.addListener(_onUsernameChanged);
 
     super.initState();
@@ -82,28 +83,41 @@ class _SyncingButtonState extends State<SyncingButton> {
 
   @override
   Widget build(BuildContext context) {
-    double? percentage = getPercentage();
+    final percentage = getPercentage();
 
     return IconButton(
       onPressed: stows.loggedIn
           ? onPressed
           : SyncingButton.forceButtonActive
-              ? () {}
-              : null,
+          ? () {}
+          : null,
+      padding: const .all(4),
+      constraints: const BoxConstraints(
+        minWidth: kMinInteractiveDimension,
+        minHeight: kMinInteractiveDimension,
+      ),
       icon: Stack(
-        alignment: Alignment.center,
+        alignment: .center,
         children: [
-          AnimatedOpacity(
-            opacity: (stows.loggedIn && (percentage ?? 0) < 1) ? 1 : 0,
-            duration: const Duration(milliseconds: 200),
-            child: _AnimatedCircularProgressIndicator(
+          Positioned.fill(
+            child: AnimatedOpacity(
+              opacity: (stows.loggedIn && (percentage ?? 0) < 1) ? 1 : 0,
               duration: const Duration(milliseconds: 200),
-              percentage: percentage,
+              child: _AnimatedCircularProgressIndicator(
+                duration: const Duration(milliseconds: 200),
+                percentage: percentage,
+              ),
             ),
           ),
-          const AdaptiveIcon(
-            icon: Icons.sync,
-            cupertinoIcon: CupertinoIcons.arrow_2_circlepath,
+          const Padding(
+            padding: .all(4),
+            child: AspectRatio(
+              aspectRatio: 1,
+              child: AdaptiveIcon(
+                icon: Icons.sync,
+                cupertinoIcon: CupertinoIcons.arrow_2_circlepath,
+              ),
+            ),
           ),
         ],
       ),
@@ -138,9 +152,13 @@ class _AnimatedCircularProgressIndicatorState
 
   @override
   void forEachTween(TweenVisitor<dynamic> visitor) {
-    _valueTween = visitor(_valueTween, widget.percentage ?? 0.0,
-            (dynamic value) => Tween<double>(begin: (value ?? 0.0) as double))
-        as Tween<double>?;
+    _valueTween =
+        visitor(
+              _valueTween,
+              widget.percentage ?? 0.0,
+              (dynamic value) => Tween<double>(begin: (value ?? 0.0) as double),
+            )
+            as Tween<double>?;
   }
 
   @override

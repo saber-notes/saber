@@ -1,0 +1,5 @@
+• Para mejorar la facilidad de uso, el dibujo con los dedos se desactiva automáticamente si utiliza un lápiz. Puede desactivar esta función en Configuración.
+• Ahora puede hacer zoom con el mouse manteniendo presionada la tecla Control o Comando mientras se desplaza.
+• Se corrigieron los trazos del lápiz de forma que se aplastaban cuando terminabas de dibujarlos.
+• Se mejoró la precisión de los trazos de menor calidad que se muestran cuando se aleja.
+...

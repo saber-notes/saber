@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:saber/components/theming/adaptive_toggle_buttons.dart';
 import 'package:saber/pages/home/settings.dart';
 import 'package:stow/stow.dart';
+import 'package:yaru/yaru.dart';
 
 class SettingsDropdown<T> extends StatefulWidget {
   const SettingsDropdown({
@@ -14,8 +15,10 @@ class SettingsDropdown<T> extends StatefulWidget {
     required this.pref,
     required this.options,
     this.afterChange,
-  }) : assert(icon == null || iconBuilder == null,
-            'Cannot set both icon and iconBuilder');
+  }) : assert(
+         icon == null || iconBuilder == null,
+         'Cannot set both icon and iconBuilder',
+       );
 
   final String title;
   final String? subtitle;
@@ -38,9 +41,6 @@ class SettingsDropdown<T> extends StatefulWidget {
 }
 
 class _SettingsDropdownState<T> extends State<SettingsDropdown<T>> {
-  late FocusNode dropdownFocusNode =
-      FocusNode(debugLabel: 'dropdownFocusNode(${widget.pref.key})');
-
   @override
   void initState() {
     widget.pref.addListener(onChanged);
@@ -57,7 +57,8 @@ class _SettingsDropdownState<T> extends State<SettingsDropdown<T>> {
     if (widget.indexOf(widget.pref.value) == null) {
       if (kDebugMode)
         throw Exception(
-            'SettingsDropdown (${widget.pref.key}): Value ${widget.pref.value} is not in the list of values, set it to ${widget.options.first.value}?');
+          'SettingsDropdown (${widget.pref.key}): Value ${widget.pref.value} is not in the list of values, set it to ${widget.options.first.value}?',
+        );
       widget.pref.value = widget.options.first.value;
     }
 
@@ -67,9 +68,6 @@ class _SettingsDropdownState<T> extends State<SettingsDropdown<T>> {
 
     return MergeSemantics(
       child: ListTile(
-        onTap: () {
-          dropdownFocusNode.requestFocus();
-        },
         onLongPress: () {
           SettingsPage.showResetDialog(
             context: context,
@@ -77,7 +75,7 @@ class _SettingsDropdownState<T> extends State<SettingsDropdown<T>> {
             prefTitle: widget.title,
           );
         },
-        contentPadding: const EdgeInsets.symmetric(vertical: 4, horizontal: 16),
+        contentPadding: const .symmetric(vertical: 4, horizontal: 16),
         leading: AnimatedSwitcher(
           duration: const Duration(milliseconds: 100),
           child: Icon(icon, key: ValueKey(icon)),
@@ -91,32 +89,38 @@ class _SettingsDropdownState<T> extends State<SettingsDropdown<T>> {
                 : null,
           ),
         ),
-        subtitle:
-            Text(widget.subtitle ?? '', style: const TextStyle(fontSize: 13)),
-        trailing: DropdownButton<T>(
-          value: widget.pref.value,
-          onChanged: (T? value) {
-            if (value == null) return;
-            widget.pref.value = value;
-          },
-          items: [
+        subtitle: Text(
+          widget.subtitle ?? '',
+          style: const TextStyle(fontSize: 13),
+        ),
+        trailing: YaruPopupMenuButton<T>(
+          initialValue: widget.pref.value,
+          onSelected: (value) => widget.pref.value = value,
+          style:
+              OutlinedButtonTheme.of(context).style ??
+              OutlinedButton.styleFrom(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadiusGeometry.circular(8),
+                ),
+              ),
+          itemBuilder: (context) => [
             for (final option in widget.options)
-              DropdownMenuItem<T>(
+              PopupMenuItem(
                 value: option.value,
                 child: ConstrainedBox(
                   constraints: BoxConstraints(
                     maxWidth: MediaQuery.sizeOf(context).width * 0.45,
                   ),
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    padding: const .symmetric(horizontal: 16),
                     child: option.widget,
                   ),
                 ),
               ),
           ],
-          focusNode: dropdownFocusNode,
-          borderRadius: BorderRadius.circular(32),
-          underline: const SizedBox.shrink(),
+          child: widget.options
+              .firstWhere((option) => option.value == widget.pref.value)
+              .widget,
         ),
       ),
     );

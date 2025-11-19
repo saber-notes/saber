@@ -22,13 +22,13 @@ class ColorOption extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var colorScheme = Theme.of(context).colorScheme;
+    final colorScheme = ColorScheme.of(context);
     return Tooltip(
       message: tooltip ?? '',
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 4),
+        padding: const .symmetric(horizontal: 4),
         child: InkWell(
-          borderRadius: BorderRadius.circular(diameter / 2),
+          borderRadius: .circular(diameter / 2),
           onTap: enabled ? onTap : null,
           onLongPress: enabled ? onLongPress : null,
           onSecondaryTap: enabled ? onLongPress : null,
@@ -36,14 +36,14 @@ class ColorOption extends StatelessWidget {
             width: diameter,
             height: diameter,
             decoration: BoxDecoration(
-              shape: BoxShape.circle,
+              shape: .circle,
               border: Border.all(
                 color: isSelected ? colorScheme.onSurface : Colors.transparent,
                 width: 2,
               ),
             ),
             child: Padding(
-              padding: const EdgeInsets.all(3),
+              padding: const .all(3),
               child: AnimatedOpacity(
                 opacity: enabled ? 1 : 0.5,
                 duration: const Duration(milliseconds: 200),
@@ -58,21 +58,15 @@ class ColorOption extends StatelessWidget {
 }
 
 class ColorOptionSeparatorIcon extends StatelessWidget {
-  const ColorOptionSeparatorIcon({
-    super.key,
-    required this.icon,
-  });
+  const ColorOptionSeparatorIcon({super.key, required this.icon});
 
   final IconData icon;
 
   @override
   Widget build(BuildContext context) {
-    var colorScheme = Theme.of(context).colorScheme;
+    final colorScheme = ColorScheme.of(context);
     return Padding(
-      padding: const EdgeInsets.symmetric(
-        horizontal: 8,
-        vertical: 4,
-      ),
+      padding: const .symmetric(horizontal: 8, vertical: 4),
       child: Icon(
         icon,
         size: 16,
@@ -80,8 +74,7 @@ class ColorOptionSeparatorIcon extends StatelessWidget {
           colorScheme.onSurface,
           colorScheme.primary,
           0.2,
-        )!
-            .withValues(alpha: 0.7),
+        )!.withValues(alpha: 0.7),
       ),
     );
   }

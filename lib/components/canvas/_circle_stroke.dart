@@ -6,7 +6,6 @@ import 'package:one_dollar_unistroke_recognizer/one_dollar_unistroke_recognizer.
 import 'package:perfect_freehand/perfect_freehand.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/data/editor/page.dart';
-import 'package:saber/data/tools/shape_pen.dart';
 
 class CircleStroke extends Stroke {
   Offset center;
@@ -18,7 +17,7 @@ class CircleStroke extends Stroke {
     required super.options,
     required super.pageIndex,
     required super.page,
-    required super.penType,
+    required super.toolId,
     required this.center,
     required this.radius,
   }) {
@@ -36,15 +35,16 @@ class CircleStroke extends Stroke {
 
     final Color color;
     switch (json['c']) {
-      case (int value):
+      case (final int value):
         color = Color(value);
-      case (Int64 value):
+      case (final Int64 value):
         color = Color(value.toInt());
       case null:
         color = Stroke.defaultColor;
       default:
         throw Exception(
-            'Invalid color value: (${json['c'].runtimeType}) ${json['c']}');
+          'Invalid color value: (${json['c'].runtimeType}) ${json['c']}',
+        );
     }
 
     return CircleStroke(
@@ -53,11 +53,8 @@ class CircleStroke extends Stroke {
       options: StrokeOptions.fromJson(json),
       pageIndex: pageIndex,
       page: page,
-      penType: json['ty'] ?? (ShapePen).toString(),
-      center: Offset(
-        json['cx'] ?? 0,
-        json['cy'] ?? 0,
-      ),
+      toolId: .parsePenType(json['ty'], fallback: .shapePen),
+      center: Offset(json['cx'] ?? 0, json['cy'] ?? 0),
       radius: json['r'] ?? 0,
     );
   }
@@ -82,8 +79,8 @@ class CircleStroke extends Stroke {
   /// A list of 24/N points that form a circle
   /// with [center] and [radius].
   @override
-  List<Offset> getPolygon(int N) {
-    final numPoints = 24 ~/ N;
+  List<Offset> getPolygon({required StrokeQuality quality}) {
+    final numPoints = 24 ~/ quality.N;
     return List.generate(numPoints, (i) => i / numPoints * 2 * pi)
         .map((radians) => Offset(cos(radians), sin(radians)))
         .map((unitDir) => unitDir * radius + center)
@@ -145,13 +142,13 @@ class CircleStroke extends Stroke {
 
   @override
   CircleStroke copy() => CircleStroke(
-        color: color,
-        pressureEnabled: pressureEnabled,
-        options: options.copyWith(),
-        pageIndex: pageIndex,
-        page: page,
-        penType: penType,
-        center: center,
-        radius: radius,
-      );
+    color: color,
+    pressureEnabled: pressureEnabled,
+    options: options.copyWith(),
+    pageIndex: pageIndex,
+    page: page,
+    toolId: toolId,
+    center: center,
+    radius: radius,
+  );
 }

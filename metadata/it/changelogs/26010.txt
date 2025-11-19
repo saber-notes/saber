@@ -1,0 +1,3 @@
+• Dimensione dell'app leggermente ridotta
+• Nuovo display del percorso della cartella corrente nella pagina Sfoglia
+• In futuri aggiornamenti, aggiungerò un po 'di tracciamento degli errori per aiutarmi a migliorare l'app. Sarà opt-in e anonimo possibile.

@@ -1,0 +1,5 @@
+• Risolto il problema relativo al blocco dell'intera app se si sceglieva la lingua Esperanto.
+• Risolto il problema con la barra di navigazione che non aggiornava il testo quando si cambia lingua.
+• Risolto il problema con il quale la percentuale di spazio di archiviazione utilizzata non veniva arrotondata.
+• Liberazione della memoria utilizzata da immagini e PDF.
+• Rimosso l'effetto sonoro della matita.

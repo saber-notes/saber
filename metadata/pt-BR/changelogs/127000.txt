@@ -1,0 +1,4 @@
+• Melhorou a aparência dos traços de lápis e seu desempenho de renderização.
+• O Saber agora usa uma barra de título temática no Windows e no Linux, que responde às mudanças no modo claro/escuro.
+• Os switches agora têm como tema Cupertino (estilo iOS).
+• Adicionada uma tradução para Esperanto.

@@ -1,0 +1,4 @@
+• Manuseio aprimorado de movimentos curtos (1-2 pontos).
+• Corrigido erros nulos em manipuladores de gestos de caneta.
+• Corrigido um pequeno vazamento de memória com os sombreadores de lápis.
+• Corrigido parcialmente a migração de diretório de dados personalizada no Android.

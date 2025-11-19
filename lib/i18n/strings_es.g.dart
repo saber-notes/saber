@@ -3,6 +3,7 @@
 ///
 // coverage:ignore-file
 // ignore_for_file: type=lint, unused_import
+// dart format off
 
 import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
@@ -34,6 +35,7 @@ class TranslationsEs extends Translations {
 	// Translations
 	@override late final _TranslationsCommonEs common = _TranslationsCommonEs._(_root);
 	@override late final _TranslationsHomeEs home = _TranslationsHomeEs._(_root);
+	@override late final _TranslationsSentryEs sentry = _TranslationsSentryEs._(_root);
 	@override late final _TranslationsSettingsEs settings = _TranslationsSettingsEs._(_root);
 	@override late final _TranslationsLogsEs logs = _TranslationsLogsEs._(_root);
 	@override late final _TranslationsLoginEs login = _TranslationsLoginEs._(_root);
@@ -80,6 +82,16 @@ class _TranslationsHomeEs extends TranslationsHomeEn {
 	@override String get noPreviewAvailable => 'No hay una vista previa disponible';
 }
 
+// Path: sentry
+class _TranslationsSentryEs extends TranslationsSentryEn {
+	_TranslationsSentryEs._(TranslationsEs root) : this._root = root, super.internal(root);
+
+	final TranslationsEs _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsSentryConsentEs consent = _TranslationsSentryConsentEs._(_root);
+}
+
 // Path: settings
 class _TranslationsSettingsEs extends TranslationsSettingsEn {
 	_TranslationsSettingsEs._(TranslationsEs root) : this._root = root, super.internal(root);
@@ -115,11 +127,11 @@ class _TranslationsLogsEs extends TranslationsLogsEn {
 	final TranslationsEs _root; // ignore: unused_field
 
 	// Translations
+	@override String get useTheApp => 'Los registros aparecerán aquí mientras usa la aplicación';
 	@override String get logs => 'Registros';
 	@override String get viewLogs => 'Ver registros';
 	@override String get debuggingInfo => 'Los registros contienen información útil para la depuración y el desarrollo.';
 	@override String get noLogs => '¡Aquí no hay registros!';
-	@override String get logsAreTemporary => 'Los registros solo se conservan hasta que cierras la aplicación.';
 }
 
 // Path: login
@@ -172,7 +184,6 @@ class _TranslationsAppInfoEs extends TranslationsAppInfoEn {
 
 	// Translations
 	@override String licenseNotice({required Object buildYear}) => 'Saber  Copyright © 2022-${buildYear}  Adil Hanney\nEste programa no tiene ninguna garantía. Es un software libre, y se puede redistribuir bajo ciertas condiciones.';
-	@override String get dirty => 'DIRTY';
 	@override String get debug => 'DEBUG';
 	@override String get sponsorButton => 'Toca aquí para patrocinarme o comprar más almacenamiento';
 	@override String get licenseButton => 'Toca aquí para ver más información sobre la licencia';
@@ -337,6 +348,18 @@ class _TranslationsHomeDeleteFolderEs extends TranslationsHomeDeleteFolderEn {
 	@override String get alsoDeleteContents => 'Eliminar también las notas guardadas dentro de la carpeta';
 }
 
+// Path: sentry.consent
+class _TranslationsSentryConsentEs extends TranslationsSentryConsentEn {
+	_TranslationsSentryConsentEs._(TranslationsEs root) : this._root = root, super.internal(root);
+
+	final TranslationsEs _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsSentryConsentDescriptionEs description = _TranslationsSentryConsentDescriptionEs._(_root);
+	@override late final _TranslationsSentryConsentAnswersEs answers = _TranslationsSentryConsentAnswersEs._(_root);
+	@override String get title => 'Ayudar a mejorar el sable?';
+}
+
 // Path: settings.prefCategories
 class _TranslationsSettingsPrefCategoriesEs extends TranslationsSettingsPrefCategoriesEn {
 	_TranslationsSettingsPrefCategoriesEs._(TranslationsEs root) : this._root = root, super.internal(root);
@@ -375,14 +398,14 @@ class _TranslationsSettingsPrefLabelsEs extends TranslationsSettingsPrefLabelsEn
 	@override String get autoClearWhiteboardOnExit => 'Borrar la pizarra después de salir de la aplicación';
 	@override String get disableEraserAfterUse => 'Desactivar automáticamente la goma de borrar';
 	@override String get hideFingerDrawingToggle => 'Ocultar la opción para activar/desactivar la escritura con el dedo';
+	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Desactivar automáticamente el dibujo con los dedos';
 	@override String get editorPromptRename => 'Solicitarte cambiar el nombre de nuevas notas';
-	@override String get hideHomeBackgrounds => 'Ocultar fondos en la pantalla de inicio';
 	@override String get recentColorsDontSavePresets => 'No guardar colores preestablecidos en los colores recientes';
 	@override String get recentColorsLength => 'Número de colores recientes a almacenar';
 	@override String get printPageIndicators => 'Indicadores de página de impresión';
+	@override String get sentry => 'Informes de errores';
 	@override String get autosave => 'Auto-Save';
 	@override String get simplifiedHomeLayout => 'Disposición simplificada de la casa';
-	@override String get pencilSoundSetting => 'Efecto de sonido de lápiz';
 	@override String get customDataDir => 'Directorio de datos personalizado';
 	@override String get autoStraightenLines => 'Líneas de enderezamiento automático';
 	@override String get shapeRecognitionDelay => 'Retraso en el reconocimiento de formas';
@@ -402,12 +425,12 @@ class _TranslationsSettingsPrefDescriptionsEs extends TranslationsSettingsPrefDe
 	@override String get disableEraserAfterUse => 'Volver automáticamente al bolígrafo tras usar la goma';
 	@override String get maxImageSize => 'Las imágenes más grandes que este valor serán comprimidas';
 	@override late final _TranslationsSettingsPrefDescriptionsHideFingerDrawingEs hideFingerDrawing = _TranslationsSettingsPrefDescriptionsHideFingerDrawingEs._(_root);
+	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Desactivar el dibujo con los dedos cuando se detecta un lápiz';
 	@override String get editorPromptRename => 'Siempre puedes cambiar el nombre de las notas más tarde';
-	@override String get hideHomeBackgrounds => 'Para una vista más limpia';
 	@override String get printPageIndicators => 'Mostrar indicadores de página en las exportaciones';
-	@override String get autosave => 'Auto-Save después de un breve retraso, o nunca';
 	@override String get shouldAlwaysAlertForUpdates => 'Avísame sobre actualizaciones tan pronto como estén disponibles';
-	@override late final _TranslationsSettingsPrefDescriptionsPencilSoundSettingEs pencilSoundSetting = _TranslationsSettingsPrefDescriptionsPencilSoundSettingEs._(_root);
+	@override late final _TranslationsSettingsPrefDescriptionsSentryEs sentry = _TranslationsSettingsPrefDescriptionsSentryEs._(_root);
+	@override String get autosave => 'Auto-Save después de un breve retraso, o nunca';
 	@override String get simplifiedHomeLayout => 'Establece una altura fija para cada vista previa de nota';
 	@override String get autoStraightenLines => 'Endereza líneas largas sin tener que usar el rotulador.';
 	@override String get shapeRecognitionDelay => 'Con qué frecuencia actualizar la vista previa de la forma';
@@ -465,6 +488,7 @@ class _TranslationsSettingsCustomDataDirEs extends TranslationsSettingsCustomDat
 	final TranslationsEs _root; // ignore: unused_field
 
 	// Translations
+	@override String get unsupported => 'Esta característica es actualmente solo para desarrolladores. Usarlo probablemente dará como resultado la pérdida de datos.';
 	@override String get cancel => 'Cancelar';
 	@override String get select => 'Seleccionar';
 	@override String get mustBeEmpty => 'El directorio seleccionado debe estar vacío.';
@@ -759,6 +783,35 @@ class _TranslationsEditorHudEs extends TranslationsEditorHudEn {
 	@override String get lockAxisAlignedPan => 'Bloquear el desplazamiento a horizontal o vertical';
 }
 
+// Path: sentry.consent.description
+class _TranslationsSentryConsentDescriptionEs extends TranslationsSentryConsentDescriptionEn {
+	_TranslationsSentryConsentDescriptionEs._(TranslationsEs root) : this._root = root, super.internal(root);
+
+	final TranslationsEs _root; // ignore: unused_field
+
+	// Translations
+	@override String get question => '¿Le gustaría informar automáticamente errores inesperados? Esto me ayuda a identificar y solucionar problemas más rápido.';
+	@override String get scope => 'Los informes pueden contener información sobre el error y su dispositivo. He hecho todo lo posible para filtrar datos personales, pero algunos pueden permanecer.';
+	@override String get currentlyOff => 'Si otorga consentimiento, los informes de error se habilitarán después de reiniciar la aplicación.';
+	@override String get currentlyOn => 'Si revoca el consentimiento, reinicie la aplicación para deshabilitar el informe de errores.';
+	@override TextSpan learnMoreInPrivacyPolicy({required InlineSpanBuilder link}) => TextSpan(children: [
+		const TextSpan(text: 'Obtenga más información en '),
+		link('Política de privacidad'),
+		const TextSpan(text: '.'),
+	]);
+}
+
+// Path: sentry.consent.answers
+class _TranslationsSentryConsentAnswersEs extends TranslationsSentryConsentAnswersEn {
+	_TranslationsSentryConsentAnswersEs._(TranslationsEs root) : this._root = root, super.internal(root);
+
+	final TranslationsEs _root; // ignore: unused_field
+
+	// Translations
+	@override String get yes => 'Sí';
+	@override String get later => 'Pregúntame más tarde';
+}
+
 // Path: settings.prefDescriptions.hideFingerDrawing
 class _TranslationsSettingsPrefDescriptionsHideFingerDrawingEs extends TranslationsSettingsPrefDescriptionsHideFingerDrawingEn {
 	_TranslationsSettingsPrefDescriptionsHideFingerDrawingEs._(TranslationsEs root) : this._root = root, super.internal(root);
@@ -771,16 +824,17 @@ class _TranslationsSettingsPrefDescriptionsHideFingerDrawingEs extends Translati
 	@override String get fixedOff => 'Dibujar o escribir con el dedo está desactivado';
 }
 
-// Path: settings.prefDescriptions.pencilSoundSetting
-class _TranslationsSettingsPrefDescriptionsPencilSoundSettingEs extends TranslationsSettingsPrefDescriptionsPencilSoundSettingEn {
-	_TranslationsSettingsPrefDescriptionsPencilSoundSettingEs._(TranslationsEs root) : this._root = root, super.internal(root);
+// Path: settings.prefDescriptions.sentry
+class _TranslationsSettingsPrefDescriptionsSentryEs extends TranslationsSettingsPrefDescriptionsSentryEn {
+	_TranslationsSettingsPrefDescriptionsSentryEs._(TranslationsEs root) : this._root = root, super.internal(root);
 
 	final TranslationsEs _root; // ignore: unused_field
 
 	// Translations
-	@override String get off => 'Sin sonido';
-	@override String get onButNotInSilentMode => 'Habilitado (a menos que esté en modo silencioso)';
-	@override String get onAlways => 'Habilitado (incluso en modo silencioso)';
+	@override String get active => 'Activo';
+	@override String get inactive => 'Inactivo';
+	@override String get activeUntilRestart => 'Activo hasta que reinicie la aplicación';
+	@override String get inactiveUntilRestart => 'Inactivo hasta que reinicie la aplicación';
 }
 
 // Path: login.ncLoginStep.loginFlow

@@ -11,9 +11,7 @@ import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class SaberLoginFlow {
-  SaberLoginFlow.start({
-    required this.serverUrl,
-  }) {
+  SaberLoginFlow.start({required this.serverUrl}) {
     NcHttpOverrides.tempAcceptBadCertificateFrom(serverUrl);
     unawaited(_run());
   }
@@ -49,8 +47,10 @@ class SaberLoginFlow {
 
   Future<void> _run() async {
     _catchHttpError(() async {
-      final client = NextcloudClient(serverUrl,
-          httpClient: NextcloudClientExtension.newHttpClient());
+      final client = NextcloudClient(
+        serverUrl,
+        httpClient: NextcloudClientExtension.newHttpClient(),
+      );
       final flowClient = client.core.clientFlowLoginV2;
       init = await flowClient.init().then((response) => response.body);
       log.info('init: $init');

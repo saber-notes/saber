@@ -1,0 +1,1 @@
+Toto vydání obsahuje opravu pro některé uživatele, kteří nejsou schopni ukládat soubory.

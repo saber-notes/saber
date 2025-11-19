@@ -5,9 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nextcloud/provisioning_api.dart';
 import 'package:saber/components/theming/adaptive_icon.dart';
+import 'package:saber/components/theming/adaptive_linear_progress_indicator.dart';
+import 'package:saber/data/extensions/quota_extension.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
-import 'package:saber/data/nextcloud/readable_bytes.dart';
 import 'package:saber/data/nextcloud/saber_syncer.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/data/routes.dart';
@@ -57,75 +58,44 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
     final loginStep =
         NextcloudProfile.forceLoginStep ?? NcLoginPage.getCurrentStep();
     final heading = switch (loginStep) {
-      LoginStep.waitingForPrefs => '',
-      LoginStep.nc => t.login.status.loggedOut,
-      LoginStep.enc ||
-      LoginStep.done =>
-        t.login.status.hi(u: stows.username.value),
+      .waitingForPrefs => '',
+      .nc => t.login.status.loggedOut,
+      .enc || .done => t.login.status.hi(u: stows.username.value),
     };
     final subheading = switch (loginStep) {
-      LoginStep.waitingForPrefs => '',
-      LoginStep.nc => t.login.status.tapToLogin,
-      LoginStep.enc => t.login.status.almostDone,
-      LoginStep.done => t.login.status.loggedIn,
+      .waitingForPrefs => '',
+      .nc => t.login.status.tapToLogin,
+      .enc => t.login.status.almostDone,
+      .done => t.login.status.loggedIn,
     };
+    const pfpSize = 48.0;
 
-    var colorScheme = Theme.of(context).colorScheme;
     return ListTile(
+      visualDensity: VisualDensity.standard,
       onTap: () => context.push(RoutePaths.login),
       leading: ValueListenableBuilder(
         valueListenable: stows.pfp,
         builder: (BuildContext context, Uint8List? pfp, _) {
           return ClipRSuperellipse(
-            borderRadius: BorderRadius.circular(18),
+            borderRadius: .circular(18),
             child: pfp == null
-                ? const _UnknownPfp(size: 48)
-                : Image.memory(
-                    pfp,
-                    width: 48,
-                    height: 48,
-                  ),
+                ? const _UnknownPfp(size: pfpSize)
+                : Image.memory(pfp, width: pfpSize, height: pfpSize),
           );
         },
       ),
       title: Text(heading),
       subtitle: Text(subheading),
-      trailing: loginStep == LoginStep.done
+      trailing: loginStep == .done
           ? Row(
-              mainAxisSize: MainAxisSize.min,
+              mainAxisSize: .min,
+              spacing: 8,
               children: [
                 FutureBuilder(
                   future: getStorageQuotaFuture,
                   initialData: stows.lastStorageQuota.value,
-                  builder:
-                      (BuildContext context, AsyncSnapshot<Quota?> snapshot) {
-                    final Quota? quota = snapshot.data;
-                    final double? relativePercent;
-                    if (quota != null) {
-                      relativePercent = quota.relative / 100;
-                    } else {
-                      relativePercent = null;
-                    }
-
-                    return Stack(
-                      alignment: Alignment.center,
-                      children: [
-                        CircularProgressIndicator(
-                          value: relativePercent,
-                          backgroundColor:
-                              colorScheme.primary.withValues(alpha: 0.1),
-                          valueColor: AlwaysStoppedAnimation<Color>(
-                            colorScheme.primary.withValues(alpha: 0.5),
-                          ),
-                          strokeWidth: 8,
-                          semanticsLabel: 'Storage usage',
-                          semanticsValue: snapshot.data != null
-                              ? '${snapshot.data}%'
-                              : null,
-                        ),
-                        Text(readableQuota(quota)),
-                      ],
-                    );
+                  builder: (context, snapshot) {
+                    return _QuotaSummary(quota: snapshot.data);
                   },
                 ),
                 IconButton(
@@ -137,7 +107,9 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
                   onPressed: () async {
                     stows.fileSyncResyncEverythingDate.value = DateTime.now();
                     final allFiles = await FileManager.getAllFiles(
-                        includeExtensions: true, includeAssets: true);
+                      includeExtensions: true,
+                      includeAssets: true,
+                    );
                     for (final file in allFiles) {
                       syncer.uploader.enqueueRel(file);
                     }
@@ -160,12 +132,6 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
     stows.lastStorageQuota.value = user.body.ocs.data.quota;
     return stows.lastStorageQuota.value;
   }
-
-  static String readableQuota(Quota? quota) {
-    final used = readableBytes(quota?.used);
-    final total = readableBytes(quota?.total);
-    return '$used / $total';
-  }
 }
 
 class _UnknownPfp extends StatelessWidget {
@@ -186,6 +152,34 @@ class _UnknownPfp extends StatelessWidget {
           color: colorScheme.onPrimaryContainer,
           size: size * 0.7,
         ),
+      ),
+    );
+  }
+}
+
+class _QuotaSummary extends StatelessWidget {
+  const _QuotaSummary({required this.quota});
+
+  final Quota? quota;
+
+  @override
+  Widget build(BuildContext context) {
+    final colorScheme = ColorScheme.of(context);
+
+    return IntrinsicWidth(
+      child: Column(
+        mainAxisSize: .min,
+        spacing: 2,
+        children: [
+          AdaptiveLinearProgressIndicator(
+            semanticsLabel: 'Storage usage',
+            value: quota?.progressIndicatorValue,
+            backgroundColor: colorScheme.primary.withValues(alpha: 0.3),
+            color: colorScheme.primary.withValues(alpha: 0.8),
+            minHeight: 8,
+          ),
+          Text(quota.summary),
+        ],
       ),
     );
   }

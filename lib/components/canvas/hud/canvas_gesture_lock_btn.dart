@@ -21,24 +21,22 @@ class CanvasGestureLockBtn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
+    final colorScheme = ColorScheme.of(context);
     return GestureDetector(
       onTap: () => setLock(!lock),
       child: Container(
         decoration: BoxDecoration(
           color: colorScheme.surface.withValues(alpha: 0.5),
-          borderRadius: BorderRadius.circular(15),
+          borderRadius: .circular(15),
         ),
-        padding: const EdgeInsets.all(5),
+        padding: const .all(5),
         child: Tooltip(
           message: tooltip,
-          child: child ??
+          child:
+              child ??
               AnimatedSwitcher(
                 duration: const Duration(milliseconds: 200),
-                child: Icon(
-                  icon,
-                  color: colorScheme.onSurface,
-                ),
+                child: Icon(icon, color: colorScheme.onSurface),
               ),
         ),
       ),

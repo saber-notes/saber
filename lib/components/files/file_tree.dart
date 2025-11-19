@@ -12,13 +12,11 @@ class FileTree extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Padding(
-      padding: EdgeInsets.all(12),
+      padding: .all(12),
       child: SingleChildScrollView(
-          scrollDirection: Axis.vertical,
-          child: FileTreeBranch(
-            path: null,
-            isDirectory: true,
-          )),
+        scrollDirection: Axis.vertical,
+        child: FileTreeBranch(path: null, isDirectory: true),
+      ),
     );
   }
 }
@@ -39,7 +37,7 @@ class FileTreeBranch extends StatefulWidget {
 
 class _FileTreeBranchState extends State<FileTreeBranch> {
   DirectoryChildren? children;
-  bool areChildrenVisible = false;
+  var areChildrenVisible = false;
 
   StreamSubscription? fileWriteSubscription;
 
@@ -59,14 +57,14 @@ class _FileTreeBranchState extends State<FileTreeBranch> {
 
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
+    final colorScheme = ColorScheme.of(context);
     final backgroundColor = Color.alphaBlend(
       colorScheme.primary.withValues(alpha: 0.05),
       colorScheme.surface,
     );
 
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: .start,
       children: [
         if (widget.path != null)
           Material(
@@ -84,8 +82,11 @@ class _FileTreeBranchState extends State<FileTreeBranch> {
               child: Row(
                 children: [
                   if (widget.isDirectory) ...[
-                    Icon(areChildrenVisible ? Icons.folder_open : Icons.folder,
-                        color: colorScheme.primary, size: 25),
+                    Icon(
+                      areChildrenVisible ? Icons.folder_open : Icons.folder,
+                      color: colorScheme.primary,
+                      size: 25,
+                    ),
                   ] else ...[
                     const Icon(Icons.insert_drive_file, size: 25),
                   ],
@@ -93,10 +94,10 @@ class _FileTreeBranchState extends State<FileTreeBranch> {
                   Expanded(
                     child: Text(
                       widget.path!.substring(widget.path!.lastIndexOf('/') + 1),
-                      style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                            fontSize: 14,
-                          ),
-                      overflow: TextOverflow.ellipsis,
+                      style: TextTheme.of(
+                        context,
+                      ).bodyMedium?.copyWith(fontSize: 14),
+                      overflow: .ellipsis,
                     ),
                   ),
                 ],
@@ -105,11 +106,9 @@ class _FileTreeBranchState extends State<FileTreeBranch> {
           ),
         if ((widget.path == null || areChildrenVisible) && children != null)
           Padding(
-            padding: (widget.path != null)
-                ? const EdgeInsets.only(left: 25)
-                : EdgeInsets.zero,
+            padding: (widget.path != null) ? const .only(left: 25) : .zero,
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: .start,
               children: [
                 for (var i = 0; i < children!.directories.length; i++)
                   FileTreeBranch(

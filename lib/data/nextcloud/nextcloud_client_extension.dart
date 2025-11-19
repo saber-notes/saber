@@ -14,32 +14,34 @@ import 'package:saber/data/prefs.dart';
 import 'package:saber/data/version.dart';
 
 extension NextcloudClientExtension on NextcloudClient {
-  static final Uri defaultNextcloudUri =
-      Uri.parse('https://nc.saber.adil.hanney.org');
+  static final Uri defaultNextcloudUri = Uri.parse(
+    'https://nc.saber.adil.hanney.org',
+  );
 
-  static final userAgent = 'Saber/$buildName '
+  static final userAgent =
+      'Saber/$buildName '
       '(${Platform.operatingSystem}) '
       'Dart/${Platform.version.split(' ').first}';
-  static IOClient newHttpClient() => IOClient(
-        HttpClient()..userAgent = userAgent,
-      );
+  static IOClient newHttpClient() =>
+      IOClient(HttpClient()..userAgent = userAgent);
 
   static const String appRootDirectoryPrefix =
       FileManager.appRootDirectoryPrefix;
-  static const String configFileName = 'config.sbc';
-  static final PathUri configFileUri =
-      PathUri.parse('$appRootDirectoryPrefix/$configFileName');
+  static const configFileName = 'config.sbc';
+  static final configFileUri = PathUri.parse(
+    '$appRootDirectoryPrefix/$configFileName',
+  );
 
   static const _utf8Decoder = Utf8Decoder(allowMalformed: true);
 
-  static const String reproducibleSalt = r'8MnPs64@R&mF8XjWeLrD';
+  static const reproducibleSalt = r'8MnPs64@R&mF8XjWeLrD';
 
   static NextcloudClient? withSavedDetails() {
     if (!stows.loggedIn) return null;
 
-    String url = stows.url.value;
-    String username = stows.username.value;
-    String ncPassword = stows.ncPassword.value;
+    final url = stows.url.value;
+    final username = stows.username.value;
+    final ncPassword = stows.ncPassword.value;
 
     final client = NextcloudClient(
       url.isNotEmpty ? Uri.parse(url) : defaultNextcloudUri,
@@ -100,8 +102,8 @@ extension NextcloudClientExtension on NextcloudClient {
 
   /// Uploads the given [config] to Nextcloud
   Future<void> setConfig(Map<String, String> config) async {
-    String json = jsonEncode(config);
-    Uint8List file = Uint8List.fromList(json.codeUnits);
+    final json = jsonEncode(config);
+    final file = Uint8List.fromList(json.codeUnits);
     try {
       await webdav.mkcol(PathUri.parse(appRootDirectoryPrefix));
     } on DynamiteStatusCodeException catch (e) {
@@ -110,17 +112,15 @@ extension NextcloudClientExtension on NextcloudClient {
     await webdav.put(file, configFileUri);
   }
 
-  Future<String> loadEncryptionKey({
-    bool generateKeyIfMissing = true,
-  }) async {
+  Future<String> loadEncryptionKey({bool generateKeyIfMissing = true}) async {
     final Encrypter encrypter = this.encrypter;
 
     final Map<String, String> config = await getConfig();
     if (config.containsKey(stows.key.key) && config.containsKey(stows.iv.key)) {
       final IV iv = IV.fromBase64(config[stows.iv.key]!);
-      final String encryptedKey = config[stows.key.key]!;
+      final encryptedKey = config[stows.key.key]!;
       try {
-        final String key = encrypter.decrypt64(encryptedKey, iv: iv);
+        final key = encrypter.decrypt64(encryptedKey, iv: iv);
         stows.key.value = key;
         stows.iv.value = iv.base64;
         return key;
@@ -155,8 +155,9 @@ extension NextcloudClientExtension on NextcloudClient {
   }
 
   Encrypter get encrypter {
-    final List<int> encodedPassword =
-        utf8.encode(stows.encPassword.value + reproducibleSalt);
+    final List<int> encodedPassword = utf8.encode(
+      stows.encPassword.value + reproducibleSalt,
+    );
     final List<int> hashedPasswordBytes = sha256.convert(encodedPassword).bytes;
     final Key passwordKey = Key(hashedPasswordBytes as Uint8List);
     return Encrypter(AES(passwordKey));

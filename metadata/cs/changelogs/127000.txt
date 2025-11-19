@@ -1,0 +1,4 @@
+• Vylepšený vzhled tahů tužkou a jejich výkon při vykreslování.
+• Saber nyní ve Windows a Linuxu používá tematický titulní pruh, který reaguje na změny světlého/tmavého režimu.
+• Přepínače jsou nyní motivovány motivem Cupertino (ve stylu iOS).
+• Přidán překlad esperanta.

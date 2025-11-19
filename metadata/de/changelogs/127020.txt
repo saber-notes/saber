@@ -1,0 +1,5 @@
+• Es wurde behoben, dass die gesamte App nicht mehr funktionierte, wenn Sie die Esperanto-Sprache wählten. 
+• Problem behoben, bei dem der Text der Navigationsleiste nicht aktualisiert wurde, wenn Sie die Sprache ändern. 
+• Problem behoben, bei dem der Prozentsatz der genutzten Speicherkapazität nicht gerundet wurde. 
+• Freier Speicherplatz für Bilder und PDFs. 
+• Der Bleistift-Soundeffekt wurde entfernt.

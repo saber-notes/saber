@@ -9,11 +9,15 @@ void main() {
     });
     test('dark blue', () {
       expect(
-          ColorBar.describeColor(const Color(0xFF00145c)), 'Custom dark blue');
+        ColorBar.describeColor(const Color(0xFF00145c)),
+        'Custom dark blue',
+      );
     });
     test('light blue', () {
       expect(
-          ColorBar.describeColor(const Color(0xFF8fa7ff)), 'Custom light blue');
+        ColorBar.describeColor(const Color(0xFF8fa7ff)),
+        'Custom light blue',
+      );
     });
     test('grey', () {
       expect(ColorBar.describeColor(Colors.grey), 'Custom grey');
@@ -26,7 +30,9 @@ void main() {
     });
     test('light pink', () {
       expect(
-          ColorBar.describeColor(const Color(0xFFffcff0)), 'Custom light pink');
+        ColorBar.describeColor(const Color(0xFFffcff0)),
+        'Custom light pink',
+      );
     });
   });
 }

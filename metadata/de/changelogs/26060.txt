@@ -1,0 +1,3 @@
+- Wichtige Verbesserungen des Hub -Zeichnungsalgorithmus. Sie werden beim Zeichnen weniger Flackern sehen, bessere Handhabung mit scharfen Ecken mitten im Schlaganfall und gegen Ende des Schlaganfalls weniger Details verlieren.
+- Die Stylus -Unterstützung unter Linux hinzugefügt. Es gibt keine Druckempfindlichkeit, aber Sie können jetzt Ihren Stift zum Zeichnen und Ihren Finger verwenden, um zu scrollen.
+...

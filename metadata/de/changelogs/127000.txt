@@ -1,0 +1,4 @@
+• Das Aussehen von Bleistiftstrichen und ihre Renderleistung wurden verbessert. 
+• Saber verwendet jetzt eine thematische Titelleiste unter Windows und Linux, die auf Änderungen im Hell-/Dunkelmodus reagiert. 
+• Switches sind jetzt im Cupertino-Stil (iOS-Stil) gestaltet. 
+• Eine Esperanto-Übersetzung hinzugefügt.

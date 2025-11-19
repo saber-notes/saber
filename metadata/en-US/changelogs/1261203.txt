@@ -1,0 +1,1 @@
+Bumped the version to 1.x to reflect the maturity of the app and to let version numbers be more meaningful.

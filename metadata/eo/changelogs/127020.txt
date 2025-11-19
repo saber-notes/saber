@@ -1,0 +1,5 @@
+• Riparis la tutan apon-rompadon se vi elektas la Esperanto-lingvon.
+• Riparis la navigadbreton ne ĝisdatigante sian tekston kiam vi ŝanĝas lingvon.
+• Riparita la stokado uzata procento ne esti rondigita.
+• Liberigita memoro uzata de bildoj kaj PDF-oj.
+• Forigis la krajonan sonefekton.

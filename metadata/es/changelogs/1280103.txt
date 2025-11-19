@@ -1,0 +1,3 @@
+• Se mejoró la suavidad de la animación al cerrar una nota. 
+• La rueda del mouse ahora se desplaza en lugar de hacer zoom. Utilice la rueda del ratón con la tecla Ctrl para hacer zoom. 
+• Hizo que el botón Nueva nota sea menos redondo.

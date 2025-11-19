@@ -4,7 +4,6 @@ import 'package:one_dollar_unistroke_recognizer/one_dollar_unistroke_recognizer.
 import 'package:perfect_freehand/perfect_freehand.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/data/editor/page.dart';
-import 'package:saber/data/tools/shape_pen.dart';
 
 class RectangleStroke extends Stroke {
   Rect rect;
@@ -15,7 +14,7 @@ class RectangleStroke extends Stroke {
     required super.options,
     required super.pageIndex,
     required super.page,
-    required super.penType,
+    required super.toolId,
     required this.rect,
   }) {
     options.isComplete = true;
@@ -32,15 +31,16 @@ class RectangleStroke extends Stroke {
 
     final Color color;
     switch (json['c']) {
-      case (int value):
+      case (final int value):
         color = Color(value);
-      case (Int64 value):
+      case (final Int64 value):
         color = Color(value.toInt());
       case null:
         color = Stroke.defaultColor;
       default:
         throw Exception(
-            'Invalid color value: (${json['c'].runtimeType}) ${json['c']}');
+          'Invalid color value: (${json['c'].runtimeType}) ${json['c']}',
+        );
     }
 
     return RectangleStroke(
@@ -49,8 +49,8 @@ class RectangleStroke extends Stroke {
       options: StrokeOptions.fromJson(json),
       pageIndex: pageIndex,
       page: page,
-      penType: json['ty'] ?? (ShapePen).toString(),
-      rect: Rect.fromLTWH(
+      toolId: .parsePenType(json['ty'], fallback: .shapePen),
+      rect: .fromLTWH(
         json['rl'] ?? 0,
         json['rt'] ?? 0,
         json['rw'] ?? 0,
@@ -80,20 +80,20 @@ class RectangleStroke extends Stroke {
   /// A list of points that form the rectangle's perimeter.
   /// Each side has 24/N points.
   @override
-  List<Offset> getPolygon(int N) => [
-        // left side
-        for (int i = 0; i < 24 / N; ++i)
-          Offset(rect.left, rect.top + rect.height * i / 24),
-        // bottom side
-        for (int i = 0; i < 24 / N; ++i)
-          Offset(rect.left + rect.width * i / 24, rect.bottom),
-        // right side
-        for (int i = 0; i < 24 / N; ++i)
-          Offset(rect.right, rect.bottom - rect.height * i / 24),
-        // top side
-        for (int i = 0; i < 24 / N; ++i)
-          Offset(rect.right - rect.width * i / 24, rect.top),
-      ];
+  List<Offset> getPolygon({required StrokeQuality quality}) => [
+    // left side
+    for (int i = 0; i < 24 / quality.N; ++i)
+      Offset(rect.left, rect.top + rect.height * i / 24),
+    // bottom side
+    for (int i = 0; i < 24 / quality.N; ++i)
+      Offset(rect.left + rect.width * i / 24, rect.bottom),
+    // right side
+    for (int i = 0; i < 24 / quality.N; ++i)
+      Offset(rect.right, rect.bottom - rect.height * i / 24),
+    // top side
+    for (int i = 0; i < 24 / quality.N; ++i)
+      Offset(rect.right - rect.width * i / 24, rect.top),
+  ];
 
   /// Returns a [Path] with four lines for each side of the rectangle.
   @override
@@ -154,12 +154,12 @@ class RectangleStroke extends Stroke {
 
   @override
   RectangleStroke copy() => RectangleStroke(
-        color: color,
-        pressureEnabled: pressureEnabled,
-        options: options.copyWith(),
-        pageIndex: pageIndex,
-        page: page,
-        penType: penType,
-        rect: rect,
-      );
+    color: color,
+    pressureEnabled: pressureEnabled,
+    options: options.copyWith(),
+    pageIndex: pageIndex,
+    page: page,
+    toolId: toolId,
+    rect: rect,
+  );
 }

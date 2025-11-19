@@ -3,6 +3,7 @@
 ///
 // coverage:ignore-file
 // ignore_for_file: type=lint, unused_import
+// dart format off
 
 import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
@@ -34,6 +35,7 @@ class TranslationsTr extends Translations {
 	// Translations
 	@override late final _TranslationsCommonTr common = _TranslationsCommonTr._(_root);
 	@override late final _TranslationsHomeTr home = _TranslationsHomeTr._(_root);
+	@override late final _TranslationsSentryTr sentry = _TranslationsSentryTr._(_root);
 	@override late final _TranslationsSettingsTr settings = _TranslationsSettingsTr._(_root);
 	@override late final _TranslationsLogsTr logs = _TranslationsLogsTr._(_root);
 	@override late final _TranslationsLoginTr login = _TranslationsLoginTr._(_root);
@@ -80,6 +82,16 @@ class _TranslationsHomeTr extends TranslationsHomeEn {
 	@override String get noPreviewAvailable => 'Önizleme yok';
 }
 
+// Path: sentry
+class _TranslationsSentryTr extends TranslationsSentryEn {
+	_TranslationsSentryTr._(TranslationsTr root) : this._root = root, super.internal(root);
+
+	final TranslationsTr _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsSentryConsentTr consent = _TranslationsSentryConsentTr._(_root);
+}
+
 // Path: settings
 class _TranslationsSettingsTr extends TranslationsSettingsEn {
 	_TranslationsSettingsTr._(TranslationsTr root) : this._root = root, super.internal(root);
@@ -115,11 +127,11 @@ class _TranslationsLogsTr extends TranslationsLogsEn {
 	final TranslationsTr _root; // ignore: unused_field
 
 	// Translations
+	@override String get useTheApp => 'Uygulamayı kullanırken günlükler burada görünecektir';
 	@override String get logs => 'Günlükler';
 	@override String get viewLogs => 'Günlükleri görüntüle';
 	@override String get debuggingInfo => 'Günlükler hata ayıklama ve geliştirme için yararlı bilgiler içerir';
 	@override String get noLogs => 'Burada kayıt yok!';
-	@override String get logsAreTemporary => 'Günlükler yalnızca uygulamayı kapatana kadar tutulur';
 }
 
 // Path: login
@@ -175,7 +187,6 @@ class _TranslationsAppInfoTr extends TranslationsAppInfoEn {
 
 	// Translations
 	@override String licenseNotice({required Object buildYear}) => 'Saber  Copyright © 2022-${buildYear}  Adil Hanney\nBu program hiçbir şeyi garanti etmez ve güvence vermez.\nBu program özgür (free) bir yazılımdır ve belli koşullar sağlandığında yeniden dağıtıma müsaittir.';
-	@override String get dirty => 'TEST';
 	@override String get debug => 'DEBUG';
 	@override String get sponsorButton => 'Beni sponsorlamak veya daha fazla alan satın almak için buraya tıkla';
 	@override String get licenseButton => 'Lisans bilgisinin detaylarını görmek için buraya tıkla';
@@ -340,6 +351,18 @@ class _TranslationsHomeDeleteFolderTr extends TranslationsHomeDeleteFolderEn {
 	@override String get alsoDeleteContents => 'Bu klasördeki tüm notları da sil';
 }
 
+// Path: sentry.consent
+class _TranslationsSentryConsentTr extends TranslationsSentryConsentEn {
+	_TranslationsSentryConsentTr._(TranslationsTr root) : this._root = root, super.internal(root);
+
+	final TranslationsTr _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsSentryConsentDescriptionTr description = _TranslationsSentryConsentDescriptionTr._(_root);
+	@override late final _TranslationsSentryConsentAnswersTr answers = _TranslationsSentryConsentAnswersTr._(_root);
+	@override String get title => 'Saber geliştirmeye yardımcı olur mu?';
+}
+
 // Path: settings.prefCategories
 class _TranslationsSettingsPrefCategoriesTr extends TranslationsSettingsPrefCategoriesEn {
 	_TranslationsSettingsPrefCategoriesTr._(TranslationsTr root) : this._root = root, super.internal(root);
@@ -378,17 +401,17 @@ class _TranslationsSettingsPrefLabelsTr extends TranslationsSettingsPrefLabelsEn
 	@override String get autoClearWhiteboardOnExit => 'Uygulamadan çıkıldığında beyaz tahtayı temizle';
 	@override String get disableEraserAfterUse => 'Silgiden kaleme geçiş';
 	@override String get hideFingerDrawingToggle => 'Parmakla çizme kilidini sakla';
+	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Parmak çizimini otomatik olarak devre dışı bırak';
 	@override String get editorPromptRename => 'Notları yeniden adlandırmak için uyar';
-	@override String get hideHomeBackgrounds => 'Ana ekranda arkaplanları gizle';
 	@override String get recentColorsDontSavePresets => 'Ön tanımlı renkleri son kullanılanlara kaydetme';
 	@override String get recentColorsLength => 'Kaç tane son kullanılan renk saklanacak';
 	@override String get printPageIndicators => 'Sayfa belirteçlerini yazdır';
-	@override String get autosave => 'Otomatik koruma';
 	@override String get shapeRecognitionDelay => 'Şekil tanıma gecikmesi';
 	@override String get autoStraightenLines => 'Çizgileri otomatik düzleştir';
 	@override String get simplifiedHomeLayout => 'Sadeleştirilmiş ana ekran düzeni';
 	@override String get customDataDir => 'Özel Saber klasörü';
-	@override String get pencilSoundSetting => 'Kurşun kalem ses efekti';
+	@override String get sentry => 'Hata raporlama';
+	@override String get autosave => 'Otomatik koruma';
 }
 
 // Path: settings.prefDescriptions
@@ -405,15 +428,15 @@ class _TranslationsSettingsPrefDescriptionsTr extends TranslationsSettingsPrefDe
 	@override String get disableEraserAfterUse => 'Silgiyi kullandıktan sonra otomatik olarak kaleme geçer';
 	@override String get maxImageSize => 'Bundan daha büyük görseller sıkıştırılacak';
 	@override late final _TranslationsSettingsPrefDescriptionsHideFingerDrawingTr hideFingerDrawing = _TranslationsSettingsPrefDescriptionsHideFingerDrawingTr._(_root);
+	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Bir kalem algılandığında parmakla çizimi kapatın';
 	@override String get editorPromptRename => 'Notlarınızı daha sonra da yeniden adlandırabilirsiniz';
-	@override String get hideHomeBackgrounds => 'Daha sade bir görüntü için';
 	@override String get printPageIndicators => 'Çıktılarda sayfa belirteçlerini göster';
-	@override String get autosave => 'Kısa bir gecikmeden sonra otomatik kaydetme veya asla';
 	@override String get shapeRecognitionDelay => 'Çizilen şekilleri tanımlama sıklığını belirler';
 	@override String get autoStraightenLines => 'Şekil aracını kullanmadığınızda da çizgileri düzleştirir';
 	@override String get simplifiedHomeLayout => 'Not önizlemelerinin uzunluklarını eşitler';
 	@override String get shouldAlwaysAlertForUpdates => 'Güncelleme mevcut olduğu gibi bana haber ver';
-	@override late final _TranslationsSettingsPrefDescriptionsPencilSoundSettingTr pencilSoundSetting = _TranslationsSettingsPrefDescriptionsPencilSoundSettingTr._(_root);
+	@override late final _TranslationsSettingsPrefDescriptionsSentryTr sentry = _TranslationsSettingsPrefDescriptionsSentryTr._(_root);
+	@override String get autosave => 'Kısa bir gecikmeden sonra otomatik kaydetme veya asla';
 }
 
 // Path: settings.themeModes
@@ -472,6 +495,7 @@ class _TranslationsSettingsCustomDataDirTr extends TranslationsSettingsCustomDat
 	@override String get select => 'Seç';
 	@override String get mustBeEmpty => 'Seçilen klasör boş olmalı';
 	@override String get mustBeDoneSyncing => 'Klasörü değiştirmeden önce senkronizasyonun tamamlandığından emin olun';
+	@override String get unsupported => 'Bu özellik şu anda yalnızca geliştiriciler içindir. Bunu kullanmak muhtemelen veri kaybına neden olacaktır.';
 }
 
 // Path: login.form
@@ -762,6 +786,35 @@ class _TranslationsEditorHudTr extends TranslationsEditorHudEn {
 	@override String get lockAxisAlignedPan => 'Yatay ve dikey hareketi kilitle';
 }
 
+// Path: sentry.consent.description
+class _TranslationsSentryConsentDescriptionTr extends TranslationsSentryConsentDescriptionEn {
+	_TranslationsSentryConsentDescriptionTr._(TranslationsTr root) : this._root = root, super.internal(root);
+
+	final TranslationsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String get question => 'Beklenmedik hataları otomatik olarak bildirmek ister misiniz? Bu, sorunları daha hızlı tanımlamama ve düzeltmeme yardımcı olur.';
+	@override String get scope => 'Raporlar hata ve cihazınız hakkında bilgi içerebilir. Kişisel verileri filtrelemek için her türlü çabayı gösterdim, ancak bazıları kalabilir.';
+	@override String get currentlyOff => 'Onay verirseniz, uygulamayı yeniden başlattıktan sonra hata raporlaması etkinleştirilir.';
+	@override String get currentlyOn => 'Onayı iptal ederseniz, hata raporlamasını devre dışı bırakmak için lütfen uygulamayı yeniden başlatın.';
+	@override TextSpan learnMoreInPrivacyPolicy({required InlineSpanBuilder link}) => TextSpan(children: [
+		link('Gizlilik Politikası'),
+		const TextSpan(text: ' \'da daha fazla bilgi edinin.'),
+	]);
+}
+
+// Path: sentry.consent.answers
+class _TranslationsSentryConsentAnswersTr extends TranslationsSentryConsentAnswersEn {
+	_TranslationsSentryConsentAnswersTr._(TranslationsTr root) : this._root = root, super.internal(root);
+
+	final TranslationsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String get yes => 'Evet';
+	@override String get no => 'HAYIR';
+	@override String get later => 'Bana sonra sor';
+}
+
 // Path: settings.prefDescriptions.hideFingerDrawing
 class _TranslationsSettingsPrefDescriptionsHideFingerDrawingTr extends TranslationsSettingsPrefDescriptionsHideFingerDrawingEn {
 	_TranslationsSettingsPrefDescriptionsHideFingerDrawingTr._(TranslationsTr root) : this._root = root, super.internal(root);
@@ -774,16 +827,17 @@ class _TranslationsSettingsPrefDescriptionsHideFingerDrawingTr extends Translati
 	@override String get fixedOff => 'Parmakla çizim izni verilmedi ve sabitlendi';
 }
 
-// Path: settings.prefDescriptions.pencilSoundSetting
-class _TranslationsSettingsPrefDescriptionsPencilSoundSettingTr extends TranslationsSettingsPrefDescriptionsPencilSoundSettingEn {
-	_TranslationsSettingsPrefDescriptionsPencilSoundSettingTr._(TranslationsTr root) : this._root = root, super.internal(root);
+// Path: settings.prefDescriptions.sentry
+class _TranslationsSettingsPrefDescriptionsSentryTr extends TranslationsSettingsPrefDescriptionsSentryEn {
+	_TranslationsSettingsPrefDescriptionsSentryTr._(TranslationsTr root) : this._root = root, super.internal(root);
 
 	final TranslationsTr _root; // ignore: unused_field
 
 	// Translations
-	@override String get off => 'Ses yok';
-	@override String get onButNotInSilentMode => 'Etkin (sessiz modda değilse)';
-	@override String get onAlways => 'Etkin (sessiz modda da)';
+	@override String get active => 'Aktif';
+	@override String get inactive => 'Aktif olmayan';
+	@override String get activeUntilRestart => 'Uygulamayı yeniden başlatana kadar etkin';
+	@override String get inactiveUntilRestart => 'Uygulamayı yeniden başlatana kadar aktif olmayan';
 }
 
 // Path: login.ncLoginStep.loginFlow

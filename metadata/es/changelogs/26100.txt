@@ -1,0 +1,2 @@
+• Se solucionó un problema por el cual el efecto de sonido del lápiz no se detenía cuando levantabas el lápiz.
+• Mejoras visuales especialmente en el tema Linux/Yaru

@@ -15,17 +15,19 @@ import 'package:saber/components/settings/settings_color.dart';
 import 'package:saber/components/settings/settings_directory_selector.dart';
 import 'package:saber/components/settings/settings_dropdown.dart';
 import 'package:saber/components/settings/settings_selection.dart';
+import 'package:saber/components/settings/settings_sentry.dart';
 import 'package:saber/components/settings/settings_subtitle.dart';
 import 'package:saber/components/settings/settings_switch.dart';
 import 'package:saber/components/settings/update_manager.dart';
 import 'package:saber/components/theming/adaptive_alert_dialog.dart';
 import 'package:saber/components/theming/adaptive_toggle_buttons.dart';
-import 'package:saber/data/editor/pencil_sound.dart';
+import 'package:saber/components/theming/saber_theme.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/flavor_config.dart';
 import 'package:saber/data/locales.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/data/routes.dart';
+import 'package:saber/data/sentry/sentry_init.dart';
 import 'package:saber/data/tools/shape_pen.dart';
 import 'package:saber/i18n/strings.g.dart';
 import 'package:stow/stow.dart';
@@ -92,12 +94,6 @@ abstract class _SettingsStows {
     (AxisDirection value) => value.index,
     (int value) => AxisDirection.values[value],
   );
-
-  static final pencilSound = TransformedStow(
-    stows.pencilSound,
-    (PencilSoundSetting value) => value.index,
-    (int value) => PencilSoundSetting.values[value],
-  );
 }
 
 class _SettingsPageState extends State<SettingsPage> {
@@ -113,12 +109,12 @@ class _SettingsPageState extends State<SettingsPage> {
   }
 
   static final bool usesCupertinoByDefault = switch (defaultTargetPlatform) {
-    TargetPlatform.iOS => true,
-    TargetPlatform.macOS => true,
+    .iOS => true,
+    .macOS => true,
     _ => false,
   };
   static final bool usesYaruByDefault = switch (defaultTargetPlatform) {
-    TargetPlatform.linux => true,
+    .linux => true,
     _ => false,
   };
   static final bool usesMaterialByDefault =
@@ -139,15 +135,14 @@ class _SettingsPageState extends State<SettingsPage> {
 
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
+    final colorScheme = ColorScheme.of(context);
     final platform = Theme.of(context).platform;
-    final cupertino =
-        platform == TargetPlatform.iOS || platform == TargetPlatform.macOS;
+    final cupertino = platform.isCupertino;
 
-    final bool requiresManualUpdates = FlavorConfig.appStore.isEmpty;
+    final requiresManualUpdates = FlavorConfig.appStore.isEmpty;
 
     final IconData materialIcon = switch (defaultTargetPlatform) {
-      TargetPlatform.windows => FontAwesomeIcons.windows,
+      .windows => FontAwesomeIcons.windows,
       _ => Icons.android,
     };
 
@@ -155,9 +150,7 @@ class _SettingsPageState extends State<SettingsPage> {
       body: CustomScrollView(
         slivers: [
           SliverPadding(
-            padding: const EdgeInsets.only(
-              bottom: 8,
-            ),
+            padding: const .only(bottom: 8),
             sliver: SliverAppBar(
               collapsedHeight: kToolbarHeight,
               expandedHeight: 200,
@@ -168,416 +161,458 @@ class _SettingsPageState extends State<SettingsPage> {
                   t.home.titles.settings,
                   style: TextStyle(color: colorScheme.onSurface),
                 ),
-                centerTitle: cupertino,
-                titlePadding: EdgeInsetsDirectional.only(
-                  start: cupertino ? 0 : 16,
+                centerTitle: false,
+                titlePadding: const EdgeInsetsDirectional.only(
+                  start: 16,
                   bottom: 16,
                 ),
               ),
               actions: [
-                if (UpdateManager.status.value != UpdateStatus.upToDate)
+                if (UpdateManager.status.value != .upToDate)
                   IconButton(
                     tooltip: t.home.tooltips.showUpdateDialog,
                     icon: const Icon(Icons.system_update),
                     onPressed: () {
-                      UpdateManager.showUpdateDialog(context,
-                          userTriggered: true);
+                      UpdateManager.showUpdateDialog(
+                        context,
+                        userTriggered: true,
+                      );
                     },
                   ),
               ],
             ),
           ),
           SliverSafeArea(
-              sliver: SliverList.list(
-            children: [
-              const NextcloudProfile(),
-              const Padding(
-                padding: EdgeInsets.all(8),
-                child: AppInfo(),
-              ),
-              SettingsSubtitle(
-                subtitle: t.settings.prefCategories.general,
-              ),
-              SettingsDropdown(
-                title: t.settings.prefLabels.locale,
-                icon: cupertino ? CupertinoIcons.globe : Icons.language,
-                pref: stows.locale,
-                options: [
-                  ToggleButtonsOption('', Text(t.settings.systemLanguage)),
-                  ...AppLocaleUtils.supportedLocales.map((locale) {
-                    final String localeCode = locale.toLanguageTag();
-                    String? localeName = localeNames[localeCode];
-                    assert(localeName != null,
-                        'Missing locale name for $localeCode');
-                    return ToggleButtonsOption(
-                      localeCode,
-                      Text(localeName ?? localeCode),
-                    );
-                  }),
-                ],
-              ),
-              SettingsSelection(
-                title: t.settings.prefLabels.appTheme,
-                iconBuilder: (i) {
-                  if (i == ThemeMode.system.index) return Icons.brightness_auto;
-                  if (i == ThemeMode.light.index) return Icons.light_mode;
-                  if (i == ThemeMode.dark.index) return Icons.dark_mode;
-                  return null;
-                },
-                pref: _SettingsStows.appTheme,
-                optionsWidth: 60,
-                options: [
-                  ToggleButtonsOption(
+            sliver: SliverList.list(
+              children: [
+                const NextcloudProfile(),
+                const Padding(padding: .all(8), child: AppInfo()),
+                SettingsSubtitle(subtitle: t.settings.prefCategories.general),
+                SettingsDropdown(
+                  title: t.settings.prefLabels.locale,
+                  icon: cupertino ? CupertinoIcons.globe : Icons.language,
+                  pref: stows.locale,
+                  options: [
+                    ToggleButtonsOption('', Text(t.settings.systemLanguage)),
+                    ...AppLocaleUtils.supportedLocales.map((locale) {
+                      final localeCode = locale.toLanguageTag();
+                      final localeName = localeNames[localeCode];
+                      assert(
+                        localeName != null,
+                        'Missing locale name for $localeCode',
+                      );
+                      return ToggleButtonsOption(
+                        localeCode,
+                        Text(localeName ?? localeCode),
+                      );
+                    }),
+                  ],
+                ),
+                SettingsSelection(
+                  title: t.settings.prefLabels.appTheme,
+                  iconBuilder: (i) {
+                    if (i == ThemeMode.system.index)
+                      return Icons.brightness_auto;
+                    if (i == ThemeMode.light.index) return Icons.light_mode;
+                    if (i == ThemeMode.dark.index) return Icons.dark_mode;
+                    return null;
+                  },
+                  pref: _SettingsStows.appTheme,
+                  optionsWidth: 60,
+                  options: [
+                    ToggleButtonsOption(
                       ThemeMode.system.index,
-                      Icon(Icons.brightness_auto,
-                          semanticLabel: t.settings.themeModes.system)),
-                  ToggleButtonsOption(
+                      Icon(
+                        Icons.brightness_auto,
+                        semanticLabel: t.settings.themeModes.system,
+                      ),
+                    ),
+                    ToggleButtonsOption(
                       ThemeMode.light.index,
-                      Icon(Icons.light_mode,
-                          semanticLabel: t.settings.themeModes.light)),
-                  ToggleButtonsOption(
+                      Icon(
+                        Icons.light_mode,
+                        semanticLabel: t.settings.themeModes.light,
+                      ),
+                    ),
+                    ToggleButtonsOption(
                       ThemeMode.dark.index,
-                      Icon(Icons.dark_mode,
-                          semanticLabel: t.settings.themeModes.dark)),
-                ],
-              ),
-              SettingsSelection(
-                title: t.settings.prefLabels.platform,
-                iconBuilder: (i) => switch (stows.platform.value) {
-                  TargetPlatform.iOS || TargetPlatform.macOS => Icons.apple,
-                  TargetPlatform.linux => FontAwesomeIcons.ubuntu,
-                  _ => materialIcon,
-                },
-                pref: _SettingsStows.platform,
-                optionsWidth: 60,
-                options: [
-                  ToggleButtonsOption(
-                    () {
+                      Icon(
+                        Icons.dark_mode,
+                        semanticLabel: t.settings.themeModes.dark,
+                      ),
+                    ),
+                  ],
+                ),
+                SettingsSelection(
+                  title: t.settings.prefLabels.platform,
+                  iconBuilder: (i) => switch (stows.platform.value) {
+                    .iOS || .macOS => Icons.apple,
+                    .linux => FontAwesomeIcons.ubuntu,
+                    _ => materialIcon,
+                  },
+                  pref: _SettingsStows.platform,
+                  optionsWidth: 60,
+                  options: [
+                    ToggleButtonsOption(() {
                       if (usesMaterialByDefault)
                         return defaultTargetPlatform.index;
                       return TargetPlatform.android.index;
-                    }(),
-                    Icon(materialIcon, semanticLabel: 'Material'),
-                  ),
-                  ToggleButtonsOption(
-                    () {
+                    }(), Icon(materialIcon, semanticLabel: 'Material')),
+                    ToggleButtonsOption(() {
                       // Hack to allow screenshot golden tests
-                      if (kDebugMode &&
-                          (stows.platform.value == TargetPlatform.iOS ||
-                              stows.platform.value == TargetPlatform.macOS))
+                      if (kDebugMode && stows.platform.value.isCupertino)
                         return stows.platform.value.index;
                       if (usesCupertinoByDefault)
                         return defaultTargetPlatform.index;
                       return TargetPlatform.iOS.index;
-                    }(),
-                    const Icon(Icons.apple, semanticLabel: 'Cupertino'),
-                  ),
-                  ToggleButtonsOption(
-                    () {
-                      if (usesYaruByDefault) return defaultTargetPlatform.index;
-                      return TargetPlatform.linux.index;
-                    }(),
-                    const Icon(FontAwesomeIcons.ubuntu, semanticLabel: 'Yaru'),
-                  ),
-                ],
-              ),
-              SettingsSelection(
-                title: t.settings.prefLabels.layoutSize,
-                subtitle: switch (stows.layoutSize.value) {
-                  LayoutSize.auto => t.settings.layoutSizes.auto,
-                  LayoutSize.phone => t.settings.layoutSizes.phone,
-                  LayoutSize.tablet => t.settings.layoutSizes.tablet,
-                },
-                afterChange: (_) => setState(() {}),
-                iconBuilder: (i) => switch (LayoutSize.values[i]) {
-                  LayoutSize.auto => Icons.aspect_ratio,
-                  LayoutSize.phone => Icons.smartphone,
-                  LayoutSize.tablet => Icons.tablet,
-                },
-                pref: _SettingsStows.layoutSize,
-                optionsWidth: 60,
-                options: [
-                  ToggleButtonsOption(
-                      LayoutSize.auto.index,
-                      Icon(Icons.aspect_ratio,
-                          semanticLabel: t.settings.layoutSizes.auto)),
-                  ToggleButtonsOption(
-                      LayoutSize.phone.index,
-                      Icon(Icons.smartphone,
-                          semanticLabel: t.settings.layoutSizes.phone)),
-                  ToggleButtonsOption(
-                      LayoutSize.tablet.index,
-                      Icon(Icons.tablet,
-                          semanticLabel: t.settings.layoutSizes.tablet)),
-                ],
-              ),
-              SettingsColor(
-                title: t.settings.prefLabels.customAccentColor,
-                icon: Icons.colorize,
-                pref: stows.accentColor,
-              ),
-              SettingsSwitch(
-                title: t.settings.prefLabels.hyperlegibleFont,
-                subtitle: t.settings.prefDescriptions.hyperlegibleFont,
-                iconBuilder: (b) {
-                  if (b)
-                    return cupertino
-                        ? CupertinoIcons.textformat
-                        : Icons.font_download;
-                  return cupertino
-                      ? CupertinoIcons.textformat_alt
-                      : Icons.font_download_off;
-                },
-                pref: stows.hyperlegibleFont,
-              ),
-              SettingsSubtitle(subtitle: t.settings.prefCategories.writing),
-              SettingsSwitch(
-                title: t.settings.prefLabels.preferGreyscale,
-                subtitle: t.settings.prefDescriptions.preferGreyscale,
-                iconBuilder: (b) {
-                  return b
-                      ? Icons.monochrome_photos
-                      : Icons.enhance_photo_translate;
-                },
-                pref: stows.preferGreyscale,
-              ),
-              SettingsSwitch(
-                title: t.settings.prefLabels.autoClearWhiteboardOnExit,
-                subtitle: t.settings.prefDescriptions.autoClearWhiteboardOnExit,
-                icon: Icons.cleaning_services,
-                pref: stows.autoClearWhiteboardOnExit,
-              ),
-              SettingsSwitch(
-                title: t.settings.prefLabels.disableEraserAfterUse,
-                subtitle: t.settings.prefDescriptions.disableEraserAfterUse,
-                icon: FontAwesomeIcons.eraser,
-                pref: stows.disableEraserAfterUse,
-              ),
-              SettingsSwitch(
-                title: t.settings.prefLabels.hideFingerDrawingToggle,
-                subtitle: () {
-                  if (!stows.hideFingerDrawingToggle.value) {
-                    return t.settings.prefDescriptions.hideFingerDrawing.shown;
-                  } else if (stows.editorFingerDrawing.value) {
-                    return t
-                        .settings.prefDescriptions.hideFingerDrawing.fixedOn;
-                  } else {
-                    return t
-                        .settings.prefDescriptions.hideFingerDrawing.fixedOff;
-                  }
-                }(),
-                icon: CupertinoIcons.hand_draw,
-                pref: stows.hideFingerDrawingToggle,
-                afterChange: (_) => setState(() {}),
-              ),
-              SettingsSubtitle(subtitle: t.settings.prefCategories.editor),
-              SettingsSelection(
-                title: t.settings.prefLabels.editorToolbarAlignment,
-                subtitle: t.settings.axisDirections[
-                    _SettingsStows.editorToolbarAlignment.value],
-                iconBuilder: (num i) {
-                  if (i is! int || i >= materialDirectionIcons.length)
-                    return null;
-                  return cupertino
-                      ? cupertinoDirectionIcons[i]
-                      : materialDirectionIcons[i];
-                },
-                pref: _SettingsStows.editorToolbarAlignment,
-                optionsWidth: 60,
-                options: [
-                  for (final AxisDirection direction in AxisDirection.values)
+                    }(), const Icon(Icons.apple, semanticLabel: 'Cupertino')),
                     ToggleButtonsOption(
-                      direction.index,
-                      Icon(
-                        cupertino
-                            ? cupertinoDirectionIcons[direction.index]
-                            : materialDirectionIcons[direction.index],
-                        semanticLabel:
-                            t.settings.axisDirections[direction.index],
+                      () {
+                        if (usesYaruByDefault)
+                          return defaultTargetPlatform.index;
+                        return TargetPlatform.linux.index;
+                      }(),
+                      const Icon(
+                        FontAwesomeIcons.ubuntu,
+                        semanticLabel: 'Yaru',
                       ),
                     ),
-                ],
-                afterChange: (_) => setState(() {}),
-              ),
-              SettingsSwitch(
-                title: t.settings.prefLabels.editorToolbarShowInFullscreen,
-                icon: cupertino ? CupertinoIcons.fullscreen : Icons.fullscreen,
-                pref: stows.editorToolbarShowInFullscreen,
-              ),
-              SettingsSwitch(
-                title: t.settings.prefLabels.editorAutoInvert,
-                iconBuilder: (b) {
-                  return b ? Icons.invert_colors_on : Icons.invert_colors_off;
-                },
-                pref: stows.editorAutoInvert,
-              ),
-              SettingsSwitch(
-                title: t.settings.prefLabels.editorPromptRename,
-                subtitle: t.settings.prefDescriptions.editorPromptRename,
-                iconBuilder: (b) {
-                  if (b)
-                    return cupertino ? CupertinoIcons.keyboard : Icons.keyboard;
-                  return cupertino
-                      ? CupertinoIcons.keyboard_chevron_compact_down
-                      : Icons.keyboard_hide;
-                },
-                pref: stows.editorPromptRename,
-              ),
-              SettingsSwitch(
-                title: t.settings.prefLabels.hideHomeBackgrounds,
-                subtitle: t.settings.prefDescriptions.hideHomeBackgrounds,
-                iconBuilder: (b) {
-                  if (b) return cupertino ? CupertinoIcons.photo : Icons.photo;
-                  return cupertino
-                      ? CupertinoIcons.photo_fill
-                      : Icons.photo_library;
-                },
-                pref: stows.hideHomeBackgrounds,
-              ),
-              SettingsSwitch(
-                title: t.settings.prefLabels.recentColorsDontSavePresets,
-                icon: Icons.palette,
-                pref: stows.recentColorsDontSavePresets,
-              ),
-              SettingsSelection(
-                title: t.settings.prefLabels.recentColorsLength,
-                icon: Icons.history,
-                pref: stows.recentColorsLength,
-                options: const [
-                  ToggleButtonsOption(5, Text('5')),
-                  ToggleButtonsOption(10, Text('10')),
-                ],
-              ),
-              SettingsSwitch(
-                title: t.settings.prefLabels.printPageIndicators,
-                subtitle: t.settings.prefDescriptions.printPageIndicators,
-                icon: Icons.numbers,
-                pref: stows.printPageIndicators,
-              ),
-              SettingsSelection(
-                title: t.settings.prefLabels.pencilSoundSetting,
-                subtitle: stows.pencilSound.value.description,
-                icon: stows.pencilSound.value.icon,
-                pref: _SettingsStows.pencilSound,
-                optionsWidth: 60,
-                options: [
-                  for (final setting in PencilSoundSetting.values)
-                    ToggleButtonsOption(
-                      setting.index,
-                      Icon(setting.icon, semanticLabel: setting.description),
-                    ),
-                ],
-                afterChange: (_) {
-                  PencilSound.setAudioContext();
-                  setState(() {});
-                },
-              ),
-              SettingsSubtitle(subtitle: t.settings.prefCategories.performance),
-              SettingsSelection(
-                title: t.settings.prefLabels.maxImageSize,
-                subtitle: t.settings.prefDescriptions.maxImageSize,
-                icon: Icons.photo_size_select_large,
-                pref: stows.maxImageSize,
-                options: const <ToggleButtonsOption<double>>[
-                  ToggleButtonsOption(500, Text('500')),
-                  ToggleButtonsOption(1000, Text('1000')),
-                  ToggleButtonsOption(2000, Text('2000')),
-                ],
-              ),
-              SettingsSelection(
-                title: t.settings.prefLabels.autosave,
-                subtitle: t.settings.prefDescriptions.autosave,
-                icon: Icons.save,
-                pref: stows.autosaveDelay,
-                options: [
-                  ToggleButtonsOption(5000, Text('5s')),
-                  ToggleButtonsOption(10000, Text('10s')),
-                  ToggleButtonsOption(-1, Text(t.settings.autosaveDisabled)),
-                ],
-              ),
-              SettingsSelection(
-                title: t.settings.prefLabels.shapeRecognitionDelay,
-                subtitle: t.settings.prefDescriptions.shapeRecognitionDelay,
-                icon: FontAwesomeIcons.shapes,
-                pref: stows.shapeRecognitionDelay,
-                options: [
-                  ToggleButtonsOption(500, Text('0.5s')),
-                  ToggleButtonsOption(1000, Text('1s')),
-                  ToggleButtonsOption(
-                      -1, Text(t.settings.shapeRecognitionDisabled)),
-                ],
-                afterChange: (ms) {
-                  ShapePen.debounceDuration = ShapePen.getDebounceFromPref();
-                },
-              ),
-              SettingsSwitch(
-                title: t.settings.prefLabels.autoStraightenLines,
-                subtitle: t.settings.prefDescriptions.autoStraightenLines,
-                icon: Icons.straighten,
-                pref: stows.autoStraightenLines,
-              ),
-              SettingsSwitch(
-                title: t.settings.prefLabels.simplifiedHomeLayout,
-                subtitle: t.settings.prefDescriptions.simplifiedHomeLayout,
-                iconBuilder: (simplified) =>
-                    simplified ? Icons.grid_view : Symbols.browse,
-                pref: stows.simplifiedHomeLayout,
-              ),
-              SettingsSubtitle(subtitle: t.settings.prefCategories.advanced),
-              if (Platform.isAndroid)
-                SettingsDirectorySelector(
-                  title: t.settings.prefLabels.customDataDir,
-                  icon: Icons.folder,
+                  ],
                 ),
-              if (Platform.isWindows || Platform.isLinux || Platform.isMacOS)
-                SettingsButton(
-                  title: t.settings.openDataDir,
-                  icon: Icons.folder_open,
-                  onPressed: () {
-                    if (Platform.isWindows) {
-                      Process.run('explorer', [FileManager.documentsDirectory]);
-                    } else if (Platform.isLinux) {
-                      Process.run('xdg-open', [FileManager.documentsDirectory]);
-                    } else if (Platform.isMacOS) {
-                      Process.run('open', [FileManager.documentsDirectory]);
-                    }
+                SettingsSelection(
+                  title: t.settings.prefLabels.layoutSize,
+                  subtitle: switch (stows.layoutSize.value) {
+                    .auto => t.settings.layoutSizes.auto,
+                    .phone => t.settings.layoutSizes.phone,
+                    .tablet => t.settings.layoutSizes.tablet,
+                  },
+                  afterChange: (_) => setState(() {}),
+                  iconBuilder: (i) => switch (LayoutSize.values[i]) {
+                    .auto => Icons.aspect_ratio,
+                    .phone => Icons.smartphone,
+                    .tablet => Icons.tablet,
+                  },
+                  pref: _SettingsStows.layoutSize,
+                  optionsWidth: 60,
+                  options: [
+                    ToggleButtonsOption(
+                      LayoutSize.auto.index,
+                      Icon(
+                        Icons.aspect_ratio,
+                        semanticLabel: t.settings.layoutSizes.auto,
+                      ),
+                    ),
+                    ToggleButtonsOption(
+                      LayoutSize.phone.index,
+                      Icon(
+                        Icons.smartphone,
+                        semanticLabel: t.settings.layoutSizes.phone,
+                      ),
+                    ),
+                    ToggleButtonsOption(
+                      LayoutSize.tablet.index,
+                      Icon(
+                        Icons.tablet,
+                        semanticLabel: t.settings.layoutSizes.tablet,
+                      ),
+                    ),
+                  ],
+                ),
+                SettingsColor(
+                  title: t.settings.prefLabels.customAccentColor,
+                  icon: Icons.colorize,
+                  pref: stows.accentColor,
+                ),
+                SettingsSwitch(
+                  title: t.settings.prefLabels.hyperlegibleFont,
+                  subtitle: t.settings.prefDescriptions.hyperlegibleFont,
+                  iconBuilder: (b) {
+                    if (b)
+                      return cupertino
+                          ? CupertinoIcons.textformat
+                          : Icons.font_download;
+                    return cupertino
+                        ? CupertinoIcons.textformat_alt
+                        : Icons.font_download_off;
+                  },
+                  pref: stows.hyperlegibleFont,
+                ),
+
+                SettingsSubtitle(subtitle: t.settings.prefCategories.writing),
+                SettingsSwitch(
+                  title: t.settings.prefLabels.preferGreyscale,
+                  subtitle: t.settings.prefDescriptions.preferGreyscale,
+                  iconBuilder: (b) {
+                    return b
+                        ? Icons.monochrome_photos
+                        : Icons.enhance_photo_translate;
+                  },
+                  pref: stows.preferGreyscale,
+                ),
+                SettingsSwitch(
+                  title: t.settings.prefLabels.autoClearWhiteboardOnExit,
+                  subtitle:
+                      t.settings.prefDescriptions.autoClearWhiteboardOnExit,
+                  icon: Icons.cleaning_services,
+                  pref: stows.autoClearWhiteboardOnExit,
+                ),
+                SettingsSwitch(
+                  title: t.settings.prefLabels.disableEraserAfterUse,
+                  subtitle: t.settings.prefDescriptions.disableEraserAfterUse,
+                  icon: FontAwesomeIcons.eraser,
+                  pref: stows.disableEraserAfterUse,
+                ),
+                ValueListenableBuilder(
+                  valueListenable: stows.hideFingerDrawingToggle,
+                  builder: (context, _, _) {
+                    return SettingsSwitch(
+                      title: t.settings.prefLabels.hideFingerDrawingToggle,
+                      subtitle: () {
+                        if (!stows.hideFingerDrawingToggle.value) {
+                          return t
+                              .settings
+                              .prefDescriptions
+                              .hideFingerDrawing
+                              .shown;
+                        } else if (stows.editorFingerDrawing.value) {
+                          return t
+                              .settings
+                              .prefDescriptions
+                              .hideFingerDrawing
+                              .fixedOn;
+                        } else {
+                          return t
+                              .settings
+                              .prefDescriptions
+                              .hideFingerDrawing
+                              .fixedOff;
+                        }
+                      }(),
+                      icon: CupertinoIcons.hand_draw_fill,
+                      pref: stows.hideFingerDrawingToggle,
+                    );
                   },
                 ),
-              if (requiresManualUpdates ||
-                  stows.shouldCheckForUpdates.value !=
-                      stows.shouldCheckForUpdates.defaultValue) ...[
-                SettingsSwitch(
-                  title: t.settings.prefLabels.shouldCheckForUpdates,
-                  icon: Icons.system_update,
-                  pref: stows.shouldCheckForUpdates,
+                ValueListenableBuilder(
+                  valueListenable: stows.hideFingerDrawingToggle,
+                  builder: (context, hideFingerDrawing, _) {
+                    return Collapsible(
+                      collapsed: hideFingerDrawing,
+                      axis: CollapsibleAxis.vertical,
+                      child: SettingsSwitch(
+                        title: t
+                            .settings
+                            .prefLabels
+                            .autoDisableFingerDrawingWhenStylusDetected,
+                        subtitle: t
+                            .settings
+                            .prefDescriptions
+                            .autoDisableFingerDrawingWhenStylusDetected,
+                        icon: CupertinoIcons.pencil,
+                        pref: stows.autoDisableFingerDrawingWhenStylusDetected,
+                      ),
+                    );
+                  },
+                ),
+
+                SettingsSubtitle(subtitle: t.settings.prefCategories.editor),
+                SettingsSelection(
+                  title: t.settings.prefLabels.editorToolbarAlignment,
+                  subtitle:
+                      t.settings.axisDirections[_SettingsStows
+                          .editorToolbarAlignment
+                          .value],
+                  iconBuilder: (num i) {
+                    if (i is! int || i >= materialDirectionIcons.length)
+                      return null;
+                    return cupertino
+                        ? cupertinoDirectionIcons[i]
+                        : materialDirectionIcons[i];
+                  },
+                  pref: _SettingsStows.editorToolbarAlignment,
+                  optionsWidth: 60,
+                  options: [
+                    for (final AxisDirection direction in AxisDirection.values)
+                      ToggleButtonsOption(
+                        direction.index,
+                        Icon(
+                          cupertino
+                              ? cupertinoDirectionIcons[direction.index]
+                              : materialDirectionIcons[direction.index],
+                          semanticLabel:
+                              t.settings.axisDirections[direction.index],
+                        ),
+                      ),
+                  ],
                   afterChange: (_) => setState(() {}),
                 ),
-                Collapsible(
-                  collapsed: !stows.shouldCheckForUpdates.value,
-                  axis: CollapsibleAxis.vertical,
-                  child: SettingsSwitch(
-                    title: t.settings.prefLabels.shouldAlwaysAlertForUpdates,
-                    subtitle:
-                        t.settings.prefDescriptions.shouldAlwaysAlertForUpdates,
-                    icon: Icons.system_security_update_warning,
-                    pref: stows.shouldAlwaysAlertForUpdates,
+                SettingsSwitch(
+                  title: t.settings.prefLabels.editorToolbarShowInFullscreen,
+                  icon: cupertino
+                      ? CupertinoIcons.fullscreen
+                      : Icons.fullscreen,
+                  pref: stows.editorToolbarShowInFullscreen,
+                ),
+                SettingsSwitch(
+                  title: t.settings.prefLabels.editorAutoInvert,
+                  iconBuilder: (b) {
+                    return b ? Icons.invert_colors_on : Icons.invert_colors_off;
+                  },
+                  pref: stows.editorAutoInvert,
+                ),
+                SettingsSwitch(
+                  title: t.settings.prefLabels.editorPromptRename,
+                  subtitle: t.settings.prefDescriptions.editorPromptRename,
+                  iconBuilder: (b) {
+                    if (b)
+                      return cupertino
+                          ? CupertinoIcons.keyboard
+                          : Icons.keyboard;
+                    return cupertino
+                        ? CupertinoIcons.keyboard_chevron_compact_down
+                        : Icons.keyboard_hide;
+                  },
+                  pref: stows.editorPromptRename,
+                ),
+                SettingsSwitch(
+                  title: t.settings.prefLabels.recentColorsDontSavePresets,
+                  icon: Icons.palette,
+                  pref: stows.recentColorsDontSavePresets,
+                ),
+                SettingsSelection(
+                  title: t.settings.prefLabels.recentColorsLength,
+                  icon: Icons.history,
+                  pref: stows.recentColorsLength,
+                  options: const [
+                    ToggleButtonsOption(5, Text('5')),
+                    ToggleButtonsOption(10, Text('10')),
+                  ],
+                ),
+                SettingsSwitch(
+                  title: t.settings.prefLabels.printPageIndicators,
+                  subtitle: t.settings.prefDescriptions.printPageIndicators,
+                  icon: Icons.numbers,
+                  pref: stows.printPageIndicators,
+                ),
+                SettingsSubtitle(
+                  subtitle: t.settings.prefCategories.performance,
+                ),
+                SettingsSelection(
+                  title: t.settings.prefLabels.maxImageSize,
+                  subtitle: t.settings.prefDescriptions.maxImageSize,
+                  icon: Icons.photo_size_select_large,
+                  pref: stows.maxImageSize,
+                  options: const <ToggleButtonsOption<double>>[
+                    ToggleButtonsOption(500, Text('500')),
+                    ToggleButtonsOption(1000, Text('1000')),
+                    ToggleButtonsOption(2000, Text('2000')),
+                  ],
+                ),
+                SettingsSelection(
+                  title: t.settings.prefLabels.autosave,
+                  subtitle: t.settings.prefDescriptions.autosave,
+                  icon: Icons.save,
+                  pref: stows.autosaveDelay,
+                  options: [
+                    const ToggleButtonsOption(5000, Text('5s')),
+                    const ToggleButtonsOption(10000, Text('10s')),
+                    ToggleButtonsOption(-1, Text(t.settings.autosaveDisabled)),
+                  ],
+                ),
+                SettingsSelection(
+                  title: t.settings.prefLabels.shapeRecognitionDelay,
+                  subtitle: t.settings.prefDescriptions.shapeRecognitionDelay,
+                  icon: FontAwesomeIcons.shapes,
+                  pref: stows.shapeRecognitionDelay,
+                  options: [
+                    const ToggleButtonsOption(500, Text('0.5s')),
+                    const ToggleButtonsOption(1000, Text('1s')),
+                    ToggleButtonsOption(
+                      -1,
+                      Text(t.settings.shapeRecognitionDisabled),
+                    ),
+                  ],
+                  afterChange: (ms) {
+                    ShapePen.debounceDuration = ShapePen.getDebounceFromPref();
+                  },
+                ),
+                SettingsSwitch(
+                  title: t.settings.prefLabels.autoStraightenLines,
+                  subtitle: t.settings.prefDescriptions.autoStraightenLines,
+                  icon: Icons.straighten,
+                  pref: stows.autoStraightenLines,
+                ),
+                SettingsSwitch(
+                  title: t.settings.prefLabels.simplifiedHomeLayout,
+                  subtitle: t.settings.prefDescriptions.simplifiedHomeLayout,
+                  iconBuilder: (simplified) =>
+                      simplified ? Icons.grid_view : Symbols.browse,
+                  pref: stows.simplifiedHomeLayout,
+                ),
+                SettingsSubtitle(subtitle: t.settings.prefCategories.advanced),
+                if (isSentryAvailable) const SettingsSentryConsent(),
+                if (Platform.isAndroid)
+                  SettingsDirectorySelector(
+                    title: t.settings.prefLabels.customDataDir,
+                    icon: Icons.folder,
                   ),
+                if (Platform.isWindows || Platform.isLinux || Platform.isMacOS)
+                  SettingsButton(
+                    title: t.settings.openDataDir,
+                    icon: Icons.folder_open,
+                    onPressed: () {
+                      if (Platform.isWindows) {
+                        Process.run('explorer', [
+                          FileManager.documentsDirectory,
+                        ]);
+                      } else if (Platform.isLinux) {
+                        Process.run('xdg-open', [
+                          FileManager.documentsDirectory,
+                        ]);
+                      } else if (Platform.isMacOS) {
+                        Process.run('open', [FileManager.documentsDirectory]);
+                      }
+                    },
+                  ),
+                if (requiresManualUpdates ||
+                    stows.shouldCheckForUpdates.value !=
+                        stows.shouldCheckForUpdates.defaultValue) ...[
+                  SettingsSwitch(
+                    title: t.settings.prefLabels.shouldCheckForUpdates,
+                    icon: Icons.system_update,
+                    pref: stows.shouldCheckForUpdates,
+                    afterChange: (_) => setState(() {}),
+                  ),
+                  Collapsible(
+                    collapsed: !stows.shouldCheckForUpdates.value,
+                    axis: CollapsibleAxis.vertical,
+                    child: SettingsSwitch(
+                      title: t.settings.prefLabels.shouldAlwaysAlertForUpdates,
+                      subtitle: t
+                          .settings
+                          .prefDescriptions
+                          .shouldAlwaysAlertForUpdates,
+                      icon: Icons.system_security_update_warning,
+                      pref: stows.shouldAlwaysAlertForUpdates,
+                    ),
+                  ),
+                ],
+                SettingsSwitch(
+                  title: t.settings.prefLabels.allowInsecureConnections,
+                  subtitle:
+                      t.settings.prefDescriptions.allowInsecureConnections,
+                  icon: Icons.private_connectivity,
+                  pref: stows.allowInsecureConnections,
+                ),
+                SettingsButton(
+                  title: t.logs.viewLogs,
+                  subtitle: t.logs.debuggingInfo,
+                  icon: Icons.receipt_long,
+                  onPressed: () => context.push(RoutePaths.logs),
                 ),
               ],
-              SettingsSwitch(
-                title: t.settings.prefLabels.allowInsecureConnections,
-                subtitle: t.settings.prefDescriptions.allowInsecureConnections,
-                icon: Icons.private_connectivity,
-                pref: stows.allowInsecureConnections,
-              ),
-              SettingsButton(
-                title: t.logs.viewLogs,
-                subtitle: t.logs.debuggingInfo,
-                icon: Icons.receipt_long,
-                onPressed: () => context.push(RoutePaths.logs),
-              ),
-            ],
-          )),
+            ),
+          ),
         ],
       ),
     );

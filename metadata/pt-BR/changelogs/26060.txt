@@ -1,0 +1,4 @@
+- Grandes melhorias no algoritmo de desenho de AVC. Você verá menos tremores enquanto desenham, melhor manuseio de cantos afiados no meio do golpe e perderá menos detalhes perto do final do derrame.
+- Adicionado suporte da caneta no Linux. Não há sensibilidade à pressão, mas agora você pode usar sua caneta para desenhar e o dedo para rolar.
+- Corrigido alguns problemas ao importar arquivos no Windows, graças a @zebravogel94349 e @qubab no github.
+...

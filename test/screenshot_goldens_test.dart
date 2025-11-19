@@ -9,19 +9,20 @@ import 'package:saber/components/home/syncing_button.dart';
 import 'package:saber/components/settings/app_info.dart';
 import 'package:saber/components/settings/nextcloud_profile.dart';
 import 'package:saber/components/theming/font_fallbacks.dart';
-import 'package:saber/components/theming/yaru_builder.dart';
+import 'package:saber/components/theming/saber_theme.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/flavor_config.dart';
 import 'package:saber/data/locales.dart';
 import 'package:saber/data/prefs.dart';
+import 'package:saber/data/sentry/sentry_init.dart';
 import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/editor/editor.dart';
 import 'package:saber/pages/home/home.dart';
 import 'package:saber/pages/user/login.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:yaru/yaru.dart';
 
 import 'utils/test_mock_channel_handlers.dart';
+import 'utils/test_user.dart';
 
 void main() {
   group('Screenshots:', () {
@@ -32,71 +33,63 @@ void main() {
 
     setupMockPathProvider();
     setupMockPrinting();
-    setupMockFlutterSecureStorage();
-    SharedPreferences.setMockInitialValues({});
+    disableSentryForTesting();
 
     FlavorConfig.setup();
     SyncingButton.forceButtonActive = true;
     AppInfo.showDebugMessage = false;
 
-    const quotaUsed = 17 * 1024 * 1024; // 17 MB
-    const quotaTotal = 5 * 1024 * 1024 * 1024; // 5 GB
-    stows.lastStorageQuota.value = Quota.fromJson({
-      'free': quotaTotal - quotaUsed,
-      'used': quotaUsed,
-      'total': quotaTotal,
-      'relative': quotaUsed / quotaTotal * 100,
-      'quota': quotaTotal,
-    });
+    stows.lastStorageQuota.value = TestUser.getQuota();
     stows.username.value = 'myusername';
+    stows.sentryConsent.value = .granted;
 
-    setUpAll(() => Future.wait([
-          FileManager.init(
-            shouldWatchRootDirectory: false,
-          ),
-          PencilShader.init(),
-        ]));
+    setUpAll(
+      () => Future.wait([
+        FileManager.init(shouldWatchRootDirectory: false),
+        PencilShader.init(),
+      ]),
+    );
 
     setUpAll(() async {
-      final recentFiles = <String>[];
-      await Future.wait(Directory('test/demo_notes/')
-          .listSync()
-          .whereType<File>()
-          .map((file) async {
-        /// The file name starting with a slash
-        final fileName = file.path.substring(file.path.lastIndexOf('/'));
-        if (fileName.endsWith('.sbn2') || fileName.endsWith('.sbn')) {
-          recentFiles.add(fileName);
-        }
-        final bytes = await file.readAsBytes();
-        return FileManager.getFile(fileName).writeAsBytes(bytes);
-      }));
-      stows.recentFiles.value = recentFiles..sort();
+      const demoFiles = <String>[
+        // These files will be at the top of recent files
+        '/Annotate images and diagrams.sbn2',
+        '/Golden ratio.sbn2',
+        '/Import PDFs.sbn2',
+        '/Metric Spaces Week 1.sbn2',
+        '/You can type notes too!.sbn2',
+      ];
+      final fillerFiles = <String>[];
+      await Future.wait(
+        Directory('test/demo_notes/').listSync().whereType<File>().map((
+          file,
+        ) async {
+          /// The file name starting with a slash
+          final fileName = file.path.substring(file.path.lastIndexOf('/'));
+          if (fileName.endsWith('.sbn2') || fileName.endsWith('.sbn')) {
+            if (!demoFiles.contains(fileName)) fillerFiles.add(fileName);
+          }
+          final bytes = await file.readAsBytes();
+          final dstFile = FileManager.getFile(fileName);
+          await dstFile.create(recursive: true);
+          return dstFile.writeAsBytes(bytes);
+        }),
+      );
+      stows.recentFiles.value = [...demoFiles, ...fillerFiles..sort()];
     });
 
-    final colorScheme = ColorScheme.fromSeed(
-      seedColor: const Color(0xffdae2ff),
-      surface: const Color(0xfffefbff),
+    const seedColor = YaruColors.blue;
+    final materialTheme = SaberTheme.createThemeFromSeed(
+      seedColor,
+      .light,
+      .android,
     );
-    final materialTheme = ThemeData(
-      colorScheme: colorScheme,
-      textTheme: ThemeData(brightness: Brightness.light).textTheme.withFont(
-            fontFamily: 'Inter',
-            fontFamilyFallback: saberSansSerifFontFallbacks,
-          ),
-      scaffoldBackgroundColor: colorScheme.surface,
+    final cupertinoTheme = SaberTheme.createThemeFromSeed(
+      seedColor,
+      .light,
+      .iOS,
     );
-    final cupertinoTheme = ThemeData(
-      colorScheme: colorScheme,
-      textTheme: ThemeData(brightness: Brightness.light).textTheme.withFont(
-            fontFamily: 'Inter',
-            fontFamilyFallback: saberSansSerifFontFallbacks,
-          ),
-      scaffoldBackgroundColor: colorScheme.surface,
-      platform: TargetPlatform.iOS,
-    );
-    final yaruVariant = YaruBuilder.findClosestYaruVariant(colorScheme.primary);
-    final yaruTheme = YaruThemeData(variant: yaruVariant, useMaterial3: true);
+    final yaruTheme = SaberTheme.createThemeFromSeed(seedColor, .light, .linux);
 
     _screenshot(
       materialTheme: materialTheme,
@@ -110,18 +103,14 @@ void main() {
       cupertinoTheme: cupertinoTheme,
       yaruTheme: yaruTheme,
       goldenFileName: '2_editor',
-      child: Editor(
-        path: '/Metric Spaces Week 1',
-      ),
+      child: Editor(path: '/Metric Spaces Week 1'),
     );
     _screenshot(
       materialTheme: materialTheme,
       cupertinoTheme: cupertinoTheme,
       yaruTheme: yaruTheme,
       goldenFileName: '3_login',
-      child: const NcLoginPage(
-        forceAppBarLeading: true,
-      ),
+      child: const NcLoginPage(forceAppBarLeading: true),
     );
     _screenshot(
       materialTheme: materialTheme,
@@ -137,7 +126,7 @@ void _screenshot({
   ScreenshotFrameColors? frameColors,
   required ThemeData materialTheme,
   required ThemeData cupertinoTheme,
-  required YaruThemeData yaruTheme,
+  required ThemeData yaruTheme,
   required String goldenFileName,
   required Widget child,
 }) {
@@ -162,13 +151,15 @@ void _screenshot({
           for (final locale in localeNames.keys)
             if (!localesWithFontIssues.contains(locale)) ...[
               (locale, GoldenScreenshotDevices.flathub),
-              (locale, GoldenScreenshotDevices.android),
+              (locale, GoldenScreenshotDevices.androidTablet),
+              (locale, GoldenScreenshotDevices.androidPhone),
             ],
         }
       : {
           // limited screenshots are used to speed up tests
           ('en', GoldenScreenshotDevices.flathub),
-          ('en', GoldenScreenshotDevices.android),
+          ('en', GoldenScreenshotDevices.iphone),
+          ('en', GoldenScreenshotDevices.androidPhone),
         };
 
   group(goldenFileName, () {
@@ -179,38 +170,38 @@ void _screenshot({
         await tester.runAsync(() => LocaleSettings.setLocaleRaw(localeCode));
 
         if (goldenFileName == '4_settings') {
-          NextcloudProfile.forceLoginStep = LoginStep.done;
+          NextcloudProfile.forceLoginStep = .done;
           addTearDown(() => NextcloudProfile.forceLoginStep = null);
         }
 
-        final widget = ScreenshotApp(
+        final widget = ScreenshotApp.withConditionalTitlebar(
           theme: switch (device.platform) {
-            TargetPlatform.linux => yaruTheme.theme,
-            TargetPlatform.iOS || TargetPlatform.macOS => cupertinoTheme,
+            .linux => yaruTheme,
+            .iOS || .macOS => cupertinoTheme,
             _ => materialTheme,
           },
           device: device,
           frameColors: frameColors,
-          child: TranslationProvider(
-            child: child,
-          ),
+          title: 'Saber',
+          home: TranslationProvider(child: child),
         );
         await tester.pumpWidget(widget);
+        await tester.pump();
 
-        for (final editorState
-            in tester.stateList<EditorState>(find.byType(Editor))) {
+        for (final editorState in tester.stateList<EditorState>(
+          find.byType(Editor),
+        )) {
+          // Wait for the editor to load
           while (editorState.coreInfo.isEmpty) {
             await tester.runAsync(
-                () => Future.delayed(const Duration(milliseconds: 100)));
+              () => Future.delayed(const Duration(milliseconds: 100)),
+            );
           }
           await tester.pump();
         }
 
-        await tester.pump();
-        await tester.precacheImagesInWidgetTree();
-        await tester.precacheTopbarImages();
-        await tester.loadFonts(overriddenFonts: saberSansSerifFontFallbacks);
-        await tester.pumpFrames(widget, const Duration(milliseconds: 100));
+        await tester.loadAssets(overriddenFonts: saberSansSerifFontFallbacks);
+        await tester.pumpAndSettle();
 
         await tester.expectScreenshot(
           device,

@@ -14,7 +14,7 @@ late final String editor;
 late final bool failOnChanges;
 late final bool quiet;
 
-const String dummyChangelog = 'Release_notes_will_be_added_here';
+const dummyChangelog = 'Release_notes_will_be_added_here';
 
 enum ErrorCodes {
   noError(0),
@@ -67,12 +67,12 @@ void parseArgs(List<String> args) {
   } else if (results.flag('patch')) {
     newVersion = oldVersion.bumpPatch();
   } else if (results.option('custom') != null) {
-    final String custom = results['custom']!;
-    late int? buildNumber = int.tryParse(custom);
+    final custom = results['custom']!;
+    late final buildNumber = int.tryParse(custom);
     if (custom.contains('.')) {
-      newVersion = SaberVersion.fromName(custom);
+      newVersion = .fromName(custom);
     } else if (buildNumber != null) {
-      newVersion = SaberVersion.fromNumber(buildNumber);
+      newVersion = .fromNumber(buildNumber);
     } else {
       print('Invalid custom version: $custom');
       print(parser.usage);
@@ -85,7 +85,8 @@ void parseArgs(List<String> args) {
   }
 
   print(
-      'Bumping version from ${oldVersion.buildName} to ${newVersion.buildName}');
+    'Bumping version from ${oldVersion.buildName} to ${newVersion.buildName}',
+  );
 }
 
 Future<void> findEditor() async {
@@ -156,21 +157,27 @@ Future<void> updateAllFiles() async {
 
   // update download link in READMEs
   final readmes = Directory('.').listSync().whereType<File>().where(
-      (file) => RegExp(r'README.*\.md').hasMatch(file.path.split('/').last));
+    (file) => RegExp(
+      r'README.*\.md',
+    ).hasMatch(file.path.split(RegExp(r'[\\/]')).last),
+  );
   for (final readme in readmes) {
     await readme.replace({
       // e.g. [download_windows]: https://github.com/saber-notes/saber/releases/download/v0.11.0/SaberInstaller_v0.11.0.exe
-      RegExp(r'\[download_windows\]: .+'):
-          '[download_windows]: https://github.com/saber-notes/saber/releases/download/v${newVersion.buildName}/SaberInstaller_v${newVersion.buildName}.exe',
+      RegExp(
+        r'\[download_windows\]: .+',
+      ): '[download_windows]: https://github.com/saber-notes/saber/releases/download/v${newVersion.buildName}/SaberInstaller_v${newVersion.buildName}.exe',
       // e.g. [download_appimage]: https://github.com/saber-notes/saber/releases/download/v0.11.0/Saber-0.11.0-x86_64.AppImage
-      RegExp(r'\[download_appimage\]: .+'):
-          '[download_appimage]: https://github.com/saber-notes/saber/releases/download/v${newVersion.buildName}/Saber-${newVersion.buildName}-x86_64.AppImage',
+      RegExp(
+        r'\[download_appimage\]: .+',
+      ): '[download_appimage]: https://github.com/saber-notes/saber/releases/download/v${newVersion.buildName}/Saber-${newVersion.buildName}-x86_64.AppImage',
     });
   }
 
   // create metadata changelog
-  final changelogFile =
-      File('metadata/en-US/changelogs/${newVersion.buildNumber}.txt');
+  final changelogFile = File(
+    'metadata/en-US/changelogs/${newVersion.buildNumber}.txt',
+  );
   if (changelogFile.existsSync()) {
     print('Changelog file already exists');
   } else {
@@ -193,7 +200,8 @@ Future<void> updateAllFiles() async {
     }
     print('Adding a new <release> tag to flatpak file');
     final date = DateFormat('yyyy-MM-dd').format(DateTime.now().toUtc());
-    final releaseTag = '''
+    final releaseTag =
+        '''
         <release version="${newVersion.buildName}" type="development" date="$date">
             <description>
                 <ul>
@@ -214,10 +222,11 @@ Future<void> updateAllFiles() async {
   print('  - ${changelogFile.path}');
   print('  - ${flatpakFile.path}');
   print('And then run:');
-  print('  - dart scripts/translate_changelogs.dart');
+  print('  - ./scripts/translate_changelogs.dart');
   print('Next steps:');
   print(
-      '  - Add the new release to the App Store: https://appstoreconnect.apple.com/apps/1671523739/appstore');
+    '  - Add the new release to the App Store: https://appstoreconnect.apple.com/apps/1671523739/appstore',
+  );
 
   // open changelog files in editor
   if (!quiet) {
@@ -233,7 +242,7 @@ extension on File {
   }
 
   Future<void> replace(Map<RegExp, String> replacements) async {
-    int matches = 0;
+    var matches = 0;
     final lines = await readAsLines();
     for (var i = 0; i < lines.length; i++) {
       for (final pattern in replacements.keys) {
@@ -254,8 +263,10 @@ extension on File {
     if (matches >= replacements.length) {
       print('Updated $path with all $matches replacements');
     } else {
-      print('Updated $path with $matches out of ${replacements.length} '
-          'replacements (${replacements.length - matches} missed)');
+      print(
+        'Updated $path with $matches out of ${replacements.length} '
+        'replacements (${replacements.length - matches} missed)',
+      );
     }
   }
 }

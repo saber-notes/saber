@@ -35,7 +35,7 @@ sealed class EditorImage extends ChangeNotifier {
 
   final AssetCache assetCache;
 
-  bool _isThumbnail = false;
+  var _isThumbnail = false;
   bool get isThumbnail => _isThumbnail;
   @mustCallSuper
   set isThumbnail(bool isThumbnail) {
@@ -48,18 +48,24 @@ sealed class EditorImage extends ChangeNotifier {
   void Function()? onMiscChange;
   final VoidCallback? onLoad;
 
-  Rect srcRect = Rect.zero;
+  Rect srcRect = .zero;
 
-  late Rect _dstRect =
-      Rect.fromLTWH(0, 0, CanvasImage.minImageSize, CanvasImage.minImageSize);
+  late var _dstRect = Rect.fromLTWH(
+    0,
+    0,
+    CanvasImage.minImageSize,
+    CanvasImage.minImageSize,
+  );
   Rect get dstRect => _dstRect;
   set dstRect(Rect dstRect) {
     _dstRect = dstRect;
     if (_dstRect.width < CanvasImage.minImageSize ||
         _dstRect.height < CanvasImage.minImageSize) {
-      final scale = max(CanvasImage.minImageSize / _dstRect.width,
-          CanvasImage.minImageSize / _dstRect.height);
-      _dstRect = Rect.fromLTWH(
+      final scale = max(
+        CanvasImage.minImageSize / _dstRect.width,
+        CanvasImage.minImageSize / _dstRect.height,
+      );
+      _dstRect = .fromLTWH(
         _dstRect.left,
         _dstRect.top,
         _dstRect.width * scale,
@@ -77,7 +83,7 @@ sealed class EditorImage extends ChangeNotifier {
   Size? pageSize;
 
   /// If the image is new, it will be [active] (draggable) when loaded
-  bool newImage = false;
+  var newImage = false;
 
   /// Whether this image is inverted if Prefs.editorAutoInvert.value
   bool invertible;
@@ -92,20 +98,20 @@ sealed class EditorImage extends ChangeNotifier {
     required this.extension,
     required this.pageIndex,
     required this.pageSize,
-    this.naturalSize = Size.zero,
+    this.naturalSize = .zero,
     this.invertible = true,
-    this.backgroundFit = BoxFit.contain,
+    this.backgroundFit = .contain,
     required this.onMoveImage,
     required this.onDeleteImage,
     required this.onMiscChange,
     this.onLoad,
     this.newImage = true,
-    Rect dstRect = Rect.zero,
-    this.srcRect = Rect.zero,
+    Rect dstRect = .zero,
+    this.srcRect = .zero,
     bool isThumbnail = false,
-  })  : assert(extension.startsWith('.')),
-        _dstRect = dstRect,
-        _isThumbnail = isThumbnail;
+  }) : assert(extension.startsWith('.')),
+       _dstRect = dstRect,
+       _isThumbnail = isThumbnail;
 
   factory EditorImage.fromJson(
     Map<String, dynamic> json, {
@@ -114,7 +120,7 @@ sealed class EditorImage extends ChangeNotifier {
     required String sbnPath,
     required AssetCache assetCache,
   }) {
-    String? extension = json['e'];
+    final extension = json['e'] as String?;
     if (extension == '.svg') {
       return SvgEditorImage.fromJson(
         json,
@@ -145,22 +151,22 @@ sealed class EditorImage extends ChangeNotifier {
   @mustBeOverridden
   @mustCallSuper
   Map<String, dynamic> toJson(OrderedAssetCache assets) => {
-        'id': id,
-        'e': extension,
-        'i': pageIndex,
-        'v': invertible,
-        'f': backgroundFit.index,
-        'x': dstRect.left,
-        'y': dstRect.top,
-        'w': dstRect.width,
-        'h': dstRect.height,
-        if (srcRect.left != 0) 'sx': srcRect.left,
-        if (srcRect.top != 0) 'sy': srcRect.top,
-        if (srcRect.width != 0) 'sw': srcRect.width,
-        if (srcRect.height != 0) 'sh': srcRect.height,
-        if (naturalSize.width != 0) 'nw': naturalSize.width,
-        if (naturalSize.height != 0) 'nh': naturalSize.height,
-      };
+    'id': id,
+    'e': extension,
+    'i': pageIndex,
+    'v': invertible,
+    'f': backgroundFit.index,
+    'x': dstRect.left,
+    'y': dstRect.top,
+    'w': dstRect.width,
+    'h': dstRect.height,
+    if (srcRect.left != 0) 'sx': srcRect.left,
+    if (srcRect.top != 0) 'sy': srcRect.top,
+    if (srcRect.width != 0) 'sw': srcRect.width,
+    if (srcRect.height != 0) 'sh': srcRect.height,
+    if (naturalSize.width != 0) 'nw': naturalSize.width,
+    if (naturalSize.height != 0) 'nh': naturalSize.height,
+  };
 
   /// Images are loaded out after 5 seconds of not being visible.
   ///
@@ -168,11 +174,11 @@ sealed class EditorImage extends ChangeNotifier {
   ///
   /// This is useful for tests that can't have pending timers.
   @visibleForTesting
-  static bool shouldLoadOutImmediately = false;
+  static var shouldLoadOutImmediately = false;
 
   Completer? _firstLoadStatus;
   Completer<bool>? _shouldLoadOut;
-  bool _loadedIn = false;
+  var _loadedIn = false;
   bool get loadedIn => _loadedIn;
 
   Future<void> firstLoad();
@@ -243,7 +249,7 @@ sealed class EditorImage extends ChangeNotifier {
 
   /// Resizes [before] to fit inside [max] while maintaining aspect ratio
   @visibleForTesting
-  static Size resize(final Size before, final Size max) {
+  static Size resize(Size before, Size max) {
     double width = before.width,
         height = before.height,
         aspectRatio = width / height;

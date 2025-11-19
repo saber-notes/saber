@@ -25,10 +25,14 @@ class NcHttpOverrides extends HttpOverrides {
   // Returns true if the certificate should be accepted,
   // false if it should be rejected.
   static bool badCertificateCallback(
-      X509Certificate cert, String host, int port) {
+    X509Certificate cert,
+    String host,
+    int port,
+  ) {
     if (!stows.allowInsecureConnections.loaded || !stows.url.loaded) {
       log.severe(
-          'The Prefs [allowInsecureConnections] or [url] are not loaded yet. Make sure to await pref.waitUntilRead() for both.');
+        'The Prefs [allowInsecureConnections] or [url] are not loaded yet. Make sure to await pref.waitUntilRead() for both.',
+      );
       return false;
     }
 

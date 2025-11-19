@@ -3,7 +3,6 @@
 #
 
 list(APPEND FLUTTER_PLUGIN_LIST
-  audioplayers_windows
   desktop_webview_window
   dynamic_color
   file_selector_windows
@@ -12,6 +11,7 @@ list(APPEND FLUTTER_PLUGIN_LIST
   permission_handler_windows
   printing
   screen_retriever_windows
+  sentry_flutter
   share_plus
   super_native_extensions
   url_launcher_windows
@@ -20,7 +20,8 @@ list(APPEND FLUTTER_PLUGIN_LIST
 )
 
 list(APPEND FLUTTER_FFI_PLUGIN_LIST
-  pdfrx
+  jni
+  pdfium_flutter
 )
 
 set(PLUGIN_BUNDLED_LIBRARIES)

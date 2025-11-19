@@ -5,9 +5,9 @@ on:
   workflow_dispatch:
   push:
     tags:
-      - '**'
+      - "**"
     branches:
-      - '**'
+      - "**"
     paths:
       - .github/workflows/windows.yml
       - installers/desktop_inno_script.iss
@@ -21,7 +21,7 @@ jobs:
     timeout-minutes: 20
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Setup cache
         uses: actions/cache@v4
@@ -29,40 +29,40 @@ jobs:
           path: |
             .dart_tool/
             build/
-            .flutter-plugins
+            linux/flutter/ephemeral/
+            macos/Flutter/ephemeral/
+            windows/flutter/ephemeral/
             .flutter-plugins-dependencies
             pubspec.lock
           key: ${{ runner.OS }}-saber-${{ hashFiles('**/pubspec.lock') }}-${{ hashFiles('**/*.dart') }}
           restore-keys: |
             ${{ runner.OS }}-saber-
 
-      - name: Remove development dependencies
-        run: ./patches/remove_dev_dependencies.sh
-
       - name: Setup Flutter
-        uses: subosito/flutter-action@v2
+        uses: adil192/setup-flutter-submodule@v1
         with:
-          channel: stable
-          cache: true
-          cache-key: 'flutter-:os:-:channel:-:version:-:arch:'
+          flutter-path: submodules/flutter
 
       - name: Disable Flutter CLI animations
         run: flutter config --no-cli-animations
 
       - run: flutter pub get
 
+      - name: Remove development dependencies
+        run: ./patches/remove_dev_dependencies.sh
+
       - name: Build Windows
         shell: bash
         run: |
-          flutter build windows \
-            --dart-define=DIRTY=$DIRTY
-        env:
-          DIRTY: ${{ !startsWith(github.ref, 'refs/tags/') }}
+          flutter build windows
 
       - name: Download Visual C++ Redistributable
         shell: bash
         run: |
           curl -L -o installers/vc_redist.x64.exe https://aka.ms/vs/17/release/vc_redist.x64.exe
+
+      - name: Install Inno Setup
+        run: choco install -y innosetup
 
       - name: Build Windows Installer
         run: ISCC.exe installers/desktop_inno_script.iss
@@ -79,7 +79,7 @@ jobs:
           mv installers/SaberInstaller.exe installers/$installerName
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: Saber-Windows
           path: installers/${{ steps.rename.outputs.installerName }}

@@ -1,0 +1,3 @@
+• Enyhén csökkentett alkalmazásméret
+• Az aktuális mappa elérési útjának új megjelenítése a Tallózás oldalon
+• A jövőbeli frissítések során hozzáadok néhány hibakövetést, hogy segítsek az alkalmazás fejlesztésében. Ez lesz az opt-in és anonim, amennyire csak tudok.

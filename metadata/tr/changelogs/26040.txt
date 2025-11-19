@@ -1,0 +1,2 @@
+• Hata raporlamayı seçen herkes sayesinde küçük ama önemli hata düzeltmeleri!
+• Kişisel bilgi filtrelerinin daha fazla gelişimi. Bunlar hem yerel hem de sunucuda uygulanır, böylece bilgileriniz her zaman güvenlidir.

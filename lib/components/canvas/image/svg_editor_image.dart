@@ -27,11 +27,11 @@ class SvgEditorImage extends EditorImage {
     super.srcRect,
     super.naturalSize,
     super.isThumbnail,
-  })  : assert(svgString != null || svgFile != null,
-            'svgFile must be set if svgString is null'),
-        super(
-          extension: '.svg',
-        ) {
+  }) : assert(
+         svgString != null || svgFile != null,
+         'svgFile must be set if svgString is null',
+       ),
+       super(extension: '.svg') {
     if (svgString != null) {
       svgLoader = SvgStringLoader(svgString);
     } else {
@@ -46,7 +46,7 @@ class SvgEditorImage extends EditorImage {
     required String sbnPath,
     required AssetCache assetCache,
   }) {
-    String? extension = json['e'] as String?;
+    final extension = json['e'] as String?;
     assert(extension == null || extension == '.svg');
 
     final assetIndex = json['a'] as int?;
@@ -54,8 +54,9 @@ class SvgEditorImage extends EditorImage {
     File? svgFile;
     if (assetIndex != null) {
       if (inlineAssets == null) {
-        svgFile =
-            FileManager.getFile('$sbnPath${Editor.extension}.$assetIndex');
+        svgFile = FileManager.getFile(
+          '$sbnPath${Editor.extension}.$assetIndex',
+        );
         svgString = assetCache.get(svgFile);
       } else {
         svgString = utf8.decode(inlineAssets[assetIndex]);
@@ -68,37 +69,34 @@ class SvgEditorImage extends EditorImage {
     }
 
     return SvgEditorImage(
-      id: json['id'] ??
+      id:
+          json['id'] ??
           -1, // -1 will be replaced by EditorCoreInfo._handleEmptyImageIds()
       assetCache: assetCache,
       svgString: svgString,
       svgFile: svgFile,
       pageIndex: json['i'] ?? 0,
-      pageSize: Size.infinite,
+      pageSize: .infinite,
       invertible: json['v'] ?? true,
-      backgroundFit:
-          json['f'] != null ? BoxFit.values[json['f']] : BoxFit.contain,
+      backgroundFit: json['f'] != null ? .values[json['f']] : .contain,
       onMoveImage: null,
       onDeleteImage: null,
       onMiscChange: null,
       onLoad: null,
       newImage: false,
-      dstRect: Rect.fromLTWH(
+      dstRect: .fromLTWH(
         json['x'] ?? 0,
         json['y'] ?? 0,
         json['w'] ?? 0,
         json['h'] ?? 0,
       ),
-      srcRect: Rect.fromLTWH(
+      srcRect: .fromLTWH(
         json['sx'] ?? 0,
         json['sy'] ?? 0,
         json['sw'] ?? 0,
         json['sh'] ?? 0,
       ),
-      naturalSize: Size(
-        json['nw'] ?? 0,
-        json['nh'] ?? 0,
-      ),
+      naturalSize: Size(json['nw'] ?? 0, json['nh'] ?? 0),
       isThumbnail: isThumbnail,
     );
   }
@@ -119,14 +117,17 @@ class SvgEditorImage extends EditorImage {
   }
 
   ({String? string, File? file}) _extractSvg() => switch (svgLoader) {
-        (SvgStringLoader loader) => (
-            string: loader.provideSvg(null),
-            file: null
-          ),
-        (SvgFileLoader loader) => (string: null, file: loader.file),
-        (_) => throw ArgumentError.value(svgLoader, 'svgLoader',
-            'SvgEditorImage.toJson: svgLoader must be a SvgStringLoader or SvgFileLoader'),
-      };
+    (final SvgStringLoader loader) => (
+      string: loader.provideSvg(null),
+      file: null,
+    ),
+    (final SvgFileLoader loader) => (string: null, file: loader.file),
+    (_) => throw ArgumentError.value(
+      svgLoader,
+      'svgLoader',
+      'SvgEditorImage.toJson: svgLoader must be a SvgStringLoader or SvgFileLoader',
+    ),
+  };
 
   @override
   Future<void> firstLoad() async {
@@ -146,7 +147,7 @@ class SvgEditorImage extends EditorImage {
       }
     }
 
-    if (naturalSize == Size.zero) {
+    if (naturalSize == .zero) {
       naturalSize = Size(srcRect.width, srcRect.height);
     }
   }
@@ -176,15 +177,12 @@ class SvgEditorImage extends EditorImage {
     } else if (isBackground) {
       boxFit = backgroundFit;
     } else {
-      boxFit = BoxFit.fill;
+      boxFit = .fill;
     }
 
     return InvertWidget(
       invert: invert,
-      child: SvgPicture(
-        svgLoader,
-        fit: boxFit,
-      ),
+      child: SvgPicture(svgLoader, fit: boxFit),
     );
   }
 
@@ -198,7 +196,7 @@ class SvgEditorImage extends EditorImage {
       svgString: svgData.string,
       svgFile: svgData.file,
       pageIndex: pageIndex,
-      pageSize: Size.infinite,
+      pageSize: .infinite,
       invertible: invertible,
       backgroundFit: backgroundFit,
       onMoveImage: onMoveImage,

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:path_to_regexp/path_to_regexp.dart';
-import 'package:saber/components/canvas/save_indicator.dart';
 import 'package:saber/components/navbar/horizontal_navbar.dart';
 import 'package:saber/components/navbar/vertical_navbar.dart';
 import 'package:saber/data/prefs.dart';
@@ -23,7 +22,7 @@ class ResponsiveNavbar extends StatefulWidget {
   @override
   State<ResponsiveNavbar> createState() => _ResponsiveNavbarState();
 
-  static bool isLargeScreen = true;
+  static var isLargeScreen = true;
 }
 
 class _ResponsiveNavbarState extends State<ResponsiveNavbar> {
@@ -42,18 +41,19 @@ class _ResponsiveNavbarState extends State<ResponsiveNavbar> {
     if (index == widget.selectedIndex) return;
 
     // if on whiteboard, check if saved
-    final whiteboardPath = pathToFunction(RoutePaths.home)(
-        {'subpage': HomePage.whiteboardSubpage});
+    final whiteboardPath = pathToFunction(RoutePaths.home)({
+      'subpage': HomePage.whiteboardSubpage,
+    });
     if (HomeRoutes.getRoute(widget.selectedIndex) == whiteboardPath) {
       final savingState = Whiteboard.savingState;
       switch (savingState) {
         case null:
-        case SavingState.saved:
+        case .saved:
           break;
-        case SavingState.waitingToSave:
+        case .waitingToSave:
           Whiteboard.triggerSave();
           return;
-        case SavingState.saving:
+        case .saving:
           return;
       }
     }
@@ -63,36 +63,57 @@ class _ResponsiveNavbarState extends State<ResponsiveNavbar> {
 
   @override
   Widget build(BuildContext context) {
+    final mediaQuery = MediaQuery.of(context);
+
     ResponsiveNavbar.isLargeScreen = switch (stows.layoutSize.value) {
-      LayoutSize.auto => MediaQuery.sizeOf(context).width >= 600,
-      LayoutSize.phone => false,
-      LayoutSize.tablet => true,
+      .auto => mediaQuery.size.width >= 600,
+      .phone => false,
+      .tablet => true,
     };
 
     if (ResponsiveNavbar.isLargeScreen) {
       return Scaffold(
-        body: Row(children: [
-          IntrinsicWidth(
-            child: ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: 300),
-              child: VerticalNavbar(
-                destinations: HomeRoutes.navigationRailDestinations,
-                selectedIndex: widget.selectedIndex,
-                onDestinationSelected: onDestinationSelected,
+        body: Row(
+          children: [
+            IntrinsicWidth(
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 300),
+                child: VerticalNavbar(
+                  destinations: HomeRoutes.navigationRailDestinations,
+                  selectedIndex: widget.selectedIndex,
+                  onDestinationSelected: onDestinationSelected,
+                ),
               ),
             ),
-          ),
-          Expanded(child: widget.body),
-        ]),
+            Expanded(child: widget.body),
+          ],
+        ),
       );
     } // else mobile
 
-    return Scaffold(
-      body: widget.body,
-      bottomNavigationBar: HorizontalNavbar(
-        destinations: HomeRoutes.navigationDestinations,
-        selectedIndex: widget.selectedIndex,
-        onDestinationSelected: onDestinationSelected,
+    final navbarClearance = HorizontalNavbar.clearanceHeightOf(context);
+    return ColoredBox(
+      color: Theme.of(context).scaffoldBackgroundColor,
+      child: Stack(
+        children: [
+          MediaQuery(
+            data: mediaQuery.copyWith(
+              padding: mediaQuery.padding + .only(bottom: navbarClearance),
+              viewPadding:
+                  mediaQuery.viewPadding + .only(bottom: navbarClearance),
+            ),
+            child: widget.body,
+          ),
+          PositionedDirectional(
+            bottom: 0,
+            end: 0,
+            child: HorizontalNavbar(
+              destinations: HomeRoutes.navigationDestinations,
+              selectedIndex: widget.selectedIndex,
+              onDestinationSelected: onDestinationSelected,
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -110,5 +131,5 @@ enum LayoutSize {
   phone,
   tablet;
 
-  static final codec = EnumCodec(values);
+  static const codec = EnumCodec(values);
 }

@@ -61,6 +61,19 @@ home:
   backFolder(OUTDATED): Menjen vissza az előző mappába
   deleteNote(OUTDATED): Jegyzet törlése
   invalidFormat(OUTDATED): A kiválasztott fájl nem támogatott. Kérjük, válasszon .sbn, .sbn2, .sba vagy .pdf fájlt.
+sentry: 
+  consent: 
+    description: 
+      question(OUTDATED): Szeretne automatikusan jelenteni a váratlan hibákat? Ez segít a problémák gyorsabb azonosításában és kijavításában.
+      scope(OUTDATED): A jelentések információkat tartalmazhatnak a hibáról és az eszközről. Minden erőfeszítést megtettem a személyes adatok kiszűrésére, de néhány megmaradhat.
+      currentlyOff(OUTDATED): Ha hozzájárulást ad, akkor a hibajelentés engedélyezve lesz az alkalmazás újraindítása után.
+      currentlyOn(OUTDATED): Ha visszavonja az egyetértést, kérjük, indítsa újra az alkalmazást a hibajelentés letiltása érdekében.
+      learnMoreInPrivacyPolicy(rich, OUTDATED): Tudjon meg többet a ${link(adatvédelmi házirend)} -ben.
+    answers: 
+      yes(OUTDATED): Igen
+      no(OUTDATED): Nem
+      later(OUTDATED): Kérdezd meg később
+    title(OUTDATED): Segítsen javítani a kardot?
 settings: 
   prefCategories: 
     general: Általános
@@ -81,12 +94,12 @@ settings:
     preferGreyscale: Szürkeárnyalatos színek előnyben részesítése
     maxImageSize: Maximális képméret
     autoClearWhiteboardOnExit: A tábla törlése az alkalmazásból való kilépés után
+    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Ujjrajzolás automatikus letiltása
     editorPromptRename: Új jegyzetek átnevezésére való felszólítás
-    hideHomeBackgrounds: Hátterek elrejtése a kezdőképernyőn
     recentColorsDontSavePresets: Ne mentse az előre beállított színeket a legutóbbi színek között
+    sentry(OUTDATED): Hibajelentés
     autosave(OUTDATED): Automatikus mentés
     simplifiedHomeLayout(OUTDATED): Egyszerűsített otthoni elrendezés
-    pencilSoundSetting(OUTDATED): Ceruza hanghatás
     customDataDir(OUTDATED): Egyedi adatkönyvtár
     autoStraightenLines(OUTDATED): A vonalak automatikus kiegyenesítése
     shapeRecognitionDelay(OUTDATED): Alakfelismerési késleltetés
@@ -106,13 +119,14 @@ settings:
       shown(OUTDATED): Megakadályozza a véletlen átkapcsolást
       fixedOn(OUTDATED): Az ujjlenyomat rögzítése engedélyezett állapotban van
       fixedOff(OUTDATED): Az ujjrajzolás letiltva van rögzítve
+    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Kapcsolja ki az ujjal történő rajzolást, ha ceruzát észlel
     editorPromptRename: A jegyzeteket később bármikor átnevezheti
-    hideHomeBackgrounds: Egy letisztultabb megjelenítésért
+    sentry: 
+      active(OUTDATED): Aktív
+      inactive(OUTDATED): Tétlen
+      activeUntilRestart(OUTDATED): Aktív, amíg újra nem indítja újra az alkalmazást
+      inactiveUntilRestart(OUTDATED): Inaktív, amíg újra nem indítja újra az alkalmazást
     autosave(OUTDATED): Automato-Save rövid késleltetés után, vagy soha
-    pencilSoundSetting: 
-      off(OUTDATED): Nincs hang
-      onButNotInSilentMode(OUTDATED): Engedélyezve (kivéve, ha néma módban van)
-      onAlways(OUTDATED): Engedélyezve (néma módban is)
     simplifiedHomeLayout(OUTDATED): Rögzített magasságot állít be minden hangjegy előnézetéhez
     autoStraightenLines(OUTDATED): Kiegyenesíti a hosszú vonalakat anélkül, hogy az alakos tollat ​​kellene használnia
     shapeRecognitionDelay(OUTDATED): Milyen gyakran kell frissíteni az alakzat előnézetét
@@ -140,6 +154,7 @@ settings:
     title: Visszaállítsa ezt a beállítást?
     button: Visszaállítás
   customDataDir: 
+    unsupported(OUTDATED): Ez a szolgáltatás jelenleg csak a fejlesztők számára készült. A felhasználása valószínűleg adatvesztést eredményez.
     cancel(OUTDATED): Megszünteti
     select(OUTDATED): Válassza ki
     mustBeEmpty(OUTDATED): A kiválasztott könyvtárnak üresnek kell lennie
@@ -149,11 +164,11 @@ settings:
   openDataDir(OUTDATED): Nyissa meg a Saber mappát
   resyncEverything(OUTDATED): Resync mindent
 logs: 
+  useTheApp(OUTDATED): A naplók itt jelennek meg az alkalmazás használatakor
   logs(OUTDATED): Naplók
   viewLogs(OUTDATED): Naplók megtekintése
   debuggingInfo(OUTDATED): A naplók a hibakereséshez és a fejlesztéshez hasznos információkat tartalmaznak
   noLogs(OUTDATED): Itt nincsenek naplók!
-  logsAreTemporary(OUTDATED): A naplókat csak az alkalmazás bezárásáig őrizzük meg
 login: 
   title: Bejelentkezés
   form: 
@@ -231,7 +246,6 @@ appInfo:
   licenseNotice: |-
     Saber Copyright © 2022-$buildYear Adil Hanney
     Ez a program nem tartalmaz semmilyen garanciát. Ez egy szabad szoftver, és bizonyos feltételek mellett szabadon terjeszthető.
-  dirty: DIRTY
   debug: DEBUG
   sponsorButton: Ide kattintva támogathat engem vagy vásárolhat több tárhelyet
   licenseButton: További licencinformációk megtekintéséhez kattintson ide

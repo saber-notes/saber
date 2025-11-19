@@ -61,6 +61,19 @@ home:
     delete: حذف
     alsoDeleteContents: همچنین تمام یادداشت های داخل این پوشه را حذف کنید
   noPreviewAvailable(OUTDATED): پیش نمایش موجود نیست
+sentry: 
+  consent: 
+    description: 
+      learnMoreInPrivacyPolicy(rich): در لینک ${link(خط مشی رازداری)} بیشتر بیاموزید.
+      question(OUTDATED): آیا دوست دارید به طور خودکار خطاهای غیر منتظره را گزارش کنید؟ این به من کمک می کند تا مسائل را سریعتر شناسایی و رفع کنم.
+      scope(OUTDATED): گزارش ها ممکن است حاوی اطلاعاتی در مورد خطا و دستگاه شما باشد. من تمام تلاش خود را برای فیلتر کردن داده های شخصی کردم اما برخی ممکن است باقی بمانند.
+      currentlyOff(OUTDATED): اگر رضایت دهید ، گزارش خطا پس از شروع مجدد برنامه فعال می شود.
+      currentlyOn(OUTDATED): اگر رضایت را لغو کردید ، لطفاً برنامه را برای غیرفعال کردن گزارش خطا مجدداً راه اندازی کنید.
+    answers: 
+      yes(OUTDATED): بله
+      no(OUTDATED): هیچ
+      later(OUTDATED): بعداً از من بپرس
+    title(OUTDATED): به بهبود صابر کمک می کنید؟
 settings: 
   prefCategories: 
     general: عمومی
@@ -86,15 +99,15 @@ settings:
     autoClearWhiteboardOnExit: پس از خروج از برنامه، وایت برد پاک شود
     disableEraserAfterUse: پاک کن را به صورت خودکار غیرفعال کنید
     hideFingerDrawingToggle: ضامن طراحی انگشت را پنهان کنید
+    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): غیرفعال کردن خودکار طراحی با انگشت
     editorPromptRename: از شما می خواهد که نام یادداشت های جدید را تغییر دهید
-    hideHomeBackgrounds: پس زمینه را در صفحه اصلی پنهان کنید
     recentColorsDontSavePresets: رنگ های از پیش تعیین شده را در رنگ های اخیر ذخیره نکنید
     recentColorsLength: چند رنگ اخیر برای ذخیره
     printPageIndicators: چاپ نشانگرهای صفحه
-    autosave(OUTDATED): خودرا
     shapeRecognitionDelay: تاخیر در تشخیص شکل
+    sentry(OUTDATED): گزارش خطا
+    autosave(OUTDATED): خودرا
     simplifiedHomeLayout(OUTDATED): چیدمان خانه ساده شده
-    pencilSoundSetting(OUTDATED): جلوه صدای مداد
     customDataDir(OUTDATED): دایرکتوری داده های سفارشی
     autoStraightenLines(OUTDATED): صاف کردن خودکار خطوط
   prefDescriptions: 
@@ -108,16 +121,17 @@ settings:
       shown: از جابجایی تصادفی جلوگیری می کند
       fixedOn: طراحی با انگشت به صورت فعال ثابت شده است
       fixedOff: طراحی با انگشت به عنوان غیرفعال ثابت است
+    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): هنگامی که یک قلم شناسایی شد، نقاشی با انگشت را خاموش کنید
     editorPromptRename: همیشه می توانید بعداً نام یادداشت ها را تغییر دهید
-    hideHomeBackgrounds: برای ظاهری تمیز تر
     printPageIndicators: نمایش نشانگرهای صفحه در خروجی
-    autosave(OUTDATED): پس از یک تأخیر کوتاه ، یا هرگز
     shapeRecognitionDelay: به روز رسانی پیشنمایش شکل چند وقت یکبار انجام شود
     shouldAlwaysAlertForUpdates: به محض اینکه به‌روزرسانی‌ها در دسترس هستند، به من بگویید
-    pencilSoundSetting: 
-      onAlways(OUTDATED): فعال (حتی در حالت بی صدا)
-      off(OUTDATED): بدون صدا
-      onButNotInSilentMode(OUTDATED): فعال (مگر در حالت بی صدا)
+    sentry: 
+      active(OUTDATED): فعال
+      inactive(OUTDATED): غیر فعال
+      activeUntilRestart(OUTDATED): فعال باشید تا زمانی که برنامه را مجدداً راه اندازی کنید
+      inactiveUntilRestart(OUTDATED): تا زمانی که برنامه را مجدداً راه اندازی کنید غیرفعال است
+    autosave(OUTDATED): پس از یک تأخیر کوتاه ، یا هرگز
     simplifiedHomeLayout(OUTDATED): یک ارتفاع ثابت برای پیش نمایش هر یادداشت تنظیم می کند
     autoStraightenLines(OUTDATED): خطوط بلند را بدون استفاده از قلم شکل صاف می کند
   themeModes: 
@@ -140,6 +154,7 @@ settings:
     title: این تنظیمات را بازنشانی می کنید؟
     button: بازنشانی
   customDataDir: 
+    unsupported(OUTDATED): این ویژگی در حال حاضر فقط برای توسعه دهندگان است. استفاده از آن احتمالاً منجر به از بین رفتن داده ها خواهد شد.
     cancel(OUTDATED): لغو کنید
     select(OUTDATED): انتخاب کنید
     mustBeEmpty(OUTDATED): دایرکتوری انتخاب شده باید خالی باشد
@@ -149,11 +164,11 @@ settings:
   openDataDir(OUTDATED): پوشه Saber را باز کنید
   resyncEverything(OUTDATED): همه چیز را دوباره همگام سازی کنید
 logs: 
+  useTheApp(OUTDATED): هنگام استفاده از برنامه ، سیاههها در اینجا ظاهر می شوند
   logs(OUTDATED): سیاههها
   viewLogs(OUTDATED): مشاهده سیاهههای مربوط
   debuggingInfo(OUTDATED): گزارش ها حاوی اطلاعات مفیدی برای اشکال زدایی و توسعه هستند
   noLogs(OUTDATED): اینجا هیچ گزارشی وجود ندارد!
-  logsAreTemporary(OUTDATED): گزارش‌ها فقط تا زمانی که برنامه را ببندید نگهداری می‌شوند
 login: 
   title: وارد شدن
   form: 
@@ -227,7 +242,6 @@ appInfo:
   licenseNotice: |-
     Saber  Copyright © 2022-$buildYear  Adil Hanney
     این برنامه کاملاً بدون گارانتی ارائه می شود. این نرم‌افزار رایگان است و شما می‌توانید تحت شرایط خاصی آن را مجدداً توزیع کنید
-  dirty: دیرتی
   debug: دیباگ
   sponsorButton: برای حمایت مالی از من یا خرید فضای ذخیره بیشتر، اینجا ضربه بزنید
   licenseButton: برای مشاهده اطلاعات بیشتر مجوز اینجا را ضربه بزنید

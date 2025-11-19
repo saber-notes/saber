@@ -19,7 +19,7 @@ class RenameFolderButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IconButton(
-      padding: EdgeInsets.zero,
+      padding: .zero,
       tooltip: t.home.renameFolder.renameFolder,
       onPressed: () {
         showDialog(
@@ -57,7 +57,7 @@ class _RenameFolderDialog extends StatefulWidget {
 
 class _RenameFolderDialogState extends State<_RenameFolderDialog> {
   final _formKey = GlobalKey<FormState>();
-  final TextEditingController _controller = TextEditingController();
+  final _controller = TextEditingController();
 
   String? validateFolderName(String? folderName) {
     if (folderName == null || folderName.isEmpty) {

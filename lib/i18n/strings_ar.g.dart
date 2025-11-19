@@ -3,6 +3,7 @@
 ///
 // coverage:ignore-file
 // ignore_for_file: type=lint, unused_import
+// dart format off
 
 import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
@@ -34,6 +35,7 @@ class TranslationsAr extends Translations {
 	// Translations
 	@override late final _TranslationsCommonAr common = _TranslationsCommonAr._(_root);
 	@override late final _TranslationsHomeAr home = _TranslationsHomeAr._(_root);
+	@override late final _TranslationsSentryAr sentry = _TranslationsSentryAr._(_root);
 	@override late final _TranslationsSettingsAr settings = _TranslationsSettingsAr._(_root);
 	@override late final _TranslationsLogsAr logs = _TranslationsLogsAr._(_root);
 	@override late final _TranslationsLoginAr login = _TranslationsLoginAr._(_root);
@@ -67,7 +69,7 @@ class _TranslationsHomeAr extends TranslationsHomeEn {
 	@override late final _TranslationsHomeTooltipsAr tooltips = _TranslationsHomeTooltipsAr._(_root);
 	@override late final _TranslationsHomeCreateAr create = _TranslationsHomeCreateAr._(_root);
 	@override String get welcome => 'مرحباً بك في Saber';
-	@override String get invalidFormat => ' صيغة الملف الذي اخترته ليست مدعومة, الرجاء اختيار ملف  sbn او sbn2 او sba او pdf ';
+	@override String get invalidFormat => 'صيغة الملف الذي اخترته ليست مدعومة, الرجاء اختيار ملف  sbn او sbn2 او sba او pdf';
 	@override String get noFiles => 'لم يتم العثور على ملفات';
 	@override String get createNewNote => 'اضغط على زر + لإنشاء ملاحظة جديدة';
 	@override String get backFolder => 'الرجوع الى المجلد السابق';
@@ -78,6 +80,16 @@ class _TranslationsHomeAr extends TranslationsHomeEn {
 	@override late final _TranslationsHomeRenameFolderAr renameFolder = _TranslationsHomeRenameFolderAr._(_root);
 	@override late final _TranslationsHomeDeleteFolderAr deleteFolder = _TranslationsHomeDeleteFolderAr._(_root);
 	@override String get noPreviewAvailable => 'لا معاينة متاحة';
+}
+
+// Path: sentry
+class _TranslationsSentryAr extends TranslationsSentryEn {
+	_TranslationsSentryAr._(TranslationsAr root) : this._root = root, super.internal(root);
+
+	final TranslationsAr _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsSentryConsentAr consent = _TranslationsSentryConsentAr._(_root);
 }
 
 // Path: settings
@@ -115,11 +127,11 @@ class _TranslationsLogsAr extends TranslationsLogsEn {
 	final TranslationsAr _root; // ignore: unused_field
 
 	// Translations
+	@override String get useTheApp => 'ستظهر السجلات هنا أثناء استخدام التطبيق';
 	@override String get logs => 'السجلات';
 	@override String get viewLogs => 'عرض السجلات';
 	@override String get debuggingInfo => 'تحتوي السجلات على معلومات مفيدة لتصحيح الأخطاء والتطوير';
 	@override String get noLogs => 'لا يوجد سجلات هنا!';
-	@override String get logsAreTemporary => 'يتم الاحتفاظ بالسجلات فقط حتى تقوم بإغلاق التطبيق';
 }
 
 // Path: login
@@ -155,7 +167,7 @@ class _TranslationsProfileAr extends TranslationsProfileEn {
 	// Translations
 	@override String get title => 'ملفي الشخصي';
 	@override String get logout => 'تسجيل الخروج';
-	@override String quotaUsage({required Object total, required Object percent, required Object used}) => ' ${total} (${percent}%) من ${used} أنت تستخدم ';
+	@override String quotaUsage({required Object total, required Object percent, required Object used}) => '${total} (${percent}%) من ${used} أنت تستخدم';
 	@override String get connectedTo => 'متصل بـ';
 	@override late final _TranslationsProfileQuickLinksAr quickLinks = _TranslationsProfileQuickLinksAr._(_root);
 	@override String get faqTitle => 'الأسئلة الشائعة';
@@ -175,7 +187,6 @@ class _TranslationsAppInfoAr extends TranslationsAppInfoEn {
 
 	// Translations
 	@override String licenseNotice({required Object buildYear}) => 'Saber حقوق نشر © 2022-${buildYear}  Adil Hanney\nهذا البرنامج لا يأتي مع أي ضمان على الإطلاق. هذا برنامج مجاني، ونرحب بإعادة توزيعه في ظل ظروف معينة.';
-	@override String get dirty => 'قذر';
 	@override String get debug => 'تصحيح أخطاء';
 	@override String get sponsorButton => 'انقر هنا لتدعمني أو شراء المزيد من مساحة التخزين';
 	@override String get licenseButton => 'انقر هنا لعرض المزيد من معلومات الترخيص';
@@ -340,6 +351,18 @@ class _TranslationsHomeDeleteFolderAr extends TranslationsHomeDeleteFolderEn {
 	@override String get alsoDeleteContents => 'حذف جميع الملاحظات داخل هذا المجلد أيضًا';
 }
 
+// Path: sentry.consent
+class _TranslationsSentryConsentAr extends TranslationsSentryConsentEn {
+	_TranslationsSentryConsentAr._(TranslationsAr root) : this._root = root, super.internal(root);
+
+	final TranslationsAr _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsSentryConsentDescriptionAr description = _TranslationsSentryConsentDescriptionAr._(_root);
+	@override late final _TranslationsSentryConsentAnswersAr answers = _TranslationsSentryConsentAnswersAr._(_root);
+	@override String get title => 'تساعد في تحسين صابر؟';
+}
+
 // Path: settings.prefCategories
 class _TranslationsSettingsPrefCategoriesAr extends TranslationsSettingsPrefCategoriesEn {
 	_TranslationsSettingsPrefCategoriesAr._(TranslationsAr root) : this._root = root, super.internal(root);
@@ -378,17 +401,17 @@ class _TranslationsSettingsPrefLabelsAr extends TranslationsSettingsPrefLabelsEn
 	@override String get autoClearWhiteboardOnExit => 'امسح السبورة بعد الخروج من التطبيق';
 	@override String get disableEraserAfterUse => 'تعطيل الممحاة تلقائيًا بعد الاستخدام';
 	@override String get hideFingerDrawingToggle => 'إخفاء زر الرسم بالإصبع';
+	@override String get autoDisableFingerDrawingWhenStylusDetected => 'التعطيل التلقائي لرسم الإصبع';
 	@override String get editorPromptRename => 'مطالبتك بإعادة تسمية الملاحظات الجديدة';
-	@override String get hideHomeBackgrounds => 'إخفاء الخلفيات على الشاشة الرئيسية';
 	@override String get recentColorsDontSavePresets => 'لا تحفظ الألوان المعينة مسبقًا كألوان حديثة';
 	@override String get recentColorsLength => 'كم عدد الألوان الحديثة التي يجب تخزينها';
 	@override String get printPageIndicators => 'طباعة مؤشرات الصفحة';
-	@override String get autosave => 'تلقائي';
 	@override String get shapeRecognitionDelay => 'تأخير التعرف على الأشكال';
 	@override String get autoStraightenLines => 'استقامة الخطوط تلقائيًا';
 	@override String get simplifiedHomeLayout => 'تخطيط الصفحة الرئيسية المبسط';
 	@override String get customDataDir => 'مخصص Saber مجلد';
-	@override String get pencilSoundSetting => 'تأثير صوت القلم';
+	@override String get sentry => 'الإبلاغ خطأ';
+	@override String get autosave => 'تلقائي';
 }
 
 // Path: settings.prefDescriptions
@@ -405,15 +428,15 @@ class _TranslationsSettingsPrefDescriptionsAr extends TranslationsSettingsPrefDe
 	@override String get disableEraserAfterUse => 'التبديل تلقائيًا إلى القلم بعد استخدام الممحاة';
 	@override String get maxImageSize => 'سيتم ضغط الصور الأكبر من هذا';
 	@override late final _TranslationsSettingsPrefDescriptionsHideFingerDrawingAr hideFingerDrawing = _TranslationsSettingsPrefDescriptionsHideFingerDrawingAr._(_root);
+	@override String get autoDisableFingerDrawingWhenStylusDetected => 'قم بإيقاف تشغيل الرسم بالإصبع عند اكتشاف القلم';
 	@override String get editorPromptRename => 'يمكنك دائمًا إعادة تسمية الملاحظات لاحقًا';
-	@override String get hideHomeBackgrounds => 'للحصول على مظهر أنظف';
 	@override String get printPageIndicators => 'تظهر مؤشرات الصفحة في الصادرات';
-	@override String get autosave => 'تلقائي بعد تأخير قصير ، أو أبدا';
 	@override String get shapeRecognitionDelay => 'عدد مرات تحديث معاينة الشكل';
 	@override String get autoStraightenLines => 'استقامة الخطوط الطويلة بدون الحاجة لاستخدام قلم الشكل';
 	@override String get simplifiedHomeLayout => 'تعيين ارتفاع ثابت لكل معاينة ملاحظة';
 	@override String get shouldAlwaysAlertForUpdates => 'أبلغني عن التحديثات بمجرد توفرها';
-	@override late final _TranslationsSettingsPrefDescriptionsPencilSoundSettingAr pencilSoundSetting = _TranslationsSettingsPrefDescriptionsPencilSoundSettingAr._(_root);
+	@override late final _TranslationsSettingsPrefDescriptionsSentryAr sentry = _TranslationsSettingsPrefDescriptionsSentryAr._(_root);
+	@override String get autosave => 'تلقائي بعد تأخير قصير ، أو أبدا';
 }
 
 // Path: settings.themeModes
@@ -472,6 +495,7 @@ class _TranslationsSettingsCustomDataDirAr extends TranslationsSettingsCustomDat
 	@override String get select => 'تحديد';
 	@override String get mustBeEmpty => 'يجب أن يكون المجلد المحدد فارغًا';
 	@override String get mustBeDoneSyncing => 'تأكد من اكتمال المزامنة قبل تغيير المجلد';
+	@override String get unsupported => 'هذه الميزة حاليا فقط للمطورين. من المحتمل أن يؤدي استخدامه إلى فقدان البيانات.';
 }
 
 // Path: login.form
@@ -762,6 +786,36 @@ class _TranslationsEditorHudAr extends TranslationsEditorHudEn {
 	@override String get lockAxisAlignedPan => 'قفل التحريك إلى أفقي أو رأسي';
 }
 
+// Path: sentry.consent.description
+class _TranslationsSentryConsentDescriptionAr extends TranslationsSentryConsentDescriptionEn {
+	_TranslationsSentryConsentDescriptionAr._(TranslationsAr root) : this._root = root, super.internal(root);
+
+	final TranslationsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get question => 'هل ترغب في الإبلاغ تلقائيًا عن أخطاء غير متوقعة؟ هذا يساعدني على تحديد وإصلاح المشكلات بشكل أسرع.';
+	@override String get scope => 'قد تحتوي التقارير على معلومات حول الخطأ وجهازك. لقد بذلت كل جهد ممكن لتصفية البيانات الشخصية ولكن قد يبقى البعض.';
+	@override String get currentlyOff => 'إذا منحت موافقة ، فسيتم تمكين الإبلاغ عن الخطأ بعد إعادة تشغيل التطبيق.';
+	@override String get currentlyOn => 'إذا قمت بإلغاء الموافقة ، يرجى إعادة تشغيل التطبيق لتعطيل الإبلاغ عن الخطأ.';
+	@override TextSpan learnMoreInPrivacyPolicy({required InlineSpanBuilder link}) => TextSpan(children: [
+		const TextSpan(text: 'تعرف على المزيد في '),
+		link('سياسة الخصوصية'),
+		const TextSpan(text: '.'),
+	]);
+}
+
+// Path: sentry.consent.answers
+class _TranslationsSentryConsentAnswersAr extends TranslationsSentryConsentAnswersEn {
+	_TranslationsSentryConsentAnswersAr._(TranslationsAr root) : this._root = root, super.internal(root);
+
+	final TranslationsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get yes => 'نعم';
+	@override String get no => 'لا';
+	@override String get later => 'اسألني لاحقًا';
+}
+
 // Path: settings.prefDescriptions.hideFingerDrawing
 class _TranslationsSettingsPrefDescriptionsHideFingerDrawingAr extends TranslationsSettingsPrefDescriptionsHideFingerDrawingEn {
 	_TranslationsSettingsPrefDescriptionsHideFingerDrawingAr._(TranslationsAr root) : this._root = root, super.internal(root);
@@ -774,16 +828,17 @@ class _TranslationsSettingsPrefDescriptionsHideFingerDrawingAr extends Translati
 	@override String get fixedOff => 'تم تعطيل الرسم بالإصبع';
 }
 
-// Path: settings.prefDescriptions.pencilSoundSetting
-class _TranslationsSettingsPrefDescriptionsPencilSoundSettingAr extends TranslationsSettingsPrefDescriptionsPencilSoundSettingEn {
-	_TranslationsSettingsPrefDescriptionsPencilSoundSettingAr._(TranslationsAr root) : this._root = root, super.internal(root);
+// Path: settings.prefDescriptions.sentry
+class _TranslationsSettingsPrefDescriptionsSentryAr extends TranslationsSettingsPrefDescriptionsSentryEn {
+	_TranslationsSettingsPrefDescriptionsSentryAr._(TranslationsAr root) : this._root = root, super.internal(root);
 
 	final TranslationsAr _root; // ignore: unused_field
 
 	// Translations
-	@override String get off => 'بدون صوت';
-	@override String get onButNotInSilentMode => 'مفعل (ما لم يكن في وضع الصامت)';
-	@override String get onAlways => 'مفعل (حتى في وضع الصامت)';
+	@override String get active => 'نشيط';
+	@override String get inactive => 'غير نشط';
+	@override String get activeUntilRestart => 'نشط حتى تقوم بإعادة تشغيل التطبيق';
+	@override String get inactiveUntilRestart => 'غير نشط حتى تقوم بإعادة تشغيل التطبيق';
 }
 
 // Path: login.ncLoginStep.loginFlow

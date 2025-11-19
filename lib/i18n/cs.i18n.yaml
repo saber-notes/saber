@@ -61,6 +61,19 @@ home:
     deleteName: Odstranění složky $f
     delete: Odstranit
     alsoDeleteContents: Se složkou odstranit i obsažené poznámky
+sentry: 
+  consent: 
+    title: Chcete pomoct vylepšit aplikaci Saber?
+    description: 
+      question: Chtěli byste automaticky nahlašovat neočekávané chyby? Pomohlo by mi to s rychlejší identifikací a opravou.
+      scope: Hlášení mohou obsahovat informace o chybě a vašem zařízení. Dělal jsem, co bylo v mých silách, abych odfiltroval osobní data, ale i tak mohou některá zůstat.
+      currentlyOff: Nahlašování chyb se v případě udělení souhlasu zapne po restartu aplikace.
+      currentlyOn: Po odvolání souhlasu prosím restartujte aplikaci, abyste nahlašování chyb vypnuli.
+      learnMoreInPrivacyPolicy(rich): Více se dozvíte v ${link(Zásadách ochrany osobních údajů)} (anglicky).
+    answers: 
+      yes: Ano
+      no: Ne
+      later: Odložit na později
 settings: 
   prefCategories: 
     general: Obecné
@@ -86,8 +99,8 @@ settings:
     autoClearWhiteboardOnExit: Smazat tabuli po opuštění aplikace
     disableEraserAfterUse: Automaticky vypínat gumu
     hideFingerDrawingToggle: Skrýt přepínač pro kreslení prstem
+    autoDisableFingerDrawingWhenStylusDetected: Automaticky vypínat kreslení prstem
     editorPromptRename: Vybízet k přejmenování nových poznámek
-    hideHomeBackgrounds: Skrýt pozadí poznámek na hlavní obrazovce
     recentColorsDontSavePresets: Neukládat přednastavené barvy mezi naposledy použité barvy
     recentColorsLength: Kolik naposledy použitých barev se má ukládat
     printPageIndicators: Tisknout čísla stránek
@@ -96,7 +109,7 @@ settings:
     autoStraightenLines: Automaticky narovnávat čáry
     simplifiedHomeLayout: Zjednodušené rozložení domovské obrazovky
     customDataDir: Vlastní umístění složky aplikace Saber
-    pencilSoundSetting: Zvukový efekt psaní tužkou
+    sentry: Hlášení chyb
   prefDescriptions: 
     hyperlegibleFont: Font Atkinson Hyperlegible zvyšuje čitelnost pro čtenáře se slabým zrakem
     allowInsecureConnections: (Nedoporučuje se) Povolit aplikaci Saber připojovat se k serverům se samopodepsaným/nedůvěryhodným certifikátem.
@@ -108,18 +121,19 @@ settings:
       shown: Zabraňuje nechtěnému přepnutí
       fixedOn: Kreslení prstem je napevno zapnuté
       fixedOff: Kreslení prstem je napevno vypnuté
+    autoDisableFingerDrawingWhenStylusDetected: Kreslení prstem se vypne, pokud je detekován stylus
     editorPromptRename: Poznámky můžete vždy přejmenovat i později
-    hideHomeBackgrounds: Pro čistější vzhled
     printPageIndicators: V exportech budou zobrazena čísla stránek
     autosave: Poznámky se budou automaticky ukládat po krátké prodlevě, nebo nikdy
     shapeRecognitionDelay: Jak často aktualizovat náhled tvaru
     autoStraightenLines: Automaticky narovná dlouhé čáry, aniž by bylo nutné využít tvarové pero
     simplifiedHomeLayout: Nastaví pevnou výšku pro každý náhled poznámky
     shouldAlwaysAlertForUpdates: Oznámit dostupnost aktualizací co nejdříve od jejich vydání
-    pencilSoundSetting: 
-      off: Bez zvuku
-      onButNotInSilentMode: Zapnuto (mimo tichý režim)
-      onAlways: Zapnuto (i v tichém režimu)
+    sentry: 
+      active: Aktivní
+      inactive: Neaktivní
+      activeUntilRestart: Aktivní, dokud nerestartujete aplikaci
+      inactiveUntilRestart: Neaktivní, dokud nerestartujete aplikaci
   themeModes: 
     system: Systémový
     light: Světlý
@@ -146,6 +160,7 @@ settings:
     select: Zvolit
     mustBeEmpty: Zvolená složka musí být prázdná
     mustBeDoneSyncing: Než změníte složku, ujistěte se, že byla dokončena synchronizace
+    unsupported: Tato funkce je v současné době pouze pro vývojáře. Její využití pravděpodobně povede ke ztrátě dat.
   autosaveDisabled: Nikdy
   shapeRecognitionDisabled: Nikdy
 logs: 
@@ -153,7 +168,7 @@ logs:
   viewLogs: Zobrazit logy
   debuggingInfo: Logy obsahují informace užitečné pro ladění a vývoj
   noLogs: Nejsou k dispozici žádné logy!
-  logsAreTemporary: Logy jsou zachovány pouze do uzavření aplikace
+  useTheApp: Jakmile aplikaci začnete používat, logy se zobrazí na tomto místě
 login: 
   title: Přihlášení
   form: 
@@ -232,7 +247,6 @@ appInfo:
   licenseNotice: |-
     Saber  Copyright © 2022-$buildYear  Adil Hanney
     Tento program je poskytován bez jakékoliv záruky. Jedná se o software poskytovaný zdarma, který je možné šířit při splnění určitých podmínek.
-  dirty: ZKUŠEBNÍ VERZE
   debug: LADÍCÍ VERZE
   sponsorButton: Klepněte sem, pokud mě chcete sponzorovat nebo si přikoupit úložiště
   licenseButton: Klepněte sem pro zobrazení podrobnějších licenčních informací

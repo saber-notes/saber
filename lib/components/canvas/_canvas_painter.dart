@@ -13,7 +13,6 @@ import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/extensions/color_extensions.dart';
 import 'package:saber/data/tools/highlighter.dart';
 import 'package:saber/data/tools/laser_pointer.dart';
-import 'package:saber/data/tools/pencil.dart';
 import 'package:saber/data/tools/select.dart';
 import 'package:saber/data/tools/shape_pen.dart';
 
@@ -47,7 +46,7 @@ class CanvasPainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    Rect canvasRect = Offset.zero & size;
+    final canvasRect = Offset.zero & size;
 
     _drawHighlighterStrokes(canvas, canvasRect);
     _drawNonHighlighterStrokes(canvas);
@@ -60,9 +59,21 @@ class CanvasPainter extends CustomPainter {
 
   @override
   bool shouldRepaint(CanvasPainter oldDelegate) {
-    return currentStroke != null ||
-        oldDelegate.currentStroke != null ||
-        strokes.length != oldDelegate.strokes.length;
+    return false ||
+        // Current stroke is being drawn, so always repaint if present
+        (currentStroke != null || oldDelegate.currentStroke != null) ||
+        // Laser strokes are always fading out, so always repaint if present
+        (laserStrokes.isNotEmpty || oldDelegate.laserStrokes.isNotEmpty) ||
+        // Check for any other changes
+        invert != oldDelegate.invert ||
+        strokes.length != oldDelegate.strokes.length ||
+        currentSelection != oldDelegate.currentSelection ||
+        primaryColor != oldDelegate.primaryColor ||
+        page != oldDelegate.page ||
+        showPageIndicator != oldDelegate.showPageIndicator ||
+        pageIndex != oldDelegate.pageIndex ||
+        totalPages != oldDelegate.totalPages ||
+        currentScale != oldDelegate.currentScale;
   }
 
   void _drawHighlighterStrokes(Canvas canvas, Rect canvasRect) {
@@ -72,8 +83,8 @@ class CanvasPainter extends CustomPainter {
     bool needToRestoreCanvasLayer = false;
 
     Color? lastColor;
-    for (Stroke stroke in strokes) {
-      if (stroke.penType != (Highlighter).toString()) continue;
+    for (final stroke in strokes) {
+      if (stroke.toolId != .highlighter) continue;
 
       final color = stroke.color.withValues(alpha: 1).withInversion(invert);
 
@@ -96,7 +107,7 @@ class CanvasPainter extends CustomPainter {
     late final paint = Paint();
 
     for (final stroke in strokes) {
-      if (stroke.penType == (Highlighter).toString()) continue;
+      if (stroke.toolId == .highlighter) continue;
 
       var color = stroke.color.withInversion(invert);
       if (currentSelection?.strokes.contains(stroke) ?? false) {
@@ -106,40 +117,34 @@ class CanvasPainter extends CustomPainter {
       paint.color = color;
       paint.shader = null;
       paint.maskFilter = null;
-      if (stroke.penType == (Pencil).toString()) {
-        paint.color = Colors.white;
-        paint.shader = page.pencilShader
-          ..setFloat(0, color.r)
-          ..setFloat(1, color.g)
-          ..setFloat(2, color.b);
-        paint.maskFilter = _getPencilMaskFilter(stroke.options.size);
+      if (stroke.toolId == .pencil) {
+        if (shouldUsePencilShader(stroke.options.size)) {
+          paint.color = Colors.white;
+          paint.shader = page.pencilShader
+            ..setFloat(0, color.r)
+            ..setFloat(1, color.g)
+            ..setFloat(2, color.b);
+          paint.maskFilter = _getPencilMaskFilter(stroke.options.size);
+        } else {
+          // Fast imitation of pencil when zoomed out
+          final background = invert ? Colors.black : Colors.white;
+          paint.color = Color.lerp(background, color, 0.6)!;
+        }
       }
 
       late final shapePaint = Paint()
         ..color = paint.color
-        ..style = PaintingStyle.stroke
+        ..style = .stroke
         ..strokeWidth = stroke.options.size;
 
       if (stroke is CircleStroke) {
-        canvas.drawCircle(
-          stroke.center,
-          stroke.radius,
-          shapePaint,
-        );
+        canvas.drawCircle(stroke.center, stroke.radius, shapePaint);
       } else if (stroke is RectangleStroke) {
         final strokeSize = stroke.options.size;
         canvas.drawRRect(
-          RRect.fromRectAndRadius(
-            stroke.rect,
-            Radius.circular(strokeSize / 4),
-          ),
+          RRect.fromRectAndRadius(stroke.rect, Radius.circular(strokeSize / 4)),
           shapePaint,
         );
-      } else if (stroke.length <= 2) {
-        // a dot
-        final bounds = stroke.lowQualityPath.getBounds();
-        final radius = max(bounds.size.width, stroke.options.size) / 2;
-        canvas.drawCircle(bounds.center, radius, paint);
       } else {
         canvas.drawPath(_selectPath(stroke), paint);
       }
@@ -159,7 +164,7 @@ class CanvasPainter extends CustomPainter {
     paint.color = color;
     paint.shader = null;
     paint.maskFilter = null;
-    if (currentStroke!.penType == (Pencil).toString()) {
+    if (currentStroke!.toolId == .pencil) {
       paint.color = Colors.white;
       paint.shader = page.pencilShader
         ..setFloat(0, color.r)
@@ -168,18 +173,8 @@ class CanvasPainter extends CustomPainter {
       paint.maskFilter = _getPencilMaskFilter(currentStroke!.options.size);
     }
 
-    if (currentStroke!.length <= 2) {
-      // a dot
-      final bounds = currentStroke!.highQualityPath.getBounds();
-      final radius = max(
-        bounds.size.width * 0.5,
-        currentStroke!.options.size * 0.25,
-      );
-      canvas.drawCircle(bounds.center, radius, paint);
-    } else {
-      // Current stroke always uses high quality
-      canvas.drawPath(currentStroke!.highQualityPath, paint);
-    }
+    // Current stroke always uses high quality
+    canvas.drawPath(currentStroke!.highQualityPath, paint);
   }
 
   void _drawLaserStroke(Canvas canvas, LaserStroke stroke) {
@@ -192,10 +187,7 @@ class CanvasPainter extends CustomPainter {
           stroke.options.size * 0.4,
         ),
     );
-    canvas.drawPath(
-      stroke.innerPath,
-      Paint()..color = const Color(0xDDffffff),
-    );
+    canvas.drawPath(stroke.innerPath, Paint()..color = const Color(0xDDffffff));
   }
 
   void _drawDetectedShape(Canvas canvas) {
@@ -205,7 +197,7 @@ class CanvasPainter extends CustomPainter {
     final color = currentStroke?.color.withInversion(invert) ?? Colors.black;
     final shapePaint = Paint()
       ..color = Color.lerp(color, primaryColor, 0.5)!.withValues(alpha: 0.7)
-      ..style = PaintingStyle.stroke
+      ..style = .stroke
       ..strokeWidth = currentStroke?.options.size ?? 3;
 
     switch (shape.name) {
@@ -231,10 +223,7 @@ class CanvasPainter extends CustomPainter {
       case DefaultUnistrokeNames.triangle:
       case DefaultUnistrokeNames.star:
         final polygon = shape.convertToCanonicalPolygon();
-        canvas.drawPath(
-          Path()..addPolygon(polygon, true),
-          shapePaint,
-        );
+        canvas.drawPath(Path()..addPolygon(polygon, true), shapePaint);
     }
   }
 
@@ -256,7 +245,7 @@ class CanvasPainter extends CustomPainter {
       Paint()
         ..color = primaryColor
         ..strokeWidth = 3
-        ..style = PaintingStyle.stroke,
+        ..style = .stroke,
     );
   }
 
@@ -265,25 +254,27 @@ class CanvasPainter extends CustomPainter {
   void _drawPageIndicator(Canvas canvas, Size pageSize) {
     if (!showPageIndicator) return;
 
-    ParagraphStyle style = ParagraphStyle(
-      textAlign: TextAlign.end,
-      textDirection: TextDirection.ltr,
+    final style = ParagraphStyle(
+      textAlign: .end,
+      textDirection: .ltr,
       maxLines: 1,
     );
 
-    ParagraphBuilder builder = ParagraphBuilder(style)
-      ..pushStyle(TextStyle(
-        color: Colors.black.withInversion(invert).withValues(alpha: 0.5),
-        fontSize: _pageIndicatorFontSize,
-        fontFamily: 'Inter',
-        fontFamilyFallback: saberSansSerifFontFallbacks,
-      ))
+    final ParagraphBuilder builder = ParagraphBuilder(style)
+      ..pushStyle(
+        TextStyle(
+          color: Colors.black.withInversion(invert).withValues(alpha: 0.5),
+          fontSize: _pageIndicatorFontSize,
+          fontFamily: 'Inter',
+          fontFamilyFallback: saberSansSerifFontFallbacks,
+        ),
+      )
       ..addText('${pageIndex + 1} / $totalPages');
 
-    Paragraph paragraph = builder.build();
-    paragraph.layout(ParagraphConstraints(
-      width: pageSize.width - 2 * _pageIndicatorPadding,
-    ));
+    final paragraph = builder.build();
+    paragraph.layout(
+      ParagraphConstraints(width: pageSize.width - 2 * _pageIndicatorPadding),
+    );
 
     canvas.drawParagraph(
       paragraph,
@@ -294,13 +285,14 @@ class CanvasPainter extends CustomPainter {
     );
   }
 
-  static MaskFilter _getPencilMaskFilter(double size) => MaskFilter.blur(
-        BlurStyle.normal,
-        min(size * 0.3, 5),
-      );
+  static MaskFilter _getPencilMaskFilter(double size) =>
+      MaskFilter.blur(BlurStyle.normal, min(size * 0.2, 3));
+  bool shouldUsePencilShader(double strokeSize) =>
+      currentScale >= _zoomThreshold && (strokeSize * currentScale) >= 3;
 
+  static const _zoomThreshold = 0.9;
   Path _selectPath(Stroke stroke) => switch (currentScale) {
-        < 1 => stroke.lowQualityPath,
-        _ => stroke.highQualityPath,
-      };
+    < _zoomThreshold => stroke.lowQualityPath,
+    _ => stroke.highQualityPath,
+  };
 }

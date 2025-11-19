@@ -8,7 +8,7 @@ class CanvasBackgroundPainter extends CustomPainter {
   const CanvasBackgroundPainter({
     required this.invert,
     required this.backgroundColor,
-    this.backgroundPattern = CanvasBackgroundPattern.none,
+    this.backgroundPattern = .none,
     required this.lineHeight,
     required this.lineThickness,
     this.primaryColor = Colors.blue,
@@ -32,14 +32,20 @@ class CanvasBackgroundPainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    Rect canvasRect = Offset.zero & size;
-    Paint paint = Paint();
+    final canvasRect = Offset.zero & size;
+    final paint = Paint();
 
     paint.color = backgroundColor.withInversion(invert);
     canvas.drawRect(canvasRect, paint);
 
     paint.strokeWidth = lineThickness.toDouble();
-    for (PatternElement element in getPatternElements(
+
+    if (backgroundPattern.requiresClipping) {
+      canvas.save();
+      canvas.clipRect(canvasRect);
+    }
+
+    for (final element in getPatternElements(
       pattern: backgroundPattern,
       size: size,
       lineHeight: lineHeight,
@@ -55,6 +61,10 @@ class CanvasBackgroundPainter extends CustomPainter {
       } else {
         canvas.drawCircle(element.start, paint.strokeWidth * 4 / 3, paint);
       }
+    }
+
+    if (backgroundPattern.requiresClipping) {
+      canvas.restore();
     }
   }
 
@@ -74,11 +84,11 @@ class CanvasBackgroundPainter extends CustomPainter {
     required int lineHeight,
   }) sync* {
     switch (pattern) {
-      case CanvasBackgroundPattern.none:
+      case .none:
         return;
-      case CanvasBackgroundPattern.collegeLtr:
-      case CanvasBackgroundPattern.collegeRtl:
-      case CanvasBackgroundPattern.lined:
+      case .collegeLtr:
+      case .collegeRtl:
+      case .lined:
         // horizontal lines
         for (double y = lineHeight * 2; y < size.height; y += lineHeight) {
           yield PatternElement(
@@ -89,14 +99,14 @@ class CanvasBackgroundPainter extends CustomPainter {
         }
 
         // vertical line
-        if (pattern == CanvasBackgroundPattern.collegeLtr) {
+        if (pattern == .collegeLtr) {
           yield PatternElement(
             Offset(lineHeight * 2, 0),
             Offset(lineHeight * 2, size.height),
             isLine: true,
             secondaryColor: true,
           );
-        } else if (pattern == CanvasBackgroundPattern.collegeRtl) {
+        } else if (pattern == .collegeRtl) {
           yield PatternElement(
             Offset(size.width - lineHeight * 2, 0),
             Offset(size.width - lineHeight * 2, size.height),
@@ -104,7 +114,7 @@ class CanvasBackgroundPainter extends CustomPainter {
             secondaryColor: true,
           );
         }
-      case CanvasBackgroundPattern.grid:
+      case .grid:
         for (double y = lineHeight * 2; y < size.height; y += lineHeight) {
           yield PatternElement(
             Offset(0, y),
@@ -119,25 +129,23 @@ class CanvasBackgroundPainter extends CustomPainter {
             isLine: true,
           );
         }
-      case CanvasBackgroundPattern.dots:
+      case .dots:
         for (double y = lineHeight * 2; y <= size.height; y += lineHeight) {
           for (double x = 0; x <= size.width; x += lineHeight) {
-            yield PatternElement(
-              Offset(x, y),
-              Offset(x, y),
-              isLine: false,
-            );
+            yield PatternElement(Offset(x, y), Offset(x, y), isLine: false);
           }
         }
-      case CanvasBackgroundPattern.staffs:
-      case CanvasBackgroundPattern.tablature:
-        final staffSpaces = pattern == CanvasBackgroundPattern.staffs ? 4 : 5;
+      case .staffs:
+      case .tablature:
+        final staffSpaces = pattern == .staffs ? 4 : 5;
         final staffHeight = lineHeight * staffSpaces;
         final staffSpacing = lineHeight * 3;
 
-        for (double topOfStaff = staffSpacing.toDouble() - lineHeight;
-            topOfStaff + staffHeight < size.height;
-            topOfStaff += staffHeight + staffSpacing) {
+        for (
+          double topOfStaff = staffSpacing.toDouble() - lineHeight;
+          topOfStaff + staffHeight < size.height;
+          topOfStaff += staffHeight + staffSpacing
+        ) {
           // horizontal lines
           for (int line = 0; line < staffSpaces + 1; line++) {
             yield PatternElement(
@@ -159,7 +167,7 @@ class CanvasBackgroundPainter extends CustomPainter {
             isLine: true,
           );
         }
-      case CanvasBackgroundPattern.cornell:
+      case .cornell:
         // half-width line for name field
         yield PatternElement(
           Offset(lineHeight.toDouble(), lineHeight * 2),
@@ -227,11 +235,11 @@ enum CanvasBackgroundPattern {
   lined('lined'),
 
   /// A grid of squares
-  grid('grid'),
+  grid('grid', requiresClipping: true),
 
   /// A grid of dots. This is the same as "grid" except it has dots on the
   /// corners instead of the whole square border.
-  dots('dots'),
+  dots('dots', requiresClipping: true),
 
   /// Music staffs
   staffs('staffs'),
@@ -244,31 +252,38 @@ enum CanvasBackgroundPattern {
   /// Cornell notes
   cornell('cornell');
 
+  const CanvasBackgroundPattern(this.name, {this.requiresClipping = false});
+
+  /// The pattern name used for serialization.
+  /// Do not display this to the user: instead use [localizedName].
   final String name;
-  const CanvasBackgroundPattern(this.name);
+
+  /// Whether this pattern has elements along the page edges that may need to be
+  /// clipped.
+  final bool requiresClipping;
 
   static String localizedName(CanvasBackgroundPattern pattern) {
     switch (pattern) {
-      case CanvasBackgroundPattern.none:
+      case .none:
         return t.editor.menu.bgPatterns.none;
-      case CanvasBackgroundPattern.collegeLtr:
+      case .collegeLtr:
         return t.editor.menu.bgPatterns.college;
-      case CanvasBackgroundPattern.collegeRtl:
+      case .collegeRtl:
         return t.editor.menu.bgPatterns.collegeRtl;
-      case CanvasBackgroundPattern.lined:
+      case .lined:
         return t.editor.menu.bgPatterns.lined;
-      case CanvasBackgroundPattern.grid:
+      case .grid:
         return t.editor.menu.bgPatterns.grid;
-      case CanvasBackgroundPattern.dots:
+      case .dots:
         return t.editor.menu.bgPatterns.dots;
-      case CanvasBackgroundPattern.staffs:
+      case .staffs:
         return t.editor.menu.bgPatterns.staffs;
-      case CanvasBackgroundPattern.tablature:
+      case .tablature:
         return t.editor.menu.bgPatterns.tablature;
-      case CanvasBackgroundPattern.cornell:
+      case .cornell:
         return t.editor.menu.bgPatterns.cornell;
     }
   }
 
-  static final codec = EnumCodec(values);
+  static const codec = EnumCodec(values);
 }

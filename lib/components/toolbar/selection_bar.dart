@@ -16,12 +16,12 @@ class SelectionBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisAlignment: .center,
       children: [
         IconButton(
           onPressed: duplicateSelection,
           style: TextButton.styleFrom(
-            foregroundColor: Theme.of(context).colorScheme.secondary,
+            foregroundColor: ColorScheme.of(context).secondary,
             backgroundColor: Colors.transparent,
             shape: const CircleBorder(),
           ),
@@ -34,7 +34,7 @@ class SelectionBar extends StatelessWidget {
         IconButton(
           onPressed: deleteSelection,
           style: TextButton.styleFrom(
-            foregroundColor: Theme.of(context).colorScheme.secondary,
+            foregroundColor: ColorScheme.of(context).secondary,
             backgroundColor: Colors.transparent,
             shape: const CircleBorder(),
           ),

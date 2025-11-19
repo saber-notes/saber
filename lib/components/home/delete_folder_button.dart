@@ -18,7 +18,7 @@ class DeleteFolderButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return IconButton(
-      padding: EdgeInsets.zero,
+      padding: .zero,
       tooltip: t.home.deleteFolder.deleteFolder,
       onPressed: () async {
         await showDialog(
@@ -53,8 +53,8 @@ class _DeleteFolderDialog extends StatefulWidget {
 }
 
 class _DeleteFolderDialogState extends State<_DeleteFolderDialog> {
-  bool isFolderEmpty = false;
-  bool alsoDeleteContents = false;
+  var isFolderEmpty = false;
+  var alsoDeleteContents = false;
 
   @override
   void initState() {
@@ -70,7 +70,7 @@ class _DeleteFolderDialogState extends State<_DeleteFolderDialog> {
 
   @override
   Widget build(BuildContext context) {
-    bool deleteAllowed = isFolderEmpty || alsoDeleteContents;
+    final deleteAllowed = isFolderEmpty || alsoDeleteContents;
     return AdaptiveAlertDialog(
       title: Text(t.home.deleteFolder.deleteName(f: widget.folderName)),
       content: isFolderEmpty
@@ -85,9 +85,7 @@ class _DeleteFolderDialogState extends State<_DeleteFolderDialog> {
                           setState(() => alsoDeleteContents = value!);
                         },
                 ),
-                Expanded(
-                  child: Text(t.home.deleteFolder.alsoDeleteContents),
-                ),
+                Expanded(child: Text(t.home.deleteFolder.alsoDeleteContents)),
               ],
             ),
       actions: [

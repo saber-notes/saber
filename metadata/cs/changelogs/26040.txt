@@ -1,0 +1,2 @@
+• Malé, ale důležité opravy chyb díky všem, kteří se rozhodli hlásit chyby!
+• Další vývoj filtrů osobních údajů. Jsou implementovány lokálně i na serveru, takže vaše informace jsou vždy bezpečné.

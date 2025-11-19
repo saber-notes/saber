@@ -1,0 +1,5 @@
+• Ajout d'une nouvelle barre de navigation flottante.
+• J'ai essayé de rendre le thème iOS plus natif et moins Google.
+• Une sauvegarde automatique en attente est désormais annulée si vous annulez toutes les modifications.
+• Amélioration de la fluidité des transitions sur l'écran d'accueil.
+• Correction de quelques bugs de gestion des chemins sur la page de navigation.

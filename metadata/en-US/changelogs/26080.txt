@@ -1,0 +1,4 @@
+• Improved handling of short (1-2 point) strokes.
+• Fixed null errors in pen gesture handlers.
+• Fixed a small memory leak with the pencil shaders.
+• Partially fixed the custom data directory migration on Android.

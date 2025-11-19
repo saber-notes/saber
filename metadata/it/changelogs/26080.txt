@@ -1,0 +1,4 @@
+• Miglioramento della gestione di colpi brevi (1-2 punti).
+• Risolto gli errori nulli nei gestori di gesti di penna.
+• Risolto una piccola perdita di memoria con gli shader a matita.
+• Risolto parzialmente la migrazione della directory di dati personalizzata su Android.

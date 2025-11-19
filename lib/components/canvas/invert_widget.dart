@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 
 class InvertWidget extends StatelessWidget {
-  const InvertWidget({
-    super.key,
-    this.invert = true,
-    required this.child,
-  });
+  const InvertWidget({super.key, this.invert = true, required this.child});
 
   final bool invert;
   final Widget child;
@@ -13,10 +9,7 @@ class InvertWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (!invert) return child;
-    return ColorFiltered(
-      colorFilter: _invertFilter,
-      child: child,
-    );
+    return ColorFiltered(colorFilter: _invertFilter, child: child);
   }
 
   static const _invertFilter = ColorFilter.matrix(_invertMatrix);

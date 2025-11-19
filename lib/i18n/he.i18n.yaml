@@ -61,6 +61,19 @@ home:
     delete: מחק
     alsoDeleteContents: גם תמחק את כל הפתקים בתקייה זו
   noPreviewAvailable(OUTDATED): אין תצוגה מקדימה זמינה
+sentry: 
+  consent: 
+    description: 
+      question(OUTDATED): האם ברצונך לדווח אוטומטית על שגיאות בלתי צפויות? זה עוזר לי לזהות ולתקן בעיות מהר יותר.
+      scope(OUTDATED): הדוחות עשויים להכיל מידע על השגיאה והמכשיר שלך. עשיתי כל מאמץ לסנן נתונים אישיים אך חלקם עשויים להישאר.
+      currentlyOff(OUTDATED): אם אתה מעניק הסכמה, דיווח שגיאות יופעל לאחר שתפעיל מחדש את האפליקציה.
+      currentlyOn(OUTDATED): אם תבטל הסכמה, הפעל מחדש את האפליקציה כדי להשבית את דיווח השגיאות.
+      learnMoreInPrivacyPolicy(rich, OUTDATED): למידע נוסף ב- ${link(מדיניות פרטיות)}.
+    answers: 
+      yes(OUTDATED): כֵּן
+      no(OUTDATED): לֹא
+      later(OUTDATED): שאל אותי אחר כך
+    title(OUTDATED): לעזור בשיפור סאבר?
 settings: 
   prefCategories: 
     general: כללי
@@ -86,13 +99,13 @@ settings:
     autoClearWhiteboardOnExit: נקה אוטומטית את הלוח הלבן
     disableEraserAfterUse: השבת אוטומטית את המחק
     hideFingerDrawingToggle: הסתר את מתג ציור האצבע
+    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): השבתה אוטומטית של ציור אצבע
     editorPromptRename: מבקש ממך לשנות את שם הערות חדשות
-    hideHomeBackgrounds: הסתר רקעים במסך הבית
     recentColorsDontSavePresets: אל תשמור צבעים מוגדרים מראש בצבעים אחרונים
     printPageIndicators: הדפסת עמודים מחוונים
+    sentry(OUTDATED): דיווח שגיאות
     autosave(OUTDATED): שמור אוטומטי
     simplifiedHomeLayout(OUTDATED): פריסת בית פשוטה
-    pencilSoundSetting(OUTDATED): אפקט צליל עיפרון
     customDataDir(OUTDATED): ספריית נתונים מותאמת אישית
     autoStraightenLines(OUTDATED): יישור קווים אוטומטית
     shapeRecognitionDelay(OUTDATED): עיכוב זיהוי צורות
@@ -108,15 +121,16 @@ settings:
       shown: מונע החלפת מצב בשוגג
       fixedOn: ציור אצבע קבוע כזמין
       fixedOff: ציור אצבע קבוע כלא זמין
+    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): כבה את ציור האצבע כאשר מזוהה חרט
     editorPromptRename: תמיד תוכל לשנות את שם הפתקים מאוחר יותר
-    hideHomeBackgrounds: למראה נקי יותר
     printPageIndicators: הצג מחווני עמודים בייצוא
-    autosave(OUTDATED): יש לשעוג אוטומטית לאחר עיכוב קצר, או לעולם
     shouldAlwaysAlertForUpdates: ספר לי על עדכונים ברגע שהם יהיו זמינים
-    pencilSoundSetting: 
-      onButNotInSilentMode(OUTDATED): מופעל (אלא אם כן במצב שקט)
-      off(OUTDATED): אין קול
-      onAlways(OUTDATED): מופעל (אפילו במצב שקט)
+    sentry: 
+      active(OUTDATED): פָּעִיל
+      inactive(OUTDATED): לֹא פָּעִיל
+      activeUntilRestart(OUTDATED): פעיל עד שתפעיל מחדש את האפליקציה
+      inactiveUntilRestart(OUTDATED): לא פעיל עד שתפעיל מחדש את האפליקציה
+    autosave(OUTDATED): יש לשעוג אוטומטית לאחר עיכוב קצר, או לעולם
     simplifiedHomeLayout(OUTDATED): מגדיר גובה קבוע עבור כל תצוגה מקדימה של הערה
     autoStraightenLines(OUTDATED): מיישר קווים ארוכים ללא צורך להשתמש בעט הצורה
     shapeRecognitionDelay(OUTDATED): באיזו תדירות לעדכן את התצוגה המקדימה של הצורה
@@ -140,6 +154,7 @@ settings:
     title: אפס הגדרה זו?
     button: אפס
   customDataDir: 
+    unsupported(OUTDATED): תכונה זו מיועדת כרגע רק למפתחים. השימוש בו ככל הנראה יביא לאובדן נתונים.
     cancel(OUTDATED): לְבַטֵל
     select(OUTDATED): בחר
     mustBeEmpty(OUTDATED): הספרייה שנבחרה חייבת להיות ריקה
@@ -149,11 +164,11 @@ settings:
   openDataDir(OUTDATED): פתח את תיקיית Saber
   resyncEverything(OUTDATED): סנכרן הכל מחדש
 logs: 
+  useTheApp(OUTDATED): יומנים יופיעו כאן בזמן שאתה משתמש באפליקציה
   logs(OUTDATED): יומנים
   viewLogs(OUTDATED): הצג יומנים
   debuggingInfo(OUTDATED): יומנים מכילים מידע שימושי עבור איתור באגים ופיתוח
   noLogs(OUTDATED): אין כאן יומנים!
-  logsAreTemporary(OUTDATED): יומנים נשמרים רק עד לסגירת האפליקציה
 login: 
   title: התחבר
   form: 
@@ -232,7 +247,6 @@ appInfo:
   licenseNotice: |-
     Saber  Copyright © 2022-$buildYear  Adil Hanney
     תוכנית זו מגיעה ללא כל אחריות. זוהי תוכנה חופשית ואתה מוזמן להפיץ אותו מחדש בתנאים מסוימים.
-  dirty: מלוכלך
   debug: דִּיבָּג
   sponsorButton: הקש כאן כדי לתת לי חסות או לקנות שטח אחסון נוסף
   licenseButton: הקש כאן כדי להציג פרטי רישיון נוספים

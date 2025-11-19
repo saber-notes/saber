@@ -1,0 +1,2 @@
+• Kijavítottuk azt a hibát, amely miatt a ceruza hanghatása nem állt le, amikor felemeli a ceruzát
+• Vizuális fejlesztések, különösen a Linux/Yaru témában

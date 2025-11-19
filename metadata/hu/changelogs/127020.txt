@@ -1,0 +1,5 @@
+• Javítva az egész alkalmazás tönkremenetele, ha az eszperantó nyelvet választja. 
+• Javítva a navigációs sáv, amely nem frissíti a szövegét a nyelv megváltoztatásakor. 
+• Rögzítettük, hogy a tárhely-használati százalék nem kerekített. 
+• A képek és PDF-fájlok által használt memória felszabadult. 
+• Eltávolította a ceruza hangeffektust.

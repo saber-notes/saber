@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:onyxsdk_pen/onyxsdk_pen_area.dart';
+import 'package:onyxsdk_pen/onyxsdk_pen.dart';
 
 const String explanation = '''
 Try me out on an Onyx device!

@@ -1,0 +1,2 @@
+• Es wurden einige (optionale) Crash -Berichterstattung hinzugefügt, um die App zu verbessern.
+• Kleinere Fehlerbehebungen.

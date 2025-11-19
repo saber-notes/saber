@@ -4,17 +4,14 @@ import 'package:archive/archive_io.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
-import 'package:saber/components/nextcloud/spinning_loading_icon.dart';
+import 'package:saber/components/theming/adaptive_circular_progress_indicator.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/data/editor/editor_exporter.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/i18n/strings.g.dart';
 
 class ExportNoteButton extends StatefulWidget {
-  const ExportNoteButton({
-    super.key,
-    required this.selectedFiles,
-  });
+  const ExportNoteButton({super.key, required this.selectedFiles});
 
   final List<String> selectedFiles;
 
@@ -24,34 +21,35 @@ class ExportNoteButton extends StatefulWidget {
 
 class _ExportNoteButtonState extends State<ExportNoteButton> {
   final ValueNotifier<bool> isDialOpen = ValueNotifier(false);
-  bool _currentlyExporting = false;
+  var _currentlyExporting = false;
 
   Future exportFile(List<String> selectedFiles, bool exportPdf) async {
     setState(() => _currentlyExporting = true);
 
     final files = <ArchiveFile>[];
-    for (String filePath in selectedFiles) {
-      EditorCoreInfo coreInfo = await EditorCoreInfo.loadFromFilePath(filePath);
+    for (final filePath in selectedFiles) {
+      final coreInfo = await EditorCoreInfo.loadFromFilePath(filePath);
       if (!mounted) break;
 
-      final fileNameWithoutExtension =
-          coreInfo.filePath.substring(coreInfo.filePath.lastIndexOf('/') + 1);
+      final fileNameWithoutExtension = coreInfo.filePath.substring(
+        coreInfo.filePath.lastIndexOf('/') + 1,
+      );
 
       if (exportPdf) {
         final pdfDoc = await EditorExporter.generatePdf(coreInfo, context);
         final pdfBytes = await pdfDoc.save();
-        files.add(ArchiveFile(
-          '$fileNameWithoutExtension.pdf',
-          pdfBytes.length,
-          pdfBytes,
-        ));
+        files.add(
+          ArchiveFile(
+            '$fileNameWithoutExtension.pdf',
+            pdfBytes.length,
+            pdfBytes,
+          ),
+        );
       } else {
         final sba = await coreInfo.saveToSba(currentPageIndex: null);
-        files.add(ArchiveFile(
-          '$fileNameWithoutExtension.sba',
-          sba.length,
-          sba,
-        ));
+        files.add(
+          ArchiveFile('$fileNameWithoutExtension.sba', sba.length, sba),
+        );
       }
     }
 
@@ -83,14 +81,14 @@ class _ExportNoteButtonState extends State<ExportNoteButton> {
       spacing: 3,
       mini: true,
       openCloseDial: isDialOpen,
-      childPadding: const EdgeInsets.all(5),
+      childPadding: const .all(5),
       spaceBetweenChildren: 4,
-      switchLabelPosition: Directionality.of(context) == TextDirection.rtl,
+      switchLabelPosition: Directionality.of(context) == .rtl,
       dialRoot: (context, open, toggleChildren) {
         return _currentlyExporting
-            ? const SpinningLoadingIcon()
+            ? AdaptiveCircularProgressIndicator.textStyled()
             : IconButton(
-                padding: EdgeInsets.zero,
+                padding: .zero,
                 tooltip: t.home.tooltips.exportNote,
                 onPressed: toggleChildren,
                 icon: const Icon(Icons.share),

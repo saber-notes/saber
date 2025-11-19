@@ -1,0 +1,3 @@
+• Slightly reduced app size
+• New display of the current folder path in the browse page
+• In future updates, I'll be adding some error tracking to help me improve the app. It will be opt-in and as anonymous as I can make it.

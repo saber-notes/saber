@@ -1,15 +1,10 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:saber/components/theming/row_col.dart';
 import 'package:saber/data/tools/pen.dart';
 import 'package:saber/i18n/strings.g.dart';
 
 class SizePicker extends StatefulWidget {
-  const SizePicker({
-    super.key,
-    required this.axis,
-    required this.pen,
-  });
+  const SizePicker({super.key, required this.axis, required this.pen});
 
   final Axis axis;
   final Pen pen;
@@ -33,10 +28,10 @@ String _prettyNum(double num) {
 class _SizePickerState extends State<SizePicker> {
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
-    return RowCol(
-      axis: widget.axis,
-      mainAxisSize: MainAxisSize.min,
+    final colorScheme = ColorScheme.of(context);
+    return Flex(
+      direction: widget.axis,
+      mainAxisSize: .min,
       children: [
         Column(
           children: [
@@ -53,7 +48,7 @@ class _SizePickerState extends State<SizePicker> {
         ),
         const SizedBox(width: 8),
         Padding(
-          padding: const EdgeInsets.symmetric(vertical: 8),
+          padding: const .symmetric(vertical: 8),
           child: _SizeSlider(
             pen: widget.pen,
             axis: widget.axis,
@@ -94,23 +89,23 @@ class _SizeSlider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
+    final colorScheme = ColorScheme.of(context);
     return GestureDetector(
       onHorizontalDragStart: axis == Axis.horizontal
           ? (details) =>
-              onDrag(details.localPosition.dx / SizePicker.largeLength)
+                onDrag(details.localPosition.dx / SizePicker.largeLength)
           : null,
       onHorizontalDragUpdate: axis == Axis.horizontal
           ? (details) =>
-              onDrag(details.localPosition.dx / SizePicker.largeLength)
+                onDrag(details.localPosition.dx / SizePicker.largeLength)
           : null,
       onVerticalDragStart: axis == Axis.vertical
           ? (details) =>
-              onDrag(details.localPosition.dy / SizePicker.largeLength)
+                onDrag(details.localPosition.dy / SizePicker.largeLength)
           : null,
       onVerticalDragUpdate: axis == Axis.vertical
           ? (details) =>
-              onDrag(details.localPosition.dy / SizePicker.largeLength)
+                onDrag(details.localPosition.dy / SizePicker.largeLength)
           : null,
       child: RotatedBox(
         quarterTurns: axis == Axis.horizontal ? 0 : 1,
@@ -166,7 +161,7 @@ class _SizeSliderPainter extends CustomPainter {
         ..close(),
       Paint()
         ..color = trackColor
-        ..style = PaintingStyle.fill,
+        ..style = .fill,
     );
 
     // thumb
@@ -183,7 +178,7 @@ class _SizeSliderPainter extends CustomPainter {
         ..close(),
       Paint()
         ..color = thumbColor
-        ..style = PaintingStyle.fill,
+        ..style = .fill,
     );
   }
 

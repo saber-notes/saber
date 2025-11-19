@@ -32,6 +32,12 @@ class _LogsHistory extends ChangeNotifier {
     _history.add(record);
     notifyListeners();
   }
+
+  void clear() {
+    _history.clear();
+    _frozenHistory = null;
+    notifyListeners();
+  }
 }
 
 class LogsPage extends StatelessWidget {
@@ -40,13 +46,11 @@ class LogsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: AnimatedBuilder(
-        animation: logsHistory,
+      body: ListenableBuilder(
+        listenable: logsHistory,
         builder: (context, _) {
           final theme = Theme.of(context);
           final colorScheme = theme.colorScheme;
-          final cupertino = theme.platform == TargetPlatform.iOS ||
-              theme.platform == TargetPlatform.macOS;
           return CustomScrollView(
             slivers: [
               SliverAppBar(
@@ -59,12 +63,16 @@ class LogsPage extends StatelessWidget {
                     t.logs.logs,
                     style: TextStyle(color: colorScheme.onSurface),
                   ),
-                  centerTitle: cupertino,
+                  centerTitle: false,
+                  titlePadding: const EdgeInsetsDirectional.only(
+                    start: 16,
+                    bottom: 16,
+                  ),
                 ),
                 actions: [
                   if (logsHistory.isFrozen)
                     IconButton(
-                      icon: AdaptiveIcon(
+                      icon: const AdaptiveIcon(
                         icon: Icons.play_arrow,
                         cupertinoIcon: CupertinoIcons.play_arrow,
                       ),
@@ -72,14 +80,14 @@ class LogsPage extends StatelessWidget {
                     )
                   else
                     IconButton(
-                      icon: AdaptiveIcon(
+                      icon: const AdaptiveIcon(
                         icon: Icons.pause,
                         cupertinoIcon: CupertinoIcons.pause,
                       ),
                       onPressed: logsHistory.freeze,
                     ),
                   IconButton(
-                    icon: AdaptiveIcon(
+                    icon: const AdaptiveIcon(
                       icon: Icons.copy,
                       cupertinoIcon: CupertinoIcons.doc_on_clipboard,
                     ),
@@ -108,9 +116,9 @@ class LogsPage extends StatelessWidget {
               if (logsHistory.history.isEmpty)
                 SliverFillRemaining(
                   child: Padding(
-                    padding: const EdgeInsets.all(16),
+                    padding: const .all(16),
                     child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisAlignment: .center,
                       children: [
                         SvgPicture.asset(
                           'assets/images/undraw_detailed_analysis_re_tk6j.svg',
@@ -126,9 +134,9 @@ class LogsPage extends StatelessWidget {
                             fontSize: 24,
                           ),
                         ),
-                        SizedBox(height: 8),
+                        const SizedBox(height: 8),
                         Text(
-                          t.logs.logsAreTemporary,
+                          t.logs.useTheApp,
                           style: TextStyle(color: colorScheme.onSurface),
                         ),
                       ],
@@ -163,34 +171,38 @@ class _LogsItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          _LogLevel(level: record.level),
-          Text(record.message),
-          if (record.stackTrace != null)
-            DecoratedBox(
-              decoration: BoxDecoration(
-                color: const Color(0xCC000000),
-                borderRadius: BorderRadius.circular(4),
-              ),
-              child: SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Text(
-                  record.stackTrace.toString(),
-                  style: TextStyle(
-                    fontFamily: 'FiraMono',
-                    fontFamilyFallback: saberMonoFontFallbacks,
-                    fontSize: 11,
-                    color: Colors.white,
-                  ),
+    const hPadding = 16.0;
+    const vPadding = 8.0;
+    return Column(
+      crossAxisAlignment: .start,
+      children: [
+        const SizedBox(height: vPadding),
+        Padding(
+          padding: const .symmetric(horizontal: hPadding),
+          child: _LogLevel(level: record.level),
+        ),
+        Padding(
+          padding: const .symmetric(horizontal: hPadding),
+          child: Text(record.message),
+        ),
+        if (record.stackTrace != null)
+          ColoredBox(
+            color: const Color(0xCC000000),
+            child: SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Text(
+                record.stackTrace.toString(),
+                style: const TextStyle(
+                  fontFamily: 'FiraMono',
+                  fontFamilyFallback: saberMonoFontFallbacks,
+                  fontSize: 11,
+                  color: Colors.white,
                 ),
               ),
             ),
-        ],
-      ),
+          ),
+        const SizedBox(height: vPadding),
+      ],
     );
   }
 }
@@ -202,7 +214,7 @@ class _LogLevel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colorScheme = Theme.of(context).colorScheme;
+    final colorScheme = ColorScheme.of(context);
     return DecoratedBox(
       decoration: BoxDecoration(
         color: switch (level) {
@@ -210,7 +222,7 @@ class _LogLevel extends StatelessWidget {
           Level.WARNING => colorScheme.tertiary,
           _ => colorScheme.surfaceContainer,
         },
-        borderRadius: BorderRadius.circular(2),
+        borderRadius: .circular(2),
       ),
       child: Text(
         level.name,

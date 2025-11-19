@@ -1,0 +1,3 @@
+• Lazer işaretleyicinin geçersiz vuruşlar oluşturabileceği kenar durumu düzeltildi.
+• Uzaklaştırdığınızda vuruşların kalitesi daha yüksek hale getirildi.
+• Genel bakım, iyileştirilmiş testler ve perde arkası iyileştirmeler.

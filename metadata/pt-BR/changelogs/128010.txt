@@ -1,0 +1,3 @@
+• Melhorada a suavidade da animação ao fechar uma nota.
+• A roda do mouse agora rola em vez de aplicar zoom. Use a tecla Ctrl + roda do mouse para ampliar.
+• Tornou o botão Nova Nota menos redondo.
