@@ -1,3 +1,20 @@
+## 1.3.0
+
+- `OnyxSdkPenArea` now supports setting stroke style, color, and width, thanks to zinstack625 in [#1452](https://github.com/saber-notes/saber/pull/1452):
+  ```dart
+  OnyxSdkPenArea(
+    // Choose between pen, pencil, marker, and more
+    strokeStyle: OnyxStrokeStyle.fountainPen,
+    // Set the stroke color
+    strokeColor: Colors.black,
+    // Set the stroke width
+    strokeWidth: 3.0,
+    child: CustomPaint(...),
+  ),
+  ```
+- Fixed the display's drawing mode not resetting when minimizing/restoring the app, plus general improvements, thanks to zinstack625 in [#1452](https://github.com/saber-notes/saber/pull/1452).
+- Added the package status section to the README.
+
 ## 1.2.5
 
 - Update the hidden API bypass to hopefully prevent Google Play rejections (https://github.com/saber-notes/saber/issues/1514)

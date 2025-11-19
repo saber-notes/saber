@@ -98,6 +98,11 @@ dependencies:
 ```dart
 // Wrap your drawable widget with the OnyxSdkPenArea widget, e.g.
 OnyxSdkPenArea(
+  // Optional parameters:
+  strokeStyle: OnyxStrokeStyle.fountainPen,
+  strokeColor: Colors.black,
+  strokeWidth: 3.0,
+
   child: GestureDetector(
     onPanUpdate: (details) {},
     child: CustomPaint(
