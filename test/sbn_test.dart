@@ -356,7 +356,7 @@ Widget _buildCanvas({
                 currentStrokeDetectedShape: null,
                 currentSelection: null,
                 setAsBackground: null,
-                currentToolIsSelect: false,
+                currentTool: LaserPointer.currentLaserPointer,
                 currentScale: currentScale,
               ),
             ),

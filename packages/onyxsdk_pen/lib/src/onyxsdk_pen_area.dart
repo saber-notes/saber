@@ -4,13 +4,16 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:onyxsdk_pen/src/onyxsdk_pen_platform_interface.dart';
+import 'package:onyxsdk_pen/onyxsdk_pen.dart';
 
 /// Renders a native Android view which uses the Onyx SDK to draw on the screen.
 class OnyxSdkPenArea extends StatefulWidget {
   const OnyxSdkPenArea({
     super.key,
     this.refreshDelay = const Duration(seconds: 1),
+    this.strokeStyle = OnyxStrokeStyle.fountainPen,
+    this.strokeColor = Colors.black,
+    this.strokeWidth = 3.0,
     required this.child,
   });
 
@@ -20,6 +23,9 @@ class OnyxSdkPenArea extends StatefulWidget {
   /// is still writing, which will make the screen get stuck in a half-drawn
   /// state.
   final Duration refreshDelay;
+  final OnyxStrokeStyle strokeStyle;
+  final Color strokeColor;
+  final double strokeWidth;
 
   final Widget child;
 
@@ -37,7 +43,8 @@ class OnyxSdkPenArea extends StatefulWidget {
   }
 }
 
-class _OnyxSdkPenAreaState extends State<OnyxSdkPenArea> {
+class _OnyxSdkPenAreaState extends State<OnyxSdkPenArea>
+    with WidgetsBindingObserver {
   static bool? _isOnyxDevice = (kIsWeb || !Platform.isAndroid) ? false : null;
   static Future<bool> _findIsOnyxDevice() async {
     if (_isOnyxDevice != null) return _isOnyxDevice!;
@@ -64,7 +71,11 @@ class _OnyxSdkPenAreaState extends State<OnyxSdkPenArea> {
   /// Parameters to pass to the platform side
   late final creationParams = <String, dynamic>{
     "refreshDelayMs": widget.refreshDelay.inMilliseconds,
+    "strokeStyle": widget.strokeStyle.value,
+    "strokeColor": widget.strokeColor.toARGB32(),
+    "strokeWidth": widget.strokeWidth,
   };
+  late final channel = MethodChannel('onyxsdk_pen_area');
 
   /// This is used in the platform side to register the view.
   static const String viewType = 'onyxsdk_pen_area';
@@ -72,13 +83,36 @@ class _OnyxSdkPenAreaState extends State<OnyxSdkPenArea> {
   @override
   void didUpdateWidget(OnyxSdkPenArea oldWidget) {
     super.didUpdateWidget(oldWidget);
+
     creationParams['refreshDelayMs'] = widget.refreshDelay.inMilliseconds;
+    creationParams['strokeStyle'] = widget.strokeStyle.value;
+    creationParams['strokeColor'] = widget.strokeColor.toARGB32();
+    creationParams['strokeWidth'] = widget.strokeWidth;
+    channel.invokeMethod('updateStroke', creationParams).catchError((e) {});
+  }
+
+  @override
+  void initState() {
+    WidgetsBinding.instance.addObserver(this);
+    super.initState();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) async {
+    switch (state) {
+      case AppLifecycleState.resumed:
+        channel.invokeMethod('setDraw', true).catchError((e) {});
+        break;
+      case AppLifecycleState.paused:
+        channel.invokeMethod('setDraw', false).catchError((e) {});
+        break;
+      default:
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     if (!isOnyxDevice) return widget.child;
-
     return Stack(
       fit: StackFit.expand,
       children: [
