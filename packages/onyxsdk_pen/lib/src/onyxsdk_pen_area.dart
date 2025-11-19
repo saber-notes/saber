@@ -4,19 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:onyxsdk_pen/src/onyxsdk_pen_platform_interface.dart';
-
-enum OnyxStrokeStyle {
-  fountainPen(0),
-  pen(1),
-  brush(2),
-  pencil(3),
-  marker(4),
-  disabled(5);
-
-  const OnyxStrokeStyle(this.value);
-  final int value;
-}
+import 'package:onyxsdk_pen/onyxsdk_pen.dart';
 
 /// Renders a native Android view which uses the Onyx SDK to draw on the screen.
 class OnyxSdkPenArea extends StatefulWidget {

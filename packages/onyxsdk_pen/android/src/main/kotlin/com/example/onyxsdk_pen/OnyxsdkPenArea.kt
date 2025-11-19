@@ -25,6 +25,7 @@ import androidx.annotation.NonNull
 
 internal class OnyxsdkPenArea(context: Context, messenger: BinaryMessenger, id: Int, creationParams: Map<String?, Any?>?) : PlatformView, MethodCallHandler {
 
+    // This must stay in sync with the OnyxStrokeStyle enum in Dart
     enum class StrokeStyle(val Id: Int) {
         FountainPen(0),
         Pen(1),
