@@ -21,7 +21,15 @@ echo -n "Removing onyxsdk_pen usage from lib/components/canvas/canvas.dart: "
 if grep -q "onyxsdk_pen" lib/components/canvas/canvas.dart; then
   echo "found"
   sed -i -e '/onyxsdk_pen/d' lib/components/canvas/canvas.dart
-  sed -i -e 's/OnyxSdkPenArea(/SizedBox(/g' lib/components/canvas/canvas.dart
+  # Replace `OnyxSdkPenArea(\n...child:` with `SizedBox(\n...child:`
+  sed -i '
+    /child: OnyxSdkPenArea(/,/child: InnerCanvas(/ {
+      /child: OnyxSdkPenArea(/c\                  child: SizedBox(
+      /child: InnerCanvas(/!d
+    }
+  ' lib/components/canvas/canvas.dart
+  # Remove getOnyxTool() function
+  sed -i '/OnyxStrokeStyle getOnyxTool(Tool currentTool) {/,/^  }/d' lib/components/canvas/canvas.dart
 else
   echo "already done"
 fi
