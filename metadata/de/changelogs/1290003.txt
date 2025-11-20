@@ -1,0 +1,5 @@
+• Große Verbesserungen für Onyx Boox-Geräte mit erhöhter Tool-Unterstützung und verschiedenen Korrekturen dank zinstack625 auf GitHub. 
+• Verbesserte Geschwindigkeit beim PDF-Import. 
+• Verbesserte Ladezeiten für Notizen mit großen PDFs (sie werden jetzt Seite für Seite und nicht alle auf einmal geladen). 
+• Ein Problem beim Speichern von PDFs aus dem Dialog „Langes Drücken“ wurde behoben. 
+...

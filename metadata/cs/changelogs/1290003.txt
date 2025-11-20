@@ -1,0 +1,5 @@
+• Velká vylepšení pro zařízení Onyx Boox se zvýšenou podporou nástrojů a různými opravami díky zinstack625 na GitHubu. 
+• Vylepšená rychlost importu PDF. 
+• Vylepšené doby načítání poznámek obsahujících velké soubory PDF (nyní se načítají stránku po stránce, nikoli všechny najednou). 
+• Opraven problém s ukládáním PDF z dialogu dlouhého stisknutí. 
+• Opravena chyba, kdy byl při vypínání gumy vybrán nesprávný nástroj díky ComputerElite na GitHubu.

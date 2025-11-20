@@ -1,0 +1,5 @@
+• GitHub'daki zinstack625 sayesinde artırılmış araç desteği ve çeşitli düzeltmelerle Onyx Boox cihazları için büyük iyileştirmeler. 
+• PDF içe aktarma hızı iyileştirildi. 
+• Büyük PDF'ler içeren notlar için yükleme süreleri iyileştirildi (artık hepsi aynı anda yüklenmek yerine sayfa sayfa yükleniyor). 
+• Uzun basılan iletişim kutusundan PDF'lerin kaydedilmesiyle ilgili sorun düzeltildi. 
+...

@@ -68,16 +68,11 @@ void main() async {
 
     if (localeCode == 'en') {
       await copyChangelogForFdroid('en-US');
-      print('$stepPrefix. Skipped $localeCode ($localeName)');
       continue;
     }
 
     final file = File('metadata/$localeCode/changelogs/$buildNumber.txt');
     if (file.existsSync()) {
-      print(
-        '$stepPrefix. '
-        'Skipped $localeCode ($localeName) because it already exists',
-      );
       continue;
     } else {
       print('$stepPrefix. Translating to $localeCode ($localeName)...');
@@ -106,10 +101,19 @@ void main() async {
     String translatedChangelog;
     try {
       translatedChangelog = await translator
-          .translateSimply(englishChangelog, from: 'en', to: nearestLocaleCode)
+          .translateSimply(
+            englishChangelog,
+            from: 'en',
+            to: nearestLocaleCode,
+            instanceMode: .Random,
+            retries: 3,
+          )
           .then((translation) => translation.translations.text)
-          .timeout(const Duration(seconds: 10));
+          .timeout(const Duration(seconds: 30));
     } catch (e) {
+      print(
+        '${' ' * stepPrefix.length}  ! ${e.toString().replaceAll('\n', '\\n')}',
+      );
       print('${' ' * stepPrefix.length}  ! Translation failed, skipping...');
       someTranslationsFailed = true;
       continue;
@@ -167,7 +171,9 @@ void main() async {
 
   if (someTranslationsFailed) {
     print('\nSome translations failed: please re-run this script.');
+    exit(1);
   } else {
     print('\nAll translations succeeded!');
+    exit(0);
   }
 }
