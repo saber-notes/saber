@@ -79,7 +79,8 @@ class _NcLoginStepState extends State<NcLoginStep> {
   void initState() {
     super.initState();
     _serverUrlController.addListener(() {
-      _serverUrlValid.value = validator.url(_serverUrlController.text);
+      final url = _prependHttpsIfMissing(_serverUrlController.text);
+      _serverUrlValid.value = validator.url(url);
     });
   }
 
@@ -88,6 +89,13 @@ class _NcLoginStepState extends State<NcLoginStep> {
     loginFlow?.dispose();
     _serverUrlController.dispose();
     super.dispose();
+  }
+
+  static String _prependHttpsIfMissing(String url) {
+    if (!url.startsWith(RegExp(r'https?://'))) {
+      return 'https://$url';
+    }
+    return url;
   }
 
   @override
@@ -201,12 +209,10 @@ class _NcLoginStepState extends State<NcLoginStep> {
             return ElevatedButton(
               onPressed: valid
                   ? () {
-                      var text = _serverUrlController.text;
-                      if (!text.startsWith(RegExp(r'https?://'))) {
-                        text = 'https://$text';
-                        _serverUrlController.text = text;
-                      }
-                      startLoginFlow(Uri.parse(text));
+                      _serverUrlController.text = _prependHttpsIfMissing(
+                        _serverUrlController.text,
+                      );
+                      startLoginFlow(Uri.parse(_serverUrlController.text));
                     }
                   : null,
               style: buttonColorStyle(ncColor),
