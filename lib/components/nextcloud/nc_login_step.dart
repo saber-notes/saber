@@ -186,11 +186,13 @@ class _NcLoginStepState extends State<NcLoginStep> {
         ),
         const SizedBox(height: 16),
         TextField(
+          autocorrect: false,
+          autofillHints: const [AutofillHints.url],
+          controller: _serverUrlController,
           decoration: InputDecoration(
             labelText: t.login.ncLoginStep.serverUrl,
             hintText: 'https://nc.example.com',
           ),
-          controller: _serverUrlController,
         ),
         const SizedBox(height: 4),
         ValueListenableBuilder(
