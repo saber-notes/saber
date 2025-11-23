@@ -189,6 +189,12 @@ abstract class UpdateManager {
       filename: fileName,
       baseDirectory: BaseDirectory.temporary,
     );
+    await FileDownloader().configure(
+      globalConfig: [
+        (Config.skipExistingFiles, 1),
+        (Config.checkAvailableSpace, 1),
+      ],
+    );
     final result = await FileDownloader().download(
       task,
       onStatus: onStatus,
