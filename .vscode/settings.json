@@ -9,6 +9,7 @@
         "windows/flutter/ephemeral/*": true,
         "**/.dart_tool/": true,
         "**/.idea/": true,
+        "**/.zed/": true,
         "**/.flutter-plugins-dependencies": true,
         "**/*.iml": true
     },
