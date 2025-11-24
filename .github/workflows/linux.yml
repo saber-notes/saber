@@ -35,7 +35,7 @@ jobs:
     name: Build Linux (${{ matrix.arch.target-platform }})
     steps:
       - name: Checkout code
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - uses: "./.github/shared_workflows/install_apt_dependencies"
 
@@ -116,7 +116,7 @@ jobs:
     timeout-minutes: 10
     steps:
       - name: Checkout code
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Install AppImage dependencies
         run: |
@@ -178,7 +178,7 @@ jobs:
       options: --privileged
     steps:
       - name: Checkout flathub repo
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           repository: flathub/com.adilhanney.saber
           submodules: recursive
