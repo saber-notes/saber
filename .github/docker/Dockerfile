@@ -25,7 +25,8 @@ RUN git clone https://github.com/flutter/flutter.git /home/nonroot/flutter --bra
 RUN flutter precache --universal
 RUN flutter doctor
 
-WORKDIR /app
+ARG APP_PATH
+WORKDIR ${APP_PATH}
 
 # Default command: open a shell
 CMD ["/bin/bash"]

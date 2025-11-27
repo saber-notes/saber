@@ -37,6 +37,11 @@ if ! docker version >/dev/null 2>&1; then
     echo "Docker Engine does not seem to be running: run it first and retry!"
     exit 1
 fi
+# Check that we're in the project root
+if [[ ! -f "privacy_policy.md" ]]; then
+    echo "Error: Please run this script from the project root."
+    exit 1
+fi
 
 # Remove docker image and container by running `./test.sh --clean`
 if [[ "$1" == "--clean" ]]; then
@@ -47,33 +52,38 @@ if [[ "$1" == "--clean" ]]; then
     echo 'Removing docker image'
     docker rmi -f "$IMAGE_NAME" || true
     echo 'Removing cached files'
-    rm -rf .github/docker/.pub-cache
-    rm -rf .github/docker/.dart_tool
-    rm -rf .github/docker/build
-    rm -rf .github/docker/linux-flutter-ephemeral
-    rm -rf .github/docker/macos-flutter-ephemeral
-    rm -rf .github/docker/windows-flutter-ephemeral
-    rm -f .github/docker/.flutter-plugins-dependencies
-    rm -f .github/docker/pubspec.lock
+    rm -rf .github/docker/mounts
     echo 'Done'
     exit 0
 fi
 
+# Get current directory
+if [[ "$OSTYPE" == "msys"* || "$OSTYPE" == "cygwin"* ]]; then
+    APP_PATH="$(pwd -W)" # Windows-style path on Windows
+else
+    APP_PATH="$(pwd)"
+fi
+echo "Using application path: $APP_PATH"
+
 # Build image if it doesn't exist
 if ! docker images --format '{{.Repository}}' | grep -w "$IMAGE_NAME" > /dev/null; then
     echo "Building Docker image '$IMAGE_NAME' from $DOCKERFILE_PATH. This will take a few minutes but only needs to be done once."
-    docker build -t "$IMAGE_NAME" -f "$DOCKERFILE_PATH" --network host "$(dirname $DOCKERFILE_PATH)"
+    docker build -t "$IMAGE_NAME" \
+        -f "$DOCKERFILE_PATH" \
+        --network host \
+        --build-arg APP_PATH="$APP_PATH" \
+        "$(dirname $DOCKERFILE_PATH)"
 fi
 
 # Make sure mounts exist
-mkdir -p .github/docker/.pub-cache
-mkdir -p .github/docker/.dart_tool
-mkdir -p .github/docker/build
-mkdir -p .github/docker/linux-flutter-ephemeral
-mkdir -p .github/docker/macos-flutter-ephemeral
-mkdir -p .github/docker/windows-flutter-ephemeral
-touch .github/docker/.flutter-plugins-dependencies
-touch .github/docker/pubspec.lock
+mkdir -p .github/docker/mounts/.pub-cache
+mkdir -p .github/docker/mounts/.dart_tool
+mkdir -p .github/docker/mounts/build
+mkdir -p .github/docker/mounts/linux-flutter-ephemeral
+mkdir -p .github/docker/mounts/macos-flutter-ephemeral
+mkdir -p .github/docker/mounts/windows-flutter-ephemeral
+touch .github/docker/mounts/.flutter-plugins-dependencies
+touch .github/docker/mounts/pubspec.lock
 
 # Start or create container from image
 if docker ps -a --format '{{.Names}}' | grep -w "$CONTAINER_NAME" > /dev/null; then
@@ -82,25 +92,18 @@ if docker ps -a --format '{{.Names}}' | grep -w "$CONTAINER_NAME" > /dev/null; t
 else
     echo "Creating new container $CONTAINER_NAME. This will only be done once."
 
-    # Get current directory
-    if [[ "$OSTYPE" == "msys"* || "$OSTYPE" == "cygwin"* ]]; then
-        APP_PATH="$(pwd -W)" # Windows-style path on Windows
-    else
-        APP_PATH="$(pwd)"
-    fi
-
     # Run container
     docker run -dit --name "$CONTAINER_NAME" \
         -u nonroot \
-        -v "$APP_PATH":/app \
-        -v "$APP_PATH/.github/docker/.pub-cache":/root/.pub-cache \
-        -v "$APP_PATH/.github/docker/.dart_tool":/app/.dart_tool \
-        -v "$APP_PATH/.github/docker/build":/app/build \
-        -v "$APP_PATH/.github/docker/.flutter-plugins-dependencies":/app/.flutter-plugins-dependencies \
-        -v "$APP_PATH/.github/docker/pubspec.lock":/app/pubspec.lock \
-        -v "$APP_PATH/.github/docker/linux-flutter-ephemeral":/app/linux/flutter/ephemeral \
-        -v "$APP_PATH/.github/docker/macos-flutter-ephemeral":/app/macos/Flutter/ephemeral \
-        -v "$APP_PATH/.github/docker/windows-flutter-ephemeral":/app/windows/flutter/ephemeral \
+        -v "$APP_PATH":"$APP_PATH" \
+        -v "$APP_PATH/.github/docker/mounts/.pub-cache":"/root/.pub-cache" \
+        -v "$APP_PATH/.github/docker/mounts/.dart_tool":"$APP_PATH/.dart_tool" \
+        -v "$APP_PATH/.github/docker/mounts/build":"$APP_PATH/build" \
+        -v "$APP_PATH/.github/docker/mounts/.flutter-plugins-dependencies":"$APP_PATH/.flutter-plugins-dependencies" \
+        -v "$APP_PATH/.github/docker/mounts/pubspec.lock":"$APP_PATH/pubspec.lock" \
+        -v "$APP_PATH/.github/docker/mounts/linux-flutter-ephemeral":"$APP_PATH/linux/flutter/ephemeral" \
+        -v "$APP_PATH/.github/docker/mounts/macos-flutter-ephemeral":"$APP_PATH/macos/Flutter/ephemeral" \
+        -v "$APP_PATH/.github/docker/mounts/windows-flutter-ephemeral":"$APP_PATH/windows/flutter/ephemeral" \
         "$IMAGE_NAME"
     docker exec -it "$CONTAINER_NAME" flutter pub get
 fi
