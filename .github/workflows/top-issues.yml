@@ -25,7 +25,7 @@ permissions:
 jobs:
   top-issues:
     name: Top issues
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-slim
     steps:
       - name: Run top issues action
         uses: rickstaa/top-issues-action@v1
