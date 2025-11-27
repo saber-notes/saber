@@ -20,7 +20,7 @@ ENV FLUTTER_ROOT=/home/nonroot/flutter
 ENV PUB_CACHE=/home/nonroot/.pub-cache
 ENV PATH="/home/nonroot/flutter/bin:/home/nonroot/.pub-cache/bin:$PATH"
 # This ADD command invalidates the Docker cache when a new Flutter release is available
-ADD https://storage.googleapis.com/flutter_infra_release/releases/releases_linux.json /tmp/releases_linux.json
+ADD https://raw.githubusercontent.com/flutter/flutter/refs/heads/stable/CHANGELOG.md /tmp/flutter-CHANGELOG.md
 RUN git clone https://github.com/flutter/flutter.git /home/nonroot/flutter --branch stable
 RUN flutter precache --universal
 RUN flutter doctor
