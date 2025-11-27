@@ -23,7 +23,6 @@ ENV PATH="/home/nonroot/flutter/bin:/home/nonroot/.pub-cache/bin:$PATH"
 ADD https://raw.githubusercontent.com/flutter/flutter/refs/heads/stable/CHANGELOG.md /tmp/flutter-CHANGELOG.md
 RUN git clone https://github.com/flutter/flutter.git /home/nonroot/flutter --branch stable
 RUN flutter precache --universal
-RUN flutter doctor
 
 ARG APP_PATH
 WORKDIR ${APP_PATH}
