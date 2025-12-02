@@ -33,6 +33,20 @@ abstract class SaberTheme {
         year2023: false,
         stopIndicatorColor: Colors.transparent,
       ),
+      cardColor: colorScheme.surface,
+      cardTheme: CardThemeData(
+        elevation: 0,
+        color: colorScheme.surface,
+        surfaceTintColor: Colors.transparent,
+        shadowColor: Colors.transparent,
+        shape: RoundedRectangleBorder(
+          borderRadius: .circular(kYaruContainerRadius),
+          side: BorderSide(
+            color: colorScheme.onSurface.withValues(alpha: 0.12),
+            width: 2,
+          ),
+        ),
+      ),
       cupertinoOverrideTheme: const NoDefaultCupertinoThemeData(
         applyThemeToAll: true,
       ),

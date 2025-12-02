@@ -13,6 +13,7 @@ import 'package:saber/data/prefs.dart';
 import 'package:saber/data/routes.dart';
 import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/editor/editor.dart';
+import 'package:yaru/yaru.dart';
 
 class PreviewCard extends StatefulWidget {
   PreviewCard({
@@ -105,89 +106,85 @@ class _PreviewCardState extends State<PreviewCard> {
         onTap: widget.isAnythingSelected ? _toggleCardSelection : null,
         onSecondaryTap: _toggleCardSelection,
         onLongPress: _toggleCardSelection,
-        child: ColoredBox(
-          color: colorScheme.surfaceContainerLow,
-          child: Stack(
-            children: [
-              Column(
-                mainAxisSize: .min,
-                children: [
-                  Stack(
-                    children: [
-                      AnimatedBuilder(
-                        animation: thumbnail,
-                        builder: (context, _) => AnimatedSwitcher(
-                          duration: const Duration(milliseconds: 300),
-                          child: ConstrainedBox(
-                            key: ValueKey(thumbnail.updateCount),
-                            constraints: const BoxConstraints(minHeight: 100),
-                            child: InvertWidget(
-                              invert: invert,
-                              child: thumbnail.doesImageExist
-                                  ? Image(image: thumbnail.image!)
-                                  : const _FallbackThumbnail(),
-                            ),
+        child: Column(
+          mainAxisSize: .min,
+          children: [
+            Stack(
+              children: [
+                ListenableBuilder(
+                  listenable: thumbnail,
+                  builder: (context, _) => AnimatedSwitcher(
+                    duration: const Duration(milliseconds: 300),
+                    child: ConstrainedBox(
+                      key: ValueKey(thumbnail.updateCount),
+                      constraints: const BoxConstraints(minHeight: 100),
+                      child: Padding(
+                        padding: const EdgeInsets.all(kYaruFocusBorderWidth),
+                        child: ClipRRect(
+                          borderRadius: const .only(
+                            topLeft: .circular(kYaruContainerRadius),
+                            topRight: .circular(kYaruContainerRadius),
+                          ),
+                          child: InvertWidget(
+                            invert: invert,
+                            child: thumbnail.doesImageExist
+                                ? Image(image: thumbnail.image!)
+                                : const _FallbackThumbnail(),
                           ),
                         ),
-                      ),
-                      Positioned.fill(
-                        left: -1,
-                        top: -1,
-                        right: -1,
-                        bottom: -1,
-                        child: ValueListenableBuilder(
-                          valueListenable: expanded,
-                          builder: (context, expanded, child) =>
-                              AnimatedOpacity(
-                                opacity: expanded ? 1 : 0,
-                                duration: const Duration(milliseconds: 200),
-                                child: IgnorePointer(
-                                  ignoring: !expanded,
-                                  child: child!,
-                                ),
-                              ),
-                          child: GestureDetector(
-                            onTap: _toggleCardSelection,
-                            child: DecoratedBox(
-                              decoration: BoxDecoration(
-                                gradient: LinearGradient(
-                                  begin: .topCenter,
-                                  end: .bottomCenter,
-                                  colors: [
-                                    colorScheme.surface.withValues(alpha: 0.2),
-                                    colorScheme.surface.withValues(alpha: 0.8),
-                                    colorScheme.surface.withValues(alpha: 1),
-                                  ],
-                                ),
-                              ),
-                              child: ColoredBox(
-                                color: colorScheme.primary.withValues(
-                                  alpha: 0.05,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  Flexible(
-                    child: Padding(
-                      padding: const .all(8),
-                      child: Text(
-                        widget.filePath.substring(
-                          widget.filePath.lastIndexOf('/') + 1,
-                        ),
-                        maxLines: 2,
-                        overflow: .ellipsis,
                       ),
                     ),
                   ),
-                ],
+                ),
+                Positioned.fill(
+                  left: -1,
+                  top: -1,
+                  right: -1,
+                  bottom: -1,
+                  child: ValueListenableBuilder(
+                    valueListenable: expanded,
+                    builder: (context, expanded, child) => AnimatedOpacity(
+                      opacity: expanded ? 1 : 0,
+                      duration: const Duration(milliseconds: 200),
+                      child: IgnorePointer(ignoring: !expanded, child: child!),
+                    ),
+                    child: GestureDetector(
+                      onTap: _toggleCardSelection,
+                      child: DecoratedBox(
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            begin: .topCenter,
+                            end: .bottomCenter,
+                            colors: [
+                              colorScheme.surface.withValues(alpha: 0.2),
+                              colorScheme.surface.withValues(alpha: 0.8),
+                              colorScheme.surface.withValues(alpha: 1),
+                            ],
+                          ),
+                        ),
+                        child: ColoredBox(
+                          color: colorScheme.primary.withValues(alpha: 0.05),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                SyncIndicator(filePath: widget.filePath),
+              ],
+            ),
+            Flexible(
+              child: Padding(
+                padding: const .all(8),
+                child: Text(
+                  widget.filePath.substring(
+                    widget.filePath.lastIndexOf('/') + 1,
+                  ),
+                  maxLines: 2,
+                  overflow: .ellipsis,
+                ),
               ),
-              SyncIndicator(filePath: widget.filePath),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
@@ -196,9 +193,18 @@ class _PreviewCardState extends State<PreviewCard> {
       valueListenable: expanded,
       builder: (context, expanded, _) {
         return OpenContainer(
+          clipBehavior: Clip.none,
           closedColor: colorScheme.surface,
-          closedShape: RoundedRectangleBorder(borderRadius: .circular(16)),
-          closedElevation: expanded ? 4 : 1,
+          closedShape: RoundedRectangleBorder(
+            side: BorderSide(
+              color: expanded
+                  ? colorScheme.primary
+                  : colorScheme.onSurface.withValues(alpha: 0.12),
+              width: kYaruFocusBorderWidth,
+            ),
+            borderRadius: .circular(kYaruContainerRadius),
+          ),
+          closedElevation: 0,
           closedBuilder: (context, action) => card,
           openColor: colorScheme.surface,
           openBuilder: (context, action) => Editor(path: widget.filePath),

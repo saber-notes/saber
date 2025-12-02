@@ -136,7 +136,6 @@ class _GridFolderState extends State<_GridFolder> {
             ? () => expanded.value = !expanded.value
             : null,
         child: Card(
-          color: colorScheme.surface,
           child: Padding(
             padding: const .all(8),
             child: Column(
