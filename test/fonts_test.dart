@@ -6,7 +6,6 @@ const _appFonts = [
   'AtkinsonHyperlegibleNext',
   'Dekko',
   'FiraMono',
-  // Note that we no longer bundle Inter with the app, so it should fall back to Roboto in tests.
   'Inter',
   'Neucha',
 ];
@@ -57,9 +56,7 @@ void main() {
           ),
         );
 
-        await tester.loadAssets(
-          overriddenFonts: ['Inter', ...kOverriddenFonts],
-        );
+        await tester.loadAssets();
         await tester.pumpAndSettle();
 
         await expectLater(

@@ -24,6 +24,7 @@ import 'package:saber/components/theming/adaptive_toggle_buttons.dart';
 import 'package:saber/components/theming/saber_theme.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/flavor_config.dart';
+import 'package:saber/data/is_this_a_test.dart';
 import 'package:saber/data/locales.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/data/routes.dart';
@@ -97,6 +98,8 @@ abstract class _SettingsStows {
 }
 
 class _SettingsPageState extends State<SettingsPage> {
+  late TargetPlatform platform;
+
   @override
   void initState() {
     stows.locale.addListener(onChanged);
@@ -108,16 +111,19 @@ class _SettingsPageState extends State<SettingsPage> {
     setState(() {});
   }
 
-  static final bool usesCupertinoByDefault = switch (defaultTargetPlatform) {
-    .iOS => true,
-    .macOS => true,
-    _ => false,
-  };
-  static final bool usesYaruByDefault = switch (defaultTargetPlatform) {
-    .linux => true,
-    _ => false,
-  };
-  static final bool usesMaterialByDefault =
+  // In tests, pretend the current platform is the defaultTargetPlatform
+  bool get usesCupertinoByDefault =>
+      switch (isThisATest ? platform : defaultTargetPlatform) {
+        .iOS => true,
+        .macOS => true,
+        _ => false,
+      };
+  bool get usesYaruByDefault =>
+      switch (isThisATest ? platform : defaultTargetPlatform) {
+        .linux => true,
+        _ => false,
+      };
+  bool get usesMaterialByDefault =>
       !usesCupertinoByDefault && !usesYaruByDefault;
 
   static const cupertinoDirectionIcons = [
@@ -136,7 +142,7 @@ class _SettingsPageState extends State<SettingsPage> {
   @override
   Widget build(BuildContext context) {
     final colorScheme = ColorScheme.of(context);
-    final platform = Theme.of(context).platform;
+    platform = Theme.of(context).platform;
     final cupertino = platform.isCupertino;
 
     final requiresManualUpdates = FlavorConfig.appStore.isEmpty;

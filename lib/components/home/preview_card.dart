@@ -1,14 +1,13 @@
 import 'dart:async';
-import 'dart:io';
 
 import 'package:animations/animations.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/inner_canvas.dart';
 import 'package:saber/components/canvas/invert_widget.dart';
 import 'package:saber/components/home/sync_indicator.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
+import 'package:saber/data/is_this_a_test.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/data/routes.dart';
 import 'package:saber/i18n/strings.g.dart';
@@ -53,7 +52,7 @@ class _PreviewCardState extends State<PreviewCard> {
     final imageFile = FileManager.getFile(
       '${widget.filePath}${Editor.extension}.p',
     );
-    if (kDebugMode && Platform.environment.containsKey('FLUTTER_TEST')) {
+    if (isThisATest) {
       // Avoid FileImages in tests
       thumbnail.image = imageFile.existsSync()
           ? MemoryImage(imageFile.readAsBytesSync())

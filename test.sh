@@ -106,6 +106,7 @@ else
         -v "$APP_PATH/.github/docker/mounts/windows-flutter-ephemeral":"$APP_PATH/windows/flutter/ephemeral" \
         "$IMAGE_NAME"
     docker exec -it "$CONTAINER_NAME" flutter pub get
+    docker exec -it "$CONTAINER_NAME" dart run golden_screenshot:download_apple_fonts
 fi
 
 docker exec -it "$CONTAINER_NAME" flutter test "$@"

@@ -55,12 +55,12 @@ void main() {
               ),
             ),
           );
-          await tester.loadAssets();
-          await tester.pumpAndSettle();
 
           await tester.tap(find.byIcon(Icons.settings));
           await tester.pump();
           await tester.pump(const Duration(milliseconds: 150));
+          await tester.loadAssets();
+          await tester.pump();
 
           await expectLater(
             find.byType(MaterialApp),

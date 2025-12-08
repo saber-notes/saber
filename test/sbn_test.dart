@@ -9,7 +9,6 @@ import 'package:path/path.dart' as p;
 import 'package:saber/components/canvas/canvas.dart';
 import 'package:saber/components/canvas/image/editor_image.dart';
 import 'package:saber/components/canvas/pencil_shader.dart';
-import 'package:saber/components/theming/font_fallbacks.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/data/editor/editor_exporter.dart';
 import 'package:saber/data/editor/page.dart';
@@ -109,7 +108,6 @@ void main() {
               page: page,
             ),
           );
-          await tester.loadAssets(overriddenFonts: saberSansSerifFontFallbacks);
           await tester.pumpWidget(
             _buildCanvas(
               brightness: .light,
@@ -118,6 +116,7 @@ void main() {
               coreInfo: coreInfo,
             ),
           );
+          await tester.loadAssets(alsoLoadTheseFonts: ['Dekko']);
           await tester.pumpAndSettle();
 
           await expectLater(
@@ -133,7 +132,6 @@ void main() {
               page: page,
             ),
           );
-          await tester.loadAssets(overriddenFonts: saberSansSerifFontFallbacks);
           await tester.pumpWidget(
             _buildCanvas(
               brightness: .dark,
@@ -142,6 +140,7 @@ void main() {
               coreInfo: coreInfo,
             ),
           );
+          await tester.loadAssets(alsoLoadTheseFonts: ['Dekko']);
           await tester.pumpAndSettle();
 
           await expectLater(
@@ -157,7 +156,6 @@ void main() {
               page: page,
             ),
           );
-          await tester.loadAssets(overriddenFonts: saberSansSerifFontFallbacks);
           await tester.pumpWidget(
             _buildCanvas(
               brightness: .light,
@@ -167,6 +165,7 @@ void main() {
               currentScale: double.minPositive, // Very zoomed out
             ),
           );
+          await tester.loadAssets(alsoLoadTheseFonts: ['Dekko']);
           await tester.pumpAndSettle();
 
           await expectLater(
@@ -277,7 +276,6 @@ void main() {
           page: importedCoreInfo.pages.first,
         ),
       );
-      await tester.loadAssets(overriddenFonts: saberSansSerifFontFallbacks);
       await tester.pumpWidget(
         _buildCanvas(
           brightness: .light,
@@ -286,6 +284,7 @@ void main() {
           coreInfo: importedCoreInfo,
         ),
       );
+      await tester.loadAssets(alsoLoadTheseFonts: ['Dekko']);
       await tester.pumpAndSettle();
 
       await expectLater(
@@ -324,7 +323,7 @@ Future<BuildContext> _getBuildContext(
     ),
   );
 
-  await tester.loadAssets();
+  await tester.loadAssets(alsoLoadTheseFonts: ['Dekko']);
   await tester.pump();
 
   return completer.future;

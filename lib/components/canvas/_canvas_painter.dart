@@ -265,7 +265,8 @@ class CanvasPainter extends CustomPainter {
         TextStyle(
           color: Colors.black.withInversion(invert).withValues(alpha: 0.5),
           fontSize: _pageIndicatorFontSize,
-          fontFamily: 'Inter',
+          // TODO(adil192): Use text style from theme
+          fontFamily: 'Roboto',
           fontFamilyFallback: saberSansSerifFontFallbacks,
         ),
       )

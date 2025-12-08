@@ -8,7 +8,6 @@ import 'package:saber/components/canvas/pencil_shader.dart';
 import 'package:saber/components/home/syncing_button.dart';
 import 'package:saber/components/settings/app_info.dart';
 import 'package:saber/components/settings/nextcloud_profile.dart';
-import 'package:saber/components/theming/font_fallbacks.dart';
 import 'package:saber/components/theming/saber_theme.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/flavor_config.dart';
@@ -200,7 +199,7 @@ void _screenshot({
           await tester.pump();
         }
 
-        await tester.loadAssets(overriddenFonts: saberSansSerifFontFallbacks);
+        await tester.loadAssets();
         await tester.pumpAndSettle();
 
         await tester.expectScreenshot(

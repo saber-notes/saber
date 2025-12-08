@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:golden_screenshot/golden_screenshot.dart';
-import 'package:saber/components/theming/font_fallbacks.dart';
 import 'package:saber/components/theming/saber_theme.dart';
 import 'package:saber/data/flavor_config.dart';
 import 'package:saber/data/prefs.dart';
@@ -33,7 +32,7 @@ void main() {
       testGoldens(step.name, (tester) async {
         final app = _LoginApp(step);
         await tester.pumpWidget(app);
-        await tester.loadAssets(overriddenFonts: saberSansSerifFontFallbacks);
+        await tester.loadAssets();
         await tester.pumpFrames(app, const Duration(seconds: 1));
 
         await expectLater(
@@ -45,7 +44,7 @@ void main() {
 
     testGoldens('done_faq', (tester) async {
       await tester.pumpWidget(const _LoginApp(.done));
-      await tester.loadAssets(overriddenFonts: saberSansSerifFontFallbacks);
+      await tester.loadAssets();
       await tester.pumpAndSettle();
 
       await tester.tap(find.text('How do I change my encryption password?'));
