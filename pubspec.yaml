@@ -174,7 +174,7 @@ dev_dependencies:
 
   yaml: ^3.1.2
 
-  golden_screenshot: ^9.1.0
+  golden_screenshot: ^9.1.1
 
   sentry_dart_plugin: ^3.1.1
 
