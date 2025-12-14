@@ -174,7 +174,10 @@ class _BrowsePageState extends State<BrowsePage> {
                 await FileManager.deleteDirectory(folderPath);
                 findChildrenOfPath();
               },
-              currentFolderPath: '${path ?? ''}/'.replaceFirst(RegExp(r'^/+'), '/'),
+              currentFolderPath: '${path ?? ''}/'.replaceFirst(
+                RegExp(r'^/+'),
+                '/',
+              ),
               moveFolder: (String folderName) async {
                 // Refresh the folder list after move
                 findChildrenOfPath();

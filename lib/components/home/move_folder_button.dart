@@ -56,8 +56,7 @@ class _MoveFolderDialog extends StatefulWidget {
 
 class _MoveFolderDialogState extends State<_MoveFolderDialog> {
   /// The full path of the folder being moved
-  late final sourceFolderPath =
-      '${widget.currentFolder}${widget.folderName}';
+  late final sourceFolderPath = '${widget.currentFolder}${widget.folderName}';
 
   late String _destinationFolder;
 
@@ -217,7 +216,8 @@ class _MoveFolderDialogState extends State<_MoveFolderDialog> {
           onPressed: isInvalidDestination
               ? null
               : () async {
-                  final destinationPath = '$destinationFolder${widget.folderName}';
+                  final destinationPath =
+                      '$destinationFolder${widget.folderName}';
                   await FileManager.moveDirectory(
                     sourceFolderPath,
                     destinationPath,

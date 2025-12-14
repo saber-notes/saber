@@ -229,7 +229,8 @@ class _GridFolderState extends State<_GridFolder> {
                                         widget.currentFolderPath != null)
                                       MoveFolderButton(
                                         folderName: widget.folderName!,
-                                        currentFolder: widget.currentFolderPath!,
+                                        currentFolder:
+                                            widget.currentFolderPath!,
                                         onMoved: () async {
                                           await widget.moveFolder!(
                                             widget.folderName!,

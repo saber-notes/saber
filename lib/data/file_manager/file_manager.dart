@@ -527,10 +527,7 @@ class FileManager {
   /// suffixed with a number e.g. "folder (2)".
   ///
   /// This method prevents moving a directory into its own subdirectory.
-  static Future<String> moveDirectory(
-    String fromPath,
-    String toPath,
-  ) async {
+  static Future<String> moveDirectory(String fromPath, String toPath) async {
     fromPath = _sanitisePath(fromPath);
     toPath = _sanitisePath(toPath);
 
@@ -554,7 +551,9 @@ class FileManager {
 
     final fromDir = Directory(documentsDirectory + fromPath);
     if (!fromDir.existsSync()) {
-      log.warning('Tried to move non-existent directory from $fromPath to $toPath');
+      log.warning(
+        'Tried to move non-existent directory from $fromPath to $toPath',
+      );
       return toPath;
     }
 
@@ -562,7 +561,9 @@ class FileManager {
     final List<String> children = [];
     await for (final entity in fromDir.list(recursive: true)) {
       if (entity is File) {
-        children.add(entity.path.substring(documentsDirectory.length + fromPath.length));
+        children.add(
+          entity.path.substring(documentsDirectory.length + fromPath.length),
+        );
       }
     }
 
