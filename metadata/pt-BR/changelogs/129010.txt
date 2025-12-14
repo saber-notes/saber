@@ -1,0 +1,3 @@
+• Os cartões da tela inicial agora têm bordas em vez de sombreados.
+• Correção automática desativada no campo URL do Nextcloud na página de login.
+• Tornou `https://` opcional no campo URL do Nextcloud.

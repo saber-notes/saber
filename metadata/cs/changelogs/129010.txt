@@ -1,0 +1,3 @@
+• Karty domovské obrazovky jsou nyní ohraničeny místo stínování.
+• Zakázané automatické opravy v poli Adresa URL Nextcloud na přihlašovací stránce.
+• V poli URL Nextcloud je volitelný údaj „https://“.

@@ -1,0 +1,3 @@
+• Le schede della schermata iniziale ora sono bordate invece che ombreggiate.
+• Correzione automatica disabilitata nel campo URL di Nextcloud nella pagina di accesso.
+• Reso "https://" facoltativo nel campo URL di Nextcloud.

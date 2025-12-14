@@ -214,6 +214,14 @@
     </screenshots>
 
     <releases>
+        <release version="1.29.1" type="development" date="2025-12-14">
+            <description>
+                <ul>
+                    <li>Home screen cards are now bordered instead of shadowed.</li>
+                    <li>Made `https://` optional in the Nextcloud URL field.</li>
+                </ul>
+            </description>
+        </release>
         <release version="1.29.0" type="development" date="2025-11-20">
             <description>
                 <ul>
