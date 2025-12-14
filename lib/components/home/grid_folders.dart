@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart' show CupertinoIcons;
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:saber/components/home/delete_folder_button.dart';
+import 'package:saber/components/home/move_folder_button.dart';
 import 'package:saber/components/home/new_folder_dialog.dart';
 import 'package:saber/components/home/rename_folder_button.dart';
 import 'package:saber/components/theming/adaptive_icon.dart';
@@ -20,6 +21,8 @@ class GridFolders extends StatelessWidget {
     required this.deleteFolder,
     required this.doesFolderExist,
     required this.folders,
+    this.currentFolderPath,
+    this.moveFolder,
   });
 
   final bool isAtRoot;
@@ -31,6 +34,12 @@ class GridFolders extends StatelessWidget {
   final Future<void> Function(String oldName, String newName) renameFolder;
   final Future<bool> Function(String) isFolderEmpty;
   final Future<void> Function(String) deleteFolder;
+
+  /// The current folder path (with trailing slash), used for move operation.
+  final String? currentFolderPath;
+
+  /// Callback when a folder is moved. If null, move button won't be shown.
+  final Future<void> Function(String folderName)? moveFolder;
 
   final List<String> folders;
 
@@ -61,6 +70,8 @@ class GridFolders extends StatelessWidget {
             renameFolder: renameFolder,
             isFolderEmpty: isFolderEmpty,
             deleteFolder: deleteFolder,
+            currentFolderPath: currentFolderPath,
+            moveFolder: moveFolder,
             onTap: onTap,
           );
         },
@@ -81,6 +92,8 @@ class _GridFolder extends StatefulWidget {
     required this.isFolderEmpty,
     required this.deleteFolder,
     required this.onTap,
+    this.currentFolderPath,
+    this.moveFolder,
   }) : assert(
          (folderName == null) ^ (cardType == .realFolder),
          'Real folders must specify a folder name',
@@ -93,6 +106,8 @@ class _GridFolder extends StatefulWidget {
   final Future<void> Function(String oldName, String newName) renameFolder;
   final Future<bool> Function(String) isFolderEmpty;
   final Future<void> Function(String) deleteFolder;
+  final String? currentFolderPath;
+  final Future<void> Function(String folderName)? moveFolder;
   final Function(String) onTap;
 
   @override
@@ -210,6 +225,18 @@ class _GridFolderState extends State<_GridFolder> {
                                         expanded.value = false;
                                       },
                                     ),
+                                    if (widget.moveFolder != null &&
+                                        widget.currentFolderPath != null)
+                                      MoveFolderButton(
+                                        folderName: widget.folderName!,
+                                        currentFolder: widget.currentFolderPath!,
+                                        onMoved: () async {
+                                          await widget.moveFolder!(
+                                            widget.folderName!,
+                                          );
+                                          expanded.value = false;
+                                        },
+                                      ),
                                     DeleteFolderButton(
                                       folderName: widget.folderName!,
                                       deleteFolder: (String folderName) async {
