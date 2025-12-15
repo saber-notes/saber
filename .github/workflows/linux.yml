@@ -124,7 +124,7 @@ jobs:
           sudo apt install libfuse2
 
       - name: Download app archive
-        uses: actions/download-artifact@v6
+        uses: actions/download-artifact@v7
         with:
           name: Saber-Archive-x86_64
 
@@ -184,7 +184,7 @@ jobs:
           submodules: recursive
 
       - name: Download app archive
-        uses: actions/download-artifact@v6
+        uses: actions/download-artifact@v7
         with:
           name: Saber-Archive-x86_64
 
