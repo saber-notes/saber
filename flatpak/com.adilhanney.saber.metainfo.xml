@@ -33,6 +33,7 @@
     </supports>
 
     <recommends>
+        <control>tablet</control>
         <internet>always</internet>
     </recommends>
 
