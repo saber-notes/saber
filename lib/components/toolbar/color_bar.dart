@@ -42,23 +42,23 @@ class ColorBar extends StatefulWidget {
   static final List<NamedColor> _pastelColorOptions = [
     (
       name: t.editor.colors.pastelRed,
-      color: const Color.fromRGBO(255, 173, 173, 1),
+      color: const Color.fromRGBO(64, 27, 22, 1),
     ),
     (
       name: t.editor.colors.pastelOrange,
-      color: const Color.fromRGBO(255, 214, 165, 1),
+      color: const Color.fromRGBO(12, 93, 39, 1),
     ),
     (
       name: t.editor.colors.pastelYellow,
-      color: const Color.fromRGBO(253, 255, 182, 1),
+      color: const Color.fromRGBO(45, 31, 118, 1),
     ),
     (
       name: t.editor.colors.pastelGreen,
-      color: const Color.fromRGBO(202, 255, 191, 1),
+      color: const Color.fromRGBO(127, 17, 21, 1),
     ),
     (
       name: t.editor.colors.pastelCyan,
-      color: const Color.fromRGBO(155, 246, 255, 1),
+      color: const Color.fromRGBO(245, 161, 42, 1),
     ),
     (
       name: t.editor.colors.pastelBlue,
