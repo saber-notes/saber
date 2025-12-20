@@ -4,6 +4,7 @@ import 'package:collapsible/collapsible.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:logging/logging.dart';
+import 'package:saber/components/home/delete_note_button.dart';
 import 'package:saber/components/home/export_note_button.dart';
 import 'package:saber/components/home/masonry_files.dart';
 import 'package:saber/components/home/move_note_button.dart';
@@ -16,7 +17,6 @@ import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/data/routes.dart';
 import 'package:saber/i18n/strings.g.dart';
-import 'package:saber/pages/editor/editor.dart';
 
 class RecentPage extends StatefulWidget {
   const RecentPage({super.key});
@@ -180,28 +180,9 @@ class _RecentPageState extends State<RecentPage> {
                 filesToMove: selectedFiles.value,
                 unselectNotes: () => selectedFiles.value = [],
               ),
-              IconButton(
-                padding: .zero,
-                tooltip: t.home.deleteNote,
-                onPressed: () async {
-                  await Future.wait([
-                    for (final filePath in selectedFiles.value)
-                      Future.value(
-                        FileManager.doesFileExist(
-                          filePath + Editor.extensionOldJson,
-                        ),
-                      ).then(
-                        (oldExtension) => FileManager.deleteFile(
-                          filePath +
-                              (oldExtension
-                                  ? Editor.extensionOldJson
-                                  : Editor.extension),
-                        ),
-                      ),
-                  ]);
-                  selectedFiles.value = [];
-                },
-                icon: const Icon(Icons.delete_forever),
+              DeleteNoteButton(
+                filesToDelete: selectedFiles.value,
+                unselectNotes: () => selectedFiles.value = [],
               ),
               ExportNoteButton(selectedFiles: selectedFiles.value),
             ],
