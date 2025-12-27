@@ -185,13 +185,6 @@ dependency_overrides:
       url: https://github.com/KasemJaffer/receive_sharing_intent
       ref: 2cea396843cd3ab1b5ec4334be4233864637874e
 
-  # https://github.com/juliansteenbakker/flutter_secure_storage/issues/920
-  flutter_secure_storage_linux:
-    git:
-      url: https://github.com/m-berto/flutter_secure_storage.git
-      ref: patch-2
-      path: flutter_secure_storage_linux
-
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
