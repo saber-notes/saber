@@ -29,7 +29,7 @@ jobs:
       - uses: "./.github/shared_workflows/install_apt_dependencies"
 
       - name: Setup cache
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v5
         with:
           path: |
             .dart_tool/
@@ -103,7 +103,7 @@ jobs:
           mv build/app/outputs/flutter-apk/app-release.apk output/$apkName
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         with:
           name: ${{ matrix.foss && 'Saber-Android-FOSS' || 'Saber-Android' }}
           path: output/${{ steps.rename_apk.outputs.apkName }}
