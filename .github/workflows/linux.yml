@@ -23,11 +23,13 @@ jobs:
             target-platform: linux-x64
             flutter-output-folder: build/linux/x64/release/bundle
             archive-suffix: x86_64
+            linuxdeploy-exe: linuxdeploy-x86_64.AppImage
           - runs-on: ubuntu-24.04-arm
             cache-name: saberarm64
             target-platform: linux-arm64
             flutter-output-folder: build/linux/arm64/release/bundle
             archive-suffix: arm64
+            linuxdeploy-exe: linuxdeploy-aarch64.AppImage
     runs-on: ${{ matrix.arch.runs-on }}
     permissions:
       contents: write
@@ -85,11 +87,7 @@ jobs:
           chmod +x AppDir/saber
 
           install -Dm644 flatpak/com.adilhanney.saber.metainfo.xml -t AppDir/share/metainfo/
-          install -Dm644 flatpak/com.adilhanney.saber.metainfo.xml -t AppDir/usr/share/metainfo/
-
           install -Dm644 assets/icon/icon_linux.svg AppDir/share/icons/hicolor/scalable/apps/com.adilhanney.saber.svg
-          install -Dm644 assets/icon/icon_linux.svg AppDir/usr/share/icons/hicolor/scalable/apps/com.adilhanney.saber.svg
-
           install -Dm644 flatpak/com.adilhanney.saber.desktop -t AppDir/share/applications/
 
           tar -C AppDir -czvf $archiveName .
@@ -107,63 +105,55 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: ${{ steps.compress.outputs.archiveName }}
 
-  build-appimage:
-    name: Build AppImage
-    needs: build-linux
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    timeout-minutes: 10
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v6
+      # Now build AppImage
 
-      - name: Install AppImage dependencies
+      - name: Install FUSE
         run: |
           sudo add-apt-repository universe
-          sudo apt install libfuse2
-
-      - name: Download app archive
-        uses: actions/download-artifact@v7
-        with:
-          name: Saber-Archive-x86_64
-
-      - name: Rename app archive
+          sudo apt-get install libfuse2t64
+      
+      - name: Prepare AppDir for AppImage
         run: |
-          mv Saber_*.tar.gz Saber-Linux-Portable.tar.gz
+          rm -rf linux/AppImage/AppDir/
 
-      - name: Install appimage-builder
+          # Copy flutter bundle into AppDir/usr/bin/
+          mkdir -p linux/AppImage/AppDir/usr/bin/
+          cp -R AppDir/* linux/AppImage/AppDir/usr/bin/
+
+          # Move share folder to usr/share
+          mv linux/AppImage/AppDir/usr/bin/share linux/AppImage/AppDir/usr/
+
+          # Set environment variables for linuxdeploy
+          echo "LD_LIBRARY_PATH=$(pwd)/linux/AppImage/AppDir/usr/bin/lib:$LD_LIBRARY_PATH" >> $GITHUB_ENV
+          echo 'UPDATE_INFORMATION=gh-releases-zsync|saber-notes|saber|latest|Saber-*-${{ matrix.arch.archive-suffix }}.AppImage.zsync' >> $GITHUB_ENV
+
+      - name: Install linuxdeploy
+        working-directory: linux/AppImage
         run: |
-          sudo pip3 install --ignore-installed git+https://github.com/AppImageCrafters/appimage-builder.git
-
-      - name: Prepare build files
-        working-directory: appimage
-        run: |
-          mkdir AppDir
-          tar -xzvf ../Saber-Linux-Portable.tar.gz -C AppDir
-
-      - name: Set AppImage version
-        working-directory: appimage
-        run: |
-          # replace line with "version: latest" with "version: $buildName"
-          buildName=$(grep -oP "(?<=buildName = ').*(?=')" ../lib/data/version.dart)
-          sed -i "s/version: latest/version: ${buildName}/" AppImageBuilder.yml
-
+          wget https://github.com/linuxdeploy/linuxdeploy/releases/latest/download/${{ matrix.arch.linuxdeploy-exe }}
+          chmod +x ${{ matrix.arch.linuxdeploy-exe }}
       - name: Build AppImage
-        working-directory: appimage
+        working-directory: linux/AppImage
+        run: ./${{ matrix.arch.linuxdeploy-exe }} --appdir AppDir --output appimage
+
+      - run: tree linux/AppImage -L 3
+
+      - name: Rename AppImage
         run: |
-          appimage-builder --skip-test
+          buildName=$(grep -oP "(?<=buildName = ').*(?=')" lib/data/version.dart)
+          mv linux/AppImage/Saber-*.AppImage       linux/AppImage/Saber-${buildName}-${{ matrix.arch.archive-suffix }}.AppImage
+          mv linux/AppImage/Saber-*.AppImage.zsync linux/AppImage/Saber-${buildName}-${{ matrix.arch.archive-suffix }}.AppImage.zsync
 
       - name: Upload artifact
         uses: actions/upload-artifact@v6
         with:
-          name: AppImage artifact
-          path: appimage/Saber-*-x86_64.AppImage*
+          name: AppImage artifact (${{ matrix.arch.target-platform }})
+          path: linux/AppImage/Saber-*.AppImage*
 
       - name: Upload to GitHub release
         uses: svenstaro/upload-release-action@v2
         if: ${{ startsWith(github.ref, 'refs/tags/') }}
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: appimage/Saber-*-x86_64.AppImage*
+          file: linux/AppImage/Saber-*.AppImage*
           file_glob: true
