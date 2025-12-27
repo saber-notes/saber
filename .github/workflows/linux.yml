@@ -144,7 +144,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v6
         with:
-          name: AppImage artifact
+          name: AppImage artifact (${{ matrix.arch.target-platform }})
           path: linux/AppImage/Saber-*.AppImage*
 
       - name: Upload to GitHub release
