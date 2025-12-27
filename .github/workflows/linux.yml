@@ -103,39 +103,24 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: ${{ steps.compress.outputs.archiveName }}
 
-  build-appimage:
-    name: Build AppImage
-    needs: build-linux
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    timeout-minutes: 10
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v6
+      # Now build AppImage
 
-      - uses: "./.github/shared_workflows/install_apt_dependencies"
       - name: Install FUSE
         run: |
           sudo add-apt-repository universe
-          sudo apt install libfuse2
+          sudo apt-get install libfuse2t64
+      
+      - name: Prepare AppDir for AppImage
+        run: |
+          rm -rf linux/AppImage/AppDir/
 
-      - name: Download app archive
-        uses: actions/download-artifact@v7
-        with:
-          name: Saber-Archive-x86_64
-      - name: Extract app archive
-        run: |
-          mkdir -p linux/AppImage/AppDir/usr/bin
-          tar -xzvf Saber*.tar.gz -C linux/AppImage/AppDir/usr/bin
-      - name: Prepare AppDir
-        working-directory: linux/AppImage/AppDir
-        run: |
-          mkdir -p usr/share
-          cp -R usr/bin/share/* usr/share/
-          rm -rf usr/bin/share
-          echo "LD_LIBRARY_PATH=$(pwd)/usr/bin/lib:$LD_LIBRARY_PATH" >> $GITHUB_ENV
-          echo 'UPDATE_INFORMATION=gh-releases-zsync|saber-notes|saber|latest|Saber-*-x86_64.AppImage.zsync' >> $GITHUB_ENV
+          mkdir -p linux/AppImage/AppDir/usr/bin/
+          cp -R AppDir/* linux/AppImage/AppDir/usr/bin/
+
+          mv linux/AppImage/AppDir/usr/bin/share linux/AppImage/AppDir/usr/
+
+          echo "LD_LIBRARY_PATH=$(pwd)/linux/AppImage/AppDir/usr/bin/lib:$LD_LIBRARY_PATH" >> $GITHUB_ENV
+          echo 'UPDATE_INFORMATION=gh-releases-zsync|saber-notes|saber|latest|Saber-*-${{ matrix.arch.archive-suffix }}.AppImage.zsync' >> $GITHUB_ENV
 
       - name: Install linuxdeploy
         working-directory: linux/AppImage
@@ -144,21 +129,26 @@ jobs:
           chmod +x linuxdeploy-x86_64.AppImage
       - name: Build AppImage
         working-directory: linux/AppImage
+        run: ./linuxdeploy-x86_64.AppImage --appdir AppDir --output appimage
+
+      - run: tree linux/AppImage -L3
+
+      - name: Rename AppImage
         run: |
-          ./linuxdeploy-x86_64.AppImage --appdir AppDir --output appimage
-      
-      - run: tree linux/AppImage
+          buildName=$(grep -oP "(?<=buildName = ').*(?=')" lib/data/version.dart)
+          mv linux/AppImage/Saber-*.AppImage       linux/AppImage/Saber-${buildName}-${{ matrix.arch.archive-suffix }}.AppImage
+          mv linux/AppImage/Saber-*.AppImage.zsync linux/AppImage/Saber-${buildName}-${{ matrix.arch.archive-suffix }}.AppImage.zsync
 
       - name: Upload artifact
         uses: actions/upload-artifact@v6
         with:
           name: AppImage artifact
-          path: appimage/Saber-*-x86_64.AppImage*
+          path: linux/AppImage/Saber-*.AppImage*
 
       - name: Upload to GitHub release
         uses: svenstaro/upload-release-action@v2
         if: ${{ startsWith(github.ref, 'refs/tags/') }}
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: appimage/Saber-*-x86_64.AppImage*
+          file: linux/AppImage/Saber-*.AppImage*
           file_glob: true
