@@ -23,11 +23,13 @@ jobs:
             target-platform: linux-x64
             flutter-output-folder: build/linux/x64/release/bundle
             archive-suffix: x86_64
+            linuxdeploy-exe: linuxdeploy-x86_64.AppImage
           - runs-on: ubuntu-24.04-arm
             cache-name: saberarm64
             target-platform: linux-arm64
             flutter-output-folder: build/linux/arm64/release/bundle
             archive-suffix: arm64
+            linuxdeploy-exe: linuxdeploy-aarch64.AppImage
     runs-on: ${{ matrix.arch.runs-on }}
     permissions:
       contents: write
@@ -125,13 +127,13 @@ jobs:
       - name: Install linuxdeploy
         working-directory: linux/AppImage
         run: |
-          wget https://github.com/linuxdeploy/linuxdeploy/releases/latest/download/linuxdeploy-x86_64.AppImage
-          chmod +x linuxdeploy-x86_64.AppImage
+          wget https://github.com/linuxdeploy/linuxdeploy/releases/latest/download/${{ matrix.arch.linuxdeploy-exe }}
+          chmod +x ${{ matrix.arch.linuxdeploy-exe }}
       - name: Build AppImage
         working-directory: linux/AppImage
-        run: ./linuxdeploy-x86_64.AppImage --appdir AppDir --output appimage
+        run: ./${{ matrix.arch.linuxdeploy-exe }} --appdir AppDir --output appimage
 
-      - run: tree linux/AppImage -L3
+      - run: tree linux/AppImage -L 3
 
       - name: Rename AppImage
         run: |
