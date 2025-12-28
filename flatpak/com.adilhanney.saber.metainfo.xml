@@ -29,7 +29,6 @@
         <control>pointing</control>
         <control>keyboard</control>
         <control>touch</control>
-        <control>tablet</control>
     </supports>
 
     <recommends>
