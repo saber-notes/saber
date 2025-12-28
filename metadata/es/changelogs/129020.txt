@@ -1,0 +1,1 @@
+Los números de página ahora respetan la configuración de fuente Atkinson Hiperlegible.
