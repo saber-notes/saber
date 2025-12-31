@@ -1,0 +1,1 @@
+Se corrigieron muchos errores en el editor de texto que ocurrían después de un guardado automático.

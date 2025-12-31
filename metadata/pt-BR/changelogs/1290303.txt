@@ -1,0 +1,1 @@
+Vários bugs corrigidos no editor de texto que ocorriam após o salvamento automático.

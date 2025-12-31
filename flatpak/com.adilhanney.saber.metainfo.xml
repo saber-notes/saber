@@ -214,6 +214,13 @@
     </screenshots>
 
     <releases>
+        <release version="1.29.3" type="development" date="2025-12-31">
+            <description>
+                <p>
+                    Fixed lots of bugs in the text editor that occured after an auto-save.
+                </p>
+            </description>
+        </release>
         <release version="1.29.2" type="development" date="2025-12-28">
             <description>
                 <ul>

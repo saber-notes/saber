@@ -1,0 +1,1 @@
+Correction de nombreux bugs dans l'éditeur de texte survenus après une sauvegarde automatique.

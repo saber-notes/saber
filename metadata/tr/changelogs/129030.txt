@@ -1,0 +1,1 @@
+Otomatik kaydetme sonrasında metin düzenleyicide meydana gelen birçok hata düzeltildi.

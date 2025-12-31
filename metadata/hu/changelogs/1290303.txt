@@ -1,0 +1,1 @@
+A szövegszerkesztőben az automatikus mentés után fellépő számos hibát kijavítottunk.
