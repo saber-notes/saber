@@ -20,8 +20,7 @@ class InnerCanvas extends StatefulWidget {
     this.redrawPageListenable,
     required this.width,
     required this.height,
-    this.isPreview = false,
-    this.isPrint = false,
+    this.showPageIndicator = true,
     this.textEditing = false,
     required this.coreInfo,
     required this.currentStroke,
@@ -37,10 +36,7 @@ class InnerCanvas extends StatefulWidget {
   final Listenable? redrawPageListenable;
   final double width;
   final double height;
-
-  final bool isPreview;
-  final bool isPrint;
-
+  final bool showPageIndicator;
   final bool textEditing;
   final EditorCoreInfo coreInfo;
   final Stroke? currentStroke;
@@ -137,9 +133,7 @@ class _InnerCanvasState extends State<InnerCanvas> {
           currentSelection: widget.currentSelection,
           primaryColor: colorScheme.primary,
           page: page,
-          showPageIndicator:
-              !widget.isPreview &&
-              (!widget.isPrint || stows.printPageIndicators.value),
+          showPageIndicator: widget.showPageIndicator,
           pageIndex: widget.pageIndex,
           totalPages: widget.coreInfo.pages.length,
           currentScale: widget.currentScale,

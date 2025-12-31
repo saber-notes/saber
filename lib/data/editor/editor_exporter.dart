@@ -9,6 +9,7 @@ import 'package:saber/components/canvas/_rectangle_stroke.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/inner_canvas.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
+import 'package:saber/data/prefs.dart';
 import 'package:screenshot/screenshot.dart';
 
 abstract class EditorExporter {
@@ -168,7 +169,7 @@ abstract class EditorExporter {
             pageIndex: pageIndex,
             width: pageSize.width,
             height: pageSize.height,
-            isPrint: true,
+            showPageIndicator: stows.printPageIndicators.value,
             textEditing: false,
             coreInfo: coreInfo.copyWith(
               pages: coreInfo.pages

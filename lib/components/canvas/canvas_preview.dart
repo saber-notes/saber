@@ -32,7 +32,7 @@ class CanvasPreview extends StatelessWidget implements PreferredSizeWidget {
       pageIndex: pageIndex,
       width: preferredSize.width,
       height: preferredSize.height,
-      isPreview: true,
+      showPageIndicator: false,
       coreInfo: coreInfo,
       currentStroke: null,
       currentStrokeDetectedShape: null,
