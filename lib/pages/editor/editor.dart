@@ -966,32 +966,40 @@ class EditorState extends State<Editor> {
     final page = coreInfo.pages.first;
     final previewHeight = page.previewHeight(lineHeight: coreInfo.lineHeight);
     final thumbnailSize = Size(720, 720 * previewHeight / page.size.width);
+    final theme = ThemeData(
+      brightness: .light,
+      colorScheme: const ColorScheme.light(
+        primary: EditorExporter.primaryColor,
+        secondary: EditorExporter.secondaryColor,
+      ),
+    );
     final thumbnail = await screenshotter.captureFromWidget(
-      Theme(
-        data: ThemeData(
-          brightness: .light,
-          colorScheme: const ColorScheme.light(
-            primary: EditorExporter.primaryColor,
-            secondary: EditorExporter.secondaryColor,
-          ),
-        ),
-        child: Localizations.override(
-          context: context,
-          child: SizedBox(
-            width: thumbnailSize.width,
-            height: thumbnailSize.height,
-            child: FittedBox(
-              child: pageBuilderForScreenshot(
-                context,
-                pageIndex: 0,
-                previewHeight: previewHeight,
+      MediaQuery(
+        data: MediaQueryData(size: thumbnailSize),
+        child: Theme(
+          data: theme,
+          child: DefaultTextStyle(
+            style: theme.textTheme.bodyMedium!,
+            child: Localizations.override(
+              context: context,
+              child: SizedBox(
+                width: thumbnailSize.width,
+                height: thumbnailSize.height,
+                child: FittedBox(
+                  fit: BoxFit.cover,
+                  alignment: Alignment.topLeft,
+                  child: pageBuilderForScreenshot(
+                    context,
+                    pageIndex: 0,
+                    previewHeight: previewHeight,
+                  ),
+                ),
               ),
             ),
           ),
         ),
       ),
       pixelRatio: 1,
-      context: context,
       targetSize: thumbnailSize,
     );
     await FileManager.writeFile(
@@ -1855,8 +1863,9 @@ class EditorState extends State<Editor> {
     required int pageIndex,
     double? previewHeight,
   }) {
-    final page = coreInfo.pages[pageIndex];
-    previewHeight ??= page.previewHeight(lineHeight: coreInfo.lineHeight);
+    final page = this.coreInfo.pages[pageIndex].cloneForScreenshot();
+    previewHeight ??= page.previewHeight(lineHeight: this.coreInfo.lineHeight);
+    final coreInfo = this.coreInfo.copyWith(pages: [page]);
     return CanvasPreview(
       pageIndex: pageIndex,
       height: previewHeight,
