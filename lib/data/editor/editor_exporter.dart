@@ -13,17 +13,6 @@ import 'package:saber/data/prefs.dart';
 import 'package:screenshot/screenshot.dart';
 
 abstract class EditorExporter {
-  /// The primary color used in exports.
-  /// This is independent to the user's color theme,
-  /// so that the export will look the same when
-  /// exported from different devices.
-  /// See also [secondaryColor].
-  static const primaryColor = Colors.blue;
-
-  /// The secondary color used in exports.
-  /// See also [primaryColor].
-  static const secondaryColor = Colors.red;
-
   /// Most* strokes can be drawn to the PDF canvas as vector graphics.
   /// This function returns true if [stroke] is one of those strokes.
   ///
@@ -153,46 +142,80 @@ abstract class EditorExporter {
   }) async {
     final pageSize = coreInfo.pages[pageIndex].size;
     return await screenshotController.captureFromWidget(
-      Localizations(
-        // needed to avoid errors with Quill, but not actually used
-        locale: const Locale('en', 'US'),
-        delegates: GlobalMaterialLocalizations.delegates,
-        child: Theme(
-          data: ThemeData(
-            brightness: .light,
-            colorScheme: const ColorScheme.light(
-              primary: primaryColor,
-              secondary: secondaryColor,
-            ),
+      EditorExporterTheme(
+        targetSize: pageSize,
+        child: InnerCanvas(
+          pageIndex: pageIndex,
+          width: pageSize.width,
+          height: pageSize.height,
+          showPageIndicator: stows.printPageIndicators.value,
+          textEditing: false,
+          coreInfo: coreInfo.copyWith(
+            pages: [
+              for (final page in coreInfo.pages)
+                page.copyWith(
+                  strokes: page.strokes.where(_shouldRasterizeStroke).toList(),
+                ),
+            ],
           ),
-          child: InnerCanvas(
-            pageIndex: pageIndex,
-            width: pageSize.width,
-            height: pageSize.height,
-            showPageIndicator: stows.printPageIndicators.value,
-            textEditing: false,
-            coreInfo: coreInfo.copyWith(
-              pages: coreInfo.pages
-                  .map(
-                    (page) => page.copyWith(
-                      strokes: page.strokes
-                          .where(_shouldRasterizeStroke)
-                          .toList(),
-                    ),
-                  )
-                  .toList(),
-            ),
-            currentStroke: null,
-            currentStrokeDetectedShape: null,
-            currentSelection: null,
-            currentToolIsSelect: false,
-            currentScale: double.maxFinite,
-          ),
+          currentStroke: null,
+          currentStrokeDetectedShape: null,
+          currentSelection: null,
+          currentToolIsSelect: false,
+          currentScale: double.maxFinite,
         ),
       ),
       context: context,
       pixelRatio: 2,
       targetSize: pageSize,
+    );
+  }
+}
+
+/// Applies a consistent theme to its [child] so that exports
+/// look the same regardless of the user's current theme or device.
+class EditorExporterTheme extends StatelessWidget {
+  const EditorExporterTheme({
+    super.key,
+    required this.targetSize,
+    required this.child,
+  });
+
+  final Size targetSize;
+  final Widget child;
+
+  static final theme = ThemeData(
+    brightness: .light,
+    colorScheme: const ColorScheme.light(
+      primary: Colors.blue,
+      secondary: Colors.red,
+    ),
+  );
+
+  @override
+  Widget build(BuildContext context) {
+    return MediaQuery(
+      data: MediaQueryData(size: targetSize),
+      child: Localizations(
+        // needed to avoid errors with Quill, but not actually used
+        locale: const Locale('en', 'US'),
+        delegates: GlobalMaterialLocalizations.delegates,
+        child: Theme(
+          data: theme,
+          child: DefaultTextStyle(
+            style: theme.textTheme.bodyMedium!,
+            child: SizedBox(
+              width: targetSize.width,
+              height: targetSize.height,
+              child: FittedBox(
+                fit: BoxFit.cover,
+                alignment: Alignment.topLeft,
+                child: child,
+              ),
+            ),
+          ),
+        ),
+      ),
     );
   }
 }

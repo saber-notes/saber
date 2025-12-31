@@ -966,37 +966,13 @@ class EditorState extends State<Editor> {
     final page = coreInfo.pages.first;
     final previewHeight = page.previewHeight(lineHeight: coreInfo.lineHeight);
     final thumbnailSize = Size(720, 720 * previewHeight / page.size.width);
-    final theme = ThemeData(
-      brightness: .light,
-      colorScheme: const ColorScheme.light(
-        primary: EditorExporter.primaryColor,
-        secondary: EditorExporter.secondaryColor,
-      ),
-    );
     final thumbnail = await screenshotter.captureFromWidget(
-      MediaQuery(
-        data: MediaQueryData(size: thumbnailSize),
-        child: Theme(
-          data: theme,
-          child: DefaultTextStyle(
-            style: theme.textTheme.bodyMedium!,
-            child: Localizations.override(
-              context: context,
-              child: SizedBox(
-                width: thumbnailSize.width,
-                height: thumbnailSize.height,
-                child: FittedBox(
-                  fit: BoxFit.cover,
-                  alignment: Alignment.topLeft,
-                  child: pageBuilderForScreenshot(
-                    context,
-                    pageIndex: 0,
-                    previewHeight: previewHeight,
-                  ),
-                ),
-              ),
-            ),
-          ),
+      EditorExporterTheme(
+        targetSize: thumbnailSize,
+        child: pageBuilderForScreenshot(
+          context,
+          pageIndex: 0,
+          previewHeight: previewHeight,
         ),
       ),
       pixelRatio: 1,
