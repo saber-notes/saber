@@ -72,8 +72,7 @@ abstract class HomeRoutes {
     ),
     _Route(
       routePath: _homeFunction({'subpage': HomePage.calendarSubpage}),
-      // TODO: Replace with t.home.tabs.calendar after slang regeneration
-      label: 'Calendar',
+      label: t.home.tabs.calendar,
       icon: const AdaptiveIcon(
         icon: Icons.calendar_month,
         cupertinoIcon: CupertinoIcons.calendar,
