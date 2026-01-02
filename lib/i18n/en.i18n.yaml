@@ -8,6 +8,7 @@ home:
     browse: Browse
     whiteboard: Whiteboard
     settings: Settings
+    calendar: Calendar
   titles: 
     home: Recent notes
     browse: Browse

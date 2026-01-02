@@ -154,6 +154,7 @@ dependencies:
   sentry_logging: ^9.5.0
 
   background_downloader: ^9.2.6
+  provider: ^6.1.5+1
 
 dev_dependencies:
   flutter_test:

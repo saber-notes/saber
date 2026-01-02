@@ -184,6 +184,9 @@ class _ColorBarState extends State<ColorBar> {
             onLongPress: () =>
                 setState(() => ColorBar.toggleColorPinned(colorString)),
             tooltip: ColorBar.findColorName(Color(int.parse(colorString))),
+            selected:
+                widget.currentColor?.withAlpha(255).toARGB32() ==
+                int.parse(colorString),
             child: DecoratedBox(
               decoration: BoxDecoration(
                 color: Color(
@@ -212,6 +215,9 @@ class _ColorBarState extends State<ColorBar> {
           onLongPress: () =>
               setState(() => ColorBar.toggleColorPinned(colorString)),
           tooltip: ColorBar.findColorName(Color(int.parse(colorString))),
+          selected:
+              widget.currentColor?.withAlpha(255).toARGB32() ==
+              int.parse(colorString),
           child: DecoratedBox(
             decoration: BoxDecoration(
               color: Color(int.parse(colorString)).withInversion(widget.invert),
@@ -236,6 +242,7 @@ class _ColorBarState extends State<ColorBar> {
           enabled: widget.currentColor != null,
           onTap: null,
           tooltip: null,
+          selected: false,
           child: DecoratedBox(
             decoration: BoxDecoration(
               color: Colors.transparent,
@@ -258,6 +265,9 @@ class _ColorBarState extends State<ColorBar> {
         enabled: true,
         onTap: () => openColorPicker(context),
         tooltip: t.editor.colors.colorPicker,
+        selected:
+            widget.currentColor?.withAlpha(255).toARGB32() ==
+            pickedColor.toARGB32(),
         child: const DecoratedBox(
           decoration: BoxDecoration(color: Colors.transparent, shape: .circle),
           child: Center(child: FaIcon(FontAwesomeIcons.droplet, size: 16)),
@@ -273,6 +283,9 @@ class _ColorBarState extends State<ColorBar> {
           enabled: widget.currentColor != null,
           onTap: () => widget.setColor(namedColor.color),
           tooltip: namedColor.name,
+          selected:
+              widget.currentColor?.withAlpha(255).toARGB32() ==
+              namedColor.color.toARGB32(),
           child: DecoratedBox(
             decoration: BoxDecoration(
               color: namedColor.color.withInversion(widget.invert),

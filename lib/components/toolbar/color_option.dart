@@ -9,6 +9,7 @@ class ColorOption extends StatelessWidget {
     this.onLongPress,
     required this.tooltip,
     required this.child,
+    required bool selected,
   });
 
   final bool isSelected;

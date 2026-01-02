@@ -337,6 +337,9 @@ class TranslationsHomeTabsEn {
 
 	/// en: 'Settings'
 	String get settings => 'Settings';
+
+	/// en: 'Calendar'
+	String get calendar => 'Calendar';
 }
 
 // Path: home.titles

@@ -11,6 +11,7 @@ abstract class RoutePaths {
   static const edit = '/edit';
   static const login = '/login';
   static const logs = '/logs';
+  // static const calendar = '/calendar'; // Removed as it's now a subpage of home
 
   static const prefixOfHome = '/home';
 
@@ -67,6 +68,15 @@ abstract class HomeRoutes {
       icon: const AdaptiveIcon(
         icon: Icons.settings,
         cupertinoIcon: CupertinoIcons.settings_solid,
+      ),
+    ),
+    _Route(
+      routePath: _homeFunction({'subpage': HomePage.calendarSubpage}),
+      // TODO: Replace with t.home.tabs.calendar after slang regeneration
+      label: 'Calendar',
+      icon: const AdaptiveIcon(
+        icon: Icons.calendar_month,
+        cupertinoIcon: CupertinoIcons.calendar,
       ),
     ),
   ];
