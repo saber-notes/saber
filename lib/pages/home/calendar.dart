@@ -334,12 +334,29 @@ class _CalendarPageState extends State<CalendarPage> {
                                     ...eventsForDay
                                         .take(2)
                                         .map(
-                                          (e) => Text(
-                                            e.summary,
-                                            style: const TextStyle(
-                                              fontSize: 10,
+                                          (e) => Container(
+                                            padding: const EdgeInsets.symmetric(
+                                              horizontal: 4,
+                                              vertical: 2,
                                             ),
-                                            overflow: TextOverflow.ellipsis,
+                                            margin: const EdgeInsets.only(
+                                              bottom: 2,
+                                            ),
+                                            decoration: BoxDecoration(
+                                              color: e.color,
+                                              borderRadius:
+                                                  BorderRadius.circular(3),
+                                            ),
+                                            child: Text(
+                                              e.summary,
+                                              style: TextStyle(
+                                                fontSize: 10,
+                                                color: _contrastTextColor(
+                                                  e.color,
+                                                ),
+                                              ),
+                                              overflow: TextOverflow.ellipsis,
+                                            ),
                                           ),
                                         ),
                                     if (eventsForDay.length > 2)

@@ -5,6 +5,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:logging/logging.dart';
+import 'package:nextcloud/nextcloud.dart';
 import 'package:saber/components/misc/faq.dart';
 import 'package:saber/components/theming/font_fallbacks.dart';
 import 'package:saber/data/nextcloud/errors.dart';
@@ -152,17 +153,21 @@ class _EncLoginStepState extends State<EncLoginStep> {
     if (encPassword.isEmpty) return;
 
     try {
-      stows.encPassword.value = encPassword;
-      final client = NextcloudClientExtension.withSavedDetails()!;
+      final client = NextcloudClient(
+        Uri.parse(stows.url.value),
+        loginName: stows.username.value,
+        password: stows.ncPassword.value,
+        httpClient: NextcloudClientExtension.newHttpClient(),
+      );
+
       _isChecking.value = true;
-      await client.loadEncryptionKey();
+      await client.loadEncryptionKey(encPassword: encPassword);
+
+      stows.encPassword.value = encPassword;
       widget.recheckCurrentStep();
     } on EncLoginFailure {
-      stows.encPassword.value = '';
-
       _errorMessage.value = t.login.encLoginStep.wrongEncPassword;
     } catch (e) {
-      stows.encPassword.value = '';
       log.severe('Failed to load encryption key: $e', e);
 
       _errorMessage.value = '${t.login.encLoginStep.connectionFailed}\n\n$e';

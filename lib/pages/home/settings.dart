@@ -557,12 +557,25 @@ class _SettingsPageState extends State<SettingsPage> {
                 ),
                 SettingsSubtitle(subtitle: t.settings.prefCategories.advanced),
                 if (isSentryAvailable) const SettingsSentryConsent(),
-                if (Platform.isAndroid)
+                if (Platform.isAndroid) ...[
                   SettingsDirectorySelector(
                     title: t.settings.prefLabels.customDataDir,
                     icon: Icons.folder,
                   ),
-                if (Platform.isWindows || Platform.isLinux || Platform.isMacOS)
+                  const SettingsDirectorySelector(
+                    title: 'Saber-Config Folder',
+                    icon: Icons.folder,
+                    isConfigDir: true,
+                  ),
+                ],
+                if (Platform.isWindows ||
+                    Platform.isLinux ||
+                    Platform.isMacOS) ...[
+                  const SettingsDirectorySelector(
+                    title: 'Saber-Config Folder',
+                    icon: Icons.folder,
+                    isConfigDir: true,
+                  ),
                   SettingsButton(
                     title: t.settings.openDataDir,
                     icon: Icons.folder_open,
@@ -580,6 +593,7 @@ class _SettingsPageState extends State<SettingsPage> {
                       }
                     },
                   ),
+                ],
                 if (requiresManualUpdates ||
                     stows.shouldCheckForUpdates.value !=
                         stows.shouldCheckForUpdates.defaultValue) ...[

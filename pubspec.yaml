@@ -155,6 +155,7 @@ dependencies:
 
   background_downloader: ^9.2.6
   provider: ^6.1.5+1
+  logger: ^2.6.2
 
 dev_dependencies:
   flutter_test:

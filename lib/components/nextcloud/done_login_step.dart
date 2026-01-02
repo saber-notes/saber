@@ -87,7 +87,7 @@ class _DoneLoginStepState extends State<DoneLoginStep> {
         Text(
           t.profile.quotaUsage(
             used: readableBytes(quota?.used),
-            total: readableBytes(quota?.total),
+            total: (quota?.total ?? 0) < 0 ? '∞' : readableBytes(quota?.total),
             percent: quota?.percentRounded ?? 0,
           ),
         ),

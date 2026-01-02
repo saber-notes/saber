@@ -47,7 +47,6 @@ extension NextcloudClientExtension on NextcloudClient {
       url.isNotEmpty ? Uri.parse(url) : defaultNextcloudUri,
       loginName: username,
       password: ncPassword,
-      appPassword: ncPassword,
       httpClient: NextcloudClientExtension.newHttpClient(),
     );
 
@@ -112,8 +111,12 @@ extension NextcloudClientExtension on NextcloudClient {
     await webdav.put(file, configFileUri);
   }
 
-  Future<String> loadEncryptionKey({bool generateKeyIfMissing = true}) async {
-    final Encrypter encrypter = this.encrypter;
+  Future<String> loadEncryptionKey({
+    bool generateKeyIfMissing = true,
+    String? encPassword,
+  }) async {
+    final Encrypter encrypter =
+        encPassword != null ? getEncrypter(encPassword) : this.encrypter;
 
     final Map<String, String> config = await getConfig();
     if (config.containsKey(stows.key.key) && config.containsKey(stows.iv.key)) {
@@ -154,12 +157,14 @@ extension NextcloudClientExtension on NextcloudClient {
     return user.body.ocs.data.id;
   }
 
-  Encrypter get encrypter {
+  static Encrypter getEncrypter(String password) {
     final List<int> encodedPassword = utf8.encode(
-      stows.encPassword.value + reproducibleSalt,
+      password + reproducibleSalt,
     );
     final List<int> hashedPasswordBytes = sha256.convert(encodedPassword).bytes;
     final Key passwordKey = Key(hashedPasswordBytes as Uint8List);
     return Encrypter(AES(passwordKey));
   }
+
+  Encrypter get encrypter => getEncrypter(stows.encPassword.value);
 }

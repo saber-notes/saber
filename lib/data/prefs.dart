@@ -50,6 +50,12 @@ class Stows {
     volatile: !_isOnMainIsolate,
   );
 
+  final customConfigDir = PlainStow<String?>(
+    'customConfigDir',
+    null,
+    volatile: !_isOnMainIsolate,
+  );
+
   final allowInsecureConnections = SecureStow.bool(
     'allowInsecureConnections',
     false,

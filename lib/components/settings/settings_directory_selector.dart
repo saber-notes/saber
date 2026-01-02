@@ -10,6 +10,7 @@ import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/nextcloud/saber_syncer.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
+import 'package:stow/stow.dart';
 
 class SettingsDirectorySelector extends StatelessWidget {
   const SettingsDirectorySelector({
@@ -18,30 +19,49 @@ class SettingsDirectorySelector extends StatelessWidget {
     required this.icon,
     this.afterChange,
     this.isUnsupported = true,
+    this.pref,
+    this.isConfigDir = false,
   });
 
   final String title;
   final IconData icon;
   final ValueChanged<Color?>? afterChange;
   final bool isUnsupported;
+  final Stow<String?, String?, String?>? pref;
+  final bool isConfigDir;
 
   void onPressed(BuildContext context) async {
-    final oldDir = Directory(FileManager.documentsDirectory);
-    final oldDirIsEmpty = oldDir.existsSync()
-        ? oldDir.listSync().isEmpty
+    final currentDir = Directory(
+      isConfigDir
+          ? FileManager.configDirectory
+          : FileManager.documentsDirectory,
+    );
+    final currentDirIsEmpty = currentDir.existsSync()
+        ? currentDir.listSync().isEmpty
         : true;
     await showAdaptiveDialog(
       context: context,
       builder: (context) => DirectorySelector(
         title: title,
-        initialDirectory: FileManager.documentsDirectory,
-        mustBeEmpty: !oldDirIsEmpty,
+        initialDirectory: isConfigDir
+            ? FileManager.configDirectory
+            : FileManager.documentsDirectory,
+        mustBeEmpty: !currentDirIsEmpty,
+        isConfigDir: isConfigDir,
       ),
     );
   }
 
   @override
   Widget build(BuildContext context) {
+    final targetStow = isConfigDir
+        ? stows.customConfigDir
+        : stows.customDataDir;
+    final isNotDefault = targetStow.value != targetStow.defaultValue;
+    final displayDir = isConfigDir
+        ? FileManager.configDirectory
+        : FileManager.documentsDirectory;
+
     return InkWell(
       onTap: () => onPressed(context),
       child: ListTile(
@@ -54,18 +74,13 @@ class SettingsDirectorySelector extends StatelessWidget {
           title,
           style: TextStyle(
             fontSize: 18,
-            fontStyle:
-                stows.customDataDir.value != stows.customDataDir.defaultValue
-                ? FontStyle.italic
-                : null,
+            fontStyle: isNotDefault ? FontStyle.italic : null,
           ),
         ),
         subtitle: ValueListenableBuilder(
-          valueListenable: stows.customDataDir,
-          builder: (context, _, _) => Text(
-            FileManager.documentsDirectory,
-            style: const TextStyle(fontSize: 13),
-          ),
+          valueListenable: targetStow,
+          builder: (context, _, _) =>
+              Text(displayDir, style: const TextStyle(fontSize: 13)),
         ),
       ),
     );
@@ -79,12 +94,14 @@ class DirectorySelector extends StatefulWidget {
     required this.initialDirectory,
     this.mustBeEmpty = true,
     this.mustBeDoneSyncing = true,
+    this.isConfigDir = false,
   });
 
   final String title;
   final String initialDirectory;
   final bool mustBeEmpty;
   final bool mustBeDoneSyncing;
+  final bool isConfigDir;
 
   @override
   State<DirectorySelector> createState() => _DirectorySelectorState();
@@ -113,7 +130,9 @@ class _DirectorySelectorState extends State<DirectorySelector> {
   }
 
   Future<void> _pickDefaultDir() async {
-    final directory = await FileManager.getDefaultDocumentsDirectory();
+    final directory = widget.isConfigDir
+        ? await FileManager.getDefaultConfigDirectory()
+        : await FileManager.getDefaultDocumentsDirectory();
 
     final dir = Directory(directory);
     _directory = directory;
@@ -124,7 +143,10 @@ class _DirectorySelectorState extends State<DirectorySelector> {
   }
 
   void _onConfirm() {
-    stows.customDataDir.value = _directory;
+    final targetStow = widget.isConfigDir
+        ? stows.customConfigDir
+        : stows.customDataDir;
+    targetStow.value = _directory;
     context.pop();
   }
 

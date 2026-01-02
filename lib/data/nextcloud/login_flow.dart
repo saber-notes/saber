@@ -60,7 +60,7 @@ class SaberLoginFlow {
       _pollTimer?.cancel();
       _pollTimer = Timer.periodic(
         const Duration(seconds: 1),
-        (_) => _catch404Error(() async {
+        (_) => _catchHttpError(() => _catch404Error(() async {
           // Throws 404 if not logged in yet
           final poll = await flowClient.poll(
             $body: ClientFlowLoginV2PollRequestApplicationJson(
@@ -70,7 +70,7 @@ class SaberLoginFlow {
 
           _pollTimer?.cancel();
           if (!completer.isCompleted) completer.complete(poll.body);
-        }),
+        })),
       );
     });
   }

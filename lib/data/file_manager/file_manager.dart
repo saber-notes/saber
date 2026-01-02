@@ -30,6 +30,7 @@ class FileManager {
   /// This isn't final because isolates sometimes init multiple times.
   /// Realistically, this value never changes.
   static late String documentsDirectory;
+  static late String configDirectory;
 
   static final fileWriteStream = StreamController<FileOperation>.broadcast();
 
@@ -46,6 +47,7 @@ class FileManager {
   }) async {
     FileManager.documentsDirectory =
         documentsDirectory ?? await getDocumentsDirectory();
+    FileManager.configDirectory = await getConfigDirectory();
 
     if (shouldWatchRootDirectory) unawaited(watchRootDirectory());
   }
@@ -55,6 +57,12 @@ class FileManager {
 
   static Future<String> getDefaultDocumentsDirectory() async =>
       '${(await getApplicationDocumentsDirectory()).path}/$appRootDirectoryPrefix';
+
+  static Future<String> getConfigDirectory() async =>
+      stows.customConfigDir.value ?? await getDefaultConfigDirectory();
+
+  static Future<String> getDefaultConfigDirectory() async =>
+      '${(await getApplicationDocumentsDirectory()).path}/$appRootDirectoryPrefix/.saber';
 
   static Future<void> migrateDataDir() async {
     final oldDir = Directory(documentsDirectory);
@@ -596,6 +604,9 @@ class FileManager {
 
     await Future.wait(
       allChildren.map((child) async {
+        // Filter out hidden system directories
+        if (child.startsWith('.')) return;
+
         if (FileManager.isDirectory(directory + child) &&
             !directories.contains(child)) {
           directories.add(child);
@@ -642,26 +653,39 @@ class FileManager {
 
   static Future<List<String>> getRecentlyAccessed() async {
     if (!stows.recentFiles.loaded) await stows.recentFiles.waitUntilRead();
-    return stows.recentFiles.value
-        .map((String filePath) {
-          if (filePath.endsWith(Editor.extension)) {
-            return filePath.substring(
-              0,
-              filePath.length - Editor.extension.length,
-            );
-          } else if (filePath.endsWith(Editor.extensionOldJson)) {
-            return filePath.substring(
-              0,
-              filePath.length - Editor.extensionOldJson.length,
-            );
-          } else {
-            return filePath;
-          }
-        })
-        .where(
-          (String file) => !Editor.isReservedPath(file),
-        ) // filter out reserved file names
-        .toList();
+
+    final recentFiles = <String>[];
+    for (final filePath in stows.recentFiles.value) {
+      // Filter out reserved paths and hidden directories
+      if (Editor.isReservedPath(filePath) ||
+          filePath.startsWith('/.saber') ||
+          filePath.contains('/.saber/')) {
+        continue;
+      }
+
+      // Filter out non-existent files
+      if (!doesFileExist(filePath) && !isDirectory(filePath)) {
+        continue;
+      }
+
+      // Process the file path to remove extensions
+      String processedPath = filePath;
+      if (filePath.endsWith(Editor.extension)) {
+        processedPath = filePath.substring(
+          0,
+          filePath.length - Editor.extension.length,
+        );
+      } else if (filePath.endsWith(Editor.extensionOldJson)) {
+        processedPath = filePath.substring(
+          0,
+          filePath.length - Editor.extensionOldJson.length,
+        );
+      }
+
+      recentFiles.add(processedPath);
+    }
+
+    return recentFiles;
   }
 
   /// Returns whether the [filePath] is a directory or file.

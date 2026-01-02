@@ -1,18 +1,30 @@
+import 'dart:async';
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:logger/logger.dart';
 import 'package:saber/data/calendar/calendar_data_model.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 
 class CalendarController extends ChangeNotifier {
   final List<CalendarItem> _items = [];
   static const _calendarFileName = 'calendar.json';
+  static final _logger = Logger();
+
+  CalendarController() {
+    _initializeItems();
+  }
+
+  Future<void> _initializeItems() async {
+    await loadItems();
+  }
 
   List<CalendarItem> get items => List.unmodifiable(_items);
 
   Future<void> loadItems() async {
     try {
-      final file = FileManager.getFile('/$_calendarFileName');
+      final file = File('${FileManager.configDirectory}/$_calendarFileName');
       if (!file.existsSync()) {
         _items.clear();
         notifyListeners();
@@ -26,20 +38,21 @@ class CalendarController extends ChangeNotifier {
       }
       notifyListeners();
     } catch (e) {
-      print('Error loading calendar items: $e');
+      _logger.e('Error loading calendar items: $e');
     }
   }
 
   Future<void> _saveItems() async {
     try {
+      final dir = Directory(FileManager.configDirectory);
+      if (!dir.existsSync()) {
+        await dir.create(recursive: true);
+      }
+      final file = File('${FileManager.configDirectory}/$_calendarFileName');
       final jsonData = _items.map((item) => _calendarItemToJson(item)).toList();
-      await FileManager.writeFile(
-        '/$_calendarFileName',
-        utf8.encode(jsonEncode(jsonData)),
-        alsoUpload: true,
-      );
+      await file.writeAsString(jsonEncode(jsonData));
     } catch (e) {
-      print('Error saving calendar items: $e');
+      _logger.e('Error saving calendar items: $e');
     }
   }
 
@@ -81,7 +94,7 @@ class CalendarController extends ChangeNotifier {
   void addItem(CalendarItem item) {
     _items.add(item);
     notifyListeners();
-    _saveItems();
+    unawaited(_saveItems());
   }
 
   void updateItem(CalendarItem item) {
@@ -89,14 +102,14 @@ class CalendarController extends ChangeNotifier {
     if (index != -1) {
       _items[index] = item;
       notifyListeners();
-      _saveItems();
+      unawaited(_saveItems());
     }
   }
 
   void deleteItem(String id) {
     _items.removeWhere((item) => item.id == id);
     notifyListeners();
-    _saveItems();
+    unawaited(_saveItems());
   }
 
   void toggleTaskCompletion(String id) {
@@ -106,7 +119,7 @@ class CalendarController extends ChangeNotifier {
         isCompleted: !_items[index].isCompleted,
       );
       notifyListeners();
-      _saveItems();
+      unawaited(_saveItems());
     }
   }
 }

@@ -87,6 +87,7 @@ class Editor extends StatefulWidget {
 
   static final _reservedFilePaths = <RegExp>[
     RegExp(RegExp.escape(Whiteboard.filePath)),
+    RegExp(r'^/?\.saber(/.*)?$'), // Hidden config directory /.saber/*
   ];
 
   /// Whether the platform can rasterize a pdf
