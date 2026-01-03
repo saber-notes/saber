@@ -32,8 +32,8 @@ jobs:
 
       - name: Setup Xcode
         run: |
-          echo "Selecting Xcode 16.4..."
-          sudo xcode-select -s /Applications/Xcode_16.4.app
+          echo "Selecting Xcode 26.1..."
+          sudo xcode-select -s /Applications/Xcode_26.1.app
           xcode-select -p
           echo
 
@@ -42,7 +42,7 @@ jobs:
           echo
 
           echo "Downloading iOS platform files..."
-          xcodebuild -downloadPlatform iOS -version 18.0
+          xcodebuild -downloadPlatform iOS -version 26.1
           echo
 
       - name: Setup Flutter

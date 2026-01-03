@@ -17,8 +17,7 @@ on:
 jobs:
   build-macos:
     name: Build for macOS
-    # TODO(adil192): Change to macos-latest after 30 August 2025 (https://github.com/actions/runner-images/issues/12520)
-    runs-on: macos-15
+    runs-on: macos-latest
     env:
       APP_STORE_CONNECT_ISSUER_ID: ${{secrets.APP_STORE_CONNECT_ISSUER_ID}}
       APP_STORE_CONNECT_KEY_IDENTIFIER: ${{secrets.APP_STORE_CONNECT_KEY_IDENTIFIER}}
@@ -31,8 +30,8 @@ jobs:
 
       - name: Setup Xcode
         run: |
-          echo "Selecting Xcode 16.4..."
-          sudo xcode-select -s /Applications/Xcode_16.4.app
+          echo "Selecting Xcode 26.1..."
+          sudo xcode-select -s /Applications/Xcode_26.1.app
           xcode-select -p
           echo
 
