@@ -131,8 +131,12 @@ class _PreviewCardState extends State<PreviewCard> {
                           padding: const EdgeInsets.all(kYaruFocusBorderWidth),
                           child: ClipRRect(
                             borderRadius: const .only(
-                              topLeft: .circular(kYaruContainerRadius),
-                              topRight: .circular(kYaruContainerRadius),
+                              topLeft: .circular(
+                                kYaruContainerRadius - kYaruFocusBorderWidth,
+                              ),
+                              topRight: .circular(
+                                kYaruContainerRadius - kYaruFocusBorderWidth,
+                              ),
                             ),
                             child: InvertWidget(
                               invert: invert,
