@@ -114,7 +114,9 @@ class _PreviewCardState extends State<PreviewCard> {
               child: Stack(
                 children: [
                   Positioned.fill(
-                    top: kYaruFocusBorderWidth,
+                    top: kYaruContainerRadius,
+                    left: kYaruFocusBorderWidth,
+                    right: kYaruFocusBorderWidth,
                     child: ColoredBox(
                       color: InnerCanvas.defaultBackgroundColor.withInversion(
                         invert,
