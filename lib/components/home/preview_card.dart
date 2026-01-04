@@ -114,6 +114,7 @@ class _PreviewCardState extends State<PreviewCard> {
               child: Stack(
                 children: [
                   Positioned.fill(
+                    top: kYaruFocusBorderWidth,
                     child: ColoredBox(
                       color: InnerCanvas.defaultBackgroundColor.withInversion(
                         invert,
@@ -126,9 +127,16 @@ class _PreviewCardState extends State<PreviewCard> {
                       duration: const Duration(milliseconds: 300),
                       child: ConstrainedBox(
                         key: ValueKey(thumbnail.updateCount),
-                        constraints: const BoxConstraints(minHeight: 100),
+                        constraints: const BoxConstraints(
+                          minWidth: double.infinity,
+                          minHeight: 100,
+                        ),
                         child: Padding(
-                          padding: const EdgeInsets.all(kYaruFocusBorderWidth),
+                          padding: const EdgeInsets.only(
+                            top: kYaruFocusBorderWidth,
+                            left: kYaruFocusBorderWidth,
+                            right: kYaruFocusBorderWidth,
+                          ),
                           child: ClipRRect(
                             borderRadius: const .only(
                               topLeft: .circular(
@@ -141,7 +149,11 @@ class _PreviewCardState extends State<PreviewCard> {
                             child: InvertWidget(
                               invert: invert,
                               child: thumbnail.doesImageExist
-                                  ? Image(image: thumbnail.image!)
+                                  ? Image(
+                                      image: thumbnail.image!,
+                                      alignment: .topCenter,
+                                      fit: .cover,
+                                    )
                                   : const _FallbackThumbnail(),
                             ),
                           ),
