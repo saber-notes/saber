@@ -13,6 +13,7 @@ jobs:
   check-rust-version:
     name: Check if the Rust version is up to date
     runs-on: ubuntu-slim
+    if: ${{ github.repository == 'saber-notes/saber' }}
     timeout-minutes: 5
     steps:
       - name: Checkout code

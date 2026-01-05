@@ -13,6 +13,7 @@ jobs:
   check-flutter-submodule:
     name: Check if the Flutter submodule is up to date
     runs-on: ubuntu-slim
+    if: ${{ github.repository == 'saber-notes/saber' }}
     timeout-minutes: 5
     steps:
       - name: Checkout code

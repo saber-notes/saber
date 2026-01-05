@@ -26,6 +26,8 @@ jobs:
   top-issues:
     name: Top issues
     runs-on: ubuntu-slim
+    if: ${{ github.repository == 'saber-notes/saber' }}
+    timeout-minutes: 5
     steps:
       - name: Run top issues action
         uses: rickstaa/top-issues-action@v1
