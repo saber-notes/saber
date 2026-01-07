@@ -746,15 +746,13 @@ class _PagesBuilder extends StatelessWidget {
       final shouldRender = isFocused || isInViewport;
 
       page.isRendered = shouldRender;
-      // Wrap both the real page and the placeholder with a ClipRRect so
-      // pages have rounded corners for both normal and infinite canvases.
+
       final pageWidget = shouldRender
           ? pageBuilder(context, pageIndex)
           : placeholderPageBuilder(context, pageIndex);
 
       children.add(
         ClipRRect(
-          borderRadius: BorderRadius.circular(30.0),
           child: pageWidget,
         ),
       );
