@@ -19,6 +19,7 @@ home:
     exportNote(OUTDATED): Megjegyzés exportálása
   create: 
     newNote(OUTDATED): Új jegyzet
+    newInfiniteNote: Új végtelen jegyzet
     importNote(OUTDATED): Megjegyzés importálása
   welcome: Üdvözli a Saber
   noFiles: Nem található ilyen fájl

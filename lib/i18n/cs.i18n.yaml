@@ -19,6 +19,7 @@ home:
     exportNote: Exportovat poznámku
   create: 
     newNote: Nová poznámka
+    newInfiniteNote: Nová nekonečná poznámka
     importNote: Import poznámky
   welcome: Vítejte v aplikaci Saber
   invalidFormat: Vybrali jste nepodporovaný soubor. Vyberte prosím soubor s příponou .sbn, .sbn2, .sba nebo .pdf.

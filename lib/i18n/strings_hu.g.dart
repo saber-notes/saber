@@ -272,6 +272,7 @@ class _TranslationsHomeCreateHu extends TranslationsHomeCreateEn {
 
 	// Translations
 	@override String get newNote => 'Új jegyzet';
+	@override String get newInfiniteNote => 'Új végtelen jegyzet';
 	@override String get importNote => 'Megjegyzés importálása';
 }
 

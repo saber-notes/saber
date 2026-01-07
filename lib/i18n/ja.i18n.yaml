@@ -19,6 +19,7 @@ home:
     exportNote(OUTDATED): エクスポートメモ
   create: 
     newNote(OUTDATED): 新しいメモ
+    newInfiniteNote: 新しい無限メモ
     importNote(OUTDATED): インポートメモ
   welcome: ようこそSaberへ
   noFiles: ファイルが見つかりません

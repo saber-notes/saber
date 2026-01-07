@@ -274,6 +274,7 @@ class _TranslationsHomeCreateAr extends TranslationsHomeCreateEn {
 
 	// Translations
 	@override String get newNote => 'انشاء ملاحظة جديدة';
+	@override String get newInfiniteNote => 'انشاء ملاحظة لانهائية جديدة';
 	@override String get importNote => 'استيراد ملاحظة';
 }
 

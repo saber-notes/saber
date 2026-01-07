@@ -272,6 +272,7 @@ class _TranslationsHomeCreateJa extends TranslationsHomeCreateEn {
 
 	// Translations
 	@override String get newNote => '新しいメモ';
+	@override String get newInfiniteNote => '新しい無限メモ';
 	@override String get importNote => 'インポートメモ';
 }
 

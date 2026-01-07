@@ -82,7 +82,7 @@ class _NewNoteButtonState extends State<NewNoteButton> {
         // Infinite note (moved to second position, same icon as new note)
         SpeedDialChild(
           child: const Icon(Icons.create),
-          label: 'Nueva nota infinita',
+          label: t.home.create.newInfiniteNote,
           onTap: () async {
             // Create a new file path and persist an initial infinite note
             final newFilePath = await FileManager.newFilePath('${widget.path ?? ''}/');

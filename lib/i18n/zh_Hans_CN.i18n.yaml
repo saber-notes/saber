@@ -19,6 +19,7 @@ home:
     exportNote: 导出笔记
   create: 
     newNote: 新建笔记
+    newInfiniteNote: 新建无限笔记
     importNote: 导入笔记
   welcome: 欢迎使用 Saber
   invalidFormat: 不支持该文件。请选择 .sbn、.sbn2、.sba 或 .pdf 文件。

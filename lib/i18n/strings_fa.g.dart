@@ -272,6 +272,7 @@ class _TranslationsHomeCreateFa extends TranslationsHomeCreateEn {
 
 	// Translations
 	@override String get newNote => 'یادداشت جدید';
+	@override String get newInfiniteNote => 'یادداشت نامحدود جدید';
 	@override String get importNote => 'یادداشت وارد کنید';
 }
 

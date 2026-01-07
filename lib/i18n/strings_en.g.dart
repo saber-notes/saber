@@ -389,6 +389,9 @@ class TranslationsHomeCreateEn {
 	/// en: 'New note'
 	String get newNote => 'New note';
 
+	/// en: 'New infinite note'
+	String get newInfiniteNote => 'New infinite note';
+
 	/// en: 'Import note'
 	String get importNote => 'Import note';
 }

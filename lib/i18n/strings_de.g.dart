@@ -274,6 +274,7 @@ class _TranslationsHomeCreateDe extends TranslationsHomeCreateEn {
 
 	// Translations
 	@override String get newNote => 'Neue Notiz';
+	@override String get newInfiniteNote => 'Neue unendliche Notiz';
 	@override String get importNote => 'Notiz importieren';
 }
 

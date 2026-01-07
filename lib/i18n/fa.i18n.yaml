@@ -19,6 +19,7 @@ home:
     exportNote: صدور یادداشت
   create: 
     newNote: یادداشت جدید
+    newInfiniteNote: یادداشت نامحدود جدید
     importNote: یادداشت وارد کنید
   welcome: خوش آمدید
   invalidFormat: فایلی که انتخاب کرده اید پشتیبانی نمی شود. لطفاً یک فایل sbn، sbn2، sba یا pdf را انتخاب کنید.

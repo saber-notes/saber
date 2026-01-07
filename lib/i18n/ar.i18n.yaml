@@ -19,6 +19,7 @@ home:
     exportNote: تصدير ملاحظة
   create: 
     newNote: انشاء ملاحظة جديدة
+    newInfiniteNote: انشاء ملاحظة لانهائية جديدة
     importNote: استيراد ملاحظة
   welcome: مرحباً بك في Saber
   invalidFormat: صيغة الملف الذي اخترته ليست مدعومة, الرجاء اختيار ملف  sbn او sbn2 او sba او pdf

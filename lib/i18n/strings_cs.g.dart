@@ -274,6 +274,7 @@ class _TranslationsHomeCreateCs extends TranslationsHomeCreateEn {
 
 	// Translations
 	@override String get newNote => 'Nová poznámka';
+	@override String get newInfiniteNote => 'Nová nekonečná poznámka';
 	@override String get importNote => 'Import poznámky';
 }
 

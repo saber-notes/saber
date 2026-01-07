@@ -272,6 +272,7 @@ class _TranslationsHomeCreatePtBr extends TranslationsHomeCreateEn {
 
 	// Translations
 	@override String get newNote => 'Nova nota';
+	@override String get newInfiniteNote => 'Nova nota infinita';
 	@override String get importNote => 'Importar nota';
 }
 

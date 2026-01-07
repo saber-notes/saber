@@ -271,6 +271,7 @@ class _TranslationsHomeCreateEs extends TranslationsHomeCreateEn {
 
 	// Translations
 	@override String get newNote => 'Nueva nota';
+	@override String get newInfiniteNote => 'Nueva nota infinita';
 	@override String get importNote => 'Importar nota';
 }
 
