@@ -1,0 +1,1 @@
+Aumentei a versão para 1.x para refletir a maturidade do aplicativo e para permitir que os números de versão sejam mais significativos.

@@ -1,0 +1,3 @@
+• Les cartes de l'écran d'accueil sont désormais encadrées au lieu d'être ombrées.
+• Correction automatique désactivée dans le champ URL Nextcloud de la page de connexion.
+• Rendu `https://` facultatif dans le champ URL Nextcloud.

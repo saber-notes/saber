@@ -1,0 +1,4 @@
+• Las vistas previas de la pantalla de inicio se realizan con anticipación para mejorar el rendimiento.
+• Se corrigieron algunos errores de sincronización y se agregó un botón "resincronizar todo" en la configuración
+• Se corrigió un error al cargar notas grandes
+• Se corrigió el retraso de una fracción de segundo antes de que se inviertan las imágenes.

@@ -1,0 +1,2 @@
+• Die Seite „Einstellungen“ wurde neu organisiert, damit Sie einfacher finden, wonach Sie suchen.
+• Unterstützung für benutzerdefinierte Nextcloud-Server mit selbstsignierten Zertifikaten: Aktivieren Sie die Option „Unsichere Verbindungen zulassen“ in den Einstellungen.

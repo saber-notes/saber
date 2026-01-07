@@ -1,0 +1,7 @@
+• Ters çevrilmiş resimler artık daha yüksek kalitede olmalı
+• PDF'ler artık daha hızlı işlenmeli
+• Onyx e-mürekkep aygıtları için kullanılan sdk'da güncellemeler
+• Maksimum yakınlaştırma 5x'ten 10x'e çıkarıldı
+• Vuruşlar artık uzaklaştırıldığında daha düşük kalitede işleniyor
+• Düzenleyici kapatıldıktan hemen sonra bir tuval yeniden adlandırıldığında oluşan bir hata düzeltildi
+• Kalem düğmesine basılıyken dokunmanın ekstra geri almalara neden olduğu bir hata düzeltildi

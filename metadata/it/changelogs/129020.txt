@@ -1,0 +1,1 @@
+I numeri di pagina ora rispettano l'impostazione del carattere Atkinson Hyperlegged.

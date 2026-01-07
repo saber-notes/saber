@@ -1,0 +1,3 @@
+• Pokud chcete poznámky upravovat na tabletu a současně si je prohlížet na počítači, v nabídce editoru je nový přepínač, který umožňuje automatické obnovování.
+• Opravené narovnané linky tužkou vybledlé na koncích
+• Malé zlepšení doby načítání aplikace

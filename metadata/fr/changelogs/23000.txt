@@ -1,0 +1,3 @@
+• Refonte du processus de connexion
+• Arrêt du déclenchement de la sauvegarde automatique au milieu d'un coup
+• Correction du paramètre d'effet sonore du crayon qui n'était pas capté immédiatement

@@ -1,0 +1,7 @@
+• Hozzáadott egy lézermutató eszközt
+• Most már rögzítheti a pásztázást a függőleges/vízszintes tengelyekhez
+• A telefonhasználók mostantól választhatják a táblagép felhasználói felületét és fordítva
+• Jobb toll ikonok
+• Csökkentett az egyszerre betöltött jegyzetek száma
+• Javítva a törölt fájlok észlelése, így a szinkronizálás most sokkal gyorsabb
+• Gyorsabb és megbízhatóbb képimportálás

@@ -1,0 +1,4 @@
+• Plibonigis la aspekton de krajonstrekoj kaj ilia bildigo.
+• Saber nun uzas teman titolstangon en Vindozo kaj Linukso, kiu respondas al ŝanĝoj de lumo/malluma reĝimo.
+• Ŝaltiloj nun estas temeitaj sur la temo de Cupertino (iOS-stila).
+• Aldonis esperantan tradukon.

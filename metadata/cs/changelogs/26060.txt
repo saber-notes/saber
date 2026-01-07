@@ -1,0 +1,4 @@
+- Hlavní vylepšení algoritmu kreslení tahu. Při kreslení uvidíte méně blikání, lepší manipulaci s ostrými rohy uprostřed mrtvice a na konci mrtvice ztratíte méně detailů.
+- Přidána podpora stylusu na Linuxu. Neexistuje žádná citlivost na tlak, ale nyní můžete použít pero k nakreslení a prstem k posouvání.
+- Opraveny některé problémy při importu souborů na Windows, díky @Zebravogel94349 a @Qubab na GitHub.
+- Opraveno nastavení hyperlegibilního písma, které nepracuje s tématem Linux.

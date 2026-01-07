@@ -1,0 +1,9 @@
+• Snížení velikosti souboru poznámek
+• Snížení zpomalení způsobené synchronizací
+• Můžete nyní importovat PDF z domovské obrazovky
+• Opravena chyba při složce a poznámka měla stejný název
+• Opravena chyba rozvržení při použití tématu iOS
+• Opravená změnalogy se neobjevují ve F-Droidu
+• Pevné chybějící knihovny v AppImage
+• Opravena ATT výzva se objeví v iOS
+• Opravena chyba, kde quill toolbar bude pracovat pouze s první stránkou

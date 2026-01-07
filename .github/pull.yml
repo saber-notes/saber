@@ -1,0 +1,5 @@
+version: "1"
+rules:
+  - base: invalid-branch-to-block-bot
+    upstream: do-not-use-this-pointless-bot
+    mergeMethod: hardreset

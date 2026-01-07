@@ -1,0 +1,4 @@
+• Přidána šablona pro poznámky Cornell
+• Lepší náhledy různých vzorů pozadí
+• Opravena domovská obrazovka, která se po mnoha změnách občas pokazila
+• Písma jsou nyní součástí aplikace, takže se nestahují při prvním použití

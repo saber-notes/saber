@@ -1,0 +1,1 @@
+Javítottunk egy szinkronizálási hibát, amely a fájl elérési útjainak helytelen visszafejtését okozta, köszönhetően a @QubaB-nek a GitHubon

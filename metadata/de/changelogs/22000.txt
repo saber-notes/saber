@@ -1,0 +1,2 @@
+• Ein simulierter Bleistift-Soundeffekt wurde hinzugefügt. Standardmäßig ist es nur aktiviert, wenn Ihr Gerät nicht stummgeschaltet ist.
+• Das Nextcloud-Synchronisierungsproblem wurde behoben.

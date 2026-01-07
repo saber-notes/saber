@@ -1,0 +1,4 @@
+- Grandi miglioramenti all'algoritmo di disegno dell'ictus. Vedrai meno tremoli durante il disegno, una migliore gestione degli angoli affilati a metà tempesta e perderai meno dettagli vicino alla fine della corsa.
+- Aggiunto supporto stilo su Linux. Non c'è sensibilità alla pressione, ma ora puoi usare la penna per disegnare e il dito per scorrere.
+- Risolto alcuni problemi durante l'importazione di file su Windows, grazie a @zebravogel94349 e @qubab su github.
+...

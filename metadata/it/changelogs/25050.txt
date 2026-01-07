@@ -1,0 +1,3 @@
+• Migliore supporto per le barre di navigazione trasparenti
+• Risolti alcuni elementi dell'interfaccia utente occupando troppo spazio sugli schermi di piccole dimensioni
+• Ha fatto obbedire al modello di sfondo "punti" nell'impostazione dello spessore della linea

@@ -1,0 +1,4 @@
+• You can change the height of each line if you use patterned paper backgrounds
+• New notes will use your last-used background pattern and line-height
+• Performance improvements with images
+• Fix bug where the whiteboard would sometimes clear accidentally

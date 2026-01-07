@@ -1,0 +1,4 @@
+• • Yeni bir form tanıma algoritmasına geçiş yaptı
+• • Eklenen üçgen algılama
+• • Şekil aracı ile eklenmiş çizgi
+• • Bazı SBN ithalat başarısız

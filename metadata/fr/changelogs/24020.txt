@@ -1,0 +1,3 @@
+• Ajout d'une étoile à l'outil de forme
+• Correction des coins étranges sur les triangles dessinés avec l'outil Forme
+• Correction des points à point unique non enregistrés

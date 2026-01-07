@@ -1,0 +1,4 @@
+• Javítva a szinkronizálás a Nextcloud 26-tal
+• Kijavítottuk azt a hibát, amely miatt az új képek nem jelentek meg megfelelően a jegyzet újbóli megnyitásáig
+• Hatékonyságnövelés képekkel a hosszabb betöltési idők árán
+• Teljesítményjavulás a Flutter 3.10-nek köszönhetően

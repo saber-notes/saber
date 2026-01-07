@@ -1,0 +1,2 @@
+• Csökkentett hamis pozitív értékek a vonalak automatikus kiegyenesítésekor
+• Kísérleti támogatás a háttérben történő szinkronizáláshoz Android és iOS rendszeren

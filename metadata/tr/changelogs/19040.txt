@@ -1,0 +1,2 @@
+• Not önizlemelerinin garip bir şekilde kırpılması düzeltildi
+• iOS'ta dışa aktarmalar düzeltildi

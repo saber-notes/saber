@@ -1,0 +1,3 @@
+• Kleine UI -Verbesserungen auf der Einstellungsseite
+• Die vereinfachte Home -Layout -Einstellung wurde optimiert, damit die Karten nicht mehr ausgedehnt sind
+• Verweise auf Github-Sponsoren auf iOS entfernt, da sie In-App-Käufe verwenden müssten

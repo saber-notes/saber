@@ -1,0 +1,3 @@
+• Reducción del tamaño del archivo de notas con muchos trazos
+• Se corrigió un error al crear una nota en una carpeta
+• Traducciones y actualizaciones de metadatos

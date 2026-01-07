@@ -1,0 +1,58 @@
+name: saber
+base: core24
+adopt-info: saber
+grade: stable
+confinement: strict
+license: GPL-3.0
+compression: lzo
+icon: assets/icon/icon_linux.svg
+platforms:
+  amd64:
+  arm64:
+
+parts:
+  saber:
+    source: https://github.com/saber-notes/saber.git
+    source-tag: 'v1.29.3'
+    plugin: flutter
+    build-packages:
+      - execstack
+      - libsecret-1-dev
+      - libjsoncpp-dev
+      - openjdk-21-jdk
+    build-snaps:
+      - cmake
+    override-build: |
+      craftctl default
+      mkdir -p $CRAFT_PART_INSTALL/meta/gui
+      mv $CRAFT_PART_SRC/flatpak/com.adilhanney.saber.desktop $CRAFT_PART_INSTALL/meta/gui/saber.desktop
+      mkdir $CRAFT_PART_INSTALL/metainfo
+      mv $CRAFT_PART_SRC/flatpak/com.adilhanney.saber.metainfo.xml $CRAFT_PART_INSTALL/metainfo/
+      execstack --clear-execstack $CRAFT_PART_INSTALL/lib/libsentry.so
+    parse-info: [metainfo/com.adilhanney.saber.metainfo.xml]
+    prime:
+      - -lib/crashpad_handler
+
+  cleanup:
+    after: [saber]
+    plugin: nil
+    build-snaps:
+      - core24
+      - gnome-46-2404
+      - gtk-common-themes
+    override-prime: |
+      set -eux
+      for snap in "core24" "gnome-46-2404" "gtk-common-themes" ; do
+        cd "/snap/$snap/current" && find . -type f,l -exec rm -f "$SNAPCRAFT_PRIME/{}" \;
+      done
+
+apps:
+  saber:
+    command: saber
+    desktop: meta/gui/saber.desktop
+    extensions: [gnome]
+    common-id: com.adilhanney.saber
+    plugs:
+      - home
+      - network
+      - network-status

@@ -1,0 +1,4 @@
+• Aggiunto un modello per le note Cornell
+• Migliori anteprime dei diversi motivi di sfondo
+• Risolto il problema con la schermata iniziale che a volte risultava incasinata dopo molte modifiche
+• I caratteri sono ora in bundle con l'app, quindi non vengono scaricati al primo utilizzo

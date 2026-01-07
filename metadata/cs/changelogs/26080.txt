@@ -1,0 +1,4 @@
+• Vylepšené manipulace s krátkými (1-2 bodovými) tahy.
+• Opravené nulové chyby v obslužkách gesta pera.
+• Opraveno úniku malé paměti pomocí shaderů tužky.
+• Částečně stanovila migraci vlastního adresáře dat na Android.

@@ -1,0 +1,6 @@
+• Ciertos patrones de fondo ahora responden a si está usando un idioma de derecha a izquierda
+• Toque una página en la ventana emergente de páginas para desplazarse rápidamente hasta ella
+• Los usuarios del panel táctil de la computadora portátil ahora pueden pellizcar para hacer zoom
+• Pequeña mejora de rendimiento para cuando no tiene trazos de resaltado en la pantalla
+• Se corrigieron algunos errores al usar el tema de iOS
+• Mayor capacidad de respuesta de desplazamiento en el editor

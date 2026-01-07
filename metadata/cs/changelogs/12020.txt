@@ -1,0 +1,2 @@
+• Opraven problém s rozvržením panelu nástrojů pro úpravy textu
+• Opraveny překlepy Saber v některých překladech

@@ -1,0 +1,2 @@
+• Reorganizó la página Configuración para que sea más fácil encontrar lo que está buscando.
+• Compatibilidad con servidores Nextcloud personalizados con certificados autofirmados: habilite la opción "Permitir conexiones no seguras" en Configuración.

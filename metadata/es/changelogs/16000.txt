@@ -1,0 +1,5 @@
+• Ahora puedes cambiar el color de los trazos seleccionados, gracias a AraxTheCoder.
+• Mejoras en la confiabilidad de la sincronización.
+• Los anuncios se etiquetan como tales incluso si no se cargan.
+• Mejor manejo del bloqueo del zoom al restaurar el último zoom.
+• La importación de archivos PDF desde la pantalla de inicio ahora utiliza la carpeta actual.

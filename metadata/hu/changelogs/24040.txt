@@ -1,0 +1,3 @@
+• A törölt és a már szinkronizált fájlok jobb kezelése
+• Javítva a szóközök a fájlnevek végén és elején
+• További visszajelzés arról, hogy mely fájlok vannak éppen letöltés alatt/feltöltés alatt

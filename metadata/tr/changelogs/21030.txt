@@ -1,0 +1,3 @@
+• Lazer işaretleyiciye parlama efekti eklendi
+• Lazer işaretçiyi kullanmak artık otomatik kaydetmeyi tetiklemiyor
+• Kalem boyutu seçicinin dikey araç çubuğunda düzgün görüntülenmemesi düzeltildi

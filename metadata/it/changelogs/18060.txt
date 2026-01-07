@@ -1,0 +1,2 @@
+• Risolto il problema per cui le miniature venivano invertite in modo errato quando venivano salvate in modalità oscura
+• Risolto un bug di inversione di vecchia data con pixel neri puri

@@ -1,0 +1,2 @@
+• Riduzione dei falsi positivi durante il raddrizzamento automatico delle linee
+• Supporto sperimentale per la sincronizzazione in background su Android e iOS

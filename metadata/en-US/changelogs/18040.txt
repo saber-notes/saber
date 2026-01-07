@@ -1,0 +1,4 @@
+• Fixed syncing!
+• Fixed a bug where assets would be left behind when deleting or moving a note.
+• Use the arrow keys to move around a note.
+• Performance improvements for the shape tool.

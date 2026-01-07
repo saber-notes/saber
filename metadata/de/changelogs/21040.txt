@@ -1,0 +1,3 @@
+• Android-Benutzer können jetzt den Ordner ändern, in dem Notizen gespeichert werden
+• Die Größe der Textsymbolleiste wurde reduziert
+• Der Zoom wird beim Schließen jetzt auf 1,0x eingestellt

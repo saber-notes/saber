@@ -1,0 +1,3 @@
+• Javítva a megjegyzések kijelölése az átnevezés után.
+• Javítva a „minden újraszinkronizálása” gomb, amely egyszerre több feltöltést eredményez.
+• Az alkalmazáson belüli frissítő a továbbiakban nem jeleníti meg a letöltés gombot, ha a letöltés még nem érhető el. Ez csak az alkalmazáson belüli frissítőre vonatkozik, más frissítési módokra, például egy alkalmazásboltra nem.

@@ -5,9 +5,11 @@
 *.swp
 .DS_Store
 .atom/
+.build/
 .buildlog/
 .history
 .svn/
+.swiftpm/
 migrate_working_dir/
 
 # IntelliJ related
@@ -33,7 +35,6 @@ migrate_working_dir/
 /build/
 
 # Web related
-lib/generated_plugin_registrant.dart
 
 # Symbolication related
 app.*.symbols
@@ -45,3 +46,16 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Flatpak/linux build files
+.flatpak-builder
+build-dir
+Saber-Linux-Portable.tar.gz
+
+# Sentry error tracking
+.sentry-native/
+sentry.properties
+sentry-wizard
+
+# Test outputs
+coverage/

@@ -1,0 +1,2 @@
+• Correction d'un problème de mise en page avec la barre d'outils d'édition de texte
+• Correction des fautes d'orthographe de Saber dans certaines traductions

@@ -1,0 +1,2 @@
+• Corries de bugs pequenos, mas importantes, graças a todos que optaram por relatar erros!
+• Evolução adicional dos filtros de informações pessoais. Eles são implementados localmente e no servidor, para que suas informações sejam sempre seguras.

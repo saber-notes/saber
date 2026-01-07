@@ -1,0 +1,4 @@
+• Plibonigis la kvaliton de notbildetoj.
+• Optimumigitaj krajonstrekoj kiam elzomita.
+• Fiksita nekonvena ilobreto kontrasto en certaj temoj.
+• Riparita ligilo pri privateca politiko ne funkcias.

@@ -1,0 +1,3 @@
+• Mantenha pressionada uma cor recente para fixá-la
+• Agora você pode exportar notas da tela inicial
+• Várias correções de bugs

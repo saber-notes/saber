@@ -1,0 +1,6 @@
+• Os traços agora são endireitados apenas se já estiverem aproximadamente retos
+• Aumento da resolução das importações de PDF: esta é uma correção temporária até que tenhamos importações de PDF sem perdas
+• As atualizações subsequentes terão seus changelogs exibidos no aplicativo
+• Aprimorou a UX de login
+• Pequenas correções de bugs
+• Atualizado para Flutter 3.7.10

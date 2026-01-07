@@ -1,0 +1,6 @@
+• Některé vzory pozadí nyní reagují na to, zda používáte jazyk se zápisem zprava doleva
+• Klepnutím na stránku ve vyskakovacím okně stránek na ni rychle přejděte
+• Uživatelé touchpadu notebooku mohou nyní přiblížit přiblížení
+• Malé zlepšení výkonu, když na obrazovce nemáte žádné tahy zvýrazňovače
+• Opraveny některé chyby při používání motivu iOS
+• Zvýšená odezva posouvání v editoru

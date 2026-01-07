@@ -1,0 +1,3 @@
+• Lines are more accurately recognized with the shape tool
+• Adapted to multiple Nextcloud versions being supported
+• Fixed ads overlapping with the navbar

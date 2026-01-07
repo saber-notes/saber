@@ -1,0 +1,5 @@
+• Grandi miglioramenti per i dispositivi Onyx Boox con maggiore supporto degli strumenti e correzioni varie grazie a zinstack625 su GitHub. 
+• Velocità migliorata delle importazioni PDF. 
+• Tempi di caricamento migliorati per le note contenenti PDF di grandi dimensioni (ora vengono caricati pagina per pagina anziché tutti in una volta). 
+• Risolto un problema con il salvataggio dei PDF dalla finestra di dialogo a pressione prolungata. 
+...

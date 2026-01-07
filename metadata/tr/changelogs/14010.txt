@@ -1,0 +1,3 @@
+• Nextcloud 27 desteği
+• Bir notu kaydettikten sonra daha az kekemelik
+• Küçük kullanıcı arabirimi geliştirmeleri

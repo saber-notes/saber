@@ -1,0 +1,5 @@
+• Unterstützung für Ordner!
+• Verschieben und benennen Sie Notizen schnell vom Startbildschirm aus
+• Es wurde ein seltsames Problem mit Scribble auf dem iPad in der Stiftgrößenauswahl behoben
+• Problem beim Herunterladen von SVGs behoben
+• Kleinere visuelle und Leistungsverbesserungen

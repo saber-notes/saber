@@ -1,0 +1,2 @@
+• Correction de l'utilisation du stockage Nextcloud qui n'était pas affichée
+• Correction d'un bug où les notes portant certains noms ne s'affichaient pas sur l'écran d'accueil

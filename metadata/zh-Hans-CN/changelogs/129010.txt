@@ -1,0 +1,3 @@
+• 主屏幕卡现在带有边框，而不是阴影。
+• 禁用登录页面中Nextcloud URL 字段的自动更正。
+• 在Nextcloud URL 字段中将“https://”设为可选。

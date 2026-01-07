@@ -1,0 +1,4 @@
+• Mudou para um novo algoritmo de reconhecimento de forma
+• Adicionada detecção de triângulo
+• Adicionado ajuste de linha com a ferramenta de forma
+• Corrigida falha em algumas importações de SBN

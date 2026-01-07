@@ -1,0 +1,3 @@
+• Yeniden adlandırma sonrasında notların seçiminin kaldırılmaması düzeltildi.
+• "Her şeyi yeniden senkronize et" düğmesinin aynı anda birden fazla yüklemeye neden olması düzeltildi.
+• İndirme işlemi henüz mevcut değilse, uygulama içi güncelleyici artık indirme düğmesini göstermeyecektir. Bu yalnızca uygulama içi güncelleyici için geçerlidir; uygulama mağazası gibi diğer güncelleme yöntemleri için geçerli değildir.

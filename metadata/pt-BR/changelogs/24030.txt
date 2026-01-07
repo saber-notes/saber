@@ -1,0 +1,1 @@
+Corrigido um bug de sincronização que fazia com que os caminhos dos arquivos fossem descriptografados incorretamente, graças a @QubaB no GitHub

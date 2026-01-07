@@ -1,0 +1,5 @@
+• Přidáno tlačítko pro rychlé vložení stránky za aktuální stránku
+• Lepší podpora S-Pen, opět díky @ZebraVogel94349
+• Přidán japonský překlad, díky @nagiyu
+• Přizpůsobitelný interval automatického ukládání
+• Drobná vylepšení uživatelského rozhraní

@@ -1,0 +1,4 @@
+• Risolto il problema con la sincronizzazione!
+• Risolto un bug per il quale le risorse venivano lasciate indietro durante l'eliminazione o lo spostamento di una nota.
+• Utilizzare i tasti freccia per spostarsi all'interno di una nota.
+• Miglioramenti delle prestazioni per lo strumento forma.

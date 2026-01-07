@@ -1,0 +1,2 @@
+• Foi corrigido um problema em que as visualizações de notas eram cortadas de maneira estranha
+• Exportações corrigidas no iOS

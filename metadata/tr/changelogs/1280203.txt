@@ -1,0 +1,6 @@
+• Kullanım kolaylığını artırmak için, kalem kullanıyorsanız parmakla çizim otomatik olarak devre dışı bırakılır. Bu özelliği Ayarlar'dan kapatabilirsiniz. 
+• Artık kaydırma yaparken Control veya Command tuşunu basılı tutarak fareyle yakınlaştırma yapabilirsiniz. 
+• Çizimi bitirdiğinizde şekil kalemindeki konturların ezilmesi düzeltildi. 
+• Uzaklaştırıldığında gösterilen düşük kaliteli vuruşların doğruluğu iyileştirildi. 
+• Bazı vuruşlardaki sayısal (NaN) hatalar düzeltildi. 
+...

@@ -1,0 +1,1 @@
+Frohe Weihnachten! Ich habe eine Reihe von Leistungsverbesserungen hinzugefügt, darunter eine effizientere Bildinvertierung, eine bessere Handhabung von SVG-Dateien und das Verschieben der Homescreen-Anzeigen (es gibt jetzt nur noch eine Anzeige) an den unteren Bildschirmrand, um das Scrollen zu beschleunigen. Viel Glück an alle, die in den nächsten Wochen die Prüfungen bestehen!

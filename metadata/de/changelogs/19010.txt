@@ -1,0 +1,3 @@
+• Linien werden mit dem Formwerkzeug genauer erkannt
+• Angepasst an mehrere unterstützte Nextcloud-Versionen
+• Es wurde ein Problem behoben, bei dem sich Anzeigen mit der Navigationsleiste überlappten

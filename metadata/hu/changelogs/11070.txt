@@ -1,0 +1,3 @@
+• Érintse meg felhasználónevét a beállítások oldalon, hogy az új profiloldalra lépjen
+• Most már használhatja a jobbról balra és a balról jobbra haladó háttérmintákat is
+• Javítottuk a macOS ikont

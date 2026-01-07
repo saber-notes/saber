@@ -1,0 +1,4 @@
+• Sincronização corrigida!
+• Corrigido um bug onde os ativos eram deixados para trás ao excluir ou mover uma nota.
+• Use as teclas de seta para mover-se pela nota.
+• Melhorias de desempenho para a ferramenta de forma.

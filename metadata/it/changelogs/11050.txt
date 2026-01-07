@@ -1,0 +1,6 @@
+• Determinati motivi di sfondo ora rispondono al fatto che tu stia utilizzando una lingua con scrittura da destra a sinistra
+• Toccare una pagina nel popup delle pagine per scorrere rapidamente fino ad essa
+• Gli utenti del touchpad del laptop ora possono pizzicare per ingrandire
+• Piccolo miglioramento delle prestazioni quando non sono presenti tratti di evidenziatore sullo schermo
+• Risolti alcuni bug durante l'utilizzo del tema iOS
+• Maggiore reattività di scorrimento nell'editor

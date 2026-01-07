@@ -1,0 +1,5 @@
+• Ajout d'un bouton pour insérer rapidement une page après la page en cours
+• Meilleure prise en charge du S-Pen, merci encore à @ZebraVogel94349
+• Ajout de la traduction japonaise, grâce à @nagiyu
+• Intervalle d'enregistrement automatique personnalisable
+• Améliorations mineures de l'interface utilisateur

@@ -1,0 +1,2 @@
+• Karanlık modda kaydedildiğinde küçük resimlerin yanlış şekilde ters çevrilmesi düzeltildi
+• Saf siyah piksellerle ilgili uzun süredir devam eden bir ters çevirme hatası düzeltildi

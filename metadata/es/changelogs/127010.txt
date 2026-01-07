@@ -1,0 +1,2 @@
+• Se corrigió el soporte de autocompletar en la página de contraseña de cifrado. 
+• Varias mejoras en la interfaz de usuario.

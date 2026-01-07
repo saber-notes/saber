@@ -1,0 +1,4 @@
+• Various UI improvements
+• You can now choose to use the Atkinson Hyperlegible font
+• Updated Simplified Chinese translation by Sdarfeesh
+• Migrated to non-deprecated Nextcloud package

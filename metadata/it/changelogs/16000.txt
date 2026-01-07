@@ -1,0 +1,5 @@
+• Ora puoi cambiare il colore dei tratti selezionati, grazie ad AraxTheCoder.
+• Sincronizzazione dei miglioramenti dell'affidabilità.
+• Gli annunci sono etichettati come tali anche se non riescono a caricarsi.
+• Migliore gestione del blocco dello zoom durante il ripristino dell'ultimo zoom.
+• L'importazione di PDF dalla schermata iniziale ora utilizza la cartella corrente.

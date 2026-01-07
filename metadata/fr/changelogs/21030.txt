@@ -1,0 +1,3 @@
+• Ajout d'un effet lumineux au pointeur laser
+• L'utilisation du pointeur laser ne déclenche plus la sauvegarde automatique
+• Correction du sélecteur de taille de stylo qui ne s'affichait pas correctement dans une barre d'outils verticale.

@@ -1,0 +1,2 @@
+• Correction d'un problème où l'effet sonore du crayon ne s'arrêtait pas lorsque vous souleviez votre stylet.
+• Améliorations visuelles notamment dans le thème Linux/Yaru

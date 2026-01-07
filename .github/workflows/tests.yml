@@ -1,0 +1,74 @@
+name: Run tests
+
+on:
+  workflow_dispatch:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  run-tests:
+    name: Run Flutter tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - uses: "./.github/shared_workflows/install_apt_dependencies"
+
+      - name: Setup cache
+        uses: actions/cache@v5
+        with:
+          path: |
+            .dart_tool/
+            build/
+            linux/flutter/ephemeral/
+            macos/Flutter/ephemeral/
+            windows/flutter/ephemeral/
+            .flutter-plugins-dependencies
+          key: ${{ runner.OS }}-saber-${{ hashFiles('**/pubspec.lock') }}-${{ hashFiles('**/*.dart') }}
+          restore-keys: |
+            ${{ runner.OS }}-saber-
+
+      - name: Setup Flutter
+        uses: adil192/setup-flutter-submodule@v1
+        with:
+          flutter-path: submodules/flutter
+
+      - name: Disable Flutter CLI animations
+        run: flutter config --no-cli-animations
+
+      - run: flutter pub get
+
+      - name: Download Apple fonts
+        run: dart run golden_screenshot:download_apple_fonts
+
+      - name: Run tests
+        id: tests
+        run: flutter test --coverage --no-pub
+
+      - name: Upload to Codecov
+        if: success()
+        uses: codecov/codecov-action@v5
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: coverage/lcov.info
+
+      - name: Ensure test failures directory exists
+        if: failure()
+        run: mkdir -p test/failures
+
+      - name: Upload test failures
+        if: failure()
+        uses: actions/upload-artifact@v6
+        with:
+          name: Saber-test-failures
+          path: test/failures
+
+      - name: Run static analysis
+        run: flutter analyze --no-pub
+
+      - name: Check formatting
+        run: dart format lib scripts test --output none --set-exit-if-changed

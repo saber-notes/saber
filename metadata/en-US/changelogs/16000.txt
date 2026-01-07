@@ -1,0 +1,5 @@
+• You can now change the colour of selected strokes, thanks to AraxTheCoder.
+• Syncing reliability improvements.
+• Ads are labelled as such even if they fail to load.
+• Better handling of zoom lock when restoring your last zoom.
+• Importing PDFs from the home screen now uses the current folder.

@@ -1,0 +1,3 @@
+• Il puntatore laser ora attende che l'utente smetta di scrivere prima di svanire
+• Risolto un bug che causava la perdita di alcune pagine PDF
+• Risolto un bug per il quale le miniature delle note eliminate non venivano rimosse

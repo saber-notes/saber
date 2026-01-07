@@ -1,0 +1,74 @@
+name: Feature Request
+description: Suggest an idea for this project
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to suggest a new feature!
+  - type: textarea
+    id: motivation
+    attributes:
+      label: Motivation
+      description: Is your feature request related to a problem? Please describe.
+      placeholder: A clear and concise description of what the problem is. E.g. I'm always frustrated when [...]
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: Solution
+      description: Describe the solution you'd like
+      placeholder: A clear and concise description of what you want to happen.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives
+      description: Describe alternatives you've considered
+      placeholder: A clear and concise description of any alternative solutions or features you've considered.
+    validations:
+      required: false
+  - type: input
+    id: version
+    attributes:
+      label: Saber version
+      description: |
+        You can find this on the Settings page.
+        Please include your installed Saber version even if you don't think it's relevant!
+      placeholder: e.g. v0.19.1 F-Droid (19010)
+    validations:
+      required: true
+  - type: textarea
+    id: device
+    attributes:
+      label: Device
+      description: Please complete the following information
+      value: |
+        - Device:
+        - OS:
+
+        <!--
+        Example:
+        - Device: Google Pixel 6 Pro
+        - OS: Android 13
+        -->
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Anything else?
+      description: |
+        Links? References? Anything that will give us more context about the feature you are suggesting!
+        Screen recordings are especially useful!
+    validations:
+      required: false
+  - type: checkboxes
+    attributes:
+      label: Before submitting an issue, please check the following
+      options:
+        - label: I have searched for similar issues (both open and closed) and cannot find a duplicate
+          required: true
+        - label: I agree to follow the [Code of Conduct](https://github.com/saber-notes/saber/blob/main/CODE_OF_CONDUCT.md)
+          required: true

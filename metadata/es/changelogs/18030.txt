@@ -1,0 +1,4 @@
+• Se cambió a un nuevo algoritmo de reconocimiento de formas.
+• Detección de triángulos agregada
+• Se agregó ajuste de línea con la herramienta de forma.
+• Se corrigieron algunas importaciones de SBN que fallaban

@@ -1,0 +1,4 @@
+• Maior qualidade de renderização de PDF
+• O texto digitado agora se alinha corretamente com as linhas da página, se ativado
+• Atualizadas as caixas de diálogo do seletor de cores
+• Diversas melhorias do novo Flutter 3.22

@@ -1,0 +1,138 @@
+name: Build for macOS
+
+# Using instructions from
+# https://docs.flutter.dev/deployment/macos#create-a-build-archive-with-codemagic-cli-tools
+
+on:
+  # Enable manual run
+  workflow_dispatch:
+  push:
+    tags:
+      - "**"
+    branches:
+      - "**"
+    paths:
+      - .github/workflows/macos.yml
+
+jobs:
+  build-macos:
+    name: Build for macOS
+    runs-on: macos-latest
+    env:
+      APP_STORE_CONNECT_ISSUER_ID: ${{secrets.APP_STORE_CONNECT_ISSUER_ID}}
+      APP_STORE_CONNECT_KEY_IDENTIFIER: ${{secrets.APP_STORE_CONNECT_KEY_IDENTIFIER}}
+      APP_STORE_CONNECT_PRIVATE_KEY: ${{secrets.APP_STORE_CONNECT_PRIVATE_KEY}}
+      APP_STORE_CERTIFICATE_KEY: ${{secrets.APP_STORE_CERTIFICATE_KEY}}
+    timeout-minutes: 60
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Setup Xcode
+        run: |
+          echo "Selecting Xcode 26.1..."
+          sudo xcode-select -s /Applications/Xcode_26.1.app
+          xcode-select -p
+          echo
+
+          echo "Running Xcode first launch..."
+          xcodebuild -runFirstLaunch
+          echo
+
+      - name: Setup Flutter
+        uses: adil192/setup-flutter-submodule@v1
+        with:
+          flutter-path: submodules/flutter
+
+      - name: Install Codemagic CLI Tools
+        run: pipx install codemagic-cli-tools
+
+      - name: Setup keychain
+        run: |
+          keychain initialize
+
+          # Remove the template projects to prevent crash
+          rm -rf submodules/flutter/packages/flutter_tools/templates/app/ios.tmpl/Runner.xcodeproj
+          rm -rf submodules/flutter/packages/flutter_tools/templates/app/macos.tmpl/Runner.xcodeproj
+
+          app-store-connect fetch-signing-files com.adilhanney.saber \
+            --platform MAC_OS \
+            --type MAC_APP_STORE \
+            --certificate-key=@env:APP_STORE_CERTIFICATE_KEY \
+            --create
+
+          app-store-connect certificates list \
+            --type MAC_INSTALLER_DISTRIBUTION \
+            --certificate-key=@env:APP_STORE_CERTIFICATE_KEY \
+            --save
+
+          keychain add-certificates
+
+          xcode-project use-profiles --project macos/*.xcodeproj
+
+      - name: Disable Flutter CLI animations
+        run: flutter config --no-cli-animations
+
+      - run: flutter pub get
+
+      - name: Remove development dependencies
+        run: ./patches/remove_dev_dependencies.sh
+
+      - name: Build for macOS
+        run: |
+          flutter build macos \
+            --dart-define=FLAVOR="App Store" \
+            --dart-define=APP_STORE="App Store" \
+            --dart-define=UPDATE_CHECK="false"
+
+      - name: Package for App Store
+        id: package
+        run: |
+          APP_NAME="build/macos/Build/Products/Release/Saber.app"
+          PACKAGE_NAME="build/macos/Build/Products/Release/Saber.pkg"
+          echo "PACKAGE_NAME=$PACKAGE_NAME" >> $GITHUB_OUTPUT
+
+          xcrun productbuild --component "$APP_NAME" /Applications/ unsigned.pkg
+
+          INSTALLER_CERT_NAME=$(keychain list-certificates \
+                  | jq '[.[]
+                    | select(.common_name
+                    | contains("Mac Developer Installer"))
+                    | .common_name][0]' \
+                  | xargs)
+          xcrun productsign --sign "$INSTALLER_CERT_NAME" unsigned.pkg "$PACKAGE_NAME"
+          rm -f unsigned.pkg
+
+      - name: Compress macOS build
+        id: compress
+        run: |
+          brew install grep
+          buildName=$(ggrep -oP "(?<=buildName = ').*(?=')" lib/data/version.dart)
+          zipName="Saber_v${buildName}.app.zip"
+          echo "zipName=$zipName" >> $GITHUB_OUTPUT
+
+          pushd build/macos/Build/Products/Release
+          zip -r $zipName Saber.app
+          popd
+
+      - name: Restore keychain
+        run: keychain use-login
+
+      - name: Upload debug files to Sentry
+        run: |
+          brew install sentry-cli
+          sentry-cli debug-files upload --include-sources build/macos/
+        env:
+          SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
+          SENTRY_ORG: saber-yf
+          SENTRY_PROJECT: saber
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v6
+        with:
+          name: Saber-macOS-Archive
+          path: build/macos/Build/Products/Release/${{ steps.compress.outputs.zipName }}
+
+      - name: Publish to App Store
+        if: ${{ startsWith(github.ref, 'refs/tags/') }}
+        run: app-store-connect publish --path ${{ steps.package.outputs.PACKAGE_NAME }}

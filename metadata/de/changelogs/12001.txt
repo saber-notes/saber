@@ -1,0 +1,5 @@
+• Im Seitenverwaltungsdialog können Sie jetzt eine neue Seite nach der anderen einfügen
+• Im Seitenverwaltungsdialog können Sie jetzt eine Seite duplizieren
+• Sie können jetzt eine Seite im Seitenverwaltungsdialog löschen
+• Es wurde ein Fehler behoben, bei dem die Stifteingabe deaktiviert war, wenn das Schwenken mit einem Finger deaktiviert war
+• Direkter Link zur Seite zum Löschen des Kontos hinzugefügt

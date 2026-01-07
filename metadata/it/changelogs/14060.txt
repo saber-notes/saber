@@ -1,0 +1,5 @@
+• Aggiunto un pulsante per inserire rapidamente una pagina dopo la pagina corrente
+• Migliore supporto S-Pen, grazie ancora a @ZebraVogel94349
+• Aggiunta traduzione giapponese, grazie a @nagiyu
+• Intervallo di salvataggio automatico personalizzabile
+• Miglioramenti minori dell'interfaccia utente

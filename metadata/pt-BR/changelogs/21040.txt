@@ -1,0 +1,3 @@
+• Os usuários do Android agora podem alterar a pasta onde as notas são armazenadas
+• Reduziu o tamanho da barra de ferramentas de texto
+• O zoom agora é ajustado para 1,0x quando próximo

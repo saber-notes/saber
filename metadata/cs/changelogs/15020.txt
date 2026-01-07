@@ -1,0 +1,2 @@
+• Opraveno selhání nového formátu souboru při použití barevných tahů
+• Všechny známé poškozené soubory jsou nyní ve frontě synchronizace zbaveny priority

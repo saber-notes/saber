@@ -1,0 +1,3 @@
+• Risolto il problema per cui le note non venivano deselezionate dopo la ridenominazione.
+• Risolto il problema con il pulsante "Risincronizza tutto" che causava più caricamenti contemporaneamente.
+• L'aggiornamento in-app non mostrerà più il pulsante di download se il download non è ancora disponibile. Questo vale solo per l'aggiornamento in-app e non per altri metodi di aggiornamento come un app store.

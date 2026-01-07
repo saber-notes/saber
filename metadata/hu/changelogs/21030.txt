@@ -1,0 +1,3 @@
+• Ragyogó effektust adott a lézermutatóhoz
+• A lézermutató használata már nem indítja el az automatikus mentést
+• Javítva a tollméret-választó, amely nem jelenik meg megfelelően a függőleges eszköztáron

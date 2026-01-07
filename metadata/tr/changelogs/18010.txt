@@ -1,0 +1,3 @@
+• • Varlıklar şimdi size kaydırdığınız gibi lazily yükleniyor
+• • Kullanılmayan başyapıtı
+• • silinmiş dosyaların seçilmediği bir boğa

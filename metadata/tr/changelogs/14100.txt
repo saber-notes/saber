@@ -1,0 +1,3 @@
+• Sabit geri alma/yineleme vuruşları
+• Geçerli renk, artık renk çubuğunu açmaya gerek kalmadan araç çubuğunda görüntüleniyor
+• Küçük görsel ve performans iyileştirmeleri

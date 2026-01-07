@@ -1,0 +1,2 @@
+• Las líneas largas ahora se enderezan automáticamente sin tener que cambiar a la herramienta de forma (configurable en la configuración)
+• Se corrigieron los tamaños de lápiz que se restablecen al cambiar entre tipos de lápiz

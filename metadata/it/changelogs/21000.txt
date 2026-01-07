@@ -1,0 +1,2 @@
+• Le linee lunghe ora vengono raddrizzate automaticamente senza dover passare allo strumento forma (configurabile nelle impostazioni)
+• Risolto il problema con il ripristino delle dimensioni della penna quando si passava da un tipo di penna all'altro

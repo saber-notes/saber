@@ -1,0 +1,2 @@
+• A jegyzetek most az aktuális mappában jönnek létre, nem a gyökérmappában
+• Beállítás hozzáadva a tollra való visszaváltáshoz a radír használata után

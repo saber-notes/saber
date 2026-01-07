@@ -1,0 +1,2 @@
+• Aradığınızı bulmanızı kolaylaştırmak için Ayarlar sayfası yeniden düzenlendi.
+• Kendinden imzalı sertifikalara sahip özel Nextcloud sunucuları için destek: Ayarlar'da "Güvenli olmayan bağlantılara izin ver" seçeneğini etkinleştirin.

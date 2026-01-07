@@ -1,0 +1,6 @@
+• Por plibonigi uzfacilon, fingro-desegno estas aŭtomate malŝaltita se vi uzas grifelon. Vi povas malŝalti ĉi tiun funkcion en Agordoj. 
+• Vi nun povas zomi per muso tenante la klavon Kontrolo aŭ Komando dum movu. 
+• Fiksitaj strekoj de la formo plumo akiranta smushing kiam vi finas desegni ilin. 
+• Plibonigis la precizecon de la pli malaltaj kvalitaj strekoj, kiuj estas montritaj kiam malproksimigitaj. 
+• Korektis nombrajn (NaN) erarojn kun iuj strekoj. 
+• Ĝisdatigita Flutter al 3.38.

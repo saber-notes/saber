@@ -1,0 +1,3 @@
+• Importantes mejoras en la velocidad de sincronización
+• Mejor manejo de contraseñas de cifrado obsoletas
+• Representación mejorada de los trazos láser.

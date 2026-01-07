@@ -1,0 +1,4 @@
+• Miglioramenti delle prestazioni con note grandi
+• Risolto il problema con il menu dell'editor che pensava sempre di essere sull'ultima pagina di una nota
+• Aggiunta una maniglia di trascinamento al menu dell'editor
+• Ora riceverai un messaggio se provi ad accedere a un server Nextcloud non supportato

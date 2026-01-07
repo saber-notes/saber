@@ -1,0 +1,6 @@
+• Az ütéseket most csak akkor lehet kiegyenesíteni, ha már nagyjából egyenesek
+• Növelte a PDF-importálás felbontását: ez egy ideiglenes javítás, amíg veszteségmentes PDF-importálunk
+• A későbbi frissítések változásnaplói megjelennek az alkalmazáson belül
+• Javított a bejelentkezési UX
+• Kisebb hibajavítások
+• Frissítve a Flutter 3.7.10-re

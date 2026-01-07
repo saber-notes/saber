@@ -15,10 +15,11 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 1.0.0+1
+version: 1.29.3+129030
 
 environment:
-  sdk: ">=2.17.6 <3.0.0"
+  sdk: ">=3.10.0 <4.0.0"
+  flutter: ">=3.38.2"
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -29,14 +30,135 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
 
+  cupertino_icons: ^1.0.5
+  material_symbols_icons: ^4.2758.0
 
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.2
+  dynamic_color: ^1.5.4
+
+  flutter_staggered_grid_view: ^0.7.0
+
+  go_router: ^17.0.0
+  path_to_regexp: ^0.4.0
+
+  perfect_freehand: ^2.5.1
+
+  path_provider: ^2.0.11
+
+  shared_preferences: ^2.0.17
+  flutter_secure_storage: ^10.0.0-beta.4
+
+  url_launcher: ^6.1.8
+
+  nextcloud: ^8.1.0
+
+  collapsible: ^1.0.0
+
+  vector_math: ^2.1.2
+
+  intl: any
+
+  crypto: ^3.0.2
+  encrypt: ^5.0.1
+
+  http: ^1.1.0
+
+  keybinder: ^1.0.1
+
+  pdf: ^3.8.4
+  share_plus: ^12.0.0
+  file_picker: ^10.1.2
+
+  regexed_validator: ^2.0.0+1
+
+  slang: ^4.10.0
+  slang_flutter:
+
+  flex_color_picker: ^3.4.1
+
+  font_awesome_flutter: ^10.11.0
+
+  flutter_svg: ^2.0.0+1
+
+  defer_pointer: ^0.0.2
+
+  permission_handler: ^12.0.0+1
+  saver_gallery: ^4.0.0
+
+  animations: ^2.0.7
+
+  flutter_quill: ^11.1.0
+  quill_native_bridge_linux: ^0.0.2
+
+  window_manager: ^0.5.1
+
+  worker_manager: ^7.0.1
+  workmanager: ^0.9.0
+
+  archive: ^4.0.3
+
+  receive_sharing_intent: ^1.6.7
+
+  onyxsdk_pen:
+    path: packages/onyxsdk_pen
+
+  screenshot: ^3.0.0
+
+  path_drawing: ^1.0.1
+
+  printing: ^5.13.2
+
+  open_file: ^3.5.10
+
+  super_clipboard: ^0.9.0-dev.3
+
+  fast_image_resizer: ^0.0.2
+
+  bson: ^5.0.0
+
+  flutter_speed_dial: ^7.0.0
+
+  logging: ^1.2.0
+
+  fixnum: ^1.1.0
+
+  device_info_plus: ^11.1.1
+
+  yaru: ^9.0.0
+
+  one_dollar_unistroke_recognizer: ^1.1.1
+
+  meta: ^1.0.0
+
+  mutex: ^3.1.0
+
+  collection: ^1.0.0
+
+  abstract_sync: ^1.3.0
+
+  args: ^2.5.0
+
+  flutter_web_auth_2: ^4.0.0
+
+  pdfrx: ^2.1.3
+  path: ^1.9.1
+
+  stow: ^0.5.0
+  stow_plain: ^0.5.0
+  stow_secure: ^0.5.0
+  stow_codecs: ^1.4.0
+
+  sentry_flutter: ^9.5.0
+  sentry_logging: ^9.5.0
+
+  background_downloader: ^9.2.6
 
 dev_dependencies:
   flutter_test:
+    sdk: flutter
+  integration_test:
     sdk: flutter
 
   # The "flutter_lints" package below contains a set of recommended lints to
@@ -44,7 +166,24 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^2.0.0
+  flutter_lints: ^6.0.0
+
+  icons_launcher: ^3.0.0
+
+  simplytranslate: ^2.0.1
+
+  yaml: ^3.1.2
+
+  golden_screenshot: ^9.1.1
+
+  sentry_dart_plugin: ^3.1.1
+
+dependency_overrides:
+  # https://github.com/KasemJaffer/receive_sharing_intent/pull/333
+  receive_sharing_intent:
+    git:
+      url: https://github.com/KasemJaffer/receive_sharing_intent
+      ref: 2cea396843cd3ab1b5ec4334be4233864637874e
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -57,10 +196,13 @@ flutter:
   # the material Icons class.
   uses-material-design: true
 
-  # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
+  assets:
+    - assets/icon/icon.svg
+    - assets/images/
+    - assets/google_fonts/Atkinson_Hyperlegible_Next/OFL.txt
+    - assets/google_fonts/Dekko/OFL.txt
+    - assets/google_fonts/Fira_Mono/OFL.txt
+    - assets/google_fonts/Neucha/OFL.txt
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
@@ -87,3 +229,66 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+  fonts:
+    - family: AtkinsonHyperlegibleNext
+      fonts:
+        - asset: assets/google_fonts/Atkinson_Hyperlegible_Next/AtkinsonHyperlegibleNext-Regular.ttf
+          weight: 400
+        - asset: assets/google_fonts/Atkinson_Hyperlegible_Next/AtkinsonHyperlegibleNext-Italic.ttf
+          weight: 400
+          style: italic
+        - asset: assets/google_fonts/Atkinson_Hyperlegible_Next/AtkinsonHyperlegibleNext-Medium.ttf
+          weight: 500
+        - asset: assets/google_fonts/Atkinson_Hyperlegible_Next/AtkinsonHyperlegibleNext-MediumItalic.ttf
+          weight: 500
+          style: italic
+        - asset: assets/google_fonts/Atkinson_Hyperlegible_Next/AtkinsonHyperlegibleNext-SemiBold.ttf
+          weight: 600
+        - asset: assets/google_fonts/Atkinson_Hyperlegible_Next/AtkinsonHyperlegibleNext-SemiBoldItalic.ttf
+          weight: 600
+          style: italic
+    - family: Dekko
+      fonts:
+        - asset: assets/google_fonts/Dekko/Dekko-Regular.ttf
+    - family: FiraMono
+      fonts:
+        - asset: assets/google_fonts/Fira_Mono/FiraMono-Regular.ttf
+        - asset: assets/google_fonts/Fira_Mono/FiraMono-Medium.ttf
+          weight: 500
+        - asset: assets/google_fonts/Fira_Mono/FiraMono-Bold.ttf
+          weight: 700
+    - family: Neucha
+      fonts:
+        - asset: assets/google_fonts/Neucha/Neucha-Regular.ttf
+
+  shaders:
+    - shaders/pencil.frag
+
+
+# ./scripts/generate_icons.sh
+icons_launcher:
+  image_path: "assets/icon/icon.png"
+  platforms:
+    android:
+      enable: true
+      adaptive_background_color: "#ffc800"
+      adaptive_foreground_image: "assets/icon/icon_maskable.png"
+      adaptive_monochrome_image: "assets/icon/icon_monochrome.png"
+    ios:
+      enable: true
+      image_path: "assets/icon/icon_opaque.png"
+      dark_path: "assets/icon/icon_ios_dark.png"
+      tinted_path: "assets/icon/icon_ios_tintable.png"
+    linux:
+      enable: false # handled separately by flatpak, appimage, and snap
+    windows:
+      enable: true
+    macos:
+      enable: true
+      image_path: "assets/icon/icon_macos.png"
+
+sentry:
+  upload_debug_symbols: true
+  upload_source_maps: true
+  project: saber
+  org: saber-yf

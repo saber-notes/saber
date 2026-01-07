@@ -1,0 +1,2 @@
+• Risolto problema di layout con la barra degli strumenti di modifica del testo
+• Risolti errori di ortografia di Saber in alcune traduzioni

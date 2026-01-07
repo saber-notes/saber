@@ -1,0 +1,4 @@
+• Az eszközbeállítások most beágyazódnak az eszköztárba
+• Az egyenes vonalfelismerés mostantól rövidebb vonalakon is működik
+• A mentés folyamata most megjelenik a felhasználó számára
+• Kijavítottunk egy hibát a „Ne mentse az előre beállított színeket a legutóbbi színekben” beállítással

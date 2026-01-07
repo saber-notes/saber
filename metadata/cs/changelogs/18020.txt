@@ -1,0 +1,2 @@
+• Nezobrazuje se pevné využití úložiště Nextcloud
+• Opravena chyba, kdy se poznámky s určitými jmény nezobrazovaly na domovské obrazovce

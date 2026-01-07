@@ -1,0 +1,4 @@
+• Per migliorare la facilità d'uso, il disegno con le dita viene automaticamente disabilitato se si utilizza uno stilo. Puoi disattivare questa funzionalità nelle Impostazioni. 
+• Ora puoi eseguire lo zoom con il mouse tenendo premuto il tasto Control o Comando durante lo scorrimento. 
+• Risolto il problema per il quale i tratti della penna forma risultavano confusi quando finivi di disegnarli. 
+...

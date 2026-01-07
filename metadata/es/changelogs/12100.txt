@@ -1,0 +1,4 @@
+• Las opciones de herramientas ahora están incrustadas en la barra de herramientas
+• El reconocimiento de línea recta ahora funciona en líneas más cortas
+• El progreso de guardado ahora se muestra al usuario
+• Se corrigió un error con la configuración "No guardar colores preestablecidos en colores recientes"

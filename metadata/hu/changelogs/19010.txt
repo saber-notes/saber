@@ -1,0 +1,3 @@
+• A vonalak pontosabban felismerik az alakú eszközt
+• Több Nextcloud verziót támogatnak
+• fix hirdetések átfedése a navbar

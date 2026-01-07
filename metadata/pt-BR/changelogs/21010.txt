@@ -1,0 +1,2 @@
+• Redução de falsos positivos ao endireitar automaticamente as linhas
+• Suporte experimental para sincronização em segundo plano no Android e iOS

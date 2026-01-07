@@ -1,0 +1,7 @@
+• Inverted images should now be higher quality
+• PDFs should now render more quickly
+• Updates to the sdk used for Onyx e-ink devices
+• The max zoom has been increased from 5x to 10x
+• Strokes are now rendered at a lower quality when zoomed out
+• Fixed a bug when a canvas is renamed just after closing the editor
+• Fixed a bug where tapping with the stylus button pressed caused extra undos

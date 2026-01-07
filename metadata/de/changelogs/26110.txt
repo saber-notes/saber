@@ -1,0 +1,4 @@
+• Der In-App-Updater zeigt jetzt seinen Download-Fortschritt an
+• Kleine visuelle und Leistungsverbesserungen
+• Das Problem, dass AppImage unter Fedora nicht lief, wurde behoben
+• Der Bleistift-Soundeffekt ist standardmäßig deaktiviert

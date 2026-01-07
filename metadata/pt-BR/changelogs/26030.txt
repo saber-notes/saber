@@ -1,0 +1,2 @@
+• Adicionado alguns relatórios (opcionais) de falha para me ajudar a melhorar o aplicativo.
+• Correções menores de bug.

@@ -1,0 +1,3 @@
+• Assets werden jetzt langsam geladen, wenn Sie zu ihnen scrollen
+• Nicht verwendete Miniaturbildgenerierung entfernt
+• Es wurde ein Fehler behoben, bei dem die Auswahl gelöschter Dateien nicht aufgehoben wurde

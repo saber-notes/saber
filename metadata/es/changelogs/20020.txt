@@ -1,0 +1,3 @@
+• Cambiar el tamaño del lápiz ahora es más intuitivo con una entrada deslizante
+• Se eliminó el espacio adicional alrededor del banner publicitario.
+• Mejoras menores en el rendimiento y la fidelidad del lápiz.

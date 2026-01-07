@@ -1,0 +1,4 @@
+• Amélioration de la qualité des vignettes de notes.
+• Traits de crayon optimisés lors d'un zoom arrière.
+• Correction d'un contraste incorrect de la barre d'outils dans certains thèmes.
+• Correction d'un lien vers la politique de confidentialité qui ne fonctionnait pas.

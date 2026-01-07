@@ -1,0 +1,3 @@
+• Das Rückgängigmachen/Wiederholen von Strichen wurde behoben
+• Die aktuelle Farbe wird jetzt in der Symbolleiste angezeigt, ohne dass die Farbleiste geöffnet werden muss
+• Kleinere visuelle und Leistungsverbesserungen

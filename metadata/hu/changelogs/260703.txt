@@ -1,0 +1,1 @@
+Rögzített PDF importálási problémák, köszönöm a @qubab -ot a githubon

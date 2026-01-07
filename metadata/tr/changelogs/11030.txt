@@ -1,0 +1,6 @@
+• Konturlar yalnızca kabaca düz iseler düzleştirilecekler
+• PDF içe aktarma çözünürlüğü artırıldı: kayıpsız içe aktarma özelliği eklenene dek geçici bir çözümdür
+• Uygulama içerisinde değişiklikleri görüntüleme özelliği eklendi, bundan sonraki güncellemelerde değişiklik notları teslim edilecek
+• Oturum açma kullanıcı deneyimi iyileştirildi
+• Küçük hata düzeltmeleri
+• Flutter 3.7.10'a yükseltildi

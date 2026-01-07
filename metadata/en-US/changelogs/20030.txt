@@ -1,0 +1,3 @@
+• Fixed PDF exports failing on some notes
+• Reduced the blurring effect on large pencil sizes
+• Fixed the "resync everything" button uploading empty files

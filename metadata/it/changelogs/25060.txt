@@ -1,0 +1,2 @@
+• Risolto lo strumento di selezione non (visibilmente) mobili
+• Risolto i collegamenti del server nella pagina dell'account

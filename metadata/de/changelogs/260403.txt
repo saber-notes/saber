@@ -1,0 +1,2 @@
+• Kleine, aber wichtige Fehlerbehebungen dank aller, die sich für die Fehlerberichterstattung entschieden haben!
+• Weitere Entwicklung der persönlichen Informationsfilter. Diese werden sowohl lokal als auch auf dem Server implementiert, sodass Ihre Informationen immer sicher sind.

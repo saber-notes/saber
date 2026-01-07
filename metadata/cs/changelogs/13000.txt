@@ -1,0 +1,7 @@
+• Přidán nástroj laserového ukazovátka
+• Nyní můžete zamknout posouvání ve vertikální/horizontální ose
+• Uživatelé telefonů se nyní mohou rozhodnout používat uživatelské rozhraní tabletu a naopak
+• Lepší ikony per
+• Snížil se počet not, které se načítají najednou
+• Opravená detekce smazaných souborů, takže synchronizace jsou nyní mnohem rychlejší
+• Rychlejší a spolehlivější import obrázků

@@ -1,0 +1,5 @@
+• A economia automática é agora mais espaçado para evitar conflitos
+• Pequenas tweaks visuais
+• Links Android agora abrirá em um navegador no aplicativo
+• Caixas de seleção, pontos de bala e pontos de número são agora dimensionados proporcionalmente ao texto
+• Corrigido a aparência de traços de destaque no iOS

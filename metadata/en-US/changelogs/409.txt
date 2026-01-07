@@ -1,0 +1,4 @@
+• Better transition when opening a note
+• You can now choose custom colors in the editor
+• If you've chosen to auto-clear the whiteboard, you can tap the undo button to restore it.
+• Minor UI tweaks

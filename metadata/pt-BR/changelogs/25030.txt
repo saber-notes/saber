@@ -1,0 +1,3 @@
+• Corrigido o AppImage não abrindo para alguns usuários Linux
+• Adicionado melhor suporte para caneta pairando
+• Possíveis melhorias de desempenho de dependências atualizadas, incluindo um novo mecanismo de renderização no Android

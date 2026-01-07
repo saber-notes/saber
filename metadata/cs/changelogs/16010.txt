@@ -1,0 +1,6 @@
+• Opraveno selhání přihlášení, když složka Sabre již na serveru existuje.
+• Nyní můžete změnit barvu vybraných tahů díky AraxTheCoder.
+• Vylepšení spolehlivosti synchronizace.
+• Reklamy jsou takto označeny, i když se nepodaří načíst.
+• Lepší ovládání zámku zoomu při obnovení posledního zoomu.
+• Import souborů PDF z domovské obrazovky nyní používá aktuální složku.

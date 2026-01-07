@@ -1,0 +1,2 @@
+• As notas agora são criadas na pasta atual, não na pasta raiz
+• Adicionada uma configuração para voltar à caneta depois de usar a borracha

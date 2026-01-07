@@ -1,0 +1,3 @@
+• Risolto un caso limite in cui il puntatore laser poteva produrre tratti non validi.
+• Migliorata la qualità dei tratti quando si esegue lo zoom indietro.
+• Manutenzione generale, test migliorati e miglioramenti dietro le quinte.

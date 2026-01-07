@@ -1,0 +1,3 @@
+• Corrigiu um bug com servidores Nextcloud personalizados hospedados em um subdiretório, graças a provokateurin
+• Removidas algumas permissões de mídia que não estavam sendo usadas
+• Habilitou as animações de retorno preditivas do Android

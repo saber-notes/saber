@@ -1,0 +1,1 @@
+Uygulamanın olgunluğunu yansıtmak ve sürüm numaralarının daha anlamlı olmasını sağlamak için sürüm 1.x'e yükseltildi.

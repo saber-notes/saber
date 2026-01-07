@@ -1,115 +1,347 @@
+import 'dart:async';
+import 'dart:io';
+
+import 'package:args/args.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:go_router/go_router.dart';
+import 'package:logging/logging.dart';
+import 'package:onyxsdk_pen/onyxsdk_pen.dart';
+import 'package:path_to_regexp/path_to_regexp.dart';
+import 'package:pdfrx/pdfrx.dart';
+import 'package:printing/printing.dart';
+import 'package:receive_sharing_intent/receive_sharing_intent.dart';
+import 'package:saber/components/canvas/pencil_shader.dart';
+import 'package:saber/components/theming/dynamic_material_app.dart';
+import 'package:saber/data/file_manager/file_manager.dart';
+import 'package:saber/data/flavor_config.dart';
+import 'package:saber/data/nextcloud/nc_http_overrides.dart';
+import 'package:saber/data/nextcloud/saber_syncer.dart';
+import 'package:saber/data/prefs.dart';
+import 'package:saber/data/routes.dart';
+import 'package:saber/data/sentry/sentry_init.dart';
+import 'package:saber/data/tools/stroke_properties.dart';
+import 'package:saber/i18n/strings.g.dart';
+import 'package:saber/pages/editor/editor.dart';
+import 'package:saber/pages/home/home.dart';
+import 'package:saber/pages/logs.dart';
+import 'package:saber/pages/user/login.dart';
+import 'package:window_manager/window_manager.dart';
+import 'package:worker_manager/worker_manager.dart';
+import 'package:workmanager/workmanager.dart';
 
-void main() {
-  runApp(const MyApp());
+Future<void> main(List<String> args) async {
+  /// To set the flavor config e.g. for the Play Store, use:
+  /// flutter build \
+  ///   --dart-define=FLAVOR="Google Play" \
+  ///   --dart-define=APP_STORE="Google Play" \
+  ///   --dart-define=UPDATE_CHECK="false"
+  FlavorConfig.setupFromEnvironment();
+
+  await initSentry(() => appRunner(args));
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+Future<void> appRunner(List<String> args) async {
+  WidgetsFlutterBinding.ensureInitialized();
 
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+  final parser = ArgParser()..addFlag('verbose', abbr: 'v', negatable: false);
+  final parsedArgs = parser.parse(args);
+
+  Logger.root.level = (kDebugMode || parsedArgs.flag('verbose'))
+      ? Level.INFO
+      : Level.WARNING;
+  Logger.root.onRecord.listen((record) {
+    logsHistory.add(record);
+
+    if (!isSentryEnabled) {
+      // ignore: avoid_print
+      print('${record.level.name}: ${record.loggerName}: ${record.message}');
+    }
+  });
+
+  // For some reason, logging errors breaks hot reload while debugging.
+  if (!kDebugMode && !isSentryEnabled) {
+    final errorLogger = Logger('ErrorLogger');
+    FlutterError.onError = (details) {
+      errorLogger.severe(
+        details.exceptionAsString(),
+        details.exception,
+        details.stack,
+      );
+      FlutterError.presentError(details);
+    };
+    PlatformDispatcher.instance.onError = (error, stackTrace) {
+      errorLogger.severe(error, stackTrace);
+      // Returns false in debug mode so the error is printed to stderr
+      return !kDebugMode;
+    };
+  }
+
+  StrokeOptionsExtension.setDefaults();
+  Stows.markAsOnMainIsolate();
+
+  await Future.wait([
+    stows.customDataDir.waitUntilRead().then((_) => FileManager.init()),
+    if (Platform.isWindows || Platform.isLinux || Platform.isMacOS)
+      windowManager.ensureInitialized(),
+    workerManager.init(),
+    stows.locale.waitUntilRead(),
+    stows.url.waitUntilRead(),
+    stows.allowInsecureConnections.waitUntilRead(),
+    PencilShader.init(),
+    Printing.info().then((info) {
+      Editor.canRasterPdf = info.canRaster;
+    }),
+    OnyxSdkPenArea.init(),
+  ]);
+
+  setLocale();
+  stows.locale.addListener(setLocale);
+  stows.customDataDir.addListener(FileManager.migrateDataDir);
+  pdfrxFlutterInitialize(dismissPdfiumWasmWarnings: true);
+
+  LicenseRegistry.addLicense(() async* {
+    for (final licenseFile in const [
+      'assets/google_fonts/Atkinson_Hyperlegible_Next/OFL.txt',
+      'assets/google_fonts/Dekko/OFL.txt',
+      'assets/google_fonts/Fira_Mono/OFL.txt',
+      'assets/google_fonts/Neucha/OFL.txt',
+    ]) {
+      final license = await rootBundle.loadString(licenseFile);
+      yield LicenseEntryWithLineBreaks(const ['google_fonts'], license);
+    }
+  });
+
+  HttpOverrides.global = NcHttpOverrides();
+  runApp(SentryWidget(child: TranslationProvider(child: const App())));
+  startSyncAfterLoaded();
+  setupBackgroundSync();
+}
+
+void startSyncAfterLoaded() async {
+  await stows.username.waitUntilRead();
+  await stows.encPassword.waitUntilRead();
+
+  stows.username.removeListener(startSyncAfterLoaded);
+  stows.encPassword.removeListener(startSyncAfterLoaded);
+  if (!stows.loggedIn) {
+    // try again when logged in
+    stows.username.addListener(startSyncAfterLoaded);
+    stows.encPassword.addListener(startSyncAfterLoaded);
+    return;
+  }
+
+  // wait for other prefs to load
+  await Future.delayed(const Duration(milliseconds: 100));
+
+  // start syncing
+  syncer.downloader.refresh();
+  syncer.uploader.refresh();
+}
+
+void setLocale() {
+  if (stows.locale.value.isNotEmpty &&
+      AppLocaleUtils.supportedLocalesRaw.contains(stows.locale.value)) {
+    LocaleSettings.setLocaleRaw(stows.locale.value);
+  } else {
+    LocaleSettings.useDeviceLocale();
+  }
+}
+
+void setupBackgroundSync() {
+  if (!Platform.isAndroid && !Platform.isIOS) return;
+  if (!stows.syncInBackground.loaded) {
+    return stows.syncInBackground.addListener(setupBackgroundSync);
+  } else {
+    stows.syncInBackground.removeListener(setupBackgroundSync);
+  }
+  if (!stows.syncInBackground.value) return;
+
+  Workmanager().initialize(doBackgroundSync);
+  const uniqueName = 'background-sync';
+  const initialDelay = Duration(hours: 12);
+  final constraints = Constraints(
+    networkType: NetworkType.unmetered,
+    requiresBatteryNotLow: true,
+    requiresCharging: false,
+    requiresDeviceIdle: true,
+    requiresStorageNotLow: true,
+  );
+
+  if (Platform.isAndroid)
+    Workmanager().registerPeriodicTask(
+      uniqueName,
+      uniqueName,
+      frequency: initialDelay,
+      initialDelay: initialDelay,
+      constraints: constraints,
     );
-  }
+  else if (Platform.isIOS)
+    Workmanager().registerOneOffTask(
+      uniqueName,
+      uniqueName,
+      initialDelay: initialDelay,
+      constraints: constraints,
+    );
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
+@pragma('vm:entry-point')
+void doBackgroundSync() {
+  Workmanager().executeTask((_, _) async {
+    FlavorConfig.setupFromEnvironment();
+    StrokeOptionsExtension.setDefaults();
+    Editor.canRasterPdf = false;
 
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
+    await Future.wait([
+      FileManager.init(),
+      workerManager.init(),
+      stows.url.waitUntilRead(),
+      stows.allowInsecureConnections.waitUntilRead(),
+    ]);
 
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
+    /// Only sync a few files to avoid using too much data/battery
+    const maxFilesSynced = 10;
+    var filesSynced = 0;
+    final completer = Completer<bool>();
+    late final StreamSubscription<SaberSyncFile> transferSubscription;
+    void transferListener([_]) {
+      filesSynced++;
+      if (filesSynced >= maxFilesSynced ||
+          syncer.downloader.numPending <= 0 ||
+          completer.isCompleted) {
+        transferSubscription.cancel();
+        if (!completer.isCompleted) completer.complete(filesSynced > 0);
+      }
+    }
 
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
+    transferSubscription = syncer.downloader.transferStream.listen(
+      transferListener,
+    );
+    return completer.future;
+  });
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+class App extends StatefulWidget {
+  const App({super.key});
 
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
+  static final log = Logger('App');
 
-  @override
-  Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
-    return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
+  static String initialLocation = pathToFunction(RoutePaths.home)({
+    'subpage': HomePage.recentSubpage,
+  });
+  static final _router = GoRouter(
+    initialLocation: initialLocation,
+    routes: <GoRoute>[
+      GoRoute(path: '/', redirect: (context, state) => initialLocation),
+      GoRoute(
+        path: RoutePaths.home,
+        builder: (context, state) => HomePage(
+          subpage: state.pathParameters['subpage'] ?? HomePage.recentSubpage,
+          path: state.uri.queryParameters['path'],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
-    );
+      GoRoute(
+        path: RoutePaths.edit,
+        builder: (context, state) => Editor(
+          path: state.uri.queryParameters['path'],
+          pdfPath: state.uri.queryParameters['pdfPath'],
+        ),
+      ),
+      GoRoute(
+        path: RoutePaths.login,
+        builder: (context, state) => const NcLoginPage(),
+      ),
+      GoRoute(path: '/profile', redirect: (context, state) => RoutePaths.login),
+      GoRoute(
+        path: RoutePaths.logs,
+        builder: (context, state) => const LogsPage(),
+      ),
+    ],
+  );
+
+  static void openFile(SharedMediaFile file) async {
+    log.info('Opening file: (${file.type}) ${file.path}');
+
+    if (file.type != SharedMediaType.file) return;
+
+    final String extension;
+    if (file.path.contains('.')) {
+      extension = file.path.split('.').last.toLowerCase();
+    } else {
+      extension = 'sbn2';
+    }
+
+    if (extension == 'sbn' || extension == 'sbn2' || extension == 'sba') {
+      final path = await FileManager.importFile(
+        file.path,
+        null,
+        extension: '.$extension',
+      );
+      if (path == null) return;
+
+      // allow file to finish writing
+      await Future.delayed(const Duration(milliseconds: 100));
+
+      _router.push(RoutePaths.editFilePath(path));
+    } else if (extension == 'pdf' && Editor.canRasterPdf) {
+      final fileNameWithoutExtension = file.path
+          .split(RegExp(r'[\\/]'))
+          .last
+          .substring(0, file.path.length - '.pdf'.length);
+      final sbnFilePath = await FileManager.suffixFilePathToMakeItUnique(
+        '/$fileNameWithoutExtension',
+      );
+      _router.push(RoutePaths.editImportPdf(sbnFilePath, file.path));
+    } else {
+      log.warning('openFile: Unsupported file type: $extension');
+    }
+  }
+
+  @override
+  State<App> createState() => _AppState();
+}
+
+class _AppState extends State<App> {
+  StreamSubscription? _intentDataStreamSubscription;
+
+  @override
+  void initState() {
+    setupSharingIntent();
+    super.initState();
+  }
+
+  void setupSharingIntent() {
+    if (Platform.isAndroid || Platform.isIOS) {
+      // for files opened while the app is closed
+      ReceiveSharingIntent.instance.getInitialMedia().then((
+        List<SharedMediaFile> files,
+      ) {
+        for (final file in files) {
+          App.openFile(file);
+        }
+      });
+
+      // for files opened while the app is open
+      final stream = ReceiveSharingIntent.instance.getMediaStream();
+      _intentDataStreamSubscription = stream.listen((
+        List<SharedMediaFile> files,
+      ) {
+        for (final file in files) {
+          App.openFile(file);
+        }
+      });
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return DynamicMaterialApp(title: 'Saber', router: App._router);
+  }
+
+  @override
+  void dispose() {
+    _intentDataStreamSubscription?.cancel();
+    super.dispose();
   }
 }

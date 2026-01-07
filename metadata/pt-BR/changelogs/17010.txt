@@ -1,0 +1,2 @@
+• Corrigida uma falha ao ampliar PDFs
+• Melhor desempenho da ferramenta de forma

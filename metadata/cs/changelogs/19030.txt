@@ -1,0 +1,3 @@
+• Opraveno nezrušení výběru poznámek po přejmenování.
+• Opraveno tlačítko „znovu synchronizovat vše“ způsobující více nahrávání najednou.
+• Aktualizátor v aplikaci již nebude zobrazovat tlačítko stahování, pokud stahování ještě není k dispozici. To platí pouze pro aktualizátor v aplikaci, nikoli pro jiné metody aktualizace, jako je obchod s aplikacemi.

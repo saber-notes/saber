@@ -1,0 +1,3 @@
+• Se agregó un efecto de brillo al puntero láser.
+• El uso del puntero láser ya no activa el guardado automático.
+• Se corrigió que el selector de tamaño de lápiz no se mostrara correctamente en una barra de herramientas vertical.

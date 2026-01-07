@@ -1,0 +1,2 @@
+• Problema de layout corrigido com a barra de ferramentas de edição de texto
+• Correção de erros ortográficos de Saber em algumas traduções

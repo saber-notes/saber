@@ -1,0 +1,4 @@
+• Home screen previews are done ahead of time for performance
+• Fixed some syncing errors and added a "resync everything" button in settings
+• Fixed a bug with loading large notes
+• Fixed the split-second delay before images are inverted

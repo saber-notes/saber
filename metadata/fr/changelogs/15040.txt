@@ -1,0 +1,5 @@
+• Correction de nombreux problèmes de zoom et de détection de la page actuelle lors du zoom
+• Performances initiales améliorées sur les appareils Android non-Onyx
+• Amélioration des performances de la barre d'outils lors du basculement entre différents menus
+• Prise en charge des appareils Linux arm64 sur Flathub
+• Annonces désactivées sur les appareils sur lesquels elles provoqueraient des ralentissements

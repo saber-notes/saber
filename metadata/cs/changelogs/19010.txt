@@ -1,0 +1,3 @@
+• Linky jsou přesně rozpoznány tvarovým nástrojem
+• Přizpůsobeno více verzí Nextcloudu, které jsou podporovány
+• Pevné reklamy překrývající se s navbar

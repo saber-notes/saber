@@ -1,0 +1,4 @@
+• Aktualizátor v aplikaci nyní zobrazuje průběh stahování
+• Malá vizuální a výkonnostní vylepšení
+• Opraveno, že AppImage neběží na Fedoře
+• Ve výchozím nastavení je vypnutý zvukový efekt tužky

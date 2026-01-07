@@ -1,0 +1,65 @@
+group = "com.example.onyxsdk_pen"
+version = "1.0-SNAPSHOT"
+
+buildscript {
+    ext.kotlin_version = "2.1.0"
+    repositories {
+        google()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath("com.android.tools.build:gradle:8.9.1")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version")
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+apply plugin: "com.android.library"
+apply plugin: "kotlin-android"
+
+android {
+    namespace = "com.example.onyxsdk_pen"
+
+    compileSdk = 36
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_17
+    }
+
+    sourceSets {
+        main.java.srcDirs += "src/main/kotlin"
+    }
+
+    defaultConfig {
+        minSdk = 24
+    }
+
+    repositories {
+        // These need to be added to your project's android/build.gradle file.
+        maven {
+            url "https://jitpack.io"
+        }
+        maven {
+            url "http://repo.boox.com/repository/maven-public/"
+            allowInsecureProtocol true
+        }
+    }
+
+    dependencies {
+        implementation('com.onyx.android.sdk:onyxsdk-device:1.2.32')
+        implementation('com.onyx.android.sdk:onyxsdk-pen:1.4.12')
+        implementation("org.lsposed.hiddenapibypass:hiddenapibypass:6.1")
+    }
+}

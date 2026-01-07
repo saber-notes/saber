@@ -1,0 +1,2 @@
+• Risolto il problema con le esportazioni PDF che risultavano grigie per alcuni utenti
+• Aggiunto un pulsante per eliminare le cartelle

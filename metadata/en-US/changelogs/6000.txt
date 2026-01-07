@@ -1,0 +1,4 @@
+• You can now set images as the page background
+• Fixed the finger drawing toggle on web
+• Fixed photo import on web
+• Upgraded to Flutter 3.7.0

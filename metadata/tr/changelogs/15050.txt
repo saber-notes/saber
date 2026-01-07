@@ -1,0 +1,2 @@
+• Linux (Yaru) teması eklendi
+• • Sabit bir senkronizasyon regresyon

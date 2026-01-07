@@ -1,0 +1,2 @@
+• Javítva a Nextcloud tárhelyhasználat nem jelenik meg
+• Kijavítottuk azt a hibát, amely miatt bizonyos nevű jegyzetek nem jelennek meg a kezdőképernyőn

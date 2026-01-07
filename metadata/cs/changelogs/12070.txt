@@ -1,0 +1,4 @@
+• U nových obrázků/souborů PDF by měly být miniatury o něco kvalitnější
+• Uživatelé stolních počítačů mohou přibližovat a oddalovat pomocí Ctrl + a Ctrl -
+• Přidány pastelové barvy do výchozí palety barev
+• Opraveno, že se editor při importu PDF neaktualizoval, dokud ručně neposunete

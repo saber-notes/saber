@@ -1,0 +1,4 @@
+• Correction de la synchronisation avec Nextcloud 26
+• Correction d'un bug où les nouvelles images ne s'affichaient pas correctement tant que vous n'aviez pas rouvert la note
+• Améliorations de l'efficacité avec les images au prix de temps de chargement plus longs
+• Améliorations des performances grâce à Flutter 3.10

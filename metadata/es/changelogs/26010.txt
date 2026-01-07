@@ -1,0 +1,3 @@
+• Tamaño ligeramente reducido de la aplicación
+• nueva visualización de la ruta de carpeta actual en la página de navegación
+• En futuras actualizaciones, agregaré un seguimiento de errores para ayudarme a mejorar la aplicación. Será susceptible y tan anónimo como pueda hacerlo.

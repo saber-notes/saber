@@ -1,0 +1,3 @@
+• Giriş yaptıktan sonra "neredeyse giriş yapılıyor" mesajının gösterilmesi düzeltildi
+• Bazı simgeler iyileştirildi
+• Metin düzenlerken ok tuşlarıyla kaydırma devre dışı bırakıldı

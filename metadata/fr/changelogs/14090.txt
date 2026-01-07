@@ -1,0 +1,2 @@
+• Ajout d'un paramètre pour masquer le bouton de dessin au doigt pour éviter de le basculer accidentellement
+• Corrections de bogues

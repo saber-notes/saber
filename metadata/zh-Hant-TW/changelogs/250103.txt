@@ -1,0 +1,3 @@
+• 修正了託管在子目錄中的自訂 Nextcloud 伺服器的錯誤，感謝 provokateurin
+• 刪除了一些未使用的媒體權限
+• 啟用Android 的預測返回動畫

@@ -1,0 +1,5 @@
+• Nagy fejlesztések az Onyx Boox eszközökön, megnövelt eszköztámogatással és különféle javításokkal a GitHubon található zinstack625-nek köszönhetően. 
+• Megnövelt sebességű PDF-importálás. 
+• Javított betöltési idő a nagy PDF-eket tartalmazó jegyzeteknél (most már nem egyszerre, hanem oldalanként töltődnek be). 
+• Kijavítottuk a PDF-fájlok mentésével kapcsolatos problémát a hosszan lenyomott párbeszédpanelen. 
+...

@@ -1,0 +1,2 @@
+• Melhorias de desempenho ao armazenar imagens/PDFs separadamente da nota principal
+• Erros ao renomear uma nota agora são relatados ao usuário

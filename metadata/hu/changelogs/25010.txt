@@ -1,0 +1,3 @@
+• Hiba javítása az egyéni Nextcloud szervereknél, amelyek egy alkönyvtárban vannak tárolva a provokateurinnek köszönhetően
+• Eltávolított néhány nem használt médiaengedélyt
+• Engedélyezve az Android prediktív hátsó animációit

@@ -1,0 +1,3 @@
+• Corrigidas notas que não eram desmarcadas após serem renomeadas.
+• Corrigido o botão "ressincronizar tudo" que causava vários uploads de uma só vez.
+• O atualizador do aplicativo não mostrará mais o botão de download se o download ainda não estiver disponível. Isso se aplica apenas ao atualizador no aplicativo e não a qualquer outro método de atualização, como uma loja de aplicativos.

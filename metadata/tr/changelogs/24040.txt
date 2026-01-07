@@ -1,0 +1,3 @@
+• Silinen dosyaların ve önceden senkronize edilmiş dosyaların daha iyi işlenmesi
+• Dosya adlarının sonunda ve başında izin verilen boşluklar düzeltildi
+• Şu anda hangi dosyaların indirildiği/yüklendiği hakkında daha fazla geri bildirim

@@ -1,0 +1,4 @@
+• Le miniature dovrebbero essere di qualità leggermente migliore per nuove immagini/PDF
+• Gli utenti desktop possono ingrandire e ridurre con Ctrl + e Ctrl -
+• Aggiunti colori pastello alla tavolozza dei colori predefinita
+• Risolto il problema con l'editor che non si aggiornava durante l'importazione di un PDF finché non si scorreva manualmente

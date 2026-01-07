@@ -1,0 +1,3 @@
+• Premere a lungo un colore recente per appuntarlo
+• Ora puoi esportare le note dalla schermata principale
+• Varie correzioni di bug

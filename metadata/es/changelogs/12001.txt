@@ -1,0 +1,5 @@
+• Ahora puede insertar una nueva página tras otra en el cuadro de diálogo de administración de páginas
+• Ahora puede duplicar una página en el cuadro de diálogo de administración de páginas
+• Ahora puede eliminar una página en el cuadro de diálogo de administración de páginas.
+• Se corrigió un error por el cual la entrada del lápiz óptico estaba deshabilitada si la panorámica con un dedo estaba deshabilitada
+• Se agregó un enlace directo a la página de eliminación de cuenta

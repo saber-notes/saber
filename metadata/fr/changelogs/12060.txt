@@ -1,0 +1,4 @@
+• Améliorations des performances avec les grandes notes
+• Correction du menu de l'éditeur pensant toujours que vous êtes sur la dernière page d'une note
+• Ajout d'une poignée de glissement au menu de l'éditeur
+• Vous recevrez maintenant un message si vous essayez de vous connecter à un serveur Nextcloud non pris en charge

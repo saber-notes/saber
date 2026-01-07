@@ -1,0 +1,2 @@
+• Renkli konturlar kullandığınızda yeni dosya formatının çökmesi düzeltildi
+• Bilinen tüm bozuk dosyaların önceliği artık senkronizasyon kuyruğunda kaldırılmıştır

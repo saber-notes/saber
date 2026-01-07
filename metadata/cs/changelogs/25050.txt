@@ -1,0 +1,3 @@
+• Lepší podpora transparentních navigačních pruhů
+• Opraveno některé prvky uživatelského rozhraní, které zabírají příliš mnoho místa na malých obrazovkách
+• Udělal vzorec „teček“ pozadí dodržován nastavení tloušťky linky

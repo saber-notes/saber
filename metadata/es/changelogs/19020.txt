@@ -1,0 +1,1 @@
+Los trazos que tenían bordes irregulares ahora se han suavizado, en particular los dibujados con el mouse o el trackpad.

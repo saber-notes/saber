@@ -1,0 +1,3 @@
+• Se corrigió un caso extremo donde el puntero láser podía producir trazos no válidos.
+• Se hicieron trazos de mayor calidad cuando se aleja el zoom.
+• Mantenimiento general, pruebas mejoradas y mejoras detrás de escena.

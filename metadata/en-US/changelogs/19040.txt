@@ -1,0 +1,2 @@
+• Fixed note previews being cropped weirdly
+• Fixed exports on iOS

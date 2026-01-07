@@ -1,13 +1,41 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.adilhanney.saber.saber">
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <!-- Needed for saving photos -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- Needed for reading files opened with the app -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <!-- Install update APKs -->
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+
+    <!-- Remove media permissions from open_filex package -->
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" tools:node="remove" />
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" tools:node="remove" />
+    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" tools:node="remove" />
+
    <application
-        android:label="saber"
+        android:label="Saber"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/ic_launcher"
+        android:supportsRtl="true"
+        android:largeHeap="true"
+        android:appCategory="productivity"
+        android:hasFragileUserData="true"
+        android:localeConfig="@xml/locales_config"
+        android:allowBackup="false"
+        android:fullBackupContent="false"
+        android:launchMode="singleTask"
+        android:enableOnBackInvokedCallback="true"
+        tools:targetApi="donut"
+        tools:replace="android:label,android:allowBackup">
         <activity
             android:name=".MainActivity"
             android:exported="true"
             android:launchMode="singleTop"
+            android:taskAffinity=""
             android:theme="@style/LaunchTheme"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
             android:hardwareAccelerated="true"
@@ -24,11 +52,105 @@
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+
+            <!-- Support opening sbn (json), sbn2 (binary), and sba (zip) files -->
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="application/sbn" />
+                <data android:mimeType="application/json" />
+                <data android:mimeType="text/*" />
+
+                <data android:mimeType="application/sbn2" />
+                <data android:mimeType="application/octet-stream" />
+
+                <data android:mimeType="application/sba" />
+                <data android:mimeType="application/zip" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:scheme="content" />
+                <data android:scheme="file" />
+                <data android:host="*" />
+                <data android:pathAdvancedPattern=".*\.sb[n2a]+"/>
+
+                <data android:mimeType="application/sbn" />
+                <data android:mimeType="application/json" />
+                <data android:mimeType="text/*" />
+
+                <data android:mimeType="application/sbn2" />
+                <data android:mimeType="application/octet-stream" />
+
+                <data android:mimeType="application/sba" />
+                <data android:mimeType="application/zip" />
+            </intent-filter>
+
+            <!-- Support opening pdf files -->
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="application/pdf" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:scheme="content" />
+                <data android:scheme="file" />
+                <data android:host="*" />
+                <data android:pathPattern=".*\\.pdf"/>
+
+                <data android:mimeType="application/pdf" />
+            </intent-filter>
         </activity>
+
+        <activity
+            android:name="com.linusu.flutter_web_auth_2.CallbackActivity"
+            android:exported="true">
+            <intent-filter android:label="flutter_web_auth_2">
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="nc" />
+            </intent-filter>
+        </activity>
+
+       <!-- https://developer.android.com/guide/topics/resources/app-languages#android12-impl -->
+       <service
+           android:name="androidx.appcompat.app.AppLocalesMetadataHolderService"
+           android:enabled="false"
+           android:exported="false">
+           <meta-data
+               android:name="autoStoreLocales"
+               android:value="true" />
+       </service>
+
+       <provider
+           android:name="com.superlist.super_native_extensions.DataProvider"
+           android:authorities="com.adilhanney.saber.SuperClipboardDataProvider"
+           android:exported="true"
+           android:grantUriPermissions="true" >
+       </provider>
+
         <!-- Don't delete the meta-data below.
              This is used by the Flutter tool to generate GeneratedPluginRegistrant.java -->
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
     </application>
+    <!-- Required to query activities that can process text, see:
+         https://developer.android.com/training/package-visibility and
+         https://developer.android.com/reference/android/content/Intent#ACTION_PROCESS_TEXT.
+
+         In particular, this is used by the Flutter engine in io.flutter.plugin.text.ProcessTextPlugin. -->
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.PROCESS_TEXT"/>
+            <data android:mimeType="text/plain"/>
+        </intent>
+    </queries>
 </manifest>

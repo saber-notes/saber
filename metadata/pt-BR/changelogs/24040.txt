@@ -1,0 +1,3 @@
+• Melhor tratamento de arquivos excluídos e arquivos já sincronizados
+• Espaços corrigidos sendo permitidos no final e no início dos nomes de arquivo
+• Mais feedback sobre quais arquivos estão sendo baixados/carregados no momento

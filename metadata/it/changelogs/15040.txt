@@ -1,0 +1,5 @@
+• Risolti molti problemi di zoom e il rilevamento della pagina corrente durante lo zoom
+• Prestazioni iniziali migliorate su dispositivi Android non Onyx
+• Migliorate le prestazioni della barra degli strumenti quando si alternano diversi menu
+• Supporto per dispositivi Linux arm64 su Flathub
+• Annunci disattivati ​​sui dispositivi in ​​cui causerebbero rallentamenti

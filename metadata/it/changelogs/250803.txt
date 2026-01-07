@@ -1,0 +1,4 @@
+• ritardo fisso causato dalla generazione di anteprime per vecchie note (2023 o più anziane). Le vecchie note ora avranno un segnaposto anziché un'anteprima.
+• Aggiunta una leggera animazione tra le schede della schermata principale.
+• Migliori miglioramenti dell'interfaccia utente in vari luoghi.
+• Posizioni minori al tema della piattaforma.

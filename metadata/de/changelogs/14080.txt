@@ -1,0 +1,2 @@
+• Problem behoben, bei dem PDF-Exporte für einige Benutzer grau waren
+• Eine Schaltfläche zum Löschen von Ordnern hinzugefügt

@@ -1,0 +1,78 @@
+name: Bug Report
+description: Create a report to help us improve
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report!
+  - type: textarea
+    id: describe-the-bug
+    attributes:
+      label: Describe the bug
+      description: A clear and concise description of what the bug is.
+      placeholder: Tell us what you see!
+    validations:
+      required: true
+  - type: textarea
+    id: to-reproduce
+    attributes:
+      label: To reproduce
+      description: Steps to reproduce the behavior
+      placeholder: |
+        1. Go to '...'
+        2. Click on '....'
+        3. Scroll down to '....'
+        4. See error
+    validations:
+      required: true
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: Expected behavior
+      description: A clear and concise description of what you expected to happen.
+      placeholder: Tell us what you expected!
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Saber version
+      description: |
+        You can find this on the Settings page.
+        Please include your installed Saber version even if you don't think it's relevant!
+      placeholder: e.g. v0.19.1 F-Droid (19010)
+    validations:
+      required: true
+  - type: textarea
+    id: device
+    attributes:
+      label: Device
+      description: Please complete the following information
+      value: |
+        - Device:
+        - OS:
+
+        <!--
+        Example:
+        - Device: Google Pixel 6 Pro
+        - OS: Android 13
+        -->
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Anything else?
+      description: |
+        Links? References? Anything that will give us more context about the issue you are encountering!
+        Screen recordings are especially useful!
+    validations:
+      required: false
+  - type: checkboxes
+    attributes:
+      label: Before submitting an issue, please check the following
+      options:
+        - label: I have searched for similar issues (both open and closed) and cannot find a duplicate
+          required: true
+        - label: I agree to follow the [Code of Conduct](https://github.com/saber-notes/saber/blob/main/CODE_OF_CONDUCT.md)
+          required: true

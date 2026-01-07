@@ -1,0 +1,2 @@
+• Fixed autofill support on the encryption password page.
+• Various UI improvements.

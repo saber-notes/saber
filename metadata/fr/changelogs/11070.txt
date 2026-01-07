@@ -1,0 +1,3 @@
+• Appuyez sur votre nom d'utilisateur sur la page des paramètres pour accéder à la nouvelle page de profil
+• Vous pouvez désormais utiliser des motifs d'arrière-plan de droite à gauche et de gauche à droite
+• Amélioration de l'icône macOS

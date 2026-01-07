@@ -1,0 +1,2 @@
+• Adicionada uma configuração para ocultar o botão de desenho do dedo para evitar alterná-lo acidentalmente
+• Correções de bugs

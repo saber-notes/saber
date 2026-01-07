@@ -1,0 +1,5 @@
+• Automatické ukládání je nyní více rozmístěno, aby nedocházelo ke kolizím
+• Drobné vizuální úpravy
+• Odkazy na Android se nyní otevřou v prohlížeči v aplikaci
+• Zaškrtávací políčka, odrážky a číselné body mají nyní velikost v poměru k textu
+• Opraven vzhled tahů zvýrazňovače na iOS

@@ -1,0 +1,1731 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Generator for metainfo & .desktop files:
+    https://www.freedesktop.org/software/appstream/metainfocreator/#/
+-->
+<component type="desktop-application">
+    <id>com.adilhanney.saber</id>
+
+    <name>Saber</name>
+    <summary>The notes app built for handwriting</summary>
+    <url type="homepage">https://github.com/saber-notes/saber</url>
+    <url type="bugtracker">https://github.com/saber-notes/saber/issues</url>
+    <url type="donation">https://github.com/sponsors/adil192</url>
+    <url type="translate">https://github.com/saber-notes/saber/wiki/Translating</url>
+    <url type="vcs-browser">https://github.com/saber-notes/saber</url>
+
+    <developer id="com.adilhanney">
+        <name>Adil Hanney</name>
+    </developer>
+
+    <branding>
+        <color type="primary" scheme_preference="light">#fff6da</color>
+        <color type="primary" scheme_preference="dark">#705600</color>
+    </branding>
+
+    <metadata_license>MIT</metadata_license>
+    <project_license>GPL-3.0-only</project_license>
+
+    <supports>
+        <control>pointing</control>
+        <control>keyboard</control>
+        <control>touch</control>
+    </supports>
+
+    <recommends>
+        <control>tablet</control>
+        <internet>always</internet>
+    </recommends>
+
+    <requires>
+        <display_length compare="ge">360</display_length>
+    </requires>
+
+    <provides>
+        <mediatype>application/sbn</mediatype>
+        <mediatype>application/json</mediatype>
+        <mediatype>text/*</mediatype>
+
+        <mediatype>application/sbn2</mediatype>
+        <mediatype>application/octet-stream</mediatype>
+
+        <mediatype>application/sba</mediatype>
+        <mediatype>application/zip</mediatype>
+    </provides>
+
+    <description>
+        <p>
+            Saber is the notes app built for handwriting.
+        </p>
+        <p>
+            It's designed to be as simple and intuitive as possible, while still delivering unique features that you'll actually use. Additionally, Saber is available across all your devices, large and small, and syncs between them seamlessly.
+        </p>
+        <p>
+            Notably, it can invert your notes when you're in dark mode. This allows you to write with white ink on a black background, which is much easier on the eyes in low-light environments like when the teacher turns off the lights in class.
+            Images and PDFs are also inverted, so you can still use a digital printout or a textbook without the fuss.
+        </p>
+        <p>
+            Saber uses a dual-password system to protect your notes from anyone but you, even if they have complete control over the server. You can safely store your notes on the official Saber server, another server, or even host your own!
+        </p>
+        <p>
+            The app is completely open-source so that anyone can view the source code and see exactly what it's doing and how it handles your data. Many other note-taking apps are closed-source and proprietary, meaning that their inner workings are a mystery to the public.
+        </p>
+        <p>
+            As someone who studies maths, highlighting multi-line equations was always a hassle with other apps, where the highlighter would change color when it overlapped with itself. Another problem I had was that in some apps, the highlighter would render on top of the text, fading it out and making it hard to read.
+            Saber's highlighter has no such issues. It utilizes canvas compositing to render the highlighter in a way that is consistent with/better than traditional paper, where it handles overlaps and maintains color consistency.
+        </p>
+        <p>
+            Saber has everything you need to keep your notes organized. Create folders inside folders inside folders to your heart's content with no limit on the number of nested folders. And even though a note may be buried deep within a nested folder, you can still access it easily with your most recent notes always available on the home screen.
+        </p>
+        <p>
+            Discover a whole new way to capture and organize your thoughts
+            with Saber. Whether you're a student, professional, or creative
+            mind, Saber is your trusted companion for digital handwriting.
+            Download now and let your ideas flow freely!
+        </p>
+
+        <p xml:lang="zh-Hant-TW">
+            Saber是一個專為手寫而生的筆記應用程式。
+        </p>
+        <p xml:lang="zh-Hant-TW">
+            它被設計得盡可能簡單和直觀，同時仍提供您實際會使用的獨特功能。此外，Saber可以在您所有的設備上使用，無論大小，並在它們之間無縫同步。
+        </p>
+        <p xml:lang="zh-Hant-TW">
+            值得注意的是，當您處於深色模式時，它可以反轉您的筆記。這使您可以在黑色背景上用白色墨水書寫，這在低光源環境下，例如老師在課堂上關燈時，對眼睛更加友好。圖片和PDF文件也會反轉，因此您仍然可以使用數位教科書而無需煩惱。
+        </p>
+        <p xml:lang="zh-Hant-TW">
+            Saber使用雙密碼系統來保護您的筆記，使其只能被您存取，即使有人對伺服器擁有完全控制權也是如此。您可以安全地將筆記存儲在官方的Saber伺服器上，或者是其他伺服器，甚至是自己搭建！
+        </p>
+        <p xml:lang="zh-Hant-TW">
+            本應用程式是完全開源的，任何人都可以查看原始碼，了解它的具體運作方式以及如何處理您的資料。許多其他筆記應用程式是閉源和專有的，這意味著它們的內部運作對公眾來說是一個謎。
+        </p>
+        <p xml:lang="zh-Hant-TW">
+            作為一名數學生，我在其他應用中經常遇到的問題之一是，使用其他應用時，突出顯示多行方程總是很麻煩，因為突出顯示在重疊時會改變顏色。我遇到的另一個問題是，在某些應用程式中，突出顯示會在文字上方渲染，將其淡化，使其難以閱讀。Saber的突出顯示沒有這些問題。它使用的畫布合成技術以一種優於傳統紙張相一致的方式呈現突出顯示，在處理重疊時保持顏色一致。
+        </p>
+        <p xml:lang="zh-Hant-TW">
+            Saber具有使筆記井井有條所需的一切功能。在無限嵌套的資料夾中創建資料夾，盡情發揮您的創意，而且對於嵌套資料夾的數量沒有限制。即使筆記可能深藏在嵌套的資料夾中，您仍然可以輕鬆存取，因為最近的筆記始終顯示在主螢幕上。
+        </p>
+        <p xml:lang="zh-Hant-TW">
+            透過Saber，發現一種全新的捕捉和組織思緒的方式。無論您是學生、專業人士還是具有創造力的思維者，Saber都是您在數位手寫中信賴的伙伴。立即下載，讓您的思想自由流暢！
+        </p>
+
+        <p xml:lang="cs">
+            Saber je aplikace pro psaní poznámek uzpůsobená pro ruční psaní.
+        </p>
+        <p xml:lang="cs">
+            Je navržena pro nejjednodušší a nejintuitivnější možné používání, přičemž stále nabízí unikátní funkce, které opravdu využijete. Navíc je Saber dostupný napříč všemi vašimi zařízeními, velkými i malými, mezi nimiž se bez povšimnutí synchronizuje.
+        </p>
+        <p xml:lang="cs">
+            Je na místě poznamenat, že umí invertovat vaše poznámky, pokud jste v temném módu. To vám umožňuje psát bílým inkoustem na černém pozadí, což je daleko příjemnější pro oči v prostředí s nedostatkem světla, jako když učitel ve třídě vypne osvětlení. Obrázky a PDF jsou také invertovány, takže stále můžete bez problému používat digitální výtisky nebo učebnice.
+        </p>
+        <p xml:lang="cs">
+            Saber používá systém dvou hesel, aby ochránil vaše poznámky před kýmkoliv kromě vás, i kdyby měl kompletní přístup k serveru. Můžete bezpečně ukládat své poznámky na oficiální server aplikace Saber, jiný server či dokonce pro tyto účely provozovat svůj vlastní server!
+        </p>
+        <p xml:lang="cs">
+            Aplikace má kompletně otevřené zdrojové kódy, takže si je každý může prohlédnout a přesně vidět, co aplikace dělá a jakým způsobem jsou zpracovává vaše data. Spousta dalších aplikací pro pořizování poznámek má uzavřené zdrojové kódy a je proprietární, což znamená, že co se děje uvnitř, je pro veřejnost záhadou.
+        </p>
+        <p xml:lang="cs">
+            Jako někdo, kdo studuje matematiku, mohu říct, že pro mě vždy bylo utrpení zvýrazňovat víceřádkové rovnice v jiných aplikacích, kde zvýrazňovač mění barvu po přetažení již zvýrazněné části. Další problém, který jsem měl v některých aplikacích, spočíval v tom, že se zvýrazňovač vykresloval nad textem, takže se text ztrácel a špatně se četl. Zvýrazňovač aplikace Saber těmito neduhy netrpí. Využívá kompozice plátna k vykreslování zvýrazňovače způsobem, který je konzistentní s tradičním papírem, ba možná i lepší, jelikož řeší překrývání a udržuje konzistenci barev.
+        </p>
+        <p xml:lang="cs">
+            Saber má vše, co potřebujete k tomu, abyste dokázali organizovat své poznámky. Tvořte složky uvnitř složek uvnitř složek, jak jen chcete bez omezení na počet zanořených složek. Ačkoliv může být poznámka pohřbena hluboko uvnitř vnořené složky, pořád k ní můžete jednoduše přistoupit, jelikož jsou nejnovější poznámky vždy k dispozici na domovské obrazovce.
+        </p>
+        <p xml:lang="cs">
+            Objevte zcela nový způsob zaznamenávání a organizace vašich myšlenek s aplikací Saber. Ať již jste student, profesionál nebo kreativní duše, Saber je vaším důvěryhodným společníkem pro digitální psaní. Stáhněte si jej nyní a nechte volně plynout své nápady!
+        </p>
+
+        <p xml:lang="ru">
+            Как разработчик Saber, я очень рад представить Вам приложение с революционным способом ведения заметок. Saber — это идеальное приложение для создания рукописных заметок, разработанное для того, чтобы поднять Ваши навыки ведения заметок до новых высот! Овладейте искусством рукописного ввода и раскройте свой творческий потенциал с помощью этого многофункционального приложения, основанного на передовых технологиях. Интуитивно понятный и современный интерфейс Saber позволяет легко делать заметки, рисовать схемы или точно комментировать PDF-файлы.
+        </p>
+        <p xml:lang="ru">
+            Когда я начал делать цифровые заметки, я не мог найти никаких конфиденциальных приложений с открытым исходным кодом, которые соответствовали бы моим требованиям, поэтому мне пришлось использовать платное приложение. Я решил создать Saber, чтобы дать людям выбор конфиденциального приложения с открытым исходным кодом, которому они могут доверять. Saber имеет полностью открытый исходный код, а это означает, что любой может проверить код, чтобы убедиться, что он безопасен и приватен. Saber шифрует Ваши данные и может синхронизироваться с любым совместимым сервером по вашему выбору, предоставляя вам полный контроль над вашими данными.
+        </p>
+        <p xml:lang="ru">
+            Вам нравится делать заметки на планшете, а затем переносить их на компьютер? Или, может быть, вы предпочитаете набирать заметки на ноутбуке, а затем комментировать их на планшете? Каким бы ни был ваш рабочий процесс, Saber обеспечит вам кроссплатформенную поддержку, позволяя вам получать доступ к своим заметкам в любое время, в любом месте и на любом устройстве. Saber доступен на Android, iOS, Windows, macOS и Linux, при этом ваши заметки автоматически синхронизируются на всех ваших устройствах. А если вы не в сети, Saber автоматически синхронизирует ваши заметки, как только вы снова подключитесь к сети.
+        </p>
+        <p xml:lang="ru">
+            Saber оснащён лучшим цифровым маркером, который вы когда-либо использовали. Вам когда-нибудь приходилось выделять несколько линий, но вам не нравилось, как маркер накладывался друг на друга и менял цвет? Saber использует усовершенствованную обработку графики для обработки перекрытий и сохранения согласованности цветов пера, что даёт вам лучший опыт работы с маркером, чем традиционная бумага.
+        </p>
+        <p xml:lang="ru">
+            В Saber есть всё, что вам нужно для систематизации ваших заметок. Создавайте папки внутри папок внутри папок сколько душе угодно без ограничения количества вложенных папок. И даже если заметка может быть скрыта глубоко во вложенной папке, вы всё равно можете легко получить к ней доступ, так как ваши самые последние заметки всегда доступны на главном экране.
+        </p>
+        <p xml:lang="ru">
+            Saber может интеллектуально инвертировать ваши заметки, когда включен тёмный режим. Это означает, что вы можете использовать весь процесс ведения заметок в тёмном режиме, включая ваши изображения, в плавном и связанном интерфейсе в условиях низкой освещённости.
+        </p>
+        <p xml:lang="ru">
+            Откройте для себя совершенно новый способ фиксации и систематизации мыслей с помощью Saber. Независимо от того, являетесь ли вы студентом, профессионалом или творческим человеком, Saber станет вашим надёжным помощником в цифровом рукописном вводе. Загрузите сейчас и дайте волю своим идеям!
+        </p>
+
+        <p xml:lang="zh-Hans-CN">
+            作为 Saber 的开发者，我非常高兴地向您介绍一款彻底改变您记笔记方式的应用程序。Saber 是一款终极手写笔记应用程序，旨在将您的笔记体验提升到新的高度！这款功能丰富的应用程序以尖端技术为动力，让您尽情享受手写的艺术，释放您的创造力。Saber 的界面直观、现代，可轻松记下笔记、绘制图表或精确注释 PDF。
+        </p>
+        <p xml:lang="zh-Hans-CN">
+            当我开始制作电子笔记时，我找不到任何符合我要求的私有开源应用程序，因此我最终不得不使用一个专有应用程序。我决定创建 Saber，让人们可以选择一款值得信赖的私有开源应用程序。Saber 是完全开源的，这意味着任何人都可以审核代码，以确保其安全性和私密性。Saber 会对您的数据进行加密，并可以同步到您选择的任何兼容服务器，让您完全掌控自己的数据。
+        </p>
+        <p xml:lang="zh-Hans-CN">
+            您是否喜欢在平板电脑上做笔记，然后将其传输到电脑上？或者您更喜欢在笔记本电脑上输入笔记，然后在平板电脑上批注？无论您的工作流程是什么，Saber 都能为您提供多平台支持，让您随时随地在任何设备上访问您的笔记。Saber 支持 Android、iOS、Windows、macOS 和 Linux，您的笔记会在所有设备上自动同步。如果您处于离线状态，Saber 会在您重新上线时自动同步您的笔记。
+        </p>
+        <p xml:lang="zh-Hans-CN">
+            Saber 是您用过的最好的电子荧光笔。您是否曾经需要突出多行，但又讨厌荧光笔重叠和变色的方式？Saber 采用先进的图形处理技术来处理重叠和保持笔的颜色一致性，为您带来比传统纸张更好的荧光笔使用体验。
+        </p>
+        <p xml:lang="zh-Hans-CN">
+            Saber 可以满足您整理笔记的一切需求。您可以随心所欲地创建文件夹内的文件夹，嵌套文件夹的数量不受限制。即使笔记可能深埋在嵌套文件夹中，您仍然可以通过主屏幕上的最新笔记轻松访问它。
+        </p>
+        <p xml:lang="zh-Hans-CN">
+            在暗黑模式下，Saber 可以智能地反转您的笔记。这意味着您可以在暗光模式下体验整个笔记体验，包括您的图像，从而在低光照环境下获得舒缓而连贯的界面。
+        </p>
+        <p xml:lang="zh-Hans-CN">
+            使用 Saber，探索一种全新的方式来捕捉和组织您的想法。无论您是学生、专业人士还是创意人士，Saber 都是您值得信赖的数字手写工具。立即下载，让您的创意自由流淌！
+        </p>
+    </description>
+
+    <launchable type="desktop-id">com.adilhanney.saber.desktop</launchable>
+
+    <content_rating type="oars-1.1" />
+
+    <categories>
+        <category>Education</category>
+        <category>Graphics</category>
+        <category>Office</category>
+    </categories>
+
+    <keywords>
+        <keyword>cross-platform</keyword>
+        <keyword>handwritten</keyword>
+        <keyword>notes</keyword>
+    </keywords>
+
+    <screenshots>
+        <screenshot type="default">
+            <caption>The home screen showing recent notes</caption>
+            <image>https://raw.githubusercontent.com/saber-notes/saber/main/metadata/en-US/images/flathubScreenshots/1_home.png</image>
+        </screenshot>
+        <screenshot>
+            <caption>The editor showing maths notes about metric spaces</caption>
+            <image>https://raw.githubusercontent.com/saber-notes/saber/main/metadata/en-US/images/flathubScreenshots/2_editor.png</image>
+        </screenshot>
+        <screenshot>
+            <caption>The login page which asks which Nextcloud server you want to use</caption>
+            <image>https://raw.githubusercontent.com/saber-notes/saber/main/metadata/en-US/images/flathubScreenshots/3_login.png</image>
+        </screenshot>
+        <screenshot>
+            <caption>The settings page showing that the user is now logged in</caption>
+            <image>https://raw.githubusercontent.com/saber-notes/saber/main/metadata/en-US/images/flathubScreenshots/4_settings.png</image>
+        </screenshot>
+    </screenshots>
+
+    <releases>
+        <release version="1.29.3" type="development" date="2025-12-31">
+            <description>
+                <p>
+                    Fixed lots of bugs in the text editor that occured after an auto-save.
+                </p>
+            </description>
+        </release>
+        <release version="1.29.2" type="development" date="2025-12-28">
+            <description>
+                <ul>
+                    <li>Page numbers now respect your Atkinson Hyperlegible font setting</li>
+                    <li>Migrated AppImage builds to the `linuxdeploy` tool instead of the unmaintained `appimage-builder`.</li>
+                </ul>
+            </description>
+        </release>
+        <release version="1.29.1" type="development" date="2025-12-14">
+            <description>
+                <ul>
+                    <li>Home screen cards are now bordered instead of shadowed.</li>
+                    <li>Made `https://` optional in the Nextcloud URL field.</li>
+                </ul>
+            </description>
+        </release>
+        <release version="1.29.0" type="development" date="2025-11-20">
+            <description>
+                <ul>
+                    <li>Big improvements for Onyx Boox devices with increased tool support and miscellaneous fixes thanks to zinstack625 on GitHub.</li>
+                    <li>Improved speed of PDF imports.</li>
+                    <li>Improved loading times for notes containing large PDFs (they're now loaded page by page rather than all at once).</li>
+                    <li>Fixed an issue with saving PDFs from the long-press dialog.</li>
+                    <li>Fixed a bug where the wrong tool would be selected when turning off the eraser, thanks to ComputerElite on GitHub.</li>
+                </ul>
+            </description>
+        </release>
+        <release version="1.28.2" type="development" date="2025-11-15">
+            <description>
+                <ul>
+                    <li>To improve ease of use, finger-drawing is automatically disabled if you use a stylus. You can turn off this feature in Settings.</li>
+                    <li>You can now zoom with a mouse by holding the Control or Command key while scrolling.</li>
+                    <li>Fixed strokes from the shape pen getting smushed when you finish drawing them.</li>
+                    <li>Improved the accuracy of the lower quality strokes that are shown when zoomed out.</li>
+                    <li>Fixed numerical (NaN) errors with some strokes.</li>
+                    <li>Updated Flutter to 3.38.</li>
+                </ul>
+            </description>
+        </release>
+        <release version="1.28.1" type="development" date="2025-11-11">
+            <description>
+                <ul>
+                    <li>Improved animation smoothness when closing a note.</li>
+                    <li>Your mouse wheel now scrolls instead of zooming. Hold the Ctrl key to zoom.</li>
+                    <li>Made the New Note button less round.</li>
+                </ul>
+            </description>
+        </release>
+        <release version="1.28.0" type="development" date="2025-11-10">
+            <description>
+                <ul>
+                    <li>Added a new floating navigation bar.</li>
+                    <li>A pending autosave is now cancelled if you undo all changes.</li>
+                    <li>Improved the smoothness of home screen transitions.</li>
+                    <li>Fixed some path handling bugs on the browse page.</li>
+                </ul>
+            </description>
+        </release>
+        <release version="1.27.2" type="development" date="2025-11-07">
+            <description>
+                <ul>
+                    <li>Fixed the entire app breaking if you choose the Esperanto language.</li>
+                    <li>Fixed the navigation bar not updating its text when you change language.</li>
+                    <li>Fixed the storage used percentage not being rounded.</li>
+                    <li>Freed up memory used by images and PDFs.</li>
+                    <li>Removed the pencil sound effect, and removed the sound+microphone flatpak permission.</li>
+                </ul>
+            </description>
+        </release>
+        <release version="1.27.1" type="development" date="2025-11-02">
+            <description>
+                <ul>
+                    <li>Various UI improvements.</li>
+                    <li>Removed the themed title bar, replacing it with server-side decorations for better KDE support.</li>
+                    <li>Delayed showing the app until the first frame is rendered, removing the initial black screen on launch.</li>
+                    <li>Resized the app icon to match other Linux apps.</li>
+                </ul>
+            </description>
+        </release>
+        <release version="1.27.0" type="development" date="2025-10-30">
+            <description>
+                <ul>
+                    <li>Improved the look of pencil strokes and their rendering performance.</li>
+                    <li>Saber now uses a themed title bar (configurable), which responds to light/dark mode changes.</li>
+                    <li>Switches are now themed on the Cupertino (iOS-style) theme.</li>
+                    <li>Added an Esperanto translation.</li>
+                </ul>
+            </description>
+        </release>
+        <release version="1.26.12" type="development" date="2025-10-30">
+            <description>
+                <ul>
+                    <li>Bumped the version to 1.x to reflect the maturity of the app and to let version numbers be more meaningful.</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.26.12" type="development" date="2025-10-27">
+            <description>
+                <ul>
+                    <li>Improved the quality of note thumbnails.</li>
+                    <li>Optimized pencil strokes when zoomed out.</li>
+                    <li>Fixed improper toolbar contrast in certain themes.</li>
+                    <li>Fixed a privacy policy link not working.</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.26.11" type="development" date="2025-10-23">
+            <description>
+                <ul>
+                    <li>Small visual and performance improvements</li>
+                    <li>Fixed the AppImage not running on Fedora</li>
+                    <li>Disabled the pencil sound effect by default</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.26.10" type="development" date="2025-10-17">
+            <description>
+                <ul>
+                    <li>Fixed an issue where the pencil sound effect wouldn't stop when you lifted your stylus</li>
+                    <li>Visual improvements especially in the Linux/Yaru theme</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.26.9" type="development" date="2025-10-12">
+            <description>
+                <ul>
+                    <li>Fixed an edge case where the laser pointer could produce invalid strokes.</li>
+                    <li>Made strokes higher quality when you're zoomed out.</li>
+                    <li>General maintenance, improved testing, and behind-the-scenes improvements.</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.26.8" type="development" date="2025-09-24">
+            <description>
+                <ul>
+                    <li>Improved handling of short (1-2 point) strokes.</li>
+                    <li>Fixed null errors in pen gesture handlers.</li>
+                    <li>Fixed a small memory leak with the pencil shaders.</li>
+                    <li>Partially fixed the custom data directory migration on Android.</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.26.7" type="development" date="2025-09-08">
+            <description>
+                <ul>
+                    <li>Fixed PDF import issues, thanks @QubaB on GitHub</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.26.6" type="development" date="2025-09-07">
+            <description>
+                <ul>
+                    <li>Major improvements to the stroke drawing algorithm. You'll see less flickering while drawing, better handling of sharp corners mid-stroke, and lose less detail near the end of the stroke.</li>
+                    <li>Added stylus support on Linux. There is no pressure sensitivity, but you can now use your pen to draw and your finger to scroll.</li>
+                    <li>Fixed the Hyperlegible font setting not working with the Linux (Yaru) theme.</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.26.5" type="development" date="2025-09-05">
+            <description>
+                <ul>
+                    <li>Updated the font Atkinson Hyperlegible to Atkinson Hyperlegible Next to support more languages</li>
+                    <li>Very slight rounding on the app icon</li>
+                    <li>Bug fixes and improvements from dependency updates</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.26.4" type="development" date="2025-08-18">
+            <description>
+                <ul>
+                    <li>Small but important bug fixes thanks to everyone who opted in to error reporting!</li>
+                    <li>Further evolution of the personal information filters. These are implemented both locally and on the server so your information is always safe.</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.26.3" type="development" date="2025-08-15">
+            <description>
+                <ul>
+                    <li>Minor bug fixes</li>
+                    <li>Opt-in error tracking has been added, but isn't supported on Linux at least for now.</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.26.2" type="development" date="2025-08-10">
+            <description>
+                <ul>
+                    <li>This release contains a fix for some users not being able to save files.</li>
+                    <li>In future updates, I'll be adding some error tracking to help me improve the app. It will be opt-in and as anonymous as I can make it.</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.26.1" type="development" date="2025-08-04">
+            <description>
+                <ul>
+                    <li>Slightly reduced app size</li>
+                    <li>New display of the current folder path in the browse page</li>
+                    <li>In future updates, I'll be adding some error tracking to help me improve the app. It will be opt-in and as anonymous as I can make it.</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.26.0" type="development" date="2025-07-16">
+            <description>
+                <ul>
+                    <li>Crash fixes</li>
+                    <li>Removed support for the old login system: users who logged in before May 2024 may need to log in again</li>
+                    <li>Refactored storage code for more reliability and less repeated code</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.25.9" type="development" date="2025-06-12">
+            <description>
+                <ul>
+                    <li>Small UI improvements to the settings page</li>
+                    <li>The simplified home layout setting has been tweaked so the cards are no longer stretched out</li>
+                    <li>Removed references to GitHub Sponsors on iOS since they'd have to use in-app purchases</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.25.8" type="development" date="2025-05-31">
+            <description>
+                <ul>
+                    <li>Fixed lag caused by generating previews for old notes (2023 or older). Old notes will now have a placeholder instead of a preview.</li>
+                    <li>Added a slight animation between home screen tabs.</li>
+                    <li>Minor UI improvements in various places.</li>
+                    <li>Minor fixes to platform theming.</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.25.6" type="development" date="2025-05-12">
+            <description>
+                <ul>
+                    <li>Fixed the selection tool not (visibly) moving strokes</li>
+                    <li>Fixed the server links in the account page</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.25.5" type="development" date="2025-04-18">
+            <description>
+                <ul>
+                    <li>Fixed some UI elements taking up too much space on small-ish screens</li>
+                    <li>Made the "dots" background pattern obey the line thickness setting</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.25.4" type="development" date="2025-02-22">
+            <description>
+                <p>
+                You can now customize the line thickness of your background pattern,
+                and files downloaded from the server now have the proper timestamp, preventing them from being synced repeatedly.
+                </p>
+            </description>
+        </release>
+        <release version="0.25.3" type="development" date="2024-12-14">
+            <description>
+                <ul>
+                    <li>Possible performance improvements from updated dependencies</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.25.2" type="development" date="2024-11-10">
+            <description>
+                <ul>
+                    <li>Inverted images should now be higher quality</li>
+                    <li>PDFs should now render more quickly</li>
+                    <li>Updates to the sdk used for Onyx e-ink devices</li>
+                    <li>The max zoom has been increased from 5x to 10x</li>
+                    <li>Strokes are now rendered at a lower quality when zoomed out</li>
+                    <li>Fixed a bug when a canvas is renamed just after closing the editor</li>
+                    <li>Fixed a bug where tapping with the stylus button pressed caused extra undos</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.25.1" type="development" date="2024-10-19">
+            <description>
+                <ul>
+                    <li>Fixed a bug with custom Nextcloud servers hosted at a subdirectory, thanks to provokateurin</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.25.0" type="development" date="2024-10-01">
+            <description>
+                <ul>
+                    <li>Improved scrolling performance and removed layout shifts</li>
+                    <li>Failed uploads are now retried at increasingly long intervals</li>
+                    <li>Added a logs page at the bottom of settings</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.24.7" type="development" date="2024-09-25">
+            <description>
+                <ul>
+                    <li>The app icon has been slightly tweaked and vectorized to have more natural curves.</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.24.6" type="development" date="2024-09-05">
+            <description>
+                <ul>
+                    <li>Fixed the app not recognizing if you've changed your encryption password on another device</li>
+                    <li>Added fallback fonts for non-latin characters</li>
+                    <li>Reduced frame drops when loading the app with lots of legacy notes</li>
+                    <li>Added an option to use a simplified home screen layout for performance on low-end devices</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.24.5" type="development" date="2024-08-08">
+            <description>
+                <ul>
+                    <li>Misc changes and updated dependencies</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.24.4" type="development" date="2024-07-31">
+            <description>
+                <ul>
+                    <li>Better handling of deleted files and already synced files</li>
+                    <li>Fixed spaces being allowed at the end and start of file names</li>
+                    <li>Added a button in the settings page to open the data directory</li>
+                    <li>More feedback about which files are currently downloading/uploading</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.24.3" type="development" date="2024-07-20">
+            <description>
+                <p>Fixed a syncing bug that caused file paths to be decrypted incorrectly, thanks to @QubaB on GitHub</p>
+            </description>
+        </release>
+        <release version="0.24.2" type="development" date="2024-07-14">
+            <description>
+                <ul>
+                  <li>Added a star to the shape tool</li>
+                  <li>Fixed the weird corners on triangles drawn with the shape tool</li>
+                  <li>Fixed single-point dots not being saved</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.24.1" type="development" date="2024-06-26">
+            <description>
+                <ul>
+                    <li>Reduced the glow effect of laser strokes</li>
+                    <li>The syncer will automatically pick up new files on your device</li>
+                    <li>Fixed a bug where uploading a file would fail after downloading it</li>
+                    <li>Run Saber with a <code>-v</code> flag for more detailed logs</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.24.0" type="development" date="2024-06-24">
+            <description>
+                <ul>
+                    <li>Major syncing speed improvements</li>
+                    <li>Better handling of outdated encryption passwords</li>
+                    <li>Improved rendering of laser strokes</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.23.3" type="development" date="2024-06-17">
+            <description>
+                <ul>
+                    <li>Fixed an "almost logged in" message being shown after logging in</li>
+                    <li>Improved some icons</li>
+                    <li>Disabled scrolling with the arrow keys when text editing</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.23.2" type="development" date="2024-05-18">
+            <description>
+                <ul>
+                    <li>Increased PDF render quality</li>
+                    <li>Typed text now properly aligns with the page lines if enabled</li>
+                    <li>Updated the color picker dialogs</li>
+                    <li>Misc improvements from the new Flutter 3.22</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.23.1" type="development" date="2024-05-14">
+            <description>
+                <ul>
+                    <li>If you like to edit notes on a tablet and simultaneously view them on your computer, there's a new toggle in the editor menu to enable automatic refreshing.</li>
+                    <li>Fixed straightened pencil lines fading out at the ends</li>
+                    <li>Small improvement in app loading times</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.23.0" type="development" date="2024-05-06">
+            <description>
+                <ul>
+                    <li>Redesigned the login process</li>
+                    <li>Stopped the autosave triggering while in the middle of a stroke</li>
+                    <li>Fixed the pencil sound effect setting not being picked up immediately</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.22.0" type="development" date="2024-05-02">
+            <description>
+                <ul>
+                    <li>A simulated pencil sound effect has been added.</li>
+                    <li>The Nextcloud syncing issue has been fixed.</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.21.4" type="development" date="2024-04-20">
+            <description>
+                <ul>
+                    <li>The zoom is now snapped to 1.0x when close</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.21.3" type="development" date="2024-03-31">
+            <description>
+                <ul>
+                    <li>Added a glow effect to the laser pointer</li>
+                    <li>Using the laser pointer no longer triggers the autosave</li>
+                    <li>Fixed the pen size picker not displaying correctly in a vertical toolbar</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.21.2" type="development" date="2024-03-14">
+            <description>
+                <ul>
+                    <li>The laser pointer now waits for you to stop writing before fading out</li>
+                    <li>Fixed a bug that caused some PDF pages to get lost</li>
+                    <li>Fixed a bug where thumbnails of deleted notes weren't removed</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.21.1" type="development" date="2024-03-10">
+            <description>
+                <ul>
+                    <li>Reduced false positives when auto straightening lines</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.21.0" type="development" date="2024-03-06">
+            <description>
+                <ul>
+                    <li>Long lines are now automatically straightened without having to switch to the shape tool (configurable in settings)</li>
+                    <li>Fixed pen sizes resetting when you switch between pen types</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.20.3" type="development" date="2024-02-25">
+            <description>
+                <ul>
+                    <li>Fixed PDF exports failing on some notes</li>
+                    <li>Reduced the blurring effect on large pencil sizes</li>
+                    <li>Fixed the "resync everything" button uploading empty files</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.20.2" type="development" date="2024-02-17">
+            <description>
+                <ul>
+                    <li>Changing the pen size is now more intuitive with a slider input</li>
+                    <li>Minor performance and fidelity improvements for the pencil</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.20.1" type="development" date="2024-02-14">
+            <description>
+                <ul>
+                    <li>Fixed pencil fading out at the start and end</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.20.0" type="development" date="2024-02-14">
+            <description>
+                <ul>
+                    <li>Added the pencil tool</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.19.4" type="development" date="2024-02-12">
+            <description>
+                <ul>
+                    <li>Fixed note previews being cropped weirdly</li>
+                    <li>Fixed exports on iOS</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.19.3" type="development" date="2024-02-09">
+            <description>
+                <ul>
+                    <li>Fixed notes not being unselected after renaming.</li>
+                    <li>Fixed the "resync everything" button causing multiple uploads at once.</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.19.2" type="development" date="2024-01-16">
+            <description>
+                <p>Strokes that had jagged edges have now been smoothed out, particularly ones drawn with a mouse or trackpad.</p>
+            </description>
+        </release>
+        <release version="0.19.1" type="development" date="2024-01-09">
+            <description>
+                <ul>
+                    <li>Lines are more accurately recognized with the shape tool</li>
+                    <li>Adapted to multiple Nextcloud versions being supported</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.19.0" type="development" date="2023-12-26">
+            <description>
+                <p>Merry Christmas! I've added a number of performance improvements, including more efficient image inverting and better handling of SVG files. Good luck to everyone sitting exams in the next few weeks!</p>
+            </description>
+        </release>
+        <release version="0.18.6" type="development" date="2023-12-24">
+            <description>
+                <ul>
+                    <li>Fixed thumbnails being inverted incorrectly when saved in dark mode</li>
+                    <li>Fixed a long-standing inversion bug with pure black pixels</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.18.5" type="development" date="2023-12-17">
+            <description>
+                <ul>
+                    <li>Home screen previews are done ahead of time for performance</li>
+                    <li>Fixed some syncing errors and added a "resync everything" button in settings</li>
+                    <li>Fixed a bug with loading large notes</li>
+                    <li>Fixed the split-second delay before images are inverted</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.18.4" type="development" date="2023-12-10">
+            <description>
+                <ul>
+                    <li>Fixed syncing!</li>
+                    <li>Fixed a bug where assets would be left behind when deleting or moving a note.</li>
+                    <li>Use the arrow keys to move around a note.</li>
+                    <li>Performance improvements for the shape tool.</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.18.3" type="development" date="2023-11-30">
+            <description>
+                <ul>
+                    <li>Switched to a new shape recognition library</li>
+                    <li>Added triangle detection</li>
+                    <li>Added line snapping with the shape tool</li>
+                    <li>Fixed some SBN imports failing</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.18.2" type="development" date="2023-11-30">
+            <description>
+                <ul>
+                    <li>Fixed Nextcloud storage usage not being displayed</li>
+                    <li>Fixed a bug where notes with certain names wouldn't be shown on the home screen</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.18.1" type="development" date="2023-11-27">
+            <description>
+                <ul>
+                    <li>Assets are now lazily loaded as you scroll to them</li>
+                    <li>Removed unused thumbnail generation</li>
+                    <li>Fixed a bug where deleted files wouldn't be unselected</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.18.0" type="development" date="2023-11-26">
+            <description>
+                <ul>
+                    <li>Performance improvements by storing images/PDFs separately to the main note</li>
+                    <li>Errors when renaming a note are now reported to the user</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.17.2" type="development" date="2023-11-21">
+            <description>
+                <ul>
+                    <li>Long press a recent color to pin it</li>
+                    <li>You can now export notes from the home screen</li>
+                    <li>Various bug fixes</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.17.1" type="development" date="2023-10-28">
+            <description>
+                <ul>
+                    <li>Fixed a crash when zooming in to PDFs</li>
+                    <li>Improved performance of the shape tool</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.17.0" type="development" date="2023-10-21">
+            <description>
+                <ul>
+                    <li>Added a shape recognition pen</li>
+                    <li>Straight line detection now only works with the shape recognition pen</li>
+                    <li>New PDF imports will retain their original quality</li>
+                    <li>Select multiple notes at once to move or delete them</li>
+                    <li>You can now delete and duplicate a selection of strokes/images</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.16.1" type="development" date="2023-09-29">
+            <description>
+                <ul>
+                    <li>Fixed login failing when the Saber folder already exists on the server.</li>
+                    <li>You can now change the colour of selected strokes, thanks to AraxTheCoder.</li>
+                    <li>Syncing reliability improvements.</li>
+                    <li>Better handling of zoom lock when restoring your last zoom.</li>
+                    <li>Importing PDFs from the home screen now uses the current folder.</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.16.0" type="development" date="2023-09-29">
+            <description>
+                <ul>
+                    <li>You can now change the colour of selected strokes, thanks to AraxTheCoder.</li>
+                    <li>Syncing reliability improvements.</li>
+                    <li>Better handling of zoom lock when restoring your last zoom.</li>
+                    <li>Importing PDFs from the home screen now uses the current folder.</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.15.5" type="development" date="2023-09-19">
+            <description>
+                <ul>
+                    <li>Added a Linux (Yaru) theme</li>
+                    <li>Fixed a syncing regression</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.15.4" type="development" date="2023-09-15">
+            <description>
+                <ul>
+                    <li>Fixed a lot of zooming issues and the current page detection when zoomed</li>
+                    <li>Improved initial performance on non-Onyx Android devices</li>
+                    <li>Improved toolbar performance when toggling different menus</li>
+                    <li>Support for arm64 Linux devices on Flathub</li>
+                    <li>Disabled ads on devices where they'd cause slowdowns</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.15.3" type="development" date="2023-08-29">
+            <description>
+                <ul>
+                    <li>Added a button to rename folders</li>
+                    <li>Added a tablature background pattern</li>
+                    <li>Minor improvements to the editor three dots menu</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.15.2" type="development" date="2023-08-24">
+            <description>
+                <ul>
+                    <li>Fixed the new file format crashing when you use colored strokes</li>
+                    <li>Any known corrupted files are now deprioritized in the sync queue</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.15.1" type="development" date="2023-08-23">
+            <description>
+                <ul>
+                    <li>Reduced the file size of notes</li>
+                    <li>Reduced slowdown caused by syncing</li>
+                    <li>You can now import a PDF from the home screen</li>
+                    <li>Fixed a bug when a folder and a note had the same name</li>
+                    <li>Fixed a layout bug when using the iOS theme</li>
+                    <li>Fixed changelogs not appearing in F-Droid</li>
+                    <li>Fixed missing libraries in the AppImage</li>
+                    <li>Fixed the ATT prompt not appearing in iOS</li>
+                    <li>Fixed a bug where the quill toolbar would only work with the first page</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.14.11" type="development" date="2023-07-27">
+            <description>
+                <ul>
+                    <li>Reduced the file size of notes with many strokes</li>
+                    <li>Fixed a bug with creating a note in a folder</li>
+                    <li>Translations and metadata updates</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.14.10" type="development" date="2023-07-23">
+            <description>
+                <ul>
+                    <li>Fixed undoing/redoing strokes</li>
+                    <li>The current color is now displayed in the toolbar without having to open the color bar</li>
+                    <li>Minor visual and performance improvements</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.14.9" type="development" date="2023-07-19">
+            <description>
+                <ul>
+                    <li>Added a setting to hide the finger drawing button to avoid accidentally toggling it</li>
+                    <li>Bug fixes</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.14.8" type="development" date="2023-07-19">
+            <description>
+                <ul>
+                    <li>Fixed PDF exports being grey-ish for some users</li>
+                    <li>Added a button to delete folders</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.14.7" type="development" date="2023-07-17">
+            <description>
+                <ul>
+                    <li>Notes are now created in the current folder, not the root folder</li>
+                    <li>Added a setting to switch back to the pen after using the eraser</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.14.6" type="development" date="2023-07-10">
+            <description>
+                <ul>
+                    <li>Added a button to quickly insert a page after the current page</li>
+                    <li>Better S-Pen support, thanks again to @ZebraVogel94349</li>
+                    <li>Added Japanese translation, thanks to @nagiyu</li>
+                    <li>Customizable auto-save interval</li>
+                    <li>Minor UI improvements</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.14.5" type="development" date="2023-07-08">
+            <description>
+                <ul>
+                    <li>(Changes only affect the Android app)</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.14.4" type="development" date="2023-07-05">
+            <description>
+                <ul>
+                    <li>Reorganised the Settings page to make it easier to find what you're looking for.</li>
+                    <li>Support for custom Nextcloud servers with self-signed certificates: enable the "Allow insecure connections" option in Settings.</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.14.3" type="development" date="2023-07-02">
+            <description>
+                <p>Saber on Android and iOS is now supported by Google ads. You'll be prompted to choose between personalized and non-personalized ads. You can change this choice later in the app's settings, or completely opt out of ads if you wish.</p>
+            </description>
+        </release>
+        <release version="0.14.2" type="development" date="2023-07-01">
+            <description>
+                <ul>
+                    <li>Support for Nextcloud 27</li>
+                    <li>Reduced stutters after saving a note</li>
+                    <li>Minor UI improvements</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.14.0" type="development" date="2023-06-28">
+            <description>
+                <ul>
+                    <li>Support for folders!</li>
+                    <li>Quickly move and rename notes from the home screen</li>
+                    <li>Fixed weirdness with Scribble on iPad in the pen size picker</li>
+                    <li>Fixed downloading SVGs</li>
+                    <li>Minor visual and performance tweaks</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.13.1" type="development" date="2023-06-18">
+            <description>
+                <ul>
+                    <li>Checks that the whiteboard is saved before you navigate away</li>
+                    <li>Fixed a bug where images would always be added to the first page rather than the current page</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.13.0" type="development" date="2023-06-16">
+            <description>
+                <ul>
+                    <li>Added a laser pointer tool</li>
+                    <li>You can now lock panning to the vertical/horizontal axes</li>
+                    <li>Phone users can now opt to use the tablet UI and vice versa</li>
+                    <li>Better pen icons</li>
+                    <li>Reduced the number of notes that are loaded at once</li>
+                    <li>Fixed detection of deleted files, so syncs are much faster now</li>
+                    <li>Faster and more reliable image imports</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.12.10" type="development" date="2023-06-06">
+            <description>
+                <ul>
+                    <li>Tool options are now embedded in the toolbar</li>
+                    <li>Straight line recognition now works on shorter lines</li>
+                    <li>Saving progress is now displayed to the user</li>
+                    <li>Fixed a bug with the "Don't save preset colors in recent colors" setting</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.12.9" type="development" date="2023-05-29">
+            <description>
+                <ul>
+                    <li>Better inversion support for translucency in images</li>
+                    <li>Performance optimisations for the eraser tool</li>
+                    <li>Reduced filesize of notes</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.12.8" type="development" date="2023-05-25">
+            <description>
+                <ul>
+                    <li>Autosaving is now more spaced out to avoid clashes</li>
+                    <li>Minor visual tweaks</li>
+                    <li>Checkboxes, bullet points, and number points are now sized in proportion to the text</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.12.7" type="development" date="2023-05-21">
+            <description>
+                <ul>
+                    <li>Thumbnails should be slightly better quality for new images/PDFs</li>
+                    <li>Desktop users can zoom in and out with Ctrl + and Ctrl -</li>
+                    <li>Added pastel colors to the default color pallet</li>
+                    <li>Fixed the editor not updating when importing a PDF until you manually scrolled</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.12.6" type="development" date="2023-05-17">
+            <description>
+                <ul>
+                    <li>Performance improvements with large notes</li>
+                    <li>Fixed the editor menu always thinking you're on the last page of a note</li>
+                    <li>Added a drag handle to the editor menu</li>
+                    <li>You'll now get a message if you try to login to an unsupported Nextcloud server</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.12.5" type="development" date="2023-05-14">
+            <description>
+                <ul>
+                    <li>Reverted image changes due to some larger images not loading</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.12.4" type="development" date="2023-05-12">
+            <description>
+                <ul>
+                    <li>Fixed syncing with Nextcloud 26</li>
+                    <li>Fixed a bug where new images didn't display correctly until you reopened the note</li>
+                    <li>Efficiency improvements with images at the cost of longer loading times</li>
+                    <li>Performance improvements thanks to Flutter 3.10</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.12.3" type="development" date="2023-05-07">
+            <description>
+                <ul>
+                    <li>Support for Nextcloud 26</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.12.2" type="development" date="2023-05-07">
+            <description>
+                <ul>
+                    <li>Fixed layout issue with the text editing toolbar</li>
+                    <li>Fixed misspellings of Saber in some translations</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.12.0" type="development" date="2023-05-02">
+            <description>
+                <ul>
+                    <li>You can now insert a new page after another in the page management dialog</li>
+                    <li>You can now duplicate a page in the page management dialog</li>
+                    <li>You can now delete a page in the page management dialog</li>
+                    <li>Fixed a bug where stylus input was disabled if one-finger panning was disabled</li>
+                    <li>Added a direct link to the account deletion page</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.11.7" type="development" date="2023-04-28">
+            <description>
+                <ul>
+                    <li>Tap your username on the settings page to go to the new profile page</li>
+                    <li>You can now use both right-to-left and left-to-right background patterns</li>
+                    <li>Improved the macOS icon</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.11.6" type="development" date="2023-04-25">
+            <description>
+                <ul>
+                    <li>Prepare the macOS app for App Store submission</li>
+                    <li>The signup link now opens in an in-app web view for iOS users in order to comply with App Store guidelines</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.11.5" type="development" date="2023-04-23">
+            <description>
+                <ul>
+                    <li>Certain background patterns now respond to whether you're using a right-to-left language</li>
+                    <li>Tap a page in the pages popup to quickly scroll to it</li>
+                    <li>Laptop touchpad users can now pinch to zoom</li>
+                    <li>Small performance improvement for when you don't have any highlighter strokes on screen</li>
+                    <li>Fixed some bugs when using the iOS theme</li>
+                    <li>Increased scrolling responsiveness in the editor</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.11.4" type="development" date="2023-04-11">
+            <description>
+                <ul>
+                    <li>Added a template for Cornell notes</li>
+                    <li>Better previews of the different background patterns</li>
+                    <li>Fixed the home screen sometimes messing up after lots of changes</li>
+                    <li>Fonts are now bundled with the app, so they aren't downloaded on first use</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.11.3" type="development" date="2023-04-09">
+            <description>
+                <ul>
+                    <li>Strokes are now only straightened if they are already roughly straight</li>
+                    <li>Increased the resolution of PDF imports: this is a temporary fix until we have lossless PDF imports</li>
+                    <li>Subsequent updates will have their changelogs displayed in-app</li>
+                    <li>Improved the login UX</li>
+                    <li>Minor bug fixes</li>
+                    <li>Upgraded to Flutter 3.7.10</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.11.2" type="development" date="2023-04-05">
+            <description>
+                <ul>
+                    <li>Fixed error when loading large files with lots of images</li>
+                    <li>Added more options in the background image section of the editor menu</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.11.1" type="development" date="2023-04-03">
+            <description>
+                <ul>
+                    <li>Fixed pasting images taken from the Windows Snipping Tool</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.11.0" type="development" date="2023-04-03">
+            <description>
+                <ul>
+                    <li>(Partial) support for pasting images from the clipboard</li>
+                    <li>Images that are used multiple times are now only stored once</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.10.0" type="development" date="2023-04-01">
+            <description>
+                <ul>
+                    <li>Major performance improvements with inverting images</li>
+                    <li>Reliability improvements when renaming notes</li>
+                    <li>Fixed panning with one finger while using the text tool</li>
+                    <li>Upgraded to Flutter 3.7.9</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.9.12" type="development" date="2023-03-30">
+            <description>
+                <ul>
+                    <li>Fixed the file watcher on Windows</li>
+                    <li>Updated the login FAQ section</li>
+                    <li>Fixed some bugs with PDF exporting</li>
+                    <li>Upgraded to Flutter 3.7.8</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.9.11" type="development" date="2023-03-22">
+            <description>
+                <ul>
+                    <li>Improved home page transitions</li>
+                    <li>Performance improvements for the home page</li>
+                    <li>Fixed the weirdness with moving the cursor when editing text</li>
+                    <li>Fixed a minor bug on the Settings page</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.9.10" type="development" date="2023-03-20">
+            <description>
+                <ul>
+                    <li>Fixed updating issue on Android devices</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.9.9" type="development" date="2023-03-20">
+            <description>
+                <ul>
+                    <li>New background pattern for music staffs</li>
+                    <li>The update process has been streamlined for Windows and non-FOSS Android users</li>
+                    <li>Visual C++ Redistributable is now included in the Windows installer</li>
+                    <li>Slight performance improvements with large files</li>
+                    <li>Fixed pdf page indicators including the empty last page</li>
+                    <li>Hidden duplicate buttons in the Quill toolbar</li>
+                    <li>Minor visual tweaks</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.9.8" type="development" date="2023-03-12">
+            <description>
+                <ul>
+                    <li>Tap the zoom indicator to reset the zoom level.</li>
+                    <li>Fixed a bug where you couldn't zoom below 1.0x on landscape screens.</li>
+                    <li>Improved the quality of PDFs exported from the app, by using vector graphics for strokes.</li>
+                    <li>Added a setting for whether to show page indicators in exported PDFs.</li>
+                    <li>Added a setting for whether you want to save preset colors in your recent colors.</li>
+                    <li>Fixed a bug where recent colors would be saved in reverse order for new users.</li>
+                    <li>Fixed toolbar spacing when aligned to the left or right.</li>
+                    <li>Minor visual improvements.</li>
+                    <li>Initial progress towards merging the undo/redo buttons of Saber and the text tool.</li>
+                    <li>Upgrade to Flutter 3.7.7.</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.9.6" type="development" date="2023-03-05">
+            <description>
+                <ul>
+                    <li>Fixed bug with incorrect display of notes on the home screen while loading</li>
+                    <li>The select tool can now also select images</li>
+                    <li>You can now zoom below 1.0x</li>
+                    <li>The full height of pages with background images will be shown on the home screen</li>
+                    <li>Fixed bug where the Nextcloud storage would infinity load</li>
+                    <li>Minor UI tweaks</li>
+                    <li>Remove defunct S Pen warning</li>
+                    <li>Upgrade to Flutter 3.7.6</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.9.5" type="development" date="2023-02-24">
+            <description>
+                <ul>
+                    <li>Dots are no longer tiny on pressure-sensitive devices.</li>
+                    <li>Background images/PDFs are now made opaque by default.</li>
+                    <li>Performance improvements for importing and inverting images/PDFs.</li>
+                    <li>Svg compatibility improvements, including embedded images.</li>
+                    <li>Refreshing note previews after a sync is now animated.</li>
+                    <li>Upgraded to Flutter 3.7.5.</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.9.4" type="development" date="2023-02-21">
+            <description>
+                <ul>
+                    <li>You can lock panning to 2-finger panning only to avoid accidents.</li>
+                    <li>There's now a minimum length for straightened lines to avoid accidental straightening of letters.</li>
+                    <li>Fixed a bug where images weren't thumbnailed on the home page.</li>
+                    <li>Zoom/pan locks are now remembered across app restarts.</li>
+                    <li>Your last-used tool will be reselected when you open a new note.</li>
+                    <li>Images can now only be moved with the select tool. This prevents you accidentally selecting an image when writing.</li>
+                    <li>Recoloured the 3 button navbar on some Android devices.</li>
+                    <li>Svg compatibility improvements.</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.9.3" type="development" date="2023-02-16">
+            <description>
+                <ul>
+                    <li>The eraser now works properly with straightened lines</li>
+                    <li>More image formats are supported including SVGs</li>
+                    <li>The toolbar can be aligned to the left and right of the screen</li>
+                    <li>Improved performance on app load</li>
+                    <li>Windows users can now install without administrator privileges</li>
+                    <li>Minor visual tweaks</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.9.2" type="development" date="2023-02-12">
+            <description>
+                <ul>
+                    <li>You can now re-order pages in the editor</li>
+                    <li>Improved the appearance of strokes that go beyond the page</li>
+                    <li>Pen (non-highlighter) strokes are sorted chronologically rather than by color</li>
+                    <li>Fixed a bug regarding the sizing of off-screen pages in the editor</li>
+                    <li>Fixed the selection area being displayed on all pages</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.9.1" type="development" date="2023-02-10">
+            <description>
+                <ul>
+                    <li>Fixed a bug where pages with background images would be automatically removed when the rest of the page was erased</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.9.0" type="development" date="2023-02-10">
+            <description>
+                <ul>
+                    <li>You can now import PDFs in the editor menu</li>
+                    <li>Long press a setting to reset it to its default value</li>
+                    <li>You can now import multiple images at once</li>
+                    <li>Syncing reliability improvements</li>
+                    <li>Fixed going into fullscreen on the whiteboard for Android devices</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.8.1" type="development" date="2023-02-05">
+            <description>
+                <ul>
+                    <li>Fixed Android devices flickering in and out of fullscreen</li>
+                    <li>Home screen performance improvements</li>
+                    <li>You can choose to hide the backgrounds of your notes on the home screen for a cleaner look</li>
+                    <li>Added a monochrome icon for Android 13 users</li>
+                    <li>Fixed the navbar overlapping with the home screen on some Android tablets</li>
+                    <li>Discontinued the web version of Saber</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.8.0" type="development" date="2023-02-01">
+            <description>
+                <ul>
+                    <li>New selection tool! Currently restricted to strokes only</li>
+                    <li>Drawing performance improvements</li>
+                    <li>Scrolling performance improvements</li>
+                    <li>Minor UI changes</li>
+                    <li>PDF exports are now pixel perfect (but are rasterized)</li>
+                    <li>Images on the home screen no longer 'flicker' while syncing</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.7.0" type="development" date="2023-01-30">
+            <description>
+                <ul>
+                    <li>Improved the appearance of the highlighter on custom backgrounds</li>
+                    <li>Performance improvements with the .sbn file format</li>
+                    <li>Fixed size indicator not updating when switching between the fountain pen and ballpoint pen</li>
+                    <li>Fixed UI regression on the home screen</li>
+                    <li>You can now configure how much images are compressed in settings</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.6.0" type="development" date="2023-01-28">
+            <description>
+                <ul>
+                    <li>You can now set images as the page background</li>
+                    <li>Fixed the finger drawing toggle on web</li>
+                    <li>Fixed photo import on web</li>
+                    <li>Upgraded to Flutter 3.7.0</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.5.8" type="development" date="2023-01-23">
+            <description>
+                <ul>
+                    <li>Small UI improvements</li>
+                    <li>Fixed issue where you couldn't use http (instead of https) server URLs</li>
+                    <li>macOS users can opt in to insecure storage, because Saber can't access the keychain without an Apple Developer account</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.5.7" type="development" date="2023-01-19">
+            <description>
+                <ul>
+                    <li>Various UI changes for iOS/macOS users</li>
+                    <li>You can choose whether to use the regular or iOS style of the app</li>
+                    <li>Better color scheme for high contrast devices</li>
+                    <li>Fix bug with notes named with special characters not being openable</li>
+                    <li>Fixed editor menu not being sized correctly on landscape phones</li>
+                    <li>The Settings page is organised into categories</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.5.6" type="development" date="2023-01-15">
+            <description>
+                <ul>
+                    <li>Added a button to lock the canvas zoom</li>
+                    <li>Added icons to the settings page</li>
+                    <li>Updated the copyright year</li>
+                    <li>UI improvements</li>
+                    <li>Disabled the container transform animation if your device has reduced animations enabled</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.5.5" type="development" date="2023-01-10">
+            <description>
+                <ul>
+                    <li>You'll remained scrolled/zoomed to the same position when you close and open a note during the same session</li>
+                    <li>Optimisations for Onyx devices</li>
+                    <li>Removed the empty last page from PDF exports</li>
+                    <li>Initial support for exporting typed text to PDF (doesn't line up properly yet)</li>
+                    <li>Quill toolbar buttons now match the other toolbar buttons</li>
+                    <li>Images can now be stretched (distorted)</li>
+                    <li>You can now override your system language in Settings</li>
+                    <li>New Turkish and Czech translations</li>
+                    <li>Bug fix: The Quill toolbar no longer disappears if the editor loses focus</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.5.4" type="development" date="2023-01-07">
+            <description>
+                <ul>
+                    <li>Make it clearer when you're taken to your last viewed page</li>
+                    <li>Pages now have a page indicator on the bottom</li>
+                    <li>Improvements for Android users importing files</li>
+                    <li>Better version comparison for updates</li>
+                    <li>Bug fix: Deleting files properly syncs again</li>
+                    <li>Bug fix: Only show the size indicator hint once</li>
+                    <li>Bug fix: Whiteboard pages no longer blank out if you expand the navigation menu</li>
+                    <li>Bug fix: Fix zoom indicator not showing up</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.5.3" type="development" date="2023-01-04">
+            <description>
+                <ul>
+                    <li>Notes will reopen to the last page you were on</li>
+                    <li>Android users can now import .sbn files</li>
+                    <li>Uploading indicators are no longer shown if you aren't logged in with Nextcloud</li>
+                    <li>Bug fix: Correctly save 90° straight lines</li>
+                    <li>Bug fix: Exiting fullscreen now works in Firefox</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.5.2" type="development" date="2022-12-30">
+            <description>
+                <ul>
+                    <li>Fixed regression where the 3rd page couldn't be drawn on</li>
+                    <li>Fixed bug on desktops where pages would incorrectly be calculated as offscreen</li>
+                    <li>Performance improvements with syncing</li>
+                    <li>Syncing now handles being offline</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.5.1" type="development" date="2022-12-29">
+            <description>
+                <ul>
+                    <li>There's now a button to use the editor in fullscreen</li>
+                    <li>Undo/redo history is now limited to 100 records</li>
+                    <li>Fix bug with new notes all having the same name</li>
+                    <li>Invertible pictures won't be shown not-inverted while loading</li>
+                    <li>Reduced stutter while opening large files</li>
+                    <li>Performance improvements for notes with many pages</li>
+                    <li>Pages in the editor now have a box shadow to make them stand out from the background</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.5.0" type="development" date="2022-12-24">
+            <description>
+                <ul>
+                    <li>You can now type in notes!</li>
+                    <li>Minor bug fixes</li>
+                    <li>Added Russian translations, thanks @ShevT</li>
+                </ul>
+            </description>
+        </release>
+        <release version="0.4.9" type="development" date="2022-12-20">
+            <description>
+                <ol>
+                    <li>Better transition when opening a note</li>
+                    <li>You can now choose custom colors in the editor</li>
+                    <li>If you've chosen to auto-clear the whiteboard, you can tap the undo button to restore it</li>
+                    <li>Minor UI tweaks</li>
+                    <li>Added missing dependencies to the Flatpak release</li>
+                </ol>
+            </description>
+        </release>
+        <release version="0.4.8" type="development" date="2022-12-16">
+            <description>
+                <ol>
+                    <li>Greatly reduced scrolling jank</li>
+                    <li>Inverted images are now pre-loaded and nicely animated</li>
+                    <li>You can now download images into your gallery/hard drive</li>
+                    <li>Fixed transition from old secure storage</li>
+                    <li>Fixed bug with computers with multiple disks/partitions</li>
+                </ol>
+            </description>
+        </release>
+        <release version="0.4.7" type="development" date="2022-12-14">
+            <description>
+                <ol>
+                    <li>Security fix for how your credentials are stored on your device.</li>
+                    <li>The home screen will now show thumbnails of images to reduce memory usage.</li>
+                    <li>Renaming a file to an existing file's name won't overwrite the existing file.</li>
+                    <li>The iOS/macOS icon is now properly cropped.</li>
+                    <li>New users will get a hint to drag the pen size indicator left and right.</li>
+                    <li>Minor bug fixes</li>
+                </ol>
+            </description>
+        </release>
+        <release version="0.4.6" type="development" date="2022-12-11">
+            <description>
+                <ol>
+                    <li>You can now automatically clear the whiteboard after you close the app</li>
+                    <li>There's now an FAQ section in the login page</li>
+                    <li>You won't be prompted to rename new notes anymore unless you opt-in in Settings</li>
+                    <li>The Settings page shows how much storage you have left</li>
+                    <li>Fix more login bugs :p</li>
+                    <li>Various performance improvements</li>
+                </ol>
+            </description>
+        </release>
+        <release version="0.4.5" type="development" date="2022-12-09">
+            <description>
+                <ol>
+                    <li>You can now change the highlighter size</li>
+                    <li>Bug fix: You can again create/draw on new notes</li>
+                    <li>Bug fix: Syncing now works if you logged in with an email</li>
+                    <li>Bug fix: Saber now correctly responds to (low-priority) available updates</li>
+                </ol>
+            </description>
+        </release>
+        <release version="0.4.4" type="development" date="2022-12-07">
+            <description>
+                <ol>
+                    <li>Pen properties are now saved</li>
+                    <li>You'll be warned before editing a note edited/created with a newer version of Saber</li>
+                    <li>Toolbar buttons now wrap instead of scroll on small screens</li>
+                    <li>Fix crash when resizing large photos</li>
+                    <li>Various misc improvements</li>
+                </ol>
+            </description>
+        </release>
+        <release version="0.4.3" type="development" date="2022-12-04">
+            <description>
+                <ol>
+                    <li>You can change the height of each line if you use patterned paper backgrounds</li>
+                    <li>New notes will use your last-used background pattern and line-height</li>
+                    <li>Performance improvements with images</li>
+                    <li>Fix bug where the whiteboard would sometimes clear accidentally</li>
+                </ol>
+            </description>
+        </release>
+        <release version="0.4.2" type="development" date="2022-12-01">
+            <description>
+                <ol>
+                    <li>Add ballpoint pen</li>
+                    <li>You can now set a note to have college-ruled paper, lined paper, grid paper, or dots</li>
+                    <li>Highlighter strokes now mix when they overlap</li>
+                    <li>Images are now restricted to 1000x1000 pixels for performance</li>
+                    <li>PDF exports now display images (and your background)</li>
+                    <li>UI improvements</li>
+                </ol>
+            </description>
+        </release>
+        <release version="0.4.1" type="development" date="2022-11-25">
+            <description>
+                <ol>
+                    <li>Deleting a file is now synced between your devices</li>
+                    <li>Animate images when they're undone/redone</li>
+                    <li>UI improvements</li>
+                </ol>
+            </description>
+        </release>
+        <release version="0.4.0" type="development" date="2022-11-21">
+            <description>
+                <ol>
+                    <li>You can now add images to your notes!</li>
+                    <li>Straight lines are now snapped to right angles</li>
+                    <li>Fixed Traditional Chinese not being used, thanks to jhih_yu</li>
+                </ol>
+            </description>
+        </release>
+        <release version="0.3.16" type="development" date="2022-11-15">
+            <description>
+                <ol>
+                    <li>Hold down while drawing a line to straighten it</li>
+                    <li>You can now change the pen size</li>
+                    <li>Accidental strokes don't clear your redo stack anymore</li>
+                    <li>When logging in, your encryption password is verified to avoid overwriting your existing notes</li>
+                    <li>Updated app info dialog</li>
+                    <li>Zooming no longer accidentally deletes your last stylus stroke</li>
+                </ol>
+            </description>
+        </release>
+        <release version="0.3.15" type="development" date="2022-11-08">
+            <description>
+                <ol>
+                    <li>Various UI improvements</li>
+                    <li>You can now choose to use the Atkinson Hyperlegible font</li>
+                    <li>Updated Simplified Chinese translation by Sdarfeesh</li>
+                    <li>Migrated to non-deprecated Nextcloud package</li>
+                </ol>
+            </description>
+        </release>
+        <release version="0.3.14" type="development" date="2022-11-04">
+            <description>
+                <ol>
+                    <li>Use iOS-style switches on the Settings page for iOS/macOS users</li>
+                    <li>Updated Font Awesome 5 to Font Awesome 6 icons</li>
+                    <li>Bug fix for the eraser</li>
+                    <li>Various bug fixes following initial app load</li>
+                    <li>Italian translations by albanobattistella</li>
+                    <li>Updated Chinese translations by Sdarfeesh</li>
+                </ol>
+            </description>
+        </release>
+        <release version="0.3.13" type="development" date="2022-11-02">
+            <description>
+                <ol>
+                    <li>New tool: highlighter!</li>
+                    <li>Updated icons including icons from Font Awesome 5</li>
+                    <li>Syncing progress doesn't get stuck before 100% anymore</li>
+                    <li>Spanish translations by mamasch19</li>
+                </ol>
+            </description>
+        </release>
+        <release version="0.3.12" type="development" date="2022-10-22">
+            <description>
+                <ol>
+                    <li>Added the missing clear buttons to the whiteboard</li>
+                    <li>Better icon for the eraser</li>
+                    <li>Show a zoom indicator when zooming</li>
+                    <li>Fix font issue with old macOS versions</li>
+                    <li>New notes have better generated names</li>
+                    <li>German translations by mamasch19</li>
+                    <li>Updated Chinese translations by Sdarfeesh</li>
+                </ol>
+            </description>
+        </release>
+        <release version="0.3.11" type="development" date="2022-10-16">
+            <description>
+                <ol>
+                    <li>Chinese translations provided by Sdarfeesh</li>
+                    <li>You can pick a custom accent color in settings</li>
+                </ol>
+            </description>
+        </release>
+        <release version="0.3.10" type="development" date="2022-10-08">
+            <description>
+                <ol>
+                    <li>Show a button in settings to update your app even if it's not urgent.</li>
+                    <li>The editor overflow menu now closes when you click a button.</li>
+                    <li>Bug fix: the toolbar buttons weren't enabling/disabling as needed (e.g. the undo/redo buttons were always enabled).</li>
+                </ol>
+            </description>
+        </release>
+        <release version="0.3.9" type="development" date="2022-09-29">
+            <description>
+                <ol>
+                    <li>Undo/redo has been given a much needed overhaul. You can now undo/redo the eraser as you'd expect.</li>
+                    <li>You can now clear a page (or all pages) using the overflow menu.</li>
+                    <li>You can choose to override your system dark-mode in settings.</li>
+                    <li>Fixed some weirdness when deleting a note.</li>
+                </ol>
+            </description>
+        </release>
+        <release version="0.3.8" type="development" date="2022-09-24">
+            <description>
+                <ol>
+                    <li>Support for styluses that have a built-in eraser</li>
+                    <li>Editor toolbar shortcuts are the same but now require the Ctrl button to be pressed as well.</li>
+                </ol>
+            </description>
+        </release>
+        <release version="0.3.7" type="development" date="2022-09-18">
+            <description>
+                <p>1. Add a whiteboard tab to the home screen (use it like you'd use a whiteboard!)</p>
+                <p>2. The file tree (on desktop/tablet) now stays up to date with file changes</p>
+                <p>3. Fix a bug for first-time users where the Saber directory can't be watched when it doesn't exist yet</p>
+            </description>
+        </release>
+        <release version="0.3.6" type="development" date="2022-09-17">
+            <description>
+                <p>1. Fix syncing not starting when already logged in</p>
+                <p>2. Fix oversized navbar on Android</p>
+            </description>
+        </release>
+        <release version="0.3.5" type="development" date="2022-09-15">
+            <description>
+                <p>1. Fix some Nextcloud URLs being rejected (#13)</p>
+                <p>2. Add delete buttons to each note on the home screen (#15)</p>
+            </description>
+        </release>
+        <release version="0.3.4" type="development" date="2022-09-10">
+            <description>
+                <p>1. Allow SBN export (Saber note format)</p>
+                <p>2. Virtual filesystem improvements on the web</p>
+                <p>3. Restart unfinished uploads if needed</p>
+            </description>
+        </release>
+        <release version="0.3.3" type="development" date="2022-09-08">
+            <description>
+                <p>1. Allow PDF export</p>
+                <p>2. Add a setting to disable automatically checking for updates</p>
+            </description>
+        </release>
+        <release version="0.3.2" type="development" date="2022-09-07">
+            <description>
+                <p>1. Fix crash in the editor for new users</p>
+            </description>
+        </release>
+        <release version="0.3.1" type="development" date="2022-09-06">
+            <description>
+                <p>1. Support for macOS</p>
+                <p>2. Pen color doesn't reset to black every time, but remembers your last used color</p>
+                <p>3. Fixed how recently accessed files are recorded</p>
+            </description>
+        </release>
+        <release version="0.3.0" type="development" date="2022-09-05">
+            <description>
+                <p>1. Use separate passwords for Nextcloud and encryption. This prevents your Nextcloud provider knowing your encryption key.</p>
+            </description>
+        </release>
+        <release version="0.2.3" type="development" date="2022-09-03">
+            <description>
+                <p>1. Stop the syncing indicator infinitely looping if logged out</p>
+                <p>2. Support Ctrl-Z and Ctrl-Y keyboard shortcuts</p>
+                <p>3. Various flatpak tweaks</p>
+            </description>
+        </release>
+        <release version="0.2.2" type="development" date="2022-09-02">
+            <description>
+                <p>1. Linux theming now works properly</p>
+                <p>2. Home screen shows syncing progress, and a resync can be manually triggered by pressing the sync button in the corner</p>
+                <p>3. Syncing is improved under the hood: the latest version of a note is prioritized rather than accidentally overwriting it if you make changes on two devices</p>
+            </description>
+        </release>
+    </releases>
+</component>

@@ -1,0 +1,1 @@
+Čísla stránek nyní respektují vaše nastavení Atkinsonova hyperčitelného písma.

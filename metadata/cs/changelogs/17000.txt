@@ -1,0 +1,5 @@
+• Přidáno pero pro rozpoznávání tvarů
+• Detekce přímky nyní funguje pouze s perem pro rozpoznávání tvaru
+• Nové importy PDF si zachovají svou původní kvalitu
+• Výběrem více poznámek najednou je přesunete nebo odstraníte
+• Nyní můžete odstranit a duplikovat výběr tahů/obrázků

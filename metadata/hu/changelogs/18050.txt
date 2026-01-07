@@ -1,0 +1,4 @@
+• A kezdőképernyő előnézete a teljesítmény érdekében idő előtt elkészül
+• Javítottunk néhány szinkronizálási hibát, és hozzáadtunk egy „minden újraszinkronizálása” gombot a beállításokhoz
+• A nagy jegyzetek betöltésével kapcsolatos hiba javítása
+• Javítva a másodperc törtrészes késleltetése a képek megfordítása előtt

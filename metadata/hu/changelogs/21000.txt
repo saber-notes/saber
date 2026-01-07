@@ -1,0 +1,2 @@
+• A hosszú vonalak mostantól automatikusan kiegyenesednek anélkül, hogy át kellene váltani az alakzati eszközre (a beállításokban konfigurálható)
+• Javítva a tollméretek visszaállítása a tolltípusok közötti váltáskor

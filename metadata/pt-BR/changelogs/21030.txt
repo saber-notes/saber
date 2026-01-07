@@ -1,0 +1,3 @@
+• Adicionado um efeito de brilho ao ponteiro laser
+• Usar o ponteiro laser não aciona mais o salvamento automático
+• Corrigido o seletor de tamanho da caneta que não era exibido corretamente em uma barra de ferramentas vertical

@@ -1,0 +1,4 @@
+• Fixed the app not recognizing if you've changed your encryption password on another device
+• Added fallback fonts for non-latin characters
+• Reduced frame drops when loading the app with lots of legacy notes
+• Added an option to use a simplified home screen layout for performance on low-end devices

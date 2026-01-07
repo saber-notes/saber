@@ -1,0 +1,3 @@
+• Risolto il problema con il messaggio "quasi effettuato l'accesso" visualizzato dopo l'accesso
+• Migliorate alcune icone
+• Disattivato lo scorrimento con i tasti freccia durante la modifica del testo

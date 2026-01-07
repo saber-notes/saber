@@ -1,0 +1,5 @@
+• Opraveno mnoho problémů s přiblížením a detekcí aktuální stránky při přiblížení
+• Vylepšený počáteční výkon na zařízeních Android jiných než Onyx
+• Vylepšený výkon panelu nástrojů při přepínání různých nabídek
+• Podpora pro zařízení arm64 Linux na Flathubu
+• Zakázané reklamy na zařízeních, kde by mohly způsobit zpomalení

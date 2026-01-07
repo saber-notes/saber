@@ -1,0 +1,3 @@
+• Mejor soporte de inversión para la translucidez en las imágenes
+• Optimizaciones de rendimiento para la herramienta de borrador
+• Tamaño de archivo reducido de notas

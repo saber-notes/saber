@@ -1,0 +1,3 @@
+• Aggiunto un effetto bagliore al puntatore laser
+• L'uso del puntatore laser non attiva più il salvataggio automatico
+• Risolto il problema con il selettore della dimensione della penna che non veniva visualizzato correttamente nella barra degli strumenti verticale

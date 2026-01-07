@@ -1,0 +1,5 @@
+• Artık sayfa yönetimi iletişim kutusunda birbiri ardına yeni sayfalar ekleyebilirsiniz.
+• Artık sayfa yönetimi iletişim kutusunda bir sayfayı çoğaltabilirsiniz
+• Artık sayfa yönetimi iletişim kutusundaki bir sayfayı silebilirsiniz.
+• Tek parmakla kaydırma devre dışı bırakıldığında ekran kalemi girişinin devre dışı bırakılmasına neden olan bir hata düzeltildi
+• Hesap silme sayfasına doğrudan bir bağlantı eklendi

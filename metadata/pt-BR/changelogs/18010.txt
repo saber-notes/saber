@@ -1,0 +1,3 @@
+• Os ativos agora são carregados preguiçosamente enquanto você rola para eles
+• Geração de miniatura não utilizada
+• Corrigido um bug onde os arquivos excluídos não seriam selecionados

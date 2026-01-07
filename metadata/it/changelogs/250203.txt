@@ -1,0 +1,7 @@
+• Le immagini invertite ora dovrebbero avere una qualità migliore
+• I PDF ora dovrebbero essere renderizzati più rapidamente
+• Aggiornamenti all'SDK utilizzato per i dispositivi e-ink Onyx
+• Lo zoom massimo è stato aumentato da 5x a 10x
+• I tratti ora vengono renderizzati con una qualità inferiore quando si esegue lo zoom indietro
+• Risolto un bug quando una tela viene rinominata subito dopo la chiusura dell'editor
+...

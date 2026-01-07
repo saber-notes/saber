@@ -1,0 +1,2 @@
+• Notes are now created in the current folder, not the root folder
+• Added a setting to switch back to the pen after using the eraser

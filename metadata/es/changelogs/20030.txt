@@ -1,0 +1,3 @@
+• Se corrigió que las exportaciones de PDF fallaran en algunas notas.
+• Se redujo el efecto borroso en lápices de gran tamaño.
+• Se corrigió el botón "resincronizar todo" que cargaba archivos vacíos

@@ -1,0 +1,5 @@
+• sincronización fija!
+• Arregló un error donde los activos se dejarían atrás al borrar o mover una nota.
+• Utilice las teclas de flecha para moverse alrededor de una nota.
+• Mejoras de rendimiento para la herramienta de forma.
+.

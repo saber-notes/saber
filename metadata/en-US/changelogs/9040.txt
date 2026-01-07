@@ -1,0 +1,8 @@
+• You can lock panning to 2-finger panning only to avoid accidents.
+• There's now a minimum length for straightened lines to avoid accidental straightening of letters.
+• Fixed a bug where images weren't thumbnailed on the home page.
+• Zoom/pan locks are now remembered across app restarts.
+• Your last-used tool will be reselected when you open a new note.
+• Images can now only be moved with the select tool. This prevents you accidentally selecting an image when writing.
+• Recoloured the 3 button navbar on some Android devices.
+• Svg compatibility improvements.

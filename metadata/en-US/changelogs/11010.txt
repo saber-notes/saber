@@ -1,0 +1,1 @@
+• Fixed pasting images taken from the Windows Snipping Tool

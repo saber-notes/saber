@@ -1,0 +1,6 @@
+• Los trazos ahora solo se enderezan si ya son más o menos rectos.
+• Aumento de la resolución de las importaciones de PDF: esta es una solución temporal hasta que tengamos importaciones de PDF sin pérdidas
+• Las actualizaciones posteriores tendrán sus registros de cambios mostrados en la aplicación
+• Mejoró la experiencia de usuario de inicio de sesión
+• Correcciones de errores menores
+• Actualizado a Flutter 3.7.10

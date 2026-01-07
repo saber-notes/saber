@@ -1,0 +1,4 @@
+• Nyní můžete v dialogovém okně správy stránek vkládat novou stránku za druhou
+• Nyní můžete duplikovat stránku v dialogovém okně správy stránky
+• Nyní můžete odstranit stránku v dialogovém okně správy stránky
+• Opravena chyba, kdy bylo zakázáno zadávání stylusem, pokud bylo zakázáno posouvání jedním prstem

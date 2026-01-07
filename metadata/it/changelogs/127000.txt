@@ -1,0 +1,4 @@
+• Migliorato l'aspetto dei tratti di matita e le relative prestazioni di rendering.
+• Saber ora utilizza una barra del titolo a tema su Windows e Linux, che risponde alle modifiche alla modalità chiaro/scuro.
+• Gli interruttori sono ora ispirati al tema di Cupertino (in stile iOS).
+• Aggiunta una traduzione in esperanto.

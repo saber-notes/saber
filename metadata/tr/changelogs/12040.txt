@@ -1,0 +1,4 @@
+• Nextcloud 26 ile eşitleme düzeltildi
+• Siz notu yeniden açana kadar yeni resimlerin doğru şekilde görüntülenmemesine neden olan bir hata düzeltildi
+• Daha uzun yükleme süreleri pahasına görsellerle verimlilik iyileştirmeleri
+• Flutter 3.10 sayesinde performans iyileştirmeleri

@@ -1,0 +1,363 @@
+common: 
+  done: Fatto
+  continueBtn: Continua
+  cancel: Cancella
+home: 
+  tabs: 
+    home: Home
+    browse: Sfoglia
+    whiteboard: Lavagna
+    settings: Impostazioni
+  titles: 
+    home: Note recenti
+    browse: Sfoglia
+    whiteboard: Lavagna
+    settings: Impostazioni
+  tooltips: 
+    newNote: Nuova nota
+    showUpdateDialog: Mostra finestra di aggiornamento
+    exportNote: Esporta nota
+  create: 
+    newNote: Nuova nota
+    importNote: Importa nota
+  welcome: Benvenuto su Saber
+  invalidFormat: Il file selezionato non è supportato. Seleziona un file .sbn, .sbn2, .sba o .pdf.
+  noFiles: Nessun file trovato
+  noPreviewAvailable: Nessuna anteprima disponibile
+  createNewNote: Tocca il pulsante + per creare una nuova nota
+  backFolder: Torna alla cartella precedente
+  newFolder: 
+    newFolder: Nuova cartella
+    folderName: Nome cartella
+    create: Crea
+    folderNameEmpty: Il nome della cartella non può essere vuoto
+    folderNameContainsSlash: Il nome della cartella non può contenere una barra
+    folderNameExists: La cartella esiste già
+  renameNote: 
+    renameNote: Rinomina nota
+    noteName: Nome nota
+    rename: Rinomina
+    noteNameEmpty: Il nome della nota non può essere vuoto
+    noteNameContainsSlash: Il nome della nota non può contenere una barra
+    noteNameExists: Esiste già una nota con questo nome
+  moveNote: 
+    moveNote: Sposta nota
+    moveNotes: Sposta $n note
+    moveName: Sposta $f
+    move: Sposta
+    renamedTo: La nota verrà rinominata in $newName
+    multipleRenamedTo: "Le note seguenti verranno rinominate:"
+    numberRenamedTo: $n le note verranno rinominate per evitare conflitti
+  deleteNote: Elimina nota
+  renameFolder: 
+    renameFolder: Rinomina cartella
+    folderName: Nome cartella
+    rename: Rinomina
+    folderNameEmpty: Il nome della cartella non può essere vuoto
+    folderNameContainsSlash: Il nome della cartella non può contenere una barra
+    folderNameExists: Esiste già una cartella con questo nome
+  deleteFolder: 
+    deleteFolder: Elimina cartella
+    deleteName: Elimina $f
+    delete: Elimina
+    alsoDeleteContents: Elimina anche tutte le note all'interno di questa cartella
+sentry: 
+  consent: 
+    title: Vuoi aiutaci a migliorare Saber?
+    description: 
+      question: Vuoi segnalare automaticamente gli errori imprevisti? Questo mi aiuta a identificare e risolvere i problemi più velocemente.
+      scope: I report potrebbero contenere informazioni sull'errore e sul tuo dispositivo. Ho fatto tutto il possibile per filtrare i dati personali, ma alcuni potrebbero rimanere.
+      currentlyOff: Se acconsenti, la segnalazione degli errori verrà abilitata dopo il riavvio dell'app.
+      currentlyOn: Se revochi il consenso, riavvia l'app per disattivare la segnalazione degli errori.
+      learnMoreInPrivacyPolicy(rich): Scopri di più in ${link(privacy policy)}.
+    answers: 
+      yes: Yes
+      no: No
+      later: Chiedimelo più tardi
+settings: 
+  prefCategories: 
+    general: Generale
+    writing: Scrittura
+    editor: Editor
+    performance: Prestazioni
+    advanced: Avanzato
+  prefLabels: 
+    locale: Lingua app
+    appTheme: Tema dell'app
+    platform: Tipo di tema
+    layoutSize: Dimensione layout
+    customAccentColor: Colore personalizzato
+    hyperlegibleFont: Carattere iperleggibile
+    shouldCheckForUpdates: Controlla automaticamente gli aggiornamenti di Saber
+    shouldAlwaysAlertForUpdates: Aggiornamenti veloci
+    allowInsecureConnections: Consenti connessioni non sicure
+    editorToolbarAlignment: Allineamento della barra degli strumenti dell'editor
+    editorToolbarShowInFullscreen: Mostra la barra degli strumenti dell'editor in modalità a schermo intero
+    editorAutoInvert: Inverti le note in modalità scura
+    preferGreyscale: Preferisci i colori in scala di grigi
+    maxImageSize: Dimensione massima dell'immagine
+    autoClearWhiteboardOnExit: Svuota la lavagna dopo essere uscito dall'app
+    disableEraserAfterUse: Disattiva automaticamente la gomma
+    hideFingerDrawingToggle: Nascondi l'interruttore del disegno con le dita
+    autoDisableFingerDrawingWhenStylusDetected: Disattiva automaticamente il disegno con le dita
+    editorPromptRename: Richiede di rinominare nuove note
+    recentColorsDontSavePresets: Non salvare i colori preimpostati nei colori recenti
+    recentColorsLength: Quanti colori recenti memorizzare
+    printPageIndicators: Stampa indicatori di pagina
+    autosave: Salvataggio automatico
+    shapeRecognitionDelay: Ritardo nel riconoscimento della forma
+    autoStraightenLines: Raddrizzamento automatico delle linee
+    simplifiedHomeLayout: Layout semplificato della home
+    customDataDir: Cartella Saber personalizzata
+    sentry: Segnalazione di errori
+  prefDescriptions: 
+    hyperlegibleFont: Atkinson Iperleggibile aumenta la leggibilità per i lettori ipovedenti
+    allowInsecureConnections: (Non consigliato) Consenti a Saber di connettersi ai server con certificati autofirmati/non attendibili
+    preferGreyscale: Per display e-ink
+    autoClearWhiteboardOnExit: Sarà comunque sincronizzato con gli altri tuoi dispositivi
+    disableEraserAfterUse: Torna automaticamente alla penna dopo aver utilizzato la gomma
+    maxImageSize: Le immagini più grandi verranno compresse
+    hideFingerDrawing: 
+      shown: Impedisce l'attivazione accidentale
+      fixedOn: Il disegno con le dita è fissato come abilitato
+      fixedOff: Il disegno con le dita è fisso come disabilitato
+    autoDisableFingerDrawingWhenStylusDetected: Disattiva il disegno con le dita quando viene rilevato la stilo
+    editorPromptRename: Puoi sempre rinominare le note in un secondo momento
+    printPageIndicators: Mostra indicatori di pagina nelle esportazioni
+    autosave: Salvataggio automatico dopo un breve ritardo o mai
+    shapeRecognitionDelay: Quanto spesso aggiornare l'anteprima della forma
+    autoStraightenLines: Raddrizza le linee lunghe senza dover utilizzare la penna sagomatrice
+    simplifiedHomeLayout: Imposta un'altezza fissa per ogni anteprima della nota
+    shouldAlwaysAlertForUpdates: Segnalami aggiornamenti non appena sono disponibili
+    sentry: 
+      active: Attivo
+      inactive: Non attivo
+      activeUntilRestart: Attivo fino al riavvio dell'app
+      inactiveUntilRestart: Non attivo finché non riavvii l'app
+  themeModes: 
+    system: Sistema
+    light: Chiaro
+    dark: Scuro
+  layoutSizes: 
+    auto: Automatico
+    phone: Telefono
+    tablet: Tablet
+  accentColorPicker: 
+    pickAColor: Scegli un colore
+  systemLanguage: Lingua del sistema
+  axisDirections: 
+    - Sopra
+    - Destra
+    - In basso
+    - Sotto
+  reset: 
+    title: Ripristinare questa impostazione?
+    button: Ripristina
+  resyncEverything: Risincronizza tutto
+  openDataDir: Apri cartella Saber
+  customDataDir: 
+    cancel: Annulla
+    select: Seleziona
+    mustBeEmpty: La cartella selezionata deve essere vuota
+    mustBeDoneSyncing: Assicurati che la sincronizzazione sia completa prima di cambiare cartella
+    unsupported: Questa funzionalità è attualmente disponibile solo per gli sviluppatori. Il suo utilizzo comporterà probabilmente la perdita di dati.
+  autosaveDisabled: Mai
+  shapeRecognitionDisabled: Mai
+logs: 
+  logs: Log
+  viewLogs: Visualizza log
+  debuggingInfo: I log contengono informazioni utili per il debug e lo sviluppo
+  noLogs: Niente log qui!
+  useTheApp: I log appariranno qui mentre usi l'app
+login: 
+  title: Login
+  form: 
+    agreeToPrivacyPolicy(rich): Effettuando l'accesso, accetti la ${linkToPrivacyPolicy(Informativa sulla privacy)}.
+  signup(rich): Non hai ancora un account? ${linkToSignup(Registrati ora)}!
+  notYou(rich): Nn sei tu? ${undoLogin(Scegli un altro account)}.
+  status: 
+    loggedOut: Disconnesso
+    tapToLogin: Tocca per accedere con Nextcloud
+    hi: Ciao, $u!
+    almostDone: Quasi pronto per la sincronizzazione, tocca per completare l'accesso
+    loggedIn: Effettuato l'accesso con Nextcloud
+  ncLoginStep: 
+    whereToStoreData: "Scegli dove vuoi archiviare i tuoi dati:"
+    saberNcServer: Il server Nextcloud di Saber
+    otherNcServer: Altro server Nextcloud
+    serverUrl: URL Server
+    loginWithSaber: Accedi con Saber
+    loginWithNextcloud: Accedi con Nextcloud
+    loginFlow: 
+      pleaseAuthorize: Autorizza Saber ad accedere al tuo account Nextcloud
+      followPrompts: Seguire le istruzioni nell'interfaccia Nextcloud
+      browserDidntOpen: La pagina di accesso non si è aperta? Clicca qui
+  encLoginStep: 
+    enterEncPassword: "Per proteggere i tuoi dati, inserisci la password crittografata:"
+    newToSaber: Nuovo su Saber? Basta inserire una nuova password crittografata.
+    encPassword: Password crittografata
+    encFaqTitle: Domande frequenti
+    wrongEncPassword: La decrittografia non è riuscita con la password fornita. Per favore prova a inserirla di nuovo.
+    connectionFailed: Qualcosa è andato storto durante la connessione al server. Per favore riprova più tardi.
+    encFaq: 
+      - 
+        q: Cos'è una password crittografata? Perché usare due password?
+        a: |-
+          La password Nextcloud viene utilizzata per accedere al cloud. La password di crittografia "codifica" i tuoi dati prima che raggiungano il cloud.
+           Anche se qualcuno riesce ad accedere al tuo account Nextcloud, le tue note rimarranno al sicuro e crittografate con una password separata. Ciò fornisce un secondo livello di sicurezza per proteggere i tuoi dati.
+           Nessuno può accedere alle tue note sul server senza la tua password di crittografia, ma ciò significa anche che se dimentichi la password di crittografia, perderai l'accesso ai tuoi dati.
+      - 
+        q: Non ho ancora impostato una password di crittografia. Dove lo posso ottenere?
+        a: |-
+          Scegli una nuova password crittografata e inseriscila sopra.
+          Saber genererà automaticamente le chiavi di crittografia da questa password.
+      - 
+        q: Posso utilizzare la stessa password del mio account Nextcloud?
+        a: Sì, ma tieni presente che sarebbe più semplice per l'amministratore del server o qualcun altro accedere alle tue note se accedessero al tuo account Nextcloud.
+profile: 
+  title: Il mio profilo
+  logout: Log out
+  quotaUsage: Stai $used di $total ($percent%)
+  connectedTo: Collegato a
+  quickLinks: 
+    serverHomepage: Homepage del server
+    deleteAccount: Elimina account
+  faqTitle: Domande frequenti
+  faq: 
+    - 
+      q: Perderò i miei appunti se mi disconnetto?
+      a: No. Le tue note rimarranno sia sul tuo dispositivo che sul server. Non verranno sincronizzati con il server fino a quando non effettui nuovamente l'accesso. Assicurati che la sincronizzazione sia completa prima di uscire in modo da non perdere alcun dato (vedi l'avanzamento della sincronizzazione nella schermata iniziale).
+    - 
+      q: Come cambio la mia password Nextcloud?
+      a: Vai al sito web del tuo server e accedi. Quindi vai su Impostazioni > Sicurezza > Cambia password. Dovrai disconnetterti e riconnetterti a Saber dopo aver cambiato la tua password.
+    - 
+      q: Come cambio la mia password di crittografia?
+      a: |-
+        1. Disconnettersi da Saber. Assicurati che la sincronizzazione sia completa prima di uscire in modo da non perdere alcun dato (vedi l'avanzamento della sincronizzazione nella schermata iniziale).
+        2. Vai al sito Web del tuo server ed elimina la cartella "Saber". Questo eliminerà tutte le tue note dal server.
+        3. Accedi nuovamente a Saber. Puoi scegliere una nuova password di crittografia quando accedi.
+        4. Non dimenticare di disconnetterti e accedere nuovamente a Saber anche sugli altri tuoi dispositivi.
+    - 
+      q: Come posso eliminare il mio account?
+      a: |-
+        Tocca il pulsante "@:profile.quickLinks.deleteAccount" in alto e, se necessario, accedi.
+        Se stai utilizzando il server Saber ufficiale, il tuo account verrà eliminato dopo un periodo di tolleranza di 1 settimana. Puoi contattarmi all'indirizzo adilhanney@disroot.org durante questo periodo per annullare l'eliminazione.
+        Se stai utilizzando un server di terze parti, potrebbe non esserci un'opzione per eliminare il tuo account: dovrai consultare la politica sulla privacy del server per ulteriori informazioni.
+appInfo: 
+  licenseNotice: |-
+    Saber Copyright © 2022-$buildYear Adil Hanney
+    Questo programma non ha alcuna garanzia. Questo è un software libero e sei libero di ridistribuirlo a determinate condizioni.
+  debug: DEBUG
+  sponsorButton: Tocca qui per sponsorizzarmi o acquistare altro spazio di archiviazione
+  licenseButton: Tocca qui per visualizzare ulteriori informazioni sulla licenza
+  privacyPolicyButton: Tocca qui per visualizzare l'informativa sulla privacy
+update: 
+  updateAvailable: Aggiornamento disponibile
+  updateAvailableDescription: "È disponibile una nuova versione dell'app, con queste modifiche:"
+  update: Aggiornamento
+  downloadNotAvailableYet: Il download non è ancora disponibile per la tua piattaforma. Ti invitiamo a controllare nuovamente a breve.
+editor: 
+  toolbar: 
+    toggleColors: Attiva/disattiva i colori (Ctrl C)
+    select: Selezione
+    toggleEraser: Attiva/disattiva gomma (Ctrl E)
+    photo: Foto
+    text: Testo
+    toggleFingerDrawing: Attiva/disattiva il disegno con il dito (Ctrl F)
+    undo: Annulla
+    redo: Rifai
+    export: Esporta (Ctrl Shift S)
+    exportAs: "Esporta come:"
+    fullscreen: Passa a schermo intero (F11)
+  pens: 
+    fountainPen: Penna stilografica
+    ballpointPen: Penna a sfera
+    highlighter: Evidenziatore
+    pencil: Matita
+    shapePen: Forma della penna
+    laserPointer: Puntatore laser
+  penOptions: 
+    size: Dimesione
+  colors: 
+    colorPicker: Selettore di colori
+    customBrightnessHue: Personalizzato $b $h
+    customHue: Personalizzato $h
+    dark: scuro
+    light: chiaro
+    black: Nero
+    darkGrey: Grigio scuro
+    grey: Grigio
+    lightGrey: Grigio chiaro
+    white: Bianco
+    red: Rosso
+    green: Verde
+    cyan: Ciano
+    blue: Blu
+    yellow: Giallo
+    purple: Porpora
+    pink: Rosa
+    orange: Arancione
+    pastelRed: Rosso pastello
+    pastelOrange: Arancione pastello
+    pastelYellow: Giallo pastello
+    pastelGreen: Verde pastello
+    pastelCyan: Ciano pastello
+    pastelBlue: Blu pastello
+    pastelPurple: Porpora pastella
+    pastelPink: Rosa pastello
+  imageOptions: 
+    title: Opzioni immagine
+    invertible: Invertibile
+    download: Download
+    setAsBackground: Imposta come sfondo
+    removeAsBackground: Rimuovi come sfondo
+    delete: Cancella
+  selectionBar: 
+    delete: Cancella
+    duplicate: Duplicare
+  menu: 
+    clearPage: Pulisci pagina $page/$totalPages totali
+    clearAllPages: Pulisci tutte le pagine
+    insertPage: Inserisci pagina sotto
+    duplicatePage: Pagina duplicata
+    deletePage: Elimina pagina
+    lineHeight: Altezza della linea
+    lineHeightDescription: Controlla anche la dimensione del testo per le note digitate
+    lineThickness: Spessore della linea
+    lineThicknessDescription: Spessore della linea di sfondo
+    backgroundImageFit: Adattamento immagine di sfondo
+    backgroundPattern: Modello di sfondo
+    import: Importa
+    watchServer: Controlla gli aggiornamenti sul server
+    watchServerReadOnly: La modifica è disabilitata mentre si guarda il server
+    boxFits: 
+      fill: Tratto
+      cover: Copertina
+      contain: Contiene
+    bgPatterns: 
+      none: Vuoto
+      college: College-ruled
+      collegeRtl: College governato (inverso)
+      lined: Lined
+      grid: Griglia
+      dots: Punti
+      staffs: Pentagrammi
+      tablature: Tablatura
+      cornell: Metodo Cornell
+  newerFileFormat: 
+    readOnlyMode: Modalità di sola lettura
+    title: Questa nota è stata modificata utilizzando una versione più recente di Saber
+    subtitle: La modifica di questa nota potrebbe comportare la perdita di alcune informazioni. Vuoi ignorare e modificarla comunque?
+    allowEditing: Consenti modifica
+  quill: 
+    typeSomething: Scrivi qualcosa qui...
+  hud: 
+    unlockZoom: Sblocca zoom
+    lockZoom: Blocca zoom
+    unlockSingleFingerPan: Attiva la panoramica con un solo dito
+    lockSingleFingerPan: Disabilita la panoramica con un solo dito
+    unlockAxisAlignedPan: Sblocca la panoramica orizzontale o verticale
+    lockAxisAlignedPan: Blocca la panoramica su orizzontale o verticale
+  pages: Pagine
+  untitled: Senza titolo
+  needsToSaveBeforeExiting: Salvataggio delle modifiche... Puoi tranquillamente uscire dall'editor quando hai finito

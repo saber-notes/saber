@@ -1,0 +1,7 @@
+• Various UI changes for iOS/macOS users
+• You can choose whether to use the regular or iOS style of the app
+• Better color scheme for high contrast devices
+• Fix bug with notes named with special characters not being openable
+• Samsung users are warned about the S Pen crash
+• Fixed editor menu not being sized correctly on landscape phones
+• The Settings page is organised into categories

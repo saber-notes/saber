@@ -1,0 +1,1 @@
+Opravena chyba synchronizace, která způsobovala nesprávné dešifrování cest k souborům díky @QubaB na GitHubu

@@ -1,0 +1,3 @@
+• Piccoli miglioramenti dell'interfaccia utente nella pagina Impostazioni
+• L'impostazione del layout per la casa semplificata è stata ottimizzata in modo che le carte non siano più estese
+• Riferimenti rimossi agli sponsor GitHub su iOS poiché avrebbero dovuto utilizzare gli acquisti in-app

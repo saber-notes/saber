@@ -1,0 +1,1 @@
+¡Feliz navidad! Agregué una serie de mejoras de rendimiento, incluida una inversión de imágenes más eficiente, un mejor manejo de archivos SVG y mover los anuncios de la pantalla de inicio (ahora solo hay 1 anuncio) a la parte inferior de la pantalla para acelerar el desplazamiento. ¡Buena suerte a todos los que se presenten a los exámenes en las próximas semanas!

@@ -1,0 +1,4 @@
+• Možnosti nástroje jsou nyní vloženy do panelu nástrojů
+• Rozpoznávání přímých čar nyní funguje na kratších čarách
+• Uživateli se nyní zobrazuje průběh ukládání
+• Opravena chyba s nastavením „Neukládat přednastavené barvy v posledních barvách“.

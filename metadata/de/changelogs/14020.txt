@@ -1,0 +1,3 @@
+• Unterstützung für Nextcloud 27
+• Reduzierte Ruckler nach dem Speichern einer Notiz
+• Kleinere Verbesserungen der Benutzeroberfläche

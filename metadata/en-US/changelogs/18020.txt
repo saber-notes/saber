@@ -1,0 +1,2 @@
+• Fixed Nextcloud storage usage not being displayed
+• Fixed a bug where notes with certain names wouldn't be shown on the home screen

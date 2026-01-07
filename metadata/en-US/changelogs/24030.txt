@@ -1,0 +1,1 @@
+Fixed a syncing bug that caused file paths to be decrypted incorrectly, thanks to @QubaB on GitHub

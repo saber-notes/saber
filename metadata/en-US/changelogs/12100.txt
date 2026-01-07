@@ -1,0 +1,4 @@
+• Tool options are now embedded in the toolbar
+• Straight line recognition now works on shorter lines
+• Saving progress is now displayed to the user
+• Fixed a bug with the "Don't save preset colors in recent colors" setting

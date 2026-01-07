@@ -1,0 +1,2 @@
+• Se corrigió que las miniaturas se invirtieran incorrectamente cuando se guardaban en modo oscuro.
+• Se corrigió un error de inversión de larga data con píxeles negros puros

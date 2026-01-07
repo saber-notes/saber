@@ -1,0 +1,2 @@
+• Correction de bugs petits mais importants grâce à tous ceux qui ont opté pour les rapports d'erreurs!
+• Evolution supplémentaire des filtres d'information personnels. Ceux-ci sont implémentés à la fois localement et sur le serveur afin que vos informations soient toujours sûres.

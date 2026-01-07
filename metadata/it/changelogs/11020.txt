@@ -1,0 +1,2 @@
+• Risolto errore durante il caricamento di file di grandi dimensioni con molte immagini
+• Aggiunte più opzioni nella sezione dell'immagine di sfondo del menu dell'editor

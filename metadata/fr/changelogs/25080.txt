@@ -1,0 +1,4 @@
+• LAG fixe causé par la génération d'aperçus pour les anciennes notes (2023 ou plus). Les anciennes notes auront désormais un espace réservé au lieu d'un aperçu.
+• Ajout d'une légère animation entre les onglets d'écran d'accueil.
+• Améliorations mineures de l'interface utilisateur à divers endroits.
+• Correction mineure à la plate-forme de la plate-forme.

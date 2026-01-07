@@ -1,0 +1,4 @@
+• Werkzeugoptionen sind jetzt in die Symbolleiste eingebettet
+• Die Erkennung gerader Linien funktioniert jetzt auch bei kürzeren Linien
+• Der Speicherfortschritt wird dem Benutzer jetzt angezeigt
+• Ein Fehler mit der Einstellung „Voreingestellte Farben nicht in den letzten Farben speichern“ wurde behoben

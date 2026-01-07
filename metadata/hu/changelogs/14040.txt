@@ -1,0 +1,2 @@
+• Átszervezte a Beállítások oldalát, hogy megkönnyítse megtalálni azt, amit keres.
+• Az egyéni Nextcloud-kiszolgálók támogatása az önjelölt tanúsítványokkal: lehetővé teszi a "Biztonsági információk engedélyezését" opciót a Beállításokban.

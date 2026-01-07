@@ -1,0 +1,2 @@
+• Opraveno, že exporty PDF byly pro některé uživatele zašedlé
+• Přidáno tlačítko pro odstranění složek

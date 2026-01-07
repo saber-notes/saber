@@ -1,0 +1,3 @@
+• Mejor manejo de archivos eliminados y archivos ya sincronizados
+• Se corrigieron los espacios permitidos al final y al principio de los nombres de archivo
+• Más información sobre qué archivos se están descargando o cargando actualmente

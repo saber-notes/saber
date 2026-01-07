@@ -1,0 +1,3 @@
+• Rediseñado el proceso de inicio de sesión.
+• Detuvo la activación del guardado automático mientras estaba en medio de un trazo
+• Se corrigió la configuración del efecto de sonido del lápiz que no se activaba inmediatamente

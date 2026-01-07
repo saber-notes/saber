@@ -1,0 +1,3 @@
+• Aggiunta una stella allo strumento forma
+• Risolti gli angoli strani sui triangoli disegnati con lo strumento forma
+• Risolto il problema per cui i punti a punto singolo non venivano salvati

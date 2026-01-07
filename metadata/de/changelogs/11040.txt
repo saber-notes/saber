@@ -1,0 +1,4 @@
+• Vorlage für Cornell-Notizen hinzugefügt
+• Bessere Vorschau der verschiedenen Hintergrundmuster
+• Behoben, dass der Startbildschirm nach vielen Änderungen manchmal durcheinander kam
+• Schriftarten sind jetzt mit der App gebündelt, sodass sie nicht bei der ersten Verwendung heruntergeladen werden

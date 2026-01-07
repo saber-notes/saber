@@ -1,0 +1,4 @@
+• Şifreleme parolanızı başka bir cihazda değiştirdiyseniz uygulamanın bunu tanımaması düzeltildi
+• Latin olmayan karakterler için yedek yazı tipleri eklendi
+• Çok sayıda eski notla uygulama yüklenirken kare düşüşleri azaltıldı
+• Düşük uçlu cihazlarda performans için basitleştirilmiş bir ana ekran düzeni kullanma seçeneği eklendi

@@ -1,0 +1,4 @@
+• Die Synchronisierung mit Nextcloud 26 wurde korrigiert
+• Es wurde ein Fehler behoben, bei dem neue Bilder erst dann korrekt angezeigt wurden, wenn Sie die Notiz erneut öffneten
+• Effizienzsteigerungen bei Bildern auf Kosten längerer Ladezeiten
+• Leistungsverbesserungen dank Flutter 3.10

@@ -1,0 +1,4 @@
+• Le opzioni degli strumenti sono ora incorporate nella barra degli strumenti
+• Il riconoscimento della linea retta ora funziona su linee più corte
+• L'avanzamento del salvataggio viene ora visualizzato all'utente
+• Risolto un bug con l'impostazione "Non salvare i colori preimpostati nei colori recenti".

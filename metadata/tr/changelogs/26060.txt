@@ -1,0 +1,4 @@
+- İnme çizim algoritmasında önemli iyileştirmeler. Çizim yaparken daha az titreme, inme ortasında keskin köşelerin daha iyi kullanıldığını ve inme sonuna yakın daha az ayrıntı kaybedeceksiniz.
+- Linux'a Stylus desteği eklendi. Basınç hassasiyeti yoktur, ancak artık kaleminizi çizmek için ve parmağınızı kaydırmak için kullanabilirsiniz.
+- @zebravogel94349 ve GitHub'daki @qubab sayesinde Windows'ta dosyaları içe aktarırken bazı sorunlar düzeltildi.
+...

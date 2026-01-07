@@ -1,0 +1,9 @@
+• Reduced the file size of notes
+• Reduced slowdown caused by syncing
+• You can now import a PDF from the home screen
+• Fixed a bug when a folder and a note had the same name
+• Fixed a layout bug when using the iOS theme
+• Fixed changelogs not appearing in F-Droid
+• Fixed missing libraries in the AppImage
+• Fixed the ATT prompt not appearing in iOS
+• Fixed a bug where the quill toolbar would only work with the first page

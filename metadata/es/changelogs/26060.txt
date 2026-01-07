@@ -1,0 +1,4 @@
+- Mejoras importantes al algoritmo de dibujo de accidente cerebrovascular. Verá menos parpadeo mientras se dibuja, un mejor manejo de esquinas afiladas a mitad de carrera, y perderá menos detalles cerca del final del trazo.
+- Se agregó soporte de lápiz óptico en Linux. No hay sensibilidad a la presión, pero ahora puede usar su bolígrafo para dibujar y su dedo para desplazarse.
+- Se solucionó algunos problemas al importar archivos en Windows, gracias a @ZebraVogel94349 y @qubab en GitHub.
+...

@@ -1,0 +1,3 @@
+• Se agregó un botón para cambiar el nombre de las carpetas.
+• Se agregó un patrón de fondo de tablatura
+• Mejoras menores en el menú de tres puntos del editor.

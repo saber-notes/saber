@@ -1,0 +1,2 @@
+• Les notes sont désormais créées dans le dossier actuel, et non dans le dossier racine
+• Ajout d'un paramètre pour revenir au stylet après avoir utilisé la gomme

@@ -1,0 +1,3 @@
+• Correction d'un cas extrême dans lequel le pointeur laser pouvait produire des traits invalides.
+• Des traits de meilleure qualité lorsque vous effectuez un zoom arrière.
+• Maintenance générale, tests améliorés et améliorations en coulisses.

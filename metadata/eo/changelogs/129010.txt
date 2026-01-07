@@ -1,0 +1,3 @@
+• Hejkranaj kartoj nun estas borditaj anstataŭ ombritaj.
+• Malŝaltita aŭtomata korekto sur la Nextcloud URL-kampo en la ensaluta paĝo.
+• Farita `https://` laŭvola en la Nextcloud URL-kampo.

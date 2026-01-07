@@ -1,0 +1,1 @@
+Bu sürüm, bazı kullanıcıların dosyaları kaydedememesi için bir düzeltme içerir.

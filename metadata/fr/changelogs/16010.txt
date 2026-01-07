@@ -1,0 +1,6 @@
+• Correction d'un échec de connexion lorsque le dossier Sabre existe déjà sur le serveur.
+• Vous pouvez désormais changer la couleur des traits sélectionnés, grâce à AraxTheCoder.
+• Améliorations de la fiabilité de synchronisation.
+• Les annonces sont étiquetées comme telles même si elles ne parviennent pas à se charger.
+• Meilleure gestion du verrouillage du zoom lors de la restauration de votre dernier zoom.
+...

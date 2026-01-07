@@ -1,0 +1,2 @@
+• Les lignes longues sont désormais automatiquement redressées sans avoir à passer à l'outil de forme (configurable dans les paramètres)
+• Correction de la réinitialisation de la taille des stylos lorsque vous passez d'un type de stylo à l'autre.

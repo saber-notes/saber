@@ -1,0 +1,7 @@
+• Added the missing clear buttons to the whiteboard
+• Better icon for the eraser
+• Show a zoom indicator when zooming
+• Fix font issue with old macOS versions
+• New notes have better generated names
+• German translations by mamasch19
+• Updated Chinese translations by Sdarfeesh

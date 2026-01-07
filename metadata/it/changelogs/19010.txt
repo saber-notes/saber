@@ -1,0 +1,3 @@
+• Le linee vengono riconosciute in modo più accurato con lo strumento forma
+• Adattato alle molteplici versioni Nextcloud supportate
+• Risolti gli annunci che si sovrapponevano alla barra di navigazione

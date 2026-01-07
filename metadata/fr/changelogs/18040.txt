@@ -1,0 +1,5 @@
+• Synchronisation fixe !
+• Correction d'un bug où les actifs seraient laissés derrière lors de la suppression ou du déplacement d'une note.
+• Utilisez les touches fléchées pour déplacer autour d'une note.
+• Amélioration des performances pour l’outil de forme.
+.

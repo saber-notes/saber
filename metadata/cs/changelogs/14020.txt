@@ -1,0 +1,3 @@
+• Podpora pro Nextcloud 27
+• Snížené zácpy po uložení poznámky
+• Drobná vylepšení uživatelského rozhraní

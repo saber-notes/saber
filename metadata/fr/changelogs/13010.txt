@@ -1,0 +1,2 @@
+• Vérifie que le tableau blanc est enregistré avant de vous éloigner
+• Correction d'un bogue où les images étaient toujours ajoutées à la première page plutôt qu'à la page actuelle

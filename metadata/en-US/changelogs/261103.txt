@@ -1,0 +1,4 @@
+• The in-app updater now shows its download progress
+• Small visual and performance improvements
+• Fixed the AppImage not running on Fedora
+• Disabled the pencil sound effect by default

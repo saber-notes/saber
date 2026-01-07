@@ -1,0 +1,4 @@
+• Passage à un nouvel algorithme de reconnaissance de forme
+• Ajout de la détection de triangle
+• Ajout de l'accrochage aux lignes avec l'outil Forme
+• Correction de l'échec de certaines importations SBN

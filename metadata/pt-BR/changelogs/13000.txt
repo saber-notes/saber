@@ -1,0 +1,7 @@
+• Adicionada uma ferramenta de ponteiro laser
+• Agora você pode bloquear a panorâmica nos eixos vertical/horizontal
+• Os usuários de telefone agora podem optar por usar a interface do usuário do tablet e vice-versa
+• Melhores ícones de caneta
+• Reduzido o número de notas que são carregadas de uma só vez
+• Detecção corrigida de arquivos excluídos, então as sincronizações são muito mais rápidas agora
+• Importações de imagens mais rápidas e confiáveis

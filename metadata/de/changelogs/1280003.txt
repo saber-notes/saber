@@ -1,0 +1,5 @@
+• Eine neue schwebende Navigationsleiste hinzugefügt.
+• Es wurde versucht, das iOS-Design nativer und weniger Google-artig wirken zu lassen.
+• Eine ausstehende automatische Speicherung wird jetzt abgebrochen, wenn Sie alle Änderungen rückgängig machen.
+• Die flüssigen Übergänge auf dem Startbildschirm wurden verbessert.
+• Einige Fehler bei der Pfadverarbeitung auf der Durchsuchen-Seite wurden behoben.

@@ -1,0 +1,2 @@
+• Risolto un problema per cui l'effetto sonoro della matita non si interrompeva quando sollevavi lo stilo
+• Miglioramenti visivi soprattutto nel tema Linux/Yaru

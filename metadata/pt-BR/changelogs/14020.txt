@@ -1,0 +1,3 @@
+• Suporte para Nextcloud 27
+• Gagueira reduzida depois de salvar uma nota
+• Pequenas melhorias na interface do usuário

@@ -1,0 +1,3 @@
+• Ana ekran kartları artık gölgeli olmak yerine çerçeveli.
+• Oturum açma sayfasındaki Nextcloud URL alanında otomatik düzeltme devre dışı bırakıldı.
+• Nextcloud URL alanında `https://` isteğe bağlı hale getirildi.

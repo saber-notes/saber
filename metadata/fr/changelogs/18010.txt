@@ -1,0 +1,3 @@
+• Les ressources sont désormais chargées paresseusement lorsque vous les faites défiler.
+• Suppression de la génération de vignettes inutilisées
+• Correction d'un bug où les fichiers supprimés ne seraient pas désélectionnés

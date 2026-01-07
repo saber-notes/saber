@@ -1,0 +1,6 @@
+• Strokes are now only straightened if they are already roughly straight
+• Increased the resolution of PDF imports: this is a temporary fix until we have lossless PDF imports
+• Subsequent updates will have their changelogs displayed in-app
+• Improved the login UX
+• Minor bug fixes
+• Upgraded to Flutter 3.7.10

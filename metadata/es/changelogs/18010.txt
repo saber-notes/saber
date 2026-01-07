@@ -1,0 +1,3 @@
+• Los recursos ahora se cargan de forma diferida a medida que te desplazas hasta ellos.
+• Se eliminó la generación de miniaturas no utilizadas.
+• Se corrigió un error por el cual los archivos eliminados no se deseleccionaban

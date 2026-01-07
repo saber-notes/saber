@@ -1,0 +1,2 @@
+• Reorganizou a página Configurações para facilitar a localização do que você está procurando.
+• Suporte para servidores Nextcloud personalizados com certificados autoassinados: habilite a opção "Permitir conexões inseguras" em Configurações.

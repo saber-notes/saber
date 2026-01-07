@@ -1,0 +1,2 @@
+• Lange Linien werden jetzt automatisch begradigt, ohne dass zum Formwerkzeug gewechselt werden muss (konfigurierbar in den Einstellungen)
+• Das Zurücksetzen der Stiftgrößen beim Wechsel zwischen Stifttypen wurde behoben

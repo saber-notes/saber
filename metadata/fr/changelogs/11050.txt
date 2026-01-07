@@ -1,0 +1,6 @@
+• Certains motifs d'arrière-plan réagissent désormais si vous utilisez une langue de droite à gauche
+• Appuyez sur une page dans la fenêtre contextuelle des pages pour y accéder rapidement
+• Les utilisateurs du pavé tactile d'un ordinateur portable peuvent désormais pincer pour zoomer
+• Petite amélioration des performances lorsque vous n'avez aucun trait de surligneur à l'écran
+• Correction de quelques bugs lors de l'utilisation du thème iOS
+...

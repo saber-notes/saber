@@ -1,0 +1,2 @@
+• Las notas se crean ahora en la carpeta actual, no en la carpeta raíz
+• Se agregó un ajuste para cambiar de nuevo a la pluma después de usar el borrador

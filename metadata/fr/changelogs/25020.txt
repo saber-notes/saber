@@ -1,0 +1,7 @@
+• Les images inversées devraient maintenant être de meilleure qualité
+• Les PDF devraient maintenant s'afficher plus rapidement
+• Mises à jour du SDK utilisé pour les appareils e-ink Onyx
+• Le zoom maximal a été augmenté de 5x à 10x
+• Les traits sont désormais rendus avec une qualité inférieure lors d'un zoom arrière
+• Correction d'un bug lorsqu'un canevas est renommé juste après la fermeture de l'éditeur
+...

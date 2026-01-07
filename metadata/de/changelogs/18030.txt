@@ -1,0 +1,4 @@
+• Zu einem neuen Formerkennungsalgorithmus geschaltet
+• Zusätzliche Dreieckserkennung
+• Hinzufügen von Line Snaping mit dem Formwerkzeug
+• Einige SBN-Importe wurden ausgefallen

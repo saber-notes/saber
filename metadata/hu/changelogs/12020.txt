@@ -1,0 +1,2 @@
+• Javítva a szövegszerkesztő eszköztár elrendezési problémája
+• Javítottuk a Saber elírásait néhány fordításban

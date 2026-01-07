@@ -1,0 +1,3 @@
+• Réduction de la taille du fichier des notes avec de nombreux traits
+• Correction d'un bug avec la création d'une note dans un dossier
+• Traductions et mises à jour des métadonnées

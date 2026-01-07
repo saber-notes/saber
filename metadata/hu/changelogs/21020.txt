@@ -1,0 +1,3 @@
+• A lézermutató most arra vár, hogy hagyja abba az írást, mielőtt elhalványul
+• Rögzített egy hibát, amely miatt néhány PDF oldal elveszett
+• Rögzített egy hibát, ahol a törölt jegyzetek hüvelykujjait nem távolították el

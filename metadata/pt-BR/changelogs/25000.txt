@@ -1,0 +1,3 @@
+• Desempenho de rolagem aprimorado e mudanças de layout removidas
+• Uploads com falha agora são repetidos em intervalos cada vez maiores
+• Adicionada uma página de logs na parte inferior das configurações

@@ -1,0 +1,3 @@
+• Problem behoben, bei dem die Meldung „Fast angemeldet“ nach der Anmeldung angezeigt wurde
+• Einige Symbole verbessert
+• Scrollen mit den Pfeiltasten bei der Textbearbeitung deaktiviert

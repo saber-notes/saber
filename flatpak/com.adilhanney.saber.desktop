@@ -1,0 +1,14 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+
+Name=Saber
+Comment=The notes app built for handwriting.
+Comment[cs]=Aplikace pro psaní poznámek uzpůsobená pro ruční psaní.
+Categories=Office;WordProcessor;
+
+Icon=com.adilhanney.saber
+Exec=saber
+MimeType=application/sbn;application/sbn2;application/sba
+Terminal=false
+StartupWMClass=saber

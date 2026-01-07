@@ -1,0 +1,3 @@
+• Notları tablette düzenlemek ve aynı anda bilgisayarınızda görüntülemek istiyorsanız, düzenleyici menüsünde otomatik yenilemeyi etkinleştiren yeni bir geçiş bulunmaktadır.
+• Düzleştirilmiş kalem çizgilerinin uçlarda solması düzeltildi
+• Uygulama yükleme sürelerinde küçük iyileşme

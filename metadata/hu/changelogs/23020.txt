@@ -1,0 +1,4 @@
+• Fokozott PDF renderelési minőség
+• A beírt szöveg most megfelelően igazodik az oldal soraihoz, ha engedélyezve van
+• Frissítettük a színválasztó párbeszédpaneleket
+• Egyéb fejlesztések az új Flutter 3.22-től

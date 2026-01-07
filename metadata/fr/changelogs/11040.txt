@@ -1,0 +1,4 @@
+• Ajout d'un modèle pour les notes Cornell
+• Meilleurs aperçus des différents motifs d'arrière-plan
+• Correction de l'écran d'accueil qui gâchait parfois après de nombreux changements
+• Les polices sont désormais fournies avec l'application, elles ne sont donc pas téléchargées lors de la première utilisation.

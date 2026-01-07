@@ -1,0 +1,3 @@
+• A toll méretének módosítása most már intuitívabb a csúszkás bemenetnek köszönhetően
+• Eltávolítottuk a felesleges helyet a hirdetési szalagról
+• Kisebb teljesítmény- és hűségjavítások a ceruza esetében

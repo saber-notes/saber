@@ -1,0 +1,6 @@
+• The eraser now works properly with straightened lines
+• More image formats are supported including SVGs
+• The toolbar can be aligned to the left and right of the screen
+• Improved performance on app load
+• Windows users can now install without administrator privileges
+• Minor visual tweaks

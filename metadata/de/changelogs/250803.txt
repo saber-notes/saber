@@ -1,0 +1,4 @@
+• Behobene Verzögerung, die durch die Erzeugung von Vorschau für alte Notizen (2023 oder älter) verursacht wird. Alte Notizen haben jetzt einen Platzhalter anstelle einer Vorschau.
+• Eine leichte Animation zwischen den Registerkarten des Startbildschirms hinzugefügt.
+• geringfügige UI -Verbesserungen an verschiedenen Orten.
+• Kleinere Korrekturen für die Plattformthemen.

@@ -1,0 +1,2 @@
+• Nextcloud depolama kullanımının görüntülenmemesi düzeltildi
+• Belirli adlara sahip notların ana ekranda gösterilmemesine neden olan bir hata düzeltildi

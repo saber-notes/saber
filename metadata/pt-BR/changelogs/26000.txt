@@ -1,0 +1,3 @@
+• Correções de falha
+• Suporte removido para o antigo sistema de login: usuários que efetuaram login antes de maio de 2024 podem precisar fazer login novamente
+• Código de armazenamento refatorado para obter mais confiabilidade e menos código repetido

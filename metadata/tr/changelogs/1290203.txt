@@ -1,0 +1,1 @@
+Sayfa numaraları artık Atkinson Hyperlegible yazı tipi ayarınıza uyuyor.

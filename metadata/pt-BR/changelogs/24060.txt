@@ -1,0 +1,4 @@
+• Corrigido o aplicativo não reconhecendo se você alterou sua senha de criptografia em outro dispositivo
+• Adicionadas fontes de fallback para caracteres não latinos
+• Redução de quedas de quadros ao carregar o aplicativo com muitas notas legadas
+• Adicionada uma opção para usar um layout de tela inicial simplificado para desempenho em dispositivos de baixo custo

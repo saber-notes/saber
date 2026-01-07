@@ -1,0 +1,30 @@
+{
+  "project_name": "Saber",
+  "wrap_guides": [80],
+  "file_scan_exclusions": [
+    // Defaults from Zed
+    "**/.git",
+    "**/.svn",
+    "**/.hg",
+    "**/.jj",
+    "**/CVS",
+    "**/.DS_Store",
+    "**/Thumbs.db",
+    "**/.classpath",
+    "**/.settings",
+    // For Saber
+    ".sentry-native",
+    "android/.gradle/",
+    "android/.kotlin/",
+    "submodules/*/*",
+    "linux/flutter/ephemeral/*",
+    "macos/Flutter/ephemeral/*",
+    "windows/flutter/ephemeral/*",
+    "**/.dart_tool/",
+    "**/.idea/",
+    "**/.vscode/",
+    "**/.flutter-plugins-dependencies",
+    "**/*.iml",
+    "*.log"
+  ]
+}

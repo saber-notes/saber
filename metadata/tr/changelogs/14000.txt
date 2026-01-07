@@ -1,0 +1,5 @@
+• Klasör desteği!
+• Ana ekrandan notları hızla taşıyın ve yeniden adlandırın
+• Kalem boyutu seçicide iPad'de Karalama ile ilgili gariplik düzeltildi
+• Sabit indirilen SVG'ler
+• Küçük görsel ve performans ince ayarları

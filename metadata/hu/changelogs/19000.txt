@@ -1,0 +1,1 @@
+Boldog Karácsonyt! Számos teljesítményjavítást tettem hozzá, beleértve a hatékonyabb képfordítást, az SVG-fájlok jobb kezelését, valamint a kezdőképernyőn megjelenő hirdetések (most már csak 1 hirdetés) áthelyezését a képernyő aljára a görgetés felgyorsítása érdekében. Sok sikert mindenkinek a vizsgákhoz a következő hetekben!

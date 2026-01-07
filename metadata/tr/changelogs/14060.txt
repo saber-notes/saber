@@ -1,0 +1,5 @@
+• Geçerli sayfadan sonra hızlı bir şekilde sayfa eklemek için bir düğme eklendi
+• @ZebraVogel94349 sayesinde daha iyi S-Pen desteği
+• @nagiyu sayesinde Japonca çeviri eklendi
+• Özelleştirilebilir otomatik kaydetme aralığı
+• Küçük kullanıcı arabirimi iyileştirmeleri

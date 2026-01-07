@@ -1,0 +1,2 @@
+• Added a setting to hide the finger drawing button to avoid accidentally toggling it
+• Bug fixes

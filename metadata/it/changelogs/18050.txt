@@ -1,0 +1,4 @@
+• Le anteprime della schermata iniziale sono fatte in anticipo per le prestazioni
+• Risolto alcuni errori di sincronizzazione e aggiunto un pulsante "resync Everything" nelle impostazioni
+• Fisso un bug con caricamento di grandi note
+• Risolto il ritardo di due secondi prima che le immagini siano invertite

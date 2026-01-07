@@ -1,0 +1,3 @@
+• Reduzierte die Dateigröße von Notizen mit vielen Strichen
+• Ein Fehler beim Erstellen einer Notiz in einem Ordner wurde behoben
+• Übersetzungen und Metadatenaktualisierungen

@@ -1,0 +1,6 @@
+• A könnyebb használat érdekében az ujjal történő rajzolás automatikusan le van tiltva, ha tollat ​​használ. Ezt a funkciót a Beállításokban kapcsolhatja ki.
+• Most már egérrel is nagyíthat úgy, hogy görgetés közben lenyomva tartja a Control vagy a Command billentyűt.
+• Javítva az alakzatos toll vonásai, amelyek összetörnek, amikor befejezi a rajzolást.
+• Javult a kicsinyítéskor megjelenő gyengébb minőségű vonások pontossága.
+• A numerikus (NaN) hibák javítása néhány vonásnál.
+...

@@ -1,0 +1,3 @@
+• Az eszközök most lustán betöltődnek, ahogy görget rájuk
+• Eltávolítottuk a nem használt bélyegképgenerálást
+• Kijavítottunk egy hibát, amely miatt a törölt fájlok kijelölése nem szűnik meg

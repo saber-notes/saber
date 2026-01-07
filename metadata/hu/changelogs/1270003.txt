@@ -1,0 +1,4 @@
+• Javult a ceruzavonások megjelenése és megjelenítési teljesítménye. 
+• A Saber most egy tematikus címsort használ Windows és Linux rendszeren, amely reagál a világos/sötét mód változásaira. 
+• A kapcsolók témája mostantól Cupertino (iOS-stílusú) téma. 
+• Eszperantó fordítás hozzáadva.

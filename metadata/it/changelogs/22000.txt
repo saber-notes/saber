@@ -1,0 +1,2 @@
+• È stato aggiunto un effetto sonoro simulato di una matita. Per impostazione predefinita, è abilitato solo quando il tuo dispositivo non è disattivato.
+• Il problema di sincronizzazione di Nextcloud è stato risolto.

@@ -1,0 +1,4 @@
+• Synchronisierung behoben!
+• Es wurde ein Fehler behoben, bei dem Assets zurückblieben, wenn eine Notiz gelöscht oder verschoben wurde.
+• Verwenden Sie die Pfeiltasten, um sich in einer Notiz zu bewegen.
+• Leistungsverbesserungen für das Formwerkzeug.

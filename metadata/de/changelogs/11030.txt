@@ -1,0 +1,6 @@
+• Striche werden jetzt nur noch begradigt, wenn sie bereits annähernd gerade sind
+• Die Auflösung von PDF-Importen wurde erhöht: Dies ist eine vorübergehende Lösung, bis wir verlustfreie PDF-Importe haben
+• Bei nachfolgenden Updates werden die Änderungsprotokolle in der App angezeigt
+• Die Login-UX wurde verbessert
+• Kleinere Fehlerbehebungen
+• Upgrade auf Flutter 3.7.10

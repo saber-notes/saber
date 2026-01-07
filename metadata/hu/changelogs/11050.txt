@@ -1,0 +1,6 @@
+• Bizonyos háttérminták most már arra reagálnak, hogy jobbról balra haladó nyelvet használ-e
+• Érintsen meg egy oldalt az előugró ablakban, hogy gyorsan görgessen rá
+• A laptop érintőpad felhasználói most összecsíphetik a nagyítást
+• Kis teljesítményjavítás, ha nincs kiemelő vonás a képernyőn
+• Kijavítottunk néhány hibát az iOS téma használatakor
+• Fokozott görgetési válaszkészség a szerkesztőben

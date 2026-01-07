@@ -1,0 +1,5 @@
+• Suporte para pastas!
+• Mova e renomeie notas rapidamente na tela inicial
+• Corrigida estranheza com Scribble no iPad no seletor de tamanho da caneta
+• Corrigido o download de SVGs
+• Pequenos ajustes visuais e de desempenho

@@ -1,0 +1,6 @@
+• Sabre klasörü sunucuda zaten mevcut olduğunda oturum açma başarısızlığı düzeltildi.
+• Artık AraxTheCoder sayesinde seçilen vuruşların rengini değiştirebilirsiniz.
+• Senkronizasyon güvenilirliği iyileştirmeleri.
+• Reklamlar yüklenmese bile bu şekilde etiketlenir.
+• Son yakınlaştırmanızı geri yüklerken yakınlaştırma kilidinin daha iyi kullanılması.
+• PDF'leri ana ekrandan içe aktarırken artık geçerli klasör kullanılıyor.

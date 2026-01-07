@@ -1,0 +1,3 @@
+• Las tarjetas de la pantalla de inicio ahora tienen bordes en lugar de sombras.
+• Autocorrección deshabilitada en el campo URL de Nextcloud en la página de inicio de sesión.
+• Se hizo `https://` opcional en el campo URL de Nextcloud.

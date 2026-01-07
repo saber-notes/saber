@@ -1,0 +1,2 @@
+• Beállítás hozzáadva az ujjal rajzoló gomb elrejtéséhez, hogy elkerülje a véletlen átkapcsolást
+• Hibajavítások

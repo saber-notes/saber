@@ -1,0 +1,3 @@
+• Ajout d'un bouton pour renommer les dossiers
+• Ajout d'un motif de fond de tablature
+• Améliorations mineures du menu à trois points de l'éditeur

@@ -1,0 +1,1 @@
+Opravena spousta chyb v textovém editoru, které se vyskytly po automatickém ukládání.

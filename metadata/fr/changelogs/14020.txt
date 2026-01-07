@@ -1,0 +1,3 @@
+• Prise en charge de Nextcloud 27
+• Réduction du bégaiement après avoir enregistré une note
+• Améliorations mineures de l'interface utilisateur

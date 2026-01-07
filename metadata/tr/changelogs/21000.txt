@@ -1,0 +1,2 @@
+• Uzun çizgiler artık şekil aracına geçmeye gerek kalmadan otomatik olarak düzeltiliyor (ayarlarda yapılandırılabilir)
+• Kalem türleri arasında geçiş yaptığınızda kalem boyutlarının sıfırlanması düzeltildi

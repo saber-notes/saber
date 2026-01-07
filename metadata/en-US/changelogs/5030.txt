@@ -1,0 +1,5 @@
+• Notes will reopen to the last page you were on
+• Android users can now import .sbn files
+• Uploading indicators are no longer shown if you aren't logged in with Nextcloud
+• Bug fix: Correctly save 90° straight lines
+• Bug fix: Exiting fullscreen now works in Firefox

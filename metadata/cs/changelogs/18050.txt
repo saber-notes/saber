@@ -1,0 +1,4 @@
+• Náhledy na domovské obrazovce se provádějí s předstihem kvůli výkonu
+• Opraveny některé chyby synchronizace a přidáno tlačítko „znovu synchronizovat vše“ v nastavení
+• Opravena chyba s načítáním velkých poznámek
+• Opraveno dvousekundové zpoždění před převrácením snímků

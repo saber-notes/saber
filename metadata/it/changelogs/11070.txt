@@ -1,0 +1,3 @@
+• Tocca il tuo nome utente nella pagina delle impostazioni per andare alla pagina del nuovo profilo
+• È ora possibile utilizzare motivi di sfondo sia da destra a sinistra che da sinistra a destra
+• Migliorata l'icona macOS

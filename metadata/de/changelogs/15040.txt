@@ -1,0 +1,5 @@
+• Viele Zoomprobleme und die Erkennung der aktuellen Seite beim Zoomen wurden behoben
+• Verbesserte anfängliche Leistung auf Nicht-Onyx-Android-Geräten
+• Verbesserte Leistung der Symbolleiste beim Umschalten zwischen verschiedenen Menüs
+• Unterstützung für arm64-Linux-Geräte auf Flathub
+• Deaktivierte Anzeigen auf Geräten, auf denen sie zu Verlangsamungen führen würden

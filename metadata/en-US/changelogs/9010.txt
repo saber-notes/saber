@@ -1,0 +1,1 @@
+• Fixed a bug where pages with background images would be automatically removed when the rest of the page was erased

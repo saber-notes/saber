@@ -1,0 +1,3 @@
+• Se corrigió el mensaje "casi iniciado sesión" que se mostraba después de iniciar sesión
+• Se mejoraron algunos íconos.
+• Desplazamiento deshabilitado con las teclas de flecha al editar texto

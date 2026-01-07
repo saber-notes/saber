@@ -1,0 +1,3 @@
+• Se corrigió un error con los servidores Nextcloud personalizados alojados en un subdirectorio, gracias a provocakateurin
+• Se eliminaron algunos permisos de medios que no se estaban utilizando
+• Se habilitaron las animaciones predictivas de Android

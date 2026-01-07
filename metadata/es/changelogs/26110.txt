@@ -1,0 +1,4 @@
+• El actualizador en la aplicación ahora muestra el progreso de la descarga.
+• Pequeñas mejoras visuales y de rendimiento
+• Se corrigió que AppImage no se ejecutara en Fedora.
+• Deshabilitado el efecto de sonido del lápiz por defecto

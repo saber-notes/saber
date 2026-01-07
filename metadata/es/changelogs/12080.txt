@@ -1,0 +1,5 @@
+• El ahorro automático ahora es más espacio para evitar enfrentamientos
+• Dibujos visuales menores
+• Los enlaces de Android ahora se abrirán en un navegador de aplicación
+• Las casillas de verificación, los puntos de bala y los puntos de número ahora son de tamaño en proporción al texto
+• Arreglado el aspecto de los golpes más destacados en iOS

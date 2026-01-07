@@ -1,0 +1,4 @@
+• Lag fixo causado pela geração de visualizações para notas antigas (2023 ou mais). As notas antigas agora terão um espaço reservado em vez de uma prévia.
+• Adicionado uma ligeira animação entre as guias da tela inicial.
+• Melhorias menores da interface do usuário em vários lugares.
+• Menores correções para o tema da plataforma.

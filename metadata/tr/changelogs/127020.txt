@@ -1,0 +1,5 @@
+• Esperanto dilini seçtiğinizde tüm uygulamanın bozulması düzeltildi.
+• Dili değiştirdiğinizde gezinme çubuğunun metnini güncellememesi düzeltildi.
+• Kullanılan depolama yüzdesinin yuvarlanmaması düzeltildi.
+• Görüntüler ve PDF'ler tarafından kullanılan bellekte yer açıldı.
+• Kalem ses efekti kaldırıldı.

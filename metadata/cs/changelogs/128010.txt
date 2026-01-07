@@ -1,0 +1,3 @@
+• Vylepšena plynulost animace při zavírání poznámky.
+• Kolečko myši se nyní místo přibližování posouvá. Pro přiblížení použijte klávesu Ctrl + kolečko myši.
+• Tlačítko New Note bylo méně kulaté.

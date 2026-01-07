@@ -1,0 +1,4 @@
+• Les options d'outils sont maintenant intégrées dans la barre d'outils
+• La reconnaissance des lignes droites fonctionne désormais sur les lignes plus courtes
+• La progression de l'enregistrement est maintenant affichée pour l'utilisateur
+• Correction d'un bug avec le paramètre "Ne pas enregistrer les couleurs prédéfinies dans les couleurs récentes"

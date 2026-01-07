@@ -1,0 +1,3 @@
+• Şekil aracıyla çizgiler daha doğru şekilde tanınır
+• Desteklenen birden fazla Nextcloud sürümüne uyarlanmıştır
+• Gezinme çubuğuyla çakışan reklamlar düzeltildi

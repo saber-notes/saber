@@ -1,0 +1,1 @@
+• Support for Nextcloud 26

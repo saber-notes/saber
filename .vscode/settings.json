@@ -1,0 +1,29 @@
+{
+    "files.exclude": {
+        ".sentry-native": true,
+        "android/.gradle/": true,
+        "android/.kotlin/": true,
+        "submodules/*/*": true,
+        "linux/flutter/ephemeral/*": true,
+        "macos/Flutter/ephemeral/*": true,
+        "windows/flutter/ephemeral/*": true,
+        "**/.dart_tool/": true,
+        "**/.idea/": true,
+        "**/.zed/": true,
+        "**/.flutter-plugins-dependencies": true,
+        "**/*.iml": true
+    },
+    "editor.defaultFormatter": "Dart-Code.dart-code",
+    "editor.formatOnSave": true,
+    "dart.doNotFormat": [
+        "**/submodules/**",
+        "**/lib/i18n/**.g.dart"
+    ],
+    "dart.analysisExcludedFolders": [
+        "submodules"
+    ],
+    "explorer.fileNesting.patterns": {
+        "en.i18n.yaml": "*.i18n.yaml",
+        "strings_en.g.dart": "strings_*.g.dart"
+    }
+}

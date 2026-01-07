@@ -1,0 +1,3 @@
+• Cambiare la dimensione della penna è ora più intuitiva con un ingresso cursore
+• Rimuoveto lo spazio extra intorno al banner pubblicitario
+• Minori miglioramenti di performance e fedeltà per la matita

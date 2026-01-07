@@ -1,0 +1,5 @@
+• Added a button to quickly insert a page after the current page
+• Better S-Pen support, thanks again to @ZebraVogel94349
+• Added Japanese translation, thanks to @nagiyu
+• Customizable auto-save interval
+• Minor UI improvements

@@ -1,0 +1,1 @@
+Cette version contient un correctif pour que certains utilisateurs ne puissent pas enregistrer des fichiers.

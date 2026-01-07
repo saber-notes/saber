@@ -1,0 +1,3 @@
+• Traços fixos de desfazer/refazer
+• A cor atual agora é exibida na barra de ferramentas sem a necessidade de abrir a barra de cores
+• Pequenas melhorias visuais e de desempenho

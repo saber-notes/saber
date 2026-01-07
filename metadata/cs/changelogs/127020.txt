@@ -1,0 +1,5 @@
+• Opraveno rušení celé aplikace, pokud zvolíte jazyk esperanto.
+• Opraveno, že navigační panel neaktualizoval svůj text, když změníte jazyk.
+• Opraveno, že procento využitého úložiště nebylo zaokrouhleno.
+• Uvolnění paměti používané obrázky a PDF.
+• Odstraněn zvukový efekt tužky.

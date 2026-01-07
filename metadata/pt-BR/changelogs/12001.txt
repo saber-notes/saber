@@ -1,0 +1,5 @@
+• Agora você pode inserir uma nova página após outra na caixa de diálogo de gerenciamento de página
+• Agora você pode duplicar uma página na caixa de diálogo de gerenciamento de página
+• Agora você pode excluir uma página na caixa de diálogo de gerenciamento de página
+• Corrigido um bug onde a entrada do stylus foi desativada se um-finger panning foi desativado
+• Adicionado um link direto para a página de exclusão da conta

@@ -1,0 +1,6 @@
+• Certos padrões de fundo agora respondem se você estiver usando um idioma da direita para a esquerda
+• Toque em uma página no pop-up de páginas para rolar rapidamente até ela
+• Os usuários do touchpad do laptop agora podem beliscar para ampliar
+• Pequena melhoria de desempenho para quando você não tem nenhum traço de marca-texto na tela
+• Corrigidos alguns bugs ao usar o tema iOS
+• Maior capacidade de resposta de rolagem no editor

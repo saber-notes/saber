@@ -1,0 +1,5 @@
+• Aggiunta una penna per il riconoscimento delle forme
+• Il rilevamento della linea retta ora funziona solo con la penna di riconoscimento della forma
+• Le nuove importazioni PDF manterranno la qualità originale
+• Selezionare più note contemporaneamente per spostarle o eliminarle
+• Ora è possibile eliminare e duplicare una selezione di tratti/immagini

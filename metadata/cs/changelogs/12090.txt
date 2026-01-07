@@ -1,0 +1,3 @@
+• Lepší podpora inverze pro průsvitnost obrázků
+• Optimalizace výkonu pro nástroj guma
+• Zmenšená velikost souborů poznámek

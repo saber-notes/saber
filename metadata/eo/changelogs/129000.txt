@@ -1,0 +1,5 @@
+• Grandaj plibonigoj por Onyx Boox-aparatoj kun pliigita ila subteno kaj diversaj korektoj danke al zinstack625 en GitHub. 
+• Plibonigita rapideco de PDF-importado. 
+• Plibonigitaj tempoj de ŝarĝo por notoj enhavantaj grandajn PDFojn (ili estas nun ŝarĝitaj paĝo post paĝo prefere ol ĉiuj samtempe). 
+• Korektis problemon pri konservado de PDF-oj el la longprema dialogo. 
+• Korektis cimon, kie la malĝusta ilo estus elektita malŝaltante la skrapumilon, danke al ComputerElite en GitHub.

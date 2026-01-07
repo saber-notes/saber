@@ -1,0 +1,4 @@
+• As miniaturas devem ter uma qualidade um pouco melhor para novas imagens/PDFs
+• Os usuários de desktop podem aumentar e diminuir o zoom com Ctrl + e Ctrl -
+• Adicionado cores pastéis à paleta de cores padrão
+• Corrigido o editor não atualizando ao importar um PDF até que você rolasse manualmente

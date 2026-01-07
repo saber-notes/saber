@@ -1,0 +1,2 @@
+• Mejoras de rendimiento al almacenar imágenes/PDF por separado de la nota principal
+• Los errores al cambiar el nombre de una nota ahora se informan al usuario
