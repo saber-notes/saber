@@ -274,6 +274,7 @@ class _TranslationsHomeCreateZhHansCn extends TranslationsHomeCreateEn {
 
 	// Translations
 	@override String get newNote => '新建笔记';
+	@override String get newInfiniteNote => '新建无限笔记';
 	@override String get importNote => '导入笔记';
 }
 

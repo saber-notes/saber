@@ -19,6 +19,7 @@ home:
     exportNote(OUTDATED): ייצא הערה
   create: 
     newNote: פתק חדש
+    newInfiniteNote: פתק אינסופי חדש
     importNote: יבא פתק
   welcome: ברוכים הבאים ל Saber
   invalidFormat: הקובץ שבחרת אינו תומך. אנא בחר בקובץ .sbn' .sbn2' .sba או .pdf

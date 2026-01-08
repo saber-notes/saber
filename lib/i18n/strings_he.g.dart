@@ -272,6 +272,7 @@ class _TranslationsHomeCreateHe extends TranslationsHomeCreateEn {
 
 	// Translations
 	@override String get newNote => 'פתק חדש';
+	@override String get newInfiniteNote => 'פתק אינסופי חדש';
 	@override String get importNote => 'יבא פתק';
 }
 

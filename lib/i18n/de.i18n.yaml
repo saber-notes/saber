@@ -19,6 +19,7 @@ home:
     exportNote: Notiz exportieren
   create: 
     newNote: Neue Notiz
+    newInfiniteNote: Neue unendliche Notiz
     importNote: Notiz importieren
   welcome: Willkommen bei Saber
   invalidFormat: Die ausgewählte Datei wird nicht unterstützt. Bitte wähle eine Datei mit dem Format sbn, sbn2, sba oder pdf.

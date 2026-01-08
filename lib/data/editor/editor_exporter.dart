@@ -37,18 +37,33 @@ abstract class EditorExporter {
     final pdf = pw.Document();
     final screenshotController = ScreenshotController();
 
-    // screenshot each page
-    final pageScreenshots = await Future.wait(
-      List.generate(
-        coreInfo.pages.length,
-        (pageIndex) => screenshotPage(
-          coreInfo: coreInfo,
-          pageIndex: pageIndex,
-          screenshotController: screenshotController,
-          context: context,
-        ),
-      ),
-    );
+    // Screenshot pages sequentially (not in parallel) to avoid blocking the
+    // UI and exhausting memory. Use an adaptive pixelRatio based on page area
+    // so extremely large pages produce smaller bitmaps.
+    final pageScreenshots = <Uint8List>[];
+    for (int pageIndex = 0; pageIndex < coreInfo.pages.length; ++pageIndex) {
+      final page = coreInfo.pages[pageIndex];
+      final area = page.size.width * page.size.height;
+      double pixelRatio = 2.0;
+      if (area > 4e6) {
+        // very large page, reduce pixelRatio to avoid huge bitmaps
+        pixelRatio = 1.0;
+      } else if (area > 1e6) {
+        pixelRatio = 1.5;
+      }
+
+      final screenshot = await screenshotPage(
+        coreInfo: coreInfo,
+        pageIndex: pageIndex,
+        screenshotController: screenshotController,
+        context: context,
+        pixelRatio: pixelRatio,
+      );
+      pageScreenshots.add(screenshot);
+
+      // Yield to the event loop so the OS sees progress and the UI stays responsive
+      await Future.delayed(const Duration(milliseconds: 50));
+    }
 
     for (int pageIndex = 0; pageIndex < pageScreenshots.length; ++pageIndex) {
       final page = coreInfo.pages[pageIndex];
@@ -139,6 +154,7 @@ abstract class EditorExporter {
     required int pageIndex,
     required ScreenshotController screenshotController,
     required BuildContext context,
+    double pixelRatio = 2,
   }) async {
     final pageSize = coreInfo.pages[pageIndex].size;
     return await screenshotController.captureFromWidget(
@@ -166,7 +182,7 @@ abstract class EditorExporter {
         ),
       ),
       context: context,
-      pixelRatio: 2,
+      pixelRatio: pixelRatio,
       targetSize: pageSize,
     );
   }

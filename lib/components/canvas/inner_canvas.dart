@@ -1,3 +1,4 @@
+import 'dart:math';
 import 'package:defer_pointer/defer_pointer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_quill/flutter_quill.dart';
@@ -58,6 +59,18 @@ class InnerCanvas extends StatefulWidget {
 class _InnerCanvasState extends State<InnerCanvas> {
   @override
   Widget build(BuildContext context) {
+    // Use the configured line height in page coordinates so the pattern
+    // remains aligned with strokes (which are recorded in page coordinates).
+    // For infinite notes, apply a small multiplier to make the pattern
+    // visually smaller but keep it in the same coordinate space so strokes
+    // don't get out of sync when the page is expanded.
+    // Use the per-note persisted factor so the visual size of the pattern
+    // remains the same when reopening the note. Default factor is 1.0.
+    final double infinitePatternFactor = widget.coreInfo.infinitePatternFactor;
+    final int patternLineHeightInPageCoords = widget.coreInfo.isInfinite
+        ? max(1, (widget.coreInfo.lineHeight * infinitePatternFactor).round())
+        : widget.coreInfo.lineHeight;
+
     final theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
     final brightness = theme.brightness;
@@ -119,7 +132,9 @@ class _InnerCanvasState extends State<InnerCanvas> {
               return widget.coreInfo.backgroundPattern;
             }
           }(),
-          lineHeight: widget.coreInfo.lineHeight,
+          // Use a lineHeight adjusted into page coordinates so visual
+          // spacing stays consistent when page size changes.
+          lineHeight: patternLineHeightInPageCoords,
           lineThickness: widget.coreInfo.lineThickness,
           primaryColor: colorScheme.primary,
           secondaryColor: colorScheme.secondary,

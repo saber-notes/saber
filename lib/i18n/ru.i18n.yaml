@@ -19,6 +19,7 @@ home:
     exportNote: Экспортировать заметку
   create: 
     newNote: Новая заметка
+    newInfiniteNote: Новая бесконечная заметка
     importNote: Импорт заметки
   welcome: Приветствуем в Saber
   invalidFormat: Выбранный вами файл не поддерживается. Выберите файл .sbn, .sbn2, .sba или .pdf.

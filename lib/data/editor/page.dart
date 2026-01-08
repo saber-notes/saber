@@ -25,7 +25,7 @@ class EditorPage extends ChangeNotifier implements HasSize {
   static const defaultSize = Size(defaultWidth, defaultHeight);
 
   @override
-  final Size size;
+  Size size;
 
   late final CanvasKey innerCanvasKey = CanvasKey();
   RenderBox? _renderBox;
@@ -107,6 +107,7 @@ class EditorPage extends ChangeNotifier implements HasSize {
     Size? size,
     double? width,
     double? height,
+    List<LaserStroke>? laserStrokes,
     List<Stroke>? strokes,
     List<EditorImage>? images,
     QuillStruct? quill,
@@ -117,7 +118,7 @@ class EditorPage extends ChangeNotifier implements HasSize {
        ),
        size = size ?? Size(width ?? defaultWidth, height ?? defaultHeight),
        strokes = strokes ?? [],
-       laserStrokes = [],
+       laserStrokes = laserStrokes ?? [],
        images = images ?? [],
        quill =
            quill ??
@@ -297,16 +298,130 @@ class EditorPage extends ChangeNotifier implements HasSize {
   EditorPage copyWith({
     Size? size,
     List<Stroke>? strokes,
+    List<LaserStroke>? laserStrokes,
     List<EditorImage>? images,
     QuillStruct? quill,
     EditorImage? backgroundImage,
   }) => EditorPage(
-    size: size ?? this.size,
-    strokes: strokes ?? this.strokes,
-    images: images ?? this.images,
-    quill: quill ?? this.quill,
-    backgroundImage: backgroundImage ?? this.backgroundImage,
-  );
+     size: size ?? this.size,
+     strokes: strokes ?? this.strokes,
+     laserStrokes: laserStrokes ?? this.laserStrokes,
+     images: images ?? this.images,
+     quill: quill ?? this.quill,
+     backgroundImage: backgroundImage ?? this.backgroundImage,
+   );
+
+  /// Calculates the bounding rectangle of all content (strokes and images).
+  /// Returns null if there is no content.
+  Rect? getContentBounds() {
+    if (strokes.isEmpty && images.isEmpty && backgroundImage == null) {
+      return null;
+    }
+
+    double minX = double.infinity;
+    double minY = double.infinity;
+    double maxX = double.negativeInfinity;
+    double maxY = double.negativeInfinity;
+
+    // Calculate bounds from strokes using their path bounds
+    for (final stroke in strokes) {
+      try {
+        final bounds = stroke.highQualityPath.getBounds();
+        if (bounds.isEmpty) continue;
+        minX = min(minX, bounds.left);
+        minY = min(minY, bounds.top);
+        maxX = max(maxX, bounds.right);
+        maxY = max(maxY, bounds.bottom);
+      } catch (_) {
+        // Fallback: use maxY if path unavailable
+        maxY = max(maxY, stroke.maxY);
+      }
+    }
+
+    // Calculate bounds from images
+    for (final image in images) {
+      minX = min(minX, image.dstRect.left);
+      minY = min(minY, image.dstRect.top);
+      maxX = max(maxX, image.dstRect.right);
+      maxY = max(maxY, image.dstRect.bottom);
+    }
+
+    // Include background image bounds
+    if (backgroundImage != null) {
+      minX = min(minX, backgroundImage!.dstRect.left);
+      minY = min(minY, backgroundImage!.dstRect.top);
+      maxX = max(maxX, backgroundImage!.dstRect.right);
+      maxY = max(maxY, backgroundImage!.dstRect.bottom);
+    }
+
+    if (minX == double.infinity) return null;
+
+    return Rect.fromLTRB(minX, minY, maxX, maxY);
+  }
+
+  /// Trims unused whitespace from the edges of the page.
+  /// Only affects pages larger than the default size.
+  /// Maintains a small margin around the content.
+  /// Shifts content if trimming from left or top.
+  void trimWhitespace({double margin = 50.0}) {
+    final contentBounds = getContentBounds();
+
+    // If no content, reset to default size
+    if (contentBounds == null) {
+      size = defaultSize;
+      return;
+    }
+
+    // Calculate the new bounds with margin
+    final double newLeft = max(0, contentBounds.left - margin);
+    final double newTop = max(0, contentBounds.top - margin);
+    final double newRight = contentBounds.right + margin;
+    final double newBottom = contentBounds.bottom + margin;
+
+    // Calculate new size, ensuring it's at least the default size
+    final double newWidth = max(defaultWidth, newRight - newLeft);
+    final double newHeight = max(defaultHeight, newBottom - newTop);
+
+    // If we're trimming from the left, we need to shift all content
+    if (newLeft > 0) {
+      final shiftX = -newLeft;
+      for (final stroke in strokes) {
+        stroke.shift(Offset(shiftX, 0));
+      }
+      for (final image in images) {
+        image.dstRect = image.dstRect.shift(Offset(shiftX, 0));
+      }
+      if (backgroundImage != null) {
+        backgroundImage!.dstRect = backgroundImage!.dstRect.shift(Offset(shiftX, 0));
+      }
+    }
+
+    // If we're trimming from the top, we need to shift all content
+    if (newTop > 0) {
+      final shiftY = -newTop;
+      for (final stroke in strokes) {
+        stroke.shift(Offset(0, shiftY));
+      }
+      for (final image in images) {
+        image.dstRect = image.dstRect.shift(Offset(0, shiftY));
+      }
+      if (backgroundImage != null) {
+        backgroundImage!.dstRect = backgroundImage!.dstRect.shift(Offset(0, shiftY));
+      }
+    }
+
+    // Apply the new size
+    size = Size(newWidth, newHeight);
+  }
+
+  /// Expand the page in-place to a new size. This keeps the same resources
+  /// (quill, strokes, images) and avoids allocating/disposing render-related
+  /// resources which could leak if pages were replaced.
+  void expandTo(Size newSize) {
+    if (newSize == size) return;
+    size = newSize;
+    notifyListeners();
+  }
 
   /// Clones this page for use in a screenshot.
   ///

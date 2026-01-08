@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
+import 'dart:math' as math;
 
 import 'package:collapsible/collapsible.dart';
 import 'package:file_picker/file_picker.dart';
@@ -13,6 +14,10 @@ import 'package:flutter_quill/flutter_quill.dart' as flutter_quill;
 import 'package:keybinder/keybinder.dart';
 import 'package:logging/logging.dart';
 import 'package:pdfrx/pdfrx.dart';
+import 'package:screenshot/screenshot.dart';
+import 'package:super_clipboard/super_clipboard.dart';
+import 'package:vector_math/vector_math_64.dart' show Vector3;
+
 import 'package:saber/components/canvas/_asset_cache.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/canvas.dart';
@@ -49,8 +54,6 @@ import 'package:saber/data/tools/select.dart';
 import 'package:saber/data/tools/shape_pen.dart';
 import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/home/whiteboard.dart';
-import 'package:screenshot/screenshot.dart';
-import 'package:super_clipboard/super_clipboard.dart';
 
 typedef _PhotoInfo = ({Uint8List bytes, String extension});
 
@@ -96,7 +99,7 @@ class Editor extends StatefulWidget {
   State<Editor> createState() => EditorState();
 }
 
-class EditorState extends State<Editor> {
+class EditorState extends State<Editor> with TickerProviderStateMixin {
   final log = Logger('EditorState');
 
   late var coreInfo = EditorCoreInfo(filePath: '');
@@ -179,10 +182,129 @@ class EditorState extends State<Editor> {
   void initState() {
     DynamicMaterialApp.addFullscreenListener(_setState);
 
+    _initPageExpansionAnimation();
     _initAsync();
     _assignKeybindings();
 
     super.initState();
+  }
+
+  void _initPageExpansionAnimation() {
+    _pageExpansionController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 300),
+    );
+    _pageExpansionController!.addListener(_onStrokeShiftAnimationTick);
+  }
+
+  /// Stores the strokes being animated during left expansion
+  List<Stroke>? _animatingStrokes;
+  Offset? _strokeShiftTarget;
+  int? _animatingPageIndex;
+
+  void _onStrokeShiftAnimationTick() {
+    if (_animatingStrokes == null || _strokeShiftTarget == null) return;
+    if (_animatingPageIndex == null) return;
+    if (!mounted) return;
+    if (_animatingPageIndex! >= coreInfo.pages.length) return;
+
+    final page = coreInfo.pages[_animatingPageIndex!];
+    page.redrawStrokes();
+    setState(() {});
+  }
+
+  /// Animates strokes shifting to the right when expanding left.
+  /// The page grows to the right, and strokes animate to their new position.
+  void _animateStrokesShift(int pageIndex, Offset shiftAmount) {
+    if (shiftAmount == Offset.zero) return;
+
+    final page = coreInfo.pages[pageIndex];
+    _animatingStrokes = page.strokes;
+    _strokeShiftTarget = shiftAmount;
+    _animatingPageIndex = pageIndex;
+
+    // Animate the shift by moving strokes incrementally
+    final totalShift = shiftAmount;
+    var currentShift = Offset.zero;
+
+    _pageExpansionController!.reset();
+
+    // Create a listener that shifts strokes progressively
+    void shiftListener() {
+      if (!mounted) return;
+      final t = Curves.easeOutCubic.transform(_pageExpansionController!.value);
+      final targetShift = Offset(totalShift.dx * t, totalShift.dy * t);
+      final delta = targetShift - currentShift;
+
+      if (delta != Offset.zero) {
+        for (final s in page.strokes) {
+          s.shift(delta);
+        }
+        for (final img in page.images) {
+          img.dstRect = img.dstRect.shift(delta);
+        }
+        currentShift = targetShift;
+        page.redrawStrokes();
+      }
+    }
+
+    _pageExpansionController!.removeListener(_onStrokeShiftAnimationTick);
+    _pageExpansionController!.addListener(shiftListener);
+
+    _pageExpansionController!.forward(from: 0).then((_) {
+      _pageExpansionController!.removeListener(shiftListener);
+      _pageExpansionController!.addListener(_onStrokeShiftAnimationTick);
+      _animatingStrokes = null;
+      _strokeShiftTarget = null;
+      _animatingPageIndex = null;
+    });
+  }
+
+  /// Expands the page and optionally animates stroke shift for left expansion.
+  void _animatePageExpansion(int pageIndex, Size targetSize, Offset strokeShift) {
+    final page = coreInfo.pages[pageIndex];
+
+    // Apply the size immediately (page grows to the right)
+    page.size = targetSize;
+    page.redrawStrokes();
+
+    // If there's a stroke shift (left expansion), animate the strokes moving right
+    if (strokeShift != Offset.zero) {
+      _animateStrokesShift(pageIndex, strokeShift);
+    }
+
+    setState(() {});
+  }
+
+  /// Scrolls to a page in an infinite note.
+  /// For infinite notes, pages are stacked vertically, so we calculate
+  /// the Y position based on the cumulative height of previous pages.
+  void _scrollToPageForInfinite(int pageIndex) {
+    if (pageIndex < 0 || pageIndex >= coreInfo.pages.length) return;
+
+    // Calculate the Y position of the target page
+    double yOffset = 0;
+    for (int i = 0; i < pageIndex; i++) {
+      yOffset += coreInfo.pages[i].size.height + Editor.gapBetweenPages;
+    }
+
+    // Get current scale
+    final currentMatrix = _transformationController.value;
+    final scale = currentMatrix.approxScale;
+
+    // Create new transform that scrolls to the page
+    final newMatrix = Matrix4.identity()
+      ..scale(scale, scale)
+      ..setTranslation(Vector3(0, -yOffset * scale + 50, 0));
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
+      try {
+        (_canvasGestureDetectorKey.currentState as dynamic)
+            ?.suppressNextTransformAdjustment();
+      } catch (_) {}
+      _transformationController.value = newMatrix;
+    });
   }
 
   void _initAsync() async {
@@ -226,6 +348,16 @@ class EditorState extends State<Editor> {
           image.onMiscChange = autosaveAfterDelay;
         }
       }
+    }
+
+    // If this note is an infinite canvas but has no pages (older files), create
+    // a smaller initial page to avoid excessive memory/use and to make edits
+    // feel snappier. The canvas will grow as needed.
+    if (coreInfo.isInfinite && coreInfo.pages.isEmpty) {
+      coreInfo.pages.add(EditorPage(
+        size: const Size(4000, 4000),
+      ));
+      listenToQuillChanges(coreInfo.pages.last.quill, coreInfo.pages.length - 1);
     }
 
     if (currentTool == Tool.textEditing) {
@@ -286,6 +418,14 @@ class EditorState extends State<Editor> {
   /// Creates pages until the given page index exists,
   /// plus an extra blank page
   void createPage(int pageIndex) {
+    if (coreInfo.isInfinite) {
+      // Ensure at least a single page exists for infinite notes
+      if (coreInfo.pages.isEmpty) {
+        coreInfo.pages.add(EditorPage(size: const Size(4000, 4000)));
+      }
+      return;
+    }
+
     while (pageIndex >= coreInfo.pages.length - 1) {
       final page = EditorPage();
       coreInfo.pages.add(page);
@@ -294,6 +434,8 @@ class EditorState extends State<Editor> {
   }
 
   void removeExcessPages() {
+    if (coreInfo.isInfinite) return; // never remove pages for infinite notes
+
     bool removedAPage = false;
 
     // remove excess pages if all pages >= this one are empty
@@ -506,6 +648,15 @@ class EditorState extends State<Editor> {
   /// Used to record a move in the history.
   Offset moveOffset = .zero;
 
+  /// Tracks whether the infinite page has already expanded in each direction
+  /// during the current stroke. This prevents multiple expansions per stroke.
+  var _hasExpandedLeft = false;
+  var _hasExpandedRight = false;
+  var _hasExpandedDown = false;
+
+  /// Animation controller for smooth page expansion (reserved for future use)
+  AnimationController? _pageExpansionController;
+
   var isHovering = true;
   int? dragPageIndex;
   PointerDeviceKind? currentPointerKind;
@@ -553,8 +704,12 @@ class EditorState extends State<Editor> {
   }
 
   void onDrawStart(ScaleStartDetails details) {
+    if (dragPageIndex == null) return;
+    if (dragPageIndex! < 0 || dragPageIndex! >= coreInfo.pages.length) return;
     final page = coreInfo.pages[dragPageIndex!];
-    final position = page.renderBox!.globalToLocal(details.focalPoint);
+    final renderBox = page.renderBox;
+    if (renderBox == null) return; // can't compute a local position without render box
+    final position = renderBox.globalToLocal(details.focalPoint);
     history.canRedo = false;
 
     if (currentTool is Pen) {
@@ -589,6 +744,11 @@ class EditorState extends State<Editor> {
     previousPosition = position;
     moveOffset = .zero;
 
+    // Reset infinite page expansion flags for new stroke
+    _hasExpandedLeft = false;
+    _hasExpandedRight = false;
+    _hasExpandedDown = false;
+
     if (currentTool is! Select) {
       Select.currentSelect.unselect();
     }
@@ -598,9 +758,77 @@ class EditorState extends State<Editor> {
   }
 
   void onDrawUpdate(ScaleUpdateDetails details) {
-    final page = coreInfo.pages[dragPageIndex!];
-    final position = page.renderBox!.globalToLocal(details.focalPoint);
+    if (dragPageIndex == null) return;
+    if (dragPageIndex! < 0 || dragPageIndex! >= coreInfo.pages.length) return;
+    var page = coreInfo.pages[dragPageIndex!];
+    final renderBox = page.renderBox;
+    if (renderBox == null) return; // cannot handle update without render box
+    final position = renderBox.globalToLocal(details.focalPoint);
     final offset = position - previousPosition;
+
+    // If this is an infinite note, expand the page if pointer is near edge
+    if (coreInfo.isInfinite) {
+      const expandMargin = 200.0; // px before edge to expand
+      // Smaller expansion steps to avoid huge jumps when user reaches edge
+      const expandAmount = 800.0; // expand by this amount
+      bool updated = false;
+      double newWidth = page.size.width;
+      double newHeight = page.size.height;
+      // track any shift applied to existing content (so we can compensate
+      // the camera/transform and keep the viewport visually static)
+      Offset appliedShift = Offset.zero;
+
+      if (position.dx > page.size.width - expandMargin && !_hasExpandedRight) {
+        newWidth = page.size.width + expandAmount;
+        _hasExpandedRight = true;
+        updated = true;
+      }
+      if (position.dy > page.size.height - expandMargin && !_hasExpandedDown) {
+        newHeight = page.size.height + expandAmount;
+        _hasExpandedDown = true;
+        updated = true;
+      }
+      if (position.dx < expandMargin && !_hasExpandedLeft) {
+        // Page grows to the right, strokes will be animated to shift right
+        // This effectively creates space on the left
+        newWidth = page.size.width + expandAmount;
+        appliedShift = Offset(expandAmount, 0);
+        _hasExpandedLeft = true;
+        updated = true;
+      }
+      // Do NOT expand upwards; only expand left/right/down as requested.
+
+      if (updated) {
+        // Animate the page expansion smoothly
+        listenToQuillChanges(page.quill, dragPageIndex!);
+        _animatePageExpansion(dragPageIndex!, Size(newWidth, newHeight), appliedShift);
+        page.redrawStrokes();
+
+        // End the current stroke and undo it so the stroke that triggered
+        // the expansion doesn't remain on the canvas
+        if (currentTool is Pen) {
+          final newStroke = (currentTool as Pen).onDragEnd();
+          if (newStroke != null && !newStroke.isEmpty) {
+            createPage(newStroke.pageIndex);
+            page.insertStroke(newStroke);
+            history.recordChange(
+              EditorHistoryItem(
+                type: .draw,
+                pageIndex: dragPageIndex!,
+                strokes: [newStroke],
+                images: [],
+              ),
+            );
+            // Undo the stroke we just added
+            undo();
+          }
+        }
+        // Clear dragPageIndex to stop further drawing in this gesture
+        dragPageIndex = null;
+        setState(() {});
+        return;
+      }
+    }
 
     if (currentTool is Pen) {
       (currentTool as Pen).onDragUpdate(position, currentPressure);
@@ -637,6 +865,9 @@ class EditorState extends State<Editor> {
   }
 
   void onDrawEnd(ScaleEndDetails details) {
+    // If dragPageIndex was cleared (e.g., due to infinite page expansion),
+    // do nothing since the stroke was already handled.
+    if (dragPageIndex == null) return;
     final page = coreInfo.pages[dragPageIndex!];
     bool shouldSave = true;
     setState(() {
@@ -649,6 +880,34 @@ class EditorState extends State<Editor> {
             currentTool is! ShapePen &&
             newStroke.isStraightLine()) {
           newStroke.convertToLine();
+        }
+
+        // If infinite, ensure page expands to contain stroke bounding box
+        if (coreInfo.isInfinite) {
+          // Estimate bounds from stroke's lowQualityPolygon
+          double maxX = 0;
+          double maxY = newStroke.maxY;
+          // Try to compute maxX by checking path bounding boxes via svg path trick
+          try {
+            final path = newStroke.highQualityPath;
+            final bounds = path.getBounds();
+            maxX = bounds.right;
+            maxY = math.max(maxY, bounds.bottom);
+          } catch (_) {
+            // ignore if path unavailable
+          }
+
+          double newWidth = page.size.width;
+          double newHeight = page.size.height;
+          const margin = 100.0;
+          if (maxX + margin > page.size.width) newWidth = maxX + margin;
+          if (maxY + margin > page.size.height) newHeight = maxY + margin;
+
+          if (newWidth != page.size.width || newHeight != page.size.height) {
+            // Animate the page expansion smoothly
+            listenToQuillChanges(page.quill, dragPageIndex!);
+            _animatePageExpansion(dragPageIndex!, Size(newWidth, newHeight), Offset.zero);
+          }
         }
 
         createPage(newStroke.pageIndex);
@@ -923,6 +1182,13 @@ class EditorState extends State<Editor> {
         savingState.value = .saving;
     }
     if (history.isCurrentStateSaved) return cancelAutosaveAndMarkSaved();
+
+    // Trim whitespace from infinite pages before saving
+    if (coreInfo.isInfinite) {
+      for (final page in coreInfo.pages) {
+        page.trimWhitespace();
+      }
+    }
 
     await _renameFileNow();
 
@@ -1302,14 +1568,58 @@ class EditorState extends State<Editor> {
   }
 
   Future exportAsPdf(BuildContext context) async {
-    final pdf = await EditorExporter.generatePdf(coreInfo, context);
-    final bytes = await pdf.save();
-    if (!context.mounted) return;
-    await FileManager.exportFile(
-      '${coreInfo.fileName}.pdf',
-      bytes,
+    // Show a progress dialog while generating the PDF to keep the UI
+    // responsive and inform the OS the app is working.
+    if (!mounted) return;
+    showDialog(
       context: context,
+      barrierDismissible: false,
+      builder: (context) => WillPopScope(
+        onWillPop: () async => false,
+        child: AlertDialog(
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: const [
+              CircularProgressIndicator(),
+              SizedBox(height: 12),
+              Text('Exportando a PDF... por favor espera'),
+            ],
+          ),
+        ),
+      ),
     );
+
+    try {
+      final pdf = await EditorExporter.generatePdf(coreInfo, context);
+      final bytes = await pdf.save();
+      if (!context.mounted) return;
+      await FileManager.exportFile(
+        '${coreInfo.fileName}.pdf',
+        bytes,
+        context: context,
+      );
+    } catch (e, st) {
+      log.severe('Export to PDF failed: $e', e, st);
+      if (context.mounted) {
+        Navigator.of(context).pop();
+        showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+            title: const Text('Error'),
+            content: const Text('La exportación a PDF falló. Intenta de nuevo.'),
+            actions: [
+              TextButton(
+                onPressed: () => Navigator.of(context).pop(),
+                child: const Text('OK'),
+              )
+            ],
+          ),
+        );
+      }
+      return;
+    }
+
+    if (context.mounted) Navigator.of(context).pop();
   }
 
   /// Exports the current note as an SBA (Saber Archive) file.
@@ -1333,6 +1643,7 @@ class EditorState extends State<Editor> {
 
     final Widget canvas = CanvasGestureDetector(
       key: _canvasGestureDetectorKey,
+      isInfinite: coreInfo.isInfinite,
       filePath: coreInfo.filePath,
       isDrawGesture: isDrawGesture,
       onInteractionEnd: onInteractionEnd,
@@ -1656,12 +1967,17 @@ class EditorState extends State<Editor> {
                     onPressed: () => setState(() {
                       final currentPageIndex = this.currentPageIndex;
                       insertPageAfter(currentPageIndex);
-                      CanvasGestureDetector.scrollToPage(
-                        pageIndex: currentPageIndex + 1,
-                        pages: coreInfo.pages,
-                        screenWidth: MediaQuery.sizeOf(context).width,
-                        transformationController: _transformationController,
-                      );
+                      // For infinite notes, scroll to show the new page at the bottom
+                      if (coreInfo.isInfinite) {
+                        _scrollToPageForInfinite(currentPageIndex + 1);
+                      } else {
+                        CanvasGestureDetector.scrollToPage(
+                          pageIndex: currentPageIndex + 1,
+                          pages: coreInfo.pages,
+                          screenWidth: MediaQuery.sizeOf(context).width,
+                          transformationController: _transformationController,
+                        );
+                      }
                     }),
                   ),
                   IconButton(
@@ -2045,6 +2361,9 @@ class EditorState extends State<Editor> {
     unawaited(_cleanUpAsync());
 
     DynamicMaterialApp.removeFullscreenListener(_setState);
+
+    _pageExpansionController?.removeListener(_onStrokeShiftAnimationTick);
+    _pageExpansionController?.dispose();
 
     _delayedSaveTimer?.cancel();
     _watchServerTimer?.cancel();

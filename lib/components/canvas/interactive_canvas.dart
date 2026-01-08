@@ -357,6 +357,12 @@ class InteractiveCanvasViewer extends StatefulWidget {
   ///  * [TextEditingController] for an example of another similar pattern.
   final TransformationController? transformationController;
 
+  /// Multiplier applied to visual scale. Increasing this makes e.g. scale x10
+  /// render as (x10 * kVisualScaleMultiplier) visually. Kept private and
+  /// adjustable here; can be made a widget parameter if configurability is
+  /// desired.
+  static const double kVisualScaleMultiplier = 6.0;
+
   // Used as the coefficient of friction in the inertial translation animation.
   // This value was eyeballed to give a feel similar to Google Photos.
   static const double kDrag = 0.0000135;
@@ -650,31 +656,53 @@ class _InteractiveCanvasViewerState extends State<InteractiveCanvasViewer>
   // Return a new matrix representing the given matrix after applying the given
   // scale.
   Matrix4 _matrixScale(Matrix4 matrix, double scale) {
-    if (scale == 1.0) {
-      return matrix.clone();
-    }
-    assert(scale != 0.0);
+     if (scale == 1.0) {
+       return matrix.clone();
+     }
+     assert(scale != 0.0);
 
-    // Don't allow a scale that results in an overall scale beyond min/max
-    // scale.
-    final double currentScale = _transformer.value.getMaxScaleOnAxis();
-    final double totalScale = math.max(
-      currentScale * scale,
-      // Ensure that the scale cannot make the child so big that it can't fit
-      // inside the boundaries (in either direction).
-      math.max(
-        _viewport.width / _boundaryRect.width,
-        _viewport.height / _boundaryRect.height,
-      ),
+    // We introduce a visual multiplier so that the 'scale' values used by the
+    // app (e.g. 1x, 10x) can be amplified visually. To keep all calculations
+    // consistent, treat the transform controller as holding the VISUAL matrix.
+    // Convert to a logical scale for clamping, then convert back to visual.
+    //
+    // Current visual scale from the transformer.
+    final double currentVisualScale = _transformer.value.getMaxScaleOnAxis();
+    // Derive logical scale (what the gestures expect).
+    final double currentLogicalScale = currentVisualScale /
+        math.max(InteractiveCanvasViewer.kVisualScaleMultiplier, 1.0);
+    //
+    // Minimum logical scale required to fit within the boundary (adjusted
+    // because visual = logical * multiplier).
+    final double derivedMin = math.max(
+      _viewport.width / _boundaryRect.width,
+      _viewport.height / _boundaryRect.height,
     );
-    final double clampedTotalScale = clampDouble(
-      totalScale,
+    final double minLogicalFromBoundary = math.min(1.0, derivedMin) /
+        math.max(InteractiveCanvasViewer.kVisualScaleMultiplier, 1.0);
+    //
+    // Compute desired logical total scale.
+    final double totalLogicalScale = math.max(currentLogicalScale * scale,
+        minLogicalFromBoundary);
+    //
+    // Clamp logical scale to widget bounds (widget.minScale/maxScale are in
+    // logical units).
+    final double clampedLogicalTotalScale = clampDouble(
+      totalLogicalScale,
       widget.minScale,
       widget.maxScale,
     );
-    final double clampedScale = clampedTotalScale / currentScale;
+    //
+    // Convert back to visual scale to apply to the matrix.
+    final double desiredVisualTotalScale = clampedLogicalTotalScale *
+        math.max(InteractiveCanvasViewer.kVisualScaleMultiplier, 1.0);
+    //
+    final double clampedScaleVisual = desiredVisualTotalScale /
+        math.max(currentVisualScale, double.minPositive);
+    //
     return matrix.clone()
-      ..scaleByDouble(clampedScale, clampedScale, clampedScale, 1);
+      ..scaleByDouble(clampedScaleVisual, clampedScaleVisual,
+          clampedScaleVisual, 1);
   }
 
   // Return a new matrix representing the given matrix after applying the given
@@ -1168,7 +1196,7 @@ class _InteractiveCanvasViewerBuilt extends StatelessWidget {
         alignment: .topLeft,
         minWidth: 0,
         minHeight: 0,
-        // maxWidth: double.infinity,
+        maxWidth: double.infinity,
         maxHeight: double.infinity,
         child: child,
       );

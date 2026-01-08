@@ -139,24 +139,37 @@ class _PreviewCardState extends State<PreviewCard> {
                             left: kYaruFocusBorderWidth,
                             right: kYaruFocusBorderWidth,
                           ),
-                          child: ClipRRect(
-                            borderRadius: const .only(
-                              topLeft: .circular(
-                                kYaruContainerRadius - kYaruFocusBorderWidth,
+                          child: AspectRatio(
+                            aspectRatio: 1.0,
+                            child: ClipRRect(
+                              borderRadius: const .only(
+                                topLeft: .circular(
+                                  kYaruContainerRadius - kYaruFocusBorderWidth,
+                                ),
+                                topRight: .circular(
+                                  kYaruContainerRadius - kYaruFocusBorderWidth,
+                                ),
                               ),
-                              topRight: .circular(
-                                kYaruContainerRadius - kYaruFocusBorderWidth,
+                              child: InvertWidget(
+                                invert: invert,
+                                child: thumbnail.doesImageExist
+                                    ? Center(
+                                        child: SizedBox.square(
+                                          dimension: 232,
+                                          child: ClipRRect(
+                                            borderRadius: BorderRadius.zero,
+                                            child: FittedBox(
+                                              fit: BoxFit.cover,
+                                              alignment: Alignment.topCenter,
+                                              child: Image(
+                                                image: thumbnail.image!,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      )
+                                    : const _FallbackThumbnail(),
                               ),
-                            ),
-                            child: InvertWidget(
-                              invert: invert,
-                              child: thumbnail.doesImageExist
-                                  ? Image(
-                                      image: thumbnail.image!,
-                                      alignment: .topCenter,
-                                      fit: .cover,
-                                    )
-                                  : const _FallbackThumbnail(),
                             ),
                           ),
                         ),

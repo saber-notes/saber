@@ -90,48 +90,71 @@ class Canvas extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: FittedBox(
-        child: DecoratedBox(
-          decoration: BoxDecoration(
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withValues(
-                  alpha: 0.1,
-                ), // dark regardless of theme
-                blurRadius: 10,
-                spreadRadius: 2,
-              ),
-            ],
+    final content = DecoratedBox(
+      decoration: BoxDecoration(
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withValues(
+              alpha: 0.1,
+            ), // dark regardless of theme
+            blurRadius: 10,
+            spreadRadius: 2,
           ),
-          child: !placeholder
-              ? SizedBox(
+        ],
+      ),
+      child: !placeholder
+          ? SizedBox(
+              width: page.size.width,
+              height: page.size.height,
+              child: OnyxSdkPenArea(
+                refreshDelay: const Duration(seconds: 1),
+                strokeStyle: getOnyxTool(currentTool),
+                strokeColor: getOnyxColor(),
+                strokeWidth: getOnyxWidth(),
+                child: InnerCanvas(
+                  key: page.innerCanvasKey,
+                  pageIndex: pageIndex,
+                  redrawPageListenable: page,
                   width: page.size.width,
                   height: page.size.height,
-                  child: OnyxSdkPenArea(
-                    refreshDelay: const Duration(seconds: 1),
-                    strokeStyle: getOnyxTool(currentTool),
-                    strokeColor: getOnyxColor(),
-                    strokeWidth: getOnyxWidth(),
-                    child: InnerCanvas(
-                      key: page.innerCanvasKey,
-                      pageIndex: pageIndex,
-                      redrawPageListenable: page,
-                      width: page.size.width,
-                      height: page.size.height,
-                      textEditing: textEditing,
-                      coreInfo: coreInfo,
-                      currentStroke: currentStroke,
-                      currentStrokeDetectedShape: currentStrokeDetectedShape,
-                      currentSelection: currentSelection,
-                      setAsBackground: setAsBackground,
-                      currentToolIsSelect: currentTool.toolId == ToolId.select,
-                      currentScale: currentScale,
-                    ),
-                  ),
-                )
-              : SizedBox(width: page.size.width, height: page.size.height),
+                  textEditing: textEditing,
+                  coreInfo: coreInfo,
+                  currentStroke: currentStroke,
+                  currentStrokeDetectedShape: currentStrokeDetectedShape,
+                  currentSelection: currentSelection,
+                  setAsBackground: setAsBackground,
+                  currentToolIsSelect: currentTool.toolId == ToolId.select,
+                  currentScale: currentScale,
+                ),
+              ),
+            )
+          : SizedBox(width: page.size.width, height: page.size.height),
+    );
+
+    // For infinite pages we must NOT wrap with a FittedBox, because when the
+    // underlying page size changes (especially horizontally) FittedBox will
+    // rescale the child to fit the viewport which causes an unwanted visual
+    // zoom change. For normal pages, preserve the previous FittedBox
+    // behaviour to keep them centered and scaled to available space.
+    if (coreInfo.isInfinite) {
+      // Anchor infinite canvas content to the top-left so changes in width
+      // or height do not change the child's position relative to the
+      // viewport (avoids jumps when expanding horizontally/vertically).
+      // Use AnimatedSize for smooth expansion animation.
+      return Align(
+        alignment: Alignment.topLeft,
+        child: AnimatedSize(
+          duration: const Duration(milliseconds: 400),
+          curve: Curves.easeOutCubic,
+          alignment: Alignment.topLeft,
+          child: content,
         ),
+      );
+    }
+
+    return Center(
+      child: FittedBox(
+        child: content,
       ),
     );
   }

@@ -274,6 +274,7 @@ class _TranslationsHomeCreateZhHantTw extends TranslationsHomeCreateEn {
 
 	// Translations
 	@override String get newNote => '新增筆記';
+	@override String get newInfiniteNote => '新增無限筆記';
 	@override String get importNote => '匯入筆記';
 }
 

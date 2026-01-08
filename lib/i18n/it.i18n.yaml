@@ -19,6 +19,7 @@ home:
     exportNote: Esporta nota
   create: 
     newNote: Nuova nota
+    newInfiniteNote: Nuova nota infinita
     importNote: Importa nota
   welcome: Benvenuto su Saber
   invalidFormat: Il file selezionato non è supportato. Seleziona un file .sbn, .sbn2, .sba o .pdf.

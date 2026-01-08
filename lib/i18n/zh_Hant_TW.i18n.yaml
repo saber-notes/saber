@@ -19,6 +19,7 @@ home:
     exportNote: 匯出筆記
   create: 
     newNote: 新增筆記
+    newInfiniteNote: 新增無限筆記
     importNote: 匯入筆記
   welcome: 歡迎使用 Saber
   invalidFormat: 不支援您選取的檔案，請選擇 .sbn、.sbn2、.sba 或 .pdf 檔案。

@@ -19,6 +19,7 @@ home:
     exportNote: Notu dışa aktar
   create: 
     newNote: Yeni not
+    newInfiniteNote: Yeni sonsuz not
     importNote: Notu içeri aktar
   welcome: Saber'a hoş geldiniz
   invalidFormat: Seçtiğiniz dosya desteklenmiyor. Lütfen bir .sbn, .sbn2, .sba veya .pdf dosyası seçin.

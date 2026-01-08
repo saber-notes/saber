@@ -274,6 +274,7 @@ class _TranslationsHomeCreateEo extends TranslationsHomeCreateEn {
 
 	// Translations
 	@override String get newNote => 'Nova noto';
+	@override String get newInfiniteNote => 'Nova senfina noto';
 	@override String get importNote => 'Enportu noton';
 }
 

@@ -274,6 +274,7 @@ class _TranslationsHomeCreateTr extends TranslationsHomeCreateEn {
 
 	// Translations
 	@override String get newNote => 'Yeni not';
+	@override String get newInfiniteNote => 'Yeni sonsuz not';
 	@override String get importNote => 'Notu içeri aktar';
 }
 

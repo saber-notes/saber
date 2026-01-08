@@ -4,6 +4,8 @@ import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:go_router/go_router.dart';
 import 'package:saber/components/navbar/horizontal_navbar.dart';
 import 'package:saber/components/theming/saber_theme.dart';
+import 'package:saber/data/editor/editor_core_info.dart';
+import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/routes.dart';
 import 'package:saber/i18n/strings.g.dart';
@@ -60,6 +62,7 @@ class _NewNoteButtonState extends State<NewNoteButton> {
         );
       },
       children: [
+        // Regular new note
         SpeedDialChild(
           child: const Icon(Icons.create),
           label: t.home.create.newNote,
@@ -75,6 +78,35 @@ class _NewNoteButtonState extends State<NewNoteButton> {
             }
           },
         ),
+
+        // Infinite note (moved to second position, same icon as new note)
+        SpeedDialChild(
+          child: const Icon(Icons.create),
+          label: t.home.create.newInfiniteNote,
+          onTap: () async {
+            // Create a new file path and persist an initial infinite note
+            final newFilePath = await FileManager.newFilePath('${widget.path ?? ''}/');
+            // build minimal coreInfo for infinite note
+            final core = EditorCoreInfo(filePath: newFilePath);
+            core.isInfinite = true;
+            core.infinitePatternFactor = 1.25; // default, can be adjusted by user
+            core.pages = [EditorPage(size: const Size(4000, 4000))];
+
+            // save binary and assets
+            final (bson, assets) = core.saveToBinary(currentPageIndex: 0);
+            final filePath = newFilePath + Editor.extension;
+            await FileManager.writeFile(filePath, bson, awaitWrite: true);
+            for (int i = 0; i < assets.length; ++i) {
+              final bytes = await assets.getBytes(i);
+              await FileManager.writeFile('$filePath.$i', bytes, awaitWrite: true);
+            }
+
+            if (!context.mounted) return;
+            context.push(RoutePaths.editFilePath(newFilePath));
+          },
+        ),
+
+        // Import note
         SpeedDialChild(
           child: const Icon(Icons.note_add),
           label: t.home.create.importNote,

@@ -274,6 +274,7 @@ class _TranslationsHomeCreateRu extends TranslationsHomeCreateEn {
 
 	// Translations
 	@override String get newNote => 'Новая заметка';
+	@override String get newInfiniteNote => 'Новая бесконечная заметка';
 	@override String get importNote => 'Импорт заметки';
 }
 

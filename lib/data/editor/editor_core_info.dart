@@ -64,8 +64,16 @@ class EditorCoreInfo {
   int lineThickness;
   List<EditorPage> pages;
 
+  /// Whether this note is an infinite canvas.
+  /// This is persisted in the file under the key 'inf' (boolean).
+  bool isInfinite = false;
+
   /// Stores the current page index so that it can be restored when the file is reloaded.
   int? initialPageIndex;
+
+  /// Visual multiplier for the background pattern on infinite notes.
+  /// Persisted under key 'ipf' (double). Defaults to 1.0 when absent.
+  double infinitePatternFactor = 1.25;
 
   static final empty =
       EditorCoreInfo._(
@@ -114,7 +122,12 @@ class EditorCoreInfo {
     required this.pages,
     required this.initialPageIndex,
     required AssetCache? assetCache,
+    bool? isInfinite,
+    double? infinitePatternFactor,
   }) : assetCache = assetCache ?? AssetCache() {
+    // Preserve backwards compatibility: if isInfinite is passed use it
+    if (isInfinite != null) this.isInfinite = isInfinite;
+    if (infinitePatternFactor != null) this.infinitePatternFactor = infinitePatternFactor;
     _handleEmptyImageIds();
   }
 
@@ -189,6 +202,8 @@ class EditorCoreInfo {
         ),
         initialPageIndex: json['c'] as int?,
         assetCache: assetCache,
+        infinitePatternFactor: (json['ipf'] as num?)?.toDouble(),
+        isInfinite: json['inf'] as bool? ?? false,
       )
       .._migrateOldStrokesAndImages(
         fileVersion: fileVersion,
@@ -486,6 +501,10 @@ class EditorCoreInfo {
       'lt': lineThickness,
       'z': pages.map((EditorPage page) => page.toJson(assets)).toList(),
       'c': initialPageIndex,
+      // persist infinite flag only when true to remain compact and backward compatible
+      if (isInfinite) 'inf': true,
+      // persist pattern factor if not default so reopening keeps visual size
+      if (isInfinite && infinitePatternFactor != 1.0) 'ipf': infinitePatternFactor,
     };
 
     return (json, assets);
@@ -548,6 +567,8 @@ class EditorCoreInfo {
     int? lineHeight,
     int? lineThickness,
     List<EditorPage>? pages,
+    bool? isInfinite,
+    double? infinitePatternFactor,
   }) {
     return EditorCoreInfo._(
       filePath: filePath ?? this.filePath,
@@ -562,6 +583,8 @@ class EditorCoreInfo {
       pages: pages ?? this.pages,
       initialPageIndex: initialPageIndex,
       assetCache: assetCache,
+      isInfinite: isInfinite ?? this.isInfinite,
+      infinitePatternFactor: infinitePatternFactor ?? this.infinitePatternFactor,
     );
   }
 }

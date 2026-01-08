@@ -19,6 +19,7 @@ home:
     exportNote: Eksportu noton
   create: 
     newNote: Nova noto
+    newInfiniteNote: Nova senfina noto
     importNote: Enportu noton
   welcome: Bonvenon al Saber
   invalidFormat: Via dosiero ne estas subtenata. Bonvolu elekti sbn, sbn2, sba aŭ pdf dosieron.
