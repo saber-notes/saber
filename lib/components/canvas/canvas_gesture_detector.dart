@@ -409,68 +409,27 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
         now.isBefore(_suppressTransformAdjustmentUntil!)) {
       return;
     }
-     final scale = widget._transformationController.value.approxScale;
      final translation = widget._transformationController.value.getTranslation();
 
-     double adjustmentX = 0;
      double adjustmentY = 0;
 
      // snap to 1.0x zoom
      _snapZoomTimer?.cancel();
+     final scale = widget._transformationController.value.approxScale;
      final diffFrom1 = (scale - 1).abs();
      // allow 0.001 leeway for floating point error
      if (diffFrom1 < 0.05 && diffFrom1 > 0.001)
        _snapZoomTimer = Timer(const Duration(milliseconds: 200), resetZoom);
 
-     // Determine the content width (logical, before transform). For infinite
-     // canvases this is the page width; for multi-page documents it's the
-     // widest fitted page width.
-     double contentWidth;
-     if (widget.pages.isEmpty) {
-       contentWidth = containerBounds.maxWidth;
-     } else if (widget.isInfinite) {
-       contentWidth = widget.pages.map((p) => p.size.width).fold(0.0, (a, b) => max(a, b));
-     } else {
-       contentWidth = widget.pages
-           .map((p) => min(p.size.width, containerBounds.maxWidth))
-           .fold(0.0, (a, b) => max(a, b));
+     // Allow free panning in all directions.
+     // Only correct vertical translation to avoid panning above the top (translation.y > 0).
+     if (translation.y > 0) {
+       adjustmentY = -translation.y;
      }
 
-     // For infinite canvases we allow free horizontal panning (boundaryMargin
-     // is infinite). Only correct vertical translation to avoid panning above
-     // the top (translation.y > 0). For non-infinite, preserve previous
-     // centering/clamping behaviour.
-     if (widget.isInfinite) {
-       if (translation.y > 0) {
-         adjustmentY = -translation.y;
-       }
-     } else {
-       // Scaled content size in viewport pixels.
-       final double scaledContentWidth = contentWidth * scale;
-
-       if (scaledContentWidth <= containerBounds.maxWidth) {
-         // Content narrower than viewport: center horizontally.
-         final center = (containerBounds.maxWidth - scaledContentWidth) / 2;
-         adjustmentX = center - translation.x;
-       } else {
-         // Content wider than viewport: clamp translation so edges aren't
-         // beyond the content.
-         final minX = containerBounds.maxWidth - scaledContentWidth; // negative
-         if (translation.x > 0) {
-           adjustmentX = -translation.x;
-         } else if (translation.x < minX) {
-           adjustmentX = minX - translation.x;
-         }
-
-         if (translation.y > 0) {
-           adjustmentY = -translation.y;
-         }
-       }
-     }
-
-    if (adjustmentX.abs() > 0.1 || adjustmentY.abs() > 0.1) {
+    if (adjustmentY.abs() > 0.1) {
       widget._transformationController.value.leftTranslateByDouble(
-        adjustmentX,
+        0,
         adjustmentY,
         0,
         1,
@@ -581,7 +540,6 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
 
   @override
   Widget build(BuildContext context) {
-    final Size screenSize = MediaQuery.sizeOf(context);
 
     return Stack(
       children: [
@@ -610,12 +568,7 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
                    panAxis: axisAlignedPanLock ? PanAxis.aligned : PanAxis.free,
                    interactionEndFrictionCoefficient:
                        InteractiveCanvasViewer.kDrag * 100,
-                  boundaryMargin: widget.isInfinite
-                      ? const EdgeInsets.all(double.infinity)
-                      : EdgeInsets.symmetric(
-                          vertical: 0,
-                          horizontal: screenSize.width * 2,
-                        ),
+                  boundaryMargin: const EdgeInsets.all(double.infinity),
                   alignment: Alignment.topLeft,
                   transformationController: widget._transformationController,
                   isDrawGesture: widget.isDrawGesture,
@@ -628,8 +581,6 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
                     return _PagesBuilder(
                       pages: widget.pages,
                       pageBuilder: widget.pageBuilder,
-                      placeholderPageBuilder: widget.placeholderPageBuilder,
-                      boundingBox: _axisAlignedBoundingBox(viewport),
                       containerWidth: containerBounds.maxWidth,
                       isInfinite: widget.isInfinite,
                     );
@@ -678,24 +629,6 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
     super.dispose();
   }
 
-  /// Returns the axis aligned bounding box for the given Quad,
-  /// which might not be axis aligned.
-  /// From https://api.flutter.dev/flutter/widgets/InteractiveViewer/builder.html
-  static Rect _axisAlignedBoundingBox(Quad quad) {
-    final List<Vector3> points = [
-      quad.point0,
-      quad.point1,
-      quad.point2,
-      quad.point3,
-    ];
-
-    final left = points.map((point) => point.x).reduce(min);
-    final right = points.map((point) => point.x).reduce(max);
-    final top = points.map((point) => point.y).reduce(min);
-    final bottom = points.map((point) => point.y).reduce(max);
-
-    return .fromLTRB(left, top, right, bottom);
-  }
 }
 
 class _PagesBuilder extends StatelessWidget {
@@ -704,17 +637,12 @@ class _PagesBuilder extends StatelessWidget {
     super.key,
     required this.pages,
     required this.pageBuilder,
-    required this.placeholderPageBuilder,
-    required this.boundingBox,
     required this.containerWidth,
     required this.isInfinite,
   });
 
   final List<EditorPage> pages;
   final Widget Function(BuildContext context, int pageIndex) pageBuilder;
-  final Widget Function(BuildContext context, int pageIndex)
-  placeholderPageBuilder;
-  final Rect boundingBox;
   final double containerWidth;
 
   final bool isInfinite;
@@ -740,16 +668,10 @@ class _PagesBuilder extends StatelessWidget {
           : pageWidth / page.size.width * page.size.height;
       final bottomOfPage = topOfPage + pageHeight;
 
-      final isFocused = page.quill.focusNode.hasFocus;
-      final isInViewport =
-          boundingBox.bottom >= topOfPage && boundingBox.top <= bottomOfPage;
-      final shouldRender = isFocused || isInViewport;
+      // Always render pages - never use placeholder
+      page.isRendered = true;
 
-      page.isRendered = shouldRender;
-
-      final pageWidget = shouldRender
-          ? pageBuilder(context, pageIndex)
-          : placeholderPageBuilder(context, pageIndex);
+      final pageWidget = pageBuilder(context, pageIndex);
 
       children.add(
         ClipRRect(
