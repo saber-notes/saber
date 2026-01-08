@@ -312,15 +312,8 @@ class EditorPage extends ChangeNotifier implements HasSize {
   ///
   /// Avoids bugs caused by the quill editor being attached to multiple
   /// contexts.
-  EditorPage cloneForScreenshot() => copyWith(
-    quill: QuillStruct(
-      controller: QuillController(
-        document: Document.fromDelta(quill.controller.document.toDelta()),
-        selection: const TextSelection.collapsed(offset: 0),
-      ),
-      focusNode: QuillStruct._screenshotQuillFocusNode,
-    ),
-  );
+  EditorPage cloneForScreenshot() =>
+      copyWith(quill: quill.cloneForScreenshot());
 }
 
 class QuillStruct {
@@ -335,6 +328,14 @@ class QuillStruct {
     focusNode.dispose();
     controller.dispose();
   }
+
+  QuillStruct cloneForScreenshot() => QuillStruct(
+    controller: QuillController(
+      document: Document.fromDelta(controller.document.toDelta()),
+      selection: const TextSelection.collapsed(offset: 0),
+    ),
+    focusNode: _screenshotQuillFocusNode,
+  );
 
   static final _screenshotQuillFocusNode = FocusNode(
     debugLabel: 'Screenshot Quill Focus Node',

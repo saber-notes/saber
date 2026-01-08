@@ -155,6 +155,7 @@ abstract class EditorExporter {
               for (final page in coreInfo.pages)
                 page.copyWith(
                   strokes: page.strokes.where(_shouldRasterizeStroke).toList(),
+                  quill: page.quill.cloneForScreenshot(),
                 ),
             ],
           ),
