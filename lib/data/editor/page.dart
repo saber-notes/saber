@@ -299,8 +299,8 @@ class EditorPage extends ChangeNotifier implements HasSize {
   /// disposed, but it also contains some resources from the original page
   /// that should not be disposed since they are still in use.
   ///
-  /// Call this method to dispose only the resources exclusive to the cloned
-  /// page.
+  /// Call this method instead of [dispose] to dispose only the resources
+  /// exclusive to the cloned page.
   void disposeClonedData() {
     quill.dispose();
     _pencilShader?.dispose();
@@ -326,6 +326,9 @@ class EditorPage extends ChangeNotifier implements HasSize {
   ///
   /// Avoids bugs caused by the quill editor being attached to multiple
   /// contexts, and filters out strokes that shouldn't be rasterized.
+  ///
+  /// Make sure to call [disposeClonedData] on the returned page when
+  /// you're done with it.
   EditorPage cloneForRasterization({bool rasterizeAllStrokes = false}) {
     return copyWith(
       strokes: rasterizeAllStrokes
