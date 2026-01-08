@@ -10,6 +10,7 @@ import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/image/editor_image.dart';
 import 'package:saber/components/canvas/inner_canvas.dart';
 import 'package:saber/components/canvas/pencil_shader.dart';
+import 'package:saber/data/editor/editor_exporter.dart';
 import 'package:saber/data/tools/laser_pointer.dart';
 
 typedef CanvasKey = GlobalKey<State<InnerCanvas>>;
@@ -294,11 +295,12 @@ class EditorPage extends ChangeNotifier implements HasSize {
     super.dispose();
   }
 
-  /// [cloneForScreenshot] creates some new resources that need to be disposed.
-  /// But it also contains some resources from the original page that should not
-  /// be disposed since they are still in use.
+  /// [cloneForRasterization] creates some new resources that need to be
+  /// disposed, but it also contains some resources from the original page
+  /// that should not be disposed since they are still in use.
   ///
-  /// Call this method to dispose only the resources created for the screenshot.
+  /// Call this method to dispose only the resources exclusive to the cloned
+  /// page.
   void disposeClonedData() {
     quill.dispose();
     _pencilShader?.dispose();
@@ -323,9 +325,15 @@ class EditorPage extends ChangeNotifier implements HasSize {
   /// Clones this page for use in a screenshot.
   ///
   /// Avoids bugs caused by the quill editor being attached to multiple
-  /// contexts.
-  EditorPage cloneForScreenshot() =>
-      copyWith(quill: quill.cloneForScreenshot());
+  /// contexts, and filters out strokes that shouldn't be rasterized.
+  EditorPage cloneForRasterization({bool rasterizeAllStrokes = false}) {
+    return copyWith(
+      strokes: rasterizeAllStrokes
+          ? strokes
+          : strokes.where(EditorExporter.shouldRasterizeStroke).toList(),
+      quill: quill.cloneForScreenshot(),
+    );
+  }
 }
 
 class QuillStruct {
@@ -346,10 +354,6 @@ class QuillStruct {
       document: Document.fromDelta(controller.document.toDelta()),
       selection: const TextSelection.collapsed(offset: 0),
     ),
-    focusNode: _screenshotQuillFocusNode,
-  );
-
-  static final _screenshotQuillFocusNode = FocusNode(
-    debugLabel: 'Screenshot Quill Focus Node',
+    focusNode: FocusNode(debugLabel: 'Screenshot Quill Focus Node'),
   );
 }

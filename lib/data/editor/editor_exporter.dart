@@ -7,10 +7,9 @@ import 'package:pdf/widgets.dart' as pw;
 import 'package:saber/components/canvas/_circle_stroke.dart';
 import 'package:saber/components/canvas/_rectangle_stroke.dart';
 import 'package:saber/components/canvas/_stroke.dart';
+import 'package:saber/components/canvas/canvas_preview.dart';
 import 'package:saber/components/canvas/inner_canvas.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
-import 'package:saber/data/editor/page.dart';
-import 'package:saber/data/prefs.dart';
 import 'package:screenshot/screenshot.dart';
 
 abstract class EditorExporter {
@@ -20,7 +19,7 @@ abstract class EditorExporter {
   /// Strokes that can't be drawn as vector graphics include:
   /// - Highlighter strokes, because PDFs don't support transparency
   /// - Pencil strokes, which need a special shader to look correct
-  static bool _shouldRasterizeStroke(Stroke stroke) {
+  static bool shouldRasterizeStroke(Stroke stroke) {
     return stroke.toolId == .highlighter || stroke.toolId == .pencil;
   }
 
@@ -46,7 +45,6 @@ abstract class EditorExporter {
           coreInfo: coreInfo,
           pageIndex: pageIndex,
           screenshotController: screenshotController,
-          context: context,
         ),
       ),
     );
@@ -69,7 +67,7 @@ abstract class EditorExporter {
                   ).flatten();
 
                   final strokes = page.strokes.where(
-                    (stroke) => !_shouldRasterizeStroke(stroke),
+                    (stroke) => !shouldRasterizeStroke(stroke),
                   );
                   for (final stroke in strokes) {
                     final strokeColor = PdfColor.fromInt(
@@ -134,55 +132,43 @@ abstract class EditorExporter {
   ///
   /// Note that screenshots do not include most* strokes
   /// because they're added separately to the PDF as vector graphics.
-  /// See [_shouldRasterizeStroke] for more details.
+  /// See [shouldRasterizeStroke] for more details, or set
+  /// [rasterizeAllStrokes] to true to include all strokes in the screenshot.
   static Future<Uint8List> screenshotPage({
     required EditorCoreInfo coreInfo,
     required int pageIndex,
     required ScreenshotController screenshotController,
-    required BuildContext context,
+    bool rasterizeAllStrokes = false,
+    Size? targetSize,
+    double? cropHeight,
+    double pixelRatio = 2,
   }) async {
-    final page = coreInfo.pages[pageIndex].cloneForRasterization();
-    final pageSize = page.size;
-    coreInfo = coreInfo.copyWith(
-      pages: [
-        for (var i = 0; i < coreInfo.pages.length; ++i)
-          if (i == pageIndex) page else coreInfo.pages[i],
-      ],
+    final page = coreInfo.pages[pageIndex].cloneForRasterization(
+      rasterizeAllStrokes: rasterizeAllStrokes,
     );
     try {
+      targetSize ??= page.size;
+      coreInfo = coreInfo.copyWith(
+        pages: [
+          for (var i = 0; i < coreInfo.pages.length; ++i)
+            if (i == pageIndex) page else coreInfo.pages[i],
+        ],
+      );
       return await screenshotController.captureFromWidget(
         EditorExporterTheme(
-          targetSize: pageSize,
-          child: InnerCanvas(
+          targetSize: targetSize,
+          child: CanvasPreview(
             pageIndex: pageIndex,
-            width: pageSize.width,
-            height: pageSize.height,
-            showPageIndicator: stows.printPageIndicators.value,
-            textEditing: false,
+            height: cropHeight,
             coreInfo: coreInfo,
-            currentStroke: null,
-            currentStrokeDetectedShape: null,
-            currentSelection: null,
-            currentToolIsSelect: false,
-            currentScale: double.maxFinite,
           ),
         ),
-        context: context,
-        pixelRatio: 2,
-        targetSize: pageSize,
+        pixelRatio: pixelRatio,
+        targetSize: targetSize,
       );
     } finally {
       page.disposeClonedData();
     }
-  }
-}
-
-extension _CloneForRasterization on EditorPage {
-  EditorPage cloneForRasterization() {
-    return copyWith(
-      strokes: strokes.where(EditorExporter._shouldRasterizeStroke).toList(),
-      quill: quill.cloneForScreenshot(),
-    );
   }
 }
 

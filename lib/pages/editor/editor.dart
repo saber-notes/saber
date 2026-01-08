@@ -18,7 +18,6 @@ import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/canvas.dart';
 import 'package:saber/components/canvas/canvas_gesture_detector.dart';
 import 'package:saber/components/canvas/canvas_image.dart';
-import 'package:saber/components/canvas/canvas_preview.dart';
 import 'package:saber/components/canvas/image/editor_image.dart';
 import 'package:saber/components/canvas/save_indicator.dart';
 import 'package:saber/components/theming/adaptive_alert_dialog.dart';
@@ -962,21 +961,17 @@ class EditorState extends State<Editor> {
     }
 
     if (!mounted) return;
-    final screenshotter = ScreenshotController();
     final page = coreInfo.pages.first;
     final previewHeight = page.previewHeight(lineHeight: coreInfo.lineHeight);
     final thumbnailSize = Size(720, 720 * previewHeight / page.size.width);
-    final thumbnail = await screenshotter.captureFromWidget(
-      EditorExporterTheme(
-        targetSize: thumbnailSize,
-        child: pageBuilderForScreenshot(
-          context,
-          pageIndex: 0,
-          previewHeight: previewHeight,
-        ),
-      ),
-      pixelRatio: 1,
+    final thumbnail = await EditorExporter.screenshotPage(
+      coreInfo: coreInfo,
+      pageIndex: 0,
+      screenshotController: ScreenshotController(),
+      rasterizeAllStrokes: true,
       targetSize: thumbnailSize,
+      cropHeight: previewHeight,
+      pixelRatio: 1,
     );
     await FileManager.writeFile(
       // Note that this ends with .sbn2.p
@@ -1831,22 +1826,6 @@ class EditorState extends State<Editor> {
       },
       currentTool: currentTool,
       currentScale: _transformationController.value.approxScale,
-    );
-  }
-
-  Widget pageBuilderForScreenshot(
-    BuildContext context, {
-    required int pageIndex,
-    double? previewHeight,
-  }) {
-    final page = this.coreInfo.pages[pageIndex].cloneForScreenshot();
-    previewHeight ??= page.previewHeight(lineHeight: this.coreInfo.lineHeight);
-    final coreInfo = this.coreInfo.copyWith(pages: [page]);
-    return CanvasPreview(
-      pageIndex: pageIndex,
-      height: previewHeight,
-      coreInfo: coreInfo,
-      highQuality: true,
     );
   }
 
