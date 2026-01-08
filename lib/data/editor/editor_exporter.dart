@@ -9,6 +9,7 @@ import 'package:saber/components/canvas/_rectangle_stroke.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/inner_canvas.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
+import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:screenshot/screenshot.dart';
 
@@ -140,35 +141,47 @@ abstract class EditorExporter {
     required ScreenshotController screenshotController,
     required BuildContext context,
   }) async {
-    final pageSize = coreInfo.pages[pageIndex].size;
-    return await screenshotController.captureFromWidget(
-      EditorExporterTheme(
-        targetSize: pageSize,
-        child: InnerCanvas(
-          pageIndex: pageIndex,
-          width: pageSize.width,
-          height: pageSize.height,
-          showPageIndicator: stows.printPageIndicators.value,
-          textEditing: false,
-          coreInfo: coreInfo.copyWith(
-            pages: [
-              for (final page in coreInfo.pages)
-                page.copyWith(
-                  strokes: page.strokes.where(_shouldRasterizeStroke).toList(),
-                  quill: page.quill.cloneForScreenshot(),
-                ),
-            ],
+    final page = coreInfo.pages[pageIndex].cloneForRasterization();
+    final pageSize = page.size;
+    coreInfo = coreInfo.copyWith(
+      pages: [
+        for (var i = 0; i < coreInfo.pages.length; ++i)
+          if (i == pageIndex) page else coreInfo.pages[i],
+      ],
+    );
+    try {
+      return await screenshotController.captureFromWidget(
+        EditorExporterTheme(
+          targetSize: pageSize,
+          child: InnerCanvas(
+            pageIndex: pageIndex,
+            width: pageSize.width,
+            height: pageSize.height,
+            showPageIndicator: stows.printPageIndicators.value,
+            textEditing: false,
+            coreInfo: coreInfo,
+            currentStroke: null,
+            currentStrokeDetectedShape: null,
+            currentSelection: null,
+            currentToolIsSelect: false,
+            currentScale: double.maxFinite,
           ),
-          currentStroke: null,
-          currentStrokeDetectedShape: null,
-          currentSelection: null,
-          currentToolIsSelect: false,
-          currentScale: double.maxFinite,
         ),
-      ),
-      context: context,
-      pixelRatio: 2,
-      targetSize: pageSize,
+        context: context,
+        pixelRatio: 2,
+        targetSize: pageSize,
+      );
+    } finally {
+      page.disposeClonedData();
+    }
+  }
+}
+
+extension _CloneForRasterization on EditorPage {
+  EditorPage cloneForRasterization() {
+    return copyWith(
+      strokes: strokes.where(EditorExporter._shouldRasterizeStroke).toList(),
+      quill: quill.cloneForScreenshot(),
     );
   }
 }

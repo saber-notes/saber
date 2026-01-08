@@ -294,6 +294,18 @@ class EditorPage extends ChangeNotifier implements HasSize {
     super.dispose();
   }
 
+  /// [cloneForScreenshot] creates some new resources that need to be disposed.
+  /// But it also contains some resources from the original page that should not
+  /// be disposed since they are still in use.
+  ///
+  /// Call this method to dispose only the resources created for the screenshot.
+  void disposeClonedData() {
+    quill.dispose();
+    _pencilShader?.dispose();
+    isRendered = false;
+    super.dispose();
+  }
+
   EditorPage copyWith({
     Size? size,
     List<Stroke>? strokes,
