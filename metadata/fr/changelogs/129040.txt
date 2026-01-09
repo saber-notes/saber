@@ -1,0 +1,5 @@
+• Correction du curseur de texte apparaissant dans les exportations PDF.
+• Correction d'un bug de l'éditeur de texte après l'exportation d'une note.
+• Correction de certaines ressources qui n'étaient pas libérées après l'exportation d'une note.
+• Refonte de la « disposition simplifiée de la maison » en vue de grille appropriée.
+• Correction de quelques petites incohérences visuelles comme le rayon de bordure des vignettes.

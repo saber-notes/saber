@@ -1,0 +1,5 @@
+• Der beim PDF-Export angezeigte Textcursor wurde behoben.
+• Fehler im Texteditor nach dem Exportieren einer Notiz behoben.
+• Ein Problem wurde behoben, bei dem einige Ressourcen nach dem Exportieren einer Notiz nicht freigegeben wurden.
+• Das „vereinfachte Home-Layout“ wurde in eine richtige Rasteransicht umgewandelt.
+• Einige kleine visuelle Inkonsistenzen wie der Randradius von Miniaturansichten wurden behoben.

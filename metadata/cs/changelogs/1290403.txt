@@ -1,0 +1,5 @@
+• Opraven textový kurzor zobrazovaný v exportech PDF.
+• Opraveny chyby textového editoru po exportu poznámky.
+• Opraveny některé zdroje, které nebyly po exportu poznámky uvolněny.
+• Přepracováno „zjednodušené rozvržení domů“ jako správné zobrazení mřížky.
+• Opraveny některé malé vizuální nekonzistence, jako je poloměr ohraničení miniatur.

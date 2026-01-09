@@ -1,0 +1,5 @@
+• Risolto il problema con il cursore di testo visualizzato nelle esportazioni PDF.
+• Risolti bug nell'editor di testo dopo l'esportazione di una nota.
+• Risolte alcune risorse che non venivano liberate dopo l'esportazione di una nota.
+• Rinnovato il "layout home semplificato" come una vera e propria visualizzazione a griglia.
+• Risolte alcune piccole incongruenze visive come il raggio del bordo delle miniature.

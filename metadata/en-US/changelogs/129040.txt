@@ -1,0 +1,5 @@
+• Fixed the text cursor showing up in PDF exports.
+• Fixed text editor bugginess after exporting a note.
+• Fixed some resources not being freed up after exporting a note.
+• Restyled the "simplified home layout" as a proper grid view.
+• Fixed some small visual inconsistencies like the border radius of thumbnails.

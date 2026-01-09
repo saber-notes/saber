@@ -1,0 +1,5 @@
+• PDF dışa aktarımlarında metin imlecinin görünmesi düzeltildi.
+• Bir notu dışa aktardıktan sonra oluşan metin düzenleyici hatası düzeltildi.
+• Bir notu dışa aktardıktan sonra bazı kaynakların serbest kalmaması düzeltildi.
+• "Basitleştirilmiş ev düzeni" uygun bir tablo görünümü olarak yeniden tasarlandı.
+• Küçük resimlerin kenar yarıçapı gibi bazı küçük görsel tutarsızlıklar düzeltildi.

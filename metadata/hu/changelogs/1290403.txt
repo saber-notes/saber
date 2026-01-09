@@ -1,0 +1,5 @@
+• Javítva a szöveges kurzor megjelenése a PDF-exportokban.
+• A szövegszerkesztő hibáinak javítása a jegyzet exportálása után.
+• Javítottunk néhány erőforrást, amelyek nem szabadultak fel a jegyzet exportálása után.
+• Az "egyszerűsített otthoni elrendezés" újraformázása megfelelő rácsnézetként.
+• Kijavítottunk néhány apró vizuális inkonzisztenciát, például a bélyegképek szegélysugárát.

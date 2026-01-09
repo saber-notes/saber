@@ -1,0 +1,5 @@
+• Riparis la tekstan kursoron aperantan en PDF-eksportoj.
+• Fiksa tekstoredaktilo bugginess post eksporti noton.
+• Korektis iujn rimedojn, kiuj ne estis liberigitaj post eksporto de noto.
+• Restyled la "simpligita hejma aranĝo" kiel taŭga krado vido.
+• Korektis kelkajn malgrandajn vidajn nekonsekvencojn kiel la randradiuso de bildetoj.

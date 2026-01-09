@@ -1,0 +1,5 @@
+• Corrigido o cursor de texto aparecendo nas exportações de PDF.
+• Corrigidos erros no editor de texto após exportar uma nota.
+• Corrigidos alguns recursos que não eram liberados após a exportação de uma nota.
+• Reestilização do "layout simplificado da casa" como uma visualização em grade adequada.
+• Corrigidas algumas pequenas inconsistências visuais, como o raio da borda das miniaturas.

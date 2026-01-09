@@ -215,6 +215,17 @@
     </screenshots>
 
     <releases>
+        <release version="1.29.4" type="development" date="2026-01-09">
+            <description>
+                <ul>
+                    <li>Fixed the text cursor showing up in PDF exports.</li>
+                    <li>Fixed text editor bugginess after exporting a note.</li>
+                    <li>Fixed some resources not being freed up after exporting a note.</li>
+                    <li>Restyled the "simplified home layout" as a proper grid view.</li>
+                    <li>Fixed some small visual inconsistencies like the border radius of thumbnails.</li>
+                </ul>
+            </description>
+        </release>
         <release version="1.29.3" type="development" date="2025-12-31">
             <description>
                 <p>
