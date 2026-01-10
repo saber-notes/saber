@@ -4,6 +4,11 @@
 ar: 
   home: 
     noPreviewAvailable(OUTDATED): No preview available
+    deleteNoteDialog: 
+      deleteNotes: Delete $n notes
+      deleteName: Delete $f
+      deleteAllowed: Delete all selected notes (they cannot be restored)
+      delete: Delete
   sentry: 
     consent: 
       title(OUTDATED): Help improve Saber?
@@ -45,8 +50,26 @@ ar:
       lineThickness(OUTDATED): Line thickness
       lineThicknessDescription(OUTDATED): Background line thickness
 cs: 
+  home: 
+    deleteNoteDialog: 
+      deleteNotes: Delete $n notes
+      deleteName: Delete $f
+      deleteAllowed: Delete all selected notes (they cannot be restored)
+      delete: Delete
 de: 
+  home: 
+    deleteNoteDialog: 
+      deleteNotes: Delete $n notes
+      deleteName: Delete $f
+      deleteAllowed: Delete all selected notes (they cannot be restored)
+      delete: Delete
 eo: 
+  home: 
+    deleteNoteDialog: 
+      deleteNotes: Delete $n notes
+      deleteName: Delete $f
+      deleteAllowed: Delete all selected notes (they cannot be restored)
+      delete: Delete
   settings: 
     prefLabels: 
       autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Auto-disable finger drawing
@@ -58,6 +81,11 @@ es:
     continueBtn(OUTDATED): Continue
   home: 
     noPreviewAvailable(OUTDATED): No preview available
+    deleteNoteDialog: 
+      deleteNotes: Delete $n notes
+      deleteName: Delete $f
+      deleteAllowed: Delete all selected notes (they cannot be restored)
+      delete: Delete
   sentry: 
     consent: 
       title(OUTDATED): Help improve Saber?
@@ -171,6 +199,11 @@ fa:
     continueBtn(OUTDATED): Continue
   home: 
     noPreviewAvailable(OUTDATED): No preview available
+    deleteNoteDialog: 
+      deleteNotes: Delete $n notes
+      deleteName: Delete $f
+      deleteAllowed: Delete all selected notes (they cannot be restored)
+      delete: Delete
   sentry: 
     consent: 
       title(OUTDATED): Help improve Saber?
@@ -274,6 +307,11 @@ fr:
     continueBtn(OUTDATED): Continue
   home: 
     noPreviewAvailable(OUTDATED): No preview available
+    deleteNoteDialog: 
+      deleteNotes: Delete $n notes
+      deleteName: Delete $f
+      deleteAllowed: Delete all selected notes (they cannot be restored)
+      delete: Delete
   sentry: 
     consent: 
       title(OUTDATED): Help improve Saber?
@@ -387,6 +425,11 @@ he:
       moveNotes(OUTDATED): Move $n notes
       multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
       numberRenamedTo(OUTDATED): $n notes will be renamed to avoid conflicts
+    deleteNoteDialog: 
+      deleteNotes: Delete $n notes
+      deleteName: Delete $f
+      deleteAllowed: Delete all selected notes (they cannot be restored)
+      delete: Delete
   sentry: 
     consent: 
       title(OUTDATED): Help improve Saber?
@@ -542,6 +585,11 @@ hu:
       multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
       numberRenamedTo(OUTDATED): $n notes will be renamed to avoid conflicts
     deleteNote(OUTDATED): Delete note
+    deleteNoteDialog: 
+      deleteNotes: Delete $n notes
+      deleteName: Delete $f
+      deleteAllowed: Delete all selected notes (they cannot be restored)
+      delete: Delete
     renameFolder: 
       renameFolder(OUTDATED): Rename folder
       folderName(OUTDATED): Folder name
@@ -754,6 +802,12 @@ hu:
       lockAxisAlignedPan(OUTDATED): Lock panning to horizontal or vertical
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
 it: 
+  home: 
+    deleteNoteDialog: 
+      deleteNotes: Delete $n notes
+      deleteName: Delete $f
+      deleteAllowed: Delete all selected notes (they cannot be restored)
+      delete: Delete
 ja: 
   common: 
     done(OUTDATED): Done
@@ -774,6 +828,11 @@ ja:
       multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
       numberRenamedTo(OUTDATED): $n notes will be renamed to avoid conflicts
     deleteNote(OUTDATED): Delete note
+    deleteNoteDialog: 
+      deleteNotes: Delete $n notes
+      deleteName: Delete $f
+      deleteAllowed: Delete all selected notes (they cannot be restored)
+      delete: Delete
     renameFolder: 
       renameFolder(OUTDATED): Rename folder
       folderName(OUTDATED): Folder name
@@ -925,6 +984,11 @@ pt-BR:
       moveNotes(OUTDATED): Move $n notes
       multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
       numberRenamedTo(OUTDATED): $n notes will be renamed to avoid conflicts
+    deleteNoteDialog: 
+      deleteNotes: Delete $n notes
+      deleteName: Delete $f
+      deleteAllowed: Delete all selected notes (they cannot be restored)
+      delete: Delete
   sentry: 
     consent: 
       title(OUTDATED): Help improve Saber?
@@ -1041,6 +1105,12 @@ pt-BR:
       watchServer(OUTDATED): Watch for updates on the server
       watchServerReadOnly(OUTDATED): Editing is disabled while watching the server
 ru: 
+  home: 
+    deleteNoteDialog: 
+      deleteNotes: Delete $n notes
+      deleteName: Delete $f
+      deleteAllowed: Delete all selected notes (they cannot be restored)
+      delete: Delete
   settings: 
     prefLabels: 
       autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Auto-disable finger drawing
@@ -1049,6 +1119,11 @@ ru:
 tr: 
   home: 
     noPreviewAvailable(OUTDATED): No preview available
+    deleteNoteDialog: 
+      deleteNotes: Delete $n notes
+      deleteName: Delete $f
+      deleteAllowed: Delete all selected notes (they cannot be restored)
+      delete: Delete
   sentry: 
     consent: 
       title(OUTDATED): Help improve Saber?
@@ -1090,7 +1165,19 @@ tr:
       lineThickness(OUTDATED): Line thickness
       lineThicknessDescription(OUTDATED): Background line thickness
 zh-Hans-CN: 
+  home: 
+    deleteNoteDialog: 
+      deleteNotes: Delete $n notes
+      deleteName: Delete $f
+      deleteAllowed: Delete all selected notes (they cannot be restored)
+      delete: Delete
 zh-Hant-TW: 
+  home: 
+    deleteNoteDialog: 
+      deleteNotes: Delete $n notes
+      deleteName: Delete $f
+      deleteAllowed: Delete all selected notes (they cannot be restored)
+      delete: Delete
   settings: 
     prefLabels: 
       autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Auto-disable finger drawing
