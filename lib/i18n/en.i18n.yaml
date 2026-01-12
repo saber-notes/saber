@@ -57,11 +57,17 @@ home:
     folderNameEmpty: Folder name can't be empty
     folderNameContainsSlash: Folder name can't contain a slash
     folderNameExists: A folder with this name already exists
-  deleteFolder: 
+  deleteFolder:
     deleteFolder: Delete folder
     deleteName: Delete $f
     delete: Delete
     alsoDeleteContents: Also delete all notes inside this folder
+  moveFolder:
+    moveFolder: Move folder
+    moveName: Move $f
+    move: Move
+    renamedTo: Folder will be renamed to $newName
+    cantMoveHere: Cannot move folder here
 sentry: 
   consent: 
     title: Help improve Saber?
