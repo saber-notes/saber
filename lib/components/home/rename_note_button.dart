@@ -69,12 +69,9 @@ class _RenameNoteDialogState extends State<_RenameNoteDialog> {
   );
 
   String? validateNoteName(String? noteName) {
-    if (noteName == null || noteName.isEmpty) {
-      return t.home.renameNote.noteNameEmpty;
-    }
-    if (noteName.contains('/') || noteName.contains('\\')) {
-      return t.home.renameNote.noteNameContainsSlash;
-    }
+    if (noteName == null) return t.home.renameNote.noteNameEmpty;
+    final error = FileManager.validateFilename(noteName);
+    if (error != null) return error;
     if (noteName != oldName && doesFileExist(noteName)) {
       return t.home.renameNote.noteNameExists;
     }

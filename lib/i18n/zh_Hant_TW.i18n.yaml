@@ -38,7 +38,6 @@ home:
     noteName: 筆記名稱
     rename: 重新命名
     noteNameEmpty: 筆記名稱不可為空
-    noteNameContainsSlash: 筆記名稱不能包含斜槓
     noteNameExists: 同名筆記已經存在
   moveNote: 
     moveNote: 移動筆記

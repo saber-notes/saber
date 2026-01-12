@@ -35,7 +35,6 @@ home:
     noteName: メモのタイトル
     rename: 名称変更
     noteNameEmpty: メモのタイトルは空欄にすることはできません
-    noteNameContainsSlash: メモのタイトルにはスラッシュを使用できません
     noteNameExists: 同一のタイトルがすでに存在します
   moveNote: 
     moveNote: メモを移動

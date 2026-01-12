@@ -38,8 +38,9 @@ home:
     noteName: Note name
     rename: Rename
     noteNameEmpty: Note name can't be empty
-    noteNameContainsSlash: Note name can't contain a slash
     noteNameExists: A note with this name already exists
+    noteNameForbiddenCharacters: Note name contains forbidden characters
+    noteNameReserved: Note name reserved
   moveNote: 
     moveNote: Move note
     moveNotes: Move $n notes

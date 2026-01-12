@@ -301,7 +301,6 @@ class _TranslationsHomeRenameNotePtBr extends TranslationsHomeRenameNoteEn {
 	@override String get noteName => 'Nome da nota';
 	@override String get rename => 'Renomear';
 	@override String get noteNameEmpty => 'O nome da nota não pode estar vazio';
-	@override String get noteNameContainsSlash => 'O nome da nota não pode conter uma barra';
 	@override String get noteNameExists => 'Já existe uma nota com este nome';
 }
 

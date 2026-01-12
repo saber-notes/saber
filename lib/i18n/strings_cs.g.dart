@@ -303,7 +303,6 @@ class _TranslationsHomeRenameNoteCs extends TranslationsHomeRenameNoteEn {
 	@override String get noteName => 'Nový název poznámky';
 	@override String get rename => 'Přejmenovat';
 	@override String get noteNameEmpty => 'Název poznámky nemůže být prázdný';
-	@override String get noteNameContainsSlash => 'Název poznámky nemůže obsahovat lomítko';
 	@override String get noteNameExists => 'Poznámka s tímto názvem již existuje';
 }
 

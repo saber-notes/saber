@@ -38,7 +38,6 @@ home:
     noteName: 笔记名称
     rename: 重命名
     noteNameEmpty: 笔记名称不能为空
-    noteNameContainsSlash: 注意名称不能包含斜杠
     noteNameExists: 此名称的笔记已经存在
   moveNote: 
     moveNote: 移动笔记

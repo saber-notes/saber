@@ -38,7 +38,6 @@ home:
     noteName: Nový název poznámky
     rename: Přejmenovat
     noteNameEmpty: Název poznámky nemůže být prázdný
-    noteNameContainsSlash: Název poznámky nemůže obsahovat lomítko
     noteNameExists: Poznámka s tímto názvem již existuje
   moveNote: 
     moveNote: Přesunout poznámku

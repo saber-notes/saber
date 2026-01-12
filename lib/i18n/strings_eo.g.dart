@@ -303,7 +303,6 @@ class _TranslationsHomeRenameNoteEo extends TranslationsHomeRenameNoteEn {
 	@override String get noteName => 'Notonomo';
 	@override String get rename => 'Alinomu';
 	@override String get noteNameEmpty => 'Notonomo ne estu malplena';
-	@override String get noteNameContainsSlash => 'Notonomu ne havu oblikvon';
 	@override String get noteNameExists => 'Noto kun ĉi tiu nomo jam ekzistas';
 }
 

@@ -38,7 +38,6 @@ home:
     noteName: Notonomo
     rename: Alinomu
     noteNameEmpty: Notonomo ne estu malplena
-    noteNameContainsSlash: Notonomu ne havu oblikvon
     noteNameExists: Noto kun ĉi tiu nomo jam ekzistas
   moveNote: 
     moveNote: Movu noton

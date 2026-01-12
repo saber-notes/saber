@@ -37,7 +37,6 @@ home:
     noteName: Nombre de la nota
     rename: Renombrar
     noteNameEmpty: El nombre de la nota no puede estar vacío
-    noteNameContainsSlash: El nombre de la nota no puede contener una barra vertical
     noteNameExists: Ya existe una nota con este nombre
   moveNote: 
     moveNote: Mover nota

@@ -303,7 +303,6 @@ class _TranslationsHomeRenameNoteTr extends TranslationsHomeRenameNoteEn {
 	@override String get noteName => 'Not adı';
 	@override String get rename => 'Yeniden adlandır';
 	@override String get noteNameEmpty => 'Not adı boş bırakılamaz';
-	@override String get noteNameContainsSlash => 'Not adı eğik çizgi işareti içeremez';
 	@override String get noteNameExists => 'Bu isimde bir not zaten var';
 }
 

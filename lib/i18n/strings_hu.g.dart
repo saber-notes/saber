@@ -301,7 +301,6 @@ class _TranslationsHomeRenameNoteHu extends TranslationsHomeRenameNoteEn {
 	@override String get noteName => 'Megjegyzés neve';
 	@override String get rename => 'Átnevezés';
 	@override String get noteNameEmpty => 'A jegyzet neve nem lehet üres';
-	@override String get noteNameContainsSlash => 'A jegyzet neve nem tartalmazhat perjelet';
 	@override String get noteNameExists => 'Már létezik ilyen nevű jegyzet';
 }
 

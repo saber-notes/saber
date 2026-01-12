@@ -301,7 +301,6 @@ class _TranslationsHomeRenameNoteJa extends TranslationsHomeRenameNoteEn {
 	@override String get noteName => 'メモのタイトル';
 	@override String get rename => '名称変更';
 	@override String get noteNameEmpty => 'メモのタイトルは空欄にすることはできません';
-	@override String get noteNameContainsSlash => 'メモのタイトルにはスラッシュを使用できません';
 	@override String get noteNameExists => '同一のタイトルがすでに存在します';
 }
 

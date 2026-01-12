@@ -303,7 +303,6 @@ class _TranslationsHomeRenameNoteAr extends TranslationsHomeRenameNoteEn {
 	@override String get noteName => 'اسم الملاحظة';
 	@override String get rename => 'إعادة تسمية';
 	@override String get noteNameEmpty => 'لا يمكن أن يكون اسم الملاحظة فارغًا';
-	@override String get noteNameContainsSlash => 'لا يمكن أن يحتوي اسم الملاحظة على شرطة مائلة';
 	@override String get noteNameExists => 'توجد بالفعل ملاحظة بهذا الاسم';
 }
 

@@ -37,7 +37,6 @@ home:
     noteName: Not adı
     rename: Yeniden adlandır
     noteNameEmpty: Not adı boş bırakılamaz
-    noteNameContainsSlash: Not adı eğik çizgi işareti içeremez
     noteNameExists: Bu isimde bir not zaten var
   moveNote: 
     moveNote: Notu taşı

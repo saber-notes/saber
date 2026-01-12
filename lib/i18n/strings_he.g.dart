@@ -301,7 +301,6 @@ class _TranslationsHomeRenameNoteHe extends TranslationsHomeRenameNoteEn {
 	@override String get noteName => 'שם הפתק';
 	@override String get rename => 'שנה שם';
 	@override String get noteNameEmpty => 'שם הערה לא יכול להיות ריק';
-	@override String get noteNameContainsSlash => 'שם הערה לא יכול להכיל קו נטוי';
 	@override String get noteNameExists => 'הערה בשם זה כבר קיימת';
 }
 

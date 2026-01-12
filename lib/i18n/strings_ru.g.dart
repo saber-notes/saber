@@ -303,7 +303,6 @@ class _TranslationsHomeRenameNoteRu extends TranslationsHomeRenameNoteEn {
 	@override String get noteName => 'Название заметки';
 	@override String get rename => 'Переименовать';
 	@override String get noteNameEmpty => 'Название заметки не может быть пустым';
-	@override String get noteNameContainsSlash => 'Название заметки не может содержать косую черту';
 	@override String get noteNameExists => 'Заметка с таким названием уже существует';
 }
 

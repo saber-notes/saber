@@ -37,7 +37,6 @@ home:
     noteName: שם הפתק
     rename: שנה שם
     noteNameEmpty(OUTDATED): שם הערה לא יכול להיות ריק
-    noteNameContainsSlash(OUTDATED): שם הערה לא יכול להכיל קו נטוי
     noteNameExists(OUTDATED): הערה בשם זה כבר קיימת
   moveNote: 
     moveNote: הזז פתק

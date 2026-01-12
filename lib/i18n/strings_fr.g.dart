@@ -301,7 +301,6 @@ class _TranslationsHomeRenameNoteFr extends TranslationsHomeRenameNoteEn {
 	@override String get noteName => 'Nom de note';
 	@override String get rename => 'Renommer';
 	@override String get noteNameEmpty => 'Le nom de note ne peut pas être vide';
-	@override String get noteNameContainsSlash => 'Le nom de note ne peut pas contenir une barre oblique';
 	@override String get noteNameExists => 'Une note du même nom existe déjà';
 }
 

@@ -303,7 +303,6 @@ class _TranslationsHomeRenameNoteZhHantTw extends TranslationsHomeRenameNoteEn {
 	@override String get noteName => '筆記名稱';
 	@override String get rename => '重新命名';
 	@override String get noteNameEmpty => '筆記名稱不可為空';
-	@override String get noteNameContainsSlash => '筆記名稱不能包含斜槓';
 	@override String get noteNameExists => '同名筆記已經存在';
 }
 

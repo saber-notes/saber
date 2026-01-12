@@ -990,7 +990,7 @@ class EditorState extends State<Editor> {
   }
 
   Future<void> _renameFileNow() async {
-    final newName = filenameTextEditingController.text;
+    final newName = filenameTextEditingController.text.trim();
     if (newName == coreInfo.fileName) return;
 
     if (_filenameFormKey.currentState?.validate() ??
@@ -1022,9 +1022,7 @@ class EditorState extends State<Editor> {
 
   String? _validateFilenameTextField(String? newName) {
     if (newName == null) return null;
-    if (newName.isEmpty) return t.home.renameNote.noteNameEmpty;
-    if (newName.contains('/')) return t.home.renameNote.noteNameContainsSlash;
-    return null;
+    return FileManager.validateFilename(newName);
   }
 
   void updateColorBar(Color color) {

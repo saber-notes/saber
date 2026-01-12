@@ -38,7 +38,6 @@ home:
     noteName: Название заметки
     rename: Переименовать
     noteNameEmpty: Название заметки не может быть пустым
-    noteNameContainsSlash: Название заметки не может содержать косую черту
     noteNameExists: Заметка с таким названием уже существует
   moveNote: 
     moveNote: Переместить заметку

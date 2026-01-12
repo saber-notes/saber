@@ -37,7 +37,6 @@ home:
     noteName: نام یادداشت
     rename: تغییر نام دهید
     noteNameEmpty: نام یادداشت نمی‌تواند خالی باشد
-    noteNameContainsSlash: نام یادداشت نمی‌تواند دارای اسلش باشد
     noteNameExists: یادداشتی با این نام از قبل وجود دارد
   moveNote: 
     moveNote: انتقال یادداشت

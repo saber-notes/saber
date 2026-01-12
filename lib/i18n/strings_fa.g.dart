@@ -301,7 +301,6 @@ class _TranslationsHomeRenameNoteFa extends TranslationsHomeRenameNoteEn {
 	@override String get noteName => 'نام یادداشت';
 	@override String get rename => 'تغییر نام دهید';
 	@override String get noteNameEmpty => 'نام یادداشت نمی‌تواند خالی باشد';
-	@override String get noteNameContainsSlash => 'نام یادداشت نمی‌تواند دارای اسلش باشد';
 	@override String get noteNameExists => 'یادداشتی با این نام از قبل وجود دارد';
 }
 

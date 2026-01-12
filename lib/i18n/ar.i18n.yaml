@@ -37,7 +37,6 @@ home:
     noteName: اسم الملاحظة
     rename: إعادة تسمية
     noteNameEmpty: لا يمكن أن يكون اسم الملاحظة فارغًا
-    noteNameContainsSlash: لا يمكن أن يحتوي اسم الملاحظة على شرطة مائلة
     noteNameExists: توجد بالفعل ملاحظة بهذا الاسم
   moveNote: 
     moveNote: تحريك الملاحظة

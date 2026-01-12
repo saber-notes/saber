@@ -35,7 +35,6 @@ home:
     noteName(OUTDATED): Megjegyzés neve
     rename(OUTDATED): Átnevezés
     noteNameEmpty(OUTDATED): A jegyzet neve nem lehet üres
-    noteNameContainsSlash(OUTDATED): A jegyzet neve nem tartalmazhat perjelet
     noteNameExists(OUTDATED): Már létezik ilyen nevű jegyzet
   moveNote: 
     moveNotes(OUTDATED): $n jegyzet mozgatása

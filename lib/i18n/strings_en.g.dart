@@ -440,11 +440,14 @@ class TranslationsHomeRenameNoteEn {
 	/// en: 'Note name can't be empty'
 	String get noteNameEmpty => 'Note name can\'t be empty';
 
-	/// en: 'Note name can't contain a slash'
-	String get noteNameContainsSlash => 'Note name can\'t contain a slash';
-
 	/// en: 'A note with this name already exists'
 	String get noteNameExists => 'A note with this name already exists';
+
+	/// en: 'Note name contains forbidden characters'
+	String get noteNameForbiddenCharacters => 'Note name contains forbidden characters';
+
+	/// en: 'Note name reserved'
+	String get noteNameReserved => 'Note name reserved';
 }
 
 // Path: home.moveNote
