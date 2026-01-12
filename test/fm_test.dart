@@ -272,6 +272,18 @@ void main() {
       // delete files
       await FileManager.deleteFile('/$fileName1.sbn2');
       await FileManager.deleteFile('/$fileName2.sbn2');
+
+      // delete file without removing it from recently accessed
+      const String filePath = '/$fileName1.sbn2';
+      await FileManager.writeFile(filePath, [1], awaitWrite: true);
+
+      final file = FileManager.getFile(filePath);
+      await file.delete();
+      recentlyAccessed = await FileManager.getRecentlyAccessed();
+      expect(recentlyAccessed, isEmpty);
+
+      FileManager.removeReferences(filePath);
+      FileManager.broadcastFileWrite(FileOperationType.delete, filePath);
     });
 
     test('isDirectory and doesFileExist', () async {

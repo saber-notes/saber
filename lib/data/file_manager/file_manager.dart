@@ -264,7 +264,7 @@ class FileManager {
       broadcastFileWrite(FileOperationType.write, filePath);
       if (alsoUpload) syncer.uploader.enqueueRel(filePath);
       if (filePath.endsWith(Editor.extension)) {
-        _removeReferences(
+        removeReferences(
           '${filePath.substring(0, filePath.length - Editor.extension.length)}'
           '${Editor.extensionOldJson}',
         );
@@ -455,7 +455,7 @@ class FileManager {
 
     if (alsoUpload) syncer.uploader.enqueueRel(filePath);
 
-    _removeReferences(filePath);
+    removeReferences(filePath);
     broadcastFileWrite(FileOperationType.delete, filePath);
 
     if (alsoDeleteAssets && !assetFileRegex.hasMatch(filePath)) {
@@ -913,7 +913,8 @@ class FileManager {
     stows.recentFiles.notifyListeners();
   }
 
-  static Future _removeReferences(String filePath) async {
+  @visibleForTesting
+  static Future removeReferences(String filePath) async {
     // remove file from recently accessed
     for (int i = 0; i < stows.recentFiles.value.length; i++) {
       if (stows.recentFiles.value[i] != filePath) continue;
