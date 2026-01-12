@@ -304,6 +304,8 @@ class _TranslationsHomeRenameNoteZhHantTw extends TranslationsHomeRenameNoteEn {
 	@override String get rename => '重新命名';
 	@override String get noteNameEmpty => '筆記名稱不可為空';
 	@override String get noteNameExists => '同名筆記已經存在';
+	@override String get noteNameReserved => '備註名稱保留';
+	@override String get noteNameForbiddenCharacters => '注意名稱包含禁用字符';
 }
 
 // Path: home.moveNote
@@ -427,7 +429,6 @@ class _TranslationsSettingsPrefDescriptionsZhHantTw extends TranslationsSettings
 	@override String get disableEraserAfterUse => '使用橡皮擦後自動切換回筆';
 	@override String get maxImageSize => '大於此大小的圖片將被壓縮';
 	@override late final _TranslationsSettingsPrefDescriptionsHideFingerDrawingZhHantTw hideFingerDrawing = _TranslationsSettingsPrefDescriptionsHideFingerDrawingZhHantTw._(_root);
-	@override String get autoDisableFingerDrawingWhenStylusDetected => '檢測到手寫筆時關閉手指繪圖';
 	@override String get editorPromptRename => '您以後隨時可以重新命名筆記';
 	@override String get printPageIndicators => '在匯出中顯示頁碼';
 	@override String get autosave => '在短暫延遲後自動儲存，或永不儲存';
@@ -436,6 +437,7 @@ class _TranslationsSettingsPrefDescriptionsZhHantTw extends TranslationsSettings
 	@override String get simplifiedHomeLayout => '為每個筆記預覽設定固定高度';
 	@override String get shouldAlwaysAlertForUpdates => '一旦有更新請告訴我';
 	@override late final _TranslationsSettingsPrefDescriptionsSentryZhHantTw sentry = _TranslationsSettingsPrefDescriptionsSentryZhHantTw._(_root);
+	@override String get autoDisableFingerDrawingWhenStylusDetected => '檢測到手寫筆時關閉手指繪圖';
 }
 
 // Path: settings.themeModes

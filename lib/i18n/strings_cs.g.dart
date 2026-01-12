@@ -304,6 +304,8 @@ class _TranslationsHomeRenameNoteCs extends TranslationsHomeRenameNoteEn {
 	@override String get rename => 'Přejmenovat';
 	@override String get noteNameEmpty => 'Název poznámky nemůže být prázdný';
 	@override String get noteNameExists => 'Poznámka s tímto názvem již existuje';
+	@override String get noteNameForbiddenCharacters => 'Název poznámky obsahuje zakázané znaky';
+	@override String get noteNameReserved => 'Název poznámky vyhrazen';
 }
 
 // Path: home.moveNote

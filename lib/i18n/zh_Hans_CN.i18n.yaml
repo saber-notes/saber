@@ -39,6 +39,8 @@ home:
     rename: 重命名
     noteNameEmpty: 笔记名称不能为空
     noteNameExists: 此名称的笔记已经存在
+    noteNameReserved(OUTDATED): 备注名称保留
+    noteNameForbiddenCharacters(OUTDATED): 注意名称包含禁用字符
   moveNote: 
     moveNote: 移动笔记
     moveNotes: 移动 $n 个笔记

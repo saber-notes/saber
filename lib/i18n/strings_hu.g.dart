@@ -297,6 +297,8 @@ class _TranslationsHomeRenameNoteHu extends TranslationsHomeRenameNoteEn {
 	final TranslationsHu _root; // ignore: unused_field
 
 	// Translations
+	@override String get noteNameForbiddenCharacters => 'A megjegyzés neve tiltott karaktereket tartalmaz';
+	@override String get noteNameReserved => 'Megjegyzés név fenntartva';
 	@override String get renameNote => 'Jegyzet átnevezése';
 	@override String get noteName => 'Megjegyzés neve';
 	@override String get rename => 'Átnevezés';
@@ -393,9 +395,9 @@ class _TranslationsSettingsPrefLabelsHu extends TranslationsSettingsPrefLabelsEn
 	@override String get preferGreyscale => 'Szürkeárnyalatos színek előnyben részesítése';
 	@override String get maxImageSize => 'Maximális képméret';
 	@override String get autoClearWhiteboardOnExit => 'A tábla törlése az alkalmazásból való kilépés után';
-	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Ujjrajzolás automatikus letiltása';
 	@override String get editorPromptRename => 'Új jegyzetek átnevezésére való felszólítás';
 	@override String get recentColorsDontSavePresets => 'Ne mentse az előre beállított színeket a legutóbbi színek között';
+	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Ujjrajzolás automatikus letiltása';
 	@override String get sentry => 'Hibajelentés';
 	@override String get autosave => 'Automatikus mentés';
 	@override String get simplifiedHomeLayout => 'Egyszerűsített otthoni elrendezés';
@@ -423,9 +425,9 @@ class _TranslationsSettingsPrefDescriptionsHu extends TranslationsSettingsPrefDe
 	@override String get autoClearWhiteboardOnExit => 'Továbbra is szinkronizálva lesz a többi eszközzel';
 	@override String get maxImageSize => 'Az ennél nagyobb képek tömörítve lesznek';
 	@override late final _TranslationsSettingsPrefDescriptionsHideFingerDrawingHu hideFingerDrawing = _TranslationsSettingsPrefDescriptionsHideFingerDrawingHu._(_root);
-	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Kapcsolja ki az ujjal történő rajzolást, ha ceruzát észlel';
 	@override String get editorPromptRename => 'A jegyzeteket később bármikor átnevezheti';
 	@override late final _TranslationsSettingsPrefDescriptionsSentryHu sentry = _TranslationsSettingsPrefDescriptionsSentryHu._(_root);
+	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Kapcsolja ki az ujjal történő rajzolást, ha ceruzát észlel';
 	@override String get autosave => 'Automato-Save rövid késleltetés után, vagy soha';
 	@override String get simplifiedHomeLayout => 'Rögzített magasságot állít be minden hangjegy előnézetéhez';
 	@override String get autoStraightenLines => 'Kiegyenesíti a hosszú vonalakat anélkül, hogy az alakos tollat ​​kellene használnia';

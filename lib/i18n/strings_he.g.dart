@@ -300,6 +300,8 @@ class _TranslationsHomeRenameNoteHe extends TranslationsHomeRenameNoteEn {
 	@override String get renameNote => 'שנה את שם הפתק';
 	@override String get noteName => 'שם הפתק';
 	@override String get rename => 'שנה שם';
+	@override String get noteNameForbiddenCharacters => 'שם הערה מכיל תווים אסורים';
+	@override String get noteNameReserved => 'שם הערה שמור';
 	@override String get noteNameEmpty => 'שם הערה לא יכול להיות ריק';
 	@override String get noteNameExists => 'הערה בשם זה כבר קיימת';
 }
@@ -398,10 +400,10 @@ class _TranslationsSettingsPrefLabelsHe extends TranslationsSettingsPrefLabelsEn
 	@override String get autoClearWhiteboardOnExit => 'נקה אוטומטית את הלוח הלבן';
 	@override String get disableEraserAfterUse => 'השבת אוטומטית את המחק';
 	@override String get hideFingerDrawingToggle => 'הסתר את מתג ציור האצבע';
-	@override String get autoDisableFingerDrawingWhenStylusDetected => 'השבתה אוטומטית של ציור אצבע';
 	@override String get editorPromptRename => 'מבקש ממך לשנות את שם הערות חדשות';
 	@override String get recentColorsDontSavePresets => 'אל תשמור צבעים מוגדרים מראש בצבעים אחרונים';
 	@override String get printPageIndicators => 'הדפסת עמודים מחוונים';
+	@override String get autoDisableFingerDrawingWhenStylusDetected => 'השבתה אוטומטית של ציור אצבע';
 	@override String get sentry => 'דיווח שגיאות';
 	@override String get autosave => 'שמור אוטומטי';
 	@override String get simplifiedHomeLayout => 'פריסת בית פשוטה';
@@ -425,11 +427,11 @@ class _TranslationsSettingsPrefDescriptionsHe extends TranslationsSettingsPrefDe
 	@override String get disableEraserAfterUse => 'מעבר אוטומטי חזרה לעט לאחר שימוש במחק';
 	@override String get maxImageSize => 'תמונות גדולות יותר יידחסו';
 	@override late final _TranslationsSettingsPrefDescriptionsHideFingerDrawingHe hideFingerDrawing = _TranslationsSettingsPrefDescriptionsHideFingerDrawingHe._(_root);
-	@override String get autoDisableFingerDrawingWhenStylusDetected => 'כבה את ציור האצבע כאשר מזוהה חרט';
 	@override String get editorPromptRename => 'תמיד תוכל לשנות את שם הפתקים מאוחר יותר';
 	@override String get printPageIndicators => 'הצג מחווני עמודים בייצוא';
 	@override String get shouldAlwaysAlertForUpdates => 'ספר לי על עדכונים ברגע שהם יהיו זמינים';
 	@override late final _TranslationsSettingsPrefDescriptionsSentryHe sentry = _TranslationsSettingsPrefDescriptionsSentryHe._(_root);
+	@override String get autoDisableFingerDrawingWhenStylusDetected => 'כבה את ציור האצבע כאשר מזוהה חרט';
 	@override String get autosave => 'יש לשעוג אוטומטית לאחר עיכוב קצר, או לעולם';
 	@override String get simplifiedHomeLayout => 'מגדיר גובה קבוע עבור כל תצוגה מקדימה של הערה';
 	@override String get autoStraightenLines => 'מיישר קווים ארוכים ללא צורך להשתמש בעט הצורה';

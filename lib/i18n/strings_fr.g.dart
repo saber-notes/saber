@@ -302,6 +302,8 @@ class _TranslationsHomeRenameNoteFr extends TranslationsHomeRenameNoteEn {
 	@override String get rename => 'Renommer';
 	@override String get noteNameEmpty => 'Le nom de note ne peut pas être vide';
 	@override String get noteNameExists => 'Une note du même nom existe déjà';
+	@override String get noteNameForbiddenCharacters => 'Le nom de la note contient des caractères interdits';
+	@override String get noteNameReserved => 'Nom de la note réservé';
 }
 
 // Path: home.moveNote
@@ -398,12 +400,12 @@ class _TranslationsSettingsPrefLabelsFr extends TranslationsSettingsPrefLabelsEn
 	@override String get autoClearWhiteboardOnExit => 'Effacer le tableau blanc quand vous fermez l\'application';
 	@override String get disableEraserAfterUse => 'Désactiver automatiquement la gomme après usage';
 	@override String get hideFingerDrawingToggle => 'Cacher l\'icône d\'activation/désactivation de tracé au doigt';
-	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Désactivation automatique du dessin au doigt';
 	@override String get editorPromptRename => 'Vous rappeler de renommer les notes';
 	@override String get recentColorsDontSavePresets => 'Ne pas conserver les couleurs pré-définies parmi les couleurs récentes';
 	@override String get recentColorsLength => 'Nombre de couleurs récentes à conserver';
 	@override String get printPageIndicators => 'Imprimer les numéros de pages';
 	@override String get shapeRecognitionDelay => 'Délai de reconnaissance de forme';
+	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Désactivation automatique du dessin au doigt';
 	@override String get sentry => 'Rapports d\'erreur';
 	@override String get autosave => 'S\'attacher automatiquement';
 	@override String get simplifiedHomeLayout => 'Aménagement d\'une maison simplifié';
@@ -425,12 +427,12 @@ class _TranslationsSettingsPrefDescriptionsFr extends TranslationsSettingsPrefDe
 	@override String get disableEraserAfterUse => 'Revenir automatiquement au stylo après usage de la gomme';
 	@override String get maxImageSize => 'Les images plus grandes seront compressées';
 	@override late final _TranslationsSettingsPrefDescriptionsHideFingerDrawingFr hideFingerDrawing = _TranslationsSettingsPrefDescriptionsHideFingerDrawingFr._(_root);
-	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Désactiver le dessin au doigt lorsqu\'un stylet est détecté';
 	@override String get editorPromptRename => 'Vous pourrez toujours les renommer plus tard';
 	@override String get printPageIndicators => 'Montrer les numéros de pages dans les exportations';
 	@override String get shapeRecognitionDelay => 'Avec quelle fréquence mettre à jour la prévisualisation de forme';
 	@override String get shouldAlwaysAlertForUpdates => 'Me prévenir dès qu\'une mise à jour est disponible';
 	@override late final _TranslationsSettingsPrefDescriptionsSentryFr sentry = _TranslationsSettingsPrefDescriptionsSentryFr._(_root);
+	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Désactiver le dessin au doigt lorsqu\'un stylet est détecté';
 	@override String get autosave => 'S\'attacher automatiquement après un court délai, ou jamais';
 	@override String get simplifiedHomeLayout => 'Définit une hauteur fixe pour chaque aperçu de note';
 	@override String get autoStraightenLines => 'Redresse les longues lignes sans avoir à utiliser le stylo de forme';

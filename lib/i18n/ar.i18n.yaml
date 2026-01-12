@@ -38,6 +38,8 @@ home:
     rename: إعادة تسمية
     noteNameEmpty: لا يمكن أن يكون اسم الملاحظة فارغًا
     noteNameExists: توجد بالفعل ملاحظة بهذا الاسم
+    noteNameForbiddenCharacters(OUTDATED): يحتوي اسم الملاحظة على أحرف محظورة
+    noteNameReserved(OUTDATED): اسم الملاحظة محجوز
   moveNote: 
     moveNote: تحريك الملاحظة
     moveNotes: ملاحظات $n نقل
@@ -98,7 +100,6 @@ settings:
     autoClearWhiteboardOnExit: امسح السبورة بعد الخروج من التطبيق
     disableEraserAfterUse: تعطيل الممحاة تلقائيًا بعد الاستخدام
     hideFingerDrawingToggle: إخفاء زر الرسم بالإصبع
-    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): التعطيل التلقائي لرسم الإصبع
     editorPromptRename: مطالبتك بإعادة تسمية الملاحظات الجديدة
     recentColorsDontSavePresets: لا تحفظ الألوان المعينة مسبقًا كألوان حديثة
     recentColorsLength: كم عدد الألوان الحديثة التي يجب تخزينها
@@ -107,6 +108,7 @@ settings:
     autoStraightenLines: استقامة الخطوط تلقائيًا
     simplifiedHomeLayout: تخطيط الصفحة الرئيسية المبسط
     customDataDir: مخصص Saber مجلد
+    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): التعطيل التلقائي لرسم الإصبع
     sentry(OUTDATED): الإبلاغ خطأ
     autosave(OUTDATED): تلقائي
   prefDescriptions: 
@@ -120,7 +122,6 @@ settings:
       shown: يمنع التبديل العرضي
       fixedOn: تم تفعيل الرسم بالإصبع
       fixedOff: تم تعطيل الرسم بالإصبع
-    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): قم بإيقاف تشغيل الرسم بالإصبع عند اكتشاف القلم
     editorPromptRename: يمكنك دائمًا إعادة تسمية الملاحظات لاحقًا
     printPageIndicators: تظهر مؤشرات الصفحة في الصادرات
     shapeRecognitionDelay: عدد مرات تحديث معاينة الشكل
@@ -132,6 +133,7 @@ settings:
       inactive(OUTDATED): غير نشط
       activeUntilRestart(OUTDATED): نشط حتى تقوم بإعادة تشغيل التطبيق
       inactiveUntilRestart(OUTDATED): غير نشط حتى تقوم بإعادة تشغيل التطبيق
+    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): قم بإيقاف تشغيل الرسم بالإصبع عند اكتشاف القلم
     autosave(OUTDATED): تلقائي بعد تأخير قصير ، أو أبدا
   themeModes: 
     system: النظام

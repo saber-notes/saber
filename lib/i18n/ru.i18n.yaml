@@ -39,6 +39,8 @@ home:
     rename: Переименовать
     noteNameEmpty: Название заметки не может быть пустым
     noteNameExists: Заметка с таким названием уже существует
+    noteNameForbiddenCharacters(OUTDATED): Название заметки содержит запрещенные символы
+    noteNameReserved(OUTDATED): Название заметки зарезервировано
   moveNote: 
     moveNote: Переместить заметку
     moveNotes: Переместить $n заметок
@@ -98,7 +100,6 @@ settings:
     autoClearWhiteboardOnExit: Очищать лист при выходе из приложения
     disableEraserAfterUse: Автоотключение ластика
     hideFingerDrawingToggle: Скрыть переключатель «Рисование пальцем»
-    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Автоматическое отключение рисования пальцем
     editorPromptRename: Предлагать переименовывать новые заметки
     recentColorsDontSavePresets: Не сохранять предустановленные цвета в последних цветах
     recentColorsLength: Количество последних сохраняемых цветов
@@ -109,6 +110,7 @@ settings:
     simplifiedHomeLayout: Упрощённый главный экран
     customDataDir: Свой каталог Saber
     sentry: Сообщить об ошибке
+    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Автоматическое отключение рисования пальцем
   prefDescriptions: 
     hyperlegibleFont: Шрифт Atkinson Hyperlegible повышает разборчивость для читателей с плохим зрением
     allowInsecureConnections: (Не рекомендуется) Разрешить Saber подключаться к серверам с самоподписанными/ненадёжными сертификатами.
@@ -120,7 +122,6 @@ settings:
       shown: Предотвращать случайное переключение
       fixedOn: «Рисование пальцем» зафиксировано как включенное
       fixedOff: «Рисование пальцем» зафиксировано как выключенное
-    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Отключить рисование пальцем при обнаружении стилуса
     editorPromptRename: Вы всегда можете переименовать заметки позже
     printPageIndicators: Показывать номера страниц при экспорте
     autosave: Автосохранение с задержкой
@@ -133,6 +134,7 @@ settings:
       inactive: Неактивно
       activeUntilRestart: Активно до тех пор, пока вы не перезапустите приложение
       inactiveUntilRestart: Неактивно до тех пор, пока вы не перезапустите приложение
+    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Отключить рисование пальцем при обнаружении стилуса
   themeModes: 
     system: Системная
     light: Светлая

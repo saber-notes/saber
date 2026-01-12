@@ -38,6 +38,8 @@ home:
     rename: Renomear
     noteNameEmpty: O nome da nota não pode estar vazio
     noteNameExists: Já existe uma nota com este nome
+    noteNameForbiddenCharacters(OUTDATED): O nome da nota contém caracteres proibidos
+    noteNameReserved(OUTDATED): Nome da nota reservado
   moveNote: 
     moveNote: Mover a nota
     moveName: Mover $f
@@ -98,10 +100,10 @@ settings:
     autoClearWhiteboardOnExit: Limpar o quadro branco depois de sair do aplicativo
     disableEraserAfterUse: Desativar automaticamente a borracha
     hideFingerDrawingToggle: Ocultar o botão de desenho com o dedo
-    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Desativar automaticamente o desenho do dedo
     editorPromptRename: Solicitar que você renomeie novas notas
     recentColorsDontSavePresets: Não salvar as cores predefinidas nas cores recentes
     printPageIndicators: Imprimir os indicadores de página
+    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Desativar automaticamente o desenho do dedo
     sentry(OUTDATED): Relatório de erro
     autosave(OUTDATED): Save automática
     simplifiedHomeLayout(OUTDATED): Layout simplificado da casa
@@ -120,7 +122,6 @@ settings:
       shown: Evitar alternância acidental
       fixedOn: O desenho com o dedo está ativado
       fixedOff: O desenho com o dedo está desativado
-    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Desative o desenho com o dedo quando uma caneta for detectada
     editorPromptRename: Você pode sempre renomear as notas mais tarde
     printPageIndicators: Mostrar os indicadores de página nas exportações
     shouldAlwaysAlertForUpdates: Conte-me sobre atualizações assim que elas estiverem disponíveis
@@ -129,6 +130,7 @@ settings:
       inactive(OUTDATED): Inativo
       activeUntilRestart(OUTDATED): Ativo até você reiniciar o aplicativo
       inactiveUntilRestart(OUTDATED): Inativo até você reiniciar o aplicativo
+    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Desative o desenho com o dedo quando uma caneta for detectada
     autosave(OUTDATED): Salvamento automático após um pequeno atraso, ou nunca
     simplifiedHomeLayout(OUTDATED): Define uma altura fixa para cada pré-visualização de nota
     autoStraightenLines(OUTDATED): Endireita linhas longas sem precisar usar a caneta modeladora

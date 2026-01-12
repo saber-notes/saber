@@ -4,6 +4,9 @@
 ar: 
   home: 
     noPreviewAvailable(OUTDATED): No preview available
+    renameNote: 
+      noteNameForbiddenCharacters(OUTDATED): Note name contains forbidden characters
+      noteNameReserved(OUTDATED): Note name reserved
   sentry: 
     consent: 
       title(OUTDATED): Help improve Saber?
@@ -45,8 +48,20 @@ ar:
       lineThickness(OUTDATED): Line thickness
       lineThicknessDescription(OUTDATED): Background line thickness
 cs: 
+  home: 
+    renameNote: 
+      noteNameForbiddenCharacters(OUTDATED): Note name contains forbidden characters
+      noteNameReserved(OUTDATED): Note name reserved
 de: 
+  home: 
+    renameNote: 
+      noteNameForbiddenCharacters(OUTDATED): Note name contains forbidden characters
+      noteNameReserved(OUTDATED): Note name reserved
 eo: 
+  home: 
+    renameNote: 
+      noteNameForbiddenCharacters(OUTDATED): Note name contains forbidden characters
+      noteNameReserved(OUTDATED): Note name reserved
   settings: 
     prefLabels: 
       autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Auto-disable finger drawing
@@ -58,6 +73,9 @@ es:
     continueBtn(OUTDATED): Continue
   home: 
     noPreviewAvailable(OUTDATED): No preview available
+    renameNote: 
+      noteNameForbiddenCharacters(OUTDATED): Note name contains forbidden characters
+      noteNameReserved(OUTDATED): Note name reserved
   sentry: 
     consent: 
       title(OUTDATED): Help improve Saber?
@@ -69,7 +87,7 @@ es:
         learnMoreInPrivacyPolicy(rich)(OUTDATED): Learn more in the ${link(privacy policy)}.
       answers: 
         yes(OUTDATED): Yes
-        no: No
+        no(OUTDATED): No
         later(OUTDATED): Ask me later
   settings: 
     prefCategories: 
@@ -171,6 +189,9 @@ fa:
     continueBtn(OUTDATED): Continue
   home: 
     noPreviewAvailable(OUTDATED): No preview available
+    renameNote: 
+      noteNameForbiddenCharacters(OUTDATED): Note name contains forbidden characters
+      noteNameReserved(OUTDATED): Note name reserved
   sentry: 
     consent: 
       title(OUTDATED): Help improve Saber?
@@ -274,6 +295,9 @@ fr:
     continueBtn(OUTDATED): Continue
   home: 
     noPreviewAvailable(OUTDATED): No preview available
+    renameNote: 
+      noteNameForbiddenCharacters(OUTDATED): Note name contains forbidden characters
+      noteNameReserved(OUTDATED): Note name reserved
   sentry: 
     consent: 
       title(OUTDATED): Help improve Saber?
@@ -381,8 +405,9 @@ he:
     noPreviewAvailable(OUTDATED): No preview available
     renameNote: 
       noteNameEmpty(OUTDATED): Note name can't be empty
-      noteNameContainsSlash(OUTDATED): Note name can't contain a slash
       noteNameExists(OUTDATED): A note with this name already exists
+      noteNameForbiddenCharacters(OUTDATED): Note name contains forbidden characters
+      noteNameReserved(OUTDATED): Note name reserved
     moveNote: 
       moveNotes(OUTDATED): Move $n notes
       multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
@@ -531,8 +556,9 @@ hu:
       noteName(OUTDATED): Note name
       rename(OUTDATED): Rename
       noteNameEmpty(OUTDATED): Note name can't be empty
-      noteNameContainsSlash(OUTDATED): Note name can't contain a slash
       noteNameExists(OUTDATED): A note with this name already exists
+      noteNameForbiddenCharacters(OUTDATED): Note name contains forbidden characters
+      noteNameReserved(OUTDATED): Note name reserved
     moveNote: 
       moveNote(OUTDATED): Move note
       moveNotes(OUTDATED): Move $n notes
@@ -754,6 +780,10 @@ hu:
       lockAxisAlignedPan(OUTDATED): Lock panning to horizontal or vertical
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
 it: 
+  home: 
+    renameNote: 
+      noteNameForbiddenCharacters(OUTDATED): Note name contains forbidden characters
+      noteNameReserved(OUTDATED): Note name reserved
 ja: 
   common: 
     done(OUTDATED): Done
@@ -769,6 +799,9 @@ ja:
     invalidFormat(OUTDATED): The file you selected is not supported. Please select an sbn, sbn2, sba, or pdf file.
     noPreviewAvailable(OUTDATED): No preview available
     backFolder(OUTDATED): Go back to the previous folder
+    renameNote: 
+      noteNameForbiddenCharacters(OUTDATED): Note name contains forbidden characters
+      noteNameReserved(OUTDATED): Note name reserved
     moveNote: 
       moveNotes(OUTDATED): Move $n notes
       multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
@@ -921,6 +954,9 @@ pt-BR:
     tooltips: 
       exportNote(OUTDATED): Export note
     noPreviewAvailable(OUTDATED): No preview available
+    renameNote: 
+      noteNameForbiddenCharacters(OUTDATED): Note name contains forbidden characters
+      noteNameReserved(OUTDATED): Note name reserved
     moveNote: 
       moveNotes(OUTDATED): Move $n notes
       multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
@@ -1041,6 +1077,10 @@ pt-BR:
       watchServer(OUTDATED): Watch for updates on the server
       watchServerReadOnly(OUTDATED): Editing is disabled while watching the server
 ru: 
+  home: 
+    renameNote: 
+      noteNameForbiddenCharacters(OUTDATED): Note name contains forbidden characters
+      noteNameReserved(OUTDATED): Note name reserved
   settings: 
     prefLabels: 
       autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Auto-disable finger drawing
@@ -1049,6 +1089,9 @@ ru:
 tr: 
   home: 
     noPreviewAvailable(OUTDATED): No preview available
+    renameNote: 
+      noteNameForbiddenCharacters(OUTDATED): Note name contains forbidden characters
+      noteNameReserved(OUTDATED): Note name reserved
   sentry: 
     consent: 
       title(OUTDATED): Help improve Saber?
@@ -1090,7 +1133,15 @@ tr:
       lineThickness(OUTDATED): Line thickness
       lineThicknessDescription(OUTDATED): Background line thickness
 zh-Hans-CN: 
+  home: 
+    renameNote: 
+      noteNameForbiddenCharacters(OUTDATED): Note name contains forbidden characters
+      noteNameReserved(OUTDATED): Note name reserved
 zh-Hant-TW: 
+  home: 
+    renameNote: 
+      noteNameForbiddenCharacters(OUTDATED): Note name contains forbidden characters
+      noteNameReserved(OUTDATED): Note name reserved
   settings: 
     prefLabels: 
       autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Auto-disable finger drawing

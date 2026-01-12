@@ -38,6 +38,8 @@ home:
     rename: Renommer
     noteNameEmpty: Le nom de note ne peut pas être vide
     noteNameExists: Une note du même nom existe déjà
+    noteNameForbiddenCharacters(OUTDATED): Le nom de la note contient des caractères interdits
+    noteNameReserved(OUTDATED): Nom de la note réservé
   moveNote: 
     moveNote: Déplacer la note
     moveNotes: Déplacer $n notes
@@ -98,12 +100,12 @@ settings:
     autoClearWhiteboardOnExit: Effacer le tableau blanc quand vous fermez l'application
     disableEraserAfterUse: Désactiver automatiquement la gomme après usage
     hideFingerDrawingToggle: Cacher l'icône d'activation/désactivation de tracé au doigt
-    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Désactivation automatique du dessin au doigt
     editorPromptRename: Vous rappeler de renommer les notes
     recentColorsDontSavePresets: Ne pas conserver les couleurs pré-définies parmi les couleurs récentes
     recentColorsLength: Nombre de couleurs récentes à conserver
     printPageIndicators: Imprimer les numéros de pages
     shapeRecognitionDelay: Délai de reconnaissance de forme
+    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Désactivation automatique du dessin au doigt
     sentry(OUTDATED): Rapports d'erreur
     autosave(OUTDATED): S'attacher automatiquement
     simplifiedHomeLayout(OUTDATED): Aménagement d'une maison simplifié
@@ -120,7 +122,6 @@ settings:
       shown: Empêcher l'activation/désactivation accidentelle
       fixedOn: Le tracé au doigt est fixé à activé
       fixedOff: Le tracé au doigt est fixé à désactivé
-    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Désactiver le dessin au doigt lorsqu'un stylet est détecté
     editorPromptRename: Vous pourrez toujours les renommer plus tard
     printPageIndicators: Montrer les numéros de pages dans les exportations
     shapeRecognitionDelay: Avec quelle fréquence mettre à jour la prévisualisation de forme
@@ -130,6 +131,7 @@ settings:
       inactive(OUTDATED): Inactif
       activeUntilRestart(OUTDATED): Actif jusqu'à ce que vous redémarrez l'application
       inactiveUntilRestart(OUTDATED): Inactif jusqu'à ce que vous redémarrez l'application
+    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Désactiver le dessin au doigt lorsqu'un stylet est détecté
     autosave(OUTDATED): S'attacher automatiquement après un court délai, ou jamais
     simplifiedHomeLayout(OUTDATED): Définit une hauteur fixe pour chaque aperçu de note
     autoStraightenLines(OUTDATED): Redresse les longues lignes sans avoir à utiliser le stylo de forme

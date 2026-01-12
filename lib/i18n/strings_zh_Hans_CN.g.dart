@@ -304,6 +304,8 @@ class _TranslationsHomeRenameNoteZhHansCn extends TranslationsHomeRenameNoteEn {
 	@override String get rename => '重命名';
 	@override String get noteNameEmpty => '笔记名称不能为空';
 	@override String get noteNameExists => '此名称的笔记已经存在';
+	@override String get noteNameReserved => '备注名称保留';
+	@override String get noteNameForbiddenCharacters => '注意名称包含禁用字符';
 }
 
 // Path: home.moveNote

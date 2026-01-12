@@ -39,6 +39,8 @@ home:
     rename: Alinomu
     noteNameEmpty: Notonomo ne estu malplena
     noteNameExists: Noto kun ĉi tiu nomo jam ekzistas
+    noteNameForbiddenCharacters(OUTDATED): Notonomo enhavas malpermesitajn signojn
+    noteNameReserved(OUTDATED): Noto nomo rezervita
   moveNote: 
     moveNote: Movu noton
     moveNotes: Movu $n notojn
@@ -98,7 +100,6 @@ settings:
     autoClearWhiteboardOnExit: Malplenigu la tablon post foriro
     disableEraserAfterUse: Malaktivigu la forviŝilon
     hideFingerDrawingToggle: Kaŝu la fingrodesegnan ŝaltilon
-    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Aŭtomate malŝalti fingrodesegnadon
     editorPromptRename: Petu vin alinomi novajn notojn
     recentColorsDontSavePresets: Ne konservu kolorŝablonon en la lastuzitaj koloroj
     recentColorsLength: Nombro da lastuzitaj koloroj
@@ -109,6 +110,7 @@ settings:
     simplifiedHomeLayout: Simpligita ĉefekranaranĝo
     customDataDir: Kutima Saber-dosierujo
     sentry: Erarraportado
+    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Aŭtomate malŝalti fingrodesegnadon
   prefDescriptions: 
     hyperlegibleFont: Pliigas legeblecon por uzantoj kun malalta vidkapablo
     allowInsecureConnections: (Nerekomendita) Permesu al Sabero konektiĝi al serviloj kun mem-subskribitaj/nefidindaj atestiloj
@@ -120,7 +122,6 @@ settings:
       shown: Malhelpas hazardan ŝaltadon
       fixedOn: Fingrodesegnado estas fiksita kiel ebligita
       fixedOff: Fingrodesegnado estas fiksita kiel malebligita
-    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Malŝaltu fingrodesegnadon kiam grifelo estas detektita
     editorPromptRename: Vi ĉiam povas renomi notojn poste
     printPageIndicators: Montru paĝnumeradon post eksporto
     autosave: Aŭtomate konservas post iom da tempo aŭ neniam
@@ -133,6 +134,7 @@ settings:
       inactive: Malaktiva
       activeUntilRestart: Aktiva ĝis vi rekomencas la aplikaĵon
       inactiveUntilRestart: Neaktiva ĝis vi rekomencas la aplikaĵon
+    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Malŝaltu fingrodesegnadon kiam grifelo estas detektita
   themeModes: 
     system: Sistemo
     light: Hela

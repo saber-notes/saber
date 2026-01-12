@@ -302,6 +302,8 @@ class _TranslationsHomeRenameNotePtBr extends TranslationsHomeRenameNoteEn {
 	@override String get rename => 'Renomear';
 	@override String get noteNameEmpty => 'O nome da nota não pode estar vazio';
 	@override String get noteNameExists => 'Já existe uma nota com este nome';
+	@override String get noteNameForbiddenCharacters => 'O nome da nota contém caracteres proibidos';
+	@override String get noteNameReserved => 'Nome da nota reservado';
 }
 
 // Path: home.moveNote
@@ -398,10 +400,10 @@ class _TranslationsSettingsPrefLabelsPtBr extends TranslationsSettingsPrefLabels
 	@override String get autoClearWhiteboardOnExit => 'Limpar o quadro branco depois de sair do aplicativo';
 	@override String get disableEraserAfterUse => 'Desativar automaticamente a borracha';
 	@override String get hideFingerDrawingToggle => 'Ocultar o botão de desenho com o dedo';
-	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Desativar automaticamente o desenho do dedo';
 	@override String get editorPromptRename => 'Solicitar que você renomeie novas notas';
 	@override String get recentColorsDontSavePresets => 'Não salvar as cores predefinidas nas cores recentes';
 	@override String get printPageIndicators => 'Imprimir os indicadores de página';
+	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Desativar automaticamente o desenho do dedo';
 	@override String get sentry => 'Relatório de erro';
 	@override String get autosave => 'Save automática';
 	@override String get simplifiedHomeLayout => 'Layout simplificado da casa';
@@ -425,11 +427,11 @@ class _TranslationsSettingsPrefDescriptionsPtBr extends TranslationsSettingsPref
 	@override String get disableEraserAfterUse => 'Voltar automaticamente para a caneta depois de usar a borracha';
 	@override String get maxImageSize => 'Imagens maiores que isso serão compactadas';
 	@override late final _TranslationsSettingsPrefDescriptionsHideFingerDrawingPtBr hideFingerDrawing = _TranslationsSettingsPrefDescriptionsHideFingerDrawingPtBr._(_root);
-	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Desative o desenho com o dedo quando uma caneta for detectada';
 	@override String get editorPromptRename => 'Você pode sempre renomear as notas mais tarde';
 	@override String get printPageIndicators => 'Mostrar os indicadores de página nas exportações';
 	@override String get shouldAlwaysAlertForUpdates => 'Conte-me sobre atualizações assim que elas estiverem disponíveis';
 	@override late final _TranslationsSettingsPrefDescriptionsSentryPtBr sentry = _TranslationsSettingsPrefDescriptionsSentryPtBr._(_root);
+	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Desative o desenho com o dedo quando uma caneta for detectada';
 	@override String get autosave => 'Salvamento automático após um pequeno atraso, ou nunca';
 	@override String get simplifiedHomeLayout => 'Define uma altura fixa para cada pré-visualização de nota';
 	@override String get autoStraightenLines => 'Endireita linhas longas sem precisar usar a caneta modeladora';

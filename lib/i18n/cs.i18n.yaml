@@ -39,6 +39,8 @@ home:
     rename: Přejmenovat
     noteNameEmpty: Název poznámky nemůže být prázdný
     noteNameExists: Poznámka s tímto názvem již existuje
+    noteNameForbiddenCharacters(OUTDATED): Název poznámky obsahuje zakázané znaky
+    noteNameReserved(OUTDATED): Název poznámky vyhrazen
   moveNote: 
     moveNote: Přesunout poznámku
     moveNotes: Přesunout $n poznámek

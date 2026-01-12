@@ -36,6 +36,8 @@ home:
     renameNote: שנה את שם הפתק
     noteName: שם הפתק
     rename: שנה שם
+    noteNameForbiddenCharacters(OUTDATED): שם הערה מכיל תווים אסורים
+    noteNameReserved(OUTDATED): שם הערה שמור
     noteNameEmpty(OUTDATED): שם הערה לא יכול להיות ריק
     noteNameExists(OUTDATED): הערה בשם זה כבר קיימת
   moveNote: 
@@ -98,10 +100,10 @@ settings:
     autoClearWhiteboardOnExit: נקה אוטומטית את הלוח הלבן
     disableEraserAfterUse: השבת אוטומטית את המחק
     hideFingerDrawingToggle: הסתר את מתג ציור האצבע
-    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): השבתה אוטומטית של ציור אצבע
     editorPromptRename: מבקש ממך לשנות את שם הערות חדשות
     recentColorsDontSavePresets: אל תשמור צבעים מוגדרים מראש בצבעים אחרונים
     printPageIndicators: הדפסת עמודים מחוונים
+    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): השבתה אוטומטית של ציור אצבע
     sentry(OUTDATED): דיווח שגיאות
     autosave(OUTDATED): שמור אוטומטי
     simplifiedHomeLayout(OUTDATED): פריסת בית פשוטה
@@ -120,7 +122,6 @@ settings:
       shown: מונע החלפת מצב בשוגג
       fixedOn: ציור אצבע קבוע כזמין
       fixedOff: ציור אצבע קבוע כלא זמין
-    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): כבה את ציור האצבע כאשר מזוהה חרט
     editorPromptRename: תמיד תוכל לשנות את שם הפתקים מאוחר יותר
     printPageIndicators: הצג מחווני עמודים בייצוא
     shouldAlwaysAlertForUpdates: ספר לי על עדכונים ברגע שהם יהיו זמינים
@@ -129,6 +130,7 @@ settings:
       inactive(OUTDATED): לֹא פָּעִיל
       activeUntilRestart(OUTDATED): פעיל עד שתפעיל מחדש את האפליקציה
       inactiveUntilRestart(OUTDATED): לא פעיל עד שתפעיל מחדש את האפליקציה
+    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): כבה את ציור האצבע כאשר מזוהה חרט
     autosave(OUTDATED): יש לשעוג אוטומטית לאחר עיכוב קצר, או לעולם
     simplifiedHomeLayout(OUTDATED): מגדיר גובה קבוע עבור כל תצוגה מקדימה של הערה
     autoStraightenLines(OUTDATED): מיישר קווים ארוכים ללא צורך להשתמש בעט הצורה

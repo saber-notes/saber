@@ -39,6 +39,8 @@ home:
     rename: Umbenennen
     noteNameEmpty: Name der Notiz darf nicht leer sein
     noteNameExists: Notiz mit diesem Namen existiert bereits
+    noteNameForbiddenCharacters(OUTDATED): Der Notizname enthält verbotene Zeichen
+    noteNameReserved(OUTDATED): Notizname reserviert
   moveNote: 
     moveNote: Notiz verschieben
     moveNotes: Verschiebe $n Notizen

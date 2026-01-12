@@ -304,6 +304,8 @@ class _TranslationsHomeRenameNoteIt extends TranslationsHomeRenameNoteEn {
 	@override String get rename => 'Rinomina';
 	@override String get noteNameEmpty => 'Il nome della nota non può essere vuoto';
 	@override String get noteNameExists => 'Esiste già una nota con questo nome';
+	@override String get noteNameForbiddenCharacters => 'Il nome della nota contiene caratteri vietati';
+	@override String get noteNameReserved => 'Nome della nota riservato';
 }
 
 // Path: home.moveNote

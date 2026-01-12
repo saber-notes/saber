@@ -39,6 +39,8 @@ home:
     rename: 重新命名
     noteNameEmpty: 筆記名稱不可為空
     noteNameExists: 同名筆記已經存在
+    noteNameReserved(OUTDATED): 備註名稱保留
+    noteNameForbiddenCharacters(OUTDATED): 注意名稱包含禁用字符
   moveNote: 
     moveNote: 移動筆記
     moveNotes: 移動 $n 份筆記
@@ -120,7 +122,6 @@ settings:
       shown: 防止意外切換
       fixedOn: 手指繪圖固定為啟用
       fixedOff: 手指繪圖固定為禁用
-    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): 檢測到手寫筆時關閉手指繪圖
     editorPromptRename: 您以後隨時可以重新命名筆記
     printPageIndicators: 在匯出中顯示頁碼
     autosave: 在短暫延遲後自動儲存，或永不儲存
@@ -133,6 +134,7 @@ settings:
       inactive: 停用
       activeUntilRestart: 啟用直到您重新啟動應用程式
       inactiveUntilRestart: 停用直到您重新啟動應用程式
+    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): 檢測到手寫筆時關閉手指繪圖
   themeModes: 
     system: 系統
     light: 淺色

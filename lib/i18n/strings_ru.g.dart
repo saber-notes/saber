@@ -304,6 +304,8 @@ class _TranslationsHomeRenameNoteRu extends TranslationsHomeRenameNoteEn {
 	@override String get rename => 'Переименовать';
 	@override String get noteNameEmpty => 'Название заметки не может быть пустым';
 	@override String get noteNameExists => 'Заметка с таким названием уже существует';
+	@override String get noteNameForbiddenCharacters => 'Название заметки содержит запрещенные символы';
+	@override String get noteNameReserved => 'Название заметки зарезервировано';
 }
 
 // Path: home.moveNote
@@ -400,7 +402,6 @@ class _TranslationsSettingsPrefLabelsRu extends TranslationsSettingsPrefLabelsEn
 	@override String get autoClearWhiteboardOnExit => 'Очищать лист при выходе из приложения';
 	@override String get disableEraserAfterUse => 'Автоотключение ластика';
 	@override String get hideFingerDrawingToggle => 'Скрыть переключатель «Рисование пальцем»';
-	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Автоматическое отключение рисования пальцем';
 	@override String get editorPromptRename => 'Предлагать переименовывать новые заметки';
 	@override String get recentColorsDontSavePresets => 'Не сохранять предустановленные цвета в последних цветах';
 	@override String get recentColorsLength => 'Количество последних сохраняемых цветов';
@@ -411,6 +412,7 @@ class _TranslationsSettingsPrefLabelsRu extends TranslationsSettingsPrefLabelsEn
 	@override String get simplifiedHomeLayout => 'Упрощённый главный экран';
 	@override String get customDataDir => 'Свой каталог Saber';
 	@override String get sentry => 'Сообщить об ошибке';
+	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Автоматическое отключение рисования пальцем';
 }
 
 // Path: settings.prefDescriptions
@@ -427,7 +429,6 @@ class _TranslationsSettingsPrefDescriptionsRu extends TranslationsSettingsPrefDe
 	@override String get disableEraserAfterUse => 'Автоматически переключается на перо после использования ластика';
 	@override String get maxImageSize => 'Большие изображения будут сжаты';
 	@override late final _TranslationsSettingsPrefDescriptionsHideFingerDrawingRu hideFingerDrawing = _TranslationsSettingsPrefDescriptionsHideFingerDrawingRu._(_root);
-	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Отключить рисование пальцем при обнаружении стилуса';
 	@override String get editorPromptRename => 'Вы всегда можете переименовать заметки позже';
 	@override String get printPageIndicators => 'Показывать номера страниц при экспорте';
 	@override String get autosave => 'Автосохранение с задержкой';
@@ -436,6 +437,7 @@ class _TranslationsSettingsPrefDescriptionsRu extends TranslationsSettingsPrefDe
 	@override String get simplifiedHomeLayout => 'Фиксированная высота предварительного просмотра каждой заметки';
 	@override String get shouldAlwaysAlertForUpdates => 'Сообщать мне об обновлениях, как только они станут доступны';
 	@override late final _TranslationsSettingsPrefDescriptionsSentryRu sentry = _TranslationsSettingsPrefDescriptionsSentryRu._(_root);
+	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Отключить рисование пальцем при обнаружении стилуса';
 }
 
 // Path: settings.themeModes

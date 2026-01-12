@@ -304,6 +304,8 @@ class _TranslationsHomeRenameNoteAr extends TranslationsHomeRenameNoteEn {
 	@override String get rename => 'إعادة تسمية';
 	@override String get noteNameEmpty => 'لا يمكن أن يكون اسم الملاحظة فارغًا';
 	@override String get noteNameExists => 'توجد بالفعل ملاحظة بهذا الاسم';
+	@override String get noteNameForbiddenCharacters => 'يحتوي اسم الملاحظة على أحرف محظورة';
+	@override String get noteNameReserved => 'اسم الملاحظة محجوز';
 }
 
 // Path: home.moveNote
@@ -400,7 +402,6 @@ class _TranslationsSettingsPrefLabelsAr extends TranslationsSettingsPrefLabelsEn
 	@override String get autoClearWhiteboardOnExit => 'امسح السبورة بعد الخروج من التطبيق';
 	@override String get disableEraserAfterUse => 'تعطيل الممحاة تلقائيًا بعد الاستخدام';
 	@override String get hideFingerDrawingToggle => 'إخفاء زر الرسم بالإصبع';
-	@override String get autoDisableFingerDrawingWhenStylusDetected => 'التعطيل التلقائي لرسم الإصبع';
 	@override String get editorPromptRename => 'مطالبتك بإعادة تسمية الملاحظات الجديدة';
 	@override String get recentColorsDontSavePresets => 'لا تحفظ الألوان المعينة مسبقًا كألوان حديثة';
 	@override String get recentColorsLength => 'كم عدد الألوان الحديثة التي يجب تخزينها';
@@ -409,6 +410,7 @@ class _TranslationsSettingsPrefLabelsAr extends TranslationsSettingsPrefLabelsEn
 	@override String get autoStraightenLines => 'استقامة الخطوط تلقائيًا';
 	@override String get simplifiedHomeLayout => 'تخطيط الصفحة الرئيسية المبسط';
 	@override String get customDataDir => 'مخصص Saber مجلد';
+	@override String get autoDisableFingerDrawingWhenStylusDetected => 'التعطيل التلقائي لرسم الإصبع';
 	@override String get sentry => 'الإبلاغ خطأ';
 	@override String get autosave => 'تلقائي';
 }
@@ -427,7 +429,6 @@ class _TranslationsSettingsPrefDescriptionsAr extends TranslationsSettingsPrefDe
 	@override String get disableEraserAfterUse => 'التبديل تلقائيًا إلى القلم بعد استخدام الممحاة';
 	@override String get maxImageSize => 'سيتم ضغط الصور الأكبر من هذا';
 	@override late final _TranslationsSettingsPrefDescriptionsHideFingerDrawingAr hideFingerDrawing = _TranslationsSettingsPrefDescriptionsHideFingerDrawingAr._(_root);
-	@override String get autoDisableFingerDrawingWhenStylusDetected => 'قم بإيقاف تشغيل الرسم بالإصبع عند اكتشاف القلم';
 	@override String get editorPromptRename => 'يمكنك دائمًا إعادة تسمية الملاحظات لاحقًا';
 	@override String get printPageIndicators => 'تظهر مؤشرات الصفحة في الصادرات';
 	@override String get shapeRecognitionDelay => 'عدد مرات تحديث معاينة الشكل';
@@ -435,6 +436,7 @@ class _TranslationsSettingsPrefDescriptionsAr extends TranslationsSettingsPrefDe
 	@override String get simplifiedHomeLayout => 'تعيين ارتفاع ثابت لكل معاينة ملاحظة';
 	@override String get shouldAlwaysAlertForUpdates => 'أبلغني عن التحديثات بمجرد توفرها';
 	@override late final _TranslationsSettingsPrefDescriptionsSentryAr sentry = _TranslationsSettingsPrefDescriptionsSentryAr._(_root);
+	@override String get autoDisableFingerDrawingWhenStylusDetected => 'قم بإيقاف تشغيل الرسم بالإصبع عند اكتشاف القلم';
 	@override String get autosave => 'تلقائي بعد تأخير قصير ، أو أبدا';
 }
 

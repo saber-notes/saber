@@ -301,6 +301,8 @@ class _TranslationsHomeRenameNoteEs extends TranslationsHomeRenameNoteEn {
 	@override String get rename => 'Renombrar';
 	@override String get noteNameEmpty => 'El nombre de la nota no puede estar vacío';
 	@override String get noteNameExists => 'Ya existe una nota con este nombre';
+	@override String get noteNameForbiddenCharacters => 'El nombre de la nota contiene caracteres prohibidos.';
+	@override String get noteNameReserved => 'Nombre de la nota reservado';
 }
 
 // Path: home.moveNote
@@ -397,11 +399,11 @@ class _TranslationsSettingsPrefLabelsEs extends TranslationsSettingsPrefLabelsEn
 	@override String get autoClearWhiteboardOnExit => 'Borrar la pizarra después de salir de la aplicación';
 	@override String get disableEraserAfterUse => 'Desactivar automáticamente la goma de borrar';
 	@override String get hideFingerDrawingToggle => 'Ocultar la opción para activar/desactivar la escritura con el dedo';
-	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Desactivar automáticamente el dibujo con los dedos';
 	@override String get editorPromptRename => 'Solicitarte cambiar el nombre de nuevas notas';
 	@override String get recentColorsDontSavePresets => 'No guardar colores preestablecidos en los colores recientes';
 	@override String get recentColorsLength => 'Número de colores recientes a almacenar';
 	@override String get printPageIndicators => 'Indicadores de página de impresión';
+	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Desactivar automáticamente el dibujo con los dedos';
 	@override String get sentry => 'Informes de errores';
 	@override String get autosave => 'Auto-Save';
 	@override String get simplifiedHomeLayout => 'Disposición simplificada de la casa';
@@ -424,11 +426,11 @@ class _TranslationsSettingsPrefDescriptionsEs extends TranslationsSettingsPrefDe
 	@override String get disableEraserAfterUse => 'Volver automáticamente al bolígrafo tras usar la goma';
 	@override String get maxImageSize => 'Las imágenes más grandes que este valor serán comprimidas';
 	@override late final _TranslationsSettingsPrefDescriptionsHideFingerDrawingEs hideFingerDrawing = _TranslationsSettingsPrefDescriptionsHideFingerDrawingEs._(_root);
-	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Desactivar el dibujo con los dedos cuando se detecta un lápiz';
 	@override String get editorPromptRename => 'Siempre puedes cambiar el nombre de las notas más tarde';
 	@override String get printPageIndicators => 'Mostrar indicadores de página en las exportaciones';
 	@override String get shouldAlwaysAlertForUpdates => 'Avísame sobre actualizaciones tan pronto como estén disponibles';
 	@override late final _TranslationsSettingsPrefDescriptionsSentryEs sentry = _TranslationsSettingsPrefDescriptionsSentryEs._(_root);
+	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Desactivar el dibujo con los dedos cuando se detecta un lápiz';
 	@override String get autosave => 'Auto-Save después de un breve retraso, o nunca';
 	@override String get simplifiedHomeLayout => 'Establece una altura fija para cada vista previa de nota';
 	@override String get autoStraightenLines => 'Endereza líneas largas sin tener que usar el rotulador.';
@@ -808,6 +810,7 @@ class _TranslationsSentryConsentAnswersEs extends TranslationsSentryConsentAnswe
 
 	// Translations
 	@override String get yes => 'Sí';
+	@override String get no => 'No';
 	@override String get later => 'Pregúntame más tarde';
 }
 

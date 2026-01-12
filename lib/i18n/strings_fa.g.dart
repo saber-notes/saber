@@ -302,6 +302,8 @@ class _TranslationsHomeRenameNoteFa extends TranslationsHomeRenameNoteEn {
 	@override String get rename => 'تغییر نام دهید';
 	@override String get noteNameEmpty => 'نام یادداشت نمی‌تواند خالی باشد';
 	@override String get noteNameExists => 'یادداشتی با این نام از قبل وجود دارد';
+	@override String get noteNameForbiddenCharacters => 'نام یادداشت حاوی کاراکترهای ممنوعه است';
+	@override String get noteNameReserved => 'نام یادداشت رزرو شده است';
 }
 
 // Path: home.moveNote
@@ -398,12 +400,12 @@ class _TranslationsSettingsPrefLabelsFa extends TranslationsSettingsPrefLabelsEn
 	@override String get autoClearWhiteboardOnExit => 'پس از خروج از برنامه، وایت برد پاک شود';
 	@override String get disableEraserAfterUse => 'پاک کن را به صورت خودکار غیرفعال کنید';
 	@override String get hideFingerDrawingToggle => 'ضامن طراحی انگشت را پنهان کنید';
-	@override String get autoDisableFingerDrawingWhenStylusDetected => 'غیرفعال کردن خودکار طراحی با انگشت';
 	@override String get editorPromptRename => 'از شما می خواهد که نام یادداشت های جدید را تغییر دهید';
 	@override String get recentColorsDontSavePresets => 'رنگ های از پیش تعیین شده را در رنگ های اخیر ذخیره نکنید';
 	@override String get recentColorsLength => 'چند رنگ اخیر برای ذخیره';
 	@override String get printPageIndicators => 'چاپ نشانگرهای صفحه';
 	@override String get shapeRecognitionDelay => 'تاخیر در تشخیص شکل';
+	@override String get autoDisableFingerDrawingWhenStylusDetected => 'غیرفعال کردن خودکار طراحی با انگشت';
 	@override String get sentry => 'گزارش خطا';
 	@override String get autosave => 'خودرا';
 	@override String get simplifiedHomeLayout => 'چیدمان خانه ساده شده';
@@ -425,12 +427,12 @@ class _TranslationsSettingsPrefDescriptionsFa extends TranslationsSettingsPrefDe
 	@override String get disableEraserAfterUse => 'پس از استفاده از پاک کن به صورت خودکار به خودکار برمی گردد';
 	@override String get maxImageSize => 'تصاویر بزرگتر از این فشرده خواهند شد';
 	@override late final _TranslationsSettingsPrefDescriptionsHideFingerDrawingFa hideFingerDrawing = _TranslationsSettingsPrefDescriptionsHideFingerDrawingFa._(_root);
-	@override String get autoDisableFingerDrawingWhenStylusDetected => 'هنگامی که یک قلم شناسایی شد، نقاشی با انگشت را خاموش کنید';
 	@override String get editorPromptRename => 'همیشه می توانید بعداً نام یادداشت ها را تغییر دهید';
 	@override String get printPageIndicators => 'نمایش نشانگرهای صفحه در خروجی';
 	@override String get shapeRecognitionDelay => 'به روز رسانی پیشنمایش شکل چند وقت یکبار انجام شود';
 	@override String get shouldAlwaysAlertForUpdates => 'به محض اینکه به‌روزرسانی‌ها در دسترس هستند، به من بگویید';
 	@override late final _TranslationsSettingsPrefDescriptionsSentryFa sentry = _TranslationsSettingsPrefDescriptionsSentryFa._(_root);
+	@override String get autoDisableFingerDrawingWhenStylusDetected => 'هنگامی که یک قلم شناسایی شد، نقاشی با انگشت را خاموش کنید';
 	@override String get autosave => 'پس از یک تأخیر کوتاه ، یا هرگز';
 	@override String get simplifiedHomeLayout => 'یک ارتفاع ثابت برای پیش نمایش هر یادداشت تنظیم می کند';
 	@override String get autoStraightenLines => 'خطوط بلند را بدون استفاده از قلم شکل صاف می کند';

@@ -38,6 +38,8 @@ home:
     rename: Yeniden adlandır
     noteNameEmpty: Not adı boş bırakılamaz
     noteNameExists: Bu isimde bir not zaten var
+    noteNameForbiddenCharacters(OUTDATED): Not adı yasak karakterler içeriyor
+    noteNameReserved(OUTDATED): Not adı saklıdır
   moveNote: 
     moveNote: Notu taşı
     moveNotes: $n tane notu taşı
@@ -98,7 +100,6 @@ settings:
     autoClearWhiteboardOnExit: Uygulamadan çıkıldığında beyaz tahtayı temizle
     disableEraserAfterUse: Silgiden kaleme geçiş
     hideFingerDrawingToggle: Parmakla çizme kilidini sakla
-    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Parmak çizimini otomatik olarak devre dışı bırak
     editorPromptRename: Notları yeniden adlandırmak için uyar
     recentColorsDontSavePresets: Ön tanımlı renkleri son kullanılanlara kaydetme
     recentColorsLength: Kaç tane son kullanılan renk saklanacak
@@ -107,6 +108,7 @@ settings:
     autoStraightenLines: Çizgileri otomatik düzleştir
     simplifiedHomeLayout: Sadeleştirilmiş ana ekran düzeni
     customDataDir: Özel Saber klasörü
+    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Parmak çizimini otomatik olarak devre dışı bırak
     sentry(OUTDATED): Hata raporlama
     autosave(OUTDATED): Otomatik koruma
   prefDescriptions: 
@@ -120,7 +122,6 @@ settings:
       shown: Yanlışlıkla değiştirilmesini engeller
       fixedOn: Parmakla çizim izni verildi ve sabitlendi
       fixedOff: Parmakla çizim izni verilmedi ve sabitlendi
-    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Bir kalem algılandığında parmakla çizimi kapatın
     editorPromptRename: Notlarınızı daha sonra da yeniden adlandırabilirsiniz
     printPageIndicators: Çıktılarda sayfa belirteçlerini göster
     shapeRecognitionDelay: Çizilen şekilleri tanımlama sıklığını belirler
@@ -132,6 +133,7 @@ settings:
       inactive(OUTDATED): Aktif olmayan
       activeUntilRestart(OUTDATED): Uygulamayı yeniden başlatana kadar etkin
       inactiveUntilRestart(OUTDATED): Uygulamayı yeniden başlatana kadar aktif olmayan
+    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Bir kalem algılandığında parmakla çizimi kapatın
     autosave(OUTDATED): Kısa bir gecikmeden sonra otomatik kaydetme veya asla
   themeModes: 
     system: Sistem teması

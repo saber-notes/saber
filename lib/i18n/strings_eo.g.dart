@@ -304,6 +304,8 @@ class _TranslationsHomeRenameNoteEo extends TranslationsHomeRenameNoteEn {
 	@override String get rename => 'Alinomu';
 	@override String get noteNameEmpty => 'Notonomo ne estu malplena';
 	@override String get noteNameExists => 'Noto kun ĉi tiu nomo jam ekzistas';
+	@override String get noteNameForbiddenCharacters => 'Notonomo enhavas malpermesitajn signojn';
+	@override String get noteNameReserved => 'Noto nomo rezervita';
 }
 
 // Path: home.moveNote
@@ -400,7 +402,6 @@ class _TranslationsSettingsPrefLabelsEo extends TranslationsSettingsPrefLabelsEn
 	@override String get autoClearWhiteboardOnExit => 'Malplenigu la tablon post foriro';
 	@override String get disableEraserAfterUse => 'Malaktivigu la forviŝilon';
 	@override String get hideFingerDrawingToggle => 'Kaŝu la fingrodesegnan ŝaltilon';
-	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Aŭtomate malŝalti fingrodesegnadon';
 	@override String get editorPromptRename => 'Petu vin alinomi novajn notojn';
 	@override String get recentColorsDontSavePresets => 'Ne konservu kolorŝablonon en la lastuzitaj koloroj';
 	@override String get recentColorsLength => 'Nombro da lastuzitaj koloroj';
@@ -411,6 +412,7 @@ class _TranslationsSettingsPrefLabelsEo extends TranslationsSettingsPrefLabelsEn
 	@override String get simplifiedHomeLayout => 'Simpligita ĉefekranaranĝo';
 	@override String get customDataDir => 'Kutima Saber-dosierujo';
 	@override String get sentry => 'Erarraportado';
+	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Aŭtomate malŝalti fingrodesegnadon';
 }
 
 // Path: settings.prefDescriptions
@@ -427,7 +429,6 @@ class _TranslationsSettingsPrefDescriptionsEo extends TranslationsSettingsPrefDe
 	@override String get disableEraserAfterUse => 'Aŭtomate ŝanĝas reen al la plumo post uzi la forviŝilon';
 	@override String get maxImageSize => 'Pli grandaj bildoj densiĝos';
 	@override late final _TranslationsSettingsPrefDescriptionsHideFingerDrawingEo hideFingerDrawing = _TranslationsSettingsPrefDescriptionsHideFingerDrawingEo._(_root);
-	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Malŝaltu fingrodesegnadon kiam grifelo estas detektita';
 	@override String get editorPromptRename => 'Vi ĉiam povas renomi notojn poste';
 	@override String get printPageIndicators => 'Montru paĝnumeradon post eksporto';
 	@override String get autosave => 'Aŭtomate konservas post iom da tempo aŭ neniam';
@@ -436,6 +437,7 @@ class _TranslationsSettingsPrefDescriptionsEo extends TranslationsSettingsPrefDe
 	@override String get simplifiedHomeLayout => 'Fiksas la alton por ĉiu notantaŭrigardo';
 	@override String get shouldAlwaysAlertForUpdates => 'Informu min pri ĝisdatigoj tuj kiam ili disponebliĝos';
 	@override late final _TranslationsSettingsPrefDescriptionsSentryEo sentry = _TranslationsSettingsPrefDescriptionsSentryEo._(_root);
+	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Malŝaltu fingrodesegnadon kiam grifelo estas detektita';
 }
 
 // Path: settings.themeModes

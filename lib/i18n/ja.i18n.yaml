@@ -36,6 +36,8 @@ home:
     rename: 名称変更
     noteNameEmpty: メモのタイトルは空欄にすることはできません
     noteNameExists: 同一のタイトルがすでに存在します
+    noteNameForbiddenCharacters(OUTDATED): ノート名に禁止文字が含まれています
+    noteNameReserved(OUTDATED): ノート名は予約済み
   moveNote: 
     moveNote: メモを移動
     moveName: $f を移動
@@ -95,10 +97,10 @@ settings:
     preferGreyscale: グレースケールを優先
     maxImageSize: 最大画像サイズ
     autoClearWhiteboardOnExit: アプリを終了したらホワイトボードを消去する
-    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): 指の描画を自動的に無効にする
     editorPromptRename: 新しいメモの名前を変更するよう促す
     recentColorsDontSavePresets: 最近使用した色をプリセットに登録しない
     printPageIndicators: 印刷ページのインジケーター
+    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): 指の描画を自動的に無効にする
     sentry(OUTDATED): エラー報告
     autosave(OUTDATED): 自動保存
     simplifiedHomeLayout(OUTDATED): 簡素化されたホームレイアウト
@@ -119,7 +121,6 @@ settings:
       fixedOn(OUTDATED): 指の描画が有効に固定される
       shown(OUTDATED): 偶発的な切り替えを防止します
       fixedOff(OUTDATED): 指の描画が無効に固定される
-    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): スタイラスが検出されたときに指の描画をオフにする
     editorPromptRename: メモの名前は後でいつでも変更できます
     printPageIndicators: エクスポートにページインジケーターを表示
     sentry: 
@@ -127,6 +128,7 @@ settings:
       inactive(OUTDATED): 非アクティブ
       activeUntilRestart(OUTDATED): アプリを再起動するまでアクティブ
       inactiveUntilRestart(OUTDATED): アプリを再起動するまで、非アクティブになります
+    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): スタイラスが検出されたときに指の描画をオフにする
     autosave(OUTDATED): 短い遅延の後、または決して自動保存しません
     simplifiedHomeLayout(OUTDATED): 各ノートのプレビューに固定の高さを設定します
     autoStraightenLines(OUTDATED): シェイプペンを使用せずに長い線をまっすぐにします。

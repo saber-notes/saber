@@ -31,6 +31,8 @@ home:
     folderNameContainsSlash(OUTDATED): A mappa neve nem tartalmazhat perjelet
     folderNameExists(OUTDATED): Folder már létezik
   renameNote: 
+    noteNameForbiddenCharacters(OUTDATED): A megjegyzés neve tiltott karaktereket tartalmaz
+    noteNameReserved(OUTDATED): Megjegyzés név fenntartva
     renameNote(OUTDATED): Jegyzet átnevezése
     noteName(OUTDATED): Megjegyzés neve
     rename(OUTDATED): Átnevezés
@@ -93,9 +95,9 @@ settings:
     preferGreyscale: Szürkeárnyalatos színek előnyben részesítése
     maxImageSize: Maximális képméret
     autoClearWhiteboardOnExit: A tábla törlése az alkalmazásból való kilépés után
-    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Ujjrajzolás automatikus letiltása
     editorPromptRename: Új jegyzetek átnevezésére való felszólítás
     recentColorsDontSavePresets: Ne mentse az előre beállított színeket a legutóbbi színek között
+    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Ujjrajzolás automatikus letiltása
     sentry(OUTDATED): Hibajelentés
     autosave(OUTDATED): Automatikus mentés
     simplifiedHomeLayout(OUTDATED): Egyszerűsített otthoni elrendezés
@@ -118,13 +120,13 @@ settings:
       shown(OUTDATED): Megakadályozza a véletlen átkapcsolást
       fixedOn(OUTDATED): Az ujjlenyomat rögzítése engedélyezett állapotban van
       fixedOff(OUTDATED): Az ujjrajzolás letiltva van rögzítve
-    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Kapcsolja ki az ujjal történő rajzolást, ha ceruzát észlel
     editorPromptRename: A jegyzeteket később bármikor átnevezheti
     sentry: 
       active(OUTDATED): Aktív
       inactive(OUTDATED): Tétlen
       activeUntilRestart(OUTDATED): Aktív, amíg újra nem indítja újra az alkalmazást
       inactiveUntilRestart(OUTDATED): Inaktív, amíg újra nem indítja újra az alkalmazást
+    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Kapcsolja ki az ujjal történő rajzolást, ha ceruzát észlel
     autosave(OUTDATED): Automato-Save rövid késleltetés után, vagy soha
     simplifiedHomeLayout(OUTDATED): Rögzített magasságot állít be minden hangjegy előnézetéhez
     autoStraightenLines(OUTDATED): Kiegyenesíti a hosszú vonalakat anélkül, hogy az alakos tollat ​​kellene használnia
