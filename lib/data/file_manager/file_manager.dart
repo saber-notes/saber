@@ -668,12 +668,12 @@ class FileManager {
     if (!stows.recentFiles.loaded) await stows.recentFiles.waitUntilRead();
     // Delete entries for files that have been deleted outside of Saber
     final List<String> toRemove = [];
-    for(final file in stows.recentFiles.value) {
-      if(!doesFileExist(file)){
+    for (final file in stows.recentFiles.value) {
+      if (!doesFileExist(file)) {
         toRemove.add(file);
       }
     }
-    for(final file in toRemove){
+    for (final file in toRemove) {
       removeReferences(file);
     }
     return stows.recentFiles.value
