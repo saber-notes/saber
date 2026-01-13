@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/flavor_config.dart';
+import 'package:saber/data/nextcloud/saber_syncer.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -282,7 +283,7 @@ void main() {
       recentlyAccessed = await FileManager.getRecentlyAccessed();
       expect(recentlyAccessed, isEmpty);
 
-      FileManager.removeReferences(filePath);
+      syncer.uploader.enqueueRel(filePath);
       FileManager.broadcastFileWrite(FileOperationType.delete, filePath);
     });
 
