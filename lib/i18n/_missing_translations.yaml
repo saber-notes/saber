@@ -50,8 +50,8 @@ ar:
 cs: 
   home: 
     renameNote: 
-      noteNameForbiddenCharacters(OUTDATED): Note name contains forbidden characters
-      noteNameReserved(OUTDATED): Note name reserved
+      noteNameForbiddenCharacters(OUTDATED): Zadaný název poznámky obsahuje nepovolené znaky
+      noteNameReserved(OUTDATED): Tento název poznámky je rezervovaný pro účely aplikace
 de: 
   home: 
     renameNote: 
