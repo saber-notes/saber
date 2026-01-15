@@ -48,10 +48,6 @@ ar:
       lineThickness(OUTDATED): Line thickness
       lineThicknessDescription(OUTDATED): Background line thickness
 cs: 
-  home: 
-    renameNote: 
-      noteNameForbiddenCharacters(OUTDATED): Zadaný název poznámky obsahuje nepovolené znaky
-      noteNameReserved(OUTDATED): Tento název poznámky je rezervovaný pro účely aplikace
 de: 
   home: 
     renameNote: 
