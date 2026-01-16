@@ -73,17 +73,13 @@ jobs:
       - name: Disable Flutter CLI animations
         run: flutter config --no-cli-animations
 
-      - run: flutter pub get
-
-      - name: Remove development dependencies
-        run: ./patches/remove_dev_dependencies.sh
-      - name: Remove proprietary dependencies
-        run: ./patches/remove_proprietary_dependencies.sh
+      - run: ./patches/pre/remove_dev_dependencies.sh
+      - run: ./patches/pre/remove_linux_dependencies.sh
+      - run: ./patches/pre/remove_proprietary_dependencies.sh
         if: matrix.foss
-      - name: Remove non-Android dependencies
-        run: ./patches/remove_non_android_dependencies.sh
-      - name: Patch rust dependencies
-        run: ./patches/patch_rust_versions.sh
+      - run: flutter pub get
+      - run: ./patches/post/patch_rust_versions.sh
+      - run: ./patches/post/remove_wasm_libs.sh
 
       - name: Build apk
         run: flutter build apk

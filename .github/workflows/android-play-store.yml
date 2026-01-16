@@ -67,16 +67,12 @@ jobs:
       - name: Disable Flutter CLI animations
         run: flutter config --no-cli-animations
 
+      - run: ./patches/pre/remove_dev_dependencies.sh
+      - run: ./patches/pre/remove_linux_dependencies.sh
+      - run: ./patches/pre/remove_request_install_packages_permission.sh
       - run: flutter pub get
-
-      - name: Remove REQUEST_INSTALL_PACKAGES permission
-        run: ./patches/remove_request_install_packages_permission.sh
-      - name: Remove development dependencies
-        run: ./patches/remove_dev_dependencies.sh
-      - name: Remove non-Android dependencies
-        run: ./patches/remove_non_android_dependencies.sh
-      - name: Patch rust dependencies
-        run: ./patches/patch_rust_versions.sh
+      - run: ./patches/post/patch_rust_versions.sh
+      - run: ./patches/post/remove_wasm_libs.sh
 
       - name: Build aab
         run: |
