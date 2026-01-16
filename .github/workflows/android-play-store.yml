@@ -34,6 +34,7 @@ jobs:
             .flutter-plugins-dependencies
           key: ${{ runner.OS }}-saber-android-${{ hashFiles('**/pubspec.lock') }}-${{ hashFiles('**/*.dart') }}
           restore-keys: |
+            ${{ runner.OS }}-saber-android-
             ${{ runner.OS }}-saber-
 
       - name: Setup keystore
