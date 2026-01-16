@@ -22,9 +22,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v6
 
-      - name: Setup cache
+      - name: Restore cache
         id: cache
-        uses: actions/cache@v5
+        uses: actions/cache/restore@v5
         with:
           path: |
             .dart_tool/
@@ -32,6 +32,7 @@ jobs:
             linux/flutter/ephemeral/
             macos/Flutter/ephemeral/
             windows/flutter/ephemeral/
+            submodules/flutter/bin/cache/
             .flutter-plugins-dependencies
           key: ${{ runner.OS }}-saber-android-${{ hashFiles('**/pubspec.lock') }}-${{ hashFiles('**/*.dart') }}
           restore-keys: |
@@ -81,6 +82,20 @@ jobs:
         run: flutter build apk
         if: ${{ steps.cache.outputs.cache-hit == '' }}
 
+      - name: Setup cache
+        uses: actions/cache/save@v5
+        if: ${{ steps.cache.outputs.cache-hit == '' }}
+        with:
+          path: |
+            .dart_tool/
+            build/
+            linux/flutter/ephemeral/
+            macos/Flutter/ephemeral/
+            windows/flutter/ephemeral/
+            submodules/flutter/bin/cache/
+            .flutter-plugins-dependencies
+          key: ${{ steps.cache.outputs.cache-primary-key }}
+
   build-apk:
     name: Build APK (${{ matrix.foss && 'FOSS' || 'Regular' }})
     needs: warmup-android-cache
@@ -107,6 +122,7 @@ jobs:
             linux/flutter/ephemeral/
             macos/Flutter/ephemeral/
             windows/flutter/ephemeral/
+            submodules/flutter/bin/cache/
             .flutter-plugins-dependencies
           key: ${{ runner.OS }}-saber-android-${{ hashFiles('**/pubspec.lock') }}-${{ hashFiles('**/*.dart') }}
           restore-keys: |
@@ -136,6 +152,8 @@ jobs:
           java-version: "21"
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v5
+        with:
+          cache-read-only: true
 
       - name: Setup Rust
         uses: moonrepo/setup-rust@v1
