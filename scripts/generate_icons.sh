@@ -4,7 +4,7 @@
 for svg_file in assets/icon/*.svg; do
   png_file="${svg_file%.svg}.png"
   echo "Rasterizing $svg_file..."
-  rsvg-convert -o "$png_file" "$svg_file" -w 1024 -h 1024
+  rsvg-convert -o "$png_file" "$svg_file"
 done
 echo
 
