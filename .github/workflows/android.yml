@@ -113,6 +113,11 @@ jobs:
 
       - uses: "./.github/shared_workflows/install_apt_dependencies"
 
+      - name: Setup Flutter
+        uses: adil192/setup-flutter-submodule@v1
+        with:
+          flutter-path: submodules/flutter
+
       - name: Restore cache
         uses: actions/cache/restore@v5
         with:
@@ -139,11 +144,6 @@ jobs:
           echo "keyPassword=${{ secrets.KEY_PASSWORD }}" >> android/key.properties
           echo "keyAlias=${{ secrets.ALIAS }}" >> android/key.properties
           echo "storeFile=../android.keystore" >> android/key.properties
-
-      - name: Setup Flutter
-        uses: adil192/setup-flutter-submodule@v1
-        with:
-          flutter-path: submodules/flutter
 
       - name: Setup Java
         uses: actions/setup-java@v5
