@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 500" width="1024" height="500">
+<defs>
+  <linearGradient id="yellowPaper" x1="0%" y1="0%" x2="0%" y2="100%">
+    <stop offset="0%" stop-color="#faca22" />
+    <stop offset="100%" stop-color="#ffd32e" />
+  </linearGradient>
+  <linearGradient id="shadowedPaper" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="30%" stop-color="#e5b800" />
+    <stop offset="50%" stop-color="#b18b00" />
+  </linearGradient>
+</defs>
+<style>
+.shadow {
+  filter: drop-shadow(0 10 10 rgba(125,100,22,0.7));
+}
+</style>
+
+<rect x="0" y="0" width="100%" height="100%" fill="#fac60a" />
+
+<g transform="translate(512, 250) scale(0.4) translate(-400, -400)">
+<g class="shadow">
+<path fill="url(#yellowPaper)" d="M744 488c37-38 42-48 50-99 5-37 5-35 6-219V40A40 40 0 00760 0H40A40 40 0 000 40V760a40 40 0 0040 40H170c184-1 182-1 219-6 51-8 61-13 99-50Z"/>
+</g>
+
+<path fill="#32322e" d="M374 166c-60 7-115 42-135 85-22 45-5 81 48 100 13 5 33 9 61 13 82 12 135 34 171 71 37 37 39 78 7 113-33 37-112 51-174 32-28-9-70-39-85-62-6-9-17-19-20-20-2-1-4-1-5-1-4-2-9 3-11 10-1 3 2 19 5 25 10 19 32 40 63 59 41 27 79 35 141 30 28-2 62-13 83-26 22-15 22-16 38-36 60-85-9-184-152-219-19-4-31-6-61-11-49-7-75-18-83-34-8-18 12-51 45-71 39-23 91-31 120-18 4 2 9 4 10 4 4 2 19 9 21 11 3 2 6 3 7 0 1-2-8-20-13-28-7-11-29-24-44-27-8-1-26-1-37 0Z"/>
+
+<path fill="url(#shadowedPaper)" d="M488 744C512 720 530 650 540 580A40 40 0 01580 540C650 530 720 512 744 488Z"/>
+</g>
+</svg>
