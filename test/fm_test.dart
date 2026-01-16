@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/flavor_config.dart';
+import 'package:saber/data/nextcloud/saber_syncer.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -272,6 +273,18 @@ void main() {
       // delete files
       await FileManager.deleteFile('/$fileName1.sbn2');
       await FileManager.deleteFile('/$fileName2.sbn2');
+
+      // delete file without removing it from recently accessed
+      const String filePath = '/$fileName1.sbn2';
+      await FileManager.writeFile(filePath, [1], awaitWrite: true);
+
+      final file = FileManager.getFile(filePath);
+      await file.delete();
+      recentlyAccessed = await FileManager.getRecentlyAccessed();
+      expect(recentlyAccessed, isEmpty);
+
+      syncer.uploader.enqueueRel(filePath);
+      FileManager.broadcastFileWrite(FileOperationType.delete, filePath);
     });
 
     test('isDirectory and doesFileExist', () async {
