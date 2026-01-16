@@ -38,7 +38,7 @@ jobs:
             macos/Flutter/ephemeral/
             windows/flutter/ephemeral/
             .flutter-plugins-dependencies
-          key: ${{ runner.OS }}-saber-${{ hashFiles('**/pubspec.lock') }}-${{ hashFiles('**/*.dart') }}
+          key: ${{ runner.OS }}-saber-android-${{ hashFiles('**/pubspec.lock') }}-${{ hashFiles('**/*.dart') }}
           restore-keys: |
             ${{ runner.OS }}-saber-
 
