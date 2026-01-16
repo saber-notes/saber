@@ -12,8 +12,93 @@ on:
       - .github/workflows/android.yml
 
 jobs:
+  warmup-android-cache:
+    # We can't cache the signed builds for security reasons,
+    # so run an unsigned build to populate the cache.
+    name: Build unsigned APK for caching
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Restore cache
+        id: cache
+        uses: actions/cache/restore@v5
+        with:
+          path: |
+            .dart_tool/
+            build/
+            linux/flutter/ephemeral/
+            macos/Flutter/ephemeral/
+            windows/flutter/ephemeral/
+            submodules/flutter/bin/cache/
+            .flutter-plugins-dependencies
+          key: ${{ runner.OS }}-saber-android-${{ hashFiles('**/pubspec.lock') }}-${{ hashFiles('**/*.dart') }}
+          restore-keys: |
+            ${{ runner.OS }}-saber-android-
+
+      - uses: "./.github/shared_workflows/install_apt_dependencies"
+        if: ${{ steps.cache.outputs.cache-hit == '' }}
+
+      - name: Setup Flutter
+        uses: adil192/setup-flutter-submodule@v1
+        if: ${{ steps.cache.outputs.cache-hit == '' }}
+        with:
+          flutter-path: submodules/flutter
+
+      - name: Setup Java
+        uses: actions/setup-java@v5
+        if: ${{ steps.cache.outputs.cache-hit == '' }}
+        with:
+          distribution: "microsoft"
+          java-version: "21"
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v5
+        if: ${{ steps.cache.outputs.cache-hit == '' }}
+
+      - name: Setup Rust
+        uses: moonrepo/setup-rust@v1
+        if: ${{ steps.cache.outputs.cache-hit == '' }}
+        with:
+          # The rust version is read from rust-toolchain.toml
+          targets: armv7-linux-androideabi,aarch64-linux-android,x86_64-linux-android
+
+      - name: Disable Flutter CLI animations
+        run: flutter config --no-cli-animations
+        if: ${{ steps.cache.outputs.cache-hit == '' }}
+
+      - run: ./patches/pre/remove_dev_dependencies.sh
+        if: ${{ steps.cache.outputs.cache-hit == '' }}
+      - run: ./patches/pre/remove_linux_dependencies.sh
+        if: ${{ steps.cache.outputs.cache-hit == '' }}
+      - run: flutter pub get
+      - run: ./patches/post/patch_rust_versions.sh
+        if: ${{ steps.cache.outputs.cache-hit == '' }}
+      - run: ./patches/post/remove_wasm_libs.sh
+        if: ${{ steps.cache.outputs.cache-hit == '' }}
+
+      - name: Build apk
+        run: flutter build apk
+        if: ${{ steps.cache.outputs.cache-hit == '' }}
+
+      - name: Setup cache
+        uses: actions/cache/save@v5
+        if: ${{ steps.cache.outputs.cache-hit == '' }}
+        with:
+          path: |
+            .dart_tool/
+            build/
+            linux/flutter/ephemeral/
+            macos/Flutter/ephemeral/
+            windows/flutter/ephemeral/
+            submodules/flutter/bin/cache/
+            .flutter-plugins-dependencies
+          key: ${{ steps.cache.outputs.cache-primary-key }}
+
   build-apk:
     name: Build APK (${{ matrix.foss && 'FOSS' || 'Regular' }})
+    needs: warmup-android-cache
     strategy:
       fail-fast: false
       matrix:
@@ -28,7 +113,12 @@ jobs:
 
       - uses: "./.github/shared_workflows/install_apt_dependencies"
 
-      - name: Setup cache
+      - name: Setup Flutter
+        uses: adil192/setup-flutter-submodule@v1
+        with:
+          flutter-path: submodules/flutter
+
+      - name: Restore cache
         uses: actions/cache/restore@v5
         with:
           path: |
@@ -37,9 +127,11 @@ jobs:
             linux/flutter/ephemeral/
             macos/Flutter/ephemeral/
             windows/flutter/ephemeral/
+            submodules/flutter/bin/cache/
             .flutter-plugins-dependencies
           key: ${{ runner.OS }}-saber-android-${{ hashFiles('**/pubspec.lock') }}-${{ hashFiles('**/*.dart') }}
           restore-keys: |
+            ${{ runner.OS }}-saber-android-
             ${{ runner.OS }}-saber-
 
       - name: Setup keystore
@@ -53,16 +145,15 @@ jobs:
           echo "keyAlias=${{ secrets.ALIAS }}" >> android/key.properties
           echo "storeFile=../android.keystore" >> android/key.properties
 
-      - name: Setup Flutter
-        uses: adil192/setup-flutter-submodule@v1
-        with:
-          flutter-path: submodules/flutter
-
       - name: Setup Java
         uses: actions/setup-java@v5
         with:
           distribution: "microsoft"
           java-version: "21"
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v5
+        with:
+          cache-read-only: true
 
       - name: Setup Rust
         uses: moonrepo/setup-rust@v1
