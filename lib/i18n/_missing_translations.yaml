@@ -778,8 +778,8 @@ hu:
 it: 
   home: 
     renameNote: 
-      noteNameForbiddenCharacters(OUTDATED): Note name contains forbidden characters
-      noteNameReserved(OUTDATED): Note name reserved
+      noteNameForbiddenCharacters(OUTDATED): Il nome della nota contiene caratteri vietati
+      noteNameReserved(OUTDATED): Nome nota riservato
 ja: 
   common: 
     done(OUTDATED): Done
