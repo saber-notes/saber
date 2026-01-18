@@ -86,6 +86,55 @@ void main() {
       reason: 'The correct strokes should have been erased',
     );
   });
+
+  test('Test that eraser size scales inversely with zoom', () {
+    final eraser = Eraser(size: 10);
+    // At scale 1.0, this stroke is at the edge (distance = size)
+    // At scale 2.0, the effective size should be 5, so this stroke (at 10) should NOT be erased
+    final strokeAtEdge = _strokeWithPoint(
+      _eraserPos + const Offset(1, 0) * eraser.size,
+    );
+
+    // Check with scale 1.0 (default)
+    var erased = eraser.checkForOverlappingStrokes(
+      _eraserPos,
+      [strokeAtEdge],
+      scale: 1.0,
+    );
+    expect(
+      erased.contains(strokeAtEdge),
+      true,
+      reason: 'Should erase stroke at edge with scale 1.0',
+    );
+
+    // Check with scale 2.0 (eraser should be smaller in document coordinates)
+    erased = eraser.checkForOverlappingStrokes(
+      _eraserPos,
+      [strokeAtEdge],
+      scale: 2.0,
+    );
+    expect(
+      erased.contains(strokeAtEdge),
+      false,
+      reason: 'Should NOT erase stroke at distance 10 when scale is 2.0 (effective size 5)',
+    );
+
+    // At scale 0.5, effective size should be 20.
+    // A stroke at distance 15 should be erased.
+    final strokeFurtherAway = _strokeWithPoint(
+      _eraserPos + const Offset(1.5, 0) * eraser.size,
+    );
+    erased = eraser.checkForOverlappingStrokes(
+      _eraserPos,
+      [strokeFurtherAway],
+      scale: 0.5,
+    );
+    expect(
+      erased.contains(strokeFurtherAway),
+      true,
+      reason: 'Should erase stroke at distance 15 when scale is 0.5 (effective size 20)',
+    );
+  });
 }
 
 Stroke _strokeWithPoint(Offset point) => Stroke(

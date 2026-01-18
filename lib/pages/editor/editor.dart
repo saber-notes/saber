@@ -567,6 +567,7 @@ class EditorState extends State<Editor> {
       for (final stroke in (currentTool as Eraser).checkForOverlappingStrokes(
         position,
         page.strokes,
+        scale: _transformationController.value.approxScale,
       )) {
         page.strokes.remove(stroke);
       }
@@ -608,6 +609,7 @@ class EditorState extends State<Editor> {
       for (final stroke in (currentTool as Eraser).checkForOverlappingStrokes(
         position,
         page.strokes,
+        scale: _transformationController.value.approxScale,
       )) {
         page.strokes.remove(stroke);
       }
