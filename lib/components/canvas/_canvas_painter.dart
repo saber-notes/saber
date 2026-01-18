@@ -55,6 +55,7 @@ class CanvasPainter extends CustomPainter {
     _drawCurrentStroke(canvas);
     _drawDetectedShape(canvas);
     _drawSelection(canvas);
+    _drawEraserIndicator(canvas);
     _drawPageIndicator(canvas, size);
   }
 
@@ -74,7 +75,8 @@ class CanvasPainter extends CustomPainter {
         showPageIndicator != oldDelegate.showPageIndicator ||
         pageIndex != oldDelegate.pageIndex ||
         totalPages != oldDelegate.totalPages ||
-        currentScale != oldDelegate.currentScale;
+        currentScale != oldDelegate.currentScale ||
+        page.eraserPosition != oldDelegate.page.eraserPosition;
   }
 
   void _drawHighlighterStrokes(Canvas canvas, Rect canvasRect) {
@@ -247,6 +249,27 @@ class CanvasPainter extends CustomPainter {
         ..color = primaryColor
         ..strokeWidth = 3
         ..style = .stroke,
+    );
+  }
+
+  void _drawEraserIndicator(Canvas canvas) {
+    if (page.eraserPosition == null) return;
+    final radius = 10.0 / currentScale; // Eraser().size is 10 by default
+
+    final path = Path()
+      ..addOval(
+        Rect.fromCircle(center: page.eraserPosition!, radius: radius),
+      );
+
+    canvas.drawPath(
+      dashPath(
+        path,
+        dashArray: CircularIntervalList([5 / currentScale, 5 / currentScale]),
+      ),
+      Paint()
+        ..color = Colors.grey
+        ..strokeWidth = 1.0 / currentScale
+        ..style = PaintingStyle.stroke,
     );
   }
 
