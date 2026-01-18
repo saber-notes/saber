@@ -96,11 +96,9 @@ void main() {
     );
 
     // Check with scale 1.0 (default)
-    var erased = eraser.checkForOverlappingStrokes(
-      _eraserPos,
-      [strokeAtEdge],
-      scale: 1.0,
-    );
+    var erased = eraser.checkForOverlappingStrokes(_eraserPos, [
+      strokeAtEdge,
+    ], scale: 1.0);
     expect(
       erased.contains(strokeAtEdge),
       true,
@@ -108,15 +106,14 @@ void main() {
     );
 
     // Check with scale 2.0 (eraser should be smaller in document coordinates)
-    erased = eraser.checkForOverlappingStrokes(
-      _eraserPos,
-      [strokeAtEdge],
-      scale: 2.0,
-    );
+    erased = eraser.checkForOverlappingStrokes(_eraserPos, [
+      strokeAtEdge,
+    ], scale: 2.0);
     expect(
       erased.contains(strokeAtEdge),
       false,
-      reason: 'Should NOT erase stroke at distance 10 when scale is 2.0 (effective size 5)',
+      reason:
+          'Should NOT erase stroke at distance 10 when scale is 2.0 (effective size 5)',
     );
 
     // At scale 0.5, effective size should be 20.
@@ -124,15 +121,14 @@ void main() {
     final strokeFurtherAway = _strokeWithPoint(
       _eraserPos + const Offset(1.5, 0) * eraser.size,
     );
-    erased = eraser.checkForOverlappingStrokes(
-      _eraserPos,
-      [strokeFurtherAway],
-      scale: 0.5,
-    );
+    erased = eraser.checkForOverlappingStrokes(_eraserPos, [
+      strokeFurtherAway,
+    ], scale: 0.5);
     expect(
       erased.contains(strokeFurtherAway),
       true,
-      reason: 'Should erase stroke at distance 15 when scale is 0.5 (effective size 20)',
+      reason:
+          'Should erase stroke at distance 15 when scale is 0.5 (effective size 20)',
     );
   });
 }

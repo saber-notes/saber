@@ -257,9 +257,7 @@ class CanvasPainter extends CustomPainter {
     final radius = 10.0 / currentScale; // Eraser().size is 10 by default
 
     final path = Path()
-      ..addOval(
-        Rect.fromCircle(center: page.eraserPosition!, radius: radius),
-      );
+      ..addOval(Rect.fromCircle(center: page.eraserPosition!, radius: radius));
 
     canvas.drawPath(
       dashPath(
