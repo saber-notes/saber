@@ -73,6 +73,7 @@ jobs:
       - run: ./patches/pre/remove_linux_dependencies.sh
         if: ${{ steps.cache.outputs.cache-hit == '' }}
       - run: flutter pub get
+        if: ${{ steps.cache.outputs.cache-hit == '' }}
       - run: ./patches/post/patch_rust_versions.sh
         if: ${{ steps.cache.outputs.cache-hit == '' }}
       - run: ./patches/post/remove_wasm_libs.sh
