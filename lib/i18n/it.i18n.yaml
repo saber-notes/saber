@@ -39,8 +39,8 @@ home:
     rename: Rinomina
     noteNameEmpty: Il nome della nota non può essere vuoto
     noteNameExists: Esiste già una nota con questo nome
-    noteNameForbiddenCharacters(OUTDATED): Il nome della nota contiene caratteri vietati
-    noteNameReserved(OUTDATED): Nome della nota riservato
+    noteNameForbiddenCharacters: Il nome della nota contiene caratteri vietati
+    noteNameReserved: Nome nota riservato
   moveNote:
     moveNote: Sposta nota
     moveNotes: Sposta $n note

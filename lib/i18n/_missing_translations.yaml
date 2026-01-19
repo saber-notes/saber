@@ -757,10 +757,6 @@ hu:
       lockAxisAlignedPan(OUTDATED): Lock panning to horizontal or vertical
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
 it:
-  home:
-    renameNote:
-      noteNameForbiddenCharacters(OUTDATED): Il nome della nota contiene caratteri vietati
-      noteNameReserved(OUTDATED): Nome nota riservato
 ja:
   common:
     done(OUTDATED): Done
