@@ -1,0 +1,2 @@
+• Risolto il problema con la possibilità di nominare note con caratteri non validi. Le nuove regole favoriscono la compatibilità multipiattaforma.
+• Impercettibilmente modificata l'icona della Sciabola.

@@ -1,0 +1,2 @@
+• Die Möglichkeit, Notizen mit ungültigen Zeichen zu benennen, wurde behoben. Die neuen Regeln unterstützen die plattformübergreifende Kompatibilität. 
+• Das Säbelsymbol wurde unmerklich angepasst.

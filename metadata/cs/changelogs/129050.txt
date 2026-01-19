@@ -1,0 +1,2 @@
+• Opravena možnost pojmenovávat poznámky neplatnými znaky. Nová pravidla napomáhají kompatibilitě napříč platformami.
+• Neznatelně upravená ikona Saber.

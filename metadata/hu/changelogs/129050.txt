@@ -1,0 +1,2 @@
+• Javítva az érvénytelen karaktereket tartalmazó jegyzetek elnevezése. Az új szabályok elősegítik a platformok közötti kompatibilitást.
+• Észrevétlenül módosította a szablya ikont.

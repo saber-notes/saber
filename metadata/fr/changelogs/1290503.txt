@@ -1,0 +1,2 @@
+• Correction de la possibilité de nommer des notes avec des caractères invalides. Les nouvelles règles facilitent la compatibilité multiplateforme.
+• Modification imperceptible de l'icône Saber.

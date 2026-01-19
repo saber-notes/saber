@@ -1,0 +1,2 @@
+• Corrigida a possibilidade de nomear notas com caracteres inválidos. As novas regras auxiliam na compatibilidade entre plataformas.
+• Ajustou imperceptivelmente o ícone do Saber.

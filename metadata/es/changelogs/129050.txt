@@ -1,0 +1,2 @@
+• Se corrigió la posibilidad de nombrar notas con caracteres no válidos. Las nuevas reglas favorecen la compatibilidad multiplataforma. 
+• Se modificó imperceptiblemente el ícono de Saber.

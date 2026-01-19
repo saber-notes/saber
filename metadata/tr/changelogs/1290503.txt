@@ -1,0 +1,2 @@
+• Geçersiz karakterler içeren notlara isim verilebilmesi düzeltildi. Yeni kurallar platformlar arası uyumluluğa yardımcı oluyor. 
+• Saber simgesinde fark edilmeyecek şekilde ayarlamalar yapıldı.
