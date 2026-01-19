@@ -39,8 +39,8 @@ home:
     rename: 重新命名
     noteNameEmpty: 筆記名稱不可為空
     noteNameExists: 同名筆記已經存在
-    noteNameReserved(OUTDATED): 備註名稱保留
-    noteNameForbiddenCharacters(OUTDATED): 注意名稱包含禁用字符
+    noteNameForbiddenCharacters: 筆記名稱包含禁止使用的字元
+    noteNameReserved: 筆記名稱為系統保留字
   moveNote:
     moveNote: 移動筆記
     moveNotes: 移動 $n 份筆記
@@ -100,6 +100,7 @@ settings:
     autoClearWhiteboardOnExit: 退出應用程式後清除白板
     disableEraserAfterUse: 自動禁用橡皮擦
     hideFingerDrawingToggle: 隱藏手指繪圖切換開關
+    autoDisableFingerDrawingWhenStylusDetected: 自動停用手指繪圖
     editorPromptRename: 提醒您重新命名新筆記
     recentColorsDontSavePresets: 不要在最近的顏色中儲存預設顏色
     recentColorsLength: 要儲存多少種最近的顏色
@@ -110,7 +111,6 @@ settings:
     simplifiedHomeLayout: 簡化首頁佈局
     customDataDir: 自訂 Saber 資料夾
     sentry: 錯誤報告
-    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): 自動禁用手指繪圖
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible 字體為低視力讀者提高易讀性
     allowInsecureConnections: （不推薦）允許Saber連結到具有自簽名/不受信任證書的伺服器
@@ -122,6 +122,7 @@ settings:
       shown: 防止意外切換
       fixedOn: 手指繪圖固定為啟用
       fixedOff: 手指繪圖固定為禁用
+    autoDisableFingerDrawingWhenStylusDetected: 偵測到觸控筆時自動停用手指繪圖
     editorPromptRename: 您以後隨時可以重新命名筆記
     printPageIndicators: 在匯出中顯示頁碼
     autosave: 在短暫延遲後自動儲存，或永不儲存
@@ -134,7 +135,6 @@ settings:
       inactive: 停用
       activeUntilRestart: 啟用直到您重新啟動應用程式
       inactiveUntilRestart: 停用直到您重新啟動應用程式
-    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): 檢測到手寫筆時關閉手指繪圖
   themeModes:
     system: 系統
     light: 淺色

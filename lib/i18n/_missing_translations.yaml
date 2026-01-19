@@ -1109,12 +1109,3 @@ zh-Hans-CN:
       noteNameForbiddenCharacters(OUTDATED): Note name contains forbidden characters
       noteNameReserved(OUTDATED): Note name reserved
 zh-Hant-TW:
-  home:
-    renameNote:
-      noteNameForbiddenCharacters(OUTDATED): 筆記名稱包含禁止使用的字元
-      noteNameReserved(OUTDATED): 筆記名稱為系統保留字
-  settings:
-    prefLabels:
-      autoDisableFingerDrawingWhenStylusDetected(OUTDATED): 自動停用手指繪圖
-    prefDescriptions:
-      autoDisableFingerDrawingWhenStylusDetected(OUTDATED): 偵測到觸控筆時自動停用手指繪圖
