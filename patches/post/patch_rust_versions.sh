@@ -38,7 +38,7 @@ fi
 
 for file in $TARGET_FILES; do
   echo "Patching Rust version in $file"
-  sed -i "/^  String get _toolchain/ s/=>.*/=> '${RUST_VERSION}';/" "$file"
+  sed -i.backup "/^  String get _toolchain/ s/=>.*/=> '${RUST_VERSION}';/" "$file" && rm "$file.backup"
   # Print the patched line
   grep "^  String get _toolchain" "$file"
 done
