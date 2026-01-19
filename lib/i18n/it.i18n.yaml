@@ -1,23 +1,23 @@
-common: 
+common:
   done: Fatto
   continueBtn: Continua
   cancel: Cancella
-home: 
-  tabs: 
+home:
+  tabs:
     home: Home
     browse: Sfoglia
     whiteboard: Lavagna
     settings: Impostazioni
-  titles: 
+  titles:
     home: Note recenti
     browse: Sfoglia
     whiteboard: Lavagna
     settings: Impostazioni
-  tooltips: 
+  tooltips:
     newNote: Nuova nota
     showUpdateDialog: Mostra finestra di aggiornamento
     exportNote: Esporta nota
-  create: 
+  create:
     newNote: Nuova nota
     importNote: Importa nota
   welcome: Benvenuto su Saber
@@ -26,14 +26,14 @@ home:
   noPreviewAvailable: Nessuna anteprima disponibile
   createNewNote: Tocca il pulsante + per creare una nuova nota
   backFolder: Torna alla cartella precedente
-  newFolder: 
+  newFolder:
     newFolder: Nuova cartella
     folderName: Nome cartella
     create: Crea
     folderNameEmpty: Il nome della cartella non può essere vuoto
     folderNameContainsSlash: Il nome della cartella non può contenere una barra
     folderNameExists: La cartella esiste già
-  renameNote: 
+  renameNote:
     renameNote: Rinomina nota
     noteName: Nome nota
     rename: Rinomina
@@ -41,7 +41,7 @@ home:
     noteNameExists: Esiste già una nota con questo nome
     noteNameForbiddenCharacters(OUTDATED): Il nome della nota contiene caratteri vietati
     noteNameReserved(OUTDATED): Nome della nota riservato
-  moveNote: 
+  moveNote:
     moveNote: Sposta nota
     moveNotes: Sposta $n note
     moveName: Sposta $f
@@ -50,39 +50,39 @@ home:
     multipleRenamedTo: "Le note seguenti verranno rinominate:"
     numberRenamedTo: $n le note verranno rinominate per evitare conflitti
   deleteNote: Elimina nota
-  renameFolder: 
+  renameFolder:
     renameFolder: Rinomina cartella
     folderName: Nome cartella
     rename: Rinomina
     folderNameEmpty: Il nome della cartella non può essere vuoto
     folderNameContainsSlash: Il nome della cartella non può contenere una barra
     folderNameExists: Esiste già una cartella con questo nome
-  deleteFolder: 
+  deleteFolder:
     deleteFolder: Elimina cartella
     deleteName: Elimina $f
     delete: Elimina
     alsoDeleteContents: Elimina anche tutte le note all'interno di questa cartella
-sentry: 
-  consent: 
+sentry:
+  consent:
     title: Vuoi aiutaci a migliorare Saber?
-    description: 
+    description:
       question: Vuoi segnalare automaticamente gli errori imprevisti? Questo mi aiuta a identificare e risolvere i problemi più velocemente.
       scope: I report potrebbero contenere informazioni sull'errore e sul tuo dispositivo. Ho fatto tutto il possibile per filtrare i dati personali, ma alcuni potrebbero rimanere.
       currentlyOff: Se acconsenti, la segnalazione degli errori verrà abilitata dopo il riavvio dell'app.
       currentlyOn: Se revochi il consenso, riavvia l'app per disattivare la segnalazione degli errori.
       learnMoreInPrivacyPolicy(rich): Scopri di più in ${link(privacy policy)}.
-    answers: 
+    answers:
       yes: Yes
       no: No
       later: Chiedimelo più tardi
-settings: 
-  prefCategories: 
+settings:
+  prefCategories:
     general: Generale
     writing: Scrittura
     editor: Editor
     performance: Prestazioni
     advanced: Avanzato
-  prefLabels: 
+  prefLabels:
     locale: Lingua app
     appTheme: Tema dell'app
     platform: Tipo di tema
@@ -111,14 +111,14 @@ settings:
     simplifiedHomeLayout: Layout semplificato della home
     customDataDir: Cartella Saber personalizzata
     sentry: Segnalazione di errori
-  prefDescriptions: 
+  prefDescriptions:
     hyperlegibleFont: Atkinson Iperleggibile aumenta la leggibilità per i lettori ipovedenti
     allowInsecureConnections: (Non consigliato) Consenti a Saber di connettersi ai server con certificati autofirmati/non attendibili
     preferGreyscale: Per display e-ink
     autoClearWhiteboardOnExit: Sarà comunque sincronizzato con gli altri tuoi dispositivi
     disableEraserAfterUse: Torna automaticamente alla penna dopo aver utilizzato la gomma
     maxImageSize: Le immagini più grandi verranno compresse
-    hideFingerDrawing: 
+    hideFingerDrawing:
       shown: Impedisce l'attivazione accidentale
       fixedOn: Il disegno con le dita è fissato come abilitato
       fixedOff: Il disegno con le dita è fisso come disabilitato
@@ -130,33 +130,33 @@ settings:
     autoStraightenLines: Raddrizza le linee lunghe senza dover utilizzare la penna sagomatrice
     simplifiedHomeLayout: Imposta un'altezza fissa per ogni anteprima della nota
     shouldAlwaysAlertForUpdates: Segnalami aggiornamenti non appena sono disponibili
-    sentry: 
+    sentry:
       active: Attivo
       inactive: Non attivo
       activeUntilRestart: Attivo fino al riavvio dell'app
       inactiveUntilRestart: Non attivo finché non riavvii l'app
-  themeModes: 
+  themeModes:
     system: Sistema
     light: Chiaro
     dark: Scuro
-  layoutSizes: 
+  layoutSizes:
     auto: Automatico
     phone: Telefono
     tablet: Tablet
-  accentColorPicker: 
+  accentColorPicker:
     pickAColor: Scegli un colore
   systemLanguage: Lingua del sistema
-  axisDirections: 
-    - Sopra
-    - Destra
-    - In basso
-    - Sotto
-  reset: 
+  axisDirections:
+  - Sopra
+  - Destra
+  - In basso
+  - Sotto
+  reset:
     title: Ripristinare questa impostazione?
     button: Ripristina
   resyncEverything: Risincronizza tutto
   openDataDir: Apri cartella Saber
-  customDataDir: 
+  customDataDir:
     cancel: Annulla
     select: Seleziona
     mustBeEmpty: La cartella selezionata deve essere vuota
@@ -164,87 +164,80 @@ settings:
     unsupported: Questa funzionalità è attualmente disponibile solo per gli sviluppatori. Il suo utilizzo comporterà probabilmente la perdita di dati.
   autosaveDisabled: Mai
   shapeRecognitionDisabled: Mai
-logs: 
+logs:
   logs: Log
   viewLogs: Visualizza log
   debuggingInfo: I log contengono informazioni utili per il debug e lo sviluppo
   noLogs: Niente log qui!
   useTheApp: I log appariranno qui mentre usi l'app
-login: 
+login:
   title: Login
-  form: 
+  form:
     agreeToPrivacyPolicy(rich): Effettuando l'accesso, accetti la ${linkToPrivacyPolicy(Informativa sulla privacy)}.
   signup(rich): Non hai ancora un account? ${linkToSignup(Registrati ora)}!
   notYou(rich): Nn sei tu? ${undoLogin(Scegli un altro account)}.
-  status: 
+  status:
     loggedOut: Disconnesso
     tapToLogin: Tocca per accedere con Nextcloud
     hi: Ciao, $u!
     almostDone: Quasi pronto per la sincronizzazione, tocca per completare l'accesso
     loggedIn: Effettuato l'accesso con Nextcloud
-  ncLoginStep: 
+  ncLoginStep:
     whereToStoreData: "Scegli dove vuoi archiviare i tuoi dati:"
     saberNcServer: Il server Nextcloud di Saber
     otherNcServer: Altro server Nextcloud
     serverUrl: URL Server
     loginWithSaber: Accedi con Saber
     loginWithNextcloud: Accedi con Nextcloud
-    loginFlow: 
+    loginFlow:
       pleaseAuthorize: Autorizza Saber ad accedere al tuo account Nextcloud
       followPrompts: Seguire le istruzioni nell'interfaccia Nextcloud
       browserDidntOpen: La pagina di accesso non si è aperta? Clicca qui
-  encLoginStep: 
+  encLoginStep:
     enterEncPassword: "Per proteggere i tuoi dati, inserisci la password crittografata:"
     newToSaber: Nuovo su Saber? Basta inserire una nuova password crittografata.
     encPassword: Password crittografata
     encFaqTitle: Domande frequenti
     wrongEncPassword: La decrittografia non è riuscita con la password fornita. Per favore prova a inserirla di nuovo.
     connectionFailed: Qualcosa è andato storto durante la connessione al server. Per favore riprova più tardi.
-    encFaq: 
-      - 
-        q: Cos'è una password crittografata? Perché usare due password?
-        a: |-
-          La password Nextcloud viene utilizzata per accedere al cloud. La password di crittografia "codifica" i tuoi dati prima che raggiungano il cloud.
-           Anche se qualcuno riesce ad accedere al tuo account Nextcloud, le tue note rimarranno al sicuro e crittografate con una password separata. Ciò fornisce un secondo livello di sicurezza per proteggere i tuoi dati.
-           Nessuno può accedere alle tue note sul server senza la tua password di crittografia, ma ciò significa anche che se dimentichi la password di crittografia, perderai l'accesso ai tuoi dati.
-      - 
-        q: Non ho ancora impostato una password di crittografia. Dove lo posso ottenere?
-        a: |-
-          Scegli una nuova password crittografata e inseriscila sopra.
-          Saber genererà automaticamente le chiavi di crittografia da questa password.
-      - 
-        q: Posso utilizzare la stessa password del mio account Nextcloud?
-        a: Sì, ma tieni presente che sarebbe più semplice per l'amministratore del server o qualcun altro accedere alle tue note se accedessero al tuo account Nextcloud.
-profile: 
+    encFaq:
+    - q: Cos'è una password crittografata? Perché usare due password?
+      a: |-
+        La password Nextcloud viene utilizzata per accedere al cloud. La password di crittografia "codifica" i tuoi dati prima che raggiungano il cloud.
+         Anche se qualcuno riesce ad accedere al tuo account Nextcloud, le tue note rimarranno al sicuro e crittografate con una password separata. Ciò fornisce un secondo livello di sicurezza per proteggere i tuoi dati.
+         Nessuno può accedere alle tue note sul server senza la tua password di crittografia, ma ciò significa anche che se dimentichi la password di crittografia, perderai l'accesso ai tuoi dati.
+    - q: Non ho ancora impostato una password di crittografia. Dove lo posso ottenere?
+      a: |-
+        Scegli una nuova password crittografata e inseriscila sopra.
+        Saber genererà automaticamente le chiavi di crittografia da questa password.
+    - q: Posso utilizzare la stessa password del mio account Nextcloud?
+      a: Sì, ma tieni presente che sarebbe più semplice per l'amministratore del server o qualcun altro accedere alle tue note se accedessero al tuo account Nextcloud.
+profile:
   title: Il mio profilo
   logout: Log out
   quotaUsage: Stai $used di $total ($percent%)
   connectedTo: Collegato a
-  quickLinks: 
+  quickLinks:
     serverHomepage: Homepage del server
     deleteAccount: Elimina account
   faqTitle: Domande frequenti
-  faq: 
-    - 
-      q: Perderò i miei appunti se mi disconnetto?
-      a: No. Le tue note rimarranno sia sul tuo dispositivo che sul server. Non verranno sincronizzati con il server fino a quando non effettui nuovamente l'accesso. Assicurati che la sincronizzazione sia completa prima di uscire in modo da non perdere alcun dato (vedi l'avanzamento della sincronizzazione nella schermata iniziale).
-    - 
-      q: Come cambio la mia password Nextcloud?
-      a: Vai al sito web del tuo server e accedi. Quindi vai su Impostazioni > Sicurezza > Cambia password. Dovrai disconnetterti e riconnetterti a Saber dopo aver cambiato la tua password.
-    - 
-      q: Come cambio la mia password di crittografia?
-      a: |-
-        1. Disconnettersi da Saber. Assicurati che la sincronizzazione sia completa prima di uscire in modo da non perdere alcun dato (vedi l'avanzamento della sincronizzazione nella schermata iniziale).
-        2. Vai al sito Web del tuo server ed elimina la cartella "Saber". Questo eliminerà tutte le tue note dal server.
-        3. Accedi nuovamente a Saber. Puoi scegliere una nuova password di crittografia quando accedi.
-        4. Non dimenticare di disconnetterti e accedere nuovamente a Saber anche sugli altri tuoi dispositivi.
-    - 
-      q: Come posso eliminare il mio account?
-      a: |-
-        Tocca il pulsante "@:profile.quickLinks.deleteAccount" in alto e, se necessario, accedi.
-        Se stai utilizzando il server Saber ufficiale, il tuo account verrà eliminato dopo un periodo di tolleranza di 1 settimana. Puoi contattarmi all'indirizzo adilhanney@disroot.org durante questo periodo per annullare l'eliminazione.
-        Se stai utilizzando un server di terze parti, potrebbe non esserci un'opzione per eliminare il tuo account: dovrai consultare la politica sulla privacy del server per ulteriori informazioni.
-appInfo: 
+  faq:
+  - q: Perderò i miei appunti se mi disconnetto?
+    a: No. Le tue note rimarranno sia sul tuo dispositivo che sul server. Non verranno sincronizzati con il server fino a quando non effettui nuovamente l'accesso. Assicurati che la sincronizzazione sia completa prima di uscire in modo da non perdere alcun dato (vedi l'avanzamento della sincronizzazione nella schermata iniziale).
+  - q: Come cambio la mia password Nextcloud?
+    a: Vai al sito web del tuo server e accedi. Quindi vai su Impostazioni > Sicurezza > Cambia password. Dovrai disconnetterti e riconnetterti a Saber dopo aver cambiato la tua password.
+  - q: Come cambio la mia password di crittografia?
+    a: |-
+      1. Disconnettersi da Saber. Assicurati che la sincronizzazione sia completa prima di uscire in modo da non perdere alcun dato (vedi l'avanzamento della sincronizzazione nella schermata iniziale).
+      2. Vai al sito Web del tuo server ed elimina la cartella "Saber". Questo eliminerà tutte le tue note dal server.
+      3. Accedi nuovamente a Saber. Puoi scegliere una nuova password di crittografia quando accedi.
+      4. Non dimenticare di disconnetterti e accedere nuovamente a Saber anche sugli altri tuoi dispositivi.
+  - q: Come posso eliminare il mio account?
+    a: |-
+      Tocca il pulsante "@:profile.quickLinks.deleteAccount" in alto e, se necessario, accedi.
+      Se stai utilizzando il server Saber ufficiale, il tuo account verrà eliminato dopo un periodo di tolleranza di 1 settimana. Puoi contattarmi all'indirizzo adilhanney@disroot.org durante questo periodo per annullare l'eliminazione.
+      Se stai utilizzando un server di terze parti, potrebbe non esserci un'opzione per eliminare il tuo account: dovrai consultare la politica sulla privacy del server per ulteriori informazioni.
+appInfo:
   licenseNotice: |-
     Saber Copyright © 2022-$buildYear Adil Hanney
     Questo programma non ha alcuna garanzia. Questo è un software libero e sei libero di ridistribuirlo a determinate condizioni.
@@ -252,13 +245,13 @@ appInfo:
   sponsorButton: Tocca qui per sponsorizzarmi o acquistare altro spazio di archiviazione
   licenseButton: Tocca qui per visualizzare ulteriori informazioni sulla licenza
   privacyPolicyButton: Tocca qui per visualizzare l'informativa sulla privacy
-update: 
+update:
   updateAvailable: Aggiornamento disponibile
   updateAvailableDescription: "È disponibile una nuova versione dell'app, con queste modifiche:"
   update: Aggiornamento
   downloadNotAvailableYet: Il download non è ancora disponibile per la tua piattaforma. Ti invitiamo a controllare nuovamente a breve.
-editor: 
-  toolbar: 
+editor:
+  toolbar:
     toggleColors: Attiva/disattiva i colori (Ctrl C)
     select: Selezione
     toggleEraser: Attiva/disattiva gomma (Ctrl E)
@@ -270,16 +263,16 @@ editor:
     export: Esporta (Ctrl Shift S)
     exportAs: "Esporta come:"
     fullscreen: Passa a schermo intero (F11)
-  pens: 
+  pens:
     fountainPen: Penna stilografica
     ballpointPen: Penna a sfera
     highlighter: Evidenziatore
     pencil: Matita
     shapePen: Forma della penna
     laserPointer: Puntatore laser
-  penOptions: 
+  penOptions:
     size: Dimesione
-  colors: 
+  colors:
     colorPicker: Selettore di colori
     customBrightnessHue: Personalizzato $b $h
     customHue: Personalizzato $h
@@ -306,17 +299,17 @@ editor:
     pastelBlue: Blu pastello
     pastelPurple: Porpora pastella
     pastelPink: Rosa pastello
-  imageOptions: 
+  imageOptions:
     title: Opzioni immagine
     invertible: Invertibile
     download: Download
     setAsBackground: Imposta come sfondo
     removeAsBackground: Rimuovi come sfondo
     delete: Cancella
-  selectionBar: 
+  selectionBar:
     delete: Cancella
     duplicate: Duplicare
-  menu: 
+  menu:
     clearPage: Pulisci pagina $page/$totalPages totali
     clearAllPages: Pulisci tutte le pagine
     insertPage: Inserisci pagina sotto
@@ -331,11 +324,11 @@ editor:
     import: Importa
     watchServer: Controlla gli aggiornamenti sul server
     watchServerReadOnly: La modifica è disabilitata mentre si guarda il server
-    boxFits: 
+    boxFits:
       fill: Tratto
       cover: Copertina
       contain: Contiene
-    bgPatterns: 
+    bgPatterns:
       none: Vuoto
       college: College-ruled
       collegeRtl: College governato (inverso)
@@ -345,14 +338,14 @@ editor:
       staffs: Pentagrammi
       tablature: Tablatura
       cornell: Metodo Cornell
-  newerFileFormat: 
+  newerFileFormat:
     readOnlyMode: Modalità di sola lettura
     title: Questa nota è stata modificata utilizzando una versione più recente di Saber
     subtitle: La modifica di questa nota potrebbe comportare la perdita di alcune informazioni. Vuoi ignorare e modificarla comunque?
     allowEditing: Consenti modifica
-  quill: 
+  quill:
     typeSomething: Scrivi qualcosa qui...
-  hud: 
+  hud:
     unlockZoom: Sblocca zoom
     lockZoom: Blocca zoom
     unlockSingleFingerPan: Attiva la panoramica con un solo dito

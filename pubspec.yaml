@@ -73,7 +73,7 @@ dependencies:
 
   regexed_validator: ^2.0.0+1
 
-  slang: ^4.10.0
+  slang: ^4.12.0
   slang_flutter:
 
   flex_color_picker: ^3.4.1
@@ -184,6 +184,13 @@ dependency_overrides:
     git:
       url: https://github.com/KasemJaffer/receive_sharing_intent
       ref: 2cea396843cd3ab1b5ec4334be4233864637874e
+
+  # https://github.com/slang-i18n/slang/pull/343
+  slang:
+    git:
+      url: https://github.com/adil192/slang
+      ref: 949a16664259005d7ac8df853ea5a6ef3b0e4380
+      path: slang
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
