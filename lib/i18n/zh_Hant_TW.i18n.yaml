@@ -1,23 +1,23 @@
-common: 
+common:
   done: 完成
   continueBtn: 繼續
   cancel: 取消
-home: 
-  tabs: 
+home:
+  tabs:
     home: 首頁
     browse: 全部筆記
     whiteboard: 白板
     settings: 設定
-  titles: 
+  titles:
     home: 最近筆記
     browse: 瀏覽
     whiteboard: 白板
     settings: 設定
-  tooltips: 
+  tooltips:
     newNote: 新增筆記
     showUpdateDialog: 顯示更新對話框
     exportNote: 匯出筆記
-  create: 
+  create:
     newNote: 新增筆記
     importNote: 匯入筆記
   welcome: 歡迎使用 Saber
@@ -26,14 +26,14 @@ home:
   noPreviewAvailable: 無可用的預覽
   createNewNote: 點擊 + 按鈕新增一個筆記
   backFolder: 返回上一個資料夾
-  newFolder: 
+  newFolder:
     newFolder: 新建資料夾
     folderName: 資料夾名稱
     create: 創建
     folderNameEmpty: 資料夾名稱不可為空
     folderNameContainsSlash: 資料夾名稱不能包含斜槓
     folderNameExists: 資料夾已經存在
-  renameNote: 
+  renameNote:
     renameNote: 重新命名筆記
     noteName: 筆記名稱
     rename: 重新命名
@@ -41,7 +41,7 @@ home:
     noteNameExists: 同名筆記已經存在
     noteNameReserved(OUTDATED): 備註名稱保留
     noteNameForbiddenCharacters(OUTDATED): 注意名稱包含禁用字符
-  moveNote: 
+  moveNote:
     moveNote: 移動筆記
     moveNotes: 移動 $n 份筆記
     moveName: 移動 $f
@@ -50,39 +50,39 @@ home:
     multipleRenamedTo: 以下筆記將被重新命名：
     numberRenamedTo: $n 份筆記將被重命名以避免衝突
   deleteNote: 刪除筆記
-  renameFolder: 
+  renameFolder:
     renameFolder: 重新命名資料夾
     folderName: 資料夾名稱
     rename: 重新命名
     folderNameEmpty: 資烙夾名稱不能為空
     folderNameContainsSlash: 資料夾名稱不能包含斜槓
     folderNameExists: 已存在同名的資料夾
-  deleteFolder: 
+  deleteFolder:
     deleteFolder: 刪除資料夾
     deleteName: 刪除 $f
     delete: 刪除
     alsoDeleteContents: 同時刪除該文件夾內的所有筆記
-sentry: 
-  consent: 
+sentry:
+  consent:
     title: 幫助改善 Saber？
-    description: 
+    description:
       question: 您想自動報告意外錯誤嗎？這可以幫助我更快地識別和解決問題。
       scope: 報告可能包含有關錯誤和您的裝置資訊。我已經盡一切努力過濾了個人資料，但有些可能仍會保留。
       currentlyOff: 如果您授予同意，則重新啟動應用程式後將啟用錯誤報告。
       currentlyOn: 如果您撤銷同意，請重新啟動該應用程式以禁用錯誤報告。
       learnMoreInPrivacyPolicy(rich): 在${link(privacy policy)}中了解更多資訊。
-    answers: 
+    answers:
       yes: 同意
       no: 不同意
       later: 稍後再說
-settings: 
-  prefCategories: 
+settings:
+  prefCategories:
     general: 一般
     writing: 書寫
     editor: 編輯器
     performance: 效能
     advanced: 進階
-  prefLabels: 
+  prefLabels:
     locale: 應用程式語言
     appTheme: 應用程式主題
     platform: 主題類型
@@ -111,14 +111,14 @@ settings:
     customDataDir: 自訂 Saber 資料夾
     sentry: 錯誤報告
     autoDisableFingerDrawingWhenStylusDetected(OUTDATED): 自動禁用手指繪圖
-  prefDescriptions: 
+  prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible 字體為低視力讀者提高易讀性
     allowInsecureConnections: （不推薦）允許Saber連結到具有自簽名/不受信任證書的伺服器
     preferGreyscale: 用於電子紙螢幕
     autoClearWhiteboardOnExit: 它仍會同步到您的其他裝置
     disableEraserAfterUse: 使用橡皮擦後自動切換回筆
     maxImageSize: 大於此大小的圖片將被壓縮
-    hideFingerDrawing: 
+    hideFingerDrawing:
       shown: 防止意外切換
       fixedOn: 手指繪圖固定為啟用
       fixedOff: 手指繪圖固定為禁用
@@ -129,34 +129,34 @@ settings:
     autoStraightenLines: 無需使用形狀筆即可拉直線條
     simplifiedHomeLayout: 為每個筆記預覽設定固定高度
     shouldAlwaysAlertForUpdates: 一旦有更新請告訴我
-    sentry: 
+    sentry:
       active: 啟用
       inactive: 停用
       activeUntilRestart: 啟用直到您重新啟動應用程式
       inactiveUntilRestart: 停用直到您重新啟動應用程式
     autoDisableFingerDrawingWhenStylusDetected(OUTDATED): 檢測到手寫筆時關閉手指繪圖
-  themeModes: 
+  themeModes:
     system: 系統
     light: 淺色
     dark: 深色
-  layoutSizes: 
+  layoutSizes:
     auto: 自動
     phone: 手機
     tablet: 平板
-  accentColorPicker: 
+  accentColorPicker:
     pickAColor: 選取顏色
   systemLanguage: 系統語言
-  axisDirections: 
-    - 置頂
-    - 靠右
-    - 置底
-    - 靠左
-  reset: 
+  axisDirections:
+  - 置頂
+  - 靠右
+  - 置底
+  - 靠左
+  reset:
     title: 重設此設定?
     button: 重設
   resyncEverything: 全部重新同步
   openDataDir: 開啟 Saber 資料夾
-  customDataDir: 
+  customDataDir:
     cancel: 取消
     select: 選擇
     mustBeEmpty: 選擇的資料夾必須是空的
@@ -164,88 +164,81 @@ settings:
     unsupported: 此功能目前僅適用於開發人員，使用它可能會導致資料遺失。
   autosaveDisabled: 永不
   shapeRecognitionDisabled: 永不
-logs: 
+logs:
   logs: 日誌
   viewLogs: 查看日誌
   debuggingInfo: 日誌包含對偵錯和開發有用的資訊
   noLogs: 這裡沒有日誌！
   useTheApp: 此應用程式的日誌將出現在這裡
-login: 
+login:
   title: 登入
-  form: 
+  form:
     agreeToPrivacyPolicy(rich): 登入即表示你同意 ${linkToPrivacyPolicy(隱私政策)}。
   signup(rich): 還沒有帳號？ ${linkToSignup(立即註冊)}！
   notYou(rich): 不是你？ ${undoLogin(選擇另一個帳號)}。
-  status: 
+  status:
     loggedOut: 已登出
     tapToLogin: 點擊以使用 Nextcloud 登入
     hi: 嗨，$u!
     almostDone: 即將同步，點擊即可完成登入
     loggedIn: 已使用 Nextcloud 登入
-  ncLoginStep: 
+  ncLoginStep:
     whereToStoreData: 選擇您要儲存資料的位置：
     saberNcServer: Saber 的 Nextcloud 伺服器
     otherNcServer: 其他 Nextcloud 伺服器
     serverUrl: 伺服器網址
     loginWithSaber: 使用 Saber 登入
     loginWithNextcloud: 使用 Nextcloud 登入
-    loginFlow: 
+    loginFlow:
       pleaseAuthorize: 請授權 Saber 存取您的 Nextcloud 帳號
       followPrompts: 請依照 Nextcloud 介面的提示進行操作
       browserDidntOpen: 登入頁面打不開？點擊這裡
-  encLoginStep: 
+  encLoginStep:
     enterEncPassword: 為了保護您的資料，請輸入您的加密密碼：
     newToSaber: 第一次使用 Saber？只需輸入新的加密密碼即可。
     encPassword: 加密密碼
     encFaqTitle: 常見問題
     wrongEncPassword: 使用提供的密碼解密失敗。請嘗試再次輸入。
     connectionFailed: 連線伺服器時出現問題。請稍後再試。
-    encFaq: 
-      - 
-        q: 什麼是加密密碼？為什麼要使用兩個密碼？
-        a: |-
-          Nextcloud 密碼用於存取雲端。加密密碼會在資料到達雲端之前混亂您的資料。
-          即使有人訪問您的 Nextcloud 帳號，您的筆記也將保持安全並使用單獨的密碼進行加密。這為您提供了第二層安全保護來保護您的資料。
-          如果沒有加密密碼，任何人都無法存取伺服器上的筆記，但這也意味著如果您忘記加密密碼，您將無法存取您的資料。
-      - 
-        q: 我還沒有設定加密密碼。我在哪裡可以得到它？
-        a: |-
-          選擇一個新的加密密碼並在上面輸入。
-          Saber 將自動根據該密碼產生您的加密金鑰。
-      - 
-        q: 我可以使用與 Nextcloud 帳號相同的密碼嗎？
-        a: 可以，但請記住如果伺服器管理員或其他人獲得了您的 Nextcloud 帳號的存取權限，他們將更容易存取您的筆記。
-profile: 
+    encFaq:
+    - q: 什麼是加密密碼？為什麼要使用兩個密碼？
+      a: |-
+        Nextcloud 密碼用於存取雲端。加密密碼會在資料到達雲端之前混亂您的資料。
+        即使有人訪問您的 Nextcloud 帳號，您的筆記也將保持安全並使用單獨的密碼進行加密。這為您提供了第二層安全保護來保護您的資料。
+        如果沒有加密密碼，任何人都無法存取伺服器上的筆記，但這也意味著如果您忘記加密密碼，您將無法存取您的資料。
+    - q: 我還沒有設定加密密碼。我在哪裡可以得到它？
+      a: |-
+        選擇一個新的加密密碼並在上面輸入。
+        Saber 將自動根據該密碼產生您的加密金鑰。
+    - q: 我可以使用與 Nextcloud 帳號相同的密碼嗎？
+      a: 可以，但請記住如果伺服器管理員或其他人獲得了您的 Nextcloud 帳號的存取權限，他們將更容易存取您的筆記。
+profile:
   title: 我的個人資料
   logout: 登出
   quotaUsage: 您已使用 $used，共 $total ($percent%)
   connectedTo: 連線到
-  quickLinks: 
+  quickLinks:
     serverHomepage: 伺服器主頁
     deleteAccount: 刪除帳戶
   faqTitle: 常見問題
-  faq: 
-    - 
-      q: 如果我登出了，我的筆記會不會不見？
-      a: 您的筆記將同時儲存您的裝置和伺服器上。直到您重新登入，它們才會被同步到伺服器上。在登出前，請確保同步工作已經完成，這樣您就不會丟失任何資料（在主畫面上可以看到同步進度）。
-    - 
-      q: 如何更改我的Nextcloud密碼？
-      a: 進入您的伺服器網站並登入，然後進入設定>安全>更改密碼。更改密碼後，您需要登出並重新登入到Saber。
-    - 
-      q: 如何更改我的加密密碼？
-      a: |-
-        0. 確定同步處理已完成（請參閱主畫面上的同步處理進度）。
-        1. 登出 Saber，在登出前確保同步已經完成，這樣您就不會丟失任何資料（在主畫面上可以看到同步進度）。
-        2. 進入您的伺服器網站並登入，刪除「Saber」資料夾，這將從伺服器上刪除您所有的筆記。
-        3. 重新登入 Saber，您可以在登入時選擇一個新的加密密碼。
-        4. 也不要忘記在您的其他裝置上登出並重新登入Saber。
-    - 
-      q: 如何刪除我的帳戶？
-      a: |-
-        點選上面的「@:profile.quickLinks.deleteAccount」按鈕，如果需要請登入。
-        如果您使用的是官方 Saber 伺服器，您的帳戶將在一週的寬限期後被刪除，您可以在此期間用電子郵件聯絡我：adilhanney@disroot.org，以取消刪除。
-        如果您使用的是第三方伺服器，則可能沒有刪除帳號的選項，您需要檢視伺服器的隱私權政策以了解更多資訊。
-appInfo: 
+  faq:
+  - q: 如果我登出了，我的筆記會不會不見？
+    a: 您的筆記將同時儲存您的裝置和伺服器上。直到您重新登入，它們才會被同步到伺服器上。在登出前，請確保同步工作已經完成，這樣您就不會丟失任何資料（在主畫面上可以看到同步進度）。
+  - q: 如何更改我的Nextcloud密碼？
+    a: 進入您的伺服器網站並登入，然後進入設定>安全>更改密碼。更改密碼後，您需要登出並重新登入到Saber。
+  - q: 如何更改我的加密密碼？
+    a: |-
+      0. 確定同步處理已完成（請參閱主畫面上的同步處理進度）。
+      1. 登出 Saber，在登出前確保同步已經完成，這樣您就不會丟失任何資料（在主畫面上可以看到同步進度）。
+      2. 進入您的伺服器網站並登入，刪除「Saber」資料夾，這將從伺服器上刪除您所有的筆記。
+      3. 重新登入 Saber，您可以在登入時選擇一個新的加密密碼。
+      4. 也不要忘記在您的其他裝置上登出並重新登入Saber。
+  - q: 如何刪除我的帳戶？
+    a: |-
+      點選上面的「@:profile.quickLinks.deleteAccount」按鈕，如果需要請登入。
+      如果您使用的是官方 Saber 伺服器，您的帳戶將在一週的寬限期後被刪除，您可以在此期間用電子郵件聯絡我：adilhanney@disroot.org，以取消刪除。
+      如果您使用的是第三方伺服器，則可能沒有刪除帳號的選項，您需要檢視伺服器的隱私權政策以了解更多資訊。
+appInfo:
   licenseNotice: |-
     Saber  版權所有 © 2022-$buildYear  Adil Hanney
     This program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.
@@ -253,13 +246,13 @@ appInfo:
   sponsorButton: 點擊此處贊助我或購買更多儲存空間
   licenseButton: 點擊此處查看更多許可證資訊
   privacyPolicyButton: 點擊此處查看隱私權政策
-update: 
+update:
   updateAvailable: 可用更新
   updateAvailableDescription: "新版本的應用程式已推出，有了以下變化:"
   update: 更新
   downloadNotAvailableYet: 您的平台尚無法下載。請稍後回來查看。
-editor: 
-  toolbar: 
+editor:
+  toolbar:
     toggleColors: 切換顏色 (Ctrl C)
     select: 選擇
     toggleEraser: 切換橡皮擦 (Ctrl E)
@@ -271,16 +264,16 @@ editor:
     export: 匯出 (Ctrl Shift S)
     exportAs: 匯出為：
     fullscreen: 切換到全螢幕 (F11)
-  pens: 
+  pens:
     fountainPen: 鋼筆
     ballpointPen: 原子筆
     highlighter: 螢光筆
     pencil: 鉛筆
     shapePen: 塑形筆
     laserPointer: 雷射筆
-  penOptions: 
+  penOptions:
     size: 粗細
-  colors: 
+  colors:
     colorPicker: 顏色選擇器
     customBrightnessHue: 自訂的 $b $h
     customHue: 自訂的 $h
@@ -307,17 +300,17 @@ editor:
     pastelBlue: 淡藍色
     pastelPurple: 淡紫色
     pastelPink: 淡粉色
-  imageOptions: 
+  imageOptions:
     title: 圖片選項
     invertible: 反轉顏色
     download: 下載
     setAsBackground: 設為背景
     removeAsBackground: 移除作為背景
     delete: 刪除
-  selectionBar: 
+  selectionBar:
     delete: 刪除
     duplicate: 複製
-  menu: 
+  menu:
     clearPage: 清除頁面 $page/$totalPages
     clearAllPages: 清除所有頁面
     insertPage: 插入以下頁面
@@ -332,11 +325,11 @@ editor:
     import: 匯入
     watchServer: 監視伺服器的更新
     watchServerReadOnly: 監視伺服器時無法進行編輯
-    boxFits: 
+    boxFits:
       fill: 拉伸
       cover: 覆蓋
       contain: 包含
-    bgPatterns: 
+    bgPatterns:
       none: 空白
       college: College-ruled
       collegeRtl: College-ruled（反向）
@@ -346,14 +339,14 @@ editor:
       staffs: 五線譜
       tablature: 指法譜
       cornell: 康乃爾
-  newerFileFormat: 
+  newerFileFormat:
     readOnlyMode: 唯讀模式
     title: 這篇筆記是使用較新版本的 Saber 編輯的
     subtitle: 編輯此筆記可能會導致某些資訊遺失。 您想忽略它並編輯它嗎？
     allowEditing: 允許編輯
-  quill: 
+  quill:
     typeSomething: 在這裡輸入一些內容...
-  hud: 
+  hud:
     unlockZoom: 解鎖縮放
     lockZoom: 鎖定縮放
     unlockSingleFingerPan: 啟用單指平移

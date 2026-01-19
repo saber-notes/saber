@@ -51,7 +51,7 @@ jobs:
             macos/Flutter/ephemeral/
             windows/flutter/ephemeral/
             .flutter-plugins-dependencies
-          key: ${{ runner.OS }}-${{ matrix.arch.cache-name }}-${{ hashFiles('**/pubspec.lock') }}-${{ hashFiles('**/*.dart') }}
+          key: ${{ runner.OS }}-${{ matrix.arch.cache-name }}-linux-${{ hashFiles('**/pubspec.lock') }}-${{ hashFiles('**/*.dart') }}
           restore-keys: |
             ${{ runner.OS }}-${{ matrix.arch.cache-name }}-
 
@@ -63,12 +63,11 @@ jobs:
       - name: Disable Flutter CLI animations
         run: flutter config --no-cli-animations
 
+      - run: ./patches/pre/remove_dev_dependencies.sh
+      - run: ./patches/pre/remove_proprietary_dependencies.sh
       - run: flutter pub get
-
-      - name: Remove proprietary dependencies
-        run: ./patches/remove_proprietary_dependencies.sh
-      - name: Remove development dependencies
-        run: ./patches/remove_dev_dependencies.sh
+      - run: ./patches/post/patch_rust_versions.sh
+      - run: ./patches/post/remove_wasm_libs.sh
 
       - name: Build Linux (${{ matrix.arch.target-platform }})
         run: |
@@ -111,7 +110,7 @@ jobs:
         run: |
           sudo add-apt-repository universe
           sudo apt-get install libfuse2t64
-      
+
       - name: Prepare AppDir for AppImage
         run: |
           rm -rf linux/AppImage/AppDir/

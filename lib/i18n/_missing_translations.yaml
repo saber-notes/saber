@@ -1,94 +1,94 @@
-"@@info": 
-  - Here are translations that exist in <en> but not in secondary locales.
-  - After editing this file, you can run 'dart run slang apply --locale=<locale>' to quickly apply the newly added translations.
-ar: 
-  home: 
+"@@info":
+- Here are translations that exist in <en> but not in secondary locales.
+- After editing this file, you can run 'dart run slang apply --locale=<locale>' to quickly apply the newly added translations.
+ar:
+  home:
     noPreviewAvailable(OUTDATED): No preview available
-    renameNote: 
+    renameNote:
       noteNameForbiddenCharacters(OUTDATED): Note name contains forbidden characters
       noteNameReserved(OUTDATED): Note name reserved
-  sentry: 
-    consent: 
+  sentry:
+    consent:
       title(OUTDATED): Help improve Saber?
-      description: 
+      description:
         question(OUTDATED): Would you like to automatically report unexpected errors? This helps me identify and fix issues faster.
         scope(OUTDATED): The reports may contain information about the error and your device. I've made every effort to filter out personal data but some may remain.
         currentlyOff(OUTDATED): If you grant consent, error reporting will be enabled after you restart the app.
         currentlyOn(OUTDATED): If you revoke consent, please restart the app to disable error reporting.
         learnMoreInPrivacyPolicy(rich)(OUTDATED): Learn more in the ${link(privacy policy)}.
-      answers: 
+      answers:
         yes(OUTDATED): Yes
         no(OUTDATED): No
         later(OUTDATED): Ask me later
-  settings: 
-    prefLabels: 
+  settings:
+    prefLabels:
       autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Auto-disable finger drawing
       autosave(OUTDATED): Auto-save
       sentry(OUTDATED): Error reporting
-    prefDescriptions: 
+    prefDescriptions:
       autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Turn off finger drawing when a stylus is detected
       autosave(OUTDATED): Auto-save after a short delay, or never
-      sentry: 
+      sentry:
         active(OUTDATED): Active
         inactive(OUTDATED): Inactive
         activeUntilRestart(OUTDATED): Active until you restart the app
         inactiveUntilRestart(OUTDATED): Inactive until you restart the app
-    customDataDir: 
+    customDataDir:
       unsupported(OUTDATED): This feature is currently only for developers. Using it will likely result in data loss.
     autosaveDisabled(OUTDATED): Never
     shapeRecognitionDisabled(OUTDATED): Never
-  logs: 
+  logs:
     logs(OUTDATED): Logs
     viewLogs(OUTDATED): View logs
     debuggingInfo(OUTDATED): Logs contain information useful for debugging and development
     noLogs(OUTDATED): No logs here!
     useTheApp(OUTDATED): Logs will appear here as you use the app
-  editor: 
-    menu: 
+  editor:
+    menu:
       lineThickness(OUTDATED): Line thickness
       lineThicknessDescription(OUTDATED): Background line thickness
-cs: 
-de: 
-  home: 
-    renameNote: 
+cs:
+de:
+  home:
+    renameNote:
       noteNameForbiddenCharacters(OUTDATED): Note name contains forbidden characters
       noteNameReserved(OUTDATED): Note name reserved
-eo: 
-  home: 
-    renameNote: 
+eo:
+  home:
+    renameNote:
       noteNameForbiddenCharacters(OUTDATED): Note name contains forbidden characters
       noteNameReserved(OUTDATED): Note name reserved
-  settings: 
-    prefLabels: 
+  settings:
+    prefLabels:
       autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Auto-disable finger drawing
-    prefDescriptions: 
+    prefDescriptions:
       autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Turn off finger drawing when a stylus is detected
-es: 
-  common: 
+es:
+  common:
     done(OUTDATED): Done
     continueBtn(OUTDATED): Continue
-  home: 
+  home:
     noPreviewAvailable(OUTDATED): No preview available
-    renameNote: 
+    renameNote:
       noteNameForbiddenCharacters(OUTDATED): Note name contains forbidden characters
       noteNameReserved(OUTDATED): Note name reserved
-  sentry: 
-    consent: 
+  sentry:
+    consent:
       title(OUTDATED): Help improve Saber?
-      description: 
+      description:
         question(OUTDATED): Would you like to automatically report unexpected errors? This helps me identify and fix issues faster.
         scope(OUTDATED): The reports may contain information about the error and your device. I've made every effort to filter out personal data but some may remain.
         currentlyOff(OUTDATED): If you grant consent, error reporting will be enabled after you restart the app.
         currentlyOn(OUTDATED): If you revoke consent, please restart the app to disable error reporting.
         learnMoreInPrivacyPolicy(rich)(OUTDATED): Learn more in the ${link(privacy policy)}.
-      answers: 
+      answers:
         yes(OUTDATED): Yes
         no(OUTDATED): No
         later(OUTDATED): Ask me later
-  settings: 
-    prefCategories: 
+  settings:
+    prefCategories:
       performance(OUTDATED): Performance
-    prefLabels: 
+    prefLabels:
       autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Auto-disable finger drawing
       autosave(OUTDATED): Auto-save
       shapeRecognitionDelay(OUTDATED): Shape recognition delay
@@ -96,20 +96,20 @@ es:
       simplifiedHomeLayout(OUTDATED): Simplified home layout
       customDataDir(OUTDATED): Custom Saber folder
       sentry(OUTDATED): Error reporting
-    prefDescriptions: 
+    prefDescriptions:
       autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Turn off finger drawing when a stylus is detected
       autosave(OUTDATED): Auto-save after a short delay, or never
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
       simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
-      sentry: 
+      sentry:
         active(OUTDATED): Active
         inactive(OUTDATED): Inactive
         activeUntilRestart(OUTDATED): Active until you restart the app
         inactiveUntilRestart(OUTDATED): Inactive until you restart the app
     resyncEverything(OUTDATED): Resync everything
     openDataDir(OUTDATED): Open Saber folder
-    customDataDir: 
+    customDataDir:
       cancel(OUTDATED): Cancel
       select(OUTDATED): Select
       mustBeEmpty(OUTDATED): Selected folder must be empty
@@ -117,110 +117,107 @@ es:
       unsupported(OUTDATED): This feature is currently only for developers. Using it will likely result in data loss.
     autosaveDisabled(OUTDATED): Never
     shapeRecognitionDisabled(OUTDATED): Never
-  logs: 
+  logs:
     logs(OUTDATED): Logs
     viewLogs(OUTDATED): View logs
     debuggingInfo(OUTDATED): Logs contain information useful for debugging and development
     noLogs(OUTDATED): No logs here!
     useTheApp(OUTDATED): Logs will appear here as you use the app
-  login: 
+  login:
     notYou(rich)(OUTDATED): Not you? ${undoLogin(Choose another account)}.
-    status: 
+    status:
       hi(OUTDATED): Hi, $u!
       almostDone(OUTDATED): Almost ready for syncing, tap to finish logging in
-    ncLoginStep: 
+    ncLoginStep:
       whereToStoreData(OUTDATED): "Choose where you want to store your data:"
       saberNcServer(OUTDATED): Saber's Nextcloud server
       otherNcServer(OUTDATED): Other Nextcloud server
       serverUrl(OUTDATED): Server URL
       loginWithSaber(OUTDATED): Login with Saber
       loginWithNextcloud(OUTDATED): Login with Nextcloud
-      loginFlow: 
+      loginFlow:
         pleaseAuthorize(OUTDATED): Please authorize Saber to access your Nextcloud account
         followPrompts(OUTDATED): Please follow the prompts in the Nextcloud interface
         browserDidntOpen(OUTDATED): Login page didn't open? Click here
-    encLoginStep: 
+    encLoginStep:
       enterEncPassword(OUTDATED): "To protect your data, please enter your encryption password:"
       newToSaber(OUTDATED): New to Saber? Just enter a new encryption password.
       encPassword(OUTDATED): Encryption password
       encFaqTitle(OUTDATED): Frequently asked questions
       wrongEncPassword(OUTDATED): Decryption failed with the provided password. Please try entering it again.
       connectionFailed(OUTDATED): Something went wrong connecting to the server. Please try again later.
-      encFaq(OUTDATED): 
-        - 
-          q: What is an encryption password? Why use two passwords?
-          a: |-
-            The Nextcloud password is used to access the cloud. The encryption password "scrambles" your data before it ever reaches the cloud.
-            Even if someone gains access to your Nextcloud account, your notes will remain safe and encrypted with a separate password. This provides you a second layer of security to protect your data.
-            No-one can access your notes on the server without your encryption password, but this also means that if you forget your encryption password, you will lose access to your data.
-        - 
-          q: I haven't set an encryption password yet. Where do I get it?
-          a: |-
-            Choose a new encryption password and enter it above.
-            Saber will generate your encryption keys from this password automatically.
-        - 
-          q: Can I use the same password as my Nextcloud account?
-          a: Yes, but keep in mind that it would be easier for the server administrator or someone else to access your notes if they gain access to your Nextcloud account.
-  profile: 
+      encFaq(OUTDATED):
+      - q: What is an encryption password? Why use two passwords?
+        a: |-
+          The Nextcloud password is used to access the cloud. The encryption password "scrambles" your data before it ever reaches the cloud.
+          Even if someone gains access to your Nextcloud account, your notes will remain safe and encrypted with a separate password. This provides you a second layer of security to protect your data.
+          No-one can access your notes on the server without your encryption password, but this also means that if you forget your encryption password, you will lose access to your data.
+      - q: I haven't set an encryption password yet. Where do I get it?
+        a: |-
+          Choose a new encryption password and enter it above.
+          Saber will generate your encryption keys from this password automatically.
+      - q: Can I use the same password as my Nextcloud account?
+        a: Yes, but keep in mind that it would be easier for the server administrator or someone else to access your notes if they gain access to your Nextcloud account.
+  profile:
     quotaUsage(OUTDATED): You're using $used of $total ($percent%)
     connectedTo(OUTDATED): Connected to
     faqTitle(OUTDATED): Frequently asked questions
-  update: 
+  update:
     downloadNotAvailableYet(OUTDATED): The download isn't available yet for your platform. Please check back shortly.
-  editor: 
-    pens: 
+  editor:
+    pens:
       fountainPen(OUTDATED): Fountain pen
       pencil(OUTDATED): Pencil
-    colors: 
+    colors:
       customBrightnessHue(OUTDATED): Custom $b $h
-    menu: 
+    menu:
       lineHeightDescription(OUTDATED): Also controls the text size for typed notes
       lineThickness(OUTDATED): Line thickness
       lineThicknessDescription(OUTDATED): Background line thickness
       watchServer(OUTDATED): Watch for updates on the server
       watchServerReadOnly(OUTDATED): Editing is disabled while watching the server
-fa: 
-  common: 
+fa:
+  common:
     done(OUTDATED): Done
     continueBtn(OUTDATED): Continue
-  home: 
+  home:
     noPreviewAvailable(OUTDATED): No preview available
-    renameNote: 
+    renameNote:
       noteNameForbiddenCharacters(OUTDATED): Note name contains forbidden characters
       noteNameReserved(OUTDATED): Note name reserved
-  sentry: 
-    consent: 
+  sentry:
+    consent:
       title(OUTDATED): Help improve Saber?
-      description: 
+      description:
         question(OUTDATED): Would you like to automatically report unexpected errors? This helps me identify and fix issues faster.
         scope(OUTDATED): The reports may contain information about the error and your device. I've made every effort to filter out personal data but some may remain.
         currentlyOff(OUTDATED): If you grant consent, error reporting will be enabled after you restart the app.
         currentlyOn(OUTDATED): If you revoke consent, please restart the app to disable error reporting.
-      answers: 
+      answers:
         yes(OUTDATED): Yes
         no(OUTDATED): No
         later(OUTDATED): Ask me later
-  settings: 
-    prefLabels: 
+  settings:
+    prefLabels:
       autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Auto-disable finger drawing
       autosave(OUTDATED): Auto-save
       autoStraightenLines(OUTDATED): Auto straighten lines
       simplifiedHomeLayout(OUTDATED): Simplified home layout
       customDataDir(OUTDATED): Custom Saber folder
       sentry(OUTDATED): Error reporting
-    prefDescriptions: 
+    prefDescriptions:
       autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Turn off finger drawing when a stylus is detected
       autosave(OUTDATED): Auto-save after a short delay, or never
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
       simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
-      sentry: 
+      sentry:
         active(OUTDATED): Active
         inactive(OUTDATED): Inactive
         activeUntilRestart(OUTDATED): Active until you restart the app
         inactiveUntilRestart(OUTDATED): Inactive until you restart the app
     resyncEverything(OUTDATED): Resync everything
     openDataDir(OUTDATED): Open Saber folder
-    customDataDir: 
+    customDataDir:
       cancel(OUTDATED): Cancel
       select(OUTDATED): Select
       mustBeEmpty(OUTDATED): Selected folder must be empty
@@ -228,105 +225,102 @@ fa:
       unsupported(OUTDATED): This feature is currently only for developers. Using it will likely result in data loss.
     autosaveDisabled(OUTDATED): Never
     shapeRecognitionDisabled(OUTDATED): Never
-  logs: 
+  logs:
     logs(OUTDATED): Logs
     viewLogs(OUTDATED): View logs
     debuggingInfo(OUTDATED): Logs contain information useful for debugging and development
     noLogs(OUTDATED): No logs here!
     useTheApp(OUTDATED): Logs will appear here as you use the app
-  login: 
+  login:
     notYou(rich)(OUTDATED): Not you? ${undoLogin(Choose another account)}.
-    status: 
+    status:
       hi(OUTDATED): Hi, $u!
       almostDone(OUTDATED): Almost ready for syncing, tap to finish logging in
-    ncLoginStep: 
+    ncLoginStep:
       whereToStoreData(OUTDATED): "Choose where you want to store your data:"
       saberNcServer(OUTDATED): Saber's Nextcloud server
       otherNcServer(OUTDATED): Other Nextcloud server
       serverUrl(OUTDATED): Server URL
       loginWithSaber(OUTDATED): Login with Saber
       loginWithNextcloud(OUTDATED): Login with Nextcloud
-      loginFlow: 
+      loginFlow:
         pleaseAuthorize(OUTDATED): Please authorize Saber to access your Nextcloud account
         followPrompts(OUTDATED): Please follow the prompts in the Nextcloud interface
         browserDidntOpen(OUTDATED): Login page didn't open? Click here
-    encLoginStep: 
+    encLoginStep:
       enterEncPassword(OUTDATED): "To protect your data, please enter your encryption password:"
       newToSaber(OUTDATED): New to Saber? Just enter a new encryption password.
       encPassword(OUTDATED): Encryption password
       encFaqTitle(OUTDATED): Frequently asked questions
       wrongEncPassword(OUTDATED): Decryption failed with the provided password. Please try entering it again.
       connectionFailed(OUTDATED): Something went wrong connecting to the server. Please try again later.
-      encFaq(OUTDATED): 
-        - 
-          q: What is an encryption password? Why use two passwords?
-          a: |-
-            The Nextcloud password is used to access the cloud. The encryption password "scrambles" your data before it ever reaches the cloud.
-            Even if someone gains access to your Nextcloud account, your notes will remain safe and encrypted with a separate password. This provides you a second layer of security to protect your data.
-            No-one can access your notes on the server without your encryption password, but this also means that if you forget your encryption password, you will lose access to your data.
-        - 
-          q: I haven't set an encryption password yet. Where do I get it?
-          a: |-
-            Choose a new encryption password and enter it above.
-            Saber will generate your encryption keys from this password automatically.
-        - 
-          q: Can I use the same password as my Nextcloud account?
-          a: Yes, but keep in mind that it would be easier for the server administrator or someone else to access your notes if they gain access to your Nextcloud account.
-  profile: 
+      encFaq(OUTDATED):
+      - q: What is an encryption password? Why use two passwords?
+        a: |-
+          The Nextcloud password is used to access the cloud. The encryption password "scrambles" your data before it ever reaches the cloud.
+          Even if someone gains access to your Nextcloud account, your notes will remain safe and encrypted with a separate password. This provides you a second layer of security to protect your data.
+          No-one can access your notes on the server without your encryption password, but this also means that if you forget your encryption password, you will lose access to your data.
+      - q: I haven't set an encryption password yet. Where do I get it?
+        a: |-
+          Choose a new encryption password and enter it above.
+          Saber will generate your encryption keys from this password automatically.
+      - q: Can I use the same password as my Nextcloud account?
+        a: Yes, but keep in mind that it would be easier for the server administrator or someone else to access your notes if they gain access to your Nextcloud account.
+  profile:
     quotaUsage(OUTDATED): You're using $used of $total ($percent%)
     connectedTo(OUTDATED): Connected to
     faqTitle(OUTDATED): Frequently asked questions
-  update: 
+  update:
     downloadNotAvailableYet(OUTDATED): The download isn't available yet for your platform. Please check back shortly.
-  editor: 
-    menu: 
+  editor:
+    menu:
       lineHeightDescription(OUTDATED): Also controls the text size for typed notes
       lineThickness(OUTDATED): Line thickness
       lineThicknessDescription(OUTDATED): Background line thickness
       watchServer(OUTDATED): Watch for updates on the server
       watchServerReadOnly(OUTDATED): Editing is disabled while watching the server
-fr: 
-  common: 
+fr:
+  common:
     done(OUTDATED): Done
     continueBtn(OUTDATED): Continue
-  home: 
+  home:
     noPreviewAvailable(OUTDATED): No preview available
-    renameNote: 
+    renameNote:
       noteNameForbiddenCharacters(OUTDATED): Note name contains forbidden characters
       noteNameReserved(OUTDATED): Note name reserved
-  sentry: 
-    consent: 
+  sentry:
+    consent:
       title(OUTDATED): Help improve Saber?
-      description: 
+      description:
         question(OUTDATED): Would you like to automatically report unexpected errors? This helps me identify and fix issues faster.
         scope(OUTDATED): The reports may contain information about the error and your device. I've made every effort to filter out personal data but some may remain.
         currentlyOff(OUTDATED): If you grant consent, error reporting will be enabled after you restart the app.
         currentlyOn(OUTDATED): If you revoke consent, please restart the app to disable error reporting.
         learnMoreInPrivacyPolicy(rich)(OUTDATED): Learn more in the ${link(privacy policy)}.
-      answers: 
+      answers:
         yes(OUTDATED): Yes
         no(OUTDATED): No
         later(OUTDATED): Ask me later
-  settings: 
-    prefLabels: 
+  settings:
+    prefLabels:
       autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Auto-disable finger drawing
       autosave(OUTDATED): Auto-save
       autoStraightenLines(OUTDATED): Auto straighten lines
       simplifiedHomeLayout(OUTDATED): Simplified home layout
       customDataDir(OUTDATED): Custom Saber folder
       sentry(OUTDATED): Error reporting
-    prefDescriptions: 
+    prefDescriptions:
       autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Turn off finger drawing when a stylus is detected
       autosave(OUTDATED): Auto-save after a short delay, or never
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
       simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
-      sentry: 
+      sentry:
         active(OUTDATED): Active
         inactive(OUTDATED): Inactive
         activeUntilRestart(OUTDATED): Active until you restart the app
         inactiveUntilRestart(OUTDATED): Inactive until you restart the app
     openDataDir(OUTDATED): Open Saber folder
-    customDataDir: 
+    customDataDir:
       cancel(OUTDATED): Cancel
       select(OUTDATED): Select
       mustBeEmpty(OUTDATED): Selected folder must be empty
@@ -334,97 +328,94 @@ fr:
       unsupported(OUTDATED): This feature is currently only for developers. Using it will likely result in data loss.
     autosaveDisabled(OUTDATED): Never
     shapeRecognitionDisabled(OUTDATED): Never
-  logs: 
+  logs:
     logs(OUTDATED): Logs
     viewLogs(OUTDATED): View logs
     debuggingInfo(OUTDATED): Logs contain information useful for debugging and development
     noLogs(OUTDATED): No logs here!
     useTheApp(OUTDATED): Logs will appear here as you use the app
-  login: 
+  login:
     notYou(rich)(OUTDATED): Not you? ${undoLogin(Choose another account)}.
-    status: 
+    status:
       hi(OUTDATED): Hi, $u!
       almostDone(OUTDATED): Almost ready for syncing, tap to finish logging in
-    ncLoginStep: 
+    ncLoginStep:
       whereToStoreData(OUTDATED): "Choose where you want to store your data:"
       saberNcServer(OUTDATED): Saber's Nextcloud server
       otherNcServer(OUTDATED): Other Nextcloud server
       serverUrl(OUTDATED): Server URL
       loginWithSaber(OUTDATED): Login with Saber
       loginWithNextcloud(OUTDATED): Login with Nextcloud
-      loginFlow: 
+      loginFlow:
         pleaseAuthorize(OUTDATED): Please authorize Saber to access your Nextcloud account
         followPrompts(OUTDATED): Please follow the prompts in the Nextcloud interface
         browserDidntOpen(OUTDATED): Login page didn't open? Click here
-    encLoginStep: 
+    encLoginStep:
       enterEncPassword(OUTDATED): "To protect your data, please enter your encryption password:"
       newToSaber(OUTDATED): New to Saber? Just enter a new encryption password.
       encPassword(OUTDATED): Encryption password
       encFaqTitle(OUTDATED): Frequently asked questions
       wrongEncPassword(OUTDATED): Decryption failed with the provided password. Please try entering it again.
       connectionFailed(OUTDATED): Something went wrong connecting to the server. Please try again later.
-      encFaq(OUTDATED): 
-        - 
-          q: What is an encryption password? Why use two passwords?
-          a: |-
-            The Nextcloud password is used to access the cloud. The encryption password "scrambles" your data before it ever reaches the cloud.
-            Even if someone gains access to your Nextcloud account, your notes will remain safe and encrypted with a separate password. This provides you a second layer of security to protect your data.
-            No-one can access your notes on the server without your encryption password, but this also means that if you forget your encryption password, you will lose access to your data.
-        - 
-          q: I haven't set an encryption password yet. Where do I get it?
-          a: |-
-            Choose a new encryption password and enter it above.
-            Saber will generate your encryption keys from this password automatically.
-        - 
-          q: Can I use the same password as my Nextcloud account?
-          a: Yes, but keep in mind that it would be easier for the server administrator or someone else to access your notes if they gain access to your Nextcloud account.
-  profile: 
+      encFaq(OUTDATED):
+      - q: What is an encryption password? Why use two passwords?
+        a: |-
+          The Nextcloud password is used to access the cloud. The encryption password "scrambles" your data before it ever reaches the cloud.
+          Even if someone gains access to your Nextcloud account, your notes will remain safe and encrypted with a separate password. This provides you a second layer of security to protect your data.
+          No-one can access your notes on the server without your encryption password, but this also means that if you forget your encryption password, you will lose access to your data.
+      - q: I haven't set an encryption password yet. Where do I get it?
+        a: |-
+          Choose a new encryption password and enter it above.
+          Saber will generate your encryption keys from this password automatically.
+      - q: Can I use the same password as my Nextcloud account?
+        a: Yes, but keep in mind that it would be easier for the server administrator or someone else to access your notes if they gain access to your Nextcloud account.
+  profile:
     quotaUsage(OUTDATED): You're using $used of $total ($percent%)
     connectedTo(OUTDATED): Connected to
     faqTitle(OUTDATED): Frequently asked questions
-  update: 
+  update:
     downloadNotAvailableYet(OUTDATED): The download isn't available yet for your platform. Please check back shortly.
-  editor: 
-    menu: 
+  editor:
+    menu:
       lineHeightDescription(OUTDATED): Also controls the text size for typed notes
       lineThickness(OUTDATED): Line thickness
       lineThicknessDescription(OUTDATED): Background line thickness
       watchServer(OUTDATED): Watch for updates on the server
       watchServerReadOnly(OUTDATED): Editing is disabled while watching the server
-he: 
-  common: 
+he:
+  common:
     done(OUTDATED): Done
     continueBtn(OUTDATED): Continue
-  home: 
-    tooltips: 
+  home:
+    tooltips:
       exportNote(OUTDATED): Export note
     noPreviewAvailable(OUTDATED): No preview available
-    renameNote: 
+    renameNote:
       noteNameEmpty(OUTDATED): Note name can't be empty
       noteNameExists(OUTDATED): A note with this name already exists
       noteNameForbiddenCharacters(OUTDATED): Note name contains forbidden characters
       noteNameReserved(OUTDATED): Note name reserved
-    moveNote: 
+    moveNote:
       moveNotes(OUTDATED): Move $n notes
       multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
       numberRenamedTo(OUTDATED): $n notes will be renamed to avoid conflicts
-  sentry: 
-    consent: 
+  sentry:
+    consent:
       title(OUTDATED): Help improve Saber?
-      description: 
+      description:
         question(OUTDATED): Would you like to automatically report unexpected errors? This helps me identify and fix issues faster.
         scope(OUTDATED): The reports may contain information about the error and your device. I've made every effort to filter out personal data but some may remain.
         currentlyOff(OUTDATED): If you grant consent, error reporting will be enabled after you restart the app.
         currentlyOn(OUTDATED): If you revoke consent, please restart the app to disable error reporting.
         learnMoreInPrivacyPolicy(rich)(OUTDATED): Learn more in the ${link(privacy policy)}.
-      answers: 
+      answers:
         yes(OUTDATED): Yes
         no(OUTDATED): No
         later(OUTDATED): Ask me later
-  settings: 
-    prefCategories: 
+  settings:
+    prefCategories:
       performance(OUTDATED): Performance
-    prefLabels: 
+    prefLabels:
       autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Auto-disable finger drawing
       recentColorsLength(OUTDATED): How many recent colors to store
       autosave(OUTDATED): Auto-save
@@ -433,20 +424,20 @@ he:
       simplifiedHomeLayout(OUTDATED): Simplified home layout
       customDataDir(OUTDATED): Custom Saber folder
       sentry(OUTDATED): Error reporting
-    prefDescriptions: 
+    prefDescriptions:
       autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Turn off finger drawing when a stylus is detected
       autosave(OUTDATED): Auto-save after a short delay, or never
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
       simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
-      sentry: 
+      sentry:
         active(OUTDATED): Active
         inactive(OUTDATED): Inactive
         activeUntilRestart(OUTDATED): Active until you restart the app
         inactiveUntilRestart(OUTDATED): Inactive until you restart the app
     resyncEverything(OUTDATED): Resync everything
     openDataDir(OUTDATED): Open Saber folder
-    customDataDir: 
+    customDataDir:
       cancel(OUTDATED): Cancel
       select(OUTDATED): Select
       mustBeEmpty(OUTDATED): Selected folder must be empty
@@ -454,100 +445,97 @@ he:
       unsupported(OUTDATED): This feature is currently only for developers. Using it will likely result in data loss.
     autosaveDisabled(OUTDATED): Never
     shapeRecognitionDisabled(OUTDATED): Never
-  logs: 
+  logs:
     logs(OUTDATED): Logs
     viewLogs(OUTDATED): View logs
     debuggingInfo(OUTDATED): Logs contain information useful for debugging and development
     noLogs(OUTDATED): No logs here!
     useTheApp(OUTDATED): Logs will appear here as you use the app
-  login: 
+  login:
     notYou(rich)(OUTDATED): Not you? ${undoLogin(Choose another account)}.
-    status: 
+    status:
       hi(OUTDATED): Hi, $u!
       almostDone(OUTDATED): Almost ready for syncing, tap to finish logging in
-    ncLoginStep: 
+    ncLoginStep:
       whereToStoreData(OUTDATED): "Choose where you want to store your data:"
       saberNcServer(OUTDATED): Saber's Nextcloud server
       otherNcServer(OUTDATED): Other Nextcloud server
       serverUrl(OUTDATED): Server URL
       loginWithSaber(OUTDATED): Login with Saber
       loginWithNextcloud(OUTDATED): Login with Nextcloud
-      loginFlow: 
+      loginFlow:
         pleaseAuthorize(OUTDATED): Please authorize Saber to access your Nextcloud account
         followPrompts(OUTDATED): Please follow the prompts in the Nextcloud interface
         browserDidntOpen(OUTDATED): Login page didn't open? Click here
-    encLoginStep: 
+    encLoginStep:
       enterEncPassword(OUTDATED): "To protect your data, please enter your encryption password:"
       newToSaber(OUTDATED): New to Saber? Just enter a new encryption password.
       encPassword(OUTDATED): Encryption password
       encFaqTitle(OUTDATED): Frequently asked questions
       wrongEncPassword(OUTDATED): Decryption failed with the provided password. Please try entering it again.
       connectionFailed(OUTDATED): Something went wrong connecting to the server. Please try again later.
-      encFaq(OUTDATED): 
-        - 
-          q: What is an encryption password? Why use two passwords?
-          a: |-
-            The Nextcloud password is used to access the cloud. The encryption password "scrambles" your data before it ever reaches the cloud.
-            Even if someone gains access to your Nextcloud account, your notes will remain safe and encrypted with a separate password. This provides you a second layer of security to protect your data.
-            No-one can access your notes on the server without your encryption password, but this also means that if you forget your encryption password, you will lose access to your data.
-        - 
-          q: I haven't set an encryption password yet. Where do I get it?
-          a: |-
-            Choose a new encryption password and enter it above.
-            Saber will generate your encryption keys from this password automatically.
-        - 
-          q: Can I use the same password as my Nextcloud account?
-          a: Yes, but keep in mind that it would be easier for the server administrator or someone else to access your notes if they gain access to your Nextcloud account.
-  profile: 
+      encFaq(OUTDATED):
+      - q: What is an encryption password? Why use two passwords?
+        a: |-
+          The Nextcloud password is used to access the cloud. The encryption password "scrambles" your data before it ever reaches the cloud.
+          Even if someone gains access to your Nextcloud account, your notes will remain safe and encrypted with a separate password. This provides you a second layer of security to protect your data.
+          No-one can access your notes on the server without your encryption password, but this also means that if you forget your encryption password, you will lose access to your data.
+      - q: I haven't set an encryption password yet. Where do I get it?
+        a: |-
+          Choose a new encryption password and enter it above.
+          Saber will generate your encryption keys from this password automatically.
+      - q: Can I use the same password as my Nextcloud account?
+        a: Yes, but keep in mind that it would be easier for the server administrator or someone else to access your notes if they gain access to your Nextcloud account.
+  profile:
     quotaUsage(OUTDATED): You're using $used of $total ($percent%)
     connectedTo(OUTDATED): Connected to
     faqTitle(OUTDATED): Frequently asked questions
-  update: 
+  update:
     downloadNotAvailableYet(OUTDATED): The download isn't available yet for your platform. Please check back shortly.
-  editor: 
-    pens: 
+  editor:
+    pens:
       pencil(OUTDATED): Pencil
       shapePen(OUTDATED): Shape pen
-    colors: 
+    colors:
       customBrightnessHue(OUTDATED): Custom $b $h
       customHue(OUTDATED): Custom $h
       dark(OUTDATED): dark
       light(OUTDATED): light
       cyan(OUTDATED): Cyan
       pink(OUTDATED): Pink
-    menu: 
+    menu:
       lineHeightDescription(OUTDATED): Also controls the text size for typed notes
       lineThickness(OUTDATED): Line thickness
       lineThicknessDescription(OUTDATED): Background line thickness
       watchServer(OUTDATED): Watch for updates on the server
       watchServerReadOnly(OUTDATED): Editing is disabled while watching the server
-      bgPatterns: 
+      bgPatterns:
         staffs(OUTDATED): Staffs
         tablature(OUTDATED): Tablature
         cornell(OUTDATED): Cornell
-hu: 
-  common: 
+hu:
+  common:
     done(OUTDATED): Done
     continueBtn(OUTDATED): Continue
-  home: 
-    titles: 
+  home:
+    titles:
       browse(OUTDATED): Browse
-    tooltips: 
+    tooltips:
       exportNote(OUTDATED): Export note
-    create: 
+    create:
       newNote(OUTDATED): New note
       importNote(OUTDATED): Import note
     invalidFormat(OUTDATED): The file you selected is not supported. Please select an sbn, sbn2, sba, or pdf file.
     noPreviewAvailable(OUTDATED): No preview available
     backFolder(OUTDATED): Go back to the previous folder
-    newFolder: 
+    newFolder:
       newFolder(OUTDATED): New folder
       folderName(OUTDATED): Folder name
       create(OUTDATED): Create
       folderNameEmpty(OUTDATED): Folder name can't be empty
       folderNameContainsSlash(OUTDATED): Folder name can't contain a slash
       folderNameExists(OUTDATED): Folder already exists
-    renameNote: 
+    renameNote:
       renameNote(OUTDATED): Rename note
       noteName(OUTDATED): Note name
       rename(OUTDATED): Rename
@@ -555,7 +543,7 @@ hu:
       noteNameExists(OUTDATED): A note with this name already exists
       noteNameForbiddenCharacters(OUTDATED): Note name contains forbidden characters
       noteNameReserved(OUTDATED): Note name reserved
-    moveNote: 
+    moveNote:
       moveNote(OUTDATED): Move note
       moveNotes(OUTDATED): Move $n notes
       moveName(OUTDATED): Move $f
@@ -564,37 +552,37 @@ hu:
       multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
       numberRenamedTo(OUTDATED): $n notes will be renamed to avoid conflicts
     deleteNote(OUTDATED): Delete note
-    renameFolder: 
+    renameFolder:
       renameFolder(OUTDATED): Rename folder
       folderName(OUTDATED): Folder name
       rename(OUTDATED): Rename
       folderNameEmpty(OUTDATED): Folder name can't be empty
       folderNameContainsSlash(OUTDATED): Folder name can't contain a slash
       folderNameExists(OUTDATED): A folder with this name already exists
-    deleteFolder: 
+    deleteFolder:
       deleteFolder(OUTDATED): Delete folder
       deleteName(OUTDATED): Delete $f
       delete(OUTDATED): Delete
       alsoDeleteContents(OUTDATED): Also delete all notes inside this folder
-  sentry: 
-    consent: 
+  sentry:
+    consent:
       title(OUTDATED): Help improve Saber?
-      description: 
+      description:
         question(OUTDATED): Would you like to automatically report unexpected errors? This helps me identify and fix issues faster.
         scope(OUTDATED): The reports may contain information about the error and your device. I've made every effort to filter out personal data but some may remain.
         currentlyOff(OUTDATED): If you grant consent, error reporting will be enabled after you restart the app.
         currentlyOn(OUTDATED): If you revoke consent, please restart the app to disable error reporting.
         learnMoreInPrivacyPolicy(rich)(OUTDATED): Learn more in the ${link(privacy policy)}.
-      answers: 
+      answers:
         yes(OUTDATED): Yes
         no(OUTDATED): No
         later(OUTDATED): Ask me later
-  settings: 
-    prefCategories: 
+  settings:
+    prefCategories:
       editor(OUTDATED): Editor
       performance(OUTDATED): Performance
       advanced(OUTDATED): Advanced
-    prefLabels: 
+    prefLabels:
       layoutSize(OUTDATED): Layout type
       shouldAlwaysAlertForUpdates(OUTDATED): Faster updates
       allowInsecureConnections(OUTDATED): Allow insecure connections
@@ -609,10 +597,10 @@ hu:
       simplifiedHomeLayout(OUTDATED): Simplified home layout
       customDataDir(OUTDATED): Custom Saber folder
       sentry(OUTDATED): Error reporting
-    prefDescriptions: 
+    prefDescriptions:
       allowInsecureConnections(OUTDATED): (Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates
       disableEraserAfterUse(OUTDATED): Automatically switches back to the pen after using the eraser
-      hideFingerDrawing: 
+      hideFingerDrawing:
         shown(OUTDATED): Prevents accidental toggling
         fixedOn(OUTDATED): Finger drawing is fixed as enabled
         fixedOff(OUTDATED): Finger drawing is fixed as disabled
@@ -623,18 +611,18 @@ hu:
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
       simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
       shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
-      sentry: 
+      sentry:
         active(OUTDATED): Active
         inactive(OUTDATED): Inactive
         activeUntilRestart(OUTDATED): Active until you restart the app
         inactiveUntilRestart(OUTDATED): Inactive until you restart the app
-    layoutSizes: 
+    layoutSizes:
       auto(OUTDATED): Auto
       phone(OUTDATED): Phone
       tablet(OUTDATED): Tablet
     resyncEverything(OUTDATED): Resync everything
     openDataDir(OUTDATED): Open Saber folder
-    customDataDir: 
+    customDataDir:
       cancel(OUTDATED): Cancel
       select(OUTDATED): Select
       mustBeEmpty(OUTDATED): Selected folder must be empty
@@ -642,89 +630,82 @@ hu:
       unsupported(OUTDATED): This feature is currently only for developers. Using it will likely result in data loss.
     autosaveDisabled(OUTDATED): Never
     shapeRecognitionDisabled(OUTDATED): Never
-  logs: 
+  logs:
     logs(OUTDATED): Logs
     viewLogs(OUTDATED): View logs
     debuggingInfo(OUTDATED): Logs contain information useful for debugging and development
     noLogs(OUTDATED): No logs here!
     useTheApp(OUTDATED): Logs will appear here as you use the app
-  login: 
+  login:
     notYou(rich)(OUTDATED): Not you? ${undoLogin(Choose another account)}.
-    status: 
+    status:
       hi(OUTDATED): Hi, $u!
       almostDone(OUTDATED): Almost ready for syncing, tap to finish logging in
-    ncLoginStep: 
+    ncLoginStep:
       whereToStoreData(OUTDATED): "Choose where you want to store your data:"
       saberNcServer(OUTDATED): Saber's Nextcloud server
       otherNcServer(OUTDATED): Other Nextcloud server
       serverUrl(OUTDATED): Server URL
       loginWithSaber(OUTDATED): Login with Saber
       loginWithNextcloud(OUTDATED): Login with Nextcloud
-      loginFlow: 
+      loginFlow:
         pleaseAuthorize(OUTDATED): Please authorize Saber to access your Nextcloud account
         followPrompts(OUTDATED): Please follow the prompts in the Nextcloud interface
         browserDidntOpen(OUTDATED): Login page didn't open? Click here
-    encLoginStep: 
+    encLoginStep:
       enterEncPassword(OUTDATED): "To protect your data, please enter your encryption password:"
       newToSaber(OUTDATED): New to Saber? Just enter a new encryption password.
       encPassword(OUTDATED): Encryption password
       encFaqTitle(OUTDATED): Frequently asked questions
       wrongEncPassword(OUTDATED): Decryption failed with the provided password. Please try entering it again.
       connectionFailed(OUTDATED): Something went wrong connecting to the server. Please try again later.
-      encFaq(OUTDATED): 
-        - 
-          q: What is an encryption password? Why use two passwords?
-          a: |-
-            The Nextcloud password is used to access the cloud. The encryption password "scrambles" your data before it ever reaches the cloud.
-            Even if someone gains access to your Nextcloud account, your notes will remain safe and encrypted with a separate password. This provides you a second layer of security to protect your data.
-            No-one can access your notes on the server without your encryption password, but this also means that if you forget your encryption password, you will lose access to your data.
-        - 
-          q: I haven't set an encryption password yet. Where do I get it?
-          a: |-
-            Choose a new encryption password and enter it above.
-            Saber will generate your encryption keys from this password automatically.
-        - 
-          q: Can I use the same password as my Nextcloud account?
-          a: Yes, but keep in mind that it would be easier for the server administrator or someone else to access your notes if they gain access to your Nextcloud account.
-  profile: 
+      encFaq(OUTDATED):
+      - q: What is an encryption password? Why use two passwords?
+        a: |-
+          The Nextcloud password is used to access the cloud. The encryption password "scrambles" your data before it ever reaches the cloud.
+          Even if someone gains access to your Nextcloud account, your notes will remain safe and encrypted with a separate password. This provides you a second layer of security to protect your data.
+          No-one can access your notes on the server without your encryption password, but this also means that if you forget your encryption password, you will lose access to your data.
+      - q: I haven't set an encryption password yet. Where do I get it?
+        a: |-
+          Choose a new encryption password and enter it above.
+          Saber will generate your encryption keys from this password automatically.
+      - q: Can I use the same password as my Nextcloud account?
+        a: Yes, but keep in mind that it would be easier for the server administrator or someone else to access your notes if they gain access to your Nextcloud account.
+  profile:
     title(OUTDATED): My profile
     logout(OUTDATED): Log out
     quotaUsage(OUTDATED): You're using $used of $total ($percent%)
     connectedTo(OUTDATED): Connected to
-    quickLinks: 
+    quickLinks:
       serverHomepage(OUTDATED): Server homepage
       deleteAccount(OUTDATED): Delete account
     faqTitle(OUTDATED): Frequently asked questions
-    faq(OUTDATED): 
-      - 
-        q: Will I lose my notes if I log out?
-        a: No. Your notes will remain both on your device and on the server. They won't be synced with the server until you log back in. Make sure syncing is complete before logging out so you don't lose any data (see the sync progress on the home screen).
-      - 
-        q: How do I change my Nextcloud password?
-        a: Go to your server website and log in. Then go to Settings > Security > Change password. You'll need to log out and log back in to Saber after changing your password.
-      - 
-        q: How do I change my encryption password?
-        a: |-
-          0. Make sure syncing is complete (see the sync progress on the home screen).
-          1. Log out of Saber.
-          2. Go to your server website and delete your 'Saber' folder. This will delete all your notes from the server.
-          3. Log back in to Saber. You can choose a new encryption password when logging in.
-          4. Don't forget to log out and log back in to Saber on your other devices too.
-      - 
-        q: How can I delete my account?
-        a: |-
-          Tap on the "@:profile.quickLinks.deleteAccount" button above, and login if needed.
-          If you are using the official Saber server, your account will be deleted after a 1 week grace period. You can contact me at adilhanney@disroot.org during this period to cancel the deletion.
-          If you are using a third party server, there might not be an option to delete your account: you'll need to consult the server's privacy policy for more information.
-  update: 
+    faq(OUTDATED):
+    - q: Will I lose my notes if I log out?
+      a: No. Your notes will remain both on your device and on the server. They won't be synced with the server until you log back in. Make sure syncing is complete before logging out so you don't lose any data (see the sync progress on the home screen).
+    - q: How do I change my Nextcloud password?
+      a: Go to your server website and log in. Then go to Settings > Security > Change password. You'll need to log out and log back in to Saber after changing your password.
+    - q: How do I change my encryption password?
+      a: |-
+        0. Make sure syncing is complete (see the sync progress on the home screen).
+        1. Log out of Saber.
+        2. Go to your server website and delete your 'Saber' folder. This will delete all your notes from the server.
+        3. Log back in to Saber. You can choose a new encryption password when logging in.
+        4. Don't forget to log out and log back in to Saber on your other devices too.
+    - q: How can I delete my account?
+      a: |-
+        Tap on the "@:profile.quickLinks.deleteAccount" button above, and login if needed.
+        If you are using the official Saber server, your account will be deleted after a 1 week grace period. You can contact me at adilhanney@disroot.org during this period to cancel the deletion.
+        If you are using a third party server, there might not be an option to delete your account: you'll need to consult the server's privacy policy for more information.
+  update:
     updateAvailableDescription(OUTDATED): "A new version of the app is available:"
     downloadNotAvailableYet(OUTDATED): The download isn't available yet for your platform. Please check back shortly.
-  editor: 
-    pens: 
+  editor:
+    pens:
       pencil(OUTDATED): Pencil
       shapePen(OUTDATED): Shape pen
       laserPointer(OUTDATED): Laser pointer
-    colors: 
+    colors:
       colorPicker(OUTDATED): Color picker
       customBrightnessHue(OUTDATED): Custom $b $h
       customHue(OUTDATED): Custom $h
@@ -751,11 +732,11 @@ hu:
       pastelBlue(OUTDATED): Pastel blue
       pastelPurple(OUTDATED): Pastel purple
       pastelPink(OUTDATED): Pastel pink
-    imageOptions: 
+    imageOptions:
       removeAsBackground(OUTDATED): Remove as background
-    selectionBar: 
+    selectionBar:
       duplicate(OUTDATED): Duplicate
-    menu: 
+    menu:
       clearPage(OUTDATED): Clear page $page/$totalPages
       insertPage(OUTDATED): Insert page below
       duplicatePage(OUTDATED): Duplicate page
@@ -766,72 +747,72 @@ hu:
       backgroundImageFit(OUTDATED): Background image fit
       watchServer(OUTDATED): Watch for updates on the server
       watchServerReadOnly(OUTDATED): Editing is disabled while watching the server
-      bgPatterns: 
+      bgPatterns:
         collegeRtl(OUTDATED): College-ruled (Reverse)
         staffs(OUTDATED): Staffs
         tablature(OUTDATED): Tablature
         cornell(OUTDATED): Cornell
-    hud: 
+    hud:
       unlockAxisAlignedPan(OUTDATED): Unlock panning to horizontal or vertical
       lockAxisAlignedPan(OUTDATED): Lock panning to horizontal or vertical
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
-it: 
-  home: 
-    renameNote: 
+it:
+  home:
+    renameNote:
       noteNameForbiddenCharacters(OUTDATED): Note name contains forbidden characters
       noteNameReserved(OUTDATED): Note name reserved
-ja: 
-  common: 
+ja:
+  common:
     done(OUTDATED): Done
     continueBtn(OUTDATED): Continue
-  home: 
-    titles: 
+  home:
+    titles:
       browse(OUTDATED): Browse
-    tooltips: 
+    tooltips:
       exportNote(OUTDATED): Export note
-    create: 
+    create:
       newNote(OUTDATED): New note
       importNote(OUTDATED): Import note
     invalidFormat(OUTDATED): The file you selected is not supported. Please select an sbn, sbn2, sba, or pdf file.
     noPreviewAvailable(OUTDATED): No preview available
     backFolder(OUTDATED): Go back to the previous folder
-    renameNote: 
+    renameNote:
       noteNameForbiddenCharacters(OUTDATED): Note name contains forbidden characters
       noteNameReserved(OUTDATED): Note name reserved
-    moveNote: 
+    moveNote:
       moveNotes(OUTDATED): Move $n notes
       multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
       numberRenamedTo(OUTDATED): $n notes will be renamed to avoid conflicts
     deleteNote(OUTDATED): Delete note
-    renameFolder: 
+    renameFolder:
       renameFolder(OUTDATED): Rename folder
       folderName(OUTDATED): Folder name
       rename(OUTDATED): Rename
       folderNameEmpty(OUTDATED): Folder name can't be empty
       folderNameContainsSlash(OUTDATED): Folder name can't contain a slash
       folderNameExists(OUTDATED): A folder with this name already exists
-    deleteFolder: 
+    deleteFolder:
       deleteFolder(OUTDATED): Delete folder
       deleteName(OUTDATED): Delete $f
       delete(OUTDATED): Delete
       alsoDeleteContents(OUTDATED): Also delete all notes inside this folder
-  sentry: 
-    consent: 
+  sentry:
+    consent:
       title(OUTDATED): Help improve Saber?
-      description: 
+      description:
         question(OUTDATED): Would you like to automatically report unexpected errors? This helps me identify and fix issues faster.
         scope(OUTDATED): The reports may contain information about the error and your device. I've made every effort to filter out personal data but some may remain.
         currentlyOff(OUTDATED): If you grant consent, error reporting will be enabled after you restart the app.
         currentlyOn(OUTDATED): If you revoke consent, please restart the app to disable error reporting.
         learnMoreInPrivacyPolicy(rich)(OUTDATED): Learn more in the ${link(privacy policy)}.
-      answers: 
+      answers:
         yes(OUTDATED): Yes
         no(OUTDATED): No
         later(OUTDATED): Ask me later
-  settings: 
-    prefCategories: 
+  settings:
+    prefCategories:
       performance(OUTDATED): Performance
-    prefLabels: 
+    prefLabels:
       shouldAlwaysAlertForUpdates(OUTDATED): Faster updates
       disableEraserAfterUse(OUTDATED): Auto-disable the eraser
       hideFingerDrawingToggle(OUTDATED): Hide the finger drawing toggle
@@ -843,9 +824,9 @@ ja:
       simplifiedHomeLayout(OUTDATED): Simplified home layout
       customDataDir(OUTDATED): Custom Saber folder
       sentry(OUTDATED): Error reporting
-    prefDescriptions: 
+    prefDescriptions:
       disableEraserAfterUse(OUTDATED): Automatically switches back to the pen after using the eraser
-      hideFingerDrawing: 
+      hideFingerDrawing:
         shown(OUTDATED): Prevents accidental toggling
         fixedOn(OUTDATED): Finger drawing is fixed as enabled
         fixedOff(OUTDATED): Finger drawing is fixed as disabled
@@ -855,14 +836,14 @@ ja:
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
       simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
       shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
-      sentry: 
+      sentry:
         active(OUTDATED): Active
         inactive(OUTDATED): Inactive
         activeUntilRestart(OUTDATED): Active until you restart the app
         inactiveUntilRestart(OUTDATED): Inactive until you restart the app
     resyncEverything(OUTDATED): Resync everything
     openDataDir(OUTDATED): Open Saber folder
-    customDataDir: 
+    customDataDir:
       cancel(OUTDATED): Cancel
       select(OUTDATED): Select
       mustBeEmpty(OUTDATED): Selected folder must be empty
@@ -870,110 +851,107 @@ ja:
       unsupported(OUTDATED): This feature is currently only for developers. Using it will likely result in data loss.
     autosaveDisabled(OUTDATED): Never
     shapeRecognitionDisabled(OUTDATED): Never
-  logs: 
+  logs:
     logs(OUTDATED): Logs
     viewLogs(OUTDATED): View logs
     debuggingInfo(OUTDATED): Logs contain information useful for debugging and development
     noLogs(OUTDATED): No logs here!
     useTheApp(OUTDATED): Logs will appear here as you use the app
-  login: 
+  login:
     notYou(rich)(OUTDATED): Not you? ${undoLogin(Choose another account)}.
-    status: 
+    status:
       hi(OUTDATED): Hi, $u!
       almostDone(OUTDATED): Almost ready for syncing, tap to finish logging in
-    ncLoginStep: 
+    ncLoginStep:
       whereToStoreData(OUTDATED): "Choose where you want to store your data:"
       saberNcServer(OUTDATED): Saber's Nextcloud server
       otherNcServer(OUTDATED): Other Nextcloud server
       serverUrl(OUTDATED): Server URL
       loginWithSaber(OUTDATED): Login with Saber
       loginWithNextcloud(OUTDATED): Login with Nextcloud
-      loginFlow: 
+      loginFlow:
         pleaseAuthorize(OUTDATED): Please authorize Saber to access your Nextcloud account
         followPrompts(OUTDATED): Please follow the prompts in the Nextcloud interface
         browserDidntOpen(OUTDATED): Login page didn't open? Click here
-    encLoginStep: 
+    encLoginStep:
       enterEncPassword(OUTDATED): "To protect your data, please enter your encryption password:"
       newToSaber(OUTDATED): New to Saber? Just enter a new encryption password.
       encPassword(OUTDATED): Encryption password
       encFaqTitle(OUTDATED): Frequently asked questions
       wrongEncPassword(OUTDATED): Decryption failed with the provided password. Please try entering it again.
       connectionFailed(OUTDATED): Something went wrong connecting to the server. Please try again later.
-      encFaq(OUTDATED): 
-        - 
-          q: What is an encryption password? Why use two passwords?
-          a: |-
-            The Nextcloud password is used to access the cloud. The encryption password "scrambles" your data before it ever reaches the cloud.
-            Even if someone gains access to your Nextcloud account, your notes will remain safe and encrypted with a separate password. This provides you a second layer of security to protect your data.
-            No-one can access your notes on the server without your encryption password, but this also means that if you forget your encryption password, you will lose access to your data.
-        - 
-          q: I haven't set an encryption password yet. Where do I get it?
-          a: |-
-            Choose a new encryption password and enter it above.
-            Saber will generate your encryption keys from this password automatically.
-        - 
-          q: Can I use the same password as my Nextcloud account?
-          a: Yes, but keep in mind that it would be easier for the server administrator or someone else to access your notes if they gain access to your Nextcloud account.
-  profile: 
+      encFaq(OUTDATED):
+      - q: What is an encryption password? Why use two passwords?
+        a: |-
+          The Nextcloud password is used to access the cloud. The encryption password "scrambles" your data before it ever reaches the cloud.
+          Even if someone gains access to your Nextcloud account, your notes will remain safe and encrypted with a separate password. This provides you a second layer of security to protect your data.
+          No-one can access your notes on the server without your encryption password, but this also means that if you forget your encryption password, you will lose access to your data.
+      - q: I haven't set an encryption password yet. Where do I get it?
+        a: |-
+          Choose a new encryption password and enter it above.
+          Saber will generate your encryption keys from this password automatically.
+      - q: Can I use the same password as my Nextcloud account?
+        a: Yes, but keep in mind that it would be easier for the server administrator or someone else to access your notes if they gain access to your Nextcloud account.
+  profile:
     quotaUsage(OUTDATED): You're using $used of $total ($percent%)
     connectedTo(OUTDATED): Connected to
     faqTitle(OUTDATED): Frequently asked questions
-  update: 
+  update:
     downloadNotAvailableYet(OUTDATED): The download isn't available yet for your platform. Please check back shortly.
-  editor: 
-    pens: 
+  editor:
+    pens:
       pencil(OUTDATED): Pencil
       shapePen(OUTDATED): Shape pen
-    colors: 
+    colors:
       customBrightnessHue(OUTDATED): Custom $b $h
       customHue(OUTDATED): Custom $h
       dark(OUTDATED): dark
       light(OUTDATED): light
       cyan(OUTDATED): Cyan
       pink(OUTDATED): Pink
-    selectionBar: 
+    selectionBar:
       duplicate(OUTDATED): Duplicate
-    menu: 
+    menu:
       lineHeightDescription(OUTDATED): Also controls the text size for typed notes
       lineThickness(OUTDATED): Line thickness
       lineThicknessDescription(OUTDATED): Background line thickness
       backgroundImageFit(OUTDATED): Background image fit
       watchServer(OUTDATED): Watch for updates on the server
       watchServerReadOnly(OUTDATED): Editing is disabled while watching the server
-      bgPatterns: 
+      bgPatterns:
         tablature(OUTDATED): Tablature
-pt-BR: 
-  common: 
+pt-BR:
+  common:
     done(OUTDATED): Done
     continueBtn(OUTDATED): Continue
-  home: 
-    tooltips: 
+  home:
+    tooltips:
       exportNote(OUTDATED): Export note
     noPreviewAvailable(OUTDATED): No preview available
-    renameNote: 
+    renameNote:
       noteNameForbiddenCharacters(OUTDATED): Note name contains forbidden characters
       noteNameReserved(OUTDATED): Note name reserved
-    moveNote: 
+    moveNote:
       moveNotes(OUTDATED): Move $n notes
       multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
       numberRenamedTo(OUTDATED): $n notes will be renamed to avoid conflicts
-  sentry: 
-    consent: 
+  sentry:
+    consent:
       title(OUTDATED): Help improve Saber?
-      description: 
+      description:
         question(OUTDATED): Would you like to automatically report unexpected errors? This helps me identify and fix issues faster.
         scope(OUTDATED): The reports may contain information about the error and your device. I've made every effort to filter out personal data but some may remain.
         currentlyOff(OUTDATED): If you grant consent, error reporting will be enabled after you restart the app.
         currentlyOn(OUTDATED): If you revoke consent, please restart the app to disable error reporting.
         learnMoreInPrivacyPolicy(rich)(OUTDATED): Learn more in the ${link(privacy policy)}.
-      answers: 
+      answers:
         yes(OUTDATED): Yes
         no(OUTDATED): No
         later(OUTDATED): Ask me later
-  settings: 
-    prefCategories: 
+  settings:
+    prefCategories:
       performance(OUTDATED): Performance
-    prefLabels: 
+    prefLabels:
       autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Auto-disable finger drawing
       recentColorsLength(OUTDATED): How many recent colors to store
       autosave(OUTDATED): Auto-save
@@ -982,20 +960,20 @@ pt-BR:
       simplifiedHomeLayout(OUTDATED): Simplified home layout
       customDataDir(OUTDATED): Custom Saber folder
       sentry(OUTDATED): Error reporting
-    prefDescriptions: 
+    prefDescriptions:
       autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Turn off finger drawing when a stylus is detected
       autosave(OUTDATED): Auto-save after a short delay, or never
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
       simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
-      sentry: 
+      sentry:
         active(OUTDATED): Active
         inactive(OUTDATED): Inactive
         activeUntilRestart(OUTDATED): Active until you restart the app
         inactiveUntilRestart(OUTDATED): Inactive until you restart the app
     resyncEverything(OUTDATED): Resync everything
     openDataDir(OUTDATED): Open Saber folder
-    customDataDir: 
+    customDataDir:
       cancel(OUTDATED): Cancel
       select(OUTDATED): Select
       mustBeEmpty(OUTDATED): Selected folder must be empty
@@ -1003,143 +981,140 @@ pt-BR:
       unsupported(OUTDATED): This feature is currently only for developers. Using it will likely result in data loss.
     autosaveDisabled(OUTDATED): Never
     shapeRecognitionDisabled(OUTDATED): Never
-  logs: 
+  logs:
     logs(OUTDATED): Logs
     viewLogs(OUTDATED): View logs
     debuggingInfo(OUTDATED): Logs contain information useful for debugging and development
     noLogs(OUTDATED): No logs here!
     useTheApp(OUTDATED): Logs will appear here as you use the app
-  login: 
+  login:
     notYou(rich)(OUTDATED): Not you? ${undoLogin(Choose another account)}.
-    status: 
+    status:
       hi(OUTDATED): Hi, $u!
       almostDone(OUTDATED): Almost ready for syncing, tap to finish logging in
-    ncLoginStep: 
+    ncLoginStep:
       whereToStoreData(OUTDATED): "Choose where you want to store your data:"
       saberNcServer(OUTDATED): Saber's Nextcloud server
       otherNcServer(OUTDATED): Other Nextcloud server
       serverUrl(OUTDATED): Server URL
       loginWithSaber(OUTDATED): Login with Saber
       loginWithNextcloud(OUTDATED): Login with Nextcloud
-      loginFlow: 
+      loginFlow:
         pleaseAuthorize(OUTDATED): Please authorize Saber to access your Nextcloud account
         followPrompts(OUTDATED): Please follow the prompts in the Nextcloud interface
         browserDidntOpen(OUTDATED): Login page didn't open? Click here
-    encLoginStep: 
+    encLoginStep:
       enterEncPassword(OUTDATED): "To protect your data, please enter your encryption password:"
       newToSaber(OUTDATED): New to Saber? Just enter a new encryption password.
       encPassword(OUTDATED): Encryption password
       encFaqTitle(OUTDATED): Frequently asked questions
       wrongEncPassword(OUTDATED): Decryption failed with the provided password. Please try entering it again.
       connectionFailed(OUTDATED): Something went wrong connecting to the server. Please try again later.
-      encFaq(OUTDATED): 
-        - 
-          q: What is an encryption password? Why use two passwords?
-          a: |-
-            The Nextcloud password is used to access the cloud. The encryption password "scrambles" your data before it ever reaches the cloud.
-            Even if someone gains access to your Nextcloud account, your notes will remain safe and encrypted with a separate password. This provides you a second layer of security to protect your data.
-            No-one can access your notes on the server without your encryption password, but this also means that if you forget your encryption password, you will lose access to your data.
-        - 
-          q: I haven't set an encryption password yet. Where do I get it?
-          a: |-
-            Choose a new encryption password and enter it above.
-            Saber will generate your encryption keys from this password automatically.
-        - 
-          q: Can I use the same password as my Nextcloud account?
-          a: Yes, but keep in mind that it would be easier for the server administrator or someone else to access your notes if they gain access to your Nextcloud account.
-  profile: 
+      encFaq(OUTDATED):
+      - q: What is an encryption password? Why use two passwords?
+        a: |-
+          The Nextcloud password is used to access the cloud. The encryption password "scrambles" your data before it ever reaches the cloud.
+          Even if someone gains access to your Nextcloud account, your notes will remain safe and encrypted with a separate password. This provides you a second layer of security to protect your data.
+          No-one can access your notes on the server without your encryption password, but this also means that if you forget your encryption password, you will lose access to your data.
+      - q: I haven't set an encryption password yet. Where do I get it?
+        a: |-
+          Choose a new encryption password and enter it above.
+          Saber will generate your encryption keys from this password automatically.
+      - q: Can I use the same password as my Nextcloud account?
+        a: Yes, but keep in mind that it would be easier for the server administrator or someone else to access your notes if they gain access to your Nextcloud account.
+  profile:
     quotaUsage(OUTDATED): You're using $used of $total ($percent%)
     connectedTo(OUTDATED): Connected to
     faqTitle(OUTDATED): Frequently asked questions
-  update: 
+  update:
     downloadNotAvailableYet(OUTDATED): The download isn't available yet for your platform. Please check back shortly.
-  editor: 
-    pens: 
+  editor:
+    pens:
       pencil(OUTDATED): Pencil
       shapePen(OUTDATED): Shape pen
-    colors: 
+    colors:
       customBrightnessHue(OUTDATED): Custom $b $h
       customHue(OUTDATED): Custom $h
       dark(OUTDATED): dark
       light(OUTDATED): light
       cyan(OUTDATED): Cyan
       pink(OUTDATED): Pink
-    selectionBar: 
+    selectionBar:
       duplicate(OUTDATED): Duplicate
-    menu: 
+    menu:
       lineHeightDescription(OUTDATED): Also controls the text size for typed notes
       lineThickness(OUTDATED): Line thickness
       lineThicknessDescription(OUTDATED): Background line thickness
       watchServer(OUTDATED): Watch for updates on the server
       watchServerReadOnly(OUTDATED): Editing is disabled while watching the server
-ru: 
-  home: 
-    renameNote: 
+ru:
+  home:
+    renameNote:
       noteNameForbiddenCharacters(OUTDATED): Note name contains forbidden characters
       noteNameReserved(OUTDATED): Note name reserved
-  settings: 
-    prefLabels: 
+  settings:
+    prefLabels:
       autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Auto-disable finger drawing
-    prefDescriptions: 
+    prefDescriptions:
       autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Turn off finger drawing when a stylus is detected
-tr: 
-  home: 
+tr:
+  home:
     noPreviewAvailable(OUTDATED): No preview available
-    renameNote: 
+    renameNote:
       noteNameForbiddenCharacters(OUTDATED): Note name contains forbidden characters
       noteNameReserved(OUTDATED): Note name reserved
-  sentry: 
-    consent: 
+  sentry:
+    consent:
       title(OUTDATED): Help improve Saber?
-      description: 
+      description:
         question(OUTDATED): Would you like to automatically report unexpected errors? This helps me identify and fix issues faster.
         scope(OUTDATED): The reports may contain information about the error and your device. I've made every effort to filter out personal data but some may remain.
         currentlyOff(OUTDATED): If you grant consent, error reporting will be enabled after you restart the app.
         currentlyOn(OUTDATED): If you revoke consent, please restart the app to disable error reporting.
         learnMoreInPrivacyPolicy(rich)(OUTDATED): Learn more in the ${link(privacy policy)}.
-      answers: 
+      answers:
         yes(OUTDATED): Yes
         no(OUTDATED): No
         later(OUTDATED): Ask me later
-  settings: 
-    prefLabels: 
+  settings:
+    prefLabels:
       autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Auto-disable finger drawing
       autosave(OUTDATED): Auto-save
       sentry(OUTDATED): Error reporting
-    prefDescriptions: 
+    prefDescriptions:
       autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Turn off finger drawing when a stylus is detected
       autosave(OUTDATED): Auto-save after a short delay, or never
-      sentry: 
+      sentry:
         active(OUTDATED): Active
         inactive(OUTDATED): Inactive
         activeUntilRestart(OUTDATED): Active until you restart the app
         inactiveUntilRestart(OUTDATED): Inactive until you restart the app
-    customDataDir: 
+    customDataDir:
       unsupported(OUTDATED): This feature is currently only for developers. Using it will likely result in data loss.
     autosaveDisabled(OUTDATED): Never
     shapeRecognitionDisabled(OUTDATED): Never
-  logs: 
+  logs:
     logs(OUTDATED): Logs
     viewLogs(OUTDATED): View logs
     debuggingInfo(OUTDATED): Logs contain information useful for debugging and development
     noLogs(OUTDATED): No logs here!
     useTheApp(OUTDATED): Logs will appear here as you use the app
-  editor: 
-    menu: 
+  editor:
+    menu:
       lineThickness(OUTDATED): Line thickness
       lineThicknessDescription(OUTDATED): Background line thickness
-zh-Hans-CN: 
-  home: 
-    renameNote: 
+zh-Hans-CN:
+  home:
+    renameNote:
       noteNameForbiddenCharacters(OUTDATED): Note name contains forbidden characters
       noteNameReserved(OUTDATED): Note name reserved
-zh-Hant-TW: 
-  home: 
-    renameNote: 
+zh-Hant-TW:
+  home:
+    renameNote:
       noteNameForbiddenCharacters(OUTDATED): 筆記名稱包含禁止使用的字元
       noteNameReserved(OUTDATED): 筆記名稱為系統保留字
-  settings: 
-    prefLabels: 
+  settings:
+    prefLabels:
       autoDisableFingerDrawingWhenStylusDetected(OUTDATED): 自動停用手指繪圖
-    prefDescriptions: 
+    prefDescriptions:
       autoDisableFingerDrawingWhenStylusDetected(OUTDATED): 偵測到觸控筆時自動停用手指繪圖

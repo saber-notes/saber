@@ -73,10 +73,11 @@ jobs:
       - name: Disable Flutter CLI animations
         run: flutter config --no-cli-animations
 
+      - run: ./patches/pre/remove_dev_dependencies.sh
+      - run: ./patches/pre/remove_linux_dependencies.sh
       - run: flutter pub get
-
-      - name: Remove development dependencies
-        run: ./patches/remove_dev_dependencies.sh
+      - run: ./patches/post/patch_rust_versions.sh
+      - run: ./patches/post/remove_wasm_libs.sh
 
       - name: Build for macOS
         run: |

@@ -22,6 +22,11 @@ jobs:
 
       - uses: "./.github/shared_workflows/install_apt_dependencies"
 
+      - name: Setup Flutter
+        uses: adil192/setup-flutter-submodule@v1
+        with:
+          flutter-path: submodules/flutter
+
       - name: Setup cache
         uses: actions/cache/restore@v5
         with:
@@ -31,9 +36,11 @@ jobs:
             linux/flutter/ephemeral/
             macos/Flutter/ephemeral/
             windows/flutter/ephemeral/
+            submodules/flutter/bin/cache/
             .flutter-plugins-dependencies
-          key: ${{ runner.OS }}-saber-${{ hashFiles('**/pubspec.lock') }}-${{ hashFiles('**/*.dart') }}
+          key: ${{ runner.OS }}-saber-android-${{ hashFiles('**/pubspec.lock') }}-${{ hashFiles('**/*.dart') }}
           restore-keys: |
+            ${{ runner.OS }}-saber-android-
             ${{ runner.OS }}-saber-
 
       - name: Setup keystore
@@ -47,16 +54,15 @@ jobs:
           echo "keyAlias=${{ secrets.ALIAS }}" >> android/key.properties
           echo "storeFile=../android.keystore" >> android/key.properties
 
-      - name: Setup Flutter
-        uses: adil192/setup-flutter-submodule@v1
-        with:
-          flutter-path: submodules/flutter
-
       - name: Setup Java
         uses: actions/setup-java@v5
         with:
           distribution: "microsoft"
           java-version: "21"
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v5
+        with:
+          cache-read-only: true
 
       - name: Setup Rust
         uses: moonrepo/setup-rust@v1
@@ -67,16 +73,12 @@ jobs:
       - name: Disable Flutter CLI animations
         run: flutter config --no-cli-animations
 
+      - run: ./patches/pre/remove_dev_dependencies.sh
+      - run: ./patches/pre/remove_linux_dependencies.sh
+      - run: ./patches/pre/remove_request_install_packages_permission.sh
       - run: flutter pub get
-
-      - name: Remove REQUEST_INSTALL_PACKAGES permission
-        run: ./patches/remove_request_install_packages_permission.sh
-      - name: Remove development dependencies
-        run: ./patches/remove_dev_dependencies.sh
-      - name: Remove non-Android dependencies
-        run: ./patches/remove_non_android_dependencies.sh
-      - name: Patch rust dependencies
-        run: ./patches/patch_rust_versions.sh
+      - run: ./patches/post/patch_rust_versions.sh
+      - run: ./patches/post/remove_wasm_libs.sh
 
       - name: Build aab
         run: |

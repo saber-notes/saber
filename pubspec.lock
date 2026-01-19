@@ -1596,19 +1596,20 @@ packages:
   slang:
     dependency: "direct main"
     description:
-      name: slang
-      sha256: "263159a93864a13a0f2486326e200cb38214a8e82a3c83a48c20ac24a8eed329"
-      url: "https://pub.dev"
-    source: hosted
-    version: "4.11.1"
+      path: slang
+      ref: "949a16664259005d7ac8df853ea5a6ef3b0e4380"
+      resolved-ref: "949a16664259005d7ac8df853ea5a6ef3b0e4380"
+      url: "https://github.com/adil192/slang"
+    source: git
+    version: "4.12.0"
   slang_flutter:
     dependency: "direct main"
     description:
       name: slang_flutter
-      sha256: a6ebc0a855faa62053f44d333ae3b3cde24945357e88506d1d3e7fb0d3fc0c70
+      sha256: "0a4545cca5404d6b7487cf61cf1fe56c52daeb08de56a7574ee8381fbad035a0"
       url: "https://pub.dev"
     source: hosted
-    version: "4.11.0"
+    version: "4.12.0"
   source_span:
     dependency: transitive
     description:
