@@ -1,1 +1,385 @@
-{}
+common:
+  done: เสร็จ
+  continueBtn: ดำเนินการต่อ
+  cancel: ยกเลิก
+home:
+  tabs:
+    home: หน้าแรก
+    browse: เรียกดู
+    whiteboard: ไวท์บอร์ด
+    settings: ตั้งค่า
+  titles:
+    home: บันทึกล่าสุด
+    browse: เรียกดู
+    whiteboard: ไวท์บอร์ด
+    settings: ตั้งค่า
+  tooltips:
+    newNote: บันทึกใหม่
+    showUpdateDialog: แสดงหน้าต่างอัปเดต
+    exportNote: หมายเหตุส่งออก
+  create:
+    newNote: บันทึกใหม่
+    importNote: นำเข้าบันทึก
+  welcome: ยินดีต้อนรับสู่เซเบอร์
+  invalidFormat: ไฟล์ที่คุณเลือกไม่รองรับ โปรดเลือกไฟล์ประเภท sbn, sbn2, sba 
+    หรือ pdf แทน
+  noFiles: ไม่พบไฟล์
+  noPreviewAvailable: ไม่มีภาพตัวอย่าง
+  createNewNote: แตะปุ่ม + เพื่อสร้างบันทึกใหม่
+  backFolder: กลับไปยังโฟลเดอร์ก่อนหน้า
+  newFolder:
+    newFolder: โฟลเดอร์ใหม่
+    folderName: ชื่อโฟลเดอร์
+    create: สร้าง
+    folderNameEmpty: ชื่อโฟลเดอร์ต้องไม่ว่างเปล่า
+    folderNameContainsSlash: ชื่อโฟลเดอร์ต้องไม่มีเครื่องหมายทับ (/)
+    folderNameExists: โฟลเดอร์มีอยู่แล้ว
+  renameNote:
+    renameNote: เปลี่ยนชื่อบันทึก
+    noteName: ชื่อบันทึก
+    rename: เปลี่ยนชื่อ
+    noteNameEmpty: ชื่อหมายเหตุต้องไม่ว่างเปล่า
+    noteNameExists: มีบันทึกชื่อนี้อยู่แล้ว
+    noteNameForbiddenCharacters: ชื่อบันทึกมีอักขระต้องห้าม
+    noteNameReserved: ชื่อถูกสงวนไว้
+  moveNote:
+    moveNote: ย้ายบันทึก
+    moveNotes: ย้ายบันทึก $n
+    moveName: ย้าย $f
+    move: ย้าย
+    renamedTo: บันทึกจะถูกเปลี่ยนชื่อเป็น $newName
+    multipleRenamedTo: 'บันทึกต่อไปนี้จะถูกเปลี่ยนชื่อ:'
+    numberRenamedTo: มีการเปลี่ยนชื่อเอกสารจำนวน $n เพื่อหลีกเลี่ยงความขัดแย้ง
+  deleteNote: ลบบันทึก
+  renameFolder:
+    renameFolder: เปลี่ยนชื่อโฟลเดอร์
+    folderName: ชื่อโฟลเดอร์
+    rename: เปลี่ยนชื่อ
+    folderNameEmpty: ชื่อโฟลเดอร์ต้องไม่ว่างเปล่า
+    folderNameContainsSlash: ชื่อโฟลเดอร์ต้องไม่มีเครื่องหมายทับ (/)
+    folderNameExists: มีโฟลเดอร์ชื่อนี้อยู่แล้ว
+  deleteFolder:
+    deleteFolder: ลบโฟลเดอร์
+    deleteName: ลบ $f
+    delete: ลบ
+    alsoDeleteContents: ลบบันทึกทั้งหมดที่อยู่ในโฟลเดอร์นี้ด้วย
+sentry:
+  consent:
+    title: ช่วยปรับปรุง Saber ได้ไหม?
+    description:
+      question: ต้องการให้รายงานข้อผิดพลาดที่ไม่คาดคิดโดยอัตโนมัติหรือไม่? 
+        วิธีนี้ช่วยให้ฉันระบุและแก้ไขปัญหาได้เร็วขึ้น
+      scope: รายงานอาจมีข้อมูลเกี่ยวกับข้อผิดพลาดและอุปกรณ์ของคุณ 
+        เราพยายามอย่างเต็มที่ในการกรองข้อมูลส่วนบุคคลออก 
+        แต่ข้อมูลบางส่วนอาจยังคงหลงเหลืออยู่
+      currentlyOff: หากคุณอนุญาต 
+        ระบบจะเปิดใช้งานรายงานข้อผิดพลาดหลังจากที่คุณเปิดโปรแกรมใหม่
+      currentlyOn: หากคุณเพิกถอนความยินยอม 
+        โปรดรีสตาร์ทแอปเพื่อปิดใช้งานรายงานข้อผิดพลาด
+      learnMoreInPrivacyPolicy(rich): 
+        เรียนรู้เพิ่มเติมได้ในนโยบายความเป็นส่วนตัว ${link(privacy policy)}
+    answers:
+      yes: ใช่
+      no: ไม่
+      later: ถามในภายหลัง
+settings:
+  prefCategories:
+    general: ทั่วไป
+    writing: กำลังเขียน
+    editor: ผู้เรียบเรียง
+    performance: ประสิทธิภาพ
+    advanced: ขั้นสูง
+  prefLabels:
+    locale: ภาษา
+    appTheme: ธีมแอป
+    platform: ประเภทธีม
+    layoutSize: ประเภทเค้าโครง
+    customAccentColor: กำหนดสีเน้นเอง
+    hyperlegibleFont: แบบอักษร Atkinson Hyperlegible
+    shouldCheckForUpdates: ตรวจสอบอัปเดต Saber
+    shouldAlwaysAlertForUpdates: อัปเดตเร็วขึ้น
+    allowInsecureConnections: อนุญาตเชื่อมต่อที่ไม่ปลอดภัย
+    editorToolbarAlignment: ตำแหน่งแถบเครื่องมือ
+    editorToolbarShowInFullscreen: แสดงแถบเครื่องมือในโหมดเต็มหน้าจอ
+    editorAutoInvert: กลับด้านโน้ตในโหมดมืด
+    preferGreyscale: ชอบสีเทามากกว่า
+    maxImageSize: ขนาดภาพสูงสุด
+    autoClearWhiteboardOnExit: ล้างกระดานไวท์บอร์ดอัตโนมัติ
+    disableEraserAfterUse: ปิดใช้งานยางลบโดยอัตโนมัติ
+    hideFingerDrawingToggle: ซ่อนตัวเลือกวาดด้วยนิ้ว
+    autoDisableFingerDrawingWhenStylusDetected: ปิดใช้งานวาดด้วยนิ้วโดยอัตโนมัติ
+    editorPromptRename: แจ้งเตือนให้คุณเปลี่ยนชื่อบันทึกใหม่
+    recentColorsDontSavePresets: อย่าบันทึกสีที่ตั้งไว้ล่วงหน้าในสีที่ใช้ล่าสุด
+    recentColorsLength: จัดเก็บสีใหม่ล่าสุดกี่สี
+    printPageIndicators: ตัวชี้การพิมพ์
+    autosave: บันทึกอัตโนมัติ
+    shapeRecognitionDelay: ล่าช้าในการจดจำรูปร่าง
+    autoStraightenLines: ปรับเส้นให้ตรงอัตโนมัติ
+    simplifiedHomeLayout: วางผังแบบเรียบง่าย
+    customDataDir: กำหนดโฟลเดอร์เอง
+    sentry: รายงานข้อผิดพลาด
+  prefDescriptions:
+    hyperlegibleFont: เพิ่มความชัดเจนในการอ่านสำหรับผู้ใช้ที่มีสายตาเลือนราง
+    allowInsecureConnections: (ไม่แนะนำ) อนุญาตให้ Saber 
+      เชื่อมต่อกับเซิร์ฟเวอร์ที่มีใบรับรองด้วยตนเอง/ไม่น่าเชื่อถือ
+    preferGreyscale: สำหรับแสดงผลอี-อิงค์
+    autoClearWhiteboardOnExit: ล้างกระดานไวท์บอร์ดหลังจากที่คุณออกจากแอป
+    disableEraserAfterUse: สลับกลับไปใช้ปากกาโดยอัตโนมัติหลังจากใช้ยางลบเสร็จ
+    maxImageSize: บีบอัดรูปภาพขนาดใหญ่
+    hideFingerDrawing:
+      shown: ป้องกันสลับโดยไม่ตั้งใจ
+      fixedOn: วาดด้วยนิ้วถูกตั้งค่าเปิดใช้งาน
+      fixedOff: วาดด้วยนิ้วถูกตั้งค่าเป็นปิดใช้งาน
+    autoDisableFingerDrawingWhenStylusDetected: 
+      ปิดการใช้งานวาดด้วยนิ้วเมื่อตรวจพบสไตลัส
+    editorPromptRename: คุณสามารถเปลี่ยนชื่อบันทึกได้ในภายหลังเสมอ
+    printPageIndicators: แสดงตัวชี้หน้าในไฟล์ส่งออก
+    autosave: บันทึกอัตโนมัติหลังจากหน่วงเวลาเล็กน้อย หรือไม่บันทึกเลยก็ได้
+    shapeRecognitionDelay: อัปเดตตัวอย่างรูปร่างบ่อยแค่ไหน
+    autoStraightenLines: ยืดเส้นยาวให้ตรงโดยไม่ต้องใช้ปากกาเขียนรูปทรง
+    simplifiedHomeLayout: กำหนดความสูงคงที่สำหรับการแสดงตัวอย่างโน้ตแต่ละรายการ
+    shouldAlwaysAlertForUpdates: 
+      แจ้งข้อมูลอัปเดตให้ฉันทราบทันทีที่มีข้อมูลเพิ่มเติม
+    sentry:
+      active: ใช้งาน
+      inactive: ไม่ใช้งาน
+      activeUntilRestart: ใช้งานได้จนกว่าคุณจะรีสตาร์ทแอป
+      inactiveUntilRestart: ไม่ทำงานจนกว่าคุณจะรีสตาร์ทแอป
+  themeModes:
+    system: ระบบ
+    light: สว่าง
+    dark: มืด
+  layoutSizes:
+    auto: อัตโนมัติ
+    phone: โทรศัพท์
+    tablet: แท็บเล็ต
+  accentColorPicker:
+    pickAColor: เลือกสี
+  systemLanguage: อัตโนมัติ
+  axisDirections:
+  - บน
+  - ขวา
+  - ล่าง
+  - ซ้าย
+  reset:
+    title: รีเซ็ตตั้งค่านี้หรือไม่?
+    button: รีเซ็ต
+  resyncEverything: ซิงค์ทุกอย่างใหม่
+  openDataDir: เปิดโฟลเดอร์ Saber
+  customDataDir:
+    cancel: ยกเลิก
+    select: เลือก
+    mustBeEmpty: โฟลเดอร์ที่เลือกต้องว่างเปล่า
+    mustBeDoneSyncing: 
+      ตรวจสอบให้แน่ใจว่าซิงค์เสร็จสมบูรณ์ก่อนที่จะเปลี่ยนโฟลเดอร์
+    unsupported: ฟีเจอร์นี้ใช้งานได้เฉพาะนักพัฒนาเท่านั้น 
+      การใช้งานอาจทำให้ข้อมูลสูญหายได้
+  autosaveDisabled: เคย
+  shapeRecognitionDisabled: เคย
+logs:
+  logs: บันทึก
+  viewLogs: ดูบันทึก
+  debuggingInfo: 
+    ไฟล์บันทึกข้อมูลมีข้อมูลที่เป็นประโยชน์สำหรับการแก้ไขข้อผิดพลาดและพัฒนา
+  noLogs: ไม่มีบันทึกข้อมูลใดๆ ที่นี่!
+  useTheApp: บันทึกการใช้งานแอปจะปรากฏที่นี่ขณะที่คุณใช้งาน
+login:
+  title: เข้าสู่ระบบ
+  form:
+    agreeToPrivacyPolicy(rich): เมื่อเข้าสู่ระบบ คุณยอมรับ 
+      ${linkToPrivacyPolicy(ข้อตกลงและเงื่อนไขของนโยบายความเป็นส่วนตัว )}.
+  signup(rich): ยังไม่มีบัญชีใช่ไหม? ${linkToSignup(สมัครตอนนี้)}!
+  notYou(rich): ไม่ใช่คุณใช่ไหม? ${undoLogin(เลือกบัญชีอื่น)}
+  status:
+    loggedOut: ออกจากระบบแล้ว
+    tapToLogin: แตะเพื่อเข้าสู่ระบบด้วย Nextcloud
+    hi: สวัสดี $u!
+    almostDone: พร้อมสำหรับการซิงค์แล้ว แตะเพื่อเข้าสู่ระบบให้เสร็จสมบูรณ์
+    loggedIn: เข้าสู่ระบบด้วย Nextcloud
+  ncLoginStep:
+    whereToStoreData: 'เลือกตำแหน่งที่ต้องการจัดเก็บข้อมูล:'
+    saberNcServer: เซิร์ฟเวอร์ Nextcloud ของ Saber
+    otherNcServer: เซิร์ฟเวอร์ Nextcloud อื่นๆ
+    serverUrl: URL เซิร์ฟเวอร์
+    loginWithSaber: เข้าสู่ระบบด้วย Saber
+    loginWithNextcloud: เข้าสู่ระบบด้วย Nextcloud
+    loginFlow:
+      pleaseAuthorize: โปรดอนุญาตให้ Saber เข้าถึงบัญชี Nextcloud ของคุณ
+      followPrompts: โปรดทำตามคำแนะนำในหน้าจอ Nextcloud
+      browserDidntOpen: หน้าเข้าสู่ระบบไม่เปิดใช่ไหม? คลิกที่นี่
+  encLoginStep:
+    enterEncPassword: 'เพื่อปกป้องข้อมูลของคุณ โปรดป้อนรหัสผ่านเข้ารหัสของคุณ:'
+    newToSaber: เพิ่งเคยใช้ Saber ใช่ไหม? เพียงแค่ป้อนรหัสผ่านเข้ารหัสใหม่
+    encPassword: เข้ารหัส รหัสผ่าน
+    encFaqTitle: คำถามที่พบบ่อย
+    wrongEncPassword: ถอดรหัสล้มเหลวด้วยรหัสผ่านที่ให้มา 
+      โปรดลองป้อนรหัสผ่านอีกครั้ง
+    connectionFailed: เกิดข้อผิดพลาดเชื่อมต่อกับเซิร์ฟเวอร์ 
+      โปรดลองใหม่อีกครั้งในภายหลัง
+    encFaq:
+    - q: รหัสผ่านสำหรับเข้ารหัสคืออะไร? ทำไมต้องใช้รหัสผ่านสองชุด?
+      a: |-
+        รหัสผ่าน Nextcloud ใช้สำหรับเข้าถึงระบบคลาวด์ รหัสผ่านจะ "เข้ารหัส" ข้อมูลของคุณก่อนที่จะส่งไปยังระบบคลาวด์ แม้ว่าจะมีผู้อื่นเข้าถึงบัญชี Nextcloud ของคุณได้
+        บันทึกของคุณจะยังปลอดภัยและได้รับการเข้ารหัสด้วยรหัสผ่านแยกต่างหาก ซึ่งเป็นการเพิ่มความปลอดภัยอีกชั้นเพื่อปกป้องข้อมูลของคุณ
+        ไม่มีใครสามารถเข้าถึงบันทึกของคุณบนเซิร์ฟเวอร์ได้หากไม่มีรหัสผ่านเข้ารหัส หมายความว่าหากคุณลืมรหัสผ่านการเข้ารหัส คุณจะเสียสิทธิ์ในการเข้าถึงข้อมูลของคุณเช่นกัน
+    - q: ฉันยังไม่ได้ตั้งรหัสผ่านสำหรับการเข้ารหัส ฉันจะหารหัสผ่านได้จากที่ไหน?
+      a: |-
+        เลือกรหัสผ่านเข้ารหัสใหม่และป้อนลงในช่องด้านบน Saber
+        จะสร้างคีย์เข้ารหัสของคุณจากรหัสผ่านนี้โดยอัตโนมัติ
+    - q: ฉันสามารถใช้รหัสผ่านเดียวกับบัญชี Nextcloud ของฉันได้หรือไม่?
+      a: ใช่ แต่โปรดจำไว้ว่า 
+        หากผู้ดูแลระบบเซิร์ฟเวอร์หรือบุคคลอื่นสามารถเข้าถึงบันทึกของคุณได้ง่ายขึ้น
+        พวกเขาก็อาจเข้าถึงบัญชี Nextcloud ของคุณได้
+profile:
+  title: โปรไฟล์ของฉัน
+  logout: ออกจากระบบ
+  quotaUsage: คุณกำลังใช้ $used จาก $total ($percent%)
+  connectedTo: เชื่อมต่อไปยัง
+  quickLinks:
+    serverHomepage: หน้าแรกของเซิร์ฟเวอร์
+    deleteAccount: ลบบัญชี
+  faqTitle: คำถามที่พบบ่อย
+  faq:
+  - q: ถ้าฉันออกจากระบบ ฉันจะเสียบันทึกของฉันไปไหม?
+    a: ไม่ ข้อมูลของคุณจะยังคงอยู่ทั้งในอุปกรณ์ของคุณและบนเซิร์ฟเวอร์ 
+      ข้อมูลจะไม่ถูกซิงค์กับเซิร์ฟเวอร์จนกว่าคุณจะเข้าสู่ระบบอีกครั้ง 
+      โปรดตรวจสอบให้แน่ใจว่าการซิงค์เสร็จสมบูรณ์ก่อนออกจากระบบ 
+      เพื่อป้องกันการสูญเสียข้อมูล (ดูความคืบหน้าการซิงค์บนหน้าจอหลัก)
+  - q: ฉันจะเปลี่ยนรหัสผ่าน Nextcloud ของฉันได้อย่างไร?
+    a: เข้าไปที่เว็บไซต์เซิร์ฟเวอร์ของคุณแล้วล็อกอิน จากนั้นไปที่ การตั้งค่า > 
+      ความปลอดภัย > เปลี่ยนรหัสผ่าน คุณจะต้องล็อกเอาต์แล้วล็อกอินกลับเข้าไปใน 
+      Saber อีกครั้งหลังจากเปลี่ยนรหัสผ่านเสร็จแล้ว
+  - q: ฉันจะเปลี่ยนรหัสผ่านเข้ารหัสได้อย่างไร?
+    a: |-
+      0. ตรวจสอบให้แน่ใจว่าการซิงค์เสร็จสมบูรณ์แล้ว (ดูความคืบหน้าการซิงค์บนหน้าจอหลัก)
+      1. ออกจากระบบ Saber
+      2. ไปที่เว็บไซต์เซิร์ฟเวอร์ของคุณและลบโฟลเดอร์ 'Saber' การทำเช่นนี้จะลบโน้ตทั้งหมดของคุณออกจากเซิร์ฟเวอร์
+      3. เข้าสู่ระบบ Saber อีกครั้ง คุณสามารถเลือกรหัสผ่านการเข้ารหัสใหม่ได้เมื่อเข้าสู่ระบบ
+      4. อย่าลืมออกจากระบบและเข้าสู่ระบบ Saber บนอุปกรณ์อื่นๆ ของคุณ
+  - q: ฉันจะลบบัญชีของฉันได้อย่างไร?
+    a: |-
+      แตะที่ปุ่ม "@:profile.quickLinks.deleteAccount" ด้านบน แล้วล็อกอินหากจำเป็น
+      หากคุณใช้เซิร์ฟเวอร์ Saber อย่างเป็นทางการ บัญชีของคุณจะถูกลบหลังจาก 1 สัปดาห์ คุณสามารถติดต่อได้ที่ adilhanney@disroot.org ในช่วงเวลานี้เพื่อยกเลิกการลบ
+      หากคุณใช้เซิร์ฟเวอร์ของบุคคลที่สาม อาจไม่มีตัวเลือกในการลบบัญชีของคุณ คุณจะต้องตรวจสอบนโยบายความเป็นส่วนตัวของเซิร์ฟเวอร์เพื่อดูข้อมูลเพิ่มเติม
+appInfo:
+  licenseNotice: |-
+    สงวนลิขสิทธิ์ Saber © 2022-$buildYear Adil Hanney
+    โปรแกรมนี้ไม่มีการรับประกันใดๆ ทั้งสิ้น นี่คือซอฟต์แวร์ฟรี และคุณสามารถแจกจ่ายต่อได้ภายใต้เงื่อนไขบางประการ
+  debug: แก้ไขข้อผิดพลาด
+  sponsorButton: คลิกที่นี่เพื่อสนับสนุนฉัน หรือซื้อพื้นที่จัดเก็บเพิ่มเติม
+  licenseButton: คลิกที่นี่เพื่อดูข้อมูลใบอนุญาตเพิ่มเติม
+  privacyPolicyButton: แตะที่นี่เพื่อดูนโยบายความเป็นส่วนตัว
+update:
+  updateAvailable: มีอัปเดตแล้ว
+  updateAvailableDescription: 'แอปเวอร์ชันใหม่พร้อมใช้งานแล้ว:'
+  update: อัปเดต
+  downloadNotAvailableYet: 
+    ไฟล์ดาวน์โหลดยังไม่พร้อมให้บริการสำหรับแพลตฟอร์มของคุณ 
+    โปรดตรวจสอบอีกครั้งในภายหลัง
+editor:
+  toolbar:
+    toggleColors: สลับสี (Ctrl C)
+    select: เลือก
+    toggleEraser: สลับใช้งานยางลบ (Ctrl E)
+    photo: รูปภาพ
+    text: ข้อความ
+    toggleFingerDrawing: สลับวาดภาพด้วยนิ้ว (Ctrl F)
+    undo: เลิกทำ
+    redo: ทำซ้ำ
+    export: ส่งออก (Ctrl Shift S)
+    exportAs: 'ส่งออกเป็น:'
+    fullscreen: สลับโหมดเต็มหน้าจอ (F11)
+  pens:
+    fountainPen: ปากกาหมึกซึม
+    ballpointPen: ปากกาลูกลื่น
+    highlighter: ปากกาไฮไลท์
+    pencil: ดินสอ
+    laserPointer: เลเซอร์พอยเตอร์
+    shapePen: ปากการูปทรงต่างๆ
+  penOptions:
+    size: ขนาด
+  colors:
+    colorPicker: ตัวเลือกสี
+    customBrightnessHue: กำหนดเอง $b $h
+    customHue: กำหนดเอง $h
+    dark: มืด
+    light: สว่าง
+    black: สีดำ
+    darkGrey: สีเทาเข้ม
+    grey: สีเทา
+    lightGrey: สีเทาอ่อน
+    white: สีขาว
+    red: สีแดง
+    green: สีเขียว
+    cyan: สีฟ้าอมเขียว
+    blue: สีน้ำเงิน
+    yellow: สีเหลือง
+    purple: สีม่วง
+    pink: สีชมพู
+    orange: สีส้ม
+    pastelRed: สีแดงพาสเทล
+    pastelOrange: สีส้มพาสเทล
+    pastelYellow: สีเหลืองพาสเทล
+    pastelGreen: สีเขียวพาสเทล
+    pastelCyan: สีฟ้าพาสเทล
+    pastelBlue: สีฟ้าพาสเทล
+    pastelPurple: สีม่วงพาสเทล
+    pastelPink: สีชมพูพาสเทล
+  imageOptions:
+    title: ตัวเลือกรูปภาพ
+    invertible: กลับด้านได้
+    download: ดาวน์โหลด
+    setAsBackground: ตั้งเป็นภาพพื้นหลัง
+    removeAsBackground: ลบออกจากพื้นหลัง
+    delete: ลบ
+  selectionBar:
+    delete: ลบ
+    duplicate: ทำซ้ำ
+  menu:
+    clearPage: เคลียร์ $page/$totalPages
+    clearAllPages: เคลียร์ข้อมูลทุกหน้า
+    insertPage: แทรกหน้าด้านล่าง
+    duplicatePage: ทำซ้ำหน้า
+    deletePage: ลบหน้า
+    lineHeight: ความสูงเส้น
+    lineHeightDescription: นอกจากนี้ควบคุมขนาดตัวอักษรสำหรับบันทึกที่พิมพ์ด้วย
+    lineThickness: ความหนาเส้น
+    lineThicknessDescription: ความหนาเส้นพื้นหลัง
+    backgroundImageFit: ภาพพื้นหลังพอดี
+    backgroundPattern: ลวดลายพื้นหลัง
+    import: นำเข้า
+    watchServer: คอยตรวจสอบการอัปเดตบนเซิร์ฟเวอร์
+    watchServerReadOnly: การแก้ไขจะถูกปิดใช้งานในขณะที่กำลังเฝ้าดูเซิร์ฟเวอร์
+    boxFits:
+      fill: ยืด
+      cover: ปิดบัง
+      contain: บรรจุ
+    bgPatterns:
+      none: ว่างเปล่า
+      college: เส้นบรรทัด
+      collegeRtl: เส้นบรรทัด (ด้านหลัง)
+      lined: เส้น
+      grid: ตาราง
+      dots: จุด
+      staffs: พนักงาน
+      tablature: แท็บลาเจอร์
+      cornell: คอร์เนลล์
+  newerFileFormat:
+    readOnlyMode: โหมดอ่านอย่างเดียว
+    title: บันทึกนี้ได้รับการแก้ไขโดยใช้ Saber เวอร์ชันใหม่กว่า
+    subtitle: การแก้ไขบันทึกนี้อาจทำให้ข้อมูลบางส่วนสูญหาย 
+      คุณต้องการเพิกเฉยต่อคำเตือนนี้และแก้ไขต่อไปหรือไม่?
+    allowEditing: อนุญาตให้แก้ไข
+  quill:
+    typeSomething: พิมพ์ข้อความตรงนี้...
+  hud:
+    unlockZoom: ปลดล็อกการซูม
+    lockZoom: ล็อคการซูม
+    unlockSingleFingerPan: เปิดใช้งานการเลื่อนด้วยนิ้วเดียว
+    lockSingleFingerPan: ปิดใช้งานการเลื่อนด้วยนิ้วเดียว
+    unlockAxisAlignedPan: ปลดล็อกการแพนกล้องเป็นแนวนอนหรือแนวตั้ง
+    lockAxisAlignedPan: ล็อกการแพนกล้องให้เป็นแนวนอนหรือแนวตั้ง
+  pages: หน้า
+  untitled: ไม่มีชื่อ
+  needsToSaveBeforeExiting: กำลังบันทึกการเปลี่ยนแปลง... 
+    คุณสามารถออกจากโปรแกรมแก้ไขได้อย่างปลอดภัยเมื่อเสร็จสิ้น
