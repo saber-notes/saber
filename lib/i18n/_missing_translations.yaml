@@ -1053,6 +1053,7 @@ ru:
       autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Auto-disable finger drawing
     prefDescriptions:
       autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Turn off finger drawing when a stylus is detected
+th:
 tr:
   home:
     noPreviewAvailable(OUTDATED): No preview available
