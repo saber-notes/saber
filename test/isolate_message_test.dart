@@ -18,7 +18,7 @@ void main() {
     SharedPreferences.setMockInitialValues({});
 
     test('Empty EditorCoreInfo', () async {
-      final coreInfo = EditorCoreInfo.empty;
+      final coreInfo = EditorCoreInfo.placeholder;
       await compute((EditorCoreInfo coreInfo) => coreInfo, coreInfo);
     });
 

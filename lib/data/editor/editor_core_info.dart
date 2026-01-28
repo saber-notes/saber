@@ -67,7 +67,7 @@ class EditorCoreInfo {
   /// Stores the current page index so that it can be restored when the file is reloaded.
   int? initialPageIndex;
 
-  static final empty =
+  static final placeholder =
       EditorCoreInfo._(
         filePath: '',
         readOnly: true,
@@ -91,6 +91,7 @@ class EditorCoreInfo {
   bool get isEmpty => pages.every((EditorPage page) => page.isEmpty);
   bool get isNotEmpty => !isEmpty;
 
+  @visibleForTesting
   EditorCoreInfo({
     required this.filePath,
     this.readOnly =

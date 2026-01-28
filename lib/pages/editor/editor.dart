@@ -98,7 +98,7 @@ class Editor extends StatefulWidget {
 class EditorState extends State<Editor> {
   final log = Logger('EditorState');
 
-  late var coreInfo = EditorCoreInfo(filePath: '');
+  late var coreInfo = EditorCoreInfo.placeholder;
 
   final _canvasGestureDetectorKey = GlobalKey<CanvasGestureDetectorState>();
   final _transformationController = TransformationController();
@@ -185,8 +185,8 @@ class EditorState extends State<Editor> {
   }
 
   void _initAsync() async {
-    coreInfo.filePath = await widget.initialPath;
-    filenameTextEditingController.text = coreInfo.fileName;
+    final filePath = await widget.initialPath;
+    filenameTextEditingController.text = filePath;
 
     if (needsNaming) {
       filenameTextEditingController.selection = TextSelection(
@@ -195,15 +195,15 @@ class EditorState extends State<Editor> {
       );
     }
 
-    await _initStrokes();
+    await _loadCoreInfo(filePath);
 
     if (widget.pdfPath != null) {
       await importPdfFromFilePath(widget.pdfPath!);
     }
   }
 
-  Future _initStrokes() async {
-    coreInfo = await EditorCoreInfo.loadFromFilePath(coreInfo.filePath);
+  Future _loadCoreInfo(String filePath) async {
+    coreInfo = await EditorCoreInfo.loadFromFilePath(filePath);
     if (coreInfo.readOnly) {
       log.info('Loaded file as read-only');
     }
@@ -849,8 +849,10 @@ class EditorState extends State<Editor> {
     if (coreInfo.readOnly) return;
     if (!stows.loggedIn) return;
 
+    final relativeFilePath = coreInfo.filePath;
+    assert(relativeFilePath.isNotEmpty, 'Cannot refresh unnamed file');
     final syncFile = await SaberSyncFile.relative(
-      coreInfo.filePath + Editor.extension,
+      relativeFilePath + Editor.extension,
     );
 
     final bestFile = await SaberSyncInterface.getBestFile(
@@ -864,7 +866,7 @@ class EditorState extends State<Editor> {
     void listener(SaberSyncFile transferred) {
       if (transferred != syncFile) return;
       subscription.cancel();
-      _initStrokes();
+      _loadCoreInfo(relativeFilePath);
     }
 
     subscription = syncer.downloader.transferStream.listen(listener);
@@ -1348,7 +1350,7 @@ class EditorState extends State<Editor> {
           page: coreInfo.pages[pageIndex],
           pageIndex: 0,
           textEditing: false,
-          coreInfo: EditorCoreInfo.empty,
+          coreInfo: EditorCoreInfo.placeholder,
           currentStroke: null,
           currentStrokeDetectedShape: null,
           currentSelection: null,
