@@ -75,6 +75,7 @@ Future<void> translateTree(
     } catch (e) {
       print('    Adding translation failed: $e');
       errorOccurredInTranslatingTree = true;
+      await Future.delayed(const Duration(seconds: 1));
       continue;
     }
     newlyTranslatedPaths.add('$languageCode/$pathToKey');
@@ -130,6 +131,7 @@ Future<void> translateList(
     } catch (e) {
       print('    Adding translation failed: $e');
       errorOccurredInTranslatingTree = true;
+      await Future.delayed(const Duration(seconds: 1));
       continue;
     }
     newlyTranslatedPaths.add('$languageCode/$pathToKey');
@@ -174,6 +176,7 @@ Future<String?> translateString(
   } catch (e) {
     print('    Translation failed: $e');
     errorOccurredInTranslatingTree = true;
+    await Future.delayed(const Duration(seconds: 1));
     return null;
   }
 
@@ -185,6 +188,7 @@ Future<String?> translateString(
   if (errorTexts.any((error) => translatedText.contains(error))) {
     print('    Translation failed: $translatedText');
     errorOccurredInTranslatingTree = true;
+    await Future.delayed(const Duration(seconds: 1));
     return english;
   }
 
@@ -193,6 +197,9 @@ Future<String?> translateString(
 
 var errorOccurredInTranslatingTree = false;
 void main() async {
+  await Process.run('dart', ['run', 'slang']);
+  await Process.run('dart', ['run', 'slang', 'analyze', '--full']);
+
   final random = Random();
   final missingTranslations = await _getMissingTranslations();
 
@@ -233,9 +240,12 @@ void main() async {
       await translateTree(languageCode, tree, const []);
     }
 
-    if (errorOccurredInTranslatingTree) {
+    if (errorOccurredInTranslatingTree && attempts < 5) {
       print('\nError occurred. Retrying...');
     }
+  }
+  if (errorOccurredInTranslatingTree) {
+    print('\nError occurred too many times. Please rerun the script.');
   }
 
   // mark all newly translated paths as outdated
@@ -246,5 +256,10 @@ void main() async {
   for (final path in pathsWithoutLanguageCode) {
     print('Marking $path as outdated...');
     await Process.run('dart', ['run', 'slang', 'outdated', path]);
+  }
+
+  if (newlyTranslatedPaths.isNotEmpty) {
+    await Process.run('dart', ['run', 'slang']);
+    await Process.run('dart', ['run', 'slang', 'analyze', '--full']);
   }
 }
