@@ -55,6 +55,7 @@ Objevte zcela nový způsob zaznamenávání a organizace vašich myšlenek s ap
 [![Sponzoři na GitHubu](https://img.shields.io/github/sponsors/adil192?label=sponzo%C5%99i)](https://github.com/sponsors/adil192)
 [![GitHub](https://img.shields.io/github/license/saber-notes/saber?label=licence)](https://github.com/saber-notes/saber/blob/main/LICENSE.md)
 [![Translation status](https://hosted.weblate.org/widget/saber-notes/saber/svg-badge.svg)](https://hosted.weblate.org/engage/saber-notes/)
+[![Codecov](https://codecov.io/gh/saber-notes/saber/branch/main/graph/badge.svg?token=EGQSN0THW2)](https://codecov.io/gh/saber-notes/saber)
 
 <details open>
 <summary>Klepněte pro zobrazení/skrytí snímků obrazovky</summary>
