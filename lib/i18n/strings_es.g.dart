@@ -755,6 +755,8 @@ class _TranslationsEditorReadOnlyBannerEs extends TranslationsEditorReadOnlyBann
 
 	// Translations
 	@override String get title => 'Modo de solo lectura';
+	@override String get watchingServer => 'Actualmente estás buscando actualizaciones en el servidor. La edición está deshabilitada en este modo.';
+	@override String get corrupted => 'No se pudo cargar la nota. Es posible que esté dañado o que aún se esté descargando.';
 }
 
 // Path: editor.versionTooNew

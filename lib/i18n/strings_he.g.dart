@@ -756,6 +756,8 @@ class _TranslationsEditorReadOnlyBannerHe extends TranslationsEditorReadOnlyBann
 
 	// Translations
 	@override String get title => 'מצב צפייה בלבד';
+	@override String get watchingServer => 'כרגע אתה צופה לעדכונים בשרת. העריכה מושבתת במצב זה.';
+	@override String get corrupted => 'טעינת ההערה נכשלה. ייתכן שהוא פגום או עדיין בהורדה.';
 }
 
 // Path: editor.versionTooNew

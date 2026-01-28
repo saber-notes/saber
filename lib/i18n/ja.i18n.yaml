@@ -336,6 +336,8 @@ editor:
     backgroundImageFit(OUTDATED): 背景画像
   readOnlyBanner:
     title: 読み取り専用モード
+    watchingServer(OUTDATED): 現在、サーバー上の更新を監視しています。このモードでは編集は無効になります。
+    corrupted(OUTDATED): メモの読み込みに失敗しました。破損しているか、まだダウンロード中の可能性があります。
   versionTooNew:
     title: このメモは新しいバージョンのSaberを使用して編集されたものです
     subtitle: このメモを編集すると、いくつかの情報が失われる可能性があります。これを無視して編集しますか？

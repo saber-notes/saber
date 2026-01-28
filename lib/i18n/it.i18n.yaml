@@ -340,6 +340,8 @@ editor:
       cornell: Metodo Cornell
   readOnlyBanner:
     title: Modalità di sola lettura
+    watchingServer(OUTDATED): Attualmente stai cercando aggiornamenti sul server. La modifica è disabilitata in questa modalità.
+    corrupted(OUTDATED): Impossibile caricare la nota. Potrebbe essere danneggiato o ancora in fase di download.
   versionTooNew:
     title: Questa nota è stata modificata utilizzando una versione più recente di Saber
     subtitle: La modifica di questa nota potrebbe comportare la perdita di alcune informazioni. Vuoi ignorare e modificarla comunque?

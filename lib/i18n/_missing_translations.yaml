@@ -48,13 +48,13 @@ ar:
       lineThickness(OUTDATED): Line thickness
       lineThicknessDescription(OUTDATED): Background line thickness
     readOnlyBanner:
-      watchingServer: You are currently watching for updates on the server. Editing is disabled in this mode.
-      corrupted: Failed to load note. It may be corrupted or still being downloaded.
+      watchingServer(OUTDATED): You are currently watching for updates on the server. Editing is disabled in this mode.
+      corrupted(OUTDATED): Failed to load note. It may be corrupted or still being downloaded.
 cs:
   editor:
     readOnlyBanner:
-      watchingServer: You are currently watching for updates on the server. Editing is disabled in this mode.
-      corrupted: Failed to load note. It may be corrupted or still being downloaded.
+      watchingServer(OUTDATED): You are currently watching for updates on the server. Editing is disabled in this mode.
+      corrupted(OUTDATED): Failed to load note. It may be corrupted or still being downloaded.
 de:
   home:
     renameNote:
@@ -62,8 +62,8 @@ de:
       noteNameReserved(OUTDATED): Note name reserved
   editor:
     readOnlyBanner:
-      watchingServer: You are currently watching for updates on the server. Editing is disabled in this mode.
-      corrupted: Failed to load note. It may be corrupted or still being downloaded.
+      watchingServer(OUTDATED): You are currently watching for updates on the server. Editing is disabled in this mode.
+      corrupted(OUTDATED): Failed to load note. It may be corrupted or still being downloaded.
 eo:
   home:
     renameNote:
@@ -76,8 +76,8 @@ eo:
       autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Turn off finger drawing when a stylus is detected
   editor:
     readOnlyBanner:
-      watchingServer: You are currently watching for updates on the server. Editing is disabled in this mode.
-      corrupted: Failed to load note. It may be corrupted or still being downloaded.
+      watchingServer(OUTDATED): You are currently watching for updates on the server. Editing is disabled in this mode.
+      corrupted(OUTDATED): Failed to load note. It may be corrupted or still being downloaded.
 es:
   common:
     done(OUTDATED): Done
@@ -192,8 +192,8 @@ es:
       watchServer(OUTDATED): Watch for updates on the server
       watchServerReadOnly(OUTDATED): Editing is disabled while watching the server
     readOnlyBanner:
-      watchingServer: You are currently watching for updates on the server. Editing is disabled in this mode.
-      corrupted: Failed to load note. It may be corrupted or still being downloaded.
+      watchingServer(OUTDATED): You are currently watching for updates on the server. Editing is disabled in this mode.
+      corrupted(OUTDATED): Failed to load note. It may be corrupted or still being downloaded.
 fa:
   common:
     done(OUTDATED): Done
@@ -298,8 +298,8 @@ fa:
       watchServer(OUTDATED): Watch for updates on the server
       watchServerReadOnly(OUTDATED): Editing is disabled while watching the server
     readOnlyBanner:
-      watchingServer: You are currently watching for updates on the server. Editing is disabled in this mode.
-      corrupted: Failed to load note. It may be corrupted or still being downloaded.
+      watchingServer(OUTDATED): You are currently watching for updates on the server. Editing is disabled in this mode.
+      corrupted(OUTDATED): Failed to load note. It may be corrupted or still being downloaded.
 fr:
   common:
     done(OUTDATED): Done
@@ -404,8 +404,8 @@ fr:
       watchServer(OUTDATED): Watch for updates on the server
       watchServerReadOnly(OUTDATED): Editing is disabled while watching the server
     readOnlyBanner:
-      watchingServer: You are currently watching for updates on the server. Editing is disabled in this mode.
-      corrupted: Failed to load note. It may be corrupted or still being downloaded.
+      watchingServer(OUTDATED): You are currently watching for updates on the server. Editing is disabled in this mode.
+      corrupted(OUTDATED): Failed to load note. It may be corrupted or still being downloaded.
 he:
   common:
     done(OUTDATED): Done
@@ -538,8 +538,8 @@ he:
         tablature(OUTDATED): Tablature
         cornell(OUTDATED): Cornell
     readOnlyBanner:
-      watchingServer: You are currently watching for updates on the server. Editing is disabled in this mode.
-      corrupted: Failed to load note. It may be corrupted or still being downloaded.
+      watchingServer(OUTDATED): You are currently watching for updates on the server. Editing is disabled in this mode.
+      corrupted(OUTDATED): Failed to load note. It may be corrupted or still being downloaded.
 hu:
   common:
     done(OUTDATED): Done
@@ -780,8 +780,8 @@ hu:
         tablature(OUTDATED): Tablature
         cornell(OUTDATED): Cornell
     readOnlyBanner:
-      watchingServer: You are currently watching for updates on the server. Editing is disabled in this mode.
-      corrupted: Failed to load note. It may be corrupted or still being downloaded.
+      watchingServer(OUTDATED): You are currently watching for updates on the server. Editing is disabled in this mode.
+      corrupted(OUTDATED): Failed to load note. It may be corrupted or still being downloaded.
     hud:
       unlockAxisAlignedPan(OUTDATED): Unlock panning to horizontal or vertical
       lockAxisAlignedPan(OUTDATED): Lock panning to horizontal or vertical
@@ -789,8 +789,8 @@ hu:
 it:
   editor:
     readOnlyBanner:
-      watchingServer: You are currently watching for updates on the server. Editing is disabled in this mode.
-      corrupted: Failed to load note. It may be corrupted or still being downloaded.
+      watchingServer(OUTDATED): You are currently watching for updates on the server. Editing is disabled in this mode.
+      corrupted(OUTDATED): Failed to load note. It may be corrupted or still being downloaded.
 ja:
   common:
     done(OUTDATED): Done
@@ -951,8 +951,8 @@ ja:
       bgPatterns:
         tablature(OUTDATED): Tablature
     readOnlyBanner:
-      watchingServer: You are currently watching for updates on the server. Editing is disabled in this mode.
-      corrupted: Failed to load note. It may be corrupted or still being downloaded.
+      watchingServer(OUTDATED): You are currently watching for updates on the server. Editing is disabled in this mode.
+      corrupted(OUTDATED): Failed to load note. It may be corrupted or still being downloaded.
 pt-BR:
   common:
     done(OUTDATED): Done
@@ -1081,8 +1081,8 @@ pt-BR:
       watchServer(OUTDATED): Watch for updates on the server
       watchServerReadOnly(OUTDATED): Editing is disabled while watching the server
     readOnlyBanner:
-      watchingServer: You are currently watching for updates on the server. Editing is disabled in this mode.
-      corrupted: Failed to load note. It may be corrupted or still being downloaded.
+      watchingServer(OUTDATED): You are currently watching for updates on the server. Editing is disabled in this mode.
+      corrupted(OUTDATED): Failed to load note. It may be corrupted or still being downloaded.
 ru:
   home:
     renameNote:
@@ -1095,13 +1095,13 @@ ru:
       autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Turn off finger drawing when a stylus is detected
   editor:
     readOnlyBanner:
-      watchingServer: You are currently watching for updates on the server. Editing is disabled in this mode.
-      corrupted: Failed to load note. It may be corrupted or still being downloaded.
+      watchingServer(OUTDATED): You are currently watching for updates on the server. Editing is disabled in this mode.
+      corrupted(OUTDATED): Failed to load note. It may be corrupted or still being downloaded.
 th:
   editor:
     readOnlyBanner:
-      watchingServer: You are currently watching for updates on the server. Editing is disabled in this mode.
-      corrupted: Failed to load note. It may be corrupted or still being downloaded.
+      watchingServer(OUTDATED): You are currently watching for updates on the server. Editing is disabled in this mode.
+      corrupted(OUTDATED): Failed to load note. It may be corrupted or still being downloaded.
 tr:
   home:
     noPreviewAvailable(OUTDATED): No preview available
@@ -1149,8 +1149,8 @@ tr:
       lineThickness(OUTDATED): Line thickness
       lineThicknessDescription(OUTDATED): Background line thickness
     readOnlyBanner:
-      watchingServer: You are currently watching for updates on the server. Editing is disabled in this mode.
-      corrupted: Failed to load note. It may be corrupted or still being downloaded.
+      watchingServer(OUTDATED): You are currently watching for updates on the server. Editing is disabled in this mode.
+      corrupted(OUTDATED): Failed to load note. It may be corrupted or still being downloaded.
 zh-Hans-CN:
   home:
     renameNote:
@@ -1158,10 +1158,10 @@ zh-Hans-CN:
       noteNameReserved(OUTDATED): Note name reserved
   editor:
     readOnlyBanner:
-      watchingServer: You are currently watching for updates on the server. Editing is disabled in this mode.
-      corrupted: Failed to load note. It may be corrupted or still being downloaded.
+      watchingServer(OUTDATED): You are currently watching for updates on the server. Editing is disabled in this mode.
+      corrupted(OUTDATED): Failed to load note. It may be corrupted or still being downloaded.
 zh-Hant-TW:
   editor:
     readOnlyBanner:
-      watchingServer: You are currently watching for updates on the server. Editing is disabled in this mode.
-      corrupted: Failed to load note. It may be corrupted or still being downloaded.
+      watchingServer(OUTDATED): You are currently watching for updates on the server. Editing is disabled in this mode.
+      corrupted(OUTDATED): Failed to load note. It may be corrupted or still being downloaded.

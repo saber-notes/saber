@@ -758,6 +758,8 @@ class _TranslationsEditorReadOnlyBannerZhHantTw extends TranslationsEditorReadOn
 
 	// Translations
 	@override String get title => '唯讀模式';
+	@override String get corrupted => '無法加載筆記。它可能已損壞或仍在下載。';
+	@override String get watchingServer => '您當前正在查看服務器上的更新。在此模式下禁用編輯。';
 }
 
 // Path: editor.versionTooNew

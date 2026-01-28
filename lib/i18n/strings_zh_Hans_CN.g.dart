@@ -758,6 +758,8 @@ class _TranslationsEditorReadOnlyBannerZhHansCn extends TranslationsEditorReadOn
 
 	// Translations
 	@override String get title => '只读模式';
+	@override String get watchingServer => '您当前正在查看服务器上的更新。在此模式下禁用编辑。';
+	@override String get corrupted => '无法加载笔记。它可能已损坏或仍在下载。';
 }
 
 // Path: editor.versionTooNew

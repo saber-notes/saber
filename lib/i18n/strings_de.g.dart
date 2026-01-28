@@ -758,6 +758,8 @@ class _TranslationsEditorReadOnlyBannerDe extends TranslationsEditorReadOnlyBann
 
 	// Translations
 	@override String get title => 'Schreibgeschützter Modus';
+	@override String get corrupted => 'Notiz konnte nicht geladen werden. Möglicherweise ist es beschädigt oder wird noch heruntergeladen.';
+	@override String get watchingServer => 'Sie suchen derzeit nach Updates auf dem Server. Die Bearbeitung ist in diesem Modus deaktiviert.';
 }
 
 // Path: editor.versionTooNew

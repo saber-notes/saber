@@ -340,6 +340,8 @@ editor:
     lineThicknessDescription(OUTDATED): سماكة خط الخلفية
   readOnlyBanner:
     title: وضع القراءة فقط
+    watchingServer(OUTDATED): أنت حاليًا تراقب التحديثات على الخادم. تم تعطيل التحرير في هذا الوضع.
+    corrupted(OUTDATED): فشل تحميل الملاحظة. ربما يكون تالفًا أو لا يزال قيد التنزيل.
   versionTooNew:
     title: تم تحرير هذه الملاحظة باستخدام إصدار أحدث من Saber
     subtitle: قد يؤدي تحرير هذه الملاحظة إلى ضياع بعض المعلومات. هل تريد تجاهل هذا وتعديله على أي حال؟

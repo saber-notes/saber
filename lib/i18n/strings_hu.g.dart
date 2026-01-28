@@ -756,6 +756,8 @@ class _TranslationsEditorReadOnlyBannerHu extends TranslationsEditorReadOnlyBann
 
 	// Translations
 	@override String get title => 'Csak olvasható mód';
+	@override String get corrupted => 'Nem sikerült betölteni a jegyzetet. Lehet, hogy sérült, vagy még mindig letöltés alatt áll.';
+	@override String get watchingServer => 'Jelenleg frissítéseket figyel a szerveren. A szerkesztés le van tiltva ebben a módban.';
 }
 
 // Path: editor.versionTooNew

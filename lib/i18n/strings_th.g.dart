@@ -757,6 +757,8 @@ class _TranslationsEditorReadOnlyBannerTh extends TranslationsEditorReadOnlyBann
 
 	// Translations
 	@override String get title => 'โหมดอ่านอย่างเดียว';
+	@override String get corrupted => 'โหลดบันทึกไม่สำเร็จ อาจเสียหายหรือยังคงถูกดาวน์โหลดอยู่';
+	@override String get watchingServer => 'คุณกำลังรับชมการอัปเดตบนเซิร์ฟเวอร์ การแก้ไขถูกปิดใช้งานในโหมดนี้';
 }
 
 // Path: editor.versionTooNew

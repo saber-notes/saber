@@ -340,6 +340,8 @@ editor:
     lineHeightDescription(OUTDATED): שולט גם בגודל הטקסט עבור הערות מוקלדות
   readOnlyBanner:
     title: מצב צפייה בלבד
+    watchingServer(OUTDATED): כרגע אתה צופה לעדכונים בשרת. העריכה מושבתת במצב זה.
+    corrupted(OUTDATED): טעינת ההערה נכשלה. ייתכן שהוא פגום או עדיין בהורדה.
   versionTooNew:
     title: הערה זו נערכה באמצעות גרסה חדשה יותר של Saber
     subtitle: עריכת פתק זה עלולה לגרום לאיבוד מידע מסוים. האם אתה רוצה להתאלם מזה בכל מקרה?

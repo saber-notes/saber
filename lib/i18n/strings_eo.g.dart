@@ -758,6 +758,8 @@ class _TranslationsEditorReadOnlyBannerEo extends TranslationsEditorReadOnlyBann
 
 	// Translations
 	@override String get title => 'Nurlegebla reĝimo';
+	@override String get watchingServer => 'Vi nuntempe rigardas por ĝisdatigoj sur la servilo. Redaktado estas malŝaltita en ĉi tiu reĝimo.';
+	@override String get corrupted => 'Malsukcesis ŝargi noton. Ĝi povas esti koruptita aŭ ankoraŭ elŝutita.';
 }
 
 // Path: editor.versionTooNew

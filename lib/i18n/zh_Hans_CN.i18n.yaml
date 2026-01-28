@@ -340,6 +340,8 @@ editor:
       cornell: 康奈尔
   readOnlyBanner:
     title: 只读模式
+    watchingServer(OUTDATED): 您当前正在查看服务器上的更新。在此模式下禁用编辑。
+    corrupted(OUTDATED): 无法加载笔记。它可能已损坏或仍在下载。
   versionTooNew:
     title: 此笔记使用新版 Saber 编辑而成
     subtitle: 编辑此笔记可能会导致某些信息丢失。您想忽略并编辑吗？

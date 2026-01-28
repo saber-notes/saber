@@ -339,6 +339,8 @@ editor:
     lineHeightDescription(OUTDATED): Contrôle également la taille du texte pour les notes saisies
   readOnlyBanner:
     title: Mode lecture seule
+    corrupted(OUTDATED): Échec du chargement de la note. Il est peut-être corrompu ou en cours de téléchargement.
+    watchingServer(OUTDATED): Vous surveillez actuellement les mises à jour sur le serveur. L'édition est désactivée dans ce mode.
   versionTooNew:
     title: Cette note a été modifiée avec une version plus récente de Saber
     subtitle: Éditer cette note pourrait entraîner la perte de certaines informations. Voulez-vous la modifier quand même ?

@@ -756,6 +756,8 @@ class _TranslationsEditorReadOnlyBannerFr extends TranslationsEditorReadOnlyBann
 
 	// Translations
 	@override String get title => 'Mode lecture seule';
+	@override String get corrupted => 'Échec du chargement de la note. Il est peut-être corrompu ou en cours de téléchargement.';
+	@override String get watchingServer => 'Vous surveillez actuellement les mises à jour sur le serveur. L\'édition est désactivée dans ce mode.';
 }
 
 // Path: editor.versionTooNew

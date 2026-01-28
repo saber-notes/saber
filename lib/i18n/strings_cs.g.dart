@@ -758,6 +758,8 @@ class _TranslationsEditorReadOnlyBannerCs extends TranslationsEditorReadOnlyBann
 
 	// Translations
 	@override String get title => 'Otevřít v režimu pouze pro čtení';
+	@override String get corrupted => 'Poznámku se nepodařilo načíst. Může být poškozen nebo se stále stahuje.';
+	@override String get watchingServer => 'Právě sledujete aktualizace na serveru. V tomto režimu jsou úpravy zakázány.';
 }
 
 // Path: editor.versionTooNew

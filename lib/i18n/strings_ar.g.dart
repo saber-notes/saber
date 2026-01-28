@@ -758,6 +758,8 @@ class _TranslationsEditorReadOnlyBannerAr extends TranslationsEditorReadOnlyBann
 
 	// Translations
 	@override String get title => 'وضع القراءة فقط';
+	@override String get watchingServer => 'أنت حاليًا تراقب التحديثات على الخادم. تم تعطيل التحرير في هذا الوضع.';
+	@override String get corrupted => 'فشل تحميل الملاحظة. ربما يكون تالفًا أو لا يزال قيد التنزيل.';
 }
 
 // Path: editor.versionTooNew

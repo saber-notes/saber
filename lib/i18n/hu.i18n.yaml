@@ -339,6 +339,8 @@ editor:
     deletePage(OUTDATED): Oldal törlése
   readOnlyBanner:
     title: Csak olvasható mód
+    corrupted(OUTDATED): Nem sikerült betölteni a jegyzetet. Lehet, hogy sérült, vagy még mindig letöltés alatt áll.
+    watchingServer(OUTDATED): Jelenleg frissítéseket figyel a szerveren. A szerkesztés le van tiltva ebben a módban.
   versionTooNew:
     title: Ezt a jegyzetet a Saber egy újabb verziójával lett szerkesztve
     subtitle: A jegyzet szerkesztése bizonyos információk elvesztését eredményezheti. Szeretné ezt figyelmen kívül hagyni, és mégis szerkeszteni?

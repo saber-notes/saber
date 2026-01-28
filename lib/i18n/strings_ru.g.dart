@@ -758,6 +758,8 @@ class _TranslationsEditorReadOnlyBannerRu extends TranslationsEditorReadOnlyBann
 
 	// Translations
 	@override String get title => 'Режим «Только чтение»';
+	@override String get corrupted => 'Не удалось загрузить заметку. Возможно, он поврежден или все еще загружается.';
+	@override String get watchingServer => 'В настоящее время вы следите за обновлениями на сервере. Редактирование в этом режиме отключено.';
 }
 
 // Path: editor.versionTooNew

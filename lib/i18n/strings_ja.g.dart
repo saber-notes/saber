@@ -756,6 +756,8 @@ class _TranslationsEditorReadOnlyBannerJa extends TranslationsEditorReadOnlyBann
 
 	// Translations
 	@override String get title => '読み取り専用モード';
+	@override String get watchingServer => '現在、サーバー上の更新を監視しています。このモードでは編集は無効になります。';
+	@override String get corrupted => 'メモの読み込みに失敗しました。破損しているか、まだダウンロード中の可能性があります。';
 }
 
 // Path: editor.versionTooNew

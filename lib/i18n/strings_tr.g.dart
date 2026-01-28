@@ -758,6 +758,8 @@ class _TranslationsEditorReadOnlyBannerTr extends TranslationsEditorReadOnlyBann
 
 	// Translations
 	@override String get title => 'Yalnızca okunabilir mod';
+	@override String get watchingServer => 'Şu anda sunucudaki güncellemeleri izliyorsunuz. Bu modda düzenleme devre dışı bırakılır.';
+	@override String get corrupted => 'Not yüklenemedi. Bozulmuş veya hâlâ indiriliyor olabilir.';
 }
 
 // Path: editor.versionTooNew

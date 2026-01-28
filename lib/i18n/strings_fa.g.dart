@@ -756,6 +756,8 @@ class _TranslationsEditorReadOnlyBannerFa extends TranslationsEditorReadOnlyBann
 
 	// Translations
 	@override String get title => 'حالت فقط خواندنی';
+	@override String get watchingServer => 'شما در حال حاضر به دنبال به روز رسانی در سرور هستید. ویرایش در این حالت غیرفعال است.';
+	@override String get corrupted => 'یادداشت بارگیری نشد. ممکن است خراب باشد یا هنوز در حال دانلود باشد.';
 }
 
 // Path: editor.versionTooNew
