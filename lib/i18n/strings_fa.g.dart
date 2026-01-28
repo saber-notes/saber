@@ -218,7 +218,8 @@ class _TranslationsEditorFa extends TranslationsEditorEn {
 	@override late final _TranslationsEditorImageOptionsFa imageOptions = _TranslationsEditorImageOptionsFa._(_root);
 	@override late final _TranslationsEditorSelectionBarFa selectionBar = _TranslationsEditorSelectionBarFa._(_root);
 	@override late final _TranslationsEditorMenuFa menu = _TranslationsEditorMenuFa._(_root);
-	@override late final _TranslationsEditorNewerFileFormatFa newerFileFormat = _TranslationsEditorNewerFileFormatFa._(_root);
+	@override late final _TranslationsEditorReadOnlyBannerFa readOnlyBanner = _TranslationsEditorReadOnlyBannerFa._(_root);
+	@override late final _TranslationsEditorVersionTooNewFa versionTooNew = _TranslationsEditorVersionTooNewFa._(_root);
 	@override late final _TranslationsEditorQuillFa quill = _TranslationsEditorQuillFa._(_root);
 	@override late final _TranslationsEditorHudFa hud = _TranslationsEditorHudFa._(_root);
 	@override String get pages => 'صفحات';
@@ -747,14 +748,23 @@ class _TranslationsEditorMenuFa extends TranslationsEditorMenuEn {
 	@override String get lineHeightDescription => 'همچنین اندازه متن را برای یادداشت های تایپ شده کنترل می کند';
 }
 
-// Path: editor.newerFileFormat
-class _TranslationsEditorNewerFileFormatFa extends TranslationsEditorNewerFileFormatEn {
-	_TranslationsEditorNewerFileFormatFa._(TranslationsFa root) : this._root = root, super.internal(root);
+// Path: editor.readOnlyBanner
+class _TranslationsEditorReadOnlyBannerFa extends TranslationsEditorReadOnlyBannerEn {
+	_TranslationsEditorReadOnlyBannerFa._(TranslationsFa root) : this._root = root, super.internal(root);
 
 	final TranslationsFa _root; // ignore: unused_field
 
 	// Translations
-	@override String get readOnlyMode => 'حالت فقط خواندنی';
+	@override String get title => 'حالت فقط خواندنی';
+}
+
+// Path: editor.versionTooNew
+class _TranslationsEditorVersionTooNewFa extends TranslationsEditorVersionTooNewEn {
+	_TranslationsEditorVersionTooNewFa._(TranslationsFa root) : this._root = root, super.internal(root);
+
+	final TranslationsFa _root; // ignore: unused_field
+
+	// Translations
 	@override String get title => 'این یادداشت با استفاده از نسخه جدیدتر برنامه ویرایش شده است';
 	@override String get subtitle => 'ویرایش این یادداشت ممکن است منجر به از بین رفتن برخی از اطلاعات شود. آیا می خواهید این را نادیده بگیرید و به هر حال آن را ویرایش کنید؟';
 	@override String get allowEditing => 'اجازه ویرایش';

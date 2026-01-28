@@ -220,7 +220,8 @@ class _TranslationsEditorZhHantTw extends TranslationsEditorEn {
 	@override late final _TranslationsEditorImageOptionsZhHantTw imageOptions = _TranslationsEditorImageOptionsZhHantTw._(_root);
 	@override late final _TranslationsEditorSelectionBarZhHantTw selectionBar = _TranslationsEditorSelectionBarZhHantTw._(_root);
 	@override late final _TranslationsEditorMenuZhHantTw menu = _TranslationsEditorMenuZhHantTw._(_root);
-	@override late final _TranslationsEditorNewerFileFormatZhHantTw newerFileFormat = _TranslationsEditorNewerFileFormatZhHantTw._(_root);
+	@override late final _TranslationsEditorReadOnlyBannerZhHantTw readOnlyBanner = _TranslationsEditorReadOnlyBannerZhHantTw._(_root);
+	@override late final _TranslationsEditorVersionTooNewZhHantTw versionTooNew = _TranslationsEditorVersionTooNewZhHantTw._(_root);
 	@override late final _TranslationsEditorQuillZhHantTw quill = _TranslationsEditorQuillZhHantTw._(_root);
 	@override late final _TranslationsEditorHudZhHantTw hud = _TranslationsEditorHudZhHantTw._(_root);
 	@override String get pages => '頁面';
@@ -749,14 +750,23 @@ class _TranslationsEditorMenuZhHantTw extends TranslationsEditorMenuEn {
 	@override late final _TranslationsEditorMenuBgPatternsZhHantTw bgPatterns = _TranslationsEditorMenuBgPatternsZhHantTw._(_root);
 }
 
-// Path: editor.newerFileFormat
-class _TranslationsEditorNewerFileFormatZhHantTw extends TranslationsEditorNewerFileFormatEn {
-	_TranslationsEditorNewerFileFormatZhHantTw._(TranslationsZhHantTw root) : this._root = root, super.internal(root);
+// Path: editor.readOnlyBanner
+class _TranslationsEditorReadOnlyBannerZhHantTw extends TranslationsEditorReadOnlyBannerEn {
+	_TranslationsEditorReadOnlyBannerZhHantTw._(TranslationsZhHantTw root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
 	// Translations
-	@override String get readOnlyMode => '唯讀模式';
+	@override String get title => '唯讀模式';
+}
+
+// Path: editor.versionTooNew
+class _TranslationsEditorVersionTooNewZhHantTw extends TranslationsEditorVersionTooNewEn {
+	_TranslationsEditorVersionTooNewZhHantTw._(TranslationsZhHantTw root) : this._root = root, super.internal(root);
+
+	final TranslationsZhHantTw _root; // ignore: unused_field
+
+	// Translations
 	@override String get title => '這篇筆記是使用較新版本的 Saber 編輯的';
 	@override String get subtitle => '編輯此筆記可能會導致某些資訊遺失。 您想忽略它並編輯它嗎？';
 	@override String get allowEditing => '允許編輯';

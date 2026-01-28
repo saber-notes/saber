@@ -339,8 +339,9 @@ editor:
       staffs: Notlinioj
       tablature: Tablaturo
       cornell: Kornela notmetodo
-  newerFileFormat:
-    readOnlyMode: Nurlegebla reĝimo
+  readOnlyBanner:
+    title: Nurlegebla reĝimo
+  versionTooNew:
     title: Ĉi tiu noto estis redaktita per pli nova versio de Saber
     subtitle: Redakti ĉi tiun noton eble kaŭzos perdon de iuj informoj. Ĉu vi volas malatenti kaj redakti ĝin spite al tio?
     allowEditing: Permesu redaktadon

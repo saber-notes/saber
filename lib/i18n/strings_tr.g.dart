@@ -220,7 +220,8 @@ class _TranslationsEditorTr extends TranslationsEditorEn {
 	@override late final _TranslationsEditorImageOptionsTr imageOptions = _TranslationsEditorImageOptionsTr._(_root);
 	@override late final _TranslationsEditorSelectionBarTr selectionBar = _TranslationsEditorSelectionBarTr._(_root);
 	@override late final _TranslationsEditorMenuTr menu = _TranslationsEditorMenuTr._(_root);
-	@override late final _TranslationsEditorNewerFileFormatTr newerFileFormat = _TranslationsEditorNewerFileFormatTr._(_root);
+	@override late final _TranslationsEditorReadOnlyBannerTr readOnlyBanner = _TranslationsEditorReadOnlyBannerTr._(_root);
+	@override late final _TranslationsEditorVersionTooNewTr versionTooNew = _TranslationsEditorVersionTooNewTr._(_root);
 	@override late final _TranslationsEditorQuillTr quill = _TranslationsEditorQuillTr._(_root);
 	@override late final _TranslationsEditorHudTr hud = _TranslationsEditorHudTr._(_root);
 	@override String get pages => 'Sayfalar';
@@ -749,14 +750,23 @@ class _TranslationsEditorMenuTr extends TranslationsEditorMenuEn {
 	@override String get lineThicknessDescription => 'Arka plan çizgisi kalınlığı';
 }
 
-// Path: editor.newerFileFormat
-class _TranslationsEditorNewerFileFormatTr extends TranslationsEditorNewerFileFormatEn {
-	_TranslationsEditorNewerFileFormatTr._(TranslationsTr root) : this._root = root, super.internal(root);
+// Path: editor.readOnlyBanner
+class _TranslationsEditorReadOnlyBannerTr extends TranslationsEditorReadOnlyBannerEn {
+	_TranslationsEditorReadOnlyBannerTr._(TranslationsTr root) : this._root = root, super.internal(root);
 
 	final TranslationsTr _root; // ignore: unused_field
 
 	// Translations
-	@override String get readOnlyMode => 'Yalnızca okunabilir mod';
+	@override String get title => 'Yalnızca okunabilir mod';
+}
+
+// Path: editor.versionTooNew
+class _TranslationsEditorVersionTooNewTr extends TranslationsEditorVersionTooNewEn {
+	_TranslationsEditorVersionTooNewTr._(TranslationsTr root) : this._root = root, super.internal(root);
+
+	final TranslationsTr _root; // ignore: unused_field
+
+	// Translations
 	@override String get title => 'Bu not Saber\'ın yeni bir versiyonunda düzenlenmiş';
 	@override String get subtitle => 'Bu notu düzenlemek veri kaybına sebep olabilir. Bunu görmezden gelerek düzenlemek ister misiniz?';
 	@override String get allowEditing => 'Düzenlemeye izin ver';

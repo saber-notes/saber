@@ -337,8 +337,9 @@ editor:
     insertPage(OUTDATED): Az oldal beszúrása alább
     duplicatePage(OUTDATED): Ismétlődő oldal
     deletePage(OUTDATED): Oldal törlése
-  newerFileFormat:
-    readOnlyMode: Csak olvasható mód
+  readOnlyBanner:
+    title: Csak olvasható mód
+  versionTooNew:
     title: Ezt a jegyzetet a Saber egy újabb verziójával lett szerkesztve
     subtitle: A jegyzet szerkesztése bizonyos információk elvesztését eredményezheti. Szeretné ezt figyelmen kívül hagyni, és mégis szerkeszteni?
     allowEditing: Szerkesztés engedélyezése

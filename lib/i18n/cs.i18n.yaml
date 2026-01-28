@@ -338,8 +338,9 @@ editor:
       staffs: Notová osnova
       tablature: Tabulatura
       cornell: Cornellova metoda
-  newerFileFormat:
-    readOnlyMode: Otevřít v režimu pouze pro čtení
+  readOnlyBanner:
+    title: Otevřít v režimu pouze pro čtení
+  versionTooNew:
     title: Tato poznámka byla upravena v novější verzi aplikace Saber
     subtitle: Úpravou této poznámky můžete přijít o některé informace. Přejete tuto skutečnost ignorovat a přesto pokračovat k úpravě poznámky?
     allowEditing: Povolit úpravy

@@ -338,8 +338,9 @@ editor:
       cornell: كورنيل
     lineThickness(OUTDATED): سمك الخط
     lineThicknessDescription(OUTDATED): سماكة خط الخلفية
-  newerFileFormat:
-    readOnlyMode: وضع القراءة فقط
+  readOnlyBanner:
+    title: وضع القراءة فقط
+  versionTooNew:
     title: تم تحرير هذه الملاحظة باستخدام إصدار أحدث من Saber
     subtitle: قد يؤدي تحرير هذه الملاحظة إلى ضياع بعض المعلومات. هل تريد تجاهل هذا وتعديله على أي حال؟
     allowEditing: السماح بالتعديل

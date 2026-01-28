@@ -218,7 +218,8 @@ class _TranslationsEditorHu extends TranslationsEditorEn {
 	@override late final _TranslationsEditorImageOptionsHu imageOptions = _TranslationsEditorImageOptionsHu._(_root);
 	@override late final _TranslationsEditorSelectionBarHu selectionBar = _TranslationsEditorSelectionBarHu._(_root);
 	@override late final _TranslationsEditorMenuHu menu = _TranslationsEditorMenuHu._(_root);
-	@override late final _TranslationsEditorNewerFileFormatHu newerFileFormat = _TranslationsEditorNewerFileFormatHu._(_root);
+	@override late final _TranslationsEditorReadOnlyBannerHu readOnlyBanner = _TranslationsEditorReadOnlyBannerHu._(_root);
+	@override late final _TranslationsEditorVersionTooNewHu versionTooNew = _TranslationsEditorVersionTooNewHu._(_root);
 	@override late final _TranslationsEditorQuillHu quill = _TranslationsEditorQuillHu._(_root);
 	@override late final _TranslationsEditorHudHu hud = _TranslationsEditorHudHu._(_root);
 	@override String get pages => 'Oldalak';
@@ -747,14 +748,23 @@ class _TranslationsEditorMenuHu extends TranslationsEditorMenuEn {
 	@override String get deletePage => 'Oldal törlése';
 }
 
-// Path: editor.newerFileFormat
-class _TranslationsEditorNewerFileFormatHu extends TranslationsEditorNewerFileFormatEn {
-	_TranslationsEditorNewerFileFormatHu._(TranslationsHu root) : this._root = root, super.internal(root);
+// Path: editor.readOnlyBanner
+class _TranslationsEditorReadOnlyBannerHu extends TranslationsEditorReadOnlyBannerEn {
+	_TranslationsEditorReadOnlyBannerHu._(TranslationsHu root) : this._root = root, super.internal(root);
 
 	final TranslationsHu _root; // ignore: unused_field
 
 	// Translations
-	@override String get readOnlyMode => 'Csak olvasható mód';
+	@override String get title => 'Csak olvasható mód';
+}
+
+// Path: editor.versionTooNew
+class _TranslationsEditorVersionTooNewHu extends TranslationsEditorVersionTooNewEn {
+	_TranslationsEditorVersionTooNewHu._(TranslationsHu root) : this._root = root, super.internal(root);
+
+	final TranslationsHu _root; // ignore: unused_field
+
+	// Translations
 	@override String get title => 'Ezt a jegyzetet a Saber egy újabb verziójával lett szerkesztve';
 	@override String get subtitle => 'A jegyzet szerkesztése bizonyos információk elvesztését eredményezheti. Szeretné ezt figyelmen kívül hagyni, és mégis szerkeszteni?';
 	@override String get allowEditing => 'Szerkesztés engedélyezése';

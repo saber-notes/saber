@@ -334,8 +334,9 @@ editor:
     watchServerReadOnly(OUTDATED): サーバー監視中は編集できません
     lineHeightDescription(OUTDATED): 入力されたメモのテキスト サイズも制御します
     backgroundImageFit(OUTDATED): 背景画像
-  newerFileFormat:
-    readOnlyMode: 読み取り専用モード
+  readOnlyBanner:
+    title: 読み取り専用モード
+  versionTooNew:
     title: このメモは新しいバージョンのSaberを使用して編集されたものです
     subtitle: このメモを編集すると、いくつかの情報が失われる可能性があります。これを無視して編集しますか？
     allowEditing: 編集を許可する

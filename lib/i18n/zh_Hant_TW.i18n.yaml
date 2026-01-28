@@ -339,8 +339,9 @@ editor:
       staffs: 五線譜
       tablature: 指法譜
       cornell: 康乃爾
-  newerFileFormat:
-    readOnlyMode: 唯讀模式
+  readOnlyBanner:
+    title: 唯讀模式
+  versionTooNew:
     title: 這篇筆記是使用較新版本的 Saber 編輯的
     subtitle: 編輯此筆記可能會導致某些資訊遺失。 您想忽略它並編輯它嗎？
     allowEditing: 允許編輯

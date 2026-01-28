@@ -220,7 +220,8 @@ class _TranslationsEditorEo extends TranslationsEditorEn {
 	@override late final _TranslationsEditorImageOptionsEo imageOptions = _TranslationsEditorImageOptionsEo._(_root);
 	@override late final _TranslationsEditorSelectionBarEo selectionBar = _TranslationsEditorSelectionBarEo._(_root);
 	@override late final _TranslationsEditorMenuEo menu = _TranslationsEditorMenuEo._(_root);
-	@override late final _TranslationsEditorNewerFileFormatEo newerFileFormat = _TranslationsEditorNewerFileFormatEo._(_root);
+	@override late final _TranslationsEditorReadOnlyBannerEo readOnlyBanner = _TranslationsEditorReadOnlyBannerEo._(_root);
+	@override late final _TranslationsEditorVersionTooNewEo versionTooNew = _TranslationsEditorVersionTooNewEo._(_root);
 	@override late final _TranslationsEditorQuillEo quill = _TranslationsEditorQuillEo._(_root);
 	@override late final _TranslationsEditorHudEo hud = _TranslationsEditorHudEo._(_root);
 	@override String get pages => 'Paĝoj';
@@ -749,14 +750,23 @@ class _TranslationsEditorMenuEo extends TranslationsEditorMenuEn {
 	@override late final _TranslationsEditorMenuBgPatternsEo bgPatterns = _TranslationsEditorMenuBgPatternsEo._(_root);
 }
 
-// Path: editor.newerFileFormat
-class _TranslationsEditorNewerFileFormatEo extends TranslationsEditorNewerFileFormatEn {
-	_TranslationsEditorNewerFileFormatEo._(TranslationsEo root) : this._root = root, super.internal(root);
+// Path: editor.readOnlyBanner
+class _TranslationsEditorReadOnlyBannerEo extends TranslationsEditorReadOnlyBannerEn {
+	_TranslationsEditorReadOnlyBannerEo._(TranslationsEo root) : this._root = root, super.internal(root);
 
 	final TranslationsEo _root; // ignore: unused_field
 
 	// Translations
-	@override String get readOnlyMode => 'Nurlegebla reĝimo';
+	@override String get title => 'Nurlegebla reĝimo';
+}
+
+// Path: editor.versionTooNew
+class _TranslationsEditorVersionTooNewEo extends TranslationsEditorVersionTooNewEn {
+	_TranslationsEditorVersionTooNewEo._(TranslationsEo root) : this._root = root, super.internal(root);
+
+	final TranslationsEo _root; // ignore: unused_field
+
+	// Translations
 	@override String get title => 'Ĉi tiu noto estis redaktita per pli nova versio de Saber';
 	@override String get subtitle => 'Redakti ĉi tiun noton eble kaŭzos perdon de iuj informoj. Ĉu vi volas malatenti kaj redakti ĝin spite al tio?';
 	@override String get allowEditing => 'Permesu redaktadon';

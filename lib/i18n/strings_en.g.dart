@@ -304,7 +304,8 @@ class TranslationsEditorEn {
 	late final TranslationsEditorImageOptionsEn imageOptions = TranslationsEditorImageOptionsEn.internal(_root);
 	late final TranslationsEditorSelectionBarEn selectionBar = TranslationsEditorSelectionBarEn.internal(_root);
 	late final TranslationsEditorMenuEn menu = TranslationsEditorMenuEn.internal(_root);
-	late final TranslationsEditorNewerFileFormatEn newerFileFormat = TranslationsEditorNewerFileFormatEn.internal(_root);
+	late final TranslationsEditorReadOnlyBannerEn readOnlyBanner = TranslationsEditorReadOnlyBannerEn.internal(_root);
+	late final TranslationsEditorVersionTooNewEn versionTooNew = TranslationsEditorVersionTooNewEn.internal(_root);
 	late final TranslationsEditorQuillEn quill = TranslationsEditorQuillEn.internal(_root);
 	late final TranslationsEditorHudEn hud = TranslationsEditorHudEn.internal(_root);
 
@@ -1243,16 +1244,31 @@ class TranslationsEditorMenuEn {
 	late final TranslationsEditorMenuBgPatternsEn bgPatterns = TranslationsEditorMenuBgPatternsEn.internal(_root);
 }
 
-// Path: editor.newerFileFormat
-class TranslationsEditorNewerFileFormatEn {
-	TranslationsEditorNewerFileFormatEn.internal(this._root);
+// Path: editor.readOnlyBanner
+class TranslationsEditorReadOnlyBannerEn {
+	TranslationsEditorReadOnlyBannerEn.internal(this._root);
 
 	final Translations _root; // ignore: unused_field
 
 	// Translations
 
 	/// en: 'Read-only mode'
-	String get readOnlyMode => 'Read-only mode';
+	String get title => 'Read-only mode';
+
+	/// en: 'You are currently watching for updates on the server. Editing is disabled in this mode.'
+	String get watchingServer => 'You are currently watching for updates on the server. Editing is disabled in this mode.';
+
+	/// en: 'Failed to load note. It may be corrupted or still being downloaded.'
+	String get corrupted => 'Failed to load note. It may be corrupted or still being downloaded.';
+}
+
+// Path: editor.versionTooNew
+class TranslationsEditorVersionTooNewEn {
+	TranslationsEditorVersionTooNewEn.internal(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
 
 	/// en: 'This note was edited using a newer version of Saber'
 	String get title => 'This note was edited using a newer version of Saber';

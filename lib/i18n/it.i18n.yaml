@@ -338,8 +338,9 @@ editor:
       staffs: Pentagrammi
       tablature: Tablatura
       cornell: Metodo Cornell
-  newerFileFormat:
-    readOnlyMode: Modalità di sola lettura
+  readOnlyBanner:
+    title: Modalità di sola lettura
+  versionTooNew:
     title: Questa nota è stata modificata utilizzando una versione più recente di Saber
     subtitle: La modifica di questa nota potrebbe comportare la perdita di alcune informazioni. Vuoi ignorare e modificarla comunque?
     allowEditing: Consenti modifica

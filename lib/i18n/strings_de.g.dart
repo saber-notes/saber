@@ -220,7 +220,8 @@ class _TranslationsEditorDe extends TranslationsEditorEn {
 	@override late final _TranslationsEditorImageOptionsDe imageOptions = _TranslationsEditorImageOptionsDe._(_root);
 	@override late final _TranslationsEditorSelectionBarDe selectionBar = _TranslationsEditorSelectionBarDe._(_root);
 	@override late final _TranslationsEditorMenuDe menu = _TranslationsEditorMenuDe._(_root);
-	@override late final _TranslationsEditorNewerFileFormatDe newerFileFormat = _TranslationsEditorNewerFileFormatDe._(_root);
+	@override late final _TranslationsEditorReadOnlyBannerDe readOnlyBanner = _TranslationsEditorReadOnlyBannerDe._(_root);
+	@override late final _TranslationsEditorVersionTooNewDe versionTooNew = _TranslationsEditorVersionTooNewDe._(_root);
 	@override late final _TranslationsEditorQuillDe quill = _TranslationsEditorQuillDe._(_root);
 	@override late final _TranslationsEditorHudDe hud = _TranslationsEditorHudDe._(_root);
 	@override String get pages => 'Seiten';
@@ -749,14 +750,23 @@ class _TranslationsEditorMenuDe extends TranslationsEditorMenuEn {
 	@override late final _TranslationsEditorMenuBgPatternsDe bgPatterns = _TranslationsEditorMenuBgPatternsDe._(_root);
 }
 
-// Path: editor.newerFileFormat
-class _TranslationsEditorNewerFileFormatDe extends TranslationsEditorNewerFileFormatEn {
-	_TranslationsEditorNewerFileFormatDe._(TranslationsDe root) : this._root = root, super.internal(root);
+// Path: editor.readOnlyBanner
+class _TranslationsEditorReadOnlyBannerDe extends TranslationsEditorReadOnlyBannerEn {
+	_TranslationsEditorReadOnlyBannerDe._(TranslationsDe root) : this._root = root, super.internal(root);
 
 	final TranslationsDe _root; // ignore: unused_field
 
 	// Translations
-	@override String get readOnlyMode => 'Schreibgeschützter Modus';
+	@override String get title => 'Schreibgeschützter Modus';
+}
+
+// Path: editor.versionTooNew
+class _TranslationsEditorVersionTooNewDe extends TranslationsEditorVersionTooNewEn {
+	_TranslationsEditorVersionTooNewDe._(TranslationsDe root) : this._root = root, super.internal(root);
+
+	final TranslationsDe _root; // ignore: unused_field
+
+	// Translations
 	@override String get title => 'Diese Notiz wurde mit einer neueren Version von Saber bearbeitet';
 	@override String get subtitle => 'Durch das Bearbeiten dieser Notiz können Daten verloren gehen. Möchtest du sie trotzdem bearbeiten?';
 	@override String get allowEditing => 'Schreibschutz aufheben';

@@ -220,7 +220,8 @@ class _TranslationsEditorRu extends TranslationsEditorEn {
 	@override late final _TranslationsEditorImageOptionsRu imageOptions = _TranslationsEditorImageOptionsRu._(_root);
 	@override late final _TranslationsEditorSelectionBarRu selectionBar = _TranslationsEditorSelectionBarRu._(_root);
 	@override late final _TranslationsEditorMenuRu menu = _TranslationsEditorMenuRu._(_root);
-	@override late final _TranslationsEditorNewerFileFormatRu newerFileFormat = _TranslationsEditorNewerFileFormatRu._(_root);
+	@override late final _TranslationsEditorReadOnlyBannerRu readOnlyBanner = _TranslationsEditorReadOnlyBannerRu._(_root);
+	@override late final _TranslationsEditorVersionTooNewRu versionTooNew = _TranslationsEditorVersionTooNewRu._(_root);
 	@override late final _TranslationsEditorQuillRu quill = _TranslationsEditorQuillRu._(_root);
 	@override late final _TranslationsEditorHudRu hud = _TranslationsEditorHudRu._(_root);
 	@override String get pages => 'Листы';
@@ -749,14 +750,23 @@ class _TranslationsEditorMenuRu extends TranslationsEditorMenuEn {
 	@override late final _TranslationsEditorMenuBgPatternsRu bgPatterns = _TranslationsEditorMenuBgPatternsRu._(_root);
 }
 
-// Path: editor.newerFileFormat
-class _TranslationsEditorNewerFileFormatRu extends TranslationsEditorNewerFileFormatEn {
-	_TranslationsEditorNewerFileFormatRu._(TranslationsRu root) : this._root = root, super.internal(root);
+// Path: editor.readOnlyBanner
+class _TranslationsEditorReadOnlyBannerRu extends TranslationsEditorReadOnlyBannerEn {
+	_TranslationsEditorReadOnlyBannerRu._(TranslationsRu root) : this._root = root, super.internal(root);
 
 	final TranslationsRu _root; // ignore: unused_field
 
 	// Translations
-	@override String get readOnlyMode => 'Режим «Только чтение»';
+	@override String get title => 'Режим «Только чтение»';
+}
+
+// Path: editor.versionTooNew
+class _TranslationsEditorVersionTooNewRu extends TranslationsEditorVersionTooNewEn {
+	_TranslationsEditorVersionTooNewRu._(TranslationsRu root) : this._root = root, super.internal(root);
+
+	final TranslationsRu _root; // ignore: unused_field
+
+	// Translations
 	@override String get title => 'Эта заметка была отредактирована в более новой версии Saber.';
 	@override String get subtitle => 'Редактирование этой заметки может привести к потере некоторой информации. Вы хотите проигнорировать это и начать редактирование?';
 	@override String get allowEditing => 'Разрешить редактирование';

@@ -333,8 +333,9 @@ editor:
     watchServer(OUTDATED): مراقب به روز رسانی ها در سرور باشید
     watchServerReadOnly(OUTDATED): هنگام تماشای سرور، ویرایش غیرفعال است
     lineHeightDescription(OUTDATED): همچنین اندازه متن را برای یادداشت های تایپ شده کنترل می کند
-  newerFileFormat:
-    readOnlyMode: حالت فقط خواندنی
+  readOnlyBanner:
+    title: حالت فقط خواندنی
+  versionTooNew:
     title: این یادداشت با استفاده از نسخه جدیدتر برنامه ویرایش شده است
     subtitle: ویرایش این یادداشت ممکن است منجر به از بین رفتن برخی از اطلاعات شود. آیا می خواهید این را نادیده بگیرید و به هر حال آن را ویرایش کنید؟
     allowEditing: اجازه ویرایش

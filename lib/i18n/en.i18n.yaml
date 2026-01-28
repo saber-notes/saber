@@ -339,8 +339,11 @@ editor:
       staffs: Staffs
       tablature: Tablature
       cornell: Cornell
-  newerFileFormat:
-    readOnlyMode: Read-only mode
+  readOnlyBanner:
+    title: Read-only mode
+    watchingServer: You are currently watching for updates on the server. Editing is disabled in this mode.
+    corrupted: Failed to load note. It may be corrupted or still being downloaded.
+  versionTooNew:
     title: This note was edited using a newer version of Saber
     subtitle: Editing this note may result in some information being lost. Do you want to ignore this and edit it anyway?
     allowEditing: Allow editing

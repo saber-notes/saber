@@ -219,7 +219,8 @@ class _TranslationsEditorTh extends TranslationsEditorEn {
 	@override late final _TranslationsEditorImageOptionsTh imageOptions = _TranslationsEditorImageOptionsTh._(_root);
 	@override late final _TranslationsEditorSelectionBarTh selectionBar = _TranslationsEditorSelectionBarTh._(_root);
 	@override late final _TranslationsEditorMenuTh menu = _TranslationsEditorMenuTh._(_root);
-	@override late final _TranslationsEditorNewerFileFormatTh newerFileFormat = _TranslationsEditorNewerFileFormatTh._(_root);
+	@override late final _TranslationsEditorReadOnlyBannerTh readOnlyBanner = _TranslationsEditorReadOnlyBannerTh._(_root);
+	@override late final _TranslationsEditorVersionTooNewTh versionTooNew = _TranslationsEditorVersionTooNewTh._(_root);
 	@override late final _TranslationsEditorQuillTh quill = _TranslationsEditorQuillTh._(_root);
 	@override late final _TranslationsEditorHudTh hud = _TranslationsEditorHudTh._(_root);
 	@override String get pages => 'หน้า';
@@ -648,8 +649,8 @@ class _TranslationsEditorPensTh extends TranslationsEditorPensEn {
 	@override String get ballpointPen => 'ปากกาลูกลื่น';
 	@override String get highlighter => 'ปากกาไฮไลท์';
 	@override String get pencil => 'ดินสอ';
-	@override String get laserPointer => 'เลเซอร์พอยเตอร์';
 	@override String get shapePen => 'ปากการูปทรงต่างๆ';
+	@override String get laserPointer => 'เลเซอร์พอยเตอร์';
 }
 
 // Path: editor.penOptions
@@ -748,14 +749,23 @@ class _TranslationsEditorMenuTh extends TranslationsEditorMenuEn {
 	@override late final _TranslationsEditorMenuBgPatternsTh bgPatterns = _TranslationsEditorMenuBgPatternsTh._(_root);
 }
 
-// Path: editor.newerFileFormat
-class _TranslationsEditorNewerFileFormatTh extends TranslationsEditorNewerFileFormatEn {
-	_TranslationsEditorNewerFileFormatTh._(TranslationsTh root) : this._root = root, super.internal(root);
+// Path: editor.readOnlyBanner
+class _TranslationsEditorReadOnlyBannerTh extends TranslationsEditorReadOnlyBannerEn {
+	_TranslationsEditorReadOnlyBannerTh._(TranslationsTh root) : this._root = root, super.internal(root);
 
 	final TranslationsTh _root; // ignore: unused_field
 
 	// Translations
-	@override String get readOnlyMode => 'โหมดอ่านอย่างเดียว';
+	@override String get title => 'โหมดอ่านอย่างเดียว';
+}
+
+// Path: editor.versionTooNew
+class _TranslationsEditorVersionTooNewTh extends TranslationsEditorVersionTooNewEn {
+	_TranslationsEditorVersionTooNewTh._(TranslationsTh root) : this._root = root, super.internal(root);
+
+	final TranslationsTh _root; // ignore: unused_field
+
+	// Translations
 	@override String get title => 'บันทึกนี้ได้รับการแก้ไขโดยใช้ Saber เวอร์ชันใหม่กว่า';
 	@override String get subtitle => 'การแก้ไขบันทึกนี้อาจทำให้ข้อมูลบางส่วนสูญหาย คุณต้องการเพิกเฉยต่อคำเตือนนี้และแก้ไขต่อไปหรือไม่?';
 	@override String get allowEditing => 'อนุญาตให้แก้ไข';

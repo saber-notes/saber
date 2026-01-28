@@ -339,8 +339,9 @@ editor:
       cornell: Cornell not şablonu
     lineThickness(OUTDATED): Çizgi kalınlığı
     lineThicknessDescription(OUTDATED): Arka plan çizgisi kalınlığı
-  newerFileFormat:
-    readOnlyMode: Yalnızca okunabilir mod
+  readOnlyBanner:
+    title: Yalnızca okunabilir mod
+  versionTooNew:
     title: Bu not Saber'ın yeni bir versiyonunda düzenlenmiş
     subtitle: Bu notu düzenlemek veri kaybına sebep olabilir. Bunu görmezden gelerek düzenlemek ister misiniz?
     allowEditing: Düzenlemeye izin ver

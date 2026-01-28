@@ -337,8 +337,9 @@ editor:
     watchServer(OUTDATED): Surveillez les mises à jour sur le serveur
     watchServerReadOnly(OUTDATED): L'édition est désactivée lorsque vous regardez le serveur
     lineHeightDescription(OUTDATED): Contrôle également la taille du texte pour les notes saisies
-  newerFileFormat:
-    readOnlyMode: Mode lecture seule
+  readOnlyBanner:
+    title: Mode lecture seule
+  versionTooNew:
     title: Cette note a été modifiée avec une version plus récente de Saber
     subtitle: Éditer cette note pourrait entraîner la perte de certaines informations. Voulez-vous la modifier quand même ?
     allowEditing: Autoriser les modifications

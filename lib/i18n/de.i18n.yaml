@@ -339,8 +339,9 @@ editor:
       staffs: Notenpapier
       tablature: Tablature
       cornell: Cornell-Stil
-  newerFileFormat:
-    readOnlyMode: Schreibgeschützter Modus
+  readOnlyBanner:
+    title: Schreibgeschützter Modus
+  versionTooNew:
     title: Diese Notiz wurde mit einer neueren Version von Saber bearbeitet
     subtitle: Durch das Bearbeiten dieser Notiz können Daten verloren gehen. Möchtest du sie trotzdem bearbeiten?
     allowEditing: Schreibschutz aufheben

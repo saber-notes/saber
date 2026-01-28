@@ -218,7 +218,8 @@ class _TranslationsEditorHe extends TranslationsEditorEn {
 	@override late final _TranslationsEditorImageOptionsHe imageOptions = _TranslationsEditorImageOptionsHe._(_root);
 	@override late final _TranslationsEditorSelectionBarHe selectionBar = _TranslationsEditorSelectionBarHe._(_root);
 	@override late final _TranslationsEditorMenuHe menu = _TranslationsEditorMenuHe._(_root);
-	@override late final _TranslationsEditorNewerFileFormatHe newerFileFormat = _TranslationsEditorNewerFileFormatHe._(_root);
+	@override late final _TranslationsEditorReadOnlyBannerHe readOnlyBanner = _TranslationsEditorReadOnlyBannerHe._(_root);
+	@override late final _TranslationsEditorVersionTooNewHe versionTooNew = _TranslationsEditorVersionTooNewHe._(_root);
 	@override late final _TranslationsEditorQuillHe quill = _TranslationsEditorQuillHe._(_root);
 	@override late final _TranslationsEditorHudHe hud = _TranslationsEditorHudHe._(_root);
 	@override String get pages => 'דפים';
@@ -747,14 +748,23 @@ class _TranslationsEditorMenuHe extends TranslationsEditorMenuEn {
 	@override String get lineHeightDescription => 'שולט גם בגודל הטקסט עבור הערות מוקלדות';
 }
 
-// Path: editor.newerFileFormat
-class _TranslationsEditorNewerFileFormatHe extends TranslationsEditorNewerFileFormatEn {
-	_TranslationsEditorNewerFileFormatHe._(TranslationsHe root) : this._root = root, super.internal(root);
+// Path: editor.readOnlyBanner
+class _TranslationsEditorReadOnlyBannerHe extends TranslationsEditorReadOnlyBannerEn {
+	_TranslationsEditorReadOnlyBannerHe._(TranslationsHe root) : this._root = root, super.internal(root);
 
 	final TranslationsHe _root; // ignore: unused_field
 
 	// Translations
-	@override String get readOnlyMode => 'מצב צפייה בלבד';
+	@override String get title => 'מצב צפייה בלבד';
+}
+
+// Path: editor.versionTooNew
+class _TranslationsEditorVersionTooNewHe extends TranslationsEditorVersionTooNewEn {
+	_TranslationsEditorVersionTooNewHe._(TranslationsHe root) : this._root = root, super.internal(root);
+
+	final TranslationsHe _root; // ignore: unused_field
+
+	// Translations
 	@override String get title => 'הערה זו נערכה באמצעות גרסה חדשה יותר של Saber';
 	@override String get subtitle => 'עריכת פתק זה עלולה לגרום לאיבוד מידע מסוים. האם אתה רוצה להתאלם מזה בכל מקרה?';
 	@override String get allowEditing => 'אפשר עריכה';

@@ -47,12 +47,23 @@ ar:
     menu:
       lineThickness(OUTDATED): Line thickness
       lineThicknessDescription(OUTDATED): Background line thickness
+    readOnlyBanner:
+      watchingServer: You are currently watching for updates on the server. Editing is disabled in this mode.
+      corrupted: Failed to load note. It may be corrupted or still being downloaded.
 cs:
+  editor:
+    readOnlyBanner:
+      watchingServer: You are currently watching for updates on the server. Editing is disabled in this mode.
+      corrupted: Failed to load note. It may be corrupted or still being downloaded.
 de:
   home:
     renameNote:
       noteNameForbiddenCharacters(OUTDATED): Note name contains forbidden characters
       noteNameReserved(OUTDATED): Note name reserved
+  editor:
+    readOnlyBanner:
+      watchingServer: You are currently watching for updates on the server. Editing is disabled in this mode.
+      corrupted: Failed to load note. It may be corrupted or still being downloaded.
 eo:
   home:
     renameNote:
@@ -63,6 +74,10 @@ eo:
       autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Auto-disable finger drawing
     prefDescriptions:
       autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Turn off finger drawing when a stylus is detected
+  editor:
+    readOnlyBanner:
+      watchingServer: You are currently watching for updates on the server. Editing is disabled in this mode.
+      corrupted: Failed to load note. It may be corrupted or still being downloaded.
 es:
   common:
     done(OUTDATED): Done
@@ -176,6 +191,9 @@ es:
       lineThicknessDescription(OUTDATED): Background line thickness
       watchServer(OUTDATED): Watch for updates on the server
       watchServerReadOnly(OUTDATED): Editing is disabled while watching the server
+    readOnlyBanner:
+      watchingServer: You are currently watching for updates on the server. Editing is disabled in this mode.
+      corrupted: Failed to load note. It may be corrupted or still being downloaded.
 fa:
   common:
     done(OUTDATED): Done
@@ -279,6 +297,9 @@ fa:
       lineThicknessDescription(OUTDATED): Background line thickness
       watchServer(OUTDATED): Watch for updates on the server
       watchServerReadOnly(OUTDATED): Editing is disabled while watching the server
+    readOnlyBanner:
+      watchingServer: You are currently watching for updates on the server. Editing is disabled in this mode.
+      corrupted: Failed to load note. It may be corrupted or still being downloaded.
 fr:
   common:
     done(OUTDATED): Done
@@ -382,6 +403,9 @@ fr:
       lineThicknessDescription(OUTDATED): Background line thickness
       watchServer(OUTDATED): Watch for updates on the server
       watchServerReadOnly(OUTDATED): Editing is disabled while watching the server
+    readOnlyBanner:
+      watchingServer: You are currently watching for updates on the server. Editing is disabled in this mode.
+      corrupted: Failed to load note. It may be corrupted or still being downloaded.
 he:
   common:
     done(OUTDATED): Done
@@ -513,6 +537,9 @@ he:
         staffs(OUTDATED): Staffs
         tablature(OUTDATED): Tablature
         cornell(OUTDATED): Cornell
+    readOnlyBanner:
+      watchingServer: You are currently watching for updates on the server. Editing is disabled in this mode.
+      corrupted: Failed to load note. It may be corrupted or still being downloaded.
 hu:
   common:
     done(OUTDATED): Done
@@ -752,11 +779,18 @@ hu:
         staffs(OUTDATED): Staffs
         tablature(OUTDATED): Tablature
         cornell(OUTDATED): Cornell
+    readOnlyBanner:
+      watchingServer: You are currently watching for updates on the server. Editing is disabled in this mode.
+      corrupted: Failed to load note. It may be corrupted or still being downloaded.
     hud:
       unlockAxisAlignedPan(OUTDATED): Unlock panning to horizontal or vertical
       lockAxisAlignedPan(OUTDATED): Lock panning to horizontal or vertical
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
 it:
+  editor:
+    readOnlyBanner:
+      watchingServer: You are currently watching for updates on the server. Editing is disabled in this mode.
+      corrupted: Failed to load note. It may be corrupted or still being downloaded.
 ja:
   common:
     done(OUTDATED): Done
@@ -916,6 +950,9 @@ ja:
       watchServerReadOnly(OUTDATED): Editing is disabled while watching the server
       bgPatterns:
         tablature(OUTDATED): Tablature
+    readOnlyBanner:
+      watchingServer: You are currently watching for updates on the server. Editing is disabled in this mode.
+      corrupted: Failed to load note. It may be corrupted or still being downloaded.
 pt-BR:
   common:
     done(OUTDATED): Done
@@ -1043,6 +1080,9 @@ pt-BR:
       lineThicknessDescription(OUTDATED): Background line thickness
       watchServer(OUTDATED): Watch for updates on the server
       watchServerReadOnly(OUTDATED): Editing is disabled while watching the server
+    readOnlyBanner:
+      watchingServer: You are currently watching for updates on the server. Editing is disabled in this mode.
+      corrupted: Failed to load note. It may be corrupted or still being downloaded.
 ru:
   home:
     renameNote:
@@ -1053,7 +1093,15 @@ ru:
       autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Auto-disable finger drawing
     prefDescriptions:
       autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Turn off finger drawing when a stylus is detected
+  editor:
+    readOnlyBanner:
+      watchingServer: You are currently watching for updates on the server. Editing is disabled in this mode.
+      corrupted: Failed to load note. It may be corrupted or still being downloaded.
 th:
+  editor:
+    readOnlyBanner:
+      watchingServer: You are currently watching for updates on the server. Editing is disabled in this mode.
+      corrupted: Failed to load note. It may be corrupted or still being downloaded.
 tr:
   home:
     noPreviewAvailable(OUTDATED): No preview available
@@ -1100,9 +1148,20 @@ tr:
     menu:
       lineThickness(OUTDATED): Line thickness
       lineThicknessDescription(OUTDATED): Background line thickness
+    readOnlyBanner:
+      watchingServer: You are currently watching for updates on the server. Editing is disabled in this mode.
+      corrupted: Failed to load note. It may be corrupted or still being downloaded.
 zh-Hans-CN:
   home:
     renameNote:
       noteNameForbiddenCharacters(OUTDATED): Note name contains forbidden characters
       noteNameReserved(OUTDATED): Note name reserved
+  editor:
+    readOnlyBanner:
+      watchingServer: You are currently watching for updates on the server. Editing is disabled in this mode.
+      corrupted: Failed to load note. It may be corrupted or still being downloaded.
 zh-Hant-TW:
+  editor:
+    readOnlyBanner:
+      watchingServer: You are currently watching for updates on the server. Editing is disabled in this mode.
+      corrupted: Failed to load note. It may be corrupted or still being downloaded.

@@ -338,8 +338,9 @@ editor:
       staffs: 五线谱
       tablature: 绘画
       cornell: 康奈尔
-  newerFileFormat:
-    readOnlyMode: 只读模式
+  readOnlyBanner:
+    title: 只读模式
+  versionTooNew:
     title: 此笔记使用新版 Saber 编辑而成
     subtitle: 编辑此笔记可能会导致某些信息丢失。您想忽略并编辑吗？
     allowEditing: 允许编辑

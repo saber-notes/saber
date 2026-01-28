@@ -218,7 +218,8 @@ class _TranslationsEditorPtBr extends TranslationsEditorEn {
 	@override late final _TranslationsEditorImageOptionsPtBr imageOptions = _TranslationsEditorImageOptionsPtBr._(_root);
 	@override late final _TranslationsEditorSelectionBarPtBr selectionBar = _TranslationsEditorSelectionBarPtBr._(_root);
 	@override late final _TranslationsEditorMenuPtBr menu = _TranslationsEditorMenuPtBr._(_root);
-	@override late final _TranslationsEditorNewerFileFormatPtBr newerFileFormat = _TranslationsEditorNewerFileFormatPtBr._(_root);
+	@override late final _TranslationsEditorReadOnlyBannerPtBr readOnlyBanner = _TranslationsEditorReadOnlyBannerPtBr._(_root);
+	@override late final _TranslationsEditorVersionTooNewPtBr versionTooNew = _TranslationsEditorVersionTooNewPtBr._(_root);
 	@override late final _TranslationsEditorQuillPtBr quill = _TranslationsEditorQuillPtBr._(_root);
 	@override late final _TranslationsEditorHudPtBr hud = _TranslationsEditorHudPtBr._(_root);
 	@override String get pages => 'Páginas';
@@ -747,14 +748,23 @@ class _TranslationsEditorMenuPtBr extends TranslationsEditorMenuEn {
 	@override String get lineHeightDescription => 'Também controla o tamanho do texto para notas digitadas';
 }
 
-// Path: editor.newerFileFormat
-class _TranslationsEditorNewerFileFormatPtBr extends TranslationsEditorNewerFileFormatEn {
-	_TranslationsEditorNewerFileFormatPtBr._(TranslationsPtBr root) : this._root = root, super.internal(root);
+// Path: editor.readOnlyBanner
+class _TranslationsEditorReadOnlyBannerPtBr extends TranslationsEditorReadOnlyBannerEn {
+	_TranslationsEditorReadOnlyBannerPtBr._(TranslationsPtBr root) : this._root = root, super.internal(root);
 
 	final TranslationsPtBr _root; // ignore: unused_field
 
 	// Translations
-	@override String get readOnlyMode => 'Modo somente leitura';
+	@override String get title => 'Modo somente leitura';
+}
+
+// Path: editor.versionTooNew
+class _TranslationsEditorVersionTooNewPtBr extends TranslationsEditorVersionTooNewEn {
+	_TranslationsEditorVersionTooNewPtBr._(TranslationsPtBr root) : this._root = root, super.internal(root);
+
+	final TranslationsPtBr _root; // ignore: unused_field
+
+	// Translations
 	@override String get title => 'Esta nota foi editada usando uma versão mais recente do Saber';
 	@override String get subtitle => 'A edição desta nota pode resultar na perda de algumas informações. Deseja ignorar isso e editá-la mesmo assim?';
 	@override String get allowEditing => 'Permitir edição';

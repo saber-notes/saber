@@ -21,6 +21,7 @@ import 'package:saber/components/canvas/canvas_gesture_detector.dart';
 import 'package:saber/components/canvas/canvas_image.dart';
 import 'package:saber/components/canvas/image/editor_image.dart';
 import 'package:saber/components/canvas/save_indicator.dart';
+import 'package:saber/components/editor/read_only_banner.dart';
 import 'package:saber/components/theming/adaptive_alert_dialog.dart';
 import 'package:saber/components/theming/adaptive_icon.dart';
 import 'package:saber/components/theming/dynamic_material_app.dart';
@@ -1364,22 +1365,12 @@ class EditorState extends State<Editor> {
       transformationController: _transformationController,
     );
 
-    final readOnlyBecauseOfVersion = coreInfo.readOnlyReason == .versionTooNew;
-    // TODO(adil192): Add more messages for different read-only reasons
-    final Widget? readonlyBanner = readOnlyBecauseOfVersion
-        ? Collapsible(
-            collapsed: !readOnlyBecauseOfVersion,
-            axis: CollapsibleAxis.vertical,
-            child: SafeArea(
-              child: ListTile(
-                onTap: askUserToDisableReadOnly,
-                title: Text(t.editor.newerFileFormat.readOnlyMode),
-                subtitle: Text(t.editor.newerFileFormat.title),
-                trailing: const Icon(Icons.edit_off),
-              ),
-            ),
-          )
-        : null;
+    final readonlyBanner = ReadOnlyBanner(
+      coreInfo.readOnlyReason,
+      action: coreInfo.readOnlyReason == .versionTooNew
+          ? showVersionTooNewDialog
+          : null,
+    );
 
     final Widget toolbar = Collapsible(
       axis: isToolbarVertical
@@ -1577,7 +1568,7 @@ class EditorState extends State<Editor> {
             child: Column(
               children: [
                 Expanded(child: canvas),
-                if (readonlyBanner != null) readonlyBanner,
+                readonlyBanner,
               ],
             ),
           ),
@@ -1592,7 +1583,7 @@ class EditorState extends State<Editor> {
         children: [
           Expanded(child: canvas),
           toolbar,
-          if (readonlyBanner != null) readonlyBanner,
+          readonlyBanner,
         ],
       );
     }
@@ -1958,20 +1949,20 @@ class EditorState extends State<Editor> {
     autosaveAfterDelay();
   }
 
-  Future askUserToDisableReadOnly() async {
+  Future<void> showVersionTooNewDialog() async {
     final disableReadOnly =
         await showDialog(
           context: context,
           builder: (context) => AdaptiveAlertDialog(
-            title: Text(t.editor.newerFileFormat.title),
-            content: Text(t.editor.newerFileFormat.subtitle),
+            title: Text(t.editor.versionTooNew.title),
+            content: Text(t.editor.versionTooNew.subtitle),
             actions: [
               CupertinoDialogAction(
                 child: Text(t.common.cancel),
                 onPressed: () => Navigator.pop(context, false),
               ),
               CupertinoDialogAction(
-                child: Text(t.editor.newerFileFormat.allowEditing),
+                child: Text(t.editor.versionTooNew.allowEditing),
                 onPressed: () => Navigator.pop(context, true),
               ),
             ],

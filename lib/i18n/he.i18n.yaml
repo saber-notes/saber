@@ -338,8 +338,9 @@ editor:
     watchServer(OUTDATED): שימו לב לעדכונים בשרת
     watchServerReadOnly(OUTDATED): העריכה מושבתת בזמן צפייה בשרת
     lineHeightDescription(OUTDATED): שולט גם בגודל הטקסט עבור הערות מוקלדות
-  newerFileFormat:
-    readOnlyMode: מצב צפייה בלבד
+  readOnlyBanner:
+    title: מצב צפייה בלבד
+  versionTooNew:
     title: הערה זו נערכה באמצעות גרסה חדשה יותר של Saber
     subtitle: עריכת פתק זה עלולה לגרום לאיבוד מידע מסוים. האם אתה רוצה להתאלם מזה בכל מקרה?
     allowEditing: אפשר עריכה

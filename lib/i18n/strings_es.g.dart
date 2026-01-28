@@ -217,7 +217,8 @@ class _TranslationsEditorEs extends TranslationsEditorEn {
 	@override late final _TranslationsEditorImageOptionsEs imageOptions = _TranslationsEditorImageOptionsEs._(_root);
 	@override late final _TranslationsEditorSelectionBarEs selectionBar = _TranslationsEditorSelectionBarEs._(_root);
 	@override late final _TranslationsEditorMenuEs menu = _TranslationsEditorMenuEs._(_root);
-	@override late final _TranslationsEditorNewerFileFormatEs newerFileFormat = _TranslationsEditorNewerFileFormatEs._(_root);
+	@override late final _TranslationsEditorReadOnlyBannerEs readOnlyBanner = _TranslationsEditorReadOnlyBannerEs._(_root);
+	@override late final _TranslationsEditorVersionTooNewEs versionTooNew = _TranslationsEditorVersionTooNewEs._(_root);
 	@override late final _TranslationsEditorQuillEs quill = _TranslationsEditorQuillEs._(_root);
 	@override late final _TranslationsEditorHudEs hud = _TranslationsEditorHudEs._(_root);
 	@override String get pages => 'Páginas';
@@ -746,14 +747,23 @@ class _TranslationsEditorMenuEs extends TranslationsEditorMenuEn {
 	@override String get lineHeightDescription => 'También controla el tamaño del texto de las notas escritas.';
 }
 
-// Path: editor.newerFileFormat
-class _TranslationsEditorNewerFileFormatEs extends TranslationsEditorNewerFileFormatEn {
-	_TranslationsEditorNewerFileFormatEs._(TranslationsEs root) : this._root = root, super.internal(root);
+// Path: editor.readOnlyBanner
+class _TranslationsEditorReadOnlyBannerEs extends TranslationsEditorReadOnlyBannerEn {
+	_TranslationsEditorReadOnlyBannerEs._(TranslationsEs root) : this._root = root, super.internal(root);
 
 	final TranslationsEs _root; // ignore: unused_field
 
 	// Translations
-	@override String get readOnlyMode => 'Modo de solo lectura';
+	@override String get title => 'Modo de solo lectura';
+}
+
+// Path: editor.versionTooNew
+class _TranslationsEditorVersionTooNewEs extends TranslationsEditorVersionTooNewEn {
+	_TranslationsEditorVersionTooNewEs._(TranslationsEs root) : this._root = root, super.internal(root);
+
+	final TranslationsEs _root; // ignore: unused_field
+
+	// Translations
 	@override String get title => 'Esta nota fue editada usando una versión más reciente de Saber';
 	@override String get subtitle => 'La edición de esta nota puede resultar en la pérdida de cierta información. ¿Quieres ignorar esto y editarlo de todos modos?';
 	@override String get allowEditing => 'Editar';
