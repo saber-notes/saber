@@ -169,13 +169,9 @@ class EditorCoreInfo {
         readOnlyBecauseOfVersion: readOnlyBecauseOfVersion,
         nextImageId: json['ni'] as int? ?? 0,
         backgroundColor: backgroundColor,
-        backgroundPattern: () {
-          final pattern = json['p'] as String?;
-          for (final p in CanvasBackgroundPattern.values) {
-            if (p.name == pattern) return p;
-          }
-          return CanvasBackgroundPattern.none;
-        }(),
+        backgroundPattern: CanvasBackgroundPattern.fromName(
+          json['p'] as String?,
+        ),
         lineHeight: json['l'] as int? ?? stows.lastLineHeight.value,
         lineThickness: json['lt'] as int? ?? stows.lastLineThickness.value,
         pages: _parsePagesJson(

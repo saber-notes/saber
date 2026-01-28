@@ -285,5 +285,12 @@ enum CanvasBackgroundPattern {
     }
   }
 
+  static CanvasBackgroundPattern fromName(String? name) {
+    return values.firstWhere(
+      (pattern) => pattern.name == name,
+      orElse: () => CanvasBackgroundPattern.none,
+    );
+  }
+
   static const codec = EnumCodec(values);
 }
