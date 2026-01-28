@@ -5,12 +5,15 @@ set -e
 echo "(1 / 4) slang apply"
 dart run slang apply
 
-echo "(2 / 4) slang"
+echo "(2 / 5) slang normalize"
+dart run slang normalize
+
+echo "(3 / 5) slang"
 dart run slang
 
-echo "(3 / 4) slang analyze"
+echo "(4 / 5) slang analyze"
 dart run slang analyze --full
 
-echo "(4 / 4) committing"
+echo "(5 / 5) committing"
 git add lib/i18n/
 git commit -m "i18n: apply strings"
