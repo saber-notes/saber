@@ -12,6 +12,7 @@ import 'package:saber/data/editor/quill_styles.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/data/tools/select.dart';
 import 'package:saber/i18n/strings.g.dart';
+import 'package:sbn/canvas_background_pattern.dart';
 
 class InnerCanvas extends StatefulWidget {
   const InnerCanvas({

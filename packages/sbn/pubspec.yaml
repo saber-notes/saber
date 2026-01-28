@@ -1,0 +1,16 @@
+name: sbn
+description: "Data handling of the sbn format for the Saber: Handwritten Notes app."
+version: 0.0.1
+
+environment:
+  sdk: ^3.10.0
+  flutter: ">=3.38.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0

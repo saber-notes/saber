@@ -1428,6 +1428,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.1.0"
+  sbn:
+    dependency: "direct main"
+    description:
+      path: "packages/sbn"
+      relative: true
+    source: path
+    version: "0.0.1"
   screen_retriever:
     dependency: transitive
     description:

@@ -9,7 +9,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:logging/logging.dart';
 import 'package:saber/components/canvas/_asset_cache.dart';
-import 'package:saber/components/canvas/_canvas_background_painter.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/image/editor_image.dart';
 import 'package:saber/data/editor/page.dart';
@@ -18,6 +17,7 @@ import 'package:saber/data/flavor_config.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/data/tools/stroke_properties.dart';
 import 'package:saber/pages/editor/editor.dart';
+import 'package:sbn/canvas_background_pattern.dart';
 import 'package:worker_manager/worker_manager.dart';
 
 class EditorCoreInfo {

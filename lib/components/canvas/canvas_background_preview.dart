@@ -4,6 +4,7 @@ import 'package:saber/components/canvas/canvas_image.dart';
 import 'package:saber/components/canvas/image/editor_image.dart';
 import 'package:saber/components/canvas/inner_canvas.dart';
 import 'package:saber/data/extensions/color_extensions.dart';
+import 'package:sbn/canvas_background_pattern.dart';
 
 class CanvasBackgroundPreview extends StatelessWidget {
   const CanvasBackgroundPreview({

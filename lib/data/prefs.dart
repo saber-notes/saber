@@ -5,7 +5,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
 import 'package:perfect_freehand/perfect_freehand.dart';
-import 'package:saber/components/canvas/_canvas_background_painter.dart';
 import 'package:saber/components/navbar/responsive_navbar.dart';
 import 'package:saber/components/settings/nextcloud_profile.dart';
 import 'package:saber/data/codecs/base64_codec.dart';
@@ -15,6 +14,7 @@ import 'package:saber/data/sentry/sentry_consent.dart';
 import 'package:saber/data/tools/_tool.dart';
 import 'package:saber/data/tools/highlighter.dart';
 import 'package:saber/data/tools/pen.dart';
+import 'package:sbn/canvas_background_pattern.dart';
 import 'package:stow/stow.dart';
 import 'package:stow_codecs/stow_codecs.dart';
 import 'package:stow_plain/stow_plain.dart';
@@ -305,7 +305,7 @@ class Stows {
   final lastBackgroundPattern = PlainStow(
     'lastBackgroundPattern',
     CanvasBackgroundPattern.none,
-    codec: CanvasBackgroundPattern.codec,
+    codec: const EnumCodec(CanvasBackgroundPattern.values),
     volatile: !_isOnMainIsolate,
   );
   static const defaultLineHeight = 40;

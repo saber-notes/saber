@@ -1,6 +1,5 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:saber/components/canvas/_canvas_background_painter.dart';
 import 'package:saber/components/canvas/canvas_background_preview.dart';
 import 'package:saber/components/canvas/canvas_image_dialog.dart';
 import 'package:saber/components/canvas/inner_canvas.dart';
@@ -9,7 +8,9 @@ import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/extensions/list_extensions.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/extensions/box_fit_localized.dart';
+import 'package:saber/i18n/extensions/canvas_background_pattern_localized.dart';
 import 'package:saber/i18n/strings.g.dart';
+import 'package:sbn/canvas_background_pattern.dart';
 
 class EditorBottomSheet extends StatefulWidget {
   const EditorBottomSheet({
@@ -225,9 +226,7 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
                           right: 0,
                           child: Center(
                             child: _PermanentTooltip(
-                              text: CanvasBackgroundPattern.localizedName(
-                                backgroundPattern,
-                              ),
+                              text: backgroundPattern.localizedName,
                             ),
                           ),
                         ),
