@@ -8,6 +8,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:logging/logging.dart';
+import 'package:path/path.dart' as p;
 import 'package:saber/components/canvas/_asset_cache.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/image/editor_image.dart';
@@ -60,7 +61,7 @@ class EditorCoreInfo {
   String filePath;
 
   /// The file name without its parent directories.
-  String get fileName => filePath.substring(filePath.lastIndexOf('/') + 1);
+  String get fileName => p.basename(filePath);
 
   AssetCache assetCache;
   int nextImageId;

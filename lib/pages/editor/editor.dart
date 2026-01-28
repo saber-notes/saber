@@ -12,6 +12,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_quill/flutter_quill.dart' as flutter_quill;
 import 'package:keybinder/keybinder.dart';
 import 'package:logging/logging.dart';
+import 'package:path/path.dart' as p;
 import 'package:pdfrx/pdfrx.dart';
 import 'package:saber/components/canvas/_asset_cache.dart';
 import 'package:saber/components/canvas/_stroke.dart';
@@ -186,7 +187,7 @@ class EditorState extends State<Editor> {
 
   void _initAsync() async {
     final filePath = await widget.initialPath;
-    filenameTextEditingController.text = filePath;
+    filenameTextEditingController.text = p.basename(filePath);
 
     if (needsNaming) {
       filenameTextEditingController.selection = TextSelection(
