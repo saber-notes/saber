@@ -74,14 +74,12 @@ void main() {
             coreInfo = await EditorCoreInfo.loadFromFileContents(
               bsonBytes: File(path).readAsBytesSync(),
               path: pathWithoutExtension,
-              readOnly: false,
               onlyFirstPage: true,
             );
           } else {
             coreInfo = await EditorCoreInfo.loadFromFileContents(
               jsonString: File(path).readAsStringSync(),
               path: pathWithoutExtension,
-              readOnly: false,
               onlyFirstPage: true,
             );
           }

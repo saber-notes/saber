@@ -23,7 +23,7 @@ void main() {
     });
 
     test('With empty SVG image', () async {
-      final coreInfo = EditorCoreInfo(filePath: '', readOnly: false);
+      final coreInfo = EditorCoreInfo(filePath: '');
       coreInfo.pages = [
         EditorPage(
           images: [
@@ -46,7 +46,7 @@ void main() {
 
     test('With small PNG image', () async {
       final imageBytes = await File('assets/icon/icon.png').readAsBytes();
-      final coreInfo = EditorCoreInfo(filePath: '', readOnly: false);
+      final coreInfo = EditorCoreInfo(filePath: '');
       coreInfo.pages = [
         EditorPage(
           images: [
@@ -69,7 +69,7 @@ void main() {
 
     test('With large PNG image', () async {
       final imageBytes = await File('assets/icon/icon.png').readAsBytes();
-      final coreInfo = EditorCoreInfo(filePath: '', readOnly: false);
+      final coreInfo = EditorCoreInfo(filePath: '');
       coreInfo.pages = [
         EditorPage(
           images: [

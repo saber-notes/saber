@@ -87,5 +87,7 @@ linter:
     prefer_const_declarations: true
     prefer_const_literals_to_create_immutables: true
 
+    flutter_style_todos: true
+
 # Additional information about this file can be found at
 # https://dart.dev/guides/language/analysis-options

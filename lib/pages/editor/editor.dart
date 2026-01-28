@@ -205,7 +205,7 @@ class EditorState extends State<Editor> {
   Future _loadCoreInfo(String filePath) async {
     coreInfo = await EditorCoreInfo.loadFromFilePath(filePath);
     if (coreInfo.readOnly) {
-      log.info('Loaded file as read-only');
+      log.info('Loaded file as read-only: ${coreInfo.readOnlyReason}');
     }
 
     for (int pageIndex = 0; pageIndex < coreInfo.pages.length; pageIndex++) {
@@ -1363,10 +1363,11 @@ class EditorState extends State<Editor> {
       transformationController: _transformationController,
     );
 
-    final Widget? readonlyBanner = coreInfo.readOnlyBecauseOfVersion
+    final readOnlyBecauseOfVersion = coreInfo.readOnlyReason == .versionTooNew;
+    // TODO(adil192): Add more messages for different read-only reasons
+    final Widget? readonlyBanner = readOnlyBecauseOfVersion
         ? Collapsible(
-            collapsed:
-                !(coreInfo.readOnly && coreInfo.readOnlyBecauseOfVersion),
+            collapsed: !readOnlyBecauseOfVersion,
             axis: CollapsibleAxis.vertical,
             child: SafeArea(
               child: ListTile(
@@ -1773,16 +1774,18 @@ class EditorState extends State<Editor> {
             const Duration(seconds: 5),
             (_) => _refreshCurrentNote(),
           );
-          coreInfo.readOnlyBecauseWatchingServer |= !coreInfo.readOnly;
-          if (!coreInfo.readOnly) setState(() => coreInfo.readOnly = true);
+          if (coreInfo.readOnlyReason != .watchingServer) {
+            assert(coreInfo.readOnlyReason == null);
+            coreInfo.readOnlyReason = .watchingServer;
+            if (mounted) setState(() {});
+          }
         } else {
           _watchServerTimer?.cancel();
           _watchServerTimer = null;
-          if (coreInfo.readOnlyBecauseWatchingServer)
-            setState(() {
-              coreInfo.readOnly = false;
-              coreInfo.readOnlyBecauseWatchingServer = false;
-            });
+          if (coreInfo.readOnlyReason == .watchingServer) {
+            coreInfo.readOnlyReason = null;
+            if (mounted) setState(() {});
+          }
         }
       },
     );
@@ -1978,9 +1981,10 @@ class EditorState extends State<Editor> {
     if (!mounted) return;
     if (!disableReadOnly) return;
 
-    setState(() {
-      coreInfo.readOnly = false;
-    });
+    if (coreInfo.readOnlyReason == .versionTooNew) {
+      coreInfo.readOnlyReason = null;
+      if (mounted) setState(() {});
+    }
   }
 
   late int _lastCurrentPageIndex = coreInfo.initialPageIndex ?? 0;
