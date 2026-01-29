@@ -1084,19 +1084,6 @@ pt-BR:
       watchingServer(OUTDATED): You are currently watching for updates on the server. Editing is disabled in this mode.
       corrupted(OUTDATED): Failed to load note. It may be corrupted or still being downloaded.
 ru:
-  home:
-    renameNote:
-      noteNameForbiddenCharacters(OUTDATED): Название заметки содержит запрёщенные символы
-      noteNameReserved(OUTDATED): Название заметки зарезервировано
-  settings:
-    prefLabels:
-      autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Автоотключение рисования пальцем
-    prefDescriptions:
-      autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Отключение рисования пальцем при обнаружении пера
-  editor:
-    readOnlyBanner:
-      watchingServer(OUTDATED): В данный момент вы следите за обновлениями на сервере. В этом режиме редактирование отключено.
-      corrupted(OUTDATED): Не удалось загрузить заметку. Возможно, она повреждена или все еще загружается.
 th:
   editor:
     readOnlyBanner:
