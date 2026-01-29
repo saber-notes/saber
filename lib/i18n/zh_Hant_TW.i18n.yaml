@@ -341,8 +341,8 @@ editor:
       cornell: 康乃爾
   readOnlyBanner:
     title: 唯讀模式
-    corrupted(OUTDATED): 無法加載筆記。它可能已損壞或仍在下載。
-    watchingServer(OUTDATED): 您當前正在查看服務器上的更新。在此模式下禁用編輯。
+    watchingServer: 目前正在監看伺服器上的更新，在此模式下已停用編輯功能。
+    corrupted: 無法載入筆記，檔案可能已損壞或仍在下載中。
   versionTooNew:
     title: 這篇筆記是使用較新版本的 Saber 編輯的
     subtitle: 編輯此筆記可能會導致某些資訊遺失。 您想忽略它並編輯它嗎？
