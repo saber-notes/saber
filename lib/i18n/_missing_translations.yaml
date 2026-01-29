@@ -1084,19 +1084,6 @@ pt-BR:
       watchingServer(OUTDATED): You are currently watching for updates on the server. Editing is disabled in this mode.
       corrupted(OUTDATED): Failed to load note. It may be corrupted or still being downloaded.
 ru:
-  home:
-    renameNote:
-      noteNameForbiddenCharacters(OUTDATED): Note name contains forbidden characters
-      noteNameReserved(OUTDATED): Note name reserved
-  settings:
-    prefLabels:
-      autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Auto-disable finger drawing
-    prefDescriptions:
-      autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Turn off finger drawing when a stylus is detected
-  editor:
-    readOnlyBanner:
-      watchingServer(OUTDATED): You are currently watching for updates on the server. Editing is disabled in this mode.
-      corrupted(OUTDATED): Failed to load note. It may be corrupted or still being downloaded.
 th:
   editor:
     readOnlyBanner:
