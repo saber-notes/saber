@@ -89,9 +89,7 @@ abstract class SaberTheme {
   ) {
     final base = highContrast
         ? (brightness == .light ? yaruHighContrastLight : yaruHighContrastDark)
-        : (brightness == .light
-              ? yaru.theme ?? yaruLight
-              : yaru.darkTheme ?? yaruDark);
+        : (brightness == .light ? yaru.theme : yaru.darkTheme);
     return base.copyWith(
       platform: platform,
       textTheme: _Components.textTheme(brightness),
