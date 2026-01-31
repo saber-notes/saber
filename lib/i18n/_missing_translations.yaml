@@ -53,8 +53,8 @@ ar:
 cs:
   editor:
     readOnlyBanner:
-      watchingServer(OUTDATED): You are currently watching for updates on the server. Editing is disabled in this mode.
-      corrupted(OUTDATED): Failed to load note. It may be corrupted or still being downloaded.
+      watchingServer(OUTDATED): Aktuálně máte zapnuté sledování změn ze serveru. V tomto módu jsou vypnuté úpravy.
+      corrupted(OUTDATED): Poznámku se nepodařilo načíst. Buď se ještě stahuje, nebo může být poškozená.
 de:
   home:
     renameNote:
