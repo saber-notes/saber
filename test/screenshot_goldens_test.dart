@@ -137,6 +137,7 @@ void _screenshot({
     'fa',
     'he',
     'ja',
+    'th',
     'zh-Hans-CN',
     'zh-Hant-TW',
   };
