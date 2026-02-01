@@ -1,1 +1,129 @@
-{}
+common:
+  done: Končaj
+  continueBtn: Nadaljuj
+  cancel: Prekliči
+home:
+  tabs:
+    home: Domov
+    browse: Brskaj
+    whiteboard: Tabla
+    settings: Nastavaitve
+  titles:
+    home: Nedavne beležke
+    browse: Brskaj
+    whiteboard: Tabla
+    settings: Nastavitve
+  tooltips:
+    newNote: Nova beležka
+    showUpdateDialog: Pokaži posodobitve
+    exportNote: Izvozi beležko
+  create:
+    newNote: Nova beležka
+    importNote: Uvozi beležko
+  welcome: Dobrodošli v Saber
+  invalidFormat: Datoteka, ki ste jo izbrali, ni podprta. Prosimo, izberite 
+    datoteko sbn, sbn2, sba ali pdf.
+  noFiles: Ni najdenih datotek
+  noPreviewAvailable: Na voljo ni predogleda
+  createNewNote: Pritisnite + gumb za novo beležko
+  backFolder: Pojdi nazaj na prejšnjo mapo
+  newFolder:
+    newFolder: Nova mapa
+    folderName: Ime mape
+    create: Ustvari
+    folderNameEmpty: Ime mape ne sme biti prazno
+    folderNameContainsSlash: Ime mape ne sme uporabljati poševnice
+    folderNameExists: Mapa že obstaja
+  renameNote:
+    renameNote: Preimenuj beležko
+    noteName: Ime beležke
+    rename: Preimenuj
+    noteNameEmpty: Ime beležke ne more biti prazno
+    noteNameExists: Beležka s tem imenom že obstaja
+    noteNameForbiddenCharacters: Ime beležke vsebuje nedovoljene znake
+    noteNameReserved: Ime beležke rezervirano
+  moveNote:
+    moveNote: Premakni beležko
+    moveNotes: Premakni $n beležk
+    moveName: Premakni $f
+    move: Premakni
+    renamedTo: Beležka bo preimenovana v $newName
+    multipleRenamedTo: Naslednje beležke bodo preimenovane
+    numberRenamedTo: $n beležk bo preimenovanih v izogib konfliktom
+  deleteNote: Izbriši beležko
+  renameFolder:
+    renameFolder: Preimenuj mapo
+    folderName: Ime mape
+    rename: Preimenuj
+    folderNameEmpty: Ime mape ne more biti prazno
+    folderNameContainsSlash: Ime mape ne more vsebovati poševnice
+    folderNameExists: Mapa s tem imenom že obstaja
+  deleteFolder:
+    deleteFolder: Izbriši mapo
+    deleteName: Izbriši $f
+    delete: Izbriši
+    alsoDeleteContents: Prav tako pobriši vse beležke znotraj te mape
+sentry:
+  consent:
+    title: Pomagaj izboljšati Saber
+    description:
+      question: Ali želite samodejno poročati o nepričakovanih napakah? To 
+        pomaga hitreje prepoznati in odpraviti.
+      scope: Poročila lahko vsebujejo informacije o napaki in vaši napravi. Po 
+        najboljših močeh sem poskrbel, da so osebni podatki odstranjeni, vendar 
+        lahko nekateri vseeno ostanejo.
+      currentlyOff: Če podate soglasje, bo poročanje o napakah omogočeno po 
+        ponovnem zagonu aplikacije.
+      currentlyOn: Če prekličete soglasje, znova zaženite aplikacijo, da 
+        onemogočite poročanje o napakah.
+      learnMoreInPrivacyPolicy(rich): Izvedite več na povezavi ${link(politika 
+        zasebnosti)}.
+    answers:
+      yes: Da
+      no: Ne
+      later: Vprašaj me kasneje
+settings:
+  prefCategories:
+    general: Splošno
+    writing: Pisanje
+    editor: Urejevalnik
+    performance: Zmogljivost
+    advanced: Napredno
+  prefLabels:
+    locale: Jezik
+    appTheme: Tema aplikacije
+    platform: Vrsta teme
+    layoutSize: Vrsta postavitve
+    customAccentColor: Lastna barva povdarka
+    hyperlegibleFont: Atkinson Hyperlegible pisava
+    shouldCheckForUpdates: Poišči posodobitve za Saber
+    shouldAlwaysAlertForUpdates: Hitrejše posodobitve
+    allowInsecureConnections: Dovoli nezavarovano povezavo
+    editorToolbarAlignment: Položaj orodne vrstice
+    editorToolbarShowInFullscreen: Pokaži orodno vrstico v celozaslonskem načinu
+    editorAutoInvert: Preobrni beležke v temnem načinu
+    preferGreyscale: Bi raje uporabili sivinske barve
+    maxImageSize: Največja velikost slike
+    autoClearWhiteboardOnExit: Samodejno počisti tablo
+    disableEraserAfterUse: Samodejno onemogoči radirko
+    hideFingerDrawingToggle: Skrij stikalo za risanje s prstom
+    autoDisableFingerDrawingWhenStylusDetected: Samodejno onemogoči risanje s 
+      prstom
+    editorPromptRename: Vprašaj me, ali želim preimenovati nove beležke
+    recentColorsDontSavePresets: Ne shrani vnaprej nastavljenih barv med 
+      nedavnimi barvami
+    recentColorsLength: Koliko nedavnih barv naj se shrani
+    printPageIndicators: Indikatorji tiskane strani
+    autosave: Samodejno shrani
+    shapeRecognitionDelay: Zakasnitev prepoznavanja oblik
+    autoStraightenLines: Samodejno ravnanje črt
+    simplifiedHomeLayout: Poenostavljena postavitev domačega zaslona
+    customDataDir: Mapa Saber po meri
+    sentry: Poročanje napak
+  prefDescriptions:
+    hyperlegibleFont: Povečaj berljivost za uporabnike z zmanjšanim vidom
+    allowInsecureConnections: (Ni priporočeno) Dovoli, da se Saber poveže s 
+      strežniki z lastnoročno podpisanimi/nepreverjenimi certifikati
+    preferGreyscale: Za e-ink zaslone
+    disableEraserAfterUse: Po izhodu iz aplikacije počisti tablo
+    maxImageSize: Večje slike bodo stisnjene
