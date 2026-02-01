@@ -340,8 +340,8 @@ editor:
       cornell: Cornellova metoda
   readOnlyBanner:
     title: Otevřít v režimu pouze pro čtení
-    corrupted(OUTDATED): Poznámku se nepodařilo načíst. Může být poškozen nebo se stále stahuje.
-    watchingServer(OUTDATED): Právě sledujete aktualizace na serveru. V tomto režimu jsou úpravy zakázány.
+    watchingServer: Aktuálně máte zapnuté sledování změn ze serveru. V tomto módu jsou vypnuté úpravy.
+    corrupted: Poznámku se nepodařilo načíst. Buď se ještě stahuje, nebo může být poškozená.
   versionTooNew:
     title: Tato poznámka byla upravena v novější verzi aplikace Saber
     subtitle: Úpravou této poznámky můžete přijít o některé informace. Přejete tuto skutečnost ignorovat a přesto pokračovat k úpravě poznámky?
