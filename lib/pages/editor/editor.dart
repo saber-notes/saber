@@ -746,18 +746,35 @@ class EditorState extends State<Editor> {
     // whether the stylus button is or was pressed
     stylusButtonPressed = stylusButtonPressed || buttonPressed;
 
-    if (isHovering) {
-      if (buttonPressed) {
-        if (currentTool is Eraser) return;
-        tmpTool = currentTool;
-        currentTool = Eraser();
+    // Switch to eraser when button pressed, switch back when released.
+    // Works both during hover and touch (for Wayland compatibility).
+    if (buttonPressed) {
+      if (currentTool is Eraser) return;
+      tmpTool = currentTool;
+      currentTool = Eraser();
+      setState(() {});
+    } else {
+      if (tmpTool != null && currentTool is Eraser) {
+        currentTool = tmpTool!;
+        tmpTool = null;
         setState(() {});
-      } else {
-        if (tmpTool != null && currentTool is Eraser) {
-          currentTool = tmpTool!;
-          tmpTool = null;
-          setState(() {});
-        }
+      }
+    }
+  }
+
+  Tool? tmpSelectTool;
+  void onStylusSelectButtonChanged(bool buttonPressed) {
+    // Switch to select tool when upper stylus button pressed.
+    if (buttonPressed) {
+      if (currentTool is Select) return;
+      tmpSelectTool = currentTool;
+      currentTool = Select.currentSelect;
+      setState(() {});
+    } else {
+      if (tmpSelectTool != null && currentTool is Select) {
+        currentTool = tmpSelectTool!;
+        tmpSelectTool = null;
+        setState(() {});
       }
     }
   }
@@ -1339,6 +1356,7 @@ class EditorState extends State<Editor> {
       onHovering: onHovering,
       onHoveringEnd: onHoveringEnd,
       onStylusButtonChanged: onStylusButtonChanged,
+      onStylusSelectButtonChanged: onStylusSelectButtonChanged,
       updatePointerData: updatePointerData,
       undo: undo,
       redo: redo,

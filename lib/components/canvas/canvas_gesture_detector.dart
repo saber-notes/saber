@@ -9,6 +9,7 @@ import 'package:flutter/services.dart';
 import 'package:keybinder/keybinder.dart';
 import 'package:saber/components/canvas/hud/canvas_hud.dart';
 import 'package:saber/components/canvas/interactive_canvas.dart';
+import 'package:saber/components/canvas/stylus_eraser_linux.dart';
 import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/extensions/change_notifier_extensions.dart';
 import 'package:saber/data/extensions/matrix4_extensions.dart';
@@ -29,6 +30,7 @@ class CanvasGestureDetector extends StatefulWidget {
     required this.onHovering,
     required this.onHoveringEnd,
     required this.onStylusButtonChanged,
+    required this.onStylusSelectButtonChanged,
     required this.undo,
     required this.redo,
     required this.pages,
@@ -54,6 +56,7 @@ class CanvasGestureDetector extends StatefulWidget {
   final VoidCallback onHovering;
   final VoidCallback onHoveringEnd;
   final ValueChanged<bool> onStylusButtonChanged;
+  final ValueChanged<bool> onStylusSelectButtonChanged;
 
   final VoidCallback undo;
   final VoidCallback redo;
@@ -313,7 +316,23 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
     setInitialTransform();
     widget._transformationController.addListener(onTransformChanged);
     _assignKeybindings();
+    _initLinuxEraserDetection();
     super.initState();
+  }
+
+  /// Initialize Linux-specific eraser detection.
+  /// Works around Flutter bug where GDK_SOURCE_ERASER is not mapped
+  /// to invertedStylus. See: https://github.com/flutter/flutter/issues/63209
+  void _initLinuxEraserDetection() {
+    StylusEraserLinux.init();
+    StylusEraserLinux.addListener(_onLinuxEraserStateChanged);
+  }
+
+  void _onLinuxEraserStateChanged(bool isEraser) {
+    if (stylusButtonWasPressed != isEraser) {
+      stylusButtonWasPressed = isEraser;
+      widget.onStylusButtonChanged(isEraser);
+    }
   }
 
   /// When the widget is created, we still have an empty coreInfo.
@@ -441,12 +460,44 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
         !stows.hideFingerDrawingToggle.value) {
       stows.editorFingerDrawing.value = false;
     }
+
+    // Check for eraser mode (invertedStylus) or button press
+    if (isStylus) {
+      _checkStylusEraser(event.kind, event.buttons);
+    }
   }
 
   var stylusButtonWasPressed = false;
+  var stylusSelectButtonPressed = false;
+
+  /// Check for eraser activation via:
+  /// 1. invertedStylus (lower button sends BTN_TOOL_RUBBER on some pens)
+  /// 2. Linux native eraser detection (workaround for Flutter bug)
+  /// Note: Physical button presses are handled separately for select tool.
+  void _checkStylusEraser(PointerDeviceKind kind, int buttons) {
+    final isEraser =
+        kind == PointerDeviceKind.invertedStylus ||
+        StylusEraserLinux.isEraser;
+    if (stylusButtonWasPressed != isEraser) {
+      stylusButtonWasPressed = isEraser;
+      widget.onStylusButtonChanged(isEraser);
+    }
+
+    // Check for stylus button press (upper button) for select tool
+    final buttonPressed =
+        (buttons & kPrimaryStylusButton) != 0 ||
+        (buttons & kSecondaryStylusButton) != 0;
+    if (stylusSelectButtonPressed != buttonPressed) {
+      stylusSelectButtonPressed = buttonPressed;
+      widget.onStylusSelectButtonChanged(buttonPressed);
+    }
+  }
 
   void _listenerPointerHoverEvent(PointerEvent event) {
-    if (event.kind != PointerDeviceKind.stylus) return;
+    final isStylus =
+        event.kind == PointerDeviceKind.stylus ||
+        event.kind == PointerDeviceKind.invertedStylus;
+    if (!isStylus) return;
 
     // Apparently flutter synthesizes a hover event on pointer down,
     // so these are used to detect when hovering ends
@@ -454,10 +505,7 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
       widget.onHoveringEnd();
     } else {
       widget.onHovering();
-      if (stylusButtonWasPressed != (event.buttons == kPrimaryStylusButton)) {
-        stylusButtonWasPressed = event.buttons == kPrimaryStylusButton;
-        widget.onStylusButtonChanged(stylusButtonWasPressed);
-      }
+      _checkStylusEraser(event.kind, event.buttons);
     }
   }
 
@@ -557,6 +605,7 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
     widget._transformationController.removeListener(onTransformChanged);
     widget._transformationController.dispose();
     _removeKeybindings();
+    StylusEraserLinux.removeListener(_onLinuxEraserStateChanged);
     super.dispose();
   }
 

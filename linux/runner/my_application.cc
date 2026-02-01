@@ -11,6 +11,56 @@ struct _MyApplication {
 
 G_DEFINE_TYPE(MyApplication, my_application, GTK_TYPE_APPLICATION)
 
+// Channel for stylus eraser detection
+static FlMethodChannel* eraser_channel = nullptr;
+static gboolean current_eraser_state = FALSE;
+
+// Send eraser state change to Dart
+static void send_eraser_state(gboolean is_eraser) {
+  if (eraser_channel == nullptr || current_eraser_state == is_eraser) {
+    return;
+  }
+  current_eraser_state = is_eraser;
+
+  g_autoptr(FlValue) args = fl_value_new_bool(is_eraser);
+  fl_method_channel_invoke_method(eraser_channel, "eraserStateChanged", args,
+                                  nullptr, nullptr, nullptr);
+}
+
+// GTK event handler to detect stylus eraser mode
+static gboolean on_event(GtkWidget* widget, GdkEvent* event, gpointer data) {
+  GdkEventType type = gdk_event_get_event_type(event);
+  if (type == GDK_MOTION_NOTIFY ||
+      type == GDK_BUTTON_PRESS ||
+      type == GDK_BUTTON_RELEASE ||
+      type == GDK_PROXIMITY_IN ||
+      type == GDK_PROXIMITY_OUT) {
+    GdkDevice* device = gdk_event_get_source_device(event);
+    if (device != nullptr) {
+      GdkInputSource source = gdk_device_get_source(device);
+      send_eraser_state(source == GDK_SOURCE_ERASER);
+    }
+  }
+  return FALSE;  // Don't stop event propagation
+}
+
+// Method channel handler
+static void eraser_channel_method_cb(FlMethodChannel* channel,
+                                     FlMethodCall* method_call,
+                                     gpointer user_data) {
+  const gchar* method = fl_method_call_get_name(method_call);
+
+  if (strcmp(method, "getEraserState") == 0) {
+    g_autoptr(FlMethodResponse) response = FL_METHOD_RESPONSE(
+        fl_method_success_response_new(fl_value_new_bool(current_eraser_state)));
+    fl_method_call_respond(method_call, response, nullptr);
+  } else {
+    g_autoptr(FlMethodResponse) response = FL_METHOD_RESPONSE(
+        fl_method_not_implemented_response_new());
+    fl_method_call_respond(method_call, response, nullptr);
+  }
+}
+
 // Called when first Flutter frame received.
 static void first_frame_cb(MyApplication* self, FlView *view)
 {
@@ -44,6 +94,24 @@ static void my_application_activate(GApplication* application) {
   gtk_widget_realize(GTK_WIDGET(view));
 
   fl_register_plugins(FL_PLUGIN_REGISTRY(view));
+
+  // Set up eraser detection channel
+  g_autoptr(FlStandardMethodCodec) codec = fl_standard_method_codec_new();
+  FlBinaryMessenger* messenger = fl_engine_get_binary_messenger(fl_view_get_engine(view));
+  eraser_channel = fl_method_channel_new(messenger, "com.adilhanney.saber/stylus_eraser",
+                                         FL_METHOD_CODEC(codec));
+  fl_method_channel_set_method_call_handler(eraser_channel, eraser_channel_method_cb,
+                                            nullptr, nullptr);
+
+  // Connect to window events to detect eraser mode
+  // Need to enable these event types first
+  gtk_widget_add_events(GTK_WIDGET(window),
+                        GDK_POINTER_MOTION_MASK |
+                        GDK_BUTTON_PRESS_MASK |
+                        GDK_BUTTON_RELEASE_MASK |
+                        GDK_PROXIMITY_IN_MASK |
+                        GDK_PROXIMITY_OUT_MASK);
+  g_signal_connect(window, "event", G_CALLBACK(on_event), nullptr);
 
   gtk_widget_grab_focus(GTK_WIDGET(view));
 }
