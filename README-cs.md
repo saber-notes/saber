@@ -54,7 +54,7 @@ Objevte zcela nový způsob zaznamenávání a organizace vašich myšlenek s ap
 [![Flathub](https://img.shields.io/flathub/downloads/com.adilhanney.saber?label=sta%C5%BEen%C3%AD%20z%20Flathubu)](https://flathub.org/cs/apps/details/com.adilhanney.saber)
 [![Sponzoři na GitHubu](https://img.shields.io/github/sponsors/adil192?label=sponzo%C5%99i)](https://github.com/sponsors/adil192)
 [![GitHub](https://img.shields.io/github/license/saber-notes/saber?label=licence)](https://github.com/saber-notes/saber/blob/main/LICENSE.md)
-[![Translation status](https://hosted.weblate.org/widget/saber-notes/saber/svg-badge.svg)](https://hosted.weblate.org/engage/saber-notes/)
+[![Stav překladů](https://img.shields.io/weblate/progress/saber-notes?label=p%C5%99elo%C5%BEeno)](https://hosted.weblate.org/engage/saber-notes/)
 [![Codecov](https://codecov.io/gh/saber-notes/saber/branch/main/graph/badge.svg?token=EGQSN0THW2)](https://codecov.io/gh/saber-notes/saber)
 
 <details open>
