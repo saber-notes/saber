@@ -273,16 +273,27 @@ void main() {
       // delete files
       await FileManager.deleteFile('/$fileName1.sbn2');
       await FileManager.deleteFile('/$fileName2.sbn2');
+    });
 
-      // delete file without removing it from recently accessed
-      const String filePath = '/$fileName1.sbn2';
+    test('getRecentlyAccessed with external deletion', () async {
+      // create file
+      const String fileName = 'test_externalDeletion';
+      const String filePath = '/$fileName.sbn2';
       await FileManager.writeFile(filePath, [1], awaitWrite: true);
 
+      // check file exists in recentlyAccessed
+      var recentlyAccessed = await FileManager.getRecentlyAccessed();
+      expect(recentlyAccessed[0], '/$fileName');
+
+      // delete file without removing it from recently accessed
       final file = FileManager.getFile(filePath);
       await file.delete();
+
+      // reload recentlyAccessed and check file doesn't exist anymore in it
       recentlyAccessed = await FileManager.getRecentlyAccessed();
       expect(recentlyAccessed, isEmpty);
 
+      // delete file properly
       syncer.uploader.enqueueRel(filePath);
       FileManager.broadcastFileWrite(FileOperationType.delete, filePath);
     });
