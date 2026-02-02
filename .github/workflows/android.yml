@@ -175,7 +175,7 @@ jobs:
       - run: ./patches/post/remove_wasm_libs.sh
 
       - name: Build apk
-        run: flutter build apk --no-pub
+        run: flutter build apk
 
       - name: Rename apk
         id: rename_apk
