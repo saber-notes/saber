@@ -22,7 +22,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v6
 
-      - name: Restore cache
+      - name: Check if cache exists
         id: cache
         uses: actions/cache/restore@v5
         with:
@@ -37,6 +37,7 @@ jobs:
           key: ${{ runner.OS }}-saber-android-${{ hashFiles('**/pubspec.lock') }}-${{ hashFiles('**/*.dart') }}
           restore-keys: |
             ${{ runner.OS }}-saber-android-
+          lookup-only: true
 
       - uses: "./.github/shared_workflows/install_apt_dependencies"
         if: ${{ steps.cache.outputs.cache-hit == '' }}
