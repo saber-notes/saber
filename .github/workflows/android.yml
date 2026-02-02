@@ -175,7 +175,7 @@ jobs:
       - run: ./patches/post/remove_wasm_libs.sh
 
       - name: Build apk
-        run: flutter build apk
+        run: flutter build apk --no-pub
 
       - name: Rename apk
         id: rename_apk
@@ -207,7 +207,7 @@ jobs:
       - name: Build aab
         if: ${{ matrix.foss == false }}
         run: |
-          flutter build appbundle \
+          flutter build appbundle --no-pub \
             --dart-define=FLAVOR="Google Play" \
             --dart-define=APP_STORE="Google Play" \
             --dart-define=UPDATE_CHECK="false"
