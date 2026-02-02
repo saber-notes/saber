@@ -8,7 +8,6 @@ import 'package:http/http.dart' as http;
 import 'package:logging/logging.dart';
 import 'package:open_file/open_file.dart';
 import 'package:saber/components/settings/update_dialog.dart';
-import 'package:saber/data/flavor_config.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/data/saber_version.dart';
 import 'package:saber/data/version.dart' as version;
@@ -136,14 +135,10 @@ abstract class UpdateManager {
   }
 
   static Future<String?> getLatestDownloadUrl([
-    String? apiResponse,
-    TargetPlatform? platform,
+    @visibleForTesting String? apiResponse,
+    @visibleForTesting TargetPlatform? platform,
   ]) async {
     platform ??= defaultTargetPlatform;
-
-    if (platform == .android) {
-      if (FlavorConfig.flavor.isNotEmpty) return null;
-    }
 
     if (!UpdateManager.platformFileRegex.containsKey(platform)) return null;
 
@@ -171,10 +166,9 @@ abstract class UpdateManager {
   }
 
   static final Map<TargetPlatform, RegExp> platformFileRegex = {
+    // Normal platforms get their updates from app stores, so
+    // manual update handling is only needed for Windows.
     .windows: RegExp(r'\.exe'),
-
-    // e.g. Saber_v0.9.8.apk not Saber_FOSS_v0.9.8.apk
-    .android: RegExp(r'Saber_v.*\.apk'),
   };
 
   /// Downloads the update file from [downloadUrl] and installs it.
