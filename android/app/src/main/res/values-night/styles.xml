@@ -18,5 +18,9 @@
         <item name="android:windowBackground">?android:colorBackground</item>
 
         <item name="android:navigationBarColor">@android:color/transparent</item>
+    <!-- This item to prevent keyboard focus on FlutterView, due to this
+        application have a full height and width FlutterView, it won't hurt
+        accessibility. -->    
+        <item name="android:defaultFocusHighlightEnabled">false</item>
     </style>
 </resources>
