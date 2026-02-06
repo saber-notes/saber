@@ -97,6 +97,12 @@
 [Translating](https://github.com/saber-notes/saber/wiki/Translating)
 على الويكي.
 
+جميع الترجمات بفضل مساهمات مجتمعنا من المساهمين.
+
+إذا كنت ترغب في المساعدة في ترجمة Saber، فتوجه إلى [Weblate](https://hosted.weblate.org/engage/saber-notes/)!
+
+[![حالة الترجمة](https://hosted.weblate.org/widget/saber-notes/multi-auto.svg)](https://hosted.weblate.org/engage/saber-notes/)
+
 ## دعم تطبيق Saber
 
 If you like Saber, please consider supporting it by:
@@ -118,8 +124,8 @@ If you like Saber, please consider supporting it by:
 [google_play]: https://play.google.com/store/apps/details?id=com.adilhanney.saber
 [snap]: https://snapcraft.io/saber
 [app_store]: https://apps.apple.com/us/app/saber/id1671523739
-[download_windows]: https://github.com/saber-notes/saber/releases/download/v1.29.5/SaberInstaller_v1.29.5.exe
-[download_appimage]: https://github.com/saber-notes/saber/releases/download/v1.29.5/Saber-1.29.5-x86_64.AppImage
+[download_windows]: https://github.com/saber-notes/saber/releases/download/v1.30.0/SaberInstaller_v1.30.0.exe
+[download_appimage]: https://github.com/saber-notes/saber/releases/download/v1.30.0/Saber-1.30.0-x86_64.AppImage
 
 [nextcloud]: https://nc.saber.adil.hanney.org/
 

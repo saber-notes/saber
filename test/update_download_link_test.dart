@@ -43,10 +43,7 @@ void main() {
         apiResponse,
         .android,
       );
-      expect(url, isNotNull);
-      expect(url, startsWith('http'));
-      expect(url, endsWith('.apk'));
-      expect(url, isNot(contains('FOSS')));
+      expect(url, isNull);
     });
   });
 }

@@ -1,0 +1,3 @@
+• Ajout d'une traduction thaïlandaise par Anucha Hlownonkor 
+• Ajout d'une traduction slovène par Tadej Pusnik 
+• Si une note est en mode lecture seule, vous verrez maintenant la raison pour laquelle

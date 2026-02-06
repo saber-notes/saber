@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/flavor_config.dart';
+import 'package:saber/data/nextcloud/saber_syncer.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -272,6 +273,29 @@ void main() {
       // delete files
       await FileManager.deleteFile('/$fileName1.sbn2');
       await FileManager.deleteFile('/$fileName2.sbn2');
+    });
+
+    test('getRecentlyAccessed with external deletion', () async {
+      // create file
+      const String fileName = 'test_externalDeletion';
+      const String filePath = '/$fileName.sbn2';
+      await FileManager.writeFile(filePath, [1], awaitWrite: true);
+
+      // check file exists in recentlyAccessed
+      var recentlyAccessed = await FileManager.getRecentlyAccessed();
+      expect(recentlyAccessed[0], '/$fileName');
+
+      // delete file without removing it from recently accessed
+      final file = FileManager.getFile(filePath);
+      await file.delete();
+
+      // reload recentlyAccessed and check file doesn't exist anymore in it
+      recentlyAccessed = await FileManager.getRecentlyAccessed();
+      expect(recentlyAccessed, isEmpty);
+
+      // delete file properly
+      syncer.uploader.enqueueRel(filePath);
+      FileManager.broadcastFileWrite(FileOperationType.delete, filePath);
     });
 
     test('isDirectory and doesFileExist', () async {

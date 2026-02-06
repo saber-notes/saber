@@ -50,8 +50,7 @@ Try to follow existing documentation patterns and conventions.
 
 Don't generate code for this project using AI chatbots or agents.
 
-AI often produces code that looks correct but has subtle bugs, poor maintainability, and hallucinated assumptions.
-Reviewing and maintaining AI-generated code often takes more time and effort than just writing the code myself.
+Reviewing and maintaining AI-generated code is a drain on contributor time, which could be better spent elsewhere.
 
 Autocomplete tools may be used at your discretion, but all submitted code must be fully designed, written, and understood by you.
 

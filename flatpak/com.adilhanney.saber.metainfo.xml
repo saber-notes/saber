@@ -215,6 +215,15 @@
     </screenshots>
 
     <releases>
+        <release version="1.30.0" type="development" date="2026-02-01">
+            <description>
+                <ul>
+                    <li>Added a Thai translation by Anucha Hlownonkor</li>
+                    <li>Added a Slovenian translation by Tadej Pusnik</li>
+                    <li>If a note is in read-only mode, you'll now see the reason why</li>
+                </ul>
+            </description>
+        </release>
         <release version="1.29.5" type="development" date="2026-01-19">
             <description>
                 <ul>

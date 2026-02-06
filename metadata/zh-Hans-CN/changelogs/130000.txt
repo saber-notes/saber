@@ -1,0 +1,3 @@
+• 添加了 Anucha Hlownonkor 的泰语翻译
+• 添加了 Tadej Pusnik 的斯洛文尼亚语翻译
+• 如果注释处于只读模式，您现在将看到原因

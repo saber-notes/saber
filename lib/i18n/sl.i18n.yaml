@@ -21,8 +21,7 @@ home:
     newNote: Nov zapisek
     importNote: Uvozi zapisek
   welcome: Dobrodošli v Saber
-  invalidFormat: Izbrana datoteka ni podprta. Prosim, izberi datoteko sbn, sbn2,
-    sba ali pdf.
+  invalidFormat: Izbrana datoteka ni podprta. Prosim, izberi datoteko sbn, sbn2, sba ali pdf.
   noFiles: Ni najdenih datotek
   noPreviewAvailable: Predogled ni na voljo
   createNewNote: Dotakni se gumba + za ustvarjanje novega zapiska
@@ -48,7 +47,7 @@ home:
     moveName: Premakni $f
     move: Premakni
     renamedTo: Zapisek bo preimenovan v $newName
-    multipleRenamedTo: 'Naslednji zapiski bodo preimenovani:'
+    multipleRenamedTo: "Naslednji zapiski bodo preimenovani:"
     numberRenamedTo: $n zapiskov bo preimenovanih, da bi se izognili sporom
   deleteNote: Izbriši zapisek
   renameFolder:
@@ -67,17 +66,11 @@ sentry:
   consent:
     title: Ali želiš pomagati izboljšati Saber?
     description:
-      question: Ali želiš samodejno poročati o nepričakovanih napakah? To mi 
-        pomaga hitreje prepoznati in odpraviti težave.
-      scope: Poročila lahko vsebujejo informacije o napaki in tvoji napravi. 
-        Potrudil sem se, da bi filtriral osebne podatke, vendar lahko nekateri 
-        ostanejo.
-      currentlyOff: Če podaš soglasje, bo poročanje o napakah omogočeno po 
-        ponovnem zagonu aplikacije.
-      currentlyOn: Če prekličeš soglasje, prosim, ponovno zaženi aplikacijo, da 
-        onemogočiš poročanje o napakah.
-      learnMoreInPrivacyPolicy(rich): Preberi več v ${link(politiki 
-        zasebnosti)}.
+      question: Ali želiš samodejno poročati o nepričakovanih napakah? To mi pomaga hitreje prepoznati in odpraviti težave.
+      scope: Poročila lahko vsebujejo informacije o napaki in tvoji napravi. Potrudil sem se, da bi filtriral osebne podatke, vendar lahko nekateri ostanejo.
+      currentlyOff: Če podaš soglasje, bo poročanje o napakah omogočeno po ponovnem zagonu aplikacije.
+      currentlyOn: Če prekličeš soglasje, prosim, ponovno zaženi aplikacijo, da onemogočiš poročanje o napakah.
+      learnMoreInPrivacyPolicy(rich): Preberi več v ${link(politiki zasebnosti)}.
     answers:
       yes: Da
       no: Ne
@@ -107,11 +100,9 @@ settings:
     autoClearWhiteboardOnExit: Samodejno počisti tablo
     disableEraserAfterUse: Samodejno onemogoči radirko
     hideFingerDrawingToggle: Skrij preklop risanja s prstom
-    autoDisableFingerDrawingWhenStylusDetected: Samodejno onemogoči risanje s 
-      prstom
+    autoDisableFingerDrawingWhenStylusDetected: Samodejno onemogoči risanje s prstom
     editorPromptRename: Pozovi za preimenovanje novih zapiskov
-    recentColorsDontSavePresets: Ne shranjuj prednastavljenih barv v nedavne 
-      barve
+    recentColorsDontSavePresets: Ne shranjuj prednastavljenih barv v nedavne barve
     recentColorsLength: Koliko nedavnih barv shraniti
     printPageIndicators: Tiskaj kazalnike strani
     autosave: Samodejno shranjevanje
@@ -122,18 +113,16 @@ settings:
     sentry: Poročanje o napakah
   prefDescriptions:
     hyperlegibleFont: Poveča čitljivost za uporabnike s slabšim vidom
-    allowInsecureConnections: (Ni priporočljivo) Dovoli Saberju povezovanje s 
-      strežniki s samopodpisanimi/nezaupanja vrednimi potrdili
+    allowInsecureConnections: (Ni priporočljivo) Dovoli Saberju povezovanje s strežniki s samopodpisanimi/nezaupanja vrednimi potrdili
     preferGreyscale: Za zaslone e-ink
+    autoClearWhiteboardOnExit: Počisti tablo, ko zapustiš aplikacijo
     disableEraserAfterUse: Po uporabi radirke samodejno preklopi nazaj na pero
     maxImageSize: Večje slike bodo stisnjene
-    autoClearWhiteboardOnExit: Počisti tablo, ko zapustiš aplikacijo
     hideFingerDrawing:
       shown: Preprečuje nenameren preklop
       fixedOn: Risanje s prstom je fiksno omogočeno
       fixedOff: Risanje s prstom je fiksno onemogočeno
-    autoDisableFingerDrawingWhenStylusDetected: Izklopi risanje s prstom, ko je 
-      zaznano pisalo
+    autoDisableFingerDrawingWhenStylusDetected: Izklopi risanje s prstom, ko je zaznano pisalo
     editorPromptRename: Zapiske lahko vedno preimenuješ pozneje
     printPageIndicators: Prikaži kazalnike strani pri izvozu
     autosave: Samodejno shrani po kratkem zamiku ali nikoli
@@ -171,54 +160,46 @@ settings:
     cancel: Prekliči
     select: Izberi
     mustBeEmpty: Izbrana mapa mora biti prazna
-    mustBeDoneSyncing: Prepričaj se, da je sinhronizacija končana, preden 
-      zamenjaš mapo
-    unsupported: Ta funkcija je trenutno samo za razvijalce. Uporaba lahko 
-      povzroči izgubo podatkov.
+    mustBeDoneSyncing: Prepričaj se, da je sinhronizacija končana, preden zamenjaš mapo
+    unsupported: Ta funkcija je trenutno samo za razvijalce. Uporaba lahko povzroči izgubo podatkov.
   autosaveDisabled: Nikoli
   shapeRecognitionDisabled: Nikoli
 logs:
   logs: Dnevniki
   viewLogs: Prikaži dnevnike
-  debuggingInfo: Dnevniki vsebujejo informacije, uporabne za odpravljanje težav 
-    in razvoj
+  debuggingInfo: Dnevniki vsebujejo informacije, uporabne za odpravljanje težav in razvoj
   noLogs: Tukaj ni dnevnikov!
   useTheApp: Dnevniki se bodo pojavili tukaj, ko boš uporabljal aplikacijo
 login:
   title: Prijava
   form:
-    agreeToPrivacyPolicy(rich): S prijavo se strinjaš s 
-      ${linkToPrivacyPolicy(politiko zasebnosti)}.
+    agreeToPrivacyPolicy(rich): S prijavo se strinjaš s ${linkToPrivacyPolicy(politiko zasebnosti)}.
   signup(rich): Še nimaš računa? ${linkToSignup(Prijavi se zdaj)}!
   notYou(rich): Nisi ti? ${undoLogin(Izberi drug račun)}.
   status:
     loggedOut: Odjavljen
     tapToLogin: Dotakni se za prijavo z Nextcloudom
     hi: Živjo, $u!
-    almostDone: Skoraj pripravljeno za sinhronizacijo, dotakni se za dokončanje 
-      prijave
+    almostDone: Skoraj pripravljeno za sinhronizacijo, dotakni se za dokončanje prijave
     loggedIn: Prijavljen z Nextcloudom
   ncLoginStep:
-    whereToStoreData: 'Izberi, kje želiš shraniti svoje podatke:'
+    whereToStoreData: "Izberi, kje želiš shraniti svoje podatke:"
     saberNcServer: Saberjev Nextcloud strežnik
     otherNcServer: Drug Nextcloud strežnik
     serverUrl: URL strežnika
     loginWithSaber: Prijava v Saber
     loginWithNextcloud: Prijava v Nextcloud
     loginFlow:
-      pleaseAuthorize: Prosim, pooblasti Saber za dostop do tvojega Nextcloud 
-        računa
+      pleaseAuthorize: Prosim, pooblasti Saber za dostop do tvojega Nextcloud računa
       followPrompts: Prosim, sledi navodilom v vmesniku Nextcloud
       browserDidntOpen: Prijavna stran se ni odprla? Klikni tukaj
   encLoginStep:
-    enterEncPassword: 'Za zaščito tvojih podatkov vnesi geslo za šifriranje:'
+    enterEncPassword: "Za zaščito tvojih podatkov vnesi geslo za šifriranje:"
     newToSaber: Si nov v Saberju? Samo vnesi novo geslo za šifriranje.
     encPassword: Geslo za šifriranje
     encFaqTitle: Pogosta vprašanja
-    wrongEncPassword: Dešifriranje s podanim geslom ni uspelo. Prosim, poskusi 
-      znova vnesti geslo.
-    connectionFailed: Pri povezovanju s strežnikom je prišlo do napake. Prosim, 
-      poskusi znova pozneje.
+    wrongEncPassword: Dešifriranje s podanim geslom ni uspelo. Prosim, poskusi znova vnesti geslo.
+    connectionFailed: Pri povezovanju s strežnikom je prišlo do napake. Prosim, poskusi znova pozneje.
     encFaq:
     - q: Kaj je geslo za šifriranje? Zakaj uporabljati dve gesli?
       a: |-
@@ -230,9 +211,7 @@ login:
         Izberi novo geslo za šifriranje in ga vnesi zgoraj.
         Saber bo iz tega gesla samodejno ustvaril tvoje šifrirne ključe.
     - q: Ali lahko uporabim isto geslo kot za moj Nextcloud račun?
-      a: Da, vendar imej v mislih, da bi bilo skrbniku strežnika ali komu 
-        drugemu lažje dostopati do tvojih zapiskov, če pridobijo dostop do 
-        tvojega Nextcloud računa.
+      a: Da, vendar imej v mislih, da bi bilo skrbniku strežnika ali komu drugemu lažje dostopati do tvojih zapiskov, če pridobijo dostop do tvojega Nextcloud računa.
 profile:
   title: Moj profil
   logout: Odjavi se
@@ -244,14 +223,9 @@ profile:
   faqTitle: Pogosta vprašanja
   faq:
   - q: Ali bom izgubil zapiske, če se odjavim?
-    a: Ne. Tvoji zapiski bodo ostali tako na tvoji napravi kot na strežniku. S 
-      strežnikom se ne bodo sinhronizirali, dokler se znova ne prijaviš. 
-      Prepričaj se, da je sinhronizacija končana, preden se odjaviš, da ne 
-      izgubiš podatkov (glej napredek sinhronizacije na domačem zaslonu).
+    a: Ne. Tvoji zapiski bodo ostali tako na tvoji napravi kot na strežniku. S strežnikom se ne bodo sinhronizirali, dokler se znova ne prijaviš. Prepričaj se, da je sinhronizacija končana, preden se odjaviš, da ne izgubiš podatkov (glej napredek sinhronizacije na domačem zaslonu).
   - q: Kako spremenim geslo za Nextcloud?
-    a: Pojdi na spletno stran tvojega strežnika in se prijavi. Nato pojdi na 
-      Nastavitve > Varnost > Spremeni geslo. Po spremembi gesla se boš moral 
-      odjaviti in znova prijaviti v Saber.
+    a: Pojdi na spletno stran tvojega strežnika in se prijavi. Nato pojdi na Nastavitve > Varnost > Spremeni geslo. Po spremembi gesla se boš moral odjaviti in znova prijaviti v Saber.
   - q: Kako spremenim geslo za šifriranje?
     a: |-
       0. Prepričaj se, da je sinhronizacija končana (glej napredek sinhronizacije na domačem zaslonu).
@@ -269,16 +243,14 @@ appInfo:
     Saber  Avtorske pravice © 2022-$buildYear  Adil Hanney
     Ta program je brez kakršnegakoli jamstva. To je prosta programska oprema in vabljeni ste, da jo razširjate pod določenimi pogoji.
   debug: RAZROŠČEVANJE
-  sponsorButton: Dotakni se tukaj, da me sponzoriraš ali kupiš več prostora za 
-    shranjevanje
+  sponsorButton: Dotakni se tukaj, da me sponzoriraš ali kupiš več prostora za shranjevanje
   licenseButton: Dotakni se tukaj za več informacij o licenci
   privacyPolicyButton: Dotakni se tukaj za ogled politike zasebnosti
 update:
   updateAvailable: Posodobitev na voljo
-  updateAvailableDescription: 'Na voljo je nova različica aplikacije:'
+  updateAvailableDescription: "Na voljo je nova različica aplikacije:"
   update: Posodobi
-  downloadNotAvailableYet: Prenos za tvojo platformo še ni na voljo. Prosim, 
-    preveri kmalu.
+  downloadNotAvailableYet: Prenos za tvojo platformo še ni na voljo. Prosim, preveri kmalu.
 editor:
   toolbar:
     toggleColors: Preklopi barve (Ctrl C)
@@ -290,7 +262,7 @@ editor:
     undo: Razveljavi
     redo: Uveljavi
     export: Izvozi (Ctrl Shift S)
-    exportAs: 'Izvozi kot:'
+    exportAs: "Izvozi kot:"
     fullscreen: Preklopi celozaslonski način (F11)
   pens:
     fountainPen: Nalivno pero
@@ -345,8 +317,7 @@ editor:
     duplicatePage: Podvoji stran
     deletePage: Izbriši stran
     lineHeight: Višina vrstice
-    lineHeightDescription: Prav tako nadzira velikost besedila za tipkane 
-      zapiske
+    lineHeightDescription: Prav tako nadzira velikost besedila za tipkane zapiske
     lineThickness: Debelina črte
     lineThicknessDescription: Debelina črte ozadja
     backgroundImageFit: Prilagoditev slike ozadja
@@ -370,14 +341,11 @@ editor:
       cornell: Cornell
   readOnlyBanner:
     title: Način samo za branje
-    watchingServer: Trenutno spremljaš posodobitve na strežniku. Urejanje v tem 
-      načinu je onemogočeno.
-    corrupted: Nalaganje zapiska ni uspelo. Morda je poškodovan ali pa se še 
-      vedno prenaša.
+    watchingServer: Trenutno spremljaš posodobitve na strežniku. Urejanje v tem načinu je onemogočeno.
+    corrupted: Nalaganje zapiska ni uspelo. Morda je poškodovan ali pa se še vedno prenaša.
   versionTooNew:
     title: Ta zapisek je bil urejen z novejšo različico Saberja
-    subtitle: Urejanje tega zapiska lahko povzroči izgubo nekaterih informacij. 
-      Ali želiš to prezreti in vseeno urejati?
+    subtitle: Urejanje tega zapiska lahko povzroči izgubo nekaterih informacij. Ali želiš to prezreti in vseeno urejati?
     allowEditing: Dovoli urejanje
   quill:
     typeSomething: Tukaj nekaj vtipkaj...
@@ -390,5 +358,4 @@ editor:
     lockAxisAlignedPan: Zakleni premikanje na vodoravno ali navpično
   pages: Strani
   untitled: Neimenovano
-  needsToSaveBeforeExiting: Shranjevanje sprememb... Urejevalnik lahko varno 
-    zapustiš, ko bo končano
+  needsToSaveBeforeExiting: Shranjevanje sprememb... Urejevalnik lahko varno zapustiš, ko bo končano

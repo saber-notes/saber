@@ -666,6 +666,10 @@ class FileManager {
 
   static Future<List<String>> getRecentlyAccessed() async {
     if (!stows.recentFiles.loaded) await stows.recentFiles.waitUntilRead();
+    // Delete entries for files that have been deleted outside of Saber
+    for (final file in stows.recentFiles.value.toList()) {
+      if (!doesFileExist(file)) _removeReferences(file);
+    }
     return stows.recentFiles.value
         .map((String filePath) {
           if (filePath.endsWith(Editor.extension)) {

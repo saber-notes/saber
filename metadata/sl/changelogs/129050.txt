@@ -1,0 +1,2 @@
+• Odpravljena možnost poimenovanja zapiskov z neveljavnimi znaki. Nova pravila pomagajo pri združljivosti med platformami.
+• Neopazno popravil ikono Saber.
