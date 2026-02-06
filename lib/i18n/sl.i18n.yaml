@@ -1,5 +1,5 @@
 common:
-  done: Končaj
+  done: Končano
   continueBtn: Nadaljuj
   cancel: Prekliči
 home:
@@ -7,70 +7,70 @@ home:
     home: Domov
     browse: Brskaj
     whiteboard: Tabla
-    settings: Nastavaitve
+    settings: Nastavitve
   titles:
-    home: Nedavne beležke
+    home: Nedavni zapiski
     browse: Brskaj
     whiteboard: Tabla
     settings: Nastavitve
   tooltips:
-    newNote: Nova beležka
-    showUpdateDialog: Pokaži posodobitve
-    exportNote: Izvozi beležko
+    newNote: Nov zapisek
+    showUpdateDialog: Prikaži pogovorno okno za posodobitev
+    exportNote: Izvozi zapisek
   create:
-    newNote: Nova beležka
-    importNote: Uvozi beležko
+    newNote: Nov zapisek
+    importNote: Uvozi zapisek
   welcome: Dobrodošli v Saber
-  invalidFormat: Datoteka, ki ste jo izbrali, ni podprta. Prosimo, izberite datoteko sbn, sbn2, sba ali pdf.
+  invalidFormat: Izbrana datoteka ni podprta. Prosim, izberi datoteko sbn, sbn2, sba ali pdf.
   noFiles: Ni najdenih datotek
-  noPreviewAvailable: Na voljo ni predogleda
-  createNewNote: Pritisnite + gumb za novo beležko
-  backFolder: Pojdi nazaj na prejšnjo mapo
+  noPreviewAvailable: Predogled ni na voljo
+  createNewNote: Dotakni se gumba + za ustvarjanje novega zapiska
+  backFolder: Pojdi nazaj v prejšnjo mapo
   newFolder:
     newFolder: Nova mapa
     folderName: Ime mape
     create: Ustvari
     folderNameEmpty: Ime mape ne sme biti prazno
-    folderNameContainsSlash: Ime mape ne sme uporabljati poševnice
+    folderNameContainsSlash: Ime mape ne sme vsebovati poševnice
     folderNameExists: Mapa že obstaja
   renameNote:
-    renameNote: Preimenuj beležko
-    noteName: Ime beležke
+    renameNote: Preimenuj zapisek
+    noteName: Ime zapiska
     rename: Preimenuj
-    noteNameEmpty: Ime beležke ne more biti prazno
-    noteNameExists: Beležka s tem imenom že obstaja
-    noteNameForbiddenCharacters: Ime beležke vsebuje nedovoljene znake
-    noteNameReserved: Ime beležke rezervirano
+    noteNameEmpty: Ime zapiska ne sme biti prazno
+    noteNameExists: Zapisek s tem imenom že obstaja
+    noteNameForbiddenCharacters: Ime zapiska vsebuje prepovedane znake
+    noteNameReserved: Ime zapiska je rezervirano
   moveNote:
-    moveNote: Premakni beležko
-    moveNotes: Premakni $n beležk
+    moveNote: Premakni zapisek
+    moveNotes: Premakni $n zapiskov
     moveName: Premakni $f
     move: Premakni
-    renamedTo: Beležka bo preimenovana v $newName
-    multipleRenamedTo: Naslednje beležke bodo preimenovane
-    numberRenamedTo: $n beležk bo preimenovanih v izogib konfliktom
-  deleteNote: Izbriši beležko
+    renamedTo: Zapisek bo preimenovan v $newName
+    multipleRenamedTo: "Naslednji zapiski bodo preimenovani:"
+    numberRenamedTo: $n zapiskov bo preimenovanih, da bi se izognili sporom
+  deleteNote: Izbriši zapisek
   renameFolder:
     renameFolder: Preimenuj mapo
     folderName: Ime mape
     rename: Preimenuj
-    folderNameEmpty: Ime mape ne more biti prazno
-    folderNameContainsSlash: Ime mape ne more vsebovati poševnice
+    folderNameEmpty: Ime mape ne sme biti prazno
+    folderNameContainsSlash: Ime mape ne sme vsebovati poševnice
     folderNameExists: Mapa s tem imenom že obstaja
   deleteFolder:
     deleteFolder: Izbriši mapo
     deleteName: Izbriši $f
     delete: Izbriši
-    alsoDeleteContents: Prav tako pobriši vse beležke znotraj te mape
+    alsoDeleteContents: Izbriši tudi vse zapiske v tej mapi
 sentry:
   consent:
-    title: Pomagaj izboljšati Saber
+    title: Ali želiš pomagati izboljšati Saber?
     description:
-      question: Ali želite samodejno poročati o nepričakovanih napakah? To pomaga hitreje prepoznati in odpraviti.
-      scope: Poročila lahko vsebujejo informacije o napaki in vaši napravi. Po najboljših močeh sem poskrbel, da so osebni podatki odstranjeni, vendar lahko nekateri vseeno ostanejo.
-      currentlyOff: Če podate soglasje, bo poročanje o napakah omogočeno po ponovnem zagonu aplikacije.
-      currentlyOn: Če prekličete soglasje, znova zaženite aplikacijo, da onemogočite poročanje o napakah.
-      learnMoreInPrivacyPolicy(rich): Izvedite več na povezavi ${link(politika zasebnosti)}.
+      question: Ali želiš samodejno poročati o nepričakovanih napakah? To mi pomaga hitreje prepoznati in odpraviti težave.
+      scope: Poročila lahko vsebujejo informacije o napaki in tvoji napravi. Potrudil sem se, da bi filtriral osebne podatke, vendar lahko nekateri ostanejo.
+      currentlyOff: Če podaš soglasje, bo poročanje o napakah omogočeno po ponovnem zagonu aplikacije.
+      currentlyOn: Če prekličeš soglasje, prosim, ponovno zaženi aplikacijo, da onemogočiš poročanje o napakah.
+      learnMoreInPrivacyPolicy(rich): Preberi več v ${link(politiki zasebnosti)}.
     answers:
       yes: Da
       no: Ne
@@ -87,33 +87,275 @@ settings:
     appTheme: Tema aplikacije
     platform: Vrsta teme
     layoutSize: Vrsta postavitve
-    customAccentColor: Lastna barva povdarka
-    hyperlegibleFont: Atkinson Hyperlegible pisava
-    shouldCheckForUpdates: Poišči posodobitve za Saber
+    customAccentColor: Barva poudarka po meri
+    hyperlegibleFont: Pisava Atkinson Hyperlegible
+    shouldCheckForUpdates: Preveri posodobitve za Saber
     shouldAlwaysAlertForUpdates: Hitrejše posodobitve
-    allowInsecureConnections: Dovoli nezavarovano povezavo
+    allowInsecureConnections: Dovoli nezavarovane povezave
     editorToolbarAlignment: Položaj orodne vrstice
     editorToolbarShowInFullscreen: Pokaži orodno vrstico v celozaslonskem načinu
-    editorAutoInvert: Preobrni beležke v temnem načinu
-    preferGreyscale: Bi raje uporabili sivinske barve
+    editorAutoInvert: Obrni zapiske v temnem načinu
+    preferGreyscale: Raje uporabi sivinske barve
     maxImageSize: Največja velikost slike
     autoClearWhiteboardOnExit: Samodejno počisti tablo
     disableEraserAfterUse: Samodejno onemogoči radirko
-    hideFingerDrawingToggle: Skrij stikalo za risanje s prstom
+    hideFingerDrawingToggle: Skrij preklop risanja s prstom
     autoDisableFingerDrawingWhenStylusDetected: Samodejno onemogoči risanje s prstom
-    editorPromptRename: Vprašaj me, ali želim preimenovati nove beležke
-    recentColorsDontSavePresets: Ne shrani vnaprej nastavljenih barv med nedavnimi barvami
-    recentColorsLength: Koliko nedavnih barv naj se shrani
-    printPageIndicators: Indikatorji tiskane strani
-    autosave: Samodejno shrani
-    shapeRecognitionDelay: Zakasnitev prepoznavanja oblik
-    autoStraightenLines: Samodejno ravnanje črt
-    simplifiedHomeLayout: Poenostavljena postavitev domačega zaslona
+    editorPromptRename: Pozovi za preimenovanje novih zapiskov
+    recentColorsDontSavePresets: Ne shranjuj prednastavljenih barv v nedavne barve
+    recentColorsLength: Koliko nedavnih barv shraniti
+    printPageIndicators: Tiskaj kazalnike strani
+    autosave: Samodejno shranjevanje
+    shapeRecognitionDelay: Zakasnitev prepoznave oblik
+    autoStraightenLines: Samodejno poravnaj črte
+    simplifiedHomeLayout: Poenostavljena postavitev domače strani
     customDataDir: Mapa Saber po meri
-    sentry: Poročanje napak
+    sentry: Poročanje o napakah
   prefDescriptions:
-    hyperlegibleFont: Povečaj berljivost za uporabnike z zmanjšanim vidom
-    allowInsecureConnections: (Ni priporočeno) Dovoli, da se Saber poveže s strežniki z lastnoročno podpisanimi/nepreverjenimi certifikati
-    preferGreyscale: Za e-ink zaslone
-    disableEraserAfterUse: Po izhodu iz aplikacije počisti tablo
+    hyperlegibleFont: Poveča čitljivost za uporabnike s slabšim vidom
+    allowInsecureConnections: (Ni priporočljivo) Dovoli Saberju povezovanje s strežniki s samopodpisanimi/nezaupanja vrednimi potrdili
+    preferGreyscale: Za zaslone e-ink
+    autoClearWhiteboardOnExit: Počisti tablo, ko zapustiš aplikacijo
+    disableEraserAfterUse: Po uporabi radirke samodejno preklopi nazaj na pero
     maxImageSize: Večje slike bodo stisnjene
+    hideFingerDrawing:
+      shown: Preprečuje nenameren preklop
+      fixedOn: Risanje s prstom je fiksno omogočeno
+      fixedOff: Risanje s prstom je fiksno onemogočeno
+    autoDisableFingerDrawingWhenStylusDetected: Izklopi risanje s prstom, ko je zaznano pisalo
+    editorPromptRename: Zapiske lahko vedno preimenuješ pozneje
+    printPageIndicators: Prikaži kazalnike strani pri izvozu
+    autosave: Samodejno shrani po kratkem zamiku ali nikoli
+    shapeRecognitionDelay: Kako pogosto posodobiti predogled oblike
+    autoStraightenLines: Poravna dolge črte brez uporabe pisala za oblike
+    simplifiedHomeLayout: Nastavi fiksno višino za vsak predogled zapiska
+    shouldAlwaysAlertForUpdates: Obvesti me o posodobitvah takoj, ko so na voljo
+    sentry:
+      active: Aktivno
+      inactive: Neaktivno
+      activeUntilRestart: Aktivno do ponovnega zagona aplikacije
+      inactiveUntilRestart: Neaktivno do ponovnega zagona aplikacije
+  themeModes:
+    system: Sistem
+    light: Svetla
+    dark: Temna
+  layoutSizes:
+    auto: Samodejno
+    phone: Telefon
+    tablet: Tablica
+  accentColorPicker:
+    pickAColor: Izberi barvo
+  systemLanguage: Samodejno
+  axisDirections:
+  - Zgoraj
+  - Desno
+  - Spodaj
+  - Levo
+  reset:
+    title: Ponastavi to nastavitev?
+    button: Ponastavi
+  resyncEverything: Ponovno sinhroniziraj vse
+  openDataDir: Odpri mapo Saber
+  customDataDir:
+    cancel: Prekliči
+    select: Izberi
+    mustBeEmpty: Izbrana mapa mora biti prazna
+    mustBeDoneSyncing: Prepričaj se, da je sinhronizacija končana, preden zamenjaš mapo
+    unsupported: Ta funkcija je trenutno samo za razvijalce. Uporaba lahko povzroči izgubo podatkov.
+  autosaveDisabled: Nikoli
+  shapeRecognitionDisabled: Nikoli
+logs:
+  logs: Dnevniki
+  viewLogs: Prikaži dnevnike
+  debuggingInfo: Dnevniki vsebujejo informacije, uporabne za odpravljanje težav in razvoj
+  noLogs: Tukaj ni dnevnikov!
+  useTheApp: Dnevniki se bodo pojavili tukaj, ko boš uporabljal aplikacijo
+login:
+  title: Prijava
+  form:
+    agreeToPrivacyPolicy(rich): S prijavo se strinjaš s ${linkToPrivacyPolicy(politiko zasebnosti)}.
+  signup(rich): Še nimaš računa? ${linkToSignup(Prijavi se zdaj)}!
+  notYou(rich): Nisi ti? ${undoLogin(Izberi drug račun)}.
+  status:
+    loggedOut: Odjavljen
+    tapToLogin: Dotakni se za prijavo z Nextcloudom
+    hi: Živjo, $u!
+    almostDone: Skoraj pripravljeno za sinhronizacijo, dotakni se za dokončanje prijave
+    loggedIn: Prijavljen z Nextcloudom
+  ncLoginStep:
+    whereToStoreData: "Izberi, kje želiš shraniti svoje podatke:"
+    saberNcServer: Saberjev Nextcloud strežnik
+    otherNcServer: Drug Nextcloud strežnik
+    serverUrl: URL strežnika
+    loginWithSaber: Prijava v Saber
+    loginWithNextcloud: Prijava v Nextcloud
+    loginFlow:
+      pleaseAuthorize: Prosim, pooblasti Saber za dostop do tvojega Nextcloud računa
+      followPrompts: Prosim, sledi navodilom v vmesniku Nextcloud
+      browserDidntOpen: Prijavna stran se ni odprla? Klikni tukaj
+  encLoginStep:
+    enterEncPassword: "Za zaščito tvojih podatkov vnesi geslo za šifriranje:"
+    newToSaber: Si nov v Saberju? Samo vnesi novo geslo za šifriranje.
+    encPassword: Geslo za šifriranje
+    encFaqTitle: Pogosta vprašanja
+    wrongEncPassword: Dešifriranje s podanim geslom ni uspelo. Prosim, poskusi znova vnesti geslo.
+    connectionFailed: Pri povezovanju s strežnikom je prišlo do napake. Prosim, poskusi znova pozneje.
+    encFaq:
+    - q: Kaj je geslo za šifriranje? Zakaj uporabljati dve gesli?
+      a: |-
+        Nextcloud geslo se uporablja za dostop do oblaka. Geslo za šifriranje "premeša" tvoje podatke, preden sploh dosežejo oblak.
+        Tudi če nekdo pridobi dostop do tvojega Nextcloud računa, tvoji zapiski ostanejo varni in šifrirani z ločenim geslom. To ti zagotavlja drugo raven varnosti za zaščito tvojih podatkov.
+        Nihče ne more dostopati do tvojih zapiskov na strežniku brez tvojega gesla za šifriranje, vendar to tudi pomeni, da če pozabiš geslo za šifriranje, boš izgubil dostop do svojih podatkov.
+    - q: Še nisem nastavil gesla za šifriranje. Kje ga dobim?
+      a: |-
+        Izberi novo geslo za šifriranje in ga vnesi zgoraj.
+        Saber bo iz tega gesla samodejno ustvaril tvoje šifrirne ključe.
+    - q: Ali lahko uporabim isto geslo kot za moj Nextcloud račun?
+      a: Da, vendar imej v mislih, da bi bilo skrbniku strežnika ali komu drugemu lažje dostopati do tvojih zapiskov, če pridobijo dostop do tvojega Nextcloud računa.
+profile:
+  title: Moj profil
+  logout: Odjavi se
+  quotaUsage: Uporabljaš $used od $total ($percent%)
+  connectedTo: Povezan z
+  quickLinks:
+    serverHomepage: Domača stran strežnika
+    deleteAccount: Izbriši račun
+  faqTitle: Pogosta vprašanja
+  faq:
+  - q: Ali bom izgubil zapiske, če se odjavim?
+    a: Ne. Tvoji zapiski bodo ostali tako na tvoji napravi kot na strežniku. S strežnikom se ne bodo sinhronizirali, dokler se znova ne prijaviš. Prepričaj se, da je sinhronizacija končana, preden se odjaviš, da ne izgubiš podatkov (glej napredek sinhronizacije na domačem zaslonu).
+  - q: Kako spremenim geslo za Nextcloud?
+    a: Pojdi na spletno stran tvojega strežnika in se prijavi. Nato pojdi na Nastavitve > Varnost > Spremeni geslo. Po spremembi gesla se boš moral odjaviti in znova prijaviti v Saber.
+  - q: Kako spremenim geslo za šifriranje?
+    a: |-
+      0. Prepričaj se, da je sinhronizacija končana (glej napredek sinhronizacije na domačem zaslonu).
+      1. Odjavi se iz Saberja.
+      2. Pojdi na spletno stran tvojega strežnika in izbriši mapo 'Saber'. S tem boš izbrisal vse svoje zapiske s strežnika.
+      3. Znova se prijavi v Saber. Pri prijavi lahko izbereš novo geslo za šifriranje.
+      4. Ne pozabi se odjaviti in znova prijaviti v Saber tudi na drugih napravah.
+  - q: Kako lahko izbrišem svoj račun?
+    a: |-
+      Dotakni se gumba "@:profile.quickLinks.deleteAccount" zgoraj in se po potrebi prijavi.
+      Če uporabljaš uradni strežnik Saber, bo tvoj račun izbrisan po 1 tednu odloga. V tem času me lahko kontaktiraš na adilhanney@disroot.org, da prekličeš izbris.
+      Če uporabljaš strežnik drugega ponudnika, morda ni možnosti za izbris tvojega računa: za več informacij preberi politiko zasebnosti strežnika.
+appInfo:
+  licenseNotice: |-
+    Saber  Avtorske pravice © 2022-$buildYear  Adil Hanney
+    Ta program je brez kakršnegakoli jamstva. To je prosta programska oprema in vabljeni ste, da jo razširjate pod določenimi pogoji.
+  debug: RAZROŠČEVANJE
+  sponsorButton: Dotakni se tukaj, da me sponzoriraš ali kupiš več prostora za shranjevanje
+  licenseButton: Dotakni se tukaj za več informacij o licenci
+  privacyPolicyButton: Dotakni se tukaj za ogled politike zasebnosti
+update:
+  updateAvailable: Posodobitev na voljo
+  updateAvailableDescription: "Na voljo je nova različica aplikacije:"
+  update: Posodobi
+  downloadNotAvailableYet: Prenos za tvojo platformo še ni na voljo. Prosim, preveri kmalu.
+editor:
+  toolbar:
+    toggleColors: Preklopi barve (Ctrl C)
+    select: Izberi
+    toggleEraser: Preklopi radirko (Ctrl E)
+    photo: Slike
+    text: Besedilo
+    toggleFingerDrawing: Preklopi risanje s prstom (Ctrl F)
+    undo: Razveljavi
+    redo: Uveljavi
+    export: Izvozi (Ctrl Shift S)
+    exportAs: "Izvozi kot:"
+    fullscreen: Preklopi celozaslonski način (F11)
+  pens:
+    fountainPen: Nalivno pero
+    ballpointPen: Kemični svinčnik
+    highlighter: Označevalec
+    pencil: Svinčnik
+    shapePen: Pero za oblike
+    laserPointer: Laserski kazalnik
+  penOptions:
+    size: Velikost
+  colors:
+    colorPicker: Izbirnik barv
+    customBrightnessHue: Po meri $b $h
+    customHue: Po meri $h
+    dark: temna
+    light: svetla
+    black: Črna
+    darkGrey: Temno siva
+    grey: Siva
+    lightGrey: Svetlo siva
+    white: Bela
+    red: Rdeča
+    green: Zelena
+    cyan: Cijan
+    blue: Modra
+    yellow: Rumena
+    purple: Vijolična
+    pink: Roza
+    orange: Oranžna
+    pastelRed: Pastelno rdeča
+    pastelOrange: Pastelno oranžna
+    pastelYellow: Pastelno rumena
+    pastelGreen: Pastelno zelena
+    pastelCyan: Pastelno cijan
+    pastelBlue: Pastelno modra
+    pastelPurple: Pastelno vijolična
+    pastelPink: Pastelno roza
+  imageOptions:
+    title: Možnosti slike
+    invertible: Obrnljivo
+    download: Prenesi
+    setAsBackground: Nastavi za ozadje
+    removeAsBackground: Odstrani kot ozadje
+    delete: Izbriši
+  selectionBar:
+    delete: Izbriši
+    duplicate: Podvoji
+  menu:
+    clearPage: Počisti stran $page/$totalPages
+    clearAllPages: Počisti vse strani
+    insertPage: Vstavi stran spodaj
+    duplicatePage: Podvoji stran
+    deletePage: Izbriši stran
+    lineHeight: Višina vrstice
+    lineHeightDescription: Prav tako nadzira velikost besedila za tipkane zapiske
+    lineThickness: Debelina črte
+    lineThicknessDescription: Debelina črte ozadja
+    backgroundImageFit: Prilagoditev slike ozadja
+    backgroundPattern: Vzorec ozadja
+    import: Uvozi
+    watchServer: Spremljaj posodobitve na strežniku
+    watchServerReadOnly: Urejanje je onemogočeno med spremljanjem strežnika
+    boxFits:
+      fill: Raztegni
+      cover: Prekrij
+      contain: Vsebuj
+    bgPatterns:
+      none: Prazno
+      college: Visokošolski
+      collegeRtl: Visokošolski (Obratno)
+      lined: Črtasto
+      grid: Mreža
+      dots: Pike
+      staffs: Črtovje
+      tablature: Tablatura
+      cornell: Cornell
+  readOnlyBanner:
+    title: Način samo za branje
+    watchingServer: Trenutno spremljaš posodobitve na strežniku. Urejanje v tem načinu je onemogočeno.
+    corrupted: Nalaganje zapiska ni uspelo. Morda je poškodovan ali pa se še vedno prenaša.
+  versionTooNew:
+    title: Ta zapisek je bil urejen z novejšo različico Saberja
+    subtitle: Urejanje tega zapiska lahko povzroči izgubo nekaterih informacij. Ali želiš to prezreti in vseeno urejati?
+    allowEditing: Dovoli urejanje
+  quill:
+    typeSomething: Tukaj nekaj vtipkaj...
+  hud:
+    unlockZoom: Odkleni povečavo
+    lockZoom: Zakleni povečavo
+    unlockSingleFingerPan: Omogoči premikanje z enim prstom
+    lockSingleFingerPan: Onemogoči premikanje z enim prstom
+    unlockAxisAlignedPan: Odkleni premikanje na vodoravno ali navpično
+    lockAxisAlignedPan: Zakleni premikanje na vodoravno ali navpično
+  pages: Strani
+  untitled: Neimenovano
+  needsToSaveBeforeExiting: Shranjevanje sprememb... Urejevalnik lahko varno zapustiš, ko bo končano
