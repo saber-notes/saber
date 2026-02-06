@@ -89,9 +89,11 @@ Saber 可以满足您整理笔记的一切需求。您可以随心所欲地创�
 
 ## 翻译
 
-请阅读
-[Translating](https://github.com/saber-notes/saber/wiki/Translating)
-在维基上。
+所有翻译均由我们的社区贡献者完成。
+
+如果您想参与 Saber 的翻译，请访问 [Weblate](https://hosted.weblate.org/engage/saber-notes/)！
+
+[![翻译状态](https://hosted.weblate.org/widget/saber-notes/multi-auto.svg)](https://hosted.weblate.org/engage/saber-notes/)
 
 ## 支持 Saber
 

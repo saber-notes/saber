@@ -93,9 +93,11 @@ an (derzeit nur in Englisch verfügbar).
 
 ## Übersetzungen
 
-Bitte schaue dir
-[Translating](https://github.com/saber-notes/saber/wiki/Translating)
-an (derzeit nur in Englisch verfügbar).
+Alle Übersetzungen stammen von unserer Community.
+
+Wenn du bei der Übersetzung von Saber mithelfen möchtest, besuche [Weblate](https://hosted.weblate.org/engage/saber-notes/)!
+
+[![Übersetzungsstatus](https://hosted.weblate.org/widget/saber-notes/multi-auto.svg)](https://hosted.weblate.org/engage/saber-notes/)
 
 ## Saber unterstützen
 

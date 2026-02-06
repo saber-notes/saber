@@ -97,6 +97,12 @@
 [Translating](https://github.com/saber-notes/saber/wiki/Translating)
 على الويكي.
 
+جميع الترجمات بفضل مساهمات مجتمعنا من المساهمين.
+
+إذا كنت ترغب في المساعدة في ترجمة Saber، فتوجه إلى [Weblate](https://hosted.weblate.org/engage/saber-notes/)!
+
+[![حالة الترجمة](https://hosted.weblate.org/widget/saber-notes/multi-auto.svg)](https://hosted.weblate.org/engage/saber-notes/)
+
 ## دعم تطبيق Saber
 
 If you like Saber, please consider supporting it by:

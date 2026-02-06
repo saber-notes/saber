@@ -88,9 +88,11 @@ Podívejte se na wiki stránku
 
 ## Překlady
 
-Podívejte se na wiki stránku
-[Překlady](https://github.com/saber-notes/saber/wiki/Translating)
-(anglicky).
+Všechny překlady jsou dílem naší komunity přispěvatelů.
+
+Pokud byste chtěli pomoci s překladem Saberu, přejděte na [Weblate](https://hosted.weblate.org/engage/saber-notes/)!
+
+[![Stav překladu](https://hosted.weblate.org/widget/saber-notes/multi-auto.svg)](https://hosted.weblate.org/engage/saber-notes/)
 
 ## Podpora aplikace Saber
 

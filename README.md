@@ -95,9 +95,11 @@ on the wiki.
 
 ## Translating
 
-Please see
-[Translating](https://github.com/saber-notes/saber/wiki/Translating)
-on the wiki.
+All translations are thanks to our community of contributors.
+
+If you'd like to help out translating Saber, head to [Weblate](https://hosted.weblate.org/engage/saber-notes/)!
+
+[![Translation status](https://hosted.weblate.org/widget/saber-notes/multi-auto.svg)](https://hosted.weblate.org/engage/saber-notes/)
 
 ## Supporting Saber
 
