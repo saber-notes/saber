@@ -783,10 +783,6 @@ hu:
       lockAxisAlignedPan(OUTDATED): Lock panning to horizontal or vertical
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
 it:
-  editor:
-    readOnlyBanner:
-      watchingServer(OUTDATED): Al momento stai monitorando gli aggiornamenti sul server. La modifica è disabilitata in questa modalità.
-      corrupted(OUTDATED): Impossibile caricare la nota. Potrebbe essere danneggiata o ancora in fase di download.
 ja:
   common:
     done(OUTDATED): Done

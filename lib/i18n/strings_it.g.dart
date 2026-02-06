@@ -758,8 +758,8 @@ class _TranslationsEditorReadOnlyBannerIt extends TranslationsEditorReadOnlyBann
 
 	// Translations
 	@override String get title => 'Modalità di sola lettura';
-	@override String get watchingServer => 'Attualmente stai cercando aggiornamenti sul server. La modifica è disabilitata in questa modalità.';
-	@override String get corrupted => 'Impossibile caricare la nota. Potrebbe essere danneggiato o ancora in fase di download.';
+	@override String get watchingServer => 'Al momento stai monitorando gli aggiornamenti sul server. La modifica è disabilitata in questa modalità.';
+	@override String get corrupted => 'Impossibile caricare la nota. Potrebbe essere danneggiata o ancora in fase di download.';
 }
 
 // Path: editor.versionTooNew
