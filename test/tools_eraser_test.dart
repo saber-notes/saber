@@ -56,6 +56,7 @@ void main() {
     final List<Stroke> erased = eraser.checkForOverlappingStrokes(
       _eraserPos,
       strokes,
+      scale: 1.0
     );
 
     for (final stroke in strokesToErase) {
@@ -95,13 +96,13 @@ void main() {
       _eraserPos + const Offset(1, 0) * eraser.size,
     );
 
-    // Check with scale 1.0 (default)
+    // Check with scale 1.0
     var erased = eraser.checkForOverlappingStrokes(_eraserPos, [
       strokeAtEdge,
     ], scale: 1.0);
     expect(
-      erased.contains(strokeAtEdge),
-      true,
+      erased,
+      contains(strokeAtEdge),
       reason: 'Should erase stroke at edge with scale 1.0',
     );
 
@@ -125,8 +126,8 @@ void main() {
       strokeFurtherAway,
     ], scale: 0.5);
     expect(
-      erased.contains(strokeFurtherAway),
-      true,
+      erased,
+      contains(strokeFurtherAway),
       reason:
           'Should erase stroke at distance 15 when scale is 0.5 (effective size 20)',
     );

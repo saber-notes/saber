@@ -23,7 +23,7 @@ class Eraser extends Tool {
   List<Stroke> checkForOverlappingStrokes(
     Offset eraserPos,
     List<Stroke> strokes, {
-    double scale = 1.0,
+    required double scale,
   }) {
     final effectiveSqrSize = sqrSize / square(scale);
     final List<Stroke> overlapping = [];

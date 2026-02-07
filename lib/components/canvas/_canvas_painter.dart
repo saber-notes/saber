@@ -10,6 +10,7 @@ import 'package:saber/components/canvas/_rectangle_stroke.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/extensions/color_extensions.dart';
+import 'package:saber/data/tools/eraser.dart';
 import 'package:saber/data/tools/highlighter.dart';
 import 'package:saber/data/tools/laser_pointer.dart';
 import 'package:saber/data/tools/select.dart';
@@ -254,7 +255,7 @@ class CanvasPainter extends CustomPainter {
 
   void _drawEraserIndicator(Canvas canvas) {
     if (page.eraserPosition == null) return;
-    final radius = 10.0 / currentScale; // Eraser().size is 10 by default
+    final radius = Eraser().size / currentScale;
 
     final path = Path()
       ..addOval(Rect.fromCircle(center: page.eraserPosition!, radius: radius));
