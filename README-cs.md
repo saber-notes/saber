@@ -88,11 +88,11 @@ Podívejte se na wiki stránku
 
 ## Překlady
 
-Všechny překlady jsou dílem naší komunity přispěvatelů.
+Všechny překlady vznikají díky naší komunitě přispěvatelů.
 
-Pokud byste chtěli pomoci s překladem Saberu, přejděte na [Weblate](https://hosted.weblate.org/engage/saber-notes/)!
+Pokud byste chtěli pomoci s překladem aplikace Saber, přejděte na [Weblate](https://hosted.weblate.org/engage/saber-notes/)!
 
-[![Stav překladu](https://hosted.weblate.org/widget/saber-notes/multi-auto.svg)](https://hosted.weblate.org/engage/saber-notes/)
+[![Stav překladů](https://hosted.weblate.org/widget/saber-notes/multi-auto.svg)](https://hosted.weblate.org/engage/saber-notes/)
 
 ## Podpora aplikace Saber
 
