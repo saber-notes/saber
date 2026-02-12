@@ -5,13 +5,14 @@ import 'package:args/args.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_sharing_intent/flutter_sharing_intent.dart';
+import 'package:flutter_sharing_intent/model/sharing_file.dart';
 import 'package:go_router/go_router.dart';
 import 'package:logging/logging.dart';
 import 'package:onyxsdk_pen/onyxsdk_pen.dart';
 import 'package:path_to_regexp/path_to_regexp.dart';
 import 'package:pdfrx/pdfrx.dart';
 import 'package:printing/printing.dart';
-import 'package:receive_sharing_intent/receive_sharing_intent.dart';
 import 'package:saber/components/canvas/pencil_shader.dart';
 import 'package:saber/components/theming/dynamic_material_app.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
@@ -260,21 +261,21 @@ class App extends StatefulWidget {
     ],
   );
 
-  static void openFile(SharedMediaFile file) async {
-    log.info('Opening file: (${file.type}) ${file.path}');
-
-    if (file.type != SharedMediaType.file) return;
+  static void openFile(SharedFile file) async {
+    final filePath = file.value;
+    if (file.type != SharedMediaType.FILE || filePath == null) return;
+    log.info('Opening file: (${file.type}) $filePath');
 
     final String extension;
-    if (file.path.contains('.')) {
-      extension = file.path.split('.').last.toLowerCase();
+    if (filePath.contains('.')) {
+      extension = filePath.split('.').last.toLowerCase();
     } else {
       extension = 'sbn2';
     }
 
     if (extension == 'sbn' || extension == 'sbn2' || extension == 'sba') {
       final path = await FileManager.importFile(
-        file.path,
+        filePath,
         null,
         extension: '.$extension',
       );
@@ -285,14 +286,14 @@ class App extends StatefulWidget {
 
       _router.push(RoutePaths.editFilePath(path));
     } else if (extension == 'pdf' && Editor.canRasterPdf) {
-      final fileNameWithoutExtension = file.path
+      final fileNameWithoutExtension = filePath
           .split(RegExp(r'[\\/]'))
           .last
-          .substring(0, file.path.length - '.pdf'.length);
+          .substring(0, filePath.length - '.pdf'.length);
       final sbnFilePath = await FileManager.suffixFilePathToMakeItUnique(
         '/$fileNameWithoutExtension',
       );
-      _router.push(RoutePaths.editImportPdf(sbnFilePath, file.path));
+      _router.push(RoutePaths.editImportPdf(sbnFilePath, filePath));
     } else {
       log.warning('openFile: Unsupported file type: $extension');
     }
@@ -314,8 +315,8 @@ class _AppState extends State<App> {
   void setupSharingIntent() {
     if (Platform.isAndroid || Platform.isIOS) {
       // for files opened while the app is closed
-      ReceiveSharingIntent.instance.getInitialMedia().then((
-        List<SharedMediaFile> files,
+      FlutterSharingIntent.instance.getInitialSharing().then((
+        List<SharedFile> files,
       ) {
         for (final file in files) {
           App.openFile(file);
@@ -323,10 +324,8 @@ class _AppState extends State<App> {
       });
 
       // for files opened while the app is open
-      final stream = ReceiveSharingIntent.instance.getMediaStream();
-      _intentDataStreamSubscription = stream.listen((
-        List<SharedMediaFile> files,
-      ) {
+      final stream = FlutterSharingIntent.instance.getMediaStream();
+      _intentDataStreamSubscription = stream.listen((List<SharedFile> files) {
         for (final file in files) {
           App.openFile(file);
         }
