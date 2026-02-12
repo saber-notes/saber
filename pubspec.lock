@@ -253,10 +253,10 @@ packages:
     dependency: transitive
     description:
       name: dbus
-      sha256: "79e0c23480ff85dc68de79e2cd6334add97e48f7f4865d17686dd6ea81a47e8c"
+      sha256: d0c98dcd4f5169878b6cf8f6e0a52403a9dff371a3e2f019697accbf6f44a270
       url: "https://pub.dev"
     source: hosted
-    version: "0.7.11"
+    version: "0.7.12"
   decimal:
     dependency: transitive
     description:
@@ -357,10 +357,10 @@ packages:
     dependency: transitive
     description:
       name: ffi
-      sha256: d07d37192dbf97461359c1518788f203b0c9102cfd2c35a716b823741219542c
+      sha256: "6d7fd89431262d8f3125e81b50d3847a091d846eafcd4fdb88dd06f36d705a45"
       url: "https://pub.dev"
     source: hosted
-    version: "2.1.5"
+    version: "2.2.0"
   file:
     dependency: transitive
     description:
@@ -651,10 +651,10 @@ packages:
     dependency: "direct main"
     description:
       name: go_router
-      sha256: eff94d2a6fc79fa8b811dde79c7549808c2346037ee107a1121b4a644c745f2a
+      sha256: "7974313e217a7771557add6ff2238acb63f635317c35fa590d348fb238f00896"
       url: "https://pub.dev"
     source: hosted
-    version: "17.0.1"
+    version: "17.1.0"
   golden_screenshot:
     dependency: "direct dev"
     description:
@@ -683,10 +683,10 @@ packages:
     dependency: transitive
     description:
       name: hooks
-      sha256: "5d309c86e7ce34cd8e37aa71cb30cb652d3829b900ab145e4d9da564b31d59f7"
+      sha256: "7a08a0d684cb3b8fb604b78455d5d352f502b68079f7b80b831c62220ab0a4f6"
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.0"
+    version: "1.0.1"
   html:
     dependency: transitive
     description:
@@ -936,10 +936,10 @@ packages:
     dependency: transitive
     description:
       name: objective_c
-      sha256: "983c7fa1501f6dcc0cb7af4e42072e9993cb28d73604d25ebf4dab08165d997e"
+      sha256: "100a1c87616ab6ed41ec263b083c0ef3261ee6cd1dc3b0f35f8ddfa4f996fe52"
       url: "https://pub.dev"
     source: hosted
-    version: "9.2.5"
+    version: "9.3.0"
   one_dollar_unistroke_recognizer:
     dependency: "direct main"
     description:
@@ -1519,10 +1519,10 @@ packages:
     dependency: transitive
     description:
       name: sentry
-      sha256: fa14b2177d2cd4489ec78817ec4e52affe1be9f595718de970a5e4ed2bccc530
+      sha256: "80b2a6667db8e0bb148ad70b2af242eb6aa8da9b56b56e72332a4221d93bc01d"
       url: "https://pub.dev"
     source: hosted
-    version: "9.10.0"
+    version: "9.12.0"
   sentry_dart_plugin:
     dependency: "direct dev"
     description:
@@ -1535,18 +1535,18 @@ packages:
     dependency: "direct main"
     description:
       name: sentry_flutter
-      sha256: "00d168260c9be3777e4f1c9ca7a2e4f2c48566926ec22a64bbacae5a94ff72a3"
+      sha256: df09c63e0111a9ad5c4a13a89def67327fc2028bec0f55c246d8c083d486e418
       url: "https://pub.dev"
     source: hosted
-    version: "9.10.0"
+    version: "9.12.0"
   sentry_logging:
     dependency: "direct main"
     description:
       name: sentry_logging
-      sha256: eb7854fe038ee3b44ec24274575d4f02199feb44f964cbb3d0e521f39ed8ca74
+      sha256: d546a7dc7734d3b61b3b09ab8fbf2026393eb72dbbede5442062080016f7a1d0
       url: "https://pub.dev"
     source: hosted
-    version: "9.10.0"
+    version: "9.12.0"
   share_plus:
     dependency: "direct main"
     description:
@@ -1652,10 +1652,10 @@ packages:
     dependency: transitive
     description:
       name: source_span
-      sha256: "254ee5351d6cb365c859e20ee823c3bb479bf4a293c22d17a9f1bf144ce86f7c"
+      sha256: "56a02f1f4cd1a2d96303c0144c93bd6d909eea6bee6bf5a0e0b685edbd4c47ab"
       url: "https://pub.dev"
     source: hosted
-    version: "1.10.1"
+    version: "1.10.2"
   stack_trace:
     dependency: transitive
     description:
@@ -1820,10 +1820,10 @@ packages:
     dependency: transitive
     description:
       name: url_launcher_ios
-      sha256: cfde38aa257dae62ffe79c87fab20165dfdf6988c1d31b58ebf59b9106062aad
+      sha256: b1aca26728b7cc7a3af971bb6f601554a8ae9df2e0a006de8450ba06a17ad36a
       url: "https://pub.dev"
     source: hosted
-    version: "6.3.6"
+    version: "6.4.0"
   url_launcher_linux:
     dependency: transitive
     description:
