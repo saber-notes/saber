@@ -754,8 +754,6 @@ class EditorState extends State<Editor> {
         setState(() {});
       } else {
         if (tmpTool != null && currentTool is Eraser) {
-          currentTool = tmpTool!;
-          tmpTool = null;
           setState(() {});
         }
       }
