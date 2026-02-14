@@ -74,5 +74,5 @@ body:
       options:
         - label: I have searched for similar issues (both open and closed) and cannot find a duplicate
           required: true
-        - label: I agree to follow the [Code of Conduct](https://github.com/saber-notes/saber/blob/main/CODE_OF_CONDUCT.md)
+        - label: This is not an automated submission and has been written by a human.
           required: true
