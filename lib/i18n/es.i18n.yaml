@@ -2,6 +2,8 @@ common:
   cancel: Cancelar
   done(OUTDATED): Hecho
   continueBtn(OUTDATED): Continuar
+  done: Completado
+  continueBtn: Continuar
 home:
   tabs:
     home: Inicio
@@ -40,6 +42,8 @@ home:
     noteNameExists: Ya existe una nota con este nombre
     noteNameForbiddenCharacters(OUTDATED): El nombre de la nota contiene caracteres prohibidos.
     noteNameReserved(OUTDATED): Nombre de la nota reservado
+    noteNameForbiddenCharacters: El nombre contiene caracteres no permitidos
+    noteNameReserved: Nombre reservado
   moveNote:
     moveNote: Mover nota
     moveNotes: Mover $n notas
@@ -62,6 +66,7 @@ home:
     delete: Eliminar
     alsoDeleteContents: Eliminar también las notas guardadas dentro de la carpeta
   noPreviewAvailable(OUTDATED): No hay una vista previa disponible
+  noPreviewAvailable: Vista previa no disponible
 sentry:
   consent:
     description:
@@ -70,11 +75,14 @@ sentry:
       currentlyOff(OUTDATED): Si otorga consentimiento, los informes de error se habilitarán después de reiniciar la aplicación.
       currentlyOn(OUTDATED): Si revoca el consentimiento, reinicie la aplicación para deshabilitar el informe de errores.
       learnMoreInPrivacyPolicy(rich, OUTDATED): Obtenga más información en ${link(Política de privacidad)}.
+      question: ¿Quieres enviar informes de errores de forma automática? Esto permite identificar y corregir fallos más rápido.
+      currentlyOff: Si aceptas, los informes de error se activarán al reiniciar la app.
     answers:
       yes(OUTDATED): Sí
       no(OUTDATED): No
       later(OUTDATED): Pregúntame más tarde
     title(OUTDATED): Ayudar a mejorar el sable?
+    title: ¿Quieres mejorar Saber?
 settings:
   prefCategories:
     general: General
