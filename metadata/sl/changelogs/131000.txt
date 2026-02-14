@@ -1,0 +1,3 @@
+• Popravljeni zunanji izbrisani zapiski, ki se še vedno prikazujejo v zadnjih zapiskih 
+• Odpravljene težave z zelenim robom/zatemnjenim zaslonom z onemogočanjem privzetega označevanja tipkovnice Android 
+• Posodobljeno na Flutter 3.41

@@ -1,0 +1,3 @@
+• Opraveny externě smazané poznámky, které se stále zobrazují v posledních poznámkách 
+• Opraveny problémy se zeleným okrajem/ztmavením obrazovky deaktivací výchozího zvýraznění kurzoru na klávesnici systému Android 
+• Aktualizováno na Flutter 3.41

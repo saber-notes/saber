@@ -1,0 +1,3 @@
+• Risolte le note eliminate esternamente che venivano ancora visualizzate nelle note recenti 
+• Risolti i problemi relativi al bordo verde/schermo scuro disattivando l'evidenziazione del focus della tastiera predefinita di Android 
+• Aggiornato a Flutter 3.41

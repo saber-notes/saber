@@ -1,0 +1,3 @@
+• Se corrigieron las notas eliminadas externamente que aún aparecen en notas recientes 
+• Se corrigieron problemas de borde verde/pantalla oscura al deshabilitar el resaltado de enfoque del teclado predeterminado de Android. 
+• Actualizado a Flutter 3.41

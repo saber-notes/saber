@@ -1,0 +1,3 @@
+• Correction des notes supprimées en externe apparaissant toujours dans les notes récentes
+• Correction de problèmes de bordure verte/écran sombre en désactivant la surbrillance du clavier par défaut d'Android.
+• Mise à jour vers Flutter 3.41

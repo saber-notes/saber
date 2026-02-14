@@ -215,6 +215,14 @@
     </screenshots>
 
     <releases>
+        <release version="1.31.0" type="development" date="2026-02-14">
+            <description>
+                <ul>
+                    <li>Fixed externally deleted notes still showing up in recent notes</li>
+                    <li>Updated to Flutter 3.41</li>
+                </ul>
+            </description>
+        </release>
         <release version="1.30.0" type="development" date="2026-02-01">
             <description>
                 <ul>

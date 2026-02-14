@@ -1,0 +1,3 @@
+• Problem behoben, bei dem extern gelöschte Notizen immer noch in den letzten Notizen angezeigt wurden
+• Probleme mit grünen Rändern/dunklem Bildschirm wurden behoben, indem die Standard-Fokushervorhebung auf der Android-Tastatur deaktiviert wurde
+• Aktualisiert auf Flutter 3.41

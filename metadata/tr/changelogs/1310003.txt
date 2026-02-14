@@ -1,0 +1,3 @@
+• Dışarıdan silinen notların hâlâ son notlarda görünmesi düzeltildi
+• Android'in varsayılan klavye odak vurgusunu devre dışı bırakarak yeşil kenarlık/karanlık ekran sorunları düzeltildi
+• Flutter 3.41'e güncellendi
