@@ -12,13 +12,9 @@ import 'package:saber/components/canvas/inner_canvas.dart';
 import 'package:saber/components/canvas/pencil_shader.dart';
 import 'package:saber/data/editor/editor_exporter.dart';
 import 'package:saber/data/tools/laser_pointer.dart';
+import 'package:sbn/has_size.dart';
 
 typedef CanvasKey = GlobalKey<State<InnerCanvas>>;
-
-class HasSize {
-  const HasSize(this.size);
-  final Size size;
-}
 
 class EditorPage extends ChangeNotifier implements HasSize {
   static const double defaultWidth = 1000;

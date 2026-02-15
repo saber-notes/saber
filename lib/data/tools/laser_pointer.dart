@@ -7,6 +7,7 @@ import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/extensions/list_extensions.dart';
 import 'package:saber/data/tools/_tool.dart';
 import 'package:saber/data/tools/pen.dart';
+import 'package:sbn/tool_id.dart';
 
 class LaserPointer extends Tool {
   LaserPointer._();

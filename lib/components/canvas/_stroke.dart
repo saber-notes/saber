@@ -8,10 +8,10 @@ import 'package:one_dollar_unistroke_recognizer/one_dollar_unistroke_recognizer.
 import 'package:perfect_freehand/perfect_freehand.dart';
 import 'package:saber/components/canvas/_circle_stroke.dart';
 import 'package:saber/components/canvas/_rectangle_stroke.dart';
-import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/extensions/list_extensions.dart';
 import 'package:saber/data/extensions/point_extensions.dart';
-import 'package:saber/data/tools/_tool.dart';
+import 'package:sbn/has_size.dart';
+import 'package:sbn/tool_id.dart';
 
 class Stroke {
   static final log = Logger('Stroke');

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_quill/flutter_quill.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/image/editor_image.dart';
-import 'package:saber/data/editor/_color_change.dart';
 import 'package:saber/data/editor/page.dart';
+import 'package:sbn/color_change.dart';
 
 class EditorHistory {
   static const maxHistoryLength = 100;

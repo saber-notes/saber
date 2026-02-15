@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:perfect_freehand/perfect_freehand.dart';
 import 'package:saber/components/canvas/_stroke.dart';
-import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/tools/eraser.dart';
+import 'package:sbn/has_size.dart';
 
 final _options = StrokeOptions(
   size: 1, // small size so we have more precision in test

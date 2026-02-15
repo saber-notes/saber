@@ -4,8 +4,8 @@ import 'package:perfect_freehand/perfect_freehand.dart';
 import 'package:saber/components/canvas/_asset_cache.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/image/editor_image.dart';
-import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/tools/select.dart';
+import 'package:sbn/has_size.dart';
 
 void main() {
   group('Select tool', () {

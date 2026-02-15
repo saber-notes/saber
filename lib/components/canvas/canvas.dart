@@ -9,6 +9,7 @@ import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/tools/_tool.dart';
 import 'package:saber/data/tools/pen.dart';
 import 'package:saber/data/tools/select.dart';
+import 'package:sbn/tool_id.dart';
 
 class Canvas extends StatelessWidget {
   const Canvas({

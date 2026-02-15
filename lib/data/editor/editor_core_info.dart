@@ -19,6 +19,7 @@ import 'package:saber/data/prefs.dart';
 import 'package:saber/data/tools/stroke_properties.dart';
 import 'package:saber/pages/editor/editor.dart';
 import 'package:sbn/canvas_background_pattern.dart';
+import 'package:sbn/has_size.dart';
 import 'package:sbn/read_only_reason.dart';
 import 'package:worker_manager/worker_manager.dart';
 

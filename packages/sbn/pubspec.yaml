@@ -9,6 +9,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_quill: ^11.5.0
+  logging: ^1.3.0
+  stow_codecs: ^1.4.0
 
 dev_dependencies:
   flutter_test:

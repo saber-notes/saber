@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_quill/flutter_quill.dart';
-import 'package:saber/components/theming/font_fallbacks.dart';
+import 'package:sbn/font_fallbacks.dart';
 
 typedef _ArgRecord = ({bool invert, Color secondary, int lineHeight});
 

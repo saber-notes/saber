@@ -8,11 +8,11 @@ import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/canvas_image.dart';
 import 'package:saber/components/canvas/image/editor_image.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
-import 'package:saber/data/editor/quill_styles.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/data/tools/select.dart';
 import 'package:saber/i18n/strings.g.dart';
 import 'package:sbn/canvas_background_pattern.dart';
+import 'package:sbn/quill_styles.dart';
 
 class InnerCanvas extends StatefulWidget {
   const InnerCanvas({
