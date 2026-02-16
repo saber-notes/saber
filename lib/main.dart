@@ -11,6 +11,7 @@ import 'package:go_router/go_router.dart';
 import 'package:logging/logging.dart';
 import 'package:onyxsdk_pen/onyxsdk_pen.dart';
 import 'package:path_to_regexp/path_to_regexp.dart';
+import 'package:path/path.dart' as p;
 import 'package:pdfrx/pdfrx.dart';
 import 'package:printing/printing.dart';
 import 'package:saber/components/canvas/pencil_shader.dart';
@@ -266,18 +267,16 @@ class App extends StatefulWidget {
     if (file.type != SharedMediaType.FILE || filePath == null) return;
     log.info('Opening file: (${file.type}) $filePath');
 
-    final String extension;
-    if (filePath.contains('.')) {
-      extension = filePath.split('.').last.toLowerCase();
-    } else {
-      extension = 'sbn2';
+    var extension = p.extension(filePath);
+    if (extension.isEmpty) {
+      extension = '.sbn2';
     }
 
-    if (extension == 'sbn' || extension == 'sbn2' || extension == 'sba') {
+    if (extension == '.sbn' || extension == '.sbn2' || extension == '.sba') {
       final path = await FileManager.importFile(
         filePath,
         null,
-        extension: '.$extension',
+        extension: extension,
       );
       if (path == null) return;
 
@@ -285,11 +284,8 @@ class App extends StatefulWidget {
       await Future.delayed(const Duration(milliseconds: 100));
 
       _router.push(RoutePaths.editFilePath(path));
-    } else if (extension == 'pdf' && Editor.canRasterPdf) {
-      final fileNameWithoutExtension = filePath
-          .split(RegExp(r'[\\/]'))
-          .last
-          .substring(0, filePath.length - '.pdf'.length);
+    } else if (extension == '.pdf' && Editor.canRasterPdf) {
+      final fileNameWithoutExtension = p.basenameWithoutExtension(filePath);
       final sbnFilePath = await FileManager.suffixFilePathToMakeItUnique(
         '/$fileNameWithoutExtension',
       );
