@@ -89,25 +89,31 @@ void parseArgs(List<String> args) {
   );
 }
 
-Future<void> findEditor() async {
+Future<String> findEditor() async {
   if (quiet) {
-    editor = 'echo';
     print('Will not open editor');
-    return;
+    return editor = 'echo';
+  }
+
+  final termProgram = Platform.environment['TERM_PROGRAM'];
+  if (termProgram == 'zed') {
+    print('Using Zed as editor');
+    return editor = 'zed';
+  } else if (termProgram == 'vscode') {
+    print('Using Visual Studio Code as editor');
+    return editor = 'code';
   }
 
   final whichCode = await Process.run('which', ['code']);
   if (whichCode.exitCode == 0) {
-    editor = 'code';
     print('Using Visual Studio Code as editor');
-    return;
+    return editor = 'code';
   }
 
   final env = Platform.environment['EDITOR'];
   if (env != null) {
-    editor = env;
     print('Using $editor as editor');
-    return;
+    return editor = env;
   }
 
   print('No editor found. Please set the EDITOR environment variable');
