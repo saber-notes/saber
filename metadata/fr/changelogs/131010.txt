@@ -1,0 +1,2 @@
+• Correction de certains codes de gestion de fichiers, résolvant les problèmes de partage de PDF dans Saber à partir d'une autre application 
+• Correction de la mauvaise page PDF préchargée

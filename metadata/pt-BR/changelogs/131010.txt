@@ -1,0 +1,2 @@
+• Correção de alguns códigos de manipulação de arquivos, resolvendo problemas com o compartilhamento de PDFs no Saber a partir de outro aplicativo
+• Correção da página PDF errada sendo pré-carregada

@@ -215,6 +215,13 @@
     </screenshots>
 
     <releases>
+        <release version="1.31.1" type="development" date="2026-02-16">
+            <description>
+                <ul>
+                    <li>Fixed the wrong PDF page being preloaded</li>
+                </ul>
+            </description>
+        </release>
         <release version="1.31.0" type="development" date="2026-02-14">
             <description>
                 <ul>

@@ -1,0 +1,2 @@
+• Fixed some file handling code, resolving issues with sharing PDFs into Saber from another app
+• Fixed the wrong PDF page being preloaded

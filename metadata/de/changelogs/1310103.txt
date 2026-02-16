@@ -1,0 +1,2 @@
+• Einige Dateiverarbeitungscodes wurden korrigiert und Probleme beim Teilen von PDFs in Saber aus einer anderen App behoben 
+• Es wurde behoben, dass die falsche PDF-Seite vorab geladen wurde

@@ -1,0 +1,2 @@
+• Javítottunk néhány fájlkezelési kódot, megoldva a PDF-ek Saber más alkalmazásból való megosztásával kapcsolatos problémákat
+• Javítottuk a rossz PDF-oldalt előre betöltve

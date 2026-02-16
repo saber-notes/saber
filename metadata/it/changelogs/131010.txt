@@ -1,0 +1,2 @@
+• Risolti alcuni codici di gestione dei file, risolvendo problemi con la condivisione di PDF in Saber da un'altra app
+• Risolto il problema con la pagina PDF errata precaricata

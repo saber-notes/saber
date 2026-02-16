@@ -1,0 +1,2 @@
+• Se corrigió algún código de manejo de archivos, resolviendo problemas al compartir archivos PDF en Saber desde otra aplicación. 
+• Se corrigió la página PDF incorrecta que se estaba precargando

@@ -1,0 +1,2 @@
+• PDF'lerin başka bir uygulamadan Saber'da paylaşılmasıyla ilgili sorunları çözen bazı dosya işleme kodları düzeltildi
+• Yanlış PDF sayfasının önceden yüklenmesi düzeltildi

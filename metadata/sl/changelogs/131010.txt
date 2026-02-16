@@ -1,0 +1,2 @@
+• Popravljena je bila nekatera koda za obdelavo datotek, reševanje težav z deljenjem PDF-jev v Saber iz druge aplikacije 
+• Odpravljena prednaložena napačna stran PDF
