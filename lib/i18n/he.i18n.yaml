@@ -17,6 +17,7 @@ home:
     newNote: פתק חדש
     showUpdateDialog: תיבת הדו-שיח הצג עדכון
     exportNote(OUTDATED): ייצא הערה
+    exportNote: ייצוא פתק
   create:
     newNote: פתק חדש
     importNote: יבא פתק
@@ -40,6 +41,10 @@ home:
     noteNameReserved(OUTDATED): שם הערה שמור
     noteNameEmpty(OUTDATED): שם הערה לא יכול להיות ריק
     noteNameExists(OUTDATED): הערה בשם זה כבר קיימת
+    noteNameEmpty: שם הפתק לא יכול להיות ריק
+    noteNameExists: שם הפתק כבר קיים
+    noteNameForbiddenCharacters: שם הפתק מכיל תווים אסורים
+    noteNameReserved: שם הפתק שמור
   moveNote:
     moveNote: הזז פתק
     moveName: הזז $f
@@ -62,6 +67,7 @@ home:
     delete: מחק
     alsoDeleteContents: גם תמחק את כל הפתקים בתקייה זו
   noPreviewAvailable(OUTDATED): אין תצוגה מקדימה זמינה
+  noPreviewAvailable: אין תצוגה מקדימה
 sentry:
   consent:
     description:
