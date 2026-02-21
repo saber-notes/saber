@@ -1,7 +1,7 @@
 common:
   done: Fertig
   continueBtn: Weiter
-  cancel: Abbruch
+  cancel: Abbrechen
 home:
   tabs:
     home: Startseite
@@ -15,32 +15,34 @@ home:
     settings: Einstellungen
   tooltips:
     newNote: Notiz erstellen
-    showUpdateDialog: Aktualisierungsdialog anzeigen
+    showUpdateDialog: Update-Info einblenden
     exportNote: Notiz exportieren
   create:
     newNote: Neue Notiz
     importNote: Notiz importieren
   welcome: Willkommen bei Saber
-  invalidFormat: Die ausgewählte Datei wird nicht unterstützt. Bitte wähle eine Datei mit dem Format sbn, sbn2, sba oder pdf.
+  invalidFormat: Das ausgewählte Dateiformat wird nicht unterstützt. Bitte wähle eine Datei mit dem Format sbn, sbn2, sba oder pdf.
   noFiles: Keine Dateien gefunden
   noPreviewAvailable: Keine Vorschau verfügbar
-  createNewNote: Drücke die + Schaltfläche, um eine neue Notiz zu erstellen
-  backFolder: Zum vorherigen Ordner zurück gehen
+  createNewNote: Drücke + für das Erstellen einer neuen Notiz
+  backFolder: Zum vorherigen Ordner zurückkehren
   newFolder:
     newFolder: Neuer Ordner
     folderName: Ordnername
     create: Erstellen
-    folderNameEmpty: Ordnername darf nicht leer sein
-    folderNameContainsSlash: Ordnernamen dürfen keine Schrägstriche enthalten
+    folderNameEmpty: Bitte Ordnernamen hinzufügen
+    folderNameContainsSlash: Ordnername darf keine Schrägstrich enthalten
     folderNameExists: Ordner existiert bereits
   renameNote:
     renameNote: Notiz umbenennen
-    noteName: Name der Notiz
+    noteName: Notizname
     rename: Umbenennen
     noteNameEmpty: Name der Notiz darf nicht leer sein
-    noteNameExists: Notiz mit diesem Namen existiert bereits
+    noteNameExists: Es existiert bereits eine Notiz mit dem Namen
     noteNameForbiddenCharacters(OUTDATED): Der Notizname enthält verbotene Zeichen
     noteNameReserved(OUTDATED): Notizname reserviert
+    noteNameForbiddenCharacters: Dateiname enthält unzulässige Zeichen
+    noteNameReserved: Dateiname bereits vergeben
   moveNote:
     moveNote: Notiz verschieben
     moveNotes: Verschiebe $n Notizen
@@ -52,24 +54,24 @@ home:
   deleteNote: Notiz löschen
   renameFolder:
     renameFolder: Ordner umbenennen
-    folderName: Ordner-Name
+    folderName: Ordnername
     rename: Umbenennen
-    folderNameEmpty: Ordner-Name darf nicht leer sin
-    folderNameContainsSlash: Order-Name darf keinen Schrägstrich beinhalten
+    folderNameEmpty: Ordnername darf nicht leer sin
+    folderNameContainsSlash: Ordername darf keinen Schrägstrich beinhalten
     folderNameExists: Ein Ordner mit dem Namen existiert bereits
   deleteFolder:
     deleteFolder: Ordner löschen
     deleteName: $f löschen
-    delete: LÖschen
-    alsoDeleteContents: Auch alle Notizen in diesem Ordner löschen
+    delete: Löschen
+    alsoDeleteContents: Alle weiteren Notizen in diesem Ordner löschen
 sentry:
   consent:
-    title: Dabei helfen, Saber zu verbessern?
+    title: Helfen, Saber zu verbessern?
     description:
       question: Möchtest du unerwartete Fehler automatisch melden? Das hilft mir dabei, Fehler schneller zu erkennen und zu beheben.
-      scope: Diese Berichte können Informationen über den Fehler und dein Gerät enthalten. Ich habe mein Bestes getan, um persönliche Daten herauszufiltern, allerdings könnten dennoch welche enthalten sein.
-      currentlyOff: Wenn du zustimmst, wird die Fehlerberichterstattung beim nächsten Neustart der App aktiviert.
-      currentlyOn: Falls du deine Zustimmung zurücknimmst, starte bitte die App neu, um die Fehlerberichterstattung zu deaktivieren.
+      scope: Diese Berichte können Informationen über den Fehler und dein Gerät enthalten. Ich habe mein Bestes getan, um persönliche Daten herauszufiltern, allerdings könnten dennoch personenbezogene Daten enthalten sein.
+      currentlyOff: Wenn du zustimmst, wird die Fehlerberichterstattung nach dem Neustarten der App aktiviert.
+      currentlyOn: Falls du deine Zustimmung zurücknimmst, starte die App bitte neu, um die Fehlerberichterstattung zu deaktivieren.
       learnMoreInPrivacyPolicy(rich): Erfahre mehr in der ${link(Datenschutzrichtlinie)}.
     answers:
       yes: Ja
@@ -84,55 +86,55 @@ settings:
     advanced: Erweitert
   prefLabels:
     locale: Sprache
-    appTheme: Anwendungsthema
+    appTheme: Hintergrundfarbe
     platform: Oberfläche
     layoutSize: Größe des Layouts
     customAccentColor: Benutzerdefinierte Akzentfarbe
-    hyperlegibleFont: Hyperlesbare Schrift
-    shouldCheckForUpdates: Suche automatisch nach Saber-Aktualisierungen
+    hyperlegibleFont: Verbesserte Lesbarkeit der Schrift
+    shouldCheckForUpdates: Suche nach Updates für Saber
     shouldAlwaysAlertForUpdates: Schneller aktualisieren
     allowInsecureConnections: Unsichere Verbindung erlauben
-    editorToolbarAlignment: Position der Werkzeugleiste
-    editorToolbarShowInFullscreen: Zeige die Werkzeugleiste im Vollbild
-    editorAutoInvert: Notizen im Dunkelmodus invertieren
+    editorToolbarAlignment: Position der Toolleiste
+    editorToolbarShowInFullscreen: Toolleiste im Vollbildmodus einblenden
+    editorAutoInvert: Notizfarbe im Dark Modus anpassen
     preferGreyscale: Graustufen bevorzugen
     maxImageSize: Maximale Bildgröße
-    autoClearWhiteboardOnExit: Lösche das Whiteboard nach Verlassen der Anwendung
+    autoClearWhiteboardOnExit: Automatisches Löschen des Whiteboards nach Verlassen der Anwendung
     disableEraserAfterUse: Radierer automatisch deaktivieren
-    hideFingerDrawingToggle: Umschalter des Finger-Zeichnens ausblenden
-    autoDisableFingerDrawingWhenStylusDetected: Fingerzeichnen automatisch deaktivieren
-    editorPromptRename: Beim Erstellen von Notizen einen Namen erfragen
-    recentColorsDontSavePresets: Farbvorlagen nicht in den zuletzt genutzten Farben speichern
+    hideFingerDrawingToggle: Taste für das manuelle Zeichnen ausblenden
+    autoDisableFingerDrawingWhenStylusDetected: Manuelles Zeichnen automatisch deaktivieren
+    editorPromptRename: Aufgeforderte Namensvergabe beim Erstellen von Notizen
+    recentColorsDontSavePresets: Standardfarben nicht bei den zuletzt verwendeten Farben speichern
     recentColorsLength: Anzahl der zuletzt genutzten Farben
     printPageIndicators: Seitennummerierung drucken
-    autosave: Auto-Speichern
+    autosave: Automatisches Backup
     shapeRecognitionDelay: Verzögerung der Formerkennung
     autoStraightenLines: Linien automatisch begradigen
     simplifiedHomeLayout: Vereinfachtes Startbildschirmlayout
     customDataDir: Eigener Saber-Ordner
     sentry: Fehlerberichterstattung
   prefDescriptions:
-    hyperlegibleFont: Atkinson Hyperlegible verbessert die Lesbarkeit für Menschen mit eingeschränkter Sicht
-    allowInsecureConnections: (Nicht empfohlen) Saber erlauben, sich mit selbstsignierten/unsicheren Zertifikaten zu verbinden
-    preferGreyscale: Für E-Ink-Bildschirme
-    autoClearWhiteboardOnExit: Es wird dennoch mit deinen anderen Geräten synchronisiert
+    hyperlegibleFont: Verbessert die Lesbarkeit für Menschen mit geringer Sehkraft
+    allowInsecureConnections: Saber erlauben, unsichere Zertifikaten zu verwenden (Nicht empfohlen)
+    preferGreyscale: Optimierung für E-Ink-Displays
+    autoClearWhiteboardOnExit: Löscht das Whiteboard beim Beenden der App
     disableEraserAfterUse: Nach dem Nutzen des Radierers automatisch zum Stift zurückwechseln
-    maxImageSize: Bilder, die größer sind, werden komprimiert
+    maxImageSize: Größere Bilder werden komprimiert
     hideFingerDrawing:
-      shown: Schützt vor versehentlichem Umschalten
-      fixedOn: Finger-Zeichnen ist als aktiviert festgelegt
-      fixedOff: Finger-Zeichnen ist als deaktiviert festgelegt
-    autoDisableFingerDrawingWhenStylusDetected: Schalte Fingerzeichnen aus, wenn ein Eingabestift erkannt wurde
+      shown: Verhindert versehentliches Umschalten
+      fixedOn: Der Modus für manuelles Zeichen ist aktiviert
+      fixedOff: Der Modus für manuelles Zeichnen ist deaktiviert
+    autoDisableFingerDrawingWhenStylusDetected: Schalte manuelles Zeichnen für die optimale Verwendung eines Eingabestiftes aus
     editorPromptRename: Notizen können später immer noch umbenannt werden
-    printPageIndicators: Seitennummerierung bei Export anzeigen
-    autosave: Nach kurzer Zeit Auto-Speichern oder nie
-    shapeRecognitionDelay: Häufigkeit der Aktualisierung der Form-Vorschau
-    autoStraightenLines: Lange Linien selbst ohne Form-Stift begradigen
+    printPageIndicators: Seitennummerierung beim Export anzeigen
+    autosave: Automatisches Backup in kurzen Abständen (wenn aktiviert)
+    shapeRecognitionDelay: Aktualisierungshäufigkeit der Vorschau
+    autoStraightenLines: Lange Linien auch ohne Formen-Stift automatisch begradigen
     simplifiedHomeLayout: Legt eine feste Höhe für jede Notizvorschau fest
     shouldAlwaysAlertForUpdates: Über neue Updates informiert bleiben
     sentry:
-      active: Aktiv
-      inactive: Inaktiv
+      active: Aktiviert
+      inactive: Nicht aktiviert
       activeUntilRestart: Aktiv bis zum Neustart der App
       inactiveUntilRestart: Inaktiv bis zum Neustart der App
   themeModes:
@@ -167,9 +169,9 @@ settings:
 logs:
   logs: Protokolle
   viewLogs: Protokolle anzeigen
-  debuggingInfo: Protokolle enthalten hilfreiche Informationen zur Fehlerbehebung und Entwicklung
+  debuggingInfo: Protokolle enthalten hilfreiche Informationen zur Fehlerbehebung und Weiterentwicklung
   noLogs: Keine Protokolle vorhanden!
-  useTheApp: Protokolle erscheinen hier, wenn du die App verwendest
+  useTheApp: Protokolle erscheinen hier während der Nutzung der App
 login:
   title: Login
   form:
@@ -258,7 +260,7 @@ editor:
     toggleEraser: Radierer umschalten (Strg + E)
     photo: Foto
     text: Text
-    toggleFingerDrawing: Fingerzeichnen umschalten (Strg + F)
+    toggleFingerDrawing: Umschalten auf manuelles Zeichnen (Strg + F)
     undo: Rückgängig
     redo: Wiederholen
     export: Exportieren (Strg + Shift + S)
@@ -343,6 +345,8 @@ editor:
     title: Schreibgeschützter Modus
     corrupted(OUTDATED): Notiz konnte nicht geladen werden. Möglicherweise ist es beschädigt oder wird noch heruntergeladen.
     watchingServer(OUTDATED): Sie suchen derzeit nach Updates auf dem Server. Die Bearbeitung ist in diesem Modus deaktiviert.
+    watchingServer: Sie warten derzeit auf Aktualisierungen des Servers. Die Bearbeitung ist in diesem Modus deaktiviert.
+    corrupted: Die Notiz konnte nicht geladen werden. Sie ist möglicherweise beschädigt oder wird noch heruntergeladen.
   versionTooNew:
     title: Diese Notiz wurde mit einer neueren Version von Saber bearbeitet
     subtitle: Durch das Bearbeiten dieser Notiz können Daten verloren gehen. Möchtest du sie trotzdem bearbeiten?
@@ -358,4 +362,4 @@ editor:
     lockAxisAlignedPan: Verschieben auf Horizontale oder Vertikale beschränken
   pages: Seiten
   untitled: Unbenannt
-  needsToSaveBeforeExiting: Deine Änderungen werden gespeichert... Du kannst den Editor ohne Datenverlust verlassen, sobald der Vorgang beendet ist.
+  needsToSaveBeforeExiting: Deine Änderungen werden noch gespeichert... Warte einen Moment, um Datenverluste zu vermeiden.
