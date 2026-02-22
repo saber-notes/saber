@@ -2,6 +2,8 @@ common:
   cancel: Cancelar
   done(OUTDATED): Feito
   continueBtn(OUTDATED): Continuar
+  done: Feito
+  continueBtn: Continue
 home:
   tabs:
     home: Início
@@ -17,6 +19,7 @@ home:
     newNote: Nova nota
     showUpdateDialog: Mostrar caixa de diálogo de atualização
     exportNote(OUTDATED): Nota de exportação
+    exportNote: Exportar nota
   create:
     newNote: Nova nota
     importNote: Importar nota
@@ -40,6 +43,8 @@ home:
     noteNameExists: Já existe uma nota com este nome
     noteNameForbiddenCharacters(OUTDATED): O nome da nota contém caracteres proibidos
     noteNameReserved(OUTDATED): Nome da nota reservado
+    noteNameForbiddenCharacters: Nome da nota contem caracteres proibidos
+    noteNameReserved: Nome da nota reservado
   moveNote:
     moveNote: Mover a nota
     moveName: Mover $f
@@ -48,6 +53,9 @@ home:
     moveNotes(OUTDATED): Mover $n notas
     multipleRenamedTo(OUTDATED): "As seguintes notas serão renomeadas:"
     numberRenamedTo(OUTDATED): $n notas serão renomeadas para evitar conflitos
+    moveNotes: Mova $n notas
+    multipleRenamedTo: As notas a seguir serão renomeadas
+    numberRenamedTo: $n notas serão renomeadas para evitar conflitos
   deleteNote: Apagar nota
   renameFolder:
     renameFolder: Renomear pasta
@@ -62,6 +70,7 @@ home:
     delete: Apagar
     alsoDeleteContents: Apagar também todas as notas dentro desta pasta
   noPreviewAvailable(OUTDATED): Nenhuma visualização disponível
+  noPreviewAvailable: Nenhuma prévia disponível
 sentry:
   consent:
     description:
@@ -70,11 +79,20 @@ sentry:
       currentlyOff(OUTDATED): Se você conceder consentimento, o erro de erro será ativado após o reiniciar o aplicativo.
       currentlyOn(OUTDATED): Se você revogar o consentimento, reinicie o aplicativo para desativar os relatórios de erros.
       learnMoreInPrivacyPolicy(rich, OUTDATED): Saiba mais na ${link(Política de Privacidade)}.
+      question: Você gostaria de reportar automaticamente erros inesperados? Isso me ajuda a identificar e corrigir erros mais rápido.
+      scope: Os reportes podem conter informações sobre os erros e o seu dispositivo. Eu tentei o máximo possível remover todas as informações pessoais, mas algumas talvez continuem.
+      currentlyOff: Se você dar consentimento, os reportes de erro serão ativados após a reinicialização do app.
+      currentlyOn: Se você revogar o consentimento, por favor reinicie o app para desativar os reportes de erro.
+      learnMoreInPrivacyPolicy(rich): 'Veja mais em: ${link(privacy policy)}.'
     answers:
       no(OUTDATED): Não
       yes(OUTDATED): Sim
       later(OUTDATED): Pergunte -me mais tarde
+      yes: Sim
+      no: Não
+      later: Me pergunte depois
     title(OUTDATED): Ajudar a melhorar o Saber?
+    title: Ajudar a melhorar Saber?
 settings:
   prefCategories:
     general: Geral
@@ -82,6 +100,7 @@ settings:
     editor: editor
     advanced: Avançado
     performance(OUTDATED): Desempenho
+    performance: Performance
   prefLabels:
     locale: Idioma do aplicativo
     appTheme: Tema do aplicativo
@@ -111,6 +130,11 @@ settings:
     autoStraightenLines(OUTDATED): Endireitar linhas automaticamente
     shapeRecognitionDelay(OUTDATED): Atraso no reconhecimento de forma
     recentColorsLength(OUTDATED): Quantas cores recentes armazenar
+    autoDisableFingerDrawingWhenStylusDetected: Auto-disabilitar desenho com os dedos
+    recentColorsLength: Quantas cores recentes guardar
+    autosave: Auto-salvar
+    shapeRecognitionDelay: Atraso no reconhecimento de formatos
+    autoStraightenLines: Auto alinhamento de linhas
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible aumenta a legibilidade para leitores com baixa visão
     allowInsecureConnections: (Não recomendado) Permitir que o Saber se conecte a servidores com certificados autoassinados/não-confiáveis
