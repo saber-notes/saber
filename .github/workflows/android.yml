@@ -17,6 +17,9 @@ jobs:
     # so run an unsigned build to populate the cache.
     name: Build unsigned APK for caching
     runs-on: ubuntu-latest
+    # Only run on the main branch to save cache space,
+    # since all other branches can use the main branch's cache.
+    if: github.ref_name == 'main'
     timeout-minutes: 60
     steps:
       - name: Checkout code
@@ -139,7 +142,6 @@ jobs:
 
   build-android:
     name: Build APK (${{ matrix.foss && 'FOSS' || 'Regular' }})
-    needs: warmup-android-cache
     strategy:
       fail-fast: false
       matrix:
