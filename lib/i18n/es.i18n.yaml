@@ -1,9 +1,7 @@
 common:
-  cancel: Cancelar
-  done(OUTDATED): Hecho
-  continueBtn(OUTDATED): Continuar
   done: Completado
   continueBtn: Continuar
+  cancel: Cancelar
 home:
   tabs:
     home: Inicio
@@ -25,6 +23,7 @@ home:
   welcome: Te damos la bienvenida a Saber
   invalidFormat: El archivo que seleccionaste no es válido. Por favor, selecciona un archivo .sbn, .sbn2, .sba or .pdf.
   noFiles: No se ha encontrado ninguna nota
+  noPreviewAvailable: Vista previa no disponible
   createNewNote: Presiona el botón + para crear una nueva nota
   backFolder: Volver a la carpeta anterior
   newFolder:
@@ -40,8 +39,6 @@ home:
     rename: Renombrar
     noteNameEmpty: El nombre de la nota no puede estar vacío
     noteNameExists: Ya existe una nota con este nombre
-    noteNameForbiddenCharacters(OUTDATED): El nombre de la nota contiene caracteres prohibidos.
-    noteNameReserved(OUTDATED): Nombre de la nota reservado
     noteNameForbiddenCharacters: El nombre contiene caracteres no permitidos
     noteNameReserved: Nombre reservado
   moveNote:
@@ -65,24 +62,19 @@ home:
     deleteName: Eliminar $f
     delete: Eliminar
     alsoDeleteContents: Eliminar también las notas guardadas dentro de la carpeta
-  noPreviewAvailable(OUTDATED): No hay una vista previa disponible
-  noPreviewAvailable: Vista previa no disponible
 sentry:
   consent:
+    title: ¿Quieres mejorar Saber?
     description:
-      question(OUTDATED): ¿Le gustaría informar automáticamente errores inesperados? Esto me ayuda a identificar y solucionar problemas más rápido.
-      scope(OUTDATED): Los informes pueden contener información sobre el error y su dispositivo. He hecho todo lo posible para filtrar datos personales, pero algunos pueden permanecer.
-      currentlyOff(OUTDATED): Si otorga consentimiento, los informes de error se habilitarán después de reiniciar la aplicación.
-      currentlyOn(OUTDATED): Si revoca el consentimiento, reinicie la aplicación para deshabilitar el informe de errores.
-      learnMoreInPrivacyPolicy(rich, OUTDATED): Obtenga más información en ${link(Política de privacidad)}.
       question: ¿Quieres enviar informes de errores de forma automática? Esto permite identificar y corregir fallos más rápido.
       currentlyOff: Si aceptas, los informes de error se activarán al reiniciar la app.
+      scope(OUTDATED): Los informes pueden contener información sobre el error y su dispositivo. He hecho todo lo posible para filtrar datos personales, pero algunos pueden permanecer.
+      currentlyOn(OUTDATED): Si revoca el consentimiento, reinicie la aplicación para deshabilitar el informe de errores.
+      learnMoreInPrivacyPolicy(rich, OUTDATED): Obtenga más información en ${link(Política de privacidad)}.
     answers:
       yes(OUTDATED): Sí
       no(OUTDATED): No
       later(OUTDATED): Pregúntame más tarde
-    title(OUTDATED): Ayudar a mejorar el sable?
-    title: ¿Quieres mejorar Saber?
 settings:
   prefCategories:
     general: General

@@ -1,0 +1,2 @@
+• Sửa một số mã xử lý tệp, giải quyết vấn đề chia sẻ tệp PDF vào Saber từ một ứng dụng khác
+• Đã sửa lỗi tải trước trang PDF sai

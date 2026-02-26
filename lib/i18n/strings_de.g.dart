@@ -54,7 +54,7 @@ class _TranslationsCommonDe extends TranslationsCommonEn {
 	// Translations
 	@override String get done => 'Fertig';
 	@override String get continueBtn => 'Weiter';
-	@override String get cancel => 'Abbruch';
+	@override String get cancel => 'Abbrechen';
 }
 
 // Path: home
@@ -69,11 +69,11 @@ class _TranslationsHomeDe extends TranslationsHomeEn {
 	@override late final _TranslationsHomeTooltipsDe tooltips = _TranslationsHomeTooltipsDe._(_root);
 	@override late final _TranslationsHomeCreateDe create = _TranslationsHomeCreateDe._(_root);
 	@override String get welcome => 'Willkommen bei Saber';
-	@override String get invalidFormat => 'Die ausgewählte Datei wird nicht unterstützt. Bitte wähle eine Datei mit dem Format sbn, sbn2, sba oder pdf.';
+	@override String get invalidFormat => 'Das ausgewählte Dateiformat wird nicht unterstützt. Bitte wähle eine Datei mit dem Format sbn, sbn2, sba oder pdf.';
 	@override String get noFiles => 'Keine Dateien gefunden';
 	@override String get noPreviewAvailable => 'Keine Vorschau verfügbar';
-	@override String get createNewNote => 'Drücke die + Schaltfläche, um eine neue Notiz zu erstellen';
-	@override String get backFolder => 'Zum vorherigen Ordner zurück gehen';
+	@override String get createNewNote => 'Drücke + für das Erstellen einer neuen Notiz';
+	@override String get backFolder => 'Zum vorherigen Ordner zurückkehren';
 	@override late final _TranslationsHomeNewFolderDe newFolder = _TranslationsHomeNewFolderDe._(_root);
 	@override late final _TranslationsHomeRenameNoteDe renameNote = _TranslationsHomeRenameNoteDe._(_root);
 	@override late final _TranslationsHomeMoveNoteDe moveNote = _TranslationsHomeMoveNoteDe._(_root);
@@ -129,9 +129,9 @@ class _TranslationsLogsDe extends TranslationsLogsEn {
 	// Translations
 	@override String get logs => 'Protokolle';
 	@override String get viewLogs => 'Protokolle anzeigen';
-	@override String get debuggingInfo => 'Protokolle enthalten hilfreiche Informationen zur Fehlerbehebung und Entwicklung';
+	@override String get debuggingInfo => 'Protokolle enthalten hilfreiche Informationen zur Fehlerbehebung und Weiterentwicklung';
 	@override String get noLogs => 'Keine Protokolle vorhanden!';
-	@override String get useTheApp => 'Protokolle erscheinen hier, wenn du die App verwendest';
+	@override String get useTheApp => 'Protokolle erscheinen hier während der Nutzung der App';
 }
 
 // Path: login
@@ -226,7 +226,7 @@ class _TranslationsEditorDe extends TranslationsEditorEn {
 	@override late final _TranslationsEditorHudDe hud = _TranslationsEditorHudDe._(_root);
 	@override String get pages => 'Seiten';
 	@override String get untitled => 'Unbenannt';
-	@override String get needsToSaveBeforeExiting => 'Deine Änderungen werden gespeichert... Du kannst den Editor ohne Datenverlust verlassen, sobald der Vorgang beendet ist.';
+	@override String get needsToSaveBeforeExiting => 'Deine Änderungen werden noch gespeichert... Warte einen Moment, um Datenverluste zu vermeiden.';
 }
 
 // Path: home.tabs
@@ -263,7 +263,7 @@ class _TranslationsHomeTooltipsDe extends TranslationsHomeTooltipsEn {
 
 	// Translations
 	@override String get newNote => 'Notiz erstellen';
-	@override String get showUpdateDialog => 'Aktualisierungsdialog anzeigen';
+	@override String get showUpdateDialog => 'Update-Info einblenden';
 	@override String get exportNote => 'Notiz exportieren';
 }
 
@@ -288,8 +288,8 @@ class _TranslationsHomeNewFolderDe extends TranslationsHomeNewFolderEn {
 	@override String get newFolder => 'Neuer Ordner';
 	@override String get folderName => 'Ordnername';
 	@override String get create => 'Erstellen';
-	@override String get folderNameEmpty => 'Ordnername darf nicht leer sein';
-	@override String get folderNameContainsSlash => 'Ordnernamen dürfen keine Schrägstriche enthalten';
+	@override String get folderNameEmpty => 'Bitte Ordnernamen hinzufügen';
+	@override String get folderNameContainsSlash => 'Ordnername darf keine Schrägstrich enthalten';
 	@override String get folderNameExists => 'Ordner existiert bereits';
 }
 
@@ -301,12 +301,12 @@ class _TranslationsHomeRenameNoteDe extends TranslationsHomeRenameNoteEn {
 
 	// Translations
 	@override String get renameNote => 'Notiz umbenennen';
-	@override String get noteName => 'Name der Notiz';
+	@override String get noteName => 'Notizname';
 	@override String get rename => 'Umbenennen';
 	@override String get noteNameEmpty => 'Name der Notiz darf nicht leer sein';
-	@override String get noteNameExists => 'Notiz mit diesem Namen existiert bereits';
-	@override String get noteNameForbiddenCharacters => 'Der Notizname enthält verbotene Zeichen';
-	@override String get noteNameReserved => 'Notizname reserviert';
+	@override String get noteNameExists => 'Es existiert bereits eine Notiz mit dem Namen';
+	@override String get noteNameForbiddenCharacters => 'Dateiname enthält unzulässige Zeichen';
+	@override String get noteNameReserved => 'Dateiname bereits vergeben';
 }
 
 // Path: home.moveNote
@@ -333,10 +333,10 @@ class _TranslationsHomeRenameFolderDe extends TranslationsHomeRenameFolderEn {
 
 	// Translations
 	@override String get renameFolder => 'Ordner umbenennen';
-	@override String get folderName => 'Ordner-Name';
+	@override String get folderName => 'Ordnername';
 	@override String get rename => 'Umbenennen';
-	@override String get folderNameEmpty => 'Ordner-Name darf nicht leer sin';
-	@override String get folderNameContainsSlash => 'Order-Name darf keinen Schrägstrich beinhalten';
+	@override String get folderNameEmpty => 'Ordnername darf nicht leer sin';
+	@override String get folderNameContainsSlash => 'Ordername darf keinen Schrägstrich beinhalten';
 	@override String get folderNameExists => 'Ein Ordner mit dem Namen existiert bereits';
 }
 
@@ -349,8 +349,8 @@ class _TranslationsHomeDeleteFolderDe extends TranslationsHomeDeleteFolderEn {
 	// Translations
 	@override String get deleteFolder => 'Ordner löschen';
 	@override String deleteName({required Object f}) => '${f} löschen';
-	@override String get delete => 'LÖschen';
-	@override String get alsoDeleteContents => 'Auch alle Notizen in diesem Ordner löschen';
+	@override String get delete => 'Löschen';
+	@override String get alsoDeleteContents => 'Alle weiteren Notizen in diesem Ordner löschen';
 }
 
 // Path: sentry.consent
@@ -360,7 +360,7 @@ class _TranslationsSentryConsentDe extends TranslationsSentryConsentEn {
 	final TranslationsDe _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Dabei helfen, Saber zu verbessern?';
+	@override String get title => 'Helfen, Saber zu verbessern?';
 	@override late final _TranslationsSentryConsentDescriptionDe description = _TranslationsSentryConsentDescriptionDe._(_root);
 	@override late final _TranslationsSentryConsentAnswersDe answers = _TranslationsSentryConsentAnswersDe._(_root);
 }
@@ -387,28 +387,28 @@ class _TranslationsSettingsPrefLabelsDe extends TranslationsSettingsPrefLabelsEn
 
 	// Translations
 	@override String get locale => 'Sprache';
-	@override String get appTheme => 'Anwendungsthema';
+	@override String get appTheme => 'Hintergrundfarbe';
 	@override String get platform => 'Oberfläche';
 	@override String get layoutSize => 'Größe des Layouts';
 	@override String get customAccentColor => 'Benutzerdefinierte Akzentfarbe';
-	@override String get hyperlegibleFont => 'Hyperlesbare Schrift';
-	@override String get shouldCheckForUpdates => 'Suche automatisch nach Saber-Aktualisierungen';
+	@override String get hyperlegibleFont => 'Verbesserte Lesbarkeit der Schrift';
+	@override String get shouldCheckForUpdates => 'Suche nach Updates für Saber';
 	@override String get shouldAlwaysAlertForUpdates => 'Schneller aktualisieren';
 	@override String get allowInsecureConnections => 'Unsichere Verbindung erlauben';
-	@override String get editorToolbarAlignment => 'Position der Werkzeugleiste';
-	@override String get editorToolbarShowInFullscreen => 'Zeige die Werkzeugleiste im Vollbild';
-	@override String get editorAutoInvert => 'Notizen im Dunkelmodus invertieren';
+	@override String get editorToolbarAlignment => 'Position der Toolleiste';
+	@override String get editorToolbarShowInFullscreen => 'Toolleiste im Vollbildmodus einblenden';
+	@override String get editorAutoInvert => 'Notizfarbe im Dark Modus anpassen';
 	@override String get preferGreyscale => 'Graustufen bevorzugen';
 	@override String get maxImageSize => 'Maximale Bildgröße';
-	@override String get autoClearWhiteboardOnExit => 'Lösche das Whiteboard nach Verlassen der Anwendung';
+	@override String get autoClearWhiteboardOnExit => 'Automatisches Löschen des Whiteboards nach Verlassen der Anwendung';
 	@override String get disableEraserAfterUse => 'Radierer automatisch deaktivieren';
-	@override String get hideFingerDrawingToggle => 'Umschalter des Finger-Zeichnens ausblenden';
-	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Fingerzeichnen automatisch deaktivieren';
-	@override String get editorPromptRename => 'Beim Erstellen von Notizen einen Namen erfragen';
-	@override String get recentColorsDontSavePresets => 'Farbvorlagen nicht in den zuletzt genutzten Farben speichern';
+	@override String get hideFingerDrawingToggle => 'Taste für das manuelle Zeichnen ausblenden';
+	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Manuelles Zeichnen automatisch deaktivieren';
+	@override String get editorPromptRename => 'Aufgeforderte Namensvergabe beim Erstellen von Notizen';
+	@override String get recentColorsDontSavePresets => 'Standardfarben nicht bei den zuletzt verwendeten Farben speichern';
 	@override String get recentColorsLength => 'Anzahl der zuletzt genutzten Farben';
 	@override String get printPageIndicators => 'Seitennummerierung drucken';
-	@override String get autosave => 'Auto-Speichern';
+	@override String get autosave => 'Automatisches Backup';
 	@override String get shapeRecognitionDelay => 'Verzögerung der Formerkennung';
 	@override String get autoStraightenLines => 'Linien automatisch begradigen';
 	@override String get simplifiedHomeLayout => 'Vereinfachtes Startbildschirmlayout';
@@ -423,19 +423,19 @@ class _TranslationsSettingsPrefDescriptionsDe extends TranslationsSettingsPrefDe
 	final TranslationsDe _root; // ignore: unused_field
 
 	// Translations
-	@override String get hyperlegibleFont => 'Atkinson Hyperlegible verbessert die Lesbarkeit für Menschen mit eingeschränkter Sicht';
-	@override String get allowInsecureConnections => '(Nicht empfohlen) Saber erlauben, sich mit selbstsignierten/unsicheren Zertifikaten zu verbinden';
-	@override String get preferGreyscale => 'Für E-Ink-Bildschirme';
-	@override String get autoClearWhiteboardOnExit => 'Es wird dennoch mit deinen anderen Geräten synchronisiert';
+	@override String get hyperlegibleFont => 'Verbessert die Lesbarkeit für Menschen mit geringer Sehkraft';
+	@override String get allowInsecureConnections => 'Saber erlauben, unsichere Zertifikaten zu verwenden (Nicht empfohlen)';
+	@override String get preferGreyscale => 'Optimierung für E-Ink-Displays';
+	@override String get autoClearWhiteboardOnExit => 'Löscht das Whiteboard beim Beenden der App';
 	@override String get disableEraserAfterUse => 'Nach dem Nutzen des Radierers automatisch zum Stift zurückwechseln';
-	@override String get maxImageSize => 'Bilder, die größer sind, werden komprimiert';
+	@override String get maxImageSize => 'Größere Bilder werden komprimiert';
 	@override late final _TranslationsSettingsPrefDescriptionsHideFingerDrawingDe hideFingerDrawing = _TranslationsSettingsPrefDescriptionsHideFingerDrawingDe._(_root);
-	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Schalte Fingerzeichnen aus, wenn ein Eingabestift erkannt wurde';
+	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Schalte manuelles Zeichnen für die optimale Verwendung eines Eingabestiftes aus';
 	@override String get editorPromptRename => 'Notizen können später immer noch umbenannt werden';
-	@override String get printPageIndicators => 'Seitennummerierung bei Export anzeigen';
-	@override String get autosave => 'Nach kurzer Zeit Auto-Speichern oder nie';
-	@override String get shapeRecognitionDelay => 'Häufigkeit der Aktualisierung der Form-Vorschau';
-	@override String get autoStraightenLines => 'Lange Linien selbst ohne Form-Stift begradigen';
+	@override String get printPageIndicators => 'Seitennummerierung beim Export anzeigen';
+	@override String get autosave => 'Automatisches Backup in kurzen Abständen (wenn aktiviert)';
+	@override String get shapeRecognitionDelay => 'Aktualisierungshäufigkeit der Vorschau';
+	@override String get autoStraightenLines => 'Lange Linien auch ohne Formen-Stift automatisch begradigen';
 	@override String get simplifiedHomeLayout => 'Legt eine feste Höhe für jede Notizvorschau fest';
 	@override String get shouldAlwaysAlertForUpdates => 'Über neue Updates informiert bleiben';
 	@override late final _TranslationsSettingsPrefDescriptionsSentryDe sentry = _TranslationsSettingsPrefDescriptionsSentryDe._(_root);
@@ -631,7 +631,7 @@ class _TranslationsEditorToolbarDe extends TranslationsEditorToolbarEn {
 	@override String get toggleEraser => 'Radierer umschalten (Strg + E)';
 	@override String get photo => 'Foto';
 	@override String get text => 'Text';
-	@override String get toggleFingerDrawing => 'Fingerzeichnen umschalten (Strg + F)';
+	@override String get toggleFingerDrawing => 'Umschalten auf manuelles Zeichnen (Strg + F)';
 	@override String get undo => 'Rückgängig';
 	@override String get redo => 'Wiederholen';
 	@override String get export => 'Exportieren (Strg + Shift + S)';
@@ -758,8 +758,8 @@ class _TranslationsEditorReadOnlyBannerDe extends TranslationsEditorReadOnlyBann
 
 	// Translations
 	@override String get title => 'Schreibgeschützter Modus';
-	@override String get corrupted => 'Notiz konnte nicht geladen werden. Möglicherweise ist es beschädigt oder wird noch heruntergeladen.';
-	@override String get watchingServer => 'Sie suchen derzeit nach Updates auf dem Server. Die Bearbeitung ist in diesem Modus deaktiviert.';
+	@override String get watchingServer => 'Sie warten derzeit auf Aktualisierungen des Servers. Die Bearbeitung ist in diesem Modus deaktiviert.';
+	@override String get corrupted => 'Die Notiz konnte nicht geladen werden. Sie ist möglicherweise beschädigt oder wird noch heruntergeladen.';
 }
 
 // Path: editor.versionTooNew
@@ -807,9 +807,9 @@ class _TranslationsSentryConsentDescriptionDe extends TranslationsSentryConsentD
 
 	// Translations
 	@override String get question => 'Möchtest du unerwartete Fehler automatisch melden? Das hilft mir dabei, Fehler schneller zu erkennen und zu beheben.';
-	@override String get scope => 'Diese Berichte können Informationen über den Fehler und dein Gerät enthalten. Ich habe mein Bestes getan, um persönliche Daten herauszufiltern, allerdings könnten dennoch welche enthalten sein.';
-	@override String get currentlyOff => 'Wenn du zustimmst, wird die Fehlerberichterstattung beim nächsten Neustart der App aktiviert.';
-	@override String get currentlyOn => 'Falls du deine Zustimmung zurücknimmst, starte bitte die App neu, um die Fehlerberichterstattung zu deaktivieren.';
+	@override String get scope => 'Diese Berichte können Informationen über den Fehler und dein Gerät enthalten. Ich habe mein Bestes getan, um persönliche Daten herauszufiltern, allerdings könnten dennoch personenbezogene Daten enthalten sein.';
+	@override String get currentlyOff => 'Wenn du zustimmst, wird die Fehlerberichterstattung nach dem Neustarten der App aktiviert.';
+	@override String get currentlyOn => 'Falls du deine Zustimmung zurücknimmst, starte die App bitte neu, um die Fehlerberichterstattung zu deaktivieren.';
 	@override TextSpan learnMoreInPrivacyPolicy({required InlineSpanBuilder link}) => TextSpan(children: [
 		const TextSpan(text: 'Erfahre mehr in der '),
 		link('Datenschutzrichtlinie'),
@@ -836,9 +836,9 @@ class _TranslationsSettingsPrefDescriptionsHideFingerDrawingDe extends Translati
 	final TranslationsDe _root; // ignore: unused_field
 
 	// Translations
-	@override String get shown => 'Schützt vor versehentlichem Umschalten';
-	@override String get fixedOn => 'Finger-Zeichnen ist als aktiviert festgelegt';
-	@override String get fixedOff => 'Finger-Zeichnen ist als deaktiviert festgelegt';
+	@override String get shown => 'Verhindert versehentliches Umschalten';
+	@override String get fixedOn => 'Der Modus für manuelles Zeichen ist aktiviert';
+	@override String get fixedOff => 'Der Modus für manuelles Zeichnen ist deaktiviert';
 }
 
 // Path: settings.prefDescriptions.sentry
@@ -848,8 +848,8 @@ class _TranslationsSettingsPrefDescriptionsSentryDe extends TranslationsSettings
 	final TranslationsDe _root; // ignore: unused_field
 
 	// Translations
-	@override String get active => 'Aktiv';
-	@override String get inactive => 'Inaktiv';
+	@override String get active => 'Aktiviert';
+	@override String get inactive => 'Nicht aktiviert';
 	@override String get activeUntilRestart => 'Aktiv bis zum Neustart der App';
 	@override String get inactiveUntilRestart => 'Inaktiv bis zum Neustart der App';
 }

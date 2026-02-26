@@ -52,9 +52,9 @@ class _TranslationsCommonPtBr extends TranslationsCommonEn {
 	final TranslationsPtBr _root; // ignore: unused_field
 
 	// Translations
-	@override String get cancel => 'Cancelar';
 	@override String get done => 'Feito';
-	@override String get continueBtn => 'Continuar';
+	@override String get continueBtn => 'Continue';
+	@override String get cancel => 'Cancelar';
 }
 
 // Path: home
@@ -71,6 +71,7 @@ class _TranslationsHomePtBr extends TranslationsHomeEn {
 	@override String get welcome => 'Bem-vindo(a) ao Saber';
 	@override String get invalidFormat => 'O arquivo que você selecionou não é suportado. Por favor selecione um arquivo .sbn, .sbn2, .sba ou .pdf.';
 	@override String get noFiles => 'Nenhum arquivo encontrado';
+	@override String get noPreviewAvailable => 'Nenhuma prévia disponível';
 	@override String get createNewNote => 'Toque no botão + para criar uma nova nota';
 	@override String get backFolder => 'Retornar para a pasta anterior';
 	@override late final _TranslationsHomeNewFolderPtBr newFolder = _TranslationsHomeNewFolderPtBr._(_root);
@@ -79,7 +80,6 @@ class _TranslationsHomePtBr extends TranslationsHomeEn {
 	@override String get deleteNote => 'Apagar nota';
 	@override late final _TranslationsHomeRenameFolderPtBr renameFolder = _TranslationsHomeRenameFolderPtBr._(_root);
 	@override late final _TranslationsHomeDeleteFolderPtBr deleteFolder = _TranslationsHomeDeleteFolderPtBr._(_root);
-	@override String get noPreviewAvailable => 'Nenhuma visualização disponível';
 }
 
 // Path: sentry
@@ -262,7 +262,7 @@ class _TranslationsHomeTooltipsPtBr extends TranslationsHomeTooltipsEn {
 	// Translations
 	@override String get newNote => 'Nova nota';
 	@override String get showUpdateDialog => 'Mostrar caixa de diálogo de atualização';
-	@override String get exportNote => 'Nota de exportação';
+	@override String get exportNote => 'Exportar nota';
 }
 
 // Path: home.create
@@ -303,7 +303,7 @@ class _TranslationsHomeRenameNotePtBr extends TranslationsHomeRenameNoteEn {
 	@override String get rename => 'Renomear';
 	@override String get noteNameEmpty => 'O nome da nota não pode estar vazio';
 	@override String get noteNameExists => 'Já existe uma nota com este nome';
-	@override String get noteNameForbiddenCharacters => 'O nome da nota contém caracteres proibidos';
+	@override String get noteNameForbiddenCharacters => 'Nome da nota contem caracteres proibidos';
 	@override String get noteNameReserved => 'Nome da nota reservado';
 }
 
@@ -315,11 +315,11 @@ class _TranslationsHomeMoveNotePtBr extends TranslationsHomeMoveNoteEn {
 
 	// Translations
 	@override String get moveNote => 'Mover a nota';
+	@override String moveNotes({required Object n}) => 'Mova ${n} notas';
 	@override String moveName({required Object f}) => 'Mover ${f}';
 	@override String get move => 'Mover';
 	@override String renamedTo({required Object newName}) => 'A nota será renomeada para ${newName}';
-	@override String moveNotes({required Object n}) => 'Mover ${n} notas';
-	@override String get multipleRenamedTo => 'As seguintes notas serão renomeadas:';
+	@override String get multipleRenamedTo => 'As notas a seguir serão renomeadas';
 	@override String numberRenamedTo({required Object n}) => '${n} notas serão renomeadas para evitar conflitos';
 }
 
@@ -358,9 +358,9 @@ class _TranslationsSentryConsentPtBr extends TranslationsSentryConsentEn {
 	final TranslationsPtBr _root; // ignore: unused_field
 
 	// Translations
+	@override String get title => 'Ajudar a melhorar Saber?';
 	@override late final _TranslationsSentryConsentDescriptionPtBr description = _TranslationsSentryConsentDescriptionPtBr._(_root);
 	@override late final _TranslationsSentryConsentAnswersPtBr answers = _TranslationsSentryConsentAnswersPtBr._(_root);
-	@override String get title => 'Ajudar a melhorar o Saber?';
 }
 
 // Path: settings.prefCategories
@@ -373,8 +373,8 @@ class _TranslationsSettingsPrefCategoriesPtBr extends TranslationsSettingsPrefCa
 	@override String get general => 'Geral';
 	@override String get writing => 'Escrita';
 	@override String get editor => 'editor';
+	@override String get performance => 'Performance';
 	@override String get advanced => 'Avançado';
-	@override String get performance => 'Desempenho';
 }
 
 // Path: settings.prefLabels
@@ -401,17 +401,17 @@ class _TranslationsSettingsPrefLabelsPtBr extends TranslationsSettingsPrefLabels
 	@override String get autoClearWhiteboardOnExit => 'Limpar o quadro branco depois de sair do aplicativo';
 	@override String get disableEraserAfterUse => 'Desativar automaticamente a borracha';
 	@override String get hideFingerDrawingToggle => 'Ocultar o botão de desenho com o dedo';
+	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Auto-disabilitar desenho com os dedos';
 	@override String get editorPromptRename => 'Solicitar que você renomeie novas notas';
 	@override String get recentColorsDontSavePresets => 'Não salvar as cores predefinidas nas cores recentes';
+	@override String get recentColorsLength => 'Quantas cores recentes guardar';
 	@override String get printPageIndicators => 'Imprimir os indicadores de página';
-	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Desativar automaticamente o desenho do dedo';
+	@override String get autosave => 'Auto-salvar';
+	@override String get shapeRecognitionDelay => 'Atraso no reconhecimento de formatos';
+	@override String get autoStraightenLines => 'Auto alinhamento de linhas';
 	@override String get sentry => 'Relatório de erro';
-	@override String get autosave => 'Save automática';
 	@override String get simplifiedHomeLayout => 'Layout simplificado da casa';
 	@override String get customDataDir => 'Diretório de dados personalizado';
-	@override String get autoStraightenLines => 'Endireitar linhas automaticamente';
-	@override String get shapeRecognitionDelay => 'Atraso no reconhecimento de forma';
-	@override String get recentColorsLength => 'Quantas cores recentes armazenar';
 }
 
 // Path: settings.prefDescriptions
@@ -804,13 +804,13 @@ class _TranslationsSentryConsentDescriptionPtBr extends TranslationsSentryConsen
 	final TranslationsPtBr _root; // ignore: unused_field
 
 	// Translations
-	@override String get question => 'Você gostaria de relatar automaticamente erros inesperados? Isso me ajuda a identificar e corrigir problemas mais rapidamente.';
-	@override String get scope => 'Os relatórios podem conter informações sobre o erro e seu dispositivo. Fiz todos os esforços para filtrar dados pessoais, mas alguns podem permanecer.';
-	@override String get currentlyOff => 'Se você conceder consentimento, o erro de erro será ativado após o reiniciar o aplicativo.';
-	@override String get currentlyOn => 'Se você revogar o consentimento, reinicie o aplicativo para desativar os relatórios de erros.';
+	@override String get question => 'Você gostaria de reportar automaticamente erros inesperados? Isso me ajuda a identificar e corrigir erros mais rápido.';
+	@override String get scope => 'Os reportes podem conter informações sobre os erros e o seu dispositivo. Eu tentei o máximo possível remover todas as informações pessoais, mas algumas talvez continuem.';
+	@override String get currentlyOff => 'Se você dar consentimento, os reportes de erro serão ativados após a reinicialização do app.';
+	@override String get currentlyOn => 'Se você revogar o consentimento, por favor reinicie o app para desativar os reportes de erro.';
 	@override TextSpan learnMoreInPrivacyPolicy({required InlineSpanBuilder link}) => TextSpan(children: [
-		const TextSpan(text: 'Saiba mais na '),
-		link('Política de Privacidade'),
+		const TextSpan(text: 'Veja mais em: '),
+		link('privacy policy'),
 		const TextSpan(text: '.'),
 	]);
 }
@@ -822,9 +822,9 @@ class _TranslationsSentryConsentAnswersPtBr extends TranslationsSentryConsentAns
 	final TranslationsPtBr _root; // ignore: unused_field
 
 	// Translations
-	@override String get no => 'Não';
 	@override String get yes => 'Sim';
-	@override String get later => 'Pergunte -me mais tarde';
+	@override String get no => 'Não';
+	@override String get later => 'Me pergunte depois';
 }
 
 // Path: settings.prefDescriptions.hideFingerDrawing

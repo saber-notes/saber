@@ -22,6 +22,7 @@ const localeNames = <String, String>{
   'sl': 'slovenňski',
   'th': 'แบบไทย',
   'tr': 'Türkçe',
+  'vi': 'Tiếng Việt',
   'zh-Hans-CN': '中文 (简体中文, 中国)',
   'zh-Hant-TW': '中文 (繁體, 台灣)',
 };

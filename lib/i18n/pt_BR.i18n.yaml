@@ -1,9 +1,7 @@
 common:
-  cancel: Cancelar
-  done(OUTDATED): Feito
-  continueBtn(OUTDATED): Continuar
   done: Feito
   continueBtn: Continue
+  cancel: Cancelar
 home:
   tabs:
     home: Início
@@ -18,7 +16,6 @@ home:
   tooltips:
     newNote: Nova nota
     showUpdateDialog: Mostrar caixa de diálogo de atualização
-    exportNote(OUTDATED): Nota de exportação
     exportNote: Exportar nota
   create:
     newNote: Nova nota
@@ -26,6 +23,7 @@ home:
   welcome: Bem-vindo(a) ao Saber
   invalidFormat: O arquivo que você selecionou não é suportado. Por favor selecione um arquivo .sbn, .sbn2, .sba ou .pdf.
   noFiles: Nenhum arquivo encontrado
+  noPreviewAvailable: Nenhuma prévia disponível
   createNewNote: Toque no botão + para criar uma nova nota
   backFolder: Retornar para a pasta anterior
   newFolder:
@@ -41,19 +39,14 @@ home:
     rename: Renomear
     noteNameEmpty: O nome da nota não pode estar vazio
     noteNameExists: Já existe uma nota com este nome
-    noteNameForbiddenCharacters(OUTDATED): O nome da nota contém caracteres proibidos
-    noteNameReserved(OUTDATED): Nome da nota reservado
     noteNameForbiddenCharacters: Nome da nota contem caracteres proibidos
     noteNameReserved: Nome da nota reservado
   moveNote:
     moveNote: Mover a nota
+    moveNotes: Mova $n notas
     moveName: Mover $f
     move: Mover
     renamedTo: A nota será renomeada para $newName
-    moveNotes(OUTDATED): Mover $n notas
-    multipleRenamedTo(OUTDATED): "As seguintes notas serão renomeadas:"
-    numberRenamedTo(OUTDATED): $n notas serão renomeadas para evitar conflitos
-    moveNotes: Mova $n notas
     multipleRenamedTo: As notas a seguir serão renomeadas
     numberRenamedTo: $n notas serão renomeadas para evitar conflitos
   deleteNote: Apagar nota
@@ -69,38 +62,26 @@ home:
     deleteName: Apagar $f
     delete: Apagar
     alsoDeleteContents: Apagar também todas as notas dentro desta pasta
-  noPreviewAvailable(OUTDATED): Nenhuma visualização disponível
-  noPreviewAvailable: Nenhuma prévia disponível
 sentry:
   consent:
+    title: Ajudar a melhorar Saber?
     description:
-      question(OUTDATED): Você gostaria de relatar automaticamente erros inesperados? Isso me ajuda a identificar e corrigir problemas mais rapidamente.
-      scope(OUTDATED): Os relatórios podem conter informações sobre o erro e seu dispositivo. Fiz todos os esforços para filtrar dados pessoais, mas alguns podem permanecer.
-      currentlyOff(OUTDATED): Se você conceder consentimento, o erro de erro será ativado após o reiniciar o aplicativo.
-      currentlyOn(OUTDATED): Se você revogar o consentimento, reinicie o aplicativo para desativar os relatórios de erros.
-      learnMoreInPrivacyPolicy(rich, OUTDATED): Saiba mais na ${link(Política de Privacidade)}.
       question: Você gostaria de reportar automaticamente erros inesperados? Isso me ajuda a identificar e corrigir erros mais rápido.
       scope: Os reportes podem conter informações sobre os erros e o seu dispositivo. Eu tentei o máximo possível remover todas as informações pessoais, mas algumas talvez continuem.
       currentlyOff: Se você dar consentimento, os reportes de erro serão ativados após a reinicialização do app.
       currentlyOn: Se você revogar o consentimento, por favor reinicie o app para desativar os reportes de erro.
-      learnMoreInPrivacyPolicy(rich): 'Veja mais em: ${link(privacy policy)}.'
+      learnMoreInPrivacyPolicy(rich): "Veja mais em: ${link(privacy policy)}."
     answers:
-      no(OUTDATED): Não
-      yes(OUTDATED): Sim
-      later(OUTDATED): Pergunte -me mais tarde
       yes: Sim
       no: Não
       later: Me pergunte depois
-    title(OUTDATED): Ajudar a melhorar o Saber?
-    title: Ajudar a melhorar Saber?
 settings:
   prefCategories:
     general: Geral
     writing: Escrita
     editor: editor
-    advanced: Avançado
-    performance(OUTDATED): Desempenho
     performance: Performance
+    advanced: Avançado
   prefLabels:
     locale: Idioma do aplicativo
     appTheme: Tema do aplicativo
@@ -119,22 +100,17 @@ settings:
     autoClearWhiteboardOnExit: Limpar o quadro branco depois de sair do aplicativo
     disableEraserAfterUse: Desativar automaticamente a borracha
     hideFingerDrawingToggle: Ocultar o botão de desenho com o dedo
+    autoDisableFingerDrawingWhenStylusDetected: Auto-disabilitar desenho com os dedos
     editorPromptRename: Solicitar que você renomeie novas notas
     recentColorsDontSavePresets: Não salvar as cores predefinidas nas cores recentes
-    printPageIndicators: Imprimir os indicadores de página
-    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Desativar automaticamente o desenho do dedo
-    sentry(OUTDATED): Relatório de erro
-    autosave(OUTDATED): Save automática
-    simplifiedHomeLayout(OUTDATED): Layout simplificado da casa
-    customDataDir(OUTDATED): Diretório de dados personalizado
-    autoStraightenLines(OUTDATED): Endireitar linhas automaticamente
-    shapeRecognitionDelay(OUTDATED): Atraso no reconhecimento de forma
-    recentColorsLength(OUTDATED): Quantas cores recentes armazenar
-    autoDisableFingerDrawingWhenStylusDetected: Auto-disabilitar desenho com os dedos
     recentColorsLength: Quantas cores recentes guardar
+    printPageIndicators: Imprimir os indicadores de página
     autosave: Auto-salvar
     shapeRecognitionDelay: Atraso no reconhecimento de formatos
     autoStraightenLines: Auto alinhamento de linhas
+    sentry(OUTDATED): Relatório de erro
+    simplifiedHomeLayout(OUTDATED): Layout simplificado da casa
+    customDataDir(OUTDATED): Diretório de dados personalizado
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible aumenta a legibilidade para leitores com baixa visão
     allowInsecureConnections: (Não recomendado) Permitir que o Saber se conecte a servidores com certificados autoassinados/não-confiáveis

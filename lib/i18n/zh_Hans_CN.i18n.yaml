@@ -39,9 +39,8 @@ home:
     rename: 重命名
     noteNameEmpty: 笔记名称不能为空
     noteNameExists: 此名称的笔记已经存在
-    noteNameReserved(OUTDATED): 备注名称保留
-    noteNameForbiddenCharacters(OUTDATED): 注意名称包含禁用字符
     noteNameForbiddenCharacters: 笔记名称包含禁止使用的字符
+    noteNameReserved(OUTDATED): 备注名称保留
   moveNote:
     moveNote: 移动笔记
     moveNotes: 移动 $n 个笔记
@@ -342,8 +341,6 @@ editor:
       cornell: 康奈尔
   readOnlyBanner:
     title: 只读模式
-    watchingServer(OUTDATED): 您当前正在查看服务器上的更新。在此模式下禁用编辑。
-    corrupted(OUTDATED): 无法加载笔记。它可能已损坏或仍在下载。
     watchingServer: 当前正在监视服务器的更新，此模式下编辑功能已禁用。
     corrupted: 无法加载笔记。它可能已损坏或仍在下载中。
   versionTooNew:

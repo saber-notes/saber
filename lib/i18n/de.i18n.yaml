@@ -39,8 +39,6 @@ home:
     rename: Umbenennen
     noteNameEmpty: Name der Notiz darf nicht leer sein
     noteNameExists: Es existiert bereits eine Notiz mit dem Namen
-    noteNameForbiddenCharacters(OUTDATED): Der Notizname enthält verbotene Zeichen
-    noteNameReserved(OUTDATED): Notizname reserviert
     noteNameForbiddenCharacters: Dateiname enthält unzulässige Zeichen
     noteNameReserved: Dateiname bereits vergeben
   moveNote:
@@ -343,8 +341,6 @@ editor:
       cornell: Cornell-Stil
   readOnlyBanner:
     title: Schreibgeschützter Modus
-    corrupted(OUTDATED): Notiz konnte nicht geladen werden. Möglicherweise ist es beschädigt oder wird noch heruntergeladen.
-    watchingServer(OUTDATED): Sie suchen derzeit nach Updates auf dem Server. Die Bearbeitung ist in diesem Modus deaktiviert.
     watchingServer: Sie warten derzeit auf Aktualisierungen des Servers. Die Bearbeitung ist in diesem Modus deaktiviert.
     corrupted: Die Notiz konnte nicht geladen werden. Sie ist möglicherweise beschädigt oder wird noch heruntergeladen.
   versionTooNew:

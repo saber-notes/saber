@@ -17,6 +17,7 @@
     <locale android:name="sl"/>
     <locale android:name="th"/>
     <locale android:name="tr"/>
+    <locale android:name="vi"/>
     <locale android:name="zh-Hans-CN"/>
     <locale android:name="zh-Hant-TW"/>
 </locale-config>

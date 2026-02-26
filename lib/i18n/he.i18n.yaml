@@ -16,7 +16,6 @@ home:
   tooltips:
     newNote: פתק חדש
     showUpdateDialog: תיבת הדו-שיח הצג עדכון
-    exportNote(OUTDATED): ייצא הערה
     exportNote: ייצוא פתק
   create:
     newNote: פתק חדש
@@ -24,6 +23,7 @@ home:
   welcome: ברוכים הבאים ל Saber
   invalidFormat: הקובץ שבחרת אינו תומך. אנא בחר בקובץ .sbn' .sbn2' .sba או .pdf
   noFiles: קבצים לא נמצאו
+  noPreviewAvailable: אין תצוגה מקדימה
   createNewNote: הקש על הלחצן + כדי ליצור הערה חדשה
   backFolder: חזור אחורה לתקייה הקודמת
   newFolder:
@@ -37,10 +37,6 @@ home:
     renameNote: שנה את שם הפתק
     noteName: שם הפתק
     rename: שנה שם
-    noteNameForbiddenCharacters(OUTDATED): שם הערה מכיל תווים אסורים
-    noteNameReserved(OUTDATED): שם הערה שמור
-    noteNameEmpty(OUTDATED): שם הערה לא יכול להיות ריק
-    noteNameExists(OUTDATED): הערה בשם זה כבר קיימת
     noteNameEmpty: שם הפתק לא יכול להיות ריק
     noteNameExists: שם הפתק כבר קיים
     noteNameForbiddenCharacters: שם הפתק מכיל תווים אסורים
@@ -66,8 +62,6 @@ home:
     deleteName: מחק $f
     delete: מחק
     alsoDeleteContents: גם תמחק את כל הפתקים בתקייה זו
-  noPreviewAvailable(OUTDATED): אין תצוגה מקדימה זמינה
-  noPreviewAvailable: אין תצוגה מקדימה
 sentry:
   consent:
     description:

@@ -71,6 +71,7 @@ class _TranslationsHomeHe extends TranslationsHomeEn {
 	@override String get welcome => 'ברוכים הבאים ל Saber';
 	@override String get invalidFormat => 'הקובץ שבחרת אינו תומך. אנא בחר בקובץ .sbn\' .sbn2\' .sba או .pdf';
 	@override String get noFiles => 'קבצים לא נמצאו';
+	@override String get noPreviewAvailable => 'אין תצוגה מקדימה';
 	@override String get createNewNote => 'הקש על הלחצן + כדי ליצור הערה חדשה';
 	@override String get backFolder => 'חזור אחורה לתקייה הקודמת';
 	@override late final _TranslationsHomeNewFolderHe newFolder = _TranslationsHomeNewFolderHe._(_root);
@@ -79,7 +80,6 @@ class _TranslationsHomeHe extends TranslationsHomeEn {
 	@override String get deleteNote => 'מחק פתק';
 	@override late final _TranslationsHomeRenameFolderHe renameFolder = _TranslationsHomeRenameFolderHe._(_root);
 	@override late final _TranslationsHomeDeleteFolderHe deleteFolder = _TranslationsHomeDeleteFolderHe._(_root);
-	@override String get noPreviewAvailable => 'אין תצוגה מקדימה זמינה';
 }
 
 // Path: sentry
@@ -262,7 +262,7 @@ class _TranslationsHomeTooltipsHe extends TranslationsHomeTooltipsEn {
 	// Translations
 	@override String get newNote => 'פתק חדש';
 	@override String get showUpdateDialog => 'תיבת הדו-שיח הצג עדכון';
-	@override String get exportNote => 'ייצא הערה';
+	@override String get exportNote => 'ייצוא פתק';
 }
 
 // Path: home.create
@@ -301,10 +301,10 @@ class _TranslationsHomeRenameNoteHe extends TranslationsHomeRenameNoteEn {
 	@override String get renameNote => 'שנה את שם הפתק';
 	@override String get noteName => 'שם הפתק';
 	@override String get rename => 'שנה שם';
-	@override String get noteNameForbiddenCharacters => 'שם הערה מכיל תווים אסורים';
-	@override String get noteNameReserved => 'שם הערה שמור';
-	@override String get noteNameEmpty => 'שם הערה לא יכול להיות ריק';
-	@override String get noteNameExists => 'הערה בשם זה כבר קיימת';
+	@override String get noteNameEmpty => 'שם הפתק לא יכול להיות ריק';
+	@override String get noteNameExists => 'שם הפתק כבר קיים';
+	@override String get noteNameForbiddenCharacters => 'שם הפתק מכיל תווים אסורים';
+	@override String get noteNameReserved => 'שם הפתק שמור';
 }
 
 // Path: home.moveNote
