@@ -463,8 +463,11 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
 
   void _listenerPointerUpEvent(PointerEvent event) {
     widget.updatePointerData(event.kind, null);
-    stylusButtonWasPressed = false;
-    widget.onStylusButtonChanged(false);
+
+    if (stylusButtonWasPressed) {
+      stylusButtonWasPressed = false;
+      widget.onStylusButtonChanged(false);
+    }
   }
 
   @override
