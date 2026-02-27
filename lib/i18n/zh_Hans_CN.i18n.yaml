@@ -41,6 +41,7 @@ home:
     noteNameExists: 此名称的笔记已经存在
     noteNameForbiddenCharacters: 笔记名称包含禁止使用的字符
     noteNameReserved(OUTDATED): 备注名称保留
+    noteNameReserved: 保留了笔记名
   moveNote:
     moveNote: 移动笔记
     moveNotes: 移动 $n 个笔记
