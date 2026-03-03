@@ -92,7 +92,7 @@ jobs:
           tar -C AppDir -czvf $archiveName .
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: Saber-Archive-${{ matrix.arch.archive-suffix }}
           path: ${{ steps.compress.outputs.archiveName }}
@@ -144,7 +144,7 @@ jobs:
           mv linux/AppImage/Saber-*.AppImage.zsync linux/AppImage/Saber-${buildName}-${{ matrix.arch.archive-suffix }}.AppImage.zsync
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: AppImage artifact (${{ matrix.arch.target-platform }})
           path: linux/AppImage/Saber-*.AppImage*

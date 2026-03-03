@@ -106,7 +106,7 @@ jobs:
           SENTRY_PROJECT: saber
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v6
+        uses: actions/upload-artifact@v7
         with:
           name: Saber-iOS-Archive
           path: ${{ steps.move.outputs.ipaPath }}
