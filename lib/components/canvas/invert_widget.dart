@@ -15,7 +15,7 @@ class InvertWidget extends StatelessWidget {
   static const _invertFilter = ColorFilter.matrix(_invertMatrix);
   // dart format off
   static const _invertMatrix = <double>[
-    1 - 2 * lumaR,   - 2 * lumaG,   - 2 * lumaB, 0, 255
+    1 - 2 * lumaR,   - 2 * lumaG,   - 2 * lumaB, 0, 255,
       - 2 * lumaR, 1 - 2 * lumaG,   - 2 * lumaB, 0, 255,
       - 2 * lumaR,   - 2 * lumaG, 1 - 2 * lumaB, 0, 255,
                 0,             0,             0, 1,   0,
