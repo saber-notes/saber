@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:saber/components/theming/adaptive_circular_progress_indicator.dart';
 import 'package:saber/i18n/strings.g.dart';
@@ -78,15 +77,14 @@ class _ExportBarState extends State<ExportBar> {
           );
         },
       ),
-      if (kDebugMode)
-        Builder(
-          builder: (context) {
-            return TextButton(
-              onPressed: _onPressed(widget.exportAsPng, context),
-              child: _buttonChild(widget.exportAsPng, 'PNG'),
-            );
-          },
-        ),
+      Builder(
+        builder: (context) {
+          return TextButton(
+            onPressed: _onPressed(widget.exportAsPng, context),
+            child: _buttonChild(widget.exportAsPng, 'PNG'),
+          );
+        },
+      ),
     ];
 
     return Center(
