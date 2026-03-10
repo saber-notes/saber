@@ -1321,7 +1321,7 @@ class EditorState extends State<Editor> {
   }
 
   /// Exports the current page as a PNG image file.
-  /// 
+  ///
   /// This captures the canvas natively via [EditorExporter.screenshotPage],
   /// which guarantees the correct background color and omits UI elements
   /// like selection bounds or the text cursor. It computes a dynamic [pixelRatio]
