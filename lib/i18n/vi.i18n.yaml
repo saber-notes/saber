@@ -1,1 +1,272 @@
-{}
+common:
+  done: Hoàn tất
+  continueBtn: Tiếp tục
+  cancel: Hủy
+home:
+  tabs:
+    home: Trang chủ
+    browse: Duyệt tệp
+    whiteboard: Bảng vẽ tự do
+    settings: Cài đặt
+  titles:
+    home: Các ghi chú gần đây
+    browse: Duyệt tệp
+    whiteboard: Bảng vẽ tự do
+    settings: Cài đặt
+  tooltips:
+    newNote: Ghi chú mới
+    showUpdateDialog: Thông báo cập nhật
+    exportNote: Xuất tệp
+  create:
+    newNote: Ghi chú mới
+    importNote: Nhập tệp
+  welcome: Chào mừng đến với Saber
+  invalidFormat: Định dạng tệp bạn đã chọn không được hỗ trợ. Chúng tôi hỗ trợ các định dạng sbn, sbn2, hoặc pdf.
+  noFiles: Không tìm thấy tệp
+  noPreviewAvailable: Không có bản xem trước
+  createNewNote: Ấn nút + để tạo ghi chú mới
+  backFolder: Quay về thư mục trước đó
+  newFolder:
+    newFolder: Tạo thư mục mới
+    folderName: Nhập tên thư mục
+    create: Tạo
+    folderNameEmpty: Không được bỏ trống tên thư mục
+    folderNameContainsSlash: Tên thư mục không được chứa kí tự /
+    folderNameExists: Tên thư mục đã tồn tại
+  renameNote:
+    renameNote: Đổi tên ghi chú
+    noteName: Nhập tên mới
+    rename: Đổi tên
+    noteNameEmpty: Không được bỏ trống tên ghi chú
+    noteNameExists: Đã tồn tại ghi chú có tên này
+    noteNameForbiddenCharacters: Tên ghi chú không được chứa các kí tự cấm
+    noteNameReserved: Tên ghi chú này không được phép sử dụng
+  moveNote:
+    moveNote: Di chuyển
+    moveNotes: Di chuyển
+    move: Di chuyển
+    renamedTo: Ghi chú sẽ được đổi tên thành $newName
+    multipleRenamedTo: 'Các ghi chú sau sẽ được đổi tên:'
+    numberRenamedTo: Sẽ đổi tên $n ghi chú để tránh xung đột
+  deleteNote: Xóa ghi chú
+  renameFolder:
+    renameFolder: Đổi tên thư mục
+    folderName: Tên thư mục
+    rename: Đổi tên
+    folderNameEmpty: Không được bỏ trống tên thư mục
+    folderNameContainsSlash: Tên thư mục không được chứa kí tự /
+    folderNameExists: Đã tồn tại thư mục có tên này
+  deleteFolder:
+    deleteFolder: Xóa thư mục
+    delete: Xóa
+    alsoDeleteContents: Các ghi chú bên trong thư mục này cũng sẽ bị xóa
+sentry:
+  consent:
+    title: Đóng góp cho Saber?
+    description:
+      question: Bạn có muốn ứng dụng tự động báo cáo lỗi cho chúng tôi? Điều này sẽ giúp chúng tôi xác định và đưa ra các bản vá kịp thời.
+      scope: Báo cáo này có thể chứa các thông tin về thiết bị của bạn và lỗi gặp phải. Chúng tôi đã cố gắng để lọc đi thông tin cá nhân, nhưng vẫn có thể còn sót một số thông tin.
+      currentlyOff: Nếu bạn đồng ý, tính năng báo cáo lỗi sẽ được kích hoạt sau khi bạn khởi động lại ứng dụng.
+      currentlyOn: Nếu bạn từ chối, vui lòng khởi động lại ứng dụng để vô hiệu hóa tính năng báo cáo lỗi.
+      learnMoreInPrivacyPolicy(rich): Tìm hiểu thêm ở ${link(privacy policy)}.
+    answers:
+      yes: Có
+      no: Không
+      later: Hỏi lại tôi sau
+settings:
+  prefCategories:
+    general: Cài đặt chung
+    writing: Các tính năng vẽ
+    editor: Các tính năng trình ghi chú
+    performance: Hiệu năng
+    advanced: Cài đặt nâng cao
+  prefLabels:
+    locale: Ngôn ngữ
+    appTheme: Chế độ Sáng/Tối
+    platform: Dạng hệ điều hành
+    layoutSize: Bố cục
+    customAccentColor: Màu chủ đạo
+    hyperlegibleFont: 'Trợ năng: Phông chữ Atkinson Hyperlegible'
+    shouldCheckForUpdates: Kiểm tra phiên bản mới
+    allowInsecureConnections: Cho phép các kết nối không an toàn
+    editorToolbarAlignment: Ví trị thanh công cụ
+    editorToolbarShowInFullscreen: Hiển thị thanh công cụ trong chế độ Toàn màn hình
+    editorAutoInvert: Đảo màu ghi chú trong chế độ tối
+    preferGreyscale: Tông màu xám
+    maxImageSize: Kích thước ảnh tối đa
+    autoClearWhiteboardOnExit: Tự động xóa bảng vẽ tự do
+    disableEraserAfterUse: Tự động tắt chế độ tẩy
+    hideFingerDrawingToggle: Tắt chế độ vẽ bằng tay
+    autoDisableFingerDrawingWhenStylusDetected: Tự động tắt chế độ vẽ bằng tay
+    editorPromptRename: Nhắc tôi đổi tên ghi chú mới
+    recentColorsDontSavePresets: Tắt tự động lưu bảng màu mặc định vào lịch sử màu
+    recentColorsLength: Số lượng màu được lưu
+    printPageIndicators: Đánh số trang
+    autosave: Tự động lưu
+    shapeRecognitionDelay: Độ trễ khi nhận dạng vật thể
+    autoStraightenLines: Tự động nắn thẳng các đường kẻ
+    simplifiedHomeLayout: Đơn giản hóa giao diện
+    customDataDir: Đổi vị trí thư mục Saber
+    sentry: Báo cáo lỗi
+    shouldAlwaysAlertForUpdates: Cập nhật kịp thời
+  prefDescriptions:
+    hyperlegibleFont: Tăng khả năng đọc cho người khiếm thị
+    allowInsecureConnections: (Không khuyến nghị) Cho phép Saber kết nối với các máy chủ có chứng chỉ tự ký hoặc không đáng tin cậy
+    preferGreyscale: Dành cho màn hình e-ink
+    autoClearWhiteboardOnExit: Xóa bảng vẽ tự do sau khi bạn thoát ứng dụng
+    disableEraserAfterUse: Tự động sử dụng bút vẽ sau khi dùng tẩy
+    maxImageSize: Các hình ảnh lớn hơn sẽ bị nén lại
+    hideFingerDrawing:
+      shown: Ngăn chặn việc vô tình bật/tắt
+      fixedOn: Tính năng vẽ bằng ngón tay luôn được tự động bật
+      fixedOff: Tính năng vẽ bằng ngón tay luôn được tự động tắt
+    autoDisableFingerDrawingWhenStylusDetected: Tắt chế độ vẽ bằng ngón tay khi nhận diện được bút cảm ứng
+    editorPromptRename: Bạn có thể đổi tên ghi chú sau
+    printPageIndicators: Hiển thị chỉ số trang khi xuất tệp
+    autosave: Tự động lưu sau một khoảng thời gian ngắn hoặc không bao giờ
+    shapeRecognitionDelay: Tần suất cập nhật bản xem trước hình dạng
+    autoStraightenLines: Tự động nắn thẳng các đường kẻ dài mà không cần phải sử dụng bút vẽ hình chuyên dụng
+    simplifiedHomeLayout: Thiết lập chiều cao cố định cho mỗi bản xem trước ghi chú
+    shouldAlwaysAlertForUpdates: Thông báo cho tôi về các bản cập nhật mới khi chúng được phát hành
+    sentry:
+      active: Đang bật
+      inactive: Đang tắt
+      activeUntilRestart: Tính năng này sẽ được bật cho đến khi bạn khởi động lại ứng dụng
+      inactiveUntilRestart: Tính năng này sẽ được tắt cho đến khi bạn khởi động lại ứng dụng
+  themeModes:
+    system: Hệ thống
+    light: Chế độ sáng
+    dark: Chế độ Tối
+  layoutSizes:
+    auto: Tuân theo hệ thống
+    phone: Bố cục điện thoại
+    tablet: Bố cục máy tính bảng
+  accentColorPicker:
+    pickAColor: Chọn một màu
+  systemLanguage: Tự động
+  axisDirections:
+  - Trên
+  - Phải
+  - Dưới
+  - Trái
+  reset:
+    title: Quay về cài đặt mặc định?
+    button: Quay về
+  resyncEverything: Đồng bộ tất cả
+  openDataDir: Mở thư mục Saber
+  customDataDir:
+    cancel: Hủy
+    select: Chọn
+    mustBeEmpty: Thư mục được chọn phải là thư mục trống
+    unsupported: Tính năng hiện chỉ khả dụng cho nhà phát triển phần mềm. Dùng nó có thể dẫn đến mất mát dữ liệu.
+  autosaveDisabled: Không bao giờ
+  shapeRecognitionDisabled: Không bao giờ
+logs:
+  logs: Nhật ký hoạt động
+  viewLogs: Xem nhật ký hoạt động
+  debuggingInfo: Nhật ký hoạt động chứa các thông tin cần thiết cho quá trình sửa lỗi và phát triển ứng dụng
+  noLogs: Không có nhật ký hoạt động!
+  useTheApp: Khi bạn sử dụng ứng dụng này, các tác vụ bạn thực hiện bạn sẽ được lưu lại ở đây
+login:
+  title: Đăng nhập
+  form:
+    agreeToPrivacyPolicy(rich): Bằng việc đăng nhập, bạn đồng ý với ${linkToPrivacyPolicy(Privacy Policy)}.
+  signup(rich): Chưa có tài khoản? ${linkToSignup(Sign up now)}!
+  notYou(rich): Không phải bạn? ${undoLogin(Choose another account)}.
+  status:
+    loggedOut: Đăng xuất
+    tapToLogin: Ấn để đăng nhập bằng Nextcloud
+    hi: Xin chào, $u!
+    almostDone: Sắp xong rồi, chạm vào màn hình để hoàn tất đăng nhập
+    loggedIn: Đã đăng nhập bằng Nextcloud
+  ncLoginStep:
+    whereToStoreData: 'Chọn nơi lưu trữ dữ liệu của bạn:'
+    saberNcServer: Máy chủ Nextcloud của Saber
+    otherNcServer: Các máy chủ Nextcloud khác
+    serverUrl: Đường dẫn máy chủ
+    loginWithSaber: Đăng nhập bằng Saber
+    loginWithNextcloud: Đăng nhập bằng Nextcloud
+    loginFlow:
+      pleaseAuthorize: Vui lòng cho phép Saber truy cập vào tài khoản Nextcloud của bạn
+      followPrompts: Vui lòng làm theo các hướng dẫn trên giao diện Nextcloud
+      browserDidntOpen: Trang đăng nhập không xuất hiện? Hãy ấn vào đây
+  encLoginStep:
+    enterEncPassword: 'Để bảo vệ dữ liệu của bạn, hãy nhập mật khẩu bạn muốn sử dụng để mã hóa chúng:'
+    newToSaber: Người mới tới? Bạn chỉ cần nhập một mật khẩu mã hóa mới.
+    encPassword: Mật khẩu mã hóa
+    encFaqTitle: Các câu hỏi thường gặp
+    wrongEncPassword: Không thể giải mã với khóa mã hóa được cung cấp. Hãy nhập lại.
+    connectionFailed: Đã xảy ra lỗi khi kết nối đến máy chủ. Vui lòng thử lại sau.
+    encFaq:
+    - q: Mật khẩu mã hóa là gì? Tại sao lại phải dùng hai mật khẩu?
+      a: |-
+        Mật khẩu Nextcloud được dùng để truy cập vào lưu trữ đám mây. Còn mật khẩu mã hóa sẽ "trộn lẫn" dữ liệu của bạn trước khi chúng được gửi lên đám mây đó.
+        Ngay cả khi có ai đó đột nhập được vào tài khoản Nextcloud, các ghi chú của bạn vẫn sẽ an toàn vì đã được mã hóa bằng một mật khẩu riêng biệt. Điều này tạo ra một lớp bảo mật thứ hai để bảo vệ dữ liệu của bạn.
+        Không ai có thể xem ghi chú trên máy chủ nếu không có mật khẩu mã hóa. Tuy nhiên, điều này cũng đồng nghĩa với việc nếu bạn quên mật khẩu mã hóa, bạn sẽ mất quyền truy cập vào dữ liệu của chính mình.
+    - q: Tôi chưa thiết lập mật khẩu mã hóa. Tôi có thể tạo nó ở đâu?
+      a: |-
+        Hãy chọn một mật khẩu mã hóa mới và nhập vào ô bên trên.
+        Saber sẽ tự động tạo các khóa mã hóa cho bạn từ mật khẩu này.
+    - q: Tôi có thể dùng cùng một mật khẩu với tài khoản Nextcloud không?
+      a: Được, nhưng hãy lưu ý rằng quản trị viên hoặc bất kỳ ai khác sẽ dễ dàng truy cập vào ghi chú của bạn hơn nếu họ chiếm được quyền truy cập vào tài khoản Nextcloud.
+profile:
+  title: Hồ sơ của tôi
+  logout: Đăng xuất
+  quotaUsage: Bạn đã sử dụng $used trên tổng số $total ($percent%)
+  connectedTo: Kết nối tới
+  quickLinks:
+    serverHomepage: Trang chủ
+    deleteAccount: Xóa tài khoản
+  faqTitle: Các câu hỏi thường gặp
+  faq:
+  - q: Tôi có bị mất ghi chú nếu đăng xuất không?
+    a: Không. Ghi chú của bạn vẫn sẽ được lưu trên cả thiết bị và máy chủ. Tuy nhiên, chúng sẽ không được đồng bộ hóa với máy chủ cho đến khi bạn đăng nhập lại. Hãy đảm bảo quá trình đồng bộ đã hoàn tất trước khi đăng xuất để không bị mất dữ liệu (bạn có thể xem tiến trình đồng bộ tại màn hình chính).
+  - q: Làm sao để thay đổi mật khẩu Nextcloud?
+    a: Truy cập vào trang web máy chủ của bạn và đăng nhập. Sau đó, đi tới Cài đặt > Bảo mật > Thay đổi mật khẩu. Bạn sẽ cần phải đăng xuất và đăng nhập lại vào Saber sau khi thay đổi mật khẩu.
+  - q: Làm sao để thay đổi mật khẩu mã hóa?
+    a: |-
+      0. Hãy đảm bảo quá trình đồng bộ đã hoàn tất (kiểm tra tiến trình đồng bộ tại màn hình chính).
+      1. Đăng xuất khỏi Saber.
+      2. Truy cập vào trang web máy chủ của bạn và xóa thư mục 'Saber'. Thao tác này sẽ xóa tất cả ghi chú của bạn khỏi máy chủ.
+      3. Đăng nhập lại vào Saber. Bạn có thể chọn một mật khẩu mã hóa mới khi đăng nhập.
+      4. Đừng quên đăng xuất và đăng nhập lại vào Saber trên các thiết bị khác của bạn nữa nhé.
+  - q: Làm sao để xóa tài khoản của tôi?
+    a: |-
+      Nhấn vào "@:profile.quickLinks.deleteAccount" ở trên và đăng nhập nếu được yêu cầu.
+      Nếu bạn đang sử dụng máy chủ chính thức của Saber, tài khoản của bạn sẽ được xóa sau thời gian chờ 1 tuần. Trong khoảng thời gian này, bạn có thể liên hệ với tôi qua địa chỉ adilhanney@disroot.org để hủy yêu cầu xóa.
+      Nếu bạn đang sử dụng máy chủ của bên thứ ba, có thể sẽ không có tùy chọn xóa tài khoản: bạn sẽ cần tham khảo chính sách quyền riêng tư của máy chủ đó để biết thêm thông tin.
+appInfo:
+  licenseNotice: |-
+    Saber  Copyright © 2022-$buildYear  Adil Hanney
+    Ứng dụng này không được bảo hành. Đây là phần mềm tự do, và bạn được chia sẻ lại nó theo các điều kiện nhất định.
+  debug: DEBUG
+  sponsorButton: Nhấn vào đây để mua cho tôi một ly cà phê hoặc mua thêm dung lượng lưu trữ
+  licenseButton: Nhấn vào đây để xem thêm thông tin bản quyền
+  privacyPolicyButton: Nhấn vào đây để xem chính sách quyền riêng tư
+update:
+  updateAvailable: Các bản cập nhật có sẵn
+  updateAvailableDescription: 'Đã có phiên bản mới:'
+  update: Cập nhật
+  downloadNotAvailableYet: Bản cập nhật hiện chưa có sẵn cho nền tảng của bạn. Vui lòng quay lại kiểm tra sau.
+editor:
+  toolbar:
+    toggleColors: Bật/Tắt màu sắc (Ctrl C)
+    select: Chọn
+    toggleEraser: Bật/Tắt tẩy (Ctrl E)
+    photo: Ảnh
+    text: Văn bản
+    toggleFingerDrawing: Bật/Tắt vẽ bằng ngón tay (Ctrl F)
+    undo: Hoàn tác
+    redo: Làm lại
+    export: Xuất tệp (Ctrl Shift S)
+    exportAs: 'Xuất tệp dưới dạng:'
+    fullscreen: Toàn màn hình (F11)
+  pens:
+    fountainPen: Bút máy
+    ballpointPen: Bút bi
+    highlighter: Bút dạ quang
+    pencil: Bút chì
+    shapePen: Bút vẽ hình học
+    laserPointer: Bút chỉ laser
+  penOptions:
+    size: Kích thước
