@@ -10,12 +10,12 @@ home:
     settings: Cài đặt
   titles:
     home: Các ghi chú gần đây
-    browse: Duyệt tệp
+    browse: Duyệt
     whiteboard: Bảng vẽ tự do
     settings: Cài đặt
   tooltips:
     newNote: Ghi chú mới
-    showUpdateDialog: Thông báo cập nhật
+    showUpdateDialog: Xem thông tin cập nhật
     exportNote: Xuất tệp
   create:
     newNote: Ghi chú mới
@@ -40,14 +40,15 @@ home:
     noteNameEmpty: Không được bỏ trống tên ghi chú
     noteNameExists: Đã tồn tại ghi chú có tên này
     noteNameForbiddenCharacters: Tên ghi chú không được chứa các kí tự cấm
-    noteNameReserved: Tên ghi chú này không được phép sử dụng
+    noteNameReserved: Tên này không khả dụng
   moveNote:
-    moveNote: Di chuyển
-    moveNotes: Di chuyển
+    moveNote: Di chuyển ghi chú
+    moveNotes: Di chuyển $n ghi chú
     move: Di chuyển
     renamedTo: Ghi chú sẽ được đổi tên thành $newName
     multipleRenamedTo: 'Các ghi chú sau sẽ được đổi tên:'
     numberRenamedTo: Sẽ đổi tên $n ghi chú để tránh xung đột
+    moveName: Di chuyển $f
   deleteNote: Xóa ghi chú
   renameFolder:
     renameFolder: Đổi tên thư mục
@@ -60,6 +61,7 @@ home:
     deleteFolder: Xóa thư mục
     delete: Xóa
     alsoDeleteContents: Các ghi chú bên trong thư mục này cũng sẽ bị xóa
+    deleteName: Xóa $f
 sentry:
   consent:
     title: Đóng góp cho Saber?
@@ -159,6 +161,7 @@ settings:
     select: Chọn
     mustBeEmpty: Thư mục được chọn phải là thư mục trống
     unsupported: Tính năng hiện chỉ khả dụng cho nhà phát triển phần mềm. Dùng nó có thể dẫn đến mất mát dữ liệu.
+    mustBeDoneSyncing: Hãy đảm bảo quá trình đồng bộ đã hoàn tất trước khi thay đổi thư mục
   autosaveDisabled: Không bao giờ
   shapeRecognitionDisabled: Không bao giờ
 logs:
@@ -270,3 +273,89 @@ editor:
     laserPointer: Bút chỉ laser
   penOptions:
     size: Kích thước
+  needsToSaveBeforeExiting: Đang lưu... Bạn có thể rời trình chỉnh sửa khi hoàn tất
+  colors:
+    white: Trắng
+    red: Đỏ
+    green: Xanh lá
+    cyan: Xanh lơ
+    blue: Xanh da trời
+    yellow: Vàng
+    purple: Tím
+    pink: Hồng
+    orange: Cam
+    pastelRed: Đỏ pastel
+    pastelOrange: Cam pastel
+    pastelYellow: Vàng pastel
+    pastelGreen: Xanh lá pastel
+    pastelCyan: Xanh lơ pastel
+    pastelBlue: Xanh da trời pastel
+    pastelPurple: Tím pastel
+    pastelPink: Hồng pastel
+    dark: tối
+    light: sáng
+    black: Đen
+    darkGrey: Xám đen
+    grey: Xám
+    lightGrey: Xám nhạt
+    colorPicker: Chọn màu
+    customBrightnessHue: Tùy chỉnh $b $h
+    customHue: Tùy chỉnh $h
+  imageOptions:
+    title: Các tùy chọn ảnh
+    download: Tải xuống
+    setAsBackground: Đặt làm hình nền
+    removeAsBackground: Gỡ bỏ hình nền
+    delete: Xóa
+    invertible: Cho phép đảo màu
+  selectionBar:
+    delete: Xóa
+    duplicate: Nhân bản
+  menu:
+    clearPage: Xóa sạch trang $page/$totalPages
+    clearAllPages: Xóa sạch tất cả các trang
+    insertPage: Chèn trang phía dưới
+    duplicatePage: Nhân bản trang
+    deletePage: Xóa trang
+    lineHeight: Độ giãn dòng
+    lineHeightDescription: Đồng thời thay đổi kích thước và độ giãn dòng của văn bản
+    lineThickness: Độ dày nét
+    lineThicknessDescription: Độ dày nét kẻ
+    backgroundImageFit: Khớp hình nền
+    backgroundPattern: Họa tiết nền
+    import: Nhập tệp
+    watchServer: Theo dõi cập nhật từ máy chủ
+    watchServerReadOnly: Không thể chỉnh sửa khi đang cập nhật từ máy chủ
+    boxFits:
+      fill: Dãn
+      cover: Phủ
+      contain: Chứa
+    bgPatterns:
+      none: Trống
+      college: Dòng kẻ hẹp
+      collegeRtl: Dòng kẻ hẹp (Đảo ngược)
+      lined: Dòng kẻ ngang
+      grid: Ô vuông
+      dots: Chấm tròn
+      staffs: Kẻ khuông nhạc
+      tablature: Kẻ Tab
+      cornell: Ghi chép Cornell
+  readOnlyBanner:
+    title: Chỉ đọc
+    watchingServer: Đang theo dõi cập nhật từ máy chủ. Không thể chỉnh sửa lúc này.
+    corrupted: Không thể tải ghi chú. Tệp có thể bị lỗi hoặc vẫn đang được tải xuống.
+  versionTooNew:
+    title: Ghi chú này đã được chỉnh sửa bằng phiên bản Saber mới hơn
+    subtitle: Chỉnh sửa có thể làm mất dữ liệu. Bạn vẫn muốn tiếp tục?
+    allowEditing: Cho phép chỉnh sửa
+  quill:
+    typeSomething: Nhập gì đó...
+  hud:
+    unlockZoom: Cho phép thu/phóng
+    lockZoom: Khóa thu/phóng
+    unlockSingleFingerPan: Bật di chuyển một ngón
+    lockSingleFingerPan: Tắt di chuyển một ngón
+    unlockAxisAlignedPan: Cho phép kéo trang tự do
+    lockAxisAlignedPan: Khóa di chuyển theo trục
+  pages: Trang
+  untitled: Chưa đặt tên
