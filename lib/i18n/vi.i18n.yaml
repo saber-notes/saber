@@ -44,11 +44,11 @@ home:
   moveNote:
     moveNote: Di chuyển ghi chú
     moveNotes: Di chuyển $n ghi chú
+    moveName: Di chuyển $f
     move: Di chuyển
     renamedTo: Ghi chú sẽ được đổi tên thành $newName
-    multipleRenamedTo: 'Các ghi chú sau sẽ được đổi tên:'
+    multipleRenamedTo: "Các ghi chú sau sẽ được đổi tên:"
     numberRenamedTo: Sẽ đổi tên $n ghi chú để tránh xung đột
-    moveName: Di chuyển $f
   deleteNote: Xóa ghi chú
   renameFolder:
     renameFolder: Đổi tên thư mục
@@ -59,9 +59,9 @@ home:
     folderNameExists: Đã tồn tại thư mục có tên này
   deleteFolder:
     deleteFolder: Xóa thư mục
+    deleteName: Xóa $f
     delete: Xóa
     alsoDeleteContents: Các ghi chú bên trong thư mục này cũng sẽ bị xóa
-    deleteName: Xóa $f
 sentry:
   consent:
     title: Đóng góp cho Saber?
@@ -88,8 +88,9 @@ settings:
     platform: Dạng hệ điều hành
     layoutSize: Bố cục
     customAccentColor: Màu chủ đạo
-    hyperlegibleFont: 'Trợ năng: Phông chữ Atkinson Hyperlegible'
+    hyperlegibleFont: "Trợ năng: Phông chữ Atkinson Hyperlegible"
     shouldCheckForUpdates: Kiểm tra phiên bản mới
+    shouldAlwaysAlertForUpdates: Cập nhật kịp thời
     allowInsecureConnections: Cho phép các kết nối không an toàn
     editorToolbarAlignment: Ví trị thanh công cụ
     editorToolbarShowInFullscreen: Hiển thị thanh công cụ trong chế độ Toàn màn hình
@@ -110,7 +111,6 @@ settings:
     simplifiedHomeLayout: Đơn giản hóa giao diện
     customDataDir: Đổi vị trí thư mục Saber
     sentry: Báo cáo lỗi
-    shouldAlwaysAlertForUpdates: Cập nhật kịp thời
   prefDescriptions:
     hyperlegibleFont: Tăng khả năng đọc cho người khiếm thị
     allowInsecureConnections: (Không khuyến nghị) Cho phép Saber kết nối với các máy chủ có chứng chỉ tự ký hoặc không đáng tin cậy
@@ -160,8 +160,8 @@ settings:
     cancel: Hủy
     select: Chọn
     mustBeEmpty: Thư mục được chọn phải là thư mục trống
-    unsupported: Tính năng hiện chỉ khả dụng cho nhà phát triển phần mềm. Dùng nó có thể dẫn đến mất mát dữ liệu.
     mustBeDoneSyncing: Hãy đảm bảo quá trình đồng bộ đã hoàn tất trước khi thay đổi thư mục
+    unsupported: Tính năng hiện chỉ khả dụng cho nhà phát triển phần mềm. Dùng nó có thể dẫn đến mất mát dữ liệu.
   autosaveDisabled: Không bao giờ
   shapeRecognitionDisabled: Không bao giờ
 logs:
@@ -183,7 +183,7 @@ login:
     almostDone: Sắp xong rồi, chạm vào màn hình để hoàn tất đăng nhập
     loggedIn: Đã đăng nhập bằng Nextcloud
   ncLoginStep:
-    whereToStoreData: 'Chọn nơi lưu trữ dữ liệu của bạn:'
+    whereToStoreData: "Chọn nơi lưu trữ dữ liệu của bạn:"
     saberNcServer: Máy chủ Nextcloud của Saber
     otherNcServer: Các máy chủ Nextcloud khác
     serverUrl: Đường dẫn máy chủ
@@ -194,7 +194,7 @@ login:
       followPrompts: Vui lòng làm theo các hướng dẫn trên giao diện Nextcloud
       browserDidntOpen: Trang đăng nhập không xuất hiện? Hãy ấn vào đây
   encLoginStep:
-    enterEncPassword: 'Để bảo vệ dữ liệu của bạn, hãy nhập mật khẩu bạn muốn sử dụng để mã hóa chúng:'
+    enterEncPassword: "Để bảo vệ dữ liệu của bạn, hãy nhập mật khẩu bạn muốn sử dụng để mã hóa chúng:"
     newToSaber: Người mới tới? Bạn chỉ cần nhập một mật khẩu mã hóa mới.
     encPassword: Mật khẩu mã hóa
     encFaqTitle: Các câu hỏi thường gặp
@@ -248,7 +248,7 @@ appInfo:
   privacyPolicyButton: Nhấn vào đây để xem chính sách quyền riêng tư
 update:
   updateAvailable: Các bản cập nhật có sẵn
-  updateAvailableDescription: 'Đã có phiên bản mới:'
+  updateAvailableDescription: "Đã có phiên bản mới:"
   update: Cập nhật
   downloadNotAvailableYet: Bản cập nhật hiện chưa có sẵn cho nền tảng của bạn. Vui lòng quay lại kiểm tra sau.
 editor:
@@ -262,7 +262,7 @@ editor:
     undo: Hoàn tác
     redo: Làm lại
     export: Xuất tệp (Ctrl Shift S)
-    exportAs: 'Xuất tệp dưới dạng:'
+    exportAs: "Xuất tệp dưới dạng:"
     fullscreen: Toàn màn hình (F11)
   pens:
     fountainPen: Bút máy
@@ -273,8 +273,16 @@ editor:
     laserPointer: Bút chỉ laser
   penOptions:
     size: Kích thước
-  needsToSaveBeforeExiting: Đang lưu... Bạn có thể rời trình chỉnh sửa khi hoàn tất
   colors:
+    colorPicker: Chọn màu
+    customBrightnessHue: Tùy chỉnh $b $h
+    customHue: Tùy chỉnh $h
+    dark: tối
+    light: sáng
+    black: Đen
+    darkGrey: Xám đen
+    grey: Xám
+    lightGrey: Xám nhạt
     white: Trắng
     red: Đỏ
     green: Xanh lá
@@ -292,22 +300,13 @@ editor:
     pastelBlue: Xanh da trời pastel
     pastelPurple: Tím pastel
     pastelPink: Hồng pastel
-    dark: tối
-    light: sáng
-    black: Đen
-    darkGrey: Xám đen
-    grey: Xám
-    lightGrey: Xám nhạt
-    colorPicker: Chọn màu
-    customBrightnessHue: Tùy chỉnh $b $h
-    customHue: Tùy chỉnh $h
   imageOptions:
     title: Các tùy chọn ảnh
+    invertible: Cho phép đảo màu
     download: Tải xuống
     setAsBackground: Đặt làm hình nền
     removeAsBackground: Gỡ bỏ hình nền
     delete: Xóa
-    invertible: Cho phép đảo màu
   selectionBar:
     delete: Xóa
     duplicate: Nhân bản
@@ -359,3 +358,4 @@ editor:
     lockAxisAlignedPan: Khóa di chuyển theo trục
   pages: Trang
   untitled: Chưa đặt tên
+  needsToSaveBeforeExiting: Đang lưu... Bạn có thể rời trình chỉnh sửa khi hoàn tất
