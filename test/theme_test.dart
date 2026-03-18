@@ -55,7 +55,7 @@ void _testTheme({
     final app = tester.widget<ExplicitlyThemedApp>(
       find.byType(ExplicitlyThemedApp),
     );
-    for (final theme in [app.theme, app.darkTheme]) {
+    for (final theme in [app.theme, ?app.darkTheme]) {
       expect(theme.platform, platform);
 
       if (hasAccent) {

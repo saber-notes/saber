@@ -4,6 +4,7 @@ import 'package:dynamic_color/dynamic_color.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_quill/flutter_quill.dart';
 import 'package:go_router/go_router.dart';
@@ -15,7 +16,7 @@ import 'package:saber/i18n/strings.g.dart';
 import 'package:window_manager/window_manager.dart';
 import 'package:yaru/yaru.dart';
 
-class DynamicMaterialApp extends StatefulWidget {
+class DynamicMaterialApp extends StatefulHookWidget {
   const DynamicMaterialApp({
     super.key,
     required this.title,
@@ -59,19 +60,10 @@ class DynamicMaterialAppState extends State<DynamicMaterialApp>
     with WindowListener {
   @override
   void initState() {
-    stows.appTheme.addListener(onChanged);
-    stows.platform.addListener(onChanged);
-    stows.accentColor.addListener(onChanged);
-    stows.hyperlegibleFont.addListener(onChanged);
-
     windowManager.addListener(this);
     SystemChrome.setSystemUIChangeCallback(_onFullscreenChange);
 
     super.initState();
-  }
-
-  void onChanged() {
-    if (mounted) setState(() {});
   }
 
   @override
@@ -93,10 +85,12 @@ class DynamicMaterialAppState extends State<DynamicMaterialApp>
 
   @override
   Widget build(BuildContext context) {
-    var chosenAccentColor = stows.accentColor.value;
+    final themeMode = useValueListenable(stows.appTheme);
+    final platform = useValueListenable(stows.platform);
+    var chosenAccentColor = useValueListenable(stows.accentColor);
     if ((chosenAccentColor?.a ?? 0) < double.minPositive)
       chosenAccentColor = null; // discard transparent accent color
-    final platform = stows.platform.value;
+    useListenable(stows.hyperlegibleFont);
 
     // Use Yaru theme, with or without [chosenAccentColor]
     if (platform == .linux) {
@@ -107,7 +101,7 @@ class DynamicMaterialAppState extends State<DynamicMaterialApp>
           return ExplicitlyThemedApp(
             title: widget.title,
             router: widget.router,
-            themeMode: stows.appTheme.value,
+            themeMode: themeMode,
             theme: themes.theme,
             darkTheme: themes.darkTheme,
             highContrastTheme: themes.highContrastTheme,
@@ -122,7 +116,7 @@ class DynamicMaterialAppState extends State<DynamicMaterialApp>
       return ExplicitlyThemedApp(
         title: widget.title,
         router: widget.router,
-        themeMode: stows.appTheme.value,
+        themeMode: themeMode,
         theme: SaberTheme.createThemeFromSeed(
           chosenAccentColor,
           .light,
@@ -142,7 +136,7 @@ class DynamicMaterialAppState extends State<DynamicMaterialApp>
         return ExplicitlyThemedApp(
           title: widget.title,
           router: widget.router,
-          themeMode: stows.appTheme.value,
+          themeMode: themeMode,
           theme: (!platform.usesYaruColors && lightColorScheme != null)
               ? SaberTheme.createTheme(lightColorScheme, platform)
               : SaberTheme.createThemeFromSeed(
@@ -164,11 +158,6 @@ class DynamicMaterialAppState extends State<DynamicMaterialApp>
 
   @override
   void dispose() {
-    stows.appTheme.removeListener(onChanged);
-    stows.platform.removeListener(onChanged);
-    stows.accentColor.removeListener(onChanged);
-    stows.hyperlegibleFont.removeListener(onChanged);
-
     windowManager.removeListener(this);
     SystemChrome.setSystemUIChangeCallback(null);
 
@@ -193,8 +182,8 @@ class ExplicitlyThemedApp extends StatelessWidget {
   final String title;
   final GoRouter router;
   final ThemeMode themeMode;
-  final ThemeData theme, darkTheme;
-  final ThemeData? highContrastTheme, highContrastDarkTheme;
+  final ThemeData theme;
+  final ThemeData? darkTheme, highContrastTheme, highContrastDarkTheme;
 
   static final _materialAppKey = GlobalKey<State<MaterialApp>>();
 
@@ -205,7 +194,9 @@ class ExplicitlyThemedApp extends StatelessWidget {
         theme.copyWith(colorScheme: theme.colorScheme.withHighContrast());
     final highContrastDarkTheme =
         this.highContrastDarkTheme ??
-        darkTheme.copyWith(colorScheme: theme.colorScheme.withHighContrast());
+        darkTheme?.copyWith(
+          colorScheme: darkTheme?.colorScheme.withHighContrast(),
+        );
 
     return MaterialApp.router(
       key: _materialAppKey,

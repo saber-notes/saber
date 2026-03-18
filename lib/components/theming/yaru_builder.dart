@@ -1,11 +1,14 @@
+import 'package:dynamic_yaru/dynamic_yaru.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:saber/components/theming/saber_theme.dart';
+import 'package:saber/data/prefs.dart';
 import 'package:yaru/yaru.dart';
 
 var _lastPrimary = Colors.transparent;
 var _closestYaruVariant = YaruVariant.orange;
 
-class YaruBuilder extends StatefulWidget {
+class YaruBuilder extends StatefulHookWidget {
   const YaruBuilder({
     super.key,
     required this.primary,
@@ -19,9 +22,9 @@ class YaruBuilder extends StatefulWidget {
     BuildContext context,
     ({
       ThemeData theme,
-      ThemeData darkTheme,
-      ThemeData highContrastTheme,
-      ThemeData highContrastDarkTheme,
+      ThemeData? darkTheme,
+      ThemeData? highContrastTheme,
+      ThemeData? highContrastDarkTheme,
     }),
   )
   builder;
@@ -72,6 +75,38 @@ class _YaruBuilderState extends State<YaruBuilder> {
 
   @override
   Widget build(BuildContext context) {
+    // Use colors from KDE theme where possible.
+    final themeMode = useValueListenable(stows.appTheme);
+    final accentColor = useValueListenable(stows.accentColor);
+    final platformBrightness = MediaQuery.platformBrightnessOf(context);
+    final dynamicYaru = useMemoized(() {
+      if (accentColor != null) return null; // user wants different accent color
+
+      final Brightness themeModeBrightness = switch (themeMode) {
+        .system => platformBrightness,
+        .light => .light,
+        .dark => .dark,
+      };
+      if (themeModeBrightness != platformBrightness) return null;
+
+      DynamicYaru.refresh();
+      final theme = DynamicYaru.getTheme();
+      if (theme == null) return null;
+
+      return SaberTheme.getThemeFromYaruFixed(theme, widget.platform);
+    }, [accentColor, themeMode, platformBrightness, widget.platform]);
+
+    if (dynamicYaru != null) {
+      return Builder(
+        builder: (context) => widget.builder(context, (
+          theme: dynamicYaru,
+          darkTheme: null,
+          highContrastTheme: null,
+          highContrastDarkTheme: null,
+        )),
+      );
+    }
+
     return YaruTheme(
       data: YaruThemeData(useMaterial3: true, variant: _closestYaruVariant),
       builder: (context, yaru, _) {

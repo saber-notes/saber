@@ -158,6 +158,9 @@ dependencies:
 
   background_downloader: ^9.2.6
 
+  flutter_hooks: ^0.21.3+1
+  dynamic_yaru: ^0.1.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -305,6 +305,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.8.1"
+  dynamic_yaru:
+    dependency: "direct main"
+    description:
+      name: dynamic_yaru
+      sha256: b748f4b20a29125108888bcd76432abd6abd77360bd444b399a7acd3b4137132
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.1.0"
   dynamite_runtime:
     dependency: transitive
     description:
@@ -435,6 +443,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_hooks:
+    dependency: "direct main"
+    description:
+      name: flutter_hooks
+      sha256: "8ae1f090e5f4ef5cfa6670ce1ab5dddadd33f3533a7f9ba19d9f958aa2a89f42"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.21.3+1"
   flutter_keyboard_visibility_linux:
     dependency: transitive
     description:
@@ -727,6 +743,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.5.4"
+  ini:
+    dependency: transitive
+    description:
+      name: ini
+      sha256: "12a76c53591ffdf86d1265be3f986888a6dfeb34a85957774bc65912d989a173"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.1.0"
   injector:
     dependency: transitive
     description:
@@ -2096,5 +2120,5 @@ packages:
     source: hosted
     version: "0.0.4"
 sdks:
-  dart: ">=3.10.3 <4.0.0"
+  dart: ">=3.11.0 <4.0.0"
   flutter: ">=3.41.0"

@@ -90,9 +90,16 @@ abstract class SaberTheme {
     final base = highContrast
         ? (brightness == .light ? yaruHighContrastLight : yaruHighContrastDark)
         : (brightness == .light ? yaru.theme : yaru.darkTheme);
+    return getThemeFromYaruFixed(base, platform);
+  }
+
+  static ThemeData getThemeFromYaruFixed(
+    ThemeData base,
+    TargetPlatform platform,
+  ) {
     return base.copyWith(
       platform: platform,
-      textTheme: _Components.textTheme(brightness),
+      textTheme: _Components.textTheme(base.brightness),
       progressIndicatorTheme: _Components.progressIndicatorTheme,
       cardTheme: _Components.cardTheme(base.colorScheme),
       cupertinoOverrideTheme: _Components.cupertinoOverrideTheme,
