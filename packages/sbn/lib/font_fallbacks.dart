@@ -51,7 +51,7 @@ const saberHandwritingFontFallbacks = [
 extension TextThemeExtension on TextTheme {
   TextTheme withFont({
     required String? fontFamily,
-    required List<String>? fontFamilyFallback,
+    List<String>? fontFamilyFallback,
   }) => copyWith(
     displayLarge: displayLarge?.copyWith(
       fontFamily: fontFamily,

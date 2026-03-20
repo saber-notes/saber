@@ -71,7 +71,7 @@ void _testTheme({
           ? 'AtkinsonHyperlegibleNext'
           : switch (platform) {
               .iOS => RegExp('CupertinoSystem(Display|Text)'),
-              .linux => 'packages/yaru/Ubuntu',
+              .linux => 'Adwaita Sans',
               .macOS => '.AppleSystemUIFont',
               .windows => 'Segoe UI',
               _ => 'Roboto',

@@ -15,7 +15,7 @@ abstract class SaberTheme {
     return ThemeData(
       useMaterial3: true,
       colorScheme: colorScheme,
-      textTheme: _Components.textTheme(colorScheme.brightness),
+      textTheme: _Components.textTheme(platform, colorScheme),
       platform: platform,
       progressIndicatorTheme: _Components.progressIndicatorTheme,
       cardColor: colorScheme.surface,
@@ -99,7 +99,7 @@ abstract class SaberTheme {
   ) {
     return base.copyWith(
       platform: platform,
-      textTheme: _Components.textTheme(base.brightness),
+      textTheme: _Components.textTheme(platform, base.colorScheme),
       progressIndicatorTheme: _Components.progressIndicatorTheme,
       cardTheme: _Components.cardTheme(base.colorScheme),
       cupertinoOverrideTheme: _Components.cupertinoOverrideTheme,
@@ -110,14 +110,25 @@ abstract class SaberTheme {
 }
 
 abstract class _Components {
-  static TextTheme? textTheme(Brightness brightness) {
+  static TextTheme textTheme(TargetPlatform platform, ColorScheme colorScheme) {
+    final typography = Typography.material2021(
+      platform: platform,
+      colorScheme: colorScheme,
+    );
+    final textTheme = colorScheme.brightness == .dark
+        ? typography.white
+        : typography.black;
+
     if (stows.hyperlegibleFont.value) {
-      return ThemeData(brightness: brightness).textTheme.withFont(
+      return textTheme.withFont(
         fontFamily: 'AtkinsonHyperlegibleNext',
         fontFamilyFallback: saberSansSerifFontFallbacks,
       );
+    } else if (platform == .linux) {
+      // Flutter picks Roboto but Adwaita Sans is a better default
+      return textTheme.withFont(fontFamily: 'Adwaita Sans');
     } else {
-      return null;
+      return textTheme;
     }
   }
 
