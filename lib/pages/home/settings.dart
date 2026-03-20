@@ -22,6 +22,7 @@ import 'package:saber/components/settings/update_manager.dart';
 import 'package:saber/components/theming/adaptive_alert_dialog.dart';
 import 'package:saber/components/theming/adaptive_toggle_buttons.dart';
 import 'package:saber/components/theming/saber_theme.dart';
+import 'package:saber/components/theming/uni_icon.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/flavor_config.dart';
 import 'package:saber/data/is_this_a_test.dart';
@@ -147,7 +148,7 @@ class _SettingsPageState extends State<SettingsPage> {
 
     final requiresManualUpdates = FlavorConfig.appStore.isEmpty;
 
-    final IconData materialIcon = switch (defaultTargetPlatform) {
+    final materialIcon = switch (defaultTargetPlatform) {
       .windows => FontAwesomeIcons.windows,
       _ => Icons.android,
     };
@@ -263,7 +264,7 @@ class _SettingsPageState extends State<SettingsPage> {
                       if (usesMaterialByDefault)
                         return defaultTargetPlatform.index;
                       return TargetPlatform.android.index;
-                    }(), Icon(materialIcon, semanticLabel: 'Material')),
+                    }(), UniIcon(materialIcon, semanticLabel: 'Material')),
                     ToggleButtonsOption(() {
                       // Hack to allow screenshot golden tests
                       if (kDebugMode && stows.platform.value.isCupertino)
@@ -278,7 +279,7 @@ class _SettingsPageState extends State<SettingsPage> {
                           return defaultTargetPlatform.index;
                         return TargetPlatform.linux.index;
                       }(),
-                      const Icon(
+                      const UniIcon(
                         FontAwesomeIcons.ubuntu,
                         semanticLabel: 'Yaru',
                       ),

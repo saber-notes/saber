@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:saber/components/theming/adaptive_switch_list_tile.dart';
+import 'package:saber/components/theming/uni_icon.dart';
 import 'package:saber/pages/home/settings.dart';
 import 'package:stow/stow.dart';
 
@@ -19,8 +20,8 @@ class SettingsSwitch extends StatefulWidget {
 
   final String title;
   final String? subtitle;
-  final IconData? icon;
-  final IconData? Function(bool)? iconBuilder;
+  final Object? icon;
+  final Object? Function(bool)? iconBuilder;
 
   final Stow<dynamic, bool, dynamic> pref;
   final ValueChanged<bool>? afterChange;
@@ -43,7 +44,7 @@ class _SettingsSwitchState extends State<SettingsSwitch> {
 
   @override
   Widget build(BuildContext context) {
-    IconData? icon = widget.icon;
+    var icon = widget.icon;
     icon ??= widget.iconBuilder?.call(widget.pref.value);
     icon ??= Icons.settings;
 
@@ -59,7 +60,7 @@ class _SettingsSwitchState extends State<SettingsSwitch> {
         contentPadding: const .symmetric(vertical: 4, horizontal: 16),
         secondary: AnimatedSwitcher(
           duration: const Duration(milliseconds: 100),
-          child: Icon(icon, key: ValueKey(icon)),
+          child: UniIcon(icon, key: ValueKey(icon)),
         ),
         title: Text(
           widget.title,

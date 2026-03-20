@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 import 'package:golden_screenshot/golden_screenshot.dart';
 import 'package:saber/components/navbar/horizontal_navbar.dart';
 import 'package:saber/components/theming/saber_theme.dart';
+import 'package:saber/components/theming/uni_icon.dart';
 import 'package:saber/data/flavor_config.dart';
 
 void main() {
@@ -120,15 +122,17 @@ class _TestTile extends StatelessWidget {
                     child: GlassyContainer(
                       child: AspectRatio(
                         aspectRatio: 1.2,
-                        child: Icon(
-                          switch (platform) {
-                            .iOS || .macOS => Icons.apple,
-                            .android || .fuchsia => Icons.android,
-                            .linux => FontAwesomeIcons.linux,
-                            .windows => FontAwesomeIcons.windows,
-                          },
-                          size: 24,
-                          color: theme.colorScheme.onSurface,
+                        child: Center(
+                          child: UniIcon(
+                            switch (platform) {
+                              .iOS || .macOS => Icons.apple,
+                              .android || .fuchsia => Icons.android,
+                              .linux => FontAwesomeIcons.linux,
+                              .windows => FontAwesomeIcons.windows,
+                            },
+                            size: 24,
+                            color: theme.colorScheme.onSurface,
+                          ),
                         ),
                       ),
                     ),

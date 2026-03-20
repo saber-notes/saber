@@ -1,8 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:saber/components/settings/settings_dropdown.dart';
 import 'package:saber/components/theming/adaptive_toggle_buttons.dart';
+import 'package:saber/components/theming/uni_icon.dart';
 import 'package:saber/pages/home/settings.dart';
 import 'package:stow/stow.dart';
 
@@ -25,8 +25,8 @@ class SettingsSelection<T extends num> extends StatefulWidget {
 
   final String title;
   final String? subtitle;
-  final IconData? icon;
-  final IconData? Function(T)? iconBuilder;
+  final Object? icon;
+  final Object? Function(T)? iconBuilder;
 
   final Stow<dynamic, T, dynamic> pref;
   final List<ToggleButtonsOption<T>> options;
@@ -67,10 +67,6 @@ class _SettingsSelectionState<T extends num>
       widget.pref.value = widget.options.first.value;
     }
 
-    IconData? icon = widget.icon;
-    icon ??= widget.iconBuilder?.call(widget.pref.value);
-    icon ??= Icons.settings;
-
     final expSelectionWidth = widget.options.length * widget.optionsWidth;
     final useDropdownInstead =
         MediaQuery.sizeOf(context).width * 0.48 < expSelectionWidth;
@@ -86,6 +82,10 @@ class _SettingsSelectionState<T extends num>
         afterChange: widget.afterChange,
       );
     }
+
+    var icon = widget.icon;
+    icon ??= widget.iconBuilder?.call(widget.pref.value);
+    icon ??= Icons.settings;
 
     return ListTile(
       onTap: () {
@@ -106,7 +106,7 @@ class _SettingsSelectionState<T extends num>
       contentPadding: const .symmetric(vertical: 4, horizontal: 16),
       leading: AnimatedSwitcher(
         duration: const Duration(milliseconds: 100),
-        child: FaIcon(icon, key: ValueKey(icon)),
+        child: UniIcon(icon, key: ValueKey(icon)),
       ),
       title: Text(
         widget.title,
