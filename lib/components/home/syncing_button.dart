@@ -169,7 +169,6 @@ class _AnimatedCircularProgressIndicatorState
     }
     return CircularProgressIndicator(
       semanticsLabel: 'Syncing progress',
-      semanticsValue: '${(percentage ?? 0) * 100}%',
       value: percentage,
     );
   }
