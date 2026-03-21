@@ -53,65 +53,104 @@ extension TextThemeExtension on TextTheme {
     required String? fontFamily,
     List<String>? fontFamilyFallback,
   }) => copyWith(
-    displayLarge: displayLarge?.copyWith(
+    displayLarge: displayLarge?.withFont(
       fontFamily: fontFamily,
       fontFamilyFallback: fontFamilyFallback,
     ),
-    displayMedium: displayMedium?.copyWith(
+    displayMedium: displayMedium?.withFont(
       fontFamily: fontFamily,
       fontFamilyFallback: fontFamilyFallback,
     ),
-    displaySmall: displaySmall?.copyWith(
+    displaySmall: displaySmall?.withFont(
       fontFamily: fontFamily,
       fontFamilyFallback: fontFamilyFallback,
     ),
-    headlineLarge: headlineLarge?.copyWith(
+    headlineLarge: headlineLarge?.withFont(
       fontFamily: fontFamily,
       fontFamilyFallback: fontFamilyFallback,
     ),
-    headlineMedium: headlineMedium?.copyWith(
+    headlineMedium: headlineMedium?.withFont(
       fontFamily: fontFamily,
       fontFamilyFallback: fontFamilyFallback,
     ),
-    headlineSmall: headlineSmall?.copyWith(
+    headlineSmall: headlineSmall?.withFont(
       fontFamily: fontFamily,
       fontFamilyFallback: fontFamilyFallback,
     ),
-    titleLarge: titleLarge?.copyWith(
+    titleLarge: titleLarge?.withFont(
       fontFamily: fontFamily,
       fontFamilyFallback: fontFamilyFallback,
     ),
-    titleMedium: titleMedium?.copyWith(
+    titleMedium: titleMedium?.withFont(
       fontFamily: fontFamily,
       fontFamilyFallback: fontFamilyFallback,
     ),
-    titleSmall: titleSmall?.copyWith(
+    titleSmall: titleSmall?.withFont(
       fontFamily: fontFamily,
       fontFamilyFallback: fontFamilyFallback,
     ),
-    bodyLarge: bodyLarge?.copyWith(
+    bodyLarge: bodyLarge?.withFont(
       fontFamily: fontFamily,
       fontFamilyFallback: fontFamilyFallback,
     ),
-    bodyMedium: bodyMedium?.copyWith(
+    bodyMedium: bodyMedium?.withFont(
       fontFamily: fontFamily,
       fontFamilyFallback: fontFamilyFallback,
     ),
-    bodySmall: bodySmall?.copyWith(
+    bodySmall: bodySmall?.withFont(
       fontFamily: fontFamily,
       fontFamilyFallback: fontFamilyFallback,
     ),
-    labelLarge: labelLarge?.copyWith(
+    labelLarge: labelLarge?.withFont(
       fontFamily: fontFamily,
       fontFamilyFallback: fontFamilyFallback,
     ),
-    labelMedium: labelMedium?.copyWith(
+    labelMedium: labelMedium?.withFont(
       fontFamily: fontFamily,
       fontFamilyFallback: fontFamilyFallback,
     ),
-    labelSmall: labelSmall?.copyWith(
+    labelSmall: labelSmall?.withFont(
       fontFamily: fontFamily,
       fontFamilyFallback: fontFamilyFallback,
     ),
+  );
+}
+
+extension TextStyleExtension on TextStyle {
+  /// Overrides the font family of this text style.
+  ///
+  /// This method is needed because [copyWith] does not allow setting
+  /// [package] to null, which is problematic when changing from
+  /// `packages/yaru/Ubuntu` to a non-yaru font,
+  TextStyle withFont({
+    required String? fontFamily,
+    List<String>? fontFamilyFallback,
+  }) => TextStyle(
+    inherit: inherit,
+    color: color,
+    backgroundColor: backgroundColor,
+    fontSize: fontSize,
+    fontWeight: fontWeight,
+    fontStyle: fontStyle,
+    letterSpacing: letterSpacing,
+    wordSpacing: wordSpacing,
+    textBaseline: textBaseline,
+    height: height,
+    leadingDistribution: leadingDistribution,
+    locale: locale,
+    foreground: foreground,
+    background: background,
+    shadows: shadows,
+    fontFeatures: fontFeatures,
+    fontVariations: fontVariations,
+    decoration: decoration,
+    decorationColor: decorationColor,
+    decorationStyle: decorationStyle,
+    decorationThickness: decorationThickness,
+    debugLabel: debugLabel,
+    fontFamily: fontFamily ?? this.fontFamily,
+    fontFamilyFallback: fontFamilyFallback ?? this.fontFamilyFallback,
+    package: null,
+    overflow: overflow,
   );
 }

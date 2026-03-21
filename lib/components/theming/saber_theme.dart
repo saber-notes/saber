@@ -97,12 +97,33 @@ abstract class SaberTheme {
     ThemeData base,
     TargetPlatform platform,
   ) {
+    final textTheme = _Components.textTheme(platform, base.colorScheme);
+    final fontFamily = textTheme.bodyMedium!.fontFamily;
+    final fontFamilyFallback = textTheme.bodyMedium!.fontFamilyFallback;
     return base.copyWith(
       platform: platform,
-      textTheme: _Components.textTheme(platform, base.colorScheme),
+      textTheme: textTheme,
       progressIndicatorTheme: _Components.progressIndicatorTheme,
       cardTheme: _Components.cardTheme(base.colorScheme),
       cupertinoOverrideTheme: _Components.cupertinoOverrideTheme,
+      listTileTheme: base.listTileTheme.copyWith(
+        // Yaru forces list tiles to use Ubuntu font, fix that
+        titleTextStyle: base.listTileTheme.titleTextStyle?.withFont(
+          fontFamily: fontFamily,
+          fontFamilyFallback: fontFamilyFallback,
+        ),
+        subtitleTextStyle: base.listTileTheme.subtitleTextStyle?.withFont(
+          fontFamily: fontFamily,
+          fontFamilyFallback: fontFamilyFallback,
+        ),
+        leadingAndTrailingTextStyle: base
+            .listTileTheme
+            .leadingAndTrailingTextStyle
+            ?.withFont(
+              fontFamily: fontFamily,
+              fontFamilyFallback: fontFamilyFallback,
+            ),
+      ),
       // Leave Yaru's app bar theme, since it adds a border bottom.
       // appBarTheme: _Components.appBarTheme,
     );
