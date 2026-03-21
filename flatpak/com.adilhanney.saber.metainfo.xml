@@ -214,6 +214,7 @@
             <image xml:lang="sl">https://raw.githubusercontent.com/saber-notes/saber/main/metadata/sl/images/flathubScreenshots/1_home.png</image>
             <image xml:lang="th">https://raw.githubusercontent.com/saber-notes/saber/main/metadata/th/images/flathubScreenshots/1_home.png</image>
             <image xml:lang="tr">https://raw.githubusercontent.com/saber-notes/saber/main/metadata/tr/images/flathubScreenshots/1_home.png</image>
+            <image xml:lang="vi">https://raw.githubusercontent.com/saber-notes/saber/main/metadata/vi/images/flathubScreenshots/1_home.png</image>
         </screenshot>
         <screenshot>
             <caption>The editor showing maths notes about metric spaces</caption>
@@ -233,6 +234,7 @@
             <image xml:lang="sl">https://raw.githubusercontent.com/saber-notes/saber/main/metadata/sl/images/flathubScreenshots/2_editor.png</image>
             <image xml:lang="th">https://raw.githubusercontent.com/saber-notes/saber/main/metadata/th/images/flathubScreenshots/2_editor.png</image>
             <image xml:lang="tr">https://raw.githubusercontent.com/saber-notes/saber/main/metadata/tr/images/flathubScreenshots/2_editor.png</image>
+            <image xml:lang="vi">https://raw.githubusercontent.com/saber-notes/saber/main/metadata/vi/images/flathubScreenshots/2_editor.png</image>
         </screenshot>
         <screenshot>
             <caption>The login page which asks which Nextcloud server you want to use</caption>
@@ -252,6 +254,7 @@
             <image xml:lang="sl">https://raw.githubusercontent.com/saber-notes/saber/main/metadata/sl/images/flathubScreenshots/3_login.png</image>
             <image xml:lang="th">https://raw.githubusercontent.com/saber-notes/saber/main/metadata/th/images/flathubScreenshots/3_login.png</image>
             <image xml:lang="tr">https://raw.githubusercontent.com/saber-notes/saber/main/metadata/tr/images/flathubScreenshots/3_login.png</image>
+            <image xml:lang="vi">https://raw.githubusercontent.com/saber-notes/saber/main/metadata/vi/images/flathubScreenshots/3_login.png</image>
         </screenshot>
         <screenshot>
             <caption>The settings page showing that the user is now logged in</caption>
@@ -271,6 +274,7 @@
             <image xml:lang="sl">https://raw.githubusercontent.com/saber-notes/saber/main/metadata/sl/images/flathubScreenshots/4_settings.png</image>
             <image xml:lang="th">https://raw.githubusercontent.com/saber-notes/saber/main/metadata/th/images/flathubScreenshots/4_settings.png</image>
             <image xml:lang="tr">https://raw.githubusercontent.com/saber-notes/saber/main/metadata/tr/images/flathubScreenshots/4_settings.png</image>
+            <image xml:lang="vi">https://raw.githubusercontent.com/saber-notes/saber/main/metadata/vi/images/flathubScreenshots/4_settings.png</image>
         </screenshot>
     </screenshots>
 
