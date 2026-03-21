@@ -1,0 +1,2 @@
+• Zvýšená přesnost invertního filtru
+• Přidán překlad do vietnamštiny

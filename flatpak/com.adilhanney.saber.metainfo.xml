@@ -275,6 +275,15 @@
     </screenshots>
 
     <releases>
+        <release version="1.32.0" type="development" date="2026-03-21">
+            <description>
+                <ul>
+                    <li>Saber now uses colors from your KDE/COSMIC theme on Linux</li>
+                    <li>Increased precision of inverting filter</li>
+                    <li>Added a Vietnamese translation</li>
+                </ul>
+            </description>
+        </release>
         <release version="1.31.1" type="development" date="2026-02-16">
             <description>
                 <ul>

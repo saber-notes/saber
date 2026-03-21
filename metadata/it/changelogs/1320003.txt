@@ -1,0 +1,2 @@
+• Maggiore precisione del filtro invertente
+• Aggiunta una traduzione vietnamita

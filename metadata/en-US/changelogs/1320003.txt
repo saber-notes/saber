@@ -1,0 +1,2 @@
+• Increased precision of inverting filter
+• Added a Vietnamese translation
