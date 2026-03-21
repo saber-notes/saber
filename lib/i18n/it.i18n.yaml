@@ -64,9 +64,9 @@ home:
     alsoDeleteContents: Elimina anche tutte le note all'interno di questa cartella
 sentry:
   consent:
-    title: Vuoi aiutaci a migliorare Saber?
+    title: Vuoi aiutarci a migliorare Saber?
     description:
-      question: Vuoi segnalare automaticamente gli errori imprevisti? Questo mi aiuta a identificare e risolvere problemi più velocemente.
+      question: Vuoi segnalare automaticamente gli errori imprevisti? Questo mi aiuta a identificare e risolvere i problemi più velocemente.
       scope: I resoconti potrebbero contenere informazioni sull'errore e sul tuo dispositivo. Ho fatto il possibile per rimuovere dati personali, ma alcuni potrebbero rimanere.
       currentlyOff: Se acconsenti, la segnalazione degli errori verrà abilitata dopo il riavvio dell'app.
       currentlyOn: Se revochi il consenso, riavvia l'app per disattivare la segnalazione degli errori.
@@ -86,7 +86,7 @@ settings:
     locale: Lingua
     appTheme: Tema dell'app
     platform: Tipo di tema
-    layoutSize: Dimensione layout
+    layoutSize: Dimensione del layout
     customAccentColor: Colore personalizzato
     hyperlegibleFont: Font Atkinson Hyperlegible
     shouldCheckForUpdates: Controlla automaticamente gli aggiornamenti di Saber
@@ -115,19 +115,19 @@ settings:
     hyperlegibleFont: Migliora la leggibilità per i lettori ipovedenti
     allowInsecureConnections: (Non consigliato) Consenti a Saber di connettersi ai server con certificati autofirmati/non attendibili
     preferGreyscale: Per display e-ink
-    autoClearWhiteboardOnExit: Pulisce la lavagna dopo la chiusura dell'app
+    autoClearWhiteboardOnExit: Pulisce la lavagna alla chiusura dell'app
     disableEraserAfterUse: Torna automaticamente alla penna dopo aver utilizzato la gomma
     maxImageSize: Le immagini più grandi verranno compresse
     hideFingerDrawing:
       shown: Impedisce l'attivazione accidentale
-      fixedOn: Il disegno con le dita è fissato come abilitato
-      fixedOff: Il disegno con le dita è fisso come disabilitato
+      fixedOn: Il disegno con le dita è sempre abilitato
+      fixedOff: Il disegno con le dita è sempre disabilitato
     autoDisableFingerDrawingWhenStylusDetected: Disattiva il disegno con le dita quando viene rilevata una penna
     editorPromptRename: Puoi sempre rinominare le note successivamente
     printPageIndicators: Mostra indicatori di pagina nelle esportazioni
     autosave: Salvataggio automatico dopo un breve ritardo, oppure mai
     shapeRecognitionDelay: Quanto spesso aggiornare l'anteprima della forma
-    autoStraightenLines: Raddrizza le linee lunghe senza dover utilizzare la penna sagomatrice
+    autoStraightenLines: Raddrizza le linee lunghe senza dover utilizzare la penna per le forme
     simplifiedHomeLayout: Imposta un'altezza fissa per ogni anteprima della nota
     shouldAlwaysAlertForUpdates: Segnalami gli aggiornamenti non appena sono disponibili
     sentry:
@@ -145,7 +145,7 @@ settings:
     tablet: Tablet
   accentColorPicker:
     pickAColor: Scegli un colore
-  systemLanguage: Lingua del sistema
+  systemLanguage: Lingua di sistema
   axisDirections:
   - Sopra
   - Destra
@@ -173,7 +173,7 @@ logs:
 login:
   title: Accesso
   form:
-    agreeToPrivacyPolicy(rich): Effettuando l'accesso, accetti la ${linkToPrivacyPolicy(Informativa sulla privacy)}.
+    agreeToPrivacyPolicy(rich): Effettuando l'accesso, accetti l'${linkToPrivacyPolicy(Informativa sulla privacy)}.
   signup(rich): Non hai ancora un account? ${linkToSignup(Registrati ora)}!
   notYou(rich): Non sei tu? ${undoLogin(Scegli un altro account)}.
   status:
@@ -206,16 +206,16 @@ login:
         La password Nextcloud viene utilizzata per accedere al cloud. La password di cifratura "rimescola" i tuoi dati prima che raggiungano il cloud.
          Anche se qualcuno riesce ad accedere al tuo account Nextcloud, le tue note rimarranno al sicuro e criptate con una password separata. Ciò fornisce un secondo livello di sicurezza per proteggere i tuoi dati.
          Nessuno può accedere alle tue note sul server senza la tua password di cifratura, ma ciò significa anche che se dimentichi la tua password di cifratura, perderai l'accesso ai tuoi dati.
-    - q: Non ho ancora impostato una password di cifratura. Dove lo posso ottenere?
+    - q: Non ho ancora impostato una password di cifratura. Come posso ottenerla?
       a: |-
         Scegli una nuova password di cifratura e inseriscila sopra.
         Saber genererà automaticamente le chiavi di cifratura da questa password.
     - q: Posso utilizzare la stessa password del mio account Nextcloud?
-      a: Sì, ma tieni presente che sarebbe più semplice per l'amministratore del server o qualcun altro accedere alle tue note se accedessero al tuo account Nextcloud.
+      a: Sì, ma tieni presente che sarebbe più semplice per l'amministratore del server o per qualcun altro accedere alle tue note se avessero accesso al tuo account Nextcloud.
 profile:
   title: Il mio profilo
   logout: Disconnessione
-  quotaUsage: Stai usando $used di $total ($percent%)
+  quotaUsage: Stai usando $used su $total ($percent%)
   connectedTo: Collegato a
   quickLinks:
     serverHomepage: Homepage del server
@@ -223,13 +223,13 @@ profile:
   faqTitle: Domande frequenti
   faq:
   - q: Perderò le mie note se mi disconnetto?
-    a: No. Le tue note rimarranno sia sul tuo dispositivo che sul server. Non verranno sincronizzate con il server finchè non effettuerai nuovamente l'accesso. Assicurati che la sincronizzazione sia completata prima di disconnetteri in modo da non perdere alcun dato (vedi l'avanzamento della sincronizzazione nella schermata home).
+    a: No. Le tue note rimarranno sia sul tuo dispositivo che sul server. Non verranno sincronizzate con il server finché non effettuerai nuovamente l'accesso. Assicurati che la sincronizzazione sia completata prima di disconnetterti in modo da non perdere alcun dato (vedi l'avanzamento della sincronizzazione nella schermata home).
   - q: Come cambio la mia password Nextcloud?
     a: Vai al sito web del tuo server e accedi. Quindi vai in Impostazioni > Sicurezza > Cambia password. Dovrai disconnetterti e riconnetterti a Saber dopo aver cambiato la tua password.
   - q: Come cambio la mia password di cifratura?
     a: |-
       0. Assicurati che la sincronizzazione sia completata (vedi l'avanzamento della sincronizzazione nella schermata home).
-      1. Disconnettersi da Saber. 
+      1. Disconnettiti da Saber. 
       2. Vai al sito Web del tuo server ed elimina la cartella "Saber". Questo eliminerà tutte le tue note dal server.
       3. Accedi nuovamente a Saber. Puoi scegliere una nuova password di cifratura quando accedi.
       4. Non dimenticare di disconnetterti e accedere nuovamente a Saber anche sugli altri tuoi dispositivi.
@@ -254,7 +254,7 @@ update:
 editor:
   toolbar:
     toggleColors: Attiva/disattiva i colori (Ctrl C)
-    select: Selezione
+    select: Seleziona
     toggleEraser: Attiva/disattiva gomma (Ctrl E)
     photo: Immagini
     text: Testo
@@ -309,7 +309,7 @@ editor:
     delete: Elimina
   selectionBar:
     delete: Elimina
-    duplicate: Duplicare
+    duplicate: Duplica
   menu:
     clearPage: Pulisci pagina $page/$totalPages
     clearAllPages: Pulisci tutte le pagine
@@ -319,16 +319,16 @@ editor:
     lineHeight: Altezza delle linee
     lineHeightDescription: Regola anche la dimensione del testo per le note digitate
     lineThickness: Spessore delle linee
-    lineThicknessDescription: Spessore della linee dello sfondo
+    lineThicknessDescription: Spessore delle linee dello sfondo
     backgroundImageFit: Adattamento immagine di sfondo
     backgroundPattern: Modello dello sfondo
     import: Importa
     watchServer: Controlla gli aggiornamenti sul server
-    watchServerReadOnly: La modifica è disabilitata mentre si guarda il server
+    watchServerReadOnly: La modifica è disabilitata mentre si controlla il server
     boxFits:
-      fill: Tratto
-      cover: Copertina
-      contain: Contiene
+      fill: Riempi
+      cover: Copri
+      contain: Adatta
     bgPatterns:
       none: Vuoto
       college: Righe (margine sinistro)
@@ -353,9 +353,9 @@ editor:
     unlockZoom: Sblocca zoom
     lockZoom: Blocca zoom
     unlockSingleFingerPan: Attiva la panoramica con un solo dito
-    lockSingleFingerPan: Disabilita la panoramica con un solo dito
+    lockSingleFingerPan: Blocca la panoramica con un solo dito
     unlockAxisAlignedPan: Sblocca la panoramica orizzontale o verticale
-    lockAxisAlignedPan: Blocca la panoramica su orizzontale o verticale
+    lockAxisAlignedPan: Blocca la panoramica in orizzontale o verticale
   pages: Pagine
   untitled: Senza titolo
   needsToSaveBeforeExiting: Salvataggio delle modifiche... Puoi tranquillamente uscire dall'editor una volta completato
