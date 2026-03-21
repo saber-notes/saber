@@ -1,7 +1,7 @@
 common:
   done: Fatto
   continueBtn: Continua
-  cancel: Cancella
+  cancel: Annulla
 home:
   tabs:
     home: Home
@@ -21,7 +21,7 @@ home:
     newNote: Nuova nota
     importNote: Importa nota
   welcome: Benvenuto su Saber
-  invalidFormat: Il file selezionato non è supportato. Seleziona un file .sbn, .sbn2, .sba o .pdf.
+  invalidFormat: Il file selezionato non è supportato. Seleziona un file sbn, sbn2, sba o pdf.
   noFiles: Nessun file trovato
   noPreviewAvailable: Nessuna anteprima disponibile
   createNewNote: Tocca il pulsante + per creare una nuova nota
@@ -31,7 +31,7 @@ home:
     folderName: Nome cartella
     create: Crea
     folderNameEmpty: Il nome della cartella non può essere vuoto
-    folderNameContainsSlash: Il nome della cartella non può contenere una barra
+    folderNameContainsSlash: Il nome della cartella non può contenere il carattere "barra"
     folderNameExists: La cartella esiste già
   renameNote:
     renameNote: Rinomina nota
@@ -46,16 +46,16 @@ home:
     moveNotes: Sposta $n note
     moveName: Sposta $f
     move: Sposta
-    renamedTo: La nota verrà rinominata in $newName
+    renamedTo: La nota verrà rinominata $newName
     multipleRenamedTo: "Le note seguenti verranno rinominate:"
-    numberRenamedTo: $n le note verranno rinominate per evitare conflitti
+    numberRenamedTo: $n note verranno rinominate per evitare conflitti
   deleteNote: Elimina nota
   renameFolder:
     renameFolder: Rinomina cartella
     folderName: Nome cartella
     rename: Rinomina
     folderNameEmpty: Il nome della cartella non può essere vuoto
-    folderNameContainsSlash: Il nome della cartella non può contenere una barra
+    folderNameContainsSlash: Il nome della cartella non può contenere il carattere "barra"
     folderNameExists: Esiste già una cartella con questo nome
   deleteFolder:
     deleteFolder: Elimina cartella
@@ -66,70 +66,70 @@ sentry:
   consent:
     title: Vuoi aiutaci a migliorare Saber?
     description:
-      question: Vuoi segnalare automaticamente gli errori imprevisti? Questo mi aiuta a identificare e risolvere i problemi più velocemente.
-      scope: I report potrebbero contenere informazioni sull'errore e sul tuo dispositivo. Ho fatto tutto il possibile per filtrare i dati personali, ma alcuni potrebbero rimanere.
+      question: Vuoi segnalare automaticamente gli errori imprevisti? Questo mi aiuta a identificare e risolvere problemi più velocemente.
+      scope: I resoconti potrebbero contenere informazioni sull'errore e sul tuo dispositivo. Ho fatto il possibile per rimuovere dati personali, ma alcuni potrebbero rimanere.
       currentlyOff: Se acconsenti, la segnalazione degli errori verrà abilitata dopo il riavvio dell'app.
       currentlyOn: Se revochi il consenso, riavvia l'app per disattivare la segnalazione degli errori.
       learnMoreInPrivacyPolicy(rich): Scopri di più in ${link(privacy policy)}.
     answers:
-      yes: Yes
+      yes: Sì
       no: No
       later: Chiedimelo più tardi
 settings:
   prefCategories:
-    general: Generale
+    general: Generali
     writing: Scrittura
     editor: Editor
     performance: Prestazioni
-    advanced: Avanzato
+    advanced: Avanzate
   prefLabels:
-    locale: Lingua app
+    locale: Lingua
     appTheme: Tema dell'app
     platform: Tipo di tema
     layoutSize: Dimensione layout
     customAccentColor: Colore personalizzato
-    hyperlegibleFont: Carattere iperleggibile
+    hyperlegibleFont: Font Atkinson Hyperlegible
     shouldCheckForUpdates: Controlla automaticamente gli aggiornamenti di Saber
-    shouldAlwaysAlertForUpdates: Aggiornamenti veloci
+    shouldAlwaysAlertForUpdates: Aggiornamenti precoci
     allowInsecureConnections: Consenti connessioni non sicure
-    editorToolbarAlignment: Allineamento della barra degli strumenti dell'editor
-    editorToolbarShowInFullscreen: Mostra la barra degli strumenti dell'editor in modalità a schermo intero
+    editorToolbarAlignment: Posizione barra degli strumenti
+    editorToolbarShowInFullscreen: Mostra la barra degli strumenti in modalità a schermo intero
     editorAutoInvert: Inverti le note in modalità scura
     preferGreyscale: Preferisci i colori in scala di grigi
     maxImageSize: Dimensione massima dell'immagine
-    autoClearWhiteboardOnExit: Svuota la lavagna dopo essere uscito dall'app
+    autoClearWhiteboardOnExit: Pulisci automaticamente la lavagna
     disableEraserAfterUse: Disattiva automaticamente la gomma
     hideFingerDrawingToggle: Nascondi l'interruttore del disegno con le dita
     autoDisableFingerDrawingWhenStylusDetected: Disattiva automaticamente il disegno con le dita
-    editorPromptRename: Richiede di rinominare nuove note
+    editorPromptRename: Rinomina le nuove note
     recentColorsDontSavePresets: Non salvare i colori preimpostati nei colori recenti
     recentColorsLength: Quanti colori recenti memorizzare
     printPageIndicators: Stampa indicatori di pagina
     autosave: Salvataggio automatico
     shapeRecognitionDelay: Ritardo nel riconoscimento della forma
     autoStraightenLines: Raddrizzamento automatico delle linee
-    simplifiedHomeLayout: Layout semplificato della home
+    simplifiedHomeLayout: Layout semplificato della schermata home
     customDataDir: Cartella Saber personalizzata
     sentry: Segnalazione di errori
   prefDescriptions:
-    hyperlegibleFont: Atkinson Iperleggibile aumenta la leggibilità per i lettori ipovedenti
+    hyperlegibleFont: Migliora la leggibilità per i lettori ipovedenti
     allowInsecureConnections: (Non consigliato) Consenti a Saber di connettersi ai server con certificati autofirmati/non attendibili
     preferGreyscale: Per display e-ink
-    autoClearWhiteboardOnExit: Sarà comunque sincronizzato con gli altri tuoi dispositivi
+    autoClearWhiteboardOnExit: Pulisce la lavagna dopo la chiusura dell'app
     disableEraserAfterUse: Torna automaticamente alla penna dopo aver utilizzato la gomma
     maxImageSize: Le immagini più grandi verranno compresse
     hideFingerDrawing:
       shown: Impedisce l'attivazione accidentale
       fixedOn: Il disegno con le dita è fissato come abilitato
       fixedOff: Il disegno con le dita è fisso come disabilitato
-    autoDisableFingerDrawingWhenStylusDetected: Disattiva il disegno con le dita quando viene rilevato la stilo
-    editorPromptRename: Puoi sempre rinominare le note in un secondo momento
+    autoDisableFingerDrawingWhenStylusDetected: Disattiva il disegno con le dita quando viene rilevata una penna
+    editorPromptRename: Puoi sempre rinominare le note successivamente
     printPageIndicators: Mostra indicatori di pagina nelle esportazioni
-    autosave: Salvataggio automatico dopo un breve ritardo o mai
+    autosave: Salvataggio automatico dopo un breve ritardo, oppure mai
     shapeRecognitionDelay: Quanto spesso aggiornare l'anteprima della forma
     autoStraightenLines: Raddrizza le linee lunghe senza dover utilizzare la penna sagomatrice
     simplifiedHomeLayout: Imposta un'altezza fissa per ogni anteprima della nota
-    shouldAlwaysAlertForUpdates: Segnalami aggiornamenti non appena sono disponibili
+    shouldAlwaysAlertForUpdates: Segnalami gli aggiornamenti non appena sono disponibili
     sentry:
       active: Attivo
       inactive: Non attivo
@@ -150,7 +150,7 @@ settings:
   - Sopra
   - Destra
   - In basso
-  - Sotto
+  - Sinistra
   reset:
     title: Ripristinare questa impostazione?
     button: Ripristina
@@ -171,11 +171,11 @@ logs:
   noLogs: Niente log qui!
   useTheApp: I log appariranno qui mentre usi l'app
 login:
-  title: Login
+  title: Accesso
   form:
     agreeToPrivacyPolicy(rich): Effettuando l'accesso, accetti la ${linkToPrivacyPolicy(Informativa sulla privacy)}.
   signup(rich): Non hai ancora un account? ${linkToSignup(Registrati ora)}!
-  notYou(rich): Nn sei tu? ${undoLogin(Scegli un altro account)}.
+  notYou(rich): Non sei tu? ${undoLogin(Scegli un altro account)}.
   status:
     loggedOut: Disconnesso
     tapToLogin: Tocca per accedere con Nextcloud
@@ -194,43 +194,44 @@ login:
       followPrompts: Seguire le istruzioni nell'interfaccia Nextcloud
       browserDidntOpen: La pagina di accesso non si è aperta? Clicca qui
   encLoginStep:
-    enterEncPassword: "Per proteggere i tuoi dati, inserisci la password crittografata:"
-    newToSaber: Nuovo su Saber? Basta inserire una nuova password crittografata.
-    encPassword: Password crittografata
+    enterEncPassword: "Per proteggere i tuoi dati, inserisci la tua password di cifratura:"
+    newToSaber: Nuovo su Saber? Basta inserire una nuova password di cifratura.
+    encPassword: Password di cifratura
     encFaqTitle: Domande frequenti
-    wrongEncPassword: La decrittografia non è riuscita con la password fornita. Per favore prova a inserirla di nuovo.
+    wrongEncPassword: La decrittazione non è riuscita con la password fornita. Per favore prova a inserirla nuovamente.
     connectionFailed: Qualcosa è andato storto durante la connessione al server. Per favore riprova più tardi.
     encFaq:
-    - q: Cos'è una password crittografata? Perché usare due password?
+    - q: Cos'è una password di cifratura? Perché usare due password?
       a: |-
-        La password Nextcloud viene utilizzata per accedere al cloud. La password di crittografia "codifica" i tuoi dati prima che raggiungano il cloud.
-         Anche se qualcuno riesce ad accedere al tuo account Nextcloud, le tue note rimarranno al sicuro e crittografate con una password separata. Ciò fornisce un secondo livello di sicurezza per proteggere i tuoi dati.
-         Nessuno può accedere alle tue note sul server senza la tua password di crittografia, ma ciò significa anche che se dimentichi la password di crittografia, perderai l'accesso ai tuoi dati.
-    - q: Non ho ancora impostato una password di crittografia. Dove lo posso ottenere?
+        La password Nextcloud viene utilizzata per accedere al cloud. La password di cifratura "rimescola" i tuoi dati prima che raggiungano il cloud.
+         Anche se qualcuno riesce ad accedere al tuo account Nextcloud, le tue note rimarranno al sicuro e criptate con una password separata. Ciò fornisce un secondo livello di sicurezza per proteggere i tuoi dati.
+         Nessuno può accedere alle tue note sul server senza la tua password di cifratura, ma ciò significa anche che se dimentichi la tua password di cifratura, perderai l'accesso ai tuoi dati.
+    - q: Non ho ancora impostato una password di cifratura. Dove lo posso ottenere?
       a: |-
-        Scegli una nuova password crittografata e inseriscila sopra.
-        Saber genererà automaticamente le chiavi di crittografia da questa password.
+        Scegli una nuova password di cifratura e inseriscila sopra.
+        Saber genererà automaticamente le chiavi di cifratura da questa password.
     - q: Posso utilizzare la stessa password del mio account Nextcloud?
       a: Sì, ma tieni presente che sarebbe più semplice per l'amministratore del server o qualcun altro accedere alle tue note se accedessero al tuo account Nextcloud.
 profile:
   title: Il mio profilo
-  logout: Log out
-  quotaUsage: Stai $used di $total ($percent%)
+  logout: Disconnessione
+  quotaUsage: Stai usando $used di $total ($percent%)
   connectedTo: Collegato a
   quickLinks:
     serverHomepage: Homepage del server
     deleteAccount: Elimina account
   faqTitle: Domande frequenti
   faq:
-  - q: Perderò i miei appunti se mi disconnetto?
-    a: No. Le tue note rimarranno sia sul tuo dispositivo che sul server. Non verranno sincronizzati con il server fino a quando non effettui nuovamente l'accesso. Assicurati che la sincronizzazione sia completa prima di uscire in modo da non perdere alcun dato (vedi l'avanzamento della sincronizzazione nella schermata iniziale).
+  - q: Perderò le mie note se mi disconnetto?
+    a: No. Le tue note rimarranno sia sul tuo dispositivo che sul server. Non verranno sincronizzate con il server finchè non effettuerai nuovamente l'accesso. Assicurati che la sincronizzazione sia completata prima di disconnetteri in modo da non perdere alcun dato (vedi l'avanzamento della sincronizzazione nella schermata home).
   - q: Come cambio la mia password Nextcloud?
-    a: Vai al sito web del tuo server e accedi. Quindi vai su Impostazioni > Sicurezza > Cambia password. Dovrai disconnetterti e riconnetterti a Saber dopo aver cambiato la tua password.
-  - q: Come cambio la mia password di crittografia?
+    a: Vai al sito web del tuo server e accedi. Quindi vai in Impostazioni > Sicurezza > Cambia password. Dovrai disconnetterti e riconnetterti a Saber dopo aver cambiato la tua password.
+  - q: Come cambio la mia password di cifratura?
     a: |-
-      1. Disconnettersi da Saber. Assicurati che la sincronizzazione sia completa prima di uscire in modo da non perdere alcun dato (vedi l'avanzamento della sincronizzazione nella schermata iniziale).
+      0. Assicurati che la sincronizzazione sia completata (vedi l'avanzamento della sincronizzazione nella schermata home).
+      1. Disconnettersi da Saber. 
       2. Vai al sito Web del tuo server ed elimina la cartella "Saber". Questo eliminerà tutte le tue note dal server.
-      3. Accedi nuovamente a Saber. Puoi scegliere una nuova password di crittografia quando accedi.
+      3. Accedi nuovamente a Saber. Puoi scegliere una nuova password di cifratura quando accedi.
       4. Non dimenticare di disconnetterti e accedere nuovamente a Saber anche sugli altri tuoi dispositivi.
   - q: Come posso eliminare il mio account?
     a: |-
@@ -247,7 +248,7 @@ appInfo:
   privacyPolicyButton: Tocca qui per visualizzare l'informativa sulla privacy
 update:
   updateAvailable: Aggiornamento disponibile
-  updateAvailableDescription: "È disponibile una nuova versione dell'app, con queste modifiche:"
+  updateAvailableDescription: "È disponibile una nuova versione dell'app:"
   update: Aggiornamento
   downloadNotAvailableYet: Il download non è ancora disponibile per la tua piattaforma. Ti invitiamo a controllare nuovamente a breve.
 editor:
@@ -255,7 +256,7 @@ editor:
     toggleColors: Attiva/disattiva i colori (Ctrl C)
     select: Selezione
     toggleEraser: Attiva/disattiva gomma (Ctrl E)
-    photo: Foto
+    photo: Immagini
     text: Testo
     toggleFingerDrawing: Attiva/disattiva il disegno con il dito (Ctrl F)
     undo: Annulla
@@ -268,10 +269,10 @@ editor:
     ballpointPen: Penna a sfera
     highlighter: Evidenziatore
     pencil: Matita
-    shapePen: Forma della penna
+    shapePen: Penna per le forme
     laserPointer: Puntatore laser
   penOptions:
-    size: Dimesione
+    size: Dimensione
   colors:
     colorPicker: Selettore di colori
     customBrightnessHue: Personalizzato $b $h
@@ -288,7 +289,7 @@ editor:
     cyan: Ciano
     blue: Blu
     yellow: Giallo
-    purple: Porpora
+    purple: Viola
     pink: Rosa
     orange: Arancione
     pastelRed: Rosso pastello
@@ -297,30 +298,30 @@ editor:
     pastelGreen: Verde pastello
     pastelCyan: Ciano pastello
     pastelBlue: Blu pastello
-    pastelPurple: Porpora pastella
+    pastelPurple: Viola pastello
     pastelPink: Rosa pastello
   imageOptions:
     title: Opzioni immagine
     invertible: Invertibile
-    download: Download
+    download: Scarica
     setAsBackground: Imposta come sfondo
     removeAsBackground: Rimuovi come sfondo
-    delete: Cancella
+    delete: Elimina
   selectionBar:
-    delete: Cancella
+    delete: Elimina
     duplicate: Duplicare
   menu:
-    clearPage: Pulisci pagina $page/$totalPages totali
+    clearPage: Pulisci pagina $page/$totalPages
     clearAllPages: Pulisci tutte le pagine
     insertPage: Inserisci pagina sotto
-    duplicatePage: Pagina duplicata
+    duplicatePage: Duplica pagina
     deletePage: Elimina pagina
-    lineHeight: Altezza della linea
-    lineHeightDescription: Controlla anche la dimensione del testo per le note digitate
-    lineThickness: Spessore della linea
-    lineThicknessDescription: Spessore della linea di sfondo
+    lineHeight: Altezza delle linee
+    lineHeightDescription: Regola anche la dimensione del testo per le note digitate
+    lineThickness: Spessore delle linee
+    lineThicknessDescription: Spessore della linee dello sfondo
     backgroundImageFit: Adattamento immagine di sfondo
-    backgroundPattern: Modello di sfondo
+    backgroundPattern: Modello dello sfondo
     import: Importa
     watchServer: Controlla gli aggiornamenti sul server
     watchServerReadOnly: La modifica è disabilitata mentre si guarda il server
@@ -330,9 +331,9 @@ editor:
       contain: Contiene
     bgPatterns:
       none: Vuoto
-      college: College-ruled
-      collegeRtl: College governato (inverso)
-      lined: Lined
+      college: Righe (margine sinistro)
+      collegeRtl: Righe (margine destro)
+      lined: Righe
       grid: Griglia
       dots: Punti
       staffs: Pentagrammi
@@ -357,4 +358,4 @@ editor:
     lockAxisAlignedPan: Blocca la panoramica su orizzontale o verticale
   pages: Pagine
   untitled: Senza titolo
-  needsToSaveBeforeExiting: Salvataggio delle modifiche... Puoi tranquillamente uscire dall'editor quando hai finito
+  needsToSaveBeforeExiting: Salvataggio delle modifiche... Puoi tranquillamente uscire dall'editor una volta completato
