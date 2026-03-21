@@ -14,7 +14,6 @@ import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/extensions/redirecting_localization_delegate.dart';
 import 'package:saber/i18n/strings.g.dart';
 import 'package:window_manager/window_manager.dart';
-import 'package:yaru/yaru.dart';
 
 class DynamicMaterialApp extends StatefulHookWidget {
   const DynamicMaterialApp({
@@ -226,76 +225,11 @@ class ExplicitlyThemedApp extends StatelessWidget {
       highContrastTheme: highContrastTheme,
       highContrastDarkTheme: highContrastDarkTheme,
       debugShowCheckedModeBanner: false,
-      builder: (Platform.isWindows || Platform.isLinux)
-          ? (context, child) => _BorderedWindow(child: child)
-          : null,
     );
   }
 }
 
-/// A widget that adds a border around the app window when not in fullscreen.
-class _BorderedWindow extends StatefulWidget {
-  const _BorderedWindow({required this.child});
-  final Widget? child;
-  @override
-  State<_BorderedWindow> createState() => _BorderedWindowState();
-}
-
-class _BorderedWindowState extends State<_BorderedWindow> {
-  static var _lastBorderColor = Colors.transparent;
-  static final _childKey = GlobalKey();
-
-  @override
-  void initState() {
-    super.initState();
-    DynamicMaterialApp.addFullscreenListener(_onFullscreenChanged);
-  }
-
-  @override
-  void dispose() {
-    DynamicMaterialApp.removeFullscreenListener(_onFullscreenChanged);
-    super.dispose();
-  }
-
-  void _onFullscreenChanged() {
-    if (mounted) setState(() {});
-  }
-
-  @override
-  void didChangeDependencies() {
-    final borderColor = Color.alphaBlend(
-      YaruTitleBarTheme.of(context).border?.color ??
-          (Theme.brightnessOf(context) == .light
-              ? Colors.black.withValues(alpha: 0.1)
-              : Colors.white.withValues(alpha: 0.06)),
-      ColorScheme.of(context).surface,
-    );
-    if (borderColor != _lastBorderColor) {
-      _lastBorderColor = borderColor;
-      windowManager.setBackgroundColor(borderColor).catchError((_) {});
-    }
-    super.didChangeDependencies();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    /// Use KeyedSubtree to preserve child state when adding/removing border
-    final keyedChild = KeyedSubtree(
-      key: _childKey,
-      child: widget.child ?? const SizedBox(),
-    );
-
-    final showBorder = !DynamicMaterialApp.isFullscreen;
-    return showBorder
-        ? ColoredBox(
-            color: _lastBorderColor,
-            child: Padding(padding: const .all(1), child: keyedChild),
-          )
-        : keyedChild;
-  }
-}
-
-extension _ColorSchemeContraster on ColorScheme {
+extension on ColorScheme {
   ColorScheme withHighContrast() => ColorScheme.fromSeed(
     brightness: brightness,
     seedColor: primary,
