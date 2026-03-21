@@ -78,23 +78,23 @@ class _YaruBuilderState extends State<YaruBuilder> {
     // Use colors from KDE theme where possible.
     final themeMode = useValueListenable(stows.appTheme);
     final accentColor = useValueListenable(stows.accentColor);
+    final hyperlegibleFont = useValueListenable(stows.hyperlegibleFont);
     final platformBrightness = MediaQuery.platformBrightnessOf(context);
+    final usePlatformBrightness = switch (themeMode) {
+      .system => true,
+      .light => platformBrightness == .light,
+      .dark => platformBrightness == .dark,
+    };
     final dynamicYaru = useMemoized(() {
-      if (accentColor != null) return null; // user wants different accent color
-
-      final Brightness themeModeBrightness = switch (themeMode) {
-        .system => platformBrightness,
-        .light => .light,
-        .dark => .dark,
-      };
-      if (themeModeBrightness != platformBrightness) return null;
+      if (accentColor != null) return null; // custom theme, not system
+      if (!usePlatformBrightness) return null;
 
       DynamicYaru.refresh();
       final theme = DynamicYaru.getTheme();
       if (theme == null) return null;
 
       return SaberTheme.getThemeFromYaruFixed(theme, widget.platform);
-    }, [accentColor, themeMode, platformBrightness, widget.platform]);
+    }, [accentColor, usePlatformBrightness, widget.platform, hyperlegibleFont]);
 
     if (dynamicYaru != null) {
       return Builder(
