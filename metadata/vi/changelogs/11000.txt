@@ -1,0 +1,2 @@
+• (Partial) support for pasting images from the clipboard
+• Images that are used multiple times are now only stored once

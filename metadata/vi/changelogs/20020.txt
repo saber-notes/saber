@@ -1,0 +1,3 @@
+• Changing the pen size is now more intuitive with a slider input
+• Removed the extra space around the ad banner
+• Minor performance and fidelity improvements for the pencil

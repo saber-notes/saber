@@ -1,0 +1,3 @@
+• Crash fixes
+• Removed support for the old login system: users who logged in before May 2024 may need to log in again
+• Refactored storage code for more reliability and less repeated code

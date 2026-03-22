@@ -1,0 +1,3 @@
+• Updated the font Atkinson Hyperlegible to Atkinson Hyperlegible Next to support more languages
+• Very slight rounding on the app icon
+• Bug fixes and improvements from dependency updates

@@ -1,0 +1,4 @@
+• Improved the look of pencil strokes and their rendering performance.
+• Saber now uses a themed title bar on Windows and Linux, which responds to light/dark mode changes.
+• Switches are now themed on the Cupertino (iOS-style) theme.
+• Added an Esperanto translation.

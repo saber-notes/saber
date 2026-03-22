@@ -1,0 +1,5 @@
+• Support for folders!
+• Quickly move and rename notes from the home screen
+• Fixed weirdness with Scribble on iPad in the pen size picker
+• Fixed downloading SVGs
+• Minor visual and performance tweaks

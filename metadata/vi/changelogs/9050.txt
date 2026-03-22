@@ -1,0 +1,6 @@
+• Dots are no longer tiny on pressure-sensitive devices.
+• Background images/PDFs are now made opaque by default.
+• Performance improvements for importing and inverting images/PDFs.
+• Svg compatibility improvements, including embedded images.
+• Refreshing note previews after a sync is now animated.
+• Upgraded to Flutter 3.7.5.

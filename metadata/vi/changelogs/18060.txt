@@ -1,0 +1,2 @@
+• Fixed thumbnails being inverted incorrectly when saved in dark mode
+• Fixed a long-standing inversion bug with pure black pixels

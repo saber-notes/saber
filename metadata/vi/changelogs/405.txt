@@ -1,0 +1,4 @@
+• You can now change the highlighter size
+• Bug fix: You can again create/draw on new notes 
+• Bug fix: Syncing now works if you logged in with an email
+• Bug fix: Saber now correctly responds to (low-priority) available updates

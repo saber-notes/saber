@@ -1,0 +1,3 @@
+• Reduced the glow effect of laser strokes
+• The syncer will automatically pick up new files on your device
+• Fixed a bug where uploading a file would fail after downloading it

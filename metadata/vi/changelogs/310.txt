@@ -1,0 +1,3 @@
+• Show a button in settings to update your app even if it's not urgent.
+• The editor overflow menu now closes when you click a button.
+• Bug fix: the toolbar buttons weren't enabling/disabling as needed (e.g. the undo/redo buttons were always enabled).

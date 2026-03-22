@@ -1,0 +1,6 @@
+• Security fix for how your credentials are stored on your device.
+• The home screen will now show thumbnails of images to reduce memory usage.
+• Renaming a file to an existing file's name won't overwrite the existing file.
+• The iOS/macOS icon is now properly cropped.
+• New users will get a hint to drag the pen size indicator left and right.
+• Minor bug fixes

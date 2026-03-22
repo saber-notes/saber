@@ -1,2 +1,2 @@
-• Sửa một số mã xử lý tệp, giải quyết vấn đề chia sẻ tệp PDF vào Saber từ một ứng dụng khác
-• Đã sửa lỗi tải trước trang PDF sai
+• Fixed some file handling code, resolving issues with sharing PDFs into Saber from another app
+• Fixed the wrong PDF page being preloaded

@@ -1,0 +1,3 @@
+• Fixed an edge case where the laser pointer could produce invalid strokes.
+• Made strokes higher quality when you're zoomed out.
+• General maintenance, improved testing, and behind-the-scenes improvements.

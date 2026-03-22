@@ -1,0 +1,7 @@
+• Added a laser pointer tool
+• You can now lock panning to the vertical/horizontal axes
+• Phone users can now opt to use the tablet UI and vice versa
+• Better pen icons
+• Reduced the number of notes that are loaded at once
+• Fixed detection of deleted files, so syncs are much faster now
+• Faster and more reliable image imports

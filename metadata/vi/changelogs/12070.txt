@@ -1,0 +1,4 @@
+• Thumbnails should be slightly better quality for new images/PDFs
+• Desktop users can zoom in and out with Ctrl + and Ctrl -
+• Added pastel colors to the default color pallet
+• Fixed the editor not updating when importing a PDF until you manually scrolled

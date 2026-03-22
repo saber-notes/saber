@@ -1,0 +1,6 @@
+• New selection tool! Currently restricted to strokes only
+• Drawing performance improvements
+• Scrolling performance improvements
+• Minor UI changes
+• PDF exports are now pixel perfect (but are rasterized)
+• Images on the home screen no longer 'flicker' while syncing

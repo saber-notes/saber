@@ -1,0 +1,6 @@
+• Added a button to lock the canvas zoom
+• Decreased minimum Android version to 4.3 for the FOSS build
+• Added icons to the settings page
+• Updated the copyright year
+• UI improvements
+• Disabled the container transform animation if your device has reduced animations enabled

@@ -1,0 +1,4 @@
+• Improved the quality of note thumbnails.
+• Optimized pencil strokes when zoomed out.
+• Fixed improper toolbar contrast in certain themes.
+• Fixed a privacy policy link not working.

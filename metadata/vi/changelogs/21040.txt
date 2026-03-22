@@ -1,0 +1,3 @@
+• Android users can now change the folder where notes are stored
+• Reduced the size of the text toolbar
+• The zoom is now snapped to 1.0x when close

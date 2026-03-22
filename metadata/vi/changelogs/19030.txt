@@ -1,0 +1,3 @@
+• Fixed notes not being unselected after renaming.
+• Fixed the "resync everything" button causing multiple uploads at once.
+• The in-app updater will no longer show the download button if the download isn't available yet. This only applies to the in-app updater, and not any other update methods like an app store.

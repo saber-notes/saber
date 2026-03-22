@@ -1,0 +1,4 @@
+• New tool: highlighter!
+• Updated icons including icons from Font Awesome 5
+• Syncing progress doesn't get stuck before 100% anymore
+• Spanish translations by mamasch19

@@ -1,0 +1,3 @@
+• Tap your username on the settings page to go to the new profile page
+• You can now use both right-to-left and left-to-right background patterns
+• Improved the macOS icon

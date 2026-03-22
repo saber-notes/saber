@@ -1,0 +1,5 @@
+• Added a shape recognition pen
+• Straight line detection now only works with the shape recognition pen
+• New PDF imports will retain their original quality
+• Select multiple notes at once to move or delete them
+• You can now delete and duplicate a selection of strokes/images

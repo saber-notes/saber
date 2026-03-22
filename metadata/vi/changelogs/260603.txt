@@ -1,0 +1,4 @@
+- Major improvements to the stroke drawing algorithm. You'll see less flickering while drawing, better handling of sharp corners mid-stroke, and lose less detail near the end of the stroke.
+- Added stylus support on Linux. There is no pressure sensitivity, but you can now use your pen to draw and your finger to scroll.
+- Fixed some issues when importing files on Windows, thanks to @ZebraVogel94349 and @QubaB on GitHub.
+- Fixed the Hyperlegible font setting not working with the Linux theme.

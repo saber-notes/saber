@@ -1,0 +1,3 @@
+• Added a star to the shape tool
+• Fixed the weird corners on triangles drawn with the shape tool
+• Fixed single-point dots not being saved

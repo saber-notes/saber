@@ -1,0 +1,1 @@
+Fixed PDF import issues, thanks @QubaB on GitHub

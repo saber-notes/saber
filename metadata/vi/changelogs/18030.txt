@@ -1,0 +1,4 @@
+• Switched to a new shape recognition algorithm
+• Added triangle detection
+• Added line snapping with the shape tool
+• Fixed some SBN imports failing

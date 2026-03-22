@@ -1,0 +1,3 @@
+• Small UI improvements to the settings page
+• The simplified home layout setting has been tweaked so the cards are no longer stretched out
+• Removed references to GitHub Sponsors on iOS since they'd have to use in-app purchases

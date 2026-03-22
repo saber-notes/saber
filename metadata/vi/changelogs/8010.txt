@@ -1,0 +1,6 @@
+• Fixed Android devices flickering in and out of fullscreen
+• Home screen performance improvements
+• You can choose to hide the backgrounds of your notes on the home screen for a cleaner look
+• Added a monochrome icon for Android 13 users
+• Fixed the navbar overlapping with the home screen on some Android tablets
+• Discontinued the web version of Saber

@@ -1,0 +1,2 @@
+• Small but important bug fixes thanks to everyone who opted in to error reporting!
+• Further evolution of the personal information filters. These are implemented both locally and on the server so your information is always safe.

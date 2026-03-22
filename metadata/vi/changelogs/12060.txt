@@ -1,0 +1,4 @@
+• Performance improvements with large notes
+• Fixed the editor menu always thinking you're on the last page of a note
+• Added a drag handle to the editor menu
+• You'll now get a message if you try to login to an unsupported Nextcloud server

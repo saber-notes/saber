@@ -1,0 +1,2 @@
+• Fixed the selection tool not (visibly) moving strokes
+• Fixed the server links in the account page

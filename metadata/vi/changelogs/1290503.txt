@@ -1,0 +1,2 @@
+• Fixed being able to name notes with invalid characters. The new rules assist cross-platform compatibility.
+• Imperceptibly tweaked the Saber icon.

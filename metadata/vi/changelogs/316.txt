@@ -1,0 +1,6 @@
+• Hold down while drawing a line to straighten it
+• You can now change the pen size
+• Accidental strokes don't clear your redo stack anymore
+• When logging in, your encryption password is verified to avoid overwriting your existing notes
+• Updated app info dialog
+• Zooming no longer accidentally deletes your last stylus stroke

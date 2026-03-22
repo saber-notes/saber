@@ -1,0 +1,4 @@
+• Major performance improvements with inverting images
+• Reliability improvements when renaming notes
+• Fixed panning with one finger while using the text tool
+• Upgraded to Flutter 3.7.9

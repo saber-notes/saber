@@ -1,0 +1,7 @@
+• You can now automatically clear the whiteboard after you close the app
+• There's now an FAQ section in the login page
+• You won't be prompted to rename new notes anymore unless you opt-in in Settings
+• The Settings page shows how much storage you have left
+• Android 13 users can now choose a per-app language for Saber
+• Fix more login bugs :p
+• Various performance improvements

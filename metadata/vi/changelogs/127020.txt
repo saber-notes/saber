@@ -1,0 +1,5 @@
+• Fixed the entire app breaking if you choose the Esperanto language.
+• Fixed the navigation bar not updating its text when you change language.
+• Fixed the storage used percentage not being rounded.
+• Freed up memory used by images and PDFs.
+• Removed the pencil sound effect.

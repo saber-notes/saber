@@ -1,0 +1,3 @@
+• If you like to edit notes on a tablet and simultaneously view them on your computer, there's a new toggle in the editor menu to enable automatic refreshing.
+• Fixed straightened pencil lines fading out at the ends
+• Small improvement in app loading times

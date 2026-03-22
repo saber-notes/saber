@@ -1,0 +1,6 @@
+• To improve ease of use, finger-drawing is automatically disabled if you use a stylus. You can turn off this feature in Settings.
+• You can now zoom with a mouse by holding the Control or Command key while scrolling.
+• Fixed strokes from the shape pen getting smushed when you finish drawing them.
+• Improved the accuracy of the lower quality strokes that are shown when zoomed out.
+• Fixed numerical (NaN) errors with some strokes.
+• Updated Flutter to 3.38.

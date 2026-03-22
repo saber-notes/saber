@@ -1,0 +1,2 @@
+• Performance improvements by storing images/PDFs separately to the main note
+• Errors when renaming a note are now reported to the user

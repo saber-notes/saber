@@ -1,0 +1,2 @@
+• Reorganised the Settings page to make it easier to find what you're looking for.
+• Support for custom Nextcloud servers with self-signed certificates: enable the "Allow insecure connections" option in Settings.

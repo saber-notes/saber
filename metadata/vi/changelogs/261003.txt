@@ -1,0 +1,2 @@
+• Fixed an issue where the pencil sound effect wouldn't stop when you lifted your stylus
+• Visual improvements especially in the Linux/Yaru theme

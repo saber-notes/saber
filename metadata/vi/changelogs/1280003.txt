@@ -1,0 +1,5 @@
+• Added a new floating navigation bar.
+• Tried to make the iOS theme feel more native and less Googley.
+• A pending autosave is now cancelled if you undo all changes.
+• Improved the smoothness of home screen transitions.
+• Fixed some path handling bugs on the browse page.

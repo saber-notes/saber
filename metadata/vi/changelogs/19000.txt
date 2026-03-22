@@ -1,0 +1,1 @@
+Merry Christmas! I've added a number of performance improvements, including more efficient image inverting, better handling of SVG files, and moving the homescreen ads (there's now only 1 ad) to the bottom of the screen to speed up scrolling. Good luck to everyone sitting exams in the next few weeks!

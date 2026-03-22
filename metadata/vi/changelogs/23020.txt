@@ -1,0 +1,4 @@
+• Increased PDF render quality
+• Typed text now properly aligns with the page lines if enabled
+• Updated the color picker dialogs
+• Misc improvements from the new Flutter 3.22

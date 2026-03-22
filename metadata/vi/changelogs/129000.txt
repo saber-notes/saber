@@ -1,0 +1,5 @@
+• Big improvements for Onyx Boox devices with increased tool support and miscellaneous fixes thanks to zinstack625 on GitHub.
+• Improved speed of PDF imports.
+• Improved loading times for notes containing large PDFs (they're now loaded page by page rather than all at once).
+• Fixed an issue with saving PDFs from the long-press dialog.
+• Fixed a bug where the wrong tool would be selected when turning off the eraser, thanks to ComputerElite on GitHub.

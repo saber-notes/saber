@@ -1,0 +1,2 @@
+You can now customize the line thickness of your background pattern,
+and files downloaded from the server now have the proper timestamp, preventing them from being synced repeatedly.

@@ -1,0 +1,3 @@
+• Fixed the AppImage not opening for some Linux users
+• Added better support for stylus hovering
+• Possible performance improvements from updated dependencies including a new rendering engine on Android

@@ -1,0 +1,1 @@
+• The signup link now opens in an in-app web view for iOS users in order to comply with App Store guidelines

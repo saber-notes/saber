@@ -1,0 +1,7 @@
+• There's now a button to use the editor in fullscreen
+• Undo/redo history is now limited to 100 records
+• Fix bug with new notes all having the same name
+• Invertible pictures won't be shown not-inverted while loading
+• Reduced stutter while opening large files
+• Performance improvements for notes with many pages
+• Pages in the editor now have a box shadow to make them stand out from the background

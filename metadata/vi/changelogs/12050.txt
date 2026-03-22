@@ -1,0 +1,1 @@
+• Reverted image changes due to some larger images not loading
