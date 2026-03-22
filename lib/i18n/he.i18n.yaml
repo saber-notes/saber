@@ -77,11 +77,11 @@ sentry:
       later: ברצוני להישאל מאוחר יותר
 settings:
   prefCategories:
-    general: כללי
+    general: הגדרות כלליות
     writing: כתיבה
-    editor: עורך
+    editor: מצב עריכה
     performance: ביצועים
-    advanced: מתקדם
+    advanced: הגדרות מתקדמות
   prefLabels:
     locale: שפת התוכנה
     appTheme: ערכת הנושא של האפליקציה
@@ -89,22 +89,22 @@ settings:
     layoutSize: סוג פריסה
     customAccentColor: צבע הדגשה מותאם אישית
     hyperlegibleFont: גופן Atkinson Hyperreadible
-    shouldCheckForUpdates: בדוק אם קיימים עדכוני Saber
+    shouldCheckForUpdates: לבדוק אם יש עדכונים ל־Saber
     shouldAlwaysAlertForUpdates: עדכונים מהירים יותר
-    allowInsecureConnections: אפשר חיבורים לא מאובטחים
+    allowInsecureConnections: לאפשר חיבורים לא מאובטחים
     editorToolbarAlignment: מיקום סרגל הכלים
-    editorToolbarShowInFullscreen: הצג את סרגל הכלים במצב מסך מלא
-    editorAutoInvert: הפוך הערות במצב כהה
-    preferGreyscale: העדיפו צבעי גווני אפור
-    maxImageSize: גודל תמונה מקסימלי
+    editorToolbarShowInFullscreen: הצגת סרגל הכלים במצב מסך מלא
+    editorAutoInvert: היפוך צבעי הפתקים במצב כהה
+    preferGreyscale: העדפת גוונים אפורים
+    maxImageSize: גודל תמונה מרבי
     autoClearWhiteboardOnExit: נקה אוטומטית את הלוח הלבן
     disableEraserAfterUse: השבת אוטומטית את המחק
-    hideFingerDrawingToggle: הסתר את מתג ציור האצבע
+    hideFingerDrawingToggle: הסתרת מתג הציור עם האצבע
     autoDisableFingerDrawingWhenStylusDetected: השבתה אוטומטית של הציור עם האצבע
-    editorPromptRename: מבקש ממך לשנות את שם הערות חדשות
-    recentColorsDontSavePresets: אל תשמור צבעים מוגדרים מראש בצבעים אחרונים
+    editorPromptRename: חלונית לבקשת שינוי שם לפתקים חדשים
+    recentColorsDontSavePresets: לא לשמור צבעי מערך בצבעים אחרונים
     recentColorsLength: כמה צבעים אחרונים לשמור
-    printPageIndicators: הדפסת עמודים מחוונים
+    printPageIndicators: הדפסת מספורי עמודים
     autosave: שמירה אוטומטית
     shapeRecognitionDelay: השהיה לפני זיהוי צורות
     autoStraightenLines: יישור קווים אוטומטי
@@ -113,18 +113,18 @@ settings:
     sentry: דיווח על שגיאות
   prefDescriptions:
     hyperlegibleFont: מגביר את הקריאות למשתמשים עם ראייה לקויה
-    allowInsecureConnections: (לא מומלץ) אפשר לסבר להתחבר לשרתים עם אישורים חתומים/לא מהימנים
+    allowInsecureConnections: (לא מומלץ) לאפשר ל־Saber להתחבר לשרתים עם חתימה עצמית או תעודות שאינן מהימנות
     preferGreyscale: עבור תצוגות דיו אלקטרוני
     autoClearWhiteboardOnExit: מנקה את לוח הציור לאחר היציאה מהאפליקציה
     disableEraserAfterUse: מעבר אוטומטי חזרה לעט לאחר שימוש במחק
     maxImageSize: תמונות גדולות יותר יידחסו
     hideFingerDrawing:
       shown: מונע החלפת מצב בשוגג
-      fixedOn: ציור אצבע קבוע כזמין
-      fixedOff: ציור אצבע קבוע כלא זמין
+      fixedOn: הציור עם האצבע זמין באופן קבוע
+      fixedOff: הציור עם האצבע מושבת באופן קבוע
     autoDisableFingerDrawingWhenStylusDetected: כיבוי הציור עם האצבע כאשר מזוהה חיבור של עט
     editorPromptRename: תמיד תוכל לשנות את שם הפתקים מאוחר יותר
-    printPageIndicators: הצג מחווני עמודים בייצוא
+    printPageIndicators: הצגת מספורי עמודים בקבצים מיוצאים
     autosave: שמירה אוטומטית לאחר פרק זמן קצר, או אף פעם
     shapeRecognitionDelay: כל כמה זמן לעדכן את התצוגה המקדימה של הצורות
     autoStraightenLines: מיישר קווים ארוכים ללא צורך להשתמש בעט הצורות
@@ -173,26 +173,26 @@ logs:
 login:
   title: התחבר
   form:
-    agreeToPrivacyPolicy(rich): על ידי התחברות, אתה מסכים ל ${linkToPrivacyPolicy(מדיניות הפרטיות)}.
+    agreeToPrivacyPolicy(rich): ההתחברות מבטאת את הסכמתך ל${linkToPrivacyPolicy(מדיניות הפרטיות)}.
   signup(rich): אין לך עוד משתמש ${linkToSignup(הירשם עכשיו)}!
   notYou(rich): זה לא חשבונך? אפשר ${undoLogin(לבחור חשבון אחר)}.
   status:
     loggedOut: מנותק
     tapToLogin: יש ללחוץ כדי להיכנס עם Nextcloud
     hi: אהלן, $u!
-    almostDone: הסנכרון כמעט מוכן, יש ללחוץ בשביל להשלים את הכניסה
+    almostDone: הסנכרון כמעט מוכן, יש ללחוץ בשביל להשלים את ההתחברות
     loggedIn: נכנסת עם Nextcloud
   ncLoginStep:
     whereToStoreData: "נא לבחור היכן ברצונך לאחסן את הנתונים:"
     saberNcServer: שרת ה־Nextcloud של Saber
     otherNcServer: שרת Nextcloud אחר
     serverUrl: כתובת שרת
-    loginWithSaber: כניסה עם Saber
-    loginWithNextcloud: כניסה עם Nextcloud
+    loginWithSaber: התחברות עם Saber
+    loginWithNextcloud: התחברות עם Nextcloud
     loginFlow:
       pleaseAuthorize: נא לתת ל־Saber הרשאה לגשת לחשבון Nextcloud שלך
       followPrompts: נא לעקוב אחר ההוראות הבאות בממשק של Nextcloud
-      browserDidntOpen: עמוד הכניסה לא נפתח? נא ללחוץ כאן
+      browserDidntOpen: עמוד ההתחברות לא נפתח? נא ללחוץ כאן
   encLoginStep:
     enterEncPassword: "לצורך הגנה על הנתונים שלך, נא להקליד את סיסמת ההצפנה שלך:"
     newToSaber: פעם ראשונה ב־Saber? אפשר פשוט להקליד סיסמת הצפנה חדשה.
@@ -228,24 +228,24 @@ profile:
     a: עבור לאתר השרת שלך והתחבר. לאחר מכן עבור אל הגדרות > אבטחה > שנה סיסמה. תצטרך להתנתק ולהיכנס שוב ל-Saber לאחר שינוי הסיסמה שלך.
   - q: איך אני משנה את הסיסמא המוצפנת שלי?
     a: |-
-      0. ודא שהסנכרון הושלם (ראה את התקדמות הסנכרון במסך הבית).
-      1. התנתק מ Saber.
-      2. עבור אל אתר האינטרנט של השרת שלך ומחק את התיקיה 'Saber' שלך. פעולה זו תמחק את כל ההערות שלך מהשרת.
-      3. היכנס שוב ל-Saber. אתה יכול לבחור סיסמת הצפנה חדשה בעת הכניסה.
-      4. אל תשכח להתנתק ולהתחבר שוב ל-Saber גם במכשירים האחרים שלך.
+      0. לוודא שהסנכרון הושלם (ניתן לראות את התקדמות הסנכרון במסך הבית).
+      1. להתנתק מ־Saber.
+      2. לעבור לאתר האינטרנט של השרת ולמחוק את תיקיית ‚Saber’ שלך. פעולה זו תמחק את כל הפתקים שלך מהשרת.
+      3. להתחבר שוב אל Saber. אפשר לבחור סיסמת הצפנה חדשה בעת הכניסה.
+      4. לא לשכוח להתנתק ולהתחבר שוב אל Saber גם במכשירים האחרים שלך.
   - q: איך אני יכול למחוק את החשבון שלי?
     a: |-
-      הקש על הלחצן "@:profile.quickLinks.deleteAccount" למעלה, והיכנס במידת הצורך.
-       אם אתה משתמש בשרת Saber הרשמי, החשבון שלך יימחק לאחר תקופת חסד של שבוע. ניתן ליצור איתי קשר בכתובת adilhanney@disroot.org במהלך תקופה זו כדי לבטל את המחיקה.
-       אם אתה משתמש בשרת של צד שלישי, ייתכן שלא תהיה אפשרות למחוק את חשבונך: תצטרך לעיין במדיניות הפרטיות של השרת לקבלת מידע נוסף.
+      יש להקיש על הכפתור „@:profile.quickLinks.deleteAccount” ולהתחבר במידת הצורך.
+      אם משתמשים בשרת הרשמי של Saber, החשבון שיוצרים יימחק לאחר תקופת חסד של שבוע. אפשר ליצור איתי קשר בכתובת adilhanney@disroot.org במהלך תקופה זו כדי לבטל את המחיקה.
+      אם משתמשים בשרת צד שלישי, ייתכן שאין אפשרות למחוק את החשבון: יש לעיין במדיניות הפרטיות של השרת למידע נוסף.
 appInfo:
   licenseNotice: |-
-    Saber  Copyright © 2022-$buildYear  Adil Hanney
-    תוכנית זו מגיעה ללא כל אחריות. זוהי תוכנה חופשית ואתה מוזמן להפיץ אותו מחדש בתנאים מסוימים.
+    Saber  כל הזכויות שמורות © 2022-$buildYear  עאדל האני
+    תוכנית זו מגיעה ללא כל אחריות. זוהי תוכנה חופשית ואפשר להפיץ אותה מחדש בתנאים מסוימים.
   debug: דִּיבָּג
-  sponsorButton: הקש כאן כדי לתת לי חסות או לקנות שטח אחסון נוסף
-  licenseButton: הקש כאן כדי להציג פרטי רישיון נוספים
-  privacyPolicyButton: הקש כאן כדי להציג את מדיניות הפרטיות
+  sponsorButton: אפשר להקיש כאן כדי לתת לי חסות או לקנות שטח אחסון נוסף
+  licenseButton: אפשר להקיש כאן כדי להציג פרטי רישיון נוספים
+  privacyPolicyButton: אפשר להקיש כאן כדי להציג את מדיניות הפרטיות
 update:
   updateAvailable: עדכון זמין
   updateAvailableDescription: "גרסה חדשה של היישום זמינה עם שינויים אלה:"
@@ -345,10 +345,10 @@ editor:
     corrupted: טעינת הפתק נכשלה. ייתכן שהוא פגום או שהורדתו עדיין לא הסתיימה.
   versionTooNew:
     title: הערה זו נערכה באמצעות גרסה חדשה יותר של Saber
-    subtitle: עריכת פתק זה עלולה לגרום לאיבוד מידע מסוים. האם אתה רוצה להתאלם מזה בכל מקרה?
+    subtitle: עריכת פתק זה עלולה לגרום לאיבוד מידע מסוים. להתעלם ולערוך בכל זאת?
     allowEditing: אפשר עריכה
   quill:
-    typeSomething: תכתוב משהו פה...
+    typeSomething: אפשר להקליד כאן משהו...
   hud:
     unlockZoom: בטל נעילת זום
     lockZoom: נעיל זום
@@ -358,4 +358,4 @@ editor:
     lockAxisAlignedPan: נעילת גלילה רציפה לאופקית או אנכית
   pages: עמודים
   untitled: חסר כותרת
-  needsToSaveBeforeExiting: שמירת השינויים... אתה יכול לצאת בבטחה מהעורך בסיום
+  needsToSaveBeforeExiting: השינויים נשמרים... אפשר לצאת בבטחה מהעורך בעת סיום השמירה
