@@ -1329,10 +1329,9 @@ class EditorState extends State<Editor> {
   Future exportAsPng(BuildContext context) async {
     final page = coreInfo.pages[currentPageIndex];
 
-    // dynamically calculate pixel ratio to prevent OOM on very large canvases
-    // targeting roughly ~3000px on the longest edge
-    final double maxDimension = math.max(page.size.width, page.size.height);
-    final double targetPixelRatio = math.max(3000 / maxDimension, 1.0);
+    const maxRasterizableSize = 3000.0;
+    var targetPixelRatio = maxRasterizableSize / page.size.longestSide;
+    if (targetPixelRatio > 1) targetPixelRatio = 1;
 
     try {
       final Uint8List pngBytes = await EditorExporter.screenshotPage(
