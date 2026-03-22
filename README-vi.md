@@ -29,20 +29,21 @@
 [Deutsch](https://github.com/saber-notes/saber/blob/main/README-de.md) |
 [中文 (简体中文, 中国)](https://github.com/saber-notes/saber/blob/main/README-zh-CN.md) |
 [中文 (繁體, 台灣)](https://github.com/saber-notes/saber/blob/main/README-zh-TW.md) |
-[العربية](https://github.com/saber-notes/saber/blob/main/README-ar.md)
+[العربية](https://github.com/saber-notes/saber/blob/main/README-ar.md) |
+[Tiếng Việt](https://github.com/saber-notes/saber/blob/main/README-vi.md)
 
 Saber là ứng dụng được tối ưu hóa cho ghi chú viết tay.
 
 Ứng dụng được thiết kế đơn giản và trực quan nhất có thể, đồng thời cung cấp các tính năng độc đáo mà bạn thực sự cần dùng. Saber có sẵn trên mọi thiết bị của bạn, dù lớn hay nhỏ, và đồng bộ hóa liền mạch.
 
-Đặc biệt, Saber có thể đảo màu ghi chú của bạn khi bạn ở chế độ tối. Điều này cho phép bạn viết bằng mực trắng trên nền đen, giúp bảo vệ mắt trong môi trường thiếu sáng, ví dụ như khi giáo viên tắt đèn trong lớp.
+Đặc biệt, Saber có thể đảo màu ghi chú của bạn khi bạn ở chế độ tối. Điều này cho phép bạn viết bằng mực trắng trên nền đen, giúp bảo vệ mắt trong môi trường thiếu sáng.
 Hình ảnh và tệp PDF cũng sẽ được đảo màu, giúp bạn thoải mái sử dụng giáo trình hay các sách in điện tử.
 
 Saber sử dụng hệ thống mật khẩu kép để bảo vệ bản ghi chú của bạn khỏi bất kỳ ai ngoài bạn, ngay cả khi họ có toàn quyền kiểm soát máy chủ. Bạn có thể an tâm lưu trữ ghi chú trên máy chủ Saber chính thức, trên một máy chủ khác hoặc thậm chí tự host máy chủ của riêng mình!
 
 Ứng dụng này có mã nguồn mở, bất kỳ ai cũng có thể xem mã nguồn, biết chính xác ứng dụng đang làm gì và xử lý dữ liệu của bạn ra sao. Rất nhiều ứng dụng ghi chú khác là mã nguồn đóng và độc quyền, nghĩa là cách thức hoạt động nội bộ của chúng là một bí ẩn đối với công chúng.
 
-Đối với các ứng dung khác, việc dùng bút dạ quang để highlight các phương trình Toán dài dòng luôn rất phiền phức, khi mà màu highlight bị thay đổi tại những chỗ đoạn màu đè lên nhau. Một vấn đề khác tôi từng gặp phải ở một vài app là màu highlight lại được vẽ đè lên trên dòng chữ, làm cho chữ bị mờ đi và khó đọc.
+Đối với các ứng dụng khác, việc dùng bút dạ quang để highlight các phương trình Toán dài dòng luôn rất phiền phức, khi mà màu highlight bị thay đổi tại những chỗ đoạn màu đè lên nhau. Một vấn đề khác tôi từng gặp phải ở một vài app là màu highlight lại được vẽ đè lên trên dòng chữ, làm cho chữ bị mờ đi và khó đọc.
 Tính năng highlight của Saber không gặp những vấn đề này. Saber sử dụng kỹ thuật canvas compositing để hiển thị màu highlight một cách nhất quán/tốt hơn so với trên giấy thật, nơi app tự xử lý các phần nét đè lên nhau và giữ được độ đồng nhất hoàn hảo của màu sắc.
 
 Saber có mọi thứ bạn cần để giữ cho ghi chú của bạn ngăn nắp. Bạn có thể tạo các thư mục lồng nhau bao nhiêu tùy thích. Và dù một bản ghi chú có nằm sâu trong thư mục lồng nhau, bạn vẫn có thể mở nó dễ dàng ở mục "Các ghi chú mở gần đây", nó luôn có sẵn trên màn hình chính. 
