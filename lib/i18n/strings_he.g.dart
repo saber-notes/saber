@@ -186,11 +186,11 @@ class _TranslationsAppInfoHe extends TranslationsAppInfoEn {
 	final TranslationsHe _root; // ignore: unused_field
 
 	// Translations
-	@override String licenseNotice({required Object buildYear}) => 'Saber  Copyright © 2022-${buildYear}  Adil Hanney\nתוכנית זו מגיעה ללא כל אחריות. זוהי תוכנה חופשית ואתה מוזמן להפיץ אותו מחדש בתנאים מסוימים.';
+	@override String licenseNotice({required Object buildYear}) => 'Saber  כל הזכויות שמורות © 2022-${buildYear}  עאדל האני\nתוכנית זו מגיעה ללא כל אחריות. זוהי תוכנה חופשית ואפשר להפיץ אותה מחדש בתנאים מסוימים.';
 	@override String get debug => 'דִּיבָּג';
-	@override String get sponsorButton => 'הקש כאן כדי לתת לי חסות או לקנות שטח אחסון נוסף';
-	@override String get licenseButton => 'הקש כאן כדי להציג פרטי רישיון נוספים';
-	@override String get privacyPolicyButton => 'הקש כאן כדי להציג את מדיניות הפרטיות';
+	@override String get sponsorButton => 'אפשר להקיש כאן כדי לתת לי חסות או לקנות שטח אחסון נוסף';
+	@override String get licenseButton => 'אפשר להקיש כאן כדי להציג פרטי רישיון נוספים';
+	@override String get privacyPolicyButton => 'אפשר להקיש כאן כדי להציג את מדיניות הפרטיות';
 }
 
 // Path: update
@@ -226,7 +226,7 @@ class _TranslationsEditorHe extends TranslationsEditorEn {
 	@override late final _TranslationsEditorHudHe hud = _TranslationsEditorHudHe._(_root);
 	@override String get pages => 'עמודים';
 	@override String get untitled => 'חסר כותרת';
-	@override String get needsToSaveBeforeExiting => 'שמירת השינויים... אתה יכול לצאת בבטחה מהעורך בסיום';
+	@override String get needsToSaveBeforeExiting => 'השינויים נשמרים... אפשר לצאת בבטחה מהעורך בעת סיום השמירה';
 }
 
 // Path: home.tabs
@@ -372,11 +372,11 @@ class _TranslationsSettingsPrefCategoriesHe extends TranslationsSettingsPrefCate
 	final TranslationsHe _root; // ignore: unused_field
 
 	// Translations
-	@override String get general => 'כללי';
+	@override String get general => 'הגדרות כלליות';
 	@override String get writing => 'כתיבה';
-	@override String get editor => 'עורך';
+	@override String get editor => 'מצב עריכה';
 	@override String get performance => 'ביצועים';
-	@override String get advanced => 'מתקדם';
+	@override String get advanced => 'הגדרות מתקדמות';
 }
 
 // Path: settings.prefLabels
@@ -392,22 +392,22 @@ class _TranslationsSettingsPrefLabelsHe extends TranslationsSettingsPrefLabelsEn
 	@override String get layoutSize => 'סוג פריסה';
 	@override String get customAccentColor => 'צבע הדגשה מותאם אישית';
 	@override String get hyperlegibleFont => 'גופן Atkinson Hyperreadible';
-	@override String get shouldCheckForUpdates => 'בדוק אם קיימים עדכוני Saber';
+	@override String get shouldCheckForUpdates => 'לבדוק אם יש עדכונים ל־Saber';
 	@override String get shouldAlwaysAlertForUpdates => 'עדכונים מהירים יותר';
-	@override String get allowInsecureConnections => 'אפשר חיבורים לא מאובטחים';
+	@override String get allowInsecureConnections => 'לאפשר חיבורים לא מאובטחים';
 	@override String get editorToolbarAlignment => 'מיקום סרגל הכלים';
-	@override String get editorToolbarShowInFullscreen => 'הצג את סרגל הכלים במצב מסך מלא';
-	@override String get editorAutoInvert => 'הפוך הערות במצב כהה';
-	@override String get preferGreyscale => 'העדיפו צבעי גווני אפור';
-	@override String get maxImageSize => 'גודל תמונה מקסימלי';
+	@override String get editorToolbarShowInFullscreen => 'הצגת סרגל הכלים במצב מסך מלא';
+	@override String get editorAutoInvert => 'היפוך צבעי הפתקים במצב כהה';
+	@override String get preferGreyscale => 'העדפת גוונים אפורים';
+	@override String get maxImageSize => 'גודל תמונה מרבי';
 	@override String get autoClearWhiteboardOnExit => 'נקה אוטומטית את הלוח הלבן';
 	@override String get disableEraserAfterUse => 'השבת אוטומטית את המחק';
-	@override String get hideFingerDrawingToggle => 'הסתר את מתג ציור האצבע';
+	@override String get hideFingerDrawingToggle => 'הסתרת מתג הציור עם האצבע';
 	@override String get autoDisableFingerDrawingWhenStylusDetected => 'השבתה אוטומטית של הציור עם האצבע';
-	@override String get editorPromptRename => 'מבקש ממך לשנות את שם הערות חדשות';
-	@override String get recentColorsDontSavePresets => 'אל תשמור צבעים מוגדרים מראש בצבעים אחרונים';
+	@override String get editorPromptRename => 'חלונית לבקשת שינוי שם לפתקים חדשים';
+	@override String get recentColorsDontSavePresets => 'לא לשמור צבעי מערך בצבעים אחרונים';
 	@override String get recentColorsLength => 'כמה צבעים אחרונים לשמור';
-	@override String get printPageIndicators => 'הדפסת עמודים מחוונים';
+	@override String get printPageIndicators => 'הדפסת מספורי עמודים';
 	@override String get autosave => 'שמירה אוטומטית';
 	@override String get shapeRecognitionDelay => 'השהיה לפני זיהוי צורות';
 	@override String get autoStraightenLines => 'יישור קווים אוטומטי';
@@ -424,7 +424,7 @@ class _TranslationsSettingsPrefDescriptionsHe extends TranslationsSettingsPrefDe
 
 	// Translations
 	@override String get hyperlegibleFont => 'מגביר את הקריאות למשתמשים עם ראייה לקויה';
-	@override String get allowInsecureConnections => '(לא מומלץ) אפשר לסבר להתחבר לשרתים עם אישורים חתומים/לא מהימנים';
+	@override String get allowInsecureConnections => '(לא מומלץ) לאפשר ל־Saber להתחבר לשרתים עם חתימה עצמית או תעודות שאינן מהימנות';
 	@override String get preferGreyscale => 'עבור תצוגות דיו אלקטרוני';
 	@override String get autoClearWhiteboardOnExit => 'מנקה את לוח הציור לאחר היציאה מהאפליקציה';
 	@override String get disableEraserAfterUse => 'מעבר אוטומטי חזרה לעט לאחר שימוש במחק';
@@ -432,7 +432,7 @@ class _TranslationsSettingsPrefDescriptionsHe extends TranslationsSettingsPrefDe
 	@override late final _TranslationsSettingsPrefDescriptionsHideFingerDrawingHe hideFingerDrawing = _TranslationsSettingsPrefDescriptionsHideFingerDrawingHe._(_root);
 	@override String get autoDisableFingerDrawingWhenStylusDetected => 'כיבוי הציור עם האצבע כאשר מזוהה חיבור של עט';
 	@override String get editorPromptRename => 'תמיד תוכל לשנות את שם הפתקים מאוחר יותר';
-	@override String get printPageIndicators => 'הצג מחווני עמודים בייצוא';
+	@override String get printPageIndicators => 'הצגת מספורי עמודים בקבצים מיוצאים';
 	@override String get autosave => 'שמירה אוטומטית לאחר פרק זמן קצר, או אף פעם';
 	@override String get shapeRecognitionDelay => 'כל כמה זמן לעדכן את התצוגה המקדימה של הצורות';
 	@override String get autoStraightenLines => 'מיישר קווים ארוכים ללא צורך להשתמש בעט הצורות';
@@ -508,7 +508,7 @@ class _TranslationsLoginFormHe extends TranslationsLoginFormEn {
 
 	// Translations
 	@override TextSpan agreeToPrivacyPolicy({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [
-		const TextSpan(text: 'על ידי התחברות, אתה מסכים ל '),
+		const TextSpan(text: 'ההתחברות מבטאת את הסכמתך ל'),
 		linkToPrivacyPolicy('מדיניות הפרטיות'),
 		const TextSpan(text: '.'),
 	]);
@@ -524,7 +524,7 @@ class _TranslationsLoginStatusHe extends TranslationsLoginStatusEn {
 	@override String get loggedOut => 'מנותק';
 	@override String get tapToLogin => 'יש ללחוץ כדי להיכנס עם Nextcloud';
 	@override String hi({required Object u}) => 'אהלן, ${u}!';
-	@override String get almostDone => 'הסנכרון כמעט מוכן, יש ללחוץ בשביל להשלים את הכניסה';
+	@override String get almostDone => 'הסנכרון כמעט מוכן, יש ללחוץ בשביל להשלים את ההתחברות';
 	@override String get loggedIn => 'נכנסת עם Nextcloud';
 }
 
@@ -539,8 +539,8 @@ class _TranslationsLoginNcLoginStepHe extends TranslationsLoginNcLoginStepEn {
 	@override String get saberNcServer => 'שרת ה־Nextcloud של Saber';
 	@override String get otherNcServer => 'שרת Nextcloud אחר';
 	@override String get serverUrl => 'כתובת שרת';
-	@override String get loginWithSaber => 'כניסה עם Saber';
-	@override String get loginWithNextcloud => 'כניסה עם Nextcloud';
+	@override String get loginWithSaber => 'התחברות עם Saber';
+	@override String get loginWithNextcloud => 'התחברות עם Nextcloud';
 	@override late final _TranslationsLoginNcLoginStepLoginFlowHe loginFlow = _TranslationsLoginNcLoginStepLoginFlowHe._(_root);
 }
 
@@ -605,7 +605,7 @@ class _TranslationsProfile$faq$0i2$He extends TranslationsProfile$faq$0i2$En {
 
 	// Translations
 	@override String get q => 'איך אני משנה את הסיסמא המוצפנת שלי?';
-	@override String get a => '0. ודא שהסנכרון הושלם (ראה את התקדמות הסנכרון במסך הבית).\n1. התנתק מ Saber.\n2. עבור אל אתר האינטרנט של השרת שלך ומחק את התיקיה \'Saber\' שלך. פעולה זו תמחק את כל ההערות שלך מהשרת.\n3. היכנס שוב ל-Saber. אתה יכול לבחור סיסמת הצפנה חדשה בעת הכניסה.\n4. אל תשכח להתנתק ולהתחבר שוב ל-Saber גם במכשירים האחרים שלך.';
+	@override String get a => '0. לוודא שהסנכרון הושלם (ניתן לראות את התקדמות הסנכרון במסך הבית).\n1. להתנתק מ־Saber.\n2. לעבור לאתר האינטרנט של השרת ולמחוק את תיקיית ‚Saber’ שלך. פעולה זו תמחק את כל הפתקים שלך מהשרת.\n3. להתחבר שוב אל Saber. אפשר לבחור סיסמת הצפנה חדשה בעת הכניסה.\n4. לא לשכוח להתנתק ולהתחבר שוב אל Saber גם במכשירים האחרים שלך.';
 }
 
 // Path: profile.faq.3
@@ -616,7 +616,7 @@ class _TranslationsProfile$faq$0i3$He extends TranslationsProfile$faq$0i3$En {
 
 	// Translations
 	@override String get q => 'איך אני יכול למחוק את החשבון שלי?';
-	@override String get a => 'הקש על הלחצן "${_root.profile.quickLinks.deleteAccount}" למעלה, והיכנס במידת הצורך.\n אם אתה משתמש בשרת Saber הרשמי, החשבון שלך יימחק לאחר תקופת חסד של שבוע. ניתן ליצור איתי קשר בכתובת adilhanney@disroot.org במהלך תקופה זו כדי לבטל את המחיקה.\n אם אתה משתמש בשרת של צד שלישי, ייתכן שלא תהיה אפשרות למחוק את חשבונך: תצטרך לעיין במדיניות הפרטיות של השרת לקבלת מידע נוסף.';
+	@override String get a => 'יש להקיש על הכפתור „${_root.profile.quickLinks.deleteAccount}” ולהתחבר במידת הצורך.\nאם משתמשים בשרת הרשמי של Saber, החשבון שיוצרים יימחק לאחר תקופת חסד של שבוע. אפשר ליצור איתי קשר בכתובת adilhanney@disroot.org במהלך תקופה זו כדי לבטל את המחיקה.\nאם משתמשים בשרת צד שלישי, ייתכן שאין אפשרות למחוק את החשבון: יש לעיין במדיניות הפרטיות של השרת למידע נוסף.';
 }
 
 // Path: editor.toolbar
@@ -770,7 +770,7 @@ class _TranslationsEditorVersionTooNewHe extends TranslationsEditorVersionTooNew
 
 	// Translations
 	@override String get title => 'הערה זו נערכה באמצעות גרסה חדשה יותר של Saber';
-	@override String get subtitle => 'עריכת פתק זה עלולה לגרום לאיבוד מידע מסוים. האם אתה רוצה להתאלם מזה בכל מקרה?';
+	@override String get subtitle => 'עריכת פתק זה עלולה לגרום לאיבוד מידע מסוים. להתעלם ולערוך בכל זאת?';
 	@override String get allowEditing => 'אפשר עריכה';
 }
 
@@ -781,7 +781,7 @@ class _TranslationsEditorQuillHe extends TranslationsEditorQuillEn {
 	final TranslationsHe _root; // ignore: unused_field
 
 	// Translations
-	@override String get typeSomething => 'תכתוב משהו פה...';
+	@override String get typeSomething => 'אפשר להקליד כאן משהו...';
 }
 
 // Path: editor.hud
@@ -837,8 +837,8 @@ class _TranslationsSettingsPrefDescriptionsHideFingerDrawingHe extends Translati
 
 	// Translations
 	@override String get shown => 'מונע החלפת מצב בשוגג';
-	@override String get fixedOn => 'ציור אצבע קבוע כזמין';
-	@override String get fixedOff => 'ציור אצבע קבוע כלא זמין';
+	@override String get fixedOn => 'הציור עם האצבע זמין באופן קבוע';
+	@override String get fixedOff => 'הציור עם האצבע מושבת באופן קבוע';
 }
 
 // Path: settings.prefDescriptions.sentry
@@ -863,7 +863,7 @@ class _TranslationsLoginNcLoginStepLoginFlowHe extends TranslationsLoginNcLoginS
 	// Translations
 	@override String get pleaseAuthorize => 'נא לתת ל־Saber הרשאה לגשת לחשבון Nextcloud שלך';
 	@override String get followPrompts => 'נא לעקוב אחר ההוראות הבאות בממשק של Nextcloud';
-	@override String get browserDidntOpen => 'עמוד הכניסה לא נפתח? נא ללחוץ כאן';
+	@override String get browserDidntOpen => 'עמוד ההתחברות לא נפתח? נא ללחוץ כאן';
 }
 
 // Path: login.encLoginStep.encFaq.0

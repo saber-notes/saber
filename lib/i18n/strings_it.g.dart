@@ -54,7 +54,7 @@ class _TranslationsCommonIt extends TranslationsCommonEn {
 	// Translations
 	@override String get done => 'Fatto';
 	@override String get continueBtn => 'Continua';
-	@override String get cancel => 'Cancella';
+	@override String get cancel => 'Annulla';
 }
 
 // Path: home
@@ -69,7 +69,7 @@ class _TranslationsHomeIt extends TranslationsHomeEn {
 	@override late final _TranslationsHomeTooltipsIt tooltips = _TranslationsHomeTooltipsIt._(_root);
 	@override late final _TranslationsHomeCreateIt create = _TranslationsHomeCreateIt._(_root);
 	@override String get welcome => 'Benvenuto su Saber';
-	@override String get invalidFormat => 'Il file selezionato non è supportato. Seleziona un file .sbn, .sbn2, .sba o .pdf.';
+	@override String get invalidFormat => 'Il file selezionato non è supportato. Seleziona un file sbn, sbn2, sba o pdf.';
 	@override String get noFiles => 'Nessun file trovato';
 	@override String get noPreviewAvailable => 'Nessuna anteprima disponibile';
 	@override String get createNewNote => 'Tocca il pulsante + per creare una nuova nota';
@@ -105,12 +105,12 @@ class _TranslationsSettingsIt extends TranslationsSettingsEn {
 	@override late final _TranslationsSettingsThemeModesIt themeModes = _TranslationsSettingsThemeModesIt._(_root);
 	@override late final _TranslationsSettingsLayoutSizesIt layoutSizes = _TranslationsSettingsLayoutSizesIt._(_root);
 	@override late final _TranslationsSettingsAccentColorPickerIt accentColorPicker = _TranslationsSettingsAccentColorPickerIt._(_root);
-	@override String get systemLanguage => 'Lingua del sistema';
+	@override String get systemLanguage => 'Lingua di sistema';
 	@override List<String> get axisDirections => [
 		'Sopra',
 		'Destra',
 		'In basso',
-		'Sotto',
+		'Sinistra',
 	];
 	@override late final _TranslationsSettingsResetIt reset = _TranslationsSettingsResetIt._(_root);
 	@override String get resyncEverything => 'Risincronizza tutto';
@@ -141,7 +141,7 @@ class _TranslationsLoginIt extends TranslationsLoginEn {
 	final TranslationsIt _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Login';
+	@override String get title => 'Accesso';
 	@override late final _TranslationsLoginFormIt form = _TranslationsLoginFormIt._(_root);
 	@override TextSpan signup({required InlineSpanBuilder linkToSignup}) => TextSpan(children: [
 		const TextSpan(text: 'Non hai ancora un account? '),
@@ -149,7 +149,7 @@ class _TranslationsLoginIt extends TranslationsLoginEn {
 		const TextSpan(text: '!'),
 	]);
 	@override TextSpan notYou({required InlineSpanBuilder undoLogin}) => TextSpan(children: [
-		const TextSpan(text: 'Nn sei tu? '),
+		const TextSpan(text: 'Non sei tu? '),
 		undoLogin('Scegli un altro account'),
 		const TextSpan(text: '.'),
 	]);
@@ -166,8 +166,8 @@ class _TranslationsProfileIt extends TranslationsProfileEn {
 
 	// Translations
 	@override String get title => 'Il mio profilo';
-	@override String get logout => 'Log out';
-	@override String quotaUsage({required Object used, required Object total, required Object percent}) => 'Stai ${used} di ${total} (${percent}%)';
+	@override String get logout => 'Disconnessione';
+	@override String quotaUsage({required Object used, required Object total, required Object percent}) => 'Stai usando ${used} su ${total} (${percent}%)';
 	@override String get connectedTo => 'Collegato a';
 	@override late final _TranslationsProfileQuickLinksIt quickLinks = _TranslationsProfileQuickLinksIt._(_root);
 	@override String get faqTitle => 'Domande frequenti';
@@ -201,7 +201,7 @@ class _TranslationsUpdateIt extends TranslationsUpdateEn {
 
 	// Translations
 	@override String get updateAvailable => 'Aggiornamento disponibile';
-	@override String get updateAvailableDescription => 'È disponibile una nuova versione dell\'app, con queste modifiche:';
+	@override String get updateAvailableDescription => 'È disponibile una nuova versione dell\'app:';
 	@override String get update => 'Aggiornamento';
 	@override String get downloadNotAvailableYet => 'Il download non è ancora disponibile per la tua piattaforma. Ti invitiamo a controllare nuovamente a breve.';
 }
@@ -226,7 +226,7 @@ class _TranslationsEditorIt extends TranslationsEditorEn {
 	@override late final _TranslationsEditorHudIt hud = _TranslationsEditorHudIt._(_root);
 	@override String get pages => 'Pagine';
 	@override String get untitled => 'Senza titolo';
-	@override String get needsToSaveBeforeExiting => 'Salvataggio delle modifiche... Puoi tranquillamente uscire dall\'editor quando hai finito';
+	@override String get needsToSaveBeforeExiting => 'Salvataggio delle modifiche... Puoi tranquillamente uscire dall\'editor una volta completato';
 }
 
 // Path: home.tabs
@@ -289,7 +289,7 @@ class _TranslationsHomeNewFolderIt extends TranslationsHomeNewFolderEn {
 	@override String get folderName => 'Nome cartella';
 	@override String get create => 'Crea';
 	@override String get folderNameEmpty => 'Il nome della cartella non può essere vuoto';
-	@override String get folderNameContainsSlash => 'Il nome della cartella non può contenere una barra';
+	@override String get folderNameContainsSlash => 'Il nome della cartella non può contenere il carattere "barra"';
 	@override String get folderNameExists => 'La cartella esiste già';
 }
 
@@ -320,9 +320,9 @@ class _TranslationsHomeMoveNoteIt extends TranslationsHomeMoveNoteEn {
 	@override String moveNotes({required Object n}) => 'Sposta ${n} note';
 	@override String moveName({required Object f}) => 'Sposta ${f}';
 	@override String get move => 'Sposta';
-	@override String renamedTo({required Object newName}) => 'La nota verrà rinominata in ${newName}';
+	@override String renamedTo({required Object newName}) => 'La nota verrà rinominata ${newName}';
 	@override String get multipleRenamedTo => 'Le note seguenti verranno rinominate:';
-	@override String numberRenamedTo({required Object n}) => '${n} le note verranno rinominate per evitare conflitti';
+	@override String numberRenamedTo({required Object n}) => '${n} note verranno rinominate per evitare conflitti';
 }
 
 // Path: home.renameFolder
@@ -336,7 +336,7 @@ class _TranslationsHomeRenameFolderIt extends TranslationsHomeRenameFolderEn {
 	@override String get folderName => 'Nome cartella';
 	@override String get rename => 'Rinomina';
 	@override String get folderNameEmpty => 'Il nome della cartella non può essere vuoto';
-	@override String get folderNameContainsSlash => 'Il nome della cartella non può contenere una barra';
+	@override String get folderNameContainsSlash => 'Il nome della cartella non può contenere il carattere "barra"';
 	@override String get folderNameExists => 'Esiste già una cartella con questo nome';
 }
 
@@ -360,7 +360,7 @@ class _TranslationsSentryConsentIt extends TranslationsSentryConsentEn {
 	final TranslationsIt _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Vuoi aiutaci a migliorare Saber?';
+	@override String get title => 'Vuoi aiutarci a migliorare Saber?';
 	@override late final _TranslationsSentryConsentDescriptionIt description = _TranslationsSentryConsentDescriptionIt._(_root);
 	@override late final _TranslationsSentryConsentAnswersIt answers = _TranslationsSentryConsentAnswersIt._(_root);
 }
@@ -372,11 +372,11 @@ class _TranslationsSettingsPrefCategoriesIt extends TranslationsSettingsPrefCate
 	final TranslationsIt _root; // ignore: unused_field
 
 	// Translations
-	@override String get general => 'Generale';
+	@override String get general => 'Generali';
 	@override String get writing => 'Scrittura';
 	@override String get editor => 'Editor';
 	@override String get performance => 'Prestazioni';
-	@override String get advanced => 'Avanzato';
+	@override String get advanced => 'Avanzate';
 }
 
 // Path: settings.prefLabels
@@ -386,32 +386,32 @@ class _TranslationsSettingsPrefLabelsIt extends TranslationsSettingsPrefLabelsEn
 	final TranslationsIt _root; // ignore: unused_field
 
 	// Translations
-	@override String get locale => 'Lingua app';
+	@override String get locale => 'Lingua';
 	@override String get appTheme => 'Tema dell\'app';
 	@override String get platform => 'Tipo di tema';
-	@override String get layoutSize => 'Dimensione layout';
+	@override String get layoutSize => 'Dimensione del layout';
 	@override String get customAccentColor => 'Colore personalizzato';
-	@override String get hyperlegibleFont => 'Carattere iperleggibile';
+	@override String get hyperlegibleFont => 'Font Atkinson Hyperlegible';
 	@override String get shouldCheckForUpdates => 'Controlla automaticamente gli aggiornamenti di Saber';
-	@override String get shouldAlwaysAlertForUpdates => 'Aggiornamenti veloci';
+	@override String get shouldAlwaysAlertForUpdates => 'Aggiornamenti precoci';
 	@override String get allowInsecureConnections => 'Consenti connessioni non sicure';
-	@override String get editorToolbarAlignment => 'Allineamento della barra degli strumenti dell\'editor';
-	@override String get editorToolbarShowInFullscreen => 'Mostra la barra degli strumenti dell\'editor in modalità a schermo intero';
+	@override String get editorToolbarAlignment => 'Posizione barra degli strumenti';
+	@override String get editorToolbarShowInFullscreen => 'Mostra la barra degli strumenti in modalità a schermo intero';
 	@override String get editorAutoInvert => 'Inverti le note in modalità scura';
 	@override String get preferGreyscale => 'Preferisci i colori in scala di grigi';
 	@override String get maxImageSize => 'Dimensione massima dell\'immagine';
-	@override String get autoClearWhiteboardOnExit => 'Svuota la lavagna dopo essere uscito dall\'app';
+	@override String get autoClearWhiteboardOnExit => 'Pulisci automaticamente la lavagna';
 	@override String get disableEraserAfterUse => 'Disattiva automaticamente la gomma';
 	@override String get hideFingerDrawingToggle => 'Nascondi l\'interruttore del disegno con le dita';
 	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Disattiva automaticamente il disegno con le dita';
-	@override String get editorPromptRename => 'Richiede di rinominare nuove note';
+	@override String get editorPromptRename => 'Rinomina le nuove note';
 	@override String get recentColorsDontSavePresets => 'Non salvare i colori preimpostati nei colori recenti';
 	@override String get recentColorsLength => 'Quanti colori recenti memorizzare';
 	@override String get printPageIndicators => 'Stampa indicatori di pagina';
 	@override String get autosave => 'Salvataggio automatico';
 	@override String get shapeRecognitionDelay => 'Ritardo nel riconoscimento della forma';
 	@override String get autoStraightenLines => 'Raddrizzamento automatico delle linee';
-	@override String get simplifiedHomeLayout => 'Layout semplificato della home';
+	@override String get simplifiedHomeLayout => 'Layout semplificato della schermata home';
 	@override String get customDataDir => 'Cartella Saber personalizzata';
 	@override String get sentry => 'Segnalazione di errori';
 }
@@ -423,21 +423,21 @@ class _TranslationsSettingsPrefDescriptionsIt extends TranslationsSettingsPrefDe
 	final TranslationsIt _root; // ignore: unused_field
 
 	// Translations
-	@override String get hyperlegibleFont => 'Atkinson Iperleggibile aumenta la leggibilità per i lettori ipovedenti';
+	@override String get hyperlegibleFont => 'Migliora la leggibilità per i lettori ipovedenti';
 	@override String get allowInsecureConnections => '(Non consigliato) Consenti a Saber di connettersi ai server con certificati autofirmati/non attendibili';
 	@override String get preferGreyscale => 'Per display e-ink';
-	@override String get autoClearWhiteboardOnExit => 'Sarà comunque sincronizzato con gli altri tuoi dispositivi';
+	@override String get autoClearWhiteboardOnExit => 'Pulisce la lavagna alla chiusura dell\'app';
 	@override String get disableEraserAfterUse => 'Torna automaticamente alla penna dopo aver utilizzato la gomma';
 	@override String get maxImageSize => 'Le immagini più grandi verranno compresse';
 	@override late final _TranslationsSettingsPrefDescriptionsHideFingerDrawingIt hideFingerDrawing = _TranslationsSettingsPrefDescriptionsHideFingerDrawingIt._(_root);
-	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Disattiva il disegno con le dita quando viene rilevato la stilo';
-	@override String get editorPromptRename => 'Puoi sempre rinominare le note in un secondo momento';
+	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Disattiva il disegno con le dita quando viene rilevata una penna';
+	@override String get editorPromptRename => 'Puoi sempre rinominare le note successivamente';
 	@override String get printPageIndicators => 'Mostra indicatori di pagina nelle esportazioni';
-	@override String get autosave => 'Salvataggio automatico dopo un breve ritardo o mai';
+	@override String get autosave => 'Salvataggio automatico dopo un breve ritardo, oppure mai';
 	@override String get shapeRecognitionDelay => 'Quanto spesso aggiornare l\'anteprima della forma';
-	@override String get autoStraightenLines => 'Raddrizza le linee lunghe senza dover utilizzare la penna sagomatrice';
+	@override String get autoStraightenLines => 'Raddrizza le linee lunghe senza dover utilizzare la penna per le forme';
 	@override String get simplifiedHomeLayout => 'Imposta un\'altezza fissa per ogni anteprima della nota';
-	@override String get shouldAlwaysAlertForUpdates => 'Segnalami aggiornamenti non appena sono disponibili';
+	@override String get shouldAlwaysAlertForUpdates => 'Segnalami gli aggiornamenti non appena sono disponibili';
 	@override late final _TranslationsSettingsPrefDescriptionsSentryIt sentry = _TranslationsSettingsPrefDescriptionsSentryIt._(_root);
 }
 
@@ -508,7 +508,7 @@ class _TranslationsLoginFormIt extends TranslationsLoginFormEn {
 
 	// Translations
 	@override TextSpan agreeToPrivacyPolicy({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [
-		const TextSpan(text: 'Effettuando l\'accesso, accetti la '),
+		const TextSpan(text: 'Effettuando l\'accesso, accetti l\''),
 		linkToPrivacyPolicy('Informativa sulla privacy'),
 		const TextSpan(text: '.'),
 	]);
@@ -551,11 +551,11 @@ class _TranslationsLoginEncLoginStepIt extends TranslationsLoginEncLoginStepEn {
 	final TranslationsIt _root; // ignore: unused_field
 
 	// Translations
-	@override String get enterEncPassword => 'Per proteggere i tuoi dati, inserisci la password crittografata:';
-	@override String get newToSaber => 'Nuovo su Saber? Basta inserire una nuova password crittografata.';
-	@override String get encPassword => 'Password crittografata';
+	@override String get enterEncPassword => 'Per proteggere i tuoi dati, inserisci la tua password di cifratura:';
+	@override String get newToSaber => 'Nuovo su Saber? Basta inserire una nuova password di cifratura.';
+	@override String get encPassword => 'Password di cifratura';
 	@override String get encFaqTitle => 'Domande frequenti';
-	@override String get wrongEncPassword => 'La decrittografia non è riuscita con la password fornita. Per favore prova a inserirla di nuovo.';
+	@override String get wrongEncPassword => 'La decrittazione non è riuscita con la password fornita. Per favore prova a inserirla nuovamente.';
 	@override String get connectionFailed => 'Qualcosa è andato storto durante la connessione al server. Per favore riprova più tardi.';
 	@override List<dynamic> get encFaq => [
 		_TranslationsLoginEncLoginStep$encFaq$0i0$It._(_root),
@@ -582,8 +582,8 @@ class _TranslationsProfile$faq$0i0$It extends TranslationsProfile$faq$0i0$En {
 	final TranslationsIt _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Perderò i miei appunti se mi disconnetto?';
-	@override String get a => 'No. Le tue note rimarranno sia sul tuo dispositivo che sul server. Non verranno sincronizzati con il server fino a quando non effettui nuovamente l\'accesso. Assicurati che la sincronizzazione sia completa prima di uscire in modo da non perdere alcun dato (vedi l\'avanzamento della sincronizzazione nella schermata iniziale).';
+	@override String get q => 'Perderò le mie note se mi disconnetto?';
+	@override String get a => 'No. Le tue note rimarranno sia sul tuo dispositivo che sul server. Non verranno sincronizzate con il server finché non effettuerai nuovamente l\'accesso. Assicurati che la sincronizzazione sia completata prima di disconnetterti in modo da non perdere alcun dato (vedi l\'avanzamento della sincronizzazione nella schermata home).';
 }
 
 // Path: profile.faq.1
@@ -594,7 +594,7 @@ class _TranslationsProfile$faq$0i1$It extends TranslationsProfile$faq$0i1$En {
 
 	// Translations
 	@override String get q => 'Come cambio la mia password Nextcloud?';
-	@override String get a => 'Vai al sito web del tuo server e accedi. Quindi vai su Impostazioni > Sicurezza > Cambia password. Dovrai disconnetterti e riconnetterti a Saber dopo aver cambiato la tua password.';
+	@override String get a => 'Vai al sito web del tuo server e accedi. Quindi vai in Impostazioni > Sicurezza > Cambia password. Dovrai disconnetterti e riconnetterti a Saber dopo aver cambiato la tua password.';
 }
 
 // Path: profile.faq.2
@@ -604,8 +604,8 @@ class _TranslationsProfile$faq$0i2$It extends TranslationsProfile$faq$0i2$En {
 	final TranslationsIt _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Come cambio la mia password di crittografia?';
-	@override String get a => '1. Disconnettersi da Saber. Assicurati che la sincronizzazione sia completa prima di uscire in modo da non perdere alcun dato (vedi l\'avanzamento della sincronizzazione nella schermata iniziale).\n2. Vai al sito Web del tuo server ed elimina la cartella "Saber". Questo eliminerà tutte le tue note dal server.\n3. Accedi nuovamente a Saber. Puoi scegliere una nuova password di crittografia quando accedi.\n4. Non dimenticare di disconnetterti e accedere nuovamente a Saber anche sugli altri tuoi dispositivi.';
+	@override String get q => 'Come cambio la mia password di cifratura?';
+	@override String get a => '0. Assicurati che la sincronizzazione sia completata (vedi l\'avanzamento della sincronizzazione nella schermata home).\n1. Disconnettiti da Saber. \n2. Vai al sito Web del tuo server ed elimina la cartella "Saber". Questo eliminerà tutte le tue note dal server.\n3. Accedi nuovamente a Saber. Puoi scegliere una nuova password di cifratura quando accedi.\n4. Non dimenticare di disconnetterti e accedere nuovamente a Saber anche sugli altri tuoi dispositivi.';
 }
 
 // Path: profile.faq.3
@@ -627,9 +627,9 @@ class _TranslationsEditorToolbarIt extends TranslationsEditorToolbarEn {
 
 	// Translations
 	@override String get toggleColors => 'Attiva/disattiva i colori (Ctrl C)';
-	@override String get select => 'Selezione';
+	@override String get select => 'Seleziona';
 	@override String get toggleEraser => 'Attiva/disattiva gomma (Ctrl E)';
-	@override String get photo => 'Foto';
+	@override String get photo => 'Immagini';
 	@override String get text => 'Testo';
 	@override String get toggleFingerDrawing => 'Attiva/disattiva il disegno con il dito (Ctrl F)';
 	@override String get undo => 'Annulla';
@@ -650,7 +650,7 @@ class _TranslationsEditorPensIt extends TranslationsEditorPensEn {
 	@override String get ballpointPen => 'Penna a sfera';
 	@override String get highlighter => 'Evidenziatore';
 	@override String get pencil => 'Matita';
-	@override String get shapePen => 'Forma della penna';
+	@override String get shapePen => 'Penna per le forme';
 	@override String get laserPointer => 'Puntatore laser';
 }
 
@@ -661,7 +661,7 @@ class _TranslationsEditorPenOptionsIt extends TranslationsEditorPenOptionsEn {
 	final TranslationsIt _root; // ignore: unused_field
 
 	// Translations
-	@override String get size => 'Dimesione';
+	@override String get size => 'Dimensione';
 }
 
 // Path: editor.colors
@@ -686,7 +686,7 @@ class _TranslationsEditorColorsIt extends TranslationsEditorColorsEn {
 	@override String get cyan => 'Ciano';
 	@override String get blue => 'Blu';
 	@override String get yellow => 'Giallo';
-	@override String get purple => 'Porpora';
+	@override String get purple => 'Viola';
 	@override String get pink => 'Rosa';
 	@override String get orange => 'Arancione';
 	@override String get pastelRed => 'Rosso pastello';
@@ -695,7 +695,7 @@ class _TranslationsEditorColorsIt extends TranslationsEditorColorsEn {
 	@override String get pastelGreen => 'Verde pastello';
 	@override String get pastelCyan => 'Ciano pastello';
 	@override String get pastelBlue => 'Blu pastello';
-	@override String get pastelPurple => 'Porpora pastella';
+	@override String get pastelPurple => 'Viola pastello';
 	@override String get pastelPink => 'Rosa pastello';
 }
 
@@ -708,10 +708,10 @@ class _TranslationsEditorImageOptionsIt extends TranslationsEditorImageOptionsEn
 	// Translations
 	@override String get title => 'Opzioni immagine';
 	@override String get invertible => 'Invertibile';
-	@override String get download => 'Download';
+	@override String get download => 'Scarica';
 	@override String get setAsBackground => 'Imposta come sfondo';
 	@override String get removeAsBackground => 'Rimuovi come sfondo';
-	@override String get delete => 'Cancella';
+	@override String get delete => 'Elimina';
 }
 
 // Path: editor.selectionBar
@@ -721,8 +721,8 @@ class _TranslationsEditorSelectionBarIt extends TranslationsEditorSelectionBarEn
 	final TranslationsIt _root; // ignore: unused_field
 
 	// Translations
-	@override String get delete => 'Cancella';
-	@override String get duplicate => 'Duplicare';
+	@override String get delete => 'Elimina';
+	@override String get duplicate => 'Duplica';
 }
 
 // Path: editor.menu
@@ -732,20 +732,20 @@ class _TranslationsEditorMenuIt extends TranslationsEditorMenuEn {
 	final TranslationsIt _root; // ignore: unused_field
 
 	// Translations
-	@override String clearPage({required Object page, required Object totalPages}) => 'Pulisci pagina ${page}/${totalPages} totali';
+	@override String clearPage({required Object page, required Object totalPages}) => 'Pulisci pagina ${page}/${totalPages}';
 	@override String get clearAllPages => 'Pulisci tutte le pagine';
 	@override String get insertPage => 'Inserisci pagina sotto';
-	@override String get duplicatePage => 'Pagina duplicata';
+	@override String get duplicatePage => 'Duplica pagina';
 	@override String get deletePage => 'Elimina pagina';
-	@override String get lineHeight => 'Altezza della linea';
-	@override String get lineHeightDescription => 'Controlla anche la dimensione del testo per le note digitate';
-	@override String get lineThickness => 'Spessore della linea';
-	@override String get lineThicknessDescription => 'Spessore della linea di sfondo';
+	@override String get lineHeight => 'Altezza delle linee';
+	@override String get lineHeightDescription => 'Regola anche la dimensione del testo per le note digitate';
+	@override String get lineThickness => 'Spessore delle linee';
+	@override String get lineThicknessDescription => 'Spessore delle linee dello sfondo';
 	@override String get backgroundImageFit => 'Adattamento immagine di sfondo';
-	@override String get backgroundPattern => 'Modello di sfondo';
+	@override String get backgroundPattern => 'Modello dello sfondo';
 	@override String get import => 'Importa';
 	@override String get watchServer => 'Controlla gli aggiornamenti sul server';
-	@override String get watchServerReadOnly => 'La modifica è disabilitata mentre si guarda il server';
+	@override String get watchServerReadOnly => 'La modifica è disabilitata mentre si controlla il server';
 	@override late final _TranslationsEditorMenuBoxFitsIt boxFits = _TranslationsEditorMenuBoxFitsIt._(_root);
 	@override late final _TranslationsEditorMenuBgPatternsIt bgPatterns = _TranslationsEditorMenuBgPatternsIt._(_root);
 }
@@ -794,9 +794,9 @@ class _TranslationsEditorHudIt extends TranslationsEditorHudEn {
 	@override String get unlockZoom => 'Sblocca zoom';
 	@override String get lockZoom => 'Blocca zoom';
 	@override String get unlockSingleFingerPan => 'Attiva la panoramica con un solo dito';
-	@override String get lockSingleFingerPan => 'Disabilita la panoramica con un solo dito';
+	@override String get lockSingleFingerPan => 'Blocca la panoramica con un solo dito';
 	@override String get unlockAxisAlignedPan => 'Sblocca la panoramica orizzontale o verticale';
-	@override String get lockAxisAlignedPan => 'Blocca la panoramica su orizzontale o verticale';
+	@override String get lockAxisAlignedPan => 'Blocca la panoramica in orizzontale o verticale';
 }
 
 // Path: sentry.consent.description
@@ -807,7 +807,7 @@ class _TranslationsSentryConsentDescriptionIt extends TranslationsSentryConsentD
 
 	// Translations
 	@override String get question => 'Vuoi segnalare automaticamente gli errori imprevisti? Questo mi aiuta a identificare e risolvere i problemi più velocemente.';
-	@override String get scope => 'I report potrebbero contenere informazioni sull\'errore e sul tuo dispositivo. Ho fatto tutto il possibile per filtrare i dati personali, ma alcuni potrebbero rimanere.';
+	@override String get scope => 'I resoconti potrebbero contenere informazioni sull\'errore e sul tuo dispositivo. Ho fatto il possibile per rimuovere dati personali, ma alcuni potrebbero rimanere.';
 	@override String get currentlyOff => 'Se acconsenti, la segnalazione degli errori verrà abilitata dopo il riavvio dell\'app.';
 	@override String get currentlyOn => 'Se revochi il consenso, riavvia l\'app per disattivare la segnalazione degli errori.';
 	@override TextSpan learnMoreInPrivacyPolicy({required InlineSpanBuilder link}) => TextSpan(children: [
@@ -824,7 +824,7 @@ class _TranslationsSentryConsentAnswersIt extends TranslationsSentryConsentAnswe
 	final TranslationsIt _root; // ignore: unused_field
 
 	// Translations
-	@override String get yes => 'Yes';
+	@override String get yes => 'Sì';
 	@override String get no => 'No';
 	@override String get later => 'Chiedimelo più tardi';
 }
@@ -837,8 +837,8 @@ class _TranslationsSettingsPrefDescriptionsHideFingerDrawingIt extends Translati
 
 	// Translations
 	@override String get shown => 'Impedisce l\'attivazione accidentale';
-	@override String get fixedOn => 'Il disegno con le dita è fissato come abilitato';
-	@override String get fixedOff => 'Il disegno con le dita è fisso come disabilitato';
+	@override String get fixedOn => 'Il disegno con le dita è sempre abilitato';
+	@override String get fixedOff => 'Il disegno con le dita è sempre disabilitato';
 }
 
 // Path: settings.prefDescriptions.sentry
@@ -873,8 +873,8 @@ class _TranslationsLoginEncLoginStep$encFaq$0i0$It extends TranslationsLoginEncL
 	final TranslationsIt _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Cos\'è una password crittografata? Perché usare due password?';
-	@override String get a => 'La password Nextcloud viene utilizzata per accedere al cloud. La password di crittografia "codifica" i tuoi dati prima che raggiungano il cloud.\n Anche se qualcuno riesce ad accedere al tuo account Nextcloud, le tue note rimarranno al sicuro e crittografate con una password separata. Ciò fornisce un secondo livello di sicurezza per proteggere i tuoi dati.\n Nessuno può accedere alle tue note sul server senza la tua password di crittografia, ma ciò significa anche che se dimentichi la password di crittografia, perderai l\'accesso ai tuoi dati.';
+	@override String get q => 'Cos\'è una password di cifratura? Perché usare due password?';
+	@override String get a => 'La password Nextcloud viene utilizzata per accedere al cloud. La password di cifratura "rimescola" i tuoi dati prima che raggiungano il cloud.\n Anche se qualcuno riesce ad accedere al tuo account Nextcloud, le tue note rimarranno al sicuro e criptate con una password separata. Ciò fornisce un secondo livello di sicurezza per proteggere i tuoi dati.\n Nessuno può accedere alle tue note sul server senza la tua password di cifratura, ma ciò significa anche che se dimentichi la tua password di cifratura, perderai l\'accesso ai tuoi dati.';
 }
 
 // Path: login.encLoginStep.encFaq.1
@@ -884,8 +884,8 @@ class _TranslationsLoginEncLoginStep$encFaq$0i1$It extends TranslationsLoginEncL
 	final TranslationsIt _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Non ho ancora impostato una password di crittografia. Dove lo posso ottenere?';
-	@override String get a => 'Scegli una nuova password crittografata e inseriscila sopra.\nSaber genererà automaticamente le chiavi di crittografia da questa password.';
+	@override String get q => 'Non ho ancora impostato una password di cifratura. Come posso ottenerla?';
+	@override String get a => 'Scegli una nuova password di cifratura e inseriscila sopra.\nSaber genererà automaticamente le chiavi di cifratura da questa password.';
 }
 
 // Path: login.encLoginStep.encFaq.2
@@ -896,7 +896,7 @@ class _TranslationsLoginEncLoginStep$encFaq$0i2$It extends TranslationsLoginEncL
 
 	// Translations
 	@override String get q => 'Posso utilizzare la stessa password del mio account Nextcloud?';
-	@override String get a => 'Sì, ma tieni presente che sarebbe più semplice per l\'amministratore del server o qualcun altro accedere alle tue note se accedessero al tuo account Nextcloud.';
+	@override String get a => 'Sì, ma tieni presente che sarebbe più semplice per l\'amministratore del server o per qualcun altro accedere alle tue note se avessero accesso al tuo account Nextcloud.';
 }
 
 // Path: editor.menu.boxFits
@@ -906,9 +906,9 @@ class _TranslationsEditorMenuBoxFitsIt extends TranslationsEditorMenuBoxFitsEn {
 	final TranslationsIt _root; // ignore: unused_field
 
 	// Translations
-	@override String get fill => 'Tratto';
-	@override String get cover => 'Copertina';
-	@override String get contain => 'Contiene';
+	@override String get fill => 'Riempi';
+	@override String get cover => 'Copri';
+	@override String get contain => 'Adatta';
 }
 
 // Path: editor.menu.bgPatterns
@@ -919,9 +919,9 @@ class _TranslationsEditorMenuBgPatternsIt extends TranslationsEditorMenuBgPatter
 
 	// Translations
 	@override String get none => 'Vuoto';
-	@override String get college => 'College-ruled';
-	@override String get collegeRtl => 'College governato (inverso)';
-	@override String get lined => 'Lined';
+	@override String get college => 'Righe (margine sinistro)';
+	@override String get collegeRtl => 'Righe (margine destro)';
+	@override String get lined => 'Righe';
 	@override String get grid => 'Griglia';
 	@override String get dots => 'Punti';
 	@override String get staffs => 'Pentagrammi';
