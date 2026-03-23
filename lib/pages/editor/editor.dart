@@ -1320,6 +1320,40 @@ class EditorState extends State<Editor> {
     );
   }
 
+  /// Exports the current page as a PNG image file.
+  ///
+  /// This captures the canvas natively via [EditorExporter.screenshotPage],
+  /// which guarantees the correct background color and omits UI elements
+  /// like selection bounds or the text cursor. It computes a dynamic [pixelRatio]
+  /// to ensure high quality while averting Out-Of-Memory exceptions on large canvases.
+  Future exportAsPng(BuildContext context) async {
+    final page = coreInfo.pages[currentPageIndex];
+
+    const maxRasterizableSize = 3000.0;
+    var targetPixelRatio = maxRasterizableSize / page.size.longestSide;
+    if (targetPixelRatio > 1) targetPixelRatio = 1;
+
+    try {
+      final Uint8List pngBytes = await EditorExporter.screenshotPage(
+        coreInfo: coreInfo,
+        pageIndex: currentPageIndex,
+        screenshotController: ScreenshotController(),
+        rasterizeAllStrokes: true,
+        pixelRatio: targetPixelRatio,
+      );
+
+      if (!context.mounted) return;
+      await FileManager.exportFile(
+        '${coreInfo.fileName}_page_${currentPageIndex + 1}.png',
+        pngBytes,
+        isImage: true,
+        context: context,
+      );
+    } catch (e, st) {
+      log.severe('Failed to export PNG', e, st);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final colorScheme = ColorScheme.of(context);
@@ -1551,7 +1585,7 @@ class EditorState extends State<Editor> {
           paste: paste,
           exportAsSba: exportAsSba,
           exportAsPdf: exportAsPdf,
-          exportAsPng: null,
+          exportAsPng: exportAsPng,
         ),
       ),
     );
