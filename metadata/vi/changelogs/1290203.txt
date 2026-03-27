@@ -1,1 +1,0 @@
-Page numbers now respect your Atkinson Hyperlegible font setting.

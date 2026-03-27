@@ -1,3 +1,0 @@
-• Added a Thai translation by Anucha Hlownonkor
-• Added a Slovenian translation by Tadej Pusnik
-• If a note is in read-only mode, you'll now see the reason why

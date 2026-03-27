@@ -1,3 +1,0 @@
-• Deleting a file is now synced between your devices
-• Animate images when they're undone/redone
-• UI improvements

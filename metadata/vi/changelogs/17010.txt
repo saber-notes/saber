@@ -1,2 +1,0 @@
-• Fixed a crash when zooming in to PDFs
-• Improved performance of the shape tool

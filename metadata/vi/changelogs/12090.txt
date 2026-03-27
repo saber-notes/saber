@@ -1,3 +1,0 @@
-• Better inversion support for translucency in images
-• Performance optimisations for the eraser tool
-• Reduced filesize of notes

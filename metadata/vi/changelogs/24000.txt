@@ -1,3 +1,0 @@
-• Major syncing speed improvements
-• Better handling of outdated encryption passwords
-• Improved rendering of laser strokes

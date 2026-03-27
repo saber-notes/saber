@@ -1,2 +1,0 @@
-• Fixed the new file format crashing when you use colored strokes
-• Any known corrupted files are now deprioritized in the sync queue

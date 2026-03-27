@@ -1,3 +1,0 @@
-• Redesigned the login process
-• Stopped the autosave triggering while in the middle of a stroke
-• Fixed the pencil sound effect setting not being picked up immediately

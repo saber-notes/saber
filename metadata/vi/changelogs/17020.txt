@@ -1,3 +1,0 @@
-• Long press a recent color to pin it
-• You can now export notes from the home screen
-• Various bug fixes

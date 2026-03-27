@@ -1,3 +1,0 @@
-• Added a button to rename folders
-• Added a tablature background pattern
-• Minor improvements to the editor three dots menu

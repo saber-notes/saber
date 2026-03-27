@@ -1,2 +1,0 @@
-• Added a Linux (Yaru) theme
-• Fixed a syncing regression

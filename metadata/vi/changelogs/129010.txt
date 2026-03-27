@@ -1,3 +1,0 @@
-• Home screen cards are now bordered instead of shadowed.
-• Disabled autocorrect on the Nextcloud URL field in the login page.
-• Made `https://` optional in the Nextcloud URL field.
