@@ -16,8 +16,6 @@ import 'package:sbn/tool_id.dart';
 class Stroke {
   static final log = Logger('Stroke');
 
-  @visibleForTesting
-  @protected
   final List<PointVector> points = [];
 
   bool get isEmpty => points.isEmpty;

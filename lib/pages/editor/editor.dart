@@ -32,7 +32,6 @@ import 'package:saber/components/toolbar/editor_bottom_sheet.dart';
 import 'package:saber/components/toolbar/editor_page_manager.dart';
 import 'package:saber/components/toolbar/toolbar.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
-import 'package:saber/data/tools/stroke_properties.dart';
 import 'package:saber/data/editor/page_style.dart';
 import 'package:saber/data/editor/page_insertion_mode.dart';
 import 'package:saber/devils_book/stylus/squeeze_palette_controller.dart';
@@ -40,7 +39,6 @@ import 'package:saber/devils_book/stylus/stylus_state.dart';
 import 'package:saber/devils_book/stylus/devils_stylus_event.dart';
 import 'package:saber/devils_book/effects/live_effect_engine.dart';
 import 'package:saber/devils_book/components/live_effect_overlay.dart';
-import 'package:saber/devils_book/registry/devils_catalog.dart';
 import 'package:saber/devils_book/components/squeeze_palette.dart';
 import 'package:saber/devils_book/models/writing_mode.dart';
 import 'package:saber/devils_book/models/relic_element.dart';
@@ -877,7 +875,7 @@ class EditorState extends State<Editor> {
     isHovering = false;
     // Ensure the stylus framework knows the nib has lifted out of tracking distance.
     stylusState.isHovering = false;
-    stylusState.notifyListeners();
+    stylusState.notifyListenersPlease();
   }
 
   void onStylusButtonChanged(bool buttonPressed) {
@@ -1195,7 +1193,7 @@ class EditorState extends State<Editor> {
       // if it's already a recent color, move it to the top
       stows.recentColorsChronological.value.remove(newColorString);
       stows.recentColorsChronological.value.add(newColorString);
-      stows.recentColorsChronological.notifyListeners();
+      stows.recentColorsChronological.notifyListenersPlease();
     } else {
       if (stows.recentColorsPositioned.value.length >=
           stows.recentColorsLength.value) {
@@ -1212,8 +1210,8 @@ class EditorState extends State<Editor> {
         stows.recentColorsChronological.value.add(newColorString);
         stows.recentColorsPositioned.value.insert(0, newColorString);
       }
-      stows.recentColorsChronological.notifyListeners();
-      stows.recentColorsPositioned.notifyListeners();
+      stows.recentColorsChronological.notifyListenersPlease();
+      stows.recentColorsPositioned.notifyListenersPlease();
     }
   }
 
@@ -2281,7 +2279,6 @@ class EditorState extends State<Editor> {
         break;
       case PageInsertionMode.inherit:
       case PageInsertionMode.duplicate:
-      default:
         prevStyle = pageIndex >= 0 && pageIndex < coreInfo.pages.length
             ? coreInfo.pages[pageIndex].style
             : coreInfo.defaultStyle;
@@ -2427,11 +2424,11 @@ class EditorState extends State<Editor> {
     _removeKeybindings();
 
     // manually save pen properties since the listeners don't fire if a property is changed
-    stows.lastFountainPenOptions.notifyListeners();
-    stows.lastBallpointPenOptions.notifyListeners();
-    stows.lastHighlighterOptions.notifyListeners();
-    stows.lastPencilOptions.notifyListeners();
-    stows.lastShapePenOptions.notifyListeners();
+    stows.lastFountainPenOptions.notifyListenersPlease();
+    stows.lastBallpointPenOptions.notifyListenersPlease();
+    stows.lastHighlighterOptions.notifyListenersPlease();
+    stows.lastPencilOptions.notifyListenersPlease();
+    stows.lastShapePenOptions.notifyListenersPlease();
 
     super.dispose();
   }
