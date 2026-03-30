@@ -17,6 +17,7 @@ import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/flavor_config.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/data/tools/stroke_properties.dart';
+import 'package:saber/data/editor/page_style.dart';
 import 'package:saber/pages/editor/editor.dart';
 import 'package:sbn/canvas_background_pattern.dart';
 import 'package:sbn/has_size.dart';
@@ -71,6 +72,13 @@ class EditorCoreInfo {
   int lineHeight;
   int lineThickness;
   List<EditorPage> pages;
+
+  PageStyle get defaultStyle => PageStyle(
+    backgroundColor: backgroundColor,
+    pattern: backgroundPattern,
+    lineHeight: lineHeight,
+    lineThickness: lineThickness,
+  );
 
   /// Stores the current page index so that it can be restored when the file is reloaded.
   int? initialPageIndex;
@@ -190,6 +198,12 @@ class EditorCoreInfo {
           fileVersion: fileVersion,
           sbnPath: filePath,
           assetCache: assetCache,
+          fallbackStyle: PageStyle(
+            backgroundColor: backgroundColor,
+            pattern: CanvasBackgroundPattern.fromName(json['p'] as String?) ?? stows.lastBackgroundPattern.value,
+            lineHeight: json['l'] as int? ?? stows.lastLineHeight.value,
+            lineThickness: json['lt'] as int? ?? stows.lastLineThickness.value,
+          ),
         ),
         initialPageIndex: json['c'] as int?,
         assetCache: assetCache,
@@ -236,6 +250,7 @@ class EditorCoreInfo {
     required int fileVersion,
     required String sbnPath,
     required AssetCache assetCache,
+    required PageStyle fallbackStyle,
   }) {
     if (pages == null || pages.isEmpty) return [];
     if (pages[0] is List) {
@@ -246,6 +261,7 @@ class EditorCoreInfo {
             (dynamic page) => EditorPage(
               width: page[0] as double?,
               height: page[1] as double?,
+              style: fallbackStyle,
             ),
           )
           .toList();
@@ -260,6 +276,7 @@ class EditorCoreInfo {
               fileVersion: fileVersion,
               sbnPath: sbnPath,
               assetCache: assetCache,
+              fallbackStyle: fallbackStyle,
             ),
           )
           .toList();
@@ -302,7 +319,7 @@ class EditorCoreInfo {
       for (final stroke in strokes) {
         if (onlyFirstPage) assert(stroke.pageIndex == 0);
         while (stroke.pageIndex >= pages.length) {
-          pages.add(EditorPage(size: fallbackPageSize));
+          pages.add(EditorPage(size: fallbackPageSize, style: defaultStyle));
         }
         pages[stroke.pageIndex].insertStroke(stroke);
       }
@@ -320,7 +337,7 @@ class EditorCoreInfo {
       for (final image in images) {
         if (onlyFirstPage) assert(image.pageIndex == 0);
         while (image.pageIndex >= pages.length) {
-          pages.add(EditorPage(size: fallbackPageSize));
+          pages.add(EditorPage(size: fallbackPageSize, style: defaultStyle));
         }
         pages[image.pageIndex].images.add(image);
       }
@@ -329,7 +346,7 @@ class EditorCoreInfo {
     // add a page if there are no pages,
     // or if the last page is not empty
     if (pages.isEmpty || pages.last.isNotEmpty && !onlyFirstPage) {
-      pages.add(EditorPage(size: fallbackPageSize));
+      pages.add(EditorPage(size: fallbackPageSize, style: defaultStyle));
     }
 
     // delete points that are too close to each other
@@ -476,7 +493,7 @@ class EditorCoreInfo {
       'p': backgroundPattern.name,
       'l': lineHeight,
       'lt': lineThickness,
-      'z': pages.map((EditorPage page) => page.toJson(assets)).toList(),
+      'z': pages.map((EditorPage page) => page.toJson(assets, notebookDefault: defaultStyle)).toList(),
       'c': initialPageIndex,
     };
 

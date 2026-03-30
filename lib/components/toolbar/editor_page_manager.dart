@@ -5,6 +5,8 @@ import 'package:saber/components/canvas/canvas_preview.dart';
 import 'package:saber/components/theming/adaptive_icon.dart';
 import 'package:saber/components/theming/saber_theme.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
+import 'package:saber/data/editor/page_insertion_mode.dart';
+import 'package:saber/data/editor/page_style.dart';
 import 'package:saber/i18n/strings.g.dart';
 
 class EditorPageManager extends StatefulWidget {
@@ -24,7 +26,7 @@ class EditorPageManager extends StatefulWidget {
   final int? currentPageIndex;
   final VoidCallback redrawAndSave;
 
-  final void Function(int) insertPageAfter;
+  final void Function(int, {PageInsertionMode mode, PageStyle? customStyle}) insertPageAfter;
   final void Function(int) duplicatePage;
   final void Function(int) clearPage;
   final void Function(int) deletePage;
@@ -98,27 +100,38 @@ class _EditorPageManagerState extends State<EditorPageManager> {
                   Row(
                     mainAxisAlignment: .center,
                     children: [
-                      IconButton(
-                        tooltip: t.editor.menu.insertPage,
+                      PopupMenuButton<PageInsertionMode>(
+                        tooltip: 'Insert Page Options',
                         icon: const AdaptiveIcon(
                           icon: Icons.insert_page_break,
                           cupertinoIcon: CupertinoIcons.add,
                         ),
-                        onPressed: () => setState(() {
-                          widget.insertPageAfter(pageIndex);
+                        onSelected: (mode) => setState(() {
+                          if (mode == PageInsertionMode.duplicate) {
+                            widget.duplicatePage(pageIndex);
+                          } else {
+                            widget.insertPageAfter(pageIndex, mode: mode);
+                          }
                           scrollToPage(pageIndex + 1);
                         }),
-                      ),
-                      IconButton(
-                        tooltip: t.editor.menu.duplicatePage,
-                        icon: const AdaptiveIcon(
-                          icon: Icons.content_copy,
-                          cupertinoIcon: CupertinoIcons.doc_on_clipboard,
-                        ),
-                        onPressed: () => setState(() {
-                          widget.duplicatePage(pageIndex);
-                          scrollToPage(pageIndex + 1);
-                        }),
+                        itemBuilder: (context) => const [
+                          PopupMenuItem(
+                            value: PageInsertionMode.inherit,
+                            child: Text('Add Page (Same Style)'),
+                          ),
+                          PopupMenuItem(
+                            value: PageInsertionMode.notebookDefault,
+                            child: Text('Add Page (Notebook Default)'),
+                          ),
+                          PopupMenuItem(
+                            value: PageInsertionMode.customStyle,
+                            child: Text('Add Page (Choose Template...)'),
+                          ),
+                          PopupMenuItem(
+                            value: PageInsertionMode.duplicate,
+                            child: Text('Duplicate Content & Style'),
+                          ),
+                        ],
                       ),
                       IconButton(
                         tooltip: t.editor.menu.clearPage(

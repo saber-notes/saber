@@ -31,6 +31,38 @@ import 'package:saber/components/toolbar/editor_bottom_sheet.dart';
 import 'package:saber/components/toolbar/editor_page_manager.dart';
 import 'package:saber/components/toolbar/toolbar.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
+import 'package:saber/data/tools/stroke_properties.dart';
+import 'package:saber/data/editor/page_style.dart';
+import 'package:saber/data/editor/page_insertion_mode.dart';
+import 'package:saber/devils_book/stylus/squeeze_palette_controller.dart';
+import 'package:saber/devils_book/stylus/stylus_state.dart';
+import 'package:saber/devils_book/stylus/devils_stylus_event.dart';
+import 'package:saber/devils_book/effects/live_effect_engine.dart';
+import 'package:saber/devils_book/components/live_effect_overlay.dart';
+import 'package:saber/devils_book/registry/devils_catalog.dart';
+import 'package:saber/devils_book/components/squeeze_palette.dart';
+import 'package:saber/devils_book/models/writing_mode.dart';
+import 'package:saber/devils_book/models/relic_element.dart';
+import 'package:saber/devils_book/components/relic_selector_sheet.dart';
+import 'package:saber/devils_book/components/ghost_nib.dart';
+import 'package:saber/devils_book/ink/scribble_recognizer.dart';
+import 'package:saber/devils_book/models/loadout_manager.dart';
+import 'package:saber/devils_book/components/loadout_selector_sheet.dart';
+import 'package:saber/devils_book/zoom_window/zoom_window_controller.dart';
+import 'package:saber/devils_book/zoom_window/zoom_window_strip.dart';
+import 'package:saber/devils_book/zoom_window/zoom_window_target.dart';
+import 'package:saber/devils_book/components/theme_selector_sheet.dart';
+import 'package:saber/devils_book/components/ink_selector_sheet.dart';
+import 'package:saber/devils_book/components/effect_selector_sheet.dart';
+import 'package:saber/devils_book/sessions/session_controller.dart';
+import 'package:saber/devils_book/sessions/session_models.dart';
+import 'package:saber/devils_book/sessions/session_start_sheet.dart';
+import 'package:saber/devils_book/replay/replay_models.dart';
+import 'package:saber/devils_book/replay/playback_controller.dart';
+import 'package:saber/devils_book/replay/replay_overlay.dart';
+import 'package:saber/devils_book/export/export_models.dart';
+import 'package:saber/devils_book/export/export_options_sheet.dart';
+import 'package:saber/pages/editor/editor.dart';
 import 'package:saber/data/editor/editor_exporter.dart';
 import 'package:saber/data/editor/editor_history.dart';
 import 'package:saber/data/editor/page.dart';
@@ -98,6 +130,14 @@ class Editor extends StatefulWidget {
 }
 
 class EditorState extends State<Editor> {
+  final SqueezePaletteController squeezeController = SqueezePaletteController();
+  final StylusState stylusState = StylusState();
+  final WritingModeState writingModeState = WritingModeState();
+  final LoadoutManager loadoutManager = LoadoutManager();
+  final LiveEffectEngine fxEngine = LiveEffectEngine();
+  final ZoomWindowController zoomController = ZoomWindowController();
+  final CanvasPreviewController canvasPreviewController =
+      CanvasPreviewController();
   final log = Logger('EditorState');
 
   late var coreInfo = EditorCoreInfo.placeholder;
@@ -120,6 +160,9 @@ class EditorState extends State<Editor> {
   }
 
   var history = EditorHistory();
+
+  // --- DEVILS BOOK: REPLAY STATE ---
+  PlaybackController? _activeReplayController;
 
   late bool needsNaming = widget.needsNaming && stows.editorPromptRename.value;
 
@@ -178,6 +221,16 @@ class EditorState extends State<Editor> {
 
   @override
   void initState() {
+    final loadout = loadoutManager.currentLoadout;
+    fxEngine.setPreset(loadout.effect);
+    if (loadout.preferredMode != null) {
+      writingModeState.setMode(loadout.preferredMode!);
+    }
+
+    stows.lastFountainPenColor.value = loadout.ink.baseColor.value;
+    final baseOptions = stows.lastFountainPenOptions.value;
+    stows.lastFountainPenOptions.value = baseOptions.copyWith(size: loadout.ink.defaultThickness);
+
     DynamicMaterialApp.addFullscreenListener(_setState);
 
     _initAsync();
@@ -202,6 +255,8 @@ class EditorState extends State<Editor> {
     if (widget.pdfPath != null) {
       await importPdfFromFilePath(widget.pdfPath!);
     }
+
+    SessionController().recordPageVisit();
   }
 
   Future _loadCoreInfo(String filePath) async {
@@ -288,7 +343,10 @@ class EditorState extends State<Editor> {
   /// plus an extra blank page
   void createPage(int pageIndex) {
     while (pageIndex >= coreInfo.pages.length - 1) {
-      final page = EditorPage();
+      final prevStyle = coreInfo.pages.isNotEmpty 
+          ? coreInfo.pages.last.style 
+          : coreInfo.defaultStyle;
+      final page = EditorPage(style: prevStyle);
       coreInfo.pages.add(page);
       listenToQuillChanges(page.quill, coreInfo.pages.length - 1);
     }
@@ -558,6 +616,8 @@ class EditorState extends State<Editor> {
     final position = page.renderBox!.globalToLocal(details.focalPoint);
     history.canRedo = false;
 
+    fxEngine.spawnIgnition(details.localFocalPoint, pressure: currentPressure ?? 1.0, mode: writingModeState.currentMode);
+
     if (currentTool is Pen) {
       (currentTool as Pen).onDragStart(
         position,
@@ -603,6 +663,8 @@ class EditorState extends State<Editor> {
     final position = page.renderBox!.globalToLocal(details.focalPoint);
     final offset = position - previousPosition;
 
+    fxEngine.spawnTrail(details.localFocalPoint, pressure: currentPressure ?? 1.0, mode: writingModeState.currentMode);
+
     if (currentTool is Pen) {
       (currentTool as Pen).onDragUpdate(position, currentPressure);
       page.redrawStrokes();
@@ -646,6 +708,28 @@ class EditorState extends State<Editor> {
         if (newStroke == null) return;
         if (newStroke.isEmpty) return;
 
+        // DEVILS BOOK: Scribble-to-Erase Interception
+        if (stows.lastTool.value != ToolId.eraser && ScribbleRecognizer.isEraseScribble(newStroke)) {
+            final erased = _eraseStrokesUnderScribble(page, newStroke);
+            if (erased.isNotEmpty) {
+                fxEngine.spawnIgnition(
+                  Offset(newStroke.points.last[0], newStroke.points.last[1]), 
+                  pressure: 2.0, 
+                  mode: writingModeState.currentMode
+                );
+                history.recordChange(
+                  EditorHistoryItem(
+                    type: .erase,
+                    pageIndex: dragPageIndex!,
+                    strokes: erased,
+                    images: [],
+                  ),
+                );
+                autosaveAfterDelay();
+            }
+            return; // Abort saving the scribble itself
+        }
+
         if (stows.autoStraightenLines.value &&
             currentTool is! ShapePen &&
             newStroke.isStraightLine()) {
@@ -662,6 +746,7 @@ class EditorState extends State<Editor> {
             images: [],
           ),
         );
+        SessionController().recordStroke();
       } else if (currentTool is Eraser) {
         final erased = (currentTool as Eraser).onDragEnd();
         if (tmpTool != null &&
@@ -721,6 +806,36 @@ class EditorState extends State<Editor> {
     if (shouldSave) autosaveAfterDelay();
   }
 
+  List<Stroke> _eraseStrokesUnderScribble(EditorPage page, Stroke scribbleStroke) {
+    final List<Stroke> erased = [];
+    final pathOffsets = scribbleStroke.points.map((p) => Offset(p[0], p[1])).toList();
+    final strokesToRemove = <Stroke>[];
+
+    for (final existingStroke in page.strokes) {
+      if (existingStroke.points.isEmpty) continue;
+      bool collision = false;
+      for (final sp in pathOffsets) {
+        for (final ep in existingStroke.points) {
+          if (pow(sp.dx - ep[0], 2) + pow(sp.dy - ep[1], 2) < 400) { 
+            collision = true;
+            break;
+          }
+        }
+        if (collision) break;
+      }
+      if (collision) {
+        strokesToRemove.add(existingStroke);
+      }
+    }
+    
+    for (final s in strokesToRemove) {
+      page.strokes.remove(s);
+      erased.add(s);
+    }
+    if (erased.isNotEmpty) page.redrawStrokes();
+    return erased;
+  }
+
   void onInteractionEnd(ScaleEndDetails details) {
     // reset after 1ms to keep track of the same gesture only
     _lastSeenPointerCountTimer?.cancel();
@@ -740,6 +855,9 @@ class EditorState extends State<Editor> {
 
   void onHoveringEnd() {
     isHovering = false;
+    // Ensure the stylus framework knows the nib has lifted out of tracking distance.
+    stylusState.isHovering = false;
+    stylusState.notifyListeners();
   }
 
   void onStylusButtonChanged(bool buttonPressed) {
@@ -1205,8 +1323,12 @@ class EditorState extends State<Editor> {
         EditorPage.defaultWidth * pdfPage.height / pdfPage.width,
       );
 
+      final prevStyle = coreInfo.pages.isNotEmpty 
+          ? coreInfo.pages.last.style 
+          : coreInfo.defaultStyle;
       final page = EditorPage(
         size: pageSize,
+        style: prevStyle,
         backgroundImage: PdfEditorImage(
           id: coreInfo.nextImageId++,
           pdfBytes: null,
@@ -1372,6 +1494,7 @@ class EditorState extends State<Editor> {
       onDrawEnd: onDrawEnd,
       onHovering: onHovering,
       onHoveringEnd: onHoveringEnd,
+      onHoverEvent: (event) => stylusState.updateEvent(DevilsStylusEvent.fromPointerEvent(event)),
       onStylusButtonChanged: onStylusButtonChanged,
       updatePointerData: updatePointerData,
       undo: undo,
@@ -1645,6 +1768,7 @@ class EditorState extends State<Editor> {
         );
       },
       child: Scaffold(
+        backgroundColor: loadoutManager.currentLoadout.theme.backgroundColor,
         appBar: DynamicMaterialApp.isFullscreen
             ? null
             : AppBar(
@@ -1721,7 +1845,182 @@ class EditorState extends State<Editor> {
                   ),
                 ],
               ),
-        body: body,
+        body: AnimatedBuilder(
+          animation: fxEngine,
+          builder: (context, child) {
+            return Transform.translate(
+              offset: fxEngine.screenShakeOffset,
+              child: child,
+            );
+          },
+          child: Stack(
+            children: [
+              body,
+              ZoomWindowTarget(controller: zoomController),
+              LiveEffectOverlay(engine: fxEngine, writingModeState: writingModeState),
+              GhostNib(stylusState: stylusState, writingModeState: writingModeState),
+              ZoomWindowStrip(
+                controller: zoomController,
+                canvasSubtree: body,
+                onStripDragUpdate: (mappedPosition) {
+                   // Stage 18 Stub: Re-routing the gesture payload mathematically
+                   // back into `onDrawUpdate()` without touching the main Canvas detector.
+                },
+              ),
+            AnimatedBuilder(
+              animation: writingModeState,
+              builder: (context, child) {
+                return SqueezePalette(
+                  controller: squeezeController,
+                  currentModeName: writingModeState.currentMode.name,
+                  onCycleMode: () => writingModeState.cycleMode(),
+                  onSelectPen: () => setState(() => stows.lastTool.value = ToolId.fountainPen),
+                  onLongPressPen: () { 
+                    showModalBottomSheet<void>(
+                      context: context,
+                      backgroundColor: Colors.transparent,
+                      builder: (context) => LoadoutSelectorSheet(
+                        currentLoadout: loadoutManager.currentLoadout,
+                        onSelect: (loadout) {
+                          loadoutManager.setLoadout(loadout);
+                          fxEngine.setPreset(loadout.effect);
+                          if (loadout.preferredMode != null) {
+                            writingModeState.setMode(loadout.preferredMode!);
+                          }
+                          stows.lastFountainPenColor.value = loadout.ink.baseColor.value;
+                          final baseOptions = stows.lastFountainPenOptions.value;
+                          stows.lastFountainPenOptions.value = baseOptions.copyWith(size: loadout.ink.defaultThickness);
+                          setState(() {});
+                        },
+                      ),
+                    );
+                  },
+                  onSelectEraser: () => setState(() => stows.lastTool.value = ToolId.eraser),
+                  onSelectInk: () {
+                    showModalBottomSheet<void>(
+                      context: context,
+                      backgroundColor: Colors.transparent,
+                      builder: (context) => InkSelectorSheet(
+                        currentInk: loadoutManager.currentLoadout.ink,
+                        onSelect: (ink) {
+                          stows.lastFountainPenColor.value = ink.baseColor.value;
+                          final baseOptions = stows.lastFountainPenOptions.value;
+                          stows.lastFountainPenOptions.value = baseOptions.copyWith(size: ink.defaultThickness);
+                          setState(() {});
+                        },
+                      ),
+                    );
+                  },
+                  onToggleZoomWindow: () => zoomController.toggleVisibility(),
+                  onSelectTheme: () {
+                    showModalBottomSheet<void>(
+                      context: context,
+                      backgroundColor: Colors.transparent,
+                      builder: (context) => ThemeSelectorSheet(
+                        currentTheme: loadoutManager.currentLoadout.theme,
+                        onSelect: (theme) {
+                          setState(() {});
+                        },
+                      ),
+                    );
+                  },
+                  onSelectEffect: () {
+                    showModalBottomSheet<void>(
+                      context: context,
+                      backgroundColor: Colors.transparent,
+                      builder: (context) => EffectSelectorSheet(
+                        currentEffect: fxEngine.activePreset ?? const EffectPreset(id: 'effect_ember', name: 'Dying Ember'),
+                        onSelect: (effect) {
+                          fxEngine.setPreset(effect);
+                          setState(() {});
+                        },
+                      ),
+                    );
+                  },
+                  onSelectRelic: () {
+                    showModalBottomSheet<RelicElement>(
+                      context: context,
+                      backgroundColor: Colors.transparent,
+                      builder: (context) => const RelicSelectorSheet(),
+                    ).then((relic) {
+                      if (relic != null) {
+                        debugPrint("DEVILS BOOK [STUB]: Inserting Relic -> \${relic.name}");
+                        // Stage 13 Stub: In the final pipeline, this reads the relic asset bytes,
+                        // pushes it into `coreInfo.assetCache` as an `EditorImage`, and inserts 
+                        // it onto the active page. This inherits scaling/rotation natively from Saber.
+                      }
+                    });
+                  },
+                  onTriggerReplay: () {
+                    // Extract a mock timeline from the current page's strokes
+                    final page = coreInfo.pages[currentPageIndex];
+                    final events = <ReplayEvent>[];
+                    int offset = 0;
+                    for (int i = 0; i < page.strokes.length; i++) {
+                      events.add(ReplayEvent(
+                        id: 'stroke_$\i',
+                        type: ReplayEventType.strokeAdded,
+                        offsetMs: offset,
+                        payload: {}, // Serialization deferred to next stage
+                      ));
+                      offset += 400; // Mock 400ms per stroke
+                    }
+                    
+                    final timeline = ReplayTimeline(
+                      pageId: page.id,
+                      events: events,
+                    );
+                    
+                    setState(() {
+                      _activeReplayController = PlaybackController(timeline);
+                    });
+                  },
+                  onTriggerExport: () {
+                    showModalBottomSheet<void>(
+                      context: context,
+                      backgroundColor: Colors.transparent,
+                      isScrollControlled: true,
+                      builder: (context) => ExportOptionsSheet(
+                        onExport: (config) {
+                          if (config.format == ExportFormat.pdf) {
+                            // In a real implementation we would pass config.variant down into EditorExporter
+                            exportAsPdf(context);
+                          } else if (config.format == ExportFormat.png) {
+                            exportAsPng(context);
+                          }
+                        },
+                      ),
+                    );
+                  },
+                );
+              }
+            ),
+            
+            // Replay Overlay
+            if (_activeReplayController != null)
+              ReplayOverlay(
+                controller: _activeReplayController!,
+                onClose: () {
+                  setState(() {
+                    _activeReplayController?.dispose();
+                    _activeReplayController = null;
+                  });
+                },
+              ),
+
+            Positioned(
+              bottom: 24,
+              left: 24,
+              child: FloatingActionButton(
+                heroTag: 'squeeze_dev_trigger',
+                tooltip: 'Simulate Squeeze',
+                onPressed: () => squeezeController.toggleDevTrigger(MediaQuery.sizeOf(context)),
+                child: const Icon(Icons.touch_app),
+              ),
+            ),
+          ],
+        ),
+        ),
         floatingActionButton:
             (DynamicMaterialApp.isFullscreen &&
                 !stows.editorToolbarShowInFullscreen.value)
@@ -1921,9 +2220,31 @@ class EditorState extends State<Editor> {
     );
   }
 
-  void insertPageAfter(int pageIndex) => setState(() {
+  void insertPageAfter(
+    int pageIndex, {
+    PageInsertionMode mode = PageInsertionMode.inherit,
+    PageStyle? customStyle,
+  }) => setState(() {
     if (coreInfo.readOnly) return;
-    final page = EditorPage();
+
+    PageStyle prevStyle;
+    switch (mode) {
+      case PageInsertionMode.notebookDefault:
+        prevStyle = coreInfo.defaultStyle;
+        break;
+      case PageInsertionMode.customStyle:
+        prevStyle = customStyle ?? coreInfo.defaultStyle;
+        break;
+      case PageInsertionMode.inherit:
+      case PageInsertionMode.duplicate:
+      default:
+        prevStyle = pageIndex >= 0 && pageIndex < coreInfo.pages.length
+            ? coreInfo.pages[pageIndex].style
+            : coreInfo.defaultStyle;
+        break;
+    }
+
+    final page = EditorPage(style: prevStyle);
     coreInfo.pages.insert(pageIndex + 1, page);
     listenToQuillChanges(page.quill, pageIndex + 1);
     history.recordChange(

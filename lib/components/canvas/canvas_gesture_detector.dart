@@ -28,6 +28,7 @@ class CanvasGestureDetector extends StatefulWidget {
     required this.updatePointerData,
     required this.onHovering,
     required this.onHoveringEnd,
+    this.onHoverEvent,
     required this.onStylusButtonChanged,
     required this.undo,
     required this.redo,
@@ -53,6 +54,7 @@ class CanvasGestureDetector extends StatefulWidget {
   updatePointerData;
   final VoidCallback onHovering;
   final VoidCallback onHoveringEnd;
+  final void Function(PointerEvent)? onHoverEvent;
   final ValueChanged<bool> onStylusButtonChanged;
 
   final VoidCallback undo;
@@ -454,6 +456,7 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
       widget.onHoveringEnd();
     } else {
       widget.onHovering();
+      widget.onHoverEvent?.call(event);
       if (stylusButtonWasPressed != (event.buttons == kPrimaryStylusButton)) {
         stylusButtonWasPressed = event.buttons == kPrimaryStylusButton;
         widget.onStylusButtonChanged(stylusButtonWasPressed);

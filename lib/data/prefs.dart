@@ -308,6 +308,14 @@ class Stows {
     codec: const EnumCodec(CanvasBackgroundPattern.values),
     volatile: !_isOnMainIsolate,
   );
+
+  // --- DEVILS BOOK LOADOUT ---
+  final activeLoadoutId = PlainStow(
+    'activeLoadoutId',
+    'loadout_the_devils_pen',
+    volatile: !_isOnMainIsolate,
+  );
+
   static const defaultLineHeight = 40;
   static const defaultLineThickness = 3;
   final lastLineHeight = PlainStow(

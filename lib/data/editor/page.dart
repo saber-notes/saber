@@ -12,6 +12,7 @@ import 'package:saber/components/canvas/inner_canvas.dart';
 import 'package:saber/components/canvas/pencil_shader.dart';
 import 'package:saber/data/editor/editor_exporter.dart';
 import 'package:saber/data/tools/laser_pointer.dart';
+import 'package:saber/data/editor/page_style.dart';
 import 'package:sbn/has_size.dart';
 
 typedef CanvasKey = GlobalKey<State<InnerCanvas>>;
@@ -48,6 +49,8 @@ class EditorPage extends ChangeNotifier implements HasSize {
   final List<LaserStroke> laserStrokes;
   final List<EditorImage> images;
   final QuillStruct quill;
+
+  final PageStyle style;
 
   EditorImage? backgroundImage;
 
@@ -106,6 +109,7 @@ class EditorPage extends ChangeNotifier implements HasSize {
     double? height,
     List<Stroke>? strokes,
     List<EditorImage>? images,
+    required this.style,
     QuillStruct? quill,
     this.backgroundImage,
   }) : assert(
@@ -130,10 +134,12 @@ class EditorPage extends ChangeNotifier implements HasSize {
     required int fileVersion,
     required String sbnPath,
     required AssetCache assetCache,
+    required PageStyle fallbackStyle,
   }) {
     final size = Size(json['w'] ?? defaultWidth, json['h'] ?? defaultHeight);
     return EditorPage(
       size: size,
+      style: PageStyle.fromJson(json, fallback: fallbackStyle),
       strokes: parseStrokesJson(
         json['s'] as List?,
         page: HasSize(size),
@@ -169,9 +175,10 @@ class EditorPage extends ChangeNotifier implements HasSize {
     );
   }
 
-  Map<String, dynamic> toJson(OrderedAssetCache assets) => {
+  Map<String, dynamic> toJson(OrderedAssetCache assets, {required PageStyle notebookDefault}) => {
     'w': size.width,
     'h': size.height,
+    ...style.toJsonDiff(notebookDefault),
     if (strokes.isNotEmpty)
       's': strokes.map((stroke) => stroke.toJson()).toList(),
     if (images.isNotEmpty)
@@ -308,12 +315,14 @@ class EditorPage extends ChangeNotifier implements HasSize {
     Size? size,
     List<Stroke>? strokes,
     List<EditorImage>? images,
+    PageStyle? style,
     QuillStruct? quill,
     EditorImage? backgroundImage,
   }) => EditorPage(
     size: size ?? this.size,
     strokes: strokes ?? this.strokes,
     images: images ?? this.images,
+    style: style ?? this.style,
     quill: quill ?? this.quill,
     backgroundImage: backgroundImage ?? this.backgroundImage,
   );
