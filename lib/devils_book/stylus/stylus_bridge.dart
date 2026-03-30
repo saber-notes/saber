@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'stylus_capabilities.dart';
 
@@ -21,6 +22,7 @@ class StylusBridge {
         supportsHover: true,
       );
     } catch (e) {
+      debugPrint("DEVILS BOOK [ERROR]: StylusBridge.getCapabilities failed -> $e");
       return StylusCapabilities.unknown;
     }
   }

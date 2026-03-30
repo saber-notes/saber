@@ -22,7 +22,7 @@ class ThemePreset {
   /// Optional pack ID this theme belongs to (for grouping in selectors).
   final String? packId;
 
-  const ThemePreset({
+  ThemePreset({
     required this.id,
     required this.name,
     required this.backgroundColor,

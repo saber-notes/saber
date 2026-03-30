@@ -2,7 +2,7 @@ import '../models/theme_preset.dart';
 import '../models/ink_preset.dart';
 import '../models/effect_preset.dart';
 import '../models/loadout.dart';
-import '../elements/relic_element.dart';
+import '../models/relic_element.dart';
 import 'pack_manifest.dart';
 
 /// The concrete payload a content pack contributes.
@@ -19,7 +19,7 @@ class ContentPack {
   // final List<TemplatePreset> templates;
   // final List<AmbiencePreset> ambience;
 
-  const ContentPack({
+  ContentPack({
     required this.manifest,
     this.themes = const [],
     this.inks = const [],

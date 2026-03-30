@@ -80,7 +80,7 @@ class _InnerCanvasState extends State<InnerCanvas> {
               customStyles: SaberQuillStyles.get(
                 invert: invert,
                 secondary: colorScheme.secondary,
-                lineHeight: widget.coreInfo.lineHeight,
+                lineHeight: page.style.lineHeight,
               ),
               scrollable: false,
               autoFocus: false,
@@ -91,10 +91,10 @@ class _InnerCanvasState extends State<InnerCanvas> {
               showCursor: true,
               keyboardAppearance: invert ? .dark : .light,
               padding: .only(
-                top: widget.coreInfo.lineHeight * 1.2,
-                left: widget.coreInfo.lineHeight * 0.5,
-                right: widget.coreInfo.lineHeight * 0.5,
-                bottom: widget.coreInfo.lineHeight * 0.5,
+                top: page.style.lineHeight * 1.2,
+                left: page.style.lineHeight * 0.5,
+                right: page.style.lineHeight * 0.5,
+                bottom: page.style.lineHeight * 0.5,
               ),
             ),
             scrollController: ScrollController(),
@@ -110,18 +110,18 @@ class _InnerCanvasState extends State<InnerCanvas> {
             if (page.backgroundImage != null) {
               return Colors.white;
             } else {
-              return backgroundColor;
+              return page.style.backgroundColor ?? backgroundColor;
             }
           }(),
           backgroundPattern: () {
             if (page.backgroundImage != null) {
               return CanvasBackgroundPattern.none;
             } else {
-              return widget.coreInfo.backgroundPattern;
+              return page.style.pattern;
             }
           }(),
-          lineHeight: widget.coreInfo.lineHeight,
-          lineThickness: widget.coreInfo.lineThickness,
+          lineHeight: page.style.lineHeight,
+          lineThickness: page.style.lineThickness,
           primaryColor: colorScheme.primary,
           secondaryColor: colorScheme.secondary,
         ),

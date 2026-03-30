@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sbn/canvas_background_pattern.dart';
 import '../models/theme_preset.dart';
 import '../packs/pack_registry.dart';
 

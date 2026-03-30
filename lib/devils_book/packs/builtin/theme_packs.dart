@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:sbn/canvas_background_pattern.dart';
-import '../models/theme_preset.dart';
-import 'pack_manifest.dart';
-import 'pack_category.dart';
-import 'content_pack.dart';
+import '../../models/theme_preset.dart';
+import '../pack_manifest.dart';
+import '../pack_category.dart';
+import '../content_pack.dart';
 
 /// Dark & Premium themes for serious, focused writing.
 class DarkPremiumThemePack {
-  static const _manifest = PackManifest(
+  static final _manifest = PackManifest(
     id: 'pack_themes_dark_premium',
     name: 'Dark Premium',
     description: 'Professional dark environments for focused, distraction-free writing.',
@@ -15,7 +15,7 @@ class DarkPremiumThemePack {
     isBuiltIn: true,
   );
 
-  static const _themes = [
+  static final _themes = [
     ThemePreset(
       id: 'theme_dark_premium',
       name: 'Dark Premium',
@@ -38,7 +38,7 @@ class DarkPremiumThemePack {
       id: 'theme_charcoal_slate',
       name: 'Charcoal Slate',
       backgroundColor: Color(0xFF1C1C1C),
-      pattern: CanvasBackgroundPattern.dotted,
+      pattern: CanvasBackgroundPattern.dots,
       lineColor: Color(0x22999999),
       accentGlow: Color(0xFF777777),
       surfaceColor: Color(0xFF252525),
@@ -46,7 +46,7 @@ class DarkPremiumThemePack {
     ),
   ];
 
-  static ContentPack create() => const ContentPack(
+  static ContentPack create() => ContentPack(
     manifest: _manifest,
     themes: _themes,
   );
@@ -54,7 +54,7 @@ class DarkPremiumThemePack {
 
 /// Antique & Old-Soul themes evoking heritage and handcraft.
 class AntiqueSoulThemePack {
-  static const _manifest = PackManifest(
+  static final _manifest = PackManifest(
     id: 'pack_themes_antique_soul',
     name: 'Antique Soul',
     description: 'Warm, aged papers inspired by historical manuscripts and journals.',
@@ -62,12 +62,12 @@ class AntiqueSoulThemePack {
     isBuiltIn: true,
   );
 
-  static const _themes = [
+  static final _themes = [
     ThemePreset(
       id: 'theme_antique_soul',
       name: 'Parchment',
       backgroundColor: Color(0xFFE8E0D2),
-      pattern: CanvasBackgroundPattern.ruled,
+      pattern: CanvasBackgroundPattern.lined,
       lineColor: Color(0x33A09070),
       accentGlow: Color(0xFFB8A080),
       surfaceColor: Color(0xFFF5EDE0),
@@ -94,7 +94,7 @@ class AntiqueSoulThemePack {
     ),
   ];
 
-  static ContentPack create() => const ContentPack(
+  static ContentPack create() => ContentPack(
     manifest: _manifest,
     themes: _themes,
   );
@@ -102,7 +102,7 @@ class AntiqueSoulThemePack {
 
 /// Infernal & Ritual themes for theatrical, atmospheric sessions.
 class InfernalThemePack {
-  static const _manifest = PackManifest(
+  static final _manifest = PackManifest(
     id: 'pack_themes_infernal',
     name: 'Infernal',
     description: 'Blood-soaked altars and ember-lit chambers for ritualistic writing.',
@@ -110,7 +110,7 @@ class InfernalThemePack {
     isBuiltIn: true,
   );
 
-  static const _themes = [
+  static final _themes = [
     ThemePreset(
       id: 'theme_infernal_altar',
       name: 'Infernal Altar',
@@ -134,7 +134,7 @@ class InfernalThemePack {
       id: 'theme_obsidian_sanctum',
       name: 'Obsidian Sanctum',
       backgroundColor: Color(0xFF0A0A0A),
-      pattern: CanvasBackgroundPattern.dotted,
+      pattern: CanvasBackgroundPattern.dots,
       lineColor: Color(0x15FF4444),
       accentGlow: Color(0xFF992222),
       surfaceColor: Color(0xFF151010),
@@ -142,7 +142,7 @@ class InfernalThemePack {
     ),
   ];
 
-  static ContentPack create() => const ContentPack(
+  static ContentPack create() => ContentPack(
     manifest: _manifest,
     themes: _themes,
   );
@@ -150,7 +150,7 @@ class InfernalThemePack {
 
 /// Gamer & Cyber themes for technical, high-energy diagramming.
 class CyberThemePack {
-  static const _manifest = PackManifest(
+  static final _manifest = PackManifest(
     id: 'pack_themes_cyber',
     name: 'Cyber',
     description: 'Neon-lit circuits and dark synthwave grids for digital minds.',
@@ -158,12 +158,12 @@ class CyberThemePack {
     isBuiltIn: true,
   );
 
-  static const _themes = [
+  static final _themes = [
     ThemePreset(
       id: 'theme_gamer_matrix',
       name: 'Cyber Core',
       backgroundColor: Color(0xFF0D1B2A),
-      pattern: CanvasBackgroundPattern.dotted,
+      pattern: CanvasBackgroundPattern.dots,
       lineColor: Color(0x2200FFCC),
       accentGlow: Color(0xFF00FFCC),
       surfaceColor: Color(0xFF132638),
@@ -183,7 +183,7 @@ class CyberThemePack {
       id: 'theme_terminal_green',
       name: 'Terminal',
       backgroundColor: Color(0xFF0A0F0A),
-      pattern: CanvasBackgroundPattern.ruled,
+      pattern: CanvasBackgroundPattern.lined,
       lineColor: Color(0x2200FF00),
       accentGlow: Color(0xFF00CC00),
       surfaceColor: Color(0xFF0F180F),
@@ -191,7 +191,7 @@ class CyberThemePack {
     ),
   ];
 
-  static ContentPack create() => const ContentPack(
+  static ContentPack create() => ContentPack(
     manifest: _manifest,
     themes: _themes,
   );
@@ -199,7 +199,7 @@ class CyberThemePack {
 
 /// Focus & High-Contrast themes for maximum readability.
 class FocusThemePack {
-  static const _manifest = PackManifest(
+  static final _manifest = PackManifest(
     id: 'pack_themes_focus',
     name: 'Focus',
     description: 'Clean, high-contrast environments optimized for readability and study.',
@@ -207,7 +207,7 @@ class FocusThemePack {
     isBuiltIn: true,
   );
 
-  static const _themes = [
+  static final _themes = [
     ThemePreset(
       id: 'theme_high_contrast',
       name: 'Pure White',
@@ -221,7 +221,7 @@ class FocusThemePack {
       id: 'theme_sepia_focus',
       name: 'Sepia Focus',
       backgroundColor: Color(0xFFF5F0E8),
-      pattern: CanvasBackgroundPattern.ruled,
+      pattern: CanvasBackgroundPattern.lined,
       lineColor: Color(0x33BBAA88),
       accentGlow: Color(0xFF887755),
       surfaceColor: Color(0xFFFFF8F0),
@@ -231,7 +231,7 @@ class FocusThemePack {
       id: 'theme_cool_grey',
       name: 'Cool Grey',
       backgroundColor: Color(0xFFE8EBF0),
-      pattern: CanvasBackgroundPattern.dotted,
+      pattern: CanvasBackgroundPattern.dots,
       lineColor: Color(0x228899AA),
       accentGlow: Color(0xFF6688AA),
       surfaceColor: Color(0xFFF0F2F8),
@@ -239,7 +239,7 @@ class FocusThemePack {
     ),
   ];
 
-  static ContentPack create() => const ContentPack(
+  static ContentPack create() => ContentPack(
     manifest: _manifest,
     themes: _themes,
   );

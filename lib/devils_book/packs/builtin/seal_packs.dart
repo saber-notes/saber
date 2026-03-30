@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import '../models/relic_element.dart';
-import 'pack_manifest.dart';
-import 'pack_category.dart';
-import 'content_pack.dart';
+import '../../models/relic_element.dart';
+import '../pack_manifest.dart';
+import '../pack_category.dart';
+import '../content_pack.dart';
 
 /// Ceremonial seals and ritual marks.
 class CeremonialSealPack {
-  static const _manifest = PackManifest(
+  static final _manifest = PackManifest(
     id: 'pack_seals_ceremonial',
     name: 'Ceremonial Seals',
     description: 'Wax seals, ritual marks, and binding symbols for important documents.',
@@ -14,7 +14,7 @@ class CeremonialSealPack {
     isBuiltIn: true,
   );
 
-  static const _seals = [
+  static final _seals = [
     RelicElement(
       id: 'seal_of_lucifer', name: 'Seal of Lucifer',
       assetPath: 'assets/relics/seal_lucifer.svg',
@@ -49,12 +49,12 @@ class CeremonialSealPack {
     ),
   ];
 
-  static ContentPack create() => const ContentPack(manifest: _manifest, seals: _seals);
+  static ContentPack create() => ContentPack(manifest: _manifest, seals: _seals);
 }
 
 /// Signatures and authorship marks.
 class SignaturePack {
-  static const _manifest = PackManifest(
+  static final _manifest = PackManifest(
     id: 'pack_seals_signatures',
     name: 'Signatures & Marks',
     description: 'Personal authorship stamps, initials, and completion markers.',
@@ -62,7 +62,7 @@ class SignaturePack {
     isBuiltIn: true,
   );
 
-  static const _seals = [
+  static final _seals = [
     RelicElement(
       id: 'sig_placeholder', name: 'Signature Placeholder',
       assetPath: 'assets/relics/sig_placeholder.svg',
@@ -97,12 +97,12 @@ class SignaturePack {
     ),
   ];
 
-  static ContentPack create() => const ContentPack(manifest: _manifest, seals: _seals);
+  static ContentPack create() => ContentPack(manifest: _manifest, seals: _seals);
 }
 
 /// Subject markers for study and annotation.
 class ScholarlyMarkerPack {
-  static const _manifest = PackManifest(
+  static final _manifest = PackManifest(
     id: 'pack_seals_scholarly',
     name: 'Scholarly Markers',
     description: 'Subject indicators, priority flags, and study annotations.',
@@ -110,7 +110,7 @@ class ScholarlyMarkerPack {
     isBuiltIn: true,
   );
 
-  static const _seals = [
+  static final _seals = [
     RelicElement(
       id: 'marker_important', name: 'Important',
       assetPath: 'assets/relics/marker_important.svg',
@@ -145,12 +145,12 @@ class ScholarlyMarkerPack {
     ),
   ];
 
-  static ContentPack create() => const ContentPack(manifest: _manifest, seals: _seals);
+  static ContentPack create() => ContentPack(manifest: _manifest, seals: _seals);
 }
 
 /// Arcane symbols and decorative sigils.
 class ArcaneSigilPack {
-  static const _manifest = PackManifest(
+  static final _manifest = PackManifest(
     id: 'pack_seals_arcane',
     name: 'Arcane Sigils',
     description: 'Mystical symbols, alchemical marks, and decorative occult geometry.',
@@ -158,7 +158,7 @@ class ArcaneSigilPack {
     isBuiltIn: true,
   );
 
-  static const _seals = [
+  static final _seals = [
     RelicElement(
       id: 'sigil_alchemy_fire', name: 'Fire Element',
       assetPath: 'assets/relics/sigil_alchemy_fire.svg',
@@ -193,5 +193,5 @@ class ArcaneSigilPack {
     ),
   ];
 
-  static ContentPack create() => const ContentPack(manifest: _manifest, seals: _seals);
+  static ContentPack create() => ContentPack(manifest: _manifest, seals: _seals);
 }

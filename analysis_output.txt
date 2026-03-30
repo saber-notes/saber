@@ -1,0 +1,525 @@
+Analyzing lib...                                                
+
+   info • Sort directive sections alphabetically • lib/data/editor/editor_core_info.dart:20:1 • directives_ordering
+warning • Dead code • lib/data/editor/editor_core_info.dart:203:77 • dead_code
+warning • The left operand can't be null, so the right operand is never executed • lib/data/editor/editor_core_info.dart:203:80 • dead_null_aware_expression
+   info • Sort directive sections alphabetically • lib/data/editor/page.dart:15:1 • directives_ordering
+warning • Unused import: 'package:saber/data/extensions/color_extensions.dart' • lib/data/editor/page_style.dart:2:8 • unused_import
+warning • Dead code • lib/data/editor/page_style.dart:27:71 • dead_code
+warning • The left operand can't be null, so the right operand is never executed • lib/data/editor/page_style.dart:27:74 • dead_null_aware_expression
+warning • Unused import: 'package:flutter/material.dart' • lib/devils_book/ambience/ambience_models.dart:1:8 • unused_import
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/ambience/ambient_audio_controller.dart:2:8 • always_use_package_imports
+   info • The type annotation isn't needed because it is obvious • lib/devils_book/ambience/ambient_audio_controller.dart:7:16 • omit_obvious_property_types
+   info • The type annotation isn't needed because it is obvious • lib/devils_book/ambience/ambient_audio_controller.dart:12:3 • omit_obvious_property_types
+   info • The type annotation isn't needed because it is obvious • lib/devils_book/ambience/ambient_audio_controller.dart:13:3 • omit_obvious_property_types
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/archive/archive_manager.dart:2:8 • always_use_package_imports
+   info • The type annotation isn't needed because it is obvious • lib/devils_book/archive/archive_manager.dart:7:16 • omit_obvious_property_types
+   info • The type annotation isn't needed because it is obvious • lib/devils_book/archive/archive_manager.dart:12:16 • omit_obvious_property_types
+  error • Invalid constant value • lib/devils_book/archive/archive_manager.dart:13:47 • invalid_constant
+  error • Undefined name 'Icons' • lib/devils_book/archive/archive_manager.dart:13:47 • undefined_identifier
+   info • The type annotation isn't needed because it is obvious • lib/devils_book/archive/archive_manager.dart:15:16 • omit_obvious_property_types
+  error • Invalid constant value • lib/devils_book/archive/archive_manager.dart:16:53 • invalid_constant
+  error • Undefined name 'Icons' • lib/devils_book/archive/archive_manager.dart:16:53 • undefined_identifier
+  error • Invalid constant value • lib/devils_book/archive/archive_manager.dart:17:18 • invalid_constant
+  error • The method 'Color' isn't defined for the type 'ArchiveManager' • lib/devils_book/archive/archive_manager.dart:17:18 • undefined_method
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/components/effect_selector_sheet.dart:2:8 • always_use_package_imports
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/components/effect_selector_sheet.dart:3:8 • always_use_package_imports
+   info • Parameter 'key' could be a super parameter • lib/devils_book/components/effect_selector_sheet.dart:10:9 • use_super_parameters
+   info • Unnecessary use of multiple underscores • lib/devils_book/components/effect_selector_sheet.dart:81:35 • unnecessary_underscores
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/devils_book/components/effect_selector_sheet.dart:96:78 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/devils_book/components/effect_selector_sheet.dart:103:46 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/devils_book/components/effect_selector_sheet.dart:104:43 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/devils_book/components/effect_selector_sheet.dart:105:42 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/devils_book/components/effect_selector_sheet.dart:109:66 • deprecated_member_use
+   info • Place 'dart:' imports before other imports • lib/devils_book/components/ghost_nib.dart:2:1 • directives_ordering
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/components/ghost_nib.dart:3:8 • always_use_package_imports
+   info • Sort directive sections alphabetically • lib/devils_book/components/ghost_nib.dart:4:1 • directives_ordering
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/components/ghost_nib.dart:4:8 • always_use_package_imports
+   info • Parameter 'key' could be a super parameter • lib/devils_book/components/ghost_nib.dart:11:9 • use_super_parameters
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/devils_book/components/ghost_nib.dart:52:41 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/devils_book/components/ghost_nib.dart:57:43 • deprecated_member_use
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/components/ink_selector_sheet.dart:2:8 • always_use_package_imports
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/components/ink_selector_sheet.dart:3:8 • always_use_package_imports
+   info • Parameter 'key' could be a super parameter • lib/devils_book/components/ink_selector_sheet.dart:10:9 • use_super_parameters
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/devils_book/components/ink_selector_sheet.dart:89:39 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/devils_book/components/ink_selector_sheet.dart:93:69 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/devils_book/components/ink_selector_sheet.dart:110:63 • deprecated_member_use
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/components/live_effect_overlay.dart:3:8 • always_use_package_imports
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/components/live_effect_overlay.dart:4:8 • always_use_package_imports
+  error • Target of URI doesn't exist: 'live_effect_engine.dart' • lib/devils_book/components/live_effect_overlay.dart:4:8 • uri_does_not_exist
+  error • Undefined class 'LiveEffectEngine' • lib/devils_book/components/live_effect_overlay.dart:7:9 • undefined_class
+   info • Parameter 'key' could be a super parameter • lib/devils_book/components/live_effect_overlay.dart:10:9 • use_super_parameters
+  error • Undefined class 'LiveEffectEngine' • lib/devils_book/components/live_effect_overlay.dart:65:9 • undefined_class
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/components/loadout_selector_sheet.dart:2:8 • always_use_package_imports
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/components/loadout_selector_sheet.dart:3:8 • always_use_package_imports
+   info • Parameter 'key' could be a super parameter • lib/devils_book/components/loadout_selector_sheet.dart:9:9 • use_super_parameters
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/components/notebook_template_selector_sheet.dart:2:8 • always_use_package_imports
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/components/notebook_template_selector_sheet.dart:3:8 • always_use_package_imports
+   info • Parameter 'key' could be a super parameter • lib/devils_book/components/notebook_template_selector_sheet.dart:9:9 • use_super_parameters
+   info • Unnecessary use of multiple underscores • lib/devils_book/components/notebook_template_selector_sheet.dart:64:35 • unnecessary_underscores
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/devils_book/components/notebook_template_selector_sheet.dart:76:70 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/devils_book/components/notebook_template_selector_sheet.dart:126:58 • deprecated_member_use
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/components/relic_selector_sheet.dart:2:8 • always_use_package_imports
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/components/relic_selector_sheet.dart:3:8 • always_use_package_imports
+   info • Parameter 'key' could be a super parameter • lib/devils_book/components/relic_selector_sheet.dart:7:9 • use_super_parameters
+   info • Unnecessary use of multiple underscores • lib/devils_book/components/relic_selector_sheet.dart:83:39 • unnecessary_underscores
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/devils_book/components/relic_selector_sheet.dart:156:53 • deprecated_member_use
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/components/squeeze_palette.dart:2:8 • always_use_package_imports
+   info • Parameter 'key' could be a super parameter • lib/devils_book/components/squeeze_palette.dart:19:9 • use_super_parameters
+  error • 'onSelectTheme' isn't a field in the enclosing class • lib/devils_book/components/squeeze_palette.dart:29:5 • initializing_formal_for_non_existent_field
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/devils_book/components/squeeze_palette.dart:70:54 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/devils_book/components/squeeze_palette.dart:72:58 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/devils_book/components/squeeze_palette.dart:75:43 • deprecated_member_use
+  error • The method 'onSelectTheme' isn't defined for the type 'SqueezePalette' • lib/devils_book/components/squeeze_palette.dart:129:25 • undefined_method
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/components/theme_selector_sheet.dart:2:8 • always_use_package_imports
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/components/theme_selector_sheet.dart:3:8 • always_use_package_imports
+   info • Parameter 'key' could be a super parameter • lib/devils_book/components/theme_selector_sheet.dart:10:9 • use_super_parameters
+   info • Unnecessary use of multiple underscores • lib/devils_book/components/theme_selector_sheet.dart:87:35 • unnecessary_underscores
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/devils_book/components/theme_selector_sheet.dart:107:62 • deprecated_member_use
+  error • Undefined name 'CanvasBackgroundPattern' • lib/devils_book/components/theme_selector_sheet.dart:114:44 • undefined_identifier
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/devils_book/components/theme_selector_sheet.dart:132:53 • deprecated_member_use
+   info • The type annotation isn't needed because it is obvious • lib/devils_book/effects/live_effect_engine.dart:7:3 • omit_obvious_property_types
+   info • The type annotation isn't needed because it is obvious • lib/devils_book/effects/live_effect_engine.dart:8:3 • omit_obvious_property_types
+   info • The type annotation isn't needed because it is obvious • lib/devils_book/effects/live_effect_engine.dart:47:9 • omit_obvious_property_types
+   info • The type annotation isn't needed because it is obvious • lib/devils_book/effects/live_effect_engine.dart:50:3 • omit_obvious_property_types
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/export/export_options_sheet.dart:2:8 • always_use_package_imports
+   info • Parameter 'key' could be a super parameter • lib/devils_book/export/export_options_sheet.dart:8:9 • use_super_parameters
+   info • The type annotation isn't needed because it is obvious • lib/devils_book/export/export_options_sheet.dart:17:3 • omit_obvious_property_types
+   info • The type annotation isn't needed because it is obvious • lib/devils_book/export/export_options_sheet.dart:18:3 • omit_obvious_property_types
+   info • The private field _includeGrid could be 'final' • lib/devils_book/export/export_options_sheet.dart:18:8 • prefer_final_fields
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/devils_book/export/export_options_sheet.dart:55:58 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/devils_book/export/export_options_sheet.dart:57:74 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/devils_book/export/export_options_sheet.dart:64:123 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/devils_book/export/export_options_sheet.dart:77:81 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/devils_book/export/export_options_sheet.dart:84:86 • deprecated_member_use
+  error • The named parameter 'visualDensity' isn't defined • lib/devils_book/export/export_options_sheet.dart:139:25 • undefined_named_parameter
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/ink/devils_stroke.dart:4:8 • always_use_package_imports
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/ink/devils_stroke.dart:5:8 • always_use_package_imports
+  error • The named parameter 'options' is required, but there's no corresponding argument • lib/devils_book/ink/devils_stroke.dart:34:20 • missing_required_argument
+  error • The named parameter 'page' is required, but there's no corresponding argument • lib/devils_book/ink/devils_stroke.dart:34:20 • missing_required_argument
+  error • The named parameter 'pressureEnabled' is required, but there's no corresponding argument • lib/devils_book/ink/devils_stroke.dart:34:20 • missing_required_argument
+  error • The named parameter 'baseSize' isn't defined • lib/devils_book/ink/devils_stroke.dart:37:7 • undefined_named_parameter
+  error • The named parameter 'points' isn't defined • lib/devils_book/ink/devils_stroke.dart:42:7 • undefined_named_parameter
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/ink/nib_profile.dart:2:8 • always_use_package_imports
+   info • The type annotation isn't needed because it is obvious • lib/devils_book/ink/scribble_recognizer.dart:6:16 • omit_obvious_property_types
+   info • The type annotation isn't needed because it is obvious • lib/devils_book/ink/scribble_recognizer.dart:9:16 • omit_obvious_property_types
+warning • The member 'points' can only be used within 'package:saber/components/canvas/_stroke.dart' or a test • lib/devils_book/ink/scribble_recognizer.dart:13:27 • invalid_use_of_visible_for_testing_member
+warning • The member 'points' can only be used within instance members of subclasses of 'Stroke' • lib/devils_book/ink/scribble_recognizer.dart:13:27 • invalid_use_of_protected_member
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/models/loadout.dart:1:8 • always_use_package_imports
+   info • Sort directive sections alphabetically • lib/devils_book/models/loadout.dart:2:1 • directives_ordering
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/models/loadout.dart:2:8 • always_use_package_imports
+   info • Sort directive sections alphabetically • lib/devils_book/models/loadout.dart:3:1 • directives_ordering
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/models/loadout.dart:3:8 • always_use_package_imports
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/models/loadout.dart:4:8 • always_use_package_imports
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/models/loadout_manager.dart:3:8 • always_use_package_imports
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/models/loadout_manager.dart:4:8 • always_use_package_imports
+   info • The type annotation isn't needed because it is obvious • lib/devils_book/models/writing_mode.dart:36:16 • omit_obvious_property_types
+   info • The type annotation isn't needed because it is obvious • lib/devils_book/models/writing_mode.dart:45:16 • omit_obvious_property_types
+   info • The type annotation isn't needed because it is obvious • lib/devils_book/models/writing_mode.dart:54:16 • omit_obvious_property_types
+   info • The type annotation isn't needed because it is obvious • lib/devils_book/models/writing_mode.dart:63:16 • omit_obvious_property_types
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/packs/builtin/core_foundation_pack.dart:3:8 • always_use_package_imports
+   info • Sort directive sections alphabetically • lib/devils_book/packs/builtin/core_foundation_pack.dart:4:1 • directives_ordering
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/packs/builtin/core_foundation_pack.dart:4:8 • always_use_package_imports
+   info • Sort directive sections alphabetically • lib/devils_book/packs/builtin/core_foundation_pack.dart:5:1 • directives_ordering
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/packs/builtin/core_foundation_pack.dart:5:8 • always_use_package_imports
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/packs/builtin/core_foundation_pack.dart:6:8 • always_use_package_imports
+   info • Sort directive sections alphabetically • lib/devils_book/packs/builtin/core_foundation_pack.dart:7:1 • directives_ordering
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/packs/builtin/core_foundation_pack.dart:7:8 • always_use_package_imports
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/packs/builtin/core_foundation_pack.dart:8:8 • always_use_package_imports
+   info • Sort directive sections alphabetically • lib/devils_book/packs/builtin/core_foundation_pack.dart:9:1 • directives_ordering
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/packs/builtin/core_foundation_pack.dart:9:8 • always_use_package_imports
+   info • Sort directive sections alphabetically • lib/devils_book/packs/builtin/core_foundation_pack.dart:10:1 • directives_ordering
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/packs/builtin/core_foundation_pack.dart:10:8 • always_use_package_imports
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/core_foundation_pack.dart:31:82 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/core_foundation_pack.dart:32:82 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/core_foundation_pack.dart:33:86 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/core_foundation_pack.dart:34:80 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/core_foundation_pack.dart:35:85 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/core_foundation_pack.dart:39:70 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/core_foundation_pack.dart:40:72 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/core_foundation_pack.dart:41:76 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/core_foundation_pack.dart:42:64 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/core_foundation_pack.dart:43:70 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/core_foundation_pack.dart:44:74 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/core_foundation_pack.dart:45:68 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/core_foundation_pack.dart:53:153 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/core_foundation_pack.dart:53:243 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/core_foundation_pack.dart:54:151 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/core_foundation_pack.dart:54:280 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/core_foundation_pack.dart:55:153 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/core_foundation_pack.dart:55:285 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/core_foundation_pack.dart:56:141 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/core_foundation_pack.dart:56:268 • prefer_const_constructors
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/packs/builtin/effect_packs.dart:2:8 • always_use_package_imports
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/packs/builtin/effect_packs.dart:3:8 • always_use_package_imports
+   info • Sort directive sections alphabetically • lib/devils_book/packs/builtin/effect_packs.dart:4:1 • directives_ordering
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/packs/builtin/effect_packs.dart:4:8 • always_use_package_imports
+   info • Sort directive sections alphabetically • lib/devils_book/packs/builtin/effect_packs.dart:5:1 • directives_ordering
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/packs/builtin/effect_packs.dart:5:8 • always_use_package_imports
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/effect_packs.dart:21:22 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/effect_packs.dart:22:19 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/effect_packs.dart:23:18 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/effect_packs.dart:24:19 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/effect_packs.dart:32:22 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/effect_packs.dart:33:19 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/effect_packs.dart:34:18 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/effect_packs.dart:35:19 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/effect_packs.dart:43:22 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/effect_packs.dart:44:19 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/effect_packs.dart:45:18 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/effect_packs.dart:46:19 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/effect_packs.dart:70:22 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/effect_packs.dart:71:19 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/effect_packs.dart:72:18 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/effect_packs.dart:73:19 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/effect_packs.dart:81:22 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/effect_packs.dart:82:19 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/effect_packs.dart:83:18 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/effect_packs.dart:84:19 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/effect_packs.dart:92:22 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/effect_packs.dart:93:19 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/effect_packs.dart:94:18 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/effect_packs.dart:95:19 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/effect_packs.dart:119:22 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/effect_packs.dart:120:19 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/effect_packs.dart:121:18 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/effect_packs.dart:122:19 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/effect_packs.dart:130:22 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/effect_packs.dart:131:19 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/effect_packs.dart:132:18 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/effect_packs.dart:133:19 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/effect_packs.dart:157:22 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/effect_packs.dart:158:19 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/effect_packs.dart:159:18 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/effect_packs.dart:160:19 • prefer_const_constructors
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/packs/builtin/ink_packs.dart:2:8 • always_use_package_imports
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/packs/builtin/ink_packs.dart:3:8 • always_use_package_imports
+   info • Sort directive sections alphabetically • lib/devils_book/packs/builtin/ink_packs.dart:4:1 • directives_ordering
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/packs/builtin/ink_packs.dart:4:8 • always_use_package_imports
+   info • Sort directive sections alphabetically • lib/devils_book/packs/builtin/ink_packs.dart:5:1 • directives_ordering
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/packs/builtin/ink_packs.dart:5:8 • always_use_package_imports
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/ink_packs.dart:20:18 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/ink_packs.dart:27:18 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/ink_packs.dart:34:18 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/ink_packs.dart:35:18 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/ink_packs.dart:43:18 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/ink_packs.dart:44:18 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/ink_packs.dart:68:18 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/ink_packs.dart:69:18 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/ink_packs.dart:77:18 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/ink_packs.dart:78:18 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/ink_packs.dart:86:18 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/ink_packs.dart:87:18 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/ink_packs.dart:111:18 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/ink_packs.dart:112:18 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/ink_packs.dart:120:18 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/ink_packs.dart:121:18 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/ink_packs.dart:129:18 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/ink_packs.dart:130:18 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/ink_packs.dart:138:18 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/ink_packs.dart:139:18 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/ink_packs.dart:163:18 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/ink_packs.dart:164:18 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/ink_packs.dart:172:18 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/ink_packs.dart:173:18 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/ink_packs.dart:181:18 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/ink_packs.dart:182:18 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/ink_packs.dart:206:18 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/ink_packs.dart:207:18 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/ink_packs.dart:215:18 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/ink_packs.dart:216:18 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/ink_packs.dart:224:18 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/ink_packs.dart:225:18 • prefer_const_constructors
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/packs/builtin/notebook_packs.dart:3:8 • always_use_package_imports
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/packs/builtin/notebook_packs.dart:4:8 • always_use_package_imports
+   info • Sort directive sections alphabetically • lib/devils_book/packs/builtin/notebook_packs.dart:5:1 • directives_ordering
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/packs/builtin/notebook_packs.dart:5:8 • always_use_package_imports
+   info • Sort directive sections alphabetically • lib/devils_book/packs/builtin/notebook_packs.dart:6:1 • directives_ordering
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/packs/builtin/notebook_packs.dart:6:8 • always_use_package_imports
+warning • Unused import: '../content_pack.dart' • lib/devils_book/packs/builtin/notebook_packs.dart:6:8 • unused_import
+warning • The value of the field '_manifest' isn't used • lib/devils_book/packs/builtin/notebook_packs.dart:10:16 • unused_field
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/notebook_packs.dart:20:22 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/notebook_packs.dart:25:22 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/notebook_packs.dart:27:16 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/notebook_packs.dart:32:22 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/notebook_packs.dart:34:16 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/notebook_packs.dart:39:22 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/notebook_packs.dart:41:16 • prefer_const_constructors
+   info • The type annotation isn't needed because it is obvious • lib/devils_book/packs/builtin/notebook_packs.dart:45:16 • omit_obvious_property_types
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/notebook_packs.dart:48:79 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/notebook_packs.dart:48:111 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/notebook_packs.dart:56:71 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/notebook_packs.dart:56:103 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/notebook_packs.dart:64:83 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/notebook_packs.dart:64:115 • prefer_const_constructors
+warning • The value of the field '_manifest' isn't used • lib/devils_book/packs/builtin/notebook_packs.dart:75:16 • unused_field
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/notebook_packs.dart:85:22 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/notebook_packs.dart:90:22 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/notebook_packs.dart:92:16 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/notebook_packs.dart:97:22 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/notebook_packs.dart:99:16 • prefer_const_constructors
+   info • The type annotation isn't needed because it is obvious • lib/devils_book/packs/builtin/notebook_packs.dart:103:16 • omit_obvious_property_types
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/notebook_packs.dart:106:85 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/notebook_packs.dart:106:117 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/notebook_packs.dart:114:83 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/notebook_packs.dart:114:115 • prefer_const_constructors
+warning • The value of the field '_manifest' isn't used • lib/devils_book/packs/builtin/notebook_packs.dart:125:16 • unused_field
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/notebook_packs.dart:135:22 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/notebook_packs.dart:140:22 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/notebook_packs.dart:142:16 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/notebook_packs.dart:147:22 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/notebook_packs.dart:149:16 • prefer_const_constructors
+   info • The type annotation isn't needed because it is obvious • lib/devils_book/packs/builtin/notebook_packs.dart:153:16 • omit_obvious_property_types
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/notebook_packs.dart:156:83 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/notebook_packs.dart:156:115 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/notebook_packs.dart:164:79 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/notebook_packs.dart:164:111 • prefer_const_constructors
+warning • The value of the field '_manifest' isn't used • lib/devils_book/packs/builtin/notebook_packs.dart:175:16 • unused_field
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/notebook_packs.dart:185:22 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/notebook_packs.dart:190:22 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/notebook_packs.dart:192:16 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/notebook_packs.dart:197:22 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/notebook_packs.dart:199:16 • prefer_const_constructors
+   info • The type annotation isn't needed because it is obvious • lib/devils_book/packs/builtin/notebook_packs.dart:203:16 • omit_obvious_property_types
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/notebook_packs.dart:206:83 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/notebook_packs.dart:206:115 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/notebook_packs.dart:214:94 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/notebook_packs.dart:214:126 • prefer_const_constructors
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/packs/builtin/seal_packs.dart:2:8 • always_use_package_imports
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/packs/builtin/seal_packs.dart:3:8 • always_use_package_imports
+   info • Sort directive sections alphabetically • lib/devils_book/packs/builtin/seal_packs.dart:4:1 • directives_ordering
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/packs/builtin/seal_packs.dart:4:8 • always_use_package_imports
+   info • Sort directive sections alphabetically • lib/devils_book/packs/builtin/seal_packs.dart:5:1 • directives_ordering
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/packs/builtin/seal_packs.dart:5:8 • always_use_package_imports
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/packs/builtin/theme_packs.dart:3:8 • always_use_package_imports
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/packs/builtin/theme_packs.dart:4:8 • always_use_package_imports
+   info • Sort directive sections alphabetically • lib/devils_book/packs/builtin/theme_packs.dart:5:1 • directives_ordering
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/packs/builtin/theme_packs.dart:5:8 • always_use_package_imports
+   info • Sort directive sections alphabetically • lib/devils_book/packs/builtin/theme_packs.dart:6:1 • directives_ordering
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/packs/builtin/theme_packs.dart:6:8 • always_use_package_imports
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/theme_packs.dart:22:24 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/theme_packs.dart:23:18 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/theme_packs.dart:24:19 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/theme_packs.dart:25:21 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/theme_packs.dart:31:24 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/theme_packs.dart:32:18 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/theme_packs.dart:33:19 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/theme_packs.dart:34:21 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/theme_packs.dart:40:24 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/theme_packs.dart:42:18 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/theme_packs.dart:43:19 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/theme_packs.dart:44:21 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/theme_packs.dart:69:24 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/theme_packs.dart:71:18 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/theme_packs.dart:72:19 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/theme_packs.dart:73:21 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/theme_packs.dart:79:24 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/theme_packs.dart:80:18 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/theme_packs.dart:81:19 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/theme_packs.dart:82:21 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/theme_packs.dart:88:24 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/theme_packs.dart:90:18 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/theme_packs.dart:91:19 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/theme_packs.dart:92:21 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/theme_packs.dart:117:24 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/theme_packs.dart:119:18 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/theme_packs.dart:120:19 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/theme_packs.dart:121:21 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/theme_packs.dart:127:24 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/theme_packs.dart:128:18 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/theme_packs.dart:129:19 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/theme_packs.dart:130:21 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/theme_packs.dart:136:24 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/theme_packs.dart:138:18 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/theme_packs.dart:139:19 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/theme_packs.dart:140:21 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/theme_packs.dart:165:24 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/theme_packs.dart:167:18 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/theme_packs.dart:168:19 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/theme_packs.dart:169:21 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/theme_packs.dart:175:24 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/theme_packs.dart:177:18 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/theme_packs.dart:178:19 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/theme_packs.dart:179:21 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/theme_packs.dart:185:24 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/theme_packs.dart:187:18 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/theme_packs.dart:188:19 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/theme_packs.dart:189:21 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/theme_packs.dart:214:24 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/theme_packs.dart:215:18 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/theme_packs.dart:216:19 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/theme_packs.dart:217:21 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/theme_packs.dart:223:24 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/theme_packs.dart:225:18 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/theme_packs.dart:226:19 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/theme_packs.dart:227:21 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/theme_packs.dart:233:24 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/theme_packs.dart:235:18 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/theme_packs.dart:236:19 • prefer_const_constructors
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/packs/builtin/theme_packs.dart:237:21 • prefer_const_constructors
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/packs/community/pack_importer.dart:2:8 • always_use_package_imports
+warning • Unused import: '../pack_registry.dart' • lib/devils_book/packs/community/pack_importer.dart:2:8 • unused_import
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/packs/community/pack_importer.dart:3:8 • always_use_package_imports
+   info • The type annotation isn't needed because it is obvious • lib/devils_book/packs/community/pack_importer.dart:8:16 • omit_obvious_property_types
+   info • The type annotation isn't needed because it is obvious • lib/devils_book/packs/community/pack_importer.dart:12:9 • omit_obvious_property_types
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/packs/community/pack_validator.dart:2:8 • always_use_package_imports
+   info • The type annotation isn't needed because it is obvious • lib/devils_book/packs/community/pack_validator.dart:37:16 • omit_obvious_property_types
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/packs/content_pack.dart:1:8 • always_use_package_imports
+   info • Sort directive sections alphabetically • lib/devils_book/packs/content_pack.dart:2:1 • directives_ordering
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/packs/content_pack.dart:2:8 • always_use_package_imports
+   info • Sort directive sections alphabetically • lib/devils_book/packs/content_pack.dart:3:1 • directives_ordering
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/packs/content_pack.dart:3:8 • always_use_package_imports
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/packs/content_pack.dart:4:8 • always_use_package_imports
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/packs/content_pack.dart:5:8 • always_use_package_imports
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/packs/content_pack.dart:6:8 • always_use_package_imports
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/packs/pack_manifest.dart:1:8 • always_use_package_imports
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/packs/pack_registry.dart:2:8 • always_use_package_imports
+   info • Sort directive sections alphabetically • lib/devils_book/packs/pack_registry.dart:3:1 • directives_ordering
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/packs/pack_registry.dart:3:8 • always_use_package_imports
+   info • Sort directive sections alphabetically • lib/devils_book/packs/pack_registry.dart:4:1 • directives_ordering
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/packs/pack_registry.dart:4:8 • always_use_package_imports
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/packs/pack_registry.dart:5:8 • always_use_package_imports
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/packs/pack_registry.dart:6:8 • always_use_package_imports
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/packs/pack_registry.dart:7:8 • always_use_package_imports
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/packs/pack_registry.dart:8:8 • always_use_package_imports
+warning • Unused import: 'pack_manifest.dart' • lib/devils_book/packs/pack_registry.dart:8:8 • unused_import
+   info • The type annotation isn't needed because it is obvious • lib/devils_book/packs/pack_registry.dart:17:16 • omit_obvious_property_types
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/plugins/study_plugin_manager.dart:2:8 • always_use_package_imports
+   info • The type annotation isn't needed because it is obvious • lib/devils_book/plugins/study_plugin_manager.dart:6:16 • omit_obvious_property_types
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/registry/devils_catalog.dart:4:8 • always_use_package_imports
+   info • Sort directive sections alphabetically • lib/devils_book/registry/devils_catalog.dart:5:1 • directives_ordering
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/registry/devils_catalog.dart:5:8 • always_use_package_imports
+   info • Sort directive sections alphabetically • lib/devils_book/registry/devils_catalog.dart:6:1 • directives_ordering
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/registry/devils_catalog.dart:6:8 • always_use_package_imports
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/registry/devils_catalog.dart:7:8 • always_use_package_imports
+   info • Sort directive sections alphabetically • lib/devils_book/registry/devils_catalog.dart:8:1 • directives_ordering
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/registry/devils_catalog.dart:8:8 • always_use_package_imports
+   info • The type annotation isn't needed because it is obvious • lib/devils_book/registry/devils_catalog.dart:12:16 • omit_obvious_property_types
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/registry/devils_catalog.dart:15:22 • prefer_const_constructors
+   info • The type annotation isn't needed because it is obvious • lib/devils_book/registry/devils_catalog.dart:19:16 • omit_obvious_property_types
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/registry/devils_catalog.dart:22:22 • prefer_const_constructors
+   info • The type annotation isn't needed because it is obvious • lib/devils_book/registry/devils_catalog.dart:26:16 • omit_obvious_property_types
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/registry/devils_catalog.dart:29:22 • prefer_const_constructors
+   info • The type annotation isn't needed because it is obvious • lib/devils_book/registry/devils_catalog.dart:33:16 • omit_obvious_property_types
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/registry/devils_catalog.dart:36:22 • prefer_const_constructors
+   info • The type annotation isn't needed because it is obvious • lib/devils_book/registry/devils_catalog.dart:40:16 • omit_obvious_property_types
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/registry/devils_catalog.dart:43:22 • prefer_const_constructors
+   info • The type annotation isn't needed because it is obvious • lib/devils_book/registry/devils_catalog.dart:48:16 • omit_obvious_property_types
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/registry/devils_catalog.dart:51:16 • prefer_const_constructors
+   info • The type annotation isn't needed because it is obvious • lib/devils_book/registry/devils_catalog.dart:55:16 • omit_obvious_property_types
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/registry/devils_catalog.dart:58:16 • prefer_const_constructors
+   info • The type annotation isn't needed because it is obvious • lib/devils_book/registry/devils_catalog.dart:62:16 • omit_obvious_property_types
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/registry/devils_catalog.dart:65:16 • prefer_const_constructors
+   info • The type annotation isn't needed because it is obvious • lib/devils_book/registry/devils_catalog.dart:69:16 • omit_obvious_property_types
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/registry/devils_catalog.dart:72:16 • prefer_const_constructors
+   info • The type annotation isn't needed because it is obvious • lib/devils_book/registry/devils_catalog.dart:76:16 • omit_obvious_property_types
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/registry/devils_catalog.dart:79:16 • prefer_const_constructors
+   info • The type annotation isn't needed because it is obvious • lib/devils_book/registry/devils_catalog.dart:83:16 • omit_obvious_property_types
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/registry/devils_catalog.dart:86:16 • prefer_const_constructors
+   info • The type annotation isn't needed because it is obvious • lib/devils_book/registry/devils_catalog.dart:90:16 • omit_obvious_property_types
+   info • Use 'const' with the constructor to improve performance • lib/devils_book/registry/devils_catalog.dart:93:16 • prefer_const_constructors
+   info • The type annotation isn't needed because it is obvious • lib/devils_book/registry/devils_catalog.dart:98:16 • omit_obvious_property_types
+   info • The type annotation isn't needed because it is obvious • lib/devils_book/registry/devils_catalog.dart:106:16 • omit_obvious_property_types
+   info • The type annotation isn't needed because it is obvious • lib/devils_book/registry/devils_catalog.dart:115:16 • omit_obvious_property_types
+   info • The type annotation isn't needed because it is obvious • lib/devils_book/registry/devils_catalog.dart:124:16 • omit_obvious_property_types
+   info • The type annotation isn't needed because it is obvious • lib/devils_book/registry/devils_catalog.dart:133:16 • omit_obvious_property_types
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/registry/relic_catalog.dart:1:8 • always_use_package_imports
+   info • The type annotation isn't needed because it is obvious • lib/devils_book/registry/relic_catalog.dart:4:16 • omit_obvious_property_types
+   info • The type annotation isn't needed because it is obvious • lib/devils_book/registry/relic_catalog.dart:10:16 • omit_obvious_property_types
+   info • The type annotation isn't needed because it is obvious • lib/devils_book/registry/relic_catalog.dart:16:16 • omit_obvious_property_types
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/replay/playback_controller.dart:3:8 • always_use_package_imports
+   info • The type annotation isn't needed because it is obvious • lib/devils_book/replay/playback_controller.dart:12:3 • omit_obvious_property_types
+   info • The type annotation isn't needed because it is obvious • lib/devils_book/replay/playback_controller.dart:13:3 • omit_obvious_property_types
+warning • Unused import: 'package:flutter/material.dart' • lib/devils_book/replay/replay_models.dart:1:8 • unused_import
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/replay/replay_overlay.dart:2:8 • always_use_package_imports
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/replay/replay_overlay.dart:3:8 • always_use_package_imports
+warning • Unused import: 'replay_models.dart' • lib/devils_book/replay/replay_overlay.dart:3:8 • unused_import
+   info • Parameter 'key' could be a super parameter • lib/devils_book/replay/replay_overlay.dart:11:9 • use_super_parameters
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/devils_book/replay/replay_overlay.dart:63:46 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/devils_book/replay/replay_overlay.dart:66:43 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/devils_book/replay/replay_overlay.dart:106:55 • deprecated_member_use
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/sessions/session_controller.dart:2:8 • always_use_package_imports
+   info • The type annotation isn't needed because it is obvious • lib/devils_book/sessions/session_controller.dart:6:16 • omit_obvious_property_types
+   info • The type annotation isn't needed because it is obvious • lib/devils_book/sessions/session_models.dart:94:3 • omit_obvious_property_types
+   info • The type annotation isn't needed because it is obvious • lib/devils_book/sessions/session_models.dart:95:3 • omit_obvious_property_types
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/sessions/session_start_sheet.dart:2:8 • always_use_package_imports
+   info • Parameter 'key' could be a super parameter • lib/devils_book/sessions/session_start_sheet.dart:8:9 • use_super_parameters
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/devils_book/sessions/session_start_sheet.dart:56:48 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/devils_book/sessions/session_start_sheet.dart:59:78 • deprecated_member_use
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/devils_book/sessions/session_start_sheet.dart:160:46 • deprecated_member_use
+   info • The type annotation isn't needed because it is obvious • lib/devils_book/stylus/squeeze_palette_controller.dart:4:3 • omit_obvious_property_types
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/stylus/stylus_bridge.dart:3:8 • always_use_package_imports
+   info • The type annotation isn't needed because it is obvious • lib/devils_book/stylus/stylus_bridge.dart:8:16 • omit_obvious_property_types
+warning • The value of the field '_channel' isn't used • lib/devils_book/stylus/stylus_bridge.dart:8:30 • unused_field
+   info • Unnecessary use of double quotes • lib/devils_book/stylus/stylus_bridge.dart:25:18 • prefer_single_quotes
+   info • The type annotation isn't needed because it is obvious • lib/devils_book/stylus/stylus_capabilities.dart:17:16 • omit_obvious_property_types
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/stylus/stylus_state.dart:2:8 • always_use_package_imports
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/stylus/stylus_state.dart:3:8 • always_use_package_imports
+   info • The type annotation isn't needed because it is obvious • lib/devils_book/stylus/stylus_state.dart:15:3 • omit_obvious_property_types
+   info • The type annotation isn't needed because it is obvious • lib/devils_book/stylus/stylus_state.dart:18:3 • omit_obvious_property_types
+warning • The value of the local variable 'changed' isn't used • lib/devils_book/stylus/stylus_state.dart:30:10 • unused_local_variable
+   info • The type annotation isn't needed because it is obvious • lib/devils_book/zoom_window/zoom_window_controller.dart:4:3 • omit_obvious_property_types
+   info • The type annotation isn't needed because it is obvious • lib/devils_book/zoom_window/zoom_window_controller.dart:7:3 • omit_obvious_property_types
+   info • The type annotation isn't needed because it is obvious • lib/devils_book/zoom_window/zoom_window_controller.dart:10:3 • omit_obvious_property_types
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/zoom_window/zoom_window_strip.dart:2:8 • always_use_package_imports
+   info • Parameter 'key' could be a super parameter • lib/devils_book/zoom_window/zoom_window_strip.dart:9:9 • use_super_parameters
+   info • Use 'const' for final variables initialized to a constant value • lib/devils_book/zoom_window/zoom_window_strip.dart:23:9 • prefer_const_declarations
+   info • Use 'DecoratedBox' rather than a 'Container' with only a 'Decoration' • lib/devils_book/zoom_window/zoom_window_strip.dart:31:18 • use_decorated_box
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/devils_book/zoom_window/zoom_window_strip.dart:38:47 • deprecated_member_use
+   info • 'scale' is deprecated and shouldn't be used. Use scaleByVector3, scaleByVector4, or scaleByDouble instead • lib/devils_book/zoom_window/zoom_window_strip.dart:47:25 • deprecated_member_use
+   info • 'translate' is deprecated and shouldn't be used. Use translateByVector3, translateByVector4, or translateByDouble instead • lib/devils_book/zoom_window/zoom_window_strip.dart:48:25 • deprecated_member_use
+   info • Use 'package:' imports for files in the 'lib' directory • lib/devils_book/zoom_window/zoom_window_target.dart:2:8 • always_use_package_imports
+   info • Parameter 'key' could be a super parameter • lib/devils_book/zoom_window/zoom_window_target.dart:7:9 • use_super_parameters
+   info • Use 'DecoratedBox' rather than a 'Container' with only a 'Decoration' • lib/devils_book/zoom_window/zoom_window_target.dart:23:20 • use_decorated_box
+   info • 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss • lib/devils_book/zoom_window/zoom_window_target.dart:25:42 • deprecated_member_use
+warning • Unused import: 'package:saber/data/tools/stroke_properties.dart' • lib/pages/editor/editor.dart:35:8 • unused_import
+   info • Sort directive sections alphabetically • lib/pages/editor/editor.dart:36:1 • directives_ordering
+   info • Sort directive sections alphabetically • lib/pages/editor/editor.dart:37:1 • directives_ordering
+   info • Sort directive sections alphabetically • lib/pages/editor/editor.dart:40:1 • directives_ordering
+   info • Sort directive sections alphabetically • lib/pages/editor/editor.dart:41:1 • directives_ordering
+   info • Sort directive sections alphabetically • lib/pages/editor/editor.dart:42:1 • directives_ordering
+warning • Unused import: 'package:saber/devils_book/registry/devils_catalog.dart' • lib/pages/editor/editor.dart:43:8 • unused_import
+   info • Sort directive sections alphabetically • lib/pages/editor/editor.dart:44:1 • directives_ordering
+   info • Sort directive sections alphabetically • lib/pages/editor/editor.dart:46:1 • directives_ordering
+   info • Sort directive sections alphabetically • lib/pages/editor/editor.dart:47:1 • directives_ordering
+   info • Sort directive sections alphabetically • lib/pages/editor/editor.dart:48:1 • directives_ordering
+   info • Sort directive sections alphabetically • lib/pages/editor/editor.dart:51:1 • directives_ordering
+   info • Sort directive sections alphabetically • lib/pages/editor/editor.dart:55:1 • directives_ordering
+   info • Sort directive sections alphabetically • lib/pages/editor/editor.dart:56:1 • directives_ordering
+   info • Sort directive sections alphabetically • lib/pages/editor/editor.dart:57:1 • directives_ordering
+   info • Sort directive sections alphabetically • lib/pages/editor/editor.dart:61:1 • directives_ordering
+   info • Sort directive sections alphabetically • lib/pages/editor/editor.dart:62:1 • directives_ordering
+   info • Sort directive sections alphabetically • lib/pages/editor/editor.dart:64:1 • directives_ordering
+   info • Sort directive sections alphabetically • lib/pages/editor/editor.dart:69:1 • directives_ordering
+   info • The type annotation isn't needed because it is obvious • lib/pages/editor/editor.dart:136:9 • omit_obvious_property_types
+   info • The type annotation isn't needed because it is obvious • lib/pages/editor/editor.dart:137:9 • omit_obvious_property_types
+   info • The type annotation isn't needed because it is obvious • lib/pages/editor/editor.dart:138:9 • omit_obvious_property_types
+   info • The type annotation isn't needed because it is obvious • lib/pages/editor/editor.dart:139:9 • omit_obvious_property_types
+   info • The type annotation isn't needed because it is obvious • lib/pages/editor/editor.dart:140:9 • omit_obvious_property_types
+   info • The type annotation isn't needed because it is obvious • lib/pages/editor/editor.dart:141:9 • omit_obvious_property_types
+   info • 'value' is deprecated and shouldn't be used. Use component accessors like .r or .g, or toARGB32 for an explicit conversion • lib/pages/editor/editor.dart:236:70 • deprecated_member_use
+warning • Dead code • lib/pages/editor/editor.dart:733:33 • dead_code
+warning • Dead code • lib/pages/editor/editor.dart:733:74 • dead_code
+warning • Dead code • lib/pages/editor/editor.dart:733:124 • dead_code
+warning • The member 'points' can only be used within 'package:saber/components/canvas/_stroke.dart' or a test • lib/pages/editor/editor.dart:737:36 • invalid_use_of_visible_for_testing_member
+warning • The member 'points' can only be used within instance members of subclasses of 'Stroke' • lib/pages/editor/editor.dart:737:36 • invalid_use_of_protected_member
+warning • The member 'points' can only be used within 'package:saber/components/canvas/_stroke.dart' or a test • lib/pages/editor/editor.dart:737:61 • invalid_use_of_visible_for_testing_member
+warning • The member 'points' can only be used within instance members of subclasses of 'Stroke' • lib/pages/editor/editor.dart:737:61 • invalid_use_of_protected_member
+warning • The member 'points' can only be used within 'package:saber/components/canvas/_stroke.dart' or a test • lib/pages/editor/editor.dart:832:40 • invalid_use_of_visible_for_testing_member
+warning • The member 'points' can only be used within instance members of subclasses of 'Stroke' • lib/pages/editor/editor.dart:832:40 • invalid_use_of_protected_member
+warning • The member 'points' can only be used within 'package:saber/components/canvas/_stroke.dart' or a test • lib/pages/editor/editor.dart:836:26 • invalid_use_of_visible_for_testing_member
+warning • The member 'points' can only be used within instance members of subclasses of 'Stroke' • lib/pages/editor/editor.dart:836:26 • invalid_use_of_protected_member
+warning • The member 'points' can only be used within 'package:saber/components/canvas/_stroke.dart' or a test • lib/pages/editor/editor.dart:839:41 • invalid_use_of_visible_for_testing_member
+warning • The member 'points' can only be used within instance members of subclasses of 'Stroke' • lib/pages/editor/editor.dart:839:41 • invalid_use_of_protected_member
+warning • The member 'notifyListeners' can only be used within 'package:flutter/src/foundation/change_notifier.dart' or a test • lib/pages/editor/editor.dart:881:17 • invalid_use_of_visible_for_testing_member
+warning • The member 'notifyListeners' can only be used within instance members of subclasses of 'ChangeNotifier' • lib/pages/editor/editor.dart:881:17 • invalid_use_of_protected_member
+   info • 'value' is deprecated and shouldn't be used. Use component accessors like .r or .g, or toARGB32 for an explicit conversion • lib/pages/editor/editor.dart:1923:84 • deprecated_member_use
+   info • 'value' is deprecated and shouldn't be used. Use component accessors like .r or .g, or toARGB32 for an explicit conversion • lib/pages/editor/editor.dart:1939:76 • deprecated_member_use
+   info • Unnecessary use of double quotes • lib/pages/editor/editor.dart:1980:38 • prefer_single_quotes
+   info • Unnecessary use of double quotes • lib/pages/editor/editor.dart:1992:36 • prefer_single_quotes
+   info • Unnecessary 'break' statement • lib/pages/editor/editor.dart:2279:9 • unnecessary_breaks
+   info • Unnecessary 'break' statement • lib/pages/editor/editor.dart:2282:9 • unnecessary_breaks
+warning • This default clause is covered by the previous cases • lib/pages/editor/editor.dart:2285:7 • unreachable_switch_default
+   info • Unnecessary 'break' statement • lib/pages/editor/editor.dart:2289:9 • unnecessary_breaks
+
+521 issues found. (ran in 3.1s)

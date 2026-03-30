@@ -9,35 +9,35 @@ import '../models/loadout.dart';
 
 class DevilsCatalog {
   // THEMES
-  static const ThemePreset themeDarkPremium = ThemePreset(
+  static final ThemePreset themeDarkPremium = ThemePreset(
     id: 'theme_dark_premium',
     name: 'Dark Premium',
     backgroundColor: Color(0xFF141414),
     pattern: CanvasBackgroundPattern.none,
   );
 
-  static const ThemePreset themeAntiqueSoul = ThemePreset(
+  static final ThemePreset themeAntiqueSoul = ThemePreset(
     id: 'theme_antique_soul',
     name: 'Antique Soul',
     backgroundColor: Color(0xFFE8E0D2),
-    pattern: CanvasBackgroundPattern.ruled,
+    pattern: CanvasBackgroundPattern.collegeLtr,
   );
 
-  static const ThemePreset themeInfernalAltar = ThemePreset(
+  static final ThemePreset themeInfernalAltar = ThemePreset(
     id: 'theme_infernal_altar',
     name: 'Infernal Altar',
     backgroundColor: Color(0xFF2C0B0B),
-    pattern: CanvasBackgroundPattern.grid,
+    pattern: CanvasBackgroundPattern.dots,
   );
 
-  static const ThemePreset themeGamerMatrix = ThemePreset(
+  static final ThemePreset themeGamerMatrix = ThemePreset(
     id: 'theme_gamer_matrix',
     name: 'Cyber Core',
     backgroundColor: Color(0xFF0D1B2A),
-    pattern: CanvasBackgroundPattern.dotted,
+    pattern: CanvasBackgroundPattern.dots,
   );
 
-  static const ThemePreset themeHighContrast = ThemePreset(
+  static final ThemePreset themeHighContrast = ThemePreset(
     id: 'theme_high_contrast',
     name: 'Focus Contrast',
     backgroundColor: Color(0xFFFFFFFF),
@@ -45,49 +45,49 @@ class DevilsCatalog {
   );
 
   // INKS
-  static const InkPreset inkObsidian = InkPreset(
+  static final InkPreset inkObsidian = InkPreset(
     id: 'ink_obsidian',
     name: 'Obsidian Black',
     baseColor: Color(0xFF111111),
     defaultThickness: 3.0,
   );
 
-  static const InkPreset inkCopperOxide = InkPreset(
+  static final InkPreset inkCopperOxide = InkPreset(
     id: 'ink_copper_oxide',
     name: 'Copper Oxide',
     baseColor: Color(0xFFB87333),
     defaultThickness: 3.5,
   );
 
-  static const InkPreset inkMidnightSheen = InkPreset(
+  static final InkPreset inkMidnightSheen = InkPreset(
     id: 'ink_midnight_sheen',
     name: 'Midnight Sheen',
     baseColor: Color(0xFF1A1A40),
     defaultThickness: 4.0,
   );
 
-  static const InkPreset inkAshBlack = InkPreset(
+  static final InkPreset inkAshBlack = InkPreset(
     id: 'ink_ash_black',
     name: 'Ash Dry',
     baseColor: Color(0xFF4A4A4A),
     defaultThickness: 2.5,
   );
 
-  static const InkPreset inkBloodResin = InkPreset(
+  static final InkPreset inkBloodResin = InkPreset(
     id: 'ink_blood_resin',
     name: 'Blood Resin',
     baseColor: Color(0xFF8A0303),
     defaultThickness: 3.5,
   );
 
-  static const InkPreset inkInfernalGold = InkPreset(
+  static final InkPreset inkInfernalGold = InkPreset(
     id: 'ink_infernal_gold',
     name: 'Infernal Gold',
     baseColor: Color(0xFFD4AF37),
     defaultThickness: 4.5,
   );
 
-  static const InkPreset inkNeonCyber = InkPreset(
+  static final InkPreset inkNeonCyber = InkPreset(
     id: 'ink_neon_cyber',
     name: 'Neon Cyber',
     baseColor: Color(0xFF00FFCC),
@@ -95,7 +95,7 @@ class DevilsCatalog {
   );
 
   // EFFECTS
-  static const EffectPreset effectDyingEmber = EffectPreset(
+  static final EffectPreset effectDyingEmber = EffectPreset(
     id: 'effect_ember',
     name: 'Dying Ember',
     shaderId: 'shaders/pencil.frag',
@@ -103,7 +103,7 @@ class DevilsCatalog {
   );
 
   // LOADOUTS
-  static const Loadout loadoutDevilsPen = Loadout(
+  static final Loadout loadoutDevilsPen = Loadout(
     id: 'loadout_the_devils_pen',
     name: 'The Devil\'s Pen',
     theme: themeDarkPremium,
@@ -112,7 +112,7 @@ class DevilsCatalog {
     preferredMode: WritingMode.ritual,
   );
 
-  static const Loadout loadoutBloodRitual = Loadout(
+  static final Loadout loadoutBloodRitual = Loadout(
     id: 'loadout_blood_ritual',
     name: 'Blood Ritual',
     theme: themeInfernalAltar,
@@ -121,7 +121,7 @@ class DevilsCatalog {
     preferredMode: WritingMode.infernal,
   );
 
-  static const Loadout loadoutAntiqueScholar = Loadout(
+  static final Loadout loadoutAntiqueScholar = Loadout(
     id: 'loadout_antique_scholar',
     name: 'Antique Scholar',
     theme: themeAntiqueSoul,
@@ -130,7 +130,7 @@ class DevilsCatalog {
     preferredMode: WritingMode.clean,
   );
 
-  static const Loadout loadoutCyberPunk = Loadout(
+  static final Loadout loadoutCyberPunk = Loadout(
     id: 'loadout_cyber_punk',
     name: 'Cyber Deck',
     theme: themeGamerMatrix,
@@ -139,7 +139,7 @@ class DevilsCatalog {
     preferredMode: WritingMode.ritual,
   );
 
-  static const Loadout defaultLoadout = loadoutDevilsPen;
+  static final Loadout defaultLoadout = loadoutDevilsPen;
 
   // REGISTRIES
   static final Map<String, ThemePreset> themes = {

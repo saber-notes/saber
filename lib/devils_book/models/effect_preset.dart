@@ -47,7 +47,7 @@ class EffectPreset {
   /// Short flavor text describing the effect personality.
   final String? character;
 
-  const EffectPreset({
+  EffectPreset({
     required this.id,
     required this.name,
     this.shaderId,

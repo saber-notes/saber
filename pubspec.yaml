@@ -266,7 +266,7 @@ flutter:
 
 # ./scripts/generate_icons.sh
 icons_launcher:
-  image_path: "assets/icon/icon.png"
+  image_path: "assets/icon/devils_book_icon.png"
   platforms:
     android:
       enable: true
@@ -275,7 +275,7 @@ icons_launcher:
       adaptive_monochrome_image: "assets/icon/icon_monochrome.png"
     ios:
       enable: true
-      image_path: "assets/icon/icon_opaque.png"
+      image_path: "assets/icon/devils_book_icon.png"
       dark_path: "assets/icon/icon_ios_dark.png"
       tinted_path: "assets/icon/icon_ios_tintable.png"
     linux:

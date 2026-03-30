@@ -10,6 +10,7 @@ class SqueezePalette extends StatelessWidget {
   final VoidCallback onCycleMode;
   final VoidCallback onSelectRelic;
   final VoidCallback onToggleZoomWindow;
+  final VoidCallback onSelectTheme;
   final VoidCallback onSelectEffect;
   final VoidCallback onStartSession;
   final VoidCallback onTriggerReplay;

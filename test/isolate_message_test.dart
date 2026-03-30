@@ -6,6 +6,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:saber/components/canvas/image/editor_image.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/data/editor/page.dart';
+import 'package:saber/data/editor/page_style.dart';
+import 'package:sbn/canvas_background_pattern.dart';
 import 'package:saber/data/flavor_config.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -26,6 +28,11 @@ void main() {
       final coreInfo = EditorCoreInfo(filePath: '');
       coreInfo.pages = [
         EditorPage(
+          style: const PageStyle(
+            pattern: CanvasBackgroundPattern.none,
+            lineHeight: 40,
+            lineThickness: 2,
+          ),
           images: [
             SvgEditorImage(
               id: 0,
@@ -49,6 +56,11 @@ void main() {
       final coreInfo = EditorCoreInfo(filePath: '');
       coreInfo.pages = [
         EditorPage(
+          style: const PageStyle(
+            pattern: CanvasBackgroundPattern.none,
+            lineHeight: 40,
+            lineThickness: 2,
+          ),
           images: [
             PngEditorImage(
               id: 0,
@@ -72,6 +84,11 @@ void main() {
       final coreInfo = EditorCoreInfo(filePath: '');
       coreInfo.pages = [
         EditorPage(
+          style: const PageStyle(
+            pattern: CanvasBackgroundPattern.none,
+            lineHeight: 40,
+            lineThickness: 2,
+          ),
           images: [
             PngEditorImage(
               id: 0,

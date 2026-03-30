@@ -29,7 +29,7 @@ class InkPreset {
   /// Short flavor text describing the ink's character.
   final String? character;
 
-  const InkPreset({
+  InkPreset({
     required this.id,
     required this.name,
     required this.baseColor,

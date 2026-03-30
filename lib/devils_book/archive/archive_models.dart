@@ -8,7 +8,7 @@ class Shelf {
   final IconData icon;
   final int sortOrder;
 
-  const Shelf({
+  Shelf({
     required this.id,
     required this.name,
     this.accentColor = const Color(0xFF888888),
@@ -99,7 +99,7 @@ class PageBookmark {
   final Color color;
   final DateTime created;
 
-  const PageBookmark({
+  PageBookmark({
     required this.notebookPath,
     required this.pageIndex,
     this.label,

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import '../models/writing_mode.dart';
-import 'live_effect_engine.dart';
+import '../effects/live_effect_engine.dart';
 
 class LiveEffectOverlay extends StatefulWidget {
   final LiveEffectEngine engine;

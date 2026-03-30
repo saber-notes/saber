@@ -10,7 +10,7 @@ class CoverStyle {
   final String? coverAssetPath;
   final String? description;
 
-  const CoverStyle({
+  CoverStyle({
     required this.id,
     required this.name,
     required this.primaryColor,
@@ -29,7 +29,7 @@ class PageTemplate {
   final Color lineColor;
   final String? description;
 
-  const PageTemplate({
+  PageTemplate({
     required this.id,
     required this.name,
     required this.backgroundColor,
@@ -49,7 +49,7 @@ class NotebookTemplate {
   final String? packId;
   final String? description;
 
-  const NotebookTemplate({
+  NotebookTemplate({
     required this.id,
     required this.name,
     required this.cover,

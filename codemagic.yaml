@@ -1,0 +1,85 @@
+# Devils Book - Sky Forge CI/CD
+# https://docs.codemagic.io/yaml-basic-configuration/yaml-reference/
+
+workflows:
+  ios-testflight:
+    name: "Sky Forge: iOS TestFlight Distribution"
+    instance_type: mac_mini_m2
+    max_build_duration: 60
+    triggering:
+      events:
+        - push
+        - tag
+      branch_patterns:
+        - pattern: 'release/*'
+          include: true
+      tag_patterns:
+        - pattern: 'v*'
+          include: true
+    environment:
+      flutter: stable
+      xcode: latest
+      cocoapods: default
+      groups:
+        - app_store_credentials # Define this group in Codemagic UI
+      vars:
+        BUNDLE_ID: "com.adilhanney.saber"
+        APP_ID: 1671523739 # Found in scripts/bump_version.dart:234
+    scripts:
+      - name: "Initialize Forge: flutter pub get"
+        script: |
+          flutter pub get
+      - name: "Synchronize versioning and build numbers"
+        script: |
+          # Automatically increment build number using Codemagic's internal counter
+          BUILD_NUMBER=$(($PROJECT_BUILD_NUMBER + 100000))
+          sed -i '' "s/version: .*/version: $(grep 'version: ' pubspec.yaml | cut -d ' ' -f 2 | cut -d '+' -f 1)+$BUILD_NUMBER/" pubspec.yaml
+          echo "Building version $(grep 'version: ' pubspec.yaml | cut -d ' ' -f 2)"
+      - name: "iOS Forge: Build IPA"
+        script: |
+          # We use --release and --no-codesign because Codemagic handles signing in the next step
+          flutter build ipa --release --no-codesign
+    artifacts:
+      - build/ios/ipa/*.ipa
+    publishing:
+      app_store_connect:
+        auth: integration # Uses the integration connected in Codemagic settings
+        submit_to_testflight: true
+        # expire_build_after_180_days: true
+      email:
+        recipients:
+          - yusuf@adilhanney.com # Placeholder based on bundle id
+        on_failure: true
+        on_success: true
+
+  ios-developer:
+    name: "Sky Forge: iOS Developer Verification"
+    instance_type: mac_mini_m2
+    max_build_duration: 30
+    triggering:
+      events:
+        - push
+        - pull_request
+      branch_patterns:
+        - pattern: 'main'
+          include: true
+    environment:
+      flutter: stable
+      xcode: latest
+      cocoapods: default
+    scripts:
+      - name: "Initialize Forge: flutter pub get"
+        script: |
+          flutter pub get
+      - name: "Verify Forge Integrity: flutter build ios"
+        script: |
+          # Build specifically for debug to ensure all integration points compile correctly
+          flutter build ios --debug --no-codesign
+    artifacts:
+      - build/ios/iphoneos/*.app
+    publishing:
+      email:
+        recipients:
+          - yusuf@adilhanney.com
+        on_failure: true
+        on_success: false

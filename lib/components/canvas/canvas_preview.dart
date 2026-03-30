@@ -38,3 +38,7 @@ class CanvasPreview extends StatelessWidget implements PreferredSizeWidget {
     );
   }
 }
+
+class CanvasPreviewController extends ChangeNotifier {
+  void refresh() => notifyListeners();
+}

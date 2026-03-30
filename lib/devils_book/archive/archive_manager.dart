@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
 import 'archive_models.dart';
 
@@ -9,12 +10,12 @@ class ArchiveManager extends ChangeNotifier {
   ArchiveManager._internal();
 
   // Built-in default shelves
-  static const Shelf shelfRecent = Shelf(
+  static final Shelf shelfRecent = Shelf(
     id: 'shelf_recent', name: 'Recent', icon: Icons.schedule, sortOrder: -2,
   );
-  static const Shelf shelfFavorites = Shelf(
+  static final Shelf shelfFavorites = Shelf(
     id: 'shelf_favorites', name: 'Favorites', icon: Icons.star,
-    accentColor: Color(0xFFFFAA00), sortOrder: -1,
+    accentColor: const Color(0xFFFFAA00), sortOrder: -1,
   );
 
   final List<Shelf> _shelves = [shelfRecent, shelfFavorites];

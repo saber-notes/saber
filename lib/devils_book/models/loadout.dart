@@ -13,7 +13,7 @@ class Loadout {
   final EffectPreset effect;
   final WritingMode? preferredMode;
 
-  const Loadout({
+  Loadout({
     required this.id,
     required this.name,
     required this.theme,

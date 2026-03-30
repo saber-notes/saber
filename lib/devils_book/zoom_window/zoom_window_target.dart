@@ -18,19 +18,28 @@ class ZoomWindowTarget extends StatelessWidget {
           top: controller.targetRect.top,
           width: controller.targetRect.width,
           height: controller.targetRect.height,
-          child: GestureDetector(
-            onPanUpdate: (details) {
-              controller.updateTargetPosition(details.delta);
-            },
+          child: IgnorePointer(
+            ignoring: true, // Let strokes pass through to canvas
             child: Container(
               decoration: BoxDecoration(
                 color: Colors.blueAccent.withOpacity(0.1),
                 border: Border.all(color: Colors.blueAccent, width: 2),
                 borderRadius: BorderRadius.circular(4),
               ),
-              child: const Align(
+              child: Align(
                 alignment: Alignment.bottomRight,
-                child: Icon(Icons.open_with, color: Colors.blueAccent, size: 20),
+                child: IgnorePointer(
+                  ignoring: false, // Reactivate pointer just for the handle
+                  child: GestureDetector(
+                    onPanUpdate: (details) {
+                      controller.updateTargetPosition(details.delta);
+                    },
+                    child: const MouseRegion(
+                      cursor: SystemMouseCursors.move,
+                      child: Icon(Icons.open_with, color: Colors.blueAccent, size: 28),
+                    ),
+                  ),
+                ),
               ),
             ),
           ),

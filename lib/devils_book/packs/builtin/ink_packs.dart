@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import '../models/ink_preset.dart';
-import 'pack_manifest.dart';
-import 'pack_category.dart';
-import 'content_pack.dart';
+import '../../models/ink_preset.dart';
+import '../pack_manifest.dart';
+import '../pack_category.dart';
+import '../content_pack.dart';
 
 /// Classic writing inks — serious, reliable, professional.
 class ClassicInkPack {
-  static const _manifest = PackManifest(
+  static final _manifest = PackManifest(
     id: 'pack_inks_classic',
     name: 'Classic Writing',
     description: 'Time-tested inks for serious note-taking and everyday writing.',
@@ -14,7 +14,7 @@ class ClassicInkPack {
     isBuiltIn: true,
   );
 
-  static const _inks = [
+  static final _inks = [
     InkPreset(
       id: 'ink_obsidian', name: 'Obsidian Black',
       baseColor: Color(0xFF111111), defaultThickness: 3.0,
@@ -49,12 +49,12 @@ class ClassicInkPack {
     ),
   ];
 
-  static ContentPack create() => const ContentPack(manifest: _manifest, inks: _inks);
+  static ContentPack create() => ContentPack(manifest: _manifest, inks: _inks);
 }
 
 /// Oxidized and heritage-toned inks — warm, weathered, scholarly.
 class HeritageInkPack {
-  static const _manifest = PackManifest(
+  static final _manifest = PackManifest(
     id: 'pack_inks_heritage',
     name: 'Heritage & Patina',
     description: 'Warm, oxidized inks that evoke aged documents and copper engravings.',
@@ -62,7 +62,7 @@ class HeritageInkPack {
     isBuiltIn: true,
   );
 
-  static const _inks = [
+  static final _inks = [
     InkPreset(
       id: 'ink_copper_oxide', name: 'Copper Oxide',
       baseColor: Color(0xFFB87333),
@@ -92,12 +92,12 @@ class HeritageInkPack {
     ),
   ];
 
-  static ContentPack create() => const ContentPack(manifest: _manifest, inks: _inks);
+  static ContentPack create() => ContentPack(manifest: _manifest, inks: _inks);
 }
 
 /// Infernal and ritual inks — blood, ember, gold, ceremonial weight.
 class InfernalInkPack {
-  static const _manifest = PackManifest(
+  static final _manifest = PackManifest(
     id: 'pack_inks_infernal',
     name: 'Infernal',
     description: 'Inks forged in fire. Blood, ember, and molten gold.',
@@ -105,7 +105,7 @@ class InfernalInkPack {
     isBuiltIn: true,
   );
 
-  static const _inks = [
+  static final _inks = [
     InkPreset(
       id: 'ink_blood_resin', name: 'Blood Resin',
       baseColor: Color(0xFF8A0303),
@@ -144,12 +144,12 @@ class InfernalInkPack {
     ),
   ];
 
-  static ContentPack create() => const ContentPack(manifest: _manifest, inks: _inks);
+  static ContentPack create() => ContentPack(manifest: _manifest, inks: _inks);
 }
 
 /// Cyber and reactive inks — neon, electric, synthetic.
 class CyberInkPack {
-  static const _manifest = PackManifest(
+  static final _manifest = PackManifest(
     id: 'pack_inks_cyber',
     name: 'Cyber Reactive',
     description: 'Neon-bright synthetic inks for digital minds and dark canvases.',
@@ -157,7 +157,7 @@ class CyberInkPack {
     isBuiltIn: true,
   );
 
-  static const _inks = [
+  static final _inks = [
     InkPreset(
       id: 'ink_neon_cyber', name: 'Neon Cyan',
       baseColor: Color(0xFF00FFCC),
@@ -187,12 +187,12 @@ class CyberInkPack {
     ),
   ];
 
-  static ContentPack create() => const ContentPack(manifest: _manifest, inks: _inks);
+  static ContentPack create() => ContentPack(manifest: _manifest, inks: _inks);
 }
 
 /// Subtle and refined inks — for quiet, focused, premium writing.
 class RefinedInkPack {
-  static const _manifest = PackManifest(
+  static final _manifest = PackManifest(
     id: 'pack_inks_refined',
     name: 'Refined',
     description: 'Quiet, composed inks for deep focus and understated elegance.',
@@ -200,7 +200,7 @@ class RefinedInkPack {
     isBuiltIn: true,
   );
 
-  static const _inks = [
+  static final _inks = [
     InkPreset(
       id: 'ink_slate_blue', name: 'Slate Blue',
       baseColor: Color(0xFF4A6080),
@@ -230,5 +230,5 @@ class RefinedInkPack {
     ),
   ];
 
-  static ContentPack create() => const ContentPack(manifest: _manifest, inks: _inks);
+  static ContentPack create() => ContentPack(manifest: _manifest, inks: _inks);
 }

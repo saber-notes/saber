@@ -25,7 +25,7 @@ class FileManager {
 
   static final log = Logger('FileManager');
 
-  static const appRootDirectoryPrefix = 'Saber';
+  static const appRootDirectoryPrefix = 'DevilsBook';
 
   /// This isn't final because isolates sometimes init multiple times.
   /// Realistically, this value never changes.

@@ -1,3 +1,5 @@
+import 'package:saber/data/editor/page_style.dart';
+import 'package:sbn/canvas_background_pattern.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/tools/laser_pointer.dart';
@@ -12,7 +14,13 @@ void main() {
       Duration(milliseconds: 21),
       Duration(milliseconds: 52),
     ];
-    final page = EditorPage();
+    final page = EditorPage(
+      style: const PageStyle(
+        pattern: CanvasBackgroundPattern.none,
+        lineHeight: 40,
+        lineThickness: 2,
+      ),
+    );
 
     setUp(() {
       var cursorPos = const Offset(200, 200);

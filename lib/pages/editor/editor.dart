@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
+import 'dart:math';
 
 import 'package:collapsible/collapsible.dart';
 import 'package:file_picker/file_picker.dart';
@@ -62,7 +63,9 @@ import 'package:saber/devils_book/replay/playback_controller.dart';
 import 'package:saber/devils_book/replay/replay_overlay.dart';
 import 'package:saber/devils_book/export/export_models.dart';
 import 'package:saber/devils_book/export/export_options_sheet.dart';
-import 'package:saber/pages/editor/editor.dart';
+import 'package:saber/devils_book/models/effect_preset.dart';
+import 'package:sbn/tool_id.dart';
+// Self-import removed to prevent circularity
 import 'package:saber/data/editor/editor_exporter.dart';
 import 'package:saber/data/editor/editor_history.dart';
 import 'package:saber/data/editor/page.dart';
@@ -136,8 +139,6 @@ class EditorState extends State<Editor> {
   final LoadoutManager loadoutManager = LoadoutManager();
   final LiveEffectEngine fxEngine = LiveEffectEngine();
   final ZoomWindowController zoomController = ZoomWindowController();
-  final CanvasPreviewController canvasPreviewController =
-      CanvasPreviewController();
   final log = Logger('EditorState');
 
   late var coreInfo = EditorCoreInfo.placeholder;
@@ -221,15 +222,28 @@ class EditorState extends State<Editor> {
 
   @override
   void initState() {
-    final loadout = loadoutManager.currentLoadout;
-    fxEngine.setPreset(loadout.effect);
-    if (loadout.preferredMode != null) {
-      writingModeState.setMode(loadout.preferredMode!);
-    }
+    try {
+      final loadout = loadoutManager.currentLoadout;
+      fxEngine.setPreset(loadout.effect);
+      if (loadout.preferredMode != null) {
+        writingModeState.setMode(loadout.preferredMode!);
+      }
 
-    stows.lastFountainPenColor.value = loadout.ink.baseColor.value;
-    final baseOptions = stows.lastFountainPenOptions.value;
-    stows.lastFountainPenOptions.value = baseOptions.copyWith(size: loadout.ink.defaultThickness);
+      // DEVILS BOOK: Defer preference overriding to prevent initState crashes
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        try {
+          if (mounted) {
+            stows.lastFountainPenColor.value = loadout.ink.baseColor.value;
+            final baseOptions = stows.lastFountainPenOptions.value;
+            stows.lastFountainPenOptions.value = baseOptions.copyWith(size: loadout.ink.defaultThickness);
+          }
+        } catch (e) {
+          log.severe('DEVILS BOOK [ERROR]: Post-frame preferences failed -> $e');
+        }
+      });
+    } catch (e) {
+      log.severe('DEVILS BOOK [ERROR]: Extension initialization failed -> $e');
+    }
 
     DynamicMaterialApp.addFullscreenListener(_setState);
 
@@ -616,7 +630,10 @@ class EditorState extends State<Editor> {
     final position = page.renderBox!.globalToLocal(details.focalPoint);
     history.canRedo = false;
 
-    fxEngine.spawnIgnition(details.localFocalPoint, pressure: currentPressure ?? 1.0, mode: writingModeState.currentMode);
+    // DEVILS BOOK: Gate live fx to stylus and active pen tools
+    if (currentPointerKind == PointerDeviceKind.stylus && currentTool is Pen) {
+      fxEngine.spawnIgnition(details.localFocalPoint, pressure: currentPressure ?? 1.0, mode: writingModeState.currentMode);
+    }
 
     if (currentTool is Pen) {
       (currentTool as Pen).onDragStart(
@@ -663,7 +680,10 @@ class EditorState extends State<Editor> {
     final position = page.renderBox!.globalToLocal(details.focalPoint);
     final offset = position - previousPosition;
 
-    fxEngine.spawnTrail(details.localFocalPoint, pressure: currentPressure ?? 1.0, mode: writingModeState.currentMode);
+    // DEVILS BOOK: Gate live fx heavily to prevent frame drops
+    if (currentPointerKind == PointerDeviceKind.stylus && currentTool is Pen) {
+      fxEngine.spawnTrail(details.localFocalPoint, pressure: currentPressure ?? 1.0, mode: writingModeState.currentMode);
+    }
 
     if (currentTool is Pen) {
       (currentTool as Pen).onDragUpdate(position, currentPressure);
@@ -708,12 +728,13 @@ class EditorState extends State<Editor> {
         if (newStroke == null) return;
         if (newStroke.isEmpty) return;
 
-        // DEVILS BOOK: Scribble-to-Erase Interception
-        if (stows.lastTool.value != ToolId.eraser && ScribbleRecognizer.isEraseScribble(newStroke)) {
+        // DEVILS BOOK: Scribble-to-Erase Interception (Disabled pending history fix)
+        const bool enableScribbleErase = false;
+        if (enableScribbleErase && stows.lastTool.value != ToolId.eraser && ScribbleRecognizer.isEraseScribble(newStroke)) {
             final erased = _eraseStrokesUnderScribble(page, newStroke);
             if (erased.isNotEmpty) {
                 fxEngine.spawnIgnition(
-                  Offset(newStroke.points.last[0], newStroke.points.last[1]), 
+                  Offset(newStroke.points.last.x, newStroke.points.last.y), 
                   pressure: 2.0, 
                   mode: writingModeState.currentMode
                 );
@@ -808,7 +829,7 @@ class EditorState extends State<Editor> {
 
   List<Stroke> _eraseStrokesUnderScribble(EditorPage page, Stroke scribbleStroke) {
     final List<Stroke> erased = [];
-    final pathOffsets = scribbleStroke.points.map((p) => Offset(p[0], p[1])).toList();
+    final pathOffsets = scribbleStroke.points.map((p) => Offset(p.x, p.y)).toList();
     final strokesToRemove = <Stroke>[];
 
     for (final existingStroke in page.strokes) {
@@ -816,7 +837,7 @@ class EditorState extends State<Editor> {
       bool collision = false;
       for (final sp in pathOffsets) {
         for (final ep in existingStroke.points) {
-          if (pow(sp.dx - ep[0], 2) + pow(sp.dy - ep[1], 2) < 400) { 
+          if (pow(sp.dx - ep.x, 2) + pow(sp.dy - ep.y, 2) < 400) { 
             collision = true;
             break;
           }
@@ -1793,6 +1814,18 @@ class EditorState extends State<Editor> {
                   triggerSave: saveToFile,
                 ),
                 actions: [
+                  // DEVILS BOOK: TestFlight Fallback Trigger
+                  IconButton(
+                    icon: const AdaptiveIcon(
+                      icon: Icons.rocket_launch_outlined,
+                      cupertinoIcon: CupertinoIcons.rocket,
+                    ),
+                    tooltip: 'Devils Book: Squeeze Palette (Fallback)',
+                    onPressed: () {
+                      final size = MediaQuery.sizeOf(context);
+                      squeezeController.toggleDevTrigger(size);
+                    },
+                  ),
                   IconButton(
                     icon: const AdaptiveIcon(
                       icon: Icons.insert_page_break,
@@ -1929,10 +1962,22 @@ class EditorState extends State<Editor> {
                       context: context,
                       backgroundColor: Colors.transparent,
                       builder: (context) => EffectSelectorSheet(
-                        currentEffect: fxEngine.activePreset ?? const EffectPreset(id: 'effect_ember', name: 'Dying Ember'),
+                        currentEffect: fxEngine.activePreset ?? EffectPreset(id: 'effect_ember', name: 'Dying Ember'),
                         onSelect: (effect) {
                           fxEngine.setPreset(effect);
                           setState(() {});
+                        },
+                      ),
+                    );
+                  },
+                  onStartSession: () {
+                    showModalBottomSheet<void>(
+                      context: context,
+                      backgroundColor: Colors.transparent,
+                      builder: (context) => SessionStartSheet(
+                        onStart: (config) {
+                          // In the next stage, this kicks off the timer and ambience
+                          debugPrint("DEVILS BOOK: Starting Session -> ${config.type.label}");
                         },
                       ),
                     );
@@ -1958,7 +2003,7 @@ class EditorState extends State<Editor> {
                     int offset = 0;
                     for (int i = 0; i < page.strokes.length; i++) {
                       events.add(ReplayEvent(
-                        id: 'stroke_$\i',
+                        id: 'stroke_$i',
                         type: ReplayEventType.strokeAdded,
                         offsetMs: offset,
                         payload: {}, // Serialization deferred to next stage
@@ -1967,7 +2012,7 @@ class EditorState extends State<Editor> {
                     }
                     
                     final timeline = ReplayTimeline(
-                      pageId: page.id,
+                      pageId: page.hashCode.toString(),
                       events: events,
                     );
                     

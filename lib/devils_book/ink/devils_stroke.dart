@@ -1,6 +1,8 @@
 import 'dart:ui';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:sbn/tool_id.dart';
+import 'package:sbn/has_size.dart';
+import 'package:perfect_freehand/perfect_freehand.dart';
 import 'ink_sample.dart';
 import 'nib_profile.dart';
 
@@ -30,23 +32,28 @@ class DevilsStroke {
 
   /// Compiles the high-res 6-DOF data into the standard bezier-optimized [Stroke]
   /// for legacy rendering loops or disk persistence.
-  Stroke compileToLegacy() {
+  Stroke compileToLegacy(HasSize page) {
     final stroke = Stroke(
       toolId: toolId,
       color: baseColor,
-      baseSize: baseThickness,
+      pressureEnabled: true,
+      options: StrokeOptions(
+        size: baseThickness,
+        thinning: 0.7,
+        smoothing: 0.5,
+        streamline: 0.5,
+        simulatePressure: false,
+      ),
       pageIndex: pageIndex,
-      // We map the computed calligraphic thickness down into the standard pressure stream!
-      // This tricks the legacy rendering engine into drawing Calligraphy outlines 
-      // without rewriting the complex spline calculation shaders yet.
-      points: samples.map((s) => [
-        s.x,
-        s.y,
-        // We mathematically override the raw hardware stylus pressure with the intelligently 
-        // computed nib profile thickness ratio.
-        profile.computeThickness(s, baseThickness: 1.0),
-      ]).toList(),
+      page: page,
     );
+    
+    for (final s in samples) {
+      // Map high-res 6-DOF metadata down into standard pressure stream for legacy compat.
+      final pressure = profile.computeThickness(s, baseThickness: 1.0);
+      stroke.addPoint(Offset(s.x, s.y), pressure);
+    }
+    
     return stroke;
   }
 }

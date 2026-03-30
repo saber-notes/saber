@@ -2,13 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:saber/data/editor/page.dart';
 import 'package:saber/pages/editor/editor.dart';
+import 'package:saber/data/editor/page_style.dart';
+import 'package:sbn/canvas_background_pattern.dart';
 
 void main() {
   group('getPageIndexFromScrollPosition', () {
+    const style = PageStyle(
+      pattern: CanvasBackgroundPattern.none,
+      lineHeight: 40,
+      lineThickness: 2,
+    );
     final pages = <EditorPage>[
-      EditorPage(size: const Size(100, 100)),
-      EditorPage(size: const Size(100, 200)),
-      EditorPage(size: const Size(100, 300)),
+      EditorPage(size: const Size(100, 100), style: style),
+      EditorPage(size: const Size(100, 200), style: style),
+      EditorPage(size: const Size(100, 300), style: style),
     ];
 
     test('returns 0 when scroll position is 0', () {

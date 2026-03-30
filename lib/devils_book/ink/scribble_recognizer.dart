@@ -26,13 +26,13 @@ class ScribbleRecognizer {
         final p1 = points[i - 1];
         final p2 = points[i];
         
-        final dx = p2[0] - p1[0];
-        final dy = p2[1] - p1[1];
+        final dx = p2.dx - p1.dx;
+        final dy = p2.dy - p1.dy;
         
-        minX = min(minX, p2[0]);
-        maxX = max(maxX, p2[0]);
-        minY = min(minY, p2[1]);
-        maxY = max(maxY, p2[1]);
+        minX = min(minX, p2.dx);
+        maxX = max(maxX, p2.dx);
+        minY = min(minY, p2.dy);
+        maxY = max(maxY, p2.dy);
 
         if (dx.abs() > 3.0) {
             if (lastDx != null && (dx.sign != lastDx.sign)) {

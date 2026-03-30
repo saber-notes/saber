@@ -28,7 +28,7 @@ class PackManifest {
   /// Whether the user has enabled this pack.
   bool isEnabled;
 
-  const PackManifest({
+  PackManifest({
     required this.id,
     required this.name,
     required this.description,

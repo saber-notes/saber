@@ -33,7 +33,7 @@ class RelicElement {
   /// Whether the user has marked this as a favorite.
   bool isFavorite;
 
-  const RelicElement({
+  RelicElement({
     required this.id,
     required this.name,
     required this.assetPath,
@@ -51,7 +51,7 @@ class RelicCollection {
   final String name;
   final List<RelicElement> elements;
 
-  const RelicCollection({
+  RelicCollection({
     required this.id,
     required this.name,
     required this.elements,

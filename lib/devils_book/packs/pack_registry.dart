@@ -3,7 +3,7 @@ import '../models/theme_preset.dart';
 import '../models/ink_preset.dart';
 import '../models/effect_preset.dart';
 import '../models/loadout.dart';
-import '../elements/relic_element.dart';
+import '../models/relic_element.dart';
 import 'content_pack.dart';
 import 'pack_manifest.dart';
 

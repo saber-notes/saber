@@ -136,7 +136,6 @@ class _ExportOptionsSheetState extends State<ExportOptionsSheet> {
                       Switch(
                         value: _includeBackground,
                         onChanged: (val) => setState(() => _includeBackground = val),
-                        visualDensity: VisualDensity.compact,
                       ),
                     ],
                   ),

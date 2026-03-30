@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import '../models/effect_preset.dart';
-import 'pack_manifest.dart';
-import 'pack_category.dart';
-import 'content_pack.dart';
+import '../../models/effect_preset.dart';
+import '../pack_manifest.dart';
+import '../pack_category.dart';
+import '../content_pack.dart';
 
 /// Subtle, controlled effects for serious writing.
 class SubtleEffectPack {
-  static const _manifest = PackManifest(
+  static final _manifest = PackManifest(
     id: 'pack_effects_subtle',
     name: 'Subtle',
     description: 'Quiet, professional feedback. Present but never distracting.',
@@ -14,7 +14,7 @@ class SubtleEffectPack {
     isBuiltIn: true,
   );
 
-  static const _effects = [
+  static final _effects = [
     EffectPreset(
       id: 'effect_ember', name: 'Dying Ember',
       cooldownMs: 800,
@@ -50,12 +50,12 @@ class SubtleEffectPack {
     ),
   ];
 
-  static ContentPack create() => const ContentPack(manifest: _manifest, effects: _effects);
+  static ContentPack create() => ContentPack(manifest: _manifest, effects: _effects);
 }
 
 /// Infernal, theatrical effects for maximum atmosphere.
 class InfernalEffectPack {
-  static const _manifest = PackManifest(
+  static final _manifest = PackManifest(
     id: 'pack_effects_infernal',
     name: 'Infernal',
     description: 'Fire, brimstone, and consequence. Writing that burns.',
@@ -63,7 +63,7 @@ class InfernalEffectPack {
     isBuiltIn: true,
   );
 
-  static const _effects = [
+  static final _effects = [
     EffectPreset(
       id: 'effect_hellfire', name: 'Hellfire',
       cooldownMs: 1200,
@@ -99,12 +99,12 @@ class InfernalEffectPack {
     ),
   ];
 
-  static ContentPack create() => const ContentPack(manifest: _manifest, effects: _effects);
+  static ContentPack create() => ContentPack(manifest: _manifest, effects: _effects);
 }
 
 /// Cyber/reactive effects for technical, high-energy sessions.
 class CyberEffectPack {
-  static const _manifest = PackManifest(
+  static final _manifest = PackManifest(
     id: 'pack_effects_cyber',
     name: 'Cyber',
     description: 'Electric pulses and data sparks for digital minds.',
@@ -112,7 +112,7 @@ class CyberEffectPack {
     isBuiltIn: true,
   );
 
-  static const _effects = [
+  static final _effects = [
     EffectPreset(
       id: 'effect_electric_pulse', name: 'Electric Pulse',
       cooldownMs: 500,
@@ -137,12 +137,12 @@ class CyberEffectPack {
     ),
   ];
 
-  static ContentPack create() => const ContentPack(manifest: _manifest, effects: _effects);
+  static ContentPack create() => ContentPack(manifest: _manifest, effects: _effects);
 }
 
 /// Clean/silent — deliberately no effects.
 class SilentEffectPack {
-  static const _manifest = PackManifest(
+  static final _manifest = PackManifest(
     id: 'pack_effects_silent',
     name: 'Silent',
     description: 'No live effects. Pure ink, zero distraction.',
@@ -150,7 +150,7 @@ class SilentEffectPack {
     isBuiltIn: true,
   );
 
-  static const _effects = [
+  static final _effects = [
     EffectPreset(
       id: 'effect_none', name: 'None',
       cooldownMs: 0,
@@ -164,5 +164,5 @@ class SilentEffectPack {
     ),
   ];
 
-  static ContentPack create() => const ContentPack(manifest: _manifest, effects: _effects);
+  static ContentPack create() => ContentPack(manifest: _manifest, effects: _effects);
 }
