@@ -48,6 +48,7 @@ class LiveEffectEngine extends ChangeNotifier {
   Offset screenShakeOffset = Offset.zero;
   EffectPreset? activePreset;
   bool isEnabled = true;
+  DateTime? _lastTrailSpawn;
 
   void setPreset(EffectPreset preset) {
     activePreset = preset;
@@ -89,11 +90,17 @@ class LiveEffectEngine extends ChangeNotifier {
   void spawnTrail(Offset position, {double pressure = 1.0, required WritingMode mode}) {
     if (!isEnabled || !mode.fxEnabled || activePreset == null) return;
     
+    final now = DateTime.now();
+    if (_lastTrailSpawn != null && now.difference(_lastTrailSpawn!).inMilliseconds < 16) {
+      return; 
+    }
+    _lastTrailSpawn = now;
+
     final mult = mode.comboScalingEnabled ? combo.comboMultiplier : 1.0;
     
     _addParticle(EmberParticle(
       position: position,
-      spawnTime: DateTime.now(),
+      spawnTime: now,
       initialSize: 6.0 * pressure.clamp(0.1, 1.5) * mode.particleScaleMultiplier * mult * (activePreset!.trailDensity + 0.5) * activePreset!.particleScale,
       color: activePreset!.trailColor,
     ), maxParticles: (mode.maxParticles * mult).toInt());

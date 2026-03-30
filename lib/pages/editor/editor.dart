@@ -224,23 +224,17 @@ class EditorState extends State<Editor> {
   void initState() {
     try {
       final loadout = loadoutManager.currentLoadout;
+      loadoutManager.setLoadout(loadout, persist: false); // Ensure session start
       fxEngine.setPreset(loadout.effect);
+      
       if (loadout.preferredMode != null) {
         writingModeState.setMode(loadout.preferredMode!);
       }
 
-      // DEVILS BOOK: Defer preference overriding to prevent initState crashes
-      WidgetsBinding.instance.addPostFrameCallback((_) {
-        try {
-          if (mounted) {
-            stows.lastFountainPenColor.value = loadout.ink.baseColor.value;
-            final baseOptions = stows.lastFountainPenOptions.value;
-            stows.lastFountainPenOptions.value = baseOptions.copyWith(size: loadout.ink.defaultThickness);
-          }
-        } catch (e) {
-          log.severe('DEVILS BOOK [ERROR]: Post-frame preferences failed -> $e');
-        }
-      });
+      // Apply loadout to current pen directly without thrashing global stows
+      if (currentTool is Pen) {
+        loadoutManager.applyToPen(currentTool as Pen);
+      }
     } catch (e) {
       log.severe('DEVILS BOOK [ERROR]: Extension initialization failed -> $e');
     }
@@ -680,8 +674,10 @@ class EditorState extends State<Editor> {
     final position = page.renderBox!.globalToLocal(details.focalPoint);
     final offset = position - previousPosition;
 
-    // DEVILS BOOK: Gate live fx heavily to prevent frame drops
-    if (currentPointerKind == PointerDeviceKind.stylus && currentTool is Pen) {
+    // DEVILS BOOK: Gate live fx to stylus-only to maintain aesthetic precision
+    if (currentPointerKind == PointerDeviceKind.stylus && 
+        currentTool is Pen && 
+        writingModeState.currentMode.fxEnabled) {
       fxEngine.spawnTrail(details.localFocalPoint, pressure: currentPressure ?? 1.0, mode: writingModeState.currentMode);
     }
 
@@ -728,9 +724,12 @@ class EditorState extends State<Editor> {
         if (newStroke == null) return;
         if (newStroke.isEmpty) return;
 
-        // DEVILS BOOK: Scribble-to-Erase Interception (Disabled pending history fix)
-        const bool enableScribbleErase = false;
-        if (enableScribbleErase && stows.lastTool.value != ToolId.eraser && ScribbleRecognizer.isEraseScribble(newStroke)) {
+        // DEVILS BOOK: Scribble-to-Erase Interception (Filtered to Stylus)
+        const bool enableScribbleErase = true;
+        if (enableScribbleErase && 
+            currentPointerKind == PointerDeviceKind.stylus &&
+            stows.lastTool.value != ToolId.eraser && 
+            ScribbleRecognizer.isEraseScribble(newStroke)) {
             final erased = _eraseStrokesUnderScribble(page, newStroke);
             if (erased.isNotEmpty) {
                 fxEngine.spawnIgnition(
