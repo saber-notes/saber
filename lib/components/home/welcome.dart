@@ -1,29 +1,42 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:saber/i18n/strings.g.dart';
 
 class Welcome extends StatelessWidget {
   const Welcome({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = TextTheme.of(context);
     return Center(
       child: Padding(
-        padding: const .all(8),
+        padding: const EdgeInsets.all(32),
         child: Column(
-          mainAxisAlignment: .center,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SvgPicture.asset(
-              'assets/images/undraw_learning_sketching_nd4f.svg',
-              width: 300,
-              height: 188,
-              excludeFromSemantics: true,
+            // DEVILS BOOK: The Obsidian Tome
+            const Icon(
+              Icons.menu_book_sharp,
+              size: 160,
+              color: Color(0xFFD4AF37), // Gold
             ),
-            const SizedBox(height: 64),
-            Text(t.home.welcome, style: textTheme.headlineMedium),
-            const SizedBox(height: 8),
-            Text(t.home.createNewNote, style: textTheme.bodyLarge),
+            const SizedBox(height: 48),
+            Text(
+              'THE BOOK IS EMPTY',
+              style: TextStyle(
+                color: const Color(0xFFD4AF37), // Gold
+                fontSize: 24,
+                fontWeight: FontWeight.w900,
+                letterSpacing: 4.0,
+              ),
+            ),
+            const SizedBox(height: 12),
+            Text(
+              'COMMENCE YOUR FIRST RITUAL',
+              style: TextStyle(
+                color: const Color(0x88D4AF37), // Dim Gold
+                fontSize: 12,
+                fontWeight: FontWeight.bold,
+                letterSpacing: 2.0,
+              ),
+            ),
           ],
         ),
       ),

@@ -1,159 +1,133 @@
 import 'package:flutter/material.dart';
-import 'package:sbn/canvas_background_pattern.dart';
-import '../models/theme_preset.dart';
-import '../packs/pack_registry.dart';
+import 'package:saber/devils_book/models/theme_preset.dart';
+import 'package:saber/devils_book/registry/devils_catalog.dart';
 
-/// A bottom sheet that presents themes grouped by their pack family.
 class ThemeSelectorSheet extends StatelessWidget {
   final ThemePreset currentTheme;
-  final ValueChanged<ThemePreset> onSelect;
+  final Function(ThemePreset) onSelect;
 
   const ThemeSelectorSheet({
-    Key? key,
+    super.key,
     required this.currentTheme,
     required this.onSelect,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
-    final registry = PackRegistry();
-    final allThemes = registry.themes.values.toList();
-
-    // Group themes by packId
-    final Map<String, List<ThemePreset>> grouped = {};
-    for (final t in allThemes) {
-      final key = t.packId ?? 'Ungrouped';
-      grouped.putIfAbsent(key, () => []).add(t);
-    }
-
-    // Resolve pack names from registered packs
-    final packNames = <String, String>{};
-    for (final pack in registry.registeredPacks) {
-      packNames[pack.manifest.id] = pack.manifest.name;
-    }
-
+    final themeList = DevilsCatalog.themes.values.toList();
+    
     return Container(
-      decoration: BoxDecoration(
-        color: currentTheme.surfaceColor,
-        borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
+      decoration: const BoxDecoration(
+        color: Color(0xFF0D0D0D),
+        borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
+        border: Border(top: BorderSide(color: Color(0xFFD4AF37), width: 1.5)),
       ),
-      padding: const EdgeInsets.all(20),
-      height: MediaQuery.sizeOf(context).height * 0.6,
+      padding: const EdgeInsets.symmetric(vertical: 20),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
         children: [
-          Text(
-            'Paper & Atmosphere',
-            style: TextStyle(
-              fontSize: 22,
-              fontWeight: FontWeight.bold,
-              color: currentTheme.accentGlow,
+          Container(
+            width: 40,
+            height: 4,
+            decoration: BoxDecoration(
+              color: Colors.white24,
+              borderRadius: BorderRadius.circular(2),
             ),
           ),
           const SizedBox(height: 16),
-          Expanded(
-            child: ListView(
-              children: grouped.entries.map((entry) {
-                final packLabel = packNames[entry.key] ?? entry.key;
-                return _buildPackGroup(context, packLabel, entry.value);
-              }).toList(),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildPackGroup(BuildContext context, String packName, List<ThemePreset> themes) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding: const EdgeInsets.symmetric(vertical: 8),
-          child: Text(
-            packName,
+          const Text(
+            'SELECT RITUAL REALM',
             style: TextStyle(
+              color: Color(0xFFD4AF37),
+              fontWeight: FontWeight.w900,
+              letterSpacing: 2.0,
               fontSize: 14,
-              fontWeight: FontWeight.w600,
-              color: Colors.grey[500],
-              letterSpacing: 1.2,
             ),
           ),
-        ),
-        SizedBox(
-          height: 80,
-          child: ListView.separated(
-            scrollDirection: Axis.horizontal,
-            itemCount: themes.length,
-            separatorBuilder: (_, __) => const SizedBox(width: 12),
-            itemBuilder: (context, index) {
-              final theme = themes[index];
-              final isSelected = theme.id == currentTheme.id;
-
-              return GestureDetector(
-                onTap: () {
-                  onSelect(theme);
-                  Navigator.of(context).pop();
-                },
-                child: Container(
-                  width: 100,
-                  decoration: BoxDecoration(
-                    color: theme.backgroundColor,
-                    borderRadius: BorderRadius.circular(12),
-                    border: Border.all(
-                      color: isSelected ? theme.accentGlow : Colors.transparent,
-                      width: isSelected ? 2.5 : 1,
-                    ),
-                    boxShadow: isSelected
-                        ? [BoxShadow(color: theme.accentGlow.withOpacity(0.4), blurRadius: 8)]
-                        : null,
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      // Miniature grid preview
-                      if (theme.pattern != CanvasBackgroundPattern.none)
-                        Padding(
-                          padding: const EdgeInsets.all(8),
-                          child: Container(
-                            height: 20,
-                            decoration: BoxDecoration(
-                              border: Border(
-                                bottom: BorderSide(color: theme.lineColor, width: 1),
-                                top: BorderSide(color: theme.lineColor, width: 1),
+          const SizedBox(height: 20),
+          SizedBox(
+            height: 180,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              itemCount: themeList.length,
+              itemBuilder: (context, index) {
+                final theme = themeList[index];
+                final isSelected = theme.id == currentTheme.id;
+                
+                return Padding(
+                  padding: const EdgeInsets.only(right: 12),
+                  child: InkWell(
+                    onTap: () {
+                      onSelect(theme);
+                      Navigator.pop(context);
+                    },
+                    borderRadius: BorderRadius.circular(16),
+                    child: Container(
+                      width: 140,
+                      decoration: BoxDecoration(
+                        gradient: theme.backgroundGradient != null 
+                          ? LinearGradient(
+                              colors: theme.backgroundGradient!,
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight,
+                            )
+                          : null,
+                        color: theme.backgroundGradient == null ? theme.backgroundColor : null,
+                        borderRadius: BorderRadius.circular(16),
+                        border: Border.all(
+                          color: isSelected ? const Color(0xFFFF2200) : Colors.white10,
+                          width: 1.5,
+                        ),
+                      ),
+                      child: Stack(
+                        children: [
+                          if (theme.texturePath != null)
+                            Positioned.fill(
+                              child: Opacity(
+                                opacity: 0.1,
+                                child: Image.asset(theme.texturePath!, repeat: ImageRepeat.repeat),
+                              ),
+                            ),
+                          Center(
+                            child: Padding(
+                              padding: const EdgeInsets.all(12.0),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    theme.name.toUpperCase(),
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      color: isSelected ? Colors.white : Colors.white70,
+                                      fontSize: 10,
+                                      fontWeight: FontWeight.w900,
+                                      letterSpacing: 1.5,
+                                      shadows: const [
+                                        Shadow(color: Colors.black, blurRadius: 4),
+                                      ],
+                                    ),
+                                  ),
+                                  if (isSelected)
+                                    const Padding(
+                                      padding: EdgeInsets.only(top: 8.0),
+                                      child: Icon(Icons.check_circle, color: Color(0xFFFF2200), size: 16),
+                                    ),
+                                ],
                               ),
                             ),
                           ),
-                        ),
-                      const Spacer(),
-                      Container(
-                        width: double.infinity,
-                        padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 4),
-                        decoration: BoxDecoration(
-                          color: theme.surfaceColor.withOpacity(0.9),
-                          borderRadius: const BorderRadius.vertical(bottom: Radius.circular(11)),
-                        ),
-                        child: Text(
-                          theme.name,
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontSize: 10,
-                            fontWeight: FontWeight.w500,
-                            color: theme.accentGlow,
-                          ),
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                        ),
+                        ],
                       ),
-                    ],
+                    ),
                   ),
-                ),
-              );
-            },
+                );
+              },
+            ),
           ),
-        ),
-        const SizedBox(height: 12),
-      ],
+          const SizedBox(height: 20),
+        ],
+      ),
     );
   }
 }

@@ -30,6 +30,27 @@ enum SealCategory {
   symbol
 }
 
+class RitualModifier {
+  final double particleMultiplier;
+  final double fadeDurationMultiplier;
+  final double intensityGainMultiplier;
+  final bool isEvanescent; // Ink fades faster if stopped
+  final double distortionStrength;
+
+  const RitualModifier({
+    this.particleMultiplier = 1.0,
+    this.fadeDurationMultiplier = 1.0,
+    this.intensityGainMultiplier = 1.0,
+    this.isEvanescent = false,
+    this.distortionStrength = 0.0,
+  });
+
+  static const none = RitualModifier();
+  static const hellfire = RitualModifier(particleMultiplier: 1.8, intensityGainMultiplier: 1.5);
+  static const voidWalker = RitualModifier(isEvanescent: true, distortionStrength: 1.2);
+  static const cleric = RitualModifier(fadeDurationMultiplier: 2.0, particleMultiplier: 0.5);
+}
+
 class RelicElement {
   final String id;
   final String name;
@@ -50,6 +71,9 @@ class RelicElement {
   final IconData? fallbackIcon;
   bool isFavorite;
   
+  /// Functional modifier for the ritual engine.
+  final RitualModifier modifier;
+
   /// Pack ID for grouping in selectors.
   final String? packId;
 
@@ -64,6 +88,7 @@ class RelicElement {
     this.description,
     this.fallbackIcon,
     this.isFavorite = false,
+    this.modifier = RitualModifier.none,
     this.packId,
   });
 }

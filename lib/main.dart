@@ -31,6 +31,10 @@ import 'package:saber/pages/logs.dart';
 import 'package:saber/pages/user/login.dart';
 import 'package:saber/devils_book/registry/devils_catalog.dart';
 import 'package:saber/devils_book/packs/pack_registry.dart';
+import 'package:saber/devils_book/packs/builtin/premium_ink_pack.dart';
+import 'package:saber/devils_book/packs/builtin/effect_packs.dart';
+import 'package:saber/devils_book/packs/builtin/premium_effect_pack.dart';
+import 'package:saber/devils_book/packs/builtin/river_themes_pack.dart';
 import 'package:window_manager/window_manager.dart';
 import 'package:worker_manager/worker_manager.dart';
 import 'package:workmanager/workmanager.dart';
@@ -86,12 +90,22 @@ Future<void> appRunner(List<String> args) async {
   Stows.markAsOnMainIsolate();
 
   // DEVILS BOOK: Initialize Premium Content Registries
-  PackRegistry().seedDefaults(
+  final registry = PackRegistry();
+  registry.seedDefaults(
     coreThemes: DevilsCatalog.themes,
     coreInks: DevilsCatalog.inks,
     coreEffects: DevilsCatalog.effects,
     coreLoadouts: DevilsCatalog.loadouts,
   );
+
+  // Register Built-in Packs
+  registry.registerPack(PremiumInkPack.create());
+  registry.registerPack(SubtleEffectPack.create());
+  registry.registerPack(InfernalEffectPack.create());
+  registry.registerPack(CyberEffectPack.create());
+  registry.registerPack(SilentEffectPack.create());
+  registry.registerPack(PremiumEffectPack.create());
+  registry.registerPack(RiversOfHadesThemePack.create());
 
   await Future.wait([
     stows.customDataDir.waitUntilRead().then((_) => FileManager.init()),

@@ -554,19 +554,42 @@ class _ToolbarState extends State<Toolbar> {
       ),
     ];
 
-    return Flex(
-      direction: isToolbarVertical ? Axis.horizontal : Axis.vertical,
-      textDirection: switch (stows.editorToolbarAlignment.value) {
-        AxisDirection.left => .rtl,
-        AxisDirection.right => .ltr,
-        _ => null,
-      },
-      verticalDirection: switch (stows.editorToolbarAlignment.value) {
-        AxisDirection.down => VerticalDirection.down,
-        AxisDirection.up => VerticalDirection.up,
-        _ => VerticalDirection.down,
-      },
-      children: bars,
+    const ritualGold = Color(0xFFD4AF37);
+    const ritualObsidian = Color(0xFF050505);
+
+    return DecoratedBox(
+      decoration: BoxDecoration(
+        color: ritualObsidian,
+        border: Border(
+          top: !isToolbarVertical ? BorderSide(color: ritualGold.withOpacity(0.4), width: 1.5) : BorderSide.none,
+          bottom: BorderSide.none,
+          left: isToolbarVertical && stows.editorToolbarAlignment.value == AxisDirection.right 
+              ? BorderSide(color: ritualGold.withOpacity(0.4), width: 1.5) : BorderSide.none,
+          right: isToolbarVertical && stows.editorToolbarAlignment.value == AxisDirection.left 
+              ? BorderSide(color: ritualGold.withOpacity(0.4), width: 1.5) : BorderSide.none,
+        ),
+      ),
+      child: SafeArea(
+        top: !isToolbarVertical && stows.editorToolbarAlignment.value == AxisDirection.down,
+        bottom: !isToolbarVertical && stows.editorToolbarAlignment.value == AxisDirection.up,
+        left: isToolbarVertical && stows.editorToolbarAlignment.value == AxisDirection.right,
+        right: isToolbarVertical && stows.editorToolbarAlignment.value == AxisDirection.left,
+        child: Flex(
+          direction: isToolbarVertical ? Axis.horizontal : Axis.vertical,
+          textDirection: switch (stows.editorToolbarAlignment.value) {
+            AxisDirection.left => .rtl,
+            AxisDirection.right => .ltr,
+            _ => null,
+          },
+          verticalDirection: switch (stows.editorToolbarAlignment.value) {
+            AxisDirection.down => VerticalDirection.down,
+            AxisDirection.up => VerticalDirection.up,
+            _ => VerticalDirection.down,
+          },
+          mainAxisSize: MainAxisSize.min,
+          children: bars,
+        ),
+      ),
     );
   }
 

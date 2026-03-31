@@ -85,6 +85,7 @@ class Pen extends Tool {
     double? sheenIntensity,
     Color? sheenColor,
     double? shadingAmount,
+    Duration? expiry,
   }) {
     currentStroke = Stroke(
       color: color,
@@ -98,6 +99,7 @@ class Pen extends Tool {
       sheenIntensity: sheenIntensity ?? 0.0,
       sheenColor: sheenColor,
       shadingAmount: shadingAmount ?? 0.0,
+      expiry: expiry,
     );
     onDragUpdate(position, pressure);
   }

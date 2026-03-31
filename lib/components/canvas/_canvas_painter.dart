@@ -14,8 +14,27 @@ import 'package:saber/data/tools/highlighter.dart';
 import 'package:saber/data/tools/laser_pointer.dart';
 import 'package:saber/data/tools/select.dart';
 import 'package:saber/data/tools/shape_pen.dart';
+import 'package:sbn/tool_id.dart';
 
 class CanvasPainter extends CustomPainter {
+  final bool invert;
+  final List<Stroke> strokes;
+  final List<LaserStroke> laserStrokes;
+  final Stroke? currentStroke;
+  final SelectResult? currentSelection;
+  final Color primaryColor;
+  final EditorPage page;
+  final bool showPageIndicator;
+  final int pageIndex;
+  final int totalPages;
+  final double currentScale;
+  final TextStyle defaultTextStyle;
+  final double voidMeditationIntensity;
+  final bool voidMeditationEnabled;
+  final double bloodPactIntensity;
+  final bool bloodPactEnabled;
+  final bool isFadingActive;
+
   const CanvasPainter({
     super.repaint,
     this.invert = false,
@@ -30,20 +49,12 @@ class CanvasPainter extends CustomPainter {
     required this.totalPages,
     required this.currentScale,
     required this.defaultTextStyle,
+    this.voidMeditationIntensity = 0.0,
+    this.voidMeditationEnabled = false,
+    this.bloodPactIntensity = 0.0,
+    this.bloodPactEnabled = false,
+    this.isFadingActive = false,
   });
-
-  final bool invert;
-  final List<Stroke> strokes;
-  final List<LaserStroke> laserStrokes;
-  final Stroke? currentStroke;
-  final SelectResult? currentSelection;
-  final Color primaryColor;
-  final EditorPage page;
-  final bool showPageIndicator;
-  final int pageIndex;
-  final int totalPages;
-  final double currentScale;
-  final TextStyle defaultTextStyle;
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -74,7 +85,11 @@ class CanvasPainter extends CustomPainter {
         showPageIndicator != oldDelegate.showPageIndicator ||
         pageIndex != oldDelegate.pageIndex ||
         totalPages != oldDelegate.totalPages ||
-        currentScale != oldDelegate.currentScale;
+        currentScale != oldDelegate.currentScale ||
+        voidMeditationIntensity != oldDelegate.voidMeditationIntensity ||
+        isFadingActive != oldDelegate.isFadingActive ||
+        // If fading is active anywhere, we must repaint continuously to animate the fade
+        isFadingActive;
   }
 
   void _drawHighlighterStrokes(Canvas canvas, Rect canvasRect) {
@@ -84,10 +99,17 @@ class CanvasPainter extends CustomPainter {
     bool needToRestoreCanvasLayer = false;
 
     Color? lastColor;
-    for (final stroke in strokes) {
-      if (stroke.toolId != .highlighter) continue;
+    final now = DateTime.now();
 
-      final color = stroke.color.withValues(alpha: 1).withInversion(invert);
+    for (final stroke in strokes) {
+      if (stroke.toolId != ToolId.highlighter) continue;
+
+      final opacity = stroke.getOpacity(now);
+      if (opacity <= 0.0) continue;
+
+      final color = stroke.color
+          .withValues(alpha: 1.0 * opacity)
+          .withInversion(invert);
 
       if (color != lastColor) {
         // new layer for each color
@@ -105,20 +127,30 @@ class CanvasPainter extends CustomPainter {
   }
 
   void _drawNonHighlighterStrokes(Canvas canvas) {
-    late final paint = Paint();
+    final paint = Paint();
 
     for (final stroke in strokes) {
-      if (stroke.toolId == .highlighter) continue;
+      if (stroke.toolId == ToolId.highlighter) continue;
 
       var color = stroke.color.withInversion(invert);
       if (currentSelection?.strokes.contains(stroke) ?? false) {
         color = Color.lerp(color, primaryColor, 0.5)!;
       }
 
+      // DEVILS BOOK: Session Pass - Blood Pact (Ink Intensification)
+      if (bloodPactEnabled) {
+        color = Color.lerp(
+          color,
+          const Color(0xFF800000).withInversion(invert),
+          bloodPactIntensity * 0.4,
+        )!;
+      }
+
       paint.color = color;
       paint.shader = null;
       paint.maskFilter = null;
-      if (stroke.toolId == .pencil) {
+
+      if (stroke.toolId == ToolId.pencil) {
         if (shouldUsePencilShader(stroke.options.size)) {
           paint.color = Colors.white;
           paint.shader = page.pencilShader
@@ -127,7 +159,6 @@ class CanvasPainter extends CustomPainter {
             ..setFloat(2, color.b);
           paint.maskFilter = _getPencilMaskFilter(stroke.options.size);
         } else {
-          // Fast imitation of pencil when zoomed out
           final background = invert ? Colors.black : Colors.white;
           paint.color = Color.lerp(background, color, 0.6)!;
         }
@@ -135,16 +166,32 @@ class CanvasPainter extends CustomPainter {
 
       // DEVILS BOOK: Material Pass - Shading
       if (stroke.shadingAmount > 0) {
-        // We simulate shading by adjusting global opacity based on the material's shading factor
-        // Realistic shading would be per-point, but this provides the atmospheric 'pooling' effect.
-        paint.color = color.withOpacity(
-          (1.0 - (stroke.shadingAmount * 0.4)).clamp(0.1, 1.0)
+        paint.color = color.withValues(
+          alpha: (color.a * (1.0 - (stroke.shadingAmount * 0.4))).clamp(0.1, 1.0),
         );
       }
 
-      late final shapePaint = Paint()
+      // DEVILS BOOK: Ephemeral Logic - Dynamic Fading
+      final now = DateTime.now();
+      final opacity = stroke.getOpacity(now);
+      if (opacity < 1.0) {
+        paint.color = paint.color.withValues(alpha: paint.color.a * opacity);
+
+        // DEVILS BOOK: Void Meditation Jitter
+        if (voidMeditationEnabled && opacity < 0.5) {
+          final jitterAmount = (1.0 - opacity) * voidMeditationIntensity * 2.0;
+          canvas.save();
+          canvas.translate(
+            (Random().nextDouble() - 0.5) * jitterAmount,
+            (Random().nextDouble() - 0.5) * jitterAmount,
+          );
+        }
+      }
+      if (paint.color.a <= 0.0) continue;
+
+      final shapePaint = Paint()
         ..color = paint.color
-        ..style = .stroke
+        ..style = PaintingStyle.stroke
         ..strokeWidth = stroke.options.size;
 
       if (stroke is CircleStroke) {
@@ -157,37 +204,57 @@ class CanvasPainter extends CustomPainter {
         );
       } else {
         final path = _selectPath(stroke);
-        
+
         // DEVILS BOOK: Material Pass - Sheen
         if (stroke.sheenIntensity > 0 && stroke.sheenColor != null) {
           final sheenPaint = Paint()
-            ..color = stroke.sheenColor!.withInversion(invert).withOpacity(stroke.sheenIntensity * 0.5)
-            ..maskFilter = MaskFilter.blur(BlurStyle.normal, stroke.options.size * 0.3)
+            ..color = stroke.sheenColor!
+                .withInversion(invert)
+                .withValues(alpha: stroke.sheenIntensity * 0.5)
+            ..maskFilter =
+                MaskFilter.blur(BlurStyle.normal, stroke.options.size * 0.3)
             ..style = PaintingStyle.fill;
           canvas.drawPath(path, sheenPaint);
+        }
+
+        // DEVILS BOOK: Session Pass - Secondary Ritual Glow
+        if (bloodPactEnabled && bloodPactIntensity > 0.6) {
+          final glowPaint = Paint()
+            ..color =
+                const Color(0xFFFF2200).withValues(alpha: (bloodPactIntensity - 0.6) * 0.5)
+            ..style = PaintingStyle.stroke
+            ..strokeWidth = stroke.options.size + (bloodPactIntensity * 4.0)
+            ..maskFilter =
+                MaskFilter.blur(BlurStyle.normal, bloodPactIntensity * 10.0);
+          canvas.drawPath(path, glowPaint);
         }
 
         canvas.drawPath(path, paint);
 
         // DEVILS BOOK: Material Pass - Shimmer (Sparkles)
-        if (stroke.shimmerIntensity > 0 && stroke.shimmerColor != null && currentScale > 1.2) {
+        if (stroke.shimmerIntensity > 0 &&
+            stroke.shimmerColor != null &&
+            currentScale > 1.2) {
           final shimmerPaint = Paint()
             ..color = (stroke.shimmerColor ?? Colors.white).withInversion(invert)
             ..style = PaintingStyle.fill;
-          
+
           final random = Random(stroke.hashCode);
-          final points = stroke.points;
-          for (int i = 0; i < points.length; i += 4) {
+          for (int i = 0; i < stroke.points.length; i += 4) {
             if (random.nextDouble() < stroke.shimmerIntensity * 0.5) {
-              final p = points[i];
+              final p = stroke.points[i];
               canvas.drawCircle(
-                Offset(p.x, p.y), 
-                random.nextDouble() * 1.5 * currentScale, 
-                shimmerPaint
+                Offset(p.x, p.y),
+                random.nextDouble() * 1.5 * currentScale,
+                shimmerPaint,
               );
             }
           }
         }
+      }
+
+      if (voidMeditationEnabled && opacity < 0.5) {
+        canvas.restore(); // End Jitter
       }
     }
   }
@@ -205,7 +272,7 @@ class CanvasPainter extends CustomPainter {
     paint.color = color;
     paint.shader = null;
     paint.maskFilter = null;
-    if (currentStroke!.toolId == .pencil) {
+    if (currentStroke!.toolId == ToolId.pencil) {
       paint.color = Colors.white;
       paint.shader = page.pencilShader
         ..setFloat(0, color.r)

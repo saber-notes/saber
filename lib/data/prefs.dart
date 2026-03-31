@@ -316,6 +316,24 @@ class Stows {
     volatile: !_isOnMainIsolate,
   );
 
+  final activeThemeId = PlainStow(
+    'activeThemeId',
+    'theme_dark_premium',
+    volatile: !_isOnMainIsolate,
+  );
+
+  final activeEffectId = PlainStow(
+    'activeEffectId',
+    '',
+    volatile: !_isOnMainIsolate,
+  );
+
+  final activeRelicId = PlainStow(
+    'activeRelicId',
+    '',
+    volatile: !_isOnMainIsolate,
+  );
+
   static const defaultLineHeight = 40;
   static const defaultLineThickness = 3;
   final lastLineHeight = PlainStow(

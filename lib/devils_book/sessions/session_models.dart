@@ -8,6 +8,10 @@ enum SessionType {
   nightWriting,
   ritual,
   archiveReview,
+  bloodPact,
+  midnightMantra,
+  celestialScribe,
+  voidMeditation,
 }
 
 /// Human-readable labels and icons for session types.
@@ -20,6 +24,10 @@ extension SessionTypeDisplay on SessionType {
       case SessionType.nightWriting: return 'Night Writing';
       case SessionType.ritual: return 'Ritual Session';
       case SessionType.archiveReview: return 'Archive Review';
+      case SessionType.bloodPact: return 'Blood Pact';
+      case SessionType.midnightMantra: return 'Midnight Mantra';
+      case SessionType.celestialScribe: return 'Celestial Scribe';
+      case SessionType.voidMeditation: return 'Void Meditation';
     }
   }
 
@@ -31,6 +39,10 @@ extension SessionTypeDisplay on SessionType {
       case SessionType.nightWriting: return 'Dark, warm atmosphere for late sessions.';
       case SessionType.ritual: return 'Full atmospheric experience with effects.';
       case SessionType.archiveReview: return 'Browse, annotate, and organize existing tomes.';
+      case SessionType.bloodPact: return 'Your ink intensifies as your thoughts flow. Sacrifice focus for beauty.';
+      case SessionType.midnightMantra: return 'Vision narrows. Only the written word remains illuminated.';
+      case SessionType.celestialScribe: return 'Celestial auras gather around your pen as you fill the page.';
+      case SessionType.voidMeditation: return 'Ephemeral writing. Thoughts fade into the void after capture.';
     }
   }
 
@@ -42,6 +54,10 @@ extension SessionTypeDisplay on SessionType {
       case SessionType.nightWriting: return Icons.dark_mode;
       case SessionType.ritual: return Icons.local_fire_department;
       case SessionType.archiveReview: return Icons.library_books;
+      case SessionType.bloodPact: return Icons.colorize;
+      case SessionType.midnightMantra: return Icons.visibility_off;
+      case SessionType.celestialScribe: return Icons.auto_awesome;
+      case SessionType.voidMeditation: return Icons.cloud_off;
     }
   }
 
@@ -53,6 +69,10 @@ extension SessionTypeDisplay on SessionType {
       case SessionType.nightWriting: return const Color(0xFF6644AA);
       case SessionType.ritual: return const Color(0xFFCC3333);
       case SessionType.archiveReview: return const Color(0xFF888888);
+      case SessionType.bloodPact: return const Color(0xFFFF2200);
+      case SessionType.midnightMantra: return const Color(0xFFBA68C8);
+      case SessionType.celestialScribe: return const Color(0xFF4FC3F7);
+      case SessionType.voidMeditation: return const Color(0xFFB0BEC5);
     }
   }
 }
@@ -76,6 +96,15 @@ class SessionConfig {
   /// Optional duration goal in minutes (null = open-ended).
   final int? goalMinutes;
 
+  /// Multiplier for environment effects (vignette, etc.) during this session.
+  final double environmentMultiplier;
+
+  /// Specific behavioral flags for specialized sessions.
+  final Map<String, dynamic> behaviorFlags;
+
+  /// Optional override for the stroke expiry duration.
+  final Duration? strokeExpiryOverride;
+
   const SessionConfig({
     required this.type,
     this.loadoutId,
@@ -83,6 +112,9 @@ class SessionConfig {
     this.targetNotebookPath,
     this.ambienceId,
     this.goalMinutes,
+    this.environmentMultiplier = 1.0,
+    this.behaviorFlags = const {},
+    this.strokeExpiryOverride,
   });
 }
 

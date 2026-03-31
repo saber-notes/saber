@@ -37,32 +37,37 @@ class _NewNoteButtonState extends State<NewNoteButton> {
           : RoundedRectangleBorder(borderRadius: materialBorderRadius),
       dialRoot: (context, open, toggleChildren) {
         final platform = Theme.of(context).platform;
-        return GlassyContainer(
-          height: 56,
-          borderRadius: platform.isCupertino ? null : materialBorderRadius,
-          child: AspectRatio(
-            aspectRatio: 1,
-            child: IconButton(
-              onPressed: toggleChildren,
-              tooltip: t.home.tooltips.newNote,
-              visualDensity: VisualDensity.compact,
-              style: IconButton.styleFrom(
-                padding: .zero,
-                shape: platform.isCupertino
-                    ? const CircleBorder()
-                    : RoundedRectangleBorder(
-                        borderRadius: materialBorderRadius,
-                      ),
+        return Container(
+          height: 64,
+          width: 64,
+          decoration: BoxDecoration(
+            color: const Color(0xFF0A0A0A), // Obsidian
+            borderRadius: BorderRadius.circular(16),
+            border: Border.all(color: const Color(0xFFD4AF37), width: 2.0), // Gold
+            boxShadow: [
+              BoxShadow(
+                color: const Color(0xFFFF2200).withOpacity(0.3), // Scarlet Glow
+                blurRadius: 15,
+                spreadRadius: 2,
               ),
-              icon: const Center(child: Icon(Icons.add)),
-            ),
+            ],
+          ),
+          child: IconButton(
+            onPressed: toggleChildren,
+            tooltip: 'COMMENCE RITUAL',
+            icon: const Icon(Icons.auto_awesome_outlined, color: Color(0xFFD4AF37), size: 32),
           ),
         );
       },
       children: [
         SpeedDialChild(
-          child: const Icon(Icons.create),
-          label: t.home.create.newNote,
+          child: const Icon(Icons.menu_book_sharp, color: Color(0xFFD4AF37)),
+          backgroundColor: const Color(0xFF1A1A1A),
+          labelWidget: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+            decoration: BoxDecoration(color: const Color(0xFF0A0A0A), border: Border.all(color: const Color(0xFFD4AF37))),
+            child: const Text('OPEN NEW VOLUME', style: TextStyle(color: Color(0xFFD4AF37), fontSize: 10, fontWeight: FontWeight.bold, letterSpacing: 1.0)),
+          ),
           onTap: () async {
             if (widget.path == null) {
               context.push(RoutePaths.edit);
@@ -76,8 +81,13 @@ class _NewNoteButtonState extends State<NewNoteButton> {
           },
         ),
         SpeedDialChild(
-          child: const Icon(Icons.note_add),
-          label: t.home.create.importNote,
+          child: const Icon(Icons.auto_stories_outlined, color: Color(0xFFD4AF37)),
+          backgroundColor: const Color(0xFF1A1A1A),
+          labelWidget: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+            decoration: BoxDecoration(color: const Color(0xFF0A0A0A), border: Border.all(color: const Color(0xFFD4AF37))),
+            child: const Text('INCORPORATE KNOWLEDGE', style: TextStyle(color: Color(0xFFD4AF37), fontSize: 10, fontWeight: FontWeight.bold, letterSpacing: 1.0)),
+          ),
           onTap: () async {
             final result = await FilePicker.platform.pickFiles(
               type: FileType.any,

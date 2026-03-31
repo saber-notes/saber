@@ -57,11 +57,8 @@ class _FileTreeBranchState extends State<FileTreeBranch> {
 
   @override
   Widget build(BuildContext context) {
-    final colorScheme = ColorScheme.of(context);
-    final backgroundColor = Color.alphaBlend(
-      colorScheme.primary.withValues(alpha: 0.05),
-      colorScheme.surface,
-    );
+    final backgroundColor = const Color(0xFF0A0A0A); // Obsidian
+    final goldColor = const Color(0xFFD4AF37); // Ritual Gold
 
     return Column(
       crossAxisAlignment: .start,
@@ -83,21 +80,28 @@ class _FileTreeBranchState extends State<FileTreeBranch> {
                 children: [
                   if (widget.isDirectory) ...[
                     Icon(
-                      areChildrenVisible ? Icons.folder_open : Icons.folder,
-                      color: colorScheme.primary,
-                      size: 25,
+                      Icons.menu_book_rounded, // Volume Icon
+                      color: goldColor,
+                      size: 20,
                     ),
                   ] else ...[
-                    const Icon(Icons.insert_drive_file, size: 25),
+                    Icon(
+                      Icons.description_outlined, // Scroll Icon
+                      color: goldColor.withOpacity(0.7),
+                      size: 18,
+                    ),
                   ],
-                  const SizedBox(width: 5),
+                  const SizedBox(width: 8),
                   Expanded(
                     child: Text(
-                      widget.path!.substring(widget.path!.lastIndexOf('/') + 1),
-                      style: TextTheme.of(
-                        context,
-                      ).bodyMedium?.copyWith(fontSize: 14),
-                      overflow: .ellipsis,
+                      widget.path!.substring(widget.path!.lastIndexOf('/') + 1).toUpperCase(),
+                      style: TextStyle(
+                        color: goldColor,
+                        fontSize: 11,
+                        fontWeight: FontWeight.bold,
+                        letterSpacing: 1.0,
+                      ),
+                      overflow: TextOverflow.ellipsis,
                     ),
                   ),
                 ],

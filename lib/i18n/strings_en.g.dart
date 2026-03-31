@@ -855,7 +855,7 @@ class TranslationsLoginNcLoginStepEn {
 	String get whereToStoreData => 'Choose where you want to store your data:';
 
 	/// en: 'Devils Book's Nextcloud server'
-	String get devils bookNcServer => 'Devils Book\'s Nextcloud server';
+	String get saberNcServer => 'Devils Book\'s Nextcloud server';
 
 	/// en: 'Other Nextcloud server'
 	String get otherNcServer => 'Other Nextcloud server';
@@ -864,7 +864,7 @@ class TranslationsLoginNcLoginStepEn {
 	String get serverUrl => 'Server URL';
 
 	/// en: 'Login with Devils Book'
-	String get loginWithDevils Book => 'Login with Devils Book';
+	String get loginWithSaber => 'Login with Devils Book';
 
 	/// en: 'Login with Nextcloud'
 	String get loginWithNextcloud => 'Login with Nextcloud';
@@ -884,7 +884,7 @@ class TranslationsLoginEncLoginStepEn {
 	String get enterEncPassword => 'To protect your data, please enter your encryption password:';
 
 	/// en: 'New to Devils Book? Just enter a new encryption password.'
-	String get newToDevils Book => 'New to Devils Book? Just enter a new encryption password.';
+	String get newToSaber => 'New to Devils Book? Just enter a new encryption password.';
 
 	/// en: 'Encryption password'
 	String get encPassword => 'Encryption password';

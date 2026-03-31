@@ -160,6 +160,7 @@ dependencies:
 
   flutter_hooks: ^0.21.3+1
   dynamic_yaru: ^0.1.0
+  audioplayers: ^6.6.0
 
 dev_dependencies:
   flutter_test:
@@ -198,6 +199,7 @@ flutter:
   assets:
     - assets/icon/icon.svg
     - assets/images/
+    - assets/covers/
     - assets/google_fonts/Atkinson_Hyperlegible_Next/OFL.txt
     - assets/google_fonts/Dekko/OFL.txt
     - assets/google_fonts/Fira_Mono/OFL.txt

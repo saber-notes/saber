@@ -184,10 +184,10 @@ login:
     loggedIn: Logged in with Nextcloud
   ncLoginStep:
     whereToStoreData: "Choose where you want to store your data:"
-    devils bookNcServer: Devils Book's Nextcloud server
+    saberNcServer: Devils Book's Nextcloud server
     otherNcServer: Other Nextcloud server
     serverUrl: Server URL
-    loginWithDevils Book: Login with Devils Book
+    loginWithSaber: Login with Devils Book
     loginWithNextcloud: Login with Nextcloud
     loginFlow:
       pleaseAuthorize: Please authorize Devils Book to access your Nextcloud account
@@ -195,7 +195,7 @@ login:
       browserDidntOpen: Login page didn't open? Click here
   encLoginStep:
     enterEncPassword: "To protect your data, please enter your encryption password:"
-    newToDevils Book: New to Devils Book? Just enter a new encryption password.
+    newToSaber: New to Devils Book? Just enter a new encryption password.
     encPassword: Encryption password
     encFaqTitle: Frequently asked questions
     wrongEncPassword: Decryption failed with the provided password. Please try entering it again.

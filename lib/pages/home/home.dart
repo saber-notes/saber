@@ -8,6 +8,10 @@ import 'package:saber/pages/home/browse.dart';
 import 'package:saber/pages/home/recent_notes.dart';
 import 'package:saber/pages/home/settings.dart';
 import 'package:saber/pages/home/whiteboard.dart';
+import 'package:saber/devils_book/components/ritual_background.dart';
+import 'package:saber/devils_book/components/atmosphere_overlay.dart';
+import 'package:saber/devils_book/sessions/session_controller.dart';
+import 'package:saber/devils_book/models/loadout_manager.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key, required this.subpage, required this.path});
@@ -72,9 +76,24 @@ class _HomePageState extends State<HomePage> {
       return body;
     }
 
-    return ResponsiveNavbar(
-      selectedIndex: HomePage.subpages.indexOf(widget.subpage),
-      body: body,
+    return ListenableBuilder(
+      listenable: Listenable.merge([LoadoutManager(), SessionController()]),
+      builder: (context, _) {
+        final loadout = LoadoutManager().currentLoadout;
+        final theme = loadout.theme;
+        final intensity = SessionController().getSessionIntensity();
+
+        return Stack(
+          children: [
+            RitualBackground(theme: theme, intensity: intensity),
+            ResponsiveNavbar(
+              selectedIndex: HomePage.subpages.indexOf(widget.subpage),
+              body: body,
+            ),
+            AtmosphereOverlay(theme: theme),
+          ],
+        );
+      },
     );
   }
 

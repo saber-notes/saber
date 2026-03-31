@@ -1,8 +1,8 @@
 import 'dart:async';
+import 'dart:math';
 
 import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
-import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/inner_canvas.dart';
 import 'package:saber/components/canvas/invert_widget.dart';
 import 'package:saber/components/home/sync_indicator.dart';
@@ -11,7 +11,6 @@ import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/is_this_a_test.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/data/routes.dart';
-import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/editor/editor.dart';
 import 'package:yaru/yaru.dart';
 
@@ -204,11 +203,18 @@ class _PreviewCardState extends State<PreviewCard> {
               ),
             ),
             Padding(
-              padding: const .all(8),
+              padding: const EdgeInsets.all(12),
               child: Text(
-                widget.filePath.substring(widget.filePath.lastIndexOf('/') + 1),
+                widget.filePath.substring(widget.filePath.lastIndexOf('/') + 1).toUpperCase(),
                 maxLines: 2,
-                overflow: .ellipsis,
+                overflow: TextOverflow.ellipsis,
+                style: const TextStyle(
+                  color: Color(0xFFD4AF37), // Gold
+                  fontSize: 10,
+                  fontWeight: FontWeight.w900,
+                  letterSpacing: 1.2,
+                ),
+                textAlign: TextAlign.center,
               ),
             ),
           ],
@@ -216,30 +222,42 @@ class _PreviewCardState extends State<PreviewCard> {
       ),
     );
 
+    final lastModified = FileManager.lastModified(widget.filePath + Editor.extension);
+    final ageMinutes = DateTime.now().difference(lastModified).inMinutes;
+    final isHot = ageMinutes < 5;
+    final isWarm = ageMinutes < 60;
+    
+    final auraColor = isHot ? const Color(0xFFFF2200) : (isWarm ? const Color(0xFFD4AF37) : Colors.transparent);
+    final auraOpacity = isHot ? 0.6 : (isWarm ? 0.2 : 0.0);
+
     return ValueListenableBuilder(
       valueListenable: expanded,
       builder: (context, expanded, _) {
-        return OpenContainer(
-          clipBehavior: Clip.none,
-          closedColor: colorScheme.surface,
-          closedShape: RoundedRectangleBorder(
-            side: BorderSide(
-              color: expanded
-                  ? colorScheme.primary
-                  : colorScheme.onSurface.withValues(alpha: 0.12),
-              width: kYaruFocusBorderWidth,
+        return _RitualAura(
+          color: auraColor,
+          opacity: auraOpacity,
+          child: OpenContainer(
+            clipBehavior: Clip.none,
+            closedColor: const Color(0xFF030303), // Absolute Void
+            closedShape: RoundedRectangleBorder(
+              side: BorderSide(
+                color: expanded
+                    ? const Color(0xFFFF2200) // Infernal Focus
+                    : (isHot ? const Color(0xFFFF2200) : const Color(0xFFD4AF37).withOpacity(0.35)), // Etched Gold
+                width: expanded || isHot ? 2.5 : 1.0,
+              ),
+              borderRadius: BorderRadius.circular(16), // Ritual radii
             ),
-            borderRadius: .circular(kYaruContainerRadius),
+            closedElevation: expanded ? 40 : 2,
+            closedBuilder: (context, action) => card,
+            openColor: colorScheme.surface,
+            openBuilder: (context, action) => Editor(path: widget.filePath),
+            transitionDuration: transitionDuration,
+            routeSettings: RouteSettings(
+              name: RoutePaths.editFilePath(widget.filePath),
+            ),
+            onClosed: (_) => _refreshThumbnailAfterDelay(),
           ),
-          closedElevation: 0,
-          closedBuilder: (context, action) => card,
-          openColor: colorScheme.surface,
-          openBuilder: (context, action) => Editor(path: widget.filePath),
-          transitionDuration: transitionDuration,
-          routeSettings: RouteSettings(
-            name: RoutePaths.editFilePath(widget.filePath),
-          ),
-          onClosed: (_) => _refreshThumbnailAfterDelay(),
         );
       },
     );
@@ -253,21 +271,110 @@ class _PreviewCardState extends State<PreviewCard> {
   }
 }
 
+class _RitualAura extends StatefulWidget {
+  final Color color;
+  final double opacity;
+  final Widget child;
+
+  const _RitualAura({
+    required this.color,
+    required this.opacity,
+    required this.child,
+  });
+
+  @override
+  State<_RitualAura> createState() => _RitualAuraState();
+}
+
+class _RitualAuraState extends State<_RitualAura> with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<double> _animation;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 2),
+    )..repeat(reverse: true);
+    _animation = CurvedAnimation(parent: _controller, curve: Curves.easeInOutSine);
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    if (widget.opacity == 0) return widget.child;
+
+    return AnimatedBuilder(
+      animation: _animation,
+      builder: (context, child) {
+        final pulseOffset = _animation.value;
+        return Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(16),
+            boxShadow: [
+              BoxShadow(
+                color: widget.color.withOpacity(widget.opacity * (0.3 + 0.7 * pulseOffset)),
+                blurRadius: 10 + (10 * pulseOffset),
+                spreadRadius: 2 + (2 * pulseOffset),
+              ),
+            ],
+          ),
+          child: child,
+        );
+      },
+      child: widget.child,
+    );
+  }
+}
+
 class _FallbackThumbnail extends StatelessWidget {
   const _FallbackThumbnail();
 
   @override
   Widget build(BuildContext context) {
-    return ColoredBox(
-      color: InnerCanvas.defaultBackgroundColor,
+    return Container(
+      decoration: BoxDecoration(
+        color: const Color(0xFF0D0D0D),
+        gradient: RadialGradient(
+          colors: [const Color(0xFF1A1A1A), const Color(0xFF050505)],
+          center: Alignment.center,
+          radius: 0.8,
+        ),
+      ),
       child: Center(
-        child: Text(
-          t.home.noPreviewAvailable,
-          style: TextTheme.of(context).bodyMedium?.copyWith(
-            color: Stroke.defaultColor.withValues(alpha: 0.7),
-            fontStyle: FontStyle.italic,
-          ),
-          textAlign: .center,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Icon(Icons.auto_stories_sharp, color: Color(0xFFD4AF37), size: 54),
+            const SizedBox(height: 16),
+            const Text(
+              'UNWRITTEN TOME',
+              style: TextStyle(
+                color: Color(0xFFD4AF37),
+                fontSize: 10,
+                fontWeight: FontWeight.w900,
+                letterSpacing: 2.5,
+              ),
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 4),
+            Text(
+              'MANIFEST THE UNKNOWN',
+              style: TextStyle(
+                color: const Color(0xFFD4AF37).withOpacity(0.3),
+                fontSize: 7,
+                fontWeight: FontWeight.bold,
+                letterSpacing: 1.0,
+              ),
+              textAlign: TextAlign.center,
+            ),
+          ],
         ),
       ),
     );

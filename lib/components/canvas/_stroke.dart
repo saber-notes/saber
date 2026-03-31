@@ -39,6 +39,9 @@ class Stroke {
   Color? sheenColor;
   double shadingAmount;
 
+  DateTime createdAt;
+  Duration? expiry;
+
   List<Offset>? _lowQualityPolygon, _highQualityPolygon;
   List<Offset> get lowQualityPolygon =>
       _lowQualityPolygon ??= getPolygon(quality: .low);
@@ -79,7 +82,22 @@ class Stroke {
     this.sheenIntensity = 0.0,
     this.sheenColor,
     this.shadingAmount = 0.0,
-  });
+    DateTime? createdAt,
+    this.expiry,
+  }) : createdAt = createdAt ?? DateTime.now();
+
+  double getOpacity(DateTime now) {
+    if (expiry == null) return 1.0;
+    final int elapsedMs = now.difference(createdAt).inMilliseconds;
+    final int expiryMs = expiry!.inMilliseconds;
+    if (elapsedMs >= expiryMs) return 0.0;
+    
+    // Smooth fade in the last 20% of life
+    final fadeStartMs = expiryMs * 0.8;
+    if (elapsedMs < fadeStartMs) return 1.0;
+    
+    return 1.0 - ((elapsedMs - fadeStartMs) / (expiryMs - fadeStartMs)).clamp(0.0, 1.0);
+  }
 
   factory Stroke.fromJson(
     Map<String, dynamic> json, {
@@ -163,6 +181,8 @@ class Stroke {
       sheenIntensity: (json['shn'] as num?)?.toDouble() ?? 0.0,
       sheenColor: json['shnc'] != null ? Color(json['shnc'] as int) : null,
       shadingAmount: (json['shd'] as num?)?.toDouble() ?? 0.0,
+      createdAt: json['cat'] != null ? DateTime.fromMillisecondsSinceEpoch(json['cat'] as int) : null,
+      expiry: json['exp'] != null ? Duration(milliseconds: json['exp'] as int) : null,
     )..points.addAll(points);
   }
   Map<String, dynamic> toJson() {
@@ -182,6 +202,8 @@ class Stroke {
       'shn': sheenIntensity,
       'shnc': sheenColor?.toARGB32(),
       'shd': shadingAmount,
+      'cat': createdAt.millisecondsSinceEpoch,
+      'exp': expiry?.inMilliseconds,
     }..addAll(options.toJson());
   }
 
@@ -433,6 +455,8 @@ class Stroke {
     sheenIntensity: sheenIntensity,
     sheenColor: sheenColor,
     shadingAmount: shadingAmount,
+    createdAt: createdAt,
+    expiry: expiry,
   )..points.addAll(points);
 }
 

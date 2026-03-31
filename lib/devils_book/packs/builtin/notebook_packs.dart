@@ -1,20 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:sbn/canvas_background_pattern.dart';
 import '../../models/notebook_template.dart';
-import '../pack_manifest.dart';
-import '../pack_category.dart';
 import '../content_pack.dart';
 
 /// Professional and minimalist notebook families.
 class ProfessionalNotebookPack {
-  static final _manifest = PackManifest(
-    id: 'pack_notebooks_professional',
-    name: 'Professional',
-    description: 'Clean, distraction-free notebooks for meetings, study, and daily writing.',
-    categories: {PackCategory.templates},
-    isBuiltIn: true,
-  );
-
   static final _blankPage = PageTemplate(
     id: 'page_blank_white', name: 'Blank White',
     backgroundColor: Color(0xFFFFFFFF),
@@ -72,14 +62,6 @@ class ProfessionalNotebookPack {
 
 /// Antique and heritage-inspired notebook families.
 class HeritageNotebookPack {
-  static final _manifest = PackManifest(
-    id: 'pack_notebooks_heritage',
-    name: 'Heritage',
-    description: 'Aged papers and warm tones for classical writing and journaling.',
-    categories: {PackCategory.templates},
-    isBuiltIn: true,
-  );
-
   static final _parchmentPage = PageTemplate(
     id: 'page_parchment', name: 'Parchment',
     backgroundColor: Color(0xFFE8E0D2),
@@ -122,14 +104,6 @@ class HeritageNotebookPack {
 
 /// Dark and infernal notebook families.
 class InfernalNotebookPack {
-  static final _manifest = PackManifest(
-    id: 'pack_notebooks_infernal',
-    name: 'Infernal',
-    description: 'Dark pages and ember-lit grids for ritualistic and atmospheric writing.',
-    categories: {PackCategory.templates},
-    isBuiltIn: true,
-  );
-
   static final _darkPage = PageTemplate(
     id: 'page_dark_void', name: 'Dark Void',
     backgroundColor: Color(0xFF141414),
@@ -172,14 +146,6 @@ class InfernalNotebookPack {
 
 /// Cyber and technical notebook families.
 class CyberNotebookPack {
-  static final _manifest = PackManifest(
-    id: 'pack_notebooks_cyber',
-    name: 'Cyber',
-    description: 'Neon-lit pages for technical writing and digital brainstorming.',
-    categories: {PackCategory.templates},
-    isBuiltIn: true,
-  );
-
   static final _darkBluePage = PageTemplate(
     id: 'page_cyber_blank', name: 'Cyber Blank',
     backgroundColor: Color(0xFF0D1B2A),
@@ -219,3 +185,126 @@ class CyberNotebookPack {
     ),
   ];
 }
+
+/// Ethereal and celestial notebook families.
+class EtherealNotebookPack {
+  static final _vellumPage = PageTemplate(
+    id: 'page_vellum_ethereal', name: 'Cloud Vellum',
+    backgroundColor: Color(0xFFF0F8FF),
+    description: 'Semi-translucent, ethereal white with a bluish tint.',
+  );
+  static final _cottonPage = PageTemplate(
+    id: 'page_cotton_artisanal', name: 'Cotton Rag',
+    backgroundColor: Color(0xFFFFFDD0),
+    description: 'Soft, textured ivory for artisanal writing.',
+  );
+  static final _silkPage = PageTemplate(
+    id: 'page_silk_coated', name: 'Silk Coated',
+    backgroundColor: Color(0xFFF5F5F5),
+    description: 'Ultra-smooth, pale grey digital silk.',
+  );
+
+  static final List<NotebookTemplate> templates = [
+    NotebookTemplate(
+      id: 'notebook_astral_tome', name: 'Astral Tome',
+      cover: CoverStyle(
+        id: 'cover_celestial_navy', name: 'Celestial Navy', 
+        primaryColor: Color(0xFF000033), accentColor: Color(0xFFFFD700), 
+        coverAssetPath: 'assets/covers/celestial_navy.png',
+        description: 'Deep navy leather with gold-flecked stardust.'
+      ),
+      defaultPage: _vellumPage,
+      availablePages: [_vellumPage, _cottonPage, _silkPage],
+      packId: 'pack_notebooks_ethereal',
+      description: 'A celestial journal with ethereal vellum pages.',
+    ),
+    NotebookTemplate(
+      id: 'notebook_artisanal_journal', name: 'Artisan Journal',
+      cover: CoverStyle(
+        id: 'cover_linen_white', name: 'Linen White', 
+        primaryColor: Color(0xFFE5E5E5), accentColor: Color(0xFFD4AF37), 
+        coverAssetPath: 'assets/covers/linen_white.png',
+        description: 'Hand-woven ivory linen binder.'
+      ),
+      defaultPage: _cottonPage,
+      availablePages: [_cottonPage, _silkPage],
+      packId: 'pack_notebooks_ethereal',
+      description: 'Artisanal writing on soft cotton rag paper.',
+    ),
+  ];
+}
+
+/// Elemental and industrial notebook families.
+class ElementalNotebookPack {
+  static final _stonePage = PageTemplate(
+    id: 'page_stone_silky', name: 'Silky Stone',
+    backgroundColor: Color(0xFFE0E0E0),
+    description: 'Dense, ultra-smooth grey-white mineral paper.',
+  );
+  static final _obsidianPage = PageTemplate(
+    id: 'page_obsidian_void', name: 'Obsidian Glass',
+    backgroundColor: Color(0xFF050505),
+    description: 'Deep, mirror-like black reflective canvas.',
+  );
+  static final _titaniumPage = PageTemplate(
+    id: 'page_titanium_industrial', name: 'Titanium Sheet',
+    backgroundColor: Color(0xFFB0C4DE),
+    description: 'Metallic grey with a subtle vertical sheen.',
+  );
+
+  static final List<NotebookTemplate> templates = [
+    NotebookTemplate(
+      id: 'notebook_dragons_ledger', name: "Dragon's Ledger",
+      cover: CoverStyle(
+        id: 'cover_dragon_crimson', name: 'Dragon Crimson', 
+        primaryColor: Color(0xFF8B0000), accentColor: Color(0xFF000000), 
+        coverAssetPath: 'assets/covers/dragon_crimson.png',
+        description: 'Deep red textured leather of a dragon.'
+      ),
+      defaultPage: _stonePage,
+      availablePages: [_stonePage, _obsidianPage, _titaniumPage],
+      packId: 'pack_notebooks_elemental',
+      description: 'A high-durability ledger with stone-based paper.',
+    ),
+    NotebookTemplate(
+      id: 'notebook_void_script', name: 'Void Script',
+      cover: CoverStyle(
+        id: 'cover_obsidian_shard', name: 'Obsidian Shard', 
+        primaryColor: Color(0xFF0A0A0A), accentColor: Color(0xFF444444), 
+        coverAssetPath: 'assets/covers/obsidian_shard.png',
+        description: 'Matte black with sharp, angular glass accents.'
+      ),
+      defaultPage: _obsidianPage,
+      availablePages: [_obsidianPage],
+      packId: 'pack_notebooks_elemental',
+      description: 'Writing into the deepest void of a mirrored obsidian book.',
+    ),
+    NotebookTemplate(
+      id: 'notebook_alchemists_log', name: "Alchemist's Log",
+      cover: CoverStyle(
+        id: 'cover_rosewood_ancient', name: 'Ancient Rosewood', 
+        primaryColor: Color(0xFF5A2A1A), accentColor: Color(0xFFCD7F32), 
+        coverAssetPath: 'assets/covers/rosewood_ancient.png',
+        description: 'Rich wood grain with copper guards.'
+      ),
+      defaultPage: _stonePage,
+      availablePages: [_stonePage, _titaniumPage],
+      packId: 'pack_notebooks_elemental',
+      description: 'A historical log for experimental transmutations.',
+    ),
+    NotebookTemplate(
+      id: 'notebook_titanium_core', name: 'Industrial Core',
+      cover: CoverStyle(
+        id: 'cover_cobalt_titanium', name: 'Brushed Titanium', 
+        primaryColor: Color(0xFF333333), accentColor: Color(0xFFB0C4DE), 
+        coverAssetPath: 'assets/covers/titanium_brushed.png',
+        description: 'Brushed metal with vertical industrial grain.'
+      ),
+      defaultPage: _titaniumPage,
+      availablePages: [_stonePage, _titaniumPage, _obsidianPage],
+      packId: 'pack_notebooks_elemental',
+      description: 'A titanium-clad log for high-stress digital environments.',
+    ),
+  ];
+}
+

@@ -536,10 +536,10 @@ class _TranslationsLoginNcLoginStepTr extends TranslationsLoginNcLoginStepEn {
 
 	// Translations
 	@override String get whereToStoreData => 'Verilerinizi nerede saklamak istediğinizi seçin:';
-	@override String get devils bookNcServer => 'Devils Book\'ın resmi Nextcloud sunucus';
+	@override String get saberNcServer => 'Devils Book\'ın resmi Nextcloud sunucus';
 	@override String get otherNcServer => 'Diğer Nextcloud sunucusu';
 	@override String get serverUrl => 'Sunucu URL\'i';
-	@override String get loginWithDevils Book => 'Devils Book ile giriş yap';
+	@override String get loginWithSaber => 'Devils Book ile giriş yap';
 	@override String get loginWithNextcloud => 'Nextcloud ile giriş yap';
 	@override late final _TranslationsLoginNcLoginStepLoginFlowTr loginFlow = _TranslationsLoginNcLoginStepLoginFlowTr._(_root);
 }
@@ -552,7 +552,7 @@ class _TranslationsLoginEncLoginStepTr extends TranslationsLoginEncLoginStepEn {
 
 	// Translations
 	@override String get enterEncPassword => 'Verilerinizi korumak için lütfen şifreleme parolanızı girin:';
-	@override String get newToDevils Book => 'Devils Book\'da ilk seferiniz mi? Yeni bir şifreleme parolası girin.';
+	@override String get newToSaber => 'Devils Book\'da ilk seferiniz mi? Yeni bir şifreleme parolası girin.';
 	@override String get encPassword => 'Şifreleme parolası';
 	@override String get encFaqTitle => 'Sıkça sorulan sorular';
 	@override String get wrongEncPassword => 'Verilen parola ile şifre çözülemedi. Lütfen parolayı tekrar girin.';

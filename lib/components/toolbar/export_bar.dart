@@ -58,29 +58,69 @@ class _ExportBarState extends State<ExportBar> {
 
   @override
   Widget build(BuildContext context) {
+    const ritualGold = Color(0xFFD4AF37);
+    const ritualObsidian = Color(0xFF0F0F0F);
+
     final children = <Widget>[
-      Text(t.editor.toolbar.exportAs),
+      Text(
+        t.editor.toolbar.exportAs.toUpperCase(),
+        style: TextStyle(
+          color: ritualGold.withOpacity(0.5),
+          fontSize: 9,
+          fontWeight: FontWeight.w900,
+          letterSpacing: 1.5,
+        ),
+      ),
       const SizedBox.square(dimension: 8),
       Builder(
         builder: (context) {
           return TextButton(
             onPressed: _onPressed(widget.exportAsSba, context),
+            style: TextButton.styleFrom(
+              foregroundColor: ritualGold,
+              backgroundColor: ritualObsidian,
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(4),
+                side: BorderSide(color: ritualGold.withOpacity(0.2)),
+              ),
+            ),
             child: _buttonChild(widget.exportAsSba, 'SBA'),
           );
         },
       ),
+      const SizedBox.square(dimension: 4),
       Builder(
         builder: (context) {
           return TextButton(
             onPressed: _onPressed(widget.exportAsPdf, context),
+            style: TextButton.styleFrom(
+              foregroundColor: ritualGold,
+              backgroundColor: ritualObsidian,
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(4),
+                side: BorderSide(color: ritualGold.withOpacity(0.2)),
+              ),
+            ),
             child: _buttonChild(widget.exportAsPdf, 'PDF'),
           );
         },
       ),
+      const SizedBox.square(dimension: 4),
       Builder(
         builder: (context) {
           return TextButton(
             onPressed: _onPressed(widget.exportAsPng, context),
+            style: TextButton.styleFrom(
+              foregroundColor: ritualGold,
+              backgroundColor: ritualObsidian,
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(4),
+                side: BorderSide(color: ritualGold.withOpacity(0.2)),
+              ),
+            ),
             child: _buttonChild(widget.exportAsPng, 'PNG'),
           );
         },

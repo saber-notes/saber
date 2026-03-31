@@ -15,15 +15,21 @@ class SelectionBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    const ritualGold = Color(0xFFD4AF37);
+    const ritualScarlet = Color(0xFFFF2200);
+
     return Row(
       mainAxisAlignment: .center,
       children: [
         IconButton(
           onPressed: duplicateSelection,
           style: TextButton.styleFrom(
-            foregroundColor: ColorScheme.of(context).secondary,
-            backgroundColor: Colors.transparent,
-            shape: const CircleBorder(),
+            foregroundColor: ritualGold,
+            backgroundColor: ritualGold.withOpacity(0.05),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8),
+              side: BorderSide(color: ritualGold.withOpacity(0.2)),
+            ),
           ),
           tooltip: t.editor.selectionBar.duplicate,
           icon: const AdaptiveIcon(
@@ -31,12 +37,16 @@ class SelectionBar extends StatelessWidget {
             cupertinoIcon: CupertinoIcons.doc_on_clipboard,
           ),
         ),
+        const SizedBox(width: 8),
         IconButton(
           onPressed: deleteSelection,
           style: TextButton.styleFrom(
-            foregroundColor: ColorScheme.of(context).secondary,
-            backgroundColor: Colors.transparent,
-            shape: const CircleBorder(),
+            foregroundColor: ritualScarlet,
+            backgroundColor: ritualScarlet.withOpacity(0.05),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(8),
+              side: BorderSide(color: ritualScarlet.withOpacity(0.2)),
+            ),
           ),
           tooltip: t.editor.selectionBar.delete,
           icon: const AdaptiveIcon(

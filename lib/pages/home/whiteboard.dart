@@ -32,6 +32,7 @@ class Whiteboard extends StatelessWidget {
       key: _whiteboardKey,
       path: filePath,
       customTitle: t.home.titles.whiteboard,
+      isWhiteboard: true,
     );
   }
 }

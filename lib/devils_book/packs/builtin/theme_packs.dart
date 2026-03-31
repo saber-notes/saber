@@ -23,6 +23,8 @@ class DarkPremiumThemePack {
       lineColor: Color(0x22FFFFFF),
       accentGlow: Color(0xFF888888),
       surfaceColor: Color(0xFF1E1E1E),
+      vignetteIntensity: 0.3,
+      grainIntensity: 0.05,
       packId: 'pack_themes_dark_premium',
     ),
     ThemePreset(
@@ -32,6 +34,8 @@ class DarkPremiumThemePack {
       lineColor: Color(0x18AAAAFF),
       accentGlow: Color(0xFF4444AA),
       surfaceColor: Color(0xFF101018),
+      vignetteIntensity: 0.6,
+      ambientId: 'ambience_deep_space',
       packId: 'pack_themes_dark_premium',
     ),
     ThemePreset(
@@ -42,6 +46,7 @@ class DarkPremiumThemePack {
       lineColor: Color(0x22999999),
       accentGlow: Color(0xFF777777),
       surfaceColor: Color(0xFF252525),
+      grainIntensity: 0.1,
       packId: 'pack_themes_dark_premium',
     ),
   ];
@@ -71,6 +76,9 @@ class AntiqueSoulThemePack {
       lineColor: Color(0x33A09070),
       accentGlow: Color(0xFFB8A080),
       surfaceColor: Color(0xFFF5EDE0),
+      vignetteIntensity: 0.2,
+      grainIntensity: 0.15,
+      ambientId: 'ambience_library_quiet',
       packId: 'pack_themes_antique_soul',
     ),
     ThemePreset(
@@ -80,6 +88,7 @@ class AntiqueSoulThemePack {
       lineColor: Color(0x22C0A880),
       accentGlow: Color(0xFFD4B896),
       surfaceColor: Color(0xFFFFF8EE),
+      grainIntensity: 0.08,
       packId: 'pack_themes_antique_soul',
     ),
     ThemePreset(
@@ -90,6 +99,9 @@ class AntiqueSoulThemePack {
       lineColor: Color(0x33907050),
       accentGlow: Color(0xFF9A7B5B),
       surfaceColor: Color(0xFFE5D8C0),
+      vignetteIntensity: 0.4,
+      grainIntensity: 0.25,
+      ambientId: 'ambience_dusty_attic',
       packId: 'pack_themes_antique_soul',
     ),
   ];
@@ -100,45 +112,57 @@ class AntiqueSoulThemePack {
   );
 }
 
-/// Infernal & Ritual themes for theatrical, atmospheric sessions.
-class InfernalThemePack {
+/// Forbidden & Ritual themes for ultimate immersion.
+class ForbiddenLoreThemePack {
   static final _manifest = PackManifest(
-    id: 'pack_themes_infernal',
-    name: 'Infernal',
-    description: 'Blood-soaked altars and ember-lit chambers for ritualistic writing.',
+    id: 'pack_themes_forbidden_lore',
+    name: 'Forbidden Lore',
+    description: 'Eldritch environments and blood-soaked ritual chambers.',
     categories: {PackCategory.themes},
     isBuiltIn: true,
   );
 
   static final _themes = [
     ThemePreset(
-      id: 'theme_infernal_altar',
-      name: 'Infernal Altar',
-      backgroundColor: Color(0xFF2C0B0B),
-      pattern: CanvasBackgroundPattern.grid,
-      lineColor: Color(0x33FF2222),
-      accentGlow: Color(0xFFCC3333),
-      surfaceColor: Color(0xFF3A1515),
-      packId: 'pack_themes_infernal',
-    ),
-    ThemePreset(
-      id: 'theme_ember_cavern',
-      name: 'Ember Cavern',
-      backgroundColor: Color(0xFF1A0A00),
-      lineColor: Color(0x22FF6600),
-      accentGlow: Color(0xFFFF6A00),
-      surfaceColor: Color(0xFF2A1200),
-      packId: 'pack_themes_infernal',
-    ),
-    ThemePreset(
-      id: 'theme_obsidian_sanctum',
-      name: 'Obsidian Sanctum',
-      backgroundColor: Color(0xFF0A0A0A),
+      id: 'theme_obsidian_requiem',
+      name: 'Obsidian Requiem',
+      backgroundColor: Color(0xFF050505),
       pattern: CanvasBackgroundPattern.dots,
-      lineColor: Color(0x15FF4444),
-      accentGlow: Color(0xFF992222),
-      surfaceColor: Color(0xFF151010),
-      packId: 'pack_themes_infernal',
+      lineColor: Color(0x15FF0000),
+      accentGlow: Color(0xFFCC0000),
+      customAuraColor: Color(0xFFFF0000),
+      surfaceColor: Color(0xFF0F0808),
+      vignetteIntensity: 0.85,
+      grainIntensity: 0.12,
+      ambientId: 'ambience_blood_ritual',
+      packId: 'pack_themes_forbidden_lore',
+    ),
+    ThemePreset(
+      id: 'theme_aetherial_scroll',
+      name: 'Aetherial Scroll',
+      backgroundColor: Color(0xFFEDF2F4),
+      pattern: CanvasBackgroundPattern.none,
+      lineColor: Color(0x2200D4FF),
+      accentGlow: Color(0xFF00D4FF),
+      customAuraColor: Color(0xFF00FFFF),
+      surfaceColor: Color(0xFFF1F8FB),
+      vignetteIntensity: 0.15,
+      grainIntensity: 0.02,
+      ambientId: 'ambience_ethereal_wind',
+      packId: 'pack_themes_forbidden_lore',
+    ),
+    ThemePreset(
+      id: 'theme_cursed_papyrus',
+      name: 'Cursed Papyrus',
+      backgroundColor: Color(0xFFBCAD90),
+      pattern: CanvasBackgroundPattern.lined,
+      lineColor: Color(0x334E342E),
+      accentGlow: Color(0xFFBF360C),
+      surfaceColor: Color(0xFFD7CCC8),
+      vignetteIntensity: 0.55,
+      grainIntensity: 0.45,
+      ambientId: 'ambience_flickering_candle',
+      packId: 'pack_themes_forbidden_lore',
     ),
   ];
 
@@ -167,6 +191,8 @@ class CyberThemePack {
       lineColor: Color(0x2200FFCC),
       accentGlow: Color(0xFF00FFCC),
       surfaceColor: Color(0xFF132638),
+      vignetteIntensity: 0.4,
+      ambientId: 'ambience_digital_hum',
       packId: 'pack_themes_cyber',
     ),
     ThemePreset(
@@ -177,6 +203,7 @@ class CyberThemePack {
       lineColor: Color(0x22FF00FF),
       accentGlow: Color(0xFFFF00FF),
       surfaceColor: Color(0xFF121225),
+      vignetteIntensity: 0.5,
       packId: 'pack_themes_cyber',
     ),
     ThemePreset(
@@ -187,6 +214,7 @@ class CyberThemePack {
       lineColor: Color(0x2200FF00),
       accentGlow: Color(0xFF00CC00),
       surfaceColor: Color(0xFF0F180F),
+      vignetteIntensity: 0.3,
       packId: 'pack_themes_cyber',
     ),
   ];
@@ -215,6 +243,7 @@ class FocusThemePack {
       lineColor: Color(0x22000000),
       accentGlow: Color(0xFF333333),
       surfaceColor: Color(0xFFF5F5F5),
+      vignetteIntensity: 0.0,
       packId: 'pack_themes_focus',
     ),
     ThemePreset(
@@ -225,6 +254,7 @@ class FocusThemePack {
       lineColor: Color(0x33BBAA88),
       accentGlow: Color(0xFF887755),
       surfaceColor: Color(0xFFFFF8F0),
+      vignetteIntensity: 0.1,
       packId: 'pack_themes_focus',
     ),
     ThemePreset(
@@ -235,6 +265,7 @@ class FocusThemePack {
       lineColor: Color(0x228899AA),
       accentGlow: Color(0xFF6688AA),
       surfaceColor: Color(0xFFF0F2F8),
+      vignetteIntensity: 0.1,
       packId: 'pack_themes_focus',
     ),
   ];

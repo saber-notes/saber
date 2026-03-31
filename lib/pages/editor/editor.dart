@@ -22,6 +22,7 @@ import 'package:saber/devils_book/effects/live_effect_engine.dart';
 import 'package:saber/devils_book/components/live_effect_overlay.dart';
 import 'package:saber/devils_book/components/squeeze_palette.dart';
 import 'package:saber/devils_book/models/writing_mode.dart';
+import 'package:saber/devils_book/models/relic_element.dart';
 import 'package:saber/devils_book/components/relic_selector_sheet.dart';
 import 'package:saber/devils_book/components/ghost_nib.dart';
 import 'package:saber/devils_book/ink/scribble_recognizer.dart';
@@ -31,6 +32,14 @@ import 'package:saber/devils_book/zoom_window/zoom_window_strip.dart';
 import 'package:saber/devils_book/zoom_window/zoom_window_target.dart';
 import 'package:saber/devils_book/components/ink_selector_sheet.dart';
 import 'package:saber/devils_book/components/session_overlay.dart';
+import 'package:saber/devils_book/components/atmosphere_overlay.dart';
+import 'package:saber/devils_book/components/ritual_background.dart';
+import 'package:saber/devils_book/audio/ambient_controller.dart';
+import 'package:saber/devils_book/sessions/session_controller.dart';
+import 'package:saber/devils_book/sessions/session_models.dart';
+import 'package:saber/devils_book/models/theme_preset.dart';
+import 'package:saber/devils_book/components/effect_selector_sheet.dart';
+import 'package:saber/devils_book/components/theme_selector_sheet.dart';
 import 'package:sbn/tool_id.dart';
 import 'package:saber/data/editor/editor_history.dart';
 import 'package:saber/data/editor/page.dart';
@@ -41,14 +50,15 @@ import 'package:saber/data/tools/eraser.dart';
 import 'package:saber/data/tools/pen.dart';
 
 class Editor extends StatefulWidget {
-  Editor({super.key, String? path, this.customTitle, this.pdfPath})
+  Editor({super.key, String? path, this.customTitle, this.pdfPath, this.isWhiteboard = false})
     : initialPath = path != null ? Future.value(path) : FileManager.newFilePath('/'),
-      needsNaming = path == null;
+      needsNaming = path == null && !isWhiteboard;
 
   final Future<String> initialPath;
   final bool needsNaming;
   final String? customTitle;
   final String? pdfPath;
+  final bool isWhiteboard;
   
   static const extension = '.sbn2';
   static const extensionOldJson = '.sbn';
@@ -105,15 +115,100 @@ class EditorState extends State<Editor> {
         squeezeController.showAt(stylusState.currentEvent?.position ?? const Offset(200, 200));
       }
     });
+
+    // DEVILS BOOK: Sync Effect Engine
+    fxEngine.setPreset(loadoutManager.customEffect ?? loadoutManager.currentLoadout.effect);
+    loadoutManager.addListener(_onLoadoutChanged);
+
     _initAsync();
     _assignKeybindings();
+    _startFadingHeartbeat();
+    _startIntensityHaptics();
     super.initState();
+  }
+
+  void _startIntensityHaptics() {
+    SessionController().addListener(() {
+      final intensity = SessionController().getSessionIntensity();
+      if (intensity > 0.8) {
+        HapticFeedback.lightImpact();
+      } else if (intensity > 0.95) {
+        HapticFeedback.heavyImpact();
+      }
+    });
+  }
+
+  Timer? _fadingTimer;
+  void _startFadingHeartbeat() {
+    _fadingTimer = Timer.periodic(const Duration(milliseconds: 500), (timer) {
+      if (!mounted) return;
+      
+      bool needsRedraw = false;
+      final now = DateTime.now();
+      
+      for (final page in coreInfo.pages) {
+        final expiredStrokes = page.strokes.where((s) => s.getOpacity(now) <= 0.0).toList();
+        if (expiredStrokes.isNotEmpty) {
+          for (final s in expiredStrokes) {
+            page.strokes.remove(s);
+          }
+          page.redrawStrokes();
+          needsRedraw = true;
+        } else if (page.strokes.any((s) => s.expiry != null)) {
+          // If any stroke has an expiry, we need to redraw to show the fading progress
+          page.redrawStrokes();
+          needsRedraw = true;
+        }
+      }
+      
+      if (needsRedraw) setState(() {});
+    });
   }
 
   void _initAsync() async {
     final filePath = await widget.initialPath;
     filenameTextEditingController.text = p.basename(filePath);
     await _loadCoreInfo(filePath);
+    if (widget.isWhiteboard) {
+      _applyWhiteboardRitual();
+    }
+  }
+
+  void _applyWhiteboardRitual() {
+    // Default to the last used Devils loadout instead of forcing Obsidian
+    final activeLoadout = loadoutManager.currentLoadout;
+    final theme = activeLoadout.theme;
+    
+    // DEVILS BOOK: Auditory Sync
+    AmbientController().playAmbient(theme.ambientId);
+    
+    // DEVILS BOOK: Update core background
+    coreInfo.backgroundColor = theme.backgroundColor;
+    coreInfo.backgroundPattern = theme.pattern;
+    
+    for (final p in coreInfo.pages) {
+      p.style = p.style.copyWith(
+        backgroundColor: theme.backgroundColor,
+        pattern: theme.pattern,
+        lineColor: theme.lineColor,
+      );
+    }
+    
+    if (currentTool is Pen) {
+      (currentTool as Pen).color = activeLoadout.ink.baseColor;
+    }
+    
+    filenameTextEditingController.text = 'VOICE OF THE VOID';
+    setState(() {});
+  }
+
+  void _onLoadoutChanged() {
+    final theme = loadoutManager.customTheme ?? loadoutManager.currentLoadout.theme;
+    AmbientController().playAmbient(theme.ambientId);
+    
+    final effect = loadoutManager.customEffect ?? loadoutManager.currentLoadout.effect;
+    fxEngine.setPreset(effect);
+    setState(() {});
   }
 
   Future _loadCoreInfo(String filePath) async {
@@ -157,9 +252,29 @@ class EditorState extends State<Editor> {
   }
 
   void onDrawStart(ScaleStartDetails details) {
+    if (dragPageIndex == null || dragPageIndex! >= coreInfo.pages.length) return;
     final page = coreInfo.pages[dragPageIndex!];
     final position = page.renderBox!.globalToLocal(details.focalPoint);
-    if (currentTool is Pen) (currentTool as Pen).onDragStart(position, page, dragPageIndex!, currentPressure);
+    
+    // DEVILS BOOK: Apply expiry from current mode, active session, or active Relic
+    final modeExpiry = writingModeState.currentMode.strokeExpiry;
+    final sessionExpiry = SessionController().activeSession?.config.strokeExpiryOverride;
+    
+    // EVANESCENT INK: Void Walker Relic makes ink fade into nothingness
+    final relicModifier = loadoutManager.customRelic?.modifier ?? RitualModifier.none;
+    final relicExpiry = relicModifier.isEvanescent ? const Duration(seconds: 3) : null;
+
+    final activeExpiry = sessionExpiry ?? modeExpiry ?? relicExpiry;
+    
+    if (currentTool is Pen) {
+      (currentTool as Pen).onDragStart(
+        position, 
+        page, 
+        dragPageIndex!, 
+        currentPressure,
+        expiry: activeExpiry,
+      );
+    }
     previousPosition = position;
     setState(() {});
   }
@@ -167,7 +282,27 @@ class EditorState extends State<Editor> {
   void onDrawUpdate(ScaleUpdateDetails details) {
     final page = coreInfo.pages[dragPageIndex!];
     final position = page.renderBox!.globalToLocal(details.focalPoint);
-    if (currentTool is Pen) { (currentTool as Pen).onDragUpdate(position, currentPressure); page.redrawStrokes(); }
+    if (currentTool is Pen) { 
+      (currentTool as Pen).onDragUpdate(position, currentPressure); 
+      page.redrawStrokes(); 
+    } else if (currentTool is Eraser) {
+      final overlapping = (currentTool as Eraser).checkForOverlappingStrokes(position, page.strokes);
+      if (overlapping.isNotEmpty) {
+        final now = DateTime.now();
+        for (final s in overlapping) {
+          // DEVILS BOOK: Soft-erase (Banish) instead of hard-erase
+          s.expiry = const Duration(milliseconds: 800);
+          s.createdAt = now;
+        }
+        page.redrawStrokes();
+        history.recordChange(EditorHistoryItem(
+          type: EditorHistoryItemType.erase, 
+          pageIndex: dragPageIndex!, 
+          strokes: overlapping, 
+          images: []
+        ));
+      }
+    }
     previousPosition = position;
   }
 
@@ -190,17 +325,32 @@ class EditorState extends State<Editor> {
 
   void _eraseStrokesUnderScribble(EditorPage page, Stroke scribble) {
     final offsets = scribble.points.map((p) => Offset(p.x, p.y)).toList();
-    final toRemove = <Stroke>[];
+    final now = DateTime.now();
+    bool changed = false;
+
     for (final s in page.strokes) {
+      if (s.expiry != null) continue; // Already dissolving
+      
       bool collision = false;
       for (final sp in offsets) {
-        for (final ep in s.points) { if (pow(sp.dx - ep.x, 2) + pow(sp.dy - ep.y, 2) < 400) { collision = true; break; } }
+        for (final ep in s.points) { 
+          if (pow(sp.dx - ep.x, 2) + pow(sp.dy - ep.y, 2) < 400) { 
+            collision = true; 
+            break; 
+          } 
+        }
         if (collision) break;
       }
-      if (collision) toRemove.add(s);
+      
+      if (collision) {
+        // DEVILS BOOK: Set short expiry for a "Banishing Dissolve" effect
+        s.expiry = const Duration(milliseconds: 800);
+        s.createdAt = now; 
+        changed = true;
+      }
     }
-    for (final s in toRemove) page.strokes.remove(s);
-    if (toRemove.isNotEmpty) page.redrawStrokes();
+    
+    if (changed) page.redrawStrokes();
   }
 
   void updatePointerData(PointerDeviceKind k, double? p) { currentPointerKind = k; currentPressure = p; }
@@ -230,9 +380,26 @@ class EditorState extends State<Editor> {
 
   final filenameTextEditingController = TextEditingController();
   Future<void> _renameFileNow() async {
+    if (widget.isWhiteboard) return; // Don't rename whiteboard ritual
     final n = filenameTextEditingController.text.trim();
     if (n == coreInfo.fileName) return;
     coreInfo.filePath = (await FileManager.moveFile(coreInfo.filePath + Editor.extension, n + Editor.extension)).replaceAll(Editor.extension, '');
+  }
+
+  void banishRitual() {
+    setState(() {
+      for (final p in coreInfo.pages) {
+        p.strokes.clear();
+        p.images.clear();
+        p.redrawStrokes();
+      }
+      history.recordChange(EditorHistoryItem(type: EditorHistoryItemType.draw, pageIndex: 0, strokes: [], images: []));
+    });
+    ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+      backgroundColor: Color(0xFF1A0000),
+      content: Text('RITUAL BANISHED. THE VOID IS SEALED.', style: TextStyle(color: Color(0xFFFF4400), fontWeight: FontWeight.bold, letterSpacing: 2.0)),
+    ));
+    autosaveAfterDelay();
   }
 
   Future<int> _pickPhotos() async {
@@ -253,59 +420,138 @@ class EditorState extends State<Editor> {
         canPop: state == SavingState.saved,
         onPopInvokedWithResult: (didPop, _) { if (state != SavingState.saved) { saveToFile(); snackBarNeedsToSaveBeforeExiting(); } },
         child: Scaffold(
-          backgroundColor: const Color(0xFF0D0D0D),
+          backgroundColor: Colors.transparent, // Let RitualBackground handle it
           drawer: drawer(),
-          appBar: DynamicMaterialApp.isFullscreen ? null : appBar(),
-          body: Stack(
-            children: [
-              bodyContent,
-              ZoomWindowTarget(controller: zoomController),
-              LiveEffectOverlay(engine: fxEngine, writingModeState: writingModeState),
-              GhostNib(stylusState: stylusState, writingModeState: writingModeState),
-              ZoomWindowStrip(controller: zoomController, canvasSubtree: bodyContent, onStripDragUpdate: (p) {}),
-              AnimatedBuilder(
-                animation: writingModeState,
-                builder: (c, _) => SqueezePalette(
-                  controller: squeezeController,
-                  currentModeName: writingModeState.currentMode.name,
-                  onCycleMode: () => writingModeState.cycleMode(),
-                  onSelectPen: () => setState(() => stows.lastTool.value = ToolId.fountainPen),
-                  onSelectInk: () => showModalBottomSheet(context: context, backgroundColor: Colors.transparent, builder: (c) => InkSelectorSheet(currentInk: loadoutManager.currentLoadout.ink, onSelect: (ink) { setState(() { if (currentTool is Pen) (currentTool as Pen).color = ink.baseColor; }); })),
-                  onSelectRelic: () => showModalBottomSheet(context: context, backgroundColor: Colors.transparent, builder: (c) => const RelicSelectorSheet()),
-                  onSelectTemplate: () {}, onLongPressPen: () {}, onSelectEraser: () {}, onToggleZoomWindow: () {}, onSelectTheme: () {}, onSelectEffect: () {}, onStartSession: () {}, onTriggerReplay: () {}, onTriggerExport: () {},
-                ),
-              ),
-              const SessionOverlay(),
-            ],
+          appBar: widget.isWhiteboard && DynamicMaterialApp.isFullscreen ? null : appBar(),
+          body: ListenableBuilder(
+            listenable: Listenable.merge([loadoutManager, SessionController(), writingModeState]),
+            builder: (context, _) {
+              final loadout = loadoutManager.currentLoadout;
+              final theme = loadout.theme;
+              final intensity = SessionController().getSessionIntensity();
+              
+              return Stack(
+                children: [
+                  RitualBackground(theme: theme, intensity: intensity),
+                  bodyContent,
+                  ZoomWindowTarget(controller: zoomController),
+                  LiveEffectOverlay(engine: fxEngine, writingModeState: writingModeState),
+                  GhostNib(stylusState: stylusState, writingModeState: writingModeState),
+                  ZoomWindowStrip(controller: zoomController, canvasSubtree: bodyContent, onStripDragUpdate: (p) {}),
+                  AnimatedBuilder(
+                    animation: writingModeState,
+                    builder: (c, _) => SqueezePalette(
+                      controller: squeezeController,
+                      currentModeName: writingModeState.currentMode.name,
+                      onCycleMode: () => writingModeState.cycleMode(),
+                      onSelectPen: () => setState(() => stows.lastTool.value = ToolId.fountainPen),
+                      onSelectInk: () => showModalBottomSheet(context: context, backgroundColor: Colors.transparent, builder: (c) => InkSelectorSheet(currentInk: loadout.ink, onSelect: (ink) { setState(() { if (currentTool is Pen) (currentTool as Pen).color = ink.baseColor; }); })),
+                      onSelectRelic: () async {
+                        final relic = await showModalBottomSheet<RelicElement>(context: context, backgroundColor: Colors.transparent, builder: (c) => const RelicSelectorSheet());
+                        if (relic != null) loadoutManager.setCustomRelic(relic);
+                      },
+                      onSelectEffect: () => showModalBottomSheet(context: context, backgroundColor: Colors.transparent, builder: (c) => EffectSelectorSheet(currentEffect: fxEngine.activePreset!, onSelect: (effect) => loadoutManager.setCustomEffect(effect))),
+                      onSelectTheme: () => showModalBottomSheet(context: context, backgroundColor: Colors.transparent, builder: (c) => ThemeSelectorSheet(currentTheme: loadoutManager.customTheme ?? loadoutManager.currentLoadout.theme, onSelect: (theme) => loadoutManager.setCustomTheme(theme))),
+                      onSelectTemplate: () {}, onLongPressPen: () {}, onSelectEraser: () {}, onToggleZoomWindow: () {}, onStartSession: () {}, onTriggerReplay: () {}, onTriggerExport: () {},
+                    ),
+                  ),
+                  const SessionOverlay(),
+                  AtmosphereOverlay(theme: theme),
+                ],
+              );
+            },
           ),
         ),
       ),
     );
   }
 
-  PreferredSizeWidget appBar() => AppBar(
-    backgroundColor: const Color(0xFF050505),
-    shape: const Border(bottom: BorderSide(color: Color(0xFFD4AF37), width: 1.5)),
-    title: Row(children: [
-      const Icon(Icons.auto_awesome_sharp, color: Color(0xFFD4AF37), size: 20),
-      const SizedBox(width: 12),
-      Expanded(child: TextFormField(controller: filenameTextEditingController, style: const TextStyle(color: Color(0xFFD4AF37), fontWeight: FontWeight.bold), decoration: const InputDecoration(border: InputBorder.none, hintText: 'UNNAMED RITUAL', hintStyle: TextStyle(color: Color(0x44D4AF37))))),
-    ]),
-    leading: SaveIndicator(savingState: savingState, triggerSave: saveToFile),
-    actions: [ IconButton(icon: const Icon(Icons.rocket_launch_outlined, color: Color(0xFFD4AF37)), onPressed: () => squeezeController.toggleDevTrigger(MediaQuery.sizeOf(context))) ],
-  );
+  PreferredSizeWidget appBar() {
+    const ritualGold = Color(0xFFD4AF37);
+    
+    return AppBar(
+      backgroundColor: widget.isWhiteboard ? Colors.transparent : const Color(0xFF070707),
+      elevation: 0,
+      centerTitle: widget.isWhiteboard,
+      shape: widget.isWhiteboard ? null : const Border(bottom: BorderSide(color: ritualGold, width: 1.0)),
+      title: widget.isWhiteboard 
+        ? Text(filenameTextEditingController.text.toUpperCase(), 
+            style: TextStyle(color: ritualGold.withOpacity(0.4), fontSize: 13, fontWeight: FontWeight.w300, letterSpacing: 8.0))
+        : Row(children: [
+            const Icon(Icons.auto_awesome_sharp, color: ritualGold, size: 18),
+            const SizedBox(width: 12),
+            Expanded(
+              child: TextFormField(
+                controller: filenameTextEditingController, 
+                style: const TextStyle(color: ritualGold, fontWeight: FontWeight.w900, fontSize: 15, letterSpacing: 1.2), 
+                decoration: InputDecoration(
+                  border: InputBorder.none, 
+                  hintText: 'UNNAMED RITUAL', 
+                  hintStyle: TextStyle(color: ritualGold.withOpacity(0.2))
+                )
+              )
+            ),
+          ]),
+      leading: Padding(
+        padding: const EdgeInsets.only(left: 8.0),
+        child: SaveIndicator(savingState: savingState, triggerSave: saveToFile),
+      ),
+      actions: [ 
+        if (widget.isWhiteboard) 
+          IconButton(
+            icon: const Icon(Icons.auto_delete_outlined, color: Color(0xFFBC0000)), 
+            tooltip: 'BANISH RITUAL', 
+            onPressed: banishRitual
+          ),
+        IconButton(
+          icon: Icon(widget.isWhiteboard ? Icons.blur_on : Icons.rocket_launch_outlined, color: ritualGold), 
+          onPressed: () => squeezeController.toggleDevTrigger(MediaQuery.sizeOf(context))
+        ),
+        const SizedBox(width: 8),
+      ],
+    );
+  }
 
-  Widget drawer() => Drawer(
-    backgroundColor: const Color(0xFF0F0F0F),
-    child: Column(children: [
-      DrawerHeader(decoration: const BoxDecoration(color: Color(0xFF050505), border: Border(bottom: BorderSide(color: Color(0xFFD4AF37), width: 1.5))), child: Center(child: const Text('DEVILS BOOK', style: TextStyle(color: Color(0xFFD4AF37), fontSize: 18, fontWeight: FontWeight.bold, letterSpacing: 3.0)))),
-      Expanded(child: ListView(children: [
-        ListTile(leading: const Icon(Icons.history_edu, color: Color(0xFFD4AF37)), title: const Text('RITUAL SESSIONS', style: TextStyle(color: Colors.white70)), onTap: () => Navigator.pop(context)),
-        const Divider(color: Color(0x33D4AF37)),
-        ListTile(leading: const Icon(Icons.logout, color: Color(0x88FF2200)), title: const Text('LEAVE RITUAL', style: TextStyle(color: Color(0x88FF2200))), onTap: () => Navigator.pop(context)),
-      ])),
-    ])
-  );
+  Widget drawer() {
+    const ritualGold = Color(0xFFD4AF37);
+    const ritualScarlet = Color(0xFFFF2200);
+    
+    return Drawer(
+      backgroundColor: const Color(0xFF0A0A0A),
+      child: Column(children: [
+        DrawerHeader(
+          decoration: const BoxDecoration(
+            color: Color(0xFF050505), 
+            border: Border(bottom: BorderSide(color: ritualGold, width: 1.0))
+          ), 
+          child: Center(
+            child: Text(
+              'DEVILS BOOK', 
+              style: TextStyle(color: ritualGold, fontSize: 20, fontWeight: FontWeight.w900, letterSpacing: 4.0)
+            )
+          )
+        ),
+        Expanded(
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: [
+              ListTile(
+                leading: const Icon(Icons.history_edu, color: ritualGold), 
+                title: const Text('RITUAL SESSIONS', style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600, fontSize: 13, letterSpacing: 1.0)), 
+                onTap: () => Navigator.pop(context)
+              ),
+              const Divider(color: Colors.white10, indent: 16, endIndent: 16),
+              ListTile(
+                leading: const Icon(Icons.logout, color: ritualScarlet), 
+                title: const Text('LEAVE RITUAL', style: TextStyle(color: ritualScarlet, fontWeight: FontWeight.bold, fontSize: 13, letterSpacing: 1.0)), 
+                onTap: () => Navigator.pop(context)
+              ),
+            ]
+          )
+        ),
+      ])
+    );
+  }
 
   Widget canvas() => CanvasGestureDetector(
     key: _canvasGestureDetectorKey,
@@ -358,8 +604,28 @@ class EditorState extends State<Editor> {
       currentStroke: Pen.currentStroke?.pageIndex == pageIndex ? Pen.currentStroke : null,
       currentStrokeDetectedShape: null, currentSelection: null,
       setAsBackground: (img) {}, currentTool: currentTool, currentScale: _transformationController.value.approxScale,
+      writingMode: writingModeState.currentMode,
     );
   }
 
   int getPageIndexFromScrollPosition(double scrollY) => CanvasGestureDetector.getPageIndex(scrollY: scrollY, pages: coreInfo.pages, screenWidth: MediaQuery.sizeOf(context).width);
+
+  @override
+  void dispose() {
+    if (widget.isWhiteboard && stows.autoClearWhiteboardOnExit.value) {
+      // Banish ritual on exit if preferred
+      for (final p in coreInfo.pages) {
+        p.strokes.clear();
+        p.images.clear();
+      }
+      saveToFile();
+    }
+    
+    _delayedSaveTimer?.cancel();
+    _lastSeenPointerCountTimer?.cancel();
+    _fadingTimer?.cancel();
+    _transformationController.dispose();
+    filenameTextEditingController.dispose();
+    super.dispose();
+  }
 }

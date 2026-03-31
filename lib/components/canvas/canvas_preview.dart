@@ -4,6 +4,7 @@ import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/extensions/list_extensions.dart';
 import 'package:saber/data/prefs.dart';
+import 'package:saber/devils_book/models/writing_mode.dart';
 
 class CanvasPreview extends StatelessWidget implements PreferredSizeWidget {
   CanvasPreview({
@@ -35,6 +36,7 @@ class CanvasPreview extends StatelessWidget implements PreferredSizeWidget {
       currentSelection: null,
       currentToolIsSelect: false,
       currentScale: double.maxFinite,
+      writingMode: WritingMode.clean,
     );
   }
 }

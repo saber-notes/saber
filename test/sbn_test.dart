@@ -4,6 +4,8 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:saber/i18n/strings.g.dart';
 import 'package:golden_screenshot/golden_screenshot.dart';
 import 'package:path/path.dart' as p;
 import 'package:saber/components/canvas/canvas.dart';
@@ -16,8 +18,7 @@ import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/flavor_config.dart';
 import 'package:saber/data/tools/laser_pointer.dart';
 import 'package:saber/data/tools/stroke_properties.dart';
-import 'package:saber/i18n/strings.g.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:saber/devils_book/models/writing_mode.dart';
 
 import 'utils/test_mock_channel_handlers.dart';
 
@@ -355,6 +356,7 @@ Widget _buildCanvas({
                 setAsBackground: null,
                 currentTool: LaserPointer.currentLaserPointer,
                 currentScale: currentScale,
+                writingMode: WritingMode.ritual,
               ),
             ),
           ),

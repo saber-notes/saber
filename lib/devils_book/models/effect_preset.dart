@@ -1,5 +1,15 @@
 import 'package:flutter/material.dart';
 
+enum ParticleType {
+  ember,
+  pixel,
+  flame,
+  spark,
+  plasma,
+  ash,
+  voidMatter,
+}
+
 /// Represents ephemeral, live visual feedback during active writing gestures.
 /// This data is NEVER serialized into the saved document.
 /// Strictly independent from Theme (environment) and Ink (permanent stroke).
@@ -21,6 +31,9 @@ class EffectPreset {
   /// Color of trail embers during pen movement.
   final Color trailColor;
 
+  /// Secondary color for multi-stage transitions (e.g. fire cooling).
+  final Color? secondaryColor;
+
   /// Color of fade-out particles when motion stops.
   final Color fadeColor;
 
@@ -41,6 +54,9 @@ class EffectPreset {
   /// Base particle size multiplier for this effect family.
   final double particleScale;
 
+  /// The visual shape and physics type of the particle.
+  final ParticleType particleType;
+
   /// Optional pack ID for grouping in selectors.
   final String? packId;
 
@@ -54,12 +70,14 @@ class EffectPreset {
     this.cooldownMs = 800,
     this.ignitionColor = const Color(0xFFFFAA00),
     this.trailColor = const Color(0xFFFF6600),
+    this.secondaryColor,
     this.fadeColor = const Color(0xFF883300),
     this.eraseColor = const Color(0xFF888888),
     this.ignitionIntensity = 0.5,
     this.trailDensity = 0.5,
     this.fadeDuration = 0.5,
     this.particleScale = 1.0,
+    this.particleType = ParticleType.ember,
     this.packId,
     this.character,
   });

@@ -21,30 +21,44 @@ class ToolbarIconButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colorScheme = ColorScheme.of(context);
+    const ritualGold = Color(0xFFD4AF37);
+    const ritualScarlet = Color(0xFFFF2200);
+    const ritualObsidian = Color(0xFF0A0A0A);
+
     final backgroundColor = WidgetStateProperty.resolveWith((states) {
-      if (states.contains(WidgetState.disabled) ||
-          !states.contains(WidgetState.selected)) {
-        return Colors.transparent;
+      if (states.contains(WidgetState.selected)) {
+        return ritualScarlet.withOpacity(0.15);
       }
-      return colorScheme.primary;
+      return Colors.transparent;
     });
+
     final foregroundColor = WidgetStateProperty.resolveWith((states) {
       if (states.contains(WidgetState.disabled)) {
-        return colorScheme.onSurface.withValues(alpha: 0.4);
+        return ritualGold.withOpacity(0.2);
       }
       if (states.contains(WidgetState.selected)) {
-        return colorScheme.onPrimary;
+        return ritualGold;
       }
-      return colorScheme.primary;
+      return ritualGold.withOpacity(0.6);
     });
+
     final buttonStyle = ButtonStyle(
       backgroundColor: backgroundColor,
       iconColor: foregroundColor,
       foregroundColor: foregroundColor,
-      iconSize: const WidgetStatePropertyAll(20),
-      padding: const WidgetStatePropertyAll(EdgeInsets.all(8)),
+      iconSize: const WidgetStatePropertyAll(18),
+      padding: const WidgetStatePropertyAll(EdgeInsets.all(10)),
       tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+      overlayColor: WidgetStateProperty.all(ritualScarlet.withOpacity(0.1)),
+      shape: WidgetStateProperty.all(
+        RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(8),
+          side: BorderSide(
+            color: selected ? ritualGold.withOpacity(0.3) : Colors.transparent,
+            width: 1.0,
+          ),
+        ),
+      ),
     );
 
     return Padding(

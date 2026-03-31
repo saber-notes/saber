@@ -1,3 +1,4 @@
+import 'dart:ui' as ui;
 import 'package:defer_pointer/defer_pointer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_quill/flutter_quill.dart';
@@ -13,6 +14,10 @@ import 'package:saber/data/tools/select.dart';
 import 'package:saber/i18n/strings.g.dart';
 import 'package:sbn/canvas_background_pattern.dart';
 import 'package:sbn/quill_styles.dart';
+import 'package:saber/devils_book/models/writing_mode.dart';
+import 'package:saber/devils_book/sessions/session_controller.dart';
+import 'package:saber/devils_book/sessions/session_models.dart';
+import 'package:saber/devils_book/models/loadout_manager.dart';
 
 class InnerCanvas extends StatefulWidget {
   const InnerCanvas({
@@ -31,6 +36,7 @@ class InnerCanvas extends StatefulWidget {
     this.onRenderObjectChange,
     required this.currentToolIsSelect,
     required this.currentScale,
+    required this.writingMode,
   });
 
   final int pageIndex;
@@ -50,6 +56,8 @@ class InnerCanvas extends StatefulWidget {
 
   final double currentScale;
 
+  final WritingMode writingMode;
+
   static const defaultBackgroundColor = Color(0xFFFCFCFC);
 
   @override
@@ -57,6 +65,49 @@ class InnerCanvas extends StatefulWidget {
 }
 
 class _InnerCanvasState extends State<InnerCanvas> {
+  ui.Image? _textureImage;
+  String? _lastTexturePath;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadTexture();
+  }
+
+  @override
+  void didUpdateWidget(InnerCanvas oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.writingMode.texturePath != _lastTexturePath) {
+      _loadTexture();
+    }
+  }
+
+  Future<void> _loadTexture() async {
+    final texturePath = widget.writingMode.texturePath;
+    if (texturePath == null) {
+      if (mounted) setState(() => _textureImage = null);
+      _lastTexturePath = null;
+      return;
+    }
+
+    try {
+      final imageProvider = AssetImage(texturePath);
+      final configuration = createLocalImageConfiguration(context);
+      final stream = imageProvider.resolve(configuration);
+      
+      stream.addListener(ImageStreamListener((info, _) {
+        if (mounted) {
+          setState(() {
+            _textureImage = info.image;
+            _lastTexturePath = texturePath;
+          });
+        }
+      }));
+    } catch (e) {
+      debugPrint('Failed to load ritual texture: $e');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -125,6 +176,13 @@ class _InnerCanvasState extends State<InnerCanvas> {
           lineColor: page.style.lineColor,
           primaryColor: colorScheme.primary,
           secondaryColor: colorScheme.secondary,
+          intensity: SessionController().getSessionIntensity(),
+          textureImage: _textureImage,
+          textureOpacity: widget.writingMode.textureOpacity,
+          textureBlendMode: widget.writingMode.textureBlendMode,
+          backgroundGradient: (LoadoutManager().customTheme ?? LoadoutManager().currentLoadout.theme).backgroundGradient,
+          vignetteIntensity: (LoadoutManager().customTheme ?? LoadoutManager().currentLoadout.theme).vignetteIntensity,
+          grainIntensity: (LoadoutManager().customTheme ?? LoadoutManager().currentLoadout.theme).grainIntensity,
         ),
         foregroundPainter: CanvasPainter(
           repaint: widget.redrawPageListenable,
@@ -140,6 +198,13 @@ class _InnerCanvasState extends State<InnerCanvas> {
           totalPages: widget.coreInfo.pages.length,
           currentScale: widget.currentScale,
           defaultTextStyle: theme.textTheme.bodyMedium!,
+          isFadingActive: SessionController().activeSession?.config.type == SessionType.voidMeditation || 
+                        widget.writingMode.strokeExpiry != null || 
+                        page.strokes.any((s) => s.expiry != null),
+          voidMeditationIntensity: SessionController().getSessionIntensity(),
+          voidMeditationEnabled: SessionController().activeSession?.config.type == SessionType.voidMeditation,
+          bloodPactEnabled: SessionController().activeSession?.config.type == SessionType.bloodPact,
+          bloodPactIntensity: SessionController().getSessionIntensity(),
         ),
         isComplex: true,
         willChange: true,

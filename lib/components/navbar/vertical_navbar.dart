@@ -24,18 +24,14 @@ class _VerticalNavbarState extends State<VerticalNavbar> {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final backgroundColor = switch (theme.platform) {
-      .linux => Colors.transparent,
-      _ => theme.colorScheme.surfaceContainer,
-    };
+    const backgroundColor = Color(0xFF0A0A0A); // Forced Obsidian for Ritual
 
     return DecoratedBox(
       decoration: BoxDecoration(
         color: backgroundColor,
-        border: theme.platform == .linux
-            ? BoxBorder.fromSTEB(end: BorderSide(color: theme.dividerColor))
-            : null,
+        border: Border(
+          right: BorderSide(color: const Color(0xFFD4AF37).withOpacity(0.3), width: 1.5),
+        ),
       ),
       child: Column(
         crossAxisAlignment: .start,
@@ -61,10 +57,15 @@ class _VerticalNavbarState extends State<VerticalNavbar> {
             child: NavigationRail(
               destinations: widget.destinations,
               selectedIndex: widget.selectedIndex,
-              backgroundColor: backgroundColor,
+              backgroundColor: Colors.transparent,
               extended: expanded,
               minExtendedWidth: 300,
               onDestinationSelected: widget.onDestinationSelected,
+              unselectedIconTheme: const IconThemeData(color: Color(0x66D4AF37)),
+              selectedIconTheme: const IconThemeData(color: Color(0xFFD4AF37)),
+              unselectedLabelTextStyle: const TextStyle(color: Color(0x66D4AF37), fontSize: 12, letterSpacing: 1.0),
+              selectedLabelTextStyle: const TextStyle(color: Color(0xFFD4AF37), fontSize: 13, fontWeight: FontWeight.bold, letterSpacing: 1.5),
+              indicatorColor: const Color(0x22D4AF37),
             ),
           ),
           if (expanded) const Expanded(child: FileTree()),

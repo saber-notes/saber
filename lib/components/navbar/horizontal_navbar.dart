@@ -92,12 +92,7 @@ class GlassyContainer extends StatelessWidget {
     final height = this.height ?? HorizontalNavbar._heightForPlatform(platform);
     final borderRadius = this.borderRadius ?? .circular(height / 2);
 
-    final Color background;
-    if (platform.isCupertino) {
-      background = colorScheme.surfaceContainer.withValues(alpha: 0.7);
-    } else {
-      background = colorScheme.primaryContainer;
-    }
+    final Color background = const Color(0xFF0A0A0A).withOpacity(0.85); // Obsidian Void
 
     return SizedBox(
       height: height,
@@ -107,13 +102,9 @@ class GlassyContainer extends StatelessWidget {
           borderRadius: borderRadius,
           boxShadow: [
             BoxShadow(
-              color: colorScheme.shadow.withValues(alpha: 0.5),
-              spreadRadius: -1,
-              blurRadius: platform.isCupertino ? 2 : 4,
-              offset: const Offset(0, 1),
-              blurStyle: platform.isCupertino
-                  ? BlurStyle.outer
-                  : BlurStyle.normal,
+              color: const Color(0xFFFF2200).withOpacity(0.2), // Infernal Glow
+              spreadRadius: 1,
+              blurRadius: 12,
             ),
           ],
         ),
@@ -122,9 +113,7 @@ class GlassyContainer extends StatelessWidget {
           borderRadius: borderRadius,
           child: DecoratedBox(
             decoration: BoxDecoration(
-              border: (platform.isCupertino && colorScheme.brightness == .dark)
-                  ? _GlintBorder(width: 1)
-                  : null,
+              border: _GlintBorder(width: 1.5), // Golden Glint
               borderRadius: borderRadius,
             ),
             child: BackdropFilter(
@@ -162,21 +151,11 @@ class _ToolbarButton extends StatelessWidget {
     final colorScheme = ColorScheme.of(context);
     final platform = Theme.of(context).platform;
     final borderRadius = BorderRadius.circular(32);
-    final selectedBgColor = platform.isCupertino
-        ? colorScheme.onPrimaryContainer.withValues(alpha: 0.15)
-        : (platform == .linux && colorScheme.brightness == .light
-              ? colorScheme.shadow.withValues(alpha: 0.15)
-              : colorScheme.surface);
+    final selectedBgColor = const Color(0xFFFF2200).withOpacity(0.15); // Ritual Scarlet
     final bgColor = selected ? selectedBgColor : Colors.transparent;
     final fgColor = selected
-        ? (platform.isCupertino
-              ? Color.lerp(
-                  CupertinoColors.systemBlue,
-                  colorScheme.onSurface,
-                  0.4,
-                )
-              : colorScheme.onSurface)
-        : colorScheme.onPrimaryContainer;
+        ? const Color(0xFFD4AF37) // Pure Gold
+        : const Color(0x88D4AF37); // Faded Gold
     return AspectRatio(
       aspectRatio: platform.isCupertino ? 1.5 : 1.4,
       child: DecoratedBox(
@@ -235,11 +214,11 @@ class _GlintBorder extends Border {
 
   static const gradient = LinearGradient(
     colors: [
-      Color(0x77FFFFFF),
-      Color(0x33FFFFFF),
-      Color(0x00FFFFFF),
-      Color(0x33FFFFFF),
-      Color(0x77FFFFFF),
+      Color(0x77D4AF37), // Golden Glint
+      Color(0x33D4AF37),
+      Color(0x00000000),
+      Color(0x33D4AF37),
+      Color(0x77D4AF37),
     ],
     stops: [0.0, 0.2, 0.5, 0.8, 1.0],
     begin: Alignment(-0.5, -1.5),

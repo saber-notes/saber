@@ -1,3 +1,5 @@
+import 'dart:math';
+import 'dart:ui' as ui;
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:saber/data/extensions/color_extensions.dart';
@@ -14,10 +16,18 @@ class CanvasBackgroundPainter extends CustomPainter {
     this.primaryColor = Colors.blue,
     this.secondaryColor = Colors.red,
     this.preview = false,
+    this.intensity = 0.0,
+    this.textureImage,
+    this.textureOpacity = 0.1,
+    this.textureBlendMode = BlendMode.multiply,
+    this.backgroundGradient,
+    this.vignetteIntensity = 0.0,
+    this.grainIntensity = 0.0,
   });
 
   final bool invert;
   final Color backgroundColor;
+  final double intensity;
 
   /// The pattern to use for the background. See [CanvasBackgroundPatterns].
   final CanvasBackgroundPattern backgroundPattern;
@@ -31,13 +41,82 @@ class CanvasBackgroundPainter extends CustomPainter {
   /// Whether to draw the background pattern in a preview mode (more opaque).
   final bool preview;
 
+  final ui.Image? textureImage;
+  final double textureOpacity;
+  final BlendMode textureBlendMode;
+
+  final List<Color>? backgroundGradient;
+  final double vignetteIntensity;
+  final double grainIntensity;
+
   @override
   void paint(Canvas canvas, Size size) {
     final canvasRect = Offset.zero & size;
     final paint = Paint();
 
     paint.color = backgroundColor.withInversion(invert);
+    
+    if (backgroundGradient != null && backgroundGradient!.isNotEmpty) {
+      final gradient = RadialGradient(
+        colors: backgroundGradient!.map((c) => c.withInversion(invert)).toList(),
+        center: Alignment.center,
+        radius: 1.2,
+      ).createShader(canvasRect);
+      paint.shader = gradient;
+    }
+    
     canvas.drawRect(canvasRect, paint);
+    paint.shader = null; // Reset shader for subsequent operations
+
+    if (textureImage != null) {
+      final imageRect = Offset.zero & size;
+      final texturePaint = Paint()
+        ..color = Colors.white.withValues(alpha: textureOpacity)
+        ..blendMode = textureBlendMode;
+      // Note: canvas.drawImage needs an ui.Image, not a Rect. 
+      // If we want to draw the image covering the rect, we should use drawImageRect.
+      canvas.drawImageRect(
+        textureImage!,
+        Rect.fromLTWH(0, 0, textureImage!.width.toDouble(), textureImage!.height.toDouble()),
+        imageRect,
+        texturePaint,
+      );
+    }
+
+    // 2. Dynamic Vignette
+    if (vignetteIntensity > 0) {
+      final vignettePaint = Paint()
+        ..shader = RadialGradient(
+          colors: [
+            Colors.transparent,
+            Colors.black.withValues(alpha: vignetteIntensity * 0.5),
+            Colors.black.withValues(alpha: vignetteIntensity),
+          ],
+          stops: const [0.6, 0.85, 1.0],
+        ).createShader(canvasRect)
+        ..blendMode = BlendMode.multiply;
+      canvas.drawRect(canvasRect, vignettePaint);
+    }
+
+    // 3. Ritual Grain (Custom implementation)
+    if (grainIntensity > 0) {
+      final grainPaint = Paint()
+        ..color = Colors.white.withValues(alpha: grainIntensity * 0.1)
+        ..style = PaintingStyle.fill;
+      
+      final random = Random(42);
+      for (int i = 0; i < 2000; i++) {
+        final x = random.nextDouble() * size.width;
+        final y = random.nextDouble() * size.height;
+        final dotSize = random.nextDouble() * 1.2;
+        
+        final dotColor = random.nextBool() 
+          ? Colors.black.withValues(alpha: grainIntensity) 
+          : Colors.white.withValues(alpha: grainIntensity);
+        
+        canvas.drawCircle(Offset(x, y), dotSize, grainPaint..color = dotColor);
+      }
+    }
 
     paint.strokeWidth = lineThickness.toDouble();
 
@@ -52,9 +131,13 @@ class CanvasBackgroundPainter extends CustomPainter {
       lineHeight: lineHeight,
     )) {
       if (element.secondaryColor) {
-        paint.color = (lineColor ?? secondaryColor).withValues(alpha: preview ? 0.5 : 0.2);
+        paint.color = (lineColor ?? secondaryColor).withValues(alpha: (preview ? 0.5 : 0.2) + (intensity * 0.3));
       } else {
-        paint.color = (lineColor ?? primaryColor).withValues(alpha: preview ? 0.5 : 0.2);
+        paint.color = (lineColor ?? primaryColor).withValues(alpha: (preview ? 0.5 : 0.2) + (intensity * 0.3));
+      }
+      
+      if (intensity > 0.5) {
+        paint.maskFilter = MaskFilter.blur(BlurStyle.normal, (intensity - 0.5) * 4.0); // Line glow at high intensity
       }
 
       if (element.isLine) {
@@ -78,7 +161,11 @@ class CanvasBackgroundPainter extends CustomPainter {
       oldDelegate.lineHeight != lineHeight ||
       oldDelegate.lineColor != lineColor ||
       oldDelegate.primaryColor != primaryColor ||
-      oldDelegate.secondaryColor != secondaryColor;
+      oldDelegate.secondaryColor != secondaryColor ||
+      oldDelegate.intensity != intensity ||
+      oldDelegate.textureImage != textureImage ||
+      oldDelegate.textureOpacity != textureOpacity ||
+      oldDelegate.textureBlendMode != textureBlendMode;
 
   static Iterable<PatternElement> getPatternElements({
     required CanvasBackgroundPattern pattern,

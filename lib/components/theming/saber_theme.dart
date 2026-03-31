@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:saber/components/theming/yaru_builder.dart';
 import 'package:saber/data/prefs.dart';
+import 'package:saber/devils_book/models/theme_preset.dart';
 import 'package:sbn/font_fallbacks.dart';
 import 'package:yaru/yaru.dart';
 
@@ -56,6 +57,26 @@ abstract class SaberTheme {
         seedColor: seedColor,
       );
     }
+    return createTheme(colorScheme, platform);
+  }
+
+  static ThemeData createThemeFromPreset(
+    ThemePreset preset,
+    TargetPlatform platform,
+  ) {
+    final brightnessValue = preset.backgroundColor.computeLuminance();
+    final brightness = brightnessValue > 0.5 ? Brightness.light : Brightness.dark;
+
+    final colorScheme = ColorScheme.fromSeed(
+      brightness: brightness,
+      seedColor: preset.accentGlow,
+      surface: preset.backgroundColor,
+      surfaceContainer: preset.surfaceColor,
+      primary: preset.accentGlow,
+      onSurface: brightnessValue > 0.5 ? Colors.black87 : Colors.white,
+      onPrimary: brightnessValue > 0.5 ? Colors.white : Colors.black,
+    );
+
     return createTheme(colorScheme, platform);
   }
 

@@ -28,7 +28,8 @@ String _prettyNum(double num) {
 class _SizePickerState extends State<SizePicker> {
   @override
   Widget build(BuildContext context) {
-    final colorScheme = ColorScheme.of(context);
+    const ritualGold = Color(0xFFD4AF37);
+
     return Flex(
       direction: widget.axis,
       mainAxisSize: .min,
@@ -38,12 +39,22 @@ class _SizePickerState extends State<SizePicker> {
             Text(
               t.editor.penOptions.size,
               style: TextStyle(
-                color: colorScheme.onSurface.withValues(alpha: 0.8),
-                fontSize: 10,
+                color: ritualGold.withOpacity(0.5),
+                fontSize: 8,
+                fontWeight: FontWeight.bold,
                 height: 1,
+                letterSpacing: 1.0,
               ),
             ),
-            Text(_prettyNum(widget.pen.options.size)),
+            const SizedBox(height: 2),
+            Text(
+              _prettyNum(widget.pen.options.size),
+              style: const TextStyle(
+                color: ritualGold,
+                fontSize: 12,
+                fontWeight: FontWeight.w900,
+              ),
+            ),
           ],
         ),
         const SizedBox(width: 8),
@@ -89,7 +100,9 @@ class _SizeSlider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colorScheme = ColorScheme.of(context);
+    const ritualGold = Color(0xFFD4AF37);
+    const ritualScarlet = Color(0xFFFF2200);
+
     return GestureDetector(
       onHorizontalDragStart: axis == Axis.horizontal
           ? (details) =>
@@ -116,8 +129,8 @@ class _SizeSlider extends StatelessWidget {
             minSize: pen.sizeMin,
             maxSize: pen.sizeMax,
             currentSize: pen.options.size,
-            trackColor: colorScheme.onSurface.withValues(alpha: 0.2),
-            thumbColor: colorScheme.primary,
+            trackColor: ritualGold.withOpacity(0.1),
+            thumbColor: ritualScarlet,
           ),
         ),
       ),

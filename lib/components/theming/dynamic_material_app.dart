@@ -11,6 +11,7 @@ import 'package:go_router/go_router.dart';
 import 'package:saber/components/theming/saber_theme.dart';
 import 'package:saber/components/theming/yaru_builder.dart';
 import 'package:saber/data/prefs.dart';
+import 'package:saber/devils_book/registry/devils_catalog.dart';
 import 'package:saber/i18n/extensions/redirecting_localization_delegate.dart';
 import 'package:saber/i18n/strings.g.dart';
 import 'package:window_manager/window_manager.dart';
@@ -90,6 +91,20 @@ class DynamicMaterialAppState extends State<DynamicMaterialApp>
     if ((chosenAccentColor?.a ?? 0) < double.minPositive)
       chosenAccentColor = null; // discard transparent accent color
     useListenable(stows.hyperlegibleFont);
+
+    final activeThemeId = useValueListenable(stows.activeThemeId);
+    final premiumTheme = DevilsCatalog.themes[activeThemeId];
+
+    if (premiumTheme != null) {
+      final themeData = SaberTheme.createThemeFromPreset(premiumTheme, platform);
+      return ExplicitlyThemedApp(
+        title: widget.title,
+        router: widget.router,
+        themeMode: ThemeMode.dark, // Most premium themes are dark-centric
+        theme: themeData,
+        darkTheme: themeData,
+      );
+    }
 
     // Use Yaru theme, with or without [chosenAccentColor]
     if (platform == .linux) {

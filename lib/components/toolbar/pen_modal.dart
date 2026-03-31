@@ -33,6 +33,9 @@ class _PenModalState extends State<PenModal> {
       return const SizedBox();
     }
 
+    const ritualGold = Color(0xFFD4AF37);
+    const ritualScarlet = Color(0xFFFF2200);
+
     return Flex(
       direction: axis,
       mainAxisAlignment: .center,
@@ -46,24 +49,27 @@ class _PenModalState extends State<PenModal> {
             }),
             style: TextButton.styleFrom(
               foregroundColor: Pen.currentPen.icon == Pen.fountainPenIcon
-                  ? ColorScheme.of(context).secondary
-                  : ColorScheme.of(context).onSurface,
+                  ? ritualScarlet
+                  : ritualGold.withOpacity(0.6),
               backgroundColor: Pen.currentPen.icon == Pen.fountainPenIcon
-                  ? Theme.of(
-                      context,
-                    ).colorScheme.secondary.withValues(alpha: 0.1)
+                  ? ritualScarlet.withOpacity(0.1)
                   : Colors.transparent,
-              shape: const CircleBorder(),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8),
+                side: BorderSide(
+                  color: Pen.currentPen.icon == Pen.fountainPenIcon ? ritualScarlet.withOpacity(0.3) : Colors.transparent,
+                ),
+              ),
             ),
             tooltip: t.editor.pens.fountainPen,
             icon: SvgPicture.asset(
               'assets/images/scribble_fountain.svg',
-              width: 32,
-              height: 32 / 508 * 374,
+              width: 28,
+              height: 28 / 508 * 374,
               theme: SvgTheme(
                 currentColor: Pen.currentPen.icon == Pen.fountainPenIcon
-                    ? ColorScheme.of(context).secondary
-                    : ColorScheme.of(context).onSurface,
+                    ? ritualScarlet
+                    : ritualGold,
               ),
             ),
           ),
@@ -74,24 +80,27 @@ class _PenModalState extends State<PenModal> {
             }),
             style: TextButton.styleFrom(
               foregroundColor: Pen.currentPen.icon == Pen.ballpointPenIcon
-                  ? ColorScheme.of(context).secondary
-                  : ColorScheme.of(context).onSurface,
+                  ? ritualScarlet
+                  : ritualGold.withOpacity(0.6),
               backgroundColor: Pen.currentPen.icon == Pen.ballpointPenIcon
-                  ? Theme.of(
-                      context,
-                    ).colorScheme.secondary.withValues(alpha: 0.1)
+                  ? ritualScarlet.withOpacity(0.1)
                   : Colors.transparent,
-              shape: const CircleBorder(),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8),
+                side: BorderSide(
+                  color: Pen.currentPen.icon == Pen.ballpointPenIcon ? ritualScarlet.withOpacity(0.3) : Colors.transparent,
+                ),
+              ),
             ),
             tooltip: t.editor.pens.ballpointPen,
             icon: SvgPicture.asset(
               'assets/images/scribble_ballpoint.svg',
-              width: 32,
-              height: 32 / 508 * 374,
+              width: 28,
+              height: 28 / 508 * 374,
               theme: SvgTheme(
                 currentColor: Pen.currentPen.icon == Pen.ballpointPenIcon
-                    ? ColorScheme.of(context).secondary
-                    : ColorScheme.of(context).onSurface,
+                    ? ritualScarlet
+                    : ritualGold,
               ),
             ),
           ),
@@ -102,17 +111,20 @@ class _PenModalState extends State<PenModal> {
             }),
             style: TextButton.styleFrom(
               foregroundColor: Pen.currentPen.icon == ShapePen.shapePenIcon
-                  ? ColorScheme.of(context).secondary
-                  : ColorScheme.of(context).onSurface,
+                  ? ritualScarlet
+                  : ritualGold.withOpacity(0.6),
               backgroundColor: Pen.currentPen.icon == ShapePen.shapePenIcon
-                  ? Theme.of(
-                      context,
-                    ).colorScheme.secondary.withValues(alpha: 0.1)
+                  ? ritualScarlet.withOpacity(0.1)
                   : Colors.transparent,
-              shape: const CircleBorder(),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8),
+                side: BorderSide(
+                  color: Pen.currentPen.icon == ShapePen.shapePenIcon ? ritualScarlet.withOpacity(0.3) : Colors.transparent,
+                ),
+              ),
             ),
             tooltip: t.editor.pens.shapePen,
-            icon: const FaIcon(ShapePen.shapePenIcon),
+            icon: const FaIcon(ShapePen.shapePenIcon, size: 20),
           ),
         ],
       ],

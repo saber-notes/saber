@@ -184,10 +184,10 @@ login:
     loggedIn: Nextcloud'a giriş yapıldı
   ncLoginStep:
     whereToStoreData: "Verilerinizi nerede saklamak istediğinizi seçin:"
-    devils bookNcServer: Devils Book'ın resmi Nextcloud sunucus
+    saberNcServer: Devils Book'ın resmi Nextcloud sunucus
     otherNcServer: Diğer Nextcloud sunucusu
     serverUrl: Sunucu URL'i
-    loginWithDevils Book: Devils Book ile giriş yap
+    loginWithSaber: Devils Book ile giriş yap
     loginWithNextcloud: Nextcloud ile giriş yap
     loginFlow:
       pleaseAuthorize: Lütfen Devils Book'ın Nextcloud hesabınıza erişmesine izin verin
@@ -195,7 +195,7 @@ login:
       browserDidntOpen: Giriş sayfası açılmadıysa buraya tıklayın
   encLoginStep:
     enterEncPassword: "Verilerinizi korumak için lütfen şifreleme parolanızı girin:"
-    newToDevils Book: Devils Book'da ilk seferiniz mi? Yeni bir şifreleme parolası girin.
+    newToSaber: Devils Book'da ilk seferiniz mi? Yeni bir şifreleme parolası girin.
     encPassword: Şifreleme parolası
     encFaqTitle: Sıkça sorulan sorular
     wrongEncPassword: Verilen parola ile şifre çözülemedi. Lütfen parolayı tekrar girin.

@@ -83,6 +83,7 @@ class _SyncingButtonState extends State<SyncingButton> {
 
   @override
   Widget build(BuildContext context) {
+    const ritualGold = Color(0xFFD4AF37);
     final percentage = getPercentage();
 
     return IconButton(
@@ -91,13 +92,13 @@ class _SyncingButtonState extends State<SyncingButton> {
           : SyncingButton.forceButtonActive
           ? () {}
           : null,
-      padding: const .all(4),
+      padding: const EdgeInsets.all(4),
       constraints: const BoxConstraints(
         minWidth: kMinInteractiveDimension,
         minHeight: kMinInteractiveDimension,
       ),
       icon: Stack(
-        alignment: .center,
+        alignment: Alignment.center,
         children: [
           Positioned.fill(
             child: AnimatedOpacity(
@@ -109,13 +110,16 @@ class _SyncingButtonState extends State<SyncingButton> {
               ),
             ),
           ),
-          const Padding(
-            padding: .all(4),
+          Padding(
+            padding: const EdgeInsets.all(4),
             child: AspectRatio(
               aspectRatio: 1,
-              child: AdaptiveIcon(
-                icon: Icons.sync,
-                cupertinoIcon: CupertinoIcons.arrow_2_circlepath,
+              child: IconTheme(
+                data: const IconThemeData(color: ritualGold),
+                child: const AdaptiveIcon(
+                  icon: Icons.sync,
+                  cupertinoIcon: CupertinoIcons.arrow_2_circlepath,
+                ),
               ),
             ),
           ),
@@ -163,6 +167,7 @@ class _AnimatedCircularProgressIndicatorState
 
   @override
   Widget build(BuildContext context) {
+    const ritualGold = Color(0xFFD4AF37);
     double? percentage = _valueTween?.evaluate(animation);
     if (percentage == 0 && widget.percentage == null) {
       percentage = null;
@@ -170,6 +175,9 @@ class _AnimatedCircularProgressIndicatorState
     return CircularProgressIndicator(
       semanticsLabel: 'Syncing progress',
       value: percentage,
+      color: ritualGold,
+      backgroundColor: ritualGold.withOpacity(0.1),
+      strokeWidth: 3.0,
     );
   }
 }

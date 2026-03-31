@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../models/notebook_template.dart';
 import '../packs/builtin/notebook_packs.dart';
+import '../packs/builtin/mystic_notebooks.dart';
 
 /// A bottom sheet presenting notebook templates grouped by pack family.
 class NotebookTemplateSelectorSheet extends StatelessWidget {
@@ -16,6 +17,9 @@ class NotebookTemplateSelectorSheet extends StatelessWidget {
       'Heritage': HeritageNotebookPack.templates,
       'Infernal': InfernalNotebookPack.templates,
       'Cyber': CyberNotebookPack.templates,
+      'Ethereal': EtherealNotebookPack.templates,
+      'Elemental': ElementalNotebookPack.templates,
+      'Mystic': MysticNotebookPack.templates,
     };
 
     return Container(

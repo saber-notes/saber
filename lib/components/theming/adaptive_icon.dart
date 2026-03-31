@@ -7,19 +7,21 @@ class AdaptiveIcon extends StatelessWidget {
     required this.icon,
     required this.cupertinoIcon,
     this.size,
+    this.color,
   });
 
   final IconData icon;
   final IconData? cupertinoIcon;
   final double? size;
+  final Color? color;
 
   @override
   Widget build(BuildContext context) {
     final platform = Theme.of(context).platform;
     if (platform.isCupertino) {
-      return Icon(cupertinoIcon ?? icon, size: size);
+      return Icon(cupertinoIcon ?? icon, size: size, color: color);
     } else {
-      return Icon(icon, size: size);
+      return Icon(icon, size: size, color: color);
     }
   }
 }

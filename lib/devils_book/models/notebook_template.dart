@@ -27,6 +27,7 @@ class PageTemplate {
   final Color backgroundColor;
   final CanvasBackgroundPattern pattern;
   final Color lineColor;
+  final String? texturePath;
   final String? description;
 
   PageTemplate({
@@ -35,6 +36,7 @@ class PageTemplate {
     required this.backgroundColor,
     this.pattern = CanvasBackgroundPattern.none,
     this.lineColor = const Color(0x33888888),
+    this.texturePath,
     this.description,
   });
 }
