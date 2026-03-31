@@ -15,6 +15,7 @@ class SqueezePalette extends StatelessWidget {
   final VoidCallback onStartSession;
   final VoidCallback onTriggerReplay;
   final VoidCallback onTriggerExport;
+  final VoidCallback onSelectTemplate;
   final String currentModeName;
   
   const SqueezePalette({
@@ -32,6 +33,7 @@ class SqueezePalette extends StatelessWidget {
     required this.onStartSession,
     required this.onTriggerReplay,
     required this.onTriggerExport,
+    required this.onSelectTemplate,
     required this.currentModeName,
   }) : super(key: key);
 
@@ -128,6 +130,14 @@ class SqueezePalette extends StatelessWidget {
                       tooltip: 'Paper & Atmosphere',
                       onTap: () {
                         onSelectTheme();
+                        controller.hide();
+                      },
+                    ),
+                    _buildItem(
+                      icon: Icons.library_books,
+                      tooltip: 'Ready Papers (Templates)',
+                      onTap: () {
+                        onSelectTemplate();
                         controller.hide();
                       },
                     ),

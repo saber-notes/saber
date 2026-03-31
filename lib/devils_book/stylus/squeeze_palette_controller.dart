@@ -17,11 +17,15 @@ class SqueezePaletteController extends ChangeNotifier {
     }
   }
 
+  static bool isDevTriggerActive = false;
+
   void toggleDevTrigger(Size screenSize) {
     if (isVisible) {
       hide();
+      isDevTriggerActive = false;
     } else {
       showAt(Offset(screenSize.width / 2, screenSize.height / 2));
+      isDevTriggerActive = true;
     }
   }
 }

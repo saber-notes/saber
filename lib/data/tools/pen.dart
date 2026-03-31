@@ -79,8 +79,13 @@ class Pen extends Tool {
     Offset position,
     EditorPage page,
     int pageIndex,
-    double? pressure,
-  ) {
+    double? pressure, {
+    double? shimmerIntensity,
+    Color? shimmerColor,
+    double? sheenIntensity,
+    Color? sheenColor,
+    double? shadingAmount,
+  }) {
     currentStroke = Stroke(
       color: color,
       pressureEnabled: pressureEnabled,
@@ -88,6 +93,11 @@ class Pen extends Tool {
       pageIndex: pageIndex,
       page: page,
       toolId: toolId,
+      shimmerIntensity: shimmerIntensity ?? 0.0,
+      shimmerColor: shimmerColor,
+      sheenIntensity: sheenIntensity ?? 0.0,
+      sheenColor: sheenColor,
+      shadingAmount: shadingAmount ?? 0.0,
     );
     onDragUpdate(position, pressure);
   }

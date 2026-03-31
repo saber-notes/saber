@@ -47,7 +47,7 @@ class _LiveEffectOverlayState extends State<LiveEffectOverlay> with SingleTicker
       child: AnimatedBuilder(
         animation: Listenable.merge([widget.engine, widget.writingModeState]),
         builder: (context, child) {
-          if (widget.engine.particles.isEmpty || !widget.writingModeState.currentMode.fxEnabled) {
+          if (widget.engine.particles.isEmpty && widget.engine.impactFlashes.isEmpty && !widget.writingModeState.currentMode.fxEnabled) {
             return const SizedBox.shrink();
           }
           
@@ -70,6 +70,20 @@ class _EffectPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final now = DateTime.now();
+
+    // DEVILS BOOK: Impact Flashes
+    for (final f in engine.impactFlashes) {
+       final ageMs = now.difference(f.spawnTime).inMilliseconds;
+       final ratio = (1.0 - (ageMs / 200.0)).clamp(0.0, 1.0);
+       
+       final paint = Paint()
+         ..color = f.color.withOpacity(ratio * 0.6)
+         ..maskFilter = MaskFilter.blur(BlurStyle.normal, 15.0 * ratio)
+         ..style = PaintingStyle.fill;
+         
+       canvas.drawCircle(f.position, f.initialSize * (1.0 + (1.0 - ratio)), paint);
+    }
+
     final cooldownMs = (engine.activePreset?.cooldownMs ?? 800) * mode.cooldownMultiplier;
 
     for (final p in engine.particles) {
@@ -85,6 +99,26 @@ class _EffectPainter extends CustomPainter {
         ..style = PaintingStyle.fill;
         
       canvas.drawCircle(p.position, currentSize, paint);
+    }
+
+    // DEVILS BOOK: Atmospheric Aura (Vignette)
+    if (engine.auraIntensity > 0.05) {
+      final color = engine.activePreset?.ignitionColor ?? Colors.orange;
+      final opacity = (engine.auraIntensity * 0.3).clamp(0.0, 0.4);
+      
+      final rect = Offset.zero & size;
+      final Paint auraPaint = Paint()
+        ..shader = RadialGradient(
+          colors: [
+            color.withOpacity(0.0),
+            color.withOpacity(opacity * 0.5),
+            color.withOpacity(opacity),
+          ],
+          stops: const [0.6, 0.85, 1.0],
+        ).createShader(rect)
+        ..blendMode = BlendMode.screen;
+      
+      canvas.drawRect(rect, auraPaint);
     }
   }
 

@@ -20,7 +20,7 @@ home:
   create:
     newNote: Yeni not
     importNote: Notu içeri aktar
-  welcome: Saber'a hoş geldiniz
+  welcome: Devils Book'a hoş geldiniz
   invalidFormat: Seçtiğiniz dosya desteklenmiyor. Lütfen bir .sbn, .sbn2, .sba veya .pdf dosyası seçin.
   noFiles: Dosya yok
   createNewNote: Yeni bir not oluşturmak için + butonuna tıklayınız
@@ -74,7 +74,7 @@ sentry:
       yes(OUTDATED): Evet
       no(OUTDATED): HAYIR
       later(OUTDATED): Bana sonra sor
-    title(OUTDATED): Saber geliştirmeye yardımcı olur mu?
+    title(OUTDATED): Devils Book geliştirmeye yardımcı olur mu?
 settings:
   prefCategories:
     general: Genel
@@ -89,7 +89,7 @@ settings:
     layoutSize: Yerleşim tipi
     customAccentColor: Farklı ana renk
     hyperlegibleFont: Hyperlegible font
-    shouldCheckForUpdates: Otomatik olarak Saber güncellemelerini kontrol et
+    shouldCheckForUpdates: Otomatik olarak Devils Book güncellemelerini kontrol et
     shouldAlwaysAlertForUpdates: Hızlı güncellemeler
     allowInsecureConnections: Güvensiz bağlantılara izin ver
     editorToolbarAlignment: Editör araç çubuğunun yerleşimi
@@ -107,13 +107,13 @@ settings:
     shapeRecognitionDelay: Şekil tanıma gecikmesi
     autoStraightenLines: Çizgileri otomatik düzleştir
     simplifiedHomeLayout: Sadeleştirilmiş ana ekran düzeni
-    customDataDir: Özel Saber klasörü
+    customDataDir: Özel Devils Book klasörü
     autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Parmak çizimini otomatik olarak devre dışı bırak
     sentry(OUTDATED): Hata raporlama
     autosave(OUTDATED): Otomatik koruma
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible, görme sorunu yaşayanların okumasını kolaylaştıran bir fonttur
-    allowInsecureConnections: (Önerilmez) Saber'ın kendinden imzalı/güvensiz sertifika kullanan sunuculara bağlanmasına izin verir
+    allowInsecureConnections: (Önerilmez) Devils Book'ın kendinden imzalı/güvensiz sertifika kullanan sunuculara bağlanmasına izin verir
     preferGreyscale: E-mürekkep ekranlar için
     autoClearWhiteboardOnExit: Diğer cihazlarınıza senkronize edilmeye devam edecek
     disableEraserAfterUse: Silgiyi kullandıktan sonra otomatik olarak kaleme geçer
@@ -155,7 +155,7 @@ settings:
     title: Ayarı sıfırlamak istiyor musunuz?
     button: Sıfırla
   resyncEverything: Her şeyi yeniden senkronize et
-  openDataDir: Saber klasörünü aç
+  openDataDir: Devils Book klasörünü aç
   customDataDir:
     cancel: İptal
     select: Seç
@@ -184,18 +184,18 @@ login:
     loggedIn: Nextcloud'a giriş yapıldı
   ncLoginStep:
     whereToStoreData: "Verilerinizi nerede saklamak istediğinizi seçin:"
-    saberNcServer: Saber'ın resmi Nextcloud sunucus
+    devils bookNcServer: Devils Book'ın resmi Nextcloud sunucus
     otherNcServer: Diğer Nextcloud sunucusu
     serverUrl: Sunucu URL'i
-    loginWithSaber: Saber ile giriş yap
+    loginWithDevils Book: Devils Book ile giriş yap
     loginWithNextcloud: Nextcloud ile giriş yap
     loginFlow:
-      pleaseAuthorize: Lütfen Saber'ın Nextcloud hesabınıza erişmesine izin verin
+      pleaseAuthorize: Lütfen Devils Book'ın Nextcloud hesabınıza erişmesine izin verin
       followPrompts: Lütfen Nextcloud arayüzündeki aşamaları takip edin
       browserDidntOpen: Giriş sayfası açılmadıysa buraya tıklayın
   encLoginStep:
     enterEncPassword: "Verilerinizi korumak için lütfen şifreleme parolanızı girin:"
-    newToSaber: Saber'da ilk seferiniz mi? Yeni bir şifreleme parolası girin.
+    newToDevils Book: Devils Book'da ilk seferiniz mi? Yeni bir şifreleme parolası girin.
     encPassword: Şifreleme parolası
     encFaqTitle: Sıkça sorulan sorular
     wrongEncPassword: Verilen parola ile şifre çözülemedi. Lütfen parolayı tekrar girin.
@@ -209,7 +209,7 @@ login:
     - q: Henüz bir şifreleme parolası belirlemedim. Nereden alacağım?
       a: |-
         Yeni bir şifreleme parolası belirleyip yukarıya yazın.
-        Saber şifreleme anahtarını bu parolayı kullanarak üretecek.
+        Devils Book şifreleme anahtarını bu parolayı kullanarak üretecek.
     - q: Nextcloud parolamla şifreleme parolam aynı olabilir mi?
       a: Evet fakat unutmayın ki bu durumda Nextcloud parolanıza sahip herhangi birisi notlarınıza da erişebilir.
 profile:
@@ -225,21 +225,21 @@ profile:
   - q: Çıkış yaparsam notlarımı kaybedecek miyim?
     a: Hayır. Notlarınız hem cihazınızda hem de sunucuda tutuluyor olacak. Siz tekrardan giriş yapana dek notlarınız senkronize edilmeyecek. Veri kaybı yaşamamak için çıkış yapmadan önce senkronizasyonun tamamlandığından emin olun (ana sayfada senkronizasyon ilerlemesini görebilirsiniz).
   - q: Nextcloud parolamı nasıl değiştirebilirim?
-    a: Sunucu websitesine gidin ve hesabınıza giriş yapın. Arayüzde Ayarlar > Güvenlik > Parola değiştir yolunu takip edin. Parolanızı değiştirdikten sonra Saber'dan çıkış yapıp tekrardan giriş yapmanız gerekecek.
+    a: Sunucu websitesine gidin ve hesabınıza giriş yapın. Arayüzde Ayarlar > Güvenlik > Parola değiştir yolunu takip edin. Parolanızı değiştirdikten sonra Devils Book'dan çıkış yapıp tekrardan giriş yapmanız gerekecek.
   - q: Şifreleme parolamı nasıl değiştirebilirim?
     a: |-
-      "1. Saber'dan çıkış yap. Veri kaybı yaşamamak için çıkış yapmadan önce senkronizasyonun tamamlandığından emin olun (ana sayfada senkronizasyon ilerlemesini görebilirsiniz)."
-      2. Sunucu websitesine gidin ve 'Saber' klasörünü silin. Bu sunucudaki tüm notları silecek.
-      "3. Saber'a giriş yap. Tekrar giriş yaparken yeni şifreleme parolanızı belirleyebilirsiniz.
-      4. Diğer cihazlarınızda da Saber'dan çıkış yapıp tekrar giriş yapmayı unutmayın.
+      "1. Devils Book'dan çıkış yap. Veri kaybı yaşamamak için çıkış yapmadan önce senkronizasyonun tamamlandığından emin olun (ana sayfada senkronizasyon ilerlemesini görebilirsiniz)."
+      2. Sunucu websitesine gidin ve 'Devils Book' klasörünü silin. Bu sunucudaki tüm notları silecek.
+      "3. Devils Book'a giriş yap. Tekrar giriş yaparken yeni şifreleme parolanızı belirleyebilirsiniz.
+      4. Diğer cihazlarınızda da Devils Book'dan çıkış yapıp tekrar giriş yapmayı unutmayın.
   - q: Hesabımı nasıl silebilirim?
     a: |-
       Üstte yer alan "@:profile.quickLinks.deleteAccount" butonuna tıklayın, gerekirse giriş yapın.
-      Eğer resmi Saber sunucusunu kullanıyorsanız hesabınız 1 haftalık bekleme süresinden sonra silinecek. adilhanney@disroot.org adresinden benimle iletişime geçerek silinme talebini iptal edebilirsiniz.
+      Eğer resmi Devils Book sunucusunu kullanıyorsanız hesabınız 1 haftalık bekleme süresinden sonra silinecek. adilhanney@disroot.org adresinden benimle iletişime geçerek silinme talebini iptal edebilirsiniz.
       Eğer üçüncü parti bir sunucu kullanıyorsanız hesabınızı silme seçeneği sunulmuyor olabilir: daha fazla bilgi için ilgili sunucunun gizlilik politikasını inceleyin.
 appInfo:
   licenseNotice: |-
-    Saber  Copyright © 2022-$buildYear  Adil Hanney
+    Devils Book  Copyright © 2022-$buildYear  Adil Hanney
     Bu program hiçbir şeyi garanti etmez ve güvence vermez.
     Bu program özgür (free) bir yazılımdır ve belli koşullar sağlandığında yeniden dağıtıma müsaittir.
   debug: DEBUG
@@ -344,7 +344,7 @@ editor:
     watchingServer(OUTDATED): Şu anda sunucudaki güncellemeleri izliyorsunuz. Bu modda düzenleme devre dışı bırakılır.
     corrupted(OUTDATED): Not yüklenemedi. Bozulmuş veya hâlâ indiriliyor olabilir.
   versionTooNew:
-    title: Bu not Saber'ın yeni bir versiyonunda düzenlenmiş
+    title: Bu not Devils Book'ın yeni bir versiyonunda düzenlenmiş
     subtitle: Bu notu düzenlemek veri kaybına sebep olabilir. Bunu görmezden gelerek düzenlemek ister misiniz?
     allowEditing: Düzenlemeye izin ver
   quill:

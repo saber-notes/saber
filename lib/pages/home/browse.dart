@@ -112,11 +112,11 @@ class _BrowsePageState extends State<BrowsePage> {
 
   @override
   Widget build(BuildContext context) {
-    final colorScheme = ColorScheme.of(context);
     final platform = Theme.of(context).platform;
     final crossAxisCount = MediaQuery.sizeOf(context).width ~/ 300 + 1;
 
     return Scaffold(
+      backgroundColor: const Color(0xFF0D0D0D), // Hades Background
       body: RefreshIndicator(
         onRefresh: () => Future.wait([
           findChildrenOfPath(),
@@ -130,9 +130,9 @@ class _BrowsePageState extends State<BrowsePage> {
               pinned: true,
               scrolledUnderElevation: 1,
               flexibleSpace: FlexibleSpaceBar(
-                title: Text(
-                  t.home.titles.browse,
-                  style: TextStyle(color: colorScheme.onSurface),
+                title: const Text(
+                  'GRIMOIRE',
+                  style: TextStyle(color: Color(0xFFD4AF37), fontWeight: FontWeight.bold, letterSpacing: 4.0),
                 ),
                 centerTitle: false,
                 titlePadding: const EdgeInsetsDirectional.only(
@@ -141,6 +141,8 @@ class _BrowsePageState extends State<BrowsePage> {
                 ),
               ),
               actions: const [SyncingButton()],
+              backgroundColor: const Color(0xFF050505),
+              shape: const Border(bottom: BorderSide(color: Color(0xFFD4AF37), width: 1.5)),
             ),
             SliverToBoxAdapter(
               child: PathComponents(

@@ -1,59 +1,69 @@
 import 'package:flutter/material.dart';
 
-/// Categories for organizing and filtering elements in the selector.
-enum SealCategory {
-  seal,
-  signature,
-  sigil,
-  marker,
-  stamp,
-  symbol,
+enum RelicType {
+  seal(label: 'Ritual Seal'),
+  signature(label: 'Signature'),
+  sigil(label: 'Sigil'),
+  pentagram(label: 'Pentagram'),
+  alchemy(label: 'Alchemic Symbol'),
+  rune(label: 'Rune'),
+  stamp(label: 'Stamp'),
+  marker(label: 'Marker'),
+  symbol(label: 'Symbol');
+
+  final String label;
+  const RelicType({required this.label});
 }
 
-/// Represents a reusable "Seal", "Signature", "Sigil", or "Symbol" inside Devils Book.
-/// Unlike transient Live FX, Relics are permanent, manipulable document assets.
+enum SealCategory {
+  ritual,
+  cleric,
+  alchemist,
+  voidWalker,
+  ancient,
+  favorites,
+  seal,
+  signature,
+  stamp,
+  marker,
+  sigil,
+  symbol
+}
+
 class RelicElement {
   final String id;
   final String name;
-  final String assetPath;
-  final bool isVector;
-
-  /// Visual category for filtering and display.
+  final RelicType type;
   final SealCategory category;
-
-  /// The icon codepoint to display when the real asset is unavailable.
-  final IconData fallbackIcon;
-
-  /// Optional pack ID for grouping in selectors.
-  final String? packId;
-
-  /// Short description of the element's purpose.
+  
+  /// Asset path to the SVG/Image represention of the relic.
+  final String assetPath;
+  
+  /// Default size for insertion.
+  final Size defaultSize;
+  
+  /// The color to tint this relic with when inserted.
+  final Color? defaultTint;
+  
+  /// Flavor text describing the relic's "power" or "focus".
   final String? description;
-
-  /// Whether the user has marked this as a favorite.
+  final IconData? fallbackIcon;
   bool isFavorite;
+  
+  /// Pack ID for grouping in selectors.
+  final String? packId;
 
   RelicElement({
     required this.id,
     required this.name,
+    required this.type,
+    required this.category,
     required this.assetPath,
-    this.isVector = true,
-    this.category = SealCategory.seal,
-    this.fallbackIcon = Icons.local_fire_department,
-    this.packId,
+    this.defaultSize = const Size(150, 150),
+    this.defaultTint,
     this.description,
+    this.fallbackIcon,
     this.isFavorite = false,
-  });
-}
-
-class RelicCollection {
-  final String id;
-  final String name;
-  final List<RelicElement> elements;
-
-  RelicCollection({
-    required this.id,
-    required this.name,
-    required this.elements,
+    this.packId,
   });
 }

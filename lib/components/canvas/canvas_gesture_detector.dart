@@ -200,6 +200,15 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
       ..scaleByDouble(newScale, newScale, newScale, 1);
   }
 
+  int get currentPageIndex {
+    final scrollY = widget._transformationController.value.getTranslation().y;
+    return CanvasGestureDetector.getPageIndex(
+      scrollY: -scrollY,
+      pages: widget.pages,
+      screenWidth: MediaQuery.sizeOf(context).width,
+    );
+  }
+
   final Map<AxisDirection, Timer> _arrowKeyPanTimers = {};
   void arrowKeyPan(AxisDirection direction, bool pressed) {
     _arrowKeyPanTimers.remove(direction)?.cancel();

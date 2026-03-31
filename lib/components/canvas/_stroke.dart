@@ -32,6 +32,13 @@ class Stroke {
   bool pressureEnabled;
   final StrokeOptions options;
 
+  // DEVILS BOOK: Material Properties
+  double shimmerIntensity;
+  Color? shimmerColor;
+  double sheenIntensity;
+  Color? sheenColor;
+  double shadingAmount;
+
   List<Offset>? _lowQualityPolygon, _highQualityPolygon;
   List<Offset> get lowQualityPolygon =>
       _lowQualityPolygon ??= getPolygon(quality: .low);
@@ -67,6 +74,11 @@ class Stroke {
     required this.pageIndex,
     required this.page,
     required this.toolId,
+    this.shimmerIntensity = 0.0,
+    this.shimmerColor,
+    this.sheenIntensity = 0.0,
+    this.sheenColor,
+    this.shadingAmount = 0.0,
   });
 
   factory Stroke.fromJson(
@@ -146,6 +158,11 @@ class Stroke {
       pageIndex: pageIndex,
       page: page,
       toolId: toolId,
+      shimmerIntensity: (json['shm'] as num?)?.toDouble() ?? 0.0,
+      shimmerColor: json['shmc'] != null ? Color(json['shmc'] as int) : null,
+      sheenIntensity: (json['shn'] as num?)?.toDouble() ?? 0.0,
+      sheenColor: json['shnc'] != null ? Color(json['shnc'] as int) : null,
+      shadingAmount: (json['shd'] as num?)?.toDouble() ?? 0.0,
     )..points.addAll(points);
   }
   Map<String, dynamic> toJson() {
@@ -160,6 +177,11 @@ class Stroke {
       'ty': toolId.id,
       'pe': pressureEnabled,
       'c': color.toARGB32(),
+      'shm': shimmerIntensity,
+      'shmc': shimmerColor?.toARGB32(),
+      'shn': sheenIntensity,
+      'shnc': sheenColor?.toARGB32(),
+      'shd': shadingAmount,
     }..addAll(options.toJson());
   }
 
@@ -406,6 +428,11 @@ class Stroke {
     pageIndex: pageIndex,
     page: page,
     toolId: toolId,
+    shimmerIntensity: shimmerIntensity,
+    shimmerColor: shimmerColor,
+    sheenIntensity: sheenIntensity,
+    sheenColor: sheenColor,
+    shadingAmount: shadingAmount,
   )..points.addAll(points);
 }
 

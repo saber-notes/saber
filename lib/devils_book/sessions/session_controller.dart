@@ -1,55 +1,72 @@
-import 'package:flutter/foundation.dart';
-import 'session_models.dart';
+import 'package:flutter/material.dart';
+import 'dart:async';
 
-/// Manages the session lifecycle: start, track, end, summarize.
+enum SessionType {
+  focus(label: 'Focus Ritual'),
+  deep(label: 'Deep Communion'),
+  quick(label: 'Quick Invocation');
+
+  final String label;
+  const SessionType({required this.label});
+}
+
+class SessionConfig {
+  final SessionType type;
+  final Duration duration;
+
+  SessionConfig({required this.type, required this.duration});
+}
+
 class SessionController extends ChangeNotifier {
   static final SessionController _instance = SessionController._internal();
   factory SessionController() => _instance;
   SessionController._internal();
 
-  ActiveSession? _current;
-  final List<SessionSummary> _history = [];
+  bool _isActive = false;
+  bool get isActive => _isActive;
 
-  ActiveSession? get current => _current;
-  bool get isActive => _current != null;
-  List<SessionSummary> get history => List.unmodifiable(_history);
+  SessionConfig? _currentConfig;
+  SessionConfig? get currentConfig => _currentConfig;
 
-  /// Start a new session. Ends any existing one first.
-  SessionSummary? startSession(SessionConfig config) {
-    SessionSummary? previousSummary;
-    if (_current != null) {
-      previousSummary = endSession();
-    }
-    _current = ActiveSession(config: config);
+  Duration _elapsed = Duration.zero;
+  Duration get elapsed => _elapsed;
+  
+  int _strokesRecorded = 0;
+  int get strokesRecorded => _strokesRecorded;
+
+  Timer? _timer;
+
+  void startSession(SessionConfig config) {
+    _isActive = true;
+    _currentConfig = config;
+    _elapsed = Duration.zero;
+    _strokesRecorded = 0;
+    
+    _timer?.cancel();
+    _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
+      _elapsed += const Duration(seconds: 1);
+      notifyListeners();
+    });
+    
     notifyListeners();
-    return previousSummary;
   }
 
-  /// Record a stroke event in the active session.
+  void stopSession() {
+    _isActive = false;
+    _timer?.cancel();
+    notifyListeners();
+  }
+
   void recordStroke() {
-    _current?.recordStroke();
+    if (_isActive) {
+      _strokesRecorded++;
+      notifyListeners();
+    }
   }
 
-  /// Record a page visit in the active session.
-  void recordPageVisit() {
-    _current?.recordPageVisit();
-  }
-
-  /// End the current session and produce a summary.
-  SessionSummary? endSession() {
-    if (_current == null) return null;
-
-    final summary = SessionSummary(
-      type: _current!.config.type,
-      startTime: _current!.startTime,
-      endTime: DateTime.now(),
-      strokeCount: _current!.strokeCount,
-      pagesSeen: _current!.pagesSeen,
-    );
-
-    _history.add(summary);
-    _current = null;
-    notifyListeners();
-    return summary;
+  @override
+  void dispose() {
+    _timer?.cancel();
+    super.dispose();
   }
 }

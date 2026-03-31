@@ -10,6 +10,7 @@ class CanvasBackgroundPainter extends CustomPainter {
     this.backgroundPattern = .none,
     required this.lineHeight,
     required this.lineThickness,
+    this.lineColor,
     this.primaryColor = Colors.blue,
     this.secondaryColor = Colors.red,
     this.preview = false,
@@ -24,6 +25,7 @@ class CanvasBackgroundPainter extends CustomPainter {
   /// The height between each line in the background pattern
   final int lineHeight;
   final int lineThickness;
+  final Color? lineColor;
   final Color primaryColor, secondaryColor;
 
   /// Whether to draw the background pattern in a preview mode (more opaque).
@@ -50,9 +52,9 @@ class CanvasBackgroundPainter extends CustomPainter {
       lineHeight: lineHeight,
     )) {
       if (element.secondaryColor) {
-        paint.color = secondaryColor.withValues(alpha: preview ? 0.5 : 0.2);
+        paint.color = (lineColor ?? secondaryColor).withValues(alpha: preview ? 0.5 : 0.2);
       } else {
-        paint.color = primaryColor.withValues(alpha: preview ? 0.5 : 0.2);
+        paint.color = (lineColor ?? primaryColor).withValues(alpha: preview ? 0.5 : 0.2);
       }
 
       if (element.isLine) {
@@ -74,6 +76,7 @@ class CanvasBackgroundPainter extends CustomPainter {
       oldDelegate.backgroundColor != backgroundColor ||
       oldDelegate.backgroundPattern != backgroundPattern ||
       oldDelegate.lineHeight != lineHeight ||
+      oldDelegate.lineColor != lineColor ||
       oldDelegate.primaryColor != primaryColor ||
       oldDelegate.secondaryColor != secondaryColor;
 

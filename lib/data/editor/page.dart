@@ -50,7 +50,7 @@ class EditorPage extends ChangeNotifier implements HasSize {
   final List<EditorImage> images;
   final QuillStruct quill;
 
-  final PageStyle style;
+  PageStyle style;
 
   EditorImage? backgroundImage;
 

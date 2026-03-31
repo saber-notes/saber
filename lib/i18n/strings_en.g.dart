@@ -77,8 +77,8 @@ class TranslationsHomeEn {
 	late final TranslationsHomeTooltipsEn tooltips = TranslationsHomeTooltipsEn.internal(_root);
 	late final TranslationsHomeCreateEn create = TranslationsHomeCreateEn.internal(_root);
 
-	/// en: 'Welcome to Saber'
-	String get welcome => 'Welcome to Saber';
+	/// en: 'Welcome to Devils Book'
+	String get welcome => 'Welcome to Devils Book';
 
 	/// en: 'The file you selected is not supported. Please select an sbn, sbn2, sba, or pdf file.'
 	String get invalidFormat => 'The file you selected is not supported. Please select an sbn, sbn2, sba, or pdf file.';
@@ -144,8 +144,8 @@ class TranslationsSettingsEn {
 	/// en: 'Resync everything'
 	String get resyncEverything => 'Resync everything';
 
-	/// en: 'Open Saber folder'
-	String get openDataDir => 'Open Saber folder';
+	/// en: 'Open Devils Book folder'
+	String get openDataDir => 'Open Devils Book folder';
 
 	late final TranslationsSettingsCustomDataDirEn customDataDir = TranslationsSettingsCustomDataDirEn.internal(_root);
 
@@ -253,8 +253,8 @@ class TranslationsAppInfoEn {
 
 	// Translations
 
-	/// en: 'Saber Copyright © 2022-$buildYear Adil Hanney This program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.'
-	String licenseNotice({required Object buildYear}) => 'Saber  Copyright © 2022-${buildYear}  Adil Hanney\nThis program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.';
+	/// en: 'Devils Book Copyright © 2022-$buildYear Adil Hanney This program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.'
+	String licenseNotice({required Object buildYear}) => 'Devils Book  Copyright © 2022-${buildYear}  Adil Hanney\nThis program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.';
 
 	/// en: 'DEBUG'
 	String get debug => 'DEBUG';
@@ -537,8 +537,8 @@ class TranslationsSentryConsentEn {
 
 	// Translations
 
-	/// en: 'Help improve Saber?'
-	String get title => 'Help improve Saber?';
+	/// en: 'Help improve Devils Book?'
+	String get title => 'Help improve Devils Book?';
 
 	late final TranslationsSentryConsentDescriptionEn description = TranslationsSentryConsentDescriptionEn.internal(_root);
 	late final TranslationsSentryConsentAnswersEn answers = TranslationsSentryConsentAnswersEn.internal(_root);
@@ -594,8 +594,8 @@ class TranslationsSettingsPrefLabelsEn {
 	/// en: 'Atkinson Hyperlegible font'
 	String get hyperlegibleFont => 'Atkinson Hyperlegible font';
 
-	/// en: 'Check for Saber updates'
-	String get shouldCheckForUpdates => 'Check for Saber updates';
+	/// en: 'Check for Devils Book updates'
+	String get shouldCheckForUpdates => 'Check for Devils Book updates';
 
 	/// en: 'Faster updates'
 	String get shouldAlwaysAlertForUpdates => 'Faster updates';
@@ -654,8 +654,8 @@ class TranslationsSettingsPrefLabelsEn {
 	/// en: 'Simplified home layout'
 	String get simplifiedHomeLayout => 'Simplified home layout';
 
-	/// en: 'Custom Saber folder'
-	String get customDataDir => 'Custom Saber folder';
+	/// en: 'Custom Devils Book folder'
+	String get customDataDir => 'Custom Devils Book folder';
 
 	/// en: 'Error reporting'
 	String get sentry => 'Error reporting';
@@ -672,8 +672,8 @@ class TranslationsSettingsPrefDescriptionsEn {
 	/// en: 'Increases legibility for users with low vision'
 	String get hyperlegibleFont => 'Increases legibility for users with low vision';
 
-	/// en: '(Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates'
-	String get allowInsecureConnections => '(Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates';
+	/// en: '(Not recommended) Allow Devils Book to connect to servers with self-signed/untrusted certificates'
+	String get allowInsecureConnections => '(Not recommended) Allow Devils Book to connect to servers with self-signed/untrusted certificates';
 
 	/// en: 'For e-ink displays'
 	String get preferGreyscale => 'For e-ink displays';
@@ -854,8 +854,8 @@ class TranslationsLoginNcLoginStepEn {
 	/// en: 'Choose where you want to store your data:'
 	String get whereToStoreData => 'Choose where you want to store your data:';
 
-	/// en: 'Saber's Nextcloud server'
-	String get saberNcServer => 'Saber\'s Nextcloud server';
+	/// en: 'Devils Book's Nextcloud server'
+	String get devils bookNcServer => 'Devils Book\'s Nextcloud server';
 
 	/// en: 'Other Nextcloud server'
 	String get otherNcServer => 'Other Nextcloud server';
@@ -863,8 +863,8 @@ class TranslationsLoginNcLoginStepEn {
 	/// en: 'Server URL'
 	String get serverUrl => 'Server URL';
 
-	/// en: 'Login with Saber'
-	String get loginWithSaber => 'Login with Saber';
+	/// en: 'Login with Devils Book'
+	String get loginWithDevils Book => 'Login with Devils Book';
 
 	/// en: 'Login with Nextcloud'
 	String get loginWithNextcloud => 'Login with Nextcloud';
@@ -883,8 +883,8 @@ class TranslationsLoginEncLoginStepEn {
 	/// en: 'To protect your data, please enter your encryption password:'
 	String get enterEncPassword => 'To protect your data, please enter your encryption password:';
 
-	/// en: 'New to Saber? Just enter a new encryption password.'
-	String get newToSaber => 'New to Saber? Just enter a new encryption password.';
+	/// en: 'New to Devils Book? Just enter a new encryption password.'
+	String get newToDevils Book => 'New to Devils Book? Just enter a new encryption password.';
 
 	/// en: 'Encryption password'
 	String get encPassword => 'Encryption password';
@@ -946,8 +946,8 @@ class TranslationsProfile$faq$0i1$En {
 	/// en: 'How do I change my Nextcloud password?'
 	String get q => 'How do I change my Nextcloud password?';
 
-	/// en: 'Go to your server website and log in. Then go to Settings > Security > Change password. You'll need to log out and log back in to Saber after changing your password.'
-	String get a => 'Go to your server website and log in. Then go to Settings > Security > Change password. You\'ll need to log out and log back in to Saber after changing your password.';
+	/// en: 'Go to your server website and log in. Then go to Settings > Security > Change password. You'll need to log out and log back in to Devils Book after changing your password.'
+	String get a => 'Go to your server website and log in. Then go to Settings > Security > Change password. You\'ll need to log out and log back in to Devils Book after changing your password.';
 }
 
 // Path: profile.faq.2
@@ -961,8 +961,8 @@ class TranslationsProfile$faq$0i2$En {
 	/// en: 'How do I change my encryption password?'
 	String get q => 'How do I change my encryption password?';
 
-	/// en: '0. Make sure syncing is complete (see the sync progress on the home screen). 1. Log out of Saber. 2. Go to your server website and delete your 'Saber' folder. This will delete all your notes from the server. 3. Log back in to Saber. You can choose a new encryption password when logging in. 4. Don't forget to log out and log back in to Saber on your other devices too.'
-	String get a => '0. Make sure syncing is complete (see the sync progress on the home screen).\n1. Log out of Saber.\n2. Go to your server website and delete your \'Saber\' folder. This will delete all your notes from the server.\n3. Log back in to Saber. You can choose a new encryption password when logging in.\n4. Don\'t forget to log out and log back in to Saber on your other devices too.';
+	/// en: '0. Make sure syncing is complete (see the sync progress on the home screen). 1. Log out of Devils Book. 2. Go to your server website and delete your 'Devils Book' folder. This will delete all your notes from the server. 3. Log back in to Devils Book. You can choose a new encryption password when logging in. 4. Don't forget to log out and log back in to Devils Book on your other devices too.'
+	String get a => '0. Make sure syncing is complete (see the sync progress on the home screen).\n1. Log out of Devils Book.\n2. Go to your server website and delete your \'Devils Book\' folder. This will delete all your notes from the server.\n3. Log back in to Devils Book. You can choose a new encryption password when logging in.\n4. Don\'t forget to log out and log back in to Devils Book on your other devices too.';
 }
 
 // Path: profile.faq.3
@@ -976,8 +976,8 @@ class TranslationsProfile$faq$0i3$En {
 	/// en: 'How can I delete my account?'
 	String get q => 'How can I delete my account?';
 
-	/// en: 'Tap on the "Delete account" button above, and login if needed. If you are using the official Saber server, your account will be deleted after a 1 week grace period. You can contact me at adilhanney@disroot.org during this period to cancel the deletion. If you are using a third party server, there might not be an option to delete your account: you'll need to consult the server's privacy policy for more information.'
-	String get a => 'Tap on the "${_root.profile.quickLinks.deleteAccount}" button above, and login if needed.\nIf you are using the official Saber server, your account will be deleted after a 1 week grace period. You can contact me at adilhanney@disroot.org during this period to cancel the deletion.\nIf you are using a third party server, there might not be an option to delete your account: you\'ll need to consult the server\'s privacy policy for more information.';
+	/// en: 'Tap on the "Delete account" button above, and login if needed. If you are using the official Devils Book server, your account will be deleted after a 1 week grace period. You can contact me at adilhanney@disroot.org during this period to cancel the deletion. If you are using a third party server, there might not be an option to delete your account: you'll need to consult the server's privacy policy for more information.'
+	String get a => 'Tap on the "${_root.profile.quickLinks.deleteAccount}" button above, and login if needed.\nIf you are using the official Devils Book server, your account will be deleted after a 1 week grace period. You can contact me at adilhanney@disroot.org during this period to cancel the deletion.\nIf you are using a third party server, there might not be an option to delete your account: you\'ll need to consult the server\'s privacy policy for more information.';
 }
 
 // Path: editor.toolbar
@@ -1270,8 +1270,8 @@ class TranslationsEditorVersionTooNewEn {
 
 	// Translations
 
-	/// en: 'This note was edited using a newer version of Saber'
-	String get title => 'This note was edited using a newer version of Saber';
+	/// en: 'This note was edited using a newer version of Devils Book'
+	String get title => 'This note was edited using a newer version of Devils Book';
 
 	/// en: 'Editing this note may result in some information being lost. Do you want to ignore this and edit it anyway?'
 	String get subtitle => 'Editing this note may result in some information being lost. Do you want to ignore this and edit it anyway?';
@@ -1412,8 +1412,8 @@ class TranslationsLoginNcLoginStepLoginFlowEn {
 
 	// Translations
 
-	/// en: 'Please authorize Saber to access your Nextcloud account'
-	String get pleaseAuthorize => 'Please authorize Saber to access your Nextcloud account';
+	/// en: 'Please authorize Devils Book to access your Nextcloud account'
+	String get pleaseAuthorize => 'Please authorize Devils Book to access your Nextcloud account';
 
 	/// en: 'Please follow the prompts in the Nextcloud interface'
 	String get followPrompts => 'Please follow the prompts in the Nextcloud interface';
@@ -1448,8 +1448,8 @@ class TranslationsLoginEncLoginStep$encFaq$0i1$En {
 	/// en: 'I haven't set an encryption password yet. Where do I get it?'
 	String get q => 'I haven\'t set an encryption password yet. Where do I get it?';
 
-	/// en: 'Choose a new encryption password and enter it above. Saber will generate your encryption keys from this password automatically.'
-	String get a => 'Choose a new encryption password and enter it above.\nSaber will generate your encryption keys from this password automatically.';
+	/// en: 'Choose a new encryption password and enter it above. Devils Book will generate your encryption keys from this password automatically.'
+	String get a => 'Choose a new encryption password and enter it above.\nDevils Book will generate your encryption keys from this password automatically.';
 }
 
 // Path: login.encLoginStep.encFaq.2

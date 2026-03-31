@@ -23,6 +23,15 @@ class InkPreset {
   /// 0.0 = cool/neutral, 1.0 = warm ember-like glow personality.
   final double warmth;
 
+  /// Metallic sparkle color for shimmer effects.
+  final Color? shimmerColor;
+
+  /// Density of shimmer particles (0.0 to 1.0).
+  final double shimmerIntensity;
+
+  /// Amount to vary opacity based on pressure/velocity (0.0 to 1.0).
+  final double shadingAmount;
+
   /// Optional pack ID for grouping in selectors.
   final String? packId;
 
@@ -39,6 +48,9 @@ class InkPreset {
     this.sheenIntensity = 0.0,
     this.dryness = 0.0,
     this.warmth = 0.0,
+    this.shimmerColor,
+    this.shimmerIntensity = 0.0,
+    this.shadingAmount = 0.0,
     this.packId,
     this.character,
   });

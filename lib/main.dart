@@ -29,6 +29,8 @@ import 'package:saber/pages/editor/editor.dart';
 import 'package:saber/pages/home/home.dart';
 import 'package:saber/pages/logs.dart';
 import 'package:saber/pages/user/login.dart';
+import 'package:saber/devils_book/registry/devils_catalog.dart';
+import 'package:saber/devils_book/packs/pack_registry.dart';
 import 'package:window_manager/window_manager.dart';
 import 'package:worker_manager/worker_manager.dart';
 import 'package:workmanager/workmanager.dart';
@@ -82,6 +84,14 @@ Future<void> appRunner(List<String> args) async {
 
   StrokeOptionsExtension.setDefaults();
   Stows.markAsOnMainIsolate();
+
+  // DEVILS BOOK: Initialize Premium Content Registries
+  PackRegistry().seedDefaults(
+    coreThemes: DevilsCatalog.themes,
+    coreInks: DevilsCatalog.inks,
+    coreEffects: DevilsCatalog.effects,
+    coreLoadouts: DevilsCatalog.loadouts,
+  );
 
   await Future.wait([
     stows.customDataDir.waitUntilRead().then((_) => FileManager.init()),

@@ -133,6 +133,15 @@ class CanvasPainter extends CustomPainter {
         }
       }
 
+      // DEVILS BOOK: Material Pass - Shading
+      if (stroke.shadingAmount > 0) {
+        // We simulate shading by adjusting global opacity based on the material's shading factor
+        // Realistic shading would be per-point, but this provides the atmospheric 'pooling' effect.
+        paint.color = color.withOpacity(
+          (1.0 - (stroke.shadingAmount * 0.4)).clamp(0.1, 1.0)
+        );
+      }
+
       late final shapePaint = Paint()
         ..color = paint.color
         ..style = .stroke
@@ -147,7 +156,38 @@ class CanvasPainter extends CustomPainter {
           shapePaint,
         );
       } else {
-        canvas.drawPath(_selectPath(stroke), paint);
+        final path = _selectPath(stroke);
+        
+        // DEVILS BOOK: Material Pass - Sheen
+        if (stroke.sheenIntensity > 0 && stroke.sheenColor != null) {
+          final sheenPaint = Paint()
+            ..color = stroke.sheenColor!.withInversion(invert).withOpacity(stroke.sheenIntensity * 0.5)
+            ..maskFilter = MaskFilter.blur(BlurStyle.normal, stroke.options.size * 0.3)
+            ..style = PaintingStyle.fill;
+          canvas.drawPath(path, sheenPaint);
+        }
+
+        canvas.drawPath(path, paint);
+
+        // DEVILS BOOK: Material Pass - Shimmer (Sparkles)
+        if (stroke.shimmerIntensity > 0 && stroke.shimmerColor != null && currentScale > 1.2) {
+          final shimmerPaint = Paint()
+            ..color = (stroke.shimmerColor ?? Colors.white).withInversion(invert)
+            ..style = PaintingStyle.fill;
+          
+          final random = Random(stroke.hashCode);
+          final points = stroke.points;
+          for (int i = 0; i < points.length; i += 4) {
+            if (random.nextDouble() < stroke.shimmerIntensity * 0.5) {
+              final p = points[i];
+              canvas.drawCircle(
+                Offset(p.x, p.y), 
+                random.nextDouble() * 1.5 * currentScale, 
+                shimmerPaint
+              );
+            }
+          }
+        }
       }
     }
   }

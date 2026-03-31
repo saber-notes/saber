@@ -122,6 +122,7 @@ class _InnerCanvasState extends State<InnerCanvas> {
           }(),
           lineHeight: page.style.lineHeight,
           lineThickness: page.style.lineThickness,
+          lineColor: page.style.lineColor,
           primaryColor: colorScheme.primary,
           secondaryColor: colorScheme.secondary,
         ),
