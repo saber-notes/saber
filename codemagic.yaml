@@ -23,7 +23,7 @@ workflows:
       groups:
         - app_store_credentials # Define this group in Codemagic UI
       vars:
-        BUNDLE_ID: "com.adilhanney.saber"
+        BUNDLE_ID: "devilsbook"
         APP_ID: 1671523739 # Found in scripts/bump_version.dart:234
     scripts:
       - name: "Initialize Forge: flutter pub get"

@@ -3,14 +3,14 @@
 This guide ensures that the [Devils Book](file:///media/yusuf/Data/DevilsBook) repository can be built and distributed to Apple TestFlight from a **no-Mac local environment** (Ubuntu/Linux) using Codemagic as the "Sky Forge".
 
 ## Objective
-Enable a maintainer to trigger a TestFlight build of `com.adilhanney.saber` by simply pushing to a release branch, with no localized macOS provisioning required.
+Enable a maintainer to trigger a TestFlight build of `devilsbook` by simply pushing to a release branch, with no localized macOS provisioning required.
 
 ---
 
 ## 1. Apple-Side Prerequisites (Manual)
 Before the first build can succeed, the following must be manually configured in [App Store Connect](https://appstoreconnect.apple.com):
 
-1.  **App Creation**: Ensure an App named "Saber" (or similar) exists with Bundle ID `com.adilhanney.saber`.
+1.  **App Creation**: Ensure an App named "Saber" (or similar) exists with Bundle ID `devilsbook`.
 2.  **API Key Generation**:
     *   Navigate to **Users and Access** > **Integrations** > **App Store Connect API**.
     *   Generate a new API Key with **App Manager** access.

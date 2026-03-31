@@ -27,7 +27,7 @@ This document summarizes the rebranding transformation from "Saber" to [Devils B
 
 To preserve build stability and package integrity, several internal components remain named "Saber":
 - **Package Name**: `saber` (in `pubspec.yaml` and all Dart imports).
-- **Bundle Identifier**: `com.adilhanney.saber` (to preserve App Store and Keychain associations).
+- **Bundle Identifier**: `devilsbook` (updated to match "Devils Book" branding).
 - **Sub-packages**: `sbn` (Saber Binary Native).
 - **CI/CD Paths**: Codemagic and GitHub paths still reference the original repository structure.
 
