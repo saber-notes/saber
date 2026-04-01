@@ -1,0 +1,3 @@
+• Funkció: Most már exportálhatja az aktuális oldalt PNG formátumban
+• Javítva: A szinkronizálási folyamatjelző elakadt, ha az átvitel sikertelen
+• Tweak: A sikertelen szinkronizálási átvitelek újrapróbálkozásának csökkentett gyakorisága

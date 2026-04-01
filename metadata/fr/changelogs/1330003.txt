@@ -1,0 +1,3 @@
+• Fonctionnalité : vous pouvez désormais exporter la page actuelle au format PNG.
+• Corrigé : l'indicateur de progression de la synchronisation restait bloqué lorsqu'un transfert échouait.
+• Ajustement : réduction de la fréquence des nouvelles tentatives de transferts de synchronisation ayant échoué

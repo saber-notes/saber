@@ -1,0 +1,3 @@
+• Tính năng: Bây giờ bạn có thể xuất trang hiện tại dưới dạng PNG 
+• Đã sửa lỗi: Chỉ báo tiến trình đồng bộ hóa bị kẹt khi truyền không thành công 
+• Tinh chỉnh: Giảm tần suất thử lại quá trình truyền đồng bộ hóa không thành công

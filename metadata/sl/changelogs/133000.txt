@@ -1,0 +1,3 @@
+• Funkcija: zdaj lahko izvozite trenutno stran kot PNG
+• Popravljeno: indikator napredka sinhronizacije se je zataknil, ko prenos ni uspel
+• Prilagoditev: Zmanjšana pogostost ponovnih poskusov neuspelih prenosov sinhronizacije

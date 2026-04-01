@@ -1,0 +1,3 @@
+• Característica: ahora puede exportar la página actual como PNG
+• Corregido: el indicador de progreso de sincronización se atascaba cuando fallaba una transferencia
+• Mejora: frecuencia reducida de reintentos de transferencias de sincronización fallidas

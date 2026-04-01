@@ -1,0 +1,3 @@
+• Recurso: agora você pode exportar a página atual como PNG
+• Corrigido: o indicador de progresso da sincronização travava quando uma transferência falhava
+• Ajuste: frequência reduzida de novas tentativas de transferências de sincronização com falha

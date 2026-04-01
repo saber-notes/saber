@@ -1,0 +1,3 @@
+• Feature: You can now export the current page as a PNG
+• Fixed: Sync progress indicator was getting stuck when a transfer fails
+• Tweak: Reduced frequency of retrying failed sync transfers

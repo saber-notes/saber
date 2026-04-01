@@ -1,0 +1,3 @@
+• Feature: Sie können die aktuelle Seite jetzt als PNG exportieren
+• Behoben: Die Synchronisierungsfortschrittsanzeige blieb hängen, wenn eine Übertragung fehlschlug
+• Optimierung: Reduzierte Häufigkeit der Wiederholung fehlgeschlagener Synchronisierungsübertragungen

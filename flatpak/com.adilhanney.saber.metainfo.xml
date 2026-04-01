@@ -279,6 +279,18 @@
     </screenshots>
 
     <releases>
+        <release version="1.33.0" type="development" date="2026-04-01">
+            <description>
+                <ul>
+                    <li>Feature: You can now export the current page as a PNG</li>
+                    <li>Fixed: Hyperlegible font didn't work with KDE theming</li>
+                    <li>Fixed: Indiscriminately using the Ubuntu font in certain parts of the UI</li>
+                    <li>Fixed: Parts of the settings page were incorrectly bolded.</li>
+                    <li>Fixed: Sync progress indicator was getting stuck when a transfer fails</li>
+                    <li>Tweak: Reduced frequency of retrying failed sync transfers</li>
+                </ul>
+            </description>
+        </release>
         <release version="1.32.0" type="development" date="2026-03-21">
             <description>
                 <ul>
