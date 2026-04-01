@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:go_router/go_router.dart';
 import 'package:path_to_regexp/path_to_regexp.dart';
 import 'package:saber/components/navbar/horizontal_navbar.dart';
@@ -9,7 +10,7 @@ import 'package:saber/pages/home/home.dart';
 import 'package:saber/pages/home/whiteboard.dart';
 import 'package:stow_codecs/stow_codecs.dart';
 
-class ResponsiveNavbar extends StatefulWidget {
+class ResponsiveNavbar extends HookWidget {
   const ResponsiveNavbar({
     super.key,
     required this.body,
@@ -19,32 +20,16 @@ class ResponsiveNavbar extends StatefulWidget {
   final Widget body;
   final int selectedIndex;
 
-  @override
-  State<ResponsiveNavbar> createState() => _ResponsiveNavbarState();
-
   static var isLargeScreen = true;
-}
 
-class _ResponsiveNavbarState extends State<ResponsiveNavbar> {
-  @override
-  void initState() {
-    stows.locale.addListener(onChange);
-    stows.layoutSize.addListener(onChange);
-    super.initState();
-  }
-
-  void onChange() {
-    setState(() {});
-  }
-
-  void onDestinationSelected(int index) {
-    if (index == widget.selectedIndex) return;
+  void onDestinationSelected(BuildContext context, int index) {
+    if (index == selectedIndex) return;
 
     // if on whiteboard, check if saved
     final whiteboardPath = pathToFunction(RoutePaths.home)({
       'subpage': HomePage.whiteboardSubpage,
     });
-    if (HomeRoutes.getRoute(widget.selectedIndex) == whiteboardPath) {
+    if (HomeRoutes.getRoute(selectedIndex) == whiteboardPath) {
       final savingState = Whiteboard.savingState;
       switch (savingState) {
         case null:
@@ -63,15 +48,19 @@ class _ResponsiveNavbarState extends State<ResponsiveNavbar> {
 
   @override
   Widget build(BuildContext context) {
-    final mediaQuery = MediaQuery.of(context);
+    useListenable(stows.locale); // update navbar text
 
-    ResponsiveNavbar.isLargeScreen = switch (stows.layoutSize.value) {
-      .auto => mediaQuery.size.width >= 600,
-      .phone => false,
-      .tablet => true,
-    };
+    final screenSize = MediaQuery.sizeOf(context);
+    isLargeScreen = useListenableSelector(
+      stows.layoutSize,
+      () => switch (stows.layoutSize.value) {
+        .auto => screenSize.width >= 600,
+        .phone => false,
+        .tablet => true,
+      },
+    );
 
-    if (ResponsiveNavbar.isLargeScreen) {
+    if (isLargeScreen) {
       return Scaffold(
         body: Row(
           children: [
@@ -80,18 +69,20 @@ class _ResponsiveNavbarState extends State<ResponsiveNavbar> {
                 constraints: const BoxConstraints(maxWidth: 300),
                 child: VerticalNavbar(
                   destinations: HomeRoutes.navigationRailDestinations,
-                  selectedIndex: widget.selectedIndex,
-                  onDestinationSelected: onDestinationSelected,
+                  selectedIndex: selectedIndex,
+                  onDestinationSelected: (i) =>
+                      onDestinationSelected(context, i),
                 ),
               ),
             ),
-            Expanded(child: widget.body),
+            Expanded(child: body),
           ],
         ),
       );
     } // else mobile
 
     final navbarClearance = HorizontalNavbar.clearanceHeightOf(context);
+    final mediaQuery = MediaQuery.of(context);
     return ColoredBox(
       color: Theme.of(context).scaffoldBackgroundColor,
       child: Stack(
@@ -102,27 +93,20 @@ class _ResponsiveNavbarState extends State<ResponsiveNavbar> {
               viewPadding:
                   mediaQuery.viewPadding + .only(bottom: navbarClearance),
             ),
-            child: widget.body,
+            child: body,
           ),
           PositionedDirectional(
             bottom: 0,
             end: 0,
             child: HorizontalNavbar(
               destinations: HomeRoutes.navigationDestinations,
-              selectedIndex: widget.selectedIndex,
-              onDestinationSelected: onDestinationSelected,
+              selectedIndex: selectedIndex,
+              onDestinationSelected: (i) => onDestinationSelected(context, i),
             ),
           ),
         ],
       ),
     );
-  }
-
-  @override
-  void dispose() {
-    stows.locale.removeListener(onChange);
-    stows.layoutSize.removeListener(onChange);
-    super.dispose();
   }
 }
 
