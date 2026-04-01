@@ -1,1 +1,361 @@
-{}
+common:
+  done: Gotowe
+  continueBtn: Kontynuuj
+  cancel: Anuluj
+home:
+  tabs:
+    home: Główna
+    browse: Przeglądaj
+    whiteboard: Tablica
+    settings: Ustawienia
+  titles:
+    home: Ostatnie notatki
+    browse: Przeglądaj
+    whiteboard: Tablica
+    settings: Ustawienia
+  tooltips:
+    newNote: Nowa notatka
+    showUpdateDialog: Pokaż okno dialogowe aktualizacji
+    exportNote: Eksportuj notatkę
+  create:
+    newNote: Nowa notatka
+    importNote: Importuj notatkę
+  welcome: Witaj w Saber
+  invalidFormat: Plik który wskazano nie jest wspierany. Proszę wybrać plik w formacie sbn, sbn2, sba, lub pdf.
+  noFiles: Nie znaleziono plików
+  noPreviewAvailable: Podgląd niedostępny
+  createNewNote: Użyj przycisku + aby utworzyć nową notatkę
+  backFolder: Cofnij się do poprzedniego folderu
+  newFolder:
+    newFolder: Nowy folder
+    folderName: Nazwa folderu
+    create: Utwórz
+    folderNameEmpty: Nazwa folderu nie może być pusta
+    folderNameContainsSlash: Nazwa folderu nie może zawierać ukośnika
+    folderNameExists: Folder już istnieje
+  renameNote:
+    renameNote: Zmień nazwę notatki
+    noteName: Nazwa notatki
+    rename: Zmień nazwę
+    noteNameEmpty: Nazwa notatki nie może być pusta
+    noteNameExists: Notatka o tej nazwie już istnieje
+    noteNameForbiddenCharacters: Nazwa notatki zawiera zabronione symbole
+    noteNameReserved: Nazwa notatki jest zajęta
+  moveNote:
+    moveNote: Przenieś notatkę
+    moveNotes: Przenieś $n spośród notatek
+    moveName: Przenieś $f
+    move: Przenieś
+    renamedTo: Notatka zmieni nazwę na $newName
+    multipleRenamedTo: 'Następujące notatki zmienią nazwy:'
+    numberRenamedTo: $n spośród notatek zmieni nazwy aby uniknąć konfliktów
+  deleteNote: Usuń notatkę
+  renameFolder:
+    renameFolder: Zmień nazwę folderu
+    folderName: Nazwa folderu
+    rename: Zmień nazwę
+    folderNameEmpty: Nazwa folderu nie może być pusta
+    folderNameContainsSlash: Nazwa folderu nie może zawierać ukośnika
+    folderNameExists: Folder o takiej nazwie już istnieje
+  deleteFolder:
+    deleteFolder: Usuń folder
+    deleteName: Usuń $f
+    delete: Usuń
+    alsoDeleteContents: Usuń także wszystkie notatki z tego folderu
+editor:
+  imageOptions:
+    delete: Usuń
+    title: Opcje obrazu
+    invertible: Nieodwracalny
+    download: Pobierz
+    setAsBackground: Ustaw jako tło
+    removeAsBackground: Usuń z tła
+  selectionBar:
+    delete: Usuń
+    duplicate: Zduplikuj
+  toolbar:
+    select: Wybierz
+    toggleColors: Przełącz kolory (Ctrl C)
+    toggleEraser: Przełącz gumkę (Ctrl E)
+    photo: Obrazy
+    text: Tekst
+    toggleFingerDrawing: Przełącz rysowanie palcem (Ctrl F)
+    undo: Cofnij
+    redo: Ponów
+    export: Eksportuj (Ctrl Shift S)
+    exportAs: 'Eksportuj jako:'
+    fullscreen: Przełącz pełny ekran (F11)
+  pens:
+    fountainPen: Pióro wieczne
+    ballpointPen: Pióro kulkowe
+    highlighter: Podświetlenie
+    pencil: Ołówek
+    shapePen: Narzędzie kształtu
+    laserPointer: Wskaźnik laserowy
+  penOptions:
+    size: Rozmiar
+  colors:
+    colorPicker: Wybór koloru
+    customBrightnessHue: Niestandardowy $b $h
+    customHue: Niestandardowy $h
+    dark: ciemny
+    light: jasny
+    black: Czarny
+    darkGrey: Ciemnoszary
+    grey: Szary
+    lightGrey: Jasnoszary
+    white: Biały
+    red: Czerwony
+    green: Zielony
+    cyan: Cyjan
+    blue: Niebieski
+    yellow: Żółty
+    purple: Fioletowy
+    pink: Różowy
+    orange: Pomarańczowy
+    pastelRed: Pastelowy czerwony
+    pastelOrange: Pastelowy pomarańczowy
+    pastelYellow: Pastelowy żółty
+    pastelGreen: Pastelowy zielony
+    pastelCyan: Pastelowy cyjan
+    pastelBlue: Pastelowy niebieski
+    pastelPurple: Pastelowy fioletowy
+    pastelPink: Pastelowy różowy
+  menu:
+    clearPage: Wyczyść strony $page/$totalPages
+    clearAllPages: Wyczyść wszystkie strony
+    insertPage: Wstaw stronę poniżej
+    duplicatePage: Duplikuj stronę
+    deletePage: Usuń stronę
+    lineHeight: Wysokość linii
+    lineHeightDescription: Również zmienia rozmiar tekstu dla wpisywanych notatek
+    lineThickness: Grubość linii
+    lineThicknessDescription: Grubość linii tła
+    backgroundImageFit: Dopasowanie obrazu tła
+    backgroundPattern: Wzór tła
+    import: Import
+    watchServer: Śledź zmiany na serwerze
+    watchServerReadOnly: Edycja jest wyłączona podczas śledzenia serwera
+    boxFits:
+      fill: Rozciągnij
+      cover: Pokryj
+      contain: Zawrzyj
+    bgPatterns:
+      none: Pusty
+      college: W wąska linię
+      collegeRtl: W wąską linię (Odwrócone)
+      lined: Linie
+      grid: Siatka
+      dots: Kropki
+      staffs: Pięciolinia
+      tablature: Tabulatura
+      cornell: System Cornella
+  readOnlyBanner:
+    title: Tryb tylko do odczytu
+    watchingServer: Obecnie oczekujesz na zmiany na serwerze. Edycja jest w tym trybie wyłączona.
+    corrupted: Nie udało się załadować notatki. Może być uszkodzona lub wciąż jest pobierana.
+  versionTooNew:
+    title: Ta notatka została edytowana w nowszej wersji aplikacji Saber
+    subtitle: Edycja tej notatki może spowodować utratę niektórych informacji. Czy chcesz to zignorować i mimo wszystko ją edytować?
+    allowEditing: Zezwól na edycje
+  quill:
+    typeSomething: Wpisz coś tutaj...
+  hud:
+    unlockZoom: Odblokuj powiększenie
+    lockZoom: Zablokuj powiększenie
+    unlockSingleFingerPan: Włącz przesuwanie jednym palcem
+    lockSingleFingerPan: Wyłącz przesuwanie jednym palcem
+    unlockAxisAlignedPan: Odblokuj przesuwanie w pionie lub w poziomie
+    lockAxisAlignedPan: Zablokuj przesuwanie w pionie lub w poziomie
+  pages: Strony
+  untitled: Bez tytułu
+  needsToSaveBeforeExiting: Zapisywanie twoich zmian... Możesz bezpiecznie zamknąć edytor kiedy się skończy
+sentry:
+  consent:
+    title: Chcesz wesprzeć Saber?
+    description:
+      question: Czy chciałbyś automatycznie wysyłać raporty o niespodziewanych błędach? To pomaga identyfikować i rozwiązywać problemy szybciej.
+      scope: Te raporty mogą zawierać informacje o błędach i twoim urządzeniu. Przykładamy wszelki wysiłek aby odfiltrować dane personalne, ale część z nich może pozostać.
+      currentlyOff: Jeżeli wyrazisz zgodę, raportowanie błędów będzie aktywne po restarcie aplikacji.
+      currentlyOn: Jeżeli cofniesz zgodę, proszę zrestartować aplikację aby wdrożyć zmiany.
+      learnMoreInPrivacyPolicy(rich): Więcej informacji na ${link(privacy policy)}.
+    answers:
+      yes: Tak
+      no: Nie
+      later: Zapytaj mnie później
+settings:
+  prefCategories:
+    general: Główne
+    writing: Pisanie
+    editor: Edytor
+    performance: Wydajność
+    advanced: Zaawansowane
+  prefLabels:
+    locale: Język
+    appTheme: Motyw aplikacji
+    platform: Rodzaj motywu
+    layoutSize: Rodzaj układu
+    customAccentColor: Niestandardowy kolor akcentu
+    hyperlegibleFont: Czcionka Atkinson Hyperlegible
+    shouldCheckForUpdates: Sprawdź dostępność aktualizacji Saber
+    shouldAlwaysAlertForUpdates: Szybsze aktualizacje
+    allowInsecureConnections: Zezwól na niezabezpieczone połączenia
+    editorToolbarAlignment: Pozycja przybornika
+    editorToolbarShowInFullscreen: Pokaż przybornik w trybie pełnego ekranu
+    editorAutoInvert: Odwróć kolory notatek w trybie ciemnym
+    preferGreyscale: Preferuj skalę szarości
+    maxImageSize: Maksymalny rozmiar obrazu
+    autoClearWhiteboardOnExit: Automatyczne czyszczenie tablicy
+    disableEraserAfterUse: Automatycznie wyłączaj gumkę
+    hideFingerDrawingToggle: Ukryj przełącznik rysowania palcami
+    autoDisableFingerDrawingWhenStylusDetected: Automatycznie wyłączaj rysowanie palcami
+    editorPromptRename: Wywołuj zmianę nazwy dla nowych notatek
+    recentColorsDontSavePresets: Nie zapisuj kolorów domyślnych w ostatnich kolorach
+    recentColorsLength: Ilość ostatnich kolorów do przechowywania
+    printPageIndicators: Pokazuj numery stron
+    autosave: Auto-zapis
+    shapeRecognitionDelay: Opóźnienie rozpoznania symbolu
+    autoStraightenLines: Automatycznie prostuj linie
+    simplifiedHomeLayout: Uproszczony widok strony głównej
+    customDataDir: Niestandardowa lokalizacja Saber
+    sentry: Zgłaszanie błędów
+  prefDescriptions:
+    hyperlegibleFont: Zwiększenie czytelności dla użytkowników słabowidzących
+    allowInsecureConnections: (Nie zalecane) Zezwól Saber na połączenie z serwerami używając certyfikatów niezaufanych/z własnym podpisem
+    preferGreyscale: Dla ekranów e-ink
+    autoClearWhiteboardOnExit: Czyści tablice po wyjściu z aplikacji
+    disableEraserAfterUse: Automatycznie przełącza na poprzednie narzędzie po skorzystaniu z gumki
+    maxImageSize: Większe obrazy będą kompresowane
+    hideFingerDrawing:
+      shown: Zapobiega przypadkowemu przełączeniu
+      fixedOn: Rysowanie palcami jest zablokowane jako włączone
+      fixedOff: Rysowanie palcami jest zablokowane jako wyłączone
+    autoDisableFingerDrawingWhenStylusDetected: Wyłącz rysowanie palcami kiedy rysik jest wykryty
+    editorPromptRename: Zawsze możesz zmienić nazwę notatek później
+    printPageIndicators: Pokazuj numery stron przy eksportowaniu
+    autosave: Auto-zapis co określony czas, lub nigdy
+    shapeRecognitionDelay: Częstotliwość aktualizacji podglądu kształtu
+    autoStraightenLines: Prostuj linie bez potrzeby przełączania na narzędzie tworzenia kształtów
+    simplifiedHomeLayout: Stała wysokość każdego podglądu notatki
+    shouldAlwaysAlertForUpdates: Powiadom mnie o aktualizacjach jak tylko będą dostępne
+    sentry:
+      active: Aktywne
+      inactive: Nieaktywne
+      activeUntilRestart: Aktywne zanim zrestartujesz aplikacje
+      inactiveUntilRestart: Nieaktywne zanim zrestartujesz aplikacje
+  themeModes:
+    system: System
+    light: Jasny
+    dark: Ciemny
+  layoutSizes:
+    auto: Auto
+    phone: Telefon
+    tablet: Tablet
+  accentColorPicker:
+    pickAColor: Wybierz kolor
+  systemLanguage: Auto
+  axisDirections:
+  - Góra
+  - Prawa
+  - Dół
+  - Lewa
+  reset:
+    title: Zresetować to ustawienie?
+    button: Resetuj
+  resyncEverything: Synchronizuj wszystko
+  openDataDir: Otwórz folder Saber
+  customDataDir:
+    cancel: Anuluj
+    select: Wybierz
+    mustBeEmpty: Wybrany folder musi być pusty
+    mustBeDoneSyncing: Upewnij się że synchronizacja została ukończona przed zmianą tego folderu
+    unsupported: Ta opcja jest aktualnie dostępna tylko dla deweloperów. Używanie jej prawdopodobnie doprowadzi do utraty danych.
+  shapeRecognitionDisabled: Nigdy
+  autosaveDisabled: Nigdy
+logs:
+  noLogs: Brak logów!
+  useTheApp: Logi pojawią się tutaj przy używaniu aplikacji
+  logs: Logi
+  viewLogs: Wyświetl logi
+  debuggingInfo: Logi zawierają informacje użyteczne do debuggowania i dewelopmentu
+login:
+  title: Login
+  form:
+    agreeToPrivacyPolicy(rich): Logując się, zgaszasz się na ${linkToPrivacyPolicy(Politykę Prywatności)}.
+  signup(rich): Nie masz jeszcze konta? ${linkToSignup(Utwórz je teraz)}!
+  notYou(rich): To nie Ty? ${undoLogin(Wybierz inne konto)}.
+  status:
+    loggedOut: Wylogowano
+    tapToLogin: Wybierz aby zalogować się przez Nextcloud
+    hi: Cześć $u!
+    almostDone: Prawie gotowy na synchronizacje, kliknij aby skończyć logowanie
+    loggedIn: Zalogowano przez Nextcloud
+  ncLoginStep:
+    whereToStoreData: 'Wybierz gdzie przechowywać twoje dane:'
+    saberNcServer: Serwer Nextcloud Saber
+    otherNcServer: Inny serwer Nextcloud
+    serverUrl: Serwer URL
+    loginWithSaber: Zaloguj przez Saber
+    loginWithNextcloud: Zaloguj przez Nextcloud
+    loginFlow:
+      pleaseAuthorize: Proszę autoryzuj Saber do używania twojego konta Nextcloud
+      followPrompts: Proszę postępuj zgodnie z poleceniami interfejsu Nextcloud
+      browserDidntOpen: Strona logowania nie otworzyła się? Kliknij tutaj
+  encLoginStep:
+    enterEncPassword: 'Aby chronić twoje dane, podaj proszę hasło szyfrowania:'
+    newToSaber: Nowy w Saber? Utwórz nowe hasło szyfrowania.
+    encPassword: Hasło szyfrowania
+    encFaqTitle: Często zadawane pytania (FAQ)
+    wrongEncPassword: Odszyfrowywanie przy użyciu podanego hasła nie powiodło się. Spróbuj wpisać je ponownie.
+    connectionFailed: Coś poszło nie tak w trakcie łączenia się z serwerem. Spróbuj ponownie później.
+    encFaq:
+    - q: Czym jest hasło użyte do szyfrowania? Dlaczego korzystać z dwóch haseł?
+      a: |-
+        Hasło do Nextcloud służy do uzyskania dostępu do chmury. Hasło szyfrujące „miesza” Twoje dane, zanim w ogóle dotrą one do chmury.
+        Nawet jeśli ktoś uzyska dostęp do Twojego konta Nextcloud, Twoje notatki pozostaną bezpieczne i zaszyfrowane za pomocą osobnego hasła. Zapewnia to drugą warstwę zabezpieczeń chroniącą Twoje dane.
+        Nikt nie może uzyskać dostępu do Twoich notatek na serwerze bez hasła szyfrującego, ale oznacza to również, że jeśli zapomnisz swojego hasła szyfrującego, stracisz dostęp do swoich danych.
+    - q: Nie ustawiłem jeszcze hasła szyfrującego. Jak mogę je uzyskać?
+      a: |-
+        Utwórz nowe hasło i wpisz je poniżej. 
+        Saber wygeneruje klucze szyfrowania z tego hasła automatycznie.
+    - q: Czy mogę użyć tego samego hasła co do konta Nextcloud?
+      a: Tak, ale pamiętaj że łatwiej będzie uzyskać dostęp do twoich notatek osobie która ma/może uzyskać dostęp do twojego konta Nextcloud (np. administratorowi serwera).
+profile:
+  title: Mój profil
+  logout: Wyloguj
+  quotaUsage: Wykorzystujesz $used z $total ($percent%)
+  connectedTo: Połączono z
+  quickLinks:
+    serverHomepage: Strona główna serwera
+    deleteAccount: Usuń konto
+  faqTitle: Często zadawane pytania (FAQ)
+  faq:
+  - q: Czy utracę moje notatki jeżeli się wyloguje?
+    a: Nie. Twoje notatki pozostaną zarówno na twoim urządzeniu jak i na serwerze. Nie będą synchronizowane dopóki nie zalogujesz się ponownie. Upewnij się, że synchronizacja została ukończona przed wylogowaniem aby nie utracić żadnych danych (zobacz status synchronizacji na stronie głównej).
+  - q: Jak mogę zmienić hasło do Nextcloud?
+    a: Wejdź na stronę swojego serwera i się zaloguj. Następnie przejdź do Settings > Security > Change password (Ustawienia > Bezpieczeństwo>Zmiana hasła). Po zmianie hasła należy wylogować się z serwera w Saber, a następnie zalogować ponownie za pomocą nowego hasła.
+  - q: Jak mogę zmienić moje hasło szyfrowania?
+    a: |-
+      0. Upewnij się, że synchronizacja została zakończona (zobacz postęp synchronizacji na ekranie głównym).
+      1. Wyloguj się z Saber.
+      2. Przejdź na stronę swojego serwera i usuń folder 'Saber'. Spowoduje to usunięcie wszystkich Twoich notatek z serwera.
+      3. Zaloguj się ponownie do Saber. Podczas logowania możesz wybrać nowe hasło szyfrowania.
+      4. Nie zapomnij wylogować się i zalogować ponownie do Saber również na swoich innych urządzeniach.
+  - q: Jak mogę usunąć moje konto?
+    a: |-
+      Kliknij "@:profile.quickLinks.deleteAccount" przycisk powyżej i zaloguj się jeżeli to wymagane.
+      Jeśli korzystasz z oficjalnego serwera Saber, Twoje konto zostanie usunięte po tygodniu. W tym czasie możesz skontaktować się ze mną pod adresem adilhanney@disroot.org, aby anulować usunięcie.
+      Jeśli korzystasz z serwera zewnętrznego, opcja usunięcia konta może nie być dostępna: aby uzyskać więcej informacji, musisz zapoznać się z polityką prywatności serwera.
+appInfo:
+  licenseNotice: |-
+    Saber  Copyright © 2022-$buildYear  Adil Hanney
+    Ten program jest dostarczany bez jakiejkolwiek gwarancji. Jest to wolne oprogramowanie i możesz je rozpowszechniać pod pewnymi warunkami.
+  debug: DEBUGUJ
+  sponsorButton: Kliknij tutaj aby mnie wesprzeć lub kupić więcej pamięci
+  licenseButton: Kliknij tutaj aby wyświetlić więcej informacji o licencji
+  privacyPolicyButton: Kliknij tutaj aby wyświetlić politykę prywatności
+update:
+  updateAvailable: Dostępna aktualizacja
+  updateAvailableDescription: 'Nowa wersja aplikacji jest dostępna:'
+  update: Aktualizuj
+  downloadNotAvailableYet: Pobieranie nie jest jeszcze dostępne dla Twojej platformy. Sprawdź ponownie wkrótce.
