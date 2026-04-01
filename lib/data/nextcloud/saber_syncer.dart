@@ -16,6 +16,7 @@ import 'package:worker_manager/worker_manager.dart';
 
 final syncer = Syncer<SaberSyncInterface, SaberSyncFile, File, WebDavFile>(
   const SaberSyncInterface(),
+  failureTimeout: const Duration(seconds: 4),
 );
 
 class SaberSyncInterface
