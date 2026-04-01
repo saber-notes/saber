@@ -1,54 +1,19 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/nextcloud/saber_syncer.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/pages/editor/editor.dart';
 
-class SyncIndicator extends StatefulWidget {
+class SyncIndicator extends HookWidget {
   const SyncIndicator({super.key, required this.filePath});
 
   final String filePath;
 
-  @override
-  State<SyncIndicator> createState() => _SyncIndicatorState();
-}
-
-class _SyncIndicatorState extends State<SyncIndicator> {
-  late final StreamSubscription uploaderListener, downloaderListener;
-  final status = ValueNotifier(_SyncIndicatorStatus.done);
-
-  @override
-  void initState() {
-    stows.username.addListener(onFileTransfer);
-    uploaderListener = syncer.uploader.transferStream.listen(onFileTransfer);
-    downloaderListener = syncer.downloader.transferStream.listen(
-      onFileTransfer,
-    );
-    super.initState();
-  }
-
-  /// Called when some file is uploaded/downloaded (or when login state changes)
-  void onFileTransfer([SaberSyncFile? _]) {
-    final isInUploadQueue = _isInQueue(syncer.uploader.pending);
-    final isInDownloadQueue = _isInQueue(syncer.downloader.pending);
-
-    if (isInUploadQueue && isInDownloadQueue) {
-      status.value = .merging;
-    } else if (isInUploadQueue) {
-      status.value = .uploading;
-    } else if (isInDownloadQueue) {
-      status.value = .downloading;
-    } else {
-      status.value = .done;
-    }
-  }
-
   bool _matchesPath(String path) {
-    if (path == widget.filePath) return true;
-    if (path == widget.filePath + Editor.extension) return true;
-    if (path == widget.filePath + Editor.extensionOldJson) return true;
+    if (path == filePath) return true;
+    if (path == filePath + Editor.extension) return true;
+    if (path == filePath + Editor.extensionOldJson) return true;
     return false;
   }
 
@@ -67,6 +32,26 @@ class _SyncIndicatorState extends State<SyncIndicator> {
 
   @override
   Widget build(BuildContext context) {
+    final status = ValueNotifier(_SyncIndicatorStatus.done);
+    void onFileTransfer([SaberSyncFile? _]) {
+      final isInUploadQueue = _isInQueue(syncer.uploader.pending);
+      final isInDownloadQueue = _isInQueue(syncer.downloader.pending);
+
+      if (isInUploadQueue && isInDownloadQueue) {
+        status.value = .merging;
+      } else if (isInUploadQueue) {
+        status.value = .uploading;
+      } else if (isInDownloadQueue) {
+        status.value = .downloading;
+      } else {
+        status.value = .done;
+      }
+    }
+
+    useOnListenableChange(stows.username, onFileTransfer);
+    useOnStreamChange(syncer.uploader.transferStream, onData: onFileTransfer);
+    useOnStreamChange(syncer.downloader.transferStream, onData: onFileTransfer);
+
     return Positioned(
       top: 0,
       right: 0,
@@ -90,14 +75,6 @@ class _SyncIndicatorState extends State<SyncIndicator> {
         ),
       ),
     );
-  }
-
-  @override
-  void dispose() {
-    stows.username.removeListener(onFileTransfer);
-    uploaderListener.cancel();
-    downloaderListener.cancel();
-    super.dispose();
   }
 }
 

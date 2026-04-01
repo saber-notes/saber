@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:defer_pointer/defer_pointer.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:saber/components/canvas/canvas_image_dialog.dart';
 import 'package:saber/components/canvas/image/editor_image.dart';
 import 'package:saber/components/theming/adaptive_alert_dialog.dart';
@@ -9,7 +10,7 @@ import 'package:saber/data/extensions/change_notifier_extensions.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
 
-class CanvasImage extends StatefulWidget {
+class CanvasImage extends StatefulHookWidget {
   CanvasImage({
     required this.filePath,
     required this.image,
@@ -83,7 +84,6 @@ class _CanvasImageState extends State<CanvasImage> {
       widget.image.newImage = false;
     }
 
-    widget.image.addListener(imageListener);
     CanvasImage.activeListener.addListener(disableActive);
 
     super.initState();
@@ -93,25 +93,12 @@ class _CanvasImageState extends State<CanvasImage> {
     active = false;
   }
 
-  void imageListener() {
-    setState(() {});
-  }
-
-  @override
-  void didUpdateWidget(covariant CanvasImage oldWidget) {
-    if (widget.readOnly && active) {
-      active = false;
-    }
-    if (widget.image != oldWidget.image) {
-      oldWidget.image.removeListener(imageListener);
-      widget.image.addListener(imageListener);
-    }
-    super.didUpdateWidget(oldWidget);
-  }
-
   @override
   Widget build(BuildContext context) {
     final colorScheme = ColorScheme.of(context);
+
+    useListenable(widget.image);
+    if (widget.readOnly) active = false;
 
     final currentBrightness = widget.image.invertible
         ? Theme.brightnessOf(context)
@@ -266,7 +253,6 @@ class _CanvasImageState extends State<CanvasImage> {
   @override
   void dispose() {
     widget.image.loadOut();
-    widget.image.removeListener(imageListener);
     CanvasImage.activeListener.removeListener(disableActive);
     super.dispose();
   }
