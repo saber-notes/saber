@@ -1,69 +1,26 @@
-import 'dart:async';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:saber/components/theming/adaptive_icon.dart';
 import 'package:saber/data/nextcloud/saber_syncer.dart';
 import 'package:saber/data/prefs.dart';
 
-class SyncingButton extends StatefulWidget {
+class SyncingButton extends HookWidget {
   const SyncingButton({super.key});
 
-  @override
-  State<SyncingButton> createState() => _SyncingButtonState();
+  /// The number of files transferred this session.
+  static final filesTransferred = ValueNotifier(0);
 
   /// Whether to force the button to look tappable (for screenshots).
   @visibleForTesting
-  static var forceButtonActive = false;
-}
-
-class _SyncingButtonState extends State<SyncingButton> {
-  /// The number of files transferred since we started listening.
-  static var filesTransferred = 0;
-
-  late final StreamSubscription queueListener, transferListener;
-
-  @override
-  void initState() {
-    queueListener = syncer.downloader.queueStream.listen(_onQueueChanged);
-    transferListener = syncer.downloader.transferStream.listen(
-      _onFileTransferred,
-    );
-    stows.username.addListener(_onUsernameChanged);
-
-    super.initState();
-  }
-
-  void _onQueueChanged([void _]) {
-    if (mounted) setState(() {});
-  }
-
-  void _onFileTransferred(SaberSyncFile event) {
-    filesTransferred++;
-    if (mounted) setState(() {});
-  }
-
-  void _onUsernameChanged() {
-    filesTransferred = 0;
-    if (mounted) setState(() {});
-  }
+  static var debugForceButtonActive = false;
 
   /// Returns a value between 0-1 representing the progress of the sync,
   /// or null if we're still refreshing.
   double? getPercentage() {
-    if (syncer.downloader.isRefreshing) {
-      // If still refreshing, show an indeterminate progress indicator.
-      filesTransferred = 0;
-      return null;
-    }
-
-    final numPending = syncer.downloader.numPending;
-    if (numPending == 0) {
-      filesTransferred = 0;
-      return 1;
-    }
-
-    return (0.2 + filesTransferred) / (0.2 + filesTransferred + numPending);
+    if (syncer.downloader.isRefreshing) return null;
+    return (0.2 + filesTransferred.value) /
+        (0.2 + filesTransferred.value + syncer.downloader.numPending);
   }
 
   void onPressed() {
@@ -73,24 +30,34 @@ class _SyncingButtonState extends State<SyncingButton> {
     if (syncer.downloader.isRefreshing) return;
 
     // Reset progress indicator
-    filesTransferred = 0;
-    if (mounted) setState(() {});
+    filesTransferred.value = 0;
 
-    syncer.downloader.refresh().then((_) {
-      if (mounted) setState(() {});
-    });
+    syncer.downloader.refresh();
   }
 
   @override
   Widget build(BuildContext context) {
+    useListenable(filesTransferred);
+
+    useStream(syncer.downloader.queueStream);
+
+    final transferredFile = useStream(syncer.downloader.transferStream);
+    useMemoized(() {
+      // Increment count when a file is transferred
+      if (transferredFile.data != null) filesTransferred.value++;
+    }, [transferredFile.data]);
+
+    useOnListenableChange(stows.username, () {
+      // Reset count when the username changes
+      filesTransferred.value = 0;
+    });
+
     final percentage = getPercentage();
 
     return IconButton(
       onPressed: stows.loggedIn
           ? onPressed
-          : SyncingButton.forceButtonActive
-          ? () {}
-          : null,
+          : (debugForceButtonActive ? () {} : null),
       padding: const .all(4),
       constraints: const BoxConstraints(
         minWidth: kMinInteractiveDimension,
@@ -122,14 +89,6 @@ class _SyncingButtonState extends State<SyncingButton> {
         ],
       ),
     );
-  }
-
-  @override
-  void dispose() {
-    queueListener.cancel();
-    transferListener.cancel();
-    stows.username.removeListener(_onUsernameChanged);
-    super.dispose();
   }
 }
 

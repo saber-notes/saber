@@ -63,7 +63,7 @@ void main() {
     disableSentryForTesting();
 
     FlavorConfig.setup();
-    SyncingButton.forceButtonActive = true;
+    SyncingButton.debugForceButtonActive = true;
     AppInfo.showDebugMessage = false;
 
     stows.lastStorageQuota.value = TestUser.getQuota();
