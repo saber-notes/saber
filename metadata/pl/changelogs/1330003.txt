@@ -1,0 +1,3 @@
+• Funkcja: Możesz teraz wyeksportować bieżącą stronę jako plik PNG
+• Naprawiono: Wskaźnik postępu synchronizacji blokował się, gdy transfer się nie powiódł
+• Ulepszenie: Zmniejszona częstotliwość ponawiania nieudanych transferów synchronizacji

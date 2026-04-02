@@ -47,7 +47,7 @@ home:
     moveName: Przenieś $f
     move: Przenieś
     renamedTo: Notatka zmieni nazwę na $newName
-    multipleRenamedTo: 'Następujące notatki zmienią nazwy:'
+    multipleRenamedTo: "Następujące notatki zmienią nazwy:"
     numberRenamedTo: $n spośród notatek zmieni nazwy aby uniknąć konfliktów
   deleteNote: Usuń notatkę
   renameFolder:
@@ -62,114 +62,6 @@ home:
     deleteName: Usuń $f
     delete: Usuń
     alsoDeleteContents: Usuń także wszystkie notatki z tego folderu
-editor:
-  imageOptions:
-    delete: Usuń
-    title: Opcje obrazu
-    invertible: Nieodwracalny
-    download: Pobierz
-    setAsBackground: Ustaw jako tło
-    removeAsBackground: Usuń z tła
-  selectionBar:
-    delete: Usuń
-    duplicate: Zduplikuj
-  toolbar:
-    select: Wybierz
-    toggleColors: Przełącz kolory (Ctrl C)
-    toggleEraser: Przełącz gumkę (Ctrl E)
-    photo: Obrazy
-    text: Tekst
-    toggleFingerDrawing: Przełącz rysowanie palcem (Ctrl F)
-    undo: Cofnij
-    redo: Ponów
-    export: Eksportuj (Ctrl Shift S)
-    exportAs: 'Eksportuj jako:'
-    fullscreen: Przełącz pełny ekran (F11)
-  pens:
-    fountainPen: Pióro wieczne
-    ballpointPen: Pióro kulkowe
-    highlighter: Podświetlenie
-    pencil: Ołówek
-    shapePen: Narzędzie kształtu
-    laserPointer: Wskaźnik laserowy
-  penOptions:
-    size: Rozmiar
-  colors:
-    colorPicker: Wybór koloru
-    customBrightnessHue: Niestandardowy $b $h
-    customHue: Niestandardowy $h
-    dark: ciemny
-    light: jasny
-    black: Czarny
-    darkGrey: Ciemnoszary
-    grey: Szary
-    lightGrey: Jasnoszary
-    white: Biały
-    red: Czerwony
-    green: Zielony
-    cyan: Cyjan
-    blue: Niebieski
-    yellow: Żółty
-    purple: Fioletowy
-    pink: Różowy
-    orange: Pomarańczowy
-    pastelRed: Pastelowy czerwony
-    pastelOrange: Pastelowy pomarańczowy
-    pastelYellow: Pastelowy żółty
-    pastelGreen: Pastelowy zielony
-    pastelCyan: Pastelowy cyjan
-    pastelBlue: Pastelowy niebieski
-    pastelPurple: Pastelowy fioletowy
-    pastelPink: Pastelowy różowy
-  menu:
-    clearPage: Wyczyść strony $page/$totalPages
-    clearAllPages: Wyczyść wszystkie strony
-    insertPage: Wstaw stronę poniżej
-    duplicatePage: Duplikuj stronę
-    deletePage: Usuń stronę
-    lineHeight: Wysokość linii
-    lineHeightDescription: Również zmienia rozmiar tekstu dla wpisywanych notatek
-    lineThickness: Grubość linii
-    lineThicknessDescription: Grubość linii tła
-    backgroundImageFit: Dopasowanie obrazu tła
-    backgroundPattern: Wzór tła
-    import: Import
-    watchServer: Śledź zmiany na serwerze
-    watchServerReadOnly: Edycja jest wyłączona podczas śledzenia serwera
-    boxFits:
-      fill: Rozciągnij
-      cover: Pokryj
-      contain: Zawrzyj
-    bgPatterns:
-      none: Pusty
-      college: W wąska linię
-      collegeRtl: W wąską linię (Odwrócone)
-      lined: Linie
-      grid: Siatka
-      dots: Kropki
-      staffs: Pięciolinia
-      tablature: Tabulatura
-      cornell: System Cornella
-  readOnlyBanner:
-    title: Tryb tylko do odczytu
-    watchingServer: Obecnie oczekujesz na zmiany na serwerze. Edycja jest w tym trybie wyłączona.
-    corrupted: Nie udało się załadować notatki. Może być uszkodzona lub wciąż jest pobierana.
-  versionTooNew:
-    title: Ta notatka została edytowana w nowszej wersji aplikacji Saber
-    subtitle: Edycja tej notatki może spowodować utratę niektórych informacji. Czy chcesz to zignorować i mimo wszystko ją edytować?
-    allowEditing: Zezwól na edycje
-  quill:
-    typeSomething: Wpisz coś tutaj...
-  hud:
-    unlockZoom: Odblokuj powiększenie
-    lockZoom: Zablokuj powiększenie
-    unlockSingleFingerPan: Włącz przesuwanie jednym palcem
-    lockSingleFingerPan: Wyłącz przesuwanie jednym palcem
-    unlockAxisAlignedPan: Odblokuj przesuwanie w pionie lub w poziomie
-    lockAxisAlignedPan: Zablokuj przesuwanie w pionie lub w poziomie
-  pages: Strony
-  untitled: Bez tytułu
-  needsToSaveBeforeExiting: Zapisywanie twoich zmian... Możesz bezpiecznie zamknąć edytor kiedy się skończy
 sentry:
   consent:
     title: Chcesz wesprzeć Saber?
@@ -270,14 +162,14 @@ settings:
     mustBeEmpty: Wybrany folder musi być pusty
     mustBeDoneSyncing: Upewnij się że synchronizacja została ukończona przed zmianą tego folderu
     unsupported: Ta opcja jest aktualnie dostępna tylko dla deweloperów. Używanie jej prawdopodobnie doprowadzi do utraty danych.
-  shapeRecognitionDisabled: Nigdy
   autosaveDisabled: Nigdy
+  shapeRecognitionDisabled: Nigdy
 logs:
-  noLogs: Brak logów!
-  useTheApp: Logi pojawią się tutaj przy używaniu aplikacji
   logs: Logi
   viewLogs: Wyświetl logi
   debuggingInfo: Logi zawierają informacje użyteczne do debuggowania i dewelopmentu
+  noLogs: Brak logów!
+  useTheApp: Logi pojawią się tutaj przy używaniu aplikacji
 login:
   title: Login
   form:
@@ -291,7 +183,7 @@ login:
     almostDone: Prawie gotowy na synchronizacje, kliknij aby skończyć logowanie
     loggedIn: Zalogowano przez Nextcloud
   ncLoginStep:
-    whereToStoreData: 'Wybierz gdzie przechowywać twoje dane:'
+    whereToStoreData: "Wybierz gdzie przechowywać twoje dane:"
     saberNcServer: Serwer Nextcloud Saber
     otherNcServer: Inny serwer Nextcloud
     serverUrl: Serwer URL
@@ -302,7 +194,7 @@ login:
       followPrompts: Proszę postępuj zgodnie z poleceniami interfejsu Nextcloud
       browserDidntOpen: Strona logowania nie otworzyła się? Kliknij tutaj
   encLoginStep:
-    enterEncPassword: 'Aby chronić twoje dane, podaj proszę hasło szyfrowania:'
+    enterEncPassword: "Aby chronić twoje dane, podaj proszę hasło szyfrowania:"
     newToSaber: Nowy w Saber? Utwórz nowe hasło szyfrowania.
     encPassword: Hasło szyfrowania
     encFaqTitle: Często zadawane pytania (FAQ)
@@ -356,6 +248,114 @@ appInfo:
   privacyPolicyButton: Kliknij tutaj aby wyświetlić politykę prywatności
 update:
   updateAvailable: Dostępna aktualizacja
-  updateAvailableDescription: 'Nowa wersja aplikacji jest dostępna:'
+  updateAvailableDescription: "Nowa wersja aplikacji jest dostępna:"
   update: Aktualizuj
   downloadNotAvailableYet: Pobieranie nie jest jeszcze dostępne dla Twojej platformy. Sprawdź ponownie wkrótce.
+editor:
+  toolbar:
+    toggleColors: Przełącz kolory (Ctrl C)
+    select: Wybierz
+    toggleEraser: Przełącz gumkę (Ctrl E)
+    photo: Obrazy
+    text: Tekst
+    toggleFingerDrawing: Przełącz rysowanie palcem (Ctrl F)
+    undo: Cofnij
+    redo: Ponów
+    export: Eksportuj (Ctrl Shift S)
+    exportAs: "Eksportuj jako:"
+    fullscreen: Przełącz pełny ekran (F11)
+  pens:
+    fountainPen: Pióro wieczne
+    ballpointPen: Pióro kulkowe
+    highlighter: Podświetlenie
+    pencil: Ołówek
+    shapePen: Narzędzie kształtu
+    laserPointer: Wskaźnik laserowy
+  penOptions:
+    size: Rozmiar
+  colors:
+    colorPicker: Wybór koloru
+    customBrightnessHue: Niestandardowy $b $h
+    customHue: Niestandardowy $h
+    dark: ciemny
+    light: jasny
+    black: Czarny
+    darkGrey: Ciemnoszary
+    grey: Szary
+    lightGrey: Jasnoszary
+    white: Biały
+    red: Czerwony
+    green: Zielony
+    cyan: Cyjan
+    blue: Niebieski
+    yellow: Żółty
+    purple: Fioletowy
+    pink: Różowy
+    orange: Pomarańczowy
+    pastelRed: Pastelowy czerwony
+    pastelOrange: Pastelowy pomarańczowy
+    pastelYellow: Pastelowy żółty
+    pastelGreen: Pastelowy zielony
+    pastelCyan: Pastelowy cyjan
+    pastelBlue: Pastelowy niebieski
+    pastelPurple: Pastelowy fioletowy
+    pastelPink: Pastelowy różowy
+  imageOptions:
+    title: Opcje obrazu
+    invertible: Nieodwracalny
+    download: Pobierz
+    setAsBackground: Ustaw jako tło
+    removeAsBackground: Usuń z tła
+    delete: Usuń
+  selectionBar:
+    delete: Usuń
+    duplicate: Zduplikuj
+  menu:
+    clearPage: Wyczyść strony $page/$totalPages
+    clearAllPages: Wyczyść wszystkie strony
+    insertPage: Wstaw stronę poniżej
+    duplicatePage: Duplikuj stronę
+    deletePage: Usuń stronę
+    lineHeight: Wysokość linii
+    lineHeightDescription: Również zmienia rozmiar tekstu dla wpisywanych notatek
+    lineThickness: Grubość linii
+    lineThicknessDescription: Grubość linii tła
+    backgroundImageFit: Dopasowanie obrazu tła
+    backgroundPattern: Wzór tła
+    import: Import
+    watchServer: Śledź zmiany na serwerze
+    watchServerReadOnly: Edycja jest wyłączona podczas śledzenia serwera
+    boxFits:
+      fill: Rozciągnij
+      cover: Pokryj
+      contain: Zawrzyj
+    bgPatterns:
+      none: Pusty
+      college: W wąska linię
+      collegeRtl: W wąską linię (Odwrócone)
+      lined: Linie
+      grid: Siatka
+      dots: Kropki
+      staffs: Pięciolinia
+      tablature: Tabulatura
+      cornell: System Cornella
+  readOnlyBanner:
+    title: Tryb tylko do odczytu
+    watchingServer: Obecnie oczekujesz na zmiany na serwerze. Edycja jest w tym trybie wyłączona.
+    corrupted: Nie udało się załadować notatki. Może być uszkodzona lub wciąż jest pobierana.
+  versionTooNew:
+    title: Ta notatka została edytowana w nowszej wersji aplikacji Saber
+    subtitle: Edycja tej notatki może spowodować utratę niektórych informacji. Czy chcesz to zignorować i mimo wszystko ją edytować?
+    allowEditing: Zezwól na edycje
+  quill:
+    typeSomething: Wpisz coś tutaj...
+  hud:
+    unlockZoom: Odblokuj powiększenie
+    lockZoom: Zablokuj powiększenie
+    unlockSingleFingerPan: Włącz przesuwanie jednym palcem
+    lockSingleFingerPan: Wyłącz przesuwanie jednym palcem
+    unlockAxisAlignedPan: Odblokuj przesuwanie w pionie lub w poziomie
+    lockAxisAlignedPan: Zablokuj przesuwanie w pionie lub w poziomie
+  pages: Strony
+  untitled: Bez tytułu
+  needsToSaveBeforeExiting: Zapisywanie twoich zmian... Możesz bezpiecznie zamknąć edytor kiedy się skończy

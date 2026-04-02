@@ -793,6 +793,7 @@ ja:
     readOnlyBanner:
       watchingServer(OUTDATED): You are currently watching for updates on the server. Editing is disabled in this mode.
       corrupted(OUTDATED): Failed to load note. It may be corrupted or still being downloaded.
+pl:
 pt-BR:
   settings:
     prefLabels:
