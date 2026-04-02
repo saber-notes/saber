@@ -29,7 +29,8 @@
 [Deutsch](https://github.com/saber-notes/saber/blob/main/README-de.md) |
 [中文 (简体中文, 中国)](https://github.com/saber-notes/saber/blob/main/README-zh-CN.md) |
 [中文 (繁體, 台灣)](https://github.com/saber-notes/saber/blob/main/README-zh-TW.md) |
-[العربية](https://github.com/saber-notes/saber/blob/main/README-ar.md) 
+[العربية](https://github.com/saber-notes/saber/blob/main/README-ar.md) |
+[Tiếng Việt](https://github.com/saber-notes/saber/blob/main/README-vi.md)
 
 Saber is the notes app built for handwriting.
 
