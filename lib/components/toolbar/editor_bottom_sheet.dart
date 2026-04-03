@@ -136,7 +136,7 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
                   itemBuilder: (context, index) {
                     final boxFit = imageBoxFits[index];
                     return InkWell(
-                      borderRadius: .circular(8),
+                      borderRadius: const .all(.circular(8)),
                       onTap: () => setState(() {
                         backgroundImage.backgroundFit = boxFit;
                         widget.redrawAndSave();
@@ -200,7 +200,7 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
                   final backgroundPattern =
                       CanvasBackgroundPattern.values[index];
                   return InkWell(
-                    borderRadius: .circular(8),
+                    borderRadius: const .all(.circular(8)),
                     onTap: () => setState(() {
                       widget.setBackgroundPattern(backgroundPattern);
                     }),
@@ -356,7 +356,7 @@ class _PermanentTooltip extends StatelessWidget {
     final colorScheme = ColorScheme.of(context);
     return DecoratedBox(
       decoration: BoxDecoration(
-        borderRadius: .circular(8),
+        borderRadius: const .all(.circular(8)),
         color: colorScheme.surface.withValues(alpha: 0.8),
       ),
       child: Padding(

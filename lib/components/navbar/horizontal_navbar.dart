@@ -161,7 +161,7 @@ class _ToolbarButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final colorScheme = ColorScheme.of(context);
     final platform = Theme.of(context).platform;
-    final borderRadius = BorderRadius.circular(32);
+    const borderRadius = BorderRadius.all(.circular(32));
     final selectedBgColor = platform.isCupertino
         ? colorScheme.onPrimaryContainer.withValues(alpha: 0.15)
         : (platform == .linux && colorScheme.brightness == .light

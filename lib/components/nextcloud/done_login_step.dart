@@ -145,6 +145,6 @@ BorderRadius _elevatedButtonBorderRadiusOf(BuildContext context) {
   if (shape is RoundedRectangleBorder) {
     return shape.borderRadius.resolve(TextDirection.ltr);
   } else {
-    return .circular(8);
+    return const .all(.circular(8));
   }
 }

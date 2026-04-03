@@ -77,7 +77,7 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
         valueListenable: stows.pfp,
         builder: (BuildContext context, Uint8List? pfp, _) {
           return ClipRSuperellipse(
-            borderRadius: .circular(18),
+            borderRadius: const .all(.circular(18)),
             child: pfp == null
                 ? const _UnknownPfp(size: pfpSize)
                 : Image.memory(pfp, width: pfpSize, height: pfpSize),

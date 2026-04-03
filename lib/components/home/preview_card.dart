@@ -229,7 +229,7 @@ class _PreviewCardState extends State<PreviewCard> {
                   : colorScheme.onSurface.withValues(alpha: 0.12),
               width: kYaruFocusBorderWidth,
             ),
-            borderRadius: .circular(kYaruContainerRadius),
+            borderRadius: const .all(.circular(kYaruContainerRadius)),
           ),
           closedElevation: 0,
           closedBuilder: (context, action) => card,

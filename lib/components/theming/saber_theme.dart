@@ -166,7 +166,7 @@ abstract class _Components {
       surfaceTintColor: Colors.transparent,
       shadowColor: Colors.transparent,
       shape: RoundedRectangleBorder(
-        borderRadius: .circular(kYaruContainerRadius),
+        borderRadius: const .all(.circular(kYaruContainerRadius)),
         side: BorderSide(
           color: colorScheme.onSurface.withValues(alpha: 0.12),
           width: 2,

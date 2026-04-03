@@ -24,7 +24,7 @@ class _NewNoteButtonState extends State<NewNoteButton> {
 
   @override
   Widget build(BuildContext context) {
-    final materialBorderRadius = BorderRadius.circular(16);
+    const materialBorderRadius = BorderRadius.all(.circular(16));
     return SpeedDial(
       spacing: 3,
       mini: true,
@@ -34,7 +34,7 @@ class _NewNoteButtonState extends State<NewNoteButton> {
       switchLabelPosition: Directionality.of(context) == .rtl,
       shape: widget.cupertino
           ? const CircleBorder()
-          : RoundedRectangleBorder(borderRadius: materialBorderRadius),
+          : const RoundedRectangleBorder(borderRadius: materialBorderRadius),
       dialRoot: (context, open, toggleChildren) {
         final platform = Theme.of(context).platform;
         return GlassyContainer(
@@ -50,7 +50,7 @@ class _NewNoteButtonState extends State<NewNoteButton> {
                 padding: .zero,
                 shape: platform.isCupertino
                     ? const CircleBorder()
-                    : RoundedRectangleBorder(
+                    : const RoundedRectangleBorder(
                         borderRadius: materialBorderRadius,
                       ),
               ),

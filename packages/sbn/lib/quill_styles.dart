@@ -138,7 +138,7 @@ abstract class SaberQuillStyles {
       small: TextStyle(fontSize: lineHeight * 0.4, height: 1 / 0.4),
       inlineCode: InlineCodeStyle(
         backgroundColor: Colors.grey.withValues(alpha: 0.2),
-        radius: const Radius.circular(3),
+        radius: const .circular(3),
         style: textTheme.bodyLarge.copyWith(
           fontFamily: 'FiraMono',
           fontFamilyFallback: saberMonoFontFallbacks,
@@ -196,7 +196,7 @@ abstract class SaberQuillStyles {
         VerticalSpacing.zero,
         BoxDecoration(
           color: Colors.grey.withValues(alpha: 0.2),
-          borderRadius: .circular(3),
+          borderRadius: .all(.circular(3)),
         ),
       ),
       indent: DefaultTextBlockStyle(

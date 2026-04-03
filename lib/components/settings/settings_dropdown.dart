@@ -100,8 +100,8 @@ class _SettingsDropdownState<T> extends State<SettingsDropdown<T>> {
           style:
               OutlinedButtonTheme.of(context).style ??
               OutlinedButton.styleFrom(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadiusGeometry.circular(8),
+                shape: const RoundedRectangleBorder(
+                  borderRadius: .all(.circular(8)),
                 ),
               ),
           itemBuilder: (context) => [

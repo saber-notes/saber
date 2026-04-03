@@ -27,7 +27,7 @@ class CanvasGestureLockBtn extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           color: colorScheme.surface.withValues(alpha: 0.5),
-          borderRadius: .circular(15),
+          borderRadius: const .all(.circular(16)),
         ),
         padding: const .all(5),
         child: Tooltip(

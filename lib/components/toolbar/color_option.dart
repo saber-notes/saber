@@ -28,7 +28,7 @@ class ColorOption extends StatelessWidget {
       child: Padding(
         padding: const .symmetric(horizontal: 4),
         child: InkWell(
-          borderRadius: .circular(diameter / 2),
+          borderRadius: const .all(.circular(diameter / 2)),
           onTap: enabled ? onTap : null,
           onLongPress: enabled ? onLongPress : null,
           onSecondaryTap: enabled ? onLongPress : null,

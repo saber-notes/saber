@@ -81,7 +81,7 @@ class _AdaptiveTextFieldState extends State<AdaptiveTextField> {
                   border: Border.all(
                     color: colorScheme.onSurface.withValues(alpha: 0.12),
                   ),
-                  borderRadius: .circular(8),
+                  borderRadius: const .all(.circular(8)),
                 ),
                 style: TextStyle(color: colorScheme.onSurface),
                 placeholder: widget.placeholder,
@@ -137,7 +137,7 @@ class _AdaptiveTextFieldState extends State<AdaptiveTextField> {
               borderSide: BorderSide(
                 color: colorScheme.onSurface.withValues(alpha: 0.12),
               ),
-              borderRadius: .circular(8),
+              borderRadius: const .all(.circular(8)),
             ),
           ),
         ),
