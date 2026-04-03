@@ -42,7 +42,6 @@ enum CanvasBackgroundPattern {
   /// clipped.
   final bool requiresClipping;
 
-
   static CanvasBackgroundPattern fromName(String? name) {
     return values.firstWhere(
       (pattern) => pattern.name == name,
