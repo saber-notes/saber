@@ -298,6 +298,7 @@ editor:
     pastelPurple: Morado pastel
     pastelPink: Rosa pastel
     customBrightnessHue(OUTDATED): $h $b personalizado
+    customBrightnessHue: Lumuinosidad
   imageOptions:
     title: Opciones de imagen
     invertible: Invertible
