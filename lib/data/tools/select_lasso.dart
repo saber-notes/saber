@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/image/editor_image.dart';
 import 'package:saber/components/canvas/select_result.dart';
-import 'package:saber/data/tools/_tool.dart';
+import 'package:saber/data/tools/select.dart';
 import 'package:sbn/tool_id.dart';
 
-class SelectLasso extends Tool {
+class SelectLasso extends Select {
   SelectLasso._();
 
   static final _currentSelect = SelectLasso._();
@@ -15,22 +15,16 @@ class SelectLasso extends Tool {
   /// for it to be selected.
   static const minPercentInside = 0.7;
 
-  var selectResult = SelectResult(
-    pageIndex: -1,
-    strokes: const [],
-    images: const [],
-    path: Path(),
-  );
-  var doneSelecting = false;
-
   @override
   ToolId get toolId => .select;
 
+  @override
   void unselect() {
     doneSelecting = false;
     selectResult.pageIndex = -1;
   }
 
+  @override
   Color? getDominantStrokeColor() {
     if (!doneSelecting) return null;
     if (selectResult.strokes.isEmpty) return null;
@@ -50,6 +44,7 @@ class SelectLasso extends Tool {
     }).key;
   }
 
+  @override
   void onDragStart(Offset position, int pageIndex) {
     doneSelecting = false;
     selectResult = SelectResult(
@@ -62,12 +57,14 @@ class SelectLasso extends Tool {
     onDragUpdate(position);
   }
 
+  @override
   void onDragUpdate(Offset position) {
     selectResult.path.lineTo(position.dx, position.dy);
   }
 
   /// Adds the indices of any [strokes] that are inside the selection area
   /// to [selectResult.indices].
+  @override
   void onDragEnd(List<Stroke> strokes, List<EditorImage> images) {
     selectResult.path.close();
     doneSelecting = true;
