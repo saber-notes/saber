@@ -1,1 +1,174 @@
-{}
+common:
+  done: Fet
+  continueBtn: Procedeix
+  cancel: Cancel·la
+home:
+  tabs:
+    browse: Cerca
+    whiteboard: Document en Blanc
+    settings: Configuració
+    home: Inici
+  titles:
+    home: Notes recents
+    browse: Cerca
+    whiteboard: Folis en Blanc
+    settings: Paràmetres
+  tooltips:
+    newNote: Nova nota
+    exportNote: Exportar nota
+  create:
+    newNote: Nota Nova
+    importNote: Importar nota
+  welcome: Benvingut/d@ a Saber
+  invalidFormat: |-
+    L'arxiu seleccionat no és compatible.
+    Siusplau, proveu-ho des d'un dels següents formats: sbn, sbn2, sba o PDF
+  noFiles: Cap arxiu trobat
+  noPreviewAvailable: Previsualització no disponible
+  createNewNote: Prem + per a crear una nota nova
+  newFolder:
+    newFolder: Carpeta Nova
+    folderName: Nom de Carpeta
+    create: Crear
+    folderNameEmpty: El "nom de carpeta" no pot ser inexistent
+    folderNameExists: Carpeta ja existent
+    folderNameContainsSlash: El nom de carpeta no pot contenir cap barra (/)
+  renameNote:
+    renameNote: Reanomenar nota
+    noteName: Nom de nota
+    rename: Reanomenar
+    noteNameEmpty: El nom de nota no pot romandre buit
+    noteNameExists: Ja existeix una nota amb aquest nom
+    noteNameForbiddenCharacters: El nom de la nota conté símbols no vàlids
+    noteNameReserved: Nom de nota reservat
+  moveNote:
+    moveNote: Moure nota
+    move: Moure
+    renamedTo: La nota serà renombrada com a $nouNom
+    multipleRenamedTo: 'Les següents notes seràn reanomenades:'
+    numberRenamedTo: $n notes seran reanomenades per evitar conflictes
+    moveNotes: Moure $n notes
+    moveName: Mou $f
+  backFolder: Torna a la carpeta anterior
+  deleteNote: Esborrar nota
+  renameFolder:
+    renameFolder: Reanomenar carpeta
+    folderName: Nom de carpeta
+    rename: Reanomena
+    folderNameEmpty: El nom de carpeta no pot romandre buit
+    folderNameContainsSlash: El nom de carpeta no pot contenir cap barra (/)
+    folderNameExists: Ja existeix una carpeta amb aquest nom
+  deleteFolder:
+    deleteFolder: Esborra carpeta
+    deleteName: Esborra $f
+    delete: Esborra
+    alsoDeleteContents: Esborra totes les notes d'aquesta carpeta
+appInfo:
+  sponsorButton: Prem aquí per a mostrar-me el teu suport o ampliar l'emmagatzematge
+  licenseButton: Prem aquí per a més informació sobre la llicència
+  privacyPolicyButton: Prem aquí per a consultar la política de privacitat
+  debug: DEBUG
+  licenseNotice: |-
+    Aquest programa no compta amb cap garantia.
+    És programari lliure, i estàs en el teu dret de distribuir-ho sota certes condicions.
+update:
+  updateAvailable: Actualització disponible
+  updateAvailableDescription: "Ja hi ha disponible una nova versió de l'aplicació:"
+  update: Actualitzar
+  downloadNotAvailableYet: |-
+    Per a la teva plataforma, la descàrrega encara no està disponible.
+    Siusplau, torna a intentar-ho més endavant.
+editor:
+  toolbar:
+    select: Seleccionar
+    photo: Imatge
+    text: Text
+    undo: Desfer
+    redo: Refer
+    export: exportar
+    exportAs: 'Exportar com a:'
+  pens:
+    highlighter: Marcador
+    pencil: Llapis
+  penOptions:
+    size: Mida
+  colors:
+    colorPicker: Selector de color
+    customHue: Tonalitat
+    dark: Fosc
+    customBrightnessHue: Lluminositat
+    black: Negre
+    darkGrey: Gris fosc
+    grey: Gris
+    lightGrey: Gris Clar
+    white: Blanc
+    red: Vermell
+    green: Verd
+    cyan: Cian
+    blue: Blau
+    yellow: Groc
+    purple: Porpra
+    pink: Rosa
+    orange: Taronja
+    pastelRed: Vermell Pastel
+    pastelPink: Rosa Pastel
+    light: Clar
+  imageOptions:
+    title: Opcions d'imatge
+    download: Descarregar
+    setAsBackground: Usa-ho com a fons
+    removeAsBackground: Elimina-ho com a fons
+    delete: Esborra
+  selectionBar:
+    delete: Esborra
+    duplicate: Duplica
+  menu:
+    clearPage: Neteja foli
+    clearAllPages: Neteja tots els folis
+    duplicatePage: Duplicar foli
+    deletePage: Esborra foli
+    lineThickness: Gruix de la línia
+    lineThicknessDescription: Gruix de la línia del fons
+    backgroundPattern: Patró de fons
+    import: Importa
+    watchServer: Cerca actualitzacions disponibles al servidor
+    bgPatterns:
+      grid: Graella
+      dots: Punts
+  readOnlyBanner:
+    title: Mode de Lectura
+  versionTooNew:
+    title: Aquesta nota va ser editada des d'una versió més recent de Saber
+    allowEditing: Habilitar edició
+  quill:
+    typeSomething: Escriu alguna cosa aquí...
+  hud:
+    unlockZoom: Desbloquejar Zoom
+    lockZoom: Fixar zoom
+    lockAxisAlignedPan: Fixar desplaçament com a horitzontal o vertical
+  pages: Folis
+  untitled: Sense títol
+  needsToSaveBeforeExiting: Desant canvis... pots tancar l'editor quan finalitzi el procés
+sentry:
+  consent:
+    title: Vols ajudar a millorar Saber?
+    description:
+      currentlyOff: Si acceptes, els informes d'errors s'activaran un cop reiniciada l'app
+      learnMoreInPrivacyPolicy(rich): Més informació a ${link(privacy policy)}.
+    answers:
+      yes: Sí
+      no: No
+      later: Demana-m'ho en un altre moment
+settings:
+  prefCategories:
+    general: General
+    writing: Escriptura
+    editor: Editor
+    performance: Performance
+    advanced: Avançat
+  prefLabels:
+    locale: Llengua
+    layoutSize: Format
+    shouldCheckForUpdates: Comprova si hi ha actualitzacions disponibles per Saber
+    shouldAlwaysAlertForUpdates: Actualitzacions més ràpides
+    allowInsecureConnections: Permet connexions no segures
