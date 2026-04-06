@@ -45,7 +45,8 @@ import 'package:saber/data/tools/highlighter.dart';
 import 'package:saber/data/tools/laser_pointer.dart';
 import 'package:saber/data/tools/pen.dart';
 import 'package:saber/data/tools/pencil.dart';
-import 'package:saber/data/tools/select.dart';
+import 'package:saber/data/tools/select_box.dart';
+import 'package:saber/data/tools/select_lasso.dart';
 import 'package:saber/data/tools/shape_pen.dart';
 import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/home/whiteboard.dart';
@@ -147,7 +148,9 @@ class EditorState extends State<Editor> {
       case .eraser:
         return Eraser();
       case .select:
-        return Select.currentSelect;
+        return SelectLasso.currentSelect;
+      case .selectBox:
+        return SelectBox.currentSelect;
       case .textEditing:
         return Tool.textEditing;
       case .laserPointer:
@@ -412,7 +415,7 @@ class EditorState extends State<Editor> {
           for (final stroke in item.strokes) {
             stroke.shift(Offset(-item.offset!.left, -item.offset!.top));
           }
-          final select = Select.currentSelect;
+          final select = SelectLasso.currentSelect;
           if (select.doneSelecting) {
             select.selectResult.path = select.selectResult.path.shift(
               Offset(-item.offset!.left, -item.offset!.top),
@@ -441,7 +444,8 @@ class EditorState extends State<Editor> {
       }
 
       if (item.type != .move) {
-        Select.currentSelect.unselect();
+        SelectLasso.currentSelect.unselect();
+        SelectBox.currentSelect.unselect();
       }
     });
 
@@ -573,8 +577,13 @@ class EditorState extends State<Editor> {
         page.strokes.remove(stroke);
       }
       removeExcessPages();
-    } else if (currentTool is Select) {
-      final select = currentTool as Select;
+    } else if (currentTool is SelectLasso || currentTool is SelectBox) {
+      final select;
+      if (currentTool is SelectLasso) {
+        select = currentTool as SelectLasso;
+      } else {
+        select = currentTool as SelectBox;
+      }
       if (select.doneSelecting &&
           select.selectResult.pageIndex == dragPageIndex! &&
           select.selectResult.path.contains(position)) {
@@ -590,8 +599,11 @@ class EditorState extends State<Editor> {
     previousPosition = position;
     moveOffset = .zero;
 
-    if (currentTool is! Select) {
-      Select.currentSelect.unselect();
+    if (currentTool is! SelectLasso) {
+      SelectLasso.currentSelect.unselect();
+    }
+    if (currentTool is! SelectBox) {
+      SelectBox.currentSelect.unselect();
     }
 
     // setState to let canvas know about currentStroke
@@ -615,8 +627,13 @@ class EditorState extends State<Editor> {
       }
       page.redrawStrokes();
       removeExcessPages();
-    } else if (currentTool is Select) {
-      final select = currentTool as Select;
+    } else if (currentTool is SelectLasso || currentTool is SelectBox) {
+      final select;
+      if (currentTool is SelectLasso) {
+        select = currentTool as SelectLasso;
+      } else {
+        select = currentTool as SelectBox;
+      }
       if (select.doneSelecting) {
         for (final stroke in select.selectResult.strokes) {
           stroke.shift(offset);
@@ -680,9 +697,14 @@ class EditorState extends State<Editor> {
             images: [],
           ),
         );
-      } else if (currentTool is Select) {
+      } else if (currentTool is SelectLasso || currentTool is SelectBox) {
         if (moveOffset == .zero) return;
-        final select = currentTool as Select;
+        final select;
+        if (currentTool is SelectLasso) {
+          select = currentTool as SelectLasso;
+        } else {
+          select = currentTool as SelectBox;
+        }
         if (select.doneSelecting) {
           history.recordChange(
             EditorHistoryItem(
@@ -703,7 +725,8 @@ class EditorState extends State<Editor> {
           select.onDragEnd(page.strokes, page.images);
 
           if (select.selectResult.isEmpty) {
-            Select.currentSelect.unselect();
+            SelectLasso.currentSelect.unselect();
+            SelectBox.currentSelect.unselect();
           }
         }
       } else if (currentTool is LaserPointer) {
@@ -1092,7 +1115,7 @@ class EditorState extends State<Editor> {
     if (photoInfos.isEmpty) return 0;
 
     // use the Select tool so that the user can move the new image
-    currentTool = Select.currentSelect;
+    currentTool = SelectLasso.currentSelect;
 
     final images = [
       for (final _PhotoInfo photoInfo in photoInfos)
@@ -1445,7 +1468,12 @@ class EditorState extends State<Editor> {
           },
           currentTool: currentTool,
           duplicateSelection: () {
-            final select = currentTool as Select;
+            final select;
+            if (currentTool is SelectLasso) {
+              select = currentTool as SelectLasso;
+            } else {
+              select = currentTool as SelectBox;
+            }
             if (!select.doneSelecting) return;
 
             setState(() {
@@ -1455,11 +1483,15 @@ class EditorState extends State<Editor> {
 
               const duplicationFeedbackOffset = Offset(25, -25);
 
-              final duplicatedStrokes = strokes.map((stroke) {
-                return stroke.copy()..shift(duplicationFeedbackOffset);
-              }).toList();
+              final List<Stroke> duplicatedStrokes = (strokes as List<Stroke>)
+                  .map((stroke) {
+                    return stroke.copy()..shift(duplicationFeedbackOffset);
+                  })
+                  .toList();
 
-              final duplicatedImages = images.map((image) {
+              final duplicatedImages = (images as List<EditorImage>).map((
+                image,
+              ) {
                 return image.copy()
                   ..id = coreInfo.nextImageId++
                   ..dstRect.shift(duplicationFeedbackOffset);
@@ -1486,7 +1518,12 @@ class EditorState extends State<Editor> {
             });
           },
           deleteSelection: () {
-            final select = currentTool as Select;
+            final select;
+            if (currentTool is SelectLasso) {
+              select = currentTool as SelectLasso;
+            } else {
+              select = currentTool as SelectBox;
+            }
             if (!select.doneSelecting) {
               return;
             }
@@ -1526,9 +1563,15 @@ class EditorState extends State<Editor> {
                 );
               } else if (currentTool is Pen) {
                 (currentTool as Pen).color = color;
-              } else if (currentTool is Select) {
+              } else if (currentTool is SelectLasso ||
+                  currentTool is SelectBox) {
                 // Changes color of selected strokes
-                final select = currentTool as Select;
+                final select;
+                if (currentTool is SelectLasso) {
+                  select = currentTool as SelectLasso;
+                } else {
+                  select = currentTool as SelectBox;
+                }
                 if (select.doneSelecting) {
                   final strokes = select.selectResult.strokes;
 
@@ -1834,8 +1877,14 @@ class EditorState extends State<Editor> {
           ? ShapePen.detectedShape
           : null,
       currentSelection: () {
-        if (currentTool is! Select) return null;
-        final selectResult = (currentTool as Select).selectResult;
+        final selectResult;
+        if (currentTool is SelectLasso) {
+          selectResult = (currentTool as SelectLasso).selectResult;
+        } else if (currentTool is SelectBox) {
+          selectResult = (currentTool as SelectBox).selectResult;
+        } else {
+          return null;
+        }
         if (selectResult.pageIndex != pageIndex) return null;
         return selectResult;
       }(),

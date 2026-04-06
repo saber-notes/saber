@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/image/editor_image.dart';
+import 'package:saber/components/canvas/select_result.dart';
 import 'package:saber/data/tools/_tool.dart';
 import 'package:sbn/tool_id.dart';
 
-class Select extends Tool {
-  Select._();
+class SelectBox extends Tool {
+  SelectBox._();
 
-  static final _currentSelect = Select._();
-  static Select get currentSelect => _currentSelect;
+  static final _currentSelect = SelectBox._();
+  static SelectBox get currentSelect => _currentSelect;
 
   /// The minimum ratio of points inside a stroke or image
   /// for it to be selected.
@@ -21,6 +22,8 @@ class Select extends Tool {
     path: Path(),
   );
   var doneSelecting = false;
+  Offset lastOffset = Offset.zero;
+  Offset firstOffset = Offset.zero;
 
   @override
   ToolId get toolId => .select;
@@ -51,23 +54,34 @@ class Select extends Tool {
 
   void onDragStart(Offset position, int pageIndex) {
     doneSelecting = false;
+    firstOffset = position;
     selectResult = SelectResult(
       pageIndex: pageIndex,
       strokes: [],
       images: [],
       path: Path(),
     );
-    selectResult.path.moveTo(position.dx, position.dy);
     onDragUpdate(position);
   }
 
   void onDragUpdate(Offset position) {
-    selectResult.path.lineTo(position.dx, position.dy);
+    lastOffset = position;
+    selectResult.path = Path();
+    selectResult.path.moveTo(firstOffset.dx, firstOffset.dy);
+    selectResult.path.lineTo(lastOffset.dx, firstOffset.dy);
+    selectResult.path.lineTo(lastOffset.dx, lastOffset.dy);
+    selectResult.path.lineTo(firstOffset.dx, lastOffset.dy);
+    selectResult.path.close();
   }
 
   /// Adds the indices of any [strokes] that are inside the selection area
   /// to [selectResult.indices].
   void onDragEnd(List<Stroke> strokes, List<EditorImage> images) {
+    selectResult.path = Path();
+    selectResult.path.moveTo(firstOffset.dx, firstOffset.dy);
+    selectResult.path.lineTo(lastOffset.dx, firstOffset.dy);
+    selectResult.path.lineTo(lastOffset.dx, lastOffset.dy);
+    selectResult.path.lineTo(firstOffset.dx, lastOffset.dy);
     selectResult.path.close();
     doneSelecting = true;
 
@@ -119,37 +133,5 @@ class Select extends Tool {
       }
     }
     return pointsInside / polygon.length;
-  }
-}
-
-class SelectResult {
-  int pageIndex;
-  final List<Stroke> strokes;
-  final List<EditorImage> images;
-  Path path;
-
-  SelectResult({
-    required this.pageIndex,
-    required this.strokes,
-    required this.images,
-    required this.path,
-  });
-
-  bool get isEmpty {
-    return strokes.isEmpty && images.isEmpty;
-  }
-
-  SelectResult copyWith({
-    int? pageIndex,
-    List<Stroke>? strokes,
-    List<EditorImage>? images,
-    Path? path,
-  }) {
-    return SelectResult(
-      pageIndex: pageIndex ?? this.pageIndex,
-      strokes: strokes ?? this.strokes,
-      images: images ?? this.images,
-      path: path ?? this.path,
-    );
   }
 }

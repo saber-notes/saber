@@ -4,13 +4,14 @@ import 'package:perfect_freehand/perfect_freehand.dart';
 import 'package:saber/components/canvas/_asset_cache.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/image/editor_image.dart';
-import 'package:saber/data/tools/select.dart';
+import 'package:saber/components/canvas/select_result.dart';
+import 'package:saber/data/tools/select_lasso.dart';
 import 'package:sbn/has_size.dart';
 
 void main() {
   group('Select tool', () {
     test('selects the right strokes', () async {
-      final select = Select.currentSelect;
+      final select = SelectLasso.currentSelect;
       final options = StrokeOptions(size: 9);
 
       // Drag gesture in a 10x10 square shape, on page 0
@@ -76,7 +77,7 @@ void main() {
     });
 
     test('selects the right images', () async {
-      final select = Select.currentSelect;
+      final select = SelectLasso.currentSelect;
 
       // Drag gesture in a 10x10 square shape, on page 0
       select.onDragStart(Offset.zero, 0);
@@ -125,13 +126,13 @@ void main() {
 
     group('getDominantStrokeColor', () {
       test('not done selecting', () {
-        final select = Select.currentSelect;
+        final select = SelectLasso.currentSelect;
         select.unselect();
         expect(select.getDominantStrokeColor(), isNull);
       });
 
       test('with no selected strokes', () {
-        final select = Select.currentSelect;
+        final select = SelectLasso.currentSelect;
         select.selectResult = SelectResult(
           pageIndex: 0,
           strokes: const [],
@@ -142,7 +143,7 @@ void main() {
       });
 
       test('with selected strokes', () {
-        final select = Select.currentSelect;
+        final select = SelectLasso.currentSelect;
         select.selectResult = SelectResult(
           pageIndex: 0,
           strokes: [

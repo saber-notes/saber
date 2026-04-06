@@ -26,7 +26,8 @@ import 'package:saber/data/tools/highlighter.dart';
 import 'package:saber/data/tools/laser_pointer.dart';
 import 'package:saber/data/tools/pen.dart';
 import 'package:saber/data/tools/pencil.dart';
-import 'package:saber/data/tools/select.dart';
+import 'package:saber/data/tools/select_box.dart';
+import 'package:saber/data/tools/select_lasso.dart';
 import 'package:saber/i18n/strings.g.dart';
 
 class Toolbar extends StatefulWidget {
@@ -188,13 +189,19 @@ class _ToolbarState extends State<Toolbar> {
 
     final currentColor = switch (widget.currentTool) {
       final Pen pen => pen.color,
-      final Select select => select.getDominantStrokeColor(),
+      final SelectLasso select => select.getDominantStrokeColor(),
       _ => null,
     };
 
-    if (widget.currentTool == Select.currentSelect) {
+    if (widget.currentTool == SelectLasso.currentSelect) {
       // Enable selection bar only when selection is done
-      toolOptionsType.value = Select.currentSelect.doneSelecting
+      toolOptionsType.value = SelectLasso.currentSelect.doneSelecting
+          ? .select
+          : .hide;
+    }
+    if (widget.currentTool == SelectBox.currentSelect) {
+      // Enable selection bar only when selection is done
+      toolOptionsType.value = SelectBox.currentSelect.doneSelecting
           ? .select
           : .hide;
     }
@@ -413,17 +420,42 @@ class _ToolbarState extends State<Toolbar> {
                         ),
                       ),
               ),
+              // Select Lasso
               ToolbarIconButton(
                 tooltip: t.editor.toolbar.select,
-                selected: widget.currentTool is Select,
+                selected: widget.currentTool is SelectLasso,
                 enabled: !widget.readOnly,
                 onPressed: () {
                   toolOptionsType.value = .hide;
-                  widget.setTool(Select.currentSelect);
+                  widget.setTool(SelectLasso.currentSelect);
                 },
                 padding: buttonPadding,
                 child: Icon(
                   CupertinoIcons.lasso,
+                  shadows: !widget.readOnly
+                      ? [
+                          BoxShadow(
+                            color: colorScheme.primary,
+                            blurRadius: 0.1,
+                            spreadRadius: 10,
+                            blurStyle: BlurStyle.solid,
+                          ),
+                        ]
+                      : null,
+                ),
+              ),
+              // Select BOX
+              ToolbarIconButton(
+                tooltip: t.editor.toolbar.selectBox,
+                selected: widget.currentTool is SelectBox,
+                enabled: !widget.readOnly,
+                onPressed: () {
+                  toolOptionsType.value = .hide;
+                  widget.setTool(SelectBox.currentSelect);
+                },
+                padding: buttonPadding,
+                child: Icon(
+                  CupertinoIcons.selection_pin_in_out,
                   shadows: !widget.readOnly
                       ? [
                           BoxShadow(
