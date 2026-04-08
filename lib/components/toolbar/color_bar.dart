@@ -27,17 +27,23 @@ class ColorBar extends StatefulWidget {
   static List<NamedColor> get colorPresets =>
       stows.preferGreyscale.value ? greyScaleColorOptions : normalColorOptions;
   static final List<NamedColor> normalColorOptions = [
-    (name: t.editor.colors.black, color: Colors.black),
+    (name: t.editor.colors.blue, color: const Color.fromARGB(255, 0, 192, 255)),
+    (
+      name: t.editor.colors.pink,
+      color: const Color.fromARGB(255, 255, 21, 216),
+    ),
+    (name: t.editor.colors.green, color: const Color.fromARGB(255, 7, 97, 10)),
     (name: t.editor.colors.red, color: Colors.red),
+    (name: t.editor.colors.blue, color: const Color.fromARGB(255, 0, 80, 145)),
     (name: t.editor.colors.orange, color: Colors.orange),
+    (name: t.editor.colors.black, color: Colors.black),
     (name: t.editor.colors.yellow, color: Colors.yellow),
-    (name: t.editor.colors.green, color: Colors.green),
-    (name: t.editor.colors.cyan, color: Colors.cyan),
-    (name: t.editor.colors.blue, color: Colors.blue),
-    (name: t.editor.colors.purple, color: Colors.purple),
-    (name: t.editor.colors.pink, color: Colors.pink),
-    (name: t.editor.colors.white, color: Colors.white),
-    ..._pastelColorOptions,
+    (name: t.editor.colors.green, color: const Color.fromARGB(255, 0, 255, 8)),
+    (
+      name: t.editor.colors.grey,
+      color: const Color.fromARGB(255, 168, 168, 168),
+    ),
+    // ..._pastelColorOptions,
   ];
   static final List<NamedColor> _pastelColorOptions = [
     (
@@ -130,34 +136,34 @@ class ColorBar extends StatefulWidget {
     }
   }
 
-  /// Returns whether the color is now pinned.
-  static bool toggleColorPinned(String colorString) {
-    if (stows.pinnedColors.value.contains(colorString)) {
-      stows.pinnedColors.value.remove(colorString);
-      stows.recentColorsChronological.value.remove(colorString);
-      stows.recentColorsPositioned.value.remove(colorString);
-      if (stows.recentColorsChronological.value.length >=
-          stows.recentColorsLength.value) {
-        // if full, replace oldest
-        final oldestColor = stows.recentColorsChronological.value.removeAt(0);
-        stows.recentColorsChronological.value.add(colorString);
-        final int oldestColorPosition = stows.recentColorsPositioned.value
-            .indexOf(oldestColor);
-        stows.recentColorsPositioned.value[oldestColorPosition] = colorString;
-      } else {
-        // not full, add to end
-        stows.recentColorsChronological.value.add(colorString);
-        stows.recentColorsPositioned.value.insert(0, colorString);
-      }
-      return false;
-    } else {
-      // add to pinned and remove from recent colors
-      stows.pinnedColors.value.add(colorString);
-      stows.recentColorsChronological.value.remove(colorString);
-      stows.recentColorsPositioned.value.remove(colorString);
-      return true;
-    }
-  }
+  // /// Returns whether the color is now pinned.
+  // static bool toggleColorPinned(String colorString) {
+  //   if (stows.pinnedColors.value.contains(colorString)) {
+  //     stows.pinnedColors.value.remove(colorString);
+  //     stows.recentColorsChronological.value.remove(colorString);
+  //     stows.recentColorsPositioned.value.remove(colorString);
+  //     if (stows.recentColorsChronological.value.length >=
+  //         stows.recentColorsLength.value) {
+  //       // if full, replace oldest
+  //       final oldestColor = stows.recentColorsChronological.value.removeAt(0);
+  //       stows.recentColorsChronological.value.add(colorString);
+  //       final int oldestColorPosition = stows.recentColorsPositioned.value
+  //           .indexOf(oldestColor);
+  //       stows.recentColorsPositioned.value[oldestColorPosition] = colorString;
+  //     } else {
+  //       // not full, add to end
+  //       stows.recentColorsChronological.value.add(colorString);
+  //       stows.recentColorsPositioned.value.insert(0, colorString);
+  //     }
+  //     return false;
+  //   } else {
+  //     // add to pinned and remove from recent colors
+  //     stows.pinnedColors.value.add(colorString);
+  //     stows.recentColorsChronological.value.remove(colorString);
+  //     stows.recentColorsPositioned.value.remove(colorString);
+  //     return true;
+  //   }
+  // }
 
   @override
   State<ColorBar> createState() => _ColorBarState();
@@ -172,97 +178,97 @@ class _ColorBarState extends State<ColorBar> {
 
     final children = <Widget>[
       // pinned colors
-      if (stows.pinnedColors.value.isNotEmpty) ...[
-        const ColorOptionSeparatorIcon(icon: Icons.pin_drop),
-        for (final colorString in stows.pinnedColors.value)
-          ColorOption(
-            isSelected:
-                widget.currentColor?.withAlpha(255).toARGB32() ==
-                int.parse(colorString),
-            enabled: widget.currentColor != null,
-            onTap: () => widget.setColor(Color(int.parse(colorString))),
-            onLongPress: () =>
-                setState(() => ColorBar.toggleColorPinned(colorString)),
-            tooltip: ColorBar.findColorName(Color(int.parse(colorString))),
-            child: DecoratedBox(
-              decoration: BoxDecoration(
-                color: Color(
-                  int.parse(colorString),
-                ).withInversion(widget.invert),
-                shape: .circle,
-                border: Border.all(
-                  color: colorScheme.onSurface.withValues(alpha: 0.2),
-                  width: 1,
-                ),
-              ),
-            ),
-          ),
-      ],
+      // if (stows.pinnedColors.value.isNotEmpty) ...[
+      //   const ColorOptionSeparatorIcon(icon: Icons.pin_drop),
+      //   for (final colorString in stows.pinnedColors.value)
+      //     ColorOption(
+      //       isSelected:
+      //           widget.currentColor?.withAlpha(255).toARGB32() ==
+      //           int.parse(colorString),
+      //       enabled: widget.currentColor != null,
+      //       onTap: () => widget.setColor(Color(int.parse(colorString))),
+      //       onLongPress: () =>
+      //           setState(() => ColorBar.toggleColorPinned(colorString)),
+      //       tooltip: ColorBar.findColorName(Color(int.parse(colorString))),
+      //       child: DecoratedBox(
+      //         decoration: BoxDecoration(
+      //           color: Color(
+      //             int.parse(colorString),
+      //           ).withInversion(widget.invert),
+      //           shape: .circle,
+      //           border: Border.all(
+      //             color: colorScheme.onSurface.withValues(alpha: 0.2),
+      //             width: 1,
+      //           ),
+      //         ),
+      //       ),
+      //     ),
+      // ],
 
-      const ColorOptionSeparatorIcon(icon: Icons.history),
+      // const ColorOptionSeparatorIcon(icon: Icons.history),
 
-      // recent colors
-      for (final colorString in stows.recentColorsPositioned.value.reversed)
-        ColorOption(
-          isSelected:
-              widget.currentColor?.withAlpha(255).toARGB32() ==
-              int.parse(colorString),
-          enabled: widget.currentColor != null,
-          onTap: () => widget.setColor(Color(int.parse(colorString))),
-          onLongPress: () =>
-              setState(() => ColorBar.toggleColorPinned(colorString)),
-          tooltip: ColorBar.findColorName(Color(int.parse(colorString))),
-          child: DecoratedBox(
-            decoration: BoxDecoration(
-              color: Color(int.parse(colorString)).withInversion(widget.invert),
-              shape: .circle,
-              border: Border.all(
-                color: colorScheme.onSurface.withValues(alpha: 0.2),
-                width: 1,
-              ),
-            ),
-          ),
-        ),
-      // placeholders for `recentColorsLength` recent colors
-      for (
-        int i = 0;
-        i <
-            stows.recentColorsLength.value -
-                stows.recentColorsPositioned.value.length;
-        ++i
-      )
-        ColorOption(
-          isSelected: false,
-          enabled: widget.currentColor != null,
-          onTap: null,
-          tooltip: null,
-          child: DecoratedBox(
-            decoration: BoxDecoration(
-              color: Colors.transparent,
-              shape: .circle,
-              border: Border.all(
-                color: colorScheme.onSurface.withValues(alpha: 0.2),
-                width: 1,
-              ),
-            ),
-          ),
-        ),
+      // // recent colors
+      // for (final colorString in stows.recentColorsPositioned.value.reversed)
+      //   ColorOption(
+      //     isSelected:
+      //         widget.currentColor?.withAlpha(255).toARGB32() ==
+      //         int.parse(colorString),
+      //     enabled: widget.currentColor != null,
+      //     onTap: () => widget.setColor(Color(int.parse(colorString))),
+      //     onLongPress: () =>
+      //         setState(() => ColorBar.toggleColorPinned(colorString)),
+      //     tooltip: ColorBar.findColorName(Color(int.parse(colorString))),
+      //     child: DecoratedBox(
+      //       decoration: BoxDecoration(
+      //         color: Color(int.parse(colorString)).withInversion(widget.invert),
+      //         shape: .circle,
+      //         border: Border.all(
+      //           color: colorScheme.onSurface.withValues(alpha: 0.2),
+      //           width: 1,
+      //         ),
+      //       ),
+      //     ),
+      //   ),
+      // // placeholders for `recentColorsLength` recent colors
+      // for (
+      //   int i = 0;
+      //   i <
+      //       stows.recentColorsLength.value -
+      //           stows.recentColorsPositioned.value.length;
+      //   ++i
+      // )
+      //   ColorOption(
+      //     isSelected: false,
+      //     enabled: widget.currentColor != null,
+      //     onTap: null,
+      //     tooltip: null,
+      //     child: DecoratedBox(
+      //       decoration: BoxDecoration(
+      //         color: Colors.transparent,
+      //         shape: .circle,
+      //         border: Border.all(
+      //           color: colorScheme.onSurface.withValues(alpha: 0.2),
+      //           width: 1,
+      //         ),
+      //       ),
+      //     ),
+      //   ),
 
-      const ColorOptionSeparatorIcon(icon: Icons.palette),
+      // const ColorOptionSeparatorIcon(icon: Icons.palette),
 
-      // custom color
-      ColorOption(
-        isSelected:
-            widget.currentColor?.withAlpha(255).toARGB32() ==
-            pickedColor.toARGB32(),
-        enabled: true,
-        onTap: () => openColorPicker(context),
-        tooltip: t.editor.colors.colorPicker,
-        child: const DecoratedBox(
-          decoration: BoxDecoration(color: Colors.transparent, shape: .circle),
-          child: Center(child: FaIcon(FontAwesomeIcons.droplet, size: 16)),
-        ),
-      ),
+      // // custom color
+      // ColorOption(
+      //   isSelected:
+      //       widget.currentColor?.withAlpha(255).toARGB32() ==
+      //       pickedColor.toARGB32(),
+      //   enabled: true,
+      //   onTap: () => openColorPicker(context),
+      //   tooltip: t.editor.colors.colorPicker,
+      //   child: const DecoratedBox(
+      //     decoration: BoxDecoration(color: Colors.transparent, shape: .circle),
+      //     child: Center(child: FaIcon(FontAwesomeIcons.droplet, size: 16)),
+      //   ),
+      // ),
 
       // color presets
       for (final namedColor in ColorBar.colorPresets)
@@ -277,10 +283,6 @@ class _ColorBarState extends State<ColorBar> {
             decoration: BoxDecoration(
               color: namedColor.color.withInversion(widget.invert),
               shape: .circle,
-              border: Border.all(
-                color: colorScheme.onSurface.withValues(alpha: 0.2),
-                width: 1,
-              ),
             ),
           ),
         ),

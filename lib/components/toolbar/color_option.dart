@@ -18,7 +18,7 @@ class ColorOption extends StatelessWidget {
   final String? tooltip;
   final Widget child;
 
-  static const double diameter = 25;
+  static const double diameter = 50;
 
   @override
   Widget build(BuildContext context) {
@@ -26,9 +26,9 @@ class ColorOption extends StatelessWidget {
     return Tooltip(
       message: tooltip ?? '',
       child: Padding(
-        padding: const .symmetric(horizontal: 4),
+        padding: EdgeInsetsGeometry.zero,
         child: InkWell(
-          borderRadius: const .all(.circular(diameter / 2)),
+          borderRadius: BorderRadius.zero,
           onTap: enabled ? onTap : null,
           onLongPress: enabled ? onLongPress : null,
           onSecondaryTap: enabled ? onLongPress : null,
