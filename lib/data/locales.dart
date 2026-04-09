@@ -7,6 +7,7 @@
 const localeNames = <String, String>{
   'en': 'English',
   'ar': 'العربية',
+  'ca': 'Català',
   'cs': 'čeština',
   'de': 'Deutsch',
   'eo': 'Esperanto',

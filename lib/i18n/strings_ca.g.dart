@@ -1,0 +1,505 @@
+///
+/// Generated file. Do not edit.
+///
+// coverage:ignore-file
+// ignore_for_file: type=lint, unused_import
+// dart format off
+
+import 'package:flutter/widgets.dart';
+import 'package:intl/intl.dart';
+import 'package:slang/generated.dart';
+import 'strings.g.dart';
+
+// Path: <root>
+class TranslationsCa extends Translations with BaseTranslations<AppLocale, Translations> {
+	/// You can call this constructor and build your own translation instance of this locale.
+	/// Constructing via the enum [AppLocale.build] is preferred.
+	TranslationsCa({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver, TranslationMetadata<AppLocale, Translations>? meta})
+		: assert(overrides == null, 'Set "translation_overrides: true" in order to enable this feature.'),
+		  $meta = meta ?? TranslationMetadata(
+		    locale: AppLocale.ca,
+		    overrides: overrides ?? {},
+		    cardinalResolver: cardinalResolver,
+		    ordinalResolver: ordinalResolver,
+		  ),
+		  super(cardinalResolver: cardinalResolver, ordinalResolver: ordinalResolver);
+
+	/// Metadata for the translations of <ca>.
+	@override final TranslationMetadata<AppLocale, Translations> $meta;
+
+	late final TranslationsCa _root = this; // ignore: unused_field
+
+	@override 
+	TranslationsCa $copyWith({TranslationMetadata<AppLocale, Translations>? meta}) => TranslationsCa(meta: meta ?? this.$meta);
+
+	// Translations
+	@override late final _TranslationsCommonCa common = _TranslationsCommonCa._(_root);
+	@override late final _TranslationsHomeCa home = _TranslationsHomeCa._(_root);
+	@override late final _TranslationsSentryCa sentry = _TranslationsSentryCa._(_root);
+	@override late final _TranslationsSettingsCa settings = _TranslationsSettingsCa._(_root);
+	@override late final _TranslationsAppInfoCa appInfo = _TranslationsAppInfoCa._(_root);
+	@override late final _TranslationsUpdateCa update = _TranslationsUpdateCa._(_root);
+	@override late final _TranslationsEditorCa editor = _TranslationsEditorCa._(_root);
+}
+
+// Path: common
+class _TranslationsCommonCa extends TranslationsCommonEn {
+	_TranslationsCommonCa._(TranslationsCa root) : this._root = root, super.internal(root);
+
+	final TranslationsCa _root; // ignore: unused_field
+
+	// Translations
+	@override String get done => 'Fet';
+	@override String get continueBtn => 'Procedeix';
+	@override String get cancel => 'Cancel·la';
+}
+
+// Path: home
+class _TranslationsHomeCa extends TranslationsHomeEn {
+	_TranslationsHomeCa._(TranslationsCa root) : this._root = root, super.internal(root);
+
+	final TranslationsCa _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsHomeTabsCa tabs = _TranslationsHomeTabsCa._(_root);
+	@override late final _TranslationsHomeTitlesCa titles = _TranslationsHomeTitlesCa._(_root);
+	@override late final _TranslationsHomeTooltipsCa tooltips = _TranslationsHomeTooltipsCa._(_root);
+	@override late final _TranslationsHomeCreateCa create = _TranslationsHomeCreateCa._(_root);
+	@override String get welcome => 'Benvingut/d@ a Saber';
+	@override String get invalidFormat => 'L\'arxiu seleccionat no és compatible.\nSiusplau, proveu-ho des d\'un dels següents formats: sbn, sbn2, sba o PDF';
+	@override String get noFiles => 'Cap arxiu trobat';
+	@override String get noPreviewAvailable => 'Previsualització no disponible';
+	@override String get createNewNote => 'Prem + per a crear una nota nova';
+	@override String get backFolder => 'Torna a la carpeta anterior';
+	@override late final _TranslationsHomeNewFolderCa newFolder = _TranslationsHomeNewFolderCa._(_root);
+	@override late final _TranslationsHomeRenameNoteCa renameNote = _TranslationsHomeRenameNoteCa._(_root);
+	@override late final _TranslationsHomeMoveNoteCa moveNote = _TranslationsHomeMoveNoteCa._(_root);
+	@override String get deleteNote => 'Esborrar nota';
+	@override late final _TranslationsHomeRenameFolderCa renameFolder = _TranslationsHomeRenameFolderCa._(_root);
+	@override late final _TranslationsHomeDeleteFolderCa deleteFolder = _TranslationsHomeDeleteFolderCa._(_root);
+}
+
+// Path: sentry
+class _TranslationsSentryCa extends TranslationsSentryEn {
+	_TranslationsSentryCa._(TranslationsCa root) : this._root = root, super.internal(root);
+
+	final TranslationsCa _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsSentryConsentCa consent = _TranslationsSentryConsentCa._(_root);
+}
+
+// Path: settings
+class _TranslationsSettingsCa extends TranslationsSettingsEn {
+	_TranslationsSettingsCa._(TranslationsCa root) : this._root = root, super.internal(root);
+
+	final TranslationsCa _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsSettingsPrefCategoriesCa prefCategories = _TranslationsSettingsPrefCategoriesCa._(_root);
+	@override late final _TranslationsSettingsPrefLabelsCa prefLabels = _TranslationsSettingsPrefLabelsCa._(_root);
+}
+
+// Path: appInfo
+class _TranslationsAppInfoCa extends TranslationsAppInfoEn {
+	_TranslationsAppInfoCa._(TranslationsCa root) : this._root = root, super.internal(root);
+
+	final TranslationsCa _root; // ignore: unused_field
+
+	// Translations
+	@override String get licenseNotice => 'Aquest programa no compta amb cap garantia.\nÉs programari lliure, i estàs en el teu dret de distribuir-ho sota certes condicions.';
+	@override String get debug => 'DEBUG';
+	@override String get sponsorButton => 'Prem aquí per a mostrar-me el teu suport o ampliar l\'emmagatzematge';
+	@override String get licenseButton => 'Prem aquí per a més informació sobre la llicència';
+	@override String get privacyPolicyButton => 'Prem aquí per a consultar la política de privacitat';
+}
+
+// Path: update
+class _TranslationsUpdateCa extends TranslationsUpdateEn {
+	_TranslationsUpdateCa._(TranslationsCa root) : this._root = root, super.internal(root);
+
+	final TranslationsCa _root; // ignore: unused_field
+
+	// Translations
+	@override String get updateAvailable => 'Actualització disponible';
+	@override String get updateAvailableDescription => 'Ja hi ha disponible una nova versió de l\'aplicació:';
+	@override String get update => 'Actualitzar';
+	@override String get downloadNotAvailableYet => 'Per a la teva plataforma, la descàrrega encara no està disponible.\nSiusplau, torna a intentar-ho més endavant.';
+}
+
+// Path: editor
+class _TranslationsEditorCa extends TranslationsEditorEn {
+	_TranslationsEditorCa._(TranslationsCa root) : this._root = root, super.internal(root);
+
+	final TranslationsCa _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsEditorToolbarCa toolbar = _TranslationsEditorToolbarCa._(_root);
+	@override late final _TranslationsEditorPensCa pens = _TranslationsEditorPensCa._(_root);
+	@override late final _TranslationsEditorPenOptionsCa penOptions = _TranslationsEditorPenOptionsCa._(_root);
+	@override late final _TranslationsEditorColorsCa colors = _TranslationsEditorColorsCa._(_root);
+	@override late final _TranslationsEditorImageOptionsCa imageOptions = _TranslationsEditorImageOptionsCa._(_root);
+	@override late final _TranslationsEditorSelectionBarCa selectionBar = _TranslationsEditorSelectionBarCa._(_root);
+	@override late final _TranslationsEditorMenuCa menu = _TranslationsEditorMenuCa._(_root);
+	@override late final _TranslationsEditorReadOnlyBannerCa readOnlyBanner = _TranslationsEditorReadOnlyBannerCa._(_root);
+	@override late final _TranslationsEditorVersionTooNewCa versionTooNew = _TranslationsEditorVersionTooNewCa._(_root);
+	@override late final _TranslationsEditorQuillCa quill = _TranslationsEditorQuillCa._(_root);
+	@override late final _TranslationsEditorHudCa hud = _TranslationsEditorHudCa._(_root);
+	@override String get pages => 'Folis';
+	@override String get untitled => 'Sense títol';
+	@override String get needsToSaveBeforeExiting => 'Desant canvis... pots tancar l\'editor quan finalitzi el procés';
+}
+
+// Path: home.tabs
+class _TranslationsHomeTabsCa extends TranslationsHomeTabsEn {
+	_TranslationsHomeTabsCa._(TranslationsCa root) : this._root = root, super.internal(root);
+
+	final TranslationsCa _root; // ignore: unused_field
+
+	// Translations
+	@override String get home => 'Inici';
+	@override String get browse => 'Cerca';
+	@override String get whiteboard => 'Document en Blanc';
+	@override String get settings => 'Configuració';
+}
+
+// Path: home.titles
+class _TranslationsHomeTitlesCa extends TranslationsHomeTitlesEn {
+	_TranslationsHomeTitlesCa._(TranslationsCa root) : this._root = root, super.internal(root);
+
+	final TranslationsCa _root; // ignore: unused_field
+
+	// Translations
+	@override String get home => 'Notes recents';
+	@override String get browse => 'Cerca';
+	@override String get whiteboard => 'Folis en Blanc';
+	@override String get settings => 'Paràmetres';
+}
+
+// Path: home.tooltips
+class _TranslationsHomeTooltipsCa extends TranslationsHomeTooltipsEn {
+	_TranslationsHomeTooltipsCa._(TranslationsCa root) : this._root = root, super.internal(root);
+
+	final TranslationsCa _root; // ignore: unused_field
+
+	// Translations
+	@override String get newNote => 'Nova nota';
+	@override String get exportNote => 'Exportar nota';
+}
+
+// Path: home.create
+class _TranslationsHomeCreateCa extends TranslationsHomeCreateEn {
+	_TranslationsHomeCreateCa._(TranslationsCa root) : this._root = root, super.internal(root);
+
+	final TranslationsCa _root; // ignore: unused_field
+
+	// Translations
+	@override String get newNote => 'Nota Nova';
+	@override String get importNote => 'Importar nota';
+}
+
+// Path: home.newFolder
+class _TranslationsHomeNewFolderCa extends TranslationsHomeNewFolderEn {
+	_TranslationsHomeNewFolderCa._(TranslationsCa root) : this._root = root, super.internal(root);
+
+	final TranslationsCa _root; // ignore: unused_field
+
+	// Translations
+	@override String get newFolder => 'Carpeta Nova';
+	@override String get folderName => 'Nom de Carpeta';
+	@override String get create => 'Crear';
+	@override String get folderNameEmpty => 'El "nom de carpeta" no pot ser inexistent';
+	@override String get folderNameContainsSlash => 'El nom de carpeta no pot contenir cap barra (/)';
+	@override String get folderNameExists => 'Carpeta ja existent';
+}
+
+// Path: home.renameNote
+class _TranslationsHomeRenameNoteCa extends TranslationsHomeRenameNoteEn {
+	_TranslationsHomeRenameNoteCa._(TranslationsCa root) : this._root = root, super.internal(root);
+
+	final TranslationsCa _root; // ignore: unused_field
+
+	// Translations
+	@override String get renameNote => 'Reanomenar nota';
+	@override String get noteName => 'Nom de nota';
+	@override String get rename => 'Reanomenar';
+	@override String get noteNameEmpty => 'El nom de nota no pot romandre buit';
+	@override String get noteNameExists => 'Ja existeix una nota amb aquest nom';
+	@override String get noteNameForbiddenCharacters => 'El nom de la nota conté símbols no vàlids';
+	@override String get noteNameReserved => 'Nom de nota reservat';
+}
+
+// Path: home.moveNote
+class _TranslationsHomeMoveNoteCa extends TranslationsHomeMoveNoteEn {
+	_TranslationsHomeMoveNoteCa._(TranslationsCa root) : this._root = root, super.internal(root);
+
+	final TranslationsCa _root; // ignore: unused_field
+
+	// Translations
+	@override String get moveNote => 'Moure nota';
+	@override String moveNotes({required Object n}) => 'Moure ${n} notes';
+	@override String moveName({required Object f}) => 'Mou ${f}';
+	@override String get move => 'Moure';
+	@override String renamedTo({required Object nouNom}) => 'La nota serà renombrada com a ${nouNom}';
+	@override String get multipleRenamedTo => 'Les següents notes seràn reanomenades:';
+	@override String numberRenamedTo({required Object n}) => '${n} notes seran reanomenades per evitar conflictes';
+}
+
+// Path: home.renameFolder
+class _TranslationsHomeRenameFolderCa extends TranslationsHomeRenameFolderEn {
+	_TranslationsHomeRenameFolderCa._(TranslationsCa root) : this._root = root, super.internal(root);
+
+	final TranslationsCa _root; // ignore: unused_field
+
+	// Translations
+	@override String get renameFolder => 'Reanomenar carpeta';
+	@override String get folderName => 'Nom de carpeta';
+	@override String get rename => 'Reanomena';
+	@override String get folderNameEmpty => 'El nom de carpeta no pot romandre buit';
+	@override String get folderNameContainsSlash => 'El nom de carpeta no pot contenir cap barra (/)';
+	@override String get folderNameExists => 'Ja existeix una carpeta amb aquest nom';
+}
+
+// Path: home.deleteFolder
+class _TranslationsHomeDeleteFolderCa extends TranslationsHomeDeleteFolderEn {
+	_TranslationsHomeDeleteFolderCa._(TranslationsCa root) : this._root = root, super.internal(root);
+
+	final TranslationsCa _root; // ignore: unused_field
+
+	// Translations
+	@override String get deleteFolder => 'Esborra carpeta';
+	@override String deleteName({required Object f}) => 'Esborra ${f}';
+	@override String get delete => 'Esborra';
+	@override String get alsoDeleteContents => 'Esborra totes les notes d\'aquesta carpeta';
+}
+
+// Path: sentry.consent
+class _TranslationsSentryConsentCa extends TranslationsSentryConsentEn {
+	_TranslationsSentryConsentCa._(TranslationsCa root) : this._root = root, super.internal(root);
+
+	final TranslationsCa _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Vols ajudar a millorar Saber?';
+	@override late final _TranslationsSentryConsentDescriptionCa description = _TranslationsSentryConsentDescriptionCa._(_root);
+	@override late final _TranslationsSentryConsentAnswersCa answers = _TranslationsSentryConsentAnswersCa._(_root);
+}
+
+// Path: settings.prefCategories
+class _TranslationsSettingsPrefCategoriesCa extends TranslationsSettingsPrefCategoriesEn {
+	_TranslationsSettingsPrefCategoriesCa._(TranslationsCa root) : this._root = root, super.internal(root);
+
+	final TranslationsCa _root; // ignore: unused_field
+
+	// Translations
+	@override String get general => 'General';
+	@override String get writing => 'Escriptura';
+	@override String get editor => 'Editor';
+	@override String get performance => 'Performance';
+	@override String get advanced => 'Avançat';
+}
+
+// Path: settings.prefLabels
+class _TranslationsSettingsPrefLabelsCa extends TranslationsSettingsPrefLabelsEn {
+	_TranslationsSettingsPrefLabelsCa._(TranslationsCa root) : this._root = root, super.internal(root);
+
+	final TranslationsCa _root; // ignore: unused_field
+
+	// Translations
+	@override String get locale => 'Llengua';
+	@override String get layoutSize => 'Format';
+	@override String get shouldCheckForUpdates => 'Comprova si hi ha actualitzacions disponibles per Saber';
+	@override String get shouldAlwaysAlertForUpdates => 'Actualitzacions més ràpides';
+	@override String get allowInsecureConnections => 'Permet connexions no segures';
+}
+
+// Path: editor.toolbar
+class _TranslationsEditorToolbarCa extends TranslationsEditorToolbarEn {
+	_TranslationsEditorToolbarCa._(TranslationsCa root) : this._root = root, super.internal(root);
+
+	final TranslationsCa _root; // ignore: unused_field
+
+	// Translations
+	@override String get select => 'Seleccionar';
+	@override String get photo => 'Imatge';
+	@override String get text => 'Text';
+	@override String get undo => 'Desfer';
+	@override String get redo => 'Refer';
+	@override String get export => 'exportar';
+	@override String get exportAs => 'Exportar com a:';
+}
+
+// Path: editor.pens
+class _TranslationsEditorPensCa extends TranslationsEditorPensEn {
+	_TranslationsEditorPensCa._(TranslationsCa root) : this._root = root, super.internal(root);
+
+	final TranslationsCa _root; // ignore: unused_field
+
+	// Translations
+	@override String get highlighter => 'Marcador';
+	@override String get pencil => 'Llapis';
+}
+
+// Path: editor.penOptions
+class _TranslationsEditorPenOptionsCa extends TranslationsEditorPenOptionsEn {
+	_TranslationsEditorPenOptionsCa._(TranslationsCa root) : this._root = root, super.internal(root);
+
+	final TranslationsCa _root; // ignore: unused_field
+
+	// Translations
+	@override String get size => 'Mida';
+}
+
+// Path: editor.colors
+class _TranslationsEditorColorsCa extends TranslationsEditorColorsEn {
+	_TranslationsEditorColorsCa._(TranslationsCa root) : this._root = root, super.internal(root);
+
+	final TranslationsCa _root; // ignore: unused_field
+
+	// Translations
+	@override String get colorPicker => 'Selector de color';
+	@override String get customBrightnessHue => 'Lluminositat';
+	@override String get customHue => 'Tonalitat';
+	@override String get dark => 'Fosc';
+	@override String get light => 'Clar';
+	@override String get black => 'Negre';
+	@override String get darkGrey => 'Gris fosc';
+	@override String get grey => 'Gris';
+	@override String get lightGrey => 'Gris Clar';
+	@override String get white => 'Blanc';
+	@override String get red => 'Vermell';
+	@override String get green => 'Verd';
+	@override String get cyan => 'Cian';
+	@override String get blue => 'Blau';
+	@override String get yellow => 'Groc';
+	@override String get purple => 'Porpra';
+	@override String get pink => 'Rosa';
+	@override String get orange => 'Taronja';
+	@override String get pastelRed => 'Vermell Pastel';
+	@override String get pastelPink => 'Rosa Pastel';
+}
+
+// Path: editor.imageOptions
+class _TranslationsEditorImageOptionsCa extends TranslationsEditorImageOptionsEn {
+	_TranslationsEditorImageOptionsCa._(TranslationsCa root) : this._root = root, super.internal(root);
+
+	final TranslationsCa _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Opcions d\'imatge';
+	@override String get download => 'Descarregar';
+	@override String get setAsBackground => 'Usa-ho com a fons';
+	@override String get removeAsBackground => 'Elimina-ho com a fons';
+	@override String get delete => 'Esborra';
+}
+
+// Path: editor.selectionBar
+class _TranslationsEditorSelectionBarCa extends TranslationsEditorSelectionBarEn {
+	_TranslationsEditorSelectionBarCa._(TranslationsCa root) : this._root = root, super.internal(root);
+
+	final TranslationsCa _root; // ignore: unused_field
+
+	// Translations
+	@override String get delete => 'Esborra';
+	@override String get duplicate => 'Duplica';
+}
+
+// Path: editor.menu
+class _TranslationsEditorMenuCa extends TranslationsEditorMenuEn {
+	_TranslationsEditorMenuCa._(TranslationsCa root) : this._root = root, super.internal(root);
+
+	final TranslationsCa _root; // ignore: unused_field
+
+	// Translations
+	@override String get clearPage => 'Neteja foli';
+	@override String get clearAllPages => 'Neteja tots els folis';
+	@override String get duplicatePage => 'Duplicar foli';
+	@override String get deletePage => 'Esborra foli';
+	@override String get lineThickness => 'Gruix de la línia';
+	@override String get lineThicknessDescription => 'Gruix de la línia del fons';
+	@override String get backgroundPattern => 'Patró de fons';
+	@override String get import => 'Importa';
+	@override String get watchServer => 'Cerca actualitzacions disponibles al servidor';
+	@override late final _TranslationsEditorMenuBgPatternsCa bgPatterns = _TranslationsEditorMenuBgPatternsCa._(_root);
+}
+
+// Path: editor.readOnlyBanner
+class _TranslationsEditorReadOnlyBannerCa extends TranslationsEditorReadOnlyBannerEn {
+	_TranslationsEditorReadOnlyBannerCa._(TranslationsCa root) : this._root = root, super.internal(root);
+
+	final TranslationsCa _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Mode de Lectura';
+}
+
+// Path: editor.versionTooNew
+class _TranslationsEditorVersionTooNewCa extends TranslationsEditorVersionTooNewEn {
+	_TranslationsEditorVersionTooNewCa._(TranslationsCa root) : this._root = root, super.internal(root);
+
+	final TranslationsCa _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Aquesta nota va ser editada des d\'una versió més recent de Saber';
+	@override String get allowEditing => 'Habilitar edició';
+}
+
+// Path: editor.quill
+class _TranslationsEditorQuillCa extends TranslationsEditorQuillEn {
+	_TranslationsEditorQuillCa._(TranslationsCa root) : this._root = root, super.internal(root);
+
+	final TranslationsCa _root; // ignore: unused_field
+
+	// Translations
+	@override String get typeSomething => 'Escriu alguna cosa aquí...';
+}
+
+// Path: editor.hud
+class _TranslationsEditorHudCa extends TranslationsEditorHudEn {
+	_TranslationsEditorHudCa._(TranslationsCa root) : this._root = root, super.internal(root);
+
+	final TranslationsCa _root; // ignore: unused_field
+
+	// Translations
+	@override String get unlockZoom => 'Desbloquejar Zoom';
+	@override String get lockZoom => 'Fixar zoom';
+	@override String get lockAxisAlignedPan => 'Fixar desplaçament com a horitzontal o vertical';
+}
+
+// Path: sentry.consent.description
+class _TranslationsSentryConsentDescriptionCa extends TranslationsSentryConsentDescriptionEn {
+	_TranslationsSentryConsentDescriptionCa._(TranslationsCa root) : this._root = root, super.internal(root);
+
+	final TranslationsCa _root; // ignore: unused_field
+
+	// Translations
+	@override String get currentlyOff => 'Si acceptes, els informes d\'errors s\'activaran un cop reiniciada l\'app';
+	@override TextSpan learnMoreInPrivacyPolicy({required InlineSpanBuilder link}) => TextSpan(children: [
+		const TextSpan(text: 'Més informació a '),
+		link('privacy policy'),
+		const TextSpan(text: '.'),
+	]);
+}
+
+// Path: sentry.consent.answers
+class _TranslationsSentryConsentAnswersCa extends TranslationsSentryConsentAnswersEn {
+	_TranslationsSentryConsentAnswersCa._(TranslationsCa root) : this._root = root, super.internal(root);
+
+	final TranslationsCa _root; // ignore: unused_field
+
+	// Translations
+	@override String get yes => 'Sí';
+	@override String get no => 'No';
+	@override String get later => 'Demana-m\'ho en un altre moment';
+}
+
+// Path: editor.menu.bgPatterns
+class _TranslationsEditorMenuBgPatternsCa extends TranslationsEditorMenuBgPatternsEn {
+	_TranslationsEditorMenuBgPatternsCa._(TranslationsCa root) : this._root = root, super.internal(root);
+
+	final TranslationsCa _root; // ignore: unused_field
+
+	// Translations
+	@override String get grid => 'Graella';
+	@override String get dots => 'Punts';
+}

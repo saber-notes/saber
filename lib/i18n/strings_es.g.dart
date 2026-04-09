@@ -669,6 +669,7 @@ class _TranslationsEditorColorsEs extends TranslationsEditorColorsEn {
 
 	// Translations
 	@override String get colorPicker => 'Selector de color';
+	@override String get customBrightnessHue => 'Lumuinosidad';
 	@override String customHue({required Object h}) => '${h} personalizado';
 	@override String get dark => 'oscuro';
 	@override String get light => 'claro';
@@ -693,7 +694,6 @@ class _TranslationsEditorColorsEs extends TranslationsEditorColorsEn {
 	@override String get pastelBlue => 'Azul pastel';
 	@override String get pastelPurple => 'Morado pastel';
 	@override String get pastelPink => 'Rosa pastel';
-	@override String customBrightnessHue({required Object h, required Object b}) => '${h} ${b} personalizado';
 }
 
 // Path: editor.imageOptions

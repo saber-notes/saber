@@ -273,6 +273,7 @@ editor:
     size: Tamaño
   colors:
     colorPicker: Selector de color
+    customBrightnessHue: Lumuinosidad
     customHue: $h personalizado
     dark: oscuro
     light: claro
@@ -297,8 +298,6 @@ editor:
     pastelBlue: Azul pastel
     pastelPurple: Morado pastel
     pastelPink: Rosa pastel
-    customBrightnessHue(OUTDATED): $h $b personalizado
-    customBrightnessHue: Lumuinosidad
   imageOptions:
     title: Opciones de imagen
     invertible: Invertible
