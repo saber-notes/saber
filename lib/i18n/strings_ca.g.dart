@@ -37,6 +37,9 @@ class TranslationsCa extends Translations with BaseTranslations<AppLocale, Trans
 	@override late final _TranslationsHomeCa home = _TranslationsHomeCa._(_root);
 	@override late final _TranslationsSentryCa sentry = _TranslationsSentryCa._(_root);
 	@override late final _TranslationsSettingsCa settings = _TranslationsSettingsCa._(_root);
+	@override late final _TranslationsLogsCa logs = _TranslationsLogsCa._(_root);
+	@override late final _TranslationsLoginCa login = _TranslationsLoginCa._(_root);
+	@override late final _TranslationsProfileCa profile = _TranslationsProfileCa._(_root);
 	@override late final _TranslationsAppInfoCa appInfo = _TranslationsAppInfoCa._(_root);
 	@override late final _TranslationsUpdateCa update = _TranslationsUpdateCa._(_root);
 	@override late final _TranslationsEditorCa editor = _TranslationsEditorCa._(_root);
@@ -98,6 +101,79 @@ class _TranslationsSettingsCa extends TranslationsSettingsEn {
 	// Translations
 	@override late final _TranslationsSettingsPrefCategoriesCa prefCategories = _TranslationsSettingsPrefCategoriesCa._(_root);
 	@override late final _TranslationsSettingsPrefLabelsCa prefLabels = _TranslationsSettingsPrefLabelsCa._(_root);
+	@override late final _TranslationsSettingsPrefDescriptionsCa prefDescriptions = _TranslationsSettingsPrefDescriptionsCa._(_root);
+	@override late final _TranslationsSettingsThemeModesCa themeModes = _TranslationsSettingsThemeModesCa._(_root);
+	@override late final _TranslationsSettingsLayoutSizesCa layoutSizes = _TranslationsSettingsLayoutSizesCa._(_root);
+	@override late final _TranslationsSettingsAccentColorPickerCa accentColorPicker = _TranslationsSettingsAccentColorPickerCa._(_root);
+	@override late final _TranslationsSettingsResetCa reset = _TranslationsSettingsResetCa._(_root);
+	@override late final _TranslationsSettingsCustomDataDirCa customDataDir = _TranslationsSettingsCustomDataDirCa._(_root);
+	@override List<String> get axisDirections => [
+		'Sot',
+		'Correcte',
+		'Fons',
+		'Esquerra',
+	];
+	@override String get systemLanguage => 'Automàtic';
+	@override String get resyncEverything => 'Resincronitza tot';
+	@override String get openDataDir => 'Obre la carpeta Saber';
+	@override String get autosaveDisabled => 'Né jamais';
+	@override String get shapeRecognitionDisabled => 'Né jamais';
+}
+
+// Path: logs
+class _TranslationsLogsCa extends TranslationsLogsEn {
+	_TranslationsLogsCa._(TranslationsCa root) : this._root = root, super.internal(root);
+
+	final TranslationsCa _root; // ignore: unused_field
+
+	// Translations
+	@override String get logs => 'Registres';
+	@override String get viewLogs => 'Visualitza diaris';
+	@override String get debuggingInfo => 'Els logs contenen informació útil per depurar i desenvolupar';
+	@override String get noLogs => 'No hi ha aquí!';
+	@override String get useTheApp => 'Els logs apareixeran aquí mentre utilitzes l\'aplicació';
+}
+
+// Path: login
+class _TranslationsLoginCa extends TranslationsLoginEn {
+	_TranslationsLoginCa._(TranslationsCa root) : this._root = root, super.internal(root);
+
+	final TranslationsCa _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsLoginFormCa form = _TranslationsLoginFormCa._(_root);
+	@override late final _TranslationsLoginStatusCa status = _TranslationsLoginStatusCa._(_root);
+	@override late final _TranslationsLoginNcLoginStepCa ncLoginStep = _TranslationsLoginNcLoginStepCa._(_root);
+	@override late final _TranslationsLoginEncLoginStepCa encLoginStep = _TranslationsLoginEncLoginStepCa._(_root);
+	@override String get title => 'Inloguin';
+	@override TextSpan signup({required InlineSpanBuilder linkToSignup}) => TextSpan(children: [
+		const TextSpan(text: 'No tens aún? '),
+		linkToSignup('Registra\'t-te ara'),
+		const TextSpan(text: '.'),
+	]);
+	@override TextSpan notYou({required InlineSpanBuilder undoLogin}) => TextSpan(children: [
+		const TextSpan(text: 'No tu? '),
+		undoLogin('Elegir otra cuenta'),
+		const TextSpan(text: '.'),
+	]);
+}
+
+// Path: profile
+class _TranslationsProfileCa extends TranslationsProfileEn {
+	_TranslationsProfileCa._(TranslationsCa root) : this._root = root, super.internal(root);
+
+	final TranslationsCa _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsProfileQuickLinksCa quickLinks = _TranslationsProfileQuickLinksCa._(_root);
+	@override List<dynamic> get faq => [
+		_TranslationsProfile$faq$0i0$Ca._(_root),
+	];
+	@override String get title => 'El meu perfil';
+	@override String get logout => 'Desconnectar';
+	@override String quotaUsage({required Object used, required Object total, required Object percent}) => 'Estàs utilitzant ${used} de ${total} (${percent}%)';
+	@override String get connectedTo => 'Connectat a';
+	@override String get faqTitle => 'Preguntes freqüents';
 }
 
 // Path: appInfo
@@ -185,6 +261,7 @@ class _TranslationsHomeTooltipsCa extends TranslationsHomeTooltipsEn {
 	// Translations
 	@override String get newNote => 'Nova nota';
 	@override String get exportNote => 'Exportar nota';
+	@override String get showUpdateDialog => 'Mostrar diàlog de actualització';
 }
 
 // Path: home.create
@@ -311,6 +388,198 @@ class _TranslationsSettingsPrefLabelsCa extends TranslationsSettingsPrefLabelsEn
 	@override String get shouldCheckForUpdates => 'Comprova si hi ha actualitzacions disponibles per Saber';
 	@override String get shouldAlwaysAlertForUpdates => 'Actualitzacions més ràpides';
 	@override String get allowInsecureConnections => 'Permet connexions no segures';
+	@override String get appTheme => 'tema de l\'aplicació';
+	@override String get platform => 'tipus de teme';
+	@override String get customAccentColor => 'Color d\'accent personnalisée';
+	@override String get hyperlegibleFont => 'font Atkinson Hyperlegible';
+	@override String get editorToolbarAlignment => 'posició de la barra d\'herrament';
+	@override String get editorToolbarShowInFullscreen => 'Mostra la barra degli strumenti in modalità schermo intero';
+	@override String get editorAutoInvert => 'Inverter notes en mode obscur';
+	@override String get preferGreyscale => 'Preferir colors en escala de grises';
+	@override String get maxImageSize => 'Màxim mida de imatge';
+	@override String get autoClearWhiteboardOnExit => 'Borrar automàticament la llista blanca';
+	@override String get disableEraserAfterUse => 'Desactivar automáticamente el borrador';
+	@override String get hideFingerDrawingToggle => 'Ocultar el interruptor de dibujo con el dedo';
+	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Desactivar el dibujo con el dedo automáticamente';
+	@override String get editorPromptRename => 'Prompt per a tu perrener les noves notes';
+	@override String get recentColorsDontSavePresets => 'No guardar colores preestablecidos en colores recientes';
+	@override String get recentColorsLength => 'Quines de color recents a almacenar';
+	@override String get printPageIndicators => 'Imprime indicadors de pàgina';
+	@override String get autosave => 'Auto-guardat';
+	@override String get shapeRecognitionDelay => 'Retard de reconnaissance de forme';
+	@override String get autoStraightenLines => 'Rectificar líneas automáticamente';
+	@override String get simplifiedHomeLayout => 'Disposició simplificada de la casa';
+	@override String get customDataDir => 'Pàrador custom Saber';
+	@override String get sentry => 'Informar errores';
+}
+
+// Path: settings.prefDescriptions
+class _TranslationsSettingsPrefDescriptionsCa extends TranslationsSettingsPrefDescriptionsEn {
+	_TranslationsSettingsPrefDescriptionsCa._(TranslationsCa root) : this._root = root, super.internal(root);
+
+	final TranslationsCa _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsSettingsPrefDescriptionsHideFingerDrawingCa hideFingerDrawing = _TranslationsSettingsPrefDescriptionsHideFingerDrawingCa._(_root);
+	@override late final _TranslationsSettingsPrefDescriptionsSentryCa sentry = _TranslationsSettingsPrefDescriptionsSentryCa._(_root);
+	@override String get hyperlegibleFont => 'Increxeix la legibilitat per als usuaris amb baixa visió';
+	@override String get allowInsecureConnections => '(No recomanhat) Permitir a Saber conectar a serveis amb certs autogenerades/no fiables';
+	@override String get preferGreyscale => 'Per a dispositius e-ink';
+	@override String get autoClearWhiteboardOnExit => 'Borra la llista blanca després de sortir de l\'aplicació';
+	@override String get disableEraserAfterUse => 'Automàticament torna al bolífer després de utilitzar l\'efaçador';
+	@override String get maxImageSize => 'Les images plus grandes seront compressées';
+	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Desactiva el dibujo con el dedo cuando se detecta un lápiz óptico';
+	@override String get editorPromptRename => 'Pots sempre poti rinominare le note in seguito';
+	@override String get printPageIndicators => 'Mostra indicadors de pàgina en exports';
+	@override String get autosave => 'Auto-guardat després d\'un retard curt, o mai';
+	@override String get shapeRecognitionDelay => 'Quetre freqüentament actualitzar la previsualització de la forma';
+	@override String get autoStraightenLines => 'Rectifica les línies llonges sense avoir a utilitzar el rotuli de forma';
+	@override String get simplifiedHomeLayout => 'Establir una altura fija para cada vista previa de nota';
+	@override String get shouldAlwaysAlertForUpdates => 'Diga-me sobre as atualizações assim que estiverem disponíveis';
+}
+
+// Path: settings.themeModes
+class _TranslationsSettingsThemeModesCa extends TranslationsSettingsThemeModesEn {
+	_TranslationsSettingsThemeModesCa._(TranslationsCa root) : this._root = root, super.internal(root);
+
+	final TranslationsCa _root; // ignore: unused_field
+
+	// Translations
+	@override String get system => 'Sistema';
+	@override String get light => 'Llum';
+	@override String get dark => 'Oscur';
+}
+
+// Path: settings.layoutSizes
+class _TranslationsSettingsLayoutSizesCa extends TranslationsSettingsLayoutSizesEn {
+	_TranslationsSettingsLayoutSizesCa._(TranslationsCa root) : this._root = root, super.internal(root);
+
+	final TranslationsCa _root; // ignore: unused_field
+
+	// Translations
+	@override String get auto => 'Automàtic';
+	@override String get phone => 'Telèfon';
+	@override String get tablet => 'Tableta';
+}
+
+// Path: settings.accentColorPicker
+class _TranslationsSettingsAccentColorPickerCa extends TranslationsSettingsAccentColorPickerEn {
+	_TranslationsSettingsAccentColorPickerCa._(TranslationsCa root) : this._root = root, super.internal(root);
+
+	final TranslationsCa _root; // ignore: unused_field
+
+	// Translations
+	@override String get pickAColor => 'Escoig un color';
+}
+
+// Path: settings.reset
+class _TranslationsSettingsResetCa extends TranslationsSettingsResetEn {
+	_TranslationsSettingsResetCa._(TranslationsCa root) : this._root = root, super.internal(root);
+
+	final TranslationsCa _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Restaurar aquesta configuració?';
+	@override String get button => 'Restaurar';
+}
+
+// Path: settings.customDataDir
+class _TranslationsSettingsCustomDataDirCa extends TranslationsSettingsCustomDataDirEn {
+	_TranslationsSettingsCustomDataDirCa._(TranslationsCa root) : this._root = root, super.internal(root);
+
+	final TranslationsCa _root; // ignore: unused_field
+
+	// Translations
+	@override String get cancel => 'Cancelar';
+	@override String get select => 'Seleccionar';
+	@override String get mustBeEmpty => 'La carpeta seleccionada debe estar vacía';
+	@override String get mustBeDoneSyncing => 'Asegúrate de que la sincronización esté completa antes de cambiar la carpeta';
+	@override String get unsupported => 'Aquesta funcició és actualment només per desenvolupadors. L\'ús d\'ella pot resultar en pèrdua de dades.';
+}
+
+// Path: login.form
+class _TranslationsLoginFormCa extends TranslationsLoginFormEn {
+	_TranslationsLoginFormCa._(TranslationsCa root) : this._root = root, super.internal(root);
+
+	final TranslationsCa _root; // ignore: unused_field
+
+	// Translations
+	@override TextSpan agreeToPrivacyPolicy({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [
+		const TextSpan(text: 'Al iniciar sesión, aceptas la '),
+		linkToPrivacyPolicy('Política de privacidad'),
+		const TextSpan(text: '.'),
+	]);
+}
+
+// Path: login.status
+class _TranslationsLoginStatusCa extends TranslationsLoginStatusEn {
+	_TranslationsLoginStatusCa._(TranslationsCa root) : this._root = root, super.internal(root);
+
+	final TranslationsCa _root; // ignore: unused_field
+
+	// Translations
+	@override String get loggedOut => 'Desconnectat';
+	@override String get tapToLogin => 'Toca per iniciar la sessió amb Nextcloud';
+	@override String hi({required Object u}) => 'Hola, ${u}!';
+	@override String get almostDone => 'Pràcticament preparat per a sincronització, toca per finalitzar la connexió';
+	@override String get loggedIn => 'Ingessat amb Nextcloud';
+}
+
+// Path: login.ncLoginStep
+class _TranslationsLoginNcLoginStepCa extends TranslationsLoginNcLoginStepEn {
+	_TranslationsLoginNcLoginStepCa._(TranslationsCa root) : this._root = root, super.internal(root);
+
+	final TranslationsCa _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsLoginNcLoginStepLoginFlowCa loginFlow = _TranslationsLoginNcLoginStepLoginFlowCa._(_root);
+	@override String get whereToStoreData => 'Escollreu on où voleu guardar els teus dades:';
+	@override String get saberNcServer => 'Serveur Nextcloud de Saber';
+	@override String get otherNcServer => 'Un servidor Nextcloud';
+	@override String get serverUrl => 'URL del servidor';
+	@override String get loginWithSaber => 'Inglesar amb Saber';
+	@override String get loginWithNextcloud => 'Inglesar amb Nextcloud';
+}
+
+// Path: login.encLoginStep
+class _TranslationsLoginEncLoginStepCa extends TranslationsLoginEncLoginStepEn {
+	_TranslationsLoginEncLoginStepCa._(TranslationsCa root) : this._root = root, super.internal(root);
+
+	final TranslationsCa _root; // ignore: unused_field
+
+	// Translations
+	@override List<dynamic> get encFaq => [
+		_TranslationsLoginEncLoginStep$encFaq$0i0$Ca._(_root),
+		_TranslationsLoginEncLoginStep$encFaq$0i1$Ca._(_root),
+		_TranslationsLoginEncLoginStep$encFaq$0i2$Ca._(_root),
+	];
+	@override String get enterEncPassword => 'Per protegere i tuoi dati, inserisci la tua password di crittografia:';
+	@override String get newToSaber => 'Nou en Saber? Simplement ingresa una nova contrasenya de cifratura.';
+	@override String get encPassword => 'contraseña de cifrado';
+	@override String get encFaqTitle => 'Preguntes freqüents';
+	@override String get wrongEncPassword => 'Descodificació fallada amb la contrasenya proporcionada. Si us plau, intenteu introduir-la de nou.';
+	@override String get connectionFailed => 'Vaixament va tenir lloc connectar-se al servidor. Si us plau, intenteu de nou més tard.';
+}
+
+// Path: profile.quickLinks
+class _TranslationsProfileQuickLinksCa extends TranslationsProfileQuickLinksEn {
+	_TranslationsProfileQuickLinksCa._(TranslationsCa root) : this._root = root, super.internal(root);
+
+	final TranslationsCa _root; // ignore: unused_field
+
+	// Translations
+	@override String get serverHomepage => 'pàgina d\'accés del servidor';
+	@override String get deleteAccount => 'Borrar compte';
+}
+
+// Path: profile.faq.0
+class _TranslationsProfile$faq$0i0$Ca extends TranslationsProfile$faq$0i0$En {
+	_TranslationsProfile$faq$0i0$Ca._(TranslationsCa root) : this._root = root, super.internal(root);
+
+	final TranslationsCa _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Trobaré si perdré les mes notes si je me déconnecte ?';
 }
 
 // Path: editor.toolbar
@@ -327,6 +596,10 @@ class _TranslationsEditorToolbarCa extends TranslationsEditorToolbarEn {
 	@override String get redo => 'Refer';
 	@override String get export => 'exportar';
 	@override String get exportAs => 'Exportar com a:';
+	@override String get toggleColors => 'Alternar colors (Ctrl C)';
+	@override String get toggleEraser => 'Alternar borrador (Ctrl E)';
+	@override String get toggleFingerDrawing => 'Alternar dibuix amb el dita (Ctrl F)';
+	@override String get fullscreen => 'Alternar pantalla completa (F11)';
 }
 
 // Path: editor.pens
@@ -338,6 +611,10 @@ class _TranslationsEditorPensCa extends TranslationsEditorPensEn {
 	// Translations
 	@override String get highlighter => 'Marcador';
 	@override String get pencil => 'Llapis';
+	@override String get fountainPen => 'Pluma estilográfica';
+	@override String get ballpointPen => 'pluma';
+	@override String get shapePen => 'bol de forma';
+	@override String get laserPointer => 'Punter laser';
 }
 
 // Path: editor.penOptions
@@ -375,6 +652,14 @@ class _TranslationsEditorColorsCa extends TranslationsEditorColorsEn {
 	@override String get orange => 'Taronja';
 	@override String get pastelRed => 'Vermell Pastel';
 	@override String get pastelPink => 'Rosa Pastel';
+	@override String customBrightnessHue({required Object b, required Object h}) => 'Custom ${b} ${h}';
+	@override String customHue({required Object h}) => 'Custom ${h}';
+	@override String get pastelOrange => 'aranja pastel';
+	@override String get pastelYellow => 'amarillo pastel';
+	@override String get pastelGreen => 'verde pastel';
+	@override String get pastelCyan => 'cian pastel';
+	@override String get pastelBlue => 'blau marí';
+	@override String get pastelPurple => 'lavanda pastel';
 }
 
 // Path: editor.imageOptions
@@ -389,6 +674,7 @@ class _TranslationsEditorImageOptionsCa extends TranslationsEditorImageOptionsEn
 	@override String get setAsBackground => 'Usa-ho com a fons';
 	@override String get removeAsBackground => 'Elimina-ho com a fons';
 	@override String get delete => 'Esborra';
+	@override String get invertible => 'Invertible';
 }
 
 // Path: editor.selectionBar
@@ -417,7 +703,14 @@ class _TranslationsEditorMenuCa extends TranslationsEditorMenuEn {
 	@override String get backgroundPattern => 'Patró de fons';
 	@override String get import => 'Importa';
 	@override String get watchServer => 'Cerca actualitzacions disponibles al servidor';
+	@override late final _TranslationsEditorMenuBoxFitsCa boxFits = _TranslationsEditorMenuBoxFitsCa._(_root);
 	@override late final _TranslationsEditorMenuBgPatternsCa bgPatterns = _TranslationsEditorMenuBgPatternsCa._(_root);
+	@override String clearPage({required Object page, required Object totalPages}) => 'Borrar pàgina ${page}/${totalPages}';
+	@override String get insertPage => 'Insertar pàgina sota';
+	@override String get lineHeight => 'altura de línea';
+	@override String get lineHeightDescription => 'També controla el màxim de text per a les notes tapates.';
+	@override String get backgroundImageFit => 'imatge de fons ajustat';
+	@override String get watchServerReadOnly => 'L\'edició està desactivada mentre siva el servidor';
 }
 
 // Path: editor.readOnlyBanner
@@ -428,6 +721,8 @@ class _TranslationsEditorReadOnlyBannerCa extends TranslationsEditorReadOnlyBann
 
 	// Translations
 	@override String get title => 'Mode de Lectura';
+	@override String get watchingServer => 'Actualmente se están buscando actualizaciones en el servidor. La edición está deshabilitada en este modo.';
+	@override String get corrupted => 'Fallida la descàrre de la nota. Podria estar corrompuda o encara en descàrre.';
 }
 
 // Path: editor.versionTooNew
@@ -439,6 +734,7 @@ class _TranslationsEditorVersionTooNewCa extends TranslationsEditorVersionTooNew
 	// Translations
 	@override String get title => 'Aquesta nota va ser editada des d\'una versió més recent de Saber';
 	@override String get allowEditing => 'Habilitar edició';
+	@override String get subtitle => 'L\'édition de cette note peut entraîner la perte d\'informations. Voulez-vous ignorer cela et éditer quand même ?';
 }
 
 // Path: editor.quill
@@ -461,6 +757,9 @@ class _TranslationsEditorHudCa extends TranslationsEditorHudEn {
 	@override String get unlockZoom => 'Desbloquejar Zoom';
 	@override String get lockZoom => 'Fixar zoom';
 	@override String get lockAxisAlignedPan => 'Fixar desplaçament com a horitzontal o vertical';
+	@override String get unlockSingleFingerPan => 'Activar el paneo con un dedo';
+	@override String get lockSingleFingerPan => 'Desactiva el paneo con un dedo';
+	@override String get unlockAxisAlignedPan => 'Desbloquea el paneo a horizontal o vertical';
 }
 
 // Path: sentry.consent.description
@@ -476,6 +775,9 @@ class _TranslationsSentryConsentDescriptionCa extends TranslationsSentryConsentD
 		link('privacy policy'),
 		const TextSpan(text: '.'),
 	]);
+	@override String get question => 'T\'agria que raporti errors inesperades mà automaticament? Això m\'ajuda a identificar i a classar problemes més ràpid.';
+	@override String get scope => 'Els informes podem contenir informació sobre l\'error i el teu dispositiu. He fet cada esforç per filtrar els dades personals, però algunes poden quedar.';
+	@override String get currentlyOn => 'Si revoca el consentimiento, por favor reinicia la aplicación para deshabilitar la notificación de errores.';
 }
 
 // Path: sentry.consent.answers
@@ -490,6 +792,88 @@ class _TranslationsSentryConsentAnswersCa extends TranslationsSentryConsentAnswe
 	@override String get later => 'Demana-m\'ho en un altre moment';
 }
 
+// Path: settings.prefDescriptions.hideFingerDrawing
+class _TranslationsSettingsPrefDescriptionsHideFingerDrawingCa extends TranslationsSettingsPrefDescriptionsHideFingerDrawingEn {
+	_TranslationsSettingsPrefDescriptionsHideFingerDrawingCa._(TranslationsCa root) : this._root = root, super.internal(root);
+
+	final TranslationsCa _root; // ignore: unused_field
+
+	// Translations
+	@override String get shown => 'Prevén el cambio accidental';
+	@override String get fixedOn => 'El dibujado del dedo está fijado como habilitado';
+	@override String get fixedOff => 'El dibujado del dedo está fijado como deshabilitado';
+}
+
+// Path: settings.prefDescriptions.sentry
+class _TranslationsSettingsPrefDescriptionsSentryCa extends TranslationsSettingsPrefDescriptionsSentryEn {
+	_TranslationsSettingsPrefDescriptionsSentryCa._(TranslationsCa root) : this._root = root, super.internal(root);
+
+	final TranslationsCa _root; // ignore: unused_field
+
+	// Translations
+	@override String get active => 'Actiu';
+	@override String get inactive => 'Inactiu';
+	@override String get activeUntilRestart => 'Actiu fins a que reinicies l\'aplicació';
+	@override String get inactiveUntilRestart => 'Inactiu fins que reinicies l\'aplicació';
+}
+
+// Path: login.ncLoginStep.loginFlow
+class _TranslationsLoginNcLoginStepLoginFlowCa extends TranslationsLoginNcLoginStepLoginFlowEn {
+	_TranslationsLoginNcLoginStepLoginFlowCa._(TranslationsCa root) : this._root = root, super.internal(root);
+
+	final TranslationsCa _root; // ignore: unused_field
+
+	// Translations
+	@override String get pleaseAuthorize => 'Permeta a Saber accedir a la teva compte de Nextcloud';
+	@override String get followPrompts => 'Si us plauseguda les instruccions a l\'interfície de Nextcloud';
+	@override String get browserDidntOpen => 'La pàgina de connexió no s\'ha obert? Clic aquí';
+}
+
+// Path: login.encLoginStep.encFaq.0
+class _TranslationsLoginEncLoginStep$encFaq$0i0$Ca extends TranslationsLoginEncLoginStep$encFaq$0i0$En {
+	_TranslationsLoginEncLoginStep$encFaq$0i0$Ca._(TranslationsCa root) : this._root = root, super.internal(root);
+
+	final TranslationsCa _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Què és una contrasenya de cifratge? Per què utilitzar dues contrasenyes?';
+	@override String get a => 'La contrasenya de Nextcloud es la que se utiliza para acceder a la nube. La contrasenya de cifrado "scrambles" tus datos antes de que lleguen a la nube.\nIncluso si alguien obtiene acceso a tu cuenta de Nextcloud, tus notas seguirán a salvo y cifradas con una contraseña separada. Esto te proporciona una segunda capa de seguridad para proteger tus datos.\nNadie puede acceder a tus notas en el servidor sin tu contraseña de cifrado, pero esto también significa que si olvidas tu contraseña de cifrado, perderás el acceso a tus datos.';
+}
+
+// Path: login.encLoginStep.encFaq.1
+class _TranslationsLoginEncLoginStep$encFaq$0i1$Ca extends TranslationsLoginEncLoginStep$encFaq$0i1$En {
+	_TranslationsLoginEncLoginStep$encFaq$0i1$Ca._(TranslationsCa root) : this._root = root, super.internal(root);
+
+	final TranslationsCa _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'No he menet altrepass de cifratge fins ara. On l\'obtenc?';
+	@override String get a => 'Escoll un nou contrasen de cifratge i introduïu-lo a la sota.\nSaber generarà les teves clau de cifratge automàticament a partir d\'aquest contrasen.';
+}
+
+// Path: login.encLoginStep.encFaq.2
+class _TranslationsLoginEncLoginStep$encFaq$0i2$Ca extends TranslationsLoginEncLoginStep$encFaq$0i2$En {
+	_TranslationsLoginEncLoginStep$encFaq$0i2$Ca._(TranslationsCa root) : this._root = root, super.internal(root);
+
+	final TranslationsCa _root; // ignore: unused_field
+
+	// Translations
+	@override String get q => 'Pucso el mate de la teva compte de Nextcloud?';
+	@override String get a => 'Sí, pero ten en cuenta que sería más fácil para el administrador del servidor o alguien más acceder a tus notas si obtienen acceso a tu cuenta de Nextcloud.';
+}
+
+// Path: editor.menu.boxFits
+class _TranslationsEditorMenuBoxFitsCa extends TranslationsEditorMenuBoxFitsEn {
+	_TranslationsEditorMenuBoxFitsCa._(TranslationsCa root) : this._root = root, super.internal(root);
+
+	final TranslationsCa _root; // ignore: unused_field
+
+	// Translations
+	@override String get fill => 'Estirar';
+	@override String get cover => 'Tapa';
+	@override String get contain => 'Conténhir';
+}
+
 // Path: editor.menu.bgPatterns
 class _TranslationsEditorMenuBgPatternsCa extends TranslationsEditorMenuBgPatternsEn {
 	_TranslationsEditorMenuBgPatternsCa._(TranslationsCa root) : this._root = root, super.internal(root);
@@ -499,4 +883,11 @@ class _TranslationsEditorMenuBgPatternsCa extends TranslationsEditorMenuBgPatter
 	// Translations
 	@override String get grid => 'Graella';
 	@override String get dots => 'Punts';
+	@override String get none => 'Blanc';
+	@override String get college => 'regla de college';
+	@override String get collegeRtl => 'Regla de colegio (Inversa)';
+	@override String get lined => 'Línea';
+	@override String get staffs => 'Personal</td>';
+	@override String get tablature => 'Tablatura';
+	@override String get cornell => 'Cornell';
 }
