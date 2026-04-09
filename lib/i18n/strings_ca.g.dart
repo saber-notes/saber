@@ -107,7 +107,7 @@ class _TranslationsAppInfoCa extends TranslationsAppInfoEn {
 	final TranslationsCa _root; // ignore: unused_field
 
 	// Translations
-	@override String get licenseNotice => 'Aquest programa no compta amb cap garantia.\nÉs programari lliure, i estàs en el teu dret de distribuir-ho sota certes condicions.';
+	@override String licenseNotice({required Object buildYear}) => 'Saber  Copyright © 2022-${buildYear}  Adil Hanney\nAquest programa no compta amb cap garantia. És programari lliure, i estàs en el teu dret de distribuir-ho sota certes condicions.';
 	@override String get debug => 'DEBUG';
 	@override String get sponsorButton => 'Prem aquí per a mostrar-me el teu suport o ampliar l\'emmagatzematge';
 	@override String get licenseButton => 'Prem aquí per a més informació sobre la llicència';
@@ -240,7 +240,7 @@ class _TranslationsHomeMoveNoteCa extends TranslationsHomeMoveNoteEn {
 	@override String moveNotes({required Object n}) => 'Moure ${n} notes';
 	@override String moveName({required Object f}) => 'Mou ${f}';
 	@override String get move => 'Moure';
-	@override String renamedTo({required Object nouNom}) => 'La nota serà renombrada com a ${nouNom}';
+	@override String renamedTo({required Object newName}) => 'La nota serà renombrada com a ${newName}';
 	@override String get multipleRenamedTo => 'Les següents notes seràn reanomenades:';
 	@override String numberRenamedTo({required Object n}) => '${n} notes seran reanomenades per evitar conflictes';
 }
@@ -358,8 +358,6 @@ class _TranslationsEditorColorsCa extends TranslationsEditorColorsEn {
 
 	// Translations
 	@override String get colorPicker => 'Selector de color';
-	@override String get customBrightnessHue => 'Lluminositat';
-	@override String get customHue => 'Tonalitat';
 	@override String get dark => 'Fosc';
 	@override String get light => 'Clar';
 	@override String get black => 'Negre';
@@ -411,7 +409,6 @@ class _TranslationsEditorMenuCa extends TranslationsEditorMenuEn {
 	final TranslationsCa _root; // ignore: unused_field
 
 	// Translations
-	@override String get clearPage => 'Neteja foli';
 	@override String get clearAllPages => 'Neteja tots els folis';
 	@override String get duplicatePage => 'Duplicar foli';
 	@override String get deletePage => 'Esborra foli';
