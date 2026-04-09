@@ -1,3 +1,3 @@
-• Característica: ara podeu exportar la pàgina actual com a PNG 
-• Corregit: l'indicador de progrés de sincronització s'estava bloquejant quan fallava una transferència 
-• Tweak: freqüència reduïda de reintentar transferències de sincronització fallides
+• Característica: Arau és ara la pàgina actual com un PNG
+• Reparet: L'indicador de progrés de sincronització es bloquejava quan una transferència fallava
+• Ajustament: Reduïta la freqüència de reprovar les transferències de sincronització fallades

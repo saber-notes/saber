@@ -176,8 +176,6 @@ dev_dependencies:
 
   icons_launcher: ^3.0.0
 
-  simplytranslate: ^2.0.1
-
   yaml: ^3.1.2
 
   golden_screenshot: ^11.0.1
