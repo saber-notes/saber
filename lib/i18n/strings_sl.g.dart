@@ -78,6 +78,7 @@ class _TranslationsHomeSl extends TranslationsHomeEn {
 	@override late final _TranslationsHomeRenameNoteSl renameNote = _TranslationsHomeRenameNoteSl._(_root);
 	@override late final _TranslationsHomeMoveNoteSl moveNote = _TranslationsHomeMoveNoteSl._(_root);
 	@override String get deleteNote => 'Izbriši zapisek';
+	@override late final _TranslationsHomeDeleteNoteDialogSl deleteNoteDialog = _TranslationsHomeDeleteNoteDialogSl._(_root);
 	@override late final _TranslationsHomeRenameFolderSl renameFolder = _TranslationsHomeRenameFolderSl._(_root);
 	@override late final _TranslationsHomeDeleteFolderSl deleteFolder = _TranslationsHomeDeleteFolderSl._(_root);
 }
@@ -323,6 +324,19 @@ class _TranslationsHomeMoveNoteSl extends TranslationsHomeMoveNoteEn {
 	@override String renamedTo({required Object newName}) => 'Zapisek bo preimenovan v ${newName}';
 	@override String get multipleRenamedTo => 'Naslednji zapiski bodo preimenovani:';
 	@override String numberRenamedTo({required Object n}) => '${n} zapiskov bo preimenovanih, da bi se izognili sporom';
+}
+
+// Path: home.deleteNoteDialog
+class _TranslationsHomeDeleteNoteDialogSl extends TranslationsHomeDeleteNoteDialogEn {
+	_TranslationsHomeDeleteNoteDialogSl._(TranslationsSl root) : this._root = root, super.internal(root);
+
+	final TranslationsSl _root; // ignore: unused_field
+
+	// Translations
+	@override String deleteNotes({required Object n}) => 'Odstrani ${n} zapise';
+	@override String deleteName({required Object f}) => 'Izbriši ${f}';
+	@override String get confirmDelete => 'Določite se izbrane napake (napake)?';
+	@override String get delete => 'Odstrani';
 }
 
 // Path: home.renameFolder

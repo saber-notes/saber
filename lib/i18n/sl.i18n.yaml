@@ -50,6 +50,11 @@ home:
     multipleRenamedTo: "Naslednji zapiski bodo preimenovani:"
     numberRenamedTo: $n zapiskov bo preimenovanih, da bi se izognili sporom
   deleteNote: Izbriši zapisek
+  deleteNoteDialog:
+    deleteNotes(OUTDATED): Odstrani $n zapise
+    deleteName(OUTDATED): Izbriši $f
+    confirmDelete(OUTDATED): Določite se izbrane napake (napake)?
+    delete(OUTDATED): Odstrani
   renameFolder:
     renameFolder: Preimenuj mapo
     folderName: Ime mape

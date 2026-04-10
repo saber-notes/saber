@@ -78,6 +78,7 @@ class _TranslationsHomeRu extends TranslationsHomeEn {
 	@override late final _TranslationsHomeRenameNoteRu renameNote = _TranslationsHomeRenameNoteRu._(_root);
 	@override late final _TranslationsHomeMoveNoteRu moveNote = _TranslationsHomeMoveNoteRu._(_root);
 	@override String get deleteNote => 'Удалить заметку';
+	@override late final _TranslationsHomeDeleteNoteDialogRu deleteNoteDialog = _TranslationsHomeDeleteNoteDialogRu._(_root);
 	@override late final _TranslationsHomeRenameFolderRu renameFolder = _TranslationsHomeRenameFolderRu._(_root);
 	@override late final _TranslationsHomeDeleteFolderRu deleteFolder = _TranslationsHomeDeleteFolderRu._(_root);
 }
@@ -323,6 +324,19 @@ class _TranslationsHomeMoveNoteRu extends TranslationsHomeMoveNoteEn {
 	@override String renamedTo({required Object newName}) => 'Заметка будет переименована в ${newName}';
 	@override String get multipleRenamedTo => 'Следующие заметки будут переименованы:';
 	@override String numberRenamedTo({required Object n}) => '${n} заметок будут переименованы, чтобы избежать конфликтов';
+}
+
+// Path: home.deleteNoteDialog
+class _TranslationsHomeDeleteNoteDialogRu extends TranslationsHomeDeleteNoteDialogEn {
+	_TranslationsHomeDeleteNoteDialogRu._(TranslationsRu root) : this._root = root, super.internal(root);
+
+	final TranslationsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String deleteNotes({required Object n}) => 'Удалить ${n} заметок';
+	@override String deleteName({required Object f}) => 'Удалить ${f}';
+	@override String get confirmDelete => 'Постоянно удалить выбранные заметки?';
+	@override String get delete => 'Удалить';
 }
 
 // Path: home.renameFolder

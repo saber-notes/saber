@@ -50,6 +50,11 @@ home:
     multipleRenamedTo: Renombrar las siguientes notas
     numberRenamedTo: $n notas serán renombradas para evitar conflictos
   deleteNote: Eliminar nota
+  deleteNoteDialog:
+    deleteNotes(OUTDATED): Eliminar $n notas
+    deleteName(OUTDATED): Borrar $f
+    confirmDelete(OUTDATED): ¿Eliminar permanentemente la nota(s) seleccionada(s)?
+    delete(OUTDATED): Eliminar
   renameFolder:
     renameFolder: Renombrar carpeta
     folderName: Nombre de la carpeta

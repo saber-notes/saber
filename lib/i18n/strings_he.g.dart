@@ -78,6 +78,7 @@ class _TranslationsHomeHe extends TranslationsHomeEn {
 	@override late final _TranslationsHomeRenameNoteHe renameNote = _TranslationsHomeRenameNoteHe._(_root);
 	@override late final _TranslationsHomeMoveNoteHe moveNote = _TranslationsHomeMoveNoteHe._(_root);
 	@override String get deleteNote => 'מחיקת פתק';
+	@override late final _TranslationsHomeDeleteNoteDialogHe deleteNoteDialog = _TranslationsHomeDeleteNoteDialogHe._(_root);
 	@override late final _TranslationsHomeRenameFolderHe renameFolder = _TranslationsHomeRenameFolderHe._(_root);
 	@override late final _TranslationsHomeDeleteFolderHe deleteFolder = _TranslationsHomeDeleteFolderHe._(_root);
 }
@@ -323,6 +324,19 @@ class _TranslationsHomeMoveNoteHe extends TranslationsHomeMoveNoteEn {
 	@override String renamedTo({required Object newName}) => 'שם הפתק ישתנה לשם ${newName}';
 	@override String get multipleRenamedTo => 'ישתנה שמם של הפתקים הבאים:';
 	@override String numberRenamedTo({required Object n}) => 'ישתנה שמם של ${n} פתקים בשביל להימנע מהתנגשויות';
+}
+
+// Path: home.deleteNoteDialog
+class _TranslationsHomeDeleteNoteDialogHe extends TranslationsHomeDeleteNoteDialogEn {
+	_TranslationsHomeDeleteNoteDialogHe._(TranslationsHe root) : this._root = root, super.internal(root);
+
+	final TranslationsHe _root; // ignore: unused_field
+
+	// Translations
+	@override String deleteNotes({required Object n}) => 'احذف ${n} ملاحظة';
+	@override String deleteName({required Object f}) => 'احذف ${f}';
+	@override String get confirmDelete => 'حذف دائم یادداشت‌های انتخاب شده؟';
+	@override String get delete => 'احذف';
 }
 
 // Path: home.renameFolder

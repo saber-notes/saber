@@ -77,6 +77,7 @@ class _TranslationsHomeTr extends TranslationsHomeEn {
 	@override late final _TranslationsHomeRenameNoteTr renameNote = _TranslationsHomeRenameNoteTr._(_root);
 	@override late final _TranslationsHomeMoveNoteTr moveNote = _TranslationsHomeMoveNoteTr._(_root);
 	@override String get deleteNote => 'Notu sil';
+	@override late final _TranslationsHomeDeleteNoteDialogTr deleteNoteDialog = _TranslationsHomeDeleteNoteDialogTr._(_root);
 	@override late final _TranslationsHomeRenameFolderTr renameFolder = _TranslationsHomeRenameFolderTr._(_root);
 	@override late final _TranslationsHomeDeleteFolderTr deleteFolder = _TranslationsHomeDeleteFolderTr._(_root);
 	@override String get noPreviewAvailable => 'Önizleme yok';
@@ -323,6 +324,19 @@ class _TranslationsHomeMoveNoteTr extends TranslationsHomeMoveNoteEn {
 	@override String renamedTo({required Object newName}) => 'Not ${newName} olarak yeniden adlandırılacak';
 	@override String get multipleRenamedTo => 'Bu notlar yeniden adlandırılacak:';
 	@override String numberRenamedTo({required Object n}) => '${n} tane not çakışma olmaması için yeniden adlandırılacak';
+}
+
+// Path: home.deleteNoteDialog
+class _TranslationsHomeDeleteNoteDialogTr extends TranslationsHomeDeleteNoteDialogEn {
+	_TranslationsHomeDeleteNoteDialogTr._(TranslationsTr root) : this._root = root, super.internal(root);
+
+	final TranslationsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String deleteNotes({required Object n}) => '${n} notu\'ları sil';
+	@override String deleteName({required Object f}) => '${f}\'yi sil';
+	@override String get confirmDelete => 'Seçili notları kalıcı olarak silmek mi?';
+	@override String get delete => 'Sil';
 }
 
 // Path: home.renameFolder
