@@ -69,14 +69,11 @@ class _DeleteNoteDialogState extends State<_DeleteNoteDialog> {
                 n: widget.filesToDelete.length,
               ),
             ),
-      content: Row(
-        children: [
-          Checkbox(
-            value: deleteAllowed,
-            onChanged: (value) => setState(() => deleteAllowed = value!),
-          ),
-          Expanded(child: Text(t.home.deleteNoteDialog.confirmDelete)),
-        ],
+      content: CheckboxListTile.adaptive(
+        value: deleteAllowed,
+        onChanged: (value) => setState(() => deleteAllowed = value!),
+        controlAffinity: .leading,
+        title: Text(t.home.deleteNoteDialog.confirmDelete),
       ),
       actions: [
         CupertinoDialogAction(
