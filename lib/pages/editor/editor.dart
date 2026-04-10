@@ -438,6 +438,9 @@ class EditorState extends State<Editor> {
           for (final stroke in item.strokes) {
             stroke.color = item.colorChange![stroke]!.previous;
           }
+
+        case .backgroundPattern:
+          break;
       }
 
       if (item.type != .move) {
@@ -484,6 +487,8 @@ class EditorState extends State<Editor> {
             ),
           ),
         );
+      case .backgroundPattern:
+        break;
     }
   }
 
@@ -1757,6 +1762,14 @@ class EditorState extends State<Editor> {
         if (coreInfo.readOnly) return;
         coreInfo.backgroundPattern = pattern;
         stows.lastBackgroundPattern.value = pattern;
+        history.recordChange(
+          EditorHistoryItem(
+            type: EditorHistoryItemType.backgroundPattern,
+            pageIndex: currentPageIndex,
+            strokes: [],
+            images: [],
+          ),
+        );
         autosaveAfterDelay();
       }),
       setLineHeight: (lineHeight) => setState(() {
