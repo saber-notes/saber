@@ -75,7 +75,7 @@ class _DeleteNoteDialogState extends State<_DeleteNoteDialog> {
             value: deleteAllowed,
             onChanged: (value) => setState(() => deleteAllowed = value!),
           ),
-          Expanded(child: Text(t.home.deleteNoteDialog.deleteAllowed)),
+          Expanded(child: Text(t.home.deleteNoteDialog.confirmDelete)),
         ],
       ),
       actions: [

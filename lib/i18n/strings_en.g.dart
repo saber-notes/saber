@@ -496,8 +496,8 @@ class TranslationsHomeDeleteNoteDialogEn {
 	/// en: 'Delete $f'
 	String deleteName({required Object f}) => 'Delete ${f}';
 
-	/// en: 'Delete all selected notes (they cannot be restored)'
-	String get deleteAllowed => 'Delete all selected notes (they cannot be restored)';
+	/// en: 'Permanently delete selected note(s)?'
+	String get confirmDelete => 'Permanently delete selected note(s)?';
 
 	/// en: 'Delete'
 	String get delete => 'Delete';
