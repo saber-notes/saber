@@ -213,4 +213,5 @@ enum EditorHistoryItemType {
   quillChange,
   quillUndoneChange,
   changeColor,
+  backgroundPattern,
 }
