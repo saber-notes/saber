@@ -3,6 +3,7 @@ import 'package:flutter_quill/flutter_quill.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/image/editor_image.dart';
 import 'package:saber/data/editor/page.dart';
+import 'package:sbn/canvas_background_pattern.dart';
 import 'package:sbn/change.dart';
 
 class EditorHistory {
@@ -147,6 +148,7 @@ class EditorHistoryItem {
     this.page,
     this.quillChange,
     this.colorChange,
+    this.backgroundPatternChange,
   }) : assert(
          type != .move || offset != null,
          'Offset must be provided for move',
@@ -170,6 +172,10 @@ class EditorHistoryItem {
        assert(
          type != .changeColor || colorChange?.length == strokes.length,
          'colorChange must be provided and contain each of strokes',
+       ),
+       assert(
+         type != .backgroundPattern || backgroundPatternChange != null,
+         'Background pattern change must be provided for backgroundPattern',
        );
 
   final EditorHistoryItemType type;
@@ -180,6 +186,7 @@ class EditorHistoryItem {
   final EditorPage? page;
   final DocChange? quillChange;
   final Map<Stroke, Change<Color>>? colorChange;
+  final Change<CanvasBackgroundPattern>? backgroundPatternChange;
 
   EditorHistoryItem copyWith({
     EditorHistoryItemType? type,
@@ -190,6 +197,7 @@ class EditorHistoryItem {
     EditorPage? page,
     DocChange? quillChange,
     Map<Stroke, Change<Color>>? colorChange,
+    Change<CanvasBackgroundPattern>? backgroundPatternChange,
   }) {
     return EditorHistoryItem(
       type: type ?? this.type,
@@ -200,6 +208,8 @@ class EditorHistoryItem {
       page: page ?? this.page,
       quillChange: quillChange ?? this.quillChange,
       colorChange: colorChange ?? this.colorChange,
+      backgroundPatternChange:
+          backgroundPatternChange ?? this.backgroundPatternChange,
     );
   }
 }

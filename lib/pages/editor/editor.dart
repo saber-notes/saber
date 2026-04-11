@@ -434,13 +434,14 @@ class EditorState extends State<Editor> {
         case .quillUndoneChange:
           final quill = coreInfo.pages[item.pageIndex].quill;
           quill.controller.redo();
+
         case .changeColor:
           for (final stroke in item.strokes) {
             stroke.color = item.colorChange![stroke]!.previous;
           }
 
         case .backgroundPattern:
-          break;
+          coreInfo.backgroundPattern = item.backgroundPatternChange!.previous;
       }
 
       if (item.type != .move) {
@@ -488,7 +489,11 @@ class EditorState extends State<Editor> {
           ),
         );
       case .backgroundPattern:
-        break;
+        undo(
+          item.copyWith(
+            backgroundPatternChange: item.backgroundPatternChange!.reverse(),
+          ),
+        );
     }
   }
 
@@ -1760,12 +1765,17 @@ class EditorState extends State<Editor> {
       currentPageIndex: currentPageIndex,
       setBackgroundPattern: (pattern) => setState(() {
         if (coreInfo.readOnly) return;
+        final previous = coreInfo.backgroundPattern;
         coreInfo.backgroundPattern = pattern;
         stows.lastBackgroundPattern.value = pattern;
         history.recordChange(
           EditorHistoryItem(
-            type: EditorHistoryItemType.backgroundPattern,
+            type: .backgroundPattern,
             pageIndex: currentPageIndex,
+            backgroundPatternChange: Change(
+              previous: previous,
+              current: pattern,
+            ),
             strokes: [],
             images: [],
           ),
