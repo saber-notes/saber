@@ -33,7 +33,7 @@ class CanvasHud extends HookWidget {
   @override
   Widget build(BuildContext context) {
     /// The opacity of the HUD
-    final opacity = useState(1.0);
+    final opacity = useState(0.0);
 
     /// A timer to set the opacity to 0 after inactivity
     final hideTimer = useRef<Timer?>(null);
