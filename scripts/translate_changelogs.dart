@@ -62,8 +62,7 @@ void main() async {
 
     var translatedChangelog = (await translator).translate(
       englishChangelog,
-      from: 'en',
-      to: localeCode,
+      to: '$localeName ($localeCode)',
     );
 
     translatedChangelog = fixSpelling(translatedChangelog);

@@ -36,7 +36,7 @@ class LmsTranslator {
 
   String translate(
     String sourceText, {
-    String from = 'en',
+    String from = 'English (en)',
     required String to,
   }) {
     final systemPrompt =

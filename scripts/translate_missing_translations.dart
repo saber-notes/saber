@@ -6,6 +6,7 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:saber/data/locales.dart';
 import 'package:yaml/yaml.dart';
 
 import 'src/fix_spelling.dart';
@@ -104,16 +105,16 @@ Future<void> translateList(
   }
 }
 
-Future<String> translateString(String languageCode, String english) async {
+Future<String> translateString(String localeCode, String english) async {
   final short =
       (english.length > 100 ? '${english.substring(0, 100)}...' : english)
           .replaceAll('\n', '\\n');
-  print('  Translating into $languageCode: $short');
+  final localeName = localeNames[localeCode];
+  print('  Translating into $localeName ($localeCode): $short');
 
   final translatedText = (await translator).translate(
     english,
-    from: 'en',
-    to: languageCode,
+    to: '$localeName ($localeCode)',
   );
 
   return fixSpelling(translatedText);
