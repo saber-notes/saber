@@ -77,6 +77,7 @@ class _TranslationsHomeAr extends TranslationsHomeEn {
 	@override late final _TranslationsHomeRenameNoteAr renameNote = _TranslationsHomeRenameNoteAr._(_root);
 	@override late final _TranslationsHomeMoveNoteAr moveNote = _TranslationsHomeMoveNoteAr._(_root);
 	@override String get deleteNote => 'حذف الملاحظة';
+	@override late final _TranslationsHomeDeleteNoteDialogAr deleteNoteDialog = _TranslationsHomeDeleteNoteDialogAr._(_root);
 	@override late final _TranslationsHomeRenameFolderAr renameFolder = _TranslationsHomeRenameFolderAr._(_root);
 	@override late final _TranslationsHomeDeleteFolderAr deleteFolder = _TranslationsHomeDeleteFolderAr._(_root);
 	@override String get noPreviewAvailable => 'لا معاينة متاحة';
@@ -323,6 +324,19 @@ class _TranslationsHomeMoveNoteAr extends TranslationsHomeMoveNoteEn {
 	@override String renamedTo({required Object newName}) => 'ستتم إعادة تسمية الملاحظة إلى ${newName}';
 	@override String get multipleRenamedTo => 'الملاحظات التالية سيتم اعادة تسميتها:';
 	@override String numberRenamedTo({required Object n}) => 'ملاحظة سيتم اعادة تسميتها لتجنب تضارب تشابه الاسماء ${n}';
+}
+
+// Path: home.deleteNoteDialog
+class _TranslationsHomeDeleteNoteDialogAr extends TranslationsHomeDeleteNoteDialogEn {
+	_TranslationsHomeDeleteNoteDialogAr._(TranslationsAr root) : this._root = root, super.internal(root);
+
+	final TranslationsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String deleteNotes({required Object n}) => 'احذف ${n} ملاحظة';
+	@override String deleteName({required Object f}) => 'احذف ${f}';
+	@override String get confirmDelete => 'حذف الملاحظات المحددة بشكل دائم؟';
+	@override String get delete => 'حذف';
 }
 
 // Path: home.renameFolder

@@ -78,6 +78,7 @@ class _TranslationsHomeCs extends TranslationsHomeEn {
 	@override late final _TranslationsHomeRenameNoteCs renameNote = _TranslationsHomeRenameNoteCs._(_root);
 	@override late final _TranslationsHomeMoveNoteCs moveNote = _TranslationsHomeMoveNoteCs._(_root);
 	@override String get deleteNote => 'Odstranit poznámku';
+	@override late final _TranslationsHomeDeleteNoteDialogCs deleteNoteDialog = _TranslationsHomeDeleteNoteDialogCs._(_root);
 	@override late final _TranslationsHomeRenameFolderCs renameFolder = _TranslationsHomeRenameFolderCs._(_root);
 	@override late final _TranslationsHomeDeleteFolderCs deleteFolder = _TranslationsHomeDeleteFolderCs._(_root);
 }
@@ -323,6 +324,19 @@ class _TranslationsHomeMoveNoteCs extends TranslationsHomeMoveNoteEn {
 	@override String renamedTo({required Object newName}) => 'Poznámka bude přejmenována na ${newName}';
 	@override String get multipleRenamedTo => 'Následující poznámky budou přejmenovány:';
 	@override String numberRenamedTo({required Object n}) => '${n} poznámek bude přejmenováno';
+}
+
+// Path: home.deleteNoteDialog
+class _TranslationsHomeDeleteNoteDialogCs extends TranslationsHomeDeleteNoteDialogEn {
+	_TranslationsHomeDeleteNoteDialogCs._(TranslationsCs root) : this._root = root, super.internal(root);
+
+	final TranslationsCs _root; // ignore: unused_field
+
+	// Translations
+	@override String deleteNotes({required Object n}) => 'Smazat ${n} poznámek';
+	@override String deleteName({required Object f}) => 'Vymaž ${f}';
+	@override String get confirmDelete => 'Trvale smazat vybranou poznámku(y)?';
+	@override String get delete => 'Smazat';
 }
 
 // Path: home.renameFolder

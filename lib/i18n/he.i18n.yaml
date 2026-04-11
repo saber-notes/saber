@@ -50,6 +50,11 @@ home:
     multipleRenamedTo: "ישתנה שמם של הפתקים הבאים:"
     numberRenamedTo: ישתנה שמם של $n פתקים בשביל להימנע מהתנגשויות
   deleteNote: מחיקת פתק
+  deleteNoteDialog:
+    deleteNotes(OUTDATED): احذف $n ملاحظة
+    deleteName(OUTDATED): احذف $f
+    confirmDelete(OUTDATED): حذف دائم یادداشت‌های انتخاب شده؟
+    delete(OUTDATED): احذف
   renameFolder:
     renameFolder: שינוי שם התיקייה
     folderName: שם התיקייה

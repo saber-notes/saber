@@ -78,6 +78,7 @@ class _TranslationsHomeEo extends TranslationsHomeEn {
 	@override late final _TranslationsHomeRenameNoteEo renameNote = _TranslationsHomeRenameNoteEo._(_root);
 	@override late final _TranslationsHomeMoveNoteEo moveNote = _TranslationsHomeMoveNoteEo._(_root);
 	@override String get deleteNote => 'Forigu noton';
+	@override late final _TranslationsHomeDeleteNoteDialogEo deleteNoteDialog = _TranslationsHomeDeleteNoteDialogEo._(_root);
 	@override late final _TranslationsHomeRenameFolderEo renameFolder = _TranslationsHomeRenameFolderEo._(_root);
 	@override late final _TranslationsHomeDeleteFolderEo deleteFolder = _TranslationsHomeDeleteFolderEo._(_root);
 }
@@ -323,6 +324,19 @@ class _TranslationsHomeMoveNoteEo extends TranslationsHomeMoveNoteEn {
 	@override String renamedTo({required Object newName}) => 'Noto alinomiĝos al ${newName}';
 	@override String get multipleRenamedTo => 'La sekvaj notoj alinomiĝos:';
 	@override String numberRenamedTo({required Object n}) => '${n} notoj alinomiĝos por eviti konfliktojn';
+}
+
+// Path: home.deleteNoteDialog
+class _TranslationsHomeDeleteNoteDialogEo extends TranslationsHomeDeleteNoteDialogEn {
+	_TranslationsHomeDeleteNoteDialogEo._(TranslationsEo root) : this._root = root, super.internal(root);
+
+	final TranslationsEo _root; // ignore: unused_field
+
+	// Translations
+	@override String deleteNotes({required Object n}) => '${n} нота들을 삭제하세요';
+	@override String deleteName({required Object f}) => '${f}-ஐ நீக்கு';
+	@override String get confirmDelete => '선택한 메모를 영구적으로 삭제하시겠습니까?';
+	@override String get delete => 'Удалить';
 }
 
 // Path: home.renameFolder

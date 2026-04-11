@@ -78,6 +78,7 @@ class _TranslationsHomeVi extends TranslationsHomeEn {
 	@override late final _TranslationsHomeRenameNoteVi renameNote = _TranslationsHomeRenameNoteVi._(_root);
 	@override late final _TranslationsHomeMoveNoteVi moveNote = _TranslationsHomeMoveNoteVi._(_root);
 	@override String get deleteNote => 'Xóa ghi chú';
+	@override late final _TranslationsHomeDeleteNoteDialogVi deleteNoteDialog = _TranslationsHomeDeleteNoteDialogVi._(_root);
 	@override late final _TranslationsHomeRenameFolderVi renameFolder = _TranslationsHomeRenameFolderVi._(_root);
 	@override late final _TranslationsHomeDeleteFolderVi deleteFolder = _TranslationsHomeDeleteFolderVi._(_root);
 }
@@ -323,6 +324,19 @@ class _TranslationsHomeMoveNoteVi extends TranslationsHomeMoveNoteEn {
 	@override String renamedTo({required Object newName}) => 'Ghi chú sẽ được đổi tên thành ${newName}';
 	@override String get multipleRenamedTo => 'Các ghi chú sau sẽ được đổi tên:';
 	@override String numberRenamedTo({required Object n}) => 'Sẽ đổi tên ${n} ghi chú để tránh xung đột';
+}
+
+// Path: home.deleteNoteDialog
+class _TranslationsHomeDeleteNoteDialogVi extends TranslationsHomeDeleteNoteDialogEn {
+	_TranslationsHomeDeleteNoteDialogVi._(TranslationsVi root) : this._root = root, super.internal(root);
+
+	final TranslationsVi _root; // ignore: unused_field
+
+	// Translations
+	@override String deleteNotes({required Object n}) => 'Xóa ${n} ghi chú';
+	@override String deleteName({required Object f}) => 'Xóa ${f}';
+	@override String get confirmDelete => 'Xóa vĩnh viễn các ghi chú đã chọn?';
+	@override String get delete => 'Xóa';
 }
 
 // Path: home.renameFolder

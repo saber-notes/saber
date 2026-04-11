@@ -49,6 +49,11 @@ home:
     multipleRenamedTo: "Bu notlar yeniden adlandırılacak:"
     numberRenamedTo: $n tane not çakışma olmaması için yeniden adlandırılacak
   deleteNote: Notu sil
+  deleteNoteDialog:
+    deleteNotes(OUTDATED): $n notu'ları sil
+    deleteName(OUTDATED): $f'yi sil
+    confirmDelete(OUTDATED): Seçili notları kalıcı olarak silmek mi?
+    delete(OUTDATED): Sil
   renameFolder:
     renameFolder: Klasörü adlandır
     folderName: Klasör ismi

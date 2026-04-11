@@ -74,6 +74,7 @@ class _TranslationsHomeJa extends TranslationsHomeEn {
 	@override late final _TranslationsHomeNewFolderJa newFolder = _TranslationsHomeNewFolderJa._(_root);
 	@override late final _TranslationsHomeRenameNoteJa renameNote = _TranslationsHomeRenameNoteJa._(_root);
 	@override late final _TranslationsHomeMoveNoteJa moveNote = _TranslationsHomeMoveNoteJa._(_root);
+	@override late final _TranslationsHomeDeleteNoteDialogJa deleteNoteDialog = _TranslationsHomeDeleteNoteDialogJa._(_root);
 	@override late final _TranslationsHomeRenameFolderJa renameFolder = _TranslationsHomeRenameFolderJa._(_root);
 	@override late final _TranslationsHomeDeleteFolderJa deleteFolder = _TranslationsHomeDeleteFolderJa._(_root);
 	@override String get noPreviewAvailable => 'プレビューは利用できません';
@@ -321,6 +322,19 @@ class _TranslationsHomeMoveNoteJa extends TranslationsHomeMoveNoteEn {
 	@override String moveNotes({required Object n}) => '${n}のノートを移動する';
 	@override String get multipleRenamedTo => '次のメモの名前が変更されます。';
 	@override String numberRenamedTo({required Object n}) => '${n} のノートは、競合を避けるために名前を変更されます';
+}
+
+// Path: home.deleteNoteDialog
+class _TranslationsHomeDeleteNoteDialogJa extends TranslationsHomeDeleteNoteDialogEn {
+	_TranslationsHomeDeleteNoteDialogJa._(TranslationsJa root) : this._root = root, super.internal(root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String deleteNotes({required Object n}) => '${n} のノートを削除する';
+	@override String deleteName({required Object f}) => '${f}を削除する';
+	@override String get confirmDelete => '選択したメモを永久に削除しますか？';
+	@override String get delete => '削除';
 }
 
 // Path: home.renameFolder

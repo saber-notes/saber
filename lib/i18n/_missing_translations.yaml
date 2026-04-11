@@ -7,6 +7,11 @@ ar:
     renameNote:
       noteNameForbiddenCharacters(OUTDATED): Note name contains forbidden characters
       noteNameReserved(OUTDATED): Note name reserved
+    deleteNoteDialog:
+      deleteNotes(OUTDATED): Delete $n notes
+      deleteName(OUTDATED): Delete $f
+      confirmDelete(OUTDATED): Permanently delete selected note(s)?
+      delete(OUTDATED): Delete
   sentry:
     consent:
       title(OUTDATED): Help improve Saber?
@@ -50,13 +55,218 @@ ar:
     readOnlyBanner:
       watchingServer(OUTDATED): You are currently watching for updates on the server. Editing is disabled in this mode.
       corrupted(OUTDATED): Failed to load note. It may be corrupted or still being downloaded.
+ca:
+  home:
+    tooltips:
+      showUpdateDialog(OUTDATED): Show update dialog
+    deleteNoteDialog:
+      deleteNotes(OUTDATED): Delete $n notes
+      deleteName(OUTDATED): Delete $f
+      confirmDelete(OUTDATED): Permanently delete selected note(s)?
+      delete(OUTDATED): Delete
+  sentry:
+    consent:
+      description:
+        question(OUTDATED): Would you like to automatically report unexpected errors? This helps me identify and fix issues faster.
+        scope(OUTDATED): The reports may contain information about the error and your device. I've made every effort to filter out personal data but some may remain.
+        currentlyOn(OUTDATED): If you revoke consent, please restart the app to disable error reporting.
+  settings:
+    prefLabels:
+      appTheme(OUTDATED): App theme
+      platform(OUTDATED): Theme type
+      customAccentColor(OUTDATED): Custom accent color
+      hyperlegibleFont(OUTDATED): Atkinson Hyperlegible font
+      editorToolbarAlignment(OUTDATED): Toolbar position
+      editorToolbarShowInFullscreen(OUTDATED): Show the toolbar in fullscreen mode
+      editorAutoInvert(OUTDATED): Invert notes in dark mode
+      preferGreyscale(OUTDATED): Prefer greyscale colors
+      maxImageSize(OUTDATED): Maximum image size
+      autoClearWhiteboardOnExit(OUTDATED): Auto-clear the whiteboard
+      disableEraserAfterUse(OUTDATED): Auto-disable the eraser
+      hideFingerDrawingToggle(OUTDATED): Hide the finger drawing toggle
+      autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Auto-disable finger drawing
+      editorPromptRename(OUTDATED): Prompt you to rename new notes
+      recentColorsDontSavePresets(OUTDATED): Don't save preset colors in recent colors
+      recentColorsLength(OUTDATED): How many recent colors to store
+      printPageIndicators(OUTDATED): Print page indicators
+      autosave(OUTDATED): Auto-save
+      shapeRecognitionDelay(OUTDATED): Shape recognition delay
+      autoStraightenLines(OUTDATED): Auto straighten lines
+      simplifiedHomeLayout(OUTDATED): Simplified home layout
+      customDataDir(OUTDATED): Custom Saber folder
+      sentry(OUTDATED): Error reporting
+    prefDescriptions:
+      hyperlegibleFont(OUTDATED): Increases legibility for users with low vision
+      allowInsecureConnections(OUTDATED): (Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates
+      preferGreyscale(OUTDATED): For e-ink displays
+      autoClearWhiteboardOnExit(OUTDATED): Clears the whiteboard after you exit the app
+      disableEraserAfterUse(OUTDATED): Automatically switches back to the pen after using the eraser
+      maxImageSize(OUTDATED): Larger images will be compressed
+      hideFingerDrawing:
+        shown(OUTDATED): Prevents accidental toggling
+        fixedOn(OUTDATED): Finger drawing is fixed as enabled
+        fixedOff(OUTDATED): Finger drawing is fixed as disabled
+      autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Turn off finger drawing when a stylus is detected
+      editorPromptRename(OUTDATED): You can always rename notes later
+      printPageIndicators(OUTDATED): Show page indicators in exports
+      autosave(OUTDATED): Auto-save after a short delay, or never
+      shapeRecognitionDelay(OUTDATED): How often to update the shape preview
+      autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
+      simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
+      shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
+      sentry:
+        active(OUTDATED): Active
+        inactive(OUTDATED): Inactive
+        activeUntilRestart(OUTDATED): Active until you restart the app
+        inactiveUntilRestart(OUTDATED): Inactive until you restart the app
+    themeModes:
+      system(OUTDATED): System
+      light(OUTDATED): Light
+      dark(OUTDATED): Dark
+    layoutSizes:
+      auto(OUTDATED): Auto
+      phone(OUTDATED): Phone
+      tablet(OUTDATED): Tablet
+    accentColorPicker:
+      pickAColor(OUTDATED): Pick a color
+    systemLanguage(OUTDATED): Auto
+    axisDirections(OUTDATED):
+    - Top
+    - Right
+    - Bottom
+    - Left
+    reset:
+      title(OUTDATED): Reset this setting?
+      button(OUTDATED): Reset
+    resyncEverything(OUTDATED): Resync everything
+    openDataDir(OUTDATED): Open Saber folder
+    customDataDir:
+      cancel(OUTDATED): Cancel
+      select(OUTDATED): Select
+      mustBeEmpty(OUTDATED): Selected folder must be empty
+      mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the folder
+      unsupported(OUTDATED): This feature is currently only for developers. Using it will likely result in data loss.
+    autosaveDisabled(OUTDATED): Never
+    shapeRecognitionDisabled(OUTDATED): Never
+  logs:
+    logs(OUTDATED): Logs
+    viewLogs(OUTDATED): View logs
+    debuggingInfo(OUTDATED): Logs contain information useful for debugging and development
+    noLogs(OUTDATED): No logs here!
+    useTheApp(OUTDATED): Logs will appear here as you use the app
+  login:
+    title(OUTDATED): Login
+    form:
+      agreeToPrivacyPolicy(rich)(OUTDATED): By logging in, you agree to the ${linkToPrivacyPolicy(Privacy Policy)}.
+    signup(rich)(OUTDATED): Don't have an account yet? ${linkToSignup(Sign up now)}!
+    notYou(rich)(OUTDATED): Not you? ${undoLogin(Choose another account)}.
+    status:
+      loggedOut(OUTDATED): Logged out
+      tapToLogin(OUTDATED): Tap to log in with Nextcloud
+      hi(OUTDATED): Hi, $u!
+      almostDone(OUTDATED): Almost ready for syncing, tap to finish logging in
+      loggedIn(OUTDATED): Logged in with Nextcloud
+    ncLoginStep:
+      whereToStoreData(OUTDATED): "Choose where you want to store your data:"
+      saberNcServer(OUTDATED): Saber's Nextcloud server
+      otherNcServer(OUTDATED): Other Nextcloud server
+      serverUrl(OUTDATED): Server URL
+      loginWithSaber(OUTDATED): Login with Saber
+      loginWithNextcloud(OUTDATED): Login with Nextcloud
+      loginFlow:
+        pleaseAuthorize(OUTDATED): Please authorize Saber to access your Nextcloud account
+        followPrompts(OUTDATED): Please follow the prompts in the Nextcloud interface
+        browserDidntOpen(OUTDATED): Login page didn't open? Click here
+    encLoginStep:
+      enterEncPassword(OUTDATED): "To protect your data, please enter your encryption password:"
+      newToSaber(OUTDATED): New to Saber? Just enter a new encryption password.
+      encPassword(OUTDATED): Encryption password
+      encFaqTitle(OUTDATED): Frequently asked questions
+      wrongEncPassword(OUTDATED): Decryption failed with the provided password. Please try entering it again.
+      connectionFailed(OUTDATED): Something went wrong connecting to the server. Please try again later.
+  profile:
+    title(OUTDATED): My profile
+    logout(OUTDATED): Log out
+    quotaUsage(OUTDATED): You're using $used of $total ($percent%)
+    connectedTo(OUTDATED): Connected to
+    quickLinks:
+      serverHomepage(OUTDATED): Server homepage
+      deleteAccount(OUTDATED): Delete account
+    faqTitle(OUTDATED): Frequently asked questions
+  editor:
+    toolbar:
+      toggleColors(OUTDATED): Toggle colors (Ctrl C)
+      toggleEraser(OUTDATED): Toggle eraser (Ctrl E)
+      toggleFingerDrawing(OUTDATED): Toggle finger drawing (Ctrl F)
+      fullscreen(OUTDATED): Toggle fullscreen (F11)
+    pens:
+      fountainPen(OUTDATED): Fountain pen
+      ballpointPen(OUTDATED): Ballpoint pen
+      shapePen(OUTDATED): Shape pen
+      laserPointer(OUTDATED): Laser pointer
+    colors:
+      customBrightnessHue(OUTDATED): Custom $b $h
+      customHue(OUTDATED): Custom $h
+      pastelOrange(OUTDATED): Pastel orange
+      pastelYellow(OUTDATED): Pastel yellow
+      pastelGreen(OUTDATED): Pastel green
+      pastelCyan(OUTDATED): Pastel cyan
+      pastelBlue(OUTDATED): Pastel blue
+      pastelPurple(OUTDATED): Pastel purple
+    imageOptions:
+      invertible(OUTDATED): Invertible
+    menu:
+      clearPage(OUTDATED): Clear page $page/$totalPages
+      insertPage(OUTDATED): Insert page below
+      lineHeight(OUTDATED): Line height
+      lineHeightDescription(OUTDATED): Also controls the text size for typed notes
+      backgroundImageFit(OUTDATED): Background image fit
+      watchServerReadOnly(OUTDATED): Editing is disabled while watching the server
+      boxFits:
+        fill(OUTDATED): Stretch
+        cover(OUTDATED): Cover
+        contain(OUTDATED): Contain
+      bgPatterns:
+        none(OUTDATED): Blank
+        college(OUTDATED): College-ruled
+        collegeRtl(OUTDATED): College-ruled (Reverse)
+        lined(OUTDATED): Lined
+        staffs(OUTDATED): Staffs
+        tablature(OUTDATED): Tablature
+        cornell(OUTDATED): Cornell
+    readOnlyBanner:
+      watchingServer(OUTDATED): You are currently watching for updates on the server. Editing is disabled in this mode.
+      corrupted(OUTDATED): Failed to load note. It may be corrupted or still being downloaded.
+    versionTooNew:
+      subtitle(OUTDATED): Editing this note may result in some information being lost. Do you want to ignore this and edit it anyway?
+    hud:
+      unlockSingleFingerPan(OUTDATED): Enable single-finger panning
+      lockSingleFingerPan(OUTDATED): Disable single-finger panning
+      unlockAxisAlignedPan(OUTDATED): Unlock panning to horizontal or vertical
 cs:
+  home:
+    deleteNoteDialog:
+      deleteNotes(OUTDATED): Delete $n notes
+      deleteName(OUTDATED): Delete $f
+      confirmDelete(OUTDATED): Permanently delete selected note(s)?
+      delete(OUTDATED): Delete
 de:
+  home:
+    deleteNoteDialog:
+      deleteNotes(OUTDATED): Delete $n notes
+      deleteName(OUTDATED): Delete $f
+      confirmDelete(OUTDATED): Permanently delete selected note(s)?
+      delete(OUTDATED): Delete
 eo:
   home:
     renameNote:
       noteNameForbiddenCharacters(OUTDATED): Note name contains forbidden characters
       noteNameReserved(OUTDATED): Note name reserved
+    deleteNoteDialog:
+      deleteNotes(OUTDATED): Delete $n notes
+      deleteName(OUTDATED): Delete $f
+      confirmDelete(OUTDATED): Permanently delete selected note(s)?
+      delete(OUTDATED): Delete
   settings:
     prefLabels:
       autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Auto-disable finger drawing
@@ -67,6 +277,12 @@ eo:
       watchingServer(OUTDATED): You are currently watching for updates on the server. Editing is disabled in this mode.
       corrupted(OUTDATED): Failed to load note. It may be corrupted or still being downloaded.
 es:
+  home:
+    deleteNoteDialog:
+      deleteNotes(OUTDATED): Delete $n notes
+      deleteName(OUTDATED): Delete $f
+      confirmDelete(OUTDATED): Permanently delete selected note(s)?
+      delete(OUTDATED): Delete
   sentry:
     consent:
       description:
@@ -180,6 +396,11 @@ fa:
     renameNote:
       noteNameForbiddenCharacters(OUTDATED): Note name contains forbidden characters
       noteNameReserved(OUTDATED): Note name reserved
+    deleteNoteDialog:
+      deleteNotes(OUTDATED): Delete $n notes
+      deleteName(OUTDATED): Delete $f
+      confirmDelete(OUTDATED): Permanently delete selected note(s)?
+      delete(OUTDATED): Delete
   sentry:
     consent:
       title(OUTDATED): Help improve Saber?
@@ -286,6 +507,11 @@ fr:
     renameNote:
       noteNameForbiddenCharacters(OUTDATED): Note name contains forbidden characters
       noteNameReserved(OUTDATED): Note name reserved
+    deleteNoteDialog:
+      deleteNotes(OUTDATED): Delete $n notes
+      deleteName(OUTDATED): Delete $f
+      confirmDelete(OUTDATED): Permanently delete selected note(s)?
+      delete(OUTDATED): Delete
   sentry:
     consent:
       title(OUTDATED): Help improve Saber?
@@ -384,6 +610,12 @@ fr:
       watchingServer(OUTDATED): You are currently watching for updates on the server. Editing is disabled in this mode.
       corrupted(OUTDATED): Failed to load note. It may be corrupted or still being downloaded.
 he:
+  home:
+    deleteNoteDialog:
+      deleteNotes(OUTDATED): Delete $n notes
+      deleteName(OUTDATED): Delete $f
+      confirmDelete(OUTDATED): Permanently delete selected note(s)?
+      delete(OUTDATED): Delete
 hu:
   common:
     done(OUTDATED): Done
@@ -423,6 +655,11 @@ hu:
       multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
       numberRenamedTo(OUTDATED): $n notes will be renamed to avoid conflicts
     deleteNote(OUTDATED): Delete note
+    deleteNoteDialog:
+      deleteNotes(OUTDATED): Delete $n notes
+      deleteName(OUTDATED): Delete $f
+      confirmDelete(OUTDATED): Permanently delete selected note(s)?
+      delete(OUTDATED): Delete
     renameFolder:
       renameFolder(OUTDATED): Rename folder
       folderName(OUTDATED): Folder name
@@ -631,6 +868,12 @@ hu:
       lockAxisAlignedPan(OUTDATED): Lock panning to horizontal or vertical
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
 it:
+  home:
+    deleteNoteDialog:
+      deleteNotes(OUTDATED): Delete $n notes
+      deleteName(OUTDATED): Delete $f
+      confirmDelete(OUTDATED): Permanently delete selected note(s)?
+      delete(OUTDATED): Delete
 ja:
   common:
     done(OUTDATED): Done
@@ -654,6 +897,11 @@ ja:
       multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
       numberRenamedTo(OUTDATED): $n notes will be renamed to avoid conflicts
     deleteNote(OUTDATED): Delete note
+    deleteNoteDialog:
+      deleteNotes(OUTDATED): Delete $n notes
+      deleteName(OUTDATED): Delete $f
+      confirmDelete(OUTDATED): Permanently delete selected note(s)?
+      delete(OUTDATED): Delete
     renameFolder:
       renameFolder(OUTDATED): Rename folder
       folderName(OUTDATED): Folder name
@@ -794,7 +1042,19 @@ ja:
       watchingServer(OUTDATED): You are currently watching for updates on the server. Editing is disabled in this mode.
       corrupted(OUTDATED): Failed to load note. It may be corrupted or still being downloaded.
 pl:
+  home:
+    deleteNoteDialog:
+      deleteNotes(OUTDATED): Delete $n notes
+      deleteName(OUTDATED): Delete $f
+      confirmDelete(OUTDATED): Permanently delete selected note(s)?
+      delete(OUTDATED): Delete
 pt-BR:
+  home:
+    deleteNoteDialog:
+      deleteNotes(OUTDATED): Delete $n notes
+      deleteName(OUTDATED): Delete $f
+      confirmDelete(OUTDATED): Permanently delete selected note(s)?
+      delete(OUTDATED): Delete
   settings:
     prefLabels:
       simplifiedHomeLayout(OUTDATED): Simplified home layout
@@ -891,8 +1151,26 @@ pt-BR:
       watchingServer(OUTDATED): You are currently watching for updates on the server. Editing is disabled in this mode.
       corrupted(OUTDATED): Failed to load note. It may be corrupted or still being downloaded.
 ru:
+  home:
+    deleteNoteDialog:
+      deleteNotes(OUTDATED): Delete $n notes
+      deleteName(OUTDATED): Delete $f
+      confirmDelete(OUTDATED): Permanently delete selected note(s)?
+      delete(OUTDATED): Delete
 sl:
+  home:
+    deleteNoteDialog:
+      deleteNotes(OUTDATED): Delete $n notes
+      deleteName(OUTDATED): Delete $f
+      confirmDelete(OUTDATED): Permanently delete selected note(s)?
+      delete(OUTDATED): Delete
 th:
+  home:
+    deleteNoteDialog:
+      deleteNotes(OUTDATED): Delete $n notes
+      deleteName(OUTDATED): Delete $f
+      confirmDelete(OUTDATED): Permanently delete selected note(s)?
+      delete(OUTDATED): Delete
   editor:
     readOnlyBanner:
       watchingServer(OUTDATED): You are currently watching for updates on the server. Editing is disabled in this mode.
@@ -903,6 +1181,11 @@ tr:
     renameNote:
       noteNameForbiddenCharacters(OUTDATED): Note name contains forbidden characters
       noteNameReserved(OUTDATED): Note name reserved
+    deleteNoteDialog:
+      deleteNotes(OUTDATED): Delete $n notes
+      deleteName(OUTDATED): Delete $f
+      confirmDelete(OUTDATED): Permanently delete selected note(s)?
+      delete(OUTDATED): Delete
   sentry:
     consent:
       title(OUTDATED): Help improve Saber?
@@ -947,5 +1230,23 @@ tr:
       watchingServer(OUTDATED): You are currently watching for updates on the server. Editing is disabled in this mode.
       corrupted(OUTDATED): Failed to load note. It may be corrupted or still being downloaded.
 vi:
+  home:
+    deleteNoteDialog:
+      deleteNotes(OUTDATED): Delete $n notes
+      deleteName(OUTDATED): Delete $f
+      confirmDelete(OUTDATED): Permanently delete selected note(s)?
+      delete(OUTDATED): Delete
 zh-Hans-CN:
+  home:
+    deleteNoteDialog:
+      deleteNotes(OUTDATED): Delete $n notes
+      deleteName(OUTDATED): Delete $f
+      confirmDelete(OUTDATED): Permanently delete selected note(s)?
+      delete(OUTDATED): Delete
 zh-Hant-TW:
+  home:
+    deleteNoteDialog:
+      deleteNotes(OUTDATED): Delete $n notes
+      deleteName(OUTDATED): Delete $f
+      confirmDelete(OUTDATED): Permanently delete selected note(s)?
+      delete(OUTDATED): Delete

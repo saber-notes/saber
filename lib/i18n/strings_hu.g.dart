@@ -74,6 +74,7 @@ class _TranslationsHomeHu extends TranslationsHomeEn {
 	@override late final _TranslationsHomeNewFolderHu newFolder = _TranslationsHomeNewFolderHu._(_root);
 	@override late final _TranslationsHomeRenameNoteHu renameNote = _TranslationsHomeRenameNoteHu._(_root);
 	@override late final _TranslationsHomeMoveNoteHu moveNote = _TranslationsHomeMoveNoteHu._(_root);
+	@override late final _TranslationsHomeDeleteNoteDialogHu deleteNoteDialog = _TranslationsHomeDeleteNoteDialogHu._(_root);
 	@override late final _TranslationsHomeRenameFolderHu renameFolder = _TranslationsHomeRenameFolderHu._(_root);
 	@override late final _TranslationsHomeDeleteFolderHu deleteFolder = _TranslationsHomeDeleteFolderHu._(_root);
 	@override String get noPreviewAvailable => 'Nincs elérhető előnézet';
@@ -321,6 +322,19 @@ class _TranslationsHomeMoveNoteHu extends TranslationsHomeMoveNoteEn {
 	@override String moveName({required Object f}) => 'Mozgassa ${f}';
 	@override String get move => 'Mozog';
 	@override String renamedTo({required Object newName}) => 'A jegyzet a következőre lesz átnevezve: ${newName}';
+}
+
+// Path: home.deleteNoteDialog
+class _TranslationsHomeDeleteNoteDialogHu extends TranslationsHomeDeleteNoteDialogEn {
+	_TranslationsHomeDeleteNoteDialogHu._(TranslationsHu root) : this._root = root, super.internal(root);
+
+	final TranslationsHu _root; // ignore: unused_field
+
+	// Translations
+	@override String deleteNotes({required Object n}) => 'Töröltsd el a ${n} jegyeket';
+	@override String deleteName({required Object f}) => 'Töröltsd el ${f}';
+	@override String get confirmDelete => 'Törölje permanenten kiválasztott jegyzet(ek)?';
+	@override String get delete => 'Törölelj';
 }
 
 // Path: home.renameFolder

@@ -46,6 +46,11 @@ home:
     moveName(OUTDATED): Mozgassa $f
     move(OUTDATED): Mozog
     renamedTo(OUTDATED): "A jegyzet a következőre lesz átnevezve: $newName"
+  deleteNoteDialog:
+    deleteNotes(OUTDATED): Töröltsd el a $n jegyeket
+    deleteName(OUTDATED): Töröltsd el $f
+    confirmDelete(OUTDATED): Törölje permanenten kiválasztott jegyzet(ek)?
+    delete(OUTDATED): Törölelj
   renameFolder:
     folderNameEmpty(OUTDATED): A mappa neve nem lehet üres
     renameFolder(OUTDATED): Mappa átnevezése

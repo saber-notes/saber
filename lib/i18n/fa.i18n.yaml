@@ -49,6 +49,11 @@ home:
     multipleRenamedTo: "یادداشت های زیر تغییر نام خواهند داد:"
     numberRenamedTo: $n یادداشت برای جلوگیری از تداخل نام تغییر خواهد کرد
   deleteNote: حذف یادداشت
+  deleteNoteDialog:
+    deleteNotes(OUTDATED): حذف $n یادداشت
+    deleteName(OUTDATED): حذف $f
+    confirmDelete(OUTDATED): آیا یادداشت‌های انتخاب شده را به طور دائم حذف کنید؟
+    delete(OUTDATED): حذف
   renameFolder:
     renameFolder: تغییر نام پوشه
     folderName: نام پوشه

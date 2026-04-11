@@ -14,6 +14,7 @@ import 'package:slang_flutter/slang_flutter.dart';
 export 'package:slang_flutter/slang_flutter.dart';
 
 import 'strings_ar.g.dart' deferred as l_ar;
+import 'strings_ca.g.dart' deferred as l_ca;
 import 'strings_cs.g.dart' deferred as l_cs;
 import 'strings_de.g.dart' deferred as l_de;
 import 'strings_eo.g.dart' deferred as l_eo;
@@ -44,6 +45,7 @@ part 'strings_en.g.dart';
 enum AppLocale with BaseAppLocale<AppLocale, Translations> {
 	en(languageCode: 'en'),
 	ar(languageCode: 'ar'),
+	ca(languageCode: 'ca'),
 	cs(languageCode: 'cs'),
 	de(languageCode: 'de'),
 	eo(languageCode: 'eo'),
@@ -90,6 +92,13 @@ enum AppLocale with BaseAppLocale<AppLocale, Translations> {
 			case AppLocale.ar:
 				await l_ar.loadLibrary();
 				return l_ar.TranslationsAr(
+					overrides: overrides,
+					cardinalResolver: cardinalResolver,
+					ordinalResolver: ordinalResolver,
+				);
+			case AppLocale.ca:
+				await l_ca.loadLibrary();
+				return l_ca.TranslationsCa(
 					overrides: overrides,
 					cardinalResolver: cardinalResolver,
 					ordinalResolver: ordinalResolver,
@@ -245,6 +254,12 @@ enum AppLocale with BaseAppLocale<AppLocale, Translations> {
 				);
 			case AppLocale.ar:
 				return l_ar.TranslationsAr(
+					overrides: overrides,
+					cardinalResolver: cardinalResolver,
+					ordinalResolver: ordinalResolver,
+				);
+			case AppLocale.ca:
+				return l_ca.TranslationsCa(
 					overrides: overrides,
 					cardinalResolver: cardinalResolver,
 					ordinalResolver: ordinalResolver,

@@ -102,6 +102,7 @@ class TranslationsHomeEn {
 	/// en: 'Delete note'
 	String get deleteNote => 'Delete note';
 
+	late final TranslationsHomeDeleteNoteDialogEn deleteNoteDialog = TranslationsHomeDeleteNoteDialogEn.internal(_root);
 	late final TranslationsHomeRenameFolderEn renameFolder = TranslationsHomeRenameFolderEn.internal(_root);
 	late final TranslationsHomeDeleteFolderEn deleteFolder = TranslationsHomeDeleteFolderEn.internal(_root);
 }
@@ -479,6 +480,27 @@ class TranslationsHomeMoveNoteEn {
 
 	/// en: '$n notes will be renamed to avoid conflicts'
 	String numberRenamedTo({required Object n}) => '${n} notes will be renamed to avoid conflicts';
+}
+
+// Path: home.deleteNoteDialog
+class TranslationsHomeDeleteNoteDialogEn {
+	TranslationsHomeDeleteNoteDialogEn.internal(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+
+	/// en: 'Delete $n notes'
+	String deleteNotes({required Object n}) => 'Delete ${n} notes';
+
+	/// en: 'Delete $f'
+	String deleteName({required Object f}) => 'Delete ${f}';
+
+	/// en: 'Permanently delete selected note(s)?'
+	String get confirmDelete => 'Permanently delete selected note(s)?';
+
+	/// en: 'Delete'
+	String get delete => 'Delete';
 }
 
 // Path: home.renameFolder

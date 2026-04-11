@@ -78,6 +78,7 @@ class _TranslationsHomeEs extends TranslationsHomeEn {
 	@override late final _TranslationsHomeRenameNoteEs renameNote = _TranslationsHomeRenameNoteEs._(_root);
 	@override late final _TranslationsHomeMoveNoteEs moveNote = _TranslationsHomeMoveNoteEs._(_root);
 	@override String get deleteNote => 'Eliminar nota';
+	@override late final _TranslationsHomeDeleteNoteDialogEs deleteNoteDialog = _TranslationsHomeDeleteNoteDialogEs._(_root);
 	@override late final _TranslationsHomeRenameFolderEs renameFolder = _TranslationsHomeRenameFolderEs._(_root);
 	@override late final _TranslationsHomeDeleteFolderEs deleteFolder = _TranslationsHomeDeleteFolderEs._(_root);
 }
@@ -320,6 +321,19 @@ class _TranslationsHomeMoveNoteEs extends TranslationsHomeMoveNoteEn {
 	@override String renamedTo({required Object newName}) => 'Se renombrará la nota a ${newName}';
 	@override String get multipleRenamedTo => 'Renombrar las siguientes notas';
 	@override String numberRenamedTo({required Object n}) => '${n} notas serán renombradas para evitar conflictos';
+}
+
+// Path: home.deleteNoteDialog
+class _TranslationsHomeDeleteNoteDialogEs extends TranslationsHomeDeleteNoteDialogEn {
+	_TranslationsHomeDeleteNoteDialogEs._(TranslationsEs root) : this._root = root, super.internal(root);
+
+	final TranslationsEs _root; // ignore: unused_field
+
+	// Translations
+	@override String deleteNotes({required Object n}) => 'Eliminar ${n} notas';
+	@override String deleteName({required Object f}) => 'Borrar ${f}';
+	@override String get confirmDelete => '¿Eliminar permanentemente la nota(s) seleccionada(s)?';
+	@override String get delete => 'Eliminar';
 }
 
 // Path: home.renameFolder

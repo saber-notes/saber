@@ -1,0 +1,3 @@
+• Característica: Arau és ara la pàgina actual com un PNG
+• Reparet: L'indicador de progrés de sincronització es bloquejava quan una transferència fallava
+• Ajustament: Reduïta la freqüència de reprovar les transferències de sincronització fallades

@@ -78,6 +78,7 @@ class _TranslationsHomeTh extends TranslationsHomeEn {
 	@override late final _TranslationsHomeRenameNoteTh renameNote = _TranslationsHomeRenameNoteTh._(_root);
 	@override late final _TranslationsHomeMoveNoteTh moveNote = _TranslationsHomeMoveNoteTh._(_root);
 	@override String get deleteNote => 'ลบบันทึก';
+	@override late final _TranslationsHomeDeleteNoteDialogTh deleteNoteDialog = _TranslationsHomeDeleteNoteDialogTh._(_root);
 	@override late final _TranslationsHomeRenameFolderTh renameFolder = _TranslationsHomeRenameFolderTh._(_root);
 	@override late final _TranslationsHomeDeleteFolderTh deleteFolder = _TranslationsHomeDeleteFolderTh._(_root);
 }
@@ -322,6 +323,19 @@ class _TranslationsHomeMoveNoteTh extends TranslationsHomeMoveNoteEn {
 	@override String renamedTo({required Object newName}) => 'บันทึกจะถูกเปลี่ยนชื่อเป็น ${newName}';
 	@override String get multipleRenamedTo => 'บันทึกต่อไปนี้จะถูกเปลี่ยนชื่อ:';
 	@override String numberRenamedTo({required Object n}) => 'มีการเปลี่ยนชื่อเอกสารจำนวน ${n} เพื่อหลีกเลี่ยงความขัดแย้ง';
+}
+
+// Path: home.deleteNoteDialog
+class _TranslationsHomeDeleteNoteDialogTh extends TranslationsHomeDeleteNoteDialogEn {
+	_TranslationsHomeDeleteNoteDialogTh._(TranslationsTh root) : this._root = root, super.internal(root);
+
+	final TranslationsTh _root; // ignore: unused_field
+
+	// Translations
+	@override String deleteNotes({required Object n}) => 'ลบโน้ต ${n}';
+	@override String deleteName({required Object f}) => 'Xóa ${f}';
+	@override String get confirmDelete => 'ลบโน้ตที่เลือกอย่างถาวรใช่หรือไม่?';
+	@override String get delete => 'ลบ';
 }
 
 // Path: home.renameFolder
