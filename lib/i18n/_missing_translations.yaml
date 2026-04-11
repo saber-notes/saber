@@ -870,10 +870,10 @@ hu:
 it:
   home:
     deleteNoteDialog:
-      deleteNotes(OUTDATED): Delete $n notes
-      deleteName(OUTDATED): Delete $f
-      confirmDelete(OUTDATED): Permanently delete selected note(s)?
-      delete(OUTDATED): Delete
+      deleteNotes(OUTDATED): Elimina $n note
+      deleteName(OUTDATED): Elimina $f
+      confirmDelete(OUTDATED): Eliminare definitivamente le note selezionate?
+      delete(OUTDATED): Elimina
 ja:
   common:
     done(OUTDATED): Done
