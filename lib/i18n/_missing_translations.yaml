@@ -868,12 +868,6 @@ hu:
       lockAxisAlignedPan(OUTDATED): Lock panning to horizontal or vertical
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
 it:
-  home:
-    deleteNoteDialog:
-      deleteNotes(OUTDATED): Elimina $n note
-      deleteName(OUTDATED): Elimina $f
-      confirmDelete(OUTDATED): Eliminare definitivamente le note selezionate?
-      delete(OUTDATED): Elimina
 ja:
   common:
     done(OUTDATED): Done
