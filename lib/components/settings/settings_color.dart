@@ -1,6 +1,7 @@
 import 'package:flex_color_picker/flex_color_picker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:saber/components/theming/adaptive_alert_dialog.dart';
 import 'package:saber/components/theming/adaptive_switch.dart';
 import 'package:saber/data/prefs.dart';
@@ -8,7 +9,7 @@ import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/home/settings.dart';
 import 'package:stow/stow.dart';
 
-class SettingsColor extends StatefulWidget {
+class SettingsColor extends HookWidget {
   const SettingsColor({
     super.key,
     required this.title,
@@ -30,34 +31,15 @@ class SettingsColor extends StatefulWidget {
   final Stow<dynamic, Color?, dynamic> pref;
   final ValueChanged<Color?>? afterChange;
 
-  @override
-  State<SettingsColor> createState() => _SettingsSwitchState();
-}
+  /// The last non-null color we know of.
+  static var _lastKnownColor = const Color(0xffffd32e);
 
-class _SettingsSwitchState extends State<SettingsColor> {
-  static var defaultColor = const Color(0xffffd32e);
-
-  @override
-  void initState() {
-    widget.pref.addListener(onChanged);
-    super.initState();
-  }
-
-  void onChanged() {
-    final color = widget.pref.value;
-    if (color != null && color != Colors.transparent) {
-      defaultColor = color;
-    }
-    widget.afterChange?.call(color);
-    setState(() {});
-  }
-
-  AdaptiveAlertDialog get colorPickerDialog {
+  AdaptiveAlertDialog buildDialog(BuildContext context) {
     return AdaptiveAlertDialog(
       title: Text(t.settings.accentColorPicker.pickAColor),
       content: SingleChildScrollView(
         child: ColorPicker(
-          color: widget.pref.value ?? defaultColor,
+          color: pref.value ?? _lastKnownColor,
           pickersEnabled: const {ColorPickerType.wheel: true},
           onColorChanged: (Color color) {
             stows.accentColor.value = color;
@@ -77,9 +59,15 @@ class _SettingsSwitchState extends State<SettingsColor> {
 
   @override
   Widget build(BuildContext context) {
-    IconData? icon = widget.icon;
-    icon ??= widget.iconBuilder?.call(widget.pref.value);
-    icon ??= Icons.settings;
+    final color = useValueListenable(pref);
+    useMemoized(() {
+      if (color != null && color != Colors.transparent) {
+        _lastKnownColor = color;
+      }
+      afterChange?.call(color);
+    }, [color]);
+
+    final icon = this.icon ?? iconBuilder?.call(color) ?? Icons.settings;
 
     return ListTile(
       contentPadding: const .symmetric(vertical: 4, horizontal: 16),
@@ -88,18 +76,13 @@ class _SettingsSwitchState extends State<SettingsColor> {
         child: Icon(icon, key: ValueKey(icon)),
       ),
       title: Text(
-        widget.title,
+        title,
         style: TextStyle(
           fontSize: 18,
-          fontStyle: widget.pref.value != widget.pref.defaultValue
-              ? FontStyle.italic
-              : null,
+          fontStyle: color != pref.defaultValue ? FontStyle.italic : null,
         ),
       ),
-      subtitle: Text(
-        widget.subtitle ?? '',
-        style: const TextStyle(fontSize: 13),
-      ),
+      subtitle: Text(subtitle ?? '', style: const TextStyle(fontSize: 13)),
       trailing: Row(
         mainAxisSize: .min,
         children: [
@@ -107,48 +90,38 @@ class _SettingsSwitchState extends State<SettingsColor> {
             width: 32,
             height: 32,
             decoration: BoxDecoration(
-              color: widget.pref.value ?? defaultColor,
+              color: color ?? _lastKnownColor,
               shape: .circle,
             ),
           ),
           const SizedBox(width: 8),
           AdaptiveSwitch(
-            value:
-                widget.pref.value != null &&
-                widget.pref.value != Colors.transparent,
-            onChanged: (bool? value) {
-              widget.pref.value = value! ? defaultColor : null;
-            },
+            value: color != null && color != Colors.transparent,
+            onChanged: (value) => pref.value = value ? _lastKnownColor : null,
           ),
         ],
       ),
       onTap: () async {
-        final previousColor = widget.pref.value;
-        widget.pref.value = defaultColor; // enable accent color
+        final previousColor = color;
+        pref.value = _lastKnownColor; // enable accent color
 
         final bool? confirmChange = await showDialog(
           context: context,
-          builder: (BuildContext context) => colorPickerDialog,
+          builder: buildDialog,
         );
 
         if (confirmChange != true) {
-          // restore to previous accent color
-          widget.pref.value = previousColor;
+          // undo changes
+          pref.value = previousColor;
         }
       },
       onLongPress: () {
         SettingsPage.showResetDialog(
           context: context,
-          pref: widget.pref,
-          prefTitle: widget.title,
+          pref: pref,
+          prefTitle: title,
         );
       },
     );
-  }
-
-  @override
-  void dispose() {
-    widget.pref.removeListener(onChanged);
-    super.dispose();
   }
 }

@@ -1,7 +1,6 @@
-import 'dart:typed_data';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:go_router/go_router.dart';
 import 'package:nextcloud/provisioning_api.dart';
 import 'package:saber/components/theming/adaptive_icon.dart';
@@ -17,46 +16,25 @@ import 'package:saber/pages/user/login.dart';
 
 typedef Quota = UserDetailsQuota;
 
-class NextcloudProfile extends StatefulWidget {
+class NextcloudProfile extends HookWidget {
   const NextcloudProfile({super.key});
-
-  @override
-  State<NextcloudProfile> createState() => _NextcloudProfileState();
 
   /// If non-null, this will be used instead of the actual login state.
   @visibleForTesting
   static LoginStep? forceLoginStep;
-}
-
-class _NextcloudProfileState extends State<NextcloudProfile> {
-  @override
-  void initState() {
-    stows.username.addListener(_usernameChanged);
-    stows.encPassword.addListener(_usernameChanged);
-    stows.key.addListener(_usernameChanged);
-    stows.iv.addListener(_usernameChanged);
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    stows.username.removeListener(_usernameChanged);
-    stows.encPassword.removeListener(_usernameChanged);
-    stows.key.removeListener(_usernameChanged);
-    stows.iv.removeListener(_usernameChanged);
-    super.dispose();
-  }
-
-  late var getStorageQuotaFuture = getStorageQuota();
-  void _usernameChanged() {
-    getStorageQuotaFuture = getStorageQuota();
-    if (mounted) setState(() {});
-  }
 
   @override
   Widget build(BuildContext context) {
-    final loginStep =
-        NextcloudProfile.forceLoginStep ?? NcLoginPage.getCurrentStep();
+    final username = useValueListenable(stows.username);
+    final encPassword = useValueListenable(stows.encPassword);
+    final key = useValueListenable(stows.key);
+    final iv = useValueListenable(stows.iv);
+    final pfp = useValueListenable(stows.pfp);
+
+    final quota = useValueListenable(stows.lastStorageQuota);
+    useMemoized(getStorageQuota, [username, encPassword, key, iv]);
+
+    final loginStep = forceLoginStep ?? NcLoginPage.getCurrentStep();
     final heading = switch (loginStep) {
       .waitingForPrefs => '',
       .nc => t.login.status.loggedOut,
@@ -73,16 +51,11 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
     return ListTile(
       visualDensity: VisualDensity.standard,
       onTap: () => context.push(RoutePaths.login),
-      leading: ValueListenableBuilder(
-        valueListenable: stows.pfp,
-        builder: (BuildContext context, Uint8List? pfp, _) {
-          return ClipRSuperellipse(
-            borderRadius: const .all(.circular(18)),
-            child: pfp == null
-                ? const _UnknownPfp(size: pfpSize)
-                : Image.memory(pfp, width: pfpSize, height: pfpSize),
-          );
-        },
+      leading: ClipRSuperellipse(
+        borderRadius: const .all(.circular(18)),
+        child: pfp == null
+            ? const _UnknownPfp(size: pfpSize)
+            : Image.memory(pfp, width: pfpSize, height: pfpSize),
       ),
       title: Text(heading),
       subtitle: Text(subheading),
@@ -91,13 +64,7 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
               mainAxisSize: .min,
               spacing: 8,
               children: [
-                FutureBuilder(
-                  future: getStorageQuotaFuture,
-                  initialData: stows.lastStorageQuota.value,
-                  builder: (context, snapshot) {
-                    return _QuotaSummary(quota: snapshot.data);
-                  },
-                ),
+                _QuotaSummary(quota: quota),
                 IconButton(
                   icon: const AdaptiveIcon(
                     icon: Icons.cloud_upload,
@@ -122,15 +89,13 @@ class _NextcloudProfileState extends State<NextcloudProfile> {
   }
 
   static Future<Quota?> getStorageQuota() async {
-    if (NextcloudProfile.forceLoginStep != null)
-      return stows.lastStorageQuota.value;
+    if (forceLoginStep != null) return stows.lastStorageQuota.value;
 
     final client = NextcloudClientExtension.withSavedDetails();
-    if (client == null) return null;
+    if (client == null) return stows.lastStorageQuota.value = null;
 
     final user = await client.provisioningApi.users.getCurrentUser();
-    stows.lastStorageQuota.value = user.body.ocs.data.quota;
-    return stows.lastStorageQuota.value;
+    return stows.lastStorageQuota.value = user.body.ocs.data.quota;
   }
 }
 
