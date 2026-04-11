@@ -3,7 +3,7 @@ import 'package:flutter_quill/flutter_quill.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/image/editor_image.dart';
 import 'package:saber/data/editor/page.dart';
-import 'package:sbn/color_change.dart';
+import 'package:sbn/change.dart';
 
 class EditorHistory {
   static const maxHistoryLength = 100;
@@ -179,7 +179,7 @@ class EditorHistoryItem {
   final Rect? offset;
   final EditorPage? page;
   final DocChange? quillChange;
-  final Map<Stroke, ColorChange>? colorChange;
+  final Map<Stroke, Change<Color>>? colorChange;
 
   EditorHistoryItem copyWith({
     EditorHistoryItemType? type,
@@ -189,7 +189,7 @@ class EditorHistoryItem {
     Rect? offset,
     EditorPage? page,
     DocChange? quillChange,
-    Map<Stroke, ColorChange>? colorChange,
+    Map<Stroke, Change<Color>>? colorChange,
   }) {
     return EditorHistoryItem(
       type: type ?? this.type,

@@ -49,7 +49,7 @@ import 'package:saber/data/tools/select.dart';
 import 'package:saber/data/tools/shape_pen.dart';
 import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/home/whiteboard.dart';
-import 'package:sbn/color_change.dart';
+import 'package:sbn/change.dart';
 import 'package:screenshot/screenshot.dart';
 import 'package:super_clipboard/super_clipboard.dart';
 
@@ -483,7 +483,7 @@ class EditorState extends State<Editor> {
         undo(
           item.copyWith(
             colorChange: item.colorChange!.map(
-              (key, value) => MapEntry(key, value.swap()),
+              (key, value) => MapEntry(key, value.reverse()),
             ),
           ),
         );
@@ -1537,9 +1537,9 @@ class EditorState extends State<Editor> {
                 if (select.doneSelecting) {
                   final strokes = select.selectResult.strokes;
 
-                  final colorChange = <Stroke, ColorChange>{};
+                  final colorChange = <Stroke, Change<Color>>{};
                   for (final stroke in strokes) {
-                    colorChange[stroke] = ColorChange(
+                    colorChange[stroke] = Change(
                       previous: stroke.color,
                       current: color,
                     );
