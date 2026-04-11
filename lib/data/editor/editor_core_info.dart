@@ -412,8 +412,8 @@ class EditorCoreInfo {
         // if the file is small, just run it on the main thread
         coreInfo = isolate();
       }
-    } catch (e) {
-      log.severe('Failed to load file: $e', e);
+    } catch (e, st) {
+      log.severe('Failed to load file: $e', e, st);
       if (kDebugMode) {
         rethrow;
       } else {
@@ -440,8 +440,8 @@ class EditorCoreInfo {
       } else {
         throw ArgumentError('Both bsonBytes and jsonString are null');
       }
-    } catch (e) {
-      log.severe('Failed to parse file: $e', e);
+    } catch (e, st) {
+      log.severe('Failed to parse file: $e', e, st);
       rethrow;
     }
 

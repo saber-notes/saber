@@ -957,8 +957,8 @@ class EditorState extends State<Editor> {
       ]);
       savingState.value = .saved;
       history.markLastChangeAsSaved();
-    } catch (e) {
-      log.severe('Failed to save file: $e', e);
+    } catch (e, st) {
+      log.severe('Failed to save file: $e', e, st);
       savingState.value = .waitingToSave;
       if (kDebugMode) rethrow;
       return;
