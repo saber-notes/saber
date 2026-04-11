@@ -78,6 +78,7 @@ class _TranslationsHomeZhHantTw extends TranslationsHomeEn {
 	@override late final _TranslationsHomeRenameNoteZhHantTw renameNote = _TranslationsHomeRenameNoteZhHantTw._(_root);
 	@override late final _TranslationsHomeMoveNoteZhHantTw moveNote = _TranslationsHomeMoveNoteZhHantTw._(_root);
 	@override String get deleteNote => '刪除筆記';
+	@override late final _TranslationsHomeDeleteNoteDialogZhHantTw deleteNoteDialog = _TranslationsHomeDeleteNoteDialogZhHantTw._(_root);
 	@override late final _TranslationsHomeRenameFolderZhHantTw renameFolder = _TranslationsHomeRenameFolderZhHantTw._(_root);
 	@override late final _TranslationsHomeDeleteFolderZhHantTw deleteFolder = _TranslationsHomeDeleteFolderZhHantTw._(_root);
 }
@@ -323,6 +324,19 @@ class _TranslationsHomeMoveNoteZhHantTw extends TranslationsHomeMoveNoteEn {
 	@override String renamedTo({required Object newName}) => '筆記將重新命名為 ${newName}';
 	@override String get multipleRenamedTo => '以下筆記將被重新命名：';
 	@override String numberRenamedTo({required Object n}) => '${n} 份筆記將被重命名以避免衝突';
+}
+
+// Path: home.deleteNoteDialog
+class _TranslationsHomeDeleteNoteDialogZhHantTw extends TranslationsHomeDeleteNoteDialogEn {
+	_TranslationsHomeDeleteNoteDialogZhHantTw._(TranslationsZhHantTw root) : this._root = root, super.internal(root);
+
+	final TranslationsZhHantTw _root; // ignore: unused_field
+
+	// Translations
+	@override String deleteNotes({required Object n}) => '刪除 ${n} 筆筆記';
+	@override String deleteName({required Object f}) => '刪除 ${f}';
+	@override String get confirmDelete => '永久刪除選取的筆記嗎？';
+	@override String get delete => '刪除';
 }
 
 // Path: home.renameFolder

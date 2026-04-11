@@ -1051,10 +1051,10 @@ pl:
 pt-BR:
   home:
     deleteNoteDialog:
-      deleteNotes: Delete $n notes
-      deleteName: Delete $f
-      confirmDelete: Permanently delete selected note(s)?
-      delete: Delete
+      deleteNotes(OUTDATED): Delete $n notes
+      deleteName(OUTDATED): Delete $f
+      confirmDelete(OUTDATED): Permanently delete selected note(s)?
+      delete(OUTDATED): Delete
   settings:
     prefLabels:
       simplifiedHomeLayout(OUTDATED): Simplified home layout
@@ -1239,14 +1239,14 @@ vi:
 zh-Hans-CN:
   home:
     deleteNoteDialog:
-      deleteNotes: Delete $n notes
-      deleteName: Delete $f
-      confirmDelete: Permanently delete selected note(s)?
-      delete: Delete
+      deleteNotes(OUTDATED): Delete $n notes
+      deleteName(OUTDATED): Delete $f
+      confirmDelete(OUTDATED): Permanently delete selected note(s)?
+      delete(OUTDATED): Delete
 zh-Hant-TW:
   home:
     deleteNoteDialog:
-      deleteNotes: Delete $n notes
-      deleteName: Delete $f
-      confirmDelete: Permanently delete selected note(s)?
-      delete: Delete
+      deleteNotes(OUTDATED): Delete $n notes
+      deleteName(OUTDATED): Delete $f
+      confirmDelete(OUTDATED): Permanently delete selected note(s)?
+      delete(OUTDATED): Delete
