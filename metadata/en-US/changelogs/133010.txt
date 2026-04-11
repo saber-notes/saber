@@ -1,0 +1,4 @@
+• Added Polish and Catalan translations
+• Added a confirmation prompt when deleting notes
+• Allowed undoing/redoing changing the background pattern
+• Fixed a bug where changing the background pattern didn't trigger an autosave

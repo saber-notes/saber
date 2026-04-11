@@ -1,0 +1,4 @@
+• Aggiunti traduzioni in polacco e catalano
+• Aggiunto un prompt di conferma quando si eliminano le note
+• Permesso di annullare/ripetere la modifica del modello di sfondo
+• Corretto un bug in cui la modifica del modello di sfondo non attivava il salvataggio automatico

@@ -1,0 +1,4 @@
+• Aditita polaj kaj katalana traduktoj
+• Aditita konfirma prompton pri lenado de notoj
+• Permitita anuli/refaciligi ŝanĝon la fondo ŝablon
+• Fixita eraro, kie ŝanĝado de la fondo ŝablon ne provokis autosavadon

@@ -1,0 +1,4 @@
+• Đã thêm bản dịch tiếng Ba Lan và Catalan
+• Đã thêm lời nhắc xác nhận khi xóa ghi chú
+• Cho phép hoàn tác/làm lại việc thay đổi mẫu nền
+• Đã sửa lỗi khi thay đổi mẫu nền không kích hoạt tự động lưu

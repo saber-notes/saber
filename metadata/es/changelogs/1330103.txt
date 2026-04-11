@@ -1,0 +1,4 @@
+• Se añadieron traducciones al polaco y catalán
+• Se añadió un mensaje de confirmación al eliminar notas
+• Se permitió deshacer/rehacer el cambio del patrón de fondo
+• Se corrigió un error por el cual cambiar el patrón de fondo no activaba una guardado automático

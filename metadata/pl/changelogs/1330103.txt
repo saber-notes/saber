@@ -1,0 +1,4 @@
+• Dodano tłumaczenia na polski i kataloński
+• Dodano prompt potwierdzający przy usuwaniu notatek
+• Umożliwiono odwoływanie/ponowne wykonywanie zmian tła wzoru
+• Naprawiono błąd, w którym zmiana tła wzoru nie wywoływała automatycznego zapisu

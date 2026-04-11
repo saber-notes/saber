@@ -1,0 +1,4 @@
+• Ajouté les traductions polonaise et catalane
+• Ajouté une invite de confirmation lors de la suppression des notes
+• Permis d'annuler/refaire le changement du motif d'arrière-plan
+• Corrigé un bug où le changement du motif d'arrière-plan ne déclenchait pas de sauvegarde automatique
