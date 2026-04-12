@@ -40,6 +40,8 @@ home:
     noteNameExists: Bu isimde bir not zaten var
     noteNameForbiddenCharacters(OUTDATED): Not adı yasak karakterler içeriyor
     noteNameReserved(OUTDATED): Not adı saklıdır
+    noteNameReserved: ''
+    noteNameForbiddenCharacters: ''
   moveNote:
     moveNote: Notu taşı
     moveNotes: $n tane notu taşı
@@ -54,6 +56,10 @@ home:
     deleteName(OUTDATED): $f'yi sil
     confirmDelete(OUTDATED): Seçili notları kalıcı olarak silmek mi?
     delete(OUTDATED): Sil
+    delete: ''
+    deleteNotes: ''
+    deleteName: ''
+    confirmDelete: ''
   renameFolder:
     renameFolder: Klasörü adlandır
     folderName: Klasör ismi
@@ -67,6 +73,7 @@ home:
     delete: Sil
     alsoDeleteContents: Bu klasördeki tüm notları da sil
   noPreviewAvailable(OUTDATED): Önizleme yok
+  noPreviewAvailable: ''
 sentry:
   consent:
     description:
@@ -75,11 +82,20 @@ sentry:
       currentlyOff(OUTDATED): Onay verirseniz, uygulamayı yeniden başlattıktan sonra hata raporlaması etkinleştirilir.
       currentlyOn(OUTDATED): Onayı iptal ederseniz, hata raporlamasını devre dışı bırakmak için lütfen uygulamayı yeniden başlatın.
       learnMoreInPrivacyPolicy(rich, OUTDATED): ${link(Gizlilik Politikası)} 'da daha fazla bilgi edinin.
+      currentlyOff: ''
+      learnMoreInPrivacyPolicy(rich): ''
+      question: ''
+      scope: ''
+      currentlyOn: ''
     answers:
       yes(OUTDATED): Evet
       no(OUTDATED): HAYIR
       later(OUTDATED): Bana sonra sor
+      later: ''
+      no: ''
+      yes: ''
     title(OUTDATED): Saber geliştirmeye yardımcı olur mu?
+    title: ''
 settings:
   prefCategories:
     general: Genel
@@ -116,6 +132,9 @@ settings:
     autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Parmak çizimini otomatik olarak devre dışı bırak
     sentry(OUTDATED): Hata raporlama
     autosave(OUTDATED): Otomatik koruma
+    autoDisableFingerDrawingWhenStylusDetected: ''
+    sentry: ''
+    autosave: ''
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible, görme sorunu yaşayanların okumasını kolaylaştıran bir fonttur
     allowInsecureConnections: (Önerilmez) Saber'ın kendinden imzalı/güvensiz sertifika kullanan sunuculara bağlanmasına izin verir
@@ -138,8 +157,14 @@ settings:
       inactive(OUTDATED): Aktif olmayan
       activeUntilRestart(OUTDATED): Uygulamayı yeniden başlatana kadar etkin
       inactiveUntilRestart(OUTDATED): Uygulamayı yeniden başlatana kadar aktif olmayan
+      inactiveUntilRestart: ''
+      active: ''
+      activeUntilRestart: ''
+      inactive: ''
     autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Bir kalem algılandığında parmakla çizimi kapatın
     autosave(OUTDATED): Kısa bir gecikmeden sonra otomatik kaydetme veya asla
+    autoDisableFingerDrawingWhenStylusDetected: ''
+    autosave: ''
   themeModes:
     system: Sistem teması
     light: Aydınlık
@@ -167,14 +192,22 @@ settings:
     mustBeEmpty: Seçilen klasör boş olmalı
     mustBeDoneSyncing: Klasörü değiştirmeden önce senkronizasyonun tamamlandığından emin olun
     unsupported(OUTDATED): Bu özellik şu anda yalnızca geliştiriciler içindir. Bunu kullanmak muhtemelen veri kaybına neden olacaktır.
+    unsupported: ''
   autosaveDisabled(OUTDATED): Asla
   shapeRecognitionDisabled(OUTDATED): Asla
+  shapeRecognitionDisabled: ''
+  autosaveDisabled: ''
 logs:
   useTheApp(OUTDATED): Uygulamayı kullanırken günlükler burada görünecektir
   logs(OUTDATED): Günlükler
   viewLogs(OUTDATED): Günlükleri görüntüle
   debuggingInfo(OUTDATED): Günlükler hata ayıklama ve geliştirme için yararlı bilgiler içerir
   noLogs(OUTDATED): Burada kayıt yok!
+  useTheApp: ''
+  debuggingInfo: ''
+  noLogs: ''
+  logs: ''
+  viewLogs: ''
 login:
   title: Giriş yap
   form:
@@ -344,10 +377,14 @@ editor:
       cornell: Cornell not şablonu
     lineThickness(OUTDATED): Çizgi kalınlığı
     lineThicknessDescription(OUTDATED): Arka plan çizgisi kalınlığı
+    lineThicknessDescription: ''
+    lineThickness: ''
   readOnlyBanner:
     title: Yalnızca okunabilir mod
     watchingServer(OUTDATED): Şu anda sunucudaki güncellemeleri izliyorsunuz. Bu modda düzenleme devre dışı bırakılır.
     corrupted(OUTDATED): Not yüklenemedi. Bozulmuş veya hâlâ indiriliyor olabilir.
+    watchingServer: ''
+    corrupted: ''
   versionTooNew:
     title: Bu not Saber'ın yeni bir versiyonunda düzenlenmiş
     subtitle: Bu notu düzenlemek veri kaybına sebep olabilir. Bunu görmezden gelerek düzenlemek ister misiniz?
