@@ -55,6 +55,10 @@ home:
     deleteName(OUTDATED): Vymaž $f
     confirmDelete(OUTDATED): Trvale smazat vybranou poznámku(y)?
     delete(OUTDATED): Smazat
+    deleteNotes: Odstranit $n poznámek
+    deleteName: Odstranit poznámku $f
+    confirmDelete: Přejete si trvale odstranit zvolené poznámky?
+    delete: Odstranit
   renameFolder:
     renameFolder: Přejmenovat složku
     folderName: Název složky
@@ -118,7 +122,7 @@ settings:
     sentry: Hlášení chyb
   prefDescriptions:
     hyperlegibleFont: Font Atkinson Hyperlegible zvyšuje čitelnost pro čtenáře se slabým zrakem
-    allowInsecureConnections: (Nedoporučuje se) Povolit aplikaci Saber připojovat se k serverům se samopodepsaným/nedůvěryhodným certifikátem.
+    allowInsecureConnections: (Nedoporučuje se) Povolit aplikaci Saber připojovat se k serverům se samopodepsaným/nedůvěryhodným certifikátem
     preferGreyscale: Pro elektronické čtečky knih s e-ink displejem
     autoClearWhiteboardOnExit: Bude synchronizováno do dalších zařízení
     disableEraserAfterUse: Po použití gumy automaticky přepnout zpět na pero
@@ -233,7 +237,8 @@ profile:
     a: Přejděte na webovou stránku vašeho serveru a přihlašte se. Poté přejděte do Nastavení > Zabezpečení > Změnit heslo. Po změně hesla se budete muset odhlásit z aplikace Saber a poté se do ní opětovně přihlásit.
   - q: Jak změním své heslo pro šifrování?
     a: |-
-      1. Odhlašte se z aplikace Saber. Před odhlášením se ujistěte, že byla dokončena synchronizace a nepřijdete o žádná data (průběh synchronizace uvidíte na domovské obrazovce).
+      0. Ujistěte se, že byla dokončena synchronizace (průběh synchronizace uvidíte na domovské obrazovce).
+      1. Odhlašte se z aplikace Saber.
       2. Přejděte na webovou stránku vašeho serveru a smažte složku „Saber“. Tím ze serveru odstraníte všechny poznámky.
       3. Opětovně se přihlašte do aplikace Saber. Při přihlašování můžete zvolit nové heslo pro šifrování.
       4. Nezapomeňte se z aplikace Saber odhlásit a opětovně se do ní přihlásit na ostatních zařízeních.
