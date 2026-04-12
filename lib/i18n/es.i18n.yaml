@@ -55,6 +55,10 @@ home:
     deleteName(OUTDATED): Borrar $f
     confirmDelete(OUTDATED): ¿Eliminar permanentemente la nota(s) seleccionada(s)?
     delete(OUTDATED): Eliminar
+    delete: ''
+    deleteNotes: ''
+    deleteName: ''
+    confirmDelete: ''
   renameFolder:
     renameFolder: Renombrar carpeta
     folderName: Nombre de la carpeta
@@ -76,10 +80,16 @@ sentry:
       scope(OUTDATED): Los informes pueden contener información sobre el error y su dispositivo. He hecho todo lo posible para filtrar datos personales, pero algunos pueden permanecer.
       currentlyOn(OUTDATED): Si revoca el consentimiento, reinicie la aplicación para deshabilitar el informe de errores.
       learnMoreInPrivacyPolicy(rich, OUTDATED): Obtenga más información en ${link(Política de privacidad)}.
+      learnMoreInPrivacyPolicy(rich): ''
+      scope: ''
+      currentlyOn: ''
     answers:
       yes(OUTDATED): Sí
       no(OUTDATED): No
       later(OUTDATED): Pregúntame más tarde
+      later: ''
+      no: ''
+      yes: ''
 settings:
   prefCategories:
     general: General
@@ -87,6 +97,7 @@ settings:
     editor: Editor
     advanced: Avanzado
     performance(OUTDATED): Actuación
+    performance: ''
   prefLabels:
     locale: Idioma de la aplicación
     appTheme: Tema de la aplicación
@@ -116,6 +127,13 @@ settings:
     customDataDir(OUTDATED): Directorio de datos personalizado
     autoStraightenLines(OUTDATED): Líneas de enderezamiento automático
     shapeRecognitionDelay(OUTDATED): Retraso en el reconocimiento de formas
+    customDataDir: ''
+    autoDisableFingerDrawingWhenStylusDetected: ''
+    shapeRecognitionDelay: ''
+    sentry: ''
+    autosave: ''
+    autoStraightenLines: ''
+    simplifiedHomeLayout: ''
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible aumenta la legibilidad para lectores con poca visión
     allowInsecureConnections: (No recomendado) Autorizar a Saber a conectarse a servidores con certificados autofirmados o no fiables
@@ -135,11 +153,20 @@ settings:
       inactive(OUTDATED): Inactivo
       activeUntilRestart(OUTDATED): Activo hasta que reinicie la aplicación
       inactiveUntilRestart(OUTDATED): Inactivo hasta que reinicie la aplicación
+      inactiveUntilRestart: ''
+      active: ''
+      activeUntilRestart: ''
+      inactive: ''
     autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Desactivar el dibujo con los dedos cuando se detecta un lápiz
     autosave(OUTDATED): Auto-Save después de un breve retraso, o nunca
     simplifiedHomeLayout(OUTDATED): Establece una altura fija para cada vista previa de nota
     autoStraightenLines(OUTDATED): Endereza líneas largas sin tener que usar el rotulador.
     shapeRecognitionDelay(OUTDATED): Con qué frecuencia actualizar la vista previa de la forma
+    autoStraightenLines: ''
+    shapeRecognitionDelay: ''
+    autoDisableFingerDrawingWhenStylusDetected: ''
+    autosave: ''
+    simplifiedHomeLayout: ''
   themeModes:
     system: Sistema
     light: Claro
@@ -165,16 +192,30 @@ settings:
     select(OUTDATED): Seleccionar
     mustBeEmpty(OUTDATED): El directorio seleccionado debe estar vacío.
     mustBeDoneSyncing(OUTDATED): Asegúrese de que la sincronización esté completa antes de cambiar el directorio
+    select: ''
+    unsupported: ''
+    cancel: ''
+    mustBeDoneSyncing: ''
+    mustBeEmpty: ''
   autosaveDisabled(OUTDATED): Nunca
   shapeRecognitionDisabled(OUTDATED): Nunca
   openDataDir(OUTDATED): Abrir carpeta Saber
   resyncEverything(OUTDATED): Resync todo
+  openDataDir: ''
+  shapeRecognitionDisabled: ''
+  resyncEverything: ''
+  autosaveDisabled: ''
 logs:
   useTheApp(OUTDATED): Los registros aparecerán aquí mientras usa la aplicación
   logs(OUTDATED): Registros
   viewLogs(OUTDATED): Ver registros
   debuggingInfo(OUTDATED): Los registros contienen información útil para la depuración y el desarrollo.
   noLogs(OUTDATED): ¡Aquí no hay registros!
+  useTheApp: ''
+  debuggingInfo: ''
+  noLogs: ''
+  logs: ''
+  viewLogs: ''
 login:
   title: Iniciar sesión
   form:
@@ -186,17 +227,28 @@ login:
     loggedIn: Sesión iniciada con Nextcloud
     hi(OUTDATED): Hola $u!
     almostDone(OUTDATED): Casi listo para sincronizar, toca para finalizar el inicio de sesión
+    almostDone: ''
+    hi: ''
   ncLoginStep:
     loginFlow:
       pleaseAuthorize(OUTDATED): Autorice a Saber a acceder a su cuenta de Nextcloud
       followPrompts(OUTDATED): Siga las indicaciones en su navegador.
       browserDidntOpen(OUTDATED): El navegador no se abrió
+      pleaseAuthorize: ''
+      browserDidntOpen: ''
+      followPrompts: ''
     whereToStoreData(OUTDATED): "Elige dónde quieres almacenar tus datos:"
     saberNcServer(OUTDATED): Servidor Nextcloud de Saber
     otherNcServer(OUTDATED): Otro servidor Nextcloud
     serverUrl(OUTDATED): URL del servidor
     loginWithSaber(OUTDATED): Iniciar sesión con Saber
     loginWithNextcloud(OUTDATED): Iniciar sesión con Nextcloud
+    loginWithNextcloud: ''
+    whereToStoreData: ''
+    otherNcServer: ''
+    loginWithSaber: ''
+    saberNcServer: ''
+    serverUrl: ''
   encLoginStep:
     enterEncPassword(OUTDATED): "Para proteger sus datos, ingrese su contraseña de cifrado:"
     newToSaber(OUTDATED): Nuevo en Saber
@@ -215,7 +267,21 @@ login:
         Incluso si alguien obtiene acceso a tu cuenta de Nextcloud, tus notas permanecerán seguras y encriptadas con una contraseña separada. Esto te proporciona una segunda capa de seguridad para proteger tus datos.
     - q: ¿Puedo usar la misma contraseña para ambos?
       a: Sí, pero hacer esto es menos seguro. Dado que tu contraseña de Nextcloud se envía al servidor, alguien con acceso al servidor podría descifrar tus notas. Solo usa la misma contraseña si confías en el propietario del servidor.
+    connectionFailed: ''
+    encFaq:
+    - a: ''
+      q: ''
+    - q: ''
+      a: ''
+    - a: ''
+      q: ''
+    enterEncPassword: ''
+    newToSaber: ''
+    encFaqTitle: ''
+    encPassword: ''
+    wrongEncPassword: ''
   notYou(rich, OUTDATED): ${undoLogin(No tú)}
+  notYou(rich): ''
 profile:
   title: Mi perfil
   logout: Cerrar sesión
@@ -241,6 +307,9 @@ profile:
   quotaUsage(OUTDATED): Estás usando $used de $total ($percent%)
   connectedTo(OUTDATED): Conectado a
   faqTitle(OUTDATED): Preguntas frecuentes
+  quotaUsage: ''
+  connectedTo: ''
+  faqTitle: ''
 appInfo:
   licenseNotice: |-
     Saber  Copyright © 2022-$buildYear  Adil Hanney
@@ -254,6 +323,7 @@ update:
   updateAvailableDescription: "Hay una nueva versión de la aplicación disponible. Novedades en esta versión:"
   update: Actualizar
   downloadNotAvailableYet(OUTDATED): La descarga aún no está disponible para su plataforma. Vuelve a consultar en breve.
+  downloadNotAvailableYet: ''
 editor:
   toolbar:
     toggleColors: Paleta de colores (Ctrl C)
@@ -274,6 +344,8 @@ editor:
     laserPointer: Puntero láser
     fountainPen(OUTDATED): Estilográfica
     pencil(OUTDATED): Lápiz
+    pencil: ''
+    fountainPen: ''
   penOptions:
     size: Tamaño
   colors:
@@ -342,10 +414,17 @@ editor:
     watchServer(OUTDATED): Esté atento a las actualizaciones en el servidor.
     watchServerReadOnly(OUTDATED): La edición está deshabilitada mientras se mira el servidor.
     lineHeightDescription(OUTDATED): También controla el tamaño del texto de las notas escritas.
+    lineThicknessDescription: ''
+    lineThickness: ''
+    watchServerReadOnly: ''
+    lineHeightDescription: ''
+    watchServer: ''
   readOnlyBanner:
     title: Modo de solo lectura
     watchingServer(OUTDATED): Actualmente estás buscando actualizaciones en el servidor. La edición está deshabilitada en este modo.
     corrupted(OUTDATED): No se pudo cargar la nota. Es posible que esté dañado o que aún se esté descargando.
+    watchingServer: ''
+    corrupted: ''
   versionTooNew:
     title: Esta nota fue editada usando una versión más reciente de Saber
     subtitle: La edición de esta nota puede resultar en la pérdida de cierta información. ¿Quieres ignorar esto y editarlo de todos modos?
