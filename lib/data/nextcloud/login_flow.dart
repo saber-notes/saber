@@ -96,6 +96,9 @@ class SaberLoginFlow {
     }
   }
 
+  /// Cancels the polling timer and completes the [completer] with an error.
+  ///
+  /// This is idempotent and is safe to call multiple times.
   void dispose() {
     _pollTimer?.cancel();
     if (!completer.isCompleted)

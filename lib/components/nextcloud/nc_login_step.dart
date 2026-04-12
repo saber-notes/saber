@@ -85,10 +85,9 @@ class _NcLoginStepState extends State<NcLoginStep> {
       return validator.url(url);
     });
 
-    final loginFlow = useRef<SaberLoginFlow?>(null);
-    useEffect(() {
-      return () => loginFlow.value?.dispose();
-    }, [loginFlow.value]);
+    final loginFlow = useState<SaberLoginFlow?>(null);
+    // dispose the login flow when it changes or the widget is disposed
+    useEffect(() => loginFlow.value?.dispose, [loginFlow.value]);
 
     final colorScheme = ColorScheme.of(context);
     final textTheme = TextTheme.of(context);
