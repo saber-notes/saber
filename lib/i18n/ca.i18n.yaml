@@ -17,6 +17,7 @@ home:
     newNote: Nova nota
     exportNote: Exportar nota
     showUpdateDialog(OUTDATED): Mostrar diàlog de actualització
+    showUpdateDialog: ''
   create:
     newNote: Nota Nova
     importNote: Importar nota
@@ -57,6 +58,10 @@ home:
     deleteName(OUTDATED): Borrar $f
     confirmDelete(OUTDATED): Eliminar permanentment les notes seleccions?
     delete(OUTDATED): Borrar
+    delete: ''
+    deleteNotes: ''
+    deleteName: ''
+    confirmDelete: ''
   renameFolder:
     renameFolder: Reanomenar carpeta
     folderName: Nom de carpeta
@@ -78,6 +83,9 @@ sentry:
       question(OUTDATED): T'agria que raporti errors inesperades mà automaticament? Això m'ajuda a identificar i a classar problemes més ràpid.
       scope(OUTDATED): Els informes podem contenir informació sobre l'error i el teu dispositiu. He fet cada esforç per filtrar els dades personals, però algunes poden quedar.
       currentlyOn(OUTDATED): Si revoca el consentimiento, por favor reinicia la aplicación para deshabilitar la notificación de errores.
+      question: ''
+      scope: ''
+      currentlyOn: ''
     answers:
       yes: Sí
       no: No
@@ -118,16 +126,46 @@ settings:
     simplifiedHomeLayout(OUTDATED): Disposició simplificada de la casa
     customDataDir(OUTDATED): Pàrador custom Saber
     sentry(OUTDATED): Informar errores
+    recentColorsDontSavePresets: ''
+    platform: ''
+    editorToolbarAlignment: ''
+    disableEraserAfterUse: ''
+    hideFingerDrawingToggle: ''
+    editorAutoInvert: ''
+    appTheme: ''
+    hyperlegibleFont: ''
+    customDataDir: ''
+    autoClearWhiteboardOnExit: ''
+    autoDisableFingerDrawingWhenStylusDetected: ''
+    recentColorsLength: ''
+    shapeRecognitionDelay: ''
+    sentry: ''
+    editorToolbarShowInFullscreen: ''
+    printPageIndicators: ''
+    maxImageSize: ''
+    customAccentColor: ''
+    preferGreyscale: ''
+    editorPromptRename: ''
+    autosave: ''
+    autoStraightenLines: ''
+    simplifiedHomeLayout: ''
   prefDescriptions:
     hideFingerDrawing:
       shown(OUTDATED): Prevén el cambio accidental
       fixedOn(OUTDATED): El dibujado del dedo está fijado como habilitado
       fixedOff(OUTDATED): El dibujado del dedo está fijado como deshabilitado
+      fixedOn: ''
+      shown: ''
+      fixedOff: ''
     sentry:
       active(OUTDATED): Actiu
       inactive(OUTDATED): Inactiu
       activeUntilRestart(OUTDATED): Actiu fins a que reinicies l'aplicació
       inactiveUntilRestart(OUTDATED): Inactiu fins que reinicies l'aplicació
+      inactiveUntilRestart: ''
+      active: ''
+      activeUntilRestart: ''
+      inactive: ''
     hyperlegibleFont(OUTDATED): Increxeix la legibilitat per als usuaris amb baixa visió
     allowInsecureConnections(OUTDATED): (No recomanhat) Permitir a Saber conectar a serveis amb certs autogenerades/no fiables
     preferGreyscale(OUTDATED): Per a dispositius e-ink
@@ -142,25 +180,53 @@ settings:
     autoStraightenLines(OUTDATED): Rectifica les línies llonges sense avoir a utilitzar el rotuli de forma
     simplifiedHomeLayout(OUTDATED): Establir una altura fija para cada vista previa de nota
     shouldAlwaysAlertForUpdates(OUTDATED): Diga-me sobre as atualizações assim que estiverem disponíveis
+    autoStraightenLines: ''
+    preferGreyscale: ''
+    printPageIndicators: ''
+    maxImageSize: ''
+    disableEraserAfterUse: ''
+    shapeRecognitionDelay: ''
+    autoDisableFingerDrawingWhenStylusDetected: ''
+    autosave: ''
+    simplifiedHomeLayout: ''
+    allowInsecureConnections: ''
+    autoClearWhiteboardOnExit: ''
+    editorPromptRename: ''
+    hyperlegibleFont: ''
+    shouldAlwaysAlertForUpdates: ''
   themeModes:
     system(OUTDATED): Sistema
     light(OUTDATED): Llum
     dark(OUTDATED): Oscur
+    dark: ''
+    light: ''
+    system: ''
   layoutSizes:
     auto(OUTDATED): Automàtic
     phone(OUTDATED): Telèfon
     tablet(OUTDATED): Tableta
+    phone: ''
+    auto: ''
+    tablet: ''
   accentColorPicker:
     pickAColor(OUTDATED): Escoig un color
+    pickAColor: ''
   reset:
     title(OUTDATED): Restaurar aquesta configuració?
     button(OUTDATED): Restaurar
+    button: ''
+    title: ''
   customDataDir:
     cancel(OUTDATED): Cancelar
     select(OUTDATED): Seleccionar
     mustBeEmpty(OUTDATED): La carpeta seleccionada debe estar vacía
     mustBeDoneSyncing(OUTDATED): Asegúrate de que la sincronización esté completa antes de cambiar la carpeta
     unsupported(OUTDATED): Aquesta funcició és actualment només per desenvolupadors. L'ús d'ella pot resultar en pèrdua de dades.
+    select: ''
+    unsupported: ''
+    cancel: ''
+    mustBeDoneSyncing: ''
+    mustBeEmpty: ''
   axisDirections(OUTDATED):
   - Sot
   - Correcte
@@ -171,32 +237,62 @@ settings:
   openDataDir(OUTDATED): Obre la carpeta Saber
   autosaveDisabled(OUTDATED): Né jamais
   shapeRecognitionDisabled(OUTDATED): Né jamais
+  axisDirections:
+  - ''
+  - ''
+  - ''
+  - ''
+  systemLanguage: ''
+  openDataDir: ''
+  shapeRecognitionDisabled: ''
+  resyncEverything: ''
+  autosaveDisabled: ''
 logs:
   logs(OUTDATED): Registres
   viewLogs(OUTDATED): Visualitza diaris
   debuggingInfo(OUTDATED): Els logs contenen informació útil per depurar i desenvolupar
   noLogs(OUTDATED): No hi ha aquí!
   useTheApp(OUTDATED): Els logs apareixeran aquí mentre utilitzes l'aplicació
+  useTheApp: ''
+  debuggingInfo: ''
+  noLogs: ''
+  logs: ''
+  viewLogs: ''
 login:
   form:
     agreeToPrivacyPolicy(rich,OUTDATED): Al iniciar sesión, aceptas la ${linkToPrivacyPolicy(Política de privacidad)}.
+    agreeToPrivacyPolicy(rich): ''
   status:
     loggedOut(OUTDATED): Desconnectat
     tapToLogin(OUTDATED): Toca per iniciar la sessió amb Nextcloud
     hi(OUTDATED): Hola, $u!
     almostDone(OUTDATED): Pràcticament preparat per a sincronització, toca per finalitzar la connexió
     loggedIn(OUTDATED): Ingessat amb Nextcloud
+    loggedIn: ''
+    almostDone: ''
+    hi: ''
+    tapToLogin: ''
+    loggedOut: ''
   ncLoginStep:
     loginFlow:
       pleaseAuthorize(OUTDATED): Permeta a Saber accedir a la teva compte de Nextcloud
       followPrompts(OUTDATED): Si us plauseguda les instruccions a l'interfície de Nextcloud
       browserDidntOpen(OUTDATED): La pàgina de connexió no s'ha obert? Clic aquí
+      pleaseAuthorize: ''
+      browserDidntOpen: ''
+      followPrompts: ''
     whereToStoreData(OUTDATED): "Escollreu on où voleu guardar els teus dades:"
     saberNcServer(OUTDATED): Serveur Nextcloud de Saber
     otherNcServer(OUTDATED): Un servidor Nextcloud
     serverUrl(OUTDATED): URL del servidor
     loginWithSaber(OUTDATED): Inglesar amb Saber
     loginWithNextcloud(OUTDATED): Inglesar amb Nextcloud
+    loginWithNextcloud: ''
+    whereToStoreData: ''
+    otherNcServer: ''
+    loginWithSaber: ''
+    saberNcServer: ''
+    serverUrl: ''
   encLoginStep:
     encFaq:
     - q(OUTDATED): Què és una contrasenya de cifratge? Per què utilitzar dues contrasenyes?
@@ -204,32 +300,62 @@ login:
         La contrasenya de Nextcloud es la que se utiliza para acceder a la nube. La contrasenya de cifrado "scrambles" tus datos antes de que lleguen a la nube.
         Incluso si alguien obtiene acceso a tu cuenta de Nextcloud, tus notas seguirán a salvo y cifradas con una contraseña separada. Esto te proporciona una segunda capa de seguridad para proteger tus datos.
         Nadie puede acceder a tus notas en el servidor sin tu contraseña de cifrado, pero esto también significa que si olvidas tu contraseña de cifrado, perderás el acceso a tus datos.
+      a: ''
+      q: ''
     - q(OUTDATED): No he menet altrepass de cifratge fins ara. On l'obtenc?
       a(OUTDATED): |-
         Escoll un nou contrasen de cifratge i introduïu-lo a la sota.
         Saber generarà les teves clau de cifratge automàticament a partir d'aquest contrasen.
+      q: ''
+      a: ''
     - q(OUTDATED): Pucso el mate de la teva compte de Nextcloud?
       a(OUTDATED): Sí, pero ten en cuenta que sería más fácil para el administrador del servidor o alguien más acceder a tus notas si obtienen acceso a tu cuenta de Nextcloud.
+      a: ''
+      q: ''
     enterEncPassword(OUTDATED): "Per protegere i tuoi dati, inserisci la tua password di crittografia:"
     newToSaber(OUTDATED): Nou en Saber? Simplement ingresa una nova contrasenya de cifratura.
     encPassword(OUTDATED): contraseña de cifrado
     encFaqTitle(OUTDATED): Preguntes freqüents
     wrongEncPassword(OUTDATED): Descodificació fallada amb la contrasenya proporcionada. Si us plau, intenteu introduir-la de nou.
     connectionFailed(OUTDATED): Vaixament va tenir lloc connectar-se al servidor. Si us plau, intenteu de nou més tard.
+    connectionFailed: ''
+    enterEncPassword: ''
+    newToSaber: ''
+    encFaqTitle: ''
+    encPassword: ''
+    wrongEncPassword: ''
   title(OUTDATED): Inloguin
   signup(rich,OUTDATED): No tens aún? ${linkToSignup(Registra't-te ara)}.
   notYou(rich,OUTDATED): No tu? ${undoLogin(Elegir otra cuenta)}.
+  title: ''
+  signup(rich): ''
+  notYou(rich): ''
 profile:
   quickLinks:
     serverHomepage(OUTDATED): pàgina d'accés del servidor
     deleteAccount(OUTDATED): Borrar compte
+    deleteAccount: ''
+    serverHomepage: ''
   faq:
   - q(OUTDATED): Trobaré si perdré les mes notes si je me déconnecte ?
+    a: ''
+    q: ''
+  - a: ''
+    q: ''
+  - q: ''
+    a: ''
+  - a: ''
+    q: ''
   title(OUTDATED): El meu perfil
   logout(OUTDATED): Desconnectar
   quotaUsage(OUTDATED): Estàs utilitzant $used de $total ($percent%)
   connectedTo(OUTDATED): Connectat a
   faqTitle(OUTDATED): Preguntes freqüents
+  quotaUsage: ''
+  connectedTo: ''
+  logout: ''
+  title: ''
+  faqTitle: ''
 appInfo:
   licenseNotice: |-
     Saber  Copyright © 2022-$buildYear  Adil Hanney
@@ -258,6 +384,10 @@ editor:
     toggleEraser(OUTDATED): Alternar borrador (Ctrl E)
     toggleFingerDrawing(OUTDATED): Alternar dibuix amb el dita (Ctrl F)
     fullscreen(OUTDATED): Alternar pantalla completa (F11)
+    toggleColors: ''
+    toggleFingerDrawing: ''
+    toggleEraser: ''
+    fullscreen: ''
   pens:
     highlighter: Marcador
     pencil: Llapis
@@ -265,6 +395,10 @@ editor:
     ballpointPen(OUTDATED): pluma
     shapePen(OUTDATED): bol de forma
     laserPointer(OUTDATED): Punter laser
+    shapePen: ''
+    laserPointer: ''
+    fountainPen: ''
+    ballpointPen: ''
   penOptions:
     size: Mida
   colors:
@@ -296,6 +430,12 @@ editor:
     pastelPurple(OUTDATED): lavanda pastel
     customHue: ''
     customBrightnessHue: ''
+    pastelBlue: ''
+    pastelPurple: ''
+    pastelOrange: ''
+    pastelGreen: ''
+    pastelCyan: ''
+    pastelYellow: ''
   imageOptions:
     title: Opcions d'imatge
     download: Descarregar
@@ -303,6 +443,7 @@ editor:
     removeAsBackground: Elimina-ho com a fons
     delete: Esborra
     invertible(OUTDATED): Invertible
+    invertible: ''
   selectionBar:
     delete: Esborra
     duplicate: Duplica
@@ -319,6 +460,9 @@ editor:
       fill(OUTDATED): Estirar
       cover(OUTDATED): Tapa
       contain(OUTDATED): Conténhir
+      fill: ''
+      cover: ''
+      contain: ''
     bgPatterns:
       grid: Graella
       dots: Punts
@@ -329,6 +473,13 @@ editor:
       staffs(OUTDATED): Personal</td>
       tablature(OUTDATED): Tablatura
       cornell(OUTDATED): Cornell
+      staffs: ''
+      tablature: ''
+      cornell: ''
+      collegeRtl: ''
+      none: ''
+      college: ''
+      lined: ''
     clearPage(OUTDATED): Borrar pàgina $page/$totalPages
     insertPage(OUTDATED): Insertar pàgina sota
     lineHeight(OUTDATED): altura de línea
@@ -336,14 +487,22 @@ editor:
     backgroundImageFit(OUTDATED): imatge de fons ajustat
     watchServerReadOnly(OUTDATED): L'edició està desactivada mentre siva el servidor
     clearPage: ''
+    watchServerReadOnly: ''
+    insertPage: ''
+    lineHeightDescription: ''
+    backgroundImageFit: ''
+    lineHeight: ''
   readOnlyBanner:
     title: Mode de Lectura
     watchingServer(OUTDATED): Actualmente se están buscando actualizaciones en el servidor. La edición está deshabilitada en este modo.
     corrupted(OUTDATED): Fallida la descàrre de la nota. Podria estar corrompuda o encara en descàrre.
+    watchingServer: ''
+    corrupted: ''
   versionTooNew:
     title: Aquesta nota va ser editada des d'una versió més recent de Saber
     allowEditing: Habilitar edició
     subtitle(OUTDATED): L'édition de cette note peut entraîner la perte d'informations. Voulez-vous ignorer cela et éditer quand même ?
+    subtitle: ''
   quill:
     typeSomething: Escriu alguna cosa aquí...
   hud:
@@ -353,6 +512,9 @@ editor:
     unlockSingleFingerPan(OUTDATED): Activar el paneo con un dedo
     lockSingleFingerPan(OUTDATED): Desactiva el paneo con un dedo
     unlockAxisAlignedPan(OUTDATED): Desbloquea el paneo a horizontal o vertical
+    unlockSingleFingerPan: ''
+    unlockAxisAlignedPan: ''
+    lockSingleFingerPan: ''
   pages: Folis
   untitled: Sense títol
   needsToSaveBeforeExiting: Desant canvis... pots tancar l'editor quan finalitzi el procés
