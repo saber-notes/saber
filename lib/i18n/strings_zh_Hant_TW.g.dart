@@ -335,7 +335,6 @@ class _TranslationsHomeDeleteNoteDialogZhHantTw extends TranslationsHomeDeleteNo
 	// Translations
 	@override String deleteNotes({required Object n}) => '刪除 ${n} 筆筆記';
 	@override String deleteName({required Object f}) => '刪除 ${f}';
-	@override String get confirmDelete => '永久刪除選取的筆記嗎？';
 	@override String get delete => '刪除';
 }
 

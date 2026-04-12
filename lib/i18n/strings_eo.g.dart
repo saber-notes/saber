@@ -335,7 +335,6 @@ class _TranslationsHomeDeleteNoteDialogEo extends TranslationsHomeDeleteNoteDial
 	// Translations
 	@override String deleteNotes({required Object n}) => '${n} нота들을 삭제하세요';
 	@override String deleteName({required Object f}) => '${f}-ஐ நீக்கு';
-	@override String get confirmDelete => '선택한 메모를 영구적으로 삭제하시겠습니까?';
 	@override String get delete => 'Удалить';
 }
 

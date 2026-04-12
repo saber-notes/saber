@@ -53,7 +53,6 @@ home:
   deleteNoteDialog:
     deleteNotes(OUTDATED): Excluir $n notas
     deleteName(OUTDATED): Excluir $f
-    confirmDelete(OUTDATED): Excluir permanentemente a(s) nota(s) selecionada(s)?
     delete(OUTDATED): Excluir
   renameFolder:
     renameFolder: Renomear pasta

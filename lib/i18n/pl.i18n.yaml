@@ -53,7 +53,6 @@ home:
   deleteNoteDialog:
     deleteNotes(OUTDATED): Usuń $n notatek
     deleteName(OUTDATED): Usuń $f
-    confirmDelete(OUTDATED): Trwale usunąć wybrane notatki?
     delete(OUTDATED): Usuń
   renameFolder:
     renameFolder: Zmień nazwę folderu

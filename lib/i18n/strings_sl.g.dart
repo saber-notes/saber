@@ -335,7 +335,6 @@ class _TranslationsHomeDeleteNoteDialogSl extends TranslationsHomeDeleteNoteDial
 	// Translations
 	@override String deleteNotes({required Object n}) => 'Odstrani ${n} zapise';
 	@override String deleteName({required Object f}) => 'Izbriši ${f}';
-	@override String get confirmDelete => 'Določite se izbrane napake (napake)?';
 	@override String get delete => 'Odstrani';
 }
 

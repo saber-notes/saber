@@ -52,7 +52,6 @@ home:
   deleteNoteDialog:
     deleteNotes(OUTDATED): احذف $n ملاحظة
     deleteName(OUTDATED): احذف $f
-    confirmDelete(OUTDATED): حذف الملاحظات المحددة بشكل دائم؟
     delete(OUTDATED): حذف
   renameFolder:
     renameFolder: اعادة تسمية المجلد

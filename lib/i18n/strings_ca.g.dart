@@ -332,7 +332,6 @@ class _TranslationsHomeDeleteNoteDialogCa extends TranslationsHomeDeleteNoteDial
 	// Translations
 	@override String deleteNotes({required Object n}) => 'Borrar ${n} notes';
 	@override String deleteName({required Object f}) => 'Borrar ${f}';
-	@override String get confirmDelete => 'Eliminar permanentment les notes seleccions?';
 	@override String get delete => 'Borrar';
 }
 

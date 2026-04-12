@@ -335,7 +335,6 @@ class _TranslationsHomeDeleteNoteDialogTr extends TranslationsHomeDeleteNoteDial
 	// Translations
 	@override String deleteNotes({required Object n}) => '${n} notu\'ları sil';
 	@override String deleteName({required Object f}) => '${f}\'yi sil';
-	@override String get confirmDelete => 'Seçili notları kalıcı olarak silmek mi?';
 	@override String get delete => 'Sil';
 }
 

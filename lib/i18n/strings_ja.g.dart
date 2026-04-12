@@ -333,7 +333,6 @@ class _TranslationsHomeDeleteNoteDialogJa extends TranslationsHomeDeleteNoteDial
 	// Translations
 	@override String deleteNotes({required Object n}) => '${n} のノートを削除する';
 	@override String deleteName({required Object f}) => '${f}を削除する';
-	@override String get confirmDelete => '選択したメモを永久に削除しますか？';
 	@override String get delete => '削除';
 }
 

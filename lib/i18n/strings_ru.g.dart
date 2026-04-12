@@ -335,7 +335,6 @@ class _TranslationsHomeDeleteNoteDialogRu extends TranslationsHomeDeleteNoteDial
 	// Translations
 	@override String deleteNotes({required Object n}) => 'Удалить ${n} заметок';
 	@override String deleteName({required Object f}) => 'Удалить ${f}';
-	@override String get confirmDelete => 'Постоянно удалить выбранные заметки?';
 	@override String get delete => 'Удалить';
 }
 

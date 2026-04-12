@@ -49,7 +49,6 @@ home:
   deleteNoteDialog:
     deleteNotes(OUTDATED): $n のノートを削除する
     deleteName(OUTDATED): $fを削除する
-    confirmDelete(OUTDATED): 選択したメモを永久に削除しますか？
     delete(OUTDATED): 削除
   renameFolder:
     folderNameEmpty(OUTDATED): フォルダー名を空にすることはできません

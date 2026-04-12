@@ -53,7 +53,6 @@ home:
   deleteNoteDialog:
     deleteNotes: Odstranit $n poznámek
     deleteName: Odstranit poznámku $f
-    confirmDelete: Přejete si trvale odstranit zvolené poznámky?
     delete: Odstranit
   renameFolder:
     renameFolder: Přejmenovat složku

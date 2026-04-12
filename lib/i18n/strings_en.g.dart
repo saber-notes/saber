@@ -496,8 +496,11 @@ class TranslationsHomeDeleteNoteDialogEn {
 	/// en: 'Delete $f'
 	String deleteName({required Object f}) => 'Delete ${f}';
 
-	/// en: 'Permanently delete selected note(s)?'
-	String get confirmDelete => 'Permanently delete selected note(s)?';
+	/// en: '(one) {Permanently delete the selected note?} (other) {Permanently delete the selected notes?}'
+	String confirmDelete({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('en'))(n,
+		one: 'Permanently delete the selected note?',
+		other: 'Permanently delete the selected notes?',
+	);
 
 	/// en: 'Delete'
 	String get delete => 'Delete';

@@ -335,7 +335,6 @@ class _TranslationsHomeDeleteNoteDialogVi extends TranslationsHomeDeleteNoteDial
 	// Translations
 	@override String deleteNotes({required Object n}) => 'Xóa ${n} ghi chú';
 	@override String deleteName({required Object f}) => 'Xóa ${f}';
-	@override String get confirmDelete => 'Xóa vĩnh viễn các ghi chú đã chọn?';
 	@override String get delete => 'Xóa';
 }
 

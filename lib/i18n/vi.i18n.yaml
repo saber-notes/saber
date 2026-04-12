@@ -53,7 +53,6 @@ home:
   deleteNoteDialog:
     deleteNotes(OUTDATED): Xóa $n ghi chú
     deleteName(OUTDATED): Xóa $f
-    confirmDelete(OUTDATED): Xóa vĩnh viễn các ghi chú đã chọn?
     delete(OUTDATED): Xóa
   renameFolder:
     renameFolder: Đổi tên thư mục

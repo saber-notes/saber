@@ -53,7 +53,6 @@ home:
   deleteNoteDialog:
     deleteNotes(OUTDATED): $n нота들을 삭제하세요
     deleteName(OUTDATED): $f-ஐ நீக்கு
-    confirmDelete(OUTDATED): 선택한 메모를 영구적으로 삭제하시겠습니까?
     delete(OUTDATED): Удалить
   renameFolder:
     renameFolder: Alinomu dosierujon

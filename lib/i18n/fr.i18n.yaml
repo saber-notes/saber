@@ -52,7 +52,6 @@ home:
   deleteNoteDialog:
     deleteNotes(OUTDATED): Supprimer les notes $n
     deleteName(OUTDATED): Supprimer $f
-    confirmDelete(OUTDATED): Supprimer définitivement la ou les notes sélectionnées ?
     delete(OUTDATED): Supprimer
   renameFolder:
     renameFolder: Renommer le dossier

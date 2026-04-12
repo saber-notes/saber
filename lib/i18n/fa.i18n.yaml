@@ -52,7 +52,6 @@ home:
   deleteNoteDialog:
     deleteNotes(OUTDATED): حذف $n یادداشت
     deleteName(OUTDATED): حذف $f
-    confirmDelete(OUTDATED): آیا یادداشت‌های انتخاب شده را به طور دائم حذف کنید؟
     delete(OUTDATED): حذف
   renameFolder:
     renameFolder: تغییر نام پوشه

@@ -333,7 +333,6 @@ class _TranslationsHomeDeleteNoteDialogHu extends TranslationsHomeDeleteNoteDial
 	// Translations
 	@override String deleteNotes({required Object n}) => 'Töröltsd el a ${n} jegyeket';
 	@override String deleteName({required Object f}) => 'Töröltsd el ${f}';
-	@override String get confirmDelete => 'Törölje permanenten kiválasztott jegyzet(ek)?';
 	@override String get delete => 'Törölelj';
 }
 

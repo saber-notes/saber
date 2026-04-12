@@ -333,7 +333,6 @@ class _TranslationsHomeDeleteNoteDialogPtBr extends TranslationsHomeDeleteNoteDi
 	// Translations
 	@override String deleteNotes({required Object n}) => 'Excluir ${n} notas';
 	@override String deleteName({required Object f}) => 'Excluir ${f}';
-	@override String get confirmDelete => 'Excluir permanentemente a(s) nota(s) selecionada(s)?';
 	@override String get delete => 'Excluir';
 }
 

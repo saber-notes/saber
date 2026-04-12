@@ -49,7 +49,6 @@ home:
   deleteNoteDialog:
     deleteNotes(OUTDATED): Töröltsd el a $n jegyeket
     deleteName(OUTDATED): Töröltsd el $f
-    confirmDelete(OUTDATED): Törölje permanenten kiválasztott jegyzet(ek)?
     delete(OUTDATED): Törölelj
   renameFolder:
     folderNameEmpty(OUTDATED): A mappa neve nem lehet üres

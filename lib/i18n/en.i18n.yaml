@@ -53,7 +53,9 @@ home:
   deleteNoteDialog:
     deleteNotes: Delete $n notes
     deleteName: Delete $f
-    confirmDelete: Permanently delete selected note(s)?
+    confirmDelete:
+      one: Permanently delete the selected note?
+      other: Permanently delete the selected notes?
     delete: Delete
   renameFolder:
     renameFolder: Rename folder

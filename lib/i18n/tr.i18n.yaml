@@ -52,7 +52,6 @@ home:
   deleteNoteDialog:
     deleteNotes(OUTDATED): $n notu'ları sil
     deleteName(OUTDATED): $f'yi sil
-    confirmDelete(OUTDATED): Seçili notları kalıcı olarak silmek mi?
     delete(OUTDATED): Sil
   renameFolder:
     renameFolder: Klasörü adlandır

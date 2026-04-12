@@ -53,7 +53,6 @@ home:
   deleteNoteDialog:
     deleteNotes(OUTDATED): 刪除 $n 筆筆記
     deleteName(OUTDATED): 刪除 $f
-    confirmDelete(OUTDATED): 永久刪除選取的筆記嗎？
     delete(OUTDATED): 刪除
   renameFolder:
     renameFolder: 重新命名資料夾
