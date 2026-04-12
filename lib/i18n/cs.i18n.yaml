@@ -281,7 +281,7 @@ editor:
   penOptions:
     size: Velikost
   colors:
-    colorPicker: Vybrat vlastní barvu
+    colorPicker: Zvolit vlastní barvu
     customBrightnessHue: Vlastní $b $h
     customHue: Vlastní $h
     dark: tmavě
