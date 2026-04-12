@@ -55,6 +55,10 @@ home:
     deleteName(OUTDATED): Lösche $f
     confirmDelete(OUTDATED): Ausgewählte Notizen dauerhaft löschen?
     delete(OUTDATED): Löschen
+    delete: ''
+    deleteNotes: ''
+    deleteName: ''
+    confirmDelete: ''
   renameFolder:
     renameFolder: Ordner umbenennen
     folderName: Ordnername
