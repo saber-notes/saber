@@ -2,6 +2,8 @@ common:
   cancel: Annuler
   done(OUTDATED): Fait
   continueBtn(OUTDATED): Continuer
+  done: ''
+  continueBtn: ''
 home:
   tabs:
     home: Accueil
@@ -40,6 +42,8 @@ home:
     noteNameExists: Une note du même nom existe déjà
     noteNameForbiddenCharacters(OUTDATED): Le nom de la note contient des caractères interdits
     noteNameReserved(OUTDATED): Nom de la note réservé
+    noteNameReserved: ''
+    noteNameForbiddenCharacters: ''
   moveNote:
     moveNote: Déplacer la note
     moveNotes: Déplacer $n notes
@@ -54,6 +58,10 @@ home:
     deleteName(OUTDATED): Supprimer $f
     confirmDelete(OUTDATED): Supprimer définitivement la ou les notes sélectionnées ?
     delete(OUTDATED): Supprimer
+    delete: ''
+    deleteNotes: ''
+    deleteName: ''
+    confirmDelete: ''
   renameFolder:
     renameFolder: Renommer le dossier
     folderName: Nom de dossier
@@ -67,6 +75,7 @@ home:
     delete: Supprimer
     alsoDeleteContents: Supprimer aussi toutes les notes rangées dans ce dossier
   noPreviewAvailable(OUTDATED): Aucun aperçu disponible
+  noPreviewAvailable: ''
 sentry:
   consent:
     description:
@@ -75,11 +84,20 @@ sentry:
       currentlyOff(OUTDATED): Si vous accordez le consentement, les rapports d'erreur seront activés après le redémarrage de l'application.
       currentlyOn(OUTDATED): Si vous révoquez le consentement, veuillez redémarrer l'application pour désactiver les rapports d'erreur.
       learnMoreInPrivacyPolicy(rich, OUTDATED): En savoir plus dans le ${link(Politique de confidentialité)}.
+      currentlyOff: ''
+      learnMoreInPrivacyPolicy(rich): ''
+      question: ''
+      scope: ''
+      currentlyOn: ''
     answers:
       yes(OUTDATED): Oui
       no(OUTDATED): Non
       later(OUTDATED): Demandez-moi plus tard
+      later: ''
+      no: ''
+      yes: ''
     title(OUTDATED): Aidez-moi à améliorer Saber?
+    title: ''
 settings:
   prefCategories:
     general: Général
@@ -116,6 +134,12 @@ settings:
     simplifiedHomeLayout(OUTDATED): Aménagement d'une maison simplifié
     customDataDir(OUTDATED): Répertoire de données personnalisé
     autoStraightenLines(OUTDATED): Redresser automatiquement les lignes
+    customDataDir: ''
+    autoDisableFingerDrawingWhenStylusDetected: ''
+    sentry: ''
+    autosave: ''
+    autoStraightenLines: ''
+    simplifiedHomeLayout: ''
   prefDescriptions:
     hyperlegibleFont: La fonte Atkinson Hyperlegible améliore la lisibilité pour les personnes malvoyantes
     allowInsecureConnections: (Déconseillé) Autoriser Saber à se connecter à des serveurs dont les certificats sont auto-signés/non-sécurisé
@@ -136,10 +160,18 @@ settings:
       inactive(OUTDATED): Inactif
       activeUntilRestart(OUTDATED): Actif jusqu'à ce que vous redémarrez l'application
       inactiveUntilRestart(OUTDATED): Inactif jusqu'à ce que vous redémarrez l'application
+      inactiveUntilRestart: ''
+      active: ''
+      activeUntilRestart: ''
+      inactive: ''
     autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Désactiver le dessin au doigt lorsqu'un stylet est détecté
     autosave(OUTDATED): S'attacher automatiquement après un court délai, ou jamais
     simplifiedHomeLayout(OUTDATED): Définit une hauteur fixe pour chaque aperçu de note
     autoStraightenLines(OUTDATED): Redresse les longues lignes sans avoir à utiliser le stylo de forme
+    autoStraightenLines: ''
+    autoDisableFingerDrawingWhenStylusDetected: ''
+    autosave: ''
+    simplifiedHomeLayout: ''
   themeModes:
     system: Système
     light: Clair
@@ -166,15 +198,28 @@ settings:
     select(OUTDATED): Sélectionner
     mustBeEmpty(OUTDATED): Le répertoire sélectionné doit être vide
     mustBeDoneSyncing(OUTDATED): Assurez-vous que la synchronisation est terminée avant de modifier le répertoire
+    select: ''
+    unsupported: ''
+    cancel: ''
+    mustBeDoneSyncing: ''
+    mustBeEmpty: ''
   autosaveDisabled(OUTDATED): Jamais
   shapeRecognitionDisabled(OUTDATED): Jamais
   openDataDir(OUTDATED): Ouvrir le dossier Saber
+  openDataDir: ''
+  shapeRecognitionDisabled: ''
+  autosaveDisabled: ''
 logs:
   useTheApp(OUTDATED): Les journaux apparaîtront ici lorsque vous utilisez l'application
   logs(OUTDATED): Journaux
   viewLogs(OUTDATED): Afficher les journaux
   debuggingInfo(OUTDATED): Les journaux contiennent des informations utiles pour le débogage et le développement
   noLogs(OUTDATED): Pas de journaux ici !
+  useTheApp: ''
+  debuggingInfo: ''
+  noLogs: ''
+  logs: ''
+  viewLogs: ''
 login:
   title: Connexion
   form:
@@ -186,17 +231,28 @@ login:
     loggedIn: Connecté avec Nextcloud
     hi(OUTDATED): Salut, $u!
     almostDone(OUTDATED): Presque prêt pour la synchronisation, appuyez pour terminer la connexion
+    almostDone: ''
+    hi: ''
   ncLoginStep:
     loginFlow:
       pleaseAuthorize(OUTDATED): Veuillez autoriser Saber à accéder à votre compte Nextcloud
       followPrompts(OUTDATED): Veuillez suivre les instructions de votre navigateur.
       browserDidntOpen(OUTDATED): Le navigateur ne s'est pas ouvert
+      pleaseAuthorize: ''
+      browserDidntOpen: ''
+      followPrompts: ''
     whereToStoreData(OUTDATED): "Choisissez où vous souhaitez stocker vos données :"
     saberNcServer(OUTDATED): Le serveur Nextcloud de Saber
     otherNcServer(OUTDATED): Autre serveur Nextcloud
     serverUrl(OUTDATED): URL du serveur
     loginWithSaber(OUTDATED): Connectez-vous avec Saber
     loginWithNextcloud(OUTDATED): Connectez-vous avec Nextcloud
+    loginWithNextcloud: ''
+    whereToStoreData: ''
+    otherNcServer: ''
+    loginWithSaber: ''
+    saberNcServer: ''
+    serverUrl: ''
   encLoginStep:
     enterEncPassword(OUTDATED): "Pour protéger vos données, veuillez saisir votre mot de passe de cryptage :"
     newToSaber(OUTDATED): Nouveau sur Saber
@@ -215,7 +271,21 @@ login:
         Même si quelqu'un accède à votre compte Nextcloud, vos notes resteront sécurisées et cryptées avec un mot de passe distinct. Cela crée un deuxième niveau de sécurité pour protéger vos données.
     - q: Puis-je utiliser le même mot de passe pour les deux ?
       a: Oui, mais c'est moins sécurisé. Comme votre mot de passe sur Nextcloud est envoyé au serveur, toute personne qui y aurait accès pourrait decrypter vos notes. N'utilisez le même mot de passe que si vous faites confiance aux personnes qui gèrent le serveur.
+    connectionFailed: ''
+    encFaq:
+    - a: ''
+      q: ''
+    - q: ''
+      a: ''
+    - a: ''
+      q: ''
+    enterEncPassword: ''
+    newToSaber: ''
+    encFaqTitle: ''
+    encPassword: ''
+    wrongEncPassword: ''
   notYou(rich, OUTDATED): ${undoLogin(Pas toi)}
+  notYou(rich): ''
 profile:
   title: Mon profil
   logout: Déconnexion
@@ -241,6 +311,9 @@ profile:
   quotaUsage(OUTDATED): Vous utilisez $used sur $total ($percent%)
   connectedTo(OUTDATED): Connecté à
   faqTitle(OUTDATED): Questions fréquemment posées
+  quotaUsage: ''
+  connectedTo: ''
+  faqTitle: ''
 appInfo:
   licenseNotice: |-
     Saber  Copyright © 2022-$buildYear  Adil Hanney
@@ -254,6 +327,7 @@ update:
   updateAvailableDescription: "Une nouvelle version de cette application est disponible, avec les changements suivants :"
   update: Mettre à jour
   downloadNotAvailableYet(OUTDATED): Le téléchargement n'est pas encore disponible pour votre plateforme. Veuillez revenir sous peu.
+  downloadNotAvailableYet: ''
 editor:
   toolbar:
     toggleColors: Afficher/cacher les couleurs (Ctrl C)
@@ -342,10 +416,17 @@ editor:
     watchServer(OUTDATED): Surveillez les mises à jour sur le serveur
     watchServerReadOnly(OUTDATED): L'édition est désactivée lorsque vous regardez le serveur
     lineHeightDescription(OUTDATED): Contrôle également la taille du texte pour les notes saisies
+    lineThicknessDescription: ''
+    lineThickness: ''
+    watchServerReadOnly: ''
+    lineHeightDescription: ''
+    watchServer: ''
   readOnlyBanner:
     title: Mode lecture seule
     corrupted(OUTDATED): Échec du chargement de la note. Il est peut-être corrompu ou en cours de téléchargement.
     watchingServer(OUTDATED): Vous surveillez actuellement les mises à jour sur le serveur. L'édition est désactivée dans ce mode.
+    watchingServer: ''
+    corrupted: ''
   versionTooNew:
     title: Cette note a été modifiée avec une version plus récente de Saber
     subtitle: Éditer cette note pourrait entraîner la perte de certaines informations. Voulez-vous la modifier quand même ?
