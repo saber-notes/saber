@@ -55,6 +55,10 @@ home:
     deleteName(OUTDATED): Excluir $f
     confirmDelete(OUTDATED): Excluir permanentemente a(s) nota(s) selecionada(s)?
     delete(OUTDATED): Excluir
+    delete: ''
+    deleteNotes: ''
+    deleteName: ''
+    confirmDelete: ''
   renameFolder:
     renameFolder: Renomear pasta
     folderName: Nome da pasta
@@ -116,6 +120,9 @@ settings:
     sentry(OUTDATED): Relatório de erro
     simplifiedHomeLayout(OUTDATED): Layout simplificado da casa
     customDataDir(OUTDATED): Diretório de dados personalizado
+    customDataDir: ''
+    sentry: ''
+    simplifiedHomeLayout: ''
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible aumenta a legibilidade para leitores com baixa visão
     allowInsecureConnections: (Não recomendado) Permitir que o Saber se conecte a servidores com certificados autoassinados/não-confiáveis
@@ -135,11 +142,20 @@ settings:
       inactive(OUTDATED): Inativo
       activeUntilRestart(OUTDATED): Ativo até você reiniciar o aplicativo
       inactiveUntilRestart(OUTDATED): Inativo até você reiniciar o aplicativo
+      inactiveUntilRestart: ''
+      active: ''
+      activeUntilRestart: ''
+      inactive: ''
     autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Desative o desenho com o dedo quando uma caneta for detectada
     autosave(OUTDATED): Salvamento automático após um pequeno atraso, ou nunca
     simplifiedHomeLayout(OUTDATED): Define uma altura fixa para cada pré-visualização de nota
     autoStraightenLines(OUTDATED): Endireita linhas longas sem precisar usar a caneta modeladora
     shapeRecognitionDelay(OUTDATED): Com que frequência atualizar a visualização da forma
+    autoStraightenLines: ''
+    shapeRecognitionDelay: ''
+    autoDisableFingerDrawingWhenStylusDetected: ''
+    autosave: ''
+    simplifiedHomeLayout: ''
   themeModes:
     system: Sistema
     light: Claro
@@ -165,16 +181,30 @@ settings:
     select(OUTDATED): Selecione
     mustBeEmpty(OUTDATED): O diretório selecionado deve estar vazio
     mustBeDoneSyncing(OUTDATED): Certifique-se de que a sincronização esteja concluída antes de alterar o diretório
+    select: ''
+    unsupported: ''
+    cancel: ''
+    mustBeDoneSyncing: ''
+    mustBeEmpty: ''
   autosaveDisabled(OUTDATED): Nunca
   shapeRecognitionDisabled(OUTDATED): Nunca
   openDataDir(OUTDATED): Abra a pasta Saber
   resyncEverything(OUTDATED): Resync tudo
+  openDataDir: ''
+  shapeRecognitionDisabled: ''
+  resyncEverything: ''
+  autosaveDisabled: ''
 logs:
   useTheApp(OUTDATED): Os logs aparecerão aqui enquanto você usa o aplicativo
   logs(OUTDATED): Registros
   viewLogs(OUTDATED): Ver logs
   debuggingInfo(OUTDATED): Os logs contêm informações úteis para depuração e desenvolvimento
   noLogs(OUTDATED): Nenhum registro aqui!
+  useTheApp: ''
+  debuggingInfo: ''
+  noLogs: ''
+  logs: ''
+  viewLogs: ''
 login:
   title: Login
   form:
@@ -186,17 +216,28 @@ login:
     loggedIn: Logado com o Nextcloud
     hi(OUTDATED): Olá, $u!
     almostDone(OUTDATED): Quase pronto para sincronização, toque para finalizar o login
+    almostDone: ''
+    hi: ''
   ncLoginStep:
     loginFlow:
       pleaseAuthorize(OUTDATED): Autorize o Saber a acessar sua conta Nextcloud
       followPrompts(OUTDATED): Por favor, siga as instruções no seu navegador.
       browserDidntOpen(OUTDATED): O navegador não abriu
+      pleaseAuthorize: ''
+      browserDidntOpen: ''
+      followPrompts: ''
     whereToStoreData(OUTDATED): "Escolha onde deseja armazenar seus dados:"
     saberNcServer(OUTDATED): Servidor Nextcloud do Saber
     otherNcServer(OUTDATED): Outro servidor Nextcloud
     serverUrl(OUTDATED): URL do servidor
     loginWithSaber(OUTDATED): Faça login com Saber
     loginWithNextcloud(OUTDATED): Faça login com Nextcloud
+    loginWithNextcloud: ''
+    whereToStoreData: ''
+    otherNcServer: ''
+    loginWithSaber: ''
+    saberNcServer: ''
+    serverUrl: ''
   encLoginStep:
     enterEncPassword(OUTDATED): "Para proteger seus dados, digite sua senha de criptografia:"
     newToSaber(OUTDATED): Novo no Saber
@@ -215,7 +256,21 @@ login:
         Mesmo que alguém obtenha acesso à sua conta do Nextcloud, as suas notas permanecerão seguras e criptografadas com uma senha separada. Isso fornece uma segunda camada de segurança para proteger os seus dados.
     - q: Posso usar a mesma senha para ambos?
       a: "Sim, mas isso é menos seguro. Como a sua senha do Nextcloud é enviada ao servidor, alguém com acesso ao servidor poderá descriptografar as suas notas. Use a mesma senha apenas se você confiar no proprietário do servidor. "
+    connectionFailed: ''
+    encFaq:
+    - a: ''
+      q: ''
+    - q: ''
+      a: ''
+    - a: ''
+      q: ''
+    enterEncPassword: ''
+    newToSaber: ''
+    encFaqTitle: ''
+    encPassword: ''
+    wrongEncPassword: ''
   notYou(rich, OUTDATED): ${undoLogin(Você não)}
+  notYou(rich): ''
 profile:
   title: Meu perfil
   logout: Sair
@@ -241,6 +296,9 @@ profile:
   quotaUsage(OUTDATED): Você está usando $used de $total ($percent%)
   connectedTo(OUTDATED): Conectado a
   faqTitle(OUTDATED): Perguntas frequentes
+  quotaUsage: ''
+  connectedTo: ''
+  faqTitle: ''
 appInfo:
   licenseNotice: |-
     Saber  Copyright © 2022-$buildYear  Adil Hanney
@@ -254,6 +312,7 @@ update:
   updateAvailableDescription: "Uma nova versão do aplicativo está disponível, com estas mudanças:"
   update: Atualizar
   downloadNotAvailableYet(OUTDATED): O download ainda não está disponível para sua plataforma. Verifique novamente em breve.
+  downloadNotAvailableYet: ''
 editor:
   toolbar:
     toggleColors: Paleta de cores (Ctrl C)
@@ -274,6 +333,8 @@ editor:
     laserPointer: Apontador laser
     pencil(OUTDATED): Lápis
     shapePen(OUTDATED): Caneta de forma
+    pencil: ''
+    shapePen: ''
   penOptions:
     size: Tamanho
   colors:
@@ -303,6 +364,12 @@ editor:
     light(OUTDATED): luz
     cyan(OUTDATED): Ciano
     pink(OUTDATED): Rosa
+    customHue: ''
+    dark: ''
+    customBrightnessHue: ''
+    pink: ''
+    cyan: ''
+    light: ''
   imageOptions:
     title: Opções de imagem
     invertible: Invertível
@@ -313,6 +380,7 @@ editor:
   selectionBar:
     delete: Excluir
     duplicate(OUTDATED): Duplicação
+    duplicate: ''
   menu:
     clearPage: Limpar a página $page/$totalPages
     clearAllPages: Limpar todas as páginas
@@ -342,10 +410,17 @@ editor:
     watchServer(OUTDATED): Fique atento às atualizações no servidor
     watchServerReadOnly(OUTDATED): A edição está desativada enquanto observa o servidor
     lineHeightDescription(OUTDATED): Também controla o tamanho do texto para notas digitadas
+    lineThicknessDescription: ''
+    lineThickness: ''
+    watchServerReadOnly: ''
+    lineHeightDescription: ''
+    watchServer: ''
   readOnlyBanner:
     title: Modo somente leitura
     corrupted(OUTDATED): Falha ao carregar a nota. Ele pode estar corrompido ou ainda sendo baixado.
     watchingServer(OUTDATED): No momento, você está aguardando atualizações no servidor. A edição está desabilitada neste modo.
+    watchingServer: ''
+    corrupted: ''
   versionTooNew:
     title: Esta nota foi editada usando uma versão mais recente do Saber
     subtitle: A edição desta nota pode resultar na perda de algumas informações. Deseja ignorar isso e editá-la mesmo assim?
