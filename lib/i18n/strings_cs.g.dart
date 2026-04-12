@@ -335,6 +335,10 @@ class _TranslationsHomeDeleteNoteDialogCs extends TranslationsHomeDeleteNoteDial
 	// Translations
 	@override String deleteNotes({required Object n}) => 'Odstranit ${n} poznámek';
 	@override String deleteName({required Object f}) => 'Odstranit poznámku ${f}';
+	@override String confirmDelete({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('cs'))(n,
+		one: 'Trvale smazat vybranou poznámku?',
+		other: 'Trvale smazat vybrané poznámky?',
+	);
 	@override String get delete => 'Odstranit';
 }
 

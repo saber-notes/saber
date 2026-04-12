@@ -333,6 +333,10 @@ class _TranslationsHomeDeleteNoteDialogZhHantTw extends TranslationsHomeDeleteNo
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
 	// Translations
+	@override String confirmDelete({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n,
+		one: '永久刪除選取的筆記？',
+		other: '永久刪除選取的筆記？',
+	);
 	@override String deleteNotes({required Object n}) => '刪除 ${n} 筆筆記';
 	@override String deleteName({required Object f}) => '刪除 ${f}';
 	@override String get delete => '刪除';

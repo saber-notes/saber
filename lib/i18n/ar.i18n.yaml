@@ -50,6 +50,9 @@ home:
     numberRenamedTo: ملاحظة سيتم اعادة تسميتها لتجنب تضارب تشابه الاسماء $n
   deleteNote: حذف الملاحظة
   deleteNoteDialog:
+    confirmDelete(OUTDATED):
+      one(OUTDATED): حذف الملاحظة المحددة بشكل دائم؟
+      other(OUTDATED): حذف الملاحظات المحددة بشكل دائم؟
     deleteNotes(OUTDATED): احذف $n ملاحظة
     deleteName(OUTDATED): احذف $f
     delete(OUTDATED): حذف

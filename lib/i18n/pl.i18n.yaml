@@ -51,6 +51,9 @@ home:
     numberRenamedTo: $n spośród notatek zmieni nazwy aby uniknąć konfliktów
   deleteNote: Usuń notatkę
   deleteNoteDialog:
+    confirmDelete(OUTDATED):
+      one(OUTDATED): Trwale usunąć wybraną notatkę?
+      other(OUTDATED): Trwale usuń wybrane notatki?
     deleteNotes(OUTDATED): Usuń $n notatek
     deleteName(OUTDATED): Usuń $f
     delete(OUTDATED): Usuń

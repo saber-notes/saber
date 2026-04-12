@@ -330,6 +330,10 @@ class _TranslationsHomeDeleteNoteDialogCa extends TranslationsHomeDeleteNoteDial
 	final TranslationsCa _root; // ignore: unused_field
 
 	// Translations
+	@override String confirmDelete({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ca'))(n,
+		one: 'Eliminar permanentment la nota seleccionada?',
+		other: 'Eliminar permanentment les notes seleccionades?',
+	);
 	@override String deleteNotes({required Object n}) => 'Borrar ${n} notes';
 	@override String deleteName({required Object f}) => 'Borrar ${f}';
 	@override String get delete => 'Borrar';

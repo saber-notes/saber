@@ -51,6 +51,9 @@ home:
     numberRenamedTo: $n Notizen werden umbenannt, um Konfilkte zu vermeiden
   deleteNote: Notiz löschen
   deleteNoteDialog:
+    confirmDelete(OUTDATED):
+      one(OUTDATED): Die ausgewählte Notiz dauerhaft löschen?
+      other(OUTDATED): Die ausgewählten Notizen dauerhaft löschen?
     deleteNotes(OUTDATED): Lösche $n Notizen
     deleteName(OUTDATED): Lösche $f
     delete(OUTDATED): Löschen

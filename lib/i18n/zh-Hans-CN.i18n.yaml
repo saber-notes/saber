@@ -51,6 +51,9 @@ home:
     numberRenamedTo: $n 个笔记将被重命名以避免冲突
   deleteNote: 删除笔记
   deleteNoteDialog:
+    confirmDelete(OUTDATED):
+      one(OUTDATED): 永久删除选中的笔记？
+      other(OUTDATED): 永久删除选中的笔记？
     deleteNotes(OUTDATED): 删除 $n 笔记
     deleteName(OUTDATED): 删除 $f
     delete(OUTDATED): 删除

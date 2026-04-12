@@ -47,6 +47,9 @@ home:
     multipleRenamedTo(OUTDATED): 次のメモの名前が変更されます。
     numberRenamedTo(OUTDATED): $n のノートは、競合を避けるために名前を変更されます
   deleteNoteDialog:
+    confirmDelete(OUTDATED):
+      one(OUTDATED): 選択したメモを永久に削除しますか？
+      other(OUTDATED): 選択したメモを永久に削除しますか？
     deleteNotes(OUTDATED): $n のノートを削除する
     deleteName(OUTDATED): $fを削除する
     delete(OUTDATED): 削除

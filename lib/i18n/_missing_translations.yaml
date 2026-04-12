@@ -10,7 +10,9 @@ ar:
     deleteNoteDialog:
       deleteNotes(OUTDATED): Delete $n notes
       deleteName(OUTDATED): Delete $f
-      confirmDelete(OUTDATED): Permanently delete selected note(s)?
+      confirmDelete(OUTDATED):
+        one: Permanently delete the selected note?
+        other: Permanently delete the selected notes?
       delete(OUTDATED): Delete
   sentry:
     consent:
@@ -62,7 +64,9 @@ ca:
     deleteNoteDialog:
       deleteNotes(OUTDATED): Delete $n notes
       deleteName(OUTDATED): Delete $f
-      confirmDelete(OUTDATED): Permanently delete selected note(s)?
+      confirmDelete(OUTDATED):
+        one: Permanently delete the selected note?
+        other: Permanently delete the selected notes?
       delete(OUTDATED): Delete
   sentry:
     consent:
@@ -244,12 +248,19 @@ ca:
       lockSingleFingerPan(OUTDATED): Disable single-finger panning
       unlockAxisAlignedPan(OUTDATED): Unlock panning to horizontal or vertical
 cs:
+  home:
+    deleteNoteDialog:
+      confirmDelete(OUTDATED):
+        one: Permanently delete the selected note?
+        other: Permanently delete the selected notes?
 de:
   home:
     deleteNoteDialog:
       deleteNotes(OUTDATED): Delete $n notes
       deleteName(OUTDATED): Delete $f
-      confirmDelete(OUTDATED): Permanently delete selected note(s)?
+      confirmDelete(OUTDATED):
+        one: Permanently delete the selected note?
+        other: Permanently delete the selected notes?
       delete(OUTDATED): Delete
 eo:
   home:
@@ -259,7 +270,9 @@ eo:
     deleteNoteDialog:
       deleteNotes(OUTDATED): Delete $n notes
       deleteName(OUTDATED): Delete $f
-      confirmDelete(OUTDATED): Permanently delete selected note(s)?
+      confirmDelete(OUTDATED):
+        one: Permanently delete the selected note?
+        other: Permanently delete the selected notes?
       delete(OUTDATED): Delete
   settings:
     prefLabels:
@@ -275,7 +288,9 @@ es:
     deleteNoteDialog:
       deleteNotes(OUTDATED): Delete $n notes
       deleteName(OUTDATED): Delete $f
-      confirmDelete(OUTDATED): Permanently delete selected note(s)?
+      confirmDelete(OUTDATED):
+        one: Permanently delete the selected note?
+        other: Permanently delete the selected notes?
       delete(OUTDATED): Delete
   sentry:
     consent:
@@ -393,7 +408,9 @@ fa:
     deleteNoteDialog:
       deleteNotes(OUTDATED): Delete $n notes
       deleteName(OUTDATED): Delete $f
-      confirmDelete(OUTDATED): Permanently delete selected note(s)?
+      confirmDelete(OUTDATED):
+        one: Permanently delete the selected note?
+        other: Permanently delete the selected notes?
       delete(OUTDATED): Delete
   sentry:
     consent:
@@ -504,7 +521,9 @@ fr:
     deleteNoteDialog:
       deleteNotes(OUTDATED): Delete $n notes
       deleteName(OUTDATED): Delete $f
-      confirmDelete(OUTDATED): Permanently delete selected note(s)?
+      confirmDelete(OUTDATED):
+        one: Permanently delete the selected note?
+        other: Permanently delete the selected notes?
       delete(OUTDATED): Delete
   sentry:
     consent:
@@ -608,7 +627,9 @@ he:
     deleteNoteDialog:
       deleteNotes(OUTDATED): Delete $n notes
       deleteName(OUTDATED): Delete $f
-      confirmDelete(OUTDATED): Permanently delete selected note(s)?
+      confirmDelete(OUTDATED):
+        one: Permanently delete the selected note?
+        other: Permanently delete the selected notes?
       delete(OUTDATED): Delete
 hu:
   common:
@@ -652,7 +673,9 @@ hu:
     deleteNoteDialog:
       deleteNotes(OUTDATED): Delete $n notes
       deleteName(OUTDATED): Delete $f
-      confirmDelete(OUTDATED): Permanently delete selected note(s)?
+      confirmDelete(OUTDATED):
+        one: Permanently delete the selected note?
+        other: Permanently delete the selected notes?
       delete(OUTDATED): Delete
     renameFolder:
       renameFolder(OUTDATED): Rename folder
@@ -862,6 +885,11 @@ hu:
       lockAxisAlignedPan(OUTDATED): Lock panning to horizontal or vertical
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
 it:
+  home:
+    deleteNoteDialog:
+      confirmDelete(OUTDATED):
+        one: Permanently delete the selected note?
+        other: Permanently delete the selected notes?
 ja:
   common:
     done(OUTDATED): Done
@@ -888,7 +916,9 @@ ja:
     deleteNoteDialog:
       deleteNotes(OUTDATED): Delete $n notes
       deleteName(OUTDATED): Delete $f
-      confirmDelete(OUTDATED): Permanently delete selected note(s)?
+      confirmDelete(OUTDATED):
+        one: Permanently delete the selected note?
+        other: Permanently delete the selected notes?
       delete(OUTDATED): Delete
     renameFolder:
       renameFolder(OUTDATED): Rename folder
@@ -1034,14 +1064,18 @@ pl:
     deleteNoteDialog:
       deleteNotes(OUTDATED): Delete $n notes
       deleteName(OUTDATED): Delete $f
-      confirmDelete(OUTDATED): Permanently delete selected note(s)?
+      confirmDelete(OUTDATED):
+        one: Permanently delete the selected note?
+        other: Permanently delete the selected notes?
       delete(OUTDATED): Delete
 pt-BR:
   home:
     deleteNoteDialog:
       deleteNotes(OUTDATED): Delete $n notes
       deleteName(OUTDATED): Delete $f
-      confirmDelete(OUTDATED): Permanently delete selected note(s)?
+      confirmDelete(OUTDATED):
+        one: Permanently delete the selected note?
+        other: Permanently delete the selected notes?
       delete(OUTDATED): Delete
   settings:
     prefLabels:
@@ -1143,21 +1177,27 @@ ru:
     deleteNoteDialog:
       deleteNotes(OUTDATED): Delete $n notes
       deleteName(OUTDATED): Delete $f
-      confirmDelete(OUTDATED): Permanently delete selected note(s)?
+      confirmDelete(OUTDATED):
+        one: Permanently delete the selected note?
+        other: Permanently delete the selected notes?
       delete(OUTDATED): Delete
 sl:
   home:
     deleteNoteDialog:
       deleteNotes(OUTDATED): Delete $n notes
       deleteName(OUTDATED): Delete $f
-      confirmDelete(OUTDATED): Permanently delete selected note(s)?
+      confirmDelete(OUTDATED):
+        one: Permanently delete the selected note?
+        other: Permanently delete the selected notes?
       delete(OUTDATED): Delete
 th:
   home:
     deleteNoteDialog:
       deleteNotes(OUTDATED): Delete $n notes
       deleteName(OUTDATED): Delete $f
-      confirmDelete(OUTDATED): Permanently delete selected note(s)?
+      confirmDelete(OUTDATED):
+        one: Permanently delete the selected note?
+        other: Permanently delete the selected notes?
       delete(OUTDATED): Delete
   editor:
     readOnlyBanner:
@@ -1172,7 +1212,9 @@ tr:
     deleteNoteDialog:
       deleteNotes(OUTDATED): Delete $n notes
       deleteName(OUTDATED): Delete $f
-      confirmDelete(OUTDATED): Permanently delete selected note(s)?
+      confirmDelete(OUTDATED):
+        one: Permanently delete the selected note?
+        other: Permanently delete the selected notes?
       delete(OUTDATED): Delete
   sentry:
     consent:
@@ -1222,19 +1264,25 @@ vi:
     deleteNoteDialog:
       deleteNotes(OUTDATED): Delete $n notes
       deleteName(OUTDATED): Delete $f
-      confirmDelete(OUTDATED): Permanently delete selected note(s)?
+      confirmDelete(OUTDATED):
+        one: Permanently delete the selected note?
+        other: Permanently delete the selected notes?
       delete(OUTDATED): Delete
 zh-Hans-CN:
   home:
     deleteNoteDialog:
       deleteNotes(OUTDATED): Delete $n notes
       deleteName(OUTDATED): Delete $f
-      confirmDelete(OUTDATED): Permanently delete selected note(s)?
+      confirmDelete(OUTDATED):
+        one: Permanently delete the selected note?
+        other: Permanently delete the selected notes?
       delete(OUTDATED): Delete
 zh-Hant-TW:
   home:
     deleteNoteDialog:
       deleteNotes(OUTDATED): Delete $n notes
       deleteName(OUTDATED): Delete $f
-      confirmDelete(OUTDATED): Permanently delete selected note(s)?
+      confirmDelete(OUTDATED):
+        one: Permanently delete the selected note?
+        other: Permanently delete the selected notes?
       delete(OUTDATED): Delete

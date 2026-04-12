@@ -53,6 +53,9 @@ home:
   deleteNoteDialog:
     deleteNotes: Odstranit $n poznámek
     deleteName: Odstranit poznámku $f
+    confirmDelete(OUTDATED):
+      one(OUTDATED): Trvale smazat vybranou poznámku?
+      other(OUTDATED): Trvale smazat vybrané poznámky?
     delete: Odstranit
   renameFolder:
     renameFolder: Přejmenovat složku

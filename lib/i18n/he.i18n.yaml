@@ -51,6 +51,9 @@ home:
     numberRenamedTo: ישתנה שמם של $n פתקים בשביל להימנע מהתנגשויות
   deleteNote: מחיקת פתק
   deleteNoteDialog:
+    confirmDelete(OUTDATED):
+      one(OUTDATED): מחוק לצמיתות את ההערה הנבחרת?
+      other(OUTDATED): מחוק באופן קבוע את ההערות הנבחרות?
     deleteNotes(OUTDATED): احذف $n ملاحظة
     deleteName(OUTDATED): احذف $f
     delete(OUTDATED): احذف

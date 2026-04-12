@@ -50,6 +50,9 @@ home:
     numberRenamedTo: $n tane not çakışma olmaması için yeniden adlandırılacak
   deleteNote: Notu sil
   deleteNoteDialog:
+    confirmDelete(OUTDATED):
+      one(OUTDATED): Seçilen notu kalıcı olarak sil?
+      other(OUTDATED): Seçilen notları kalıcı olarak silin?
     deleteNotes(OUTDATED): $n notu'ları sil
     deleteName(OUTDATED): $f'yi sil
     delete(OUTDATED): Sil

@@ -51,6 +51,9 @@ home:
     numberRenamedTo: $n notas serán renombradas para evitar conflictos
   deleteNote: Eliminar nota
   deleteNoteDialog:
+    confirmDelete(OUTDATED):
+      one(OUTDATED): ¿Eliminar permanentemente la nota seleccionada?
+      other(OUTDATED): ¿Eliminar permanentemente las notas seleccionadas?
     deleteNotes(OUTDATED): Eliminar $n notas
     deleteName(OUTDATED): Borrar $f
     delete(OUTDATED): Eliminar
