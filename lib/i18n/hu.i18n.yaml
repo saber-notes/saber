@@ -2,6 +2,8 @@ common:
   cancel: Mégse
   done(OUTDATED): Kész
   continueBtn(OUTDATED): Folytatni
+  done: ''
+  continueBtn: ''
 home:
   tabs:
     home: Kezdőlap
@@ -13,13 +15,17 @@ home:
     whiteboard: Whiteboard
     settings: Beállítások
     browse(OUTDATED): Böngészés
+    browse: ''
   tooltips:
     newNote: Új jegyzet
     showUpdateDialog: Frissítési párbeszédablak megjelenítése
     exportNote(OUTDATED): Megjegyzés exportálása
+    exportNote: ''
   create:
     newNote(OUTDATED): Új jegyzet
     importNote(OUTDATED): Megjegyzés importálása
+    importNote: ''
+    newNote: ''
   welcome: Üdvözli a Saber
   noFiles: Nem található ilyen fájl
   createNewNote: Kattintson a + gombora egy új jegyzet létrehozásához
@@ -30,6 +36,12 @@ home:
     folderNameEmpty(OUTDATED): A mappa neve nem lehet üres
     folderNameContainsSlash(OUTDATED): A mappa neve nem tartalmazhat perjelet
     folderNameExists(OUTDATED): Folder már létezik
+    newFolder: ''
+    folderName: ''
+    create: ''
+    folderNameEmpty: ''
+    folderNameContainsSlash: ''
+    folderNameExists: ''
   renameNote:
     noteNameForbiddenCharacters(OUTDATED): A megjegyzés neve tiltott karaktereket tartalmaz
     noteNameReserved(OUTDATED): Megjegyzés név fenntartva
@@ -38,6 +50,13 @@ home:
     rename(OUTDATED): Átnevezés
     noteNameEmpty(OUTDATED): A jegyzet neve nem lehet üres
     noteNameExists(OUTDATED): Már létezik ilyen nevű jegyzet
+    noteNameExists: ''
+    noteNameReserved: ''
+    rename: ''
+    noteNameEmpty: ''
+    noteNameForbiddenCharacters: ''
+    renameNote: ''
+    noteName: ''
   moveNote:
     moveNotes(OUTDATED): $n jegyzet mozgatása
     numberRenamedTo(OUTDATED): $n jegyzet átnevezésre kerül az ütközések elkerülése érdekében
@@ -46,11 +65,22 @@ home:
     moveName(OUTDATED): Mozgassa $f
     move(OUTDATED): Mozog
     renamedTo(OUTDATED): "A jegyzet a következőre lesz átnevezve: $newName"
+    moveName: ''
+    moveNotes: ''
+    numberRenamedTo: ''
+    multipleRenamedTo: ''
+    move: ''
+    moveNote: ''
+    renamedTo: ''
   deleteNoteDialog:
     deleteNotes(OUTDATED): Töröltsd el a $n jegyeket
     deleteName(OUTDATED): Töröltsd el $f
     confirmDelete(OUTDATED): Törölje permanenten kiválasztott jegyzet(ek)?
     delete(OUTDATED): Törölelj
+    delete: ''
+    deleteNotes: ''
+    deleteName: ''
+    confirmDelete: ''
   renameFolder:
     folderNameEmpty(OUTDATED): A mappa neve nem lehet üres
     renameFolder(OUTDATED): Mappa átnevezése
@@ -58,15 +88,29 @@ home:
     folderName(OUTDATED): Mappa neve
     rename(OUTDATED): Átnevezés
     folderNameContainsSlash(OUTDATED): A mappa neve nem tartalmazhat perjelet
+    rename: ''
+    folderNameContainsSlash: ''
+    folderNameExists: ''
+    folderName: ''
+    folderNameEmpty: ''
+    renameFolder: ''
   deleteFolder:
     delete(OUTDATED): Töröl
     alsoDeleteContents(OUTDATED): Törölje az összes jegyzetet ebben a mappában
     deleteFolder(OUTDATED): Mappa törlése
     deleteName(OUTDATED): $f törlése
+    delete: ''
+    deleteFolder: ''
+    deleteName: ''
+    alsoDeleteContents: ''
   noPreviewAvailable(OUTDATED): Nincs elérhető előnézet
   backFolder(OUTDATED): Menjen vissza az előző mappába
   deleteNote(OUTDATED): Jegyzet törlése
   invalidFormat(OUTDATED): A kiválasztott fájl nem támogatott. Kérjük, válasszon .sbn, .sbn2, .sba vagy .pdf fájlt.
+  deleteNote: ''
+  backFolder: ''
+  noPreviewAvailable: ''
+  invalidFormat: ''
 sentry:
   consent:
     description:
@@ -75,11 +119,20 @@ sentry:
       currentlyOff(OUTDATED): Ha hozzájárulást ad, akkor a hibajelentés engedélyezve lesz az alkalmazás újraindítása után.
       currentlyOn(OUTDATED): Ha visszavonja az egyetértést, kérjük, indítsa újra az alkalmazást a hibajelentés letiltása érdekében.
       learnMoreInPrivacyPolicy(rich, OUTDATED): Tudjon meg többet a ${link(adatvédelmi házirend)} -ben.
+      currentlyOff: ''
+      learnMoreInPrivacyPolicy(rich): ''
+      question: ''
+      scope: ''
+      currentlyOn: ''
     answers:
       yes(OUTDATED): Igen
       no(OUTDATED): Nem
       later(OUTDATED): Kérdezd meg később
+      later: ''
+      no: ''
+      yes: ''
     title(OUTDATED): Segítsen javítani a kardot?
+    title: ''
 settings:
   prefCategories:
     general: Általános
@@ -87,6 +140,9 @@ settings:
     performance(OUTDATED): Teljesítmény
     editor(OUTDATED): Szerkesztő
     advanced(OUTDATED): Fejlett
+    editor: ''
+    advanced: ''
+    performance: ''
   prefLabels:
     locale: Alkalmazás nyelve
     appTheme: Alkalmazás témája
@@ -116,6 +172,20 @@ settings:
     hideFingerDrawingToggle(OUTDATED): Az ujjrajzolás kapcsoló elrejtése
     shouldAlwaysAlertForUpdates(OUTDATED): Gyorsabb frissítések
     disableEraserAfterUse(OUTDATED): A radír automatikus letiltása
+    shouldAlwaysAlertForUpdates: ''
+    disableEraserAfterUse: ''
+    hideFingerDrawingToggle: ''
+    customDataDir: ''
+    allowInsecureConnections: ''
+    autoDisableFingerDrawingWhenStylusDetected: ''
+    layoutSize: ''
+    recentColorsLength: ''
+    shapeRecognitionDelay: ''
+    sentry: ''
+    printPageIndicators: ''
+    autosave: ''
+    autoStraightenLines: ''
+    simplifiedHomeLayout: ''
   prefDescriptions:
     hyperlegibleFont: Az Atkinson Hyperlegible növeli az olvashatóságot a gyengén látók számára
     preferGreyscale: E-tinta kijelzőkhöz
@@ -125,12 +195,19 @@ settings:
       shown(OUTDATED): Megakadályozza a véletlen átkapcsolást
       fixedOn(OUTDATED): Az ujjlenyomat rögzítése engedélyezett állapotban van
       fixedOff(OUTDATED): Az ujjrajzolás letiltva van rögzítve
+      fixedOn: ''
+      shown: ''
+      fixedOff: ''
     editorPromptRename: A jegyzeteket később bármikor átnevezheti
     sentry:
       active(OUTDATED): Aktív
       inactive(OUTDATED): Tétlen
       activeUntilRestart(OUTDATED): Aktív, amíg újra nem indítja újra az alkalmazást
       inactiveUntilRestart(OUTDATED): Inaktív, amíg újra nem indítja újra az alkalmazást
+      inactiveUntilRestart: ''
+      active: ''
+      activeUntilRestart: ''
+      inactive: ''
     autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Kapcsolja ki az ujjal történő rajzolást, ha ceruzát észlel
     autosave(OUTDATED): Automato-Save rövid késleltetés után, vagy soha
     simplifiedHomeLayout(OUTDATED): Rögzített magasságot állít be minden hangjegy előnézetéhez
@@ -140,6 +217,15 @@ settings:
     allowInsecureConnections(OUTDATED): (Nem ajánlott) Engedélyezze a Saber-nek, hogy csatlakozzon önaláírt/nem megbízható tanúsítványokkal rendelkező szerverekhez
     shouldAlwaysAlertForUpdates(OUTDATED): Szóljon nekem a frissítésekről, amint elérhetők
     disableEraserAfterUse(OUTDATED): A radír használata után automatikusan visszavált a tollra
+    autoStraightenLines: ''
+    printPageIndicators: ''
+    disableEraserAfterUse: ''
+    shapeRecognitionDelay: ''
+    autoDisableFingerDrawingWhenStylusDetected: ''
+    autosave: ''
+    simplifiedHomeLayout: ''
+    allowInsecureConnections: ''
+    shouldAlwaysAlertForUpdates: ''
   themeModes:
     system: Rendszer
     light: Világos
@@ -148,6 +234,9 @@ settings:
     auto(OUTDATED): Automata
     phone(OUTDATED): Telefon
     tablet(OUTDATED): Tabletta
+    phone: ''
+    auto: ''
+    tablet: ''
   accentColorPicker:
     pickAColor: Szín kiválasztása
   systemLanguage: Rendszerspecifikus nyelve
@@ -165,16 +254,30 @@ settings:
     select(OUTDATED): Válassza ki
     mustBeEmpty(OUTDATED): A kiválasztott könyvtárnak üresnek kell lennie
     mustBeDoneSyncing(OUTDATED): A könyvtár módosítása előtt győződjön meg arról, hogy a szinkronizálás befejeződött
+    select: ''
+    unsupported: ''
+    cancel: ''
+    mustBeDoneSyncing: ''
+    mustBeEmpty: ''
   autosaveDisabled(OUTDATED): Soha
   shapeRecognitionDisabled(OUTDATED): Soha
   openDataDir(OUTDATED): Nyissa meg a Saber mappát
   resyncEverything(OUTDATED): Resync mindent
+  openDataDir: ''
+  shapeRecognitionDisabled: ''
+  resyncEverything: ''
+  autosaveDisabled: ''
 logs:
   useTheApp(OUTDATED): A naplók itt jelennek meg az alkalmazás használatakor
   logs(OUTDATED): Naplók
   viewLogs(OUTDATED): Naplók megtekintése
   debuggingInfo(OUTDATED): A naplók a hibakereséshez és a fejlesztéshez hasznos információkat tartalmaznak
   noLogs(OUTDATED): Itt nincsenek naplók!
+  useTheApp: ''
+  debuggingInfo: ''
+  noLogs: ''
+  logs: ''
+  viewLogs: ''
 login:
   title: Bejelentkezés
   form:
@@ -186,17 +289,28 @@ login:
     loggedIn: Bejelentkezve a Nextclouddal
     hi(OUTDATED): Szia $u!
     almostDone(OUTDATED): Szinte készen áll a szinkronizálásra, érintse meg a bejelentkezés befejezéséhez
+    almostDone: ''
+    hi: ''
   ncLoginStep:
     loginFlow:
       pleaseAuthorize(OUTDATED): Engedélyezze a Saber-t, hogy hozzáférjen Nextcloud-fiókjához
       followPrompts(OUTDATED): Kérjük, kövesse a böngészőjében megjelenő utasításokat.
       browserDidntOpen(OUTDATED): A böngésző nem nyílt meg
+      pleaseAuthorize: ''
+      browserDidntOpen: ''
+      followPrompts: ''
     whereToStoreData(OUTDATED): "Válassza ki, hol szeretné tárolni adatait:"
     saberNcServer(OUTDATED): A Saber Nextcloud szervere
     otherNcServer(OUTDATED): Más Nextcloud szerver
     serverUrl(OUTDATED): Szerver URL
     loginWithSaber(OUTDATED): Jelentkezzen be Saber segítségével
     loginWithNextcloud(OUTDATED): Jelentkezzen be a Nextcloud segítségével
+    loginWithNextcloud: ''
+    whereToStoreData: ''
+    otherNcServer: ''
+    loginWithSaber: ''
+    saberNcServer: ''
+    serverUrl: ''
   encLoginStep:
     enterEncPassword(OUTDATED): "Adatai védelme érdekében adja meg titkosítási jelszavát:"
     newToSaber(OUTDATED): Új a Saber
@@ -215,11 +329,27 @@ login:
         Még akkor is, ha valaki hozzáfér a Nextcloud-fiókjához, jegyzetei biztonságban maradnak, és külön jelszóval titkosítva lesznek. Ez egy második biztonsági réteget biztosít az adatok védelméhez.
     - q: Használhatom mindkettőhöz ugyanazt a jelszót?
       a: Igen, de ez kevésbé biztonságos. Mivel a Nextcloud jelszava elküldésre kerül a szervernek, valaki, aki hozzáfér a szerverhez, képes lesz visszafejteni a jegyzeteit. Csak akkor használja ugyanazt a jelszót, ha megbízik a szerver tulajdonosában.
+    connectionFailed: ''
+    encFaq:
+    - a: ''
+      q: ''
+    - q: ''
+      a: ''
+    - a: ''
+      q: ''
+    enterEncPassword: ''
+    newToSaber: ''
+    encFaqTitle: ''
+    encPassword: ''
+    wrongEncPassword: ''
   notYou(rich, OUTDATED): ${undoLogin(Nem te)}
+  notYou(rich): ''
 profile:
   quickLinks:
     serverHomepage(OUTDATED): Szerver honlapja
     deleteAccount(OUTDATED): Fiók törlése
+    deleteAccount: ''
+    serverHomepage: ''
   quotaUsage(OUTDATED): Ön a(z) $total-ból ($percent%) $used
   connectedTo(OUTDATED): Csatlakozva valamihez
   faqTitle(OUTDATED): Gyakran Ismételt Kérdések
@@ -241,6 +371,20 @@ profile:
       Koppintson a fenti "@:profile.quickLinks.deleteAccount" gombra, és ha szükséges, jelentkezzen be.
       Ha a hivatalos Saber szervert használja, fiókja 1 hetes türelmi időszak után törlődik. Ebben az időszakban felveheti velem a kapcsolatot az adilhanney@disroot.org címen a törlés visszavonásához.
       Ha harmadik féltől származó szervert használ, előfordulhat, hogy nincs lehetőség fiókja törlésére: további információkért olvassa el a szerver adatvédelmi szabályzatát.
+  faq:
+  - a: ''
+    q: ''
+  - a: ''
+    q: ''
+  - q: ''
+    a: ''
+  - a: ''
+    q: ''
+  quotaUsage: ''
+  connectedTo: ''
+  logout: ''
+  title: ''
+  faqTitle: ''
 appInfo:
   licenseNotice: |-
     Saber Copyright © 2022-$buildYear Adil Hanney
@@ -254,6 +398,8 @@ update:
   update: Frissítés
   downloadNotAvailableYet(OUTDATED): A letöltés még nem érhető el az Ön platformjára. Kérjük, nézzen vissza rövidesen.
   updateAvailableDescription(OUTDATED): "Elérhető az alkalmazás új verziója a következő változtatásokkal:"
+  updateAvailableDescription: ''
+  downloadNotAvailableYet: ''
 editor:
   toolbar:
     toggleColors: Színek váltása (Ctrl+C)
@@ -274,6 +420,9 @@ editor:
     pencil(OUTDATED): Ceruza
     shapePen(OUTDATED): Forma toll
     laserPointer(OUTDATED): Lézer mutató
+    pencil: ''
+    shapePen: ''
+    laserPointer: ''
   penOptions:
     size: Méret
   colors:
@@ -303,6 +452,32 @@ editor:
     pastelBlue(OUTDATED): Pasztell kék
     pastelPurple(OUTDATED): Pasztell lila
     pastelPink(OUTDATED): Pasztell rózsaszín
+    pastelBlue: ''
+    lightGrey: ''
+    blue: ''
+    pastelPurple: ''
+    pastelOrange: ''
+    colorPicker: ''
+    orange: ''
+    black: ''
+    purple: ''
+    yellow: ''
+    pastelPink: ''
+    green: ''
+    customHue: ''
+    pastelGreen: ''
+    dark: ''
+    pastelRed: ''
+    darkGrey: ''
+    pastelCyan: ''
+    customBrightnessHue: ''
+    pink: ''
+    white: ''
+    cyan: ''
+    red: ''
+    grey: ''
+    light: ''
+    pastelYellow: ''
   imageOptions:
     title: Kép opciók
     invertible: Megfordítható
@@ -310,9 +485,11 @@ editor:
     setAsBackground: Beállítás háttérképként
     delete: Törlés
     removeAsBackground(OUTDATED): Eltávolítás háttérként
+    removeAsBackground: ''
   selectionBar:
     delete: Törlés
     duplicate(OUTDATED): Másolat
+    duplicate: ''
   menu:
     clearAllPages: Összes oldal törlése
     lineHeight: Vonalmagasság
@@ -332,6 +509,10 @@ editor:
       staffs(OUTDATED): Vezetők
       cornell(OUTDATED): Cornell
       tablature(OUTDATED): Tablatúra
+      staffs: ''
+      tablature: ''
+      cornell: ''
+      collegeRtl: ''
     lineThickness(OUTDATED): Vonalvastagság
     lineThicknessDescription(OUTDATED): Háttérvonal vastagsága
     watchServer(OUTDATED): Figyelje a frissítéseket a szerveren
@@ -342,10 +523,22 @@ editor:
     insertPage(OUTDATED): Az oldal beszúrása alább
     duplicatePage(OUTDATED): Ismétlődő oldal
     deletePage(OUTDATED): Oldal törlése
+    lineThicknessDescription: ''
+    duplicatePage: ''
+    lineThickness: ''
+    watchServerReadOnly: ''
+    clearPage: ''
+    insertPage: ''
+    lineHeightDescription: ''
+    watchServer: ''
+    backgroundImageFit: ''
+    deletePage: ''
   readOnlyBanner:
     title: Csak olvasható mód
     corrupted(OUTDATED): Nem sikerült betölteni a jegyzetet. Lehet, hogy sérült, vagy még mindig letöltés alatt áll.
     watchingServer(OUTDATED): Jelenleg frissítéseket figyel a szerveren. A szerkesztés le van tiltva ebben a módban.
+    watchingServer: ''
+    corrupted: ''
   versionTooNew:
     title: Ezt a jegyzetet a Saber egy újabb verziójával lett szerkesztve
     subtitle: A jegyzet szerkesztése bizonyos információk elvesztését eredményezheti. Szeretné ezt figyelmen kívül hagyni, és mégis szerkeszteni?
@@ -359,6 +552,9 @@ editor:
     lockSingleFingerPan: Egyujjas lapozás letiltása
     unlockAxisAlignedPan(OUTDATED): Oldja fel a pásztázást vízszintesre vagy függőlegesre
     lockAxisAlignedPan(OUTDATED): A pásztázás rögzítése vízszintesre vagy függőlegesre
+    lockAxisAlignedPan: ''
+    unlockAxisAlignedPan: ''
   pages: Oldalak
   untitled: Névtelen
   needsToSaveBeforeExiting(OUTDATED): A módosítások mentése... Ha kész, nyugodtan kiléphet a szerkesztőből
+  needsToSaveBeforeExiting: ''
