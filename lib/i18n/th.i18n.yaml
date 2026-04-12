@@ -55,6 +55,10 @@ home:
     deleteName(OUTDATED): Xóa $f
     confirmDelete(OUTDATED): ลบโน้ตที่เลือกอย่างถาวรใช่หรือไม่?
     delete(OUTDATED): ลบ
+    delete: ''
+    deleteNotes: ''
+    deleteName: ''
+    confirmDelete: ''
   renameFolder:
     renameFolder: เปลี่ยนชื่อโฟลเดอร์
     folderName: ชื่อโฟลเดอร์
@@ -348,6 +352,8 @@ editor:
     title: โหมดอ่านอย่างเดียว
     corrupted(OUTDATED): โหลดบันทึกไม่สำเร็จ อาจเสียหายหรือยังคงถูกดาวน์โหลดอยู่
     watchingServer(OUTDATED): คุณกำลังรับชมการอัปเดตบนเซิร์ฟเวอร์ การแก้ไขถูกปิดใช้งานในโหมดนี้
+    watchingServer: ''
+    corrupted: ''
   versionTooNew:
     title: บันทึกนี้ได้รับการแก้ไขโดยใช้ Saber เวอร์ชันใหม่กว่า
     subtitle: การแก้ไขบันทึกนี้อาจทำให้ข้อมูลบางส่วนสูญหาย คุณต้องการเพิกเฉยต่อคำเตือนนี้และแก้ไขต่อไปหรือไม่?
