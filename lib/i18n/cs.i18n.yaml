@@ -55,6 +55,10 @@ home:
     deleteName(OUTDATED): Vymaž $f
     confirmDelete(OUTDATED): Trvale smazat vybranou poznámku(y)?
     delete(OUTDATED): Smazat
+    delete: ''
+    deleteNotes: ''
+    deleteName: ''
+    confirmDelete: ''
   renameFolder:
     renameFolder: Přejmenovat složku
     folderName: Název složky
