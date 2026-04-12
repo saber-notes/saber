@@ -2,6 +2,8 @@ common:
   cancel: 取消
   done(OUTDATED): 終わり
   continueBtn(OUTDATED): 続く
+  done: ''
+  continueBtn: ''
 home:
   tabs:
     home: ホーム
@@ -13,13 +15,17 @@ home:
     whiteboard: ホワイトボード
     settings: 設定
     browse(OUTDATED): 閲覧
+    browse: ''
   tooltips:
     newNote: 新しいメモ
     showUpdateDialog: 更新ダイアログの表示
     exportNote(OUTDATED): エクスポートメモ
+    exportNote: ''
   create:
     newNote(OUTDATED): 新しいメモ
     importNote(OUTDATED): インポートメモ
+    importNote: ''
+    newNote: ''
   welcome: ようこそSaberへ
   noFiles: ファイルが見つかりません
   createNewNote: +ボタンで新しくメモを作成
@@ -38,6 +44,8 @@ home:
     noteNameExists: 同一のタイトルがすでに存在します
     noteNameForbiddenCharacters(OUTDATED): ノート名に禁止文字が含まれています
     noteNameReserved(OUTDATED): ノート名は予約済み
+    noteNameReserved: ''
+    noteNameForbiddenCharacters: ''
   moveNote:
     moveNote: メモを移動
     moveName: $f を移動
@@ -46,11 +54,18 @@ home:
     moveNotes(OUTDATED): $nのノートを移動する
     multipleRenamedTo(OUTDATED): 次のメモの名前が変更されます。
     numberRenamedTo(OUTDATED): $n のノートは、競合を避けるために名前を変更されます
+    moveNotes: ''
+    numberRenamedTo: ''
+    multipleRenamedTo: ''
   deleteNoteDialog:
     deleteNotes(OUTDATED): $n のノートを削除する
     deleteName(OUTDATED): $fを削除する
     confirmDelete(OUTDATED): 選択したメモを永久に削除しますか？
     delete(OUTDATED): 削除
+    delete: ''
+    deleteNotes: ''
+    deleteName: ''
+    confirmDelete: ''
   renameFolder:
     folderNameEmpty(OUTDATED): フォルダー名を空にすることはできません
     renameFolder(OUTDATED): フォルダーの名前を変更する
@@ -58,15 +73,29 @@ home:
     rename(OUTDATED): 名前の変更
     folderNameContainsSlash(OUTDATED): フォルダ名はスラッシュを含まない
     folderNameExists(OUTDATED): この名前のフォルダーはすでに存在します
+    rename: ''
+    folderNameContainsSlash: ''
+    folderNameExists: ''
+    folderName: ''
+    folderNameEmpty: ''
+    renameFolder: ''
   deleteFolder:
     deleteFolder(OUTDATED): フォルダの削除
     deleteName(OUTDATED): $fを削除
     delete(OUTDATED): 消去
     alsoDeleteContents(OUTDATED): このフォルダー内のすべてのメモも削除します
+    delete: ''
+    deleteFolder: ''
+    deleteName: ''
+    alsoDeleteContents: ''
   noPreviewAvailable(OUTDATED): プレビューは利用できません
   backFolder(OUTDATED): 前のフォルダーに戻ります
   deleteNote(OUTDATED): メモの削除
   invalidFormat(OUTDATED): 選択したファイルはサポートされていません。 .sbn、.sbn2、.sba、または .pdf ファイルを選択してください。
+  deleteNote: ''
+  backFolder: ''
+  noPreviewAvailable: ''
+  invalidFormat: ''
 sentry:
   consent:
     description:
@@ -75,11 +104,20 @@ sentry:
       currentlyOff(OUTDATED): 同意を付与すると、アプリを再起動するとエラーレポートが有効になります。
       currentlyOn(OUTDATED): 同意を取り消す場合は、アプリを再起動してエラーレポートを無効にしてください。
       learnMoreInPrivacyPolicy(rich, OUTDATED): 詳細については、${link(プライバシーポリシー)}をご覧ください。
+      currentlyOff: ''
+      learnMoreInPrivacyPolicy(rich): ''
+      question: ''
+      scope: ''
+      currentlyOn: ''
     answers:
       yes(OUTDATED): はい
       no(OUTDATED): いいえ
       later(OUTDATED): 後で私に聞いてください
+      later: ''
+      no: ''
+      yes: ''
     title(OUTDATED): セイバーの改善を手伝ってください？
+    title: ''
 settings:
   prefCategories:
     general: 一般
@@ -87,6 +125,7 @@ settings:
     editor: 編集
     advanced: アドバンスド
     performance(OUTDATED): パフォーマンス
+    performance: ''
   prefLabels:
     locale: アプリの言語
     appTheme: アプリのテーマ
@@ -116,6 +155,17 @@ settings:
     hideFingerDrawingToggle(OUTDATED): 指の描画トグルを非表示にする
     shouldAlwaysAlertForUpdates(OUTDATED): アップデートの高速化
     disableEraserAfterUse(OUTDATED): 消しゴムを自動的に無効にする
+    shouldAlwaysAlertForUpdates: ''
+    disableEraserAfterUse: ''
+    hideFingerDrawingToggle: ''
+    customDataDir: ''
+    autoDisableFingerDrawingWhenStylusDetected: ''
+    recentColorsLength: ''
+    shapeRecognitionDelay: ''
+    sentry: ''
+    autosave: ''
+    autoStraightenLines: ''
+    simplifiedHomeLayout: ''
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegibleは、弱視読者の読みやすさを向上させます。
     allowInsecureConnections: (非推奨) Saber が自己署名/信頼できない証明書を持つサーバーに接続できるようにする
@@ -126,6 +176,9 @@ settings:
       fixedOn(OUTDATED): 指の描画が有効に固定される
       shown(OUTDATED): 偶発的な切り替えを防止します
       fixedOff(OUTDATED): 指の描画が無効に固定される
+      fixedOn: ''
+      shown: ''
+      fixedOff: ''
     editorPromptRename: メモの名前は後でいつでも変更できます
     printPageIndicators: エクスポートにページインジケーターを表示
     sentry:
@@ -133,6 +186,10 @@ settings:
       inactive(OUTDATED): 非アクティブ
       activeUntilRestart(OUTDATED): アプリを再起動するまでアクティブ
       inactiveUntilRestart(OUTDATED): アプリを再起動するまで、非アクティブになります
+      inactiveUntilRestart: ''
+      active: ''
+      activeUntilRestart: ''
+      inactive: ''
     autoDisableFingerDrawingWhenStylusDetected(OUTDATED): スタイラスが検出されたときに指の描画をオフにする
     autosave(OUTDATED): 短い遅延の後、または決して自動保存しません
     simplifiedHomeLayout(OUTDATED): 各ノートのプレビューに固定の高さを設定します
@@ -140,6 +197,13 @@ settings:
     shapeRecognitionDelay(OUTDATED): 形状プレビューを更新する頻度
     disableEraserAfterUse(OUTDATED): 消しゴムを使用した後は自動的にペンに戻ります
     shouldAlwaysAlertForUpdates(OUTDATED): アップデートが利用可能になり次第お知らせください
+    autoStraightenLines: ''
+    disableEraserAfterUse: ''
+    shapeRecognitionDelay: ''
+    autoDisableFingerDrawingWhenStylusDetected: ''
+    autosave: ''
+    simplifiedHomeLayout: ''
+    shouldAlwaysAlertForUpdates: ''
   themeModes:
     system: システム
     light: ライト
@@ -165,16 +229,30 @@ settings:
     select(OUTDATED): 選択する
     mustBeEmpty(OUTDATED): 選択したディレクトリは空である必要があります
     mustBeDoneSyncing(OUTDATED): ディレクトリを変更する前に同期が完了していることを確認してください
+    select: ''
+    unsupported: ''
+    cancel: ''
+    mustBeDoneSyncing: ''
+    mustBeEmpty: ''
   autosaveDisabled(OUTDATED): 一度もない
   shapeRecognitionDisabled(OUTDATED): 一度もない
   openDataDir(OUTDATED): セイバーフォルダを開く
   resyncEverything(OUTDATED): すべてを再同期する
+  openDataDir: ''
+  shapeRecognitionDisabled: ''
+  resyncEverything: ''
+  autosaveDisabled: ''
 logs:
   useTheApp(OUTDATED): アプリを使用すると、ここにログが表示されます
   logs(OUTDATED): ログ
   viewLogs(OUTDATED): ログを表示
   debuggingInfo(OUTDATED): ログにはデバッグや開発に役立つ情報が含まれています
   noLogs(OUTDATED): ここにはログはありません!
+  useTheApp: ''
+  debuggingInfo: ''
+  noLogs: ''
+  logs: ''
+  viewLogs: ''
 login:
   title: ログイン
   form:
@@ -186,17 +264,28 @@ login:
     loggedIn: Nextcloudでログイン
     hi(OUTDATED): こんにちは、$u!
     almostDone(OUTDATED): 同期の準備がほぼ完了しました。タップしてログインを完了してください
+    almostDone: ''
+    hi: ''
   ncLoginStep:
     loginFlow:
       pleaseAuthorize(OUTDATED): Saber に Nextcloud アカウントへのアクセスを許可してください
       followPrompts(OUTDATED): ブラウザの指示に従ってください。
       browserDidntOpen(OUTDATED): ブラウザが開きませんでした
+      pleaseAuthorize: ''
+      browserDidntOpen: ''
+      followPrompts: ''
     whereToStoreData(OUTDATED): "データを保存する場所を選択します:"
     saberNcServer(OUTDATED): Saber の Nextcloud サーバー
     otherNcServer(OUTDATED): 他のNextcloudサーバー
     serverUrl(OUTDATED): サーバーURL
     loginWithSaber(OUTDATED): セイバーでログイン
     loginWithNextcloud(OUTDATED): Nextcloudでログイン
+    loginWithNextcloud: ''
+    whereToStoreData: ''
+    otherNcServer: ''
+    loginWithSaber: ''
+    saberNcServer: ''
+    serverUrl: ''
   encLoginStep:
     enterEncPassword(OUTDATED): "データを保護するには、暗号化パスワードを入力してください:"
     newToSaber(OUTDATED): セイバー初心者
@@ -215,7 +304,21 @@ login:
         そのため、たとえ誰かがあなたのNextcloudアカウントにアクセスしたとしても、メモは別のパスワードで暗号化されている状態になります。これにより、Saberのデーターは2重に保護されます。
     - q: 両方に同じパスワードを使用できますか？
       a: 可能ですが、そうすれば安全性が低下します。Nextcloudのパスワードはサーバーに送信されるため、サーバーにアクセスできる人はメモを解読することができます。サーバーの所有者を信頼できる場合にのみ、同じパスワードを使用してください。
+    connectionFailed: ''
+    encFaq:
+    - a: ''
+      q: ''
+    - q: ''
+      a: ''
+    - a: ''
+      q: ''
+    enterEncPassword: ''
+    newToSaber: ''
+    encFaqTitle: ''
+    encPassword: ''
+    wrongEncPassword: ''
   notYou(rich, OUTDATED): ${undoLogin(あなたではありません)}
+  notYou(rich): ''
 profile:
   title: プロフィール
   logout: ログアウト
@@ -238,6 +341,9 @@ profile:
   quotaUsage(OUTDATED): $total ($percent%) のうち $used を使用しています
   connectedTo(OUTDATED): に接続されています
   faqTitle(OUTDATED): よくある質問
+  quotaUsage: ''
+  connectedTo: ''
+  faqTitle: ''
 appInfo:
   licenseNotice: |-
     Saber  Copyright © 2022-$buildYear  Adil Hanney
@@ -251,6 +357,7 @@ update:
   updateAvailableDescription: 新バージョンのアプリがリリースされ、以下の変更があった：
   update: 更新
   downloadNotAvailableYet(OUTDATED): お使いのプラットフォームではまだダウンロードできません。しばらくしてからもう一度ご確認ください。
+  downloadNotAvailableYet: ''
 editor:
   toolbar:
     toggleColors: 色の切り替え (Ctrl C)
@@ -271,6 +378,8 @@ editor:
     laserPointer: レーザーポインター
     pencil(OUTDATED): 鉛筆
     shapePen(OUTDATED): シェイプペン
+    pencil: ''
+    shapePen: ''
   penOptions:
     size: サイズ
   colors:
@@ -300,6 +409,12 @@ editor:
     light(OUTDATED): ライト
     cyan(OUTDATED): シアン
     pink(OUTDATED): ピンク
+    customHue: ''
+    dark: ''
+    customBrightnessHue: ''
+    pink: ''
+    cyan: ''
+    light: ''
   imageOptions:
     title: 画像オプション
     invertible: 不可逆
@@ -310,6 +425,7 @@ editor:
   selectionBar:
     delete: 削除
     duplicate(OUTDATED): 重複
+    duplicate: ''
   menu:
     clearPage: ページを削除 $page/$totalPages
     clearAllPages: すべてのページを消去する
@@ -333,16 +449,25 @@ editor:
       staffs: スタッフ
       cornell: 角
       tablature(OUTDATED): タベルチュア
+      tablature: ''
     lineThickness(OUTDATED): 線の厚さ
     lineThicknessDescription(OUTDATED): 背景線の厚さ
     watchServer(OUTDATED): サーバー上の更新を監視する
     watchServerReadOnly(OUTDATED): サーバー監視中は編集できません
     lineHeightDescription(OUTDATED): 入力されたメモのテキスト サイズも制御します
     backgroundImageFit(OUTDATED): 背景画像
+    lineThicknessDescription: ''
+    lineThickness: ''
+    watchServerReadOnly: ''
+    lineHeightDescription: ''
+    watchServer: ''
+    backgroundImageFit: ''
   readOnlyBanner:
     title: 読み取り専用モード
     watchingServer(OUTDATED): 現在、サーバー上の更新を監視しています。このモードでは編集は無効になります。
     corrupted(OUTDATED): メモの読み込みに失敗しました。破損しているか、まだダウンロード中の可能性があります。
+    watchingServer: ''
+    corrupted: ''
   versionTooNew:
     title: このメモは新しいバージョンのSaberを使用して編集されたものです
     subtitle: このメモを編集すると、いくつかの情報が失われる可能性があります。これを無視して編集しますか？
