@@ -55,6 +55,10 @@ home:
     deleteName(OUTDATED): Izbriši $f
     confirmDelete(OUTDATED): Določite se izbrane napake (napake)?
     delete(OUTDATED): Odstrani
+    delete: ''
+    deleteNotes: ''
+    deleteName: ''
+    confirmDelete: ''
   renameFolder:
     renameFolder: Preimenuj mapo
     folderName: Ime mape
