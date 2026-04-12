@@ -244,12 +244,6 @@ ca:
       lockSingleFingerPan(OUTDATED): Disable single-finger panning
       unlockAxisAlignedPan(OUTDATED): Unlock panning to horizontal or vertical
 cs:
-  home:
-    deleteNoteDialog:
-      deleteNotes(OUTDATED): Delete $n notes
-      deleteName(OUTDATED): Delete $f
-      confirmDelete(OUTDATED): Permanently delete selected note(s)?
-      delete(OUTDATED): Delete
 de:
   home:
     deleteNoteDialog:

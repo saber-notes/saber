@@ -333,10 +333,10 @@ class _TranslationsHomeDeleteNoteDialogCs extends TranslationsHomeDeleteNoteDial
 	final TranslationsCs _root; // ignore: unused_field
 
 	// Translations
-	@override String deleteNotes({required Object n}) => 'Smazat ${n} poznámek';
-	@override String deleteName({required Object f}) => 'Vymaž ${f}';
-	@override String get confirmDelete => 'Trvale smazat vybranou poznámku(y)?';
-	@override String get delete => 'Smazat';
+	@override String deleteNotes({required Object n}) => 'Odstranit ${n} poznámek';
+	@override String deleteName({required Object f}) => 'Odstranit poznámku ${f}';
+	@override String get confirmDelete => 'Přejete si trvale odstranit zvolené poznámky?';
+	@override String get delete => 'Odstranit';
 }
 
 // Path: home.renameFolder
@@ -438,7 +438,7 @@ class _TranslationsSettingsPrefDescriptionsCs extends TranslationsSettingsPrefDe
 
 	// Translations
 	@override String get hyperlegibleFont => 'Font Atkinson Hyperlegible zvyšuje čitelnost pro čtenáře se slabým zrakem';
-	@override String get allowInsecureConnections => '(Nedoporučuje se) Povolit aplikaci Saber připojovat se k serverům se samopodepsaným/nedůvěryhodným certifikátem.';
+	@override String get allowInsecureConnections => '(Nedoporučuje se) Povolit aplikaci Saber připojovat se k serverům se samopodepsaným/nedůvěryhodným certifikátem';
 	@override String get preferGreyscale => 'Pro elektronické čtečky knih s e-ink displejem';
 	@override String get autoClearWhiteboardOnExit => 'Bude synchronizováno do dalších zařízení';
 	@override String get disableEraserAfterUse => 'Po použití gumy automaticky přepnout zpět na pero';
@@ -619,7 +619,7 @@ class _TranslationsProfile$faq$0i2$Cs extends TranslationsProfile$faq$0i2$En {
 
 	// Translations
 	@override String get q => 'Jak změním své heslo pro šifrování?';
-	@override String get a => '1. Odhlašte se z aplikace Saber. Před odhlášením se ujistěte, že byla dokončena synchronizace a nepřijdete o žádná data (průběh synchronizace uvidíte na domovské obrazovce).\n2. Přejděte na webovou stránku vašeho serveru a smažte složku „Saber“. Tím ze serveru odstraníte všechny poznámky.\n3. Opětovně se přihlašte do aplikace Saber. Při přihlašování můžete zvolit nové heslo pro šifrování.\n4. Nezapomeňte se z aplikace Saber odhlásit a opětovně se do ní přihlásit na ostatních zařízeních.';
+	@override String get a => '0. Ujistěte se, že byla dokončena synchronizace (průběh synchronizace uvidíte na domovské obrazovce).\n1. Odhlašte se z aplikace Saber.\n2. Přejděte na webovou stránku vašeho serveru a smažte složku „Saber“. Tím ze serveru odstraníte všechny poznámky.\n3. Opětovně se přihlašte do aplikace Saber. Při přihlašování můžete zvolit nové heslo pro šifrování.\n4. Nezapomeňte se z aplikace Saber odhlásit a opětovně se do ní přihlásit na ostatních zařízeních.';
 }
 
 // Path: profile.faq.3
