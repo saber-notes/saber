@@ -41,6 +41,8 @@ home:
     noteNameExists: Noto kun ĉi tiu nomo jam ekzistas
     noteNameForbiddenCharacters(OUTDATED): Notonomo enhavas malpermesitajn signojn
     noteNameReserved(OUTDATED): Noto nomo rezervita
+    noteNameReserved: ''
+    noteNameForbiddenCharacters: ''
   moveNote:
     moveNote: Movu noton
     moveNotes: Movu $n notojn
@@ -55,6 +57,10 @@ home:
     deleteName(OUTDATED): $f-ஐ நீக்கு
     confirmDelete(OUTDATED): 선택한 메모를 영구적으로 삭제하시겠습니까?
     delete(OUTDATED): Удалить
+    delete: ''
+    deleteNotes: ''
+    deleteName: ''
+    confirmDelete: ''
   renameFolder:
     renameFolder: Alinomu dosierujon
     folderName: Dosierujnomo
@@ -116,6 +122,7 @@ settings:
     customDataDir: Kutima Saber-dosierujo
     sentry: Erarraportado
     autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Aŭtomate malŝalti fingrodesegnadon
+    autoDisableFingerDrawingWhenStylusDetected: ''
   prefDescriptions:
     hyperlegibleFont: Pliigas legeblecon por uzantoj kun malalta vidkapablo
     allowInsecureConnections: (Nerekomendita) Permesu al Sabero konektiĝi al serviloj kun mem-subskribitaj/nefidindaj atestiloj
@@ -140,6 +147,7 @@ settings:
       activeUntilRestart: Aktiva ĝis vi rekomencas la aplikaĵon
       inactiveUntilRestart: Neaktiva ĝis vi rekomencas la aplikaĵon
     autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Malŝaltu fingrodesegnadon kiam grifelo estas detektita
+    autoDisableFingerDrawingWhenStylusDetected: ''
   themeModes:
     system: Sistemo
     light: Hela
@@ -348,6 +356,8 @@ editor:
     title: Nurlegebla reĝimo
     watchingServer(OUTDATED): Vi nuntempe rigardas por ĝisdatigoj sur la servilo. Redaktado estas malŝaltita en ĉi tiu reĝimo.
     corrupted(OUTDATED): Malsukcesis ŝargi noton. Ĝi povas esti koruptita aŭ ankoraŭ elŝutita.
+    watchingServer: ''
+    corrupted: ''
   versionTooNew:
     title: Ĉi tiu noto estis redaktita per pli nova versio de Saber
     subtitle: Redakti ĉi tiun noton eble kaŭzos perdon de iuj informoj. Ĉu vi volas malatenti kaj redakti ĝin spite al tio?
