@@ -55,6 +55,10 @@ home:
     deleteName(OUTDATED): Удалить $f
     confirmDelete(OUTDATED): Постоянно удалить выбранные заметки?
     delete(OUTDATED): Удалить
+    delete: ''
+    deleteNotes: ''
+    deleteName: ''
+    confirmDelete: ''
   renameFolder:
     renameFolder: Переименовать папку
     folderName: Имя папки
