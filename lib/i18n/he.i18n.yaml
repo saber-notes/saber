@@ -55,6 +55,10 @@ home:
     deleteName(OUTDATED): احذف $f
     confirmDelete(OUTDATED): حذف دائم یادداشت‌های انتخاب شده؟
     delete(OUTDATED): احذف
+    delete: ''
+    deleteNotes: ''
+    deleteName: ''
+    confirmDelete: ''
   renameFolder:
     renameFolder: שינוי שם התיקייה
     folderName: שם התיקייה
