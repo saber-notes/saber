@@ -80,16 +80,10 @@ class _NcLoginStepState extends State<NcLoginStep> {
   Widget build(BuildContext context) {
     final serverUrlController = useTextEditingController();
 
-    final isServerUrlValid = useState(false);
-    useEffect(() {
-      void listener() {
-        final url = _prependHttpsIfMissing(serverUrlController.text);
-        isServerUrlValid.value = validator.url(url);
-      }
-
-      serverUrlController.addListener(listener);
-      return () => serverUrlController.removeListener(listener);
-    }, [serverUrlController]);
+    final isServerUrlValid = useListenableSelector(serverUrlController, () {
+      final url = _prependHttpsIfMissing(serverUrlController.text);
+      return validator.url(url);
+    });
 
     final loginFlow = useRef<SaberLoginFlow?>(null);
     useEffect(() {
@@ -201,7 +195,7 @@ class _NcLoginStepState extends State<NcLoginStep> {
         ),
         const SizedBox(height: 4),
         ElevatedButton(
-          onPressed: isServerUrlValid.value
+          onPressed: isServerUrlValid
               ? () {
                   serverUrlController.text = _prependHttpsIfMissing(
                     serverUrlController.text,
