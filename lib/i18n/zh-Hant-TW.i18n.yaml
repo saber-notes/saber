@@ -55,6 +55,10 @@ home:
     deleteName(OUTDATED): 刪除 $f
     confirmDelete(OUTDATED): 永久刪除選取的筆記嗎？
     delete(OUTDATED): 刪除
+    delete: ''
+    deleteNotes: ''
+    deleteName: ''
+    confirmDelete: ''
   renameFolder:
     renameFolder: 重新命名資料夾
     folderName: 資料夾名稱
