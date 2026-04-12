@@ -55,6 +55,10 @@ home:
     deleteName(OUTDATED): Xóa $f
     confirmDelete(OUTDATED): Xóa vĩnh viễn các ghi chú đã chọn?
     delete(OUTDATED): Xóa
+    delete: ''
+    deleteNotes: ''
+    deleteName: ''
+    confirmDelete: ''
   renameFolder:
     renameFolder: Đổi tên thư mục
     folderName: Tên thư mục
