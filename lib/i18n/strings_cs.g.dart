@@ -688,7 +688,7 @@ class _TranslationsEditorColorsCs extends TranslationsEditorColorsEn {
 	final TranslationsCs _root; // ignore: unused_field
 
 	// Translations
-	@override String get colorPicker => 'Vybrat vlastní barvu';
+	@override String get colorPicker => 'Zvolit vlastní barvu';
 	@override String customBrightnessHue({required Object b, required Object h}) => 'Vlastní ${b} ${h}';
 	@override String customHue({required Object h}) => 'Vlastní ${h}';
 	@override String get dark => 'tmavě';
