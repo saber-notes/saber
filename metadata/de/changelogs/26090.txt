@@ -1,3 +1,0 @@
-• Es wurde ein Randfall behoben, bei dem der Laserpointer ungültige Striche erzeugen konnte.
-• Die Qualität der Striche beim Verkleinern wurde verbessert.
-• Allgemeine Wartung, verbesserte Tests und Verbesserungen hinter den Kulissen.

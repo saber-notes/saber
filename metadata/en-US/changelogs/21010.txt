@@ -1,2 +1,0 @@
-• Reduced false positives when auto straightening lines
-• Experimental support for background syncing on Android and iOS

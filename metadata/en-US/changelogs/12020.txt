@@ -1,2 +1,0 @@
-• Fixed layout issue with the text editing toolbar
-• Fixed misspellings of Saber in some translations

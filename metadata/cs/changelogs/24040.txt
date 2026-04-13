@@ -1,3 +1,0 @@
-• Lepší manipulace se smazanými soubory a již synchronizovanými soubory
-• Opravené mezery povolené na konci a začátku názvů souborů
-• Další zpětná vazba o tom, které soubory se aktuálně stahují/nahrávají

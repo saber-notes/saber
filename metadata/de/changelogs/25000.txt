@@ -1,3 +1,0 @@
-• Verbesserte Scroll-Leistung und entfernte Layoutverschiebungen
-• Fehlgeschlagene Uploads werden jetzt in zunehmend längeren Abständen wiederholt
-• Eine Protokollseite am Ende der Einstellungen hinzugefügt

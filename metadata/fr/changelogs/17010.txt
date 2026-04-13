@@ -1,2 +1,0 @@
-• Correction d'un crash lors du zoom sur des PDF
-• Performances améliorées de l'outil de forme

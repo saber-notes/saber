@@ -1,3 +1,0 @@
-• Se agregó una estrella a la herramienta de forma.
-• Se corrigieron las esquinas extrañas en los triángulos dibujados con la herramienta de forma.
-• Se corrigieron los puntos de un solo punto que no se guardaban

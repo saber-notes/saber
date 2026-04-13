@@ -1,3 +1,0 @@
-• Görüntülerde saydamlık için daha iyi ters çevirme desteği
-• Silgi aracı için performans iyileştirmeleri
-• Notların küçültülmüş boyutu

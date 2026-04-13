@@ -1,3 +1,0 @@
-• Compatibilidad con Nextcloud 27
-• Tartamudeos reducidos después de guardar una nota
-• Mejoras menores en la interfaz de usuario

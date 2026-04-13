@@ -1,3 +1,0 @@
-• Zmenšená velikost souboru poznámek s mnoha tahy
-• Opravena chyba při vytváření poznámky ve složce
-• Překlady a aktualizace metadat

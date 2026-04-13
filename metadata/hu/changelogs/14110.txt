@@ -1,3 +1,0 @@
-• Csökkentette a jegyzetek fájlméretét sok vonással
-• Javítva a jegyzet mappában való létrehozásával kapcsolatos hiba
-• Fordítások és metaadatok frissítései

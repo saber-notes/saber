@@ -1,3 +1,0 @@
-• Aktiva se nyní líně načítají, když k nim přejdete
-• Odstraněno nepoužité generování miniatur
-• Opravena chyba, kdy nebylo možné zrušit výběr smazaných souborů

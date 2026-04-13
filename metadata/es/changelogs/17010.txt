@@ -1,2 +1,0 @@
-• Se corrigió un error al hacer zoom en archivos PDF
-• Rendimiento mejorado de la herramienta de forma.

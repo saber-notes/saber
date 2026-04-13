@@ -1,3 +1,0 @@
-• • Kalem boyutunu değiştirmek artık bir kaydırak girişi ile daha sezgiseldir
-• • Reklam pankartının etrafındaki ekstra alanı kaldırdı
-• • Kalem için küçük performans ve sadakat iyileştirmeler

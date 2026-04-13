@@ -1,3 +1,0 @@
-• Die Änderung der Stiftgröße ist nun intuitiver mit einem Schiebereglereingang
-• Entfernen des zusätzlichen Platzes um das Anzeigenbanner
-• Geringere Leistungs- und Treueverbesserungen für den Bleistift

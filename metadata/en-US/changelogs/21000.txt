@@ -1,2 +1,0 @@
-• Long lines are now automatically straightened without having to switch to the shape tool (configurable in settings)
-• Fixed pen sizes resetting when you switch between pen types

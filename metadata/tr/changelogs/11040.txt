@@ -1,4 +1,0 @@
-• Cornell notları için bir şablon eklendi
-• Farklı arka plan desenlerinin daha iyi önizlemeleri
-• Birçok değişiklikten sonra bazen ana ekranın karışması düzeltildi.
-• Yazı tipleri artık uygulamayla birlikte gelir, bu nedenle ilk kullanımda indirilmezler

@@ -1,3 +1,0 @@
-• Un meilleur support d'inversion pour la translucidité des images
-• Optimisations de performance pour l'outil d'effacement
-• Réduction des fichiers des notes

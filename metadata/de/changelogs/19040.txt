@@ -1,2 +1,0 @@
-• Problem behoben, bei dem die Notenvorschau seltsamerweise zugeschnitten wurde
-• Exporte unter iOS korrigiert

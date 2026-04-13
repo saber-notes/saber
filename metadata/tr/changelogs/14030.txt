@@ -1,1 +1,0 @@
-• Saber (Android) artık Google reklamları tarafından desteklenmektedir. Kişiselleştirilmiş ve kişiselleştirilmemiş reklamlar arasında seçim yapmanız istenecektir. Bu seçimi daha sonra uygulamanın ayarlarından değiştirebilir veya dilerseniz reklamları tamamen devre dışı bırakabilirsiniz.

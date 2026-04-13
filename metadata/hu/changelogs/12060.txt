@@ -1,4 +1,0 @@
-• Teljesítményjavítás nagy hangjegyekkel
-• Javítva a szerkesztő menü, amely mindig azt gondolta, hogy a jegyzet utolsó oldalán van
-• Húzó fogantyú hozzáadása a szerkesztő menühöz
-• Mostantól üzenetet fog kapni, ha nem támogatott Nextcloud-kiszolgálóra próbál bejelentkezni

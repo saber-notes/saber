@@ -1,3 +1,0 @@
-• Jobb inverziós támogatás a képek áttetszőségéhez
-• A radír eszköz teljesítményének optimalizálása
-• A jegyzetek csökkentett fájlmérete

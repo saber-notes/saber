@@ -1,4 +1,0 @@
-• Javított a jegyzetek bélyegképeinek minősége.
-• Optimalizált ceruzavonások kicsinyítéskor.
-• Javítva az eszköztár nem megfelelő kontrasztja bizonyos témákban.
-• Javítva az adatvédelmi irányelvek nem működő hivatkozása.

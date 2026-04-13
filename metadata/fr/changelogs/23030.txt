@@ -1,3 +1,0 @@
-• Correction d'un message "presque connecté" affiché après la connexion
-• Amélioration de certaines icônes
-• Défilement désactivé avec les touches fléchées lors de l'édition de texte

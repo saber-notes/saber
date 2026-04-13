@@ -1,3 +1,0 @@
-• Opravena chyba s vlastními servery Nextcloud hostovanými v podadresáři díky provokateurinu
-• Odebrána některá oprávnění k médiím, která nebyla používána
-• Povoleny prediktivní animace zad pro Android

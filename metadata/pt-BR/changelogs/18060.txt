@@ -1,2 +1,0 @@
-• Corrigidas miniaturas invertidas incorretamente quando salvas no modo escuro
-• Corrigido um bug de inversão de longa data com pixels pretos puros

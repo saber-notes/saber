@@ -1,3 +1,0 @@
-• Bessere Inversionsunterstützung für Transluzenz in Bildern
-• Leistungsoptimierungen für das Radiergummi-Tool
-• Reduzierte Dateigröße von Notizen

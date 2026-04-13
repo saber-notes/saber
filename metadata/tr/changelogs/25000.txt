@@ -1,3 +1,0 @@
-• İyileştirilmiş kaydırma performansı ve kaldırılmış düzen kaymaları
-• Başarısız yüklemeler artık giderek daha uzun aralıklarla yeniden deneniyor
-• Ayarların altına bir günlük sayfası eklendi

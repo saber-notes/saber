@@ -1,3 +1,0 @@
-• Der Anmeldevorgang wurde neu gestaltet
-• Das Auslösen der automatischen Speicherung wurde mitten in einem Strich gestoppt
-• Problem behoben, bei dem die Einstellung für den Bleistift-Soundeffekt nicht sofort übernommen wurde

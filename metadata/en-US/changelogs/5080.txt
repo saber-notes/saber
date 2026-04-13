@@ -1,3 +1,0 @@
-• Small UI improvements
-• Fixed issue where you couldn't use http (instead of https) server URLs
-• macOS users can opt in to insecure storage, because Saber can't access the keychain without an Apple Developer account

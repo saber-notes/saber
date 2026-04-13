@@ -1,3 +1,0 @@
-• Bazı notlarda PDF dışa aktarımlarının başarısız olması düzeltildi
-• Büyük kalem boyutlarında bulanıklık etkisi azaltıldı
-• "Her şeyi yeniden senkronize et" düğmesinin boş dosyaları yüklemesi düzeltildi

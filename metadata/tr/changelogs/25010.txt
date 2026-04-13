@@ -1,3 +1,0 @@
-• Provokateurin sayesinde, alt dizinde barındırılan özel Nextcloud sunucularındaki bir hata düzeltildi
-• Kullanılmayan bazı medya izinleri kaldırıldı
-• Android'in tahmini geri animasyonları etkinleştirildi

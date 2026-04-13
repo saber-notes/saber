@@ -1,2 +1,0 @@
-• Opraven problém, kdy se zvukový efekt tužky nezastavil, když jste zvedli stylus
-• Vizuální vylepšení zejména v tématu Linux/Yaru

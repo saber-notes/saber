@@ -1,3 +1,0 @@
-• Soporte para Nextcloud 27
-• Estanterías reducidas después de guardar una nota
-• Mejoras menores de la UI

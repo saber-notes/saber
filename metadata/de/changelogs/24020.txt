@@ -1,3 +1,0 @@
-• Dem Formwerkzeug wurde ein Stern hinzugefügt
-• Die seltsamen Ecken an Dreiecken, die mit dem Formwerkzeug gezeichnet wurden, wurden behoben
-• Das Problem, dass Einzelpunkte nicht gespeichert wurden, wurde behoben

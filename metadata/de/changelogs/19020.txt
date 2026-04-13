@@ -1,2 +1,0 @@
-Strokes, die geklemmte Kanten hatten, wurden nun geglättet, insbesondere mit einer Maus oder einem Trackpad gezogen.
-.

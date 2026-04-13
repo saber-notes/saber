@@ -1,2 +1,0 @@
-• Adicionado um tema Linux (Yaru)
-• Corrigida uma regressão de sincronização

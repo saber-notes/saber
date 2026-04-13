@@ -1,4 +1,0 @@
-• Vylepšená kvalita miniatur poznámek.
-• Optimalizované tahy tužky při oddálení.
-• Opraven nesprávný kontrast panelu nástrojů v určitých tématech.
-• Opraven nefunkční odkaz na zásady ochrany osobních údajů.

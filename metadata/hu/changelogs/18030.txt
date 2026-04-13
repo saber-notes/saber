@@ -1,4 +1,0 @@
-• Új alakfelismerő algoritmusra váltott
-• Hozzáadott háromszög érzékelés
-• Hozzáadott vonaltörés az alakzat eszközzel
-• Javítva néhány SBN-importálási hiba

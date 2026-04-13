@@ -1,3 +1,0 @@
-• A szinkronizálási sebesség jelentős fejlesztései
-• Az elavult titkosítási jelszavak jobb kezelése
-• A lézervonások jobb megjelenítése

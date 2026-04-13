@@ -1,3 +1,0 @@
-• Şekil aracına yıldız eklendi
-• Şekil aracıyla çizilen üçgenlerdeki tuhaf köşeler düzeltildi
-• Tek noktalı noktaların kaydedilmemesi düzeltildi

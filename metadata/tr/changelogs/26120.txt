@@ -1,4 +1,0 @@
-• Not küçük resimlerinin kalitesi iyileştirildi.
-• Uzaklaştırıldığında kalem vuruşları optimize edildi.
-• Belirli temalardaki uygunsuz araç çubuğu kontrastı düzeltildi.
-• Çalışmayan bir gizlilik politikası bağlantısı düzeltildi.

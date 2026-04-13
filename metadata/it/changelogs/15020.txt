@@ -1,2 +1,0 @@
-• Risolto il problema relativo al crash del nuovo formato file quando si utilizzavano tratti colorati
-• Tutti i file danneggiati noti ora hanno la priorità nella coda di sincronizzazione

@@ -1,1 +1,0 @@
-Questa versione contiene una correzione per alcuni utenti che non sono in grado di salvare i file.
