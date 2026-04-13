@@ -196,12 +196,14 @@ Future<void> updateAllFiles() async {
   }
 
   // update flatpak changelog
-  final flatpakFile = File('flatpak/com.adilhanney.saber.metainfo.xml');
-  if (await flatpakFile.contains(RegExp(RegExp.escape(newVersion.buildName)))) {
+  final metainfoFile = File('flatpak/com.adilhanney.saber.metainfo.xml');
+  final metainfoLines = await metainfoFile.readAsLines();
+  final originalMetainfoLines = metainfoLines.toList();
+  if (await metainfoFile.contains(newVersion.buildName)) {
     print('<release> tag already exists in flatpak file');
   } else {
     if (failOnChanges) {
-      print('Failed: No release tag found at ${flatpakFile.path}');
+      print('Failed: No release tag found at ${metainfoFile.path}');
       exit(ErrorCodes.changesNeeded.code);
     }
     print('Adding a new <release> tag to flatpak file');
@@ -215,18 +217,19 @@ Future<void> updateAllFiles() async {
                 </ul>
             </description>
         </release>''';
-    final flatpakLines = await flatpakFile.readAsLines();
     final index =
-        flatpakLines.indexWhere((line) => line.contains('<releases>')) + 1;
-    flatpakLines.insert(index, releaseTag);
-    if (flatpakLines.last.isNotEmpty) flatpakLines.add('');
-    await flatpakFile.writeAsString(flatpakLines.join('\n'));
+        metainfoLines.indexWhere((line) => line.contains('<releases>')) + 1;
+    metainfoLines.insert(index, releaseTag);
+  }
+  if (!listEquals(metainfoLines, originalMetainfoLines)) {
+    if (metainfoLines.last.isNotEmpty) metainfoLines.add('');
+    await metainfoFile.writeAsString(metainfoLines.join('\n'));
   }
 
   print('');
   print('Make sure to update the changelog files:');
   print('  - ${changelogFile.path}');
-  print('  - ${flatpakFile.path}');
+  print('  - ${metainfoFile.path}');
   print('And then run:');
   print('  - ./scripts/translate_changelogs.dart');
   print('Next steps:');
@@ -237,14 +240,14 @@ Future<void> updateAllFiles() async {
   // open changelog files in editor
   if (!quiet) {
     await Process.run(editor, [changelogFile.path], runInShell: true);
-    await Process.run(editor, [flatpakFile.path], runInShell: true);
+    await Process.run(editor, [metainfoFile.path], runInShell: true);
   }
 }
 
 extension on File {
-  Future<bool> contains(RegExp pattern) async {
+  Future<bool> contains(Pattern pattern) async {
     final content = await readAsString();
-    return pattern.hasMatch(content);
+    return content.contains(pattern);
   }
 
   Future<void> replace(Map<RegExp, String> replacements) async {
@@ -275,4 +278,12 @@ extension on File {
       );
     }
   }
+}
+
+bool listEquals<T>(List<T> list, List<T> other) {
+  if (list.length != other.length) return false;
+  for (var i = 0; i < list.length; i++) {
+    if (list[i] != other[i]) return false;
+  }
+  return true;
 }
