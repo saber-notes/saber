@@ -51,9 +51,11 @@ home:
     numberRenamedTo: $n zapiskov bo preimenovanih, da bi se izognili sporom
   deleteNote: Izbriši zapisek
   deleteNoteDialog:
+    confirmDelete(OUTDATED):
+      one(OUTDATED): Trajeno izbrana opomba trajno izbrišite?
+      other(OUTDATED): Trajeno se izbrana zapise?
     deleteNotes(OUTDATED): Odstrani $n zapise
     deleteName(OUTDATED): Izbriši $f
-    confirmDelete(OUTDATED): Določite se izbrane napake (napake)?
     delete(OUTDATED): Odstrani
   renameFolder:
     renameFolder: Preimenuj mapo

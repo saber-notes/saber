@@ -51,9 +51,11 @@ home:
     numberRenamedTo: มีการเปลี่ยนชื่อเอกสารจำนวน $n เพื่อหลีกเลี่ยงความขัดแย้ง
   deleteNote: ลบบันทึก
   deleteNoteDialog:
+    confirmDelete(OUTDATED):
+      one(OUTDATED): ลบโน้ตที่เลือกอย่างถาวร?
+      other(OUTDATED): ลบโน้ตที่เลือกอย่างถาวร?
     deleteNotes(OUTDATED): ลบโน้ต $n
     deleteName(OUTDATED): Xóa $f
-    confirmDelete(OUTDATED): ลบโน้ตที่เลือกอย่างถาวรใช่หรือไม่?
     delete(OUTDATED): ลบ
   renameFolder:
     renameFolder: เปลี่ยนชื่อโฟลเดอร์

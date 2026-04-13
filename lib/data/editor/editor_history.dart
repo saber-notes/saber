@@ -3,7 +3,8 @@ import 'package:flutter_quill/flutter_quill.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/image/editor_image.dart';
 import 'package:saber/data/editor/page.dart';
-import 'package:sbn/color_change.dart';
+import 'package:sbn/canvas_background_pattern.dart';
+import 'package:sbn/change.dart';
 
 class EditorHistory {
   static const maxHistoryLength = 100;
@@ -147,6 +148,7 @@ class EditorHistoryItem {
     this.page,
     this.quillChange,
     this.colorChange,
+    this.backgroundPatternChange,
   }) : assert(
          type != .move || offset != null,
          'Offset must be provided for move',
@@ -170,6 +172,10 @@ class EditorHistoryItem {
        assert(
          type != .changeColor || colorChange?.length == strokes.length,
          'colorChange must be provided and contain each of strokes',
+       ),
+       assert(
+         type != .backgroundPattern || backgroundPatternChange != null,
+         'Background pattern change must be provided for backgroundPattern',
        );
 
   final EditorHistoryItemType type;
@@ -179,7 +185,8 @@ class EditorHistoryItem {
   final Rect? offset;
   final EditorPage? page;
   final DocChange? quillChange;
-  final Map<Stroke, ColorChange>? colorChange;
+  final Map<Stroke, Change<Color>>? colorChange;
+  final Change<CanvasBackgroundPattern>? backgroundPatternChange;
 
   EditorHistoryItem copyWith({
     EditorHistoryItemType? type,
@@ -189,7 +196,8 @@ class EditorHistoryItem {
     Rect? offset,
     EditorPage? page,
     DocChange? quillChange,
-    Map<Stroke, ColorChange>? colorChange,
+    Map<Stroke, Change<Color>>? colorChange,
+    Change<CanvasBackgroundPattern>? backgroundPatternChange,
   }) {
     return EditorHistoryItem(
       type: type ?? this.type,
@@ -200,6 +208,8 @@ class EditorHistoryItem {
       page: page ?? this.page,
       quillChange: quillChange ?? this.quillChange,
       colorChange: colorChange ?? this.colorChange,
+      backgroundPatternChange:
+          backgroundPatternChange ?? this.backgroundPatternChange,
     );
   }
 }
@@ -213,4 +223,5 @@ enum EditorHistoryItemType {
   quillChange,
   quillUndoneChange,
   changeColor,
+  backgroundPattern,
 }

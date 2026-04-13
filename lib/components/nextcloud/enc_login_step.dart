@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:logging/logging.dart';
 import 'package:saber/components/misc/faq.dart';
@@ -13,34 +14,21 @@ import 'package:saber/i18n/strings.g.dart';
 import 'package:sbn/font_fallbacks.dart';
 import 'package:yaru/yaru.dart';
 
-class EncLoginStep extends StatefulWidget {
+class EncLoginStep extends HookWidget {
   const EncLoginStep({super.key, required this.recheckCurrentStep});
 
   final void Function() recheckCurrentStep;
 
-  @override
-  State<EncLoginStep> createState() => _EncLoginStepState();
-}
-
-class _EncLoginStepState extends State<EncLoginStep> {
   static const width = 400.0;
 
-  final _encPasswordController = TextEditingController();
-  final _errorMessage = ValueNotifier('');
-  final _isChecking = ValueNotifier(false);
-
-  final log = Logger('EncLoginStep');
-
-  @override
-  void dispose() {
-    _encPasswordController.dispose();
-    _errorMessage.dispose();
-    _isChecking.dispose();
-    super.dispose();
-  }
+  static final log = Logger('EncLoginStep');
 
   @override
   Widget build(BuildContext context) {
+    final encPasswordController = useTextEditingController();
+    final errorMessage = useState('');
+    final isChecking = useState(false);
+
     final colorScheme = ColorScheme.of(context);
     final textTheme = TextTheme.of(context);
     final screenWidth = MediaQuery.sizeOf(context).width;
@@ -75,7 +63,7 @@ class _EncLoginStepState extends State<EncLoginStep> {
                   stows.url.value = '';
                   stows.username.value = '';
                   stows.ncPassword.value = '';
-                  widget.recheckCurrentStep();
+                  recheckCurrentStep();
                 },
             ),
           ),
@@ -89,7 +77,7 @@ class _EncLoginStepState extends State<EncLoginStep> {
         Text(t.login.encLoginStep.newToSaber),
         const SizedBox(height: 16),
         TextField(
-          controller: _encPasswordController,
+          controller: encPasswordController,
           style: const TextStyle(
             fontFamily: 'FiraMono',
             fontFamilyFallback: saberMonoFontFallbacks,
@@ -101,7 +89,7 @@ class _EncLoginStepState extends State<EncLoginStep> {
           autofocus: true,
         ),
         ValueListenableBuilder(
-          valueListenable: _errorMessage,
+          valueListenable: errorMessage,
           builder: (context, errorMessage, _) {
             if (errorMessage.isEmpty) return const SizedBox.shrink();
             return Padding(
@@ -114,19 +102,21 @@ class _EncLoginStepState extends State<EncLoginStep> {
           },
         ),
         const SizedBox(height: 4),
-        ValueListenableBuilder(
-          valueListenable: _encPasswordController,
-          builder: (context, encPassword, child) {
-            return ValueListenableBuilder(
-              valueListenable: _isChecking,
-              builder: (context, isChecking, child) {
-                return ElevatedButton(
-                  onPressed: (encPassword.text.isEmpty || isChecking)
-                      ? null
-                      : _checkEncPassword,
-                  child: child,
-                );
-              },
+        ListenableBuilder(
+          listenable: encPasswordController,
+          builder: (context, child) {
+            final encPassword = encPasswordController.text;
+            return ElevatedButton(
+              onPressed: (encPassword.isEmpty || isChecking.value)
+                  ? null
+                  : () async {
+                      isChecking.value = true;
+                      try {
+                        await _checkEncPassword(encPassword, errorMessage);
+                      } finally {
+                        isChecking.value = false;
+                      }
+                    },
               child: child,
             );
           },
@@ -145,31 +135,26 @@ class _EncLoginStepState extends State<EncLoginStep> {
     );
   }
 
-  void _checkEncPassword() async {
-    _errorMessage.value = '';
-
-    final encPassword = _encPasswordController.text;
+  Future<void> _checkEncPassword(
+    String encPassword,
+    ValueNotifier<String> errorMessage,
+  ) async {
+    errorMessage.value = '';
     if (encPassword.isEmpty) return;
 
     try {
       stows.encPassword.value = encPassword;
       final client = NextcloudClientExtension.withSavedDetails()!;
-      _isChecking.value = true;
       await client.loadEncryptionKey();
-      widget.recheckCurrentStep();
+      recheckCurrentStep();
     } on EncLoginFailure {
       stows.encPassword.value = '';
-
-      _errorMessage.value = t.login.encLoginStep.wrongEncPassword;
-    } catch (e) {
+      errorMessage.value = t.login.encLoginStep.wrongEncPassword;
+    } catch (e, st) {
       stows.encPassword.value = '';
-      log.severe('Failed to load encryption key: $e', e);
-
-      _errorMessage.value = '${t.login.encLoginStep.connectionFailed}\n\n$e';
-
+      log.severe('Failed to load encryption key: $e', e, st);
+      errorMessage.value = '${t.login.encLoginStep.connectionFailed}\n\n$e';
       if (kDebugMode) rethrow;
-    } finally {
-      _isChecking.value = false;
     }
   }
 }

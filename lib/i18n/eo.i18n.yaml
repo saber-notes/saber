@@ -51,9 +51,11 @@ home:
     numberRenamedTo: $n notoj alinomiĝos por eviti konfliktojn
   deleteNote: Forigu noton
   deleteNoteDialog:
+    confirmDelete(OUTDATED):
+      one(OUTDATED): Perpetuebleman deleta la selektita noton?
+      other(OUTDATED): Perpetuebleman diliĝi la selektitaj notoj?
     deleteNotes(OUTDATED): $n нота들을 삭제하세요
     deleteName(OUTDATED): $f-ஐ நீக்கு
-    confirmDelete(OUTDATED): 선택한 메모를 영구적으로 삭제하시겠습니까?
     delete(OUTDATED): Удалить
   renameFolder:
     renameFolder: Alinomu dosierujon

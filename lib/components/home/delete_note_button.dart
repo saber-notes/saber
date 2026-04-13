@@ -73,7 +73,9 @@ class _DeleteNoteDialogState extends State<_DeleteNoteDialog> {
         value: deleteAllowed,
         onChanged: (value) => setState(() => deleteAllowed = value!),
         controlAffinity: .leading,
-        title: Text(t.home.deleteNoteDialog.confirmDelete),
+        title: Text(
+          t.home.deleteNoteDialog.confirmDelete(n: widget.filesToDelete.length),
+        ),
       ),
       actions: [
         CupertinoDialogAction(

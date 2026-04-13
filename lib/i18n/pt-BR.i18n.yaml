@@ -51,9 +51,11 @@ home:
     numberRenamedTo: $n notas serão renomeadas para evitar conflitos
   deleteNote: Apagar nota
   deleteNoteDialog:
+    confirmDelete(OUTDATED):
+      one(OUTDATED): Excluir permanentemente a nota selecionada?
+      other(OUTDATED): Excluir permanentemente as notas selecionadas?
     deleteNotes(OUTDATED): Excluir $n notas
     deleteName(OUTDATED): Excluir $f
-    confirmDelete(OUTDATED): Excluir permanentemente a(s) nota(s) selecionada(s)?
     delete(OUTDATED): Excluir
   renameFolder:
     renameFolder: Renomear pasta

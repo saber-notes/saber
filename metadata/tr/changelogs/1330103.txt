@@ -1,0 +1,4 @@
+• Lehçe ve Katalanca çevirileri eklendi
+• Notları silerken bir onay istemi eklendi
+• Arka plan desenini değiştirmenin geri alınmasını/tekrar yapılmasını sağlandı
+• Arka plan desenini değiştirmenin otomatik kaydetmeyi tetiklemediği bir hatayı düzeltildi

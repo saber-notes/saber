@@ -1,0 +1,4 @@
+• Afegit traduccions en polonès i català
+• Afegit una sol·licitud de confirmació quan es borren les notes
+• Permet retrocedir/recorrer els canvis del patró de fons
+• Reparet un error per la qual cosa el canvi del patró de fons no activava una màxima

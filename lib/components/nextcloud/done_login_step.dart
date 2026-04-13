@@ -12,19 +12,14 @@ import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class DoneLoginStep extends StatefulWidget {
+class DoneLoginStep extends StatelessWidget {
   const DoneLoginStep({super.key, required this.recheckCurrentStep});
 
   final void Function() recheckCurrentStep;
 
-  @override
-  State<DoneLoginStep> createState() => _DoneLoginStepState();
-}
-
-class _DoneLoginStepState extends State<DoneLoginStep> {
   static const width = 400.0;
 
-  late final log = Logger('DoneLoginStep');
+  static final log = Logger('DoneLoginStep');
 
   void _logout() {
     stows.url.value = '';
@@ -35,7 +30,7 @@ class _DoneLoginStepState extends State<DoneLoginStep> {
     stows.lastStorageQuota.value = null;
     stows.key.value = '';
     stows.iv.value = '';
-    widget.recheckCurrentStep();
+    recheckCurrentStep();
   }
 
   @override

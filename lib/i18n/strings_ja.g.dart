@@ -331,9 +331,12 @@ class _TranslationsHomeDeleteNoteDialogJa extends TranslationsHomeDeleteNoteDial
 	final TranslationsJa _root; // ignore: unused_field
 
 	// Translations
+	@override String confirmDelete({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ja'))(n,
+		one: '選択したメモを永久に削除しますか？',
+		other: '選択したメモを永久に削除しますか？',
+	);
 	@override String deleteNotes({required Object n}) => '${n} のノートを削除する';
 	@override String deleteName({required Object f}) => '${f}を削除する';
-	@override String get confirmDelete => '選択したメモを永久に削除しますか？';
 	@override String get delete => '削除';
 }
 

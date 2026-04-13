@@ -331,9 +331,12 @@ class _TranslationsHomeDeleteNoteDialogHu extends TranslationsHomeDeleteNoteDial
 	final TranslationsHu _root; // ignore: unused_field
 
 	// Translations
+	@override String confirmDelete({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('hu'))(n,
+		one: 'Töröljük permanenten a kiválasztott jegyzetet?',
+		other: 'Töröljük permanenten a kiválasztott jegyeket?',
+	);
 	@override String deleteNotes({required Object n}) => 'Töröltsd el a ${n} jegyeket';
 	@override String deleteName({required Object f}) => 'Töröltsd el ${f}';
-	@override String get confirmDelete => 'Törölje permanenten kiválasztott jegyzet(ek)?';
 	@override String get delete => 'Törölelj';
 }
 

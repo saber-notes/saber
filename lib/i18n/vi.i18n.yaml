@@ -51,9 +51,11 @@ home:
     numberRenamedTo: Sẽ đổi tên $n ghi chú để tránh xung đột
   deleteNote: Xóa ghi chú
   deleteNoteDialog:
+    confirmDelete(OUTDATED):
+      one(OUTDATED): Xóa vĩnh viễn ghi chú đã chọn?
+      other(OUTDATED): Xóa vĩnh viễn các ghi chú đã chọn?
     deleteNotes(OUTDATED): Xóa $n ghi chú
     deleteName(OUTDATED): Xóa $f
-    confirmDelete(OUTDATED): Xóa vĩnh viễn các ghi chú đã chọn?
     delete(OUTDATED): Xóa
   renameFolder:
     renameFolder: Đổi tên thư mục

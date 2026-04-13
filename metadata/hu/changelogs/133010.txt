@@ -1,0 +1,4 @@
+• Hozzáadva polgári és katalán fordításokat
+• Hozzáadva egy megerősítési felugtatót a jegyzetek törlésénkor
+• Engedve visszaállítani/megfejteni a háttéralakozat megváltoztatásakor
+• Javítva egy hibát, amelynek során a háttéralakozat megváltoztatása nem váltott ki az automatikus mentést

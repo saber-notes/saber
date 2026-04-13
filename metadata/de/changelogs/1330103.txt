@@ -1,0 +1,4 @@
+• hinzugefügt polnische und katalanische übersetzungen
+• hinzugefügt eine bestätigungsaufforderung beim Löschen von Notizen
+• ermöglichte das Zurück- und Wiederholen von Änderungen des Hintergrundmusters
+• behoben einen Fehler, bei dem das Ändern des Hintergrundmusters kein Autosave auslöste

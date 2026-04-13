@@ -55,8 +55,8 @@ abstract class UpdateManager {
 
     try {
       newestVersion = await getNewestVersion();
-    } catch (e) {
-      log.severe('Failed to check for update: $e', e);
+    } catch (e, st) {
+      log.severe('Failed to check for update: $e', e, st);
       return .upToDate;
     }
 
@@ -220,8 +220,8 @@ abstract class UpdateManager {
     final http.Response response;
     try {
       response = await http.get(Uri.parse(url));
-    } catch (e) {
-      log.severe('Failed to download changelog: $e', e);
+    } catch (e, st) {
+      log.severe('Failed to download changelog: $e', e, st);
       return null;
     }
     if (response.statusCode >= 400) return null;

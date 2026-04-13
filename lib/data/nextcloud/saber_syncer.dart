@@ -75,8 +75,8 @@ class SaberSyncInterface
         final SaberSyncFile syncFile;
         try {
           syncFile = await getSyncFileFromRemoteFile(remoteFile);
-        } catch (e) {
-          log.warning('Failed to get sync file from remote file: $e', e);
+        } catch (e, st) {
+          log.warning('Failed to get sync file from remote file: $e', e, st);
           return null;
         }
 
@@ -361,7 +361,7 @@ class SaberSyncInterface
           );
     } on DynamiteStatusCodeException catch (e, st) {
       if (e.statusCode == HttpStatus.notFound) {
-        log.info('findRemoteFiles: Creating app directory', e);
+        log.info('findRemoteFiles: Creating app directory', e, st);
         await client.webdav.mkcol(
           PathUri.parse(FileManager.appRootDirectoryPrefix),
         );
@@ -543,8 +543,8 @@ class SaberSyncInterface
             ),
           )
           .then((multistatus) => multistatus.toWebDavFiles().first);
-    } catch (e) {
-      log.fine('Remote file not found for $remotePath: $e', e);
+    } catch (e, st) {
+      log.fine('Remote file not found for $remotePath: $e', e, st);
     }
 
     return null;

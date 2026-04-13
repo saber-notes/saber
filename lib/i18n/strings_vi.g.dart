@@ -333,9 +333,12 @@ class _TranslationsHomeDeleteNoteDialogVi extends TranslationsHomeDeleteNoteDial
 	final TranslationsVi _root; // ignore: unused_field
 
 	// Translations
+	@override String confirmDelete({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('vi'))(n,
+		one: 'Xóa vĩnh viễn ghi chú đã chọn?',
+		other: 'Xóa vĩnh viễn các ghi chú đã chọn?',
+	);
 	@override String deleteNotes({required Object n}) => 'Xóa ${n} ghi chú';
 	@override String deleteName({required Object f}) => 'Xóa ${f}';
-	@override String get confirmDelete => 'Xóa vĩnh viễn các ghi chú đã chọn?';
 	@override String get delete => 'Xóa';
 }
 

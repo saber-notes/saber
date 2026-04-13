@@ -52,7 +52,7 @@ import 'package:saber/data/tools/select_lasso.dart';
 import 'package:saber/data/tools/shape_pen.dart';
 import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/home/whiteboard.dart';
-import 'package:sbn/color_change.dart';
+import 'package:sbn/change.dart';
 import 'package:screenshot/screenshot.dart';
 import 'package:super_clipboard/super_clipboard.dart';
 
@@ -439,10 +439,14 @@ class EditorState extends State<Editor> {
         case .quillUndoneChange:
           final quill = coreInfo.pages[item.pageIndex].quill;
           quill.controller.redo();
+
         case .changeColor:
           for (final stroke in item.strokes) {
             stroke.color = item.colorChange![stroke]!.previous;
           }
+
+        case .backgroundPattern:
+          coreInfo.backgroundPattern = item.backgroundPatternChange!.previous;
       }
 
       if (item.type != .move) {
@@ -486,8 +490,14 @@ class EditorState extends State<Editor> {
         undo(
           item.copyWith(
             colorChange: item.colorChange!.map(
-              (key, value) => MapEntry(key, value.swap()),
+              (key, value) => MapEntry(key, value.reverse()),
             ),
+          ),
+        );
+      case .backgroundPattern:
+        undo(
+          item.copyWith(
+            backgroundPatternChange: item.backgroundPatternChange!.reverse(),
           ),
         );
     }
@@ -967,8 +977,8 @@ class EditorState extends State<Editor> {
       ]);
       savingState.value = .saved;
       history.markLastChangeAsSaved();
-    } catch (e) {
-      log.severe('Failed to save file: $e', e);
+    } catch (e, st) {
+      log.severe('Failed to save file: $e', e, st);
       savingState.value = .waitingToSave;
       if (kDebugMode) rethrow;
       return;
@@ -1543,9 +1553,9 @@ class EditorState extends State<Editor> {
                 if (select.doneSelecting) {
                   final strokes = select.selectResult.strokes;
 
-                  final colorChange = <Stroke, ColorChange>{};
+                  final colorChange = <Stroke, Change<Color>>{};
                   for (final stroke in strokes) {
-                    colorChange[stroke] = ColorChange(
+                    colorChange[stroke] = Change(
                       previous: stroke.color,
                       current: color,
                     );
@@ -1766,8 +1776,21 @@ class EditorState extends State<Editor> {
       currentPageIndex: currentPageIndex,
       setBackgroundPattern: (pattern) => setState(() {
         if (coreInfo.readOnly) return;
+        final previous = coreInfo.backgroundPattern;
         coreInfo.backgroundPattern = pattern;
         stows.lastBackgroundPattern.value = pattern;
+        history.recordChange(
+          EditorHistoryItem(
+            type: .backgroundPattern,
+            pageIndex: currentPageIndex,
+            backgroundPatternChange: Change(
+              previous: previous,
+              current: pattern,
+            ),
+            strokes: [],
+            images: [],
+          ),
+        );
         autosaveAfterDelay();
       }),
       setLineHeight: (lineHeight) => setState(() {

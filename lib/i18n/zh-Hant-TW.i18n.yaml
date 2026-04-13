@@ -51,9 +51,11 @@ home:
     numberRenamedTo: $n 份筆記將被重命名以避免衝突
   deleteNote: 刪除筆記
   deleteNoteDialog:
+    confirmDelete(OUTDATED):
+      one(OUTDATED): 永久刪除選取的筆記？
+      other(OUTDATED): 永久刪除選取的筆記？
     deleteNotes(OUTDATED): 刪除 $n 筆筆記
     deleteName(OUTDATED): 刪除 $f
-    confirmDelete(OUTDATED): 永久刪除選取的筆記嗎？
     delete(OUTDATED): 刪除
   renameFolder:
     renameFolder: 重新命名資料夾

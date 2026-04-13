@@ -3,6 +3,7 @@ import 'dart:math';
 
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:nextcloud/core.dart';
 import 'package:nextcloud/nextcloud.dart';
@@ -16,7 +17,7 @@ import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/user/login.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class NcLoginStep extends StatefulWidget {
+class NcLoginStep extends StatefulHookWidget {
   const NcLoginStep({super.key, required this.recheckCurrentStep});
 
   final void Function() recheckCurrentStep;
@@ -34,17 +35,15 @@ class _NcLoginStepState extends State<NcLoginStep> {
   static const saberColorDarkened = Color(0xFFc29800);
   static const ncColor = Color(0xFF0082c9);
 
-  SaberLoginFlow? loginFlow;
-  void startLoginFlow(Uri serverUrl) {
-    loginFlow?.dispose();
-    loginFlow = SaberLoginFlow.start(serverUrl: serverUrl);
+  SaberLoginFlow _createLoginFlow(Uri serverUrl) {
+    final loginFlow = SaberLoginFlow.start(serverUrl: serverUrl);
 
     showAdaptiveDialog(
       context: context,
-      builder: (context) => _LoginFlowDialog(loginFlow: loginFlow!),
+      builder: (context) => _LoginFlowDialog(loginFlow: loginFlow),
     );
 
-    loginFlow!.future.then((credentials) async {
+    loginFlow.future.then((credentials) async {
       final client = NextcloudClient(
         Uri.parse(credentials.server),
         loginName: credentials.loginName,
@@ -70,36 +69,26 @@ class _NcLoginStepState extends State<NcLoginStep> {
 
       widget.recheckCurrentStep();
     });
+
+    return loginFlow;
   }
 
-  final _serverUrlValid = ValueNotifier(false);
-  late final _serverUrlController = TextEditingController();
-
-  @override
-  void initState() {
-    super.initState();
-    _serverUrlController.addListener(() {
-      final url = _prependHttpsIfMissing(_serverUrlController.text);
-      _serverUrlValid.value = validator.url(url);
-    });
-  }
-
-  @override
-  void dispose() {
-    loginFlow?.dispose();
-    _serverUrlController.dispose();
-    super.dispose();
-  }
-
-  static String _prependHttpsIfMissing(String url) {
-    if (!url.startsWith(RegExp(r'https?://'))) {
-      return 'https://$url';
-    }
-    return url;
-  }
+  static String _prependHttpsIfMissing(String url) =>
+      url.startsWith(RegExp(r'https?://')) ? url : 'https://$url';
 
   @override
   Widget build(BuildContext context) {
+    final serverUrlController = useTextEditingController();
+
+    final isServerUrlValid = useListenableSelector(serverUrlController, () {
+      final url = _prependHttpsIfMissing(serverUrlController.text);
+      return validator.url(url);
+    });
+
+    final loginFlow = useState<SaberLoginFlow?>(null);
+    // dispose the login flow when it changes or the widget is disposed
+    useEffect(() => loginFlow.value?.dispose, [loginFlow.value]);
+
     final colorScheme = ColorScheme.of(context);
     final textTheme = TextTheme.of(context);
     final screenWidth = MediaQuery.sizeOf(context).width;
@@ -152,8 +141,9 @@ class _NcLoginStepState extends State<NcLoginStep> {
         ),
         const SizedBox(height: 16),
         ElevatedButton(
-          onPressed: () =>
-              startLoginFlow(NextcloudClientExtension.defaultNextcloudUri),
+          onPressed: () => loginFlow.value = _createLoginFlow(
+            NextcloudClientExtension.defaultNextcloudUri,
+          ),
           style: buttonColorStyle(saberColor, onSaberColor),
           child: Text(t.login.ncLoginStep.loginWithSaber),
         ),
@@ -196,29 +186,25 @@ class _NcLoginStepState extends State<NcLoginStep> {
         TextField(
           autocorrect: false,
           autofillHints: const [AutofillHints.url],
-          controller: _serverUrlController,
+          controller: serverUrlController,
           decoration: InputDecoration(
             labelText: t.login.ncLoginStep.serverUrl,
             hintText: 'https://nc.example.com',
           ),
         ),
         const SizedBox(height: 4),
-        ValueListenableBuilder(
-          valueListenable: _serverUrlValid,
-          builder: (context, valid, child) {
-            return ElevatedButton(
-              onPressed: valid
-                  ? () {
-                      _serverUrlController.text = _prependHttpsIfMissing(
-                        _serverUrlController.text,
-                      );
-                      startLoginFlow(Uri.parse(_serverUrlController.text));
-                    }
-                  : null,
-              style: buttonColorStyle(ncColor),
-              child: child,
-            );
-          },
+        ElevatedButton(
+          onPressed: isServerUrlValid
+              ? () {
+                  serverUrlController.text = _prependHttpsIfMissing(
+                    serverUrlController.text,
+                  );
+                  loginFlow.value = _createLoginFlow(
+                    Uri.parse(serverUrlController.text),
+                  );
+                }
+              : null,
+          style: buttonColorStyle(ncColor),
           child: Text(t.login.ncLoginStep.loginWithNextcloud),
         ),
       ],

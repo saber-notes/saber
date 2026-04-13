@@ -1,9 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:saber/components/files/file_tree.dart';
 import 'package:saber/components/theming/adaptive_icon.dart';
 
-class VerticalNavbar extends StatefulWidget {
+class VerticalNavbar extends HookWidget {
   const VerticalNavbar({
     super.key,
     required this.destinations,
@@ -16,14 +17,9 @@ class VerticalNavbar extends StatefulWidget {
   final ValueChanged<int>? onDestinationSelected;
 
   @override
-  State<VerticalNavbar> createState() => _VerticalNavbarState();
-}
-
-class _VerticalNavbarState extends State<VerticalNavbar> {
-  var expanded = false;
-
-  @override
   Widget build(BuildContext context) {
+    final expanded = useState(false);
+
     final theme = Theme.of(context);
     final backgroundColor = switch (theme.platform) {
       .linux => Colors.transparent,
@@ -44,14 +40,10 @@ class _VerticalNavbarState extends State<VerticalNavbar> {
           Padding(
             padding: const .symmetric(vertical: 10, horizontal: 12),
             child: TextButton(
-              onPressed: () {
-                setState(() {
-                  expanded = !expanded;
-                });
-              },
+              onPressed: () => expanded.value = !expanded.value,
               child: AdaptiveIcon(
-                icon: expanded ? Icons.chevron_left : Icons.chevron_right,
-                cupertinoIcon: expanded
+                icon: expanded.value ? Icons.chevron_left : Icons.chevron_right,
+                cupertinoIcon: expanded.value
                     ? CupertinoIcons.chevron_left
                     : CupertinoIcons.chevron_right,
               ),
@@ -59,15 +51,15 @@ class _VerticalNavbarState extends State<VerticalNavbar> {
           ),
           IntrinsicHeight(
             child: NavigationRail(
-              destinations: widget.destinations,
-              selectedIndex: widget.selectedIndex,
+              destinations: destinations,
+              selectedIndex: selectedIndex,
               backgroundColor: backgroundColor,
-              extended: expanded,
+              extended: expanded.value,
               minExtendedWidth: 300,
-              onDestinationSelected: widget.onDestinationSelected,
+              onDestinationSelected: onDestinationSelected,
             ),
           ),
-          if (expanded) const Expanded(child: FileTree()),
+          if (expanded.value) const Expanded(child: FileTree()),
         ],
       ),
     );

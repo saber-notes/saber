@@ -1,0 +1,4 @@
+• Dodano polonščino in katalonsko prevode
+• Dodano potrditveno vprašanje pri brisanju zapiskov
+• Dovoljeno odvrnjanje/ponovrščanje sprememb na vzor ozadja
+• Popravljeno napaka, ko spremembo vzora ozadja ni povzročila avtomačke shranje

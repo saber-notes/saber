@@ -1,0 +1,4 @@
+• Adicionadas traduções para polonês e catalão
+• Adicionado um prompt de confirmação ao excluir notas
+• Permitido desfazer/refazer a alteração do padrão de fundo
+• Corrigido um bug onde alterar o padrão de fundo não acionava um salvamento automático

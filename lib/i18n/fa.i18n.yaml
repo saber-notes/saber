@@ -50,9 +50,11 @@ home:
     numberRenamedTo: $n یادداشت برای جلوگیری از تداخل نام تغییر خواهد کرد
   deleteNote: حذف یادداشت
   deleteNoteDialog:
+    confirmDelete(OUTDATED):
+      one(OUTDATED): آیا یادداشت انتخاب شده را به طور دائم حذف کنید؟
+      other(OUTDATED): آیا یادداشت‌های انتخاب شده را به طور دائم حذف کنید؟
     deleteNotes(OUTDATED): حذف $n یادداشت
     deleteName(OUTDATED): حذف $f
-    confirmDelete(OUTDATED): آیا یادداشت‌های انتخاب شده را به طور دائم حذف کنید؟
     delete(OUTDATED): حذف
   renameFolder:
     renameFolder: تغییر نام پوشه
