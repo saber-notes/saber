@@ -353,12 +353,12 @@ void _generateMetainfoScreenshots(List<String> metainfoLines) {
     metainfoLines.insert(start++, '$indent    <caption>$caption</caption>');
     metainfoLines.insert(
       start++,
-      '$indent    <image>https://raw.githubusercontent.com/saber-notes/saber/main/metadata/en-US/images/flathubScreenshots/$name.png</image>',
+      '$indent    <image>https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v${newVersion.buildName}/metadata/en-US/images/flathubScreenshots/$name.png</image>',
     );
     for (final locale in localesWithScreenshots) {
       metainfoLines.insert(
         start++,
-        '$indent    <image xml:lang="$locale">https://raw.githubusercontent.com/saber-notes/saber/main/metadata/$locale/images/flathubScreenshots/$name.png</image>',
+        '$indent    <image xml:lang="$locale">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v${newVersion.buildName}/metadata/$locale/images/flathubScreenshots/$name.png</image>',
       );
     }
     metainfoLines.insert(start++, '$indent</screenshot>');
