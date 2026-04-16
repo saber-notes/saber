@@ -1,0 +1,2 @@
+• Pequenas melhorias no código e trabalho de internacionalização.
+• Esta versão também tenta cumprir o esquema de verificação do Google enquanto distribui fora da Google Play Store.

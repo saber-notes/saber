@@ -1,0 +1,2 @@
+• Limpieza menor del código y trabajo de internacionalización.
+• Esta versión también intenta cumplir con el esquema de verificación de desarrolladores de Google mientras se distribuye fuera de la Google Play Store.

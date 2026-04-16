@@ -1,0 +1,2 @@
+• Małe czyszczenie kodu i prace nad międzynarodowym udostępnianiem.
+• Ta wersja również stara się spełnić wymogi schematu weryfikacji deweloperów Google przy dystrybucji poza sklepie Google Play.

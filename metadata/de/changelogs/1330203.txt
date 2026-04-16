@@ -1,0 +1,2 @@
+• Kleinere Codebereinigung und Internationalisierungsarbeit.
+• Dieses Release versucht auch, die Entwicklerverifikationsrichtlinien von Google einzuhalten, wenn es außerhalb des Google Play Stores verteilt wird.

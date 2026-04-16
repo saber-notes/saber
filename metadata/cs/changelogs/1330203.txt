@@ -1,0 +1,2 @@
+• Malá úprava kódu a práce na mezinárodníizaci.
+• Tato verze se také snaží dodržet Googleovy schémat ověření vývojářů při distribuci mimo Google Play Store.
