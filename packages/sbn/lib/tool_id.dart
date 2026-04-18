@@ -13,6 +13,7 @@ enum ToolId {
   shapePen('ShapePen'),
   eraser('Eraser'),
   select('Select'),
+  selectBox('SelectBox'),
   textEditing('TextEditingTool'),
   laserPointer('LaserPointer');
 
