@@ -57,6 +57,12 @@ home:
     deleteNotes(OUTDATED): Usuń $n notatek
     deleteName(OUTDATED): Usuń $f
     delete(OUTDATED): Usuń
+    deleteNotes: Usuń $n spośród notatek
+    deleteName: Usuń $f
+    confirmDelete:
+      one: Trwałe usunąć wybraną notatkę?
+      other: Trwałe usunąć wybrane notatki?
+    delete: Usuń
   renameFolder:
     renameFolder: Zmień nazwę folderu
     folderName: Nazwa folderu
