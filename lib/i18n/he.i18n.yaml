@@ -57,6 +57,12 @@ home:
     deleteNotes(OUTDATED): احذف $n ملاحظة
     deleteName(OUTDATED): احذف $f
     delete(OUTDATED): احذف
+    deleteNotes: מחיקת $n פתקים
+    deleteName: מחיקת $d
+    confirmDelete:
+      one: למחוק את הפתק שנבחר לצמיתות?
+      other: למחוק את הפתקים שנבחרו לצמיתות?
+    delete: מחיקה
   renameFolder:
     renameFolder: שינוי שם התיקייה
     folderName: שם התיקייה
