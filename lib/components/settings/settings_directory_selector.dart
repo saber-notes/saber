@@ -147,10 +147,11 @@ class _DirectorySelectorState extends State<DirectorySelector> {
       content: Column(
         mainAxisSize: .min,
         children: [
-          Text(
-            t.settings.customDataDir.unsupported,
-            style: TextStyle(color: colorScheme.error),
-          ),
+          if (!isCustomDirSupported())
+            Text(
+              t.settings.customDataDir.unsupported,
+              style: TextStyle(color: colorScheme.error),
+            ),
           Row(
             children: [
               Expanded(
