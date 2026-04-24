@@ -1,11 +1,9 @@
 /*
+  This file is for the Play Store build only
+
   This stub file gets replaced during the CI build process with:
-
   `custom_directory_selector_foss.dart`
-
-  for the FOSS build only.
-
-  Play Store build uses this noop stub
+  for the FOSS build.
 */
 import 'package:flutter/material.dart';
 
