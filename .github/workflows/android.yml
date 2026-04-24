@@ -236,6 +236,9 @@ jobs:
       - run: flutter pub get
       - run: ./patches/post/patch_rust_versions.sh
       - run: ./patches/post/remove_wasm_libs.sh
+      - name: Apply custom-dir changes to FOSS build
+        if: matrix.foss
+        run: ./patches/pre/enable_custom_dir_foss_android.sh
 
       - name: Build apk
         run: flutter build apk
