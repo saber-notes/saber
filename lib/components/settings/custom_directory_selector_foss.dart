@@ -1,3 +1,16 @@
+/*
+  This file is for the FOSS Android build only:
+
+  the stub `custom_directory_selector_android.dart`
+
+  is replaced with this file via the `enable_custom_dir_foss_android.sh` script
+
+  credit for the implementation for the permission selector code goes to @ComputerElite
+
+  original source PR: https://github.com/saber-notes/saber/pull/1448
+
+*/
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';

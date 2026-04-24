@@ -24,5 +24,5 @@ if diff -q "$ANDROID_DART" "$FOSS_DART" > /dev/null 2>&1; then
   echo "already done"
 else
   echo "replacing"
-  mv "$FOSS_DART" "$ANDROID_DART"
+  cp "$FOSS_DART" "$ANDROID_DART"
 fi
