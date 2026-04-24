@@ -818,6 +818,16 @@ class TranslationsSettingsCustomDataDirEn {
 	/// en: 'Select'
 	String get select => 'Select';
 
+	/// en: 'Yes'
+	String get yes => 'Yes';
+
+	/// en: 'Grant permission'
+	String get grantPermission => "Grant permission";
+
+	/// en: 'Saber needs permission to access the directory you chose. Do you want to grant this permission?'
+	String get grantPermissionExplanation =>
+      "Saber needs permission to access the directory you chose. Do you want to grant this permission?";
+
 	/// en: 'Selected folder must be empty'
 	String get mustBeEmpty => 'Selected folder must be empty';
 

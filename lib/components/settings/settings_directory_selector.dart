@@ -4,6 +4,7 @@ import 'package:file_picker/file_picker.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:saber/components/settings/custom_directory_selector_android.dart';
 import 'package:saber/components/theming/adaptive_alert_dialog.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/nextcloud/saber_syncer.dart';
@@ -123,9 +124,12 @@ class _DirectorySelectorState extends State<DirectorySelector> {
     setState(() {});
   }
 
-  void _onConfirm() {
+  void _onConfirm() async {
     stows.customDataDir.value = _directory;
     context.pop();
+    if (Platform.isAndroid) {
+      await onConfirmAndroid(context, _directory);
+    }
   }
 
   @override
