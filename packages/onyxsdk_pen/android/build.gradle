@@ -62,4 +62,10 @@ android {
         implementation('com.onyx.android.sdk:onyxsdk-pen:1.5.4')
         implementation("org.lsposed.hiddenapibypass:hiddenapibypass:6.1")
     }
+
+    buildTypes {
+        release {
+            consumerProguardFile("proguard-android.txt")
+        }
+    }
 }

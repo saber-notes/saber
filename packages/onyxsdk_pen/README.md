@@ -29,21 +29,14 @@ Please see [onyx-intl#132](https://github.com/onyx-intl/OnyxAndroidDemo/issues/1
 
 ### Android
 
-See [this commit](https://github.com/saber-notes/saber/commit/ff925089969b6fb97385fa40cea6e0dad3b7c6be)
-for an example of the following setup...
+Incorporate the following snippets into your app...
 
-#### `android/app/build.gradle`
+#### `android/app/build.gradle.kts`
 
 ```gradle
 android {
-    defaultConfig {
-        // Onyx SDK requires 23 or higher
-        minSdkVersion 23
-    }
-
-    packagingOptions {
-        pickFirst 'lib/*/libc++_shared.so'
-        pickFirst 'androidsupportmultidexversion.txt'
+    packaging {
+        jniLibs.pickFirsts.add("lib/*/libc++_shared.so")
     }
 }
 ```
@@ -52,35 +45,28 @@ android {
 
 ```xml
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    package="com.adilhanney.saber">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Add this `tools:replace` attribute to the `application` tag -->
     <application
+        android:label="my wonderful app"
         tools:replace="android:label">
-
-    </application>
-</manifest>
 ```
 
-In my case, I got a compiler error saying that I needed `tools:replace="android:allowBackup"`
-so I merged the two with `tools:replace="android:label,android:allowBackup"`.
+If you need multiple entries in tools:replace, separate them with commas, e.g.
+`tools:replace="android:label,android:allowBackup"`.
 
-#### `android/build.gradle`
+#### `android/build.gradle.kts`
 
 ```gradle
 allprojects {
     repositories {
         google()
         mavenCentral()
-
-        // Add these two lines
-        maven {
-            url "https://jitpack.io"
-        }
-        maven {
-            url "http://repo.boox.com/repository/maven-public/"
-            allowInsecureProtocol true
+        // Add these two repos:
+        maven("https://jitpack.io")
+        maven("http://repo.boox.com/repository/maven-public/") {
+            isAllowInsecureProtocol = true
         }
     }
 }
@@ -90,7 +76,7 @@ allprojects {
 
 ```yaml
 dependencies:
-  onyxsdk_pen: ^1.0.3
+  onyxsdk_pen: ^1.3.0
 ```
 
 #### `lib/main.dart`
@@ -112,9 +98,9 @@ OnyxSdkPenArea(
 ),
 ```
 
-You can optionally run the `init` method in the `main` function of your app to
-initialize the Onyx SDK. This is not required, but it will improve initial
-performance on non-Onyx Android devices.
+Run `await OnyxSdkPenArea.init()` in the `main` function of your app.
+This is not required, but it will improve initial performance on
+non-Onyx Android devices.
 
 ```dart
 void main() async {
@@ -126,6 +112,6 @@ void main() async {
 
 ## Help wanted
 
-I no longer have an Onyx device, so I can't really develop this plugin any further.
-If you are able to, we're looking for help with this feature:
-https://github.com/saber-notes/saber/issues/848
+I no longer have an Onyx device,
+so this plugin is developed in a "best effort" manner.
+Community contributions are welcome!
