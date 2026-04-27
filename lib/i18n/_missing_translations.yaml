@@ -249,14 +249,6 @@ ca:
       unlockAxisAlignedPan(OUTDATED): Unlock panning to horizontal or vertical
 cs:
 de:
-  home:
-    deleteNoteDialog:
-      deleteNotes(OUTDATED): Delete $n notes
-      deleteName(OUTDATED): Delete $f
-      confirmDelete(OUTDATED):
-        one: Permanently delete the selected note?
-        other: Permanently delete the selected notes?
-      delete(OUTDATED): Delete
 eo:
   home:
     renameNote:
@@ -618,14 +610,6 @@ fr:
       watchingServer(OUTDATED): You are currently watching for updates on the server. Editing is disabled in this mode.
       corrupted(OUTDATED): Failed to load note. It may be corrupted or still being downloaded.
 he:
-  home:
-    deleteNoteDialog:
-      deleteNotes(OUTDATED): Delete $n notes
-      deleteName(OUTDATED): Delete $f
-      confirmDelete(OUTDATED):
-        one: Permanently delete the selected note?
-        other: Permanently delete the selected notes?
-      delete(OUTDATED): Delete
 hu:
   common:
     done(OUTDATED): Done
@@ -1055,14 +1039,6 @@ ja:
       watchingServer(OUTDATED): You are currently watching for updates on the server. Editing is disabled in this mode.
       corrupted(OUTDATED): Failed to load note. It may be corrupted or still being downloaded.
 pl:
-  home:
-    deleteNoteDialog:
-      deleteNotes(OUTDATED): Delete $n notes
-      deleteName(OUTDATED): Delete $f
-      confirmDelete(OUTDATED):
-        one: Permanently delete the selected note?
-        other: Permanently delete the selected notes?
-      delete(OUTDATED): Delete
 pt-BR:
   home:
     deleteNoteDialog:
@@ -1273,11 +1249,3 @@ zh-Hans-CN:
         other: Permanently delete the selected notes?
       delete(OUTDATED): Delete
 zh-Hant-TW:
-  home:
-    deleteNoteDialog:
-      deleteNotes(OUTDATED): Delete $n notes
-      deleteName(OUTDATED): Delete $f
-      confirmDelete(OUTDATED):
-        one: Permanently delete the selected note?
-        other: Permanently delete the selected notes?
-      delete(OUTDATED): Delete

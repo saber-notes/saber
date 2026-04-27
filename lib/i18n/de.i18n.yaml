@@ -51,18 +51,12 @@ home:
     numberRenamedTo: $n Notizen werden umbenannt, um Konfilkte zu vermeiden
   deleteNote: Notiz löschen
   deleteNoteDialog:
-    confirmDelete(OUTDATED):
-      one(OUTDATED): Die ausgewählte Notiz dauerhaft löschen?
-      other(OUTDATED): Die ausgewählten Notizen dauerhaft löschen?
-    deleteNotes(OUTDATED): Lösche $n Notizen
-    deleteName(OUTDATED): Lösche $f
-    delete(OUTDATED): Löschen
+    deleteNotes: Lösche $n Notizen
+    deleteName: Lösche $f
     confirmDelete:
       one: Die ausgewählte Notiz für immer Löschen?
       other: Die ausgewählte Notiz für immer Löschen?
     delete: Lösche
-    deleteName: Lösche $f
-    deleteNotes: Lösche $n Notizen
   renameFolder:
     renameFolder: Ordner umbenennen
     folderName: Ordnername

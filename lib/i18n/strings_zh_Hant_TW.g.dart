@@ -72,7 +72,7 @@ class _TranslationsHomeZhHantTw extends TranslationsHomeEn {
 	@override String get invalidFormat => '不支援您選取的檔案，請選擇 .sbn、.sbn2、.sba 或 .pdf 檔案。';
 	@override String get noFiles => '未找到檔案';
 	@override String get noPreviewAvailable => '無可用的預覽';
-	@override String get createNewNote => '點擊 + 按鈕新增一個筆記';
+	@override String get createNewNote => '點擊 + 按鈕新增筆記';
 	@override String get backFolder => '返回上一個資料夾';
 	@override late final _TranslationsHomeNewFolderZhHantTw newFolder = _TranslationsHomeNewFolderZhHantTw._(_root);
 	@override late final _TranslationsHomeRenameNoteZhHantTw renameNote = _TranslationsHomeRenameNoteZhHantTw._(_root);
@@ -106,7 +106,7 @@ class _TranslationsSettingsZhHantTw extends TranslationsSettingsEn {
 	@override late final _TranslationsSettingsThemeModesZhHantTw themeModes = _TranslationsSettingsThemeModesZhHantTw._(_root);
 	@override late final _TranslationsSettingsLayoutSizesZhHantTw layoutSizes = _TranslationsSettingsLayoutSizesZhHantTw._(_root);
 	@override late final _TranslationsSettingsAccentColorPickerZhHantTw accentColorPicker = _TranslationsSettingsAccentColorPickerZhHantTw._(_root);
-	@override String get systemLanguage => '系統語言';
+	@override String get systemLanguage => '自動';
 	@override List<String> get axisDirections => [
 		'置頂',
 		'靠右',
@@ -128,11 +128,11 @@ class _TranslationsLogsZhHantTw extends TranslationsLogsEn {
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
 	// Translations
-	@override String get logs => '日誌';
-	@override String get viewLogs => '查看日誌';
-	@override String get debuggingInfo => '日誌包含對偵錯和開發有用的資訊';
-	@override String get noLogs => '這裡沒有日誌！';
-	@override String get useTheApp => '此應用程式的日誌將出現在這裡';
+	@override String get logs => '紀錄檔';
+	@override String get viewLogs => '檢視紀錄檔';
+	@override String get debuggingInfo => '紀錄檔包含對除錯與開發有用的資訊';
+	@override String get noLogs => '此處沒有紀錄檔！';
+	@override String get useTheApp => '當您使用此應用程式時，紀錄檔將顯示於此處';
 }
 
 // Path: login
@@ -166,7 +166,7 @@ class _TranslationsProfileZhHantTw extends TranslationsProfileEn {
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => '我的個人資料';
+	@override String get title => '我的個人檔案';
 	@override String get logout => '登出';
 	@override String quotaUsage({required Object used, required Object total, required Object percent}) => '您已使用 ${used}，共 ${total} (${percent}%)';
 	@override String get connectedTo => '連線到';
@@ -187,11 +187,11 @@ class _TranslationsAppInfoZhHantTw extends TranslationsAppInfoEn {
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
 	// Translations
-	@override String licenseNotice({required Object buildYear}) => 'Saber  版權所有 © 2022-${buildYear}  Adil Hanney\nThis program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.';
+	@override String licenseNotice({required Object buildYear}) => 'Saber  版權所有 © 2022-${buildYear}  Adil Hanney\n本程式不提供任何形式的保證。這是一款自由軟體，您可在特定條件下自由轉散發。';
 	@override String get debug => 'DEBUG';
 	@override String get sponsorButton => '點擊此處贊助我或購買更多儲存空間';
-	@override String get licenseButton => '點擊此處查看更多許可證資訊';
-	@override String get privacyPolicyButton => '點擊此處查看隱私權政策';
+	@override String get licenseButton => '點擊此處檢視更多授權條款資訊';
+	@override String get privacyPolicyButton => '點擊此處檢視隱私權政策';
 }
 
 // Path: update
@@ -202,9 +202,9 @@ class _TranslationsUpdateZhHantTw extends TranslationsUpdateEn {
 
 	// Translations
 	@override String get updateAvailable => '可用更新';
-	@override String get updateAvailableDescription => '新版本的應用程式已推出，有了以下變化:';
+	@override String get updateAvailableDescription => '新版本的應用程式已推出：';
 	@override String get update => '更新';
-	@override String get downloadNotAvailableYet => '您的平台尚無法下載。請稍後回來查看。';
+	@override String get downloadNotAvailableYet => '您的平台尚無法下載。請稍後再回來檢視。';
 }
 
 // Path: editor
@@ -227,7 +227,7 @@ class _TranslationsEditorZhHantTw extends TranslationsEditorEn {
 	@override late final _TranslationsEditorHudZhHantTw hud = _TranslationsEditorHudZhHantTw._(_root);
 	@override String get pages => '頁面';
 	@override String get untitled => '無標題';
-	@override String get needsToSaveBeforeExiting => '正在儲存您的變更...完成後您可以安全地退出編輯器';
+	@override String get needsToSaveBeforeExiting => '正在儲存您的變更……完成後您可以安全地結束編輯器';
 }
 
 // Path: home.tabs
@@ -288,9 +288,9 @@ class _TranslationsHomeNewFolderZhHantTw extends TranslationsHomeNewFolderEn {
 	// Translations
 	@override String get newFolder => '新建資料夾';
 	@override String get folderName => '資料夾名稱';
-	@override String get create => '創建';
+	@override String get create => '建立';
 	@override String get folderNameEmpty => '資料夾名稱不可為空';
-	@override String get folderNameContainsSlash => '資料夾名稱不能包含斜槓';
+	@override String get folderNameContainsSlash => '資料夾名稱不能包含斜線';
 	@override String get folderNameExists => '資料夾已經存在';
 }
 
@@ -323,7 +323,7 @@ class _TranslationsHomeMoveNoteZhHantTw extends TranslationsHomeMoveNoteEn {
 	@override String get move => '移動';
 	@override String renamedTo({required Object newName}) => '筆記將重新命名為 ${newName}';
 	@override String get multipleRenamedTo => '以下筆記將被重新命名：';
-	@override String numberRenamedTo({required Object n}) => '${n} 份筆記將被重命名以避免衝突';
+	@override String numberRenamedTo({required Object n}) => '將重新命名 ${n} 份筆記以避免衝突';
 }
 
 // Path: home.deleteNoteDialog
@@ -333,12 +333,12 @@ class _TranslationsHomeDeleteNoteDialogZhHantTw extends TranslationsHomeDeleteNo
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
 	// Translations
-	@override String confirmDelete({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n,
-		one: '永久刪除選取的筆記？',
-		other: '永久刪除選取的筆記？',
-	);
-	@override String deleteNotes({required Object n}) => '刪除 ${n} 筆筆記';
+	@override String deleteNotes({required Object n}) => '刪除 ${n} 份筆記';
 	@override String deleteName({required Object f}) => '刪除 ${f}';
+	@override String confirmDelete({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n,
+		one: '永久刪除選定的筆記？',
+		other: '永久刪除選定的筆記？',
+	);
 	@override String get delete => '刪除';
 }
 
@@ -353,7 +353,7 @@ class _TranslationsHomeRenameFolderZhHantTw extends TranslationsHomeRenameFolder
 	@override String get folderName => '資料夾名稱';
 	@override String get rename => '重新命名';
 	@override String get folderNameEmpty => '資烙夾名稱不能為空';
-	@override String get folderNameContainsSlash => '資料夾名稱不能包含斜槓';
+	@override String get folderNameContainsSlash => '資料夾名稱不能包含斜線';
 	@override String get folderNameExists => '已存在同名的資料夾';
 }
 
@@ -377,7 +377,7 @@ class _TranslationsSentryConsentZhHantTw extends TranslationsSentryConsentEn {
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => '幫助改善 Saber？';
+	@override String get title => '協助改善 Saber？';
 	@override late final _TranslationsSentryConsentDescriptionZhHantTw description = _TranslationsSentryConsentDescriptionZhHantTw._(_root);
 	@override late final _TranslationsSentryConsentAnswersZhHantTw answers = _TranslationsSentryConsentAnswersZhHantTw._(_root);
 }
@@ -408,17 +408,17 @@ class _TranslationsSettingsPrefLabelsZhHantTw extends TranslationsSettingsPrefLa
 	@override String get platform => '主題類型';
 	@override String get layoutSize => '佈局大小';
 	@override String get customAccentColor => '自訂主題色';
-	@override String get hyperlegibleFont => '易讀字體';
+	@override String get hyperlegibleFont => 'Atkinson Hyperlegible 字型';
 	@override String get shouldCheckForUpdates => '自動檢查 Saber 更新';
 	@override String get shouldAlwaysAlertForUpdates => '更快的更新';
-	@override String get allowInsecureConnections => '允許不安全的連結';
+	@override String get allowInsecureConnections => '允許不安全連線';
 	@override String get editorToolbarAlignment => '編輯器工具列的對齊方式';
 	@override String get editorToolbarShowInFullscreen => '在全螢幕模式中顯示編輯器工具列';
-	@override String get editorAutoInvert => '在深色模式下使用反色筆記背景';
-	@override String get preferGreyscale => '使用灰度顏色';
+	@override String get editorAutoInvert => '在深色模式下使用反轉色筆記背景';
+	@override String get preferGreyscale => '使用灰階顏色';
 	@override String get maxImageSize => '最大圖片尺寸';
-	@override String get autoClearWhiteboardOnExit => '退出應用程式後清除白板';
-	@override String get disableEraserAfterUse => '自動禁用橡皮擦';
+	@override String get autoClearWhiteboardOnExit => '自動清除白板';
+	@override String get disableEraserAfterUse => '自動停用橡皮擦';
 	@override String get hideFingerDrawingToggle => '隱藏手指繪圖切換開關';
 	@override String get autoDisableFingerDrawingWhenStylusDetected => '自動停用手指繪圖';
 	@override String get editorPromptRename => '提醒您重新命名新筆記';
@@ -428,9 +428,9 @@ class _TranslationsSettingsPrefLabelsZhHantTw extends TranslationsSettingsPrefLa
 	@override String get autosave => '自動儲存';
 	@override String get shapeRecognitionDelay => '形狀辨識延遲';
 	@override String get autoStraightenLines => '自動拉直線條';
-	@override String get simplifiedHomeLayout => '簡化首頁佈局';
+	@override String get simplifiedHomeLayout => '簡化首頁版面';
 	@override String get customDataDir => '自訂 Saber 資料夾';
-	@override String get sentry => '錯誤報告';
+	@override String get sentry => '錯誤回報';
 }
 
 // Path: settings.prefDescriptions
@@ -440,10 +440,10 @@ class _TranslationsSettingsPrefDescriptionsZhHantTw extends TranslationsSettings
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
 	// Translations
-	@override String get hyperlegibleFont => 'Atkinson Hyperlegible 字體為低視力讀者提高易讀性';
-	@override String get allowInsecureConnections => '（不推薦）允許Saber連結到具有自簽名/不受信任證書的伺服器';
+	@override String get hyperlegibleFont => 'Atkinson Hyperlegible 字型為低視力讀者提高易讀性';
+	@override String get allowInsecureConnections => '（不推薦）允許 Saber 連線到有自行簽署/不受信任憑證的伺服器';
 	@override String get preferGreyscale => '用於電子紙螢幕';
-	@override String get autoClearWhiteboardOnExit => '它仍會同步到您的其他裝置';
+	@override String get autoClearWhiteboardOnExit => '在您結束應用程式後清除白板';
 	@override String get disableEraserAfterUse => '使用橡皮擦後自動切換回筆';
 	@override String get maxImageSize => '大於此大小的圖片將被壓縮';
 	@override late final _TranslationsSettingsPrefDescriptionsHideFingerDrawingZhHantTw hideFingerDrawing = _TranslationsSettingsPrefDescriptionsHideFingerDrawingZhHantTw._(_root);
@@ -452,7 +452,7 @@ class _TranslationsSettingsPrefDescriptionsZhHantTw extends TranslationsSettings
 	@override String get printPageIndicators => '在匯出中顯示頁碼';
 	@override String get autosave => '在短暫延遲後自動儲存，或永不儲存';
 	@override String get shapeRecognitionDelay => '多久更新一次形狀預覽';
-	@override String get autoStraightenLines => '無需使用形狀筆即可拉直線條';
+	@override String get autoStraightenLines => '不需要使用造型筆即可拉直線條';
 	@override String get simplifiedHomeLayout => '為每個筆記預覽設定固定高度';
 	@override String get shouldAlwaysAlertForUpdates => '一旦有更新請告訴我';
 	@override late final _TranslationsSettingsPrefDescriptionsSentryZhHantTw sentry = _TranslationsSettingsPrefDescriptionsSentryZhHantTw._(_root);
@@ -499,7 +499,7 @@ class _TranslationsSettingsResetZhHantTw extends TranslationsSettingsResetEn {
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => '重設此設定?';
+	@override String get title => '重設此設定？';
 	@override String get button => '重設';
 }
 
@@ -511,10 +511,10 @@ class _TranslationsSettingsCustomDataDirZhHantTw extends TranslationsSettingsCus
 
 	// Translations
 	@override String get cancel => '取消';
-	@override String get select => '選擇';
-	@override String get mustBeEmpty => '選擇的資料夾必須是空的';
-	@override String get mustBeDoneSyncing => '更改資料夾之前確保同步已完成';
-	@override String get unsupported => '此功能目前僅適用於開發人員，使用它可能會導致資料遺失。';
+	@override String get select => '選取';
+	@override String get mustBeEmpty => '選取的資料夾必須是空的';
+	@override String get mustBeDoneSyncing => '變更資料夾之前確保同步已完成';
+	@override String get unsupported => '此功能目前僅適用於開發者，使用它可能會導致資料遺失。';
 }
 
 // Path: login.form
@@ -525,8 +525,8 @@ class _TranslationsLoginFormZhHantTw extends TranslationsLoginFormEn {
 
 	// Translations
 	@override TextSpan agreeToPrivacyPolicy({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [
-		const TextSpan(text: '登入即表示你同意 '),
-		linkToPrivacyPolicy('隱私政策'),
+		const TextSpan(text: '登入即表示您同意 '),
+		linkToPrivacyPolicy('隱私權政策'),
 		const TextSpan(text: '。'),
 	]);
 }
@@ -588,8 +588,8 @@ class _TranslationsProfileQuickLinksZhHantTw extends TranslationsProfileQuickLin
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
 	// Translations
-	@override String get serverHomepage => '伺服器主頁';
-	@override String get deleteAccount => '刪除帳戶';
+	@override String get serverHomepage => '伺服器首頁';
+	@override String get deleteAccount => '刪除帳號';
 }
 
 // Path: profile.faq.0
@@ -600,7 +600,7 @@ class _TranslationsProfile$faq$0i0$ZhHantTw extends TranslationsProfile$faq$0i0$
 
 	// Translations
 	@override String get q => '如果我登出了，我的筆記會不會不見？';
-	@override String get a => '您的筆記將同時儲存您的裝置和伺服器上。直到您重新登入，它們才會被同步到伺服器上。在登出前，請確保同步工作已經完成，這樣您就不會丟失任何資料（在主畫面上可以看到同步進度）。';
+	@override String get a => '您的筆記將同時儲存在您的裝置與伺服器上。直到您重新登入，它們才會被同步到伺服器上。在登出前，請確保同步工作已經完成，這樣您就不會遺失任何資料（在主畫面上可以看到同步進度）。';
 }
 
 // Path: profile.faq.1
@@ -610,8 +610,8 @@ class _TranslationsProfile$faq$0i1$ZhHantTw extends TranslationsProfile$faq$0i1$
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => '如何更改我的Nextcloud密碼？';
-	@override String get a => '進入您的伺服器網站並登入，然後進入設定>安全>更改密碼。更改密碼後，您需要登出並重新登入到Saber。';
+	@override String get q => '如何變更我的 Nextcloud 密碼？';
+	@override String get a => '進入您的伺服器網站並登入，然後進入「設定」→「安全」→「變更密碼」。更改密碼後，您必須登出並重新登入 Saber。';
 }
 
 // Path: profile.faq.2
@@ -621,8 +621,8 @@ class _TranslationsProfile$faq$0i2$ZhHantTw extends TranslationsProfile$faq$0i2$
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => '如何更改我的加密密碼？';
-	@override String get a => '0. 確定同步處理已完成（請參閱主畫面上的同步處理進度）。\n1. 登出 Saber，在登出前確保同步已經完成，這樣您就不會丟失任何資料（在主畫面上可以看到同步進度）。\n2. 進入您的伺服器網站並登入，刪除「Saber」資料夾，這將從伺服器上刪除您所有的筆記。\n3. 重新登入 Saber，您可以在登入時選擇一個新的加密密碼。\n4. 也不要忘記在您的其他裝置上登出並重新登入Saber。';
+	@override String get q => '如何變更我的加密密碼？';
+	@override String get a => '0. 確定同步處理已完成（請參閱主畫面上的同步處理進度）。\n1. 登出 Saber，在登出前確保同步已經完成，這樣您就不會丟失任何資料（在主畫面上可以看到同步進度）。\n2. 進入您的伺服器網站並登入，刪除「Saber」資料夾，這將從伺服器上刪除您所有的筆記。\n3. 重新登入 Saber，您可以在登入時選擇一個新的加密密碼。\n4. 也不要忘記在您的其他裝置上登出並重新登入 Saber。';
 }
 
 // Path: profile.faq.3
@@ -632,7 +632,7 @@ class _TranslationsProfile$faq$0i3$ZhHantTw extends TranslationsProfile$faq$0i3$
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => '如何刪除我的帳戶？';
+	@override String get q => '如何刪除我的帳號？';
 	@override String get a => '點選上面的「${_root.profile.quickLinks.deleteAccount}」按鈕，如果需要請登入。\n如果您使用的是官方 Saber 伺服器，您的帳戶將在一週的寬限期後被刪除，您可以在此期間用電子郵件聯絡我：adilhanney@disroot.org，以取消刪除。\n如果您使用的是第三方伺服器，則可能沒有刪除帳號的選項，您需要檢視伺服器的隱私權政策以了解更多資訊。';
 }
 
@@ -644,16 +644,16 @@ class _TranslationsEditorToolbarZhHantTw extends TranslationsEditorToolbarEn {
 
 	// Translations
 	@override String get toggleColors => '切換顏色 (Ctrl C)';
-	@override String get select => '選擇';
+	@override String get select => '選取';
 	@override String get toggleEraser => '切換橡皮擦 (Ctrl E)';
-	@override String get photo => '照片';
-	@override String get text => '文本';
-	@override String get toggleFingerDrawing => '切換手寫 (Ctrl F)';
+	@override String get photo => '影像';
+	@override String get text => '文字';
+	@override String get toggleFingerDrawing => '切換手指繪製 (Ctrl F)';
 	@override String get undo => '復原';
 	@override String get redo => '重做';
 	@override String get export => '匯出 (Ctrl Shift S)';
 	@override String get exportAs => '匯出為：';
-	@override String get fullscreen => '切換到全螢幕 (F11)';
+	@override String get fullscreen => '切換全螢幕 (F11)';
 }
 
 // Path: editor.pens
@@ -667,7 +667,7 @@ class _TranslationsEditorPensZhHantTw extends TranslationsEditorPensEn {
 	@override String get ballpointPen => '原子筆';
 	@override String get highlighter => '螢光筆';
 	@override String get pencil => '鉛筆';
-	@override String get shapePen => '塑形筆';
+	@override String get shapePen => '造型筆';
 	@override String get laserPointer => '雷射筆';
 }
 
@@ -691,8 +691,8 @@ class _TranslationsEditorColorsZhHantTw extends TranslationsEditorColorsEn {
 	@override String get colorPicker => '顏色選擇器';
 	@override String customBrightnessHue({required Object b, required Object h}) => '自訂的 ${b} ${h}';
 	@override String customHue({required Object h}) => '自訂的 ${h}';
-	@override String get dark => '黑色';
-	@override String get light => '白色';
+	@override String get dark => '深色';
+	@override String get light => '淺色';
 	@override String get black => '黑色';
 	@override String get darkGrey => '深灰色';
 	@override String get grey => '灰色';
@@ -723,7 +723,7 @@ class _TranslationsEditorImageOptionsZhHantTw extends TranslationsEditorImageOpt
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => '圖片選項';
+	@override String get title => '影像選項';
 	@override String get invertible => '反轉顏色';
 	@override String get download => '下載';
 	@override String get setAsBackground => '設為背景';
@@ -739,7 +739,7 @@ class _TranslationsEditorSelectionBarZhHantTw extends TranslationsEditorSelectio
 
 	// Translations
 	@override String get delete => '刪除';
-	@override String get duplicate => '複製';
+	@override String get duplicate => '再製';
 }
 
 // Path: editor.menu
@@ -752,13 +752,13 @@ class _TranslationsEditorMenuZhHantTw extends TranslationsEditorMenuEn {
 	@override String clearPage({required Object page, required Object totalPages}) => '清除頁面 ${page}/${totalPages}';
 	@override String get clearAllPages => '清除所有頁面';
 	@override String get insertPage => '插入以下頁面';
-	@override String get duplicatePage => '複製頁面';
+	@override String get duplicatePage => '再製頁面';
 	@override String get deletePage => '刪除頁面';
 	@override String get lineHeight => '行高';
 	@override String get lineHeightDescription => '同時控制輸入筆記的文字大小';
 	@override String get lineThickness => '線條粗細';
 	@override String get lineThicknessDescription => '背景線條粗細';
-	@override String get backgroundImageFit => '適應背景圖片';
+	@override String get backgroundImageFit => '背景影像調整';
 	@override String get backgroundPattern => '背景圖案';
 	@override String get import => '匯入';
 	@override String get watchServer => '監視伺服器的更新';
@@ -775,7 +775,7 @@ class _TranslationsEditorReadOnlyBannerZhHantTw extends TranslationsEditorReadOn
 
 	// Translations
 	@override String get title => '唯讀模式';
-	@override String get watchingServer => '目前正在監看伺服器上的更新，在此模式下已停用編輯功能。';
+	@override String get watchingServer => '目前正在監控伺服器上的更新，在此模式下已停用編輯功能。';
 	@override String get corrupted => '無法載入筆記，檔案可能已損壞或仍在下載中。';
 }
 
@@ -787,7 +787,7 @@ class _TranslationsEditorVersionTooNewZhHantTw extends TranslationsEditorVersion
 
 	// Translations
 	@override String get title => '這篇筆記是使用較新版本的 Saber 編輯的';
-	@override String get subtitle => '編輯此筆記可能會導致某些資訊遺失。 您想忽略它並編輯它嗎？';
+	@override String get subtitle => '編輯此筆記可能會導致某些資訊遺失。您要忽略並編輯它嗎？';
 	@override String get allowEditing => '允許編輯';
 }
 
@@ -798,7 +798,7 @@ class _TranslationsEditorQuillZhHantTw extends TranslationsEditorQuillEn {
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
 	// Translations
-	@override String get typeSomething => '在這裡輸入一些內容...';
+	@override String get typeSomething => '請在此輸入內容……';
 }
 
 // Path: editor.hud
@@ -811,7 +811,7 @@ class _TranslationsEditorHudZhHantTw extends TranslationsEditorHudEn {
 	@override String get unlockZoom => '解鎖縮放';
 	@override String get lockZoom => '鎖定縮放';
 	@override String get unlockSingleFingerPan => '啟用單指平移';
-	@override String get lockSingleFingerPan => '禁用單指平移';
+	@override String get lockSingleFingerPan => '停用單指平移';
 	@override String get unlockAxisAlignedPan => '解鎖水平或垂直平移';
 	@override String get lockAxisAlignedPan => '鎖定水平或垂直平移';
 }
@@ -823,14 +823,14 @@ class _TranslationsSentryConsentDescriptionZhHantTw extends TranslationsSentryCo
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
 	// Translations
-	@override String get question => '您想自動報告意外錯誤嗎？這可以幫助我更快地識別和解決問題。';
-	@override String get scope => '報告可能包含有關錯誤和您的裝置資訊。我已經盡一切努力過濾了個人資料，但有些可能仍會保留。';
-	@override String get currentlyOff => '如果您授予同意，則重新啟動應用程式後將啟用錯誤報告。';
-	@override String get currentlyOn => '如果您撤銷同意，請重新啟動該應用程式以禁用錯誤報告。';
+	@override String get question => '您想自動回報意外錯誤嗎？這可以協助我更快地辨識與解決問題。';
+	@override String get scope => '報告可能包含有關錯誤與您的裝置資訊。我已經盡一切努力過濾了個人資料，但有些可能仍會保留。';
+	@override String get currentlyOff => '若您同意，則重新啟動應用程式後將啟用錯誤回報。';
+	@override String get currentlyOn => '如果您撤銷同意，請重新啟動該應用程式以停用錯誤回報。';
 	@override TextSpan learnMoreInPrivacyPolicy({required InlineSpanBuilder link}) => TextSpan(children: [
-		const TextSpan(text: '在'),
+		const TextSpan(text: '在 '),
 		link('privacy policy'),
-		const TextSpan(text: '中了解更多資訊。'),
+		const TextSpan(text: ' 中取得更多資訊。'),
 	]);
 }
 
@@ -855,7 +855,7 @@ class _TranslationsSettingsPrefDescriptionsHideFingerDrawingZhHantTw extends Tra
 	// Translations
 	@override String get shown => '防止意外切換';
 	@override String get fixedOn => '手指繪圖固定為啟用';
-	@override String get fixedOff => '手指繪圖固定為禁用';
+	@override String get fixedOff => '手指繪圖固定為停用';
 }
 
 // Path: settings.prefDescriptions.sentry
@@ -891,7 +891,7 @@ class _TranslationsLoginEncLoginStep$encFaq$0i0$ZhHantTw extends TranslationsLog
 
 	// Translations
 	@override String get q => '什麼是加密密碼？為什麼要使用兩個密碼？';
-	@override String get a => 'Nextcloud 密碼用於存取雲端。加密密碼會在資料到達雲端之前混亂您的資料。\n即使有人訪問您的 Nextcloud 帳號，您的筆記也將保持安全並使用單獨的密碼進行加密。這為您提供了第二層安全保護來保護您的資料。\n如果沒有加密密碼，任何人都無法存取伺服器上的筆記，但這也意味著如果您忘記加密密碼，您將無法存取您的資料。';
+	@override String get a => 'Nextcloud 密碼用於存取雲端。加密密碼會在資料到達雲端之前加密您的資料。\n即使有其他人存取您的 Nextcloud 帳號，您的筆記也將保持安全並使用單獨的密碼進行加密。這為您提供了第二層安全保護來保護您的資料。\n如果沒有加密密碼，任何人都無法存取伺服器上的筆記，但這也意味著如果您忘記加密密碼，您將無法存取您的資料。';
 }
 
 // Path: login.encLoginStep.encFaq.1
@@ -901,8 +901,8 @@ class _TranslationsLoginEncLoginStep$encFaq$0i1$ZhHantTw extends TranslationsLog
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => '我還沒有設定加密密碼。我在哪裡可以得到它？';
-	@override String get a => '選擇一個新的加密密碼並在上面輸入。\nSaber 將自動根據該密碼產生您的加密金鑰。';
+	@override String get q => '我還沒設定加密密碼。該去哪裡取得呢？';
+	@override String get a => '選擇一個新的加密密碼並在上方輸入。\nSaber 將自動根據該密碼產生您的加密金鑰。';
 }
 
 // Path: login.encLoginStep.encFaq.2
