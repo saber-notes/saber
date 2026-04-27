@@ -1150,7 +1150,7 @@ class EditorState extends State<Editor> {
   }
 
   Future<List<_PhotoInfo>> _pickPhotosWithFilePicker() async {
-    final FilePickerResult? result = await FilePicker.platform.pickFiles(
+    final FilePickerResult? result = await FilePicker.pickFiles(
       type: FileType.custom,
       // Taken from
       // https://github.com/brendan-duncan/image/blob/main/doc/formats.md
@@ -1188,7 +1188,7 @@ class EditorState extends State<Editor> {
     if (coreInfo.readOnly) return false;
     if (!Editor.canRasterPdf) return false;
 
-    final FilePickerResult? result = await FilePicker.platform.pickFiles(
+    final FilePickerResult? result = await FilePicker.pickFiles(
       type: FileType.custom,
       allowedExtensions: ['pdf'],
       allowMultiple: false,
