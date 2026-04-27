@@ -3,8 +3,7 @@ allprojects {
         google()
         mavenCentral()
         maven("https://jitpack.io")
-        maven {
-            url = uri("http://repo.boox.com/repository/maven-public/")
+        maven("http://repo.boox.com/repository/maven-public/") {
             isAllowInsecureProtocol = true
         }
     }

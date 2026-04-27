@@ -44,7 +44,7 @@ class Canvas extends StatelessWidget {
   final double currentScale;
   final bool placeholder;
 
-  OnyxStrokeStyle getOnyxTool(Tool currentTool) {
+  OnyxStrokeStyle _getOnyxTool(Tool currentTool) {
     if (placeholder) return OnyxStrokeStyle.pen;
     switch (currentTool.toolId) {
       case ToolId.fountainPen:
@@ -68,7 +68,7 @@ class Canvas extends StatelessWidget {
     }
   }
 
-  Color getOnyxColor() {
+  Color _getOnyxColor() {
     if (currentTool is Pen) {
       return (currentTool as Pen).color;
     } else {
@@ -76,7 +76,7 @@ class Canvas extends StatelessWidget {
     }
   }
 
-  double getOnyxWidth() {
+  double _getOnyxWidth() {
     if (currentTool is Pen) {
       final baseSize = (currentTool as Pen).options.size * currentScale;
       if ((currentTool as Pen).pressureEnabled) {
@@ -111,9 +111,9 @@ class Canvas extends StatelessWidget {
                   height: page.size.height,
                   child: OnyxSdkPenArea(
                     refreshDelay: const Duration(seconds: 1),
-                    strokeStyle: getOnyxTool(currentTool),
-                    strokeColor: getOnyxColor(),
-                    strokeWidth: getOnyxWidth(),
+                    strokeStyle: _getOnyxTool(currentTool),
+                    strokeColor: _getOnyxColor(),
+                    strokeWidth: _getOnyxWidth(),
                     child: InnerCanvas(
                       key: page.innerCanvasKey,
                       pageIndex: pageIndex,

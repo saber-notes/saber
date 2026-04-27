@@ -28,8 +28,8 @@ if grep -q "onyxsdk_pen" lib/components/canvas/canvas.dart; then
       /child: InnerCanvas(/!d
     }
   ' lib/components/canvas/canvas.dart
-  # Remove getOnyxTool() function
-  sed -i '/OnyxStrokeStyle getOnyxTool(Tool currentTool) {/,/^  }/d' lib/components/canvas/canvas.dart
+  # Remove _getOnyxTool() function
+  sed -i '/OnyxStrokeStyle _getOnyxTool(Tool currentTool) {/,/^  }/d' lib/components/canvas/canvas.dart
 else
   echo "already done"
 fi
@@ -39,7 +39,7 @@ echo -n "Removing Onyx,jitpack maven repo: "
 # check if android/build.gradle.kts contains "repo.boox.com"
 if grep -q "repo.boox.com" "android/build.gradle.kts"; then
   echo "found"
-  sed -i -e '5,9d' android/build.gradle.kts
+  sed -i -e '5,8d' android/build.gradle.kts
 else
   echo "already done"
 fi
