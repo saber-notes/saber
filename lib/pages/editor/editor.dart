@@ -157,6 +157,7 @@ class EditorState extends State<Editor> {
   Tool get currentTool => _currentTool;
   set currentTool(Tool tool) {
     _currentTool = tool;
+    if (tool is! Eraser) _lastNonEraserTool = tool;
     stows.lastTool.value = tool.toolId;
   }
 
@@ -170,8 +171,8 @@ class EditorState extends State<Editor> {
 
   ValueNotifier<QuillStruct?> quillFocus = ValueNotifier(null);
 
-  /// The tool that was used before switching to the eraser.
-  Tool? tmpTool;
+  /// The last non-Eraser [currentTool] value.
+  late Tool _lastNonEraserTool = Pen.currentPen;
 
   /// If the stylus button is pressed, or was pressed during the current draw gesture.
   var stylusButtonPressed = false;
@@ -674,12 +675,10 @@ class EditorState extends State<Editor> {
         );
       } else if (currentTool is Eraser) {
         final erased = (currentTool as Eraser).onDragEnd();
-        if (tmpTool != null &&
-            (stylusButtonPressed || stows.disableEraserAfterUse.value)) {
+        if (stylusButtonPressed || stows.disableEraserAfterUse.value) {
           // restore previous tool
           stylusButtonPressed = false;
-          currentTool = tmpTool!;
-          tmpTool = null;
+          currentTool = _lastNonEraserTool;
         }
         if (erased.isEmpty) return;
         history.recordChange(
@@ -753,23 +752,25 @@ class EditorState extends State<Editor> {
   }
 
   void onStylusButtonChanged(bool buttonPressed) {
-    // whether the stylus button is or was pressed
-    stylusButtonPressed = stylusButtonPressed || buttonPressed;
+    if (buttonPressed == stylusButtonPressed) return;
 
-    if (isHovering) {
-      if (buttonPressed) {
-        if (currentTool is Eraser) return;
-        tmpTool = currentTool;
+    // whether the stylus button is or was pressed
+    stylusButtonPressed |= buttonPressed;
+
+    if (!isHovering) return;
+    if (buttonPressed) {
+      // button pressed while hovering, switch to Eraser
+      if (currentTool is! Eraser) {
         currentTool = Eraser();
-        setState(() {});
-      } else {
-        if (tmpTool != null && currentTool is Eraser) {
-          currentTool = tmpTool!;
-          tmpTool = null;
-          setState(() {});
-        }
+      }
+    } else {
+      // button was released while hovering, switch back to non-Eraser
+      if (currentTool is Eraser) {
+        currentTool = _lastNonEraserTool;
       }
     }
+
+    if (mounted) setState(() {});
   }
 
   void onMoveImage(EditorImage image, Rect offset) {
@@ -1429,29 +1430,22 @@ class EditorState extends State<Editor> {
         child: Toolbar(
           readOnly: coreInfo.readOnly,
           setTool: (tool) {
-            setState(() {
-              if (tool is Eraser) {
-                // setTool(Eraser) is called to toggle eraser
-                if (currentTool is Eraser && tmpTool != null) {
-                  // switch to previous tool
-                  tool = tmpTool!;
-                  tmpTool = null;
-                } else {
-                  // store previous tool to restore it later
-                  tmpTool = currentTool;
-                }
-              }
+            if (tool is Eraser && currentTool is Eraser) {
+              // setTool(Eraser) is a special case to toggle the eraser on/off
+              tool = _lastNonEraserTool;
+            }
 
-              currentTool = tool;
+            currentTool = tool;
 
-              if (currentTool is Highlighter) {
-                Highlighter.currentHighlighter = currentTool as Highlighter;
-              } else if (currentTool is Pencil) {
-                Pencil.currentPencil = currentTool as Pencil;
-              } else if (currentTool is Pen) {
-                Pen.currentPen = currentTool as Pen;
-              }
-            });
+            if (tool is Highlighter) {
+              Highlighter.currentHighlighter = tool;
+            } else if (tool is Pencil) {
+              Pencil.currentPencil = tool;
+            } else if (tool is Pen) {
+              Pen.currentPen = tool;
+            }
+
+            if (mounted) setState(() {});
           },
           currentTool: currentTool,
           duplicateSelection: () {
