@@ -1,0 +1,3 @@
+• Đã sửa lỗi khiến cài đặt "Tắt bút xóa sau khi sử dụng" không được tắt
+• Đã sửa lỗi rò rỉ bộ nhớ trong việc xử lý cử chỉ fling
+• Đã cập nhật SDK Onyx cho các thiết bị Onyx Boox

@@ -1,0 +1,3 @@
+• Opravil chybu, kde nastavení „Zatimdní mazací nástroj po použití“ nebyl vypnut
+• Opravil únik paměti při zpracování gesta fling
+• Aktualizoval SDK Onyx pro zařízení Onyx Boox
