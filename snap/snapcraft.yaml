@@ -17,10 +17,12 @@ parts:
     source-depth: 1
     plugin: flutter
     build-packages:
+      - clang
       - execstack
       - libsecret-1-dev
       - libjsoncpp-dev
       - lld
+      - llvm
       - openjdk-21-jdk
     build-snaps:
       - cmake
