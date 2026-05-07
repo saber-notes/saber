@@ -454,17 +454,20 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
       widget.onHoveringEnd();
     } else {
       widget.onHovering();
-      if (stylusButtonWasPressed != (event.buttons == kPrimaryStylusButton)) {
-        stylusButtonWasPressed = event.buttons == kPrimaryStylusButton;
-        widget.onStylusButtonChanged(stylusButtonWasPressed);
+      final pressed = event.buttons == kPrimaryStylusButton;
+      if (stylusButtonWasPressed != pressed) {
+        stylusButtonWasPressed = pressed;
+        widget.onStylusButtonChanged(pressed);
       }
     }
   }
 
   void _listenerPointerUpEvent(PointerEvent event) {
     widget.updatePointerData(event.kind, null);
-    stylusButtonWasPressed = false;
-    widget.onStylusButtonChanged(false);
+    if (stylusButtonWasPressed) {
+      stylusButtonWasPressed = false;
+      widget.onStylusButtonChanged(false);
+    }
   }
 
   @override

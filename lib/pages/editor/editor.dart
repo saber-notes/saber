@@ -752,8 +752,6 @@ class EditorState extends State<Editor> {
   }
 
   void onStylusButtonChanged(bool buttonPressed) {
-    if (buttonPressed == stylusButtonPressed) return;
-
     // whether the stylus button is or was pressed
     stylusButtonPressed |= buttonPressed;
 
