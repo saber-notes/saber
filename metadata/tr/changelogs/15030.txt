@@ -1,3 +1,0 @@
-• Klasörleri yeniden adlandırmak için bir düğme eklendi
-• Tablatür arka plan deseni eklendi
-• Düzenleyicinin üç nokta menüsünde küçük iyileştirmeler

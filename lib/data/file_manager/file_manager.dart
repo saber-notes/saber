@@ -330,7 +330,7 @@ class FileManager {
       }
     } else {
       // desktop, open save-as dialog
-      final outputFile = await FilePicker.platform.saveFile(
+      final outputFile = await FilePicker.saveFile(
         fileName: fileName,
         initialDirectory: (await getDownloadsDirectory())?.path,
         type: FileType.custom,

@@ -1,2 +1,0 @@
-• Kaleminizi kaldırdığınızda kalem ses efektinin durmaması sorunu düzeltildi
-• Özellikle Linux/Yaru temasında görsel iyileştirmeler

@@ -1,3 +1,0 @@
-• Csillag hozzáadása az alakzati eszközhöz
-• Rögzítette az alakzatos eszközzel rajzolt háromszögek furcsa sarkait
-• A rögzített egypontos pontok nem kerülnek mentésre

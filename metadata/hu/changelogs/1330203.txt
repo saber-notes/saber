@@ -1,0 +1,2 @@
+• Kis kód tisztítás és nemzetköziizáció munkálatok.
+• Ez a kiadás a Google Play Store vonhaláptalan terülnél való elosztás során is megfelel a Google fejlesztői igazolási rendszernek.

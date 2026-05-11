@@ -1,2 +1,0 @@
-• A simulated pencil sound effect has been added. By default, it's only enabled when your device isn't muted.
-• The Nextcloud syncing issue has been fixed.

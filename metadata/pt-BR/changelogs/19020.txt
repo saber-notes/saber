@@ -1,2 +1,0 @@
-Os traços que tinham bordas irregulares foram alisados, particularmente aqueles desenhados com um mouse ou trackpad.
-.

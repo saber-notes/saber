@@ -1,2 +1,0 @@
-• Teljesítményjavítás a képek/PDF-ek elkülönített tárolásával a fő megjegyzésben
-• A feljegyzés átnevezése során fellépő hibákat a rendszer mostantól jelenti a felhasználónak

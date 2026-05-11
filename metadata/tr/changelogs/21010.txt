@@ -1,2 +1,0 @@
-• Çizgileri otomatik düzleştirirken hatalı pozitifler azaltıldı
-• Android ve iOS'ta arka planda senkronizasyon için deneysel destek

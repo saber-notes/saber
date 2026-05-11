@@ -1,1 +1,0 @@
-Esta versión contiene una solución para algunos usuarios que no pueden guardar archivos.

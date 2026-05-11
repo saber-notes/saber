@@ -1,3 +1,0 @@
-• Melhor suporte de inversão para translucidez em imagens
-• Otimizações de desempenho para a ferramenta de borracha
-• Tamanho de arquivo de notas reduzido

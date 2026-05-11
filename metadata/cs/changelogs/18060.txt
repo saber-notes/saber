@@ -1,2 +1,0 @@
-• Opraveno nesprávné převrácení miniatur při ukládání v tmavém režimu
-• Opravena dlouhotrvající chyba inverze s čistě černými pixely

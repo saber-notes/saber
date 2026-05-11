@@ -95,7 +95,7 @@ class _DirectorySelectorState extends State<DirectorySelector> {
   late var _isEmpty = true;
 
   Future<void> _pickDir() async {
-    final directory = await FilePicker.platform.getDirectoryPath(
+    final directory = await FilePicker.getDirectoryPath(
       dialogTitle: widget.title,
       initialDirectory: _directory,
     );

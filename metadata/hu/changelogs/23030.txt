@@ -1,3 +1,0 @@
-• A bejelentkezés után megjelenő "majdnem bejelentkezve" üzenet javítása
-• Egyes ikonok továbbfejlesztése
-• Letiltva a görgetést a nyílbillentyűkkel szövegszerkesztéskor

@@ -1,1 +1,0 @@
-metadata/hu/changelogs/24060.txt

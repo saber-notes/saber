@@ -1,3 +1,0 @@
-• Snížení efektu záře laserových tahů
-• Synchronizátor automaticky vybere nové soubory ve vašem zařízení
-• Opravena chyba, kdy nahrání souboru selhalo po jeho stažení

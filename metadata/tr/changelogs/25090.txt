@@ -1,3 +1,0 @@
-• Ayarlar sayfasındaki küçük kullanıcı arayüzü iyileştirmeleri
-• Basitleştirilmiş ev düzeni ayarı ayarlandı, böylece kartlar artık uzatılmadı
-• Uygulama içi satın alımları kullanmak zorunda kaldıkları için GitHub sponsorlarına iOS'ta referanslar kaldırıldı

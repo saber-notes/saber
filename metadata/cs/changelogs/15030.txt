@@ -1,3 +1,0 @@
-• Přidáno tlačítko pro přejmenování složek
-• Přidán vzor pozadí tabulatury
-• Menší vylepšení třítečkové nabídky editoru

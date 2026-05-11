@@ -1,2 +1,0 @@
-Vous pouvez désormais personnaliser l'épaisseur de la ligne de votre modèle de fond,
-Et les fichiers téléchargés à partir du serveur ont maintenant l'horodatage approprié, les empêchant d'être synchronisés à plusieurs reprises.

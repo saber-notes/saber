@@ -1,2 +1,0 @@
-• Opravené náhledy na poznámky jsou oříznuty divně
-• Pevné exporty na iOS

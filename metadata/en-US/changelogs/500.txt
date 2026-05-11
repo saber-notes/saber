@@ -1,3 +1,0 @@
-• You can now type in notes!
-• Minor bug fixes
-• Added Russian translations, thanks @ShevT

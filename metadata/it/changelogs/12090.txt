@@ -1,3 +1,0 @@
-• Migliore supporto di inversione per la traslucenza nelle immagini
-• Ottimizzazione delle prestazioni per lo strumento di cancellazione
-• Riduzione della dimensione dei file delle note

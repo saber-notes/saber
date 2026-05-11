@@ -1,0 +1,2 @@
+• Manjorsko poskladiščenje koda in delo z lokalizacijo.
+• Ta izdaja se tudi napaja skladnost z Googlem sistemom za verifikacijo programerjev, ko se distribuira izven Google Play trgovine.

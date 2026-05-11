@@ -1,2 +1,0 @@
-• Fixed Layout Problem mit der Textbearbeitungs-Toolleiste
-• Fehlerbehebungen von Saber in einigen Übersetzungen

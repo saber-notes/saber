@@ -1,3 +1,9 @@
+## 1.4.0
+
+- Updated the SDK to support [16 KB page sizes](https://github.com/onyx-intl/OnyxAndroidDemo/issues/132). This should resolve issues with Google Play submissions.
+- Added proguard rules so you no longer need to add them to your app manually.
+- Updated the README's setup instructions for the latest SDK, including `build.gradle.kts` snippets. No changes are needed for existing apps.
+
 ## 1.3.0
 
 - `OnyxSdkPenArea` now supports setting stroke style, color, and width, thanks to zinstack625 in [#1452](https://github.com/saber-notes/saber/pull/1452):

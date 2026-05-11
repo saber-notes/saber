@@ -1,4 +1,0 @@
-• Eşitleme düzeltildi!
-• Bir notu silerken veya taşırken varlıkların geride kalmasına neden olan bir hata düzeltildi.
-• Bir notta gezinmek için ok tuşlarını kullanın.
-• Şekil aracı için performans iyileştirmeleri.

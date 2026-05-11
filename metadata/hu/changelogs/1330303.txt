@@ -1,0 +1,3 @@
+• Javítottam azt a hibát, hogy a „Törölő kikapcsolása használat után” beállítás nem kapcsolódott ki
+• Javítottam a memóriaszivárgást a fling gestus kezelésében
+• Frissítem fel az Onyx SDK-t az Onyx Boox eszközökhez

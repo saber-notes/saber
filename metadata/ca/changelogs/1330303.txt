@@ -1,0 +1,3 @@
+• Corregí un error en el que la configuración "Desactivar borrador después de usarlo" no se desactivaba
+• Corregí una fuga de memoria en el manejo de gestos de deslizamiento (fling)
+• Actualitzé el SDK de Onyx per als dispositius Onyx Boox

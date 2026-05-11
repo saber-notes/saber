@@ -1,3 +1,0 @@
-• Wesentliche Verbesserungen der Synchronisierungsgeschwindigkeit
-• Besserer Umgang mit veralteten Verschlüsselungskennwörtern
-• Verbesserte Darstellung von Laserstrichen

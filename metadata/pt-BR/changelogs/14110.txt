@@ -1,3 +1,0 @@
-• Reduzido o tamanho do arquivo de notas com muitos traços
-• Corrigido um bug ao criar uma nota em uma pasta
-• Traduções e atualizações de metadados

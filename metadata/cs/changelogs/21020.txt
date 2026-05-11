@@ -1,3 +1,0 @@
-• Laserový bodovač nyní čeká na vás, abyste přestali psát před fadingem ven
-• Opravena chyba, která způsobila některé stránky PDF, aby se ztratila ztracená
-• Opravena chyba, kde byly odstraněny náhledy odstraněných poznámek

@@ -1,2 +1,0 @@
-• PDF'leri yakınlaştırırken oluşan kilitlenme düzeltildi
-• Şekil aracının geliştirilmiş performansı

@@ -1,3 +1,0 @@
-• Do nástroje tvarování byla přidána hvězda
-• Opraveny podivné rohy na trojúhelníkech nakreslených nástrojem tvar
-• Pevné jednobodové body se neukládají

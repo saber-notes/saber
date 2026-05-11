@@ -1,3 +1,0 @@
-• Improved scrolling performance and removed layout shifts
-• Failed uploads are now retried at increasingly long intervals
-• Added a logs page at the bottom of settings

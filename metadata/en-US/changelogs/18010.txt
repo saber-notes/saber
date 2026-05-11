@@ -1,3 +1,0 @@
-• Assets are now lazily loaded as you scroll to them
-• Removed unused thumbnail generation
-• Fixed a bug where deleted files wouldn't be unselected

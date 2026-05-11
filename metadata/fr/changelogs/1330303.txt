@@ -1,0 +1,3 @@
+• Corrigé un bug où le réglage "Désactiver l'effaceur après utilisation" ne se désactivait pas
+• Corrigé une fuite de mémoire dans la gestion des gestes de balayage (fling)
+• Mis à jour le SDK Onyx pour les appareils Onyx Boox

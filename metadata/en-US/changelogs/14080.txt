@@ -1,2 +1,0 @@
-• Fixed PDF exports being grey-ish for some users
-• Added a button to delete folders

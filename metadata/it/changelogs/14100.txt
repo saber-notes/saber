@@ -1,3 +1,0 @@
-• Risolto il problema con l'annullamento/ripetizione dei colpi
-• Il colore corrente viene ora visualizzato nella barra degli strumenti senza dover aprire la barra dei colori
-• Piccoli miglioramenti visivi e prestazionali

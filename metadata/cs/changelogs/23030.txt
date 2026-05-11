@@ -1,3 +1,0 @@
-• Opravena zpráva „téměř přihlášen“ zobrazovaná po přihlášení
-• Vylepšeny některé ikony
-• Zakázané posouvání pomocí kláves se šipkami při úpravě textu

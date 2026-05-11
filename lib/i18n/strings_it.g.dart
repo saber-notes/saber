@@ -335,11 +335,11 @@ class _TranslationsHomeDeleteNoteDialogIt extends TranslationsHomeDeleteNoteDial
 	// Translations
 	@override String deleteNotes({required Object n}) => 'Elimina ${n} note';
 	@override String deleteName({required Object f}) => 'Elimina ${f}';
+	@override String get delete => 'Elimina';
 	@override String confirmDelete({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('it'))(n,
 		one: 'Eliminare permanentemente la nota selezionata?',
 		other: 'Eliminare permanentemente le note selezionate?',
 	);
-	@override String get delete => 'Elimina';
 }
 
 // Path: home.renameFolder

@@ -1,2 +1,0 @@
-• Risolto un crash durante l'ingrandimento dei PDF
-• Prestazioni migliorate dello strumento forma

@@ -1,1 +1,0 @@
-Opravené problémy s importem PDF, díky @Qubab na gitHubu

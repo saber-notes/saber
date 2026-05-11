@@ -1,0 +1,2 @@
+• Küçük kod temizliği ve uluslararasılaştırma çalışmaları.
+• Bu sürüm ayrıca Google Play Store dışında dağıtım yaparken Google'ın geliştirici doğrulama programına uyum sağlamaya çalışmaktadır.

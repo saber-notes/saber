@@ -1,3 +1,0 @@
-• Javítva egy szélső tok, ahol a lézer mutató érvénytelen stroke -ot eredményezhet.
-• A Strokes magasabb színvonalú, ha nagyítva van.
-• Általános karbantartás, javított tesztelés és a színfalak mögött.

@@ -1,3 +1,0 @@
-• Opravené zpětné/opakované tahy
-• Aktuální barva je nyní zobrazena na panelu nástrojů, aniž byste museli panel barev otevírat
-• Menší vizuální a výkonnostní vylepšení

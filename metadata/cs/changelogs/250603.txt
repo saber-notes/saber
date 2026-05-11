@@ -1,2 +1,0 @@
-• Opraven nástroj pro výběr ne (viditelně) pohybující se tahy
-• Opraveny odkazy na server na stránce účtu

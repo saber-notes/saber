@@ -79,7 +79,7 @@ class _NewNoteButtonState extends State<NewNoteButton> {
           child: const Icon(Icons.note_add),
           label: t.home.create.importNote,
           onTap: () async {
-            final result = await FilePicker.platform.pickFiles(
+            final result = await FilePicker.pickFiles(
               type: FileType.any,
               allowMultiple: false,
               withData: false,

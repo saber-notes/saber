@@ -1,2 +1,0 @@
-• Yanlışlıkla değiştirmeyi önlemek için parmakla çizim düğmesini gizleyen bir ayar eklendi
-• Hata düzeltmeleri

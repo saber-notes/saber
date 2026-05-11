@@ -1,3 +1,0 @@
-• Jobb görgetési teljesítmény és eltávolított elrendezési eltolás
-• A sikertelen feltöltéseket a rendszer mostanra egyre hosszabb időközönként próbálja meg újra
-• Hozzáadott egy naplóoldalt a beállítások alján

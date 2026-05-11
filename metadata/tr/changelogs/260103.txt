@@ -1,3 +1,0 @@
-• Biraz azaltılmış uygulama boyutu
-• Gözat sayfasındaki geçerli klasör yolunun yeni ekranı
-• Gelecek güncellemelerde, uygulamayı geliştirmeme yardımcı olmak için bazı hata izleme ekleyeceğim. Sabit olacak ve yapabildiğim kadar anonim olacak.

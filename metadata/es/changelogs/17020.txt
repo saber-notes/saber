@@ -1,3 +1,0 @@
-• Mantenga presionado un color reciente para fijarlo
-• Ahora puedes exportar notas desde la pantalla de inicio.
-• Varias correcciones de errores

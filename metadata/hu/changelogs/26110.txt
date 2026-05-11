@@ -1,4 +1,0 @@
-• Az alkalmazáson belüli frissítő most a letöltési folyamatot mutatja
-• Kisebb vizuális és teljesítménybeli fejlesztések
-• Javítva az AppImage, amely nem fut a Fedorán
-• Alapértelmezés szerint letiltotta a ceruza hangeffektust

@@ -1,2 +1,0 @@
-• Added some (optional) crash reporting to help me improve the app.
-• Minor bug fixes.

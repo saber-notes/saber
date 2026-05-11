@@ -1,3 +1,0 @@
-• Hlavní vylepšení rychlosti synchronizace
-• Lepší zpracování zastaralých šifrovacích hesel
-• Vylepšené vykreslování laserových tahů

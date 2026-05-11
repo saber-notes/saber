@@ -1,1 +1,0 @@
-Se corrigió un error de sincronización que causaba que las rutas de los archivos se descifraran incorrectamente, gracias a @QubaB en GitHub.

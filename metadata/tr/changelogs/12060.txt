@@ -1,4 +1,0 @@
-• Büyük notlarla performans iyileştirmeleri
-• Düzenleyici menüsünün her zaman bir notun son sayfasında olduğunuzu düşünmesi düzeltildi.
-• Editör menüsüne bir sürükleme kolu eklendi
-• Artık desteklenmeyen bir Nextcloud sunucusunda oturum açmaya çalışırsanız bir mesaj alacaksınız.

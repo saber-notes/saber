@@ -333,13 +333,13 @@ class _TranslationsHomeDeleteNoteDialogHe extends TranslationsHomeDeleteNoteDial
 	final TranslationsHe _root; // ignore: unused_field
 
 	// Translations
+	@override String deleteNotes({required Object n}) => 'מחיקת ${n} פתקים';
+	@override String deleteName({required Object f}) => 'מחיקת ${f}';
 	@override String confirmDelete({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('he'))(n,
-		one: 'מחוק לצמיתות את ההערה הנבחרת?',
-		other: 'מחוק באופן קבוע את ההערות הנבחרות?',
+		one: 'למחוק את הפתק שנבחר לצמיתות?',
+		other: 'למחוק את הפתקים שנבחרו לצמיתות?',
 	);
-	@override String deleteNotes({required Object n}) => 'احذف ${n} ملاحظة';
-	@override String deleteName({required Object f}) => 'احذف ${f}';
-	@override String get delete => 'احذف';
+	@override String get delete => 'מחיקה';
 }
 
 // Path: home.renameFolder

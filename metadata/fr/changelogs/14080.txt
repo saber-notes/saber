@@ -1,2 +1,0 @@
-• Correction des exportations PDF grisées pour certains utilisateurs
-• Ajout d'un bouton pour supprimer des dossiers

@@ -1,3 +1,0 @@
-• Bessere Handhabung gelöschter und bereits synchronisierter Dateien
-• Korrektur der zulässigen Leerzeichen am Ende und Anfang von Dateinamen
-• Mehr Feedback darüber, welche Dateien gerade heruntergeladen/hochgeladen werden

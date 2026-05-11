@@ -1,4 +1,0 @@
-• • Ev ekran önbellekleri performans için zaman öncesinde yapılır
-• • Bazı senkronizasyon hataları ve ayarların "her şeyi" düğmesine ekledi
-• • Büyük notları yükleme ile sabit bir otobüs
-• • Görüntülerden önce bölünmüş ikinci gecikme sabit içe dönükdür

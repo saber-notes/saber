@@ -1,3 +1,0 @@
-• Mudar o tamanho da caneta agora é mais intuitivo com uma entrada deslizante
-• Removido o espaço extra em torno do banner de anúncio
-• Melhorias de desempenho e fidelidade menores para o lápis

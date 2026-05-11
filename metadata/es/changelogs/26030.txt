@@ -1,2 +1,0 @@
-• Se agregaron algunos informes de bloqueos (opcionales) para ayudarme a mejorar la aplicación.
-• Se corrige a los errores menores.
