@@ -1,1 +1,10 @@
-{}
+common:
+  done: Готово
+  continueBtn: Продовжити
+  cancel: Скасувати
+home:
+  tabs:
+    home: Головна
+    browse: Переглянути
+  tooltips:
+    exportNote: Експортувати нотатку
