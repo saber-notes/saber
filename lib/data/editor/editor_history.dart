@@ -77,8 +77,8 @@ class EditorHistory {
   /// Adds an item to the [_past] stack.
   void recordChange(EditorHistoryItem item) {
     assert(
-      item.type != .quillUndoneChange,
-      'EditorHistoryItemType.quillUndoneChange is just a hack to make undoing quill changes easier. It should just be recorded as a quill change.',
+    item.type != .quillUndoneChange,
+    'EditorHistoryItemType.quillUndoneChange is just a hack to make undoing quill changes easier. It should just be recorded as a quill change.',
     );
 
     _past.add(item);
@@ -109,12 +109,12 @@ class EditorHistory {
     if (_past.isEmpty) return null;
     assert(_past.last.type == .draw, 'Accidental stroke is not a draw');
     assert(
-      _past.last.strokes.length == 1,
-      'Accidental strokes should be single-stroke',
+    _past.last.strokes.length == 1,
+    'Accidental strokes should be single-stroke',
     );
     assert(
-      _past.last.images.isEmpty,
-      'Accidental strokes should not contain images',
+    _past.last.images.isEmpty,
+    'Accidental strokes should not contain images',
     );
     return _past.removeLast();
   }
@@ -142,6 +142,7 @@ class EditorHistoryItem {
   EditorHistoryItem({
     required this.type,
     required this.pageIndex,
+    this.pageIndexStart,
     required this.strokes,
     required this.images,
     this.offset,
@@ -150,36 +151,49 @@ class EditorHistoryItem {
     this.colorChange,
     this.backgroundPatternChange,
   }) : assert(
-         type != .move || offset != null,
-         'Offset must be provided for move',
-       ),
-       assert(
-         type != .deletePage || page != null,
-         'Page must be provided for deletePage',
-       ),
-       assert(
-         type != .insertPage || page != null,
-         'Page must be provided for insertPage',
-       ),
-       assert(
-         type != .quillChange || quillChange != null,
-         'Quill change must be provided for quillChange',
-       ),
-       assert(
-         type != .quillUndoneChange || quillChange != null,
-         'Quill change must be provided for quillUndoneChange',
-       ),
-       assert(
-         type != .changeColor || colorChange?.length == strokes.length,
-         'colorChange must be provided and contain each of strokes',
-       ),
-       assert(
-         type != .backgroundPattern || backgroundPatternChange != null,
-         'Background pattern change must be provided for backgroundPattern',
-       );
+  type != .move || offset != null,
+  'Offset must be provided for move',
+  ),
+        assert(
+        // Kept from PR-1085: pageIndexStart is required for cross-page moves
+        type != .move || pageIndexStart != null,
+        'pageIndexStart must be provided for move',
+        ),
+        assert(
+        type != .deletePage || page != null,
+        'Page must be provided for deletePage',
+        ),
+        assert(
+        type != .insertPage || page != null,
+        'Page must be provided for insertPage',
+        ),
+        assert(
+        type != .quillChange || quillChange != null,
+        'Quill change must be provided for quillChange',
+        ),
+        assert(
+        type != .quillUndoneChange || quillChange != null,
+        'Quill change must be provided for quillUndoneChange',
+        ),
+        assert(
+        type != .changeColor || colorChange?.length == strokes.length,
+        'colorChange must be provided and contain each of strokes',
+        ),
+        assert(
+        type != .backgroundPattern || backgroundPatternChange != null,
+        'Background pattern change must be provided for backgroundPattern',
+        );
 
   final EditorHistoryItemType type;
   final int pageIndex;
+
+  /// Original page of selected items before being moved to another one.
+  ///
+  /// This can be the same as [pageIndex]
+  /// if the items were moved within the same page.
+  ///
+  /// See also: [SelectResult.pageIndexStart]
+  final int? pageIndexStart;
   final List<Stroke> strokes;
   final List<EditorImage> images;
   final Rect? offset;
@@ -191,6 +205,7 @@ class EditorHistoryItem {
   EditorHistoryItem copyWith({
     EditorHistoryItemType? type,
     int? pageIndex,
+    int? pageIndexStart,
     List<Stroke>? strokes,
     List<EditorImage>? images,
     Rect? offset,
@@ -202,6 +217,7 @@ class EditorHistoryItem {
     return EditorHistoryItem(
       type: type ?? this.type,
       pageIndex: pageIndex ?? this.pageIndex,
+      pageIndexStart: pageIndexStart ?? this.pageIndexStart,
       strokes: strokes ?? this.strokes,
       images: images ?? this.images,
       offset: offset ?? this.offset,
@@ -209,7 +225,7 @@ class EditorHistoryItem {
       quillChange: quillChange ?? this.quillChange,
       colorChange: colorChange ?? this.colorChange,
       backgroundPatternChange:
-          backgroundPatternChange ?? this.backgroundPatternChange,
+      backgroundPatternChange ?? this.backgroundPatternChange,
     );
   }
 }
