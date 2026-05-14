@@ -5,6 +5,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:logging/logging.dart';
 import 'package:one_dollar_unistroke_recognizer/one_dollar_unistroke_recognizer.dart';
 import 'package:saber/components/canvas/_circle_stroke.dart';
+import 'package:saber/components/canvas/_polygon_stroke.dart';
 import 'package:saber/components/canvas/_rectangle_stroke.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/data/prefs.dart';
@@ -108,14 +109,15 @@ class ShapePen extends Pen {
       case DefaultUnistrokeNames.star:
         final polygon = detectedShape.convertToCanonicalPolygon();
         log.info('Detected ${detectedShape.name}');
-        return Stroke(
+        return PolygonStroke(
           color: color,
           pressureEnabled: pressureEnabled,
           options: rawStroke.options,
           pageIndex: rawStroke.pageIndex,
           page: rawStroke.page,
           toolId: toolId,
-        )..addPoints(polygon);
+          vertices: polygon,
+        );
     }
   }
 }

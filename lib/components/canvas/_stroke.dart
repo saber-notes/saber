@@ -7,6 +7,7 @@ import 'package:logging/logging.dart';
 import 'package:one_dollar_unistroke_recognizer/one_dollar_unistroke_recognizer.dart';
 import 'package:perfect_freehand/perfect_freehand.dart';
 import 'package:saber/components/canvas/_circle_stroke.dart';
+import 'package:saber/components/canvas/_polygon_stroke.dart';
 import 'package:saber/components/canvas/_rectangle_stroke.dart';
 import 'package:saber/data/extensions/list_extensions.dart';
 import 'package:saber/data/extensions/point_extensions.dart';
@@ -90,6 +91,13 @@ class Stroke {
         );
       case 'rect':
         return RectangleStroke.fromJson(
+          json,
+          fileVersion: fileVersion,
+          pageIndex: pageIndex,
+          page: page,
+        );
+      case 'polygon':
+        return PolygonStroke.fromJson(
           json,
           fileVersion: fileVersion,
           pageIndex: pageIndex,

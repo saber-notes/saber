@@ -6,6 +6,7 @@ import 'package:one_dollar_unistroke_recognizer/one_dollar_unistroke_recognizer.
 import 'package:path_drawing/path_drawing.dart';
 import 'package:perfect_freehand/perfect_freehand.dart';
 import 'package:saber/components/canvas/_circle_stroke.dart';
+import 'package:saber/components/canvas/_polygon_stroke.dart';
 import 'package:saber/components/canvas/_rectangle_stroke.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/select_result.dart';
@@ -148,6 +149,15 @@ class CanvasPainter extends CustomPainter {
         canvas.drawRRect(
           RRect.fromRectAndRadius(stroke.rect, Radius.circular(strokeSize / 4)),
           shapePaint,
+        );
+      } else if (stroke is PolygonStroke) {
+        canvas.drawPath(
+          _selectPath(stroke),
+          Paint()
+            ..color = paint.color
+            ..style = PaintingStyle.stroke
+            ..strokeWidth = stroke.options.size
+            ..strokeJoin = StrokeJoin.round,
         );
       } else {
         canvas.drawPath(_selectPath(stroke), paint);
