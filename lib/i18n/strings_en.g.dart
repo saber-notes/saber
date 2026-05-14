@@ -105,6 +105,7 @@ class TranslationsHomeEn {
 	late final TranslationsHomeDeleteNoteDialogEn deleteNoteDialog = TranslationsHomeDeleteNoteDialogEn.internal(_root);
 	late final TranslationsHomeRenameFolderEn renameFolder = TranslationsHomeRenameFolderEn.internal(_root);
 	late final TranslationsHomeDeleteFolderEn deleteFolder = TranslationsHomeDeleteFolderEn.internal(_root);
+	late final TranslationsHomeMoveFolderEn moveFolder = TranslationsHomeMoveFolderEn.internal(_root);
 }
 
 // Path: sentry
@@ -552,6 +553,30 @@ class TranslationsHomeDeleteFolderEn {
 
 	/// en: 'Also delete all notes inside this folder'
 	String get alsoDeleteContents => 'Also delete all notes inside this folder';
+}
+
+// Path: home.moveFolder
+class TranslationsHomeMoveFolderEn {
+	TranslationsHomeMoveFolderEn.internal(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+
+	/// en: 'Move folder'
+	String get moveFolder => 'Move folder';
+
+	/// en: 'Move $f'
+	String moveName({required Object f}) => 'Move ${f}';
+
+	/// en: 'Move'
+	String get move => 'Move';
+
+	/// en: 'Folder will be renamed to $newName'
+	String renamedTo({required Object newName}) => 'Folder will be renamed to ${newName}';
+
+	/// en: 'Cannot move folder here'
+	String get cantMoveHere => 'Cannot move folder here';
 }
 
 // Path: sentry.consent

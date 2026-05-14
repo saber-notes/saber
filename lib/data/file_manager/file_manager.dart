@@ -544,6 +544,90 @@ class FileManager {
     await directory.delete(recursive: recursive);
   }
 
+  /// Moves a directory from [fromPath] to [toPath].
+  ///
+  /// Returns the final destination path after the move.
+  /// If a directory already exists at [toPath], the directory name will be
+  /// suffixed with a number e.g. "folder (2)".
+  ///
+  /// This method prevents moving a directory into its own subdirectory.
+  static Future<String> moveDirectory(String fromPath, String toPath) async {
+    fromPath = _sanitisePath(fromPath);
+    toPath = _sanitisePath(toPath);
+
+    // Ensure paths don't end with slash for consistent handling
+    if (fromPath.endsWith('/')) {
+      fromPath = fromPath.substring(0, fromPath.length - 1);
+    }
+    if (toPath.endsWith('/')) {
+      toPath = toPath.substring(0, toPath.length - 1);
+    }
+
+    // Prevent moving a directory into itself or its subdirectory
+    if (toPath.startsWith('$fromPath/')) {
+      throw ArgumentError('Cannot move a folder into its own subdirectory');
+    }
+
+    // Make the destination path unique if it already exists
+    toPath = await _suffixDirectoryPathToMakeItUnique(toPath);
+
+    if (fromPath == toPath) return toPath;
+
+    final fromDir = Directory(documentsDirectory + fromPath);
+    if (!fromDir.existsSync()) {
+      log.warning(
+        'Tried to move non-existent directory from $fromPath to $toPath',
+      );
+      return toPath;
+    }
+
+    // Collect all files in the directory for reference updates
+    final List<String> children = [];
+    await for (final entity in fromDir.list(recursive: true)) {
+      if (entity is File) {
+        children.add(
+          entity.path.substring(documentsDirectory.length + fromPath.length),
+        );
+      }
+    }
+
+    // Create the parent directory of the destination if needed
+    final toParentDir = Directory(
+      documentsDirectory + toPath.substring(0, toPath.lastIndexOf('/')),
+    );
+    if (!toParentDir.existsSync()) {
+      await toParentDir.create(recursive: true);
+    }
+
+    // Move the directory
+    await fromDir.rename(documentsDirectory + toPath);
+
+    // Update references and broadcast file operations for all children
+    for (final child in children) {
+      _renameReferences(fromPath + child, toPath + child);
+      broadcastFileWrite(FileOperationType.delete, fromPath + child);
+      broadcastFileWrite(FileOperationType.write, toPath + child);
+    }
+
+    return toPath;
+  }
+
+  /// Returns a unique directory path by appending a number to the end.
+  /// e.g. "/MyFolder" -> "/MyFolder (2)"
+  static Future<String> _suffixDirectoryPathToMakeItUnique(
+    String directoryPath,
+  ) async {
+    String newPath = directoryPath;
+    int i = 1;
+
+    while (Directory(documentsDirectory + newPath).existsSync()) {
+      i++;
+      newPath = '$directoryPath ($i)';
+    }
+
+    return newPath;
+  }
+
   /// Gets the children of a directory, separated into
   /// [DirectoryChildren.directories] and [DirectoryChildren.files].
   ///
