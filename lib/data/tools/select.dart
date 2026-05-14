@@ -25,11 +25,42 @@ abstract class Select extends Tool {
   /// The initial selection angle when rotation started.
   double? initialSelectionAngle;
 
+  /// Whether the user is currently dragging a resize handle.
+  var isResizing = false;
+
+  /// Which resize handle is being dragged.
+  ResizeHandle? activeResizeHandle;
+
+  /// The bounds of the selection when resizing started.
+  Rect? initialResizeBounds;
+
+  /// The anchor (opposite corner) to scale from.
+  Offset? resizeAnchor;
+
+  /// Cumulative scale applied so far in the current resize gesture.
+  double resizeScalePrevX = 1.0;
+  double resizeScalePrevY = 1.0;
+
   /// The minimum ratio of points inside a stroke or image
   /// for it to be selected.
   static const minPercentInside = 0.7;
 
-  void unselect() {}
+  void unselect() {
+    doneSelecting = false;
+    isRotating = false;
+    isResizing = false;
+    activeResizeHandle = null;
+    initialResizeBounds = null;
+    resizeAnchor = null;
+    resizeScalePrevX = 1.0;
+    resizeScalePrevY = 1.0;
+    selectResult = SelectResult(
+      pageIndex: -1,
+      strokes: const [],
+      images: const [],
+      path: Path(),
+    );
+  }
 
   Color? getDominantStrokeColor() {
     return null;

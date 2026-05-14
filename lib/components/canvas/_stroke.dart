@@ -401,6 +401,24 @@ class Stroke {
     }
   }
 
+  /// Scales all points and cached polygons/paths by [scaleX]/[scaleY]
+  /// around the given [anchor] point.
+  void scale(double scaleX, double scaleY, Offset anchor) {
+    if (scaleX == 1 && scaleY == 1) return;
+    final ax = anchor.dx;
+    final ay = anchor.dy;
+
+    for (int i = 0; i < points.length; i++) {
+      final p = points[i];
+      points[i] = PointVector(
+        ax + (p.dx - ax) * scaleX,
+        ay + (p.dy - ay) * scaleY,
+        p.pressure,
+      );
+    }
+    markPolygonNeedsUpdating();
+  }
+
   /// Rotates all points and cached polygons/paths by [angle] radians
   /// around the given [center] point.
   void rotate(double angle, Offset center) {

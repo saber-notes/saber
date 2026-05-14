@@ -260,6 +260,23 @@ sealed class EditorImage extends ChangeNotifier {
 
   EditorImage copy();
 
+  /// Scales the image's [dstRect] and [dstFullRect] by [scaleX]/[scaleY]
+  /// around the given [anchor] point.
+  void scaleRect(double scaleX, double scaleY, Offset anchor) {
+    if (scaleX == 1 && scaleY == 1) return;
+    final ax = anchor.dx;
+    final ay = anchor.dy;
+
+    final newLeft = ax + (_dstRect.left - ax) * scaleX;
+    final newTop = ay + (_dstRect.top - ay) * scaleY;
+    final newWidth = _dstRect.width * scaleX;
+    final newHeight = _dstRect.height * scaleY;
+
+    _dstRect = Rect.fromLTWH(newLeft, newTop, newWidth, newHeight);
+    _dstFullRect = getDstFullRect();
+    notifyListeners();
+  }
+
   /// Rotates the image's [dstRect] and [dstFullRect] by [angle] radians
   /// around the given [center] point.
   void rotate(double angle, Offset center) {

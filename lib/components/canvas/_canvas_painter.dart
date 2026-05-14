@@ -234,6 +234,9 @@ class CanvasPainter extends CustomPainter {
   /// The radius of the rotation handle circle in logical pixels
   static const double _rotationHandleRadius = 12.0;
 
+  /// The radius of each resize handle circle
+  static const double _resizeHandleRadius = 8.0;
+
   void _drawSelection(Canvas canvas) {
     if (currentSelection == null) return;
 
@@ -257,11 +260,44 @@ class CanvasPainter extends CustomPainter {
 
     if (currentSelection!.isEmpty) return;
 
+    final bounds = currentSelection!.path.getBounds();
+
+    // Draw resize handles at corners and midpoints
+    final handlePositions = <Offset>[
+      bounds.topLeft,
+      Offset(bounds.center.dx, bounds.top),
+      bounds.topRight,
+      Offset(bounds.left, bounds.center.dy),
+      Offset(bounds.right, bounds.center.dy),
+      bounds.bottomLeft,
+      Offset(bounds.center.dx, bounds.bottom),
+      bounds.bottomRight,
+    ];
+
+    for (final pos in handlePositions) {
+      // Filled circle
+      canvas.drawCircle(
+        pos,
+        _resizeHandleRadius,
+        Paint()
+          ..color = Colors.white
+          ..style = PaintingStyle.fill,
+      );
+      // Border
+      canvas.drawCircle(
+        pos,
+        _resizeHandleRadius,
+        Paint()
+          ..color = primaryColor
+          ..strokeWidth = 2
+          ..style = PaintingStyle.stroke,
+      );
+    }
+
     // Draw rotation handle above the selection
     final handleCenter = currentSelection!.rotationHandleCenter;
 
     // Calculate the top-center of the current (rotated) path bounds
-    final bounds = currentSelection!.path.getBounds();
     final topCenterOfSelection = Offset(bounds.center.dx, bounds.top);
 
     // Draw a line from the top of the selection to the handle

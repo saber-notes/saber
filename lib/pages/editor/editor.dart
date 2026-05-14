@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
-import 'dart:math' show atan2, pi;
+import 'dart:math' show atan2, max, min, pi;
 
 import 'package:collapsible/collapsible.dart';
 import 'package:file_picker/file_picker.dart';
@@ -599,28 +599,41 @@ class EditorState extends State<Editor> {
       }
       removeExcessPages();
     } else if (currentTool is SelectLasso || currentTool is SelectBox) {
-      final Select select = currentTool as Select;
-      if (select.doneSelecting &&
-          select.selectResult.pageIndex == dragPageIndex!) {
-        // Check if the user is touching the rotation handle
-        if (select.selectResult.isPointNearRotationHandle(position)) {
-          select.isRotating = true;
-          final center = select.selectResult.path.getBounds().center;
-          select.rotateCenter = center;
-          final touchAngle = atan2(position.dy - center.dy, position.dx - center.dx);
-          select.initialTouchAngle = touchAngle;
-          select.initialSelectionAngle = select.selectResult.angle;
-        } else if (select.selectResult.path.contains(position)) {
-          // drag selection in onDrawUpdate
+        final Select select = currentTool as Select;
+        if (select.doneSelecting &&
+            select.selectResult.pageIndex == dragPageIndex!) {
+          // Check if the user is touching the rotation handle
+          if (select.selectResult.isPointNearRotationHandle(position)) {
+            select.isRotating = true;
+            final center = select.selectResult.path.getBounds().center;
+            select.rotateCenter = center;
+            final touchAngle = atan2(position.dy - center.dy, position.dx - center.dx);
+            select.initialTouchAngle = touchAngle;
+            select.initialSelectionAngle = select.selectResult.angle;
+          } else if (select.selectResult.getResizeHandleAt(position) != null) {
+            // Check if the user is touching a resize handle
+            final resizeHandle = select.selectResult.getResizeHandleAt(position)!;
+            select.isResizing = true;
+            select.activeResizeHandle = resizeHandle;
+            select.resizeAnchor = select.selectResult.getOppositeAnchor(resizeHandle);
+            select.initialResizeBounds = select.selectResult.path.getBounds();
+            select.resizeScalePrevX = 1.0;
+            select.resizeScalePrevY = 1.0;
+          } else if (select.selectResult.path.contains(position)) {
+            // drag selection in onDrawUpdate (nothing to do here)
+          } else {
+            // User clicked outside: Start NEW selection
+            select.unselect();
+            select.onDragStart(position, dragPageIndex!);
+            history.canRedo = true;
+          }
         } else {
+          // No previous selection or on different page: Start NEW
+          select.unselect();
           select.onDragStart(position, dragPageIndex!);
           history.canRedo = true;
         }
-      } else {
-        select.onDragStart(position, dragPageIndex!);
-        history.canRedo = true; // selection doesn't affect history
-      }
-    } else if (currentTool is LaserPointer) {
+      } else if (currentTool is LaserPointer) {
       (currentTool as LaserPointer).onDragStart(position, page, dragPageIndex!);
     }
 
@@ -663,7 +676,83 @@ class EditorState extends State<Editor> {
       removeExcessPages();
     } else if (currentTool is SelectLasso || currentTool is SelectBox) {
       final Select select = currentTool as Select;
-      if (select.isRotating) {
+      if (select.isResizing) {
+        final initialBounds = select.initialResizeBounds!;
+        final handle = select.activeResizeHandle!;
+        final anchor = select.resizeAnchor!;
+        final boundsWidth = initialBounds.width;
+        final boundsHeight = initialBounds.height;
+
+        if (boundsWidth <= 0 || boundsHeight <= 0) {
+          previousPosition = position;
+          return;
+        }
+
+        double newLeft, newTop, newRight, newBottom;
+        switch (handle) {
+          case ResizeHandle.topLeft:
+            newLeft = position.dx; newTop = position.dy;
+            newRight = initialBounds.right; newBottom = initialBounds.bottom;
+          case ResizeHandle.topCenter:
+            newLeft = initialBounds.left; newTop = position.dy;
+            newRight = initialBounds.right; newBottom = initialBounds.bottom;
+          case ResizeHandle.topRight:
+            newLeft = initialBounds.left; newTop = position.dy;
+            newRight = position.dx; newBottom = initialBounds.bottom;
+          case ResizeHandle.middleLeft:
+            newLeft = position.dx; newTop = initialBounds.top;
+            newRight = initialBounds.right; newBottom = initialBounds.bottom;
+          case ResizeHandle.middleRight:
+            newLeft = initialBounds.left; newTop = initialBounds.top;
+            newRight = position.dx; newBottom = initialBounds.bottom;
+          case ResizeHandle.bottomLeft:
+            newLeft = position.dx; newTop = initialBounds.top;
+            newRight = initialBounds.right; newBottom = position.dy;
+          case ResizeHandle.bottomCenter:
+            newLeft = initialBounds.left; newTop = initialBounds.top;
+            newRight = initialBounds.right; newBottom = position.dy;
+          case ResizeHandle.bottomRight:
+            newLeft = initialBounds.left; newTop = initialBounds.top;
+            newRight = position.dx; newBottom = position.dy;
+        }
+
+        final cLeft = min(newLeft, newRight);
+        final cTop = min(newTop, newBottom);
+        final cRight = max(newLeft, newRight);
+        final cBottom = max(newTop, newBottom);
+        if ((cRight - cLeft) < 5 || (cBottom - cTop) < 5) {
+          previousPosition = position;
+          return;
+        }
+
+        final sx = (cRight - cLeft) / boundsWidth;
+        final sy = (cBottom - cTop) / boundsHeight;
+
+        final dx = sx / select.resizeScalePrevX;
+        final dy = sy / select.resizeScalePrevY;
+        select.resizeScalePrevX = sx;
+        select.resizeScalePrevY = sy;
+
+        select.selectResult = SelectResult(
+          pageIndex: select.selectResult.pageIndex,
+          strokes: select.selectResult.strokes,
+          images: select.selectResult.images,
+          path: Path()..addRect(initialBounds),
+          angle: select.selectResult.angle,
+        );
+        select.selectResult.scalePathOnly(sx, sy, anchor);
+
+        for (final stroke in select.selectResult.strokes) {
+          stroke.scale(dx, dy, anchor);
+        }
+        for (final image in select.selectResult.images) {
+          image.scaleRect(dx, dy, anchor);
+        }
+
+        select.selectResult = select.selectResult.copyWith();
+        page.redrawStrokes();
+        setState(() {});
+      } else if (select.isRotating) {
         // Rotate the selection based on the angle from center to touch point
         final center = select.rotateCenter!;
         final currentTouchAngle = atan2(position.dy - center.dy, position.dx - center.dx);
@@ -854,33 +943,39 @@ class EditorState extends State<Editor> {
             images: [],
           ),
         );
-      } else if (currentTool is SelectLasso || currentTool is SelectBox) {
-        if (moveOffset == .zero) return;
-        final Select select = currentTool as Select;
-        if (select.doneSelecting) {
-          history.recordChange(
-            EditorHistoryItem(
-              type: .move,
-              pageIndex: dragPageIndex!,
-              strokes: select.selectResult.strokes,
-              images: select.selectResult.images,
-              offset: .fromLTRB(
-                moveOffset.dx,
-                moveOffset.dy,
-                moveOffset.dx,
-                moveOffset.dy,
-              ),
-            ),
-          );
-        } else {
-          shouldSave = false;
-          select.onDragEnd(page.strokes, page.images);
+        } else if (currentTool is SelectLasso || currentTool is SelectBox) {
+          final Select select = currentTool as Select;
+          final bool wasAction = select.isResizing || select.isRotating || moveOffset != .zero;
+          
+          // Reset flags
+          select.isResizing = false;
+          select.isRotating = false;
 
-          if (select.selectResult.isEmpty) {
-            SelectLasso.currentSelect.unselect();
-            SelectBox.currentSelect.unselect();
+          if (!wasAction && select.doneSelecting) return;
+          
+          if (select.doneSelecting) {
+            history.recordChange(
+              EditorHistoryItem(
+                type: .move,
+                pageIndex: dragPageIndex!,
+                strokes: select.selectResult.strokes,
+                images: select.selectResult.images,
+                offset: .fromLTRB(
+                  moveOffset.dx,
+                  moveOffset.dy,
+                  moveOffset.dx,
+                  moveOffset.dy,
+                ),
+              ),
+            );
+          } else {
+            shouldSave = false;
+            select.onDragEnd(page.strokes, page.images);
+
+            if (select.selectResult.isEmpty) {
+              select.unselect();
+            }
           }
-        }
       } else if (currentTool is LaserPointer) {
         shouldSave = false;
         final newStroke = (currentTool as LaserPointer).onDragEnd(
