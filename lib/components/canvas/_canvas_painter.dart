@@ -6,6 +6,7 @@ import 'package:one_dollar_unistroke_recognizer/one_dollar_unistroke_recognizer.
 import 'package:path_drawing/path_drawing.dart';
 import 'package:perfect_freehand/perfect_freehand.dart';
 import 'package:saber/components/canvas/_circle_stroke.dart';
+import 'package:saber/components/canvas/_ellipse_stroke.dart';
 import 'package:saber/components/canvas/_polygon_stroke.dart';
 import 'package:saber/components/canvas/_rectangle_stroke.dart';
 import 'package:saber/components/canvas/_stroke.dart';
@@ -144,6 +145,15 @@ class CanvasPainter extends CustomPainter {
 
       if (stroke is CircleStroke) {
         canvas.drawCircle(stroke.center, stroke.radius, shapePaint);
+      } else if (stroke is EllipseStroke) {
+        canvas.drawOval(
+          Rect.fromCenter(
+            center: stroke.center,
+            width: stroke.radiusX * 2,
+            height: stroke.radiusY * 2,
+          ),
+          shapePaint,
+        );
       } else if (stroke is RectangleStroke) {
         final strokeSize = stroke.options.size;
         canvas.drawRRect(
@@ -232,6 +242,25 @@ class CanvasPainter extends CustomPainter {
         final rect = shape.convertToRect();
         canvas.drawRect(rect, shapePaint);
       case DefaultUnistrokeNames.circle:
+        final rect = shape.convertToRect();
+        if (rect.width > 0 && rect.height > 0) {
+          final aspectRatio = rect.width / rect.height;
+          const ellipseThreshold = 1.15;
+          final isEllipse = aspectRatio > ellipseThreshold ||
+                            aspectRatio < 1 / ellipseThreshold;
+          if (isEllipse) {
+            final (center, radiusX, radiusY) = shape.convertToOval();
+            canvas.drawOval(
+              Rect.fromCenter(
+                center: center,
+                width: radiusX * 2,
+                height: radiusY * 2,
+              ),
+              shapePaint,
+            );
+            break;
+          }
+        }
         final (center, radius) = shape.convertToCircle();
         canvas.drawCircle(center, radius, shapePaint);
       case DefaultUnistrokeNames.triangle:

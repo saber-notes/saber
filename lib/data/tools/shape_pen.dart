@@ -5,6 +5,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:logging/logging.dart';
 import 'package:one_dollar_unistroke_recognizer/one_dollar_unistroke_recognizer.dart';
 import 'package:saber/components/canvas/_circle_stroke.dart';
+import 'package:saber/components/canvas/_ellipse_stroke.dart';
 import 'package:saber/components/canvas/_polygon_stroke.dart';
 import 'package:saber/components/canvas/_rectangle_stroke.dart';
 import 'package:saber/components/canvas/_stroke.dart';
@@ -93,6 +94,28 @@ class ShapePen extends Pen {
           rect: rect,
         );
       case DefaultUnistrokeNames.circle:
+        final rect = detectedShape.convertToRect();
+        if (rect.width > 0 && rect.height > 0) {
+          final aspectRatio = rect.width / rect.height;
+          const ellipseThreshold = 1.15;
+          final isEllipse = aspectRatio > ellipseThreshold ||
+                            aspectRatio < 1 / ellipseThreshold;
+          if (isEllipse) {
+            final (center, radiusX, radiusY) = detectedShape.convertToOval();
+            log.info('Detected ellipse: c=$center, rx=$radiusX, ry=$radiusY');
+            return EllipseStroke(
+              color: color,
+              pressureEnabled: pressureEnabled,
+              options: rawStroke.options,
+              pageIndex: rawStroke.pageIndex,
+              page: rawStroke.page,
+              toolId: toolId,
+              center: center,
+              radiusX: radiusX,
+              radiusY: radiusY,
+            );
+          }
+        }
         final (center, radius) = detectedShape.convertToCircle();
         log.info('Detected circle: c=$center, r=$radius');
         return CircleStroke(

@@ -5,6 +5,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'package:saber/components/canvas/_circle_stroke.dart';
+import 'package:saber/components/canvas/_ellipse_stroke.dart';
 import 'package:saber/components/canvas/_rectangle_stroke.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/canvas_preview.dart';
@@ -83,6 +84,15 @@ abstract class EditorExporter {
                         pageSize.height - stroke.center.dy,
                         stroke.radius,
                         stroke.radius,
+                        clockwise: false,
+                      );
+                    } else if (stroke is EllipseStroke) {
+                      shouldFillShape = false;
+                      pdfGraphics.drawEllipse(
+                        stroke.center.dx,
+                        pageSize.height - stroke.center.dy,
+                        stroke.radiusX,
+                        stroke.radiusY,
                         clockwise: false,
                       );
                     } else if (stroke is RectangleStroke) {
