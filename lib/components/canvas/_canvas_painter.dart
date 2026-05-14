@@ -260,10 +260,13 @@ class CanvasPainter extends CustomPainter {
     // Draw rotation handle above the selection
     final handleCenter = currentSelection!.rotationHandleCenter;
 
-    // Draw a line from the center top of the selection to the handle
+    // Calculate the top-center of the current (rotated) path bounds
     final bounds = currentSelection!.path.getBounds();
+    final topCenterOfSelection = Offset(bounds.center.dx, bounds.top);
+
+    // Draw a line from the top of the selection to the handle
     canvas.drawLine(
-      Offset(bounds.center.dx, bounds.top),
+      topCenterOfSelection,
       handleCenter,
       Paint()
         ..color = primaryColor

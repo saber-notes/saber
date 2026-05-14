@@ -1653,35 +1653,30 @@ class EditorState extends State<Editor> {
               autosaveAfterDelay();
             });
           },
-          rotateSelection: () {
+                    rotateSelection: () {
             final Select select = currentTool as Select;
             if (!select.doneSelecting) return;
 
             setState(() {
-              final double rotationAngle = pi / 2; // 90 degrees
+              // 1. Rotiere alles (Strokes, Bilder UND den Auswahlpfad) um 90 Grad
+              const double rotationAngle = pi / 2; 
               select.selectResult.rotate(rotationAngle);
 
-              // Force repaint by replacing the selectResult reference
-              select.selectResult = select.selectResult.copyWith();
-
-              // Force page redraw to update canvas
+              // 2. Sage der Seite, dass sie die Pfade neu berechnen muss
               final page = coreInfo.pages[select.selectResult.pageIndex];
               page.redrawStrokes();
 
+              // 3. Historie für Undo/Redo registrieren
               history.recordChange(
                 EditorHistoryItem(
                   type: .move,
                   pageIndex: select.selectResult.pageIndex,
                   strokes: select.selectResult.strokes,
                   images: select.selectResult.images,
-                  offset: .fromLTRB(
-                    select.selectResult.angle,
-                    0,
-                    select.selectResult.angle,
-                    0,
-                  ),
+                  offset: Rect.zero, // Wir nutzen Rect.zero als Platzhalter für Rotation
                 ),
               );
+              
               autosaveAfterDelay();
             });
           },

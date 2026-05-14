@@ -275,7 +275,20 @@ sealed class EditorImage extends ChangeNotifier {
     final newLeft = cx + dx * cosA - dy * sinA;
     final newTop = cy + dx * sinA + dy * cosA;
 
-    _dstRect = Rect.fromLTWH(newLeft, newTop, _dstRect.width, _dstRect.height);
+    // For 90° and 270° (and close to those) rotations, swap width and height
+    // so that the image dimensions match the rotated selection area.
+    final width = _dstRect.width;
+    final height = _dstRect.height;
+    final isNear90 = (sinA - 1).abs() < 0.01 && cosA.abs() < 0.01;   // ~90°
+    final isNear270 = (sinA + 1).abs() < 0.01 && cosA.abs() < 0.01;  // ~270°
+    if (isNear90 || isNear270) {
+      _dstRect = Rect.fromLTWH(newLeft, newTop, height, width);
+      // Also swap naturalSize so that dstFullRect calculates correct scale
+      naturalSize = Size(naturalSize.height, naturalSize.width);
+    } else {
+      _dstRect = Rect.fromLTWH(newLeft, newTop, width, height);
+    }
+
     _dstFullRect = getDstFullRect();
     notifyListeners();
   }
