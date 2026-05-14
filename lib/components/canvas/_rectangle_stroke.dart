@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:fixnum/fixnum.dart';
 import 'package:flutter/material.dart';
 import 'package:one_dollar_unistroke_recognizer/one_dollar_unistroke_recognizer.dart';
@@ -151,6 +153,54 @@ class RectangleStroke extends Stroke {
   @override
   @Deprecated('We already know the shape is a rectangle.')
   bool isStraightLine([int minLength = 0]) => false;
+
+  @override
+  void scale(double scaleX, double scaleY, Offset anchor) {
+    if (scaleX == 1 && scaleY == 1) return;
+    final ax = anchor.dx;
+    final ay = anchor.dy;
+    final left = ax + (rect.left - ax) * scaleX;
+    final top = ay + (rect.top - ay) * scaleY;
+    final right = ax + (rect.right - ax) * scaleX;
+    final bottom = ay + (rect.bottom - ay) * scaleY;
+    rect = Rect.fromLTRB(left, top, right, bottom);
+    markPolygonNeedsUpdating();
+  }
+
+  @override
+  void rotate(double angle, Offset rotationCenter) {
+    if (angle == 0) return;
+    final cosA = cos(angle);
+    final sinA = sin(angle);
+    // Rotate all four corners around rotationCenter
+    final rotatedCorners = [
+      _rotatePoint(rect.topLeft, rotationCenter, cosA, sinA),
+      _rotatePoint(rect.topRight, rotationCenter, cosA, sinA),
+      _rotatePoint(rect.bottomRight, rotationCenter, cosA, sinA),
+      _rotatePoint(rect.bottomLeft, rotationCenter, cosA, sinA),
+    ];
+    // Recompute the axis-aligned bounding rectangle (we store the rect,
+    // not the rotated polygon)
+    double minX = double.infinity, minY = double.infinity;
+    double maxX = double.negativeInfinity, maxY = double.negativeInfinity;
+    for (final corner in rotatedCorners) {
+      if (corner.dx < minX) minX = corner.dx;
+      if (corner.dy < minY) minY = corner.dy;
+      if (corner.dx > maxX) maxX = corner.dx;
+      if (corner.dy > maxY) maxY = corner.dy;
+    }
+    rect = Rect.fromLTRB(minX, minY, maxX, maxY);
+    markPolygonNeedsUpdating();
+  }
+
+  static Offset _rotatePoint(Offset point, Offset center, double cosA, double sinA) {
+    final dx = point.dx - center.dx;
+    final dy = point.dy - center.dy;
+    return Offset(
+      center.dx + dx * cosA - dy * sinA,
+      center.dy + dx * sinA + dy * cosA,
+    );
+  }
 
   @override
   RectangleStroke copy() => RectangleStroke(

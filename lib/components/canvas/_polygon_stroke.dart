@@ -1,6 +1,8 @@
 /// 🤖 Generated with Claude Code
 library;
 
+import 'dart:math';
+
 import 'package:fixnum/fixnum.dart';
 import 'package:flutter/material.dart';
 import 'package:one_dollar_unistroke_recognizer/one_dollar_unistroke_recognizer.dart';
@@ -159,6 +161,37 @@ class PolygonStroke extends Stroke {
   @override
   @Deprecated('We already know the shape is a polygon.')
   bool isStraightLine([int minLength = 0]) => false;
+
+  @override
+  void scale(double scaleX, double scaleY, Offset anchor) {
+    if (scaleX == 1 && scaleY == 1) return;
+    final ax = anchor.dx;
+    final ay = anchor.dy;
+    for (int i = 0; i < vertices.length; i++) {
+      vertices[i] = Offset(
+        ax + (vertices[i].dx - ax) * scaleX,
+        ay + (vertices[i].dy - ay) * scaleY,
+      );
+    }
+    markPolygonNeedsUpdating();
+  }
+
+  @override
+  void rotate(double angle, Offset rotationCenter) {
+    if (angle == 0) return;
+    final cosA = cos(angle);
+    final sinA = sin(angle);
+    for (int i = 0; i < vertices.length; i++) {
+      final v = vertices[i];
+      final dx = v.dx - rotationCenter.dx;
+      final dy = v.dy - rotationCenter.dy;
+      vertices[i] = Offset(
+        rotationCenter.dx + dx * cosA - dy * sinA,
+        rotationCenter.dy + dx * sinA + dy * cosA,
+      );
+    }
+    markPolygonNeedsUpdating();
+  }
 
   @override
   PolygonStroke copy() => PolygonStroke(

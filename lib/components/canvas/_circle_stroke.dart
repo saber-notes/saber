@@ -141,6 +141,33 @@ class CircleStroke extends Stroke {
   bool isStraightLine([int minLength = 0]) => false;
 
   @override
+  void scale(double scaleX, double scaleY, Offset anchor) {
+    if (scaleX == 1 && scaleY == 1) return;
+    final ax = anchor.dx;
+    final ay = anchor.dy;
+    center = Offset(
+      ax + (center.dx - ax) * scaleX,
+      ay + (center.dy - ay) * scaleY,
+    );
+    radius *= (scaleX + scaleY) / 2;
+    markPolygonNeedsUpdating();
+  }
+
+  @override
+  void rotate(double angle, Offset rotationCenter) {
+    if (angle == 0) return;
+    final cosA = cos(angle);
+    final sinA = sin(angle);
+    final dx = center.dx - rotationCenter.dx;
+    final dy = center.dy - rotationCenter.dy;
+    center = Offset(
+      rotationCenter.dx + dx * cosA - dy * sinA,
+      rotationCenter.dy + dx * sinA + dy * cosA,
+    );
+    markPolygonNeedsUpdating();
+  }
+
+  @override
   CircleStroke copy() => CircleStroke(
     color: color,
     pressureEnabled: pressureEnabled,
