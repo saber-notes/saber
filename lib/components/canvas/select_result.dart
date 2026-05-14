@@ -1,3 +1,6 @@
+/// 🤖 Generated partially with Claude Code; Google Antigravity
+library;
+
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:saber/components/canvas/_stroke.dart';
@@ -48,6 +51,15 @@ class SelectResult {
   /// Returns true if [point] is near the rotation handle.
   bool isPointNearRotationHandle(Offset point, {double radius = 20}) {
     return (point - rotationHandleCenter).distance <= radius;
+  }
+
+  /// Returns which endpoint (0 = start, 1 = end) of a given straight line stroke
+  /// is near [point], or null if none.
+  int? getEndpointIndexAt(Offset point, Stroke stroke, {double radius = 20.0}) {
+    if (!stroke.isStraightLineStroke) return null;
+    if ((point - stroke.lineStart).distance <= radius) return 0;
+    if ((point - stroke.lineEnd).distance <= radius) return 1;
+    return null;
   }
 
   /// Returns which resize handle (if any) is near [point].

@@ -602,8 +602,22 @@ class EditorState extends State<Editor> {
         final Select select = currentTool as Select;
         if (select.doneSelecting &&
             select.selectResult.pageIndex == dragPageIndex!) {
-          // Check if the user is touching the rotation handle
-          if (select.selectResult.isPointNearRotationHandle(position)) {
+          // Check if the user is touching an endpoint of a straight line stroke
+          bool startedEndpointEdit = false;
+          for (final stroke in select.selectResult.strokes) {
+            final endpointIndex = select.selectResult.getEndpointIndexAt(position, stroke);
+            if (endpointIndex != null) {
+              select.isEditingEndpoint = true;
+              select.activeEndpointStroke = stroke;
+              select.activeEndpointIndex = endpointIndex;
+              startedEndpointEdit = true;
+              break;
+            }
+          }
+          if (startedEndpointEdit) {
+            // Nothing more to do here, handled in onDrawUpdate
+          } else if (select.selectResult.isPointNearRotationHandle(position)) {
+            // Check if the user is touching the rotation handle
             select.isRotating = true;
             final center = select.selectResult.path.getBounds().center;
             select.rotateCenter = center;
@@ -760,6 +774,25 @@ class EditorState extends State<Editor> {
         select.selectResult.rotate(deltaAngle);
         select.initialTouchAngle = currentTouchAngle;
         select.selectResult = select.selectResult.copyWith();
+        page.redrawStrokes();
+        setState(() {});
+      } else if (select.isEditingEndpoint) {
+        // Drag a straight line endpoint
+        final stroke = select.activeEndpointStroke!;
+        stroke.moveLineEndpoint(select.activeEndpointIndex, position);
+        // Update the selection path to encompass the new endpoint position
+        final allPoints = [
+          for (final s in select.selectResult.strokes) ...[s.lineStart, s.lineEnd],
+        ];
+        if (allPoints.isNotEmpty) {
+          final newPath = Path();
+          newPath.moveTo(allPoints.first.dx, allPoints.first.dy);
+          for (final p in allPoints.skip(1)) {
+            newPath.lineTo(p.dx, p.dy);
+          }
+          newPath.close();
+          select.selectResult.path = newPath;
+        }
         page.redrawStrokes();
         setState(() {});
       } else if (select.doneSelecting) {
@@ -945,11 +978,14 @@ class EditorState extends State<Editor> {
         );
         } else if (currentTool is SelectLasso || currentTool is SelectBox) {
           final Select select = currentTool as Select;
-          final bool wasAction = select.isResizing || select.isRotating || moveOffset != .zero;
+          final bool wasAction = select.isResizing || select.isRotating || select.isEditingEndpoint || moveOffset != .zero;
           
           // Reset flags
           select.isResizing = false;
           select.isRotating = false;
+          select.isEditingEndpoint = false;
+          select.activeEndpointStroke = null;
+          select.activeEndpointIndex = 0;
 
           if (!wasAction && select.doneSelecting) return;
           

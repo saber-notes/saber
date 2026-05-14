@@ -336,6 +336,42 @@ class Stroke {
     return recognizeUnistroke(points);
   }
 
+  /// Whether this stroke is a straight line (converted via [convertToLine]).
+  ///
+  /// A straight line stroke has exactly 3 points (start, end, end dupe),
+  /// and its [options.isComplete] is true.
+  bool get isStraightLineStroke =>
+      points.length == 3 &&
+      options.isComplete &&
+      points[0] != points[1];
+
+  /// Returns the start point of a straight line stroke.
+  /// Assumes [isStraightLineStroke] is true.
+  Offset get lineStart => points[0];
+
+  /// Returns the end point of a straight line stroke.
+  /// Assumes [isStraightLineStroke] is true.
+  Offset get lineEnd => points[1];
+
+  /// Moves one endpoint of a straight line to [newPosition],
+  /// keeping the line straight.
+  /// [endpointIndex] is 0 for start, 1 for end.
+  void moveLineEndpoint(int endpointIndex, Offset newPosition) {
+    assert(isStraightLineStroke);
+    assert(endpointIndex == 0 || endpointIndex == 1);
+
+    final pressure = points[endpointIndex].pressure;
+    points[endpointIndex] = PointVector.fromOffset(
+      offset: newPosition,
+      pressure: pressure,
+    );
+
+    // Update the duplicated end point
+    points[2] = points[1];
+
+    markPolygonNeedsUpdating();
+  }
+
   /// Uses the one_dollar_unistroke_recognizer package
   /// only to recognize straight lines.
   ///

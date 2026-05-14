@@ -1,3 +1,6 @@
+/// 🤖 Generated partially with Claude Code; Google Antigravity
+library;
+
 import 'package:flutter/material.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/image/editor_image.dart';
@@ -41,6 +44,15 @@ abstract class Select extends Tool {
   double resizeScalePrevX = 1.0;
   double resizeScalePrevY = 1.0;
 
+  /// Whether the user is currently dragging a straight line endpoint.
+  var isEditingEndpoint = false;
+
+  /// The stroke whose endpoint is being edited.
+  Stroke? activeEndpointStroke;
+
+  /// Which endpoint is being edited (0 = start, 1 = end).
+  int activeEndpointIndex = 0;
+
   /// The minimum ratio of points inside a stroke or image
   /// for it to be selected.
   static const minPercentInside = 0.7;
@@ -54,6 +66,9 @@ abstract class Select extends Tool {
     resizeAnchor = null;
     resizeScalePrevX = 1.0;
     resizeScalePrevY = 1.0;
+    isEditingEndpoint = false;
+    activeEndpointStroke = null;
+    activeEndpointIndex = 0;
     selectResult = SelectResult(
       pageIndex: -1,
       strokes: const [],

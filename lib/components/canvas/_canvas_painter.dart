@@ -1,3 +1,6 @@
+/// 🤖 Generated partially with Claude Code; Google Antigravity
+library;
+
 import 'dart:math';
 import 'dart:ui' as ui;
 
@@ -300,6 +303,23 @@ class CanvasPainter extends CustomPainter {
     if (currentSelection!.isEmpty) return;
 
     final bounds = currentSelection!.path.getBounds();
+
+    // Draw endpoint handles for straight line strokes
+    for (final stroke in currentSelection!.strokes) {
+      if (!stroke.isStraightLineStroke) continue;
+      final endpointPaint = Paint()
+        ..color = Colors.white
+        ..style = PaintingStyle.fill;
+      final endpointBorderPaint = Paint()
+        ..color = primaryColor
+        ..strokeWidth = 2
+        ..style = PaintingStyle.stroke;
+
+      for (final endpoint in [stroke.lineStart, stroke.lineEnd]) {
+        canvas.drawCircle(endpoint, _resizeHandleRadius, endpointPaint);
+        canvas.drawCircle(endpoint, _resizeHandleRadius, endpointBorderPaint);
+      }
+    }
 
     // Draw resize handles at corners and midpoints
     final handlePositions = <Offset>[
