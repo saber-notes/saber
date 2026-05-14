@@ -662,6 +662,9 @@ class TranslationsSettingsPrefLabelsEn {
 	/// en: 'Invert notes in dark mode'
 	String get editorAutoInvert => 'Invert notes in dark mode';
 
+	/// en: 'Keep white paper in dark mode'
+	String get whitePaperInDarkMode => 'Keep white paper in dark mode';
+
 	/// en: 'Prefer greyscale colors'
 	String get preferGreyscale => 'Prefer greyscale colors';
 

@@ -467,6 +467,22 @@ class _SettingsPageState extends State<SettingsPage> {
                   },
                   pref: stows.editorAutoInvert,
                 ),
+                ValueListenableBuilder(
+                  valueListenable: stows.editorAutoInvert,
+                  builder: (context, editorAutoInvert, _) {
+                    return Collapsible(
+                      collapsed: !editorAutoInvert,
+                      axis: CollapsibleAxis.vertical,
+                      child: SettingsSwitch(
+                        title: t.settings.prefLabels.whitePaperInDarkMode,
+                        iconBuilder: (b) {
+                          return b ? Icons.wb_sunny : Icons.nightlight_round;
+                        },
+                        pref: stows.whitePaperInDarkMode,
+                      ),
+                    );
+                  },
+                ),
                 SettingsSwitch(
                   title: t.settings.prefLabels.editorPromptRename,
                   subtitle: t.settings.prefDescriptions.editorPromptRename,

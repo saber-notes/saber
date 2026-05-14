@@ -145,6 +145,11 @@ class Stows {
     true,
     volatile: !_isOnMainIsolate,
   );
+  final whitePaperInDarkMode = PlainStow(
+    'whitePaperInDarkMode',
+    false,
+    volatile: !_isOnMainIsolate,
+  );
   final preferGreyscale = PlainStow(
     'preferGreyscale',
     false,

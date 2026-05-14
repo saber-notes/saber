@@ -102,6 +102,7 @@ settings:
     editorToolbarAlignment: Toolbar position
     editorToolbarShowInFullscreen: Show the toolbar in fullscreen mode
     editorAutoInvert: Invert notes in dark mode
+    whitePaperInDarkMode: Keep white paper in dark mode
     preferGreyscale: Prefer greyscale colors
     maxImageSize: Maximum image size
     autoClearWhiteboardOnExit: Auto-clear the whiteboard

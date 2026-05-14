@@ -62,7 +62,8 @@ class _InnerCanvasState extends State<InnerCanvas> {
     final theme = Theme.of(context);
     final colorScheme = theme.colorScheme;
     final brightness = theme.brightness;
-    final invert = stows.editorAutoInvert.value && brightness == .dark;
+    final invertDark = stows.editorAutoInvert.value && brightness == .dark;
+    final invert = invertDark && !stows.whitePaperInDarkMode.value;
     final Color backgroundColor =
         widget.coreInfo.backgroundColor ?? InnerCanvas.defaultBackgroundColor;
 
