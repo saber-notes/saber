@@ -48,8 +48,10 @@ sealed class EditorImage extends ChangeNotifier {
   void Function()? onMiscChange;
   final VoidCallback? onLoad;
 
-  Rect srcRect = .zero;
+  /// rectangle used to display image (image crop region to be displayed). Full image dimension is given by naturalSize
+  Rect srcRect = Rect.zero;
 
+  /// rectangle used to display image on canvas (area of cropped image)
   late var _dstRect = Rect.fromLTWH(
     0,
     0,
@@ -65,7 +67,7 @@ sealed class EditorImage extends ChangeNotifier {
         CanvasImage.minImageSize / _dstRect.width,
         CanvasImage.minImageSize / _dstRect.height,
       );
-      _dstRect = .fromLTWH(
+      _dstRect = Rect.fromLTWH(
         _dstRect.left,
         _dstRect.top,
         _dstRect.width * scale,
@@ -75,7 +77,18 @@ sealed class EditorImage extends ChangeNotifier {
     notifyListeners();
   }
 
-  /// Defines the aspect ratio of the image.
+  /// rectangle used to display full size of image (without cropping it)
+  Rect _dstFullRect = Rect.zero;
+  Rect get dstFullRect => _dstFullRect;
+  set dstFullRect(Rect dstFullRect) {
+    _dstFullRect = dstFullRect;
+    notifyListeners();
+  }
+
+  /// show only cropped image, if false then show full image (it is used to select crop rect)
+  bool showCroppedImage = true;
+
+  /// Defines the aspect ratio of the original image - image size
   Size naturalSize;
 
   /// The size of the page this image is on,
@@ -98,28 +111,28 @@ sealed class EditorImage extends ChangeNotifier {
     required this.extension,
     required this.pageIndex,
     required this.pageSize,
-    this.naturalSize = .zero,
+    this.naturalSize = Size.zero,
     this.invertible = true,
-    this.backgroundFit = .contain,
+    this.backgroundFit = BoxFit.contain,
     required this.onMoveImage,
     required this.onDeleteImage,
     required this.onMiscChange,
     this.onLoad,
     this.newImage = true,
-    Rect dstRect = .zero,
-    this.srcRect = .zero,
+    Rect dstRect = Rect.zero,
+    this.srcRect = Rect.zero,
     bool isThumbnail = false,
   }) : assert(extension.startsWith('.')),
-       _dstRect = dstRect,
-       _isThumbnail = isThumbnail;
+        _dstRect = dstRect,
+        _isThumbnail = isThumbnail;
 
   factory EditorImage.fromJson(
-    Map<String, dynamic> json, {
-    required List<Uint8List>? inlineAssets,
-    bool isThumbnail = false,
-    required String sbnPath,
-    required AssetCache assetCache,
-  }) {
+      Map<String, dynamic> json, {
+        required List<Uint8List>? inlineAssets,
+        bool isThumbnail = false,
+        required String sbnPath,
+        required AssetCache assetCache,
+      }) {
     final extension = json['e'] as String?;
     if (extension == '.svg') {
       return SvgEditorImage.fromJson(
@@ -264,5 +277,55 @@ sealed class EditorImage extends ChangeNotifier {
     }
 
     return Size(width, height);
+  }
+
+  // image cropping functions
+
+  /// function returning rectangle in destination coordinates (canvas) to be used to draw full image
+  Rect getDstFullRect() {
+    double scaleX;
+    double scaleY;
+    if (srcRect.width != 0 && srcRect.height != 0) {
+      scaleX = dstRect.width / srcRect.width;
+      scaleY = dstRect.height / srcRect.height;
+    } else {
+      // src rect is not set. Assume it is naturalSize
+      // srcrect is zero for pdf images
+      scaleX = dstRect.width / naturalSize.width;
+      scaleY = dstRect.height / naturalSize.height;
+    }
+    Offset cs = srcRect.topLeft; // offset of crop origin (topleft) from image origin (0,0)
+    Offset srcOriginInDest = -Offset(cs.dx * scaleX, cs.dy * scaleY); // offset of image origin (0,0) with respect to cropped origin in canvas dst coordinates
+    dstFullRect = Rect.fromLTWH(
+      srcOriginInDest.dx,
+      srcOriginInDest.dy,
+      naturalSize.width * scaleX,
+      naturalSize.height * scaleY,
+    ).shift(dstRect.topLeft); // this is Rect in dst coordinates of full size image
+    return dstFullRect;
+  }
+
+  /// recalculates rectangle from destination coordinates given by dstR to image source coordinates given by srcRect
+  /// function is called during defining cropped part of image - dstR is rectangle in canvas coordinates
+  /// and represents a part of dstFullRect. From their difference we calculate srcRect - part of image to be displayed
+  Rect transformRectFromDstToSrcDuringCrop(Rect dstR) {
+    double scaleX;
+    double scaleY;
+    if (srcRect.width != 0 && srcRect.height != 0) {
+      scaleX = dstRect.width / srcRect.width;
+      scaleY = dstRect.height / srcRect.height;
+    } else {
+      // src rect is not set. Assume it is naturalSize
+      // srcrect is zero for pdf images
+      scaleX = dstRect.width / naturalSize.width;
+      scaleY = dstRect.height / naturalSize.height;
+    }
+    Rect rct = dstR.shift(-dstFullRect.topLeft); // remove destination rect position - position 0,0 is top left corner cropRect
+    double dx = rct.left / scaleX; // offset of dstR from src topleft
+    double dy = rct.top / scaleY;
+    double width = rct.width / scaleX;
+    double height = rct.height / scaleY;
+    Rect crp = Rect.fromLTWH(0 + dx, 0 + dy, width, height);
+    return crp; // this is new srcRect of image
   }
 }

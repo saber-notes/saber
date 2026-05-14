@@ -34,22 +34,22 @@ class PdfEditorImage extends EditorImage {
     required super.naturalSize,
     super.isThumbnail,
   }) : assert(
-         !naturalSize.isEmpty,
-         'naturalSize must be set for PdfEditorImage',
-       ),
-       assert(
-         pdfBytes != null || pdfFile != null,
-         'pdfFile must be set if pdfBytes is null',
-       ),
-       super(extension: '.pdf', srcRect: .zero);
+  !naturalSize.isEmpty,
+  'naturalSize must be set for PdfEditorImage',
+  ),
+        assert(
+        pdfBytes != null || pdfFile != null,
+        'pdfFile must be set if pdfBytes is null',
+        ),
+        super(extension: '.pdf', srcRect: Rect.zero);
 
   factory PdfEditorImage.fromJson(
-    Map<String, dynamic> json, {
-    required List<Uint8List>? inlineAssets,
-    bool isThumbnail = false,
-    required String sbnPath,
-    required AssetCache assetCache,
-  }) {
+      Map<String, dynamic> json, {
+        required List<Uint8List>? inlineAssets,
+        bool isThumbnail = false,
+        required String sbnPath,
+        required AssetCache assetCache,
+      }) {
     final extension = json['e'] as String?;
     assert(extension == null || extension == '.pdf');
 
@@ -74,22 +74,22 @@ class PdfEditorImage extends EditorImage {
 
     return PdfEditorImage(
       id:
-          json['id'] ??
+      json['id'] ??
           -1, // -1 will be replaced by EditorCoreInfo._handleEmptyImageIds()
       assetCache: assetCache,
       pdfBytes: pdfBytes,
       pdfFile: pdfFile,
       pdfPage: json['pdfi'],
       pageIndex: json['i'] ?? 0,
-      pageSize: .infinite,
+      pageSize: Size.infinite,
       invertible: json['v'] ?? true,
-      backgroundFit: json['f'] != null ? .values[json['f']] : .contain,
+      backgroundFit: json['f'] != null ? BoxFit.values[json['f']] : BoxFit.contain,
       onMoveImage: null,
       onDeleteImage: null,
       onMiscChange: null,
       onLoad: null,
       newImage: false,
-      dstRect: .fromLTWH(
+      dstRect: Rect.fromLTWH(
         json['x'] ?? 0,
         json['y'] ?? 0,
         json['w'] ?? 0,
@@ -133,6 +133,9 @@ class PdfEditorImage extends EditorImage {
       pdfBytes: pdfBytes,
     );
     await _pdfDocument.value!.pages[pdfPage].ensureLoaded();
+
+    // each image should have set dstFullRect.
+    dstFullRect = getDstFullRect(); // calculate full image rect
   }
 
   @override
@@ -192,7 +195,7 @@ class PdfEditorImage extends EditorImage {
     pdfPage: pdfPage,
     pdfFile: pdfFile,
     pageIndex: pageIndex,
-    pageSize: .infinite,
+    pageSize: Size.infinite,
     invertible: invertible,
     backgroundFit: backgroundFit,
     onMoveImage: onMoveImage,
