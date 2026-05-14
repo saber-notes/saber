@@ -13,6 +13,18 @@ abstract class Select extends Tool {
   );
   var doneSelecting = false;
 
+  /// Whether the user is currently dragging the rotation handle.
+  var isRotating = false;
+
+  /// The center of the selection when rotation started.
+  Offset? rotateCenter;
+
+  /// The initial angle from center to the touch point when rotation started.
+  double? initialTouchAngle;
+
+  /// The initial selection angle when rotation started.
+  double? initialSelectionAngle;
+
   /// The minimum ratio of points inside a stroke or image
   /// for it to be selected.
   static const minPercentInside = 0.7;

@@ -401,6 +401,28 @@ class Stroke {
     }
   }
 
+  /// Rotates all points and cached polygons/paths by [angle] radians
+  /// around the given [center] point.
+  void rotate(double angle, Offset center) {
+    if (angle == 0) return;
+    final cosA = cos(angle);
+    final sinA = sin(angle);
+    final cx = center.dx;
+    final cy = center.dy;
+
+    for (int i = 0; i < points.length; i++) {
+      final p = points[i];
+      final dx = p.dx - cx;
+      final dy = p.dy - cy;
+      points[i] = PointVector(
+        cx + dx * cosA - dy * sinA,
+        cy + dx * sinA + dy * cosA,
+        p.pressure,
+      );
+    }
+    markPolygonNeedsUpdating();
+  }
+
   Stroke copy() => Stroke(
     color: color,
     pressureEnabled: pressureEnabled,

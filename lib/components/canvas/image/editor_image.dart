@@ -260,6 +260,26 @@ sealed class EditorImage extends ChangeNotifier {
 
   EditorImage copy();
 
+  /// Rotates the image's [dstRect] and [dstFullRect] by [angle] radians
+  /// around the given [center] point.
+  void rotate(double angle, Offset center) {
+    if (angle == 0) return;
+    final cosA = cos(angle);
+    final sinA = sin(angle);
+    final cx = center.dx;
+    final cy = center.dy;
+
+    // Rotate the top-left corner of dstRect around center
+    final dx = _dstRect.left - cx;
+    final dy = _dstRect.top - cy;
+    final newLeft = cx + dx * cosA - dy * sinA;
+    final newTop = cy + dx * sinA + dy * cosA;
+
+    _dstRect = Rect.fromLTWH(newLeft, newTop, _dstRect.width, _dstRect.height);
+    _dstFullRect = getDstFullRect();
+    notifyListeners();
+  }
+
   /// Resizes [before] to fit inside [max] while maintaining aspect ratio
   @visibleForTesting
   static Size resize(Size before, Size max) {

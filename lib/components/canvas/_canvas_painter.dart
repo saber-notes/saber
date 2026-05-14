@@ -231,6 +231,9 @@ class CanvasPainter extends CustomPainter {
     }
   }
 
+  /// The radius of the rotation handle circle in logical pixels
+  static const double _rotationHandleRadius = 12.0;
+
   void _drawSelection(Canvas canvas) {
     if (currentSelection == null) return;
 
@@ -251,6 +254,52 @@ class CanvasPainter extends CustomPainter {
         ..strokeWidth = 3
         ..style = .stroke,
     );
+
+    if (currentSelection!.isEmpty) return;
+
+    // Draw rotation handle above the selection
+    final handleCenter = currentSelection!.rotationHandleCenter;
+
+    // Draw a line from the center top of the selection to the handle
+    final bounds = currentSelection!.path.getBounds();
+    canvas.drawLine(
+      Offset(bounds.center.dx, bounds.top),
+      handleCenter,
+      Paint()
+        ..color = primaryColor
+        ..strokeWidth = 2,
+    );
+
+    // Draw the rotation handle circle (filled)
+    canvas.drawCircle(
+      handleCenter,
+      _rotationHandleRadius,
+      Paint()
+        ..color = primaryColor
+        ..style = PaintingStyle.fill,
+    );
+    // Draw border
+    canvas.drawCircle(
+      handleCenter,
+      _rotationHandleRadius,
+      Paint()
+        ..color = Colors.white
+        ..strokeWidth = 2
+        ..style = PaintingStyle.stroke,
+    );
+
+    // Draw a curved rotation arrow
+    final arrowPaint = Paint()
+      ..color = Colors.white
+      ..strokeWidth = 2
+      ..style = PaintingStyle.stroke;
+    final arrowPath = Path()
+      ..addArc(
+        Rect.fromCircle(center: handleCenter, radius: 6),
+        -0.5, // start angle
+        pi * 1.5, // sweep angle (almost full circle)
+      );
+    canvas.drawPath(arrowPath, arrowPaint);
   }
 
   void _drawEraserIndicator(Canvas canvas) {

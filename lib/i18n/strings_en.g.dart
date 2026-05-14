@@ -1244,6 +1244,9 @@ class TranslationsEditorSelectionBarEn {
 
 	/// en: 'Duplicate'
 	String get duplicate => 'Duplicate';
+
+	/// en: 'Rotate'
+	String get rotate => 'Rotate';
 }
 
 // Path: editor.menu

@@ -6,11 +6,13 @@ import 'package:saber/i18n/strings.g.dart';
 class SelectionBar extends StatelessWidget {
   final VoidCallback duplicateSelection;
   final VoidCallback deleteSelection;
+  final VoidCallback rotateSelection;
 
   const SelectionBar({
     super.key,
     required this.duplicateSelection,
     required this.deleteSelection,
+    required this.rotateSelection,
   });
 
   @override
@@ -18,6 +20,19 @@ class SelectionBar extends StatelessWidget {
     return Row(
       mainAxisAlignment: .center,
       children: [
+        IconButton(
+          onPressed: rotateSelection,
+          style: TextButton.styleFrom(
+            foregroundColor: ColorScheme.of(context).secondary,
+            backgroundColor: Colors.transparent,
+            shape: const CircleBorder(),
+          ),
+          tooltip: t.editor.selectionBar.rotate, // Rotate 90 degrees
+          icon: const AdaptiveIcon(
+            icon: Icons.rotate_90_degrees_ccw,
+            cupertinoIcon: CupertinoIcons.arrow_uturn_left,
+          ),
+        ),
         IconButton(
           onPressed: duplicateSelection,
           style: TextButton.styleFrom(

@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
+import 'dart:math' show atan2, pi;
 
 import 'package:collapsible/collapsible.dart';
 import 'package:file_picker/file_picker.dart';
@@ -600,9 +601,21 @@ class EditorState extends State<Editor> {
     } else if (currentTool is SelectLasso || currentTool is SelectBox) {
       final Select select = currentTool as Select;
       if (select.doneSelecting &&
-          select.selectResult.pageIndex == dragPageIndex! &&
-          select.selectResult.path.contains(position)) {
-        // drag selection in onDrawUpdate
+          select.selectResult.pageIndex == dragPageIndex!) {
+        // Check if the user is touching the rotation handle
+        if (select.selectResult.isPointNearRotationHandle(position)) {
+          select.isRotating = true;
+          final center = select.selectResult.path.getBounds().center;
+          select.rotateCenter = center;
+          final touchAngle = atan2(position.dy - center.dy, position.dx - center.dx);
+          select.initialTouchAngle = touchAngle;
+          select.initialSelectionAngle = select.selectResult.angle;
+        } else if (select.selectResult.path.contains(position)) {
+          // drag selection in onDrawUpdate
+        } else {
+          select.onDragStart(position, dragPageIndex!);
+          history.canRedo = true;
+        }
       } else {
         select.onDragStart(position, dragPageIndex!);
         history.canRedo = true; // selection doesn't affect history
@@ -650,7 +663,17 @@ class EditorState extends State<Editor> {
       removeExcessPages();
     } else if (currentTool is SelectLasso || currentTool is SelectBox) {
       final Select select = currentTool as Select;
-      if (select.doneSelecting) {
+      if (select.isRotating) {
+        // Rotate the selection based on the angle from center to touch point
+        final center = select.rotateCenter!;
+        final currentTouchAngle = atan2(position.dy - center.dy, position.dx - center.dx);
+        final deltaAngle = currentTouchAngle - select.initialTouchAngle!;
+        select.selectResult.rotate(deltaAngle);
+        select.initialTouchAngle = currentTouchAngle;
+        select.selectResult = select.selectResult.copyWith();
+        page.redrawStrokes();
+        setState(() {});
+      } else if (select.doneSelecting) {
         int pageOffset = 0; // between -1 and 1
         if (position.dy > page.size.height + changePageThreshold) {
           // Selection is dragged past the bottom of the original page
@@ -1625,6 +1648,38 @@ class EditorState extends State<Editor> {
                   pageIndex: select.selectResult.pageIndex,
                   strokes: duplicatedStrokes,
                   images: duplicatedImages,
+                ),
+              );
+              autosaveAfterDelay();
+            });
+          },
+          rotateSelection: () {
+            final Select select = currentTool as Select;
+            if (!select.doneSelecting) return;
+
+            setState(() {
+              final double rotationAngle = pi / 2; // 90 degrees
+              select.selectResult.rotate(rotationAngle);
+
+              // Force repaint by replacing the selectResult reference
+              select.selectResult = select.selectResult.copyWith();
+
+              // Force page redraw to update canvas
+              final page = coreInfo.pages[select.selectResult.pageIndex];
+              page.redrawStrokes();
+
+              history.recordChange(
+                EditorHistoryItem(
+                  type: .move,
+                  pageIndex: select.selectResult.pageIndex,
+                  strokes: select.selectResult.strokes,
+                  images: select.selectResult.images,
+                  offset: .fromLTRB(
+                    select.selectResult.angle,
+                    0,
+                    select.selectResult.angle,
+                    0,
+                  ),
                 ),
               );
               autosaveAfterDelay();

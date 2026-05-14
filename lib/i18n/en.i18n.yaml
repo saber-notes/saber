@@ -263,6 +263,7 @@ editor:
   toolbar:
     toggleColors: Toggle colors (Ctrl C)
     select: Select
+    selectBox: Select box
     toggleEraser: Toggle eraser (Ctrl E)
     photo: Images
     text: Text
@@ -318,6 +319,8 @@ editor:
   selectionBar:
     delete: Delete
     duplicate: Duplicate
+    rotate: Rotate
+    rotate90: Rotate 90°
   menu:
     clearPage: Clear page $page/$totalPages
     clearAllPages: Clear all pages
