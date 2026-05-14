@@ -4,7 +4,7 @@ common:
   cancel: 取消
 home:
   tabs:
-    home: 主页
+    home: 首页
     browse: 全部笔记
     whiteboard: 白板
     settings: 设置
@@ -57,6 +57,12 @@ home:
     deleteNotes(OUTDATED): 删除 $n 笔记
     deleteName(OUTDATED): 删除 $f
     delete(OUTDATED): 删除
+    confirmDelete:
+      other: 是否永久删除所选笔记？
+      one: 是否永久删除所选笔记？
+    delete: 删除
+    deleteName: 删除 $f
+    deleteNotes: 删除 $n 个笔记
   renameFolder:
     renameFolder: 重命名文件夹
     folderName: 文件夹名称
