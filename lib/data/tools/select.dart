@@ -10,9 +10,12 @@ abstract class Select extends Tool {
     strokes: const [],
     images: const [],
     path: Path(),
-    pageIndexStart: -1,
   );
   var doneSelecting = false;
+
+  /// The minimum ratio of points inside a stroke or image
+  /// for it to be selected.
+  static const minPercentInside = 0.7;
 
   void unselect() {}
 
@@ -29,7 +32,6 @@ abstract class Select extends Tool {
       strokes: [],
       images: [],
       path: Path(),
-      pageIndexStart: pageIndex,
     );
     selectResult.path.moveTo(position.dx, position.dy);
     onDragUpdate(position);
@@ -47,7 +49,7 @@ abstract class Select extends Tool {
     for (int i = 0; i < strokes.length; i++) {
       final stroke = strokes[i];
       final percentInside =
-      polygonPercentInside(selectResult.path, stroke.polygon);
+      polygonPercentInside(selectResult.path, stroke.lowQualityPolygon);
       if (percentInside > minPercentInside) {
         selectResult.strokes.add(stroke);
       }

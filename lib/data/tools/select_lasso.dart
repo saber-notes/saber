@@ -33,8 +33,8 @@ class SelectLasso extends Select {
     for (final stroke in selectResult.strokes) {
       colorDistribution.update(
         stroke.color,
-        (value) => value + stroke.length,
-        ifAbsent: () => stroke.length,
+        (value) => value + stroke.length as int,
+        ifAbsent: () => stroke.length as int,
       );
     }
     assert(colorDistribution.isNotEmpty);

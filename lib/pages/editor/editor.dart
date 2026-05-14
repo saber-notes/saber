@@ -631,8 +631,8 @@ class EditorState extends State<Editor> {
       return;
     }
     final page = coreInfo.pages[dragPageIndex!];
-    final position = page.renderBox!.globalToLocal(details.focalPoint);
-    final offset = position - previousPosition;
+    var position = page.renderBox!.globalToLocal(details.focalPoint);
+    var offset = position - previousPosition;
 
     if (currentTool is Pen) {
       (currentTool as Pen).onDragUpdate(position, currentPressure);
