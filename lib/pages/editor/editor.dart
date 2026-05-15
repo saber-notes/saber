@@ -590,13 +590,15 @@ class EditorState extends State<Editor> {
       );
     } else if (currentTool is Eraser) {
       page.eraserPosition = position;
-      for (final stroke in (currentTool as Eraser).checkForOverlappingStrokes(
+      final eraserResult = (currentTool as Eraser).checkForOverlappingStrokes(
         position,
         page.strokes,
         scale: _transformationController.value.approxScale,
-      )) {
+      );
+      for (final stroke in eraserResult.strokesToRemove) {
         page.strokes.remove(stroke);
       }
+      page.strokes.addAll(eraserResult.strokesToAdd);
       removeExcessPages();
     } else if (currentTool is SelectLasso || currentTool is SelectBox) {
         final Select select = currentTool as Select;
@@ -679,13 +681,15 @@ class EditorState extends State<Editor> {
       page.redrawStrokes();
     } else if (currentTool is Eraser) {
       page.eraserPosition = position;
-      for (final stroke in (currentTool as Eraser).checkForOverlappingStrokes(
+      final eraserResult = (currentTool as Eraser).checkForOverlappingStrokes(
         position,
         page.strokes,
         scale: _transformationController.value.approxScale,
-      )) {
+      );
+      for (final stroke in eraserResult.strokesToRemove) {
         page.strokes.remove(stroke);
       }
+      page.strokes.addAll(eraserResult.strokesToAdd);
       page.redrawStrokes();
       removeExcessPages();
     } else if (currentTool is SelectLasso || currentTool is SelectBox) {

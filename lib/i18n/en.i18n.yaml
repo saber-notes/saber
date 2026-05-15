@@ -282,6 +282,9 @@ editor:
     laserPointer: Laser pointer
   penOptions:
     size: Size
+  eraserOptions:
+    partialEraser: Erase only the part covered by the eraser
+    partialEraserDescription: Instead of erasing entire strokes, only erases the portion under the eraser
   colors:
     colorPicker: Color picker
     customBrightnessHue: Custom $b $h

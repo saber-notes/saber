@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:perfect_freehand/perfect_freehand.dart';
 import 'package:saber/components/canvas/_stroke.dart';
+import 'package:saber/data/prefs.dart';
 import 'package:saber/data/tools/eraser.dart';
 import 'package:sbn/has_size.dart';
 
@@ -14,7 +15,8 @@ const _eraserPos = Offset(50, 50);
 
 void main() {
   test('Test that the eraser tool erases the correct strokes', () {
-    final eraser = Eraser(size: 10);
+    stows.eraserSize.value = 10;
+    final eraser = Eraser();
 
     final List<Stroke> strokesToErase = [
       // center
@@ -89,7 +91,8 @@ void main() {
   });
 
   test('Test that eraser size scales inversely with zoom', () {
-    final eraser = Eraser(size: 10);
+    stows.eraserSize.value = 10;
+    final eraser = Eraser();
     // At scale 1.0, this stroke is at the edge (distance = size)
     // At scale 2.0, the effective size should be 5, so this stroke (at 10) should NOT be erased
     final strokeAtEdge = _strokeWithPoint(

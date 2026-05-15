@@ -302,6 +302,7 @@ class TranslationsEditorEn {
 	late final TranslationsEditorToolbarEn toolbar = TranslationsEditorToolbarEn.internal(_root);
 	late final TranslationsEditorPensEn pens = TranslationsEditorPensEn.internal(_root);
 	late final TranslationsEditorPenOptionsEn penOptions = TranslationsEditorPenOptionsEn.internal(_root);
+	late final TranslationsEditorEraserOptionsEn eraserOptions = TranslationsEditorEraserOptionsEn.internal(_root);
 	late final TranslationsEditorColorsEn colors = TranslationsEditorColorsEn.internal(_root);
 	late final TranslationsEditorImageOptionsEn imageOptions = TranslationsEditorImageOptionsEn.internal(_root);
 	late final TranslationsEditorSelectionBarEn selectionBar = TranslationsEditorSelectionBarEn.internal(_root);
@@ -1115,6 +1116,21 @@ class TranslationsEditorPenOptionsEn {
 
 	/// en: 'Size'
 	String get size => 'Size';
+}
+
+// Path: editor.eraserOptions
+class TranslationsEditorEraserOptionsEn {
+	TranslationsEditorEraserOptionsEn.internal(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+
+	/// en: 'Erase only the part covered by the eraser'
+	String get partialEraser => 'Erase only the part covered by the eraser';
+
+	/// en: 'Instead of erasing entire strokes, only erases the portion under the eraser'
+	String get partialEraserDescription => 'Instead of erasing entire strokes, only erases the portion under the eraser';
 }
 
 // Path: editor.colors

@@ -16,6 +16,7 @@ import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/select_result.dart';
 import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/extensions/color_extensions.dart';
+import 'package:saber/data/prefs.dart';
 import 'package:saber/data/tools/eraser.dart';
 import 'package:saber/data/tools/highlighter.dart';
 import 'package:saber/data/tools/laser_pointer.dart';
@@ -402,7 +403,7 @@ class CanvasPainter extends CustomPainter {
 
   void _drawEraserIndicator(Canvas canvas) {
     if (page.eraserPosition == null) return;
-    final radius = Eraser().size / currentScale;
+    final radius = stows.eraserSize.value / currentScale;
 
     final path = Path()
       ..addOval(Rect.fromCircle(center: page.eraserPosition!, radius: radius));

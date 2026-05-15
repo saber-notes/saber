@@ -204,6 +204,16 @@ class Stows {
     false,
     volatile: !_isOnMainIsolate,
   );
+  final partialEraser = PlainStow(
+    'partialEraser',
+    false,
+    volatile: !_isOnMainIsolate,
+  );
+  final eraserSize = PlainStow(
+    'eraserSize',
+    15.0,
+    volatile: !_isOnMainIsolate,
+  );
   final hideFingerDrawingToggle = PlainStow(
     'hideFingerDrawingToggle',
     false,
