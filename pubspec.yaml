@@ -182,6 +182,14 @@ dev_dependencies:
 
   sentry_dart_plugin: ^3.1.1
 
+dependency_overrides:
+  # Needed to compile on Flutter 3.44: https://github.com/singerdmx/flutter-quill/pull/2726
+  # Maintainer note: Use caution with future commits from this fork as this 1-line fix was LLM assisted.
+  flutter_quill:
+    git:
+      url: https://github.com/jodinathan/flutter-quill
+      ref: 2fe373ab961af56e0a8fb6a0064cbbb75613fac6
+
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
