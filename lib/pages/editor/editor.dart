@@ -384,13 +384,7 @@ class EditorState extends State<Editor> {
           // fix the page indices of all pages after this one
           for (int i = item.pageIndex + 1; i < coreInfo.pages.length; ++i) {
             final page = coreInfo.pages[i];
-            for (final stroke in page.strokes) {
-              stroke.pageIndex = i;
-            }
-            for (final image in page.images) {
-              image.pageIndex = i;
-            }
-            page.backgroundImage?.pageIndex = i;
+            page.updatePageIndex(i);
           }
 
         case .insertPage:
@@ -400,13 +394,7 @@ class EditorState extends State<Editor> {
           // fix the page indices of all pages after this one
           for (int i = item.pageIndex; i < coreInfo.pages.length; ++i) {
             final page = coreInfo.pages[i];
-            for (final stroke in page.strokes) {
-              stroke.pageIndex = i;
-            }
-            for (final image in page.images) {
-              image.pageIndex = i;
-            }
-            page.backgroundImage?.pageIndex = i;
+            page.updatePageIndex(i);
           }
 
         case .move:

@@ -279,6 +279,14 @@ class EditorPage extends ChangeNotifier implements HasSize {
     notifyListeners();
   }
 
+  /// Updates the `pageIndex` fields of this page's strokes/images.
+  void updatePageIndex(int pageIndex) {
+    for (final stroke in strokes) stroke.pageIndex = pageIndex;
+    for (final stroke in laserStrokes) stroke.pageIndex = pageIndex;
+    for (final image in images) image.pageIndex = pageIndex;
+    backgroundImage?.pageIndex = pageIndex;
+  }
+
   @override
   void dispose() {
     quill.dispose();
