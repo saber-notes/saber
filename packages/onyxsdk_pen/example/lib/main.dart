@@ -32,9 +32,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Plugin example app'),
-        ),
+        appBar: AppBar(title: const Text('Plugin example app')),
         body: OnyxSdkPenArea(
           child: GestureDetector(
             onPanStart: (details) {
@@ -51,9 +49,7 @@ class _MyAppState extends State<MyApp> {
             },
             child: CustomPaint(
               painter: MyPainter(strokes),
-              child: const Center(
-                child: SelectableText(explanation),
-              ),
+              child: const Center(child: SelectableText(explanation)),
             ),
           ),
         ),

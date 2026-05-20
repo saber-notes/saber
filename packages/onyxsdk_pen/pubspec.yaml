@@ -11,8 +11,8 @@ topics:
   - handwriting
 
 environment:
-  sdk: '>=2.18.6 <4.0.0'
-  flutter: ">=2.5.0"
+  sdk: '>=3.12.0 <4.0.0'
+  flutter: ">=3.44.0"
 
 dependencies:
   flutter:
