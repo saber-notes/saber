@@ -18,8 +18,8 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.33.3+133030
 
 environment:
-  sdk: ">=3.10.0 <4.0.0"
-  flutter: ">=3.41.0"
+  sdk: ">=3.12.0 <4.0.0"
+  flutter: ">=3.44.0"
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -92,7 +92,7 @@ dependencies:
 
   animations: ^2.0.7
 
-  flutter_quill: ^11.1.0
+  flutter_quill: ^11.5.1
   quill_native_bridge_linux: ^0.0.2
 
   window_manager: ^0.5.1
@@ -181,14 +181,6 @@ dev_dependencies:
   golden_screenshot: ^11.0.1
 
   sentry_dart_plugin: ^3.1.1
-
-dependency_overrides:
-  # Needed to compile on Flutter 3.44: https://github.com/singerdmx/flutter-quill/pull/2726
-  # Maintainer note: Use caution with future commits from this fork as this 1-line fix was LLM assisted.
-  flutter_quill:
-    git:
-      url: https://github.com/jodinathan/flutter-quill
-      ref: 2fe373ab961af56e0a8fb6a0064cbbb75613fac6
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

@@ -515,12 +515,11 @@ packages:
   flutter_quill:
     dependency: "direct main"
     description:
-      path: "."
-      ref: "2fe373ab961af56e0a8fb6a0064cbbb75613fac6"
-      resolved-ref: "2fe373ab961af56e0a8fb6a0064cbbb75613fac6"
-      url: "https://github.com/jodinathan/flutter-quill"
-    source: git
-    version: "11.5.0"
+      name: flutter_quill
+      sha256: "3ee7125b2dd3f3bce3ebdaac722a72f0c8aff3db9aa19053a9d777db12d71c98"
+      url: "https://pub.dev"
+    source: hosted
+    version: "11.5.1"
   flutter_quill_delta_from_html:
     dependency: transitive
     description:
@@ -2121,5 +2120,5 @@ packages:
     source: hosted
     version: "0.0.4"
 sdks:
-  dart: ">=3.11.0 <4.0.0"
-  flutter: ">=3.41.0"
+  dart: ">=3.12.0 <4.0.0"
+  flutter: ">=3.44.0"
