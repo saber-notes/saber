@@ -153,11 +153,8 @@ class _EditorPageManagerState extends State<EditorPageManager> {
             ),
           );
         },
-        onReorder: (oldIndex, newIndex) {
+        onReorderItem: (oldIndex, newIndex) {
           if (oldIndex == newIndex) return;
-          if (oldIndex < newIndex) {
-            newIndex -= 1;
-          }
           widget.coreInfo.pages.insert(
             newIndex,
             widget.coreInfo.pages.removeAt(oldIndex),
