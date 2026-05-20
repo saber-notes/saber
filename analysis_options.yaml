@@ -66,8 +66,6 @@ linter:
 
     use_enums: true
 
-    use_if_null_to_convert_nulls_to_bools: true
-
     use_is_even_rather_than_modulo: true
 
     use_named_constants: true
