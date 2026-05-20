@@ -52,7 +52,9 @@ android {
 
     dependencies {
         implementation("com.onyx.android.sdk:onyxsdk-device:1.3.4")
-        implementation("com.onyx.android.sdk:onyxsdk-pen:1.5.4")
+        implementation("com.onyx.android.sdk:onyxsdk-pen:1.5.4") {
+            exclude(group = "com.tencent", module = "mmkv")
+        }
         implementation("org.lsposed.hiddenapibypass:hiddenapibypass:6.1")
     }
 
