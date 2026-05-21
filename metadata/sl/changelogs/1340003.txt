@@ -1,0 +1,4 @@
+• Popravljeno, da nekatere endi stilusa niso vključujejo alate za brisanje v aplikaciji.
+• Popravljeno, da se alat za brisanje ne aktivira pri hitrim premikih stilusa.
+• Popravljeno, da se slik pozadine dodeljuje napakno številko strani po preorganiziranju strani.
+• Dodano ukrajinsko prevod.

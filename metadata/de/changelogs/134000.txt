@@ -1,0 +1,4 @@
+• Korrigiert das Ende des Radierers einiger Stifte, die das Radierwerkzeug in der App nicht auslösten.
+• Korrigiert, dass das Radierwerkzeug bei schnellen Stiftbewegungen nicht ausgelöst wird.
+• Korrigiert, dass Hintergrundbilder nach Umordnung der Seiten die falsche Seitenzahl erhalten.
+• Fügt eine ukrainische Übersetzung hinzu.

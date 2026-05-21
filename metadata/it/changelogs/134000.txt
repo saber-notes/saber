@@ -1,0 +1,4 @@
+• Corretto il lato cancellatore di alcune stilografo che non attivavano lo strumento cancellatore in-app.
+• Corretto il fatto che lo strumento cancellatore non venisse attivato con movimenti veloci della stilografo.
+• Corretto che le immagini di sfondo venissero assegnate al numero di pagina sbagliato dopo aver riorganizzato le pagine.
+• Aggiunta una traduzione in ucraino.

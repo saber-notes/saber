@@ -1,0 +1,4 @@
+• Fixis la ekzisto de la geraso de certaj stilobusoj ne provokas la geraso instrumenton en-appo.
+• Fixis la geraso instrumento ne ricevas provokado kun rapide stilobusmovoj.
+• Fixis la fondo imagenoj estas asignitaj al malan paĝonumero post reorganizadon de paĝoj.
+• Adisita ukrainaja traduko.

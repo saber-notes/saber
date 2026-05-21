@@ -1,0 +1,4 @@
+• Corrigido o fim da borracha de alguns canetas não acionar a ferramenta de borracha no aplicativo.
+• Corrigido a ferramenta de borracha não ser acionada com movimentos rápidos da caneta.
+• Corrigido imagens de fundo sendo atribuídas ao número da página errado após reorganizar as páginas.
+• Adicionada uma tradução para o ucraniano.

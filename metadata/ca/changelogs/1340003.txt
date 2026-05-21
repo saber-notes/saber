@@ -1,0 +1,4 @@
+• Reparat la punta de goma de alguns estilografs que no activaven la mencipta de goma a l'app.
+• Reparat que la mencipta de goma no es activada amb moviments ràpids dels estilografs.
+• Reparat que les imatges de fons es assignaven el número de pàgina incorrecte després de reordenar les pàgines.
+• Afegit una traducció a ukrànc.

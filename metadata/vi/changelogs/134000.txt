@@ -1,0 +1,4 @@
+• Đã sửa lỗi đầu tẩy của một số bút cảm ứng không kích hoạt công cụ tẩy trong ứng dụng.
+• Đã sửa lỗi công cụ tẩy không được kích hoạt với các chuyển động bút cảm ứng nhanh.
+• Đã sửa lỗi hình ảnh nền được gán sai số trang sau khi sắp xếp lại các trang.
+• Đã thêm bản dịch tiếng Ukraina.

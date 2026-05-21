@@ -1,0 +1,4 @@
+• Bazı stilüslerin silgi ucunun uygulama içi silgi aracını tetiklemediğini düzelttim.
+• Hızlı stilüs hareketleriyle silgi aracının tetiklenmemesini düzelttim.
+• Sayfaları yeniden düzenledikten sonra arka plan resimlerinin yanlış sayfa numarası almasını düzelttim.
+• Ukraynalice çeviri eklendi.
