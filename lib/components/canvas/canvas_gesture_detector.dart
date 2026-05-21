@@ -446,7 +446,7 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
   var stylusButtonWasPressed = false;
 
   void _listenerPointerHoverEvent(PointerEvent event) {
-    if (event.kind != PointerDeviceKind.stylus) return;
+    if (event.kind != .stylus && event.kind != .invertedStylus) return;
 
     // Apparently flutter synthesizes a hover event on pointer down,
     // so these are used to detect when hovering ends
@@ -454,7 +454,8 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
       widget.onHoveringEnd();
     } else {
       widget.onHovering();
-      final pressed = event.buttons == kPrimaryStylusButton;
+      final pressed =
+          event.buttons == kSecondaryButton || event.kind == .invertedStylus;
       if (stylusButtonWasPressed != pressed) {
         stylusButtonWasPressed = pressed;
         widget.onStylusButtonChanged(pressed);

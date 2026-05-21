@@ -174,8 +174,12 @@ class EditorState extends State<Editor> {
   /// The last non-Eraser [currentTool] value.
   late Tool _lastNonEraserTool = Pen.currentPen;
 
-  /// If the stylus button is pressed, or was pressed during the current draw gesture.
-  var stylusButtonPressed = false;
+  /// If the stylus button is pressed, or was pressed, during the current draw gesture.
+  ///
+  /// For now, this also includes when an [PointerDeviceKind.inverseStylus] is
+  /// used since the stylus rear-end and stylus button currently act the same.
+  /// If we add customized button bindings, we may have to separate this again.
+  var stylusButtonWasPressed = false;
 
   @override
   void initState() {
@@ -663,9 +667,9 @@ class EditorState extends State<Editor> {
         );
       } else if (currentTool is Eraser) {
         final erased = (currentTool as Eraser).onDragEnd();
-        if (stylusButtonPressed || stows.disableEraserAfterUse.value) {
+        if (stylusButtonWasPressed || stows.disableEraserAfterUse.value) {
           // restore previous tool
-          stylusButtonPressed = false;
+          stylusButtonWasPressed = false;
           currentTool = _lastNonEraserTool;
         }
         if (erased.isEmpty) return;
@@ -739,12 +743,11 @@ class EditorState extends State<Editor> {
     isHovering = false;
   }
 
-  void onStylusButtonChanged(bool buttonPressed) {
-    // whether the stylus button is or was pressed
-    stylusButtonPressed |= buttonPressed;
+  void onStylusButtonChanged(bool buttonIsPressed) {
+    stylusButtonWasPressed |= buttonIsPressed;
 
     if (!isHovering) return;
-    if (buttonPressed) {
+    if (buttonIsPressed) {
       // button pressed while hovering, switch to Eraser
       if (currentTool is! Eraser) {
         currentTool = Eraser();
