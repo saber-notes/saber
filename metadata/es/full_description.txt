@@ -1,0 +1,17 @@
+Saber es la aplicación de notas hecha para tomar notas a mano.
+
+Está diseñada para ser lo mas simple e intuitiva posible, y de igual manera tener funciones únicas que podrás realmente usar. Además, Saber es accesible a través de todos tus dispositivo, chicos y grandes, y se sincroniza entre ellos de forma fluida.
+
+Notablemente, puede invertir tus notas cuando estás en modo oscuro. Esto te permite escribir en tinta blanca en fondo negro, que es mucho más agradable al ojo en ambientes de baja luz, como cuando el profesor apaga las luces de la clase.
+
+Saber usa un sistema dual-password para protejer tus notas de todos menos de ti, incluso si tienen control completo del servidor. Podés guardar tus notas de forma segura en el servidor oficial de Saber, otro servidor, o incluso un servidor hosteado por tu mismo.
+
+Esta aplicación es completamente de código abierto para que cualquiera pueda ver el código fuente y ver exactamente qué está haciendo y como maneja tu data. Muchas otras aplicaciones de notas son de código cerrado y propietario, lo cual significa que el cómo funcionan es un misterio para el público.
+
+Como alguien que estudia matemática, resaltar ecuaciones multi-renglón siempre fue un problema en otras aplicaciones donde el resaltador cambia de color cuando se solapa sobre sí mismo. Otro problema que tenía en otras aplicaciones es que el resaltador se renderiza por encima del texto, desvaneciéndolo y haciéndolo más dificil de leer.
+El resaltador de Saber no tiene esos problemas. Utiliza "canvas compositing" para renderizar el resaltador de una forma que es más consistente con el papel tradicional, el cual maneja solapamientos y mantiene la consistencia del color.
+
+Saber tiene todo lo que necesitas para mantener tus notas organizadas. Creá carpetas dentro de carpetas dentro de carpetas hasta saciar tu corazón, sin límite en la cantidad de carpetas anidadas. Y aunque una nota esté muy undida en una carpeta anidada, igual la podes acceder facilmente dentro de tus notas recientes las cuales están siempre disponibles el la página de inicio.
+
+Descubrí una nueva forma de capturar y organizar tus pensamientos con Saber. Ya sea si sos un estudiante, profesional, o una mente creativa, Saber es tu compañero de confianza para notas digitales a mano.
+Descargala ahora y dejá que tus ideas fluyan libremente!
