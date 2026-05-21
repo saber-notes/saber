@@ -63,9 +63,9 @@ extension on WidgetTester {
   }
 
   /// Similar to [timedDragFrom] but with support for [PointerDeviceKind].
-  /// TODO(adil192): Submit PRs to Flutter to:
-  ///                - Add [PointerDeviceKind] to [timedDragFrom]
-  ///                - Add [buttons] to [TestPointer.hover]
+  // TODO(adil192): Submit PRs to Flutter:
+  //                - Add [PointerDeviceKind] to [timedDragFrom]
+  //                - Add [buttons] to [TestPointer.hover]
   Future<void> _stylusDrag(
     EditorState editorState,
     bool withHover, {
