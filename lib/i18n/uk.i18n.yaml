@@ -6,5 +6,363 @@ home:
   tabs:
     home: Головна
     browse: Переглянути
+    whiteboard(OUTDATED): Біла дошка
+    settings(OUTDATED): Налаштування
+  titles:
+    home(OUTDATED): Недавні нотатки
+    browse(OUTDATED): Переглянути
+    whiteboard(OUTDATED): Біла дошка
+    settings(OUTDATED): Налаштування
   tooltips:
     exportNote: Експортувати нотатку
+    newNote(OUTDATED): Нотатка
+    showUpdateDialog(OUTDATED): Показати діалогове вікно оновлення
+  create:
+    newNote(OUTDATED): Нотатка
+    importNote(OUTDATED): Примітка імпорту
+  newFolder:
+    newFolder(OUTDATED): Нова папка
+    folderName(OUTDATED): Назва папки
+    create(OUTDATED): Створити
+    folderNameEmpty(OUTDATED): Назва папки не може бути порожньою
+    folderNameContainsSlash(OUTDATED): Ім'я папки не може містити слеш
+    folderNameExists(OUTDATED): Папка вже існує
+  renameNote:
+    renameNote(OUTDATED): Перейменувати нотатку
+    noteName(OUTDATED): Примітка імені
+    rename(OUTDATED): Перейменувати
+    noteNameEmpty(OUTDATED): Ім'я не може бути порожнім
+    noteNameExists(OUTDATED): Примітка з цим ім'ям вже існує
+    noteNameForbiddenCharacters(OUTDATED): Ім'я містить заборонені символи
+    noteNameReserved(OUTDATED): Ім'я зарезервовано
+  moveNote:
+    moveNote(OUTDATED): Перемістити нотатку
+    moveNotes(OUTDATED): Перемістити $n$ нотаток
+    moveName(OUTDATED): Перемістити $f
+    move(OUTDATED): Рухайся
+    renamedTo(OUTDATED): Нота буде перейменована на $newName
+    multipleRenamedTo(OUTDATED): "Наступні нотатки будуть перейменовані:"
+    numberRenamedTo(OUTDATED): $n нотаток будуть перейменовані для уникнення конфліктів
+  deleteNoteDialog:
+    confirmDelete:
+      one(OUTDATED): Постійно видалити вибрану нотатку?
+      other(OUTDATED): Постійно видалити вибрані нотатки?
+    deleteNotes(OUTDATED): Видалити $n$ нотаток
+    deleteName(OUTDATED): Видалити $f
+    delete(OUTDATED): Видалити
+  renameFolder:
+    renameFolder(OUTDATED): Перейменувати папку
+    folderName(OUTDATED): Назва папки
+    rename(OUTDATED): Перейменувати
+    folderNameEmpty(OUTDATED): Назва папки не може бути порожньою
+    folderNameContainsSlash(OUTDATED): Ім'я папки не може містити слеш
+    folderNameExists(OUTDATED): Папка з цією назвою вже існує
+  deleteFolder:
+    deleteFolder(OUTDATED): Видалити папку
+    deleteName(OUTDATED): Видалити $f
+    delete(OUTDATED): Видалити
+    alsoDeleteContents(OUTDATED): Також видаліть усі нотатки в цій папці
+  welcome(OUTDATED): Ласкаво просимо до Saber
+  invalidFormat(OUTDATED): Обраний файл не підтримується. Будь ласка, виберіть файл sbn, sbn2, sba або pdf.
+  noFiles(OUTDATED): Не знайдено файлів
+  noPreviewAvailable(OUTDATED): Немає попереднього перегляду
+  createNewNote(OUTDATED): Натисніть кнопку + для створення нової нотатки
+  backFolder(OUTDATED): Повернутися до попередньої папки
+  deleteNote(OUTDATED): Видалити нотатку
+sentry:
+  consent:
+    description:
+      question(OUTDATED): Чи бажаєте ви автоматично повідомляти про несподівані помилки? Це допомагає мені швидше виявляти та виправляти проблеми.
+      scope(OUTDATED): Звіти можуть містити інформацію про помилку та ваше пристрій. Я доклав усіх зусиль, щоб відфільтрувати особисті дані, але деякі можуть залишитися.
+      currentlyOff(OUTDATED): Якщо ви надасте згоду, звіт про помилки буде увімкнено після перезапуску програми.
+      currentlyOn(OUTDATED): Якщо ви відкликаєте згоду, будь ласка, перезапустіть додаток, щоб вимкнути повідомлення про помилки.
+      learnMoreInPrivacyPolicy(rich,OUTDATED): Дізнатися більше у ${link(політику конфіденційності)}.
+    answers:
+      yes(OUTDATED): Так
+      no(OUTDATED): Ні
+      later(OUTDATED): Запитайте мене пізніше
+    title(OUTDATED): Допоможіть покращити Saber?
+settings:
+  prefCategories:
+    general(OUTDATED): Загальне
+    writing(OUTDATED): Писати
+    editor(OUTDATED): Редактор
+    performance(OUTDATED): Продуктивність
+    advanced(OUTDATED): Розширений
+  prefLabels:
+    locale(OUTDATED): Мова
+    appTheme(OUTDATED): Тема програми
+    platform(OUTDATED): Тип теми
+    layoutSize(OUTDATED): Тип макета
+    customAccentColor(OUTDATED): Кольоровий акцент
+    hyperlegibleFont(OUTDATED): шрифт Atkinson Hyperlegible
+    shouldCheckForUpdates(OUTDATED): Перевірити оновлення Saber
+    shouldAlwaysAlertForUpdates(OUTDATED): Швидші оновлення
+    allowInsecureConnections(OUTDATED): Дозволити незахоплені з'єднання
+    editorToolbarAlignment(OUTDATED): Позиція панелі інструментів
+    editorToolbarShowInFullscreen(OUTDATED): Покажіть панель інструментів у повноекранному режимі
+    editorAutoInvert(OUTDATED): Інвертувати нотації у темному режимі
+    preferGreyscale(OUTDATED): Переваблюйте відтінки сірого
+    maxImageSize(OUTDATED): Максимальний розмір зображення
+    autoClearWhiteboardOnExit(OUTDATED): Автоматично очистити дошку
+    disableEraserAfterUse(OUTDATED): Автоматично вимкнути ластик
+    hideFingerDrawingToggle(OUTDATED): Сховати перемикач малювання пальцем
+    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Автоматичне вимкнення малювання пальцем
+    editorPromptRename(OUTDATED): Запит на перейменування нових нотаток
+    recentColorsDontSavePresets(OUTDATED): Не зберігайте попередні кольори в нещодавніх кольорах
+    recentColorsLength(OUTDATED): Скільки нещодавніх кольорів зберігати
+    printPageIndicators(OUTDATED): Вивести індикатори сторінки
+    autosave(OUTDATED): Автозбереження
+    shapeRecognitionDelay(OUTDATED): Затримка розпізнавання форми
+    autoStraightenLines(OUTDATED): Автоматично вирівнювати лінії
+    simplifiedHomeLayout(OUTDATED): Спрощений план дому
+    customDataDir(OUTDATED): Кастомна папка Saber
+    sentry(OUTDATED): Повідомлення про помилку
+  prefDescriptions:
+    hideFingerDrawing:
+      shown(OUTDATED): Запобігає випадковому перемиканню
+      fixedOn(OUTDATED): Малювання пальців встановлено як увімкнене
+      fixedOff(OUTDATED): Малювання пальців закріплено як вимкнене
+    sentry:
+      active(OUTDATED): Активний
+      inactive(OUTDATED): Неактивний
+      activeUntilRestart(OUTDATED): Активно до перезапуску програми
+      inactiveUntilRestart(OUTDATED): Неактивно до перезапуску програми
+    hyperlegibleFont(OUTDATED): Покращує читабельність для користувачів з низьким зором
+    allowInsecureConnections(OUTDATED): (Не рекомендовано) Дозволити Saber підключатися до серверів з самопідписаними/недовіреними сертифікатами
+    preferGreyscale(OUTDATED): Для е-чманітерів
+    autoClearWhiteboardOnExit(OUTDATED): Очищує дошку після виходу з програми
+    disableEraserAfterUse(OUTDATED): Автоматично повертається до ручки після використання гумки.
+    maxImageSize(OUTDATED): Більші зображення будуть стиснуті
+    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Вимкнути малювання пальцем, коли виявлено стилус
+    editorPromptRename(OUTDATED): Ви завжди можете перейменувати нотатки пізніше
+    printPageIndicators(OUTDATED): Покажіть індикатори сторінок у експортах
+    autosave(OUTDATED): Автозбереження після короткої затримки, або ніколи
+    shapeRecognitionDelay(OUTDATED): Як часто оновлювати попередній перегляд форми?
+    autoStraightenLines(OUTDATED): Вирівнює довгі лінії без необхідності використовувати штамп
+    simplifiedHomeLayout(OUTDATED): Встановлює фіксовану висоту для попереднього перегляду кожної ноти
+    shouldAlwaysAlertForUpdates(OUTDATED): Повідомляйте мені про оновлення, як тільки вони будуть доступні.
+  themeModes:
+    system(OUTDATED): Система
+    light(OUTDATED): Світло
+    dark(OUTDATED): Темний
+  layoutSizes:
+    auto(OUTDATED): Авто
+    phone(OUTDATED): Телефон
+    tablet(OUTDATED): Планшет
+  accentColorPicker:
+    pickAColor(OUTDATED): Вибери колір
+  reset:
+    title(OUTDATED): Скинути налаштування?
+    button(OUTDATED): Скинути
+  customDataDir:
+    cancel(OUTDATED): Скасувати
+    select(OUTDATED): Виберіть
+    mustBeEmpty(OUTDATED): Обрана папка має бути порожньою
+    mustBeDoneSyncing(OUTDATED): Переконайтеся, що синхронізація завершена перед зміною папки
+    unsupported(OUTDATED): Ця функція наразі доступна лише розробникам. Використання її може призвести до втрати даних.
+  systemLanguage(OUTDATED): Авто
+  resyncEverything(OUTDATED): Пересинхронізувати все
+  openDataDir(OUTDATED): Відкрити папку Saber
+  autosaveDisabled(OUTDATED): Ніколи
+  shapeRecognitionDisabled(OUTDATED): Ніколи
+  axisDirections(OUTDATED):
+  - Верх
+  - Так
+  - Низ
+  - Ліворуч
+logs:
+  logs(OUTDATED): Журнали
+  viewLogs(OUTDATED): Переглянути журнали
+  debuggingInfo(OUTDATED): Журнали містять інформацію, корисну для налагодження та розробки
+  noLogs(OUTDATED): Тут немає журналів!
+  useTheApp(OUTDATED): Журнали з'являться тут, коли ви користуєтеся додатком
+login:
+  form:
+    agreeToPrivacyPolicy(rich,OUTDATED): Увійшовши в систему, ви погоджуєтеся з ${linkToPrivacyPolicy(Політика конфіденційності)}.
+  status:
+    loggedOut(OUTDATED): Вийшов з системи
+    tapToLogin(OUTDATED): Натисніть для входу через Nextcloud
+    hi(OUTDATED): Привіт, $u!
+    almostDone(OUTDATED): Майже готово до синхронізації, натисніть, щоб завершити вхід
+    loggedIn(OUTDATED): Увійшов через Nextcloud
+  ncLoginStep:
+    loginFlow:
+      pleaseAuthorize(OUTDATED): Будь ласка, авторизуйте Saber для доступу до вашого облікового запису Nextcloud
+      followPrompts(OUTDATED): Будь ласка, дотримуйтесь інструкцій у інтерфейсі Nextcloud
+      browserDidntOpen(OUTDATED): Сторінка входу не відкрилася? Натисніть сюди
+    whereToStoreData(OUTDATED): "Оберіть, де ви хочете зберігати ваші дані:"
+    saberNcServer(OUTDATED): Сервер Nextcloud Saber
+    otherNcServer(OUTDATED): Інший сервер Nextcloud
+    serverUrl(OUTDATED): URL сервера
+    loginWithSaber(OUTDATED): Увійти через Saber
+    loginWithNextcloud(OUTDATED): Увійти через Nextcloud
+  encLoginStep:
+    encFaq:
+    - q(OUTDATED): Що таке пароль шифрування? Чому використовувати два паролі?
+      a(OUTDATED): |-
+        Пароль Nextcloud використовується для доступу до хмари. Пароль шифрування "scrambles" заплутує ваші дані ще до того, як вони потраплять у хмару.
+        Навіть якщо хтось отримає доступ до вашого облікового запису Nextcloud, ваші нотатки залишаться в безпеці та зашифровані окремим паролем. Це забезпечує вам другий рівень безпеки для захисту ваших даних.
+        Ніхто не може отримати доступ до ваших нотаток на сервері без вашого пароля шифрування, але це також означає, що якщо ви забудете свій пароль шифрування, ви втратите доступ до ваших даних.
+    - q(OUTDATED): Я ще не встановлював пароль шифрування. Де я його отримаю?
+      a(OUTDATED): |-
+        Оберіть новий пароль шифрування та введіть його вище.
+        Saber автоматично згенерує ваші ключі шифрування з цього пароля.
+    - q(OUTDATED): Чи можу я використовувати той самий пароль для свого облікового запису Nextcloud?
+      a(OUTDATED): Так, але пам'ятайте, що буде легше для адміністратора сервера або когось іншого отримати доступ до ваших нотаток, якщо вони отримають доступ до вашого облікового запису Nextcloud.
+    enterEncPassword(OUTDATED): "Для захисту ваших даних, будь ласка, введіть ваш пароль шифрування:"
+    newToSaber(OUTDATED): Нова у Saber? Просто введіть новий пароль шифрування.
+    encPassword(OUTDATED): Пароль шифрування
+    encFaqTitle(OUTDATED): Часті запитання
+    wrongEncPassword(OUTDATED): Дешифрування не вдалося з наданим паролем. Будь ласка, спробуйте ввести його ще раз.
+    connectionFailed(OUTDATED): Щось пішло не так при підключенні до сервера. Будь ласка, спробуйте пізніше.
+  title(OUTDATED): Увійти
+  signup(rich,OUTDATED): Тисні немає ще? ${linkToSignup(Зареєструватися зараз)}!
+  notYou(rich,OUTDATED): Не ти? ${undoLogin(Вибрати інший обліковий запис)}.
+profile:
+  quickLinks:
+    serverHomepage(OUTDATED): Головна сторінка сервера
+    deleteAccount(OUTDATED): Видалити обліковий запис
+  faq:
+  - q(OUTDATED): Чи втрачу я свої нотатки, якщо вийду з системи?
+    a(OUTDATED): Ваші нотатки залишаться як на вашому пристрої, так і на сервері. Вони не будуть синхронізовані з сервером доти, доки ви не увійдете знову. Переконайтеся, що синхронізація завершена перед виходом (подивіться на прогрес синхронізації на головному екрані), щоб не втратити жодних даних.
+  - q(OUTDATED): Як змінити пароль у Nextcloud?
+    a(OUTDATED): Перейдіть на вебсайт вашого сервера та увійдіть. Потім перейдіть до Налаштування > Безпека > Змінити пароль. Вам потрібно буде вийти та увійти назад до Saber після зміни пароля.
+  - q(OUTDATED): Як змінити пароль шифрування?
+    a(OUTDATED): |-
+      0. Переконайтеся, що синхронізація завершена (подивіться на прогрес синхронізації на головному екрані).
+      1. Вийдіть з облікового запису Saber.
+      2. Перейдіть на вебсайт вашого сервера та видаліть папку 'Saber'. Це видалить усі ваші нотатки з сервера.
+      3. Увійдіть назад у Saber. Ви можете вибрати новий пароль шифрування при вході.
+      4. Не забудьте вийти та увійти назад у Saber на інших пристроях також.
+  - q(OUTDATED): Як я можу видалити свій обліковий запис?
+    a(OUTDATED): |-
+      Натисніть на кнопку "@:profile.quickLinks.deleteAccount" вище та увійдіть у систему, якщо потрібно.
+      Якщо ви використовуєте офіційний сервер Saber, ваш обліковий запис буде видалено після 1 тижневого періоду графіка. Ви можете зв'язатися зі мною за адресою adilhanney@disroot.org протягом цього періоду, щоб скасувати видалення.
+      Якщо ви використовуєте сторонній сервер, у вас може не бути опції видалення вашого облікового запису: вам потрібно буде ознайомитися з політикою конфіденційності сервера для отримання додаткової інформації.
+  title(OUTDATED): Мій профіль
+  logout(OUTDATED): Вийти
+  quotaUsage(OUTDATED): Ви використовуєте $used з $total ($percent%)
+  connectedTo(OUTDATED): Підключено до
+  faqTitle(OUTDATED): Часті запитання
+appInfo:
+  licenseNotice(OUTDATED): |-
+    Saber Авторські права © 2022-$buildYear Adil Hanney
+    Ця програма не має жодної гарантії. Це безкоштовне програмне забезпечення, і ви маєте право поширювати його за певних умов.
+  debug(OUTDATED): ВІДЛАДКА
+  sponsorButton(OUTDATED): Натисніть сюди, щоб мене спонсорувати або купити більше сховища
+  licenseButton(OUTDATED): Натисніть сюди, щоб переглянути більше інформації про ліцензію
+  privacyPolicyButton(OUTDATED): Натисніть сюди, щоб переглянути політику конфіденційності
+update:
+  updateAvailable(OUTDATED): Оновлено доступно
+  updateAvailableDescription(OUTDATED): "Доступна нова версія програми:"
+  update(OUTDATED): Оновлення
+  downloadNotAvailableYet(OUTDATED): Завантаження ще недоступне для вашої платформи. Будь ласка, перевірте пізніше.
+editor:
+  toolbar:
+    toggleColors(OUTDATED): Переключити кольори (Ctrl C)
+    select(OUTDATED): Виберіть
+    toggleEraser(OUTDATED): Перемкнути ластик (Ctrl E)
+    photo(OUTDATED): Зображення
+    text(OUTDATED): Текст
+    toggleFingerDrawing(OUTDATED): Перемикання малювання пальцем (Ctrl F)
+    undo(OUTDATED): Скасувати
+    redo(OUTDATED): Переробити
+    export(OUTDATED): Експорт (Ctrl Shift S)
+    exportAs(OUTDATED): "Експортувати як:"
+    fullscreen(OUTDATED): Переключити повное екрану (F11)
+  pens:
+    fountainPen(OUTDATED): Перчинковий ручка
+    ballpointPen(OUTDATED): Ручка-боргер
+    highlighter(OUTDATED): Підсвічувач
+    pencil(OUTDATED): Олівець
+    shapePen(OUTDATED): Форма ручки
+    laserPointer(OUTDATED): Лазерна указка
+  penOptions:
+    size(OUTDATED): Розмір
+  colors:
+    colorPicker(OUTDATED): Вибір кольору
+    customBrightnessHue(OUTDATED): Спеціальні $b $h
+    customHue(OUTDATED): Спеціальний $h
+    dark(OUTDATED): темно
+    light(OUTDATED): світло
+    black(OUTDATED): Чорний
+    darkGrey(OUTDATED): Темно-сірий
+    grey(OUTDATED): Сірий
+    lightGrey(OUTDATED): Світло-сірий
+    white(OUTDATED): Білий
+    red(OUTDATED): Червоний
+    green(OUTDATED): Зелений
+    cyan(OUTDATED): Циан
+    blue(OUTDATED): Синій
+    yellow(OUTDATED): Жовтий
+    purple(OUTDATED): пурпуровий
+    pink(OUTDATED): Рожевий
+    orange(OUTDATED): Помаранчевий
+    pastelRed(OUTDATED): пастельно-червоний
+    pastelOrange(OUTDATED): пастерова помаранчева
+    pastelYellow(OUTDATED): Пастельно-жовтий
+    pastelGreen(OUTDATED): пастельно-зелений
+    pastelCyan(OUTDATED): Пастельно-блакитний
+    pastelBlue(OUTDATED): блакитний пастель
+    pastelPurple(OUTDATED): пастельно-фіолетовий
+    pastelPink(OUTDATED): Пастельно рожевий
+  imageOptions:
+    title(OUTDATED): Варіанти зображень
+    invertible(OUTDATED): Обернений
+    download(OUTDATED): Завантажити
+    setAsBackground(OUTDATED): Встановити як фон
+    removeAsBackground(OUTDATED): Видалити як фон
+    delete(OUTDATED): Видалити
+  selectionBar:
+    delete(OUTDATED): Видалити
+    duplicate(OUTDATED): Дублікат
+  menu:
+    boxFits:
+      fill(OUTDATED): Розтягнути
+      cover(OUTDATED): Покриття
+      contain(OUTDATED): Містити
+    bgPatterns:
+      none(OUTDATED): Порожньо
+      college(OUTDATED): школа з лініями
+      collegeRtl(OUTDATED): Школьне правило (Зворотне)
+      lined(OUTDATED): Лінія
+      grid(OUTDATED): Сітка
+      dots(OUTDATED): Крапки
+      staffs(OUTDATED): Співробітники
+      tablature(OUTDATED): Табулатура
+      cornell(OUTDATED): Корнелл
+    clearPage(OUTDATED): Очистити сторінку $page/$totalPages
+    clearAllPages(OUTDATED): Очистити всі сторінки
+    insertPage(OUTDATED): Вставити сторінку нижче
+    duplicatePage(OUTDATED): Дублююча сторінка
+    deletePage(OUTDATED): Видалити сторінку
+    lineHeight(OUTDATED): Висота рядка
+    lineHeightDescription(OUTDATED): Також контролює розмір тексту для набраних нотаток
+    lineThickness(OUTDATED): Товщина лінії
+    lineThicknessDescription(OUTDATED): товщина фонового рядка
+    backgroundImageFit(OUTDATED): Фон зображення підходить
+    backgroundPattern(OUTDATED): Фонова візерунок
+    import(OUTDATED): Імпорт
+    watchServer(OUTDATED): Слідкуйте за оновленнями на сервері
+    watchServerReadOnly(OUTDATED): Редагування вимкнено під час перегляду сервера
+  readOnlyBanner:
+    title(OUTDATED): Режим лише читання
+    watchingServer(OUTDATED): Ви наразі стежите за оновленнями на сервері. Редагування вимкнено в цьому режимі.
+    corrupted(OUTDATED): Не вдалося завантажити нотатку. Вона може бути пошкоджена або все ще завантажується.
+  versionTooNew:
+    title(OUTDATED): Ця нота була відредагована за допомогою новішої версії Saber
+    subtitle(OUTDATED): Редагування цієї нотатки може призвести до втрати деякої інформації. Ви хочете проігнорувати це та редагувати все одно?
+    allowEditing(OUTDATED): Дозволити редагування
+  quill:
+    typeSomething(OUTDATED): Напишіть щось тут...
+  hud:
+    unlockZoom(OUTDATED): Розблокувати зум
+    lockZoom(OUTDATED): Заблокувати зум
+    unlockSingleFingerPan(OUTDATED): Увімкнути панораму одним пальцем
+    lockSingleFingerPan(OUTDATED): Вимкнути панораму одним пальцем
+    unlockAxisAlignedPan(OUTDATED): Розблокувати панораму на горизонтальну або вертикальну
+    lockAxisAlignedPan(OUTDATED): Блокувати панораму на горизонтальну або вертикальну
+  pages(OUTDATED): Сторінки
+  untitled(OUTDATED): Без назви
+  needsToSaveBeforeExiting(OUTDATED): Збереження ваших змін... Ви можете безпечно вийти з редактора, коли він закінчиться
