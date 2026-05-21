@@ -978,7 +978,7 @@ packages:
       path: "packages/onyxsdk_pen"
       relative: true
     source: path
-    version: "1.4.0"
+    version: "1.5.0"
   open_file:
     dependency: "direct main"
     description:
