@@ -16,36 +16,43 @@ void main() {
         '${FileManager.appRootDirectoryPrefix}';
     stows.editorFingerDrawing.value = false;
 
-    testWidgets('Normal input should draw a stroke', (tester) async {
-      final editorState = await tester._pumpEditor();
-      await tester.pump();
-      final page = editorState.coreInfo.pages.first;
-      expect(page.strokes, isEmpty);
-      await tester._stylusDrag(editorState, .stylus);
-      expect(page.strokes, hasLength(1));
-    });
+    // If you quickly draw, sometimes there's no hover event before the pointer down event
+    for (final withHover in [true, false]) {
+      testWidgets('Normal input should draw a stroke', (tester) async {
+        final editorState = await tester._pumpEditor();
+        await tester.pump();
+        final page = editorState.coreInfo.pages.first;
+        expect(page.strokes, isEmpty);
+        await tester._stylusDrag(editorState, withHover);
+        expect(page.strokes, hasLength(1));
+      });
 
-    // Styluses like the S Pen use a button to trigger the eraser.
-    testWidgets('Pressing the stylus button should erase', (tester) async {
-      final editorState = await tester._pumpEditor();
-      await tester.pump();
-      final page = editorState.coreInfo.pages.first;
-      await tester._stylusDrag(editorState, .stylus);
-      expect(page.strokes, hasLength(1));
-      await tester._stylusDrag(editorState, .stylus, kSecondaryButton);
-      expect(page.strokes, hasLength(0));
-    });
+      // Styluses like the S Pen use a button to trigger the eraser.
+      testWidgets('Pressing the stylus button should erase', (tester) async {
+        final editorState = await tester._pumpEditor();
+        await tester.pump();
+        final page = editorState.coreInfo.pages.first;
+        await tester._stylusDrag(editorState, withHover);
+        expect(page.strokes, hasLength(1));
+        await tester._stylusDrag(
+          editorState,
+          withHover,
+          buttons: kSecondaryButton,
+        );
+        expect(page.strokes, hasLength(0));
+      });
 
-    // Styluses like the Noris Digital Jumbo have an eraser on the bottom.
-    testWidgets('Inverse stylus should erase', (tester) async {
-      final editorState = await tester._pumpEditor();
-      await tester.pump();
-      final page = editorState.coreInfo.pages.first;
-      await tester._stylusDrag(editorState, .stylus);
-      expect(page.strokes, hasLength(1));
-      await tester._stylusDrag(editorState, .invertedStylus);
-      expect(page.strokes, hasLength(0));
-    });
+      // Styluses like the Noris Digital Jumbo have an eraser on the bottom.
+      testWidgets('Inverse stylus should erase', (tester) async {
+        final editorState = await tester._pumpEditor();
+        await tester.pump();
+        final page = editorState.coreInfo.pages.first;
+        await tester._stylusDrag(editorState, withHover);
+        expect(page.strokes, hasLength(1));
+        await tester._stylusDrag(editorState, withHover, kind: .invertedStylus);
+        expect(page.strokes, hasLength(0));
+      });
+    }
   });
 }
 
@@ -61,17 +68,20 @@ extension on WidgetTester {
   ///                - Add [buttons] to [TestPointer.hover]
   Future<void> _stylusDrag(
     EditorState editorState,
-    PointerDeviceKind kind, [
+    bool withHover, {
+    PointerDeviceKind kind = .stylus,
     int buttons = kPrimaryButton,
-  ]) async {
+  }) async {
     final center = getCenter(find.byType(Editor));
     final gesture = await createGesture(kind: kind, buttons: buttons);
 
-    await gesture.moveTo(center);
-    if (buttons == kSecondaryButton) {
-      // Right now, [TestPointer.hover] doesn't pass through [buttons],
-      // so fake it until that gets fixed in Flutter.
-      editorState.onStylusButtonChanged(true);
+    if (withHover) {
+      await gesture.moveTo(center);
+      if (buttons == kSecondaryButton) {
+        // Right now, [TestPointer.hover] doesn't pass through [buttons],
+        // so fake it until that gets fixed in Flutter.
+        editorState.onStylusButtonChanged(true);
+      }
     }
 
     await gesture.down(center);
