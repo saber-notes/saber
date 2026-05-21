@@ -1,0 +1,4 @@
+• Corrigé le bout de l'effaceur de certains stylos qui ne déclenchaient pas l'outil d'effacement dans l'application.
+• Corrigé le fait que l'outil d'effacement ne soit pas déclenché avec des mouvements rapides du stylet.
+• Corrigé que les images d'arrière-plan reçoivent le mauvais numéro de page après avoir réorganisé les pages.
+• Ajouté une traduction en ukrainien.

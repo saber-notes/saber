@@ -106,12 +106,10 @@ sealed class EditorImage extends ChangeNotifier {
     required this.onMiscChange,
     this.onLoad,
     this.newImage = true,
-    Rect dstRect = .zero,
+    this._dstRect = .zero,
     this.srcRect = .zero,
-    bool isThumbnail = false,
-  }) : assert(extension.startsWith('.')),
-       _dstRect = dstRect,
-       _isThumbnail = isThumbnail;
+    this._isThumbnail = false,
+  }) : assert(extension.startsWith('.'));
 
   factory EditorImage.fromJson(
     Map<String, dynamic> json, {

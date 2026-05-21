@@ -153,11 +153,8 @@ class _EditorPageManagerState extends State<EditorPageManager> {
             ),
           );
         },
-        onReorder: (oldIndex, newIndex) {
+        onReorderItem: (oldIndex, newIndex) {
           if (oldIndex == newIndex) return;
-          if (oldIndex < newIndex) {
-            newIndex -= 1;
-          }
           widget.coreInfo.pages.insert(
             newIndex,
             widget.coreInfo.pages.removeAt(oldIndex),
@@ -165,12 +162,8 @@ class _EditorPageManagerState extends State<EditorPageManager> {
 
           // reassign pageIndex of pages' strokes and images
           for (int i = 0; i < widget.coreInfo.pages.length; i++) {
-            for (final stroke in widget.coreInfo.pages[i].strokes) {
-              stroke.pageIndex = i;
-            }
-            for (final image in widget.coreInfo.pages[i].images) {
-              image.pageIndex = i;
-            }
+            final page = widget.coreInfo.pages[i];
+            page.updatePageIndex(i);
           }
 
           widget.redrawAndSave();

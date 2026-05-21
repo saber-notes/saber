@@ -1,0 +1,4 @@
+• Se corrigió el extremo del borrador de algunos lápices ópticos que no activaban la herramienta de borrado en la aplicación.
+• Se corrigió que la herramienta de borrado no se activara con movimientos rápidos del lápiz óptico.
+• Se corrigió que las imágenes de fondo se asignaran al número de página incorrecto después de reorganizar las páginas.
+• Se añadió una traducción al ucraniano.

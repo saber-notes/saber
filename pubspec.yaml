@@ -15,11 +15,11 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 1.33.3+133030
+version: 1.34.0+134000
 
 environment:
-  sdk: ">=3.10.0 <4.0.0"
-  flutter: ">=3.41.0"
+  sdk: ">=3.12.0 <4.0.0"
+  flutter: ">=3.44.0"
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -92,7 +92,7 @@ dependencies:
 
   animations: ^2.0.7
 
-  flutter_quill: ^11.1.0
+  flutter_quill: ^11.5.1
   quill_native_bridge_linux: ^0.0.2
 
   window_manager: ^0.5.1

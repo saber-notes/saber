@@ -31,6 +31,7 @@ import 'strings_ru.g.dart' deferred as l_ru;
 import 'strings_sl.g.dart' deferred as l_sl;
 import 'strings_th.g.dart' deferred as l_th;
 import 'strings_tr.g.dart' deferred as l_tr;
+import 'strings_uk.g.dart' deferred as l_uk;
 import 'strings_vi.g.dart' deferred as l_vi;
 import 'strings_zh_Hans_CN.g.dart' deferred as l_zh_Hans_CN;
 import 'strings_zh_Hant_TW.g.dart' deferred as l_zh_Hant_TW;
@@ -62,6 +63,7 @@ enum AppLocale with BaseAppLocale<AppLocale, Translations> {
 	sl(languageCode: 'sl'),
 	th(languageCode: 'th'),
 	tr(languageCode: 'tr'),
+	uk(languageCode: 'uk'),
 	vi(languageCode: 'vi'),
 	zhHansCn(languageCode: 'zh', scriptCode: 'Hans', countryCode: 'CN'),
 	zhHantTw(languageCode: 'zh', scriptCode: 'Hant', countryCode: 'TW');
@@ -215,6 +217,13 @@ enum AppLocale with BaseAppLocale<AppLocale, Translations> {
 					cardinalResolver: cardinalResolver,
 					ordinalResolver: ordinalResolver,
 				);
+			case AppLocale.uk:
+				await l_uk.loadLibrary();
+				return l_uk.TranslationsUk(
+					overrides: overrides,
+					cardinalResolver: cardinalResolver,
+					ordinalResolver: ordinalResolver,
+				);
 			case AppLocale.vi:
 				await l_vi.loadLibrary();
 				return l_vi.TranslationsVi(
@@ -356,6 +365,12 @@ enum AppLocale with BaseAppLocale<AppLocale, Translations> {
 				);
 			case AppLocale.tr:
 				return l_tr.TranslationsTr(
+					overrides: overrides,
+					cardinalResolver: cardinalResolver,
+					ordinalResolver: ordinalResolver,
+				);
+			case AppLocale.uk:
+				return l_uk.TranslationsUk(
 					overrides: overrides,
 					cardinalResolver: cardinalResolver,
 					ordinalResolver: ordinalResolver,

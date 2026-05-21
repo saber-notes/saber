@@ -3,8 +3,8 @@ description: "Data handling of the sbn format for the Saber: Handwritten Notes a
 version: 0.0.1
 
 environment:
-  sdk: ^3.10.0
-  flutter: ">=3.38.0"
+  sdk: ^3.12.0
+  flutter: ">=3.44.0"
 
 dependencies:
   flutter:

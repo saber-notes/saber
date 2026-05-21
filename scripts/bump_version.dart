@@ -211,7 +211,7 @@ Future<void> updateAllFiles() async {
     final date = DateFormat('yyyy-MM-dd').format(DateTime.now().toUtc());
     final releaseTag =
         '''
-        <release version="${newVersion.buildName}" type="development" date="$date">
+        <release version="${newVersion.buildName}" date="$date">
             <description>
                 <ul>
                     <li>$dummyChangelog</li>

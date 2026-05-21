@@ -237,7 +237,7 @@ class _TranslationsHomeTabsZhHansCn extends TranslationsHomeTabsEn {
 	final TranslationsZhHansCn _root; // ignore: unused_field
 
 	// Translations
-	@override String get home => '主页';
+	@override String get home => '首页';
 	@override String get browse => '全部笔记';
 	@override String get whiteboard => '白板';
 	@override String get settings => '设置';
@@ -333,12 +333,12 @@ class _TranslationsHomeDeleteNoteDialogZhHansCn extends TranslationsHomeDeleteNo
 	final TranslationsZhHansCn _root; // ignore: unused_field
 
 	// Translations
-	@override String confirmDelete({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n,
-		one: '永久删除选中的笔记？',
-		other: '永久删除选中的笔记？',
-	);
-	@override String deleteNotes({required Object n}) => '删除 ${n} 笔记';
+	@override String deleteNotes({required Object n}) => '删除 ${n} 个笔记';
 	@override String deleteName({required Object f}) => '删除 ${f}';
+	@override String confirmDelete({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n,
+		one: '是否永久删除所选笔记？',
+		other: '是否永久删除所选笔记？',
+	);
 	@override String get delete => '删除';
 }
 

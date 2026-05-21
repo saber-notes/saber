@@ -1,0 +1,4 @@
+• Opravil jsem problém s konečkou gumky u některých stylů, které nemohly spouštět nástroj gumky v aplikaci.
+• Opravil jsem problém, že se nástroj gumky nezapouštěl při rychlých pohybech stylu.
+• Opravil jsem problém s přidělováním obrázků pozadí špatného čísla stránky po přebudování stránek.
+• Přidalo jsem ukrajinský překlad.

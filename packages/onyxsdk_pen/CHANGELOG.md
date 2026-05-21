@@ -1,3 +1,8 @@
+## 1.5.0
+
+- Hack: Excluded the mmkv lib from onyxsdk_pen as suggested by Onyx. This should complete the 16KB page size support to meet Google Play requirements.
+- Added support for Flutter 3.44 and migrated to the built-in Kotlin Gradle Plugin. This package now requires Flutter 3.44 or later.
+
 ## 1.4.0
 
 - Updated the SDK to support [16 KB page sizes](https://github.com/onyx-intl/OnyxAndroidDemo/issues/132). This should resolve issues with Google Play submissions.
