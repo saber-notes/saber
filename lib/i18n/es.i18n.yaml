@@ -57,6 +57,9 @@ home:
     deleteNotes(OUTDATED): Eliminar $n notas
     deleteName(OUTDATED): Borrar $f
     delete(OUTDATED): Eliminar
+    confirmDelete:
+      other: ¿Desea eliminar la nota seleccionada de forma permanente?
+    delete: Eliminar
   renameFolder:
     renameFolder: Renombrar carpeta
     folderName: Nombre de la carpeta
@@ -78,10 +81,16 @@ sentry:
       scope(OUTDATED): Los informes pueden contener información sobre el error y su dispositivo. He hecho todo lo posible para filtrar datos personales, pero algunos pueden permanecer.
       currentlyOn(OUTDATED): Si revoca el consentimiento, reinicie la aplicación para deshabilitar el informe de errores.
       learnMoreInPrivacyPolicy(rich, OUTDATED): Obtenga más información en ${link(Política de privacidad)}.
+      scope: Los reportes pueden contener información acerca del error y su dispositivo. Me he esforzado por filtrar la información personal, pero es posible que queden restos.
+      currentlyOn: En caso de retirar su consentimiento, reinicie la aplicación para desactivar el reporte de errores.
+      learnMoreInPrivacyPolicy(rich): Aprenda más en ${link(privacy policy)}.
     answers:
       yes(OUTDATED): Sí
       no(OUTDATED): No
       later(OUTDATED): Pregúntame más tarde
+      yes: Si
+      no: No
+      later: Perguntar después
 settings:
   prefCategories:
     general: General
@@ -89,6 +98,7 @@ settings:
     editor: Editor
     advanced: Avanzado
     performance(OUTDATED): Actuación
+    performance: Desempeño
   prefLabels:
     locale: Idioma de la aplicación
     appTheme: Tema de la aplicación
@@ -118,6 +128,13 @@ settings:
     customDataDir(OUTDATED): Directorio de datos personalizado
     autoStraightenLines(OUTDATED): Líneas de enderezamiento automático
     shapeRecognitionDelay(OUTDATED): Retraso en el reconocimiento de formas
+    autoDisableFingerDrawingWhenStylusDetected: Desactivar dibujo con el dedo automáticamente
+    autosave: Guardado automático
+    shapeRecognitionDelay: Retraso en el reconocimiento de formas
+    autoStraightenLines: Enderezar líneas automáticamente
+    simplifiedHomeLayout: Menú inicial simplificado
+    customDataDir: Carpeta de Saber personalizada
+    sentry: Informes de errores
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible aumenta la legibilidad para lectores con poca visión
     allowInsecureConnections: (No recomendado) Autorizar a Saber a conectarse a servidores con certificados autofirmados o no fiables
@@ -142,6 +159,9 @@ settings:
     simplifiedHomeLayout(OUTDATED): Establece una altura fija para cada vista previa de nota
     autoStraightenLines(OUTDATED): Endereza líneas largas sin tener que usar el rotulador.
     shapeRecognitionDelay(OUTDATED): Con qué frecuencia actualizar la vista previa de la forma
+    autoDisableFingerDrawingWhenStylusDetected: Desactivar dibujar con el dedo cuando hay un bolígrafo detectado
+    shapeRecognitionDelay: Cuán a menudo se actualiza la previsualización de forma
+    autoStraightenLines: Enderezar líneas largas sin utilizar el bolígrafo de formas
   themeModes:
     system: Sistema
     light: Claro
