@@ -48,7 +48,8 @@ class CanvasGestureDetector extends StatefulWidget {
   final ValueChanged<ScaleUpdateDetails> onDrawUpdate;
   final ValueChanged<ScaleEndDetails> onDrawEnd;
 
-  /// Called when the pressure of the stylus changes
+  /// Called when the pressure of the stylus changes.
+  /// The [pressure] value is normalized into a range of 0 to 1.
   final void Function(PointerDeviceKind kind, double? pressure)
   updatePointerData;
   final VoidCallback onHovering;
@@ -428,7 +429,11 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
     final double? pressure;
     if (isStylus) {
       if (event.pressureMin != event.pressureMax) {
-        pressure = event.pressure;
+        pressure = _inverseLerp(
+          event.pressure,
+          min: event.pressureMin,
+          max: event.pressureMax,
+        );
       } else {
         // Detected as stylus, but no pressure values
         pressure = null;
@@ -690,4 +695,13 @@ base class CanvasTransformCacheItem
   final Matrix4 transform;
 
   CanvasTransformCacheItem(this.filePath, this.transform);
+}
+
+double _inverseLerp(num value, {required num min, required num max}) {
+  assert(max >= min, 'Max ($max) must be >= min ($min)');
+  assert(
+    value >= min && value <= max,
+    'Value ($value) must be between $min and $max',
+  );
+  return (value - min) / (max - min);
 }
