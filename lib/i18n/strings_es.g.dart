@@ -52,7 +52,7 @@ class _TranslationsCommonEs extends TranslationsCommonEn {
 	final TranslationsEs _root; // ignore: unused_field
 
 	// Translations
-	@override String get done => 'Completado';
+	@override String get done => 'Hecho';
 	@override String get continueBtn => 'Continuar';
 	@override String get cancel => 'Cancelar';
 }
@@ -331,12 +331,11 @@ class _TranslationsHomeDeleteNoteDialogEs extends TranslationsHomeDeleteNoteDial
 
 	// Translations
 	@override String confirmDelete({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('es'))(n,
-		one: '¿Eliminar permanentemente la nota seleccionada?',
-		other: '¿Eliminar permanentemente las notas seleccionadas?',
+		other: '¿Desea eliminar la nota seleccionada de forma permanente?',
 	);
+	@override String get delete => 'Eliminar';
 	@override String deleteNotes({required Object n}) => 'Eliminar ${n} notas';
 	@override String deleteName({required Object f}) => 'Borrar ${f}';
-	@override String get delete => 'Eliminar';
 }
 
 // Path: home.renameFolder
@@ -389,8 +388,8 @@ class _TranslationsSettingsPrefCategoriesEs extends TranslationsSettingsPrefCate
 	@override String get general => 'General';
 	@override String get writing => 'Escritura';
 	@override String get editor => 'Editor';
+	@override String get performance => 'Desempeño';
 	@override String get advanced => 'Avanzado';
-	@override String get performance => 'Actuación';
 }
 
 // Path: settings.prefLabels
@@ -417,17 +416,17 @@ class _TranslationsSettingsPrefLabelsEs extends TranslationsSettingsPrefLabelsEn
 	@override String get autoClearWhiteboardOnExit => 'Borrar la pizarra después de salir de la aplicación';
 	@override String get disableEraserAfterUse => 'Desactivar automáticamente la goma de borrar';
 	@override String get hideFingerDrawingToggle => 'Ocultar la opción para activar/desactivar la escritura con el dedo';
+	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Desactivar dibujo con el dedo automáticamente';
 	@override String get editorPromptRename => 'Solicitarte cambiar el nombre de nuevas notas';
 	@override String get recentColorsDontSavePresets => 'No guardar colores preestablecidos en los colores recientes';
 	@override String get recentColorsLength => 'Número de colores recientes a almacenar';
 	@override String get printPageIndicators => 'Indicadores de página de impresión';
-	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Desactivar automáticamente el dibujo con los dedos';
-	@override String get sentry => 'Informes de errores';
-	@override String get autosave => 'Auto-Save';
-	@override String get simplifiedHomeLayout => 'Disposición simplificada de la casa';
-	@override String get customDataDir => 'Directorio de datos personalizado';
-	@override String get autoStraightenLines => 'Líneas de enderezamiento automático';
+	@override String get autosave => 'Guardado automático';
 	@override String get shapeRecognitionDelay => 'Retraso en el reconocimiento de formas';
+	@override String get autoStraightenLines => 'Enderezar líneas automáticamente';
+	@override String get simplifiedHomeLayout => 'Menú inicial simplificado';
+	@override String get customDataDir => 'Carpeta de Saber personalizada';
+	@override String get sentry => 'Informes de errores';
 }
 
 // Path: settings.prefDescriptions
@@ -444,15 +443,15 @@ class _TranslationsSettingsPrefDescriptionsEs extends TranslationsSettingsPrefDe
 	@override String get disableEraserAfterUse => 'Volver automáticamente al bolígrafo tras usar la goma';
 	@override String get maxImageSize => 'Las imágenes más grandes que este valor serán comprimidas';
 	@override late final _TranslationsSettingsPrefDescriptionsHideFingerDrawingEs hideFingerDrawing = _TranslationsSettingsPrefDescriptionsHideFingerDrawingEs._(_root);
+	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Desactivar dibujar con el dedo cuando hay un bolígrafo detectado';
 	@override String get editorPromptRename => 'Siempre puedes cambiar el nombre de las notas más tarde';
 	@override String get printPageIndicators => 'Mostrar indicadores de página en las exportaciones';
+	@override String get shapeRecognitionDelay => 'Cuán a menudo se actualiza la previsualización de forma';
+	@override String get autoStraightenLines => 'Enderezar líneas largas sin utilizar el bolígrafo de formas';
 	@override String get shouldAlwaysAlertForUpdates => 'Avísame sobre actualizaciones tan pronto como estén disponibles';
 	@override late final _TranslationsSettingsPrefDescriptionsSentryEs sentry = _TranslationsSettingsPrefDescriptionsSentryEs._(_root);
-	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Desactivar el dibujo con los dedos cuando se detecta un lápiz';
 	@override String get autosave => 'Auto-Save después de un breve retraso, o nunca';
 	@override String get simplifiedHomeLayout => 'Establece una altura fija para cada vista previa de nota';
-	@override String get autoStraightenLines => 'Endereza líneas largas sin tener que usar el rotulador.';
-	@override String get shapeRecognitionDelay => 'Con qué frecuencia actualizar la vista previa de la forma';
 }
 
 // Path: settings.themeModes
@@ -821,12 +820,12 @@ class _TranslationsSentryConsentDescriptionEs extends TranslationsSentryConsentD
 
 	// Translations
 	@override String get question => '¿Quieres enviar informes de errores de forma automática? Esto permite identificar y corregir fallos más rápido.';
+	@override String get scope => 'Los reportes pueden contener información acerca del error y su dispositivo. Me he esforzado por filtrar la información personal, pero es posible que queden restos.';
 	@override String get currentlyOff => 'Si aceptas, los informes de error se activarán al reiniciar la app.';
-	@override String get scope => 'Los informes pueden contener información sobre el error y su dispositivo. He hecho todo lo posible para filtrar datos personales, pero algunos pueden permanecer.';
-	@override String get currentlyOn => 'Si revoca el consentimiento, reinicie la aplicación para deshabilitar el informe de errores.';
+	@override String get currentlyOn => 'En caso de retirar su consentimiento, reinicie la aplicación para desactivar el reporte de errores.';
 	@override TextSpan learnMoreInPrivacyPolicy({required InlineSpanBuilder link}) => TextSpan(children: [
-		const TextSpan(text: 'Obtenga más información en '),
-		link('Política de privacidad'),
+		const TextSpan(text: 'Aprenda más en '),
+		link('privacy policy'),
 		const TextSpan(text: '.'),
 	]);
 }
@@ -838,9 +837,9 @@ class _TranslationsSentryConsentAnswersEs extends TranslationsSentryConsentAnswe
 	final TranslationsEs _root; // ignore: unused_field
 
 	// Translations
-	@override String get yes => 'Sí';
+	@override String get yes => 'Si';
 	@override String get no => 'No';
-	@override String get later => 'Pregúntame más tarde';
+	@override String get later => 'Perguntar después';
 }
 
 // Path: settings.prefDescriptions.hideFingerDrawing

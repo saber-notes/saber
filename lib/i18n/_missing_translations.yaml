@@ -275,36 +275,9 @@ es:
     deleteNoteDialog:
       deleteNotes(OUTDATED): Delete $n notes
       deleteName(OUTDATED): Delete $f
-      confirmDelete(OUTDATED):
-        one: Permanently delete the selected note?
-        other: Permanently delete the selected notes?
-      delete(OUTDATED): Delete
-  sentry:
-    consent:
-      description:
-        scope(OUTDATED): The reports may contain information about the error and your device. I've made every effort to filter out personal data but some may remain.
-        currentlyOn(OUTDATED): If you revoke consent, please restart the app to disable error reporting.
-        learnMoreInPrivacyPolicy(rich)(OUTDATED): Learn more in the ${link(privacy policy)}.
-      answers:
-        yes(OUTDATED): Yes
-        no(OUTDATED): No
-        later(OUTDATED): Ask me later
   settings:
-    prefCategories:
-      performance(OUTDATED): Performance
-    prefLabels:
-      autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Auto-disable finger drawing
-      autosave(OUTDATED): Auto-save
-      shapeRecognitionDelay(OUTDATED): Shape recognition delay
-      autoStraightenLines(OUTDATED): Auto straighten lines
-      simplifiedHomeLayout(OUTDATED): Simplified home layout
-      customDataDir(OUTDATED): Custom Saber folder
-      sentry(OUTDATED): Error reporting
     prefDescriptions:
-      autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Turn off finger drawing when a stylus is detected
       autosave(OUTDATED): Auto-save after a short delay, or never
-      shapeRecognitionDelay(OUTDATED): How often to update the shape preview
-      autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
       simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
       sentry:
         active(OUTDATED): Active
