@@ -864,11 +864,6 @@ hu:
       lockAxisAlignedPan(OUTDATED): Lock panning to horizontal or vertical
     needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
 it:
-  home:
-    deleteNoteDialog:
-      confirmDelete(OUTDATED):
-        one: Eliminare definitivamente la nota selezionata?
-        other: Eliminare definitivamente le note selezionate?
 ja:
   settings:
     prefLabels:
