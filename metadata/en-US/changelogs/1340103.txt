@@ -1,0 +1,1 @@
+• Normalized pressure values to fix issues with some styluses

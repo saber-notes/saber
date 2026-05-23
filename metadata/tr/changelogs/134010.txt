@@ -1,0 +1,1 @@
+Bazı stilüslerle ilgili sorunları düzeltmek için basınç değerlerini normalize ettim
