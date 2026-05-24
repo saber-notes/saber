@@ -8,6 +8,9 @@
 # ./.dart_tool/hooks_runner/shared/pdfium_dart/build/chromium_7811/arm64/libpdfium.so
 # ./.dart_tool/hooks_runner/shared/pdfium_dart/build/chromium_7811/x64/libpdfium.so
 #
+# You may also wish to run `./scripts/disable_prebuilt_pdfium.sh`
+# to prevent the download entirely.
+#
 # This file is derived from https://github.com/bblanchon/pdfium-binaries:
 # Copyright 2014-2026 Benoit Blanchon, Copyright 2026 Adil Hanney.
 # Under the MIT license: https://github.com/bblanchon/pdfium-binaries/blob/master/LICENSE

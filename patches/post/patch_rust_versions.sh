@@ -33,7 +33,7 @@ fi
 TARGET_FILES=$(find "${PUB_CACHE}/hosted/pub.dev/" -type f -path "*/cargokit/build_tool/lib/src/builder.dart")
 if [ -z "$TARGET_FILES" ]; then
   echo "Couldn't find cargokit dependencies. Maybe you haven't run 'flutter pub get' yet?"
-  exit 0
+  exit 1
 fi
 
 for file in $TARGET_FILES; do

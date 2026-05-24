@@ -1,0 +1,26 @@
+From f7db03bd0494ed93966a71fe69b78fec28d6f926 Mon Sep 17 00:00:00 2001
+From: Adil Hanney <adilhanney@disroot.org>
+Date: Sun, 24 May 2026 11:36:57 +0100
+Subject: [PATCH] Disable prebuilt pdfium
+
+---
+ packages/pdfium_dart/hook/build.dart | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/packages/pdfium_dart/hook/build.dart b/packages/pdfium_dart/hook/build.dart
+index 24284e7..f6ad803 100644
+--- a/packages/pdfium_dart/hook/build.dart
++++ b/packages/pdfium_dart/hook/build.dart
+@@ -41,6 +41,9 @@ Future<void> _downloadPdfium({
+   required _PdfiumTarget target,
+   required String pdfiumRelease,
+ }) async {
++  throw 'Cannot download prebuilt pdfium on F-Droid. '
++      'Please build it beforehand.';
++
+   final output = File.fromUri(outputFile);
+   if (await output.exists()) return;
+ 
+-- 
+2.54.0
+
