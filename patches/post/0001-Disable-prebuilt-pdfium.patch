@@ -16,7 +16,7 @@ index 24284e7..f152b2a 100644
    if (await output.exists()) return;
  
 +  throw 'Cannot download prebuilt pdfium on F-Droid. '
-+      'Please build it beforehand.';
++      'Please build it beforehand and place it in ${output.path}.';
 +
    final archiveUri = Uri.parse(
      'https://github.com/bblanchon/pdfium-binaries/releases/download/'
