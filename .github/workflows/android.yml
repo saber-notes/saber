@@ -233,7 +233,6 @@ jobs:
         if: matrix.foss
       - run: flutter pub get
       - run: ./patches/post/patch_rust_versions.sh
-      - run: ./patches/post/remove_wasm_libs.sh
 
       - name: Build apk
         run: flutter build apk
