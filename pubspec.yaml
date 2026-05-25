@@ -145,7 +145,7 @@ dependencies:
 
   flutter_web_auth_2: ^5.0.1
 
-  pdfrx: ^2.1.3
+  pdfrx: ^2.4.2
   path: ^1.9.1
 
   stow: ^0.6.0

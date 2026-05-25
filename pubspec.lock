@@ -1191,10 +1191,10 @@ packages:
     dependency: "direct main"
     description:
       name: pdfrx
-      sha256: e32e1b6f32e92e3c144dec3e389f1dca989f5f28c3a1886fb114a50cf7db863c
+      sha256: d20b2826add5f26dbb0ee44d4828aafd255388c8a3d84b1e7f4d4dee00371ecd
       url: "https://pub.dev"
     source: hosted
-    version: "2.4.1"
+    version: "2.4.2"
   pdfrx_engine:
     dependency: transitive
     description:
