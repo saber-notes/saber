@@ -49,6 +49,8 @@ jobs:
         uses: adil192/setup-flutter-submodule@v1
         with:
           flutter-path: submodules/flutter
+          cache-flutter: false
+          cache-pub: false
 
       - name: Install Codemagic CLI Tools
         run: pipx install codemagic-cli-tools
