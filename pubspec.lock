@@ -1175,10 +1175,10 @@ packages:
     dependency: transitive
     description:
       name: pdfium_dart
-      sha256: "38602496f0c152df618ffe08c8bf983a8d73881f31a1b54a6da01140c3a4e342"
+      sha256: "07bba420737d88913773aacbaa3dd40b42d6119967816130fc381fbed8f34c92"
       url: "https://pub.dev"
     source: hosted
-    version: "0.2.2"
+    version: "0.2.3"
   pdfium_flutter:
     dependency: transitive
     description:
