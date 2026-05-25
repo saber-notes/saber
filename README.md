@@ -102,6 +102,9 @@ If you'd like to help out translating Saber, head to [Weblate](https://hosted.we
 
 [![Translation status](https://hosted.weblate.org/widget/saber-notes/multi-auto.svg)](https://hosted.weblate.org/engage/saber-notes/)
 
+Note: To avoid falling back to English, any gaps in the translations are filled
+in by machine translation until a human can contribute.
+
 ## Supporting Saber
 
 If you like Saber, please consider supporting it by:
