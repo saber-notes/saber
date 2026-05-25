@@ -30,8 +30,9 @@ jobs:
 
       - name: Setup Xcode
         run: |
-          echo "Selecting Xcode 26.5..."
-          sudo xcode-select -s /Applications/Xcode_26.5.app
+          echo "Selecting Xcode 26.4.1..."
+          echo /Applications/Xcode*.app
+          sudo xcode-select -s /Applications/Xcode_26.4.1.app
           xcode-select -p
           echo
 
