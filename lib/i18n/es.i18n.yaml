@@ -1,5 +1,5 @@
 common:
-  done: Completado
+  done: Hecho
   continueBtn: Continuar
   cancel: Cancelar
 home:
@@ -51,12 +51,11 @@ home:
     numberRenamedTo: $n notas serán renombradas para evitar conflictos
   deleteNote: Eliminar nota
   deleteNoteDialog:
-    confirmDelete(OUTDATED):
-      one(OUTDATED): ¿Eliminar permanentemente la nota seleccionada?
-      other(OUTDATED): ¿Eliminar permanentemente las notas seleccionadas?
+    confirmDelete:
+      other: ¿Desea eliminar la nota seleccionada de forma permanente?
+    delete: Eliminar
     deleteNotes(OUTDATED): Eliminar $n notas
     deleteName(OUTDATED): Borrar $f
-    delete(OUTDATED): Eliminar
   renameFolder:
     renameFolder: Renombrar carpeta
     folderName: Nombre de la carpeta
@@ -74,21 +73,21 @@ sentry:
     title: ¿Quieres mejorar Saber?
     description:
       question: ¿Quieres enviar informes de errores de forma automática? Esto permite identificar y corregir fallos más rápido.
+      scope: Los reportes pueden contener información acerca del error y su dispositivo. Me he esforzado por filtrar la información personal, pero es posible que queden restos.
       currentlyOff: Si aceptas, los informes de error se activarán al reiniciar la app.
-      scope(OUTDATED): Los informes pueden contener información sobre el error y su dispositivo. He hecho todo lo posible para filtrar datos personales, pero algunos pueden permanecer.
-      currentlyOn(OUTDATED): Si revoca el consentimiento, reinicie la aplicación para deshabilitar el informe de errores.
-      learnMoreInPrivacyPolicy(rich, OUTDATED): Obtenga más información en ${link(Política de privacidad)}.
+      currentlyOn: En caso de retirar su consentimiento, reinicie la aplicación para desactivar el reporte de errores.
+      learnMoreInPrivacyPolicy(rich): Aprenda más en ${link(privacy policy)}.
     answers:
-      yes(OUTDATED): Sí
-      no(OUTDATED): No
-      later(OUTDATED): Pregúntame más tarde
+      yes: Si
+      no: No
+      later: Perguntar después
 settings:
   prefCategories:
     general: General
     writing: Escritura
     editor: Editor
+    performance: Desempeño
     advanced: Avanzado
-    performance(OUTDATED): Actuación
   prefLabels:
     locale: Idioma de la aplicación
     appTheme: Tema de la aplicación
@@ -107,17 +106,17 @@ settings:
     autoClearWhiteboardOnExit: Borrar la pizarra después de salir de la aplicación
     disableEraserAfterUse: Desactivar automáticamente la goma de borrar
     hideFingerDrawingToggle: Ocultar la opción para activar/desactivar la escritura con el dedo
+    autoDisableFingerDrawingWhenStylusDetected: Desactivar dibujo con el dedo automáticamente
     editorPromptRename: Solicitarte cambiar el nombre de nuevas notas
     recentColorsDontSavePresets: No guardar colores preestablecidos en los colores recientes
     recentColorsLength: Número de colores recientes a almacenar
     printPageIndicators: Indicadores de página de impresión
-    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Desactivar automáticamente el dibujo con los dedos
-    sentry(OUTDATED): Informes de errores
-    autosave(OUTDATED): Auto-Save
-    simplifiedHomeLayout(OUTDATED): Disposición simplificada de la casa
-    customDataDir(OUTDATED): Directorio de datos personalizado
-    autoStraightenLines(OUTDATED): Líneas de enderezamiento automático
-    shapeRecognitionDelay(OUTDATED): Retraso en el reconocimiento de formas
+    autosave: Guardado automático
+    shapeRecognitionDelay: Retraso en el reconocimiento de formas
+    autoStraightenLines: Enderezar líneas automáticamente
+    simplifiedHomeLayout: Menú inicial simplificado
+    customDataDir: Carpeta de Saber personalizada
+    sentry: Informes de errores
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible aumenta la legibilidad para lectores con poca visión
     allowInsecureConnections: (No recomendado) Autorizar a Saber a conectarse a servidores con certificados autofirmados o no fiables
@@ -129,19 +128,19 @@ settings:
       shown: Evita cambios accidentales
       fixedOn: Dibujar o escribir con el dedo está activado
       fixedOff: Dibujar o escribir con el dedo está desactivado
+    autoDisableFingerDrawingWhenStylusDetected: Desactivar dibujar con el dedo cuando hay un bolígrafo detectado
     editorPromptRename: Siempre puedes cambiar el nombre de las notas más tarde
     printPageIndicators: Mostrar indicadores de página en las exportaciones
+    shapeRecognitionDelay: Cuán a menudo se actualiza la previsualización de forma
+    autoStraightenLines: Enderezar líneas largas sin utilizar el bolígrafo de formas
     shouldAlwaysAlertForUpdates: Avísame sobre actualizaciones tan pronto como estén disponibles
     sentry:
       active(OUTDATED): Activo
       inactive(OUTDATED): Inactivo
       activeUntilRestart(OUTDATED): Activo hasta que reinicie la aplicación
       inactiveUntilRestart(OUTDATED): Inactivo hasta que reinicie la aplicación
-    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Desactivar el dibujo con los dedos cuando se detecta un lápiz
     autosave(OUTDATED): Auto-Save después de un breve retraso, o nunca
     simplifiedHomeLayout(OUTDATED): Establece una altura fija para cada vista previa de nota
-    autoStraightenLines(OUTDATED): Endereza líneas largas sin tener que usar el rotulador.
-    shapeRecognitionDelay(OUTDATED): Con qué frecuencia actualizar la vista previa de la forma
   themeModes:
     system: Sistema
     light: Claro

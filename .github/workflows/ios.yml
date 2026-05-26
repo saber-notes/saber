@@ -32,8 +32,9 @@ jobs:
 
       - name: Setup Xcode
         run: |
-          echo "Selecting Xcode 26.1..."
-          sudo xcode-select -s /Applications/Xcode_26.1.app
+          echo "Selecting Xcode 26.3..."
+          echo /Applications/Xcode*.app
+          sudo xcode-select -s /Applications/Xcode_26.3.app
           xcode-select -p
           echo
 
@@ -42,13 +43,15 @@ jobs:
           echo
 
           echo "Downloading iOS platform files..."
-          xcodebuild -downloadPlatform iOS -version 26.1
+          xcodebuild -downloadPlatform iOS -version 26.3
           echo
 
       - name: Setup Flutter
         uses: adil192/setup-flutter-submodule@v1
         with:
           flutter-path: submodules/flutter
+          cache-flutter: false
+          cache-pub: false
 
       - name: Install Codemagic CLI Tools
         run: pipx install codemagic-cli-tools
@@ -74,7 +77,6 @@ jobs:
       - run: ./patches/pre/remove_linux_dependencies.sh
       - run: flutter pub get
       - run: ./patches/post/patch_rust_versions.sh
-      - run: ./patches/post/remove_wasm_libs.sh
 
       - name: Build for iOS
         run: |
