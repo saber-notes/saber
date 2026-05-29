@@ -42,7 +42,7 @@ void main() {
     final androidMetadataContents = await androidMetadata.readAsString();
     expect(
       androidMetadataContents,
-      contains(dummyChangelog),
+      isNot(contains(dummyChangelog)),
       reason: 'Dummy text found in Android changelog',
     );
 
@@ -51,7 +51,7 @@ void main() {
     final flatpakMetadataContents = await flatpakMetadata.readAsString();
     expect(
       flatpakMetadataContents,
-      contains(dummyChangelog),
+      isNot(contains(dummyChangelog)),
       reason: 'Dummy text found in Flatpak changelog',
     );
   });
