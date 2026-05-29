@@ -16,7 +16,7 @@ void main() {
     final result = await Process.run('dart', [
       './scripts/bump_version.dart',
       '--custom',
-      buildName,
+      buildNumber.toString(),
       '--fail-on-changes',
       '--quiet',
     ], runInShell: true);
