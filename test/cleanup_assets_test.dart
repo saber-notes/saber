@@ -34,7 +34,10 @@ void main() {
         file.create(recursive: true),
     ]);
 
-    FileManager.removeUnusedAssets(sbnPath, numAssets: usedFiles.length - 1);
+    await FileManager.removeUnusedAssets(
+      sbnPath,
+      numAssets: usedFiles.length - 1,
+    );
 
     // check that used files are still there
     for (final file in usedFiles) {
