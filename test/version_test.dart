@@ -106,7 +106,7 @@ void main() {
     expect(changelog, isNotEmpty);
     expect(
       changelog,
-      contains(dummyChangelog),
+      isNot(contains(dummyChangelog)),
       reason: 'Dummy text found in changelog downloaded from GitHub',
     );
   });
