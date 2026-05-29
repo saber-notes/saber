@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:saber/components/theming/adaptive_circular_progress_indicator.dart';
+import 'package:saber/data/is_this_a_test.dart';
 import 'package:saber/data/routes.dart';
 
 /// Replaces the back button as the
@@ -22,7 +23,9 @@ class SaveIndicator extends StatelessWidget {
       valueListenable: savingState,
       builder: (context, isSaving, _) {
         return AnimatedSwitcher(
-          duration: const Duration(milliseconds: 300),
+          duration: isThisATest
+              ? Duration.zero
+              : const Duration(milliseconds: 300),
           child: IconButton(
             key: ValueKey(savingState.value),
             onPressed: () => _onPressed(context),
