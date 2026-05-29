@@ -1,0 +1,1 @@
+Suporte a caneta experimentalmente melhorado no Windows, adicionando detecção de orientação e botão.

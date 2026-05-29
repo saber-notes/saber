@@ -1,0 +1,1 @@
+Eksperimentalno izboljšana podpora za stylus na Windowsju, dodajanje orientacije in detekcije gumbov.
