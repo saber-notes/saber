@@ -587,10 +587,11 @@ packages:
   flutter_speed_dial:
     dependency: "direct main"
     description:
-      name: flutter_speed_dial
-      sha256: "698a037274a66dbae8697c265440e6acb6ab6cae9ac5f95c749e7944d8f28d41"
-      url: "https://pub.dev"
-    source: hosted
+      path: "."
+      ref: "fix/remove-Future.delayed"
+      resolved-ref: "272a4949ac52438969c7a73db575cfa551f88f66"
+      url: "https://github.com/adil192/flutter_speed_dial.git"
+    source: git
     version: "7.0.0"
   flutter_staggered_grid_view:
     dependency: "direct main"

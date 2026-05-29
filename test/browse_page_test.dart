@@ -67,11 +67,7 @@ class _BrowseApp extends StatelessWidget {
     return ScreenshotApp.withConditionalTitlebar(
       device: GoldenSmallDevices.androidPhone.device,
       title: 'Saber',
-      theme: SaberTheme.createThemeFromSeed(
-        Colors.yellow,
-        Brightness.light,
-        TargetPlatform.android,
-      ),
+      theme: SaberTheme.createThemeFromSeed(Colors.yellow, .light, .android),
       home: BrowsePage(path: path),
     );
   }

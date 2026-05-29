@@ -27,32 +27,32 @@ void main() {
     });
     testWidgets('No back folder at root', (tester) async {
       await tester.pumpWidget(const _BrowseApp());
-      await tester.pumpAndSettle();
+      await tester.pump();
       expect(find.byIcon(Icons.arrow_back), findsNothing);
     });
     testWidgets('Back folder present in subfolder', (tester) async {
       await tester.pumpWidget(const _BrowseApp(path: '/helloworld'));
-      await tester.pumpAndSettle();
+      await tester.pump();
       expect(find.byIcon(Icons.arrow_back), findsOneWidget);
     });
     testWidgets('Navigate back to root', (tester) async {
       await tester.pumpWidget(const _BrowseApp(path: '/helloworld'));
-      await tester.pumpAndSettle();
+      await tester.pump();
       await tester.tap(find.byIcon(Icons.arrow_back));
-      await tester.pumpAndSettle();
+      await tester.pump();
       expect(find.byIcon(Icons.arrow_back), findsNothing);
     });
     testWidgets('Navigate back twice to root', (tester) async {
       await tester.pumpWidget(const _BrowseApp(path: '/helloworld'));
-      await tester.pumpAndSettle();
+      await tester.pump();
       await tester.tap(find.text('subfolder1'));
-      await tester.pumpAndSettle();
+      await tester.pump();
       expect(find.byIcon(Icons.arrow_back), findsOneWidget);
       await tester.tap(find.byIcon(Icons.arrow_back));
-      await tester.pumpAndSettle();
+      await tester.pump();
       expect(find.byIcon(Icons.arrow_back), findsOneWidget);
       await tester.tap(find.byIcon(Icons.arrow_back));
-      await tester.pumpAndSettle();
+      await tester.pump();
       expect(find.byIcon(Icons.arrow_back), findsNothing);
     });
   });

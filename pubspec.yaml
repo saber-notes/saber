@@ -182,6 +182,14 @@ dev_dependencies:
 
   sentry_dart_plugin: ^3.1.1
 
+dependency_overrides:
+  # https://github.com/darioielardi/flutter_speed_dial/pull/344
+  # Note: flutter_speed_dial hasn't been updated in 3 years, maybe replace it.
+  flutter_speed_dial:
+    git:
+      url: https://github.com/adil192/flutter_speed_dial.git
+      ref: fix/remove-Future.delayed
+
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
