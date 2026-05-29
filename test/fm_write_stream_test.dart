@@ -32,7 +32,7 @@ void main() {
       await null;
 
       // check that the event was received
-      expect(events.length, 1);
+      expect(events, hasLength(1));
       expect(events.last.filePath, '/test'); // without the extension
       expect(events.last.type, FileOperationType.write);
     });

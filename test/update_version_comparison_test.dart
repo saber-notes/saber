@@ -67,8 +67,8 @@ void main() => group('Update manager:', () {
         'lib/data/version.dart',
       ).readAsString();
       expect(
-        latestVersionFile.isNotEmpty,
-        true,
+        latestVersionFile,
+        isNotEmpty,
         reason: 'Failed to load local version.dart file',
       );
 
@@ -101,10 +101,10 @@ void main() => group('Update manager:', () {
       isNotNull,
       reason: 'Could not parse version number from GitHub',
     );
-    // at the time of writing, the latest version is 5050
+    // at the time of writing, the latest version is 134010
     expect(
       newestVersion,
-      greaterThan(5000),
+      greaterThan(134000),
       reason: 'Incorrect version number parsed from GitHub',
     );
   });

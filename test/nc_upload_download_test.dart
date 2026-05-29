@@ -44,7 +44,7 @@ void main() async {
 
     // Upload
     final upBytes = await syncer.interface.readLocalFile(syncFile);
-    expect(upBytes.length, greaterThan(0));
+    expect(upBytes, isNotEmpty);
     await syncer.interface.uploadRemoteFile(syncFile, upBytes);
 
     // Get the sync file again, this time starting with the remote file
@@ -59,7 +59,7 @@ void main() async {
 
     // Download
     final downBytes = await syncer.interface.downloadRemoteFile(syncFile);
-    expect(downBytes.length, greaterThan(0));
+    expect(downBytes, isNotEmpty);
     expect(downBytes, equals(upBytes));
     await syncer.interface.writeLocalFile(
       syncFile,

@@ -49,11 +49,10 @@ void main() {
             .toList()
           ..add(laserSbn);
 
-    var hasGhostscript = true;
     final gsCheck = Process.runSync('gs', ['--version'], runInShell: true);
-    if (gsCheck.exitCode != 0) {
+    final hasGhostscript = gsCheck.exitCode == 0;
+    if (!hasGhostscript) {
       debugPrint('Please install Ghostscript to test PDF exports.');
-      hasGhostscript = false;
     }
 
     for (final sbnName in sbnExamples) {
