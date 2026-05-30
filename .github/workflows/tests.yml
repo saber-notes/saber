@@ -6,17 +6,20 @@ on:
   push:
     branches:
       - main
+      - ci/self-hosted
+
+defaults:
+  run:
+    shell: bash
 
 jobs:
   run-tests:
     name: Run Flutter tests
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, Linux]
     timeout-minutes: 10
     steps:
       - name: Checkout code
         uses: actions/checkout@v6
-
-      - uses: "./.github/shared_workflows/install_apt_dependencies"
 
       - name: Setup cache
         uses: actions/cache@v5
@@ -32,13 +35,28 @@ jobs:
           restore-keys: |
             ${{ runner.OS }}-saber-
 
-      - name: Setup Flutter
+      - name: Setup preinstalled flutter
+        run: |
+          source ~/.bashrc
+          echo "FLUTTER_ROOT=$FLUTTER_ROOT"
+          echo "PUB_CACHE=$PUB_CACHE"
+          if [ -n "$FLUTTER_ROOT" ]; then
+            # Update to submodule's ref
+            HASH=$(git rev-parse @:./submodules/flutter)
+            echo "Resetting $FLUTTER_ROOT to $HASH"
+            git -C "$FLUTTER_ROOT" reset --hard "$HASH"
+
+            # Re-export variables
+            echo "${FLUTTER_ROOT}/bin" >> $GITHUB_PATH
+            echo "${PUB_CACHE:=$HOME/.pub-cache}/bin" >> $GITHUB_PATH
+            echo "FLUTTER_ROOT=$FLUTTER_ROOT" >> $GITHUB_ENV
+            echo "PUB_CACHE=$PUB_CACHE" >> $GITHUB_ENV
+          fi
+      - name: Setup Flutter submodule if not preinstalled
         uses: adil192/setup-flutter-submodule@v1
+        if: ${{ env.FLUTTER_ROOT == '' }}
         with:
           flutter-path: submodules/flutter
-
-      - name: Disable Flutter CLI animations
-        run: flutter config --no-cli-animations
 
       - run: flutter pub get
 
