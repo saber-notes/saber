@@ -907,6 +907,7 @@ class EditorState extends State<Editor> {
   void cancelAutosaveAndMarkSaved() {
     _delayedSaveTimer?.cancel();
     savingState.value = .saved;
+    history.markLastChangeAsSaved();
   }
 
   Future<void> saveToFile() async {
