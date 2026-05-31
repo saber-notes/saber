@@ -47,7 +47,7 @@ jobs:
           echo
 
       - name: Setup Flutter
-        uses: adil192/setup-flutter-submodule@v1
+        uses: adil192/setup-flutter-submodule@v2
         with:
           flutter-path: submodules/flutter
           cache-flutter: false

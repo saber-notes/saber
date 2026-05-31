@@ -72,7 +72,7 @@ jobs:
         if: ${{ steps.cache.outputs.cache-hit == '' }}
 
       - name: Setup Flutter
-        uses: adil192/setup-flutter-submodule@v1
+        uses: adil192/setup-flutter-submodule@v2
         if: ${{ steps.cache.outputs.cache-hit == '' }}
         with:
           flutter-path: submodules/flutter
@@ -155,7 +155,7 @@ jobs:
       - uses: "./.github/shared_workflows/install_apt_dependencies"
 
       - name: Setup Flutter
-        uses: adil192/setup-flutter-submodule@v1
+        uses: adil192/setup-flutter-submodule@v2
         with:
           flutter-path: submodules/flutter
 
