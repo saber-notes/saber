@@ -17,7 +17,6 @@ import 'package:saber/data/flavor_config.dart';
 import 'package:saber/data/tools/laser_pointer.dart';
 import 'package:saber/data/tools/stroke_properties.dart';
 import 'package:saber/i18n/strings.g.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import 'utils/test_mock_channel_handlers.dart';
 
@@ -32,7 +31,6 @@ void main() {
     setupMockPrinting();
 
     FlavorConfig.setup();
-    SharedPreferences.setMockInitialValues({});
 
     setUpAll(() => Future.wait([FileManager.init(), PencilShader.init()]));
 

@@ -9,7 +9,6 @@ import 'package:saber/data/flavor_config.dart';
 import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
 import 'package:saber/data/nextcloud/saber_syncer.dart';
 import 'package:saber/data/prefs.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import 'utils/test_mock_channel_handlers.dart';
 import 'utils/test_random.dart';
@@ -20,7 +19,6 @@ void main() {
     HttpOverrides.global = null; // enable http requests in test
     setupMockPathProvider();
     setupMockFlutterSecureStorage();
-    SharedPreferences.setMockInitialValues({});
 
     FlavorConfig.setup();
     await FileManager.init();

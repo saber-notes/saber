@@ -6,7 +6,6 @@ import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/flavor_config.dart';
 import 'package:saber/data/nextcloud/saber_syncer.dart';
 import 'package:saber/data/prefs.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import 'utils/test_mock_channel_handlers.dart';
 
@@ -14,7 +13,6 @@ void main() {
   group('FileManager', () {
     TestWidgetsFlutterBinding.ensureInitialized();
     setupMockPathProvider();
-    SharedPreferences.setMockInitialValues({});
 
     FlavorConfig.setup();
 

@@ -5,7 +5,6 @@ import 'package:saber/components/settings/update_manager.dart';
 import 'package:saber/data/flavor_config.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/data/version.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 /// Example current build number.
 /// See [buildNumber] in [lib/data/version.dart].
@@ -13,7 +12,6 @@ const v = 5000;
 
 void main() => group('Update manager:', () {
   FlavorConfig.setup();
-  SharedPreferences.setMockInitialValues({});
 
   test('Test version comparison (release mode)', () {
     stows.shouldAlwaysAlertForUpdates.value = false;
