@@ -10,6 +10,7 @@ import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/canvas_preview.dart';
 import 'package:saber/components/canvas/inner_canvas.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
+import 'package:saber/data/is_this_a_test.dart';
 import 'package:screenshot/screenshot.dart';
 
 abstract class EditorExporter {
@@ -165,6 +166,7 @@ abstract class EditorExporter {
         ),
         pixelRatio: pixelRatio,
         targetSize: targetSize,
+        delay: isThisATest ? .zero : const Duration(milliseconds: 50),
       );
     } finally {
       page.disposeClonedData();
