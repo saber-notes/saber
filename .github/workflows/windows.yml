@@ -38,7 +38,7 @@ jobs:
             ${{ runner.OS }}-saber-
 
       - name: Setup Flutter
-        uses: adil192/setup-flutter-submodule@v2
+        uses: adil192/setup-flutter-submodule@v3
         with:
           flutter-path: submodules/flutter
           cache-flutter: false

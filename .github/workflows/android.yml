@@ -72,7 +72,7 @@ jobs:
         if: ${{ steps.cache.outputs.cache-hit == '' }}
 
       - name: Setup Flutter
-        uses: adil192/setup-flutter-submodule@v2
+        uses: adil192/setup-flutter-submodule@v3
         if: ${{ steps.cache.outputs.cache-hit == '' }}
         with:
           flutter-path: submodules/flutter
@@ -155,9 +155,10 @@ jobs:
       - uses: "./.github/shared_workflows/install_apt_dependencies"
 
       - name: Setup Flutter
-        uses: adil192/setup-flutter-submodule@v2
+        uses: adil192/setup-flutter-submodule@v3
         with:
           flutter-path: submodules/flutter
+          no-save-caches: true
 
       - name: Restore platform-agnostic cache
         uses: actions/cache/restore@v5
