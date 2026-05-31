@@ -74,17 +74,35 @@ void main() {
       );
     }
 
-    final List<Stroke> erasedStrokes = eraser.onDragEnd();
+    final result = eraser.onDragEnd();
     expect(
-      erasedStrokes.length,
+      result.erasedStrokes.length,
       strokesToErase.length,
       reason: 'The correct number of strokes should have been erased',
     );
     expect(
-      erasedStrokes.every((stroke) => strokesToErase.contains(stroke)),
+      result.erasedStrokes.every((stroke) => strokesToErase.contains(stroke)),
       true,
       reason: 'The correct strokes should have been erased',
     );
+  });
+
+  test('Partial erase affects multiple overlapping strokes', () {
+    final eraser = Eraser(size: 10, areaEraser: true);
+    final stroke1 = _strokeWithLine(const Offset(30, 30), const Offset(70, 70));
+    final stroke2 = _strokeWithLine(const Offset(30, 70), const Offset(70, 30));
+    final pageStrokes = <Stroke>[stroke1, stroke2];
+
+    final erased = eraser.checkForOverlappingStrokes(_eraserPos, pageStrokes);
+
+    expect(erased, isEmpty);
+    expect(stroke1.pointVectors.length, lessThan(2));
+    expect(stroke2.pointVectors.length, lessThan(2));
+    expect(pageStrokes.length, greaterThan(2));
+
+    final result = eraser.onDragEnd();
+    expect(result.replacementStrokes, isNotEmpty);
+    expect(result.replacementStrokes.length, greaterThanOrEqualTo(2));
   });
 }
 
@@ -96,3 +114,15 @@ Stroke _strokeWithPoint(Offset point) => Stroke(
   page: const HasSize(Size(100, 100)),
   toolId: .fountainPen,
 )..addPoint(point);
+
+Stroke _strokeWithLine(Offset from, Offset to) =>
+    Stroke(
+        color: Stroke.defaultColor,
+        pressureEnabled: Stroke.defaultPressureEnabled,
+        options: _options,
+        pageIndex: 0,
+        page: const HasSize(Size(100, 100)),
+        toolId: .fountainPen,
+      )
+      ..addPoint(from)
+      ..addPoint(to);
