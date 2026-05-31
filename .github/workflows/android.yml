@@ -35,8 +35,13 @@ jobs:
           path: |
             .dart_tool/
             android/.gradle/
+            android/.kotlin/
             build/
+
             submodules/flutter/bin/cache/
+            submodules/flutter/packages/flutter_tools/gradle/.gradle/
+            submodules/flutter/packages/flutter_tools/gradle/.kotlin/
+            submodules/flutter/packages/flutter_tools/gradle/build/
 
             /usr/local/lib/android/sdk/cmake/*
             !/usr/local/lib/android/sdk/cmake/3.31.5
@@ -51,6 +56,7 @@ jobs:
             !/usr/local/lib/android/sdk/platforms/android-34*
             !/usr/local/lib/android/sdk/platforms/android-35*
             !/usr/local/lib/android/sdk/platforms/android-36*
+            !/usr/local/lib/android/sdk/platforms/android-37*
           key: ${{ runner.OS }}-saber_android
 
       - name: Restore platform-agnostic cache
@@ -122,8 +128,13 @@ jobs:
           path: |
             .dart_tool/
             android/.gradle/
+            android/.kotlin/
             build/
+
             submodules/flutter/bin/cache/
+            submodules/flutter/packages/flutter_tools/gradle/.gradle/
+            submodules/flutter/packages/flutter_tools/gradle/.kotlin/
+            submodules/flutter/packages/flutter_tools/gradle/build/
 
             /usr/local/lib/android/sdk/cmake/*
             !/usr/local/lib/android/sdk/cmake/3.31.5
@@ -138,6 +149,7 @@ jobs:
             !/usr/local/lib/android/sdk/platforms/android-34*
             !/usr/local/lib/android/sdk/platforms/android-35*
             !/usr/local/lib/android/sdk/platforms/android-36*
+            !/usr/local/lib/android/sdk/platforms/android-37*
           key: ${{ steps.cache.outputs.cache-primary-key }}
 
   build-android:
@@ -184,8 +196,13 @@ jobs:
           path: |
             .dart_tool/
             android/.gradle/
+            android/.kotlin/
             build/
+
             submodules/flutter/bin/cache/
+            submodules/flutter/packages/flutter_tools/gradle/.gradle/
+            submodules/flutter/packages/flutter_tools/gradle/.kotlin/
+            submodules/flutter/packages/flutter_tools/gradle/build/
 
             /usr/local/lib/android/sdk/cmake/*
             !/usr/local/lib/android/sdk/cmake/3.31.5
@@ -200,6 +217,7 @@ jobs:
             !/usr/local/lib/android/sdk/platforms/android-34*
             !/usr/local/lib/android/sdk/platforms/android-35*
             !/usr/local/lib/android/sdk/platforms/android-36*
+            !/usr/local/lib/android/sdk/platforms/android-37*
           key: ${{ runner.OS }}-saber_android
 
       - name: Setup keystore
