@@ -51,6 +51,8 @@ jobs:
             macos/Flutter/ephemeral/
             windows/flutter/ephemeral/
             .flutter-plugins-dependencies
+            ~/.dartServer
+            ~/.dart-tool
           key: ${{ runner.OS }}-${{ matrix.arch.cache-name }}-linux-${{ hashFiles('**/pubspec.yaml') }}
           restore-keys: |
             ${{ runner.OS }}-${{ matrix.arch.cache-name }}-

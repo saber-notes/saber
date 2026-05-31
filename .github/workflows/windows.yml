@@ -33,6 +33,8 @@ jobs:
             macos/Flutter/ephemeral/
             windows/flutter/ephemeral/
             .flutter-plugins-dependencies
+            ~/.dartServer
+            ~/.dart-tool
           key: ${{ runner.OS }}-saber-${{ hashFiles('**/pubspec.yaml') }}
           restore-keys: |
             ${{ runner.OS }}-saber-
