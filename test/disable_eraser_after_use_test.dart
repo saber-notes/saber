@@ -15,21 +15,17 @@ void main() {
       testWidgets('$disableEraserAfterUse', (tester) async {
         FlavorConfig.setup();
         FileManager.documentsDirectory =
-            '$tmpDir/nc_upload_download_test/'
+            '$tmpDir/disableEraserAfterUse/'
             '${FileManager.appRootDirectoryPrefix}';
         stows.disableEraserAfterUse.value = disableEraserAfterUse;
 
-        await tester.pumpWidget(
-          MaterialApp(home: Editor(path: '/disableEraserAfterUse')),
-        );
+        await tester.pumpWidget(MaterialApp(home: Editor()));
         final state = tester.state<EditorState>(find.byType(Editor));
-        state.currentTool = Eraser();
+        addTearDown(state.cancelAutosaveAndMarkSaved);
 
-        await tester.timedDrag(
-          find.byType(Editor),
-          const Offset(10, 10),
-          const Duration(seconds: 1),
-        );
+        state.currentTool = Eraser();
+        state.dragPageIndex = 0;
+        state.onDrawEnd(.new());
         await tester.pump();
 
         if (disableEraserAfterUse) {
