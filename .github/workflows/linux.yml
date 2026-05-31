@@ -51,7 +51,7 @@ jobs:
             macos/Flutter/ephemeral/
             windows/flutter/ephemeral/
             .flutter-plugins-dependencies
-          key: ${{ runner.OS }}-${{ matrix.arch.cache-name }}-linux-${{ hashFiles('**/pubspec.lock') }}-${{ hashFiles('**/*.dart') }}
+          key: ${{ runner.OS }}-${{ matrix.arch.cache-name }}-linux-${{ hashFiles('**/pubspec.yaml') }}
           restore-keys: |
             ${{ runner.OS }}-${{ matrix.arch.cache-name }}-
 
