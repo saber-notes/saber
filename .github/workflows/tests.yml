@@ -23,13 +23,16 @@ jobs:
         with:
           path: |
             .dart_tool/
+            .flutter-plugins-dependencies
             build/
             linux/flutter/ephemeral/
             macos/Flutter/ephemeral/
+            packages/**/.dart_tool/
+            packages/**/.flutter-plugins-dependencies
+            packages/**/pubspec.lock
             windows/flutter/ephemeral/
-            .flutter-plugins-dependencies
-            ~/.dartServer
-            ~/.dart-tool
+            ~/.dartServer/
+            ~/.dart-tool/
           key: ${{ runner.OS }}-saber-${{ hashFiles('**/pubspec.yaml') }}
           restore-keys: |
             ${{ runner.OS }}-saber-

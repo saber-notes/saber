@@ -32,13 +32,17 @@ jobs:
           lookup-only: true
           path: |
             .dart_tool/
-            android/.gradle/
-            android/.kotlin/
+            **/.gradle/
+            **/.idea/
+            **/.kotlin/
+            **/GeneratedPluginRegistrant.*
+            **/android/local.properties
+            **/*.iml
             build/
-
+            packages/**/.dart_tool/
+            packages/**/.flutter-plugins-dependencies
+            packages/**/pubspec.lock
             submodules/flutter/bin/cache/
-            submodules/flutter/packages/flutter_tools/gradle/.gradle/
-            submodules/flutter/packages/flutter_tools/gradle/.kotlin/
             submodules/flutter/packages/flutter_tools/gradle/build/
           key: ${{ runner.OS }}-saber_android
 
@@ -48,13 +52,16 @@ jobs:
         with:
           path: |
             .dart_tool/
+            .flutter-plugins-dependencies
             build/
             linux/flutter/ephemeral/
             macos/Flutter/ephemeral/
+            packages/**/.dart_tool/
+            packages/**/.flutter-plugins-dependencies
+            packages/**/pubspec.lock
             windows/flutter/ephemeral/
-            .flutter-plugins-dependencies
-            ~/.dartServer
-            ~/.dart-tool
+            ~/.dartServer/
+            ~/.dart-tool/
           key: ${{ runner.OS }}-saber-${{ hashFiles('**/pubspec.yaml') }}
           restore-keys: |
             ${{ runner.OS }}-saber-
@@ -147,13 +154,16 @@ jobs:
         with:
           path: |
             .dart_tool/
+            .flutter-plugins-dependencies
             build/
             linux/flutter/ephemeral/
             macos/Flutter/ephemeral/
+            packages/**/.dart_tool/
+            packages/**/.flutter-plugins-dependencies
+            packages/**/pubspec.lock
             windows/flutter/ephemeral/
-            .flutter-plugins-dependencies
-            ~/.dartServer
-            ~/.dart-tool
+            ~/.dartServer/
+            ~/.dart-tool/
           key: ${{ runner.OS }}-saber-${{ hashFiles('**/pubspec.yaml') }}
           restore-keys: |
             ${{ runner.OS }}-saber-
@@ -163,13 +173,17 @@ jobs:
         with:
           path: |
             .dart_tool/
-            android/.gradle/
-            android/.kotlin/
+            **/.gradle/
+            **/.idea/
+            **/.kotlin/
+            **/GeneratedPluginRegistrant.*
+            **/android/local.properties
+            **/*.iml
             build/
-
+            packages/**/.dart_tool/
+            packages/**/.flutter-plugins-dependencies
+            packages/**/pubspec.lock
             submodules/flutter/bin/cache/
-            submodules/flutter/packages/flutter_tools/gradle/.gradle/
-            submodules/flutter/packages/flutter_tools/gradle/.kotlin/
             submodules/flutter/packages/flutter_tools/gradle/build/
           key: ${{ runner.OS }}-saber_android
 
