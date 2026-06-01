@@ -50,7 +50,7 @@ dependencies:
 
   path_provider: ^2.0.11
 
-  flutter_secure_storage: ^10.0.0-beta.4
+  flutter_secure_storage: ^10.3.1
 
   url_launcher: ^6.1.8
 
@@ -75,7 +75,7 @@ dependencies:
 
   regexed_validator: ^2.0.0+1
 
-  slang: ^4.12.1
+  slang: ^4.15.0
   slang_flutter:
 
   flex_color_picker: ^3.4.1
@@ -86,8 +86,8 @@ dependencies:
 
   defer_pointer: ^0.0.2
 
-  permission_handler: ^12.0.0+1
-  saver_gallery: ^4.0.0
+  permission_handler: ^12.0.2
+  saver_gallery: ^5.1.0
 
   animations: ^2.0.7
 
@@ -142,9 +142,9 @@ dependencies:
 
   args: ^2.5.0
 
-  flutter_web_auth_2: ^5.0.1
+  flutter_web_auth_2: ^5.0.3
 
-  pdfrx: ^2.4.2
+  pdfrx: ^2.4.3
   path: ^1.9.1
 
   stow: ^0.6.0
@@ -155,7 +155,7 @@ dependencies:
   sentry_flutter: 9.15.0
   sentry_logging: ^9.5.0
 
-  background_downloader: ^9.2.6
+  background_downloader: ^9.5.5
 
   flutter_hooks: ^0.21.3+1
   dynamic_yaru: ^0.1.0
@@ -179,7 +179,7 @@ dev_dependencies:
 
   golden_screenshot: ^11.0.1
 
-  sentry_dart_plugin: ^3.1.1
+  sentry_dart_plugin: ^3.4.0
 
 dependency_overrides:
   # https://github.com/darioielardi/flutter_speed_dial/pull/344
