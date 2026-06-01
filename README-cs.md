@@ -95,6 +95,8 @@ Pokud byste chtěli pomoci s překladem aplikace Saber, přejděte na [Weblate](
 
 [![Stav překladů](https://hosted.weblate.org/widget/saber-notes/multi-auto.svg)](https://hosted.weblate.org/engage/saber-notes/)
 
+Poznámka: Abychom předešli nutnosti vyplňovat mezery v překladech angličtinou, jsou chybějící překlady podchyceny strojovým překladem, a to do doby, než se k překladu dostane lidský přispěvovatel.
+
 ## Podpora aplikace Saber
 
 Pokud máte rádi Saber, zvažte prosím jeho podporu pomocí
