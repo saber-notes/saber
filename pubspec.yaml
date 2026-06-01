@@ -87,7 +87,7 @@ dependencies:
   defer_pointer: ^0.0.2
 
   permission_handler: ^12.0.0+1
-  saver_gallery: ^4.0.0
+  saver_gallery: ^5.1.0
 
   animations: ^2.0.7
 
@@ -152,7 +152,7 @@ dependencies:
   stow_secure: ^0.6.0
   stow_codecs: ^1.4.0
 
-  sentry_flutter: 9.15.0
+  sentry_flutter: ^9.21.0
   sentry_logging: ^9.5.0
 
   background_downloader: ^9.2.6

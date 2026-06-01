@@ -305,7 +305,7 @@ class FileManager {
           await SaverGallery.saveImage(
             Uint8List.fromList(bytes),
             fileName: fileName,
-            androidRelativePath: 'Pictures/Saber',
+            albumPath: 'Saber',
             skipIfExists: true,
           );
         }
