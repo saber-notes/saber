@@ -31,38 +31,38 @@ jobs:
         - language: actions
           build-mode: none
         - language: java-kotlin
-          build-mode: manual
+          build-mode: autobuild
     steps:
       - name: Checkout code
         uses: actions/checkout@v6
 
       - name: Setup Flutter
-        if: matrix.build-mode == 'manual'
+        if: matrix.language == 'java-kotlin'
         uses: adil192/setup-flutter-submodule@v3
         with:
           flutter-path: submodules/flutter
       - name: Setup Java
-        if: matrix.build-mode == 'manual'
+        if: matrix.language == 'java-kotlin'
         uses: actions/setup-java@v5
         with:
           distribution: "microsoft"
           java-version: "21"
       - name: Setup Gradle
-        if: matrix.build-mode == 'manual'
+        if: matrix.language == 'java-kotlin'
         uses: gradle/actions/setup-gradle@v5
         with:
           # Only save gradle cache on main branch to save cache space.
           # All other branches can read the main branch's cache.
           cache-read-only: ${{ github.ref_name != 'main' }}
       - name: Setup Rust
-        if: matrix.build-mode == 'manual'
+        if: matrix.language == 'java-kotlin'
         uses: moonrepo/setup-rust@v1
         with:
           # The rust version is read from rust-toolchain.toml
           targets: armv7-linux-androideabi,aarch64-linux-android,x86_64-linux-android
 
       - name: Setup platform-agnostic cache
-        if: matrix.build-mode == 'manual'
+        if: matrix.language == 'java-kotlin'
         uses: actions/cache@v5
         with:
           path: |
@@ -85,7 +85,7 @@ jobs:
       # Android build. The Android build itself cannot save its own caches to
       # avoid secrets leaking.
       - name: Setup Android cache
-        if: matrix.build-mode == 'manual'
+        if: matrix.language == 'java-kotlin'
         uses: actions/cache@v5
         with:
           path: |
@@ -113,19 +113,19 @@ jobs:
           dependency-caching: true
 
       - name: Disable Flutter CLI animations
-        if: matrix.build-mode == 'manual'
+        if: matrix.language == 'java-kotlin'
         run: flutter config --no-cli-animations
       - run: ./patches/pre/remove_dev_dependencies.sh
-        if: matrix.build-mode == 'manual'
+        if: matrix.language == 'java-kotlin'
       - run: ./patches/pre/remove_linux_dependencies.sh
-        if: matrix.build-mode == 'manual'
+        if: matrix.language == 'java-kotlin'
       - run: flutter pub get
-        if: matrix.build-mode == 'manual'
+        if: matrix.language == 'java-kotlin'
       - run: ./patches/post/patch_rust_versions.sh
-        if: matrix.build-mode == 'manual'
+        if: matrix.language == 'java-kotlin'
       - name: Build apk
         run: flutter build apk
-        if: matrix.build-mode == 'manual'
+        if: matrix.language == 'java-kotlin'
 
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v4
