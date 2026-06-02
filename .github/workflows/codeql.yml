@@ -1,0 +1,133 @@
+name: "CodeQL Advanced"
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  schedule:
+    - cron: '37 19 * * 0'
+
+jobs:
+  analyze:
+    name: Analyze (${{ matrix.language }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    permissions:
+      # required for all workflows
+      security-events: write
+
+      # required to fetch internal or private CodeQL packs
+      packages: read
+
+      # only required for workflows in private repositories
+      actions: read
+      contents: read
+
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+        - language: actions
+          build-mode: none
+        - language: java-kotlin
+          build-mode: manual
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Setup Flutter
+        if: matrix.build-mode == 'manual'
+        uses: adil192/setup-flutter-submodule@v3
+        with:
+          flutter-path: submodules/flutter
+      - name: Setup Java
+        if: matrix.build-mode == 'manual'
+        uses: actions/setup-java@v5
+        with:
+          distribution: "microsoft"
+          java-version: "21"
+      - name: Setup Gradle
+        if: matrix.build-mode == 'manual'
+        uses: gradle/actions/setup-gradle@v5
+        with:
+          # Only save gradle cache on main branch to save cache space.
+          # All other branches can read the main branch's cache.
+          cache-read-only: ${{ github.ref_name != 'main' }}
+      - name: Setup Rust
+        if: matrix.build-mode == 'manual'
+        uses: moonrepo/setup-rust@v1
+        with:
+          # The rust version is read from rust-toolchain.toml
+          targets: armv7-linux-androideabi,aarch64-linux-android,x86_64-linux-android
+
+      - name: Setup platform-agnostic cache
+        if: matrix.build-mode == 'manual'
+        uses: actions/cache@v5
+        with:
+          path: |
+            .dart_tool/
+            .flutter-plugins-dependencies
+            build/
+            linux/flutter/ephemeral/
+            macos/Flutter/ephemeral/
+            packages/**/.dart_tool/
+            packages/**/.flutter-plugins-dependencies
+            packages/**/pubspec.lock
+            windows/flutter/ephemeral/
+            ~/.dartServer/
+            ~/.dart-tool/
+          key: ${{ runner.OS }}-saber-${{ hashFiles('**/pubspec.yaml') }}
+          restore-keys: |
+            ${{ runner.OS }}-saber-
+
+      # This workflow is responsible for populating the cache used in the
+      # Android build. The Android build itself cannot save its own caches to
+      # avoid secrets leaking.
+      - name: Setup Android cache
+        if: matrix.build-mode == 'manual'
+        uses: actions/cache@v5
+        with:
+          path: |
+            .dart_tool/
+            **/.gradle/
+            **/.idea/
+            **/.kotlin/
+            **/GeneratedPluginRegistrant.*
+            **/android/local.properties
+            **/*.iml
+            build/
+            packages/**/.dart_tool/
+            packages/**/.flutter-plugins-dependencies
+            packages/**/pubspec.lock
+            submodules/flutter/bin/cache/
+            submodules/flutter/packages/flutter_tools/gradle/build/
+          key: ${{ runner.OS }}-saber_android
+
+      # Initializes the CodeQL tools for scanning.
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v4
+        with:
+          languages: ${{ matrix.language }}
+          build-mode: ${{ matrix.build-mode }}
+          dependency-caching: true
+
+      - name: Disable Flutter CLI animations
+        if: matrix.build-mode == 'manual'
+        run: flutter config --no-cli-animations
+      - run: ./patches/pre/remove_dev_dependencies.sh
+        if: matrix.build-mode == 'manual'
+      - run: ./patches/pre/remove_linux_dependencies.sh
+        if: matrix.build-mode == 'manual'
+      - run: flutter pub get
+        if: matrix.build-mode == 'manual'
+      - run: ./patches/post/patch_rust_versions.sh
+        if: matrix.build-mode == 'manual'
+      - name: Build apk
+        run: flutter build apk
+        if: matrix.build-mode == 'manual'
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v4
+        with:
+          category: "/language:${{matrix.language}}"
