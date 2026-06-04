@@ -241,6 +241,7 @@ class App extends StatefulWidget {
     redirect: (context, state) async {
       if (LockScreen.isLockScreenNoteMode &&
           !state.uri.path.startsWith(RoutePaths.edit)) {
+        LockScreen.isLockScreenNoteMode = false;
         final path = await FileManager.newFilePath();
         return RoutePaths.editFilePath(path);
       }
