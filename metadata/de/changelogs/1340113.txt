@@ -1,0 +1,1 @@
+Experimentelle verbesserte Stiftunterstützung unter Windows, mit Hinzufügen von Orientierung und Schaltflächenerkennung.

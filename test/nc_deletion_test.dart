@@ -61,7 +61,7 @@ void main() {
     final webDavFiles = await webdav
         .propfind(PathUri.parse(syncFile.remotePath), depth: WebDavDepth.zero)
         .then((multistatus) => multistatus.toWebDavFiles());
-    expect(webDavFiles.length, 1, reason: 'File should exist on Nextcloud');
+    expect(webDavFiles, hasLength(1), reason: 'File should exist on Nextcloud');
 
     // Delete the file
     FileManager.deleteFile(filePathLocal, alsoUpload: false);

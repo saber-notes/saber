@@ -41,6 +41,13 @@ jobs:
         uses: adil192/setup-flutter-submodule@v1
         with:
           flutter-path: submodules/flutter
+          cache-flutter: false
+      - name: Patch Flutter for Windows stylus buttons support
+        shell: bash
+        run: |
+          git -C submodules/flutter config user.name "github-actions[bot]"
+          git -C submodules/flutter config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          ./patches/pre/windows_stylus_buttons.sh
 
       - name: Disable Flutter CLI animations
         run: flutter config --no-cli-animations

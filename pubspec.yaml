@@ -15,7 +15,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 1.34.1+134010
+version: 1.34.1+134011
 
 environment:
   sdk: ">=3.12.0 <4.0.0"
@@ -181,6 +181,14 @@ dev_dependencies:
   golden_screenshot: ^11.0.1
 
   sentry_dart_plugin: ^3.1.1
+
+dependency_overrides:
+  # https://github.com/darioielardi/flutter_speed_dial/pull/344
+  # Note: flutter_speed_dial hasn't been updated in 3 years, maybe replace it.
+  flutter_speed_dial:
+    git:
+      url: https://github.com/adil192/flutter_speed_dial.git
+      ref: fix/remove-Future.delayed
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

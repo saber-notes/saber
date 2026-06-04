@@ -1,7 +1,8 @@
+library;
+
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
-
 import 'package:collapsible/collapsible.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/cupertino.dart';
@@ -37,6 +38,7 @@ import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/extensions/change_notifier_extensions.dart';
 import 'package:saber/data/extensions/matrix4_extensions.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
+import 'package:saber/data/lock_screen.dart';
 import 'package:saber/data/nextcloud/saber_syncer.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/data/tools/_tool.dart';
@@ -1622,6 +1624,10 @@ class EditorState extends State<Editor> {
         return PopScope(
           canPop: savingState == .saved,
           onPopInvokedWithResult: (didPop, _) {
+            if (didPop && LockScreen.isLockScreenNoteMode) {
+              SystemNavigator.pop();
+              return;
+            }
             switch (savingState) {
               case .waitingToSave:
                 assert(!didPop);

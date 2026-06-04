@@ -60,16 +60,16 @@ void main() {
 
     for (final stroke in strokesToErase) {
       expect(
-        erased.contains(stroke),
-        true,
+        erased,
+        contains(stroke),
         reason: 'Stroke should be erased: $stroke',
       );
     }
 
     for (final stroke in strokesToKeep) {
       expect(
-        erased.contains(stroke),
-        false,
+        erased,
+        isNot(contains(stroke)),
         reason: 'Stroke should not be erased: $stroke',
       );
     }
@@ -81,8 +81,8 @@ void main() {
       reason: 'The correct number of strokes should have been erased',
     );
     expect(
-      erasedStrokes.every((stroke) => strokesToErase.contains(stroke)),
-      true,
+      erasedStrokes,
+      everyElement(strokesToErase.contains),
       reason: 'The correct strokes should have been erased',
     );
   });

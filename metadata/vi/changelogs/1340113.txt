@@ -1,0 +1,1 @@
+Hỗ trợ bút cảm ứng được cải tiến trên Windows, bổ sung phát hiện hướng và nút bấm.

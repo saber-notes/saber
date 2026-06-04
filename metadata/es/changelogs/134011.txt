@@ -1,0 +1,1 @@
+Soporte experimental mejorado para lápices en Windows, añadiendo detección de orientación y botones.

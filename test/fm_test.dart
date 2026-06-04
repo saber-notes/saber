@@ -221,15 +221,15 @@ void main() {
         expect(children, isNotNull);
         printOnFailure('children.files: ${children!.files}');
         printOnFailure('children.directories: ${children.directories}');
-        expect(children.files.length, 3);
-        expect(children.directories.length, 1);
+        expect(children.files, hasLength(3));
+        expect(children.directories, hasLength(1));
 
         // verify children
         for (final fileName in fileNames) {
           if (fileName.contains('subdir')) continue;
-          expect(children.files.contains(fileName), true);
+          expect(children.files, contains(fileName));
         }
-        expect(children.directories.contains('subdir'), true);
+        expect(children.directories, contains('subdir'));
       });
 
       test('with extensions and assets', () async {
@@ -243,11 +243,11 @@ void main() {
         printOnFailure(
           'childrenWithAssets.directories: ${children.directories}',
         );
-        expect(children.files.length, 9);
-        expect(children.directories.length, 1);
-        expect(children.files.contains('test_file3.sbn2'), true);
-        expect(children.files.contains('test_file3.sbn2.0'), true);
-        expect(children.files.contains('test_file3.sbn2.p'), true);
+        expect(children.files, hasLength(9));
+        expect(children.directories, hasLength(1));
+        expect(children.files, contains('test_file3.sbn2'));
+        expect(children.files, contains('test_file3.sbn2.0'));
+        expect(children.files, contains('test_file3.sbn2.p'));
       });
     });
 
@@ -266,7 +266,7 @@ void main() {
 
       // check recently accessed
       recentlyAccessed = await FileManager.getRecentlyAccessed();
-      expect(recentlyAccessed.length, 2);
+      expect(recentlyAccessed, hasLength(2));
       expect(recentlyAccessed[0], '/$fileName2');
       expect(recentlyAccessed[1], '/$fileName1');
 

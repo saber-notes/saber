@@ -16,7 +16,7 @@ void main() {
     final result = await Process.run('dart', [
       './scripts/bump_version.dart',
       '--custom',
-      buildName,
+      buildNumber.toString(),
       '--fail-on-changes',
       '--quiet',
     ], runInShell: true);
@@ -41,8 +41,8 @@ void main() {
     expect(androidMetadata.existsSync(), true);
     final androidMetadataContents = await androidMetadata.readAsString();
     expect(
-      androidMetadataContents.contains(dummyChangelog),
-      false,
+      androidMetadataContents,
+      isNot(contains(dummyChangelog)),
       reason: 'Dummy text found in Android changelog',
     );
 
@@ -50,8 +50,8 @@ void main() {
     expect(flatpakMetadata.existsSync(), true);
     final flatpakMetadataContents = await flatpakMetadata.readAsString();
     expect(
-      flatpakMetadataContents.contains(dummyChangelog),
-      false,
+      flatpakMetadataContents,
+      isNot(contains(dummyChangelog)),
       reason: 'Dummy text found in Flatpak changelog',
     );
   });
@@ -61,9 +61,9 @@ void main() {
     expect(flatpakMetadata.existsSync(), true);
     final flatpakMetadataContents = await flatpakMetadata.readAsString();
 
-    final releasesTag = flatpakMetadataContents.indexOf('<releases');
+    final releaseParentTag = flatpakMetadataContents.indexOf('<releases');
     expect(
-      releasesTag,
+      releaseParentTag,
       isNot(-1),
       reason: 'No <releases> tag found in Flatpak metainfo',
     );
@@ -75,8 +75,8 @@ void main() {
     );
 
     expect(
-      releaseTag > releasesTag,
-      true,
+      releaseTag,
+      greaterThan(releaseParentTag),
       reason: '<release> tag is not inside <releases> tag',
     );
   });
@@ -87,10 +87,10 @@ void main() {
 
     expect(
       fromNumber.buildNumberWithoutRevision,
-      equals(fromName.buildNumberWithoutRevision),
+      fromName.buildNumberWithoutRevision,
     );
 
-    expect(fromNumber.buildName, equals(fromName.buildName));
+    expect(fromNumber.buildName, fromName.buildName);
   });
 
   test('Test that changelog can be downloaded from GitHub', () async {
@@ -105,8 +105,8 @@ void main() {
     );
     expect(changelog, isNotEmpty);
     expect(
-      changelog!.contains(dummyChangelog),
-      false,
+      changelog,
+      isNot(contains(dummyChangelog)),
       reason: 'Dummy text found in changelog downloaded from GitHub',
     );
   });

@@ -1,0 +1,1 @@
+Experimentální vylepšená podpora stylusu na Windows, přidání detekce orientace a tlačítek.
