@@ -1,0 +1,3 @@
+• Die Funktion „Updates vom Server beobachten“ wurde behoben.
+• Die Leistung beim Export von PDFs und beim Erstellen von Vorschaubildern wurde verbessert.
+• Experimentell wurde die Stiftunterstützung unter Windows verbessert, indem Orientierung und Schaltflächenerkennung hinzugefügt wurden.

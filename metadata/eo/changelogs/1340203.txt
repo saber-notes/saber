@@ -1,0 +1,3 @@
+• Fixita la funkcio "Vidi nuntemojn sur la servero" ne funkcias.
+• Plibonita la performo de ekspredo de PDF kaj thumbloj.
+• Eksperimentala plibonita stylus-subteno sur Windows, aldonante orientiron kaj buton detekton.

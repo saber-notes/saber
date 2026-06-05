@@ -1,0 +1,3 @@
+• Opravil jsem funkci "Sledujte aktualizace na serveru", která nefungovala.
+• Vylepital jsem výkon exportu PDF a miniaturních obrázků.
+• Experimentálně vylepital jsem podporu stylusu na Windows, přičemž jsem přidal orientaci a detekci tlačítek.
