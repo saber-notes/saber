@@ -16,6 +16,7 @@ usage() {
     echo "There are also some additional arguments you can pass to this script:"
     echo "     --help: Show this help message"
     echo "     --clean: Delete the docker image and container"
+    echo "     --update: Update the container's Flutter and pub cache from the host."
 }
 if [[ "$1" == "--help" ]]; then
     usage
@@ -65,6 +66,20 @@ if [[ "$1" == "--clean" ]]; then
     exit 0
 fi
 
+# Update flutter and pub cache by running `./test.sh --update`
+copy_flutter_from_host() {
+    mkdir -p .github/docker/mounts
+    [ -d .github/docker/mounts/flutter ] || cp -r "$FLUTTER_ROOT" .github/docker/mounts/flutter
+    [ -d .github/docker/mounts/.pub-cache ] || cp -r "$PUB_CACHE" .github/docker/mounts/.pub-cache
+    [ -d .github/docker/mounts/.dart_tool ] || cp -r .dart_tool .github/docker/mounts/.dart_tool
+    [ -f .github/docker/mounts/pubspec.lock ] || cp pubspec.lock .github/docker/mounts/pubspec.lock
+}
+if [[ "$1" == "--update" ]]; then
+    rm -rf .github/docker/mounts/{flutter,.pub-cache,.dart_tool,pubspec.lock}
+    copy_flutter_from_host
+    exit 0
+fi
+
 # Get current directory
 if [[ "$OSTYPE" == "msys"* || "$OSTYPE" == "cygwin"* ]]; then
     APP_PATH="$(pwd -W)" # Windows-style path on Windows
@@ -85,10 +100,7 @@ fi
 
 # Make sure mounts exist
 mkdir -p .github/docker/mounts
-[ -d .github/docker/mounts/flutter ] || cp -r "$FLUTTER_ROOT" .github/docker/mounts/flutter
-[ -d .github/docker/mounts/.pub-cache ] || cp -r "$PUB_CACHE" .github/docker/mounts/.pub-cache
-[ -d .github/docker/mounts/.dart_tool ] || cp -r .dart_tool .github/docker/mounts/.dart_tool
-[ -f .github/docker/mounts/pubspec.lock ] || cp pubspec.lock .github/docker/mounts/pubspec.lock
+copy_flutter_from_host
 mkdir -p .github/docker/mounts/build
 mkdir -p .github/docker/mounts/linux-flutter-ephemeral
 mkdir -p .github/docker/mounts/macos-flutter-ephemeral
