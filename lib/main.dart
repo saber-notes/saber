@@ -47,12 +47,13 @@ Future<void> main(List<String> args) async {
 Future<void> appRunner(List<String> args) async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  doWhenWindowReady(() {
-    const initialSize = Size(600, 450);
-    appWindow.minSize = initialSize;
-    appWindow.alignment = Alignment.center;
-    appWindow.show(); // This is crucial!
-  });
++  if (Platform.isWindows || Platform.isLinux || Platform.isMacOS)
++    doWhenWindowReady(() {
++      const initialSize = Size(600, 450);
++      appWindow.minSize = initialSize;
++      appWindow.alignment = Alignment.center;
++      appWindow.show(); // This is crucial!
++    });
 
   final parser = ArgParser()..addFlag('verbose', abbr: 'v', negatable: false);
   final parsedArgs = parser.parse(args);
