@@ -87,6 +87,7 @@ class _BrowseApp extends StatelessWidget {
         themeMode: ThemeMode.light,
         theme: theme,
         darkTheme: theme,
+        builder: null,
       ),
     );
   }

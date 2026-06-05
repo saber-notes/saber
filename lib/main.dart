@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'dart:io';
-
+import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:args/args.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -46,6 +46,13 @@ Future<void> main(List<String> args) async {
 
 Future<void> appRunner(List<String> args) async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  doWhenWindowReady(() {
+    const initialSize = Size(600, 450);
+    appWindow.minSize = initialSize;
+    appWindow.alignment = Alignment.center;
+    appWindow.show(); // This is crucial!
+  });
 
   final parser = ArgParser()..addFlag('verbose', abbr: 'v', negatable: false);
   final parsedArgs = parser.parse(args);

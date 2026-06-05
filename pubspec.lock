@@ -105,6 +105,46 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.13"
+  bitsdojo_window:
+    dependency: "direct main"
+    description:
+      name: bitsdojo_window
+      sha256: "88ef7765dafe52d97d7a3684960fb5d003e3151e662c18645c1641c22b873195"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.1.6"
+  bitsdojo_window_linux:
+    dependency: transitive
+    description:
+      name: bitsdojo_window_linux
+      sha256: "9519c0614f98be733e0b1b7cb15b827007886f6fe36a4fb62cf3d35b9dd578ab"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.1.4"
+  bitsdojo_window_macos:
+    dependency: transitive
+    description:
+      name: bitsdojo_window_macos
+      sha256: f7c5be82e74568c68c5b8449e2c5d8fd12ec195ecd70745a7b9c0f802bb0268f
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.1.4"
+  bitsdojo_window_platform_interface:
+    dependency: transitive
+    description:
+      name: bitsdojo_window_platform_interface
+      sha256: "65daa015a0c6dba749bdd35a0f092e7a8ba8b0766aa0480eb3ef808086f6e27c"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.1.2"
+  bitsdojo_window_windows:
+    dependency: transitive
+    description:
+      name: bitsdojo_window_windows
+      sha256: fa982cf61ede53f483e50b257344a1c250af231a3cdc93a7064dd6dc0d720b68
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.1.6"
   boolean_selector:
     dependency: transitive
     description:
@@ -245,10 +285,10 @@ packages:
     dependency: transitive
     description:
       name: dbus
-      sha256: d0c98dcd4f5169878b6cf8f6e0a52403a9dff371a3e2f019697accbf6f44a270
+      sha256: "0ce9b0a839e6dee59a37a623d2fc26a35bbbe6404213e419b0d6411023d62645"
       url: "https://pub.dev"
     source: hosted
-    version: "0.7.12"
+    version: "0.7.14"
   decimal:
     dependency: transitive
     description:
@@ -508,10 +548,10 @@ packages:
     dependency: transitive
     description:
       name: flutter_plugin_android_lifecycle
-      sha256: "38d1c268de9097ff59cf0e844ac38759fc78f76836d37edad06fa21e182055a0"
+      sha256: "3854fe5e3bff0b113c658f260b90c95dea17c92db0f2addeac2e343dd9969785"
       url: "https://pub.dev"
     source: hosted
-    version: "2.0.34"
+    version: "2.0.35"
   flutter_quill:
     dependency: "direct main"
     description:
@@ -668,10 +708,10 @@ packages:
     dependency: "direct main"
     description:
       name: go_router
-      sha256: "92d8cee7c57dff0a6c409c05597b460002434eccf7424a712283225b3962d03f"
+      sha256: "5922b2861e2235a3504896f0d6fa07d84141b480cf52eecd2f42cd25585a9e8a"
       url: "https://pub.dev"
     source: hosted
-    version: "17.2.3"
+    version: "17.3.0"
   golden_screenshot:
     dependency: "direct dev"
     description:
@@ -1607,10 +1647,10 @@ packages:
     dependency: transitive
     description:
       name: shared_preferences_android
-      sha256: e8d4762b1e2e8578fc4d0fd548cebf24afd24f49719c08974df92834565e2c53
+      sha256: a2c49fc1fed7140cadd892d765bd47edbe4ac0b9c7e7e3c493dcb58126f99cf0
       url: "https://pub.dev"
     source: hosted
-    version: "2.4.23"
+    version: "2.4.25"
   shared_preferences_foundation:
     dependency: transitive
     description:
@@ -1764,10 +1804,10 @@ packages:
     dependency: transitive
     description:
       name: synchronized
-      sha256: "63896c27e81b28f8cb4e69ead0d3e8f03f1d1e5fc531a3e579cabed6a2c7c9e5"
+      sha256: "93b153dcb6a26dcddee6ca087dd634b53e38c10b5aa163e8e49501a776456153"
       url: "https://pub.dev"
     source: hosted
-    version: "3.4.0+1"
+    version: "3.4.1"
   system_info2:
     dependency: transitive
     description:
@@ -1836,10 +1876,10 @@ packages:
     dependency: transitive
     description:
       name: url_launcher_android
-      sha256: "17bc677f0b301615530dd1d67e0a9828cafa2d0b6b6eae4cd3679b7eac4a273c"
+      sha256: b413d49b73867ac08dd2f9890efd3cc11f2a0e577618d50843440a1fb3776c32
       url: "https://pub.dev"
     source: hosted
-    version: "6.3.30"
+    version: "6.3.32"
   url_launcher_ios:
     dependency: transitive
     description:
@@ -1996,10 +2036,10 @@ packages:
     dependency: transitive
     description:
       name: window_to_front
-      sha256: "7aef379752b7190c10479e12b5fd7c0b9d92adc96817d9e96c59937929512aee"
+      sha256: "14fad8984db4415e2eeb30b04bb77140b180e260d6cb66b26de126a8657a9241"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.3"
+    version: "0.0.4"
   worker_manager:
     dependency: "direct main"
     description:

@@ -160,6 +160,8 @@ dependencies:
   flutter_hooks: ^0.21.3+1
   dynamic_yaru: ^0.1.0
 
+  bitsdojo_window: ^0.1.6
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
