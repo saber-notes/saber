@@ -848,7 +848,7 @@ class EditorState extends State<Editor> {
   }
 
   void _refreshCurrentNote() async {
-    if (coreInfo.readOnly) return;
+    if (coreInfo.readOnlyReason != .watchingServer) return;
     if (!stows.loggedIn) return;
 
     final relativeFilePath = coreInfo.filePath;
@@ -861,6 +861,7 @@ class EditorState extends State<Editor> {
       syncFile,
       onLocalFileNotFound: .local,
       onEqualFiles: .local,
+      preferCache: false,
     );
     if (bestFile != .remote) return;
 
@@ -868,7 +869,9 @@ class EditorState extends State<Editor> {
     void listener(SaberSyncFile transferred) {
       if (transferred != syncFile) return;
       subscription.cancel();
-      _loadCoreInfo(relativeFilePath);
+      _loadCoreInfo(
+        relativeFilePath,
+      ).then((_) => coreInfo.readOnlyReason = .watchingServer);
     }
 
     subscription = syncer.downloader.transferStream.listen(listener);
