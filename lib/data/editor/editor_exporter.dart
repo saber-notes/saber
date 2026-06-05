@@ -1,7 +1,8 @@
-import 'dart:typed_data';
+import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:image/image.dart' as im;
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'package:saber/components/canvas/_circle_stroke.dart';
@@ -36,18 +37,30 @@ abstract class EditorExporter {
     }
 
     final pdf = pw.Document();
-    final screenshotController = ScreenshotController();
 
     // screenshot each page
     final pageScreenshots = await Future.wait(
-      List.generate(
-        coreInfo.pages.length,
-        (pageIndex) => screenshotPage(
+      List.generate(coreInfo.pages.length, (pageIndex) async {
+        final uiImage = await screenshotPage(
           coreInfo: coreInfo,
           pageIndex: pageIndex,
-          screenshotController: screenshotController,
-        ),
-      ),
+        );
+        final byteData = await uiImage.toByteData(
+          format: ui.ImageByteFormat.rawRgba,
+        );
+        assert(
+          byteData != null,
+          'Judging by the code, this should never be null.',
+        );
+        final imImage = im.Image.fromBytes(
+          width: uiImage.width,
+          height: uiImage.height,
+          bytes: byteData!.buffer,
+          order: im.ChannelOrder.rgba,
+        );
+        uiImage.dispose();
+        return imImage;
+      }),
     );
 
     for (int pageIndex = 0; pageIndex < pageScreenshots.length; ++pageIndex) {
@@ -115,7 +128,7 @@ abstract class EditorExporter {
                   }
                 },
                 child: pw.Image(
-                  pw.MemoryImage(pageScreenshots[pageIndex]),
+                  pw.ImageImage(pageScreenshots[pageIndex]),
                   width: pageSize.width,
                   height: pageSize.height,
                 ),
@@ -135,10 +148,11 @@ abstract class EditorExporter {
   /// because they're added separately to the PDF as vector graphics.
   /// See [shouldRasterizeStroke] for more details, or set
   /// [rasterizeAllStrokes] to true to include all strokes in the screenshot.
-  static Future<Uint8List> screenshotPage({
+  ///
+  /// You must dispose this image when you're done.
+  static Future<ui.Image> screenshotPage({
     required EditorCoreInfo coreInfo,
     required int pageIndex,
-    required ScreenshotController screenshotController,
     bool rasterizeAllStrokes = false,
     Size? targetSize,
     double? cropHeight,
@@ -155,7 +169,7 @@ abstract class EditorExporter {
             if (i == pageIndex) page else coreInfo.pages[i],
         ],
       );
-      return await screenshotController.captureFromWidget(
+      return await ScreenshotController.widgetToUiImage(
         EditorExporterTheme(
           targetSize: targetSize,
           child: CanvasPreview(
