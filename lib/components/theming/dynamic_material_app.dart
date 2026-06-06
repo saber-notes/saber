@@ -7,6 +7,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_quill/flutter_quill.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:saber/components/theming/saber_theme.dart';
 import 'package:saber/components/theming/yaru_builder.dart';
@@ -14,6 +15,7 @@ import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/extensions/redirecting_localization_delegate.dart';
 import 'package:saber/i18n/strings.g.dart';
 import 'package:window_manager/window_manager.dart';
+import 'package:yaru/yaru.dart';
 
 class DynamicMaterialApp extends StatefulHookWidget {
   const DynamicMaterialApp({
@@ -91,6 +93,31 @@ class DynamicMaterialAppState extends State<DynamicMaterialApp>
       chosenAccentColor = null; // discard transparent accent color
     useListenable(stows.hyperlegibleFont);
 
+    // Helper to build the app with optional desktop window shell
+    TransitionBuilder? buildWithDesktopShell(TransitionBuilder? builder) {
+      if (platform == .windows) {
+        return (context, child) => Scaffold(
+          appBar: YaruWindowTitleBar(
+            title: Row(
+              children: [
+                SizedBox(
+                  width: 16,
+                  height: 16,
+                  child: SvgPicture.asset('assets/icon/icon.svg'),
+                ),
+                const SizedBox(width: 8),
+                const Text('Saber'),
+              ],
+            ),
+            centerTitle: false,
+            buttonPadding: const EdgeInsets.only(bottom: 1),
+          ),
+          body: child,
+        );
+      }
+      return builder;
+    }
+
     // Use Yaru theme, with or without [chosenAccentColor]
     if (platform == .linux) {
       return YaruBuilder(
@@ -105,6 +132,7 @@ class DynamicMaterialAppState extends State<DynamicMaterialApp>
             darkTheme: themes.darkTheme,
             highContrastTheme: themes.highContrastTheme,
             highContrastDarkTheme: themes.highContrastDarkTheme,
+            builder: buildWithDesktopShell(null),
           );
         },
       );
@@ -126,6 +154,7 @@ class DynamicMaterialAppState extends State<DynamicMaterialApp>
           .dark,
           platform,
         ),
+        builder: buildWithDesktopShell(null),
       );
     }
 
@@ -150,6 +179,7 @@ class DynamicMaterialAppState extends State<DynamicMaterialApp>
                   .dark,
                   platform,
                 ),
+          builder: buildWithDesktopShell(null),
         );
       },
     );
@@ -176,6 +206,7 @@ class ExplicitlyThemedApp extends StatelessWidget {
     required this.darkTheme,
     this.highContrastTheme,
     this.highContrastDarkTheme,
+    this.builder,
   });
 
   final String title;
@@ -183,6 +214,7 @@ class ExplicitlyThemedApp extends StatelessWidget {
   final ThemeMode themeMode;
   final ThemeData theme;
   final ThemeData? darkTheme, highContrastTheme, highContrastDarkTheme;
+  final TransitionBuilder? builder;
 
   static final _materialAppKey = GlobalKey<State<MaterialApp>>();
 
@@ -225,6 +257,7 @@ class ExplicitlyThemedApp extends StatelessWidget {
       highContrastTheme: highContrastTheme,
       highContrastDarkTheme: highContrastDarkTheme,
       debugShowCheckedModeBanner: false,
+      builder: builder,
     );
   }
 }
