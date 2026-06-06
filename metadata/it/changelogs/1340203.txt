@@ -1,0 +1,3 @@
+• Ho risolto il problema della mancata funzionalità "Monitora gli aggiornamenti sul server".
+• Ho migliorato le prestazioni di esportazione PDF e anteprima.
+• Supporto sperimentale migliorato per la penna su Windows, aggiungendo rilevamento dell'orientamento e dei pulsanti.

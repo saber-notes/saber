@@ -1,0 +1,3 @@
+• Se corrigió la función "Esperar actualizaciones en el servidor" que no funcionaba.
+• Se mejoró el rendimiento de la exportación a PDF y la creación de miniaturas.
+• Se mejoró experimentalmente el soporte del lápiz óptico en Windows, añadiendo detección de orientación y botones.

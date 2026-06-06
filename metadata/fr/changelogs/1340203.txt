@@ -1,0 +1,3 @@
+• Corrigé le dysfonctionnement de la fonctionnalité "Surveiller les mises à jour sur le serveur".
+• Amélioration des performances de l'exportation et de la création de vignettes PDF.
+• Amélioration expérimentale du support du stylet sur Windows, ajoutant la détection de l'orientation et des boutons.

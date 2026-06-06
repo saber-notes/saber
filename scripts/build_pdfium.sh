@@ -4,9 +4,9 @@
 # Build it manually to avoid the prebuilts.
 #
 # When built, the lib will be at one of these paths:
-# ./.dart_tool/hooks_runner/shared/pdfium_dart/build/chromium_7811/arm/libpdfium.so
-# ./.dart_tool/hooks_runner/shared/pdfium_dart/build/chromium_7811/arm64/libpdfium.so
-# ./.dart_tool/hooks_runner/shared/pdfium_dart/build/chromium_7811/x64/libpdfium.so
+# ./.dart_tool/hooks_runner/shared/pdfium_dart/build/chromium_7811/android-arm/libpdfium.so
+# ./.dart_tool/hooks_runner/shared/pdfium_dart/build/chromium_7811/android-arm64/libpdfium.so
+# ./.dart_tool/hooks_runner/shared/pdfium_dart/build/chromium_7811/android-x64/libpdfium.so
 #
 # You may also wish to run `./scripts/disable_prebuilt_pdfium.sh`
 # to prevent the download entirely.
@@ -62,10 +62,10 @@ fi
 popd
 
 install -Dvm755 "submodules/pdfium-binaries/staging/lib/libpdfium.so" -t \
-  ".dart_tool/hooks_runner/shared/pdfium_dart/build/chromium_7811/${PDFium_TARGET_CPU}/"
+  ".dart_tool/hooks_runner/shared/pdfium_dart/build/chromium_7811/android-${PDFium_TARGET_CPU}/"
 for CPU in arm arm64 x64; do
   # Place empty file for other cpus to prevent downloading prebuilts
-  TARGET_DIR=".dart_tool/hooks_runner/shared/pdfium_dart/build/chromium_7811/${CPU}"
+  TARGET_DIR=".dart_tool/hooks_runner/shared/pdfium_dart/build/chromium_7811/android-${CPU}"
   mkdir -p "${TARGET_DIR}"
   touch "${TARGET_DIR}/libpdfium.so"
 done
