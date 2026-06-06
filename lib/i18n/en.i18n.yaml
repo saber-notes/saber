@@ -317,6 +317,8 @@ editor:
   selectionBar:
     delete: Delete
     duplicate: Duplicate
+    copy: Copy
+    paste: Paste
   menu:
     clearPage: Clear page $page/$totalPages
     clearAllPages: Clear all pages

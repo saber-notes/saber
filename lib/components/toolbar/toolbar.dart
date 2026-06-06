@@ -45,6 +45,7 @@ class Toolbar extends StatefulWidget {
     required this.isRedoPossible,
     required this.toggleFingerDrawing,
     required this.pickPhoto,
+    required this.copySelection,
     required this.paste,
     required this.duplicateSelection,
     required this.deleteSelection,
@@ -72,6 +73,7 @@ class Toolbar extends StatefulWidget {
 
   final VoidCallback pickPhoto;
 
+  final VoidCallback copySelection;
   final VoidCallback paste;
 
   final VoidCallback duplicateSelection;
@@ -136,7 +138,14 @@ class _ToolbarState extends State<Toolbar> {
 
     Keybinder.bind(_ctrlF!, widget.toggleFingerDrawing);
     Keybinder.bind(_ctrlE!, toggleEraser);
-    Keybinder.bind(_ctrlC!, toggleColorOptions);
+    Keybinder.bind(_ctrlC!, () {
+      if (widget.currentTool is Select &&
+          (widget.currentTool as Select).doneSelecting) {
+        widget.copySelection();
+      } else {
+        toggleColorOptions();
+      }
+    });
     Keybinder.bind(_ctrlShiftS!, toggleExportBar);
     Keybinder.bind(_f11!, toggleFullscreen);
     Keybinder.bind(_ctrlV!, widget.paste);
@@ -193,10 +202,7 @@ class _ToolbarState extends State<Toolbar> {
     };
 
     if (widget.currentTool == Select.currentSelect) {
-      // Enable selection bar only when selection is done
-      toolOptionsType.value = Select.currentSelect.doneSelecting
-          ? .select
-          : .hide;
+      toolOptionsType.value = .select;
     }
 
     final bars = <Widget>[
@@ -244,8 +250,11 @@ class _ToolbarState extends State<Toolbar> {
                 setTool: widget.setTool,
               ),
               .select => SelectionBar(
+                copySelection: widget.copySelection,
                 duplicateSelection: widget.duplicateSelection,
                 deleteSelection: widget.deleteSelection,
+                paste: widget.paste,
+                hasSelection: Select.currentSelect.doneSelecting,
               ),
             },
           );

@@ -2,8 +2,10 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:bson/bson.dart';
 import 'package:collapsible/collapsible.dart';
 import 'package:file_picker/file_picker.dart';
+import 'package:fixnum/fixnum.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart' show kDebugMode;
 import 'package:flutter/gestures.dart';
@@ -1263,6 +1265,21 @@ class EditorState extends State<Editor> {
     final reader = await SystemClipboard.instance?.read();
     if (reader == null) return;
 
+    if (reader.canProvide(Formats.plainText)) {
+      final jsonString = await reader.readValue(Formats.plainText);
+      if (jsonString != null && jsonString.startsWith('{"saber_v":1')) {
+        try {
+          final data = jsonDecode(jsonString);
+          if (data is Map && data['saber_v'] == 1) {
+            await _pasteSaberData(data);
+            return;
+          }
+        } catch (e) {
+          log.warning('Failed to parse clipboard JSON as Saber data: $e');
+        }
+      }
+    }
+
     final List<_PhotoInfo> photoInfos = [];
     final List<ReadProgress> progresses = [];
 
@@ -1300,6 +1317,181 @@ class EditorState extends State<Editor> {
     }
 
     await _pickPhotos(photoInfos);
+  }
+
+  Future<void> copySelection() async {
+    final select = currentTool as Select;
+    if (!select.doneSelecting) return;
+
+    final selectResult = select.selectResult;
+
+    final strokesJson = selectResult.strokes.map((s) => s.toJson()).toList();
+
+    final imagesJson = <Map<String, dynamic>>[];
+    final tempAssetCache = OrderedAssetCache();
+    for (final image in selectResult.images) {
+      imagesJson.add(image.toJson(tempAssetCache));
+    }
+
+    final List<String> assetsBase64 = [];
+    for (int i = 0; i < tempAssetCache.length; i++) {
+      assetsBase64.add(base64Encode(await tempAssetCache.getBytes(i)));
+    }
+
+    final Map<String, dynamic> data = {
+      'saber_v': 1,
+      'strokes': strokesJson,
+      'images': imagesJson,
+      'assets': assetsBase64,
+    };
+
+    try {
+      final jsonString = jsonEncode(
+        data,
+        toEncodable: (Object? nonEncodable) {
+          if (nonEncodable is BsonBinary) {
+            return {
+              '_type': 'BsonBinary',
+              'data': base64Encode(nonEncodable.byteList),
+            };
+          }
+          if (nonEncodable is Int64) {
+            return nonEncodable.toInt();
+          }
+          log.warning(
+            'Unknown non-encodable object: ${nonEncodable.runtimeType}',
+          );
+          return nonEncodable.toString();
+        },
+      );
+
+      final item = DataWriterItem();
+      item.add(Formats.plainText(jsonString));
+      await SystemClipboard.instance?.write([item]);
+    } catch (e, st) {
+      log.severe('Failed to copy selection: $e', e, st);
+    }
+  }
+
+  dynamic _decodeSaberJson(dynamic data) {
+    if (data is List) {
+      return data.map(_decodeSaberJson).toList();
+    }
+    if (data is Map) {
+      if (data['_type'] == 'BsonBinary') {
+        return BsonBinary.from(base64Decode(data['data'] as String));
+      }
+      return data.map(
+        (key, value) => MapEntry(key as String, _decodeSaberJson(value)),
+      );
+    }
+    return data;
+  }
+
+  Future<void> _pasteSaberData(Map<dynamic, dynamic> data) async {
+    if (coreInfo.readOnly) return;
+
+    final decodedData = _decodeSaberJson(data) as Map<String, dynamic>;
+
+    final targetPageIndex = currentPageIndex;
+    final targetPage = coreInfo.pages[targetPageIndex];
+
+    final assets = (decodedData['assets'] as List?)
+        ?.map((e) => base64Decode(e as String))
+        .toList();
+
+    final strokes = EditorPage.parseStrokesJson(
+      decodedData['strokes'] as List?,
+      page: targetPage,
+      onlyFirstPage: false,
+      fileVersion: EditorCoreInfo.sbnVersion,
+    );
+
+    final images = EditorPage.parseImagesJson(
+      decodedData['images'] as List?,
+      inlineAssets: assets,
+      isThumbnail: false,
+      onlyFirstPage: false,
+      sbnPath: coreInfo.filePath,
+      assetCache: coreInfo.assetCache,
+    );
+
+    if (strokes.isEmpty && images.isEmpty) return;
+
+    for (final stroke in strokes) {
+      stroke.pageIndex = targetPageIndex;
+    }
+    for (final image in images) {
+      image.pageIndex = targetPageIndex;
+      image.id = coreInfo.nextImageId++;
+    }
+
+    // Position items to the center of the viewport
+    Rect? bounds;
+    for (final stroke in strokes) {
+      for (final offset in stroke.lowQualityPolygon) {
+        bounds = bounds == null
+            ? Rect.fromPoints(offset, offset)
+            : bounds.expandToInclude(Rect.fromPoints(offset, offset));
+      }
+    }
+    for (final image in images) {
+      bounds = bounds == null
+          ? image.dstRect
+          : bounds.expandToInclude(image.dstRect);
+    }
+
+    if (bounds != null) {
+      final screenWidth = MediaQuery.sizeOf(context).width;
+      final topOfPage = CanvasGestureDetector.getTopOfPage(
+        pageIndex: targetPageIndex,
+        pages: coreInfo.pages,
+        screenWidth: screenWidth,
+      );
+
+      final viewportCenterInDocument = -scrollY;
+      final viewportCenterOnPage =
+          viewportCenterInDocument - topOfPage + bounds.height / 2;
+
+      final targetCenter = Offset(
+        targetPage.size.width / 2,
+        viewportCenterOnPage,
+      );
+      final shiftOffset = targetCenter - bounds.center;
+      for (final stroke in strokes) {
+        stroke.shift(shiftOffset);
+      }
+      for (final image in images) {
+        image.dstRect = image.dstRect.shift(shiftOffset);
+      }
+
+      bounds = bounds.shift(shiftOffset);
+    }
+
+    setState(() {
+      targetPage.strokes.addAll(strokes);
+      targetPage.images.addAll(images);
+
+      currentTool = Select.currentSelect;
+      Select.currentSelect.selectResult = SelectResult(
+        pageIndex: targetPageIndex,
+        strokes: List.from(strokes),
+        images: List.from(images),
+        path: Path()..addRect(bounds!.inflate(20)),
+      );
+      Select.currentSelect.doneSelecting = true;
+
+      history.recordChange(
+        EditorHistoryItem(
+          type: .draw,
+          pageIndex: targetPageIndex,
+          strokes: strokes,
+          images: images,
+        ),
+      );
+    });
+
+    autosaveAfterDelay();
   }
 
   Future exportAsPdf(BuildContext context) async {
@@ -1580,6 +1772,7 @@ class EditorState extends State<Editor> {
             lastSeenPointerCount = 0;
           },
           pickPhoto: _pickPhotos,
+          copySelection: copySelection,
           paste: paste,
           exportAsSba: exportAsSba,
           exportAsPdf: exportAsPdf,
