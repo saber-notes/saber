@@ -1430,15 +1430,13 @@ class EditorState extends State<Editor> {
     Rect? bounds;
     for (final stroke in strokes) {
       for (final offset in stroke.lowQualityPolygon) {
-        bounds =
-            bounds == null
+        bounds = bounds == null
             ? Rect.fromPoints(offset, offset)
             : bounds.expandToInclude(Rect.fromPoints(offset, offset));
       }
     }
     for (final image in images) {
-      bounds =
-          bounds == null
+      bounds = bounds == null
           ? image.dstRect
           : bounds.expandToInclude(image.dstRect);
     }
@@ -1452,7 +1450,8 @@ class EditorState extends State<Editor> {
       );
 
       final viewportCenterInDocument = -scrollY;
-      final viewportCenterOnPage = viewportCenterInDocument - topOfPage + bounds.height/2;
+      final viewportCenterOnPage =
+          viewportCenterInDocument - topOfPage + bounds.height / 2;
 
       final targetCenter = Offset(
         targetPage.size.width / 2,
