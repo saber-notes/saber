@@ -71,7 +71,9 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     if (LockScreen.isLockScreenNoteMode) {
-      SystemNavigator.pop();
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        SystemNavigator.pop();
+      });
       return const SizedBox.shrink();
     }
 

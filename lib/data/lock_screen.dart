@@ -19,6 +19,7 @@ class LockScreen {
       isLockScreenNoteMode = isLockScreen;
       return isLockScreen;
     } catch (e) {
+      isLockScreenNoteMode = false;
       // Return false if platform channel is not supported or fails
       return false;
     }
