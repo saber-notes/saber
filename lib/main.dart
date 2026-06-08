@@ -32,6 +32,7 @@ import 'package:saber/pages/user/login.dart';
 import 'package:window_manager/window_manager.dart';
 import 'package:worker_manager/worker_manager.dart';
 import 'package:workmanager/workmanager.dart';
+import 'package:yaru/yaru.dart';
 
 Future<void> main(List<String> args) async {
   /// To set the flavor config e.g. for the Play Store, use:
@@ -46,6 +47,8 @@ Future<void> main(List<String> args) async {
 
 Future<void> appRunner(List<String> args) async {
   WidgetsFlutterBinding.ensureInitialized();
+  if (Platform.isWindows || Platform.isLinux || Platform.isMacOS)
+    await YaruWindowTitleBar.ensureInitialized();
 
   final parser = ArgParser()..addFlag('verbose', abbr: 'v', negatable: false);
   final parsedArgs = parser.parse(args);
