@@ -33,21 +33,21 @@ class TranslationsFa extends Translations with BaseTranslations<AppLocale, Trans
 	TranslationsFa $copyWith({TranslationMetadata<AppLocale, Translations>? meta}) => TranslationsFa(meta: meta ?? this.$meta);
 
 	// Translations
-	@override late final _TranslationsCommonFa common = _TranslationsCommonFa._(_root);
-	@override late final _TranslationsHomeFa home = _TranslationsHomeFa._(_root);
-	@override late final _TranslationsSentryFa sentry = _TranslationsSentryFa._(_root);
-	@override late final _TranslationsSettingsFa settings = _TranslationsSettingsFa._(_root);
-	@override late final _TranslationsLogsFa logs = _TranslationsLogsFa._(_root);
-	@override late final _TranslationsLoginFa login = _TranslationsLoginFa._(_root);
-	@override late final _TranslationsProfileFa profile = _TranslationsProfileFa._(_root);
-	@override late final _TranslationsAppInfoFa appInfo = _TranslationsAppInfoFa._(_root);
-	@override late final _TranslationsUpdateFa update = _TranslationsUpdateFa._(_root);
-	@override late final _TranslationsEditorFa editor = _TranslationsEditorFa._(_root);
+	@override late final _Translations$common$fa common = _Translations$common$fa._(_root);
+	@override late final _Translations$home$fa home = _Translations$home$fa._(_root);
+	@override late final _Translations$sentry$fa sentry = _Translations$sentry$fa._(_root);
+	@override late final _Translations$settings$fa settings = _Translations$settings$fa._(_root);
+	@override late final _Translations$logs$fa logs = _Translations$logs$fa._(_root);
+	@override late final _Translations$login$fa login = _Translations$login$fa._(_root);
+	@override late final _Translations$profile$fa profile = _Translations$profile$fa._(_root);
+	@override late final _Translations$appInfo$fa appInfo = _Translations$appInfo$fa._(_root);
+	@override late final _Translations$update$fa update = _Translations$update$fa._(_root);
+	@override late final _Translations$editor$fa editor = _Translations$editor$fa._(_root);
 }
 
 // Path: common
-class _TranslationsCommonFa extends TranslationsCommonEn {
-	_TranslationsCommonFa._(TranslationsFa root) : this._root = root, super.internal(root);
+class _Translations$common$fa extends Translations$common$en {
+	_Translations$common$fa._(TranslationsFa root) : this._root = root, super.internal(root);
 
 	final TranslationsFa _root; // ignore: unused_field
 
@@ -58,54 +58,54 @@ class _TranslationsCommonFa extends TranslationsCommonEn {
 }
 
 // Path: home
-class _TranslationsHomeFa extends TranslationsHomeEn {
-	_TranslationsHomeFa._(TranslationsFa root) : this._root = root, super.internal(root);
+class _Translations$home$fa extends Translations$home$en {
+	_Translations$home$fa._(TranslationsFa root) : this._root = root, super.internal(root);
 
 	final TranslationsFa _root; // ignore: unused_field
 
 	// Translations
-	@override late final _TranslationsHomeTabsFa tabs = _TranslationsHomeTabsFa._(_root);
-	@override late final _TranslationsHomeTitlesFa titles = _TranslationsHomeTitlesFa._(_root);
-	@override late final _TranslationsHomeTooltipsFa tooltips = _TranslationsHomeTooltipsFa._(_root);
-	@override late final _TranslationsHomeCreateFa create = _TranslationsHomeCreateFa._(_root);
+	@override late final _Translations$home$tabs$fa tabs = _Translations$home$tabs$fa._(_root);
+	@override late final _Translations$home$titles$fa titles = _Translations$home$titles$fa._(_root);
+	@override late final _Translations$home$tooltips$fa tooltips = _Translations$home$tooltips$fa._(_root);
+	@override late final _Translations$home$create$fa create = _Translations$home$create$fa._(_root);
 	@override String get welcome => 'خوش آمدید';
 	@override String get invalidFormat => 'فایلی که انتخاب کرده اید پشتیبانی نمی شود. لطفاً یک فایل sbn، sbn2، sba یا pdf را انتخاب کنید.';
 	@override String get noFiles => 'فایلی پیدا نشد';
 	@override String get createNewNote => 'برای ساخت یادداشت دکمه + را بزنید';
 	@override String get backFolder => 'به پوشه قبلی برگردید';
-	@override late final _TranslationsHomeNewFolderFa newFolder = _TranslationsHomeNewFolderFa._(_root);
-	@override late final _TranslationsHomeRenameNoteFa renameNote = _TranslationsHomeRenameNoteFa._(_root);
-	@override late final _TranslationsHomeMoveNoteFa moveNote = _TranslationsHomeMoveNoteFa._(_root);
+	@override late final _Translations$home$newFolder$fa newFolder = _Translations$home$newFolder$fa._(_root);
+	@override late final _Translations$home$renameNote$fa renameNote = _Translations$home$renameNote$fa._(_root);
+	@override late final _Translations$home$moveNote$fa moveNote = _Translations$home$moveNote$fa._(_root);
 	@override String get deleteNote => 'حذف یادداشت';
-	@override late final _TranslationsHomeDeleteNoteDialogFa deleteNoteDialog = _TranslationsHomeDeleteNoteDialogFa._(_root);
-	@override late final _TranslationsHomeRenameFolderFa renameFolder = _TranslationsHomeRenameFolderFa._(_root);
-	@override late final _TranslationsHomeDeleteFolderFa deleteFolder = _TranslationsHomeDeleteFolderFa._(_root);
+	@override late final _Translations$home$deleteNoteDialog$fa deleteNoteDialog = _Translations$home$deleteNoteDialog$fa._(_root);
+	@override late final _Translations$home$renameFolder$fa renameFolder = _Translations$home$renameFolder$fa._(_root);
+	@override late final _Translations$home$deleteFolder$fa deleteFolder = _Translations$home$deleteFolder$fa._(_root);
 	@override String get noPreviewAvailable => 'پیش نمایش موجود نیست';
 }
 
 // Path: sentry
-class _TranslationsSentryFa extends TranslationsSentryEn {
-	_TranslationsSentryFa._(TranslationsFa root) : this._root = root, super.internal(root);
+class _Translations$sentry$fa extends Translations$sentry$en {
+	_Translations$sentry$fa._(TranslationsFa root) : this._root = root, super.internal(root);
 
 	final TranslationsFa _root; // ignore: unused_field
 
 	// Translations
-	@override late final _TranslationsSentryConsentFa consent = _TranslationsSentryConsentFa._(_root);
+	@override late final _Translations$sentry$consent$fa consent = _Translations$sentry$consent$fa._(_root);
 }
 
 // Path: settings
-class _TranslationsSettingsFa extends TranslationsSettingsEn {
-	_TranslationsSettingsFa._(TranslationsFa root) : this._root = root, super.internal(root);
+class _Translations$settings$fa extends Translations$settings$en {
+	_Translations$settings$fa._(TranslationsFa root) : this._root = root, super.internal(root);
 
 	final TranslationsFa _root; // ignore: unused_field
 
 	// Translations
-	@override late final _TranslationsSettingsPrefCategoriesFa prefCategories = _TranslationsSettingsPrefCategoriesFa._(_root);
-	@override late final _TranslationsSettingsPrefLabelsFa prefLabels = _TranslationsSettingsPrefLabelsFa._(_root);
-	@override late final _TranslationsSettingsPrefDescriptionsFa prefDescriptions = _TranslationsSettingsPrefDescriptionsFa._(_root);
-	@override late final _TranslationsSettingsThemeModesFa themeModes = _TranslationsSettingsThemeModesFa._(_root);
-	@override late final _TranslationsSettingsLayoutSizesFa layoutSizes = _TranslationsSettingsLayoutSizesFa._(_root);
-	@override late final _TranslationsSettingsAccentColorPickerFa accentColorPicker = _TranslationsSettingsAccentColorPickerFa._(_root);
+	@override late final _Translations$settings$prefCategories$fa prefCategories = _Translations$settings$prefCategories$fa._(_root);
+	@override late final _Translations$settings$prefLabels$fa prefLabels = _Translations$settings$prefLabels$fa._(_root);
+	@override late final _Translations$settings$prefDescriptions$fa prefDescriptions = _Translations$settings$prefDescriptions$fa._(_root);
+	@override late final _Translations$settings$themeModes$fa themeModes = _Translations$settings$themeModes$fa._(_root);
+	@override late final _Translations$settings$layoutSizes$fa layoutSizes = _Translations$settings$layoutSizes$fa._(_root);
+	@override late final _Translations$settings$accentColorPicker$fa accentColorPicker = _Translations$settings$accentColorPicker$fa._(_root);
 	@override String get systemLanguage => 'زبان سیستم';
 	@override List<String> get axisDirections => [
 		'بالا',
@@ -113,8 +113,8 @@ class _TranslationsSettingsFa extends TranslationsSettingsEn {
 		'پایین',
 		'چپ',
 	];
-	@override late final _TranslationsSettingsResetFa reset = _TranslationsSettingsResetFa._(_root);
-	@override late final _TranslationsSettingsCustomDataDirFa customDataDir = _TranslationsSettingsCustomDataDirFa._(_root);
+	@override late final _Translations$settings$reset$fa reset = _Translations$settings$reset$fa._(_root);
+	@override late final _Translations$settings$customDataDir$fa customDataDir = _Translations$settings$customDataDir$fa._(_root);
 	@override String get autosaveDisabled => 'هرگز';
 	@override String get shapeRecognitionDisabled => 'هرگز';
 	@override String get openDataDir => 'پوشه Saber را باز کنید';
@@ -122,8 +122,8 @@ class _TranslationsSettingsFa extends TranslationsSettingsEn {
 }
 
 // Path: logs
-class _TranslationsLogsFa extends TranslationsLogsEn {
-	_TranslationsLogsFa._(TranslationsFa root) : this._root = root, super.internal(root);
+class _Translations$logs$fa extends Translations$logs$en {
+	_Translations$logs$fa._(TranslationsFa root) : this._root = root, super.internal(root);
 
 	final TranslationsFa _root; // ignore: unused_field
 
@@ -136,42 +136,42 @@ class _TranslationsLogsFa extends TranslationsLogsEn {
 }
 
 // Path: login
-class _TranslationsLoginFa extends TranslationsLoginEn {
-	_TranslationsLoginFa._(TranslationsFa root) : this._root = root, super.internal(root);
+class _Translations$login$fa extends Translations$login$en {
+	_Translations$login$fa._(TranslationsFa root) : this._root = root, super.internal(root);
 
 	final TranslationsFa _root; // ignore: unused_field
 
 	// Translations
 	@override String get title => 'وارد شدن';
-	@override late final _TranslationsLoginFormFa form = _TranslationsLoginFormFa._(_root);
+	@override late final _Translations$login$form$fa form = _Translations$login$form$fa._(_root);
 	@override TextSpan signup({required InlineSpanBuilder linkToSignup}) => TextSpan(children: [
 		const TextSpan(text: 'حساب کاربری ندارید؟ '),
 		linkToSignup('Sign up now'),
 		const TextSpan(text: '!'),
 	]);
-	@override late final _TranslationsLoginStatusFa status = _TranslationsLoginStatusFa._(_root);
-	@override late final _TranslationsLoginNcLoginStepFa ncLoginStep = _TranslationsLoginNcLoginStepFa._(_root);
-	@override late final _TranslationsLoginEncLoginStepFa encLoginStep = _TranslationsLoginEncLoginStepFa._(_root);
+	@override late final _Translations$login$status$fa status = _Translations$login$status$fa._(_root);
+	@override late final _Translations$login$ncLoginStep$fa ncLoginStep = _Translations$login$ncLoginStep$fa._(_root);
+	@override late final _Translations$login$encLoginStep$fa encLoginStep = _Translations$login$encLoginStep$fa._(_root);
 	@override TextSpan notYou({required InlineSpanBuilder undoLogin}) => TextSpan(children: [
 		undoLogin('تو نه'),
 	]);
 }
 
 // Path: profile
-class _TranslationsProfileFa extends TranslationsProfileEn {
-	_TranslationsProfileFa._(TranslationsFa root) : this._root = root, super.internal(root);
+class _Translations$profile$fa extends Translations$profile$en {
+	_Translations$profile$fa._(TranslationsFa root) : this._root = root, super.internal(root);
 
 	final TranslationsFa _root; // ignore: unused_field
 
 	// Translations
 	@override String get title => 'پروفایل من';
 	@override String get logout => 'خروج';
-	@override late final _TranslationsProfileQuickLinksFa quickLinks = _TranslationsProfileQuickLinksFa._(_root);
+	@override late final _Translations$profile$quickLinks$fa quickLinks = _Translations$profile$quickLinks$fa._(_root);
 	@override List<dynamic> get faq => [
-		_TranslationsProfile$faq$0i0$Fa._(_root),
-		_TranslationsProfile$faq$0i1$Fa._(_root),
-		_TranslationsProfile$faq$0i2$Fa._(_root),
-		_TranslationsProfile$faq$0i3$Fa._(_root),
+		_Translations$profile$faq$0$fa._(_root),
+		_Translations$profile$faq$1$fa._(_root),
+		_Translations$profile$faq$2$fa._(_root),
+		_Translations$profile$faq$3$fa._(_root),
 	];
 	@override String quotaUsage({required Object used, required Object total, required Object percent}) => 'شما از ${used} از ${total} (${percent}%) استفاده می‌کنید';
 	@override String get connectedTo => 'مرتبط با';
@@ -179,8 +179,8 @@ class _TranslationsProfileFa extends TranslationsProfileEn {
 }
 
 // Path: appInfo
-class _TranslationsAppInfoFa extends TranslationsAppInfoEn {
-	_TranslationsAppInfoFa._(TranslationsFa root) : this._root = root, super.internal(root);
+class _Translations$appInfo$fa extends Translations$appInfo$en {
+	_Translations$appInfo$fa._(TranslationsFa root) : this._root = root, super.internal(root);
 
 	final TranslationsFa _root; // ignore: unused_field
 
@@ -193,8 +193,8 @@ class _TranslationsAppInfoFa extends TranslationsAppInfoEn {
 }
 
 // Path: update
-class _TranslationsUpdateFa extends TranslationsUpdateEn {
-	_TranslationsUpdateFa._(TranslationsFa root) : this._root = root, super.internal(root);
+class _Translations$update$fa extends Translations$update$en {
+	_Translations$update$fa._(TranslationsFa root) : this._root = root, super.internal(root);
 
 	final TranslationsFa _root; // ignore: unused_field
 
@@ -206,31 +206,31 @@ class _TranslationsUpdateFa extends TranslationsUpdateEn {
 }
 
 // Path: editor
-class _TranslationsEditorFa extends TranslationsEditorEn {
-	_TranslationsEditorFa._(TranslationsFa root) : this._root = root, super.internal(root);
+class _Translations$editor$fa extends Translations$editor$en {
+	_Translations$editor$fa._(TranslationsFa root) : this._root = root, super.internal(root);
 
 	final TranslationsFa _root; // ignore: unused_field
 
 	// Translations
-	@override late final _TranslationsEditorToolbarFa toolbar = _TranslationsEditorToolbarFa._(_root);
-	@override late final _TranslationsEditorPensFa pens = _TranslationsEditorPensFa._(_root);
-	@override late final _TranslationsEditorPenOptionsFa penOptions = _TranslationsEditorPenOptionsFa._(_root);
-	@override late final _TranslationsEditorColorsFa colors = _TranslationsEditorColorsFa._(_root);
-	@override late final _TranslationsEditorImageOptionsFa imageOptions = _TranslationsEditorImageOptionsFa._(_root);
-	@override late final _TranslationsEditorSelectionBarFa selectionBar = _TranslationsEditorSelectionBarFa._(_root);
-	@override late final _TranslationsEditorMenuFa menu = _TranslationsEditorMenuFa._(_root);
-	@override late final _TranslationsEditorReadOnlyBannerFa readOnlyBanner = _TranslationsEditorReadOnlyBannerFa._(_root);
-	@override late final _TranslationsEditorVersionTooNewFa versionTooNew = _TranslationsEditorVersionTooNewFa._(_root);
-	@override late final _TranslationsEditorQuillFa quill = _TranslationsEditorQuillFa._(_root);
-	@override late final _TranslationsEditorHudFa hud = _TranslationsEditorHudFa._(_root);
+	@override late final _Translations$editor$toolbar$fa toolbar = _Translations$editor$toolbar$fa._(_root);
+	@override late final _Translations$editor$pens$fa pens = _Translations$editor$pens$fa._(_root);
+	@override late final _Translations$editor$penOptions$fa penOptions = _Translations$editor$penOptions$fa._(_root);
+	@override late final _Translations$editor$colors$fa colors = _Translations$editor$colors$fa._(_root);
+	@override late final _Translations$editor$imageOptions$fa imageOptions = _Translations$editor$imageOptions$fa._(_root);
+	@override late final _Translations$editor$selectionBar$fa selectionBar = _Translations$editor$selectionBar$fa._(_root);
+	@override late final _Translations$editor$menu$fa menu = _Translations$editor$menu$fa._(_root);
+	@override late final _Translations$editor$readOnlyBanner$fa readOnlyBanner = _Translations$editor$readOnlyBanner$fa._(_root);
+	@override late final _Translations$editor$versionTooNew$fa versionTooNew = _Translations$editor$versionTooNew$fa._(_root);
+	@override late final _Translations$editor$quill$fa quill = _Translations$editor$quill$fa._(_root);
+	@override late final _Translations$editor$hud$fa hud = _Translations$editor$hud$fa._(_root);
 	@override String get pages => 'صفحات';
 	@override String get untitled => 'بدون عنوان';
 	@override String get needsToSaveBeforeExiting => 'در حال ذخیره تغییرات شما... می توانید با خیال راحت از ویرایشگر خارج شوید';
 }
 
 // Path: home.tabs
-class _TranslationsHomeTabsFa extends TranslationsHomeTabsEn {
-	_TranslationsHomeTabsFa._(TranslationsFa root) : this._root = root, super.internal(root);
+class _Translations$home$tabs$fa extends Translations$home$tabs$en {
+	_Translations$home$tabs$fa._(TranslationsFa root) : this._root = root, super.internal(root);
 
 	final TranslationsFa _root; // ignore: unused_field
 
@@ -242,8 +242,8 @@ class _TranslationsHomeTabsFa extends TranslationsHomeTabsEn {
 }
 
 // Path: home.titles
-class _TranslationsHomeTitlesFa extends TranslationsHomeTitlesEn {
-	_TranslationsHomeTitlesFa._(TranslationsFa root) : this._root = root, super.internal(root);
+class _Translations$home$titles$fa extends Translations$home$titles$en {
+	_Translations$home$titles$fa._(TranslationsFa root) : this._root = root, super.internal(root);
 
 	final TranslationsFa _root; // ignore: unused_field
 
@@ -255,8 +255,8 @@ class _TranslationsHomeTitlesFa extends TranslationsHomeTitlesEn {
 }
 
 // Path: home.tooltips
-class _TranslationsHomeTooltipsFa extends TranslationsHomeTooltipsEn {
-	_TranslationsHomeTooltipsFa._(TranslationsFa root) : this._root = root, super.internal(root);
+class _Translations$home$tooltips$fa extends Translations$home$tooltips$en {
+	_Translations$home$tooltips$fa._(TranslationsFa root) : this._root = root, super.internal(root);
 
 	final TranslationsFa _root; // ignore: unused_field
 
@@ -267,8 +267,8 @@ class _TranslationsHomeTooltipsFa extends TranslationsHomeTooltipsEn {
 }
 
 // Path: home.create
-class _TranslationsHomeCreateFa extends TranslationsHomeCreateEn {
-	_TranslationsHomeCreateFa._(TranslationsFa root) : this._root = root, super.internal(root);
+class _Translations$home$create$fa extends Translations$home$create$en {
+	_Translations$home$create$fa._(TranslationsFa root) : this._root = root, super.internal(root);
 
 	final TranslationsFa _root; // ignore: unused_field
 
@@ -278,8 +278,8 @@ class _TranslationsHomeCreateFa extends TranslationsHomeCreateEn {
 }
 
 // Path: home.newFolder
-class _TranslationsHomeNewFolderFa extends TranslationsHomeNewFolderEn {
-	_TranslationsHomeNewFolderFa._(TranslationsFa root) : this._root = root, super.internal(root);
+class _Translations$home$newFolder$fa extends Translations$home$newFolder$en {
+	_Translations$home$newFolder$fa._(TranslationsFa root) : this._root = root, super.internal(root);
 
 	final TranslationsFa _root; // ignore: unused_field
 
@@ -293,8 +293,8 @@ class _TranslationsHomeNewFolderFa extends TranslationsHomeNewFolderEn {
 }
 
 // Path: home.renameNote
-class _TranslationsHomeRenameNoteFa extends TranslationsHomeRenameNoteEn {
-	_TranslationsHomeRenameNoteFa._(TranslationsFa root) : this._root = root, super.internal(root);
+class _Translations$home$renameNote$fa extends Translations$home$renameNote$en {
+	_Translations$home$renameNote$fa._(TranslationsFa root) : this._root = root, super.internal(root);
 
 	final TranslationsFa _root; // ignore: unused_field
 
@@ -309,8 +309,8 @@ class _TranslationsHomeRenameNoteFa extends TranslationsHomeRenameNoteEn {
 }
 
 // Path: home.moveNote
-class _TranslationsHomeMoveNoteFa extends TranslationsHomeMoveNoteEn {
-	_TranslationsHomeMoveNoteFa._(TranslationsFa root) : this._root = root, super.internal(root);
+class _Translations$home$moveNote$fa extends Translations$home$moveNote$en {
+	_Translations$home$moveNote$fa._(TranslationsFa root) : this._root = root, super.internal(root);
 
 	final TranslationsFa _root; // ignore: unused_field
 
@@ -325,8 +325,8 @@ class _TranslationsHomeMoveNoteFa extends TranslationsHomeMoveNoteEn {
 }
 
 // Path: home.deleteNoteDialog
-class _TranslationsHomeDeleteNoteDialogFa extends TranslationsHomeDeleteNoteDialogEn {
-	_TranslationsHomeDeleteNoteDialogFa._(TranslationsFa root) : this._root = root, super.internal(root);
+class _Translations$home$deleteNoteDialog$fa extends Translations$home$deleteNoteDialog$en {
+	_Translations$home$deleteNoteDialog$fa._(TranslationsFa root) : this._root = root, super.internal(root);
 
 	final TranslationsFa _root; // ignore: unused_field
 
@@ -341,8 +341,8 @@ class _TranslationsHomeDeleteNoteDialogFa extends TranslationsHomeDeleteNoteDial
 }
 
 // Path: home.renameFolder
-class _TranslationsHomeRenameFolderFa extends TranslationsHomeRenameFolderEn {
-	_TranslationsHomeRenameFolderFa._(TranslationsFa root) : this._root = root, super.internal(root);
+class _Translations$home$renameFolder$fa extends Translations$home$renameFolder$en {
+	_Translations$home$renameFolder$fa._(TranslationsFa root) : this._root = root, super.internal(root);
 
 	final TranslationsFa _root; // ignore: unused_field
 
@@ -356,8 +356,8 @@ class _TranslationsHomeRenameFolderFa extends TranslationsHomeRenameFolderEn {
 }
 
 // Path: home.deleteFolder
-class _TranslationsHomeDeleteFolderFa extends TranslationsHomeDeleteFolderEn {
-	_TranslationsHomeDeleteFolderFa._(TranslationsFa root) : this._root = root, super.internal(root);
+class _Translations$home$deleteFolder$fa extends Translations$home$deleteFolder$en {
+	_Translations$home$deleteFolder$fa._(TranslationsFa root) : this._root = root, super.internal(root);
 
 	final TranslationsFa _root; // ignore: unused_field
 
@@ -369,20 +369,20 @@ class _TranslationsHomeDeleteFolderFa extends TranslationsHomeDeleteFolderEn {
 }
 
 // Path: sentry.consent
-class _TranslationsSentryConsentFa extends TranslationsSentryConsentEn {
-	_TranslationsSentryConsentFa._(TranslationsFa root) : this._root = root, super.internal(root);
+class _Translations$sentry$consent$fa extends Translations$sentry$consent$en {
+	_Translations$sentry$consent$fa._(TranslationsFa root) : this._root = root, super.internal(root);
 
 	final TranslationsFa _root; // ignore: unused_field
 
 	// Translations
-	@override late final _TranslationsSentryConsentDescriptionFa description = _TranslationsSentryConsentDescriptionFa._(_root);
-	@override late final _TranslationsSentryConsentAnswersFa answers = _TranslationsSentryConsentAnswersFa._(_root);
+	@override late final _Translations$sentry$consent$description$fa description = _Translations$sentry$consent$description$fa._(_root);
+	@override late final _Translations$sentry$consent$answers$fa answers = _Translations$sentry$consent$answers$fa._(_root);
 	@override String get title => 'به بهبود صابر کمک می کنید؟';
 }
 
 // Path: settings.prefCategories
-class _TranslationsSettingsPrefCategoriesFa extends TranslationsSettingsPrefCategoriesEn {
-	_TranslationsSettingsPrefCategoriesFa._(TranslationsFa root) : this._root = root, super.internal(root);
+class _Translations$settings$prefCategories$fa extends Translations$settings$prefCategories$en {
+	_Translations$settings$prefCategories$fa._(TranslationsFa root) : this._root = root, super.internal(root);
 
 	final TranslationsFa _root; // ignore: unused_field
 
@@ -395,8 +395,8 @@ class _TranslationsSettingsPrefCategoriesFa extends TranslationsSettingsPrefCate
 }
 
 // Path: settings.prefLabels
-class _TranslationsSettingsPrefLabelsFa extends TranslationsSettingsPrefLabelsEn {
-	_TranslationsSettingsPrefLabelsFa._(TranslationsFa root) : this._root = root, super.internal(root);
+class _Translations$settings$prefLabels$fa extends Translations$settings$prefLabels$en {
+	_Translations$settings$prefLabels$fa._(TranslationsFa root) : this._root = root, super.internal(root);
 
 	final TranslationsFa _root; // ignore: unused_field
 
@@ -432,8 +432,8 @@ class _TranslationsSettingsPrefLabelsFa extends TranslationsSettingsPrefLabelsEn
 }
 
 // Path: settings.prefDescriptions
-class _TranslationsSettingsPrefDescriptionsFa extends TranslationsSettingsPrefDescriptionsEn {
-	_TranslationsSettingsPrefDescriptionsFa._(TranslationsFa root) : this._root = root, super.internal(root);
+class _Translations$settings$prefDescriptions$fa extends Translations$settings$prefDescriptions$en {
+	_Translations$settings$prefDescriptions$fa._(TranslationsFa root) : this._root = root, super.internal(root);
 
 	final TranslationsFa _root; // ignore: unused_field
 
@@ -444,12 +444,12 @@ class _TranslationsSettingsPrefDescriptionsFa extends TranslationsSettingsPrefDe
 	@override String get autoClearWhiteboardOnExit => 'همچنان با دستگاه‌های دیگر شما همگام‌سازی می‌شود';
 	@override String get disableEraserAfterUse => 'پس از استفاده از پاک کن به صورت خودکار به خودکار برمی گردد';
 	@override String get maxImageSize => 'تصاویر بزرگتر از این فشرده خواهند شد';
-	@override late final _TranslationsSettingsPrefDescriptionsHideFingerDrawingFa hideFingerDrawing = _TranslationsSettingsPrefDescriptionsHideFingerDrawingFa._(_root);
+	@override late final _Translations$settings$prefDescriptions$hideFingerDrawing$fa hideFingerDrawing = _Translations$settings$prefDescriptions$hideFingerDrawing$fa._(_root);
 	@override String get editorPromptRename => 'همیشه می توانید بعداً نام یادداشت ها را تغییر دهید';
 	@override String get printPageIndicators => 'نمایش نشانگرهای صفحه در خروجی';
 	@override String get shapeRecognitionDelay => 'به روز رسانی پیشنمایش شکل چند وقت یکبار انجام شود';
 	@override String get shouldAlwaysAlertForUpdates => 'به محض اینکه به‌روزرسانی‌ها در دسترس هستند، به من بگویید';
-	@override late final _TranslationsSettingsPrefDescriptionsSentryFa sentry = _TranslationsSettingsPrefDescriptionsSentryFa._(_root);
+	@override late final _Translations$settings$prefDescriptions$sentry$fa sentry = _Translations$settings$prefDescriptions$sentry$fa._(_root);
 	@override String get autoDisableFingerDrawingWhenStylusDetected => 'هنگامی که یک قلم شناسایی شد، نقاشی با انگشت را خاموش کنید';
 	@override String get autosave => 'پس از یک تأخیر کوتاه ، یا هرگز';
 	@override String get simplifiedHomeLayout => 'یک ارتفاع ثابت برای پیش نمایش هر یادداشت تنظیم می کند';
@@ -457,8 +457,8 @@ class _TranslationsSettingsPrefDescriptionsFa extends TranslationsSettingsPrefDe
 }
 
 // Path: settings.themeModes
-class _TranslationsSettingsThemeModesFa extends TranslationsSettingsThemeModesEn {
-	_TranslationsSettingsThemeModesFa._(TranslationsFa root) : this._root = root, super.internal(root);
+class _Translations$settings$themeModes$fa extends Translations$settings$themeModes$en {
+	_Translations$settings$themeModes$fa._(TranslationsFa root) : this._root = root, super.internal(root);
 
 	final TranslationsFa _root; // ignore: unused_field
 
@@ -469,8 +469,8 @@ class _TranslationsSettingsThemeModesFa extends TranslationsSettingsThemeModesEn
 }
 
 // Path: settings.layoutSizes
-class _TranslationsSettingsLayoutSizesFa extends TranslationsSettingsLayoutSizesEn {
-	_TranslationsSettingsLayoutSizesFa._(TranslationsFa root) : this._root = root, super.internal(root);
+class _Translations$settings$layoutSizes$fa extends Translations$settings$layoutSizes$en {
+	_Translations$settings$layoutSizes$fa._(TranslationsFa root) : this._root = root, super.internal(root);
 
 	final TranslationsFa _root; // ignore: unused_field
 
@@ -481,8 +481,8 @@ class _TranslationsSettingsLayoutSizesFa extends TranslationsSettingsLayoutSizes
 }
 
 // Path: settings.accentColorPicker
-class _TranslationsSettingsAccentColorPickerFa extends TranslationsSettingsAccentColorPickerEn {
-	_TranslationsSettingsAccentColorPickerFa._(TranslationsFa root) : this._root = root, super.internal(root);
+class _Translations$settings$accentColorPicker$fa extends Translations$settings$accentColorPicker$en {
+	_Translations$settings$accentColorPicker$fa._(TranslationsFa root) : this._root = root, super.internal(root);
 
 	final TranslationsFa _root; // ignore: unused_field
 
@@ -491,8 +491,8 @@ class _TranslationsSettingsAccentColorPickerFa extends TranslationsSettingsAccen
 }
 
 // Path: settings.reset
-class _TranslationsSettingsResetFa extends TranslationsSettingsResetEn {
-	_TranslationsSettingsResetFa._(TranslationsFa root) : this._root = root, super.internal(root);
+class _Translations$settings$reset$fa extends Translations$settings$reset$en {
+	_Translations$settings$reset$fa._(TranslationsFa root) : this._root = root, super.internal(root);
 
 	final TranslationsFa _root; // ignore: unused_field
 
@@ -502,8 +502,8 @@ class _TranslationsSettingsResetFa extends TranslationsSettingsResetEn {
 }
 
 // Path: settings.customDataDir
-class _TranslationsSettingsCustomDataDirFa extends TranslationsSettingsCustomDataDirEn {
-	_TranslationsSettingsCustomDataDirFa._(TranslationsFa root) : this._root = root, super.internal(root);
+class _Translations$settings$customDataDir$fa extends Translations$settings$customDataDir$en {
+	_Translations$settings$customDataDir$fa._(TranslationsFa root) : this._root = root, super.internal(root);
 
 	final TranslationsFa _root; // ignore: unused_field
 
@@ -516,8 +516,8 @@ class _TranslationsSettingsCustomDataDirFa extends TranslationsSettingsCustomDat
 }
 
 // Path: login.form
-class _TranslationsLoginFormFa extends TranslationsLoginFormEn {
-	_TranslationsLoginFormFa._(TranslationsFa root) : this._root = root, super.internal(root);
+class _Translations$login$form$fa extends Translations$login$form$en {
+	_Translations$login$form$fa._(TranslationsFa root) : this._root = root, super.internal(root);
 
 	final TranslationsFa _root; // ignore: unused_field
 
@@ -530,8 +530,8 @@ class _TranslationsLoginFormFa extends TranslationsLoginFormEn {
 }
 
 // Path: login.status
-class _TranslationsLoginStatusFa extends TranslationsLoginStatusEn {
-	_TranslationsLoginStatusFa._(TranslationsFa root) : this._root = root, super.internal(root);
+class _Translations$login$status$fa extends Translations$login$status$en {
+	_Translations$login$status$fa._(TranslationsFa root) : this._root = root, super.internal(root);
 
 	final TranslationsFa _root; // ignore: unused_field
 
@@ -544,13 +544,13 @@ class _TranslationsLoginStatusFa extends TranslationsLoginStatusEn {
 }
 
 // Path: login.ncLoginStep
-class _TranslationsLoginNcLoginStepFa extends TranslationsLoginNcLoginStepEn {
-	_TranslationsLoginNcLoginStepFa._(TranslationsFa root) : this._root = root, super.internal(root);
+class _Translations$login$ncLoginStep$fa extends Translations$login$ncLoginStep$en {
+	_Translations$login$ncLoginStep$fa._(TranslationsFa root) : this._root = root, super.internal(root);
 
 	final TranslationsFa _root; // ignore: unused_field
 
 	// Translations
-	@override late final _TranslationsLoginNcLoginStepLoginFlowFa loginFlow = _TranslationsLoginNcLoginStepLoginFlowFa._(_root);
+	@override late final _Translations$login$ncLoginStep$loginFlow$fa loginFlow = _Translations$login$ncLoginStep$loginFlow$fa._(_root);
 	@override String get whereToStoreData => 'محل ذخیره داده های خود را انتخاب کنید:';
 	@override String get saberNcServer => 'سرور Nextcloud Saber';
 	@override String get otherNcServer => 'سرور Nextcloud دیگر';
@@ -560,8 +560,8 @@ class _TranslationsLoginNcLoginStepFa extends TranslationsLoginNcLoginStepEn {
 }
 
 // Path: login.encLoginStep
-class _TranslationsLoginEncLoginStepFa extends TranslationsLoginEncLoginStepEn {
-	_TranslationsLoginEncLoginStepFa._(TranslationsFa root) : this._root = root, super.internal(root);
+class _Translations$login$encLoginStep$fa extends Translations$login$encLoginStep$en {
+	_Translations$login$encLoginStep$fa._(TranslationsFa root) : this._root = root, super.internal(root);
 
 	final TranslationsFa _root; // ignore: unused_field
 
@@ -573,15 +573,15 @@ class _TranslationsLoginEncLoginStepFa extends TranslationsLoginEncLoginStepEn {
 	@override String get wrongEncPassword => 'رمزگشایی با رمز عبور ارائه شده انجام نشد. لطفاً دوباره آن را وارد کنید.';
 	@override String get connectionFailed => 'هنگام اتصال به سرور مشکلی پیش آمد. لطفاً بعداً دوباره امتحان کنید.';
 	@override List<dynamic> get encFaq => [
-		_TranslationsLoginEncLoginStep$encFaq$0i0$Fa._(_root),
-		_TranslationsLoginEncLoginStep$encFaq$0i1$Fa._(_root),
-		_TranslationsLoginEncLoginStep$encFaq$0i2$Fa._(_root),
+		_Translations$login$encLoginStep$encFaq$0$fa._(_root),
+		_Translations$login$encLoginStep$encFaq$1$fa._(_root),
+		_Translations$login$encLoginStep$encFaq$2$fa._(_root),
 	];
 }
 
 // Path: profile.quickLinks
-class _TranslationsProfileQuickLinksFa extends TranslationsProfileQuickLinksEn {
-	_TranslationsProfileQuickLinksFa._(TranslationsFa root) : this._root = root, super.internal(root);
+class _Translations$profile$quickLinks$fa extends Translations$profile$quickLinks$en {
+	_Translations$profile$quickLinks$fa._(TranslationsFa root) : this._root = root, super.internal(root);
 
 	final TranslationsFa _root; // ignore: unused_field
 
@@ -591,8 +591,8 @@ class _TranslationsProfileQuickLinksFa extends TranslationsProfileQuickLinksEn {
 }
 
 // Path: profile.faq.0
-class _TranslationsProfile$faq$0i0$Fa extends TranslationsProfile$faq$0i0$En {
-	_TranslationsProfile$faq$0i0$Fa._(TranslationsFa root) : this._root = root, super.internal(root);
+class _Translations$profile$faq$0$fa extends Translations$profile$faq$0$en {
+	_Translations$profile$faq$0$fa._(TranslationsFa root) : this._root = root, super.internal(root);
 
 	final TranslationsFa _root; // ignore: unused_field
 
@@ -602,8 +602,8 @@ class _TranslationsProfile$faq$0i0$Fa extends TranslationsProfile$faq$0i0$En {
 }
 
 // Path: profile.faq.1
-class _TranslationsProfile$faq$0i1$Fa extends TranslationsProfile$faq$0i1$En {
-	_TranslationsProfile$faq$0i1$Fa._(TranslationsFa root) : this._root = root, super.internal(root);
+class _Translations$profile$faq$1$fa extends Translations$profile$faq$1$en {
+	_Translations$profile$faq$1$fa._(TranslationsFa root) : this._root = root, super.internal(root);
 
 	final TranslationsFa _root; // ignore: unused_field
 
@@ -613,8 +613,8 @@ class _TranslationsProfile$faq$0i1$Fa extends TranslationsProfile$faq$0i1$En {
 }
 
 // Path: profile.faq.2
-class _TranslationsProfile$faq$0i2$Fa extends TranslationsProfile$faq$0i2$En {
-	_TranslationsProfile$faq$0i2$Fa._(TranslationsFa root) : this._root = root, super.internal(root);
+class _Translations$profile$faq$2$fa extends Translations$profile$faq$2$en {
+	_Translations$profile$faq$2$fa._(TranslationsFa root) : this._root = root, super.internal(root);
 
 	final TranslationsFa _root; // ignore: unused_field
 
@@ -624,8 +624,8 @@ class _TranslationsProfile$faq$0i2$Fa extends TranslationsProfile$faq$0i2$En {
 }
 
 // Path: profile.faq.3
-class _TranslationsProfile$faq$0i3$Fa extends TranslationsProfile$faq$0i3$En {
-	_TranslationsProfile$faq$0i3$Fa._(TranslationsFa root) : this._root = root, super.internal(root);
+class _Translations$profile$faq$3$fa extends Translations$profile$faq$3$en {
+	_Translations$profile$faq$3$fa._(TranslationsFa root) : this._root = root, super.internal(root);
 
 	final TranslationsFa _root; // ignore: unused_field
 
@@ -635,8 +635,8 @@ class _TranslationsProfile$faq$0i3$Fa extends TranslationsProfile$faq$0i3$En {
 }
 
 // Path: editor.toolbar
-class _TranslationsEditorToolbarFa extends TranslationsEditorToolbarEn {
-	_TranslationsEditorToolbarFa._(TranslationsFa root) : this._root = root, super.internal(root);
+class _Translations$editor$toolbar$fa extends Translations$editor$toolbar$en {
+	_Translations$editor$toolbar$fa._(TranslationsFa root) : this._root = root, super.internal(root);
 
 	final TranslationsFa _root; // ignore: unused_field
 
@@ -655,8 +655,8 @@ class _TranslationsEditorToolbarFa extends TranslationsEditorToolbarEn {
 }
 
 // Path: editor.pens
-class _TranslationsEditorPensFa extends TranslationsEditorPensEn {
-	_TranslationsEditorPensFa._(TranslationsFa root) : this._root = root, super.internal(root);
+class _Translations$editor$pens$fa extends Translations$editor$pens$en {
+	_Translations$editor$pens$fa._(TranslationsFa root) : this._root = root, super.internal(root);
 
 	final TranslationsFa _root; // ignore: unused_field
 
@@ -670,8 +670,8 @@ class _TranslationsEditorPensFa extends TranslationsEditorPensEn {
 }
 
 // Path: editor.penOptions
-class _TranslationsEditorPenOptionsFa extends TranslationsEditorPenOptionsEn {
-	_TranslationsEditorPenOptionsFa._(TranslationsFa root) : this._root = root, super.internal(root);
+class _Translations$editor$penOptions$fa extends Translations$editor$penOptions$en {
+	_Translations$editor$penOptions$fa._(TranslationsFa root) : this._root = root, super.internal(root);
 
 	final TranslationsFa _root; // ignore: unused_field
 
@@ -680,8 +680,8 @@ class _TranslationsEditorPenOptionsFa extends TranslationsEditorPenOptionsEn {
 }
 
 // Path: editor.colors
-class _TranslationsEditorColorsFa extends TranslationsEditorColorsEn {
-	_TranslationsEditorColorsFa._(TranslationsFa root) : this._root = root, super.internal(root);
+class _Translations$editor$colors$fa extends Translations$editor$colors$en {
+	_Translations$editor$colors$fa._(TranslationsFa root) : this._root = root, super.internal(root);
 
 	final TranslationsFa _root; // ignore: unused_field
 
@@ -715,8 +715,8 @@ class _TranslationsEditorColorsFa extends TranslationsEditorColorsEn {
 }
 
 // Path: editor.imageOptions
-class _TranslationsEditorImageOptionsFa extends TranslationsEditorImageOptionsEn {
-	_TranslationsEditorImageOptionsFa._(TranslationsFa root) : this._root = root, super.internal(root);
+class _Translations$editor$imageOptions$fa extends Translations$editor$imageOptions$en {
+	_Translations$editor$imageOptions$fa._(TranslationsFa root) : this._root = root, super.internal(root);
 
 	final TranslationsFa _root; // ignore: unused_field
 
@@ -730,8 +730,8 @@ class _TranslationsEditorImageOptionsFa extends TranslationsEditorImageOptionsEn
 }
 
 // Path: editor.selectionBar
-class _TranslationsEditorSelectionBarFa extends TranslationsEditorSelectionBarEn {
-	_TranslationsEditorSelectionBarFa._(TranslationsFa root) : this._root = root, super.internal(root);
+class _Translations$editor$selectionBar$fa extends Translations$editor$selectionBar$en {
+	_Translations$editor$selectionBar$fa._(TranslationsFa root) : this._root = root, super.internal(root);
 
 	final TranslationsFa _root; // ignore: unused_field
 
@@ -741,8 +741,8 @@ class _TranslationsEditorSelectionBarFa extends TranslationsEditorSelectionBarEn
 }
 
 // Path: editor.menu
-class _TranslationsEditorMenuFa extends TranslationsEditorMenuEn {
-	_TranslationsEditorMenuFa._(TranslationsFa root) : this._root = root, super.internal(root);
+class _Translations$editor$menu$fa extends Translations$editor$menu$en {
+	_Translations$editor$menu$fa._(TranslationsFa root) : this._root = root, super.internal(root);
 
 	final TranslationsFa _root; // ignore: unused_field
 
@@ -756,8 +756,8 @@ class _TranslationsEditorMenuFa extends TranslationsEditorMenuEn {
 	@override String get backgroundImageFit => 'مناسب تصویر پس زمینه';
 	@override String get backgroundPattern => 'الگوی پس زمینه';
 	@override String get import => 'واردکردن';
-	@override late final _TranslationsEditorMenuBoxFitsFa boxFits = _TranslationsEditorMenuBoxFitsFa._(_root);
-	@override late final _TranslationsEditorMenuBgPatternsFa bgPatterns = _TranslationsEditorMenuBgPatternsFa._(_root);
+	@override late final _Translations$editor$menu$boxFits$fa boxFits = _Translations$editor$menu$boxFits$fa._(_root);
+	@override late final _Translations$editor$menu$bgPatterns$fa bgPatterns = _Translations$editor$menu$bgPatterns$fa._(_root);
 	@override String get lineThickness => 'ضخامت خط';
 	@override String get lineThicknessDescription => 'ضخامت خط پس زمینه';
 	@override String get watchServer => 'مراقب به روز رسانی ها در سرور باشید';
@@ -766,8 +766,8 @@ class _TranslationsEditorMenuFa extends TranslationsEditorMenuEn {
 }
 
 // Path: editor.readOnlyBanner
-class _TranslationsEditorReadOnlyBannerFa extends TranslationsEditorReadOnlyBannerEn {
-	_TranslationsEditorReadOnlyBannerFa._(TranslationsFa root) : this._root = root, super.internal(root);
+class _Translations$editor$readOnlyBanner$fa extends Translations$editor$readOnlyBanner$en {
+	_Translations$editor$readOnlyBanner$fa._(TranslationsFa root) : this._root = root, super.internal(root);
 
 	final TranslationsFa _root; // ignore: unused_field
 
@@ -778,8 +778,8 @@ class _TranslationsEditorReadOnlyBannerFa extends TranslationsEditorReadOnlyBann
 }
 
 // Path: editor.versionTooNew
-class _TranslationsEditorVersionTooNewFa extends TranslationsEditorVersionTooNewEn {
-	_TranslationsEditorVersionTooNewFa._(TranslationsFa root) : this._root = root, super.internal(root);
+class _Translations$editor$versionTooNew$fa extends Translations$editor$versionTooNew$en {
+	_Translations$editor$versionTooNew$fa._(TranslationsFa root) : this._root = root, super.internal(root);
 
 	final TranslationsFa _root; // ignore: unused_field
 
@@ -790,8 +790,8 @@ class _TranslationsEditorVersionTooNewFa extends TranslationsEditorVersionTooNew
 }
 
 // Path: editor.quill
-class _TranslationsEditorQuillFa extends TranslationsEditorQuillEn {
-	_TranslationsEditorQuillFa._(TranslationsFa root) : this._root = root, super.internal(root);
+class _Translations$editor$quill$fa extends Translations$editor$quill$en {
+	_Translations$editor$quill$fa._(TranslationsFa root) : this._root = root, super.internal(root);
 
 	final TranslationsFa _root; // ignore: unused_field
 
@@ -800,8 +800,8 @@ class _TranslationsEditorQuillFa extends TranslationsEditorQuillEn {
 }
 
 // Path: editor.hud
-class _TranslationsEditorHudFa extends TranslationsEditorHudEn {
-	_TranslationsEditorHudFa._(TranslationsFa root) : this._root = root, super.internal(root);
+class _Translations$editor$hud$fa extends Translations$editor$hud$en {
+	_Translations$editor$hud$fa._(TranslationsFa root) : this._root = root, super.internal(root);
 
 	final TranslationsFa _root; // ignore: unused_field
 
@@ -815,8 +815,8 @@ class _TranslationsEditorHudFa extends TranslationsEditorHudEn {
 }
 
 // Path: sentry.consent.description
-class _TranslationsSentryConsentDescriptionFa extends TranslationsSentryConsentDescriptionEn {
-	_TranslationsSentryConsentDescriptionFa._(TranslationsFa root) : this._root = root, super.internal(root);
+class _Translations$sentry$consent$description$fa extends Translations$sentry$consent$description$en {
+	_Translations$sentry$consent$description$fa._(TranslationsFa root) : this._root = root, super.internal(root);
 
 	final TranslationsFa _root; // ignore: unused_field
 
@@ -833,8 +833,8 @@ class _TranslationsSentryConsentDescriptionFa extends TranslationsSentryConsentD
 }
 
 // Path: sentry.consent.answers
-class _TranslationsSentryConsentAnswersFa extends TranslationsSentryConsentAnswersEn {
-	_TranslationsSentryConsentAnswersFa._(TranslationsFa root) : this._root = root, super.internal(root);
+class _Translations$sentry$consent$answers$fa extends Translations$sentry$consent$answers$en {
+	_Translations$sentry$consent$answers$fa._(TranslationsFa root) : this._root = root, super.internal(root);
 
 	final TranslationsFa _root; // ignore: unused_field
 
@@ -845,8 +845,8 @@ class _TranslationsSentryConsentAnswersFa extends TranslationsSentryConsentAnswe
 }
 
 // Path: settings.prefDescriptions.hideFingerDrawing
-class _TranslationsSettingsPrefDescriptionsHideFingerDrawingFa extends TranslationsSettingsPrefDescriptionsHideFingerDrawingEn {
-	_TranslationsSettingsPrefDescriptionsHideFingerDrawingFa._(TranslationsFa root) : this._root = root, super.internal(root);
+class _Translations$settings$prefDescriptions$hideFingerDrawing$fa extends Translations$settings$prefDescriptions$hideFingerDrawing$en {
+	_Translations$settings$prefDescriptions$hideFingerDrawing$fa._(TranslationsFa root) : this._root = root, super.internal(root);
 
 	final TranslationsFa _root; // ignore: unused_field
 
@@ -857,8 +857,8 @@ class _TranslationsSettingsPrefDescriptionsHideFingerDrawingFa extends Translati
 }
 
 // Path: settings.prefDescriptions.sentry
-class _TranslationsSettingsPrefDescriptionsSentryFa extends TranslationsSettingsPrefDescriptionsSentryEn {
-	_TranslationsSettingsPrefDescriptionsSentryFa._(TranslationsFa root) : this._root = root, super.internal(root);
+class _Translations$settings$prefDescriptions$sentry$fa extends Translations$settings$prefDescriptions$sentry$en {
+	_Translations$settings$prefDescriptions$sentry$fa._(TranslationsFa root) : this._root = root, super.internal(root);
 
 	final TranslationsFa _root; // ignore: unused_field
 
@@ -870,8 +870,8 @@ class _TranslationsSettingsPrefDescriptionsSentryFa extends TranslationsSettings
 }
 
 // Path: login.ncLoginStep.loginFlow
-class _TranslationsLoginNcLoginStepLoginFlowFa extends TranslationsLoginNcLoginStepLoginFlowEn {
-	_TranslationsLoginNcLoginStepLoginFlowFa._(TranslationsFa root) : this._root = root, super.internal(root);
+class _Translations$login$ncLoginStep$loginFlow$fa extends Translations$login$ncLoginStep$loginFlow$en {
+	_Translations$login$ncLoginStep$loginFlow$fa._(TranslationsFa root) : this._root = root, super.internal(root);
 
 	final TranslationsFa _root; // ignore: unused_field
 
@@ -882,8 +882,8 @@ class _TranslationsLoginNcLoginStepLoginFlowFa extends TranslationsLoginNcLoginS
 }
 
 // Path: login.encLoginStep.encFaq.0
-class _TranslationsLoginEncLoginStep$encFaq$0i0$Fa extends TranslationsLoginEncLoginStep$encFaq$0i0$En {
-	_TranslationsLoginEncLoginStep$encFaq$0i0$Fa._(TranslationsFa root) : this._root = root, super.internal(root);
+class _Translations$login$encLoginStep$encFaq$0$fa extends Translations$login$encLoginStep$encFaq$0$en {
+	_Translations$login$encLoginStep$encFaq$0$fa._(TranslationsFa root) : this._root = root, super.internal(root);
 
 	final TranslationsFa _root; // ignore: unused_field
 
@@ -893,8 +893,8 @@ class _TranslationsLoginEncLoginStep$encFaq$0i0$Fa extends TranslationsLoginEncL
 }
 
 // Path: login.encLoginStep.encFaq.1
-class _TranslationsLoginEncLoginStep$encFaq$0i1$Fa extends TranslationsLoginEncLoginStep$encFaq$0i1$En {
-	_TranslationsLoginEncLoginStep$encFaq$0i1$Fa._(TranslationsFa root) : this._root = root, super.internal(root);
+class _Translations$login$encLoginStep$encFaq$1$fa extends Translations$login$encLoginStep$encFaq$1$en {
+	_Translations$login$encLoginStep$encFaq$1$fa._(TranslationsFa root) : this._root = root, super.internal(root);
 
 	final TranslationsFa _root; // ignore: unused_field
 
@@ -904,8 +904,8 @@ class _TranslationsLoginEncLoginStep$encFaq$0i1$Fa extends TranslationsLoginEncL
 }
 
 // Path: login.encLoginStep.encFaq.2
-class _TranslationsLoginEncLoginStep$encFaq$0i2$Fa extends TranslationsLoginEncLoginStep$encFaq$0i2$En {
-	_TranslationsLoginEncLoginStep$encFaq$0i2$Fa._(TranslationsFa root) : this._root = root, super.internal(root);
+class _Translations$login$encLoginStep$encFaq$2$fa extends Translations$login$encLoginStep$encFaq$2$en {
+	_Translations$login$encLoginStep$encFaq$2$fa._(TranslationsFa root) : this._root = root, super.internal(root);
 
 	final TranslationsFa _root; // ignore: unused_field
 
@@ -915,8 +915,8 @@ class _TranslationsLoginEncLoginStep$encFaq$0i2$Fa extends TranslationsLoginEncL
 }
 
 // Path: editor.menu.boxFits
-class _TranslationsEditorMenuBoxFitsFa extends TranslationsEditorMenuBoxFitsEn {
-	_TranslationsEditorMenuBoxFitsFa._(TranslationsFa root) : this._root = root, super.internal(root);
+class _Translations$editor$menu$boxFits$fa extends Translations$editor$menu$boxFits$en {
+	_Translations$editor$menu$boxFits$fa._(TranslationsFa root) : this._root = root, super.internal(root);
 
 	final TranslationsFa _root; // ignore: unused_field
 
@@ -927,8 +927,8 @@ class _TranslationsEditorMenuBoxFitsFa extends TranslationsEditorMenuBoxFitsEn {
 }
 
 // Path: editor.menu.bgPatterns
-class _TranslationsEditorMenuBgPatternsFa extends TranslationsEditorMenuBgPatternsEn {
-	_TranslationsEditorMenuBgPatternsFa._(TranslationsFa root) : this._root = root, super.internal(root);
+class _Translations$editor$menu$bgPatterns$fa extends Translations$editor$menu$bgPatterns$en {
+	_Translations$editor$menu$bgPatterns$fa._(TranslationsFa root) : this._root = root, super.internal(root);
 
 	final TranslationsFa _root; // ignore: unused_field
 

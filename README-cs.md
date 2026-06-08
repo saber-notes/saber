@@ -95,6 +95,8 @@ Pokud byste chtěli pomoci s překladem aplikace Saber, přejděte na [Weblate](
 
 [![Stav překladů](https://hosted.weblate.org/widget/saber-notes/multi-auto.svg)](https://hosted.weblate.org/engage/saber-notes/)
 
+Poznámka: Abychom předešli nutnosti vyplňovat mezery v překladech angličtinou, jsou chybějící překlady podchyceny strojovým překladem, a to do doby, než se k překladu dostane lidský přispěvovatel.
+
 ## Podpora aplikace Saber
 
 Pokud máte rádi Saber, zvažte prosím jeho podporu pomocí
@@ -116,8 +118,8 @@ Podívejte se na wiki stránku
 [google_play]: https://play.google.com/store/apps/details?id=com.adilhanney.saber
 [snap]: https://snapcraft.io/saber
 [app_store]: https://apps.apple.com/cz/app/saber/id1671523739
-[download_windows]: https://github.com/saber-notes/saber/releases/download/v1.34.1/SaberInstaller_v1.34.1.exe
-[download_appimage]: https://github.com/saber-notes/saber/releases/download/v1.34.1/Saber-1.34.1-x86_64.AppImage
+[download_windows]: https://github.com/saber-notes/saber/releases/download/v1.34.2/SaberInstaller_v1.34.2.exe
+[download_appimage]: https://github.com/saber-notes/saber/releases/download/v1.34.2/Saber-1.34.2-x86_64.AppImage
 
 [nextcloud]: https://nc.saber.adil.hanney.org/
 

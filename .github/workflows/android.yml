@@ -30,27 +30,20 @@ jobs:
         uses: actions/cache/restore@v5
         with:
           lookup-only: true
-          # Some sdk components are already included in the runner image so we don't need to cache them:
-          # https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2404-Readme.md#android
           path: |
             .dart_tool/
-            android/.gradle/
+            **/.gradle/
+            **/.idea/
+            **/.kotlin/
+            **/GeneratedPluginRegistrant.*
+            **/android/local.properties
+            **/*.iml
             build/
+            packages/**/.dart_tool/
+            packages/**/.flutter-plugins-dependencies
+            packages/**/pubspec.lock
             submodules/flutter/bin/cache/
-
-            /usr/local/lib/android/sdk/cmake/*
-            !/usr/local/lib/android/sdk/cmake/3.31.5
-            !/usr/local/lib/android/sdk/cmake/4.1.2
-
-            /usr/local/lib/android/sdk/ndk/*
-            !/usr/local/lib/android/sdk/ndk/27.3.13750724
-            !/usr/local/lib/android/sdk/ndk/28.2.13676358
-            !/usr/local/lib/android/sdk/ndk/29.0.14206865
-
-            /usr/local/lib/android/sdk/platforms/*
-            !/usr/local/lib/android/sdk/platforms/android-34*
-            !/usr/local/lib/android/sdk/platforms/android-35*
-            !/usr/local/lib/android/sdk/platforms/android-36*
+            submodules/flutter/packages/flutter_tools/gradle/build/
           key: ${{ runner.OS }}-saber_android
 
       - name: Restore platform-agnostic cache
@@ -59,12 +52,17 @@ jobs:
         with:
           path: |
             .dart_tool/
+            .flutter-plugins-dependencies
             build/
             linux/flutter/ephemeral/
             macos/Flutter/ephemeral/
+            packages/**/.dart_tool/
+            packages/**/.flutter-plugins-dependencies
+            packages/**/pubspec.lock
             windows/flutter/ephemeral/
-            .flutter-plugins-dependencies
-          key: ${{ runner.OS }}-saber-${{ hashFiles('**/pubspec.lock') }}-${{ hashFiles('**/*.dart') }}
+            ~/.dartServer/
+            ~/.dart-tool/
+          key: ${{ runner.OS }}-saber-${{ hashFiles('**/pubspec.yaml') }}
           restore-keys: |
             ${{ runner.OS }}-saber-
 
@@ -72,7 +70,7 @@ jobs:
         if: ${{ steps.cache.outputs.cache-hit == '' }}
 
       - name: Setup Flutter
-        uses: adil192/setup-flutter-submodule@v1
+        uses: adil192/setup-flutter-submodule@v3
         if: ${{ steps.cache.outputs.cache-hit == '' }}
         with:
           flutter-path: submodules/flutter
@@ -120,22 +118,13 @@ jobs:
           path: |
             .dart_tool/
             android/.gradle/
+            android/.kotlin/
             build/
+
             submodules/flutter/bin/cache/
-
-            /usr/local/lib/android/sdk/cmake/*
-            !/usr/local/lib/android/sdk/cmake/3.31.5
-            !/usr/local/lib/android/sdk/cmake/4.1.2
-
-            /usr/local/lib/android/sdk/ndk/*
-            !/usr/local/lib/android/sdk/ndk/27.3.13750724
-            !/usr/local/lib/android/sdk/ndk/28.2.13676358
-            !/usr/local/lib/android/sdk/ndk/29.0.14206865
-
-            /usr/local/lib/android/sdk/platforms/*
-            !/usr/local/lib/android/sdk/platforms/android-34*
-            !/usr/local/lib/android/sdk/platforms/android-35*
-            !/usr/local/lib/android/sdk/platforms/android-36*
+            submodules/flutter/packages/flutter_tools/gradle/.gradle/
+            submodules/flutter/packages/flutter_tools/gradle/.kotlin/
+            submodules/flutter/packages/flutter_tools/gradle/build/
           key: ${{ steps.cache.outputs.cache-primary-key }}
 
   build-android:
@@ -155,21 +144,27 @@ jobs:
       - uses: "./.github/shared_workflows/install_apt_dependencies"
 
       - name: Setup Flutter
-        uses: adil192/setup-flutter-submodule@v1
+        uses: adil192/setup-flutter-submodule@v3
         with:
           flutter-path: submodules/flutter
+          no-save-caches: true
 
       - name: Restore platform-agnostic cache
         uses: actions/cache/restore@v5
         with:
           path: |
             .dart_tool/
+            .flutter-plugins-dependencies
             build/
             linux/flutter/ephemeral/
             macos/Flutter/ephemeral/
+            packages/**/.dart_tool/
+            packages/**/.flutter-plugins-dependencies
+            packages/**/pubspec.lock
             windows/flutter/ephemeral/
-            .flutter-plugins-dependencies
-          key: ${{ runner.OS }}-saber-${{ hashFiles('**/pubspec.lock') }}-${{ hashFiles('**/*.dart') }}
+            ~/.dartServer/
+            ~/.dart-tool/
+          key: ${{ runner.OS }}-saber-${{ hashFiles('**/pubspec.yaml') }}
           restore-keys: |
             ${{ runner.OS }}-saber-
 
@@ -178,23 +173,18 @@ jobs:
         with:
           path: |
             .dart_tool/
-            android/.gradle/
+            **/.gradle/
+            **/.idea/
+            **/.kotlin/
+            **/GeneratedPluginRegistrant.*
+            **/android/local.properties
+            **/*.iml
             build/
+            packages/**/.dart_tool/
+            packages/**/.flutter-plugins-dependencies
+            packages/**/pubspec.lock
             submodules/flutter/bin/cache/
-
-            /usr/local/lib/android/sdk/cmake/*
-            !/usr/local/lib/android/sdk/cmake/3.31.5
-            !/usr/local/lib/android/sdk/cmake/4.1.2
-
-            /usr/local/lib/android/sdk/ndk/*
-            !/usr/local/lib/android/sdk/ndk/27.3.13750724
-            !/usr/local/lib/android/sdk/ndk/28.2.13676358
-            !/usr/local/lib/android/sdk/ndk/29.0.14206865
-
-            /usr/local/lib/android/sdk/platforms/*
-            !/usr/local/lib/android/sdk/platforms/android-34*
-            !/usr/local/lib/android/sdk/platforms/android-35*
-            !/usr/local/lib/android/sdk/platforms/android-36*
+            submodules/flutter/packages/flutter_tools/gradle/build/
           key: ${{ runner.OS }}-saber_android
 
       - name: Setup keystore

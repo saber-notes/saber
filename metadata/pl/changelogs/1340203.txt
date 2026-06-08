@@ -1,0 +1,3 @@
+• Naprawiono nie działanie funkcji „Obserwuj aktualizacje na serwerze”.
+• Zoptymalizowano wydajność eksportu PDF i tworzenia miniatur.
+• Eksperymentalnie ulepszono wsparcie dla rysika na Windows, dodając wykrywanie orientacji i przycisków.

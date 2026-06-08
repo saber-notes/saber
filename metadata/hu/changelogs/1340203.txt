@@ -1,0 +1,3 @@
+• Javítottam a „Töltségek követése a szerveren” funkciót, amely nem működött.
+• Javítottam a PDF export és a prémiumkép (thumbnailing) teljesítményét.
+• Kísérleti módon javítottam a stilus támogatást Windowson, hozzáadva a törechtartamot és gombok érzékelését.

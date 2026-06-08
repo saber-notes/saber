@@ -16,6 +16,7 @@ usage() {
     echo "There are also some additional arguments you can pass to this script:"
     echo "     --help: Show this help message"
     echo "     --clean: Delete the docker image and container"
+    echo "     --update: Update the container's Flutter and pub cache from the host."
 }
 if [[ "$1" == "--help" ]]; then
     usage
@@ -42,6 +43,14 @@ if [[ ! -f "privacy_policy.md" ]]; then
     echo "Error: Please run this script from the project root."
     exit 1
 fi
+if [ ! -d "$FLUTTER_ROOT" ]; then
+  echo "Error: Env FLUTTER_ROOT not set."
+  exit 1
+fi
+if [ ! -d "${PUB_CACHE:=$HOME/.pub-cache}" ]; then
+  echo "Error: Env PUB_CACHE not set."
+  exit 1
+fi
 
 # Remove docker image and container by running `./test.sh --clean`
 if [[ "$1" == "--clean" ]]; then
@@ -54,6 +63,20 @@ if [[ "$1" == "--clean" ]]; then
     echo 'Removing cached files'
     rm -rf .github/docker/mounts
     echo 'Done'
+    exit 0
+fi
+
+# Update flutter and pub cache by running `./test.sh --update`
+copy_flutter_from_host() {
+    mkdir -p .github/docker/mounts
+    [ -d .github/docker/mounts/flutter ] || cp -r "$FLUTTER_ROOT" .github/docker/mounts/flutter
+    [ -d .github/docker/mounts/.pub-cache ] || cp -r "$PUB_CACHE" .github/docker/mounts/.pub-cache
+    [ -d .github/docker/mounts/.dart_tool ] || cp -r .dart_tool .github/docker/mounts/.dart_tool
+    [ -f .github/docker/mounts/pubspec.lock ] || cp pubspec.lock .github/docker/mounts/pubspec.lock
+}
+if [[ "$1" == "--update" ]]; then
+    rm -rf .github/docker/mounts/{flutter,.pub-cache,.dart_tool,pubspec.lock}
+    copy_flutter_from_host
     exit 0
 fi
 
@@ -76,14 +99,13 @@ if ! docker images --format '{{.Repository}}' | grep -w "$IMAGE_NAME" > /dev/nul
 fi
 
 # Make sure mounts exist
-mkdir -p .github/docker/mounts/.pub-cache
-mkdir -p .github/docker/mounts/.dart_tool
+mkdir -p .github/docker/mounts
+copy_flutter_from_host
 mkdir -p .github/docker/mounts/build
 mkdir -p .github/docker/mounts/linux-flutter-ephemeral
 mkdir -p .github/docker/mounts/macos-flutter-ephemeral
 mkdir -p .github/docker/mounts/windows-flutter-ephemeral
 touch .github/docker/mounts/.flutter-plugins-dependencies
-touch .github/docker/mounts/pubspec.lock
 
 # Start or create container from image
 if docker ps -a --format '{{.Names}}' | grep -w "$CONTAINER_NAME" > /dev/null; then
@@ -96,7 +118,8 @@ else
     docker run -dit --name "$CONTAINER_NAME" \
         -u nonroot \
         -v "$APP_PATH":"$APP_PATH" \
-        -v "$APP_PATH/.github/docker/mounts/.pub-cache":"/root/.pub-cache" \
+        -v "$APP_PATH/.github/docker/mounts/flutter":"/home/nonroot/flutter" \
+        -v "$APP_PATH/.github/docker/mounts/.pub-cache":"/home/nonroot/.pub-cache" \
         -v "$APP_PATH/.github/docker/mounts/.dart_tool":"$APP_PATH/.dart_tool" \
         -v "$APP_PATH/.github/docker/mounts/build":"$APP_PATH/build" \
         -v "$APP_PATH/.github/docker/mounts/.flutter-plugins-dependencies":"$APP_PATH/.flutter-plugins-dependencies" \

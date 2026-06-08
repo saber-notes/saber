@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:abstract_sync/abstract_sync.dart';
+import 'package:collection/collection.dart';
 import 'package:encrypt/encrypt.dart';
 import 'package:flutter/foundation.dart';
 import 'package:logging/logging.dart';
@@ -464,6 +465,7 @@ class SaberSyncInterface
     SaberSyncFile file, {
     required BestFile onLocalFileNotFound,
     required BestFile onEqualFiles,
+    bool preferCache = true,
   }) async {
     if (!file.localFile.existsSync()) {
       // We either have a new remote file or a deleted local file
@@ -471,9 +473,9 @@ class SaberSyncInterface
     }
 
     // get remote file
-    file.remoteFile ??= await _getWebDavFileStatic(
+    file.remoteFile = await _getWebDavFileStatic(
       file.remotePath,
-      useCache: false,
+      preferCache: preferCache,
     );
     if (file.remoteFile == null) {
       // Remote file doesn't exist, keep local
@@ -506,27 +508,25 @@ class SaberSyncInterface
 
   Future<WebDavFile?> getWebDavFile(
     String remotePath, {
-    bool useCache = true,
-  }) => _getWebDavFileStatic(remotePath, useCache: useCache);
+    bool preferCache = true,
+  }) => _getWebDavFileStatic(remotePath, preferCache: preferCache);
 
   static Future<WebDavFile?> _getWebDavFileStatic(
     String remotePath, {
-    bool useCache = true,
+    bool preferCache = true,
   }) async {
-    WebDavFile? webDavFile;
+    final cachedWebDavFile = remoteFiles.firstWhereOrNull(
+      (remoteFile) => remoteFile.path.path == remotePath,
+    );
+    if (preferCache && cachedWebDavFile != null) return cachedWebDavFile;
 
-    try {
-      webDavFile = remoteFiles.firstWhere(
-        (remoteFile) => remoteFile.path.path == remotePath,
-      );
-      if (useCache) return webDavFile;
-    } on StateError {
-      log.fine('Remote file not cached for $remotePath');
+    final webDavFile = await _getWebDavFileUncached(remotePath);
+    if (webDavFile != null) {
+      remoteFiles
+        ..remove(cachedWebDavFile)
+        ..add(webDavFile);
     }
-
-    webDavFile = await _getWebDavFileUncached(remotePath) ?? webDavFile;
-    if (webDavFile != null) remoteFiles.add(webDavFile);
-    return webDavFile;
+    return webDavFile ?? cachedWebDavFile;
   }
 
   static Future<WebDavFile?> _getWebDavFileUncached(String remotePath) async {

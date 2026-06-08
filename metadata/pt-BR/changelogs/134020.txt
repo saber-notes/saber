@@ -1,0 +1,3 @@
+• Corrigi o recurso "Acompanhar atualizações no servidor" que não estava funcionando.
+• Melhorei o desempenho da exportação de PDF e criação de miniaturas (thumbnails).
+• Melhorei experimentalmente o suporte a caneta (stylus) no Windows, adicionando detecção de orientação e botões.

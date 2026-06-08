@@ -52,7 +52,6 @@ import 'package:saber/data/tools/shape_pen.dart';
 import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/home/whiteboard.dart';
 import 'package:sbn/change.dart';
-import 'package:screenshot/screenshot.dart';
 import 'package:super_clipboard/super_clipboard.dart';
 
 typedef _PhotoInfo = ({Uint8List bytes, String extension});
@@ -850,7 +849,7 @@ class EditorState extends State<Editor> {
   }
 
   void _refreshCurrentNote() async {
-    if (coreInfo.readOnly) return;
+    if (coreInfo.readOnlyReason != .watchingServer) return;
     if (!stows.loggedIn) return;
 
     final relativeFilePath = coreInfo.filePath;
@@ -863,6 +862,7 @@ class EditorState extends State<Editor> {
       syncFile,
       onLocalFileNotFound: .local,
       onEqualFiles: .local,
+      preferCache: false,
     );
     if (bestFile != .remote) return;
 
@@ -870,7 +870,9 @@ class EditorState extends State<Editor> {
     void listener(SaberSyncFile transferred) {
       if (transferred != syncFile) return;
       subscription.cancel();
-      _loadCoreInfo(relativeFilePath);
+      _loadCoreInfo(
+        relativeFilePath,
+      ).then((_) => coreInfo.readOnlyReason = .watchingServer);
     }
 
     subscription = syncer.downloader.transferStream.listen(listener);
@@ -909,6 +911,7 @@ class EditorState extends State<Editor> {
   void cancelAutosaveAndMarkSaved() {
     _delayedSaveTimer?.cancel();
     savingState.value = .saved;
+    history.markLastChangeAsSaved();
   }
 
   Future<void> saveToFile() async {
@@ -973,16 +976,17 @@ class EditorState extends State<Editor> {
     final thumbnail = await EditorExporter.screenshotPage(
       coreInfo: coreInfo,
       pageIndex: 0,
-      screenshotController: ScreenshotController(),
       rasterizeAllStrokes: true,
       targetSize: thumbnailSize,
       cropHeight: previewHeight,
       pixelRatio: 1,
     );
+    final thumbnailPng = await thumbnail.toByteData(format: .png);
+    thumbnail.dispose();
     await FileManager.writeFile(
       // Note that this ends with .sbn2.p
       '$filePath.p',
-      thumbnail,
+      thumbnailPng!.buffer.asUint8List(),
       awaitWrite: true,
     );
   }
@@ -1336,18 +1340,19 @@ class EditorState extends State<Editor> {
     if (targetPixelRatio > 1) targetPixelRatio = 1;
 
     try {
-      final Uint8List pngBytes = await EditorExporter.screenshotPage(
+      final image = await EditorExporter.screenshotPage(
         coreInfo: coreInfo,
         pageIndex: currentPageIndex,
-        screenshotController: ScreenshotController(),
         rasterizeAllStrokes: true,
         pixelRatio: targetPixelRatio,
       );
+      final pngBytes = await image.toByteData(format: .png);
+      image.dispose();
 
       if (!context.mounted) return;
       await FileManager.exportFile(
         '${coreInfo.fileName}_page_${currentPageIndex + 1}.png',
-        pngBytes,
+        pngBytes!.buffer.asUint8List(),
         isImage: true,
         context: context,
       );

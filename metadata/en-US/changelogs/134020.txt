@@ -1,0 +1,3 @@
+• Fixed the "Watch for updates on the server" feature not working.
+• Improved PDF export and thumbnailing performance.
+• Experimental improved stylus support on Windows, adding orientation and button detection.

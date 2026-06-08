@@ -41,11 +41,12 @@ jobs:
           echo
 
       - name: Setup Flutter
-        uses: adil192/setup-flutter-submodule@v1
+        uses: adil192/setup-flutter-submodule@v3
         with:
           flutter-path: submodules/flutter
           cache-flutter: false
           cache-pub: false
+          no-save-caches: true
 
       - name: Install Codemagic CLI Tools
         run: pipx install codemagic-cli-tools

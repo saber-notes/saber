@@ -51,12 +51,14 @@ jobs:
             macos/Flutter/ephemeral/
             windows/flutter/ephemeral/
             .flutter-plugins-dependencies
-          key: ${{ runner.OS }}-${{ matrix.arch.cache-name }}-linux-${{ hashFiles('**/pubspec.lock') }}-${{ hashFiles('**/*.dart') }}
+            ~/.dartServer
+            ~/.dart-tool
+          key: ${{ runner.OS }}-${{ matrix.arch.cache-name }}-linux-${{ hashFiles('**/pubspec.yaml') }}
           restore-keys: |
             ${{ runner.OS }}-${{ matrix.arch.cache-name }}-
 
       - name: Setup Flutter
-        uses: adil192/setup-flutter-submodule@v1
+        uses: adil192/setup-flutter-submodule@v3
         with:
           flutter-path: submodules/flutter
 

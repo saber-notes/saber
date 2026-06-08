@@ -1,0 +1,3 @@
+• Reparat la funció "Espera actualitzacions al servidor" que no funcionava.
+• Millorejat el rendiment de l'export de PDF i la creació de miniatures.
+• Experimentalment millorejat el suport del llat (stylus) en Windows, afegint orientació i detecció de botons.
