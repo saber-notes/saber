@@ -123,7 +123,7 @@ class _Translations$settings$pt_BR extends Translations$settings$pt {
 }
 
 // Path: logs
-class _Translations$logs$pt_BR extends Translations$logs$en {
+class _Translations$logs$pt_BR extends Translations$logs$pt {
 	_Translations$logs$pt_BR._(TranslationsPtBr root) : this._root = root, super.internal(root);
 
 	final TranslationsPtBr _root; // ignore: unused_field
@@ -503,7 +503,7 @@ class _Translations$settings$reset$pt_BR extends Translations$settings$reset$pt 
 }
 
 // Path: settings.customDataDir
-class _Translations$settings$customDataDir$pt_BR extends Translations$settings$customDataDir$en {
+class _Translations$settings$customDataDir$pt_BR extends Translations$settings$customDataDir$pt {
 	_Translations$settings$customDataDir$pt_BR._(TranslationsPtBr root) : this._root = root, super.internal(root);
 
 	final TranslationsPtBr _root; // ignore: unused_field
@@ -545,7 +545,7 @@ class _Translations$login$status$pt_BR extends Translations$login$status$pt {
 }
 
 // Path: login.ncLoginStep
-class _Translations$login$ncLoginStep$pt_BR extends Translations$login$ncLoginStep$en {
+class _Translations$login$ncLoginStep$pt_BR extends Translations$login$ncLoginStep$pt {
 	_Translations$login$ncLoginStep$pt_BR._(TranslationsPtBr root) : this._root = root, super.internal(root);
 
 	final TranslationsPtBr _root; // ignore: unused_field
@@ -561,7 +561,7 @@ class _Translations$login$ncLoginStep$pt_BR extends Translations$login$ncLoginSt
 }
 
 // Path: login.encLoginStep
-class _Translations$login$encLoginStep$pt_BR extends Translations$login$encLoginStep$en {
+class _Translations$login$encLoginStep$pt_BR extends Translations$login$encLoginStep$pt {
 	_Translations$login$encLoginStep$pt_BR._(TranslationsPtBr root) : this._root = root, super.internal(root);
 
 	final TranslationsPtBr _root; // ignore: unused_field
@@ -858,7 +858,7 @@ class _Translations$settings$prefDescriptions$hideFingerDrawing$pt_BR extends Tr
 }
 
 // Path: settings.prefDescriptions.sentry
-class _Translations$settings$prefDescriptions$sentry$pt_BR extends Translations$settings$prefDescriptions$sentry$en {
+class _Translations$settings$prefDescriptions$sentry$pt_BR extends Translations$settings$prefDescriptions$sentry$pt {
 	_Translations$settings$prefDescriptions$sentry$pt_BR._(TranslationsPtBr root) : this._root = root, super.internal(root);
 
 	final TranslationsPtBr _root; // ignore: unused_field
@@ -871,7 +871,7 @@ class _Translations$settings$prefDescriptions$sentry$pt_BR extends Translations$
 }
 
 // Path: login.ncLoginStep.loginFlow
-class _Translations$login$ncLoginStep$loginFlow$pt_BR extends Translations$login$ncLoginStep$loginFlow$en {
+class _Translations$login$ncLoginStep$loginFlow$pt_BR extends Translations$login$ncLoginStep$loginFlow$pt {
 	_Translations$login$ncLoginStep$loginFlow$pt_BR._(TranslationsPtBr root) : this._root = root, super.internal(root);
 
 	final TranslationsPtBr _root; // ignore: unused_field
@@ -883,7 +883,7 @@ class _Translations$login$ncLoginStep$loginFlow$pt_BR extends Translations$login
 }
 
 // Path: login.encLoginStep.encFaq.0
-class _Translations$login$encLoginStep$encFaq$0$pt_BR extends Translations$login$encLoginStep$encFaq$0$en {
+class _Translations$login$encLoginStep$encFaq$0$pt_BR extends Translations$login$encLoginStep$encFaq$0$pt {
 	_Translations$login$encLoginStep$encFaq$0$pt_BR._(TranslationsPtBr root) : this._root = root, super.internal(root);
 
 	final TranslationsPtBr _root; // ignore: unused_field
@@ -894,7 +894,7 @@ class _Translations$login$encLoginStep$encFaq$0$pt_BR extends Translations$login
 }
 
 // Path: login.encLoginStep.encFaq.1
-class _Translations$login$encLoginStep$encFaq$1$pt_BR extends Translations$login$encLoginStep$encFaq$1$en {
+class _Translations$login$encLoginStep$encFaq$1$pt_BR extends Translations$login$encLoginStep$encFaq$1$pt {
 	_Translations$login$encLoginStep$encFaq$1$pt_BR._(TranslationsPtBr root) : this._root = root, super.internal(root);
 
 	final TranslationsPtBr _root; // ignore: unused_field
@@ -905,7 +905,7 @@ class _Translations$login$encLoginStep$encFaq$1$pt_BR extends Translations$login
 }
 
 // Path: login.encLoginStep.encFaq.2
-class _Translations$login$encLoginStep$encFaq$2$pt_BR extends Translations$login$encLoginStep$encFaq$2$en {
+class _Translations$login$encLoginStep$encFaq$2$pt_BR extends Translations$login$encLoginStep$encFaq$2$pt {
 	_Translations$login$encLoginStep$encFaq$2$pt_BR._(TranslationsPtBr root) : this._root = root, super.internal(root);
 
 	final TranslationsPtBr _root; // ignore: unused_field

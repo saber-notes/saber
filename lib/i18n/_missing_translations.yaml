@@ -874,6 +874,8 @@ pt-BR:
         inactive(OUTDATED): Inactive
         activeUntilRestart(OUTDATED): Active until you restart the app
         inactiveUntilRestart(OUTDATED): Inactive until you restart the app
+    layoutSizes:
+      tablet(OUTDATED): Tablet
     resyncEverything(OUTDATED): Resync everything
     openDataDir(OUTDATED): Open Saber folder
     customDataDir:
@@ -950,6 +952,8 @@ pt-BR:
       lineThicknessDescription(OUTDATED): Background line thickness
       watchServer(OUTDATED): Watch for updates on the server
       watchServerReadOnly(OUTDATED): Editing is disabled while watching the server
+      bgPatterns:
+        cornell(OUTDATED): Cornell
     readOnlyBanner:
       watchingServer(OUTDATED): You are currently watching for updates on the server. Editing is disabled in this mode.
       corrupted(OUTDATED): Failed to load note. It may be corrupted or still being downloaded.

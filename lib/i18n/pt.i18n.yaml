@@ -115,6 +115,9 @@ settings:
     autosave: Auto-gravar
     shapeRecognitionDelay: Atraso no reconhecimento de formatos
     autoStraightenLines: Auto alinhamento de linhas
+    simplifiedHomeLayout(OUTDATED): Layout de casa simplificado
+    customDataDir(OUTDATED): Pasta Saber personalizada
+    sentry(OUTDATED): Relatório de erro
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible aumenta a legibilidade para leitores com baixa visão
     allowInsecureConnections: (Não recomendado) Permitir que o Saber conecte a servidores com certificados autoassinados/não-confiáveis
@@ -129,6 +132,16 @@ settings:
     editorPromptRename: Pode sempre renomear as notas mais tarde
     printPageIndicators: Mostrar os indicadores de página nas exportações
     shouldAlwaysAlertForUpdates: Conte-me sobre atualizações assim que elas estiverem disponíveis
+    sentry:
+      active(OUTDATED): Ativo
+      inactive(OUTDATED): Inativo
+      activeUntilRestart(OUTDATED): Ativo até você reiniciar o aplicativo
+      inactiveUntilRestart(OUTDATED): Inativo até você reiniciar o aplicativo
+    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Desligar o desenho com o dedo quando um stylus for detectado
+    autosave(OUTDATED): Salvar automaticamente após um breve atraso, ou nunca
+    shapeRecognitionDelay(OUTDATED): Com que frequência atualizar a prévia da forma?
+    autoStraightenLines(OUTDATED): Endireita linhas longas sem precisar usar a caneta de forma
+    simplifiedHomeLayout(OUTDATED): Define uma altura fixa para cada prévia de nota
   themeModes:
     system: Sistema
     light: Claro
@@ -136,6 +149,7 @@ settings:
   layoutSizes:
     auto: Automático
     phone: Telemóvel
+    tablet(OUTDATED): Tablet
   accentColorPicker:
     pickAColor: Selecionar uma cor
   systemLanguage: Idioma do sistema
@@ -147,6 +161,22 @@ settings:
   reset:
     title: Redefinir esta configuração?
     button: Redefinir
+  customDataDir:
+    cancel(OUTDATED): Cancelar
+    select(OUTDATED): Selecionar
+    mustBeEmpty(OUTDATED): A pasta selecionada deve estar vazia
+    mustBeDoneSyncing(OUTDATED): Certifique-se de que a sincronização esteja completa antes de mudar a pasta
+    unsupported(OUTDATED): Este recurso é atualmente apenas para desenvolvedores. O uso dele provavelmente resultará em perda de dados.
+  resyncEverything(OUTDATED): Sincronizar tudo
+  openDataDir(OUTDATED): Abrir pasta Saber
+  autosaveDisabled(OUTDATED): Nunca
+  shapeRecognitionDisabled(OUTDATED): Nunca
+logs:
+  logs(OUTDATED): Registros
+  viewLogs(OUTDATED): Ver logs
+  debuggingInfo(OUTDATED): Os logs contêm informações úteis para depuração e desenvolvimento
+  noLogs(OUTDATED): Nenhum log aqui!
+  useTheApp(OUTDATED): Os logs aparecerão aqui enquanto você usa o aplicativo
 login:
   title: Login
   form:
@@ -156,6 +186,39 @@ login:
     loggedOut: Desconectado
     tapToLogin: Toque para fazer login com o Nextcloud
     loggedIn: Logado com o Nextcloud
+    hi(OUTDATED): Olá, $u!
+    almostDone(OUTDATED): Quase pronto para sincronizar, toque para finalizar o login
+  ncLoginStep:
+    loginFlow:
+      pleaseAuthorize(OUTDATED): Por favor, autorize o Saber a acessar sua conta Nextcloud
+      followPrompts(OUTDATED): Por favor, siga as instruções na interface do Nextcloud
+      browserDidntOpen(OUTDATED): A página de login não abriu? Clique aqui
+    whereToStoreData(OUTDATED): "Escolha onde você deseja armazenar seus dados:"
+    saberNcServer(OUTDATED): Servidor Nextcloud do Saber
+    otherNcServer(OUTDATED): Outro servidor Nextcloud
+    serverUrl(OUTDATED): URL do servidor
+    loginWithSaber(OUTDATED): Entrar com Saber
+    loginWithNextcloud(OUTDATED): Fazer login com o Nextcloud
+  encLoginStep:
+    encFaq(OUTDATED):
+    - q(OUTDATED): O que é uma senha de criptografia? Por que usar duas senhas?
+      a(OUTDATED): |-
+        A senha do Nextcloud é usada para acessar a nuvem. A senha de criptografia "scrambles" seus dados antes que eles cheguem à nuvem.
+        Mesmo que alguém acesse sua conta do Nextcloud, suas anotações permanecerão seguras e criptografadas com uma senha separada. Isso lhe fornece uma segunda camada de segurança para proteger seus dados.
+        Ninguém pode acessar suas anotações no servidor sem sua senha de criptografia, mas isso também significa que se você esquecer sua senha de criptografia, perderá o acesso aos seus dados.
+    - q(OUTDATED): Eu ainda não configurei uma senha de criptografia. Onde eu a obtenho?
+      a(OUTDATED): |-
+        Escolha uma nova senha de criptografia e insira-a acima.
+        O Saber gerará suas chaves de criptografia automaticamente a partir desta senha.
+    - q(OUTDATED): Posso usar a mesma senha da minha conta Nextcloud?
+      a(OUTDATED): Sim, mas tenha em mente que seria mais fácil para o administrador do servidor ou outra pessoa acessar suas anotações se obtiverem acesso à sua conta Nextcloud.
+    enterEncPassword(OUTDATED): "Para proteger seus dados, por favor, insira sua senha de criptografia:"
+    newToSaber(OUTDATED): Novo no Saber? Basta inserir uma nova senha de criptografia.
+    encPassword(OUTDATED): senha de criptografia
+    encFaqTitle(OUTDATED): Perguntas frequentes
+    wrongEncPassword(OUTDATED): Falha na descriptografia com a senha fornecida. Por favor, tente inseri-la novamente.
+    connectionFailed(OUTDATED): Algo deu errado ao conectar ao servidor. Por favor, tente novamente mais tarde.
+  notYou(rich,OUTDATED): Não você? ${undoLogin(Escolher outra conta)}.
 profile:
   title: O meu perfil
   logout: Sair
@@ -173,6 +236,9 @@ profile:
       Toque no "@:profile.quickLinks.deleteAccount" botão acima e faça login se necessário.
       Se estiver a usar o servidor oficial do Saber, a sua conta será apagada depois de um período de carência de uma semana. Pode entrar em contacto comigo em adilhanney@disroot.org durante este período para cancelar o apagar.
       Se usar um servidor de terceiros, pode ser que não haja uma opção de apagar a sua conta: precisará consultar a política de privacidade do servidor para mais informações.
+  quotaUsage(OUTDATED): Você está usando $used de $total ($percent%)
+  connectedTo(OUTDATED): Conectado a
+  faqTitle(OUTDATED): Perguntas frequentes
 appInfo:
   licenseNotice: |-
     Saber  Copyright © 2022-$buildYear  Adil Hanney
@@ -185,6 +251,7 @@ update:
   updateAvailable: Atualização disponível
   updateAvailableDescription: "Uma nova versão da app está disponível, com estas mudanças:"
   update: Atualizar
+  downloadNotAvailableYet(OUTDATED): O download ainda não está disponível para a sua plataforma. Por favor, verifique novamente em breve.
 editor:
   toolbar:
     toggleColors: Paleta de cores (Ctrl C)
@@ -203,6 +270,8 @@ editor:
     ballpointPen: Caneta esferográfica
     highlighter: Marcador
     laserPointer: Apontador laser
+    pencil(OUTDATED): Lápis
+    shapePen(OUTDATED): Caneta de formato
   penOptions:
     size: Tamanho
   colors:
@@ -226,6 +295,12 @@ editor:
     pastelBlue: Azul pastel
     pastelPurple: Roxo pastel
     pastelPink: Rosa pastel
+    customBrightnessHue(OUTDATED): Custom $b $h
+    customHue(OUTDATED): Custom $h
+    dark(OUTDATED): escuro
+    light(OUTDATED): luz
+    cyan(OUTDATED): Ciano
+    pink(OUTDATED): Rosa
   imageOptions:
     title: Opções de imagem
     invertible: Invertível
@@ -235,6 +310,7 @@ editor:
     delete: Apagar
   selectionBar:
     delete: Apagar
+    duplicate(OUTDATED): Duplicado
   menu:
     clearPage: Limpar a página $page/$totalPages
     clearAllPages: Limpar todas as páginas
@@ -258,8 +334,16 @@ editor:
       dots: Pontos
       staffs: Pentagrama
       tablature: Tablatura
+      cornell(OUTDATED): Cornell
+    lineHeightDescription(OUTDATED): Também controla o tamanho do texto para notas digitadas
+    lineThickness(OUTDATED): Espessura da linha
+    lineThicknessDescription(OUTDATED): espessura da linha de fundo
+    watchServer(OUTDATED): Fique atento às atualizações no servidor
+    watchServerReadOnly(OUTDATED): A edição está desativada ao assistir ao servidor
   readOnlyBanner:
     title: Modo somente leitura
+    watchingServer(OUTDATED): Você está atualmente monitorando atualizações no servidor. A edição está desativada neste modo.
+    corrupted(OUTDATED): Falha ao carregar a nota. Ela pode estar corrompida ou ainda sendo baixada.
   versionTooNew:
     title: Esta nota foi editada usando uma versão mais recente do Saber
     subtitle: A edição desta nota pode resultar na perda de algumas informações. Deseja ignorar isto e editá-la mesmo assim?
