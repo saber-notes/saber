@@ -19,6 +19,7 @@ const localeNames = <String, String>{
   'it': 'italiano',
   'ja': '日本語',
   'pl': 'polski',
+  'pt': 'português',
   'pt-BR': 'português (Brasil)',
   'ru': 'русский',
   'sl': 'slovenňski',

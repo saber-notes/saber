@@ -1,7 +1,7 @@
 common:
   done: Feito
-  cancel: Cancelar
   continueBtn: Continuar
+  cancel: Cancelar
 home:
   tabs:
     home: Início
@@ -47,9 +47,16 @@ home:
     moveName: Mover $f
     move: Mover
     renamedTo: A nota será renomeada para $newName
+    multipleRenamedTo: "As notas a seguir serão renomeadas:"
     numberRenamedTo: $n notas serão renomeadas para evitar conflitos
-    multipleRenamedTo: 'As notas a seguir serão renomeadas:'
   deleteNote: Apagar nota
+  deleteNoteDialog:
+    deleteNotes: Apagar $n notas
+    deleteName: Apagar $f
+    confirmDelete:
+      one: Permanentemente apagar a nota selecionada?
+      other: Permanentemente apagar as notas selecionadas?
+    delete: Apagar
   renameFolder:
     renameFolder: Renomear pasta
     folderName: Nome da pasta
@@ -62,13 +69,6 @@ home:
     deleteName: Apagar $f
     delete: Apagar
     alsoDeleteContents: Apagar também todas as notas dentro desta pasta
-  deleteNoteDialog:
-    deleteNotes: Apagar $n notas
-    deleteName: Apagar $f
-    confirmDelete:
-      one: Permanentemente apagar a nota selecionada?
-      other: Permanentemente apagar as notas selecionadas?
-    delete: Apagar
 sentry:
   consent:
     title: Ajudar a melhorar Saber?
@@ -77,7 +77,7 @@ sentry:
       scope: Os reportes podem conter informações sobre os erros e o seu dispositivo. Tentei o máximo possível remover todas as informações pessoais, mas algumas talvez continuem.
       currentlyOff: Se dar consentimento, os reportes de erro serão ativados após a reinicialização da app.
       currentlyOn: Se revogar o consentimento, por favor reinicie a app para desativar os reportes de erro.
-      learnMoreInPrivacyPolicy(rich): 'Veja mais em: ${link(privacy policy)}.'
+      learnMoreInPrivacyPolicy(rich): "Veja mais em: ${link(privacy policy)}."
     answers:
       yes: Sim
       no: Não
@@ -183,7 +183,7 @@ appInfo:
   privacyPolicyButton: Toque aqui para ver a política de privacidade
 update:
   updateAvailable: Atualização disponível
-  updateAvailableDescription: 'Uma nova versão da app está disponível, com estas mudanças:'
+  updateAvailableDescription: "Uma nova versão da app está disponível, com estas mudanças:"
   update: Atualizar
 editor:
   toolbar:
@@ -196,7 +196,7 @@ editor:
     undo: Desfazer
     redo: Refazer
     export: Exportar (Ctrl Shift S)
-    exportAs: 'Exportar como:'
+    exportAs: "Exportar como:"
     fullscreen: Ecrã cheio (F11)
   pens:
     fountainPen: Caneta tinteiro

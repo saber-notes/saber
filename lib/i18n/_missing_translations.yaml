@@ -858,14 +858,6 @@ ja:
       backgroundImageFit(OUTDATED): Background image fit
 pl:
 pt-BR:
-  home:
-    deleteNoteDialog:
-      deleteNotes(OUTDATED): Delete $n notes
-      deleteName(OUTDATED): Delete $f
-      confirmDelete(OUTDATED):
-        one: Permanently delete the selected note?
-        other: Permanently delete the selected notes?
-      delete(OUTDATED): Delete
   settings:
     prefLabels:
       simplifiedHomeLayout(OUTDATED): Simplified home layout
