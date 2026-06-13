@@ -112,7 +112,7 @@ dependencies:
 
   printing: ^5.13.2
 
-  open_file: ^3.5.10
+  open_file: ^4.0.0
 
   super_clipboard: ^0.9.0-dev.3
 
