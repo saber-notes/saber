@@ -3,7 +3,9 @@
 import 'dart:io';
 
 class LmsTranslator {
-  static const model = 'lmstudio-community/gemma-4-e2b-it';
+  static const model = 'gemma-4-E4B-it-QAT';
+  static const modelUrl =
+      'https://huggingface.co/lmstudio-community/$model-GGUF';
 
   const LmsTranslator._();
   static Future<LmsTranslator> create() async {
@@ -19,11 +21,7 @@ class LmsTranslator {
 
     final models = _run('lms', ['ls', '--llm', '--json']);
     if (!models.contains(model)) {
-      await _runLive('lms', [
-        'get',
-        '-y',
-        'https://huggingface.co/$model-GGUF',
-      ]);
+      await _runLive('lms', ['get', '-y', modelUrl]);
     }
 
     final ps = _run('lms', ['ps', '--json']);
