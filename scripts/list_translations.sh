@@ -1,31 +1,18 @@
 #!/bin/bash
-set -euo pipefail
+# Lists translation commits since the last tag in a changelog format.
+set -e
 
-declare -A USER_CACHE
+LAST_TAG=$(git describe --tags --abbrev=0 HEAD^)
+LAST_TAG_DATE=$(git log -1 --format=%aI "$LAST_TAG")
 
-# Filter commits to those since the last tag
-RANGE="$(git describe --tags --abbrev=0 HEAD^)..HEAD"
-
-git log "$RANGE" --pretty='%H|%an|%ae|%s' \
-  | grep -i '^.*|.*|.*|i18n: \(Add\|Update\)' \
-  | while IFS='|' read -r sha name email subject; do
-
-    # Get GitHub username
-    if [[ -n "${USER_CACHE[$email]:-}" ]]; then
-      user="${USER_CACHE[$email]}"
-    else
-      user=$(gh api \
-        -H "Accept: application/vnd.github+json" \
-        "/search/users?q=${email}+in:email" \
-        --jq '.items[0].login' 2>/dev/null || true)
-
-      if [[ -z "$user" || "$user" == "null" ]]; then
-        user="$name" # Fallback to author name
-      else
-        user="@$user"
-      fi
-      USER_CACHE[$email]="$user"
-    fi
-
-    echo "${subject} by ${user} in ${sha}"
-done
+gh api repos/saber-notes/saber/commits \
+  --method GET \
+  --field since="$LAST_TAG_DATE" \
+  --jq '
+    .[]
+    | select(
+        (.commit.message | startswith("i18n: Update")) or
+        (.commit.message | startswith("i18n: Add"))
+      )
+    | "  - \(.commit.message | split("\n")[0]) by @\(.author.login // .commit.author.name) in \(.sha)"
+  '
