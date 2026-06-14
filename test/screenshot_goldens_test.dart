@@ -64,7 +64,6 @@ void main() {
 
     FlavorConfig.setup();
     SyncingButton.debugForceButtonActive = true;
-    AppInfo.showDebugMessage = false;
 
     stows.lastStorageQuota.value = TestUser.getQuota();
     stows.username.value = 'myusername';
