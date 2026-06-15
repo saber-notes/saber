@@ -1,1 +1,368 @@
-{}
+common:
+  done: Klaar
+  continueBtn: Volgende
+  cancel: Stop
+home:
+  tabs:
+    home: Thuis
+    whiteboard: Whiteboard
+    settings: Instellingen
+    browse: Bladeren
+  titles:
+    home: Recente notities
+    whiteboard: Whiteboard
+    settings: Instellingen
+    browse: Bladeren
+  tooltips:
+    newNote: Nieuwe notitie
+    showUpdateDialog: Laat de laatste updates zien
+    exportNote: Exporteer notitie
+  create:
+    newNote: Nieuwe notitie
+    importNote: Importeer notitie
+  welcome: Welkom bij Saber
+  invalidFormat: Deze software werkt niet met het geselecteerde bestand. Selecteer een sbn, sbn2, sba of pdf bestand.
+  noFiles: Geen bestand gevonden
+  noPreviewAvailable: Geen voorbeeld beschikbaar
+  createNewNote: Klik het plus icoon om een nieuwe notitie te maken
+  backFolder: Ga terug naar de vorige map
+  newFolder:
+    newFolder: Nieuwe map
+    folderName: Map naam
+    create: Creëer
+    folderNameEmpty: Map naam mag niet leeg zijn
+    folderNameContainsSlash: Map naam mag geen "/" bevatten
+    folderNameExists: Map bestaat al
+  renameNote:
+    renameNote: Hernoem notitie
+    noteName: Notitie naam
+    rename: Hernoem
+    noteNameEmpty: Notitie naam mag niet leeg zijn
+    noteNameExists: Er bestaat al een notitie met die naam
+    noteNameForbiddenCharacters: Notitie naam heeft verboden karakters
+    noteNameReserved: Notitie naam gereserveerd
+  moveNote:
+    moveNote: Verplaats notitie
+    moveNotes: Verplaats $n notities
+    moveName: Verplaats $f
+    move: Verplaats
+    renamedTo: Notitie zal hernoemd worden naar $newName
+    multipleRenamedTo: 'De volgende notities worden hernoemd:'
+    numberRenamedTo: $n notities zullen hernoemd worden om conflicten te vermijden
+  deleteNote: Verwijder notitie
+  deleteNoteDialog:
+    deleteNotes: Verwijder $n notities
+    deleteName: Verwijder $f
+    confirmDelete:
+      one: Geselecteerde notitie permanent verwijderen?
+      other: Geselecteerde notities permanent verwijderen?
+    delete: Verwijderen
+  renameFolder:
+    renameFolder: Map hernoemen
+    folderName: Map naam
+    rename: Hernoem
+    folderNameEmpty: Map naam mag niet leeg zijn
+    folderNameContainsSlash: Map naam mag geen "/" bevatten
+    folderNameExists: Een map met deze naam bestaat al
+  deleteFolder:
+    deleteFolder: Map verwijderen
+    deleteName: Verwijder $f
+    delete: Verwijder
+    alsoDeleteContents: Notities in deze map ook verwijderen
+sentry:
+  consent:
+    title: Help Saber verbeteren?
+    description:
+      learnMoreInPrivacyPolicy(rich): Lees meer in het ${link(privacy policy)}.
+      question: Automatisch fouten rapporteren? Dit helpt sneller fouten vinden.
+      scope: Het rapport kan informatie over uw apparaat bevatten.
+      currentlyOff: Als u het toestaat, dan wordt fouten rapportage aangezet na het herstarten van de app.
+      currentlyOn: Als je toestemming intrekt, start dan de app opnieuw op om foutenrapportage uit te schakelen.
+    answers:
+      yes: Ja
+      no: Nee
+      later: Vraag later nogmaals
+settings:
+  prefCategories:
+    general: Algemeen
+    writing: Schrijven
+    performance: Prestaties
+    advanced: Geavanceerd
+    editor: Editor
+  prefLabels:
+    locale: Taal
+    appTheme: App thema
+    platform: Thema type
+    layoutSize: Indeling type
+    customAccentColor: Aangepaste accent kleur
+    hyperlegibleFont: Atkinson Hyperlegible lettertype
+    shouldCheckForUpdates: Controleer op updates
+    shouldAlwaysAlertForUpdates: Snellere updates
+    allowInsecureConnections: Sta onversleutelde verbindingen toe
+    editorToolbarAlignment: Werkbalk positie
+    editorToolbarShowInFullscreen: Laat de werkbalk zien in volledig scherm modus
+    editorAutoInvert: Inverteer notities in donkere modus
+    preferGreyscale: Prefereer grijstinten
+    maxImageSize: Maximale afbeelding grootte
+    autoClearWhiteboardOnExit: Automatisch whiteboard leeg maken
+    disableEraserAfterUse: Automatisch gum deselecteren
+    hideFingerDrawingToggle: Vinger schrijven knop verbergen
+    autoDisableFingerDrawingWhenStylusDetected: Automatisch vinger schrijven stoppen
+    editorPromptRename: Meteen vragen om notitie een naam te geven
+    recentColorsLength: Hoeveel aangepasten kleuren opslaan
+    printPageIndicators: Laat pagina nummers zien
+    autosave: Automatisch opslaan
+    shapeRecognitionDelay: Vorm herkenning vertraging
+    autoStraightenLines: Automatisch lijnen recht maken
+    simplifiedHomeLayout: Simpele thuis indeling
+    customDataDir: Aangepaste Saber map
+    sentry: Fouten rapportering
+    recentColorsDontSavePresets: Sla geen vooraf ingestelde kleuren op in recente kleuren
+  prefDescriptions:
+    hyperlegibleFont: Verbetert leesbaarheid voor gebruikers met weinig zicht
+    allowInsecureConnections: (Niet aangeraden) Laat Saber met zelf getekende servers verbinden
+    preferGreyscale: Voor e-ink schermen
+    autoClearWhiteboardOnExit: Maakt het whiteboard leeg nadat de app is verlaten
+    disableEraserAfterUse: Automatisch terug gaan naar schrijven na gum gebruik
+    maxImageSize: Grotere afbeeldingen worden gecomprimeerd
+    hideFingerDrawing:
+      shown: Gaat per ongeluk aanzetten tegen
+      fixedOn: Vinger schrijven altijd aan
+      fixedOff: Vinger schrijven is altijd uit
+    autoDisableFingerDrawingWhenStylusDetected: Vinger schrijven uitzetten wanneer pen wordt gedetecteerd
+    editorPromptRename: Je kan een map altijd hernoemen
+    printPageIndicators: Laat pagina nummers zien in geëxporteerd bestand
+    autosave: Automatisch opslaan na een bepaalde tijd, of nooit
+    shapeRecognitionDelay: Hoe vaak de vorm herkenning updaten
+    autoStraightenLines: Lange lijnen recht maken zonder vorm pen te gebruiken
+    shouldAlwaysAlertForUpdates: Laat het meteen weten als er updates zijn
+    sentry:
+      active: Actief
+      inactive: Inactief
+      activeUntilRestart: Actief tot de app herstart is
+      inactiveUntilRestart: Inactief tot de app herstart is
+    simplifiedHomeLayout: Maak elk notitievoorbeeld even groot
+  themeModes:
+    system: Systeem
+    light: Licht
+    dark: Donker
+  layoutSizes:
+    auto: Automatisch
+    phone: Telefoon
+    tablet: Tablet
+  accentColorPicker:
+    pickAColor: Kies een kleur
+  systemLanguage: Automatisch
+  axisDirections:
+  - Bovenaan
+  - Rechts
+  - Onderaan
+  - Links
+  reset:
+    title: Instelling terug zetten?
+    button: Terugzetten
+  resyncEverything: Alles hersynchroniseren
+  openDataDir: Saber map openen
+  customDataDir:
+    cancel: Stop
+    select: Selecteer
+    mustBeEmpty: Geselecteerde map moet leeg zijn
+    mustBeDoneSyncing: Zorg ervoor dat alles is gesynchroniseerd voordat u de map verandert
+    unsupported: Deze functie is momenteel alleen voor ontwikkelaars. Het gebruik ervan zal waarschijnlijk leiden tot gegevensverlies.
+  autosaveDisabled: Nooit
+  shapeRecognitionDisabled: Nooit
+login:
+  ncLoginStep:
+    loginFlow:
+      followPrompts: Volg de instructies op de Nextcloud pagina
+      browserDidntOpen: Is de login pagina niet geopend? Klik hier
+      pleaseAuthorize: Autoriseer Saber bij je Nextcloud account
+    whereToStoreData: 'Kies welke opslag te gebruiken:'
+    saberNcServer: Saber's Nextcloud server
+    otherNcServer: Andere Nextcloud server
+    serverUrl: Server URL
+    loginWithSaber: Inloggen met Saber
+    loginWithNextcloud: Inloggen met Nextcloud
+  encLoginStep:
+    enterEncPassword: 'Om uw gegevens te beschermen, geef hier uw versleutelingswachtwoord op:'
+    newToSaber: Nieuw bij Saber? Bedenk gewoon een nieuw wachtwoord.
+    encPassword: Versleutelingswachtwoord
+    encFaqTitle: Vaak gevraagd
+    wrongEncPassword: Ontsleuteling gefaald met gegeven wachtwoord, probeer opnieuw.
+    connectionFailed: Er ging iets fout met de verbinding met de server. Probeer later opnieuw.
+    encFaq:
+    - q: Wat is een versleutelingswachtwoord? Waarom moet ik twee wachtwoorden gebruiken?
+      a: |-
+        Het Nextcloud-wachtwoord wordt gebruikt om toegang te krijgen tot de cloud. Het encryptiewachtwoord versleutelt je data voordat deze de cloud bereikt.
+        Zelfs als iemand toegang krijgt tot je Nextcloud-account, blijven je notities veilig en versleuteld met een apart wachtwoord. Dit biedt je een tweede beveiligingslaag om je data te beschermen.
+        Niemand kan je notities op de server inzien zonder je encryptiewachtwoord, maar dit betekent ook dat als je je encryptiewachtwoord vergeet, je de toegang tot je gegevens verliest.
+    - q: Ik heb nog geen versleutelingswachtwoord gebruikt, waar krijg ik deze?
+      a: |-
+        Kies een nieuw versleutelingswachtwoord en voer hem hierboven in.
+        Saber zal automatisch versleutelingssleutels maken van dit wachtwoord.
+    - q: Kan ik hetzelfde wachtwoord als my Nextcloud wachtwoord gebruiken?
+      a: Ja, maar houd er rekening mee dat het makkelijker is voor de serverbeheerder of iemand anders om toegang te krijgen tot je notities als ze toegang krijgen tot je Nextcloud-account.
+  title: Login
+  form:
+    agreeToPrivacyPolicy(rich): Door in te loggen bent u eens met het ${linkToPrivacyPolicy(Privacy Policy)}.
+  signup(rich): Nog geen account? ${linkToSignup(Registreer nu)}!
+  status:
+    loggedOut: Uitgelogd
+    tapToLogin: Klik om in te loggen met Nextcloud
+    hi: Hi, $u!
+    almostDone: Bijna klaar om te synchroniseren, klik om in te loggen
+    loggedIn: Ingelogd met Nextcloud
+  notYou(rich): Niet u? ${undoLogin(Kies een ander account)}.
+profile:
+  title: Mijn profiel
+  logout: Uitloggen
+  quotaUsage: $used van $total in gebruik ($percent%)
+  connectedTo: Verbonden met
+  quickLinks:
+    serverHomepage: Server thuispagina
+    deleteAccount: Verwijder account
+  faqTitle: Vaak gevraagd
+  faq:
+  - q: Ben ik mijn notities kwijt als ik uitlog?
+    a: Nee. Je notities blijven zowel op je apparaat als op de server staan. Ze worden pas gesynchroniseerd met de server als je weer inlogt. Zorg dat de synchronisatie voltooid is voordat je uitlogt, zodat je geen data verliest (zie de synchronisatievoortgang op het startscherm).
+  - q: Hoe verander ik mijn Nextcloud wachtwoord?
+    a: Ga naar de website van je server en log in. Ga dan naar Instellingen > Beveiliging > Wachtwoord wijzigen. Je moet uitloggen en weer inloggen op Saber nadat je je wachtwoord hebt veranderd.
+  - q: Hoe verander ik mijn versleutelingswachtwoord?
+    a: |-
+      0. Zorg dat de synchronisatie voltooid is (zie de voortgang van synchronisatie op het startscherm).
+      1. Log uit bij Saber.
+      2. Ga naar de website van je server en verwijder je 'Saber'-map. Dit verwijdert al je notities van de server.
+      3. Log weer in op Saber. Je kunt een nieuw encryptiewachtwoord kiezen bij het inloggen.
+      4. Vergeet niet uit te loggen en weer in te loggen op Saber op je andere apparaten.
+  - q: Hoe kan ik mijn account verwijderen?
+    a: |-
+      Tik op de knop "@:profile.quickLinks.deleteAccount" hierboven en log in indien nodig.
+      Als je de officiële Saber-server gebruikt, wordt je account na een periode van 1 week verwijderd. Je kunt me in deze periode op adilhanney@disroot.org contacteren om de verwijdering te annuleren.
+      Als je een server van derden gebruikt, is er mogelijk geen optie om je account te verwijderen: je moet het privacybeleid van de server raadplegen voor meer informatie.
+logs:
+  logs: Logs
+  viewLogs: Logs bekijken
+  debuggingInfo: Logs bevatten informatie voor fouten vinden in de app en ontwikkelen van de app
+  noLogs: Er zijn nog geen logs!
+  useTheApp: Logs zullen hier verschijnen als je de app gebruikt
+appInfo:
+  licenseNotice: |-
+    Saber  Copyright © 2022-$buildYear  Adil Hanney
+    This program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.
+  debug: DEBUG
+  sponsorButton: Klik hier om mij te sponsoren of om meer opslag te kopen
+  licenseButton: Klik hier om meer licentie informatie te zien
+  privacyPolicyButton: Klik hier voor het privacy policy
+update:
+  updateAvailable: Update beschikbaar
+  updateAvailableDescription: 'Een nieuwe versie van de app is beschikbaar:'
+  update: Update
+  downloadNotAvailableYet: De download is nog niet beschikbaar voor jouw platform. Kijk later hier weer.
+editor:
+  toolbar:
+    toggleColors: Verander kleur (Ctrl C)
+    select: Selecteer
+    toggleEraser: Toggle gum (Ctrl E)
+    photo: Afbeeldingen
+    text: Tekst
+    toggleFingerDrawing: Toggle vinger schrijven (Ctrl F)
+    undo: Terug
+    redo: Heen
+    export: Exporteer (Ctrl Shift S)
+    exportAs: 'Exporteer als:'
+    fullscreen: Toggle volledig scherm (F11)
+  pens:
+    fountainPen: Vulpen
+    ballpointPen: Balpen
+    highlighter: Highlighter
+    pencil: Potlood
+    shapePen: Vormpen
+    laserPointer: Laser pointer
+  penOptions:
+    size: Grootte
+  colors:
+    colorPicker: Kleur kiezer
+    customBrightnessHue: Aangepast $b $h
+    customHue: Aangepast $h
+    dark: donker
+    light: licht
+    black: Zwart
+    darkGrey: Donker grijs
+    grey: Grijs
+    lightGrey: Licht grijs
+    white: Wit
+    red: Rood
+    green: Groen
+    cyan: Cyaan
+    blue: Blauw
+    yellow: Geel
+    purple: Paars
+    pink: Roze
+    orange: Oranje
+    pastelRed: Pastel rood
+    pastelOrange: Pastel oranje
+    pastelYellow: Pastel geel
+    pastelGreen: Pastel groen
+    pastelCyan: Pastel cyaan
+    pastelBlue: Pastel blauw
+    pastelPurple: Pastel paars
+    pastelPink: Pastel roze
+  imageOptions:
+    title: Afbeelding opties
+    invertible: Inverteerbaar
+    download: Download
+    setAsBackground: Als achtergrond gebruiken
+    removeAsBackground: Als achtergrond verwijderen
+    delete: Verwijderen
+  selectionBar:
+    delete: Verwijderen
+    duplicate: Duplicaat
+  menu:
+    clearPage: Pagina $page/$totalPages legen
+    clearAllPages: Alle pagina's legen
+    insertPage: Pagina hieronder invoegen
+    duplicatePage: Pagina dupliceren
+    deletePage: Pagina verwijderen
+    lineHeight: Tekst grootte
+    lineHeightDescription: Regelt ook de tekstgrootte voor getypte notities
+    lineThickness: Lijndikte
+    lineThicknessDescription: Achtergrond lijndikte
+    backgroundImageFit: Achtergrond afbeelding plaats
+    backgroundPattern: Achtergrond patroon
+    import: Importeer
+    watchServer: Synchroniseer updates van de server
+    watchServerReadOnly: Bewerken is uitgeschakeld terwijl je synchroniseert met de server
+    boxFits:
+      fill: Span
+      cover: Bedek
+      contain: Bevat
+    bgPatterns:
+      none: Blank
+      college: Lijntjes papier
+      collegeRtl: Lijntjespapier (omgedraaid)
+      lined: Lijntjes
+      grid: Raster
+      dots: Puntjes
+      staffs: Staffs
+      tablature: Tablatuur
+      cornell: Cornell
+  versionTooNew:
+    allowEditing: Veranderen toestaan
+    title: Deze notitie is gemaakt met een nieuwere versie van Saber
+    subtitle: Het bewerken van deze notitie kan ertoe leiden dat sommige informatie verloren gaat. Wil je dit negeren en toch bewerken?
+  quill:
+    typeSomething: Typ hier iets...
+  hud:
+    unlockZoom: Zoomen toestaan
+    lockZoom: Zoomen tegenhouden
+    unlockSingleFingerPan: Schakel rondkijken met één vinger in
+    lockSingleFingerPan: Schakel rondkijken met één vinger uit
+    unlockAxisAlignedPan: Ontgrendel horizontaal of verticaal rondkijken
+    lockAxisAlignedPan: Vergrendel horizontaal of verticaal rondkijken
+  untitled: GeenNaam
+  needsToSaveBeforeExiting: Je veranderingen bewaren... Je kunt de editor veilig verlaten als hij klaar is
+  readOnlyBanner:
+    watchingServer: Je bent momenteel aan het synchroniseren met updates van de server. Bewerken is uitgeschakeld in deze modus.
+    corrupted: Notitie is niet geladen. Het kan corrupt zijn of nog steeds aan het downloaden zijn.
+    title: Alleen-lezen modus
+  pages: Pagina's
