@@ -5,14 +5,14 @@ common:
 home:
   tabs:
     home: Thuis
+    browse: Bladeren
     whiteboard: Whiteboard
     settings: Instellingen
-    browse: Bladeren
   titles:
     home: Recente notities
+    browse: Bladeren
     whiteboard: Whiteboard
     settings: Instellingen
-    browse: Bladeren
   tooltips:
     newNote: Nieuwe notitie
     showUpdateDialog: Laat de laatste updates zien
@@ -47,7 +47,7 @@ home:
     moveName: Verplaats $f
     move: Verplaats
     renamedTo: Notitie zal hernoemd worden naar $newName
-    multipleRenamedTo: 'De volgende notities worden hernoemd:'
+    multipleRenamedTo: "De volgende notities worden hernoemd:"
     numberRenamedTo: $n notities zullen hernoemd worden om conflicten te vermijden
   deleteNote: Verwijder notitie
   deleteNoteDialog:
@@ -73,11 +73,11 @@ sentry:
   consent:
     title: Help Saber verbeteren?
     description:
-      learnMoreInPrivacyPolicy(rich): Lees meer in het ${link(privacy policy)}.
       question: Automatisch fouten rapporteren? Dit helpt sneller fouten vinden.
       scope: Het rapport kan informatie over uw apparaat bevatten.
       currentlyOff: Als u het toestaat, dan wordt fouten rapportage aangezet na het herstarten van de app.
       currentlyOn: Als je toestemming intrekt, start dan de app opnieuw op om foutenrapportage uit te schakelen.
+      learnMoreInPrivacyPolicy(rich): Lees meer in het ${link(privacy policy)}.
     answers:
       yes: Ja
       no: Nee
@@ -86,9 +86,9 @@ settings:
   prefCategories:
     general: Algemeen
     writing: Schrijven
+    editor: Editor
     performance: Prestaties
     advanced: Geavanceerd
-    editor: Editor
   prefLabels:
     locale: Taal
     appTheme: App thema
@@ -109,6 +109,7 @@ settings:
     hideFingerDrawingToggle: Vinger schrijven knop verbergen
     autoDisableFingerDrawingWhenStylusDetected: Automatisch vinger schrijven stoppen
     editorPromptRename: Meteen vragen om notitie een naam te geven
+    recentColorsDontSavePresets: Sla geen vooraf ingestelde kleuren op in recente kleuren
     recentColorsLength: Hoeveel aangepasten kleuren opslaan
     printPageIndicators: Laat pagina nummers zien
     autosave: Automatisch opslaan
@@ -117,7 +118,6 @@ settings:
     simplifiedHomeLayout: Simpele thuis indeling
     customDataDir: Aangepaste Saber map
     sentry: Fouten rapportering
-    recentColorsDontSavePresets: Sla geen vooraf ingestelde kleuren op in recente kleuren
   prefDescriptions:
     hyperlegibleFont: Verbetert leesbaarheid voor gebruikers met weinig zicht
     allowInsecureConnections: (Niet aangeraden) Laat Saber met zelf getekende servers verbinden
@@ -135,13 +135,13 @@ settings:
     autosave: Automatisch opslaan na een bepaalde tijd, of nooit
     shapeRecognitionDelay: Hoe vaak de vorm herkenning updaten
     autoStraightenLines: Lange lijnen recht maken zonder vorm pen te gebruiken
+    simplifiedHomeLayout: Maak elk notitievoorbeeld even groot
     shouldAlwaysAlertForUpdates: Laat het meteen weten als er updates zijn
     sentry:
       active: Actief
       inactive: Inactief
       activeUntilRestart: Actief tot de app herstart is
       inactiveUntilRestart: Inactief tot de app herstart is
-    simplifiedHomeLayout: Maak elk notitievoorbeeld even groot
   themeModes:
     system: Systeem
     light: Licht
@@ -171,20 +171,37 @@ settings:
     unsupported: Deze functie is momenteel alleen voor ontwikkelaars. Het gebruik ervan zal waarschijnlijk leiden tot gegevensverlies.
   autosaveDisabled: Nooit
   shapeRecognitionDisabled: Nooit
+logs:
+  logs: Logs
+  viewLogs: Logs bekijken
+  debuggingInfo: Logs bevatten informatie voor fouten vinden in de app en ontwikkelen van de app
+  noLogs: Er zijn nog geen logs!
+  useTheApp: Logs zullen hier verschijnen als je de app gebruikt
 login:
+  title: Login
+  form:
+    agreeToPrivacyPolicy(rich): Door in te loggen bent u eens met het ${linkToPrivacyPolicy(Privacy Policy)}.
+  signup(rich): Nog geen account? ${linkToSignup(Registreer nu)}!
+  notYou(rich): Niet u? ${undoLogin(Kies een ander account)}.
+  status:
+    loggedOut: Uitgelogd
+    tapToLogin: Klik om in te loggen met Nextcloud
+    hi: Hi, $u!
+    almostDone: Bijna klaar om te synchroniseren, klik om in te loggen
+    loggedIn: Ingelogd met Nextcloud
   ncLoginStep:
-    loginFlow:
-      followPrompts: Volg de instructies op de Nextcloud pagina
-      browserDidntOpen: Is de login pagina niet geopend? Klik hier
-      pleaseAuthorize: Autoriseer Saber bij je Nextcloud account
-    whereToStoreData: 'Kies welke opslag te gebruiken:'
+    whereToStoreData: "Kies welke opslag te gebruiken:"
     saberNcServer: Saber's Nextcloud server
     otherNcServer: Andere Nextcloud server
     serverUrl: Server URL
     loginWithSaber: Inloggen met Saber
     loginWithNextcloud: Inloggen met Nextcloud
+    loginFlow:
+      pleaseAuthorize: Autoriseer Saber bij je Nextcloud account
+      followPrompts: Volg de instructies op de Nextcloud pagina
+      browserDidntOpen: Is de login pagina niet geopend? Klik hier
   encLoginStep:
-    enterEncPassword: 'Om uw gegevens te beschermen, geef hier uw versleutelingswachtwoord op:'
+    enterEncPassword: "Om uw gegevens te beschermen, geef hier uw versleutelingswachtwoord op:"
     newToSaber: Nieuw bij Saber? Bedenk gewoon een nieuw wachtwoord.
     encPassword: Versleutelingswachtwoord
     encFaqTitle: Vaak gevraagd
@@ -202,17 +219,6 @@ login:
         Saber zal automatisch versleutelingssleutels maken van dit wachtwoord.
     - q: Kan ik hetzelfde wachtwoord als my Nextcloud wachtwoord gebruiken?
       a: Ja, maar houd er rekening mee dat het makkelijker is voor de serverbeheerder of iemand anders om toegang te krijgen tot je notities als ze toegang krijgen tot je Nextcloud-account.
-  title: Login
-  form:
-    agreeToPrivacyPolicy(rich): Door in te loggen bent u eens met het ${linkToPrivacyPolicy(Privacy Policy)}.
-  signup(rich): Nog geen account? ${linkToSignup(Registreer nu)}!
-  status:
-    loggedOut: Uitgelogd
-    tapToLogin: Klik om in te loggen met Nextcloud
-    hi: Hi, $u!
-    almostDone: Bijna klaar om te synchroniseren, klik om in te loggen
-    loggedIn: Ingelogd met Nextcloud
-  notYou(rich): Niet u? ${undoLogin(Kies een ander account)}.
 profile:
   title: Mijn profiel
   logout: Uitloggen
@@ -239,12 +245,6 @@ profile:
       Tik op de knop "@:profile.quickLinks.deleteAccount" hierboven en log in indien nodig.
       Als je de officiële Saber-server gebruikt, wordt je account na een periode van 1 week verwijderd. Je kunt me in deze periode op adilhanney@disroot.org contacteren om de verwijdering te annuleren.
       Als je een server van derden gebruikt, is er mogelijk geen optie om je account te verwijderen: je moet het privacybeleid van de server raadplegen voor meer informatie.
-logs:
-  logs: Logs
-  viewLogs: Logs bekijken
-  debuggingInfo: Logs bevatten informatie voor fouten vinden in de app en ontwikkelen van de app
-  noLogs: Er zijn nog geen logs!
-  useTheApp: Logs zullen hier verschijnen als je de app gebruikt
 appInfo:
   licenseNotice: |-
     Saber  Copyright © 2022-$buildYear  Adil Hanney
@@ -255,7 +255,7 @@ appInfo:
   privacyPolicyButton: Klik hier voor het privacy policy
 update:
   updateAvailable: Update beschikbaar
-  updateAvailableDescription: 'Een nieuwe versie van de app is beschikbaar:'
+  updateAvailableDescription: "Een nieuwe versie van de app is beschikbaar:"
   update: Update
   downloadNotAvailableYet: De download is nog niet beschikbaar voor jouw platform. Kijk later hier weer.
 editor:
@@ -269,7 +269,7 @@ editor:
     undo: Terug
     redo: Heen
     export: Exporteer (Ctrl Shift S)
-    exportAs: 'Exporteer als:'
+    exportAs: "Exporteer als:"
     fullscreen: Toggle volledig scherm (F11)
   pens:
     fountainPen: Vulpen
@@ -346,10 +346,14 @@ editor:
       staffs: Staffs
       tablature: Tablatuur
       cornell: Cornell
+  readOnlyBanner:
+    title: Alleen-lezen modus
+    watchingServer: Je bent momenteel aan het synchroniseren met updates van de server. Bewerken is uitgeschakeld in deze modus.
+    corrupted: Notitie is niet geladen. Het kan corrupt zijn of nog steeds aan het downloaden zijn.
   versionTooNew:
-    allowEditing: Veranderen toestaan
     title: Deze notitie is gemaakt met een nieuwere versie van Saber
     subtitle: Het bewerken van deze notitie kan ertoe leiden dat sommige informatie verloren gaat. Wil je dit negeren en toch bewerken?
+    allowEditing: Veranderen toestaan
   quill:
     typeSomething: Typ hier iets...
   hud:
@@ -359,10 +363,6 @@ editor:
     lockSingleFingerPan: Schakel rondkijken met één vinger uit
     unlockAxisAlignedPan: Ontgrendel horizontaal of verticaal rondkijken
     lockAxisAlignedPan: Vergrendel horizontaal of verticaal rondkijken
+  pages: Pagina's
   untitled: GeenNaam
   needsToSaveBeforeExiting: Je veranderingen bewaren... Je kunt de editor veilig verlaten als hij klaar is
-  readOnlyBanner:
-    watchingServer: Je bent momenteel aan het synchroniseren met updates van de server. Bewerken is uitgeschakeld in deze modus.
-    corrupted: Notitie is niet geladen. Het kan corrupt zijn of nog steeds aan het downloaden zijn.
-    title: Alleen-lezen modus
-  pages: Pagina's
