@@ -21,9 +21,6 @@ void _testPatternWithLineHeight(
   test("'$pattern' with line height $lineHeight", () {
     const size = Size(1000, 1000);
 
-    /// We can't directly compare doubles, so check if they're within a small range (±epsilon)
-    final epsilon = lineHeight / 100;
-
     final elements = CanvasBackgroundPainter.getPatternElements(
       pattern: pattern,
       size: size,
@@ -32,15 +29,15 @@ void _testPatternWithLineHeight(
 
     if (pattern == .none) {
       expect(
-        elements.isEmpty,
-        true,
+        elements,
+        isEmpty,
         reason: 'No elements should be returned for the none pattern',
       );
       return;
     } else {
       expect(
-        elements.isEmpty,
-        false,
+        elements,
+        isNotEmpty,
         reason:
             'Elements should be returned for patterns other than the none pattern',
       );
@@ -50,22 +47,22 @@ void _testPatternWithLineHeight(
     for (final element in elements) {
       expect(
         element.start.dx,
-        lessThanOrEqualTo(size.width),
+        inInclusiveRange(0, size.width),
         reason: 'element.start not within canvas bounds',
       );
       expect(
         element.start.dy,
-        lessThanOrEqualTo(size.height),
+        inInclusiveRange(0, size.height),
         reason: 'element.start not within canvas bounds',
       );
       expect(
         element.end.dx,
-        lessThanOrEqualTo(size.width),
+        inInclusiveRange(0, size.width),
         reason: 'element.end not within canvas bounds',
       );
       expect(
         element.end.dy,
-        lessThanOrEqualTo(size.height),
+        inInclusiveRange(0, size.height),
         reason: 'element.end not within canvas bounds',
       );
     }
@@ -75,13 +72,13 @@ void _testPatternWithLineHeight(
       if (element.secondaryColor) return; // ignore secondary elements
       expect(
         element.start.dy,
-        greaterThan(lineHeight * 2 - 1),
+        greaterThanOrEqualTo(lineHeight * 2),
         reason:
             'Elements should leave 2 lineHeights of space at the top, but element.start.dy was ${element.start.dy}',
       );
       expect(
         element.end.dy,
-        greaterThan(lineHeight * 2 - 1),
+        greaterThanOrEqualTo(lineHeight * 2),
         reason:
             'Elements should leave 2 lineHeights of space at the top, but element.end.dy was ${element.end.dy}',
       );
@@ -138,7 +135,7 @@ void _testPatternWithLineHeight(
         );
         expect(
           diffFromALine,
-          lessThan(epsilon),
+          lessThan(lineHeight / 1000),
           reason: 'Lines should be spaced in intervals of lineHeight',
         );
 

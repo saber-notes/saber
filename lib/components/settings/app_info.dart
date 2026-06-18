@@ -4,6 +4,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:saber/data/flavor_config.dart';
+import 'package:saber/data/is_this_a_test.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/data/version.dart';
 import 'package:saber/i18n/strings.g.dart';
@@ -26,14 +27,12 @@ class AppInfo extends StatelessWidget {
   );
 
   static String get info => [
-    'v$buildName',
+    // Tests use static values to improve reducibility
+    if (isThisATest) 'v1.33.3' else 'v$buildName',
     if (FlavorConfig.flavor.isNotEmpty) FlavorConfig.flavor,
-    if (kDebugMode && showDebugMessage) t.appInfo.debug,
-    '($buildNumber)',
+    if (kDebugMode && !isThisATest) t.appInfo.debug,
+    if (isThisATest) '(133030)' else '($buildNumber)',
   ].join(' ');
-
-  @visibleForTesting
-  static var showDebugMessage = true;
 
   @override
   Widget build(BuildContext context) {

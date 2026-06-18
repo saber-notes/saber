@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:golden_screenshot/golden_screenshot.dart';
 import 'package:saber/components/home/syncing_button.dart';
-import 'package:saber/components/settings/app_info.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/flavor_config.dart';
 import 'package:saber/data/prefs.dart';
@@ -22,7 +21,6 @@ void main() {
 
     FlavorConfig.setup();
     SyncingButton.debugForceButtonActive = true;
-    AppInfo.showDebugMessage = false;
 
     stows.lastStorageQuota.value = TestUser.getQuota();
     stows.username.value = 'myusername';

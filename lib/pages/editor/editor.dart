@@ -50,7 +50,6 @@ import 'package:saber/data/tools/shape_pen.dart';
 import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/home/whiteboard.dart';
 import 'package:sbn/change.dart';
-import 'package:screenshot/screenshot.dart';
 import 'package:super_clipboard/super_clipboard.dart';
 
 typedef _PhotoInfo = ({Uint8List bytes, String extension});
@@ -159,6 +158,8 @@ class EditorState extends State<Editor> {
     _currentTool = tool;
     if (tool is Eraser) {
       Eraser.currentEraser = tool;
+    } else {
+      _lastNonEraserTool = tool;
     }
     stows.lastTool.value = tool.toolId;
   }
@@ -173,11 +174,15 @@ class EditorState extends State<Editor> {
 
   ValueNotifier<QuillStruct?> quillFocus = ValueNotifier(null);
 
-  /// The tool that was used before switching to the eraser.
-  Tool? tmpTool;
+  /// The last non-Eraser [currentTool] value.
+  late Tool _lastNonEraserTool = Pen.currentPen;
 
-  /// If the stylus button is pressed, or was pressed during the current draw gesture.
-  var stylusButtonPressed = false;
+  /// If the stylus button is pressed, or was pressed, during the current draw gesture.
+  ///
+  /// For now, this also includes when an [PointerDeviceKind.inverseStylus] is
+  /// used since the stylus rear-end and stylus button currently act the same.
+  /// If we add customized button bindings, we may have to separate this again.
+  var stylusButtonWasPressed = false;
 
   @override
   void initState() {
@@ -400,13 +405,7 @@ class EditorState extends State<Editor> {
           // fix the page indices of all pages after this one
           for (int i = item.pageIndex + 1; i < coreInfo.pages.length; ++i) {
             final page = coreInfo.pages[i];
-            for (final stroke in page.strokes) {
-              stroke.pageIndex = i;
-            }
-            for (final image in page.images) {
-              image.pageIndex = i;
-            }
-            page.backgroundImage?.pageIndex = i;
+            page.updatePageIndex(i);
           }
 
         case .insertPage:
@@ -416,13 +415,7 @@ class EditorState extends State<Editor> {
           // fix the page indices of all pages after this one
           for (int i = item.pageIndex; i < coreInfo.pages.length; ++i) {
             final page = coreInfo.pages[i];
-            for (final stroke in page.strokes) {
-              stroke.pageIndex = i;
-            }
-            for (final image in page.images) {
-              image.pageIndex = i;
-            }
-            page.backgroundImage?.pageIndex = i;
+            page.updatePageIndex(i);
           }
 
         case .move:
@@ -699,12 +692,10 @@ class EditorState extends State<Editor> {
         );
       } else if (currentTool is Eraser) {
         final erased = (currentTool as Eraser).onDragEnd();
-        if (tmpTool != null &&
-            (stylusButtonPressed || stows.disableEraserAfterUse.value)) {
+        if (stylusButtonWasPressed || stows.disableEraserAfterUse.value) {
           // restore previous tool
-          stylusButtonPressed = false;
-          currentTool = tmpTool!;
-          tmpTool = null;
+          stylusButtonWasPressed = false;
+          currentTool = _lastNonEraserTool;
         }
         if (erased.erasedStrokes.isEmpty && erased.replacementStrokes.isEmpty)
           return;
@@ -779,24 +770,23 @@ class EditorState extends State<Editor> {
     isHovering = false;
   }
 
-  void onStylusButtonChanged(bool buttonPressed) {
-    // whether the stylus button is or was pressed
-    stylusButtonPressed = stylusButtonPressed || buttonPressed;
+  void onStylusButtonChanged(bool buttonIsPressed) {
+    stylusButtonWasPressed |= buttonIsPressed;
 
-    if (isHovering) {
-      if (buttonPressed) {
-        if (currentTool is Eraser) return;
-        tmpTool = currentTool;
+    if (!isHovering) return;
+    if (buttonIsPressed) {
+      // button pressed while hovering, switch to Eraser
+      if (currentTool is! Eraser) {
         currentTool = Eraser();
-        setState(() {});
-      } else {
-        if (tmpTool != null && currentTool is Eraser) {
-          currentTool = tmpTool!;
-          tmpTool = null;
-          setState(() {});
-        }
+      }
+    } else {
+      // button was released while hovering, switch back to non-Eraser
+      if (currentTool is Eraser) {
+        currentTool = _lastNonEraserTool;
       }
     }
+
+    if (mounted) setState(() {});
   }
 
   void onMoveImage(EditorImage image, Rect offset) {
@@ -885,7 +875,7 @@ class EditorState extends State<Editor> {
   }
 
   void _refreshCurrentNote() async {
-    if (coreInfo.readOnly) return;
+    if (coreInfo.readOnlyReason != .watchingServer) return;
     if (!stows.loggedIn) return;
 
     final relativeFilePath = coreInfo.filePath;
@@ -898,6 +888,7 @@ class EditorState extends State<Editor> {
       syncFile,
       onLocalFileNotFound: .local,
       onEqualFiles: .local,
+      preferCache: false,
     );
     if (bestFile != .remote) return;
 
@@ -905,7 +896,9 @@ class EditorState extends State<Editor> {
     void listener(SaberSyncFile transferred) {
       if (transferred != syncFile) return;
       subscription.cancel();
-      _loadCoreInfo(relativeFilePath);
+      _loadCoreInfo(
+        relativeFilePath,
+      ).then((_) => coreInfo.readOnlyReason = .watchingServer);
     }
 
     subscription = syncer.downloader.transferStream.listen(listener);
@@ -944,6 +937,7 @@ class EditorState extends State<Editor> {
   void cancelAutosaveAndMarkSaved() {
     _delayedSaveTimer?.cancel();
     savingState.value = .saved;
+    history.markLastChangeAsSaved();
   }
 
   Future<void> saveToFile() async {
@@ -1008,16 +1002,17 @@ class EditorState extends State<Editor> {
     final thumbnail = await EditorExporter.screenshotPage(
       coreInfo: coreInfo,
       pageIndex: 0,
-      screenshotController: ScreenshotController(),
       rasterizeAllStrokes: true,
       targetSize: thumbnailSize,
       cropHeight: previewHeight,
       pixelRatio: 1,
     );
+    final thumbnailPng = await thumbnail.toByteData(format: .png);
+    thumbnail.dispose();
     await FileManager.writeFile(
       // Note that this ends with .sbn2.p
       '$filePath.p',
-      thumbnail,
+      thumbnailPng!.buffer.asUint8List(),
       awaitWrite: true,
     );
   }
@@ -1177,7 +1172,7 @@ class EditorState extends State<Editor> {
   }
 
   Future<List<_PhotoInfo>> _pickPhotosWithFilePicker() async {
-    final FilePickerResult? result = await FilePicker.platform.pickFiles(
+    final FilePickerResult? result = await FilePicker.pickFiles(
       type: FileType.custom,
       // Taken from
       // https://github.com/brendan-duncan/image/blob/main/doc/formats.md
@@ -1215,7 +1210,7 @@ class EditorState extends State<Editor> {
     if (coreInfo.readOnly) return false;
     if (!Editor.canRasterPdf) return false;
 
-    final FilePickerResult? result = await FilePicker.platform.pickFiles(
+    final FilePickerResult? result = await FilePicker.pickFiles(
       type: FileType.custom,
       allowedExtensions: ['pdf'],
       allowMultiple: false,
@@ -1371,18 +1366,19 @@ class EditorState extends State<Editor> {
     if (targetPixelRatio > 1) targetPixelRatio = 1;
 
     try {
-      final Uint8List pngBytes = await EditorExporter.screenshotPage(
+      final image = await EditorExporter.screenshotPage(
         coreInfo: coreInfo,
         pageIndex: currentPageIndex,
-        screenshotController: ScreenshotController(),
         rasterizeAllStrokes: true,
         pixelRatio: targetPixelRatio,
       );
+      final pngBytes = await image.toByteData(format: .png);
+      image.dispose();
 
       if (!context.mounted) return;
       await FileManager.exportFile(
         '${coreInfo.fileName}_page_${currentPageIndex + 1}.png',
-        pngBytes,
+        pngBytes!.buffer.asUint8List(),
         isImage: true,
         context: context,
       );
@@ -1456,29 +1452,22 @@ class EditorState extends State<Editor> {
         child: Toolbar(
           readOnly: coreInfo.readOnly,
           setTool: (tool) {
-            setState(() {
-              if (tool is Eraser) {
-                // setTool(Eraser) is called to toggle eraser
-                if (currentTool is Eraser && tmpTool != null) {
-                  // switch to previous tool
-                  tool = tmpTool!;
-                  tmpTool = null;
-                } else {
-                  // store previous tool to restore it later
-                  tmpTool = currentTool;
-                }
-              }
+            if (tool is Eraser && currentTool is Eraser) {
+              // setTool(Eraser) is a special case to toggle the eraser on/off
+              tool = _lastNonEraserTool;
+            }
 
-              currentTool = tool;
+            currentTool = tool;
 
-              if (currentTool is Highlighter) {
-                Highlighter.currentHighlighter = currentTool as Highlighter;
-              } else if (currentTool is Pencil) {
-                Pencil.currentPencil = currentTool as Pencil;
-              } else if (currentTool is Pen) {
-                Pen.currentPen = currentTool as Pen;
-              }
-            });
+            if (tool is Highlighter) {
+              Highlighter.currentHighlighter = tool;
+            } else if (tool is Pencil) {
+              Pencil.currentPencil = tool;
+            } else if (tool is Pen) {
+              Pen.currentPen = tool;
+            }
+
+            if (mounted) setState(() {});
           },
           currentTool: currentTool,
           duplicateSelection: () {

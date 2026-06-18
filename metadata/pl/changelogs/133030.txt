@@ -1,0 +1,3 @@
+• Naprawiono błąd, w wyniku którego ustawienie „Wyłącz gumkę po użyciu” nie było wyłączane
+• Naprawiono wyciek pamięci w obsłudze gestów przesuwania (fling)
+• Zaktualizowano SDK Onyx dla urządzeń Onyx Boox

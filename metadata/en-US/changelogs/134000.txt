@@ -1,0 +1,4 @@
+• Fixed the eraser end of some styluses not triggering the eraser tool in-app.
+• Fixed the eraser tool not getting triggered with fast stylus movements.
+• Fixed background images being assigned the wrong page number after rearranging pages.
+• Added a Ukrainian translation.

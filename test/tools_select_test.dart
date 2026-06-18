@@ -59,8 +59,8 @@ void main() {
       select.onDragEnd(strokes, const []);
 
       expect(
-        select.selectResult.strokes.length,
-        1,
+        select.selectResult.strokes,
+        hasLength(1),
         reason: 'Only one stroke should be selected',
       );
       expect(
@@ -69,8 +69,8 @@ void main() {
         reason: 'The first stroke should be selected',
       );
       expect(
-        select.selectResult.images.isEmpty,
-        true,
+        select.selectResult.images,
+        isEmpty,
         reason: 'No images should be selected',
       );
     });
@@ -102,23 +102,23 @@ void main() {
       select.onDragEnd(const [], images);
 
       expect(
-        select.selectResult.images.length,
-        2,
+        select.selectResult.images,
+        hasLength(2),
         reason: 'Two images should be selected',
       );
       expect(
-        select.selectResult.images.contains(images[0]),
-        true,
+        select.selectResult.images,
+        contains(images[0]),
         reason: 'The first image should be selected',
       );
       expect(
-        select.selectResult.images.contains(images[1]),
-        true,
+        select.selectResult.images,
+        contains(images[1]),
         reason: 'The second image should be selected',
       );
       expect(
-        select.selectResult.strokes.length,
-        0,
+        select.selectResult.strokes,
+        isEmpty,
         reason: 'No strokes should be selected',
       );
     });

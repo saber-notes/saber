@@ -1,0 +1,1 @@
+Soport experimental millorat del stylus en Windows, afegint orientació i detecció de botons.

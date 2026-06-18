@@ -1,0 +1,1 @@
+Eksperymentalne ulepszone wsparcie dla rysików na Windows, dodające wykrywanie orientacji i przycisków.

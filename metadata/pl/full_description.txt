@@ -1,0 +1,17 @@
+Saber to aplikacja do notatek stworzona z myślą o piśmie odręcznym.
+
+Zaprojektowano ją tak, aby była maksymalnie prosta i intuicyjna, a jednocześnie oferowała unikalne funkcje, z których rzeczywiście będziesz korzystać. Co więcej, Saber jest dostępny na wszystkich twoich urządzeniach – zarówno tych mniejszych, jak i większych – bezproblemowo i płynnie się między nimi synchronizując.
+
+Co istotne, aplikacja potrafi odwrócić kolory twoich notatek, gdy korzystasz z trybu ciemnego. Pozwala ci to na pisanie białym atramentem po czarnym tle, co znacznie mniej męczy wzrok w słabym oświetleniu – na przykład wtedy, gdy nauczyciel zgasi światło na sali.
+Obrazy oraz pliki PDF również ulegają inwersji, więc możesz bez najmniejszego problemu i zbędnego zamieszania korzystać z cyfrowych wydruków czy podręczników.
+
+Saber wykorzystuje system podwójnego hasła, by chronić twoje notatki przed każdym niepowołanym dostępem, nawet w przypadku przejęcia przez kogoś całkowitej kontroli nad serwerem. Możesz bezpiecznie przechowywać swoje zapiski na oficjalnym serwerze Saber, na dowolnym innym serwerze, a nawet postawić swój własny!
+
+Aplikacja jest w pełni otwartoźródłowa (open-source), dzięki czemu każdy może prześledzić jej kod i dokładnie sprawdzić, w jaki sposób działa i jak przetwarza twoje dane. Wiele innych aplikacji do notowania opiera się na zamkniętym, własnościowym kodzie, co sprawia, że ich wewnętrzne mechanizmy funkcjonowania pozostają dla ogółu użytkowników owiane tajemnicą.
+
+Jako osobie uczącej się matematyki, zakreślanie wielolinijkowych równań w innych aplikacjach zawsze było dla mnie prawdziwym utrapieniem, zwłaszcza gdy zakreślacz zmieniał odcień w miejscach, w których jego warstwy na siebie nachodziły. Kolejnym mankamentem, z którym się borykałem, był fakt, że w niektórych programach zakreślacz pojawiał się na wierzchu tekstu, przez co stawał się on wyblakły i bardzo trudny do odczytania.
+Zakreślacz w Saber jest całkowicie wolny od tego typu wad. Wykorzystuje on nakładanie obrazów na płótnie (canvas compositing), aby renderować zakreślenia w sposób, który nie tylko dorównuje, ale wręcz przewyższa tradycyjny papier – perfekcyjnie radzi sobie z nakładaniem na siebie warstw i utrzymuje w pełni jednolitą barwę.
+
+Saber oferuje wszystko, czego potrzebujesz, by utrzymać swoje notatki w idealnym porządku. Twórz foldery w folderach, a w nich kolejne foldery absolutnie do woli, bez jakiegokolwiek limitu zagnieżdżeń. A nawet jeśli jakaś notatka zostanie pogrzebana głęboko w strukturze katalogów, wciąż masz do niej niezwykle łatwy dostęp, ponieważ twoje najświeższe wpisy są zawsze widoczne pod ręką, prosto z ekranu głównego.
+
+Odkryj zupełnie nowy sposób na przelewanie i organizację swoich myśli z Saber. Niezależnie od tego, czy jesteś uczniem, profesjonalistą, czy po prostu kreatywną duszą, Saber to twój niezawodny kompan do cyfrowego pisania odręcznego. Pobierz go już teraz i pozwól swoim pomysłom swobodnie płynąć!

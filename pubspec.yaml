@@ -15,11 +15,11 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 1.33.2+133020
+version: 1.34.2+134020
 
 environment:
-  sdk: ">=3.10.0 <4.0.0"
-  flutter: ">=3.41.0"
+  sdk: ">=3.12.0 <4.0.0"
+  flutter: ">=3.44.0"
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -50,12 +50,11 @@ dependencies:
 
   path_provider: ^2.0.11
 
-  shared_preferences: ^2.0.17
   flutter_secure_storage: ^10.0.0-beta.4
 
   url_launcher: ^6.1.8
 
-  nextcloud: ^8.1.0
+  nextcloud: ^9.0.0
 
   collapsible: ^1.0.0
 
@@ -72,7 +71,7 @@ dependencies:
 
   pdf: ^3.8.4
   share_plus: ^12.0.0
-  file_picker: ^10.1.2
+  file_picker: ^11.0.2
 
   regexed_validator: ^2.0.0+1
 
@@ -88,11 +87,11 @@ dependencies:
   defer_pointer: ^0.0.2
 
   permission_handler: ^12.0.0+1
-  saver_gallery: ^4.0.0
+  saver_gallery: ^5.1.0
 
   animations: ^2.0.7
 
-  flutter_quill: ^11.1.0
+  flutter_quill: ^11.5.1
   quill_native_bridge_linux: ^0.0.2
 
   window_manager: ^0.5.1
@@ -113,7 +112,7 @@ dependencies:
 
   printing: ^5.13.2
 
-  open_file: ^3.5.10
+  open_file: ^4.0.0
 
   super_clipboard: ^0.9.0-dev.3
 
@@ -129,7 +128,7 @@ dependencies:
 
   device_info_plus: ^11.1.1
 
-  yaru: ^10.0.0
+  yaru: ^10.2.0
 
   one_dollar_unistroke_recognizer: ^1.1.1
 
@@ -145,7 +144,7 @@ dependencies:
 
   flutter_web_auth_2: ^5.0.1
 
-  pdfrx: ^2.1.3
+  pdfrx: ^2.4.2
   path: ^1.9.1
 
   stow: ^0.6.0
@@ -153,13 +152,14 @@ dependencies:
   stow_secure: ^0.6.0
   stow_codecs: ^1.4.0
 
-  sentry_flutter: ^9.5.0
+  sentry_flutter: ^9.21.0
   sentry_logging: ^9.5.0
 
   background_downloader: ^9.2.6
 
   flutter_hooks: ^0.21.3+1
   dynamic_yaru: ^0.1.0
+  image: ^4.8.0
 
 dev_dependencies:
   flutter_test:
@@ -181,6 +181,14 @@ dev_dependencies:
   golden_screenshot: ^11.0.1
 
   sentry_dart_plugin: ^3.1.1
+
+dependency_overrides:
+  # https://github.com/darioielardi/flutter_speed_dial/pull/344
+  # Note: flutter_speed_dial hasn't been updated in 3 years, maybe replace it.
+  flutter_speed_dial:
+    git:
+      url: https://github.com/adil192/flutter_speed_dial.git
+      ref: fix/remove-Future.delayed
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

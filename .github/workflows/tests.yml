@@ -23,17 +23,22 @@ jobs:
         with:
           path: |
             .dart_tool/
+            .flutter-plugins-dependencies
             build/
             linux/flutter/ephemeral/
             macos/Flutter/ephemeral/
+            packages/**/.dart_tool/
+            packages/**/.flutter-plugins-dependencies
+            packages/**/pubspec.lock
             windows/flutter/ephemeral/
-            .flutter-plugins-dependencies
-          key: ${{ runner.OS }}-saber-${{ hashFiles('**/pubspec.lock') }}-${{ hashFiles('**/*.dart') }}
+            ~/.dartServer/
+            ~/.dart-tool/
+          key: ${{ runner.OS }}-saber-${{ hashFiles('**/pubspec.yaml') }}
           restore-keys: |
             ${{ runner.OS }}-saber-
 
       - name: Setup Flutter
-        uses: adil192/setup-flutter-submodule@v1
+        uses: adil192/setup-flutter-submodule@v3
         with:
           flutter-path: submodules/flutter
 
@@ -56,13 +61,13 @@ jobs:
 
       - name: Upload to Codecov
         if: success()
-        uses: codecov/codecov-action@v6
+        uses: codecov/codecov-action@v7
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           files: coverage/lcov.info
       - name: Upload test results to Codecov
         if: ${{ !cancelled() }}
-        uses: codecov/codecov-action@v6
+        uses: codecov/codecov-action@v7
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           report_type: test_results

@@ -1,0 +1,16 @@
+Saber is de notitie-app die speciaal voor handschrift is gemaakt.
+
+Het is ontworpen om zo eenvoudig en intuïtief mogelijk te zijn, terwijl het toch unieke functies biedt die je daadwerkelijk zult gebruiken. Daarnaast is Saber beschikbaar op al je apparaten, groot en klein, en synchroniseert het naadloos tussen deze apparaten.
+
+Opvallend is dat het je notities kan omkeren als je in de donkere modus bent. Hierdoor kun je met witte inkt op een zwarte achtergrond schrijven, wat veel prettiger is voor de ogen in weinig licht, zoals wanneer de docent het licht uitdoet in de klas. Afbeeldingen en PDF's zijn ook omgekeerd, zodat je zonder gedoe nog steeds een digitale scan of een leerboek kunt gebruiken.
+
+Saber gebruikt een dubbel wachtwoord systeem om je notities te beschermen tegen iedereen behalve jou, zelfs als zij volledige controle over de server hebben. Je kunt je notities veilig opslaan op de officiële Saber-server, een andere server, of zelfs je eigen server hosten!
+
+De app is volledig open source zodat iedereen de broncode kan bekijken en precies kan zien wat het doet en hoe het met je data omgaat. Veel andere notitie-apps zijn gesloten source en propriëtair, wat betekent dat hun interne werking een mysterie is voor het publiek.
+
+Als iemand die wiskunde studeert, was het markeren van meerlijnige vergelijkingen altijd een gedoe bij andere apps, waarbij de markeerstift van kleur veranderde als deze met zichzelf overlapte. Een ander probleem dat ik had, was dat in sommige apps de markeerstift bovenop de tekst werd weergegeven, waardoor deze uitfadede en het moeilijk werd om te lezen.
+Saber's markeerstift heeft zulke problemen niet. Het maakt gebruik van canvas compositing om de markeerstift op een manier te renderen die consistent is met/beter is dan traditioneel papier, waarbij het overlappende elementen aangaat en kleurconsistentie behoudt.
+
+Saber heeft alles wat je nodig hebt om je aantekeningen georganiseerd te houden. Maak mappen binnen mappen binnen mappen naar hartenlust aan, zonder limiet op het aantal geneste mappen. En hoewel een notitie diep in een geneste map kan liggen, kun je er nog steeds gemakkelijk bij met je meest recente notities altijd beschikbaar op het startscherm.
+
+Ontdek een geheel nieuwe manier om je gedachten vast te leggen en te ordenen met Saber. Of je nu student, professional of creatief bent, Saber is je vertrouwde metgezel voor digitaal handschrift. Download nu en laat je ideeën vrij stromen!

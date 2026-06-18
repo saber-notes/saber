@@ -101,7 +101,7 @@ Future<void> appRunner(List<String> args) async {
   setLocale();
   stows.locale.addListener(setLocale);
   stows.customDataDir.addListener(FileManager.migrateDataDir);
-  pdfrxFlutterInitialize(dismissPdfiumWasmWarnings: true);
+  pdfrxFlutterInitialize();
 
   LicenseRegistry.addLicense(() async* {
     for (final licenseFile in const [

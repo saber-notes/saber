@@ -33,21 +33,21 @@ class TranslationsZhHantTw extends Translations with BaseTranslations<AppLocale,
 	TranslationsZhHantTw $copyWith({TranslationMetadata<AppLocale, Translations>? meta}) => TranslationsZhHantTw(meta: meta ?? this.$meta);
 
 	// Translations
-	@override late final _TranslationsCommonZhHantTw common = _TranslationsCommonZhHantTw._(_root);
-	@override late final _TranslationsHomeZhHantTw home = _TranslationsHomeZhHantTw._(_root);
-	@override late final _TranslationsSentryZhHantTw sentry = _TranslationsSentryZhHantTw._(_root);
-	@override late final _TranslationsSettingsZhHantTw settings = _TranslationsSettingsZhHantTw._(_root);
-	@override late final _TranslationsLogsZhHantTw logs = _TranslationsLogsZhHantTw._(_root);
-	@override late final _TranslationsLoginZhHantTw login = _TranslationsLoginZhHantTw._(_root);
-	@override late final _TranslationsProfileZhHantTw profile = _TranslationsProfileZhHantTw._(_root);
-	@override late final _TranslationsAppInfoZhHantTw appInfo = _TranslationsAppInfoZhHantTw._(_root);
-	@override late final _TranslationsUpdateZhHantTw update = _TranslationsUpdateZhHantTw._(_root);
-	@override late final _TranslationsEditorZhHantTw editor = _TranslationsEditorZhHantTw._(_root);
+	@override late final Translations$common$zh_Hant_TW common = Translations$common$zh_Hant_TW.internal(_root);
+	@override late final Translations$home$zh_Hant_TW home = Translations$home$zh_Hant_TW.internal(_root);
+	@override late final Translations$sentry$zh_Hant_TW sentry = Translations$sentry$zh_Hant_TW.internal(_root);
+	@override late final Translations$settings$zh_Hant_TW settings = Translations$settings$zh_Hant_TW.internal(_root);
+	@override late final Translations$logs$zh_Hant_TW logs = Translations$logs$zh_Hant_TW.internal(_root);
+	@override late final Translations$login$zh_Hant_TW login = Translations$login$zh_Hant_TW.internal(_root);
+	@override late final Translations$profile$zh_Hant_TW profile = Translations$profile$zh_Hant_TW.internal(_root);
+	@override late final Translations$appInfo$zh_Hant_TW appInfo = Translations$appInfo$zh_Hant_TW.internal(_root);
+	@override late final Translations$update$zh_Hant_TW update = Translations$update$zh_Hant_TW.internal(_root);
+	@override late final Translations$editor$zh_Hant_TW editor = Translations$editor$zh_Hant_TW.internal(_root);
 }
 
 // Path: common
-class _TranslationsCommonZhHantTw extends TranslationsCommonEn {
-	_TranslationsCommonZhHantTw._(TranslationsZhHantTw root) : this._root = root, super.internal(root);
+class Translations$common$zh_Hant_TW extends Translations$common$en {
+	Translations$common$zh_Hant_TW.internal(TranslationsZhHantTw root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
@@ -58,92 +58,92 @@ class _TranslationsCommonZhHantTw extends TranslationsCommonEn {
 }
 
 // Path: home
-class _TranslationsHomeZhHantTw extends TranslationsHomeEn {
-	_TranslationsHomeZhHantTw._(TranslationsZhHantTw root) : this._root = root, super.internal(root);
+class Translations$home$zh_Hant_TW extends Translations$home$en {
+	Translations$home$zh_Hant_TW.internal(TranslationsZhHantTw root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
 	// Translations
-	@override late final _TranslationsHomeTabsZhHantTw tabs = _TranslationsHomeTabsZhHantTw._(_root);
-	@override late final _TranslationsHomeTitlesZhHantTw titles = _TranslationsHomeTitlesZhHantTw._(_root);
-	@override late final _TranslationsHomeTooltipsZhHantTw tooltips = _TranslationsHomeTooltipsZhHantTw._(_root);
-	@override late final _TranslationsHomeCreateZhHantTw create = _TranslationsHomeCreateZhHantTw._(_root);
+	@override late final Translations$home$tabs$zh_Hant_TW tabs = Translations$home$tabs$zh_Hant_TW.internal(_root);
+	@override late final Translations$home$titles$zh_Hant_TW titles = Translations$home$titles$zh_Hant_TW.internal(_root);
+	@override late final Translations$home$tooltips$zh_Hant_TW tooltips = Translations$home$tooltips$zh_Hant_TW.internal(_root);
+	@override late final Translations$home$create$zh_Hant_TW create = Translations$home$create$zh_Hant_TW.internal(_root);
 	@override String get welcome => '歡迎使用 Saber';
 	@override String get invalidFormat => '不支援您選取的檔案，請選擇 .sbn、.sbn2、.sba 或 .pdf 檔案。';
 	@override String get noFiles => '未找到檔案';
 	@override String get noPreviewAvailable => '無可用的預覽';
-	@override String get createNewNote => '點擊 + 按鈕新增一個筆記';
+	@override String get createNewNote => '點擊 + 按鈕新增筆記';
 	@override String get backFolder => '返回上一個資料夾';
-	@override late final _TranslationsHomeNewFolderZhHantTw newFolder = _TranslationsHomeNewFolderZhHantTw._(_root);
-	@override late final _TranslationsHomeRenameNoteZhHantTw renameNote = _TranslationsHomeRenameNoteZhHantTw._(_root);
-	@override late final _TranslationsHomeMoveNoteZhHantTw moveNote = _TranslationsHomeMoveNoteZhHantTw._(_root);
+	@override late final Translations$home$newFolder$zh_Hant_TW newFolder = Translations$home$newFolder$zh_Hant_TW.internal(_root);
+	@override late final Translations$home$renameNote$zh_Hant_TW renameNote = Translations$home$renameNote$zh_Hant_TW.internal(_root);
+	@override late final Translations$home$moveNote$zh_Hant_TW moveNote = Translations$home$moveNote$zh_Hant_TW.internal(_root);
 	@override String get deleteNote => '刪除筆記';
-	@override late final _TranslationsHomeDeleteNoteDialogZhHantTw deleteNoteDialog = _TranslationsHomeDeleteNoteDialogZhHantTw._(_root);
-	@override late final _TranslationsHomeRenameFolderZhHantTw renameFolder = _TranslationsHomeRenameFolderZhHantTw._(_root);
-	@override late final _TranslationsHomeDeleteFolderZhHantTw deleteFolder = _TranslationsHomeDeleteFolderZhHantTw._(_root);
+	@override late final Translations$home$deleteNoteDialog$zh_Hant_TW deleteNoteDialog = Translations$home$deleteNoteDialog$zh_Hant_TW.internal(_root);
+	@override late final Translations$home$renameFolder$zh_Hant_TW renameFolder = Translations$home$renameFolder$zh_Hant_TW.internal(_root);
+	@override late final Translations$home$deleteFolder$zh_Hant_TW deleteFolder = Translations$home$deleteFolder$zh_Hant_TW.internal(_root);
 }
 
 // Path: sentry
-class _TranslationsSentryZhHantTw extends TranslationsSentryEn {
-	_TranslationsSentryZhHantTw._(TranslationsZhHantTw root) : this._root = root, super.internal(root);
+class Translations$sentry$zh_Hant_TW extends Translations$sentry$en {
+	Translations$sentry$zh_Hant_TW.internal(TranslationsZhHantTw root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
 	// Translations
-	@override late final _TranslationsSentryConsentZhHantTw consent = _TranslationsSentryConsentZhHantTw._(_root);
+	@override late final Translations$sentry$consent$zh_Hant_TW consent = Translations$sentry$consent$zh_Hant_TW.internal(_root);
 }
 
 // Path: settings
-class _TranslationsSettingsZhHantTw extends TranslationsSettingsEn {
-	_TranslationsSettingsZhHantTw._(TranslationsZhHantTw root) : this._root = root, super.internal(root);
+class Translations$settings$zh_Hant_TW extends Translations$settings$en {
+	Translations$settings$zh_Hant_TW.internal(TranslationsZhHantTw root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
 	// Translations
-	@override late final _TranslationsSettingsPrefCategoriesZhHantTw prefCategories = _TranslationsSettingsPrefCategoriesZhHantTw._(_root);
-	@override late final _TranslationsSettingsPrefLabelsZhHantTw prefLabels = _TranslationsSettingsPrefLabelsZhHantTw._(_root);
-	@override late final _TranslationsSettingsPrefDescriptionsZhHantTw prefDescriptions = _TranslationsSettingsPrefDescriptionsZhHantTw._(_root);
-	@override late final _TranslationsSettingsThemeModesZhHantTw themeModes = _TranslationsSettingsThemeModesZhHantTw._(_root);
-	@override late final _TranslationsSettingsLayoutSizesZhHantTw layoutSizes = _TranslationsSettingsLayoutSizesZhHantTw._(_root);
-	@override late final _TranslationsSettingsAccentColorPickerZhHantTw accentColorPicker = _TranslationsSettingsAccentColorPickerZhHantTw._(_root);
-	@override String get systemLanguage => '系統語言';
+	@override late final Translations$settings$prefCategories$zh_Hant_TW prefCategories = Translations$settings$prefCategories$zh_Hant_TW.internal(_root);
+	@override late final Translations$settings$prefLabels$zh_Hant_TW prefLabels = Translations$settings$prefLabels$zh_Hant_TW.internal(_root);
+	@override late final Translations$settings$prefDescriptions$zh_Hant_TW prefDescriptions = Translations$settings$prefDescriptions$zh_Hant_TW.internal(_root);
+	@override late final Translations$settings$themeModes$zh_Hant_TW themeModes = Translations$settings$themeModes$zh_Hant_TW.internal(_root);
+	@override late final Translations$settings$layoutSizes$zh_Hant_TW layoutSizes = Translations$settings$layoutSizes$zh_Hant_TW.internal(_root);
+	@override late final Translations$settings$accentColorPicker$zh_Hant_TW accentColorPicker = Translations$settings$accentColorPicker$zh_Hant_TW.internal(_root);
+	@override String get systemLanguage => '自動';
 	@override List<String> get axisDirections => [
 		'置頂',
 		'靠右',
 		'置底',
 		'靠左',
 	];
-	@override late final _TranslationsSettingsResetZhHantTw reset = _TranslationsSettingsResetZhHantTw._(_root);
+	@override late final Translations$settings$reset$zh_Hant_TW reset = Translations$settings$reset$zh_Hant_TW.internal(_root);
 	@override String get resyncEverything => '全部重新同步';
 	@override String get openDataDir => '開啟 Saber 資料夾';
-	@override late final _TranslationsSettingsCustomDataDirZhHantTw customDataDir = _TranslationsSettingsCustomDataDirZhHantTw._(_root);
+	@override late final Translations$settings$customDataDir$zh_Hant_TW customDataDir = Translations$settings$customDataDir$zh_Hant_TW.internal(_root);
 	@override String get autosaveDisabled => '永不';
 	@override String get shapeRecognitionDisabled => '永不';
 }
 
 // Path: logs
-class _TranslationsLogsZhHantTw extends TranslationsLogsEn {
-	_TranslationsLogsZhHantTw._(TranslationsZhHantTw root) : this._root = root, super.internal(root);
+class Translations$logs$zh_Hant_TW extends Translations$logs$en {
+	Translations$logs$zh_Hant_TW.internal(TranslationsZhHantTw root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
 	// Translations
-	@override String get logs => '日誌';
-	@override String get viewLogs => '查看日誌';
-	@override String get debuggingInfo => '日誌包含對偵錯和開發有用的資訊';
-	@override String get noLogs => '這裡沒有日誌！';
-	@override String get useTheApp => '此應用程式的日誌將出現在這裡';
+	@override String get logs => '紀錄檔';
+	@override String get viewLogs => '檢視紀錄檔';
+	@override String get debuggingInfo => '紀錄檔包含對除錯與開發有用的資訊';
+	@override String get noLogs => '此處沒有紀錄檔！';
+	@override String get useTheApp => '當您使用此應用程式時，紀錄檔將顯示於此處';
 }
 
 // Path: login
-class _TranslationsLoginZhHantTw extends TranslationsLoginEn {
-	_TranslationsLoginZhHantTw._(TranslationsZhHantTw root) : this._root = root, super.internal(root);
+class Translations$login$zh_Hant_TW extends Translations$login$en {
+	Translations$login$zh_Hant_TW.internal(TranslationsZhHantTw root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
 	// Translations
 	@override String get title => '登入';
-	@override late final _TranslationsLoginFormZhHantTw form = _TranslationsLoginFormZhHantTw._(_root);
+	@override late final Translations$login$form$zh_Hant_TW form = Translations$login$form$zh_Hant_TW.internal(_root);
 	@override TextSpan signup({required InlineSpanBuilder linkToSignup}) => TextSpan(children: [
 		const TextSpan(text: '還沒有帳號？ '),
 		linkToSignup('立即註冊'),
@@ -154,85 +154,85 @@ class _TranslationsLoginZhHantTw extends TranslationsLoginEn {
 		undoLogin('選擇另一個帳號'),
 		const TextSpan(text: '。'),
 	]);
-	@override late final _TranslationsLoginStatusZhHantTw status = _TranslationsLoginStatusZhHantTw._(_root);
-	@override late final _TranslationsLoginNcLoginStepZhHantTw ncLoginStep = _TranslationsLoginNcLoginStepZhHantTw._(_root);
-	@override late final _TranslationsLoginEncLoginStepZhHantTw encLoginStep = _TranslationsLoginEncLoginStepZhHantTw._(_root);
+	@override late final Translations$login$status$zh_Hant_TW status = Translations$login$status$zh_Hant_TW.internal(_root);
+	@override late final Translations$login$ncLoginStep$zh_Hant_TW ncLoginStep = Translations$login$ncLoginStep$zh_Hant_TW.internal(_root);
+	@override late final Translations$login$encLoginStep$zh_Hant_TW encLoginStep = Translations$login$encLoginStep$zh_Hant_TW.internal(_root);
 }
 
 // Path: profile
-class _TranslationsProfileZhHantTw extends TranslationsProfileEn {
-	_TranslationsProfileZhHantTw._(TranslationsZhHantTw root) : this._root = root, super.internal(root);
+class Translations$profile$zh_Hant_TW extends Translations$profile$en {
+	Translations$profile$zh_Hant_TW.internal(TranslationsZhHantTw root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => '我的個人資料';
+	@override String get title => '我的個人檔案';
 	@override String get logout => '登出';
 	@override String quotaUsage({required Object used, required Object total, required Object percent}) => '您已使用 ${used}，共 ${total} (${percent}%)';
 	@override String get connectedTo => '連線到';
-	@override late final _TranslationsProfileQuickLinksZhHantTw quickLinks = _TranslationsProfileQuickLinksZhHantTw._(_root);
+	@override late final Translations$profile$quickLinks$zh_Hant_TW quickLinks = Translations$profile$quickLinks$zh_Hant_TW.internal(_root);
 	@override String get faqTitle => '常見問題';
 	@override List<dynamic> get faq => [
-		_TranslationsProfile$faq$0i0$ZhHantTw._(_root),
-		_TranslationsProfile$faq$0i1$ZhHantTw._(_root),
-		_TranslationsProfile$faq$0i2$ZhHantTw._(_root),
-		_TranslationsProfile$faq$0i3$ZhHantTw._(_root),
+		Translations$profile$faq$0$zh_Hant_TW.internal(_root),
+		Translations$profile$faq$1$zh_Hant_TW.internal(_root),
+		Translations$profile$faq$2$zh_Hant_TW.internal(_root),
+		Translations$profile$faq$3$zh_Hant_TW.internal(_root),
 	];
 }
 
 // Path: appInfo
-class _TranslationsAppInfoZhHantTw extends TranslationsAppInfoEn {
-	_TranslationsAppInfoZhHantTw._(TranslationsZhHantTw root) : this._root = root, super.internal(root);
+class Translations$appInfo$zh_Hant_TW extends Translations$appInfo$en {
+	Translations$appInfo$zh_Hant_TW.internal(TranslationsZhHantTw root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
 	// Translations
-	@override String licenseNotice({required Object buildYear}) => 'Saber  版權所有 © 2022-${buildYear}  Adil Hanney\nThis program comes with absolutely no warranty. This is free software, and you are welcome to redistribute it under certain conditions.';
+	@override String licenseNotice({required Object buildYear}) => 'Saber  版權所有 © 2022-${buildYear}  Adil Hanney\n本程式不提供任何形式的保證。這是一款自由軟體，您可在特定條件下自由轉散發。';
 	@override String get debug => 'DEBUG';
 	@override String get sponsorButton => '點擊此處贊助我或購買更多儲存空間';
-	@override String get licenseButton => '點擊此處查看更多許可證資訊';
-	@override String get privacyPolicyButton => '點擊此處查看隱私權政策';
+	@override String get licenseButton => '點擊此處檢視更多授權條款資訊';
+	@override String get privacyPolicyButton => '點擊此處檢視隱私權政策';
 }
 
 // Path: update
-class _TranslationsUpdateZhHantTw extends TranslationsUpdateEn {
-	_TranslationsUpdateZhHantTw._(TranslationsZhHantTw root) : this._root = root, super.internal(root);
+class Translations$update$zh_Hant_TW extends Translations$update$en {
+	Translations$update$zh_Hant_TW.internal(TranslationsZhHantTw root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
 	// Translations
 	@override String get updateAvailable => '可用更新';
-	@override String get updateAvailableDescription => '新版本的應用程式已推出，有了以下變化:';
+	@override String get updateAvailableDescription => '新版本的應用程式已推出：';
 	@override String get update => '更新';
-	@override String get downloadNotAvailableYet => '您的平台尚無法下載。請稍後回來查看。';
+	@override String get downloadNotAvailableYet => '您的平台尚無法下載。請稍後再回來檢視。';
 }
 
 // Path: editor
-class _TranslationsEditorZhHantTw extends TranslationsEditorEn {
-	_TranslationsEditorZhHantTw._(TranslationsZhHantTw root) : this._root = root, super.internal(root);
+class Translations$editor$zh_Hant_TW extends Translations$editor$en {
+	Translations$editor$zh_Hant_TW.internal(TranslationsZhHantTw root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
 	// Translations
-	@override late final _TranslationsEditorToolbarZhHantTw toolbar = _TranslationsEditorToolbarZhHantTw._(_root);
-	@override late final _TranslationsEditorPensZhHantTw pens = _TranslationsEditorPensZhHantTw._(_root);
-	@override late final _TranslationsEditorPenOptionsZhHantTw penOptions = _TranslationsEditorPenOptionsZhHantTw._(_root);
-	@override late final _TranslationsEditorColorsZhHantTw colors = _TranslationsEditorColorsZhHantTw._(_root);
-	@override late final _TranslationsEditorImageOptionsZhHantTw imageOptions = _TranslationsEditorImageOptionsZhHantTw._(_root);
-	@override late final _TranslationsEditorSelectionBarZhHantTw selectionBar = _TranslationsEditorSelectionBarZhHantTw._(_root);
-	@override late final _TranslationsEditorMenuZhHantTw menu = _TranslationsEditorMenuZhHantTw._(_root);
-	@override late final _TranslationsEditorReadOnlyBannerZhHantTw readOnlyBanner = _TranslationsEditorReadOnlyBannerZhHantTw._(_root);
-	@override late final _TranslationsEditorVersionTooNewZhHantTw versionTooNew = _TranslationsEditorVersionTooNewZhHantTw._(_root);
-	@override late final _TranslationsEditorQuillZhHantTw quill = _TranslationsEditorQuillZhHantTw._(_root);
-	@override late final _TranslationsEditorHudZhHantTw hud = _TranslationsEditorHudZhHantTw._(_root);
+	@override late final Translations$editor$toolbar$zh_Hant_TW toolbar = Translations$editor$toolbar$zh_Hant_TW.internal(_root);
+	@override late final Translations$editor$pens$zh_Hant_TW pens = Translations$editor$pens$zh_Hant_TW.internal(_root);
+	@override late final Translations$editor$penOptions$zh_Hant_TW penOptions = Translations$editor$penOptions$zh_Hant_TW.internal(_root);
+	@override late final Translations$editor$colors$zh_Hant_TW colors = Translations$editor$colors$zh_Hant_TW.internal(_root);
+	@override late final Translations$editor$imageOptions$zh_Hant_TW imageOptions = Translations$editor$imageOptions$zh_Hant_TW.internal(_root);
+	@override late final Translations$editor$selectionBar$zh_Hant_TW selectionBar = Translations$editor$selectionBar$zh_Hant_TW.internal(_root);
+	@override late final Translations$editor$menu$zh_Hant_TW menu = Translations$editor$menu$zh_Hant_TW.internal(_root);
+	@override late final Translations$editor$readOnlyBanner$zh_Hant_TW readOnlyBanner = Translations$editor$readOnlyBanner$zh_Hant_TW.internal(_root);
+	@override late final Translations$editor$versionTooNew$zh_Hant_TW versionTooNew = Translations$editor$versionTooNew$zh_Hant_TW.internal(_root);
+	@override late final Translations$editor$quill$zh_Hant_TW quill = Translations$editor$quill$zh_Hant_TW.internal(_root);
+	@override late final Translations$editor$hud$zh_Hant_TW hud = Translations$editor$hud$zh_Hant_TW.internal(_root);
 	@override String get pages => '頁面';
 	@override String get untitled => '無標題';
-	@override String get needsToSaveBeforeExiting => '正在儲存您的變更...完成後您可以安全地退出編輯器';
+	@override String get needsToSaveBeforeExiting => '正在儲存您的變更……完成後您可以安全地結束編輯器';
 }
 
 // Path: home.tabs
-class _TranslationsHomeTabsZhHantTw extends TranslationsHomeTabsEn {
-	_TranslationsHomeTabsZhHantTw._(TranslationsZhHantTw root) : this._root = root, super.internal(root);
+class Translations$home$tabs$zh_Hant_TW extends Translations$home$tabs$en {
+	Translations$home$tabs$zh_Hant_TW.internal(TranslationsZhHantTw root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
@@ -244,8 +244,8 @@ class _TranslationsHomeTabsZhHantTw extends TranslationsHomeTabsEn {
 }
 
 // Path: home.titles
-class _TranslationsHomeTitlesZhHantTw extends TranslationsHomeTitlesEn {
-	_TranslationsHomeTitlesZhHantTw._(TranslationsZhHantTw root) : this._root = root, super.internal(root);
+class Translations$home$titles$zh_Hant_TW extends Translations$home$titles$en {
+	Translations$home$titles$zh_Hant_TW.internal(TranslationsZhHantTw root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
@@ -257,8 +257,8 @@ class _TranslationsHomeTitlesZhHantTw extends TranslationsHomeTitlesEn {
 }
 
 // Path: home.tooltips
-class _TranslationsHomeTooltipsZhHantTw extends TranslationsHomeTooltipsEn {
-	_TranslationsHomeTooltipsZhHantTw._(TranslationsZhHantTw root) : this._root = root, super.internal(root);
+class Translations$home$tooltips$zh_Hant_TW extends Translations$home$tooltips$en {
+	Translations$home$tooltips$zh_Hant_TW.internal(TranslationsZhHantTw root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
@@ -269,8 +269,8 @@ class _TranslationsHomeTooltipsZhHantTw extends TranslationsHomeTooltipsEn {
 }
 
 // Path: home.create
-class _TranslationsHomeCreateZhHantTw extends TranslationsHomeCreateEn {
-	_TranslationsHomeCreateZhHantTw._(TranslationsZhHantTw root) : this._root = root, super.internal(root);
+class Translations$home$create$zh_Hant_TW extends Translations$home$create$en {
+	Translations$home$create$zh_Hant_TW.internal(TranslationsZhHantTw root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
@@ -280,23 +280,23 @@ class _TranslationsHomeCreateZhHantTw extends TranslationsHomeCreateEn {
 }
 
 // Path: home.newFolder
-class _TranslationsHomeNewFolderZhHantTw extends TranslationsHomeNewFolderEn {
-	_TranslationsHomeNewFolderZhHantTw._(TranslationsZhHantTw root) : this._root = root, super.internal(root);
+class Translations$home$newFolder$zh_Hant_TW extends Translations$home$newFolder$en {
+	Translations$home$newFolder$zh_Hant_TW.internal(TranslationsZhHantTw root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
 	// Translations
 	@override String get newFolder => '新建資料夾';
 	@override String get folderName => '資料夾名稱';
-	@override String get create => '創建';
+	@override String get create => '建立';
 	@override String get folderNameEmpty => '資料夾名稱不可為空';
-	@override String get folderNameContainsSlash => '資料夾名稱不能包含斜槓';
+	@override String get folderNameContainsSlash => '資料夾名稱不能包含斜線';
 	@override String get folderNameExists => '資料夾已經存在';
 }
 
 // Path: home.renameNote
-class _TranslationsHomeRenameNoteZhHantTw extends TranslationsHomeRenameNoteEn {
-	_TranslationsHomeRenameNoteZhHantTw._(TranslationsZhHantTw root) : this._root = root, super.internal(root);
+class Translations$home$renameNote$zh_Hant_TW extends Translations$home$renameNote$en {
+	Translations$home$renameNote$zh_Hant_TW.internal(TranslationsZhHantTw root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
@@ -311,8 +311,8 @@ class _TranslationsHomeRenameNoteZhHantTw extends TranslationsHomeRenameNoteEn {
 }
 
 // Path: home.moveNote
-class _TranslationsHomeMoveNoteZhHantTw extends TranslationsHomeMoveNoteEn {
-	_TranslationsHomeMoveNoteZhHantTw._(TranslationsZhHantTw root) : this._root = root, super.internal(root);
+class Translations$home$moveNote$zh_Hant_TW extends Translations$home$moveNote$en {
+	Translations$home$moveNote$zh_Hant_TW.internal(TranslationsZhHantTw root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
@@ -323,28 +323,28 @@ class _TranslationsHomeMoveNoteZhHantTw extends TranslationsHomeMoveNoteEn {
 	@override String get move => '移動';
 	@override String renamedTo({required Object newName}) => '筆記將重新命名為 ${newName}';
 	@override String get multipleRenamedTo => '以下筆記將被重新命名：';
-	@override String numberRenamedTo({required Object n}) => '${n} 份筆記將被重命名以避免衝突';
+	@override String numberRenamedTo({required Object n}) => '將重新命名 ${n} 份筆記以避免衝突';
 }
 
 // Path: home.deleteNoteDialog
-class _TranslationsHomeDeleteNoteDialogZhHantTw extends TranslationsHomeDeleteNoteDialogEn {
-	_TranslationsHomeDeleteNoteDialogZhHantTw._(TranslationsZhHantTw root) : this._root = root, super.internal(root);
+class Translations$home$deleteNoteDialog$zh_Hant_TW extends Translations$home$deleteNoteDialog$en {
+	Translations$home$deleteNoteDialog$zh_Hant_TW.internal(TranslationsZhHantTw root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
 	// Translations
-	@override String confirmDelete({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n,
-		one: '永久刪除選取的筆記？',
-		other: '永久刪除選取的筆記？',
-	);
-	@override String deleteNotes({required Object n}) => '刪除 ${n} 筆筆記';
+	@override String deleteNotes({required Object n}) => '刪除 ${n} 份筆記';
 	@override String deleteName({required Object f}) => '刪除 ${f}';
+	@override String confirmDelete({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('zh'))(n,
+		one: '永久刪除選定的筆記？',
+		other: '永久刪除選定的筆記？',
+	);
 	@override String get delete => '刪除';
 }
 
 // Path: home.renameFolder
-class _TranslationsHomeRenameFolderZhHantTw extends TranslationsHomeRenameFolderEn {
-	_TranslationsHomeRenameFolderZhHantTw._(TranslationsZhHantTw root) : this._root = root, super.internal(root);
+class Translations$home$renameFolder$zh_Hant_TW extends Translations$home$renameFolder$en {
+	Translations$home$renameFolder$zh_Hant_TW.internal(TranslationsZhHantTw root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
@@ -353,13 +353,13 @@ class _TranslationsHomeRenameFolderZhHantTw extends TranslationsHomeRenameFolder
 	@override String get folderName => '資料夾名稱';
 	@override String get rename => '重新命名';
 	@override String get folderNameEmpty => '資烙夾名稱不能為空';
-	@override String get folderNameContainsSlash => '資料夾名稱不能包含斜槓';
+	@override String get folderNameContainsSlash => '資料夾名稱不能包含斜線';
 	@override String get folderNameExists => '已存在同名的資料夾';
 }
 
 // Path: home.deleteFolder
-class _TranslationsHomeDeleteFolderZhHantTw extends TranslationsHomeDeleteFolderEn {
-	_TranslationsHomeDeleteFolderZhHantTw._(TranslationsZhHantTw root) : this._root = root, super.internal(root);
+class Translations$home$deleteFolder$zh_Hant_TW extends Translations$home$deleteFolder$en {
+	Translations$home$deleteFolder$zh_Hant_TW.internal(TranslationsZhHantTw root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
@@ -371,20 +371,20 @@ class _TranslationsHomeDeleteFolderZhHantTw extends TranslationsHomeDeleteFolder
 }
 
 // Path: sentry.consent
-class _TranslationsSentryConsentZhHantTw extends TranslationsSentryConsentEn {
-	_TranslationsSentryConsentZhHantTw._(TranslationsZhHantTw root) : this._root = root, super.internal(root);
+class Translations$sentry$consent$zh_Hant_TW extends Translations$sentry$consent$en {
+	Translations$sentry$consent$zh_Hant_TW.internal(TranslationsZhHantTw root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => '幫助改善 Saber？';
-	@override late final _TranslationsSentryConsentDescriptionZhHantTw description = _TranslationsSentryConsentDescriptionZhHantTw._(_root);
-	@override late final _TranslationsSentryConsentAnswersZhHantTw answers = _TranslationsSentryConsentAnswersZhHantTw._(_root);
+	@override String get title => '協助改善 Saber？';
+	@override late final Translations$sentry$consent$description$zh_Hant_TW description = Translations$sentry$consent$description$zh_Hant_TW.internal(_root);
+	@override late final Translations$sentry$consent$answers$zh_Hant_TW answers = Translations$sentry$consent$answers$zh_Hant_TW.internal(_root);
 }
 
 // Path: settings.prefCategories
-class _TranslationsSettingsPrefCategoriesZhHantTw extends TranslationsSettingsPrefCategoriesEn {
-	_TranslationsSettingsPrefCategoriesZhHantTw._(TranslationsZhHantTw root) : this._root = root, super.internal(root);
+class Translations$settings$prefCategories$zh_Hant_TW extends Translations$settings$prefCategories$en {
+	Translations$settings$prefCategories$zh_Hant_TW.internal(TranslationsZhHantTw root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
@@ -397,8 +397,8 @@ class _TranslationsSettingsPrefCategoriesZhHantTw extends TranslationsSettingsPr
 }
 
 // Path: settings.prefLabels
-class _TranslationsSettingsPrefLabelsZhHantTw extends TranslationsSettingsPrefLabelsEn {
-	_TranslationsSettingsPrefLabelsZhHantTw._(TranslationsZhHantTw root) : this._root = root, super.internal(root);
+class Translations$settings$prefLabels$zh_Hant_TW extends Translations$settings$prefLabels$en {
+	Translations$settings$prefLabels$zh_Hant_TW.internal(TranslationsZhHantTw root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
@@ -408,17 +408,17 @@ class _TranslationsSettingsPrefLabelsZhHantTw extends TranslationsSettingsPrefLa
 	@override String get platform => '主題類型';
 	@override String get layoutSize => '佈局大小';
 	@override String get customAccentColor => '自訂主題色';
-	@override String get hyperlegibleFont => '易讀字體';
+	@override String get hyperlegibleFont => 'Atkinson Hyperlegible 字型';
 	@override String get shouldCheckForUpdates => '自動檢查 Saber 更新';
 	@override String get shouldAlwaysAlertForUpdates => '更快的更新';
-	@override String get allowInsecureConnections => '允許不安全的連結';
+	@override String get allowInsecureConnections => '允許不安全連線';
 	@override String get editorToolbarAlignment => '編輯器工具列的對齊方式';
 	@override String get editorToolbarShowInFullscreen => '在全螢幕模式中顯示編輯器工具列';
-	@override String get editorAutoInvert => '在深色模式下使用反色筆記背景';
-	@override String get preferGreyscale => '使用灰度顏色';
+	@override String get editorAutoInvert => '在深色模式下使用反轉色筆記背景';
+	@override String get preferGreyscale => '使用灰階顏色';
 	@override String get maxImageSize => '最大圖片尺寸';
-	@override String get autoClearWhiteboardOnExit => '退出應用程式後清除白板';
-	@override String get disableEraserAfterUse => '自動禁用橡皮擦';
+	@override String get autoClearWhiteboardOnExit => '自動清除白板';
+	@override String get disableEraserAfterUse => '自動停用橡皮擦';
 	@override String get hideFingerDrawingToggle => '隱藏手指繪圖切換開關';
 	@override String get autoDisableFingerDrawingWhenStylusDetected => '自動停用手指繪圖';
 	@override String get editorPromptRename => '提醒您重新命名新筆記';
@@ -428,39 +428,39 @@ class _TranslationsSettingsPrefLabelsZhHantTw extends TranslationsSettingsPrefLa
 	@override String get autosave => '自動儲存';
 	@override String get shapeRecognitionDelay => '形狀辨識延遲';
 	@override String get autoStraightenLines => '自動拉直線條';
-	@override String get simplifiedHomeLayout => '簡化首頁佈局';
+	@override String get simplifiedHomeLayout => '簡化首頁版面';
 	@override String get customDataDir => '自訂 Saber 資料夾';
-	@override String get sentry => '錯誤報告';
+	@override String get sentry => '錯誤回報';
 }
 
 // Path: settings.prefDescriptions
-class _TranslationsSettingsPrefDescriptionsZhHantTw extends TranslationsSettingsPrefDescriptionsEn {
-	_TranslationsSettingsPrefDescriptionsZhHantTw._(TranslationsZhHantTw root) : this._root = root, super.internal(root);
+class Translations$settings$prefDescriptions$zh_Hant_TW extends Translations$settings$prefDescriptions$en {
+	Translations$settings$prefDescriptions$zh_Hant_TW.internal(TranslationsZhHantTw root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
 	// Translations
-	@override String get hyperlegibleFont => 'Atkinson Hyperlegible 字體為低視力讀者提高易讀性';
-	@override String get allowInsecureConnections => '（不推薦）允許Saber連結到具有自簽名/不受信任證書的伺服器';
+	@override String get hyperlegibleFont => 'Atkinson Hyperlegible 字型為低視力讀者提高易讀性';
+	@override String get allowInsecureConnections => '（不推薦）允許 Saber 連線到有自行簽署/不受信任憑證的伺服器';
 	@override String get preferGreyscale => '用於電子紙螢幕';
-	@override String get autoClearWhiteboardOnExit => '它仍會同步到您的其他裝置';
+	@override String get autoClearWhiteboardOnExit => '在您結束應用程式後清除白板';
 	@override String get disableEraserAfterUse => '使用橡皮擦後自動切換回筆';
 	@override String get maxImageSize => '大於此大小的圖片將被壓縮';
-	@override late final _TranslationsSettingsPrefDescriptionsHideFingerDrawingZhHantTw hideFingerDrawing = _TranslationsSettingsPrefDescriptionsHideFingerDrawingZhHantTw._(_root);
+	@override late final Translations$settings$prefDescriptions$hideFingerDrawing$zh_Hant_TW hideFingerDrawing = Translations$settings$prefDescriptions$hideFingerDrawing$zh_Hant_TW.internal(_root);
 	@override String get autoDisableFingerDrawingWhenStylusDetected => '偵測到觸控筆時自動停用手指繪圖';
 	@override String get editorPromptRename => '您以後隨時可以重新命名筆記';
 	@override String get printPageIndicators => '在匯出中顯示頁碼';
 	@override String get autosave => '在短暫延遲後自動儲存，或永不儲存';
 	@override String get shapeRecognitionDelay => '多久更新一次形狀預覽';
-	@override String get autoStraightenLines => '無需使用形狀筆即可拉直線條';
+	@override String get autoStraightenLines => '不需要使用造型筆即可拉直線條';
 	@override String get simplifiedHomeLayout => '為每個筆記預覽設定固定高度';
 	@override String get shouldAlwaysAlertForUpdates => '一旦有更新請告訴我';
-	@override late final _TranslationsSettingsPrefDescriptionsSentryZhHantTw sentry = _TranslationsSettingsPrefDescriptionsSentryZhHantTw._(_root);
+	@override late final Translations$settings$prefDescriptions$sentry$zh_Hant_TW sentry = Translations$settings$prefDescriptions$sentry$zh_Hant_TW.internal(_root);
 }
 
 // Path: settings.themeModes
-class _TranslationsSettingsThemeModesZhHantTw extends TranslationsSettingsThemeModesEn {
-	_TranslationsSettingsThemeModesZhHantTw._(TranslationsZhHantTw root) : this._root = root, super.internal(root);
+class Translations$settings$themeModes$zh_Hant_TW extends Translations$settings$themeModes$en {
+	Translations$settings$themeModes$zh_Hant_TW.internal(TranslationsZhHantTw root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
@@ -471,8 +471,8 @@ class _TranslationsSettingsThemeModesZhHantTw extends TranslationsSettingsThemeM
 }
 
 // Path: settings.layoutSizes
-class _TranslationsSettingsLayoutSizesZhHantTw extends TranslationsSettingsLayoutSizesEn {
-	_TranslationsSettingsLayoutSizesZhHantTw._(TranslationsZhHantTw root) : this._root = root, super.internal(root);
+class Translations$settings$layoutSizes$zh_Hant_TW extends Translations$settings$layoutSizes$en {
+	Translations$settings$layoutSizes$zh_Hant_TW.internal(TranslationsZhHantTw root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
@@ -483,8 +483,8 @@ class _TranslationsSettingsLayoutSizesZhHantTw extends TranslationsSettingsLayou
 }
 
 // Path: settings.accentColorPicker
-class _TranslationsSettingsAccentColorPickerZhHantTw extends TranslationsSettingsAccentColorPickerEn {
-	_TranslationsSettingsAccentColorPickerZhHantTw._(TranslationsZhHantTw root) : this._root = root, super.internal(root);
+class Translations$settings$accentColorPicker$zh_Hant_TW extends Translations$settings$accentColorPicker$en {
+	Translations$settings$accentColorPicker$zh_Hant_TW.internal(TranslationsZhHantTw root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
@@ -493,47 +493,47 @@ class _TranslationsSettingsAccentColorPickerZhHantTw extends TranslationsSetting
 }
 
 // Path: settings.reset
-class _TranslationsSettingsResetZhHantTw extends TranslationsSettingsResetEn {
-	_TranslationsSettingsResetZhHantTw._(TranslationsZhHantTw root) : this._root = root, super.internal(root);
+class Translations$settings$reset$zh_Hant_TW extends Translations$settings$reset$en {
+	Translations$settings$reset$zh_Hant_TW.internal(TranslationsZhHantTw root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => '重設此設定?';
+	@override String get title => '重設此設定？';
 	@override String get button => '重設';
 }
 
 // Path: settings.customDataDir
-class _TranslationsSettingsCustomDataDirZhHantTw extends TranslationsSettingsCustomDataDirEn {
-	_TranslationsSettingsCustomDataDirZhHantTw._(TranslationsZhHantTw root) : this._root = root, super.internal(root);
+class Translations$settings$customDataDir$zh_Hant_TW extends Translations$settings$customDataDir$en {
+	Translations$settings$customDataDir$zh_Hant_TW.internal(TranslationsZhHantTw root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
 	// Translations
 	@override String get cancel => '取消';
-	@override String get select => '選擇';
-	@override String get mustBeEmpty => '選擇的資料夾必須是空的';
-	@override String get mustBeDoneSyncing => '更改資料夾之前確保同步已完成';
-	@override String get unsupported => '此功能目前僅適用於開發人員，使用它可能會導致資料遺失。';
+	@override String get select => '選取';
+	@override String get mustBeEmpty => '選取的資料夾必須是空的';
+	@override String get mustBeDoneSyncing => '變更資料夾之前確保同步已完成';
+	@override String get unsupported => '此功能目前僅適用於開發者，使用它可能會導致資料遺失。';
 }
 
 // Path: login.form
-class _TranslationsLoginFormZhHantTw extends TranslationsLoginFormEn {
-	_TranslationsLoginFormZhHantTw._(TranslationsZhHantTw root) : this._root = root, super.internal(root);
+class Translations$login$form$zh_Hant_TW extends Translations$login$form$en {
+	Translations$login$form$zh_Hant_TW.internal(TranslationsZhHantTw root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
 	// Translations
 	@override TextSpan agreeToPrivacyPolicy({required InlineSpanBuilder linkToPrivacyPolicy}) => TextSpan(children: [
-		const TextSpan(text: '登入即表示你同意 '),
-		linkToPrivacyPolicy('隱私政策'),
+		const TextSpan(text: '登入即表示您同意 '),
+		linkToPrivacyPolicy('隱私權政策'),
 		const TextSpan(text: '。'),
 	]);
 }
 
 // Path: login.status
-class _TranslationsLoginStatusZhHantTw extends TranslationsLoginStatusEn {
-	_TranslationsLoginStatusZhHantTw._(TranslationsZhHantTw root) : this._root = root, super.internal(root);
+class Translations$login$status$zh_Hant_TW extends Translations$login$status$en {
+	Translations$login$status$zh_Hant_TW.internal(TranslationsZhHantTw root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
@@ -546,8 +546,8 @@ class _TranslationsLoginStatusZhHantTw extends TranslationsLoginStatusEn {
 }
 
 // Path: login.ncLoginStep
-class _TranslationsLoginNcLoginStepZhHantTw extends TranslationsLoginNcLoginStepEn {
-	_TranslationsLoginNcLoginStepZhHantTw._(TranslationsZhHantTw root) : this._root = root, super.internal(root);
+class Translations$login$ncLoginStep$zh_Hant_TW extends Translations$login$ncLoginStep$en {
+	Translations$login$ncLoginStep$zh_Hant_TW.internal(TranslationsZhHantTw root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
@@ -558,12 +558,12 @@ class _TranslationsLoginNcLoginStepZhHantTw extends TranslationsLoginNcLoginStep
 	@override String get serverUrl => '伺服器網址';
 	@override String get loginWithSaber => '使用 Saber 登入';
 	@override String get loginWithNextcloud => '使用 Nextcloud 登入';
-	@override late final _TranslationsLoginNcLoginStepLoginFlowZhHantTw loginFlow = _TranslationsLoginNcLoginStepLoginFlowZhHantTw._(_root);
+	@override late final Translations$login$ncLoginStep$loginFlow$zh_Hant_TW loginFlow = Translations$login$ncLoginStep$loginFlow$zh_Hant_TW.internal(_root);
 }
 
 // Path: login.encLoginStep
-class _TranslationsLoginEncLoginStepZhHantTw extends TranslationsLoginEncLoginStepEn {
-	_TranslationsLoginEncLoginStepZhHantTw._(TranslationsZhHantTw root) : this._root = root, super.internal(root);
+class Translations$login$encLoginStep$zh_Hant_TW extends Translations$login$encLoginStep$en {
+	Translations$login$encLoginStep$zh_Hant_TW.internal(TranslationsZhHantTw root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
@@ -575,90 +575,90 @@ class _TranslationsLoginEncLoginStepZhHantTw extends TranslationsLoginEncLoginSt
 	@override String get wrongEncPassword => '使用提供的密碼解密失敗。請嘗試再次輸入。';
 	@override String get connectionFailed => '連線伺服器時出現問題。請稍後再試。';
 	@override List<dynamic> get encFaq => [
-		_TranslationsLoginEncLoginStep$encFaq$0i0$ZhHantTw._(_root),
-		_TranslationsLoginEncLoginStep$encFaq$0i1$ZhHantTw._(_root),
-		_TranslationsLoginEncLoginStep$encFaq$0i2$ZhHantTw._(_root),
+		Translations$login$encLoginStep$encFaq$0$zh_Hant_TW.internal(_root),
+		Translations$login$encLoginStep$encFaq$1$zh_Hant_TW.internal(_root),
+		Translations$login$encLoginStep$encFaq$2$zh_Hant_TW.internal(_root),
 	];
 }
 
 // Path: profile.quickLinks
-class _TranslationsProfileQuickLinksZhHantTw extends TranslationsProfileQuickLinksEn {
-	_TranslationsProfileQuickLinksZhHantTw._(TranslationsZhHantTw root) : this._root = root, super.internal(root);
+class Translations$profile$quickLinks$zh_Hant_TW extends Translations$profile$quickLinks$en {
+	Translations$profile$quickLinks$zh_Hant_TW.internal(TranslationsZhHantTw root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
 	// Translations
-	@override String get serverHomepage => '伺服器主頁';
-	@override String get deleteAccount => '刪除帳戶';
+	@override String get serverHomepage => '伺服器首頁';
+	@override String get deleteAccount => '刪除帳號';
 }
 
 // Path: profile.faq.0
-class _TranslationsProfile$faq$0i0$ZhHantTw extends TranslationsProfile$faq$0i0$En {
-	_TranslationsProfile$faq$0i0$ZhHantTw._(TranslationsZhHantTw root) : this._root = root, super.internal(root);
+class Translations$profile$faq$0$zh_Hant_TW extends Translations$profile$faq$0$en {
+	Translations$profile$faq$0$zh_Hant_TW.internal(TranslationsZhHantTw root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
 	// Translations
 	@override String get q => '如果我登出了，我的筆記會不會不見？';
-	@override String get a => '您的筆記將同時儲存您的裝置和伺服器上。直到您重新登入，它們才會被同步到伺服器上。在登出前，請確保同步工作已經完成，這樣您就不會丟失任何資料（在主畫面上可以看到同步進度）。';
+	@override String get a => '您的筆記將同時儲存在您的裝置與伺服器上。直到您重新登入，它們才會被同步到伺服器上。在登出前，請確保同步工作已經完成，這樣您就不會遺失任何資料（在主畫面上可以看到同步進度）。';
 }
 
 // Path: profile.faq.1
-class _TranslationsProfile$faq$0i1$ZhHantTw extends TranslationsProfile$faq$0i1$En {
-	_TranslationsProfile$faq$0i1$ZhHantTw._(TranslationsZhHantTw root) : this._root = root, super.internal(root);
+class Translations$profile$faq$1$zh_Hant_TW extends Translations$profile$faq$1$en {
+	Translations$profile$faq$1$zh_Hant_TW.internal(TranslationsZhHantTw root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => '如何更改我的Nextcloud密碼？';
-	@override String get a => '進入您的伺服器網站並登入，然後進入設定>安全>更改密碼。更改密碼後，您需要登出並重新登入到Saber。';
+	@override String get q => '如何變更我的 Nextcloud 密碼？';
+	@override String get a => '進入您的伺服器網站並登入，然後進入「設定」→「安全」→「變更密碼」。更改密碼後，您必須登出並重新登入 Saber。';
 }
 
 // Path: profile.faq.2
-class _TranslationsProfile$faq$0i2$ZhHantTw extends TranslationsProfile$faq$0i2$En {
-	_TranslationsProfile$faq$0i2$ZhHantTw._(TranslationsZhHantTw root) : this._root = root, super.internal(root);
+class Translations$profile$faq$2$zh_Hant_TW extends Translations$profile$faq$2$en {
+	Translations$profile$faq$2$zh_Hant_TW.internal(TranslationsZhHantTw root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => '如何更改我的加密密碼？';
-	@override String get a => '0. 確定同步處理已完成（請參閱主畫面上的同步處理進度）。\n1. 登出 Saber，在登出前確保同步已經完成，這樣您就不會丟失任何資料（在主畫面上可以看到同步進度）。\n2. 進入您的伺服器網站並登入，刪除「Saber」資料夾，這將從伺服器上刪除您所有的筆記。\n3. 重新登入 Saber，您可以在登入時選擇一個新的加密密碼。\n4. 也不要忘記在您的其他裝置上登出並重新登入Saber。';
+	@override String get q => '如何變更我的加密密碼？';
+	@override String get a => '0. 確定同步處理已完成（請參閱主畫面上的同步處理進度）。\n1. 登出 Saber，在登出前確保同步已經完成，這樣您就不會丟失任何資料（在主畫面上可以看到同步進度）。\n2. 進入您的伺服器網站並登入，刪除「Saber」資料夾，這將從伺服器上刪除您所有的筆記。\n3. 重新登入 Saber，您可以在登入時選擇一個新的加密密碼。\n4. 也不要忘記在您的其他裝置上登出並重新登入 Saber。';
 }
 
 // Path: profile.faq.3
-class _TranslationsProfile$faq$0i3$ZhHantTw extends TranslationsProfile$faq$0i3$En {
-	_TranslationsProfile$faq$0i3$ZhHantTw._(TranslationsZhHantTw root) : this._root = root, super.internal(root);
+class Translations$profile$faq$3$zh_Hant_TW extends Translations$profile$faq$3$en {
+	Translations$profile$faq$3$zh_Hant_TW.internal(TranslationsZhHantTw root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => '如何刪除我的帳戶？';
+	@override String get q => '如何刪除我的帳號？';
 	@override String get a => '點選上面的「${_root.profile.quickLinks.deleteAccount}」按鈕，如果需要請登入。\n如果您使用的是官方 Saber 伺服器，您的帳戶將在一週的寬限期後被刪除，您可以在此期間用電子郵件聯絡我：adilhanney@disroot.org，以取消刪除。\n如果您使用的是第三方伺服器，則可能沒有刪除帳號的選項，您需要檢視伺服器的隱私權政策以了解更多資訊。';
 }
 
 // Path: editor.toolbar
-class _TranslationsEditorToolbarZhHantTw extends TranslationsEditorToolbarEn {
-	_TranslationsEditorToolbarZhHantTw._(TranslationsZhHantTw root) : this._root = root, super.internal(root);
+class Translations$editor$toolbar$zh_Hant_TW extends Translations$editor$toolbar$en {
+	Translations$editor$toolbar$zh_Hant_TW.internal(TranslationsZhHantTw root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
 	// Translations
 	@override String get toggleColors => '切換顏色 (Ctrl C)';
-	@override String get select => '選擇';
+	@override String get select => '選取';
 	@override String get toggleEraser => '切換橡皮擦 (Ctrl E)';
-	@override String get photo => '照片';
-	@override String get text => '文本';
-	@override String get toggleFingerDrawing => '切換手寫 (Ctrl F)';
+	@override String get photo => '影像';
+	@override String get text => '文字';
+	@override String get toggleFingerDrawing => '切換手指繪製 (Ctrl F)';
 	@override String get undo => '復原';
 	@override String get redo => '重做';
 	@override String get export => '匯出 (Ctrl Shift S)';
 	@override String get exportAs => '匯出為：';
-	@override String get fullscreen => '切換到全螢幕 (F11)';
+	@override String get fullscreen => '切換全螢幕 (F11)';
 }
 
 // Path: editor.pens
-class _TranslationsEditorPensZhHantTw extends TranslationsEditorPensEn {
-	_TranslationsEditorPensZhHantTw._(TranslationsZhHantTw root) : this._root = root, super.internal(root);
+class Translations$editor$pens$zh_Hant_TW extends Translations$editor$pens$en {
+	Translations$editor$pens$zh_Hant_TW.internal(TranslationsZhHantTw root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
@@ -667,13 +667,13 @@ class _TranslationsEditorPensZhHantTw extends TranslationsEditorPensEn {
 	@override String get ballpointPen => '原子筆';
 	@override String get highlighter => '螢光筆';
 	@override String get pencil => '鉛筆';
-	@override String get shapePen => '塑形筆';
+	@override String get shapePen => '造型筆';
 	@override String get laserPointer => '雷射筆';
 }
 
 // Path: editor.penOptions
-class _TranslationsEditorPenOptionsZhHantTw extends TranslationsEditorPenOptionsEn {
-	_TranslationsEditorPenOptionsZhHantTw._(TranslationsZhHantTw root) : this._root = root, super.internal(root);
+class Translations$editor$penOptions$zh_Hant_TW extends Translations$editor$penOptions$en {
+	Translations$editor$penOptions$zh_Hant_TW.internal(TranslationsZhHantTw root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
@@ -682,8 +682,8 @@ class _TranslationsEditorPenOptionsZhHantTw extends TranslationsEditorPenOptions
 }
 
 // Path: editor.colors
-class _TranslationsEditorColorsZhHantTw extends TranslationsEditorColorsEn {
-	_TranslationsEditorColorsZhHantTw._(TranslationsZhHantTw root) : this._root = root, super.internal(root);
+class Translations$editor$colors$zh_Hant_TW extends Translations$editor$colors$en {
+	Translations$editor$colors$zh_Hant_TW.internal(TranslationsZhHantTw root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
@@ -691,8 +691,8 @@ class _TranslationsEditorColorsZhHantTw extends TranslationsEditorColorsEn {
 	@override String get colorPicker => '顏色選擇器';
 	@override String customBrightnessHue({required Object b, required Object h}) => '自訂的 ${b} ${h}';
 	@override String customHue({required Object h}) => '自訂的 ${h}';
-	@override String get dark => '黑色';
-	@override String get light => '白色';
+	@override String get dark => '深色';
+	@override String get light => '淺色';
 	@override String get black => '黑色';
 	@override String get darkGrey => '深灰色';
 	@override String get grey => '灰色';
@@ -717,13 +717,13 @@ class _TranslationsEditorColorsZhHantTw extends TranslationsEditorColorsEn {
 }
 
 // Path: editor.imageOptions
-class _TranslationsEditorImageOptionsZhHantTw extends TranslationsEditorImageOptionsEn {
-	_TranslationsEditorImageOptionsZhHantTw._(TranslationsZhHantTw root) : this._root = root, super.internal(root);
+class Translations$editor$imageOptions$zh_Hant_TW extends Translations$editor$imageOptions$en {
+	Translations$editor$imageOptions$zh_Hant_TW.internal(TranslationsZhHantTw root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => '圖片選項';
+	@override String get title => '影像選項';
 	@override String get invertible => '反轉顏色';
 	@override String get download => '下載';
 	@override String get setAsBackground => '設為背景';
@@ -732,19 +732,19 @@ class _TranslationsEditorImageOptionsZhHantTw extends TranslationsEditorImageOpt
 }
 
 // Path: editor.selectionBar
-class _TranslationsEditorSelectionBarZhHantTw extends TranslationsEditorSelectionBarEn {
-	_TranslationsEditorSelectionBarZhHantTw._(TranslationsZhHantTw root) : this._root = root, super.internal(root);
+class Translations$editor$selectionBar$zh_Hant_TW extends Translations$editor$selectionBar$en {
+	Translations$editor$selectionBar$zh_Hant_TW.internal(TranslationsZhHantTw root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
 	// Translations
 	@override String get delete => '刪除';
-	@override String get duplicate => '複製';
+	@override String get duplicate => '再製';
 }
 
 // Path: editor.menu
-class _TranslationsEditorMenuZhHantTw extends TranslationsEditorMenuEn {
-	_TranslationsEditorMenuZhHantTw._(TranslationsZhHantTw root) : this._root = root, super.internal(root);
+class Translations$editor$menu$zh_Hant_TW extends Translations$editor$menu$en {
+	Translations$editor$menu$zh_Hant_TW.internal(TranslationsZhHantTw root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
@@ -752,58 +752,58 @@ class _TranslationsEditorMenuZhHantTw extends TranslationsEditorMenuEn {
 	@override String clearPage({required Object page, required Object totalPages}) => '清除頁面 ${page}/${totalPages}';
 	@override String get clearAllPages => '清除所有頁面';
 	@override String get insertPage => '插入以下頁面';
-	@override String get duplicatePage => '複製頁面';
+	@override String get duplicatePage => '再製頁面';
 	@override String get deletePage => '刪除頁面';
 	@override String get lineHeight => '行高';
 	@override String get lineHeightDescription => '同時控制輸入筆記的文字大小';
 	@override String get lineThickness => '線條粗細';
 	@override String get lineThicknessDescription => '背景線條粗細';
-	@override String get backgroundImageFit => '適應背景圖片';
+	@override String get backgroundImageFit => '背景影像調整';
 	@override String get backgroundPattern => '背景圖案';
 	@override String get import => '匯入';
 	@override String get watchServer => '監視伺服器的更新';
 	@override String get watchServerReadOnly => '監視伺服器時無法進行編輯';
-	@override late final _TranslationsEditorMenuBoxFitsZhHantTw boxFits = _TranslationsEditorMenuBoxFitsZhHantTw._(_root);
-	@override late final _TranslationsEditorMenuBgPatternsZhHantTw bgPatterns = _TranslationsEditorMenuBgPatternsZhHantTw._(_root);
+	@override late final Translations$editor$menu$boxFits$zh_Hant_TW boxFits = Translations$editor$menu$boxFits$zh_Hant_TW.internal(_root);
+	@override late final Translations$editor$menu$bgPatterns$zh_Hant_TW bgPatterns = Translations$editor$menu$bgPatterns$zh_Hant_TW.internal(_root);
 }
 
 // Path: editor.readOnlyBanner
-class _TranslationsEditorReadOnlyBannerZhHantTw extends TranslationsEditorReadOnlyBannerEn {
-	_TranslationsEditorReadOnlyBannerZhHantTw._(TranslationsZhHantTw root) : this._root = root, super.internal(root);
+class Translations$editor$readOnlyBanner$zh_Hant_TW extends Translations$editor$readOnlyBanner$en {
+	Translations$editor$readOnlyBanner$zh_Hant_TW.internal(TranslationsZhHantTw root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
 	// Translations
 	@override String get title => '唯讀模式';
-	@override String get watchingServer => '目前正在監看伺服器上的更新，在此模式下已停用編輯功能。';
+	@override String get watchingServer => '目前正在監控伺服器上的更新，在此模式下已停用編輯功能。';
 	@override String get corrupted => '無法載入筆記，檔案可能已損壞或仍在下載中。';
 }
 
 // Path: editor.versionTooNew
-class _TranslationsEditorVersionTooNewZhHantTw extends TranslationsEditorVersionTooNewEn {
-	_TranslationsEditorVersionTooNewZhHantTw._(TranslationsZhHantTw root) : this._root = root, super.internal(root);
+class Translations$editor$versionTooNew$zh_Hant_TW extends Translations$editor$versionTooNew$en {
+	Translations$editor$versionTooNew$zh_Hant_TW.internal(TranslationsZhHantTw root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
 	// Translations
 	@override String get title => '這篇筆記是使用較新版本的 Saber 編輯的';
-	@override String get subtitle => '編輯此筆記可能會導致某些資訊遺失。 您想忽略它並編輯它嗎？';
+	@override String get subtitle => '編輯此筆記可能會導致某些資訊遺失。您要忽略並編輯它嗎？';
 	@override String get allowEditing => '允許編輯';
 }
 
 // Path: editor.quill
-class _TranslationsEditorQuillZhHantTw extends TranslationsEditorQuillEn {
-	_TranslationsEditorQuillZhHantTw._(TranslationsZhHantTw root) : this._root = root, super.internal(root);
+class Translations$editor$quill$zh_Hant_TW extends Translations$editor$quill$en {
+	Translations$editor$quill$zh_Hant_TW.internal(TranslationsZhHantTw root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
 	// Translations
-	@override String get typeSomething => '在這裡輸入一些內容...';
+	@override String get typeSomething => '請在此輸入內容……';
 }
 
 // Path: editor.hud
-class _TranslationsEditorHudZhHantTw extends TranslationsEditorHudEn {
-	_TranslationsEditorHudZhHantTw._(TranslationsZhHantTw root) : this._root = root, super.internal(root);
+class Translations$editor$hud$zh_Hant_TW extends Translations$editor$hud$en {
+	Translations$editor$hud$zh_Hant_TW.internal(TranslationsZhHantTw root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
@@ -811,32 +811,32 @@ class _TranslationsEditorHudZhHantTw extends TranslationsEditorHudEn {
 	@override String get unlockZoom => '解鎖縮放';
 	@override String get lockZoom => '鎖定縮放';
 	@override String get unlockSingleFingerPan => '啟用單指平移';
-	@override String get lockSingleFingerPan => '禁用單指平移';
+	@override String get lockSingleFingerPan => '停用單指平移';
 	@override String get unlockAxisAlignedPan => '解鎖水平或垂直平移';
 	@override String get lockAxisAlignedPan => '鎖定水平或垂直平移';
 }
 
 // Path: sentry.consent.description
-class _TranslationsSentryConsentDescriptionZhHantTw extends TranslationsSentryConsentDescriptionEn {
-	_TranslationsSentryConsentDescriptionZhHantTw._(TranslationsZhHantTw root) : this._root = root, super.internal(root);
+class Translations$sentry$consent$description$zh_Hant_TW extends Translations$sentry$consent$description$en {
+	Translations$sentry$consent$description$zh_Hant_TW.internal(TranslationsZhHantTw root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
 	// Translations
-	@override String get question => '您想自動報告意外錯誤嗎？這可以幫助我更快地識別和解決問題。';
-	@override String get scope => '報告可能包含有關錯誤和您的裝置資訊。我已經盡一切努力過濾了個人資料，但有些可能仍會保留。';
-	@override String get currentlyOff => '如果您授予同意，則重新啟動應用程式後將啟用錯誤報告。';
-	@override String get currentlyOn => '如果您撤銷同意，請重新啟動該應用程式以禁用錯誤報告。';
+	@override String get question => '您想自動回報意外錯誤嗎？這可以協助我更快地辨識與解決問題。';
+	@override String get scope => '報告可能包含有關錯誤與您的裝置資訊。我已經盡一切努力過濾了個人資料，但有些可能仍會保留。';
+	@override String get currentlyOff => '若您同意，則重新啟動應用程式後將啟用錯誤回報。';
+	@override String get currentlyOn => '如果您撤銷同意，請重新啟動該應用程式以停用錯誤回報。';
 	@override TextSpan learnMoreInPrivacyPolicy({required InlineSpanBuilder link}) => TextSpan(children: [
-		const TextSpan(text: '在'),
+		const TextSpan(text: '在 '),
 		link('privacy policy'),
-		const TextSpan(text: '中了解更多資訊。'),
+		const TextSpan(text: ' 中取得更多資訊。'),
 	]);
 }
 
 // Path: sentry.consent.answers
-class _TranslationsSentryConsentAnswersZhHantTw extends TranslationsSentryConsentAnswersEn {
-	_TranslationsSentryConsentAnswersZhHantTw._(TranslationsZhHantTw root) : this._root = root, super.internal(root);
+class Translations$sentry$consent$answers$zh_Hant_TW extends Translations$sentry$consent$answers$en {
+	Translations$sentry$consent$answers$zh_Hant_TW.internal(TranslationsZhHantTw root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
@@ -847,20 +847,20 @@ class _TranslationsSentryConsentAnswersZhHantTw extends TranslationsSentryConsen
 }
 
 // Path: settings.prefDescriptions.hideFingerDrawing
-class _TranslationsSettingsPrefDescriptionsHideFingerDrawingZhHantTw extends TranslationsSettingsPrefDescriptionsHideFingerDrawingEn {
-	_TranslationsSettingsPrefDescriptionsHideFingerDrawingZhHantTw._(TranslationsZhHantTw root) : this._root = root, super.internal(root);
+class Translations$settings$prefDescriptions$hideFingerDrawing$zh_Hant_TW extends Translations$settings$prefDescriptions$hideFingerDrawing$en {
+	Translations$settings$prefDescriptions$hideFingerDrawing$zh_Hant_TW.internal(TranslationsZhHantTw root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
 	// Translations
 	@override String get shown => '防止意外切換';
 	@override String get fixedOn => '手指繪圖固定為啟用';
-	@override String get fixedOff => '手指繪圖固定為禁用';
+	@override String get fixedOff => '手指繪圖固定為停用';
 }
 
 // Path: settings.prefDescriptions.sentry
-class _TranslationsSettingsPrefDescriptionsSentryZhHantTw extends TranslationsSettingsPrefDescriptionsSentryEn {
-	_TranslationsSettingsPrefDescriptionsSentryZhHantTw._(TranslationsZhHantTw root) : this._root = root, super.internal(root);
+class Translations$settings$prefDescriptions$sentry$zh_Hant_TW extends Translations$settings$prefDescriptions$sentry$en {
+	Translations$settings$prefDescriptions$sentry$zh_Hant_TW.internal(TranslationsZhHantTw root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
@@ -872,8 +872,8 @@ class _TranslationsSettingsPrefDescriptionsSentryZhHantTw extends TranslationsSe
 }
 
 // Path: login.ncLoginStep.loginFlow
-class _TranslationsLoginNcLoginStepLoginFlowZhHantTw extends TranslationsLoginNcLoginStepLoginFlowEn {
-	_TranslationsLoginNcLoginStepLoginFlowZhHantTw._(TranslationsZhHantTw root) : this._root = root, super.internal(root);
+class Translations$login$ncLoginStep$loginFlow$zh_Hant_TW extends Translations$login$ncLoginStep$loginFlow$en {
+	Translations$login$ncLoginStep$loginFlow$zh_Hant_TW.internal(TranslationsZhHantTw root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
@@ -884,30 +884,30 @@ class _TranslationsLoginNcLoginStepLoginFlowZhHantTw extends TranslationsLoginNc
 }
 
 // Path: login.encLoginStep.encFaq.0
-class _TranslationsLoginEncLoginStep$encFaq$0i0$ZhHantTw extends TranslationsLoginEncLoginStep$encFaq$0i0$En {
-	_TranslationsLoginEncLoginStep$encFaq$0i0$ZhHantTw._(TranslationsZhHantTw root) : this._root = root, super.internal(root);
+class Translations$login$encLoginStep$encFaq$0$zh_Hant_TW extends Translations$login$encLoginStep$encFaq$0$en {
+	Translations$login$encLoginStep$encFaq$0$zh_Hant_TW.internal(TranslationsZhHantTw root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
 	// Translations
 	@override String get q => '什麼是加密密碼？為什麼要使用兩個密碼？';
-	@override String get a => 'Nextcloud 密碼用於存取雲端。加密密碼會在資料到達雲端之前混亂您的資料。\n即使有人訪問您的 Nextcloud 帳號，您的筆記也將保持安全並使用單獨的密碼進行加密。這為您提供了第二層安全保護來保護您的資料。\n如果沒有加密密碼，任何人都無法存取伺服器上的筆記，但這也意味著如果您忘記加密密碼，您將無法存取您的資料。';
+	@override String get a => 'Nextcloud 密碼用於存取雲端。加密密碼會在資料到達雲端之前加密您的資料。\n即使有其他人存取您的 Nextcloud 帳號，您的筆記也將保持安全並使用單獨的密碼進行加密。這為您提供了第二層安全保護來保護您的資料。\n如果沒有加密密碼，任何人都無法存取伺服器上的筆記，但這也意味著如果您忘記加密密碼，您將無法存取您的資料。';
 }
 
 // Path: login.encLoginStep.encFaq.1
-class _TranslationsLoginEncLoginStep$encFaq$0i1$ZhHantTw extends TranslationsLoginEncLoginStep$encFaq$0i1$En {
-	_TranslationsLoginEncLoginStep$encFaq$0i1$ZhHantTw._(TranslationsZhHantTw root) : this._root = root, super.internal(root);
+class Translations$login$encLoginStep$encFaq$1$zh_Hant_TW extends Translations$login$encLoginStep$encFaq$1$en {
+	Translations$login$encLoginStep$encFaq$1$zh_Hant_TW.internal(TranslationsZhHantTw root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => '我還沒有設定加密密碼。我在哪裡可以得到它？';
-	@override String get a => '選擇一個新的加密密碼並在上面輸入。\nSaber 將自動根據該密碼產生您的加密金鑰。';
+	@override String get q => '我還沒設定加密密碼。該去哪裡取得呢？';
+	@override String get a => '選擇一個新的加密密碼並在上方輸入。\nSaber 將自動根據該密碼產生您的加密金鑰。';
 }
 
 // Path: login.encLoginStep.encFaq.2
-class _TranslationsLoginEncLoginStep$encFaq$0i2$ZhHantTw extends TranslationsLoginEncLoginStep$encFaq$0i2$En {
-	_TranslationsLoginEncLoginStep$encFaq$0i2$ZhHantTw._(TranslationsZhHantTw root) : this._root = root, super.internal(root);
+class Translations$login$encLoginStep$encFaq$2$zh_Hant_TW extends Translations$login$encLoginStep$encFaq$2$en {
+	Translations$login$encLoginStep$encFaq$2$zh_Hant_TW.internal(TranslationsZhHantTw root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
@@ -917,8 +917,8 @@ class _TranslationsLoginEncLoginStep$encFaq$0i2$ZhHantTw extends TranslationsLog
 }
 
 // Path: editor.menu.boxFits
-class _TranslationsEditorMenuBoxFitsZhHantTw extends TranslationsEditorMenuBoxFitsEn {
-	_TranslationsEditorMenuBoxFitsZhHantTw._(TranslationsZhHantTw root) : this._root = root, super.internal(root);
+class Translations$editor$menu$boxFits$zh_Hant_TW extends Translations$editor$menu$boxFits$en {
+	Translations$editor$menu$boxFits$zh_Hant_TW.internal(TranslationsZhHantTw root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
@@ -929,8 +929,8 @@ class _TranslationsEditorMenuBoxFitsZhHantTw extends TranslationsEditorMenuBoxFi
 }
 
 // Path: editor.menu.bgPatterns
-class _TranslationsEditorMenuBgPatternsZhHantTw extends TranslationsEditorMenuBgPatternsEn {
-	_TranslationsEditorMenuBgPatternsZhHantTw._(TranslationsZhHantTw root) : this._root = root, super.internal(root);
+class Translations$editor$menu$bgPatterns$zh_Hant_TW extends Translations$editor$menu$bgPatterns$en {
+	Translations$editor$menu$bgPatterns$zh_Hant_TW.internal(TranslationsZhHantTw root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHantTw _root; // ignore: unused_field
 

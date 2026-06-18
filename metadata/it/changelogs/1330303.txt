@@ -1,0 +1,3 @@
+• Corretto un bug in cui l'impostazione "Disabilita cancellatore dopo l'uso" non veniva disattivata
+• Corretto una perdita di memoria nella gestione dei gesti di slancio (fling)
+• Aggiornato l'SDK Onyx per i dispositivi Onyx Boox

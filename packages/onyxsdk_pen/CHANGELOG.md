@@ -1,3 +1,14 @@
+## 1.5.0
+
+- Hack: Excluded the mmkv lib from onyxsdk_pen as suggested by Onyx. This should complete the 16KB page size support to meet Google Play requirements.
+- Added support for Flutter 3.44 and migrated to the built-in Kotlin Gradle Plugin. This package now requires Flutter 3.44 or later.
+
+## 1.4.0
+
+- Updated the SDK to support [16 KB page sizes](https://github.com/onyx-intl/OnyxAndroidDemo/issues/132). This should resolve issues with Google Play submissions.
+- Added proguard rules so you no longer need to add them to your app manually.
+- Updated the README's setup instructions for the latest SDK, including `build.gradle.kts` snippets. No changes are needed for existing apps.
+
 ## 1.3.0
 
 - `OnyxSdkPenArea` now supports setting stroke style, color, and width, thanks to zinstack625 in [#1452](https://github.com/saber-notes/saber/pull/1452):

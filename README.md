@@ -102,6 +102,9 @@ If you'd like to help out translating Saber, head to [Weblate](https://hosted.we
 
 [![Translation status](https://hosted.weblate.org/widget/saber-notes/multi-auto.svg)](https://hosted.weblate.org/engage/saber-notes/)
 
+Note: To avoid falling back to English, any gaps in the translations are filled
+in by machine translation until a human can contribute.
+
 ## Supporting Saber
 
 If you like Saber, please consider supporting it by:
@@ -123,8 +126,8 @@ on the wiki.
 [google_play]: https://play.google.com/store/apps/details?id=com.adilhanney.saber
 [snap]: https://snapcraft.io/saber
 [app_store]: https://apps.apple.com/us/app/saber/id1671523739
-[download_windows]: https://github.com/saber-notes/saber/releases/download/v1.33.2/SaberInstaller_v1.33.2.exe
-[download_appimage]: https://github.com/saber-notes/saber/releases/download/v1.33.2/Saber-1.33.2-x86_64.AppImage
+[download_windows]: https://github.com/saber-notes/saber/releases/download/v1.34.2/SaberInstaller_v1.34.2.exe
+[download_appimage]: https://github.com/saber-notes/saber/releases/download/v1.34.2/Saber-1.34.2-x86_64.AppImage
 
 [nextcloud]: https://nc.saber.adil.hanney.org/
 

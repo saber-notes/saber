@@ -1,0 +1,3 @@
+• De functie "Kijk uit naar updates op de server" is gefixt omdat deze niet werkte.
+• Verbeterde prestaties van PDF-export en miniatuurweergave.
+• Experimentele verbeteringen in stylusondersteuning op Windows, met toevoeging van oriëntatie- en knopdetectie.

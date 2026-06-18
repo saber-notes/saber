@@ -1,0 +1,3 @@
+• Sunucudaki güncellemeleri izleme özelliğinin çalışmadığını düzelttim.
+• PDF dışa aktarma ve küçük resim oluşturma performansını iyileştirdim.
+• Windows'ta kalem desteğini deneysel olarak iyileştirdim, yönelim ve düğme algılama ekledim.

@@ -42,7 +42,8 @@ void parseArgs(List<String> args) {
     ..addOption(
       'custom',
       abbr: 'c',
-      help: 'Use a custom buildName (e.g. 0.22.11) or buildNumber (e.g. 22110)',
+      help:
+          'Use a custom buildName (e.g. ${old_version_file.buildName}) or buildNumber (e.g. ${old_version_file.buildNumber})',
     )
     ..addFlag(
       'fail-on-changes',
@@ -211,7 +212,7 @@ Future<void> updateAllFiles() async {
     final date = DateFormat('yyyy-MM-dd').format(DateTime.now().toUtc());
     final releaseTag =
         '''
-        <release version="${newVersion.buildName}" type="development" date="$date">
+        <release version="${newVersion.buildName}" date="$date">
             <description>
                 <ul>
                     <li>$dummyChangelog</li>

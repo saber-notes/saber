@@ -1,0 +1,4 @@
+• Javítottam néhány stilus törölő végének nem aktiválását az alkalmazáson belül.
+• Javítottam, hogy a törölő eszköz ne váltson be a gyors stilus mozgásokkor.
+• Javítottam, hogy a lapok átrendelés után a háttérképek nem kapják a helyes oldathoz tartozó számot.
+• Adtam hozzá egy ukrán fordítást.

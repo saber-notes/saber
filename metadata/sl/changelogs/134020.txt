@@ -1,0 +1,3 @@
+• Popravljeno delo "Sledite podatke na serverju" ki ni deluje.
+• Popravljeno učinkovitost izvoza PDF-ov in thumbnailing.
+• Eksperimentalno izboljšano podporo za stylus na Windowsu, z dodalimi detekcijo orientacije in gumbov.

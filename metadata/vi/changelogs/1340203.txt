@@ -1,0 +1,3 @@
+• Đã sửa lỗi tính năng "Theo dõi cập nhật trên máy chủ" không hoạt động.
+• Cải thiện hiệu suất xuất PDF và tạo hình thu nhỏ (thumbnail).
+• Thử nghiệm cải thiện hỗ trợ bút cảm ứng trên Windows, thêm phát hiện hướng và nút bấm.

@@ -6,7 +6,6 @@ import 'package:saber/data/flavor_config.dart';
 import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
 import 'package:saber/data/nextcloud/saber_syncer.dart';
 import 'package:saber/data/prefs.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import 'utils/test_mock_channel_handlers.dart';
 import 'utils/test_random.dart';
@@ -17,7 +16,6 @@ void main() async {
     HttpOverrides.global = null; // enable http requests in test
     setupMockPathProvider();
     setupMockFlutterSecureStorage();
-    SharedPreferences.setMockInitialValues({});
 
     FileManager.documentsDirectory =
         '$tmpDir/nc_upload_download_test/'
@@ -44,7 +42,7 @@ void main() async {
 
     // Upload
     final upBytes = await syncer.interface.readLocalFile(syncFile);
-    expect(upBytes.length, greaterThan(0));
+    expect(upBytes, isNotEmpty);
     await syncer.interface.uploadRemoteFile(syncFile, upBytes);
 
     // Get the sync file again, this time starting with the remote file
@@ -59,7 +57,7 @@ void main() async {
 
     // Download
     final downBytes = await syncer.interface.downloadRemoteFile(syncFile);
-    expect(downBytes.length, greaterThan(0));
+    expect(downBytes, isNotEmpty);
     expect(downBytes, equals(upBytes));
     await syncer.interface.writeLocalFile(
       syncFile,

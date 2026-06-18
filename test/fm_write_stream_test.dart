@@ -4,7 +4,6 @@ import 'dart:io';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/flavor_config.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import 'utils/test_mock_channel_handlers.dart';
 
@@ -18,11 +17,7 @@ void main() {
     setUp(() async {
       events.clear();
       await subscription?.cancel();
-      subscription = FileManager.fileWriteStream.stream.listen((
-        FileOperation event,
-      ) {
-        events.add(event);
-      });
+      subscription = FileManager.fileWriteStream.stream.listen(events.add);
     });
     tearDown(() async {
       await subscription?.cancel();
@@ -33,10 +28,10 @@ void main() {
       FileManager.broadcastFileWrite(FileOperationType.write, '/test.sbn2');
 
       // wait for the event to be broadcast
-      await Future.delayed(const Duration(milliseconds: 100));
+      await null;
 
       // check that the event was received
-      expect(events.length, 1);
+      expect(events, hasLength(1));
       expect(events.last.filePath, '/test'); // without the extension
       expect(events.last.type, FileOperationType.write);
     });
@@ -44,7 +39,6 @@ void main() {
     test('system directory watch', () async {
       TestWidgetsFlutterBinding.ensureInitialized();
       setupMockPathProvider();
-      SharedPreferences.setMockInitialValues({});
 
       await FileManager.init();
 
@@ -54,16 +48,16 @@ void main() {
       // write to file
       await file.create(recursive: true);
       await file.writeAsString('test_content');
-      await Future.delayed(const Duration(milliseconds: 100));
-      expect(events.length, greaterThanOrEqualTo(2));
+      await Future.delayed(const Duration(milliseconds: 1));
+      expect(events, hasLength(greaterThanOrEqualTo(2)));
       expect(events.last.filePath, '/test'); // without the extension
       expect(events.last.type, FileOperationType.write);
       events.clear();
 
       // delete file
       await file.delete();
-      await Future.delayed(const Duration(milliseconds: 100));
-      expect(events.length, greaterThanOrEqualTo(1));
+      await Future.delayed(const Duration(milliseconds: 1));
+      expect(events, hasLength(greaterThanOrEqualTo(1)));
       expect(events.last.filePath, '/test'); // without the extension
       expect(events.last.type, FileOperationType.delete);
     });

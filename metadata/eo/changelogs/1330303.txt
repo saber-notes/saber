@@ -1,0 +1,3 @@
+• Fixis ergon, kie la ŝanĝo "Difebleti la gerasilon post uso" ne desaktuligis
+• Fixis memorigon per la manĝusto de fling gestoj
+• Modernizis la Onyx SDK por Onyx Boox apartoj

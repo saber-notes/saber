@@ -13,12 +13,15 @@
     <locale android:name="hu"/>
     <locale android:name="it"/>
     <locale android:name="ja"/>
+    <locale android:name="nl"/>
     <locale android:name="pl"/>
+    <locale android:name="pt"/>
     <locale android:name="pt-BR"/>
     <locale android:name="ru"/>
     <locale android:name="sl"/>
     <locale android:name="th"/>
     <locale android:name="tr"/>
+    <locale android:name="uk"/>
     <locale android:name="vi"/>
     <locale android:name="zh-Hans-CN"/>
     <locale android:name="zh-Hant-TW"/>

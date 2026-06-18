@@ -48,7 +48,8 @@ class CanvasGestureDetector extends StatefulWidget {
   final ValueChanged<ScaleUpdateDetails> onDrawUpdate;
   final ValueChanged<ScaleEndDetails> onDrawEnd;
 
-  /// Called when the pressure of the stylus changes
+  /// Called when the pressure of the stylus changes.
+  /// The [pressure] value is normalized into a range of 0 to 1.
   final void Function(PointerDeviceKind kind, double? pressure)
   updatePointerData;
   final VoidCallback onHovering;
@@ -421,11 +422,18 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
     final isStylus =
         event.kind == PointerDeviceKind.stylus ||
         event.kind == PointerDeviceKind.invertedStylus;
+    if (isStylus && event is PointerDownEvent) {
+      _detectStylusButton(event);
+    }
 
     final double? pressure;
     if (isStylus) {
       if (event.pressureMin != event.pressureMax) {
-        pressure = event.pressure;
+        pressure = _inverseLerp(
+          event.pressure,
+          min: event.pressureMin,
+          max: event.pressureMax,
+        );
       } else {
         // Detected as stylus, but no pressure values
         pressure = null;
@@ -446,7 +454,7 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
   var stylusButtonWasPressed = false;
 
   void _listenerPointerHoverEvent(PointerEvent event) {
-    if (event.kind != PointerDeviceKind.stylus) return;
+    if (event.kind != .stylus && event.kind != .invertedStylus) return;
 
     // Apparently flutter synthesizes a hover event on pointer down,
     // so these are used to detect when hovering ends
@@ -454,17 +462,26 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
       widget.onHoveringEnd();
     } else {
       widget.onHovering();
-      if (stylusButtonWasPressed != (event.buttons == kPrimaryStylusButton)) {
-        stylusButtonWasPressed = event.buttons == kPrimaryStylusButton;
-        widget.onStylusButtonChanged(stylusButtonWasPressed);
-      }
+    }
+
+    _detectStylusButton(event);
+  }
+
+  void _detectStylusButton(PointerEvent event) {
+    final pressed =
+        event.buttons == kSecondaryButton || event.kind == .invertedStylus;
+    if (stylusButtonWasPressed != pressed) {
+      stylusButtonWasPressed = pressed;
+      widget.onStylusButtonChanged(pressed);
     }
   }
 
   void _listenerPointerUpEvent(PointerEvent event) {
     widget.updatePointerData(event.kind, null);
-    stylusButtonWasPressed = false;
-    widget.onStylusButtonChanged(false);
+    if (stylusButtonWasPressed) {
+      stylusButtonWasPressed = false;
+      widget.onStylusButtonChanged(false);
+    }
   }
 
   @override
@@ -678,4 +695,13 @@ base class CanvasTransformCacheItem
   final Matrix4 transform;
 
   CanvasTransformCacheItem(this.filePath, this.transform);
+}
+
+double _inverseLerp(num value, {required num min, required num max}) {
+  assert(max >= min, 'Max ($max) must be >= min ($min)');
+  assert(
+    value >= min && value <= max,
+    'Value ($value) must be between $min and $max',
+  );
+  return (value - min) / (max - min);
 }

@@ -1,0 +1,3 @@
+• Corrigido um bug onde a configuração "Desativar borracha após o uso" não era desativada
+• Corrigido um vazamento de memória no tratamento de gestos de deslize (fling)
+• Atualizado o SDK do Onyx para dispositivos Onyx Boox

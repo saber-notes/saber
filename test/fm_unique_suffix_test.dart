@@ -1,7 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/flavor_config.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import 'utils/test_mock_channel_handlers.dart';
 
@@ -9,7 +8,6 @@ void main() {
   test('Test new notes having distinct names', () async {
     TestWidgetsFlutterBinding.ensureInitialized();
     setupMockPathProvider();
-    SharedPreferences.setMockInitialValues({});
 
     FlavorConfig.setup();
     await FileManager.init();
@@ -28,8 +26,8 @@ void main() {
 
     suffixedPath = await FileManager.suffixFilePathToMakeItUnique(filePath);
     expect(
-      suffixedPath == filePath,
-      true,
+      suffixedPath,
+      filePath,
       reason: "filePath doesn't exist, so it should be returned as is",
     );
 
@@ -42,8 +40,8 @@ void main() {
 
     suffixedPath = await FileManager.suffixFilePathToMakeItUnique(filePath);
     expect(
-      suffixedPath == filePath2,
-      true,
+      suffixedPath,
+      filePath2,
       reason:
           "filePath exists, but filePath2 doesn't, so filePath2 should be returned",
     );
@@ -57,8 +55,8 @@ void main() {
 
     suffixedPath = await FileManager.suffixFilePathToMakeItUnique(filePath);
     expect(
-      suffixedPath == filePath3,
-      true,
+      suffixedPath,
+      filePath3,
       reason:
           "filePath and filePath2 exist, but filePath3 doesn't, so filePath3 should be returned",
     );

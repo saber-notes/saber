@@ -1,0 +1,4 @@
+• Naprawiono problem z końcówką gumki niektórych długopisów, które nie aktywowały narzędzia do wygładzania w aplikacji.
+• Naprawiono problem z tym, że narzędzie do wygładzania nie było aktywowane podczas szybkich ruchów długopisem.
+• Naprawiono problem z przypisywaniem nieprawidłowego numeru strony obrazom tła po przestawieniu stron.
+• Dodano tłumaczenie na ukraiński.

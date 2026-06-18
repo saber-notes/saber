@@ -20,17 +20,15 @@ void main() {
 
     // add first item
     CanvasTransformCache.add(samples[0].filePath, samples[0].transform);
-    expect(CanvasTransformCache.get(samples[0].filePath), isNotNull);
     expect(
-      CanvasTransformCache.get(samples[0].filePath)!.transform,
+      CanvasTransformCache.get(samples[0].filePath)?.transform,
       samples[0].transform,
     );
 
     // update first item
     CanvasTransformCache.add(samples[0].filePath, samples[1].transform);
-    expect(CanvasTransformCache.get(samples[0].filePath), isNotNull);
     expect(
-      CanvasTransformCache.get(samples[0].filePath)!.transform,
+      CanvasTransformCache.get(samples[0].filePath)?.transform,
       samples[1].transform,
     );
 
@@ -44,9 +42,8 @@ void main() {
     expect(CanvasTransformCache.get(samples[0].filePath), isNull);
     // the rest of the items should be in the cache
     for (final sample in samples.skip(1)) {
-      expect(CanvasTransformCache.get(sample.filePath), isNotNull);
       expect(
-        CanvasTransformCache.get(sample.filePath)!.transform,
+        CanvasTransformCache.get(sample.filePath)?.transform,
         sample.transform,
       );
     }

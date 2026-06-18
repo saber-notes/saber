@@ -305,7 +305,7 @@ class FileManager {
           await SaverGallery.saveImage(
             Uint8List.fromList(bytes),
             fileName: fileName,
-            androidRelativePath: 'Pictures/Saber',
+            albumPath: 'Saber',
             skipIfExists: true,
           );
         }
@@ -330,7 +330,7 @@ class FileManager {
       }
     } else {
       // desktop, open save-as dialog
-      final outputFile = await FilePicker.platform.saveFile(
+      final outputFile = await FilePicker.saveFile(
         fileName: fileName,
         initialDirectory: (await getDownloadsDirectory())?.path,
         type: FileType.custom,
