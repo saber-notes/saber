@@ -130,7 +130,10 @@ class _EraserSizePicker extends StatelessWidget {
             Text(eraser.size.round().toString()),
           ],
         ),
-        const SizedBox(width: 8),
+        if (axis == Axis.horizontal)
+          const SizedBox(width: 8)
+        else
+          const SizedBox(height: 8),
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 8),
           child: _EraserSizeSlider(axis: axis, eraser: eraser, onDrag: onDrag),
