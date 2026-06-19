@@ -19,7 +19,7 @@ bool _isPointInsideEraser(Offset point, Offset eraserPos, double sqrSize) {
 }
 
 class Eraser extends Tool {
-  static Eraser currentEraser = Eraser(
+  static var currentEraser = Eraser(
     size: stows.lastEraserSize.value,
     areaEraser: stows.lastEraserAreaMode.value,
   );

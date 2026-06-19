@@ -1088,8 +1088,8 @@ class Translations$editor$penOptions$en {
 }
 
 // Path: editor.eraserOptions
-class TranslationsEditorEraserOptionsEn {
-	TranslationsEditorEraserOptionsEn.internal(this._root);
+class Translations$editor$eraserOptions$en {
+	Translations$editor$eraserOptions$en.internal(this._root);
 
 	final Translations _root; // ignore: unused_field
 
