@@ -9,7 +9,8 @@ gh api repos/saber-notes/saber/commits \
   --method GET \
   --field since="$LAST_TAG_DATE" \
   --jq '
-    .[]
+    reverse
+    | .[]
     | select(
         (.commit.message | startswith("i18n: Update")) or
         (.commit.message | startswith("i18n: Add"))
