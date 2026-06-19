@@ -15,5 +15,5 @@ gh api repos/saber-notes/saber/commits \
         (.commit.message | startswith("i18n: Update")) or
         (.commit.message | startswith("i18n: Add"))
       )
-    | "  - \(.commit.message | split("\n")[0]) by @\(.author.login // .commit.author.name) in \(.sha)"
+    | "  - \(.commit.message | split("\n")[0]) by \(if .author.login then "@" + .author.login else .commit.author.name end) in \(.sha)"
   '
