@@ -506,8 +506,8 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
                   panEnabled: !singleFingerPanLock,
                   panAxis: axisAlignedPanLock ? PanAxis.aligned : PanAxis.free,
 
-                  interactionEndFrictionCoefficient:
-                      InteractiveCanvasViewer.kDrag * 100,
+                  // Smoother scrolling fling gesture than the default
+                  interactionEndFrictionCoefficient: 0.3,
 
                   // we need a non-zero boundary margin so we can zoom out
                   // past the size of the page (for minScale < 1)
