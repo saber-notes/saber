@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
@@ -161,13 +162,17 @@ abstract class EditorExporter {
     final page = coreInfo.pages[pageIndex].cloneForRasterization(
       rasterizeAllStrokes: rasterizeAllStrokes,
     );
+
+    final imagesToLoad = [
+      ?page.backgroundImage,
+      ...page.images,
+    ].where((image) => !image.loadedIn).toList(growable: false);
+    await Future.wait(imagesToLoad.map((image) => image.loadIn()));
+
     try {
       targetSize ??= page.size;
       coreInfo = coreInfo.copyWith(
-        pages: [
-          for (var i = 0; i < coreInfo.pages.length; ++i)
-            if (i == pageIndex) page else coreInfo.pages[i],
-        ],
+        pages: [for (var i = 0; i < coreInfo.pages.length; ++i) page],
       );
       return await ScreenshotController.widgetToUiImage(
         EditorExporterTheme(
@@ -183,6 +188,7 @@ abstract class EditorExporter {
         delay: isThisATest ? .zero : const Duration(milliseconds: 50),
       );
     } finally {
+      for (final image in imagesToLoad) unawaited(image.loadOut());
       page.disposeClonedData();
     }
   }
