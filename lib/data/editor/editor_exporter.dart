@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 import 'dart:ui' as ui;
 
 import 'package:flutter/material.dart';
@@ -6,6 +7,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:image/image.dart' as im;
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
+import 'package:pool/pool.dart';
 import 'package:saber/components/canvas/_circle_stroke.dart';
 import 'package:saber/components/canvas/_rectangle_stroke.dart';
 import 'package:saber/components/canvas/_stroke.dart';
@@ -40,28 +42,32 @@ abstract class EditorExporter {
     final pdf = pw.Document();
 
     // screenshot each page
+    final pool = Pool((Platform.numberOfProcessors ~/ 2).clamp(1, 4));
     final pageScreenshots = await Future.wait(
-      List.generate(coreInfo.pages.length, (pageIndex) async {
-        final uiImage = await screenshotPage(
-          coreInfo: coreInfo,
-          pageIndex: pageIndex,
-        );
-        final byteData = await uiImage.toByteData(
-          format: ui.ImageByteFormat.rawRgba,
-        );
-        assert(
-          byteData != null,
-          'Judging by the code, this should never be null.',
-        );
-        final imImage = im.Image.fromBytes(
-          width: uiImage.width,
-          height: uiImage.height,
-          bytes: byteData!.buffer,
-          order: im.ChannelOrder.rgba,
-        );
-        uiImage.dispose();
-        return imImage;
-      }),
+      List.generate(
+        coreInfo.pages.length,
+        (pageIndex) => pool.withResource(() async {
+          final uiImage = await screenshotPage(
+            coreInfo: coreInfo,
+            pageIndex: pageIndex,
+          );
+          final byteData = await uiImage.toByteData(
+            format: ui.ImageByteFormat.rawRgba,
+          );
+          assert(
+            byteData != null,
+            'Judging by the code, this should never be null.',
+          );
+          final imImage = im.Image.fromBytes(
+            width: uiImage.width,
+            height: uiImage.height,
+            bytes: byteData!.buffer,
+            order: im.ChannelOrder.rgba,
+          );
+          uiImage.dispose();
+          return imImage;
+        }),
+      ),
     );
 
     for (int pageIndex = 0; pageIndex < pageScreenshots.length; ++pageIndex) {
@@ -185,7 +191,7 @@ abstract class EditorExporter {
         ),
         pixelRatio: pixelRatio,
         targetSize: targetSize,
-        delay: isThisATest ? .zero : const Duration(milliseconds: 50),
+        delay: isThisATest ? .zero : const Duration(milliseconds: 200),
       );
     } finally {
       for (final image in imagesToLoad) unawaited(image.loadOut());
