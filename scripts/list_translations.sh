@@ -9,10 +9,11 @@ gh api repos/saber-notes/saber/commits \
   --method GET \
   --field since="$LAST_TAG_DATE" \
   --jq '
-    .[]
+    reverse
+    | .[]
     | select(
         (.commit.message | startswith("i18n: Update")) or
         (.commit.message | startswith("i18n: Add"))
       )
-    | "  - \(.commit.message | split("\n")[0]) by @\(.author.login // .commit.author.name) in \(.sha)"
+    | "  - \(.commit.message | split("\n")[0]) by \(if .author.login then "@" + .author.login else .commit.author.name end) in \(.sha)"
   '
