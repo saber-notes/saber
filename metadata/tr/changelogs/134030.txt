@@ -1,0 +1,4 @@
+• Dışa aktarılan PDF'lerde görünen bazı boş sayfalar düzeltildi.
+• Düzenleyicide kaydırma akıcılığı iyileştirildi.
+• Hollandaca çeviri eklendi.
+• Mevcut Brezilya Portekizcesi çevirisine ek olarak Portekizce çeviri eklendi.

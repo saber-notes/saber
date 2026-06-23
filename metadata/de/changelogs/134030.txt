@@ -1,0 +1,4 @@
+• Einige leere Seiten, die in exportierten PDFs auftauchten, wurden behoben.
+• Die Scroll-Glätte im Editor verbessert.
+• Eine niederländische Übersetzung hinzugefügt.
+• Zusätzlich zur bestehenden brasilianischen portugiesischen Übersetzung eine portugiesische Übersetzung hinzugefügt.

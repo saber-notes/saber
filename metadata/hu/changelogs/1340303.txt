@@ -1,0 +1,4 @@
+• Javítottunk néhány üres oldal megjelenésére az exportált PDF-ekben.
+• Javítottuk a szerkesztőben való scroll folytonosságát.
+• Hozzáadtunk holland fordítást.
+• Hozzáadtunk portugál nyelvű fordítást, beleértve a meglévő brazil portugál fordítás mellett.
