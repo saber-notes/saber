@@ -194,6 +194,8 @@ sealed class EditorImage extends ChangeNotifier {
   @mustBeOverridden
   @mustCallSuper
   Future<void> loadIn() async {
+    if (_shouldLoadOut?.isCompleted == false) _shouldLoadOut?.complete(false);
+
     if (_firstLoadCompleter == null) {
       _firstLoadCompleter = Completer();
       firstLoad().then(
@@ -205,7 +207,6 @@ sealed class EditorImage extends ChangeNotifier {
     }
 
     _loadedIn = true;
-    if (_shouldLoadOut?.isCompleted == false) _shouldLoadOut?.complete(false);
   }
 
   /// Free up resources when the image is no longer visible.
