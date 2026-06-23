@@ -1,0 +1,4 @@
+• Opravených některých prázdných stránek v exportovaných PDF.
+• Vylepšena plynulost posouvání v editoru.
+• Přidána nizozemská překladatelnost.
+• Přidán portugalský překlad kromě stávajícího brazilského portugalského překladu.

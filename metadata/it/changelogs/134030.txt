@@ -1,0 +1,4 @@
+• Corretto alcuni fogli vuoti che apparivano nei PDF esportati.
+• Migliorato la fluidità dello scorrimento nell'editor.
+• Aggiunta una traduzione olandese.
+• Aggiunta una traduzione portoghese oltre alla traduzione portoghese brasiliana esistente.

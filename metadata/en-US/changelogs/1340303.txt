@@ -1,0 +1,4 @@
+• Fixed some blank pages appearing in exported PDFs.
+• Improved the smoothness of scrolling in the editor.
+• Added a Dutch translation.
+• Added a Portuguese translation in addition to the existing Brazillian Portuguese translation.

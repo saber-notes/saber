@@ -1,0 +1,4 @@
+• Popravljena sočasna prazna strani v izvojenih PDF-ih.
+• Izboljšana gladka navigacija (scrolling) v urejevalniku.
+• Dodana holanska prevodila.
+• Dodana portugalska prevodila poleg obstoječe brazilščine.

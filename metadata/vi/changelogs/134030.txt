@@ -1,0 +1,4 @@
+• Đã sửa một số trang trống xuất hiện trong các tệp PDF được xuất.
+• Cải thiện độ mượt khi cuộn trong trình chỉnh sửa.
+• Thêm bản dịch tiếng Hà Lan.
+• Thêm bản dịch tiếng Bồ Đào Nha ngoài bản dịch tiếng Bồ Đào Nha Brazil hiện có.
