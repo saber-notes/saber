@@ -266,7 +266,7 @@ class _ToolbarState extends State<Toolbar> {
                 ? CollapsibleAxis.horizontal
                 : CollapsibleAxis.vertical,
             maintainState: true,
-            collapsed: !showColorOptions,
+            collapsed: false,
             child: child!,
           );
         },
@@ -391,35 +391,35 @@ class _ToolbarState extends State<Toolbar> {
                 padding: buttonPadding,
                 child: const FaIcon(Highlighter.highlighterIcon, size: 16),
               ),
-              ValueListenableBuilder(
-                valueListenable: showColorOptions,
-                builder: (context, showColorOptions, child) {
-                  return ToolbarIconButton(
-                    tooltip: t.editor.toolbar.toggleColors,
-                    selected: showColorOptions,
-                    enabled: !widget.readOnly,
-                    onPressed: toggleColorOptions,
-                    padding: buttonPadding,
-                    child: child!,
-                  );
-                },
-                child: currentColor == null
-                    ? const Icon(Icons.palette)
-                    : Container(
-                        width: 18,
-                        height: 18,
-                        decoration: BoxDecoration(
-                          color: currentColor
-                              .withInversion(invert)
-                              .withValues(alpha: 1),
-                          shape: .circle,
-                          border: Border.all(
-                            color: colorScheme.primary,
-                            width: 2,
-                          ),
-                        ),
-                      ),
-              ),
+              // ValueListenableBuilder(
+              //   valueListenable: showColorOptions,
+              //   builder: (context, showColorOptions, child) {
+              //     return ToolbarIconButton(
+              //       tooltip: t.editor.toolbar.toggleColors,
+              //       selected: showColorOptions,
+              //       enabled: !widget.readOnly,
+              //       onPressed: toggleColorOptions,
+              //       padding: buttonPadding,
+              //       child: child!,
+              //     );
+              //   },
+              //   child: currentColor == null
+              //       ? const Icon(Icons.palette)
+              //       : Container(
+              //           width: 18,
+              //           height: 18,
+              //           decoration: BoxDecoration(
+              //             color: currentColor
+              //                 .withInversion(invert)
+              //                 .withValues(alpha: 1),
+              //             shape: .circle,
+              //             border: Border.all(
+              //               color: colorScheme.primary,
+              //               width: 2,
+              //             ),
+              //           ),
+              //         ),
+              // ),
               // Select Lasso
               ToolbarIconButton(
                 tooltip: t.editor.toolbar.select,
