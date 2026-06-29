@@ -31,6 +31,7 @@ import 'package:saber/components/toolbar/editor_bottom_sheet.dart';
 import 'package:saber/components/toolbar/editor_page_manager.dart';
 import 'package:saber/components/toolbar/toolbar.dart';
 import 'package:saber/data/apple_pencil_gesture_action.dart';
+import 'package:saber/data/apple_pencil_gesture_dispatcher.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/data/editor/editor_exporter.dart';
 import 'package:saber/data/editor/editor_history.dart';
@@ -98,10 +99,6 @@ class Editor extends StatefulWidget {
 }
 
 class EditorState extends State<Editor> {
-  static const _pencilGestureChannel = MethodChannel(
-    'com.saber.apple_pencil_gestures',
-  );
-
   final log = Logger('EditorState');
 
   late var coreInfo = EditorCoreInfo.placeholder;
@@ -179,6 +176,7 @@ class EditorState extends State<Editor> {
   /// The last non-Eraser [currentTool] value.
   late Tool _lastNonEraserTool = Pen.currentPen;
   DateTime? _lastApplePencilSqueeze;
+  StreamSubscription<ApplePencilGestureType>? _applePencilGestureSubscription;
 
   /// If the stylus button is pressed, or was pressed, during the current draw gesture.
   ///
@@ -193,7 +191,7 @@ class EditorState extends State<Editor> {
 
     _initAsync();
     _assignKeybindings();
-    _assignPlatformGestureHandler();
+    _listenForApplePencilGestures();
 
     super.initState();
   }
@@ -296,22 +294,27 @@ class EditorState extends State<Editor> {
     if (_ctrlShiftZ != null) Keybinder.remove(_ctrlShiftZ!);
   }
 
-  void _assignPlatformGestureHandler() {
+  void _listenForApplePencilGestures() {
     if (!Platform.isIOS) return;
 
-    _pencilGestureChannel.setMethodCallHandler(_handlePencilGesture);
+    _applePencilGestureSubscription = ApplePencilGestureDispatcher
+        .instance
+        .gestures
+        .listen(_handlePencilGesture);
   }
 
-  Future<void> _handlePencilGesture(MethodCall call) async {
+  void _handlePencilGesture(ApplePencilGestureType gesture) {
     if (!mounted) return;
+    if (ModalRoute.of(context)?.isCurrent != true) return;
 
-    switch (call.method) {
-      case 'applePencilDoubleTap':
+    switch (gesture) {
+      case ApplePencilGestureType.doubleTap:
         stows.stylusDetected.value = true;
+        stows.applePencilDoubleTapDetected.value = true;
         _performApplePencilGestureAction(
           stows.applePencilDoubleTapAction.value,
         );
-      case 'applePencilSqueeze':
+      case ApplePencilGestureType.squeeze:
         final now = DateTime.now();
         final lastSqueeze = _lastApplePencilSqueeze;
         if (lastSqueeze != null &&
@@ -321,16 +324,9 @@ class EditorState extends State<Editor> {
 
         _lastApplePencilSqueeze = now;
         stows.stylusDetected.value = true;
+        stows.applePencilSqueezeDetected.value = true;
         _performApplePencilGestureAction(stows.applePencilSqueezeAction.value);
-      default:
-        log.warning('Unknown pencil gesture: ${call.method}');
     }
-  }
-
-  void _removePlatformGestureHandler() {
-    if (!Platform.isIOS) return;
-
-    _pencilGestureChannel.setMethodCallHandler(null);
   }
 
   /// Creates pages until the given page index exists,
@@ -2149,7 +2145,7 @@ class EditorState extends State<Editor> {
     _lastSeenPointerCountTimer?.cancel();
 
     _removeKeybindings();
-    _removePlatformGestureHandler();
+    unawaited(_applePencilGestureSubscription?.cancel());
 
     // manually save pen properties since the listeners don't fire if a property is changed
     stows.lastFountainPenOptions.notifyListeners();

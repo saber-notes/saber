@@ -210,6 +210,16 @@ class Stows {
     false,
     volatile: !_isOnMainIsolate,
   );
+  final applePencilDoubleTapDetected = PlainStow(
+    'applePencilDoubleTapDetected',
+    false,
+    volatile: !_isOnMainIsolate,
+  );
+  final applePencilSqueezeDetected = PlainStow(
+    'applePencilSqueezeDetected',
+    false,
+    volatile: !_isOnMainIsolate,
+  );
   final applePencilDoubleTapAction = PlainStow(
     'applePencilDoubleTapAction',
     ApplePencilGestureAction.toggleEraser,

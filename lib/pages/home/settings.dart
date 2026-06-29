@@ -474,37 +474,51 @@ class _SettingsPageState extends State<SettingsPage> {
                     );
                   },
                 ),
-                ValueListenableBuilder(
-                  valueListenable: stows.stylusDetected,
-                  builder: (context, stylusDetected, _) {
-                    if (!Platform.isIOS || !stylusDetected) {
-                      return const SizedBox.shrink();
-                    }
+                if (Platform.isIOS)
+                  ValueListenableBuilder(
+                    valueListenable: stows.applePencilDoubleTapDetected,
+                    builder: (context, doubleTapDetected, _) {
+                      return ValueListenableBuilder(
+                        valueListenable: stows.applePencilSqueezeDetected,
+                        builder: (context, squeezeDetected, _) {
+                          if (!doubleTapDetected && !squeezeDetected) {
+                            return const SizedBox.shrink();
+                          }
 
-                    return Column(
-                      children: [
-                        SettingsDropdown(
-                          title: t.settings.prefLabels.applePencilDoubleTap,
-                          subtitle: _applePencilGestureActionLabel(
-                            stows.applePencilDoubleTapAction.value,
-                          ),
-                          iconBuilder: _applePencilGestureActionIcon,
-                          pref: stows.applePencilDoubleTapAction,
-                          options: applePencilGestureActionOptions,
-                        ),
-                        SettingsDropdown(
-                          title: t.settings.prefLabels.applePencilSqueeze,
-                          subtitle: _applePencilGestureActionLabel(
-                            stows.applePencilSqueezeAction.value,
-                          ),
-                          iconBuilder: _applePencilGestureActionIcon,
-                          pref: stows.applePencilSqueezeAction,
-                          options: applePencilGestureActionOptions,
-                        ),
-                      ],
-                    );
-                  },
-                ),
+                          return Column(
+                            children: [
+                              if (doubleTapDetected)
+                                SettingsDropdown(
+                                  title: t
+                                      .settings
+                                      .prefLabels
+                                      .applePencilDoubleTap,
+                                  subtitle: _applePencilGestureActionLabel(
+                                    stows.applePencilDoubleTapAction.value,
+                                  ),
+                                  iconBuilder: _applePencilGestureActionIcon,
+                                  pref: stows.applePencilDoubleTapAction,
+                                  options: applePencilGestureActionOptions,
+                                ),
+                              if (squeezeDetected)
+                                SettingsDropdown(
+                                  title:
+                                      t.settings.prefLabels.applePencilSqueeze,
+                                  subtitle: _applePencilGestureActionLabel(
+                                    stows.applePencilSqueezeAction.value,
+                                  ),
+                                  iconBuilder: _applePencilGestureActionIcon,
+                                  pref: stows.applePencilSqueezeAction,
+                                  options: applePencilGestureActionOptions,
+                                ),
+                            ],
+                          );
+                        },
+                      );
+                    },
+                  )
+                else
+                  const SizedBox.shrink(),
 
                 SettingsSubtitle(subtitle: t.settings.prefCategories.editor),
                 SettingsSelection(
