@@ -23,6 +23,7 @@ import 'package:saber/components/theming/adaptive_alert_dialog.dart';
 import 'package:saber/components/theming/adaptive_toggle_buttons.dart';
 import 'package:saber/components/theming/saber_theme.dart';
 import 'package:saber/components/theming/uni_icon.dart';
+import 'package:saber/data/apple_pencil_gesture_action.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/flavor_config.dart';
 import 'package:saber/data/is_this_a_test.dart';
@@ -100,6 +101,58 @@ abstract class _SettingsStows {
 
 class _SettingsPageState extends State<SettingsPage> {
   late TargetPlatform platform;
+
+  List<ToggleButtonsOption<ApplePencilGestureAction>>
+  get applePencilGestureActionOptions => [
+    for (final action in ApplePencilGestureAction.values)
+      ToggleButtonsOption(
+        action,
+        Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            UniIcon(_applePencilGestureActionIcon(action)),
+            const SizedBox(width: 8),
+            Text(_applePencilGestureActionLabel(action)),
+          ],
+        ),
+      ),
+  ];
+
+  Object _applePencilGestureActionIcon(ApplePencilGestureAction action) {
+    return switch (action) {
+      .none => Icons.block,
+      .toggleEraser => FontAwesomeIcons.eraser,
+      .toggleColors => Icons.palette,
+      .fountainPen => FontAwesomeIcons.penFancy,
+      .ballpointPen => FontAwesomeIcons.pen,
+      .pencil => FontAwesomeIcons.pencil,
+      .highlighter => FontAwesomeIcons.highlighter,
+      .shapePen => Symbols.shapes,
+      .select => Icons.select_all,
+      .laserPointer => Icons.trip_origin,
+    };
+  }
+
+  String _applePencilGestureActionLabel(ApplePencilGestureAction action) {
+    return switch (action) {
+      .none => t.settings.applePencilGestureActionNone,
+      .toggleEraser => t.editor.toolbar.toggleEraser.replaceFirst(
+        ' (Ctrl E)',
+        '',
+      ),
+      .toggleColors => t.editor.toolbar.toggleColors.replaceFirst(
+        ' (Ctrl C)',
+        '',
+      ),
+      .fountainPen => t.editor.pens.fountainPen,
+      .ballpointPen => t.editor.pens.ballpointPen,
+      .pencil => t.editor.pens.pencil,
+      .highlighter => t.editor.pens.highlighter,
+      .shapePen => t.editor.pens.shapePen,
+      .select => t.editor.toolbar.select,
+      .laserPointer => t.editor.pens.laserPointer,
+    };
+  }
 
   @override
   void initState() {
@@ -418,6 +471,37 @@ class _SettingsPageState extends State<SettingsPage> {
                         icon: CupertinoIcons.pencil,
                         pref: stows.autoDisableFingerDrawingWhenStylusDetected,
                       ),
+                    );
+                  },
+                ),
+                ValueListenableBuilder(
+                  valueListenable: stows.stylusDetected,
+                  builder: (context, stylusDetected, _) {
+                    if (!Platform.isIOS || !stylusDetected) {
+                      return const SizedBox.shrink();
+                    }
+
+                    return Column(
+                      children: [
+                        SettingsDropdown(
+                          title: t.settings.prefLabels.applePencilDoubleTap,
+                          subtitle: _applePencilGestureActionLabel(
+                            stows.applePencilDoubleTapAction.value,
+                          ),
+                          iconBuilder: _applePencilGestureActionIcon,
+                          pref: stows.applePencilDoubleTapAction,
+                          options: applePencilGestureActionOptions,
+                        ),
+                        SettingsDropdown(
+                          title: t.settings.prefLabels.applePencilSqueeze,
+                          subtitle: _applePencilGestureActionLabel(
+                            stows.applePencilSqueezeAction.value,
+                          ),
+                          iconBuilder: _applePencilGestureActionIcon,
+                          pref: stows.applePencilSqueezeAction,
+                          options: applePencilGestureActionOptions,
+                        ),
+                      ],
                     );
                   },
                 ),
