@@ -125,4 +125,6 @@ jobs:
 
       - name: Publish to App Store
         if: ${{ startsWith(github.ref, 'refs/tags/') }}
-        run: app-store-connect publish --path ${{ steps.move.outputs.ipaPath }}
+        run: app-store-connect publish --path "${IPAPATH}"
+        env:
+          IPAPATH: ${{ steps.move.outputs.ipaPath }}
