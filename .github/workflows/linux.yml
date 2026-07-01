@@ -68,6 +68,7 @@ jobs:
         run: flutter config --no-cli-animations
 
       - run: ./patches/pre/remove_dev_dependencies.sh
+      - run: ./patches/pre/remove_permission_handler.sh
       - run: ./patches/pre/remove_proprietary_dependencies.sh
       - run: flutter pub get
       - run: ./patches/post/patch_rust_versions.sh
