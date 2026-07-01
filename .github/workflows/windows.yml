@@ -57,13 +57,19 @@ jobs:
           ./patches/pre/windows_stylus_buttons.sh
 
       - name: Disable Flutter CLI animations
+        shell: bash
         run: flutter config --no-cli-animations
 
       - run: ./patches/pre/remove_dev_dependencies.sh
+        shell: bash
       - run: ./patches/pre/remove_linux_dependencies.sh
+        shell: bash
       - run: ./patches/pre/remove_permission_handler.sh
+        shell: bash
       - run: flutter pub get
+        shell: bash
       - run: ./patches/post/patch_rust_versions.sh
+        shell: bash
 
       - name: Build Windows
         shell: bash
