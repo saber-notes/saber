@@ -30,6 +30,8 @@ import 'package:saber/components/toolbar/color_bar.dart';
 import 'package:saber/components/toolbar/editor_bottom_sheet.dart';
 import 'package:saber/components/toolbar/editor_page_manager.dart';
 import 'package:saber/components/toolbar/toolbar.dart';
+import 'package:saber/data/apple_pencil_gesture_action.dart';
+import 'package:saber/data/apple_pencil_gesture_dispatcher.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/data/editor/editor_exporter.dart';
 import 'package:saber/data/editor/editor_history.dart';
@@ -169,9 +171,12 @@ class EditorState extends State<Editor> {
   Timer? _lastSeenPointerCountTimer;
 
   ValueNotifier<QuillStruct?> quillFocus = ValueNotifier(null);
+  final ValueNotifier<int> toggleColorOptionsSignal = ValueNotifier(0);
 
   /// The last non-Eraser [currentTool] value.
   late Tool _lastNonEraserTool = Pen.currentPen;
+  DateTime? _lastApplePencilSqueeze;
+  StreamSubscription<ApplePencilGestureType>? _applePencilGestureSubscription;
 
   /// If the stylus button is pressed, or was pressed, during the current draw gesture.
   ///
@@ -186,6 +191,7 @@ class EditorState extends State<Editor> {
 
     _initAsync();
     _assignKeybindings();
+    _listenForApplePencilGestures();
 
     super.initState();
   }
@@ -286,6 +292,41 @@ class EditorState extends State<Editor> {
     if (_ctrlZ != null) Keybinder.remove(_ctrlZ!);
     if (_ctrlY != null) Keybinder.remove(_ctrlY!);
     if (_ctrlShiftZ != null) Keybinder.remove(_ctrlShiftZ!);
+  }
+
+  void _listenForApplePencilGestures() {
+    if (!Platform.isIOS) return;
+
+    _applePencilGestureSubscription = ApplePencilGestureDispatcher
+        .instance
+        .gestures
+        .listen(_handlePencilGesture);
+  }
+
+  void _handlePencilGesture(ApplePencilGestureType gesture) {
+    if (!mounted) return;
+    if (ModalRoute.of(context)?.isCurrent != true) return;
+
+    switch (gesture) {
+      case ApplePencilGestureType.doubleTap:
+        stows.stylusDetected.value = true;
+        stows.applePencilDoubleTapDetected.value = true;
+        _performApplePencilGestureAction(
+          stows.applePencilDoubleTapAction.value,
+        );
+      case ApplePencilGestureType.squeeze:
+        final now = DateTime.now();
+        final lastSqueeze = _lastApplePencilSqueeze;
+        if (lastSqueeze != null &&
+            now.difference(lastSqueeze) < const Duration(milliseconds: 500)) {
+          return;
+        }
+
+        _lastApplePencilSqueeze = now;
+        stows.stylusDetected.value = true;
+        stows.applePencilSqueezeDetected.value = true;
+        _performApplePencilGestureAction(stows.applePencilSqueezeAction.value);
+    }
   }
 
   /// Creates pages until the given page index exists,
@@ -732,6 +773,11 @@ class EditorState extends State<Editor> {
   void updatePointerData(PointerDeviceKind kind, double? pressure) {
     currentPointerKind = kind;
     currentPressure = pressure;
+    if (kind == PointerDeviceKind.stylus ||
+        kind == PointerDeviceKind.invertedStylus ||
+        pressure != null) {
+      stows.stylusDetected.value = true;
+    }
   }
 
   void onHovering() {
@@ -759,6 +805,50 @@ class EditorState extends State<Editor> {
     }
 
     if (mounted) setState(() {});
+  }
+
+  void _setTool(Tool tool) {
+    if (tool is Eraser && currentTool is Eraser) {
+      // setTool(Eraser) is a special case to toggle the eraser on/off
+      tool = _lastNonEraserTool;
+    }
+
+    currentTool = tool;
+
+    if (tool is Highlighter) {
+      Highlighter.currentHighlighter = tool;
+    } else if (tool is Pencil) {
+      Pencil.currentPencil = tool;
+    } else if (tool is Pen) {
+      Pen.currentPen = tool;
+    }
+
+    if (mounted) setState(() {});
+  }
+
+  void _performApplePencilGestureAction(ApplePencilGestureAction action) {
+    switch (action) {
+      case .none:
+        return;
+      case .toggleEraser:
+        _setTool(Eraser());
+      case .toggleColors:
+        toggleColorOptionsSignal.value++;
+      case .fountainPen:
+        _setTool(Pen.fountainPen());
+      case .ballpointPen:
+        _setTool(Pen.ballpointPen());
+      case .pencil:
+        _setTool(Pencil.currentPencil);
+      case .highlighter:
+        _setTool(Highlighter.currentHighlighter);
+      case .shapePen:
+        _setTool(ShapePen());
+      case .select:
+        _setTool(Select.currentSelect);
+      case .laserPointer:
+        _setTool(LaserPointer.currentLaserPointer);
+    }
   }
 
   void onMoveImage(EditorImage image, Rect offset) {
@@ -1423,25 +1513,9 @@ class EditorState extends State<Editor> {
         bottom: stows.editorToolbarAlignment.value != AxisDirection.up,
         child: Toolbar(
           readOnly: coreInfo.readOnly,
-          setTool: (tool) {
-            if (tool is Eraser && currentTool is Eraser) {
-              // setTool(Eraser) is a special case to toggle the eraser on/off
-              tool = _lastNonEraserTool;
-            }
-
-            currentTool = tool;
-
-            if (tool is Highlighter) {
-              Highlighter.currentHighlighter = tool;
-            } else if (tool is Pencil) {
-              Pencil.currentPencil = tool;
-            } else if (tool is Pen) {
-              Pen.currentPen = tool;
-            }
-
-            if (mounted) setState(() {});
-          },
+          setTool: _setTool,
           currentTool: currentTool,
+          toggleColorOptionsSignal: toggleColorOptionsSignal,
           duplicateSelection: () {
             final select = currentTool as Select;
             if (!select.doneSelecting) return;
@@ -2071,6 +2145,7 @@ class EditorState extends State<Editor> {
     _lastSeenPointerCountTimer?.cancel();
 
     _removeKeybindings();
+    unawaited(_applePencilGestureSubscription?.cancel());
 
     // manually save pen properties since the listeners don't fire if a property is changed
     stows.lastFountainPenOptions.notifyListeners();
@@ -2078,6 +2153,7 @@ class EditorState extends State<Editor> {
     stows.lastHighlighterOptions.notifyListeners();
     stows.lastPencilOptions.notifyListeners();
     stows.lastShapePenOptions.notifyListeners();
+    toggleColorOptionsSignal.dispose();
 
     super.dispose();
   }

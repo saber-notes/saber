@@ -7,6 +7,7 @@ import 'package:logging/logging.dart';
 import 'package:perfect_freehand/perfect_freehand.dart';
 import 'package:saber/components/navbar/responsive_navbar.dart';
 import 'package:saber/components/settings/nextcloud_profile.dart';
+import 'package:saber/data/apple_pencil_gesture_action.dart';
 import 'package:saber/data/codecs/base64_codec.dart';
 import 'package:saber/data/codecs/quota_codec.dart';
 import 'package:saber/data/flavor_config.dart';
@@ -202,6 +203,33 @@ class Stows {
   final hideFingerDrawingToggle = PlainStow(
     'hideFingerDrawingToggle',
     false,
+    volatile: !_isOnMainIsolate,
+  );
+  final stylusDetected = PlainStow(
+    'stylusDetected',
+    false,
+    volatile: !_isOnMainIsolate,
+  );
+  final applePencilDoubleTapDetected = PlainStow(
+    'applePencilDoubleTapDetected',
+    false,
+    volatile: !_isOnMainIsolate,
+  );
+  final applePencilSqueezeDetected = PlainStow(
+    'applePencilSqueezeDetected',
+    false,
+    volatile: !_isOnMainIsolate,
+  );
+  final applePencilDoubleTapAction = PlainStow(
+    'applePencilDoubleTapAction',
+    ApplePencilGestureAction.toggleEraser,
+    codec: ApplePencilGestureAction.codec,
+    volatile: !_isOnMainIsolate,
+  );
+  final applePencilSqueezeAction = PlainStow(
+    'applePencilSqueezeAction',
+    ApplePencilGestureAction.toggleColors,
+    codec: ApplePencilGestureAction.codec,
     volatile: !_isOnMainIsolate,
   );
 
