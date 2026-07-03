@@ -138,10 +138,7 @@ class _BrowsePageState extends State<BrowsePage> {
             actions: const [SyncingButton()],
           ),
           SliverToBoxAdapter(
-            child: PathComponents(
-              path,
-              onPathComponentTap: onPathComponentTap,
-            ),
+            child: PathComponents(path, onPathComponentTap: onPathComponentTap),
           ),
           const SliverPadding(padding: .only(bottom: 16)),
           GridFolders(
@@ -177,9 +174,7 @@ class _BrowsePageState extends State<BrowsePage> {
           if (children == null) ...[
             // loading
           ] else if (children!.isEmpty) ...[
-            const SliverSafeArea(
-              sliver: SliverToBoxAdapter(child: NoFiles()),
-            ),
+            const SliverSafeArea(sliver: SliverToBoxAdapter(child: NoFiles())),
           ] else ...[
             SliverSafeArea(
               top: false,
