@@ -114,53 +114,45 @@ class _RecentPageState extends State<RecentPage> {
     final platform = Theme.of(context).platform;
     final crossAxisCount = MediaQuery.sizeOf(context).width ~/ 300 + 1;
     return Scaffold(
-      body: RefreshIndicator(
-        onRefresh: () => Future.wait([
-          findRecentlyAccessedNotes(),
-          Future.delayed(const Duration(milliseconds: 500)),
-        ]),
-        child: CustomScrollView(
-          slivers: [
-            SliverPadding(
-              padding: const .only(bottom: 8),
-              sliver: SliverAppBar(
-                collapsedHeight: kToolbarHeight,
-                expandedHeight: 200,
-                pinned: true,
-                scrolledUnderElevation: 1,
-                flexibleSpace: FlexibleSpaceBar(
-                  title: Text(
-                    t.home.titles.home,
-                    style: TextStyle(color: colorScheme.onSurface),
-                  ),
-                  centerTitle: false,
-                  titlePadding: const EdgeInsetsDirectional.only(
-                    start: 16,
-                    bottom: 16,
-                  ),
+      body: CustomScrollView(
+        slivers: [
+          SliverPadding(
+            padding: const .only(bottom: 8),
+            sliver: SliverAppBar(
+              collapsedHeight: kToolbarHeight,
+              expandedHeight: 200,
+              pinned: true,
+              scrolledUnderElevation: 1,
+              flexibleSpace: FlexibleSpaceBar(
+                title: Text(
+                  t.home.titles.home,
+                  style: TextStyle(color: colorScheme.onSurface),
                 ),
-                actions: const [SyncingButton()],
+                centerTitle: false,
+                titlePadding: const EdgeInsetsDirectional.only(
+                  start: 16,
+                  bottom: 16,
+                ),
+              ),
+              actions: const [SyncingButton()],
+            ),
+          ),
+          if (failed) ...[
+            const SliverSafeArea(sliver: SliverToBoxAdapter(child: Welcome())),
+          ] else ...[
+            SliverSafeArea(
+              minimum: const .only(
+                // Allow space for the FloatingActionButton
+                bottom: 70,
+              ),
+              sliver: MasonryFiles(
+                crossAxisCount: crossAxisCount,
+                files: [for (final filePath in filePaths) filePath],
+                selectedFiles: selectedFiles,
               ),
             ),
-            if (failed) ...[
-              const SliverSafeArea(
-                sliver: SliverToBoxAdapter(child: Welcome()),
-              ),
-            ] else ...[
-              SliverSafeArea(
-                minimum: const .only(
-                  // Allow space for the FloatingActionButton
-                  bottom: 70,
-                ),
-                sliver: MasonryFiles(
-                  crossAxisCount: crossAxisCount,
-                  files: [for (final filePath in filePaths) filePath],
-                  selectedFiles: selectedFiles,
-                ),
-              ),
-            ],
           ],
-        ),
+        ],
       ),
       floatingActionButton: NewNoteButton(cupertino: platform.isCupertino),
       persistentFooterButtons: selectedFiles.value.isEmpty
