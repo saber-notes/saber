@@ -47,8 +47,6 @@ Future<void> main(List<String> args) async {
 
 Future<void> appRunner(List<String> args) async {
   WidgetsFlutterBinding.ensureInitialized();
-  if (Platform.isWindows || Platform.isLinux || Platform.isMacOS)
-    await YaruWindowTitleBar.ensureInitialized();
 
   final parser = ArgParser()..addFlag('verbose', abbr: 'v', negatable: false);
   final parsedArgs = parser.parse(args);
@@ -90,6 +88,8 @@ Future<void> appRunner(List<String> args) async {
     stows.customDataDir.waitUntilRead().then((_) => FileManager.init()),
     if (Platform.isWindows || Platform.isLinux || Platform.isMacOS)
       windowManager.ensureInitialized(),
+    if (Platform.isWindows)
+      YaruWindowTitleBar.ensureInitialized(),
     workerManager.init(),
     stows.locale.waitUntilRead(),
     stows.url.waitUntilRead(),
