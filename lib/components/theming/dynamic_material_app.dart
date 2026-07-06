@@ -93,31 +93,6 @@ class DynamicMaterialAppState extends State<DynamicMaterialApp>
       chosenAccentColor = null; // discard transparent accent color
     useListenable(stows.hyperlegibleFont);
 
-    // Helper to build the app with optional desktop window shell
-    TransitionBuilder? buildWithDesktopShell(TransitionBuilder? builder) {
-      if (platform == .windows) {
-        return (context, child) => Scaffold(
-          appBar: YaruWindowTitleBar(
-            title: Row(
-              children: [
-                SizedBox(
-                  width: 16,
-                  height: 16,
-                  child: SvgPicture.asset('assets/icon/icon.svg'),
-                ),
-                const SizedBox(width: 8),
-                const Text('Saber'),
-              ],
-            ),
-            centerTitle: false,
-            buttonPadding: const EdgeInsets.only(bottom: 1),
-          ),
-          body: child,
-        );
-      }
-      return builder;
-    }
-
     // Use Yaru theme, with or without [chosenAccentColor]
     if (platform == .linux) {
       return YaruBuilder(
@@ -132,7 +107,6 @@ class DynamicMaterialAppState extends State<DynamicMaterialApp>
             darkTheme: themes.darkTheme,
             highContrastTheme: themes.highContrastTheme,
             highContrastDarkTheme: themes.highContrastDarkTheme,
-            builder: buildWithDesktopShell(null),
           );
         },
       );
@@ -154,7 +128,6 @@ class DynamicMaterialAppState extends State<DynamicMaterialApp>
           .dark,
           platform,
         ),
-        builder: buildWithDesktopShell(null),
       );
     }
 
@@ -179,7 +152,6 @@ class DynamicMaterialAppState extends State<DynamicMaterialApp>
                   .dark,
                   platform,
                 ),
-          builder: buildWithDesktopShell(null),
         );
       },
     );
@@ -191,6 +163,34 @@ class DynamicMaterialAppState extends State<DynamicMaterialApp>
     SystemChrome.setSystemUIChangeCallback(null);
 
     super.dispose();
+  }
+}
+
+class _WindowsTitleBarWrapper extends StatelessWidget {
+  const _WindowsTitleBarWrapper({required this.child});
+
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: YaruWindowTitleBar(
+        title: Row(
+          children: [
+            SizedBox(
+              width: 16,
+              height: 16,
+              child: SvgPicture.asset('assets/icon/icon.svg'),
+            ),
+            const SizedBox(width: 8),
+            const Text('Saber'),
+          ],
+        ),
+        centerTitle: false,
+        buttonPadding: const EdgeInsets.only(bottom: 1),
+      ),
+      body: child,
+    );
   }
 }
 
@@ -257,7 +257,9 @@ class ExplicitlyThemedApp extends StatelessWidget {
       highContrastTheme: highContrastTheme,
       highContrastDarkTheme: highContrastDarkTheme,
       debugShowCheckedModeBanner: false,
-      builder: builder,
+      builder: theme.platform == .windows
+          ? (context, child) => _WindowsTitleBarWrapper(child: child ?? const SizedBox.shrink())
+          : null,
     );
   }
 }
