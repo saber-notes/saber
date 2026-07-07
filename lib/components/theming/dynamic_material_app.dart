@@ -258,8 +258,10 @@ class ExplicitlyThemedApp extends StatelessWidget {
       highContrastDarkTheme: highContrastDarkTheme,
       debugShowCheckedModeBanner: false,
       builder: theme.platform == .windows
-          ? (context, child) => _WindowsTitleBarWrapper(child: child ?? const SizedBox.shrink())
-          : null,
+          ? (context, child) => _WindowsTitleBarWrapper(
+              child: builder?.call(context, child) ?? child ?? const SizedBox.shrink(),
+            )
+          : builder,
     );
   }
 }
