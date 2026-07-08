@@ -105,6 +105,7 @@ class Translations$home$en {
 	late final Translations$home$deleteNoteDialog$en deleteNoteDialog = Translations$home$deleteNoteDialog$en.internal(_root);
 	late final Translations$home$renameFolder$en renameFolder = Translations$home$renameFolder$en.internal(_root);
 	late final Translations$home$deleteFolder$en deleteFolder = Translations$home$deleteFolder$en.internal(_root);
+	late final Translations$home$sort$en sort = Translations$home$sort$en.internal(_root);
 }
 
 // Path: sentry
@@ -552,6 +553,30 @@ class Translations$home$deleteFolder$en {
 
 	/// en: 'Also delete all notes inside this folder'
 	String get alsoDeleteContents => 'Also delete all notes inside this folder';
+}
+
+// Path: home.sort
+class Translations$home$sort$en {
+	Translations$home$sort$en.internal(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+
+	/// en: 'Sort by'
+	String get sortBy => 'Sort by';
+
+	/// en: 'Name (A-Z)'
+	String get nameAToZ => 'Name (A-Z)';
+
+	/// en: 'Name (Z-A)'
+	String get nameZToA => 'Name (Z-A)';
+
+	/// en: 'Edited (Newest first)'
+	String get lastModifiedNewToOld => 'Edited (Newest first)';
+
+	/// en: 'Edited (Oldest first)'
+	String get lastModifiedOldToNew => 'Edited (Oldest first)';
 }
 
 // Path: sentry.consent

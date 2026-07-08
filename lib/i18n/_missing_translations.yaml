@@ -14,6 +14,12 @@ ar:
         one: Permanently delete the selected note?
         other: Permanently delete the selected notes?
       delete(OUTDATED): Delete
+    sort:
+      sortBy: Sort by
+      nameAToZ: Name (A-Z)
+      nameZToA: Name (Z-A)
+      lastModifiedNewToOld: Edited (Newest first)
+      lastModifiedOldToNew: Edited (Oldest first)
   sentry:
     consent:
       title(OUTDATED): Help improve Saber?
@@ -68,6 +74,12 @@ ca:
         one: Permanently delete the selected note?
         other: Permanently delete the selected notes?
       delete(OUTDATED): Delete
+    sort:
+      sortBy: Sort by
+      nameAToZ: Name (A-Z)
+      nameZToA: Name (Z-A)
+      lastModifiedNewToOld: Edited (Newest first)
+      lastModifiedOldToNew: Edited (Oldest first)
   sentry:
     consent:
       description:
@@ -248,7 +260,21 @@ ca:
       lockSingleFingerPan(OUTDATED): Disable single-finger panning
       unlockAxisAlignedPan(OUTDATED): Unlock panning to horizontal or vertical
 cs:
+  home:
+    sort:
+      sortBy: Sort by
+      nameAToZ: Name (A-Z)
+      nameZToA: Name (Z-A)
+      lastModifiedNewToOld: Edited (Newest first)
+      lastModifiedOldToNew: Edited (Oldest first)
 de:
+  home:
+    sort:
+      sortBy: Sort by
+      nameAToZ: Name (A-Z)
+      nameZToA: Name (Z-A)
+      lastModifiedNewToOld: Edited (Newest first)
+      lastModifiedOldToNew: Edited (Oldest first)
 eo:
   home:
     renameNote:
@@ -261,6 +287,12 @@ eo:
         one: Permanently delete the selected note?
         other: Permanently delete the selected notes?
       delete(OUTDATED): Delete
+    sort:
+      sortBy: Sort by
+      nameAToZ: Name (A-Z)
+      nameZToA: Name (Z-A)
+      lastModifiedNewToOld: Edited (Newest first)
+      lastModifiedOldToNew: Edited (Oldest first)
   settings:
     prefLabels:
       autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Auto-disable finger drawing
@@ -275,6 +307,12 @@ es:
     deleteNoteDialog:
       deleteNotes(OUTDATED): Delete $n notes
       deleteName(OUTDATED): Delete $f
+    sort:
+      sortBy: Sort by
+      nameAToZ: Name (A-Z)
+      nameZToA: Name (Z-A)
+      lastModifiedNewToOld: Edited (Newest first)
+      lastModifiedOldToNew: Edited (Oldest first)
   settings:
     prefDescriptions:
       autosave(OUTDATED): Auto-save after a short delay, or never
@@ -372,6 +410,12 @@ fa:
         one: Permanently delete the selected note?
         other: Permanently delete the selected notes?
       delete(OUTDATED): Delete
+    sort:
+      sortBy: Sort by
+      nameAToZ: Name (A-Z)
+      nameZToA: Name (Z-A)
+      lastModifiedNewToOld: Edited (Newest first)
+      lastModifiedOldToNew: Edited (Oldest first)
   sentry:
     consent:
       title(OUTDATED): Help improve Saber?
@@ -485,6 +529,12 @@ fr:
         one: Permanently delete the selected note?
         other: Permanently delete the selected notes?
       delete(OUTDATED): Delete
+    sort:
+      sortBy: Sort by
+      nameAToZ: Name (A-Z)
+      nameZToA: Name (Z-A)
+      lastModifiedNewToOld: Edited (Newest first)
+      lastModifiedOldToNew: Edited (Oldest first)
   sentry:
     consent:
       title(OUTDATED): Help improve Saber?
@@ -583,9 +633,37 @@ fr:
       watchingServer(OUTDATED): You are currently watching for updates on the server. Editing is disabled in this mode.
       corrupted(OUTDATED): Failed to load note. It may be corrupted or still being downloaded.
 he:
+  home:
+    sort:
+      sortBy: Sort by
+      nameAToZ: Name (A-Z)
+      nameZToA: Name (Z-A)
+      lastModifiedNewToOld: Edited (Newest first)
+      lastModifiedOldToNew: Edited (Oldest first)
 hu:
+  home:
+    sort:
+      sortBy: Sort by
+      nameAToZ: Name (A-Z)
+      nameZToA: Name (Z-A)
+      lastModifiedNewToOld: Edited (Newest first)
+      lastModifiedOldToNew: Edited (Oldest first)
 it:
+  home:
+    sort:
+      sortBy: Sort by
+      nameAToZ: Name (A-Z)
+      nameZToA: Name (Z-A)
+      lastModifiedNewToOld: Edited (Newest first)
+      lastModifiedOldToNew: Edited (Oldest first)
 ja:
+  home:
+    sort:
+      sortBy: Sort by
+      nameAToZ: Name (A-Z)
+      nameZToA: Name (Z-A)
+      lastModifiedNewToOld: Edited (Newest first)
+      lastModifiedOldToNew: Edited (Oldest first)
   settings:
     prefLabels:
       hideFingerDrawingToggle(OUTDATED): Hide the finger drawing toggle
@@ -605,7 +683,21 @@ ja:
     menu:
       backgroundImageFit(OUTDATED): Background image fit
 nl:
+  home:
+    sort:
+      sortBy: Sort by
+      nameAToZ: Name (A-Z)
+      nameZToA: Name (Z-A)
+      lastModifiedNewToOld: Edited (Newest first)
+      lastModifiedOldToNew: Edited (Oldest first)
 pl:
+  home:
+    sort:
+      sortBy: Sort by
+      nameAToZ: Name (A-Z)
+      nameZToA: Name (Z-A)
+      lastModifiedNewToOld: Edited (Newest first)
+      lastModifiedOldToNew: Edited (Oldest first)
 ru:
   home:
     deleteNoteDialog:
@@ -615,6 +707,12 @@ ru:
         one: Permanently delete the selected note?
         other: Permanently delete the selected notes?
       delete(OUTDATED): Delete
+    sort:
+      sortBy: Sort by
+      nameAToZ: Name (A-Z)
+      nameZToA: Name (Z-A)
+      lastModifiedNewToOld: Edited (Newest first)
+      lastModifiedOldToNew: Edited (Oldest first)
 sl:
   home:
     deleteNoteDialog:
@@ -624,6 +722,12 @@ sl:
         one: Permanently delete the selected note?
         other: Permanently delete the selected notes?
       delete(OUTDATED): Delete
+    sort:
+      sortBy: Sort by
+      nameAToZ: Name (A-Z)
+      nameZToA: Name (Z-A)
+      lastModifiedNewToOld: Edited (Newest first)
+      lastModifiedOldToNew: Edited (Oldest first)
 th:
   home:
     deleteNoteDialog:
@@ -633,6 +737,12 @@ th:
         one: Permanently delete the selected note?
         other: Permanently delete the selected notes?
       delete(OUTDATED): Delete
+    sort:
+      sortBy: Sort by
+      nameAToZ: Name (A-Z)
+      nameZToA: Name (Z-A)
+      lastModifiedNewToOld: Edited (Newest first)
+      lastModifiedOldToNew: Edited (Oldest first)
   editor:
     readOnlyBanner:
       watchingServer(OUTDATED): You are currently watching for updates on the server. Editing is disabled in this mode.
@@ -650,6 +760,12 @@ tr:
         one: Permanently delete the selected note?
         other: Permanently delete the selected notes?
       delete(OUTDATED): Delete
+    sort:
+      sortBy: Sort by
+      nameAToZ: Name (A-Z)
+      nameZToA: Name (Z-A)
+      lastModifiedNewToOld: Edited (Newest first)
+      lastModifiedOldToNew: Edited (Oldest first)
   sentry:
     consent:
       title(OUTDATED): Help improve Saber?
@@ -755,6 +871,12 @@ uk:
       deleteName(OUTDATED): Delete $f
       delete(OUTDATED): Delete
       alsoDeleteContents(OUTDATED): Also delete all notes inside this folder
+    sort:
+      sortBy: Sort by
+      nameAToZ: Name (A-Z)
+      nameZToA: Name (Z-A)
+      lastModifiedNewToOld: Edited (Newest first)
+      lastModifiedOldToNew: Edited (Oldest first)
   sentry:
     consent:
       title(OUTDATED): Help improve Saber?
@@ -1032,7 +1154,20 @@ vi:
         one: Permanently delete the selected note?
         other: Permanently delete the selected notes?
       delete(OUTDATED): Delete
+    sort:
+      sortBy: Sort by
+      nameAToZ: Name (A-Z)
+      nameZToA: Name (Z-A)
+      lastModifiedNewToOld: Edited (Newest first)
+      lastModifiedOldToNew: Edited (Oldest first)
 pt-BR:
+  home:
+    sort:
+      sortBy: Sort by
+      nameAToZ: Name (A-Z)
+      nameZToA: Name (Z-A)
+      lastModifiedNewToOld: Edited (Newest first)
+      lastModifiedOldToNew: Edited (Oldest first)
   settings:
     prefLabels:
       simplifiedHomeLayout(OUTDATED): Simplified home layout
@@ -1133,4 +1268,18 @@ pt-BR:
       watchingServer(OUTDATED): You are currently watching for updates on the server. Editing is disabled in this mode.
       corrupted(OUTDATED): Failed to load note. It may be corrupted or still being downloaded.
 zh-Hans-CN:
+  home:
+    sort:
+      sortBy: Sort by
+      nameAToZ: Name (A-Z)
+      nameZToA: Name (Z-A)
+      lastModifiedNewToOld: Edited (Newest first)
+      lastModifiedOldToNew: Edited (Oldest first)
 zh-Hant-TW:
+  home:
+    sort:
+      sortBy: Sort by
+      nameAToZ: Name (A-Z)
+      nameZToA: Name (Z-A)
+      lastModifiedNewToOld: Edited (Newest first)
+      lastModifiedOldToNew: Edited (Oldest first)

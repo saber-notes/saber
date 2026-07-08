@@ -5,6 +5,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
 import 'package:perfect_freehand/perfect_freehand.dart';
+import 'package:saber/components/home/sort_button.dart';
 import 'package:saber/components/navbar/responsive_navbar.dart';
 import 'package:saber/components/settings/nextcloud_profile.dart';
 import 'package:saber/data/codecs/base64_codec.dart';
@@ -336,6 +337,11 @@ class Stows {
         volatile: !_isOnMainIsolate,
       );
 
+  final browseSortMetric = PlainStow(
+    'browseSortMetric',
+    SortMetric.nameAToZ,
+    codec: SortMetric.codec,
+  );
   final recentFiles = PlainStow(
     'recentFiles',
     <String>[],

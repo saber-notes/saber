@@ -69,6 +69,12 @@ home:
     deleteName: Delete $f
     delete: Delete
     alsoDeleteContents: Also delete all notes inside this folder
+  sort:
+    sortBy: Sort by
+    nameAToZ: Name (A-Z)
+    nameZToA: Name (Z-A)
+    lastModifiedNewToOld: Edited (Newest first)
+    lastModifiedOldToNew: Edited (Oldest first)
 sentry:
   consent:
     title: Help improve Saber?
