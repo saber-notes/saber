@@ -1,0 +1,3 @@
+• A página de navegação agora está ordenada alfabeticamente por padrão. Você pode personalizar a ordenação com o botão no topo.
+• Corrigido um travamento em certos dispositivos Android.
+• Removida a funcionalidade de rolar para atualizar porque estava confusa.

@@ -1,0 +1,3 @@
+• Stránka procházení je nyní výchozířím řazena abecedně. Můžete přizpůsobit řazení pomocí tlačítka nahoře.
+• Opraven krach na některých zařízeních Android.
+• Odstraněna funkce pro obnovení sklouznutím nahoru, protože byla matoucí.

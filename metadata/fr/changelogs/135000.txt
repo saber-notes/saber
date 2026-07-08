@@ -1,0 +1,3 @@
+• La page de navigation est désormais triée par ordre alphabétique par défaut. Vous pouvez personnaliser le tri avec le bouton en haut.
+• Correction d'un plant sur certains appareils Android.
+• Suppression de la fonctionnalité de défilement vers le haut pour actualiser car elle était source de confusion.

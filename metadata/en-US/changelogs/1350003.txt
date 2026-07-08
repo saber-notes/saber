@@ -1,0 +1,3 @@
+• The browse page is now sorted alphabetically by default. You can customize the sort with the button at the top.
+• Fixed a crash on certain Android devices.
+• Removed the scroll up to refresh functionality because it was confusing.
