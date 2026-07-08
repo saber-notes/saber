@@ -8,6 +8,7 @@ import 'package:path/path.dart' as p;
 import 'package:saber/components/home/delete_note_button.dart';
 import 'package:saber/components/home/export_note_button.dart';
 import 'package:saber/components/home/grid_folders.dart';
+import 'package:saber/components/home/home_layout_button.dart';
 import 'package:saber/components/home/masonry_files.dart';
 import 'package:saber/components/home/move_note_button.dart';
 import 'package:saber/components/home/new_note_button.dart';
@@ -121,6 +122,7 @@ class _BrowsePageState extends State<BrowsePage> {
     final colorScheme = ColorScheme.of(context);
     final platform = Theme.of(context).platform;
     final crossAxisCount = MediaQuery.sizeOf(context).width ~/ 300 + 1;
+    useListenable(stows.homeLayout);
     useOnListenableChange(stows.browseSortMetric, findChildrenOfPath);
 
     return Scaffold(
@@ -144,7 +146,9 @@ class _BrowsePageState extends State<BrowsePage> {
             ),
             actions: const [
               BrowseSortButton(),
-              SyncingButton()],
+              HomeLayoutButton(),
+              SyncingButton(),
+            ],
           ),
           SliverToBoxAdapter(
             child: PathComponents(path, onPathComponentTap: onPathComponentTap),

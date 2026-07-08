@@ -2,10 +2,12 @@ import 'dart:async';
 
 import 'package:collapsible/collapsible.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:go_router/go_router.dart';
 import 'package:logging/logging.dart';
 import 'package:saber/components/home/delete_note_button.dart';
 import 'package:saber/components/home/export_note_button.dart';
+import 'package:saber/components/home/home_layout_button.dart';
 import 'package:saber/components/home/masonry_files.dart';
 import 'package:saber/components/home/move_note_button.dart';
 import 'package:saber/components/home/new_note_button.dart';
@@ -18,7 +20,7 @@ import 'package:saber/data/prefs.dart';
 import 'package:saber/data/routes.dart';
 import 'package:saber/i18n/strings.g.dart';
 
-class RecentPage extends StatefulWidget {
+class RecentPage extends StatefulHookWidget {
   const RecentPage({super.key});
 
   @override
@@ -113,6 +115,8 @@ class _RecentPageState extends State<RecentPage> {
     final colorScheme = ColorScheme.of(context);
     final platform = Theme.of(context).platform;
     final crossAxisCount = MediaQuery.sizeOf(context).width ~/ 300 + 1;
+    useListenable(stows.homeLayout);
+
     return Scaffold(
       body: CustomScrollView(
         slivers: [
@@ -134,7 +138,7 @@ class _RecentPageState extends State<RecentPage> {
                   bottom: 16,
                 ),
               ),
-              actions: const [SyncingButton()],
+              actions: const [HomeLayoutButton(), SyncingButton()],
             ),
           ),
           if (failed) ...[

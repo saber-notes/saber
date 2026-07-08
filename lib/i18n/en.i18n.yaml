@@ -75,6 +75,10 @@ home:
     nameZToA: Name (Z-A)
     lastModifiedNewToOld: Edited (Newest first)
     lastModifiedOldToNew: Edited (Oldest first)
+  layout:
+    layout: Layout
+    masonryGrid: Masonry grid
+    simpleGrid: Simple grid
 sentry:
   consent:
     title: Help improve Saber?

@@ -106,6 +106,7 @@ class Translations$home$en {
 	late final Translations$home$renameFolder$en renameFolder = Translations$home$renameFolder$en.internal(_root);
 	late final Translations$home$deleteFolder$en deleteFolder = Translations$home$deleteFolder$en.internal(_root);
 	late final Translations$home$sort$en sort = Translations$home$sort$en.internal(_root);
+	late final Translations$home$layout$en layout = Translations$home$layout$en.internal(_root);
 }
 
 // Path: sentry
@@ -577,6 +578,24 @@ class Translations$home$sort$en {
 
 	/// en: 'Edited (Oldest first)'
 	String get lastModifiedOldToNew => 'Edited (Oldest first)';
+}
+
+// Path: home.layout
+class Translations$home$layout$en {
+	Translations$home$layout$en.internal(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+
+	/// en: 'Layout'
+	String get layout => 'Layout';
+
+	/// en: 'Masonry grid'
+	String get masonryGrid => 'Masonry grid';
+
+	/// en: 'Simple grid'
+	String get simpleGrid => 'Simple grid';
 }
 
 // Path: sentry.consent

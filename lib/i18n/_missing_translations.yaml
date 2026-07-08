@@ -20,6 +20,10 @@ ar:
       nameZToA: Name (Z-A)
       lastModifiedNewToOld: Edited (Newest first)
       lastModifiedOldToNew: Edited (Oldest first)
+    layout:
+      layout: Layout
+      masonryGrid: Masonry grid
+      simpleGrid: Simple grid
   sentry:
     consent:
       title(OUTDATED): Help improve Saber?
@@ -80,6 +84,10 @@ ca:
       nameZToA: Name (Z-A)
       lastModifiedNewToOld: Edited (Newest first)
       lastModifiedOldToNew: Edited (Oldest first)
+    layout:
+      layout: Layout
+      masonryGrid: Masonry grid
+      simpleGrid: Simple grid
   sentry:
     consent:
       description:
@@ -265,6 +273,10 @@ cs:
       nameZToA: Name (Z-A)
       lastModifiedNewToOld: Edited (Newest first)
       lastModifiedOldToNew: Edited (Oldest first)
+    layout:
+      layout: Layout
+      masonryGrid: Masonry grid
+      simpleGrid: Simple grid
 de:
   home:
     sort:
@@ -273,6 +285,10 @@ de:
       nameZToA: Name (Z-A)
       lastModifiedNewToOld: Edited (Newest first)
       lastModifiedOldToNew: Edited (Oldest first)
+    layout:
+      layout: Layout
+      masonryGrid: Masonry grid
+      simpleGrid: Simple grid
 eo:
   home:
     renameNote:
@@ -291,6 +307,10 @@ eo:
       nameZToA: Name (Z-A)
       lastModifiedNewToOld: Edited (Newest first)
       lastModifiedOldToNew: Edited (Oldest first)
+    layout:
+      layout: Layout
+      masonryGrid: Masonry grid
+      simpleGrid: Simple grid
   settings:
     prefLabels:
       autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Auto-disable finger drawing
@@ -311,6 +331,10 @@ es:
       nameZToA: Name (Z-A)
       lastModifiedNewToOld: Edited (Newest first)
       lastModifiedOldToNew: Edited (Oldest first)
+    layout:
+      layout: Layout
+      masonryGrid: Masonry grid
+      simpleGrid: Simple grid
   settings:
     prefDescriptions:
       autosave(OUTDATED): Auto-save after a short delay, or never
@@ -413,6 +437,10 @@ fa:
       nameZToA: Name (Z-A)
       lastModifiedNewToOld: Edited (Newest first)
       lastModifiedOldToNew: Edited (Oldest first)
+    layout:
+      layout: Layout
+      masonryGrid: Masonry grid
+      simpleGrid: Simple grid
   sentry:
     consent:
       title(OUTDATED): Help improve Saber?
@@ -530,6 +558,10 @@ fr:
       nameZToA: Name (Z-A)
       lastModifiedNewToOld: Edited (Newest first)
       lastModifiedOldToNew: Edited (Oldest first)
+    layout:
+      layout: Layout
+      masonryGrid: Masonry grid
+      simpleGrid: Simple grid
   sentry:
     consent:
       title(OUTDATED): Help improve Saber?
@@ -633,6 +665,10 @@ he:
       nameZToA: Name (Z-A)
       lastModifiedNewToOld: Edited (Newest first)
       lastModifiedOldToNew: Edited (Oldest first)
+    layout:
+      layout: Layout
+      masonryGrid: Masonry grid
+      simpleGrid: Simple grid
 hu:
   home:
     sort:
@@ -641,6 +677,10 @@ hu:
       nameZToA: Name (Z-A)
       lastModifiedNewToOld: Edited (Newest first)
       lastModifiedOldToNew: Edited (Oldest first)
+    layout:
+      layout: Layout
+      masonryGrid: Masonry grid
+      simpleGrid: Simple grid
 it:
   home:
     sort:
@@ -649,6 +689,10 @@ it:
       nameZToA: Name (Z-A)
       lastModifiedNewToOld: Edited (Newest first)
       lastModifiedOldToNew: Edited (Oldest first)
+    layout:
+      layout: Layout
+      masonryGrid: Masonry grid
+      simpleGrid: Simple grid
 ja:
   home:
     sort:
@@ -657,6 +701,10 @@ ja:
       nameZToA: Name (Z-A)
       lastModifiedNewToOld: Edited (Newest first)
       lastModifiedOldToNew: Edited (Oldest first)
+    layout:
+      layout: Layout
+      masonryGrid: Masonry grid
+      simpleGrid: Simple grid
   settings:
     prefLabels:
       hideFingerDrawingToggle(OUTDATED): Hide the finger drawing toggle
@@ -682,6 +730,10 @@ nl:
       nameZToA: Name (Z-A)
       lastModifiedNewToOld: Edited (Newest first)
       lastModifiedOldToNew: Edited (Oldest first)
+    layout:
+      layout: Layout
+      masonryGrid: Masonry grid
+      simpleGrid: Simple grid
 pl:
   home:
     sort:
@@ -690,6 +742,10 @@ pl:
       nameZToA: Name (Z-A)
       lastModifiedNewToOld: Edited (Newest first)
       lastModifiedOldToNew: Edited (Oldest first)
+    layout:
+      layout: Layout
+      masonryGrid: Masonry grid
+      simpleGrid: Simple grid
 ru:
   home:
     deleteNoteDialog:
@@ -705,6 +761,10 @@ ru:
       nameZToA: Name (Z-A)
       lastModifiedNewToOld: Edited (Newest first)
       lastModifiedOldToNew: Edited (Oldest first)
+    layout:
+      layout: Layout
+      masonryGrid: Masonry grid
+      simpleGrid: Simple grid
 sl:
   home:
     deleteNoteDialog:
@@ -720,6 +780,10 @@ sl:
       nameZToA: Name (Z-A)
       lastModifiedNewToOld: Edited (Newest first)
       lastModifiedOldToNew: Edited (Oldest first)
+    layout:
+      layout: Layout
+      masonryGrid: Masonry grid
+      simpleGrid: Simple grid
 th:
   home:
     deleteNoteDialog:
@@ -735,6 +799,10 @@ th:
       nameZToA: Name (Z-A)
       lastModifiedNewToOld: Edited (Newest first)
       lastModifiedOldToNew: Edited (Oldest first)
+    layout:
+      layout: Layout
+      masonryGrid: Masonry grid
+      simpleGrid: Simple grid
   editor:
     readOnlyBanner:
       watchingServer(OUTDATED): You are currently watching for updates on the server. Editing is disabled in this mode.
@@ -758,6 +826,10 @@ tr:
       nameZToA: Name (Z-A)
       lastModifiedNewToOld: Edited (Newest first)
       lastModifiedOldToNew: Edited (Oldest first)
+    layout:
+      layout: Layout
+      masonryGrid: Masonry grid
+      simpleGrid: Simple grid
   sentry:
     consent:
       title(OUTDATED): Help improve Saber?
@@ -869,6 +941,10 @@ uk:
       nameZToA: Name (Z-A)
       lastModifiedNewToOld: Edited (Newest first)
       lastModifiedOldToNew: Edited (Oldest first)
+    layout:
+      layout: Layout
+      masonryGrid: Masonry grid
+      simpleGrid: Simple grid
   sentry:
     consent:
       title(OUTDATED): Help improve Saber?
@@ -1150,6 +1226,10 @@ vi:
       nameZToA: Name (Z-A)
       lastModifiedNewToOld: Edited (Newest first)
       lastModifiedOldToNew: Edited (Oldest first)
+    layout:
+      layout: Layout
+      masonryGrid: Masonry grid
+      simpleGrid: Simple grid
 pt-BR:
   home:
     sort:
@@ -1158,6 +1238,10 @@ pt-BR:
       nameZToA: Name (Z-A)
       lastModifiedNewToOld: Edited (Newest first)
       lastModifiedOldToNew: Edited (Oldest first)
+    layout:
+      layout: Layout
+      masonryGrid: Masonry grid
+      simpleGrid: Simple grid
   settings:
     prefLabels:
       customDataDir(OUTDATED): Custom Saber folder
@@ -1263,6 +1347,10 @@ zh-Hans-CN:
       nameZToA: Name (Z-A)
       lastModifiedNewToOld: Edited (Newest first)
       lastModifiedOldToNew: Edited (Oldest first)
+    layout:
+      layout: Layout
+      masonryGrid: Masonry grid
+      simpleGrid: Simple grid
 zh-Hant-TW:
   home:
     sort:
@@ -1271,3 +1359,7 @@ zh-Hant-TW:
       nameZToA: Name (Z-A)
       lastModifiedNewToOld: Edited (Newest first)
       lastModifiedOldToNew: Edited (Oldest first)
+    layout:
+      layout: Layout
+      masonryGrid: Masonry grid
+      simpleGrid: Simple grid
