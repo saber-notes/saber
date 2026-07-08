@@ -81,6 +81,8 @@ class _Translations$home$pl extends Translations$home$en {
 	@override late final _Translations$home$deleteNoteDialog$pl deleteNoteDialog = _Translations$home$deleteNoteDialog$pl._(_root);
 	@override late final _Translations$home$renameFolder$pl renameFolder = _Translations$home$renameFolder$pl._(_root);
 	@override late final _Translations$home$deleteFolder$pl deleteFolder = _Translations$home$deleteFolder$pl._(_root);
+	@override late final _Translations$home$sort$pl sort = _Translations$home$sort$pl._(_root);
+	@override late final _Translations$home$layout$pl layout = _Translations$home$layout$pl._(_root);
 }
 
 // Path: sentry
@@ -368,6 +370,32 @@ class _Translations$home$deleteFolder$pl extends Translations$home$deleteFolder$
 	@override String deleteName({required Object f}) => 'Usuń ${f}';
 	@override String get delete => 'Usuń';
 	@override String get alsoDeleteContents => 'Usuń także wszystkie notatki z tego folderu';
+}
+
+// Path: home.sort
+class _Translations$home$sort$pl extends Translations$home$sort$en {
+	_Translations$home$sort$pl._(TranslationsPl root) : this._root = root, super.internal(root);
+
+	final TranslationsPl _root; // ignore: unused_field
+
+	// Translations
+	@override String get sortBy => 'Sortuj według';
+	@override String get nameAToZ => 'Imię (A-Z)';
+	@override String get nameZToA => 'Nazwa (od A do Z)';
+	@override String get lastModifiedNewToOld => 'Edytowane (Najnowsze na górze)';
+	@override String get lastModifiedOldToNew => 'Edytowane (Najstarsze jako pierwsze)';
+}
+
+// Path: home.layout
+class _Translations$home$layout$pl extends Translations$home$layout$en {
+	_Translations$home$layout$pl._(TranslationsPl root) : this._root = root, super.internal(root);
+
+	final TranslationsPl _root; // ignore: unused_field
+
+	// Translations
+	@override String get layout => 'Układ';
+	@override String get masonryGrid => 'Siatka murarska';
+	@override String get simpleGrid => 'Prosta siatka';
 }
 
 // Path: sentry.consent

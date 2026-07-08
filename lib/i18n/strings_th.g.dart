@@ -81,6 +81,8 @@ class _Translations$home$th extends Translations$home$en {
 	@override late final _Translations$home$deleteNoteDialog$th deleteNoteDialog = _Translations$home$deleteNoteDialog$th._(_root);
 	@override late final _Translations$home$renameFolder$th renameFolder = _Translations$home$renameFolder$th._(_root);
 	@override late final _Translations$home$deleteFolder$th deleteFolder = _Translations$home$deleteFolder$th._(_root);
+	@override late final _Translations$home$sort$th sort = _Translations$home$sort$th._(_root);
+	@override late final _Translations$home$layout$th layout = _Translations$home$layout$th._(_root);
 }
 
 // Path: sentry
@@ -367,6 +369,32 @@ class _Translations$home$deleteFolder$th extends Translations$home$deleteFolder$
 	@override String deleteName({required Object f}) => 'ลบ ${f}';
 	@override String get delete => 'ลบ';
 	@override String get alsoDeleteContents => 'ลบบันทึกทั้งหมดที่อยู่ในโฟลเดอร์นี้ด้วย';
+}
+
+// Path: home.sort
+class _Translations$home$sort$th extends Translations$home$sort$en {
+	_Translations$home$sort$th._(TranslationsTh root) : this._root = root, super.internal(root);
+
+	final TranslationsTh _root; // ignore: unused_field
+
+	// Translations
+	@override String get sortBy => 'เรียงตาม';
+	@override String get nameAToZ => 'ชื่อ (ก-ฮ)';
+	@override String get nameZToA => 'ชื่อ (ก-ฮ)';
+	@override String get lastModifiedNewToOld => 'แก้ไข (ใหม่สุดก่อน)';
+	@override String get lastModifiedOldToNew => 'แก้ไข (เก่าสุดก่อน)';
+}
+
+// Path: home.layout
+class _Translations$home$layout$th extends Translations$home$layout$en {
+	_Translations$home$layout$th._(TranslationsTh root) : this._root = root, super.internal(root);
+
+	final TranslationsTh _root; // ignore: unused_field
+
+	// Translations
+	@override String get layout => 'เลย์เอาต์';
+	@override String get masonryGrid => 'ตารางแบบก่ออิฐ';
+	@override String get simpleGrid => 'ตารางง่ายๆ';
 }
 
 // Path: sentry.consent

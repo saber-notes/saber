@@ -81,6 +81,8 @@ class _Translations$home$nl extends Translations$home$en {
 	@override late final _Translations$home$deleteNoteDialog$nl deleteNoteDialog = _Translations$home$deleteNoteDialog$nl._(_root);
 	@override late final _Translations$home$renameFolder$nl renameFolder = _Translations$home$renameFolder$nl._(_root);
 	@override late final _Translations$home$deleteFolder$nl deleteFolder = _Translations$home$deleteFolder$nl._(_root);
+	@override late final _Translations$home$sort$nl sort = _Translations$home$sort$nl._(_root);
+	@override late final _Translations$home$layout$nl layout = _Translations$home$layout$nl._(_root);
 }
 
 // Path: sentry
@@ -368,6 +370,32 @@ class _Translations$home$deleteFolder$nl extends Translations$home$deleteFolder$
 	@override String deleteName({required Object f}) => 'Verwijder ${f}';
 	@override String get delete => 'Verwijder';
 	@override String get alsoDeleteContents => 'Notities in deze map ook verwijderen';
+}
+
+// Path: home.sort
+class _Translations$home$sort$nl extends Translations$home$sort$en {
+	_Translations$home$sort$nl._(TranslationsNl root) : this._root = root, super.internal(root);
+
+	final TranslationsNl _root; // ignore: unused_field
+
+	// Translations
+	@override String get sortBy => 'Sorteren op';
+	@override String get nameAToZ => 'Naam (A-Z)';
+	@override String get nameZToA => 'Naam (A-Z)';
+	@override String get lastModifiedNewToOld => 'Geredigeerd (Nieuwste eerst)';
+	@override String get lastModifiedOldToNew => 'Geredigeerd (Oudste eerst)';
+}
+
+// Path: home.layout
+class _Translations$home$layout$nl extends Translations$home$layout$en {
+	_Translations$home$layout$nl._(TranslationsNl root) : this._root = root, super.internal(root);
+
+	final TranslationsNl _root; // ignore: unused_field
+
+	// Translations
+	@override String get layout => 'Lay-out';
+	@override String get masonryGrid => 'Metselwerkraster';
+	@override String get simpleGrid => 'Eenvoudig raster';
 }
 
 // Path: sentry.consent

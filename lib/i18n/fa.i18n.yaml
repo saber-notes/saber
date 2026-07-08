@@ -68,6 +68,16 @@ home:
     deleteName: $f را حذف کنید
     delete: حذف
     alsoDeleteContents: همچنین تمام یادداشت های داخل این پوشه را حذف کنید
+  sort:
+    sortBy(OUTDATED): مرتب سازی بر اساس
+    nameAToZ(OUTDATED): نام (الف تا ز)
+    nameZToA(OUTDATED): نام (الف تا ی)
+    lastModifiedNewToOld(OUTDATED): ویرایش شده (جدیدترین اول)
+    lastModifiedOldToNew(OUTDATED): ویرایش شده (قدیمی‌ترین اول)
+  layout:
+    layout(OUTDATED): چیدمان
+    masonryGrid(OUTDATED): شبکه سنگ‌چین
+    simpleGrid(OUTDATED): شبکه ساده
   noPreviewAvailable(OUTDATED): پیش نمایش موجود نیست
 sentry:
   consent:

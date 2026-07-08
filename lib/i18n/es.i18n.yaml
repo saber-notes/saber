@@ -68,6 +68,16 @@ home:
     deleteName: Eliminar $f
     delete: Eliminar
     alsoDeleteContents: Eliminar también las notas guardadas dentro de la carpeta
+  sort:
+    sortBy(OUTDATED): Ordenar por
+    nameAToZ(OUTDATED): Nombre (de la A a la Z)
+    nameZToA(OUTDATED): Nombre (de la A a la Z)
+    lastModifiedNewToOld(OUTDATED): Editado (Más reciente primero)
+    lastModifiedOldToNew(OUTDATED): Editado (Más antiguo primero)
+  layout:
+    layout(OUTDATED): Diseño de página
+    masonryGrid(OUTDATED): Cuadrícula de mampostería
+    simpleGrid(OUTDATED): Cuadrícula simple
 sentry:
   consent:
     title: ¿Quieres mejorar Saber?

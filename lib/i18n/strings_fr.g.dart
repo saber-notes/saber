@@ -80,6 +80,8 @@ class _Translations$home$fr extends Translations$home$en {
 	@override late final _Translations$home$deleteNoteDialog$fr deleteNoteDialog = _Translations$home$deleteNoteDialog$fr._(_root);
 	@override late final _Translations$home$renameFolder$fr renameFolder = _Translations$home$renameFolder$fr._(_root);
 	@override late final _Translations$home$deleteFolder$fr deleteFolder = _Translations$home$deleteFolder$fr._(_root);
+	@override late final _Translations$home$sort$fr sort = _Translations$home$sort$fr._(_root);
+	@override late final _Translations$home$layout$fr layout = _Translations$home$layout$fr._(_root);
 	@override String get noPreviewAvailable => 'Aucun aperçu disponible';
 }
 
@@ -366,6 +368,32 @@ class _Translations$home$deleteFolder$fr extends Translations$home$deleteFolder$
 	@override String deleteName({required Object f}) => 'Supprimer ${f}';
 	@override String get delete => 'Supprimer';
 	@override String get alsoDeleteContents => 'Supprimer aussi toutes les notes rangées dans ce dossier';
+}
+
+// Path: home.sort
+class _Translations$home$sort$fr extends Translations$home$sort$en {
+	_Translations$home$sort$fr._(TranslationsFr root) : this._root = root, super.internal(root);
+
+	final TranslationsFr _root; // ignore: unused_field
+
+	// Translations
+	@override String get sortBy => 'Trier par';
+	@override String get nameAToZ => 'Nom (de A à Z)';
+	@override String get nameZToA => 'Nom (de A à Z)';
+	@override String get lastModifiedNewToOld => 'Modifié (Le plus récent en premier)';
+	@override String get lastModifiedOldToNew => 'Modifié (Le plus ancien en premier)';
+}
+
+// Path: home.layout
+class _Translations$home$layout$fr extends Translations$home$layout$en {
+	_Translations$home$layout$fr._(TranslationsFr root) : this._root = root, super.internal(root);
+
+	final TranslationsFr _root; // ignore: unused_field
+
+	// Translations
+	@override String get layout => 'Mise en page';
+	@override String get masonryGrid => 'Grille de maçonnerie';
+	@override String get simpleGrid => 'Grille simple';
 }
 
 // Path: sentry.consent

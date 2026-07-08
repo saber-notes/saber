@@ -69,6 +69,16 @@ home:
     deleteName: Elimina $f
     delete: Elimina
     alsoDeleteContents: Elimina anche tutte le note all'interno di questa cartella
+  sort:
+    sortBy(OUTDATED): Ordina per
+    nameAToZ(OUTDATED): Nome (A-Z)
+    nameZToA(OUTDATED): Nome (A-Z)
+    lastModifiedNewToOld(OUTDATED): Modificato (Più recente per primo)
+    lastModifiedOldToNew(OUTDATED): Modificato (dal più vecchio al più recente)
+  layout:
+    layout(OUTDATED): Layout
+    masonryGrid(OUTDATED): Griglia a muratura
+    simpleGrid(OUTDATED): Griglia semplice
 sentry:
   consent:
     title: Vuoi aiutarci a migliorare Saber?

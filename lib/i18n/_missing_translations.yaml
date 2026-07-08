@@ -15,15 +15,15 @@ ar:
         other: Permanently delete the selected notes?
       delete(OUTDATED): Delete
     sort:
-      sortBy: Sort by
-      nameAToZ: Name (A-Z)
-      nameZToA: Name (Z-A)
-      lastModifiedNewToOld: Edited (Newest first)
-      lastModifiedOldToNew: Edited (Oldest first)
+      sortBy(OUTDATED): Sort by
+      nameAToZ(OUTDATED): Name (A-Z)
+      nameZToA(OUTDATED): Name (Z-A)
+      lastModifiedNewToOld(OUTDATED): Edited (Newest first)
+      lastModifiedOldToNew(OUTDATED): Edited (Oldest first)
     layout:
-      layout: Layout
-      masonryGrid: Masonry grid
-      simpleGrid: Simple grid
+      layout(OUTDATED): Layout
+      masonryGrid(OUTDATED): Masonry grid
+      simpleGrid(OUTDATED): Simple grid
   sentry:
     consent:
       title(OUTDATED): Help improve Saber?
@@ -79,15 +79,15 @@ ca:
         other: Permanently delete the selected notes?
       delete(OUTDATED): Delete
     sort:
-      sortBy: Sort by
-      nameAToZ: Name (A-Z)
-      nameZToA: Name (Z-A)
-      lastModifiedNewToOld: Edited (Newest first)
-      lastModifiedOldToNew: Edited (Oldest first)
+      sortBy(OUTDATED): Sort by
+      nameAToZ(OUTDATED): Name (A-Z)
+      nameZToA(OUTDATED): Name (Z-A)
+      lastModifiedNewToOld(OUTDATED): Edited (Newest first)
+      lastModifiedOldToNew(OUTDATED): Edited (Oldest first)
     layout:
-      layout: Layout
-      masonryGrid: Masonry grid
-      simpleGrid: Simple grid
+      layout(OUTDATED): Layout
+      masonryGrid(OUTDATED): Masonry grid
+      simpleGrid(OUTDATED): Simple grid
   sentry:
     consent:
       description:
@@ -268,27 +268,27 @@ ca:
 cs:
   home:
     sort:
-      sortBy: Sort by
-      nameAToZ: Name (A-Z)
-      nameZToA: Name (Z-A)
-      lastModifiedNewToOld: Edited (Newest first)
-      lastModifiedOldToNew: Edited (Oldest first)
+      sortBy(OUTDATED): Sort by
+      nameAToZ(OUTDATED): Name (A-Z)
+      nameZToA(OUTDATED): Name (Z-A)
+      lastModifiedNewToOld(OUTDATED): Edited (Newest first)
+      lastModifiedOldToNew(OUTDATED): Edited (Oldest first)
     layout:
-      layout: Layout
-      masonryGrid: Masonry grid
-      simpleGrid: Simple grid
+      layout(OUTDATED): Layout
+      masonryGrid(OUTDATED): Masonry grid
+      simpleGrid(OUTDATED): Simple grid
 de:
   home:
     sort:
-      sortBy: Sort by
-      nameAToZ: Name (A-Z)
-      nameZToA: Name (Z-A)
-      lastModifiedNewToOld: Edited (Newest first)
-      lastModifiedOldToNew: Edited (Oldest first)
+      sortBy(OUTDATED): Sort by
+      nameAToZ(OUTDATED): Name (A-Z)
+      nameZToA(OUTDATED): Name (Z-A)
+      lastModifiedNewToOld(OUTDATED): Edited (Newest first)
+      lastModifiedOldToNew(OUTDATED): Edited (Oldest first)
     layout:
-      layout: Layout
-      masonryGrid: Masonry grid
-      simpleGrid: Simple grid
+      layout(OUTDATED): Layout
+      masonryGrid(OUTDATED): Masonry grid
+      simpleGrid(OUTDATED): Simple grid
 eo:
   home:
     renameNote:
@@ -302,15 +302,15 @@ eo:
         other: Permanently delete the selected notes?
       delete(OUTDATED): Delete
     sort:
-      sortBy: Sort by
-      nameAToZ: Name (A-Z)
-      nameZToA: Name (Z-A)
-      lastModifiedNewToOld: Edited (Newest first)
-      lastModifiedOldToNew: Edited (Oldest first)
+      sortBy(OUTDATED): Sort by
+      nameAToZ(OUTDATED): Name (A-Z)
+      nameZToA(OUTDATED): Name (Z-A)
+      lastModifiedNewToOld(OUTDATED): Edited (Newest first)
+      lastModifiedOldToNew(OUTDATED): Edited (Oldest first)
     layout:
-      layout: Layout
-      masonryGrid: Masonry grid
-      simpleGrid: Simple grid
+      layout(OUTDATED): Layout
+      masonryGrid(OUTDATED): Masonry grid
+      simpleGrid(OUTDATED): Simple grid
   settings:
     prefLabels:
       autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Auto-disable finger drawing
@@ -326,15 +326,15 @@ es:
       deleteNotes(OUTDATED): Delete $n notes
       deleteName(OUTDATED): Delete $f
     sort:
-      sortBy: Sort by
-      nameAToZ: Name (A-Z)
-      nameZToA: Name (Z-A)
-      lastModifiedNewToOld: Edited (Newest first)
-      lastModifiedOldToNew: Edited (Oldest first)
+      sortBy(OUTDATED): Sort by
+      nameAToZ(OUTDATED): Name (A-Z)
+      nameZToA(OUTDATED): Name (Z-A)
+      lastModifiedNewToOld(OUTDATED): Edited (Newest first)
+      lastModifiedOldToNew(OUTDATED): Edited (Oldest first)
     layout:
-      layout: Layout
-      masonryGrid: Masonry grid
-      simpleGrid: Simple grid
+      layout(OUTDATED): Layout
+      masonryGrid(OUTDATED): Masonry grid
+      simpleGrid(OUTDATED): Simple grid
   settings:
     prefDescriptions:
       autosave(OUTDATED): Auto-save after a short delay, or never
@@ -432,15 +432,15 @@ fa:
         other: Permanently delete the selected notes?
       delete(OUTDATED): Delete
     sort:
-      sortBy: Sort by
-      nameAToZ: Name (A-Z)
-      nameZToA: Name (Z-A)
-      lastModifiedNewToOld: Edited (Newest first)
-      lastModifiedOldToNew: Edited (Oldest first)
+      sortBy(OUTDATED): Sort by
+      nameAToZ(OUTDATED): Name (A-Z)
+      nameZToA(OUTDATED): Name (Z-A)
+      lastModifiedNewToOld(OUTDATED): Edited (Newest first)
+      lastModifiedOldToNew(OUTDATED): Edited (Oldest first)
     layout:
-      layout: Layout
-      masonryGrid: Masonry grid
-      simpleGrid: Simple grid
+      layout(OUTDATED): Layout
+      masonryGrid(OUTDATED): Masonry grid
+      simpleGrid(OUTDATED): Simple grid
   sentry:
     consent:
       title(OUTDATED): Help improve Saber?
@@ -553,15 +553,15 @@ fr:
         other: Permanently delete the selected notes?
       delete(OUTDATED): Delete
     sort:
-      sortBy: Sort by
-      nameAToZ: Name (A-Z)
-      nameZToA: Name (Z-A)
-      lastModifiedNewToOld: Edited (Newest first)
-      lastModifiedOldToNew: Edited (Oldest first)
+      sortBy(OUTDATED): Sort by
+      nameAToZ(OUTDATED): Name (A-Z)
+      nameZToA(OUTDATED): Name (Z-A)
+      lastModifiedNewToOld(OUTDATED): Edited (Newest first)
+      lastModifiedOldToNew(OUTDATED): Edited (Oldest first)
     layout:
-      layout: Layout
-      masonryGrid: Masonry grid
-      simpleGrid: Simple grid
+      layout(OUTDATED): Layout
+      masonryGrid(OUTDATED): Masonry grid
+      simpleGrid(OUTDATED): Simple grid
   sentry:
     consent:
       title(OUTDATED): Help improve Saber?
@@ -660,51 +660,51 @@ fr:
 he:
   home:
     sort:
-      sortBy: Sort by
-      nameAToZ: Name (A-Z)
-      nameZToA: Name (Z-A)
-      lastModifiedNewToOld: Edited (Newest first)
-      lastModifiedOldToNew: Edited (Oldest first)
+      sortBy(OUTDATED): Sort by
+      nameAToZ(OUTDATED): Name (A-Z)
+      nameZToA(OUTDATED): Name (Z-A)
+      lastModifiedNewToOld(OUTDATED): Edited (Newest first)
+      lastModifiedOldToNew(OUTDATED): Edited (Oldest first)
     layout:
-      layout: Layout
-      masonryGrid: Masonry grid
-      simpleGrid: Simple grid
+      layout(OUTDATED): Layout
+      masonryGrid(OUTDATED): Masonry grid
+      simpleGrid(OUTDATED): Simple grid
 hu:
   home:
     sort:
-      sortBy: Sort by
-      nameAToZ: Name (A-Z)
-      nameZToA: Name (Z-A)
-      lastModifiedNewToOld: Edited (Newest first)
-      lastModifiedOldToNew: Edited (Oldest first)
+      sortBy(OUTDATED): Sort by
+      nameAToZ(OUTDATED): Name (A-Z)
+      nameZToA(OUTDATED): Name (Z-A)
+      lastModifiedNewToOld(OUTDATED): Edited (Newest first)
+      lastModifiedOldToNew(OUTDATED): Edited (Oldest first)
     layout:
-      layout: Layout
-      masonryGrid: Masonry grid
-      simpleGrid: Simple grid
+      layout(OUTDATED): Layout
+      masonryGrid(OUTDATED): Masonry grid
+      simpleGrid(OUTDATED): Simple grid
 it:
   home:
     sort:
-      sortBy: Sort by
-      nameAToZ: Name (A-Z)
-      nameZToA: Name (Z-A)
-      lastModifiedNewToOld: Edited (Newest first)
-      lastModifiedOldToNew: Edited (Oldest first)
+      sortBy(OUTDATED): Sort by
+      nameAToZ(OUTDATED): Name (A-Z)
+      nameZToA(OUTDATED): Name (Z-A)
+      lastModifiedNewToOld(OUTDATED): Edited (Newest first)
+      lastModifiedOldToNew(OUTDATED): Edited (Oldest first)
     layout:
-      layout: Layout
-      masonryGrid: Masonry grid
-      simpleGrid: Simple grid
+      layout(OUTDATED): Layout
+      masonryGrid(OUTDATED): Masonry grid
+      simpleGrid(OUTDATED): Simple grid
 ja:
   home:
     sort:
-      sortBy: Sort by
-      nameAToZ: Name (A-Z)
-      nameZToA: Name (Z-A)
-      lastModifiedNewToOld: Edited (Newest first)
-      lastModifiedOldToNew: Edited (Oldest first)
+      sortBy(OUTDATED): Sort by
+      nameAToZ(OUTDATED): Name (A-Z)
+      nameZToA(OUTDATED): Name (Z-A)
+      lastModifiedNewToOld(OUTDATED): Edited (Newest first)
+      lastModifiedOldToNew(OUTDATED): Edited (Oldest first)
     layout:
-      layout: Layout
-      masonryGrid: Masonry grid
-      simpleGrid: Simple grid
+      layout(OUTDATED): Layout
+      masonryGrid(OUTDATED): Masonry grid
+      simpleGrid(OUTDATED): Simple grid
   settings:
     prefLabels:
       hideFingerDrawingToggle(OUTDATED): Hide the finger drawing toggle
@@ -725,27 +725,27 @@ ja:
 nl:
   home:
     sort:
-      sortBy: Sort by
-      nameAToZ: Name (A-Z)
-      nameZToA: Name (Z-A)
-      lastModifiedNewToOld: Edited (Newest first)
-      lastModifiedOldToNew: Edited (Oldest first)
+      sortBy(OUTDATED): Sort by
+      nameAToZ(OUTDATED): Name (A-Z)
+      nameZToA(OUTDATED): Name (Z-A)
+      lastModifiedNewToOld(OUTDATED): Edited (Newest first)
+      lastModifiedOldToNew(OUTDATED): Edited (Oldest first)
     layout:
-      layout: Layout
-      masonryGrid: Masonry grid
-      simpleGrid: Simple grid
+      layout(OUTDATED): Layout
+      masonryGrid(OUTDATED): Masonry grid
+      simpleGrid(OUTDATED): Simple grid
 pl:
   home:
     sort:
-      sortBy: Sort by
-      nameAToZ: Name (A-Z)
-      nameZToA: Name (Z-A)
-      lastModifiedNewToOld: Edited (Newest first)
-      lastModifiedOldToNew: Edited (Oldest first)
+      sortBy(OUTDATED): Sort by
+      nameAToZ(OUTDATED): Name (A-Z)
+      nameZToA(OUTDATED): Name (Z-A)
+      lastModifiedNewToOld(OUTDATED): Edited (Newest first)
+      lastModifiedOldToNew(OUTDATED): Edited (Oldest first)
     layout:
-      layout: Layout
-      masonryGrid: Masonry grid
-      simpleGrid: Simple grid
+      layout(OUTDATED): Layout
+      masonryGrid(OUTDATED): Masonry grid
+      simpleGrid(OUTDATED): Simple grid
 ru:
   home:
     deleteNoteDialog:
@@ -756,15 +756,15 @@ ru:
         other: Permanently delete the selected notes?
       delete(OUTDATED): Delete
     sort:
-      sortBy: Sort by
-      nameAToZ: Name (A-Z)
-      nameZToA: Name (Z-A)
-      lastModifiedNewToOld: Edited (Newest first)
-      lastModifiedOldToNew: Edited (Oldest first)
+      sortBy(OUTDATED): Sort by
+      nameAToZ(OUTDATED): Name (A-Z)
+      nameZToA(OUTDATED): Name (Z-A)
+      lastModifiedNewToOld(OUTDATED): Edited (Newest first)
+      lastModifiedOldToNew(OUTDATED): Edited (Oldest first)
     layout:
-      layout: Layout
-      masonryGrid: Masonry grid
-      simpleGrid: Simple grid
+      layout(OUTDATED): Layout
+      masonryGrid(OUTDATED): Masonry grid
+      simpleGrid(OUTDATED): Simple grid
 sl:
   home:
     deleteNoteDialog:
@@ -775,15 +775,15 @@ sl:
         other: Permanently delete the selected notes?
       delete(OUTDATED): Delete
     sort:
-      sortBy: Sort by
-      nameAToZ: Name (A-Z)
-      nameZToA: Name (Z-A)
-      lastModifiedNewToOld: Edited (Newest first)
-      lastModifiedOldToNew: Edited (Oldest first)
+      sortBy(OUTDATED): Sort by
+      nameAToZ(OUTDATED): Name (A-Z)
+      nameZToA(OUTDATED): Name (Z-A)
+      lastModifiedNewToOld(OUTDATED): Edited (Newest first)
+      lastModifiedOldToNew(OUTDATED): Edited (Oldest first)
     layout:
-      layout: Layout
-      masonryGrid: Masonry grid
-      simpleGrid: Simple grid
+      layout(OUTDATED): Layout
+      masonryGrid(OUTDATED): Masonry grid
+      simpleGrid(OUTDATED): Simple grid
 th:
   home:
     deleteNoteDialog:
@@ -794,15 +794,15 @@ th:
         other: Permanently delete the selected notes?
       delete(OUTDATED): Delete
     sort:
-      sortBy: Sort by
-      nameAToZ: Name (A-Z)
-      nameZToA: Name (Z-A)
-      lastModifiedNewToOld: Edited (Newest first)
-      lastModifiedOldToNew: Edited (Oldest first)
+      sortBy(OUTDATED): Sort by
+      nameAToZ(OUTDATED): Name (A-Z)
+      nameZToA(OUTDATED): Name (Z-A)
+      lastModifiedNewToOld(OUTDATED): Edited (Newest first)
+      lastModifiedOldToNew(OUTDATED): Edited (Oldest first)
     layout:
-      layout: Layout
-      masonryGrid: Masonry grid
-      simpleGrid: Simple grid
+      layout(OUTDATED): Layout
+      masonryGrid(OUTDATED): Masonry grid
+      simpleGrid(OUTDATED): Simple grid
   editor:
     readOnlyBanner:
       watchingServer(OUTDATED): You are currently watching for updates on the server. Editing is disabled in this mode.
@@ -821,15 +821,15 @@ tr:
         other: Permanently delete the selected notes?
       delete(OUTDATED): Delete
     sort:
-      sortBy: Sort by
-      nameAToZ: Name (A-Z)
-      nameZToA: Name (Z-A)
-      lastModifiedNewToOld: Edited (Newest first)
-      lastModifiedOldToNew: Edited (Oldest first)
+      sortBy(OUTDATED): Sort by
+      nameAToZ(OUTDATED): Name (A-Z)
+      nameZToA(OUTDATED): Name (Z-A)
+      lastModifiedNewToOld(OUTDATED): Edited (Newest first)
+      lastModifiedOldToNew(OUTDATED): Edited (Oldest first)
     layout:
-      layout: Layout
-      masonryGrid: Masonry grid
-      simpleGrid: Simple grid
+      layout(OUTDATED): Layout
+      masonryGrid(OUTDATED): Masonry grid
+      simpleGrid(OUTDATED): Simple grid
   sentry:
     consent:
       title(OUTDATED): Help improve Saber?
@@ -936,15 +936,15 @@ uk:
       delete(OUTDATED): Delete
       alsoDeleteContents(OUTDATED): Also delete all notes inside this folder
     sort:
-      sortBy: Sort by
-      nameAToZ: Name (A-Z)
-      nameZToA: Name (Z-A)
-      lastModifiedNewToOld: Edited (Newest first)
-      lastModifiedOldToNew: Edited (Oldest first)
+      sortBy(OUTDATED): Sort by
+      nameAToZ(OUTDATED): Name (A-Z)
+      nameZToA(OUTDATED): Name (Z-A)
+      lastModifiedNewToOld(OUTDATED): Edited (Newest first)
+      lastModifiedOldToNew(OUTDATED): Edited (Oldest first)
     layout:
-      layout: Layout
-      masonryGrid: Masonry grid
-      simpleGrid: Simple grid
+      layout(OUTDATED): Layout
+      masonryGrid(OUTDATED): Masonry grid
+      simpleGrid(OUTDATED): Simple grid
   sentry:
     consent:
       title(OUTDATED): Help improve Saber?
@@ -1221,27 +1221,27 @@ vi:
         other: Permanently delete the selected notes?
       delete(OUTDATED): Delete
     sort:
-      sortBy: Sort by
-      nameAToZ: Name (A-Z)
-      nameZToA: Name (Z-A)
-      lastModifiedNewToOld: Edited (Newest first)
-      lastModifiedOldToNew: Edited (Oldest first)
+      sortBy(OUTDATED): Sort by
+      nameAToZ(OUTDATED): Name (A-Z)
+      nameZToA(OUTDATED): Name (Z-A)
+      lastModifiedNewToOld(OUTDATED): Edited (Newest first)
+      lastModifiedOldToNew(OUTDATED): Edited (Oldest first)
     layout:
-      layout: Layout
-      masonryGrid: Masonry grid
-      simpleGrid: Simple grid
+      layout(OUTDATED): Layout
+      masonryGrid(OUTDATED): Masonry grid
+      simpleGrid(OUTDATED): Simple grid
 pt-BR:
   home:
     sort:
-      sortBy: Sort by
-      nameAToZ: Name (A-Z)
-      nameZToA: Name (Z-A)
-      lastModifiedNewToOld: Edited (Newest first)
-      lastModifiedOldToNew: Edited (Oldest first)
+      sortBy(OUTDATED): Sort by
+      nameAToZ(OUTDATED): Name (A-Z)
+      nameZToA(OUTDATED): Name (Z-A)
+      lastModifiedNewToOld(OUTDATED): Edited (Newest first)
+      lastModifiedOldToNew(OUTDATED): Edited (Oldest first)
     layout:
-      layout: Layout
-      masonryGrid: Masonry grid
-      simpleGrid: Simple grid
+      layout(OUTDATED): Layout
+      masonryGrid(OUTDATED): Masonry grid
+      simpleGrid(OUTDATED): Simple grid
   settings:
     prefLabels:
       customDataDir(OUTDATED): Custom Saber folder
@@ -1342,24 +1342,24 @@ pt-BR:
 zh-Hans-CN:
   home:
     sort:
-      sortBy: Sort by
-      nameAToZ: Name (A-Z)
-      nameZToA: Name (Z-A)
-      lastModifiedNewToOld: Edited (Newest first)
-      lastModifiedOldToNew: Edited (Oldest first)
+      sortBy(OUTDATED): Sort by
+      nameAToZ(OUTDATED): Name (A-Z)
+      nameZToA(OUTDATED): Name (Z-A)
+      lastModifiedNewToOld(OUTDATED): Edited (Newest first)
+      lastModifiedOldToNew(OUTDATED): Edited (Oldest first)
     layout:
-      layout: Layout
-      masonryGrid: Masonry grid
-      simpleGrid: Simple grid
+      layout(OUTDATED): Layout
+      masonryGrid(OUTDATED): Masonry grid
+      simpleGrid(OUTDATED): Simple grid
 zh-Hant-TW:
   home:
     sort:
-      sortBy: Sort by
-      nameAToZ: Name (A-Z)
-      nameZToA: Name (Z-A)
-      lastModifiedNewToOld: Edited (Newest first)
-      lastModifiedOldToNew: Edited (Oldest first)
+      sortBy(OUTDATED): Sort by
+      nameAToZ(OUTDATED): Name (A-Z)
+      nameZToA(OUTDATED): Name (Z-A)
+      lastModifiedNewToOld(OUTDATED): Edited (Newest first)
+      lastModifiedOldToNew(OUTDATED): Edited (Oldest first)
     layout:
-      layout: Layout
-      masonryGrid: Masonry grid
-      simpleGrid: Simple grid
+      layout(OUTDATED): Layout
+      masonryGrid(OUTDATED): Masonry grid
+      simpleGrid(OUTDATED): Simple grid

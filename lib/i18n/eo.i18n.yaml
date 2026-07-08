@@ -69,6 +69,16 @@ home:
     deleteName: Forigu $f
     delete: Forigu
     alsoDeleteContents: Ankaŭ forigu ĉiujn notojn en ĉi tiu dosierujo
+  sort:
+    sortBy(OUTDATED): Ordeku per
+    nameAToZ(OUTDATED): Nomo (de A ĝis Z)
+    nameZToA(OUTDATED): Nomo (de A al Z)
+    lastModifiedNewToOld(OUTDATED): Redaktita (La plej nova unue)
+    lastModifiedOldToNew(OUTDATED): Redaktita (La pliĝanta unue)
+  layout:
+    layout(OUTDATED): Disegno
+    masonryGrid(OUTDATED): Mosaika retablo
+    simpleGrid(OUTDATED): Simpla retablo
 sentry:
   consent:
     title: Helpu plibonigi Saber

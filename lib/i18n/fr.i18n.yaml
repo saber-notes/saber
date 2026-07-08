@@ -68,6 +68,16 @@ home:
     deleteName: Supprimer $f
     delete: Supprimer
     alsoDeleteContents: Supprimer aussi toutes les notes rangées dans ce dossier
+  sort:
+    sortBy(OUTDATED): Trier par
+    nameAToZ(OUTDATED): Nom (de A à Z)
+    nameZToA(OUTDATED): Nom (de A à Z)
+    lastModifiedNewToOld(OUTDATED): Modifié (Le plus récent en premier)
+    lastModifiedOldToNew(OUTDATED): Modifié (Le plus ancien en premier)
+  layout:
+    layout(OUTDATED): Mise en page
+    masonryGrid(OUTDATED): Grille de maçonnerie
+    simpleGrid(OUTDATED): Grille simple
   noPreviewAvailable(OUTDATED): Aucun aperçu disponible
 sentry:
   consent:

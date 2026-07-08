@@ -81,6 +81,8 @@ class _Translations$home$it extends Translations$home$en {
 	@override late final _Translations$home$deleteNoteDialog$it deleteNoteDialog = _Translations$home$deleteNoteDialog$it._(_root);
 	@override late final _Translations$home$renameFolder$it renameFolder = _Translations$home$renameFolder$it._(_root);
 	@override late final _Translations$home$deleteFolder$it deleteFolder = _Translations$home$deleteFolder$it._(_root);
+	@override late final _Translations$home$sort$it sort = _Translations$home$sort$it._(_root);
+	@override late final _Translations$home$layout$it layout = _Translations$home$layout$it._(_root);
 }
 
 // Path: sentry
@@ -368,6 +370,32 @@ class _Translations$home$deleteFolder$it extends Translations$home$deleteFolder$
 	@override String deleteName({required Object f}) => 'Elimina ${f}';
 	@override String get delete => 'Elimina';
 	@override String get alsoDeleteContents => 'Elimina anche tutte le note all\'interno di questa cartella';
+}
+
+// Path: home.sort
+class _Translations$home$sort$it extends Translations$home$sort$en {
+	_Translations$home$sort$it._(TranslationsIt root) : this._root = root, super.internal(root);
+
+	final TranslationsIt _root; // ignore: unused_field
+
+	// Translations
+	@override String get sortBy => 'Ordina per';
+	@override String get nameAToZ => 'Nome (A-Z)';
+	@override String get nameZToA => 'Nome (A-Z)';
+	@override String get lastModifiedNewToOld => 'Modificato (Più recente per primo)';
+	@override String get lastModifiedOldToNew => 'Modificato (dal più vecchio al più recente)';
+}
+
+// Path: home.layout
+class _Translations$home$layout$it extends Translations$home$layout$en {
+	_Translations$home$layout$it._(TranslationsIt root) : this._root = root, super.internal(root);
+
+	final TranslationsIt _root; // ignore: unused_field
+
+	// Translations
+	@override String get layout => 'Layout';
+	@override String get masonryGrid => 'Griglia a muratura';
+	@override String get simpleGrid => 'Griglia semplice';
 }
 
 // Path: sentry.consent

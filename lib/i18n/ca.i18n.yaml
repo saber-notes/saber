@@ -71,6 +71,16 @@ home:
     deleteName: Esborra $f
     delete: Esborra
     alsoDeleteContents: Esborra totes les notes d'aquesta carpeta
+  sort:
+    sortBy(OUTDATED): Classificar per
+    nameAToZ(OUTDATED): Nom (de A a Z)
+    nameZToA(OUTDATED): Nom (de la A a la Z)
+    lastModifiedNewToOld(OUTDATED): Editats (Els més nous primer)
+    lastModifiedOldToNew(OUTDATED): Editat (Del més antic al més recent)
+  layout:
+    layout(OUTDATED): Disposició
+    masonryGrid(OUTDATED): Grilla de maçoneria
+    simpleGrid(OUTDATED): Grilla simple
 sentry:
   consent:
     title: Vols ajudar a millorar Saber?

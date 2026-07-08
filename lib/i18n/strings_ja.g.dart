@@ -81,6 +81,8 @@ class _Translations$home$ja extends Translations$home$en {
 	@override late final _Translations$home$deleteNoteDialog$ja deleteNoteDialog = _Translations$home$deleteNoteDialog$ja._(_root);
 	@override late final _Translations$home$renameFolder$ja renameFolder = _Translations$home$renameFolder$ja._(_root);
 	@override late final _Translations$home$deleteFolder$ja deleteFolder = _Translations$home$deleteFolder$ja._(_root);
+	@override late final _Translations$home$sort$ja sort = _Translations$home$sort$ja._(_root);
+	@override late final _Translations$home$layout$ja layout = _Translations$home$layout$ja._(_root);
 }
 
 // Path: sentry
@@ -368,6 +370,32 @@ class _Translations$home$deleteFolder$ja extends Translations$home$deleteFolder$
 	@override String deleteName({required Object f}) => '${f}を削除';
 	@override String get delete => '削除';
 	@override String get alsoDeleteContents => 'フォルダ内のメモも全て削除する';
+}
+
+// Path: home.sort
+class _Translations$home$sort$ja extends Translations$home$sort$en {
+	_Translations$home$sort$ja._(TranslationsJa root) : this._root = root, super.internal(root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get sortBy => '並べ替えで';
+	@override String get nameAToZ => '名前（A-Z）';
+	@override String get nameZToA => '名前（A-Z）';
+	@override String get lastModifiedNewToOld => '編集済み（新しい順）';
+	@override String get lastModifiedOldToNew => '編集済み（古い順）';
+}
+
+// Path: home.layout
+class _Translations$home$layout$ja extends Translations$home$layout$en {
+	_Translations$home$layout$ja._(TranslationsJa root) : this._root = root, super.internal(root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get layout => 'レイアウト';
+	@override String get masonryGrid => 'メーソンリーグリッド';
+	@override String get simpleGrid => 'シンプルなグリッド';
 }
 
 // Path: sentry.consent

@@ -80,6 +80,8 @@ class _Translations$home$tr extends Translations$home$en {
 	@override late final _Translations$home$deleteNoteDialog$tr deleteNoteDialog = _Translations$home$deleteNoteDialog$tr._(_root);
 	@override late final _Translations$home$renameFolder$tr renameFolder = _Translations$home$renameFolder$tr._(_root);
 	@override late final _Translations$home$deleteFolder$tr deleteFolder = _Translations$home$deleteFolder$tr._(_root);
+	@override late final _Translations$home$sort$tr sort = _Translations$home$sort$tr._(_root);
+	@override late final _Translations$home$layout$tr layout = _Translations$home$layout$tr._(_root);
 	@override String get noPreviewAvailable => 'Önizleme yok';
 }
 
@@ -368,6 +370,32 @@ class _Translations$home$deleteFolder$tr extends Translations$home$deleteFolder$
 	@override String deleteName({required Object f}) => '${f} silinecek';
 	@override String get delete => 'Sil';
 	@override String get alsoDeleteContents => 'Bu klasördeki tüm notları da sil';
+}
+
+// Path: home.sort
+class _Translations$home$sort$tr extends Translations$home$sort$en {
+	_Translations$home$sort$tr._(TranslationsTr root) : this._root = root, super.internal(root);
+
+	final TranslationsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String get sortBy => 'Sırala';
+	@override String get nameAToZ => 'Adı (A-Z)';
+	@override String get nameZToA => 'Adı (A\'dan Z\'ye)';
+	@override String get lastModifiedNewToOld => 'Düzenlendi (En yeni ilk sırada)';
+	@override String get lastModifiedOldToNew => 'Düzenlendi (En eskiden önce)';
+}
+
+// Path: home.layout
+class _Translations$home$layout$tr extends Translations$home$layout$en {
+	_Translations$home$layout$tr._(TranslationsTr root) : this._root = root, super.internal(root);
+
+	final TranslationsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String get layout => 'Düzen';
+	@override String get masonryGrid => 'Duvar örgü ızgarası';
+	@override String get simpleGrid => 'Basit ızgara';
 }
 
 // Path: sentry.consent

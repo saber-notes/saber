@@ -80,6 +80,8 @@ class _Translations$home$ar extends Translations$home$en {
 	@override late final _Translations$home$deleteNoteDialog$ar deleteNoteDialog = _Translations$home$deleteNoteDialog$ar._(_root);
 	@override late final _Translations$home$renameFolder$ar renameFolder = _Translations$home$renameFolder$ar._(_root);
 	@override late final _Translations$home$deleteFolder$ar deleteFolder = _Translations$home$deleteFolder$ar._(_root);
+	@override late final _Translations$home$sort$ar sort = _Translations$home$sort$ar._(_root);
+	@override late final _Translations$home$layout$ar layout = _Translations$home$layout$ar._(_root);
 	@override String get noPreviewAvailable => 'لا معاينة متاحة';
 }
 
@@ -368,6 +370,32 @@ class _Translations$home$deleteFolder$ar extends Translations$home$deleteFolder$
 	@override String deleteName({required Object f}) => '${f} حذف';
 	@override String get delete => 'حذف';
 	@override String get alsoDeleteContents => 'حذف جميع الملاحظات داخل هذا المجلد أيضًا';
+}
+
+// Path: home.sort
+class _Translations$home$sort$ar extends Translations$home$sort$en {
+	_Translations$home$sort$ar._(TranslationsAr root) : this._root = root, super.internal(root);
+
+	final TranslationsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get sortBy => 'الترتيب حسب';
+	@override String get nameAToZ => 'الاسم (من الألف إلى الياء)';
+	@override String get nameZToA => 'الاسم (من الألف إلى الياء)';
+	@override String get lastModifiedNewToOld => 'مُعدَّلة (الأحدث أولاً)';
+	@override String get lastModifiedOldToNew => 'مُعدَّلة (الأقدم أولاً)';
+}
+
+// Path: home.layout
+class _Translations$home$layout$ar extends Translations$home$layout$en {
+	_Translations$home$layout$ar._(TranslationsAr root) : this._root = root, super.internal(root);
+
+	final TranslationsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get layout => 'تخطيط';
+	@override String get masonryGrid => 'شبكة البناء/التراص';
+	@override String get simpleGrid => 'شبكة بسيطة';
 }
 
 // Path: sentry.consent

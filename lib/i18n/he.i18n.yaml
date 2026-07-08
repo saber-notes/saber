@@ -69,6 +69,16 @@ home:
     deleteName: מחיקת $f
     delete: מחיקה
     alsoDeleteContents: מחיקה גם של כל הפתקים בתיקייה זו
+  sort:
+    sortBy(OUTDATED): ממוין לפי
+    nameAToZ(OUTDATED): שם (א-ת)
+    nameZToA(OUTDATED): שם (א-ת)
+    lastModifiedNewToOld(OUTDATED): ערוך (החדשים ביותר תחילה)
+    lastModifiedOldToNew(OUTDATED): ערוך (הישנים ביותר תחילה)
+  layout:
+    layout(OUTDATED): פריסה
+    masonryGrid(OUTDATED): רשת אבן
+    simpleGrid(OUTDATED): רשת פשוטה
 sentry:
   consent:
     title: האם לעזור בשיפור Saber?

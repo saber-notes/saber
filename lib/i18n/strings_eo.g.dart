@@ -81,6 +81,8 @@ class _Translations$home$eo extends Translations$home$en {
 	@override late final _Translations$home$deleteNoteDialog$eo deleteNoteDialog = _Translations$home$deleteNoteDialog$eo._(_root);
 	@override late final _Translations$home$renameFolder$eo renameFolder = _Translations$home$renameFolder$eo._(_root);
 	@override late final _Translations$home$deleteFolder$eo deleteFolder = _Translations$home$deleteFolder$eo._(_root);
+	@override late final _Translations$home$sort$eo sort = _Translations$home$sort$eo._(_root);
+	@override late final _Translations$home$layout$eo layout = _Translations$home$layout$eo._(_root);
 }
 
 // Path: sentry
@@ -368,6 +370,32 @@ class _Translations$home$deleteFolder$eo extends Translations$home$deleteFolder$
 	@override String deleteName({required Object f}) => 'Forigu ${f}';
 	@override String get delete => 'Forigu';
 	@override String get alsoDeleteContents => 'Ankaŭ forigu ĉiujn notojn en ĉi tiu dosierujo';
+}
+
+// Path: home.sort
+class _Translations$home$sort$eo extends Translations$home$sort$en {
+	_Translations$home$sort$eo._(TranslationsEo root) : this._root = root, super.internal(root);
+
+	final TranslationsEo _root; // ignore: unused_field
+
+	// Translations
+	@override String get sortBy => 'Ordeku per';
+	@override String get nameAToZ => 'Nomo (de A ĝis Z)';
+	@override String get nameZToA => 'Nomo (de A al Z)';
+	@override String get lastModifiedNewToOld => 'Redaktita (La plej nova unue)';
+	@override String get lastModifiedOldToNew => 'Redaktita (La pliĝanta unue)';
+}
+
+// Path: home.layout
+class _Translations$home$layout$eo extends Translations$home$layout$en {
+	_Translations$home$layout$eo._(TranslationsEo root) : this._root = root, super.internal(root);
+
+	final TranslationsEo _root; // ignore: unused_field
+
+	// Translations
+	@override String get layout => 'Disegno';
+	@override String get masonryGrid => 'Mosaika retablo';
+	@override String get simpleGrid => 'Simpla retablo';
 }
 
 // Path: sentry.consent

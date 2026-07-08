@@ -81,6 +81,8 @@ class _Translations$home$vi extends Translations$home$en {
 	@override late final _Translations$home$deleteNoteDialog$vi deleteNoteDialog = _Translations$home$deleteNoteDialog$vi._(_root);
 	@override late final _Translations$home$renameFolder$vi renameFolder = _Translations$home$renameFolder$vi._(_root);
 	@override late final _Translations$home$deleteFolder$vi deleteFolder = _Translations$home$deleteFolder$vi._(_root);
+	@override late final _Translations$home$sort$vi sort = _Translations$home$sort$vi._(_root);
+	@override late final _Translations$home$layout$vi layout = _Translations$home$layout$vi._(_root);
 }
 
 // Path: sentry
@@ -368,6 +370,32 @@ class _Translations$home$deleteFolder$vi extends Translations$home$deleteFolder$
 	@override String deleteName({required Object f}) => 'Xóa ${f}';
 	@override String get delete => 'Xóa';
 	@override String get alsoDeleteContents => 'Các ghi chú bên trong thư mục này cũng sẽ bị xóa';
+}
+
+// Path: home.sort
+class _Translations$home$sort$vi extends Translations$home$sort$en {
+	_Translations$home$sort$vi._(TranslationsVi root) : this._root = root, super.internal(root);
+
+	final TranslationsVi _root; // ignore: unused_field
+
+	// Translations
+	@override String get sortBy => 'Sắp xếp theo';
+	@override String get nameAToZ => 'Tên (A-Z)';
+	@override String get nameZToA => 'Tên (A-Z)';
+	@override String get lastModifiedNewToOld => 'Đã chỉnh sửa (Mới nhất trước)';
+	@override String get lastModifiedOldToNew => 'Đã chỉnh sửa (Cũ nhất trước)';
+}
+
+// Path: home.layout
+class _Translations$home$layout$vi extends Translations$home$layout$en {
+	_Translations$home$layout$vi._(TranslationsVi root) : this._root = root, super.internal(root);
+
+	final TranslationsVi _root; // ignore: unused_field
+
+	// Translations
+	@override String get layout => 'Bố cục';
+	@override String get masonryGrid => 'Lưới gạch xếp';
+	@override String get simpleGrid => 'Lưới đơn giản';
 }
 
 // Path: sentry.consent

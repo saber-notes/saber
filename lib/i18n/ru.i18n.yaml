@@ -69,6 +69,16 @@ home:
     deleteName: Удалить $f
     delete: Удалить
     alsoDeleteContents: Также, удалить все заметки в этой папке
+  sort:
+    sortBy(OUTDATED): Сортировать по
+    nameAToZ(OUTDATED): Имя (от А до Я)
+    nameZToA(OUTDATED): Имя (по алфавиту от А до Я)
+    lastModifiedNewToOld(OUTDATED): Отредактировано (Новое в начале)
+    lastModifiedOldToNew(OUTDATED): Отредактировано (По убыванию возраста)
+  layout:
+    layout(OUTDATED): Макет
+    masonryGrid(OUTDATED): Сетка в стиле кладки
+    simpleGrid(OUTDATED): Простая сетка
 sentry:
   consent:
     title: Поможете улучшить Saber?

@@ -69,6 +69,16 @@ home:
     deleteName: $f törlése
     delete: Törlés
     alsoDeleteContents: A mappában lévő összes jegyzet is törlődjön
+  sort:
+    sortBy(OUTDATED): Rendezés szerint
+    nameAToZ(OUTDATED): Név (A-Z)
+    nameZToA(OUTDATED): Név (A-Z)
+    lastModifiedNewToOld(OUTDATED): Szerkesztett (Legújabb előre)
+    lastModifiedOldToNew(OUTDATED): "Szerkesztett (Időrendben: legidősebb először)"
+  layout:
+    layout(OUTDATED): Elrendezés
+    masonryGrid(OUTDATED): Murvai rács
+    simpleGrid(OUTDATED): Egyszerű rács
 sentry:
   consent:
     title: Segít a Saber fejlesztésében?

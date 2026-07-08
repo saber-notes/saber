@@ -69,6 +69,16 @@ home:
     deleteName: Apagar $f
     delete: Apagar
     alsoDeleteContents: Apagar também todas as notas dentro desta pasta
+  sort:
+    sortBy(OUTDATED): Ordenar por
+    nameAToZ(OUTDATED): Nome (A-Z)
+    nameZToA(OUTDATED): Nome (A-Z)
+    lastModifiedNewToOld(OUTDATED): Editado (Mais recente primeiro)
+    lastModifiedOldToNew(OUTDATED): Editado (Mais antigo primeiro)
+  layout:
+    layout(OUTDATED): Layout
+    masonryGrid(OUTDATED): Grade de alvenaria
+    simpleGrid(OUTDATED): Grade simples
 sentry:
   consent:
     title: Ajudar a melhorar Saber?

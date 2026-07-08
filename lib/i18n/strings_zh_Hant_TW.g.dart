@@ -81,6 +81,8 @@ class Translations$home$zh_Hant_TW extends Translations$home$en {
 	@override late final Translations$home$deleteNoteDialog$zh_Hant_TW deleteNoteDialog = Translations$home$deleteNoteDialog$zh_Hant_TW.internal(_root);
 	@override late final Translations$home$renameFolder$zh_Hant_TW renameFolder = Translations$home$renameFolder$zh_Hant_TW.internal(_root);
 	@override late final Translations$home$deleteFolder$zh_Hant_TW deleteFolder = Translations$home$deleteFolder$zh_Hant_TW.internal(_root);
+	@override late final Translations$home$sort$zh_Hant_TW sort = Translations$home$sort$zh_Hant_TW.internal(_root);
+	@override late final Translations$home$layout$zh_Hant_TW layout = Translations$home$layout$zh_Hant_TW.internal(_root);
 }
 
 // Path: sentry
@@ -368,6 +370,32 @@ class Translations$home$deleteFolder$zh_Hant_TW extends Translations$home$delete
 	@override String deleteName({required Object f}) => '刪除 ${f}';
 	@override String get delete => '刪除';
 	@override String get alsoDeleteContents => '同時刪除該文件夾內的所有筆記';
+}
+
+// Path: home.sort
+class Translations$home$sort$zh_Hant_TW extends Translations$home$sort$en {
+	Translations$home$sort$zh_Hant_TW.internal(TranslationsZhHantTw root) : this._root = root, super.internal(root);
+
+	final TranslationsZhHantTw _root; // ignore: unused_field
+
+	// Translations
+	@override String get sortBy => '依...排序';
+	@override String get nameAToZ => '姓名（A-Z）';
+	@override String get nameZToA => '姓名 (依字母排序)';
+	@override String get lastModifiedNewToOld => '編輯（最新優先）';
+	@override String get lastModifiedOldToNew => '編輯（最舊的在前）';
+}
+
+// Path: home.layout
+class Translations$home$layout$zh_Hant_TW extends Translations$home$layout$en {
+	Translations$home$layout$zh_Hant_TW.internal(TranslationsZhHantTw root) : this._root = root, super.internal(root);
+
+	final TranslationsZhHantTw _root; // ignore: unused_field
+
+	// Translations
+	@override String get layout => '佈局';
+	@override String get masonryGrid => '砌磚網格';
+	@override String get simpleGrid => '簡單的網格';
 }
 
 // Path: sentry.consent

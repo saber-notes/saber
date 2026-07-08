@@ -69,6 +69,16 @@ home:
     deleteName: Izbriši $f
     delete: Izbriši
     alsoDeleteContents: Izbriši tudi vse zapiske v tej mapi
+  sort:
+    sortBy(OUTDATED): Razvrsti po
+    nameAToZ(OUTDATED): Ime (A-Ž)
+    nameZToA(OUTDATED): Ime (od A do Z)
+    lastModifiedNewToOld(OUTDATED): Uredite (Najnovejše prvé)
+    lastModifiedOldToNew(OUTDATED): Uredite (Najstarejši prvý)
+  layout:
+    layout(OUTDATED): Razpoložba
+    masonryGrid(OUTDATED): Mrežni sistem z mozaikom
+    simpleGrid(OUTDATED): Preprosta mreža
 sentry:
   consent:
     title: Ali želiš pomagati izboljšati Saber?

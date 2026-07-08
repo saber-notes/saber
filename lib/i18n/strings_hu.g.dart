@@ -81,6 +81,8 @@ class _Translations$home$hu extends Translations$home$en {
 	@override late final _Translations$home$deleteNoteDialog$hu deleteNoteDialog = _Translations$home$deleteNoteDialog$hu._(_root);
 	@override late final _Translations$home$renameFolder$hu renameFolder = _Translations$home$renameFolder$hu._(_root);
 	@override late final _Translations$home$deleteFolder$hu deleteFolder = _Translations$home$deleteFolder$hu._(_root);
+	@override late final _Translations$home$sort$hu sort = _Translations$home$sort$hu._(_root);
+	@override late final _Translations$home$layout$hu layout = _Translations$home$layout$hu._(_root);
 }
 
 // Path: sentry
@@ -368,6 +370,32 @@ class _Translations$home$deleteFolder$hu extends Translations$home$deleteFolder$
 	@override String deleteName({required Object f}) => '${f} törlése';
 	@override String get delete => 'Törlés';
 	@override String get alsoDeleteContents => 'A mappában lévő összes jegyzet is törlődjön';
+}
+
+// Path: home.sort
+class _Translations$home$sort$hu extends Translations$home$sort$en {
+	_Translations$home$sort$hu._(TranslationsHu root) : this._root = root, super.internal(root);
+
+	final TranslationsHu _root; // ignore: unused_field
+
+	// Translations
+	@override String get sortBy => 'Rendezés szerint';
+	@override String get nameAToZ => 'Név (A-Z)';
+	@override String get nameZToA => 'Név (A-Z)';
+	@override String get lastModifiedNewToOld => 'Szerkesztett (Legújabb előre)';
+	@override String get lastModifiedOldToNew => 'Szerkesztett (Időrendben: legidősebb először)';
+}
+
+// Path: home.layout
+class _Translations$home$layout$hu extends Translations$home$layout$en {
+	_Translations$home$layout$hu._(TranslationsHu root) : this._root = root, super.internal(root);
+
+	final TranslationsHu _root; // ignore: unused_field
+
+	// Translations
+	@override String get layout => 'Elrendezés';
+	@override String get masonryGrid => 'Murvai rács';
+	@override String get simpleGrid => 'Egyszerű rács';
 }
 
 // Path: sentry.consent

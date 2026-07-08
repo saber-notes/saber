@@ -69,6 +69,16 @@ home:
     deleteName: Usuń $f
     delete: Usuń
     alsoDeleteContents: Usuń także wszystkie notatki z tego folderu
+  sort:
+    sortBy(OUTDATED): Sortuj według
+    nameAToZ(OUTDATED): Imię (A-Z)
+    nameZToA(OUTDATED): Nazwa (od A do Z)
+    lastModifiedNewToOld(OUTDATED): Edytowane (Najnowsze na górze)
+    lastModifiedOldToNew(OUTDATED): Edytowane (Najstarsze jako pierwsze)
+  layout:
+    layout(OUTDATED): Układ
+    masonryGrid(OUTDATED): Siatka murarska
+    simpleGrid(OUTDATED): Prosta siatka
 sentry:
   consent:
     title: Chcesz wesprzeć Saber?

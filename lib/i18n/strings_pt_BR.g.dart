@@ -82,6 +82,8 @@ class _Translations$home$pt_BR extends Translations$home$pt {
 	@override late final _Translations$home$deleteNoteDialog$pt_BR deleteNoteDialog = _Translations$home$deleteNoteDialog$pt_BR._(_root);
 	@override late final _Translations$home$renameFolder$pt_BR renameFolder = _Translations$home$renameFolder$pt_BR._(_root);
 	@override late final _Translations$home$deleteFolder$pt_BR deleteFolder = _Translations$home$deleteFolder$pt_BR._(_root);
+	@override late final _Translations$home$sort$pt_BR sort = _Translations$home$sort$pt_BR._(_root);
+	@override late final _Translations$home$layout$pt_BR layout = _Translations$home$layout$pt_BR._(_root);
 }
 
 // Path: sentry
@@ -367,6 +369,32 @@ class _Translations$home$deleteFolder$pt_BR extends Translations$home$deleteFold
 	@override String deleteName({required Object f}) => 'Apagar ${f}';
 	@override String get delete => 'Apagar';
 	@override String get alsoDeleteContents => 'Apagar também todas as notas dentro desta pasta';
+}
+
+// Path: home.sort
+class _Translations$home$sort$pt_BR extends Translations$home$sort$en {
+	_Translations$home$sort$pt_BR._(TranslationsPtBr root) : this._root = root, super.internal(root);
+
+	final TranslationsPtBr _root; // ignore: unused_field
+
+	// Translations
+	@override String get sortBy => 'Ordenar por';
+	@override String get nameAToZ => 'Nome (A-Z)';
+	@override String get nameZToA => 'Nome (A-Z)';
+	@override String get lastModifiedNewToOld => 'Editado (Mais recente primeiro)';
+	@override String get lastModifiedOldToNew => 'Editado (Mais antigo primeiro)';
+}
+
+// Path: home.layout
+class _Translations$home$layout$pt_BR extends Translations$home$layout$en {
+	_Translations$home$layout$pt_BR._(TranslationsPtBr root) : this._root = root, super.internal(root);
+
+	final TranslationsPtBr _root; // ignore: unused_field
+
+	// Translations
+	@override String get layout => 'Layout';
+	@override String get masonryGrid => 'Grade de alvenaria';
+	@override String get simpleGrid => 'Grade simples';
 }
 
 // Path: sentry.consent

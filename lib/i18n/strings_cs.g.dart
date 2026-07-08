@@ -81,6 +81,8 @@ class _Translations$home$cs extends Translations$home$en {
 	@override late final _Translations$home$deleteNoteDialog$cs deleteNoteDialog = _Translations$home$deleteNoteDialog$cs._(_root);
 	@override late final _Translations$home$renameFolder$cs renameFolder = _Translations$home$renameFolder$cs._(_root);
 	@override late final _Translations$home$deleteFolder$cs deleteFolder = _Translations$home$deleteFolder$cs._(_root);
+	@override late final _Translations$home$sort$cs sort = _Translations$home$sort$cs._(_root);
+	@override late final _Translations$home$layout$cs layout = _Translations$home$layout$cs._(_root);
 }
 
 // Path: sentry
@@ -368,6 +370,32 @@ class _Translations$home$deleteFolder$cs extends Translations$home$deleteFolder$
 	@override String deleteName({required Object f}) => 'Odstranění složky ${f}';
 	@override String get delete => 'Odstranit';
 	@override String get alsoDeleteContents => 'Se složkou odstranit i obsažené poznámky';
+}
+
+// Path: home.sort
+class _Translations$home$sort$cs extends Translations$home$sort$en {
+	_Translations$home$sort$cs._(TranslationsCs root) : this._root = root, super.internal(root);
+
+	final TranslationsCs _root; // ignore: unused_field
+
+	// Translations
+	@override String get sortBy => 'Řazení podle';
+	@override String get nameAToZ => 'Jméno (A-Z)';
+	@override String get nameZToA => 'Jméno (A-Z)';
+	@override String get lastModifiedNewToOld => 'Upravené (Nejnovější nejdříve)';
+	@override String get lastModifiedOldToNew => 'Upravené (Nejstarší nejdříve)';
+}
+
+// Path: home.layout
+class _Translations$home$layout$cs extends Translations$home$layout$en {
+	_Translations$home$layout$cs._(TranslationsCs root) : this._root = root, super.internal(root);
+
+	final TranslationsCs _root; // ignore: unused_field
+
+	// Translations
+	@override String get layout => 'Rozvržení';
+	@override String get masonryGrid => 'Mřížka typu masonry';
+	@override String get simpleGrid => 'Jednoduchá mřížka';
 }
 
 // Path: sentry.consent

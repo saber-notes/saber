@@ -81,6 +81,8 @@ class _Translations$home$es extends Translations$home$en {
 	@override late final _Translations$home$deleteNoteDialog$es deleteNoteDialog = _Translations$home$deleteNoteDialog$es._(_root);
 	@override late final _Translations$home$renameFolder$es renameFolder = _Translations$home$renameFolder$es._(_root);
 	@override late final _Translations$home$deleteFolder$es deleteFolder = _Translations$home$deleteFolder$es._(_root);
+	@override late final _Translations$home$sort$es sort = _Translations$home$sort$es._(_root);
+	@override late final _Translations$home$layout$es layout = _Translations$home$layout$es._(_root);
 }
 
 // Path: sentry
@@ -364,6 +366,32 @@ class _Translations$home$deleteFolder$es extends Translations$home$deleteFolder$
 	@override String deleteName({required Object f}) => 'Eliminar ${f}';
 	@override String get delete => 'Eliminar';
 	@override String get alsoDeleteContents => 'Eliminar también las notas guardadas dentro de la carpeta';
+}
+
+// Path: home.sort
+class _Translations$home$sort$es extends Translations$home$sort$en {
+	_Translations$home$sort$es._(TranslationsEs root) : this._root = root, super.internal(root);
+
+	final TranslationsEs _root; // ignore: unused_field
+
+	// Translations
+	@override String get sortBy => 'Ordenar por';
+	@override String get nameAToZ => 'Nombre (de la A a la Z)';
+	@override String get nameZToA => 'Nombre (de la A a la Z)';
+	@override String get lastModifiedNewToOld => 'Editado (Más reciente primero)';
+	@override String get lastModifiedOldToNew => 'Editado (Más antiguo primero)';
+}
+
+// Path: home.layout
+class _Translations$home$layout$es extends Translations$home$layout$en {
+	_Translations$home$layout$es._(TranslationsEs root) : this._root = root, super.internal(root);
+
+	final TranslationsEs _root; // ignore: unused_field
+
+	// Translations
+	@override String get layout => 'Diseño de página';
+	@override String get masonryGrid => 'Cuadrícula de mampostería';
+	@override String get simpleGrid => 'Cuadrícula simple';
 }
 
 // Path: sentry.consent

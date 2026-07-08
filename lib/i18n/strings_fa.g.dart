@@ -80,6 +80,8 @@ class _Translations$home$fa extends Translations$home$en {
 	@override late final _Translations$home$deleteNoteDialog$fa deleteNoteDialog = _Translations$home$deleteNoteDialog$fa._(_root);
 	@override late final _Translations$home$renameFolder$fa renameFolder = _Translations$home$renameFolder$fa._(_root);
 	@override late final _Translations$home$deleteFolder$fa deleteFolder = _Translations$home$deleteFolder$fa._(_root);
+	@override late final _Translations$home$sort$fa sort = _Translations$home$sort$fa._(_root);
+	@override late final _Translations$home$layout$fa layout = _Translations$home$layout$fa._(_root);
 	@override String get noPreviewAvailable => 'پیش نمایش موجود نیست';
 }
 
@@ -366,6 +368,32 @@ class _Translations$home$deleteFolder$fa extends Translations$home$deleteFolder$
 	@override String deleteName({required Object f}) => '${f} را حذف کنید';
 	@override String get delete => 'حذف';
 	@override String get alsoDeleteContents => 'همچنین تمام یادداشت های داخل این پوشه را حذف کنید';
+}
+
+// Path: home.sort
+class _Translations$home$sort$fa extends Translations$home$sort$en {
+	_Translations$home$sort$fa._(TranslationsFa root) : this._root = root, super.internal(root);
+
+	final TranslationsFa _root; // ignore: unused_field
+
+	// Translations
+	@override String get sortBy => 'مرتب سازی بر اساس';
+	@override String get nameAToZ => 'نام (الف تا ز)';
+	@override String get nameZToA => 'نام (الف تا ی)';
+	@override String get lastModifiedNewToOld => 'ویرایش شده (جدیدترین اول)';
+	@override String get lastModifiedOldToNew => 'ویرایش شده (قدیمی‌ترین اول)';
+}
+
+// Path: home.layout
+class _Translations$home$layout$fa extends Translations$home$layout$en {
+	_Translations$home$layout$fa._(TranslationsFa root) : this._root = root, super.internal(root);
+
+	final TranslationsFa _root; // ignore: unused_field
+
+	// Translations
+	@override String get layout => 'چیدمان';
+	@override String get masonryGrid => 'شبکه سنگ‌چین';
+	@override String get simpleGrid => 'شبکه ساده';
 }
 
 // Path: sentry.consent

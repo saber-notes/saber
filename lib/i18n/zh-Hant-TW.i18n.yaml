@@ -69,6 +69,16 @@ home:
     deleteName: 刪除 $f
     delete: 刪除
     alsoDeleteContents: 同時刪除該文件夾內的所有筆記
+  sort:
+    sortBy(OUTDATED): 依...排序
+    nameAToZ(OUTDATED): 姓名（A-Z）
+    nameZToA(OUTDATED): 姓名 (依字母排序)
+    lastModifiedNewToOld(OUTDATED): 編輯（最新優先）
+    lastModifiedOldToNew(OUTDATED): 編輯（最舊的在前）
+  layout:
+    layout(OUTDATED): 佈局
+    masonryGrid(OUTDATED): 砌磚網格
+    simpleGrid(OUTDATED): 簡單的網格
 sentry:
   consent:
     title: 協助改善 Saber？

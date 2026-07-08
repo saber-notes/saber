@@ -81,6 +81,8 @@ class _Translations$home$ru extends Translations$home$en {
 	@override late final _Translations$home$deleteNoteDialog$ru deleteNoteDialog = _Translations$home$deleteNoteDialog$ru._(_root);
 	@override late final _Translations$home$renameFolder$ru renameFolder = _Translations$home$renameFolder$ru._(_root);
 	@override late final _Translations$home$deleteFolder$ru deleteFolder = _Translations$home$deleteFolder$ru._(_root);
+	@override late final _Translations$home$sort$ru sort = _Translations$home$sort$ru._(_root);
+	@override late final _Translations$home$layout$ru layout = _Translations$home$layout$ru._(_root);
 }
 
 // Path: sentry
@@ -368,6 +370,32 @@ class _Translations$home$deleteFolder$ru extends Translations$home$deleteFolder$
 	@override String deleteName({required Object f}) => 'Удалить ${f}';
 	@override String get delete => 'Удалить';
 	@override String get alsoDeleteContents => 'Также, удалить все заметки в этой папке';
+}
+
+// Path: home.sort
+class _Translations$home$sort$ru extends Translations$home$sort$en {
+	_Translations$home$sort$ru._(TranslationsRu root) : this._root = root, super.internal(root);
+
+	final TranslationsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get sortBy => 'Сортировать по';
+	@override String get nameAToZ => 'Имя (от А до Я)';
+	@override String get nameZToA => 'Имя (по алфавиту от А до Я)';
+	@override String get lastModifiedNewToOld => 'Отредактировано (Новое в начале)';
+	@override String get lastModifiedOldToNew => 'Отредактировано (По убыванию возраста)';
+}
+
+// Path: home.layout
+class _Translations$home$layout$ru extends Translations$home$layout$en {
+	_Translations$home$layout$ru._(TranslationsRu root) : this._root = root, super.internal(root);
+
+	final TranslationsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get layout => 'Макет';
+	@override String get masonryGrid => 'Сетка в стиле кладки';
+	@override String get simpleGrid => 'Простая сетка';
 }
 
 // Path: sentry.consent

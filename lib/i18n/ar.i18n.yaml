@@ -68,6 +68,16 @@ home:
     deleteName: $f حذف
     delete: حذف
     alsoDeleteContents: حذف جميع الملاحظات داخل هذا المجلد أيضًا
+  sort:
+    sortBy(OUTDATED): الترتيب حسب
+    nameAToZ(OUTDATED): الاسم (من الألف إلى الياء)
+    nameZToA(OUTDATED): الاسم (من الألف إلى الياء)
+    lastModifiedNewToOld(OUTDATED): مُعدَّلة (الأحدث أولاً)
+    lastModifiedOldToNew(OUTDATED): مُعدَّلة (الأقدم أولاً)
+  layout:
+    layout(OUTDATED): تخطيط
+    masonryGrid(OUTDATED): شبكة البناء/التراص
+    simpleGrid(OUTDATED): شبكة بسيطة
   noPreviewAvailable(OUTDATED): لا معاينة متاحة
 sentry:
   consent:

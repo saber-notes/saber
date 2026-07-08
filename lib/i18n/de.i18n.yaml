@@ -69,6 +69,16 @@ home:
     deleteName: $f löschen
     delete: Löschen
     alsoDeleteContents: Alle weiteren Notizen in diesem Ordner löschen
+  sort:
+    sortBy(OUTDATED): Sortieren nach
+    nameAToZ(OUTDATED): Name (A-Z)
+    nameZToA(OUTDATED): Name (A-Z)
+    lastModifiedNewToOld(OUTDATED): Bearbeitet (Neuestes zuerst)
+    lastModifiedOldToNew(OUTDATED): Bearbeitet (Älteste zuerst)
+  layout:
+    layout(OUTDATED): Layout
+    masonryGrid(OUTDATED): Mauerwerk-Raster
+    simpleGrid(OUTDATED): Einfaches Raster
 sentry:
   consent:
     title: Helfen, Saber zu verbessern?

@@ -69,6 +69,16 @@ home:
     deleteName: Xóa $f
     delete: Xóa
     alsoDeleteContents: Các ghi chú bên trong thư mục này cũng sẽ bị xóa
+  sort:
+    sortBy(OUTDATED): Sắp xếp theo
+    nameAToZ(OUTDATED): Tên (A-Z)
+    nameZToA(OUTDATED): Tên (A-Z)
+    lastModifiedNewToOld(OUTDATED): Đã chỉnh sửa (Mới nhất trước)
+    lastModifiedOldToNew(OUTDATED): Đã chỉnh sửa (Cũ nhất trước)
+  layout:
+    layout(OUTDATED): Bố cục
+    masonryGrid(OUTDATED): Lưới gạch xếp
+    simpleGrid(OUTDATED): Lưới đơn giản
 sentry:
   consent:
     title: Đóng góp cho Saber?

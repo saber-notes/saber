@@ -68,6 +68,16 @@ home:
     deleteName: $f silinecek
     delete: Sil
     alsoDeleteContents: Bu klasördeki tüm notları da sil
+  sort:
+    sortBy(OUTDATED): Sırala
+    nameAToZ(OUTDATED): Adı (A-Z)
+    nameZToA(OUTDATED): Adı (A'dan Z'ye)
+    lastModifiedNewToOld(OUTDATED): Düzenlendi (En yeni ilk sırada)
+    lastModifiedOldToNew(OUTDATED): Düzenlendi (En eskiden önce)
+  layout:
+    layout(OUTDATED): Düzen
+    masonryGrid(OUTDATED): Duvar örgü ızgarası
+    simpleGrid(OUTDATED): Basit ızgara
   noPreviewAvailable(OUTDATED): Önizleme yok
 sentry:
   consent:

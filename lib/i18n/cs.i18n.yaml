@@ -69,6 +69,16 @@ home:
     deleteName: Odstranění složky $f
     delete: Odstranit
     alsoDeleteContents: Se složkou odstranit i obsažené poznámky
+  sort:
+    sortBy(OUTDATED): Řazení podle
+    nameAToZ(OUTDATED): Jméno (A-Z)
+    nameZToA(OUTDATED): Jméno (A-Z)
+    lastModifiedNewToOld(OUTDATED): Upravené (Nejnovější nejdříve)
+    lastModifiedOldToNew(OUTDATED): Upravené (Nejstarší nejdříve)
+  layout:
+    layout(OUTDATED): Rozvržení
+    masonryGrid(OUTDATED): Mřížka typu masonry
+    simpleGrid(OUTDATED): Jednoduchá mřížka
 sentry:
   consent:
     title: Chcete pomoct vylepšit aplikaci Saber?

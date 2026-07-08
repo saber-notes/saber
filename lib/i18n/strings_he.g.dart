@@ -81,6 +81,8 @@ class _Translations$home$he extends Translations$home$en {
 	@override late final _Translations$home$deleteNoteDialog$he deleteNoteDialog = _Translations$home$deleteNoteDialog$he._(_root);
 	@override late final _Translations$home$renameFolder$he renameFolder = _Translations$home$renameFolder$he._(_root);
 	@override late final _Translations$home$deleteFolder$he deleteFolder = _Translations$home$deleteFolder$he._(_root);
+	@override late final _Translations$home$sort$he sort = _Translations$home$sort$he._(_root);
+	@override late final _Translations$home$layout$he layout = _Translations$home$layout$he._(_root);
 }
 
 // Path: sentry
@@ -368,6 +370,32 @@ class _Translations$home$deleteFolder$he extends Translations$home$deleteFolder$
 	@override String deleteName({required Object f}) => 'מחיקת ${f}';
 	@override String get delete => 'מחיקה';
 	@override String get alsoDeleteContents => 'מחיקה גם של כל הפתקים בתיקייה זו';
+}
+
+// Path: home.sort
+class _Translations$home$sort$he extends Translations$home$sort$en {
+	_Translations$home$sort$he._(TranslationsHe root) : this._root = root, super.internal(root);
+
+	final TranslationsHe _root; // ignore: unused_field
+
+	// Translations
+	@override String get sortBy => 'ממוין לפי';
+	@override String get nameAToZ => 'שם (א-ת)';
+	@override String get nameZToA => 'שם (א-ת)';
+	@override String get lastModifiedNewToOld => 'ערוך (החדשים ביותר תחילה)';
+	@override String get lastModifiedOldToNew => 'ערוך (הישנים ביותר תחילה)';
+}
+
+// Path: home.layout
+class _Translations$home$layout$he extends Translations$home$layout$en {
+	_Translations$home$layout$he._(TranslationsHe root) : this._root = root, super.internal(root);
+
+	final TranslationsHe _root; // ignore: unused_field
+
+	// Translations
+	@override String get layout => 'פריסה';
+	@override String get masonryGrid => 'רשת אבן';
+	@override String get simpleGrid => 'רשת פשוטה';
 }
 
 // Path: sentry.consent
