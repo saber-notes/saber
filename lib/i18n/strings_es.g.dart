@@ -424,7 +424,6 @@ class _Translations$settings$prefLabels$es extends Translations$settings$prefLab
 	@override String get autosave => 'Guardado automático';
 	@override String get shapeRecognitionDelay => 'Retraso en el reconocimiento de formas';
 	@override String get autoStraightenLines => 'Enderezar líneas automáticamente';
-	@override String get simplifiedHomeLayout => 'Menú inicial simplificado';
 	@override String get customDataDir => 'Carpeta de Saber personalizada';
 	@override String get sentry => 'Informes de errores';
 }
@@ -451,7 +450,6 @@ class _Translations$settings$prefDescriptions$es extends Translations$settings$p
 	@override String get shouldAlwaysAlertForUpdates => 'Avísame sobre actualizaciones tan pronto como estén disponibles';
 	@override late final _Translations$settings$prefDescriptions$sentry$es sentry = _Translations$settings$prefDescriptions$sentry$es._(_root);
 	@override String get autosave => 'Auto-Save después de un breve retraso, o nunca';
-	@override String get simplifiedHomeLayout => 'Establece una altura fija para cada vista previa de nota';
 }
 
 // Path: settings.themeModes

@@ -115,7 +115,6 @@ settings:
     autosave: Salvataggio automatico
     shapeRecognitionDelay: Ritardo nel riconoscimento della forma
     autoStraightenLines: Raddrizzamento automatico delle linee
-    simplifiedHomeLayout: Layout semplificato della schermata home
     customDataDir: Cartella Saber personalizzata
     sentry: Segnalazione di errori
   prefDescriptions:
@@ -135,7 +134,6 @@ settings:
     autosave: Salvataggio automatico dopo un breve ritardo, oppure mai
     shapeRecognitionDelay: Quanto spesso aggiornare l'anteprima della forma
     autoStraightenLines: Raddrizza le linee lunghe senza dover utilizzare la penna per le forme
-    simplifiedHomeLayout: Imposta un'altezza fissa per ogni anteprima della nota
     shouldAlwaysAlertForUpdates: Segnalami gli aggiornamenti non appena sono disponibili
     sentry:
       active: Attivo

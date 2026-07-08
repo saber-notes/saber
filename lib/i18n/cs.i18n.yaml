@@ -115,7 +115,6 @@ settings:
     autosave: Automatické ukládání
     shapeRecognitionDelay: Zpoždění rozpoznávání tvarů
     autoStraightenLines: Automaticky narovnávat čáry
-    simplifiedHomeLayout: Zjednodušené rozložení domovské obrazovky
     customDataDir: Vlastní umístění složky aplikace Saber
     sentry: Hlášení chyb
   prefDescriptions:
@@ -135,7 +134,6 @@ settings:
     autosave: Poznámky se budou automaticky ukládat po krátké prodlevě, nebo nikdy
     shapeRecognitionDelay: Jak často aktualizovat náhled tvaru
     autoStraightenLines: Automaticky narovná dlouhé čáry, aniž by bylo nutné využít tvarové pero
-    simplifiedHomeLayout: Nastaví pevnou výšku pro každý náhled poznámky
     shouldAlwaysAlertForUpdates: Oznámit dostupnost aktualizací co nejdříve od jejich vydání
     sentry:
       active: Aktivní

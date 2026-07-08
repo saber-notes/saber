@@ -426,7 +426,6 @@ class _Translations$settings$prefLabels$ar extends Translations$settings$prefLab
 	@override String get printPageIndicators => 'طباعة مؤشرات الصفحة';
 	@override String get shapeRecognitionDelay => 'تأخير التعرف على الأشكال';
 	@override String get autoStraightenLines => 'استقامة الخطوط تلقائيًا';
-	@override String get simplifiedHomeLayout => 'تخطيط الصفحة الرئيسية المبسط';
 	@override String get customDataDir => 'مخصص Saber مجلد';
 	@override String get autoDisableFingerDrawingWhenStylusDetected => 'التعطيل التلقائي لرسم الإصبع';
 	@override String get sentry => 'الإبلاغ خطأ';
@@ -451,7 +450,6 @@ class _Translations$settings$prefDescriptions$ar extends Translations$settings$p
 	@override String get printPageIndicators => 'تظهر مؤشرات الصفحة في الصادرات';
 	@override String get shapeRecognitionDelay => 'عدد مرات تحديث معاينة الشكل';
 	@override String get autoStraightenLines => 'استقامة الخطوط الطويلة بدون الحاجة لاستخدام قلم الشكل';
-	@override String get simplifiedHomeLayout => 'تعيين ارتفاع ثابت لكل معاينة ملاحظة';
 	@override String get shouldAlwaysAlertForUpdates => 'أبلغني عن التحديثات بمجرد توفرها';
 	@override late final _Translations$settings$prefDescriptions$sentry$ar sentry = _Translations$settings$prefDescriptions$sentry$ar._(_root);
 	@override String get autoDisableFingerDrawingWhenStylusDetected => 'قم بإيقاف تشغيل الرسم بالإصبع عند اكتشاف القلم';

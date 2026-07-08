@@ -113,7 +113,6 @@ settings:
     autosave: 自動保存
     shapeRecognitionDelay: 形状認識遅延
     autoStraightenLines: 自動で線分を直す
-    simplifiedHomeLayout: シンプルなホームレイアウト
     sentry: エラー報告
     autoDisableFingerDrawingWhenStylusDetected(OUTDATED): 指の描画を自動的に無効にする
     customDataDir(OUTDATED): カスタムデータディレクトリ
@@ -141,7 +140,6 @@ settings:
       activeUntilRestart: アプリを再起動するまで有効
       inactiveUntilRestart: アプリを再起動するまでの無効
     autoDisableFingerDrawingWhenStylusDetected(OUTDATED): スタイラスが検出されたときに指の描画をオフにする
-    simplifiedHomeLayout(OUTDATED): 各ノートのプレビューに固定の高さを設定します
   themeModes:
     system: システム
     light: ライト

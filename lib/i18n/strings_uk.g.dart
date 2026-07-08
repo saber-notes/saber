@@ -428,7 +428,6 @@ class _Translations$settings$prefLabels$uk extends Translations$settings$prefLab
 	@override String get autosave => 'Автозбереження';
 	@override String get shapeRecognitionDelay => 'Затримка розпізнавання форми';
 	@override String get autoStraightenLines => 'Автоматично вирівнювати лінії';
-	@override String get simplifiedHomeLayout => 'Спрощений план дому';
 	@override String get customDataDir => 'Кастомна папка Saber';
 	@override String get sentry => 'Повідомлення про помилку';
 }
@@ -454,7 +453,6 @@ class _Translations$settings$prefDescriptions$uk extends Translations$settings$p
 	@override String get autosave => 'Автозбереження після короткої затримки, або ніколи';
 	@override String get shapeRecognitionDelay => 'Як часто оновлювати попередній перегляд форми?';
 	@override String get autoStraightenLines => 'Вирівнює довгі лінії без необхідності використовувати штамп';
-	@override String get simplifiedHomeLayout => 'Встановлює фіксовану висоту для попереднього перегляду кожної ноти';
 	@override String get shouldAlwaysAlertForUpdates => 'Повідомляйте мені про оновлення, як тільки вони будуть доступні.';
 }
 

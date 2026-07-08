@@ -428,7 +428,6 @@ class Translations$settings$prefLabels$pt extends Translations$settings$prefLabe
 	@override String get autosave => 'Auto-gravar';
 	@override String get shapeRecognitionDelay => 'Atraso no reconhecimento de formatos';
 	@override String get autoStraightenLines => 'Auto alinhamento de linhas';
-	@override String get simplifiedHomeLayout => 'Layout de casa simplificado';
 	@override String get customDataDir => 'Pasta Saber personalizada';
 	@override String get sentry => 'Relatório de erro';
 }
@@ -455,7 +454,6 @@ class Translations$settings$prefDescriptions$pt extends Translations$settings$pr
 	@override String get autosave => 'Salvar automaticamente após um breve atraso, ou nunca';
 	@override String get shapeRecognitionDelay => 'Com que frequência atualizar a prévia da forma?';
 	@override String get autoStraightenLines => 'Endireita linhas longas sem precisar usar a caneta de forma';
-	@override String get simplifiedHomeLayout => 'Define uma altura fixa para cada prévia de nota';
 }
 
 // Path: settings.themeModes

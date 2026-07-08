@@ -115,7 +115,6 @@ settings:
     autosave: Automatisch opslaan
     shapeRecognitionDelay: Vorm herkenning vertraging
     autoStraightenLines: Automatisch lijnen recht maken
-    simplifiedHomeLayout: Simpele thuis indeling
     customDataDir: Aangepaste Saber map
     sentry: Fouten rapportering
   prefDescriptions:
@@ -135,7 +134,6 @@ settings:
     autosave: Automatisch opslaan na een bepaalde tijd, of nooit
     shapeRecognitionDelay: Hoe vaak de vorm herkenning updaten
     autoStraightenLines: Lange lijnen recht maken zonder vorm pen te gebruiken
-    simplifiedHomeLayout: Maak elk notitievoorbeeld even groot
     shouldAlwaysAlertForUpdates: Laat het meteen weten als er updates zijn
     sentry:
       active: Actief

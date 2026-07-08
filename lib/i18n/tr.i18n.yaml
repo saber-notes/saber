@@ -113,7 +113,6 @@ settings:
     printPageIndicators: Sayfa belirteçlerini yazdır
     shapeRecognitionDelay: Şekil tanıma gecikmesi
     autoStraightenLines: Çizgileri otomatik düzleştir
-    simplifiedHomeLayout: Sadeleştirilmiş ana ekran düzeni
     customDataDir: Özel Saber klasörü
     autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Parmak çizimini otomatik olarak devre dışı bırak
     sentry(OUTDATED): Hata raporlama
@@ -133,7 +132,6 @@ settings:
     printPageIndicators: Çıktılarda sayfa belirteçlerini göster
     shapeRecognitionDelay: Çizilen şekilleri tanımlama sıklığını belirler
     autoStraightenLines: Şekil aracını kullanmadığınızda da çizgileri düzleştirir
-    simplifiedHomeLayout: Not önizlemelerinin uzunluklarını eşitler
     shouldAlwaysAlertForUpdates: Güncelleme mevcut olduğu gibi bana haber ver
     sentry:
       active(OUTDATED): Aktif

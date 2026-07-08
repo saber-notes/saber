@@ -428,7 +428,6 @@ class _Translations$settings$prefLabels$pl extends Translations$settings$prefLab
 	@override String get autosave => 'Auto-zapis';
 	@override String get shapeRecognitionDelay => 'Opóźnienie rozpoznania symbolu';
 	@override String get autoStraightenLines => 'Automatycznie prostuj linie';
-	@override String get simplifiedHomeLayout => 'Uproszczony widok strony głównej';
 	@override String get customDataDir => 'Niestandardowa lokalizacja Saber';
 	@override String get sentry => 'Zgłaszanie błędów';
 }
@@ -453,7 +452,6 @@ class _Translations$settings$prefDescriptions$pl extends Translations$settings$p
 	@override String get autosave => 'Auto-zapis co określony czas, lub nigdy';
 	@override String get shapeRecognitionDelay => 'Częstotliwość aktualizacji podglądu kształtu';
 	@override String get autoStraightenLines => 'Prostuj linie bez potrzeby przełączania na narzędzie tworzenia kształtów';
-	@override String get simplifiedHomeLayout => 'Stała wysokość każdego podglądu notatki';
 	@override String get shouldAlwaysAlertForUpdates => 'Powiadom mnie o aktualizacjach jak tylko będą dostępne';
 	@override late final _Translations$settings$prefDescriptions$sentry$pl sentry = _Translations$settings$prefDescriptions$sentry$pl._(_root);
 }

@@ -115,7 +115,6 @@ settings:
     autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Désactivation automatique du dessin au doigt
     sentry(OUTDATED): Rapports d'erreur
     autosave(OUTDATED): S'attacher automatiquement
-    simplifiedHomeLayout(OUTDATED): Aménagement d'une maison simplifié
     customDataDir(OUTDATED): Répertoire de données personnalisé
     autoStraightenLines(OUTDATED): Redresser automatiquement les lignes
   prefDescriptions:
@@ -140,7 +139,6 @@ settings:
       inactiveUntilRestart(OUTDATED): Inactif jusqu'à ce que vous redémarrez l'application
     autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Désactiver le dessin au doigt lorsqu'un stylet est détecté
     autosave(OUTDATED): S'attacher automatiquement après un court délai, ou jamais
-    simplifiedHomeLayout(OUTDATED): Définit une hauteur fixe pour chaque aperçu de note
     autoStraightenLines(OUTDATED): Redresse les longues lignes sans avoir à utiliser le stylo de forme
   themeModes:
     system: Système

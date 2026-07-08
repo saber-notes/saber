@@ -428,7 +428,6 @@ class _Translations$settings$prefLabels$de extends Translations$settings$prefLab
 	@override String get autosave => 'Automatisches Backup';
 	@override String get shapeRecognitionDelay => 'Verzögerung der Formerkennung';
 	@override String get autoStraightenLines => 'Linien automatisch begradigen';
-	@override String get simplifiedHomeLayout => 'Vereinfachtes Startbildschirmlayout';
 	@override String get customDataDir => 'Eigener Saber-Ordner';
 	@override String get sentry => 'Fehlerberichterstattung';
 }
@@ -453,7 +452,6 @@ class _Translations$settings$prefDescriptions$de extends Translations$settings$p
 	@override String get autosave => 'Automatisches Backup in kurzen Abständen (wenn aktiviert)';
 	@override String get shapeRecognitionDelay => 'Aktualisierungshäufigkeit der Vorschau';
 	@override String get autoStraightenLines => 'Lange Linien auch ohne Formen-Stift automatisch begradigen';
-	@override String get simplifiedHomeLayout => 'Legt eine feste Höhe für jede Notizvorschau fest';
 	@override String get shouldAlwaysAlertForUpdates => 'Über neue Updates informiert bleiben';
 	@override late final _Translations$settings$prefDescriptions$sentry$de sentry = _Translations$settings$prefDescriptions$sentry$de._(_root);
 }

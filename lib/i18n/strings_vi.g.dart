@@ -428,7 +428,6 @@ class _Translations$settings$prefLabels$vi extends Translations$settings$prefLab
 	@override String get autosave => 'Tự động lưu';
 	@override String get shapeRecognitionDelay => 'Độ trễ khi nhận dạng vật thể';
 	@override String get autoStraightenLines => 'Tự động nắn thẳng các đường kẻ';
-	@override String get simplifiedHomeLayout => 'Đơn giản hóa giao diện';
 	@override String get customDataDir => 'Đổi vị trí thư mục Saber';
 	@override String get sentry => 'Báo cáo lỗi';
 }
@@ -453,7 +452,6 @@ class _Translations$settings$prefDescriptions$vi extends Translations$settings$p
 	@override String get autosave => 'Tự động lưu sau một khoảng thời gian ngắn hoặc không bao giờ';
 	@override String get shapeRecognitionDelay => 'Tần suất cập nhật bản xem trước hình dạng';
 	@override String get autoStraightenLines => 'Tự động nắn thẳng các đường kẻ dài mà không cần phải sử dụng bút vẽ hình chuyên dụng';
-	@override String get simplifiedHomeLayout => 'Thiết lập chiều cao cố định cho mỗi bản xem trước ghi chú';
 	@override String get shouldAlwaysAlertForUpdates => 'Thông báo cho tôi về các bản cập nhật mới khi chúng được phát hành';
 	@override late final _Translations$settings$prefDescriptions$sentry$vi sentry = _Translations$settings$prefDescriptions$sentry$vi._(_root);
 }

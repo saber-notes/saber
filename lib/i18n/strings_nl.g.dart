@@ -428,7 +428,6 @@ class _Translations$settings$prefLabels$nl extends Translations$settings$prefLab
 	@override String get autosave => 'Automatisch opslaan';
 	@override String get shapeRecognitionDelay => 'Vorm herkenning vertraging';
 	@override String get autoStraightenLines => 'Automatisch lijnen recht maken';
-	@override String get simplifiedHomeLayout => 'Simpele thuis indeling';
 	@override String get customDataDir => 'Aangepaste Saber map';
 	@override String get sentry => 'Fouten rapportering';
 }
@@ -453,7 +452,6 @@ class _Translations$settings$prefDescriptions$nl extends Translations$settings$p
 	@override String get autosave => 'Automatisch opslaan na een bepaalde tijd, of nooit';
 	@override String get shapeRecognitionDelay => 'Hoe vaak de vorm herkenning updaten';
 	@override String get autoStraightenLines => 'Lange lijnen recht maken zonder vorm pen te gebruiken';
-	@override String get simplifiedHomeLayout => 'Maak elk notitievoorbeeld even groot';
 	@override String get shouldAlwaysAlertForUpdates => 'Laat het meteen weten als er updates zijn';
 	@override late final _Translations$settings$prefDescriptions$sentry$nl sentry = _Translations$settings$prefDescriptions$sentry$nl._(_root);
 }

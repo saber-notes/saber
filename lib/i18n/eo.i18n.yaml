@@ -114,7 +114,6 @@ settings:
     autosave: Aŭtomata konservado
     shapeRecognitionDelay: Prokrasto de formorekono
     autoStraightenLines: Aŭtomate rektigu liniojn
-    simplifiedHomeLayout: Simpligita ĉefekranaranĝo
     customDataDir: Kutima Saber-dosierujo
     sentry: Erarraportado
     autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Aŭtomate malŝalti fingrodesegnadon
@@ -134,7 +133,6 @@ settings:
     autosave: Aŭtomate konservas post iom da tempo aŭ neniam
     shapeRecognitionDelay: Ofteco de ĝisdatigo de la formantaŭrigardo
     autoStraightenLines: Rektigas longajn liniojn sen uzado de la formskribilon
-    simplifiedHomeLayout: Fiksas la alton por ĉiu notantaŭrigardo
     shouldAlwaysAlertForUpdates: Informu min pri ĝisdatigoj tuj kiam ili disponebliĝos
     sentry:
       active: Aktiva

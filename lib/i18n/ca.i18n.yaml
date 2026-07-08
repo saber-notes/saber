@@ -117,7 +117,6 @@ settings:
     autosave(OUTDATED): Auto-guardat
     shapeRecognitionDelay(OUTDATED): Retard de reconnaissance de forme
     autoStraightenLines(OUTDATED): Rectificar líneas automáticamente
-    simplifiedHomeLayout(OUTDATED): Disposició simplificada de la casa
     customDataDir(OUTDATED): Pàrador custom Saber
     sentry(OUTDATED): Informar errores
   prefDescriptions:
@@ -142,7 +141,6 @@ settings:
     autosave(OUTDATED): Auto-guardat després d'un retard curt, o mai
     shapeRecognitionDelay(OUTDATED): Quetre freqüentament actualitzar la previsualització de la forma
     autoStraightenLines(OUTDATED): Rectifica les línies llonges sense avoir a utilitzar el rotuli de forma
-    simplifiedHomeLayout(OUTDATED): Establir una altura fija para cada vista previa de nota
     shouldAlwaysAlertForUpdates(OUTDATED): Diga-me sobre as atualizações assim que estiverem disponíveis
   themeModes:
     system(OUTDATED): Sistema

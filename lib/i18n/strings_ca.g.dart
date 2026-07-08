@@ -425,7 +425,6 @@ class _Translations$settings$prefLabels$ca extends Translations$settings$prefLab
 	@override String get autosave => 'Auto-guardat';
 	@override String get shapeRecognitionDelay => 'Retard de reconnaissance de forme';
 	@override String get autoStraightenLines => 'Rectificar líneas automáticamente';
-	@override String get simplifiedHomeLayout => 'Disposició simplificada de la casa';
 	@override String get customDataDir => 'Pàrador custom Saber';
 	@override String get sentry => 'Informar errores';
 }
@@ -451,7 +450,6 @@ class _Translations$settings$prefDescriptions$ca extends Translations$settings$p
 	@override String get autosave => 'Auto-guardat després d\'un retard curt, o mai';
 	@override String get shapeRecognitionDelay => 'Quetre freqüentament actualitzar la previsualització de la forma';
 	@override String get autoStraightenLines => 'Rectifica les línies llonges sense avoir a utilitzar el rotuli de forma';
-	@override String get simplifiedHomeLayout => 'Establir una altura fija para cada vista previa de nota';
 	@override String get shouldAlwaysAlertForUpdates => 'Diga-me sobre as atualizações assim que estiverem disponíveis';
 }
 

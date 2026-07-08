@@ -115,7 +115,6 @@ settings:
     autoDisableFingerDrawingWhenStylusDetected(OUTDATED): غیرفعال کردن خودکار طراحی با انگشت
     sentry(OUTDATED): گزارش خطا
     autosave(OUTDATED): خودرا
-    simplifiedHomeLayout(OUTDATED): چیدمان خانه ساده شده
     customDataDir(OUTDATED): دایرکتوری داده های سفارشی
     autoStraightenLines(OUTDATED): صاف کردن خودکار خطوط
   prefDescriptions:
@@ -140,7 +139,6 @@ settings:
       inactiveUntilRestart(OUTDATED): تا زمانی که برنامه را مجدداً راه اندازی کنید غیرفعال است
     autoDisableFingerDrawingWhenStylusDetected(OUTDATED): هنگامی که یک قلم شناسایی شد، نقاشی با انگشت را خاموش کنید
     autosave(OUTDATED): پس از یک تأخیر کوتاه ، یا هرگز
-    simplifiedHomeLayout(OUTDATED): یک ارتفاع ثابت برای پیش نمایش هر یادداشت تنظیم می کند
     autoStraightenLines(OUTDATED): خطوط بلند را بدون استفاده از قلم شکل صاف می کند
   themeModes:
     system: سیستم

@@ -61,26 +61,27 @@ class _MasonryFilesState extends State<MasonryFiles> {
 
     return SliverPadding(
       padding: const .symmetric(horizontal: 16, vertical: 8),
-      sliver: stows.simplifiedHomeLayout.value
-          ? SliverGrid.builder(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: widget.crossAxisCount,
-                mainAxisSpacing: 8,
-                crossAxisSpacing: 8,
-                // This aspect ratio was chosen to fit an A4 page and
-                // two lines for the title.
-                childAspectRatio: 0.60,
-              ),
-              itemCount: widget.files.length,
-              itemBuilder: itemBuilder,
-            )
-          : SliverMasonryGrid.count(
-              crossAxisCount: widget.crossAxisCount,
-              mainAxisSpacing: 8,
-              crossAxisSpacing: 8,
-              childCount: widget.files.length,
-              itemBuilder: itemBuilder,
-            ),
+      sliver: switch (stows.homeLayout.value) {
+        .masonryGrid => SliverMasonryGrid.count(
+          crossAxisCount: widget.crossAxisCount,
+          mainAxisSpacing: 8,
+          crossAxisSpacing: 8,
+          childCount: widget.files.length,
+          itemBuilder: itemBuilder,
+        ),
+        .simpleGrid => SliverGrid.builder(
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: widget.crossAxisCount,
+            mainAxisSpacing: 8,
+            crossAxisSpacing: 8,
+            // This aspect ratio was chosen to fit an A4 page and
+            // two lines for the title.
+            childAspectRatio: 0.60,
+          ),
+          itemCount: widget.files.length,
+          itemBuilder: itemBuilder,
+        ),
+      },
     );
   }
 }

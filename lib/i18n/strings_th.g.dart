@@ -427,7 +427,6 @@ class _Translations$settings$prefLabels$th extends Translations$settings$prefLab
 	@override String get autosave => 'บันทึกอัตโนมัติ';
 	@override String get shapeRecognitionDelay => 'ล่าช้าในการจดจำรูปร่าง';
 	@override String get autoStraightenLines => 'ปรับเส้นให้ตรงอัตโนมัติ';
-	@override String get simplifiedHomeLayout => 'วางผังแบบเรียบง่าย';
 	@override String get customDataDir => 'กำหนดโฟลเดอร์เอง';
 	@override String get sentry => 'รายงานข้อผิดพลาด';
 }
@@ -452,7 +451,6 @@ class _Translations$settings$prefDescriptions$th extends Translations$settings$p
 	@override String get autosave => 'บันทึกอัตโนมัติหลังจากหน่วงเวลาเล็กน้อย หรือไม่บันทึกเลยก็ได้';
 	@override String get shapeRecognitionDelay => 'อัปเดตตัวอย่างรูปร่างบ่อยแค่ไหน';
 	@override String get autoStraightenLines => 'ยืดเส้นยาวให้ตรงโดยไม่ต้องใช้ปากกาเขียนรูปทรง';
-	@override String get simplifiedHomeLayout => 'กำหนดความสูงคงที่สำหรับการแสดงตัวอย่างโน้ตแต่ละรายการ';
 	@override String get shouldAlwaysAlertForUpdates => 'แจ้งข้อมูลอัปเดตให้ฉันทราบทันทีที่มีข้อมูลเพิ่มเติม';
 	@override late final _Translations$settings$prefDescriptions$sentry$th sentry = _Translations$settings$prefDescriptions$sentry$th._(_root);
 }

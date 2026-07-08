@@ -428,7 +428,6 @@ class Translations$settings$prefLabels$zh_Hant_TW extends Translations$settings$
 	@override String get autosave => '自動儲存';
 	@override String get shapeRecognitionDelay => '形狀辨識延遲';
 	@override String get autoStraightenLines => '自動拉直線條';
-	@override String get simplifiedHomeLayout => '簡化首頁版面';
 	@override String get customDataDir => '自訂 Saber 資料夾';
 	@override String get sentry => '錯誤回報';
 }
@@ -453,7 +452,6 @@ class Translations$settings$prefDescriptions$zh_Hant_TW extends Translations$set
 	@override String get autosave => '在短暫延遲後自動儲存，或永不儲存';
 	@override String get shapeRecognitionDelay => '多久更新一次形狀預覽';
 	@override String get autoStraightenLines => '不需要使用造型筆即可拉直線條';
-	@override String get simplifiedHomeLayout => '為每個筆記預覽設定固定高度';
 	@override String get shouldAlwaysAlertForUpdates => '一旦有更新請告訴我';
 	@override late final Translations$settings$prefDescriptions$sentry$zh_Hant_TW sentry = Translations$settings$prefDescriptions$sentry$zh_Hant_TW.internal(_root);
 }

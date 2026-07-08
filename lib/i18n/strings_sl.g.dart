@@ -428,7 +428,6 @@ class _Translations$settings$prefLabels$sl extends Translations$settings$prefLab
 	@override String get autosave => 'Samodejno shranjevanje';
 	@override String get shapeRecognitionDelay => 'Zakasnitev prepoznave oblik';
 	@override String get autoStraightenLines => 'Samodejno poravnaj črte';
-	@override String get simplifiedHomeLayout => 'Poenostavljena postavitev domače strani';
 	@override String get customDataDir => 'Mapa Saber po meri';
 	@override String get sentry => 'Poročanje o napakah';
 }
@@ -453,7 +452,6 @@ class _Translations$settings$prefDescriptions$sl extends Translations$settings$p
 	@override String get autosave => 'Samodejno shrani po kratkem zamiku ali nikoli';
 	@override String get shapeRecognitionDelay => 'Kako pogosto posodobiti predogled oblike';
 	@override String get autoStraightenLines => 'Poravna dolge črte brez uporabe pisala za oblike';
-	@override String get simplifiedHomeLayout => 'Nastavi fiksno višino za vsak predogled zapiska';
 	@override String get shouldAlwaysAlertForUpdates => 'Obvesti me o posodobitvah takoj, ko so na voljo';
 	@override late final _Translations$settings$prefDescriptions$sentry$sl sentry = _Translations$settings$prefDescriptions$sentry$sl._(_root);
 }

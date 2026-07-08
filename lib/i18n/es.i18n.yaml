@@ -114,7 +114,6 @@ settings:
     autosave: Guardado automático
     shapeRecognitionDelay: Retraso en el reconocimiento de formas
     autoStraightenLines: Enderezar líneas automáticamente
-    simplifiedHomeLayout: Menú inicial simplificado
     customDataDir: Carpeta de Saber personalizada
     sentry: Informes de errores
   prefDescriptions:
@@ -140,7 +139,6 @@ settings:
       activeUntilRestart(OUTDATED): Activo hasta que reinicie la aplicación
       inactiveUntilRestart(OUTDATED): Inactivo hasta que reinicie la aplicación
     autosave(OUTDATED): Auto-Save después de un breve retraso, o nunca
-    simplifiedHomeLayout(OUTDATED): Establece una altura fija para cada vista previa de nota
   themeModes:
     system: Sistema
     light: Claro

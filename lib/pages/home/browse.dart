@@ -142,7 +142,9 @@ class _BrowsePageState extends State<BrowsePage> {
                 bottom: 8, // less than other pages for path components
               ),
             ),
-            actions: const [SyncingButton(), BrowseSortButton()],
+            actions: const [
+              BrowseSortButton(),
+              SyncingButton()],
           ),
           SliverToBoxAdapter(
             child: PathComponents(path, onPathComponentTap: onPathComponentTap),

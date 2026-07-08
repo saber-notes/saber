@@ -115,7 +115,6 @@ settings:
     autosave: บันทึกอัตโนมัติ
     shapeRecognitionDelay: ล่าช้าในการจดจำรูปร่าง
     autoStraightenLines: ปรับเส้นให้ตรงอัตโนมัติ
-    simplifiedHomeLayout: วางผังแบบเรียบง่าย
     customDataDir: กำหนดโฟลเดอร์เอง
     sentry: รายงานข้อผิดพลาด
   prefDescriptions:
@@ -135,7 +134,6 @@ settings:
     autosave: บันทึกอัตโนมัติหลังจากหน่วงเวลาเล็กน้อย หรือไม่บันทึกเลยก็ได้
     shapeRecognitionDelay: อัปเดตตัวอย่างรูปร่างบ่อยแค่ไหน
     autoStraightenLines: ยืดเส้นยาวให้ตรงโดยไม่ต้องใช้ปากกาเขียนรูปทรง
-    simplifiedHomeLayout: กำหนดความสูงคงที่สำหรับการแสดงตัวอย่างโน้ตแต่ละรายการ
     shouldAlwaysAlertForUpdates: แจ้งข้อมูลอัปเดตให้ฉันทราบทันทีที่มีข้อมูลเพิ่มเติม
     sentry:
       active: ใช้งาน

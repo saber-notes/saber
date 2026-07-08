@@ -428,7 +428,6 @@ class _Translations$settings$prefLabels$pt_BR extends Translations$settings$pref
 	@override String get shapeRecognitionDelay => 'Atraso no reconhecimento de formatos';
 	@override String get autoStraightenLines => 'Auto alinhamento de linhas';
 	@override String get sentry => 'Relatório de erro';
-	@override String get simplifiedHomeLayout => 'Layout simplificado da casa';
 	@override String get customDataDir => 'Diretório de dados personalizado';
 }
 
@@ -452,7 +451,6 @@ class _Translations$settings$prefDescriptions$pt_BR extends Translations$setting
 	@override late final _Translations$settings$prefDescriptions$sentry$pt_BR sentry = _Translations$settings$prefDescriptions$sentry$pt_BR._(_root);
 	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Desative o desenho com o dedo quando uma caneta for detectada';
 	@override String get autosave => 'Salvamento automático após um pequeno atraso, ou nunca';
-	@override String get simplifiedHomeLayout => 'Define uma altura fixa para cada pré-visualização de nota';
 	@override String get autoStraightenLines => 'Endireita linhas longas sem precisar usar a caneta modeladora';
 	@override String get shapeRecognitionDelay => 'Com que frequência atualizar a visualização da forma';
 }

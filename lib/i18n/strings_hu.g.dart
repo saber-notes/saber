@@ -428,7 +428,6 @@ class _Translations$settings$prefLabels$hu extends Translations$settings$prefLab
 	@override String get autosave => 'Automatikus mentés';
 	@override String get shapeRecognitionDelay => 'Alakfelismerés késleltetése';
 	@override String get autoStraightenLines => 'Vonalak automatikus kiegyenesítése';
-	@override String get simplifiedHomeLayout => 'Egyszerűsített kezdőlap elrendezés';
 	@override String get customDataDir => 'Egyéni Saber mappa';
 	@override String get sentry => 'Hibajelentés';
 }
@@ -453,7 +452,6 @@ class _Translations$settings$prefDescriptions$hu extends Translations$settings$p
 	@override String get autosave => 'Automatikus mentés rövid idő után, vagy soha';
 	@override String get shapeRecognitionDelay => 'Milyen gyakran frissüljön az alakzat előnézete';
 	@override String get autoStraightenLines => 'Automatikusan kiegyenesíti a hosszú vonalakat anélkül, hogy az alakzat tollat kellene használni';
-	@override String get simplifiedHomeLayout => 'Rögzített magasságot állít be minden jegyzet előnézetéhez';
 	@override String get shouldAlwaysAlertForUpdates => 'Értesítsen a frissítésekről, amint elérhetővé válnak';
 	@override late final _Translations$settings$prefDescriptions$sentry$hu sentry = _Translations$settings$prefDescriptions$sentry$hu._(_root);
 }

@@ -108,7 +108,6 @@ ca:
       autosave(OUTDATED): Auto-save
       shapeRecognitionDelay(OUTDATED): Shape recognition delay
       autoStraightenLines(OUTDATED): Auto straighten lines
-      simplifiedHomeLayout(OUTDATED): Simplified home layout
       customDataDir(OUTDATED): Custom Saber folder
       sentry(OUTDATED): Error reporting
     prefDescriptions:
@@ -128,7 +127,6 @@ ca:
       autosave(OUTDATED): Auto-save after a short delay, or never
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
-      simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
       shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
       sentry:
         active(OUTDATED): Active
@@ -316,7 +314,6 @@ es:
   settings:
     prefDescriptions:
       autosave(OUTDATED): Auto-save after a short delay, or never
-      simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
       sentry:
         active(OUTDATED): Active
         inactive(OUTDATED): Inactive
@@ -433,14 +430,12 @@ fa:
       autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Auto-disable finger drawing
       autosave(OUTDATED): Auto-save
       autoStraightenLines(OUTDATED): Auto straighten lines
-      simplifiedHomeLayout(OUTDATED): Simplified home layout
       customDataDir(OUTDATED): Custom Saber folder
       sentry(OUTDATED): Error reporting
     prefDescriptions:
       autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Turn off finger drawing when a stylus is detected
       autosave(OUTDATED): Auto-save after a short delay, or never
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
-      simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
       sentry:
         active(OUTDATED): Active
         inactive(OUTDATED): Inactive
@@ -553,14 +548,12 @@ fr:
       autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Auto-disable finger drawing
       autosave(OUTDATED): Auto-save
       autoStraightenLines(OUTDATED): Auto straighten lines
-      simplifiedHomeLayout(OUTDATED): Simplified home layout
       customDataDir(OUTDATED): Custom Saber folder
       sentry(OUTDATED): Error reporting
     prefDescriptions:
       autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Turn off finger drawing when a stylus is detected
       autosave(OUTDATED): Auto-save after a short delay, or never
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
-      simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
       sentry:
         active(OUTDATED): Active
         inactive(OUTDATED): Inactive
@@ -674,7 +667,6 @@ ja:
         fixedOn(OUTDATED): Finger drawing is fixed as enabled
         fixedOff(OUTDATED): Finger drawing is fixed as disabled
       autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Turn off finger drawing when a stylus is detected
-      simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
     autosaveDisabled(OUTDATED): Never
     shapeRecognitionDisabled(OUTDATED): Never
   update:
@@ -923,7 +915,6 @@ uk:
       autosave(OUTDATED): Auto-save
       shapeRecognitionDelay(OUTDATED): Shape recognition delay
       autoStraightenLines(OUTDATED): Auto straighten lines
-      simplifiedHomeLayout(OUTDATED): Simplified home layout
       customDataDir(OUTDATED): Custom Saber folder
       sentry(OUTDATED): Error reporting
     prefDescriptions:
@@ -943,7 +934,6 @@ uk:
       autosave(OUTDATED): Auto-save after a short delay, or never
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
-      simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
       shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
       sentry:
         active(OUTDATED): Active
@@ -1170,7 +1160,6 @@ pt-BR:
       lastModifiedOldToNew: Edited (Oldest first)
   settings:
     prefLabels:
-      simplifiedHomeLayout(OUTDATED): Simplified home layout
       customDataDir(OUTDATED): Custom Saber folder
       sentry(OUTDATED): Error reporting
     prefDescriptions:
@@ -1178,7 +1167,6 @@ pt-BR:
       autosave(OUTDATED): Auto-save after a short delay, or never
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
-      simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
       sentry:
         active(OUTDATED): Active
         inactive(OUTDATED): Inactive

@@ -115,7 +115,6 @@ settings:
     autosave(OUTDATED): Автозбереження
     shapeRecognitionDelay(OUTDATED): Затримка розпізнавання форми
     autoStraightenLines(OUTDATED): Автоматично вирівнювати лінії
-    simplifiedHomeLayout(OUTDATED): Спрощений план дому
     customDataDir(OUTDATED): Кастомна папка Saber
     sentry(OUTDATED): Повідомлення про помилку
   prefDescriptions:
@@ -140,7 +139,6 @@ settings:
     autosave(OUTDATED): Автозбереження після короткої затримки, або ніколи
     shapeRecognitionDelay(OUTDATED): Як часто оновлювати попередній перегляд форми?
     autoStraightenLines(OUTDATED): Вирівнює довгі лінії без необхідності використовувати штамп
-    simplifiedHomeLayout(OUTDATED): Встановлює фіксовану висоту для попереднього перегляду кожної ноти
     shouldAlwaysAlertForUpdates(OUTDATED): Повідомляйте мені про оновлення, як тільки вони будуть доступні.
   themeModes:
     system(OUTDATED): Система

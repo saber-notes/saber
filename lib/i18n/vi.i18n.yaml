@@ -115,7 +115,6 @@ settings:
     autosave: Tự động lưu
     shapeRecognitionDelay: Độ trễ khi nhận dạng vật thể
     autoStraightenLines: Tự động nắn thẳng các đường kẻ
-    simplifiedHomeLayout: Đơn giản hóa giao diện
     customDataDir: Đổi vị trí thư mục Saber
     sentry: Báo cáo lỗi
   prefDescriptions:
@@ -135,7 +134,6 @@ settings:
     autosave: Tự động lưu sau một khoảng thời gian ngắn hoặc không bao giờ
     shapeRecognitionDelay: Tần suất cập nhật bản xem trước hình dạng
     autoStraightenLines: Tự động nắn thẳng các đường kẻ dài mà không cần phải sử dụng bút vẽ hình chuyên dụng
-    simplifiedHomeLayout: Thiết lập chiều cao cố định cho mỗi bản xem trước ghi chú
     shouldAlwaysAlertForUpdates: Thông báo cho tôi về các bản cập nhật mới khi chúng được phát hành
     sentry:
       active: Đang bật

@@ -115,7 +115,6 @@ settings:
     autosave: Automatikus mentés
     shapeRecognitionDelay: Alakfelismerés késleltetése
     autoStraightenLines: Vonalak automatikus kiegyenesítése
-    simplifiedHomeLayout: Egyszerűsített kezdőlap elrendezés
     customDataDir: Egyéni Saber mappa
     sentry: Hibajelentés
   prefDescriptions:
@@ -135,7 +134,6 @@ settings:
     autosave: Automatikus mentés rövid idő után, vagy soha
     shapeRecognitionDelay: Milyen gyakran frissüljön az alakzat előnézete
     autoStraightenLines: Automatikusan kiegyenesíti a hosszú vonalakat anélkül, hogy az alakzat tollat kellene használni
-    simplifiedHomeLayout: Rögzített magasságot állít be minden jegyzet előnézetéhez
     shouldAlwaysAlertForUpdates: Értesítsen a frissítésekről, amint elérhetővé válnak
     sentry:
       active: Aktív

@@ -116,7 +116,6 @@ settings:
     shapeRecognitionDelay: Atraso no reconhecimento de formatos
     autoStraightenLines: Auto alinhamento de linhas
     sentry(OUTDATED): Relatório de erro
-    simplifiedHomeLayout(OUTDATED): Layout simplificado da casa
     customDataDir(OUTDATED): Diretório de dados personalizado
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible aumenta a legibilidade para leitores com baixa visão
@@ -139,7 +138,6 @@ settings:
       inactiveUntilRestart(OUTDATED): Inativo até você reiniciar o aplicativo
     autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Desative o desenho com o dedo quando uma caneta for detectada
     autosave(OUTDATED): Salvamento automático após um pequeno atraso, ou nunca
-    simplifiedHomeLayout(OUTDATED): Define uma altura fixa para cada pré-visualização de nota
     autoStraightenLines(OUTDATED): Endireita linhas longas sem precisar usar a caneta modeladora
     shapeRecognitionDelay(OUTDATED): Com que frequência atualizar a visualização da forma
   themeModes:

@@ -428,7 +428,6 @@ class _Translations$settings$prefLabels$he extends Translations$settings$prefLab
 	@override String get autosave => 'שמירה אוטומטית';
 	@override String get shapeRecognitionDelay => 'השהיה לפני זיהוי צורות';
 	@override String get autoStraightenLines => 'יישור קווים אוטומטי';
-	@override String get simplifiedHomeLayout => 'פריסת עמוד בית פשוטה';
 	@override String get customDataDir => 'תיקייה מותאמת אישית ל־Saber';
 	@override String get sentry => 'דיווח על שגיאות';
 }
@@ -453,7 +452,6 @@ class _Translations$settings$prefDescriptions$he extends Translations$settings$p
 	@override String get autosave => 'שמירה אוטומטית לאחר פרק זמן קצר, או אף פעם';
 	@override String get shapeRecognitionDelay => 'כל כמה זמן לעדכן את התצוגה המקדימה של הצורות';
 	@override String get autoStraightenLines => 'מיישר קווים ארוכים ללא צורך להשתמש בעט הצורות';
-	@override String get simplifiedHomeLayout => 'קביעת גובה קבוע לתצוגה המקדימה של כל פתק';
 	@override String get shouldAlwaysAlertForUpdates => 'ספר לי על עדכונים ברגע שהם יהיו זמינים';
 	@override late final _Translations$settings$prefDescriptions$sentry$he sentry = _Translations$settings$prefDescriptions$sentry$he._(_root);
 }

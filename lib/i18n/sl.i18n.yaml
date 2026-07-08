@@ -115,7 +115,6 @@ settings:
     autosave: Samodejno shranjevanje
     shapeRecognitionDelay: Zakasnitev prepoznave oblik
     autoStraightenLines: Samodejno poravnaj črte
-    simplifiedHomeLayout: Poenostavljena postavitev domače strani
     customDataDir: Mapa Saber po meri
     sentry: Poročanje o napakah
   prefDescriptions:
@@ -135,7 +134,6 @@ settings:
     autosave: Samodejno shrani po kratkem zamiku ali nikoli
     shapeRecognitionDelay: Kako pogosto posodobiti predogled oblike
     autoStraightenLines: Poravna dolge črte brez uporabe pisala za oblike
-    simplifiedHomeLayout: Nastavi fiksno višino za vsak predogled zapiska
     shouldAlwaysAlertForUpdates: Obvesti me o posodobitvah takoj, ko so na voljo
     sentry:
       active: Aktivno

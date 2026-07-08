@@ -426,7 +426,6 @@ class _Translations$settings$prefLabels$fa extends Translations$settings$prefLab
 	@override String get autoDisableFingerDrawingWhenStylusDetected => 'غیرفعال کردن خودکار طراحی با انگشت';
 	@override String get sentry => 'گزارش خطا';
 	@override String get autosave => 'خودرا';
-	@override String get simplifiedHomeLayout => 'چیدمان خانه ساده شده';
 	@override String get customDataDir => 'دایرکتوری داده های سفارشی';
 	@override String get autoStraightenLines => 'صاف کردن خودکار خطوط';
 }
@@ -452,7 +451,6 @@ class _Translations$settings$prefDescriptions$fa extends Translations$settings$p
 	@override late final _Translations$settings$prefDescriptions$sentry$fa sentry = _Translations$settings$prefDescriptions$sentry$fa._(_root);
 	@override String get autoDisableFingerDrawingWhenStylusDetected => 'هنگامی که یک قلم شناسایی شد، نقاشی با انگشت را خاموش کنید';
 	@override String get autosave => 'پس از یک تأخیر کوتاه ، یا هرگز';
-	@override String get simplifiedHomeLayout => 'یک ارتفاع ثابت برای پیش نمایش هر یادداشت تنظیم می کند';
 	@override String get autoStraightenLines => 'خطوط بلند را بدون استفاده از قلم شکل صاف می کند';
 }
 

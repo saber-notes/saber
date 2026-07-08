@@ -115,7 +115,6 @@ settings:
     autosave: Auto-zapis
     shapeRecognitionDelay: Opóźnienie rozpoznania symbolu
     autoStraightenLines: Automatycznie prostuj linie
-    simplifiedHomeLayout: Uproszczony widok strony głównej
     customDataDir: Niestandardowa lokalizacja Saber
     sentry: Zgłaszanie błędów
   prefDescriptions:
@@ -135,7 +134,6 @@ settings:
     autosave: Auto-zapis co określony czas, lub nigdy
     shapeRecognitionDelay: Częstotliwość aktualizacji podglądu kształtu
     autoStraightenLines: Prostuj linie bez potrzeby przełączania na narzędzie tworzenia kształtów
-    simplifiedHomeLayout: Stała wysokość każdego podglądu notatki
     shouldAlwaysAlertForUpdates: Powiadom mnie o aktualizacjach jak tylko będą dostępne
     sentry:
       active: Aktywne

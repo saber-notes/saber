@@ -25,7 +25,7 @@ void main() {
     stows.lastStorageQuota.value = TestUser.getQuota();
     stows.username.value = 'myusername';
     stows.sentryConsent.value = .granted;
-    stows.simplifiedHomeLayout.value = true;
+    stows.homeLayout.value = .simpleGrid;
 
     setUpAll(() async {
       await FileManager.init(shouldWatchRootDirectory: false);

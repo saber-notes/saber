@@ -427,7 +427,6 @@ class _Translations$settings$prefLabels$eo extends Translations$settings$prefLab
 	@override String get autosave => 'Aŭtomata konservado';
 	@override String get shapeRecognitionDelay => 'Prokrasto de formorekono';
 	@override String get autoStraightenLines => 'Aŭtomate rektigu liniojn';
-	@override String get simplifiedHomeLayout => 'Simpligita ĉefekranaranĝo';
 	@override String get customDataDir => 'Kutima Saber-dosierujo';
 	@override String get sentry => 'Erarraportado';
 	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Aŭtomate malŝalti fingrodesegnadon';
@@ -452,7 +451,6 @@ class _Translations$settings$prefDescriptions$eo extends Translations$settings$p
 	@override String get autosave => 'Aŭtomate konservas post iom da tempo aŭ neniam';
 	@override String get shapeRecognitionDelay => 'Ofteco de ĝisdatigo de la formantaŭrigardo';
 	@override String get autoStraightenLines => 'Rektigas longajn liniojn sen uzado de la formskribilon';
-	@override String get simplifiedHomeLayout => 'Fiksas la alton por ĉiu notantaŭrigardo';
 	@override String get shouldAlwaysAlertForUpdates => 'Informu min pri ĝisdatigoj tuj kiam ili disponebliĝos';
 	@override late final _Translations$settings$prefDescriptions$sentry$eo sentry = _Translations$settings$prefDescriptions$sentry$eo._(_root);
 	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Malŝaltu fingrodesegnadon kiam grifelo estas detektita';

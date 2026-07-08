@@ -426,7 +426,6 @@ class _Translations$settings$prefLabels$ja extends Translations$settings$prefLab
 	@override String get autosave => '自動保存';
 	@override String get shapeRecognitionDelay => '形状認識遅延';
 	@override String get autoStraightenLines => '自動で線分を直す';
-	@override String get simplifiedHomeLayout => 'シンプルなホームレイアウト';
 	@override String get sentry => 'エラー報告';
 	@override String get autoDisableFingerDrawingWhenStylusDetected => '指の描画を自動的に無効にする';
 	@override String get customDataDir => 'カスタムデータディレクトリ';
@@ -455,7 +454,6 @@ class _Translations$settings$prefDescriptions$ja extends Translations$settings$p
 	@override String get shouldAlwaysAlertForUpdates => '更新が利用可能になったらすぐに教えてください';
 	@override late final _Translations$settings$prefDescriptions$sentry$ja sentry = _Translations$settings$prefDescriptions$sentry$ja._(_root);
 	@override String get autoDisableFingerDrawingWhenStylusDetected => 'スタイラスが検出されたときに指の描画をオフにする';
-	@override String get simplifiedHomeLayout => '各ノートのプレビューに固定の高さを設定します';
 }
 
 // Path: settings.themeModes
