@@ -75,10 +75,18 @@ home:
     nameZToA(OUTDATED): שם (א-ת)
     lastModifiedNewToOld(OUTDATED): ערוך (החדשים ביותר תחילה)
     lastModifiedOldToNew(OUTDATED): ערוך (הישנים ביותר תחילה)
+    sortBy: מיון לפי
+    nameAToZ: שם (א-ת)
+    nameZToA: שם (ת-א)
+    lastModifiedNewToOld: עריכה אחרונה (הזמן הקרוב ביותר תחילה)
+    lastModifiedOldToNew: עריכה אחרונה (הזמן הרחוק ביותר תחילה)
   layout:
     layout(OUTDATED): פריסה
     masonryGrid(OUTDATED): רשת אבן
     simpleGrid(OUTDATED): רשת פשוטה
+    layout: פריסה
+    simpleGrid: רשת פשוטה
+    masonryGrid: רשת בנייה
 sentry:
   consent:
     title: האם לעזור בשיפור Saber?
