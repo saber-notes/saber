@@ -2,6 +2,7 @@ common:
   cancel: Annuler
   done(OUTDATED): Fait
   continueBtn(OUTDATED): Continuer
+  continueBtn: continuer
 home:
   tabs:
     home: Accueil
