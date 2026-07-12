@@ -75,10 +75,18 @@ home:
     nameZToA(OUTDATED): Jméno (A-Z)
     lastModifiedNewToOld(OUTDATED): Upravené (Nejnovější nejdříve)
     lastModifiedOldToNew(OUTDATED): Upravené (Nejstarší nejdříve)
+    sortBy: Řazení podle
+    nameAToZ: Názvu (A–Z)
+    nameZToA: Názvu (Z–A)
+    lastModifiedNewToOld: Změny (nejprve novější)
+    lastModifiedOldToNew: Změny (nejprve starší)
   layout:
     layout(OUTDATED): Rozvržení
     masonryGrid(OUTDATED): Mřížka typu masonry
     simpleGrid(OUTDATED): Jednoduchá mřížka
+    layout: Rozvržení položek
+    masonryGrid: Cihlová mřížka
+    simpleGrid: Jednoduchá mřížka
 sentry:
   consent:
     title: Chcete pomoct vylepšit aplikaci Saber?
@@ -103,7 +111,7 @@ settings:
     locale: Jazyk
     appTheme: Barva motivu
     platform: Motiv
-    layoutSize: Rozložení uživatelského rozhraní
+    layoutSize: Rozvržení uživatelského rozhraní
     customAccentColor: Vlastní barevný odstín
     hyperlegibleFont: Lépe čitelný font
     shouldCheckForUpdates: Automaticky kontrolovat dostupnost aktualizací aplikace Saber
@@ -317,7 +325,7 @@ editor:
     pastelPink: Pastelová růžová
   imageOptions:
     title: Možnosti obrázku
-    invertible: Invertovat barvy podle motivu
+    invertible: Invertovat podle motivu
     download: Stáhnout
     setAsBackground: Nastavit na pozadí
     removeAsBackground: Odstranit obrázek z pozadí
@@ -335,7 +343,7 @@ editor:
     lineHeightDescription: Ovlivňuje také velikost textu psaných poznámek
     lineThickness: Tloušťka linek
     lineThicknessDescription: Tloušťka čar ve vzoru na pozadí
-    backgroundImageFit: Rozložení obrázku na pozadí
+    backgroundImageFit: Přizpůsobení obrázku na pozadí
     backgroundPattern: Vzor na pozadí
     import: Importovat
     watchServer: Sledovat aktualizace ze serveru
