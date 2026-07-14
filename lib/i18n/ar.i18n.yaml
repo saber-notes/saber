@@ -96,7 +96,7 @@ settings:
   prefCategories:
     general: عامة
     writing: الكتابة
-    editor: المعدل
+    editor: المحرر
     performance: الأداء
     advanced: متقدمة
   prefLabels:
