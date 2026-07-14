@@ -380,10 +380,10 @@ class _Translations$home$sort$cs extends Translations$home$sort$en {
 
 	// Translations
 	@override String get sortBy => 'Řazení podle';
-	@override String get nameAToZ => 'Jméno (A-Z)';
-	@override String get nameZToA => 'Jméno (A-Z)';
-	@override String get lastModifiedNewToOld => 'Upravené (Nejnovější nejdříve)';
-	@override String get lastModifiedOldToNew => 'Upravené (Nejstarší nejdříve)';
+	@override String get nameAToZ => 'Názvu (A–Z)';
+	@override String get nameZToA => 'Názvu (Z–A)';
+	@override String get lastModifiedNewToOld => 'Změny (nejprve novější)';
+	@override String get lastModifiedOldToNew => 'Změny (nejprve starší)';
 }
 
 // Path: home.layout
@@ -393,8 +393,8 @@ class _Translations$home$layout$cs extends Translations$home$layout$en {
 	final TranslationsCs _root; // ignore: unused_field
 
 	// Translations
-	@override String get layout => 'Rozvržení';
-	@override String get masonryGrid => 'Mřížka typu masonry';
+	@override String get layout => 'Rozvržení položek';
+	@override String get masonryGrid => 'Cihlová mřížka';
 	@override String get simpleGrid => 'Jednoduchá mřížka';
 }
 
@@ -434,7 +434,7 @@ class _Translations$settings$prefLabels$cs extends Translations$settings$prefLab
 	@override String get locale => 'Jazyk';
 	@override String get appTheme => 'Barva motivu';
 	@override String get platform => 'Motiv';
-	@override String get layoutSize => 'Rozložení uživatelského rozhraní';
+	@override String get layoutSize => 'Rozvržení uživatelského rozhraní';
 	@override String get customAccentColor => 'Vlastní barevný odstín';
 	@override String get hyperlegibleFont => 'Lépe čitelný font';
 	@override String get shouldCheckForUpdates => 'Automaticky kontrolovat dostupnost aktualizací aplikace Saber';
@@ -750,7 +750,7 @@ class _Translations$editor$imageOptions$cs extends Translations$editor$imageOpti
 
 	// Translations
 	@override String get title => 'Možnosti obrázku';
-	@override String get invertible => 'Invertovat barvy podle motivu';
+	@override String get invertible => 'Invertovat podle motivu';
 	@override String get download => 'Stáhnout';
 	@override String get setAsBackground => 'Nastavit na pozadí';
 	@override String get removeAsBackground => 'Odstranit obrázek z pozadí';
@@ -784,7 +784,7 @@ class _Translations$editor$menu$cs extends Translations$editor$menu$en {
 	@override String get lineHeightDescription => 'Ovlivňuje také velikost textu psaných poznámek';
 	@override String get lineThickness => 'Tloušťka linek';
 	@override String get lineThicknessDescription => 'Tloušťka čar ve vzoru na pozadí';
-	@override String get backgroundImageFit => 'Rozložení obrázku na pozadí';
+	@override String get backgroundImageFit => 'Přizpůsobení obrázku na pozadí';
 	@override String get backgroundPattern => 'Vzor na pozadí';
 	@override String get import => 'Importovat';
 	@override String get watchServer => 'Sledovat aktualizace ze serveru';

@@ -70,20 +70,12 @@ home:
     delete: Odstranit
     alsoDeleteContents: Se složkou odstranit i obsažené poznámky
   sort:
-    sortBy(OUTDATED): Řazení podle
-    nameAToZ(OUTDATED): Jméno (A-Z)
-    nameZToA(OUTDATED): Jméno (A-Z)
-    lastModifiedNewToOld(OUTDATED): Upravené (Nejnovější nejdříve)
-    lastModifiedOldToNew(OUTDATED): Upravené (Nejstarší nejdříve)
     sortBy: Řazení podle
     nameAToZ: Názvu (A–Z)
     nameZToA: Názvu (Z–A)
     lastModifiedNewToOld: Změny (nejprve novější)
     lastModifiedOldToNew: Změny (nejprve starší)
   layout:
-    layout(OUTDATED): Rozvržení
-    masonryGrid(OUTDATED): Mřížka typu masonry
-    simpleGrid(OUTDATED): Jednoduchá mřížka
     layout: Rozvržení položek
     masonryGrid: Cihlová mřížka
     simpleGrid: Jednoduchá mřížka

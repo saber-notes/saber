@@ -23,6 +23,7 @@ home:
   welcome: أهلًا بك في سيبر
   invalidFormat: الملف الذي اخترته غير مدعوم. يرجى اختيار ملف بصيغة .SBN أو .SBN2 أو .SBA أو .PDF
   noFiles: لم يتم العثور على أي ملفات
+  noPreviewAvailable: لا تتوفر معاينة
   createNewNote: انقر على زر ”+“ لإنشاء ملاحظة جديدة
   backFolder: الرجوع إلى المجلد السابق
   newFolder:
@@ -38,8 +39,6 @@ home:
     rename: إعادة تسمية
     noteNameEmpty: لا يمكن أن يكون اسم الملاحظة فارغًا
     noteNameExists: توجد بالفعل ملاحظة بهذا الاسم
-    noteNameForbiddenCharacters(OUTDATED): يحتوي اسم الملاحظة على أحرف محظورة
-    noteNameReserved(OUTDATED): اسم الملاحظة محجوز
     noteNameForbiddenCharacters: اسم الملاحظة يحتوي على أحرف محظورة
     noteNameReserved: اسم الملاحظة محجوز
   moveNote:
@@ -52,12 +51,6 @@ home:
     numberRenamedTo: سيتم إعادة تسمية $n من الملاحظات لتجنّب التعارضات
   deleteNote: حذف الملاحظة
   deleteNoteDialog:
-    confirmDelete(OUTDATED):
-      one(OUTDATED): حذف الملاحظة المحددة بشكل دائم؟
-      other(OUTDATED): حذف الملاحظات المحددة بشكل دائم؟
-    deleteNotes(OUTDATED): احذف $n ملاحظة
-    deleteName(OUTDATED): احذف $f
-    delete(OUTDATED): حذف
     deleteNotes: حذف $n من الملاحظات
     deleteName: حذف $f
     confirmDelete:
@@ -77,47 +70,28 @@ home:
     delete: حذف
     alsoDeleteContents: حذف جميع الملاحظات الموجودة داخل هذا المجلد أيضًا
   sort:
-    sortBy(OUTDATED): الترتيب حسب
-    nameAToZ(OUTDATED): الاسم (من الألف إلى الياء)
-    nameZToA(OUTDATED): الاسم (من الألف إلى الياء)
-    lastModifiedNewToOld(OUTDATED): مُعدَّلة (الأحدث أولاً)
-    lastModifiedOldToNew(OUTDATED): مُعدَّلة (الأقدم أولاً)
     sortBy: الفرز حسب
     nameAToZ: الاسم (أ-ي)
     nameZToA: الاسم (ي-أ)
     lastModifiedNewToOld: المعدلة (الأحدث أولًا)
     lastModifiedOldToNew: المعدلة (الأقدم أولًا)
   layout:
-    layout(OUTDATED): تخطيط
-    masonryGrid(OUTDATED): شبكة البناء/التراص
-    simpleGrid(OUTDATED): شبكة بسيطة
     layout: التخطيط
     masonryGrid: شبكة متراصّة
     simpleGrid: شبكة بسيطة
-  noPreviewAvailable(OUTDATED): لا معاينة متاحة
-  noPreviewAvailable: لا تتوفر معاينة
 sentry:
   consent:
+    title: المساعدة في تحسين سيبر؟
     description:
-      question(OUTDATED): هل ترغب في الإبلاغ تلقائيًا عن أخطاء غير متوقعة؟ هذا يساعدني على تحديد وإصلاح المشكلات بشكل أسرع.
-      scope(OUTDATED): قد تحتوي التقارير على معلومات حول الخطأ وجهازك. لقد بذلت كل جهد ممكن لتصفية البيانات الشخصية ولكن قد يبقى البعض.
-      currentlyOff(OUTDATED): إذا منحت موافقة ، فسيتم تمكين الإبلاغ عن الخطأ بعد إعادة تشغيل التطبيق.
-      currentlyOn(OUTDATED): إذا قمت بإلغاء الموافقة ، يرجى إعادة تشغيل التطبيق لتعطيل الإبلاغ عن الخطأ.
-      learnMoreInPrivacyPolicy(rich, OUTDATED): تعرف على المزيد في ${link(سياسة الخصوصية)}.
       question: هل ترغب في الإبلاغ تلقائيًّا عن الأخطاء غير المتوقعة؟ هذا يساعدني في تحديد المشكلات وإصلاحها بشكل أسرع.
       scope: قد تحتوي التقارير على معلومات حول الخطأ وجهازك. لقد بذلتُ قصارى جهدي لحجب البيانات الشخصية، ولكن قد تبقى بعضها.
       currentlyOff: إذا وافقت، فسيتم تفعيل خاصية الإبلاغ عن الأخطاء بعد إعادة تشغيل التطبيق.
       currentlyOn: إذا ألغيت الموافقة، يرجى إعادة تشغيل التطبيق لتعطيل الإبلاغ عن الأخطاء.
       learnMoreInPrivacyPolicy(rich): تعرّف على المزيد في ${link(سياسة الخصوصية)}.
     answers:
-      yes(OUTDATED): نعم
-      no(OUTDATED): لا
-      later(OUTDATED): اسألني لاحقًا
       yes: نعم
       no: لا
       later: اسألني لاحقًا
-    title(OUTDATED): تساعد في تحسين صابر؟
-    title: المساعدة في تحسين سيبر؟
 settings:
   prefCategories:
     general: عامة
@@ -143,18 +117,16 @@ settings:
     autoClearWhiteboardOnExit: ‎مسح السبّورة تلقائيًّا
     disableEraserAfterUse: تعطيل الممحاة تلقائيًّا
     hideFingerDrawingToggle: إخفاء زر تبديل الرسم بالإصبع
+    autoDisableFingerDrawingWhenStylusDetected: تعطيل الرسم بالأصابع تلقائيًّا
     editorPromptRename: الطلب منك إعادة تسمية الملاحظات الجديدة
     recentColorsDontSavePresets: عدم حفظ الألوان المسبقة في قسم الألوان الأخيرة
     recentColorsLength: كمية عدد الألوان الأخيرة التي يجب تخزينها
     printPageIndicators: مؤشرات صفحة الطباعة
+    autosave: الحفظ التلقائي
     shapeRecognitionDelay: تأخير التعرف على الشكل
     autoStraightenLines: استقامة الخطوط تلقائيًّا
     customDataDir: مجلد سيبر مخصص
-    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): التعطيل التلقائي لرسم الإصبع
     sentry(OUTDATED): الإبلاغ خطأ
-    autosave(OUTDATED): تلقائي
-    autoDisableFingerDrawingWhenStylusDetected: تعطيل الرسم بالأصابع تلقائيًّا
-    autosave: الحفظ التلقائي
   prefDescriptions:
     hyperlegibleFont: يزيد Atkinson Hyperlegible من وضوح الرؤية للقراء الذين يعانون من ضعف في الرؤية
     allowInsecureConnections: (غير موصى به) بالاتصال بالخوادم بشهادات غير موثوقة/موقعة ذاتيًا Saber السماح لـ

@@ -379,11 +379,11 @@ class _Translations$home$sort$he extends Translations$home$sort$en {
 	final TranslationsHe _root; // ignore: unused_field
 
 	// Translations
-	@override String get sortBy => 'ממוין לפי';
+	@override String get sortBy => 'מיון לפי';
 	@override String get nameAToZ => 'שם (א-ת)';
-	@override String get nameZToA => 'שם (א-ת)';
-	@override String get lastModifiedNewToOld => 'ערוך (החדשים ביותר תחילה)';
-	@override String get lastModifiedOldToNew => 'ערוך (הישנים ביותר תחילה)';
+	@override String get nameZToA => 'שם (ת-א)';
+	@override String get lastModifiedNewToOld => 'עריכה אחרונה (הזמן הקרוב ביותר תחילה)';
+	@override String get lastModifiedOldToNew => 'עריכה אחרונה (הזמן הרחוק ביותר תחילה)';
 }
 
 // Path: home.layout
@@ -394,7 +394,7 @@ class _Translations$home$layout$he extends Translations$home$layout$en {
 
 	// Translations
 	@override String get layout => 'פריסה';
-	@override String get masonryGrid => 'רשת אבן';
+	@override String get masonryGrid => 'רשת בנייה';
 	@override String get simpleGrid => 'רשת פשוטה';
 }
 

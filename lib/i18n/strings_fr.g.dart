@@ -52,9 +52,9 @@ class _Translations$common$fr extends Translations$common$en {
 	final TranslationsFr _root; // ignore: unused_field
 
 	// Translations
+	@override String get continueBtn => 'continuer';
 	@override String get cancel => 'Annuler';
 	@override String get done => 'Fait';
-	@override String get continueBtn => 'Continuer';
 }
 
 // Path: home
