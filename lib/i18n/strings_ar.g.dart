@@ -419,7 +419,7 @@ class _Translations$settings$prefCategories$ar extends Translations$settings$pre
 	// Translations
 	@override String get general => 'عامة';
 	@override String get writing => 'الكتابة';
-	@override String get editor => 'المعدل';
+	@override String get editor => 'المحرر';
 	@override String get performance => 'الأداء';
 	@override String get advanced => 'متقدمة';
 }
