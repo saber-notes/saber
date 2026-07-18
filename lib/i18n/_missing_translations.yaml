@@ -624,15 +624,15 @@ hu:
 it:
   home:
     sort:
-      sortBy(OUTDATED): Sort by
-      nameAToZ(OUTDATED): Name (A-Z)
-      nameZToA(OUTDATED): Name (Z-A)
-      lastModifiedNewToOld(OUTDATED): Edited (Newest first)
-      lastModifiedOldToNew(OUTDATED): Edited (Oldest first)
+      sortBy(OUTDATED): Ordina per
+      nameAToZ(OUTDATED): Nome (A-Z)
+      nameZToA(OUTDATED): Nome (Z-A)
+      lastModifiedNewToOld(OUTDATED): Modificato (Dal più recente)
+      lastModifiedOldToNew(OUTDATED): Modificato (Dal più vecchio)
     layout:
       layout(OUTDATED): Layout
-      masonryGrid(OUTDATED): Masonry grid
-      simpleGrid(OUTDATED): Simple grid
+      masonryGrid(OUTDATED): Griglia a mosaico
+      simpleGrid(OUTDATED): Griglia semplice
 ja:
   home:
     sort:
