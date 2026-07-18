@@ -52,9 +52,9 @@ class _Translations$common$hu extends Translations$common$en {
 	final TranslationsHu _root; // ignore: unused_field
 
 	// Translations
-	@override String get done => 'Kész';
-	@override String get continueBtn => 'Folytatás';
 	@override String get cancel => 'Mégse';
+	@override String get done => 'Kész';
+	@override String get continueBtn => 'Folytatni';
 }
 
 // Path: home
@@ -69,20 +69,18 @@ class _Translations$home$hu extends Translations$home$en {
 	@override late final _Translations$home$tooltips$hu tooltips = _Translations$home$tooltips$hu._(_root);
 	@override late final _Translations$home$create$hu create = _Translations$home$create$hu._(_root);
 	@override String get welcome => 'Üdvözli a Saber';
-	@override String get invalidFormat => 'A kiválasztott fájl nem támogatott. Kérjük, válasszon egy sbn, sbn2, sba vagy pdf fájlt.';
-	@override String get noFiles => 'Nem található fájl';
-	@override String get noPreviewAvailable => 'Nincs elérhető előnézet';
-	@override String get createNewNote => 'Kattintson a + gombra egy új jegyzet létrehozásához';
-	@override String get backFolder => 'Vissza az előző mappához';
+	@override String get noFiles => 'Nem található ilyen fájl';
+	@override String get createNewNote => 'Kattintson a + gombora egy új jegyzet létrehozásához';
 	@override late final _Translations$home$newFolder$hu newFolder = _Translations$home$newFolder$hu._(_root);
 	@override late final _Translations$home$renameNote$hu renameNote = _Translations$home$renameNote$hu._(_root);
 	@override late final _Translations$home$moveNote$hu moveNote = _Translations$home$moveNote$hu._(_root);
-	@override String get deleteNote => 'Jegyzet törlése';
 	@override late final _Translations$home$deleteNoteDialog$hu deleteNoteDialog = _Translations$home$deleteNoteDialog$hu._(_root);
 	@override late final _Translations$home$renameFolder$hu renameFolder = _Translations$home$renameFolder$hu._(_root);
 	@override late final _Translations$home$deleteFolder$hu deleteFolder = _Translations$home$deleteFolder$hu._(_root);
-	@override late final _Translations$home$sort$hu sort = _Translations$home$sort$hu._(_root);
-	@override late final _Translations$home$layout$hu layout = _Translations$home$layout$hu._(_root);
+	@override String get noPreviewAvailable => 'Nincs elérhető előnézet';
+	@override String get backFolder => 'Menjen vissza az előző mappába';
+	@override String get deleteNote => 'Jegyzet törlése';
+	@override String get invalidFormat => 'A kiválasztott fájl nem támogatott. Kérjük, válasszon .sbn, .sbn2, .sba vagy .pdf fájlt.';
 }
 
 // Path: sentry
@@ -108,7 +106,7 @@ class _Translations$settings$hu extends Translations$settings$en {
 	@override late final _Translations$settings$themeModes$hu themeModes = _Translations$settings$themeModes$hu._(_root);
 	@override late final _Translations$settings$layoutSizes$hu layoutSizes = _Translations$settings$layoutSizes$hu._(_root);
 	@override late final _Translations$settings$accentColorPicker$hu accentColorPicker = _Translations$settings$accentColorPicker$hu._(_root);
-	@override String get systemLanguage => 'Automatikus';
+	@override String get systemLanguage => 'Rendszerspecifikus nyelve';
 	@override List<String> get axisDirections => [
 		'Fel',
 		'Jobbra',
@@ -116,11 +114,11 @@ class _Translations$settings$hu extends Translations$settings$en {
 		'Balra',
 	];
 	@override late final _Translations$settings$reset$hu reset = _Translations$settings$reset$hu._(_root);
-	@override String get resyncEverything => 'Minden újraszinkronizálása';
-	@override String get openDataDir => 'Saber mappa megnyitása';
 	@override late final _Translations$settings$customDataDir$hu customDataDir = _Translations$settings$customDataDir$hu._(_root);
 	@override String get autosaveDisabled => 'Soha';
 	@override String get shapeRecognitionDisabled => 'Soha';
+	@override String get openDataDir => 'Nyissa meg a Saber mappát';
+	@override String get resyncEverything => 'Resync mindent';
 }
 
 // Path: logs
@@ -130,11 +128,11 @@ class _Translations$logs$hu extends Translations$logs$en {
 	final TranslationsHu _root; // ignore: unused_field
 
 	// Translations
+	@override String get useTheApp => 'A naplók itt jelennek meg az alkalmazás használatakor';
 	@override String get logs => 'Naplók';
 	@override String get viewLogs => 'Naplók megtekintése';
-	@override String get debuggingInfo => 'A naplók hibakereséshez és fejlesztéshez hasznos információkat tartalmaznak';
+	@override String get debuggingInfo => 'A naplók a hibakereséshez és a fejlesztéshez hasznos információkat tartalmaznak';
 	@override String get noLogs => 'Itt nincsenek naplók!';
-	@override String get useTheApp => 'A naplók itt jelennek meg az alkalmazás használata során';
 }
 
 // Path: login
@@ -151,14 +149,12 @@ class _Translations$login$hu extends Translations$login$en {
 		linkToSignup('Regisztrálás'),
 		const TextSpan(text: '!'),
 	]);
-	@override TextSpan notYou({required InlineSpanBuilder undoLogin}) => TextSpan(children: [
-		const TextSpan(text: 'Nem Ön az? '),
-		undoLogin('Fiókváltás'),
-		const TextSpan(text: '.'),
-	]);
 	@override late final _Translations$login$status$hu status = _Translations$login$status$hu._(_root);
 	@override late final _Translations$login$ncLoginStep$hu ncLoginStep = _Translations$login$ncLoginStep$hu._(_root);
 	@override late final _Translations$login$encLoginStep$hu encLoginStep = _Translations$login$encLoginStep$hu._(_root);
+	@override TextSpan notYou({required InlineSpanBuilder undoLogin}) => TextSpan(children: [
+		undoLogin('Nem te'),
+	]);
 }
 
 // Path: profile
@@ -168,12 +164,12 @@ class _Translations$profile$hu extends Translations$profile$en {
 	final TranslationsHu _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Profilom';
-	@override String get logout => 'Kijelentkezés';
-	@override String quotaUsage({required Object used, required Object total, required Object percent}) => 'Felhasználva: ${used} / ${total} (${percent}%)';
-	@override String get connectedTo => 'Csatlakozva:';
 	@override late final _Translations$profile$quickLinks$hu quickLinks = _Translations$profile$quickLinks$hu._(_root);
-	@override String get faqTitle => 'Gyakran ismételt kérdések';
+	@override String quotaUsage({required Object total, required Object percent, required Object used}) => 'Ön a(z) ${total}-ból (${percent}%) ${used}';
+	@override String get connectedTo => 'Csatlakozva valamihez';
+	@override String get faqTitle => 'Gyakran Ismételt Kérdések';
+	@override String get title => 'A profilom';
+	@override String get logout => 'Kijelentkezés';
 	@override List<dynamic> get faq => [
 		_Translations$profile$faq$0$hu._(_root),
 		_Translations$profile$faq$1$hu._(_root),
@@ -204,9 +200,9 @@ class _Translations$update$hu extends Translations$update$en {
 
 	// Translations
 	@override String get updateAvailable => 'Frissítés elérhető';
-	@override String get updateAvailableDescription => 'Az alkalmazás új verziója elérhető:';
 	@override String get update => 'Frissítés';
-	@override String get downloadNotAvailableYet => 'A letöltés még nem érhető el a platformján. Kérjük, próbálja meg később.';
+	@override String get downloadNotAvailableYet => 'A letöltés még nem érhető el az Ön platformjára. Kérjük, nézzen vissza rövidesen.';
+	@override String get updateAvailableDescription => 'Elérhető az alkalmazás új verziója a következő változtatásokkal:';
 }
 
 // Path: editor
@@ -229,7 +225,7 @@ class _Translations$editor$hu extends Translations$editor$en {
 	@override late final _Translations$editor$hud$hu hud = _Translations$editor$hud$hu._(_root);
 	@override String get pages => 'Oldalak';
 	@override String get untitled => 'Névtelen';
-	@override String get needsToSaveBeforeExiting => 'A módosítások mentése folyamatban... A szerkesztőt biztonságosan bezárhatja, ha elkészült';
+	@override String get needsToSaveBeforeExiting => 'A módosítások mentése... Ha kész, nyugodtan kiléphet a szerkesztőből';
 }
 
 // Path: home.tabs
@@ -253,9 +249,9 @@ class _Translations$home$titles$hu extends Translations$home$titles$en {
 
 	// Translations
 	@override String get home => 'Legutóbbi jegyzetek';
-	@override String get browse => 'Böngészés';
-	@override String get whiteboard => 'Tábla';
+	@override String get whiteboard => 'Whiteboard';
 	@override String get settings => 'Beállítások';
+	@override String get browse => 'Böngészés';
 }
 
 // Path: home.tooltips
@@ -267,7 +263,7 @@ class _Translations$home$tooltips$hu extends Translations$home$tooltips$en {
 	// Translations
 	@override String get newNote => 'Új jegyzet';
 	@override String get showUpdateDialog => 'Frissítési párbeszédablak megjelenítése';
-	@override String get exportNote => 'Jegyzet exportálása';
+	@override String get exportNote => 'Megjegyzés exportálása';
 }
 
 // Path: home.create
@@ -278,7 +274,7 @@ class _Translations$home$create$hu extends Translations$home$create$en {
 
 	// Translations
 	@override String get newNote => 'Új jegyzet';
-	@override String get importNote => 'Jegyzet importálása';
+	@override String get importNote => 'Megjegyzés importálása';
 }
 
 // Path: home.newFolder
@@ -290,10 +286,10 @@ class _Translations$home$newFolder$hu extends Translations$home$newFolder$en {
 	// Translations
 	@override String get newFolder => 'Új mappa';
 	@override String get folderName => 'Mappa neve';
-	@override String get create => 'Létrehozás';
-	@override String get folderNameEmpty => 'Mappa neve nem lehet üres';
-	@override String get folderNameContainsSlash => 'Mappa neve nem tartalmazhat perjelet';
-	@override String get folderNameExists => 'Mappa már létezik';
+	@override String get create => 'Teremt';
+	@override String get folderNameEmpty => 'A mappa neve nem lehet üres';
+	@override String get folderNameContainsSlash => 'A mappa neve nem tartalmazhat perjelet';
+	@override String get folderNameExists => 'Folder már létezik';
 }
 
 // Path: home.renameNote
@@ -303,13 +299,13 @@ class _Translations$home$renameNote$hu extends Translations$home$renameNote$en {
 	final TranslationsHu _root; // ignore: unused_field
 
 	// Translations
+	@override String get noteNameForbiddenCharacters => 'A megjegyzés neve tiltott karaktereket tartalmaz';
+	@override String get noteNameReserved => 'Megjegyzés név fenntartva';
 	@override String get renameNote => 'Jegyzet átnevezése';
-	@override String get noteName => 'Jegyzet neve';
+	@override String get noteName => 'Megjegyzés neve';
 	@override String get rename => 'Átnevezés';
-	@override String get noteNameEmpty => 'Jegyzet neve nem lehet üres';
-	@override String get noteNameExists => 'Már létezik egy jegyzet ezen a néven';
-	@override String get noteNameForbiddenCharacters => 'Jegyzet neve tiltott karaktereket tartalmaz';
-	@override String get noteNameReserved => 'A jegyzet neve foglalt';
+	@override String get noteNameEmpty => 'A jegyzet neve nem lehet üres';
+	@override String get noteNameExists => 'Már létezik ilyen nevű jegyzet';
 }
 
 // Path: home.moveNote
@@ -319,13 +315,13 @@ class _Translations$home$moveNote$hu extends Translations$home$moveNote$en {
 	final TranslationsHu _root; // ignore: unused_field
 
 	// Translations
+	@override String moveNotes({required Object n}) => '${n} jegyzet mozgatása';
+	@override String numberRenamedTo({required Object n}) => '${n} jegyzet átnevezésre kerül az ütközések elkerülése érdekében';
+	@override String get multipleRenamedTo => 'A következő megjegyzések átnevezésre kerülnek:';
 	@override String get moveNote => 'Jegyzet áthelyezése';
-	@override String moveNotes({required Object n}) => '${n} jegyzet áthelyezése';
-	@override String moveName({required Object f}) => '${f} áthelyezése';
-	@override String get move => 'Áthelyezés';
-	@override String renamedTo({required Object newName}) => 'A jegyzet át lesz nevezve erre: ${newName}';
-	@override String get multipleRenamedTo => 'A következő jegyzetek át lesznek nevezve:';
-	@override String numberRenamedTo({required Object n}) => '${n} jegyzet át lesz nevezve az ütközések elkerülése érdekében';
+	@override String moveName({required Object f}) => 'Mozgassa ${f}';
+	@override String get move => 'Mozog';
+	@override String renamedTo({required Object newName}) => 'A jegyzet a következőre lesz átnevezve: ${newName}';
 }
 
 // Path: home.deleteNoteDialog
@@ -335,13 +331,13 @@ class _Translations$home$deleteNoteDialog$hu extends Translations$home$deleteNot
 	final TranslationsHu _root; // ignore: unused_field
 
 	// Translations
-	@override String deleteNotes({required Object n}) => '${n} jegyzet törlése';
-	@override String deleteName({required Object f}) => '${f} törlése';
 	@override String confirmDelete({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('hu'))(n,
-		one: 'Véglegesen törli a kiválasztott jegyzetet?',
-		other: 'Véglegesen törli a kiválasztott jegyzeteket?',
+		one: 'Töröljük permanenten a kiválasztott jegyzetet?',
+		other: 'Töröljük permanenten a kiválasztott jegyeket?',
 	);
-	@override String get delete => 'Törlés';
+	@override String deleteNotes({required Object n}) => 'Töröltsd el a ${n} jegyeket';
+	@override String deleteName({required Object f}) => 'Töröltsd el ${f}';
+	@override String get delete => 'Törölelj';
 }
 
 // Path: home.renameFolder
@@ -351,12 +347,12 @@ class _Translations$home$renameFolder$hu extends Translations$home$renameFolder$
 	final TranslationsHu _root; // ignore: unused_field
 
 	// Translations
+	@override String get folderNameEmpty => 'A mappa neve nem lehet üres';
 	@override String get renameFolder => 'Mappa átnevezése';
+	@override String get folderNameExists => 'Már létezik ilyen nevű mappa';
 	@override String get folderName => 'Mappa neve';
 	@override String get rename => 'Átnevezés';
-	@override String get folderNameEmpty => 'Mappa neve nem lehet üres';
-	@override String get folderNameContainsSlash => 'Mappa neve nem tartalmazhat perjelet';
-	@override String get folderNameExists => 'Már létezik egy mappa ezzel a névvel';
+	@override String get folderNameContainsSlash => 'A mappa neve nem tartalmazhat perjelet';
 }
 
 // Path: home.deleteFolder
@@ -366,36 +362,10 @@ class _Translations$home$deleteFolder$hu extends Translations$home$deleteFolder$
 	final TranslationsHu _root; // ignore: unused_field
 
 	// Translations
+	@override String get delete => 'Töröl';
+	@override String get alsoDeleteContents => 'Törölje az összes jegyzetet ebben a mappában';
 	@override String get deleteFolder => 'Mappa törlése';
 	@override String deleteName({required Object f}) => '${f} törlése';
-	@override String get delete => 'Törlés';
-	@override String get alsoDeleteContents => 'A mappában lévő összes jegyzet is törlődjön';
-}
-
-// Path: home.sort
-class _Translations$home$sort$hu extends Translations$home$sort$en {
-	_Translations$home$sort$hu._(TranslationsHu root) : this._root = root, super.internal(root);
-
-	final TranslationsHu _root; // ignore: unused_field
-
-	// Translations
-	@override String get sortBy => 'Rendezés szerint';
-	@override String get nameAToZ => 'Név (A-Z)';
-	@override String get nameZToA => 'Név (A-Z)';
-	@override String get lastModifiedNewToOld => 'Szerkesztett (Legújabb előre)';
-	@override String get lastModifiedOldToNew => 'Szerkesztett (Időrendben: legidősebb először)';
-}
-
-// Path: home.layout
-class _Translations$home$layout$hu extends Translations$home$layout$en {
-	_Translations$home$layout$hu._(TranslationsHu root) : this._root = root, super.internal(root);
-
-	final TranslationsHu _root; // ignore: unused_field
-
-	// Translations
-	@override String get layout => 'Elrendezés';
-	@override String get masonryGrid => 'Murvai rács';
-	@override String get simpleGrid => 'Egyszerű rács';
 }
 
 // Path: sentry.consent
@@ -405,9 +375,9 @@ class _Translations$sentry$consent$hu extends Translations$sentry$consent$en {
 	final TranslationsHu _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Segít a Saber fejlesztésében?';
 	@override late final _Translations$sentry$consent$description$hu description = _Translations$sentry$consent$description$hu._(_root);
 	@override late final _Translations$sentry$consent$answers$hu answers = _Translations$sentry$consent$answers$hu._(_root);
+	@override String get title => 'Segítsen javítani a kardot?';
 }
 
 // Path: settings.prefCategories
@@ -419,9 +389,9 @@ class _Translations$settings$prefCategories$hu extends Translations$settings$pre
 	// Translations
 	@override String get general => 'Általános';
 	@override String get writing => 'Írás';
-	@override String get editor => 'Szerkesztés';
 	@override String get performance => 'Teljesítmény';
-	@override String get advanced => 'Speciális';
+	@override String get editor => 'Szerkesztő';
+	@override String get advanced => 'Fejlett';
 }
 
 // Path: settings.prefLabels
@@ -434,30 +404,31 @@ class _Translations$settings$prefLabels$hu extends Translations$settings$prefLab
 	@override String get locale => 'Alkalmazás nyelve';
 	@override String get appTheme => 'Alkalmazás témája';
 	@override String get platform => 'Téma típusa';
-	@override String get layoutSize => 'Elrendezési mód';
-	@override String get customAccentColor => 'Egyéni hangsúlyszín';
-	@override String get hyperlegibleFont => 'Atkinson Hyperlegible betűtípus';
+	@override String get customAccentColor => 'Egyéni akcentusszín';
+	@override String get hyperlegibleFont => 'Hyperlegible betűtipus';
 	@override String get shouldCheckForUpdates => 'Automatikusan ellenőrzi a Saber frissítéseket';
-	@override String get shouldAlwaysAlertForUpdates => 'Gyorsabb értesítések a frissítésekről';
-	@override String get allowInsecureConnections => 'Nem biztonságos kapcsolatok engedélyezése';
 	@override String get editorToolbarAlignment => 'A szerkesztő eszköztár igazítása';
 	@override String get editorToolbarShowInFullscreen => 'A szerkesztő eszköztár megjelenítése teljes képernyős módban';
 	@override String get editorAutoInvert => 'Jegyzetek színének felcserélése sötét módban';
 	@override String get preferGreyscale => 'Szürkeárnyalatos színek előnyben részesítése';
 	@override String get maxImageSize => 'Maximális képméret';
 	@override String get autoClearWhiteboardOnExit => 'A tábla törlése az alkalmazásból való kilépés után';
-	@override String get disableEraserAfterUse => 'Radír automatikus kikapcsolása';
-	@override String get hideFingerDrawingToggle => 'Az ujjal rajzolás kapcsoló elrejtése';
-	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Az ujjal történő rajzolás automatikus kikapcsolása';
 	@override String get editorPromptRename => 'Új jegyzetek átnevezésére való felszólítás';
 	@override String get recentColorsDontSavePresets => 'Ne mentse az előre beállított színeket a legutóbbi színek között';
-	@override String get recentColorsLength => 'Hány legutóbbi színt tároljon';
-	@override String get printPageIndicators => 'Oldalszámok nyomtatása';
-	@override String get autosave => 'Automatikus mentés';
-	@override String get shapeRecognitionDelay => 'Alakfelismerés késleltetése';
-	@override String get autoStraightenLines => 'Vonalak automatikus kiegyenesítése';
-	@override String get customDataDir => 'Egyéni Saber mappa';
+	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Ujjrajzolás automatikus letiltása';
 	@override String get sentry => 'Hibajelentés';
+	@override String get autosave => 'Automatikus mentés';
+	@override String get simplifiedHomeLayout => 'Egyszerűsített otthoni elrendezés';
+	@override String get customDataDir => 'Egyedi adatkönyvtár';
+	@override String get autoStraightenLines => 'A vonalak automatikus kiegyenesítése';
+	@override String get shapeRecognitionDelay => 'Alakfelismerési késleltetés';
+	@override String get recentColorsLength => 'Hány friss színt kell tárolni';
+	@override String get layoutSize => 'Elrendezés típusa';
+	@override String get printPageIndicators => 'Nyomtatási oldaljelzők';
+	@override String get allowInsecureConnections => 'Engedélyezze a nem biztonságos kapcsolatokat';
+	@override String get hideFingerDrawingToggle => 'Az ujjrajzolás kapcsoló elrejtése';
+	@override String get shouldAlwaysAlertForUpdates => 'Gyorsabb frissítések';
+	@override String get disableEraserAfterUse => 'A radír automatikus letiltása';
 }
 
 // Path: settings.prefDescriptions
@@ -468,20 +439,21 @@ class _Translations$settings$prefDescriptions$hu extends Translations$settings$p
 
 	// Translations
 	@override String get hyperlegibleFont => 'Az Atkinson Hyperlegible növeli az olvashatóságot a gyengén látók számára';
-	@override String get allowInsecureConnections => '(Nem ajánlott) Engedélyezi, hogy a Saber ön-aláírt vagy nem megbízható tanúsítványokat használó szerverekhez csatlakozzon';
 	@override String get preferGreyscale => 'E-tinta kijelzőkhöz';
-	@override String get autoClearWhiteboardOnExit => 'A tábla törlésre kerül, amikor kilép az alkalmazásból';
-	@override String get disableEraserAfterUse => 'Automatikusan visszavált a tollra, miután a radírt használta';
+	@override String get autoClearWhiteboardOnExit => 'Továbbra is szinkronizálva lesz a többi eszközzel';
 	@override String get maxImageSize => 'Az ennél nagyobb képek tömörítve lesznek';
 	@override late final _Translations$settings$prefDescriptions$hideFingerDrawing$hu hideFingerDrawing = _Translations$settings$prefDescriptions$hideFingerDrawing$hu._(_root);
-	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Kapcsolja ki az ujjal történő rajzolást, ha ceruza van érzékelve';
 	@override String get editorPromptRename => 'A jegyzeteket később bármikor átnevezheti';
-	@override String get printPageIndicators => 'Oldalszámok megjelenítése az exportokban';
-	@override String get autosave => 'Automatikus mentés rövid idő után, vagy soha';
-	@override String get shapeRecognitionDelay => 'Milyen gyakran frissüljön az alakzat előnézete';
-	@override String get autoStraightenLines => 'Automatikusan kiegyenesíti a hosszú vonalakat anélkül, hogy az alakzat tollat kellene használni';
-	@override String get shouldAlwaysAlertForUpdates => 'Értesítsen a frissítésekről, amint elérhetővé válnak';
 	@override late final _Translations$settings$prefDescriptions$sentry$hu sentry = _Translations$settings$prefDescriptions$sentry$hu._(_root);
+	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Kapcsolja ki az ujjal történő rajzolást, ha ceruzát észlel';
+	@override String get autosave => 'Automato-Save rövid késleltetés után, vagy soha';
+	@override String get simplifiedHomeLayout => 'Rögzített magasságot állít be minden hangjegy előnézetéhez';
+	@override String get autoStraightenLines => 'Kiegyenesíti a hosszú vonalakat anélkül, hogy az alakos tollat ​​kellene használnia';
+	@override String get shapeRecognitionDelay => 'Milyen gyakran kell frissíteni az alakzat előnézetét';
+	@override String get printPageIndicators => 'Mutasson oldalmutatókat az exportban';
+	@override String get allowInsecureConnections => '(Nem ajánlott) Engedélyezze a Saber-nek, hogy csatlakozzon önaláírt/nem megbízható tanúsítványokkal rendelkező szerverekhez';
+	@override String get shouldAlwaysAlertForUpdates => 'Szóljon nekem a frissítésekről, amint elérhetők';
+	@override String get disableEraserAfterUse => 'A radír használata után automatikusan visszavált a tollra';
 }
 
 // Path: settings.themeModes
@@ -503,9 +475,9 @@ class _Translations$settings$layoutSizes$hu extends Translations$settings$layout
 	final TranslationsHu _root; // ignore: unused_field
 
 	// Translations
-	@override String get auto => 'Automatikus';
+	@override String get auto => 'Automata';
 	@override String get phone => 'Telefon';
-	@override String get tablet => 'Tablet';
+	@override String get tablet => 'Tabletta';
 }
 
 // Path: settings.accentColorPicker
@@ -536,11 +508,11 @@ class _Translations$settings$customDataDir$hu extends Translations$settings$cust
 	final TranslationsHu _root; // ignore: unused_field
 
 	// Translations
-	@override String get cancel => 'Mégse';
-	@override String get select => 'Kiválasztás';
-	@override String get mustBeEmpty => 'A kiválasztott mappának üresnek kell lennie';
-	@override String get mustBeDoneSyncing => 'Győződjön meg arról, hogy a szinkronizálás befejeződött, mielőtt módosítja a mappát';
-	@override String get unsupported => 'Ez a funkció jelenleg csak fejlesztőknek való. Használata adatvesztést okozhat.';
+	@override String get unsupported => 'Ez a szolgáltatás jelenleg csak a fejlesztők számára készült. A felhasználása valószínűleg adatvesztést eredményez.';
+	@override String get cancel => 'Megszünteti';
+	@override String get select => 'Válassza ki';
+	@override String get mustBeEmpty => 'A kiválasztott könyvtárnak üresnek kell lennie';
+	@override String get mustBeDoneSyncing => 'A könyvtár módosítása előtt győződjön meg arról, hogy a szinkronizálás befejeződött';
 }
 
 // Path: login.form
@@ -566,9 +538,9 @@ class _Translations$login$status$hu extends Translations$login$status$en {
 	// Translations
 	@override String get loggedOut => 'Kijelentkezve';
 	@override String get tapToLogin => 'Kattintson a Nextclouddal való bejelentkezéshez';
-	@override String hi({required Object u}) => 'Üdv, ${u}!';
-	@override String get almostDone => 'Majdnem készen áll a szinkronizálásra, koppintson a bejelentkezés befejezéséhez';
 	@override String get loggedIn => 'Bejelentkezve a Nextclouddal';
+	@override String hi({required Object u}) => 'Szia ${u}!';
+	@override String get almostDone => 'Szinte készen áll a szinkronizálásra, érintse meg a bejelentkezés befejezéséhez';
 }
 
 // Path: login.ncLoginStep
@@ -578,13 +550,13 @@ class _Translations$login$ncLoginStep$hu extends Translations$login$ncLoginStep$
 	final TranslationsHu _root; // ignore: unused_field
 
 	// Translations
-	@override String get whereToStoreData => 'Válassza ki, hol szeretné tárolni az adatait:';
-	@override String get saberNcServer => 'A Saber Nextcloud szervere';
-	@override String get otherNcServer => 'Másik Nextcloud szerver';
-	@override String get serverUrl => 'Szerver URL';
-	@override String get loginWithSaber => 'Bejelentkezés Saber-rel';
-	@override String get loginWithNextcloud => 'Bejelentkezés Nextcloud-dal';
 	@override late final _Translations$login$ncLoginStep$loginFlow$hu loginFlow = _Translations$login$ncLoginStep$loginFlow$hu._(_root);
+	@override String get whereToStoreData => 'Válassza ki, hol szeretné tárolni adatait:';
+	@override String get saberNcServer => 'A Saber Nextcloud szervere';
+	@override String get otherNcServer => 'Más Nextcloud szerver';
+	@override String get serverUrl => 'Szerver URL';
+	@override String get loginWithSaber => 'Jelentkezzen be Saber segítségével';
+	@override String get loginWithNextcloud => 'Jelentkezzen be a Nextcloud segítségével';
 }
 
 // Path: login.encLoginStep
@@ -594,12 +566,12 @@ class _Translations$login$encLoginStep$hu extends Translations$login$encLoginSte
 	final TranslationsHu _root; // ignore: unused_field
 
 	// Translations
-	@override String get enterEncPassword => 'Az adatai védelme érdekében kérjük, adja meg a titkosítási jelszavát:';
-	@override String get newToSaber => 'Először használja a Saber-t? Adjon meg egy új titkosítási jelszót.';
-	@override String get encPassword => 'Titkosítási jelszó';
-	@override String get encFaqTitle => 'Gyakran ismételt kérdések';
-	@override String get wrongEncPassword => 'A megadott jelszóval a visszafejtés nem sikerült. Kérjük, próbálja meg újra megadni.';
-	@override String get connectionFailed => 'Hiba történt a szerverhez való csatlakozás során. Kérjük, próbálja újra később.';
+	@override String get enterEncPassword => 'Adatai védelme érdekében adja meg titkosítási jelszavát:';
+	@override String get newToSaber => 'Új a Saber';
+	@override String get encPassword => 'Titkosító jelszó';
+	@override String get encFaqTitle => 'Gyakran Ismételt Kérdések';
+	@override String get wrongEncPassword => 'A visszafejtés nem sikerült a megadott jelszóval. Kérjük, próbálja meg újra megadni.';
+	@override String get connectionFailed => 'Hiba történt a szerverhez való csatlakozáskor. Kérlek, próbáld újra később.';
 	@override List<dynamic> get encFaq => [
 		_Translations$login$encLoginStep$encFaq$0$hu._(_root),
 		_Translations$login$encLoginStep$encFaq$1$hu._(_root),
@@ -614,7 +586,7 @@ class _Translations$profile$quickLinks$hu extends Translations$profile$quickLink
 	final TranslationsHu _root; // ignore: unused_field
 
 	// Translations
-	@override String get serverHomepage => 'Szerver kezdőlapja';
+	@override String get serverHomepage => 'Szerver honlapja';
 	@override String get deleteAccount => 'Fiók törlése';
 }
 
@@ -625,8 +597,8 @@ class _Translations$profile$faq$0$hu extends Translations$profile$faq$0$en {
 	final TranslationsHu _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Elveszítem a jegyzeteimet, ha kijelentkezem?';
-	@override String get a => 'Nem. A jegyzetei mind az eszközén, mind a szerveren megmaradnak. A szerverrel csak akkor lesznek szinkronizálva, ha újra bejelentkezik. Mielőtt kijelentkezik, győződjön meg arról, hogy a szinkronizálás befejeződött, különben adatvesztés történhet (a kezdőképernyőn látható a szinkronizálás állapota).';
+	@override String get q => 'Elveszítem a jegyzeteimet, ha bejelentem?';
+	@override String get a => 'Nem. Jegyzetei az eszközön és a szerveren is megmaradnak. Nem lesznek szinkronizálva a szerverrel, amíg újra be nem jelentkezik. A kijelentkezés előtt győződjön meg arról, hogy a szinkronizálás befejeződött, hogy ne veszítsen adatot (lásd a szinkronizálás folyamatát a kezdőképernyőn).';
 }
 
 // Path: profile.faq.1
@@ -636,8 +608,8 @@ class _Translations$profile$faq$1$hu extends Translations$profile$faq$1$en {
 	final TranslationsHu _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Hogyan változtatom meg a Nextcloud jelszavamat?';
-	@override String get a => 'Nyissa meg a szerver weboldalát, és jelentkezzen be. Ezután menjen a Beállítások > Biztonság > Jelszó módosítása menüpontra. A jelszó módosítása után ki kell jelentkeznie a Saberből, majd újra be kell jelentkeznie.';
+	@override String get q => 'Hogyan változtathatom meg a Nextcloud jelszavamat?';
+	@override String get a => 'Nyissa meg a szerver webhelyét, és jelentkezzen be. Ezután lépjen a Beállítások > Biztonság > Jelszó módosítása menüpontra. Jelszava megváltoztatása után ki kell jelentkeznie, majd újra be kell jelentkeznie a Saberbe.';
 }
 
 // Path: profile.faq.2
@@ -647,8 +619,8 @@ class _Translations$profile$faq$2$hu extends Translations$profile$faq$2$en {
 	final TranslationsHu _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Hogyan változtatom meg a titkosítási jelszavamat?';
-	@override String get a => '0. Győződjön meg arról, hogy a szinkronizálás befejeződött (a szinkronizálás állapotát a kezdőképernyőn láthatja).\n1. Jelentkezzen ki a Saberből.\n2. Nyissa meg a szerver weboldalát, és törölje a „Saber” mappát. Ez minden jegyzetét törli a szerverről.\n3. Jelentkezzen be újra a Saberbe. Bejelentkezéskor új titkosítási jelszót választhat.\n4. Ne felejtkezzen el kijelentkezni, majd újra bejelentkezni a Saberbe a többi eszközén is.';
+	@override String get q => 'Hogyan változtathatom meg a titkosítási jelszavamat?';
+	@override String get a => '1. Jelentkezzen ki a Saberből. A kijelentkezés előtt győződjön meg arról, hogy a szinkronizálás befejeződött, hogy ne veszítsen adatot (lásd a szinkronizálás folyamatát a kezdőképernyőn).\n2. Nyissa meg a szerver webhelyét, és törölje a „Saber” mappát. Ezzel törli az összes jegyzetét a szerverről.\n3. Jelentkezzen be újra a Saberbe. Belépéskor választhat új titkosítási jelszót.\n4. Ne felejtsen el kijelentkezni és újra bejelentkezni a Saber szolgáltatásba a többi eszközén sem.';
 }
 
 // Path: profile.faq.3
@@ -659,7 +631,7 @@ class _Translations$profile$faq$3$hu extends Translations$profile$faq$3$en {
 
 	// Translations
 	@override String get q => 'Hogyan törölhetem a fiókomat?';
-	@override String get a => 'Koppintson a fenti „${_root.profile.quickLinks.deleteAccount}” gombra, és szükség esetén jelentkezzen be.\nHa a hivatalos Saber szervert használja, a fiókja 1 hetes türelmi idő után törlésre kerül. Ebben az időszakban a törlés visszavonásához vegye fel a kapcsolatot a következő e-mail címen: adilhanney@disroot.org.\nHa harmadik féltől származó szervert használ, előfordulhat, hogy nincs lehetőség a fiók törlésére: további információért tekintse meg a szerver adatvédelmi szabályzatát.';
+	@override String get a => 'Koppintson a fenti "${_root.profile.quickLinks.deleteAccount}" gombra, és ha szükséges, jelentkezzen be.\nHa a hivatalos Saber szervert használja, fiókja 1 hetes türelmi időszak után törlődik. Ebben az időszakban felveheti velem a kapcsolatot az adilhanney@disroot.org címen a törlés visszavonásához.\nHa harmadik féltől származó szervert használ, előfordulhat, hogy nincs lehetőség fiókja törlésére: további információkért olvassa el a szerver adatvédelmi szabályzatát.';
 }
 
 // Path: editor.toolbar
@@ -693,8 +665,8 @@ class _Translations$editor$pens$hu extends Translations$editor$pens$en {
 	@override String get ballpointPen => 'Golyóstoll';
 	@override String get highlighter => 'Kiemelő';
 	@override String get pencil => 'Ceruza';
-	@override String get shapePen => 'Alakzat toll';
-	@override String get laserPointer => 'Lézermutató';
+	@override String get shapePen => 'Forma toll';
+	@override String get laserPointer => 'Lézer mutató';
 }
 
 // Path: editor.penOptions
@@ -714,25 +686,25 @@ class _Translations$editor$colors$hu extends Translations$editor$colors$en {
 	final TranslationsHu _root; // ignore: unused_field
 
 	// Translations
-	@override String get colorPicker => 'Színválasztó';
-	@override String customBrightnessHue({required Object b, required Object h}) => 'Egyéni ${b} ${h}';
-	@override String customHue({required Object h}) => 'Egyéni ${h}';
+	@override String customBrightnessHue({required Object b, required Object h}) => 'Egyedi ${b} ${h}';
+	@override String customHue({required Object h}) => 'Egyedi ${h}';
 	@override String get dark => 'sötét';
-	@override String get light => 'világos';
+	@override String get light => 'fény';
+	@override String get cyan => 'Cián';
+	@override String get pink => 'Rózsaszín';
+	@override String get colorPicker => 'Színválasztó';
 	@override String get black => 'Fekete';
-	@override String get darkGrey => 'Sötétszürke';
+	@override String get darkGrey => 'Sötét szürke';
 	@override String get grey => 'Szürke';
-	@override String get lightGrey => 'Világosszürke';
-	@override String get white => 'Fehér';
+	@override String get lightGrey => 'Világos szürke';
+	@override String get white => 'fehér';
 	@override String get red => 'Piros';
 	@override String get green => 'Zöld';
-	@override String get cyan => 'Cián';
 	@override String get blue => 'Kék';
 	@override String get yellow => 'Sárga';
 	@override String get purple => 'Lila';
-	@override String get pink => 'Rózsaszín';
-	@override String get orange => 'Narancs';
-	@override String get pastelRed => 'Pasztell piros';
+	@override String get orange => 'narancs';
+	@override String get pastelRed => 'Pasztell vörös';
 	@override String get pastelOrange => 'Pasztell narancs';
 	@override String get pastelYellow => 'Pasztell sárga';
 	@override String get pastelGreen => 'Pasztell zöld';
@@ -753,8 +725,8 @@ class _Translations$editor$imageOptions$hu extends Translations$editor$imageOpti
 	@override String get invertible => 'Megfordítható';
 	@override String get download => 'Letöltés';
 	@override String get setAsBackground => 'Beállítás háttérképként';
-	@override String get removeAsBackground => 'Eltávolítás háttérként';
 	@override String get delete => 'Törlés';
+	@override String get removeAsBackground => 'Eltávolítás háttérként';
 }
 
 // Path: editor.selectionBar
@@ -765,7 +737,7 @@ class _Translations$editor$selectionBar$hu extends Translations$editor$selection
 
 	// Translations
 	@override String get delete => 'Törlés';
-	@override String get duplicate => 'Duplikálás';
+	@override String get duplicate => 'Másolat';
 }
 
 // Path: editor.menu
@@ -775,22 +747,22 @@ class _Translations$editor$menu$hu extends Translations$editor$menu$en {
 	final TranslationsHu _root; // ignore: unused_field
 
 	// Translations
-	@override String clearPage({required Object page, required Object totalPages}) => 'Oldal törlése: ${page}/${totalPages}';
 	@override String get clearAllPages => 'Összes oldal törlése';
-	@override String get insertPage => 'Oldal beszúrása alá';
-	@override String get duplicatePage => 'Oldal duplikálása';
-	@override String get deletePage => 'Oldal törlése';
 	@override String get lineHeight => 'Vonalmagasság';
-	@override String get lineHeightDescription => 'A begépelt jegyzetek szövegméretét is szabályozza';
-	@override String get lineThickness => 'Vonalvastagság';
-	@override String get lineThicknessDescription => 'Háttérvonalak vastagsága';
-	@override String get backgroundImageFit => 'Háttérkép illesztése';
 	@override String get backgroundPattern => 'Háttérminta';
 	@override String get import => 'Importálás';
-	@override String get watchServer => 'Frissítések figyelése a szerveren';
-	@override String get watchServerReadOnly => 'A szerver figyelése közben a szerkesztés le van tiltva';
 	@override late final _Translations$editor$menu$boxFits$hu boxFits = _Translations$editor$menu$boxFits$hu._(_root);
 	@override late final _Translations$editor$menu$bgPatterns$hu bgPatterns = _Translations$editor$menu$bgPatterns$hu._(_root);
+	@override String get lineThickness => 'Vonalvastagság';
+	@override String get lineThicknessDescription => 'Háttérvonal vastagsága';
+	@override String get watchServer => 'Figyelje a frissítéseket a szerveren';
+	@override String get watchServerReadOnly => 'A szerver figyelése közben a szerkesztés le van tiltva';
+	@override String get lineHeightDescription => 'A beírt jegyzetek szövegméretét is szabályozza';
+	@override String get backgroundImageFit => 'Háttérkép';
+	@override String clearPage({required Object page, required Object totalPages}) => '${page}/${totalPages} oldal törlése';
+	@override String get insertPage => 'Az oldal beszúrása alább';
+	@override String get duplicatePage => 'Ismétlődő oldal';
+	@override String get deletePage => 'Oldal törlése';
 }
 
 // Path: editor.readOnlyBanner
@@ -801,8 +773,8 @@ class _Translations$editor$readOnlyBanner$hu extends Translations$editor$readOnl
 
 	// Translations
 	@override String get title => 'Csak olvasható mód';
-	@override String get watchingServer => 'Jelenleg a szerver frissítéseit figyeli. Ebben a módban a szerkesztés le van tiltva.';
-	@override String get corrupted => 'Nem sikerült betölteni a jegyzetet. Lehet, hogy sérült, vagy még letöltés alatt áll.';
+	@override String get corrupted => 'Nem sikerült betölteni a jegyzetet. Lehet, hogy sérült, vagy még mindig letöltés alatt áll.';
+	@override String get watchingServer => 'Jelenleg frissítéseket figyel a szerveren. A szerkesztés le van tiltva ebben a módban.';
 }
 
 // Path: editor.versionTooNew
@@ -812,7 +784,7 @@ class _Translations$editor$versionTooNew$hu extends Translations$editor$versionT
 	final TranslationsHu _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Ez a jegyzet a Saber egy újabb verziójával lett szerkesztve';
+	@override String get title => 'Ezt a jegyzetet a Saber egy újabb verziójával lett szerkesztve';
 	@override String get subtitle => 'A jegyzet szerkesztése bizonyos információk elvesztését eredményezheti. Szeretné ezt figyelmen kívül hagyni, és mégis szerkeszteni?';
 	@override String get allowEditing => 'Szerkesztés engedélyezése';
 }
@@ -835,11 +807,11 @@ class _Translations$editor$hud$hu extends Translations$editor$hud$en {
 
 	// Translations
 	@override String get unlockZoom => 'Nagyítás feloldása';
-	@override String get lockZoom => 'Nagyítás rögzítése';
+	@override String get lockZoom => 'Nagyítás feloldása';
 	@override String get unlockSingleFingerPan => 'Egyujjas lapozás engedélyezése';
 	@override String get lockSingleFingerPan => 'Egyujjas lapozás letiltása';
-	@override String get unlockAxisAlignedPan => 'Pásztázás feloldása vízszintes vagy függőleges irányban';
-	@override String get lockAxisAlignedPan => 'Pásztázás rögzítése vízszintes vagy függőleges irányban';
+	@override String get unlockAxisAlignedPan => 'Oldja fel a pásztázást vízszintesre vagy függőlegesre';
+	@override String get lockAxisAlignedPan => 'A pásztázás rögzítése vízszintesre vagy függőlegesre';
 }
 
 // Path: sentry.consent.description
@@ -849,14 +821,14 @@ class _Translations$sentry$consent$description$hu extends Translations$sentry$co
 	final TranslationsHu _root; // ignore: unused_field
 
 	// Translations
-	@override String get question => 'Szeretné automatikusan jelenteni a váratlan hibákat? Ez segít a problémák gyorsabb azonosításában és javításában.';
-	@override String get scope => 'A jelentések tartalmazhatnak információkat a hibáról és az eszközéről. Minden tőlem telhetőt megtettem a személyes adatok kiszűrésére, de előfordulhat, hogy néhány mégis megmarad.';
-	@override String get currentlyOff => 'Ha hozzájárul, a hibajelentés az alkalmazás újraindítása után engedélyezve lesz.';
-	@override String get currentlyOn => 'Ha visszavonja a hozzájárulást, kérjük, indítsa újra az alkalmazást a hibajelentés kikapcsolásához.';
+	@override String get question => 'Szeretne automatikusan jelenteni a váratlan hibákat? Ez segít a problémák gyorsabb azonosításában és kijavításában.';
+	@override String get scope => 'A jelentések információkat tartalmazhatnak a hibáról és az eszközről. Minden erőfeszítést megtettem a személyes adatok kiszűrésére, de néhány megmaradhat.';
+	@override String get currentlyOff => 'Ha hozzájárulást ad, akkor a hibajelentés engedélyezve lesz az alkalmazás újraindítása után.';
+	@override String get currentlyOn => 'Ha visszavonja az egyetértést, kérjük, indítsa újra az alkalmazást a hibajelentés letiltása érdekében.';
 	@override TextSpan learnMoreInPrivacyPolicy({required InlineSpanBuilder link}) => TextSpan(children: [
-		const TextSpan(text: 'További részletek az '),
-		link('adatvédelmi szabályzatban'),
-		const TextSpan(text: ' (angolul).'),
+		const TextSpan(text: 'Tudjon meg többet a '),
+		link('adatvédelmi házirend'),
+		const TextSpan(text: ' -ben.'),
 	]);
 }
 
@@ -869,7 +841,7 @@ class _Translations$sentry$consent$answers$hu extends Translations$sentry$consen
 	// Translations
 	@override String get yes => 'Igen';
 	@override String get no => 'Nem';
-	@override String get later => 'Kérdezz meg később';
+	@override String get later => 'Kérdezd meg később';
 }
 
 // Path: settings.prefDescriptions.hideFingerDrawing
@@ -879,9 +851,9 @@ class _Translations$settings$prefDescriptions$hideFingerDrawing$hu extends Trans
 	final TranslationsHu _root; // ignore: unused_field
 
 	// Translations
-	@override String get shown => 'Elkerüli a véletlen átkapcsolást';
-	@override String get fixedOn => 'Az ujjal rajzolás mindig engedélyezett';
-	@override String get fixedOff => 'Az ujjal rajzolás soha nem engedélyezett';
+	@override String get shown => 'Megakadályozza a véletlen átkapcsolást';
+	@override String get fixedOn => 'Az ujjlenyomat rögzítése engedélyezett állapotban van';
+	@override String get fixedOff => 'Az ujjrajzolás letiltva van rögzítve';
 }
 
 // Path: settings.prefDescriptions.sentry
@@ -892,9 +864,9 @@ class _Translations$settings$prefDescriptions$sentry$hu extends Translations$set
 
 	// Translations
 	@override String get active => 'Aktív';
-	@override String get inactive => 'Inaktív';
-	@override String get activeUntilRestart => 'Aktív az alkalmazás újraindításáig';
-	@override String get inactiveUntilRestart => 'Inaktív az alkalmazás újraindításáig';
+	@override String get inactive => 'Tétlen';
+	@override String get activeUntilRestart => 'Aktív, amíg újra nem indítja újra az alkalmazást';
+	@override String get inactiveUntilRestart => 'Inaktív, amíg újra nem indítja újra az alkalmazást';
 }
 
 // Path: login.ncLoginStep.loginFlow
@@ -904,9 +876,9 @@ class _Translations$login$ncLoginStep$loginFlow$hu extends Translations$login$nc
 	final TranslationsHu _root; // ignore: unused_field
 
 	// Translations
-	@override String get pleaseAuthorize => 'Kérjük, engedélyezze a Saber számára a Nextcloud-fiókjához való hozzáférést';
-	@override String get followPrompts => 'Kérjük, kövesse a Nextcloud felületén megjelenő utasításokat';
-	@override String get browserDidntOpen => 'Nem nyílt meg a bejelentkezési oldal? Kattintson ide';
+	@override String get pleaseAuthorize => 'Engedélyezze a Saber-t, hogy hozzáférjen Nextcloud-fiókjához';
+	@override String get followPrompts => 'Kérjük, kövesse a böngészőjében megjelenő utasításokat.';
+	@override String get browserDidntOpen => 'A böngésző nem nyílt meg';
 }
 
 // Path: login.encLoginStep.encFaq.0
@@ -916,8 +888,8 @@ class _Translations$login$encLoginStep$encFaq$0$hu extends Translations$login$en
 	final TranslationsHu _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Mi az a titkosítási jelszó? Miért van szükség két jelszóra?';
-	@override String get a => 'A Nextcloud jelszó a felhőhöz való hozzáféréshez szükséges. A titkosítási jelszó már azelőtt „összekeveri” az adatait, hogy azok a felhőbe kerülnének.\nMég ha valaki hozzá is fér a Nextcloud-fiókjához, a jegyzetei továbbra is biztonságban maradnak, mivel külön titkosítási jelszó védi őket. Ez egy második védelmi réteget biztosít az adatai számára.\nA szerveren senki sem férhet hozzá a jegyzeteihez a titkosítási jelszó nélkül, de ez azt is jelenti, hogy ha elfelejti a titkosítási jelszavát, elveszíti a hozzáférést az adataihoz.';
+	@override String get q => 'Mi a titkosítási jelszó?';
+	@override String get a => 'A titkosítási jelszó az adatok titkosítására szolgál, mielőtt elküldené azokat a szervernek. Ezt választja ki, amikor először jelentkezik be a Saberbe, és nem kapcsolódik Nextcloud-fiókjához/jelszavához.\nSenki sem férhet hozzá a kiszolgálón lévő jegyzeteihez az Ön titkosítási jelszava nélkül. Ez azt is jelenti, hogy ha elfelejti titkosítási jelszavát, elveszíti hozzáférését az adataihoz.';
 }
 
 // Path: login.encLoginStep.encFaq.1
@@ -927,8 +899,8 @@ class _Translations$login$encLoginStep$encFaq$1$hu extends Translations$login$en
 	final TranslationsHu _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Még nem állítottam be titkosítási jelszót. Hol szerezhetem meg?';
-	@override String get a => 'Válasszon egy új titkosítási jelszót, és adja meg fent.\nA Saber automatikusan létrehozza a titkosítási kulcsokat ebből a jelszóból.';
+	@override String get q => 'Miért használjunk két jelszót?';
+	@override String get a => 'A Nextcloud jelszó a felhő eléréséhez használható. A titkosítási jelszó „összekeveri” az adatait, mielőtt azok elérnék a felhőt.\nMég akkor is, ha valaki hozzáfér a Nextcloud-fiókjához, jegyzetei biztonságban maradnak, és külön jelszóval titkosítva lesznek. Ez egy második biztonsági réteget biztosít az adatok védelméhez.';
 }
 
 // Path: login.encLoginStep.encFaq.2
@@ -938,8 +910,8 @@ class _Translations$login$encLoginStep$encFaq$2$hu extends Translations$login$en
 	final TranslationsHu _root; // ignore: unused_field
 
 	// Translations
-	@override String get q => 'Használhatom ugyanazt a jelszót, mint a Nextcloud-fiókomhoz?';
-	@override String get a => 'Igen, de fontos figyelembe venni, hogy így a szerver adminisztrátora vagy más személy könnyebben hozzáférhet a jegyzeteihez, ha hozzájut a Nextcloud-fiókjához.';
+	@override String get q => 'Használhatom mindkettőhöz ugyanazt a jelszót?';
+	@override String get a => 'Igen, de ez kevésbé biztonságos. Mivel a Nextcloud jelszava elküldésre kerül a szervernek, valaki, aki hozzáfér a szerverhez, képes lesz visszafejteni a jegyzeteit. Csak akkor használja ugyanazt a jelszót, ha megbízik a szerver tulajdonosában.';
 }
 
 // Path: editor.menu.boxFits
@@ -950,8 +922,8 @@ class _Translations$editor$menu$boxFits$hu extends Translations$editor$menu$boxF
 
 	// Translations
 	@override String get fill => 'Nyújtás';
-	@override String get cover => 'Kitöltés';
-	@override String get contain => 'Igazítás';
+	@override String get cover => 'Átfed';
+	@override String get contain => 'Tartalmaz';
 }
 
 // Path: editor.menu.bgPatterns
@@ -962,12 +934,12 @@ class _Translations$editor$menu$bgPatterns$hu extends Translations$editor$menu$b
 
 	// Translations
 	@override String get none => 'Üres';
-	@override String get college => 'Margós vonalazás';
-	@override String get collegeRtl => 'Margós vonalazás (fordított)';
+	@override String get college => 'College-ruled';
 	@override String get lined => 'Vonalas';
 	@override String get grid => 'Kockás';
 	@override String get dots => 'Pontozott';
-	@override String get staffs => 'Ötvonalas kottavonal';
-	@override String get tablature => 'Tabulatúra';
+	@override String get collegeRtl => 'Főiskolai szabályozás (fordított)';
+	@override String get staffs => 'Vezetők';
 	@override String get cornell => 'Cornell';
+	@override String get tablature => 'Tablatúra';
 }

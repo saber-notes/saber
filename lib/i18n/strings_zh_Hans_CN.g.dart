@@ -81,8 +81,6 @@ class Translations$home$zh_Hans_CN extends Translations$home$en {
 	@override late final Translations$home$deleteNoteDialog$zh_Hans_CN deleteNoteDialog = Translations$home$deleteNoteDialog$zh_Hans_CN.internal(_root);
 	@override late final Translations$home$renameFolder$zh_Hans_CN renameFolder = Translations$home$renameFolder$zh_Hans_CN.internal(_root);
 	@override late final Translations$home$deleteFolder$zh_Hans_CN deleteFolder = Translations$home$deleteFolder$zh_Hans_CN.internal(_root);
-	@override late final Translations$home$sort$zh_Hans_CN sort = Translations$home$sort$zh_Hans_CN.internal(_root);
-	@override late final Translations$home$layout$zh_Hans_CN layout = Translations$home$layout$zh_Hans_CN.internal(_root);
 }
 
 // Path: sentry
@@ -372,32 +370,6 @@ class Translations$home$deleteFolder$zh_Hans_CN extends Translations$home$delete
 	@override String get alsoDeleteContents => '同时删除此文件夹中的所有笔记';
 }
 
-// Path: home.sort
-class Translations$home$sort$zh_Hans_CN extends Translations$home$sort$en {
-	Translations$home$sort$zh_Hans_CN.internal(TranslationsZhHansCn root) : this._root = root, super.internal(root);
-
-	final TranslationsZhHansCn _root; // ignore: unused_field
-
-	// Translations
-	@override String get sortBy => '按...排序';
-	@override String get nameAToZ => '姓名（A-Z）';
-	@override String get nameZToA => '姓名（从 A 到 Z）';
-	@override String get lastModifiedNewToOld => '编辑（最新优先）';
-	@override String get lastModifiedOldToNew => '编辑（按最旧的排序）';
-}
-
-// Path: home.layout
-class Translations$home$layout$zh_Hans_CN extends Translations$home$layout$en {
-	Translations$home$layout$zh_Hans_CN.internal(TranslationsZhHansCn root) : this._root = root, super.internal(root);
-
-	final TranslationsZhHansCn _root; // ignore: unused_field
-
-	// Translations
-	@override String get layout => '布局';
-	@override String get masonryGrid => '砌体网格';
-	@override String get simpleGrid => '简单网格';
-}
-
 // Path: sentry.consent
 class Translations$sentry$consent$zh_Hans_CN extends Translations$sentry$consent$en {
 	Translations$sentry$consent$zh_Hans_CN.internal(TranslationsZhHansCn root) : this._root = root, super.internal(root);
@@ -456,6 +428,7 @@ class Translations$settings$prefLabels$zh_Hans_CN extends Translations$settings$
 	@override String get autosave => '自动保存';
 	@override String get shapeRecognitionDelay => '形状识别延迟';
 	@override String get autoStraightenLines => '自动拉直线';
+	@override String get simplifiedHomeLayout => '简化主页布局';
 	@override String get customDataDir => '自定义 Saber 文件夹';
 	@override String get sentry => '错误报告';
 }
@@ -480,6 +453,7 @@ class Translations$settings$prefDescriptions$zh_Hans_CN extends Translations$set
 	@override String get autosave => '短暂延迟后自动保存，或永不保存';
 	@override String get shapeRecognitionDelay => '形状预览更新频率';
 	@override String get autoStraightenLines => '拉直长线，无需使用形状笔';
+	@override String get simplifiedHomeLayout => '为每个笔记预览设置固定高度';
 	@override String get shouldAlwaysAlertForUpdates => '在更新可用时尽快告诉我';
 	@override late final Translations$settings$prefDescriptions$sentry$zh_Hans_CN sentry = Translations$settings$prefDescriptions$sentry$zh_Hans_CN.internal(_root);
 }

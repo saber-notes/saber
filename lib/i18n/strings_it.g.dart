@@ -81,8 +81,6 @@ class _Translations$home$it extends Translations$home$en {
 	@override late final _Translations$home$deleteNoteDialog$it deleteNoteDialog = _Translations$home$deleteNoteDialog$it._(_root);
 	@override late final _Translations$home$renameFolder$it renameFolder = _Translations$home$renameFolder$it._(_root);
 	@override late final _Translations$home$deleteFolder$it deleteFolder = _Translations$home$deleteFolder$it._(_root);
-	@override late final _Translations$home$sort$it sort = _Translations$home$sort$it._(_root);
-	@override late final _Translations$home$layout$it layout = _Translations$home$layout$it._(_root);
 }
 
 // Path: sentry
@@ -372,32 +370,6 @@ class _Translations$home$deleteFolder$it extends Translations$home$deleteFolder$
 	@override String get alsoDeleteContents => 'Elimina anche tutte le note all\'interno di questa cartella';
 }
 
-// Path: home.sort
-class _Translations$home$sort$it extends Translations$home$sort$en {
-	_Translations$home$sort$it._(TranslationsIt root) : this._root = root, super.internal(root);
-
-	final TranslationsIt _root; // ignore: unused_field
-
-	// Translations
-	@override String get sortBy => 'Ordina per';
-	@override String get nameAToZ => 'Nome (A-Z)';
-	@override String get nameZToA => 'Nome (A-Z)';
-	@override String get lastModifiedNewToOld => 'Modificato (Più recente per primo)';
-	@override String get lastModifiedOldToNew => 'Modificato (dal più vecchio al più recente)';
-}
-
-// Path: home.layout
-class _Translations$home$layout$it extends Translations$home$layout$en {
-	_Translations$home$layout$it._(TranslationsIt root) : this._root = root, super.internal(root);
-
-	final TranslationsIt _root; // ignore: unused_field
-
-	// Translations
-	@override String get layout => 'Layout';
-	@override String get masonryGrid => 'Griglia a muratura';
-	@override String get simpleGrid => 'Griglia semplice';
-}
-
 // Path: sentry.consent
 class _Translations$sentry$consent$it extends Translations$sentry$consent$en {
 	_Translations$sentry$consent$it._(TranslationsIt root) : this._root = root, super.internal(root);
@@ -456,6 +428,7 @@ class _Translations$settings$prefLabels$it extends Translations$settings$prefLab
 	@override String get autosave => 'Salvataggio automatico';
 	@override String get shapeRecognitionDelay => 'Ritardo nel riconoscimento della forma';
 	@override String get autoStraightenLines => 'Raddrizzamento automatico delle linee';
+	@override String get simplifiedHomeLayout => 'Layout semplificato della schermata home';
 	@override String get customDataDir => 'Cartella Saber personalizzata';
 	@override String get sentry => 'Segnalazione di errori';
 }
@@ -480,6 +453,7 @@ class _Translations$settings$prefDescriptions$it extends Translations$settings$p
 	@override String get autosave => 'Salvataggio automatico dopo un breve ritardo, oppure mai';
 	@override String get shapeRecognitionDelay => 'Quanto spesso aggiornare l\'anteprima della forma';
 	@override String get autoStraightenLines => 'Raddrizza le linee lunghe senza dover utilizzare la penna per le forme';
+	@override String get simplifiedHomeLayout => 'Imposta un\'altezza fissa per ogni anteprima della nota';
 	@override String get shouldAlwaysAlertForUpdates => 'Segnalami gli aggiornamenti non appena sono disponibili';
 	@override late final _Translations$settings$prefDescriptions$sentry$it sentry = _Translations$settings$prefDescriptions$sentry$it._(_root);
 }

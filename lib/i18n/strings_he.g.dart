@@ -81,8 +81,6 @@ class _Translations$home$he extends Translations$home$en {
 	@override late final _Translations$home$deleteNoteDialog$he deleteNoteDialog = _Translations$home$deleteNoteDialog$he._(_root);
 	@override late final _Translations$home$renameFolder$he renameFolder = _Translations$home$renameFolder$he._(_root);
 	@override late final _Translations$home$deleteFolder$he deleteFolder = _Translations$home$deleteFolder$he._(_root);
-	@override late final _Translations$home$sort$he sort = _Translations$home$sort$he._(_root);
-	@override late final _Translations$home$layout$he layout = _Translations$home$layout$he._(_root);
 }
 
 // Path: sentry
@@ -372,32 +370,6 @@ class _Translations$home$deleteFolder$he extends Translations$home$deleteFolder$
 	@override String get alsoDeleteContents => 'מחיקה גם של כל הפתקים בתיקייה זו';
 }
 
-// Path: home.sort
-class _Translations$home$sort$he extends Translations$home$sort$en {
-	_Translations$home$sort$he._(TranslationsHe root) : this._root = root, super.internal(root);
-
-	final TranslationsHe _root; // ignore: unused_field
-
-	// Translations
-	@override String get sortBy => 'מיון לפי';
-	@override String get nameAToZ => 'שם (א-ת)';
-	@override String get nameZToA => 'שם (ת-א)';
-	@override String get lastModifiedNewToOld => 'עריכה אחרונה (הזמן הקרוב ביותר תחילה)';
-	@override String get lastModifiedOldToNew => 'עריכה אחרונה (הזמן הרחוק ביותר תחילה)';
-}
-
-// Path: home.layout
-class _Translations$home$layout$he extends Translations$home$layout$en {
-	_Translations$home$layout$he._(TranslationsHe root) : this._root = root, super.internal(root);
-
-	final TranslationsHe _root; // ignore: unused_field
-
-	// Translations
-	@override String get layout => 'פריסה';
-	@override String get masonryGrid => 'רשת בנייה';
-	@override String get simpleGrid => 'רשת פשוטה';
-}
-
 // Path: sentry.consent
 class _Translations$sentry$consent$he extends Translations$sentry$consent$en {
 	_Translations$sentry$consent$he._(TranslationsHe root) : this._root = root, super.internal(root);
@@ -456,6 +428,7 @@ class _Translations$settings$prefLabels$he extends Translations$settings$prefLab
 	@override String get autosave => 'שמירה אוטומטית';
 	@override String get shapeRecognitionDelay => 'השהיה לפני זיהוי צורות';
 	@override String get autoStraightenLines => 'יישור קווים אוטומטי';
+	@override String get simplifiedHomeLayout => 'פריסת עמוד בית פשוטה';
 	@override String get customDataDir => 'תיקייה מותאמת אישית ל־Saber';
 	@override String get sentry => 'דיווח על שגיאות';
 }
@@ -480,6 +453,7 @@ class _Translations$settings$prefDescriptions$he extends Translations$settings$p
 	@override String get autosave => 'שמירה אוטומטית לאחר פרק זמן קצר, או אף פעם';
 	@override String get shapeRecognitionDelay => 'כל כמה זמן לעדכן את התצוגה המקדימה של הצורות';
 	@override String get autoStraightenLines => 'מיישר קווים ארוכים ללא צורך להשתמש בעט הצורות';
+	@override String get simplifiedHomeLayout => 'קביעת גובה קבוע לתצוגה המקדימה של כל פתק';
 	@override String get shouldAlwaysAlertForUpdates => 'ספר לי על עדכונים ברגע שהם יהיו זמינים';
 	@override late final _Translations$settings$prefDescriptions$sentry$he sentry = _Translations$settings$prefDescriptions$sentry$he._(_root);
 }

@@ -9,10 +9,9 @@ import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
 import 'package:slang/generated.dart';
 import 'strings.g.dart';
-import 'strings_pt.g.dart';
 
 // Path: <root>
-class TranslationsPtBr extends TranslationsPt with BaseTranslations<AppLocale, Translations> {
+class TranslationsPtBr extends Translations with BaseTranslations<AppLocale, Translations> {
 	/// You can call this constructor and build your own translation instance of this locale.
 	/// Constructing via the enum [AppLocale.build] is preferred.
 	TranslationsPtBr({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver, TranslationMetadata<AppLocale, Translations>? meta})
@@ -47,7 +46,7 @@ class TranslationsPtBr extends TranslationsPt with BaseTranslations<AppLocale, T
 }
 
 // Path: common
-class _Translations$common$pt_BR extends Translations$common$pt {
+class _Translations$common$pt_BR extends Translations$common$en {
 	_Translations$common$pt_BR._(TranslationsPtBr root) : this._root = root, super.internal(root);
 
 	final TranslationsPtBr _root; // ignore: unused_field
@@ -59,7 +58,7 @@ class _Translations$common$pt_BR extends Translations$common$pt {
 }
 
 // Path: home
-class _Translations$home$pt_BR extends Translations$home$pt {
+class _Translations$home$pt_BR extends Translations$home$en {
 	_Translations$home$pt_BR._(TranslationsPtBr root) : this._root = root, super.internal(root);
 
 	final TranslationsPtBr _root; // ignore: unused_field
@@ -82,12 +81,10 @@ class _Translations$home$pt_BR extends Translations$home$pt {
 	@override late final _Translations$home$deleteNoteDialog$pt_BR deleteNoteDialog = _Translations$home$deleteNoteDialog$pt_BR._(_root);
 	@override late final _Translations$home$renameFolder$pt_BR renameFolder = _Translations$home$renameFolder$pt_BR._(_root);
 	@override late final _Translations$home$deleteFolder$pt_BR deleteFolder = _Translations$home$deleteFolder$pt_BR._(_root);
-	@override late final _Translations$home$sort$pt_BR sort = _Translations$home$sort$pt_BR._(_root);
-	@override late final _Translations$home$layout$pt_BR layout = _Translations$home$layout$pt_BR._(_root);
 }
 
 // Path: sentry
-class _Translations$sentry$pt_BR extends Translations$sentry$pt {
+class _Translations$sentry$pt_BR extends Translations$sentry$en {
 	_Translations$sentry$pt_BR._(TranslationsPtBr root) : this._root = root, super.internal(root);
 
 	final TranslationsPtBr _root; // ignore: unused_field
@@ -97,7 +94,7 @@ class _Translations$sentry$pt_BR extends Translations$sentry$pt {
 }
 
 // Path: settings
-class _Translations$settings$pt_BR extends Translations$settings$pt {
+class _Translations$settings$pt_BR extends Translations$settings$en {
 	_Translations$settings$pt_BR._(TranslationsPtBr root) : this._root = root, super.internal(root);
 
 	final TranslationsPtBr _root; // ignore: unused_field
@@ -125,7 +122,7 @@ class _Translations$settings$pt_BR extends Translations$settings$pt {
 }
 
 // Path: logs
-class _Translations$logs$pt_BR extends Translations$logs$pt {
+class _Translations$logs$pt_BR extends Translations$logs$en {
 	_Translations$logs$pt_BR._(TranslationsPtBr root) : this._root = root, super.internal(root);
 
 	final TranslationsPtBr _root; // ignore: unused_field
@@ -139,7 +136,7 @@ class _Translations$logs$pt_BR extends Translations$logs$pt {
 }
 
 // Path: login
-class _Translations$login$pt_BR extends Translations$login$pt {
+class _Translations$login$pt_BR extends Translations$login$en {
 	_Translations$login$pt_BR._(TranslationsPtBr root) : this._root = root, super.internal(root);
 
 	final TranslationsPtBr _root; // ignore: unused_field
@@ -161,7 +158,7 @@ class _Translations$login$pt_BR extends Translations$login$pt {
 }
 
 // Path: profile
-class _Translations$profile$pt_BR extends Translations$profile$pt {
+class _Translations$profile$pt_BR extends Translations$profile$en {
 	_Translations$profile$pt_BR._(TranslationsPtBr root) : this._root = root, super.internal(root);
 
 	final TranslationsPtBr _root; // ignore: unused_field
@@ -182,7 +179,7 @@ class _Translations$profile$pt_BR extends Translations$profile$pt {
 }
 
 // Path: appInfo
-class _Translations$appInfo$pt_BR extends Translations$appInfo$pt {
+class _Translations$appInfo$pt_BR extends Translations$appInfo$en {
 	_Translations$appInfo$pt_BR._(TranslationsPtBr root) : this._root = root, super.internal(root);
 
 	final TranslationsPtBr _root; // ignore: unused_field
@@ -196,7 +193,7 @@ class _Translations$appInfo$pt_BR extends Translations$appInfo$pt {
 }
 
 // Path: update
-class _Translations$update$pt_BR extends Translations$update$pt {
+class _Translations$update$pt_BR extends Translations$update$en {
 	_Translations$update$pt_BR._(TranslationsPtBr root) : this._root = root, super.internal(root);
 
 	final TranslationsPtBr _root; // ignore: unused_field
@@ -209,7 +206,7 @@ class _Translations$update$pt_BR extends Translations$update$pt {
 }
 
 // Path: editor
-class _Translations$editor$pt_BR extends Translations$editor$pt {
+class _Translations$editor$pt_BR extends Translations$editor$en {
 	_Translations$editor$pt_BR._(TranslationsPtBr root) : this._root = root, super.internal(root);
 
 	final TranslationsPtBr _root; // ignore: unused_field
@@ -232,7 +229,7 @@ class _Translations$editor$pt_BR extends Translations$editor$pt {
 }
 
 // Path: home.tabs
-class _Translations$home$tabs$pt_BR extends Translations$home$tabs$pt {
+class _Translations$home$tabs$pt_BR extends Translations$home$tabs$en {
 	_Translations$home$tabs$pt_BR._(TranslationsPtBr root) : this._root = root, super.internal(root);
 
 	final TranslationsPtBr _root; // ignore: unused_field
@@ -245,7 +242,7 @@ class _Translations$home$tabs$pt_BR extends Translations$home$tabs$pt {
 }
 
 // Path: home.titles
-class _Translations$home$titles$pt_BR extends Translations$home$titles$pt {
+class _Translations$home$titles$pt_BR extends Translations$home$titles$en {
 	_Translations$home$titles$pt_BR._(TranslationsPtBr root) : this._root = root, super.internal(root);
 
 	final TranslationsPtBr _root; // ignore: unused_field
@@ -258,7 +255,7 @@ class _Translations$home$titles$pt_BR extends Translations$home$titles$pt {
 }
 
 // Path: home.tooltips
-class _Translations$home$tooltips$pt_BR extends Translations$home$tooltips$pt {
+class _Translations$home$tooltips$pt_BR extends Translations$home$tooltips$en {
 	_Translations$home$tooltips$pt_BR._(TranslationsPtBr root) : this._root = root, super.internal(root);
 
 	final TranslationsPtBr _root; // ignore: unused_field
@@ -270,7 +267,7 @@ class _Translations$home$tooltips$pt_BR extends Translations$home$tooltips$pt {
 }
 
 // Path: home.create
-class _Translations$home$create$pt_BR extends Translations$home$create$pt {
+class _Translations$home$create$pt_BR extends Translations$home$create$en {
 	_Translations$home$create$pt_BR._(TranslationsPtBr root) : this._root = root, super.internal(root);
 
 	final TranslationsPtBr _root; // ignore: unused_field
@@ -281,7 +278,7 @@ class _Translations$home$create$pt_BR extends Translations$home$create$pt {
 }
 
 // Path: home.newFolder
-class _Translations$home$newFolder$pt_BR extends Translations$home$newFolder$pt {
+class _Translations$home$newFolder$pt_BR extends Translations$home$newFolder$en {
 	_Translations$home$newFolder$pt_BR._(TranslationsPtBr root) : this._root = root, super.internal(root);
 
 	final TranslationsPtBr _root; // ignore: unused_field
@@ -296,7 +293,7 @@ class _Translations$home$newFolder$pt_BR extends Translations$home$newFolder$pt 
 }
 
 // Path: home.renameNote
-class _Translations$home$renameNote$pt_BR extends Translations$home$renameNote$pt {
+class _Translations$home$renameNote$pt_BR extends Translations$home$renameNote$en {
 	_Translations$home$renameNote$pt_BR._(TranslationsPtBr root) : this._root = root, super.internal(root);
 
 	final TranslationsPtBr _root; // ignore: unused_field
@@ -312,7 +309,7 @@ class _Translations$home$renameNote$pt_BR extends Translations$home$renameNote$p
 }
 
 // Path: home.moveNote
-class _Translations$home$moveNote$pt_BR extends Translations$home$moveNote$pt {
+class _Translations$home$moveNote$pt_BR extends Translations$home$moveNote$en {
 	_Translations$home$moveNote$pt_BR._(TranslationsPtBr root) : this._root = root, super.internal(root);
 
 	final TranslationsPtBr _root; // ignore: unused_field
@@ -328,7 +325,7 @@ class _Translations$home$moveNote$pt_BR extends Translations$home$moveNote$pt {
 }
 
 // Path: home.deleteNoteDialog
-class _Translations$home$deleteNoteDialog$pt_BR extends Translations$home$deleteNoteDialog$pt {
+class _Translations$home$deleteNoteDialog$pt_BR extends Translations$home$deleteNoteDialog$en {
 	_Translations$home$deleteNoteDialog$pt_BR._(TranslationsPtBr root) : this._root = root, super.internal(root);
 
 	final TranslationsPtBr _root; // ignore: unused_field
@@ -344,7 +341,7 @@ class _Translations$home$deleteNoteDialog$pt_BR extends Translations$home$delete
 }
 
 // Path: home.renameFolder
-class _Translations$home$renameFolder$pt_BR extends Translations$home$renameFolder$pt {
+class _Translations$home$renameFolder$pt_BR extends Translations$home$renameFolder$en {
 	_Translations$home$renameFolder$pt_BR._(TranslationsPtBr root) : this._root = root, super.internal(root);
 
 	final TranslationsPtBr _root; // ignore: unused_field
@@ -359,7 +356,7 @@ class _Translations$home$renameFolder$pt_BR extends Translations$home$renameFold
 }
 
 // Path: home.deleteFolder
-class _Translations$home$deleteFolder$pt_BR extends Translations$home$deleteFolder$pt {
+class _Translations$home$deleteFolder$pt_BR extends Translations$home$deleteFolder$en {
 	_Translations$home$deleteFolder$pt_BR._(TranslationsPtBr root) : this._root = root, super.internal(root);
 
 	final TranslationsPtBr _root; // ignore: unused_field
@@ -371,34 +368,8 @@ class _Translations$home$deleteFolder$pt_BR extends Translations$home$deleteFold
 	@override String get alsoDeleteContents => 'Apagar também todas as notas dentro desta pasta';
 }
 
-// Path: home.sort
-class _Translations$home$sort$pt_BR extends Translations$home$sort$en {
-	_Translations$home$sort$pt_BR._(TranslationsPtBr root) : this._root = root, super.internal(root);
-
-	final TranslationsPtBr _root; // ignore: unused_field
-
-	// Translations
-	@override String get sortBy => 'Ordenar por';
-	@override String get nameAToZ => 'Nome (A-Z)';
-	@override String get nameZToA => 'Nome (A-Z)';
-	@override String get lastModifiedNewToOld => 'Editado (Mais recente primeiro)';
-	@override String get lastModifiedOldToNew => 'Editado (Mais antigo primeiro)';
-}
-
-// Path: home.layout
-class _Translations$home$layout$pt_BR extends Translations$home$layout$en {
-	_Translations$home$layout$pt_BR._(TranslationsPtBr root) : this._root = root, super.internal(root);
-
-	final TranslationsPtBr _root; // ignore: unused_field
-
-	// Translations
-	@override String get layout => 'Layout';
-	@override String get masonryGrid => 'Grade de alvenaria';
-	@override String get simpleGrid => 'Grade simples';
-}
-
 // Path: sentry.consent
-class _Translations$sentry$consent$pt_BR extends Translations$sentry$consent$pt {
+class _Translations$sentry$consent$pt_BR extends Translations$sentry$consent$en {
 	_Translations$sentry$consent$pt_BR._(TranslationsPtBr root) : this._root = root, super.internal(root);
 
 	final TranslationsPtBr _root; // ignore: unused_field
@@ -410,7 +381,7 @@ class _Translations$sentry$consent$pt_BR extends Translations$sentry$consent$pt 
 }
 
 // Path: settings.prefCategories
-class _Translations$settings$prefCategories$pt_BR extends Translations$settings$prefCategories$pt {
+class _Translations$settings$prefCategories$pt_BR extends Translations$settings$prefCategories$en {
 	_Translations$settings$prefCategories$pt_BR._(TranslationsPtBr root) : this._root = root, super.internal(root);
 
 	final TranslationsPtBr _root; // ignore: unused_field
@@ -424,7 +395,7 @@ class _Translations$settings$prefCategories$pt_BR extends Translations$settings$
 }
 
 // Path: settings.prefLabels
-class _Translations$settings$prefLabels$pt_BR extends Translations$settings$prefLabels$pt {
+class _Translations$settings$prefLabels$pt_BR extends Translations$settings$prefLabels$en {
 	_Translations$settings$prefLabels$pt_BR._(TranslationsPtBr root) : this._root = root, super.internal(root);
 
 	final TranslationsPtBr _root; // ignore: unused_field
@@ -456,11 +427,12 @@ class _Translations$settings$prefLabels$pt_BR extends Translations$settings$pref
 	@override String get shapeRecognitionDelay => 'Atraso no reconhecimento de formatos';
 	@override String get autoStraightenLines => 'Auto alinhamento de linhas';
 	@override String get sentry => 'Relatório de erro';
+	@override String get simplifiedHomeLayout => 'Layout simplificado da casa';
 	@override String get customDataDir => 'Diretório de dados personalizado';
 }
 
 // Path: settings.prefDescriptions
-class _Translations$settings$prefDescriptions$pt_BR extends Translations$settings$prefDescriptions$pt {
+class _Translations$settings$prefDescriptions$pt_BR extends Translations$settings$prefDescriptions$en {
 	_Translations$settings$prefDescriptions$pt_BR._(TranslationsPtBr root) : this._root = root, super.internal(root);
 
 	final TranslationsPtBr _root; // ignore: unused_field
@@ -479,12 +451,13 @@ class _Translations$settings$prefDescriptions$pt_BR extends Translations$setting
 	@override late final _Translations$settings$prefDescriptions$sentry$pt_BR sentry = _Translations$settings$prefDescriptions$sentry$pt_BR._(_root);
 	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Desative o desenho com o dedo quando uma caneta for detectada';
 	@override String get autosave => 'Salvamento automático após um pequeno atraso, ou nunca';
+	@override String get simplifiedHomeLayout => 'Define uma altura fixa para cada pré-visualização de nota';
 	@override String get autoStraightenLines => 'Endireita linhas longas sem precisar usar a caneta modeladora';
 	@override String get shapeRecognitionDelay => 'Com que frequência atualizar a visualização da forma';
 }
 
 // Path: settings.themeModes
-class _Translations$settings$themeModes$pt_BR extends Translations$settings$themeModes$pt {
+class _Translations$settings$themeModes$pt_BR extends Translations$settings$themeModes$en {
 	_Translations$settings$themeModes$pt_BR._(TranslationsPtBr root) : this._root = root, super.internal(root);
 
 	final TranslationsPtBr _root; // ignore: unused_field
@@ -496,7 +469,7 @@ class _Translations$settings$themeModes$pt_BR extends Translations$settings$them
 }
 
 // Path: settings.layoutSizes
-class _Translations$settings$layoutSizes$pt_BR extends Translations$settings$layoutSizes$pt {
+class _Translations$settings$layoutSizes$pt_BR extends Translations$settings$layoutSizes$en {
 	_Translations$settings$layoutSizes$pt_BR._(TranslationsPtBr root) : this._root = root, super.internal(root);
 
 	final TranslationsPtBr _root; // ignore: unused_field
@@ -508,7 +481,7 @@ class _Translations$settings$layoutSizes$pt_BR extends Translations$settings$lay
 }
 
 // Path: settings.accentColorPicker
-class _Translations$settings$accentColorPicker$pt_BR extends Translations$settings$accentColorPicker$pt {
+class _Translations$settings$accentColorPicker$pt_BR extends Translations$settings$accentColorPicker$en {
 	_Translations$settings$accentColorPicker$pt_BR._(TranslationsPtBr root) : this._root = root, super.internal(root);
 
 	final TranslationsPtBr _root; // ignore: unused_field
@@ -518,7 +491,7 @@ class _Translations$settings$accentColorPicker$pt_BR extends Translations$settin
 }
 
 // Path: settings.reset
-class _Translations$settings$reset$pt_BR extends Translations$settings$reset$pt {
+class _Translations$settings$reset$pt_BR extends Translations$settings$reset$en {
 	_Translations$settings$reset$pt_BR._(TranslationsPtBr root) : this._root = root, super.internal(root);
 
 	final TranslationsPtBr _root; // ignore: unused_field
@@ -529,7 +502,7 @@ class _Translations$settings$reset$pt_BR extends Translations$settings$reset$pt 
 }
 
 // Path: settings.customDataDir
-class _Translations$settings$customDataDir$pt_BR extends Translations$settings$customDataDir$pt {
+class _Translations$settings$customDataDir$pt_BR extends Translations$settings$customDataDir$en {
 	_Translations$settings$customDataDir$pt_BR._(TranslationsPtBr root) : this._root = root, super.internal(root);
 
 	final TranslationsPtBr _root; // ignore: unused_field
@@ -543,7 +516,7 @@ class _Translations$settings$customDataDir$pt_BR extends Translations$settings$c
 }
 
 // Path: login.form
-class _Translations$login$form$pt_BR extends Translations$login$form$pt {
+class _Translations$login$form$pt_BR extends Translations$login$form$en {
 	_Translations$login$form$pt_BR._(TranslationsPtBr root) : this._root = root, super.internal(root);
 
 	final TranslationsPtBr _root; // ignore: unused_field
@@ -557,7 +530,7 @@ class _Translations$login$form$pt_BR extends Translations$login$form$pt {
 }
 
 // Path: login.status
-class _Translations$login$status$pt_BR extends Translations$login$status$pt {
+class _Translations$login$status$pt_BR extends Translations$login$status$en {
 	_Translations$login$status$pt_BR._(TranslationsPtBr root) : this._root = root, super.internal(root);
 
 	final TranslationsPtBr _root; // ignore: unused_field
@@ -571,7 +544,7 @@ class _Translations$login$status$pt_BR extends Translations$login$status$pt {
 }
 
 // Path: login.ncLoginStep
-class _Translations$login$ncLoginStep$pt_BR extends Translations$login$ncLoginStep$pt {
+class _Translations$login$ncLoginStep$pt_BR extends Translations$login$ncLoginStep$en {
 	_Translations$login$ncLoginStep$pt_BR._(TranslationsPtBr root) : this._root = root, super.internal(root);
 
 	final TranslationsPtBr _root; // ignore: unused_field
@@ -587,7 +560,7 @@ class _Translations$login$ncLoginStep$pt_BR extends Translations$login$ncLoginSt
 }
 
 // Path: login.encLoginStep
-class _Translations$login$encLoginStep$pt_BR extends Translations$login$encLoginStep$pt {
+class _Translations$login$encLoginStep$pt_BR extends Translations$login$encLoginStep$en {
 	_Translations$login$encLoginStep$pt_BR._(TranslationsPtBr root) : this._root = root, super.internal(root);
 
 	final TranslationsPtBr _root; // ignore: unused_field
@@ -607,7 +580,7 @@ class _Translations$login$encLoginStep$pt_BR extends Translations$login$encLogin
 }
 
 // Path: profile.quickLinks
-class _Translations$profile$quickLinks$pt_BR extends Translations$profile$quickLinks$pt {
+class _Translations$profile$quickLinks$pt_BR extends Translations$profile$quickLinks$en {
 	_Translations$profile$quickLinks$pt_BR._(TranslationsPtBr root) : this._root = root, super.internal(root);
 
 	final TranslationsPtBr _root; // ignore: unused_field
@@ -662,7 +635,7 @@ class _Translations$profile$faq$3$pt_BR extends Translations$profile$faq$3$en {
 }
 
 // Path: editor.toolbar
-class _Translations$editor$toolbar$pt_BR extends Translations$editor$toolbar$pt {
+class _Translations$editor$toolbar$pt_BR extends Translations$editor$toolbar$en {
 	_Translations$editor$toolbar$pt_BR._(TranslationsPtBr root) : this._root = root, super.internal(root);
 
 	final TranslationsPtBr _root; // ignore: unused_field
@@ -682,7 +655,7 @@ class _Translations$editor$toolbar$pt_BR extends Translations$editor$toolbar$pt 
 }
 
 // Path: editor.pens
-class _Translations$editor$pens$pt_BR extends Translations$editor$pens$pt {
+class _Translations$editor$pens$pt_BR extends Translations$editor$pens$en {
 	_Translations$editor$pens$pt_BR._(TranslationsPtBr root) : this._root = root, super.internal(root);
 
 	final TranslationsPtBr _root; // ignore: unused_field
@@ -697,7 +670,7 @@ class _Translations$editor$pens$pt_BR extends Translations$editor$pens$pt {
 }
 
 // Path: editor.penOptions
-class _Translations$editor$penOptions$pt_BR extends Translations$editor$penOptions$pt {
+class _Translations$editor$penOptions$pt_BR extends Translations$editor$penOptions$en {
 	_Translations$editor$penOptions$pt_BR._(TranslationsPtBr root) : this._root = root, super.internal(root);
 
 	final TranslationsPtBr _root; // ignore: unused_field
@@ -707,7 +680,7 @@ class _Translations$editor$penOptions$pt_BR extends Translations$editor$penOptio
 }
 
 // Path: editor.colors
-class _Translations$editor$colors$pt_BR extends Translations$editor$colors$pt {
+class _Translations$editor$colors$pt_BR extends Translations$editor$colors$en {
 	_Translations$editor$colors$pt_BR._(TranslationsPtBr root) : this._root = root, super.internal(root);
 
 	final TranslationsPtBr _root; // ignore: unused_field
@@ -742,7 +715,7 @@ class _Translations$editor$colors$pt_BR extends Translations$editor$colors$pt {
 }
 
 // Path: editor.imageOptions
-class _Translations$editor$imageOptions$pt_BR extends Translations$editor$imageOptions$pt {
+class _Translations$editor$imageOptions$pt_BR extends Translations$editor$imageOptions$en {
 	_Translations$editor$imageOptions$pt_BR._(TranslationsPtBr root) : this._root = root, super.internal(root);
 
 	final TranslationsPtBr _root; // ignore: unused_field
@@ -757,7 +730,7 @@ class _Translations$editor$imageOptions$pt_BR extends Translations$editor$imageO
 }
 
 // Path: editor.selectionBar
-class _Translations$editor$selectionBar$pt_BR extends Translations$editor$selectionBar$pt {
+class _Translations$editor$selectionBar$pt_BR extends Translations$editor$selectionBar$en {
 	_Translations$editor$selectionBar$pt_BR._(TranslationsPtBr root) : this._root = root, super.internal(root);
 
 	final TranslationsPtBr _root; // ignore: unused_field
@@ -768,7 +741,7 @@ class _Translations$editor$selectionBar$pt_BR extends Translations$editor$select
 }
 
 // Path: editor.menu
-class _Translations$editor$menu$pt_BR extends Translations$editor$menu$pt {
+class _Translations$editor$menu$pt_BR extends Translations$editor$menu$en {
 	_Translations$editor$menu$pt_BR._(TranslationsPtBr root) : this._root = root, super.internal(root);
 
 	final TranslationsPtBr _root; // ignore: unused_field
@@ -793,7 +766,7 @@ class _Translations$editor$menu$pt_BR extends Translations$editor$menu$pt {
 }
 
 // Path: editor.readOnlyBanner
-class _Translations$editor$readOnlyBanner$pt_BR extends Translations$editor$readOnlyBanner$pt {
+class _Translations$editor$readOnlyBanner$pt_BR extends Translations$editor$readOnlyBanner$en {
 	_Translations$editor$readOnlyBanner$pt_BR._(TranslationsPtBr root) : this._root = root, super.internal(root);
 
 	final TranslationsPtBr _root; // ignore: unused_field
@@ -805,7 +778,7 @@ class _Translations$editor$readOnlyBanner$pt_BR extends Translations$editor$read
 }
 
 // Path: editor.versionTooNew
-class _Translations$editor$versionTooNew$pt_BR extends Translations$editor$versionTooNew$pt {
+class _Translations$editor$versionTooNew$pt_BR extends Translations$editor$versionTooNew$en {
 	_Translations$editor$versionTooNew$pt_BR._(TranslationsPtBr root) : this._root = root, super.internal(root);
 
 	final TranslationsPtBr _root; // ignore: unused_field
@@ -817,7 +790,7 @@ class _Translations$editor$versionTooNew$pt_BR extends Translations$editor$versi
 }
 
 // Path: editor.quill
-class _Translations$editor$quill$pt_BR extends Translations$editor$quill$pt {
+class _Translations$editor$quill$pt_BR extends Translations$editor$quill$en {
 	_Translations$editor$quill$pt_BR._(TranslationsPtBr root) : this._root = root, super.internal(root);
 
 	final TranslationsPtBr _root; // ignore: unused_field
@@ -827,7 +800,7 @@ class _Translations$editor$quill$pt_BR extends Translations$editor$quill$pt {
 }
 
 // Path: editor.hud
-class _Translations$editor$hud$pt_BR extends Translations$editor$hud$pt {
+class _Translations$editor$hud$pt_BR extends Translations$editor$hud$en {
 	_Translations$editor$hud$pt_BR._(TranslationsPtBr root) : this._root = root, super.internal(root);
 
 	final TranslationsPtBr _root; // ignore: unused_field
@@ -842,7 +815,7 @@ class _Translations$editor$hud$pt_BR extends Translations$editor$hud$pt {
 }
 
 // Path: sentry.consent.description
-class _Translations$sentry$consent$description$pt_BR extends Translations$sentry$consent$description$pt {
+class _Translations$sentry$consent$description$pt_BR extends Translations$sentry$consent$description$en {
 	_Translations$sentry$consent$description$pt_BR._(TranslationsPtBr root) : this._root = root, super.internal(root);
 
 	final TranslationsPtBr _root; // ignore: unused_field
@@ -860,7 +833,7 @@ class _Translations$sentry$consent$description$pt_BR extends Translations$sentry
 }
 
 // Path: sentry.consent.answers
-class _Translations$sentry$consent$answers$pt_BR extends Translations$sentry$consent$answers$pt {
+class _Translations$sentry$consent$answers$pt_BR extends Translations$sentry$consent$answers$en {
 	_Translations$sentry$consent$answers$pt_BR._(TranslationsPtBr root) : this._root = root, super.internal(root);
 
 	final TranslationsPtBr _root; // ignore: unused_field
@@ -872,7 +845,7 @@ class _Translations$sentry$consent$answers$pt_BR extends Translations$sentry$con
 }
 
 // Path: settings.prefDescriptions.hideFingerDrawing
-class _Translations$settings$prefDescriptions$hideFingerDrawing$pt_BR extends Translations$settings$prefDescriptions$hideFingerDrawing$pt {
+class _Translations$settings$prefDescriptions$hideFingerDrawing$pt_BR extends Translations$settings$prefDescriptions$hideFingerDrawing$en {
 	_Translations$settings$prefDescriptions$hideFingerDrawing$pt_BR._(TranslationsPtBr root) : this._root = root, super.internal(root);
 
 	final TranslationsPtBr _root; // ignore: unused_field
@@ -884,7 +857,7 @@ class _Translations$settings$prefDescriptions$hideFingerDrawing$pt_BR extends Tr
 }
 
 // Path: settings.prefDescriptions.sentry
-class _Translations$settings$prefDescriptions$sentry$pt_BR extends Translations$settings$prefDescriptions$sentry$pt {
+class _Translations$settings$prefDescriptions$sentry$pt_BR extends Translations$settings$prefDescriptions$sentry$en {
 	_Translations$settings$prefDescriptions$sentry$pt_BR._(TranslationsPtBr root) : this._root = root, super.internal(root);
 
 	final TranslationsPtBr _root; // ignore: unused_field
@@ -897,7 +870,7 @@ class _Translations$settings$prefDescriptions$sentry$pt_BR extends Translations$
 }
 
 // Path: login.ncLoginStep.loginFlow
-class _Translations$login$ncLoginStep$loginFlow$pt_BR extends Translations$login$ncLoginStep$loginFlow$pt {
+class _Translations$login$ncLoginStep$loginFlow$pt_BR extends Translations$login$ncLoginStep$loginFlow$en {
 	_Translations$login$ncLoginStep$loginFlow$pt_BR._(TranslationsPtBr root) : this._root = root, super.internal(root);
 
 	final TranslationsPtBr _root; // ignore: unused_field
@@ -942,7 +915,7 @@ class _Translations$login$encLoginStep$encFaq$2$pt_BR extends Translations$login
 }
 
 // Path: editor.menu.boxFits
-class _Translations$editor$menu$boxFits$pt_BR extends Translations$editor$menu$boxFits$pt {
+class _Translations$editor$menu$boxFits$pt_BR extends Translations$editor$menu$boxFits$en {
 	_Translations$editor$menu$boxFits$pt_BR._(TranslationsPtBr root) : this._root = root, super.internal(root);
 
 	final TranslationsPtBr _root; // ignore: unused_field
@@ -954,7 +927,7 @@ class _Translations$editor$menu$boxFits$pt_BR extends Translations$editor$menu$b
 }
 
 // Path: editor.menu.bgPatterns
-class _Translations$editor$menu$bgPatterns$pt_BR extends Translations$editor$menu$bgPatterns$pt {
+class _Translations$editor$menu$bgPatterns$pt_BR extends Translations$editor$menu$bgPatterns$en {
 	_Translations$editor$menu$bgPatterns$pt_BR._(TranslationsPtBr root) : this._root = root, super.internal(root);
 
 	final TranslationsPtBr _root; // ignore: unused_field

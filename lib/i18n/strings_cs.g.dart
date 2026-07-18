@@ -81,8 +81,6 @@ class _Translations$home$cs extends Translations$home$en {
 	@override late final _Translations$home$deleteNoteDialog$cs deleteNoteDialog = _Translations$home$deleteNoteDialog$cs._(_root);
 	@override late final _Translations$home$renameFolder$cs renameFolder = _Translations$home$renameFolder$cs._(_root);
 	@override late final _Translations$home$deleteFolder$cs deleteFolder = _Translations$home$deleteFolder$cs._(_root);
-	@override late final _Translations$home$sort$cs sort = _Translations$home$sort$cs._(_root);
-	@override late final _Translations$home$layout$cs layout = _Translations$home$layout$cs._(_root);
 }
 
 // Path: sentry
@@ -372,32 +370,6 @@ class _Translations$home$deleteFolder$cs extends Translations$home$deleteFolder$
 	@override String get alsoDeleteContents => 'Se složkou odstranit i obsažené poznámky';
 }
 
-// Path: home.sort
-class _Translations$home$sort$cs extends Translations$home$sort$en {
-	_Translations$home$sort$cs._(TranslationsCs root) : this._root = root, super.internal(root);
-
-	final TranslationsCs _root; // ignore: unused_field
-
-	// Translations
-	@override String get sortBy => 'Řazení podle';
-	@override String get nameAToZ => 'Názvu (A–Z)';
-	@override String get nameZToA => 'Názvu (Z–A)';
-	@override String get lastModifiedNewToOld => 'Změny (nejprve novější)';
-	@override String get lastModifiedOldToNew => 'Změny (nejprve starší)';
-}
-
-// Path: home.layout
-class _Translations$home$layout$cs extends Translations$home$layout$en {
-	_Translations$home$layout$cs._(TranslationsCs root) : this._root = root, super.internal(root);
-
-	final TranslationsCs _root; // ignore: unused_field
-
-	// Translations
-	@override String get layout => 'Rozvržení položek';
-	@override String get masonryGrid => 'Cihlová mřížka';
-	@override String get simpleGrid => 'Jednoduchá mřížka';
-}
-
 // Path: sentry.consent
 class _Translations$sentry$consent$cs extends Translations$sentry$consent$en {
 	_Translations$sentry$consent$cs._(TranslationsCs root) : this._root = root, super.internal(root);
@@ -434,7 +406,7 @@ class _Translations$settings$prefLabels$cs extends Translations$settings$prefLab
 	@override String get locale => 'Jazyk';
 	@override String get appTheme => 'Barva motivu';
 	@override String get platform => 'Motiv';
-	@override String get layoutSize => 'Rozvržení uživatelského rozhraní';
+	@override String get layoutSize => 'Rozložení uživatelského rozhraní';
 	@override String get customAccentColor => 'Vlastní barevný odstín';
 	@override String get hyperlegibleFont => 'Lépe čitelný font';
 	@override String get shouldCheckForUpdates => 'Automaticky kontrolovat dostupnost aktualizací aplikace Saber';
@@ -456,6 +428,7 @@ class _Translations$settings$prefLabels$cs extends Translations$settings$prefLab
 	@override String get autosave => 'Automatické ukládání';
 	@override String get shapeRecognitionDelay => 'Zpoždění rozpoznávání tvarů';
 	@override String get autoStraightenLines => 'Automaticky narovnávat čáry';
+	@override String get simplifiedHomeLayout => 'Zjednodušené rozložení domovské obrazovky';
 	@override String get customDataDir => 'Vlastní umístění složky aplikace Saber';
 	@override String get sentry => 'Hlášení chyb';
 }
@@ -480,6 +453,7 @@ class _Translations$settings$prefDescriptions$cs extends Translations$settings$p
 	@override String get autosave => 'Poznámky se budou automaticky ukládat po krátké prodlevě, nebo nikdy';
 	@override String get shapeRecognitionDelay => 'Jak často aktualizovat náhled tvaru';
 	@override String get autoStraightenLines => 'Automaticky narovná dlouhé čáry, aniž by bylo nutné využít tvarové pero';
+	@override String get simplifiedHomeLayout => 'Nastaví pevnou výšku pro každý náhled poznámky';
 	@override String get shouldAlwaysAlertForUpdates => 'Oznámit dostupnost aktualizací co nejdříve od jejich vydání';
 	@override late final _Translations$settings$prefDescriptions$sentry$cs sentry = _Translations$settings$prefDescriptions$sentry$cs._(_root);
 }
@@ -750,7 +724,7 @@ class _Translations$editor$imageOptions$cs extends Translations$editor$imageOpti
 
 	// Translations
 	@override String get title => 'Možnosti obrázku';
-	@override String get invertible => 'Invertovat podle motivu';
+	@override String get invertible => 'Invertovat barvy podle motivu';
 	@override String get download => 'Stáhnout';
 	@override String get setAsBackground => 'Nastavit na pozadí';
 	@override String get removeAsBackground => 'Odstranit obrázek z pozadí';
@@ -784,7 +758,7 @@ class _Translations$editor$menu$cs extends Translations$editor$menu$en {
 	@override String get lineHeightDescription => 'Ovlivňuje také velikost textu psaných poznámek';
 	@override String get lineThickness => 'Tloušťka linek';
 	@override String get lineThicknessDescription => 'Tloušťka čar ve vzoru na pozadí';
-	@override String get backgroundImageFit => 'Přizpůsobení obrázku na pozadí';
+	@override String get backgroundImageFit => 'Rozložení obrázku na pozadí';
 	@override String get backgroundPattern => 'Vzor na pozadí';
 	@override String get import => 'Importovat';
 	@override String get watchServer => 'Sledovat aktualizace ze serveru';
