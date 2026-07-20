@@ -81,6 +81,8 @@ class _Translations$home$sl extends Translations$home$en {
 	@override late final _Translations$home$deleteNoteDialog$sl deleteNoteDialog = _Translations$home$deleteNoteDialog$sl._(_root);
 	@override late final _Translations$home$renameFolder$sl renameFolder = _Translations$home$renameFolder$sl._(_root);
 	@override late final _Translations$home$deleteFolder$sl deleteFolder = _Translations$home$deleteFolder$sl._(_root);
+	@override late final _Translations$home$sort$sl sort = _Translations$home$sort$sl._(_root);
+	@override late final _Translations$home$layout$sl layout = _Translations$home$layout$sl._(_root);
 }
 
 // Path: sentry
@@ -370,6 +372,32 @@ class _Translations$home$deleteFolder$sl extends Translations$home$deleteFolder$
 	@override String get alsoDeleteContents => 'Izbriši tudi vse zapiske v tej mapi';
 }
 
+// Path: home.sort
+class _Translations$home$sort$sl extends Translations$home$sort$en {
+	_Translations$home$sort$sl._(TranslationsSl root) : this._root = root, super.internal(root);
+
+	final TranslationsSl _root; // ignore: unused_field
+
+	// Translations
+	@override String get sortBy => 'Razvrsti po';
+	@override String get nameAToZ => 'Ime (A-Ž)';
+	@override String get nameZToA => 'Ime (od A do Z)';
+	@override String get lastModifiedNewToOld => 'Uredite (Najnovejše prvé)';
+	@override String get lastModifiedOldToNew => 'Uredite (Najstarejši prvý)';
+}
+
+// Path: home.layout
+class _Translations$home$layout$sl extends Translations$home$layout$en {
+	_Translations$home$layout$sl._(TranslationsSl root) : this._root = root, super.internal(root);
+
+	final TranslationsSl _root; // ignore: unused_field
+
+	// Translations
+	@override String get layout => 'Razpoložba';
+	@override String get masonryGrid => 'Mrežni sistem z mozaikom';
+	@override String get simpleGrid => 'Preprosta mreža';
+}
+
 // Path: sentry.consent
 class _Translations$sentry$consent$sl extends Translations$sentry$consent$en {
 	_Translations$sentry$consent$sl._(TranslationsSl root) : this._root = root, super.internal(root);
@@ -428,7 +456,6 @@ class _Translations$settings$prefLabels$sl extends Translations$settings$prefLab
 	@override String get autosave => 'Samodejno shranjevanje';
 	@override String get shapeRecognitionDelay => 'Zakasnitev prepoznave oblik';
 	@override String get autoStraightenLines => 'Samodejno poravnaj črte';
-	@override String get simplifiedHomeLayout => 'Poenostavljena postavitev domače strani';
 	@override String get customDataDir => 'Mapa Saber po meri';
 	@override String get sentry => 'Poročanje o napakah';
 }
@@ -453,7 +480,6 @@ class _Translations$settings$prefDescriptions$sl extends Translations$settings$p
 	@override String get autosave => 'Samodejno shrani po kratkem zamiku ali nikoli';
 	@override String get shapeRecognitionDelay => 'Kako pogosto posodobiti predogled oblike';
 	@override String get autoStraightenLines => 'Poravna dolge črte brez uporabe pisala za oblike';
-	@override String get simplifiedHomeLayout => 'Nastavi fiksno višino za vsak predogled zapiska';
 	@override String get shouldAlwaysAlertForUpdates => 'Obvesti me o posodobitvah takoj, ko so na voljo';
 	@override late final _Translations$settings$prefDescriptions$sentry$sl sentry = _Translations$settings$prefDescriptions$sentry$sl._(_root);
 }

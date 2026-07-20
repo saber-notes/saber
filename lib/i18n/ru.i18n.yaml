@@ -69,6 +69,16 @@ home:
     deleteName: Удалить $f
     delete: Удалить
     alsoDeleteContents: Также, удалить все заметки в этой папке
+  sort:
+    sortBy(OUTDATED): Сортировать по
+    nameAToZ(OUTDATED): Имя (от А до Я)
+    nameZToA(OUTDATED): Имя (по алфавиту от А до Я)
+    lastModifiedNewToOld(OUTDATED): Отредактировано (Новое в начале)
+    lastModifiedOldToNew(OUTDATED): Отредактировано (По убыванию возраста)
+  layout:
+    layout(OUTDATED): Макет
+    masonryGrid(OUTDATED): Сетка в стиле кладки
+    simpleGrid(OUTDATED): Простая сетка
 sentry:
   consent:
     title: Поможете улучшить Saber?
@@ -115,7 +125,6 @@ settings:
     autosave: Автосохранение
     shapeRecognitionDelay: Задержка распознавания формы
     autoStraightenLines: Автоматическое выпрямление линий
-    simplifiedHomeLayout: Упрощённый главный экран
     customDataDir: Свой каталог Saber
     sentry: Сообщить об ошибке
   prefDescriptions:
@@ -135,7 +144,6 @@ settings:
     autosave: Автосохранение с задержкой
     shapeRecognitionDelay: Как часто обновлять предварительный просмотр формы
     autoStraightenLines: Выпрямляет длинные линии без использования фигурного пера
-    simplifiedHomeLayout: Фиксированная высота предварительного просмотра каждой заметки
     shouldAlwaysAlertForUpdates: Сообщать мне об обновлениях, как только они станут доступны
     sentry:
       active: Активно

@@ -24,10 +24,12 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v7
+        with:
+          persist-credentials: false
 
       - name: Check if Android cache exists
         id: cache
-        uses: actions/cache/restore@v5
+        uses: actions/cache/restore@v6.1.0
         with:
           lookup-only: true
           path: |
@@ -47,7 +49,7 @@ jobs:
           key: ${{ runner.OS }}-saber_android
 
       - name: Restore platform-agnostic cache
-        uses: actions/cache@v5
+        uses: actions/cache@v6.1.0
         if: ${{ steps.cache.outputs.cache-hit == '' }}
         with:
           path: |
@@ -112,7 +114,7 @@ jobs:
         if: ${{ steps.cache.outputs.cache-hit == '' }}
 
       - name: Save Android cache
-        uses: actions/cache/save@v5
+        uses: actions/cache/save@v6.1.0
         if: ${{ steps.cache.outputs.cache-hit == '' }}
         with:
           path: |
@@ -140,6 +142,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v7
+        with:
+          persist-credentials: false
 
       - uses: "./.github/shared_workflows/install_apt_dependencies"
 
@@ -150,7 +154,7 @@ jobs:
           no-save-caches: true
 
       - name: Restore platform-agnostic cache
-        uses: actions/cache/restore@v5
+        uses: actions/cache/restore@v6.1.0
         with:
           path: |
             .dart_tool/
@@ -169,7 +173,7 @@ jobs:
             ${{ runner.OS }}-saber-
 
       - name: Restore Android cache
-        uses: actions/cache/restore@v5
+        uses: actions/cache/restore@v6.1.0
         with:
           path: |
             .dart_tool/
@@ -284,6 +288,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v7
+        with:
+          persist-credentials: false
 
       - name: Download artifact
         uses: actions/download-artifact@v8

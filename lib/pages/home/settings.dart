@@ -6,7 +6,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
-import 'package:material_symbols_icons/symbols.dart';
 import 'package:saber/components/navbar/responsive_navbar.dart';
 import 'package:saber/components/settings/app_info.dart';
 import 'package:saber/components/settings/nextcloud_profile.dart';
@@ -646,13 +645,6 @@ class _SettingsPageState extends State<SettingsPage> {
                   subtitle: t.settings.prefDescriptions.autoStraightenLines,
                   icon: Icons.straighten,
                   pref: stows.autoStraightenLines,
-                ),
-                SettingsSwitch(
-                  title: t.settings.prefLabels.simplifiedHomeLayout,
-                  subtitle: t.settings.prefDescriptions.simplifiedHomeLayout,
-                  iconBuilder: (simplified) =>
-                      simplified ? Icons.grid_view : Symbols.browse,
-                  pref: stows.simplifiedHomeLayout,
                 ),
                 SettingsSubtitle(subtitle: t.settings.prefCategories.advanced),
                 if (isSentryAvailable) const SettingsSentryConsent(),

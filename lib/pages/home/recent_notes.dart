@@ -2,10 +2,12 @@ import 'dart:async';
 
 import 'package:collapsible/collapsible.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:go_router/go_router.dart';
 import 'package:logging/logging.dart';
 import 'package:saber/components/home/delete_note_button.dart';
 import 'package:saber/components/home/export_note_button.dart';
+import 'package:saber/components/home/home_layout_button.dart';
 import 'package:saber/components/home/masonry_files.dart';
 import 'package:saber/components/home/move_note_button.dart';
 import 'package:saber/components/home/new_note_button.dart';
@@ -18,7 +20,7 @@ import 'package:saber/data/prefs.dart';
 import 'package:saber/data/routes.dart';
 import 'package:saber/i18n/strings.g.dart';
 
-class RecentPage extends StatefulWidget {
+class RecentPage extends StatefulHookWidget {
   const RecentPage({super.key});
 
   @override
@@ -113,54 +115,48 @@ class _RecentPageState extends State<RecentPage> {
     final colorScheme = ColorScheme.of(context);
     final platform = Theme.of(context).platform;
     final crossAxisCount = MediaQuery.sizeOf(context).width ~/ 300 + 1;
+    useListenable(stows.homeLayout);
+
     return Scaffold(
-      body: RefreshIndicator(
-        onRefresh: () => Future.wait([
-          findRecentlyAccessedNotes(),
-          Future.delayed(const Duration(milliseconds: 500)),
-        ]),
-        child: CustomScrollView(
-          slivers: [
-            SliverPadding(
-              padding: const .only(bottom: 8),
-              sliver: SliverAppBar(
-                collapsedHeight: kToolbarHeight,
-                expandedHeight: 200,
-                pinned: true,
-                scrolledUnderElevation: 1,
-                flexibleSpace: FlexibleSpaceBar(
-                  title: Text(
-                    t.home.titles.home,
-                    style: TextStyle(color: colorScheme.onSurface),
-                  ),
-                  centerTitle: false,
-                  titlePadding: const EdgeInsetsDirectional.only(
-                    start: 16,
-                    bottom: 16,
-                  ),
+      body: CustomScrollView(
+        slivers: [
+          SliverPadding(
+            padding: const .only(bottom: 8),
+            sliver: SliverAppBar(
+              collapsedHeight: kToolbarHeight,
+              expandedHeight: 200,
+              pinned: true,
+              scrolledUnderElevation: 1,
+              flexibleSpace: FlexibleSpaceBar(
+                title: Text(
+                  t.home.titles.home,
+                  style: TextStyle(color: colorScheme.onSurface),
                 ),
-                actions: const [SyncingButton()],
+                centerTitle: false,
+                titlePadding: const EdgeInsetsDirectional.only(
+                  start: 16,
+                  bottom: 16,
+                ),
+              ),
+              actions: const [HomeLayoutButton(), SyncingButton()],
+            ),
+          ),
+          if (failed) ...[
+            const SliverSafeArea(sliver: SliverToBoxAdapter(child: Welcome())),
+          ] else ...[
+            SliverSafeArea(
+              minimum: const .only(
+                // Allow space for the FloatingActionButton
+                bottom: 70,
+              ),
+              sliver: MasonryFiles(
+                crossAxisCount: crossAxisCount,
+                files: [for (final filePath in filePaths) filePath],
+                selectedFiles: selectedFiles,
               ),
             ),
-            if (failed) ...[
-              const SliverSafeArea(
-                sliver: SliverToBoxAdapter(child: Welcome()),
-              ),
-            ] else ...[
-              SliverSafeArea(
-                minimum: const .only(
-                  // Allow space for the FloatingActionButton
-                  bottom: 70,
-                ),
-                sliver: MasonryFiles(
-                  crossAxisCount: crossAxisCount,
-                  files: [for (final filePath in filePaths) filePath],
-                  selectedFiles: selectedFiles,
-                ),
-              ),
-            ],
           ],
-        ),
+        ],
       ),
       floatingActionButton: NewNoteButton(cupertino: platform.isCupertino),
       persistentFooterButtons: selectedFiles.value.isEmpty

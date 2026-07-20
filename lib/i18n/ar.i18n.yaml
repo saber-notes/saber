@@ -4,30 +4,31 @@ common:
   cancel: إلغاء
 home:
   tabs:
-    home: الرئيسية
-    browse: تصفح
-    whiteboard: السبورة
+    home: الصفحة الرئيسة
+    browse: التصفح
+    whiteboard: السبّورة
     settings: الإعدادات
   titles:
     home: الملاحظات الأخيرة
-    browse: تصفح
-    whiteboard: السبورة
+    browse: التصفح
+    whiteboard: السبّورة
     settings: الإعدادات
   tooltips:
-    newNote: محلاظة جديدة
-    showUpdateDialog: إظهار مربع حوار التحديث
+    newNote: ملاحظة جديدة
+    showUpdateDialog: عرض مربع حوار التحديث
     exportNote: تصدير ملاحظة
   create:
-    newNote: انشاء ملاحظة جديدة
+    newNote: ملاحظة جديدة
     importNote: استيراد ملاحظة
-  welcome: مرحباً بك في Saber
-  invalidFormat: صيغة الملف الذي اخترته ليست مدعومة, الرجاء اختيار ملف  sbn او sbn2 او sba او pdf
-  noFiles: لم يتم العثور على ملفات
-  createNewNote: اضغط على زر + لإنشاء ملاحظة جديدة
-  backFolder: الرجوع الى المجلد السابق
+  welcome: أهلًا بك في سيبر
+  invalidFormat: الملف الذي اخترته غير مدعوم. يرجى اختيار ملف بصيغة .SBN أو .SBN2 أو .SBA أو .PDF
+  noFiles: لم يتم العثور على أي ملفات
+  noPreviewAvailable: لا تتوفر معاينة
+  createNewNote: انقر على زر ”+“ لإنشاء ملاحظة جديدة
+  backFolder: الرجوع إلى المجلد السابق
   newFolder:
     newFolder: مجلد جديد
-    folderName: إسم المجلد
+    folderName: اسم المجلد
     create: إنشاء
     folderNameEmpty: لا يمكن أن يكون اسم المجلد فارغًا
     folderNameContainsSlash: لا يمكن أن يحتوي اسم المجلد على شرطة مائلة
@@ -38,86 +39,94 @@ home:
     rename: إعادة تسمية
     noteNameEmpty: لا يمكن أن يكون اسم الملاحظة فارغًا
     noteNameExists: توجد بالفعل ملاحظة بهذا الاسم
-    noteNameForbiddenCharacters(OUTDATED): يحتوي اسم الملاحظة على أحرف محظورة
-    noteNameReserved(OUTDATED): اسم الملاحظة محجوز
+    noteNameForbiddenCharacters: اسم الملاحظة يحتوي على أحرف محظورة
+    noteNameReserved: اسم الملاحظة محجوز
   moveNote:
-    moveNote: تحريك الملاحظة
-    moveNotes: ملاحظات $n نقل
-    moveName: $f نقل
-    move: تحريك
-    renamedTo: ستتم إعادة تسمية الملاحظة إلى $newName
-    multipleRenamedTo: "الملاحظات التالية سيتم اعادة تسميتها:"
-    numberRenamedTo: ملاحظة سيتم اعادة تسميتها لتجنب تضارب تشابه الاسماء $n
+    moveNote: نقل الملاحظة
+    moveNotes: نقل $n من الملاحظات
+    moveName: نقل $f
+    move: نقل
+    renamedTo: سيتم تغيير اسم الملاحظة إلى $newName
+    multipleRenamedTo: "سيتم تغيير أسماء الملاحظات التالية:"
+    numberRenamedTo: سيتم إعادة تسمية $n من الملاحظات لتجنّب التعارضات
   deleteNote: حذف الملاحظة
   deleteNoteDialog:
-    confirmDelete(OUTDATED):
-      one(OUTDATED): حذف الملاحظة المحددة بشكل دائم؟
-      other(OUTDATED): حذف الملاحظات المحددة بشكل دائم؟
-    deleteNotes(OUTDATED): احذف $n ملاحظة
-    deleteName(OUTDATED): احذف $f
-    delete(OUTDATED): حذف
+    deleteNotes: حذف $n من الملاحظات
+    deleteName: حذف $f
+    confirmDelete:
+      one: هل تريد حذف الملاحظة المحددة نهائيًّا؟
+      other: هل تريد حذف الملاحظات المحددة نهائيًّا؟
+    delete: حذف
   renameFolder:
-    renameFolder: اعادة تسمية المجلد
+    renameFolder: إعادة تسمية المجلد
     folderName: اسم المجلد
-    rename: اعادة تسمية
+    rename: إعادة تسمية
     folderNameEmpty: لا يمكن أن يكون اسم المجلد فارغًا
     folderNameContainsSlash: لا يمكن أن يحتوي اسم المجلد على شرطة مائلة
-    folderNameExists: يوجد بالفعل مجلد بهذا الاسم
+    folderNameExists: يوجد مجلد بهذا الاسم بالفعل
   deleteFolder:
     deleteFolder: حذف المجلد
-    deleteName: $f حذف
+    deleteName: حذف $f
     delete: حذف
-    alsoDeleteContents: حذف جميع الملاحظات داخل هذا المجلد أيضًا
-  noPreviewAvailable(OUTDATED): لا معاينة متاحة
+    alsoDeleteContents: حذف جميع الملاحظات الموجودة داخل هذا المجلد أيضًا
+  sort:
+    sortBy: الفرز حسب
+    nameAToZ: الاسم (أ-ي)
+    nameZToA: الاسم (ي-أ)
+    lastModifiedNewToOld: المعدلة (الأحدث أولًا)
+    lastModifiedOldToNew: المعدلة (الأقدم أولًا)
+  layout:
+    layout: التخطيط
+    masonryGrid: شبكة متراصّة
+    simpleGrid: شبكة بسيطة
 sentry:
   consent:
+    title: المساعدة في تحسين سيبر؟
     description:
-      question(OUTDATED): هل ترغب في الإبلاغ تلقائيًا عن أخطاء غير متوقعة؟ هذا يساعدني على تحديد وإصلاح المشكلات بشكل أسرع.
-      scope(OUTDATED): قد تحتوي التقارير على معلومات حول الخطأ وجهازك. لقد بذلت كل جهد ممكن لتصفية البيانات الشخصية ولكن قد يبقى البعض.
-      currentlyOff(OUTDATED): إذا منحت موافقة ، فسيتم تمكين الإبلاغ عن الخطأ بعد إعادة تشغيل التطبيق.
-      currentlyOn(OUTDATED): إذا قمت بإلغاء الموافقة ، يرجى إعادة تشغيل التطبيق لتعطيل الإبلاغ عن الخطأ.
-      learnMoreInPrivacyPolicy(rich, OUTDATED): تعرف على المزيد في ${link(سياسة الخصوصية)}.
+      question: هل ترغب في الإبلاغ تلقائيًّا عن الأخطاء غير المتوقعة؟ هذا يساعدني في تحديد المشكلات وإصلاحها بشكل أسرع.
+      scope: قد تحتوي التقارير على معلومات حول الخطأ وجهازك. لقد بذلتُ قصارى جهدي لحجب البيانات الشخصية، ولكن قد تبقى بعضها.
+      currentlyOff: إذا وافقت، فسيتم تفعيل خاصية الإبلاغ عن الأخطاء بعد إعادة تشغيل التطبيق.
+      currentlyOn: إذا ألغيت الموافقة، يرجى إعادة تشغيل التطبيق لتعطيل الإبلاغ عن الأخطاء.
+      learnMoreInPrivacyPolicy(rich): تعرّف على المزيد في ${link(سياسة الخصوصية)}.
     answers:
-      yes(OUTDATED): نعم
-      no(OUTDATED): لا
-      later(OUTDATED): اسألني لاحقًا
-    title(OUTDATED): تساعد في تحسين صابر؟
+      yes: نعم
+      no: لا
+      later: اسألني لاحقًا
 settings:
   prefCategories:
-    general: عام
-    writing: كتابة
+    general: عامة
+    writing: الكتابة
     editor: المحرر
     performance: الأداء
-    advanced: متقدم
+    advanced: متقدمة
   prefLabels:
-    locale: لغة التطبيق
-    appTheme: مظهر التطبيق
-    platform: نوع المظهر
+    locale: اللغة
+    appTheme: سمة التطبيق
+    platform: نوع السمة
     layoutSize: نوع التخطيط
-    customAccentColor: لون التمييز المخصص
-    hyperlegibleFont: Hyperlegible خط
-    shouldCheckForUpdates: تحقق تلقائيًا من وجود تحديثات Saber
+    customAccentColor: اللون المميِّز المخصص
+    hyperlegibleFont: خط أتكينسون فائق المقروئية
+    shouldCheckForUpdates: التحقق من تحديثات سيبر
     shouldAlwaysAlertForUpdates: تحديثات أسرع
     allowInsecureConnections: السماح بالاتصالات غير الآمنة
-    editorToolbarAlignment: محاذاة شريط أدوات المحرر
-    editorToolbarShowInFullscreen: أظهر شريط أدوات المحرر في وضع ملء الشاشة
-    editorAutoInvert: اقلب الملاحظات في الوضع المظلم
+    editorToolbarAlignment: موضع شريط الأدوات
+    editorToolbarShowInFullscreen: عرض شريط الأدوات في وضع ملء الشاشة
+    editorAutoInvert: قلب الملاحظات في الوضع الداكن
     preferGreyscale: تفضيل الألوان الرمادية
     maxImageSize: الحجم الأقصى للصورة
-    autoClearWhiteboardOnExit: امسح السبورة بعد الخروج من التطبيق
-    disableEraserAfterUse: تعطيل الممحاة تلقائيًا بعد الاستخدام
-    hideFingerDrawingToggle: إخفاء زر الرسم بالإصبع
-    editorPromptRename: مطالبتك بإعادة تسمية الملاحظات الجديدة
-    recentColorsDontSavePresets: لا تحفظ الألوان المعينة مسبقًا كألوان حديثة
-    recentColorsLength: كم عدد الألوان الحديثة التي يجب تخزينها
-    printPageIndicators: طباعة مؤشرات الصفحة
-    shapeRecognitionDelay: تأخير التعرف على الأشكال
-    autoStraightenLines: استقامة الخطوط تلقائيًا
-    simplifiedHomeLayout: تخطيط الصفحة الرئيسية المبسط
-    customDataDir: مخصص Saber مجلد
-    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): التعطيل التلقائي لرسم الإصبع
+    autoClearWhiteboardOnExit: ‎مسح السبّورة تلقائيًّا
+    disableEraserAfterUse: تعطيل الممحاة تلقائيًّا
+    hideFingerDrawingToggle: إخفاء زر تبديل الرسم بالإصبع
+    autoDisableFingerDrawingWhenStylusDetected: تعطيل الرسم بالأصابع تلقائيًّا
+    editorPromptRename: الطلب منك إعادة تسمية الملاحظات الجديدة
+    recentColorsDontSavePresets: عدم حفظ الألوان المسبقة في قسم الألوان الأخيرة
+    recentColorsLength: كمية عدد الألوان الأخيرة التي يجب تخزينها
+    printPageIndicators: مؤشرات صفحة الطباعة
+    autosave: الحفظ التلقائي
+    shapeRecognitionDelay: تأخير التعرف على الشكل
+    autoStraightenLines: استقامة الخطوط تلقائيًّا
+    customDataDir: مجلد سيبر مخصص
     sentry(OUTDATED): الإبلاغ خطأ
-    autosave(OUTDATED): تلقائي
   prefDescriptions:
     hyperlegibleFont: يزيد Atkinson Hyperlegible من وضوح الرؤية للقراء الذين يعانون من ضعف في الرؤية
     allowInsecureConnections: (غير موصى به) بالاتصال بالخوادم بشهادات غير موثوقة/موقعة ذاتيًا Saber السماح لـ
@@ -133,7 +142,6 @@ settings:
     printPageIndicators: تظهر مؤشرات الصفحة في الصادرات
     shapeRecognitionDelay: عدد مرات تحديث معاينة الشكل
     autoStraightenLines: استقامة الخطوط الطويلة بدون الحاجة لاستخدام قلم الشكل
-    simplifiedHomeLayout: تعيين ارتفاع ثابت لكل معاينة ملاحظة
     shouldAlwaysAlertForUpdates: أبلغني عن التحديثات بمجرد توفرها
     sentry:
       active(OUTDATED): نشيط

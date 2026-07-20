@@ -52,9 +52,9 @@ class _Translations$common$fr extends Translations$common$en {
 	final TranslationsFr _root; // ignore: unused_field
 
 	// Translations
+	@override String get continueBtn => 'continuer';
 	@override String get cancel => 'Annuler';
 	@override String get done => 'Fait';
-	@override String get continueBtn => 'Continuer';
 }
 
 // Path: home
@@ -80,6 +80,8 @@ class _Translations$home$fr extends Translations$home$en {
 	@override late final _Translations$home$deleteNoteDialog$fr deleteNoteDialog = _Translations$home$deleteNoteDialog$fr._(_root);
 	@override late final _Translations$home$renameFolder$fr renameFolder = _Translations$home$renameFolder$fr._(_root);
 	@override late final _Translations$home$deleteFolder$fr deleteFolder = _Translations$home$deleteFolder$fr._(_root);
+	@override late final _Translations$home$sort$fr sort = _Translations$home$sort$fr._(_root);
+	@override late final _Translations$home$layout$fr layout = _Translations$home$layout$fr._(_root);
 	@override String get noPreviewAvailable => 'Aucun aperçu disponible';
 }
 
@@ -368,6 +370,32 @@ class _Translations$home$deleteFolder$fr extends Translations$home$deleteFolder$
 	@override String get alsoDeleteContents => 'Supprimer aussi toutes les notes rangées dans ce dossier';
 }
 
+// Path: home.sort
+class _Translations$home$sort$fr extends Translations$home$sort$en {
+	_Translations$home$sort$fr._(TranslationsFr root) : this._root = root, super.internal(root);
+
+	final TranslationsFr _root; // ignore: unused_field
+
+	// Translations
+	@override String get sortBy => 'Trier par';
+	@override String get nameAToZ => 'Nom (de A à Z)';
+	@override String get nameZToA => 'Nom (de A à Z)';
+	@override String get lastModifiedNewToOld => 'Modifié (Le plus récent en premier)';
+	@override String get lastModifiedOldToNew => 'Modifié (Le plus ancien en premier)';
+}
+
+// Path: home.layout
+class _Translations$home$layout$fr extends Translations$home$layout$en {
+	_Translations$home$layout$fr._(TranslationsFr root) : this._root = root, super.internal(root);
+
+	final TranslationsFr _root; // ignore: unused_field
+
+	// Translations
+	@override String get layout => 'Mise en page';
+	@override String get masonryGrid => 'Grille de maçonnerie';
+	@override String get simpleGrid => 'Grille simple';
+}
+
 // Path: sentry.consent
 class _Translations$sentry$consent$fr extends Translations$sentry$consent$en {
 	_Translations$sentry$consent$fr._(TranslationsFr root) : this._root = root, super.internal(root);
@@ -426,7 +454,6 @@ class _Translations$settings$prefLabels$fr extends Translations$settings$prefLab
 	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Désactivation automatique du dessin au doigt';
 	@override String get sentry => 'Rapports d\'erreur';
 	@override String get autosave => 'S\'attacher automatiquement';
-	@override String get simplifiedHomeLayout => 'Aménagement d\'une maison simplifié';
 	@override String get customDataDir => 'Répertoire de données personnalisé';
 	@override String get autoStraightenLines => 'Redresser automatiquement les lignes';
 }
@@ -452,7 +479,6 @@ class _Translations$settings$prefDescriptions$fr extends Translations$settings$p
 	@override late final _Translations$settings$prefDescriptions$sentry$fr sentry = _Translations$settings$prefDescriptions$sentry$fr._(_root);
 	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Désactiver le dessin au doigt lorsqu\'un stylet est détecté';
 	@override String get autosave => 'S\'attacher automatiquement après un court délai, ou jamais';
-	@override String get simplifiedHomeLayout => 'Définit une hauteur fixe pour chaque aperçu de note';
 	@override String get autoStraightenLines => 'Redresse les longues lignes sans avoir à utiliser le stylo de forme';
 }
 

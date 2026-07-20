@@ -1,0 +1,3 @@
+• A böngészőoldal alapértelmezetten ABC sorrendben van rendezve. Az oldalsó felső gombbal testreszabható a rendezés.
+• Javított egy összeomlás bizonyos Android eszközökön.
+• Eltávolttuk az újrakezdő scroll funkciót, mert zavaró volt.

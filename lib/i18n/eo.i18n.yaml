@@ -69,6 +69,16 @@ home:
     deleteName: Forigu $f
     delete: Forigu
     alsoDeleteContents: Ankaŭ forigu ĉiujn notojn en ĉi tiu dosierujo
+  sort:
+    sortBy(OUTDATED): Ordeku per
+    nameAToZ(OUTDATED): Nomo (de A ĝis Z)
+    nameZToA(OUTDATED): Nomo (de A al Z)
+    lastModifiedNewToOld(OUTDATED): Redaktita (La plej nova unue)
+    lastModifiedOldToNew(OUTDATED): Redaktita (La pliĝanta unue)
+  layout:
+    layout(OUTDATED): Disegno
+    masonryGrid(OUTDATED): Mosaika retablo
+    simpleGrid(OUTDATED): Simpla retablo
 sentry:
   consent:
     title: Helpu plibonigi Saber
@@ -114,7 +124,6 @@ settings:
     autosave: Aŭtomata konservado
     shapeRecognitionDelay: Prokrasto de formorekono
     autoStraightenLines: Aŭtomate rektigu liniojn
-    simplifiedHomeLayout: Simpligita ĉefekranaranĝo
     customDataDir: Kutima Saber-dosierujo
     sentry: Erarraportado
     autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Aŭtomate malŝalti fingrodesegnadon
@@ -134,7 +143,6 @@ settings:
     autosave: Aŭtomate konservas post iom da tempo aŭ neniam
     shapeRecognitionDelay: Ofteco de ĝisdatigo de la formantaŭrigardo
     autoStraightenLines: Rektigas longajn liniojn sen uzado de la formskribilon
-    simplifiedHomeLayout: Fiksas la alton por ĉiu notantaŭrigardo
     shouldAlwaysAlertForUpdates: Informu min pri ĝisdatigoj tuj kiam ili disponebliĝos
     sentry:
       active: Aktiva

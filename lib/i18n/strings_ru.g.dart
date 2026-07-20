@@ -81,6 +81,8 @@ class _Translations$home$ru extends Translations$home$en {
 	@override late final _Translations$home$deleteNoteDialog$ru deleteNoteDialog = _Translations$home$deleteNoteDialog$ru._(_root);
 	@override late final _Translations$home$renameFolder$ru renameFolder = _Translations$home$renameFolder$ru._(_root);
 	@override late final _Translations$home$deleteFolder$ru deleteFolder = _Translations$home$deleteFolder$ru._(_root);
+	@override late final _Translations$home$sort$ru sort = _Translations$home$sort$ru._(_root);
+	@override late final _Translations$home$layout$ru layout = _Translations$home$layout$ru._(_root);
 }
 
 // Path: sentry
@@ -370,6 +372,32 @@ class _Translations$home$deleteFolder$ru extends Translations$home$deleteFolder$
 	@override String get alsoDeleteContents => 'Также, удалить все заметки в этой папке';
 }
 
+// Path: home.sort
+class _Translations$home$sort$ru extends Translations$home$sort$en {
+	_Translations$home$sort$ru._(TranslationsRu root) : this._root = root, super.internal(root);
+
+	final TranslationsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get sortBy => 'Сортировать по';
+	@override String get nameAToZ => 'Имя (от А до Я)';
+	@override String get nameZToA => 'Имя (по алфавиту от А до Я)';
+	@override String get lastModifiedNewToOld => 'Отредактировано (Новое в начале)';
+	@override String get lastModifiedOldToNew => 'Отредактировано (По убыванию возраста)';
+}
+
+// Path: home.layout
+class _Translations$home$layout$ru extends Translations$home$layout$en {
+	_Translations$home$layout$ru._(TranslationsRu root) : this._root = root, super.internal(root);
+
+	final TranslationsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get layout => 'Макет';
+	@override String get masonryGrid => 'Сетка в стиле кладки';
+	@override String get simpleGrid => 'Простая сетка';
+}
+
 // Path: sentry.consent
 class _Translations$sentry$consent$ru extends Translations$sentry$consent$en {
 	_Translations$sentry$consent$ru._(TranslationsRu root) : this._root = root, super.internal(root);
@@ -428,7 +456,6 @@ class _Translations$settings$prefLabels$ru extends Translations$settings$prefLab
 	@override String get autosave => 'Автосохранение';
 	@override String get shapeRecognitionDelay => 'Задержка распознавания формы';
 	@override String get autoStraightenLines => 'Автоматическое выпрямление линий';
-	@override String get simplifiedHomeLayout => 'Упрощённый главный экран';
 	@override String get customDataDir => 'Свой каталог Saber';
 	@override String get sentry => 'Сообщить об ошибке';
 }
@@ -453,7 +480,6 @@ class _Translations$settings$prefDescriptions$ru extends Translations$settings$p
 	@override String get autosave => 'Автосохранение с задержкой';
 	@override String get shapeRecognitionDelay => 'Как часто обновлять предварительный просмотр формы';
 	@override String get autoStraightenLines => 'Выпрямляет длинные линии без использования фигурного пера';
-	@override String get simplifiedHomeLayout => 'Фиксированная высота предварительного просмотра каждой заметки';
 	@override String get shouldAlwaysAlertForUpdates => 'Сообщать мне об обновлениях, как только они станут доступны';
 	@override late final _Translations$settings$prefDescriptions$sentry$ru sentry = _Translations$settings$prefDescriptions$sentry$ru._(_root);
 }

@@ -115,7 +115,6 @@ settings:
     autosave: Auto-gravar
     shapeRecognitionDelay: Atraso no reconhecimento de formatos
     autoStraightenLines: Auto alinhamento de linhas
-    simplifiedHomeLayout(OUTDATED): Layout de casa simplificado
     customDataDir(OUTDATED): Pasta Saber personalizada
     sentry(OUTDATED): Relatório de erro
   prefDescriptions:
@@ -141,7 +140,6 @@ settings:
     autosave(OUTDATED): Salvar automaticamente após um breve atraso, ou nunca
     shapeRecognitionDelay(OUTDATED): Com que frequência atualizar a prévia da forma?
     autoStraightenLines(OUTDATED): Endireita linhas longas sem precisar usar a caneta de forma
-    simplifiedHomeLayout(OUTDATED): Define uma altura fixa para cada prévia de nota
   themeModes:
     system: Sistema
     light: Claro

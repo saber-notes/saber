@@ -107,10 +107,10 @@ class _PreviewCardState extends State<PreviewCard> {
         onSecondaryTap: _toggleCardSelection,
         onLongPress: _toggleCardSelection,
         child: Column(
-          mainAxisSize: stows.simplifiedHomeLayout.value ? .max : .min,
+          mainAxisSize: stows.homeLayout.value.fillVertical ? .max : .min,
           children: [
             Flexible(
-              fit: stows.simplifiedHomeLayout.value ? .tight : .loose,
+              fit: stows.homeLayout.value.fillVertical ? .tight : .loose,
               child: Stack(
                 children: [
                   Positioned.fill(

@@ -69,6 +69,16 @@ home:
     deleteName: $f törlése
     delete: Törlés
     alsoDeleteContents: A mappában lévő összes jegyzet is törlődjön
+  sort:
+    sortBy(OUTDATED): Rendezés szerint
+    nameAToZ(OUTDATED): Név (A-Z)
+    nameZToA(OUTDATED): Név (A-Z)
+    lastModifiedNewToOld(OUTDATED): Szerkesztett (Legújabb előre)
+    lastModifiedOldToNew(OUTDATED): "Szerkesztett (Időrendben: legidősebb először)"
+  layout:
+    layout(OUTDATED): Elrendezés
+    masonryGrid(OUTDATED): Murvai rács
+    simpleGrid(OUTDATED): Egyszerű rács
 sentry:
   consent:
     title: Segít a Saber fejlesztésében?
@@ -115,7 +125,6 @@ settings:
     autosave: Automatikus mentés
     shapeRecognitionDelay: Alakfelismerés késleltetése
     autoStraightenLines: Vonalak automatikus kiegyenesítése
-    simplifiedHomeLayout: Egyszerűsített kezdőlap elrendezés
     customDataDir: Egyéni Saber mappa
     sentry: Hibajelentés
   prefDescriptions:
@@ -135,7 +144,6 @@ settings:
     autosave: Automatikus mentés rövid idő után, vagy soha
     shapeRecognitionDelay: Milyen gyakran frissüljön az alakzat előnézete
     autoStraightenLines: Automatikusan kiegyenesíti a hosszú vonalakat anélkül, hogy az alakzat tollat kellene használni
-    simplifiedHomeLayout: Rögzített magasságot állít be minden jegyzet előnézetéhez
     shouldAlwaysAlertForUpdates: Értesítsen a frissítésekről, amint elérhetővé válnak
     sentry:
       active: Aktív

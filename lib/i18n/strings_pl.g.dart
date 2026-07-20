@@ -81,6 +81,8 @@ class _Translations$home$pl extends Translations$home$en {
 	@override late final _Translations$home$deleteNoteDialog$pl deleteNoteDialog = _Translations$home$deleteNoteDialog$pl._(_root);
 	@override late final _Translations$home$renameFolder$pl renameFolder = _Translations$home$renameFolder$pl._(_root);
 	@override late final _Translations$home$deleteFolder$pl deleteFolder = _Translations$home$deleteFolder$pl._(_root);
+	@override late final _Translations$home$sort$pl sort = _Translations$home$sort$pl._(_root);
+	@override late final _Translations$home$layout$pl layout = _Translations$home$layout$pl._(_root);
 }
 
 // Path: sentry
@@ -370,6 +372,32 @@ class _Translations$home$deleteFolder$pl extends Translations$home$deleteFolder$
 	@override String get alsoDeleteContents => 'Usuń także wszystkie notatki z tego folderu';
 }
 
+// Path: home.sort
+class _Translations$home$sort$pl extends Translations$home$sort$en {
+	_Translations$home$sort$pl._(TranslationsPl root) : this._root = root, super.internal(root);
+
+	final TranslationsPl _root; // ignore: unused_field
+
+	// Translations
+	@override String get sortBy => 'Sortuj według';
+	@override String get nameAToZ => 'Imię (A-Z)';
+	@override String get nameZToA => 'Nazwa (od A do Z)';
+	@override String get lastModifiedNewToOld => 'Edytowane (Najnowsze na górze)';
+	@override String get lastModifiedOldToNew => 'Edytowane (Najstarsze jako pierwsze)';
+}
+
+// Path: home.layout
+class _Translations$home$layout$pl extends Translations$home$layout$en {
+	_Translations$home$layout$pl._(TranslationsPl root) : this._root = root, super.internal(root);
+
+	final TranslationsPl _root; // ignore: unused_field
+
+	// Translations
+	@override String get layout => 'Układ';
+	@override String get masonryGrid => 'Siatka murarska';
+	@override String get simpleGrid => 'Prosta siatka';
+}
+
 // Path: sentry.consent
 class _Translations$sentry$consent$pl extends Translations$sentry$consent$en {
 	_Translations$sentry$consent$pl._(TranslationsPl root) : this._root = root, super.internal(root);
@@ -428,7 +456,6 @@ class _Translations$settings$prefLabels$pl extends Translations$settings$prefLab
 	@override String get autosave => 'Auto-zapis';
 	@override String get shapeRecognitionDelay => 'Opóźnienie rozpoznania symbolu';
 	@override String get autoStraightenLines => 'Automatycznie prostuj linie';
-	@override String get simplifiedHomeLayout => 'Uproszczony widok strony głównej';
 	@override String get customDataDir => 'Niestandardowa lokalizacja Saber';
 	@override String get sentry => 'Zgłaszanie błędów';
 }
@@ -453,7 +480,6 @@ class _Translations$settings$prefDescriptions$pl extends Translations$settings$p
 	@override String get autosave => 'Auto-zapis co określony czas, lub nigdy';
 	@override String get shapeRecognitionDelay => 'Częstotliwość aktualizacji podglądu kształtu';
 	@override String get autoStraightenLines => 'Prostuj linie bez potrzeby przełączania na narzędzie tworzenia kształtów';
-	@override String get simplifiedHomeLayout => 'Stała wysokość każdego podglądu notatki';
 	@override String get shouldAlwaysAlertForUpdates => 'Powiadom mnie o aktualizacjach jak tylko będą dostępne';
 	@override late final _Translations$settings$prefDescriptions$sentry$pl sentry = _Translations$settings$prefDescriptions$sentry$pl._(_root);
 }

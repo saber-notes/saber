@@ -74,6 +74,8 @@ class _Translations$home$uk extends Translations$home$en {
 	@override late final _Translations$home$deleteNoteDialog$uk deleteNoteDialog = _Translations$home$deleteNoteDialog$uk._(_root);
 	@override late final _Translations$home$renameFolder$uk renameFolder = _Translations$home$renameFolder$uk._(_root);
 	@override late final _Translations$home$deleteFolder$uk deleteFolder = _Translations$home$deleteFolder$uk._(_root);
+	@override late final _Translations$home$sort$uk sort = _Translations$home$sort$uk._(_root);
+	@override late final _Translations$home$layout$uk layout = _Translations$home$layout$uk._(_root);
 	@override String get welcome => 'Ласкаво просимо до Saber';
 	@override String get invalidFormat => 'Обраний файл не підтримується. Будь ласка, виберіть файл sbn, sbn2, sba або pdf.';
 	@override String get noFiles => 'Не знайдено файлів';
@@ -370,6 +372,32 @@ class _Translations$home$deleteFolder$uk extends Translations$home$deleteFolder$
 	@override String get alsoDeleteContents => 'Також видаліть усі нотатки в цій папці';
 }
 
+// Path: home.sort
+class _Translations$home$sort$uk extends Translations$home$sort$en {
+	_Translations$home$sort$uk._(TranslationsUk root) : this._root = root, super.internal(root);
+
+	final TranslationsUk _root; // ignore: unused_field
+
+	// Translations
+	@override String get sortBy => 'Сортувати за';
+	@override String get nameAToZ => 'Ім\'я (А-Я)';
+	@override String get nameZToA => 'Ім\'я (З-А)';
+	@override String get lastModifiedNewToOld => 'Відредаговано (Новіші першими)';
+	@override String get lastModifiedOldToNew => 'Відредаговано (Найстаріші першими)';
+}
+
+// Path: home.layout
+class _Translations$home$layout$uk extends Translations$home$layout$en {
+	_Translations$home$layout$uk._(TranslationsUk root) : this._root = root, super.internal(root);
+
+	final TranslationsUk _root; // ignore: unused_field
+
+	// Translations
+	@override String get layout => 'Макет';
+	@override String get masonryGrid => 'Сітка з використанням мозаїки';
+	@override String get simpleGrid => 'Проста сітка';
+}
+
 // Path: sentry.consent
 class _Translations$sentry$consent$uk extends Translations$sentry$consent$en {
 	_Translations$sentry$consent$uk._(TranslationsUk root) : this._root = root, super.internal(root);
@@ -428,7 +456,6 @@ class _Translations$settings$prefLabels$uk extends Translations$settings$prefLab
 	@override String get autosave => 'Автозбереження';
 	@override String get shapeRecognitionDelay => 'Затримка розпізнавання форми';
 	@override String get autoStraightenLines => 'Автоматично вирівнювати лінії';
-	@override String get simplifiedHomeLayout => 'Спрощений план дому';
 	@override String get customDataDir => 'Кастомна папка Saber';
 	@override String get sentry => 'Повідомлення про помилку';
 }
@@ -454,7 +481,6 @@ class _Translations$settings$prefDescriptions$uk extends Translations$settings$p
 	@override String get autosave => 'Автозбереження після короткої затримки, або ніколи';
 	@override String get shapeRecognitionDelay => 'Як часто оновлювати попередній перегляд форми?';
 	@override String get autoStraightenLines => 'Вирівнює довгі лінії без необхідності використовувати штамп';
-	@override String get simplifiedHomeLayout => 'Встановлює фіксовану висоту для попереднього перегляду кожної ноти';
 	@override String get shouldAlwaysAlertForUpdates => 'Повідомляйте мені про оновлення, як тільки вони будуть доступні.';
 }
 

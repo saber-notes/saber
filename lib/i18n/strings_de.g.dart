@@ -81,6 +81,8 @@ class _Translations$home$de extends Translations$home$en {
 	@override late final _Translations$home$deleteNoteDialog$de deleteNoteDialog = _Translations$home$deleteNoteDialog$de._(_root);
 	@override late final _Translations$home$renameFolder$de renameFolder = _Translations$home$renameFolder$de._(_root);
 	@override late final _Translations$home$deleteFolder$de deleteFolder = _Translations$home$deleteFolder$de._(_root);
+	@override late final _Translations$home$sort$de sort = _Translations$home$sort$de._(_root);
+	@override late final _Translations$home$layout$de layout = _Translations$home$layout$de._(_root);
 }
 
 // Path: sentry
@@ -370,6 +372,32 @@ class _Translations$home$deleteFolder$de extends Translations$home$deleteFolder$
 	@override String get alsoDeleteContents => 'Alle weiteren Notizen in diesem Ordner löschen';
 }
 
+// Path: home.sort
+class _Translations$home$sort$de extends Translations$home$sort$en {
+	_Translations$home$sort$de._(TranslationsDe root) : this._root = root, super.internal(root);
+
+	final TranslationsDe _root; // ignore: unused_field
+
+	// Translations
+	@override String get sortBy => 'Sortieren nach';
+	@override String get nameAToZ => 'Name (A-Z)';
+	@override String get nameZToA => 'Name (A-Z)';
+	@override String get lastModifiedNewToOld => 'Bearbeitet (Neuestes zuerst)';
+	@override String get lastModifiedOldToNew => 'Bearbeitet (Älteste zuerst)';
+}
+
+// Path: home.layout
+class _Translations$home$layout$de extends Translations$home$layout$en {
+	_Translations$home$layout$de._(TranslationsDe root) : this._root = root, super.internal(root);
+
+	final TranslationsDe _root; // ignore: unused_field
+
+	// Translations
+	@override String get layout => 'Layout';
+	@override String get masonryGrid => 'Mauerwerk-Raster';
+	@override String get simpleGrid => 'Einfaches Raster';
+}
+
 // Path: sentry.consent
 class _Translations$sentry$consent$de extends Translations$sentry$consent$en {
 	_Translations$sentry$consent$de._(TranslationsDe root) : this._root = root, super.internal(root);
@@ -428,7 +456,6 @@ class _Translations$settings$prefLabels$de extends Translations$settings$prefLab
 	@override String get autosave => 'Automatisches Backup';
 	@override String get shapeRecognitionDelay => 'Verzögerung der Formerkennung';
 	@override String get autoStraightenLines => 'Linien automatisch begradigen';
-	@override String get simplifiedHomeLayout => 'Vereinfachtes Startbildschirmlayout';
 	@override String get customDataDir => 'Eigener Saber-Ordner';
 	@override String get sentry => 'Fehlerberichterstattung';
 }
@@ -453,7 +480,6 @@ class _Translations$settings$prefDescriptions$de extends Translations$settings$p
 	@override String get autosave => 'Automatisches Backup in kurzen Abständen (wenn aktiviert)';
 	@override String get shapeRecognitionDelay => 'Aktualisierungshäufigkeit der Vorschau';
 	@override String get autoStraightenLines => 'Lange Linien auch ohne Formen-Stift automatisch begradigen';
-	@override String get simplifiedHomeLayout => 'Legt eine feste Höhe für jede Notizvorschau fest';
 	@override String get shouldAlwaysAlertForUpdates => 'Über neue Updates informiert bleiben';
 	@override late final _Translations$settings$prefDescriptions$sentry$de sentry = _Translations$settings$prefDescriptions$sentry$de._(_root);
 }

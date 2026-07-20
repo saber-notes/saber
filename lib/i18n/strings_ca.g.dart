@@ -81,6 +81,8 @@ class _Translations$home$ca extends Translations$home$en {
 	@override late final _Translations$home$deleteNoteDialog$ca deleteNoteDialog = _Translations$home$deleteNoteDialog$ca._(_root);
 	@override late final _Translations$home$renameFolder$ca renameFolder = _Translations$home$renameFolder$ca._(_root);
 	@override late final _Translations$home$deleteFolder$ca deleteFolder = _Translations$home$deleteFolder$ca._(_root);
+	@override late final _Translations$home$sort$ca sort = _Translations$home$sort$ca._(_root);
+	@override late final _Translations$home$layout$ca layout = _Translations$home$layout$ca._(_root);
 }
 
 // Path: sentry
@@ -367,6 +369,32 @@ class _Translations$home$deleteFolder$ca extends Translations$home$deleteFolder$
 	@override String get alsoDeleteContents => 'Esborra totes les notes d\'aquesta carpeta';
 }
 
+// Path: home.sort
+class _Translations$home$sort$ca extends Translations$home$sort$en {
+	_Translations$home$sort$ca._(TranslationsCa root) : this._root = root, super.internal(root);
+
+	final TranslationsCa _root; // ignore: unused_field
+
+	// Translations
+	@override String get sortBy => 'Classificar per';
+	@override String get nameAToZ => 'Nom (de A a Z)';
+	@override String get nameZToA => 'Nom (de la A a la Z)';
+	@override String get lastModifiedNewToOld => 'Editats (Els més nous primer)';
+	@override String get lastModifiedOldToNew => 'Editat (Del més antic al més recent)';
+}
+
+// Path: home.layout
+class _Translations$home$layout$ca extends Translations$home$layout$en {
+	_Translations$home$layout$ca._(TranslationsCa root) : this._root = root, super.internal(root);
+
+	final TranslationsCa _root; // ignore: unused_field
+
+	// Translations
+	@override String get layout => 'Disposició';
+	@override String get masonryGrid => 'Grilla de maçoneria';
+	@override String get simpleGrid => 'Grilla simple';
+}
+
 // Path: sentry.consent
 class _Translations$sentry$consent$ca extends Translations$sentry$consent$en {
 	_Translations$sentry$consent$ca._(TranslationsCa root) : this._root = root, super.internal(root);
@@ -425,7 +453,6 @@ class _Translations$settings$prefLabels$ca extends Translations$settings$prefLab
 	@override String get autosave => 'Auto-guardat';
 	@override String get shapeRecognitionDelay => 'Retard de reconnaissance de forme';
 	@override String get autoStraightenLines => 'Rectificar líneas automáticamente';
-	@override String get simplifiedHomeLayout => 'Disposició simplificada de la casa';
 	@override String get customDataDir => 'Pàrador custom Saber';
 	@override String get sentry => 'Informar errores';
 }
@@ -451,7 +478,6 @@ class _Translations$settings$prefDescriptions$ca extends Translations$settings$p
 	@override String get autosave => 'Auto-guardat després d\'un retard curt, o mai';
 	@override String get shapeRecognitionDelay => 'Quetre freqüentament actualitzar la previsualització de la forma';
 	@override String get autoStraightenLines => 'Rectifica les línies llonges sense avoir a utilitzar el rotuli de forma';
-	@override String get simplifiedHomeLayout => 'Establir una altura fija para cada vista previa de nota';
 	@override String get shouldAlwaysAlertForUpdates => 'Diga-me sobre as atualizações assim que estiverem disponíveis';
 }
 

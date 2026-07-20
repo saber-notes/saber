@@ -69,6 +69,16 @@ home:
     deleteName: Odstranění složky $f
     delete: Odstranit
     alsoDeleteContents: Se složkou odstranit i obsažené poznámky
+  sort:
+    sortBy: Řazení podle
+    nameAToZ: Názvu (A–Z)
+    nameZToA: Názvu (Z–A)
+    lastModifiedNewToOld: Změny (nejprve novější)
+    lastModifiedOldToNew: Změny (nejprve starší)
+  layout:
+    layout: Rozvržení položek
+    masonryGrid: Cihlová mřížka
+    simpleGrid: Jednoduchá mřížka
 sentry:
   consent:
     title: Chcete pomoct vylepšit aplikaci Saber?
@@ -93,7 +103,7 @@ settings:
     locale: Jazyk
     appTheme: Barva motivu
     platform: Motiv
-    layoutSize: Rozložení uživatelského rozhraní
+    layoutSize: Rozvržení uživatelského rozhraní
     customAccentColor: Vlastní barevný odstín
     hyperlegibleFont: Lépe čitelný font
     shouldCheckForUpdates: Automaticky kontrolovat dostupnost aktualizací aplikace Saber
@@ -115,7 +125,6 @@ settings:
     autosave: Automatické ukládání
     shapeRecognitionDelay: Zpoždění rozpoznávání tvarů
     autoStraightenLines: Automaticky narovnávat čáry
-    simplifiedHomeLayout: Zjednodušené rozložení domovské obrazovky
     customDataDir: Vlastní umístění složky aplikace Saber
     sentry: Hlášení chyb
   prefDescriptions:
@@ -135,7 +144,6 @@ settings:
     autosave: Poznámky se budou automaticky ukládat po krátké prodlevě, nebo nikdy
     shapeRecognitionDelay: Jak často aktualizovat náhled tvaru
     autoStraightenLines: Automaticky narovná dlouhé čáry, aniž by bylo nutné využít tvarové pero
-    simplifiedHomeLayout: Nastaví pevnou výšku pro každý náhled poznámky
     shouldAlwaysAlertForUpdates: Oznámit dostupnost aktualizací co nejdříve od jejich vydání
     sentry:
       active: Aktivní
@@ -309,7 +317,7 @@ editor:
     pastelPink: Pastelová růžová
   imageOptions:
     title: Možnosti obrázku
-    invertible: Invertovat barvy podle motivu
+    invertible: Invertovat podle motivu
     download: Stáhnout
     setAsBackground: Nastavit na pozadí
     removeAsBackground: Odstranit obrázek z pozadí
@@ -327,7 +335,7 @@ editor:
     lineHeightDescription: Ovlivňuje také velikost textu psaných poznámek
     lineThickness: Tloušťka linek
     lineThicknessDescription: Tloušťka čar ve vzoru na pozadí
-    backgroundImageFit: Rozložení obrázku na pozadí
+    backgroundImageFit: Přizpůsobení obrázku na pozadí
     backgroundPattern: Vzor na pozadí
     import: Importovat
     watchServer: Sledovat aktualizace ze serveru

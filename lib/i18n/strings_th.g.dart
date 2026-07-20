@@ -81,6 +81,8 @@ class _Translations$home$th extends Translations$home$en {
 	@override late final _Translations$home$deleteNoteDialog$th deleteNoteDialog = _Translations$home$deleteNoteDialog$th._(_root);
 	@override late final _Translations$home$renameFolder$th renameFolder = _Translations$home$renameFolder$th._(_root);
 	@override late final _Translations$home$deleteFolder$th deleteFolder = _Translations$home$deleteFolder$th._(_root);
+	@override late final _Translations$home$sort$th sort = _Translations$home$sort$th._(_root);
+	@override late final _Translations$home$layout$th layout = _Translations$home$layout$th._(_root);
 }
 
 // Path: sentry
@@ -369,6 +371,32 @@ class _Translations$home$deleteFolder$th extends Translations$home$deleteFolder$
 	@override String get alsoDeleteContents => 'ลบบันทึกทั้งหมดที่อยู่ในโฟลเดอร์นี้ด้วย';
 }
 
+// Path: home.sort
+class _Translations$home$sort$th extends Translations$home$sort$en {
+	_Translations$home$sort$th._(TranslationsTh root) : this._root = root, super.internal(root);
+
+	final TranslationsTh _root; // ignore: unused_field
+
+	// Translations
+	@override String get sortBy => 'เรียงตาม';
+	@override String get nameAToZ => 'ชื่อ (ก-ฮ)';
+	@override String get nameZToA => 'ชื่อ (ก-ฮ)';
+	@override String get lastModifiedNewToOld => 'แก้ไข (ใหม่สุดก่อน)';
+	@override String get lastModifiedOldToNew => 'แก้ไข (เก่าสุดก่อน)';
+}
+
+// Path: home.layout
+class _Translations$home$layout$th extends Translations$home$layout$en {
+	_Translations$home$layout$th._(TranslationsTh root) : this._root = root, super.internal(root);
+
+	final TranslationsTh _root; // ignore: unused_field
+
+	// Translations
+	@override String get layout => 'เลย์เอาต์';
+	@override String get masonryGrid => 'ตารางแบบก่ออิฐ';
+	@override String get simpleGrid => 'ตารางง่ายๆ';
+}
+
 // Path: sentry.consent
 class _Translations$sentry$consent$th extends Translations$sentry$consent$en {
 	_Translations$sentry$consent$th._(TranslationsTh root) : this._root = root, super.internal(root);
@@ -427,7 +455,6 @@ class _Translations$settings$prefLabels$th extends Translations$settings$prefLab
 	@override String get autosave => 'บันทึกอัตโนมัติ';
 	@override String get shapeRecognitionDelay => 'ล่าช้าในการจดจำรูปร่าง';
 	@override String get autoStraightenLines => 'ปรับเส้นให้ตรงอัตโนมัติ';
-	@override String get simplifiedHomeLayout => 'วางผังแบบเรียบง่าย';
 	@override String get customDataDir => 'กำหนดโฟลเดอร์เอง';
 	@override String get sentry => 'รายงานข้อผิดพลาด';
 }
@@ -452,7 +479,6 @@ class _Translations$settings$prefDescriptions$th extends Translations$settings$p
 	@override String get autosave => 'บันทึกอัตโนมัติหลังจากหน่วงเวลาเล็กน้อย หรือไม่บันทึกเลยก็ได้';
 	@override String get shapeRecognitionDelay => 'อัปเดตตัวอย่างรูปร่างบ่อยแค่ไหน';
 	@override String get autoStraightenLines => 'ยืดเส้นยาวให้ตรงโดยไม่ต้องใช้ปากกาเขียนรูปทรง';
-	@override String get simplifiedHomeLayout => 'กำหนดความสูงคงที่สำหรับการแสดงตัวอย่างโน้ตแต่ละรายการ';
 	@override String get shouldAlwaysAlertForUpdates => 'แจ้งข้อมูลอัปเดตให้ฉันทราบทันทีที่มีข้อมูลเพิ่มเติม';
 	@override late final _Translations$settings$prefDescriptions$sentry$th sentry = _Translations$settings$prefDescriptions$sentry$th._(_root);
 }

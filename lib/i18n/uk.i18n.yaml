@@ -62,6 +62,16 @@ home:
     deleteName(OUTDATED): Видалити $f
     delete(OUTDATED): Видалити
     alsoDeleteContents(OUTDATED): Також видаліть усі нотатки в цій папці
+  sort:
+    sortBy(OUTDATED): Сортувати за
+    nameAToZ(OUTDATED): Ім'я (А-Я)
+    nameZToA(OUTDATED): Ім'я (З-А)
+    lastModifiedNewToOld(OUTDATED): Відредаговано (Новіші першими)
+    lastModifiedOldToNew(OUTDATED): Відредаговано (Найстаріші першими)
+  layout:
+    layout(OUTDATED): Макет
+    masonryGrid(OUTDATED): Сітка з використанням мозаїки
+    simpleGrid(OUTDATED): Проста сітка
   welcome(OUTDATED): Ласкаво просимо до Saber
   invalidFormat(OUTDATED): Обраний файл не підтримується. Будь ласка, виберіть файл sbn, sbn2, sba або pdf.
   noFiles(OUTDATED): Не знайдено файлів
@@ -115,7 +125,6 @@ settings:
     autosave(OUTDATED): Автозбереження
     shapeRecognitionDelay(OUTDATED): Затримка розпізнавання форми
     autoStraightenLines(OUTDATED): Автоматично вирівнювати лінії
-    simplifiedHomeLayout(OUTDATED): Спрощений план дому
     customDataDir(OUTDATED): Кастомна папка Saber
     sentry(OUTDATED): Повідомлення про помилку
   prefDescriptions:
@@ -140,7 +149,6 @@ settings:
     autosave(OUTDATED): Автозбереження після короткої затримки, або ніколи
     shapeRecognitionDelay(OUTDATED): Як часто оновлювати попередній перегляд форми?
     autoStraightenLines(OUTDATED): Вирівнює довгі лінії без необхідності використовувати штамп
-    simplifiedHomeLayout(OUTDATED): Встановлює фіксовану висоту для попереднього перегляду кожної ноти
     shouldAlwaysAlertForUpdates(OUTDATED): Повідомляйте мені про оновлення, як тільки вони будуть доступні.
   themeModes:
     system(OUTDATED): Система

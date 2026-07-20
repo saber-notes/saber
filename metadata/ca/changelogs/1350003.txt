@@ -1,0 +1,3 @@
+• La pàgina de navegació ara està classificada alfabèticament per defecte. Pots personalitzar la classificació amb el botó en la part superior.
+• S'ha corregit un crash en certs dispositius Android.
+• S'ha eliminat la funcionalitat de desplaçar cap a refrescar perquè era confosa.

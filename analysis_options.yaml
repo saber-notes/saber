@@ -11,8 +11,15 @@ include: package:flutter_lints/flutter.yaml
 
 analyzer:
   exclude:
+    - android/**
+    - build/**
+    - ios/**
+    - lib/i18n/*.g.dart
+    - linux/**
+    - macos/**
     - submodules/**
-    - lib/i18n/strings.g.dart
+    - web/**
+    - windows/**
 
 linter:
   # The lint rules applied to this project can be customized in the

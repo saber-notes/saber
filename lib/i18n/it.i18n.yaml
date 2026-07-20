@@ -69,6 +69,16 @@ home:
     deleteName: Elimina $f
     delete: Elimina
     alsoDeleteContents: Elimina anche tutte le note all'interno di questa cartella
+  sort:
+    sortBy(OUTDATED): Ordina per
+    nameAToZ(OUTDATED): Nome (A-Z)
+    nameZToA(OUTDATED): Nome (A-Z)
+    lastModifiedNewToOld(OUTDATED): Modificato (Più recente per primo)
+    lastModifiedOldToNew(OUTDATED): Modificato (dal più vecchio al più recente)
+  layout:
+    layout(OUTDATED): Layout
+    masonryGrid(OUTDATED): Griglia a muratura
+    simpleGrid(OUTDATED): Griglia semplice
 sentry:
   consent:
     title: Vuoi aiutarci a migliorare Saber?
@@ -115,7 +125,6 @@ settings:
     autosave: Salvataggio automatico
     shapeRecognitionDelay: Ritardo nel riconoscimento della forma
     autoStraightenLines: Raddrizzamento automatico delle linee
-    simplifiedHomeLayout: Layout semplificato della schermata home
     customDataDir: Cartella Saber personalizzata
     sentry: Segnalazione di errori
   prefDescriptions:
@@ -135,7 +144,6 @@ settings:
     autosave: Salvataggio automatico dopo un breve ritardo, oppure mai
     shapeRecognitionDelay: Quanto spesso aggiornare l'anteprima della forma
     autoStraightenLines: Raddrizza le linee lunghe senza dover utilizzare la penna per le forme
-    simplifiedHomeLayout: Imposta un'altezza fissa per ogni anteprima della nota
     shouldAlwaysAlertForUpdates: Segnalami gli aggiornamenti non appena sono disponibili
     sentry:
       active: Attivo

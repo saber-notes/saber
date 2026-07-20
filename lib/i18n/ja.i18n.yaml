@@ -69,6 +69,16 @@ home:
     deleteName: $fを削除
     delete: 削除
     alsoDeleteContents: フォルダ内のメモも全て削除する
+  sort:
+    sortBy(OUTDATED): 並べ替えで
+    nameAToZ(OUTDATED): 名前（A-Z）
+    nameZToA(OUTDATED): 名前（A-Z）
+    lastModifiedNewToOld(OUTDATED): 編集済み（新しい順）
+    lastModifiedOldToNew(OUTDATED): 編集済み（古い順）
+  layout:
+    layout(OUTDATED): レイアウト
+    masonryGrid(OUTDATED): メーソンリーグリッド
+    simpleGrid(OUTDATED): シンプルなグリッド
 sentry:
   consent:
     title: Saver アプリの改善を助けますか？
@@ -113,7 +123,6 @@ settings:
     autosave: 自動保存
     shapeRecognitionDelay: 形状認識遅延
     autoStraightenLines: 自動で線分を直す
-    simplifiedHomeLayout: シンプルなホームレイアウト
     sentry: エラー報告
     autoDisableFingerDrawingWhenStylusDetected(OUTDATED): 指の描画を自動的に無効にする
     customDataDir(OUTDATED): カスタムデータディレクトリ
@@ -141,7 +150,6 @@ settings:
       activeUntilRestart: アプリを再起動するまで有効
       inactiveUntilRestart: アプリを再起動するまでの無効
     autoDisableFingerDrawingWhenStylusDetected(OUTDATED): スタイラスが検出されたときに指の描画をオフにする
-    simplifiedHomeLayout(OUTDATED): 各ノートのプレビューに固定の高さを設定します
   themeModes:
     system: システム
     light: ライト

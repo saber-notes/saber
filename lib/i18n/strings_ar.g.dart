@@ -68,11 +68,12 @@ class _Translations$home$ar extends Translations$home$en {
 	@override late final _Translations$home$titles$ar titles = _Translations$home$titles$ar._(_root);
 	@override late final _Translations$home$tooltips$ar tooltips = _Translations$home$tooltips$ar._(_root);
 	@override late final _Translations$home$create$ar create = _Translations$home$create$ar._(_root);
-	@override String get welcome => 'مرحباً بك في Saber';
-	@override String get invalidFormat => 'صيغة الملف الذي اخترته ليست مدعومة, الرجاء اختيار ملف  sbn او sbn2 او sba او pdf';
-	@override String get noFiles => 'لم يتم العثور على ملفات';
-	@override String get createNewNote => 'اضغط على زر + لإنشاء ملاحظة جديدة';
-	@override String get backFolder => 'الرجوع الى المجلد السابق';
+	@override String get welcome => 'أهلًا بك في سيبر';
+	@override String get invalidFormat => 'الملف الذي اخترته غير مدعوم. يرجى اختيار ملف بصيغة .SBN أو .SBN2 أو .SBA أو .PDF';
+	@override String get noFiles => 'لم يتم العثور على أي ملفات';
+	@override String get noPreviewAvailable => 'لا تتوفر معاينة';
+	@override String get createNewNote => 'انقر على زر ”+“ لإنشاء ملاحظة جديدة';
+	@override String get backFolder => 'الرجوع إلى المجلد السابق';
 	@override late final _Translations$home$newFolder$ar newFolder = _Translations$home$newFolder$ar._(_root);
 	@override late final _Translations$home$renameNote$ar renameNote = _Translations$home$renameNote$ar._(_root);
 	@override late final _Translations$home$moveNote$ar moveNote = _Translations$home$moveNote$ar._(_root);
@@ -80,7 +81,8 @@ class _Translations$home$ar extends Translations$home$en {
 	@override late final _Translations$home$deleteNoteDialog$ar deleteNoteDialog = _Translations$home$deleteNoteDialog$ar._(_root);
 	@override late final _Translations$home$renameFolder$ar renameFolder = _Translations$home$renameFolder$ar._(_root);
 	@override late final _Translations$home$deleteFolder$ar deleteFolder = _Translations$home$deleteFolder$ar._(_root);
-	@override String get noPreviewAvailable => 'لا معاينة متاحة';
+	@override late final _Translations$home$sort$ar sort = _Translations$home$sort$ar._(_root);
+	@override late final _Translations$home$layout$ar layout = _Translations$home$layout$ar._(_root);
 }
 
 // Path: sentry
@@ -237,9 +239,9 @@ class _Translations$home$tabs$ar extends Translations$home$tabs$en {
 	final TranslationsAr _root; // ignore: unused_field
 
 	// Translations
-	@override String get home => 'الرئيسية';
-	@override String get browse => 'تصفح';
-	@override String get whiteboard => 'السبورة';
+	@override String get home => 'الصفحة الرئيسة';
+	@override String get browse => 'التصفح';
+	@override String get whiteboard => 'السبّورة';
 	@override String get settings => 'الإعدادات';
 }
 
@@ -251,8 +253,8 @@ class _Translations$home$titles$ar extends Translations$home$titles$en {
 
 	// Translations
 	@override String get home => 'الملاحظات الأخيرة';
-	@override String get browse => 'تصفح';
-	@override String get whiteboard => 'السبورة';
+	@override String get browse => 'التصفح';
+	@override String get whiteboard => 'السبّورة';
 	@override String get settings => 'الإعدادات';
 }
 
@@ -263,8 +265,8 @@ class _Translations$home$tooltips$ar extends Translations$home$tooltips$en {
 	final TranslationsAr _root; // ignore: unused_field
 
 	// Translations
-	@override String get newNote => 'محلاظة جديدة';
-	@override String get showUpdateDialog => 'إظهار مربع حوار التحديث';
+	@override String get newNote => 'ملاحظة جديدة';
+	@override String get showUpdateDialog => 'عرض مربع حوار التحديث';
 	@override String get exportNote => 'تصدير ملاحظة';
 }
 
@@ -275,7 +277,7 @@ class _Translations$home$create$ar extends Translations$home$create$en {
 	final TranslationsAr _root; // ignore: unused_field
 
 	// Translations
-	@override String get newNote => 'انشاء ملاحظة جديدة';
+	@override String get newNote => 'ملاحظة جديدة';
 	@override String get importNote => 'استيراد ملاحظة';
 }
 
@@ -287,7 +289,7 @@ class _Translations$home$newFolder$ar extends Translations$home$newFolder$en {
 
 	// Translations
 	@override String get newFolder => 'مجلد جديد';
-	@override String get folderName => 'إسم المجلد';
+	@override String get folderName => 'اسم المجلد';
 	@override String get create => 'إنشاء';
 	@override String get folderNameEmpty => 'لا يمكن أن يكون اسم المجلد فارغًا';
 	@override String get folderNameContainsSlash => 'لا يمكن أن يحتوي اسم المجلد على شرطة مائلة';
@@ -306,7 +308,7 @@ class _Translations$home$renameNote$ar extends Translations$home$renameNote$en {
 	@override String get rename => 'إعادة تسمية';
 	@override String get noteNameEmpty => 'لا يمكن أن يكون اسم الملاحظة فارغًا';
 	@override String get noteNameExists => 'توجد بالفعل ملاحظة بهذا الاسم';
-	@override String get noteNameForbiddenCharacters => 'يحتوي اسم الملاحظة على أحرف محظورة';
+	@override String get noteNameForbiddenCharacters => 'اسم الملاحظة يحتوي على أحرف محظورة';
 	@override String get noteNameReserved => 'اسم الملاحظة محجوز';
 }
 
@@ -317,13 +319,13 @@ class _Translations$home$moveNote$ar extends Translations$home$moveNote$en {
 	final TranslationsAr _root; // ignore: unused_field
 
 	// Translations
-	@override String get moveNote => 'تحريك الملاحظة';
-	@override String moveNotes({required Object n}) => 'ملاحظات ${n} نقل';
-	@override String moveName({required Object f}) => '${f} نقل';
-	@override String get move => 'تحريك';
-	@override String renamedTo({required Object newName}) => 'ستتم إعادة تسمية الملاحظة إلى ${newName}';
-	@override String get multipleRenamedTo => 'الملاحظات التالية سيتم اعادة تسميتها:';
-	@override String numberRenamedTo({required Object n}) => 'ملاحظة سيتم اعادة تسميتها لتجنب تضارب تشابه الاسماء ${n}';
+	@override String get moveNote => 'نقل الملاحظة';
+	@override String moveNotes({required Object n}) => 'نقل ${n} من الملاحظات';
+	@override String moveName({required Object f}) => 'نقل ${f}';
+	@override String get move => 'نقل';
+	@override String renamedTo({required Object newName}) => 'سيتم تغيير اسم الملاحظة إلى ${newName}';
+	@override String get multipleRenamedTo => 'سيتم تغيير أسماء الملاحظات التالية:';
+	@override String numberRenamedTo({required Object n}) => 'سيتم إعادة تسمية ${n} من الملاحظات لتجنّب التعارضات';
 }
 
 // Path: home.deleteNoteDialog
@@ -333,12 +335,12 @@ class _Translations$home$deleteNoteDialog$ar extends Translations$home$deleteNot
 	final TranslationsAr _root; // ignore: unused_field
 
 	// Translations
+	@override String deleteNotes({required Object n}) => 'حذف ${n} من الملاحظات';
+	@override String deleteName({required Object f}) => 'حذف ${f}';
 	@override String confirmDelete({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('ar'))(n,
-		one: 'حذف الملاحظة المحددة بشكل دائم؟',
-		other: 'حذف الملاحظات المحددة بشكل دائم؟',
+		one: 'هل تريد حذف الملاحظة المحددة نهائيًّا؟',
+		other: 'هل تريد حذف الملاحظات المحددة نهائيًّا؟',
 	);
-	@override String deleteNotes({required Object n}) => 'احذف ${n} ملاحظة';
-	@override String deleteName({required Object f}) => 'احذف ${f}';
 	@override String get delete => 'حذف';
 }
 
@@ -349,12 +351,12 @@ class _Translations$home$renameFolder$ar extends Translations$home$renameFolder$
 	final TranslationsAr _root; // ignore: unused_field
 
 	// Translations
-	@override String get renameFolder => 'اعادة تسمية المجلد';
+	@override String get renameFolder => 'إعادة تسمية المجلد';
 	@override String get folderName => 'اسم المجلد';
-	@override String get rename => 'اعادة تسمية';
+	@override String get rename => 'إعادة تسمية';
 	@override String get folderNameEmpty => 'لا يمكن أن يكون اسم المجلد فارغًا';
 	@override String get folderNameContainsSlash => 'لا يمكن أن يحتوي اسم المجلد على شرطة مائلة';
-	@override String get folderNameExists => 'يوجد بالفعل مجلد بهذا الاسم';
+	@override String get folderNameExists => 'يوجد مجلد بهذا الاسم بالفعل';
 }
 
 // Path: home.deleteFolder
@@ -365,9 +367,35 @@ class _Translations$home$deleteFolder$ar extends Translations$home$deleteFolder$
 
 	// Translations
 	@override String get deleteFolder => 'حذف المجلد';
-	@override String deleteName({required Object f}) => '${f} حذف';
+	@override String deleteName({required Object f}) => 'حذف ${f}';
 	@override String get delete => 'حذف';
-	@override String get alsoDeleteContents => 'حذف جميع الملاحظات داخل هذا المجلد أيضًا';
+	@override String get alsoDeleteContents => 'حذف جميع الملاحظات الموجودة داخل هذا المجلد أيضًا';
+}
+
+// Path: home.sort
+class _Translations$home$sort$ar extends Translations$home$sort$en {
+	_Translations$home$sort$ar._(TranslationsAr root) : this._root = root, super.internal(root);
+
+	final TranslationsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get sortBy => 'الفرز حسب';
+	@override String get nameAToZ => 'الاسم (أ-ي)';
+	@override String get nameZToA => 'الاسم (ي-أ)';
+	@override String get lastModifiedNewToOld => 'المعدلة (الأحدث أولًا)';
+	@override String get lastModifiedOldToNew => 'المعدلة (الأقدم أولًا)';
+}
+
+// Path: home.layout
+class _Translations$home$layout$ar extends Translations$home$layout$en {
+	_Translations$home$layout$ar._(TranslationsAr root) : this._root = root, super.internal(root);
+
+	final TranslationsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get layout => 'التخطيط';
+	@override String get masonryGrid => 'شبكة متراصّة';
+	@override String get simpleGrid => 'شبكة بسيطة';
 }
 
 // Path: sentry.consent
@@ -377,9 +405,9 @@ class _Translations$sentry$consent$ar extends Translations$sentry$consent$en {
 	final TranslationsAr _root; // ignore: unused_field
 
 	// Translations
+	@override String get title => 'المساعدة في تحسين سيبر؟';
 	@override late final _Translations$sentry$consent$description$ar description = _Translations$sentry$consent$description$ar._(_root);
 	@override late final _Translations$sentry$consent$answers$ar answers = _Translations$sentry$consent$answers$ar._(_root);
-	@override String get title => 'تساعد في تحسين صابر؟';
 }
 
 // Path: settings.prefCategories
@@ -389,11 +417,11 @@ class _Translations$settings$prefCategories$ar extends Translations$settings$pre
 	final TranslationsAr _root; // ignore: unused_field
 
 	// Translations
-	@override String get general => 'عام';
-	@override String get writing => 'كتابة';
+	@override String get general => 'عامة';
+	@override String get writing => 'الكتابة';
 	@override String get editor => 'المحرر';
 	@override String get performance => 'الأداء';
-	@override String get advanced => 'متقدم';
+	@override String get advanced => 'متقدمة';
 }
 
 // Path: settings.prefLabels
@@ -403,34 +431,33 @@ class _Translations$settings$prefLabels$ar extends Translations$settings$prefLab
 	final TranslationsAr _root; // ignore: unused_field
 
 	// Translations
-	@override String get locale => 'لغة التطبيق';
-	@override String get appTheme => 'مظهر التطبيق';
-	@override String get platform => 'نوع المظهر';
+	@override String get locale => 'اللغة';
+	@override String get appTheme => 'سمة التطبيق';
+	@override String get platform => 'نوع السمة';
 	@override String get layoutSize => 'نوع التخطيط';
-	@override String get customAccentColor => 'لون التمييز المخصص';
-	@override String get hyperlegibleFont => 'Hyperlegible خط';
-	@override String get shouldCheckForUpdates => 'تحقق تلقائيًا من وجود تحديثات Saber';
+	@override String get customAccentColor => 'اللون المميِّز المخصص';
+	@override String get hyperlegibleFont => 'خط أتكينسون فائق المقروئية';
+	@override String get shouldCheckForUpdates => 'التحقق من تحديثات سيبر';
 	@override String get shouldAlwaysAlertForUpdates => 'تحديثات أسرع';
 	@override String get allowInsecureConnections => 'السماح بالاتصالات غير الآمنة';
-	@override String get editorToolbarAlignment => 'محاذاة شريط أدوات المحرر';
-	@override String get editorToolbarShowInFullscreen => 'أظهر شريط أدوات المحرر في وضع ملء الشاشة';
-	@override String get editorAutoInvert => 'اقلب الملاحظات في الوضع المظلم';
+	@override String get editorToolbarAlignment => 'موضع شريط الأدوات';
+	@override String get editorToolbarShowInFullscreen => 'عرض شريط الأدوات في وضع ملء الشاشة';
+	@override String get editorAutoInvert => 'قلب الملاحظات في الوضع الداكن';
 	@override String get preferGreyscale => 'تفضيل الألوان الرمادية';
 	@override String get maxImageSize => 'الحجم الأقصى للصورة';
-	@override String get autoClearWhiteboardOnExit => 'امسح السبورة بعد الخروج من التطبيق';
-	@override String get disableEraserAfterUse => 'تعطيل الممحاة تلقائيًا بعد الاستخدام';
-	@override String get hideFingerDrawingToggle => 'إخفاء زر الرسم بالإصبع';
-	@override String get editorPromptRename => 'مطالبتك بإعادة تسمية الملاحظات الجديدة';
-	@override String get recentColorsDontSavePresets => 'لا تحفظ الألوان المعينة مسبقًا كألوان حديثة';
-	@override String get recentColorsLength => 'كم عدد الألوان الحديثة التي يجب تخزينها';
-	@override String get printPageIndicators => 'طباعة مؤشرات الصفحة';
-	@override String get shapeRecognitionDelay => 'تأخير التعرف على الأشكال';
-	@override String get autoStraightenLines => 'استقامة الخطوط تلقائيًا';
-	@override String get simplifiedHomeLayout => 'تخطيط الصفحة الرئيسية المبسط';
-	@override String get customDataDir => 'مخصص Saber مجلد';
-	@override String get autoDisableFingerDrawingWhenStylusDetected => 'التعطيل التلقائي لرسم الإصبع';
+	@override String get autoClearWhiteboardOnExit => '‎مسح السبّورة تلقائيًّا';
+	@override String get disableEraserAfterUse => 'تعطيل الممحاة تلقائيًّا';
+	@override String get hideFingerDrawingToggle => 'إخفاء زر تبديل الرسم بالإصبع';
+	@override String get autoDisableFingerDrawingWhenStylusDetected => 'تعطيل الرسم بالأصابع تلقائيًّا';
+	@override String get editorPromptRename => 'الطلب منك إعادة تسمية الملاحظات الجديدة';
+	@override String get recentColorsDontSavePresets => 'عدم حفظ الألوان المسبقة في قسم الألوان الأخيرة';
+	@override String get recentColorsLength => 'كمية عدد الألوان الأخيرة التي يجب تخزينها';
+	@override String get printPageIndicators => 'مؤشرات صفحة الطباعة';
+	@override String get autosave => 'الحفظ التلقائي';
+	@override String get shapeRecognitionDelay => 'تأخير التعرف على الشكل';
+	@override String get autoStraightenLines => 'استقامة الخطوط تلقائيًّا';
+	@override String get customDataDir => 'مجلد سيبر مخصص';
 	@override String get sentry => 'الإبلاغ خطأ';
-	@override String get autosave => 'تلقائي';
 }
 
 // Path: settings.prefDescriptions
@@ -451,7 +478,6 @@ class _Translations$settings$prefDescriptions$ar extends Translations$settings$p
 	@override String get printPageIndicators => 'تظهر مؤشرات الصفحة في الصادرات';
 	@override String get shapeRecognitionDelay => 'عدد مرات تحديث معاينة الشكل';
 	@override String get autoStraightenLines => 'استقامة الخطوط الطويلة بدون الحاجة لاستخدام قلم الشكل';
-	@override String get simplifiedHomeLayout => 'تعيين ارتفاع ثابت لكل معاينة ملاحظة';
 	@override String get shouldAlwaysAlertForUpdates => 'أبلغني عن التحديثات بمجرد توفرها';
 	@override late final _Translations$settings$prefDescriptions$sentry$ar sentry = _Translations$settings$prefDescriptions$sentry$ar._(_root);
 	@override String get autoDisableFingerDrawingWhenStylusDetected => 'قم بإيقاف تشغيل الرسم بالإصبع عند اكتشاف القلم';
@@ -823,12 +849,12 @@ class _Translations$sentry$consent$description$ar extends Translations$sentry$co
 	final TranslationsAr _root; // ignore: unused_field
 
 	// Translations
-	@override String get question => 'هل ترغب في الإبلاغ تلقائيًا عن أخطاء غير متوقعة؟ هذا يساعدني على تحديد وإصلاح المشكلات بشكل أسرع.';
-	@override String get scope => 'قد تحتوي التقارير على معلومات حول الخطأ وجهازك. لقد بذلت كل جهد ممكن لتصفية البيانات الشخصية ولكن قد يبقى البعض.';
-	@override String get currentlyOff => 'إذا منحت موافقة ، فسيتم تمكين الإبلاغ عن الخطأ بعد إعادة تشغيل التطبيق.';
-	@override String get currentlyOn => 'إذا قمت بإلغاء الموافقة ، يرجى إعادة تشغيل التطبيق لتعطيل الإبلاغ عن الخطأ.';
+	@override String get question => 'هل ترغب في الإبلاغ تلقائيًّا عن الأخطاء غير المتوقعة؟ هذا يساعدني في تحديد المشكلات وإصلاحها بشكل أسرع.';
+	@override String get scope => 'قد تحتوي التقارير على معلومات حول الخطأ وجهازك. لقد بذلتُ قصارى جهدي لحجب البيانات الشخصية، ولكن قد تبقى بعضها.';
+	@override String get currentlyOff => 'إذا وافقت، فسيتم تفعيل خاصية الإبلاغ عن الأخطاء بعد إعادة تشغيل التطبيق.';
+	@override String get currentlyOn => 'إذا ألغيت الموافقة، يرجى إعادة تشغيل التطبيق لتعطيل الإبلاغ عن الأخطاء.';
 	@override TextSpan learnMoreInPrivacyPolicy({required InlineSpanBuilder link}) => TextSpan(children: [
-		const TextSpan(text: 'تعرف على المزيد في '),
+		const TextSpan(text: 'تعرّف على المزيد في '),
 		link('سياسة الخصوصية'),
 		const TextSpan(text: '.'),
 	]);

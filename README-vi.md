@@ -123,8 +123,8 @@ trên wiki.
 [google_play]: https://play.google.com/store/apps/details?id=com.adilhanney.saber
 [snap]: https://snapcraft.io/saber
 [app_store]: https://apps.apple.com/us/app/saber/id1671523739
-[download_windows]: https://github.com/saber-notes/saber/releases/download/v1.34.3/SaberInstaller_v1.34.3.exe
-[download_appimage]: https://github.com/saber-notes/saber/releases/download/v1.34.3/Saber-1.34.3-x86_64.AppImage
+[download_windows]: https://github.com/saber-notes/saber/releases/download/v1.35.0/SaberInstaller_v1.35.0.exe
+[download_appimage]: https://github.com/saber-notes/saber/releases/download/v1.35.0/Saber-1.35.0-x86_64.AppImage
 
 [nextcloud]: https://nc.saber.adil.hanney.org/
 

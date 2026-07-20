@@ -2,35 +2,8 @@
 - Here are translations that exist in <en> but not in secondary locales.
 - After editing this file, you can run 'dart run slang apply --locale=<locale>' to quickly apply the newly added translations.
 ar:
-  home:
-    noPreviewAvailable(OUTDATED): No preview available
-    renameNote:
-      noteNameForbiddenCharacters(OUTDATED): Note name contains forbidden characters
-      noteNameReserved(OUTDATED): Note name reserved
-    deleteNoteDialog:
-      deleteNotes(OUTDATED): Delete $n notes
-      deleteName(OUTDATED): Delete $f
-      confirmDelete(OUTDATED):
-        one: Permanently delete the selected note?
-        other: Permanently delete the selected notes?
-      delete(OUTDATED): Delete
-  sentry:
-    consent:
-      title(OUTDATED): Help improve Saber?
-      description:
-        question(OUTDATED): Would you like to automatically report unexpected errors? This helps me identify and fix issues faster.
-        scope(OUTDATED): The reports may contain information about the error and your device. I've made every effort to filter out personal data but some may remain.
-        currentlyOff(OUTDATED): If you grant consent, error reporting will be enabled after you restart the app.
-        currentlyOn(OUTDATED): If you revoke consent, please restart the app to disable error reporting.
-        learnMoreInPrivacyPolicy(rich)(OUTDATED): Learn more in the ${link(privacy policy)}.
-      answers:
-        yes(OUTDATED): Yes
-        no(OUTDATED): No
-        later(OUTDATED): Ask me later
   settings:
     prefLabels:
-      autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Auto-disable finger drawing
-      autosave(OUTDATED): Auto-save
       sentry(OUTDATED): Error reporting
     prefDescriptions:
       autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Turn off finger drawing when a stylus is detected
@@ -68,6 +41,16 @@ ca:
         one: Permanently delete the selected note?
         other: Permanently delete the selected notes?
       delete(OUTDATED): Delete
+    sort:
+      sortBy(OUTDATED): Sort by
+      nameAToZ(OUTDATED): Name (A-Z)
+      nameZToA(OUTDATED): Name (Z-A)
+      lastModifiedNewToOld(OUTDATED): Edited (Newest first)
+      lastModifiedOldToNew(OUTDATED): Edited (Oldest first)
+    layout:
+      layout(OUTDATED): Layout
+      masonryGrid(OUTDATED): Masonry grid
+      simpleGrid(OUTDATED): Simple grid
   sentry:
     consent:
       description:
@@ -96,7 +79,6 @@ ca:
       autosave(OUTDATED): Auto-save
       shapeRecognitionDelay(OUTDATED): Shape recognition delay
       autoStraightenLines(OUTDATED): Auto straighten lines
-      simplifiedHomeLayout(OUTDATED): Simplified home layout
       customDataDir(OUTDATED): Custom Saber folder
       sentry(OUTDATED): Error reporting
     prefDescriptions:
@@ -116,7 +98,6 @@ ca:
       autosave(OUTDATED): Auto-save after a short delay, or never
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
-      simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
       shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
       sentry:
         active(OUTDATED): Active
@@ -249,6 +230,17 @@ ca:
       unlockAxisAlignedPan(OUTDATED): Unlock panning to horizontal or vertical
 cs:
 de:
+  home:
+    sort:
+      sortBy(OUTDATED): Sort by
+      nameAToZ(OUTDATED): Name (A-Z)
+      nameZToA(OUTDATED): Name (Z-A)
+      lastModifiedNewToOld(OUTDATED): Edited (Newest first)
+      lastModifiedOldToNew(OUTDATED): Edited (Oldest first)
+    layout:
+      layout(OUTDATED): Layout
+      masonryGrid(OUTDATED): Masonry grid
+      simpleGrid(OUTDATED): Simple grid
 eo:
   home:
     renameNote:
@@ -261,6 +253,16 @@ eo:
         one: Permanently delete the selected note?
         other: Permanently delete the selected notes?
       delete(OUTDATED): Delete
+    sort:
+      sortBy(OUTDATED): Sort by
+      nameAToZ(OUTDATED): Name (A-Z)
+      nameZToA(OUTDATED): Name (Z-A)
+      lastModifiedNewToOld(OUTDATED): Edited (Newest first)
+      lastModifiedOldToNew(OUTDATED): Edited (Oldest first)
+    layout:
+      layout(OUTDATED): Layout
+      masonryGrid(OUTDATED): Masonry grid
+      simpleGrid(OUTDATED): Simple grid
   settings:
     prefLabels:
       autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Auto-disable finger drawing
@@ -275,10 +277,19 @@ es:
     deleteNoteDialog:
       deleteNotes(OUTDATED): Delete $n notes
       deleteName(OUTDATED): Delete $f
+    sort:
+      sortBy(OUTDATED): Sort by
+      nameAToZ(OUTDATED): Name (A-Z)
+      nameZToA(OUTDATED): Name (Z-A)
+      lastModifiedNewToOld(OUTDATED): Edited (Newest first)
+      lastModifiedOldToNew(OUTDATED): Edited (Oldest first)
+    layout:
+      layout(OUTDATED): Layout
+      masonryGrid(OUTDATED): Masonry grid
+      simpleGrid(OUTDATED): Simple grid
   settings:
     prefDescriptions:
       autosave(OUTDATED): Auto-save after a short delay, or never
-      simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
       sentry:
         active(OUTDATED): Active
         inactive(OUTDATED): Inactive
@@ -372,6 +383,16 @@ fa:
         one: Permanently delete the selected note?
         other: Permanently delete the selected notes?
       delete(OUTDATED): Delete
+    sort:
+      sortBy(OUTDATED): Sort by
+      nameAToZ(OUTDATED): Name (A-Z)
+      nameZToA(OUTDATED): Name (Z-A)
+      lastModifiedNewToOld(OUTDATED): Edited (Newest first)
+      lastModifiedOldToNew(OUTDATED): Edited (Oldest first)
+    layout:
+      layout(OUTDATED): Layout
+      masonryGrid(OUTDATED): Masonry grid
+      simpleGrid(OUTDATED): Simple grid
   sentry:
     consent:
       title(OUTDATED): Help improve Saber?
@@ -389,14 +410,12 @@ fa:
       autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Auto-disable finger drawing
       autosave(OUTDATED): Auto-save
       autoStraightenLines(OUTDATED): Auto straighten lines
-      simplifiedHomeLayout(OUTDATED): Simplified home layout
       customDataDir(OUTDATED): Custom Saber folder
       sentry(OUTDATED): Error reporting
     prefDescriptions:
       autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Turn off finger drawing when a stylus is detected
       autosave(OUTDATED): Auto-save after a short delay, or never
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
-      simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
       sentry:
         active(OUTDATED): Active
         inactive(OUTDATED): Inactive
@@ -472,7 +491,6 @@ fa:
 fr:
   common:
     done(OUTDATED): Done
-    continueBtn(OUTDATED): Continue
   home:
     noPreviewAvailable(OUTDATED): No preview available
     renameNote:
@@ -485,6 +503,16 @@ fr:
         one: Permanently delete the selected note?
         other: Permanently delete the selected notes?
       delete(OUTDATED): Delete
+    sort:
+      sortBy(OUTDATED): Sort by
+      nameAToZ(OUTDATED): Name (A-Z)
+      nameZToA(OUTDATED): Name (Z-A)
+      lastModifiedNewToOld(OUTDATED): Edited (Newest first)
+      lastModifiedOldToNew(OUTDATED): Edited (Oldest first)
+    layout:
+      layout(OUTDATED): Layout
+      masonryGrid(OUTDATED): Masonry grid
+      simpleGrid(OUTDATED): Simple grid
   sentry:
     consent:
       title(OUTDATED): Help improve Saber?
@@ -503,14 +531,12 @@ fr:
       autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Auto-disable finger drawing
       autosave(OUTDATED): Auto-save
       autoStraightenLines(OUTDATED): Auto straighten lines
-      simplifiedHomeLayout(OUTDATED): Simplified home layout
       customDataDir(OUTDATED): Custom Saber folder
       sentry(OUTDATED): Error reporting
     prefDescriptions:
       autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Turn off finger drawing when a stylus is detected
       autosave(OUTDATED): Auto-save after a short delay, or never
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
-      simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
       sentry:
         active(OUTDATED): Active
         inactive(OUTDATED): Inactive
@@ -584,8 +610,41 @@ fr:
       corrupted(OUTDATED): Failed to load note. It may be corrupted or still being downloaded.
 he:
 hu:
+  home:
+    sort:
+      sortBy(OUTDATED): Sort by
+      nameAToZ(OUTDATED): Name (A-Z)
+      nameZToA(OUTDATED): Name (Z-A)
+      lastModifiedNewToOld(OUTDATED): Edited (Newest first)
+      lastModifiedOldToNew(OUTDATED): Edited (Oldest first)
+    layout:
+      layout(OUTDATED): Layout
+      masonryGrid(OUTDATED): Masonry grid
+      simpleGrid(OUTDATED): Simple grid
 it:
+  home:
+    sort:
+      sortBy(OUTDATED): Sort by
+      nameAToZ(OUTDATED): Name (A-Z)
+      nameZToA(OUTDATED): Name (Z-A)
+      lastModifiedNewToOld(OUTDATED): Edited (Newest first)
+      lastModifiedOldToNew(OUTDATED): Edited (Oldest first)
+    layout:
+      layout(OUTDATED): Layout
+      masonryGrid(OUTDATED): Masonry grid
+      simpleGrid(OUTDATED): Simple grid
 ja:
+  home:
+    sort:
+      sortBy(OUTDATED): Sort by
+      nameAToZ(OUTDATED): Name (A-Z)
+      nameZToA(OUTDATED): Name (Z-A)
+      lastModifiedNewToOld(OUTDATED): Edited (Newest first)
+      lastModifiedOldToNew(OUTDATED): Edited (Oldest first)
+    layout:
+      layout(OUTDATED): Layout
+      masonryGrid(OUTDATED): Masonry grid
+      simpleGrid(OUTDATED): Simple grid
   settings:
     prefLabels:
       hideFingerDrawingToggle(OUTDATED): Hide the finger drawing toggle
@@ -596,7 +655,6 @@ ja:
         fixedOn(OUTDATED): Finger drawing is fixed as enabled
         fixedOff(OUTDATED): Finger drawing is fixed as disabled
       autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Turn off finger drawing when a stylus is detected
-      simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
     autosaveDisabled(OUTDATED): Never
     shapeRecognitionDisabled(OUTDATED): Never
   update:
@@ -605,7 +663,29 @@ ja:
     menu:
       backgroundImageFit(OUTDATED): Background image fit
 nl:
+  home:
+    sort:
+      sortBy(OUTDATED): Sort by
+      nameAToZ(OUTDATED): Name (A-Z)
+      nameZToA(OUTDATED): Name (Z-A)
+      lastModifiedNewToOld(OUTDATED): Edited (Newest first)
+      lastModifiedOldToNew(OUTDATED): Edited (Oldest first)
+    layout:
+      layout(OUTDATED): Layout
+      masonryGrid(OUTDATED): Masonry grid
+      simpleGrid(OUTDATED): Simple grid
 pl:
+  home:
+    sort:
+      sortBy(OUTDATED): Sort by
+      nameAToZ(OUTDATED): Name (A-Z)
+      nameZToA(OUTDATED): Name (Z-A)
+      lastModifiedNewToOld(OUTDATED): Edited (Newest first)
+      lastModifiedOldToNew(OUTDATED): Edited (Oldest first)
+    layout:
+      layout(OUTDATED): Layout
+      masonryGrid(OUTDATED): Masonry grid
+      simpleGrid(OUTDATED): Simple grid
 ru:
   home:
     deleteNoteDialog:
@@ -615,6 +695,16 @@ ru:
         one: Permanently delete the selected note?
         other: Permanently delete the selected notes?
       delete(OUTDATED): Delete
+    sort:
+      sortBy(OUTDATED): Sort by
+      nameAToZ(OUTDATED): Name (A-Z)
+      nameZToA(OUTDATED): Name (Z-A)
+      lastModifiedNewToOld(OUTDATED): Edited (Newest first)
+      lastModifiedOldToNew(OUTDATED): Edited (Oldest first)
+    layout:
+      layout(OUTDATED): Layout
+      masonryGrid(OUTDATED): Masonry grid
+      simpleGrid(OUTDATED): Simple grid
 sl:
   home:
     deleteNoteDialog:
@@ -624,6 +714,16 @@ sl:
         one: Permanently delete the selected note?
         other: Permanently delete the selected notes?
       delete(OUTDATED): Delete
+    sort:
+      sortBy(OUTDATED): Sort by
+      nameAToZ(OUTDATED): Name (A-Z)
+      nameZToA(OUTDATED): Name (Z-A)
+      lastModifiedNewToOld(OUTDATED): Edited (Newest first)
+      lastModifiedOldToNew(OUTDATED): Edited (Oldest first)
+    layout:
+      layout(OUTDATED): Layout
+      masonryGrid(OUTDATED): Masonry grid
+      simpleGrid(OUTDATED): Simple grid
 th:
   home:
     deleteNoteDialog:
@@ -633,6 +733,16 @@ th:
         one: Permanently delete the selected note?
         other: Permanently delete the selected notes?
       delete(OUTDATED): Delete
+    sort:
+      sortBy(OUTDATED): Sort by
+      nameAToZ(OUTDATED): Name (A-Z)
+      nameZToA(OUTDATED): Name (Z-A)
+      lastModifiedNewToOld(OUTDATED): Edited (Newest first)
+      lastModifiedOldToNew(OUTDATED): Edited (Oldest first)
+    layout:
+      layout(OUTDATED): Layout
+      masonryGrid(OUTDATED): Masonry grid
+      simpleGrid(OUTDATED): Simple grid
   editor:
     readOnlyBanner:
       watchingServer(OUTDATED): You are currently watching for updates on the server. Editing is disabled in this mode.
@@ -650,6 +760,16 @@ tr:
         one: Permanently delete the selected note?
         other: Permanently delete the selected notes?
       delete(OUTDATED): Delete
+    sort:
+      sortBy(OUTDATED): Sort by
+      nameAToZ(OUTDATED): Name (A-Z)
+      nameZToA(OUTDATED): Name (Z-A)
+      lastModifiedNewToOld(OUTDATED): Edited (Newest first)
+      lastModifiedOldToNew(OUTDATED): Edited (Oldest first)
+    layout:
+      layout(OUTDATED): Layout
+      masonryGrid(OUTDATED): Masonry grid
+      simpleGrid(OUTDATED): Simple grid
   sentry:
     consent:
       title(OUTDATED): Help improve Saber?
@@ -755,6 +875,16 @@ uk:
       deleteName(OUTDATED): Delete $f
       delete(OUTDATED): Delete
       alsoDeleteContents(OUTDATED): Also delete all notes inside this folder
+    sort:
+      sortBy(OUTDATED): Sort by
+      nameAToZ(OUTDATED): Name (A-Z)
+      nameZToA(OUTDATED): Name (Z-A)
+      lastModifiedNewToOld(OUTDATED): Edited (Newest first)
+      lastModifiedOldToNew(OUTDATED): Edited (Oldest first)
+    layout:
+      layout(OUTDATED): Layout
+      masonryGrid(OUTDATED): Masonry grid
+      simpleGrid(OUTDATED): Simple grid
   sentry:
     consent:
       title(OUTDATED): Help improve Saber?
@@ -801,7 +931,6 @@ uk:
       autosave(OUTDATED): Auto-save
       shapeRecognitionDelay(OUTDATED): Shape recognition delay
       autoStraightenLines(OUTDATED): Auto straighten lines
-      simplifiedHomeLayout(OUTDATED): Simplified home layout
       customDataDir(OUTDATED): Custom Saber folder
       sentry(OUTDATED): Error reporting
     prefDescriptions:
@@ -821,7 +950,6 @@ uk:
       autosave(OUTDATED): Auto-save after a short delay, or never
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
-      simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
       shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
       sentry:
         active(OUTDATED): Active
@@ -1032,10 +1160,30 @@ vi:
         one: Permanently delete the selected note?
         other: Permanently delete the selected notes?
       delete(OUTDATED): Delete
+    sort:
+      sortBy(OUTDATED): Sort by
+      nameAToZ(OUTDATED): Name (A-Z)
+      nameZToA(OUTDATED): Name (Z-A)
+      lastModifiedNewToOld(OUTDATED): Edited (Newest first)
+      lastModifiedOldToNew(OUTDATED): Edited (Oldest first)
+    layout:
+      layout(OUTDATED): Layout
+      masonryGrid(OUTDATED): Masonry grid
+      simpleGrid(OUTDATED): Simple grid
 pt-BR:
+  home:
+    sort:
+      sortBy(OUTDATED): Sort by
+      nameAToZ(OUTDATED): Name (A-Z)
+      nameZToA(OUTDATED): Name (Z-A)
+      lastModifiedNewToOld(OUTDATED): Edited (Newest first)
+      lastModifiedOldToNew(OUTDATED): Edited (Oldest first)
+    layout:
+      layout(OUTDATED): Layout
+      masonryGrid(OUTDATED): Masonry grid
+      simpleGrid(OUTDATED): Simple grid
   settings:
     prefLabels:
-      simplifiedHomeLayout(OUTDATED): Simplified home layout
       customDataDir(OUTDATED): Custom Saber folder
       sentry(OUTDATED): Error reporting
     prefDescriptions:
@@ -1043,7 +1191,6 @@ pt-BR:
       autosave(OUTDATED): Auto-save after a short delay, or never
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
-      simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
       sentry:
         active(OUTDATED): Active
         inactive(OUTDATED): Inactive
@@ -1133,4 +1280,26 @@ pt-BR:
       watchingServer(OUTDATED): You are currently watching for updates on the server. Editing is disabled in this mode.
       corrupted(OUTDATED): Failed to load note. It may be corrupted or still being downloaded.
 zh-Hans-CN:
+  home:
+    sort:
+      sortBy(OUTDATED): Sort by
+      nameAToZ(OUTDATED): Name (A-Z)
+      nameZToA(OUTDATED): Name (Z-A)
+      lastModifiedNewToOld(OUTDATED): Edited (Newest first)
+      lastModifiedOldToNew(OUTDATED): Edited (Oldest first)
+    layout:
+      layout(OUTDATED): Layout
+      masonryGrid(OUTDATED): Masonry grid
+      simpleGrid(OUTDATED): Simple grid
 zh-Hant-TW:
+  home:
+    sort:
+      sortBy(OUTDATED): Sort by
+      nameAToZ(OUTDATED): Name (A-Z)
+      nameZToA(OUTDATED): Name (Z-A)
+      lastModifiedNewToOld(OUTDATED): Edited (Newest first)
+      lastModifiedOldToNew(OUTDATED): Edited (Oldest first)
+    layout:
+      layout(OUTDATED): Layout
+      masonryGrid(OUTDATED): Masonry grid
+      simpleGrid(OUTDATED): Simple grid

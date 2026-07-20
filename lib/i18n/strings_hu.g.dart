@@ -81,6 +81,8 @@ class _Translations$home$hu extends Translations$home$en {
 	@override late final _Translations$home$deleteNoteDialog$hu deleteNoteDialog = _Translations$home$deleteNoteDialog$hu._(_root);
 	@override late final _Translations$home$renameFolder$hu renameFolder = _Translations$home$renameFolder$hu._(_root);
 	@override late final _Translations$home$deleteFolder$hu deleteFolder = _Translations$home$deleteFolder$hu._(_root);
+	@override late final _Translations$home$sort$hu sort = _Translations$home$sort$hu._(_root);
+	@override late final _Translations$home$layout$hu layout = _Translations$home$layout$hu._(_root);
 }
 
 // Path: sentry
@@ -370,6 +372,32 @@ class _Translations$home$deleteFolder$hu extends Translations$home$deleteFolder$
 	@override String get alsoDeleteContents => 'A mappában lévő összes jegyzet is törlődjön';
 }
 
+// Path: home.sort
+class _Translations$home$sort$hu extends Translations$home$sort$en {
+	_Translations$home$sort$hu._(TranslationsHu root) : this._root = root, super.internal(root);
+
+	final TranslationsHu _root; // ignore: unused_field
+
+	// Translations
+	@override String get sortBy => 'Rendezés szerint';
+	@override String get nameAToZ => 'Név (A-Z)';
+	@override String get nameZToA => 'Név (A-Z)';
+	@override String get lastModifiedNewToOld => 'Szerkesztett (Legújabb előre)';
+	@override String get lastModifiedOldToNew => 'Szerkesztett (Időrendben: legidősebb először)';
+}
+
+// Path: home.layout
+class _Translations$home$layout$hu extends Translations$home$layout$en {
+	_Translations$home$layout$hu._(TranslationsHu root) : this._root = root, super.internal(root);
+
+	final TranslationsHu _root; // ignore: unused_field
+
+	// Translations
+	@override String get layout => 'Elrendezés';
+	@override String get masonryGrid => 'Murvai rács';
+	@override String get simpleGrid => 'Egyszerű rács';
+}
+
 // Path: sentry.consent
 class _Translations$sentry$consent$hu extends Translations$sentry$consent$en {
 	_Translations$sentry$consent$hu._(TranslationsHu root) : this._root = root, super.internal(root);
@@ -428,7 +456,6 @@ class _Translations$settings$prefLabels$hu extends Translations$settings$prefLab
 	@override String get autosave => 'Automatikus mentés';
 	@override String get shapeRecognitionDelay => 'Alakfelismerés késleltetése';
 	@override String get autoStraightenLines => 'Vonalak automatikus kiegyenesítése';
-	@override String get simplifiedHomeLayout => 'Egyszerűsített kezdőlap elrendezés';
 	@override String get customDataDir => 'Egyéni Saber mappa';
 	@override String get sentry => 'Hibajelentés';
 }
@@ -453,7 +480,6 @@ class _Translations$settings$prefDescriptions$hu extends Translations$settings$p
 	@override String get autosave => 'Automatikus mentés rövid idő után, vagy soha';
 	@override String get shapeRecognitionDelay => 'Milyen gyakran frissüljön az alakzat előnézete';
 	@override String get autoStraightenLines => 'Automatikusan kiegyenesíti a hosszú vonalakat anélkül, hogy az alakzat tollat kellene használni';
-	@override String get simplifiedHomeLayout => 'Rögzített magasságot állít be minden jegyzet előnézetéhez';
 	@override String get shouldAlwaysAlertForUpdates => 'Értesítsen a frissítésekről, amint elérhetővé válnak';
 	@override late final _Translations$settings$prefDescriptions$sentry$hu sentry = _Translations$settings$prefDescriptions$sentry$hu._(_root);
 }

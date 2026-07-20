@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:archive/archive_io.dart';
+import 'package:collection/collection.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/foundation.dart';
@@ -11,6 +12,7 @@ import 'package:logging/logging.dart';
 import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:saber/components/home/sort_button.dart';
 import 'package:saber/data/nextcloud/saber_syncer.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
@@ -560,6 +562,7 @@ class FileManager {
     String directory, {
     bool includeExtensions = false,
     bool includeAssets = false,
+    SortMetric sortMetric = .nameAToZ,
   }) async {
     assert(
       !includeAssets || includeExtensions,
@@ -569,7 +572,6 @@ class FileManager {
     directory = _sanitisePath(directory);
     if (!directory.endsWith('/')) directory += '/';
 
-    final Iterable<String> allChildren;
     final List<String> directories = [], files = [];
 
     final dir = Directory(documentsDirectory + directory);
@@ -578,7 +580,7 @@ class FileManager {
     final int directoryPrefixLength = directory.endsWith('/')
         ? directory.length
         : directory.length + 1; // +1 for the trailing slash
-    allChildren = await dir
+    final allChildren = await dir
         .list()
         .map((FileSystemEntity entity) {
           final filePath = entity.path.substring(documentsDirectory.length);
@@ -618,18 +620,35 @@ class FileManager {
         .map((file) => file!.substring(directoryPrefixLength))
         .toList();
 
-    await Future.wait(
-      allChildren.map((child) async {
-        if (FileManager.isDirectory(directory + child) &&
-            !directories.contains(child)) {
-          directories.add(child);
-        } else if (!includeAssets && assetFileRegex.hasMatch(child)) {
-          // if the file is an asset, don't add it to the list of files
-        } else {
-          files.add(child);
-        }
-      }),
-    );
+    for (final child in allChildren) {
+      if (FileManager.isDirectory(directory + child) &&
+          !directories.contains(child)) {
+        directories.add(child);
+      } else if (!includeAssets && assetFileRegex.hasMatch(child)) {
+        // if the file is an asset, don't add it to the list of files
+      } else {
+        files.add(child);
+      }
+    }
+
+    switch (sortMetric) {
+      case .nameAToZ:
+        files.sortBy((child) => child);
+      case .nameZToA:
+        files.sortByCompare(
+          (child) => child,
+          (child, other) => -child.compareTo(other),
+        );
+      case .lastModifiedNewToOld:
+        files.sortByCompare(
+          (child) => lastModified(directory + child + Editor.extension),
+          (date, other) => -date.compareTo(other),
+        );
+      case .lastModifiedOldToNew:
+        files.sortBy(
+          (child) => lastModified(directory + child + Editor.extension),
+        );
+    }
 
     return DirectoryChildren(directories, files);
   }
@@ -709,6 +728,7 @@ class FileManager {
   static DateTime lastModified(String filePath) {
     filePath = _sanitisePath(filePath);
     final file = getFile(filePath);
+    if (!file.existsSync()) return DateTime(2023);
     return file.lastModifiedSync();
   }
 

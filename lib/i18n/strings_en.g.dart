@@ -105,6 +105,8 @@ class Translations$home$en {
 	late final Translations$home$deleteNoteDialog$en deleteNoteDialog = Translations$home$deleteNoteDialog$en.internal(_root);
 	late final Translations$home$renameFolder$en renameFolder = Translations$home$renameFolder$en.internal(_root);
 	late final Translations$home$deleteFolder$en deleteFolder = Translations$home$deleteFolder$en.internal(_root);
+	late final Translations$home$sort$en sort = Translations$home$sort$en.internal(_root);
+	late final Translations$home$layout$en layout = Translations$home$layout$en.internal(_root);
 }
 
 // Path: sentry
@@ -557,6 +559,48 @@ class Translations$home$deleteFolder$en {
 	String get alsoDeleteContents => 'Also delete all notes inside this folder';
 }
 
+// Path: home.sort
+class Translations$home$sort$en {
+	Translations$home$sort$en.internal(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+
+	/// en: 'Sort by'
+	String get sortBy => 'Sort by';
+
+	/// en: 'Name (A-Z)'
+	String get nameAToZ => 'Name (A-Z)';
+
+	/// en: 'Name (Z-A)'
+	String get nameZToA => 'Name (Z-A)';
+
+	/// en: 'Edited (Newest first)'
+	String get lastModifiedNewToOld => 'Edited (Newest first)';
+
+	/// en: 'Edited (Oldest first)'
+	String get lastModifiedOldToNew => 'Edited (Oldest first)';
+}
+
+// Path: home.layout
+class Translations$home$layout$en {
+	Translations$home$layout$en.internal(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+
+	/// en: 'Layout'
+	String get layout => 'Layout';
+
+	/// en: 'Masonry grid'
+	String get masonryGrid => 'Masonry grid';
+
+	/// en: 'Simple grid'
+	String get simpleGrid => 'Simple grid';
+}
+
 // Path: sentry.consent
 class Translations$sentry$consent$en {
 	Translations$sentry$consent$en.internal(this._root);
@@ -685,9 +729,6 @@ class Translations$settings$prefLabels$en {
 	/// en: 'Auto straighten lines'
 	String get autoStraightenLines => 'Auto straighten lines';
 
-	/// en: 'Simplified home layout'
-	String get simplifiedHomeLayout => 'Simplified home layout';
-
 	/// en: 'Custom Saber folder'
 	String get customDataDir => 'Custom Saber folder';
 
@@ -740,9 +781,6 @@ class Translations$settings$prefDescriptions$en {
 
 	/// en: 'Straightens long lines without having to use the shape pen'
 	String get autoStraightenLines => 'Straightens long lines without having to use the shape pen';
-
-	/// en: 'Sets a fixed height for each note preview'
-	String get simplifiedHomeLayout => 'Sets a fixed height for each note preview';
 
 	/// en: 'Tell me about updates as soon as they're available'
 	String get shouldAlwaysAlertForUpdates => 'Tell me about updates as soon as they\'re available';

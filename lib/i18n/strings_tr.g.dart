@@ -80,6 +80,8 @@ class _Translations$home$tr extends Translations$home$en {
 	@override late final _Translations$home$deleteNoteDialog$tr deleteNoteDialog = _Translations$home$deleteNoteDialog$tr._(_root);
 	@override late final _Translations$home$renameFolder$tr renameFolder = _Translations$home$renameFolder$tr._(_root);
 	@override late final _Translations$home$deleteFolder$tr deleteFolder = _Translations$home$deleteFolder$tr._(_root);
+	@override late final _Translations$home$sort$tr sort = _Translations$home$sort$tr._(_root);
+	@override late final _Translations$home$layout$tr layout = _Translations$home$layout$tr._(_root);
 	@override String get noPreviewAvailable => 'Önizleme yok';
 }
 
@@ -370,6 +372,32 @@ class _Translations$home$deleteFolder$tr extends Translations$home$deleteFolder$
 	@override String get alsoDeleteContents => 'Bu klasördeki tüm notları da sil';
 }
 
+// Path: home.sort
+class _Translations$home$sort$tr extends Translations$home$sort$en {
+	_Translations$home$sort$tr._(TranslationsTr root) : this._root = root, super.internal(root);
+
+	final TranslationsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String get sortBy => 'Sırala';
+	@override String get nameAToZ => 'Adı (A-Z)';
+	@override String get nameZToA => 'Adı (A\'dan Z\'ye)';
+	@override String get lastModifiedNewToOld => 'Düzenlendi (En yeni ilk sırada)';
+	@override String get lastModifiedOldToNew => 'Düzenlendi (En eskiden önce)';
+}
+
+// Path: home.layout
+class _Translations$home$layout$tr extends Translations$home$layout$en {
+	_Translations$home$layout$tr._(TranslationsTr root) : this._root = root, super.internal(root);
+
+	final TranslationsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String get layout => 'Düzen';
+	@override String get masonryGrid => 'Duvar örgü ızgarası';
+	@override String get simpleGrid => 'Basit ızgara';
+}
+
 // Path: sentry.consent
 class _Translations$sentry$consent$tr extends Translations$sentry$consent$en {
 	_Translations$sentry$consent$tr._(TranslationsTr root) : this._root = root, super.internal(root);
@@ -426,7 +454,6 @@ class _Translations$settings$prefLabels$tr extends Translations$settings$prefLab
 	@override String get printPageIndicators => 'Sayfa belirteçlerini yazdır';
 	@override String get shapeRecognitionDelay => 'Şekil tanıma gecikmesi';
 	@override String get autoStraightenLines => 'Çizgileri otomatik düzleştir';
-	@override String get simplifiedHomeLayout => 'Sadeleştirilmiş ana ekran düzeni';
 	@override String get customDataDir => 'Özel Saber klasörü';
 	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Parmak çizimini otomatik olarak devre dışı bırak';
 	@override String get sentry => 'Hata raporlama';
@@ -451,7 +478,6 @@ class _Translations$settings$prefDescriptions$tr extends Translations$settings$p
 	@override String get printPageIndicators => 'Çıktılarda sayfa belirteçlerini göster';
 	@override String get shapeRecognitionDelay => 'Çizilen şekilleri tanımlama sıklığını belirler';
 	@override String get autoStraightenLines => 'Şekil aracını kullanmadığınızda da çizgileri düzleştirir';
-	@override String get simplifiedHomeLayout => 'Not önizlemelerinin uzunluklarını eşitler';
 	@override String get shouldAlwaysAlertForUpdates => 'Güncelleme mevcut olduğu gibi bana haber ver';
 	@override late final _Translations$settings$prefDescriptions$sentry$tr sentry = _Translations$settings$prefDescriptions$sentry$tr._(_root);
 	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Bir kalem algılandığında parmakla çizimi kapatın';

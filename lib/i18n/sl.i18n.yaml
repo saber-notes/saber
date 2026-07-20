@@ -69,6 +69,16 @@ home:
     deleteName: Izbriši $f
     delete: Izbriši
     alsoDeleteContents: Izbriši tudi vse zapiske v tej mapi
+  sort:
+    sortBy(OUTDATED): Razvrsti po
+    nameAToZ(OUTDATED): Ime (A-Ž)
+    nameZToA(OUTDATED): Ime (od A do Z)
+    lastModifiedNewToOld(OUTDATED): Uredite (Najnovejše prvé)
+    lastModifiedOldToNew(OUTDATED): Uredite (Najstarejši prvý)
+  layout:
+    layout(OUTDATED): Razpoložba
+    masonryGrid(OUTDATED): Mrežni sistem z mozaikom
+    simpleGrid(OUTDATED): Preprosta mreža
 sentry:
   consent:
     title: Ali želiš pomagati izboljšati Saber?
@@ -115,7 +125,6 @@ settings:
     autosave: Samodejno shranjevanje
     shapeRecognitionDelay: Zakasnitev prepoznave oblik
     autoStraightenLines: Samodejno poravnaj črte
-    simplifiedHomeLayout: Poenostavljena postavitev domače strani
     customDataDir: Mapa Saber po meri
     sentry: Poročanje o napakah
   prefDescriptions:
@@ -135,7 +144,6 @@ settings:
     autosave: Samodejno shrani po kratkem zamiku ali nikoli
     shapeRecognitionDelay: Kako pogosto posodobiti predogled oblike
     autoStraightenLines: Poravna dolge črte brez uporabe pisala za oblike
-    simplifiedHomeLayout: Nastavi fiksno višino za vsak predogled zapiska
     shouldAlwaysAlertForUpdates: Obvesti me o posodobitvah takoj, ko so na voljo
     sentry:
       active: Aktivno

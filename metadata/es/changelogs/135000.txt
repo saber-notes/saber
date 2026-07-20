@@ -1,0 +1,3 @@
+• La página de navegación ahora está ordenada alfabéticamente por defecto. Puedes personalizar la ordenación con el botón en la parte superior.
+• Se corrigió un fallo en ciertos dispositivos Android.
+• Se eliminó la funcionalidad de deslizar hacia arriba para actualizar porque era confusa.
