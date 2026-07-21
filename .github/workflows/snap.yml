@@ -9,7 +9,13 @@ on:
 
 jobs:
   build-snap:
-    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        arch:
+          - runs-on: ubuntu-latest
+          - runs-on: ubuntu-24.04-arm
+    runs-on: ${{ matrix.arch.runs-on }}
     timeout-minutes: 59
     steps:
       - name: Checkout code
