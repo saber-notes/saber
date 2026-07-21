@@ -157,6 +157,9 @@ class Translations$settings$en {
 
 	/// en: 'Never'
 	String get shapeRecognitionDisabled => 'Never';
+
+	/// en: 'None'
+	String get applePencilGestureActionNone => 'None';
 }
 
 // Path: logs
@@ -698,6 +701,12 @@ class Translations$settings$prefLabels$en {
 
 	/// en: 'Auto-disable finger drawing'
 	String get autoDisableFingerDrawingWhenStylusDetected => 'Auto-disable finger drawing';
+
+	/// en: 'Apple Pencil double tap'
+	String get applePencilDoubleTap => 'Apple Pencil double tap';
+
+	/// en: 'Apple Pencil squeeze'
+	String get applePencilSqueeze => 'Apple Pencil squeeze';
 
 	/// en: 'Prompt you to rename new notes'
 	String get editorPromptRename => 'Prompt you to rename new notes';

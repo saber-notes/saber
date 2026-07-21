@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:collapsible/collapsible.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_quill/flutter_quill.dart';
@@ -44,6 +45,7 @@ class Toolbar extends StatefulWidget {
     required this.redo,
     required this.isRedoPossible,
     required this.toggleFingerDrawing,
+    required this.toggleColorOptionsSignal,
     required this.pickPhoto,
     required this.paste,
     required this.duplicateSelection,
@@ -69,6 +71,7 @@ class Toolbar extends StatefulWidget {
   final bool isRedoPossible;
 
   final VoidCallback toggleFingerDrawing;
+  final ValueListenable<int> toggleColorOptionsSignal;
 
   final VoidCallback pickPhoto;
 
@@ -96,10 +99,23 @@ class _ToolbarState extends State<Toolbar> {
   @override
   void initState() {
     _assignKeybindings();
+    widget.toggleColorOptionsSignal.addListener(toggleColorOptions);
 
     DynamicMaterialApp.addFullscreenListener(_setState);
 
     super.initState();
+  }
+
+  @override
+  void didUpdateWidget(covariant Toolbar oldWidget) {
+    super.didUpdateWidget(oldWidget);
+
+    if (oldWidget.toggleColorOptionsSignal == widget.toggleColorOptionsSignal) {
+      return;
+    }
+
+    oldWidget.toggleColorOptionsSignal.removeListener(toggleColorOptions);
+    widget.toggleColorOptionsSignal.addListener(toggleColorOptions);
   }
 
   void _setState() => setState(() {});
@@ -575,6 +591,7 @@ class _ToolbarState extends State<Toolbar> {
     DynamicMaterialApp.removeFullscreenListener(_setState);
     DynamicMaterialApp.setFullscreen(false, updateSystem: true);
 
+    widget.toggleColorOptionsSignal.removeListener(toggleColorOptions);
     _removeKeybindings();
     super.dispose();
   }
