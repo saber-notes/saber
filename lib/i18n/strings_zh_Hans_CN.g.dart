@@ -33,21 +33,21 @@ class TranslationsZhHansCn extends Translations with BaseTranslations<AppLocale,
 	TranslationsZhHansCn $copyWith({TranslationMetadata<AppLocale, Translations>? meta}) => TranslationsZhHansCn(meta: meta ?? this.$meta);
 
 	// Translations
-	@override late final _TranslationsCommonZhHansCn common = _TranslationsCommonZhHansCn._(_root);
-	@override late final _TranslationsHomeZhHansCn home = _TranslationsHomeZhHansCn._(_root);
-	@override late final _TranslationsSentryZhHansCn sentry = _TranslationsSentryZhHansCn._(_root);
-	@override late final _TranslationsSettingsZhHansCn settings = _TranslationsSettingsZhHansCn._(_root);
-	@override late final _TranslationsLogsZhHansCn logs = _TranslationsLogsZhHansCn._(_root);
-	@override late final _TranslationsLoginZhHansCn login = _TranslationsLoginZhHansCn._(_root);
-	@override late final _TranslationsProfileZhHansCn profile = _TranslationsProfileZhHansCn._(_root);
-	@override late final _TranslationsAppInfoZhHansCn appInfo = _TranslationsAppInfoZhHansCn._(_root);
-	@override late final _TranslationsUpdateZhHansCn update = _TranslationsUpdateZhHansCn._(_root);
-	@override late final _TranslationsEditorZhHansCn editor = _TranslationsEditorZhHansCn._(_root);
+	@override late final Translations$common$zh_Hans_CN common = Translations$common$zh_Hans_CN.internal(_root);
+	@override late final Translations$home$zh_Hans_CN home = Translations$home$zh_Hans_CN.internal(_root);
+	@override late final Translations$sentry$zh_Hans_CN sentry = Translations$sentry$zh_Hans_CN.internal(_root);
+	@override late final Translations$settings$zh_Hans_CN settings = Translations$settings$zh_Hans_CN.internal(_root);
+	@override late final Translations$logs$zh_Hans_CN logs = Translations$logs$zh_Hans_CN.internal(_root);
+	@override late final Translations$login$zh_Hans_CN login = Translations$login$zh_Hans_CN.internal(_root);
+	@override late final Translations$profile$zh_Hans_CN profile = Translations$profile$zh_Hans_CN.internal(_root);
+	@override late final Translations$appInfo$zh_Hans_CN appInfo = Translations$appInfo$zh_Hans_CN.internal(_root);
+	@override late final Translations$update$zh_Hans_CN update = Translations$update$zh_Hans_CN.internal(_root);
+	@override late final Translations$editor$zh_Hans_CN editor = Translations$editor$zh_Hans_CN.internal(_root);
 }
 
 // Path: common
-class _TranslationsCommonZhHansCn extends TranslationsCommonEn {
-	_TranslationsCommonZhHansCn._(TranslationsZhHansCn root) : this._root = root, super.internal(root);
+class Translations$common$zh_Hans_CN extends Translations$common$en {
+	Translations$common$zh_Hans_CN.internal(TranslationsZhHansCn root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHansCn _root; // ignore: unused_field
 
@@ -58,54 +58,56 @@ class _TranslationsCommonZhHansCn extends TranslationsCommonEn {
 }
 
 // Path: home
-class _TranslationsHomeZhHansCn extends TranslationsHomeEn {
-	_TranslationsHomeZhHansCn._(TranslationsZhHansCn root) : this._root = root, super.internal(root);
+class Translations$home$zh_Hans_CN extends Translations$home$en {
+	Translations$home$zh_Hans_CN.internal(TranslationsZhHansCn root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHansCn _root; // ignore: unused_field
 
 	// Translations
-	@override late final _TranslationsHomeTabsZhHansCn tabs = _TranslationsHomeTabsZhHansCn._(_root);
-	@override late final _TranslationsHomeTitlesZhHansCn titles = _TranslationsHomeTitlesZhHansCn._(_root);
-	@override late final _TranslationsHomeTooltipsZhHansCn tooltips = _TranslationsHomeTooltipsZhHansCn._(_root);
-	@override late final _TranslationsHomeCreateZhHansCn create = _TranslationsHomeCreateZhHansCn._(_root);
+	@override late final Translations$home$tabs$zh_Hans_CN tabs = Translations$home$tabs$zh_Hans_CN.internal(_root);
+	@override late final Translations$home$titles$zh_Hans_CN titles = Translations$home$titles$zh_Hans_CN.internal(_root);
+	@override late final Translations$home$tooltips$zh_Hans_CN tooltips = Translations$home$tooltips$zh_Hans_CN.internal(_root);
+	@override late final Translations$home$create$zh_Hans_CN create = Translations$home$create$zh_Hans_CN.internal(_root);
 	@override String get welcome => '欢迎使用 Saber';
 	@override String get invalidFormat => '不支持该文件。请选择 .sbn、.sbn2、.sba 或 .pdf 文件。';
 	@override String get noFiles => '未找到文件';
 	@override String get noPreviewAvailable => '无可用预览';
 	@override String get createNewNote => '点击 + 按钮新建一个笔记';
 	@override String get backFolder => '回到上一个文件夹';
-	@override late final _TranslationsHomeNewFolderZhHansCn newFolder = _TranslationsHomeNewFolderZhHansCn._(_root);
-	@override late final _TranslationsHomeRenameNoteZhHansCn renameNote = _TranslationsHomeRenameNoteZhHansCn._(_root);
-	@override late final _TranslationsHomeMoveNoteZhHansCn moveNote = _TranslationsHomeMoveNoteZhHansCn._(_root);
+	@override late final Translations$home$newFolder$zh_Hans_CN newFolder = Translations$home$newFolder$zh_Hans_CN.internal(_root);
+	@override late final Translations$home$renameNote$zh_Hans_CN renameNote = Translations$home$renameNote$zh_Hans_CN.internal(_root);
+	@override late final Translations$home$moveNote$zh_Hans_CN moveNote = Translations$home$moveNote$zh_Hans_CN.internal(_root);
 	@override String get deleteNote => '删除笔记';
-	@override late final _TranslationsHomeDeleteNoteDialogZhHansCn deleteNoteDialog = _TranslationsHomeDeleteNoteDialogZhHansCn._(_root);
-	@override late final _TranslationsHomeRenameFolderZhHansCn renameFolder = _TranslationsHomeRenameFolderZhHansCn._(_root);
-	@override late final _TranslationsHomeDeleteFolderZhHansCn deleteFolder = _TranslationsHomeDeleteFolderZhHansCn._(_root);
+	@override late final Translations$home$deleteNoteDialog$zh_Hans_CN deleteNoteDialog = Translations$home$deleteNoteDialog$zh_Hans_CN.internal(_root);
+	@override late final Translations$home$renameFolder$zh_Hans_CN renameFolder = Translations$home$renameFolder$zh_Hans_CN.internal(_root);
+	@override late final Translations$home$deleteFolder$zh_Hans_CN deleteFolder = Translations$home$deleteFolder$zh_Hans_CN.internal(_root);
+	@override late final Translations$home$sort$zh_Hans_CN sort = Translations$home$sort$zh_Hans_CN.internal(_root);
+	@override late final Translations$home$layout$zh_Hans_CN layout = Translations$home$layout$zh_Hans_CN.internal(_root);
 }
 
 // Path: sentry
-class _TranslationsSentryZhHansCn extends TranslationsSentryEn {
-	_TranslationsSentryZhHansCn._(TranslationsZhHansCn root) : this._root = root, super.internal(root);
+class Translations$sentry$zh_Hans_CN extends Translations$sentry$en {
+	Translations$sentry$zh_Hans_CN.internal(TranslationsZhHansCn root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHansCn _root; // ignore: unused_field
 
 	// Translations
-	@override late final _TranslationsSentryConsentZhHansCn consent = _TranslationsSentryConsentZhHansCn._(_root);
+	@override late final Translations$sentry$consent$zh_Hans_CN consent = Translations$sentry$consent$zh_Hans_CN.internal(_root);
 }
 
 // Path: settings
-class _TranslationsSettingsZhHansCn extends TranslationsSettingsEn {
-	_TranslationsSettingsZhHansCn._(TranslationsZhHansCn root) : this._root = root, super.internal(root);
+class Translations$settings$zh_Hans_CN extends Translations$settings$en {
+	Translations$settings$zh_Hans_CN.internal(TranslationsZhHansCn root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHansCn _root; // ignore: unused_field
 
 	// Translations
-	@override late final _TranslationsSettingsPrefCategoriesZhHansCn prefCategories = _TranslationsSettingsPrefCategoriesZhHansCn._(_root);
-	@override late final _TranslationsSettingsPrefLabelsZhHansCn prefLabels = _TranslationsSettingsPrefLabelsZhHansCn._(_root);
-	@override late final _TranslationsSettingsPrefDescriptionsZhHansCn prefDescriptions = _TranslationsSettingsPrefDescriptionsZhHansCn._(_root);
-	@override late final _TranslationsSettingsThemeModesZhHansCn themeModes = _TranslationsSettingsThemeModesZhHansCn._(_root);
-	@override late final _TranslationsSettingsLayoutSizesZhHansCn layoutSizes = _TranslationsSettingsLayoutSizesZhHansCn._(_root);
-	@override late final _TranslationsSettingsAccentColorPickerZhHansCn accentColorPicker = _TranslationsSettingsAccentColorPickerZhHansCn._(_root);
+	@override late final Translations$settings$prefCategories$zh_Hans_CN prefCategories = Translations$settings$prefCategories$zh_Hans_CN.internal(_root);
+	@override late final Translations$settings$prefLabels$zh_Hans_CN prefLabels = Translations$settings$prefLabels$zh_Hans_CN.internal(_root);
+	@override late final Translations$settings$prefDescriptions$zh_Hans_CN prefDescriptions = Translations$settings$prefDescriptions$zh_Hans_CN.internal(_root);
+	@override late final Translations$settings$themeModes$zh_Hans_CN themeModes = Translations$settings$themeModes$zh_Hans_CN.internal(_root);
+	@override late final Translations$settings$layoutSizes$zh_Hans_CN layoutSizes = Translations$settings$layoutSizes$zh_Hans_CN.internal(_root);
+	@override late final Translations$settings$accentColorPicker$zh_Hans_CN accentColorPicker = Translations$settings$accentColorPicker$zh_Hans_CN.internal(_root);
 	@override String get systemLanguage => '系统语言';
 	@override List<String> get axisDirections => [
 		'上',
@@ -113,17 +115,17 @@ class _TranslationsSettingsZhHansCn extends TranslationsSettingsEn {
 		'下',
 		'左',
 	];
-	@override late final _TranslationsSettingsResetZhHansCn reset = _TranslationsSettingsResetZhHansCn._(_root);
+	@override late final Translations$settings$reset$zh_Hans_CN reset = Translations$settings$reset$zh_Hans_CN.internal(_root);
 	@override String get resyncEverything => '重新同步所有';
 	@override String get openDataDir => '打开 Saber 文件夹';
-	@override late final _TranslationsSettingsCustomDataDirZhHansCn customDataDir = _TranslationsSettingsCustomDataDirZhHansCn._(_root);
+	@override late final Translations$settings$customDataDir$zh_Hans_CN customDataDir = Translations$settings$customDataDir$zh_Hans_CN.internal(_root);
 	@override String get autosaveDisabled => '禁用';
 	@override String get shapeRecognitionDisabled => '禁用';
 }
 
 // Path: logs
-class _TranslationsLogsZhHansCn extends TranslationsLogsEn {
-	_TranslationsLogsZhHansCn._(TranslationsZhHansCn root) : this._root = root, super.internal(root);
+class Translations$logs$zh_Hans_CN extends Translations$logs$en {
+	Translations$logs$zh_Hans_CN.internal(TranslationsZhHansCn root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHansCn _root; // ignore: unused_field
 
@@ -136,14 +138,14 @@ class _TranslationsLogsZhHansCn extends TranslationsLogsEn {
 }
 
 // Path: login
-class _TranslationsLoginZhHansCn extends TranslationsLoginEn {
-	_TranslationsLoginZhHansCn._(TranslationsZhHansCn root) : this._root = root, super.internal(root);
+class Translations$login$zh_Hans_CN extends Translations$login$en {
+	Translations$login$zh_Hans_CN.internal(TranslationsZhHansCn root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHansCn _root; // ignore: unused_field
 
 	// Translations
 	@override String get title => '登录';
-	@override late final _TranslationsLoginFormZhHansCn form = _TranslationsLoginFormZhHansCn._(_root);
+	@override late final Translations$login$form$zh_Hans_CN form = Translations$login$form$zh_Hans_CN.internal(_root);
 	@override TextSpan signup({required InlineSpanBuilder linkToSignup}) => TextSpan(children: [
 		const TextSpan(text: '还没有帐户？ '),
 		linkToSignup('立即注册'),
@@ -154,14 +156,14 @@ class _TranslationsLoginZhHansCn extends TranslationsLoginEn {
 		undoLogin('Choose another account'),
 		const TextSpan(text: '.'),
 	]);
-	@override late final _TranslationsLoginStatusZhHansCn status = _TranslationsLoginStatusZhHansCn._(_root);
-	@override late final _TranslationsLoginNcLoginStepZhHansCn ncLoginStep = _TranslationsLoginNcLoginStepZhHansCn._(_root);
-	@override late final _TranslationsLoginEncLoginStepZhHansCn encLoginStep = _TranslationsLoginEncLoginStepZhHansCn._(_root);
+	@override late final Translations$login$status$zh_Hans_CN status = Translations$login$status$zh_Hans_CN.internal(_root);
+	@override late final Translations$login$ncLoginStep$zh_Hans_CN ncLoginStep = Translations$login$ncLoginStep$zh_Hans_CN.internal(_root);
+	@override late final Translations$login$encLoginStep$zh_Hans_CN encLoginStep = Translations$login$encLoginStep$zh_Hans_CN.internal(_root);
 }
 
 // Path: profile
-class _TranslationsProfileZhHansCn extends TranslationsProfileEn {
-	_TranslationsProfileZhHansCn._(TranslationsZhHansCn root) : this._root = root, super.internal(root);
+class Translations$profile$zh_Hans_CN extends Translations$profile$en {
+	Translations$profile$zh_Hans_CN.internal(TranslationsZhHansCn root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHansCn _root; // ignore: unused_field
 
@@ -170,19 +172,19 @@ class _TranslationsProfileZhHansCn extends TranslationsProfileEn {
 	@override String get logout => '注销';
 	@override String quotaUsage({required Object used, required Object total, required Object percent}) => '您已使用 ${used}，共 ${total}（${percent}%）';
 	@override String get connectedTo => '连接到';
-	@override late final _TranslationsProfileQuickLinksZhHansCn quickLinks = _TranslationsProfileQuickLinksZhHansCn._(_root);
+	@override late final Translations$profile$quickLinks$zh_Hans_CN quickLinks = Translations$profile$quickLinks$zh_Hans_CN.internal(_root);
 	@override String get faqTitle => '常见问题解答';
 	@override List<dynamic> get faq => [
-		_TranslationsProfile$faq$0i0$ZhHansCn._(_root),
-		_TranslationsProfile$faq$0i1$ZhHansCn._(_root),
-		_TranslationsProfile$faq$0i2$ZhHansCn._(_root),
-		_TranslationsProfile$faq$0i3$ZhHansCn._(_root),
+		Translations$profile$faq$0$zh_Hans_CN.internal(_root),
+		Translations$profile$faq$1$zh_Hans_CN.internal(_root),
+		Translations$profile$faq$2$zh_Hans_CN.internal(_root),
+		Translations$profile$faq$3$zh_Hans_CN.internal(_root),
 	];
 }
 
 // Path: appInfo
-class _TranslationsAppInfoZhHansCn extends TranslationsAppInfoEn {
-	_TranslationsAppInfoZhHansCn._(TranslationsZhHansCn root) : this._root = root, super.internal(root);
+class Translations$appInfo$zh_Hans_CN extends Translations$appInfo$en {
+	Translations$appInfo$zh_Hans_CN.internal(TranslationsZhHansCn root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHansCn _root; // ignore: unused_field
 
@@ -195,8 +197,8 @@ class _TranslationsAppInfoZhHansCn extends TranslationsAppInfoEn {
 }
 
 // Path: update
-class _TranslationsUpdateZhHansCn extends TranslationsUpdateEn {
-	_TranslationsUpdateZhHansCn._(TranslationsZhHansCn root) : this._root = root, super.internal(root);
+class Translations$update$zh_Hans_CN extends Translations$update$en {
+	Translations$update$zh_Hans_CN.internal(TranslationsZhHansCn root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHansCn _root; // ignore: unused_field
 
@@ -208,31 +210,31 @@ class _TranslationsUpdateZhHansCn extends TranslationsUpdateEn {
 }
 
 // Path: editor
-class _TranslationsEditorZhHansCn extends TranslationsEditorEn {
-	_TranslationsEditorZhHansCn._(TranslationsZhHansCn root) : this._root = root, super.internal(root);
+class Translations$editor$zh_Hans_CN extends Translations$editor$en {
+	Translations$editor$zh_Hans_CN.internal(TranslationsZhHansCn root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHansCn _root; // ignore: unused_field
 
 	// Translations
-	@override late final _TranslationsEditorToolbarZhHansCn toolbar = _TranslationsEditorToolbarZhHansCn._(_root);
-	@override late final _TranslationsEditorPensZhHansCn pens = _TranslationsEditorPensZhHansCn._(_root);
-	@override late final _TranslationsEditorPenOptionsZhHansCn penOptions = _TranslationsEditorPenOptionsZhHansCn._(_root);
-	@override late final _TranslationsEditorColorsZhHansCn colors = _TranslationsEditorColorsZhHansCn._(_root);
-	@override late final _TranslationsEditorImageOptionsZhHansCn imageOptions = _TranslationsEditorImageOptionsZhHansCn._(_root);
-	@override late final _TranslationsEditorSelectionBarZhHansCn selectionBar = _TranslationsEditorSelectionBarZhHansCn._(_root);
-	@override late final _TranslationsEditorMenuZhHansCn menu = _TranslationsEditorMenuZhHansCn._(_root);
-	@override late final _TranslationsEditorReadOnlyBannerZhHansCn readOnlyBanner = _TranslationsEditorReadOnlyBannerZhHansCn._(_root);
-	@override late final _TranslationsEditorVersionTooNewZhHansCn versionTooNew = _TranslationsEditorVersionTooNewZhHansCn._(_root);
-	@override late final _TranslationsEditorQuillZhHansCn quill = _TranslationsEditorQuillZhHansCn._(_root);
-	@override late final _TranslationsEditorHudZhHansCn hud = _TranslationsEditorHudZhHansCn._(_root);
+	@override late final Translations$editor$toolbar$zh_Hans_CN toolbar = Translations$editor$toolbar$zh_Hans_CN.internal(_root);
+	@override late final Translations$editor$pens$zh_Hans_CN pens = Translations$editor$pens$zh_Hans_CN.internal(_root);
+	@override late final Translations$editor$penOptions$zh_Hans_CN penOptions = Translations$editor$penOptions$zh_Hans_CN.internal(_root);
+	@override late final Translations$editor$colors$zh_Hans_CN colors = Translations$editor$colors$zh_Hans_CN.internal(_root);
+	@override late final Translations$editor$imageOptions$zh_Hans_CN imageOptions = Translations$editor$imageOptions$zh_Hans_CN.internal(_root);
+	@override late final Translations$editor$selectionBar$zh_Hans_CN selectionBar = Translations$editor$selectionBar$zh_Hans_CN.internal(_root);
+	@override late final Translations$editor$menu$zh_Hans_CN menu = Translations$editor$menu$zh_Hans_CN.internal(_root);
+	@override late final Translations$editor$readOnlyBanner$zh_Hans_CN readOnlyBanner = Translations$editor$readOnlyBanner$zh_Hans_CN.internal(_root);
+	@override late final Translations$editor$versionTooNew$zh_Hans_CN versionTooNew = Translations$editor$versionTooNew$zh_Hans_CN.internal(_root);
+	@override late final Translations$editor$quill$zh_Hans_CN quill = Translations$editor$quill$zh_Hans_CN.internal(_root);
+	@override late final Translations$editor$hud$zh_Hans_CN hud = Translations$editor$hud$zh_Hans_CN.internal(_root);
 	@override String get pages => '页面';
 	@override String get untitled => '未命名';
 	@override String get needsToSaveBeforeExiting => '正在保存您的更改... 完成后您可以安全地退出编辑器';
 }
 
 // Path: home.tabs
-class _TranslationsHomeTabsZhHansCn extends TranslationsHomeTabsEn {
-	_TranslationsHomeTabsZhHansCn._(TranslationsZhHansCn root) : this._root = root, super.internal(root);
+class Translations$home$tabs$zh_Hans_CN extends Translations$home$tabs$en {
+	Translations$home$tabs$zh_Hans_CN.internal(TranslationsZhHansCn root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHansCn _root; // ignore: unused_field
 
@@ -244,8 +246,8 @@ class _TranslationsHomeTabsZhHansCn extends TranslationsHomeTabsEn {
 }
 
 // Path: home.titles
-class _TranslationsHomeTitlesZhHansCn extends TranslationsHomeTitlesEn {
-	_TranslationsHomeTitlesZhHansCn._(TranslationsZhHansCn root) : this._root = root, super.internal(root);
+class Translations$home$titles$zh_Hans_CN extends Translations$home$titles$en {
+	Translations$home$titles$zh_Hans_CN.internal(TranslationsZhHansCn root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHansCn _root; // ignore: unused_field
 
@@ -257,8 +259,8 @@ class _TranslationsHomeTitlesZhHansCn extends TranslationsHomeTitlesEn {
 }
 
 // Path: home.tooltips
-class _TranslationsHomeTooltipsZhHansCn extends TranslationsHomeTooltipsEn {
-	_TranslationsHomeTooltipsZhHansCn._(TranslationsZhHansCn root) : this._root = root, super.internal(root);
+class Translations$home$tooltips$zh_Hans_CN extends Translations$home$tooltips$en {
+	Translations$home$tooltips$zh_Hans_CN.internal(TranslationsZhHansCn root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHansCn _root; // ignore: unused_field
 
@@ -269,8 +271,8 @@ class _TranslationsHomeTooltipsZhHansCn extends TranslationsHomeTooltipsEn {
 }
 
 // Path: home.create
-class _TranslationsHomeCreateZhHansCn extends TranslationsHomeCreateEn {
-	_TranslationsHomeCreateZhHansCn._(TranslationsZhHansCn root) : this._root = root, super.internal(root);
+class Translations$home$create$zh_Hans_CN extends Translations$home$create$en {
+	Translations$home$create$zh_Hans_CN.internal(TranslationsZhHansCn root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHansCn _root; // ignore: unused_field
 
@@ -280,8 +282,8 @@ class _TranslationsHomeCreateZhHansCn extends TranslationsHomeCreateEn {
 }
 
 // Path: home.newFolder
-class _TranslationsHomeNewFolderZhHansCn extends TranslationsHomeNewFolderEn {
-	_TranslationsHomeNewFolderZhHansCn._(TranslationsZhHansCn root) : this._root = root, super.internal(root);
+class Translations$home$newFolder$zh_Hans_CN extends Translations$home$newFolder$en {
+	Translations$home$newFolder$zh_Hans_CN.internal(TranslationsZhHansCn root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHansCn _root; // ignore: unused_field
 
@@ -295,8 +297,8 @@ class _TranslationsHomeNewFolderZhHansCn extends TranslationsHomeNewFolderEn {
 }
 
 // Path: home.renameNote
-class _TranslationsHomeRenameNoteZhHansCn extends TranslationsHomeRenameNoteEn {
-	_TranslationsHomeRenameNoteZhHansCn._(TranslationsZhHansCn root) : this._root = root, super.internal(root);
+class Translations$home$renameNote$zh_Hans_CN extends Translations$home$renameNote$en {
+	Translations$home$renameNote$zh_Hans_CN.internal(TranslationsZhHansCn root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHansCn _root; // ignore: unused_field
 
@@ -311,8 +313,8 @@ class _TranslationsHomeRenameNoteZhHansCn extends TranslationsHomeRenameNoteEn {
 }
 
 // Path: home.moveNote
-class _TranslationsHomeMoveNoteZhHansCn extends TranslationsHomeMoveNoteEn {
-	_TranslationsHomeMoveNoteZhHansCn._(TranslationsZhHansCn root) : this._root = root, super.internal(root);
+class Translations$home$moveNote$zh_Hans_CN extends Translations$home$moveNote$en {
+	Translations$home$moveNote$zh_Hans_CN.internal(TranslationsZhHansCn root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHansCn _root; // ignore: unused_field
 
@@ -327,8 +329,8 @@ class _TranslationsHomeMoveNoteZhHansCn extends TranslationsHomeMoveNoteEn {
 }
 
 // Path: home.deleteNoteDialog
-class _TranslationsHomeDeleteNoteDialogZhHansCn extends TranslationsHomeDeleteNoteDialogEn {
-	_TranslationsHomeDeleteNoteDialogZhHansCn._(TranslationsZhHansCn root) : this._root = root, super.internal(root);
+class Translations$home$deleteNoteDialog$zh_Hans_CN extends Translations$home$deleteNoteDialog$en {
+	Translations$home$deleteNoteDialog$zh_Hans_CN.internal(TranslationsZhHansCn root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHansCn _root; // ignore: unused_field
 
@@ -343,8 +345,8 @@ class _TranslationsHomeDeleteNoteDialogZhHansCn extends TranslationsHomeDeleteNo
 }
 
 // Path: home.renameFolder
-class _TranslationsHomeRenameFolderZhHansCn extends TranslationsHomeRenameFolderEn {
-	_TranslationsHomeRenameFolderZhHansCn._(TranslationsZhHansCn root) : this._root = root, super.internal(root);
+class Translations$home$renameFolder$zh_Hans_CN extends Translations$home$renameFolder$en {
+	Translations$home$renameFolder$zh_Hans_CN.internal(TranslationsZhHansCn root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHansCn _root; // ignore: unused_field
 
@@ -358,8 +360,8 @@ class _TranslationsHomeRenameFolderZhHansCn extends TranslationsHomeRenameFolder
 }
 
 // Path: home.deleteFolder
-class _TranslationsHomeDeleteFolderZhHansCn extends TranslationsHomeDeleteFolderEn {
-	_TranslationsHomeDeleteFolderZhHansCn._(TranslationsZhHansCn root) : this._root = root, super.internal(root);
+class Translations$home$deleteFolder$zh_Hans_CN extends Translations$home$deleteFolder$en {
+	Translations$home$deleteFolder$zh_Hans_CN.internal(TranslationsZhHansCn root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHansCn _root; // ignore: unused_field
 
@@ -370,21 +372,47 @@ class _TranslationsHomeDeleteFolderZhHansCn extends TranslationsHomeDeleteFolder
 	@override String get alsoDeleteContents => '同时删除此文件夹中的所有笔记';
 }
 
+// Path: home.sort
+class Translations$home$sort$zh_Hans_CN extends Translations$home$sort$en {
+	Translations$home$sort$zh_Hans_CN.internal(TranslationsZhHansCn root) : this._root = root, super.internal(root);
+
+	final TranslationsZhHansCn _root; // ignore: unused_field
+
+	// Translations
+	@override String get sortBy => '按...排序';
+	@override String get nameAToZ => '姓名（A-Z）';
+	@override String get nameZToA => '姓名（从 A 到 Z）';
+	@override String get lastModifiedNewToOld => '编辑（最新优先）';
+	@override String get lastModifiedOldToNew => '编辑（按最旧的排序）';
+}
+
+// Path: home.layout
+class Translations$home$layout$zh_Hans_CN extends Translations$home$layout$en {
+	Translations$home$layout$zh_Hans_CN.internal(TranslationsZhHansCn root) : this._root = root, super.internal(root);
+
+	final TranslationsZhHansCn _root; // ignore: unused_field
+
+	// Translations
+	@override String get layout => '布局';
+	@override String get masonryGrid => '砌体网格';
+	@override String get simpleGrid => '简单网格';
+}
+
 // Path: sentry.consent
-class _TranslationsSentryConsentZhHansCn extends TranslationsSentryConsentEn {
-	_TranslationsSentryConsentZhHansCn._(TranslationsZhHansCn root) : this._root = root, super.internal(root);
+class Translations$sentry$consent$zh_Hans_CN extends Translations$sentry$consent$en {
+	Translations$sentry$consent$zh_Hans_CN.internal(TranslationsZhHansCn root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHansCn _root; // ignore: unused_field
 
 	// Translations
 	@override String get title => '帮助改进 Saber？';
-	@override late final _TranslationsSentryConsentDescriptionZhHansCn description = _TranslationsSentryConsentDescriptionZhHansCn._(_root);
-	@override late final _TranslationsSentryConsentAnswersZhHansCn answers = _TranslationsSentryConsentAnswersZhHansCn._(_root);
+	@override late final Translations$sentry$consent$description$zh_Hans_CN description = Translations$sentry$consent$description$zh_Hans_CN.internal(_root);
+	@override late final Translations$sentry$consent$answers$zh_Hans_CN answers = Translations$sentry$consent$answers$zh_Hans_CN.internal(_root);
 }
 
 // Path: settings.prefCategories
-class _TranslationsSettingsPrefCategoriesZhHansCn extends TranslationsSettingsPrefCategoriesEn {
-	_TranslationsSettingsPrefCategoriesZhHansCn._(TranslationsZhHansCn root) : this._root = root, super.internal(root);
+class Translations$settings$prefCategories$zh_Hans_CN extends Translations$settings$prefCategories$en {
+	Translations$settings$prefCategories$zh_Hans_CN.internal(TranslationsZhHansCn root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHansCn _root; // ignore: unused_field
 
@@ -397,8 +425,8 @@ class _TranslationsSettingsPrefCategoriesZhHansCn extends TranslationsSettingsPr
 }
 
 // Path: settings.prefLabels
-class _TranslationsSettingsPrefLabelsZhHansCn extends TranslationsSettingsPrefLabelsEn {
-	_TranslationsSettingsPrefLabelsZhHansCn._(TranslationsZhHansCn root) : this._root = root, super.internal(root);
+class Translations$settings$prefLabels$zh_Hans_CN extends Translations$settings$prefLabels$en {
+	Translations$settings$prefLabels$zh_Hans_CN.internal(TranslationsZhHansCn root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHansCn _root; // ignore: unused_field
 
@@ -428,14 +456,13 @@ class _TranslationsSettingsPrefLabelsZhHansCn extends TranslationsSettingsPrefLa
 	@override String get autosave => '自动保存';
 	@override String get shapeRecognitionDelay => '形状识别延迟';
 	@override String get autoStraightenLines => '自动拉直线';
-	@override String get simplifiedHomeLayout => '简化主页布局';
 	@override String get customDataDir => '自定义 Saber 文件夹';
 	@override String get sentry => '错误报告';
 }
 
 // Path: settings.prefDescriptions
-class _TranslationsSettingsPrefDescriptionsZhHansCn extends TranslationsSettingsPrefDescriptionsEn {
-	_TranslationsSettingsPrefDescriptionsZhHansCn._(TranslationsZhHansCn root) : this._root = root, super.internal(root);
+class Translations$settings$prefDescriptions$zh_Hans_CN extends Translations$settings$prefDescriptions$en {
+	Translations$settings$prefDescriptions$zh_Hans_CN.internal(TranslationsZhHansCn root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHansCn _root; // ignore: unused_field
 
@@ -446,21 +473,20 @@ class _TranslationsSettingsPrefDescriptionsZhHansCn extends TranslationsSettings
 	@override String get autoClearWhiteboardOnExit => '这将会同步到您的其他设备';
 	@override String get disableEraserAfterUse => '使用橡皮擦后自动切换回笔';
 	@override String get maxImageSize => '更大的图片将会被压缩';
-	@override late final _TranslationsSettingsPrefDescriptionsHideFingerDrawingZhHansCn hideFingerDrawing = _TranslationsSettingsPrefDescriptionsHideFingerDrawingZhHansCn._(_root);
+	@override late final Translations$settings$prefDescriptions$hideFingerDrawing$zh_Hans_CN hideFingerDrawing = Translations$settings$prefDescriptions$hideFingerDrawing$zh_Hans_CN.internal(_root);
 	@override String get autoDisableFingerDrawingWhenStylusDetected => '当检测到手写笔时关闭手指绘图';
 	@override String get editorPromptRename => '您可以总是稍后重命名笔记';
 	@override String get printPageIndicators => '在导出中显示页码';
 	@override String get autosave => '短暂延迟后自动保存，或永不保存';
 	@override String get shapeRecognitionDelay => '形状预览更新频率';
 	@override String get autoStraightenLines => '拉直长线，无需使用形状笔';
-	@override String get simplifiedHomeLayout => '为每个笔记预览设置固定高度';
 	@override String get shouldAlwaysAlertForUpdates => '在更新可用时尽快告诉我';
-	@override late final _TranslationsSettingsPrefDescriptionsSentryZhHansCn sentry = _TranslationsSettingsPrefDescriptionsSentryZhHansCn._(_root);
+	@override late final Translations$settings$prefDescriptions$sentry$zh_Hans_CN sentry = Translations$settings$prefDescriptions$sentry$zh_Hans_CN.internal(_root);
 }
 
 // Path: settings.themeModes
-class _TranslationsSettingsThemeModesZhHansCn extends TranslationsSettingsThemeModesEn {
-	_TranslationsSettingsThemeModesZhHansCn._(TranslationsZhHansCn root) : this._root = root, super.internal(root);
+class Translations$settings$themeModes$zh_Hans_CN extends Translations$settings$themeModes$en {
+	Translations$settings$themeModes$zh_Hans_CN.internal(TranslationsZhHansCn root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHansCn _root; // ignore: unused_field
 
@@ -471,8 +497,8 @@ class _TranslationsSettingsThemeModesZhHansCn extends TranslationsSettingsThemeM
 }
 
 // Path: settings.layoutSizes
-class _TranslationsSettingsLayoutSizesZhHansCn extends TranslationsSettingsLayoutSizesEn {
-	_TranslationsSettingsLayoutSizesZhHansCn._(TranslationsZhHansCn root) : this._root = root, super.internal(root);
+class Translations$settings$layoutSizes$zh_Hans_CN extends Translations$settings$layoutSizes$en {
+	Translations$settings$layoutSizes$zh_Hans_CN.internal(TranslationsZhHansCn root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHansCn _root; // ignore: unused_field
 
@@ -483,8 +509,8 @@ class _TranslationsSettingsLayoutSizesZhHansCn extends TranslationsSettingsLayou
 }
 
 // Path: settings.accentColorPicker
-class _TranslationsSettingsAccentColorPickerZhHansCn extends TranslationsSettingsAccentColorPickerEn {
-	_TranslationsSettingsAccentColorPickerZhHansCn._(TranslationsZhHansCn root) : this._root = root, super.internal(root);
+class Translations$settings$accentColorPicker$zh_Hans_CN extends Translations$settings$accentColorPicker$en {
+	Translations$settings$accentColorPicker$zh_Hans_CN.internal(TranslationsZhHansCn root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHansCn _root; // ignore: unused_field
 
@@ -493,8 +519,8 @@ class _TranslationsSettingsAccentColorPickerZhHansCn extends TranslationsSetting
 }
 
 // Path: settings.reset
-class _TranslationsSettingsResetZhHansCn extends TranslationsSettingsResetEn {
-	_TranslationsSettingsResetZhHansCn._(TranslationsZhHansCn root) : this._root = root, super.internal(root);
+class Translations$settings$reset$zh_Hans_CN extends Translations$settings$reset$en {
+	Translations$settings$reset$zh_Hans_CN.internal(TranslationsZhHansCn root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHansCn _root; // ignore: unused_field
 
@@ -504,8 +530,8 @@ class _TranslationsSettingsResetZhHansCn extends TranslationsSettingsResetEn {
 }
 
 // Path: settings.customDataDir
-class _TranslationsSettingsCustomDataDirZhHansCn extends TranslationsSettingsCustomDataDirEn {
-	_TranslationsSettingsCustomDataDirZhHansCn._(TranslationsZhHansCn root) : this._root = root, super.internal(root);
+class Translations$settings$customDataDir$zh_Hans_CN extends Translations$settings$customDataDir$en {
+	Translations$settings$customDataDir$zh_Hans_CN.internal(TranslationsZhHansCn root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHansCn _root; // ignore: unused_field
 
@@ -518,8 +544,8 @@ class _TranslationsSettingsCustomDataDirZhHansCn extends TranslationsSettingsCus
 }
 
 // Path: login.form
-class _TranslationsLoginFormZhHansCn extends TranslationsLoginFormEn {
-	_TranslationsLoginFormZhHansCn._(TranslationsZhHansCn root) : this._root = root, super.internal(root);
+class Translations$login$form$zh_Hans_CN extends Translations$login$form$en {
+	Translations$login$form$zh_Hans_CN.internal(TranslationsZhHansCn root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHansCn _root; // ignore: unused_field
 
@@ -532,8 +558,8 @@ class _TranslationsLoginFormZhHansCn extends TranslationsLoginFormEn {
 }
 
 // Path: login.status
-class _TranslationsLoginStatusZhHansCn extends TranslationsLoginStatusEn {
-	_TranslationsLoginStatusZhHansCn._(TranslationsZhHansCn root) : this._root = root, super.internal(root);
+class Translations$login$status$zh_Hans_CN extends Translations$login$status$en {
+	Translations$login$status$zh_Hans_CN.internal(TranslationsZhHansCn root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHansCn _root; // ignore: unused_field
 
@@ -546,8 +572,8 @@ class _TranslationsLoginStatusZhHansCn extends TranslationsLoginStatusEn {
 }
 
 // Path: login.ncLoginStep
-class _TranslationsLoginNcLoginStepZhHansCn extends TranslationsLoginNcLoginStepEn {
-	_TranslationsLoginNcLoginStepZhHansCn._(TranslationsZhHansCn root) : this._root = root, super.internal(root);
+class Translations$login$ncLoginStep$zh_Hans_CN extends Translations$login$ncLoginStep$en {
+	Translations$login$ncLoginStep$zh_Hans_CN.internal(TranslationsZhHansCn root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHansCn _root; // ignore: unused_field
 
@@ -558,12 +584,12 @@ class _TranslationsLoginNcLoginStepZhHansCn extends TranslationsLoginNcLoginStep
 	@override String get serverUrl => '服务器 URL';
 	@override String get loginWithSaber => '使用 Saber 登录';
 	@override String get loginWithNextcloud => '使用 Nextcloud 登录';
-	@override late final _TranslationsLoginNcLoginStepLoginFlowZhHansCn loginFlow = _TranslationsLoginNcLoginStepLoginFlowZhHansCn._(_root);
+	@override late final Translations$login$ncLoginStep$loginFlow$zh_Hans_CN loginFlow = Translations$login$ncLoginStep$loginFlow$zh_Hans_CN.internal(_root);
 }
 
 // Path: login.encLoginStep
-class _TranslationsLoginEncLoginStepZhHansCn extends TranslationsLoginEncLoginStepEn {
-	_TranslationsLoginEncLoginStepZhHansCn._(TranslationsZhHansCn root) : this._root = root, super.internal(root);
+class Translations$login$encLoginStep$zh_Hans_CN extends Translations$login$encLoginStep$en {
+	Translations$login$encLoginStep$zh_Hans_CN.internal(TranslationsZhHansCn root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHansCn _root; // ignore: unused_field
 
@@ -575,15 +601,15 @@ class _TranslationsLoginEncLoginStepZhHansCn extends TranslationsLoginEncLoginSt
 	@override String get wrongEncPassword => '使用提供的密码解密失败。请再次尝试输入。';
 	@override String get connectionFailed => '连接到服务器时出错。请稍后重试。';
 	@override List<dynamic> get encFaq => [
-		_TranslationsLoginEncLoginStep$encFaq$0i0$ZhHansCn._(_root),
-		_TranslationsLoginEncLoginStep$encFaq$0i1$ZhHansCn._(_root),
-		_TranslationsLoginEncLoginStep$encFaq$0i2$ZhHansCn._(_root),
+		Translations$login$encLoginStep$encFaq$0$zh_Hans_CN.internal(_root),
+		Translations$login$encLoginStep$encFaq$1$zh_Hans_CN.internal(_root),
+		Translations$login$encLoginStep$encFaq$2$zh_Hans_CN.internal(_root),
 	];
 }
 
 // Path: profile.quickLinks
-class _TranslationsProfileQuickLinksZhHansCn extends TranslationsProfileQuickLinksEn {
-	_TranslationsProfileQuickLinksZhHansCn._(TranslationsZhHansCn root) : this._root = root, super.internal(root);
+class Translations$profile$quickLinks$zh_Hans_CN extends Translations$profile$quickLinks$en {
+	Translations$profile$quickLinks$zh_Hans_CN.internal(TranslationsZhHansCn root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHansCn _root; // ignore: unused_field
 
@@ -593,8 +619,8 @@ class _TranslationsProfileQuickLinksZhHansCn extends TranslationsProfileQuickLin
 }
 
 // Path: profile.faq.0
-class _TranslationsProfile$faq$0i0$ZhHansCn extends TranslationsProfile$faq$0i0$En {
-	_TranslationsProfile$faq$0i0$ZhHansCn._(TranslationsZhHansCn root) : this._root = root, super.internal(root);
+class Translations$profile$faq$0$zh_Hans_CN extends Translations$profile$faq$0$en {
+	Translations$profile$faq$0$zh_Hans_CN.internal(TranslationsZhHansCn root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHansCn _root; // ignore: unused_field
 
@@ -604,8 +630,8 @@ class _TranslationsProfile$faq$0i0$ZhHansCn extends TranslationsProfile$faq$0i0$
 }
 
 // Path: profile.faq.1
-class _TranslationsProfile$faq$0i1$ZhHansCn extends TranslationsProfile$faq$0i1$En {
-	_TranslationsProfile$faq$0i1$ZhHansCn._(TranslationsZhHansCn root) : this._root = root, super.internal(root);
+class Translations$profile$faq$1$zh_Hans_CN extends Translations$profile$faq$1$en {
+	Translations$profile$faq$1$zh_Hans_CN.internal(TranslationsZhHansCn root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHansCn _root; // ignore: unused_field
 
@@ -615,8 +641,8 @@ class _TranslationsProfile$faq$0i1$ZhHansCn extends TranslationsProfile$faq$0i1$
 }
 
 // Path: profile.faq.2
-class _TranslationsProfile$faq$0i2$ZhHansCn extends TranslationsProfile$faq$0i2$En {
-	_TranslationsProfile$faq$0i2$ZhHansCn._(TranslationsZhHansCn root) : this._root = root, super.internal(root);
+class Translations$profile$faq$2$zh_Hans_CN extends Translations$profile$faq$2$en {
+	Translations$profile$faq$2$zh_Hans_CN.internal(TranslationsZhHansCn root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHansCn _root; // ignore: unused_field
 
@@ -626,8 +652,8 @@ class _TranslationsProfile$faq$0i2$ZhHansCn extends TranslationsProfile$faq$0i2$
 }
 
 // Path: profile.faq.3
-class _TranslationsProfile$faq$0i3$ZhHansCn extends TranslationsProfile$faq$0i3$En {
-	_TranslationsProfile$faq$0i3$ZhHansCn._(TranslationsZhHansCn root) : this._root = root, super.internal(root);
+class Translations$profile$faq$3$zh_Hans_CN extends Translations$profile$faq$3$en {
+	Translations$profile$faq$3$zh_Hans_CN.internal(TranslationsZhHansCn root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHansCn _root; // ignore: unused_field
 
@@ -637,8 +663,8 @@ class _TranslationsProfile$faq$0i3$ZhHansCn extends TranslationsProfile$faq$0i3$
 }
 
 // Path: editor.toolbar
-class _TranslationsEditorToolbarZhHansCn extends TranslationsEditorToolbarEn {
-	_TranslationsEditorToolbarZhHansCn._(TranslationsZhHansCn root) : this._root = root, super.internal(root);
+class Translations$editor$toolbar$zh_Hans_CN extends Translations$editor$toolbar$en {
+	Translations$editor$toolbar$zh_Hans_CN.internal(TranslationsZhHansCn root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHansCn _root; // ignore: unused_field
 
@@ -657,8 +683,8 @@ class _TranslationsEditorToolbarZhHansCn extends TranslationsEditorToolbarEn {
 }
 
 // Path: editor.pens
-class _TranslationsEditorPensZhHansCn extends TranslationsEditorPensEn {
-	_TranslationsEditorPensZhHansCn._(TranslationsZhHansCn root) : this._root = root, super.internal(root);
+class Translations$editor$pens$zh_Hans_CN extends Translations$editor$pens$en {
+	Translations$editor$pens$zh_Hans_CN.internal(TranslationsZhHansCn root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHansCn _root; // ignore: unused_field
 
@@ -672,8 +698,8 @@ class _TranslationsEditorPensZhHansCn extends TranslationsEditorPensEn {
 }
 
 // Path: editor.penOptions
-class _TranslationsEditorPenOptionsZhHansCn extends TranslationsEditorPenOptionsEn {
-	_TranslationsEditorPenOptionsZhHansCn._(TranslationsZhHansCn root) : this._root = root, super.internal(root);
+class Translations$editor$penOptions$zh_Hans_CN extends Translations$editor$penOptions$en {
+	Translations$editor$penOptions$zh_Hans_CN.internal(TranslationsZhHansCn root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHansCn _root; // ignore: unused_field
 
@@ -682,8 +708,8 @@ class _TranslationsEditorPenOptionsZhHansCn extends TranslationsEditorPenOptions
 }
 
 // Path: editor.colors
-class _TranslationsEditorColorsZhHansCn extends TranslationsEditorColorsEn {
-	_TranslationsEditorColorsZhHansCn._(TranslationsZhHansCn root) : this._root = root, super.internal(root);
+class Translations$editor$colors$zh_Hans_CN extends Translations$editor$colors$en {
+	Translations$editor$colors$zh_Hans_CN.internal(TranslationsZhHansCn root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHansCn _root; // ignore: unused_field
 
@@ -717,8 +743,8 @@ class _TranslationsEditorColorsZhHansCn extends TranslationsEditorColorsEn {
 }
 
 // Path: editor.imageOptions
-class _TranslationsEditorImageOptionsZhHansCn extends TranslationsEditorImageOptionsEn {
-	_TranslationsEditorImageOptionsZhHansCn._(TranslationsZhHansCn root) : this._root = root, super.internal(root);
+class Translations$editor$imageOptions$zh_Hans_CN extends Translations$editor$imageOptions$en {
+	Translations$editor$imageOptions$zh_Hans_CN.internal(TranslationsZhHansCn root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHansCn _root; // ignore: unused_field
 
@@ -732,8 +758,8 @@ class _TranslationsEditorImageOptionsZhHansCn extends TranslationsEditorImageOpt
 }
 
 // Path: editor.selectionBar
-class _TranslationsEditorSelectionBarZhHansCn extends TranslationsEditorSelectionBarEn {
-	_TranslationsEditorSelectionBarZhHansCn._(TranslationsZhHansCn root) : this._root = root, super.internal(root);
+class Translations$editor$selectionBar$zh_Hans_CN extends Translations$editor$selectionBar$en {
+	Translations$editor$selectionBar$zh_Hans_CN.internal(TranslationsZhHansCn root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHansCn _root; // ignore: unused_field
 
@@ -743,8 +769,8 @@ class _TranslationsEditorSelectionBarZhHansCn extends TranslationsEditorSelectio
 }
 
 // Path: editor.menu
-class _TranslationsEditorMenuZhHansCn extends TranslationsEditorMenuEn {
-	_TranslationsEditorMenuZhHansCn._(TranslationsZhHansCn root) : this._root = root, super.internal(root);
+class Translations$editor$menu$zh_Hans_CN extends Translations$editor$menu$en {
+	Translations$editor$menu$zh_Hans_CN.internal(TranslationsZhHansCn root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHansCn _root; // ignore: unused_field
 
@@ -763,13 +789,13 @@ class _TranslationsEditorMenuZhHansCn extends TranslationsEditorMenuEn {
 	@override String get import => '导入';
 	@override String get watchServer => '监视服务器上的更新';
 	@override String get watchServerReadOnly => '监视服务器时禁用编辑';
-	@override late final _TranslationsEditorMenuBoxFitsZhHansCn boxFits = _TranslationsEditorMenuBoxFitsZhHansCn._(_root);
-	@override late final _TranslationsEditorMenuBgPatternsZhHansCn bgPatterns = _TranslationsEditorMenuBgPatternsZhHansCn._(_root);
+	@override late final Translations$editor$menu$boxFits$zh_Hans_CN boxFits = Translations$editor$menu$boxFits$zh_Hans_CN.internal(_root);
+	@override late final Translations$editor$menu$bgPatterns$zh_Hans_CN bgPatterns = Translations$editor$menu$bgPatterns$zh_Hans_CN.internal(_root);
 }
 
 // Path: editor.readOnlyBanner
-class _TranslationsEditorReadOnlyBannerZhHansCn extends TranslationsEditorReadOnlyBannerEn {
-	_TranslationsEditorReadOnlyBannerZhHansCn._(TranslationsZhHansCn root) : this._root = root, super.internal(root);
+class Translations$editor$readOnlyBanner$zh_Hans_CN extends Translations$editor$readOnlyBanner$en {
+	Translations$editor$readOnlyBanner$zh_Hans_CN.internal(TranslationsZhHansCn root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHansCn _root; // ignore: unused_field
 
@@ -780,8 +806,8 @@ class _TranslationsEditorReadOnlyBannerZhHansCn extends TranslationsEditorReadOn
 }
 
 // Path: editor.versionTooNew
-class _TranslationsEditorVersionTooNewZhHansCn extends TranslationsEditorVersionTooNewEn {
-	_TranslationsEditorVersionTooNewZhHansCn._(TranslationsZhHansCn root) : this._root = root, super.internal(root);
+class Translations$editor$versionTooNew$zh_Hans_CN extends Translations$editor$versionTooNew$en {
+	Translations$editor$versionTooNew$zh_Hans_CN.internal(TranslationsZhHansCn root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHansCn _root; // ignore: unused_field
 
@@ -792,8 +818,8 @@ class _TranslationsEditorVersionTooNewZhHansCn extends TranslationsEditorVersion
 }
 
 // Path: editor.quill
-class _TranslationsEditorQuillZhHansCn extends TranslationsEditorQuillEn {
-	_TranslationsEditorQuillZhHansCn._(TranslationsZhHansCn root) : this._root = root, super.internal(root);
+class Translations$editor$quill$zh_Hans_CN extends Translations$editor$quill$en {
+	Translations$editor$quill$zh_Hans_CN.internal(TranslationsZhHansCn root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHansCn _root; // ignore: unused_field
 
@@ -802,8 +828,8 @@ class _TranslationsEditorQuillZhHansCn extends TranslationsEditorQuillEn {
 }
 
 // Path: editor.hud
-class _TranslationsEditorHudZhHansCn extends TranslationsEditorHudEn {
-	_TranslationsEditorHudZhHansCn._(TranslationsZhHansCn root) : this._root = root, super.internal(root);
+class Translations$editor$hud$zh_Hans_CN extends Translations$editor$hud$en {
+	Translations$editor$hud$zh_Hans_CN.internal(TranslationsZhHansCn root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHansCn _root; // ignore: unused_field
 
@@ -817,8 +843,8 @@ class _TranslationsEditorHudZhHansCn extends TranslationsEditorHudEn {
 }
 
 // Path: sentry.consent.description
-class _TranslationsSentryConsentDescriptionZhHansCn extends TranslationsSentryConsentDescriptionEn {
-	_TranslationsSentryConsentDescriptionZhHansCn._(TranslationsZhHansCn root) : this._root = root, super.internal(root);
+class Translations$sentry$consent$description$zh_Hans_CN extends Translations$sentry$consent$description$en {
+	Translations$sentry$consent$description$zh_Hans_CN.internal(TranslationsZhHansCn root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHansCn _root; // ignore: unused_field
 
@@ -835,8 +861,8 @@ class _TranslationsSentryConsentDescriptionZhHansCn extends TranslationsSentryCo
 }
 
 // Path: sentry.consent.answers
-class _TranslationsSentryConsentAnswersZhHansCn extends TranslationsSentryConsentAnswersEn {
-	_TranslationsSentryConsentAnswersZhHansCn._(TranslationsZhHansCn root) : this._root = root, super.internal(root);
+class Translations$sentry$consent$answers$zh_Hans_CN extends Translations$sentry$consent$answers$en {
+	Translations$sentry$consent$answers$zh_Hans_CN.internal(TranslationsZhHansCn root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHansCn _root; // ignore: unused_field
 
@@ -847,8 +873,8 @@ class _TranslationsSentryConsentAnswersZhHansCn extends TranslationsSentryConsen
 }
 
 // Path: settings.prefDescriptions.hideFingerDrawing
-class _TranslationsSettingsPrefDescriptionsHideFingerDrawingZhHansCn extends TranslationsSettingsPrefDescriptionsHideFingerDrawingEn {
-	_TranslationsSettingsPrefDescriptionsHideFingerDrawingZhHansCn._(TranslationsZhHansCn root) : this._root = root, super.internal(root);
+class Translations$settings$prefDescriptions$hideFingerDrawing$zh_Hans_CN extends Translations$settings$prefDescriptions$hideFingerDrawing$en {
+	Translations$settings$prefDescriptions$hideFingerDrawing$zh_Hans_CN.internal(TranslationsZhHansCn root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHansCn _root; // ignore: unused_field
 
@@ -859,8 +885,8 @@ class _TranslationsSettingsPrefDescriptionsHideFingerDrawingZhHansCn extends Tra
 }
 
 // Path: settings.prefDescriptions.sentry
-class _TranslationsSettingsPrefDescriptionsSentryZhHansCn extends TranslationsSettingsPrefDescriptionsSentryEn {
-	_TranslationsSettingsPrefDescriptionsSentryZhHansCn._(TranslationsZhHansCn root) : this._root = root, super.internal(root);
+class Translations$settings$prefDescriptions$sentry$zh_Hans_CN extends Translations$settings$prefDescriptions$sentry$en {
+	Translations$settings$prefDescriptions$sentry$zh_Hans_CN.internal(TranslationsZhHansCn root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHansCn _root; // ignore: unused_field
 
@@ -872,8 +898,8 @@ class _TranslationsSettingsPrefDescriptionsSentryZhHansCn extends TranslationsSe
 }
 
 // Path: login.ncLoginStep.loginFlow
-class _TranslationsLoginNcLoginStepLoginFlowZhHansCn extends TranslationsLoginNcLoginStepLoginFlowEn {
-	_TranslationsLoginNcLoginStepLoginFlowZhHansCn._(TranslationsZhHansCn root) : this._root = root, super.internal(root);
+class Translations$login$ncLoginStep$loginFlow$zh_Hans_CN extends Translations$login$ncLoginStep$loginFlow$en {
+	Translations$login$ncLoginStep$loginFlow$zh_Hans_CN.internal(TranslationsZhHansCn root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHansCn _root; // ignore: unused_field
 
@@ -884,8 +910,8 @@ class _TranslationsLoginNcLoginStepLoginFlowZhHansCn extends TranslationsLoginNc
 }
 
 // Path: login.encLoginStep.encFaq.0
-class _TranslationsLoginEncLoginStep$encFaq$0i0$ZhHansCn extends TranslationsLoginEncLoginStep$encFaq$0i0$En {
-	_TranslationsLoginEncLoginStep$encFaq$0i0$ZhHansCn._(TranslationsZhHansCn root) : this._root = root, super.internal(root);
+class Translations$login$encLoginStep$encFaq$0$zh_Hans_CN extends Translations$login$encLoginStep$encFaq$0$en {
+	Translations$login$encLoginStep$encFaq$0$zh_Hans_CN.internal(TranslationsZhHansCn root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHansCn _root; // ignore: unused_field
 
@@ -895,8 +921,8 @@ class _TranslationsLoginEncLoginStep$encFaq$0i0$ZhHansCn extends TranslationsLog
 }
 
 // Path: login.encLoginStep.encFaq.1
-class _TranslationsLoginEncLoginStep$encFaq$0i1$ZhHansCn extends TranslationsLoginEncLoginStep$encFaq$0i1$En {
-	_TranslationsLoginEncLoginStep$encFaq$0i1$ZhHansCn._(TranslationsZhHansCn root) : this._root = root, super.internal(root);
+class Translations$login$encLoginStep$encFaq$1$zh_Hans_CN extends Translations$login$encLoginStep$encFaq$1$en {
+	Translations$login$encLoginStep$encFaq$1$zh_Hans_CN.internal(TranslationsZhHansCn root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHansCn _root; // ignore: unused_field
 
@@ -906,8 +932,8 @@ class _TranslationsLoginEncLoginStep$encFaq$0i1$ZhHansCn extends TranslationsLog
 }
 
 // Path: login.encLoginStep.encFaq.2
-class _TranslationsLoginEncLoginStep$encFaq$0i2$ZhHansCn extends TranslationsLoginEncLoginStep$encFaq$0i2$En {
-	_TranslationsLoginEncLoginStep$encFaq$0i2$ZhHansCn._(TranslationsZhHansCn root) : this._root = root, super.internal(root);
+class Translations$login$encLoginStep$encFaq$2$zh_Hans_CN extends Translations$login$encLoginStep$encFaq$2$en {
+	Translations$login$encLoginStep$encFaq$2$zh_Hans_CN.internal(TranslationsZhHansCn root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHansCn _root; // ignore: unused_field
 
@@ -917,8 +943,8 @@ class _TranslationsLoginEncLoginStep$encFaq$0i2$ZhHansCn extends TranslationsLog
 }
 
 // Path: editor.menu.boxFits
-class _TranslationsEditorMenuBoxFitsZhHansCn extends TranslationsEditorMenuBoxFitsEn {
-	_TranslationsEditorMenuBoxFitsZhHansCn._(TranslationsZhHansCn root) : this._root = root, super.internal(root);
+class Translations$editor$menu$boxFits$zh_Hans_CN extends Translations$editor$menu$boxFits$en {
+	Translations$editor$menu$boxFits$zh_Hans_CN.internal(TranslationsZhHansCn root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHansCn _root; // ignore: unused_field
 
@@ -929,8 +955,8 @@ class _TranslationsEditorMenuBoxFitsZhHansCn extends TranslationsEditorMenuBoxFi
 }
 
 // Path: editor.menu.bgPatterns
-class _TranslationsEditorMenuBgPatternsZhHansCn extends TranslationsEditorMenuBgPatternsEn {
-	_TranslationsEditorMenuBgPatternsZhHansCn._(TranslationsZhHansCn root) : this._root = root, super.internal(root);
+class Translations$editor$menu$bgPatterns$zh_Hans_CN extends Translations$editor$menu$bgPatterns$en {
+	Translations$editor$menu$bgPatterns$zh_Hans_CN.internal(TranslationsZhHansCn root) : this._root = root, super.internal(root);
 
 	final TranslationsZhHansCn _root; // ignore: unused_field
 

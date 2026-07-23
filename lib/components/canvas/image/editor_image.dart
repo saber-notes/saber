@@ -174,7 +174,7 @@ sealed class EditorImage extends ChangeNotifier {
   @visibleForTesting
   static var shouldLoadOutImmediately = false;
 
-  Completer? _firstLoadStatus;
+  Completer? _firstLoadCompleter;
   Completer<bool>? _shouldLoadOut;
   var _loadedIn = false;
   bool get loadedIn => _loadedIn;
@@ -194,13 +194,19 @@ sealed class EditorImage extends ChangeNotifier {
   @mustBeOverridden
   @mustCallSuper
   Future<void> loadIn() async {
-    _firstLoadStatus ??= Completer()..complete(firstLoad());
-    if (!_firstLoadStatus!.isCompleted) {
-      await _firstLoadStatus!.future;
+    if (_shouldLoadOut?.isCompleted == false) _shouldLoadOut?.complete(false);
+
+    if (_firstLoadCompleter == null) {
+      _firstLoadCompleter = Completer();
+      firstLoad().then(
+        _firstLoadCompleter!.complete,
+        onError: _firstLoadCompleter!.completeError,
+      );
+    } else if (!_firstLoadCompleter!.isCompleted) {
+      await _firstLoadCompleter!.future;
     }
 
     _loadedIn = true;
-    if (_shouldLoadOut?.isCompleted == false) _shouldLoadOut?.complete(false);
   }
 
   /// Free up resources when the image is no longer visible.

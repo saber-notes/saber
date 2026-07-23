@@ -1,0 +1,3 @@
+• Die Durchsuchseite ist jetzt standardmäßig alphabetisch sortiert. Sie können die Sortierung mit dem Button oben anpassen.
+• Ein Absturz auf bestimmten Android-Geräten behoben.
+• Die Funktion zum Scrollen nach oben zum Aktualisieren wurde entfernt, da sie verwirrend war.

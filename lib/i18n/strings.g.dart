@@ -25,14 +25,16 @@ import 'strings_he.g.dart' deferred as l_he;
 import 'strings_hu.g.dart' deferred as l_hu;
 import 'strings_it.g.dart' deferred as l_it;
 import 'strings_ja.g.dart' deferred as l_ja;
+import 'strings_nl.g.dart' deferred as l_nl;
 import 'strings_pl.g.dart' deferred as l_pl;
-import 'strings_pt_BR.g.dart' deferred as l_pt_BR;
+import 'strings_pt.g.dart' deferred as l_pt;
 import 'strings_ru.g.dart' deferred as l_ru;
 import 'strings_sl.g.dart' deferred as l_sl;
 import 'strings_th.g.dart' deferred as l_th;
 import 'strings_tr.g.dart' deferred as l_tr;
 import 'strings_uk.g.dart' deferred as l_uk;
 import 'strings_vi.g.dart' deferred as l_vi;
+import 'strings_pt_BR.g.dart' deferred as l_pt_BR;
 import 'strings_zh_Hans_CN.g.dart' deferred as l_zh_Hans_CN;
 import 'strings_zh_Hant_TW.g.dart' deferred as l_zh_Hant_TW;
 part 'strings_en.g.dart';
@@ -57,14 +59,16 @@ enum AppLocale with BaseAppLocale<AppLocale, Translations> {
 	hu(languageCode: 'hu'),
 	it(languageCode: 'it'),
 	ja(languageCode: 'ja'),
+	nl(languageCode: 'nl'),
 	pl(languageCode: 'pl'),
-	ptBr(languageCode: 'pt', countryCode: 'BR'),
+	pt(languageCode: 'pt'),
 	ru(languageCode: 'ru'),
 	sl(languageCode: 'sl'),
 	th(languageCode: 'th'),
 	tr(languageCode: 'tr'),
 	uk(languageCode: 'uk'),
 	vi(languageCode: 'vi'),
+	ptBr(languageCode: 'pt', countryCode: 'BR'),
 	zhHansCn(languageCode: 'zh', scriptCode: 'Hans', countryCode: 'CN'),
 	zhHantTw(languageCode: 'zh', scriptCode: 'Hant', countryCode: 'TW');
 
@@ -175,6 +179,13 @@ enum AppLocale with BaseAppLocale<AppLocale, Translations> {
 					cardinalResolver: cardinalResolver,
 					ordinalResolver: ordinalResolver,
 				);
+			case AppLocale.nl:
+				await l_nl.loadLibrary();
+				return l_nl.TranslationsNl(
+					overrides: overrides,
+					cardinalResolver: cardinalResolver,
+					ordinalResolver: ordinalResolver,
+				);
 			case AppLocale.pl:
 				await l_pl.loadLibrary();
 				return l_pl.TranslationsPl(
@@ -182,9 +193,9 @@ enum AppLocale with BaseAppLocale<AppLocale, Translations> {
 					cardinalResolver: cardinalResolver,
 					ordinalResolver: ordinalResolver,
 				);
-			case AppLocale.ptBr:
-				await l_pt_BR.loadLibrary();
-				return l_pt_BR.TranslationsPtBr(
+			case AppLocale.pt:
+				await l_pt.loadLibrary();
+				return l_pt.TranslationsPt(
 					overrides: overrides,
 					cardinalResolver: cardinalResolver,
 					ordinalResolver: ordinalResolver,
@@ -227,6 +238,13 @@ enum AppLocale with BaseAppLocale<AppLocale, Translations> {
 			case AppLocale.vi:
 				await l_vi.loadLibrary();
 				return l_vi.TranslationsVi(
+					overrides: overrides,
+					cardinalResolver: cardinalResolver,
+					ordinalResolver: ordinalResolver,
+				);
+			case AppLocale.ptBr:
+				await l_pt_BR.loadLibrary();
+				return l_pt_BR.TranslationsPtBr(
 					overrides: overrides,
 					cardinalResolver: cardinalResolver,
 					ordinalResolver: ordinalResolver,
@@ -333,14 +351,20 @@ enum AppLocale with BaseAppLocale<AppLocale, Translations> {
 					cardinalResolver: cardinalResolver,
 					ordinalResolver: ordinalResolver,
 				);
+			case AppLocale.nl:
+				return l_nl.TranslationsNl(
+					overrides: overrides,
+					cardinalResolver: cardinalResolver,
+					ordinalResolver: ordinalResolver,
+				);
 			case AppLocale.pl:
 				return l_pl.TranslationsPl(
 					overrides: overrides,
 					cardinalResolver: cardinalResolver,
 					ordinalResolver: ordinalResolver,
 				);
-			case AppLocale.ptBr:
-				return l_pt_BR.TranslationsPtBr(
+			case AppLocale.pt:
+				return l_pt.TranslationsPt(
 					overrides: overrides,
 					cardinalResolver: cardinalResolver,
 					ordinalResolver: ordinalResolver,
@@ -377,6 +401,12 @@ enum AppLocale with BaseAppLocale<AppLocale, Translations> {
 				);
 			case AppLocale.vi:
 				return l_vi.TranslationsVi(
+					overrides: overrides,
+					cardinalResolver: cardinalResolver,
+					ordinalResolver: ordinalResolver,
+				);
+			case AppLocale.ptBr:
+				return l_pt_BR.TranslationsPtBr(
 					overrides: overrides,
 					cardinalResolver: cardinalResolver,
 					ordinalResolver: ordinalResolver,

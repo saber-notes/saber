@@ -6,7 +6,6 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:golden_screenshot/golden_screenshot.dart';
 import 'package:saber/components/canvas/pencil_shader.dart';
 import 'package:saber/components/home/syncing_button.dart';
-import 'package:saber/components/settings/app_info.dart';
 import 'package:saber/components/settings/nextcloud_profile.dart';
 import 'package:saber/components/theming/saber_theme.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
@@ -64,7 +63,6 @@ void main() {
 
     FlavorConfig.setup();
     SyncingButton.debugForceButtonActive = true;
-    AppInfo.showDebugMessage = false;
 
     stows.lastStorageQuota.value = TestUser.getQuota();
     stows.username.value = 'myusername';

@@ -1,0 +1,3 @@
+• Stranica za prejšnje razglede je zdaj po podnapredno porazložena kot predhodno. Lahko prilagodite vrstitev z gumbom na vrhu.
+• Popravljen napad na določenih napravah Android.
+• Uklonjena funkcija pomicanja navzgor za osveževanje, saj je bila zmedujoča.

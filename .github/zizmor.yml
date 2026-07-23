@@ -1,0 +1,10 @@
+rules:
+  cache-poisoning:
+    # Risk of cache poisoning is low since it's only me working on Saber.
+    # Disable this rule in favor of faster builds.
+    disable: true
+  unpinned-uses:
+    # I don't want to pollute my commit history with a dependabot commit
+    # every time a new commit is pushed to any action repo.
+    # Disable this rule in favor of tagged actions.
+    disable: true

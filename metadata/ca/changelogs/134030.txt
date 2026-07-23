@@ -1,0 +1,4 @@
+• S'han corregit algunes pàgines buides que apareien als PDF exportats.
+• S'ha millorat la fluïdesà de desplaçament a l'editor.
+• S'ha afegit una traducció al neerlandès.
+• S'ha afegit una traducció al portuguès a més de la traducció actual del portuguès brasil·lià.

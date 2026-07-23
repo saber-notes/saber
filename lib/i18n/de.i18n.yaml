@@ -69,6 +69,16 @@ home:
     deleteName: $f löschen
     delete: Löschen
     alsoDeleteContents: Alle weiteren Notizen in diesem Ordner löschen
+  sort:
+    sortBy(OUTDATED): Sortieren nach
+    nameAToZ(OUTDATED): Name (A-Z)
+    nameZToA(OUTDATED): Name (A-Z)
+    lastModifiedNewToOld(OUTDATED): Bearbeitet (Neuestes zuerst)
+    lastModifiedOldToNew(OUTDATED): Bearbeitet (Älteste zuerst)
+  layout:
+    layout(OUTDATED): Layout
+    masonryGrid(OUTDATED): Mauerwerk-Raster
+    simpleGrid(OUTDATED): Einfaches Raster
 sentry:
   consent:
     title: Helfen, Saber zu verbessern?
@@ -115,7 +125,6 @@ settings:
     autosave: Automatisches Backup
     shapeRecognitionDelay: Verzögerung der Formerkennung
     autoStraightenLines: Linien automatisch begradigen
-    simplifiedHomeLayout: Vereinfachtes Startbildschirmlayout
     customDataDir: Eigener Saber-Ordner
     sentry: Fehlerberichterstattung
   prefDescriptions:
@@ -135,7 +144,6 @@ settings:
     autosave: Automatisches Backup in kurzen Abständen (wenn aktiviert)
     shapeRecognitionDelay: Aktualisierungshäufigkeit der Vorschau
     autoStraightenLines: Lange Linien auch ohne Formen-Stift automatisch begradigen
-    simplifiedHomeLayout: Legt eine feste Höhe für jede Notizvorschau fest
     shouldAlwaysAlertForUpdates: Über neue Updates informiert bleiben
     sentry:
       active: Aktiviert

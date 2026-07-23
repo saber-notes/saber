@@ -1,7 +1,8 @@
-// Adapted for Saber from Flutter's InteractiveViewer class
-// https://github.com/flutter/flutter/blob/stable/packages/flutter/lib/src/widgets/interactive_viewer.dart
-// Using this commit (Flutter 3.35.0):
-// https://github.com/flutter/flutter/blob/1cbf1a4cbf2cd0ba73850e47f4a83dd06a049e82/packages/flutter/lib/src/widgets/interactive_viewer.dart
+/// Adapted for Saber from Flutter's [InteractiveViewer] class
+/// https://github.com/flutter/flutter/blob/stable/packages/flutter/lib/src/widgets/interactive_viewer.dart
+/// Using this commit (Flutter 3.44.0):
+/// https://github.com/flutter/flutter/blob/86b97230b17c2fd37cf9e615f1f32650e1541d75/packages/flutter/lib/src/widgets/interactive_viewer.dart
+library;
 
 // Copyright 2014 The Flutter Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be

@@ -1,0 +1,3 @@
+• Trang duyệt hiện được sắp xếp theo thứ tự bảng chữ cái mặc định. Bạn có thể tùy chỉnh cách sắp xếp bằng nút ở phía trên.
+• Đã sửa lỗi treo trên một số thiết bị Android nhất định.
+• Loại bỏ chức năng cuộn lên để làm mới vì nó gây nhầm lẫn.

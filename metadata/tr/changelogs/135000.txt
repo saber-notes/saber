@@ -1,0 +1,3 @@
+• Göz atma sayfası varsayılan olarak alfabetik sıralanıyor. Sıralamayı üstteki düğme ile özelleştirebilirsiniz.
+• Belirli Android cihazlardaki çökme düzeltildi.
+• Yenilemek için yukarı kaydırma işlevi kafa karıştırıcı olduğu için kaldırıldı.

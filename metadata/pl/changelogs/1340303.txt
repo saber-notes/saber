@@ -1,0 +1,4 @@
+• Naprawiono niektóre puste strony pojawiające się w wyeksportowanych plikach PDF.
+• Ulepszono płynność przewijania w edytorze.
+• Dodano tłumaczenie na język holenderski.
+• Dodano tłumaczenie na język portugalski oprócz istniejącego brazylijskiego portugalskiego.

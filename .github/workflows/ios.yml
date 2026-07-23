@@ -28,7 +28,9 @@ jobs:
       APP_STORE_CERTIFICATE_KEY: ${{secrets.APP_STORE_CERTIFICATE_KEY}}
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
 
       - name: Setup Xcode
         run: |
@@ -123,4 +125,6 @@ jobs:
 
       - name: Publish to App Store
         if: ${{ startsWith(github.ref, 'refs/tags/') }}
-        run: app-store-connect publish --path ${{ steps.move.outputs.ipaPath }}
+        run: app-store-connect publish --path "${IPAPATH}"
+        env:
+          IPAPATH: ${{ steps.move.outputs.ipaPath }}

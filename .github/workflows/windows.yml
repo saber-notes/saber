@@ -21,10 +21,12 @@ jobs:
     timeout-minutes: 20
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
 
       - name: Setup cache
-        uses: actions/cache@v5
+        uses: actions/cache@v6.1.0
         with:
           path: |
             .dart_tool/
@@ -55,12 +57,19 @@ jobs:
           ./patches/pre/windows_stylus_buttons.sh
 
       - name: Disable Flutter CLI animations
+        shell: bash
         run: flutter config --no-cli-animations
 
       - run: ./patches/pre/remove_dev_dependencies.sh
+        shell: bash
       - run: ./patches/pre/remove_linux_dependencies.sh
+        shell: bash
+      - run: ./patches/pre/remove_permission_handler.sh
+        shell: bash
       - run: flutter pub get
+        shell: bash
       - run: ./patches/post/patch_rust_versions.sh
+        shell: bash
 
       - name: Build Windows
         shell: bash

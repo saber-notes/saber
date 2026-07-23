@@ -2,35 +2,8 @@
 - Here are translations that exist in <en> but not in secondary locales.
 - After editing this file, you can run 'dart run slang apply --locale=<locale>' to quickly apply the newly added translations.
 ar:
-  home:
-    noPreviewAvailable(OUTDATED): No preview available
-    renameNote:
-      noteNameForbiddenCharacters(OUTDATED): Note name contains forbidden characters
-      noteNameReserved(OUTDATED): Note name reserved
-    deleteNoteDialog:
-      deleteNotes(OUTDATED): Delete $n notes
-      deleteName(OUTDATED): Delete $f
-      confirmDelete(OUTDATED):
-        one: Permanently delete the selected note?
-        other: Permanently delete the selected notes?
-      delete(OUTDATED): Delete
-  sentry:
-    consent:
-      title(OUTDATED): Help improve Saber?
-      description:
-        question(OUTDATED): Would you like to automatically report unexpected errors? This helps me identify and fix issues faster.
-        scope(OUTDATED): The reports may contain information about the error and your device. I've made every effort to filter out personal data but some may remain.
-        currentlyOff(OUTDATED): If you grant consent, error reporting will be enabled after you restart the app.
-        currentlyOn(OUTDATED): If you revoke consent, please restart the app to disable error reporting.
-        learnMoreInPrivacyPolicy(rich)(OUTDATED): Learn more in the ${link(privacy policy)}.
-      answers:
-        yes(OUTDATED): Yes
-        no(OUTDATED): No
-        later(OUTDATED): Ask me later
   settings:
     prefLabels:
-      autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Auto-disable finger drawing
-      autosave(OUTDATED): Auto-save
       sentry(OUTDATED): Error reporting
     prefDescriptions:
       autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Turn off finger drawing when a stylus is detected
@@ -68,6 +41,16 @@ ca:
         one: Permanently delete the selected note?
         other: Permanently delete the selected notes?
       delete(OUTDATED): Delete
+    sort:
+      sortBy(OUTDATED): Sort by
+      nameAToZ(OUTDATED): Name (A-Z)
+      nameZToA(OUTDATED): Name (Z-A)
+      lastModifiedNewToOld(OUTDATED): Edited (Newest first)
+      lastModifiedOldToNew(OUTDATED): Edited (Oldest first)
+    layout:
+      layout(OUTDATED): Layout
+      masonryGrid(OUTDATED): Masonry grid
+      simpleGrid(OUTDATED): Simple grid
   sentry:
     consent:
       description:
@@ -96,7 +79,6 @@ ca:
       autosave(OUTDATED): Auto-save
       shapeRecognitionDelay(OUTDATED): Shape recognition delay
       autoStraightenLines(OUTDATED): Auto straighten lines
-      simplifiedHomeLayout(OUTDATED): Simplified home layout
       customDataDir(OUTDATED): Custom Saber folder
       sentry(OUTDATED): Error reporting
     prefDescriptions:
@@ -116,7 +98,6 @@ ca:
       autosave(OUTDATED): Auto-save after a short delay, or never
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
-      simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
       shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
       sentry:
         active(OUTDATED): Active
@@ -249,6 +230,17 @@ ca:
       unlockAxisAlignedPan(OUTDATED): Unlock panning to horizontal or vertical
 cs:
 de:
+  home:
+    sort:
+      sortBy(OUTDATED): Sort by
+      nameAToZ(OUTDATED): Name (A-Z)
+      nameZToA(OUTDATED): Name (Z-A)
+      lastModifiedNewToOld(OUTDATED): Edited (Newest first)
+      lastModifiedOldToNew(OUTDATED): Edited (Oldest first)
+    layout:
+      layout(OUTDATED): Layout
+      masonryGrid(OUTDATED): Masonry grid
+      simpleGrid(OUTDATED): Simple grid
 eo:
   home:
     renameNote:
@@ -261,6 +253,16 @@ eo:
         one: Permanently delete the selected note?
         other: Permanently delete the selected notes?
       delete(OUTDATED): Delete
+    sort:
+      sortBy(OUTDATED): Sort by
+      nameAToZ(OUTDATED): Name (A-Z)
+      nameZToA(OUTDATED): Name (Z-A)
+      lastModifiedNewToOld(OUTDATED): Edited (Newest first)
+      lastModifiedOldToNew(OUTDATED): Edited (Oldest first)
+    layout:
+      layout(OUTDATED): Layout
+      masonryGrid(OUTDATED): Masonry grid
+      simpleGrid(OUTDATED): Simple grid
   settings:
     prefLabels:
       autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Auto-disable finger drawing
@@ -275,10 +277,19 @@ es:
     deleteNoteDialog:
       deleteNotes(OUTDATED): Delete $n notes
       deleteName(OUTDATED): Delete $f
+    sort:
+      sortBy(OUTDATED): Sort by
+      nameAToZ(OUTDATED): Name (A-Z)
+      nameZToA(OUTDATED): Name (Z-A)
+      lastModifiedNewToOld(OUTDATED): Edited (Newest first)
+      lastModifiedOldToNew(OUTDATED): Edited (Oldest first)
+    layout:
+      layout(OUTDATED): Layout
+      masonryGrid(OUTDATED): Masonry grid
+      simpleGrid(OUTDATED): Simple grid
   settings:
     prefDescriptions:
       autosave(OUTDATED): Auto-save after a short delay, or never
-      simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
       sentry:
         active(OUTDATED): Active
         inactive(OUTDATED): Inactive
@@ -372,6 +383,16 @@ fa:
         one: Permanently delete the selected note?
         other: Permanently delete the selected notes?
       delete(OUTDATED): Delete
+    sort:
+      sortBy(OUTDATED): Sort by
+      nameAToZ(OUTDATED): Name (A-Z)
+      nameZToA(OUTDATED): Name (Z-A)
+      lastModifiedNewToOld(OUTDATED): Edited (Newest first)
+      lastModifiedOldToNew(OUTDATED): Edited (Oldest first)
+    layout:
+      layout(OUTDATED): Layout
+      masonryGrid(OUTDATED): Masonry grid
+      simpleGrid(OUTDATED): Simple grid
   sentry:
     consent:
       title(OUTDATED): Help improve Saber?
@@ -389,14 +410,12 @@ fa:
       autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Auto-disable finger drawing
       autosave(OUTDATED): Auto-save
       autoStraightenLines(OUTDATED): Auto straighten lines
-      simplifiedHomeLayout(OUTDATED): Simplified home layout
       customDataDir(OUTDATED): Custom Saber folder
       sentry(OUTDATED): Error reporting
     prefDescriptions:
       autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Turn off finger drawing when a stylus is detected
       autosave(OUTDATED): Auto-save after a short delay, or never
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
-      simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
       sentry:
         active(OUTDATED): Active
         inactive(OUTDATED): Inactive
@@ -472,7 +491,6 @@ fa:
 fr:
   common:
     done(OUTDATED): Done
-    continueBtn(OUTDATED): Continue
   home:
     noPreviewAvailable(OUTDATED): No preview available
     renameNote:
@@ -485,6 +503,16 @@ fr:
         one: Permanently delete the selected note?
         other: Permanently delete the selected notes?
       delete(OUTDATED): Delete
+    sort:
+      sortBy(OUTDATED): Sort by
+      nameAToZ(OUTDATED): Name (A-Z)
+      nameZToA(OUTDATED): Name (Z-A)
+      lastModifiedNewToOld(OUTDATED): Edited (Newest first)
+      lastModifiedOldToNew(OUTDATED): Edited (Oldest first)
+    layout:
+      layout(OUTDATED): Layout
+      masonryGrid(OUTDATED): Masonry grid
+      simpleGrid(OUTDATED): Simple grid
   sentry:
     consent:
       title(OUTDATED): Help improve Saber?
@@ -503,14 +531,12 @@ fr:
       autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Auto-disable finger drawing
       autosave(OUTDATED): Auto-save
       autoStraightenLines(OUTDATED): Auto straighten lines
-      simplifiedHomeLayout(OUTDATED): Simplified home layout
       customDataDir(OUTDATED): Custom Saber folder
       sentry(OUTDATED): Error reporting
     prefDescriptions:
       autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Turn off finger drawing when a stylus is detected
       autosave(OUTDATED): Auto-save after a short delay, or never
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
-      simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
       sentry:
         active(OUTDATED): Active
         inactive(OUTDATED): Inactive
@@ -584,260 +610,41 @@ fr:
       corrupted(OUTDATED): Failed to load note. It may be corrupted or still being downloaded.
 he:
 hu:
-  common:
-    done(OUTDATED): Done
-    continueBtn(OUTDATED): Continue
   home:
-    titles:
-      browse(OUTDATED): Browse
-    tooltips:
-      exportNote(OUTDATED): Export note
-    create:
-      newNote(OUTDATED): New note
-      importNote(OUTDATED): Import note
-    invalidFormat(OUTDATED): The file you selected is not supported. Please select an sbn, sbn2, sba, or pdf file.
-    noPreviewAvailable(OUTDATED): No preview available
-    backFolder(OUTDATED): Go back to the previous folder
-    newFolder:
-      newFolder(OUTDATED): New folder
-      folderName(OUTDATED): Folder name
-      create(OUTDATED): Create
-      folderNameEmpty(OUTDATED): Folder name can't be empty
-      folderNameContainsSlash(OUTDATED): Folder name can't contain a slash
-      folderNameExists(OUTDATED): Folder already exists
-    renameNote:
-      renameNote(OUTDATED): Rename note
-      noteName(OUTDATED): Note name
-      rename(OUTDATED): Rename
-      noteNameEmpty(OUTDATED): Note name can't be empty
-      noteNameExists(OUTDATED): A note with this name already exists
-      noteNameForbiddenCharacters(OUTDATED): Note name contains forbidden characters
-      noteNameReserved(OUTDATED): Note name reserved
-    moveNote:
-      moveNote(OUTDATED): Move note
-      moveNotes(OUTDATED): Move $n notes
-      moveName(OUTDATED): Move $f
-      move(OUTDATED): Move
-      renamedTo(OUTDATED): Note will be renamed to $newName
-      multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
-      numberRenamedTo(OUTDATED): $n notes will be renamed to avoid conflicts
-    deleteNote(OUTDATED): Delete note
-    deleteNoteDialog:
-      deleteNotes(OUTDATED): Delete $n notes
-      deleteName(OUTDATED): Delete $f
-      confirmDelete(OUTDATED):
-        one: Permanently delete the selected note?
-        other: Permanently delete the selected notes?
-      delete(OUTDATED): Delete
-    renameFolder:
-      renameFolder(OUTDATED): Rename folder
-      folderName(OUTDATED): Folder name
-      rename(OUTDATED): Rename
-      folderNameEmpty(OUTDATED): Folder name can't be empty
-      folderNameContainsSlash(OUTDATED): Folder name can't contain a slash
-      folderNameExists(OUTDATED): A folder with this name already exists
-    deleteFolder:
-      deleteFolder(OUTDATED): Delete folder
-      deleteName(OUTDATED): Delete $f
-      delete(OUTDATED): Delete
-      alsoDeleteContents(OUTDATED): Also delete all notes inside this folder
-  sentry:
-    consent:
-      title(OUTDATED): Help improve Saber?
-      description:
-        question(OUTDATED): Would you like to automatically report unexpected errors? This helps me identify and fix issues faster.
-        scope(OUTDATED): The reports may contain information about the error and your device. I've made every effort to filter out personal data but some may remain.
-        currentlyOff(OUTDATED): If you grant consent, error reporting will be enabled after you restart the app.
-        currentlyOn(OUTDATED): If you revoke consent, please restart the app to disable error reporting.
-        learnMoreInPrivacyPolicy(rich)(OUTDATED): Learn more in the ${link(privacy policy)}.
-      answers:
-        yes(OUTDATED): Yes
-        no(OUTDATED): No
-        later(OUTDATED): Ask me later
-  settings:
-    prefCategories:
-      editor(OUTDATED): Editor
-      performance(OUTDATED): Performance
-      advanced(OUTDATED): Advanced
-    prefLabels:
-      layoutSize(OUTDATED): Layout type
-      shouldAlwaysAlertForUpdates(OUTDATED): Faster updates
-      allowInsecureConnections(OUTDATED): Allow insecure connections
-      disableEraserAfterUse(OUTDATED): Auto-disable the eraser
-      hideFingerDrawingToggle(OUTDATED): Hide the finger drawing toggle
-      autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Auto-disable finger drawing
-      recentColorsLength(OUTDATED): How many recent colors to store
-      printPageIndicators(OUTDATED): Print page indicators
-      autosave(OUTDATED): Auto-save
-      shapeRecognitionDelay(OUTDATED): Shape recognition delay
-      autoStraightenLines(OUTDATED): Auto straighten lines
-      simplifiedHomeLayout(OUTDATED): Simplified home layout
-      customDataDir(OUTDATED): Custom Saber folder
-      sentry(OUTDATED): Error reporting
-    prefDescriptions:
-      allowInsecureConnections(OUTDATED): (Not recommended) Allow Saber to connect to servers with self-signed/untrusted certificates
-      disableEraserAfterUse(OUTDATED): Automatically switches back to the pen after using the eraser
-      hideFingerDrawing:
-        shown(OUTDATED): Prevents accidental toggling
-        fixedOn(OUTDATED): Finger drawing is fixed as enabled
-        fixedOff(OUTDATED): Finger drawing is fixed as disabled
-      autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Turn off finger drawing when a stylus is detected
-      printPageIndicators(OUTDATED): Show page indicators in exports
-      autosave(OUTDATED): Auto-save after a short delay, or never
-      shapeRecognitionDelay(OUTDATED): How often to update the shape preview
-      autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
-      simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
-      shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
-      sentry:
-        active(OUTDATED): Active
-        inactive(OUTDATED): Inactive
-        activeUntilRestart(OUTDATED): Active until you restart the app
-        inactiveUntilRestart(OUTDATED): Inactive until you restart the app
-    layoutSizes:
-      auto(OUTDATED): Auto
-      phone(OUTDATED): Phone
-      tablet(OUTDATED): Tablet
-    resyncEverything(OUTDATED): Resync everything
-    openDataDir(OUTDATED): Open Saber folder
-    customDataDir:
-      cancel(OUTDATED): Cancel
-      select(OUTDATED): Select
-      mustBeEmpty(OUTDATED): Selected folder must be empty
-      mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the folder
-      unsupported(OUTDATED): This feature is currently only for developers. Using it will likely result in data loss.
-    autosaveDisabled(OUTDATED): Never
-    shapeRecognitionDisabled(OUTDATED): Never
-  logs:
-    logs(OUTDATED): Logs
-    viewLogs(OUTDATED): View logs
-    debuggingInfo(OUTDATED): Logs contain information useful for debugging and development
-    noLogs(OUTDATED): No logs here!
-    useTheApp(OUTDATED): Logs will appear here as you use the app
-  login:
-    notYou(rich)(OUTDATED): Not you? ${undoLogin(Choose another account)}.
-    status:
-      hi(OUTDATED): Hi, $u!
-      almostDone(OUTDATED): Almost ready for syncing, tap to finish logging in
-    ncLoginStep:
-      whereToStoreData(OUTDATED): "Choose where you want to store your data:"
-      saberNcServer(OUTDATED): Saber's Nextcloud server
-      otherNcServer(OUTDATED): Other Nextcloud server
-      serverUrl(OUTDATED): Server URL
-      loginWithSaber(OUTDATED): Login with Saber
-      loginWithNextcloud(OUTDATED): Login with Nextcloud
-      loginFlow:
-        pleaseAuthorize(OUTDATED): Please authorize Saber to access your Nextcloud account
-        followPrompts(OUTDATED): Please follow the prompts in the Nextcloud interface
-        browserDidntOpen(OUTDATED): Login page didn't open? Click here
-    encLoginStep:
-      enterEncPassword(OUTDATED): "To protect your data, please enter your encryption password:"
-      newToSaber(OUTDATED): New to Saber? Just enter a new encryption password.
-      encPassword(OUTDATED): Encryption password
-      encFaqTitle(OUTDATED): Frequently asked questions
-      wrongEncPassword(OUTDATED): Decryption failed with the provided password. Please try entering it again.
-      connectionFailed(OUTDATED): Something went wrong connecting to the server. Please try again later.
-      encFaq(OUTDATED):
-      - q: What is an encryption password? Why use two passwords?
-        a: |-
-          The Nextcloud password is used to access the cloud. The encryption password "scrambles" your data before it ever reaches the cloud.
-          Even if someone gains access to your Nextcloud account, your notes will remain safe and encrypted with a separate password. This provides you a second layer of security to protect your data.
-          No-one can access your notes on the server without your encryption password, but this also means that if you forget your encryption password, you will lose access to your data.
-      - q: I haven't set an encryption password yet. Where do I get it?
-        a: |-
-          Choose a new encryption password and enter it above.
-          Saber will generate your encryption keys from this password automatically.
-      - q: Can I use the same password as my Nextcloud account?
-        a: Yes, but keep in mind that it would be easier for the server administrator or someone else to access your notes if they gain access to your Nextcloud account.
-  profile:
-    title(OUTDATED): My profile
-    logout(OUTDATED): Log out
-    quotaUsage(OUTDATED): You're using $used of $total ($percent%)
-    connectedTo(OUTDATED): Connected to
-    quickLinks:
-      serverHomepage(OUTDATED): Server homepage
-      deleteAccount(OUTDATED): Delete account
-    faqTitle(OUTDATED): Frequently asked questions
-    faq(OUTDATED):
-    - q: Will I lose my notes if I log out?
-      a: No. Your notes will remain both on your device and on the server. They won't be synced with the server until you log back in. Make sure syncing is complete before logging out so you don't lose any data (see the sync progress on the home screen).
-    - q: How do I change my Nextcloud password?
-      a: Go to your server website and log in. Then go to Settings > Security > Change password. You'll need to log out and log back in to Saber after changing your password.
-    - q: How do I change my encryption password?
-      a: |-
-        0. Make sure syncing is complete (see the sync progress on the home screen).
-        1. Log out of Saber.
-        2. Go to your server website and delete your 'Saber' folder. This will delete all your notes from the server.
-        3. Log back in to Saber. You can choose a new encryption password when logging in.
-        4. Don't forget to log out and log back in to Saber on your other devices too.
-    - q: How can I delete my account?
-      a: |-
-        Tap on the "@:profile.quickLinks.deleteAccount" button above, and login if needed.
-        If you are using the official Saber server, your account will be deleted after a 1 week grace period. You can contact me at adilhanney@disroot.org during this period to cancel the deletion.
-        If you are using a third party server, there might not be an option to delete your account: you'll need to consult the server's privacy policy for more information.
-  update:
-    updateAvailableDescription(OUTDATED): "A new version of the app is available:"
-    downloadNotAvailableYet(OUTDATED): The download isn't available yet for your platform. Please check back shortly.
-  editor:
-    pens:
-      pencil(OUTDATED): Pencil
-      shapePen(OUTDATED): Shape pen
-      laserPointer(OUTDATED): Laser pointer
-    colors:
-      colorPicker(OUTDATED): Color picker
-      customBrightnessHue(OUTDATED): Custom $b $h
-      customHue(OUTDATED): Custom $h
-      dark(OUTDATED): dark
-      light(OUTDATED): light
-      black(OUTDATED): Black
-      darkGrey(OUTDATED): Dark grey
-      grey(OUTDATED): Grey
-      lightGrey(OUTDATED): Light grey
-      white(OUTDATED): White
-      red(OUTDATED): Red
-      green(OUTDATED): Green
-      cyan(OUTDATED): Cyan
-      blue(OUTDATED): Blue
-      yellow(OUTDATED): Yellow
-      purple(OUTDATED): Purple
-      pink(OUTDATED): Pink
-      orange(OUTDATED): Orange
-      pastelRed(OUTDATED): Pastel red
-      pastelOrange(OUTDATED): Pastel orange
-      pastelYellow(OUTDATED): Pastel yellow
-      pastelGreen(OUTDATED): Pastel green
-      pastelCyan(OUTDATED): Pastel cyan
-      pastelBlue(OUTDATED): Pastel blue
-      pastelPurple(OUTDATED): Pastel purple
-      pastelPink(OUTDATED): Pastel pink
-    imageOptions:
-      removeAsBackground(OUTDATED): Remove as background
-    selectionBar:
-      duplicate(OUTDATED): Duplicate
-    menu:
-      clearPage(OUTDATED): Clear page $page/$totalPages
-      insertPage(OUTDATED): Insert page below
-      duplicatePage(OUTDATED): Duplicate page
-      deletePage(OUTDATED): Delete page
-      lineHeightDescription(OUTDATED): Also controls the text size for typed notes
-      lineThickness(OUTDATED): Line thickness
-      lineThicknessDescription(OUTDATED): Background line thickness
-      backgroundImageFit(OUTDATED): Background image fit
-      watchServer(OUTDATED): Watch for updates on the server
-      watchServerReadOnly(OUTDATED): Editing is disabled while watching the server
-      bgPatterns:
-        collegeRtl(OUTDATED): College-ruled (Reverse)
-        staffs(OUTDATED): Staffs
-        tablature(OUTDATED): Tablature
-        cornell(OUTDATED): Cornell
-    readOnlyBanner:
-      watchingServer(OUTDATED): You are currently watching for updates on the server. Editing is disabled in this mode.
-      corrupted(OUTDATED): Failed to load note. It may be corrupted or still being downloaded.
-    hud:
-      unlockAxisAlignedPan(OUTDATED): Unlock panning to horizontal or vertical
-      lockAxisAlignedPan(OUTDATED): Lock panning to horizontal or vertical
-    needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
+    sort:
+      sortBy(OUTDATED): Sort by
+      nameAToZ(OUTDATED): Name (A-Z)
+      nameZToA(OUTDATED): Name (Z-A)
+      lastModifiedNewToOld(OUTDATED): Edited (Newest first)
+      lastModifiedOldToNew(OUTDATED): Edited (Oldest first)
+    layout:
+      layout(OUTDATED): Layout
+      masonryGrid(OUTDATED): Masonry grid
+      simpleGrid(OUTDATED): Simple grid
 it:
+  home:
+    sort:
+      sortBy(OUTDATED): Sort by
+      nameAToZ(OUTDATED): Name (A-Z)
+      nameZToA(OUTDATED): Name (Z-A)
+      lastModifiedNewToOld(OUTDATED): Edited (Newest first)
+      lastModifiedOldToNew(OUTDATED): Edited (Oldest first)
+    layout:
+      layout(OUTDATED): Layout
+      masonryGrid(OUTDATED): Masonry grid
+      simpleGrid(OUTDATED): Simple grid
 ja:
+  home:
+    sort:
+      sortBy(OUTDATED): Sort by
+      nameAToZ(OUTDATED): Name (A-Z)
+      nameZToA(OUTDATED): Name (Z-A)
+      lastModifiedNewToOld(OUTDATED): Edited (Newest first)
+      lastModifiedOldToNew(OUTDATED): Edited (Oldest first)
+    layout:
+      layout(OUTDATED): Layout
+      masonryGrid(OUTDATED): Masonry grid
+      simpleGrid(OUTDATED): Simple grid
   settings:
     prefLabels:
       hideFingerDrawingToggle(OUTDATED): Hide the finger drawing toggle
@@ -848,7 +655,6 @@ ja:
         fixedOn(OUTDATED): Finger drawing is fixed as enabled
         fixedOff(OUTDATED): Finger drawing is fixed as disabled
       autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Turn off finger drawing when a stylus is detected
-      simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
     autosaveDisabled(OUTDATED): Never
     shapeRecognitionDisabled(OUTDATED): Never
   update:
@@ -856,111 +662,30 @@ ja:
   editor:
     menu:
       backgroundImageFit(OUTDATED): Background image fit
-pl:
-pt-BR:
+nl:
   home:
-    deleteNoteDialog:
-      deleteNotes(OUTDATED): Delete $n notes
-      deleteName(OUTDATED): Delete $f
-      confirmDelete(OUTDATED):
-        one: Permanently delete the selected note?
-        other: Permanently delete the selected notes?
-      delete(OUTDATED): Delete
-  settings:
-    prefLabels:
-      simplifiedHomeLayout(OUTDATED): Simplified home layout
-      customDataDir(OUTDATED): Custom Saber folder
-      sentry(OUTDATED): Error reporting
-    prefDescriptions:
-      autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Turn off finger drawing when a stylus is detected
-      autosave(OUTDATED): Auto-save after a short delay, or never
-      shapeRecognitionDelay(OUTDATED): How often to update the shape preview
-      autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
-      simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
-      sentry:
-        active(OUTDATED): Active
-        inactive(OUTDATED): Inactive
-        activeUntilRestart(OUTDATED): Active until you restart the app
-        inactiveUntilRestart(OUTDATED): Inactive until you restart the app
-    resyncEverything(OUTDATED): Resync everything
-    openDataDir(OUTDATED): Open Saber folder
-    customDataDir:
-      cancel(OUTDATED): Cancel
-      select(OUTDATED): Select
-      mustBeEmpty(OUTDATED): Selected folder must be empty
-      mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the folder
-      unsupported(OUTDATED): This feature is currently only for developers. Using it will likely result in data loss.
-    autosaveDisabled(OUTDATED): Never
-    shapeRecognitionDisabled(OUTDATED): Never
-  logs:
-    logs(OUTDATED): Logs
-    viewLogs(OUTDATED): View logs
-    debuggingInfo(OUTDATED): Logs contain information useful for debugging and development
-    noLogs(OUTDATED): No logs here!
-    useTheApp(OUTDATED): Logs will appear here as you use the app
-  login:
-    notYou(rich)(OUTDATED): Not you? ${undoLogin(Choose another account)}.
-    status:
-      hi(OUTDATED): Hi, $u!
-      almostDone(OUTDATED): Almost ready for syncing, tap to finish logging in
-    ncLoginStep:
-      whereToStoreData(OUTDATED): "Choose where you want to store your data:"
-      saberNcServer(OUTDATED): Saber's Nextcloud server
-      otherNcServer(OUTDATED): Other Nextcloud server
-      serverUrl(OUTDATED): Server URL
-      loginWithSaber(OUTDATED): Login with Saber
-      loginWithNextcloud(OUTDATED): Login with Nextcloud
-      loginFlow:
-        pleaseAuthorize(OUTDATED): Please authorize Saber to access your Nextcloud account
-        followPrompts(OUTDATED): Please follow the prompts in the Nextcloud interface
-        browserDidntOpen(OUTDATED): Login page didn't open? Click here
-    encLoginStep:
-      enterEncPassword(OUTDATED): "To protect your data, please enter your encryption password:"
-      newToSaber(OUTDATED): New to Saber? Just enter a new encryption password.
-      encPassword(OUTDATED): Encryption password
-      encFaqTitle(OUTDATED): Frequently asked questions
-      wrongEncPassword(OUTDATED): Decryption failed with the provided password. Please try entering it again.
-      connectionFailed(OUTDATED): Something went wrong connecting to the server. Please try again later.
-      encFaq(OUTDATED):
-      - q: What is an encryption password? Why use two passwords?
-        a: |-
-          The Nextcloud password is used to access the cloud. The encryption password "scrambles" your data before it ever reaches the cloud.
-          Even if someone gains access to your Nextcloud account, your notes will remain safe and encrypted with a separate password. This provides you a second layer of security to protect your data.
-          No-one can access your notes on the server without your encryption password, but this also means that if you forget your encryption password, you will lose access to your data.
-      - q: I haven't set an encryption password yet. Where do I get it?
-        a: |-
-          Choose a new encryption password and enter it above.
-          Saber will generate your encryption keys from this password automatically.
-      - q: Can I use the same password as my Nextcloud account?
-        a: Yes, but keep in mind that it would be easier for the server administrator or someone else to access your notes if they gain access to your Nextcloud account.
-  profile:
-    quotaUsage(OUTDATED): You're using $used of $total ($percent%)
-    connectedTo(OUTDATED): Connected to
-    faqTitle(OUTDATED): Frequently asked questions
-  update:
-    downloadNotAvailableYet(OUTDATED): The download isn't available yet for your platform. Please check back shortly.
-  editor:
-    pens:
-      pencil(OUTDATED): Pencil
-      shapePen(OUTDATED): Shape pen
-    colors:
-      customBrightnessHue(OUTDATED): Custom $b $h
-      customHue(OUTDATED): Custom $h
-      dark(OUTDATED): dark
-      light(OUTDATED): light
-      cyan(OUTDATED): Cyan
-      pink(OUTDATED): Pink
-    selectionBar:
-      duplicate(OUTDATED): Duplicate
-    menu:
-      lineHeightDescription(OUTDATED): Also controls the text size for typed notes
-      lineThickness(OUTDATED): Line thickness
-      lineThicknessDescription(OUTDATED): Background line thickness
-      watchServer(OUTDATED): Watch for updates on the server
-      watchServerReadOnly(OUTDATED): Editing is disabled while watching the server
-    readOnlyBanner:
-      watchingServer(OUTDATED): You are currently watching for updates on the server. Editing is disabled in this mode.
-      corrupted(OUTDATED): Failed to load note. It may be corrupted or still being downloaded.
+    sort:
+      sortBy(OUTDATED): Sort by
+      nameAToZ(OUTDATED): Name (A-Z)
+      nameZToA(OUTDATED): Name (Z-A)
+      lastModifiedNewToOld(OUTDATED): Edited (Newest first)
+      lastModifiedOldToNew(OUTDATED): Edited (Oldest first)
+    layout:
+      layout(OUTDATED): Layout
+      masonryGrid(OUTDATED): Masonry grid
+      simpleGrid(OUTDATED): Simple grid
+pl:
+  home:
+    sort:
+      sortBy(OUTDATED): Sort by
+      nameAToZ(OUTDATED): Name (A-Z)
+      nameZToA(OUTDATED): Name (Z-A)
+      lastModifiedNewToOld(OUTDATED): Edited (Newest first)
+      lastModifiedOldToNew(OUTDATED): Edited (Oldest first)
+    layout:
+      layout(OUTDATED): Layout
+      masonryGrid(OUTDATED): Masonry grid
+      simpleGrid(OUTDATED): Simple grid
 ru:
   home:
     deleteNoteDialog:
@@ -970,6 +695,16 @@ ru:
         one: Permanently delete the selected note?
         other: Permanently delete the selected notes?
       delete(OUTDATED): Delete
+    sort:
+      sortBy(OUTDATED): Sort by
+      nameAToZ(OUTDATED): Name (A-Z)
+      nameZToA(OUTDATED): Name (Z-A)
+      lastModifiedNewToOld(OUTDATED): Edited (Newest first)
+      lastModifiedOldToNew(OUTDATED): Edited (Oldest first)
+    layout:
+      layout(OUTDATED): Layout
+      masonryGrid(OUTDATED): Masonry grid
+      simpleGrid(OUTDATED): Simple grid
 sl:
   home:
     deleteNoteDialog:
@@ -979,6 +714,16 @@ sl:
         one: Permanently delete the selected note?
         other: Permanently delete the selected notes?
       delete(OUTDATED): Delete
+    sort:
+      sortBy(OUTDATED): Sort by
+      nameAToZ(OUTDATED): Name (A-Z)
+      nameZToA(OUTDATED): Name (Z-A)
+      lastModifiedNewToOld(OUTDATED): Edited (Newest first)
+      lastModifiedOldToNew(OUTDATED): Edited (Oldest first)
+    layout:
+      layout(OUTDATED): Layout
+      masonryGrid(OUTDATED): Masonry grid
+      simpleGrid(OUTDATED): Simple grid
 th:
   home:
     deleteNoteDialog:
@@ -988,6 +733,16 @@ th:
         one: Permanently delete the selected note?
         other: Permanently delete the selected notes?
       delete(OUTDATED): Delete
+    sort:
+      sortBy(OUTDATED): Sort by
+      nameAToZ(OUTDATED): Name (A-Z)
+      nameZToA(OUTDATED): Name (Z-A)
+      lastModifiedNewToOld(OUTDATED): Edited (Newest first)
+      lastModifiedOldToNew(OUTDATED): Edited (Oldest first)
+    layout:
+      layout(OUTDATED): Layout
+      masonryGrid(OUTDATED): Masonry grid
+      simpleGrid(OUTDATED): Simple grid
   editor:
     readOnlyBanner:
       watchingServer(OUTDATED): You are currently watching for updates on the server. Editing is disabled in this mode.
@@ -1005,6 +760,16 @@ tr:
         one: Permanently delete the selected note?
         other: Permanently delete the selected notes?
       delete(OUTDATED): Delete
+    sort:
+      sortBy(OUTDATED): Sort by
+      nameAToZ(OUTDATED): Name (A-Z)
+      nameZToA(OUTDATED): Name (Z-A)
+      lastModifiedNewToOld(OUTDATED): Edited (Newest first)
+      lastModifiedOldToNew(OUTDATED): Edited (Oldest first)
+    layout:
+      layout(OUTDATED): Layout
+      masonryGrid(OUTDATED): Masonry grid
+      simpleGrid(OUTDATED): Simple grid
   sentry:
     consent:
       title(OUTDATED): Help improve Saber?
@@ -1110,6 +875,16 @@ uk:
       deleteName(OUTDATED): Delete $f
       delete(OUTDATED): Delete
       alsoDeleteContents(OUTDATED): Also delete all notes inside this folder
+    sort:
+      sortBy(OUTDATED): Sort by
+      nameAToZ(OUTDATED): Name (A-Z)
+      nameZToA(OUTDATED): Name (Z-A)
+      lastModifiedNewToOld(OUTDATED): Edited (Newest first)
+      lastModifiedOldToNew(OUTDATED): Edited (Oldest first)
+    layout:
+      layout(OUTDATED): Layout
+      masonryGrid(OUTDATED): Masonry grid
+      simpleGrid(OUTDATED): Simple grid
   sentry:
     consent:
       title(OUTDATED): Help improve Saber?
@@ -1156,7 +931,6 @@ uk:
       autosave(OUTDATED): Auto-save
       shapeRecognitionDelay(OUTDATED): Shape recognition delay
       autoStraightenLines(OUTDATED): Auto straighten lines
-      simplifiedHomeLayout(OUTDATED): Simplified home layout
       customDataDir(OUTDATED): Custom Saber folder
       sentry(OUTDATED): Error reporting
     prefDescriptions:
@@ -1176,7 +950,6 @@ uk:
       autosave(OUTDATED): Auto-save after a short delay, or never
       shapeRecognitionDelay(OUTDATED): How often to update the shape preview
       autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
-      simplifiedHomeLayout(OUTDATED): Sets a fixed height for each note preview
       shouldAlwaysAlertForUpdates(OUTDATED): Tell me about updates as soon as they're available
       sentry:
         active(OUTDATED): Active
@@ -1387,5 +1160,146 @@ vi:
         one: Permanently delete the selected note?
         other: Permanently delete the selected notes?
       delete(OUTDATED): Delete
+    sort:
+      sortBy(OUTDATED): Sort by
+      nameAToZ(OUTDATED): Name (A-Z)
+      nameZToA(OUTDATED): Name (Z-A)
+      lastModifiedNewToOld(OUTDATED): Edited (Newest first)
+      lastModifiedOldToNew(OUTDATED): Edited (Oldest first)
+    layout:
+      layout(OUTDATED): Layout
+      masonryGrid(OUTDATED): Masonry grid
+      simpleGrid(OUTDATED): Simple grid
+pt-BR:
+  home:
+    sort:
+      sortBy(OUTDATED): Sort by
+      nameAToZ(OUTDATED): Name (A-Z)
+      nameZToA(OUTDATED): Name (Z-A)
+      lastModifiedNewToOld(OUTDATED): Edited (Newest first)
+      lastModifiedOldToNew(OUTDATED): Edited (Oldest first)
+    layout:
+      layout(OUTDATED): Layout
+      masonryGrid(OUTDATED): Masonry grid
+      simpleGrid(OUTDATED): Simple grid
+  settings:
+    prefLabels:
+      customDataDir(OUTDATED): Custom Saber folder
+      sentry(OUTDATED): Error reporting
+    prefDescriptions:
+      autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Turn off finger drawing when a stylus is detected
+      autosave(OUTDATED): Auto-save after a short delay, or never
+      shapeRecognitionDelay(OUTDATED): How often to update the shape preview
+      autoStraightenLines(OUTDATED): Straightens long lines without having to use the shape pen
+      sentry:
+        active(OUTDATED): Active
+        inactive(OUTDATED): Inactive
+        activeUntilRestart(OUTDATED): Active until you restart the app
+        inactiveUntilRestart(OUTDATED): Inactive until you restart the app
+    layoutSizes:
+      tablet(OUTDATED): Tablet
+    resyncEverything(OUTDATED): Resync everything
+    openDataDir(OUTDATED): Open Saber folder
+    customDataDir:
+      cancel(OUTDATED): Cancel
+      select(OUTDATED): Select
+      mustBeEmpty(OUTDATED): Selected folder must be empty
+      mustBeDoneSyncing(OUTDATED): Make sure syncing is complete before changing the folder
+      unsupported(OUTDATED): This feature is currently only for developers. Using it will likely result in data loss.
+    autosaveDisabled(OUTDATED): Never
+    shapeRecognitionDisabled(OUTDATED): Never
+  logs:
+    logs(OUTDATED): Logs
+    viewLogs(OUTDATED): View logs
+    debuggingInfo(OUTDATED): Logs contain information useful for debugging and development
+    noLogs(OUTDATED): No logs here!
+    useTheApp(OUTDATED): Logs will appear here as you use the app
+  login:
+    notYou(rich)(OUTDATED): Not you? ${undoLogin(Choose another account)}.
+    status:
+      hi(OUTDATED): Hi, $u!
+      almostDone(OUTDATED): Almost ready for syncing, tap to finish logging in
+    ncLoginStep:
+      whereToStoreData(OUTDATED): "Choose where you want to store your data:"
+      saberNcServer(OUTDATED): Saber's Nextcloud server
+      otherNcServer(OUTDATED): Other Nextcloud server
+      serverUrl(OUTDATED): Server URL
+      loginWithSaber(OUTDATED): Login with Saber
+      loginWithNextcloud(OUTDATED): Login with Nextcloud
+      loginFlow:
+        pleaseAuthorize(OUTDATED): Please authorize Saber to access your Nextcloud account
+        followPrompts(OUTDATED): Please follow the prompts in the Nextcloud interface
+        browserDidntOpen(OUTDATED): Login page didn't open? Click here
+    encLoginStep:
+      enterEncPassword(OUTDATED): "To protect your data, please enter your encryption password:"
+      newToSaber(OUTDATED): New to Saber? Just enter a new encryption password.
+      encPassword(OUTDATED): Encryption password
+      encFaqTitle(OUTDATED): Frequently asked questions
+      wrongEncPassword(OUTDATED): Decryption failed with the provided password. Please try entering it again.
+      connectionFailed(OUTDATED): Something went wrong connecting to the server. Please try again later.
+      encFaq(OUTDATED):
+      - q: What is an encryption password? Why use two passwords?
+        a: |-
+          The Nextcloud password is used to access the cloud. The encryption password "scrambles" your data before it ever reaches the cloud.
+          Even if someone gains access to your Nextcloud account, your notes will remain safe and encrypted with a separate password. This provides you a second layer of security to protect your data.
+          No-one can access your notes on the server without your encryption password, but this also means that if you forget your encryption password, you will lose access to your data.
+      - q: I haven't set an encryption password yet. Where do I get it?
+        a: |-
+          Choose a new encryption password and enter it above.
+          Saber will generate your encryption keys from this password automatically.
+      - q: Can I use the same password as my Nextcloud account?
+        a: Yes, but keep in mind that it would be easier for the server administrator or someone else to access your notes if they gain access to your Nextcloud account.
+  profile:
+    quotaUsage(OUTDATED): You're using $used of $total ($percent%)
+    connectedTo(OUTDATED): Connected to
+    faqTitle(OUTDATED): Frequently asked questions
+  update:
+    downloadNotAvailableYet(OUTDATED): The download isn't available yet for your platform. Please check back shortly.
+  editor:
+    pens:
+      pencil(OUTDATED): Pencil
+      shapePen(OUTDATED): Shape pen
+    colors:
+      customBrightnessHue(OUTDATED): Custom $b $h
+      customHue(OUTDATED): Custom $h
+      dark(OUTDATED): dark
+      light(OUTDATED): light
+      cyan(OUTDATED): Cyan
+      pink(OUTDATED): Pink
+    selectionBar:
+      duplicate(OUTDATED): Duplicate
+    menu:
+      lineHeightDescription(OUTDATED): Also controls the text size for typed notes
+      lineThickness(OUTDATED): Line thickness
+      lineThicknessDescription(OUTDATED): Background line thickness
+      watchServer(OUTDATED): Watch for updates on the server
+      watchServerReadOnly(OUTDATED): Editing is disabled while watching the server
+      bgPatterns:
+        cornell(OUTDATED): Cornell
+    readOnlyBanner:
+      watchingServer(OUTDATED): You are currently watching for updates on the server. Editing is disabled in this mode.
+      corrupted(OUTDATED): Failed to load note. It may be corrupted or still being downloaded.
 zh-Hans-CN:
+  home:
+    sort:
+      sortBy(OUTDATED): Sort by
+      nameAToZ(OUTDATED): Name (A-Z)
+      nameZToA(OUTDATED): Name (Z-A)
+      lastModifiedNewToOld(OUTDATED): Edited (Newest first)
+      lastModifiedOldToNew(OUTDATED): Edited (Oldest first)
+    layout:
+      layout(OUTDATED): Layout
+      masonryGrid(OUTDATED): Masonry grid
+      simpleGrid(OUTDATED): Simple grid
 zh-Hant-TW:
+  home:
+    sort:
+      sortBy(OUTDATED): Sort by
+      nameAToZ(OUTDATED): Name (A-Z)
+      nameZToA(OUTDATED): Name (Z-A)
+      lastModifiedNewToOld(OUTDATED): Edited (Newest first)
+      lastModifiedOldToNew(OUTDATED): Edited (Oldest first)
+    layout:
+      layout(OUTDATED): Layout
+      masonryGrid(OUTDATED): Masonry grid
+      simpleGrid(OUTDATED): Simple grid

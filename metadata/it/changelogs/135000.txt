@@ -1,0 +1,3 @@
+• La pagina di navigazione è ora ordinata in ordine alfabetico per impostazione predefinita. Puoi personalizzare l'ordinamento con il pulsante in alto.
+• Corretto un crash su determinati dispositivi Android.
+• Rimosso la funzionalità di scorrimento verso l'alto per aggiornare perché era confusa.

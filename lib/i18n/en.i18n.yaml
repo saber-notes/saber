@@ -69,6 +69,16 @@ home:
     deleteName: Delete $f
     delete: Delete
     alsoDeleteContents: Also delete all notes inside this folder
+  sort:
+    sortBy: Sort by
+    nameAToZ: Name (A-Z)
+    nameZToA: Name (Z-A)
+    lastModifiedNewToOld: Edited (Newest first)
+    lastModifiedOldToNew: Edited (Oldest first)
+  layout:
+    layout: Layout
+    masonryGrid: Masonry grid
+    simpleGrid: Simple grid
 sentry:
   consent:
     title: Help improve Saber?
@@ -115,7 +125,6 @@ settings:
     autosave: Auto-save
     shapeRecognitionDelay: Shape recognition delay
     autoStraightenLines: Auto straighten lines
-    simplifiedHomeLayout: Simplified home layout
     customDataDir: Custom Saber folder
     sentry: Error reporting
   prefDescriptions:
@@ -135,7 +144,6 @@ settings:
     autosave: Auto-save after a short delay, or never
     shapeRecognitionDelay: How often to update the shape preview
     autoStraightenLines: Straightens long lines without having to use the shape pen
-    simplifiedHomeLayout: Sets a fixed height for each note preview
     shouldAlwaysAlertForUpdates: Tell me about updates as soon as they're available
     sentry:
       active: Active

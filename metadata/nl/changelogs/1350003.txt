@@ -1,0 +1,3 @@
+• De browsese pagina wordt nu standaard alfabetisch gesorteerd. U kunt de sortering aanpassen met de knop bovenaan.
+• Een crash op bepaalde Android-apparaten is verholpen.
+• De functie om naar boven te scrollen om te vernieuwen is verwijderd omdat dit verwarrend was.

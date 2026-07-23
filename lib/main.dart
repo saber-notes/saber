@@ -90,7 +90,10 @@ Future<void> appRunner(List<String> args) async {
       windowManager.ensureInitialized(),
     if (Platform.isWindows)
       YaruWindowTitleBar.ensureInitialized(),
-    workerManager.init(),
+    workerManager.init(
+      // Fewer isolates in debug mode to avoid slowing down hot reload
+      isolatesCount: kDebugMode ? 1 : 2,
+    ),
     stows.locale.waitUntilRead(),
     stows.url.waitUntilRead(),
     stows.allowInsecureConnections.waitUntilRead(),
@@ -200,7 +203,10 @@ void doBackgroundSync() {
 
     await Future.wait([
       FileManager.init(),
-      workerManager.init(),
+      workerManager.init(
+        // Fewer isolates in debug mode to avoid slowing down hot reload
+        isolatesCount: kDebugMode ? 1 : 2,
+      ),
       stows.url.waitUntilRead(),
       stows.allowInsecureConnections.waitUntilRead(),
     ]);

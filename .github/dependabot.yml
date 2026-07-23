@@ -12,6 +12,8 @@ updates:
     groups:
       pub:
         patterns: ["*"]
+    cooldown:
+      default-days: 7
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
@@ -19,3 +21,5 @@ updates:
     groups:
       actions:
         patterns: ["*"]
+    cooldown:
+      default-days: 7

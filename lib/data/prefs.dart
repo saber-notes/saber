@@ -5,6 +5,8 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
 import 'package:perfect_freehand/perfect_freehand.dart';
+import 'package:saber/components/home/home_layout_button.dart';
+import 'package:saber/components/home/sort_button.dart';
 import 'package:saber/components/navbar/responsive_navbar.dart';
 import 'package:saber/components/settings/nextcloud_profile.dart';
 import 'package:saber/data/codecs/base64_codec.dart';
@@ -171,11 +173,6 @@ class Stows {
     volatile: !_isOnMainIsolate,
   );
 
-  final simplifiedHomeLayout = PlainStow(
-    'simplifiedHomeLayout',
-    false,
-    volatile: !_isOnMainIsolate,
-  );
   final printPageIndicators = PlainStow(
     'printPageIndicators',
     false,
@@ -336,6 +333,18 @@ class Stows {
         volatile: !_isOnMainIsolate,
       );
 
+  final homeLayout = PlainStow(
+    'homeLayout',
+    HomeLayout.masonryGrid,
+    codec: HomeLayout.codec,
+    volatile: !_isOnMainIsolate,
+  );
+  final browseSortMetric = PlainStow(
+    'browseSortMetric',
+    SortMetric.nameAToZ,
+    codec: SortMetric.codec,
+    volatile: !_isOnMainIsolate,
+  );
   final recentFiles = PlainStow(
     'recentFiles',
     <String>[],

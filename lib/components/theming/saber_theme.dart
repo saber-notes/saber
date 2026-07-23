@@ -108,18 +108,18 @@ abstract class SaberTheme {
       cupertinoOverrideTheme: _Components.cupertinoOverrideTheme,
       listTileTheme: base.listTileTheme.copyWith(
         // Yaru forces list tiles to use Ubuntu font, fix that
-        titleTextStyle: base.listTileTheme.titleTextStyle?.withFont(
+        titleTextStyle: base.listTileTheme.titleTextStyle?.copyWith(
           fontFamily: fontFamily,
           fontFamilyFallback: fontFamilyFallback,
         ),
-        subtitleTextStyle: base.listTileTheme.subtitleTextStyle?.withFont(
+        subtitleTextStyle: base.listTileTheme.subtitleTextStyle?.copyWith(
           fontFamily: fontFamily,
           fontFamilyFallback: fontFamilyFallback,
         ),
         leadingAndTrailingTextStyle: base
             .listTileTheme
             .leadingAndTrailingTextStyle
-            ?.withFont(
+            ?.copyWith(
               fontFamily: fontFamily,
               fontFamilyFallback: fontFamilyFallback,
             ),

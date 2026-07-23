@@ -68,6 +68,16 @@ home:
     deleteName: Eliminar $f
     delete: Eliminar
     alsoDeleteContents: Eliminar también las notas guardadas dentro de la carpeta
+  sort:
+    sortBy(OUTDATED): Ordenar por
+    nameAToZ(OUTDATED): Nombre (de la A a la Z)
+    nameZToA(OUTDATED): Nombre (de la A a la Z)
+    lastModifiedNewToOld(OUTDATED): Editado (Más reciente primero)
+    lastModifiedOldToNew(OUTDATED): Editado (Más antiguo primero)
+  layout:
+    layout(OUTDATED): Diseño de página
+    masonryGrid(OUTDATED): Cuadrícula de mampostería
+    simpleGrid(OUTDATED): Cuadrícula simple
 sentry:
   consent:
     title: ¿Quieres mejorar Saber?
@@ -114,7 +124,6 @@ settings:
     autosave: Guardado automático
     shapeRecognitionDelay: Retraso en el reconocimiento de formas
     autoStraightenLines: Enderezar líneas automáticamente
-    simplifiedHomeLayout: Menú inicial simplificado
     customDataDir: Carpeta de Saber personalizada
     sentry: Informes de errores
   prefDescriptions:
@@ -140,7 +149,6 @@ settings:
       activeUntilRestart(OUTDATED): Activo hasta que reinicie la aplicación
       inactiveUntilRestart(OUTDATED): Inactivo hasta que reinicie la aplicación
     autosave(OUTDATED): Auto-Save después de un breve retraso, o nunca
-    simplifiedHomeLayout(OUTDATED): Establece una altura fija para cada vista previa de nota
   themeModes:
     system: Sistema
     light: Claro
