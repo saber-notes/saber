@@ -3,6 +3,10 @@ name: Build unofficial snap
 on:
   workflow_dispatch:
   push:
+    tags:
+      - "**"
+    branches:
+      - "**"
     paths:
       - .github/workflows/snap.yml
       - snap/snapcraft.yaml
@@ -24,6 +28,7 @@ jobs:
           persist-credentials: false
 
       - name: Patch snapcraft.yaml to use current commit (github.sha)
+        if: ${{ !startsWith(github.ref, 'refs/tags/') }}
         run: |
           sed -i "s|source-tag: 'v.*'|source-commit: '${{ github.sha }}'|g" snap/snapcraft.yaml
 
@@ -36,3 +41,12 @@ jobs:
         with:
           name: Saber-Snap
           path: ${{ steps.build.outputs.snap }}
+
+      - name: Publish to Snap Store
+        uses: snapcore/action-publish@v1
+        env:
+          SNAPCRAFT_STORE_CREDENTIALS: ${{ secrets.SNAPCRAFT_STORE_CREDENTIALS }}
+        if: ${{ env.SNAPCRAFT_STORE_CREDENTIALS != '' }}
+        with:
+          snap: ${{ steps.build.outputs.snap }}
+          release: ${{ startsWith(github.ref, 'refs/tags/') && 'stable' || 'edge' }}
