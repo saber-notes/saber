@@ -1,3 +1,6 @@
+/// 🤖 Generated wholely or partially with Claude Code (Claude Fable 5)
+library;
+
 import 'dart:async';
 import 'dart:math';
 import 'dart:typed_data';
@@ -20,6 +23,9 @@ class EditorPage extends ChangeNotifier implements HasSize {
   static const double defaultWidth = 1000;
   static const double defaultHeight = defaultWidth * 1.4;
   static const defaultSize = Size(defaultWidth, defaultHeight);
+
+  /// The vertical gap between pages on the canvas.
+  static const double gapBetweenPages = 16;
 
   @override
   final Size size;

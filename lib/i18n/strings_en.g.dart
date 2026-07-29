@@ -1063,6 +1063,9 @@ class Translations$editor$toolbar$en {
 	/// en: 'Images'
 	String get photo => 'Images';
 
+	/// en: 'Insert from Files'
+	String get photoFromFile => 'Insert from Files';
+
 	/// en: 'Text'
 	String get text => 'Text';
 

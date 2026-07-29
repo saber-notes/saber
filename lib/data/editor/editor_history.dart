@@ -1,3 +1,6 @@
+/// 🤖 Generated wholely or partially with Claude Code (Claude Fable 5)
+library;
+
 import 'package:flutter/material.dart';
 import 'package:flutter_quill/flutter_quill.dart';
 import 'package:saber/components/canvas/_stroke.dart';
@@ -149,6 +152,7 @@ class EditorHistoryItem {
     this.quillChange,
     this.colorChange,
     this.backgroundPatternChange,
+    this.imagePageChange,
   }) : assert(
          type != .move || offset != null,
          'Offset must be provided for move',
@@ -188,6 +192,10 @@ class EditorHistoryItem {
   final Map<Stroke, Change<Color>>? colorChange;
   final Change<CanvasBackgroundPattern>? backgroundPatternChange;
 
+  /// For [EditorHistoryItemType.move] items whose [images] were dragged
+  /// onto another page, the change in the images' page index.
+  final Change<int>? imagePageChange;
+
   EditorHistoryItem copyWith({
     EditorHistoryItemType? type,
     int? pageIndex,
@@ -198,6 +206,7 @@ class EditorHistoryItem {
     DocChange? quillChange,
     Map<Stroke, Change<Color>>? colorChange,
     Change<CanvasBackgroundPattern>? backgroundPatternChange,
+    Change<int>? imagePageChange,
   }) {
     return EditorHistoryItem(
       type: type ?? this.type,
@@ -210,6 +219,7 @@ class EditorHistoryItem {
       colorChange: colorChange ?? this.colorChange,
       backgroundPatternChange:
           backgroundPatternChange ?? this.backgroundPatternChange,
+      imagePageChange: imagePageChange ?? this.imagePageChange,
     );
   }
 }

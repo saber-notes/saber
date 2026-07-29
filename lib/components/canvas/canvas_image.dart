@@ -1,3 +1,6 @@
+/// 🤖 Generated wholely or partially with Claude Code (Claude Fable 5)
+library;
+
 import 'dart:math';
 
 import 'package:defer_pointer/defer_pointer.dart';
@@ -6,6 +9,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:saber/components/canvas/canvas_image_dialog.dart';
 import 'package:saber/components/canvas/image/editor_image.dart';
 import 'package:saber/components/theming/adaptive_alert_dialog.dart';
+import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/extensions/change_notifier_extensions.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
@@ -134,6 +138,9 @@ class _CanvasImageState extends State<CanvasImage> {
                           widget.pageSize.width * 0.05,
                           widget.pageSize.height * 0.05,
                         );
+                        // The image may be dragged past the top or bottom of
+                        // the page to move it to the adjacent page
+                        // (see EditorState.onMoveImage).
                         widget.image.dstRect = .fromLTWH(
                           (widget.image.dstRect.left + details.delta.dx)
                               .clamp(
@@ -143,8 +150,10 @@ class _CanvasImageState extends State<CanvasImage> {
                               .toDouble(),
                           (widget.image.dstRect.top + details.delta.dy)
                               .clamp(
-                                fivePercent - widget.image.dstRect.height,
-                                widget.pageSize.height - fivePercent,
+                                -widget.image.dstRect.height -
+                                    EditorPage.gapBetweenPages,
+                                widget.pageSize.height +
+                                    EditorPage.gapBetweenPages,
                               )
                               .toDouble(),
                           widget.image.dstRect.width,
