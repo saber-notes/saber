@@ -1,15 +1,20 @@
+/// 🤖 Generated wholely or partially with Claude Code (Claude Fable 5)
+library;
+
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
+import 'dart:math';
 
 import 'package:collapsible/collapsible.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart' show kDebugMode;
+import 'package:flutter/foundation.dart' show defaultTargetPlatform, kDebugMode;
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_quill/flutter_quill.dart' as flutter_quill;
+import 'package:image_picker/image_picker.dart';
 import 'package:keybinder/keybinder.dart';
 import 'package:logging/logging.dart';
 import 'package:path/path.dart' as p;
@@ -30,6 +35,7 @@ import 'package:saber/components/toolbar/color_bar.dart';
 import 'package:saber/components/toolbar/editor_bottom_sheet.dart';
 import 'package:saber/components/toolbar/editor_page_manager.dart';
 import 'package:saber/components/toolbar/toolbar.dart';
+import 'package:saber/data/apple_pencil_interactions.dart';
 import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/data/editor/editor_exporter.dart';
 import 'package:saber/data/editor/editor_history.dart';
@@ -91,6 +97,11 @@ class Editor extends StatefulWidget {
 
   /// Whether the platform can rasterize a pdf
   static var canRasterPdf = true;
+
+  /// Whether photos are picked from the system photo library by default,
+  /// with the file picker offered as a secondary option.
+  static bool get picksPhotosFromLibrary =>
+      defaultTargetPlatform == TargetPlatform.iOS;
 
   @override
   State<Editor> createState() => EditorState();
@@ -160,6 +171,29 @@ class EditorState extends State<Editor> {
     stows.lastTool.value = tool.toolId;
   }
 
+  /// Sets the current tool, e.g. from the toolbar or an Apple Pencil
+  /// double-tap.
+  ///
+  /// As a special case, calling `setTool(Eraser())` while the eraser is
+  /// already selected toggles it off and restores the previous tool.
+  void setTool(Tool tool) {
+    if (tool is Eraser && currentTool is Eraser) {
+      tool = _lastNonEraserTool;
+    }
+
+    currentTool = tool;
+
+    if (tool is Highlighter) {
+      Highlighter.currentHighlighter = tool;
+    } else if (tool is Pencil) {
+      Pencil.currentPencil = tool;
+    } else if (tool is Pen) {
+      Pen.currentPen = tool;
+    }
+
+    if (mounted) setState(() {});
+  }
+
   ValueNotifier<SavingState> savingState = ValueNotifier(SavingState.saved);
   Timer? _delayedSaveTimer;
   Timer? _watchServerTimer;
@@ -184,10 +218,20 @@ class EditorState extends State<Editor> {
   void initState() {
     DynamicMaterialApp.addFullscreenListener(_setState);
 
+    ApplePencilInteractions.init();
+    ApplePencilInteractions.onDoubleTap = _onPencilDoubleTap;
+
     _initAsync();
     _assignKeybindings();
 
     super.initState();
+  }
+
+  /// Toggles between the eraser and the previous tool
+  /// when the user double-taps their Apple Pencil.
+  void _onPencilDoubleTap() {
+    if (coreInfo.readOnly) return;
+    setTool(Eraser());
   }
 
   void _initAsync() async {
@@ -410,6 +454,15 @@ class EditorState extends State<Editor> {
               Offset(-item.offset!.left, -item.offset!.top),
             );
           }
+          if (item.imagePageChange != null) {
+            for (final image in item.images) {
+              coreInfo.pages[item.imagePageChange!.current].images.remove(
+                image,
+              );
+              coreInfo.pages[item.imagePageChange!.previous].images.add(image);
+              image.pageIndex = item.imagePageChange!.previous;
+            }
+          }
           for (final image in item.images) {
             image.dstRect = .fromLTRB(
               image.dstRect.left - item.offset!.left,
@@ -466,6 +519,12 @@ class EditorState extends State<Editor> {
               -item.offset!.right,
               -item.offset!.bottom,
             ),
+            imagePageChange: item.imagePageChange == null
+                ? null
+                : Change(
+                    previous: item.imagePageChange!.current,
+                    current: item.imagePageChange!.previous,
+                  ),
           ),
         );
       case .quillChange:
@@ -762,6 +821,17 @@ class EditorState extends State<Editor> {
   }
 
   void onMoveImage(EditorImage image, Rect offset) {
+    final rectBeforeTransfer = image.dstRect;
+    final pageChange = _transferMovedImageAcrossPages(image);
+    if (image.dstRect != rectBeforeTransfer) {
+      offset = Rect.fromLTRB(
+        offset.left + image.dstRect.left - rectBeforeTransfer.left,
+        offset.top + image.dstRect.top - rectBeforeTransfer.top,
+        offset.right + image.dstRect.right - rectBeforeTransfer.right,
+        offset.bottom + image.dstRect.bottom - rectBeforeTransfer.bottom,
+      );
+    }
+
     history.recordChange(
       EditorHistoryItem(
         type: .move,
@@ -769,11 +839,72 @@ class EditorState extends State<Editor> {
         strokes: [],
         images: [image],
         offset: offset,
+        imagePageChange: pageChange,
       ),
     );
     // setState to update undo button
     setState(() {});
     autosaveAfterDelay();
+  }
+
+  /// If [image] was dragged so that its center is past the top or bottom
+  /// edge of its page, moves it to the adjacent page.
+  ///
+  /// Returns the change in the image's page index,
+  /// or null if the image stayed on its page.
+  Change<int>? _transferMovedImageAcrossPages(EditorImage image) {
+    final pageIndex = image.pageIndex;
+    final pageSize = coreInfo.pages[pageIndex].size;
+    final center = image.dstRect.center;
+
+    final int newPageIndex;
+    if (center.dy < 0 && pageIndex > 0) {
+      newPageIndex = pageIndex - 1;
+    } else if (center.dy > pageSize.height &&
+        pageIndex + 1 < coreInfo.pages.length) {
+      newPageIndex = pageIndex + 1;
+    } else {
+      _clampImageWithinPage(image);
+      return null;
+    }
+
+    final newPageSize = coreInfo.pages[newPageIndex].size;
+    final newTop = newPageIndex > pageIndex
+        ? image.dstRect.top - pageSize.height - EditorPage.gapBetweenPages
+        : image.dstRect.top + newPageSize.height + EditorPage.gapBetweenPages;
+    image.dstRect = Rect.fromLTWH(
+      image.dstRect.left,
+      newTop,
+      image.dstRect.width,
+      image.dstRect.height,
+    );
+
+    coreInfo.pages[pageIndex].images.remove(image);
+    coreInfo.pages[newPageIndex].images.add(image);
+    image.pageIndex = newPageIndex;
+
+    _clampImageWithinPage(image);
+    return Change(previous: pageIndex, current: newPageIndex);
+  }
+
+  /// Clamps [image]'s position so that at least a sliver of it
+  /// is visible on its page, mirroring the drag clamp in CanvasImage.
+  void _clampImageWithinPage(EditorImage image) {
+    final pageSize = coreInfo.pages[image.pageIndex].size;
+    final rect = image.dstRect;
+    if (!rect.left.isFinite || !rect.top.isFinite) return;
+    if (!rect.width.isFinite || !rect.height.isFinite) return;
+    final fivePercent = min(pageSize.width, pageSize.height) * 0.05;
+
+    final left = rect.left
+        .clamp(fivePercent - rect.width, pageSize.width - fivePercent)
+        .toDouble();
+    final top = rect.top
+        .clamp(fivePercent - rect.height, pageSize.height - fivePercent)
+        .toDouble();
+    if (left == rect.left && top == rect.top) return;
+
+    image.dstRect = Rect.fromLTWH(left, top, rect.width, rect.height);
   }
 
   void onDeleteImage(EditorImage image) {
@@ -1083,16 +1214,20 @@ class EditorState extends State<Editor> {
     }
   }
 
-  /// Prompts the user to pick photos from their device.
+  /// Prompts the user to pick photos from their device:
+  /// from the photo library if [Editor.picksPhotosFromLibrary],
+  /// or with the file picker otherwise.
   /// Returns the number of photos picked.
   ///
-  /// If [photoInfos] is provided, it will be used instead of the file picker.
+  /// If [photoInfos] is provided, it will be used instead of a picker.
   Future<int> _pickPhotos([List<_PhotoInfo>? photoInfos]) async {
     if (coreInfo.readOnly) return 0;
 
     final currentPageIndex = this.currentPageIndex;
 
-    photoInfos ??= await _pickPhotosWithFilePicker();
+    photoInfos ??= Editor.picksPhotosFromLibrary
+        ? await _pickPhotosWithPhotosPicker()
+        : await _pickPhotosWithFilePicker();
     if (photoInfos.isEmpty) return 0;
 
     // use the Select tool so that the user can move the new image
@@ -1107,6 +1242,7 @@ class EditorState extends State<Editor> {
             svgFile: null,
             pageIndex: currentPageIndex,
             pageSize: coreInfo.pages[currentPageIndex].size,
+            invertible: false,
             onMoveImage: onMoveImage,
             onDeleteImage: onDeleteImage,
             onMiscChange: autosaveAfterDelay,
@@ -1120,6 +1256,7 @@ class EditorState extends State<Editor> {
             imageProvider: MemoryImage(photoInfo.bytes),
             pageIndex: currentPageIndex,
             pageSize: coreInfo.pages[currentPageIndex].size,
+            invertible: false,
             onMoveImage: onMoveImage,
             onDeleteImage: onDeleteImage,
             onMiscChange: autosaveAfterDelay,
@@ -1143,27 +1280,89 @@ class EditorState extends State<Editor> {
     return images.length;
   }
 
+  /// Prompts the user to pick images or PDFs with the file picker, on
+  /// platforms where [_pickPhotos] uses the photo library instead.
+  /// Returns the number of images and PDFs inserted.
+  Future<int> _pickPhotosFromFiles() async {
+    if (coreInfo.readOnly) return 0;
+
+    final FilePickerResult? result = await FilePicker.pickFiles(
+      type: FileType.custom,
+      allowedExtensions: [
+        ..._imageFileExtensions,
+        if (Editor.canRasterPdf) 'pdf',
+      ],
+      allowMultiple: true,
+      withData: true,
+    );
+    if (result == null) return 0;
+
+    return insertPickedFiles(result.files);
+  }
+
+  /// Inserts images and PDFs picked with the file picker.
+  /// Returns the number of images and PDFs inserted.
+  @visibleForTesting
+  Future<int> insertPickedFiles(List<PlatformFile> files) async {
+    var pdfsImported = 0;
+    final photoInfos = <_PhotoInfo>[];
+
+    for (final PlatformFile file in files) {
+      if (file.extension?.toLowerCase() == 'pdf') {
+        if (file.path == null) continue;
+        if (await importPdfFromFilePath(file.path!)) pdfsImported++;
+      } else if (file.bytes != null && file.extension != null) {
+        photoInfos.add((bytes: file.bytes!, extension: '.${file.extension}'));
+      }
+    }
+
+    return pdfsImported + await _pickPhotos(photoInfos);
+  }
+
+  Future<List<_PhotoInfo>> _pickPhotosWithPhotosPicker() async {
+    final images = await ImagePicker().pickMultiImage(
+      requestFullMetadata: false,
+    );
+
+    return [
+      for (final XFile image in images)
+        (bytes: await image.readAsBytes(), extension: _imageExtensionOf(image)),
+    ];
+  }
+
+  /// The file extension of a picked [image], e.g. `.jpg`,
+  /// or `.png` if the picker provided no usable file name.
+  static String _imageExtensionOf(XFile image) {
+    for (final name in [image.name, image.path]) {
+      final extension = p.extension(name).toLowerCase();
+      if (extension.startsWith('.')) return extension;
+    }
+    return '.png';
+  }
+
+  /// Image file extensions supported by the file picker, taken from
+  /// https://github.com/brendan-duncan/image/blob/main/doc/formats.md
+  /// (plus .svg).
+  static const _imageFileExtensions = [
+    'jpg',
+    'jpeg',
+    'png',
+    'gif',
+    'tiff',
+    'bmp',
+    'tga',
+    'ico',
+    'pvrtc',
+    'svg',
+    'webp',
+    'psd',
+    'exr',
+  ];
+
   Future<List<_PhotoInfo>> _pickPhotosWithFilePicker() async {
     final FilePickerResult? result = await FilePicker.pickFiles(
       type: FileType.custom,
-      // Taken from
-      // https://github.com/brendan-duncan/image/blob/main/doc/formats.md
-      // (plus .svg)
-      allowedExtensions: [
-        'jpg',
-        'jpeg',
-        'png',
-        'gif',
-        'tiff',
-        'bmp',
-        'tga',
-        'ico',
-        'pvrtc',
-        'svg',
-        'webp',
-        'psd',
-        'exr',
-      ],
+      allowedExtensions: _imageFileExtensions,
       allowMultiple: true,
       withData: true,
     );
@@ -1423,24 +1622,7 @@ class EditorState extends State<Editor> {
         bottom: stows.editorToolbarAlignment.value != AxisDirection.up,
         child: Toolbar(
           readOnly: coreInfo.readOnly,
-          setTool: (tool) {
-            if (tool is Eraser && currentTool is Eraser) {
-              // setTool(Eraser) is a special case to toggle the eraser on/off
-              tool = _lastNonEraserTool;
-            }
-
-            currentTool = tool;
-
-            if (tool is Highlighter) {
-              Highlighter.currentHighlighter = tool;
-            } else if (tool is Pencil) {
-              Pencil.currentPencil = tool;
-            } else if (tool is Pen) {
-              Pen.currentPen = tool;
-            }
-
-            if (mounted) setState(() {});
-          },
+          setTool: setTool,
           currentTool: currentTool,
           duplicateSelection: () {
             final select = currentTool as Select;
@@ -1580,6 +1762,9 @@ class EditorState extends State<Editor> {
             lastSeenPointerCount = 0;
           },
           pickPhoto: _pickPhotos,
+          pickPhotoFromFile: Editor.picksPhotosFromLibrary
+              ? _pickPhotosFromFiles
+              : null,
           paste: paste,
           exportAsSba: exportAsSba,
           exportAsPdf: exportAsPdf,
@@ -1802,6 +1987,9 @@ class EditorState extends State<Editor> {
         autosaveAfterDelay();
       }),
       pickPhotos: _pickPhotos,
+      pickPhotosFromFiles: Editor.picksPhotosFromLibrary
+          ? _pickPhotosFromFiles
+          : null,
       importPdf: importPdf,
       canRasterPdf: Editor.canRasterPdf,
       getIsWatchingServer: () => _watchServerTimer?.isActive ?? false,
@@ -2030,11 +2218,12 @@ class EditorState extends State<Editor> {
   int get currentPageIndex {
     if (!mounted) return _lastCurrentPageIndex;
 
-    final screenWidth = MediaQuery.sizeOf(context).width;
+    final screenSize = MediaQuery.sizeOf(context);
+    final scale = _transformationController.value.approxScale;
 
     return _lastCurrentPageIndex = getPageIndexFromScrollPosition(
-      scrollY: -scrollY,
-      screenWidth: screenWidth,
+      scrollY: -scrollY + screenSize.height / 2 / scale,
+      screenWidth: screenSize.width,
       pages: coreInfo.pages,
     );
   }
@@ -2065,6 +2254,10 @@ class EditorState extends State<Editor> {
     unawaited(_cleanUpAsync());
 
     DynamicMaterialApp.removeFullscreenListener(_setState);
+
+    if (ApplePencilInteractions.onDoubleTap == _onPencilDoubleTap) {
+      ApplePencilInteractions.onDoubleTap = null;
+    }
 
     _delayedSaveTimer?.cancel();
     _watchServerTimer?.cancel();

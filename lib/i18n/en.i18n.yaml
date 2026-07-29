@@ -272,6 +272,7 @@ editor:
     select: Select
     toggleEraser: Toggle eraser (Ctrl E)
     photo: Images
+    photoFromFile: Insert from Files
     text: Text
     toggleFingerDrawing: Toggle finger drawing (Ctrl F)
     undo: Undo

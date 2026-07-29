@@ -1,3 +1,6 @@
+/// 🤖 Generated wholely or partially with Claude Code (Claude Fable 5)
+library;
+
 import 'dart:async';
 import 'dart:collection';
 import 'dart:math';
@@ -91,7 +94,7 @@ class CanvasGestureDetector extends StatefulWidget {
       /// is the minimum of the page width and the screen width.
       final pageWidthFitted = min(pageSize.width, screenWidth);
 
-      top += 16;
+      top += EditorPage.gapBetweenPages;
       top += pageSize.height * (pageWidthFitted / pageSize.width);
     }
 
@@ -133,7 +136,7 @@ class CanvasGestureDetector extends StatefulWidget {
       /// is the minimum of the page width and the screen width.
       final pageWidthFitted = min(pageSize.width, screenWidth);
 
-      top += 16;
+      top += EditorPage.gapBetweenPages;
       top += pageSize.height * (pageWidthFitted / pageSize.width);
 
       if (top > scrollY) return i;

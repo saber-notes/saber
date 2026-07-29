@@ -1,3 +1,6 @@
+/// 🤖 Generated wholely or partially with Claude Code (Claude Fable 5)
+library;
+
 import 'dart:io';
 
 import 'package:collapsible/collapsible.dart';
@@ -45,6 +48,7 @@ class Toolbar extends StatefulWidget {
     required this.isRedoPossible,
     required this.toggleFingerDrawing,
     required this.pickPhoto,
+    required this.pickPhotoFromFile,
     required this.paste,
     required this.duplicateSelection,
     required this.deleteSelection,
@@ -71,6 +75,10 @@ class Toolbar extends StatefulWidget {
   final VoidCallback toggleFingerDrawing;
 
   final VoidCallback pickPhoto;
+
+  /// Picks a photo with the file picker, on platforms where [pickPhoto]
+  /// uses the photo library instead. If null, no button is shown.
+  final VoidCallback? pickPhotoFromFile;
 
   final VoidCallback paste;
 
@@ -466,6 +474,17 @@ class _ToolbarState extends State<Toolbar> {
                   cupertinoIcon: CupertinoIcons.photo,
                 ),
               ),
+              if (widget.pickPhotoFromFile != null)
+                ToolbarIconButton(
+                  tooltip: t.editor.toolbar.photoFromFile,
+                  enabled: !widget.readOnly,
+                  onPressed: widget.pickPhotoFromFile,
+                  padding: buttonPadding,
+                  child: const AdaptiveIcon(
+                    icon: Icons.folder_open,
+                    cupertinoIcon: CupertinoIcons.folder_open,
+                  ),
+                ),
               ToolbarIconButton(
                 tooltip: t.editor.toolbar.text,
                 selected: widget.textEditing,

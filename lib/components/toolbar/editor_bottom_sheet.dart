@@ -1,3 +1,6 @@
+/// 🤖 Generated wholely or partially with Claude Code (Claude Fable 5)
+library;
+
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:saber/components/canvas/canvas_background_preview.dart';
@@ -27,6 +30,7 @@ class EditorBottomSheet extends StatefulWidget {
     required this.clearAllPages,
     required this.redrawAndSave,
     required this.pickPhotos,
+    required this.pickPhotosFromFiles,
     required this.importPdf,
     required this.canRasterPdf,
     required this.getIsWatchingServer,
@@ -45,6 +49,11 @@ class EditorBottomSheet extends StatefulWidget {
   final VoidCallback clearAllPages;
   final VoidCallback redrawAndSave;
   final Future<int> Function() pickPhotos;
+
+  /// Picks photos with the file picker, on platforms where [pickPhotos]
+  /// uses the photo library instead. If null, no button is shown.
+  final Future<int> Function()? pickPhotosFromFiles;
+
   final Future<bool> Function() importPdf;
   final bool canRasterPdf;
   final bool Function() getIsWatchingServer;
@@ -303,6 +312,17 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
                   },
                   child: Text(t.editor.toolbar.photo),
                 ),
+                if (widget.pickPhotosFromFiles != null)
+                  ElevatedButton(
+                    onPressed: () async {
+                      final photosPicked = await widget.pickPhotosFromFiles!();
+                      if (photosPicked > 0) {
+                        if (!context.mounted) return;
+                        Navigator.pop(context);
+                      }
+                    },
+                    child: Text(t.editor.toolbar.photoFromFile),
+                  ),
                 if (widget.canRasterPdf)
                   ElevatedButton(
                     onPressed: () async {
