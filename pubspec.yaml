@@ -34,7 +34,7 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^1.0.5
-  material_symbols_icons: ^4.2758.0
+  material_symbols_icons: ^4.2960.0
 
   sbn:
     path: packages/sbn
@@ -48,7 +48,7 @@ dependencies:
 
   perfect_freehand: ^2.5.1
 
-  path_provider: ^2.0.11
+  path_provider: ^2.1.6
 
   flutter_secure_storage: ^10.0.0-beta.4
 
@@ -75,7 +75,7 @@ dependencies:
 
   regexed_validator: ^2.0.0+1
 
-  slang: ^4.12.1
+  slang: ^4.18.0
   slang_flutter:
 
   flex_color_picker: ^3.4.1
@@ -94,7 +94,7 @@ dependencies:
   flutter_quill: ^11.5.1
   quill_native_bridge_linux: ^0.0.2
 
-  window_manager: ^0.5.1
+  window_manager: ^0.5.2
 
   worker_manager: ^7.0.1
   workmanager: ^0.9.0
@@ -144,7 +144,7 @@ dependencies:
 
   flutter_web_auth_2: ^5.0.1
 
-  pdfrx: ^2.4.2
+  pdfrx: ^2.4.7
   path: ^1.9.1
 
   stow: ^0.6.0
