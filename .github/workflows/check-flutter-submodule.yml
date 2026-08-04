@@ -22,7 +22,7 @@ jobs:
           persist-credentials: false
 
       - name: Setup Dart
-        uses: dart-lang/setup-dart@v1
+        uses: dart-lang/setup-dart@v1.7.2
 
       - name: Check if the Flutter submodule is up to date
         run: dart .github/scripts/check_flutter_submodule.dart
