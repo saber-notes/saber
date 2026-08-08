@@ -1164,16 +1164,16 @@ class EditorState extends State<Editor> {
         'psd',
         'exr',
       ],
-      allowMultiple: true,
-      withData: true,
     );
     if (result == null) return const [];
 
-    return [
-      for (final PlatformFile file in result.files)
-        if (file.bytes != null && file.extension != null)
-          (bytes: file.bytes!, extension: '.${file.extension}'),
-    ];
+    return Future.wait([
+      for (final file in result.files)
+        if (file.extension != null)
+          file.readAsBytes().then(
+            (bytes) => (bytes: bytes, extension: '.${file.extension}'),
+          ),
+    ]);
   }
 
   /// Prompts the user to pick a PDF to import.
@@ -1182,15 +1182,12 @@ class EditorState extends State<Editor> {
     if (coreInfo.readOnly) return false;
     if (!Editor.canRasterPdf) return false;
 
-    final FilePickerResult? result = await FilePicker.pickFiles(
+    final file = await FilePicker.pickFile(
       type: FileType.custom,
       allowedExtensions: ['pdf'],
-      allowMultiple: false,
-      withData: false,
     );
-    if (result == null) return false;
+    if (file == null) return false;
 
-    final PlatformFile file = result.files.single;
     return importPdfFromFilePath(file.path!);
   }
 
