@@ -1,4 +1,4 @@
-FROM debian:stable-slim
+FROM rust:latest
 
 # Set non-interactive mode for installations
 ENV DEBIAN_FRONTEND=noninteractive
