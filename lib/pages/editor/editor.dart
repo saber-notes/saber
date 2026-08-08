@@ -1319,7 +1319,7 @@ class EditorState extends State<Editor> {
     if (!context.mounted) return;
     await FileManager.exportFile(
       '${coreInfo.fileName}.sba',
-      sba,
+      Uint8List.fromList(sba),
       context: context,
     );
   }

@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:typed_data';
 
 import 'package:flutter/cupertino.dart' show CupertinoIcons;
 import 'package:flutter/material.dart';
@@ -69,7 +70,7 @@ class _CanvasImageDialogState extends State<CanvasImageDialog> {
           );
           final imageFileName =
               'image$filePathSanitized${widget.image.id}${widget.image.extension}';
-          final List<int> bytes;
+          final Uint8List bytes;
           switch (widget.image) {
             case final PdfEditorImage image:
               bytes =

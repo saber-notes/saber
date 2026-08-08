@@ -286,7 +286,7 @@ class FileManager {
 
   static Future exportFile(
     String fileName,
-    List<int> bytes, {
+    Uint8List bytes, {
     bool isImage = false,
     required BuildContext context,
   }) async {
@@ -332,16 +332,13 @@ class FileManager {
       }
     } else {
       // desktop, open save-as dialog
-      final outputFile = await FilePicker.saveFile(
+      await FilePicker.saveFile(
         fileName: fileName,
         initialDirectory: (await getDownloadsDirectory())?.path,
         type: FileType.custom,
         allowedExtensions: [fileName.split('.').last],
+        bytes: bytes,
       );
-      if (outputFile != null) {
-        final file = File(outputFile);
-        await file.writeAsBytes(bytes);
-      }
     }
 
     // delete temp file if it isn't null
