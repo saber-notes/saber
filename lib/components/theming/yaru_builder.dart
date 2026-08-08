@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:saber/components/theming/saber_theme.dart';
 import 'package:saber/data/prefs.dart';
+import 'package:sbn/font_fallbacks.dart';
 import 'package:yaru/yaru.dart';
 
 var _lastPrimary = Colors.transparent;
@@ -90,7 +91,12 @@ class _YaruBuilderState extends State<YaruBuilder> {
       if (!usePlatformBrightness) return null;
 
       DynamicYaru.refresh();
-      final theme = DynamicYaru.getTheme();
+      final theme = DynamicYaru.getTheme(
+        fontFamily: hyperlegibleFont
+            ? 'AtkinsonHyperlegibleNext'
+            : 'Adwaita Sans',
+        fontFamilyFallback: saberSansSerifFontFallbacks,
+      );
       if (theme == null) return null;
 
       return SaberTheme.getThemeFromYaruFixed(theme, widget.platform);
