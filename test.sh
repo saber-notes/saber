@@ -69,13 +69,14 @@ fi
 # Update flutter and pub cache by running `./test.sh --update`
 copy_flutter_from_host() {
     mkdir -p .github/docker/mounts
-    [ -d .github/docker/mounts/flutter ] || cp -r "$FLUTTER_ROOT" .github/docker/mounts/flutter
-    [ -d .github/docker/mounts/.pub-cache ] || cp -r "$PUB_CACHE" .github/docker/mounts/.pub-cache
-    [ -d .github/docker/mounts/.dart_tool ] || cp -r .dart_tool .github/docker/mounts/.dart_tool
-    [ -f .github/docker/mounts/pubspec.lock ] || cp pubspec.lock .github/docker/mounts/pubspec.lock
+    [ -d .github/docker/mounts/flutter ] || cp -r "$FLUTTER_ROOT" .github/docker/mounts/
+    [ -d .github/docker/mounts/.pub-cache ] || cp -r "$PUB_CACHE" .github/docker/mounts/
+    [ -d .github/docker/mounts/.dart_tool ] || cp -r .dart_tool .github/docker/mounts/
+    [ -d .github/docker/mounts/build ] || cp -r build .github/docker/mounts/
+    [ -f .github/docker/mounts/pubspec.lock ] || cp pubspec.lock .github/docker/mounts/
 }
 if [[ "$1" == "--update" ]]; then
-    rm -rf .github/docker/mounts/{flutter,.pub-cache,.dart_tool,pubspec.lock}
+    rm -rf .github/docker/mounts/{flutter,.pub-cache,.dart_tool,build,pubspec.lock}
     copy_flutter_from_host
     exit 0
 fi
@@ -101,7 +102,6 @@ fi
 # Make sure mounts exist
 mkdir -p .github/docker/mounts
 copy_flutter_from_host
-mkdir -p .github/docker/mounts/build
 mkdir -p .github/docker/mounts/linux-flutter-ephemeral
 mkdir -p .github/docker/mounts/macos-flutter-ephemeral
 mkdir -p .github/docker/mounts/windows-flutter-ephemeral
