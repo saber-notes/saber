@@ -622,17 +622,6 @@ hu:
       masonryGrid(OUTDATED): Masonry grid
       simpleGrid(OUTDATED): Simple grid
 it:
-  home:
-    sort:
-      sortBy(OUTDATED): Sort by
-      nameAToZ(OUTDATED): Name (A-Z)
-      nameZToA(OUTDATED): Name (Z-A)
-      lastModifiedNewToOld(OUTDATED): Edited (Newest first)
-      lastModifiedOldToNew(OUTDATED): Edited (Oldest first)
-    layout:
-      layout(OUTDATED): Layout
-      masonryGrid(OUTDATED): Masonry grid
-      simpleGrid(OUTDATED): Simple grid
 ja:
   home:
     sort:
