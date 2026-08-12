@@ -1,0 +1,2 @@
+• Reduzierter RAM-Verbrauch durch Reduzierung unnötiger Threads
+• Verschiedene Fehlerbehebungen in Abhängigkeiten

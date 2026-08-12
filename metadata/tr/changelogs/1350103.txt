@@ -1,0 +1,2 @@
+• Gereksiz thread'leri azaltarak RAM tüketimini düşürdü
+• Bağımlılıklardan çeşitli düzeltmeler

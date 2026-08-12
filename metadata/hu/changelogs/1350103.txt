@@ -1,0 +1,2 @@
+• Csökkentett a RAM fogyasztást az felesleges szálak csökkentésével
+• Utolsó javítások függőségekből

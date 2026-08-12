@@ -1,0 +1,2 @@
+• Giảm mức tiêu thụ RAM bằng cách giảm các luồng không cần thiết
+• Các bản sửa lỗi khác từ các thư viện phụ

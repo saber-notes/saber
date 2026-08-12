@@ -1,0 +1,2 @@
+• Zredukowano zużycie pamięci RAM poprzez ograniczenie niepotrzebnych wątków
+• Różne poprawki w zależnościach

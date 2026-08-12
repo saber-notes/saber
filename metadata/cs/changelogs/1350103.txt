@@ -1,0 +1,2 @@
+• Snížená spotřeba RAM z důvodu odstranění zbytečných vláken
+• Různé opravy v závislostech
