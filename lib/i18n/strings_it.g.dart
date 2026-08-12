@@ -381,9 +381,9 @@ class _Translations$home$sort$it extends Translations$home$sort$en {
 	// Translations
 	@override String get sortBy => 'Ordina per';
 	@override String get nameAToZ => 'Nome (A-Z)';
-	@override String get nameZToA => 'Nome (A-Z)';
-	@override String get lastModifiedNewToOld => 'Modificato (Più recente per primo)';
-	@override String get lastModifiedOldToNew => 'Modificato (dal più vecchio al più recente)';
+	@override String get nameZToA => 'Nome (Z-A)';
+	@override String get lastModifiedNewToOld => 'Modificato (Dal più recente)';
+	@override String get lastModifiedOldToNew => 'Modificato (Dal più vecchio)';
 }
 
 // Path: home.layout
@@ -394,7 +394,7 @@ class _Translations$home$layout$it extends Translations$home$layout$en {
 
 	// Translations
 	@override String get layout => 'Layout';
-	@override String get masonryGrid => 'Griglia a muratura';
+	@override String get masonryGrid => 'Griglia a mosaico';
 	@override String get simpleGrid => 'Griglia semplice';
 }
 
