@@ -7,5 +7,5 @@ runs:
     - name: Install apt dependencies
       shell: bash
       run: |
-        sudo apt update
-        sudo apt install libgtk-3-dev libx11-dev pkg-config cmake ninja-build curl libcurl4-openssl-dev libblkid-dev libsecret-1-dev libjsoncpp-dev ghostscript libunwind-dev webkit2gtk-4.1-dev
+        sudo apt-get update
+        sudo apt-get install -y libgtk-3-dev libx11-dev pkg-config cmake ninja-build curl libcurl4-openssl-dev libblkid-dev libsecret-1-dev libjsoncpp-dev ghostscript libunwind-dev webkit2gtk-4.1-dev
