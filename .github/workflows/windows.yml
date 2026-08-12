@@ -68,8 +68,6 @@ jobs:
         shell: bash
       - run: flutter pub get
         shell: bash
-      - run: ./patches/post/patch_rust_versions.sh
-        shell: bash
 
       - name: Build Windows
         shell: bash

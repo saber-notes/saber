@@ -82,7 +82,6 @@ jobs:
       - run: ./patches/pre/remove_dev_dependencies.sh
       - run: ./patches/pre/remove_linux_dependencies.sh
       - run: flutter pub get
-      - run: ./patches/post/patch_rust_versions.sh
 
       - name: Build for macOS
         run: |

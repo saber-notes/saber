@@ -99,8 +99,6 @@ jobs:
         if: ${{ steps.cache.outputs.cache-hit == '' }}
       - run: flutter pub get
         if: ${{ steps.cache.outputs.cache-hit == '' }}
-      - run: ./patches/post/patch_rust_versions.sh
-        if: ${{ steps.cache.outputs.cache-hit == '' }}
 
       - name: Build apk
         run: flutter build apk
@@ -213,7 +211,6 @@ jobs:
       - run: ./patches/pre/remove_proprietary_dependencies.sh
         if: matrix.foss
       - run: flutter pub get
-      - run: ./patches/post/patch_rust_versions.sh
 
       - name: Build apk
         run: flutter build apk
