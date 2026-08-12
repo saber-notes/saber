@@ -12,9 +12,6 @@ I am currently only accepting tiny focused pull requests, for example:
 - Completing one of the ["help wanted" issues](https://github.com/saber-notes/saber/issues?q=state%3Aopen%20label%3A%22help%20wanted%22)
 - Translations
 
-    Note: Translations are exempt from the majority of these guidelines.
-    See [Translating](https://github.com/saber-notes/saber/wiki/Translating) on the wiki for more information.
-
 If your pull request makes multiple changes, try to split it into multiple separate pull requests. I'd much prefer ten 10-line PRs over one 100-line PR.
 
 I appreciate that some may wish to contribute non-tiny PRs and new features, but reviewing pull requests is tiring work. There isn't a team behind Saber, just one hobbyist with limited energy.
@@ -29,6 +26,8 @@ If there is no existing issue for your proposed change, please open one first an
 
 This helps provide context for your change and it means the issue can be re-opened later if the PR gets reverted.
 
+PRs solely containing translations do not need to link to an issue.
+
 ### 3. Test everything
 
 Your pull request must be covered by tests.
@@ -38,6 +37,11 @@ If you cannot add tests for your change, please explain why in the PR descriptio
 
 Try to follow existing test patterns and conventions.
 
+In addition to writing tests, you must also run the app and manually test your contribution
+to ensure it works as intended.
+
+PRs solely containing translations do not need to add tests.
+
 ### 4. Document public members
 
 Add useful dartdoc comments for most new widgets, classes, and methods.
@@ -46,13 +50,17 @@ Avoid obvious comments that add no value, and avoid comments within the body of 
 
 Try to follow existing documentation patterns and conventions.
 
+PRs solely containing translations do not need to add documentation.
+
 ### 5. AI
 
-Don't generate code for this project using AI chatbots or agents.
+Don't generate code or translations* for this project using AI chatbots or agents.
 
 Reviewing and maintaining AI-generated code is a drain on contributor time, which could be better spent elsewhere.
 
 Autocomplete tools may be used at your discretion, but all submitted code must be fully designed, written, and understood by you.
+
+*You may notice some AI translations in the codebase. AI translations are a necessary evil to avoid missing strings in production. I run a script to generate them, so externally contributed AI translations are not needed.
 
 ### 6. Licensing
 
@@ -70,5 +78,7 @@ Pull requests may be accepted or rejected at my discretion.
 I may request changes to your pull request before it is accepted. Please address these within the same pull request, rather than opening a new one.
 
 In some cases, I may need to tweak your branch before merging (e.g. for style issues, minor bug fixes, or merge conflicts). In other cases, I may need to close your PR and reimplement your changes due to unresolvable issues. You will be credited as the author or co-author in the final commit if so.
+
+Development of Saber is slow at the moment. I cannot guarantee that I will see/review/merge your PR in a reasonable timeframe.
 
 Thank you for your understanding and cooperation!

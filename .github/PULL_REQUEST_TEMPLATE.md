@@ -1,0 +1,3 @@
+- [ ] I have read [CONTRIBUTING.md]. I have followed the requirements including but not limited to the licensing requirements.
+- [ ] I understand my contribution in full and will be able to respond to review comments.
+- [ ] I have tested my contribution and it works as described.
