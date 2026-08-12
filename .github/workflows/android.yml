@@ -89,13 +89,6 @@ jobs:
         with:
           cache-write-only: true
 
-      - name: Setup Rust
-        uses: moonrepo/setup-rust@v1
-        if: ${{ steps.cache.outputs.cache-hit == '' }}
-        with:
-          # The rust version is read from rust-toolchain.toml
-          targets: armv7-linux-androideabi,aarch64-linux-android,x86_64-linux-android
-
       - name: Disable Flutter CLI animations
         run: flutter config --no-cli-animations
         if: ${{ steps.cache.outputs.cache-hit == '' }}
@@ -211,12 +204,6 @@ jobs:
         uses: gradle/actions/setup-gradle@v5
         with:
           cache-read-only: true
-
-      - name: Setup Rust
-        uses: moonrepo/setup-rust@v1
-        with:
-          # The rust version is read from rust-toolchain.toml
-          targets: armv7-linux-androideabi,aarch64-linux-android,x86_64-linux-android
 
       - name: Disable Flutter CLI animations
         run: flutter config --no-cli-animations
