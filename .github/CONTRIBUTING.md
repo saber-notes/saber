@@ -54,6 +54,15 @@ Reviewing and maintaining AI-generated code is a drain on contributor time, whic
 
 Autocomplete tools may be used at your discretion, but all submitted code must be fully designed, written, and understood by you.
 
+### 6. Licensing
+
+By submitting a pull request, you agree to license your contribution under the same license as the project: see [LICENSE](../LICENSE).
+
+Should the project change to another official version of the GNU General Public License in the future,
+you agree to relicense your contribution under it.
+
+You agree that you have read the [Developer Certificate of Origin](https://developercertificate.org/) and certify your contribution under its conditions.
+
 ## Review time
 
 Pull requests may be accepted or rejected at my discretion.
@@ -61,7 +70,5 @@ Pull requests may be accepted or rejected at my discretion.
 I may request changes to your pull request before it is accepted. Please address these within the same pull request, rather than opening a new one.
 
 In some cases, I may need to tweak your branch before merging (e.g. for style issues, minor bug fixes, or merge conflicts). In other cases, I may need to close your PR and reimplement your changes due to unresolvable issues. You will be credited as the author or co-author in the final commit if so.
-
-By submitting a pull request, you agree to license your contribution under the same license as the project: see [LICENSE](../LICENSE).
 
 Thank you for your understanding and cooperation!
