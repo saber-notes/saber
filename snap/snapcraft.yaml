@@ -11,7 +11,15 @@ platforms:
   arm64:
 
 parts:
+  rustup:
+    plugin: rust
+    source: .
+    rust-channel: "stable"
+    override-build: ""
+    override-prime: ""
+
   saber:
+    after: [rustup]
     source: https://github.com/saber-notes/saber.git
     source-tag: 'v1.35.1'
     source-depth: 1
@@ -38,7 +46,9 @@ parts:
     parse-info: [metainfo/com.adilhanney.saber.metainfo.xml]
 
   cleanup:
-    after: [saber]
+    after:
+      - saber
+      - rustup
     plugin: nil
     build-snaps:
       - core24
