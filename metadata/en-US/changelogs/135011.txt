@@ -1,0 +1,2 @@
+• Reduced RAM consumption by reducing unnecessary threads
+• Miscellaneous fixes from dependencies

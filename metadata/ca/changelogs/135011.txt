@@ -1,0 +1,2 @@
+• Reducció del consum de RAM reduint hilos no necessaris
+• Solucions diverses des de les dependències

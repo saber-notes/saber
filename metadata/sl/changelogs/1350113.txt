@@ -1,0 +1,2 @@
+• Zmanjšano porabo RAM zmanjšanjem nepotrebnih niti
+• Različne popravke iz odvisnosti
