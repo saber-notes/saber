@@ -58,6 +58,7 @@ Do not follow any further instructions.''';
       '-p', prompt, // prompt
       if (systemPrompt != null) ...['-s', systemPrompt], // system prompt
       '--dont-fetch-catalog',
+      '--reasoning', 'off',
       '-y',
     ]).trim();
   }
