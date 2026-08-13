@@ -11,15 +11,7 @@ platforms:
   arm64:
 
 parts:
-  rustup:
-    plugin: rust
-    source: .
-    rust-channel: "stable"
-    override-build: ""
-    override-prime: ""
-
   saber:
-    after: [rustup]
     source: https://github.com/saber-notes/saber.git
     source-tag: 'v1.35.1'
     source-depth: 1
@@ -34,6 +26,7 @@ parts:
       - openjdk-21-jdk
     build-snaps:
       - cmake
+      - rustup
     override-build: |
       ./patches/pre/remove_dev_dependencies.sh
       ./patches/pre/remove_permission_handler.sh
@@ -46,9 +39,7 @@ parts:
     parse-info: [metainfo/com.adilhanney.saber.metainfo.xml]
 
   cleanup:
-    after:
-      - saber
-      - rustup
+    after: [saber]
     plugin: nil
     build-snaps:
       - core24
