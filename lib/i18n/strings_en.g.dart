@@ -303,6 +303,7 @@ class Translations$editor$en {
 	late final Translations$editor$toolbar$en toolbar = Translations$editor$toolbar$en.internal(_root);
 	late final Translations$editor$pens$en pens = Translations$editor$pens$en.internal(_root);
 	late final Translations$editor$penOptions$en penOptions = Translations$editor$penOptions$en.internal(_root);
+  late final Translations$editor$eraserOptions$en eraserOptions = Translations$editor$eraserOptions$en.internal(_root);
 	late final Translations$editor$colors$en colors = Translations$editor$colors$en.internal(_root);
 	late final Translations$editor$imageOptions$en imageOptions = Translations$editor$imageOptions$en.internal(_root);
 	late final Translations$editor$selectionBar$en selectionBar = Translations$editor$selectionBar$en.internal(_root);
@@ -1122,6 +1123,21 @@ class Translations$editor$penOptions$en {
 
 	/// en: 'Size'
 	String get size => 'Size';
+}
+
+// Path: editor.eraserOptions
+class Translations$editor$eraserOptions$en {
+	Translations$editor$eraserOptions$en.internal(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+
+	/// en: 'Stroke eraser'
+	String get strokeEraser => 'Stroke eraser';
+
+	/// en: 'Area eraser'
+	String get areaEraser => 'Area eraser';
 }
 
 // Path: editor.colors

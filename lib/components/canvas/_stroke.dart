@@ -182,6 +182,15 @@ class Stroke {
     }
   }
 
+  List<PointVector> get pointVectors => List.unmodifiable(points);
+
+  void replacePoints(List<PointVector> newPoints) {
+    points
+      ..clear()
+      ..addAll(newPoints);
+    markPolygonNeedsUpdating();
+  }
+
   void popFirstPoint() {
     points.removeAt(0);
     markPolygonNeedsUpdating();
