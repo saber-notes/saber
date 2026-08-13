@@ -50,7 +50,7 @@ dependencies:
 
   path_provider: ^2.0.11
 
-  flutter_secure_storage: ^10.0.0-beta.4
+  flutter_secure_storage: ^11.0.0
 
   url_launcher: ^6.1.8
 
@@ -149,7 +149,7 @@ dependencies:
 
   stow: ^0.6.0
   stow_plain: ^0.6.0
-  stow_secure: ^0.6.0
+  stow_secure: ^0.7.0
   stow_codecs: ^1.4.0
 
   sentry_flutter: ^9.21.0

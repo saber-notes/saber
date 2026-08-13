@@ -85,10 +85,10 @@ packages:
     dependency: "direct main"
     description:
       name: background_downloader
-      sha256: "2ea4d638b12690d58ba5f797453f9f9e322bc2848f1f38cfe67aa56ece1ad072"
+      sha256: bdd41f116998233182cc4ec04cb6afac534067d640ddebb791ce44593f574b87
       url: "https://pub.dev"
     source: hosted
-    version: "9.5.7"
+    version: "9.5.8"
   barcode:
     dependency: transitive
     description:
@@ -540,18 +540,18 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_secure_storage
-      sha256: "7686b1d6a29985dcbb808c59518226e603e3bfa7c0ddfd1a0d00e4cda77c868e"
+      sha256: "15e8c8fe269fdf7d469b23008ab3df521c8b826ed345820532364c31bdebace6"
       url: "https://pub.dev"
     source: hosted
-    version: "10.3.1"
+    version: "11.0.0"
   flutter_secure_storage_darwin:
     dependency: transitive
     description:
       name: flutter_secure_storage_darwin
-      sha256: "82329fa5cdf343773b1b6897dea959105a29f092454259edff92f9f6637e8149"
+      sha256: ac6d76a752de0cd738334eb4b21743fc4943f449f5b6e308f18838b048c02ac0
       url: "https://pub.dev"
     source: hosted
-    version: "0.3.2"
+    version: "0.4.0"
   flutter_secure_storage_linux:
     dependency: transitive
     description:
@@ -626,10 +626,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_web_auth_2
-      sha256: "8f9303471dcd96670878c9b7c0c4e14c37595b2add67465f6a868f17a5872dfc"
+      sha256: a7655829251ee63aae64a748f8512f36670d8eba4657b0055cdf5ef304a9d164
       url: "https://pub.dev"
     source: hosted
-    version: "5.0.3"
+    version: "5.1.0"
   flutter_web_auth_2_platform_interface:
     dependency: transitive
     description:
@@ -676,10 +676,10 @@ packages:
     dependency: "direct main"
     description:
       name: go_router
-      sha256: "55973bf1b27790489f8710ea615fe939f911ddcc5986fe97305e4fc19fa29ee9"
+      sha256: d7a3576cb312649eaa51f2356450aed686085fb58fcdebda5b359aa951eef7ea
       url: "https://pub.dev"
     source: hosted
-    version: "17.4.0"
+    version: "17.5.0"
   golden_screenshot:
     dependency: "direct dev"
     description:
@@ -708,10 +708,10 @@ packages:
     dependency: transitive
     description:
       name: hooks
-      sha256: "9a62a50b50b769a737bc0a8ff381f333529df3ab746b2f6b02e83760231455ba"
+      sha256: "03a564c3704524ee0f7fc56fc621e8796cc2eb8c24d1f1a33b34979815b285c4"
       url: "https://pub.dev"
     source: hosted
-    version: "2.0.2"
+    version: "2.1.0"
   html:
     dependency: transitive
     description:
@@ -985,10 +985,10 @@ packages:
     dependency: "direct main"
     description:
       name: one_dollar_unistroke_recognizer
-      sha256: "599a074c6cec9c1517e382368e5ea470abbd04a82fe3700472a7b042de882384"
+      sha256: "7bb8c50f09eeeda2ceea230cdce55e18658671018bd0940bd098aad5796aabde"
       url: "https://pub.dev"
     source: hosted
-    version: "1.3.4"
+    version: "1.3.5"
   onyxsdk_pen:
     dependency: "direct main"
     description:
@@ -1232,10 +1232,10 @@ packages:
     dependency: "direct main"
     description:
       name: permission_handler
-      sha256: "06149cba29bc46206f8b54b56065fe74b07602d2454a281287685ae66b5ab7b5"
+      sha256: e7317eb2eb611d1bf0386b6b974be9c50449f975f19a90a7b8ea013550302b30
       url: "https://pub.dev"
     source: hosted
-    version: "13.0.0"
+    version: "13.0.1"
   permission_handler_android:
     dependency: transitive
     description:
@@ -1248,10 +1248,10 @@ packages:
     dependency: transitive
     description:
       name: permission_handler_apple
-      sha256: "11b7e94a9d2fbee23c27f0cae0105c6266c03fd83b9a2eda6cf09141fc82624b"
+      sha256: f49cb15a064ea9d974fc7fbb302099353b7b170d07284e86e264561579e5bcf8
       url: "https://pub.dev"
     source: hosted
-    version: "9.5.0"
+    version: "9.6.1"
   permission_handler_html:
     dependency: transitive
     description:
@@ -1480,10 +1480,10 @@ packages:
     dependency: transitive
     description:
       name: record_use
-      sha256: "2551bd8eecfe95d14ae75f6021ad0248be5c27f138c2ec12fcb52b500b3ba1ed"
+      sha256: "3b4ab682aff40175afca6ff090cc5aa7ce9dafe8dfbae1537a6c678e6678baee"
       url: "https://pub.dev"
     source: hosted
-    version: "0.6.0"
+    version: "1.1.0"
   regexed_validator:
     dependency: "direct main"
     description:
@@ -1567,10 +1567,10 @@ packages:
     dependency: transitive
     description:
       name: sentry
-      sha256: "330a341076e16b87aa8a4f97b0bd48c085737d087e81ef337aee2b4c3e8896f9"
+      sha256: c2ecd8abe82e63cdcb6947f71320612ced56e10ba94db7529d85cc02be47cb3b
       url: "https://pub.dev"
     source: hosted
-    version: "9.26.0"
+    version: "9.27.0"
   sentry_dart_plugin:
     dependency: "direct dev"
     description:
@@ -1583,18 +1583,18 @@ packages:
     dependency: "direct main"
     description:
       name: sentry_flutter
-      sha256: "163685070e173b9b28cd10e56eb76fdaca34067831bd7e3563f98a5bc5866165"
+      sha256: ec89cc6ba939ca19155ea83900d9740a36544f50b3b6baf265518e3348fb0f50
       url: "https://pub.dev"
     source: hosted
-    version: "9.26.0"
+    version: "9.27.0"
   sentry_logging:
     dependency: "direct main"
     description:
       name: sentry_logging
-      sha256: b22258d68105651deeaac913376b4e9c49b10cd1f7062cca3ac4c1093cb08f9c
+      sha256: "20aefd46daa6313fa84fb5ade7e891fff7f8fd9f80716e1a8b0fc63c632697a2"
       url: "https://pub.dev"
     source: hosted
-    version: "9.26.0"
+    version: "9.27.0"
   serial_csv:
     dependency: transitive
     description:
@@ -1740,10 +1740,10 @@ packages:
     dependency: "direct main"
     description:
       name: stow_secure
-      sha256: cb65b475d626b83e91bdd92d760912867efd0f361c55ef9fa1e3fa64ae5bf93b
+      sha256: d8bff86b36ce8fcbc6dfa18a49d20e8316e2f74bac3fd3b00c701372a498a344
       url: "https://pub.dev"
     source: hosted
-    version: "0.6.0"
+    version: "0.7.0"
   stream_channel:
     dependency: transitive
     description:
