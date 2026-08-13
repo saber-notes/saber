@@ -19,8 +19,9 @@ parts:
     build-packages:
       - clang
       - execstack
-      - libsecret-1-dev
+      - libgtk-3-dev
       - libjsoncpp-dev
+      - libsecret-1-dev
       - lld
       - llvm
       - openjdk-21-jdk
