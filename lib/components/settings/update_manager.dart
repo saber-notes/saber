@@ -104,12 +104,10 @@ abstract class UpdateManager {
     int currentVersionNumber,
     int newestVersionNumber,
   ) {
-    final currentVersion = SaberVersion.fromNumber(
-      currentVersionNumber,
-    ).copyWith(revision: 0);
-    final newestVersion = SaberVersion.fromNumber(
-      newestVersionNumber,
-    ).copyWith(revision: 0);
+    final currentVersion = SaberVersion.fromNumber(currentVersionNumber)
+        .copyWith(revision: 0);
+    final newestVersion = SaberVersion.fromNumber(newestVersionNumber)
+        .copyWith(revision: 0);
 
     // Check if we're up to date
     if (newestVersion.buildNumber <= currentVersion.buildNumber) {

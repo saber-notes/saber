@@ -33,19 +33,20 @@ Future<void> setupDemoFiles() async {
   ];
   final fillerFiles = <String>[];
   await Future.wait(
-    Directory('test/demo_notes/').listSync().whereType<File>().map((
-      file,
-    ) async {
-      /// The file name starting with a slash
-      final fileName = file.path.substring(file.path.lastIndexOf('/'));
-      if (fileName.endsWith('.sbn2') || fileName.endsWith('.sbn')) {
-        if (!demoFiles.contains(fileName)) fillerFiles.add(fileName);
-      }
-      final bytes = await file.readAsBytes();
-      final dstFile = FileManager.getFile(fileName);
-      await dstFile.create(recursive: true);
-      return dstFile.writeAsBytes(bytes);
-    }),
+    Directory('test/demo_notes/')
+        .listSync()
+        .whereType<File>()
+        .map((file) async {
+          /// The file name starting with a slash
+          final fileName = file.path.substring(file.path.lastIndexOf('/'));
+          if (fileName.endsWith('.sbn2') || fileName.endsWith('.sbn')) {
+            if (!demoFiles.contains(fileName)) fillerFiles.add(fileName);
+          }
+          final bytes = await file.readAsBytes();
+          final dstFile = FileManager.getFile(fileName);
+          await dstFile.create(recursive: true);
+          return dstFile.writeAsBytes(bytes);
+        }),
   );
   stows.recentFiles.value = [...demoFiles, ...fillerFiles..sort()];
 }

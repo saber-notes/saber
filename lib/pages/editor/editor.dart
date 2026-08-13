@@ -868,9 +868,8 @@ class EditorState extends State<Editor> {
     void listener(SaberSyncFile transferred) {
       if (transferred != syncFile) return;
       subscription.cancel();
-      _loadCoreInfo(
-        relativeFilePath,
-      ).then((_) => coreInfo.readOnlyReason = .watchingServer);
+      _loadCoreInfo(relativeFilePath)
+          .then((_) => coreInfo.readOnlyReason = .watchingServer);
     }
 
     subscription = syncer.downloader.transferStream.listen(listener);

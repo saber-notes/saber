@@ -186,9 +186,8 @@ class _ColorBarState extends State<ColorBar> {
             tooltip: ColorBar.findColorName(Color(int.parse(colorString))),
             child: DecoratedBox(
               decoration: BoxDecoration(
-                color: Color(
-                  int.parse(colorString),
-                ).withInversion(widget.invert),
+                color: Color(int.parse(colorString))
+                    .withInversion(widget.invert),
                 shape: .circle,
                 border: Border.all(
                   color: colorScheme.onSurface.withValues(alpha: 0.2),

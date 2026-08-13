@@ -111,13 +111,11 @@ class _AnimatedCircularProgressIndicatorState
 
   @override
   void forEachTween(TweenVisitor<dynamic> visitor) {
-    _valueTween =
-        visitor(
-              _valueTween,
-              widget.percentage ?? 0.0,
-              (dynamic value) => Tween<double>(begin: (value ?? 0.0) as double),
-            )
-            as Tween<double>?;
+    _valueTween = visitor(
+      _valueTween,
+      widget.percentage ?? 0.0,
+      (dynamic value) => Tween<double>(begin: (value ?? 0.0) as double),
+    ) as Tween<double>?;
   }
 
   @override

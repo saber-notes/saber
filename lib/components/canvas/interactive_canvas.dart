@@ -19,8 +19,10 @@ import 'package:flutter/physics.dart';
 import 'package:flutter/services.dart';
 import 'package:vector_math/vector_math_64.dart' show Matrix4, Quad, Vector3;
 
-typedef InteractiveCanvasViewerWidgetBuilder =
-    Widget Function(BuildContext context, Quad viewport);
+typedef InteractiveCanvasViewerWidgetBuilder = Widget Function(
+  BuildContext context,
+  Quad viewport,
+);
 
 @immutable
 class InteractiveCanvasViewer extends StatefulWidget {

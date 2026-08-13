@@ -38,8 +38,7 @@ void _testPatternWithLineHeight(
       expect(
         elements,
         isNotEmpty,
-        reason:
-            'Elements should be returned for patterns other than the none pattern',
+        reason: 'Elements should be returned for patterns other than the none pattern',
       );
     }
 

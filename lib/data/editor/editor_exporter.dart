@@ -173,9 +173,8 @@ abstract class EditorExporter {
       ?page.backgroundImage,
       ...page.images,
     ].where((image) => !image.loadedIn).toList(growable: false);
-    await Future.wait(
-      imagesToLoad.map((image) => image.loadIn()),
-    ).timeout(const Duration(seconds: 10), onTimeout: () => const []);
+    await Future.wait(imagesToLoad.map((image) => image.loadIn()))
+        .timeout(const Duration(seconds: 10), onTimeout: () => const []);
 
     try {
       targetSize ??= page.size;

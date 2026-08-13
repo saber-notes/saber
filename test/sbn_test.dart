@@ -227,9 +227,9 @@ void main() {
       // copy the file to the temporary directory
       await tester.runAsync(
         () => Future.wait([
-          FileManager.getFile(
-            '/$path',
-          ).create(recursive: true).then((file) => File(path).copy(file.path)),
+          FileManager.getFile('/$path')
+              .create(recursive: true)
+              .then((file) => File(path).copy(file.path)),
           FileManager.getFile('/$path.0')
               .create(recursive: true)
               .then((file) => File('$path.0').copy(file.path)),

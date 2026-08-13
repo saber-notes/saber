@@ -42,8 +42,7 @@ void main() {
     expect(
       suffixedPath,
       filePath2,
-      reason:
-          "filePath exists, but filePath2 doesn't, so filePath2 should be returned",
+      reason: "filePath exists, but filePath2 doesn't, so filePath2 should be returned",
     );
 
     await FileManager.writeFile(
@@ -57,8 +56,7 @@ void main() {
     expect(
       suffixedPath,
       filePath3,
-      reason:
-          "filePath and filePath2 exist, but filePath3 doesn't, so filePath3 should be returned",
+      reason: "filePath and filePath2 exist, but filePath3 doesn't, so filePath3 should be returned",
     );
 
     // cleanup

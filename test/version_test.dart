@@ -100,8 +100,7 @@ void main() {
     expect(
       changelog,
       isNotNull,
-      reason:
-          'Changelog can\'t be found on GitHub. Please ignore this test if you haven\'t pushed the latest version yet.',
+      reason: 'Changelog can\'t be found on GitHub. Please ignore this test if you haven\'t pushed the latest version yet.',
     );
     expect(changelog, isNotEmpty);
     expect(

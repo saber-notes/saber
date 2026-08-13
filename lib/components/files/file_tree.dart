@@ -94,9 +94,8 @@ class _FileTreeBranchState extends State<FileTreeBranch> {
                   Expanded(
                     child: Text(
                       widget.path!.substring(widget.path!.lastIndexOf('/') + 1),
-                      style: TextTheme.of(
-                        context,
-                      ).bodyMedium?.copyWith(fontSize: 14),
+                      style: TextTheme.of(context).bodyMedium
+                          ?.copyWith(fontSize: 14),
                       overflow: .ellipsis,
                     ),
                   ),

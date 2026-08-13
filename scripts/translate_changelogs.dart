@@ -1,4 +1,5 @@
 #!/usr/bin/env dart
+
 // Run `dart scripts/translate_changelogs.dart` to generate the changelogs.
 
 // ignore_for_file: avoid_print
@@ -18,9 +19,8 @@ void copyChangelogForFdroid(String localeCode) async {
 }
 
 void main() async {
-  final englishChangelog = File(
-    'metadata/en-US/changelogs/$buildNumber.txt',
-  ).readAsStringSync();
+  final englishChangelog = File('metadata/en-US/changelogs/$buildNumber.txt')
+      .readAsStringSync();
   print('English changelog for $buildName ($buildNumber):');
   print(englishChangelog);
 

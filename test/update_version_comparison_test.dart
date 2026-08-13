@@ -61,9 +61,8 @@ void main() => group('Update manager:', () {
     'Test that the latest version can be parsed from version.dart',
     () async {
       // load local file from lib/data/version.dart
-      final latestVersionFile = await File(
-        'lib/data/version.dart',
-      ).readAsString();
+      final latestVersionFile = await File('lib/data/version.dart')
+          .readAsString();
       expect(
         latestVersionFile,
         isNotEmpty,

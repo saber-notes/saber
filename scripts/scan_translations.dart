@@ -1,4 +1,5 @@
 #!/usr/bin/env dart
+
 // ignore_for_file: avoid_print
 
 import 'dart:io';

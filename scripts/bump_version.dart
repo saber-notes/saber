@@ -1,4 +1,5 @@
 #!/usr/bin/env dart
+
 // ignore_for_file: avoid_print
 
 import 'dart:io';
@@ -165,9 +166,9 @@ Future<void> updateAllFiles() async {
 
   // update download link in READMEs
   final readmes = Directory('.').listSync().whereType<File>().where(
-    (file) => RegExp(
-      r'README.*\.md',
-    ).hasMatch(file.path.split(RegExp(r'[\\/]')).last),
+    (file) =>
+        RegExp(r'README.*\.md')
+            .hasMatch(file.path.split(RegExp(r'[\\/]')).last),
   );
   for (final readme in readmes) {
     await readme.replace({
@@ -321,9 +322,9 @@ void _generateMetainfoScreenshots(List<String> metainfoLines) {
       .listSync()
       .where((dir) => !dir.path.endsWith('en-US'))
       .where(
-        (dir) => File(
-          '${dir.path}/images/flathubScreenshots/1_home.png',
-        ).existsSync(),
+        (dir) =>
+            File('${dir.path}/images/flathubScreenshots/1_home.png')
+                .existsSync(),
       )
       .map((dir) => dir.path.split('/').last)
       .sorted();
