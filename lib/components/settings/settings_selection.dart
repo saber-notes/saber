@@ -7,7 +7,7 @@ import 'package:saber/pages/home/settings.dart';
 import 'package:stow/stow.dart';
 
 class SettingsSelection<T extends num> extends StatefulWidget {
-  const SettingsSelection({
+  const new({
     super.key,
     required this.title,
     this.subtitle,

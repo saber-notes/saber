@@ -7,7 +7,7 @@ import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/routes.dart';
 
 class FileTree extends StatelessWidget {
-  const FileTree({super.key});
+  const new({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,11 +22,7 @@ class FileTree extends StatelessWidget {
 }
 
 class FileTreeBranch extends StatefulWidget {
-  const FileTreeBranch({
-    super.key,
-    required this.path,
-    required this.isDirectory,
-  });
+  const new({super.key, required this.path, required this.isDirectory});
 
   final String? path;
   final bool isDirectory;

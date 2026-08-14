@@ -12,7 +12,7 @@ import 'package:saber/data/tools/shape_pen.dart';
 import 'package:saber/i18n/strings.g.dart';
 
 class PenModal extends StatefulWidget {
-  const PenModal({super.key, required this.getTool, required this.setTool});
+  const new({super.key, required this.getTool, required this.setTool});
 
   final Tool Function() getTool;
   final void Function(Pen) setTool;

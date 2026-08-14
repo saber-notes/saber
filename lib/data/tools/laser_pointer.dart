@@ -10,7 +10,7 @@ import 'package:saber/data/tools/pen.dart';
 import 'package:sbn/tool_id.dart';
 
 class LaserPointer extends Tool {
-  LaserPointer._();
+  new _();
 
   static final _currentLaserPointer = LaserPointer._();
   static LaserPointer get currentLaserPointer => _currentLaserPointer;
@@ -119,7 +119,7 @@ class LaserPointer extends Tool {
 }
 
 class LaserStroke extends Stroke {
-  LaserStroke({
+  new({
     required super.color,
     required super.pressureEnabled,
     required super.options,
@@ -128,7 +128,7 @@ class LaserStroke extends Stroke {
     required super.toolId,
   });
   @visibleForTesting
-  LaserStroke.convertStroke(Stroke stroke)
+  new convertStroke(Stroke stroke)
     : super(
         color: stroke.color,
         pressureEnabled: stroke.pressureEnabled,

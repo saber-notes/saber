@@ -5,7 +5,7 @@ import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/editor/editor.dart';
 
 class Whiteboard extends StatelessWidget {
-  const Whiteboard({super.key});
+  const new({super.key});
 
   static const filePath = '/_whiteboard';
 

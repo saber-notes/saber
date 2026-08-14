@@ -8,11 +8,7 @@ import 'package:saber/data/routes.dart';
 /// [AppBar.leading] widget in the [AppBar]
 /// to indicate the state of saving in the editor.
 class SaveIndicator extends StatelessWidget {
-  const SaveIndicator({
-    super.key,
-    required this.savingState,
-    required this.triggerSave,
-  });
+  const new({super.key, required this.savingState, required this.triggerSave});
 
   final ValueNotifier<SavingState> savingState;
   final VoidCallback triggerSave;

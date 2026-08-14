@@ -7,7 +7,7 @@ import 'package:saber/i18n/strings.g.dart';
 import 'package:stow_codecs/stow_codecs.dart';
 
 class HomeLayoutButton extends HookWidget {
-  const HomeLayoutButton({super.key});
+  const new({super.key});
 
   void _openDialog(BuildContext context) async {
     final selection = await showDialog<HomeLayout>(
@@ -34,7 +34,7 @@ class HomeLayoutButton extends HookWidget {
 }
 
 class _HomeLayoutDialog extends StatelessWidget {
-  const _HomeLayoutDialog({required this.selected});
+  const new({required this.selected});
 
   final HomeLayout selected;
 
@@ -59,10 +59,7 @@ class _HomeLayoutDialog extends StatelessWidget {
 }
 
 class _HomeLayoutDialogOption extends StatelessWidget {
-  const _HomeLayoutDialogOption({
-    required this.homeLayout,
-    required this.selected,
-  });
+  const new({required this.homeLayout, required this.selected});
 
   final HomeLayout homeLayout;
   final bool selected;
@@ -89,7 +86,7 @@ enum HomeLayout {
   masonryGrid(fillVertical: false),
   simpleGrid(fillVertical: true);
 
-  const HomeLayout({required this.fillVertical});
+  new({required this.fillVertical});
 
   /// Whether the preview card should fill its available vertical space
   final bool fillVertical;

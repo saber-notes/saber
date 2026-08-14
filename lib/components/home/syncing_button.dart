@@ -6,7 +6,7 @@ import 'package:saber/data/nextcloud/saber_syncer.dart';
 import 'package:saber/data/prefs.dart';
 
 class SyncingButton extends HookWidget {
-  const SyncingButton({super.key});
+  const new({super.key});
 
   /// The number of files transferred this session.
   static final filesTransferred = ValueNotifier(0);
@@ -93,10 +93,7 @@ class SyncingButton extends HookWidget {
 }
 
 class _AnimatedCircularProgressIndicator extends ImplicitlyAnimatedWidget {
-  const _AnimatedCircularProgressIndicator({
-    required super.duration,
-    required this.percentage,
-  });
+  const new({required super.duration, required this.percentage});
 
   final double? percentage;
 

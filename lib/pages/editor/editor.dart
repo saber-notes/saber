@@ -55,7 +55,7 @@ import 'package:super_clipboard/super_clipboard.dart';
 typedef _PhotoInfo = ({Uint8List bytes, String extension});
 
 class Editor extends StatefulWidget {
-  Editor({super.key, String? path, this.customTitle, this.pdfPath})
+  new({super.key, String? path, this.customTitle, this.pdfPath})
     : initialPath = path != null
           ? Future.value(path)
           : FileManager.newFilePath('/'),

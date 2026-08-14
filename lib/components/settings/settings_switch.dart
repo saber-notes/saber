@@ -5,7 +5,7 @@ import 'package:saber/pages/home/settings.dart';
 import 'package:stow/stow.dart';
 
 class SettingsSwitch extends StatefulWidget {
-  const SettingsSwitch({
+  const new({
     super.key,
     required this.title,
     this.subtitle,

@@ -8,7 +8,7 @@ import 'package:sbn/has_size.dart';
 class RectangleStroke extends Stroke {
   Rect rect;
 
-  RectangleStroke({
+  new({
     required super.color,
     required super.pressureEnabled,
     required super.options,
@@ -20,7 +20,7 @@ class RectangleStroke extends Stroke {
     options.isComplete = true;
   }
 
-  factory RectangleStroke.fromJson(
+  factory fromJson(
     Map<String, dynamic> json, {
     required int fileVersion,
     required int pageIndex,

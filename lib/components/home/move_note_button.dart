@@ -7,7 +7,7 @@ import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/editor/editor.dart';
 
 class MoveNoteButton extends StatelessWidget {
-  const MoveNoteButton({
+  const new({
     super.key,
     required this.filesToMove,
     required this.unselectNotes,
@@ -38,7 +38,7 @@ class MoveNoteButton extends StatelessWidget {
 }
 
 class _MoveNoteDialog extends StatefulWidget {
-  const _MoveNoteDialog({
+  const new({
     // ignore: unused_element_parameter
     super.key,
     required this.filesToMove,

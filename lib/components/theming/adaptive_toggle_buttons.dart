@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:saber/components/theming/saber_theme.dart';
 
 class AdaptiveToggleButtons<T extends Object> extends StatelessWidget {
-  const AdaptiveToggleButtons({
+  const new({
     super.key,
     required this.value,
     required this.options,
@@ -65,5 +65,5 @@ class ToggleButtonsOption<T> {
   final T value;
   final Widget widget;
 
-  const ToggleButtonsOption(this.value, this.widget);
+  const new(this.value, this.widget);
 }

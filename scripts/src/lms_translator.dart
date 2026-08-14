@@ -7,7 +7,7 @@ class LmsTranslator {
   static const modelUrl =
       'https://huggingface.co/lmstudio-community/$model-GGUF';
 
-  const LmsTranslator._();
+  const new _();
   static Future<LmsTranslator> create() async {
     print(
       'We are using LM Studio for automatic translations.\n'

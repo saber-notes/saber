@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class SettingsSubtitle extends StatelessWidget {
-  const SettingsSubtitle({super.key, required this.subtitle});
+  const new({super.key, required this.subtitle});
 
   final String subtitle;
 

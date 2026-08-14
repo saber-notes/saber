@@ -17,7 +17,7 @@ import 'package:saber/pages/editor/editor.dart';
 import 'package:vector_math/vector_math_64.dart';
 
 class CanvasGestureDetector extends StatefulWidget {
-  CanvasGestureDetector({
+  new({
     super.key,
     required this.filePath,
     required this.isDrawGesture,
@@ -598,7 +598,7 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
 }
 
 class _PagesBuilder extends StatelessWidget {
-  const _PagesBuilder({
+  const new({
     // ignore: unused_element_parameter
     super.key,
     required this.pages,
@@ -659,7 +659,7 @@ class CanvasTransformCache {
   static const _maxCacheSize = 5;
   static final _cache = LinkedList<CanvasTransformCacheItem>();
 
-  CanvasTransformCache._();
+  new _();
 
   static void add(String filePath, Matrix4 transform) {
     for (final entry in _cache) {
@@ -694,7 +694,7 @@ base class CanvasTransformCacheItem
   final String filePath;
   final Matrix4 transform;
 
-  CanvasTransformCacheItem(this.filePath, this.transform);
+  new(this.filePath, this.transform);
 }
 
 double _inverseLerp(num value, {required num min, required num max}) {

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:yaru/yaru.dart';
 
 class AdaptiveLinearProgressIndicator extends LinearProgressIndicator {
-  const AdaptiveLinearProgressIndicator({
+  const new({
     super.key,
     super.value,
     super.backgroundColor,

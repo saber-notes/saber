@@ -5,7 +5,7 @@ import 'package:saber/data/extensions/change_notifier_extensions.dart';
 import 'package:saber/data/prefs.dart';
 
 class MasonryFiles extends StatefulWidget {
-  const MasonryFiles({
+  const new({
     super.key,
     required this.files,
     required this.selectedFiles,

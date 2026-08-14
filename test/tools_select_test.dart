@@ -166,7 +166,7 @@ void main() {
 class TestImage extends PngEditorImage {
   static final _assetCache = AssetCache();
 
-  TestImage({required super.dstRect})
+  new({required super.dstRect})
     : super(
         id: -1,
         extension: '.png',

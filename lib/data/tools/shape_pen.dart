@@ -12,7 +12,7 @@ import 'package:saber/data/tools/pen.dart';
 import 'package:saber/i18n/strings.g.dart';
 
 class ShapePen extends Pen {
-  ShapePen()
+  new()
     : super(
         name: t.editor.pens.shapePen,
         sizeMin: 1,

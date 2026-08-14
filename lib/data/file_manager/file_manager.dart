@@ -23,7 +23,7 @@ import 'package:share_plus/share_plus.dart';
 /// A collection of cross-platform utility functions for working with a virtual file system.
 class FileManager {
   // disable constructor
-  FileManager._();
+  new _();
 
   static final log = Logger('FileManager');
 
@@ -951,7 +951,7 @@ class DirectoryChildren {
   final List<String> directories;
   final List<String> files;
 
-  DirectoryChildren(this.directories, this.files);
+  new(this.directories, this.files);
 
   bool onlyOneChild() => directories.length + files.length <= 1;
 
@@ -965,5 +965,5 @@ class FileOperation {
   final FileOperationType type;
   final String filePath;
 
-  const FileOperation(this.type, this.filePath);
+  const new(this.type, this.filePath);
 }

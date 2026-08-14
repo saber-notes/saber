@@ -41,7 +41,7 @@ class _LogsHistory extends ChangeNotifier {
 }
 
 class LogsPage extends StatelessWidget {
-  const LogsPage({super.key});
+  const new({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -165,7 +165,7 @@ class LogsPage extends StatelessWidget {
 }
 
 class _LogsItem extends StatelessWidget {
-  const _LogsItem({required this.record});
+  const new({required this.record});
 
   final LogRecord record;
 
@@ -208,7 +208,7 @@ class _LogsItem extends StatelessWidget {
 }
 
 class _LogLevel extends StatelessWidget {
-  const _LogLevel({required this.level});
+  const new({required this.level});
 
   final Level level;
 

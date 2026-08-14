@@ -59,7 +59,7 @@ void main() {
 }
 
 class _BrowseApp extends StatelessWidget {
-  const _BrowseApp({this.path});
+  const new({this.path});
   final String? path;
   @override
   Widget build(BuildContext context) {

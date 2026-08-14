@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:saber/components/theming/saber_theme.dart';
 
 class AdaptiveAlertDialog extends StatelessWidget {
-  const AdaptiveAlertDialog({
+  const new({
     super.key,
     required this.title,
     required this.content,

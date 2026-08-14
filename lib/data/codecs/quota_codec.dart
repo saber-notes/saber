@@ -2,7 +2,7 @@ import 'package:saber/components/settings/nextcloud_profile.dart';
 import 'package:stow_codecs/stow_codecs.dart';
 
 class QuotaCodec extends AbstractCodec<Quota, List> {
-  const QuotaCodec();
+  const new();
 
   @override
   List<String> encode(Quota input) {

@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart' hide TransformationController;
 
 class CanvasZoomIndicator extends StatelessWidget {
-  const CanvasZoomIndicator({
-    super.key,
-    required this.scale,
-    required this.resetZoom,
-  });
+  const new({super.key, required this.scale, required this.resetZoom});
 
   final double scale;
   final VoidCallback? resetZoom;

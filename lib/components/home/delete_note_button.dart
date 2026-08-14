@@ -6,7 +6,7 @@ import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/editor/editor.dart';
 
 class DeleteNoteButton extends StatelessWidget {
-  const DeleteNoteButton({
+  const new({
     super.key,
     required this.filesToDelete,
     required this.unselectNotes,
@@ -35,10 +35,7 @@ class DeleteNoteButton extends StatelessWidget {
 }
 
 class _DeleteNoteDialog extends StatefulWidget {
-  const _DeleteNoteDialog({
-    required this.filesToDelete,
-    required this.unselectNotes,
-  });
+  const new({required this.filesToDelete, required this.unselectNotes});
 
   final List<String> filesToDelete;
   final void Function() unselectNotes;

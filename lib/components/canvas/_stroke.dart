@@ -62,7 +62,7 @@ class Stroke {
     _highQualityPath = null;
   }
 
-  Stroke({
+  new({
     required this.color,
     required this.pressureEnabled,
     required this.options,
@@ -71,7 +71,7 @@ class Stroke {
     required this.toolId,
   });
 
-  factory Stroke.fromJson(
+  factory fromJson(
     Map<String, dynamic> json, {
     required int fileVersion,
     required int pageIndex,
@@ -415,7 +415,7 @@ enum StrokeQuality {
   low(4),
   high(1);
 
-  const StrokeQuality(this.N);
+  new(this.N);
 
   /// We use every Nth point for this quality level.
   final int N;

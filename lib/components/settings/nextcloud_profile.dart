@@ -17,7 +17,7 @@ import 'package:saber/pages/user/login.dart';
 typedef Quota = UserDetailsQuota;
 
 class NextcloudProfile extends HookWidget {
-  const NextcloudProfile({super.key});
+  const new({super.key});
 
   /// If non-null, this will be used instead of the actual login state.
   @visibleForTesting
@@ -100,7 +100,7 @@ class NextcloudProfile extends HookWidget {
 }
 
 class _UnknownPfp extends StatelessWidget {
-  const _UnknownPfp({required this.size});
+  const new({required this.size});
 
   final double size;
 
@@ -123,7 +123,7 @@ class _UnknownPfp extends StatelessWidget {
 }
 
 class _QuotaSummary extends StatelessWidget {
-  const _QuotaSummary({required this.quota});
+  const new({required this.quota});
 
   final Quota? quota;
 

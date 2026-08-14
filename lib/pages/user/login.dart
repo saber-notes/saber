@@ -9,7 +9,7 @@ import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
 
 class NcLoginPage extends StatefulWidget {
-  const NcLoginPage({
+  const new({
     super.key,
     @visibleForTesting this.forceAppBarLeading = false,
     @visibleForTesting this.forceCurrentStep,
@@ -148,7 +148,7 @@ enum LoginStep {
   /// The user is fully logged in
   done(1);
 
-  const LoginStep(this.progress) : assert(progress >= 0 && progress <= 1);
+  new(this.progress) : assert(progress >= 0 && progress <= 1);
 
   /// The value used for the LinearProgressIndicator on this step
   final double progress;

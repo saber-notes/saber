@@ -6,7 +6,7 @@ import 'package:saber/data/extensions/list_extensions.dart';
 import 'package:saber/data/prefs.dart';
 
 class CanvasPreview extends StatelessWidget implements PreferredSizeWidget {
-  CanvasPreview({
+  new({
     super.key,
     this.pageIndex = 0,
     required this.height,

@@ -15,8 +15,6 @@ import 'package:saber/components/canvas/image/pdf_document_cache.dart';
 /// There should be one instance of this class per
 /// [EditorCoreInfo] instance.
 class AssetCache {
-  AssetCache();
-
   final log = Logger('AssetCache');
 
   final pdfDocumentCache = PdfDocumentCache();
@@ -81,8 +79,6 @@ class AssetCache {
 }
 
 class OrderedAssetCache {
-  OrderedAssetCache();
-
   final log = Logger('OrderedAssetCache');
 
   final List<Object> _cache = [];

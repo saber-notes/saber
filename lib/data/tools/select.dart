@@ -5,7 +5,7 @@ import 'package:saber/data/tools/_tool.dart';
 import 'package:sbn/tool_id.dart';
 
 class Select extends Tool {
-  Select._();
+  new _();
 
   static final _currentSelect = Select._();
   static Select get currentSelect => _currentSelect;
@@ -128,7 +128,7 @@ class SelectResult {
   final List<EditorImage> images;
   Path path;
 
-  SelectResult({
+  new({
     required this.pageIndex,
     required this.strokes,
     required this.images,

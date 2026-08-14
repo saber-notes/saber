@@ -34,7 +34,7 @@ import 'package:saber/i18n/strings.g.dart';
 import 'package:stow/stow.dart';
 
 class SettingsPage extends StatefulWidget {
-  const SettingsPage({super.key});
+  const new({super.key});
 
   @override
   State<SettingsPage> createState() => _SettingsPageState();

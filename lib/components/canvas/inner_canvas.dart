@@ -15,7 +15,7 @@ import 'package:sbn/canvas_background_pattern.dart';
 import 'package:sbn/quill_styles.dart';
 
 class InnerCanvas extends StatefulWidget {
-  const InnerCanvas({
+  const new({
     super.key,
     required this.pageIndex,
     this.redrawPageListenable,

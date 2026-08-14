@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 /// {@endtemplate}
 class RedirectingLocalizationDelegate<T> extends LocalizationsDelegate<T> {
   /// {@macro RedirectingLocalizationDelegate}
-  const RedirectingLocalizationDelegate(this._parent);
+  const new(this._parent);
 
   final LocalizationsDelegate<T> _parent;
 

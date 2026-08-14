@@ -8,7 +8,7 @@ import 'package:saber/data/editor/editor_core_info.dart';
 import 'package:saber/i18n/strings.g.dart';
 
 class EditorPageManager extends StatefulWidget {
-  const EditorPageManager({
+  const new({
     super.key,
     required this.coreInfo,
     required this.currentPageIndex,

@@ -15,7 +15,7 @@ class PdfEditorImage extends EditorImage {
 
   static final log = Logger('PdfEditorImage');
 
-  PdfEditorImage({
+  new({
     required super.id,
     required super.assetCache,
     required this.pdfBytes,
@@ -43,7 +43,7 @@ class PdfEditorImage extends EditorImage {
        ),
        super(extension: '.pdf', srcRect: .zero);
 
-  factory PdfEditorImage.fromJson(
+  factory fromJson(
     Map<String, dynamic> json, {
     required List<Uint8List>? inlineAssets,
     bool isThumbnail = false,

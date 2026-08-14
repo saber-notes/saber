@@ -231,7 +231,7 @@ void doBackgroundSync() {
 }
 
 class App extends StatefulWidget {
-  const App({super.key});
+  const new({super.key});
 
   static final log = Logger('App');
 

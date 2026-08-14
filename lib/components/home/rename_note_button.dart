@@ -9,7 +9,7 @@ import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/editor/editor.dart';
 
 class RenameNoteButton extends StatelessWidget {
-  const RenameNoteButton({
+  const new({
     super.key,
     required this.existingPath,
     required this.unselectNotes,
@@ -40,7 +40,7 @@ class RenameNoteButton extends StatelessWidget {
 }
 
 class _RenameNoteDialog extends StatefulWidget {
-  const _RenameNoteDialog({
+  const new({
     // ignore: unused_element_parameter
     super.key,
     required this.existingPath,

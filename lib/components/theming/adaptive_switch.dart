@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:yaru/widgets.dart';
 
 class AdaptiveSwitch extends Switch {
-  const AdaptiveSwitch({
+  const new({
     super.key,
     required super.value,
     required super.onChanged,

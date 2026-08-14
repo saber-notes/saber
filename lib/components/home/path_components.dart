@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class PathComponents extends StatelessWidget {
-  PathComponents(String? path, {super.key, required this.onPathComponentTap})
+  new(String? path, {super.key, required this.onPathComponentTap})
     : components = _splitPath(path);
 
   final List<String> components;

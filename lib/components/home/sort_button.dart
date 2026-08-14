@@ -7,7 +7,7 @@ import 'package:saber/i18n/strings.g.dart';
 import 'package:stow_codecs/stow_codecs.dart';
 
 class BrowseSortButton extends HookWidget {
-  const BrowseSortButton({super.key});
+  const new({super.key});
 
   void _openDialog(BuildContext context) async {
     final selection = await showDialog<SortMetric>(
@@ -34,7 +34,7 @@ class BrowseSortButton extends HookWidget {
 }
 
 class _SortDialog extends StatelessWidget {
-  const _SortDialog({required this.selected});
+  const new({required this.selected});
 
   final SortMetric selected;
 
@@ -56,7 +56,7 @@ class _SortDialog extends StatelessWidget {
 }
 
 class _SortDialogOption extends StatelessWidget {
-  const _SortDialogOption({required this.sortMetric, required this.selected});
+  const new({required this.sortMetric, required this.selected});
 
   final SortMetric sortMetric;
   final bool selected;

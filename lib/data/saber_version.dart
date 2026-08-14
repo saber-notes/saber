@@ -4,13 +4,13 @@ class SaberVersion {
   final int patch;
   final int revision;
 
-  SaberVersion(this.major, this.minor, this.patch, [this.revision = 0])
+  new(this.major, this.minor, this.patch, [this.revision = 0])
     : assert(major >= 0 && major < 100),
       assert(minor >= 0 && minor < 100),
       assert(patch >= 0 && patch < 100),
       assert(revision >= 0 && revision < 10);
 
-  factory SaberVersion.fromName(String name) {
+  factory fromName(String name) {
     final parts = name.split('.');
     assert(parts.length == 3);
     return SaberVersion(
@@ -20,7 +20,7 @@ class SaberVersion {
     );
   }
 
-  factory SaberVersion.fromNumber(int number) {
+  factory fromNumber(int number) {
     // rightmost digit is the revision number
     final revision = number % 10;
     // next 2 digits are patch version

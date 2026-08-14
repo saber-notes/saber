@@ -11,7 +11,7 @@ import 'package:saber/i18n/strings.g.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class UpdateDialog extends StatefulWidget {
-  const UpdateDialog({super.key});
+  const new({super.key});
 
   @override
   State<UpdateDialog> createState() => _UpdateDialogState();

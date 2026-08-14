@@ -88,7 +88,7 @@ class _Route {
   final String label;
   final Widget icon;
 
-  _Route({required this.routePath, required this.label, required this.icon});
+  new({required this.routePath, required this.label, required this.icon});
 
   NavigationDestination toNavigationDestination() =>
       NavigationDestination(label: label, icon: icon);

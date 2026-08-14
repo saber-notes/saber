@@ -11,7 +11,7 @@ import 'package:saber/i18n/strings.g.dart';
 typedef NamedColor = ({String name, Color color});
 
 class ColorBar extends StatefulWidget {
-  const ColorBar({
+  const new({
     super.key,
     required this.axis,
     required this.setColor,

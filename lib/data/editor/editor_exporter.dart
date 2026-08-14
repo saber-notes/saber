@@ -204,11 +204,7 @@ abstract class EditorExporter {
 /// Applies a consistent theme to its [child] so that exports
 /// look the same regardless of the user's current theme or device.
 class EditorExporterTheme extends StatelessWidget {
-  const EditorExporterTheme({
-    super.key,
-    required this.targetSize,
-    required this.child,
-  });
+  const new({super.key, required this.targetSize, required this.child});
 
   final Size targetSize;
   final Widget child;

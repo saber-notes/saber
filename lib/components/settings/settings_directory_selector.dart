@@ -12,7 +12,7 @@ import 'package:saber/i18n/strings.g.dart';
 import 'package:sbn/font_fallbacks.dart';
 
 class SettingsDirectorySelector extends StatelessWidget {
-  const SettingsDirectorySelector({
+  const new({
     super.key,
     required this.title,
     required this.icon,
@@ -73,7 +73,7 @@ class SettingsDirectorySelector extends StatelessWidget {
 }
 
 class DirectorySelector extends StatefulWidget {
-  const DirectorySelector({
+  const new({
     super.key,
     required this.title,
     required this.initialDirectory,

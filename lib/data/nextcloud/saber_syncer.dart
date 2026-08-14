@@ -22,7 +22,7 @@ final syncer = Syncer<SaberSyncInterface, SaberSyncFile, File, WebDavFile>(
 
 class SaberSyncInterface
     extends AbstractSyncInterface<SaberSyncFile, File, WebDavFile> {
-  const SaberSyncInterface();
+  const new();
 
   static final log = Logger('SaberSyncInterface');
 
@@ -565,14 +565,11 @@ class SaberSyncFile extends AbstractSyncFile<File, WebDavFile> {
 
   late String remotePath;
 
-  SaberSyncFile({
-    required super.remoteFile,
-    String? remotePath,
-    required super.localFile,
-  }) : assert(
-         remotePath != null || remoteFile != null,
-         'At least one of remotePath or remoteFile must be provided',
-       ) {
+  new({required super.remoteFile, String? remotePath, required super.localFile})
+    : assert(
+        remotePath != null || remoteFile != null,
+        'At least one of remotePath or remoteFile must be provided',
+      ) {
     this.remotePath = remotePath ?? remoteFile!.path.path;
   }
 

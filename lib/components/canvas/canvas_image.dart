@@ -11,7 +11,7 @@ import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
 
 class CanvasImage extends StatefulHookWidget {
-  CanvasImage({
+  new({
     required this.filePath,
     required this.image,
     this.overrideBoxFit,
@@ -280,7 +280,7 @@ class _CanvasImageState extends State<CanvasImage> {
 }
 
 class _CanvasImageResizeHandle extends StatelessWidget {
-  const _CanvasImageResizeHandle({
+  const new({
     required this.active,
     required this.position,
     required this.image,

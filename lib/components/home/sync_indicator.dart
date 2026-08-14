@@ -6,7 +6,7 @@ import 'package:saber/data/prefs.dart';
 import 'package:saber/pages/editor/editor.dart';
 
 class SyncIndicator extends HookWidget {
-  const SyncIndicator({super.key, required this.filePath});
+  const new({super.key, required this.filePath});
 
   final String filePath;
 

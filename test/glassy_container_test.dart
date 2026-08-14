@@ -51,7 +51,7 @@ void main() {
 }
 
 class _TestTile extends StatelessWidget {
-  const _TestTile({
+  const new({
     required this.platform,
     required this.brightness,
     required this.background,

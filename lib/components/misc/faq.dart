@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:yaru/yaru.dart';
 
 class FaqListView extends StatelessWidget {
-  const FaqListView({super.key, required this.items, this.shrinkWrap = false});
+  const new({super.key, required this.items, this.shrinkWrap = false});
 
   final List<FaqItem> items;
   final bool shrinkWrap;
@@ -20,7 +20,7 @@ class FaqListView extends StatelessWidget {
 }
 
 class _FaqTile extends StatelessWidget {
-  const _FaqTile({
+  const new({
     // ignore: unused_element_parameter
     super.key,
     required this.item,
@@ -44,5 +44,5 @@ class FaqItem {
   final String question;
   final String answer;
 
-  FaqItem(this.question, this.answer);
+  new(this.question, this.answer);
 }

@@ -6,7 +6,7 @@ import 'package:saber/components/navbar/responsive_navbar.dart';
 import 'package:saber/components/theming/saber_theme.dart';
 
 class HorizontalNavbar extends StatelessWidget {
-  const HorizontalNavbar({
+  const new({
     super.key,
     required this.destinations,
     this.selectedIndex = 0,
@@ -76,12 +76,7 @@ class HorizontalNavbar extends StatelessWidget {
 }
 
 class GlassyContainer extends StatelessWidget {
-  const GlassyContainer({
-    super.key,
-    required this.child,
-    this.height,
-    this.borderRadius,
-  });
+  const new({super.key, required this.child, this.height, this.borderRadius});
   final Widget child;
   final double? height;
   final BorderRadius? borderRadius;
@@ -147,11 +142,7 @@ class GlassyContainer extends StatelessWidget {
 }
 
 class _ToolbarButton extends StatelessWidget {
-  const _ToolbarButton({
-    required this.destination,
-    required this.selected,
-    this.select,
-  });
+  const new({required this.destination, required this.selected, this.select});
 
   final NavigationDestination destination;
   final bool selected;
@@ -228,7 +219,7 @@ class _ToolbarButton extends StatelessWidget {
 
 /// A border that lights up the top-left and bottom-right corners.
 class _GlintBorder extends Border {
-  _GlintBorder({double width = 1})
+  new({double width = 1})
     : super.fromBorderSide(
         BorderSide(color: const Color(0x33FFFFFF), width: width),
       );

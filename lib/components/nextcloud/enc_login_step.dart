@@ -15,7 +15,7 @@ import 'package:sbn/font_fallbacks.dart';
 import 'package:yaru/yaru.dart';
 
 class EncLoginStep extends HookWidget {
-  const EncLoginStep({super.key, required this.recheckCurrentStep});
+  const new({super.key, required this.recheckCurrentStep});
 
   final void Function() recheckCurrentStep;
 

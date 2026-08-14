@@ -27,7 +27,7 @@ typedef InteractiveCanvasViewerWidgetBuilder = Widget Function(
 @immutable
 class InteractiveCanvasViewer extends StatefulWidget {
   /// Create an InteractiveCanvasViewer.
-  InteractiveCanvasViewer({
+  new({
     super.key,
     this.clipBehavior = Clip.hardEdge,
     this.panAxis = PanAxis.free,
@@ -75,7 +75,7 @@ class InteractiveCanvasViewer extends StatefulWidget {
   ///
   /// See the [builder] attribute docs for an example of using it to optimize a
   /// large child.
-  InteractiveCanvasViewer.builder({
+  new builder({
     super.key,
     this.clipBehavior = Clip.hardEdge,
     this.panAxis = PanAxis.free,
@@ -1130,7 +1130,7 @@ class _InteractiveCanvasViewerState extends State<InteractiveCanvasViewer>
 // This widget allows us to easily swap in and out the LayoutBuilder in
 // InteractiveCanvasViewer's depending on if it's using a builder or a child.
 class _InteractiveCanvasViewerBuilt extends StatelessWidget {
-  const _InteractiveCanvasViewerBuilt({
+  const new({
     required this.child,
     required this.childKey,
     required this.clipBehavior,

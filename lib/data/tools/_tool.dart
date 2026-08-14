@@ -5,7 +5,7 @@ import 'package:sbn/tool_id.dart';
 abstract class Tool {
   @protected
   @visibleForTesting
-  const Tool();
+  const new();
 
   /// An identifier for the tool,
   /// used to save the last-used tool in [stows.lastTool].
@@ -15,7 +15,7 @@ abstract class Tool {
 }
 
 class _TextEditingTool extends Tool {
-  const _TextEditingTool();
+  const new();
 
   @override
   ToolId get toolId => .textEditing;

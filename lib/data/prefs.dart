@@ -28,7 +28,7 @@ var _isOnMainIsolate = false;
 final stows = Stows();
 
 class Stows {
-  Stows() {
+  new() {
     recentColorsLength.addListener(() {
       // truncate if needed
       while (recentColorsLength.value < recentColorsPositioned.value.length) {
@@ -421,7 +421,7 @@ class TransformedStow<T_in, T_out> extends Stow<dynamic, T_out, dynamic> {
   @override
   set value(T_out value) => parent.value = reverseTransform(value);
 
-  TransformedStow(this.parent, this.transform, this.reverseTransform)
+  new(this.parent, this.transform, this.reverseTransform)
     : super(parent.key, transform(parent.defaultValue), volatile: true) {
     parent.addListener(notifyListeners);
   }

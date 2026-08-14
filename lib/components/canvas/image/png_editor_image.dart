@@ -25,7 +25,7 @@ class PngEditorImage extends EditorImage {
     }
   }
 
-  PngEditorImage({
+  new({
     required super.id,
     required super.assetCache,
     required super.extension,
@@ -47,7 +47,7 @@ class PngEditorImage extends EditorImage {
     super.isThumbnail,
   });
 
-  factory PngEditorImage.fromJson(
+  factory fromJson(
     Map<String, dynamic> json, {
     required List<Uint8List>? inlineAssets,
     bool isThumbnail = false,

@@ -16,7 +16,7 @@ import 'package:saber/pages/editor/editor.dart';
 import 'package:yaru/yaru.dart';
 
 class PreviewCard extends StatefulWidget {
-  PreviewCard({
+  new({
     required this.filePath,
     required this.toggleSelection,
     required this.selected,
@@ -254,7 +254,7 @@ class _PreviewCardState extends State<PreviewCard> {
 }
 
 class _FallbackThumbnail extends StatelessWidget {
-  const _FallbackThumbnail();
+  const new();
 
   @override
   Widget build(BuildContext context) {

@@ -3,7 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:saber/i18n/strings.g.dart';
 
 class NoFiles extends StatelessWidget {
-  const NoFiles({super.key});
+  const new({super.key});
 
   @override
   Widget build(BuildContext context) {

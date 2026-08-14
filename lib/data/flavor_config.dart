@@ -1,5 +1,5 @@
 class FlavorConfig {
-  FlavorConfig._();
+  new _();
 
   static late String _flavor;
   static String get flavor => _flavor;

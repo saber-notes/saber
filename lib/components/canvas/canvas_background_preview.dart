@@ -7,7 +7,7 @@ import 'package:saber/data/extensions/color_extensions.dart';
 import 'package:sbn/canvas_background_pattern.dart';
 
 class CanvasBackgroundPreview extends StatelessWidget {
-  const CanvasBackgroundPreview({
+  const new({
     super.key,
     required this.selected,
     required this.invert,

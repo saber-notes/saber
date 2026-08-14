@@ -13,7 +13,7 @@ import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
 
 class CanvasImageDialog extends StatefulWidget {
-  const CanvasImageDialog({
+  const new({
     super.key,
     required this.filePath,
     required this.image,
@@ -169,7 +169,7 @@ class _CanvasImageDialogState extends State<CanvasImageDialog> {
 }
 
 class _CanvasImageDialogItem extends StatelessWidget {
-  const _CanvasImageDialogItem({
+  const new({
     // ignore: unused_element_parameter
     super.key,
     required this.onTap,

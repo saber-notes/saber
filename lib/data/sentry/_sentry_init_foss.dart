@@ -33,7 +33,7 @@ void disableSentryForTesting() {
 }
 
 class SentryWidget extends StatelessWidget {
-  const SentryWidget({super.key, required this.child});
+  const new({super.key, required this.child});
   final Widget child;
   @override
   Widget build(BuildContext context) => child;

@@ -16,7 +16,7 @@ import 'package:saber/i18n/strings.g.dart';
 import 'package:window_manager/window_manager.dart';
 
 class DynamicMaterialApp extends StatefulHookWidget {
-  const DynamicMaterialApp({
+  const new({
     super.key,
     required this.title,
     required this.router,
@@ -167,7 +167,7 @@ class DynamicMaterialAppState extends State<DynamicMaterialApp>
 @visibleForTesting
 class ExplicitlyThemedApp extends StatelessWidget {
   @protected
-  const ExplicitlyThemedApp({
+  const new({
     super.key,
     required this.title,
     required this.router,

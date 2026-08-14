@@ -3,7 +3,7 @@ import 'package:saber/components/theming/adaptive_circular_progress_indicator.da
 import 'package:saber/i18n/strings.g.dart';
 
 class ExportBar extends StatefulWidget {
-  const ExportBar({
+  const new({
     super.key,
     required this.axis,
     required this.toggleExportBar,

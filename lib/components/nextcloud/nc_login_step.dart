@@ -18,7 +18,7 @@ import 'package:saber/pages/user/login.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class NcLoginStep extends StatefulHookWidget {
-  const NcLoginStep({super.key, required this.recheckCurrentStep});
+  const new({super.key, required this.recheckCurrentStep});
 
   final void Function() recheckCurrentStep;
 
@@ -226,7 +226,7 @@ class _NcLoginStepState extends State<NcLoginStep> {
 
 class _LoginFlowDialog extends StatefulWidget {
   // ignore: unused_element_parameter
-  const _LoginFlowDialog({super.key, required this.loginFlow});
+  const new({super.key, required this.loginFlow});
 
   final SaberLoginFlow loginFlow;
 
@@ -280,7 +280,7 @@ class _LoginFlowDialogState extends State<_LoginFlowDialog> {
 /// When pressed, the text will be replaced with a spinner for 10 seconds.
 class _FakeDoneButton extends StatefulWidget {
   // ignore: unused_element_parameter
-  const _FakeDoneButton({super.key, required this.child});
+  const new({super.key, required this.child});
 
   final Widget child;
 

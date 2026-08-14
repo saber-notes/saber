@@ -11,7 +11,7 @@ import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/i18n/strings.g.dart';
 
 class ExportNoteButton extends StatefulWidget {
-  const ExportNoteButton({super.key, required this.selectedFiles});
+  const new({super.key, required this.selectedFiles});
 
   final List<String> selectedFiles;
 

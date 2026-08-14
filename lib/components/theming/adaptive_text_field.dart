@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:saber/components/theming/saber_theme.dart';
 
 class AdaptiveTextField extends StatefulWidget {
-  const AdaptiveTextField({
+  const new({
     super.key,
     this.controller,
     this.autofillHints,

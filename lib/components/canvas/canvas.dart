@@ -12,7 +12,7 @@ import 'package:saber/data/tools/select.dart';
 import 'package:sbn/tool_id.dart';
 
 class Canvas extends StatelessWidget {
-  const Canvas({
+  const new({
     super.key,
     required this.path,
     required this.page,

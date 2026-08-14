@@ -4,7 +4,7 @@ import 'package:saber/components/theming/adaptive_alert_dialog.dart';
 import 'package:saber/i18n/strings.g.dart';
 
 class DeleteFolderButton extends StatelessWidget {
-  const DeleteFolderButton({
+  const new({
     super.key,
     required this.folderName,
     required this.deleteFolder,
@@ -36,7 +36,7 @@ class DeleteFolderButton extends StatelessWidget {
 }
 
 class _DeleteFolderDialog extends StatefulWidget {
-  const _DeleteFolderDialog({
+  const new({
     // ignore: unused_element_parameter
     super.key,
     required this.folderName,

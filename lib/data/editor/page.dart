@@ -100,7 +100,7 @@ class EditorPage extends ChangeNotifier implements HasSize {
     return croppedHeight;
   }
 
-  EditorPage({
+  new({
     Size? size,
     double? width,
     double? height,
@@ -123,7 +123,7 @@ class EditorPage extends ChangeNotifier implements HasSize {
              focusNode: FocusNode(debugLabel: 'Quill Focus Node'),
            );
 
-  factory EditorPage.fromJson(
+  factory fromJson(
     Map<String, dynamic> json, {
     required List<Uint8List>? inlineAssets,
     required bool readOnly,
@@ -348,7 +348,7 @@ class QuillStruct {
   late final FocusNode focusNode;
   StreamSubscription? changeSubscription;
 
-  QuillStruct({required this.controller, required this.focusNode});
+  new({required this.controller, required this.focusNode});
 
   void dispose() {
     changeSubscription?.cancel();

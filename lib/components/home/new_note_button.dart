@@ -10,7 +10,7 @@ import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/editor/editor.dart';
 
 class NewNoteButton extends StatefulWidget {
-  const NewNoteButton({super.key, required this.cupertino, this.path});
+  const new({super.key, required this.cupertino, this.path});
 
   final bool cupertino;
   final String? path;

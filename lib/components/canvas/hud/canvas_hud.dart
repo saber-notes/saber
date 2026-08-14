@@ -9,7 +9,7 @@ import 'package:saber/data/extensions/matrix4_extensions.dart';
 import 'package:saber/i18n/strings.g.dart';
 
 class CanvasHud extends HookWidget {
-  const CanvasHud({
+  const new({
     super.key,
     required this.transformationController,
     required this.zoomLock,

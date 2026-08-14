@@ -67,7 +67,7 @@ void main() {
 }
 
 class _LoginApp extends StatelessWidget {
-  const _LoginApp(this.step);
+  const new(this.step);
 
   final LoginStep step;
 

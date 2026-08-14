@@ -3,7 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 /// An Icon widget that can take an [IconData] or [FaIconData].
 class UniIcon extends Icon {
-  const UniIcon(
+  const new(
     this.uniIcon, {
     super.key,
     super.size,

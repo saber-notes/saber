@@ -139,7 +139,7 @@ class EditorHistory {
 }
 
 class EditorHistoryItem {
-  EditorHistoryItem({
+  new({
     required this.type,
     required this.pageIndex,
     required this.strokes,

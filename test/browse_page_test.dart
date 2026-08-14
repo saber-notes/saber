@@ -56,7 +56,7 @@ void main() {
 }
 
 class _BrowseApp extends StatelessWidget {
-  const _BrowseApp({required this.path, required this.children});
+  const new({required this.path, required this.children});
 
   final String? path;
   final DirectoryChildren? children;

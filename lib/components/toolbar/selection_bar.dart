@@ -7,7 +7,7 @@ class SelectionBar extends StatelessWidget {
   final VoidCallback duplicateSelection;
   final VoidCallback deleteSelection;
 
-  const SelectionBar({
+  const new({
     super.key,
     required this.duplicateSelection,
     required this.deleteSelection,

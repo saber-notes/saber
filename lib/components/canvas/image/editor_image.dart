@@ -92,7 +92,7 @@ sealed class EditorImage extends ChangeNotifier {
   BoxFit backgroundFit;
 
   @protected
-  EditorImage({
+  new({
     required this.id,
     required this.assetCache,
     required this.extension,
@@ -111,7 +111,7 @@ sealed class EditorImage extends ChangeNotifier {
     this._isThumbnail = false,
   }) : assert(extension.startsWith('.'));
 
-  factory EditorImage.fromJson(
+  factory fromJson(
     Map<String, dynamic> json, {
     required List<Uint8List>? inlineAssets,
     bool isThumbnail = false,

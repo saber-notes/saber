@@ -16,7 +16,7 @@ import 'package:saber/data/tools/select.dart';
 import 'package:saber/data/tools/shape_pen.dart';
 
 class CanvasPainter extends CustomPainter {
-  const CanvasPainter({
+  const new({
     super.repaint,
     this.invert = false,
     required this.strokes,

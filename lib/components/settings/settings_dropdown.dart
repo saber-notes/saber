@@ -7,7 +7,7 @@ import 'package:stow/stow.dart';
 import 'package:yaru/yaru.dart';
 
 class SettingsDropdown<T> extends StatefulWidget {
-  const SettingsDropdown({
+  const new({
     super.key,
     required this.title,
     this.subtitle,

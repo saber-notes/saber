@@ -7,7 +7,7 @@ import 'package:saber/i18n/strings.g.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class SentryConsentDialog extends StatelessWidget {
-  const SentryConsentDialog({super.key});
+  const new({super.key});
 
   static Future<void> showIfNeeded(BuildContext context) async {
     // Don't ask on FOSS builds

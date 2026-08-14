@@ -5,7 +5,7 @@ import 'package:saber/components/theming/adaptive_text_field.dart';
 import 'package:saber/i18n/strings.g.dart';
 
 class RenameFolderButton extends StatelessWidget {
-  const RenameFolderButton({
+  const new({
     super.key,
     required this.folderName,
     required this.doesFolderExist,
@@ -39,7 +39,7 @@ class RenameFolderButton extends StatelessWidget {
 }
 
 class _RenameFolderDialog extends StatefulWidget {
-  const _RenameFolderDialog({
+  const new({
     // ignore: unused_element_parameter
     super.key,
     required this.folderName,

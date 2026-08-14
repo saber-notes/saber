@@ -4,7 +4,7 @@ import 'package:saber/data/extensions/color_extensions.dart';
 import 'package:sbn/canvas_background_pattern.dart';
 
 class CanvasBackgroundPainter extends CustomPainter {
-  const CanvasBackgroundPainter({
+  const new({
     required this.invert,
     required this.backgroundColor,
     this.backgroundPattern = .none,
@@ -209,7 +209,7 @@ class PatternElement {
   /// Whether this should use a secondary color
   final bool secondaryColor;
 
-  PatternElement(
+  const new(
     this.start,
     this.end, {
     this.isLine = true,

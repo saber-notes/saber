@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class InvertWidget extends StatelessWidget {
-  const InvertWidget({super.key, this.invert = true, required this.child});
+  const new({super.key, this.invert = true, required this.child});
 
   final bool invert;
   final Widget child;

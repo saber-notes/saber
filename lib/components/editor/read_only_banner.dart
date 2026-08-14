@@ -7,7 +7,7 @@ import 'package:sbn/read_only_reason.dart';
 /// If [reason] is null, an empty widget is returned.
 /// If [action] is provided, a trailing icon button will be shown.
 class ReadOnlyBanner extends StatefulWidget {
-  const ReadOnlyBanner(this.reason, {super.key, this.action});
+  const new(this.reason, {super.key, this.action});
 
   final ReadOnlyReason? reason;
   final VoidCallback? action;

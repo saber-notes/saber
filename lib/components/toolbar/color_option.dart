@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ColorOption extends StatelessWidget {
-  const ColorOption({
+  const new({
     super.key,
     required this.isSelected,
     this.enabled = true,
@@ -58,7 +58,7 @@ class ColorOption extends StatelessWidget {
 }
 
 class ColorOptionSeparatorIcon extends StatelessWidget {
-  const ColorOptionSeparatorIcon({super.key, required this.icon});
+  const new({super.key, required this.icon});
 
   final IconData icon;
 

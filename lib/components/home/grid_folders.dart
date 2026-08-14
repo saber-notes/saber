@@ -9,7 +9,7 @@ import 'package:saber/data/extensions/list_extensions.dart';
 import 'package:saber/i18n/strings.g.dart';
 
 class GridFolders extends StatelessWidget {
-  const GridFolders({
+  const new({
     super.key,
     required this.isAtRoot,
     required this.onTap,
@@ -70,7 +70,7 @@ class GridFolders extends StatelessWidget {
 }
 
 class _GridFolder extends StatefulWidget {
-  const _GridFolder({
+  const new({
     // ignore: unused_element_parameter
     super.key,
     required this.cardType,

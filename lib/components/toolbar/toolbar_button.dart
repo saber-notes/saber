@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ToolbarIconButton extends StatelessWidget {
-  const ToolbarIconButton({
+  const new({
     super.key,
     this.tooltip,
     this.selected = false,

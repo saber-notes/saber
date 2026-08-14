@@ -4,7 +4,7 @@ class CanvasGestureLockBtn extends StatelessWidget {
   /// Either [icon] or [child] must be provided.
   /// If both are provided, [child] will be used.
   /// If [child] is provided, you are required to handle the animation.
-  const CanvasGestureLockBtn({
+  const new({
     super.key,
     required this.lock,
     required this.setLock,

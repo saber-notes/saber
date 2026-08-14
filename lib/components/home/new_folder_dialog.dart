@@ -6,7 +6,7 @@ import 'package:saber/components/theming/adaptive_text_field.dart';
 import 'package:saber/i18n/strings.g.dart';
 
 class NewFolderDialog extends StatefulWidget {
-  const NewFolderDialog({
+  const new({
     // ignore: unused_element_parameter
     super.key,
     required this.createFolder,

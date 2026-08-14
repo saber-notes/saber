@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:yaru/yaru.dart';
 
 class AdaptiveSwitchListTile extends SwitchListTile {
-  const AdaptiveSwitchListTile({
+  const new({
     super.key,
     required super.value,
     required super.onChanged,

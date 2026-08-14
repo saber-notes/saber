@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class SettingsButton extends StatelessWidget {
-  const SettingsButton({
+  const new({
     super.key,
     required this.title,
     this.subtitle,

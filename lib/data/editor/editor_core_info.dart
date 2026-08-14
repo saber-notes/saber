@@ -99,7 +99,7 @@ class EditorCoreInfo {
   bool get isNotEmpty => !isEmpty;
 
   @visibleForTesting
-  EditorCoreInfo({required this.filePath, this.readOnlyReason})
+  new({required this.filePath, this.readOnlyReason})
     : nextImageId = 0,
       backgroundPattern = stows.lastBackgroundPattern.value,
       lineHeight = stows.lastLineHeight.value,
@@ -107,7 +107,7 @@ class EditorCoreInfo {
       pages = [],
       assetCache = AssetCache();
 
-  EditorCoreInfo._({
+  new _({
     required this.filePath,
     required this.readOnlyReason,
     required this.nextImageId,
@@ -122,7 +122,7 @@ class EditorCoreInfo {
     _handleEmptyImageIds();
   }
 
-  factory EditorCoreInfo.fromJson(
+  factory fromJson(
     Map<String, dynamic> json, {
     required String filePath,
     required bool onlyFirstPage,
@@ -208,7 +208,7 @@ class EditorCoreInfo {
   }
 
   /// Old json format is just a list of strokes
-  EditorCoreInfo.fromOldJson(
+  new fromOldJson(
     List<dynamic> json, {
     required this.filePath,
     required bool onlyFirstPage,

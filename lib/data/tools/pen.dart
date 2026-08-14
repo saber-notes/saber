@@ -13,7 +13,7 @@ import 'package:sbn/tool_id.dart';
 class Pen extends Tool {
   @protected
   @visibleForTesting
-  Pen({
+  new({
     required this.name,
     required this.sizeMin,
     required this.sizeMax,
@@ -25,7 +25,7 @@ class Pen extends Tool {
     required this.toolId,
   });
 
-  Pen.fountainPen()
+  new fountainPen()
     : name = t.editor.pens.fountainPen,
       sizeMin = 1,
       sizeMax = 25,
@@ -36,7 +36,7 @@ class Pen extends Tool {
       color = Color(stows.lastFountainPenColor.value),
       toolId = .fountainPen;
 
-  Pen.ballpointPen()
+  new ballpointPen()
     : name = t.editor.pens.ballpointPen,
       sizeMin = 1,
       sizeMax = 25,

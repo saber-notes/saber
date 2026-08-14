@@ -13,7 +13,7 @@ import 'package:saber/i18n/strings.g.dart';
 import 'package:sbn/canvas_background_pattern.dart';
 
 class EditorBottomSheet extends StatefulWidget {
-  const EditorBottomSheet({
+  const new({
     super.key,
     required this.invert,
     required this.coreInfo,
@@ -343,7 +343,7 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
 }
 
 class _PermanentTooltip extends StatelessWidget {
-  const _PermanentTooltip({
+  const new({
     // ignore: unused_element_parameter
     super.key,
     required this.text,

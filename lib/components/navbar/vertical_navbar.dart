@@ -5,7 +5,7 @@ import 'package:saber/components/files/file_tree.dart';
 import 'package:saber/components/theming/adaptive_icon.dart';
 
 class VerticalNavbar extends HookWidget {
-  const VerticalNavbar({
+  const new({
     super.key,
     required this.destinations,
     this.selectedIndex = 0,

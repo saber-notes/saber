@@ -11,7 +11,7 @@ class CircleStroke extends Stroke {
   Offset center;
   double radius;
 
-  CircleStroke({
+  new({
     required super.color,
     required super.pressureEnabled,
     required super.options,
@@ -24,7 +24,7 @@ class CircleStroke extends Stroke {
     options.isComplete = true;
   }
 
-  factory CircleStroke.fromJson(
+  factory fromJson(
     Map<String, dynamic> json, {
     required int fileVersion,
     required int pageIndex,

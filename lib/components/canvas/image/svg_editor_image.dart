@@ -9,7 +9,7 @@ class SvgEditorImage extends EditorImage {
   @Deprecated('Use the file directly instead')
   AssetCache get assetCache => super.assetCache;
 
-  SvgEditorImage({
+  new({
     required super.id,
     required super.assetCache,
     required String? svgString,
@@ -39,7 +39,7 @@ class SvgEditorImage extends EditorImage {
     }
   }
 
-  factory SvgEditorImage.fromJson(
+  factory fromJson(
     Map<String, dynamic> json, {
     required List<Uint8List>? inlineAssets,
     bool isThumbnail = false,

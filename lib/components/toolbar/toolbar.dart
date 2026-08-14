@@ -30,7 +30,7 @@ import 'package:saber/data/tools/select.dart';
 import 'package:saber/i18n/strings.g.dart';
 
 class Toolbar extends StatefulWidget {
-  const Toolbar({
+  const new({
     super.key,
     required this.readOnly,
     required this.setTool,

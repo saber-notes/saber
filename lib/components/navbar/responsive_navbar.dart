@@ -11,11 +11,7 @@ import 'package:saber/pages/home/whiteboard.dart';
 import 'package:stow_codecs/stow_codecs.dart';
 
 class ResponsiveNavbar extends HookWidget {
-  const ResponsiveNavbar({
-    super.key,
-    required this.body,
-    this.selectedIndex = 0,
-  });
+  const new({super.key, required this.body, this.selectedIndex = 0});
 
   final Widget body;
   final int selectedIndex;

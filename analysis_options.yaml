@@ -97,5 +97,12 @@ linter:
 
     deprecated_member_use_from_same_package: true
 
+    empty_container_bodies: true
+    initialize_in_field_declaration: true
+    unnecessary_const_in_enum_constructor: true
+    unnecessary_primary_constructor_body: true
+    unnecessary_type_name_in_constructor: true
+    use_declaring_parameters: true
+
 # Additional information about this file can be found at
 # https://dart.dev/guides/language/analysis-options

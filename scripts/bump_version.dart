@@ -24,7 +24,7 @@ enum ErrorCodes {
   noEditorFound(5),
   changesNeeded(10);
 
-  const ErrorCodes(this.code);
+  new(this.code);
 
   final int code;
 }

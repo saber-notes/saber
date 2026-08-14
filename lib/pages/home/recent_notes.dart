@@ -21,7 +21,7 @@ import 'package:saber/data/routes.dart';
 import 'package:saber/i18n/strings.g.dart';
 
 class RecentPage extends StatefulHookWidget {
-  const RecentPage({super.key});
+  const new({super.key});
 
   @override
   State<RecentPage> createState() => _RecentPageState();

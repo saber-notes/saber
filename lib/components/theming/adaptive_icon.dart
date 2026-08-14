@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:saber/components/theming/saber_theme.dart';
 
 class AdaptiveIcon extends StatelessWidget {
-  const AdaptiveIcon({
+  const new({
     super.key,
     required this.icon,
     required this.cupertinoIcon,

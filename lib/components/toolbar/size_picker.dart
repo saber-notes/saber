@@ -4,7 +4,7 @@ import 'package:saber/data/tools/pen.dart';
 import 'package:saber/i18n/strings.g.dart';
 
 class SizePicker extends StatefulWidget {
-  const SizePicker({super.key, required this.axis, required this.pen});
+  const new({super.key, required this.axis, required this.pen});
 
   final Axis axis;
   final Pen pen;
@@ -61,7 +61,7 @@ class _SizePickerState extends State<SizePicker> {
 }
 
 class _SizeSlider extends StatelessWidget {
-  const _SizeSlider({
+  const new({
     // ignore: unused_element_parameter
     super.key,
     required this.pen,
@@ -126,7 +126,7 @@ class _SizeSlider extends StatelessWidget {
 }
 
 class _SizeSliderPainter extends CustomPainter {
-  _SizeSliderPainter({
+  new({
     required this.axis,
     required this.minSize,
     required this.maxSize,

@@ -10,7 +10,7 @@ var _lastPrimary = Colors.transparent;
 var _closestYaruVariant = YaruVariant.orange;
 
 class YaruBuilder extends StatefulHookWidget {
-  const YaruBuilder({
+  const new({
     super.key,
     required this.primary,
     this.platform = .linux,

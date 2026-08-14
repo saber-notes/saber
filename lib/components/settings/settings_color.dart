@@ -10,7 +10,7 @@ import 'package:saber/pages/home/settings.dart';
 import 'package:stow/stow.dart';
 
 class SettingsColor extends HookWidget {
-  const SettingsColor({
+  const new({
     super.key,
     required this.title,
     this.subtitle,

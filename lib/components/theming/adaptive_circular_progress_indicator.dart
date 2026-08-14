@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:yaru/yaru.dart';
 
 class AdaptiveCircularProgressIndicator extends CircularProgressIndicator {
-  const AdaptiveCircularProgressIndicator({
+  const new({
     super.key,
     super.value,
     super.backgroundColor,

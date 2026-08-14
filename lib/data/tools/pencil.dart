@@ -5,7 +5,7 @@ import 'package:saber/data/tools/pen.dart';
 import 'package:saber/i18n/strings.g.dart';
 
 class Pencil extends Pen {
-  Pencil()
+  new()
     : super(
         name: t.editor.pens.pencil,
         sizeMin: 1,

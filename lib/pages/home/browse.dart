@@ -24,7 +24,7 @@ import 'package:saber/data/routes.dart';
 import 'package:saber/i18n/strings.g.dart';
 
 class BrowsePage extends StatefulHookWidget {
-  const BrowsePage({super.key, String? path}) : initialPath = path;
+  const new({super.key, String? path}) : initialPath = path;
 
   final String? initialPath;
 

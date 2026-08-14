@@ -5,7 +5,7 @@ import 'package:saber/data/sentry/sentry_init.dart';
 import 'package:saber/i18n/strings.g.dart';
 
 class SettingsSentryConsent extends StatelessWidget {
-  const SettingsSentryConsent({super.key});
+  const new({super.key});
 
   String _getSubtitle() {
     final isActive = isSentryEnabled;
