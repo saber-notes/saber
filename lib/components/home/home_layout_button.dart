@@ -82,14 +82,12 @@ class _HomeLayoutDialogOption extends StatelessWidget {
   }
 }
 
-enum HomeLayout {
+enum HomeLayout({
+  /// Whether the preview card should fill its available vertical space
+  required final bool fillVertical,
+}) {
   masonryGrid(fillVertical: false),
   simpleGrid(fillVertical: true);
-
-  new({required this.fillVertical});
-
-  /// Whether the preview card should fill its available vertical space
-  final bool fillVertical;
 
   static const codec = EnumCodec(values);
 

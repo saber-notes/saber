@@ -411,12 +411,10 @@ class Stroke {
   )..points.addAll(points);
 }
 
-enum StrokeQuality {
+enum StrokeQuality(
+  /// We use every Nth point for this quality level.
+  final int N,
+) {
   low(4),
   high(1);
-
-  new(this.N);
-
-  /// We use every Nth point for this quality level.
-  final int N;
 }

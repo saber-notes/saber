@@ -135,7 +135,10 @@ class _NcLoginPageState extends State<NcLoginPage> {
   }
 }
 
-enum LoginStep {
+enum LoginStep(
+  /// The value used for the LinearProgressIndicator on this step
+  final double progress,
+) {
   /// We're waiting for the Prefs to be loaded
   waitingForPrefs(0),
 
@@ -147,9 +150,4 @@ enum LoginStep {
 
   /// The user is fully logged in
   done(1);
-
-  new(this.progress) : assert(progress >= 0 && progress <= 1);
-
-  /// The value used for the LinearProgressIndicator on this step
-  final double progress;
 }

@@ -18,15 +18,11 @@ late final bool quiet;
 
 const dummyChangelog = 'Release_notes_will_be_added_here';
 
-enum ErrorCodes {
+enum ErrorCodes(final int code) {
   noError(0),
   noVersionSpecified(1),
   noEditorFound(5),
   changesNeeded(10);
-
-  new(this.code);
-
-  final int code;
 }
 
 Future<void> main(List<String> args) async {

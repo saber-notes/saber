@@ -1,4 +1,12 @@
-enum CanvasBackgroundPattern {
+enum CanvasBackgroundPattern(
+  /// The pattern name used for serialization.
+  /// Do not display this to the user: instead use [localizedName].
+  final String name, {
+
+  /// Whether this pattern has elements along the page edges that may need to be
+  /// clipped.
+  final bool requiresClipping = false,
+}) {
   /// No background pattern
   none(''),
 
@@ -31,16 +39,6 @@ enum CanvasBackgroundPattern {
 
   /// Cornell notes
   cornell('cornell');
-
-  new(this.name, {this.requiresClipping = false});
-
-  /// The pattern name used for serialization.
-  /// Do not display this to the user: instead use [localizedName].
-  final String name;
-
-  /// Whether this pattern has elements along the page edges that may need to be
-  /// clipped.
-  final bool requiresClipping;
 
   static CanvasBackgroundPattern fromName(String? name) {
     return values.firstWhere(
