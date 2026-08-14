@@ -18,8 +18,8 @@ void main() {
   });
 
   test('isOnyxDevice', () async {
-    OnyxsdkPen onyxsdkPenPlugin = OnyxsdkPen();
-    MockOnyxsdkPenPlatform fakePlatform = MockOnyxsdkPenPlatform();
+    final onyxsdkPenPlugin = OnyxsdkPen();
+    final fakePlatform = MockOnyxsdkPenPlatform();
     OnyxsdkPenPlatform.instance = fakePlatform;
 
     expect(await onyxsdkPenPlugin.isOnyxDevice(), false);

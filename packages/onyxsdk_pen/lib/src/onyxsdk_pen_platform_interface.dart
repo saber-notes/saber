@@ -3,9 +3,9 @@ import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 
 abstract class OnyxsdkPenPlatform extends PlatformInterface {
   /// Constructs a OnyxsdkPenPlatform.
-  OnyxsdkPenPlatform() : super(token: _token);
+  new() : super(token: _token);
 
-  static final Object _token = Object();
+  static final _token = Object();
 
   static OnyxsdkPenPlatform _instance = MethodChannelOnyxsdkPen();
 

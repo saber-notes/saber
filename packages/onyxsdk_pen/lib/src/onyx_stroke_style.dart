@@ -7,6 +7,6 @@ enum OnyxStrokeStyle {
   marker(4),
   disabled(5);
 
-  const OnyxStrokeStyle(this.value);
+  new(this.value);
   final int value;
 }

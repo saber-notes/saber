@@ -196,7 +196,7 @@ abstract class SaberQuillStyles {
         VerticalSpacing.zero,
         BoxDecoration(
           color: Colors.grey.withValues(alpha: 0.2),
-          borderRadius: .all(.circular(3)),
+          borderRadius: const .all(.circular(3)),
         ),
       ),
       indent: DefaultTextBlockStyle(

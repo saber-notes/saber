@@ -32,7 +32,7 @@ enum CanvasBackgroundPattern {
   /// Cornell notes
   cornell('cornell');
 
-  const CanvasBackgroundPattern(this.name, {this.requiresClipping = false});
+  new(this.name, {this.requiresClipping = false});
 
   /// The pattern name used for serialization.
   /// Do not display this to the user: instead use [localizedName].

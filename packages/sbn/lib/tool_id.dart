@@ -17,7 +17,7 @@ enum ToolId {
   laserPointer('LaserPointer');
 
   final String id;
-  const ToolId(this.id);
+  new(this.id);
 
   static const codec = EnumCodec(values);
 

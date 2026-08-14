@@ -3,8 +3,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:onyxsdk_pen/src/onyxsdk_pen_method_channel.dart';
 
 void main() {
-  MethodChannelOnyxsdkPen platform = MethodChannelOnyxsdkPen();
-  const MethodChannel channel = MethodChannel('onyxsdk_pen');
+  final platform = MethodChannelOnyxsdkPen();
+  const channel = MethodChannel('onyxsdk_pen');
 
   TestWidgetsFlutterBinding.ensureInitialized();
 

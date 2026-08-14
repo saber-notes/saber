@@ -8,7 +8,7 @@ import 'package:onyxsdk_pen/onyxsdk_pen.dart';
 
 /// Renders a native Android view which uses the Onyx SDK to draw on the screen.
 class OnyxSdkPenArea extends StatefulWidget {
-  const OnyxSdkPenArea({
+  const new({
     super.key,
     this.refreshDelay = const Duration(seconds: 1),
     this.strokeStyle = OnyxStrokeStyle.fountainPen,
@@ -70,15 +70,15 @@ class _OnyxSdkPenAreaState extends State<OnyxSdkPenArea>
 
   /// Parameters to pass to the platform side
   late final creationParams = <String, dynamic>{
-    "refreshDelayMs": widget.refreshDelay.inMilliseconds,
-    "strokeStyle": widget.strokeStyle.value,
-    "strokeColor": widget.strokeColor.toARGB32(),
-    "strokeWidth": widget.strokeWidth,
+    'refreshDelayMs': widget.refreshDelay.inMilliseconds,
+    'strokeStyle': widget.strokeStyle.value,
+    'strokeColor': widget.strokeColor.toARGB32(),
+    'strokeWidth': widget.strokeWidth,
   };
-  late final channel = MethodChannel('onyxsdk_pen_area');
+  static const channel = MethodChannel('onyxsdk_pen_area');
 
   /// This is used in the platform side to register the view.
-  static const String viewType = 'onyxsdk_pen_area';
+  static const viewType = 'onyxsdk_pen_area';
 
   @override
   void didUpdateWidget(OnyxSdkPenArea oldWidget) {
@@ -102,10 +102,8 @@ class _OnyxSdkPenAreaState extends State<OnyxSdkPenArea>
     switch (state) {
       case AppLifecycleState.resumed:
         channel.invokeMethod('setDraw', true).catchError((e) {});
-        break;
       case AppLifecycleState.paused:
         channel.invokeMethod('setDraw', false).catchError((e) {});
-        break;
       default:
     }
   }

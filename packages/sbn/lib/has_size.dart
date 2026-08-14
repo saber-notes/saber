@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
 class HasSize {
-  const HasSize(this.size);
+  const new(this.size);
   final Size size;
 }
