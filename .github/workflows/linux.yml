@@ -70,7 +70,6 @@ jobs:
       - run: ./patches/pre/remove_dev_dependencies.sh
       - run: ./patches/pre/remove_permission_handler.sh
       - run: ./patches/pre/remove_proprietary_dependencies.sh
-      - run: flutter pub get
 
       - name: Build Linux (${{ matrix.arch.target-platform }})
         run: |

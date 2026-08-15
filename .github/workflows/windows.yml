@@ -66,18 +66,14 @@ jobs:
         shell: bash
       - run: ./patches/pre/remove_permission_handler.sh
         shell: bash
-      - run: flutter pub get
-        shell: bash
 
       - name: Build Windows
         shell: bash
-        run: |
-          flutter build windows
+        run: flutter build windows
 
       - name: Download Visual C++ Redistributable
         shell: bash
-        run: |
-          curl -L -o installers/vc_redist.x64.exe https://aka.ms/vs/17/release/vc_redist.x64.exe
+        run: curl -L -o installers/vc_redist.x64.exe https://aka.ms/vs/17/release/vc_redist.x64.exe
 
       - name: Install Inno Setup
         run: choco install -y innosetup

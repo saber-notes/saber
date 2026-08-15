@@ -210,7 +210,6 @@ jobs:
       - run: ./patches/pre/remove_linux_dependencies.sh
       - run: ./patches/pre/remove_proprietary_dependencies.sh
         if: matrix.foss
-      - run: flutter pub get
 
       - name: Build apk
         run: flutter build apk
@@ -245,7 +244,7 @@ jobs:
       - name: Build aab
         if: ${{ matrix.foss == false }}
         run: |
-          flutter build appbundle --no-pub \
+          flutter build appbundle \
             --dart-define=FLAVOR="Google Play" \
             --dart-define=APP_STORE="Google Play" \
             --dart-define=UPDATE_CHECK="false"
