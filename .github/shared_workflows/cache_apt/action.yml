@@ -1,0 +1,46 @@
+name: "Cache apt"
+description: "Installs and caches a list of apt packages"
+
+inputs:
+  packages:
+    description: The list of packages to install
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - name: Restore cache
+      id: cache-apt-archives
+      uses: actions/cache/restore@v6
+      with:
+        path: |
+          .apt-archives-cache
+        key: apt-archives-cache-${{ inputs.packages }}
+
+    - name: Move cached files
+      if: ${{ steps.cache-apt-archives.outputs.cache-hit != '' }}
+      shell: bash
+      run: |
+        sudo mkdir -p /var/cache/apt/archives
+        sudo cp -l .apt-archives-cache/*.deb /var/cache/apt/archives/
+
+    - name: Update apt repos
+      if: ${{ steps.cache-apt-archives.outputs.cache-hit == '' }}
+      shell: bash
+      run: sudo apt-get update -yq
+
+    - name: Install packages
+      shell: bash
+      run: |
+        sudo apt-get install -yq ${{ inputs.packages }}
+
+        mkdir -p .apt-archives-cache
+        sudo cp -l /var/cache/apt/archives/*.deb .apt-archives-cache
+
+    - name: Save cache
+      uses: actions/cache/save@v6
+      if: ${{ steps.cache-apt-archives.outputs.cache-hit == '' }}
+      with:
+        path: |
+          .apt-archives-cache
+        key: ${{ steps.cache-apt-archives.outputs.cache-primary-key }}
