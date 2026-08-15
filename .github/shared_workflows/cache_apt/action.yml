@@ -15,7 +15,7 @@ runs:
       with:
         path: |
           .aptcache
-        key: ${{ runner.OS }}-aptcache-${{ inputs.packages }}
+        key: ${{ runner.OS }}-${{ runner.arch }}-aptcache-${{ inputs.packages }}
 
     - name: Move files from cache
       if: ${{ steps.cache-apt.outputs.cache-hit != '' }}
