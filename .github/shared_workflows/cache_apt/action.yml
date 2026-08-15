@@ -1,0 +1,53 @@
+name: "Cache apt"
+description: "Installs and caches a list of apt packages"
+
+inputs:
+  packages:
+    description: The list of packages to install
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - name: Restore cache
+      id: cache-apt
+      uses: actions/cache/restore@v6
+      with:
+        path: |
+          .aptcache
+        key: ${{ runner.OS }}-${{ runner.arch }}-aptcache-${{ inputs.packages }}
+
+    - name: Move files from cache
+      if: ${{ steps.cache-apt.outputs.cache-hit != '' }}
+      shell: bash
+      run: |
+        mkdir -p .aptcache/archives/ .aptcache/lists/
+        sudo mkdir -p /var/cache/apt/archives /var/lib/apt/lists
+        sudo cp -l .aptcache/archives/*.deb /var/cache/apt/archives/
+        sudo cp -a .aptcache/lists/* /var/lib/apt/lists/
+
+    - name: Update apt repos
+      if: ${{ startsWith(github.ref, 'refs/tags/') || steps.cache-apt.outputs.cache-hit == '' }}
+      shell: bash
+      run: sudo apt-get update -yq
+
+    - name: Install packages
+      shell: bash
+      run: sudo apt-get install -yqq ${{ inputs.packages }}
+
+    - name: Move files for caching
+      if: ${{ steps.cache-apt.outputs.cache-hit == '' }}
+      shell: bash
+      run: |
+        mkdir -p .aptcache/archives/ .aptcache/lists/
+        sudo cp -l /var/cache/apt/archives/*.deb .aptcache/archives/
+        sudo find /var/lib/apt/lists -maxdepth 1 -type f -exec cp -a -t .aptcache/lists/ {} +
+        sudo chmod -R a+r .aptcache
+
+    - name: Save cache
+      uses: actions/cache/save@v6
+      if: ${{ steps.cache-apt.outputs.cache-hit == '' }}
+      with:
+        path: |
+          .aptcache
+        key: ${{ steps.cache-apt.outputs.cache-primary-key }}
