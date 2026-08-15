@@ -24,7 +24,7 @@ runs:
         mkdir -p .aptcache/archives/ .aptcache/lists/
         sudo mkdir -p /var/cache/apt/archives /var/lib/apt/lists
         sudo cp -l .aptcache/archives/*.deb /var/cache/apt/archives/
-        sudo cp -lr .aptcache/lists/* /var/lib/apt/lists/
+        sudo cp -a .aptcache/lists/* /var/lib/apt/lists/
 
     - name: Update apt repos
       if: ${{ steps.cache-apt.outputs.cache-hit == '' }}
@@ -33,15 +33,16 @@ runs:
 
     - name: Install packages
       shell: bash
-      run: |
-        sudo apt-get install -yqq ${{ inputs.packages }}
+      run: sudo apt-get install -yqq ${{ inputs.packages }}
 
     - name: Move files for caching
+      if: ${{ steps.cache-apt.outputs.cache-hit == '' }}
       shell: bash
       run: |
         mkdir -p .aptcache/archives/ .aptcache/lists/
         sudo cp -l /var/cache/apt/archives/*.deb .aptcache/archives/
-        sudo cp -lr /var/lib/apt/lists/* .aptcache/lists/
+        sudo find /var/lib/apt/lists -maxdepth 1 -type f -exec cp -a -t .aptcache/lists/ {} +
+        sudo chmod -R a+r .aptcache
 
     - name: Save cache
       uses: actions/cache/save@v6
