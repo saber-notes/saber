@@ -27,7 +27,7 @@ runs:
         sudo cp -a .aptcache/lists/* /var/lib/apt/lists/
 
     - name: Update apt repos
-      if: ${{ steps.cache-apt.outputs.cache-hit == '' }}
+      if: ${{ startsWith(github.ref, 'refs/tags/') || steps.cache-apt.outputs.cache-hit == '' }}
       shell: bash
       run: sudo apt-get update -yq
 
