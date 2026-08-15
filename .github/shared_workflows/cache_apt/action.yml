@@ -10,37 +10,43 @@ runs:
   using: composite
   steps:
     - name: Restore cache
-      id: cache-apt-archives
+      id: cache-apt
       uses: actions/cache/restore@v6
       with:
         path: |
-          .apt-archives-cache
-        key: apt-archives-cache-${{ inputs.packages }}
+          .aptcache
+        key: ${{ runner.OS }}-aptcache-${{ inputs.packages }}
 
-    - name: Move cached files
-      if: ${{ steps.cache-apt-archives.outputs.cache-hit != '' }}
+    - name: Move files from cache
+      if: ${{ steps.cache-apt.outputs.cache-hit != '' }}
       shell: bash
       run: |
-        sudo mkdir -p /var/cache/apt/archives
-        sudo cp -l .apt-archives-cache/*.deb /var/cache/apt/archives/
+        mkdir -p .aptcache/archives/ .aptcache/lists/
+        sudo mkdir -p /var/cache/apt/archives /var/lib/apt/lists
+        sudo cp -l .aptcache/archives/*.deb /var/cache/apt/archives/
+        sudo cp -lr .aptcache/lists/* /var/lib/apt/lists/
 
     - name: Update apt repos
-      if: ${{ steps.cache-apt-archives.outputs.cache-hit == '' }}
+      if: ${{ steps.cache-apt.outputs.cache-hit == '' }}
       shell: bash
       run: sudo apt-get update -yq
 
     - name: Install packages
       shell: bash
       run: |
-        sudo apt-get install -yq ${{ inputs.packages }}
+        sudo apt-get install -yqq ${{ inputs.packages }}
 
-        mkdir -p .apt-archives-cache
-        sudo cp -l /var/cache/apt/archives/*.deb .apt-archives-cache
+    - name: Move files for caching
+      shell: bash
+      run: |
+        mkdir -p .aptcache/archives/ .aptcache/lists/
+        sudo cp -l /var/cache/apt/archives/*.deb .aptcache/archives/
+        sudo cp -lr /var/lib/apt/lists/* .aptcache/lists/
 
     - name: Save cache
       uses: actions/cache/save@v6
-      if: ${{ steps.cache-apt-archives.outputs.cache-hit == '' }}
+      if: ${{ steps.cache-apt.outputs.cache-hit == '' }}
       with:
         path: |
-          .apt-archives-cache
-        key: ${{ steps.cache-apt-archives.outputs.cache-primary-key }}
+          .aptcache
+        key: ${{ steps.cache-apt.outputs.cache-primary-key }}
