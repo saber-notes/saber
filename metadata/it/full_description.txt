@@ -1,0 +1,17 @@
+Saber è l'app per prendere appunti pensata per la scrittura a mano.
+
+È progettata per essere il più semplice e intuitiva possibile, pur offrendo funzionalità uniche che userai davvero. Inoltre, Saber è disponibile su tutti i tuoi dispositivi, grandi e piccoli, e si sincronizza tra di essi senza problemi.
+
+In particolare, può invertire i colori degli appunti quando sei in modalità scura. Questo ti permette di scrivere con inchiostro bianco su sfondo nero, molto più riposante per gli occhi in ambienti con poca luce, come quando l'insegnante spegne le luci in classe.
+Anche immagini e PDF vengono invertiti, quindi puoi comunque utilizzare stampe digitali o libri di testo senza problemi.
+
+Saber utilizza un sistema a doppia password per proteggere i tuoi appunti da chiunque tranne te, anche se hanno il controllo completo del server. Puoi archiviare i tuoi appunti in modo sicuro sul server ufficiale di Saber, su un altro server o persino ospitarne uno tuo!
+
+L'app è completamente open source, quindi chiunque può visualizzare il codice sorgente e vedere esattamente cosa fa e come gestisce i tuoi dati. Molte altre app per prendere appunti sono proprietarie e a codice chiuso, il che significa che il loro funzionamento interno rimane un mistero per il pubblico.
+
+Da studente di matematica, evidenziare equazioni su più righe è sempre stato un problema con altre app, dove l'evidenziatore cambiava colore quando si sovrapponeva a se stesso. Un altro problema che ho riscontrato è che in alcune app l'evidenziatore si sovrapponeva al testo, sbiadendolo e rendendolo difficile da leggere.
+L'evidenziatore di Saber non presenta questi problemi. Utilizza la composizione su canvas per visualizzare l'evidenziatore in modo coerente con, se non migliore, della carta tradizionale, gestendo le sovrapposizioni e mantenendo la coerenza dei colori.
+
+Saber ha tutto ciò che ti serve per tenere i tuoi appunti organizzati. Crea cartelle all'interno di altre cartelle, senza limiti al numero di sottocartelle. E anche se una nota si trova in profondità in una sottocartella, puoi comunque accedervi facilmente grazie alle note più recenti sempre disponibili nella schermata iniziale.
+
+Scopri un modo completamente nuovo di catturare e organizzare i tuoi pensieri con Saber. Che tu sia uno studente, un professionista o una mente creativa, Saber è il tuo fedele compagno per la scrittura digitale a mano. Scaricalo ora e lascia che le tue idee fluiscano liberamente!
