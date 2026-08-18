@@ -50,69 +50,78 @@ class _FileTreeBranchState extends State<_FileTreeBranch> {
   @override
   Widget build(BuildContext context) {
     final colorScheme = ColorScheme.of(context);
-    final backgroundColor = Color.alphaBlend(
-      colorScheme.primary.withValues(alpha: 0.05),
-      colorScheme.surface,
-    );
 
     return Column(
       crossAxisAlignment: .start,
       children: [
         if (widget.path != null)
-          Material(
-            color: backgroundColor,
-            child: InkWell(
-              onTap: () {
-                setState(() {
-                  if (widget.isDirectory) {
-                    areChildrenVisible = !areChildrenVisible;
-                  } else {
-                    context.push(RoutePaths.editFilePath(widget.path ?? '/'));
-                  }
-                });
-              },
-              child: Row(
-                children: [
-                  if (widget.isDirectory) ...[
-                    Icon(
-                      areChildrenVisible ? Icons.folder_open : Icons.folder,
-                      color: colorScheme.primary,
-                      size: 25,
-                    ),
-                  ] else ...[
-                    const Icon(Icons.insert_drive_file, size: 25),
-                  ],
-                  const SizedBox(width: 5),
-                  Expanded(
-                    child: Text(
-                      widget.path!.substring(widget.path!.lastIndexOf('/') + 1),
-                      style: TextTheme.of(context).bodyMedium
-                          ?.copyWith(fontSize: 14),
-                      overflow: .ellipsis,
-                    ),
+          InkWell(
+            borderRadius: const .all(.circular(8)),
+            onTap: () {
+              setState(() {
+                if (widget.isDirectory) {
+                  areChildrenVisible = !areChildrenVisible;
+                } else {
+                  context.push(RoutePaths.editFilePath(widget.path ?? '/'));
+                }
+              });
+            },
+            child: Row(
+              children: [
+                if (widget.isDirectory) ...[
+                  Icon(
+                    areChildrenVisible ? Icons.folder_open : Icons.folder,
+                    color: colorScheme.primary,
+                    size: 25,
                   ),
+                ] else ...[
+                  const Icon(Icons.insert_drive_file, size: 25),
                 ],
-              ),
+                const SizedBox(width: 5),
+                Expanded(
+                  child: Text(
+                    widget.path!.substring(widget.path!.lastIndexOf('/') + 1),
+                    style: TextTheme.of(context).bodyMedium
+                        ?.copyWith(fontSize: 14),
+                    overflow: .ellipsis,
+                  ),
+                ),
+              ],
             ),
           ),
         if ((widget.path == null || areChildrenVisible) && children != null)
-          Padding(
-            padding: (widget.path != null) ? const .only(left: 25) : .zero,
-            child: Column(
-              crossAxisAlignment: .start,
-              children: [
-                for (var i = 0; i < children!.directories.length; i++)
-                  _FileTreeBranch(
-                    path: "${widget.path ?? ""}/${children!.directories[i]}",
-                    isDirectory: true,
-                  ),
-                for (var i = 0; i < children!.files.length; i++)
-                  _FileTreeBranch(
-                    path: "${widget.path ?? ""}/${children!.files[i]}",
-                    isDirectory: false,
-                  ),
-              ],
-            ),
+          Stack(
+            children: [
+              if (widget.path != null)
+                Positioned.directional(
+                  top: 8,
+                  bottom: 8,
+                  start: 0,
+                  textDirection: Directionality.of(context),
+                  child: const VerticalDivider(width: 24),
+                ),
+              Padding(
+                padding: widget.path != null
+                    ? const .directional(start: 24)
+                    : .zero,
+                child: Column(
+                  crossAxisAlignment: .start,
+                  children: [
+                    for (var i = 0; i < children!.directories.length; i++)
+                      _FileTreeBranch(
+                        path:
+                            "${widget.path ?? ""}/${children!.directories[i]}",
+                        isDirectory: true,
+                      ),
+                    for (var i = 0; i < children!.files.length; i++)
+                      _FileTreeBranch(
+                        path: "${widget.path ?? ""}/${children!.files[i]}",
+                        isDirectory: false,
+                      ),
+                  ],
+                ),
+              ),
+            ],
           ),
       ],
     );
