@@ -6,9 +6,7 @@ import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
 import 'package:stow_codecs/stow_codecs.dart';
 
-class HomeLayoutButton extends HookWidget {
-  const new({super.key});
-
+class const HomeLayoutButton({super.key}) extends HookWidget {
   void _openDialog(BuildContext context) async {
     final selection = await showDialog<HomeLayout>(
       context: context,

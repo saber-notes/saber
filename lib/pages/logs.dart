@@ -40,9 +40,7 @@ class _LogsHistory extends ChangeNotifier {
   }
 }
 
-class LogsPage extends StatelessWidget {
-  const new({super.key});
-
+class const LogsPage({super.key}) extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

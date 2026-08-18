@@ -6,9 +6,7 @@ import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
 import 'package:stow_codecs/stow_codecs.dart';
 
-class BrowseSortButton extends HookWidget {
-  const new({super.key});
-
+class const BrowseSortButton({super.key}) extends HookWidget {
   void _openDialog(BuildContext context) async {
     final selection = await showDialog<SortMetric>(
       context: context,

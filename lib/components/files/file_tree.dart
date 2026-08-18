@@ -6,9 +6,7 @@ import 'package:go_router/go_router.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/routes.dart';
 
-class FileTree extends StatelessWidget {
-  const new({super.key});
-
+class const FileTree({super.key}) extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Padding(

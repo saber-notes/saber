@@ -6,9 +6,7 @@ import 'package:saber/data/sentry/sentry_init.dart';
 import 'package:saber/i18n/strings.g.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class SentryConsentDialog extends StatelessWidget {
-  const new({super.key});
-
+class const SentryConsentDialog({super.key}) extends StatelessWidget {
   static Future<void> showIfNeeded(BuildContext context) async {
     // Don't ask on FOSS builds
     if (!isSentryAvailable) return;

@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:saber/i18n/strings.g.dart';
 
-class Welcome extends StatelessWidget {
-  const new({super.key});
-
+class const Welcome({super.key}) extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textTheme = TextTheme.of(context);

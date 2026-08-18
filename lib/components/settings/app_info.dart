@@ -10,9 +10,7 @@ import 'package:saber/data/version.dart';
 import 'package:saber/i18n/strings.g.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class AppInfo extends StatelessWidget {
-  const new({super.key});
-
+class const AppInfo({super.key}) extends StatelessWidget {
   static final Uri sponsorUrl = Uri.parse(
     'https://github.com/sponsors/adil192',
   );

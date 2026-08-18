@@ -33,9 +33,7 @@ import 'package:saber/data/tools/shape_pen.dart';
 import 'package:saber/i18n/strings.g.dart';
 import 'package:stow/stow.dart';
 
-class SettingsPage extends StatefulWidget {
-  const new({super.key});
-
+class const SettingsPage({super.key}) extends StatefulWidget {
   @override
   State<SettingsPage> createState() => _SettingsPageState();
 

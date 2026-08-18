@@ -10,9 +10,7 @@ import 'package:saber/data/locales.dart';
 import 'package:saber/i18n/strings.g.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class UpdateDialog extends StatefulWidget {
-  const new({super.key});
-
+class const UpdateDialog({super.key}) extends StatefulWidget {
   @override
   State<UpdateDialog> createState() => _UpdateDialogState();
 }

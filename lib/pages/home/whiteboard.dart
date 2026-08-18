@@ -4,9 +4,7 @@ import 'package:saber/data/prefs.dart';
 import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/editor/editor.dart';
 
-class Whiteboard extends StatelessWidget {
-  const new({super.key});
-
+class const Whiteboard({super.key}) extends StatelessWidget {
   static const filePath = '/_whiteboard';
 
   static bool needsToAutoClearWhiteboard =

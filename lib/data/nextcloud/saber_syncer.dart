@@ -20,10 +20,8 @@ final syncer = Syncer<SaberSyncInterface, SaberSyncFile, File, WebDavFile>(
   failureTimeout: const Duration(seconds: 4),
 );
 
-class SaberSyncInterface
+class const SaberSyncInterface()
     extends AbstractSyncInterface<SaberSyncFile, File, WebDavFile> {
-  const new();
-
   static final log = Logger('SaberSyncInterface');
 
   @override

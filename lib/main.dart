@@ -230,9 +230,7 @@ void doBackgroundSync() {
   });
 }
 
-class App extends StatefulWidget {
-  const new({super.key});
-
+class const App({super.key}) extends StatefulWidget {
   static final log = Logger('App');
 
   static String initialLocation = pathToFunction(RoutePaths.home)({

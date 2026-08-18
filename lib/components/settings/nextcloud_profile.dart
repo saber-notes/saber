@@ -16,9 +16,7 @@ import 'package:saber/pages/user/login.dart';
 
 typedef Quota = UserDetailsQuota;
 
-class NextcloudProfile extends HookWidget {
-  const new({super.key});
-
+class const NextcloudProfile({super.key}) extends HookWidget {
   /// If non-null, this will be used instead of the actual login state.
   @visibleForTesting
   static LoginStep? forceLoginStep;

@@ -253,9 +253,7 @@ class _PreviewCardState extends State<PreviewCard> {
   }
 }
 
-class _FallbackThumbnail extends StatelessWidget {
-  const new();
-
+class const _FallbackThumbnail() extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ColoredBox(

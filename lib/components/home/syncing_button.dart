@@ -5,9 +5,7 @@ import 'package:saber/components/theming/adaptive_icon.dart';
 import 'package:saber/data/nextcloud/saber_syncer.dart';
 import 'package:saber/data/prefs.dart';
 
-class SyncingButton extends HookWidget {
-  const new({super.key});
-
+class const SyncingButton({super.key}) extends HookWidget {
   /// The number of files transferred this session.
   static final filesTransferred = ValueNotifier(0);
 
