@@ -3,28 +3,29 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:saber/components/files/file_tree.dart';
 import 'package:saber/components/theming/adaptive_icon.dart';
+import 'package:saber/data/routes.dart';
 
-class VerticalNavbar extends HookWidget {
-  const new({
-    super.key,
-    required this.destinations,
-    this.selectedIndex = 0,
-    this.onDestinationSelected,
-  });
-
-  final List<NavigationRailDestination> destinations;
-  final int selectedIndex;
-  final ValueChanged<int>? onDestinationSelected;
-
+class const VerticalNavbar({
+  super.key,
+  final int selectedIndex = 0,
+  final ValueChanged<int>? onDestinationSelected,
+}) extends HookWidget {
   @override
   Widget build(BuildContext context) {
-    final expanded = useState(false);
+    final expandAnimationController = useAnimationController(
+      duration: const Duration(milliseconds: 200),
+    );
+    final expandAnimation = expandAnimationController.drive(
+      CurveTween(curve: Curves.easeInOut),
+    );
 
     final theme = Theme.of(context);
     final backgroundColor = switch (theme.platform) {
       .linux => Colors.transparent,
       _ => theme.colorScheme.surfaceContainer,
     };
+
+    const maxNavbarWidth = 300.0;
 
     return DecoratedBox(
       decoration: BoxDecoration(
@@ -33,35 +34,94 @@ class VerticalNavbar extends HookWidget {
             ? BoxBorder.fromSTEB(end: BorderSide(color: theme.dividerColor))
             : null,
       ),
-      child: Column(
-        crossAxisAlignment: .start,
-        children: [
-          const SizedBox(height: kToolbarHeight),
-          Padding(
-            padding: const .symmetric(vertical: 10, horizontal: 12),
-            child: TextButton(
-              onPressed: () => expanded.value = !expanded.value,
-              child: AdaptiveIcon(
-                icon: expanded.value ? Icons.chevron_left : Icons.chevron_right,
-                cupertinoIcon: expanded.value
-                    ? CupertinoIcons.chevron_left
-                    : CupertinoIcons.chevron_right,
+      child: Padding(
+        padding: const .symmetric(horizontal: 12),
+        child: Column(
+          crossAxisAlignment: .start,
+          spacing: 12,
+          children: [
+            const SizedBox(height: kToolbarHeight - 2),
+            TextButton(
+              onPressed: () {
+                if (expandAnimationController.isForwardOrCompleted) {
+                  expandAnimationController.reverse();
+                } else {
+                  expandAnimationController.forward();
+                }
+              },
+              child: RotationTransition(
+                turns: expandAnimation.drive(Tween(begin: 0, end: 0.5)),
+                child: const AdaptiveIcon(
+                  icon: Icons.chevron_right,
+                  cupertinoIcon: CupertinoIcons.chevron_right,
+                ),
               ),
             ),
+            const SizedBox(),
+            for (int i = 0; i < HomeRoutes.routes.length; ++i)
+              _RouteTile(
+                route: HomeRoutes.routes[i],
+                selected: i == selectedIndex,
+                onTap: () => onDestinationSelected?.call(i),
+                expandAnimation: expandAnimation,
+              ),
+
+            Expanded(
+              child: SizeTransition(
+                sizeFactor: expandAnimation,
+                axis: .horizontal,
+                alignment: .topStart,
+                child: const SizedBox(width: maxNavbarWidth, child: FileTree()),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class const _RouteTile({
+  required final HomeRoute route,
+  required final bool selected,
+  required final VoidCallback onTap,
+  required final Animation<double> expandAnimation,
+}) extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    return Row(
+      children: [
+        DecoratedBox(
+          decoration: BoxDecoration(
+            color: selected
+                ? theme.navigationRailTheme.indicatorColor ??
+                      theme.colorScheme.secondaryContainer
+                : null,
+            borderRadius: const .all(.circular(32)),
           ),
-          IntrinsicHeight(
-            child: NavigationRail(
-              destinations: destinations,
-              selectedIndex: selectedIndex,
-              backgroundColor: backgroundColor,
-              extended: expanded.value,
-              minExtendedWidth: 300,
-              onDestinationSelected: onDestinationSelected,
+          child: InkWell(
+            onTap: onTap,
+            borderRadius: const .all(.circular(32)),
+            child: Padding(
+              padding: const .symmetric(vertical: 6, horizontal: 18),
+              child: route.destination.icon,
             ),
           ),
-          if (expanded.value) const Expanded(child: FileTree()),
-        ],
-      ),
+        ),
+        SizeTransition(
+          sizeFactor: expandAnimation,
+          axis: .horizontal,
+          alignment: .centerStart,
+          child: GestureDetector(
+            onTap: onTap,
+            child: Padding(
+              padding: const .directional(start: 8),
+              child: Text(route.destination.label),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

@@ -4,19 +4,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:saber/components/navbar/responsive_navbar.dart';
 import 'package:saber/components/theming/saber_theme.dart';
+import 'package:saber/data/routes.dart';
 
-class HorizontalNavbar extends StatelessWidget {
-  const new({
-    super.key,
-    required this.destinations,
-    this.selectedIndex = 0,
-    this.onDestinationSelected,
-  });
-
-  final List<NavigationDestination> destinations;
-  final int selectedIndex;
-  final ValueChanged<int>? onDestinationSelected;
-
+class const HorizontalNavbar({
+  super.key,
+  final int selectedIndex = 0,
+  final ValueChanged<int>? onDestinationSelected,
+}) extends StatelessWidget {
   /// The height that should be cleared at the bottom of the screen,
   /// excluding padding/safe area, to avoid overlapping the navbar.
   static double clearanceHeightOf(BuildContext context) {
@@ -33,6 +27,7 @@ class HorizontalNavbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final platform = Theme.of(context).platform;
+    final routes = HomeRoutes.routes;
 
     return SafeArea(
       child: Padding(
@@ -50,13 +45,13 @@ class HorizontalNavbar extends StatelessWidget {
                   mainAxisSize: .min,
                   spacing: platform.isCupertino ? 0 : 4,
                   children: [
-                    for (int i = 0; i < destinations.length; i++)
+                    for (int i = 0; i < routes.length; i++)
                       MergeSemantics(
                         child: Semantics(
                           role: SemanticsRole.tab,
                           selected: i == selectedIndex,
                           child: _ToolbarButton(
-                            destination: destinations[i],
+                            destination: routes[i].destination,
                             selected: i == selectedIndex,
                             select: () {
                               onDestinationSelected?.call(i);

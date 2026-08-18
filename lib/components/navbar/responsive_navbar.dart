@@ -20,14 +20,15 @@ class ResponsiveNavbar extends HookWidget {
 
   void onDestinationSelected(BuildContext context, int index) {
     if (index == selectedIndex) return;
+    final routes = HomeRoutes.routes;
 
-    // if on whiteboard, check if saved
+    // if leaving whiteboard, check if saved
     final whiteboardPath = pathToFunction(RoutePaths.home)({
       'subpage': HomePage.whiteboardSubpage,
     });
-    if (HomeRoutes.getRoute(selectedIndex) == whiteboardPath) {
-      final savingState = Whiteboard.savingState;
-      switch (savingState) {
+    final prevRoute = HomeRoutes.routes[selectedIndex];
+    if (prevRoute.path == whiteboardPath) {
+      switch (Whiteboard.savingState) {
         case null:
         case .saved:
           break;
@@ -39,7 +40,8 @@ class ResponsiveNavbar extends HookWidget {
       }
     }
 
-    context.go(HomeRoutes.getRoute(index));
+    final route = routes[index];
+    context.go(route.path);
   }
 
   @override
@@ -59,17 +61,11 @@ class ResponsiveNavbar extends HookWidget {
     if (isLargeScreen) {
       return Scaffold(
         body: Row(
+          crossAxisAlignment: .stretch,
           children: [
-            IntrinsicWidth(
-              child: ConstrainedBox(
-                constraints: const BoxConstraints(maxWidth: 300),
-                child: VerticalNavbar(
-                  destinations: HomeRoutes.navigationRailDestinations,
-                  selectedIndex: selectedIndex,
-                  onDestinationSelected: (i) =>
-                      onDestinationSelected(context, i),
-                ),
-              ),
+            VerticalNavbar(
+              selectedIndex: selectedIndex,
+              onDestinationSelected: (i) => onDestinationSelected(context, i),
             ),
             Expanded(child: body),
           ],
@@ -95,7 +91,6 @@ class ResponsiveNavbar extends HookWidget {
             bottom: 0,
             end: 0,
             child: HorizontalNavbar(
-              destinations: HomeRoutes.navigationDestinations,
               selectedIndex: selectedIndex,
               onDestinationSelected: (i) => onDestinationSelected(context, i),
             ),

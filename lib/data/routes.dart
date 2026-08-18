@@ -27,7 +27,7 @@ abstract class RoutePaths {
 
 abstract class HomeRoutes {
   static String browseFilePath(String? filePath) {
-    var path = getRoute(1);
+    var path = routes[1].path;
     if (filePath != '/' && filePath != '' && filePath != null) {
       path += '?path=${Uri.encodeQueryComponent(filePath)}';
     }
@@ -36,62 +36,51 @@ abstract class HomeRoutes {
 
   static final PathFunction _homeFunction = pathToFunction(RoutePaths.home);
 
-  static List<_Route> get _routes => <_Route>[
-    _Route(
-      routePath: _homeFunction({'subpage': HomePage.recentSubpage}),
-      label: t.home.tabs.home,
-      icon: const AdaptiveIcon(
-        icon: Icons.home,
-        cupertinoIcon: CupertinoIcons.house_fill,
+  static List<HomeRoute> get routes => <HomeRoute>[
+    HomeRoute._(
+      _homeFunction({'subpage': HomePage.recentSubpage}),
+      destination: NavigationDestination(
+        label: t.home.tabs.home,
+        icon: const AdaptiveIcon(
+          icon: Icons.home,
+          cupertinoIcon: CupertinoIcons.house_fill,
+        ),
       ),
     ),
-    _Route(
-      routePath: _homeFunction({'subpage': HomePage.browseSubpage}),
-      label: t.home.tabs.browse,
-      icon: const AdaptiveIcon(
-        icon: Icons.folder,
-        cupertinoIcon: CupertinoIcons.folder_fill,
+    HomeRoute._(
+      _homeFunction({'subpage': HomePage.browseSubpage}),
+      destination: NavigationDestination(
+        label: t.home.tabs.browse,
+        icon: const AdaptiveIcon(
+          icon: Icons.folder,
+          cupertinoIcon: CupertinoIcons.folder_fill,
+        ),
       ),
     ),
-    _Route(
-      routePath: _homeFunction({'subpage': HomePage.whiteboardSubpage}),
-      label: t.home.tabs.whiteboard,
-      icon: const AdaptiveIcon(
-        icon: Icons.draw,
-        cupertinoIcon: CupertinoIcons.pencil_outline,
+    HomeRoute._(
+      _homeFunction({'subpage': HomePage.whiteboardSubpage}),
+      destination: NavigationDestination(
+        label: t.home.tabs.whiteboard,
+        icon: const AdaptiveIcon(
+          icon: Icons.draw,
+          cupertinoIcon: CupertinoIcons.pencil_outline,
+        ),
       ),
     ),
-    _Route(
-      routePath: _homeFunction({'subpage': HomePage.settingsSubpage}),
-      label: t.home.tabs.settings,
-      icon: const AdaptiveIcon(
-        icon: Icons.settings,
-        cupertinoIcon: CupertinoIcons.settings_solid,
+    HomeRoute._(
+      _homeFunction({'subpage': HomePage.settingsSubpage}),
+      destination: NavigationDestination(
+        label: t.home.tabs.settings,
+        icon: const AdaptiveIcon(
+          icon: Icons.settings,
+          cupertinoIcon: CupertinoIcons.settings_solid,
+        ),
       ),
     ),
   ];
-
-  static String getRoute(int index) {
-    return _routes[index].routePath;
-  }
-
-  static List<NavigationDestination> get navigationDestinations =>
-      _routes.map((e) => e.toNavigationDestination()).toList(growable: false);
-  static List<NavigationRailDestination> get navigationRailDestinations =>
-      _routes
-          .map((e) => e.toNavigationRailDestination())
-          .toList(growable: false);
 }
 
-class _Route {
-  final String routePath;
-  final String label;
-  final Widget icon;
-
-  new({required this.routePath, required this.label, required this.icon});
-
-  NavigationDestination toNavigationDestination() =>
-      NavigationDestination(label: label, icon: icon);
-  NavigationRailDestination toNavigationRailDestination() =>
-      NavigationRailDestination(label: Text(label), icon: icon);
-}
+class const HomeRoute._(
+  final String path, {
+  required final NavigationDestination destination,
+});

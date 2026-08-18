@@ -13,23 +13,21 @@ class const FileTree({super.key}) extends StatelessWidget {
       padding: .all(12),
       child: SingleChildScrollView(
         scrollDirection: Axis.vertical,
-        child: FileTreeBranch(path: null, isDirectory: true),
+        child: _FileTreeBranch(path: null, isDirectory: true),
       ),
     );
   }
 }
 
-class FileTreeBranch extends StatefulWidget {
-  const new({super.key, required this.path, required this.isDirectory});
-
-  final String? path;
-  final bool isDirectory;
-
+class const _FileTreeBranch({
+  required final String? path,
+  required final bool isDirectory,
+}) extends StatefulWidget {
   @override
-  State<FileTreeBranch> createState() => _FileTreeBranchState();
+  State<_FileTreeBranch> createState() => _FileTreeBranchState();
 }
 
-class _FileTreeBranchState extends State<FileTreeBranch> {
+class _FileTreeBranchState extends State<_FileTreeBranch> {
   DirectoryChildren? children;
   var areChildrenVisible = false;
 
@@ -104,12 +102,12 @@ class _FileTreeBranchState extends State<FileTreeBranch> {
               crossAxisAlignment: .start,
               children: [
                 for (var i = 0; i < children!.directories.length; i++)
-                  FileTreeBranch(
+                  _FileTreeBranch(
                     path: "${widget.path ?? ""}/${children!.directories[i]}",
                     isDirectory: true,
                   ),
                 for (var i = 0; i < children!.files.length; i++)
-                  FileTreeBranch(
+                  _FileTreeBranch(
                     path: "${widget.path ?? ""}/${children!.files[i]}",
                     isDirectory: false,
                   ),
