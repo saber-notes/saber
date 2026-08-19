@@ -1,0 +1,17 @@
+Saber est l'application de prise de notes conçue pour l'écriture manuscrite.
+
+Elle a été pensée pour être le plus simple et le plus intuitif possible, tout en délivrant des fonctionnalités uniques que vous utiliserez réellement. De plus, Saber est disponible pour tout vos appareils, de l'ordinateur au smartphone, et les notes se synchronisent entre eux parfaitement.
+
+Entre autres, vos notes peuvent s'adapter au mode sombre. Cela vous permet d'écrire en blanc sur une note foncée, ce qui est bien plus agréable pour les yeux dans un environnement peu lumineux, comme lorsqu'un professeur éteint les lumières en classe.
+Les images et les PDFs sont également convertis en mode sombre, pour que vous puissiez toujours utiliser une impression numérique ou un manuel sans problème.
+
+Saber utilise un système de double mot de passe pour protéger vos notes de tout le monde sauf vous, même si vous n'êtes pas le propriétaire du serveur sur lequel elles sont hébergées. Vous pouvez donc sauvegarder vos notes de manière sécurité sur le serveur officiel de Saber, un autre serveur, ou même le vôtre !
+
+L'application est complètement open-source, afin que n'importe qui puisse voir le code source et voir exactement comment l'application fonctionne et comment elle traite vos données. Beaucoup d'autres applications de prise de notes sont closed-source et propriétaires, ce qui signifie que leur fonctionnement interne reste un mystère pour les utilisateurs. 
+
+Étant quelqu'un qui étudie les mathématiques, surligner des équations sur plusieurs lignes était toujours une prise de tête avec d'autres applications, car le surligneur changeait de couleur lorsqu'il se superposait avec lui-même. Un autre problème récurrent était que le surligneur s'affichait au-dessus du texte, le couvrant et le rendant difficile à lire.
+Le surligneur de Saber n'a pas ce genre de problèmes. Il utilise la composition de canevas pour restituer le surligneur d'une manière cohérente avec le papier traditionnel — voire meilleure — en gérant les chevauchements et en préservant la cohérence des couleurs.
+
+Saber a tout ce qu'il vous faut pour garder vos notes organisées. Créer des dossiers dans des dossiers dans d'autres dossiers jusqu'à ce que vous soyez satisfait n'est pas un soucis grâce au système de dossiers imbriqués. Et même si une note se retrouve cachée loin dans l'arborescence de vos dossiers, vous pourrez toujours y accéder rapidement grâce à vos notes les plus récentes affichées sur le menu principal. 
+
+Découvrez une nouvelle manière de capturer et organiser vos idées avec Saber. Que vous soyez un étudiant, un professionnel, ou quelqu'un de créatif, Saber est votre compagnon idéal pour la prise de notes digitale manuscrite. Téléchargez-la maintenant et laissez libre cours à vos idées !
