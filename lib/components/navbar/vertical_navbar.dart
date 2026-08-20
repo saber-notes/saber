@@ -114,48 +114,45 @@ class const _RouteTile({
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    return Semantics(
-      container: true,
-      selected: selected,
-      child: Row(
-        children: [
-          DecoratedBox(
-            decoration: BoxDecoration(
-              color: selected
-                  ? theme.navigationRailTheme.indicatorColor ??
-                        theme.colorScheme.secondaryContainer
-                  : null,
-              borderRadius: const .all(.circular(32)),
+    return Row(
+      children: [
+        DecoratedBox(
+          decoration: BoxDecoration(
+            color: selected
+                ? theme.navigationRailTheme.indicatorColor ??
+                      theme.colorScheme.secondaryContainer
+                : null,
+            borderRadius: const .all(.circular(32)),
+          ),
+          child: InkWell(
+            onTap: onTap,
+            borderRadius: const .all(.circular(32)),
+            child: Padding(
+              padding: const .symmetric(vertical: 6, horizontal: 18),
+              child: Semantics(
+                label: route.destination.label,
+                selected: selected,
+                child: route.destination.icon,
+              ),
             ),
-            child: InkWell(
+          ),
+        ),
+        ExcludeSemantics(
+          // semantics redundant with icon label above
+          child: SizeTransition(
+            sizeFactor: expandAnimation,
+            axis: .horizontal,
+            alignment: .centerStart,
+            child: GestureDetector(
               onTap: onTap,
-              borderRadius: const .all(.circular(32)),
               child: Padding(
-                padding: const .symmetric(vertical: 6, horizontal: 18),
-                child: Semantics(
-                  label: route.destination.label,
-                  child: route.destination.icon,
-                ),
+                padding: const .directional(start: 8),
+                child: Text(route.destination.label),
               ),
             ),
           ),
-          ExcludeSemantics(
-            // semantics redundant with icon label above
-            child: SizeTransition(
-              sizeFactor: expandAnimation,
-              axis: .horizontal,
-              alignment: .centerStart,
-              child: GestureDetector(
-                onTap: onTap,
-                child: Padding(
-                  padding: const .directional(start: 8),
-                  child: Text(route.destination.label),
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
