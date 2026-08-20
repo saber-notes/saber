@@ -1,8 +1,7 @@
 common:
+  done: Terminé
   continueBtn: Continuer
   cancel: Annuler
-  done(OUTDATED): Fait
-  done: Terminé
 home:
   tabs:
     home: Accueil
@@ -24,6 +23,7 @@ home:
   welcome: Bienvenue dans Saber
   invalidFormat: Type de fichier non supporté. Veuillez choisr un fichier .sbn, .sbn2, .sba ou .pdf.
   noFiles: Aucun fichier trouvé
+  noPreviewAvailable: Aperçu non disponible
   createNewNote: Presser le bouton + pour créer une nouvelle note
   backFolder: Retour au dossier précédent
   newFolder:
@@ -39,8 +39,6 @@ home:
     rename: Renommer
     noteNameEmpty: Le nom de note ne peut pas être vide
     noteNameExists: Une note du même nom existe déjà
-    noteNameForbiddenCharacters(OUTDATED): Le nom de la note contient des caractères interdits
-    noteNameReserved(OUTDATED): Nom de la note réservé
     noteNameForbiddenCharacters: Le nom de la note contient des caractères interdits
     noteNameReserved: Nom de la note réservé
   moveNote:
@@ -53,12 +51,6 @@ home:
     numberRenamedTo: $n notes vont être renommées pour résoudre des conflits
   deleteNote: Effacer la note
   deleteNoteDialog:
-    confirmDelete(OUTDATED):
-      one(OUTDATED): Supprimer définitivement la note sélectionnée ?
-      other(OUTDATED): Supprimer définitivement les notes sélectionnées ?
-    deleteNotes(OUTDATED): Supprimer les notes $n
-    deleteName(OUTDATED): Supprimer $f
-    delete(OUTDATED): Supprimer
     deleteNotes: Supprimer $n note(s)
     deleteName: Supprime $f
     confirmDelete:
@@ -78,47 +70,28 @@ home:
     delete: Supprimer
     alsoDeleteContents: Supprimer aussi toutes les notes rangées dans ce dossier
   sort:
-    sortBy(OUTDATED): Trier par
-    nameAToZ(OUTDATED): Nom (de A à Z)
-    nameZToA(OUTDATED): Nom (de A à Z)
-    lastModifiedNewToOld(OUTDATED): Modifié (Le plus récent en premier)
-    lastModifiedOldToNew(OUTDATED): Modifié (Le plus ancien en premier)
     sortBy: Trier par
     nameAToZ: Nom (A-Z)
     nameZToA: Nom (Z-A)
     lastModifiedNewToOld: Edité (Nouveau premier)
     lastModifiedOldToNew: Edité (Ancien en premier)
   layout:
-    layout(OUTDATED): Mise en page
-    masonryGrid(OUTDATED): Grille de maçonnerie
-    simpleGrid(OUTDATED): Grille simple
     layout: Mise en page
     masonryGrid: Grille de maçonnerie
     simpleGrid: Grille simple
-  noPreviewAvailable(OUTDATED): Aucun aperçu disponible
-  noPreviewAvailable: Aperçu non disponible
 sentry:
   consent:
+    title: Aide à améliorer Saber ?
     description:
-      question(OUTDATED): Souhaitez-vous signaler automatiquement les erreurs inattendues? Cela m'aide à identifier et à résoudre les problèmes plus rapidement.
-      scope(OUTDATED): Les rapports peuvent contenir des informations sur l'erreur et votre appareil. J'ai fait tout son possible pour filtrer les données personnelles, mais certaines peuvent rester.
-      currentlyOff(OUTDATED): Si vous accordez le consentement, les rapports d'erreur seront activés après le redémarrage de l'application.
-      currentlyOn(OUTDATED): Si vous révoquez le consentement, veuillez redémarrer l'application pour désactiver les rapports d'erreur.
-      learnMoreInPrivacyPolicy(rich, OUTDATED): En savoir plus dans le ${link(Politique de confidentialité)}.
       question: Voulez-vous signaler automatiquement des erreurs inattendues ? Cela aide à identifier et à corriger les problèmes plus rapidement.
       scope: Les rapports peuvent contenir des informations sur l'erreur et votre appareil. J'ai fait tout mon possible pour filtrer les données personnelles, mais certaines peuvent rester.
       currentlyOff: Si vous accordez le consentement, la déclaration d'erreur sera activée après le redémarrage de l'application.
       currentlyOn: Si vous révoquez le consentement, veuillez redémarrer l'application pour désactiver la déclaration d'erreur.
       learnMoreInPrivacyPolicy(rich): En savoir plus dans le ${link(privacy policy)}.
     answers:
-      yes(OUTDATED): Oui
-      no(OUTDATED): Non
-      later(OUTDATED): Demandez-moi plus tard
       yes: Oui
       no: Non
       later: Demande-moi plus tard
-    title(OUTDATED): Aidez-moi à améliorer Saber?
-    title: Aide à améliorer Saber ?
 settings:
   prefCategories:
     general: Général
@@ -144,20 +117,15 @@ settings:
     autoClearWhiteboardOnExit: Effacer le tableau blanc quand vous fermez l'application
     disableEraserAfterUse: Désactiver automatiquement la gomme après usage
     hideFingerDrawingToggle: Cacher l'icône d'activation/désactivation de tracé au doigt
+    autoDisableFingerDrawingWhenStylusDetected: Désactivation automatique du dessin avec le doigt
     editorPromptRename: Vous rappeler de renommer les notes
     recentColorsDontSavePresets: Ne pas conserver les couleurs pré-définies parmi les couleurs récentes
     recentColorsLength: Nombre de couleurs récentes à conserver
     printPageIndicators: Imprimer les numéros de pages
-    shapeRecognitionDelay: Délai de reconnaissance de forme
-    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Désactivation automatique du dessin au doigt
-    sentry(OUTDATED): Rapports d'erreur
-    autosave(OUTDATED): S'attacher automatiquement
-    customDataDir(OUTDATED): Répertoire de données personnalisé
-    autoStraightenLines(OUTDATED): Redresser automatiquement les lignes
-    autoDisableFingerDrawingWhenStylusDetected: Désactivation automatique du dessin avec le doigt
     autosave: Sauvegarde automatique
-    customDataDir: Dossier Saber personnalisé
+    shapeRecognitionDelay: Délai de reconnaissance de forme
     autoStraightenLines: Redresser les lignes automatiquement
+    customDataDir: Dossier Saber personnalisé
     sentry: Rapport d’erreurs
   prefDescriptions:
     hyperlegibleFont: La fonte Atkinson Hyperlegible améliore la lisibilité pour les personnes malvoyantes
@@ -170,25 +138,18 @@ settings:
       shown: Empêcher l'activation/désactivation accidentelle
       fixedOn: Le tracé au doigt est fixé à activé
       fixedOff: Le tracé au doigt est fixé à désactivé
+    autoDisableFingerDrawingWhenStylusDetected: Désactiver le dessin du doigt lorsqu'un stylus est détecté
     editorPromptRename: Vous pourrez toujours les renommer plus tard
     printPageIndicators: Montrer les numéros de pages dans les exportations
+    autosave: Sauvegarde automatique après un court délai, ou jamais
     shapeRecognitionDelay: Avec quelle fréquence mettre à jour la prévisualisation de forme
+    autoStraightenLines: Redresse les lignes longues sans avoir à utiliser le stylo de forme
     shouldAlwaysAlertForUpdates: Me prévenir dès qu'une mise à jour est disponible
     sentry:
-      active(OUTDATED): Actif
-      inactive(OUTDATED): Inactif
-      activeUntilRestart(OUTDATED): Actif jusqu'à ce que vous redémarrez l'application
-      inactiveUntilRestart(OUTDATED): Inactif jusqu'à ce que vous redémarrez l'application
       active: Actif
       inactive: Inactif
       activeUntilRestart: Actif jusqu'au redémarrage de l'application
       inactiveUntilRestart: Inactif jusqu'à ce que vous redémarrez l'application
-    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Désactiver le dessin au doigt lorsqu'un stylet est détecté
-    autosave(OUTDATED): S'attacher automatiquement après un court délai, ou jamais
-    autoStraightenLines(OUTDATED): Redresse les longues lignes sans avoir à utiliser le stylo de forme
-    autoDisableFingerDrawingWhenStylusDetected: Désactiver le dessin du doigt lorsqu'un stylus est détecté
-    autosave: Sauvegarde automatique après un court délai, ou jamais
-    autoStraightenLines: Redresse les lignes longues sans avoir à utiliser le stylo de forme
   themeModes:
     system: Système
     light: Clair
@@ -209,29 +170,16 @@ settings:
     title: Rétablir les valeurs par défaut ?
     button: Défaut
   resyncEverything: Tout re-syncroniser
+  openDataDir: Ouvrir le dossier Saber
   customDataDir:
-    unsupported(OUTDATED): Cette fonctionnalité est actuellement uniquement pour les développeurs. L'utiliser entraînera probablement une perte de données.
-    cancel(OUTDATED): Annuler
-    select(OUTDATED): Sélectionner
-    mustBeEmpty(OUTDATED): Le répertoire sélectionné doit être vide
-    mustBeDoneSyncing(OUTDATED): Assurez-vous que la synchronisation est terminée avant de modifier le répertoire
     cancel: Annuler
     select: Sélectionner
     mustBeEmpty: Le dossier sélectionné doit être vide
     mustBeDoneSyncing: Assurez-vous que la synchronisation est complète avant de changer le dossier
     unsupported: Cette fonctionnalité est actuellement réservée aux développeurs. L'utiliser peut entraîner des pertes de données.
-  autosaveDisabled(OUTDATED): Jamais
-  shapeRecognitionDisabled(OUTDATED): Jamais
-  openDataDir(OUTDATED): Ouvrir le dossier Saber
-  openDataDir: Ouvrir le dossier Saber
   autosaveDisabled: Jamais
   shapeRecognitionDisabled: Jamais
 logs:
-  useTheApp(OUTDATED): Les journaux apparaîtront ici lorsque vous utilisez l'application
-  logs(OUTDATED): Journaux
-  viewLogs(OUTDATED): Afficher les journaux
-  debuggingInfo(OUTDATED): Les journaux contiennent des informations utiles pour le débogage et le développement
-  noLogs(OUTDATED): Pas de journaux ici !
   logs: Journaux
   viewLogs: Voir les journaux
   debuggingInfo: Les journaux contiennent des informations utiles pour le débogage et le développement
@@ -242,53 +190,26 @@ login:
   form:
     agreeToPrivacyPolicy(rich): En vous connectant, vous acceptez les ${linkToPrivacyPolicy(Privacy Policy)}.
   signup(rich): Pas encore de compte ? ${linkToSignup(Sign up now)} !
+  notYou(rich): Pas toi ? ${undoLogin(Choisissez un autre compte)}.
   status:
     loggedOut: Déconnecté
     tapToLogin: Appuyer pour vous connecter avec Nextcloud
-    loggedIn: Connecté avec Nextcloud
-    hi(OUTDATED): Salut, $u!
-    almostDone(OUTDATED): Presque prêt pour la synchronisation, appuyez pour terminer la connexion
     hi: Salut, $u !
     almostDone: Presque prêt pour la synchronisation, appuyez pour terminer la connexion
+    loggedIn: Connecté avec Nextcloud
   ncLoginStep:
-    loginFlow:
-      pleaseAuthorize(OUTDATED): Veuillez autoriser Saber à accéder à votre compte Nextcloud
-      followPrompts(OUTDATED): Veuillez suivre les instructions de votre navigateur.
-      browserDidntOpen(OUTDATED): Le navigateur ne s'est pas ouvert
-      pleaseAuthorize: Veuillez autoriser Saber pour accéder à votre compte Nextcloud
-      followPrompts: Veuillez suivre les indications dans l'interface Nextcloud
-      browserDidntOpen: La page de connexion n'est pas ouverte ? Cliquez ici
-    whereToStoreData(OUTDATED): "Choisissez où vous souhaitez stocker vos données :"
-    saberNcServer(OUTDATED): Le serveur Nextcloud de Saber
-    otherNcServer(OUTDATED): Autre serveur Nextcloud
-    serverUrl(OUTDATED): URL du serveur
-    loginWithSaber(OUTDATED): Connectez-vous avec Saber
-    loginWithNextcloud(OUTDATED): Connectez-vous avec Nextcloud
-    whereToStoreData: 'Choisissez où vous souhaitez stocker vos données :'
+    whereToStoreData: "Choisissez où vous souhaitez stocker vos données :"
     saberNcServer: Le serveur Nextcloud de Saber
     otherNcServer: Autre serveur Nextcloud
     serverUrl: Adresse du serveur
     loginWithSaber: Se connecter avec Saber
     loginWithNextcloud: Se connecter avec Nextcloud
+    loginFlow:
+      pleaseAuthorize: Veuillez autoriser Saber pour accéder à votre compte Nextcloud
+      followPrompts: Veuillez suivre les indications dans l'interface Nextcloud
+      browserDidntOpen: La page de connexion n'est pas ouverte ? Cliquez ici
   encLoginStep:
-    enterEncPassword(OUTDATED): "Pour protéger vos données, veuillez saisir votre mot de passe de cryptage :"
-    newToSaber(OUTDATED): Nouveau sur Saber
-    encPassword(OUTDATED): Mot de passe de cryptage
-    encFaqTitle(OUTDATED): Questions fréquemment posées
-    wrongEncPassword(OUTDATED): Le décryptage a échoué avec le mot de passe fourni. Veuillez réessayer de le saisir.
-    connectionFailed(OUTDATED): Une erreur s'est produite lors de la connexion au serveur. Veuillez réessayer plus tard.
-    encFaq(OUTDATED):
-    - q: Qu'est-ce que le mot de passe de cryptage ?
-      a: |-
-        Le mot de passe de cryptage est utilisé pour crypter vos données avant qu'elles ne soient envoyées au serveur. Vous le créez lors de votre première connexion à Saber, et il est indépendant de votre compte et de votre mot de passe sur Nextcloud.
-        Personne ne peut accéder à vos notes sur le serveur sans votre mot de passe de chiffrement. Cela implique aussi que si vous oubliez votre mot de passe de cryptage, vous perdrez l'accès à vos données.
-    - q: Pourquoi utiliser deux mots de passe ?
-      a: |-
-        Le mot de passe Nextcloud est utilisé pour accéder au nuage (cloud). Le mot de passe de cryptage "brouille" vos données avant même qu'elles n'atteignent le nuage.
-        Même si quelqu'un accède à votre compte Nextcloud, vos notes resteront sécurisées et cryptées avec un mot de passe distinct. Cela crée un deuxième niveau de sécurité pour protéger vos données.
-    - q: Puis-je utiliser le même mot de passe pour les deux ?
-      a: Oui, mais c'est moins sécurisé. Comme votre mot de passe sur Nextcloud est envoyé au serveur, toute personne qui y aurait accès pourrait decrypter vos notes. N'utilisez le même mot de passe que si vous faites confiance aux personnes qui gèrent le serveur.
-    enterEncPassword: 'Pour protéger vos données, saisissez votre mot de passe de chiffrement :'
+    enterEncPassword: "Pour protéger vos données, saisissez votre mot de passe de chiffrement :"
     newToSaber: Nouveau sur Saber ? Entrez simplement un nouveau mot de passe de chiffrement.
     encPassword: Mot de passe de chiffrement
     encFaqTitle: Foire aux questions
@@ -306,14 +227,15 @@ login:
         Saber va générer vos clés de chiffrement à partir de ce mot de passe automatiquement.
     - q: Puis-je utiliser le même mot de passe que mon compte Nextcloud ?
       a: Oui, mais gardez à l'esprit qu'il serait plus facile pour l'administrateur du serveur ou quelqu'un d'autre d'accéder à vos notes s'ils accèdent à votre compte Nextcloud.
-  notYou(rich, OUTDATED): ${undoLogin(Pas toi)}
-  notYou(rich): Pas toi ? ${undoLogin(Choisissez un autre compte)}.
 profile:
   title: Mon profil
   logout: Déconnexion
+  quotaUsage: Vous utilisez $used sur $total ($percent%)
+  connectedTo: Connecté à
   quickLinks:
     serverHomepage: Page d'accueil du serveur
     deleteAccount: Supprimer le compte
+  faqTitle: Foire aux questions
   faq:
   - q: Vais-je perdre mes notes si je me déconnecte ?
     a: Non. Vos notes seront conservées à la fois sur votre poste et sur le serveur. Elles ne seront pas synchronisées avec le serveur jusqu'à votre prochaine connexion. Assurez-vous que la synchronisation soit terminée avant de vous déconnecter pour ne perdre aucune donnée (consultez la barre de progression sur l'écran d'accueil).
@@ -331,12 +253,6 @@ profile:
       Cliquez sur le button "@:profile.quickLinks.deleteAccount" ci-dessus, et connectez-vous si nécessaire.
       Si vous utilisez le serveur Saber officiel, votre compte sera supprimé au bout d'une semaine . Durant cette période, vous pourrez me contacter à adilhanney@disroot.org pour annuler la suppression.
       Si vous utilisez un autre serveur, il n'est pas certain que vous puissiez supprimer votre compte dessus : il vous faudra consulter les règles de confidentialité du serveur pour plus d'informations.
-  quotaUsage(OUTDATED): Vous utilisez $used sur $total ($percent%)
-  connectedTo(OUTDATED): Connecté à
-  faqTitle(OUTDATED): Questions fréquemment posées
-  quotaUsage: Vous utilisez $used sur $total ($percent%)
-  connectedTo: Connecté à
-  faqTitle: Foire aux questions
 appInfo:
   licenseNotice: |-
     Saber  Copyright © 2022-$buildYear  Adil Hanney
@@ -349,7 +265,6 @@ update:
   updateAvailable: Mise à jour disponible
   updateAvailableDescription: "Une nouvelle version de cette application est disponible, avec les changements suivants :"
   update: Mettre à jour
-  downloadNotAvailableYet(OUTDATED): Le téléchargement n'est pas encore disponible pour votre plateforme. Veuillez revenir sous peu.
   downloadNotAvailableYet: Le téléchargement n'est pas encore disponible sur votre plateforme. Veuillez vérifier.
 editor:
   toolbar:
@@ -417,9 +332,14 @@ editor:
     duplicatePage: Dupliquer la page
     deletePage: Supprimer la page
     lineHeight: Hauteur de ligne
+    lineHeightDescription: Contrôle également la taille du texte pour les notes saisies
+    lineThickness: Épaisseur de la ligne
+    lineThicknessDescription: Épaisseur de la ligne de fond
     backgroundImageFit: Adaptation de l'image de fond
     backgroundPattern: Texture de fond
     import: Importer
+    watchServer: Regardez les mises à jour du serveur
+    watchServerReadOnly: L'édition est désactivée pendant la consultation du serveur
     boxFits:
       fill: S'ajuste
       cover: Couvre
@@ -434,20 +354,8 @@ editor:
       staffs: Portées musicales
       tablature: Tablature
       cornell: Cornell
-    lineThickness(OUTDATED): Épaisseur de ligne
-    lineThicknessDescription(OUTDATED): Épaisseur de ligne de fond
-    watchServer(OUTDATED): Surveillez les mises à jour sur le serveur
-    watchServerReadOnly(OUTDATED): L'édition est désactivée lorsque vous regardez le serveur
-    lineHeightDescription(OUTDATED): Contrôle également la taille du texte pour les notes saisies
-    lineHeightDescription: Contrôle également la taille du texte pour les notes saisies
-    lineThickness: Épaisseur de la ligne
-    lineThicknessDescription: Épaisseur de la ligne de fond
-    watchServer: Regardez les mises à jour du serveur
-    watchServerReadOnly: L'édition est désactivée pendant la consultation du serveur
   readOnlyBanner:
     title: Mode lecture seule
-    corrupted(OUTDATED): Échec du chargement de la note. Il est peut-être corrompu ou en cours de téléchargement.
-    watchingServer(OUTDATED): Vous surveillez actuellement les mises à jour sur le serveur. L'édition est désactivée dans ce mode.
     watchingServer: Vous visualisez actuellement les mises à jour sur le serveur. L'édition est désactivée dans ce mode.
     corrupted: Le chargement de la note a échoué. Il peut être corrompu ou encore en cours de téléchargement.
   versionTooNew:
