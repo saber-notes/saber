@@ -47,7 +47,7 @@ home:
     moveName: Mover $f
     move: Mover
     renamedTo: Se renombrará la nota a $newName
-    multipleRenamedTo: Renombrar las siguientes notas
+    multipleRenamedTo: 'Renombrar las siguientes notas:'
     numberRenamedTo: $n notas serán renombradas para evitar conflictos
   deleteNote: Eliminar nota
   deleteNoteDialog:
@@ -188,7 +188,7 @@ login:
   title: Iniciar sesión
   form:
     agreeToPrivacyPolicy(rich): Al iniciar sesión, aceptas nuestra ${linkToPrivacyPolicy(Política de privacidad)}.
-  signup(rich): ¿Aún no tienes una cuenta? ${linkToSignup(Regístrate ahora)}
+  signup(rich): ¿Aún no tienes una cuenta? ¡${linkToSignup(Regístrate ahora)}!
   status:
     loggedOut: Desconectado
     tapToLogin: Toca para iniciar sesión con Nextcloud

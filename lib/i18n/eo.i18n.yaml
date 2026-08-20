@@ -81,7 +81,7 @@ home:
     simpleGrid(OUTDATED): Simpla retablo
 sentry:
   consent:
-    title: Helpu plibonigi Saber
+    title: Helpu plibonigi Saber?
     description:
       question: Ĉu vi aŭtomate raportus neatenditajn erarojn? Tio helpus min identigi kaj solvi problemojn pli rapide.
       scope: La raportoj enhavus informojn pri la eraro kaj aparato. Mi faris ĉion por kolekti malpli da persondatumojn, sed iuj eble kolektiĝus.
