@@ -41,7 +41,7 @@ home:
     noteNameExists: Une note du même nom existe déjà
     noteNameForbiddenCharacters(OUTDATED): Le nom de la note contient des caractères interdits
     noteNameReserved(OUTDATED): Nom de la note réservé
-    noteNameForbiddenCharacters: Le nom de la note contient des charactères interdits
+    noteNameForbiddenCharacters: Le nom de la note contient des caractères interdits
     noteNameReserved: Nom de la note réservé
   moveNote:
     moveNote: Déplacer la note
@@ -155,7 +155,7 @@ settings:
     customDataDir(OUTDATED): Répertoire de données personnalisé
     autoStraightenLines(OUTDATED): Redresser automatiquement les lignes
     autoDisableFingerDrawingWhenStylusDetected: Désactivation automatique du dessin avec le doigt
-    autosave: Sauvergarde automatique
+    autosave: Sauvegarde automatique
     customDataDir: Dossier Saber personnalisé
     autoStraightenLines: Redresser les lignes automatiquement
     sentry: Rapport d’erreurs
@@ -249,7 +249,7 @@ login:
     hi(OUTDATED): Salut, $u!
     almostDone(OUTDATED): Presque prêt pour la synchronisation, appuyez pour terminer la connexion
     hi: Salut, $u !
-    almostDone: Presque prêt pour la synchronisation, appuyez sur pour terminer la connexion
+    almostDone: Presque prêt pour la synchronisation, appuyez pour terminer la connexion
   ncLoginStep:
     loginFlow:
       pleaseAuthorize(OUTDATED): Veuillez autoriser Saber à accéder à votre compte Nextcloud
@@ -289,7 +289,7 @@ login:
     - q: Puis-je utiliser le même mot de passe pour les deux ?
       a: Oui, mais c'est moins sécurisé. Comme votre mot de passe sur Nextcloud est envoyé au serveur, toute personne qui y aurait accès pourrait decrypter vos notes. N'utilisez le même mot de passe que si vous faites confiance aux personnes qui gèrent le serveur.
     enterEncPassword: 'Pour protéger vos données, saisissez votre mot de passe de chiffrement :'
-    newToSaber: Nouveau à Saber ? Entrez simplement un nouveau mot de passe de chiffrement.
+    newToSaber: Nouveau sur Saber ? Entrez simplement un nouveau mot de passe de chiffrement.
     encPassword: Mot de passe de chiffrement
     encFaqTitle: Foire aux questions
     wrongEncPassword: Le décryptage a échoué avec le mot de passe fourni. Veuillez réessayer.
@@ -334,7 +334,7 @@ profile:
   quotaUsage(OUTDATED): Vous utilisez $used sur $total ($percent%)
   connectedTo(OUTDATED): Connecté à
   faqTitle(OUTDATED): Questions fréquemment posées
-  quotaUsage: Vous utilisez $used sur $total ($%)
+  quotaUsage: Vous utilisez $used sur $total ($percent%)
   connectedTo: Connecté à
   faqTitle: Foire aux questions
 appInfo:
