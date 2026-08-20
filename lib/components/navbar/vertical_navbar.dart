@@ -30,6 +30,7 @@ class const VerticalNavbar({
     };
 
     const minNavbarWidth = 300.0;
+    final routes = HomeRoutes.routes;
 
     return Semantics(
       container: true,
@@ -64,9 +65,9 @@ class const VerticalNavbar({
                 ),
               ),
               const SizedBox(),
-              for (int i = 0; i < HomeRoutes.routes.length; ++i)
+              for (int i = 0; i < routes.length; ++i)
                 _RouteTile(
-                  route: HomeRoutes.routes[i],
+                  route: routes[i],
                   selected: i == selectedIndex,
                   onTap: () => onDestinationSelected?.call(i),
                   expandAnimation: expandAnimation,
