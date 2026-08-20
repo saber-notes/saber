@@ -13,11 +13,16 @@ analyzer:
   exclude:
     - .github/docker/**
     - android/**
+    - assets/**
+    - assets_raw/**
     - build/**
+    - flatpak/**
+    - installers/**
     - ios/**
     - lib/i18n/*.g.dart
     - linux/**
     - macos/**
+    - metadata/**
     - submodules/**
     - web/**
     - windows/**
