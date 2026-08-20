@@ -211,6 +211,10 @@ jobs:
       - run: ./patches/pre/remove_proprietary_dependencies.sh
         if: matrix.foss
 
+      # Explicitly run flutter pub get for `pubspec-fdroid.lock` later
+      - run: flutter pub get
+        if: matrix.foss
+
       - name: Build apk
         run: flutter build apk
 
