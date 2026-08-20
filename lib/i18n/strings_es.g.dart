@@ -147,8 +147,9 @@ class _Translations$login$es extends Translations$login$en {
 	@override String get title => 'Iniciar sesión';
 	@override late final _Translations$login$form$es form = _Translations$login$form$es._(_root);
 	@override TextSpan signup({required InlineSpanBuilder linkToSignup}) => TextSpan(children: [
-		const TextSpan(text: '¿Aún no tienes una cuenta? '),
+		const TextSpan(text: '¿Aún no tienes una cuenta? ¡'),
 		linkToSignup('Regístrate ahora'),
+		const TextSpan(text: '!'),
 	]);
 	@override late final _Translations$login$status$es status = _Translations$login$status$es._(_root);
 	@override late final _Translations$login$ncLoginStep$es ncLoginStep = _Translations$login$ncLoginStep$es._(_root);
@@ -321,7 +322,7 @@ class _Translations$home$moveNote$es extends Translations$home$moveNote$en {
 	@override String moveName({required Object f}) => 'Mover ${f}';
 	@override String get move => 'Mover';
 	@override String renamedTo({required Object newName}) => 'Se renombrará la nota a ${newName}';
-	@override String get multipleRenamedTo => 'Renombrar las siguientes notas';
+	@override String get multipleRenamedTo => 'Renombrar las siguientes notas:';
 	@override String numberRenamedTo({required Object n}) => '${n} notas serán renombradas para evitar conflictos';
 }
 

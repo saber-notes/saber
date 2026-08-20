@@ -47,7 +47,7 @@ home:
     moveName: Mover $f
     move: Mover
     renamedTo: Se renombrará la nota a $newName
-    multipleRenamedTo: 'Renombrar las siguientes notas:'
+    multipleRenamedTo: "Renombrar las siguientes notas:"
     numberRenamedTo: $n notas serán renombradas para evitar conflictos
   deleteNote: Eliminar nota
   deleteNoteDialog:

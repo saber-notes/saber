@@ -405,7 +405,7 @@ class _Translations$sentry$consent$eo extends Translations$sentry$consent$en {
 	final TranslationsEo _root; // ignore: unused_field
 
 	// Translations
-	@override String get title => 'Helpu plibonigi Saber';
+	@override String get title => 'Helpu plibonigi Saber?';
 	@override late final _Translations$sentry$consent$description$eo description = _Translations$sentry$consent$description$eo._(_root);
 	@override late final _Translations$sentry$consent$answers$eo answers = _Translations$sentry$consent$answers$eo._(_root);
 }

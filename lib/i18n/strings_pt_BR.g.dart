@@ -323,7 +323,7 @@ class _Translations$home$moveNote$pt_BR extends Translations$home$moveNote$pt {
 	@override String moveName({required Object f}) => 'Mover ${f}';
 	@override String get move => 'Mover';
 	@override String renamedTo({required Object newName}) => 'A nota será renomeada para ${newName}';
-	@override String get multipleRenamedTo => 'As notas a seguir serão renomeadas';
+	@override String get multipleRenamedTo => 'As notas a seguir serão renomeadas:';
 	@override String numberRenamedTo({required Object n}) => '${n} notas serão renomeadas para evitar conflitos';
 }
 
