@@ -26,10 +26,10 @@ class const AppInfo({super.key}) extends StatelessWidget {
 
   static String get info => [
     // Tests use static values to improve reducibility
-    if (isThisATest) 'v1.33.3' else 'v$buildName',
+    if (isThisATest) 'v1.35.1' else 'v$buildName',
     if (FlavorConfig.flavor.isNotEmpty) FlavorConfig.flavor,
     if (kDebugMode && !isThisATest) t.appInfo.debug,
-    if (isThisATest) '(133030)' else '($buildNumber)',
+    if (isThisATest) '(135010)' else '($buildNumber)',
   ].join(' ');
 
   @override
