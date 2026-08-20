@@ -982,13 +982,13 @@ packages:
     source: hosted
     version: "3.1.0"
   native_toolchain_rust:
-    dependency: transitive
+    dependency: "direct overridden"
     description:
       name: native_toolchain_rust
-      sha256: "8469a0e32a47a5c84b7fd300de9fd0e8082aac76c37922986324f5082a58350d"
+      sha256: faa57d2258a3b0fd2a634054f54e4496c9fcbd971977e7d2b7e6916d56892857
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.6"
+    version: "1.0.4+0"
   nested:
     dependency: transitive
     description:

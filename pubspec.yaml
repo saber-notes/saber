@@ -192,6 +192,9 @@ dependency_overrides:
       url: https://github.com/adil192/flutter_speed_dial.git
       ref: fix/remove-Future.delayed
 
+  # https://github.com/GregoryConrad/native_toolchain_rust/issues/103
+  native_toolchain_rust: 1.0.4+0
+
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
