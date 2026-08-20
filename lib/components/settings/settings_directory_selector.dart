@@ -1,7 +1,9 @@
 import 'dart:io';
 
+import 'package:android_file_picker/android_file_picker.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:saber/components/theming/adaptive_alert_dialog.dart';
@@ -98,6 +100,15 @@ class _DirectorySelectorState extends State<DirectorySelector> {
     final directory = await FilePicker.getDirectoryPath(
       dialogTitle: widget.title,
       initialDirectory: _directory,
+      androidOptions: defaultTargetPlatform == .android
+          ? const FilePickerAndroidOptions(
+              safOptions: .new(
+                grant: .lifetime,
+                accessMode: .readWrite,
+                persistGrant: true,
+              ),
+            )
+          : const .new(),
     );
 
     if (directory == null) return;

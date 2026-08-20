@@ -1143,7 +1143,7 @@ class EditorState extends State<Editor> {
   }
 
   Future<List<_PhotoInfo>> _pickPhotosWithFilePicker() async {
-    final FilePickerResult? result = await FilePicker.pickFiles(
+    final List<PlatformFile> files = await FilePicker.pickFiles(
       type: FileType.custom,
       // Taken from
       // https://github.com/brendan-duncan/image/blob/main/doc/formats.md
@@ -1164,15 +1164,17 @@ class EditorState extends State<Editor> {
         'exr',
       ],
     );
-    if (result == null) return const [];
+    if (files.isEmpty) return const [];
 
     return Future.wait([
-      for (final file in result.files)
-        if (file.extension != null)
-          file.readAsBytes().then(
-            (bytes) => (bytes: bytes, extension: '.${file.extension}'),
-          ),
-    ]);
+      for (final file in files)
+        () async {
+          final extension = p.extension(file.path ?? file.name);
+          if (extension.isEmpty) return null;
+          final bytes = await file.readAsBytes();
+          return (bytes: bytes, extension: extension);
+        }(),
+    ]).then((list) => list.nonNulls.toList());
   }
 
   /// Prompts the user to pick a PDF to import.
