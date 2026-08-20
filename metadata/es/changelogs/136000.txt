@@ -1,0 +1,3 @@
+• Se corrigió la animación entrecortada al abrir y cerrar la barra lateral.
+• Se agregaron guías de sangría al árbol de archivos en la barra lateral.
+• Mejoras diversas transversales

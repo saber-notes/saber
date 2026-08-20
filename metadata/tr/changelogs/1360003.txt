@@ -1,0 +1,3 @@
+• Kenar çubuğunu açıp kapatırken takılma yapan animasyon düzeltildi.
+• Kenar çubuğundaki dosya ağacına girintileme kılavuzları eklendi.
+• Çeşitli geç iyileştirmeler

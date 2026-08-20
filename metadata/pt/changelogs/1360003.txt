@@ -1,0 +1,3 @@
+• Corrigida animação travada ao abrir e fechar a barra lateral.
+• Adicionados guias de recuo à árvore de arquivos na barra lateral.
+• Melhorias transitivas diversas

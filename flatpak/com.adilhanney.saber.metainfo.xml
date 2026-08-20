@@ -183,6 +183,37 @@
             אני מזמין אותך לגלות מחדש את תיעוד המחשבות וארגונן בעזרת Saber. לא משנה מה רמת הניסיון שצברת או היצירתיות הגלומה בך, Saber הוא יישום העזר האמין שלך לכתיבה ידנית דיגיטלי. אפשר להוריד אותו כעת ולתת לרעיונות לזרום בחופשיות!
         </p>
 
+        <p xml:lang="it">
+            Saber è l'app per prendere appunti pensata per la scrittura a mano.
+        </p>
+        <p xml:lang="it">
+            È progettata per essere il più semplice e intuitiva possibile, pur offrendo funzionalità uniche che userai davvero. Inoltre, Saber è disponibile su tutti i tuoi dispositivi, grandi e piccoli, e si sincronizza tra di essi senza problemi.
+        </p>
+        <p xml:lang="it">
+            In particolare, può invertire i colori degli appunti quando sei in modalità scura. Questo ti permette di scrivere con inchiostro bianco su sfondo nero, molto più riposante per gli occhi in ambienti con poca luce, come quando l'insegnante spegne le luci in classe.
+        </p>
+        <p xml:lang="it">
+            Anche immagini e PDF vengono invertiti, quindi puoi comunque utilizzare stampe digitali o libri di testo senza problemi.
+        </p>
+        <p xml:lang="it">
+            Saber utilizza un sistema a doppia password per proteggere i tuoi appunti da chiunque tranne te, anche se hanno il controllo completo del server. Puoi archiviare i tuoi appunti in modo sicuro sul server ufficiale di Saber, su un altro server o persino ospitarne uno tuo!
+        </p>
+        <p xml:lang="it">
+            L'app è completamente open source, quindi chiunque può visualizzare il codice sorgente e vedere esattamente cosa fa e come gestisce i tuoi dati. Molte altre app per prendere appunti sono proprietarie e a codice chiuso, il che significa che il loro funzionamento interno rimane un mistero per il pubblico.
+        </p>
+        <p xml:lang="it">
+            Da studente di matematica, evidenziare equazioni su più righe è sempre stato un problema con altre app, dove l'evidenziatore cambiava colore quando si sovrapponeva a se stesso. Un altro problema che ho riscontrato è che in alcune app l'evidenziatore si sovrapponeva al testo, sbiadendolo e rendendolo difficile da leggere.
+        </p>
+        <p xml:lang="it">
+            L'evidenziatore di Saber non presenta questi problemi. Utilizza la composizione su canvas per visualizzare l'evidenziatore in modo coerente con, se non migliore, della carta tradizionale, gestendo le sovrapposizioni e mantenendo la coerenza dei colori.
+        </p>
+        <p xml:lang="it">
+            Saber ha tutto ciò che ti serve per tenere i tuoi appunti organizzati. Crea cartelle all'interno di altre cartelle, senza limiti al numero di sottocartelle. E anche se una nota si trova in profondità in una sottocartella, puoi comunque accedervi facilmente grazie alle note più recenti sempre disponibili nella schermata iniziale.
+        </p>
+        <p xml:lang="it">
+            Scopri un modo completamente nuovo di catturare e organizzare i tuoi pensieri con Saber. Che tu sia uno studente, un professionista o una mente creativa, Saber è il tuo fedele compagno per la scrittura digitale a mano. Scaricalo ora e lascia che le tue idee fluiscano liberamente!
+        </p>
+
         <p xml:lang="ja">
             Saber は手書き用のノートアプリです。
         </p>
@@ -430,107 +461,117 @@
         -->
         <screenshot type="default">
             <caption>The home screen showing your recent notes</caption>
-            <image>https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/en-US/images/flathubScreenshots/1_home.png</image>
-            <image xml:lang="ar">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/ar/images/flathubScreenshots/1_home.png</image>
-            <image xml:lang="ca">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/ca/images/flathubScreenshots/1_home.png</image>
-            <image xml:lang="cs">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/cs/images/flathubScreenshots/1_home.png</image>
-            <image xml:lang="de">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/de/images/flathubScreenshots/1_home.png</image>
-            <image xml:lang="eo">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/eo/images/flathubScreenshots/1_home.png</image>
-            <image xml:lang="es">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/es/images/flathubScreenshots/1_home.png</image>
-            <image xml:lang="fa">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/fa/images/flathubScreenshots/1_home.png</image>
-            <image xml:lang="fr">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/fr/images/flathubScreenshots/1_home.png</image>
-            <image xml:lang="he">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/he/images/flathubScreenshots/1_home.png</image>
-            <image xml:lang="hu">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/hu/images/flathubScreenshots/1_home.png</image>
-            <image xml:lang="it">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/it/images/flathubScreenshots/1_home.png</image>
-            <image xml:lang="nl">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/nl/images/flathubScreenshots/1_home.png</image>
-            <image xml:lang="pl">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/pl/images/flathubScreenshots/1_home.png</image>
-            <image xml:lang="pt">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/pt/images/flathubScreenshots/1_home.png</image>
-            <image xml:lang="pt-BR">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/pt-BR/images/flathubScreenshots/1_home.png</image>
-            <image xml:lang="ru">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/ru/images/flathubScreenshots/1_home.png</image>
-            <image xml:lang="sl">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/sl/images/flathubScreenshots/1_home.png</image>
-            <image xml:lang="th">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/th/images/flathubScreenshots/1_home.png</image>
-            <image xml:lang="tr">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/tr/images/flathubScreenshots/1_home.png</image>
-            <image xml:lang="uk">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/uk/images/flathubScreenshots/1_home.png</image>
-            <image xml:lang="vi">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/vi/images/flathubScreenshots/1_home.png</image>
+            <image>https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/en-US/images/flathubScreenshots/1_home.png</image>
+            <image xml:lang="ar">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/ar/images/flathubScreenshots/1_home.png</image>
+            <image xml:lang="ca">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/ca/images/flathubScreenshots/1_home.png</image>
+            <image xml:lang="cs">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/cs/images/flathubScreenshots/1_home.png</image>
+            <image xml:lang="de">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/de/images/flathubScreenshots/1_home.png</image>
+            <image xml:lang="eo">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/eo/images/flathubScreenshots/1_home.png</image>
+            <image xml:lang="es">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/es/images/flathubScreenshots/1_home.png</image>
+            <image xml:lang="fa">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/fa/images/flathubScreenshots/1_home.png</image>
+            <image xml:lang="fr">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/fr/images/flathubScreenshots/1_home.png</image>
+            <image xml:lang="he">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/he/images/flathubScreenshots/1_home.png</image>
+            <image xml:lang="hu">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/hu/images/flathubScreenshots/1_home.png</image>
+            <image xml:lang="it">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/it/images/flathubScreenshots/1_home.png</image>
+            <image xml:lang="nl">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/nl/images/flathubScreenshots/1_home.png</image>
+            <image xml:lang="pl">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/pl/images/flathubScreenshots/1_home.png</image>
+            <image xml:lang="pt">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/pt/images/flathubScreenshots/1_home.png</image>
+            <image xml:lang="pt-BR">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/pt-BR/images/flathubScreenshots/1_home.png</image>
+            <image xml:lang="ru">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/ru/images/flathubScreenshots/1_home.png</image>
+            <image xml:lang="sl">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/sl/images/flathubScreenshots/1_home.png</image>
+            <image xml:lang="th">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/th/images/flathubScreenshots/1_home.png</image>
+            <image xml:lang="tr">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/tr/images/flathubScreenshots/1_home.png</image>
+            <image xml:lang="uk">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/uk/images/flathubScreenshots/1_home.png</image>
+            <image xml:lang="vi">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/vi/images/flathubScreenshots/1_home.png</image>
         </screenshot>
         <screenshot>
             <caption>The editor showing some notes from a maths lecture</caption>
-            <image>https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/en-US/images/flathubScreenshots/2_editor.png</image>
-            <image xml:lang="ar">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/ar/images/flathubScreenshots/2_editor.png</image>
-            <image xml:lang="ca">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/ca/images/flathubScreenshots/2_editor.png</image>
-            <image xml:lang="cs">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/cs/images/flathubScreenshots/2_editor.png</image>
-            <image xml:lang="de">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/de/images/flathubScreenshots/2_editor.png</image>
-            <image xml:lang="eo">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/eo/images/flathubScreenshots/2_editor.png</image>
-            <image xml:lang="es">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/es/images/flathubScreenshots/2_editor.png</image>
-            <image xml:lang="fa">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/fa/images/flathubScreenshots/2_editor.png</image>
-            <image xml:lang="fr">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/fr/images/flathubScreenshots/2_editor.png</image>
-            <image xml:lang="he">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/he/images/flathubScreenshots/2_editor.png</image>
-            <image xml:lang="hu">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/hu/images/flathubScreenshots/2_editor.png</image>
-            <image xml:lang="it">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/it/images/flathubScreenshots/2_editor.png</image>
-            <image xml:lang="nl">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/nl/images/flathubScreenshots/2_editor.png</image>
-            <image xml:lang="pl">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/pl/images/flathubScreenshots/2_editor.png</image>
-            <image xml:lang="pt">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/pt/images/flathubScreenshots/2_editor.png</image>
-            <image xml:lang="pt-BR">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/pt-BR/images/flathubScreenshots/2_editor.png</image>
-            <image xml:lang="ru">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/ru/images/flathubScreenshots/2_editor.png</image>
-            <image xml:lang="sl">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/sl/images/flathubScreenshots/2_editor.png</image>
-            <image xml:lang="th">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/th/images/flathubScreenshots/2_editor.png</image>
-            <image xml:lang="tr">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/tr/images/flathubScreenshots/2_editor.png</image>
-            <image xml:lang="uk">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/uk/images/flathubScreenshots/2_editor.png</image>
-            <image xml:lang="vi">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/vi/images/flathubScreenshots/2_editor.png</image>
+            <image>https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/en-US/images/flathubScreenshots/2_editor.png</image>
+            <image xml:lang="ar">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/ar/images/flathubScreenshots/2_editor.png</image>
+            <image xml:lang="ca">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/ca/images/flathubScreenshots/2_editor.png</image>
+            <image xml:lang="cs">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/cs/images/flathubScreenshots/2_editor.png</image>
+            <image xml:lang="de">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/de/images/flathubScreenshots/2_editor.png</image>
+            <image xml:lang="eo">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/eo/images/flathubScreenshots/2_editor.png</image>
+            <image xml:lang="es">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/es/images/flathubScreenshots/2_editor.png</image>
+            <image xml:lang="fa">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/fa/images/flathubScreenshots/2_editor.png</image>
+            <image xml:lang="fr">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/fr/images/flathubScreenshots/2_editor.png</image>
+            <image xml:lang="he">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/he/images/flathubScreenshots/2_editor.png</image>
+            <image xml:lang="hu">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/hu/images/flathubScreenshots/2_editor.png</image>
+            <image xml:lang="it">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/it/images/flathubScreenshots/2_editor.png</image>
+            <image xml:lang="nl">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/nl/images/flathubScreenshots/2_editor.png</image>
+            <image xml:lang="pl">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/pl/images/flathubScreenshots/2_editor.png</image>
+            <image xml:lang="pt">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/pt/images/flathubScreenshots/2_editor.png</image>
+            <image xml:lang="pt-BR">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/pt-BR/images/flathubScreenshots/2_editor.png</image>
+            <image xml:lang="ru">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/ru/images/flathubScreenshots/2_editor.png</image>
+            <image xml:lang="sl">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/sl/images/flathubScreenshots/2_editor.png</image>
+            <image xml:lang="th">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/th/images/flathubScreenshots/2_editor.png</image>
+            <image xml:lang="tr">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/tr/images/flathubScreenshots/2_editor.png</image>
+            <image xml:lang="uk">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/uk/images/flathubScreenshots/2_editor.png</image>
+            <image xml:lang="vi">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/vi/images/flathubScreenshots/2_editor.png</image>
         </screenshot>
         <screenshot>
             <caption>The login page which asks which Nextcloud server you want to use</caption>
-            <image>https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/en-US/images/flathubScreenshots/3_login.png</image>
-            <image xml:lang="ar">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/ar/images/flathubScreenshots/3_login.png</image>
-            <image xml:lang="ca">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/ca/images/flathubScreenshots/3_login.png</image>
-            <image xml:lang="cs">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/cs/images/flathubScreenshots/3_login.png</image>
-            <image xml:lang="de">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/de/images/flathubScreenshots/3_login.png</image>
-            <image xml:lang="eo">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/eo/images/flathubScreenshots/3_login.png</image>
-            <image xml:lang="es">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/es/images/flathubScreenshots/3_login.png</image>
-            <image xml:lang="fa">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/fa/images/flathubScreenshots/3_login.png</image>
-            <image xml:lang="fr">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/fr/images/flathubScreenshots/3_login.png</image>
-            <image xml:lang="he">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/he/images/flathubScreenshots/3_login.png</image>
-            <image xml:lang="hu">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/hu/images/flathubScreenshots/3_login.png</image>
-            <image xml:lang="it">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/it/images/flathubScreenshots/3_login.png</image>
-            <image xml:lang="nl">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/nl/images/flathubScreenshots/3_login.png</image>
-            <image xml:lang="pl">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/pl/images/flathubScreenshots/3_login.png</image>
-            <image xml:lang="pt">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/pt/images/flathubScreenshots/3_login.png</image>
-            <image xml:lang="pt-BR">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/pt-BR/images/flathubScreenshots/3_login.png</image>
-            <image xml:lang="ru">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/ru/images/flathubScreenshots/3_login.png</image>
-            <image xml:lang="sl">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/sl/images/flathubScreenshots/3_login.png</image>
-            <image xml:lang="th">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/th/images/flathubScreenshots/3_login.png</image>
-            <image xml:lang="tr">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/tr/images/flathubScreenshots/3_login.png</image>
-            <image xml:lang="uk">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/uk/images/flathubScreenshots/3_login.png</image>
-            <image xml:lang="vi">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/vi/images/flathubScreenshots/3_login.png</image>
+            <image>https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/en-US/images/flathubScreenshots/3_login.png</image>
+            <image xml:lang="ar">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/ar/images/flathubScreenshots/3_login.png</image>
+            <image xml:lang="ca">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/ca/images/flathubScreenshots/3_login.png</image>
+            <image xml:lang="cs">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/cs/images/flathubScreenshots/3_login.png</image>
+            <image xml:lang="de">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/de/images/flathubScreenshots/3_login.png</image>
+            <image xml:lang="eo">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/eo/images/flathubScreenshots/3_login.png</image>
+            <image xml:lang="es">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/es/images/flathubScreenshots/3_login.png</image>
+            <image xml:lang="fa">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/fa/images/flathubScreenshots/3_login.png</image>
+            <image xml:lang="fr">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/fr/images/flathubScreenshots/3_login.png</image>
+            <image xml:lang="he">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/he/images/flathubScreenshots/3_login.png</image>
+            <image xml:lang="hu">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/hu/images/flathubScreenshots/3_login.png</image>
+            <image xml:lang="it">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/it/images/flathubScreenshots/3_login.png</image>
+            <image xml:lang="nl">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/nl/images/flathubScreenshots/3_login.png</image>
+            <image xml:lang="pl">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/pl/images/flathubScreenshots/3_login.png</image>
+            <image xml:lang="pt">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/pt/images/flathubScreenshots/3_login.png</image>
+            <image xml:lang="pt-BR">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/pt-BR/images/flathubScreenshots/3_login.png</image>
+            <image xml:lang="ru">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/ru/images/flathubScreenshots/3_login.png</image>
+            <image xml:lang="sl">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/sl/images/flathubScreenshots/3_login.png</image>
+            <image xml:lang="th">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/th/images/flathubScreenshots/3_login.png</image>
+            <image xml:lang="tr">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/tr/images/flathubScreenshots/3_login.png</image>
+            <image xml:lang="uk">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/uk/images/flathubScreenshots/3_login.png</image>
+            <image xml:lang="vi">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/vi/images/flathubScreenshots/3_login.png</image>
         </screenshot>
         <screenshot>
             <caption>The settings page showing that the user is now logged in</caption>
-            <image>https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/en-US/images/flathubScreenshots/4_settings.png</image>
-            <image xml:lang="ar">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/ar/images/flathubScreenshots/4_settings.png</image>
-            <image xml:lang="ca">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/ca/images/flathubScreenshots/4_settings.png</image>
-            <image xml:lang="cs">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/cs/images/flathubScreenshots/4_settings.png</image>
-            <image xml:lang="de">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/de/images/flathubScreenshots/4_settings.png</image>
-            <image xml:lang="eo">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/eo/images/flathubScreenshots/4_settings.png</image>
-            <image xml:lang="es">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/es/images/flathubScreenshots/4_settings.png</image>
-            <image xml:lang="fa">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/fa/images/flathubScreenshots/4_settings.png</image>
-            <image xml:lang="fr">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/fr/images/flathubScreenshots/4_settings.png</image>
-            <image xml:lang="he">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/he/images/flathubScreenshots/4_settings.png</image>
-            <image xml:lang="hu">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/hu/images/flathubScreenshots/4_settings.png</image>
-            <image xml:lang="it">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/it/images/flathubScreenshots/4_settings.png</image>
-            <image xml:lang="nl">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/nl/images/flathubScreenshots/4_settings.png</image>
-            <image xml:lang="pl">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/pl/images/flathubScreenshots/4_settings.png</image>
-            <image xml:lang="pt">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/pt/images/flathubScreenshots/4_settings.png</image>
-            <image xml:lang="pt-BR">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/pt-BR/images/flathubScreenshots/4_settings.png</image>
-            <image xml:lang="ru">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/ru/images/flathubScreenshots/4_settings.png</image>
-            <image xml:lang="sl">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/sl/images/flathubScreenshots/4_settings.png</image>
-            <image xml:lang="th">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/th/images/flathubScreenshots/4_settings.png</image>
-            <image xml:lang="tr">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/tr/images/flathubScreenshots/4_settings.png</image>
-            <image xml:lang="uk">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/uk/images/flathubScreenshots/4_settings.png</image>
-            <image xml:lang="vi">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.35.1/metadata/vi/images/flathubScreenshots/4_settings.png</image>
+            <image>https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/en-US/images/flathubScreenshots/4_settings.png</image>
+            <image xml:lang="ar">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/ar/images/flathubScreenshots/4_settings.png</image>
+            <image xml:lang="ca">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/ca/images/flathubScreenshots/4_settings.png</image>
+            <image xml:lang="cs">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/cs/images/flathubScreenshots/4_settings.png</image>
+            <image xml:lang="de">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/de/images/flathubScreenshots/4_settings.png</image>
+            <image xml:lang="eo">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/eo/images/flathubScreenshots/4_settings.png</image>
+            <image xml:lang="es">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/es/images/flathubScreenshots/4_settings.png</image>
+            <image xml:lang="fa">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/fa/images/flathubScreenshots/4_settings.png</image>
+            <image xml:lang="fr">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/fr/images/flathubScreenshots/4_settings.png</image>
+            <image xml:lang="he">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/he/images/flathubScreenshots/4_settings.png</image>
+            <image xml:lang="hu">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/hu/images/flathubScreenshots/4_settings.png</image>
+            <image xml:lang="it">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/it/images/flathubScreenshots/4_settings.png</image>
+            <image xml:lang="nl">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/nl/images/flathubScreenshots/4_settings.png</image>
+            <image xml:lang="pl">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/pl/images/flathubScreenshots/4_settings.png</image>
+            <image xml:lang="pt">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/pt/images/flathubScreenshots/4_settings.png</image>
+            <image xml:lang="pt-BR">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/pt-BR/images/flathubScreenshots/4_settings.png</image>
+            <image xml:lang="ru">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/ru/images/flathubScreenshots/4_settings.png</image>
+            <image xml:lang="sl">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/sl/images/flathubScreenshots/4_settings.png</image>
+            <image xml:lang="th">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/th/images/flathubScreenshots/4_settings.png</image>
+            <image xml:lang="tr">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/tr/images/flathubScreenshots/4_settings.png</image>
+            <image xml:lang="uk">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/uk/images/flathubScreenshots/4_settings.png</image>
+            <image xml:lang="vi">https://raw.githubusercontent.com/saber-notes/saber/refs/tags/v1.36.0/metadata/vi/images/flathubScreenshots/4_settings.png</image>
         </screenshot>
     </screenshots>
 
     <releases>
+        <release version="1.36.0" date="2026-08-20">
+            <description>
+                <ul>
+                    <li>Fixed janky animation when opening and closing the sidebar.</li>
+                    <li>Added indent guides to the file tree in the sidebar.</li>
+                    <li>Added Linux support for stylus pressure detection.</li>
+                    <li>Switched to the new Impeller rendering engine, resulting in fewer frame drops and smoother animations. At present, some graphics may be pixellated/aliased.</li>
+                </ul>
+            </description>
+        </release>
         <release version="1.35.1" date="2026-08-12">
             <description>
                 <ul>

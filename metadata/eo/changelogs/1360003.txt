@@ -1,0 +1,3 @@
+• Regardita malfunkcia animacio kiam oni malfermas kaj fermas la barron.
+• Aldonita indento-gvidoj al la fajro-arbo en la barro.
+• Diversaj transitivityj plibonoj

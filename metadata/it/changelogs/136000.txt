@@ -1,0 +1,3 @@
+• Corretta animazione scattosa quando si apre e si chiude la barra laterale.
+• Aggiunte guide di indentazione all'albero dei file nella barra laterale.
+• Miglioramenti trasversali vari

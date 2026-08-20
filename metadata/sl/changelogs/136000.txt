@@ -1,0 +1,3 @@
+• Popravljena neudarna animacija pri odpiranju in zapiranju bočne prozorne.
+• Dodane vodilke za uvajanje v drevo datotek v bočni prozor.
+• Različna prenosna izboljšava

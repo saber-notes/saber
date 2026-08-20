@@ -1,0 +1,3 @@
+• Corregida l'animació tancada quan s'obre i es tanca la barra lateral.
+• S'han afegit guies d'indentació a l'arbre de fitxers a la barra lateral.
+• Millores diverses transitories

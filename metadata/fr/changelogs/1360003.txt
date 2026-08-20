@@ -1,0 +1,3 @@
+• Correction d'une animation saccadée lors de l'ouverture et de la fermeture de la barre latérale.
+• Ajout de guides d'indentation à l'arbre des fichiers dans la barre latérale.
+• Améliorations diverses transitives

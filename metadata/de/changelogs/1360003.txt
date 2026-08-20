@@ -1,0 +1,3 @@
+• Behebungen für ruckartige Animationen beim Öffnen und Schließen der Seitenleiste.
+• Hinzufügen von Einrückungsleitern zum Dateibaum in der Seitenleiste.
+• Sonstige Verbesserungen

@@ -1,0 +1,3 @@
+• Fixed janky animation when opening and closing the sidebar.
+• Added indent guides to the file tree in the sidebar.
+• Misc transitive improvements

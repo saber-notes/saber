@@ -1,0 +1,3 @@
+• Naprawiono szarpany efekt animacji podczas otwierania i zamykania paska bocznego.
+• Dodano linie wcięć do drzewa plików w pasku bocznym.
+• Inne ulepszenia przechodzące (transitive).
