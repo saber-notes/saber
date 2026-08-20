@@ -29,7 +29,9 @@ class const VerticalNavbar({
       _ => theme.colorScheme.surfaceContainer,
     };
 
-    const minNavbarWidth = 300.0;
+    /// May be wider depending on the destination labels
+    const minExpandedWidth = 300.0;
+
     final routes = HomeRoutes.routes;
 
     return Semantics(
@@ -82,7 +84,7 @@ class const VerticalNavbar({
                   axis: .horizontal,
                   alignment: .topStart,
                   child: SizedBox(
-                    width: minNavbarWidth,
+                    width: minExpandedWidth,
                     child: fullyCollapsed ? null : const FileTree(),
                   ),
                 ),
