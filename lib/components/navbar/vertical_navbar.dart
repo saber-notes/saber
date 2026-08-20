@@ -25,56 +25,62 @@ class const VerticalNavbar({
       _ => theme.colorScheme.surfaceContainer,
     };
 
-    const maxNavbarWidth = 300.0;
+    const minNavbarWidth = 300.0;
 
-    return DecoratedBox(
-      decoration: BoxDecoration(
-        color: backgroundColor,
-        border: theme.platform == .linux
-            ? BoxBorder.fromSTEB(end: BorderSide(color: theme.dividerColor))
-            : null,
-      ),
-      child: Padding(
-        padding: const .symmetric(horizontal: 12),
-        child: Column(
-          crossAxisAlignment: .start,
-          spacing: 12,
-          children: [
-            const SizedBox(height: kToolbarHeight - 2),
-            TextButton(
-              onPressed: () {
-                if (expandAnimationController.isForwardOrCompleted) {
-                  expandAnimationController.reverse();
-                } else {
-                  expandAnimationController.forward();
-                }
-              },
-              child: RotationTransition(
-                turns: expandAnimation.drive(Tween(begin: 0, end: 0.5)),
-                child: const AdaptiveIcon(
-                  icon: Icons.chevron_right,
-                  cupertinoIcon: CupertinoIcons.chevron_right,
+    return Semantics(
+      container: true,
+      child: DecoratedBox(
+        decoration: BoxDecoration(
+          color: backgroundColor,
+          border: theme.platform == .linux
+              ? BoxBorder.fromSTEB(end: BorderSide(color: theme.dividerColor))
+              : null,
+        ),
+        child: Padding(
+          padding: const .symmetric(horizontal: 12),
+          child: Column(
+            crossAxisAlignment: .start,
+            spacing: 12,
+            children: [
+              const SizedBox(height: kToolbarHeight - 2),
+              TextButton(
+                onPressed: () {
+                  if (expandAnimationController.isForwardOrCompleted) {
+                    expandAnimationController.reverse();
+                  } else {
+                    expandAnimationController.forward();
+                  }
+                },
+                child: RotationTransition(
+                  turns: expandAnimation.drive(Tween(begin: 0, end: 0.5)),
+                  child: const AdaptiveIcon(
+                    icon: Icons.chevron_right,
+                    cupertinoIcon: CupertinoIcons.chevron_right,
+                  ),
                 ),
               ),
-            ),
-            const SizedBox(),
-            for (int i = 0; i < HomeRoutes.routes.length; ++i)
-              _RouteTile(
-                route: HomeRoutes.routes[i],
-                selected: i == selectedIndex,
-                onTap: () => onDestinationSelected?.call(i),
-                expandAnimation: expandAnimation,
-              ),
+              const SizedBox(),
+              for (int i = 0; i < HomeRoutes.routes.length; ++i)
+                _RouteTile(
+                  route: HomeRoutes.routes[i],
+                  selected: i == selectedIndex,
+                  onTap: () => onDestinationSelected?.call(i),
+                  expandAnimation: expandAnimation,
+                ),
 
-            Expanded(
-              child: SizeTransition(
-                sizeFactor: expandAnimation,
-                axis: .horizontal,
-                alignment: .topStart,
-                child: const SizedBox(width: maxNavbarWidth, child: FileTree()),
+              Expanded(
+                child: SizeTransition(
+                  sizeFactor: expandAnimation,
+                  axis: .horizontal,
+                  alignment: .topStart,
+                  child: const SizedBox(
+                    width: minNavbarWidth,
+                    child: FileTree(),
+                  ),
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
@@ -90,38 +96,48 @@ class const _RouteTile({
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    return Row(
-      children: [
-        DecoratedBox(
-          decoration: BoxDecoration(
-            color: selected
-                ? theme.navigationRailTheme.indicatorColor ??
-                      theme.colorScheme.secondaryContainer
-                : null,
-            borderRadius: const .all(.circular(32)),
-          ),
-          child: InkWell(
-            onTap: onTap,
-            borderRadius: const .all(.circular(32)),
-            child: Padding(
-              padding: const .symmetric(vertical: 6, horizontal: 18),
-              child: route.destination.icon,
+    return Semantics(
+      container: true,
+      selected: selected,
+      child: Row(
+        children: [
+          DecoratedBox(
+            decoration: BoxDecoration(
+              color: selected
+                  ? theme.navigationRailTheme.indicatorColor ??
+                        theme.colorScheme.secondaryContainer
+                  : null,
+              borderRadius: const .all(.circular(32)),
+            ),
+            child: InkWell(
+              onTap: onTap,
+              borderRadius: const .all(.circular(32)),
+              child: Padding(
+                padding: const .symmetric(vertical: 6, horizontal: 18),
+                child: Semantics(
+                  label: route.destination.label,
+                  child: route.destination.icon,
+                ),
+              ),
             ),
           ),
-        ),
-        SizeTransition(
-          sizeFactor: expandAnimation,
-          axis: .horizontal,
-          alignment: .centerStart,
-          child: GestureDetector(
-            onTap: onTap,
-            child: Padding(
-              padding: const .directional(start: 8),
-              child: Text(route.destination.label),
+          ExcludeSemantics(
+            // semantics redundant with icon label above
+            child: SizeTransition(
+              sizeFactor: expandAnimation,
+              axis: .horizontal,
+              alignment: .centerStart,
+              child: GestureDetector(
+                onTap: onTap,
+                child: Padding(
+                  padding: const .directional(start: 8),
+                  child: Text(route.destination.label),
+                ),
+              ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
