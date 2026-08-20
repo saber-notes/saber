@@ -386,8 +386,12 @@ class EditorCoreInfo {
   }) async {
     EditorCoreInfo coreInfo;
     try {
-      EditorCoreInfo isolate() =>
-          _loadFromFileIsolate(jsonString, bsonBytes, path, onlyFirstPage);
+      EditorCoreInfo isolate() => EditorCoreInfo._loadFromFileIsolate(
+        jsonString,
+        bsonBytes,
+        path,
+        onlyFirstPage,
+      );
 
       final length = jsonString?.length ?? bsonBytes!.length;
       if (alwaysUseIsolate || length > 2 * 1024 * 1024) {
@@ -424,7 +428,7 @@ class EditorCoreInfo {
     return coreInfo;
   }
 
-  static EditorCoreInfo _loadFromFileIsolate(
+  factory _loadFromFileIsolate(
     String? jsonString,
     Uint8List? bsonBytes,
     String path,
