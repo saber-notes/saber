@@ -227,7 +227,7 @@ class _Translations$editor$fa extends Translations$editor$en {
 	@override late final _Translations$editor$hud$fa hud = _Translations$editor$hud$fa._(_root);
 	@override String get pages => 'صفحات';
 	@override String get untitled => 'بدون عنوان';
-	@override String get needsToSaveBeforeExiting => 'در حال ذخیره تغییرات شما... می توانید با خیال راحت از ویرایشگر خارج شوید';
+	@override String get needsToSaveBeforeExiting => 'در حال ذخیره تغییرات شما… می توانید با خیال راحت از ویرایشگر خارج شوید';
 }
 
 // Path: home.tabs
@@ -822,7 +822,7 @@ class _Translations$editor$quill$fa extends Translations$editor$quill$en {
 	final TranslationsFa _root; // ignore: unused_field
 
 	// Translations
-	@override String get typeSomething => 'اینجا چیزی تایپ کنید...';
+	@override String get typeSomething => 'اینجا چیزی تایپ کنید…';
 }
 
 // Path: editor.hud

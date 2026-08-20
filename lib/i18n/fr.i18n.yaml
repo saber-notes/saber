@@ -363,7 +363,7 @@ editor:
     subtitle: Éditer cette note pourrait entraîner la perte de certaines informations. Voulez-vous la modifier quand même ?
     allowEditing: Autoriser les modifications
   quill:
-    typeSomething: Taper du texte ici...
+    typeSomething: Taper du texte ici…
   hud:
     unlockZoom: Déverrouiller le zoom
     lockZoom: Verrouiller le zoom
@@ -373,4 +373,4 @@ editor:
     lockAxisAlignedPan: Verrouiller le panoramique à l'horizontale ou à la verticale
   pages: Pages
   untitled: Sans titre
-  needsToSaveBeforeExiting: Sauvegarde en cours... Vous pourrez quitter l'éditeur en toute sécurité une fois qu'elle sera terminée
+  needsToSaveBeforeExiting: Sauvegarde en cours… Vous pourrez quitter l'éditeur en toute sécurité une fois qu'elle sera terminée

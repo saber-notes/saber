@@ -363,7 +363,7 @@ editor:
     subtitle: Het bewerken van deze notitie kan ertoe leiden dat sommige informatie verloren gaat. Wil je dit negeren en toch bewerken?
     allowEditing: Veranderen toestaan
   quill:
-    typeSomething: Typ hier iets...
+    typeSomething: Typ hier iets…
   hud:
     unlockZoom: Zoomen toestaan
     lockZoom: Zoomen tegenhouden
@@ -373,4 +373,4 @@ editor:
     lockAxisAlignedPan: Vergrendel horizontaal of verticaal rondkijken
   pages: Pagina's
   untitled: GeenNaam
-  needsToSaveBeforeExiting: Je veranderingen bewaren... Je kunt de editor veilig verlaten als hij klaar is
+  needsToSaveBeforeExiting: Je veranderingen bewaren… Je kunt de editor veilig verlaten als hij klaar is

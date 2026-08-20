@@ -363,7 +363,7 @@ editor:
     subtitle: עריכת פתק זה עלולה לגרום לאיבוד מידע מסוים. להתעלם ולערוך בכל זאת?
     allowEditing: אפשר עריכה
   quill:
-    typeSomething: אפשר להקליד כאן משהו...
+    typeSomething: אפשר להקליד כאן משהו…
   hud:
     unlockZoom: בטל נעילת זום
     lockZoom: נעיל זום
@@ -373,4 +373,4 @@ editor:
     lockAxisAlignedPan: נעילת גלילה רציפה לאופקית או אנכית
   pages: עמודים
   untitled: חסר כותרת
-  needsToSaveBeforeExiting: השינויים נשמרים... אפשר לצאת בבטחה מהעורך בעת סיום השמירה
+  needsToSaveBeforeExiting: השינויים נשמרים… אפשר לצאת בבטחה מהעורך בעת סיום השמירה

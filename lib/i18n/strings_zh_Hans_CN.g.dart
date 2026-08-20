@@ -229,7 +229,7 @@ class Translations$editor$zh_Hans_CN extends Translations$editor$en {
 	@override late final Translations$editor$hud$zh_Hans_CN hud = Translations$editor$hud$zh_Hans_CN.internal(_root);
 	@override String get pages => '页面';
 	@override String get untitled => '未命名';
-	@override String get needsToSaveBeforeExiting => '正在保存您的更改... 完成后您可以安全地退出编辑器';
+	@override String get needsToSaveBeforeExiting => '正在保存您的更改… 完成后您可以安全地退出编辑器';
 }
 
 // Path: home.tabs
@@ -379,7 +379,7 @@ class Translations$home$sort$zh_Hans_CN extends Translations$home$sort$en {
 	final TranslationsZhHansCn _root; // ignore: unused_field
 
 	// Translations
-	@override String get sortBy => '按...排序';
+	@override String get sortBy => '按…排序';
 	@override String get nameAToZ => '姓名（A-Z）';
 	@override String get nameZToA => '姓名（从 A 到 Z）';
 	@override String get lastModifiedNewToOld => '编辑（最新优先）';
@@ -824,7 +824,7 @@ class Translations$editor$quill$zh_Hans_CN extends Translations$editor$quill$en 
 	final TranslationsZhHansCn _root; // ignore: unused_field
 
 	// Translations
-	@override String get typeSomething => '在这里输入...';
+	@override String get typeSomething => '在这里输入…';
 }
 
 // Path: editor.hud

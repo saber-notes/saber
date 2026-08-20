@@ -229,7 +229,7 @@ class _Translations$editor$tr extends Translations$editor$en {
 	@override late final _Translations$editor$hud$tr hud = _Translations$editor$hud$tr._(_root);
 	@override String get pages => 'Sayfalar';
 	@override String get untitled => 'İsimsiz';
-	@override String get needsToSaveBeforeExiting => 'Değişiklikler kaydediliyor... kayıt tamamlandığında editörden güvenli biçimde çıkabilirsiniz.';
+	@override String get needsToSaveBeforeExiting => 'Değişiklikler kaydediliyor… kayıt tamamlandığında editörden güvenli biçimde çıkabilirsiniz.';
 }
 
 // Path: home.tabs
@@ -824,7 +824,7 @@ class _Translations$editor$quill$tr extends Translations$editor$quill$en {
 	final TranslationsTr _root; // ignore: unused_field
 
 	// Translations
-	@override String get typeSomething => 'Buraya bir şey yaz...';
+	@override String get typeSomething => 'Buraya bir şey yaz…';
 }
 
 // Path: editor.hud

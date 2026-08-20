@@ -363,7 +363,7 @@ editor:
     subtitle: Durch das Bearbeiten dieser Notiz können Daten verloren gehen. Möchtest du sie trotzdem bearbeiten?
     allowEditing: Schreibschutz aufheben
   quill:
-    typeSomething: Hier tippen...
+    typeSomething: Hier tippen…
   hud:
     unlockZoom: Zoom entsperren
     lockZoom: Zoom sperren
@@ -373,4 +373,4 @@ editor:
     lockAxisAlignedPan: Verschieben auf Horizontale oder Vertikale beschränken
   pages: Seiten
   untitled: Unbenannt
-  needsToSaveBeforeExiting: Deine Änderungen werden noch gespeichert... Warte einen Moment, um Datenverluste zu vermeiden.
+  needsToSaveBeforeExiting: Deine Änderungen werden noch gespeichert… Warte einen Moment, um Datenverluste zu vermeiden.

@@ -363,7 +363,7 @@ editor:
     subtitle: A jegyzet szerkesztése bizonyos információk elvesztését eredményezheti. Szeretné ezt figyelmen kívül hagyni, és mégis szerkeszteni?
     allowEditing: Szerkesztés engedélyezése
   quill:
-    typeSomething: Gépeljen ide valamit...
+    typeSomething: Gépeljen ide valamit…
   hud:
     unlockZoom: Nagyítás feloldása
     lockZoom: Nagyítás rögzítése
@@ -373,4 +373,4 @@ editor:
     lockAxisAlignedPan: Pásztázás rögzítése vízszintes vagy függőleges irányban
   pages: Oldalak
   untitled: Névtelen
-  needsToSaveBeforeExiting: A módosítások mentése folyamatban... A szerkesztőt biztonságosan bezárhatja, ha elkészült
+  needsToSaveBeforeExiting: A módosítások mentése folyamatban… A szerkesztőt biztonságosan bezárhatja, ha elkészült

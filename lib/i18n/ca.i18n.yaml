@@ -352,7 +352,7 @@ editor:
     allowEditing: Habilitar edició
     subtitle(OUTDATED): L'édition de cette note peut entraîner la perte d'informations. Voulez-vous ignorer cela et éditer quand même ?
   quill:
-    typeSomething: Escriu alguna cosa aquí...
+    typeSomething: Escriu alguna cosa aquí…
   hud:
     unlockZoom: Desbloquejar Zoom
     lockZoom: Fixar zoom
@@ -362,4 +362,4 @@ editor:
     unlockAxisAlignedPan(OUTDATED): Desbloquea el paneo a horizontal o vertical
   pages: Folis
   untitled: Sense títol
-  needsToSaveBeforeExiting: Desant canvis... pots tancar l'editor quan finalitzi el procés
+  needsToSaveBeforeExiting: Desant canvis… pots tancar l'editor quan finalitzi el procés

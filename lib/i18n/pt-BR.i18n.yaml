@@ -361,7 +361,7 @@ editor:
     subtitle: A edição desta nota pode resultar na perda de algumas informações. Deseja ignorar isso e editá-la mesmo assim?
     allowEditing: Permitir edição
   quill:
-    typeSomething: Digite algo aqui...
+    typeSomething: Digite algo aqui…
   hud:
     unlockZoom: Desbloquear zoom
     lockZoom: Bloquear zoom
@@ -371,4 +371,4 @@ editor:
     lockAxisAlignedPan: Bloqueie a rolagem para horizontal ou vertical
   pages: Páginas
   untitled: Sem título
-  needsToSaveBeforeExiting: Salvando as suas alterações... Você pode sair do editor com segurança quando isto terminar
+  needsToSaveBeforeExiting: Salvando as suas alterações… Você pode sair do editor com segurança quando isto terminar

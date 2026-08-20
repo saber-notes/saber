@@ -363,7 +363,7 @@ editor:
     subtitle: Bu notu düzenlemek veri kaybına sebep olabilir. Bunu görmezden gelerek düzenlemek ister misiniz?
     allowEditing: Düzenlemeye izin ver
   quill:
-    typeSomething: Buraya bir şey yaz...
+    typeSomething: Buraya bir şey yaz…
   hud:
     unlockZoom: Yakınlaştırma kilidini aç
     lockZoom: Yakınlaştırmayı kilitle
@@ -373,4 +373,4 @@ editor:
     lockAxisAlignedPan: Yatay ve dikey hareketi kilitle
   pages: Sayfalar
   untitled: İsimsiz
-  needsToSaveBeforeExiting: Değişiklikler kaydediliyor... kayıt tamamlandığında editörden güvenli biçimde çıkabilirsiniz.
+  needsToSaveBeforeExiting: Değişiklikler kaydediliyor… kayıt tamamlandığında editörden güvenli biçimde çıkabilirsiniz.

@@ -229,7 +229,7 @@ class _Translations$editor$sl extends Translations$editor$en {
 	@override late final _Translations$editor$hud$sl hud = _Translations$editor$hud$sl._(_root);
 	@override String get pages => 'Strani';
 	@override String get untitled => 'Neimenovano';
-	@override String get needsToSaveBeforeExiting => 'Shranjevanje sprememb... Urejevalnik lahko varno zapustiš, ko bo končano';
+	@override String get needsToSaveBeforeExiting => 'Shranjevanje sprememb… Urejevalnik lahko varno zapustiš, ko bo končano';
 }
 
 // Path: home.tabs
@@ -824,7 +824,7 @@ class _Translations$editor$quill$sl extends Translations$editor$quill$en {
 	final TranslationsSl _root; // ignore: unused_field
 
 	// Translations
-	@override String get typeSomething => 'Tukaj nekaj vtipkaj...';
+	@override String get typeSomething => 'Tukaj nekaj vtipkaj…';
 }
 
 // Path: editor.hud

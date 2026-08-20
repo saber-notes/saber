@@ -379,7 +379,7 @@ class Translations$home$sort$zh_Hant_TW extends Translations$home$sort$en {
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
 	// Translations
-	@override String get sortBy => '依...排序';
+	@override String get sortBy => '依…排序';
 	@override String get nameAToZ => '姓名（A-Z）';
 	@override String get nameZToA => '姓名 (依字母排序)';
 	@override String get lastModifiedNewToOld => '編輯（最新優先）';

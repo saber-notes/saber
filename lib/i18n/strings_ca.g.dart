@@ -226,7 +226,7 @@ class _Translations$editor$ca extends Translations$editor$en {
 	@override late final _Translations$editor$hud$ca hud = _Translations$editor$hud$ca._(_root);
 	@override String get pages => 'Folis';
 	@override String get untitled => 'Sense títol';
-	@override String get needsToSaveBeforeExiting => 'Desant canvis... pots tancar l\'editor quan finalitzi el procés';
+	@override String get needsToSaveBeforeExiting => 'Desant canvis… pots tancar l\'editor quan finalitzi el procés';
 }
 
 // Path: home.tabs
@@ -787,7 +787,7 @@ class _Translations$editor$quill$ca extends Translations$editor$quill$en {
 	final TranslationsCa _root; // ignore: unused_field
 
 	// Translations
-	@override String get typeSomething => 'Escriu alguna cosa aquí...';
+	@override String get typeSomething => 'Escriu alguna cosa aquí…';
 }
 
 // Path: editor.hud

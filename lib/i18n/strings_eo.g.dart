@@ -229,7 +229,7 @@ class _Translations$editor$eo extends Translations$editor$en {
 	@override late final _Translations$editor$hud$eo hud = _Translations$editor$hud$eo._(_root);
 	@override String get pages => 'Paĝoj';
 	@override String get untitled => 'Sentitola';
-	@override String get needsToSaveBeforeExiting => 'Konservado de viaj ŝanĝoj... Vi povas sekure forlasi la redaktilon, kiam ĝi finos.';
+	@override String get needsToSaveBeforeExiting => 'Konservado de viaj ŝanĝoj… Vi povas sekure forlasi la redaktilon, kiam ĝi finos.';
 }
 
 // Path: home.tabs
@@ -824,7 +824,7 @@ class _Translations$editor$quill$eo extends Translations$editor$quill$en {
 	final TranslationsEo _root; // ignore: unused_field
 
 	// Translations
-	@override String get typeSomething => 'Tajpu ion ĉi tie...';
+	@override String get typeSomething => 'Tajpu ion ĉi tie…';
 }
 
 // Path: editor.hud

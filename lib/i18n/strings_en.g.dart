@@ -318,8 +318,8 @@ class Translations$editor$en {
 	/// en: 'Untitled'
 	String get untitled => 'Untitled';
 
-	/// en: 'Saving your changes... You can safely exit the editor when it's done'
-	String get needsToSaveBeforeExiting => 'Saving your changes... You can safely exit the editor when it\'s done';
+	/// en: 'Saving your changes… You can safely exit the editor when it's done'
+	String get needsToSaveBeforeExiting => 'Saving your changes… You can safely exit the editor when it\'s done';
 }
 
 // Path: home.tabs
@@ -1351,8 +1351,8 @@ class Translations$editor$quill$en {
 
 	// Translations
 
-	/// en: 'Type something here...'
-	String get typeSomething => 'Type something here...';
+	/// en: 'Type something here…'
+	String get typeSomething => 'Type something here…';
 }
 
 // Path: editor.hud

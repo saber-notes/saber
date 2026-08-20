@@ -229,7 +229,7 @@ class _Translations$editor$de extends Translations$editor$en {
 	@override late final _Translations$editor$hud$de hud = _Translations$editor$hud$de._(_root);
 	@override String get pages => 'Seiten';
 	@override String get untitled => 'Unbenannt';
-	@override String get needsToSaveBeforeExiting => 'Deine Änderungen werden noch gespeichert... Warte einen Moment, um Datenverluste zu vermeiden.';
+	@override String get needsToSaveBeforeExiting => 'Deine Änderungen werden noch gespeichert… Warte einen Moment, um Datenverluste zu vermeiden.';
 }
 
 // Path: home.tabs
@@ -824,7 +824,7 @@ class _Translations$editor$quill$de extends Translations$editor$quill$en {
 	final TranslationsDe _root; // ignore: unused_field
 
 	// Translations
-	@override String get typeSomething => 'Hier tippen...';
+	@override String get typeSomething => 'Hier tippen…';
 }
 
 // Path: editor.hud

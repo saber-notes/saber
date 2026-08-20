@@ -229,7 +229,7 @@ class _Translations$editor$it extends Translations$editor$en {
 	@override late final _Translations$editor$hud$it hud = _Translations$editor$hud$it._(_root);
 	@override String get pages => 'Pagine';
 	@override String get untitled => 'Senza titolo';
-	@override String get needsToSaveBeforeExiting => 'Salvataggio delle modifiche... Puoi tranquillamente uscire dall\'editor una volta completato';
+	@override String get needsToSaveBeforeExiting => 'Salvataggio delle modifiche… Puoi tranquillamente uscire dall\'editor una volta completato';
 }
 
 // Path: home.tabs
@@ -824,7 +824,7 @@ class _Translations$editor$quill$it extends Translations$editor$quill$en {
 	final TranslationsIt _root; // ignore: unused_field
 
 	// Translations
-	@override String get typeSomething => 'Scrivi qualcosa qui...';
+	@override String get typeSomething => 'Scrivi qualcosa qui…';
 }
 
 // Path: editor.hud

@@ -363,7 +363,7 @@ editor:
     subtitle: Chỉnh sửa có thể làm mất dữ liệu. Bạn vẫn muốn tiếp tục?
     allowEditing: Cho phép chỉnh sửa
   quill:
-    typeSomething: Nhập gì đó...
+    typeSomething: Nhập gì đó…
   hud:
     unlockZoom: Cho phép thu/phóng
     lockZoom: Khóa thu/phóng
@@ -373,4 +373,4 @@ editor:
     lockAxisAlignedPan: Khóa di chuyển theo trục
   pages: Trang
   untitled: Chưa đặt tên
-  needsToSaveBeforeExiting: Đang lưu... Bạn có thể rời trình chỉnh sửa khi hoàn tất
+  needsToSaveBeforeExiting: Đang lưu… Bạn có thể rời trình chỉnh sửa khi hoàn tất

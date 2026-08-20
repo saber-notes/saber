@@ -363,7 +363,7 @@ editor:
     subtitle: Urejanje tega zapiska lahko povzroči izgubo nekaterih informacij. Ali želiš to prezreti in vseeno urejati?
     allowEditing: Dovoli urejanje
   quill:
-    typeSomething: Tukaj nekaj vtipkaj...
+    typeSomething: Tukaj nekaj vtipkaj…
   hud:
     unlockZoom: Odkleni povečavo
     lockZoom: Zakleni povečavo
@@ -373,4 +373,4 @@ editor:
     lockAxisAlignedPan: Zakleni premikanje na vodoravno ali navpično
   pages: Strani
   untitled: Neimenovano
-  needsToSaveBeforeExiting: Shranjevanje sprememb... Urejevalnik lahko varno zapustiš, ko bo končano
+  needsToSaveBeforeExiting: Shranjevanje sprememb… Urejevalnik lahko varno zapustiš, ko bo končano

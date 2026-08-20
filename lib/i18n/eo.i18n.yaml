@@ -363,7 +363,7 @@ editor:
     subtitle: Redakti ĉi tiun noton eble kaŭzos perdon de iuj informoj. Ĉu vi volas malatenti kaj redakti ĝin spite al tio?
     allowEditing: Permesu redaktadon
   quill:
-    typeSomething: Tajpu ion ĉi tie...
+    typeSomething: Tajpu ion ĉi tie…
   hud:
     unlockZoom: Malŝlosu zomadon
     lockZoom: Ŝlosu zomadon
@@ -373,4 +373,4 @@ editor:
     lockAxisAlignedPan: Ŝlosu movadon laŭ aksoj (horizontala/vertikala)
   pages: Paĝoj
   untitled: Sentitola
-  needsToSaveBeforeExiting: Konservado de viaj ŝanĝoj... Vi povas sekure forlasi la redaktilon, kiam ĝi finos.
+  needsToSaveBeforeExiting: Konservado de viaj ŝanĝoj… Vi povas sekure forlasi la redaktilon, kiam ĝi finos.

@@ -229,7 +229,7 @@ class _Translations$editor$hu extends Translations$editor$en {
 	@override late final _Translations$editor$hud$hu hud = _Translations$editor$hud$hu._(_root);
 	@override String get pages => 'Oldalak';
 	@override String get untitled => 'Névtelen';
-	@override String get needsToSaveBeforeExiting => 'A módosítások mentése folyamatban... A szerkesztőt biztonságosan bezárhatja, ha elkészült';
+	@override String get needsToSaveBeforeExiting => 'A módosítások mentése folyamatban… A szerkesztőt biztonságosan bezárhatja, ha elkészült';
 }
 
 // Path: home.tabs
@@ -824,7 +824,7 @@ class _Translations$editor$quill$hu extends Translations$editor$quill$en {
 	final TranslationsHu _root; // ignore: unused_field
 
 	// Translations
-	@override String get typeSomething => 'Gépeljen ide valamit...';
+	@override String get typeSomething => 'Gépeljen ide valamit…';
 }
 
 // Path: editor.hud

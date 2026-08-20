@@ -1010,7 +1010,7 @@ uk:
       subtitle(OUTDATED): Editing this note may result in some information being lost. Do you want to ignore this and edit it anyway?
       allowEditing(OUTDATED): Allow editing
     quill:
-      typeSomething(OUTDATED): Type something here...
+      typeSomething(OUTDATED): Type something here…
     hud:
       unlockZoom(OUTDATED): Unlock zoom
       lockZoom(OUTDATED): Lock zoom
@@ -1020,7 +1020,7 @@ uk:
       lockAxisAlignedPan(OUTDATED): Lock panning to horizontal or vertical
     pages(OUTDATED): Pages
     untitled(OUTDATED): Untitled
-    needsToSaveBeforeExiting(OUTDATED): Saving your changes... You can safely exit the editor when it's done
+    needsToSaveBeforeExiting(OUTDATED): Saving your changes… You can safely exit the editor when it's done
 vi:
   home:
     deleteNoteDialog:

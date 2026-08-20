@@ -229,7 +229,7 @@ class _Translations$editor$nl extends Translations$editor$en {
 	@override late final _Translations$editor$hud$nl hud = _Translations$editor$hud$nl._(_root);
 	@override String get pages => 'Pagina\'s';
 	@override String get untitled => 'GeenNaam';
-	@override String get needsToSaveBeforeExiting => 'Je veranderingen bewaren... Je kunt de editor veilig verlaten als hij klaar is';
+	@override String get needsToSaveBeforeExiting => 'Je veranderingen bewaren… Je kunt de editor veilig verlaten als hij klaar is';
 }
 
 // Path: home.tabs
@@ -824,7 +824,7 @@ class _Translations$editor$quill$nl extends Translations$editor$quill$en {
 	final TranslationsNl _root; // ignore: unused_field
 
 	// Translations
-	@override String get typeSomething => 'Typ hier iets...';
+	@override String get typeSomething => 'Typ hier iets…';
 }
 
 // Path: editor.hud

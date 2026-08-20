@@ -360,7 +360,7 @@ editor:
     subtitle: La edición de esta nota puede resultar en la pérdida de cierta información. ¿Quieres ignorar esto y editarlo de todos modos?
     allowEditing: Editar
   quill:
-    typeSomething: Escribe algo aquí...
+    typeSomething: Escribe algo aquí…
   hud:
     unlockZoom: Desbloquear zoom
     lockZoom: Bloquear zoom
@@ -370,4 +370,4 @@ editor:
     lockAxisAlignedPan: Bloquear el desplazamiento a horizontal o vertical
   pages: Páginas
   untitled: Sin título
-  needsToSaveBeforeExiting: Guardando los cambios... Puedes salir del editor de forma segura cuando se haya guardado todo
+  needsToSaveBeforeExiting: Guardando los cambios… Puedes salir del editor de forma segura cuando se haya guardado todo

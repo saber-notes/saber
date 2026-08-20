@@ -354,7 +354,7 @@ editor:
     subtitle: このメモを編集すると、いくつかの情報が失われる可能性があります。これを無視して編集しますか？
     allowEditing: 編集を許可する
   quill:
-    typeSomething: ここに何かを入力してください...
+    typeSomething: ここに何かを入力してください…
   hud:
     unlockZoom: ズームの解除
     lockZoom: ズームを固定する
@@ -364,4 +364,4 @@ editor:
     lockAxisAlignedPan: パンニングを水平または垂直にロックする
   pages: ページ
   untitled: 無題
-  needsToSaveBeforeExiting: 変更を保存する... 編集が終わったら、エディターを安全に終了することができます。
+  needsToSaveBeforeExiting: 変更を保存する… 編集が終わったら、エディターを安全に終了することができます。

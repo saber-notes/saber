@@ -229,7 +229,7 @@ class _Translations$editor$vi extends Translations$editor$en {
 	@override late final _Translations$editor$hud$vi hud = _Translations$editor$hud$vi._(_root);
 	@override String get pages => 'Trang';
 	@override String get untitled => 'Chưa đặt tên';
-	@override String get needsToSaveBeforeExiting => 'Đang lưu... Bạn có thể rời trình chỉnh sửa khi hoàn tất';
+	@override String get needsToSaveBeforeExiting => 'Đang lưu… Bạn có thể rời trình chỉnh sửa khi hoàn tất';
 }
 
 // Path: home.tabs
@@ -824,7 +824,7 @@ class _Translations$editor$quill$vi extends Translations$editor$quill$en {
 	final TranslationsVi _root; // ignore: unused_field
 
 	// Translations
-	@override String get typeSomething => 'Nhập gì đó...';
+	@override String get typeSomething => 'Nhập gì đó…';
 }
 
 // Path: editor.hud

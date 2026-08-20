@@ -229,7 +229,7 @@ class _Translations$editor$cs extends Translations$editor$en {
 	@override late final _Translations$editor$hud$cs hud = _Translations$editor$hud$cs._(_root);
 	@override String get pages => 'Stránky';
 	@override String get untitled => 'Nepojmenovaná poznámka';
-	@override String get needsToSaveBeforeExiting => 'Ukládání změn... Po skončení této operace můžete editor bezpečně opustit';
+	@override String get needsToSaveBeforeExiting => 'Ukládání změn… Po skončení této operace můžete editor bezpečně opustit';
 }
 
 // Path: home.tabs
@@ -824,7 +824,7 @@ class _Translations$editor$quill$cs extends Translations$editor$quill$en {
 	final TranslationsCs _root; // ignore: unused_field
 
 	// Translations
-	@override String get typeSomething => 'Něco sem napište...';
+	@override String get typeSomething => 'Něco sem napište…';
 }
 
 // Path: editor.hud

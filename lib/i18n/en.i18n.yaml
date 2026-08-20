@@ -363,7 +363,7 @@ editor:
     subtitle: Editing this note may result in some information being lost. Do you want to ignore this and edit it anyway?
     allowEditing: Allow editing
   quill:
-    typeSomething: Type something here...
+    typeSomething: Type something here…
   hud:
     unlockZoom: Unlock zoom
     lockZoom: Lock zoom
@@ -373,4 +373,4 @@ editor:
     lockAxisAlignedPan: Lock panning to horizontal or vertical
   pages: Pages
   untitled: Untitled
-  needsToSaveBeforeExiting: Saving your changes... You can safely exit the editor when it's done
+  needsToSaveBeforeExiting: Saving your changes… You can safely exit the editor when it's done

@@ -363,7 +363,7 @@ editor:
     subtitle: Edycja tej notatki może spowodować utratę niektórych informacji. Czy chcesz to zignorować i mimo wszystko ją edytować?
     allowEditing: Zezwól na edycje
   quill:
-    typeSomething: Wpisz coś tutaj...
+    typeSomething: Wpisz coś tutaj…
   hud:
     unlockZoom: Odblokuj powiększenie
     lockZoom: Zablokuj powiększenie
@@ -373,4 +373,4 @@ editor:
     lockAxisAlignedPan: Zablokuj przesuwanie w pionie lub w poziomie
   pages: Strony
   untitled: Bez tytułu
-  needsToSaveBeforeExiting: Zapisywanie twoich zmian... Możesz bezpiecznie zamknąć edytor kiedy się skończy
+  needsToSaveBeforeExiting: Zapisywanie twoich zmian… Możesz bezpiecznie zamknąć edytor kiedy się skończy

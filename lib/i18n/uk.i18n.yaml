@@ -363,7 +363,7 @@ editor:
     subtitle(OUTDATED): Редагування цієї нотатки може призвести до втрати деякої інформації. Ви хочете проігнорувати це та редагувати все одно?
     allowEditing(OUTDATED): Дозволити редагування
   quill:
-    typeSomething(OUTDATED): Напишіть щось тут...
+    typeSomething(OUTDATED): Напишіть щось тут…
   hud:
     unlockZoom(OUTDATED): Розблокувати зум
     lockZoom(OUTDATED): Заблокувати зум
@@ -373,4 +373,4 @@ editor:
     lockAxisAlignedPan(OUTDATED): Блокувати панораму на горизонтальну або вертикальну
   pages(OUTDATED): Сторінки
   untitled(OUTDATED): Без назви
-  needsToSaveBeforeExiting(OUTDATED): Збереження ваших змін... Ви можете безпечно вийти з редактора, коли він закінчиться
+  needsToSaveBeforeExiting(OUTDATED): Збереження ваших змін… Ви можете безпечно вийти з редактора, коли він закінчиться

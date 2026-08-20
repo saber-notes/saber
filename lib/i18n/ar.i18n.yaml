@@ -362,7 +362,7 @@ editor:
     subtitle: قد يؤدي تحرير هذه الملاحظة إلى ضياع بعض المعلومات. هل تريد تجاهل هذا وتعديله على أي حال؟
     allowEditing: السماح بالتعديل
   quill:
-    typeSomething: اكتب شيئًا هنا...
+    typeSomething: اكتب شيئًا هنا…
   hud:
     unlockZoom: إلغاء قفل التكبير
     lockZoom: قفل التكبير
@@ -372,4 +372,4 @@ editor:
     lockAxisAlignedPan: قفل التحريك إلى أفقي أو رأسي
   pages: صفحات
   untitled: بدون عنوان
-  needsToSaveBeforeExiting: حفظ التغييرات... يمكنك الخروج بأمان من المحرر عند الانتهاء
+  needsToSaveBeforeExiting: حفظ التغييرات… يمكنك الخروج بأمان من المحرر عند الانتهاء

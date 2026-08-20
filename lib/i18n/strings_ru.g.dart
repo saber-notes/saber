@@ -229,7 +229,7 @@ class _Translations$editor$ru extends Translations$editor$en {
 	@override late final _Translations$editor$hud$ru hud = _Translations$editor$hud$ru._(_root);
 	@override String get pages => 'Листы';
 	@override String get untitled => 'Без названия';
-	@override String get needsToSaveBeforeExiting => 'Сохраните Ваши изменения... Вы можете безопасно выйти из редактора, когда это будет сделано';
+	@override String get needsToSaveBeforeExiting => 'Сохраните Ваши изменения… Вы можете безопасно выйти из редактора, когда это будет сделано';
 }
 
 // Path: home.tabs
@@ -824,7 +824,7 @@ class _Translations$editor$quill$ru extends Translations$editor$quill$en {
 	final TranslationsRu _root; // ignore: unused_field
 
 	// Translations
-	@override String get typeSomething => 'Напишите что-нибудь здесь...';
+	@override String get typeSomething => 'Напишите что-нибудь здесь…';
 }
 
 // Path: editor.hud

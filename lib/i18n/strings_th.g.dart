@@ -228,7 +228,7 @@ class _Translations$editor$th extends Translations$editor$en {
 	@override late final _Translations$editor$hud$th hud = _Translations$editor$hud$th._(_root);
 	@override String get pages => 'หน้า';
 	@override String get untitled => 'ไม่มีชื่อ';
-	@override String get needsToSaveBeforeExiting => 'กำลังบันทึกการเปลี่ยนแปลง... คุณสามารถออกจากโปรแกรมแก้ไขได้อย่างปลอดภัยเมื่อเสร็จสิ้น';
+	@override String get needsToSaveBeforeExiting => 'กำลังบันทึกการเปลี่ยนแปลง… คุณสามารถออกจากโปรแกรมแก้ไขได้อย่างปลอดภัยเมื่อเสร็จสิ้น';
 }
 
 // Path: home.tabs
@@ -823,7 +823,7 @@ class _Translations$editor$quill$th extends Translations$editor$quill$en {
 	final TranslationsTh _root; // ignore: unused_field
 
 	// Translations
-	@override String get typeSomething => 'พิมพ์ข้อความตรงนี้...';
+	@override String get typeSomething => 'พิมพ์ข้อความตรงนี้…';
 }
 
 // Path: editor.hud
