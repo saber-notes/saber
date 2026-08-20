@@ -18,10 +18,13 @@ class const VerticalNavbar({
     final expandAnimation = expandAnimationController.drive(
       CurveTween(curve: Curves.easeInOut),
     );
-    final fullyCollapsed = useListenableSelector(
+
+    final isFullyCollapsed = useListenableSelector(
       expandAnimation,
       () => expandAnimation.value <= 0,
     );
+    final hasBeenExpanded = useRef(false);
+    hasBeenExpanded.value |= !isFullyCollapsed;
 
     final theme = Theme.of(context);
     final backgroundColor = switch (theme.platform) {
@@ -85,7 +88,12 @@ class const VerticalNavbar({
                   alignment: .topStart,
                   child: SizedBox(
                     width: minExpandedWidth,
-                    child: fullyCollapsed ? null : const FileTree(),
+                    child: hasBeenExpanded.value
+                        ? Offstage(
+                            offstage: isFullyCollapsed,
+                            child: const FileTree(),
+                          )
+                        : null,
                   ),
                 ),
               ),
