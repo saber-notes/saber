@@ -53,8 +53,6 @@ jobs:
         shell: bash
         run: flutter config --no-cli-animations
 
-      - run: ./patches/pre/remove_linux_dependencies.sh
-        shell: bash
       - run: ./patches/pre/remove_permission_handler.sh
         shell: bash
 

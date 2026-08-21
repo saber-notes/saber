@@ -16,7 +16,6 @@ cp -rl packages tmpfdroid/
   cd tmpfdroid
 
   # apply patches that F-Droid uses
-  ../patches/pre/remove_linux_dependencies.sh
   ../patches/pre/remove_proprietary_dependencies.sh
 
   # generate pubspec.lock

@@ -76,8 +76,6 @@ jobs:
       - name: Disable Flutter CLI animations
         run: flutter config --no-cli-animations
 
-      - run: ./patches/pre/remove_linux_dependencies.sh
-
       - name: Build for iOS
         run: |
           flutter build ipa \
