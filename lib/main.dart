@@ -32,6 +32,7 @@ import 'package:saber/pages/user/login.dart';
 import 'package:window_manager/window_manager.dart';
 import 'package:worker_manager/worker_manager.dart';
 import 'package:workmanager/workmanager.dart';
+import 'package:yaru/yaru.dart';
 
 Future<void> main(List<String> args) async {
   /// To set the flavor config e.g. for the Play Store, use:
@@ -87,6 +88,8 @@ Future<void> appRunner(List<String> args) async {
     stows.customDataDir.waitUntilRead().then((_) => FileManager.init()),
     if (Platform.isWindows || Platform.isLinux || Platform.isMacOS)
       windowManager.ensureInitialized(),
+    if (Platform.isWindows)
+      YaruWindowTitleBar.ensureInitialized(),
     workerManager.init(
       // Fewer isolates in debug mode to avoid slowing down hot reload
       isolatesCount: kDebugMode ? 1 : 2,
