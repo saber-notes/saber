@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -e
 
 echo -n "Removing onyxsdk_pen dependency from pubspec.yaml: "
 if grep -q "onyxsdk_pen" pubspec.yaml; then

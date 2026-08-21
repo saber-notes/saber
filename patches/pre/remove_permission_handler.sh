@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Remove the permission_handler dependency for Linux/Windows builds
 # as it adds unnecessary native code.
+set -e
 
 echo -n "Removing permission_handler from pubspec.yaml: "
 if grep -q permission_handler pubspec.yaml; then

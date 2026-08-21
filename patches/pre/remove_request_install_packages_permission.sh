@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -e
 
 echo "Warning: The remove_request_install_packages_permission patch is no longer necessary."
 echo "         Please remove it from your CI workflow."
