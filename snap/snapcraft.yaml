@@ -29,7 +29,6 @@ parts:
       - cmake
       - rustup
     override-build: |
-      ./patches/pre/remove_dev_dependencies.sh
       ./patches/pre/remove_permission_handler.sh
       ./patches/pre/remove_proprietary_dependencies.sh
       craftctl default

@@ -93,8 +93,6 @@ jobs:
         run: flutter config --no-cli-animations
         if: ${{ steps.cache.outputs.cache-hit == '' }}
 
-      - run: ./patches/pre/remove_dev_dependencies.sh
-        if: ${{ steps.cache.outputs.cache-hit == '' }}
       - run: ./patches/pre/remove_linux_dependencies.sh
         if: ${{ steps.cache.outputs.cache-hit == '' }}
       - run: flutter pub get
@@ -206,7 +204,6 @@ jobs:
       - name: Disable Flutter CLI animations
         run: flutter config --no-cli-animations
 
-      - run: ./patches/pre/remove_dev_dependencies.sh
       - run: ./patches/pre/remove_linux_dependencies.sh
       - run: ./patches/pre/remove_proprietary_dependencies.sh
         if: matrix.foss
