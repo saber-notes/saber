@@ -36,6 +36,13 @@ void parseArgs(List<String> args) {
     ..addFlag('major', abbr: 'M', negatable: false, help: 'Bump major version')
     ..addFlag('minor', abbr: 'm', negatable: false, help: 'Bump minor version')
     ..addFlag('patch', abbr: 'p', negatable: false, help: 'Bump patch version')
+    ..addFlag(
+      'same',
+      abbr: 's',
+      negatable: false,
+      help:
+          'Use the existing buildNumber (currently ${old_version_file.buildNumber})',
+    )
     ..addOption(
       'custom',
       abbr: 'c',
@@ -65,6 +72,8 @@ void parseArgs(List<String> args) {
     newVersion = oldVersion.bumpMinor();
   } else if (results.flag('patch')) {
     newVersion = oldVersion.bumpPatch();
+  } else if (results.flag('same')) {
+    newVersion = oldVersion;
   } else if (results.option('custom') != null) {
     final custom = results['custom']!;
     late final buildNumber = int.tryParse(custom);
