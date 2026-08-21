@@ -61,3 +61,6 @@ sentry-wizard
 coverage/
 /test-results.json
 /test-results.xml
+
+# temp files for fdroid pubspec.lock
+/tmpfdroid/

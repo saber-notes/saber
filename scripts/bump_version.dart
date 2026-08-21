@@ -234,6 +234,15 @@ Future<void> updateAllFiles() async {
     await metainfoFile.writeAsString(metainfoLines.join('\n'));
   }
 
+  if (!failOnChanges) {
+    // Skipped if we're running a test.
+    await Process.run(
+      './scripts/src/fdroid_generate_pubspec_lock.sh',
+      [],
+      runInShell: true,
+    );
+  }
+
   print('');
   print('Make sure to update the changelog files:');
   print('  - ${changelogFile.path}');
