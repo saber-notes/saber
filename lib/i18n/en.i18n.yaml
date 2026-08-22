@@ -118,6 +118,8 @@ settings:
     disableEraserAfterUse: Auto-disable the eraser
     hideFingerDrawingToggle: Hide the finger drawing toggle
     autoDisableFingerDrawingWhenStylusDetected: Auto-disable finger drawing
+    applePencilDoubleTap: Apple Pencil double tap
+    applePencilSqueeze: Apple Pencil squeeze
     editorPromptRename: Prompt you to rename new notes
     recentColorsDontSavePresets: Don't save preset colors in recent colors
     recentColorsLength: How many recent colors to store
@@ -179,6 +181,7 @@ settings:
     unsupported: This feature is currently only for developers. Using it will likely result in data loss.
   autosaveDisabled: Never
   shapeRecognitionDisabled: Never
+  applePencilGestureActionNone: None
 logs:
   logs: Logs
   viewLogs: View logs
