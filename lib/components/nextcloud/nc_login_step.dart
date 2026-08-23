@@ -223,8 +223,7 @@ class NcLoginStep extends HookWidget {
 }
 
 class _LoginFlowDialog extends StatefulWidget {
-  // ignore: unused_element_parameter
-  const new({super.key, required this.loginFlow});
+  const new({required this.loginFlow});
 
   final SaberLoginFlow loginFlow;
 
@@ -277,8 +276,7 @@ class _LoginFlowDialogState extends State<_LoginFlowDialog> {
 ///
 /// When pressed, the text will be replaced with a spinner for 10 seconds.
 class _FakeDoneButton extends StatefulWidget {
-  // ignore: unused_element_parameter
-  const new({super.key, required this.child});
+  const new({required this.child});
 
   final Widget child;
 

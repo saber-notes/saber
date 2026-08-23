@@ -7,7 +7,6 @@ import 'package:saber/i18n/strings.g.dart';
 
 class NewFolderDialog extends StatefulWidget {
   const new({
-    // ignore: unused_element_parameter
     super.key,
     required this.createFolder,
     required this.doesFolderExist,

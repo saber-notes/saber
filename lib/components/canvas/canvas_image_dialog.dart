@@ -169,13 +169,7 @@ class _CanvasImageDialogState extends State<CanvasImageDialog> {
 }
 
 class _CanvasImageDialogItem extends StatelessWidget {
-  const new({
-    // ignore: unused_element_parameter
-    super.key,
-    required this.onTap,
-    required this.title,
-    required this.child,
-  });
+  const new({required this.onTap, required this.title, required this.child});
 
   final VoidCallback? onTap;
   final String title;

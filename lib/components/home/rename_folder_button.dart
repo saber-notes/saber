@@ -40,8 +40,6 @@ class RenameFolderButton extends StatelessWidget {
 
 class _RenameFolderDialog extends StatefulWidget {
   const new({
-    // ignore: unused_element_parameter
-    super.key,
     required this.folderName,
     required this.doesFolderExist,
     required this.renameFolder,

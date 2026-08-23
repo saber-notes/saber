@@ -20,11 +20,7 @@ class FaqListView extends StatelessWidget {
 }
 
 class _FaqTile extends StatelessWidget {
-  const new({
-    // ignore: unused_element_parameter
-    super.key,
-    required this.item,
-  });
+  const new({required this.item});
 
   final FaqItem item;
 

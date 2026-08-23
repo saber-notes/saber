@@ -599,8 +599,6 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
 
 class _PagesBuilder extends StatelessWidget {
   const new({
-    // ignore: unused_element_parameter
-    super.key,
     required this.pages,
     required this.pageBuilder,
     required this.placeholderPageBuilder,
