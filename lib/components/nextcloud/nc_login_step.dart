@@ -17,18 +17,18 @@ import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/user/login.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+const _width = 400.0;
+
+/// Lighter than the actual Saber color for better contrast
+const _saberColor = Color(0xFFffd642);
+const _onSaberColor = Colors.black;
+const _saberColorDarkened = Color(0xFFc29800);
+const _ncColor = Color(0xFF0082c9);
+
 class NcLoginStep extends HookWidget {
   const new({super.key, required this.recheckCurrentStep});
 
   final void Function() recheckCurrentStep;
-
-  static const width = 400.0;
-
-  /// Lighter than the actual Saber color for better contrast
-  static const saberColor = Color(0xFFffd642);
-  static const onSaberColor = Colors.black;
-  static const saberColorDarkened = Color(0xFFc29800);
-  static const ncColor = Color(0xFF0082c9);
 
   SaberLoginFlow _createLoginFlow(BuildContext context, Uri serverUrl) {
     final loginFlow = SaberLoginFlow.start(serverUrl: serverUrl);
@@ -69,9 +69,146 @@ class NcLoginStep extends HookWidget {
     return loginFlow;
   }
 
-  static String _prependHttpsIfMissing(String url) =>
-      url.startsWith(RegExp(r'https?://')) ? url : 'https://$url';
+  @override
+  Widget build(BuildContext context) {
+    final loginFlow = useState<SaberLoginFlow?>(null);
+    // dispose the login flow when it changes or the widget is disposed
+    useEffect(() => loginFlow.value?.dispose, [loginFlow.value]);
 
+    final screenWidth = MediaQuery.sizeOf(context).width;
+    return ListView(
+      padding: .symmetric(
+        horizontal: screenWidth > _width ? (screenWidth - _width) / 2 : 16,
+        vertical: 16,
+      ),
+      children: [
+        const SizedBox(height: 16),
+        const _Header(),
+        const SizedBox(height: 32),
+        _LoginWithSaber(
+          login: () => loginFlow.value = _createLoginFlow(
+            context,
+            NextcloudClientExtension.defaultNextcloudUri,
+          ),
+        ),
+        const SizedBox(height: 32),
+        _LoginWithNextcloud(
+          login: (url) =>
+              loginFlow.value = _createLoginFlow(context, Uri.parse(url)),
+        ),
+      ],
+    );
+  }
+}
+
+class const _Header() extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    return Column(
+      crossAxisAlignment: .start,
+      children: [
+        const _HeaderImage(),
+        Text(
+          t.login.ncLoginStep.whereToStoreData,
+          style: theme.textTheme.headlineSmall,
+        ),
+        Text.rich(
+          t.login.form.agreeToPrivacyPolicy(
+            linkToPrivacyPolicy: (text) => TextSpan(
+              text: text,
+              style: TextStyle(color: theme.colorScheme.primary),
+              recognizer: TapGestureRecognizer()
+                ..onTap = () {
+                  launchUrl(AppInfo.privacyPolicyUrl);
+                },
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class const _HeaderImage() extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final screenSize = MediaQuery.sizeOf(context);
+
+    // Remove banner image on tiny screens to save space
+    if (screenSize.height < 500) return const SizedBox();
+
+    final maxHeight = screenSize.height * 0.25;
+
+    return Padding(
+      padding: .only(bottom: min(64, screenSize.height * 0.05)),
+      child: SvgPicture.asset(
+        'assets/images/undraw_cloud_sync_re_02p1.svg',
+        width: _width,
+        height: min(_width * 576 / 844.6693, maxHeight),
+        excludeFromSemantics: true,
+      ),
+    );
+  }
+}
+
+class const _LoginWithSaber({required final VoidCallback login})
+    extends HookWidget {
+  @override
+  Widget build(BuildContext context) {
+    final buttonStyle = useMemoized(
+      () => _buttonStyleFromBrand(_saberColor, _onSaberColor),
+      const [],
+    );
+
+    final theme = Theme.of(context);
+    return Column(
+      crossAxisAlignment: .stretch,
+      children: [
+        Row(
+          mainAxisAlignment: .end,
+          children: [
+            SvgPicture.asset('assets/icon/icon.svg', width: 32, height: 32),
+            const SizedBox(width: 16),
+            Expanded(
+              child: Text(
+                t.login.ncLoginStep.saberNcServer,
+                style: theme.textTheme.headlineSmall,
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(height: 16),
+        ElevatedButton(
+          onPressed: login,
+          style: buttonStyle,
+          child: Text(t.login.ncLoginStep.loginWithSaber),
+        ),
+        const SizedBox(height: 4),
+        Text.rich(
+          t.login.signup(
+            linkToSignup: (text) => TextSpan(
+              text: text,
+              style: TextStyle(
+                color: theme.colorScheme.brightness == .dark
+                    ? _saberColor
+                    : _saberColorDarkened,
+              ),
+              recognizer: TapGestureRecognizer()
+                ..onTap = () {
+                  launchUrl(NcLoginPage.signupUrl);
+                },
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class const _LoginWithNextcloud({
+  required final void Function(String url) login,
+}) extends HookWidget {
   @override
   Widget build(BuildContext context) {
     final serverUrlController = useTextEditingController();
@@ -81,87 +218,15 @@ class NcLoginStep extends HookWidget {
       return validator.url(url);
     });
 
-    final loginFlow = useState<SaberLoginFlow?>(null);
-    // dispose the login flow when it changes or the widget is disposed
-    useEffect(() => loginFlow.value?.dispose, [loginFlow.value]);
+    final buttonStyle = useMemoized(
+      () => _buttonStyleFromBrand(_ncColor),
+      const [],
+    );
 
-    final colorScheme = ColorScheme.of(context);
-    final textTheme = TextTheme.of(context);
-    final screenWidth = MediaQuery.sizeOf(context).width;
-    final screenHeight = MediaQuery.sizeOf(context).height;
-    return ListView(
-      padding: .symmetric(
-        horizontal: screenWidth > width ? (screenWidth - width) / 2 : 16,
-        vertical: 16,
-      ),
+    final theme = Theme.of(context);
+    return Column(
+      crossAxisAlignment: .stretch,
       children: [
-        const SizedBox(height: 16),
-        if (screenHeight > 500) ...[
-          SvgPicture.asset(
-            'assets/images/undraw_cloud_sync_re_02p1.svg',
-            width: width,
-            height: min(width * 576 / 844.6693, screenHeight * 0.25),
-            excludeFromSemantics: true,
-          ),
-          SizedBox(height: min(64, screenHeight * 0.05)),
-        ],
-        Text(
-          t.login.ncLoginStep.whereToStoreData,
-          style: textTheme.headlineSmall,
-        ),
-        Text.rich(
-          t.login.form.agreeToPrivacyPolicy(
-            linkToPrivacyPolicy: (text) => TextSpan(
-              text: text,
-              style: TextStyle(color: colorScheme.primary),
-              recognizer: TapGestureRecognizer()
-                ..onTap = () {
-                  launchUrl(AppInfo.privacyPolicyUrl);
-                },
-            ),
-          ),
-        ),
-        const SizedBox(height: 32),
-        Row(
-          mainAxisAlignment: .end,
-          children: [
-            SvgPicture.asset('assets/icon/icon.svg', width: 32, height: 32),
-            const SizedBox(width: 16),
-            Expanded(
-              child: Text(
-                t.login.ncLoginStep.saberNcServer,
-                style: textTheme.headlineSmall,
-              ),
-            ),
-          ],
-        ),
-        const SizedBox(height: 16),
-        ElevatedButton(
-          onPressed: () => loginFlow.value = _createLoginFlow(
-            context,
-            NextcloudClientExtension.defaultNextcloudUri,
-          ),
-          style: buttonColorStyle(saberColor, onSaberColor),
-          child: Text(t.login.ncLoginStep.loginWithSaber),
-        ),
-        const SizedBox(height: 4),
-        Text.rich(
-          t.login.signup(
-            linkToSignup: (text) => TextSpan(
-              text: text,
-              style: TextStyle(
-                color: colorScheme.brightness == .dark
-                    ? saberColor
-                    : saberColorDarkened,
-              ),
-              recognizer: TapGestureRecognizer()
-                ..onTap = () {
-                  launchUrl(NcLoginPage.signupUrl);
-                },
-            ),
-          ),
-        ),
-        const SizedBox(height: 32),
         Row(
           mainAxisAlignment: .end,
           children: [
@@ -174,7 +239,7 @@ class NcLoginStep extends HookWidget {
             Expanded(
               child: Text(
                 t.login.ncLoginStep.otherNcServer,
-                style: textTheme.headlineSmall,
+                style: theme.textTheme.headlineSmall,
               ),
             ),
           ],
@@ -196,28 +261,13 @@ class NcLoginStep extends HookWidget {
                   serverUrlController.text = _prependHttpsIfMissing(
                     serverUrlController.text,
                   );
-                  loginFlow.value = _createLoginFlow(
-                    context,
-                    Uri.parse(serverUrlController.text),
-                  );
+                  login(serverUrlController.text);
                 }
               : null,
-          style: buttonColorStyle(ncColor),
+          style: buttonStyle,
           child: Text(t.login.ncLoginStep.loginWithNextcloud),
         ),
       ],
-    );
-  }
-
-  static ButtonStyle buttonColorStyle(Color primary, [Color? onPrimary]) {
-    final colorScheme = ColorScheme.fromSeed(
-      seedColor: primary,
-      primary: primary,
-      onPrimary: onPrimary,
-    );
-    return ElevatedButton.styleFrom(
-      backgroundColor: colorScheme.primary,
-      foregroundColor: colorScheme.onPrimary,
     );
   }
 }
@@ -292,4 +342,19 @@ class const _FakeDoneButton({required final Widget child}) extends HookWidget {
           : child,
     );
   }
+}
+
+String _prependHttpsIfMissing(String url) =>
+    url.startsWith(RegExp(r'https?://')) ? url : 'https://$url';
+
+ButtonStyle _buttonStyleFromBrand(Color primary, [Color? onPrimary]) {
+  final colorScheme = ColorScheme.fromSeed(
+    seedColor: primary,
+    primary: primary,
+    onPrimary: onPrimary,
+  );
+  return ElevatedButton.styleFrom(
+    backgroundColor: colorScheme.primary,
+    foregroundColor: colorScheme.onPrimary,
+  );
 }
