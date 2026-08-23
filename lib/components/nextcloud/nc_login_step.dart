@@ -222,27 +222,18 @@ class NcLoginStep extends HookWidget {
   }
 }
 
-class _LoginFlowDialog extends StatefulWidget {
-  const new({required this.loginFlow});
-
-  final SaberLoginFlow loginFlow;
-
-  @override
-  State<_LoginFlowDialog> createState() => _LoginFlowDialogState();
-}
-
-class _LoginFlowDialogState extends State<_LoginFlowDialog> {
-  @override
-  void initState() {
-    super.initState();
-    widget.loginFlow.future.then((_) {
-      if (!mounted) return;
-      Navigator.of(context).pop();
-    });
-  }
-
+class const _LoginFlowDialog({required final SaberLoginFlow loginFlow})
+    extends HookWidget {
   @override
   Widget build(BuildContext context) {
+    useMemoized(
+      () => loginFlow.future.then((_) {
+        if (!context.mounted) return;
+        Navigator.of(context).pop();
+      }),
+      [loginFlow],
+    );
+
     return AlertDialog.adaptive(
       title: Text(t.login.ncLoginStep.loginFlow.pleaseAuthorize),
       content: Column(
@@ -250,7 +241,7 @@ class _LoginFlowDialogState extends State<_LoginFlowDialog> {
         children: [
           Text(t.login.ncLoginStep.loginFlow.followPrompts),
           TextButton(
-            onPressed: widget.loginFlow.openLoginUrl,
+            onPressed: loginFlow.openLoginUrl,
             child: Text(t.login.ncLoginStep.loginFlow.browserDidntOpen),
           ),
         ],
@@ -258,7 +249,7 @@ class _LoginFlowDialogState extends State<_LoginFlowDialog> {
       actions: [
         TextButton(
           onPressed: () {
-            widget.loginFlow.dispose();
+            loginFlow.dispose();
             Navigator.of(context).pop();
           },
           child: Text(t.common.cancel),
@@ -275,37 +266,30 @@ class _LoginFlowDialogState extends State<_LoginFlowDialog> {
 /// closing the dialog before the login flow is completed.
 ///
 /// When pressed, the text will be replaced with a spinner for 2 seconds.
-class _FakeDoneButton extends StatefulWidget {
-  const new({required this.child});
-
-  final Widget child;
-
+class const _FakeDoneButton({required final Widget child}) extends HookWidget {
   @override
-  State<_FakeDoneButton> createState() => _FakeDoneButtonState();
-}
+  Widget build(BuildContext context) {
+    final pressed = useState(false);
+    final timer = useRef<Timer?>(null);
+    useEffect(() => timer.value?.cancel, [timer.value]);
 
-class _FakeDoneButtonState extends State<_FakeDoneButton> {
-  var pressed = false;
-
-  Timer? timer;
-
-  void _onPressed() {
-    timer?.cancel();
-    timer = Timer(const Duration(seconds: 2), () {
-      if (mounted) setState(() => pressed = false);
-    });
-    if (mounted) setState(() => pressed = true);
+    return TextButton(
+      onPressed: pressed.value
+          ? null
+          : () {
+              timer.value?.cancel();
+              timer.value = Timer(const Duration(seconds: 2), () {
+                pressed.value = false;
+              });
+              pressed.value = true;
+            },
+      child: pressed.value
+          ? const SizedBox(
+              width: 16,
+              height: 16,
+              child: AdaptiveCircularProgressIndicator(),
+            )
+          : child,
+    );
   }
-
-  @override
-  Widget build(BuildContext context) => TextButton(
-    onPressed: pressed ? null : _onPressed,
-    child: pressed
-        ? const SizedBox(
-            width: 16,
-            height: 16,
-            child: AdaptiveCircularProgressIndicator(),
-          )
-        : widget.child,
-  );
 }
