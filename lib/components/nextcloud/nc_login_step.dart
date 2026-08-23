@@ -75,29 +75,66 @@ class NcLoginStep extends HookWidget {
     // dispose the login flow when it changes or the widget is disposed
     useEffect(() => loginFlow.value?.dispose, [loginFlow.value]);
 
-    final screenWidth = MediaQuery.sizeOf(context).width;
-    return ListView(
-      padding: .symmetric(
-        horizontal: screenWidth > _width ? (screenWidth - _width) / 2 : 16,
-        vertical: 16,
-      ),
-      children: [
-        const SizedBox(height: 16),
-        const _Header(),
-        const SizedBox(height: 32),
-        _LoginWithSaber(
-          login: () => loginFlow.value = _createLoginFlow(
-            context,
-            NextcloudClientExtension.defaultNextcloudUri,
+    final screenSize = MediaQuery.sizeOf(context);
+    final shouldUseTwoColumns = _shouldUseTwoColumns(screenSize);
+    if (shouldUseTwoColumns) {
+      return Center(
+        child: Row(
+          mainAxisAlignment: .center,
+          crossAxisAlignment: .end,
+          spacing: 64,
+          children: [
+            const SizedBox(width: _width, child: _Header()),
+            SizedBox(
+              width: _width,
+              child: Column(
+                mainAxisSize: .min,
+                spacing: 48,
+                children: [
+                  _LoginWithSaber(
+                    login: () => loginFlow.value = _createLoginFlow(
+                      context,
+                      NextcloudClientExtension.defaultNextcloudUri,
+                    ),
+                  ),
+                  _LoginWithNextcloud(
+                    login: (url) => loginFlow.value = _createLoginFlow(
+                      context,
+                      Uri.parse(url),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      );
+    } else {
+      return ListView(
+        padding: .symmetric(
+          horizontal: screenSize.width > _width
+              ? (screenSize.width - _width) / 2
+              : 16,
+          vertical: 16,
+        ),
+        children: [
+          const SizedBox(height: 16),
+          const _Header(),
+          const SizedBox(height: 32),
+          _LoginWithSaber(
+            login: () => loginFlow.value = _createLoginFlow(
+              context,
+              NextcloudClientExtension.defaultNextcloudUri,
+            ),
           ),
-        ),
-        const SizedBox(height: 32),
-        _LoginWithNextcloud(
-          login: (url) =>
-              loginFlow.value = _createLoginFlow(context, Uri.parse(url)),
-        ),
-      ],
-    );
+          const SizedBox(height: 32),
+          _LoginWithNextcloud(
+            login: (url) =>
+                loginFlow.value = _createLoginFlow(context, Uri.parse(url)),
+          ),
+        ],
+      );
+    }
   }
 }
 
@@ -106,7 +143,8 @@ class const _Header() extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Column(
-      crossAxisAlignment: .start,
+      mainAxisSize: .min,
+      crossAxisAlignment: .stretch,
       children: [
         const _HeaderImage(),
         Text(
@@ -138,7 +176,9 @@ class const _HeaderImage() extends StatelessWidget {
     // Remove banner image on tiny screens to save space
     if (screenSize.height < 500) return const SizedBox();
 
-    final maxHeight = screenSize.height * 0.25;
+    final maxHeight = _shouldUseTwoColumns(screenSize)
+        ? screenSize.height * 0.5
+        : screenSize.height * 0.25;
 
     return Padding(
       padding: .only(bottom: min(64, screenSize.height * 0.05)),
@@ -342,6 +382,13 @@ class const _FakeDoneButton({required final Widget child}) extends HookWidget {
           : child,
     );
   }
+}
+
+bool _shouldUseTwoColumns(Size screenSize) {
+  const minWidthForTwoColumns = _width * 2 + 64;
+  const minHeightForTwoColumns = _width * 1.5;
+  return screenSize.width > minWidthForTwoColumns &&
+      screenSize.height > minHeightForTwoColumns;
 }
 
 String _prependHttpsIfMissing(String url) =>
