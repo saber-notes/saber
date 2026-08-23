@@ -79,34 +79,47 @@ class NcLoginStep extends HookWidget {
     final shouldUseTwoColumns = _shouldUseTwoColumns(screenSize);
     if (shouldUseTwoColumns) {
       return Center(
-        child: Row(
-          mainAxisAlignment: .center,
-          crossAxisAlignment: .end,
-          spacing: 64,
-          children: [
-            const SizedBox(width: _width, child: _Header()),
-            SizedBox(
-              width: _width,
-              child: Column(
-                mainAxisSize: .min,
-                spacing: 48,
-                children: [
-                  _LoginWithSaber(
-                    login: () => loginFlow.value = _createLoginFlow(
-                      context,
-                      NextcloudClientExtension.defaultNextcloudUri,
-                    ),
+        child: Padding(
+          padding: const .all(64),
+          child: SizedBox(
+            width: _width * 3,
+            child: Row(
+              mainAxisAlignment: .center,
+              crossAxisAlignment: .end,
+              spacing: 64,
+              children: [
+                const Expanded(
+                  child: Column(
+                    mainAxisSize: .min,
+                    children: [
+                      _Header(),
+                      Flexible(child: SizedBox(height: _width / 2)),
+                    ],
                   ),
-                  _LoginWithNextcloud(
-                    login: (url) => loginFlow.value = _createLoginFlow(
-                      context,
-                      Uri.parse(url),
-                    ),
+                ),
+                Expanded(
+                  child: Column(
+                    mainAxisSize: .min,
+                    spacing: 48,
+                    children: [
+                      _LoginWithSaber(
+                        login: () => loginFlow.value = _createLoginFlow(
+                          context,
+                          NextcloudClientExtension.defaultNextcloudUri,
+                        ),
+                      ),
+                      _LoginWithNextcloud(
+                        login: (url) => loginFlow.value = _createLoginFlow(
+                          context,
+                          Uri.parse(url),
+                        ),
+                      ),
+                    ],
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
-          ],
+          ),
         ),
       );
     } else {
@@ -177,7 +190,7 @@ class const _HeaderImage() extends StatelessWidget {
     if (screenSize.height < 500) return const SizedBox();
 
     final maxHeight = _shouldUseTwoColumns(screenSize)
-        ? screenSize.height * 0.5
+        ? screenSize.height * 0.3
         : screenSize.height * 0.25;
 
     return Padding(
@@ -385,7 +398,7 @@ class const _FakeDoneButton({required final Widget child}) extends HookWidget {
 }
 
 bool _shouldUseTwoColumns(Size screenSize) {
-  const minWidthForTwoColumns = _width * 2 + 64;
+  const minWidthForTwoColumns = _width * 2;
   const minHeightForTwoColumns = _width * 1.5;
   return screenSize.width > minWidthForTwoColumns &&
       screenSize.height > minHeightForTwoColumns;
