@@ -40,6 +40,7 @@ class _NcLoginStepState extends State<NcLoginStep> {
 
     showAdaptiveDialog(
       context: context,
+      barrierDismissible: false,
       builder: (context) => _LoginFlowDialog(loginFlow: loginFlow),
     );
 
