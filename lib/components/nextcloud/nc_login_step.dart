@@ -17,16 +17,11 @@ import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/user/login.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class NcLoginStep extends StatefulHookWidget {
+class NcLoginStep extends HookWidget {
   const new({super.key, required this.recheckCurrentStep});
 
   final void Function() recheckCurrentStep;
 
-  @override
-  State<NcLoginStep> createState() => _NcLoginStepState();
-}
-
-class _NcLoginStepState extends State<NcLoginStep> {
   static const width = 400.0;
 
   /// Lighter than the actual Saber color for better contrast
@@ -35,7 +30,7 @@ class _NcLoginStepState extends State<NcLoginStep> {
   static const saberColorDarkened = Color(0xFFc29800);
   static const ncColor = Color(0xFF0082c9);
 
-  SaberLoginFlow _createLoginFlow(Uri serverUrl) {
+  SaberLoginFlow _createLoginFlow(BuildContext context, Uri serverUrl) {
     final loginFlow = SaberLoginFlow.start(serverUrl: serverUrl);
 
     showAdaptiveDialog(
@@ -68,7 +63,7 @@ class _NcLoginStepState extends State<NcLoginStep> {
           .then((response) => response.body)
           .then((pfp) => stows.pfp.value = pfp);
 
-      widget.recheckCurrentStep();
+      recheckCurrentStep();
     });
 
     return loginFlow;
@@ -143,6 +138,7 @@ class _NcLoginStepState extends State<NcLoginStep> {
         const SizedBox(height: 16),
         ElevatedButton(
           onPressed: () => loginFlow.value = _createLoginFlow(
+            context,
             NextcloudClientExtension.defaultNextcloudUri,
           ),
           style: buttonColorStyle(saberColor, onSaberColor),
@@ -201,6 +197,7 @@ class _NcLoginStepState extends State<NcLoginStep> {
                     serverUrlController.text,
                   );
                   loginFlow.value = _createLoginFlow(
+                    context,
                     Uri.parse(serverUrlController.text),
                   );
                 }
