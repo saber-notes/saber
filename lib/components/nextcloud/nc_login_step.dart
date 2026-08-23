@@ -274,7 +274,7 @@ class _LoginFlowDialogState extends State<_LoginFlowDialog> {
 /// The done button isn't needed, but it's added to prevent the user from
 /// closing the dialog before the login flow is completed.
 ///
-/// When pressed, the text will be replaced with a spinner for 10 seconds.
+/// When pressed, the text will be replaced with a spinner for 2 seconds.
 class _FakeDoneButton extends StatefulWidget {
   const new({required this.child});
 
@@ -291,7 +291,7 @@ class _FakeDoneButtonState extends State<_FakeDoneButton> {
 
   void _onPressed() {
     timer?.cancel();
-    timer = Timer(const Duration(seconds: 10), () {
+    timer = Timer(const Duration(seconds: 2), () {
       if (mounted) setState(() => pressed = false);
     });
     if (mounted) setState(() => pressed = true);
