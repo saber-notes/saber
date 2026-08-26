@@ -88,15 +88,7 @@ class NcLoginStep extends HookWidget {
               crossAxisAlignment: .end,
               spacing: 64,
               children: [
-                const Expanded(
-                  child: Column(
-                    mainAxisSize: .min,
-                    children: [
-                      _Header(),
-                      Flexible(child: SizedBox(height: _width / 2)),
-                    ],
-                  ),
-                ),
+                const Expanded(child: _Header()),
                 Expanded(
                   child: Column(
                     mainAxisSize: .min,
