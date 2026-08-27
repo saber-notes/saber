@@ -38,7 +38,10 @@ abstract class SaberTheme {
     late final yaruVariant = YaruBuilder.getYaruVariant(seedColor);
     if (platform == .linux) {
       return getThemeFromYaru(
-        YaruThemeData(variant: yaruVariant),
+        YaruThemeData(
+          variant: yaruVariant,
+          visualDensity: .defaultDensityForPlatform(platform),
+        ),
         brightness,
         platform,
         highContrast,
