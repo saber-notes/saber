@@ -392,7 +392,9 @@ class const _FakeDoneButton({required final Widget child}) extends HookWidget {
 bool _shouldUseTwoColumns(Size screenSize) {
   const minWidthForTwoColumns = _width * 2;
   const minHeightForTwoColumns = _width * 1.5;
-  return screenSize.width > minWidthForTwoColumns &&
+  final landscape = screenSize.width >= screenSize.height;
+  return landscape &&
+      screenSize.width > minWidthForTwoColumns &&
       screenSize.height > minHeightForTwoColumns;
 }
 
