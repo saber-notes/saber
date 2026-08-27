@@ -85,10 +85,12 @@ class NcLoginStep extends HookWidget {
             width: _width * 3,
             child: Row(
               mainAxisAlignment: .center,
-              crossAxisAlignment: .end,
+              crossAxisAlignment: .start,
               spacing: 64,
               children: [
-                const Expanded(child: _Header()),
+                Expanded(
+                  child: _Header(shouldUseTwoColumns: shouldUseTwoColumns),
+                ),
                 Expanded(
                   child: Column(
                     mainAxisSize: .min,
@@ -124,7 +126,7 @@ class NcLoginStep extends HookWidget {
         ),
         children: [
           const SizedBox(height: 16),
-          const _Header(),
+          _Header(shouldUseTwoColumns: shouldUseTwoColumns),
           const SizedBox(height: 32),
           _LoginWithSaber(
             login: () => loginFlow.value = _createLoginFlow(
@@ -143,7 +145,8 @@ class NcLoginStep extends HookWidget {
   }
 }
 
-class const _Header() extends StatelessWidget {
+class const _Header({required final bool shouldUseTwoColumns})
+    extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -151,7 +154,8 @@ class const _Header() extends StatelessWidget {
       mainAxisSize: .min,
       crossAxisAlignment: .stretch,
       children: [
-        const _HeaderImage(),
+        if (!shouldUseTwoColumns)
+          _HeaderImage(shouldUseTwoColumns: shouldUseTwoColumns),
         Text(
           t.login.ncLoginStep.whereToStoreData,
           style: theme.textTheme.headlineSmall,
@@ -168,12 +172,15 @@ class const _Header() extends StatelessWidget {
             ),
           ),
         ),
+        if (shouldUseTwoColumns)
+          _HeaderImage(shouldUseTwoColumns: shouldUseTwoColumns),
       ],
     );
   }
 }
 
-class const _HeaderImage() extends StatelessWidget {
+class const _HeaderImage({required final bool shouldUseTwoColumns})
+    extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.sizeOf(context);
@@ -181,7 +188,7 @@ class const _HeaderImage() extends StatelessWidget {
     // Remove banner image on tiny screens to save space
     if (screenSize.height < 500) return const SizedBox();
 
-    final maxHeight = _shouldUseTwoColumns(screenSize)
+    final maxHeight = shouldUseTwoColumns
         ? screenSize.height * 0.3
         : screenSize.height * 0.25;
 
