@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:saber/components/theming/yaru_builder.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:sbn/font_fallbacks.dart';
 import 'package:yaru/yaru.dart';
@@ -35,24 +34,22 @@ abstract class SaberTheme {
     )
     bool highContrast = false,
   }) {
-    late final yaruVariant = YaruBuilder.getYaruVariant(seedColor);
     if (platform == .linux) {
-      return getThemeFromYaru(
-        YaruThemeData(
-          variant: yaruVariant,
-          visualDensity: .defaultDensityForPlatform(platform),
-        ),
-        brightness,
-        platform,
-        highContrast,
-      );
+      return getThemeFromYaru(seedColor, brightness, platform, highContrast);
     }
 
     final ColorScheme colorScheme;
-    if (platform.usesYaruColors) {
-      colorScheme = brightness == .light
-          ? yaruVariant.theme.colorScheme
-          : yaruVariant.darkTheme.colorScheme;
+    if (platform.isCupertino) {
+      final bg = brightness == .light
+          ? CupertinoColors.systemBackground.color
+          : CupertinoColors.systemBackground.darkColor;
+      colorScheme = ColorScheme.fromSeed(
+        brightness: brightness,
+        seedColor: seedColor,
+        surface: bg,
+        surfaceTint: bg,
+        dynamicSchemeVariant: .neutral,
+      );
     } else {
       colorScheme = ColorScheme.fromSeed(
         brightness: brightness,
@@ -85,14 +82,27 @@ abstract class SaberTheme {
   }
 
   static ThemeData getThemeFromYaru(
-    YaruThemeData yaru,
+    Color primaryColor,
     Brightness brightness,
     TargetPlatform platform,
     bool highContrast,
   ) {
-    final base = highContrast
-        ? (brightness == .light ? yaruHighContrastLight : yaruHighContrastDark)
-        : (brightness == .light ? yaru.theme : yaru.darkTheme);
+    var base = brightness == .light
+        ? createYaruLightTheme(
+            primaryColor: primaryColor,
+            fontFamily: stows.hyperlegibleFont.value
+                ? 'AtkinsonHyperlegibleNext'
+                : 'Adwaita Sans',
+            fontFamilyFallback: saberSansSerifFontFallbacks,
+          )
+        : createYaruDarkTheme(
+            primaryColor: primaryColor,
+            fontFamily: stows.hyperlegibleFont.value
+                ? 'AtkinsonHyperlegibleNext'
+                : 'Adwaita Sans',
+            fontFamilyFallback: saberSansSerifFontFallbacks,
+          );
+    base = base.copyWith(visualDensity: .defaultDensityForPlatform(platform));
     return getThemeFromYaruFixed(base, platform);
   }
 
@@ -186,14 +196,6 @@ abstract class _Components {
 }
 
 extension SaberThemePlatform on TargetPlatform {
-  /// iOS uses Yaru's colorscheme since it looks more native than M3.
-  bool get usesYaruColors => switch (this) {
-    .linux => true,
-    .iOS => true,
-    .macOS => true,
-    _ => false,
-  };
-
   bool get isCupertino => switch (this) {
     .iOS => true,
     .macOS => true,

@@ -96,15 +96,15 @@ class DynamicMaterialAppState extends State<DynamicMaterialApp>
       return YaruBuilder(
         primary: chosenAccentColor, // if null, falls back to system color
         platform: platform,
-        builder: (context, themes) {
+        builder: (context, theme) {
           return ExplicitlyThemedApp(
             title: widget.title,
             router: widget.router,
             themeMode: themeMode,
-            theme: themes.theme,
-            darkTheme: themes.darkTheme,
-            highContrastTheme: themes.highContrastTheme,
-            highContrastDarkTheme: themes.highContrastDarkTheme,
+            theme: theme,
+            darkTheme: theme,
+            highContrastTheme: theme,
+            highContrastDarkTheme: theme,
           );
         },
       );
@@ -136,14 +136,14 @@ class DynamicMaterialAppState extends State<DynamicMaterialApp>
           title: widget.title,
           router: widget.router,
           themeMode: themeMode,
-          theme: (!platform.usesYaruColors && lightColorScheme != null)
+          theme: (platform == .android && lightColorScheme != null)
               ? SaberTheme.createTheme(lightColorScheme, platform)
               : SaberTheme.createThemeFromSeed(
                   lightColorScheme?.primary ?? widget.defaultSwatch,
                   .light,
                   platform,
                 ),
-          darkTheme: (!platform.usesYaruColors && darkColorScheme != null)
+          darkTheme: (platform == .android && darkColorScheme != null)
               ? SaberTheme.createTheme(darkColorScheme, platform)
               : SaberTheme.createThemeFromSeed(
                   darkColorScheme?.primary ?? widget.defaultSwatch,

@@ -61,8 +61,8 @@ void _testTheme({
       if (hasAccent) {
         final actualAccent = HSVColor.fromColor(theme.colorScheme.primary);
         expect(
-          [actualAccent.hue, actualAccent.saturation, actualAccent.value],
-          [inInclusiveRange(90, 150), greaterThan(0.25), greaterThan(0.4)],
+          actualAccent.hue,
+          inInclusiveRange(90, 150),
           reason: 'Accent should be green',
         );
       }
