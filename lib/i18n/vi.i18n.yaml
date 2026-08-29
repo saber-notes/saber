@@ -253,6 +253,7 @@ profile:
       Nhấn vào "@:profile.quickLinks.deleteAccount" ở trên và đăng nhập nếu được yêu cầu.
       Nếu bạn đang sử dụng máy chủ chính thức của Saber, tài khoản của bạn sẽ được xóa sau thời gian chờ 1 tuần. Trong khoảng thời gian này, bạn có thể liên hệ với tôi qua địa chỉ adilhanney@disroot.org để hủy yêu cầu xóa.
       Nếu bạn đang sử dụng máy chủ của bên thứ ba, có thể sẽ không có tùy chọn xóa tài khoản: bạn sẽ cần tham khảo chính sách quyền riêng tư của máy chủ đó để biết thêm thông tin.
+  quotaUsageUncapped(OUTDATED): Bạn đang sử dụng $used
 appInfo:
   licenseNotice: |-
     Saber  Copyright © 2022-$buildYear  Adil Hanney

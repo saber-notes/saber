@@ -253,6 +253,7 @@ profile:
       Tocca il pulsante "@:profile.quickLinks.deleteAccount" in alto e, se necessario, accedi.
       Se stai utilizzando il server Saber ufficiale, il tuo account verrà eliminato dopo un periodo di tolleranza di 1 settimana. Puoi contattarmi all'indirizzo adilhanney@disroot.org durante questo periodo per annullare l'eliminazione.
       Se stai utilizzando un server di terze parti, potrebbe non esserci un'opzione per eliminare il tuo account: dovrai consultare la politica sulla privacy del server per ulteriori informazioni.
+  quotaUsageUncapped(OUTDATED): Stai usando $used
 appInfo:
   licenseNotice: |-
     Saber Copyright © 2022-$buildYear Adil Hanney

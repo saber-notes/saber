@@ -253,6 +253,7 @@ profile:
       Kliknij "@:profile.quickLinks.deleteAccount" przycisk powyżej i zaloguj się jeżeli to wymagane.
       Jeśli korzystasz z oficjalnego serwera Saber, Twoje konto zostanie usunięte po tygodniu. W tym czasie możesz skontaktować się ze mną pod adresem adilhanney@disroot.org, aby anulować usunięcie.
       Jeśli korzystasz z serwera zewnętrznego, opcja usunięcia konta może nie być dostępna: aby uzyskać więcej informacji, musisz zapoznać się z polityką prywatności serwera.
+  quotaUsageUncapped(OUTDATED): Używasz $used
 appInfo:
   licenseNotice: |-
     Saber  Copyright © 2022-$buildYear  Adil Hanney

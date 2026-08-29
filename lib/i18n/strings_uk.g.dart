@@ -180,6 +180,7 @@ class _Translations$profile$uk extends Translations$profile$en {
 	@override String quotaUsage({required Object used, required Object total, required Object percent}) => 'Ви використовуєте ${used} з ${total} (${percent}%)';
 	@override String get connectedTo => 'Підключено до';
 	@override String get faqTitle => 'Часті запитання';
+	@override String quotaUsageUncapped({required Object used}) => 'Ви використовуєте ${used}';
 }
 
 // Path: appInfo

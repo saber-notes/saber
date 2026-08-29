@@ -253,6 +253,7 @@ profile:
       點選上面的「@:profile.quickLinks.deleteAccount」按鈕，如果需要請登入。
       如果您使用的是官方 Saber 伺服器，您的帳戶將在一週的寬限期後被刪除，您可以在此期間用電子郵件聯絡我：adilhanney@disroot.org，以取消刪除。
       如果您使用的是第三方伺服器，則可能沒有刪除帳號的選項，您需要檢視伺服器的隱私權政策以了解更多資訊。
+  quotaUsageUncapped(OUTDATED): 您正在使用 $used
 appInfo:
   licenseNotice: |-
     Saber  版權所有 © 2022-$buildYear  Adil Hanney

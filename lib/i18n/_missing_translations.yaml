@@ -23,6 +23,8 @@ ar:
     debuggingInfo(OUTDATED): Logs contain information useful for debugging and development
     noLogs(OUTDATED): No logs here!
     useTheApp(OUTDATED): Logs will appear here as you use the app
+  profile:
+    quotaUsageUncapped(OUTDATED): You're using $used
   editor:
     menu:
       lineThickness(OUTDATED): Line thickness
@@ -173,6 +175,7 @@ ca:
     title(OUTDATED): My profile
     logout(OUTDATED): Log out
     quotaUsage(OUTDATED): You're using $used of $total ($percent%)
+    quotaUsageUncapped(OUTDATED): You're using $used
     connectedTo(OUTDATED): Connected to
     quickLinks:
       serverHomepage(OUTDATED): Server homepage
@@ -229,6 +232,8 @@ ca:
       lockSingleFingerPan(OUTDATED): Disable single-finger panning
       unlockAxisAlignedPan(OUTDATED): Unlock panning to horizontal or vertical
 cs:
+  profile:
+    quotaUsageUncapped(OUTDATED): You're using $used
 de:
   home:
     sort:
@@ -241,6 +246,8 @@ de:
       layout(OUTDATED): Layout
       masonryGrid(OUTDATED): Masonry grid
       simpleGrid(OUTDATED): Simple grid
+  profile:
+    quotaUsageUncapped(OUTDATED): You're using $used
 eo:
   home:
     renameNote:
@@ -268,6 +275,8 @@ eo:
       autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Auto-disable finger drawing
     prefDescriptions:
       autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Turn off finger drawing when a stylus is detected
+  profile:
+    quotaUsageUncapped(OUTDATED): You're using $used
   editor:
     readOnlyBanner:
       watchingServer(OUTDATED): You are currently watching for updates on the server. Editing is disabled in this mode.
@@ -348,6 +357,7 @@ es:
         a: Yes, but keep in mind that it would be easier for the server administrator or someone else to access your notes if they gain access to your Nextcloud account.
   profile:
     quotaUsage(OUTDATED): You're using $used of $total ($percent%)
+    quotaUsageUncapped(OUTDATED): You're using $used
     connectedTo(OUTDATED): Connected to
     faqTitle(OUTDATED): Frequently asked questions
   update:
@@ -474,6 +484,7 @@ fa:
         a: Yes, but keep in mind that it would be easier for the server administrator or someone else to access your notes if they gain access to your Nextcloud account.
   profile:
     quotaUsage(OUTDATED): You're using $used of $total ($percent%)
+    quotaUsageUncapped(OUTDATED): You're using $used
     connectedTo(OUTDATED): Connected to
     faqTitle(OUTDATED): Frequently asked questions
   update:
@@ -489,7 +500,11 @@ fa:
       watchingServer(OUTDATED): You are currently watching for updates on the server. Editing is disabled in this mode.
       corrupted(OUTDATED): Failed to load note. It may be corrupted or still being downloaded.
 fr:
+  profile:
+    quotaUsageUncapped(OUTDATED): You're using $used
 he:
+  profile:
+    quotaUsageUncapped(OUTDATED): You're using $used
 hu:
   home:
     sort:
@@ -502,7 +517,11 @@ hu:
       layout(OUTDATED): Layout
       masonryGrid(OUTDATED): Masonry grid
       simpleGrid(OUTDATED): Simple grid
+  profile:
+    quotaUsageUncapped(OUTDATED): You're using $used
 it:
+  profile:
+    quotaUsageUncapped(OUTDATED): You're using $used
 ja:
   home:
     sort:
@@ -527,6 +546,8 @@ ja:
       autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Turn off finger drawing when a stylus is detected
     autosaveDisabled(OUTDATED): Never
     shapeRecognitionDisabled(OUTDATED): Never
+  profile:
+    quotaUsageUncapped(OUTDATED): You're using $used
   update:
     downloadNotAvailableYet(OUTDATED): The download isn't available yet for your platform. Please check back shortly.
   editor:
@@ -544,6 +565,8 @@ nl:
       layout(OUTDATED): Layout
       masonryGrid(OUTDATED): Masonry grid
       simpleGrid(OUTDATED): Simple grid
+  profile:
+    quotaUsageUncapped(OUTDATED): You're using $used
 pl:
   home:
     sort:
@@ -556,6 +579,8 @@ pl:
       layout(OUTDATED): Layout
       masonryGrid(OUTDATED): Masonry grid
       simpleGrid(OUTDATED): Simple grid
+  profile:
+    quotaUsageUncapped(OUTDATED): You're using $used
 ru:
   home:
     deleteNoteDialog:
@@ -575,6 +600,8 @@ ru:
       layout(OUTDATED): Layout
       masonryGrid(OUTDATED): Masonry grid
       simpleGrid(OUTDATED): Simple grid
+  profile:
+    quotaUsageUncapped(OUTDATED): You're using $used
 sl:
   home:
     deleteNoteDialog:
@@ -594,6 +621,8 @@ sl:
       layout(OUTDATED): Layout
       masonryGrid(OUTDATED): Masonry grid
       simpleGrid(OUTDATED): Simple grid
+  profile:
+    quotaUsageUncapped(OUTDATED): You're using $used
 th:
   home:
     deleteNoteDialog:
@@ -613,6 +642,8 @@ th:
       layout(OUTDATED): Layout
       masonryGrid(OUTDATED): Masonry grid
       simpleGrid(OUTDATED): Simple grid
+  profile:
+    quotaUsageUncapped(OUTDATED): You're using $used
   editor:
     readOnlyBanner:
       watchingServer(OUTDATED): You are currently watching for updates on the server. Editing is disabled in this mode.
@@ -676,6 +707,8 @@ tr:
     debuggingInfo(OUTDATED): Logs contain information useful for debugging and development
     noLogs(OUTDATED): No logs here!
     useTheApp(OUTDATED): Logs will appear here as you use the app
+  profile:
+    quotaUsageUncapped(OUTDATED): You're using $used
   editor:
     menu:
       lineThickness(OUTDATED): Line thickness
@@ -895,6 +928,7 @@ uk:
     title(OUTDATED): My profile
     logout(OUTDATED): Log out
     quotaUsage(OUTDATED): You're using $used of $total ($percent%)
+    quotaUsageUncapped(OUTDATED): You're using $used
     connectedTo(OUTDATED): Connected to
     quickLinks:
       serverHomepage(OUTDATED): Server homepage
@@ -1040,6 +1074,8 @@ vi:
       layout(OUTDATED): Layout
       masonryGrid(OUTDATED): Masonry grid
       simpleGrid(OUTDATED): Simple grid
+  profile:
+    quotaUsageUncapped(OUTDATED): You're using $used
 pt-BR:
   home:
     sort:
@@ -1121,6 +1157,7 @@ pt-BR:
         a: Yes, but keep in mind that it would be easier for the server administrator or someone else to access your notes if they gain access to your Nextcloud account.
   profile:
     quotaUsage(OUTDATED): You're using $used of $total ($percent%)
+    quotaUsageUncapped(OUTDATED): You're using $used
     connectedTo(OUTDATED): Connected to
     faqTitle(OUTDATED): Frequently asked questions
   update:
@@ -1161,6 +1198,8 @@ zh-Hans-CN:
       layout(OUTDATED): Layout
       masonryGrid(OUTDATED): Masonry grid
       simpleGrid(OUTDATED): Simple grid
+  profile:
+    quotaUsageUncapped(OUTDATED): You're using $used
 zh-Hant-TW:
   home:
     sort:
@@ -1173,3 +1212,5 @@ zh-Hant-TW:
       layout(OUTDATED): Layout
       masonryGrid(OUTDATED): Masonry grid
       simpleGrid(OUTDATED): Simple grid
+  profile:
+    quotaUsageUncapped(OUTDATED): You're using $used

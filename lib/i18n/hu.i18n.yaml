@@ -253,6 +253,7 @@ profile:
       Koppintson a fenti „@:profile.quickLinks.deleteAccount” gombra, és szükség esetén jelentkezzen be.
       Ha a hivatalos Saber szervert használja, a fiókja 1 hetes türelmi idő után törlésre kerül. Ebben az időszakban a törlés visszavonásához vegye fel a kapcsolatot a következő e-mail címen: adilhanney@disroot.org.
       Ha harmadik féltől származó szervert használ, előfordulhat, hogy nincs lehetőség a fiók törlésére: további információért tekintse meg a szerver adatvédelmi szabályzatát.
+  quotaUsageUncapped(OUTDATED): Használod a $used-t
 appInfo:
   licenseNotice: |-
     Saber Copyright © 2022-$buildYear Adil Hanney

@@ -178,6 +178,7 @@ class _Translations$profile$fa extends Translations$profile$en {
 	@override String quotaUsage({required Object used, required Object total, required Object percent}) => 'شما از ${used} از ${total} (${percent}%) استفاده می‌کنید';
 	@override String get connectedTo => 'مرتبط با';
 	@override String get faqTitle => 'سوالات متداول';
+	@override String quotaUsageUncapped({required Object used}) => 'شما از ${used} استفاده می‌کنید';
 }
 
 // Path: appInfo

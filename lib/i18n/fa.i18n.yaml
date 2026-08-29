@@ -247,6 +247,7 @@ profile:
   quotaUsage(OUTDATED): شما از $used از $total ($percent%) استفاده می‌کنید
   connectedTo(OUTDATED): مرتبط با
   faqTitle(OUTDATED): سوالات متداول
+  quotaUsageUncapped(OUTDATED): شما از $used استفاده می‌کنید
 appInfo:
   licenseNotice: |-
     Saber  Copyright © 2022-$buildYear  Adil Hanney

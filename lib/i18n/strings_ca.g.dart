@@ -177,6 +177,7 @@ class _Translations$profile$ca extends Translations$profile$en {
 	@override String quotaUsage({required Object used, required Object total, required Object percent}) => 'Estàs utilitzant ${used} de ${total} (${percent}%)';
 	@override String get connectedTo => 'Connectat a';
 	@override String get faqTitle => 'Preguntes freqüents';
+	@override String quotaUsageUncapped({required Object used}) => 'Estàs utilitzant ${used}';
 }
 
 // Path: appInfo

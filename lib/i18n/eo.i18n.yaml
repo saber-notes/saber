@@ -253,6 +253,7 @@ profile:
       Frapetu la butonon "@:profile.quickLinks.deleteAccount" supre, kaj ensalutu se necese.
       Se vi uzas la oficialan Saber-servilon, via konto estos forigita post 1-semajna indulgoperiodo. Vi povas kontakti min ĉe adilhanney@disroot.org dum ĉi tiu periodo por nuligi la forigon.
       Se vi uzas eksteran servilon, eble ne estos eblo forigi vian konton: vi devos konsulti la privatecopolitikon de la servilo por pliaj informoj.
+  quotaUsageUncapped(OUTDATED): Vi uzas $used
 appInfo:
   licenseNotice: |-
     Kopirajto de Saber © 2022-$buildYear Adil Hanney

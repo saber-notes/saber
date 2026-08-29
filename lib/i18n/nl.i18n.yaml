@@ -253,6 +253,7 @@ profile:
       Tik op de knop "@:profile.quickLinks.deleteAccount" hierboven en log in indien nodig.
       Als je de officiële Saber-server gebruikt, wordt je account na een periode van 1 week verwijderd. Je kunt me in deze periode op adilhanney@disroot.org contacteren om de verwijdering te annuleren.
       Als je een server van derden gebruikt, is er mogelijk geen optie om je account te verwijderen: je moet het privacybeleid van de server raadplegen voor meer informatie.
+  quotaUsageUncapped(OUTDATED): Je gebruikt $used
 appInfo:
   licenseNotice: |-
     Saber  Copyright © 2022-$buildYear  Adil Hanney

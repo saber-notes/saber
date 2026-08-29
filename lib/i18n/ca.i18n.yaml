@@ -240,6 +240,7 @@ profile:
   quotaUsage(OUTDATED): Estàs utilitzant $used de $total ($percent%)
   connectedTo(OUTDATED): Connectat a
   faqTitle(OUTDATED): Preguntes freqüents
+  quotaUsageUncapped(OUTDATED): Estàs utilitzant $used
 appInfo:
   licenseNotice: |-
     Saber  Copyright © 2022-$buildYear  Adil Hanney

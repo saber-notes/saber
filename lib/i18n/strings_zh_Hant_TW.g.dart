@@ -180,6 +180,7 @@ class Translations$profile$zh_Hant_TW extends Translations$profile$en {
 		Translations$profile$faq$2$zh_Hant_TW.internal(_root),
 		Translations$profile$faq$3$zh_Hant_TW.internal(_root),
 	];
+	@override String quotaUsageUncapped({required Object used}) => '您正在使用 ${used}';
 }
 
 // Path: appInfo

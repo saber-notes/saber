@@ -253,6 +253,7 @@ profile:
       Drücke oben den „@:profile.quickLinks.deleteAccount“-Button und melde dich gegebenenfalls an.
       Wenn du den offiziellen Saber-Server nutzt, wird dein Account automatisch nach einer Woche gelöscht. Du kannst mich während dieser Woche unter adilhanney@disroot.org kontaktieren um die Löschung rückgängig zu machen.
       Wenn du einen anderen Server nutzt, kann es sein, dass du deinen Account nicht löschen kannst: Für mehr Information kannst du in der Datenschutzbestimmung des Servers nachgucken.
+  quotaUsageUncapped(OUTDATED): Du verwendest $used
 appInfo:
   licenseNotice: |-
     Saber  Copyright © 2022-$buildYear  Adil Hanney

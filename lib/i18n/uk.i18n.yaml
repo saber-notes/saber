@@ -253,6 +253,7 @@ profile:
   quotaUsage(OUTDATED): Ви використовуєте $used з $total ($percent%)
   connectedTo(OUTDATED): Підключено до
   faqTitle(OUTDATED): Часті запитання
+  quotaUsageUncapped(OUTDATED): Ви використовуєте $used
 appInfo:
   licenseNotice(OUTDATED): |-
     Saber Авторські права © 2022-$buildYear Adil Hanney

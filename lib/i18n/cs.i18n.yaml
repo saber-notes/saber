@@ -253,6 +253,7 @@ profile:
       Klepněte na tlačítko „@:profile.quickLinks.deleteAccount“ umístěné výše a přihlašte se, pokud to bude vyžadováno.
       Pokud používáte oficiální server od aplikace Saber, bude váš účet odstraněn po uplynutí týdenní ochranné lhůty. Během této lhůty mě můžete kontaktovat pro odvolání zrušení účtu na adilhanney@disroot.org.
       Pokud používáte server třetí strany, nemusí nabízet možnost odstranění účtu: pro více informací se bude třeba obrátit na zásady ochrany osobních údajů daného serveru.
+  quotaUsageUncapped(OUTDATED): Používáte $used
 appInfo:
   licenseNotice: |-
     Saber  Copyright © 2022-$buildYear  Adil Hanney

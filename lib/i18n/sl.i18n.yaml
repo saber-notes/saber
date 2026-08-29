@@ -253,6 +253,7 @@ profile:
       Dotakni se gumba "@:profile.quickLinks.deleteAccount" zgoraj in se po potrebi prijavi.
       Če uporabljaš uradni strežnik Saber, bo tvoj račun izbrisan po 1 tednu odloga. V tem času me lahko kontaktiraš na adilhanney@disroot.org, da prekličeš izbris.
       Če uporabljaš strežnik drugega ponudnika, morda ni možnosti za izbris tvojega računa: za več informacij preberi politiko zasebnosti strežnika.
+  quotaUsageUncapped(OUTDATED): Uporabljate $used
 appInfo:
   licenseNotice: |-
     Saber  Avtorske pravice © 2022-$buildYear  Adil Hanney

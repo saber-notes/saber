@@ -180,6 +180,7 @@ class _Translations$profile$vi extends Translations$profile$en {
 		_Translations$profile$faq$2$vi._(_root),
 		_Translations$profile$faq$3$vi._(_root),
 	];
+	@override String quotaUsageUncapped({required Object used}) => 'Bạn đang sử dụng ${used}';
 }
 
 // Path: appInfo

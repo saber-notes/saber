@@ -179,6 +179,7 @@ class _Translations$profile$th extends Translations$profile$en {
 		_Translations$profile$faq$2$th._(_root),
 		_Translations$profile$faq$3$th._(_root),
 	];
+	@override String quotaUsageUncapped({required Object used}) => 'คุณกำลังใช้ ${used}';
 }
 
 // Path: appInfo

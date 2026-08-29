@@ -180,6 +180,7 @@ class _Translations$profile$eo extends Translations$profile$en {
 		_Translations$profile$faq$2$eo._(_root),
 		_Translations$profile$faq$3$eo._(_root),
 	];
+	@override String quotaUsageUncapped({required Object used}) => 'Vi uzas ${used}';
 }
 
 // Path: appInfo

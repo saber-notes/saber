@@ -180,6 +180,7 @@ class _Translations$profile$fr extends Translations$profile$en {
 		_Translations$profile$faq$2$fr._(_root),
 		_Translations$profile$faq$3$fr._(_root),
 	];
+	@override String quotaUsageUncapped({required Object used}) => 'Vous utilisez ${used}';
 }
 
 // Path: appInfo
