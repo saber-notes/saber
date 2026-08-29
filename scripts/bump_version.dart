@@ -22,7 +22,7 @@ enum ErrorCodes(final int code) {
   noError(0),
   noVersionSpecified(1),
   noEditorFound(5),
-  changesNeeded(10);
+  changesNeeded(10),
 }
 
 Future<void> main(List<String> args) async {

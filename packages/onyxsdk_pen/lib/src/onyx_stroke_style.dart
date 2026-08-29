@@ -5,5 +5,5 @@ enum OnyxStrokeStyle(final int value) {
   brush(2),
   pencil(3),
   marker(4),
-  disabled(5);
+  disabled(5),
 }

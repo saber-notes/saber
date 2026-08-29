@@ -416,5 +416,5 @@ enum StrokeQuality(
   final int N,
 ) {
   low(4),
-  high(1);
+  high(1),
 }

@@ -149,5 +149,5 @@ enum LoginStep(
   enc(0.6),
 
   /// The user is fully logged in
-  done(1);
+  done(1),
 }
