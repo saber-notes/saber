@@ -630,18 +630,19 @@ class FileManager {
 
     switch (sortMetric) {
       case .nameAToZ:
-        files.sortBy((child) => child);
+        directories.sort();
+        files.sort();
       case .nameZToA:
-        files.sortByCompare(
-          (child) => child,
-          (child, other) => -child.compareTo(other),
-        );
+        directories.sort((child, other) => -child.compareTo(other));
+        files.sort((child, other) => -child.compareTo(other));
       case .lastModifiedNewToOld:
+        directories.sort();
         files.sortByCompare(
           (child) => lastModified(directory + child + Editor.extension),
           (date, other) => -date.compareTo(other),
         );
       case .lastModifiedOldToNew:
+        directories.sort();
         files.sortBy(
           (child) => lastModified(directory + child + Editor.extension),
         );
