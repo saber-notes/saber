@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:saber/data/codecs/quota_codec.dart';
+import 'package:saber/data/quota.dart';
 
 import 'utils/test_user.dart';
 
@@ -15,12 +15,12 @@ void main() {
       const codec = QuotaCodec();
       final encoded = ['2050656229', '5368709120'];
       final decoded = codec.decode(encoded);
-      expect(decoded.used, quota.used);
-      expect(decoded.total, quota.total);
-      expect(decoded.free, quota.free);
+      expect(decoded.raw.used, quota.raw.used);
+      expect(decoded.raw.total, quota.raw.total);
+      expect(decoded.raw.free, quota.raw.free);
       expect(
-        decoded.relative,
-        moreOrLessEquals(quota.relative.toDouble(), epsilon: 0.0001),
+        decoded.raw.relative,
+        moreOrLessEquals(quota.raw.relative.toDouble(), epsilon: 0.0001),
       );
     });
   });

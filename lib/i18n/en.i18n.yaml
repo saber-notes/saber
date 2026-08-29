@@ -231,6 +231,7 @@ profile:
   title: My profile
   logout: Log out
   quotaUsage: You're using $used of $total ($percent%)
+  quotaUsageUncapped: You're using $used
   connectedTo: Connected to
   quickLinks:
     serverHomepage: Server homepage

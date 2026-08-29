@@ -4,11 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:logging/logging.dart';
 import 'package:saber/components/misc/faq.dart';
-import 'package:saber/data/extensions/quota_extension.dart';
 import 'package:saber/data/extensions/string_extensions.dart';
 import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
-import 'package:saber/data/nextcloud/readable_bytes.dart';
 import 'package:saber/data/prefs.dart';
+import 'package:saber/data/quota.dart';
 import 'package:saber/i18n/strings.g.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -79,13 +78,7 @@ class DoneLoginStep extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 2),
-        Text(
-          t.profile.quotaUsage(
-            used: readableBytes(quota?.used),
-            total: readableBytes(quota?.total),
-            percent: quota?.percentRounded ?? 0,
-          ),
-        ),
+        Text(quota?.describe() ?? Quota.describePlaceholder()),
         const SizedBox(height: 2),
         LinearProgressIndicator(
           value: quota?.progressIndicatorValue,

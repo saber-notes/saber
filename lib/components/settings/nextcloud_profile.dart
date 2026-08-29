@@ -5,16 +5,14 @@ import 'package:go_router/go_router.dart';
 import 'package:nextcloud/provisioning_api.dart';
 import 'package:saber/components/theming/adaptive_icon.dart';
 import 'package:saber/components/theming/adaptive_linear_progress_indicator.dart';
-import 'package:saber/data/extensions/quota_extension.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/nextcloud/nextcloud_client_extension.dart';
 import 'package:saber/data/nextcloud/saber_syncer.dart';
 import 'package:saber/data/prefs.dart';
+import 'package:saber/data/quota.dart';
 import 'package:saber/data/routes.dart';
 import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/user/login.dart';
-
-typedef Quota = UserDetailsQuota;
 
 class const NextcloudProfile({super.key}) extends HookWidget {
   /// If non-null, this will be used instead of the actual login state.
@@ -93,7 +91,8 @@ class const NextcloudProfile({super.key}) extends HookWidget {
     if (client == null) return stows.lastStorageQuota.value = null;
 
     final user = await client.provisioningApi.users.getCurrentUser();
-    return stows.lastStorageQuota.value = user.body.ocs.data.quota;
+    final quotaRaw = user.body.ocs.data.quota;
+    return stows.lastStorageQuota.value = Quota(quotaRaw);
   }
 }
 
@@ -141,7 +140,7 @@ class _QuotaSummary extends StatelessWidget {
             color: colorScheme.primary.withValues(alpha: 0.8),
             minHeight: 8,
           ),
-          Text(quota.summary),
+          Text(quota?.describeConcise() ?? Quota.describeConcisePlaceholder()),
         ],
       ),
     );

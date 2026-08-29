@@ -232,6 +232,9 @@ class Translations$profile$en {
 	/// en: 'You're using $used of $total ($percent%)'
 	String quotaUsage({required Object used, required Object total, required Object percent}) => 'You\'re using ${used} of ${total} (${percent}%)';
 
+	/// en: 'You're using $used'
+	String quotaUsageUncapped({required Object used}) => 'You\'re using ${used}';
+
 	/// en: 'Connected to'
 	String get connectedTo => 'Connected to';
 

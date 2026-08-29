@@ -1,5 +1,4 @@
-String readableBytes(num? bytes) {
-  if (bytes == null) return '... B';
+String readableBytes(num bytes) {
   const units = ['B', 'KB', 'MB', 'GB', 'TB', 'PB'];
 
   var i = 0;

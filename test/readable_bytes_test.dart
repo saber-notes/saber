@@ -3,9 +3,6 @@ import 'package:saber/data/nextcloud/readable_bytes.dart';
 
 void main() {
   group('readableBytes', () {
-    test('null', () {
-      expect(readableBytes(null), '... B');
-    });
     test('zero', () {
       expect(readableBytes(0), '0 B');
     });
