@@ -69,6 +69,16 @@ home:
     deleteName: Apagar $f
     delete: Apagar
     alsoDeleteContents: Apagar também todas as notas dentro desta pasta
+  sort:
+    sortBy: ''
+    nameZToA: ''
+    lastModifiedNewToOld: ''
+    lastModifiedOldToNew: ''
+    nameAToZ: ''
+  layout:
+    simpleGrid: ''
+    layout: ''
+    masonryGrid: ''
 sentry:
   consent:
     title: Ajudar a melhorar Saber?
@@ -117,6 +127,8 @@ settings:
     autoStraightenLines: Auto alinhamento de linhas
     customDataDir(OUTDATED): Pasta Saber personalizada
     sentry(OUTDATED): Relatório de erro
+    customDataDir: ''
+    sentry: ''
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible aumenta a legibilidade para leitores com baixa visão
     allowInsecureConnections: (Não recomendado) Permitir que o Saber conecte a servidores com certificados autoassinados/não-confiáveis
@@ -136,10 +148,18 @@ settings:
       inactive(OUTDATED): Inativo
       activeUntilRestart(OUTDATED): Ativo até você reiniciar o aplicativo
       inactiveUntilRestart(OUTDATED): Inativo até você reiniciar o aplicativo
+      inactiveUntilRestart: ''
+      active: ''
+      activeUntilRestart: ''
+      inactive: ''
     autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Desligar o desenho com o dedo quando um stylus for detectado
     autosave(OUTDATED): Salvar automaticamente após um breve atraso, ou nunca
     shapeRecognitionDelay(OUTDATED): Com que frequência atualizar a prévia da forma?
     autoStraightenLines(OUTDATED): Endireita linhas longas sem precisar usar a caneta de forma
+    autoStraightenLines: ''
+    shapeRecognitionDelay: ''
+    autoDisableFingerDrawingWhenStylusDetected: ''
+    autosave: ''
   themeModes:
     system: Sistema
     light: Claro
@@ -148,6 +168,7 @@ settings:
     auto: Automático
     phone: Telemóvel
     tablet(OUTDATED): Tablet
+    tablet: ''
   accentColorPicker:
     pickAColor: Selecionar uma cor
   systemLanguage: Idioma do sistema
@@ -165,16 +186,30 @@ settings:
     mustBeEmpty(OUTDATED): A pasta selecionada deve estar vazia
     mustBeDoneSyncing(OUTDATED): Certifique-se de que a sincronização esteja completa antes de mudar a pasta
     unsupported(OUTDATED): Este recurso é atualmente apenas para desenvolvedores. O uso dele provavelmente resultará em perda de dados.
+    select: ''
+    unsupported: ''
+    cancel: ''
+    mustBeDoneSyncing: ''
+    mustBeEmpty: ''
   resyncEverything(OUTDATED): Sincronizar tudo
   openDataDir(OUTDATED): Abrir pasta Saber
   autosaveDisabled(OUTDATED): Nunca
   shapeRecognitionDisabled(OUTDATED): Nunca
+  openDataDir: ''
+  shapeRecognitionDisabled: ''
+  resyncEverything: ''
+  autosaveDisabled: ''
 logs:
   logs(OUTDATED): Registros
   viewLogs(OUTDATED): Ver logs
   debuggingInfo(OUTDATED): Os logs contêm informações úteis para depuração e desenvolvimento
   noLogs(OUTDATED): Nenhum log aqui!
   useTheApp(OUTDATED): Os logs aparecerão aqui enquanto você usa o aplicativo
+  useTheApp: ''
+  debuggingInfo: ''
+  noLogs: ''
+  logs: ''
+  viewLogs: ''
 login:
   title: Login
   form:
@@ -186,17 +221,28 @@ login:
     loggedIn: Logado com o Nextcloud
     hi(OUTDATED): Olá, $u!
     almostDone(OUTDATED): Quase pronto para sincronizar, toque para finalizar o login
+    almostDone: ''
+    hi: ''
   ncLoginStep:
     loginFlow:
       pleaseAuthorize(OUTDATED): Por favor, autorize o Saber a acessar sua conta Nextcloud
       followPrompts(OUTDATED): Por favor, siga as instruções na interface do Nextcloud
       browserDidntOpen(OUTDATED): A página de login não abriu? Clique aqui
+      pleaseAuthorize: ''
+      browserDidntOpen: ''
+      followPrompts: ''
     whereToStoreData(OUTDATED): "Escolha onde você deseja armazenar seus dados:"
     saberNcServer(OUTDATED): Servidor Nextcloud do Saber
     otherNcServer(OUTDATED): Outro servidor Nextcloud
     serverUrl(OUTDATED): URL do servidor
     loginWithSaber(OUTDATED): Entrar com Saber
     loginWithNextcloud(OUTDATED): Fazer login com o Nextcloud
+    loginWithNextcloud: ''
+    whereToStoreData: ''
+    otherNcServer: ''
+    loginWithSaber: ''
+    saberNcServer: ''
+    serverUrl: ''
   encLoginStep:
     encFaq(OUTDATED):
     - q(OUTDATED): O que é uma senha de criptografia? Por que usar duas senhas?
@@ -216,7 +262,21 @@ login:
     encFaqTitle(OUTDATED): Perguntas frequentes
     wrongEncPassword(OUTDATED): Falha na descriptografia com a senha fornecida. Por favor, tente inseri-la novamente.
     connectionFailed(OUTDATED): Algo deu errado ao conectar ao servidor. Por favor, tente novamente mais tarde.
+    connectionFailed: ''
+    encFaq:
+    - a: ''
+      q: ''
+    - q: ''
+      a: ''
+    - a: ''
+      q: ''
+    enterEncPassword: ''
+    newToSaber: ''
+    encFaqTitle: ''
+    encPassword: ''
+    wrongEncPassword: ''
   notYou(rich,OUTDATED): Não você? ${undoLogin(Escolher outra conta)}.
+  notYou(rich): ''
 profile:
   title: O meu perfil
   logout: Sair
@@ -229,6 +289,7 @@ profile:
   - q: Como mudo a minha palavra-passe do Nextcloud?
     a: Vá para o website do seu servidor e faça login. Depois vá para Configurações > Segurança > Mudar palavra-passe. Precisará sair da conta e fazer login novamente no Saber depois de mudar a sua palavra-passe.
   - q: Como mudo a minha palavra-passe de criptografia?
+    a: ''
   - q: Como posso apagar a minha conta?
     a: |-
       Toque no "@:profile.quickLinks.deleteAccount" botão acima e faça login se necessário.
@@ -237,6 +298,9 @@ profile:
   quotaUsage(OUTDATED): Você está usando $used de $total ($percent%)
   connectedTo(OUTDATED): Conectado a
   faqTitle(OUTDATED): Perguntas frequentes
+  quotaUsage: ''
+  connectedTo: ''
+  faqTitle: ''
 appInfo:
   licenseNotice: |-
     Saber  Copyright © 2022-$buildYear  Adil Hanney
@@ -250,6 +314,7 @@ update:
   updateAvailableDescription: "Uma nova versão da app está disponível, com estas mudanças:"
   update: Atualizar
   downloadNotAvailableYet(OUTDATED): O download ainda não está disponível para a sua plataforma. Por favor, verifique novamente em breve.
+  downloadNotAvailableYet: ''
 editor:
   toolbar:
     toggleColors: Paleta de cores (Ctrl C)
@@ -270,6 +335,8 @@ editor:
     laserPointer: Apontador laser
     pencil(OUTDATED): Lápis
     shapePen(OUTDATED): Caneta de formato
+    pencil: ''
+    shapePen: ''
   penOptions:
     size: Tamanho
   colors:
@@ -299,6 +366,12 @@ editor:
     light(OUTDATED): luz
     cyan(OUTDATED): Ciano
     pink(OUTDATED): Rosa
+    customHue: ''
+    dark: ''
+    customBrightnessHue: ''
+    pink: ''
+    cyan: ''
+    light: ''
   imageOptions:
     title: Opções de imagem
     invertible: Invertível
@@ -309,6 +382,7 @@ editor:
   selectionBar:
     delete: Apagar
     duplicate(OUTDATED): Duplicado
+    duplicate: ''
   menu:
     clearPage: Limpar a página $page/$totalPages
     clearAllPages: Limpar todas as páginas
@@ -333,15 +407,23 @@ editor:
       staffs: Pentagrama
       tablature: Tablatura
       cornell(OUTDATED): Cornell
+      cornell: ''
     lineHeightDescription(OUTDATED): Também controla o tamanho do texto para notas digitadas
     lineThickness(OUTDATED): Espessura da linha
     lineThicknessDescription(OUTDATED): espessura da linha de fundo
     watchServer(OUTDATED): Fique atento às atualizações no servidor
     watchServerReadOnly(OUTDATED): A edição está desativada ao assistir ao servidor
+    lineThicknessDescription: ''
+    lineThickness: ''
+    watchServerReadOnly: ''
+    lineHeightDescription: ''
+    watchServer: ''
   readOnlyBanner:
     title: Modo somente leitura
     watchingServer(OUTDATED): Você está atualmente monitorando atualizações no servidor. A edição está desativada neste modo.
     corrupted(OUTDATED): Falha ao carregar a nota. Ela pode estar corrompida ou ainda sendo baixada.
+    watchingServer: ''
+    corrupted: ''
   versionTooNew:
     title: Esta nota foi editada usando uma versão mais recente do Saber
     subtitle: A edição desta nota pode resultar na perda de algumas informações. Deseja ignorar isto e editá-la mesmo assim?
