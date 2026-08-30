@@ -127,6 +127,7 @@ settings:
     autoStraightenLines: استقامة الخطوط تلقائيًّا
     customDataDir: مجلد سيبر مخصص
     sentry(OUTDATED): الإبلاغ خطأ
+    sentry: ''
   prefDescriptions:
     hyperlegibleFont: يزيد Atkinson Hyperlegible من وضوح الرؤية للقراء الذين يعانون من ضعف في الرؤية
     allowInsecureConnections: (غير موصى به) بالاتصال بالخوادم بشهادات غير موثوقة/موقعة ذاتيًا Saber السماح لـ
@@ -148,8 +149,14 @@ settings:
       inactive(OUTDATED): غير نشط
       activeUntilRestart(OUTDATED): نشط حتى تقوم بإعادة تشغيل التطبيق
       inactiveUntilRestart(OUTDATED): غير نشط حتى تقوم بإعادة تشغيل التطبيق
+      inactiveUntilRestart: ''
+      active: ''
+      activeUntilRestart: ''
+      inactive: ''
     autoDisableFingerDrawingWhenStylusDetected(OUTDATED): قم بإيقاف تشغيل الرسم بالإصبع عند اكتشاف القلم
     autosave(OUTDATED): تلقائي بعد تأخير قصير ، أو أبدا
+    autoDisableFingerDrawingWhenStylusDetected: ''
+    autosave: ''
   themeModes:
     system: النظام
     light: ساطع
@@ -177,14 +184,22 @@ settings:
     mustBeEmpty: يجب أن يكون المجلد المحدد فارغًا
     mustBeDoneSyncing: تأكد من اكتمال المزامنة قبل تغيير المجلد
     unsupported(OUTDATED): هذه الميزة حاليا فقط للمطورين. من المحتمل أن يؤدي استخدامه إلى فقدان البيانات.
+    unsupported: ''
   autosaveDisabled(OUTDATED): أبداً
   shapeRecognitionDisabled(OUTDATED): أبداً
+  shapeRecognitionDisabled: ''
+  autosaveDisabled: ''
 logs:
   useTheApp(OUTDATED): ستظهر السجلات هنا أثناء استخدام التطبيق
   logs(OUTDATED): السجلات
   viewLogs(OUTDATED): عرض السجلات
   debuggingInfo(OUTDATED): تحتوي السجلات على معلومات مفيدة لتصحيح الأخطاء والتطوير
   noLogs(OUTDATED): لا يوجد سجلات هنا!
+  useTheApp: ''
+  debuggingInfo: ''
+  noLogs: ''
+  logs: ''
+  viewLogs: ''
 login:
   title: تسجيل الدخول
   form:
@@ -354,10 +369,14 @@ editor:
       cornell: كورنيل
     lineThickness(OUTDATED): سمك الخط
     lineThicknessDescription(OUTDATED): سماكة خط الخلفية
+    lineThicknessDescription: ''
+    lineThickness: ''
   readOnlyBanner:
     title: وضع القراءة فقط
     watchingServer(OUTDATED): أنت حاليًا تراقب التحديثات على الخادم. تم تعطيل التحرير في هذا الوضع.
     corrupted(OUTDATED): فشل تحميل الملاحظة. ربما يكون تالفًا أو لا يزال قيد التنزيل.
+    watchingServer: ''
+    corrupted: ''
   versionTooNew:
     title: تم تحرير هذه الملاحظة باستخدام إصدار أحدث من Saber
     subtitle: قد يؤدي تحرير هذه الملاحظة إلى ضياع بعض المعلومات. هل تريد تجاهل هذا وتعديله على أي حال؟
