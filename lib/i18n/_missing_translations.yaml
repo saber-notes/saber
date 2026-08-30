@@ -233,7 +233,7 @@ ca:
       unlockAxisAlignedPan(OUTDATED): Unlock panning to horizontal or vertical
 cs:
   profile:
-    quotaUsageUncapped(OUTDATED): You're using $used
+    quotaUsageUncapped(OUTDATED): Využíváte $used
 de:
   home:
     sort:
