@@ -78,8 +78,14 @@ copy_flutter_from_host() {
     [ -f .github/docker/mounts/pubspec.lock ] || cp -a pubspec.lock .github/docker/mounts/
 }
 if [[ "$1" == "--update" ]]; then
-    rm -rf .github/docker/mounts/{flutter,.pub-cache,.dart_tool,build,pubspec.lock}
-    copy_flutter_from_host
+    mkdir -p .github/docker/mounts
+    mkdir -p .dart_tool
+    mkdir -p build
+    cp -a "$FLUTTER_ROOT" .github/docker/mounts/
+    cp -a "$PUB_CACHE" .github/docker/mounts/
+    cp -a .dart_tool .github/docker/mounts/
+    cp -a build .github/docker/mounts/
+    cp -a pubspec.lock .github/docker/mounts/
     exit 0
 fi
 
