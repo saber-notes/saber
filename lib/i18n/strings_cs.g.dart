@@ -171,6 +171,7 @@ class _Translations$profile$cs extends Translations$profile$en {
 	@override String get title => 'Můj profil';
 	@override String get logout => 'Odhlásit se';
 	@override String quotaUsage({required Object used, required Object total, required Object percent}) => 'Využíváte ${used} z ${total} (${percent} %)';
+	@override String quotaUsageUncapped({required Object used}) => 'Využíváte ${used}';
 	@override String get connectedTo => 'Připojeno k';
 	@override late final _Translations$profile$quickLinks$cs quickLinks = _Translations$profile$quickLinks$cs._(_root);
 	@override String get faqTitle => 'Často kladené otázky';
@@ -180,7 +181,6 @@ class _Translations$profile$cs extends Translations$profile$en {
 		_Translations$profile$faq$2$cs._(_root),
 		_Translations$profile$faq$3$cs._(_root),
 	];
-	@override String quotaUsageUncapped({required Object used}) => 'Používáte ${used}';
 }
 
 // Path: appInfo
