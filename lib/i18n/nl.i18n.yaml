@@ -75,10 +75,18 @@ home:
     nameZToA(OUTDATED): Naam (A-Z)
     lastModifiedNewToOld(OUTDATED): Geredigeerd (Nieuwste eerst)
     lastModifiedOldToNew(OUTDATED): Geredigeerd (Oudste eerst)
+    sortBy: ''
+    nameZToA: ''
+    lastModifiedNewToOld: ''
+    lastModifiedOldToNew: ''
+    nameAToZ: ''
   layout:
     layout(OUTDATED): Lay-out
     masonryGrid(OUTDATED): Metselwerkraster
     simpleGrid(OUTDATED): Eenvoudig raster
+    simpleGrid: ''
+    layout: ''
+    masonryGrid: ''
 sentry:
   consent:
     title: Help Saber verbeteren?
