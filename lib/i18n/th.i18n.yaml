@@ -58,11 +58,6 @@ home:
     deleteName(OUTDATED): Xóa $f
     delete(OUTDATED): ลบ
     confirmDelete:
-      one: ''
-      other: ''
-    delete: ''
-    deleteNotes: ''
-    deleteName: ''
   renameFolder:
     renameFolder: เปลี่ยนชื่อโฟลเดอร์
     folderName: ชื่อโฟลเดอร์
@@ -81,18 +76,10 @@ home:
     nameZToA(OUTDATED): ชื่อ (ก-ฮ)
     lastModifiedNewToOld(OUTDATED): แก้ไข (ใหม่สุดก่อน)
     lastModifiedOldToNew(OUTDATED): แก้ไข (เก่าสุดก่อน)
-    sortBy: ''
-    nameZToA: ''
-    lastModifiedNewToOld: ''
-    lastModifiedOldToNew: ''
-    nameAToZ: ''
   layout:
     layout(OUTDATED): เลย์เอาต์
     masonryGrid(OUTDATED): ตารางแบบก่ออิฐ
     simpleGrid(OUTDATED): ตารางง่ายๆ
-    simpleGrid: ''
-    layout: ''
-    masonryGrid: ''
 sentry:
   consent:
     title: ช่วยปรับปรุง Saber ได้ไหม?
@@ -373,8 +360,6 @@ editor:
     title: โหมดอ่านอย่างเดียว
     corrupted(OUTDATED): โหลดบันทึกไม่สำเร็จ อาจเสียหายหรือยังคงถูกดาวน์โหลดอยู่
     watchingServer(OUTDATED): คุณกำลังรับชมการอัปเดตบนเซิร์ฟเวอร์ การแก้ไขถูกปิดใช้งานในโหมดนี้
-    watchingServer: ''
-    corrupted: ''
   versionTooNew:
     title: บันทึกนี้ได้รับการแก้ไขโดยใช้ Saber เวอร์ชันใหม่กว่า
     subtitle: การแก้ไขบันทึกนี้อาจทำให้ข้อมูลบางส่วนสูญหาย คุณต้องการเพิกเฉยต่อคำเตือนนี้และแก้ไขต่อไปหรือไม่?

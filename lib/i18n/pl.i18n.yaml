@@ -75,18 +75,10 @@ home:
     nameZToA(OUTDATED): Nazwa (od A do Z)
     lastModifiedNewToOld(OUTDATED): Edytowane (Najnowsze na górze)
     lastModifiedOldToNew(OUTDATED): Edytowane (Najstarsze jako pierwsze)
-    sortBy: ''
-    nameZToA: ''
-    lastModifiedNewToOld: ''
-    lastModifiedOldToNew: ''
-    nameAToZ: ''
   layout:
     layout(OUTDATED): Układ
     masonryGrid(OUTDATED): Siatka murarska
     simpleGrid(OUTDATED): Prosta siatka
-    simpleGrid: ''
-    layout: ''
-    masonryGrid: ''
 sentry:
   consent:
     title: Chcesz wesprzeć Saber?

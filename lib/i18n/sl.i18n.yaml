@@ -58,11 +58,6 @@ home:
     deleteName(OUTDATED): Izbriši $f
     delete(OUTDATED): Odstrani
     confirmDelete:
-      one: ''
-      other: ''
-    delete: ''
-    deleteNotes: ''
-    deleteName: ''
   renameFolder:
     renameFolder: Preimenuj mapo
     folderName: Ime mape
@@ -81,18 +76,10 @@ home:
     nameZToA(OUTDATED): Ime (od A do Z)
     lastModifiedNewToOld(OUTDATED): Uredite (Najnovejše prvé)
     lastModifiedOldToNew(OUTDATED): Uredite (Najstarejši prvý)
-    sortBy: ''
-    nameZToA: ''
-    lastModifiedNewToOld: ''
-    lastModifiedOldToNew: ''
-    nameAToZ: ''
   layout:
     layout(OUTDATED): Razpoložba
     masonryGrid(OUTDATED): Mrežni sistem z mozaikom
     simpleGrid(OUTDATED): Preprosta mreža
-    simpleGrid: ''
-    layout: ''
-    masonryGrid: ''
 sentry:
   consent:
     title: Ali želiš pomagati izboljšati Saber?

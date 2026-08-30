@@ -75,18 +75,10 @@ home:
     nameZToA(OUTDATED): 姓名 (依字母排序)
     lastModifiedNewToOld(OUTDATED): 編輯（最新優先）
     lastModifiedOldToNew(OUTDATED): 編輯（最舊的在前）
-    sortBy: ''
-    nameZToA: ''
-    lastModifiedNewToOld: ''
-    lastModifiedOldToNew: ''
-    nameAToZ: ''
   layout:
     layout(OUTDATED): 佈局
     masonryGrid(OUTDATED): 砌磚網格
     simpleGrid(OUTDATED): 簡單的網格
-    simpleGrid: ''
-    layout: ''
-    masonryGrid: ''
 sentry:
   consent:
     title: 協助改善 Saber？

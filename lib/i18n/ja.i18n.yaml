@@ -75,18 +75,10 @@ home:
     nameZToA(OUTDATED): 名前（A-Z）
     lastModifiedNewToOld(OUTDATED): 編集済み（新しい順）
     lastModifiedOldToNew(OUTDATED): 編集済み（古い順）
-    sortBy: ''
-    nameZToA: ''
-    lastModifiedNewToOld: ''
-    lastModifiedOldToNew: ''
-    nameAToZ: ''
   layout:
     layout(OUTDATED): レイアウト
     masonryGrid(OUTDATED): メーソンリーグリッド
     simpleGrid(OUTDATED): シンプルなグリッド
-    simpleGrid: ''
-    layout: ''
-    masonryGrid: ''
 sentry:
   consent:
     title: Saver アプリの改善を助けますか？
@@ -135,9 +127,6 @@ settings:
     autoDisableFingerDrawingWhenStylusDetected(OUTDATED): 指の描画を自動的に無効にする
     customDataDir(OUTDATED): カスタムデータディレクトリ
     hideFingerDrawingToggle(OUTDATED): 指の描画トグルを非表示にする
-    hideFingerDrawingToggle: ''
-    customDataDir: ''
-    autoDisableFingerDrawingWhenStylusDetected: ''
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegibleは、弱視読者の読みやすさを向上させます。
     allowInsecureConnections: (非推奨) Saber が自己署名/信頼できない証明書を持つサーバーに接続できるようにする
@@ -149,8 +138,6 @@ settings:
       shown: 誤ったトグルを防ぐ
       fixedOn(OUTDATED): 指の描画が有効に固定される
       fixedOff(OUTDATED): 指の描画が無効に固定される
-      fixedOn: ''
-      fixedOff: ''
     editorPromptRename: メモの名前は後でいつでも変更できます
     printPageIndicators: エクスポートにページインジケーターを表示
     autosave: 短い遅延のあとに自動保存するか
@@ -163,7 +150,6 @@ settings:
       activeUntilRestart: アプリを再起動するまで有効
       inactiveUntilRestart: アプリを再起動するまでの無効
     autoDisableFingerDrawingWhenStylusDetected(OUTDATED): スタイラスが検出されたときに指の描画をオフにする
-    autoDisableFingerDrawingWhenStylusDetected: ''
   themeModes:
     system: システム
     light: ライト
@@ -193,8 +179,6 @@ settings:
     unsupported: この機能は現在、開発者向けです。 これにより、データが失われる可能性があります.
   autosaveDisabled(OUTDATED): 一度もない
   shapeRecognitionDisabled(OUTDATED): 一度もない
-  shapeRecognitionDisabled: ''
-  autosaveDisabled: ''
 logs:
   logs: ログ
   viewLogs: ログを表示
@@ -233,13 +217,11 @@ login:
     connectionFailed: サーバ接続時に問題が発生しました。後でもう一度お試しください.
     encFaq:
     - q: 暗号化パスワードとは何ですか？なぜ2つのパスワードを使用するのですか？
-      a: ''
     - q: 暗号化パスワードは未設定です。 どこで設定できますか？
       a: |-
         両方に新しい暗号化パスワードを入力してください。
         Saber は自動で新しい暗号化キーを生成します。
     - q: Nextcloud アカウントと同じパスワードを使うことはできますか?
-      a: ''
 profile:
   title: プロフィール
   logout: ログアウト
@@ -276,7 +258,6 @@ update:
   updateAvailableDescription: 新バージョンのアプリがリリースされ、以下の変更があった：
   update: 更新
   downloadNotAvailableYet(OUTDATED): お使いのプラットフォームではまだダウンロードできません。しばらくしてからもう一度ご確認ください。
-  downloadNotAvailableYet: ''
 editor:
   toolbar:
     toggleColors: 色の切り替え (Ctrl C)
@@ -365,7 +346,6 @@ editor:
       tablature: タブ譜
       cornell: 角
     backgroundImageFit(OUTDATED): 背景画像
-    backgroundImageFit: ''
   readOnlyBanner:
     title: 読み取り専用モード
     watchingServer: 現在、サーバーの更新を待っています。 このモードで編集が無効になっています.

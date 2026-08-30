@@ -58,11 +58,6 @@ home:
     deleteName(OUTDATED): Удалить $f
     delete(OUTDATED): Удалить
     confirmDelete:
-      one: ''
-      other: ''
-    delete: ''
-    deleteNotes: ''
-    deleteName: ''
   renameFolder:
     renameFolder: Переименовать папку
     folderName: Имя папки
@@ -81,18 +76,10 @@ home:
     nameZToA(OUTDATED): Имя (по алфавиту от А до Я)
     lastModifiedNewToOld(OUTDATED): Отредактировано (Новое в начале)
     lastModifiedOldToNew(OUTDATED): Отредактировано (По убыванию возраста)
-    sortBy: ''
-    nameZToA: ''
-    lastModifiedNewToOld: ''
-    lastModifiedOldToNew: ''
-    nameAToZ: ''
   layout:
     layout(OUTDATED): Макет
     masonryGrid(OUTDATED): Сетка в стиле кладки
     simpleGrid(OUTDATED): Простая сетка
-    simpleGrid: ''
-    layout: ''
-    masonryGrid: ''
 sentry:
   consent:
     title: Поможете улучшить Saber?
