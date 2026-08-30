@@ -1,0 +1,4 @@
+• Izboljšan dizajn potoka prijave.
+• Uspravljen frikcija pomicanja v urejevalniku, da je manj poškrtljena.
+• Popravljeno obravnavanje računov z neomejeno kvoto shranjevanja.
+• Popravljene mape, ki se niso razvrščale na strani za prejšnje (browse).

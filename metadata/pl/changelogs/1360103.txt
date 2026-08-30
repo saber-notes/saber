@@ -1,0 +1,4 @@
+• Ulepszono projekt przepływu logowania.
+• Dostrojono tarcie przewijania w edytorze, aby było mniej śliskie.
+• Naprawiono obsługę kont z nieograniczonym limitem miejsca.
+• Naprawiono problem niesortowania folderów na stronie przeglądania.

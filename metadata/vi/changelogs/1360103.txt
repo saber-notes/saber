@@ -1,0 +1,4 @@
+• Cải thiện thiết kế luồng đăng nhập.
+• Điều chỉnh độ trượt khi cuộn trong trình chỉnh sửa để nó bớt bị trơn.
+• Sửa lỗi xử lý các tài khoản có hạn lưu trữ không giới hạn.
+• Sửa lỗi thư mục không được sắp xếp trên trang duyệt.

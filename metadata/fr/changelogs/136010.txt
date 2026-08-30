@@ -1,0 +1,4 @@
+• Amélioration du design du flux de connexion.
+• Ajustement de la friction de défilement dans l'éditeur pour le rendre moins glissant.
+• Correction de la gestion des comptes avec un quota de stockage illimité.
+• Correction du tri des dossiers sur la page de navigation.

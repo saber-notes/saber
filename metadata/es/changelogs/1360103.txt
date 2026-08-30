@@ -1,0 +1,4 @@
+• Mejorado el diseño del flujo de inicio de sesión.
+• Ajustada la fricción del desplazamiento en el editor para que sea menos resbaladiza.
+• Corregido el manejo de cuentas con cuota de almacenamiento ilimitada.
+• Arreglado que las carpetas no se ordenaran en la página de navegación.

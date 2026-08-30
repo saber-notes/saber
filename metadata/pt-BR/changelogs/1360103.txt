@@ -1,0 +1,4 @@
+• Melhorado o design do fluxo de login.
+• Ajustado o atrito de rolagem no editor para que não seja tão escorregadio.
+• Corrigido o tratamento de contas com cota de armazenamento ilimitada.
+• Corrigido o problema de pastas não estarem ordenadas na página de navegação.

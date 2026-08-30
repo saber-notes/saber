@@ -1,0 +1,4 @@
+• Verbessertes Design des Login-Flow.
+• Anpassung der Scroll-Reibung im Editor, um ein weniger „rutschiges“ Gefühl zu erzielen.
+• Behebung des Umgangsproblems mit Konten mit unbegrenztem Speicherlimit.
+• Korrektur des Problems, dass Ordner auf der Browse-Seite nicht sortiert wurden.

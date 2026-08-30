@@ -1,0 +1,4 @@
+• Verbeterde het ontwerp van de inlogflow.
+• Verfijnde scrollweerstand in de editor om deze minder glad te maken.
+• Opgelost de afhandeling van accounts met een onbeperkte opslagquota.
+• Opgelost dat mappen niet gesorteerd werden op de browse pagina.

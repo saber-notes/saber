@@ -1,0 +1,4 @@
+• Migris la dezajnfluan de la loginto.
+• Ajustis la frikcion de rolado en la redaktilo por fari ĝin pli malglisiĝanta.
+• Regulis la trajtadon de kontoj kun nefinita stoka kvoto.
+• Regulis ke dosieroj ne estas ordigitajn en la paĝo de esplorado.

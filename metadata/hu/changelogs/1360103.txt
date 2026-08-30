@@ -1,0 +1,4 @@
+• Javítottuk a bejelentkezési folyamat dizájnját.
+• Finomhangoltuk az editor scroll-sürtő ellenállását, hogy kevésbé csúszós legyen.
+• Javítottuk a korlátlan tárhely űrtékkel rendelkező fiók kezelését.
+• Javítottuk a böngészési oldalon nem rendeződő mappákat.

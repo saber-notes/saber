@@ -1,0 +1,4 @@
+• Vylepšeno navrhování logovacího procesu.
+• Upraveno tření při posouvání v editoru, aby nebylo tak kluzké.
+• Opravena správa účtů s neomezeným kvótem úložiště.
+• Opraven problém seřazování složek na stránce pro procházení.

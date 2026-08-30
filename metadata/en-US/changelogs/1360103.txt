@@ -1,0 +1,4 @@
+• Improved the design of the login flow.
+• Tweaked scrolling friction in the editor to make it less slippery.
+• Fixed handling of accounts with unlimited storage quota.
+• Fixed folders not being sorted in the browse page.

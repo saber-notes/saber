@@ -1,0 +1,4 @@
+• Migliorato il design del flusso di accesso.
+• Regolato l'attrito dello scorrimento nell'editor per renderlo meno scorrevole.
+• Corretto il trattamento degli account con quota di archiviazione illimitata.
+• Corretta la mancata ordinazione delle cartelle nella pagina di navigazione.

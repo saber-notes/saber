@@ -1,0 +1,4 @@
+• Millores el disseny del flux de connexió.
+• Ajustat la fricció de desplaçament a l'editor per fer-lo menys resbaladís.
+• Corregit el maneig d'accounts amb quota de magatzematge il·limitada.
+• Corregits els dossiers que no es classifiquen a la pàgina de navegació.
