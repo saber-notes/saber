@@ -117,10 +117,15 @@ and is available on [GitHub](https://github.com/saber-notes/saber).
 
 ### Unused accounts
 
-To conserve storage space, accounts on the official Saber server that have not been used for over 365 days may be deleted automatically.
+To conserve storage space, inactive accounts on the official Saber server may be deleted automatically.
 
 You will receive notifications via email 300, 330, and 360 days after your last login,
 giving you the opportunity to log in and prevent deletion if you wish to keep your account.
+
+After 351 days without a login, your account will be disabled, preventing you from logging in.
+If you wish to restore your account, please contact me well in advance of the deadline with your account username/email.
+
+After 400 days without a login, your account and all its data will be irreversibly deleted.
 
 If you are using another Nextcloud server, please refer to that server's privacy policy or terms of service for information on account deletion policies.
 
