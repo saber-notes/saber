@@ -75,10 +75,18 @@ home:
     nameZToA(OUTDATED): Név (A-Z)
     lastModifiedNewToOld(OUTDATED): Szerkesztett (Legújabb előre)
     lastModifiedOldToNew(OUTDATED): "Szerkesztett (Időrendben: legidősebb először)"
+    sortBy: ''
+    nameZToA: ''
+    lastModifiedNewToOld: ''
+    lastModifiedOldToNew: ''
+    nameAToZ: ''
   layout:
     layout(OUTDATED): Elrendezés
     masonryGrid(OUTDATED): Murvai rács
     simpleGrid(OUTDATED): Egyszerű rács
+    simpleGrid: ''
+    layout: ''
+    masonryGrid: ''
 sentry:
   consent:
     title: Segít a Saber fejlesztésében?
