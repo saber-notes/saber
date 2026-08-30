@@ -57,6 +57,12 @@ home:
     deleteNotes(OUTDATED): Xóa $n ghi chú
     deleteName(OUTDATED): Xóa $f
     delete(OUTDATED): Xóa
+    confirmDelete:
+      one: ''
+      other: ''
+    delete: ''
+    deleteNotes: ''
+    deleteName: ''
   renameFolder:
     renameFolder: Đổi tên thư mục
     folderName: Tên thư mục
@@ -75,10 +81,18 @@ home:
     nameZToA(OUTDATED): Tên (A-Z)
     lastModifiedNewToOld(OUTDATED): Đã chỉnh sửa (Mới nhất trước)
     lastModifiedOldToNew(OUTDATED): Đã chỉnh sửa (Cũ nhất trước)
+    sortBy: ''
+    nameZToA: ''
+    lastModifiedNewToOld: ''
+    lastModifiedOldToNew: ''
+    nameAToZ: ''
   layout:
     layout(OUTDATED): Bố cục
     masonryGrid(OUTDATED): Lưới gạch xếp
     simpleGrid(OUTDATED): Lưới đơn giản
+    simpleGrid: ''
+    layout: ''
+    masonryGrid: ''
 sentry:
   consent:
     title: Đóng góp cho Saber?
