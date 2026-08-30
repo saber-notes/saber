@@ -232,8 +232,6 @@ ca:
       lockSingleFingerPan(OUTDATED): Disable single-finger panning
       unlockAxisAlignedPan(OUTDATED): Unlock panning to horizontal or vertical
 cs:
-  profile:
-    quotaUsageUncapped(OUTDATED): Využíváte $used
 de:
   home:
     sort:
