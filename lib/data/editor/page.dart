@@ -24,6 +24,8 @@ class EditorPage extends ChangeNotifier implements HasSize {
   @override
   final Size size;
 
+  Offset? eraserPosition;
+
   late final CanvasKey innerCanvasKey = CanvasKey();
   RenderBox? _renderBox;
   RenderBox? get renderBox {
