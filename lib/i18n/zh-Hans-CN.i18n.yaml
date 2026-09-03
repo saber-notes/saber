@@ -75,10 +75,18 @@ home:
     nameZToA(OUTDATED): 姓名（从 A 到 Z）
     lastModifiedNewToOld(OUTDATED): 编辑（最新优先）
     lastModifiedOldToNew(OUTDATED): 编辑（按最旧的排序）
+    sortBy: 分类方式
+    nameAToZ: 名称（按A-Z)
+    nameZToA: 名称（按Z-A）
+    lastModifiedNewToOld: 已修改（最新日期优先）
+    lastModifiedOldToNew: 已修改（最远日期优先）
   layout:
     layout(OUTDATED): 布局
     masonryGrid(OUTDATED): 砌体网格
     simpleGrid(OUTDATED): 简单网格
+    layout: 布局
+    masonryGrid: 砌体网格样式
+    simpleGrid: 简单网格样式
 sentry:
   consent:
     title: 帮助改进 Saber？
