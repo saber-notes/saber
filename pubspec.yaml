@@ -144,7 +144,7 @@ dependencies:
 
   flutter_web_auth_2: ^5.0.1
 
-  pdfrx: ^2.4.2
+  pdfrx: ">=2.4.2 <2.5.0" # 2.5.0 requires material_ui
   path: ^1.9.1
 
   stow: ^0.6.0
@@ -179,7 +179,7 @@ dev_dependencies:
 
   yaml: ^3.1.2
 
-  golden_screenshot: ^11.0.1
+  golden_screenshot: ^11.1.0
 
   sentry_dart_plugin: ^3.1.1
 
