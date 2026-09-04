@@ -355,6 +355,9 @@ editor:
       staffs: Staffs
       tablature: Tablature
       cornell: Cornell
+  photoPdfError:
+    title: Error
+    message: PDF files cannot be added as image. Use "Import > PDF" for that.
   readOnlyBanner:
     title: Read-only mode
     watchingServer: You are currently watching for updates on the server. Editing is disabled in this mode.
