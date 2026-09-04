@@ -123,11 +123,10 @@ jobs:
           mv linux/AppImage/AppDir/usr/bin/share linux/AppImage/AppDir/usr/
 
           # Set environment variables for linuxdeploy
-          echo "LD_LIBRARY_PATH=$(pwd)/linux/AppImage/AppDir/usr/bin/lib:$LD_LIBRARY_PATH" >> $GITHUB_ENV
-          echo 'UPDATE_INFORMATION=gh-releases-zsync|saber-notes|saber|latest|Saber-*-${{ matrix.arch.archive-suffix }}.AppImage.zsync' >> $GITHUB_ENV
-
           buildName=$(grep -oP "(?<=buildName = ').*(?=')" lib/data/version.dart)
-          echo "LINUXDEPLOY_OUTPUT_APP_NAME=Saber-${buildName}" >> $GITHUB_ENV
+          echo "LDAI_OUTPUT=Saber-${buildName}-${{ matrix.arch.archive-suffix }}.AppImage" >> $GITHUB_ENV
+          echo "LD_LIBRARY_PATH=$(pwd)/linux/AppImage/AppDir/usr/bin/lib:$LD_LIBRARY_PATH" >> $GITHUB_ENV
+          echo 'LDAI_UPDATE_INFORMATION=gh-releases-zsync|saber-notes|saber|latest|Saber-*-${{ matrix.arch.archive-suffix }}.AppImage.zsync' >> $GITHUB_ENV
 
       - name: Install linuxdeploy
         working-directory: linux/AppImage
