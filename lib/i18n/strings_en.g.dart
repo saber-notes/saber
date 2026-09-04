@@ -310,6 +310,7 @@ class Translations$editor$en {
 	late final Translations$editor$imageOptions$en imageOptions = Translations$editor$imageOptions$en.internal(_root);
 	late final Translations$editor$selectionBar$en selectionBar = Translations$editor$selectionBar$en.internal(_root);
 	late final Translations$editor$menu$en menu = Translations$editor$menu$en.internal(_root);
+	late final Translations$editor$photoPdfError$en photoPdfError = Translations$editor$photoPdfError$en.internal(_root);
 	late final Translations$editor$readOnlyBanner$en readOnlyBanner = Translations$editor$readOnlyBanner$en.internal(_root);
 	late final Translations$editor$versionTooNew$en versionTooNew = Translations$editor$versionTooNew$en.internal(_root);
 	late final Translations$editor$quill$en quill = Translations$editor$quill$en.internal(_root);
@@ -1308,6 +1309,21 @@ class Translations$editor$menu$en {
 
 	late final Translations$editor$menu$boxFits$en boxFits = Translations$editor$menu$boxFits$en.internal(_root);
 	late final Translations$editor$menu$bgPatterns$en bgPatterns = Translations$editor$menu$bgPatterns$en.internal(_root);
+}
+
+// Path: editor.photoPdfError
+class Translations$editor$photoPdfError$en {
+	Translations$editor$photoPdfError$en.internal(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+
+	/// en: 'Error'
+	String get title => 'Error';
+
+	/// en: 'PDF files cannot be added as image. Use "Import > PDF" for that.'
+	String get message => 'PDF files cannot be added as image. Use "Import > PDF" for that.';
 }
 
 // Path: editor.readOnlyBanner
