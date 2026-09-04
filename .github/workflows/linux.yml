@@ -10,7 +10,6 @@ on:
       - "**"
     paths:
       - .github/workflows/linux.yml
-      - appimage/AppImageBuilder.yml
 
 jobs:
   build-linux:
@@ -120,12 +119,15 @@ jobs:
           mkdir -p linux/AppImage/AppDir/usr/bin/
           cp -R AppDir/* linux/AppImage/AppDir/usr/bin/
 
-          # Move share folder to usr/share
+          # Move /usr/bin/share to /usr/share
           mv linux/AppImage/AppDir/usr/bin/share linux/AppImage/AppDir/usr/
 
           # Set environment variables for linuxdeploy
           echo "LD_LIBRARY_PATH=$(pwd)/linux/AppImage/AppDir/usr/bin/lib:$LD_LIBRARY_PATH" >> $GITHUB_ENV
           echo 'UPDATE_INFORMATION=gh-releases-zsync|saber-notes|saber|latest|Saber-*-${{ matrix.arch.archive-suffix }}.AppImage.zsync' >> $GITHUB_ENV
+
+          buildName=$(grep -oP "(?<=buildName = ').*(?=')" lib/data/version.dart)
+          echo "LINUXDEPLOY_OUTPUT_APP_NAME=Saber-${buildName}" >> $GITHUB_ENV
 
       - name: Install linuxdeploy
         working-directory: linux/AppImage
@@ -137,12 +139,6 @@ jobs:
         run: ./${{ matrix.arch.linuxdeploy-exe }} --appdir AppDir --output appimage
 
       - run: tree linux/AppImage -L 3
-
-      - name: Rename AppImage
-        run: |
-          buildName=$(grep -oP "(?<=buildName = ').*(?=')" lib/data/version.dart)
-          mv linux/AppImage/Saber-*.AppImage       linux/AppImage/Saber-${buildName}-${{ matrix.arch.archive-suffix }}.AppImage
-          mv linux/AppImage/Saber-*.AppImage.zsync linux/AppImage/Saber-${buildName}-${{ matrix.arch.archive-suffix }}.AppImage.zsync
 
       - name: Upload artifact
         uses: actions/upload-artifact@v7
