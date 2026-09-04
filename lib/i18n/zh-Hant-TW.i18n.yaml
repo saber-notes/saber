@@ -75,10 +75,18 @@ home:
     nameZToA(OUTDATED): 姓名 (依字母排序)
     lastModifiedNewToOld(OUTDATED): 編輯（最新優先）
     lastModifiedOldToNew(OUTDATED): 編輯（最舊的在前）
+    sortBy: 排序方式
+    nameAToZ: 名稱 (A-Z)
+    nameZToA: 名稱 (Z-A)
+    lastModifiedNewToOld: 編輯時間（最新優先）
+    lastModifiedOldToNew: 編輯時間（最舊優先）
   layout:
     layout(OUTDATED): 佈局
     masonryGrid(OUTDATED): 砌磚網格
     simpleGrid(OUTDATED): 簡單的網格
+    layout: 版面配置
+    masonryGrid: 瀑布流排版
+    simpleGrid: 簡單網格
 sentry:
   consent:
     title: 協助改善 Saber？
@@ -254,6 +262,7 @@ profile:
       如果您使用的是官方 Saber 伺服器，您的帳戶將在一週的寬限期後被刪除，您可以在此期間用電子郵件聯絡我：adilhanney@disroot.org，以取消刪除。
       如果您使用的是第三方伺服器，則可能沒有刪除帳號的選項，您需要檢視伺服器的隱私權政策以了解更多資訊。
   quotaUsageUncapped(OUTDATED): 您正在使用 $used
+  quotaUsageUncapped: 您已使用 $used
 appInfo:
   licenseNotice: |-
     Saber  版權所有 © 2022-$buildYear  Adil Hanney
@@ -364,7 +373,7 @@ editor:
     subtitle: 編輯此筆記可能會導致某些資訊遺失。您要忽略並編輯它嗎？
     allowEditing: 允許編輯
   quill:
-    typeSomething: 請在此輸入內容……
+    typeSomething: 請在此輸入內容⋯⋯
   hud:
     unlockZoom: 解鎖縮放
     lockZoom: 鎖定縮放
@@ -374,4 +383,4 @@ editor:
     lockAxisAlignedPan: 鎖定水平或垂直平移
   pages: 頁面
   untitled: 無標題
-  needsToSaveBeforeExiting: 正在儲存您的變更……完成後您可以安全地結束編輯器
+  needsToSaveBeforeExiting: 正在儲存您的變更⋯⋯完成後，您可以安全地結束編輯器

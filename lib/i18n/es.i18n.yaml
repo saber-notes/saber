@@ -56,6 +56,7 @@ home:
     delete: Eliminar
     deleteNotes(OUTDATED): Eliminar $n notas
     deleteName(OUTDATED): Borrar $f
+    deleteNotes: Eliminar $n notas
   renameFolder:
     renameFolder: Renombrar carpeta
     folderName: Nombre de la carpeta
