@@ -51,6 +51,8 @@ app.*.map.json
 .flatpak-builder
 build-dir
 Saber-Linux-Portable.tar.gz
+AppDir/
+*.AppImage*
 
 # Sentry error tracking
 .sentry-native/
