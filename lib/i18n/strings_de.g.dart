@@ -224,6 +224,7 @@ class _Translations$editor$de extends Translations$editor$en {
 	@override late final _Translations$editor$imageOptions$de imageOptions = _Translations$editor$imageOptions$de._(_root);
 	@override late final _Translations$editor$selectionBar$de selectionBar = _Translations$editor$selectionBar$de._(_root);
 	@override late final _Translations$editor$menu$de menu = _Translations$editor$menu$de._(_root);
+	@override late final _Translations$editor$photoPdfError$de photoPdfError = _Translations$editor$photoPdfError$de._(_root);
 	@override late final _Translations$editor$readOnlyBanner$de readOnlyBanner = _Translations$editor$readOnlyBanner$de._(_root);
 	@override late final _Translations$editor$versionTooNew$de versionTooNew = _Translations$editor$versionTooNew$de._(_root);
 	@override late final _Translations$editor$quill$de quill = _Translations$editor$quill$de._(_root);
@@ -792,6 +793,17 @@ class _Translations$editor$menu$de extends Translations$editor$menu$en {
 	@override String get watchServerReadOnly => 'Bearbeiten ist deaktiviert, solange du den Server beobachtest';
 	@override late final _Translations$editor$menu$boxFits$de boxFits = _Translations$editor$menu$boxFits$de._(_root);
 	@override late final _Translations$editor$menu$bgPatterns$de bgPatterns = _Translations$editor$menu$bgPatterns$de._(_root);
+}
+
+// Path: editor.photoPdfError
+class _Translations$editor$photoPdfError$de extends Translations$editor$photoPdfError$en {
+	_Translations$editor$photoPdfError$de._(TranslationsDe root) : this._root = root, super.internal(root);
+
+	final TranslationsDe _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Fehler';
+	@override String get message => 'PDF-Dateien können nicht als Bild hinzugefügt wreden. Nutze dafür "Import > PDF".';
 }
 
 // Path: editor.readOnlyBanner

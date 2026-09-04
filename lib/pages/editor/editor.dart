@@ -1097,9 +1097,26 @@ class EditorState extends State<Editor> {
     // use the Select tool so that the user can move the new image
     currentTool = Select.currentSelect;
 
-    final images = [
-      for (final _PhotoInfo photoInfo in photoInfos)
-        if (photoInfo.extension == '.svg')
+    var images = <EditorImage>[];
+    for (final _PhotoInfo photoInfo in photoInfos) {
+      if (photoInfo.extension == '.pdf') {
+        //Android allows pdf selection even if not allowed
+        showDialog(
+          context: context,
+          builder: (context) => AdaptiveAlertDialog(
+            title: Text(t.editor.photoPdfError.title),
+            content: Text(t.editor.photoPdfError.message),
+            actions: [
+              CupertinoDialogAction(
+                child: Text(t.common.done),
+                onPressed: () => Navigator.of(context).pop(),
+              ),
+            ],
+          ),
+        );
+        continue;
+      } else if (photoInfo.extension == '.svg') {
+        images.add(
           SvgEditorImage(
             id: coreInfo.nextImageId++,
             svgString: utf8.decode(photoInfo.bytes),
@@ -1112,7 +1129,9 @@ class EditorState extends State<Editor> {
             onLoad: () => setState(() {}),
             assetCache: coreInfo.assetCache,
           )
-        else
+        );
+      } else {
+        images.add(
           PngEditorImage(
             id: coreInfo.nextImageId++,
             extension: photoInfo.extension,
@@ -1124,8 +1143,14 @@ class EditorState extends State<Editor> {
             onMiscChange: autosaveAfterDelay,
             onLoad: () => setState(() {}),
             assetCache: coreInfo.assetCache,
-          ),
-    ];
+          )
+        );
+      }
+    }
+
+    if (images.isEmpty) {
+      return 0;
+    }
 
     history.recordChange(
       EditorHistoryItem(
