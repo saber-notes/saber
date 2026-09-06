@@ -40,7 +40,7 @@ home:
     noteNameEmpty: Le nom de note ne peut pas être vide
     noteNameExists: Une note du même nom existe déjà
     noteNameForbiddenCharacters: Le nom de la note contient des caractères interdits
-    noteNameReserved: Nom de la note réservé
+    noteNameReserved: Le nom de la note est réservé
   moveNote:
     moveNote: Déplacer la note
     moveNotes: Déplacer $n notes
@@ -254,6 +254,7 @@ profile:
       Si vous utilisez le serveur Saber officiel, votre compte sera supprimé au bout d'une semaine . Durant cette période, vous pourrez me contacter à adilhanney@disroot.org pour annuler la suppression.
       Si vous utilisez un autre serveur, il n'est pas certain que vous puissiez supprimer votre compte dessus : il vous faudra consulter les règles de confidentialité du serveur pour plus d'informations.
   quotaUsageUncapped(OUTDATED): Vous utilisez $used
+  quotaUsageUncapped: Vous utilisez $used
 appInfo:
   licenseNotice: |-
     Saber  Copyright © 2022-$buildYear  Adil Hanney
