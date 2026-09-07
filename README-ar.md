@@ -30,7 +30,8 @@
 [中文 (简体中文, 中国)](https://github.com/saber-notes/saber/blob/main/README-zh-CN.md) |
 [中文 (繁體, 台灣)](https://github.com/saber-notes/saber/blob/main/README-zh-TW.md) |
 [العربية](https://github.com/saber-notes/saber/blob/main/README-ar.md) |
-[Tiếng Việt](https://github.com/saber-notes/saber/blob/main/README-vi.md)
+[Tiếng Việt](https://github.com/saber-notes/saber/blob/main/README-vi.md) |
+[Bahasa Indonesia](https://github.com/saber-notes/saber/blob/main/README-id.md)
 
 ان Saber هو تطبيق ملاحظات مصمم للكتابة اليدوية.
 
