@@ -1,27 +1,27 @@
 # <img src="https://github.com/saber-notes/saber/raw/main/assets/icon/icon.png" width="30" height="30" alt="Logo"> Saber
 
 [<img src='https://github.com/saber-notes/saber/blob/main/assets_raw/badges/google-play-badge.svg'
-    alt='Get it on Google Play'
+    alt='Dapatkan di Google Play'
     height=50>][google_play]
 &nbsp;
 [<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/f-droid-badge.svg"
-    alt="Get it on F-Droid"
+    alt="Dapatkan di F-Droid"
     height=50>][f-droid]
 &nbsp;
 [<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/app-store-badge.svg"
-    alt="Download on the App Store"
+    alt="Unduh di App Store"
     height=50>][app_store]
 &nbsp;
 [<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/windows-badge.png"
-    alt="Download for Windows"
+    alt="Unduh untuk Windows"
     height=50>][download_windows]
 &nbsp;
 [<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/flathub-badge.svg"
-    alt="Download on Flathub"
+    alt="Unduh di Flathub"
     height=50>][flathub]
 &nbsp;
 [<img src="https://github.com/saber-notes/saber/blob/main/assets_raw/badges/appimage-logo.svg"
-    alt="Get it as an AppImage"
+    alt="Dapatkan sebagai AppImage"
     height=50>][download_appimage]
 
 [English](https://github.com/saber-notes/saber/blob/main/README.md) |
@@ -33,23 +33,23 @@
 [Tiếng Việt](https://github.com/saber-notes/saber/blob/main/README-vi.md) |
 [Bahasa Indonesia](https://github.com/saber-notes/saber/blob/main/README-id.md)
 
-Saber is the notes app built for handwriting.
+Saber merupakan aplikasi catatan yang dirancang khusus untuk tulisan tangan.
 
-It's designed to be as simple and intuitive as possible, while still delivering unique features that you'll actually use. Additionally, Saber is available across all your devices, large and small, and syncs between them seamlessly.
+Aplikasi ini dibuat sesederhana dan seintuitif mungkin, namun tetap menghadirkan fitur-fitur unik yang akan kamu pakai. Saber juga dapat digunakan di semua perangkatmu, dari yang besar sampai kecil, dan sinkronisasinya berjalan mulus di antara semuanya.
 
-Notably, it can invert your notes when you're in dark mode. This allows you to write with white ink on a black background, which is much easier on the eyes in low-light environments like when the teacher turns off the lights in class.
-Images and PDFs are also inverted, so you can still use a digital printout or a textbook without the fuss.
+Salah satu keunggulannya yaitu Saber dapat membalik warna catatanmu saat mode gelap aktif. Jadi kamu dapat menulis dengan tinta putih di atas latar hitam, yang jauh lebih nyaman di mata saat berada di tempat minim cahaya, misalnya ketika lampu kelas dimatikan guru.
+Gambar dan PDF pun ikut dibalik warnanya, sehingga kamu tetap dapat memakai cetakan digital atau buku teks tanpa ribet.
 
-Saber uses a dual-password system to protect your notes from anyone but you, even if they have complete control over the server. You can safely store your notes on the official Saber server, another server, or even host your own!
+Saber menerapkan sistem dua kata sandi untuk melindungi catatanmu dari siapa pun, bahkan dari pihak yang memiliki kendali penuh atas server sekalipun. Kamu dapat menyimpan catatan dengan aman di server resmi Saber, server lain, atau bahkan meng-host servermu sendiri!
 
-The app is completely open-source so that anyone can view the source code and see exactly what it's doing and how it handles your data. Many other note-taking apps are closed-source and proprietary, meaning that their inner workings are a mystery to the public.
+Aplikasi ini sepenuhnya open-source, sehingga siapa saja dapat melihat kode sumbernya dan mengetahui persis apa yang dilakukan aplikasi ini serta bagaimana data kamu diperlakukan. Banyak aplikasi pencatat lain yang closed-source dan proprietary, artinya cara kerjanya di balik layar tetap menjadi misteri bagi publik.
 
-As someone who studies maths, highlighting multi-line equations was always a hassle with other apps, where the highlighter would change color when it overlapped with itself. Another problem I had was that in some apps, the highlighter would render on top of the text, fading it out and making it hard to read.
-Saber's highlighter has no such issues. It utilizes canvas compositing to render the highlighter in a way that is consistent with/better than traditional paper, where it handles overlaps and maintains color consistency.
+Sebagai seorang yang belajar matematika, menyorot (highlight) persamaan yang panjangnya berbaris-baris selalu menjadi masalah tersendiri di aplikasi lain, karena warna stabilo sering berubah begitu tumpang tindih dengan dirinya sendiri. Masalah lain yang saya alami sepertinya, di beberapa aplikasi stabilonya malah tampil di atas teks, membuat tulisan menjadi pudar dan sulit untuk dibaca.
+Stabilo di Saber tidak memiliki masalah seperti itu. Fitur ini memanfaatkan canvas compositing untuk menampilkan hasil stabilo secara konsisten, bahkan lebih baik dibanding kertas biasa, karena dapat menangani tumpang tindih warna dengan rapi dan tetap konsisten.
 
-Saber has everything you need to keep your notes organized. Create folders inside folders inside folders to your heart's content with no limit on the number of nested folders. And even though a note may be buried deep within a nested folder, you can still access it easily with your most recent notes always available on the home screen.
+Saber memiliki semua yang kamu butuhkan untuk menjaga catatanmu agar tetap rapi. Kamu dapat membuat folder di dalam folder dan di dalam folder lagi sesuka hati, tanpa batasan jumlah folder bersarang. Dan meskipun sebuah catatan terkubur jauh di dalam folder yang berlapis-lapis, kamu tetap dapat mengaksesnya dengan mudah karena catatan terbarumu selalu tersedia di layar utama.
 
-Discover a whole new way to capture and organize your thoughts with Saber. Whether you're a student, professional, or creative mind, Saber is your trusted companion for digital handwriting. Download now and let your ideas flow freely!
+Temukan cara baru untuk menangkap dan mengatur pikiranmu bersama Saber. Baik kamu seorang pelajar, profesional, maupun berjiwa kreatif, Saber merupakan teman andalan untuk tulisan tangan digital. Unduh sekarang dan biarkan ide-idemu mengalir!
 
 [![Latest release](https://img.shields.io/github/v/release/saber-notes/saber)](https://github.com/saber-notes/saber/releases/latest)
 [![Flathub](https://img.shields.io/flathub/v/com.adilhanney.saber)](https://flathub.org/apps/details/com.adilhanney.saber)
@@ -62,7 +62,7 @@ Discover a whole new way to capture and organize your thoughts with Saber. Wheth
 [![Codecov](https://codecov.io/gh/saber-notes/saber/branch/main/graph/badge.svg?token=EGQSN0THW2)](https://codecov.io/gh/saber-notes/saber)
 
 <details open>
-<summary>Tap to show/hide screenshots</summary>
+<summary>Tekan untuk menampilkan/menyembunyikan tangkapan layar</summary>
 
 <div>
 <img src="https://github.com/saber-notes/saber/raw/main/metadata/en-US/images/phoneScreenshots/1_home.png" width="180">
@@ -72,54 +72,54 @@ Discover a whole new way to capture and organize your thoughts with Saber. Wheth
 </div>
 </details>
 
-## Features
+## Fitur
 
-Please see [#1 Saber progress][progress].
+Silakan lihat di [#1 Perkembangan Saber][progress].
 
-## Install
+## Instalasi
 
-Please see
-[Install Saber](https://github.com/saber-notes/saber/wiki/install)
-on the wiki.
+Silakan lihat di halaman
+[Instal Saber](https://github.com/saber-notes/saber/wiki/install)
+di wiki.
 
-## Build from source
+## Build dari kode sumber
 
-Please see
+Silakan lihat di halaman
 [Build Saber](https://github.com/saber-notes/saber/wiki/build)
-on the wiki.
+di wiki.
 
-## Links
+## Tautan
 
-- [Nextcloud server][nextcloud]
-- [Privacy policy][privacy]
-- [License][license]
-- [Releases][releases]
+- [Server Nextcloud][nextcloud]
+- [Kebijakan privasi][privacy]
+- [Lisensi][license]
+- [Rilis][releases]
 
-## Translating
+## Menerjemahkan
 
-All translations are thanks to our community of contributors.
+Semua terjemahan ini berkat komunitas kontributor kami.
 
-If you'd like to help out translating Saber, head to [Weblate](https://hosted.weblate.org/engage/saber-notes/)!
+Kalau kamu ingin membantu menerjemahkan Saber, langsung saja ke [Weblate](https://hosted.weblate.org/engage/saber-notes/)!
 
 [![Translation status](https://hosted.weblate.org/widget/saber-notes/multi-auto.svg)](https://hosted.weblate.org/engage/saber-notes/)
 
-Note: To avoid falling back to English, any gaps in the translations are filled
-in by machine translation until a human can contribute.
+Catatan: Agar tidak jatuh kembali ke bahasa Inggris, bagian terjemahan yang belum lengkap
+akan diisi sementara dengan terjemahan mesin sampai ada kontributor manusia yang melengkapinya.
 
-## Supporting Saber
+## Mendukung Saber
 
-If you like Saber, please consider supporting it by:
-- Spreading the word!
-- Starring the project on GitHub
-- Sponsoring me on [GitHub Sponsors](https://github.com/sponsors/adil192)
-- Donating via [PayPal](https://paypal.me/adilhanney)
-- Buying more storage on the Nextcloud server: see [Pricing](pricing.md)
+Jika kamu menyukai Saber, kamu dapat mendukungnya dengan berbagai cara berikut ini:
+- Membagikan ke orang lain!
+- Memberi bintang pada proyek ini di GitHub
+- Menjadi sponsor saya di [GitHub Sponsors](https://github.com/sponsors/adil192)
+- Berdonasi lewat [PayPal](https://paypal.me/adilhanney)
+- Membeli tambahan penyimpanan di server Nextcloud: lihat [Harga](pricing.md)
 
-## Development notes
+## Catatan pengembangan
 
-Please see
-[Maintainer notes](https://github.com/saber-notes/saber/wiki/Maintainer-notes)
-on the wiki.
+Silakan lihat halaman
+[Catatan maintainer](https://github.com/saber-notes/saber/wiki/Maintainer-notes)
+di wiki.
 
 
 [f-droid]: https://f-droid.org/packages/com.adilhanney.saber/
