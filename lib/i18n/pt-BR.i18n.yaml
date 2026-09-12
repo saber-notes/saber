@@ -57,6 +57,11 @@ home:
     deleteNotes(OUTDATED): Excluir $n notas
     deleteName(OUTDATED): Excluir $f
     delete(OUTDATED): Excluir
+    deleteNotes: Deletar $n notas
+    deleteName: Deletar $f
+    confirmDelete:
+      one: Deletar a nota selecionada permanentemente?
+    delete: Deletar
   renameFolder:
     renameFolder: Renomear pasta
     folderName: Nome da pasta
@@ -75,10 +80,17 @@ home:
     nameZToA(OUTDATED): Nome (A-Z)
     lastModifiedNewToOld(OUTDATED): Editado (Mais recente primeiro)
     lastModifiedOldToNew(OUTDATED): Editado (Mais antigo primeiro)
+    lastModifiedOldToNew: Editado (Mais antigo)
+    lastModifiedNewToOld: Editado (Mais recente primeiro)
+    sortBy: Ordenar por
+    nameAToZ: Nome (A-Z)
+    nameZToA: Nome (Z-A)
   layout:
     layout(OUTDATED): Layout
     masonryGrid(OUTDATED): Grade de alvenaria
     simpleGrid(OUTDATED): Grade simples
+    layout: Layout
+    simpleGrid: Grid simples
 sentry:
   consent:
     title: Ajudar a melhorar Saber?
@@ -127,6 +139,7 @@ settings:
     autoStraightenLines: Auto alinhamento de linhas
     sentry(OUTDATED): Relatório de erro
     customDataDir(OUTDATED): Diretório de dados personalizado
+    customDataDir: Pasta Saber personalizada
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible aumenta a legibilidade para leitores com baixa visão
     allowInsecureConnections: (Não recomendado) Permitir que o Saber se conecte a servidores com certificados autoassinados/não-confiáveis
@@ -146,10 +159,17 @@ settings:
       inactive(OUTDATED): Inativo
       activeUntilRestart(OUTDATED): Ativo até você reiniciar o aplicativo
       inactiveUntilRestart(OUTDATED): Inativo até você reiniciar o aplicativo
+      activeUntilRestart: Ativo até você reiniciar o aplicativo
+      inactiveUntilRestart: Inativo até você reiniciar o aplicativo
+      active: Ativo
+      inactive: Inativo
     autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Desative o desenho com o dedo quando uma caneta for detectada
     autosave(OUTDATED): Salvamento automático após um pequeno atraso, ou nunca
     autoStraightenLines(OUTDATED): Endireita linhas longas sem precisar usar a caneta modeladora
     shapeRecognitionDelay(OUTDATED): Com que frequência atualizar a visualização da forma
+    autoStraightenLines: Endireita linhas longas sem precisar usar a caneta de formas
+    autosave: Salvar automaticamente após um curto intervalo, ou nunca
+    shapeRecognitionDelay: Com que frequência atualizar a pré-visualização da forma
   themeModes:
     system: Sistema
     light: Claro
@@ -175,16 +195,22 @@ settings:
     select(OUTDATED): Selecione
     mustBeEmpty(OUTDATED): O diretório selecionado deve estar vazio
     mustBeDoneSyncing(OUTDATED): Certifique-se de que a sincronização esteja concluída antes de alterar o diretório
+    cancel: Cancelar
+    mustBeDoneSyncing: Certifique-se de que a sincronização esteja concluída antes de alterar a pasta.
+    unsupported: Este recurso atualmente é apenas para desenvolvedores. Usá-lo provavelmente resultará em perda de dados.
   autosaveDisabled(OUTDATED): Nunca
   shapeRecognitionDisabled(OUTDATED): Nunca
   openDataDir(OUTDATED): Abra a pasta Saber
   resyncEverything(OUTDATED): Resync tudo
+  autosaveDisabled: Nunca
+  shapeRecognitionDisabled: Nunca
 logs:
   useTheApp(OUTDATED): Os logs aparecerão aqui enquanto você usa o aplicativo
   logs(OUTDATED): Registros
   viewLogs(OUTDATED): Ver logs
   debuggingInfo(OUTDATED): Os logs contêm informações úteis para depuração e desenvolvimento
   noLogs(OUTDATED): Nenhum registro aqui!
+  logs: Registros
 login:
   title: Login
   form:
@@ -207,6 +233,8 @@ login:
     serverUrl(OUTDATED): URL do servidor
     loginWithSaber(OUTDATED): Faça login com Saber
     loginWithNextcloud(OUTDATED): Faça login com Nextcloud
+    saberNcServer: Servidor Nextcloud de Saber
+    serverUrl: URL do servidor
   encLoginStep:
     enterEncPassword(OUTDATED): "Para proteger seus dados, digite sua senha de criptografia:"
     newToSaber(OUTDATED): Novo no Saber
@@ -225,6 +253,7 @@ login:
         Mesmo que alguém obtenha acesso à sua conta do Nextcloud, as suas notas permanecerão seguras e criptografadas com uma senha separada. Isso fornece uma segunda camada de segurança para proteger os seus dados.
     - q: Posso usar a mesma senha para ambos?
       a: "Sim, mas isso é menos seguro. Como a sua senha do Nextcloud é enviada ao servidor, alguém com acesso ao servidor poderá descriptografar as suas notas. Use a mesma senha apenas se você confiar no proprietário do servidor. "
+    encFaqTitle: Perguntas frequentes
   notYou(rich, OUTDATED): ${undoLogin(Você não)}
 profile:
   title: Meu perfil
