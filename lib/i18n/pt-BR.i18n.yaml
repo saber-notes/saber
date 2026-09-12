@@ -140,6 +140,7 @@ settings:
     sentry(OUTDATED): Relatório de erro
     customDataDir(OUTDATED): Diretório de dados personalizado
     customDataDir: Pasta Saber personalizada
+    sentry: Reportar erro
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible aumenta a legibilidade para leitores com baixa visão
     allowInsecureConnections: (Não recomendado) Permitir que o Saber se conecte a servidores com certificados autoassinados/não-confiáveis
@@ -170,6 +171,7 @@ settings:
     autoStraightenLines: Endireita linhas longas sem precisar usar a caneta de formas
     autosave: Salvar automaticamente após um curto intervalo, ou nunca
     shapeRecognitionDelay: Com que frequência atualizar a pré-visualização da forma
+    autoDisableFingerDrawingWhenStylusDetected: Desativar desenho à mão quando uma stylus for detectada
   themeModes:
     system: Sistema
     light: Claro
