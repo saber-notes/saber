@@ -75,10 +75,16 @@ home:
     nameZToA(OUTDATED): Name (A-Z)
     lastModifiedNewToOld(OUTDATED): Bearbeitet (Neuestes zuerst)
     lastModifiedOldToNew(OUTDATED): Bearbeitet (Älteste zuerst)
+    sortBy: Sortieren nach
+    nameAToZ: Name (A-Z)
+    nameZToA: Name (Z-A)
+    lastModifiedNewToOld: Bearbeitet (Neueste zuerst)
+    lastModifiedOldToNew: Bearbeitet (Älteste zuerst)
   layout:
     layout(OUTDATED): Layout
     masonryGrid(OUTDATED): Mauerwerk-Raster
     simpleGrid(OUTDATED): Einfaches Raster
+    layout: Layout
 sentry:
   consent:
     title: Helfen, Saber zu verbessern?
