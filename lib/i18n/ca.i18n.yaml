@@ -1,6 +1,6 @@
 common:
   done: Fet
-  continueBtn: Procedeix
+  continueBtn: Continua
   cancel: Cancel·la
 home:
   tabs:
@@ -22,8 +22,7 @@ home:
     importNote: Importar nota
   welcome: Benvingut/d@ a Saber
   invalidFormat: |-
-    L'arxiu seleccionat no és compatible.
-    Siusplau, proveu-ho des d'un dels següents formats: sbn, sbn2, sba o PDF
+    L'arxiu seleccionat no és compatible. Seleccioneu un arxiu en format sbn, sbn2, sba o PDF
   noFiles: Cap arxiu trobat
   noPreviewAvailable: Previsualització no disponible
   createNewNote: Prem + per a crear una nota nova
@@ -85,7 +84,7 @@ sentry:
   consent:
     title: Vols ajudar a millorar Saber?
     description:
-      currentlyOff: Si acceptes, els informes d'errors s'activaran un cop reiniciada l'app
+      currentlyOff: Si acceptesu, els informes d'errors s'activaran un cop reiniciada l'app
       learnMoreInPrivacyPolicy(rich): Més informació a ${link(privacy policy)}.
       question(OUTDATED): T'agria que raporti errors inesperades mà automaticament? Això m'ajuda a identificar i a classar problemes més ràpid.
       scope(OUTDATED): Els informes podem contenir informació sobre l'error i el teu dispositiu. He fet cada esforç per filtrar els dades personals, però algunes poden quedar.
