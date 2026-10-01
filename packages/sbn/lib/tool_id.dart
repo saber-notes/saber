@@ -14,7 +14,8 @@ enum ToolId(final String id) {
   eraser('Eraser'),
   select('Select'),
   textEditing('TextEditingTool'),
-  laserPointer('LaserPointer');
+  laserPointer('LaserPointer'),
+  calligraphyPen('calligraphyPen');
 
   static const codec = EnumCodec(values);
 
@@ -29,6 +30,9 @@ enum ToolId(final String id) {
     }
     if (penType == 'Pen') {
       return .fountainPen;
+    }
+    if (penType == 'calligraphyPen' || penType == 'CalligraphyPen') {
+      return .calligraphyPen;
     }
     for (final toolId in ToolId.values) {
       if (penType == toolId.id) {

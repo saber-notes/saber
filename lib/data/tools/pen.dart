@@ -5,6 +5,7 @@ import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/data/tools/_tool.dart';
+import 'package:saber/data/tools/calligraphy_pen.dart';
 import 'package:saber/data/tools/highlighter.dart';
 import 'package:saber/data/tools/pencil.dart';
 import 'package:saber/i18n/strings.g.dart';
@@ -47,6 +48,8 @@ class Pen extends Tool {
       color = Color(stows.lastBallpointPenColor.value),
       toolId = .ballpointPen;
 
+  static Pen calligraphyPen({double? angle}) => CalligraphyPen(angle: angle);
+
   final String name;
   final double sizeMin, sizeMax, sizeStep;
   late final int sizeStepsBetweenMinAndMax = ((sizeMax - sizeMin) / sizeStep)
@@ -58,6 +61,7 @@ class Pen extends Tool {
 
   static const fountainPenIcon = FontAwesomeIcons.penFancy;
   static const ballpointPenIcon = FontAwesomeIcons.pen;
+  static const calligraphyPenIcon = FontAwesomeIcons.penNib;
 
   static Stroke? currentStroke;
   Color color;
@@ -115,6 +119,8 @@ class Pen extends Tool {
 
   static StrokeOptions get fountainPenOptions => defaultOptions.copyWith();
   static StrokeOptions get ballpointPenOptions => defaultOptions.copyWith();
+  static StrokeOptions get calligraphyPenOptions =>
+      defaultOptions.copyWith(size: 10, smoothing: 0, streamline: 0);
   static StrokeOptions get shapePenOptions =>
       defaultOptions.copyWith(smoothing: 0, streamline: 0);
   static StrokeOptions get highlighterOptions =>

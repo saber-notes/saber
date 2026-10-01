@@ -17,7 +17,7 @@ class TranslationsPtBr extends TranslationsPt with BaseTranslations<AppLocale, T
 	/// Constructing via the enum [AppLocale.build] is preferred.
 	TranslationsPtBr({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver, TranslationMetadata<AppLocale, Translations>? meta})
 		: assert(overrides == null, 'Set "translation_overrides: true" in order to enable this feature.'),
-		  $meta = meta ?? TranslationMetadata(
+		  _meta = meta ?? TranslationMetadata(
 		    locale: AppLocale.ptBr,
 		    overrides: overrides ?? {},
 		    cardinalResolver: cardinalResolver,
@@ -26,7 +26,8 @@ class TranslationsPtBr extends TranslationsPt with BaseTranslations<AppLocale, T
 		  super(cardinalResolver: cardinalResolver, ordinalResolver: ordinalResolver);
 
 	/// Metadata for the translations of <pt-BR>.
-	@override final TranslationMetadata<AppLocale, Translations> $meta;
+	final TranslationMetadata<AppLocale, Translations> _meta;
+	@override TranslationMetadata<AppLocale, Translations> get $meta => _meta;
 
 	late final TranslationsPtBr _root = this; // ignore: unused_field
 

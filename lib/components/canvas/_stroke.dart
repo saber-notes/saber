@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:logging/logging.dart';
 import 'package:one_dollar_unistroke_recognizer/one_dollar_unistroke_recognizer.dart';
 import 'package:perfect_freehand/perfect_freehand.dart';
+import 'package:saber/components/canvas/_calligraphy_stroke.dart';
 import 'package:saber/components/canvas/_circle_stroke.dart';
 import 'package:saber/components/canvas/_rectangle_stroke.dart';
 import 'package:saber/data/extensions/list_extensions.dart';
@@ -95,11 +96,27 @@ class Stroke {
           pageIndex: pageIndex,
           page: page,
         );
+      case 'calligraphy':
+        return CalligraphyStroke.fromJson(
+          json,
+          fileVersion: fileVersion,
+          pageIndex: pageIndex,
+          page: page,
+        );
       default:
         log.severe('Unknown shape: ${json['shape']}');
     }
 
     final ToolId toolId = .parsePenType(json['ty'], fallback: .fountainPen);
+
+    if (toolId == .calligraphyPen) {
+      return CalligraphyStroke.fromJson(
+        json,
+        fileVersion: fileVersion,
+        pageIndex: pageIndex,
+        page: page,
+      );
+    }
 
     final options = StrokeOptions.fromJson(json);
     final pressureEnabled = json['pe'] ?? defaultPressureEnabled;

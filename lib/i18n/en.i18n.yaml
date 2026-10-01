@@ -287,8 +287,10 @@ editor:
     pencil: Pencil
     shapePen: Shape pen
     laserPointer: Laser pointer
+    calligraphyPen: Calligraphy pen
   penOptions:
     size: Size
+    angle: Angle
   colors:
     colorPicker: Color picker
     customBrightnessHue: Custom $b $h

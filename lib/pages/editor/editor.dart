@@ -40,6 +40,7 @@ import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/nextcloud/saber_syncer.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/data/tools/_tool.dart';
+import 'package:saber/data/tools/calligraphy_pen.dart';
 import 'package:saber/data/tools/eraser.dart';
 import 'package:saber/data/tools/highlighter.dart';
 import 'package:saber/data/tools/laser_pointer.dart';
@@ -137,6 +138,11 @@ class EditorState extends State<Editor> {
       case .shapePen:
         if (Pen.currentPen.toolId != stows.lastTool.value) {
           Pen.currentPen = ShapePen();
+        }
+        return Pen.currentPen;
+      case .calligraphyPen:
+        if (Pen.currentPen.toolId != stows.lastTool.value) {
+          Pen.currentPen = CalligraphyPen();
         }
         return Pen.currentPen;
       case .highlighter:
@@ -2076,6 +2082,7 @@ class EditorState extends State<Editor> {
     stows.lastHighlighterOptions.notifyListeners();
     stows.lastPencilOptions.notifyListeners();
     stows.lastShapePenOptions.notifyListeners();
+    stows.lastCalligraphyPenOptions.notifyListeners();
 
     super.dispose();
   }
