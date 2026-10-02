@@ -1,0 +1,4 @@
+• Meningkatkan desain alur login.
+• Menyesuaikan respons scroll di editor agar terasa lebih presisi dan tidak terlalu licin.
+• Memperbaiki masalah pada akun dengan kuota penyimpanan tanpa batas.
+• Memperbaiki urutan folder di halaman jelajah.
