@@ -21,10 +21,10 @@ packages:
     dependency: transitive
     description:
       name: animated_vector
-      sha256: f1beb10e6fcfd8bd15abb788e20345def786d1c7391d7c1426bb2a1f2adf2132
+      sha256: "44c09df5b11a8416c49dfd7433cc08714308addda61acdd8b97ea87a7d8e8f76"
       url: "https://pub.dev"
     source: hosted
-    version: "0.2.2"
+    version: "0.2.3"
   animated_vector_annotations:
     dependency: transitive
     description:
@@ -93,10 +93,10 @@ packages:
     dependency: "direct main"
     description:
       name: background_downloader
-      sha256: "42daf57fc33453f03c8c9c9af4d0f68cb203e3c20041678f005a4c528c8bed1f"
+      sha256: "9a3bde7e8331edb70588bef7171acc2a0a77e50fbe3c310f5022a14ebd2bdf0f"
       url: "https://pub.dev"
     source: hosted
-    version: "9.6.1"
+    version: "9.6.3"
   barcode:
     dependency: transitive
     description:
@@ -133,10 +133,10 @@ packages:
     dependency: transitive
     description:
       name: built_collection
-      sha256: "376e3dd27b51ea877c28d525560790aee2e6fbb5f20e2f85d5081027d94e2100"
+      sha256: "44922ecebd8e3d0cef743dadd3b54df4e87e2a4c52a29465a1872aa9e192caa8"
       url: "https://pub.dev"
     source: hosted
-    version: "5.1.1"
+    version: "5.1.2"
   built_value:
     dependency: transitive
     description:
@@ -301,10 +301,10 @@ packages:
     dependency: "direct main"
     description:
       name: device_info_plus
-      sha256: "0891702f96b2e465fe567b7ec448380e6b1c14f60af552a8536d9f583b6b8442"
+      sha256: ade1c36f8355d6284c98e4a47992ea263887ed3d1acb281e37635dd45f04c4aa
       url: "https://pub.dev"
     source: hosted
-    version: "13.2.0"
+    version: "13.3.0"
   device_info_plus_platform_interface:
     dependency: transitive
     description:
@@ -405,18 +405,18 @@ packages:
     dependency: "direct main"
     description:
       name: file_picker
-      sha256: "1fb0cb9de6a189d76980a5a00ae3d4c9ec07e87519fd7368b75f5ebf0126977e"
+      sha256: "98c0b156b6380ba55bc767a14e2e6b3feb246e713ad40092424596fa79005bea"
       url: "https://pub.dev"
     source: hosted
-    version: "13.0.0"
+    version: "13.1.0"
   file_picker_darwin:
     dependency: transitive
     description:
       name: file_picker_darwin
-      sha256: da861ccc4cdbc8bacf1f85d53dede63d40dd7c0b5ff823cd2b564a8daa1bc058
+      sha256: "51aef9f4c80449c736e7cc02198675fda73689f0bd45a84da642cfeab0250d46"
       url: "https://pub.dev"
     source: hosted
-    version: "2.0.0"
+    version: "2.1.2"
   file_picker_linux:
     dependency: transitive
     description:
@@ -572,10 +572,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_quill
-      sha256: "3ee7125b2dd3f3bce3ebdaac722a72f0c8aff3db9aa19053a9d777db12d71c98"
+      sha256: "1f773f5f75e2628d80361c2c840c592791a0a157ebd587c9e37cf2cb8b8519b7"
       url: "https://pub.dev"
     source: hosted
-    version: "11.5.1"
+    version: "11.6.0"
   flutter_quill_delta_from_html:
     dependency: transitive
     description:
@@ -588,18 +588,18 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_secure_storage
-      sha256: d87713a152ee2f255117bdbbf43da1dea1797e0551e499e0334f0c9dcfafddd2
+      sha256: d4e1fb6b2cb524868929e78dc0282fa000554b22060fb53789dc481c9fc95bb8
       url: "https://pub.dev"
     source: hosted
-    version: "11.1.1"
+    version: "11.2.0"
   flutter_secure_storage_darwin:
     dependency: transitive
     description:
       name: flutter_secure_storage_darwin
-      sha256: d0b136b1e21fd4081170fc394e64197046ce889e8f63f2370a13e41b832cc044
+      sha256: a031ceac9b070e62ef183cd7f7d1a8798ebde402d5049f0fe6eb3a51bd797a21
       url: "https://pub.dev"
     source: hosted
-    version: "0.4.2"
+    version: "0.4.3"
   flutter_secure_storage_linux:
     dependency: transitive
     description:
@@ -612,10 +612,10 @@ packages:
     dependency: transitive
     description:
       name: flutter_secure_storage_platform_interface
-      sha256: "4bc033841169d07f690d46d89dbc3f5305b6562820822445384c82e0866e2719"
+      sha256: "64951127f001f546891c86f414972bf49ef2c4c8a4c92c65f5790cc0c9100045"
       url: "https://pub.dev"
     source: hosted
-    version: "2.1.0"
+    version: "2.1.1"
   flutter_secure_storage_web:
     dependency: transitive
     description:
@@ -732,10 +732,10 @@ packages:
     dependency: "direct dev"
     description:
       name: golden_screenshot
-      sha256: "3bc1ae11e537ec61c53e097b6edf2b7b9fbd2f1e367fde3908c72d939ff78ca8"
+      sha256: "90558df15c9ac111a8f8d1867b6e241cad89892ce83a822264e9a580fb58cd99"
       url: "https://pub.dev"
     source: hosted
-    version: "11.1.0"
+    version: "11.1.1"
   gsettings:
     dependency: transitive
     description:
@@ -1128,10 +1128,10 @@ packages:
     dependency: transitive
     description:
       name: package_info_plus
-      sha256: "127e1751e37ffb2ff4658beeaca77bad0c27bf5f932bd3a501c2296926d4b481"
+      sha256: "73ef2cd5c11a7548f9b7f6fc2a4f6113de2e64aa2a70de63feede95548822908"
       url: "https://pub.dev"
     source: hosted
-    version: "10.2.1"
+    version: "10.2.2"
   package_info_plus_platform_interface:
     dependency: transitive
     description:
@@ -1304,10 +1304,10 @@ packages:
     dependency: transitive
     description:
       name: permission_handler_apple
-      sha256: f49cb15a064ea9d974fc7fbb302099353b7b170d07284e86e264561579e5bcf8
+      sha256: "066bbbc60031b63b916a3871e7bb4b6a8c5e7cec8146dafec53d1da304eff0a5"
       url: "https://pub.dev"
     source: hosted
-    version: "9.6.1"
+    version: "9.6.2"
   permission_handler_html:
     dependency: transitive
     description:
@@ -1336,10 +1336,10 @@ packages:
     dependency: transitive
     description:
       name: petitparser
-      sha256: "91bd59303e9f769f108f8df05e371341b15d59e995e6806aefab827b58336675"
+      sha256: "2f1564aadb14215e478563b5406cb80729d022158c01dc50c96013c2f7eb4790"
       url: "https://pub.dev"
     source: hosted
-    version: "7.0.2"
+    version: "7.1.0"
   pixel_snap:
     dependency: transitive
     description:
@@ -1512,10 +1512,10 @@ packages:
     dependency: transitive
     description:
       name: quill_native_bridge_windows
-      sha256: e91090a2f3ff61cf18bd011f6c0a6c9625f145601e6e8eccf91b6d6cb9a572f8
+      sha256: a23cd4d0d4477188d2dd4bc6db886fe5cb27e2d555b94434bc2b471d5d7558f5
       url: "https://pub.dev"
     source: hosted
-    version: "0.1.0"
+    version: "0.1.1"
   quiver:
     dependency: transitive
     description:
@@ -1623,10 +1623,10 @@ packages:
     dependency: transitive
     description:
       name: sentry
-      sha256: bf80a571e370aad3f68b5c26d43f31cc230a084c250fb3138a83da6032ba0c01
+      sha256: "40a247686af64e497df29ab0de1303a20ca55a2e3c7c7e39b989fac47dcadf84"
       url: "https://pub.dev"
     source: hosted
-    version: "9.30.0"
+    version: "9.30.1"
   sentry_dart_plugin:
     dependency: "direct dev"
     description:
@@ -1639,18 +1639,18 @@ packages:
     dependency: "direct main"
     description:
       name: sentry_flutter
-      sha256: da36fbb1581c0f66a0c8fc76f8aadb62d9ea567ba950c97eb326e959482c342a
+      sha256: bdd8897b38ce31185c42ed910628059c4eccbc0b0641213e8d1c63e2fda3f5a3
       url: "https://pub.dev"
     source: hosted
-    version: "9.30.0"
+    version: "9.30.1"
   sentry_logging:
     dependency: "direct main"
     description:
       name: sentry_logging
-      sha256: "7ff42d068179c7155764dd622dd5c209edc7bba9e24f401dcf96df0c85306be7"
+      sha256: "8c777f534492e1ee32dab3448a8e08799b775a916f2f1fb384e5413ba9c58477"
       url: "https://pub.dev"
     source: hosted
-    version: "9.30.0"
+    version: "9.30.1"
   serial_csv:
     dependency: transitive
     description:
@@ -1663,10 +1663,10 @@ packages:
     dependency: "direct main"
     description:
       name: share_plus
-      sha256: "34f00f9becd2743c1fb05363d624f9f70d37f7ccdcdda47450bc0b8c9d327b8c"
+      sha256: db40767f130189d53f3ae8a6393c217ff4a492da1baff718a9873679c0c00224
       url: "https://pub.dev"
     source: hosted
-    version: "13.3.0"
+    version: "13.3.1"
   share_plus_platform_interface:
     dependency: transitive
     description:
@@ -2012,10 +2012,10 @@ packages:
     dependency: "direct main"
     description:
       name: vector_math
-      sha256: f36f9f3be64c6198714492bb455c11056e33e2f85d9a0b676a48301e44fdcf47
+      sha256: "92b9910f66ed1057fd4da7b040ae7c74cafacf885bdc81be496928d5049b032d"
       url: "https://pub.dev"
     source: hosted
-    version: "2.4.2"
+    version: "2.4.3"
   version:
     dependency: transitive
     description:
