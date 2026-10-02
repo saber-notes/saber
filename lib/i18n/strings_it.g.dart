@@ -16,7 +16,7 @@ class TranslationsIt extends Translations with BaseTranslations<AppLocale, Trans
 	/// Constructing via the enum [AppLocale.build] is preferred.
 	TranslationsIt({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver, TranslationMetadata<AppLocale, Translations>? meta})
 		: assert(overrides == null, 'Set "translation_overrides: true" in order to enable this feature.'),
-		  $meta = meta ?? TranslationMetadata(
+		  _meta = meta ?? TranslationMetadata(
 		    locale: AppLocale.it,
 		    overrides: overrides ?? {},
 		    cardinalResolver: cardinalResolver,
@@ -25,7 +25,8 @@ class TranslationsIt extends Translations with BaseTranslations<AppLocale, Trans
 		  super(cardinalResolver: cardinalResolver, ordinalResolver: ordinalResolver);
 
 	/// Metadata for the translations of <it>.
-	@override final TranslationMetadata<AppLocale, Translations> $meta;
+	final TranslationMetadata<AppLocale, Translations> _meta;
+	@override TranslationMetadata<AppLocale, Translations> get $meta => _meta;
 
 	late final TranslationsIt _root = this; // ignore: unused_field
 
@@ -171,6 +172,7 @@ class _Translations$profile$it extends Translations$profile$en {
 	@override String get title => 'Il mio profilo';
 	@override String get logout => 'Disconnessione';
 	@override String quotaUsage({required Object used, required Object total, required Object percent}) => 'Stai usando ${used} su ${total} (${percent}%)';
+	@override String quotaUsageUncapped({required Object used}) => 'Stai usando ${used}';
 	@override String get connectedTo => 'Collegato a';
 	@override late final _Translations$profile$quickLinks$it quickLinks = _Translations$profile$quickLinks$it._(_root);
 	@override String get faqTitle => 'Domande frequenti';
@@ -180,7 +182,6 @@ class _Translations$profile$it extends Translations$profile$en {
 		_Translations$profile$faq$2$it._(_root),
 		_Translations$profile$faq$3$it._(_root),
 	];
-	@override String quotaUsageUncapped({required Object used}) => 'Stai usando ${used}';
 }
 
 // Path: appInfo

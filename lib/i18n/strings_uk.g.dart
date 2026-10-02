@@ -16,7 +16,7 @@ class TranslationsUk extends Translations with BaseTranslations<AppLocale, Trans
 	/// Constructing via the enum [AppLocale.build] is preferred.
 	TranslationsUk({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver, TranslationMetadata<AppLocale, Translations>? meta})
 		: assert(overrides == null, 'Set "translation_overrides: true" in order to enable this feature.'),
-		  $meta = meta ?? TranslationMetadata(
+		  _meta = meta ?? TranslationMetadata(
 		    locale: AppLocale.uk,
 		    overrides: overrides ?? {},
 		    cardinalResolver: cardinalResolver,
@@ -25,7 +25,8 @@ class TranslationsUk extends Translations with BaseTranslations<AppLocale, Trans
 		  super(cardinalResolver: cardinalResolver, ordinalResolver: ordinalResolver);
 
 	/// Metadata for the translations of <uk>.
-	@override final TranslationMetadata<AppLocale, Translations> $meta;
+	final TranslationMetadata<AppLocale, Translations> _meta;
+	@override TranslationMetadata<AppLocale, Translations> get $meta => _meta;
 
 	late final TranslationsUk _root = this; // ignore: unused_field
 
@@ -68,21 +69,21 @@ class _Translations$home$uk extends Translations$home$en {
 	@override late final _Translations$home$titles$uk titles = _Translations$home$titles$uk._(_root);
 	@override late final _Translations$home$tooltips$uk tooltips = _Translations$home$tooltips$uk._(_root);
 	@override late final _Translations$home$create$uk create = _Translations$home$create$uk._(_root);
+	@override String get welcome => 'Вітаємо в Saber';
+	@override String get invalidFormat => 'Файл який ви обрали не підтримується. Будь ласка оберіть файл типу sbn, sbn2, sba або pdf.';
+	@override String get noFiles => 'Файлів не знайдено';
+	@override String get noPreviewAvailable => 'Попередній перегляд недоступний';
+	@override String get createNewNote => 'Нажміть на + щоб створити нову нотатку';
+	@override String get backFolder => 'Повернутися до попередньої папки';
 	@override late final _Translations$home$newFolder$uk newFolder = _Translations$home$newFolder$uk._(_root);
 	@override late final _Translations$home$renameNote$uk renameNote = _Translations$home$renameNote$uk._(_root);
 	@override late final _Translations$home$moveNote$uk moveNote = _Translations$home$moveNote$uk._(_root);
+	@override String get deleteNote => 'Видалити нотатку';
 	@override late final _Translations$home$deleteNoteDialog$uk deleteNoteDialog = _Translations$home$deleteNoteDialog$uk._(_root);
 	@override late final _Translations$home$renameFolder$uk renameFolder = _Translations$home$renameFolder$uk._(_root);
 	@override late final _Translations$home$deleteFolder$uk deleteFolder = _Translations$home$deleteFolder$uk._(_root);
 	@override late final _Translations$home$sort$uk sort = _Translations$home$sort$uk._(_root);
 	@override late final _Translations$home$layout$uk layout = _Translations$home$layout$uk._(_root);
-	@override String get welcome => 'Ласкаво просимо до Saber';
-	@override String get invalidFormat => 'Обраний файл не підтримується. Будь ласка, виберіть файл sbn, sbn2, sba або pdf.';
-	@override String get noFiles => 'Не знайдено файлів';
-	@override String get noPreviewAvailable => 'Немає попереднього перегляду';
-	@override String get createNewNote => 'Натисніть кнопку + для створення нової нотатки';
-	@override String get backFolder => 'Повернутися до попередньої папки';
-	@override String get deleteNote => 'Видалити нотатку';
 }
 
 // Path: sentry
@@ -242,7 +243,7 @@ class _Translations$home$tabs$uk extends Translations$home$tabs$en {
 	// Translations
 	@override String get home => 'Головна';
 	@override String get browse => 'Переглянути';
-	@override String get whiteboard => 'Біла дошка';
+	@override String get whiteboard => 'Дошка';
 	@override String get settings => 'Налаштування';
 }
 
@@ -253,9 +254,9 @@ class _Translations$home$titles$uk extends Translations$home$titles$en {
 	final TranslationsUk _root; // ignore: unused_field
 
 	// Translations
-	@override String get home => 'Недавні нотатки';
-	@override String get browse => 'Переглянути';
-	@override String get whiteboard => 'Біла дошка';
+	@override String get home => 'Останні нотатки';
+	@override String get browse => 'Шукати';
+	@override String get whiteboard => 'Дошка';
 	@override String get settings => 'Налаштування';
 }
 
@@ -266,9 +267,9 @@ class _Translations$home$tooltips$uk extends Translations$home$tooltips$en {
 	final TranslationsUk _root; // ignore: unused_field
 
 	// Translations
+	@override String get newNote => 'Нова нотатка';
+	@override String get showUpdateDialog => 'Відкрити діалог оновлень';
 	@override String get exportNote => 'Експортувати нотатку';
-	@override String get newNote => 'Нотатка';
-	@override String get showUpdateDialog => 'Показати діалогове вікно оновлення';
 }
 
 // Path: home.create
@@ -278,8 +279,8 @@ class _Translations$home$create$uk extends Translations$home$create$en {
 	final TranslationsUk _root; // ignore: unused_field
 
 	// Translations
-	@override String get newNote => 'Нотатка';
-	@override String get importNote => 'Примітка імпорту';
+	@override String get newNote => 'Нова нотатка';
+	@override String get importNote => 'Імпортувати нотатку';
 }
 
 // Path: home.newFolder
@@ -293,7 +294,7 @@ class _Translations$home$newFolder$uk extends Translations$home$newFolder$en {
 	@override String get folderName => 'Назва папки';
 	@override String get create => 'Створити';
 	@override String get folderNameEmpty => 'Назва папки не може бути порожньою';
-	@override String get folderNameContainsSlash => 'Ім\'я папки не може містити слеш';
+	@override String get folderNameContainsSlash => 'В назві папки не може бути скісної риски';
 	@override String get folderNameExists => 'Папка вже існує';
 }
 
@@ -305,12 +306,12 @@ class _Translations$home$renameNote$uk extends Translations$home$renameNote$en {
 
 	// Translations
 	@override String get renameNote => 'Перейменувати нотатку';
-	@override String get noteName => 'Примітка імені';
+	@override String get noteName => 'Назва нотатки';
 	@override String get rename => 'Перейменувати';
-	@override String get noteNameEmpty => 'Ім\'я не може бути порожнім';
-	@override String get noteNameExists => 'Примітка з цим ім\'ям вже існує';
-	@override String get noteNameForbiddenCharacters => 'Ім\'я містить заборонені символи';
-	@override String get noteNameReserved => 'Ім\'я зарезервовано';
+	@override String get noteNameEmpty => 'Назва нотатки не може бути порожньою';
+	@override String get noteNameExists => 'Нотатка з такою назвою вже існує';
+	@override String get noteNameForbiddenCharacters => 'Назва нотатки має недозволені символи';
+	@override String get noteNameReserved => 'Назву нотатки зарезервовано';
 }
 
 // Path: home.moveNote
@@ -321,12 +322,12 @@ class _Translations$home$moveNote$uk extends Translations$home$moveNote$en {
 
 	// Translations
 	@override String get moveNote => 'Перемістити нотатку';
+	@override String get move => 'Перемістити';
+	@override String get multipleRenamedTo => 'Буде перейменовано наступні нотатки:';
+	@override String numberRenamedTo({required Object n}) => '${n} нотатки буде перейменовано щоб уникнути конфліктів';
 	@override String moveNotes({required Object n}) => 'Перемістити ${n}\$ нотаток';
 	@override String moveName({required Object f}) => 'Перемістити ${f}';
-	@override String get move => 'Рухайся';
 	@override String renamedTo({required Object newName}) => 'Нота буде перейменована на ${newName}';
-	@override String get multipleRenamedTo => 'Наступні нотатки будуть перейменовані:';
-	@override String numberRenamedTo({required Object n}) => '${n} нотаток будуть перейменовані для уникнення конфліктів';
 }
 
 // Path: home.deleteNoteDialog
@@ -336,12 +337,12 @@ class _Translations$home$deleteNoteDialog$uk extends Translations$home$deleteNot
 	final TranslationsUk _root; // ignore: unused_field
 
 	// Translations
-	@override String confirmDelete({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('uk'))(n,
-		one: 'Постійно видалити вибрану нотатку?',
-		other: 'Постійно видалити вибрані нотатки?',
-	);
-	@override String deleteNotes({required Object n}) => 'Видалити ${n}\$ нотаток';
+	@override String deleteNotes({required Object n}) => 'Видалити ${n} нотатки';
 	@override String deleteName({required Object f}) => 'Видалити ${f}';
+	@override String confirmDelete({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('uk'))(n,
+		one: 'Назавжди видалити обрану нотатку?',
+		other: 'Назавжди видалити обрані нотатки?',
+	);
 	@override String get delete => 'Видалити';
 }
 
@@ -395,7 +396,7 @@ class _Translations$home$layout$uk extends Translations$home$layout$en {
 
 	// Translations
 	@override String get layout => 'Макет';
-	@override String get masonryGrid => 'Сітка з використанням мозаїки';
+	@override String get masonryGrid => 'Каскадна сітка';
 	@override String get simpleGrid => 'Проста сітка';
 }
 

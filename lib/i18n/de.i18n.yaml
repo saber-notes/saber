@@ -70,21 +70,15 @@ home:
     delete: Löschen
     alsoDeleteContents: Alle weiteren Notizen in diesem Ordner löschen
   sort:
-    sortBy(OUTDATED): Sortieren nach
-    nameAToZ(OUTDATED): Name (A-Z)
-    nameZToA(OUTDATED): Name (A-Z)
-    lastModifiedNewToOld(OUTDATED): Bearbeitet (Neuestes zuerst)
-    lastModifiedOldToNew(OUTDATED): Bearbeitet (Älteste zuerst)
     sortBy: Sortieren nach
     nameAToZ: Name (A-Z)
     nameZToA: Name (Z-A)
     lastModifiedNewToOld: Bearbeitet (Neueste zuerst)
     lastModifiedOldToNew: Bearbeitet (Älteste zuerst)
   layout:
-    layout(OUTDATED): Layout
+    layout: Layout
     masonryGrid(OUTDATED): Mauerwerk-Raster
     simpleGrid(OUTDATED): Einfaches Raster
-    layout: Layout
 sentry:
   consent:
     title: Helfen, Saber zu verbessern?

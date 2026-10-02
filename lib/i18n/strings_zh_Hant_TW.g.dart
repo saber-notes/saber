@@ -16,7 +16,7 @@ class TranslationsZhHantTw extends Translations with BaseTranslations<AppLocale,
 	/// Constructing via the enum [AppLocale.build] is preferred.
 	TranslationsZhHantTw({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver, TranslationMetadata<AppLocale, Translations>? meta})
 		: assert(overrides == null, 'Set "translation_overrides: true" in order to enable this feature.'),
-		  $meta = meta ?? TranslationMetadata(
+		  _meta = meta ?? TranslationMetadata(
 		    locale: AppLocale.zhHantTw,
 		    overrides: overrides ?? {},
 		    cardinalResolver: cardinalResolver,
@@ -25,7 +25,8 @@ class TranslationsZhHantTw extends Translations with BaseTranslations<AppLocale,
 		  super(cardinalResolver: cardinalResolver, ordinalResolver: ordinalResolver);
 
 	/// Metadata for the translations of <zh-Hant-TW>.
-	@override final TranslationMetadata<AppLocale, Translations> $meta;
+	final TranslationMetadata<AppLocale, Translations> _meta;
+	@override TranslationMetadata<AppLocale, Translations> get $meta => _meta;
 
 	late final TranslationsZhHantTw _root = this; // ignore: unused_field
 
@@ -171,6 +172,7 @@ class Translations$profile$zh_Hant_TW extends Translations$profile$en {
 	@override String get title => '我的個人檔案';
 	@override String get logout => '登出';
 	@override String quotaUsage({required Object used, required Object total, required Object percent}) => '您已使用 ${used}，共 ${total} (${percent}%)';
+	@override String quotaUsageUncapped({required Object used}) => '您已使用 ${used}';
 	@override String get connectedTo => '連線到';
 	@override late final Translations$profile$quickLinks$zh_Hant_TW quickLinks = Translations$profile$quickLinks$zh_Hant_TW.internal(_root);
 	@override String get faqTitle => '常見問題';
@@ -180,7 +182,6 @@ class Translations$profile$zh_Hant_TW extends Translations$profile$en {
 		Translations$profile$faq$2$zh_Hant_TW.internal(_root),
 		Translations$profile$faq$3$zh_Hant_TW.internal(_root),
 	];
-	@override String quotaUsageUncapped({required Object used}) => '您正在使用 ${used}';
 }
 
 // Path: appInfo
@@ -230,7 +231,7 @@ class Translations$editor$zh_Hant_TW extends Translations$editor$en {
 	@override late final Translations$editor$hud$zh_Hant_TW hud = Translations$editor$hud$zh_Hant_TW.internal(_root);
 	@override String get pages => '頁面';
 	@override String get untitled => '無標題';
-	@override String get needsToSaveBeforeExiting => '正在儲存您的變更……完成後您可以安全地結束編輯器';
+	@override String get needsToSaveBeforeExiting => '正在儲存您的變更⋯⋯完成後，您可以安全地結束編輯器';
 }
 
 // Path: home.tabs
@@ -380,11 +381,11 @@ class Translations$home$sort$zh_Hant_TW extends Translations$home$sort$en {
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
 	// Translations
-	@override String get sortBy => '依…排序';
-	@override String get nameAToZ => '姓名（A-Z）';
-	@override String get nameZToA => '姓名 (依字母排序)';
-	@override String get lastModifiedNewToOld => '編輯（最新優先）';
-	@override String get lastModifiedOldToNew => '編輯（最舊的在前）';
+	@override String get sortBy => '排序方式';
+	@override String get nameAToZ => '名稱 (A-Z)';
+	@override String get nameZToA => '名稱 (Z-A)';
+	@override String get lastModifiedNewToOld => '編輯時間（最新優先）';
+	@override String get lastModifiedOldToNew => '編輯時間（最舊優先）';
 }
 
 // Path: home.layout
@@ -394,9 +395,9 @@ class Translations$home$layout$zh_Hant_TW extends Translations$home$layout$en {
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
 	// Translations
-	@override String get layout => '佈局';
-	@override String get masonryGrid => '砌磚網格';
-	@override String get simpleGrid => '簡單的網格';
+	@override String get layout => '版面配置';
+	@override String get masonryGrid => '瀑布流排版';
+	@override String get simpleGrid => '簡單網格';
 }
 
 // Path: sentry.consent
@@ -825,7 +826,7 @@ class Translations$editor$quill$zh_Hant_TW extends Translations$editor$quill$en 
 	final TranslationsZhHantTw _root; // ignore: unused_field
 
 	// Translations
-	@override String get typeSomething => '請在此輸入內容……';
+	@override String get typeSomething => '請在此輸入內容⋯⋯';
 }
 
 // Path: editor.hud

@@ -17,7 +17,7 @@ class TranslationsPtBr extends TranslationsPt with BaseTranslations<AppLocale, T
 	/// Constructing via the enum [AppLocale.build] is preferred.
 	TranslationsPtBr({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver, TranslationMetadata<AppLocale, Translations>? meta})
 		: assert(overrides == null, 'Set "translation_overrides: true" in order to enable this feature.'),
-		  $meta = meta ?? TranslationMetadata(
+		  _meta = meta ?? TranslationMetadata(
 		    locale: AppLocale.ptBr,
 		    overrides: overrides ?? {},
 		    cardinalResolver: cardinalResolver,
@@ -26,7 +26,8 @@ class TranslationsPtBr extends TranslationsPt with BaseTranslations<AppLocale, T
 		  super(cardinalResolver: cardinalResolver, ordinalResolver: ordinalResolver);
 
 	/// Metadata for the translations of <pt-BR>.
-	@override final TranslationMetadata<AppLocale, Translations> $meta;
+	final TranslationMetadata<AppLocale, Translations> _meta;
+	@override TranslationMetadata<AppLocale, Translations> get $meta => _meta;
 
 	late final TranslationsPtBr _root = this; // ignore: unused_field
 
@@ -131,8 +132,8 @@ class _Translations$logs$pt_BR extends Translations$logs$pt {
 	final TranslationsPtBr _root; // ignore: unused_field
 
 	// Translations
-	@override String get useTheApp => 'Os logs aparecerão aqui enquanto você usa o aplicativo';
 	@override String get logs => 'Registros';
+	@override String get useTheApp => 'Os logs aparecerão aqui enquanto você usa o aplicativo';
 	@override String get viewLogs => 'Ver logs';
 	@override String get debuggingInfo => 'Os logs contêm informações úteis para depuração e desenvolvimento';
 	@override String get noLogs => 'Nenhum registro aqui!';
@@ -335,13 +336,12 @@ class _Translations$home$deleteNoteDialog$pt_BR extends Translations$home$delete
 	final TranslationsPtBr _root; // ignore: unused_field
 
 	// Translations
+	@override String deleteNotes({required Object n}) => 'Deletar ${n} notas';
+	@override String deleteName({required Object f}) => 'Deletar ${f}';
 	@override String confirmDelete({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('pt'))(n,
-		one: 'Excluir permanentemente a nota selecionada?',
-		other: 'Excluir permanentemente as notas selecionadas?',
+		one: 'Deletar a nota selecionada permanentemente?',
 	);
-	@override String deleteNotes({required Object n}) => 'Excluir ${n} notas';
-	@override String deleteName({required Object f}) => 'Excluir ${f}';
-	@override String get delete => 'Excluir';
+	@override String get delete => 'Deletar';
 }
 
 // Path: home.renameFolder
@@ -381,9 +381,9 @@ class _Translations$home$sort$pt_BR extends Translations$home$sort$en {
 	// Translations
 	@override String get sortBy => 'Ordenar por';
 	@override String get nameAToZ => 'Nome (A-Z)';
-	@override String get nameZToA => 'Nome (A-Z)';
+	@override String get nameZToA => 'Nome (Z-A)';
 	@override String get lastModifiedNewToOld => 'Editado (Mais recente primeiro)';
-	@override String get lastModifiedOldToNew => 'Editado (Mais antigo primeiro)';
+	@override String get lastModifiedOldToNew => 'Editado (Mais antigo)';
 }
 
 // Path: home.layout
@@ -394,8 +394,8 @@ class _Translations$home$layout$pt_BR extends Translations$home$layout$en {
 
 	// Translations
 	@override String get layout => 'Layout';
+	@override String get simpleGrid => 'Grid simples';
 	@override String get masonryGrid => 'Grade de alvenaria';
-	@override String get simpleGrid => 'Grade simples';
 }
 
 // Path: sentry.consent
@@ -456,8 +456,8 @@ class _Translations$settings$prefLabels$pt_BR extends Translations$settings$pref
 	@override String get autosave => 'Auto-salvar';
 	@override String get shapeRecognitionDelay => 'Atraso no reconhecimento de formatos';
 	@override String get autoStraightenLines => 'Auto alinhamento de linhas';
-	@override String get sentry => 'Relatório de erro';
-	@override String get customDataDir => 'Diretório de dados personalizado';
+	@override String get customDataDir => 'Pasta Saber personalizada';
+	@override String get sentry => 'Reportar erro';
 }
 
 // Path: settings.prefDescriptions
@@ -474,14 +474,14 @@ class _Translations$settings$prefDescriptions$pt_BR extends Translations$setting
 	@override String get disableEraserAfterUse => 'Voltar automaticamente para a caneta depois de usar a borracha';
 	@override String get maxImageSize => 'Imagens maiores que isso serão compactadas';
 	@override late final _Translations$settings$prefDescriptions$hideFingerDrawing$pt_BR hideFingerDrawing = _Translations$settings$prefDescriptions$hideFingerDrawing$pt_BR._(_root);
+	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Desativar desenho à mão quando uma stylus for detectada';
 	@override String get editorPromptRename => 'Você pode sempre renomear as notas mais tarde';
 	@override String get printPageIndicators => 'Mostrar os indicadores de página nas exportações';
+	@override String get autosave => 'Salvar automaticamente após um curto intervalo, ou nunca';
+	@override String get shapeRecognitionDelay => 'Com que frequência atualizar a pré-visualização da forma';
+	@override String get autoStraightenLines => 'Endireita linhas longas sem precisar usar a caneta de formas';
 	@override String get shouldAlwaysAlertForUpdates => 'Conte-me sobre atualizações assim que elas estiverem disponíveis';
 	@override late final _Translations$settings$prefDescriptions$sentry$pt_BR sentry = _Translations$settings$prefDescriptions$sentry$pt_BR._(_root);
-	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Desative o desenho com o dedo quando uma caneta for detectada';
-	@override String get autosave => 'Salvamento automático após um pequeno atraso, ou nunca';
-	@override String get autoStraightenLines => 'Endireita linhas longas sem precisar usar a caneta modeladora';
-	@override String get shapeRecognitionDelay => 'Com que frequência atualizar a visualização da forma';
 }
 
 // Path: settings.themeModes
@@ -536,11 +536,11 @@ class _Translations$settings$customDataDir$pt_BR extends Translations$settings$c
 	final TranslationsPtBr _root; // ignore: unused_field
 
 	// Translations
-	@override String get unsupported => 'Atualmente, esse recurso é apenas para desenvolvedores. Usá -lo provavelmente resultará em perda de dados.';
 	@override String get cancel => 'Cancelar';
+	@override String get mustBeDoneSyncing => 'Certifique-se de que a sincronização esteja concluída antes de alterar a pasta.';
+	@override String get unsupported => 'Este recurso atualmente é apenas para desenvolvedores. Usá-lo provavelmente resultará em perda de dados.';
 	@override String get select => 'Selecione';
 	@override String get mustBeEmpty => 'O diretório selecionado deve estar vazio';
-	@override String get mustBeDoneSyncing => 'Certifique-se de que a sincronização esteja concluída antes de alterar o diretório';
 }
 
 // Path: login.form
@@ -578,11 +578,11 @@ class _Translations$login$ncLoginStep$pt_BR extends Translations$login$ncLoginSt
 	final TranslationsPtBr _root; // ignore: unused_field
 
 	// Translations
+	@override String get saberNcServer => 'Servidor Nextcloud de Saber';
+	@override String get serverUrl => 'URL do servidor';
 	@override late final _Translations$login$ncLoginStep$loginFlow$pt_BR loginFlow = _Translations$login$ncLoginStep$loginFlow$pt_BR._(_root);
 	@override String get whereToStoreData => 'Escolha onde deseja armazenar seus dados:';
-	@override String get saberNcServer => 'Servidor Nextcloud do Saber';
 	@override String get otherNcServer => 'Outro servidor Nextcloud';
-	@override String get serverUrl => 'URL do servidor';
 	@override String get loginWithSaber => 'Faça login com Saber';
 	@override String get loginWithNextcloud => 'Faça login com Nextcloud';
 }
@@ -594,10 +594,10 @@ class _Translations$login$encLoginStep$pt_BR extends Translations$login$encLogin
 	final TranslationsPtBr _root; // ignore: unused_field
 
 	// Translations
+	@override String get encFaqTitle => 'Perguntas frequentes';
 	@override String get enterEncPassword => 'Para proteger seus dados, digite sua senha de criptografia:';
 	@override String get newToSaber => 'Novo no Saber';
 	@override String get encPassword => 'Senha de criptografia';
-	@override String get encFaqTitle => 'Perguntas frequentes';
 	@override String get wrongEncPassword => 'A descriptografia falhou com a senha fornecida. Por favor, tente inseri-lo novamente.';
 	@override String get connectionFailed => 'Algo deu errado ao conectar-se ao servidor. Por favor, tente novamente mais tarde.';
 	@override List<dynamic> get encFaq => [

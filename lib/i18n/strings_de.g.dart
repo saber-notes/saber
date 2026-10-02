@@ -16,7 +16,7 @@ class TranslationsDe extends Translations with BaseTranslations<AppLocale, Trans
 	/// Constructing via the enum [AppLocale.build] is preferred.
 	TranslationsDe({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver, TranslationMetadata<AppLocale, Translations>? meta})
 		: assert(overrides == null, 'Set "translation_overrides: true" in order to enable this feature.'),
-		  $meta = meta ?? TranslationMetadata(
+		  _meta = meta ?? TranslationMetadata(
 		    locale: AppLocale.de,
 		    overrides: overrides ?? {},
 		    cardinalResolver: cardinalResolver,
@@ -25,7 +25,8 @@ class TranslationsDe extends Translations with BaseTranslations<AppLocale, Trans
 		  super(cardinalResolver: cardinalResolver, ordinalResolver: ordinalResolver);
 
 	/// Metadata for the translations of <de>.
-	@override final TranslationMetadata<AppLocale, Translations> $meta;
+	final TranslationMetadata<AppLocale, Translations> _meta;
+	@override TranslationMetadata<AppLocale, Translations> get $meta => _meta;
 
 	late final TranslationsDe _root = this; // ignore: unused_field
 
@@ -382,8 +383,8 @@ class _Translations$home$sort$de extends Translations$home$sort$en {
 	// Translations
 	@override String get sortBy => 'Sortieren nach';
 	@override String get nameAToZ => 'Name (A-Z)';
-	@override String get nameZToA => 'Name (A-Z)';
-	@override String get lastModifiedNewToOld => 'Bearbeitet (Neuestes zuerst)';
+	@override String get nameZToA => 'Name (Z-A)';
+	@override String get lastModifiedNewToOld => 'Bearbeitet (Neueste zuerst)';
 	@override String get lastModifiedOldToNew => 'Bearbeitet (Älteste zuerst)';
 }
 

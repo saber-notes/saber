@@ -6,37 +6,27 @@ home:
   tabs:
     home: Головна
     browse: Переглянути
-    whiteboard(OUTDATED): Біла дошка
-    settings(OUTDATED): Налаштування
     whiteboard: Дошка
     settings: Налаштування
   titles:
-    home(OUTDATED): Недавні нотатки
-    browse(OUTDATED): Переглянути
-    whiteboard(OUTDATED): Біла дошка
-    settings(OUTDATED): Налаштування
     home: Останні нотатки
     browse: Шукати
     whiteboard: Дошка
     settings: Налаштування
   tooltips:
-    exportNote: Експортувати нотатку
-    newNote(OUTDATED): Нотатка
-    showUpdateDialog(OUTDATED): Показати діалогове вікно оновлення
     newNote: Нова нотатка
     showUpdateDialog: Відкрити діалог оновлень
+    exportNote: Експортувати нотатку
   create:
-    newNote(OUTDATED): Нотатка
-    importNote(OUTDATED): Примітка імпорту
     newNote: Нова нотатка
     importNote: Імпортувати нотатку
+  welcome: Вітаємо в Saber
+  invalidFormat: Файл який ви обрали не підтримується. Будь ласка оберіть файл типу sbn, sbn2, sba або pdf.
+  noFiles: Файлів не знайдено
+  noPreviewAvailable: Попередній перегляд недоступний
+  createNewNote: Нажміть на + щоб створити нову нотатку
+  backFolder: Повернутися до попередньої папки
   newFolder:
-    newFolder(OUTDATED): Нова папка
-    folderName(OUTDATED): Назва папки
-    create(OUTDATED): Створити
-    folderNameEmpty(OUTDATED): Назва папки не може бути порожньою
-    folderNameContainsSlash(OUTDATED): Ім'я папки не може містити слеш
-    folderNameExists(OUTDATED): Папка вже існує
     newFolder: Нова папка
     folderName: Назва папки
     create: Створити
@@ -44,13 +34,6 @@ home:
     folderNameContainsSlash: В назві папки не може бути скісної риски
     folderNameExists: Папка вже існує
   renameNote:
-    renameNote(OUTDATED): Перейменувати нотатку
-    noteName(OUTDATED): Примітка імені
-    rename(OUTDATED): Перейменувати
-    noteNameEmpty(OUTDATED): Ім'я не може бути порожнім
-    noteNameExists(OUTDATED): Примітка з цим ім'ям вже існує
-    noteNameForbiddenCharacters(OUTDATED): Ім'я містить заборонені символи
-    noteNameReserved(OUTDATED): Ім'я зарезервовано
     renameNote: Перейменувати нотатку
     noteName: Назва нотатки
     rename: Перейменувати
@@ -59,39 +42,28 @@ home:
     noteNameForbiddenCharacters: Назва нотатки має недозволені символи
     noteNameReserved: Назву нотатки зарезервовано
   moveNote:
-    moveNote(OUTDATED): Перемістити нотатку
-    moveNotes(OUTDATED): Перемістити $n$ нотаток
-    moveName(OUTDATED): Перемістити $f
-    move(OUTDATED): Рухайся
-    renamedTo(OUTDATED): Нота буде перейменована на $newName
-    multipleRenamedTo(OUTDATED): "Наступні нотатки будуть перейменовані:"
-    numberRenamedTo(OUTDATED): $n нотаток будуть перейменовані для уникнення конфліктів
     moveNote: Перемістити нотатку
     move: Перемістити
-    multipleRenamedTo: 'Буде перейменовано наступні нотатки:'
+    multipleRenamedTo: "Буде перейменовано наступні нотатки:"
     numberRenamedTo: $n нотатки буде перейменовано щоб уникнути конфліктів
+    moveNotes(OUTDATED): Перемістити $n$ нотаток
+    moveName(OUTDATED): Перемістити $f
+    renamedTo(OUTDATED): Нота буде перейменована на $newName
+  deleteNote: Видалити нотатку
   deleteNoteDialog:
-    confirmDelete:
-      one(OUTDATED): Постійно видалити вибрану нотатку?
-      other(OUTDATED): Постійно видалити вибрані нотатки?
-      one: Назавжди видалити обрану нотатку?
-      other: Назавжди видалити обрані нотатки?
-    deleteNotes(OUTDATED): Видалити $n$ нотаток
-    deleteName(OUTDATED): Видалити $f
-    delete(OUTDATED): Видалити
     deleteNotes: Видалити $n нотатки
     deleteName: Видалити $f
+    confirmDelete:
+      one: Назавжди видалити обрану нотатку?
+      other: Назавжди видалити обрані нотатки?
     delete: Видалити
   renameFolder:
-    renameFolder(OUTDATED): Перейменувати папку
-    folderName(OUTDATED): Назва папки
-    rename(OUTDATED): Перейменувати
-    folderNameEmpty(OUTDATED): Назва папки не може бути порожньою
-    folderNameContainsSlash(OUTDATED): Ім'я папки не може містити слеш
-    folderNameExists(OUTDATED): Папка з цією назвою вже існує
     renameFolder: Перейменувати папку
     folderName: Назва папки
     rename: Перейменувати
+    folderNameEmpty(OUTDATED): Назва папки не може бути порожньою
+    folderNameContainsSlash(OUTDATED): Ім'я папки не може містити слеш
+    folderNameExists(OUTDATED): Папка з цією назвою вже існує
   deleteFolder:
     deleteFolder(OUTDATED): Видалити папку
     deleteName(OUTDATED): Видалити $f
@@ -104,26 +76,9 @@ home:
     lastModifiedNewToOld(OUTDATED): Відредаговано (Новіші першими)
     lastModifiedOldToNew(OUTDATED): Відредаговано (Найстаріші першими)
   layout:
-    layout(OUTDATED): Макет
-    masonryGrid(OUTDATED): Сітка з використанням мозаїки
-    simpleGrid(OUTDATED): Проста сітка
     layout: Макет
     masonryGrid: Каскадна сітка
     simpleGrid: Проста сітка
-  welcome(OUTDATED): Ласкаво просимо до Saber
-  invalidFormat(OUTDATED): Обраний файл не підтримується. Будь ласка, виберіть файл sbn, sbn2, sba або pdf.
-  noFiles(OUTDATED): Не знайдено файлів
-  noPreviewAvailable(OUTDATED): Немає попереднього перегляду
-  createNewNote(OUTDATED): Натисніть кнопку + для створення нової нотатки
-  backFolder(OUTDATED): Повернутися до попередньої папки
-  deleteNote(OUTDATED): Видалити нотатку
-  welcome: Вітаємо в Saber
-  invalidFormat: Файл який ви обрали не підтримується. Будь ласка оберіть файл типу sbn, sbn2, sba або pdf.
-  noFiles: Файлів не знайдено
-  noPreviewAvailable: Попередній перегляд недоступний
-  createNewNote: Нажміть на + щоб створити нову нотатку
-  backFolder: Повернутися до попередньої папки
-  deleteNote: Видалити нотатку
 sentry:
   consent:
     description:

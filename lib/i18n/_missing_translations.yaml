@@ -234,14 +234,7 @@ ca:
 cs:
 de:
   home:
-    sort:
-      sortBy(OUTDATED): Sort by
-      nameAToZ(OUTDATED): Name (A-Z)
-      nameZToA(OUTDATED): Name (Z-A)
-      lastModifiedNewToOld(OUTDATED): Edited (Newest first)
-      lastModifiedOldToNew(OUTDATED): Edited (Oldest first)
     layout:
-      layout(OUTDATED): Layout
       masonryGrid(OUTDATED): Masonry grid
       simpleGrid(OUTDATED): Simple grid
   profile:
@@ -282,7 +275,6 @@ eo:
 es:
   home:
     deleteNoteDialog:
-      deleteNotes(OUTDATED): Delete $n notes
       deleteName(OUTDATED): Delete $f
     sort:
       sortBy(OUTDATED): Sort by
@@ -498,8 +490,6 @@ fa:
       watchingServer(OUTDATED): You are currently watching for updates on the server. Editing is disabled in this mode.
       corrupted(OUTDATED): Failed to load note. It may be corrupted or still being downloaded.
 fr:
-  profile:
-    quotaUsageUncapped(OUTDATED): You're using $used
 he:
   profile:
     quotaUsageUncapped(OUTDATED): You're using $used
@@ -518,8 +508,6 @@ hu:
   profile:
     quotaUsageUncapped(OUTDATED): You're using $used
 it:
-  profile:
-    quotaUsageUncapped(OUTDATED): You're using $used
 ja:
   home:
     sort:
@@ -716,58 +704,11 @@ tr:
       corrupted(OUTDATED): Failed to load note. It may be corrupted or still being downloaded.
 uk:
   home:
-    tabs:
-      whiteboard(OUTDATED): Whiteboard
-      settings(OUTDATED): Settings
-    titles:
-      home(OUTDATED): Recent notes
-      browse(OUTDATED): Browse
-      whiteboard(OUTDATED): Whiteboard
-      settings(OUTDATED): Settings
-    tooltips:
-      newNote(OUTDATED): New note
-      showUpdateDialog(OUTDATED): Show update dialog
-    create:
-      newNote(OUTDATED): New note
-      importNote(OUTDATED): Import note
-    welcome(OUTDATED): Welcome to Saber
-    invalidFormat(OUTDATED): The file you selected is not supported. Please select an sbn, sbn2, sba, or pdf file.
-    noFiles(OUTDATED): No files found
-    noPreviewAvailable(OUTDATED): No preview available
-    createNewNote(OUTDATED): Tap the + button to create a new note
-    backFolder(OUTDATED): Go back to the previous folder
-    newFolder:
-      newFolder(OUTDATED): New folder
-      folderName(OUTDATED): Folder name
-      create(OUTDATED): Create
-      folderNameEmpty(OUTDATED): Folder name can't be empty
-      folderNameContainsSlash(OUTDATED): Folder name can't contain a slash
-      folderNameExists(OUTDATED): Folder already exists
-    renameNote:
-      renameNote(OUTDATED): Rename note
-      noteName(OUTDATED): Note name
-      rename(OUTDATED): Rename
-      noteNameEmpty(OUTDATED): Note name can't be empty
-      noteNameExists(OUTDATED): A note with this name already exists
-      noteNameForbiddenCharacters(OUTDATED): Note name contains forbidden characters
-      noteNameReserved(OUTDATED): Note name reserved
     moveNote:
-      moveNote(OUTDATED): Move note
       moveNotes(OUTDATED): Move $n notes
       moveName(OUTDATED): Move $f
-      move(OUTDATED): Move
       renamedTo(OUTDATED): Note will be renamed to $newName
-      multipleRenamedTo(OUTDATED): "The following notes will be renamed:"
-      numberRenamedTo(OUTDATED): $n notes will be renamed to avoid conflicts
-    deleteNote(OUTDATED): Delete note
-    deleteNoteDialog:
-      deleteNotes(OUTDATED): Delete $n notes
-      deleteName(OUTDATED): Delete $f
-      delete(OUTDATED): Delete
     renameFolder:
-      renameFolder(OUTDATED): Rename folder
-      folderName(OUTDATED): Folder name
-      rename(OUTDATED): Rename
       folderNameEmpty(OUTDATED): Folder name can't be empty
       folderNameContainsSlash(OUTDATED): Folder name can't contain a slash
       folderNameExists(OUTDATED): A folder with this name already exists
@@ -782,10 +723,6 @@ uk:
       nameZToA(OUTDATED): Name (Z-A)
       lastModifiedNewToOld(OUTDATED): Edited (Newest first)
       lastModifiedOldToNew(OUTDATED): Edited (Oldest first)
-    layout:
-      layout(OUTDATED): Layout
-      masonryGrid(OUTDATED): Masonry grid
-      simpleGrid(OUTDATED): Simple grid
   sentry:
     consent:
       title(OUTDATED): Help improve Saber?
@@ -1076,16 +1013,8 @@ vi:
     quotaUsageUncapped(OUTDATED): You're using $used
 pt-BR:
   home:
-    sort:
-      sortBy(OUTDATED): Sort by
-      nameAToZ(OUTDATED): Name (A-Z)
-      nameZToA(OUTDATED): Name (Z-A)
-      lastModifiedNewToOld(OUTDATED): Edited (Newest first)
-      lastModifiedOldToNew(OUTDATED): Edited (Oldest first)
     layout:
-      layout(OUTDATED): Layout
       masonryGrid(OUTDATED): Masonry grid
-      simpleGrid(OUTDATED): Simple grid
   settings:
     prefLabels:
       customDataDir(OUTDATED): Custom Saber folder
@@ -1185,30 +1114,6 @@ pt-BR:
       watchingServer(OUTDATED): You are currently watching for updates on the server. Editing is disabled in this mode.
       corrupted(OUTDATED): Failed to load note. It may be corrupted or still being downloaded.
 zh-Hans-CN:
-  home:
-    sort:
-      sortBy(OUTDATED): Sort by
-      nameAToZ(OUTDATED): Name (A-Z)
-      nameZToA(OUTDATED): Name (Z-A)
-      lastModifiedNewToOld(OUTDATED): Edited (Newest first)
-      lastModifiedOldToNew(OUTDATED): Edited (Oldest first)
-    layout:
-      layout(OUTDATED): Layout
-      masonryGrid(OUTDATED): Masonry grid
-      simpleGrid(OUTDATED): Simple grid
   profile:
     quotaUsageUncapped(OUTDATED): You're using $used
 zh-Hant-TW:
-  home:
-    sort:
-      sortBy(OUTDATED): Sort by
-      nameAToZ(OUTDATED): Name (A-Z)
-      nameZToA(OUTDATED): Name (Z-A)
-      lastModifiedNewToOld(OUTDATED): Edited (Newest first)
-      lastModifiedOldToNew(OUTDATED): Edited (Oldest first)
-    layout:
-      layout(OUTDATED): Layout
-      masonryGrid(OUTDATED): Masonry grid
-      simpleGrid(OUTDATED): Simple grid
-  profile:
-    quotaUsageUncapped(OUTDATED): You're using $used

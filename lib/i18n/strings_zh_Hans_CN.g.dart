@@ -16,7 +16,7 @@ class TranslationsZhHansCn extends Translations with BaseTranslations<AppLocale,
 	/// Constructing via the enum [AppLocale.build] is preferred.
 	TranslationsZhHansCn({Map<String, Node>? overrides, PluralResolver? cardinalResolver, PluralResolver? ordinalResolver, TranslationMetadata<AppLocale, Translations>? meta})
 		: assert(overrides == null, 'Set "translation_overrides: true" in order to enable this feature.'),
-		  $meta = meta ?? TranslationMetadata(
+		  _meta = meta ?? TranslationMetadata(
 		    locale: AppLocale.zhHansCn,
 		    overrides: overrides ?? {},
 		    cardinalResolver: cardinalResolver,
@@ -25,7 +25,8 @@ class TranslationsZhHansCn extends Translations with BaseTranslations<AppLocale,
 		  super(cardinalResolver: cardinalResolver, ordinalResolver: ordinalResolver);
 
 	/// Metadata for the translations of <zh-Hans-CN>.
-	@override final TranslationMetadata<AppLocale, Translations> $meta;
+	final TranslationMetadata<AppLocale, Translations> _meta;
+	@override TranslationMetadata<AppLocale, Translations> get $meta => _meta;
 
 	late final TranslationsZhHansCn _root = this; // ignore: unused_field
 
@@ -380,11 +381,11 @@ class Translations$home$sort$zh_Hans_CN extends Translations$home$sort$en {
 	final TranslationsZhHansCn _root; // ignore: unused_field
 
 	// Translations
-	@override String get sortBy => '按…排序';
-	@override String get nameAToZ => '姓名（A-Z）';
-	@override String get nameZToA => '姓名（从 A 到 Z）';
-	@override String get lastModifiedNewToOld => '编辑（最新优先）';
-	@override String get lastModifiedOldToNew => '编辑（按最旧的排序）';
+	@override String get sortBy => '分类方式';
+	@override String get nameAToZ => '名称（按A-Z)';
+	@override String get nameZToA => '名称（按Z-A）';
+	@override String get lastModifiedNewToOld => '已修改（最新日期优先）';
+	@override String get lastModifiedOldToNew => '已修改（最远日期优先）';
 }
 
 // Path: home.layout
@@ -395,8 +396,8 @@ class Translations$home$layout$zh_Hans_CN extends Translations$home$layout$en {
 
 	// Translations
 	@override String get layout => '布局';
-	@override String get masonryGrid => '砌体网格';
-	@override String get simpleGrid => '简单网格';
+	@override String get masonryGrid => '砌体网格样式';
+	@override String get simpleGrid => '简单网格样式';
 }
 
 // Path: sentry.consent

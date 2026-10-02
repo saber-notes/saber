@@ -21,8 +21,7 @@ home:
     newNote: Nota Nova
     importNote: Importar nota
   welcome: Benvingut/d@ a Saber
-  invalidFormat: |-
-    L'arxiu seleccionat no és compatible. Seleccioneu un arxiu en format sbn, sbn2, sba o PDF
+  invalidFormat: L'arxiu seleccionat no és compatible. Seleccioneu un arxiu en format sbn, sbn2, sba o PDF
   noFiles: Cap arxiu trobat
   noPreviewAvailable: Previsualització no disponible
   createNewNote: Prem + per a crear una nota nova
