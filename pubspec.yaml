@@ -79,7 +79,7 @@ dependencies:
   slang: ^4.12.1
   slang_flutter:
 
-  flex_color_picker: ^3.4.1
+  flex_color_picker: ^4.0.0
 
   font_awesome_flutter: ^11.0.0
 
@@ -144,7 +144,7 @@ dependencies:
 
   flutter_web_auth_2: ^5.0.1
 
-  pdfrx: ">=2.4.2 <2.5.0" # 2.5.0 requires material_ui
+  pdfrx: ^2.6.5 # 2.5.0 requires material_ui
   path: ^1.9.1
 
   stow: ^0.6.0

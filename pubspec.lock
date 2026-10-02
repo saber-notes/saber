@@ -257,6 +257,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.9"
+  cupertino_ui:
+    dependency: transitive
+    description:
+      name: cupertino_ui
+      sha256: c23816577a1280cff409e989541767887011f8f1d8c1863a794ed308af46f2a9
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.1"
   dart_quill_delta:
     dependency: transitive
     description:
@@ -477,18 +485,18 @@ packages:
     dependency: "direct main"
     description:
       name: flex_color_picker
-      sha256: a0979dd61f21b634717b98eb4ceaed2bfe009fe020ce8597aaf164b9eeb57aaa
+      sha256: f3cac22c1d5af8b355faa9a8146ae81b441664d499475c7a2690c933cf1c673e
       url: "https://pub.dev"
     source: hosted
-    version: "3.8.0"
+    version: "4.0.0"
   flex_seed_scheme:
     dependency: transitive
     description:
       name: flex_seed_scheme
-      sha256: a3183753bbcfc3af106224bff3ab3e1844b73f58062136b7499919f49f3667e7
+      sha256: "08f9ee11f9a08c2dee76d0a07ea824c8a09ea4db9456e32ac4f6dfb34d28392c"
       url: "https://pub.dev"
     source: hosted
-    version: "4.0.1"
+    version: "5.0.1"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -965,6 +973,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.2960.0"
+  material_ui:
+    dependency: transitive
+    description:
+      name: material_ui
+      sha256: "32d98f11cf5942a095a8c3e01b03e4de3b17941437713dcf36b1088fb62e23d2"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.5.0"
   matrix4_transform:
     dependency: transitive
     description:
@@ -1248,34 +1264,34 @@ packages:
     dependency: transitive
     description:
       name: pdfium_dart
-      sha256: "86e95c66b09f3245b95c4924f2edce8d4f7c9786876e5c5ee8e36b104a94bbb0"
+      sha256: e296a26c030e6e0fb34b32ce7481a3cfa0c2d35ce80f6269551c685759f4c91f
       url: "https://pub.dev"
     source: hosted
-    version: "0.2.5"
+    version: "0.3.1"
   pdfium_flutter:
     dependency: transitive
     description:
       name: pdfium_flutter
-      sha256: "0b115c0917aef9cf6bb9c4d47d0efc61d97f44844cd76287c921f997c26cf15d"
+      sha256: "59897274513984b347fc98e7bf71ba457678daea8b5568cd7c688979aeb77765"
       url: "https://pub.dev"
     source: hosted
-    version: "0.2.3"
+    version: "0.3.1"
   pdfrx:
     dependency: "direct main"
     description:
       name: pdfrx
-      sha256: "85a87117ae6358e0ef2cc90d4db9f5e689eabbd7f19ab98c97164584d0be4a4a"
+      sha256: "52e78d84a706e5d63d2502689fe8e800d823bc780ac4341b2d3683a4d726505a"
       url: "https://pub.dev"
     source: hosted
-    version: "2.4.8"
+    version: "2.6.5"
   pdfrx_engine:
     dependency: transitive
     description:
       name: pdfrx_engine
-      sha256: "4399846809a75aed03881d8b8a19e5e70addd4b46b22fd94a0effd8859258f07"
+      sha256: f74ca9ea4ec722545f054a1d6ee1bf01222409ecd9458e5945c0cc5feaa3d2c6
       url: "https://pub.dev"
     source: hosted
-    version: "0.4.7"
+    version: "0.6.1"
   perfect_freehand:
     dependency: "direct main"
     description:
