@@ -96,6 +96,7 @@ class _InnerCanvasState extends State<InnerCanvas> {
                 right: widget.coreInfo.lineHeight * 0.5,
                 bottom: widget.coreInfo.lineHeight * 0.5,
               ),
+              showCodeBlockLineNumbers: false,
             ),
             scrollController: ScrollController(),
             focusNode: widget.coreInfo.pages[widget.pageIndex].quill.focusNode,
