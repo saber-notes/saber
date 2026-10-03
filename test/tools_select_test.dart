@@ -137,6 +137,7 @@ void main() {
           strokes: const [],
           images: const [],
           path: Path(),
+          pageIndexStart: 0,
         );
         expect(select.getDominantStrokeColor(), isNull);
       });
@@ -154,6 +155,7 @@ void main() {
           ],
           images: const [],
           path: Path(),
+          pageIndexStart: 0,
         );
         select.doneSelecting = true;
         expect(select.getDominantStrokeColor(), Colors.blue);
