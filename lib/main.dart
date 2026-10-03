@@ -18,6 +18,7 @@ import 'package:saber/components/canvas/pencil_shader.dart';
 import 'package:saber/components/theming/dynamic_material_app.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/flavor_config.dart';
+import 'package:saber/data/lock_screen.dart';
 import 'package:saber/data/nextcloud/nc_http_overrides.dart';
 import 'package:saber/data/nextcloud/saber_syncer.dart';
 import 'package:saber/data/prefs.dart';
@@ -99,6 +100,7 @@ Future<void> appRunner(List<String> args) async {
       Editor.canRasterPdf = info.canRaster;
     }),
     OnyxSdkPenArea.init(),
+    if (Platform.isAndroid) LockScreen.checkLockScreenNote(),
   ]);
 
   setLocale();
@@ -238,6 +240,15 @@ class const App({super.key}) extends StatefulWidget {
   });
   static final _router = GoRouter(
     initialLocation: initialLocation,
+    redirect: (context, state) async {
+      if ((LockScreen.isLockScreenNoteMode || LockScreen.isCreateNoteIntent) &&
+          !state.uri.path.startsWith(RoutePaths.edit)) {
+        LockScreen.isCreateNoteIntent = false;
+        final path = await FileManager.newFilePath();
+        return RoutePaths.editFilePath(path);
+      }
+      return null;
+    },
     routes: <GoRoute>[
       GoRoute(path: '/', redirect: (context, state) => initialLocation),
       GoRoute(
@@ -303,13 +314,31 @@ class const App({super.key}) extends StatefulWidget {
   State<App> createState() => _AppState();
 }
 
-class _AppState extends State<App> {
+class _AppState extends State<App> with WidgetsBindingObserver {
   StreamSubscription? _intentDataStreamSubscription;
 
   @override
   void initState() {
+    WidgetsBinding.instance.addObserver(this);
     setupSharingIntent();
+    if (Platform.isAndroid) {
+      LockScreen.listenToIntent(() async {
+        final path = await FileManager.newFilePath();
+        App._router.push(RoutePaths.editFilePath(path));
+      });
+    }
     super.initState();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.resumed && Platform.isAndroid) {
+      LockScreen.syncLockScreenNoteMode().then((_) {
+        if (!LockScreen.isLockScreenNoteMode) {
+          App._router.refresh();
+        }
+      });
+    }
   }
 
   void setupSharingIntent() {
@@ -340,6 +369,7 @@ class _AppState extends State<App> {
 
   @override
   void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
     _intentDataStreamSubscription?.cancel();
     super.dispose();
   }
