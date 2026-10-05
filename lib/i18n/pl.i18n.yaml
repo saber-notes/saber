@@ -75,10 +75,18 @@ home:
     nameZToA(OUTDATED): Nazwa (od A do Z)
     lastModifiedNewToOld(OUTDATED): Edytowane (Najnowsze na górze)
     lastModifiedOldToNew(OUTDATED): Edytowane (Najstarsze jako pierwsze)
+    sortBy: Sortuj po
+    nameAToZ: Nazwie (A-Z)
+    nameZToA: Nazwie (Z-A)
+    lastModifiedNewToOld: Edycji (Najpierw ostatnie)
+    lastModifiedOldToNew: Edycji (Najpierw najstarsze)
   layout:
     layout(OUTDATED): Układ
     masonryGrid(OUTDATED): Siatka murarska
     simpleGrid(OUTDATED): Prosta siatka
+    layout: Układ
+    masonryGrid: Kafelki (różny rozmiar)
+    simpleGrid: Kafelki (proste)
 sentry:
   consent:
     title: Chcesz wesprzeć Saber?
@@ -254,6 +262,7 @@ profile:
       Jeśli korzystasz z oficjalnego serwera Saber, Twoje konto zostanie usunięte po tygodniu. W tym czasie możesz skontaktować się ze mną pod adresem adilhanney@disroot.org, aby anulować usunięcie.
       Jeśli korzystasz z serwera zewnętrznego, opcja usunięcia konta może nie być dostępna: aby uzyskać więcej informacji, musisz zapoznać się z polityką prywatności serwera.
   quotaUsageUncapped(OUTDATED): Używasz $used
+  quotaUsageUncapped: Używasz $used
 appInfo:
   licenseNotice: |-
     Saber  Copyright © 2022-$buildYear  Adil Hanney
