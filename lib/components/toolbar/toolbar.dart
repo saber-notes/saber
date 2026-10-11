@@ -171,6 +171,97 @@ class _ToolbarState extends State<Toolbar> {
     );
   }
 
+  /// Nearest screen edge to [pos], used for toolbar edge-snapping.
+  AxisDirection _nearestEdge(Offset pos) {
+    final size = MediaQuery.sizeOf(context);
+    var best = AxisDirection.down;
+    var bestDistance = double.infinity;
+    void consider(AxisDirection edge, double distance) {
+      if (distance < bestDistance) {
+        bestDistance = distance;
+        best = edge;
+      }
+    }
+
+    consider(AxisDirection.up, pos.dy);
+    consider(AxisDirection.down, size.height - pos.dy);
+    consider(AxisDirection.left, pos.dx);
+    consider(AxisDirection.right, size.width - pos.dx);
+    return best;
+  }
+
+  /// Small grip handle at the start of the toolbar. Dragging it repositions
+  /// the toolbar: a floating preview follows the pointer, and on release the
+  /// toolbar snaps to the nearest screen edge. The position is persisted in
+  /// [stows.editorToolbarAlignment]. Only the handle starts a drag — every
+  /// tool button keeps its normal tap behavior.
+  Widget _buildDragHandle(bool isToolbarVertical) {
+    final colorScheme = ColorScheme.of(context);
+
+    // Fixed ghost size, floating above the fingertip so it stays visible.
+    const ghostWidth = 300.0;
+    const ghostHeight = 68.0;
+    const liftAboveFinger = 90.0;
+
+    Widget ghostBar() {
+      return Container(
+        width: ghostWidth,
+        height: ghostHeight,
+        decoration: BoxDecoration(
+          color: colorScheme.surfaceContainerHigh,
+          borderRadius: .circular(16),
+          border: Border.all(color: colorScheme.primary, width: 2),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withValues(alpha: 0.35),
+              blurRadius: 16,
+              offset: const Offset(0, 4),
+            ),
+          ],
+        ),
+        child: Icon(
+          Icons.drag_handle,
+          color: colorScheme.onSurfaceVariant,
+          size: 28,
+        ),
+      );
+    }
+
+    Widget handlePill() {
+      return Container(
+        padding: const EdgeInsets.all(10),
+        color: Colors.transparent,
+        child: Container(
+          width: isToolbarVertical ? 28 : 5,
+          height: isToolbarVertical ? 5 : 28,
+          decoration: BoxDecoration(
+            color: colorScheme.onSurfaceVariant.withValues(alpha: 0.35),
+            borderRadius: .circular(3),
+          ),
+        ),
+      );
+    }
+
+    return Draggable<Object>(
+      // Float the preview above the fingertip so it's visible, not hidden
+      // under the finger. The returned offset is the grab point within the
+      // feedback: feedback top-left = pointer - offset.
+      dragAnchorStrategy: (draggable, context, position) =>
+          const Offset(ghostWidth / 2, liftAboveFinger + ghostHeight / 2),
+      feedback: Material(color: Colors.transparent, child: ghostBar()),
+      childWhenDragging: Opacity(opacity: 0.4, child: handlePill()),
+      onDragEnd: (details) {
+        // details.offset is the feedback's top-left; recover the finger
+        // position and snap to the nearest screen edge.
+        final fingerPos =
+            details.offset +
+            const Offset(ghostWidth / 2, liftAboveFinger + ghostHeight / 2);
+        stows.editorToolbarAlignment.value = _nearestEdge(fingerPos);
+      },
+      child: handlePill(),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final colorScheme = ColorScheme.of(context);
@@ -327,6 +418,7 @@ class _ToolbarState extends State<Toolbar> {
             alignment: WrapAlignment.center,
             runSpacing: 8,
             children: [
+              _buildDragHandle(isToolbarVertical),
               ToolbarIconButton(
                 tooltip: Pen.currentPen.name,
                 selected: widget.currentTool == Pen.currentPen,

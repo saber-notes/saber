@@ -1361,9 +1361,6 @@ class EditorState extends State<Editor> {
   Widget build(BuildContext context) {
     final colorScheme = ColorScheme.of(context);
     final platform = Theme.of(context).platform;
-    final isToolbarVertical =
-        stows.editorToolbarAlignment.value == AxisDirection.left ||
-        stows.editorToolbarAlignment.value == AxisDirection.right;
 
     final Widget canvas = CanvasGestureDetector(
       key: _canvasGestureDetectorKey,
@@ -1409,214 +1406,223 @@ class EditorState extends State<Editor> {
           : null,
     );
 
-    final Widget toolbar = Collapsible(
-      axis: isToolbarVertical
-          ? CollapsibleAxis.horizontal
-          : CollapsibleAxis.vertical,
-      collapsed:
-          DynamicMaterialApp.isFullscreen &&
-          !stows.editorToolbarShowInFullscreen.value,
-      maintainState: true,
-      child: SafeArea(
-        bottom: stows.editorToolbarAlignment.value != AxisDirection.up,
-        child: Toolbar(
-          readOnly: coreInfo.readOnly,
-          setTool: (tool) {
-            if (tool is Eraser && currentTool is Eraser) {
-              // setTool(Eraser) is a special case to toggle the eraser on/off
-              tool = _lastNonEraserTool;
-            }
+    Widget buildToolbar(AxisDirection alignment) {
+      final isToolbarVertical =
+          alignment == AxisDirection.left || alignment == AxisDirection.right;
+      return Collapsible(
+        axis: isToolbarVertical
+            ? CollapsibleAxis.horizontal
+            : CollapsibleAxis.vertical,
+        collapsed:
+            DynamicMaterialApp.isFullscreen &&
+            !stows.editorToolbarShowInFullscreen.value,
+        maintainState: true,
+        child: SafeArea(
+          bottom: alignment != AxisDirection.up,
+          child: Toolbar(
+            readOnly: coreInfo.readOnly,
+            setTool: (tool) {
+              if (tool is Eraser && currentTool is Eraser) {
+                // setTool(Eraser) is a special case to toggle the eraser on/off
+                tool = _lastNonEraserTool;
+              }
 
-            currentTool = tool;
+              currentTool = tool;
 
-            if (tool is Highlighter) {
-              Highlighter.currentHighlighter = tool;
-            } else if (tool is Pencil) {
-              Pencil.currentPencil = tool;
-            } else if (tool is Pen) {
-              Pen.currentPen = tool;
-            }
+              if (tool is Highlighter) {
+                Highlighter.currentHighlighter = tool;
+              } else if (tool is Pencil) {
+                Pencil.currentPencil = tool;
+              } else if (tool is Pen) {
+                Pen.currentPen = tool;
+              }
 
-            if (mounted) setState(() {});
-          },
-          currentTool: currentTool,
-          duplicateSelection: () {
-            final select = currentTool as Select;
-            if (!select.doneSelecting) return;
+              if (mounted) setState(() {});
+            },
+            currentTool: currentTool,
+            duplicateSelection: () {
+              final select = currentTool as Select;
+              if (!select.doneSelecting) return;
 
-            setState(() {
-              final page = coreInfo.pages[select.selectResult.pageIndex];
-              final strokes = select.selectResult.strokes;
-              final images = select.selectResult.images;
+              setState(() {
+                final page = coreInfo.pages[select.selectResult.pageIndex];
+                final strokes = select.selectResult.strokes;
+                final images = select.selectResult.images;
 
-              const duplicationFeedbackOffset = Offset(25, -25);
+                const duplicationFeedbackOffset = Offset(25, -25);
 
-              final duplicatedStrokes = strokes.map((stroke) {
-                return stroke.copy()..shift(duplicationFeedbackOffset);
-              }).toList();
+                final duplicatedStrokes = strokes.map((stroke) {
+                  return stroke.copy()..shift(duplicationFeedbackOffset);
+                }).toList();
 
-              final duplicatedImages = images.map((image) {
-                return image.copy()
-                  ..id = coreInfo.nextImageId++
-                  ..dstRect.shift(duplicationFeedbackOffset);
-              }).toList();
+                final duplicatedImages = images.map((image) {
+                  return image.copy()
+                    ..id = coreInfo.nextImageId++
+                    ..dstRect.shift(duplicationFeedbackOffset);
+                }).toList();
 
-              page.strokes.addAll(duplicatedStrokes);
-              page.images.addAll(duplicatedImages);
+                page.strokes.addAll(duplicatedStrokes);
+                page.images.addAll(duplicatedImages);
 
-              select.selectResult = select.selectResult.copyWith(
-                strokes: duplicatedStrokes,
-                images: duplicatedImages,
-                path: select.selectResult.path.shift(duplicationFeedbackOffset),
-              );
-
-              history.recordChange(
-                EditorHistoryItem(
-                  type: .draw,
-                  pageIndex: select.selectResult.pageIndex,
+                select.selectResult = select.selectResult.copyWith(
                   strokes: duplicatedStrokes,
                   images: duplicatedImages,
-                ),
-              );
-              autosaveAfterDelay();
-            });
-          },
-          deleteSelection: () {
-            final select = currentTool as Select;
-            if (!select.doneSelecting) {
-              return;
-            }
-
-            setState(() {
-              final page = coreInfo.pages[select.selectResult.pageIndex];
-              final strokes = select.selectResult.strokes;
-              final images = select.selectResult.images;
-
-              for (final stroke in strokes) {
-                page.strokes.remove(stroke);
-              }
-              for (final image in images) {
-                page.images.remove(image);
-              }
-
-              select.unselect();
-
-              history.recordChange(
-                EditorHistoryItem(
-                  type: .erase,
-                  pageIndex: strokes.first.pageIndex,
-                  strokes: strokes,
-                  images: images,
-                ),
-              );
-              autosaveAfterDelay();
-            });
-          },
-          setColor: (color) {
-            setState(() {
-              updateColorBar(color);
-
-              if (currentTool is Highlighter) {
-                (currentTool as Highlighter).color = color.withAlpha(
-                  Highlighter.alpha,
+                path: select.selectResult.path.shift(duplicationFeedbackOffset),
                 );
-              } else if (currentTool is Pen) {
-                (currentTool as Pen).color = color;
-              } else if (currentTool is Select) {
-                // Changes color of selected strokes
-                final select = currentTool as Select;
-                if (select.doneSelecting) {
-                  final strokes = select.selectResult.strokes;
 
-                  final colorChange = <Stroke, Change<Color>>{};
-                  for (final stroke in strokes) {
-                    colorChange[stroke] = Change(
-                      previous: stroke.color,
-                      current: color,
-                    );
-                    stroke.color = color;
-                  }
+                history.recordChange(
+                  EditorHistoryItem(
+                    type: .draw,
+                    pageIndex: select.selectResult.pageIndex,
+                    strokes: duplicatedStrokes,
+                    images: duplicatedImages,
+                  ),
+                );
+                autosaveAfterDelay();
+              });
+            },
+            deleteSelection: () {
+              final select = currentTool as Select;
+              if (!select.doneSelecting) {
+                return;
+              }
 
-                  history.recordChange(
-                    EditorHistoryItem(
-                      type: .changeColor,
-                      pageIndex: strokes.first.pageIndex,
-                      strokes: strokes,
-                      colorChange: colorChange,
-                      images: [],
-                    ),
-                  );
-                  autosaveAfterDelay();
+              setState(() {
+                final page = coreInfo.pages[select.selectResult.pageIndex];
+                final strokes = select.selectResult.strokes;
+                final images = select.selectResult.images;
+
+                for (final stroke in strokes) {
+                  page.strokes.remove(stroke);
                 }
-              }
-            });
-          },
-          quillFocus: quillFocus,
-          textEditing: currentTool == Tool.textEditing,
-          toggleTextEditing: () => setState(() {
-            if (currentTool == Tool.textEditing) {
-              currentTool = Pen.currentPen;
-              for (final page in coreInfo.pages) {
-                // unselect text, but maintain cursor position
-                page.quill.controller.moveCursorToPosition(
-                  page.quill.controller.selection.extentOffset,
-                );
-                page.quill.focusNode.unfocus();
-              }
-            } else {
-              currentTool = Tool.textEditing;
-              quillFocus.value = coreInfo.pages[currentPageIndex].quill
-                ..focusNode.requestFocus();
-            }
-          }),
-          undo: undo,
-          isUndoPossible: history.canUndo,
-          redo: redo,
-          isRedoPossible: history.canRedo,
-          toggleFingerDrawing: () {
-            stows.editorFingerDrawing.value = !stows.editorFingerDrawing.value;
-            lastSeenPointerCount = 0;
-          },
-          pickPhoto: _pickPhotos,
-          paste: paste,
-          exportAsSba: exportAsSba,
-          exportAsPdf: exportAsPdf,
-          exportAsPng: exportAsPng,
-        ),
-      ),
-    );
+                for (final image in images) {
+                  page.images.remove(image);
+                }
 
-    final Widget body;
-    if (isToolbarVertical) {
-      body = Row(
-        textDirection: stows.editorToolbarAlignment.value == AxisDirection.left
-            ? .ltr
-            : .rtl,
-        children: [
-          toolbar,
-          Expanded(
-            child: Column(
-              children: [
-                Expanded(child: canvas),
-                readonlyBanner,
-              ],
-            ),
+                select.unselect();
+
+                history.recordChange(
+                  EditorHistoryItem(
+                    type: .erase,
+                    pageIndex: strokes.first.pageIndex,
+                    strokes: strokes,
+                    images: images,
+                  ),
+                );
+                autosaveAfterDelay();
+              });
+            },
+            setColor: (color) {
+              setState(() {
+                updateColorBar(color);
+
+                if (currentTool is Highlighter) {
+                  (currentTool as Highlighter).color = color.withAlpha(
+                    Highlighter.alpha,
+                  );
+                } else if (currentTool is Pen) {
+                  (currentTool as Pen).color = color;
+                } else if (currentTool is Select) {
+                  // Changes color of selected strokes
+                  final select = currentTool as Select;
+                  if (select.doneSelecting) {
+                    final strokes = select.selectResult.strokes;
+
+                    final colorChange = <Stroke, Change<Color>>{};
+                    for (final stroke in strokes) {
+                      colorChange[stroke] = Change(
+                        previous: stroke.color,
+                        current: color,
+                      );
+                      stroke.color = color;
+                    }
+
+                    history.recordChange(
+                      EditorHistoryItem(
+                        type: .changeColor,
+                        pageIndex: strokes.first.pageIndex,
+                        strokes: strokes,
+                        colorChange: colorChange,
+                        images: [],
+                      ),
+                    );
+                    autosaveAfterDelay();
+                  }
+                }
+              });
+            },
+            quillFocus: quillFocus,
+            textEditing: currentTool == Tool.textEditing,
+            toggleTextEditing: () => setState(() {
+              if (currentTool == Tool.textEditing) {
+                currentTool = Pen.currentPen;
+                for (final page in coreInfo.pages) {
+                  // unselect text, but maintain cursor position
+                  page.quill.controller.moveCursorToPosition(
+                    page.quill.controller.selection.extentOffset,
+                  );
+                  page.quill.focusNode.unfocus();
+                }
+              } else {
+                currentTool = Tool.textEditing;
+                quillFocus.value = coreInfo.pages[currentPageIndex].quill
+                  ..focusNode.requestFocus();
+              }
+            }),
+            undo: undo,
+            isUndoPossible: history.canUndo,
+            redo: redo,
+            isRedoPossible: history.canRedo,
+            toggleFingerDrawing: () {
+            stows.editorFingerDrawing.value = !stows.editorFingerDrawing.value;
+              lastSeenPointerCount = 0;
+            },
+            pickPhoto: _pickPhotos,
+            paste: paste,
+            exportAsSba: exportAsSba,
+            exportAsPdf: exportAsPdf,
+            exportAsPng: exportAsPng,
           ),
-        ],
-      );
-    } else {
-      body = Column(
-        verticalDirection:
-            stows.editorToolbarAlignment.value == AxisDirection.up
-            ? VerticalDirection.up
-            : VerticalDirection.down,
-        children: [
-          Expanded(child: canvas),
-          toolbar,
-          readonlyBanner,
-        ],
+        ),
       );
     }
+
+    // The toolbar edge is drag-controlled now: rebuild the layout
+    // whenever the persisted alignment changes.
+    final Widget body = ValueListenableBuilder(
+      valueListenable: stows.editorToolbarAlignment,
+      builder: (context, alignment, _) {
+        final isToolbarVertical =
+            alignment == AxisDirection.left || alignment == AxisDirection.right;
+        if (isToolbarVertical) {
+          return Row(
+            textDirection: alignment == AxisDirection.left ? .ltr : .rtl,
+            children: [
+              buildToolbar(alignment),
+              Expanded(
+                child: Column(
+                  children: [
+                    Expanded(child: canvas),
+                    readonlyBanner,
+                  ],
+                ),
+              ),
+            ],
+          );
+        } else {
+          return Column(
+            verticalDirection: alignment == AxisDirection.up
+                ? VerticalDirection.up
+                : VerticalDirection.down,
+            children: [
+              Expanded(child: canvas),
+              buildToolbar(alignment),
+              readonlyBanner,
+            ],
+          );
+        }
+      },
+    );
 
     return ValueListenableBuilder(
       valueListenable: savingState,
