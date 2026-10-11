@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:one_dollar_unistroke_recognizer/one_dollar_unistroke_recognizer.dart';
 import 'package:perfect_freehand/perfect_freehand.dart';
+import 'package:saber/components/canvas/_circle_stroke.dart';
+import 'package:saber/components/canvas/_rectangle_stroke.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/prefs.dart';
@@ -101,9 +104,90 @@ class Pen extends Tool {
     currentStroke = null;
     if (stroke == null) return null;
 
-    return stroke
+    stroke
       ..options.isComplete = true
       ..markPolygonNeedsUpdating();
+
+    // Samsung-style automatic shape snap: if a fountain/ballpoint stroke
+    // looks like a geometric shape with high confidence, replace it with
+    // the clean shape. Always on, no toggle — but conservative so
+    // handwriting is never mangled.
+    if (toolId == .fountainPen || toolId == .ballpointPen) {
+      final snapped = _trySnapToShape(stroke);
+      if (snapped != null) return snapped;
+    }
+
+    return stroke;
+  }
+
+  /// Minimum bounding-box diagonal (logical pixels) for a stroke to be
+  /// considered for shape snapping. Filters out handwriting fragments,
+  /// dots, and small marks.
+  static const _minShapeSnapDiagonal = 48.0;
+
+  /// Minimum $1 recognizer score (0.0–1.0) to snap. Deliberately high:
+  /// handwriting rarely scores this well against geometric templates.
+  static const _minShapeSnapScore = 0.8;
+
+  /// Returns a clean geometric stroke if [stroke] confidently matches a
+  /// shape, otherwise null (keep the raw stroke).
+  Stroke? _trySnapToShape(Stroke stroke) {
+    // Size filter: ignore small strokes (handwriting fragments, dots).
+    if (stroke.boundingBoxDiagonal < _minShapeSnapDiagonal) return null;
+
+    final detected = stroke.detectShape();
+    if (detected == null || detected.score < _minShapeSnapScore) return null;
+
+    switch (detected.name) {
+      case DefaultUnistrokeNames.line:
+        return stroke..convertToLine();
+      case DefaultUnistrokeNames.rectangle:
+        return RectangleStroke(
+          color: color,
+          pressureEnabled: pressureEnabled,
+          options: stroke.options,
+          pageIndex: stroke.pageIndex,
+          page: stroke.page,
+          toolId: toolId,
+          rect: detected.convertToRect(),
+        );
+      case DefaultUnistrokeNames.circle:
+        final (center, radius) = detected.convertToCircle();
+        return CircleStroke(
+          color: color,
+          pressureEnabled: pressureEnabled,
+          options: stroke.options,
+          pageIndex: stroke.pageIndex,
+          page: stroke.page,
+          toolId: toolId,
+          radius: radius,
+          center: center,
+        );
+      case DefaultUnistrokeNames.triangle:
+      case DefaultUnistrokeNames.star:
+        return Stroke(
+          color: color,
+          pressureEnabled: pressureEnabled,
+          options: stroke.options,
+          pageIndex: stroke.pageIndex,
+          page: stroke.page,
+          toolId: toolId,
+        )..addPoints(_boundingBoxTriangle(stroke));
+      default:
+        return null;
+    }
+  }
+
+  /// Builds a clean triangle from the stroke's bounding box: apex at the
+  /// top-center, base along the bottom. Simple and predictable — always
+  /// looks like the triangle the user drew.
+  List<Offset> _boundingBoxTriangle(Stroke stroke) {
+    final box = stroke.boundingBox;
+    final apex = Offset(box.center.dx, box.top);
+    final baseLeft = Offset(box.left, box.bottom);
+    final baseRight = Offset(box.right, box.bottom);
+    // Closed path: apex -> baseLeft -> baseRight -> apex
+    return [apex, baseLeft, baseRight, apex];
   }
 
   /// The default stroke options.

@@ -315,6 +315,27 @@ class Stroke {
     return points.isEmpty ? 0 : points.map((point) => point.y).reduce(max);
   }
 
+  /// The bounding box of this stroke's points, in logical pixels.
+  Rect get boundingBox {
+    if (points.isEmpty) return Rect.zero;
+    var minX = double.infinity, maxX = double.negativeInfinity;
+    var minY = double.infinity, maxY = double.negativeInfinity;
+    for (final point in points) {
+      if (point.dx < minX) minX = point.dx;
+      if (point.dx > maxX) maxX = point.dx;
+      if (point.dy < minY) minY = point.dy;
+      if (point.dy > maxY) maxY = point.dy;
+    }
+    return Rect.fromLTRB(minX, minY, maxX, maxY);
+  }
+
+  /// The diagonal of this stroke's bounding box, in logical pixels.
+  /// Useful for size-based filters (e.g. shape snapping).
+  double get boundingBoxDiagonal {
+    final box = boundingBox;
+    return sqrt(box.width * box.width + box.height * box.height);
+  }
+
   RecognizedUnistroke? detectShape() {
     if (points.length < 3) return null;
     return recognizeUnistroke(points);
