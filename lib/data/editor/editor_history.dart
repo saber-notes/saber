@@ -142,6 +142,7 @@ class EditorHistoryItem {
   new({
     required this.type,
     required this.pageIndex,
+    this.pageIndexStart,
     required this.strokes,
     required this.images,
     this.offset,
@@ -152,6 +153,10 @@ class EditorHistoryItem {
   }) : assert(
          type != .move || offset != null,
          'Offset must be provided for move',
+       ),
+       assert(
+         type != .move || pageIndexStart != null,
+         'pageIndexStart must be provided for move',
        ),
        assert(
          type != .deletePage || page != null,
@@ -180,6 +185,7 @@ class EditorHistoryItem {
 
   final EditorHistoryItemType type;
   final int pageIndex;
+  final int? pageIndexStart;
   final List<Stroke> strokes;
   final List<EditorImage> images;
   final Rect? offset;
@@ -191,6 +197,7 @@ class EditorHistoryItem {
   EditorHistoryItem copyWith({
     EditorHistoryItemType? type,
     int? pageIndex,
+    int? pageIndexStart,
     List<Stroke>? strokes,
     List<EditorImage>? images,
     Rect? offset,
@@ -202,6 +209,7 @@ class EditorHistoryItem {
     return EditorHistoryItem(
       type: type ?? this.type,
       pageIndex: pageIndex ?? this.pageIndex,
+      pageIndexStart: pageIndexStart ?? this.pageIndexStart,
       strokes: strokes ?? this.strokes,
       images: images ?? this.images,
       offset: offset ?? this.offset,
