@@ -491,8 +491,6 @@ fa:
       corrupted(OUTDATED): Failed to load note. It may be corrupted or still being downloaded.
 fr:
 he:
-  profile:
-    quotaUsageUncapped(OUTDATED): You're using $used
 hu:
   home:
     sort:
@@ -554,19 +552,6 @@ nl:
   profile:
     quotaUsageUncapped(OUTDATED): You're using $used
 pl:
-  home:
-    sort:
-      sortBy(OUTDATED): Sort by
-      nameAToZ(OUTDATED): Name (A-Z)
-      nameZToA(OUTDATED): Name (Z-A)
-      lastModifiedNewToOld(OUTDATED): Edited (Newest first)
-      lastModifiedOldToNew(OUTDATED): Edited (Oldest first)
-    layout:
-      layout(OUTDATED): Layout
-      masonryGrid(OUTDATED): Masonry grid
-      simpleGrid(OUTDATED): Simple grid
-  profile:
-    quotaUsageUncapped(OUTDATED): You're using $used
 ru:
   home:
     deleteNoteDialog:

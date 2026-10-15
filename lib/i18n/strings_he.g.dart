@@ -172,6 +172,7 @@ class _Translations$profile$he extends Translations$profile$en {
 	@override String get title => 'הפרופיל שלי';
 	@override String get logout => 'התנתק';
 	@override String quotaUsage({required Object used, required Object total, required Object percent}) => 'נעשה שימוש ב־${used} מתוך ${total} (‏${percent}‏%)';
+	@override String quotaUsageUncapped({required Object used}) => 'נעשה שימוש ב־${used}';
 	@override String get connectedTo => 'התחברת אל';
 	@override late final _Translations$profile$quickLinks$he quickLinks = _Translations$profile$quickLinks$he._(_root);
 	@override String get faqTitle => 'שאלות ותשובות';
@@ -181,7 +182,6 @@ class _Translations$profile$he extends Translations$profile$en {
 		_Translations$profile$faq$2$he._(_root),
 		_Translations$profile$faq$3$he._(_root),
 	];
-	@override String quotaUsageUncapped({required Object used}) => 'אתה משתמש ב-${used}';
 }
 
 // Path: appInfo

@@ -231,6 +231,7 @@ profile:
   title: הפרופיל שלי
   logout: התנתק
   quotaUsage: נעשה שימוש ב־$used מתוך $total (‏$percent‏%)
+  quotaUsageUncapped: נעשה שימוש ב־$used
   connectedTo: התחברת אל
   quickLinks:
     serverHomepage: עמוד הבית של השרת
@@ -253,8 +254,6 @@ profile:
       יש להקיש על הכפתור „@:profile.quickLinks.deleteAccount” ולהתחבר במידת הצורך.
       אם משתמשים בשרת הרשמי של Saber, החשבון שיוצרים יימחק לאחר תקופת חסד של שבוע. אפשר ליצור איתי קשר בכתובת adilhanney@disroot.org במהלך תקופה זו כדי לבטל את המחיקה.
       אם משתמשים בשרת צד שלישי, ייתכן שאין אפשרות למחוק את החשבון: יש לעיין במדיניות הפרטיות של השרת למידע נוסף.
-  quotaUsageUncapped(OUTDATED): אתה משתמש ב-$used
-  quotaUsageUncapped: נעשה שימוש ב־$used
 appInfo:
   licenseNotice: |-
     Saber  כל הזכויות שמורות © 2022-$buildYear  עַאדִל האני

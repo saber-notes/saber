@@ -172,6 +172,7 @@ class _Translations$profile$pl extends Translations$profile$en {
 	@override String get title => 'Mój profil';
 	@override String get logout => 'Wyloguj';
 	@override String quotaUsage({required Object used, required Object total, required Object percent}) => 'Wykorzystujesz ${used} z ${total} (${percent}%)';
+	@override String quotaUsageUncapped({required Object used}) => 'Używasz ${used}';
 	@override String get connectedTo => 'Połączono z';
 	@override late final _Translations$profile$quickLinks$pl quickLinks = _Translations$profile$quickLinks$pl._(_root);
 	@override String get faqTitle => 'Często zadawane pytania (FAQ)';
@@ -181,7 +182,6 @@ class _Translations$profile$pl extends Translations$profile$en {
 		_Translations$profile$faq$2$pl._(_root),
 		_Translations$profile$faq$3$pl._(_root),
 	];
-	@override String quotaUsageUncapped({required Object used}) => 'Używasz ${used}';
 }
 
 // Path: appInfo
@@ -381,11 +381,11 @@ class _Translations$home$sort$pl extends Translations$home$sort$en {
 	final TranslationsPl _root; // ignore: unused_field
 
 	// Translations
-	@override String get sortBy => 'Sortuj według';
-	@override String get nameAToZ => 'Imię (A-Z)';
-	@override String get nameZToA => 'Nazwa (od A do Z)';
-	@override String get lastModifiedNewToOld => 'Edytowane (Najnowsze na górze)';
-	@override String get lastModifiedOldToNew => 'Edytowane (Najstarsze jako pierwsze)';
+	@override String get sortBy => 'Sortuj po';
+	@override String get nameAToZ => 'Nazwie (A-Z)';
+	@override String get nameZToA => 'Nazwie (Z-A)';
+	@override String get lastModifiedNewToOld => 'Edycji (Najpierw ostatnie)';
+	@override String get lastModifiedOldToNew => 'Edycji (Najpierw najstarsze)';
 }
 
 // Path: home.layout
@@ -396,8 +396,8 @@ class _Translations$home$layout$pl extends Translations$home$layout$en {
 
 	// Translations
 	@override String get layout => 'Układ';
-	@override String get masonryGrid => 'Siatka murarska';
-	@override String get simpleGrid => 'Prosta siatka';
+	@override String get masonryGrid => 'Kafelki (różny rozmiar)';
+	@override String get simpleGrid => 'Kafelki (proste)';
 }
 
 // Path: sentry.consent
