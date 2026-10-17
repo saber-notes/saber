@@ -796,10 +796,10 @@ packages:
     dependency: "direct main"
     description:
       name: image
-      sha256: d701df3ef4761a22854c69b9661c9d8f25b264b3982985f25944247ce644761f
+      sha256: "0be525eb917b032c7c9c980597c508a255814a858bd8d9abfc9c57e04f3ebf89"
       url: "https://pub.dev"
     source: hosted
-    version: "4.11.0"
+    version: "4.10.2"
   ini:
     dependency: transitive
     description:
