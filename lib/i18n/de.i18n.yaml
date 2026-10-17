@@ -355,6 +355,9 @@ editor:
       staffs: Notenpapier
       tablature: Tablature
       cornell: Cornell-Stil
+  photoPdfError:
+    title: Fehler
+    message: PDF-Dateien können nicht als Bild hinzugefügt werden. Nutze dafür "Import > PDF".
   readOnlyBanner:
     title: Schreibgeschützter Modus
     watchingServer: Sie warten derzeit auf Aktualisierungen des Servers. Die Bearbeitung ist in diesem Modus deaktiviert.
