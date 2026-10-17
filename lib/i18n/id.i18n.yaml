@@ -1,0 +1,377 @@
+common:
+  done: Selesai
+  continueBtn: Lanjutkan
+  cancel: Batal
+home:
+  tabs:
+    home: Beranda
+    browse: Jelajahi
+    whiteboard: Papan tulis
+    settings: Pengaturan
+  titles:
+    home: Catatan terbaru
+    browse: Jelajahi
+    whiteboard: Papan tulis
+    settings: Pengaturan
+  tooltips:
+    newNote: Catatan baru
+    showUpdateDialog: Tampilkan dialog pembaruan
+    exportNote: Ekspor catatan
+  create:
+    newNote: Catatan baru
+    importNote: Impor catatan
+  welcome: Selamat datang di Saber
+  invalidFormat: File yang kamu pilih tidak didukung. Pilih file sbn, sbn2, sba, atau pdf.
+  noFiles: Tidak ada file
+  noPreviewAvailable: Pratinjau tidak tersedia
+  createNewNote: Ketuk tombol + untuk membuat catatan baru
+  backFolder: Kembali ke folder sebelumnya
+  newFolder:
+    newFolder: Folder baru
+    folderName: Nama folder
+    create: Buat
+    folderNameEmpty: Nama folder tidak boleh kosong
+    folderNameContainsSlash: Nama folder tidak boleh mengandung garis miring
+    folderNameExists: Folder sudah ada
+  renameNote:
+    renameNote: Ganti nama catatan
+    noteName: Nama catatan
+    rename: Ganti nama
+    noteNameEmpty: Nama catatan tidak boleh kosong
+    noteNameExists: Sudah ada catatan dengan nama ini
+    noteNameForbiddenCharacters: Nama catatan mengandung karakter yang tidak diperbolehkan
+    noteNameReserved: Nama catatan ini dicadangkan oleh sistem
+  moveNote:
+    moveNote: Pindahkan catatan
+    moveNotes: Pindahkan $n catatan
+    moveName: Pindahkan $f
+    move: Pindahkan
+    renamedTo: Catatan akan diganti namanya menjadi $newName
+    multipleRenamedTo: "Catatan berikut akan diganti namanya:"
+    numberRenamedTo: $n catatan akan diganti namanya agar tidak bentrok
+  deleteNote: Hapus catatan
+  deleteNoteDialog:
+    deleteNotes: Hapus $n catatan
+    deleteName: Hapus $f
+    confirmDelete:
+      one: Hapus permanen catatan yang dipilih?
+      other: Hapus permanen catatan yang dipilih?
+    delete: Hapus
+  renameFolder:
+    renameFolder: Ganti nama folder
+    folderName: Nama folder
+    rename: Ganti nama
+    folderNameEmpty: Nama folder tidak boleh kosong
+    folderNameContainsSlash: Nama folder tidak boleh mengandung garis miring
+    folderNameExists: Sudah ada folder dengan nama ini
+  deleteFolder:
+    deleteFolder: Hapus folder
+    deleteName: Hapus $f
+    delete: Hapus
+    alsoDeleteContents: Hapus juga semua catatan di dalam folder ini
+  sort:
+    sortBy: Urutkan berdasarkan
+    nameAToZ: Nama (A-Z)
+    nameZToA: Nama (Z-A)
+    lastModifiedNewToOld: Diedit (Terbaru dulu)
+    lastModifiedOldToNew: Diedit (Terlama dulu)
+  layout:
+    layout: Tata letak
+    masonryGrid: Grid masonry
+    simpleGrid: Grid sederhana
+sentry:
+  consent:
+    title: Bantu tingkatkan Saber?
+    description:
+      question: Mau melaporkan error tak terduga secara otomatis? Ini membantu saya menemukan dan memperbaiki masalah lebih cepat.
+      scope: Laporan bisa berisi informasi tentang error dan perangkatmu. Saya sudah berusaha semaksimal mungkin menyaring data pribadi, tetapi mungkin masih ada yang tersisa.
+      currentlyOff: Jika kamu memberi izin, pelaporan error akan aktif setelah aplikasi dimulai ulang.
+      currentlyOn: Jika kamu mencabut izin, mulai ulang aplikasi untuk menonaktifkan pelaporan error.
+      learnMoreInPrivacyPolicy(rich): Pelajari selengkapnya di ${link(kebijakan privasi)}.
+    answers:
+      yes: Ya
+      no: Tidak
+      later: Tanya nanti
+settings:
+  prefCategories:
+    general: Umum
+    writing: Menulis
+    editor: Editor
+    performance: Performa
+    advanced: Lanjutan
+  prefLabels:
+    locale: Bahasa
+    appTheme: Tema aplikasi
+    platform: Jenis tema
+    layoutSize: Jenis tata letak
+    customAccentColor: Warna aksen kustom
+    hyperlegibleFont: Font Atkinson Hyperlegible
+    shouldCheckForUpdates: Periksa pembaruan Saber
+    shouldAlwaysAlertForUpdates: Pembaruan lebih cepat
+    allowInsecureConnections: Izinkan koneksi tidak aman
+    editorToolbarAlignment: Posisi toolbar
+    editorToolbarShowInFullscreen: Tampilkan toolbar di mode layar penuh
+    editorAutoInvert: Balik warna catatan di mode gelap
+    preferGreyscale: Utamakan warna abu-abu
+    maxImageSize: Ukuran gambar maksimum
+    autoClearWhiteboardOnExit: Kosongkan papan tulis otomatis
+    disableEraserAfterUse: Nonaktifkan penghapus otomatis
+    hideFingerDrawingToggle: Sembunyikan tombol menggambar dengan jari
+    autoDisableFingerDrawingWhenStylusDetected: Nonaktifkan menggambar dengan jari otomatis
+    editorPromptRename: Minta ganti nama catatan baru
+    recentColorsDontSavePresets: Jangan simpan warna preset di warna terbaru
+    recentColorsLength: Jumlah warna terbaru yang disimpan
+    printPageIndicators: Cetak indikator halaman
+    autosave: Simpan otomatis
+    shapeRecognitionDelay: Jeda pengenalan bentuk
+    autoStraightenLines: Luruskan garis otomatis
+    customDataDir: Folder Saber kustom
+    sentry: Pelaporan error
+  prefDescriptions:
+    hyperlegibleFont: Meningkatkan keterbacaan bagi pengguna dengan penglihatan rendah
+    allowInsecureConnections: (Tidak disarankan) Izinkan Saber terhubung ke server dengan sertifikat yang ditandatangani sendiri/tidak tepercaya
+    preferGreyscale: Untuk layar e-ink
+    autoClearWhiteboardOnExit: Mengosongkan papan tulis setelah kamu keluar dari aplikasi
+    disableEraserAfterUse: Otomatis kembali ke pena setelah memakai penghapus
+    maxImageSize: Gambar yang lebih besar akan dikompresi
+    hideFingerDrawing:
+      shown: Mencegah tombol tersentuh tanpa sengaja
+      fixedOn: Menggambar dengan jari selalu aktif
+      fixedOff: Menggambar dengan jari selalu nonaktif
+    autoDisableFingerDrawingWhenStylusDetected: Matikan menggambar dengan jari saat stylus terdeteksi
+    editorPromptRename: Kamu selalu bisa mengganti nama catatan nanti
+    printPageIndicators: Tampilkan indikator halaman di hasil ekspor
+    autosave: Simpan otomatis setelah jeda singkat, atau tidak sama sekali
+    shapeRecognitionDelay: Seberapa sering pratinjau bentuk diperbarui
+    autoStraightenLines: Meluruskan garis panjang tanpa perlu memakai pena bentuk
+    shouldAlwaysAlertForUpdates: Beri tahu begitu pembaruan tersedia
+    sentry:
+      active: Aktif
+      inactive: Nonaktif
+      activeUntilRestart: Aktif sampai aplikasi dimulai ulang
+      inactiveUntilRestart: Nonaktif sampai aplikasi dimulai ulang
+  themeModes:
+    system: Sistem
+    light: Terang
+    dark: Gelap
+  layoutSizes:
+    auto: Otomatis
+    phone: Ponsel
+    tablet: Tablet
+  accentColorPicker:
+    pickAColor: Pilih warna
+  systemLanguage: Otomatis
+  axisDirections:
+  - Atas
+  - Kanan
+  - Bawah
+  - Kiri
+  reset:
+    title: Atur ulang pengaturan ini?
+    button: Atur ulang
+  resyncEverything: Sinkronkan ulang semuanya
+  openDataDir: Buka folder Saber
+  customDataDir:
+    cancel: Batal
+    select: Pilih
+    mustBeEmpty: Folder yang dipilih harus kosong
+    mustBeDoneSyncing: Pastikan sinkronisasi sudah selesai sebelum mengganti folder
+    unsupported: Fitur ini untuk saat ini hanya ditujukan bagi developer. Menggunakannya kemungkinan besar akan menyebabkan data hilang.
+  autosaveDisabled: Tidak pernah
+  shapeRecognitionDisabled: Tidak pernah
+logs:
+  logs: Log
+  viewLogs: Lihat log
+  debuggingInfo: Log berisi informasi yang berguna untuk debugging dan pengembangan
+  noLogs: Belum ada log!
+  useTheApp: Log akan muncul di sini saat kamu menggunakan aplikasi
+login:
+  title: Masuk
+  form:
+    agreeToPrivacyPolicy(rich): Dengan masuk, kamu menyetujui ${linkToPrivacyPolicy(Kebijakan Privasi)}.
+  signup(rich): Belum punya akun? ${linkToSignup(Daftar sekarang)}!
+  notYou(rich): Bukan kamu? ${undoLogin(Pilih akun lain)}.
+  status:
+    loggedOut: Belum masuk
+    tapToLogin: Ketuk untuk masuk dengan Nextcloud
+    hi: Hai, $u!
+    almostDone: Hampir siap untuk sinkronisasi, ketuk untuk menyelesaikan proses masuk
+    loggedIn: Sudah masuk dengan Nextcloud
+  ncLoginStep:
+    whereToStoreData: "Pilih tempat menyimpan datamu:"
+    saberNcServer: Server Nextcloud milik Saber
+    otherNcServer: Server Nextcloud lain
+    serverUrl: URL server
+    loginWithSaber: Masuk dengan Saber
+    loginWithNextcloud: Masuk dengan Nextcloud
+    loginFlow:
+      pleaseAuthorize: Izinkan Saber mengakses akun Nextcloud-mu
+      followPrompts: Ikuti petunjuk yang muncul di antarmuka Nextcloud
+      browserDidntOpen: Halaman masuk tidak terbuka? Klik di sini
+  encLoginStep:
+    enterEncPassword: "Untuk melindungi datamu, masukkan kata sandi enkripsi:"
+    newToSaber: Baru di Saber? Cukup masukkan kata sandi enkripsi baru.
+    encPassword: Kata sandi enkripsi
+    encFaqTitle: Pertanyaan yang sering diajukan
+    wrongEncPassword: Dekripsi gagal dengan kata sandi tersebut. Coba masukkan lagi.
+    connectionFailed: Terjadi masalah saat menghubungkan ke server. Coba lagi nanti.
+    encFaq:
+    - q: Apa itu kata sandi enkripsi? Kenapa harus pakai dua kata sandi?
+      a: |-
+        Kata sandi Nextcloud dipakai untuk mengakses cloud. Kata sandi enkripsi "mengacak" datamu sebelum sampai ke cloud.
+        Bahkan kalau ada yang berhasil masuk ke akun Nextcloud-mu, catatanmu tetap aman karena dienkripsi dengan kata sandi yang terpisah. Ini memberimu lapisan keamanan kedua untuk melindungi datamu.
+        Tidak ada yang bisa mengakses catatanmu di server tanpa kata sandi enkripsi, tetapi ini juga berarti kalau kamu lupa kata sandi enkripsi, kamu akan kehilangan akses ke datamu.
+    - q: Saya belum mengatur kata sandi enkripsi. Dari mana saya mendapatkannya?
+      a: |-
+        Pilih kata sandi enkripsi baru, lalu masukkan di atas.
+        Saber akan membuat kunci enkripsimu secara otomatis dari kata sandi tersebut.
+    - q: Bolehkah memakai kata sandi yang sama dengan akun Nextcloud saya?
+      a: Boleh, tetapi ingat bahwa administrator server atau orang lain akan lebih mudah mengakses catatanmu kalau mereka berhasil masuk ke akun Nextcloud-mu.
+profile:
+  title: Profil saya
+  logout: Keluar
+  quotaUsage: Kamu memakai $used dari $total ($percent%)
+  quotaUsageUncapped: Kamu memakai $used
+  connectedTo: Terhubung ke
+  quickLinks:
+    serverHomepage: Beranda server
+    deleteAccount: Hapus akun
+  faqTitle: Pertanyaan yang sering diajukan
+  faq:
+  - q: Apakah catatan saya akan hilang kalau saya keluar?
+    a: Tidak. Catatanmu tetap ada di perangkat maupun di server. Catatan tidak akan disinkronkan dengan server sampai kamu masuk lagi. Pastikan sinkronisasi sudah selesai sebelum keluar supaya tidak ada data yang hilang (lihat progres sinkronisasi di layar beranda).
+  - q: Bagaimana cara mengganti kata sandi Nextcloud?
+    a: Buka situs web server dan masuk. Lalu buka Pengaturan > Keamanan > Ubah kata sandi. Setelah mengganti kata sandi, kamu perlu keluar lalu masuk kembali ke Saber.
+  - q: Bagaimana cara mengganti kata sandi enkripsi?
+    a: |-
+      0. Pastikan sinkronisasi sudah selesai (lihat progres sinkronisasi di layar beranda).
+      1. Keluar dari Saber.
+      2. Buka situs web server dan hapus folder 'Saber'. Ini akan menghapus semua catatanmu dari server.
+      3. Masuk lagi ke Saber. Kamu bisa memilih kata sandi enkripsi baru saat masuk.
+      4. Jangan lupa keluar dan masuk lagi ke Saber di perangkat lainmu juga.
+  - q: Bagaimana cara menghapus akun saya?
+    a: |-
+      Ketuk tombol "@:profile.quickLinks.deleteAccount" di atas, lalu masuk jika diminta.
+      Jika kamu memakai server resmi Saber, akunmu akan dihapus setelah masa tenggang 1 minggu. Selama masa ini, kamu bisa menghubungi saya di adilhanney@disroot.org untuk membatalkan penghapusan.
+      Jika kamu memakai server pihak ketiga, mungkin tidak ada opsi untuk menghapus akun: kamu perlu membaca kebijakan privasi server tersebut untuk informasi lebih lanjut.
+appInfo:
+  licenseNotice: |-
+    Saber  Copyright © 2022-$buildYear  Adil Hanney
+    Program ini sama sekali tanpa garansi. Ini adalah perangkat lunak bebas, dan kamu dipersilakan untuk membagikannya kembali dengan ketentuan tertentu.
+  debug: DEBUG
+  sponsorButton: Ketuk di sini untuk mendukung saya atau membeli penyimpanan tambahan
+  licenseButton: Ketuk di sini untuk melihat informasi lisensi lainnya
+  privacyPolicyButton: Ketuk di sini untuk melihat kebijakan privasi
+update:
+  updateAvailable: Pembaruan tersedia
+  updateAvailableDescription: "Versi baru aplikasi sudah tersedia:"
+  update: Perbarui
+  downloadNotAvailableYet: Unduhan untuk platformmu belum tersedia. Coba cek lagi sebentar lagi.
+editor:
+  toolbar:
+    toggleColors: Tampilkan/sembunyikan warna (Ctrl C)
+    select: Pilih
+    toggleEraser: Aktifkan/nonaktifkan penghapus (Ctrl E)
+    photo: Gambar
+    text: Teks
+    toggleFingerDrawing: Aktifkan/nonaktifkan menggambar dengan jari (Ctrl F)
+    undo: Urungkan
+    redo: Ulangi
+    export: Ekspor (Ctrl Shift S)
+    exportAs: "Ekspor sebagai:"
+    fullscreen: Mode layar penuh (F11)
+  pens:
+    fountainPen: Pena tinta
+    ballpointPen: Pulpen
+    highlighter: Stabilo
+    pencil: Pensil
+    shapePen: Pena bentuk
+    laserPointer: Penunjuk laser
+  penOptions:
+    size: Ukuran
+  colors:
+    colorPicker: Pemilih warna
+    customBrightnessHue: Kustom $h $b
+    customHue: Kustom $h
+    dark: gelap
+    light: terang
+    black: Hitam
+    darkGrey: Abu-abu tua
+    grey: Abu-abu
+    lightGrey: Abu-abu muda
+    white: Putih
+    red: Merah
+    green: Hijau
+    cyan: Cyan
+    blue: Biru
+    yellow: Kuning
+    purple: Ungu
+    pink: Merah muda
+    orange: Oranye
+    pastelRed: Merah pastel
+    pastelOrange: Oranye pastel
+    pastelYellow: Kuning pastel
+    pastelGreen: Hijau pastel
+    pastelCyan: Cyan pastel
+    pastelBlue: Biru pastel
+    pastelPurple: Ungu pastel
+    pastelPink: Merah muda pastel
+  imageOptions:
+    title: Opsi gambar
+    invertible: Warna bisa dibalik
+    download: Unduh
+    setAsBackground: Jadikan latar belakang
+    removeAsBackground: Lepas dari latar belakang
+    delete: Hapus
+  selectionBar:
+    delete: Hapus
+    duplicate: Duplikat
+  menu:
+    clearPage: Kosongkan halaman $page/$totalPages
+    clearAllPages: Kosongkan semua halaman
+    insertPage: Sisipkan halaman di bawah
+    duplicatePage: Duplikat halaman
+    deletePage: Hapus halaman
+    lineHeight: Tinggi baris
+    lineHeightDescription: Juga mengatur ukuran teks untuk catatan yang diketik
+    lineThickness: Ketebalan garis
+    lineThicknessDescription: Ketebalan garis latar belakang
+    backgroundImageFit: Penyesuaian gambar latar
+    backgroundPattern: Pola latar belakang
+    import: Impor
+    watchServer: Pantau pembaruan di server
+    watchServerReadOnly: Pengeditan dinonaktifkan selama memantau server
+    boxFits:
+      fill: Regangkan
+      cover: Penuhi
+      contain: Muat
+    bgPatterns:
+      none: Kosong
+      college: Buku kuliah
+      collegeRtl: Buku kuliah (terbalik)
+      lined: Bergaris
+      grid: Kotak-kotak
+      dots: Titik-titik
+      staffs: Paranada
+      tablature: Tablatur
+      cornell: Cornell
+  readOnlyBanner:
+    title: Mode baca saja
+    watchingServer: Saat ini kamu sedang memantau pembaruan di server. Pengeditan dinonaktifkan di mode ini.
+    corrupted: Gagal memuat catatan. Mungkin file-nya rusak atau masih diunduh.
+  versionTooNew:
+    title: Catatan ini diedit menggunakan Saber versi yang lebih baru
+    subtitle: Mengedit catatan ini dapat menyebabkan sebagian informasi hilang. Abaikan peringatan ini dan tetap edit?
+    allowEditing: Izinkan pengeditan
+  quill:
+    typeSomething: Ketik sesuatu di sini…
+  hud:
+    unlockZoom: Buka kunci zoom
+    lockZoom: Kunci zoom
+    unlockSingleFingerPan: Aktifkan geser dengan satu jari
+    lockSingleFingerPan: Nonaktifkan geser dengan satu jari
+    unlockAxisAlignedPan: Buka kunci geser ke arah horizontal atau vertikal
+    lockAxisAlignedPan: Kunci geser ke arah horizontal atau vertikal
+  pages: Halaman
+  untitled: Tanpa judul
+  needsToSaveBeforeExiting: Menyimpan perubahanmu… Kamu bisa keluar dari editor dengan aman setelah selesai

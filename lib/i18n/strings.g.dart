@@ -23,6 +23,7 @@ import 'strings_fa.g.dart' deferred as l_fa;
 import 'strings_fr.g.dart' deferred as l_fr;
 import 'strings_he.g.dart' deferred as l_he;
 import 'strings_hu.g.dart' deferred as l_hu;
+import 'strings_id.g.dart' deferred as l_id;
 import 'strings_it.g.dart' deferred as l_it;
 import 'strings_ja.g.dart' deferred as l_ja;
 import 'strings_nl.g.dart' deferred as l_nl;
@@ -57,6 +58,7 @@ enum AppLocale with BaseAppLocale<AppLocale, Translations> {
 	fr(languageCode: 'fr'),
 	he(languageCode: 'he'),
 	hu(languageCode: 'hu'),
+	id(languageCode: 'id'),
 	it(languageCode: 'it'),
 	ja(languageCode: 'ja'),
 	nl(languageCode: 'nl'),
@@ -161,6 +163,13 @@ enum AppLocale with BaseAppLocale<AppLocale, Translations> {
 			case AppLocale.hu:
 				await l_hu.loadLibrary();
 				return l_hu.TranslationsHu(
+					overrides: overrides,
+					cardinalResolver: cardinalResolver,
+					ordinalResolver: ordinalResolver,
+				);
+			case AppLocale.id:
+				await l_id.loadLibrary();
+				return l_id.TranslationsId(
 					overrides: overrides,
 					cardinalResolver: cardinalResolver,
 					ordinalResolver: ordinalResolver,
@@ -335,6 +344,12 @@ enum AppLocale with BaseAppLocale<AppLocale, Translations> {
 				);
 			case AppLocale.hu:
 				return l_hu.TranslationsHu(
+					overrides: overrides,
+					cardinalResolver: cardinalResolver,
+					ordinalResolver: ordinalResolver,
+				);
+			case AppLocale.id:
+				return l_id.TranslationsId(
 					overrides: overrides,
 					cardinalResolver: cardinalResolver,
 					ordinalResolver: ordinalResolver,
