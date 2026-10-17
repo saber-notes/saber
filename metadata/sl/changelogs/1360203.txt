@@ -1,0 +1,2 @@
+• Dodana indonezijska prevodila
+• Optimizirana inverzija barv, da je bila veliko hitrejša

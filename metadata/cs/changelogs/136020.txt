@@ -1,0 +1,2 @@
+• Přidána indonézká překladatelnost
+• Optimalizováno převrácení barev, aby bylo mnohem rychlejší

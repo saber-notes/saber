@@ -1,0 +1,2 @@
+• Dodano tłumaczenie na język indonezyjski
+• Zoptymalizowano odwrócenie kolorów, aby było znacznie szybsze

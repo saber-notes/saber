@@ -1,0 +1,2 @@
+• Se agregó una traducción al indonesio
+• Optimizado el cambio de color para que sea mucho más rápido

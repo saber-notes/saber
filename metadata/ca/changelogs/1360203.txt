@@ -1,0 +1,2 @@
+• S'ha afegit una traducció a indones
+• S'ha optimitzat la inversió de colors per ser molt més ràpid

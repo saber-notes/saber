@@ -1,0 +1,2 @@
+• Added an Indonesian translation
+• Optimized color inversion to be much quicker

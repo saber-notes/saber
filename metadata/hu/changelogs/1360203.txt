@@ -1,0 +1,2 @@
+• Hozzáadott indonéz fordítást
+• Optimalizáltuk a színek inverzióját, hogy sokkal gyorsabb legyen

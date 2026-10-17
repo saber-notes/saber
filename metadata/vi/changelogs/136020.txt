@@ -1,0 +1,2 @@
+• Đã thêm bản dịch tiếng Indonesia
+• Tối ưu hóa việc đảo ngược màu để nhanh hơn nhiều

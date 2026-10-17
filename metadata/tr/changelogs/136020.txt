@@ -1,0 +1,2 @@
+• Endonezce çevirisi eklendi
+• Renk tersine çevirme optimize edilerek çok daha hızlı hale getirildi

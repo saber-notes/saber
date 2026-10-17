@@ -1,0 +1,2 @@
+• Aggiunta una traduzione in indonesiano
+• Ottimizzato l'inversione dei colori per essere molto più veloce
