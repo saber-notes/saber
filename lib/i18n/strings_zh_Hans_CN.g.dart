@@ -172,6 +172,7 @@ class Translations$profile$zh_Hans_CN extends Translations$profile$en {
 	@override String get title => '我的用户资料';
 	@override String get logout => '注销';
 	@override String quotaUsage({required Object used, required Object total, required Object percent}) => '您已使用 ${used}，共 ${total}（${percent}%）';
+	@override String quotaUsageUncapped({required Object used}) => '你正在使用${used}';
 	@override String get connectedTo => '连接到';
 	@override late final Translations$profile$quickLinks$zh_Hans_CN quickLinks = Translations$profile$quickLinks$zh_Hans_CN.internal(_root);
 	@override String get faqTitle => '常见问题解答';
@@ -181,7 +182,6 @@ class Translations$profile$zh_Hans_CN extends Translations$profile$en {
 		Translations$profile$faq$2$zh_Hans_CN.internal(_root),
 		Translations$profile$faq$3$zh_Hans_CN.internal(_root),
 	];
-	@override String quotaUsageUncapped({required Object used}) => '你正在使用 ${used}';
 }
 
 // Path: appInfo
