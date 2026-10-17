@@ -520,7 +520,10 @@ class EditorState extends State<Editor> {
         .notifyListenersPlease(); // un-select active image
 
     _lastSeenPointerCountTimer?.cancel();
-    if (lastSeenPointerCount >= 2) {
+    if (details.pointerCount == 1 && lastSeenPointerCount >= 2) {
+      // Previous gesture was interrupted or left incomplete, reset pointer count
+      lastSeenPointerCount = 1;
+    } else if (lastSeenPointerCount >= 2) {
       // was a zoom gesture, ignore
       lastSeenPointerCount = lastSeenPointerCount;
       return false;
