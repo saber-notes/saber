@@ -103,13 +103,11 @@ class PdfEditorImage extends EditorImage {
   @override
   Map<String, dynamic> toJson(OrderedAssetCache assets) {
     final json = super.toJson(assets);
-
-    // remove non-pdf fields
-    json.remove('t'); // thumbnail bytes
     assert(!json.containsKey('a'));
-    assert(!json.containsKey('b'));
 
-    json['a'] = assets.add(pdfFile ?? pdfBytes!);
+    json['a'] = pdfFile != null
+        ? assets.addFile(pdfFile!)
+        : assets.addBytes(pdfBytes!);
     json['pdfi'] = pdfPage;
 
     return json;

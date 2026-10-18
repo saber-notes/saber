@@ -83,28 +83,68 @@ class OrderedAssetCache {
 
   final List<Object> _cache = [];
 
-  /// Adds [value] to the cache if it is not already present and
-  /// returns the index of the added item.
-  int add<T extends Object>(T value) {
-    int index = _cache.indexOf(value);
-    if (index == -1 && value is List<int>) {
-      // Lists need to be compared per item
-      for (int i = 0; i < _cache.length; i++) {
-        final cacheItem = _cache[i];
-        if (cacheItem is! List<int>) continue;
-        if (!listEq(value, cacheItem)) continue;
-
-        index = i;
-        break;
-      }
-    }
-    log.fine('OrderedAssetCache.add: index = $index, value = $value');
+  /// Adds [file] to the cache if not already present
+  /// and returns the index of the added item.
+  int addFile(File file) {
+    final index = _cache.indexWhere(
+      (other) => other is File && other.path == file.path,
+    );
+    log.fine('OrderedAssetCache.addFile($file): index = $index');
 
     if (index == -1) {
-      _cache.add(value);
+      _cache.add(file);
       return _cache.length - 1;
     } else {
       return index;
+    }
+  }
+
+  /// Adds [bytes] to the cache if not already present
+  /// and returns the index of the added item.
+  int addBytes(List<int> bytes) {
+    var index = _cache.indexOf(bytes);
+    if (index == -1) {
+      index = _cache.indexWhere(
+        (other) => other is List<int> && listEq(bytes, other),
+      );
+    }
+    log.fine('OrderedAssetCache.addBytes(...): index = $index');
+
+    if (index == -1) {
+      _cache.add(bytes);
+      return _cache.length - 1;
+    } else {
+      return index;
+    }
+  }
+
+  /// Adds [string] to the cache if not already present
+  /// and returns the index of the added item.
+  int addString(String string) {
+    final index = _cache.indexOf(string);
+    log.fine('OrderedAssetCache.addString(...): index = $index');
+
+    if (index == -1) {
+      _cache.add(string);
+      return _cache.length - 1;
+    } else {
+      return index;
+    }
+  }
+
+  /// Adds [image] to the cache if not already present
+  /// and returns the index of the added item.
+  int addImage(ImageProvider image) {
+    if (image is MemoryImage) {
+      return addBytes(image.bytes);
+    } else if (image is FileImage) {
+      return addFile(image.file);
+    } else {
+      throw ArgumentError.value(
+        image,
+        'image',
+        'Unsupported ImageProvider type',
+      );
     }
   }
 
@@ -123,10 +163,6 @@ class OrderedAssetCache {
       return item.readAsBytes();
     } else if (item is String) {
       return utf8.encode(item);
-    } else if (item is MemoryImage) {
-      return item.bytes;
-    } else if (item is FileImage) {
-      return item.file.readAsBytes();
     } else {
       throw Exception(
         'OrderedAssetCache.getBytes: unknown type ${item.runtimeType}',

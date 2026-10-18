@@ -104,14 +104,12 @@ class SvgEditorImage extends EditorImage {
   @override
   Map<String, dynamic> toJson(OrderedAssetCache assets) {
     final json = super.toJson(assets);
-
-    // remove non-svg fields
-    json.remove('t'); // thumbnail bytes
     assert(!json.containsKey('a'));
-    assert(!json.containsKey('b'));
 
-    final svgData = _extractSvg();
-    json['a'] = assets.add(svgData.string ?? svgData.file!);
+    final (string: svgString, file: svgFile) = _extractSvg();
+    json['a'] = svgString != null
+        ? assets.addString(svgString)
+        : assets.addFile(svgFile!);
 
     return json;
   }

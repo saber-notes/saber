@@ -117,9 +117,14 @@ class PngEditorImage extends EditorImage {
   }
 
   @override
-  Map<String, dynamic> toJson(OrderedAssetCache assets) =>
-      super.toJson(assets)
-        ..addAll({if (imageProvider != null) 'a': assets.add(imageProvider!)});
+  Map<String, dynamic> toJson(OrderedAssetCache assets) {
+    final json = super.toJson(assets);
+    assert(!json.containsKey('a'));
+    if (imageProvider != null) {
+      json['a'] = assets.addImage(imageProvider!);
+    }
+    return json;
+  }
 
   @override
   Future<void> firstLoad() async {
