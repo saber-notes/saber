@@ -3,27 +3,11 @@ part of 'editor_image.dart';
 class PngEditorImage extends EditorImage {
   ImageProvider? imageProvider;
 
-  Uint8List? thumbnailBytes;
   Size thumbnailSize = .zero;
 
   /// The maximum image size allowed for this image.
   /// If null, Prefs.maxImageSize will be used instead.
   Size? maxSize;
-
-  @override
-  set isThumbnail(bool isThumbnail) {
-    super.isThumbnail = isThumbnail;
-    if (isThumbnail && thumbnailBytes != null) {
-      imageProvider = MemoryImage(thumbnailBytes!);
-      final scale = thumbnailSize.width / naturalSize.width;
-      srcRect = .fromLTWH(
-        srcRect.left * scale,
-        srcRect.top * scale,
-        srcRect.width * scale,
-        srcRect.height * scale,
-      );
-    }
-  }
 
   new({
     required super.id,
@@ -43,7 +27,6 @@ class PngEditorImage extends EditorImage {
     super.dstRect,
     super.srcRect,
     super.naturalSize,
-    this.thumbnailBytes,
     super.isThumbnail,
   });
 
@@ -109,9 +92,6 @@ class PngEditorImage extends EditorImage {
         json['sh'] ?? 0,
       ),
       naturalSize: Size(json['nw'] ?? 0, json['nh'] ?? 0),
-      thumbnailBytes: json['t'] != null
-          ? Uint8List.fromList((json['t'] as List<dynamic>).cast<int>())
-          : null,
       isThumbnail: isThumbnail,
     );
   }
@@ -240,7 +220,6 @@ class PngEditorImage extends EditorImage {
     dstRect: dstRect,
     srcRect: srcRect,
     naturalSize: naturalSize,
-    thumbnailBytes: thumbnailBytes,
     isThumbnail: isThumbnail,
   );
 }
