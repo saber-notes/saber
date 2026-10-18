@@ -7,6 +7,7 @@ import 'dart:io';
 import 'package:args/args.dart';
 import 'package:collection/collection.dart';
 import 'package:intl/intl.dart';
+import 'package:saber/data/list_eq.dart';
 import 'package:saber/data/saber_version.dart';
 import 'package:saber/data/version.dart' as old_version_file;
 
@@ -234,7 +235,7 @@ Future<void> updateAllFiles() async {
     _generateMetainfoDescription(metainfoLines);
     _generateMetainfoScreenshots(metainfoLines);
   }
-  if (!listEquals(metainfoLines, originalMetainfoLines)) {
+  if (!listEq(metainfoLines, originalMetainfoLines)) {
     if (failOnChanges) {
       print('Failed: Misc change found for ${metainfoFile.path}');
       exit(ErrorCodes.changesNeeded.code);
@@ -415,12 +416,4 @@ extension on File {
       );
     }
   }
-}
-
-bool listEquals<T>(List<T> list, List<T> other) {
-  if (list.length != other.length) return false;
-  for (var i = 0; i < list.length; i++) {
-    if (list[i] != other[i]) return false;
-  }
-  return true;
 }

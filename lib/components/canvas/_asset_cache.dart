@@ -1,11 +1,11 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:collection/collection.dart';
 import 'package:flutter/painting.dart';
 import 'package:logging/logging.dart';
 import 'package:saber/components/canvas/image/editor_image.dart';
 import 'package:saber/components/canvas/image/pdf_document_cache.dart';
+import 'package:saber/data/list_eq.dart';
 
 /// A cache for assets that are loaded from disk.
 ///
@@ -89,7 +89,6 @@ class OrderedAssetCache {
     int index = _cache.indexOf(value);
     if (index == -1 && value is List<int>) {
       // Lists need to be compared per item
-      final listEq = const ListEquality().equals;
       for (int i = 0; i < _cache.length; i++) {
         final cacheItem = _cache[i];
         if (cacheItem is! List<int>) continue;
