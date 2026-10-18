@@ -1198,6 +1198,9 @@ class EditorState extends State<Editor> {
     final emptyPage = coreInfo.pages.removeLast();
     assert(emptyPage.isEmpty);
 
+    // Share one File between all pages so they all refer to the same asset.
+    final pdfFile = File(path);
+
     for (final pdfPage in pdfDocument.pages) {
       assert(pdfPage.pageNumber >= 1, 'pdfrx page numbers start at 1');
 
@@ -1212,7 +1215,7 @@ class EditorState extends State<Editor> {
         backgroundImage: PdfEditorImage(
           id: coreInfo.nextImageId++,
           pdfBytes: null,
-          pdfFile: File(path),
+          pdfFile: pdfFile,
           pdfPage: pdfPage.pageNumber - 1,
           pageIndex: coreInfo.pages.length,
           pageSize: pageSize,

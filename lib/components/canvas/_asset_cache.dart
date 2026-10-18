@@ -87,6 +87,16 @@ class OrderedAssetCache {
   /// returns the index of the added item.
   int add<T extends Object>(T value) {
     int index = _cache.indexOf(value);
+    if (index == -1 && value is File) {
+      // [File] doesn't override [operator ==], so two [File] objects that
+      // point to the same path are never equal. Without this check, every
+      // [PdfEditorImage] (one per page) would register its own copy of the
+      // whole PDF as a separate asset: a 700-page PDF would be read and
+      // written 700 times on every save.
+      index = _cache.indexWhere(
+        (item) => item is File && item.path == value.path,
+      );
+    }
     if (index == -1 && value is List<int>) {
       // Lists need to be compared per item
       final listEq = const ListEquality().equals;
