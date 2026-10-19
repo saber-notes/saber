@@ -18,7 +18,7 @@ class const TopAdwaitaNavbar({
         container: true,
         child: Center(
           child: SizedBox(
-            width: 230.0 * routes.length,
+            width: 245.0 * routes.length,
             child: Row(
               mainAxisAlignment: .center,
               spacing: 3,
