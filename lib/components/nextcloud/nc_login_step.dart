@@ -153,12 +153,13 @@ class const _Header({required final bool shouldUseTwoColumns})
     return Column(
       mainAxisSize: .min,
       crossAxisAlignment: .stretch,
+      spacing: 4,
       children: [
         if (!shouldUseTwoColumns)
           _HeaderImage(shouldUseTwoColumns: shouldUseTwoColumns),
         Text(
           t.login.ncLoginStep.whereToStoreData,
-          style: theme.textTheme.headlineSmall,
+          style: theme.textTheme.headlineSmall?.copyWith(height: 1.2),
         ),
         Text.rich(
           t.login.form.agreeToPrivacyPolicy(
