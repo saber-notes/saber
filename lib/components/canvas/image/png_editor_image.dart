@@ -1,7 +1,7 @@
 part of 'editor_image.dart';
 
 class PngEditorImage extends EditorImage {
-  ImageProvider? imageProvider;
+  ImageProvider imageProvider;
 
   Size thumbnailSize = .zero;
 
@@ -100,9 +100,9 @@ class PngEditorImage extends EditorImage {
   Map<String, dynamic> toJson(OrderedAssetCache assets) {
     final json = super.toJson(assets);
     assert(!json.containsKey('a'));
-    if (imageProvider != null) {
-      json['a'] = assets.addImage(imageProvider!);
-    }
+
+    json['a'] = assets.addImage(imageProvider);
+
     return json;
   }
 
@@ -176,8 +176,7 @@ class PngEditorImage extends EditorImage {
 
   @override
   Future<void> precache(BuildContext context) async {
-    if (imageProvider == null) return;
-    return await precacheImage(imageProvider!, context);
+    return await precacheImage(imageProvider, context);
   }
 
   @override
@@ -198,7 +197,7 @@ class PngEditorImage extends EditorImage {
 
     return InvertWidget(
       invert: invert,
-      child: Image(image: imageProvider!, fit: boxFit),
+      child: Image(image: imageProvider, fit: boxFit),
     );
   }
 
