@@ -130,7 +130,7 @@ class _BrowsePageState extends State<BrowsePage> {
         slivers: [
           SliverAppBar(
             collapsedHeight: kToolbarHeight,
-            expandedHeight: 200 - 8,
+            expandedHeight: platform.isMaterialNative ? 200 - 8 : null,
             pinned: true,
             scrolledUnderElevation: 1,
             flexibleSpace: FlexibleSpaceBar(

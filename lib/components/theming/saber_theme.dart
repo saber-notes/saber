@@ -211,4 +211,10 @@ extension SaberThemePlatform on TargetPlatform {
     .macOS => true,
     _ => false,
   };
+
+  bool get isMaterialNative => switch (this) {
+    .android => true,
+    .fuchsia => true,
+    _ => false,
+  };
 }

@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:logging/logging.dart';
 import 'package:saber/components/theming/adaptive_icon.dart';
+import 'package:saber/components/theming/saber_theme.dart';
 import 'package:saber/i18n/strings.g.dart';
 import 'package:sbn/font_fallbacks.dart';
 
@@ -53,7 +54,7 @@ class const LogsPage({super.key}) extends StatelessWidget {
             slivers: [
               SliverAppBar(
                 collapsedHeight: kToolbarHeight,
-                expandedHeight: 200,
+                expandedHeight: theme.platform.isMaterialNative ? 200 : null,
                 pinned: true,
                 scrolledUnderElevation: 1,
                 flexibleSpace: FlexibleSpaceBar(

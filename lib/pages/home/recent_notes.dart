@@ -122,7 +122,7 @@ class _RecentPageState extends State<RecentPage> {
             padding: const .only(bottom: 8),
             sliver: SliverAppBar(
               collapsedHeight: kToolbarHeight,
-              expandedHeight: 200,
+              expandedHeight: platform.isMaterialNative ? 200 : null,
               pinned: true,
               scrolledUnderElevation: 1,
               flexibleSpace: FlexibleSpaceBar(

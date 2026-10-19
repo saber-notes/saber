@@ -136,14 +136,14 @@ class DynamicMaterialAppState extends State<DynamicMaterialApp>
           title: widget.title,
           router: widget.router,
           themeMode: themeMode,
-          theme: (platform == .android && lightColorScheme != null)
+          theme: (platform.isMaterialNative && lightColorScheme != null)
               ? SaberTheme.createTheme(lightColorScheme, platform)
               : SaberTheme.createThemeFromSeed(
                   lightColorScheme?.primary ?? widget.defaultSwatch,
                   .light,
                   platform,
                 ),
-          darkTheme: (platform == .android && darkColorScheme != null)
+          darkTheme: (platform.isMaterialNative && darkColorScheme != null)
               ? SaberTheme.createTheme(darkColorScheme, platform)
               : SaberTheme.createThemeFromSeed(
                   darkColorScheme?.primary ?? widget.defaultSwatch,
