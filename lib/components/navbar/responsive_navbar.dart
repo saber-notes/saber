@@ -64,8 +64,8 @@ class ResponsiveNavbar extends HookWidget {
     if (isLargeScreen && theme.platform == .linux) {
       return Scaffold(
         appBar: TopAdwaitaNavbar(
-              selectedIndex: selectedIndex,
-              onDestinationSelected: (i) => onDestinationSelected(context, i),
+          selectedIndex: selectedIndex,
+          onDestinationSelected: (i) => onDestinationSelected(context, i),
         ),
         body: body,
       );
