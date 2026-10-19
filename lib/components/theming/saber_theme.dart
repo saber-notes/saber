@@ -113,6 +113,9 @@ abstract class SaberTheme {
     final textTheme = _Components.textTheme(platform, base.colorScheme);
     final fontFamily = textTheme.bodyMedium!.fontFamily;
     final fontFamilyFallback = textTheme.bodyMedium!.fontFamilyFallback;
+    final scaffoldBackgroundColor = base.colorScheme.isDark
+        ? const Color(0xFF232323)
+        : const Color(0xFFfafafa);
     return base.copyWith(
       platform: platform,
       textTheme: textTheme,
@@ -137,8 +140,12 @@ abstract class SaberTheme {
               fontFamilyFallback: fontFamilyFallback,
             ),
       ),
-      // Leave Yaru's app bar theme, since it adds a border bottom.
-      // appBarTheme: _Components.appBarTheme,
+      scaffoldBackgroundColor: scaffoldBackgroundColor,
+      appBarTheme: _Components.appBarTheme.copyWith(
+        elevation: 0,
+        scrolledUnderElevation: 0,
+        backgroundColor: scaffoldBackgroundColor,
+      ),
     );
   }
 }
