@@ -123,17 +123,20 @@ class PngEditorImage extends EditorImage {
           );
 
       if (!stows.maxImageSize.loaded) await stows.maxImageSize.waitUntilRead();
-      final reducedSize = EditorImage.resize(naturalSize, .square(stows.maxImageSize.value));
+      final reducedSize = EditorImage.resize(
+        naturalSize,
+        .square(stows.maxImageSize.value),
+      );
       if (naturalSize.width != reducedSize.width && !isThumbnail) {
         await null; // wait for next event-loop iteration
 
-        final resizedByteData = await resizeImage(
+        final resizedImage = await _resizeImage(
           bytes,
           width: reducedSize.width.toInt(),
           height: reducedSize.height.toInt(),
         );
-        if (resizedByteData != null) {
-          imageProvider = MemoryImage(resizedByteData.buffer.asUint8List());
+        if (resizedImage != null) {
+          imageProvider = MemoryImage(resizedImage);
         }
 
         naturalSize = reducedSize;
@@ -211,4 +214,39 @@ class PngEditorImage extends EditorImage {
     naturalSize: naturalSize,
     isThumbnail: isThumbnail,
   );
+}
+
+/// Resizes the image [rawImage] to [width] and [height].
+Future<Uint8List?> _resizeImage(
+  Uint8List rawImage, {
+  required int width,
+  required int height,
+}) async {
+  final buffer = await ui.ImmutableBuffer.fromUint8List(rawImage);
+  try {
+    final descriptor = await ui.ImageDescriptor.encoded(buffer);
+    try {
+      final codec = await descriptor.instantiateCodec(
+        targetWidth: width,
+        targetHeight: height,
+      );
+      try {
+        final resizedImage = (await codec.getNextFrame()).image;
+        try {
+          final byteData = await resizedImage.toByteData(
+            format: ui.ImageByteFormat.png,
+          );
+          return byteData?.buffer.asUint8List();
+        } finally {
+          resizedImage.dispose();
+        }
+      } finally {
+        codec.dispose();
+      }
+    } finally {
+      descriptor.dispose();
+    }
+  } finally {
+    buffer.dispose();
+  }
 }
