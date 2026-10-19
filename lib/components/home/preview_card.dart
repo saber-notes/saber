@@ -6,6 +6,7 @@ import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/inner_canvas.dart';
 import 'package:saber/components/canvas/invert_widget.dart';
 import 'package:saber/components/home/sync_indicator.dart';
+import 'package:saber/data/constants.dart';
 import 'package:saber/data/extensions/color_extensions.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/is_this_a_test.dart';
@@ -13,7 +14,6 @@ import 'package:saber/data/prefs.dart';
 import 'package:saber/data/routes.dart';
 import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/editor/editor.dart';
-import 'package:yaru/yaru.dart';
 
 class PreviewCard extends StatefulWidget {
   new({
@@ -100,6 +100,10 @@ class _PreviewCardState extends State<PreviewCard> {
     );
     final invert = theme.brightness == .dark && stows.editorAutoInvert.value;
 
+    final borderWidth = MediaQuery.highContrastOf(context)
+        ? kSaberBorderWidthAccessible
+        : kSaberBorderWidthInaccessible;
+
     final Widget card = MouseRegion(
       cursor: SystemMouseCursors.click,
       child: GestureDetector(
@@ -114,9 +118,9 @@ class _PreviewCardState extends State<PreviewCard> {
               child: Stack(
                 children: [
                   Positioned.fill(
-                    top: kYaruContainerRadius,
-                    left: kYaruFocusBorderWidth,
-                    right: kYaruFocusBorderWidth,
+                    top: kSaberCardRadius,
+                    left: borderWidth,
+                    right: borderWidth,
                     child: ColoredBox(
                       color: InnerCanvas.defaultBackgroundColor.withInversion(
                         invert,
@@ -134,18 +138,18 @@ class _PreviewCardState extends State<PreviewCard> {
                           minHeight: 100,
                         ),
                         child: Padding(
-                          padding: const EdgeInsets.only(
-                            top: kYaruFocusBorderWidth,
-                            left: kYaruFocusBorderWidth,
-                            right: kYaruFocusBorderWidth,
+                          padding: EdgeInsets.only(
+                            top: borderWidth,
+                            left: borderWidth,
+                            right: borderWidth,
                           ),
                           child: ClipRRect(
-                            borderRadius: const .only(
+                            borderRadius: .only(
                               topLeft: .circular(
-                                kYaruContainerRadius - kYaruFocusBorderWidth,
+                                kSaberCardRadius - borderWidth,
                               ),
                               topRight: .circular(
-                                kYaruContainerRadius - kYaruFocusBorderWidth,
+                                kSaberCardRadius - borderWidth,
                               ),
                             ),
                             child: InvertWidget(
@@ -227,9 +231,9 @@ class _PreviewCardState extends State<PreviewCard> {
               color: expanded
                   ? colorScheme.primary
                   : colorScheme.onSurface.withValues(alpha: 0.12),
-              width: kYaruFocusBorderWidth,
+              width: borderWidth,
             ),
-            borderRadius: const .all(.circular(kYaruContainerRadius)),
+            borderRadius: const .all(.circular(kSaberCardRadius)),
           ),
           closedElevation: 0,
           closedBuilder: (context, action) => card,

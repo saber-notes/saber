@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:saber/data/constants.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:sbn/font_fallbacks.dart';
 import 'package:yaru/yaru.dart';
@@ -186,10 +187,12 @@ abstract class _Components {
       surfaceTintColor: Colors.transparent,
       shadowColor: Colors.transparent,
       shape: RoundedRectangleBorder(
-        borderRadius: const .all(.circular(kYaruContainerRadius)),
+        borderRadius: const .all(.circular(kSaberCardRadius)),
         side: BorderSide(
           color: colorScheme.onSurface.withValues(alpha: 0.12),
-          width: 2,
+          width: colorScheme.isHighContrast
+              ? kSaberBorderWidthAccessible
+              : kSaberBorderWidthInaccessible,
         ),
       ),
     );
