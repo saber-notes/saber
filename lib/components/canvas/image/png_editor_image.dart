@@ -3,12 +3,6 @@ part of 'editor_image.dart';
 class PngEditorImage extends EditorImage {
   ImageProvider imageProvider;
 
-  Size thumbnailSize = .zero;
-
-  /// The maximum image size allowed for this image.
-  /// If null, Prefs.maxImageSize will be used instead.
-  Size? maxSize;
-
   new({
     required super.id,
     required super.assetCache,
@@ -16,7 +10,6 @@ class PngEditorImage extends EditorImage {
     required this.imageProvider,
     required super.pageIndex,
     required super.pageSize,
-    this.maxSize,
     super.invertible,
     super.backgroundFit,
     required super.onMoveImage,
@@ -129,11 +122,8 @@ class PngEditorImage extends EditorImage {
                 Size(descriptor.width.toDouble(), descriptor.height.toDouble()),
           );
 
-      if (maxSize == null) {
-        await stows.maxImageSize.waitUntilRead();
-        maxSize = .square(stows.maxImageSize.value);
-      }
-      final Size reducedSize = EditorImage.resize(naturalSize, maxSize!);
+      if (!stows.maxImageSize.loaded) await stows.maxImageSize.waitUntilRead();
+      final reducedSize = EditorImage.resize(naturalSize, .square(stows.maxImageSize.value));
       if (naturalSize.width != reducedSize.width && !isThumbnail) {
         await null; // wait for next event-loop iteration
 
