@@ -1,0 +1,3 @@
+• Rozličné vizuální vylepšení, zejména u typu tématu Yaru.
+• Opraven problém s duplikováním, který způsoboval ukládání mnoha kopií PDF souborů.
+• Opraven bug bránící tomu, aby Saber reagoval na přepínání režimu světlého/tmavého vzhledu u typu tématu Yaru.

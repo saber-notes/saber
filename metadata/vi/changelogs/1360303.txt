@@ -1,0 +1,3 @@
+• Các cải tiến hình ảnh khác nhau, đặc biệt là trên loại chủ đề Yaru.
+• Sửa lỗi trùng lặp gây ra việc lưu nhiều bản sao của các tệp PDF.
+• Sửa lỗi ngăn Saber phản hồi khi chuyển đổi chế độ sáng/tối trên loại chủ đề Yaru.

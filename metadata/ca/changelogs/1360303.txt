@@ -1,0 +1,3 @@
+• Diverses millores visuals, especialment en el tip de tema Yaru.
+• S'ha corregit un error de desduplicació que causava que s'emmagatzessin moltes còpies de fitxers PDF.
+• S'ha corregit un error que impedint a Saber respondre als canvis entre mode clar/fosc en el tip de tema Yaru.

@@ -1,0 +1,3 @@
+• Verschiedene visuelle Verbesserungen, insbesondere beim Thema Yaru.
+• Ein Duplizierungsfehler wurde behoben, der dazu führte, dass viele Kopien von PDF-Dateien gespeichert wurden.
+• Ein Fehler, der es Saber verhinderte, auf Wechsel zwischen Hell-/Dunkelmodus bei Themen vom Typ Yaru zu reagieren, wurde behoben.

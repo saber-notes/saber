@@ -1,0 +1,3 @@
+• Diversaj vizualaj plibonoj, precipe sur la tipo de temo Yaru.
+• Korrigita eraro de deduplikado kaŭzanta konservadon de multaj kopioj de PDF-fiļoj.
+• Korrigita eraro kiuj malĝevigis Saber respondi al ŝanĝoj inter lum-/malummodo sur la tipo de temo Yaru.

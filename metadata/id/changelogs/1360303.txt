@@ -1,0 +1,3 @@
+• Berbagai peningkatan visual, terutama pada tipe tema Yaru.
+• Memperbaiki bug duplikasi yang menyebabkan banyak salinan file PDF tersimpan.
+• Memperbaiki bug yang mencegah Saber merespons peralihan mode terang/gelap pada tipe tema Yaru.

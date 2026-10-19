@@ -1,0 +1,3 @@
+• Diverse visuele verbeteringen, vooral op het Yaru-thema-type.
+• Een duplicatiebug is verholpen die ervoor zorgde dat veel kopieën van PDF-bestanden werden opgeslagen.
+• Een bug is verholpen waardoor Saber niet reageerde op licht/donker modus-schakelingen op het Yaru-thema-type.

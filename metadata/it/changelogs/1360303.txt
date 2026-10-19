@@ -1,0 +1,3 @@
+• Varia miglioramenti visivi, specialmente sul tipo di tema Yaru.
+• Corretto un bug di dedizione che causava il salvataggio di molte copie dei file PDF.
+• Corretto un bug che impediva a Saber di rispondere ai passaggi tra modalità chiara/scura sul tipo di tema Yaru.

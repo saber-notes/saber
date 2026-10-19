@@ -1,0 +1,3 @@
+• Various visual improvements, especially on the Yaru theme type.
+• Fixed a deduplication bug causing many copies of PDF files to be saved.
+• Fixed a bug preventing Saber from responding to light/dark mode switches on the Yaru theme type.

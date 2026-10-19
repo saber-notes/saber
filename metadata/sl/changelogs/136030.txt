@@ -1,0 +1,3 @@
+• Različne vizualne izboljšave, zlasti pri tematskem tipu Yaru.
+• Popravljen napaka pri deduplikaciji, ki je povzročala shranje številnih kopij PDF datotek.
+• Popravljena napaka, ki je preprečevala Saberju reagiranje na spreminjanje načina svetle/temne teme pri tematskem tipu Yaru.

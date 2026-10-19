@@ -1,0 +1,3 @@
+• Több vizuális javítás, különösen a Yaru téma típusán.
+• Javítva egy duplikációt okozó hibát, amely sok PDF fájl másolatának mentését eredményezte.
+• Javítva egy olyan hibát, amely megakadályozta, hogy a Saber válaszoljon a világos/sötét mód váltásokra a Yaru téma típusán.

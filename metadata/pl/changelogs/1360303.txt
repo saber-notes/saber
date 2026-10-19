@@ -1,0 +1,3 @@
+• Różne ulepszenia wizualne, zwłaszcza w temacie typu Yaru.
+• Naprawiono błąd deduplikacji powodujący zapis wielu kopii plików PDF.
+• Naprawiono błąd uniemożliwiający Saber reagowanie na przełączanie trybu jasnego/ciemnego w temacie typu Yaru.

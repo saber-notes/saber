@@ -1,0 +1,3 @@
+• Özellikle Yaru tema türünde çeşitli görsel iyileştirmeler yapıldı.
+• Çok sayıda PDF dosyasının kaydedilmesine neden olan bir yinelenme (deduplication) hatası düzeltildi.
+• Yaru tema türündeyken Saber'ın ışık/karanlık mod geçişlerine yanıt vermesini engelleyen bir hata düzeltildi.

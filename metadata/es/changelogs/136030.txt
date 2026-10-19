@@ -1,0 +1,3 @@
+• Varias mejoras visuales, especialmente en el tipo de tema Yaru.
+• Se corrigió un error de desduplicación que causaba que se guardaran muchos archivos PDF duplicados.
+• Se corrigió un error que impedía que Saber respondiera a los cambios entre modo claro/oscuro en el tipo de tema Yaru.

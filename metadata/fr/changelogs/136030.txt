@@ -1,0 +1,3 @@
+• Diverses améliorations visuelles, en particulier sur le thème de type Yaru.
+• Correction d'un bogue de déduplication provoquant l'enregistrement de nombreux fichiers PDF en double.
+• Correction d'un bogue empêchant Saber de répondre aux changements de mode clair/sombre sur le thème de type Yaru.
