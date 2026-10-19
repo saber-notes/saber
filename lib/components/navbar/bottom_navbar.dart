@@ -6,7 +6,7 @@ import 'package:saber/components/navbar/responsive_navbar.dart';
 import 'package:saber/components/theming/saber_theme.dart';
 import 'package:saber/data/routes.dart';
 
-class const HorizontalNavbar({
+class const BottomNavbar({
   super.key,
   final int selectedIndex = 0,
   final ValueChanged<int>? onDestinationSelected,
@@ -79,7 +79,7 @@ class GlassyContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     final platform = Theme.of(context).platform;
     final colorScheme = ColorScheme.of(context);
-    final height = this.height ?? HorizontalNavbar._heightForPlatform(platform);
+    final height = this.height ?? BottomNavbar._heightForPlatform(platform);
     final borderRadius = this.borderRadius ?? .circular(height / 2);
 
     final Color background;

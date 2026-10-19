@@ -5,7 +5,7 @@ import 'package:saber/components/files/file_tree.dart';
 import 'package:saber/components/theming/adaptive_icon.dart';
 import 'package:saber/data/routes.dart';
 
-class const VerticalNavbar({
+class const LeftNavbar({
   super.key,
   final int selectedIndex = 0,
   final ValueChanged<int>? onDestinationSelected,

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:go_router/go_router.dart';
 import 'package:path_to_regexp/path_to_regexp.dart';
-import 'package:saber/components/navbar/horizontal_navbar.dart';
-import 'package:saber/components/navbar/vertical_navbar.dart';
+import 'package:saber/components/navbar/bottom_navbar.dart';
+import 'package:saber/components/navbar/left_navbar.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/data/routes.dart';
 import 'package:saber/pages/home/home.dart';
@@ -63,7 +63,7 @@ class ResponsiveNavbar extends HookWidget {
         body: Row(
           crossAxisAlignment: .stretch,
           children: [
-            VerticalNavbar(
+            LeftNavbar(
               selectedIndex: selectedIndex,
               onDestinationSelected: (i) => onDestinationSelected(context, i),
             ),
@@ -73,7 +73,7 @@ class ResponsiveNavbar extends HookWidget {
       );
     } // else mobile
 
-    final navbarClearance = HorizontalNavbar.clearanceHeightOf(context);
+    final navbarClearance = BottomNavbar.clearanceHeightOf(context);
     final mediaQuery = MediaQuery.of(context);
     return ColoredBox(
       color: Theme.of(context).scaffoldBackgroundColor,
@@ -90,7 +90,7 @@ class ResponsiveNavbar extends HookWidget {
           PositionedDirectional(
             bottom: 0,
             end: 0,
-            child: HorizontalNavbar(
+            child: BottomNavbar(
               selectedIndex: selectedIndex,
               onDestinationSelected: (i) => onDestinationSelected(context, i),
             ),
