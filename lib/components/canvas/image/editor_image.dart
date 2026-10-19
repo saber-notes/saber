@@ -250,18 +250,20 @@ sealed class EditorImage extends ChangeNotifier {
 
   EditorImage copy();
 
-  /// Resizes [before] to fit inside [max] while maintaining aspect ratio
+  /// Resizes [before] to fit inside [max] while maintaining aspect ratio.
+  ///
+  /// The image is allowed to be 1px over [max] for rounding tolerance.
   @visibleForTesting
   static Size resize(Size before, Size max) {
     double width = before.width,
         height = before.height,
         aspectRatio = width / height;
 
-    if (width > max.width) {
+    if (width > max.width + 1) {
       width = max.width;
       height = width / aspectRatio;
     }
-    if (height > max.height) {
+    if (height > max.height + 1) {
       height = max.height;
       width = height * aspectRatio;
     }

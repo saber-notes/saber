@@ -132,8 +132,8 @@ class PngEditorImage extends EditorImage {
 
         final resizedImage = await _resizeImage(
           bytes,
-          width: reducedSize.width.toInt(),
-          height: reducedSize.height.toInt(),
+          width: reducedSize.width.round(),
+          height: reducedSize.height.round(),
         );
         if (resizedImage != null) {
           imageProvider = MemoryImage(resizedImage);
