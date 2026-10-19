@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:path_to_regexp/path_to_regexp.dart';
 import 'package:saber/components/navbar/bottom_navbar.dart';
 import 'package:saber/components/navbar/left_navbar.dart';
+import 'package:saber/components/navbar/top_adwaita_navbar.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/data/routes.dart';
 import 'package:saber/pages/home/home.dart';
@@ -48,6 +49,8 @@ class ResponsiveNavbar extends HookWidget {
   Widget build(BuildContext context) {
     useListenable(stows.locale); // update navbar text
 
+    final theme = Theme.of(context);
+
     final screenSize = MediaQuery.sizeOf(context);
     isLargeScreen = useListenableSelector(
       stows.layoutSize,
@@ -57,6 +60,16 @@ class ResponsiveNavbar extends HookWidget {
         .tablet => true,
       },
     );
+
+    if (isLargeScreen && theme.platform == .linux) {
+      return Scaffold(
+        appBar: TopAdwaitaNavbar(
+              selectedIndex: selectedIndex,
+              onDestinationSelected: (i) => onDestinationSelected(context, i),
+        ),
+        body: body,
+      );
+    }
 
     if (isLargeScreen) {
       return Scaffold(
@@ -71,12 +84,12 @@ class ResponsiveNavbar extends HookWidget {
           ],
         ),
       );
-    } // else mobile
+    }
 
     final navbarClearance = BottomNavbar.clearanceHeightOf(context);
     final mediaQuery = MediaQuery.of(context);
     return ColoredBox(
-      color: Theme.of(context).scaffoldBackgroundColor,
+      color: theme.scaffoldBackgroundColor,
       child: Stack(
         children: [
           MediaQuery(
