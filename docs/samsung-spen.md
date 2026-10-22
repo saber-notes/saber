@@ -42,7 +42,8 @@ flutter analyze --no-pub
 
 Widget tests cover one-change Undo without keyboard focus, empty history,
 a covered editor, disabled preference, read-only notes, listener disposal,
-settings toggling and unsupported devices. The adjacent regression tests cover
+settings toggling, the native settings button, localized failure feedback,
+a late failure after disposal, missing plugins and non-Android devices. The adjacent regression tests cover
 stylus drawing/erasing and pending autosave after Undo.
 
 The earlier v1.36.1-based test build was installed alongside the original Saber
@@ -57,8 +58,10 @@ the requesting tablet owner. AI involvement is disclosed for maintainer review;
 acceptance under the project's contribution policy is not assumed.
 
 On upstream main `55eec16` (v1.36.3), Flutter 3.47.7 / Dart 3.13.5:
-16 targeted tests passed, full analysis reported no issues, and changed Dart
-files passed formatting. The full suite had 304 passes and six PDF golden
+21 targeted tests passed, full analysis reported no issues, and changed Dart
+files passed formatting. Both new Dart files have full measured line coverage
+in the targeted test run. The initial GitHub Actions run passed all checks.
+The initial local full suite had 304 passes and six PDF golden
 failures. The same six failures were reproduced with unmodified upstream
 source: v18_pencil, v19_pens, v19_quill_languages, v19_separate_assets,
 v6_stress_test_179 and v9_quill. Expected images were not regenerated.

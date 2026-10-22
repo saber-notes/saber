@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -7,6 +8,7 @@ import 'package:saber/components/settings/settings_spen.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/flavor_config.dart';
 import 'package:saber/data/prefs.dart';
+import 'package:saber/data/spen_remote.dart';
 import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/editor/editor.dart';
 
@@ -37,6 +39,15 @@ void main() {
     );
     await tester.pumpAndSettle();
     return tester.state<EditorState>(find.byType(Editor));
+  }
+
+  Future<void> pumpSettings(WidgetTester tester) async {
+    await tester.pumpWidget(
+      TranslationProvider(
+        child: const MaterialApp(home: Scaffold(body: SettingsSpen())),
+      ),
+    );
+    await tester.pumpAndSettle();
   }
 
   setUp(() async {
@@ -151,4 +162,77 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text(t.settings.spen.title), findsNothing);
   }, variant: const TargetPlatformVariant({TargetPlatform.android}));
+
+  testWidgets('configuration button opens native S Pen settings once', (
+    tester,
+  ) async {
+    final calls = <String>[];
+    messenger.setMockMethodCallHandler(channel, (call) async {
+      calls.add(call.method);
+      return call.method == 'isSupported' ? true : null;
+    });
+    await pumpSettings(tester);
+    await tester.tap(find.text(t.settings.spen.configure));
+    await tester.pumpAndSettle();
+    expect(calls, ['isSupported', 'openSettings']);
+    expect(find.byType(SnackBar), findsNothing);
+  }, variant: const TargetPlatformVariant({TargetPlatform.android}));
+
+  testWidgets('unavailable native settings show the localized fallback', (
+    tester,
+  ) async {
+    messenger.setMockMethodCallHandler(channel, (call) async {
+      if (call.method == 'isSupported') return true;
+      throw PlatformException(code: 'unavailable');
+    });
+    await pumpSettings(tester);
+    await tester.tap(find.text(t.settings.spen.configure));
+    await tester.pumpAndSettle();
+    expect(find.text(t.settings.spen.settingsUnavailable), findsOneWidget);
+    expect(find.byType(SnackBar), findsOneWidget);
+    expect(tester.takeException(), isNull);
+  }, variant: const TargetPlatformVariant({TargetPlatform.android}));
+
+  testWidgets('late settings failure after disposal does not use the context', (
+    tester,
+  ) async {
+    final opening = Completer<void>();
+    messenger.setMockMethodCallHandler(channel, (call) async {
+      if (call.method == 'isSupported') return true;
+      await opening.future;
+      return null;
+    });
+    await pumpSettings(tester);
+    await tester.tap(find.text(t.settings.spen.configure));
+    await tester.pump();
+    await tester.pumpWidget(const SizedBox.shrink());
+    opening.completeError(PlatformException(code: 'unavailable'));
+    await tester.pumpAndSettle();
+    expect(tester.takeException(), isNull);
+  }, variant: const TargetPlatformVariant({TargetPlatform.android}));
+
+  testWidgets('missing native plugin hides Samsung settings without an error', (
+    tester,
+  ) async {
+    messenger.setMockMethodCallHandler(channel, (_) async {
+      throw MissingPluginException();
+    });
+    expect(await SpenRemote.isSupported(), isFalse);
+    await pumpSettings(tester);
+    expect(find.text(t.settings.spen.title), findsNothing);
+    expect(tester.takeException(), isNull);
+  }, variant: const TargetPlatformVariant({TargetPlatform.android}));
+
+  testWidgets('non-Android settings never query the Samsung native channel', (
+    tester,
+  ) async {
+    final calls = <String>[];
+    messenger.setMockMethodCallHandler(channel, (call) async {
+      calls.add(call.method);
+      return true;
+    });
+    await pumpSettings(tester);
+    expect(calls, isEmpty);
+    expect(find.text(t.settings.spen.title), findsNothing);
+  }, variant: const TargetPlatformVariant({TargetPlatform.linux}));
 }
