@@ -10,15 +10,18 @@ class const TopAdwaitaNavbar({
   @override
   Widget build(BuildContext context) {
     final routes = HomeRoutes.routes;
+    final screenSize = MediaQuery.sizeOf(context);
     return Padding(
-      padding: const EdgeInsets.all(6),
+      padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 12),
       child: Semantics(
         role: SemanticsRole.tabBar,
         explicitChildNodes: true,
         container: true,
         child: Center(
           child: SizedBox(
-            width: 245.0 * routes.length,
+            width: screenSize.width < 300 * routes.length
+                ? double.infinity
+                : 230.0 * routes.length,
             child: Row(
               mainAxisAlignment: .center,
               spacing: 3,
