@@ -178,6 +178,13 @@ settings:
     mustBeDoneSyncing: Stelle sicher, dass die Synchronisierung abgeschlossen ist, bevor du den Ordner wechselst
     unsupported: Die Funktion ist zur Zeit nur für Entwickler gedacht. Die Verwendung führt wahrscheinlich zu Datenverlust.
   autosaveDisabled: Nie
+  spen:
+    title: Samsung S Pen
+    undo: Rückgängig mit der S-Pen-Taste
+    description: Erfordert einen Bluetooth-fähigen S Pen. Aktiviere Saber in den S Pen-Aktionen und belege Zweimal drücken mit Rückgängig. Die normale Radierfunktion bleibt unverändert.
+    configure: S Pen-Aktionen konfigurieren
+    settingsPath: Erweiterte Funktionen → S Pen → S Pen-Aktionen → App-Aktionen → Saber
+    settingsUnavailable: Öffne Erweiterte Funktionen → S Pen in den Geräteeinstellungen.
   shapeRecognitionDisabled: Nie
 logs:
   logs: Protokolle

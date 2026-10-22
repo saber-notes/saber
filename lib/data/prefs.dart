@@ -141,6 +141,13 @@ class Stows {
     true,
     volatile: !_isOnMainIsolate,
   );
+
+  /// Allows native S Pen remote actions to undo in the active editor.
+  final spenRemoteUndo = PlainStow(
+    'spenRemoteUndo',
+    true,
+    volatile: !_isOnMainIsolate,
+  );
   final editorAutoInvert = PlainStow(
     'editorAutoInvert',
     true,

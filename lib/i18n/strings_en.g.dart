@@ -156,6 +156,8 @@ class Translations$settings$en {
 	/// en: 'Never'
 	String get autosaveDisabled => 'Never';
 
+	late final Translations$settings$spen$en spen = Translations$settings$spen$en.internal(_root);
+
 	/// en: 'Never'
 	String get shapeRecognitionDisabled => 'Never';
 }
@@ -868,6 +870,33 @@ class Translations$settings$customDataDir$en {
 
 	/// en: 'This feature is currently only for developers. Using it will likely result in data loss.'
 	String get unsupported => 'This feature is currently only for developers. Using it will likely result in data loss.';
+}
+
+// Path: settings.spen
+class Translations$settings$spen$en {
+	Translations$settings$spen$en.internal(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+
+	/// en: 'Samsung S Pen'
+	String get title => 'Samsung S Pen';
+
+	/// en: 'Undo with the S Pen button'
+	String get undo => 'Undo with the S Pen button';
+
+	/// en: 'Requires a Bluetooth S Pen. Enable Saber in Samsung S Pen actions and assign Undo to Double press. The normal pen eraser is unchanged.'
+	String get description => 'Requires a Bluetooth S Pen. Enable Saber in Samsung S Pen actions and assign Undo to Double press. The normal pen eraser is unchanged.';
+
+	/// en: 'Configure S Pen actions'
+	String get configure => 'Configure S Pen actions';
+
+	/// en: 'Advanced features → S Pen → S Pen actions → App actions → Saber'
+	String get settingsPath => 'Advanced features → S Pen → S Pen actions → App actions → Saber';
+
+	/// en: 'Open Advanced features → S Pen in the device settings.'
+	String get settingsUnavailable => 'Open Advanced features → S Pen in the device settings.';
 }
 
 // Path: login.form

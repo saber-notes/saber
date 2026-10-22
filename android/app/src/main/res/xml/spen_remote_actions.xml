@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<remote-actions version="1.2">
+    <!-- F12 is a transport key for the native channel, independent of keyboard focus. -->
+    <action id="undo" label="@string/spen_undo" priority="1"
+        trigger_key="F12" repeatable="false">
+        <preference name="gesture" value="double_click" />
+        <preference name="button_only" value="true" />
+    </action>
+</remote-actions>

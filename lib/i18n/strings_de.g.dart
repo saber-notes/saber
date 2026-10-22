@@ -121,6 +121,7 @@ class _Translations$settings$de extends Translations$settings$en {
 	@override String get openDataDir => 'Saber-Ordner öffnen';
 	@override late final _Translations$settings$customDataDir$de customDataDir = _Translations$settings$customDataDir$de._(_root);
 	@override String get autosaveDisabled => 'Nie';
+	@override late final _Translations$settings$spen$de spen = _Translations$settings$spen$de._(_root);
 	@override String get shapeRecognitionDisabled => 'Nie';
 }
 
@@ -543,6 +544,21 @@ class _Translations$settings$customDataDir$de extends Translations$settings$cust
 	@override String get mustBeEmpty => 'Ausgewählter Ordner muss leer sein';
 	@override String get mustBeDoneSyncing => 'Stelle sicher, dass die Synchronisierung abgeschlossen ist, bevor du den Ordner wechselst';
 	@override String get unsupported => 'Die Funktion ist zur Zeit nur für Entwickler gedacht. Die Verwendung führt wahrscheinlich zu Datenverlust.';
+}
+
+// Path: settings.spen
+class _Translations$settings$spen$de extends Translations$settings$spen$en {
+	_Translations$settings$spen$de._(TranslationsDe root) : this._root = root, super.internal(root);
+
+	final TranslationsDe _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Samsung S Pen';
+	@override String get undo => 'Rückgängig mit der S-Pen-Taste';
+	@override String get description => 'Erfordert einen Bluetooth-fähigen S Pen. Aktiviere Saber in den S Pen-Aktionen und belege Zweimal drücken mit Rückgängig. Die normale Radierfunktion bleibt unverändert.';
+	@override String get configure => 'S Pen-Aktionen konfigurieren';
+	@override String get settingsPath => 'Erweiterte Funktionen → S Pen → S Pen-Aktionen → App-Aktionen → Saber';
+	@override String get settingsUnavailable => 'Öffne Erweiterte Funktionen → S Pen in den Geräteeinstellungen.';
 }
 
 // Path: login.form

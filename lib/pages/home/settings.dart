@@ -15,6 +15,7 @@ import 'package:saber/components/settings/settings_directory_selector.dart';
 import 'package:saber/components/settings/settings_dropdown.dart';
 import 'package:saber/components/settings/settings_selection.dart';
 import 'package:saber/components/settings/settings_sentry.dart';
+import 'package:saber/components/settings/settings_spen.dart';
 import 'package:saber/components/settings/settings_subtitle.dart';
 import 'package:saber/components/settings/settings_switch.dart';
 import 'package:saber/components/settings/update_manager.dart';
@@ -419,6 +420,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   },
                 ),
 
+                const SettingsSpen(),
                 SettingsSubtitle(subtitle: t.settings.prefCategories.editor),
                 SettingsSelection(
                   title: t.settings.prefLabels.editorToolbarAlignment,

@@ -39,6 +39,7 @@ import 'package:saber/data/extensions/matrix4_extensions.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/nextcloud/saber_syncer.dart';
 import 'package:saber/data/prefs.dart';
+import 'package:saber/data/spen_remote.dart';
 import 'package:saber/data/tools/_tool.dart';
 import 'package:saber/data/tools/eraser.dart';
 import 'package:saber/data/tools/highlighter.dart';
@@ -179,6 +180,7 @@ class EditorState extends State<Editor> {
   /// used since the stylus rear-end and stylus button currently act the same.
   /// If we add customized button bindings, we may have to separate this again.
   var stylusButtonWasPressed = false;
+  StreamSubscription<void>? _spenUndoSubscription;
 
   @override
   void initState() {
@@ -186,6 +188,14 @@ class EditorState extends State<Editor> {
 
     _initAsync();
     _assignKeybindings();
+    _spenUndoSubscription = SpenRemote.undoEvents.listen((_) {
+      if (mounted &&
+          stows.spenRemoteUndo.value &&
+          !coreInfo.readOnly &&
+          ModalRoute.of(context)?.isCurrent == true) {
+        undo();
+      }
+    });
 
     super.initState();
   }
@@ -2060,6 +2070,7 @@ class EditorState extends State<Editor> {
 
   @override
   void dispose() {
+    _spenUndoSubscription?.cancel();
     unawaited(_cleanUpAsync());
 
     DynamicMaterialApp.removeFullscreenListener(_setState);

@@ -178,6 +178,13 @@ settings:
     mustBeDoneSyncing: Make sure syncing is complete before changing the folder
     unsupported: This feature is currently only for developers. Using it will likely result in data loss.
   autosaveDisabled: Never
+  spen:
+    title: Samsung S Pen
+    undo: Undo with the S Pen button
+    description: Requires a Bluetooth S Pen. Enable Saber in Samsung S Pen actions and assign Undo to Double press. The normal pen eraser is unchanged.
+    configure: Configure S Pen actions
+    settingsPath: Advanced features → S Pen → S Pen actions → App actions → Saber
+    settingsUnavailable: Open Advanced features → S Pen in the device settings.
   shapeRecognitionDisabled: Never
 logs:
   logs: Logs
