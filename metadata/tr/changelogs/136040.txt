@@ -1,0 +1,2 @@
+• Küçük kullanıcı arayüzü iyileştirmeleri
+• Küçük bellek verimliliği iyileştirmeleri

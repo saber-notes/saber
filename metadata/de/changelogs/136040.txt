@@ -1,0 +1,2 @@
+• Kleinere UI-Verbesserungen
+• Kleinere Verbesserungen der Speichereffizienz

@@ -1,0 +1,2 @@
+• Améliorations mineures de l'interface utilisateur
+• Améliorations mineures de l'efficacité de la mémoire

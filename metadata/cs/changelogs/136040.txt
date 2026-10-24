@@ -1,0 +1,2 @@
+• Menší vylepšení uživatelského rozhraní (UI)
+• Menší zlepšení efektivnosti paměti

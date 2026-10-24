@@ -1,0 +1,2 @@
+• Kis felhasználói felület javítások
+• Kis memóriakezelési hatékonysági javítások

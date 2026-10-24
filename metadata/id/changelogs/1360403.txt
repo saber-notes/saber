@@ -1,0 +1,2 @@
+• Peningkatan UI kecil
+• Peningkatan efisiensi memori kecil

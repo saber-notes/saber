@@ -1,0 +1,2 @@
+• Pequenas melhorias na interface do usuário
+• Pequenas melhorias de eficiência de memória

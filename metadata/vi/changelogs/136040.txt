@@ -1,0 +1,2 @@
+• Cải thiện giao diện người dùng nhỏ
+• Cải thiện hiệu suất bộ nhớ nhỏ

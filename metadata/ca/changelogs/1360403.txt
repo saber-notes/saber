@@ -1,0 +1,2 @@
+• Millores menors de la UI
+• Millores menors d'eficiència de memòria
