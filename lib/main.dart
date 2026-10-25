@@ -92,7 +92,8 @@ Future<void> appRunner(List<String> args) async {
       // Fewer isolates in debug mode to avoid slowing down hot reload
       isolatesCount: kDebugMode ? 1 : 2,
     ),
-    if (Platform.isWindows) YaruWindowTitleBar.ensureInitialized(),
+    if (DynamicMaterialApp.useYaruTitlebar)
+      YaruWindowTitleBar.ensureInitialized(),
     stows.locale.waitUntilRead(),
     stows.url.waitUntilRead(),
     stows.allowInsecureConnections.waitUntilRead(),

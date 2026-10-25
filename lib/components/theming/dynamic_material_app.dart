@@ -32,6 +32,8 @@ class DynamicMaterialApp extends StatefulHookWidget {
   @override
   State<DynamicMaterialApp> createState() => DynamicMaterialAppState();
 
+  static final useYaruTitlebar = Platform.isWindows;
+
   static final ValueNotifier<bool> _isFullscreen = ValueNotifier(false);
   static bool get isFullscreen => _isFullscreen.value;
 
@@ -252,7 +254,7 @@ class ExplicitlyThemedApp extends StatelessWidget {
       highContrastTheme: highContrastTheme,
       highContrastDarkTheme: highContrastDarkTheme,
       debugShowCheckedModeBanner: false,
-      builder: theme.platform == .windows
+      builder: DynamicMaterialApp.useYaruTitlebar
           ? (context, child) => _WindowsTitleBarWrapper(child: child)
           : null,
     );
