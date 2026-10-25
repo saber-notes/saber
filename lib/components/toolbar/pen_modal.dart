@@ -33,10 +33,10 @@ class _PenModalState<T extends Pen> extends State<PenModal<T>> {
     return Flex(
       direction: axis,
       mainAxisAlignment: .center,
+      spacing: 8,
       children: [
         SizePicker(axis: axis, pen: pen),
         if (pen is! Highlighter && pen is! Pencil) ...[
-          const SizedBox.square(dimension: 8),
           IconButton(
             onPressed: () => setState(() {
               widget.setTool(Pen.fountainPen());
@@ -63,7 +63,6 @@ class _PenModalState<T extends Pen> extends State<PenModal<T>> {
               ),
             ),
           ),
-          const SizedBox.square(dimension: 8),
           IconButton(
             onPressed: () => setState(() {
               widget.setTool(Pen.ballpointPen());
@@ -90,7 +89,6 @@ class _PenModalState<T extends Pen> extends State<PenModal<T>> {
               ),
             ),
           ),
-          const SizedBox.square(dimension: 8),
           IconButton(
             onPressed: () => setState(() {
               widget.setTool(ShapePen());
