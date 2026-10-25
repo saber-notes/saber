@@ -667,7 +667,7 @@ class EditorState extends State<Editor> {
 
         if (pageOffset != 0) {
           offset = position - previousPosition; 
-          selectionOffsetPage(pageOffset);
+          selectionOffsetPage(select, pageOffset);
           dragPageIndex = onWhichPageIsFocalPoint(details.focalPoint);
           
           if (dragPageIndex == null) {
@@ -739,8 +739,7 @@ class EditorState extends State<Editor> {
     return true;
   }
 
-  void selectionOffsetPage(int pageOffset) {
-    Select select = currentTool as Select;
+  void selectionOffsetPage(Select select, int pageOffset) {
     final int oldPage = select.selectResult.pageIndex;
     final int newPage = select.selectResult.pageIndex + pageOffset;
     if (oldPage < 0 || oldPage > coreInfo.pages.length - 1) {
