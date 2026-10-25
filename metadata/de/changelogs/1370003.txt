@@ -1,0 +1,3 @@
+• Sie können nun Striche und Bilder zwischen Seiten verschieben.
+• Die Übergänge auf dem Startbildschirm sind jetzt schneller.
+• Verbesserte Titelzeile unter Windows.

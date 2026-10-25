@@ -1,0 +1,3 @@
+• Nyní můžete přesouvat stopy a obrázky mezi stránkami.
+• Přechody na domovské obrazovce jsou nyní rychlejší.
+• Vylepšeno tituleční lišta na Windows.

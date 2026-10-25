@@ -1,0 +1,3 @@
+• Vous pouvez maintenant déplacer des traits et des images entre les pages.
+• Les transitions de l'écran d'accueil sont désormais plus rapides.
+• Amélioration de la barre de titre sur Windows.

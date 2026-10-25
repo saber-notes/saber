@@ -1,0 +1,3 @@
+• Anda sekarang dapat memindahkan goresan dan gambar antar halaman.
+• Transisi layar beranda kini lebih cepat.
+• Peningkatan bilah judul pada Windows.

@@ -1,0 +1,3 @@
+• Je kunt nu lijnen en afbeeldingen tussen pagina's verplaatsen.
+• De overgangen op het startscherm zijn nu sneller.
+• Verbeterde de titelbalk op Windows.

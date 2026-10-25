@@ -1,0 +1,3 @@
+• Most feltehetően most mozhogathad a strokeket és képeket az oldalak között.
+• A kezdőképernyő átmenete gyorsabbá vált.
+• Javítottuk a címertáblát a Windows-on.

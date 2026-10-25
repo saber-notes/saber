@@ -1,0 +1,3 @@
+• Możesz teraz przenosić pociągnięcia i obrazy między stronami.
+• Przejścia na ekranie głównym są teraz szybsze.
+• Ulepszono pasek tytułowy w systemie Windows.

@@ -1,0 +1,3 @@
+• Vi povas movi traĵojn kaj bildojn inter paĝoj.
+• La transigoj de la hejpaĝo nun estas pli rapidaj.
+• Mi plibonigis la titolbaro sur Windows.

@@ -1,0 +1,3 @@
+• Bạn giờ có thể di chuyển các nét vẽ và hình ảnh giữa các trang.
+• Các chuyển tiếp trên màn hình chính hiện nhanh hơn.
+• Cải thiện thanh tiêu đề trên Windows.

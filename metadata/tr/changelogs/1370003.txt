@@ -1,0 +1,3 @@
+• Artık sayfalar arasında çizgi ve görselleri taşıyabilirsiniz.
+• Ana ekran geçişleri artık daha hızlı.
+• Windows'taki başlık çubuğu iyileştirildi.

@@ -1,0 +1,3 @@
+• Zdajate lahko zdrave in slike med strani.
+• Prehod na domači zaslon je postala hitrejša.
+• Izboljšana naslovna vrstica na Windows.

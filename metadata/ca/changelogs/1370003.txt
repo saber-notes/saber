@@ -1,0 +1,3 @@
+• Ara pots moure traços i imatges entre pàgines.
+• Les transicions de la pantalla d'inici són més ràpides ara.
+• S'ha millorat la barra del títol a Windows.
