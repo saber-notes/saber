@@ -36,21 +36,13 @@ class _PenModalState<T extends Pen> extends State<PenModal<T>> {
       spacing: 8,
       children: [
         SizePicker(axis: axis, pen: pen),
+
         if (pen is! Highlighter && pen is! Pencil) ...[
-          IconButton(
+          _PenSelector(
+            isSelected: Pen.currentPen.icon == Pen.fountainPenIcon,
             onPressed: () => setState(() {
               widget.setTool(Pen.fountainPen());
             }),
-            style: TextButton.styleFrom(
-              foregroundColor: Pen.currentPen.icon == Pen.fountainPenIcon
-                  ? ColorScheme.of(context).secondary
-                  : ColorScheme.of(context).onSurface,
-              backgroundColor: Pen.currentPen.icon == Pen.fountainPenIcon
-                  ? Theme.of(context).colorScheme.secondary
-                        .withValues(alpha: 0.1)
-                  : Colors.transparent,
-              shape: const CircleBorder(),
-            ),
             tooltip: t.editor.pens.fountainPen,
             icon: SvgPicture.asset(
               'assets/images/scribble_fountain.svg',
@@ -63,20 +55,11 @@ class _PenModalState<T extends Pen> extends State<PenModal<T>> {
               ),
             ),
           ),
-          IconButton(
+          _PenSelector(
+            isSelected: Pen.currentPen.icon == Pen.ballpointPenIcon,
             onPressed: () => setState(() {
               widget.setTool(Pen.ballpointPen());
             }),
-            style: TextButton.styleFrom(
-              foregroundColor: Pen.currentPen.icon == Pen.ballpointPenIcon
-                  ? ColorScheme.of(context).secondary
-                  : ColorScheme.of(context).onSurface,
-              backgroundColor: Pen.currentPen.icon == Pen.ballpointPenIcon
-                  ? Theme.of(context).colorScheme.secondary
-                        .withValues(alpha: 0.1)
-                  : Colors.transparent,
-              shape: const CircleBorder(),
-            ),
             tooltip: t.editor.pens.ballpointPen,
             icon: SvgPicture.asset(
               'assets/images/scribble_ballpoint.svg',
@@ -89,25 +72,42 @@ class _PenModalState<T extends Pen> extends State<PenModal<T>> {
               ),
             ),
           ),
-          IconButton(
+          _PenSelector(
+            isSelected: Pen.currentPen.icon == ShapePen.shapePenIcon,
             onPressed: () => setState(() {
               widget.setTool(ShapePen());
             }),
-            style: TextButton.styleFrom(
-              foregroundColor: Pen.currentPen.icon == ShapePen.shapePenIcon
-                  ? ColorScheme.of(context).secondary
-                  : ColorScheme.of(context).onSurface,
-              backgroundColor: Pen.currentPen.icon == ShapePen.shapePenIcon
-                  ? Theme.of(context).colorScheme.secondary
-                        .withValues(alpha: 0.1)
-                  : Colors.transparent,
-              shape: const CircleBorder(),
-            ),
             tooltip: t.editor.pens.shapePen,
             icon: const FaIcon(ShapePen.shapePenIcon),
           ),
         ],
       ],
+    );
+  }
+}
+
+class const _PenSelector({
+  required final bool isSelected,
+  required final void Function() onPressed,
+  required final String tooltip,
+  required final Widget icon,
+}) extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      onPressed: onPressed,
+      isSelected: isSelected,
+      style: IconButton.styleFrom(
+        foregroundColor: isSelected
+            ? ColorScheme.of(context).secondary
+            : ColorScheme.of(context).onSurface,
+        backgroundColor: isSelected
+            ? ColorScheme.of(context).secondary.withValues(alpha: 0.1)
+            : Colors.transparent,
+        shape: const CircleBorder(),
+      ),
+      tooltip: tooltip,
+      icon: icon,
     );
   }
 }
