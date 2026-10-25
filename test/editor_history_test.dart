@@ -5,18 +5,8 @@ void main() {
   test('Test editor history', () {
     final history = EditorHistory();
 
-    final item1 = EditorHistoryItem(
-      type: .draw,
-      pageIndex: 0,
-      strokes: [],
-      images: [],
-    );
-    final item2 = EditorHistoryItem(
-      type: .draw,
-      pageIndex: 0,
-      strokes: [],
-      images: [],
-    );
+    const item1 = HistoricAdd(strokes: [], images: []);
+    const item2 = HistoricDelete(strokes: [], images: []);
 
     expect(history.canUndo, false, reason: 'History should be empty');
     expect(history.canRedo, false, reason: 'History should be empty');

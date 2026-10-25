@@ -13,17 +13,17 @@ class EditorHistory {
   /// The last element is used when undoing.
   ///
   /// See also: [_future]
-  final List<EditorHistoryItem> _past = [];
+  final List<Historic> _past = [];
 
   /// A stack of the changes that have been undone in the editor.
   /// The last element is used when redoing.
   ///
   /// See also: [_past]
-  final List<EditorHistoryItem> _future = [];
+  final List<Historic> _future = [];
 
   /// The last saved state in the history.
   /// This is used to determine whether an autosave is needed.
-  EditorHistoryItem? _lastSaved;
+  Historic? _lastSaved;
 
   /// True if redo is possible.
   /// We don't directly clear [_future] because we sometimes need to
@@ -35,7 +35,7 @@ class EditorHistory {
   ///
   /// Please check [canUndo] first: this method will
   /// throw an exception if there is nothing to undo.
-  EditorHistoryItem undo() {
+  Historic undo() {
     if (_past.isEmpty) throw Exception('Nothing to undo');
     final item = _past.removeLast();
     _future.add(item);
@@ -47,7 +47,7 @@ class EditorHistory {
   ///
   /// Please check [canRedo] first: this method will
   /// throw an exception if there is nothing to redo.
-  EditorHistoryItem redo() {
+  Historic redo() {
     if (_future.isEmpty) throw Exception('Nothing to redo');
     final item = _future.removeLast();
     _past.add(item);
@@ -59,7 +59,7 @@ class EditorHistory {
   ///
   /// Please check [canUndo] first: this method will
   /// throw an exception if there is nothing to undo.
-  EditorHistoryItem peekUndo() {
+  Historic peekUndo() {
     if (_past.isEmpty) throw Exception('Nothing to undo');
     return _past.last;
   }
@@ -69,16 +69,16 @@ class EditorHistory {
   ///
   /// Please check [canRedo] first: this method will
   /// throw an exception if there is nothing to redo.
-  EditorHistoryItem peekRedo() {
+  Historic peekRedo() {
     if (_future.isEmpty) throw Exception('Nothing to redo');
     return _future.last;
   }
 
   /// Adds an item to the [_past] stack.
-  void recordChange(EditorHistoryItem item) {
+  void recordChange(Historic item) {
     assert(
-      item.type != .quillUndoneChange,
-      'EditorHistoryItemType.quillUndoneChange is just a hack to make undoing quill changes easier. It should just be recorded as a quill change.',
+      item is! HistoricQuillReverseChange,
+      'HistoricQuillReverseChange is just a hack to make undoing quill changes easier. It should just be recorded as a quill change.',
     );
 
     _past.add(item);
@@ -104,16 +104,19 @@ class EditorHistory {
 
   /// Removes the last history item due to a rejected stroke.
   /// This does essentially the opposite of [recordChange].
-  EditorHistoryItem? removeAccidentalStroke() {
+  Historic? removeAccidentalStroke() {
     _isRedoPossible = true;
     if (_past.isEmpty) return null;
-    assert(_past.last.type == .draw, 'Accidental stroke is not a draw');
     assert(
-      _past.last.strokes.length == 1,
+      _past.last is HistoricAdd,
+      'No accidental stroke, found ${_past.last}',
+    );
+    assert(
+      (_past.last as HistoricAdd).strokes.length == 1,
       'Accidental strokes should be single-stroke',
     );
     assert(
-      _past.last.images.isEmpty,
+      (_past.last as HistoricAdd).images.isEmpty,
       'Accidental strokes should not contain images',
     );
     return _past.removeLast();
@@ -138,98 +141,116 @@ class EditorHistory {
   }
 }
 
-class EditorHistoryItem {
-  new({
-    required this.type,
-    required this.pageIndex,
-    this.pageIndexStart,
-    required this.strokes,
-    required this.images,
-    this.offset,
-    this.page,
-    this.quillChange,
-    this.colorChange,
-    this.backgroundPatternChange,
-  }) : assert(
-         type != .move || offset != null,
-         'Offset must be provided for move',
-       ),
-       assert(
-         type != .move || pageIndexStart != null,
-         'pageIndexStart must be provided for move',
-       ),
-       assert(
-         type != .deletePage || page != null,
-         'Page must be provided for deletePage',
-       ),
-       assert(
-         type != .insertPage || page != null,
-         'Page must be provided for insertPage',
-       ),
-       assert(
-         type != .quillChange || quillChange != null,
-         'Quill change must be provided for quillChange',
-       ),
-       assert(
-         type != .quillUndoneChange || quillChange != null,
-         'Quill change must be provided for quillUndoneChange',
-       ),
-       assert(
-         type != .changeColor || colorChange?.length == strokes.length,
-         'colorChange must be provided and contain each of strokes',
-       ),
-       assert(
-         type != .backgroundPattern || backgroundPatternChange != null,
-         'Background pattern change must be provided for backgroundPattern',
-       );
+/// A history item representing a change in the editor state.
+sealed class Historic {
+  @protected
+  const new();
 
-  final EditorHistoryItemType type;
-  final int pageIndex;
-  final int? pageIndexStart;
-  final List<Stroke> strokes;
-  final List<EditorImage> images;
-  final Rect? offset;
-  final EditorPage? page;
-  final DocChange? quillChange;
-  final Map<Stroke, Change<Color>>? colorChange;
-  final Change<CanvasBackgroundPattern>? backgroundPatternChange;
-
-  EditorHistoryItem copyWith({
-    EditorHistoryItemType? type,
-    int? pageIndex,
-    int? pageIndexStart,
-    List<Stroke>? strokes,
-    List<EditorImage>? images,
-    Rect? offset,
-    EditorPage? page,
-    DocChange? quillChange,
-    Map<Stroke, Change<Color>>? colorChange,
-    Change<CanvasBackgroundPattern>? backgroundPatternChange,
-  }) {
-    return EditorHistoryItem(
-      type: type ?? this.type,
-      pageIndex: pageIndex ?? this.pageIndex,
-      pageIndexStart: pageIndexStart ?? this.pageIndexStart,
-      strokes: strokes ?? this.strokes,
-      images: images ?? this.images,
-      offset: offset ?? this.offset,
-      page: page ?? this.page,
-      quillChange: quillChange ?? this.quillChange,
-      colorChange: colorChange ?? this.colorChange,
-      backgroundPatternChange:
-          backgroundPatternChange ?? this.backgroundPatternChange,
-    );
-  }
+  /// The reverse of this change,
+  /// e.g. switching between [HistoricAdd] and [HistoricDelete].
+  Historic reverse();
 }
 
-enum EditorHistoryItemType {
-  draw,
-  erase,
-  deletePage,
-  insertPage,
-  move,
-  quillChange,
-  quillUndoneChange,
-  changeColor,
-  backgroundPattern,
+/// A stroke or image was drawn/added.
+class const HistoricAdd({
+  required final List<Stroke> strokes,
+  required final List<EditorImage> images,
+}) extends Historic {
+  @override
+  HistoricDelete reverse() => .new(strokes: strokes, images: images);
+}
+
+/// A stroke or image was erased/deleted.
+class const HistoricDelete({
+  required final List<Stroke> strokes,
+  required final List<EditorImage> images,
+}) extends Historic {
+  @override
+  HistoricAdd reverse() => .new(strokes: strokes, images: images);
+}
+
+/// A stroke or image was moved.
+///
+/// If [pageIndex] does not equal [prevPageIndex],
+/// they were moved across pages.
+class const HistoricMove({
+  required final int pageIndex,
+  required final int prevPageIndex,
+  required final List<Stroke> strokes,
+  required final List<EditorImage> images,
+  required final Rect offset,
+}) extends Historic {
+  @override
+  HistoricMove reverse() => .new(
+    pageIndex: prevPageIndex,
+    prevPageIndex: pageIndex,
+    strokes: strokes,
+    images: images,
+    offset: .fromLTRB(-offset.left, -offset.top, -offset.right, -offset.bottom),
+  );
+}
+
+/// A [page] was inserted at [pageIndex].
+class const HistoricPageInsert({
+  required final int pageIndex,
+  required final EditorPage page,
+}) extends Historic {
+  @override
+  HistoricPageDelete reverse() => .new(pageIndex: pageIndex, page: page);
+}
+
+/// The [page] at [pageIndex] was deleted.
+class const HistoricPageDelete({
+  required final int pageIndex,
+  required final EditorPage page,
+}) extends Historic {
+  @override
+  HistoricPageInsert reverse() => .new(pageIndex: pageIndex, page: page);
+}
+
+/// A change in the Quill text editor.
+class const HistoricQuillChange({
+  required final int pageIndex,
+  required final DocChange quillChange,
+}) extends Historic {
+  @override
+  HistoricQuillReverseChange reverse() =>
+      .new(pageIndex: pageIndex, quillChange: quillChange);
+}
+
+/// A reversed change in the Quill text editor.
+///
+/// The [quillChange] is equivalent to the non-reversed class' [quillChange].
+/// This class is just a hack to make interfacing with Quill easier.
+class const HistoricQuillReverseChange({
+  required final int pageIndex,
+  required final DocChange quillChange,
+}) extends Historic {
+  @override
+  HistoricQuillChange reverse() =>
+      .new(pageIndex: pageIndex, quillChange: quillChange);
+}
+
+/// Some strokes' colors were changed.
+class const HistoricColorChange({
+  required final int pageIndex,
+  required final Map<Stroke, Change<Color>> colorChanges,
+}) extends Historic {
+  @override
+  HistoricColorChange reverse() => .new(
+    pageIndex: pageIndex,
+    colorChanges: colorChanges.map(
+      (key, value) => MapEntry(key, value.reverse()),
+    ),
+  );
+}
+
+/// A page's background pattern was changed.
+class const HistoricBackgroundPatternChange({
+  required final int pageIndex,
+  required final Change<CanvasBackgroundPattern> change,
+}) extends Historic {
+  @override
+  HistoricBackgroundPatternChange reverse() =>
+      .new(pageIndex: pageIndex, change: change.reverse());
 }
