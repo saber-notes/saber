@@ -51,7 +51,7 @@ class _HomePageState extends State<HomePage> {
 
   Widget get body {
     return AnimatedSwitcher(
-      duration: const Duration(milliseconds: 300),
+      duration: const Duration(milliseconds: 200),
       child: KeyedSubtree(
         key: ValueKey(widget.subpage),
         child: switch (widget.subpage) {

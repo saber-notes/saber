@@ -40,7 +40,7 @@ void main() {
 
         await tester.tap(find.byIcon(Icons.settings));
         await tester.pump();
-        await tester.pump(const Duration(milliseconds: 150));
+        await tester.pump(const Duration(milliseconds: 100));
 
         expect(
           [find.text('Welcome to Saber'), find.text('Logged out')],
