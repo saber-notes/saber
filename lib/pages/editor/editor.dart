@@ -1940,7 +1940,7 @@ class EditorState extends State<Editor> {
         coreInfo.pages.insert(pageIndex + 1, newPage);
         listenToQuillChanges(newPage.quill, pageIndex + 1);
         history.recordChange(
-          HistoricPageInsert(pageIndex: pageIndex, page: newPage),
+          HistoricPageInsert(pageIndex: pageIndex + 1, page: newPage),
         );
         autosaveAfterDelay();
       }),
