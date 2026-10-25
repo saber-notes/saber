@@ -166,11 +166,8 @@ class DynamicMaterialAppState extends State<DynamicMaterialApp>
   }
 }
 
-class _WindowsTitleBarWrapper extends StatelessWidget {
-  const _WindowsTitleBarWrapper({required this.child});
-
-  final Widget child;
-
+class const _WindowsTitleBarWrapper({required final Widget? child})
+    extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -206,7 +203,6 @@ class ExplicitlyThemedApp extends StatelessWidget {
     required this.darkTheme,
     this.highContrastTheme,
     this.highContrastDarkTheme,
-    this.builder,
   });
 
   final String title;
@@ -214,7 +210,6 @@ class ExplicitlyThemedApp extends StatelessWidget {
   final ThemeMode themeMode;
   final ThemeData theme;
   final ThemeData? darkTheme, highContrastTheme, highContrastDarkTheme;
-  final TransitionBuilder? builder;
 
   static final _materialAppKey = GlobalKey<State<MaterialApp>>();
 
@@ -258,10 +253,8 @@ class ExplicitlyThemedApp extends StatelessWidget {
       highContrastDarkTheme: highContrastDarkTheme,
       debugShowCheckedModeBanner: false,
       builder: theme.platform == .windows
-          ? (context, child) => _WindowsTitleBarWrapper(
-              child: builder?.call(context, child) ?? child ?? const SizedBox.shrink(),
-            )
-          : builder,
+          ? (context, child) => _WindowsTitleBarWrapper(child: child)
+          : null,
     );
   }
 }
