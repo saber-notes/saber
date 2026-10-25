@@ -19,7 +19,7 @@ class Select extends Tool {
     strokes: const [],
     images: const [],
     path: Path(),
-    pageIndexStart: -1,
+    pageIndexStart: null,
   );
   var doneSelecting = false;
 
@@ -129,7 +129,7 @@ class SelectResult {
   final List<Stroke> strokes;
   final List<EditorImage> images;
   Path path;
-  int pageIndexStart;
+  int? pageIndexStart;
 
   new({
     required this.pageIndex,
