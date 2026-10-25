@@ -566,6 +566,7 @@ class EditorState extends State<Editor> {
       return false;
     }
   }
+
   static const changePageThreshold = 50.0;
 
   void onDrawStart(ScaleStartDetails details) {
@@ -666,10 +667,10 @@ class EditorState extends State<Editor> {
         select.selectResult.path = select.selectResult.path.shift(offset);
 
         if (pageOffset != 0) {
-          offset = position - previousPosition; 
+          offset = position - previousPosition;
           selectionOffsetPage(select, pageOffset);
           dragPageIndex = onWhichPageIsFocalPoint(details.focalPoint);
-          
+
           if (dragPageIndex == null) {
             return;
           }
@@ -679,7 +680,7 @@ class EditorState extends State<Editor> {
           // Recalculate the offset as if the selection were always moving to one page. Important for undo/redo
           offset = Offset(
             offset.dx,
-            offset.dy - pageOffset * (page.size.height + changePageThreshold)
+            offset.dy - pageOffset * (page.size.height + changePageThreshold),
           );
           pageNew.redrawStrokes();
         }
@@ -718,7 +719,10 @@ class EditorState extends State<Editor> {
   }
 
   bool moveImageToPage(
-      EditorImage image, int pageIndexOrig, int pageIndexDest) {
+    EditorImage image,
+    int pageIndexOrig,
+    int pageIndexDest,
+  ) {
     if (pageIndexOrig == pageIndexDest ||
         pageIndexOrig == -1 ||
         pageIndexDest == -1) {
@@ -752,10 +756,10 @@ class EditorState extends State<Editor> {
     final images = select.selectResult.images;
 
     setState(() {
-      for (Stroke stroke in strokes) {
+      for (final stroke in strokes) {
         moveStrokeToPage(stroke, oldPage, newPage);
       }
-      for (EditorImage image in images) {
+      for (final image in images) {
         moveImageToPage(image, oldPage, newPage);
       }
       select.selectResult.pageIndex += pageOffset;
@@ -825,7 +829,7 @@ class EditorState extends State<Editor> {
               ),
             ),
           );
-          select.selectResult.pageIndexStart=select.selectResult.pageIndex;
+          select.selectResult.pageIndexStart = select.selectResult.pageIndex;
         } else {
           shouldSave = false;
           select.onDragEnd(page.strokes, page.images);
