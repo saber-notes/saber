@@ -20,7 +20,7 @@ class Highlighter extends Pen {
 
   static const alpha = 100;
 
-  static Pen currentHighlighter = Highlighter();
+  static var currentHighlighter = Highlighter();
 
   static const highlighterIcon = FontAwesomeIcons.highlighter;
 }

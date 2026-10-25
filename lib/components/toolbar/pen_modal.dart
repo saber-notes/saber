@@ -4,41 +4,38 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:saber/components/toolbar/size_picker.dart';
 import 'package:saber/data/extensions/axis_extensions.dart';
 import 'package:saber/data/prefs.dart';
-import 'package:saber/data/tools/_tool.dart';
 import 'package:saber/data/tools/highlighter.dart';
 import 'package:saber/data/tools/pen.dart';
 import 'package:saber/data/tools/pencil.dart';
 import 'package:saber/data/tools/shape_pen.dart';
 import 'package:saber/i18n/strings.g.dart';
 
-class PenModal extends StatefulWidget {
+class PenModal<T extends Pen> extends StatefulWidget {
   const new({super.key, required this.getTool, required this.setTool});
 
-  final Tool Function() getTool;
+  /// Gets the current/last-used tool of type [T],
+  /// e.g. [Pen.currentPen] or [Highlighter.currentHighlighter].
+  final T Function() getTool;
+
+  /// Sets a pen to be the current pen.
   final void Function(Pen) setTool;
 
   @override
-  State<PenModal> createState() => _PenModalState();
+  State<PenModal<T>> createState() => _PenModalState<T>();
 }
 
-class _PenModalState extends State<PenModal> {
+class _PenModalState<T extends Pen> extends State<PenModal<T>> {
   @override
   Widget build(BuildContext context) {
     final axis = stows.editorToolbarAlignment.value.axis.opposite;
-    final Tool currentTool = widget.getTool();
-    final Pen currentPen;
-    if (currentTool is Pen) {
-      currentPen = currentTool;
-    } else {
-      return const SizedBox();
-    }
+    final pen = widget.getTool();
 
     return Flex(
       direction: axis,
       mainAxisAlignment: .center,
       children: [
-        SizePicker(axis: axis, pen: currentPen),
-        if (currentPen is! Highlighter && currentPen is! Pencil) ...[
+        SizePicker(axis: axis, pen: pen),
+        if (pen is! Highlighter && pen is! Pencil) ...[
           const SizedBox.square(dimension: 8),
           IconButton(
             onPressed: () => setState(() {
