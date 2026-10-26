@@ -1167,23 +1167,14 @@ class EditorState extends State<Editor> {
     // use the Select tool so that the user can move the new image
     currentTool = Select.currentSelect;
 
-    var images = <EditorImage>[];
+    /// Some Android platforms allow selecting a pdf here.
+    /// Tell user to use the Import PDF function instead.
+    var triedToPickPdf = false;
+
+    final images = <EditorImage>[];
     for (final _PhotoInfo photoInfo in photoInfos) {
       if (photoInfo.extension == '.pdf') {
-        //Android allows pdf selection even if not allowed
-        showDialog(
-          context: context,
-          builder: (context) => AdaptiveAlertDialog(
-            title: Text(t.editor.photoPdfError.title),
-            content: Text(t.editor.photoPdfError.message),
-            actions: [
-              CupertinoDialogAction(
-                child: Text(t.common.done),
-                onPressed: () => Navigator.of(context).pop(),
-              ),
-            ],
-          ),
-        );
+        triedToPickPdf = true;
         continue;
       } else if (photoInfo.extension == '.svg') {
         images.add(
@@ -1198,7 +1189,7 @@ class EditorState extends State<Editor> {
             onMiscChange: autosaveAfterDelay,
             onLoad: () => setState(() {}),
             assetCache: coreInfo.assetCache,
-          )
+          ),
         );
       } else {
         images.add(
@@ -1213,9 +1204,25 @@ class EditorState extends State<Editor> {
             onMiscChange: autosaveAfterDelay,
             onLoad: () => setState(() {}),
             assetCache: coreInfo.assetCache,
-          )
+          ),
         );
       }
+    }
+
+    if (triedToPickPdf && mounted) {
+      showDialog(
+        context: context,
+        builder: (context) => AdaptiveAlertDialog(
+          title: Text(t.editor.photoPdfError.title),
+          content: Text(t.editor.photoPdfError.message),
+          actions: [
+            CupertinoDialogAction(
+              child: Text(t.common.done),
+              onPressed: () => Navigator.of(context).pop(),
+            ),
+          ],
+        ),
+      );
     }
 
     if (images.isEmpty) {
