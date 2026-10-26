@@ -1164,9 +1164,6 @@ class EditorState extends State<Editor> {
     photoInfos ??= await _pickPhotosWithFilePicker();
     if (photoInfos.isEmpty) return 0;
 
-    // use the Select tool so that the user can move the new image
-    currentTool = Select.currentSelect;
-
     /// Some Android platforms allow selecting a pdf here.
     /// Tell user to use the Import PDF function instead.
     var triedToPickPdf = false;
@@ -1209,6 +1206,16 @@ class EditorState extends State<Editor> {
       }
     }
 
+    if (images.isNotEmpty) {
+      // use the Select tool so that the user can move the new image
+      currentTool = Select.currentSelect;
+
+      history.recordChange(HistoricAdd(strokes: const [], images: images));
+      createPage(currentPageIndex);
+      coreInfo.pages[currentPageIndex].images.addAll(images);
+      autosaveAfterDelay();
+    }
+
     if (triedToPickPdf && mounted) {
       await showDialog(
         context: context,
@@ -1224,15 +1231,6 @@ class EditorState extends State<Editor> {
         ),
       );
     }
-
-    if (images.isEmpty) {
-      return 0;
-    }
-
-    history.recordChange(HistoricAdd(strokes: const [], images: images));
-    createPage(currentPageIndex);
-    coreInfo.pages[currentPageIndex].images.addAll(images);
-    autosaveAfterDelay();
 
     return images.length;
   }
