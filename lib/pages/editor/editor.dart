@@ -1164,12 +1164,17 @@ class EditorState extends State<Editor> {
     photoInfos ??= await _pickPhotosWithFilePicker();
     if (photoInfos.isEmpty) return 0;
 
-    // use the Select tool so that the user can move the new image
-    currentTool = Select.currentSelect;
+    /// Some Android platforms allow selecting a pdf here.
+    /// Tell user to use the Import PDF function instead.
+    var triedToPickPdf = false;
 
-    final images = [
-      for (final _PhotoInfo photoInfo in photoInfos)
-        if (photoInfo.extension == '.svg')
+    final images = <EditorImage>[];
+    for (final _PhotoInfo photoInfo in photoInfos) {
+      if (photoInfo.extension.toLowerCase() == '.pdf') {
+        triedToPickPdf = true;
+        continue;
+      } else if (photoInfo.extension.toLowerCase() == '.svg') {
+        images.add(
           SvgEditorImage(
             id: coreInfo.nextImageId++,
             svgString: utf8.decode(photoInfo.bytes),
@@ -1181,8 +1186,10 @@ class EditorState extends State<Editor> {
             onMiscChange: autosaveAfterDelay,
             onLoad: () => setState(() {}),
             assetCache: coreInfo.assetCache,
-          )
-        else
+          ),
+        );
+      } else {
+        images.add(
           PngEditorImage(
             id: coreInfo.nextImageId++,
             extension: photoInfo.extension,
@@ -1195,12 +1202,35 @@ class EditorState extends State<Editor> {
             onLoad: () => setState(() {}),
             assetCache: coreInfo.assetCache,
           ),
-    ];
+        );
+      }
+    }
 
-    history.recordChange(HistoricAdd(strokes: const [], images: images));
-    createPage(currentPageIndex);
-    coreInfo.pages[currentPageIndex].images.addAll(images);
-    autosaveAfterDelay();
+    if (images.isNotEmpty) {
+      // use the Select tool so that the user can move the new image
+      currentTool = Select.currentSelect;
+
+      history.recordChange(HistoricAdd(strokes: const [], images: images));
+      createPage(currentPageIndex);
+      coreInfo.pages[currentPageIndex].images.addAll(images);
+      autosaveAfterDelay();
+    }
+
+    if (triedToPickPdf && mounted) {
+      await showDialog(
+        context: context,
+        builder: (context) => AdaptiveAlertDialog(
+          title: Text(t.editor.photoPdfError.title),
+          content: Text(t.editor.photoPdfError.message),
+          actions: [
+            CupertinoDialogAction(
+              child: Text(t.common.done),
+              onPressed: () => Navigator.of(context).pop(),
+            ),
+          ],
+        ),
+      );
+    }
 
     return images.length;
   }
