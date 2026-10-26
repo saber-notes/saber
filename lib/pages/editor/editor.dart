@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
+import 'dart:typed_data';
 
 import 'package:collapsible/collapsible.dart';
 import 'package:file_picker/file_picker.dart';
@@ -1323,24 +1324,25 @@ class EditorState extends State<Editor> {
     for (final format in formats.keys) {
       if (!reader.canProvide(format)) continue;
       final progress = reader.getFile(format, (file) async {
-        final stream = file.getStream();
-        final List<int> bytes = [];
-        await for (final chunk in stream) {
-          bytes.addAll(chunk);
+        final builder = BytesBuilder(copy: false);
+        await for (final chunk in file.getStream()) {
+          builder.add(chunk);
         }
+
+        final bytes = builder.takeBytes();
         if (bytes.isEmpty) {
           log.warning('Pasted empty file: $file (${formats[format]})');
           return;
         }
 
-        String extension;
+        final String extension;
         if (file.fileName != null) {
           extension = file.fileName!.substring(file.fileName!.lastIndexOf('.'));
         } else {
           extension = formats[format]!;
         }
 
-        photoInfos.add(_PhotoInfo(Uint8List.fromList(bytes), extension));
+        photoInfos.add(_PhotoInfo(bytes, extension));
       });
       if (progress != null) progresses.add(progress);
     }
