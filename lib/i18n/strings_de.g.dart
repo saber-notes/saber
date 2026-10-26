@@ -804,7 +804,7 @@ class _Translations$editor$photoPdfError$de extends Translations$editor$photoPdf
 
 	// Translations
 	@override String get title => 'Fehler';
-	@override String get message => 'PDF-Dateien können nicht als Bild hinzugefügt wreden. Nutze dafür "Import > PDF".';
+	@override String get message => 'PDF-Dateien können nicht als Bild hinzugefügt werden. Nutze dafür "${_root.editor.menu.import} > PDF".';
 }
 
 // Path: editor.readOnlyBanner
