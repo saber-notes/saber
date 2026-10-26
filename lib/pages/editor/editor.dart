@@ -1342,7 +1342,7 @@ class EditorState extends State<Editor> {
           extension = formats[format]!;
         }
 
-        photoInfos.add(_PhotoInfo(Uint8List.fromList(bytes), extension));
+        photoInfos.add(_PhotoInfo(bytes, extension));
       });
       if (progress != null) progresses.add(progress);
     }
