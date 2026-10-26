@@ -74,7 +74,7 @@ class PdfEditorImage extends EditorImage {
 
     final int pdfPage;
     if (json.containsKey('pdfi')) {
-      pdfPage = json['pdfi'];
+      pdfPage = json['pdfi'] ?? 0;
     } else {
       log.warning(
         'fromJson: missing pdfPage. '
