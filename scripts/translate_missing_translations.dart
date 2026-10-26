@@ -198,7 +198,12 @@ void _insert(String languageCode, List<Object> pathOfKeys, String translated) {
 }
 
 /// Runs a command silently and returns its output as a string.
-String _run(String exe, List<String> args) => Process.runSync(exe, args).stdout;
+String _run(String exe, List<String> args) {
+  final result = Process.runSync(exe, args);
+  if (result.exitCode != 0)
+    throw ProcessException(exe, args, result.stderr, exitCode);
+  return result.stdout;
+}
 
 /// Runs a command interactively, but cannot return its output.
 Future<void> _runLive(String exe, List<String> args) async {
