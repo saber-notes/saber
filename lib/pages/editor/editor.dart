@@ -1173,10 +1173,10 @@ class EditorState extends State<Editor> {
 
     final images = <EditorImage>[];
     for (final _PhotoInfo photoInfo in photoInfos) {
-      if (photoInfo.extension == '.pdf') {
+      if (photoInfo.extension.toLowerCase() == '.pdf') {
         triedToPickPdf = true;
         continue;
-      } else if (photoInfo.extension == '.svg') {
+      } else if (photoInfo.extension.toLowerCase() == '.svg') {
         images.add(
           SvgEditorImage(
             id: coreInfo.nextImageId++,
