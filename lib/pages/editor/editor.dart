@@ -1210,7 +1210,7 @@ class EditorState extends State<Editor> {
     }
 
     if (triedToPickPdf && mounted) {
-      showDialog(
+      await showDialog(
         context: context,
         builder: (context) => AdaptiveAlertDialog(
           title: Text(t.editor.photoPdfError.title),
