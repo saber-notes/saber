@@ -72,6 +72,17 @@ class PdfEditorImage extends EditorImage {
       pdfBytes = Uint8List(0);
     }
 
+    final int pdfPage;
+    if (json.containsKey('pdfi')) {
+      pdfPage = json['pdfi'];
+    } else {
+      log.warning(
+        'fromJson: missing pdfPage. '
+        'This may have been caused by https://github.com/saber-notes/saber/issues/1689.',
+      );
+      pdfPage = 0;
+    }
+
     return PdfEditorImage(
       id:
           json['id'] ??
@@ -79,7 +90,7 @@ class PdfEditorImage extends EditorImage {
       assetCache: assetCache,
       pdfBytes: pdfBytes,
       pdfFile: pdfFile,
-      pdfPage: json['pdfi'],
+      pdfPage: pdfPage,
       pageIndex: json['i'] ?? 0,
       pageSize: .infinite,
       invertible: json['v'] ?? true,
