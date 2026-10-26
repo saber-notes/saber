@@ -222,6 +222,7 @@ class _Translations$editor$ca extends Translations$editor$en {
 	@override late final _Translations$editor$imageOptions$ca imageOptions = _Translations$editor$imageOptions$ca._(_root);
 	@override late final _Translations$editor$selectionBar$ca selectionBar = _Translations$editor$selectionBar$ca._(_root);
 	@override late final _Translations$editor$menu$ca menu = _Translations$editor$menu$ca._(_root);
+	@override late final _Translations$editor$photoPdfError$ca photoPdfError = _Translations$editor$photoPdfError$ca._(_root);
 	@override late final _Translations$editor$readOnlyBanner$ca readOnlyBanner = _Translations$editor$readOnlyBanner$ca._(_root);
 	@override late final _Translations$editor$versionTooNew$ca versionTooNew = _Translations$editor$versionTooNew$ca._(_root);
 	@override late final _Translations$editor$quill$ca quill = _Translations$editor$quill$ca._(_root);
@@ -756,6 +757,17 @@ class _Translations$editor$menu$ca extends Translations$editor$menu$en {
 	@override String get lineHeightDescription => 'També controla el màxim de text per a les notes tapates.';
 	@override String get backgroundImageFit => 'imatge de fons ajustat';
 	@override String get watchServerReadOnly => 'L\'edició està desactivada mentre siva el servidor';
+}
+
+// Path: editor.photoPdfError
+class _Translations$editor$photoPdfError$ca extends Translations$editor$photoPdfError$en {
+	_Translations$editor$photoPdfError$ca._(TranslationsCa root) : this._root = root, super.internal(root);
+
+	final TranslationsCa _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Error';
+	@override String get message => 'No es possible afegir fitxers PDF com a imatge. Utilitza "${_root.editor.menu.import} > PDF" per això.';
 }
 
 // Path: editor.readOnlyBanner

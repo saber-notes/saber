@@ -354,6 +354,9 @@ editor:
       staffs: Персональный
       tablature: Табулатура
       cornell: Корнелл
+  photoPdfError:
+    title(OUTDATED): Ошибка
+    message(OUTDATED): "Файлы PDF нельзя добавить как изображение. Для этого используйте \"@:editor.menu.import > PDF\"."
   readOnlyBanner:
     title: Режим «Только чтение»
     watchingServer: В данный момент вы следите за обновлениями на сервере. В этом режиме редактирование отключено.

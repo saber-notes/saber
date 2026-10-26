@@ -225,6 +225,7 @@ class _Translations$editor$ru extends Translations$editor$en {
 	@override late final _Translations$editor$imageOptions$ru imageOptions = _Translations$editor$imageOptions$ru._(_root);
 	@override late final _Translations$editor$selectionBar$ru selectionBar = _Translations$editor$selectionBar$ru._(_root);
 	@override late final _Translations$editor$menu$ru menu = _Translations$editor$menu$ru._(_root);
+	@override late final _Translations$editor$photoPdfError$ru photoPdfError = _Translations$editor$photoPdfError$ru._(_root);
 	@override late final _Translations$editor$readOnlyBanner$ru readOnlyBanner = _Translations$editor$readOnlyBanner$ru._(_root);
 	@override late final _Translations$editor$versionTooNew$ru versionTooNew = _Translations$editor$versionTooNew$ru._(_root);
 	@override late final _Translations$editor$quill$ru quill = _Translations$editor$quill$ru._(_root);
@@ -793,6 +794,17 @@ class _Translations$editor$menu$ru extends Translations$editor$menu$en {
 	@override String get watchServerReadOnly => 'Редактирование невозможно во время слежки за сервером';
 	@override late final _Translations$editor$menu$boxFits$ru boxFits = _Translations$editor$menu$boxFits$ru._(_root);
 	@override late final _Translations$editor$menu$bgPatterns$ru bgPatterns = _Translations$editor$menu$bgPatterns$ru._(_root);
+}
+
+// Path: editor.photoPdfError
+class _Translations$editor$photoPdfError$ru extends Translations$editor$photoPdfError$en {
+	_Translations$editor$photoPdfError$ru._(TranslationsRu root) : this._root = root, super.internal(root);
+
+	final TranslationsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Ошибка';
+	@override String get message => 'Файлы PDF нельзя добавить как изображение. Для этого используйте "${_root.editor.menu.import} > PDF".';
 }
 
 // Path: editor.readOnlyBanner

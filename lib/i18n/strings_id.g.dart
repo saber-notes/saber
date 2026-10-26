@@ -225,6 +225,7 @@ class _Translations$editor$id extends Translations$editor$en {
 	@override late final _Translations$editor$imageOptions$id imageOptions = _Translations$editor$imageOptions$id._(_root);
 	@override late final _Translations$editor$selectionBar$id selectionBar = _Translations$editor$selectionBar$id._(_root);
 	@override late final _Translations$editor$menu$id menu = _Translations$editor$menu$id._(_root);
+	@override late final _Translations$editor$photoPdfError$id photoPdfError = _Translations$editor$photoPdfError$id._(_root);
 	@override late final _Translations$editor$readOnlyBanner$id readOnlyBanner = _Translations$editor$readOnlyBanner$id._(_root);
 	@override late final _Translations$editor$versionTooNew$id versionTooNew = _Translations$editor$versionTooNew$id._(_root);
 	@override late final _Translations$editor$quill$id quill = _Translations$editor$quill$id._(_root);
@@ -793,6 +794,17 @@ class _Translations$editor$menu$id extends Translations$editor$menu$en {
 	@override String get watchServerReadOnly => 'Pengeditan dinonaktifkan selama memantau server';
 	@override late final _Translations$editor$menu$boxFits$id boxFits = _Translations$editor$menu$boxFits$id._(_root);
 	@override late final _Translations$editor$menu$bgPatterns$id bgPatterns = _Translations$editor$menu$bgPatterns$id._(_root);
+}
+
+// Path: editor.photoPdfError
+class _Translations$editor$photoPdfError$id extends Translations$editor$photoPdfError$en {
+	_Translations$editor$photoPdfError$id._(TranslationsId root) : this._root = root, super.internal(root);
+
+	final TranslationsId _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Kesalahan';
+	@override String get message => 'File PDF tidak dapat ditambahkan sebagai gambar. Gunakan "${_root.editor.menu.import} > PDF" untuk itu.';
 }
 
 // Path: editor.readOnlyBanner

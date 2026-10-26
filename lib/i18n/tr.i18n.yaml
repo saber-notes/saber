@@ -355,6 +355,9 @@ editor:
       cornell: Cornell not şablonu
     lineThickness(OUTDATED): Çizgi kalınlığı
     lineThicknessDescription(OUTDATED): Arka plan çizgisi kalınlığı
+  photoPdfError:
+    title(OUTDATED): Hata
+    message(OUTDATED): "PDF dosyaları resim olarak eklenemez. Bunun için \"@:editor.menu.import > PDF\" kullanın."
   readOnlyBanner:
     title: Yalnızca okunabilir mod
     watchingServer(OUTDATED): Şu anda sunucudaki güncellemeleri izliyorsunuz. Bu modda düzenleme devre dışı bırakılır.

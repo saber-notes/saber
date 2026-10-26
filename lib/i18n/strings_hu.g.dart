@@ -225,6 +225,7 @@ class _Translations$editor$hu extends Translations$editor$en {
 	@override late final _Translations$editor$imageOptions$hu imageOptions = _Translations$editor$imageOptions$hu._(_root);
 	@override late final _Translations$editor$selectionBar$hu selectionBar = _Translations$editor$selectionBar$hu._(_root);
 	@override late final _Translations$editor$menu$hu menu = _Translations$editor$menu$hu._(_root);
+	@override late final _Translations$editor$photoPdfError$hu photoPdfError = _Translations$editor$photoPdfError$hu._(_root);
 	@override late final _Translations$editor$readOnlyBanner$hu readOnlyBanner = _Translations$editor$readOnlyBanner$hu._(_root);
 	@override late final _Translations$editor$versionTooNew$hu versionTooNew = _Translations$editor$versionTooNew$hu._(_root);
 	@override late final _Translations$editor$quill$hu quill = _Translations$editor$quill$hu._(_root);
@@ -793,6 +794,17 @@ class _Translations$editor$menu$hu extends Translations$editor$menu$en {
 	@override String get watchServerReadOnly => 'A szerver figyelése közben a szerkesztés le van tiltva';
 	@override late final _Translations$editor$menu$boxFits$hu boxFits = _Translations$editor$menu$boxFits$hu._(_root);
 	@override late final _Translations$editor$menu$bgPatterns$hu bgPatterns = _Translations$editor$menu$bgPatterns$hu._(_root);
+}
+
+// Path: editor.photoPdfError
+class _Translations$editor$photoPdfError$hu extends Translations$editor$photoPdfError$en {
+	_Translations$editor$photoPdfError$hu._(TranslationsHu root) : this._root = root, super.internal(root);
+
+	final TranslationsHu _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Hiba';
+	@override String get message => 'A PDF fájlokat nem lehet képként hozzáadni. Ehhez használja az "${_root.editor.menu.import} > PDF"-t.';
 }
 
 // Path: editor.readOnlyBanner

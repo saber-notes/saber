@@ -225,6 +225,7 @@ class _Translations$editor$nl extends Translations$editor$en {
 	@override late final _Translations$editor$imageOptions$nl imageOptions = _Translations$editor$imageOptions$nl._(_root);
 	@override late final _Translations$editor$selectionBar$nl selectionBar = _Translations$editor$selectionBar$nl._(_root);
 	@override late final _Translations$editor$menu$nl menu = _Translations$editor$menu$nl._(_root);
+	@override late final _Translations$editor$photoPdfError$nl photoPdfError = _Translations$editor$photoPdfError$nl._(_root);
 	@override late final _Translations$editor$readOnlyBanner$nl readOnlyBanner = _Translations$editor$readOnlyBanner$nl._(_root);
 	@override late final _Translations$editor$versionTooNew$nl versionTooNew = _Translations$editor$versionTooNew$nl._(_root);
 	@override late final _Translations$editor$quill$nl quill = _Translations$editor$quill$nl._(_root);
@@ -793,6 +794,17 @@ class _Translations$editor$menu$nl extends Translations$editor$menu$en {
 	@override String get watchServerReadOnly => 'Bewerken is uitgeschakeld terwijl je synchroniseert met de server';
 	@override late final _Translations$editor$menu$boxFits$nl boxFits = _Translations$editor$menu$boxFits$nl._(_root);
 	@override late final _Translations$editor$menu$bgPatterns$nl bgPatterns = _Translations$editor$menu$bgPatterns$nl._(_root);
+}
+
+// Path: editor.photoPdfError
+class _Translations$editor$photoPdfError$nl extends Translations$editor$photoPdfError$en {
+	_Translations$editor$photoPdfError$nl._(TranslationsNl root) : this._root = root, super.internal(root);
+
+	final TranslationsNl _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Fout';
+	@override String get message => 'PDF-bestanden kunnen niet als afbeelding worden toegevoegd. Gebruik hiervoor "${_root.editor.menu.import} > PDF".';
 }
 
 // Path: editor.readOnlyBanner

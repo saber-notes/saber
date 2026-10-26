@@ -223,6 +223,7 @@ class _Translations$editor$es extends Translations$editor$en {
 	@override late final _Translations$editor$imageOptions$es imageOptions = _Translations$editor$imageOptions$es._(_root);
 	@override late final _Translations$editor$selectionBar$es selectionBar = _Translations$editor$selectionBar$es._(_root);
 	@override late final _Translations$editor$menu$es menu = _Translations$editor$menu$es._(_root);
+	@override late final _Translations$editor$photoPdfError$es photoPdfError = _Translations$editor$photoPdfError$es._(_root);
 	@override late final _Translations$editor$readOnlyBanner$es readOnlyBanner = _Translations$editor$readOnlyBanner$es._(_root);
 	@override late final _Translations$editor$versionTooNew$es versionTooNew = _Translations$editor$versionTooNew$es._(_root);
 	@override late final _Translations$editor$quill$es quill = _Translations$editor$quill$es._(_root);
@@ -790,6 +791,17 @@ class _Translations$editor$menu$es extends Translations$editor$menu$en {
 	@override String get watchServer => 'Esté atento a las actualizaciones en el servidor.';
 	@override String get watchServerReadOnly => 'La edición está deshabilitada mientras se mira el servidor.';
 	@override String get lineHeightDescription => 'También controla el tamaño del texto de las notas escritas.';
+}
+
+// Path: editor.photoPdfError
+class _Translations$editor$photoPdfError$es extends Translations$editor$photoPdfError$en {
+	_Translations$editor$photoPdfError$es._(TranslationsEs root) : this._root = root, super.internal(root);
+
+	final TranslationsEs _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Error';
+	@override String get message => 'No se pueden añadir archivos PDF como imagen. Usa "${_root.editor.menu.import} > PDF" para eso.';
 }
 
 // Path: editor.readOnlyBanner

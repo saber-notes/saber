@@ -355,6 +355,9 @@ editor:
     import(OUTDATED): Імпорт
     watchServer(OUTDATED): Слідкуйте за оновленнями на сервері
     watchServerReadOnly(OUTDATED): Редагування вимкнено під час перегляду сервера
+  photoPdfError:
+    title(OUTDATED): Помилка
+    message(OUTDATED): "Файли PDF не можна додавати як зображення. Для цього використовуйте \"@:editor.menu.import > PDF\"."
   readOnlyBanner:
     title(OUTDATED): Режим лише читання
     watchingServer(OUTDATED): Ви наразі стежите за оновленнями на сервері. Редагування вимкнено в цьому режимі.

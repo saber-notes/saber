@@ -225,6 +225,7 @@ class _Translations$editor$tr extends Translations$editor$en {
 	@override late final _Translations$editor$imageOptions$tr imageOptions = _Translations$editor$imageOptions$tr._(_root);
 	@override late final _Translations$editor$selectionBar$tr selectionBar = _Translations$editor$selectionBar$tr._(_root);
 	@override late final _Translations$editor$menu$tr menu = _Translations$editor$menu$tr._(_root);
+	@override late final _Translations$editor$photoPdfError$tr photoPdfError = _Translations$editor$photoPdfError$tr._(_root);
 	@override late final _Translations$editor$readOnlyBanner$tr readOnlyBanner = _Translations$editor$readOnlyBanner$tr._(_root);
 	@override late final _Translations$editor$versionTooNew$tr versionTooNew = _Translations$editor$versionTooNew$tr._(_root);
 	@override late final _Translations$editor$quill$tr quill = _Translations$editor$quill$tr._(_root);
@@ -793,6 +794,17 @@ class _Translations$editor$menu$tr extends Translations$editor$menu$en {
 	@override late final _Translations$editor$menu$bgPatterns$tr bgPatterns = _Translations$editor$menu$bgPatterns$tr._(_root);
 	@override String get lineThickness => 'Çizgi kalınlığı';
 	@override String get lineThicknessDescription => 'Arka plan çizgisi kalınlığı';
+}
+
+// Path: editor.photoPdfError
+class _Translations$editor$photoPdfError$tr extends Translations$editor$photoPdfError$en {
+	_Translations$editor$photoPdfError$tr._(TranslationsTr root) : this._root = root, super.internal(root);
+
+	final TranslationsTr _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Hata';
+	@override String get message => 'PDF dosyaları resim olarak eklenemez. Bunun için "${_root.editor.menu.import} > PDF" kullanın.';
 }
 
 // Path: editor.readOnlyBanner

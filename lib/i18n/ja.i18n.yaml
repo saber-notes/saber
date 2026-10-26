@@ -346,6 +346,9 @@ editor:
       tablature: タブ譜
       cornell: 角
     backgroundImageFit(OUTDATED): 背景画像
+  photoPdfError:
+    title(OUTDATED): エラー
+    message(OUTDATED): "PDFファイルは画像として追加できません。その場合は「@:editor.menu.import > PDF」を使用してください。"
   readOnlyBanner:
     title: 読み取り専用モード
     watchingServer: 現在、サーバーの更新を待っています。 このモードで編集が無効になっています.

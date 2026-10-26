@@ -355,6 +355,9 @@ editor:
       staffs: Kẻ khuông nhạc
       tablature: Kẻ Tab
       cornell: Ghi chép Cornell
+  photoPdfError:
+    title(OUTDATED): Lỗi
+    message(OUTDATED): "Tệp PDF không thể được thêm dưới dạng hình ảnh. Hãy sử dụng \"@:editor.menu.import > PDF\" cho việc đó."
   readOnlyBanner:
     title: Chỉ đọc
     watchingServer: Đang theo dõi cập nhật từ máy chủ. Không thể chỉnh sửa lúc này.

@@ -355,6 +355,9 @@ editor:
       staffs: Pięciolinia
       tablature: Tabulatura
       cornell: System Cornella
+  photoPdfError:
+    title(OUTDATED): Błąd
+    message(OUTDATED): "Pliki PDF nie mogą być dodawane jako obraz. Użyj \"@:editor.menu.import > PDF\", aby to zrobić."
   readOnlyBanner:
     title: Tryb tylko do odczytu
     watchingServer: Obecnie oczekujesz na zmiany na serwerze. Edycja jest w tym trybie wyłączona.

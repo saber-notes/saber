@@ -225,6 +225,7 @@ class _Translations$editor$cs extends Translations$editor$en {
 	@override late final _Translations$editor$imageOptions$cs imageOptions = _Translations$editor$imageOptions$cs._(_root);
 	@override late final _Translations$editor$selectionBar$cs selectionBar = _Translations$editor$selectionBar$cs._(_root);
 	@override late final _Translations$editor$menu$cs menu = _Translations$editor$menu$cs._(_root);
+	@override late final _Translations$editor$photoPdfError$cs photoPdfError = _Translations$editor$photoPdfError$cs._(_root);
 	@override late final _Translations$editor$readOnlyBanner$cs readOnlyBanner = _Translations$editor$readOnlyBanner$cs._(_root);
 	@override late final _Translations$editor$versionTooNew$cs versionTooNew = _Translations$editor$versionTooNew$cs._(_root);
 	@override late final _Translations$editor$quill$cs quill = _Translations$editor$quill$cs._(_root);
@@ -793,6 +794,17 @@ class _Translations$editor$menu$cs extends Translations$editor$menu$en {
 	@override String get watchServerReadOnly => 'Během sledování serveru je vypnuto editování';
 	@override late final _Translations$editor$menu$boxFits$cs boxFits = _Translations$editor$menu$boxFits$cs._(_root);
 	@override late final _Translations$editor$menu$bgPatterns$cs bgPatterns = _Translations$editor$menu$bgPatterns$cs._(_root);
+}
+
+// Path: editor.photoPdfError
+class _Translations$editor$photoPdfError$cs extends Translations$editor$photoPdfError$en {
+	_Translations$editor$photoPdfError$cs._(TranslationsCs root) : this._root = root, super.internal(root);
+
+	final TranslationsCs _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Chyba';
+	@override String get message => 'Soubory PDF nelze přidat jako obrázek. Použijte pro to „${_root.editor.menu.import} > PDF“.';
 }
 
 // Path: editor.readOnlyBanner

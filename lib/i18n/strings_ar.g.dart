@@ -225,6 +225,7 @@ class _Translations$editor$ar extends Translations$editor$en {
 	@override late final _Translations$editor$imageOptions$ar imageOptions = _Translations$editor$imageOptions$ar._(_root);
 	@override late final _Translations$editor$selectionBar$ar selectionBar = _Translations$editor$selectionBar$ar._(_root);
 	@override late final _Translations$editor$menu$ar menu = _Translations$editor$menu$ar._(_root);
+	@override late final _Translations$editor$photoPdfError$ar photoPdfError = _Translations$editor$photoPdfError$ar._(_root);
 	@override late final _Translations$editor$readOnlyBanner$ar readOnlyBanner = _Translations$editor$readOnlyBanner$ar._(_root);
 	@override late final _Translations$editor$versionTooNew$ar versionTooNew = _Translations$editor$versionTooNew$ar._(_root);
 	@override late final _Translations$editor$quill$ar quill = _Translations$editor$quill$ar._(_root);
@@ -793,6 +794,17 @@ class _Translations$editor$menu$ar extends Translations$editor$menu$en {
 	@override late final _Translations$editor$menu$bgPatterns$ar bgPatterns = _Translations$editor$menu$bgPatterns$ar._(_root);
 	@override String get lineThickness => 'سمك الخط';
 	@override String get lineThicknessDescription => 'سماكة خط الخلفية';
+}
+
+// Path: editor.photoPdfError
+class _Translations$editor$photoPdfError$ar extends Translations$editor$photoPdfError$en {
+	_Translations$editor$photoPdfError$ar._(TranslationsAr root) : this._root = root, super.internal(root);
+
+	final TranslationsAr _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'خطأ';
+	@override String get message => 'لا يمكن إضافة ملفات PDF كصورة. استخدم "${_root.editor.menu.import} > PDF" لذلك.';
 }
 
 // Path: editor.readOnlyBanner

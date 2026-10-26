@@ -355,6 +355,9 @@ editor:
       staffs: Portées musicales
       tablature: Tablature
       cornell: Cornell
+  photoPdfError:
+    title(OUTDATED): Erreur
+    message(OUTDATED): "Les fichiers PDF ne peuvent pas être ajoutés comme image. Utilisez \"@:editor.menu.import > PDF\" pour cela."
   readOnlyBanner:
     title: Mode lecture seule
     watchingServer: Vous visualisez actuellement les mises à jour sur le serveur. L'édition est désactivée dans ce mode.

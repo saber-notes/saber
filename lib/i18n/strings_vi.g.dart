@@ -225,6 +225,7 @@ class _Translations$editor$vi extends Translations$editor$en {
 	@override late final _Translations$editor$imageOptions$vi imageOptions = _Translations$editor$imageOptions$vi._(_root);
 	@override late final _Translations$editor$selectionBar$vi selectionBar = _Translations$editor$selectionBar$vi._(_root);
 	@override late final _Translations$editor$menu$vi menu = _Translations$editor$menu$vi._(_root);
+	@override late final _Translations$editor$photoPdfError$vi photoPdfError = _Translations$editor$photoPdfError$vi._(_root);
 	@override late final _Translations$editor$readOnlyBanner$vi readOnlyBanner = _Translations$editor$readOnlyBanner$vi._(_root);
 	@override late final _Translations$editor$versionTooNew$vi versionTooNew = _Translations$editor$versionTooNew$vi._(_root);
 	@override late final _Translations$editor$quill$vi quill = _Translations$editor$quill$vi._(_root);
@@ -793,6 +794,17 @@ class _Translations$editor$menu$vi extends Translations$editor$menu$en {
 	@override String get watchServerReadOnly => 'Không thể chỉnh sửa khi đang cập nhật từ máy chủ';
 	@override late final _Translations$editor$menu$boxFits$vi boxFits = _Translations$editor$menu$boxFits$vi._(_root);
 	@override late final _Translations$editor$menu$bgPatterns$vi bgPatterns = _Translations$editor$menu$bgPatterns$vi._(_root);
+}
+
+// Path: editor.photoPdfError
+class _Translations$editor$photoPdfError$vi extends Translations$editor$photoPdfError$en {
+	_Translations$editor$photoPdfError$vi._(TranslationsVi root) : this._root = root, super.internal(root);
+
+	final TranslationsVi _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Lỗi';
+	@override String get message => 'Tệp PDF không thể được thêm dưới dạng hình ảnh. Hãy sử dụng "${_root.editor.menu.import} > PDF" cho việc đó.';
 }
 
 // Path: editor.readOnlyBanner

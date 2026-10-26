@@ -355,6 +355,9 @@ editor:
       staffs: Staffs
       tablature: Tablatuur
       cornell: Cornell
+  photoPdfError:
+    title(OUTDATED): Fout
+    message(OUTDATED): "PDF-bestanden kunnen niet als afbeelding worden toegevoegd. Gebruik hiervoor \"@:editor.menu.import > PDF\"."
   readOnlyBanner:
     title: Alleen-lezen modus
     watchingServer: Je bent momenteel aan het synchroniseren met updates van de server. Bewerken is uitgeschakeld in deze modus.

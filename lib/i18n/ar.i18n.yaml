@@ -354,6 +354,9 @@ editor:
       cornell: كورنيل
     lineThickness(OUTDATED): سمك الخط
     lineThicknessDescription(OUTDATED): سماكة خط الخلفية
+  photoPdfError:
+    title(OUTDATED): خطأ
+    message(OUTDATED): "لا يمكن إضافة ملفات PDF كصورة. استخدم \"@:editor.menu.import > PDF\" لذلك."
   readOnlyBanner:
     title: وضع القراءة فقط
     watchingServer(OUTDATED): أنت حاليًا تراقب التحديثات على الخادم. تم تعطيل التحرير في هذا الوضع.

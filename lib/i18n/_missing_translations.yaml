@@ -29,6 +29,9 @@ ar:
     menu:
       lineThickness(OUTDATED): Line thickness
       lineThicknessDescription(OUTDATED): Background line thickness
+    photoPdfError:
+      title(OUTDATED): Error
+      message(OUTDATED): "PDF files cannot be added as image. Use \"@:editor.menu.import > PDF\" for that."
     readOnlyBanner:
       watchingServer(OUTDATED): You are currently watching for updates on the server. Editing is disabled in this mode.
       corrupted(OUTDATED): Failed to load note. It may be corrupted or still being downloaded.
@@ -222,6 +225,9 @@ ca:
         staffs(OUTDATED): Staffs
         tablature(OUTDATED): Tablature
         cornell(OUTDATED): Cornell
+    photoPdfError:
+      title(OUTDATED): Error
+      message(OUTDATED): "PDF files cannot be added as image. Use \"@:editor.menu.import > PDF\" for that."
     readOnlyBanner:
       watchingServer(OUTDATED): You are currently watching for updates on the server. Editing is disabled in this mode.
       corrupted(OUTDATED): Failed to load note. It may be corrupted or still being downloaded.
@@ -232,6 +238,10 @@ ca:
       lockSingleFingerPan(OUTDATED): Disable single-finger panning
       unlockAxisAlignedPan(OUTDATED): Unlock panning to horizontal or vertical
 cs:
+  editor:
+    photoPdfError:
+      title(OUTDATED): Error
+      message(OUTDATED): "PDF files cannot be added as image. Use \"@:editor.menu.import > PDF\" for that."
 de:
   home:
     layout:
@@ -269,6 +279,9 @@ eo:
   profile:
     quotaUsageUncapped(OUTDATED): You're using $used
   editor:
+    photoPdfError:
+      title(OUTDATED): Error
+      message(OUTDATED): "PDF files cannot be added as image. Use \"@:editor.menu.import > PDF\" for that."
     readOnlyBanner:
       watchingServer(OUTDATED): You are currently watching for updates on the server. Editing is disabled in this mode.
       corrupted(OUTDATED): Failed to load note. It may be corrupted or still being downloaded.
@@ -364,6 +377,9 @@ es:
       lineThicknessDescription(OUTDATED): Background line thickness
       watchServer(OUTDATED): Watch for updates on the server
       watchServerReadOnly(OUTDATED): Editing is disabled while watching the server
+    photoPdfError:
+      title(OUTDATED): Error
+      message(OUTDATED): "PDF files cannot be added as image. Use \"@:editor.menu.import > PDF\" for that."
     readOnlyBanner:
       watchingServer(OUTDATED): You are currently watching for updates on the server. Editing is disabled in this mode.
       corrupted(OUTDATED): Failed to load note. It may be corrupted or still being downloaded.
@@ -486,11 +502,22 @@ fa:
       lineThicknessDescription(OUTDATED): Background line thickness
       watchServer(OUTDATED): Watch for updates on the server
       watchServerReadOnly(OUTDATED): Editing is disabled while watching the server
+    photoPdfError:
+      title(OUTDATED): Error
+      message(OUTDATED): "PDF files cannot be added as image. Use \"@:editor.menu.import > PDF\" for that."
     readOnlyBanner:
       watchingServer(OUTDATED): You are currently watching for updates on the server. Editing is disabled in this mode.
       corrupted(OUTDATED): Failed to load note. It may be corrupted or still being downloaded.
 fr:
+  editor:
+    photoPdfError:
+      title(OUTDATED): Error
+      message(OUTDATED): "PDF files cannot be added as image. Use \"@:editor.menu.import > PDF\" for that."
 he:
+  editor:
+    photoPdfError:
+      title(OUTDATED): Error
+      message(OUTDATED): "PDF files cannot be added as image. Use \"@:editor.menu.import > PDF\" for that."
 hu:
   home:
     sort:
@@ -505,8 +532,20 @@ hu:
       simpleGrid(OUTDATED): Simple grid
   profile:
     quotaUsageUncapped(OUTDATED): You're using $used
+  editor:
+    photoPdfError:
+      title(OUTDATED): Error
+      message(OUTDATED): "PDF files cannot be added as image. Use \"@:editor.menu.import > PDF\" for that."
 id:
+  editor:
+    photoPdfError:
+      title(OUTDATED): Error
+      message(OUTDATED): "PDF files cannot be added as image. Use \"@:editor.menu.import > PDF\" for that."
 it:
+  editor:
+    photoPdfError:
+      title(OUTDATED): Error
+      message(OUTDATED): "PDF files cannot be added as image. Use \"@:editor.menu.import > PDF\" for that."
 ja:
   home:
     sort:
@@ -538,6 +577,9 @@ ja:
   editor:
     menu:
       backgroundImageFit(OUTDATED): Background image fit
+    photoPdfError:
+      title(OUTDATED): Error
+      message(OUTDATED): "PDF files cannot be added as image. Use \"@:editor.menu.import > PDF\" for that."
 nl:
   home:
     sort:
@@ -552,7 +594,15 @@ nl:
       simpleGrid(OUTDATED): Simple grid
   profile:
     quotaUsageUncapped(OUTDATED): You're using $used
+  editor:
+    photoPdfError:
+      title(OUTDATED): Error
+      message(OUTDATED): "PDF files cannot be added as image. Use \"@:editor.menu.import > PDF\" for that."
 pl:
+  editor:
+    photoPdfError:
+      title(OUTDATED): Error
+      message(OUTDATED): "PDF files cannot be added as image. Use \"@:editor.menu.import > PDF\" for that."
 ru:
   home:
     deleteNoteDialog:
@@ -574,6 +624,10 @@ ru:
       simpleGrid(OUTDATED): Simple grid
   profile:
     quotaUsageUncapped(OUTDATED): You're using $used
+  editor:
+    photoPdfError:
+      title(OUTDATED): Error
+      message(OUTDATED): "PDF files cannot be added as image. Use \"@:editor.menu.import > PDF\" for that."
 sl:
   home:
     deleteNoteDialog:
@@ -595,6 +649,10 @@ sl:
       simpleGrid(OUTDATED): Simple grid
   profile:
     quotaUsageUncapped(OUTDATED): You're using $used
+  editor:
+    photoPdfError:
+      title(OUTDATED): Error
+      message(OUTDATED): "PDF files cannot be added as image. Use \"@:editor.menu.import > PDF\" for that."
 th:
   home:
     deleteNoteDialog:
@@ -617,6 +675,9 @@ th:
   profile:
     quotaUsageUncapped(OUTDATED): You're using $used
   editor:
+    photoPdfError:
+      title(OUTDATED): Error
+      message(OUTDATED): "PDF files cannot be added as image. Use \"@:editor.menu.import > PDF\" for that."
     readOnlyBanner:
       watchingServer(OUTDATED): You are currently watching for updates on the server. Editing is disabled in this mode.
       corrupted(OUTDATED): Failed to load note. It may be corrupted or still being downloaded.
@@ -685,6 +746,9 @@ tr:
     menu:
       lineThickness(OUTDATED): Line thickness
       lineThicknessDescription(OUTDATED): Background line thickness
+    photoPdfError:
+      title(OUTDATED): Error
+      message(OUTDATED): "PDF files cannot be added as image. Use \"@:editor.menu.import > PDF\" for that."
     readOnlyBanner:
       watchingServer(OUTDATED): You are currently watching for updates on the server. Editing is disabled in this mode.
       corrupted(OUTDATED): Failed to load note. It may be corrupted or still being downloaded.
@@ -956,6 +1020,9 @@ uk:
         staffs(OUTDATED): Staffs
         tablature(OUTDATED): Tablature
         cornell(OUTDATED): Cornell
+    photoPdfError:
+      title(OUTDATED): Error
+      message(OUTDATED): "PDF files cannot be added as image. Use \"@:editor.menu.import > PDF\" for that."
     readOnlyBanner:
       title(OUTDATED): Read-only mode
       watchingServer(OUTDATED): You are currently watching for updates on the server. Editing is disabled in this mode.
@@ -997,6 +1064,10 @@ vi:
       simpleGrid(OUTDATED): Simple grid
   profile:
     quotaUsageUncapped(OUTDATED): You're using $used
+  editor:
+    photoPdfError:
+      title(OUTDATED): Error
+      message(OUTDATED): "PDF files cannot be added as image. Use \"@:editor.menu.import > PDF\" for that."
 pt-BR:
   home:
     layout:
@@ -1096,8 +1167,19 @@ pt-BR:
       watchServerReadOnly(OUTDATED): Editing is disabled while watching the server
       bgPatterns:
         cornell(OUTDATED): Cornell
+    photoPdfError:
+      title(OUTDATED): Error
+      message(OUTDATED): "PDF files cannot be added as image. Use \"@:editor.menu.import > PDF\" for that."
     readOnlyBanner:
       watchingServer(OUTDATED): You are currently watching for updates on the server. Editing is disabled in this mode.
       corrupted(OUTDATED): Failed to load note. It may be corrupted or still being downloaded.
 zh-Hans-CN:
+  editor:
+    photoPdfError:
+      title(OUTDATED): Error
+      message(OUTDATED): "PDF files cannot be added as image. Use \"@:editor.menu.import > PDF\" for that."
 zh-Hant-TW:
+  editor:
+    photoPdfError:
+      title(OUTDATED): Error
+      message(OUTDATED): "PDF files cannot be added as image. Use \"@:editor.menu.import > PDF\" for that."

@@ -225,6 +225,7 @@ class _Translations$editor$he extends Translations$editor$en {
 	@override late final _Translations$editor$imageOptions$he imageOptions = _Translations$editor$imageOptions$he._(_root);
 	@override late final _Translations$editor$selectionBar$he selectionBar = _Translations$editor$selectionBar$he._(_root);
 	@override late final _Translations$editor$menu$he menu = _Translations$editor$menu$he._(_root);
+	@override late final _Translations$editor$photoPdfError$he photoPdfError = _Translations$editor$photoPdfError$he._(_root);
 	@override late final _Translations$editor$readOnlyBanner$he readOnlyBanner = _Translations$editor$readOnlyBanner$he._(_root);
 	@override late final _Translations$editor$versionTooNew$he versionTooNew = _Translations$editor$versionTooNew$he._(_root);
 	@override late final _Translations$editor$quill$he quill = _Translations$editor$quill$he._(_root);
@@ -793,6 +794,17 @@ class _Translations$editor$menu$he extends Translations$editor$menu$en {
 	@override String get watchServerReadOnly => 'העריכה מושתת בעת מעקב אחר השרת';
 	@override late final _Translations$editor$menu$boxFits$he boxFits = _Translations$editor$menu$boxFits$he._(_root);
 	@override late final _Translations$editor$menu$bgPatterns$he bgPatterns = _Translations$editor$menu$bgPatterns$he._(_root);
+}
+
+// Path: editor.photoPdfError
+class _Translations$editor$photoPdfError$he extends Translations$editor$photoPdfError$en {
+	_Translations$editor$photoPdfError$he._(TranslationsHe root) : this._root = root, super.internal(root);
+
+	final TranslationsHe _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'שגיאה';
+	@override String get message => 'לא ניתן להוסיף קבצי PDF כתמונה. השתמש ב"${_root.editor.menu.import} > PDF" לכך.';
 }
 
 // Path: editor.readOnlyBanner

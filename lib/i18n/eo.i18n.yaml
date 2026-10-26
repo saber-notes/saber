@@ -355,6 +355,9 @@ editor:
       staffs: Notlinioj
       tablature: Tablaturo
       cornell: Kornela notmetodo
+  photoPdfError:
+    title(OUTDATED): Erro
+    message(OUTDATED): "Ne povas esti aldonita kiel bildoj en PDF-fiļoj. Uzorante \"@:editor.menu.import > PDF\" por tio."
   readOnlyBanner:
     title: Nurlegebla reĝimo
     watchingServer(OUTDATED): Vi nuntempe rigardas por ĝisdatigoj sur la servilo. Redaktado estas malŝaltita en ĉi tiu reĝimo.

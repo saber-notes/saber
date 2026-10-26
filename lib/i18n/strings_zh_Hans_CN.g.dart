@@ -225,6 +225,7 @@ class Translations$editor$zh_Hans_CN extends Translations$editor$en {
 	@override late final Translations$editor$imageOptions$zh_Hans_CN imageOptions = Translations$editor$imageOptions$zh_Hans_CN.internal(_root);
 	@override late final Translations$editor$selectionBar$zh_Hans_CN selectionBar = Translations$editor$selectionBar$zh_Hans_CN.internal(_root);
 	@override late final Translations$editor$menu$zh_Hans_CN menu = Translations$editor$menu$zh_Hans_CN.internal(_root);
+	@override late final Translations$editor$photoPdfError$zh_Hans_CN photoPdfError = Translations$editor$photoPdfError$zh_Hans_CN.internal(_root);
 	@override late final Translations$editor$readOnlyBanner$zh_Hans_CN readOnlyBanner = Translations$editor$readOnlyBanner$zh_Hans_CN.internal(_root);
 	@override late final Translations$editor$versionTooNew$zh_Hans_CN versionTooNew = Translations$editor$versionTooNew$zh_Hans_CN.internal(_root);
 	@override late final Translations$editor$quill$zh_Hans_CN quill = Translations$editor$quill$zh_Hans_CN.internal(_root);
@@ -793,6 +794,17 @@ class Translations$editor$menu$zh_Hans_CN extends Translations$editor$menu$en {
 	@override String get watchServerReadOnly => '监视服务器时禁用编辑';
 	@override late final Translations$editor$menu$boxFits$zh_Hans_CN boxFits = Translations$editor$menu$boxFits$zh_Hans_CN.internal(_root);
 	@override late final Translations$editor$menu$bgPatterns$zh_Hans_CN bgPatterns = Translations$editor$menu$bgPatterns$zh_Hans_CN.internal(_root);
+}
+
+// Path: editor.photoPdfError
+class Translations$editor$photoPdfError$zh_Hans_CN extends Translations$editor$photoPdfError$en {
+	Translations$editor$photoPdfError$zh_Hans_CN.internal(TranslationsZhHansCn root) : this._root = root, super.internal(root);
+
+	final TranslationsZhHansCn _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '错误';
+	@override String get message => '无法将 PDF 文件作为图像添加。请使用“${_root.editor.menu.import} > PDF”来实现此操作。';
 }
 
 // Path: editor.readOnlyBanner

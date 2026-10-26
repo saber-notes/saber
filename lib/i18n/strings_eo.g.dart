@@ -225,6 +225,7 @@ class _Translations$editor$eo extends Translations$editor$en {
 	@override late final _Translations$editor$imageOptions$eo imageOptions = _Translations$editor$imageOptions$eo._(_root);
 	@override late final _Translations$editor$selectionBar$eo selectionBar = _Translations$editor$selectionBar$eo._(_root);
 	@override late final _Translations$editor$menu$eo menu = _Translations$editor$menu$eo._(_root);
+	@override late final _Translations$editor$photoPdfError$eo photoPdfError = _Translations$editor$photoPdfError$eo._(_root);
 	@override late final _Translations$editor$readOnlyBanner$eo readOnlyBanner = _Translations$editor$readOnlyBanner$eo._(_root);
 	@override late final _Translations$editor$versionTooNew$eo versionTooNew = _Translations$editor$versionTooNew$eo._(_root);
 	@override late final _Translations$editor$quill$eo quill = _Translations$editor$quill$eo._(_root);
@@ -793,6 +794,17 @@ class _Translations$editor$menu$eo extends Translations$editor$menu$en {
 	@override String get watchServerReadOnly => 'Redaktado estas malŝaltita dum spektado de la servilo';
 	@override late final _Translations$editor$menu$boxFits$eo boxFits = _Translations$editor$menu$boxFits$eo._(_root);
 	@override late final _Translations$editor$menu$bgPatterns$eo bgPatterns = _Translations$editor$menu$bgPatterns$eo._(_root);
+}
+
+// Path: editor.photoPdfError
+class _Translations$editor$photoPdfError$eo extends Translations$editor$photoPdfError$en {
+	_Translations$editor$photoPdfError$eo._(TranslationsEo root) : this._root = root, super.internal(root);
+
+	final TranslationsEo _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Erro';
+	@override String get message => 'Ne povas esti aldonita kiel bildoj en PDF-fiļoj. Uzorante "${_root.editor.menu.import} > PDF" por tio.';
 }
 
 // Path: editor.readOnlyBanner

@@ -225,6 +225,7 @@ class _Translations$editor$sl extends Translations$editor$en {
 	@override late final _Translations$editor$imageOptions$sl imageOptions = _Translations$editor$imageOptions$sl._(_root);
 	@override late final _Translations$editor$selectionBar$sl selectionBar = _Translations$editor$selectionBar$sl._(_root);
 	@override late final _Translations$editor$menu$sl menu = _Translations$editor$menu$sl._(_root);
+	@override late final _Translations$editor$photoPdfError$sl photoPdfError = _Translations$editor$photoPdfError$sl._(_root);
 	@override late final _Translations$editor$readOnlyBanner$sl readOnlyBanner = _Translations$editor$readOnlyBanner$sl._(_root);
 	@override late final _Translations$editor$versionTooNew$sl versionTooNew = _Translations$editor$versionTooNew$sl._(_root);
 	@override late final _Translations$editor$quill$sl quill = _Translations$editor$quill$sl._(_root);
@@ -793,6 +794,17 @@ class _Translations$editor$menu$sl extends Translations$editor$menu$en {
 	@override String get watchServerReadOnly => 'Urejanje je onemogočeno med spremljanjem strežnika';
 	@override late final _Translations$editor$menu$boxFits$sl boxFits = _Translations$editor$menu$boxFits$sl._(_root);
 	@override late final _Translations$editor$menu$bgPatterns$sl bgPatterns = _Translations$editor$menu$bgPatterns$sl._(_root);
+}
+
+// Path: editor.photoPdfError
+class _Translations$editor$photoPdfError$sl extends Translations$editor$photoPdfError$en {
+	_Translations$editor$photoPdfError$sl._(TranslationsSl root) : this._root = root, super.internal(root);
+
+	final TranslationsSl _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Napaka';
+	@override String get message => 'Datovni datoteke se ne more dodati jako obrázek. Použij "${_root.editor.menu.import} > PDF" pro to.';
 }
 
 // Path: editor.readOnlyBanner

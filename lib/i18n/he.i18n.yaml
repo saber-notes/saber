@@ -355,6 +355,9 @@ editor:
       staffs: תווים
       tablature: טבלטורה (מספורי תווים מוזיקליים)
       cornell: קורנל
+  photoPdfError:
+    title(OUTDATED): שגיאה
+    message(OUTDATED): "לא ניתן להוסיף קבצי PDF כתמונה. השתמש ב\"@:editor.menu.import > PDF\" לכך."
   readOnlyBanner:
     title: מצב צפייה בלבד
     watchingServer: כרגע מתבצע מעקב אחר עדכונים בשרת. העריכה מושבתת במצב זה.

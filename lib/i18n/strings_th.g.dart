@@ -224,6 +224,7 @@ class _Translations$editor$th extends Translations$editor$en {
 	@override late final _Translations$editor$imageOptions$th imageOptions = _Translations$editor$imageOptions$th._(_root);
 	@override late final _Translations$editor$selectionBar$th selectionBar = _Translations$editor$selectionBar$th._(_root);
 	@override late final _Translations$editor$menu$th menu = _Translations$editor$menu$th._(_root);
+	@override late final _Translations$editor$photoPdfError$th photoPdfError = _Translations$editor$photoPdfError$th._(_root);
 	@override late final _Translations$editor$readOnlyBanner$th readOnlyBanner = _Translations$editor$readOnlyBanner$th._(_root);
 	@override late final _Translations$editor$versionTooNew$th versionTooNew = _Translations$editor$versionTooNew$th._(_root);
 	@override late final _Translations$editor$quill$th quill = _Translations$editor$quill$th._(_root);
@@ -792,6 +793,17 @@ class _Translations$editor$menu$th extends Translations$editor$menu$en {
 	@override String get watchServerReadOnly => 'การแก้ไขจะถูกปิดใช้งานในขณะที่กำลังเฝ้าดูเซิร์ฟเวอร์';
 	@override late final _Translations$editor$menu$boxFits$th boxFits = _Translations$editor$menu$boxFits$th._(_root);
 	@override late final _Translations$editor$menu$bgPatterns$th bgPatterns = _Translations$editor$menu$bgPatterns$th._(_root);
+}
+
+// Path: editor.photoPdfError
+class _Translations$editor$photoPdfError$th extends Translations$editor$photoPdfError$en {
+	_Translations$editor$photoPdfError$th._(TranslationsTh root) : this._root = root, super.internal(root);
+
+	final TranslationsTh _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'ข้อผิดพลาด';
+	@override String get message => 'ไม่สามารถเพิ่มไฟล์ PDF เป็นรูปภาพได้ ให้ใช้ "${_root.editor.menu.import} > PDF" สำหรับการดำเนินการนั้น';
 }
 
 // Path: editor.readOnlyBanner

@@ -355,6 +355,9 @@ editor:
       staffs: Pentagrammi
       tablature: Tablatura
       cornell: Metodo Cornell
+  photoPdfError:
+    title(OUTDATED): Errore
+    message(OUTDATED): "I file PDF non possono essere aggiunti come immagine. Usare \"@:editor.menu.import > PDF\" per questo."
   readOnlyBanner:
     title: Modalità di sola lettura
     watchingServer: Al momento stai monitorando gli aggiornamenti sul server. La modifica è disabilitata in questa modalità.

@@ -225,6 +225,7 @@ class _Translations$editor$it extends Translations$editor$en {
 	@override late final _Translations$editor$imageOptions$it imageOptions = _Translations$editor$imageOptions$it._(_root);
 	@override late final _Translations$editor$selectionBar$it selectionBar = _Translations$editor$selectionBar$it._(_root);
 	@override late final _Translations$editor$menu$it menu = _Translations$editor$menu$it._(_root);
+	@override late final _Translations$editor$photoPdfError$it photoPdfError = _Translations$editor$photoPdfError$it._(_root);
 	@override late final _Translations$editor$readOnlyBanner$it readOnlyBanner = _Translations$editor$readOnlyBanner$it._(_root);
 	@override late final _Translations$editor$versionTooNew$it versionTooNew = _Translations$editor$versionTooNew$it._(_root);
 	@override late final _Translations$editor$quill$it quill = _Translations$editor$quill$it._(_root);
@@ -793,6 +794,17 @@ class _Translations$editor$menu$it extends Translations$editor$menu$en {
 	@override String get watchServerReadOnly => 'La modifica è disabilitata mentre si controlla il server';
 	@override late final _Translations$editor$menu$boxFits$it boxFits = _Translations$editor$menu$boxFits$it._(_root);
 	@override late final _Translations$editor$menu$bgPatterns$it bgPatterns = _Translations$editor$menu$bgPatterns$it._(_root);
+}
+
+// Path: editor.photoPdfError
+class _Translations$editor$photoPdfError$it extends Translations$editor$photoPdfError$en {
+	_Translations$editor$photoPdfError$it._(TranslationsIt root) : this._root = root, super.internal(root);
+
+	final TranslationsIt _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Errore';
+	@override String get message => 'I file PDF non possono essere aggiunti come immagine. Usare "${_root.editor.menu.import} > PDF" per questo.';
 }
 
 // Path: editor.readOnlyBanner

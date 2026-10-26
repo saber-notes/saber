@@ -352,6 +352,9 @@ editor:
     watchServer(OUTDATED): Fique atento às atualizações no servidor
     watchServerReadOnly(OUTDATED): A edição está desativada enquanto observa o servidor
     lineHeightDescription(OUTDATED): Também controla o tamanho do texto para notas digitadas
+  photoPdfError:
+    title(OUTDATED): Erro
+    message(OUTDATED): "Arquivos PDF não podem ser adicionados como imagem. Use \"@:editor.menu.import > PDF\" para isso."
   readOnlyBanner:
     title: Modo somente leitura
     corrupted(OUTDATED): Falha ao carregar a nota. Ele pode estar corrompido ou ainda sendo baixado.

@@ -355,6 +355,9 @@ editor:
       staffs: 五線譜
       tablature: 指法譜
       cornell: 康乃爾
+  photoPdfError:
+    title(OUTDATED): 錯誤
+    message(OUTDATED): "無法將 PDF 檔案作為圖片新增。請使用 \"@:editor.menu.import > PDF\" 來進行此操作。"
   readOnlyBanner:
     title: 唯讀模式
     watchingServer: 目前正在監控伺服器上的更新，在此模式下已停用編輯功能。

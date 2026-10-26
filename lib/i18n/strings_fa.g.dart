@@ -223,6 +223,7 @@ class _Translations$editor$fa extends Translations$editor$en {
 	@override late final _Translations$editor$imageOptions$fa imageOptions = _Translations$editor$imageOptions$fa._(_root);
 	@override late final _Translations$editor$selectionBar$fa selectionBar = _Translations$editor$selectionBar$fa._(_root);
 	@override late final _Translations$editor$menu$fa menu = _Translations$editor$menu$fa._(_root);
+	@override late final _Translations$editor$photoPdfError$fa photoPdfError = _Translations$editor$photoPdfError$fa._(_root);
 	@override late final _Translations$editor$readOnlyBanner$fa readOnlyBanner = _Translations$editor$readOnlyBanner$fa._(_root);
 	@override late final _Translations$editor$versionTooNew$fa versionTooNew = _Translations$editor$versionTooNew$fa._(_root);
 	@override late final _Translations$editor$quill$fa quill = _Translations$editor$quill$fa._(_root);
@@ -791,6 +792,17 @@ class _Translations$editor$menu$fa extends Translations$editor$menu$en {
 	@override String get watchServer => 'مراقب به روز رسانی ها در سرور باشید';
 	@override String get watchServerReadOnly => 'هنگام تماشای سرور، ویرایش غیرفعال است';
 	@override String get lineHeightDescription => 'همچنین اندازه متن را برای یادداشت های تایپ شده کنترل می کند';
+}
+
+// Path: editor.photoPdfError
+class _Translations$editor$photoPdfError$fa extends Translations$editor$photoPdfError$en {
+	_Translations$editor$photoPdfError$fa._(TranslationsFa root) : this._root = root, super.internal(root);
+
+	final TranslationsFa _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'خطا';
+	@override String get message => 'فایل‌های PDF نمی‌توانند به عنوان تصویر اضافه شوند. برای این کار از "${_root.editor.menu.import} > PDF" استفاده کنید.';
 }
 
 // Path: editor.readOnlyBanner

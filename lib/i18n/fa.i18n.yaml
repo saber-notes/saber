@@ -349,6 +349,9 @@ editor:
     watchServer(OUTDATED): مراقب به روز رسانی ها در سرور باشید
     watchServerReadOnly(OUTDATED): هنگام تماشای سرور، ویرایش غیرفعال است
     lineHeightDescription(OUTDATED): همچنین اندازه متن را برای یادداشت های تایپ شده کنترل می کند
+  photoPdfError:
+    title(OUTDATED): خطا
+    message(OUTDATED): "فایل‌های PDF نمی‌توانند به عنوان تصویر اضافه شوند. برای این کار از \"@:editor.menu.import > PDF\" استفاده کنید."
   readOnlyBanner:
     title: حالت فقط خواندنی
     watchingServer(OUTDATED): شما در حال حاضر به دنبال به روز رسانی در سرور هستید. ویرایش در این حالت غیرفعال است.

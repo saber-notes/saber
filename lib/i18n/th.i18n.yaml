@@ -355,6 +355,9 @@ editor:
       staffs: พนักงาน
       tablature: แท็บลาเจอร์
       cornell: คอร์เนลล์
+  photoPdfError:
+    title(OUTDATED): ข้อผิดพลาด
+    message(OUTDATED): "ไม่สามารถเพิ่มไฟล์ PDF เป็นรูปภาพได้ ให้ใช้ \"@:editor.menu.import > PDF\" สำหรับการดำเนินการนั้น"
   readOnlyBanner:
     title: โหมดอ่านอย่างเดียว
     corrupted(OUTDATED): โหลดบันทึกไม่สำเร็จ อาจเสียหายหรือยังคงถูกดาวน์โหลดอยู่

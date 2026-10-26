@@ -342,6 +342,9 @@ editor:
     lineHeightDescription(OUTDATED): També controla el màxim de text per a les notes tapates.
     backgroundImageFit(OUTDATED): imatge de fons ajustat
     watchServerReadOnly(OUTDATED): L'edició està desactivada mentre siva el servidor
+  photoPdfError:
+    title(OUTDATED): Error
+    message(OUTDATED): "No es possible afegir fitxers PDF com a imatge. Utilitza \"@:editor.menu.import > PDF\" per això."
   readOnlyBanner:
     title: Mode de Lectura
     watchingServer(OUTDATED): Actualmente se están buscando actualizaciones en el servidor. La edición está deshabilitada en este modo.

@@ -225,6 +225,7 @@ class _Translations$editor$pl extends Translations$editor$en {
 	@override late final _Translations$editor$imageOptions$pl imageOptions = _Translations$editor$imageOptions$pl._(_root);
 	@override late final _Translations$editor$selectionBar$pl selectionBar = _Translations$editor$selectionBar$pl._(_root);
 	@override late final _Translations$editor$menu$pl menu = _Translations$editor$menu$pl._(_root);
+	@override late final _Translations$editor$photoPdfError$pl photoPdfError = _Translations$editor$photoPdfError$pl._(_root);
 	@override late final _Translations$editor$readOnlyBanner$pl readOnlyBanner = _Translations$editor$readOnlyBanner$pl._(_root);
 	@override late final _Translations$editor$versionTooNew$pl versionTooNew = _Translations$editor$versionTooNew$pl._(_root);
 	@override late final _Translations$editor$quill$pl quill = _Translations$editor$quill$pl._(_root);
@@ -793,6 +794,17 @@ class _Translations$editor$menu$pl extends Translations$editor$menu$en {
 	@override String get watchServerReadOnly => 'Edycja jest wyłączona podczas śledzenia serwera';
 	@override late final _Translations$editor$menu$boxFits$pl boxFits = _Translations$editor$menu$boxFits$pl._(_root);
 	@override late final _Translations$editor$menu$bgPatterns$pl bgPatterns = _Translations$editor$menu$bgPatterns$pl._(_root);
+}
+
+// Path: editor.photoPdfError
+class _Translations$editor$photoPdfError$pl extends Translations$editor$photoPdfError$en {
+	_Translations$editor$photoPdfError$pl._(TranslationsPl root) : this._root = root, super.internal(root);
+
+	final TranslationsPl _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Błąd';
+	@override String get message => 'Pliki PDF nie mogą być dodawane jako obraz. Użyj "${_root.editor.menu.import} > PDF", aby to zrobić.';
 }
 
 // Path: editor.readOnlyBanner

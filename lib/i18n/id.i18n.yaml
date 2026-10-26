@@ -355,6 +355,9 @@ editor:
       staffs: Paranada
       tablature: Tablatur
       cornell: Cornell
+  photoPdfError:
+    title(OUTDATED): Kesalahan
+    message(OUTDATED): "File PDF tidak dapat ditambahkan sebagai gambar. Gunakan \"@:editor.menu.import > PDF\" untuk itu."
   readOnlyBanner:
     title: Mode baca saja
     watchingServer: Saat ini kamu sedang memantau pembaruan di server. Pengeditan dinonaktifkan di mode ini.

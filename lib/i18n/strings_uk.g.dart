@@ -225,6 +225,7 @@ class _Translations$editor$uk extends Translations$editor$en {
 	@override late final _Translations$editor$imageOptions$uk imageOptions = _Translations$editor$imageOptions$uk._(_root);
 	@override late final _Translations$editor$selectionBar$uk selectionBar = _Translations$editor$selectionBar$uk._(_root);
 	@override late final _Translations$editor$menu$uk menu = _Translations$editor$menu$uk._(_root);
+	@override late final _Translations$editor$photoPdfError$uk photoPdfError = _Translations$editor$photoPdfError$uk._(_root);
 	@override late final _Translations$editor$readOnlyBanner$uk readOnlyBanner = _Translations$editor$readOnlyBanner$uk._(_root);
 	@override late final _Translations$editor$versionTooNew$uk versionTooNew = _Translations$editor$versionTooNew$uk._(_root);
 	@override late final _Translations$editor$quill$uk quill = _Translations$editor$quill$uk._(_root);
@@ -793,6 +794,17 @@ class _Translations$editor$menu$uk extends Translations$editor$menu$en {
 	@override String get import => 'Імпорт';
 	@override String get watchServer => 'Слідкуйте за оновленнями на сервері';
 	@override String get watchServerReadOnly => 'Редагування вимкнено під час перегляду сервера';
+}
+
+// Path: editor.photoPdfError
+class _Translations$editor$photoPdfError$uk extends Translations$editor$photoPdfError$en {
+	_Translations$editor$photoPdfError$uk._(TranslationsUk root) : this._root = root, super.internal(root);
+
+	final TranslationsUk _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Помилка';
+	@override String get message => 'Файли PDF не можна додавати як зображення. Для цього використовуйте "${_root.editor.menu.import} > PDF".';
 }
 
 // Path: editor.readOnlyBanner

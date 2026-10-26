@@ -225,6 +225,7 @@ class _Translations$editor$ja extends Translations$editor$en {
 	@override late final _Translations$editor$imageOptions$ja imageOptions = _Translations$editor$imageOptions$ja._(_root);
 	@override late final _Translations$editor$selectionBar$ja selectionBar = _Translations$editor$selectionBar$ja._(_root);
 	@override late final _Translations$editor$menu$ja menu = _Translations$editor$menu$ja._(_root);
+	@override late final _Translations$editor$photoPdfError$ja photoPdfError = _Translations$editor$photoPdfError$ja._(_root);
 	@override late final _Translations$editor$readOnlyBanner$ja readOnlyBanner = _Translations$editor$readOnlyBanner$ja._(_root);
 	@override late final _Translations$editor$versionTooNew$ja versionTooNew = _Translations$editor$versionTooNew$ja._(_root);
 	@override late final _Translations$editor$quill$ja quill = _Translations$editor$quill$ja._(_root);
@@ -793,6 +794,17 @@ class _Translations$editor$menu$ja extends Translations$editor$menu$en {
 	@override late final _Translations$editor$menu$boxFits$ja boxFits = _Translations$editor$menu$boxFits$ja._(_root);
 	@override late final _Translations$editor$menu$bgPatterns$ja bgPatterns = _Translations$editor$menu$bgPatterns$ja._(_root);
 	@override String get backgroundImageFit => '背景画像';
+}
+
+// Path: editor.photoPdfError
+class _Translations$editor$photoPdfError$ja extends Translations$editor$photoPdfError$en {
+	_Translations$editor$photoPdfError$ja._(TranslationsJa root) : this._root = root, super.internal(root);
+
+	final TranslationsJa _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'エラー';
+	@override String get message => 'PDFファイルは画像として追加できません。その場合は「${_root.editor.menu.import} > PDF」を使用してください。';
 }
 
 // Path: editor.readOnlyBanner

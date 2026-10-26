@@ -355,6 +355,9 @@ editor:
       staffs: Črtovje
       tablature: Tablatura
       cornell: Cornell
+  photoPdfError:
+    title(OUTDATED): Napaka
+    message(OUTDATED): "Datovni datoteke se ne more dodati jako obrázek. Použij \"@:editor.menu.import > PDF\" pro to."
   readOnlyBanner:
     title: Način samo za branje
     watchingServer: Trenutno spremljaš posodobitve na strežniku. Urejanje v tem načinu je onemogočeno.

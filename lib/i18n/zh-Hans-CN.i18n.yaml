@@ -355,6 +355,9 @@ editor:
       staffs: 五线谱
       tablature: 绘画
       cornell: 康奈尔
+  photoPdfError:
+    title(OUTDATED): 错误
+    message(OUTDATED): "无法将 PDF 文件作为图像添加。请使用“@:editor.menu.import > PDF”来实现此操作。"
   readOnlyBanner:
     title: 只读模式
     watchingServer: 当前正在监视服务器的更新，此模式下编辑功能已禁用。

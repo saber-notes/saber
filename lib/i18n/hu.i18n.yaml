@@ -355,6 +355,9 @@ editor:
       staffs: Ötvonalas kottavonal
       tablature: Tabulatúra
       cornell: Cornell
+  photoPdfError:
+    title(OUTDATED): Hiba
+    message(OUTDATED): "A PDF fájlokat nem lehet képként hozzáadni. Ehhez használja az \"@:editor.menu.import > PDF\"-t."
   readOnlyBanner:
     title: Csak olvasható mód
     watchingServer: Jelenleg a szerver frissítéseit figyeli. Ebben a módban a szerkesztés le van tiltva.

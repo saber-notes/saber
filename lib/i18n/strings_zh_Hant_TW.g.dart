@@ -225,6 +225,7 @@ class Translations$editor$zh_Hant_TW extends Translations$editor$en {
 	@override late final Translations$editor$imageOptions$zh_Hant_TW imageOptions = Translations$editor$imageOptions$zh_Hant_TW.internal(_root);
 	@override late final Translations$editor$selectionBar$zh_Hant_TW selectionBar = Translations$editor$selectionBar$zh_Hant_TW.internal(_root);
 	@override late final Translations$editor$menu$zh_Hant_TW menu = Translations$editor$menu$zh_Hant_TW.internal(_root);
+	@override late final Translations$editor$photoPdfError$zh_Hant_TW photoPdfError = Translations$editor$photoPdfError$zh_Hant_TW.internal(_root);
 	@override late final Translations$editor$readOnlyBanner$zh_Hant_TW readOnlyBanner = Translations$editor$readOnlyBanner$zh_Hant_TW.internal(_root);
 	@override late final Translations$editor$versionTooNew$zh_Hant_TW versionTooNew = Translations$editor$versionTooNew$zh_Hant_TW.internal(_root);
 	@override late final Translations$editor$quill$zh_Hant_TW quill = Translations$editor$quill$zh_Hant_TW.internal(_root);
@@ -793,6 +794,17 @@ class Translations$editor$menu$zh_Hant_TW extends Translations$editor$menu$en {
 	@override String get watchServerReadOnly => '監視伺服器時無法進行編輯';
 	@override late final Translations$editor$menu$boxFits$zh_Hant_TW boxFits = Translations$editor$menu$boxFits$zh_Hant_TW.internal(_root);
 	@override late final Translations$editor$menu$bgPatterns$zh_Hant_TW bgPatterns = Translations$editor$menu$bgPatterns$zh_Hant_TW.internal(_root);
+}
+
+// Path: editor.photoPdfError
+class Translations$editor$photoPdfError$zh_Hant_TW extends Translations$editor$photoPdfError$en {
+	Translations$editor$photoPdfError$zh_Hant_TW.internal(TranslationsZhHantTw root) : this._root = root, super.internal(root);
+
+	final TranslationsZhHantTw _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => '錯誤';
+	@override String get message => '無法將 PDF 檔案作為圖片新增。請使用 "${_root.editor.menu.import} > PDF" 來進行此操作。';
 }
 
 // Path: editor.readOnlyBanner
