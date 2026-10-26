@@ -52,7 +52,7 @@ import 'package:saber/pages/home/whiteboard.dart';
 import 'package:sbn/change.dart';
 import 'package:super_clipboard/super_clipboard.dart';
 
-typedef _PhotoInfo = ({Uint8List bytes, String extension});
+class const _PhotoInfo(final Uint8List bytes, final String extension);
 
 class Editor extends StatefulWidget {
   new({super.key, String? path, this.customTitle, this.pdfPath})
@@ -1234,7 +1234,7 @@ class EditorState extends State<Editor> {
           final extension = p.extension(file.path ?? file.name);
           if (extension.isEmpty) return null;
           final bytes = await file.readAsBytes();
-          return (bytes: bytes, extension: extension);
+          return _PhotoInfo(bytes, extension);
         }(),
     ]).then((list) => list.nonNulls.toList());
   }
@@ -1340,10 +1340,7 @@ class EditorState extends State<Editor> {
           extension = formats[format]!;
         }
 
-        photoInfos.add((
-          bytes: Uint8List.fromList(bytes),
-          extension: extension,
-        ));
+        photoInfos.add(_PhotoInfo(Uint8List.fromList(bytes), extension));
       });
       if (progress != null) progresses.add(progress);
     }
