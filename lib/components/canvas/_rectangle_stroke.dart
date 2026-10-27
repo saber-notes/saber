@@ -80,20 +80,23 @@ class RectangleStroke extends Stroke {
   /// A list of points that form the rectangle's perimeter.
   /// Each side has 24/N points.
   @override
-  List<Offset> getPolygon({required StrokeQuality quality}) => [
-    // left side
-    for (int i = 0; i < 24 / quality.N; ++i)
-      Offset(rect.left, rect.top + rect.height * i / 24),
-    // bottom side
-    for (int i = 0; i < 24 / quality.N; ++i)
-      Offset(rect.left + rect.width * i / 24, rect.bottom),
-    // right side
-    for (int i = 0; i < 24 / quality.N; ++i)
-      Offset(rect.right, rect.bottom - rect.height * i / 24),
-    // top side
-    for (int i = 0; i < 24 / quality.N; ++i)
-      Offset(rect.right - rect.width * i / 24, rect.top),
-  ];
+  List<Offset> getPolygon({required StrokeQuality quality}) {
+    final numPoints = 24 ~/ quality.N;
+    return [
+      // left side
+      for (int i = 0; i < numPoints; ++i)
+        Offset(rect.left, rect.top + rect.height * i / numPoints),
+      // bottom side
+      for (int i = 0; i < numPoints; ++i)
+        Offset(rect.left + rect.width * i / numPoints, rect.bottom),
+      // right side
+      for (int i = 0; i < numPoints; ++i)
+        Offset(rect.right, rect.bottom - rect.height * i / numPoints),
+      // top side
+      for (int i = 0; i < numPoints; ++i)
+        Offset(rect.right - rect.width * i / numPoints, rect.top),
+    ];
+  }
 
   /// Returns a [Path] with four lines for each side of the rectangle.
   @override
