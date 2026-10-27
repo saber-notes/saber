@@ -112,6 +112,15 @@ mkdir -p .github/docker/mounts/macos-flutter-ephemeral
 mkdir -p .github/docker/mounts/windows-flutter-ephemeral
 touch .github/docker/mounts/.flutter-plugins-dependencies
 
+# Delete container if it used an outdated image.
+if podman container exists "$CONTAINER_NAME"; then
+    CONTAINER_IMAGE_ID=$(podman container inspect --format '{{.ImageName}}' "$CONTAINER_NAME")
+    if [[ "$CONTAINER_IMAGE_ID" != "$IMAGE_ID" ]]; then
+        echo "Removing stale container to be recreated."
+        podman rm -f "$CONTAINER_NAME"
+    fi
+fi
+
 # Start or create container from image
 if podman container exists "$CONTAINER_NAME"; then
     echo "Starting existing container $CONTAINER_NAME"
