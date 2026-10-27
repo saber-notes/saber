@@ -181,37 +181,29 @@ class EditorPage extends ChangeNotifier implements HasSize {
     if (backgroundImage != null) 'b': backgroundImage?.toJson(assets),
   };
 
-  /// Inserts a stroke, while keeping the strokes sorted by
-  /// pen type and color.
-  void insertStroke(Stroke newStroke) {
-    final int newStrokeColor = newStroke.color.toARGB32();
+  /// Compares two strokes by pen type, then highlighter color.
+  static int compareStrokes(Stroke a, Stroke b) {
+    final penTypeComparison = a.toolId.id.compareTo(b.toolId.id);
+    if (penTypeComparison != 0) return penTypeComparison;
+    if (a.toolId != .highlighter) return 0;
+    return a.color.toARGB32().compareTo(b.color.toARGB32());
+  }
 
+  /// Inserts a stroke, while keeping the strokes sorted by
+  /// [compareStrokes].
+  void insertStroke(Stroke newStroke) {
     int index = 0;
     for (final stroke in strokes) {
-      final penTypeComparison = stroke.toolId.id.compareTo(newStroke.toolId.id);
-      final color = stroke.color.toARGB32();
-      if (penTypeComparison > 0) {
-        break; // this stroke's pen type comes after the new stroke's pen type
-      } else if (stroke.toolId == .highlighter &&
-          penTypeComparison == 0 &&
-          color > newStrokeColor) {
-        break; // this highlighter color comes after the new highlighter color
+      if (compareStrokes(stroke, newStroke) > 0) {
+        break; // this stroke comes after the new stroke
       }
       index++;
     }
-
     strokes.insert(index, newStroke);
   }
 
-  /// Sorts the strokes by pen type and color.
-  void sortStrokes() {
-    strokes.sort((Stroke a, Stroke b) {
-      final penTypeComparison = a.toolId.id.compareTo(b.toolId.id);
-      if (penTypeComparison != 0) return penTypeComparison;
-      if (a.toolId != .highlighter) return 0;
-      return a.color.toARGB32().compareTo(b.color.toARGB32());
-    });
-  }
+  /// Sorts the strokes by [compareStrokes].
+  void sortStrokes() => strokes.sort(compareStrokes);
 
   static List<Stroke> parseStrokesJson(
     List<dynamic>? strokes, {
