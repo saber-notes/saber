@@ -2,7 +2,7 @@
 set -e
 
 usage() {
-    echo "This script uses Docker to run tests in a standardized environment."
+    echo "This script uses Podman to run tests in a standardized environment."
     echo "This is most useful on macOS, where golden tests (ran natively) will "
     echo "often fail due to differences in text rendering."
     echo
@@ -15,7 +15,7 @@ usage() {
     echo
     echo "There are also some additional arguments you can pass to this script:"
     echo "     --help: Show this help message"
-    echo "     --clean: Delete the docker image and container"
+    echo "     --clean: Delete the image and container"
     echo "     --update: Update the container's Flutter and pub cache from the host."
 }
 if [[ "$1" == "--help" ]]; then
@@ -23,19 +23,16 @@ if [[ "$1" == "--help" ]]; then
     exit 0
 fi
 
-DOCKERFILE_PATH=".github/docker/Dockerfile"
-IMAGE_NAME="saber_test_env"
-CONTAINER_NAME="saber_test_container"
-
-# Check if docker is installed
-if ! command -v docker &> /dev/null; then
-    echo "Docker is not installed. Please install Docker to use this script."
-    echo "https://docs.docker.com/get-docker/"
+# Check if podman is installed
+if ! command -v podman &> /dev/null; then
+    echo "Podman is not installed. Please install Podman to use this script."
+    echo "https://podman.io/docs/installation"
     exit 1
 fi
-# Check if docker engine is running
-if ! docker version >/dev/null 2>&1; then
-    echo "Docker Engine does not seem to be running: run it first and retry!"
+# Check that podman works (on macOS/Windows this needs a running podman machine)
+if ! podman info >/dev/null 2>&1; then
+    echo "Podman does not seem to be working."
+    echo "On macOS/Windows, run \`podman machine init\` (once) and \`podman machine start\`, then retry."
     exit 1
 fi
 # Check that we're in the project root
@@ -52,14 +49,18 @@ if [ ! -d "${PUB_CACHE:=$HOME/.pub-cache}" ]; then
   exit 1
 fi
 
-# Remove docker image and container by running `./test.sh --clean`
+buildName=$(grep -oP "(?<=buildName = ').*(?=')" lib/data/version.dart)
+IMAGE_NAME="ghcr.io/saber-notes/saber_test_env:$buildName"
+CONTAINER_NAME="saber_test_container"
+
+# Remove image and container by running `./test.sh --clean`
 if [[ "$1" == "--clean" ]]; then
-    echo 'Stopping docker container'
-    docker stop "$CONTAINER_NAME" || true
-    echo 'Removing docker container'
-    docker rm -f "$CONTAINER_NAME" || true
-    echo 'Removing docker image'
-    docker rmi -f "$IMAGE_NAME" || true
+    echo 'Stopping container'
+    podman stop "$CONTAINER_NAME" || true
+    echo 'Removing container'
+    podman rm -f "$CONTAINER_NAME" || true
+    echo 'Removing image'
+    podman rmi -f "$IMAGE_NAME" || true
     echo 'Removing cached files'
     rm -rf .github/docker/mounts
     echo 'Done'
@@ -97,14 +98,10 @@ else
 fi
 echo "Using application path: $APP_PATH"
 
-# Build image if it doesn't exist
-if ! docker images --format '{{.Repository}}' | grep -w "$IMAGE_NAME" > /dev/null; then
-    echo "Building Docker image '$IMAGE_NAME' from $DOCKERFILE_PATH. This will take a few minutes but only needs to be done once."
-    docker build -t "$IMAGE_NAME" \
-        -f "$DOCKERFILE_PATH" \
-        --network host \
-        --build-arg APP_PATH="$APP_PATH" \
-        "$(dirname $DOCKERFILE_PATH)"
+# Pull image if we don't have it yet
+if ! podman image exists "$IMAGE_NAME"; then
+    echo "Pulling image '$IMAGE_NAME'. This only needs to be done once."
+    podman pull "$IMAGE_NAME"
 fi
 
 # Make sure mounts exist
@@ -115,19 +112,28 @@ mkdir -p .github/docker/mounts/macos-flutter-ephemeral
 mkdir -p .github/docker/mounts/windows-flutter-ephemeral
 touch .github/docker/mounts/.flutter-plugins-dependencies
 
+# Delete container if it used an outdated image.
+if podman container exists "$CONTAINER_NAME"; then
+    CONTAINER_IMAGE_ID=$(podman container inspect --format '{{.ImageName}}' "$CONTAINER_NAME")
+    if [[ "$CONTAINER_IMAGE_ID" != "$IMAGE_ID" ]]; then
+        echo "Removing stale container to be recreated."
+        podman rm -f "$CONTAINER_NAME"
+    fi
+fi
+
 # Start or create container from image
-if docker ps -a --format '{{.Names}}' | grep -w "$CONTAINER_NAME" > /dev/null; then
+if podman container exists "$CONTAINER_NAME"; then
     echo "Starting existing container $CONTAINER_NAME"
-    docker start "$CONTAINER_NAME"
+    podman start "$CONTAINER_NAME"
 else
     echo "Creating new container $CONTAINER_NAME. This will only be done once."
 
-    # Run container
-    docker run -dit --name "$CONTAINER_NAME" \
-        -u nonroot \
+    podman run -dit --name "$CONTAINER_NAME" \
+        --security-opt label=disable \
+        -w "$APP_PATH" \
         -v "$APP_PATH":"$APP_PATH" \
-        -v "$APP_PATH/.github/docker/mounts/flutter":"/home/nonroot/flutter" \
-        -v "$APP_PATH/.github/docker/mounts/.pub-cache":"/home/nonroot/.pub-cache" \
+        -v "$APP_PATH/.github/docker/mounts/flutter":"/root/flutter" \
+        -v "$APP_PATH/.github/docker/mounts/.pub-cache":"/root/.pub-cache" \
         -v "$APP_PATH/.github/docker/mounts/.dart_tool":"$APP_PATH/.dart_tool" \
         -v "$APP_PATH/.github/docker/mounts/build":"$APP_PATH/build" \
         -v "$APP_PATH/.github/docker/mounts/.flutter-plugins-dependencies":"$APP_PATH/.flutter-plugins-dependencies" \
@@ -136,9 +142,11 @@ else
         -v "$APP_PATH/.github/docker/mounts/macos-flutter-ephemeral":"$APP_PATH/macos/Flutter/ephemeral" \
         -v "$APP_PATH/.github/docker/mounts/windows-flutter-ephemeral":"$APP_PATH/windows/flutter/ephemeral" \
         "$IMAGE_NAME"
-    docker exec -it "$CONTAINER_NAME" flutter pub get
-    docker exec -it "$CONTAINER_NAME" dart run golden_screenshot:download_apple_fonts
+    podman exec -it "$CONTAINER_NAME" flutter pub get
+    podman exec -it "$CONTAINER_NAME" dart run golden_screenshot:download_apple_fonts
+    echo Finished setting up container. Running tests...
+    echo
 fi
 
-docker exec -it "$CONTAINER_NAME" flutter test "$@"
+podman exec -it "$CONTAINER_NAME" flutter test "$@"
 exit $?
