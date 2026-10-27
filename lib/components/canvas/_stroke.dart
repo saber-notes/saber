@@ -229,14 +229,13 @@ class Stroke {
 
     final polygon = getStroke(
       skipPoints(points, quality.N),
-      options: switch (quality) {
-        .low => options.copyWith(
-          simulatePressure: false,
-          smoothing: 0,
-          streamline: 0,
-        ),
-        .high => options,
-      },
+      options: quality.isLowQuality
+          ? options.copyWith(
+              simulatePressure: false,
+              smoothing: 0,
+              streamline: 0,
+            )
+          : options,
       rememberSimulatedPressure: rememberSimulatedPressure,
     );
 
@@ -411,10 +410,15 @@ class Stroke {
   )..points.addAll(points);
 }
 
-enum StrokeQuality(
+class StrokeQuality {
+  @visibleForTesting
+  const new(this.N);
+
   /// We use every Nth point for this quality level.
-  final int N,
-) {
-  low(4),
-  high(1),
+  final int N;
+
+  static const low = StrokeQuality(4);
+  static const high = StrokeQuality(1);
+
+  bool get isLowQuality => N > 1;
 }

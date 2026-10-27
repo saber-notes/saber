@@ -75,13 +75,13 @@ class RectangleStroke extends Stroke {
   @override
   bool get isEmpty => rect.isEmpty;
   @override
-  int get length => 100;
+  int get length => 64;
 
   /// A list of points that form the rectangle's perimeter.
-  /// Each side has 24/N points.
+  /// Each side has 16/N points.
   @override
   List<Offset> getPolygon({required StrokeQuality quality}) {
-    final numPoints = 24 ~/ quality.N;
+    final numPoints = length / 4 ~/ quality.N;
     return [
       // left side
       for (int i = 0; i < numPoints; ++i)
