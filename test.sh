@@ -23,10 +23,6 @@ if [[ "$1" == "--help" ]]; then
     exit 0
 fi
 
-buildName=$(grep -oP "(?<=buildName = ').*(?=')" lib/data/version.dart)
-IMAGE_NAME="ghcr.io/saber-notes/saber_test_env:$buildName"
-CONTAINER_NAME="saber_test_container"
-
 # Check if podman is installed
 if ! command -v podman &> /dev/null; then
     echo "Podman is not installed. Please install Podman to use this script."
@@ -52,6 +48,10 @@ if [ ! -d "${PUB_CACHE:=$HOME/.pub-cache}" ]; then
   echo "Error: Env PUB_CACHE not set."
   exit 1
 fi
+
+buildName=$(grep -oP "(?<=buildName = ').*(?=')" lib/data/version.dart)
+IMAGE_NAME="ghcr.io/saber-notes/saber_test_env:$buildName"
+CONTAINER_NAME="saber_test_container"
 
 # Remove image and container by running `./test.sh --clean`
 if [[ "$1" == "--clean" ]]; then
