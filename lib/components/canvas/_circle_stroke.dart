@@ -74,7 +74,7 @@ class CircleStroke extends Stroke {
   @override
   bool get isEmpty => radius <= 0;
   @override
-  int get length => 25;
+  int get length => 24;
 
   /// A list of 24/N points that form a circle
   /// with [center] and [radius].
