@@ -335,8 +335,6 @@ class FileManager {
       await FilePicker.saveFile(
         fileName: fileName,
         initialDirectory: (await getDownloadsDirectory())?.path,
-        type: FileType.custom,
-        allowedExtensions: [fileName.split('.').last],
         bytes: bytes,
       );
     }
