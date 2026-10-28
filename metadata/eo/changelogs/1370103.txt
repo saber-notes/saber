@@ -1,0 +1,4 @@
+• Regardita kelkaj aparatoj kiuj permesis al vi importi PDF kiam Saber atendas imagon.
+• Aldonita travorto por korekti ekzistantajn PDFoj, kiuj estis importitaj kiel bildoj, de fari la noton nelegibile.
+• Regardita ke la eltereto ne povis elimini rektanglecan formon ekcepite proksime al ĝiaj anguloj.
+• Pligrandita memora efikeco kiam vi kolektas imagon el la klipardo.

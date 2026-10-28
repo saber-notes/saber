@@ -1,0 +1,4 @@
+• Sommige apparaten gefixt waardoor je een PDF kon importeren terwijl Saber een afbeelding verwacht.
+• Een workaround toegevoegd om bestaande PDFs die als afbeeldingen zijn geïmporteerd, te repareren zodat de notitie leesbaar blijft.
+• Gefixt dat de gum geen rechthoekige vorm kon wissen behalve in de buurt van de hoeken.
+• Geïmplementeerd een verbetering in geheugenefficiëntie bij het plakken van een afbeelding vanaf het klembord.

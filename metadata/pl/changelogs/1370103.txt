@@ -1,0 +1,4 @@
+• Naprawiono problem z importowaniem PDF-ów, gdy Saber oczekuje obrazu, na niektórych urządzeniach.
+• Dodano obejście, które naprawia sytuację, w której istniejące pliki PDF zaimportowane jako obrazy sprawiają, że notatka jest nieczytelna.
+• Naprawiono błąd, przez który gumka nie była w stanie wymazać kształtu prostokąta poza jego narożnikami.
+• Zwiększono efektywność pamięci podczas wklejania obrazu z schowka.

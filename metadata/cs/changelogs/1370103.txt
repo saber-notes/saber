@@ -1,0 +1,4 @@
+• Opraven problém, kdy některé zařízení umožňovaly import PDF, když Saber očekává obrázek.
+• Přidán workaround pro opravu existujících PDF, které byly importovány jako obrázky a způsobovaly nečitelný poznámku.
+• Opraven problém s gumou, která nemohla vymazat obdélníkový tvar kromě jeho rohů.
+• Zvýšena paměťová efektivita při vkládání obrázku z kontextu schránky.

@@ -1,0 +1,4 @@
+• Memperbaiki beberapa perangkat yang memungkinkan Anda mengimpor PDF ketika Saber mengharapkan gambar.
+• Menambahkan solusi sementara untuk memperbaiki PDF yang sudah ada yang diimpor sebagai gambar sehingga catatan menjadi tidak terbaca.
+• Memperbaiki penghapus yang tidak dapat menghapus bentuk persegi kecuali di dekat sudut-sudutnya.
+• Meningkatkan efisiensi memori saat menempelkan gambar dari clipboard.

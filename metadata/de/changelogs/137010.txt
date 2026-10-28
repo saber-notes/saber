@@ -1,0 +1,4 @@
+• Einige Geräte wurden behoben, die es Ihnen erlaubten, eine PDF zu importieren, wenn Saber ein Bild erwartet.
+• Eine Umgehung wurde hinzugefügt, um das Problem zu beheben, dass bereits als Bild importierte PDFs unlesbar machen.
+• Beheben des Problems, dass der Radiergummi keine rechteckige Form außer in der Nähe ihrer Ecken löschen konnte.
+• Erhöhte Speichereffizienz beim Einfügen eines Bildes aus dem Zwischenspeicher.

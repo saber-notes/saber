@@ -1,0 +1,4 @@
+• Javított néhány eszközön, ahol PDF importálása kép helyett várható Saber-nek volt.
+• Hozzáadott egy megoldást az esetleges problémák javítására, amikor már alsóképek formájában importált PDF-ek miatt olvashatatlanná váltak a jegy.
+• Javított, hogy az törlő nem tudja törölni egy rettanguláris alakot, kivéve széleinek közelében.
+• Növelt a memóriakezelési hatékonyságot, amikor képet másolásfelvételből ragasztunk be.

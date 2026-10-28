@@ -1,0 +1,4 @@
+• Đã sửa một số thiết bị cho phép bạn nhập PDF khi Saber mong đợi hình ảnh.
+• Đã thêm giải pháp khắc phục để sửa các tệp PDF hiện có được nhập dưới dạng hình ảnh khiến ghi chú không thể đọc được.
+• Đã sửa lỗi tẩy không thể xóa hình chữ nhật trừ gần các góc của nó.
+• Tăng hiệu quả bộ nhớ khi dán hình ảnh từ clipboard.

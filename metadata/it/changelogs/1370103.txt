@@ -1,0 +1,4 @@
+• Corretto alcuni dispositivi che permettevano di importare un PDF quando Saber si aspettava un'immagine.
+• Aggiunto un workaround per risolvere il problema dei PDF esistenti importati come immagini che rendevano il testo illeggibile.
+• Corretta la cancellazione non riusciva a cancellare una forma rettangolare tranne vicino agli angoli.
+• Migliorata l'efficienza della memoria quando si incolla un'immagine dalla clipboard.

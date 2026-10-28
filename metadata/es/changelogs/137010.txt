@@ -1,0 +1,4 @@
+• Se corrigieron algunos dispositivos que permitían importar un PDF cuando Saber espera una imagen.
+• Se añadió una solución temporal para corregir los PDFs existentes importados como imágenes, evitando que la nota fuera ilegible.
+• Se arregló el borrador que no podía borrar una forma rectangular excepto cerca de sus esquinas.
+• Se aumentó la eficiencia de la memoria al pegar una imagen del portapapeles.

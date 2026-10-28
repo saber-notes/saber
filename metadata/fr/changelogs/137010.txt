@@ -1,0 +1,4 @@
+• Corrigé certains appareils qui permettaient d'importer un PDF alors que Saber attend une image.
+• Ajout d'une solution de contournement pour corriger les PDF existants importés comme des images, ce qui rendait la note illisible.
+• Corrigé le problème où l'outil gomme ne pouvait pas effacer une forme rectangulaire sauf près de ses coins.
+• Amélioration de l'efficacité de la mémoire lors du collage d'une image depuis le presse-papiers.

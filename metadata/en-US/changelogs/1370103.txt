@@ -1,0 +1,4 @@
+• Fixed some devices letting you import a PDF when Saber expects an image.
+• Added a workaround to fix existing PDFs imported as images from making the note unreadable.
+• Fixed the eraser not being able to erase a rectangle shape except near its corners.
+• Increased memory efficiency when pasting an image from clipboard.

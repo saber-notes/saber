@@ -1,0 +1,4 @@
+• S'han corregit alguns dispositius que permeten importar un PDF quan Saber espera una imatge.
+• S'ha afegit una solució temporal per arreglar els PDFs existents importats com a imatges, evitant que la nota sigui il·legible.
+• S'ha corregit el esborrador que no podia borrar una forma rectangular excepte prop dels seus angles.
+• S'ha augmentat l'eficiència de memòria quan s'afegeix una imatge del portapapeles.

@@ -1,0 +1,4 @@
+• Popravljena nekatera naprava, ki dovoljuje uvoz PDF-a, ko Saber pričakuje sliko.
+• Dodana privarna rešitev za popravilo obstoječih PDF-ov, uvoženih kot slike, da se ne postane opomba neprebirna.
+• Popravljena greška pri brisalu, ki ni mogel izbrisati pravokotne oblike, razen blizu njegovih robov.
+• Povečana učinkovitost spomina pri nalepenju slike z oklepe.

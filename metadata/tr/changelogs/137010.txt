@@ -1,0 +1,4 @@
+• Saber'ın bir görüntü beklediği durumlarda PDF içe aktarmanıza izin veren bazı cihazlardaki hatalar düzeltildi.
+• Mevcut PDF'lerin resim olarak içe aktarılması durumunda notun okunamaz hale gelmesini önlemek için bir çözüm eklendi.
+• Silginin dikdörtgen şeklin köşeleri dışında silinememesi sorunu giderildi.
+• Panodan görüntü yapıştırılırken bellek verimliliği artırıldı.

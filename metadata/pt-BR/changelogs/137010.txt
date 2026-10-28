@@ -1,0 +1,4 @@
+• Corrigido alguns dispositivos que permitiam importar um PDF quando o Saber esperava uma imagem.
+• Adicionado um workaround para corrigir PDFs existentes importados como imagens, impedindo que a nota ficasse ilegível.
+• Corrigido o apagador não conseguir apagar uma forma retangular exceto perto de seus cantos.
+• Aumentada a eficiência de memória ao colar uma imagem da área de transferência.
