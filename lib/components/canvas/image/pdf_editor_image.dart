@@ -72,10 +72,8 @@ class PdfEditorImage extends EditorImage {
       pdfBytes = Uint8List(0);
     }
 
-    final int pdfPage;
-    if (json.containsKey('pdfi')) {
-      pdfPage = json['pdfi'] ?? 0;
-    } else {
+    int? pdfPage = json['pdfi'];
+    if (pdfPage == null) {
       log.warning(
         'fromJson: missing pdfPage. '
         'This may have been caused by https://github.com/saber-notes/saber/issues/1689.',
