@@ -19,6 +19,8 @@ class CanvasHud extends HookWidget {
     required this.setSingleFingerPanLock,
     required this.axisAlignedPanLock,
     required this.setAxisAlignedPanLock,
+    required this.pageBoundsLock,
+    required this.setPageBoundsLock,
   });
 
   final TransformationController transformationController;
@@ -29,6 +31,8 @@ class CanvasHud extends HookWidget {
   final ValueChanged<bool> setSingleFingerPanLock;
   final bool axisAlignedPanLock;
   final ValueChanged<bool> setAxisAlignedPanLock;
+  final bool pageBoundsLock;
+  final ValueChanged<bool> setPageBoundsLock;
 
   @override
   Widget build(BuildContext context) {
@@ -95,6 +99,18 @@ class CanvasHud extends HookWidget {
                   turns: axisAlignedPanLock ? 0 : 1 / 8,
                   child: const Icon(Symbols.drag_pan),
                 ),
+              ),
+            ),
+            Positioned(
+              top: 125,
+              left: 5,
+              child: CanvasGestureLockBtn(
+                lock: pageBoundsLock,
+                setLock: setPageBoundsLock,
+                icon: pageBoundsLock ? Icons.fit_screen : Icons.open_with,
+                tooltip: pageBoundsLock
+                    ? t.editor.hud.unlockPageBounds
+                    : t.editor.hud.lockPageBounds,
               ),
             ),
             Positioned(
