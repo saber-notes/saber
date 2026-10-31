@@ -358,6 +358,8 @@ editor:
   photoPdfError:
     title(OUTDATED): Chyba
     message(OUTDATED): "Soubory PDF nelze přidat jako obrázek. Použijte pro to „@:editor.menu.import > PDF“."
+    title: Chyba
+    message: Soubory ve formátu PDF nelze vložit jako obrázek. Případně použijte „@:editor.menu.import > PDF“.
   readOnlyBanner:
     title: Otevřít v režimu pouze pro čtení
     watchingServer: Aktuálně máte zapnuté sledování změn ze serveru. V tomto módu jsou vypnuté úpravy.
