@@ -33,7 +33,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
 
-  cupertino_icons: ^1.0.5
+  cupertino_icons: ^2.0.0
   material_symbols_icons: ^4.2758.0
 
   sbn:
@@ -150,14 +150,14 @@ dependencies:
   stow_secure: ^0.7.0
   stow_codecs: ^1.4.0
 
-  sentry_flutter: ^9.21.0
-  sentry_logging: ^9.5.0
+  sentry_flutter: ^10.2.0
+  sentry_logging: ^10.2.0
 
   background_downloader: ^9.2.6
 
   flutter_hooks: ^0.21.3+1
   dynamic_yaru: ^0.2.0
-  image: 4.10.2  # 4.11.0 has a broken version constraint for `archive`
+  image: 4.11.0  # 4.11.0 has a broken version constraint for `archive`
   pool: ^1.5.2
 
 dev_dependencies:
