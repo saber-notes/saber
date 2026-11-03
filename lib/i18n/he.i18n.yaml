@@ -358,6 +358,8 @@ editor:
   photoPdfError:
     title(OUTDATED): שגיאה
     message(OUTDATED): "לא ניתן להוסיף קבצי PDF כתמונה. השתמש ב\"@:editor.menu.import > PDF\" לכך."
+    title: שגיאה
+    message: לא ניתן לייצא קובצי PDF כתמונות. במקום זאת, יש להשתמש בתכונה „‎@:editor.menu.import > PDF”.
   readOnlyBanner:
     title: מצב צפייה בלבד
     watchingServer: כרגע מתבצע מעקב אחר עדכונים בשרת. העריכה מושבתת במצב זה.
