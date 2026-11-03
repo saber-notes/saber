@@ -41,14 +41,14 @@ class CanvasBackgroundPreview extends StatelessWidget {
       pageSize.height / pageSize.width * fixedWidth,
     );
 
-    final invertColors =
+    final invertColorScheme =
         !stows.editorAutoInvert.value && colorScheme.brightness == .dark;
 
     final Color backgroundPrimaryColor = colorScheme.primary.withInversion(
-      invertColors,
+      invertColorScheme,
     );
     final Color backgroundSecondaryColor = colorScheme.secondary.withInversion(
-      invertColors,
+      invertColorScheme,
     );
 
     final canvasSize = pageSize / 2;

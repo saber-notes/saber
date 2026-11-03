@@ -64,13 +64,13 @@ class _InnerCanvasState extends State<InnerCanvas> {
     final colorScheme = theme.colorScheme;
     final brightness = theme.brightness;
     final invert = stows.editorAutoInvert.value && brightness == .dark;
-    final invertColors = !stows.editorAutoInvert.value && brightness == .dark;
+    final invertColorScheme = !stows.editorAutoInvert.value && brightness == .dark;
 
     final Color backgroundColor =
         widget.coreInfo.backgroundColor ?? InnerCanvas.defaultBackgroundColor;
 
-    final primaryColor = colorScheme.primary.withInversion(invertColors);
-    final secondaryColor = colorScheme.secondary.withInversion(invertColors);
+    final primaryColor = colorScheme.primary.withInversion(invertColorScheme);
+    final secondaryColor = colorScheme.secondary.withInversion(invertColorScheme);
 
     if (widget.coreInfo.pages.isEmpty) {
       return SizedBox(width: widget.width, height: widget.height);
