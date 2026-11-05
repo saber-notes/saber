@@ -38,6 +38,7 @@ import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/extensions/change_notifier_extensions.dart';
 import 'package:saber/data/extensions/matrix4_extensions.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
+import 'package:saber/data/lock_screen.dart';
 import 'package:saber/data/nextcloud/saber_syncer.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/data/tools/_tool.dart';
@@ -1709,7 +1710,9 @@ class EditorState extends State<Editor> {
                 assert(!didPop);
                 snackBarNeedsToSaveBeforeExiting();
               case .saved:
-                break;
+                if (LockScreen.mode.isQuickNote) {
+                  LockScreen.exitLockScreenNote();
+                }
             }
           },
           child: child!,
