@@ -11,14 +11,13 @@ jobs:
   run-tests:
     name: Run Flutter tests
     runs-on: ubuntu-latest
+    container: ghcr.io/saber-notes/saber_test_env:latest
     timeout-minutes: 20
     steps:
       - name: Checkout code
         uses: actions/checkout@v7
         with:
           persist-credentials: false
-
-      - uses: "./.github/shared_workflows/install_apt_dependencies"
 
       - name: Setup cache
         uses: actions/cache@v6.1.0
