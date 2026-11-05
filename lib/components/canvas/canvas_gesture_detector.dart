@@ -160,6 +160,9 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
   /// Otherwise, panning can be done in any (i.e. diagonal) direction.
   late bool axisAlignedPanLock = stows.lastAxisAlignedPanLock.value;
 
+  /// Whether panning is constrained to the page boundaries.
+  late bool pageBoundsLock = stows.lastPageBoundsLock.value;
+
   void zoomIn() => widget._transformationController.value =
       setZoom(
         scaleDelta: 0.1,
@@ -358,15 +361,9 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
 
   Timer? _snapZoomTimer;
 
-  /// Corrects the transform if it's out of bounds.
-  /// If the scale is less than 1, centers the pages horizontally.
-  /// Otherwise, prevents the user from scrolling past the edges.
+  /// Snaps the zoom level and constrains panning when page boundaries are locked.
   void onTransformChanged() {
     final scale = widget._transformationController.value.approxScale;
-    final translation = widget._transformationController.value.getTranslation();
-
-    double adjustmentX = 0;
-    double adjustmentY = 0;
 
     // snap to 1.0x zoom
     _snapZoomTimer?.cancel();
@@ -374,6 +371,15 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
     // allow 0.001 leeway for floating point error
     if (diffFrom1 < 0.05 && diffFrom1 > 0.001)
       _snapZoomTimer = Timer(const Duration(milliseconds: 200), resetZoom);
+
+    if (!pageBoundsLock ||
+        !containerBounds.hasBoundedWidth ||
+        !containerBounds.hasBoundedHeight)
+      return;
+
+    final translation = widget._transformationController.value.getTranslation();
+    double adjustmentX = 0;
+    double adjustmentY = 0;
 
     if (scale < 1) {
       // horizontally center pages if zoomed out
@@ -400,6 +406,34 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
         0,
         1,
       );
+    }
+  }
+
+  void _restorePageBounds() {
+    if (!pageBoundsLock) return;
+
+    final transformation = widget._transformationController.value;
+    final previous = transformation.clone();
+    onTransformChanged();
+
+    final scale = transformation.approxScale;
+    final translation = transformation.getTranslation();
+    // Include the extra leading and trailing gaps from _PagesBuilder.
+    final pagesHeight =
+        CanvasGestureDetector.getTopOfPage(
+          pageIndex: widget.pages.length,
+          pages: widget.pages,
+          screenWidth: containerBounds.maxWidth,
+        ) +
+        Editor.gapBetweenPages * 3;
+    final minY = min(0.0, containerBounds.maxHeight - pagesHeight * scale);
+    final adjustmentY = max(minY, min(0.0, translation.y)) - translation.y;
+    if (adjustmentY.abs() > 0.1) {
+      transformation.leftTranslateByDouble(0, adjustmentY, 0, 1);
+    }
+
+    if (previous != transformation) {
+      widget._transformationController.notifyListenersPlease();
     }
   }
 
@@ -498,7 +532,13 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
           child: GestureDetector(
             child: LayoutBuilder(
               builder: (BuildContext context, BoxConstraints containerBounds) {
+                final resized = this.containerBounds != containerBounds;
                 this.containerBounds = containerBounds;
+                if (resized && pageBoundsLock) {
+                  WidgetsBinding.instance.addPostFrameCallback((_) {
+                    if (mounted) _restorePageBounds();
+                  });
+                }
 
                 return InteractiveCanvasViewer.builder(
                   minScale: zoomLockedValue ?? CanvasGestureDetector.kMinScale,
@@ -509,12 +549,10 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
                   // Smoother scrolling fling gesture than the default
                   interactionEndFrictionCoefficient: 0.1,
 
-                  // we need a non-zero boundary margin so we can zoom out
-                  // past the size of the page (for minScale < 1)
-                  boundaryMargin: .symmetric(
-                    vertical: 0,
-                    horizontal: screenSize.width * 2,
-                  ),
+                  // Allow pages to move freely beyond the viewport edges when unlocked.
+                  boundaryMargin: pageBoundsLock
+                      ? .symmetric(horizontal: screenSize.width * 2)
+                      : const .all(double.infinity),
 
                   transformationController: widget._transformationController,
 
@@ -559,6 +597,14 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
               this.axisAlignedPanLock = axisAlignedPanLock;
               stows.lastAxisAlignedPanLock.value = axisAlignedPanLock;
             }),
+            pageBoundsLock: pageBoundsLock,
+            setPageBoundsLock: (bool pageBoundsLock) {
+              setState(() {
+                this.pageBoundsLock = pageBoundsLock;
+                stows.lastPageBoundsLock.value = pageBoundsLock;
+              });
+              if (pageBoundsLock) _restorePageBounds();
+            },
           ),
         ),
       ],
@@ -567,6 +613,7 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
 
   @override
   void dispose() {
+    _snapZoomTimer?.cancel();
     CanvasTransformCache.add(
       widget.filePath,
       widget._transformationController.value,

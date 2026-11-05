@@ -1400,6 +1400,12 @@ class Translations$editor$hud$en {
 
 	/// en: 'Lock panning to horizontal or vertical'
 	String get lockAxisAlignedPan => 'Lock panning to horizontal or vertical';
+
+	/// en: 'Enable free panning'
+	String get unlockPageBounds => 'Enable free panning';
+
+	/// en: 'Disable free panning'
+	String get lockPageBounds => 'Disable free panning';
 }
 
 // Path: sentry.consent.description

@@ -330,6 +330,11 @@ class Stows {
         'lastAxisAlignedPanLock',
         false,
         volatile: !_isOnMainIsolate,
+      ),
+      lastPageBoundsLock = PlainStow(
+        'lastPageBoundsLock',
+        true,
+        volatile: !_isOnMainIsolate,
       );
 
   final homeLayout = PlainStow(
