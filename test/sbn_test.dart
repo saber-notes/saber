@@ -14,7 +14,9 @@ import 'package:saber/data/editor/editor_exporter.dart';
 import 'package:saber/data/editor/page.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
 import 'package:saber/data/flavor_config.dart';
+import 'package:saber/data/prefs.dart';
 import 'package:saber/data/tools/laser_pointer.dart';
+import 'package:saber/data/tools/select.dart';
 import 'package:saber/data/tools/stroke_properties.dart';
 import 'package:saber/i18n/strings.g.dart';
 
@@ -35,6 +37,7 @@ void main() {
     setUpAll(() => Future.wait([FileManager.init(), PencilShader.init()]));
 
     const laserSbn = 'v17_laser_pointer.sbn2';
+    const pencilSbn = 'v18_pencil.sbn2';
     final sbnExamples =
         Directory('test/sbn_examples/')
             .listSync()
@@ -86,6 +89,15 @@ void main() {
               page.strokes.map(LaserStroke.convertStroke),
             );
             page.strokes.clear();
+          } else if (sbnName == pencilSbn) {
+            final select = Select.currentSelect;
+            final page = coreInfo.pages.first;
+            select
+              ..onDragStart(const Offset(200, 550), 0)
+              ..onDragUpdate(const Offset(200, 930))
+              ..onDragUpdate(const Offset(330, 930))
+              ..onDragUpdate(const Offset(330, 550))
+              ..onDragEnd(page.strokes, page.images);
           }
           if (coreInfo.pages.length > 1 && coreInfo.pages.last.isEmpty) {
             coreInfo.pages.removeLast();
@@ -94,6 +106,7 @@ void main() {
         tearDownAll(() {
           FileManager.shouldUseRawFilePath = false;
           EditorImage.shouldLoadOutImmediately = false;
+          Select.currentSelect.unselect();
         });
 
         testGoldens('(Light)', (tester) async {
@@ -214,6 +227,38 @@ void main() {
             );
           }, skip: !hasGhostscript);
         }
+
+        if (sbnName == pencilSbn) {
+          // When editorAutoInvert is false, the dark theme's foreground colors
+          // will have poor contrast against the white page background:
+          // https://github.com/saber-notes/saber/issues/1877
+          testGoldens('(Dark uninverted)', (tester) async {
+            stows.editorAutoInvert.value = false;
+            addTearDown(() => stows.editorAutoInvert.value = true);
+
+            await tester.runAsync(
+              () => _precacheImages(
+                context: tester.binding.rootElement!,
+                page: page,
+              ),
+            );
+            await tester.pumpWidget(
+              _buildCanvas(
+                brightness: .dark,
+                path: path,
+                page: page,
+                coreInfo: coreInfo,
+              ),
+            );
+            await tester.loadAssets(alsoLoadTheseFonts: ['Dekko']);
+            await tester.pumpAndSettle();
+
+            await expectLater(
+              find.byType(Canvas),
+              matchesGoldenFile('sbn_examples/$sbnName.dark.uninverted.png'),
+            );
+          });
+        }
       });
     }
 
@@ -331,6 +376,7 @@ Widget _buildCanvas({
   required EditorCoreInfo coreInfo,
   double currentScale = double.maxFinite,
 }) {
+  final selectResult = Select.currentSelect.selectResult;
   return TranslationProvider(
     child: MaterialApp(
       theme: ThemeData(brightness: brightness),
@@ -348,7 +394,9 @@ Widget _buildCanvas({
                 coreInfo: coreInfo,
                 currentStroke: null,
                 currentStrokeDetectedShape: null,
-                currentSelection: null,
+                currentSelection: selectResult.pageIndex == 0
+                    ? selectResult
+                    : null,
                 setAsBackground: null,
                 currentTool: LaserPointer.currentLaserPointer,
                 currentScale: currentScale,
