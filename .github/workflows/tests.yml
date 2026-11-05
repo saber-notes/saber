@@ -11,6 +11,7 @@ jobs:
   run-tests:
     name: Run Flutter tests
     runs-on: ubuntu-latest
+    container: ghcr.io/saber-notes/saber_test_env:latest
     timeout-minutes: 20
     steps:
       - name: Checkout code
@@ -18,7 +19,8 @@ jobs:
         with:
           persist-credentials: false
 
-      - uses: "./.github/shared_workflows/install_apt_dependencies"
+      - name: Add Git safe directory
+        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
 
       - name: Setup cache
         uses: actions/cache@v6.1.0
