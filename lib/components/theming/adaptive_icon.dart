@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:saber/components/theming/saber_theme.dart';
 
 class AdaptiveIcon extends StatelessWidget {

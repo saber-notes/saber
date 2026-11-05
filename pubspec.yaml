@@ -33,17 +33,20 @@ dependencies:
   flutter_localizations:
     sdk: flutter
 
-  cupertino_icons: ^1.0.5
+  material_ui: ^1.0.0
+  cupertino_ui: ^1.0.0
+
+  cupertino_icons: ^2.0.0
   material_symbols_icons: ^4.2758.0
 
   sbn:
     path: packages/sbn
 
-  dynamic_color: ^1.5.4
+  dynamic_color: ^2.1.0
 
   flutter_staggered_grid_view: ^0.7.0
 
-  go_router: ^17.0.0
+  go_router: ^18.1.3
   path_to_regexp: ^0.4.0
 
   perfect_freehand: ^2.5.1
@@ -79,7 +82,7 @@ dependencies:
   slang: ^4.12.1
   slang_flutter:
 
-  flex_color_picker: ^3.4.1
+  flex_color_picker: ^4.0.0
 
   font_awesome_flutter: ^11.0.0
 
@@ -90,7 +93,7 @@ dependencies:
   permission_handler: ^13.0.0
   saver_gallery: ^5.1.0
 
-  animations: ^2.0.7
+  animations: ^3.0.0
 
   flutter_quill: ^11.5.1
 
@@ -142,7 +145,7 @@ dependencies:
 
   flutter_web_auth_2: ^5.0.1
 
-  pdfrx: ">=2.4.2 <2.5.0" # 2.5.0 requires material_ui
+  pdfrx: ^2.5.0
   path: ^1.9.1
 
   stow: ^0.6.0
@@ -150,8 +153,8 @@ dependencies:
   stow_secure: ^0.7.0
   stow_codecs: ^1.4.0
 
-  sentry_flutter: ^9.21.0
-  sentry_logging: ^9.5.0
+  sentry_flutter: ^10.3.0
+  sentry_logging: ^10.3.0
 
   background_downloader: ^9.2.6
 
@@ -177,7 +180,7 @@ dev_dependencies:
 
   yaml: ^3.1.2
 
-  golden_screenshot: ^11.1.1
+  golden_screenshot: ^12.1.1
 
   sentry_dart_plugin: ^3.1.1
 
@@ -191,6 +194,24 @@ dependency_overrides:
 
   # https://github.com/GregoryConrad/native_toolchain_rust/issues/103
   native_toolchain_rust: 1.0.4+0
+
+  # material_ui support: https://github.com/ubuntu/yaru.dart/pull/1110
+  yaru:
+    git:
+      url: https://github.com/adil192/yaru.dart.git
+      ref: feat!/migrate-to-material_ui
+
+  # material_ui support: https://github.com/adil192/dynamic_yaru/pull/1
+  dynamic_yaru:
+    git:
+      url: https://github.com/adil192/dynamic_yaru.git
+      ref: ref!/migrate-to-standalone-material_ui
+
+  # material_ui support: no pull request yet
+  flutter_quill:
+    git:
+      url: https://github.com/adil192/flutter-quill.git
+      ref: ref!/migrate-to-standalone-material_ui
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

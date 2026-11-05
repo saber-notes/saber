@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 class InvertWidget extends StatelessWidget {
   const new({super.key, this.invert = true, required this.child});

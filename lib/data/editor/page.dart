@@ -3,8 +3,8 @@ import 'dart:math';
 import 'dart:typed_data';
 import 'dart:ui' show FragmentShader;
 
-import 'package:flutter/material.dart';
 import 'package:flutter_quill/flutter_quill.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:saber/components/canvas/_asset_cache.dart';
 import 'package:saber/components/canvas/_stroke.dart';
 import 'package:saber/components/canvas/image/editor_image.dart';
