@@ -19,6 +19,9 @@ jobs:
         with:
           persist-credentials: false
 
+      - name: Add Git safe directory
+        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
+
       - name: Setup cache
         uses: actions/cache@v6.1.0
         with:
