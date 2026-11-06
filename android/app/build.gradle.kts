@@ -28,9 +28,9 @@ android {
     }
 
     defaultConfig {
+        // https://flutter.dev/to/review-gradle-config
         applicationId = "com.adilhanney.saber"
-        // You can update the following values to match your application needs.
-        // For more information, see: https://flutter.dev/to/review-gradle-config.
+        // If you change this minSdk, also update patches/pre/remove_proprietary_dependencies.sh.
         minSdk = 26
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
