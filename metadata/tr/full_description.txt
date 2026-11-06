@@ -1,0 +1,15 @@
+Saber el yazısı için geliştirilmiş not alma uygulamasıdır.
+
+Saber'in amacı olabildiğince basit ve doğal bir deneyimi kullanmak isteyeceğiniz özlliklerle beraber sunmaktır. Ayrıca Saber, birçok cihaz ile uyumludur ve bu cihazlar arası senkronizasyon sunar.
+
+Saber, notlarınızı karanlık modda siyah arka plan üzerine beyaz olacak şekilde dönüştürebilir ve gözünüze rahat bir tecrübe sağlamanın üzerine aygıtınızın fazlaca parlamasını engeller. Görseller ve PDF'ler de bu moda göre dönüştürülebilir, bu sayede dijital kitap ve notlarınızı dertsiz kullanabilirsiniz.
+
+Saber çift şifre sistemi kullanarak notlarınızı sizin dışınızdaki herkesten korur. Başka şahıslar sunucu üzerinde tam erişim sağlasa bile. Bu yüzden notlarınızı tam bir güven duygusuyla ister Saber'in resmi sunucularında, başka sunucularda hatta kendi sunucunuzda bile saklayabilirsiniz.
+
+Saber tamamen açık kaynakl olduğundan kodunu görüntüleyerek kullanıcı verilerinin nasıl işlendiğini (ve işlenmediğini) görebilirsiniz. İçinde neler döndüğü bilinmeyen diğer popüler not alma uygulamalarının aksine Saber, kullanıcı gizliliğine ve güvenliğine fazlasıyla önem verir.
+
+Matematik ile çalışan birisi olarak hiçbir uygulamanın altını çizme özelliğini tatmin edici bulamadım. Gerek birkaç satırın altını çizerken üst üste gelince rengin kalınlaşması, gerek rengin yazının üzerine gelmesi ve bunun tutarsızlığı... Saber'i geliştirirken altını çizme özelliği için fazlasıyla uğraştım ve samimi olarak gerçekten tamamen tatmin edici. 
+
+Saber notlarınızın organize bir şekilde tutulması için gereken her şeye sahip. Notlarınızı tutan dosyaları başka dosyaların içine koyup onları da başka dosyaların içine, onları da bambaşkalarının içine koya koya notlarınızı yüreğinizin arzuladığı kadar derine gömebilirsiniz. Ama ne kadar derine gömerseniz gömün ana sayfadaki son kullanılan notlar bölümünden hepsine bir tık ile ulaşabilirsiniz.
+
+Duygu, düşünce ve bilginizi saklamak, organize etmek ve erişilebilir hale getirmenin yepyeni ve modern yolunu Saber ile keşfedin! İster öğrenci, ister yaratıcı bir zihin, ister meslek sahibi bir yetkin olun; Saber sizin dijital not alım için kadim dostunuz. Şimdi indirin ve aklınızdaki fikirlerin özgürce dijitale akmasına izin verin!
