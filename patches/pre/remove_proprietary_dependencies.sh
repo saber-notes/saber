@@ -71,3 +71,12 @@ if [ -f "lib/data/sentry/_sentry_init_foss.dart" ]; then
 else
   echo "not found"
 fi
+
+# restore minSdk since only sentry_flutter needs newer than flutter's default
+echo -n "Reducing minSdk: "
+if grep -q "minSdk = 26" "android/app/build.gradle.kts"; then
+  echo "found"
+  sed -i 's/minSdk = 26/minSdk = flutter.minSdkVersion/' android/app/build.gradle.kts
+else
+  echo "already done"
+fi
