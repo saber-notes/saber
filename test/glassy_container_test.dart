@@ -1,8 +1,7 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
 import 'package:golden_screenshot/golden_screenshot.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:saber/components/navbar/bottom_navbar.dart';
 import 'package:saber/components/theming/saber_theme.dart';
 import 'package:saber/components/theming/uni_icon.dart';

@@ -1,5 +1,5 @@
 import 'package:collapsible/collapsible.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:saber/i18n/strings.g.dart';
 import 'package:sbn/read_only_reason.dart';
 

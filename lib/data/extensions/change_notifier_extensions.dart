@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 extension ChangeNotifierExtensions on ChangeNotifier {
   /// This is a hack to allow us to call [notifyListeners]

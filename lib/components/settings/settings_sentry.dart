@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:saber/components/home/sentry_consent_dialog.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/data/sentry/sentry_init.dart';

@@ -2,9 +2,9 @@ import 'dart:async';
 import 'dart:io';
 import 'dart:ui' as ui;
 
-import 'package:flutter/material.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_quill/flutter_quill.dart';
 import 'package:image/image.dart' as im;
+import 'package:material_ui/material_ui.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'package:pool/pool.dart';
@@ -224,7 +224,10 @@ class EditorExporterTheme extends StatelessWidget {
       child: Localizations(
         // needed to avoid errors with Quill, but not actually used
         locale: const Locale('en', 'US'),
-        delegates: GlobalMaterialLocalizations.delegates,
+        delegates: const [
+          ...GlobalMaterialLocalizations.delegates,
+          FlutterQuillLocalizations.delegate,
+        ],
         child: Theme(
           data: theme,
           child: DefaultTextStyle(

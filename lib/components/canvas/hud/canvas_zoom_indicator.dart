@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart' hide TransformationController;
+import 'package:material_ui/material_ui.dart' hide TransformationController;
 
 class CanvasZoomIndicator extends StatelessWidget {
   const new({super.key, required this.scale, required this.resetZoom});

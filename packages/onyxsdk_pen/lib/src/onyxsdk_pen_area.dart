@@ -2,8 +2,8 @@ import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter/widgets.dart';
 import 'package:onyxsdk_pen/onyxsdk_pen.dart';
 
 /// Renders a native Android view which uses the Onyx SDK to draw on the screen.
@@ -12,7 +12,7 @@ class OnyxSdkPenArea extends StatefulWidget {
     super.key,
     this.refreshDelay = const Duration(seconds: 1),
     this.strokeStyle = OnyxStrokeStyle.fountainPen,
-    this.strokeColor = Colors.black,
+    this.strokeColor = const Color(0xFF000000),
     this.strokeWidth = 3.0,
     required this.child,
   });
