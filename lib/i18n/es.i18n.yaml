@@ -54,8 +54,10 @@ home:
     deleteNotes: Eliminar $n notas
     confirmDelete:
       other: ¿Desea eliminar la nota seleccionada de forma permanente?
+      one: Eliminar permanentemente la nota seleccionada?
     delete: Eliminar
     deleteName(OUTDATED): Borrar $f
+    deleteName: Eliminar $f
   renameFolder:
     renameFolder: Renombrar carpeta
     folderName: Nombre de la carpeta
@@ -74,10 +76,16 @@ home:
     nameZToA(OUTDATED): Nombre (de la A a la Z)
     lastModifiedNewToOld(OUTDATED): Editado (Más reciente primero)
     lastModifiedOldToNew(OUTDATED): Editado (Más antiguo primero)
+    sortBy: Ordenar por
+    nameAToZ: Nombre (A-Z)
+    nameZToA: Nombre (Z-A)
+    lastModifiedNewToOld: Editado (Nuevos primero)
+    lastModifiedOldToNew: Editado (Antiguos primero)
   layout:
     layout(OUTDATED): Diseño de página
     masonryGrid(OUTDATED): Cuadrícula de mampostería
     simpleGrid(OUTDATED): Cuadrícula simple
+    simpleGrid: Cuadricula simple
 sentry:
   consent:
     title: ¿Quieres mejorar Saber?
@@ -86,7 +94,7 @@ sentry:
       scope: Los reportes pueden contener información acerca del error y su dispositivo. Me he esforzado por filtrar la información personal, pero es posible que queden restos.
       currentlyOff: Si aceptas, los informes de error se activarán al reiniciar la app.
       currentlyOn: En caso de retirar su consentimiento, reinicie la aplicación para desactivar el reporte de errores.
-      learnMoreInPrivacyPolicy(rich): Aprenda más en ${link(privacy policy)}.
+      learnMoreInPrivacyPolicy(rich): Aprende más en ${link(privacy policy)}.
     answers:
       yes: Si
       no: No
@@ -148,7 +156,11 @@ settings:
       inactive(OUTDATED): Inactivo
       activeUntilRestart(OUTDATED): Activo hasta que reinicie la aplicación
       inactiveUntilRestart(OUTDATED): Inactivo hasta que reinicie la aplicación
+      active: Activo
+      inactive: Inactivo
+      activeUntilRestart: Activo hasta el reinicio de la aplicación
     autosave(OUTDATED): Auto-Save después de un breve retraso, o nunca
+    autosave: Guardado automático con una pequeña demora, o nunca
   themeModes:
     system: Sistema
     light: Claro
