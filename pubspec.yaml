@@ -180,7 +180,7 @@ dev_dependencies:
 
   yaml: ^3.1.2
 
-  golden_screenshot: ^12.1.1
+  golden_screenshot: ^12.2.0
 
   sentry_dart_plugin: ^3.1.1
 
@@ -212,6 +212,13 @@ dependency_overrides:
     git:
       url: https://github.com/adil192/flutter-quill.git
       ref: ref!/migrate-to-standalone-material_ui
+
+  # https://github.com/canonical/ubuntu-flutter-plugins/pull/541
+  platform_linux:
+    git:
+      url: https://github.com/adil192/ubuntu-flutter-plugins.git
+      ref: fix/platform-3.2.0
+      path: packages/platform_linux
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
