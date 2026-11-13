@@ -190,10 +190,11 @@ void _insert(String languageCode, List<Object> pathOfKeys, String translated) {
     }
   }
 
+  // The flags needed vary based on your system
   _run('yq', [
-    '--in-place',
-    '--yaml-roundtrip', // preserve formatting
-    '--width=0', // disable line wrapping
+    '-i', // edit in place
+    // '--yaml-roundtrip', // preserve formatting
+    // '--width=0', // disable line wrapping
     '$query = ${jsonEncode(translated)}',
     'lib/i18n/$languageCode.i18n.yaml',
   ]);
