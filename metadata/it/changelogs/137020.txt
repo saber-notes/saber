@@ -1,0 +1,1 @@
+Corretto il basso contrasto nell'editor in modalità scura con la funzione di inversione disabilitata.

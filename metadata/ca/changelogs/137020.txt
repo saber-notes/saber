@@ -1,0 +1,1 @@
+S'ha corregit el baix contrast a l'editor en mode fosc amb la funció d'inversió desactivada.

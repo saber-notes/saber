@@ -1,0 +1,1 @@
+Fixed poor contrast in the editor in dark mode with the inversion feature disabled.

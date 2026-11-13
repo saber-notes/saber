@@ -1,0 +1,1 @@
+Memperbaiki kontras yang buruk di editor dalam mode gelap dengan fitur invers dinonaktifkan.

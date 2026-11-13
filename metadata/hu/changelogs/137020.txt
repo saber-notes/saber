@@ -1,0 +1,1 @@
+Megoldva a rossz kontrasztot az editőrben, amikor a sötét módben kikapcsolva van az inverter funkció.

@@ -1,0 +1,1 @@
+Naprawiono słabły kontrast w edytorze w trybie ciemnym z wyłączoną funkcją odwracania kolorów.

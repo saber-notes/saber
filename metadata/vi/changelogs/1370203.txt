@@ -1,0 +1,1 @@
+Đã khắc phục độ tương phản kém trong trình chỉnh sửa ở chế độ tối khi tính năng đảo ngược bị tắt.

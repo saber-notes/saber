@@ -1,0 +1,1 @@
+Se corrigió el bajo contraste en el editor en modo oscuro con la función de inversión desactivada.

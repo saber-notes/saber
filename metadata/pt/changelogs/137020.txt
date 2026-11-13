@@ -1,0 +1,1 @@
+Corrigido o baixo contraste no editor no modo escuro com o recurso de inversão desativado.

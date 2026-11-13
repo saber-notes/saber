@@ -1,0 +1,1 @@
+Verbeterde de slechte contrast in de editor in donkere modus met de inversie-functie uitgeschakeld.

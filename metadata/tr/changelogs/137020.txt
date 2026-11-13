@@ -1,0 +1,1 @@
+Karanlık modda ters çevirme özelliği devre dışı bırakıldığında editördeki zayıf kontrast düzeltildi.

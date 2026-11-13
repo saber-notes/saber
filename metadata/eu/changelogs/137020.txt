@@ -1,0 +1,1 @@
+Zuzendu da editoreko kontrastare txikendua modu eskolakera (dark mode) invertitzio funtzionalitatea desaktatuta.

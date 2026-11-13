@@ -1,0 +1,1 @@
+Schlechter Kontrast im Editor im Dunkelmodus mit deaktivierter Inversionsfunktion behoben.
