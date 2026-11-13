@@ -79,8 +79,8 @@ class NcLoginStep extends HookWidget {
     final shouldUseTwoColumns = _shouldUseTwoColumns(screenSize);
     if (shouldUseTwoColumns) {
       return Center(
-        child: Padding(
-          padding: const .all(64),
+        child: SafeArea(
+          minimum: const .all(64),
           child: SizedBox(
             width: _width * 3,
             child: Row(
@@ -117,29 +117,36 @@ class NcLoginStep extends HookWidget {
         ),
       );
     } else {
-      return ListView(
-        padding: .symmetric(
-          horizontal: screenSize.width > _width
-              ? (screenSize.width - _width) / 2
-              : 16,
-          vertical: 16,
-        ),
-        children: [
-          const SizedBox(height: 16),
-          _Header(shouldUseTwoColumns: shouldUseTwoColumns),
-          const SizedBox(height: 32),
-          _LoginWithSaber(
-            login: () => loginFlow.value = _createLoginFlow(
-              context,
-              NextcloudClientExtension.defaultNextcloudUri,
+      final viewPadding = MediaQuery.viewPaddingOf(context);
+      final horizontalPadding = screenSize.width > _width
+          ? (screenSize.width - _width) / 2
+          : 16.0;
+      return MediaQuery.removeViewPadding(
+        context: context,
+        child: ListView(
+          padding: .only(
+            top: max(16, viewPadding.top),
+            bottom: max(16, viewPadding.bottom),
+            left: max(horizontalPadding, viewPadding.left),
+            right: max(horizontalPadding, viewPadding.right),
+          ),
+          children: [
+            const SizedBox(height: 16),
+            _Header(shouldUseTwoColumns: shouldUseTwoColumns),
+            const SizedBox(height: 32),
+            _LoginWithSaber(
+              login: () => loginFlow.value = _createLoginFlow(
+                context,
+                NextcloudClientExtension.defaultNextcloudUri,
+              ),
             ),
-          ),
-          const SizedBox(height: 32),
-          _LoginWithNextcloud(
-            login: (url) =>
-                loginFlow.value = _createLoginFlow(context, Uri.parse(url)),
-          ),
-        ],
+            const SizedBox(height: 32),
+            _LoginWithNextcloud(
+              login: (url) =>
+                  loginFlow.value = _createLoginFlow(context, Uri.parse(url)),
+            ),
+          ],
+        ),
       );
     }
   }

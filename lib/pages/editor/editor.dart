@@ -1663,16 +1663,21 @@ class EditorState extends State<Editor> {
 
     final Widget body;
     if (isToolbarVertical) {
+      final editorToolbarAlignment = stows.editorToolbarAlignment.value;
       body = Row(
-        textDirection: stows.editorToolbarAlignment.value == AxisDirection.left
-            ? .ltr
-            : .rtl,
+        textDirection: editorToolbarAlignment == .left ? .ltr : .rtl,
         children: [
           toolbar,
           Expanded(
             child: Column(
               children: [
-                Expanded(child: canvas),
+                Expanded(
+                  child: SafeArea(
+                    left: editorToolbarAlignment != .left,
+                    right: editorToolbarAlignment != .right,
+                    child: canvas,
+                  ),
+                ),
                 readonlyBanner,
               ],
             ),
@@ -1680,13 +1685,17 @@ class EditorState extends State<Editor> {
         ],
       );
     } else {
+      final editorToolbarAlignment = stows.editorToolbarAlignment.value;
       body = Column(
-        verticalDirection:
-            stows.editorToolbarAlignment.value == AxisDirection.up
-            ? VerticalDirection.up
-            : VerticalDirection.down,
+        verticalDirection: editorToolbarAlignment == .up ? .up : .down,
         children: [
-          Expanded(child: canvas),
+          Expanded(
+            child: SafeArea(
+              top: editorToolbarAlignment != .up,
+              bottom: editorToolbarAlignment != .down,
+              child: canvas,
+            ),
+          ),
           toolbar,
           readonlyBanner,
         ],

@@ -37,93 +37,107 @@ class DoneLoginStep extends StatelessWidget {
     final textTheme = TextTheme.of(context);
     final screenWidth = MediaQuery.sizeOf(context).width;
     final screenHeight = MediaQuery.sizeOf(context).height;
+    final viewPadding = MediaQuery.viewPaddingOf(context);
+    final horizontalPadding = screenWidth > width
+        ? (screenWidth - width) / 2
+        : 16.0;
     final quota = stows.lastStorageQuota.value;
     final serverName =
         stows.url.value.ifNotEmpty ?? t.login.ncLoginStep.saberNcServer;
     late final serverUri = stows.url.value.isEmpty
         ? NextcloudClientExtension.defaultNextcloudUri
         : Uri.parse(stows.url.value);
-    return ListView(
-      padding: .symmetric(
-        horizontal: screenWidth > width ? (screenWidth - width) / 2 : 16,
-        vertical: 16,
-      ),
-      children: [
-        const SizedBox(height: 16),
-        if (screenHeight > 500) ...[
-          SvgPicture.asset(
-            'assets/images/undraw_my_files_swob.svg',
-            width: width,
-            height: min(width * 576 / 844.6693, screenHeight * 0.25),
-            excludeFromSemantics: true,
-          ),
-          SizedBox(height: min(64, screenHeight * 0.05)),
-        ],
-        Row(
-          children: [
-            if (stows.pfp.value == null)
-              if (stows.url.value.isEmpty)
-                SvgPicture.asset('assets/icon/icon.svg', width: 32, height: 32)
+    return MediaQuery.removeViewPadding(
+      context: context,
+      child: ListView(
+        padding: .only(
+          top: max(16, viewPadding.top),
+          bottom: max(16, viewPadding.bottom),
+          left: max(horizontalPadding, viewPadding.left),
+          right: max(horizontalPadding, viewPadding.right),
+        ),
+        children: [
+          const SizedBox(height: 16),
+          if (screenHeight > 500) ...[
+            SvgPicture.asset(
+              'assets/images/undraw_my_files_swob.svg',
+              width: width,
+              height: min(width * 576 / 844.6693, screenHeight * 0.25),
+              excludeFromSemantics: true,
+            ),
+            SizedBox(height: min(64, screenHeight * 0.05)),
+          ],
+          Row(
+            children: [
+              if (stows.pfp.value == null)
+                if (stows.url.value.isEmpty)
+                  SvgPicture.asset(
+                    'assets/icon/icon.svg',
+                    width: 32,
+                    height: 32,
+                  )
+                else
+                  const Icon(Icons.account_circle, size: 32)
               else
-                const Icon(Icons.account_circle, size: 32)
-            else
-              Image.memory(stows.pfp.value!, width: 32, height: 32),
-            const SizedBox(width: 16),
-            Expanded(
-              child: Text(
-                t.login.status.hi(u: stows.username.value),
-                style: textTheme.headlineSmall,
+                Image.memory(stows.pfp.value!, width: 32, height: 32),
+              const SizedBox(width: 16),
+              Expanded(
+                child: Text(
+                  t.login.status.hi(u: stows.username.value),
+                  style: textTheme.headlineSmall,
+                ),
               ),
-            ),
-          ],
-        ),
-        const SizedBox(height: 2),
-        Text(quota?.describe() ?? Quota.describePlaceholder()),
-        const SizedBox(height: 2),
-        LinearProgressIndicator(
-          value: quota?.progressIndicatorValue,
-          minHeight: 32,
-          borderRadius: _elevatedButtonBorderRadiusOf(context),
-        ),
-        const SizedBox(height: 4),
-        ElevatedButton(onPressed: _logout, child: Text(t.profile.logout)),
-        const SizedBox(height: 32),
-        Text(t.profile.connectedTo, style: const TextStyle(height: 0.8)),
-        Text(serverName, style: textTheme.headlineSmall),
-        const SizedBox(height: 4),
-        Row(
-          children: [
-            Flexible(
-              fit: FlexFit.tight,
-              child: ElevatedButton(
-                onPressed: () {
-                  log.info('Opening URL: $serverUri');
-                  launchUrl(serverUri);
-                },
-                child: Text(t.profile.quickLinks.serverHomepage),
+            ],
+          ),
+          const SizedBox(height: 2),
+          Text(quota?.describe() ?? Quota.describePlaceholder()),
+          const SizedBox(height: 2),
+          LinearProgressIndicator(
+            value: quota?.progressIndicatorValue,
+            minHeight: 32,
+            borderRadius: _elevatedButtonBorderRadiusOf(context),
+          ),
+          const SizedBox(height: 4),
+          ElevatedButton(onPressed: _logout, child: Text(t.profile.logout)),
+          const SizedBox(height: 32),
+          Text(t.profile.connectedTo, style: const TextStyle(height: 0.8)),
+          Text(serverName, style: textTheme.headlineSmall),
+          const SizedBox(height: 4),
+          Row(
+            children: [
+              Flexible(
+                fit: FlexFit.tight,
+                child: ElevatedButton(
+                  onPressed: () {
+                    log.info('Opening URL: $serverUri');
+                    launchUrl(serverUri);
+                  },
+                  child: Text(t.profile.quickLinks.serverHomepage),
+                ),
               ),
-            ),
-            const SizedBox(width: 8),
-            Flexible(
-              fit: FlexFit.tight,
-              child: ElevatedButton(
-                onPressed: () {
-                  final url = '$serverUri/index.php/settings/user/drop_account';
-                  log.info('Opening URL: $url');
-                  launchUrl(Uri.parse(url));
-                },
-                child: Text(t.profile.quickLinks.deleteAccount),
+              const SizedBox(width: 8),
+              Flexible(
+                fit: FlexFit.tight,
+                child: ElevatedButton(
+                  onPressed: () {
+                    final url =
+                        '$serverUri/index.php/settings/user/drop_account';
+                    log.info('Opening URL: $url');
+                    launchUrl(Uri.parse(url));
+                  },
+                  child: Text(t.profile.quickLinks.deleteAccount),
+                ),
               ),
-            ),
-          ],
-        ),
-        const SizedBox(height: 32),
-        Text(t.profile.faqTitle, style: textTheme.headlineSmall),
-        FaqListView(
-          shrinkWrap: true,
-          items: [for (final item in t.profile.faq) FaqItem(item.q, item.a)],
-        ),
-      ],
+            ],
+          ),
+          const SizedBox(height: 32),
+          Text(t.profile.faqTitle, style: textTheme.headlineSmall),
+          FaqListView(
+            shrinkWrap: true,
+            items: [for (final item in t.profile.faq) FaqItem(item.q, item.a)],
+          ),
+        ],
+      ),
     );
   }
 }

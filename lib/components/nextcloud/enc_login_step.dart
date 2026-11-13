@@ -33,105 +33,117 @@ class EncLoginStep extends HookWidget {
     final textTheme = TextTheme.of(context);
     final screenWidth = MediaQuery.sizeOf(context).width;
     final screenHeight = MediaQuery.sizeOf(context).height;
-    return ListView(
-      padding: .symmetric(
-        horizontal: screenWidth > width ? (screenWidth - width) / 2 : 16,
-        vertical: 16,
-      ),
-      children: [
-        const SizedBox(height: 16),
-        if (screenHeight > 500) ...[
-          SvgPicture.asset(
-            'assets/images/undraw_mobile_encryption_re_yw3o.svg',
-            width: width,
-            height: min(width * 576 / 844.6693, screenHeight * 0.25),
-            excludeFromSemantics: true,
-          ),
-          SizedBox(height: min(64, screenHeight * 0.05)),
-        ],
-        Text(
-          t.login.status.hi(u: stows.username.value),
-          style: textTheme.headlineSmall,
+    final viewPadding = MediaQuery.viewPaddingOf(context);
+    final horizontalPadding = screenWidth > width
+        ? (screenWidth - width) / 2
+        : 16.0;
+    return MediaQuery.removeViewPadding(
+      context: context,
+      child: ListView(
+        padding: .only(
+          top: max(16, viewPadding.top),
+          bottom: max(16, viewPadding.bottom),
+          left: max(horizontalPadding, viewPadding.left),
+          right: max(horizontalPadding, viewPadding.right),
         ),
-        Text.rich(
-          t.login.notYou(
-            undoLogin: (text) => TextSpan(
-              text: text,
-              style: TextStyle(color: colorScheme.link),
-              recognizer: TapGestureRecognizer()
-                ..onTap = () {
-                  stows.url.value = '';
-                  stows.username.value = '';
-                  stows.ncPassword.value = '';
-                  recheckCurrentStep();
-                },
+        children: [
+          const SizedBox(height: 16),
+          if (screenHeight > 500) ...[
+            SvgPicture.asset(
+              'assets/images/undraw_mobile_encryption_re_yw3o.svg',
+              width: width,
+              height: min(width * 576 / 844.6693, screenHeight * 0.25),
+              excludeFromSemantics: true,
+            ),
+            SizedBox(height: min(64, screenHeight * 0.05)),
+          ],
+          Text(
+            t.login.status.hi(u: stows.username.value),
+            style: textTheme.headlineSmall,
+          ),
+          Text.rich(
+            t.login.notYou(
+              undoLogin: (text) => TextSpan(
+                text: text,
+                style: TextStyle(color: colorScheme.link),
+                recognizer: TapGestureRecognizer()
+                  ..onTap = () {
+                    stows.url.value = '';
+                    stows.username.value = '';
+                    stows.ncPassword.value = '';
+                    recheckCurrentStep();
+                  },
+              ),
             ),
           ),
-        ),
-        const SizedBox(height: 32),
-        Text(
-          t.login.encLoginStep.enterEncPassword,
-          style: textTheme.headlineSmall,
-        ),
-        const SizedBox(height: 4),
-        Text(t.login.encLoginStep.newToSaber),
-        const SizedBox(height: 16),
-        TextField(
-          controller: encPasswordController,
-          style: const TextStyle(
-            fontFamily: 'FiraMono',
-            fontFamilyFallback: saberMonoFontFallbacks,
+          const SizedBox(height: 32),
+          Text(
+            t.login.encLoginStep.enterEncPassword,
+            style: textTheme.headlineSmall,
           ),
-          decoration: InputDecoration(
-            labelText: t.login.encLoginStep.encPassword,
+          const SizedBox(height: 4),
+          Text(t.login.encLoginStep.newToSaber),
+          const SizedBox(height: 16),
+          TextField(
+            controller: encPasswordController,
+            style: const TextStyle(
+              fontFamily: 'FiraMono',
+              fontFamilyFallback: saberMonoFontFallbacks,
+            ),
+            decoration: InputDecoration(
+              labelText: t.login.encLoginStep.encPassword,
+            ),
+            autofillHints: const [AutofillHints.password],
+            autofocus: true,
           ),
-          autofillHints: const [AutofillHints.password],
-          autofocus: true,
-        ),
-        ValueListenableBuilder(
-          valueListenable: errorMessage,
-          builder: (context, errorMessage, _) {
-            if (errorMessage.isEmpty) return const SizedBox.shrink();
-            return Padding(
-              padding: const .only(top: 4),
-              child: Text(
-                errorMessage,
-                style: TextStyle(color: colorScheme.error),
-              ),
-            );
-          },
-        ),
-        const SizedBox(height: 4),
-        ListenableBuilder(
-          listenable: encPasswordController,
-          builder: (context, child) {
-            final encPassword = encPasswordController.text;
-            return ElevatedButton(
-              onPressed: (encPassword.isEmpty || isChecking.value)
-                  ? null
-                  : () async {
-                      isChecking.value = true;
-                      try {
-                        await _checkEncPassword(encPassword, errorMessage);
-                      } finally {
-                        isChecking.value = false;
-                      }
-                    },
-              child: child,
-            );
-          },
-          child: Text(t.common.continueBtn),
-        ),
-        const SizedBox(height: 32),
-        Text(t.login.encLoginStep.encFaqTitle, style: textTheme.headlineSmall),
-        FaqListView(
-          shrinkWrap: true,
-          items: [
-            for (final item in t.login.encLoginStep.encFaq)
-              FaqItem(item.q, item.a),
-          ],
-        ),
-      ],
+          ValueListenableBuilder(
+            valueListenable: errorMessage,
+            builder: (context, errorMessage, _) {
+              if (errorMessage.isEmpty) return const SizedBox.shrink();
+              return Padding(
+                padding: const .only(top: 4),
+                child: Text(
+                  errorMessage,
+                  style: TextStyle(color: colorScheme.error),
+                ),
+              );
+            },
+          ),
+          const SizedBox(height: 4),
+          ListenableBuilder(
+            listenable: encPasswordController,
+            builder: (context, child) {
+              final encPassword = encPasswordController.text;
+              return ElevatedButton(
+                onPressed: (encPassword.isEmpty || isChecking.value)
+                    ? null
+                    : () async {
+                        isChecking.value = true;
+                        try {
+                          await _checkEncPassword(encPassword, errorMessage);
+                        } finally {
+                          isChecking.value = false;
+                        }
+                      },
+                child: child,
+              );
+            },
+            child: Text(t.common.continueBtn),
+          ),
+          const SizedBox(height: 32),
+          Text(
+            t.login.encLoginStep.encFaqTitle,
+            style: textTheme.headlineSmall,
+          ),
+          FaqListView(
+            shrinkWrap: true,
+            items: [
+              for (final item in t.login.encLoginStep.encFaq)
+                FaqItem(item.q, item.a),
+            ],
+          ),
+        ],
+      ),
     );
   }
 

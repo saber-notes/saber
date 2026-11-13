@@ -486,7 +486,7 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
 
   @override
   Widget build(BuildContext context) {
-    final Size screenSize = MediaQuery.sizeOf(context);
+    final screenSize = MediaQuery.sizeOf(context);
 
     return Stack(
       children: [
