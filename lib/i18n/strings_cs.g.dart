@@ -804,7 +804,7 @@ class _Translations$editor$photoPdfError$cs extends Translations$editor$photoPdf
 
 	// Translations
 	@override String get title => 'Chyba';
-	@override String get message => 'Soubory PDF nelze přidat jako obrázek. Použijte pro to „${_root.editor.menu.import} > PDF“.';
+	@override String get message => 'Soubory ve formátu PDF nelze vložit jako obrázek. Případně použijte „${_root.editor.menu.import} > PDF“.';
 }
 
 // Path: editor.readOnlyBanner

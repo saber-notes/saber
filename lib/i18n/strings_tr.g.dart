@@ -72,6 +72,7 @@ class _Translations$home$tr extends Translations$home$en {
 	@override String get welcome => 'Saber\'a hoş geldiniz';
 	@override String get invalidFormat => 'Seçtiğiniz dosya desteklenmiyor. Lütfen bir .sbn, .sbn2, .sba veya .pdf dosyası seçin.';
 	@override String get noFiles => 'Dosya yok';
+	@override String get noPreviewAvailable => 'Önizleme mevcut değil';
 	@override String get createNewNote => 'Yeni bir not oluşturmak için + butonuna tıklayınız';
 	@override String get backFolder => 'Önceki klasöre dön';
 	@override late final _Translations$home$newFolder$tr newFolder = _Translations$home$newFolder$tr._(_root);
@@ -83,7 +84,6 @@ class _Translations$home$tr extends Translations$home$en {
 	@override late final _Translations$home$deleteFolder$tr deleteFolder = _Translations$home$deleteFolder$tr._(_root);
 	@override late final _Translations$home$sort$tr sort = _Translations$home$sort$tr._(_root);
 	@override late final _Translations$home$layout$tr layout = _Translations$home$layout$tr._(_root);
-	@override String get noPreviewAvailable => 'Önizleme yok';
 }
 
 // Path: sentry
@@ -131,11 +131,11 @@ class _Translations$logs$tr extends Translations$logs$en {
 	final TranslationsTr _root; // ignore: unused_field
 
 	// Translations
-	@override String get useTheApp => 'Uygulamayı kullanırken günlükler burada görünecektir';
-	@override String get logs => 'Günlükler';
-	@override String get viewLogs => 'Günlükleri görüntüle';
-	@override String get debuggingInfo => 'Günlükler hata ayıklama ve geliştirme için yararlı bilgiler içerir';
-	@override String get noLogs => 'Burada kayıt yok!';
+	@override String get logs => 'Kayıtlar';
+	@override String get viewLogs => 'Kayıtları görüntüle';
+	@override String get debuggingInfo => 'Kayıtlar, hata ayıklama ve geliştirme için yardımcı veriler içerir';
+	@override String get noLogs => 'Hiçbir kayıt yok!';
+	@override String get useTheApp => 'Uygulama kullanıldıkça kayıtlar burada oluşacak';
 }
 
 // Path: login
@@ -172,6 +172,7 @@ class _Translations$profile$tr extends Translations$profile$en {
 	@override String get title => 'Profilim';
 	@override String get logout => 'Çıkış yap';
 	@override String quotaUsage({required Object total, required Object used, required Object percent}) => 'Toplam ${total} alanın ${used} kadarını (${percent}%) kullandınız';
+	@override String quotaUsageUncapped({required Object used}) => '${used} kullanıyorsunuz';
 	@override String get connectedTo => 'Bağlanılan sunucu';
 	@override late final _Translations$profile$quickLinks$tr quickLinks = _Translations$profile$quickLinks$tr._(_root);
 	@override String get faqTitle => 'Sıkça sorulan sorular';
@@ -181,7 +182,6 @@ class _Translations$profile$tr extends Translations$profile$en {
 		_Translations$profile$faq$2$tr._(_root),
 		_Translations$profile$faq$3$tr._(_root),
 	];
-	@override String quotaUsageUncapped({required Object used}) => '${used} kullanıyorsunuz';
 }
 
 // Path: appInfo
@@ -311,8 +311,8 @@ class _Translations$home$renameNote$tr extends Translations$home$renameNote$en {
 	@override String get rename => 'Yeniden adlandır';
 	@override String get noteNameEmpty => 'Not adı boş bırakılamaz';
 	@override String get noteNameExists => 'Bu isimde bir not zaten var';
-	@override String get noteNameForbiddenCharacters => 'Not adı yasak karakterler içeriyor';
-	@override String get noteNameReserved => 'Not adı saklıdır';
+	@override String get noteNameForbiddenCharacters => 'Not adında izin verilmeyen karakterler bulunuyor';
+	@override String get noteNameReserved => 'Not adı kaydedildi';
 }
 
 // Path: home.moveNote
@@ -338,12 +338,12 @@ class _Translations$home$deleteNoteDialog$tr extends Translations$home$deleteNot
 	final TranslationsTr _root; // ignore: unused_field
 
 	// Translations
+	@override String deleteNotes({required Object n}) => '${n} notu sil';
+	@override String deleteName({required Object f}) => '${f}\'i sil';
 	@override String confirmDelete({required num n}) => (_root.$meta.cardinalResolver ?? PluralResolvers.cardinal('tr'))(n,
-		one: 'Seçilen notu kalıcı olarak sil?',
-		other: 'Seçilen notları kalıcı olarak silin?',
+		one: 'Seçili notu kalıcı olarak sil?',
+		other: 'Seçili notları kalıcı olarak sil?',
 	);
-	@override String deleteNotes({required Object n}) => '${n} notu\'ları sil';
-	@override String deleteName({required Object f}) => '${f}\'yi sil';
 	@override String get delete => 'Sil';
 }
 
@@ -382,11 +382,11 @@ class _Translations$home$sort$tr extends Translations$home$sort$en {
 	final TranslationsTr _root; // ignore: unused_field
 
 	// Translations
-	@override String get sortBy => 'Sırala';
-	@override String get nameAToZ => 'Adı (A-Z)';
-	@override String get nameZToA => 'Adı (A\'dan Z\'ye)';
-	@override String get lastModifiedNewToOld => 'Düzenlendi (En yeni ilk sırada)';
-	@override String get lastModifiedOldToNew => 'Düzenlendi (En eskiden önce)';
+	@override String get sortBy => 'Sıralama ölçütü';
+	@override String get nameAToZ => 'İsim (A-Z)';
+	@override String get nameZToA => 'İsim (Z-A)';
+	@override String get lastModifiedNewToOld => 'Düzenlenme (Önce en yeni)';
+	@override String get lastModifiedOldToNew => 'Düzenlenme (Önce en eski)';
 }
 
 // Path: home.layout
@@ -397,8 +397,8 @@ class _Translations$home$layout$tr extends Translations$home$layout$en {
 
 	// Translations
 	@override String get layout => 'Düzen';
-	@override String get masonryGrid => 'Duvar örgü ızgarası';
-	@override String get simpleGrid => 'Basit ızgara';
+	@override String get masonryGrid => 'Tuğla düzeni';
+	@override String get simpleGrid => 'Basit düzen';
 }
 
 // Path: sentry.consent
@@ -408,9 +408,9 @@ class _Translations$sentry$consent$tr extends Translations$sentry$consent$en {
 	final TranslationsTr _root; // ignore: unused_field
 
 	// Translations
+	@override String get title => 'Saber\'i iyileştirmeye yardım et?';
 	@override late final _Translations$sentry$consent$description$tr description = _Translations$sentry$consent$description$tr._(_root);
 	@override late final _Translations$sentry$consent$answers$tr answers = _Translations$sentry$consent$answers$tr._(_root);
-	@override String get title => 'Saber geliştirmeye yardımcı olur mu?';
 }
 
 // Path: settings.prefCategories
@@ -451,16 +451,16 @@ class _Translations$settings$prefLabels$tr extends Translations$settings$prefLab
 	@override String get autoClearWhiteboardOnExit => 'Uygulamadan çıkıldığında beyaz tahtayı temizle';
 	@override String get disableEraserAfterUse => 'Silgiden kaleme geçiş';
 	@override String get hideFingerDrawingToggle => 'Parmakla çizme kilidini sakla';
+	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Parmak çizimini otomatik olarak devre dışı bırak';
 	@override String get editorPromptRename => 'Notları yeniden adlandırmak için uyar';
 	@override String get recentColorsDontSavePresets => 'Ön tanımlı renkleri son kullanılanlara kaydetme';
 	@override String get recentColorsLength => 'Kaç tane son kullanılan renk saklanacak';
 	@override String get printPageIndicators => 'Sayfa belirteçlerini yazdır';
+	@override String get autosave => 'Otomatik kayıt';
 	@override String get shapeRecognitionDelay => 'Şekil tanıma gecikmesi';
 	@override String get autoStraightenLines => 'Çizgileri otomatik düzleştir';
 	@override String get customDataDir => 'Özel Saber klasörü';
-	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Parmak çizimini otomatik olarak devre dışı bırak';
 	@override String get sentry => 'Hata raporlama';
-	@override String get autosave => 'Otomatik koruma';
 }
 
 // Path: settings.prefDescriptions
@@ -477,14 +477,14 @@ class _Translations$settings$prefDescriptions$tr extends Translations$settings$p
 	@override String get disableEraserAfterUse => 'Silgiyi kullandıktan sonra otomatik olarak kaleme geçer';
 	@override String get maxImageSize => 'Bundan daha büyük görseller sıkıştırılacak';
 	@override late final _Translations$settings$prefDescriptions$hideFingerDrawing$tr hideFingerDrawing = _Translations$settings$prefDescriptions$hideFingerDrawing$tr._(_root);
+	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Kalem algılandığında parmakla çizimi devre dışı bırak';
 	@override String get editorPromptRename => 'Notlarınızı daha sonra da yeniden adlandırabilirsiniz';
 	@override String get printPageIndicators => 'Çıktılarda sayfa belirteçlerini göster';
+	@override String get autosave => 'Kısa bir bekleme sonrasında otomatik kaydet, ya da asla';
 	@override String get shapeRecognitionDelay => 'Çizilen şekilleri tanımlama sıklığını belirler';
 	@override String get autoStraightenLines => 'Şekil aracını kullanmadığınızda da çizgileri düzleştirir';
 	@override String get shouldAlwaysAlertForUpdates => 'Güncelleme mevcut olduğu gibi bana haber ver';
 	@override late final _Translations$settings$prefDescriptions$sentry$tr sentry = _Translations$settings$prefDescriptions$sentry$tr._(_root);
-	@override String get autoDisableFingerDrawingWhenStylusDetected => 'Bir kalem algılandığında parmakla çizimi kapatın';
-	@override String get autosave => 'Kısa bir gecikmeden sonra otomatik kaydetme veya asla';
 }
 
 // Path: settings.themeModes
@@ -543,7 +543,7 @@ class _Translations$settings$customDataDir$tr extends Translations$settings$cust
 	@override String get select => 'Seç';
 	@override String get mustBeEmpty => 'Seçilen klasör boş olmalı';
 	@override String get mustBeDoneSyncing => 'Klasörü değiştirmeden önce senkronizasyonun tamamlandığından emin olun';
-	@override String get unsupported => 'Bu özellik şu anda yalnızca geliştiriciler içindir. Bunu kullanmak muhtemelen veri kaybına neden olacaktır.';
+	@override String get unsupported => 'Bu özellik anlık olarak sadece geliştiriciler için. Kullanımı muhtemel veri kaybına sebep olur.';
 }
 
 // Path: login.form
@@ -785,6 +785,8 @@ class _Translations$editor$menu$tr extends Translations$editor$menu$en {
 	@override String get deletePage => 'Sayfayı sil';
 	@override String get lineHeight => 'Satır aralığı';
 	@override String get lineHeightDescription => 'Klavye girişi olan notların metin boyutunu da kontrol eder';
+	@override String get lineThickness => 'Çizgi kalınlığı';
+	@override String get lineThicknessDescription => 'Arka çizgi kalınlığı';
 	@override String get backgroundImageFit => 'Arkaplan görüntüsünü sığdır';
 	@override String get backgroundPattern => 'Arkaplan deseni';
 	@override String get import => 'İçe aktar';
@@ -792,8 +794,6 @@ class _Translations$editor$menu$tr extends Translations$editor$menu$en {
 	@override String get watchServerReadOnly => 'Sunucu izlenirken düzenleme yapılamaz';
 	@override late final _Translations$editor$menu$boxFits$tr boxFits = _Translations$editor$menu$boxFits$tr._(_root);
 	@override late final _Translations$editor$menu$bgPatterns$tr bgPatterns = _Translations$editor$menu$bgPatterns$tr._(_root);
-	@override String get lineThickness => 'Çizgi kalınlığı';
-	@override String get lineThicknessDescription => 'Arka plan çizgisi kalınlığı';
 }
 
 // Path: editor.photoPdfError
@@ -804,7 +804,7 @@ class _Translations$editor$photoPdfError$tr extends Translations$editor$photoPdf
 
 	// Translations
 	@override String get title => 'Hata';
-	@override String get message => 'PDF dosyaları resim olarak eklenemez. Bunun için "${_root.editor.menu.import} > PDF" kullanın.';
+	@override String get message => 'PDF dosyaları görsel olarak eklenemez. "${_root.editor.menu.import} > PDF" özelliğini kullanınız.';
 }
 
 // Path: editor.readOnlyBanner
@@ -815,8 +815,8 @@ class _Translations$editor$readOnlyBanner$tr extends Translations$editor$readOnl
 
 	// Translations
 	@override String get title => 'Yalnızca okunabilir mod';
-	@override String get watchingServer => 'Şu anda sunucudaki güncellemeleri izliyorsunuz. Bu modda düzenleme devre dışı bırakılır.';
-	@override String get corrupted => 'Not yüklenemedi. Bozulmuş veya hâlâ indiriliyor olabilir.';
+	@override String get watchingServer => 'Şu an sunucudaki güncellemeler için bekliyorsunuz. Bu modda düzenleme devre dışıdır.';
+	@override String get corrupted => 'Not açılamadı. Bozulmuş veya hala indirilmekte olabilir.';
 }
 
 // Path: editor.versionTooNew
@@ -863,13 +863,14 @@ class _Translations$sentry$consent$description$tr extends Translations$sentry$co
 	final TranslationsTr _root; // ignore: unused_field
 
 	// Translations
-	@override String get question => 'Beklenmedik hataları otomatik olarak bildirmek ister misiniz? Bu, sorunları daha hızlı tanımlamama ve düzeltmeme yardımcı olur.';
-	@override String get scope => 'Raporlar hata ve cihazınız hakkında bilgi içerebilir. Kişisel verileri filtrelemek için her türlü çabayı gösterdim, ancak bazıları kalabilir.';
-	@override String get currentlyOff => 'Onay verirseniz, uygulamayı yeniden başlattıktan sonra hata raporlaması etkinleştirilir.';
-	@override String get currentlyOn => 'Onayı iptal ederseniz, hata raporlamasını devre dışı bırakmak için lütfen uygulamayı yeniden başlatın.';
+	@override String get question => 'Öngörülemeyen hataları otomatik olarak raporlamak ister misiniz? Bu sorunları tanımamıza ve çzömemize destek olur.';
+	@override String get scope => 'Raporlar cihazınız ve aldığınız hata hakkında bilgi içerir. Kişisel verilerin filtrelenmesi için elimizden geleni yapmamıza rağmen bir kısmı raporlarda kalabilir.';
+	@override String get currentlyOff => 'Eğer onaylarsanız hata raporlama uygulama tekrar başlatıldığı zaman aktif hale gelecek.';
+	@override String get currentlyOn => 'Eğer onayınızı geri çekerseniz rapor gönderiminin devre dışı kalması için uygulamayı yeniden başlatın.';
 	@override TextSpan learnMoreInPrivacyPolicy({required InlineSpanBuilder link}) => TextSpan(children: [
-		link('Gizlilik Politikası'),
-		const TextSpan(text: ' \'da daha fazla bilgi edinin.'),
+		const TextSpan(text: 'Daha fazlası '),
+		link('privacy policy'),
+		const TextSpan(text: '\'de öğrenin.'),
 	]);
 }
 
@@ -880,9 +881,9 @@ class _Translations$sentry$consent$answers$tr extends Translations$sentry$consen
 	final TranslationsTr _root; // ignore: unused_field
 
 	// Translations
-	@override String get yes => 'Evet';
-	@override String get no => 'HAYIR';
-	@override String get later => 'Bana sonra sor';
+	@override String get yes => 'Onayla';
+	@override String get no => 'Onaylama';
+	@override String get later => 'Daha sonra sor';
 }
 
 // Path: settings.prefDescriptions.hideFingerDrawing
@@ -905,9 +906,9 @@ class _Translations$settings$prefDescriptions$sentry$tr extends Translations$set
 
 	// Translations
 	@override String get active => 'Aktif';
-	@override String get inactive => 'Aktif olmayan';
-	@override String get activeUntilRestart => 'Uygulamayı yeniden başlatana kadar etkin';
-	@override String get inactiveUntilRestart => 'Uygulamayı yeniden başlatana kadar aktif olmayan';
+	@override String get inactive => 'Devre dışı';
+	@override String get activeUntilRestart => 'Uygulama tekrar başlatılana kadar aktif';
+	@override String get inactiveUntilRestart => 'Uygulama tekrar başlatılana kadar devre dışı';
 }
 
 // Path: login.ncLoginStep.loginFlow

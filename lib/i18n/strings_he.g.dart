@@ -804,7 +804,7 @@ class _Translations$editor$photoPdfError$he extends Translations$editor$photoPdf
 
 	// Translations
 	@override String get title => 'שגיאה';
-	@override String get message => 'לא ניתן להוסיף קבצי PDF כתמונה. השתמש ב"${_root.editor.menu.import} > PDF" לכך.';
+	@override String get message => 'לא ניתן לייצא קובצי PDF כתמונות. במקום זאת, יש להשתמש בתכונה „‎${_root.editor.menu.import} > PDF”.';
 }
 
 // Path: editor.readOnlyBanner

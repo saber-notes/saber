@@ -52,12 +52,11 @@ home:
   deleteNote: Eliminar nota
   deleteNoteDialog:
     deleteNotes: Eliminar $n notas
-    confirmDelete:
-      other: ¿Desea eliminar la nota seleccionada de forma permanente?
-      one: Eliminar permanentemente la nota seleccionada?
-    delete: Eliminar
-    deleteName(OUTDATED): Borrar $f
     deleteName: Eliminar $f
+    confirmDelete:
+      one: Eliminar permanentemente la nota seleccionada?
+      other: ¿Desea eliminar la nota seleccionada de forma permanente?
+    delete: Eliminar
   renameFolder:
     renameFolder: Renombrar carpeta
     folderName: Nombre de la carpeta
@@ -71,21 +70,15 @@ home:
     delete: Eliminar
     alsoDeleteContents: Eliminar también las notas guardadas dentro de la carpeta
   sort:
-    sortBy(OUTDATED): Ordenar por
-    nameAToZ(OUTDATED): Nombre (de la A a la Z)
-    nameZToA(OUTDATED): Nombre (de la A a la Z)
-    lastModifiedNewToOld(OUTDATED): Editado (Más reciente primero)
-    lastModifiedOldToNew(OUTDATED): Editado (Más antiguo primero)
     sortBy: Ordenar por
     nameAToZ: Nombre (A-Z)
     nameZToA: Nombre (Z-A)
     lastModifiedNewToOld: Editado (Nuevos primero)
     lastModifiedOldToNew: Editado (Antiguos primero)
   layout:
+    simpleGrid: Cuadricula simple
     layout(OUTDATED): Diseño de página
     masonryGrid(OUTDATED): Cuadrícula de mampostería
-    simpleGrid(OUTDATED): Cuadrícula simple
-    simpleGrid: Cuadricula simple
 sentry:
   consent:
     title: ¿Quieres mejorar Saber?
@@ -148,19 +141,15 @@ settings:
     autoDisableFingerDrawingWhenStylusDetected: Desactivar dibujar con el dedo cuando hay un bolígrafo detectado
     editorPromptRename: Siempre puedes cambiar el nombre de las notas más tarde
     printPageIndicators: Mostrar indicadores de página en las exportaciones
+    autosave: Guardado automático con una pequeña demora, o nunca
     shapeRecognitionDelay: Cuán a menudo se actualiza la previsualización de forma
     autoStraightenLines: Enderezar líneas largas sin utilizar el bolígrafo de formas
     shouldAlwaysAlertForUpdates: Avísame sobre actualizaciones tan pronto como estén disponibles
     sentry:
-      active(OUTDATED): Activo
-      inactive(OUTDATED): Inactivo
-      activeUntilRestart(OUTDATED): Activo hasta que reinicie la aplicación
-      inactiveUntilRestart(OUTDATED): Inactivo hasta que reinicie la aplicación
       active: Activo
       inactive: Inactivo
       activeUntilRestart: Activo hasta el reinicio de la aplicación
-    autosave(OUTDATED): Auto-Save después de un breve retraso, o nunca
-    autosave: Guardado automático con una pequeña demora, o nunca
+      inactiveUntilRestart(OUTDATED): Inactivo hasta que reinicie la aplicación
   themeModes:
     system: Sistema
     light: Claro

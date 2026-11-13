@@ -23,6 +23,7 @@ home:
   welcome: Saber'a hoş geldiniz
   invalidFormat: Seçtiğiniz dosya desteklenmiyor. Lütfen bir .sbn, .sbn2, .sba veya .pdf dosyası seçin.
   noFiles: Dosya yok
+  noPreviewAvailable: Önizleme mevcut değil
   createNewNote: Yeni bir not oluşturmak için + butonuna tıklayınız
   backFolder: Önceki klasöre dön
   newFolder:
@@ -38,8 +39,6 @@ home:
     rename: Yeniden adlandır
     noteNameEmpty: Not adı boş bırakılamaz
     noteNameExists: Bu isimde bir not zaten var
-    noteNameForbiddenCharacters(OUTDATED): Not adı yasak karakterler içeriyor
-    noteNameReserved(OUTDATED): Not adı saklıdır
     noteNameForbiddenCharacters: Not adında izin verilmeyen karakterler bulunuyor
     noteNameReserved: Not adı kaydedildi
   moveNote:
@@ -52,18 +51,12 @@ home:
     numberRenamedTo: $n tane not çakışma olmaması için yeniden adlandırılacak
   deleteNote: Notu sil
   deleteNoteDialog:
-    confirmDelete(OUTDATED):
-      one(OUTDATED): Seçilen notu kalıcı olarak sil?
-      other(OUTDATED): Seçilen notları kalıcı olarak silin?
-    deleteNotes(OUTDATED): $n notu'ları sil
-    deleteName(OUTDATED): $f'yi sil
-    delete(OUTDATED): Sil
+    deleteNotes: $n notu sil
     deleteName: $f'i sil
     confirmDelete:
       one: Seçili notu kalıcı olarak sil?
       other: Seçili notları kalıcı olarak sil?
     delete: Sil
-    deleteNotes: $n notu sil
   renameFolder:
     renameFolder: Klasörü adlandır
     folderName: Klasör ismi
@@ -77,47 +70,28 @@ home:
     delete: Sil
     alsoDeleteContents: Bu klasördeki tüm notları da sil
   sort:
-    sortBy(OUTDATED): Sırala
-    nameAToZ(OUTDATED): Adı (A-Z)
-    nameZToA(OUTDATED): Adı (A'dan Z'ye)
-    lastModifiedNewToOld(OUTDATED): Düzenlendi (En yeni ilk sırada)
-    lastModifiedOldToNew(OUTDATED): Düzenlendi (En eskiden önce)
     sortBy: Sıralama ölçütü
     nameAToZ: İsim (A-Z)
     nameZToA: İsim (Z-A)
     lastModifiedNewToOld: Düzenlenme (Önce en yeni)
     lastModifiedOldToNew: Düzenlenme (Önce en eski)
   layout:
-    layout(OUTDATED): Düzen
-    masonryGrid(OUTDATED): Duvar örgü ızgarası
-    simpleGrid(OUTDATED): Basit ızgara
     layout: Düzen
     masonryGrid: Tuğla düzeni
     simpleGrid: Basit düzen
-  noPreviewAvailable(OUTDATED): Önizleme yok
-  noPreviewAvailable: Önizleme mevcut değil
 sentry:
   consent:
+    title: Saber'i iyileştirmeye yardım et?
     description:
-      question(OUTDATED): Beklenmedik hataları otomatik olarak bildirmek ister misiniz? Bu, sorunları daha hızlı tanımlamama ve düzeltmeme yardımcı olur.
-      scope(OUTDATED): Raporlar hata ve cihazınız hakkında bilgi içerebilir. Kişisel verileri filtrelemek için her türlü çabayı gösterdim, ancak bazıları kalabilir.
-      currentlyOff(OUTDATED): Onay verirseniz, uygulamayı yeniden başlattıktan sonra hata raporlaması etkinleştirilir.
-      currentlyOn(OUTDATED): Onayı iptal ederseniz, hata raporlamasını devre dışı bırakmak için lütfen uygulamayı yeniden başlatın.
-      learnMoreInPrivacyPolicy(rich, OUTDATED): ${link(Gizlilik Politikası)} 'da daha fazla bilgi edinin.
       question: Öngörülemeyen hataları otomatik olarak raporlamak ister misiniz? Bu sorunları tanımamıza ve çzömemize destek olur.
       scope: Raporlar cihazınız ve aldığınız hata hakkında bilgi içerir. Kişisel verilerin filtrelenmesi için elimizden geleni yapmamıza rağmen bir kısmı raporlarda kalabilir.
       currentlyOff: Eğer onaylarsanız hata raporlama uygulama tekrar başlatıldığı zaman aktif hale gelecek.
       currentlyOn: Eğer onayınızı geri çekerseniz rapor gönderiminin devre dışı kalması için uygulamayı yeniden başlatın.
-      learnMoreInPrivacyPolicy(rich): Daha fazlası ${link(privacy policy)'de öğrenin.
+      learnMoreInPrivacyPolicy(rich): Daha fazlası ${link(privacy policy)}'de öğrenin.
     answers:
-      yes(OUTDATED): Evet
-      no(OUTDATED): HAYIR
-      later(OUTDATED): Bana sonra sor
       yes: Onayla
       no: Onaylama
       later: Daha sonra sor
-    title(OUTDATED): Saber geliştirmeye yardımcı olur mu?
-    title: Saber'i iyileştirmeye yardım et?
 settings:
   prefCategories:
     general: Genel
@@ -143,18 +117,15 @@ settings:
     autoClearWhiteboardOnExit: Uygulamadan çıkıldığında beyaz tahtayı temizle
     disableEraserAfterUse: Silgiden kaleme geçiş
     hideFingerDrawingToggle: Parmakla çizme kilidini sakla
+    autoDisableFingerDrawingWhenStylusDetected: Parmak çizimini otomatik olarak devre dışı bırak
     editorPromptRename: Notları yeniden adlandırmak için uyar
     recentColorsDontSavePresets: Ön tanımlı renkleri son kullanılanlara kaydetme
     recentColorsLength: Kaç tane son kullanılan renk saklanacak
     printPageIndicators: Sayfa belirteçlerini yazdır
+    autosave: Otomatik kayıt
     shapeRecognitionDelay: Şekil tanıma gecikmesi
     autoStraightenLines: Çizgileri otomatik düzleştir
     customDataDir: Özel Saber klasörü
-    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Parmak çizimini otomatik olarak devre dışı bırak
-    sentry(OUTDATED): Hata raporlama
-    autosave(OUTDATED): Otomatik koruma
-    autoDisableFingerDrawingWhenStylusDetected: Parmak çizimini otomatik olarak devre dışı bırak
-    autosave: Otomatik kayıt
     sentry: Hata raporlama
   prefDescriptions:
     hyperlegibleFont: Atkinson Hyperlegible, görme sorunu yaşayanların okumasını kolaylaştıran bir fonttur
@@ -167,24 +138,18 @@ settings:
       shown: Yanlışlıkla değiştirilmesini engeller
       fixedOn: Parmakla çizim izni verildi ve sabitlendi
       fixedOff: Parmakla çizim izni verilmedi ve sabitlendi
+    autoDisableFingerDrawingWhenStylusDetected: Kalem algılandığında parmakla çizimi devre dışı bırak
     editorPromptRename: Notlarınızı daha sonra da yeniden adlandırabilirsiniz
     printPageIndicators: Çıktılarda sayfa belirteçlerini göster
+    autosave: Kısa bir bekleme sonrasında otomatik kaydet, ya da asla
     shapeRecognitionDelay: Çizilen şekilleri tanımlama sıklığını belirler
     autoStraightenLines: Şekil aracını kullanmadığınızda da çizgileri düzleştirir
     shouldAlwaysAlertForUpdates: Güncelleme mevcut olduğu gibi bana haber ver
     sentry:
-      active(OUTDATED): Aktif
-      inactive(OUTDATED): Aktif olmayan
-      activeUntilRestart(OUTDATED): Uygulamayı yeniden başlatana kadar etkin
-      inactiveUntilRestart(OUTDATED): Uygulamayı yeniden başlatana kadar aktif olmayan
       active: Aktif
       inactive: Devre dışı
       activeUntilRestart: Uygulama tekrar başlatılana kadar aktif
       inactiveUntilRestart: Uygulama tekrar başlatılana kadar devre dışı
-    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Bir kalem algılandığında parmakla çizimi kapatın
-    autosave(OUTDATED): Kısa bir gecikmeden sonra otomatik kaydetme veya asla
-    autoDisableFingerDrawingWhenStylusDetected: Kalem algılandığında parmakla çizimi devre dışı bırak
-    autosave: Kısa bir bekleme sonrasında otomatik kaydet, ya da asla
   themeModes:
     system: Sistem teması
     light: Aydınlık
@@ -211,22 +176,14 @@ settings:
     select: Seç
     mustBeEmpty: Seçilen klasör boş olmalı
     mustBeDoneSyncing: Klasörü değiştirmeden önce senkronizasyonun tamamlandığından emin olun
-    unsupported(OUTDATED): Bu özellik şu anda yalnızca geliştiriciler içindir. Bunu kullanmak muhtemelen veri kaybına neden olacaktır.
     unsupported: Bu özellik anlık olarak sadece geliştiriciler için. Kullanımı muhtemel veri kaybına sebep olur.
-  autosaveDisabled(OUTDATED): Asla
-  shapeRecognitionDisabled(OUTDATED): Asla
-  shapeRecognitionDisabled: Asla
   autosaveDisabled: Asla
+  shapeRecognitionDisabled: Asla
 logs:
-  useTheApp(OUTDATED): Uygulamayı kullanırken günlükler burada görünecektir
-  logs(OUTDATED): Günlükler
-  viewLogs(OUTDATED): Günlükleri görüntüle
-  debuggingInfo(OUTDATED): Günlükler hata ayıklama ve geliştirme için yararlı bilgiler içerir
-  noLogs(OUTDATED): Burada kayıt yok!
-  viewLogs: Kayıtları görüntüle
-  noLogs: Hiçbir kayıt yok!
   logs: Kayıtlar
+  viewLogs: Kayıtları görüntüle
   debuggingInfo: Kayıtlar, hata ayıklama ve geliştirme için yardımcı veriler içerir
+  noLogs: Hiçbir kayıt yok!
   useTheApp: Uygulama kullanıldıkça kayıtlar burada oluşacak
 login:
   title: Giriş yap
@@ -274,6 +231,7 @@ profile:
   title: Profilim
   logout: Çıkış yap
   quotaUsage: Toplam $total alanın $used kadarını ($percent%) kullandınız
+  quotaUsageUncapped: $used kullanıyorsunuz
   connectedTo: Bağlanılan sunucu
   quickLinks:
     serverHomepage: Sunucu anasayfası
@@ -295,8 +253,6 @@ profile:
       Üstte yer alan "@:profile.quickLinks.deleteAccount" butonuna tıklayın, gerekirse giriş yapın.
       Eğer resmi Saber sunucusunu kullanıyorsanız hesabınız 1 haftalık bekleme süresinden sonra silinecek. adilhanney@disroot.org adresinden benimle iletişime geçerek silinme talebini iptal edebilirsiniz.
       Eğer üçüncü parti bir sunucu kullanıyorsanız hesabınızı silme seçeneği sunulmuyor olabilir: daha fazla bilgi için ilgili sunucunun gizlilik politikasını inceleyin.
-  quotaUsageUncapped(OUTDATED): $used kullanıyorsunuz
-  quotaUsageUncapped: $used kullanıyorsunuz
 appInfo:
   licenseNotice: |-
     Saber  Copyright © 2022-$buildYear  Adil Hanney
@@ -378,6 +334,8 @@ editor:
     deletePage: Sayfayı sil
     lineHeight: Satır aralığı
     lineHeightDescription: Klavye girişi olan notların metin boyutunu da kontrol eder
+    lineThickness: Çizgi kalınlığı
+    lineThicknessDescription: Arka çizgi kalınlığı
     backgroundImageFit: Arkaplan görüntüsünü sığdır
     backgroundPattern: Arkaplan deseni
     import: İçe aktar
@@ -397,19 +355,11 @@ editor:
       staffs: Porte (müzik)
       tablature: Nota kağıdı
       cornell: Cornell not şablonu
-    lineThickness(OUTDATED): Çizgi kalınlığı
-    lineThicknessDescription(OUTDATED): Arka plan çizgisi kalınlığı
-    lineThickness: Çizgi kalınlığı
-    lineThicknessDescription: Arka çizgi kalınlığı
   photoPdfError:
-    title(OUTDATED): Hata
-    message(OUTDATED): "PDF dosyaları resim olarak eklenemez. Bunun için \"@:editor.menu.import > PDF\" kullanın."
     title: Hata
-    message: PDF dosyaları görsel olarak eklenemez. "@:editor.menu.import > PDF" özelliğini kullanınız.
+    message: "PDF dosyaları görsel olarak eklenemez. \"@:editor.menu.import > PDF\" özelliğini kullanınız."
   readOnlyBanner:
     title: Yalnızca okunabilir mod
-    watchingServer(OUTDATED): Şu anda sunucudaki güncellemeleri izliyorsunuz. Bu modda düzenleme devre dışı bırakılır.
-    corrupted(OUTDATED): Not yüklenemedi. Bozulmuş veya hâlâ indiriliyor olabilir.
     watchingServer: Şu an sunucudaki güncellemeler için bekliyorsunuz. Bu modda düzenleme devre dışıdır.
     corrupted: Not açılamadı. Bozulmuş veya hala indirilmekte olabilir.
   versionTooNew:

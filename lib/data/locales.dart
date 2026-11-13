@@ -2,7 +2,7 @@
 /// e.g. 'en' -> 'English'
 ///
 /// This was sourced from
-/// https://github.com/guidezpl/flutter-localized-locales/blob/master/lib/native_locale_names.dart
+/// https://github.com/guidezpl/flutter-localized-locales/blob/main/lib/native_locale_names.dart
 /// (see https://pub.dev/packages/flutter_localized_locales)
 const localeNames = <String, String>{
   'en': 'English',
@@ -10,6 +10,7 @@ const localeNames = <String, String>{
   'ca': 'Català',
   'cs': 'čeština',
   'de': 'Deutsch',
+  'eu': 'euskara',
   'eo': 'Esperanto',
   'es': 'español',
   'fa': 'فارسی',
@@ -19,6 +20,7 @@ const localeNames = <String, String>{
   'id': 'Bahasa Indonesia',
   'it': 'italiano',
   'ja': '日本語',
+  'ko': '한국어',
   'nl': 'Nederlands',
   'pl': 'polski',
   'pt': 'português',
