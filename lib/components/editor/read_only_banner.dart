@@ -40,7 +40,7 @@ class _ReadOnlyBannerState extends State<ReadOnlyBanner> {
 
     return Collapsible(
       collapsed: !needsBanner,
-      axis: CollapsibleAxis.vertical,
+      axis: .vertical,
       child: SafeArea(
         child: ListTile(
           onTap: widget.action,

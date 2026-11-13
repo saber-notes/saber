@@ -130,7 +130,7 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
               SizedBox(
                 height: previewSize.height,
                 child: ListView.separated(
-                  scrollDirection: Axis.horizontal,
+                  scrollDirection: .horizontal,
                   itemCount: imageBoxFits.length,
                   separatorBuilder: (_, _) => const SizedBox(width: 8),
                   itemBuilder: (context, index) {
@@ -193,7 +193,7 @@ class _EditorBottomSheetState extends State<EditorBottomSheet> {
             SizedBox(
               height: previewSize.height,
               child: ListView.separated(
-                scrollDirection: Axis.horizontal,
+                scrollDirection: .horizontal,
                 itemCount: CanvasBackgroundPattern.values.length,
                 separatorBuilder: (_, _) => const SizedBox(width: 8),
                 itemBuilder: (context, index) {

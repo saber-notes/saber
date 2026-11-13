@@ -402,7 +402,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   builder: (context, hideFingerDrawing, _) {
                     return Collapsible(
                       collapsed: hideFingerDrawing,
-                      axis: CollapsibleAxis.vertical,
+                      axis: .vertical,
                       child: SettingsSwitch(
                         title: t
                             .settings
@@ -582,7 +582,7 @@ class _SettingsPageState extends State<SettingsPage> {
                   ),
                   Collapsible(
                     collapsed: !stows.shouldCheckForUpdates.value,
-                    axis: CollapsibleAxis.vertical,
+                    axis: .vertical,
                     child: SettingsSwitch(
                       title: t.settings.prefLabels.shouldAlwaysAlertForUpdates,
                       subtitle: t

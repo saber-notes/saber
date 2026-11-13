@@ -129,9 +129,9 @@ class InteractiveCanvasViewer extends StatefulWidget {
   /// When set to [PanAxis.aligned], panning is only allowed in the horizontal
   /// axis or the vertical axis, diagonal panning is not allowed.
   ///
-  /// When set to [PanAxis.vertical] or [PanAxis.horizontal] panning is only
-  /// allowed in the specified axis. For example, if set to [PanAxis.vertical],
-  /// panning will only be allowed in the vertical axis. And if set to [PanAxis.horizontal],
+  /// When set to [Pan.vertical] or [Pan.horizontal] panning is only
+  /// allowed in the specified axis. For example, if set to [Pan.vertical],
+  /// panning will only be allowed in the vertical axis. And if set to [Pan.horizontal],
   /// panning will only be allowed in the horizontal axis.
   ///
   /// When set to [PanAxis.free] panning is allowed in all directions.
@@ -556,10 +556,10 @@ class _InteractiveCanvasViewerState extends State<InteractiveCanvasViewer>
 
     if (_currentAxis != null) {
       alignedTranslation = switch (widget.panAxis) {
-        PanAxis.horizontal => _alignAxis(translation, Axis.horizontal),
-        PanAxis.vertical => _alignAxis(translation, Axis.vertical),
-        PanAxis.aligned => _alignAxis(translation, _currentAxis!),
-        PanAxis.free => translation,
+        .horizontal => _alignAxis(translation, .horizontal),
+        .vertical => _alignAxis(translation, .vertical),
+        .aligned => _alignAxis(translation, _currentAxis!),
+        .free => translation,
       };
     } else {
       alignedTranslation = translation;
@@ -1271,8 +1271,8 @@ Offset _round(Offset offset) {
 // axis direction.
 Offset _alignAxis(Offset offset, Axis axis) {
   return switch (axis) {
-    Axis.horizontal => Offset(offset.dx, 0),
-    Axis.vertical => Offset(0, offset.dy),
+    .horizontal => Offset(offset.dx, 0),
+    .vertical => Offset(0, offset.dy),
   };
 }
 
@@ -1284,5 +1284,5 @@ Axis? _getPanAxis(Offset point1, Offset point2) {
   }
   final double x = point2.dx - point1.dx;
   final double y = point2.dy - point1.dy;
-  return x.abs() > y.abs() ? Axis.horizontal : Axis.vertical;
+  return x.abs() > y.abs() ? .horizontal : .vertical;
 }

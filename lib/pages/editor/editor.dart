@@ -1447,8 +1447,8 @@ class EditorState extends State<Editor> {
     final colorScheme = ColorScheme.of(context);
     final platform = Theme.of(context).platform;
     final isToolbarVertical =
-        stows.editorToolbarAlignment.value == AxisDirection.left ||
-        stows.editorToolbarAlignment.value == AxisDirection.right;
+        stows.editorToolbarAlignment.value == .left ||
+        stows.editorToolbarAlignment.value == .right;
 
     final Widget canvas = CanvasGestureDetector(
       key: _canvasGestureDetectorKey,
@@ -1495,15 +1495,13 @@ class EditorState extends State<Editor> {
     );
 
     final Widget toolbar = Collapsible(
-      axis: isToolbarVertical
-          ? CollapsibleAxis.horizontal
-          : CollapsibleAxis.vertical,
+      axis: isToolbarVertical ? .horizontal : .vertical,
       collapsed:
           DynamicMaterialApp.isFullscreen &&
           !stows.editorToolbarShowInFullscreen.value,
       maintainState: true,
       child: SafeArea(
-        bottom: stows.editorToolbarAlignment.value != AxisDirection.up,
+        bottom: stows.editorToolbarAlignment.value != .up,
         child: Toolbar(
           readOnly: coreInfo.readOnly,
           setTool: (tool) {

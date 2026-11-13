@@ -85,24 +85,24 @@ class _SizeSlider extends StatelessWidget {
   Widget build(BuildContext context) {
     final colorScheme = ColorScheme.of(context);
     return GestureDetector(
-      onHorizontalDragStart: axis == Axis.horizontal
+      onHorizontalDragStart: axis == .horizontal
           ? (details) =>
                 onDrag(details.localPosition.dx / SizePicker.largeLength)
           : null,
-      onHorizontalDragUpdate: axis == Axis.horizontal
+      onHorizontalDragUpdate: axis == .horizontal
           ? (details) =>
                 onDrag(details.localPosition.dx / SizePicker.largeLength)
           : null,
-      onVerticalDragStart: axis == Axis.vertical
+      onVerticalDragStart: axis == .vertical
           ? (details) =>
                 onDrag(details.localPosition.dy / SizePicker.largeLength)
           : null,
-      onVerticalDragUpdate: axis == Axis.vertical
+      onVerticalDragUpdate: axis == .vertical
           ? (details) =>
                 onDrag(details.localPosition.dy / SizePicker.largeLength)
           : null,
       child: RotatedBox(
-        quarterTurns: axis == Axis.horizontal ? 0 : 1,
+        quarterTurns: axis == .horizontal ? 0 : 1,
         child: CustomPaint(
           size: const Size(SizePicker.largeLength, SizePicker.smallLength),
           painter: _SizeSliderPainter(

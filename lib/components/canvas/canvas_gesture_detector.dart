@@ -225,16 +225,16 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
 
     transformation.leftTranslateByDouble(
       switch (direction) {
-        AxisDirection.left => panAmount,
-        AxisDirection.right => -panAmount,
-        AxisDirection.up => 0.0,
-        AxisDirection.down => 0.0,
+        .left => panAmount,
+        .right => -panAmount,
+        .up => 0.0,
+        .down => 0.0,
       },
       switch (direction) {
-        AxisDirection.left => 0.0,
-        AxisDirection.right => 0.0,
-        AxisDirection.up => panAmount,
-        AxisDirection.down => -panAmount,
+        .left => 0.0,
+        .right => 0.0,
+        .up => panAmount,
+        .down => -panAmount,
       },
       0,
       1,
@@ -274,22 +274,10 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
     _downKey = Keybinding([
       KeyCode.from(LogicalKeyboardKey.arrowDown),
     ], inclusive: true);
-    Keybinder.bind(
-      _leftKey,
-      (bool pressed) => arrowKeyPan(AxisDirection.left, pressed),
-    );
-    Keybinder.bind(
-      _rightKey,
-      (bool pressed) => arrowKeyPan(AxisDirection.right, pressed),
-    );
-    Keybinder.bind(
-      _upKey,
-      (bool pressed) => arrowKeyPan(AxisDirection.up, pressed),
-    );
-    Keybinder.bind(
-      _downKey,
-      (bool pressed) => arrowKeyPan(AxisDirection.down, pressed),
-    );
+    Keybinder.bind(_leftKey, (bool pressed) => arrowKeyPan(.left, pressed));
+    Keybinder.bind(_rightKey, (bool pressed) => arrowKeyPan(.right, pressed));
+    Keybinder.bind(_upKey, (bool pressed) => arrowKeyPan(.up, pressed));
+    Keybinder.bind(_downKey, (bool pressed) => arrowKeyPan(.down, pressed));
 
     _setupKeybindings = true;
   }
@@ -504,7 +492,7 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
                   minScale: zoomLockedValue ?? CanvasGestureDetector.kMinScale,
                   maxScale: zoomLockedValue ?? CanvasGestureDetector.kMaxScale,
                   panEnabled: !singleFingerPanLock,
-                  panAxis: axisAlignedPanLock ? PanAxis.aligned : PanAxis.free,
+                  panAxis: axisAlignedPanLock ? .aligned : .free,
 
                   // Smoother scrolling fling gesture than the default
                   interactionEndFrictionCoefficient: 0.1,

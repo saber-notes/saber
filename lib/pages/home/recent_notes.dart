@@ -161,7 +161,7 @@ class _RecentPageState extends State<RecentPage> {
           ? null
           : [
               Collapsible(
-                axis: CollapsibleAxis.vertical,
+                axis: .vertical,
                 collapsed: selectedFiles.value.length != 1,
                 child: RenameNoteButton(
                   existingPath: selectedFiles.value.isEmpty

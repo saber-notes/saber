@@ -188,7 +188,7 @@ class _LogsItem extends StatelessWidget {
           ColoredBox(
             color: const Color(0xCC000000),
             child: SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
+              scrollDirection: .horizontal,
               child: Text(
                 record.stackTrace.toString(),
                 style: const TextStyle(
