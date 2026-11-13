@@ -13,9 +13,9 @@ list(APPEND FLUTTER_PLUGIN_LIST
   printing
   screen_retriever_windows
   sentry_flutter
-  share_plus
   super_native_extensions
   url_launcher_windows
+  share_plus
   window_manager
   window_to_front
 )

@@ -11,7 +11,6 @@ import device_info_plus
 import dynamic_color
 import file_picker_darwin
 import flutter_secure_storage_darwin
-import flutter_web_auth_2
 import irondash_engine_context
 import open_file_mac
 import package_info_plus
@@ -26,6 +25,7 @@ import super_native_extensions
 import url_launcher_macos
 import window_manager
 import window_to_front
+import flutter_web_auth_2
 import workmanager_apple
 
 func RegisterGeneratedPlugins(registry: FlutterPluginRegistry) {
@@ -35,7 +35,6 @@ func RegisterGeneratedPlugins(registry: FlutterPluginRegistry) {
   DynamicColorPlugin.register(with: registry.registrar(forPlugin: "DynamicColorPlugin"))
   FilePickerPlugin.register(with: registry.registrar(forPlugin: "FilePickerPlugin"))
   FlutterSecureStorageDarwinPlugin.register(with: registry.registrar(forPlugin: "FlutterSecureStorageDarwinPlugin"))
-  FlutterWebAuth2Plugin.register(with: registry.registrar(forPlugin: "FlutterWebAuth2Plugin"))
   IrondashEngineContextPlugin.register(with: registry.registrar(forPlugin: "IrondashEngineContextPlugin"))
   OpenFilePlugin.register(with: registry.registrar(forPlugin: "OpenFilePlugin"))
   FPPPackageInfoPlusPlugin.register(with: registry.registrar(forPlugin: "FPPPackageInfoPlusPlugin"))
@@ -50,5 +49,6 @@ func RegisterGeneratedPlugins(registry: FlutterPluginRegistry) {
   UrlLauncherPlugin.register(with: registry.registrar(forPlugin: "UrlLauncherPlugin"))
   WindowManagerPlugin.register(with: registry.registrar(forPlugin: "WindowManagerPlugin"))
   WindowToFrontPlugin.register(with: registry.registrar(forPlugin: "WindowToFrontPlugin"))
+  FlutterWebAuth2Plugin.register(with: registry.registrar(forPlugin: "FlutterWebAuth2Plugin"))
   WorkmanagerPlugin.register(with: registry.registrar(forPlugin: "WorkmanagerPlugin"))
 }
