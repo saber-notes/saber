@@ -114,8 +114,8 @@ touch .github/docker/mounts/.flutter-plugins-dependencies
 
 # Delete container if it used an outdated image.
 if podman container exists "$CONTAINER_NAME"; then
-    CONTAINER_IMAGE_ID=$(podman container inspect --format '{{.ImageName}}' "$CONTAINER_NAME")
-    if [[ "$CONTAINER_IMAGE_ID" != "$IMAGE_ID" ]]; then
+    CONTAINER_IMAGE_NAME=$(podman container inspect --format '{{.ImageName}}' "$CONTAINER_NAME")
+    if [[ "$CONTAINER_IMAGE_NAME" != "$IMAGE_NAME" ]]; then
         echo "Removing stale container to be recreated."
         podman rm -f "$CONTAINER_NAME"
     fi
