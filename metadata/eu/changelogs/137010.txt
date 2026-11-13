@@ -1,0 +1,4 @@
+• Zurean PDF importatu, Saberak imaxuna espero duen momentuan, funtzionatzeko gabe zen arteko azterluak zuzendu dira.
+• Imazgoaietan importatutako beste PDF-ek nota irakurgaraztasun handitzen ez zuen aurreko problema bat solucionatzeko metodo batekin hasierako PDF-ei aplikatu da.
+• Erasea, zikloaren formategia erabilienean, zenbait suduten gaindik erase egin nahi izki zen arteko azterluak zuzendu dira.
+• Imazgoi baten clipboardetik kopiatzea gisa memoria eraginkortasuna handitu da.

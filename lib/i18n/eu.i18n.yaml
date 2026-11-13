@@ -2,3 +2,400 @@ common:
   done: Egina
   continueBtn: Jarraitu
   cancel: Ezeztatu
+home:
+  tabs:
+    home(OUTDATED): Eroslana
+    browse(OUTDATED): Sartu
+    whiteboard(OUTDATED): Tablero zenbatzaileak
+    settings(OUTDATED): Itazkiak
+  titles:
+    home(OUTDATED): Oharrak berriak
+    browse(OUTDATED): Sartu
+    whiteboard(OUTDATED): Tablero
+    settings(OUTDATED): Itazkiak
+  tooltips:
+    newNote(OUTDATED): Nota berria
+    showUpdateDialog(OUTDATED): Egoztu itzaleak
+    exportNote(OUTDATED): Nota exportatzea
+  create:
+    newNote(OUTDATED): Nota berria
+    importNote(OUTDATED): Nota importuaz
+  newFolder:
+    newFolder(OUTDATED): Ordain berria
+    folderName(OUTDATED): Ordainaren izena
+    create(OUTDATED): Sartu
+    folderNameEmpty(OUTDATED): Zerrenen izena ez da hutsikete bete ditzake.
+    folderNameContainsSlash(OUTDATED): Karpenaren izenari / (slash) ez da otean.
+    folderNameExists(OUTDATED): Zer daile dagoela folderak aurreikusten?
+  renameNote:
+    renameNote(OUTDATED): Nota berriztea
+    noteName(OUTDATED): Ondariaren izena
+    rename(OUTDATED): Izena aldatu
+    noteNameEmpty(OUTDATED): Ondariaren izena ez da bete ditzakeko.
+    noteNameExists(OUTDATED): Eskualdapen honearekin dagoela nota beste bat daude
+    noteNameForbiddenCharacters(OUTDATED): Ondariaren izenarengan karakterez nahikoak daude
+    noteNameReserved(OUTDATED): Ondariena izatea erreserbatua da
+  moveNote:
+    moveNote(OUTDATED): Mota mugatu
+    moveNotes(OUTDATED): Mover $n notaak
+    moveName(OUTDATED): Movera $f
+    move(OUTDATED): Ugaldatu
+    renamedTo(OUTDATED): Nota honen izena $newName dela izango da
+    multipleRenamedTo(OUTDATED): "Azkoak honako hauek ez dira berrabiztea:"
+    numberRenamedTo(OUTDATED): $n notaak ez dira nahiztasun bat eraguteko berrabiztea.
+  deleteNoteDialog:
+    confirmDelete:
+      one(OUTDATED): Suhestitua nota ez duela?
+      other(OUTDATED): Ez duitate adierazten dituen notaak ezagutzeko?
+    deleteNotes(OUTDATED): Suahili nota $n ezazu
+    deleteName(OUTDATED): Suplegia $f$
+    delete(OUTDATED): Suplegia
+  renameFolder:
+    renameFolder(OUTDATED): Aldatzeko karpetua
+    folderName(OUTDATED): Ordainaren izena
+    rename(OUTDATED): Izena aldatu
+    folderNameEmpty(OUTDATED): Sarkuntzaren izena ez da bete
+    folderNameContainsSlash(OUTDATED): Karpenaren izenari / (slash) ez da otegarria
+    folderNameExists(OUTDATED): |-
+      Ez dago hiru datu horretan, baina hau da euskara baten nahiko tradizioa:
+      
+      "Folder honek ez du existitzen." (Hau eragiki bat da eta adierazten du "folder honek ez du aurreikusten").
+      
+      Beste aukera nagusiak hauek dira, kontextuaren arabera:
+      
+      *   **Egoera tekniko edo programazioa:** "Folder hau dagoelako." (Hau erudiago da).
+      *   **Zuzena eta laburpena:** "Dizain honek aurreikusten."
+  deleteFolder:
+    deleteFolder(OUTDATED): Suahili karnera jorua
+    deleteName(OUTDATED): Suplegia $f$
+    delete(OUTDATED): Suplegia
+    alsoDeleteContents(OUTDATED): Gainberdiko guztietako nota guztiak ez duplikatu.
+  sort:
+    sortBy(OUTDATED): Eskaintza edo ordena zehatzatu
+    nameAToZ(OUTDATED): Izena (A-Z)
+    nameZToA(OUTDATED): Izena (Z-A)
+    lastModifiedNewToOld(OUTDATED): Editatu (Berariazkoak lehenengo)
+    lastModifiedOldToNew(OUTDATED): Editatu (Lehenengo datua lehenik)
+  layout:
+    layout(OUTDATED): Diseinu
+    masonryGrid(OUTDATED): Sarreko sartzaia
+    simpleGrid(OUTDATED): Sarre sinplea
+  welcome(OUTDATED): Saberera aurrera
+  invalidFormat(OUTDATED): Hiru datu gaineko fitxategia ez da adierazten. Mesedez, sbn, sbn2, sba edo pdf fitxategia aukeratu.
+  noFiles(OUTDATED): Ez da fitxategiak aurkitako
+  noPreviewAvailable(OUTDATED): Ikusi aurreikuntza ez dago
+  createNewNote(OUTDATED): Aurkitu + gizuaren butonak sortzeko testua berria.
+  backFolder(OUTDATED): Itzarera itzule
+  deleteNote(OUTDATED): Ez daiteke nota ez.
+sentry:
+  consent:
+    description:
+      question(OUTDATED): Zerko erroak espero ez dituzte automatikoziarekin aztertu? Horrek laguntzen dizut mujhe problema identifikatu eta soldu azkarago.
+      scope(OUTDATED): Raportek erroari eta zure gailuari buruzko informazioa ahal du b据. Datu pertsonalak ez izateko bera bera espretzatu ditut, baina batzuk geratzen daiteke.
+      currentlyOff(OUTDATED): Adartez adierazpenak, aplikazioa berriro esartze ondoren aurreko-erroren azterketa aktibatko.
+      currentlyOn(OUTDATED): Ez daiteke atzera itegiztea (consent-a ez bada), erantzutegi aplikazioak errorezko informazioaren bideratzea hutsakertzeko.
+      learnMoreInPrivacyPolicy(rich,OUTDATED): Ego aurkitu gehiago ${link(gizertapen politika)}.
+    answers:
+      yes(OUTDATED): Bai
+      no(OUTDATED): Ez
+      later(OUTDATED): Gero, gero gaurko.
+    title(OUTDATED): Lagartza Saber hobetzeko?
+settings:
+  prefCategories:
+    general(OUTDATED): Zentral
+    writing(OUTDATED): Zazketa
+    editor(OUTDATED): Editoreak
+    performance(OUTDATED): Aurrezkoak
+    advanced(OUTDATED): Aurreratu
+  prefLabels:
+    locale(OUTDATED): Hizkuntza
+    appTheme(OUTDATED): Aplikazioaren tema
+    platform(OUTDATED): Tema mota
+    layoutSize(OUTDATED): Tipolaketa mota
+    customAccentColor(OUTDATED): Kolore azpiko kustomizatua
+    hyperlegibleFont(OUTDATED): Atkinson Hyperlegible fonta
+    shouldCheckForUpdates(OUTDATED): Saber egunerak egiaztatu
+    shouldAlwaysAlertForUpdates(OUTDATED): Beriketa azkarrak
+    allowInsecureConnections(OUTDATED): Aukeratu koneizio segurtetsizak
+    editorToolbarAlignment(OUTDATED): Aurrezkoaren pozizioa
+    editorToolbarShowInFullscreen(OUTDATED): Erandua osoan erakusten du
+    editorAutoInvert(OUTDATED): Invertizazioak modu eskolduan (dark mode)
+    preferGreyscale(OUTDATED): Ezberdina koloreak preferitu egin ditu
+    maxImageSize(OUTDATED): Imaxuagaren irizpiritza azkena
+    autoClearWhiteboardOnExit(OUTDATED): |-
+      Zerutsari zuzendu behar du den lehenak (autoclear)
+      
+      (or, depending on context):
+      
+      Zubidura zehatzatu
+    disableEraserAfterUse(OUTDATED): Automatik desaktatu eragileak
+    hideFingerDrawingToggle(OUTDATED): Esgarraren marpatzealdia esku eragiteko ezkeroa itzaltzea
+    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Automatik desagertzea igotzenaren bidez
+    editorPromptRename(OUTDATED): Sartu berriak emanzera
+    recentColorsDontSavePresets(OUTDATED): Ez garabezen koloreak ez dituzu emandako koloreak emanduko.
+    recentColorsLength(OUTDATED): Zenbat kolore berriago ematen dituzu jartze?
+    printPageIndicators(OUTDATED): Itsaslepen orokorra eslatu
+    autosave(OUTDATED): Autoguardatzea
+    shapeRecognitionDelay(OUTDATED): Forma ezagutzearen lagunaldia
+    autoStraightenLines(OUTDATED): Automatik lerroak erabilizko lineak zuzentzea
+    customDataDir(OUTDATED): Saber-ren karpet personalizatua
+    sentry(OUTDATED): Erroldea ematea
+  prefDescriptions:
+    hideFingerDrawing:
+      shown(OUTDATED): Gaukitzen ekartzen duen akzioak (erratuz) itzultzea gailagaitzen du
+      fixedOn(OUTDATED): Beziari marrategia aktibo gisa ez da aldatzen.
+      fixedOff(OUTDATED): Bezeroak ez dira erabili daiteko (disabled) bezala finkatuta.
+    sentry:
+      active(OUTDATED): Aktibo
+      inactive(OUTDATED): Inaktibo
+      activeUntilRestart(OUTDATED): Aktibo hasta aplikazioa berriro emartzean.
+      inactiveUntilRestart(OUTDATED): Inaktibo hasta aplikazioa berriro hastearen arte
+    hyperlegibleFont(OUTDATED): Aumentatzen du itxura baxua dituzten erabiltzaileak számára iragantza izugarria.
+    allowInsecureConnections(OUTDATED): (Ez adierazten) Sabelari sertifikatak berezaintzat/ez konfiantatuenarekin konektatzea ahalbidetzea
+    preferGreyscale(OUTDATED): E-ink itzaleaketarako
+    autoClearWhiteboardOnExit(OUTDATED): Zerugarrak kentzen ditu aplikazioare itzultzen ondoren
+    disableEraserAfterUse(OUTDATED): Automatikoki itzuli bihurtzen den lapizaren eragilean (eraser) erabiltu ondoren
+    maxImageSize(OUTDATED): Imago handierrak ez dira komprimatuko
+    autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Desaktatu igotza/zuzentzeko funtzionalitatea stylus bat detektatzean.
+    editorPromptRename(OUTDATED): Beste momentuan burutsiak galdeadaz dituzu.
+    printPageIndicators(OUTDATED): Egoera zehatzak erakusten dituzte exportetan
+    autosave(OUTDATED): Autoguardatzea labur itzalearen ondoren edo ez duela nahole
+    shapeRecognitionDelay(OUTDATED): Norrotzen zehar aurreikuspenak zenbaitetan eguneratu?
+    autoStraightenLines(OUTDATED): Zergatik ez duzu forma pena erabili beharrik, lortzen ditu lizeak zuzenak.
+    shouldAlwaysAlertForUpdates(OUTDATED): Deskribatu zeure buruz eguneratzeak joan dituzten momentuan.
+  themeModes:
+    system(OUTDATED): Sistema
+    light(OUTDATED): Argia
+    dark(OUTDATED): Iturri
+  layoutSizes:
+    auto(OUTDATED): Autodi
+    phone(OUTDATED): Telefono
+    tablet(OUTDATED): Tableta
+  accentColorPicker:
+    pickAColor(OUTDATED): Zerango aukeratu?
+  reset:
+    title(OUTDATED): Zerrezten dituen aukerak berestea?
+    button(OUTDATED): Berrezta
+  customDataDir:
+    cancel(OUTDATED): |-
+      Ez duzu nahi duen egoera erabili, baina "Cancel" esatearen euskara zehatz bat da **"Guztatu"** edo **"Ez egin"**, kontextuan jarraitzen dependela.
+      
+      Adibideak:
+      
+      *   **Hizkuntza ziklo batean:** "Guztatu"
+      *   **Prozedura baten aurrean (ez nahi duzu hasi/egite):** "Ez egin" / "Guztatu"
+      
+      Eskualdian, **"Guztatu"** da erabilera nagusia.
+    select(OUTDATED): Selektat
+    mustBeEmpty(OUTDATED): Zerbadak aukeratua ez du gutxiago nahiz
+    mustBeDoneSyncing(OUTDATED): Ez nahasi dugu sinkronizazioa amaituta dagoela antes harriteko gehiago.
+    unsupported(OUTDATED): Ezko fitura orain desenvolvedzora ez diori. Erabili, datuen galtzea nahiko da.
+  systemLanguage(OUTDATED): Autodi
+  resyncEverything(OUTDATED): Berazagar dena berriro sinkronizatzen.
+  openDataDir(OUTDATED): Saber gehiak jorri
+  autosaveDisabled(OUTDATED): Ez hamnago
+  shapeRecognitionDisabled(OUTDATED): Ez bereiz
+  axisDirections(OUTDATED):
+  - Azpian
+  - Ez daiteke
+  - Azpian
+  - Ezera
+logs:
+  logs(OUTDATED): Eregistroak
+  viewLogs(OUTDATED): Ikusi gailaketak
+  debuggingInfo(OUTDATED): Logak informazio útil bat diot debugatzeko eta aurreratzeko.
+  noLogs(OUTDATED): Ez dago lanak ez dira ikusten!
+  useTheApp(OUTDATED): Logak hara itzarriko dira aplikazioa erabiltzen duzunean.
+login:
+  form:
+    agreeToPrivacyPolicy(rich,OUTDATED): Sartu pertsonen zehatzpenak eragutzen dituzu ${linkToPrivacyPolicy(Gizpionitate Politika)}.
+  status:
+    loggedOut(OUTDATED): Ingurua itzultuta dago
+    hi(OUTDATED): Kaixo, $u!
+    almostDone(OUTDATED): Sinkronizatzen utzi, saiatu sartzea amaitu.
+    loggedIn(OUTDATED): Sartu Nextcloud-arekin
+    tapToLogin(OUTDATED): Aurrekontratzeko Nextcloud-arekin klikatu
+  ncLoginStep:
+    loginFlow:
+      pleaseAuthorize(OUTDATED): Mesedez, autoratu Saberari zure Nextcloud kontura sartzea.
+      followPrompts(OUTDATED): Zerbitzuaren/Interfazen zuzenko eskaerak jarraitzen baduzu
+      browserDidntOpen(OUTDATED): Sida sartzeko orria ez zen ireki? Klikatu herian
+    whereToStoreData(OUTDATED): "Zer datuak saite nahi duzu:"
+    saberNcServer(OUTDATED): Saber-en Nextcloud servera
+    otherNcServer(OUTDATED): Bezeroak beste Nextcloud serbereko
+    serverUrl(OUTDATED): URL-a serverra
+    loginWithSaber(OUTDATED): Saberare sartu
+    loginWithNextcloud(OUTDATED): Sartu Nextcloud-arekin
+  encLoginStep:
+    encFaq:
+    - q(OUTDATED): Zer da szyfratzeko adierazpenak? Nirein zeharketa bi adierazpenak erabiltzen?
+      a(OUTDATED): |-
+        Nextcloud-ko adierazpenak nubesik sartzeko erabiltzen da. Adierazpenaren adierazpenak zure datuak nubesera iritsi aurretik "zuztatu" ditu.
+        Neketak Nextcloud-ko kontura sartzea lortzen badira, zure notaak erabili duen adierazpen berezia baten laguntzan seguru eta adierazpina mantentuko dira. Horrek datuak babesteko segurtasun zuzen bat ematen utzi zait.
+        Neketak serverrean nahako ez du aukera zure adierazpenaren adierazpena gabe, baina horrek bermatzeko dizki adierazpenaren adierazpena ahaztu gero, datuei sartzeago.
+    - q(OUTDATED): Eskriptatze lehenago ez dut ezartu. Non hartzen dezuke?
+      a(OUTDATED): |-
+        Zerbitzari berri bat aukeratu eta sartzen ditu gainean.
+        Saber-ek sortuko dira zure kriptografiaren gakoak honeetik automatikoki.
+    - q(OUTDATED): Ahal dezake nire Nextcloud kontua berriaren azpitatzaile bera erabiltzen?
+      a(OUTDATED): Bai, baina saioa administrazioari edo beste norbait eragiarriago izango dela kontuan hartu, ez duela zure Nextcloud kontura eskaera lortzen.
+    enterEncPassword(OUTDATED): "Datu ez daitez babesteko, mesedez sartu zure szyfratze-lehenizko lehensa:"
+    newToSaber(OUTDATED): Saber-an berri zara? Saiatu szyfratze pasahit berria.
+    encPassword(OUTDATED): Sifraz kriptografikoa
+    encFaqTitle(OUTDATED): Auztatu behartzen dituzten galdetak
+    wrongEncPassword(OUTDATED): Dekriptazioa ebaldi ez zen eskaintzen pasahitza. Mesedez, berriro saiatu sartzen.
+    connectionFailed(OUTDATED): Sobertzen lagundu nahi du serverare konektatzeari. Mesedez, berriro entzun gero.
+  title(OUTDATED): Sartu
+  signup(rich,OUTDATED): Ez duiko barketarekin, ${linkToSignup(Hitzaro daite)!}
+  notYou(rich,OUTDATED): Ez ez daude? ${undoLogin(Zergar bat aukera egin)}.
+profile:
+  quickLinks:
+    serverHomepage(OUTDATED): Zerbitzuen orrialdeak
+    deleteAccount(OUTDATED): Kontua ez du.
+  faq:
+  - q(OUTDATED): Galdera nahikoak gordeko dira iragertzen badira?
+    a(OUTDATED): Ez ez da. Sustraietak zure gailuan eta serbikarrean mantentuko dira. Serberare sinkronizatuko dira berriro sartzen utziko arte. Aseguruatu sinkronizazioa uko egin dela antesala sartzen aurteko, ez duzu datozen datu hutsik (aurreko ekranan sinkronizazio-progresua ikusi).
+  - q(OUTDATED): Nola alda dezaket nire Nextcloud pasahitza?
+    a(OUTDATED): Jo zure serbideraren gertubiko webgunean eta sartu. Bitarik, Azingerak pasahitza aldatuzko ondoren, sartzen eta berriro sartzea behar du.
+  - q(OUTDATED): Nola aldatzen dezaket nire szyfruaren adierazpenpasswarten?
+    a(OUTDATED): |-
+      0. Aurrekoak sinkronizatuta dagoela ziurtatu (aurrekoak sinkronizazio-progresua etorrizko aurrekoan ikusi).
+      1. Saber-etik irten.
+      2. Goian duzun serveraren webgunean joan eta 'Saber' gehiago ez. Horrek serverareko zure nota guztiak ez ditu.
+      3. Berriro itzuli Saber-era. Itzulera sartzen zutegun bitartean enkripzio-leheniz berria aukeratu huts.
+      4. Beste gailuetan ere, irten eta berriro itzultzea ez ahaztu.
+  - q(OUTDATED): Nola esan dezaket kontua ez?
+    a(OUTDATED): |-
+      Ir agertzen duen "@:profile.quickLinks.deleteAccount" botoia aprezatu eta behar baduzu, sartu.
+      Saber serbizar ofiziala erabiltzen ari zaren kasuan, kontua unegatze-periobe bat (1 aste) pasatiz ezera da itxiko. Hala esateko, adilhanney@disroot.org berrera kontaktatu dezakezu ez denbora horretan ezabaketa huts egiteko.
+      Zerrenda bateko serbizar erabiltzen ari zaren kasuan, kontua ezabatzeko aukera ez zaitezke aurkitzea: informazio gehiago eskatzeko serbizarren gizurtasun politikari joratu behar duzu.
+  title(OUTDATED): Nire perfilak
+  logout(OUTDATED): Irera sartzea
+  quotaUsageUncapped(OUTDATED): $used erabiltzen ari zara
+  connectedTo(OUTDATED): Harreagutua
+  faqTitle(OUTDATED): Auztatu behartzen dituzten galdetak
+  quotaUsage(OUTDATED): $total ($percent%) erabilatzen ari zara $used-a
+appInfo:
+  licenseNotice(OUTDATED): |-
+    Saber Copyright © 2022-$buildYear Adil Hanney
+    Program hau gabe ez du garantia betea. Software argintza da eta kondizio zehatzak emandenez berratu dezake.
+  debug(OUTDATED): DEBUG
+  sponsorButton(OUTDATED): Hona aprekatzen utesi edo gordeta gehiago erosi
+  licenseButton(OUTDATED): Hiru honetan klikatu erakunde informazio gehiago ikusteko
+  privacyPolicyButton(OUTDATED): Hiru honetan klikatu eta ikusu gizurtasun politizikia.
+update:
+  updateAvailable(OUTDATED): Berria itegiztea
+  updateAvailableDescription(OUTDATED): "Apparen berri bateko berberata dago:"
+  update(OUTDATED): Berazpenak eguneratu
+  downloadNotAvailableYet(OUTDATED): Deskargaketa ez dago beraz zure plataformaari. Mesedez, bitartean itzali.
+editor:
+  toolbar:
+    toggleColors(OUTDATED): Zergailak aldatu (Ctrl C)
+    select(OUTDATED): Selektat
+    toggleEraser(OUTDATED): Erasearen itzultzaileak (Ctrl E)
+    photo(OUTDATED): Imagoak
+    text(OUTDATED): Testu
+    toggleFingerDrawing(OUTDATED): Zirkatu igotzeko itzultza (Ctrl F)
+    undo(OUTDATED): Iturri beranda
+    redo(OUTDATED): Berriro egin
+    export(OUTDATED): Eportatu (Ctrl Shift S)
+    exportAs(OUTDATED): "Eportatu gisa:"
+    fullscreen(OUTDATED): Iturralde osoan itzaltzea (F11)
+  pens:
+    fountainPen(OUTDATED): Pluma
+    ballpointPen(OUTDATED): Bolpenak
+    highlighter(OUTDATED): Markadorki
+    pencil(OUTDATED): Lápiz
+    shapePen(OUTDATED): Penaren forma
+    laserPointer(OUTDATED): Luz-igitelea
+  penOptions:
+    size(OUTDATED): Irudi
+  colors:
+    colorPicker(OUTDATED): Kolore aukizleari
+    customBrightnessHue(OUTDATED): $b $h ezberdina
+    customHue(OUTDATED): $h zehatzeko
+    dark(OUTDATED): itberduna
+    light(OUTDATED): argi
+    black(OUTDATED): Itala
+    darkGrey(OUTDATED): Arrakizak izbeak
+    grey(OUTDATED): Arrak
+    lightGrey(OUTDATED): Arrakizak argia
+    white(OUTDATED): Zuri
+    red(OUTDATED): Gora
+    green(OUTDATED): Berdea
+    cyan(OUTDATED): Zian
+    blue(OUTDATED): Azul
+    yellow(OUTDATED): Gora
+    purple(OUTDATED): Azura
+    pink(OUTDATED): Rosa
+    orange(OUTDATED): Naranja
+    pastelRed(OUTDATED): Gora roxo
+    pastelOrange(OUTDATED): Naranja pastel
+    pastelYellow(OUTDATED): Gialdina pastel
+    pastelGreen(OUTDATED): Berde pastel
+    pastelCyan(OUTDATED): Azul gaztea pastelak
+    pastelBlue(OUTDATED): Azul pastel
+    pastelPurple(OUTDATED): Purpura pastel
+    pastelPink(OUTDATED): Rosa pastel
+  imageOptions:
+    title(OUTDATED): Opzionak azpian
+    invertible(OUTDATED): Inbertsiozko
+    download(OUTDATED): Deskargatu
+    setAsBackground(OUTDATED): Itazkari gisa ezartu
+    removeAsBackground(OUTDATED): Fondo gisa ez du.
+    delete(OUTDATED): Suplegia
+  selectionBar:
+    delete(OUTDATED): Suplegia
+    duplicate(OUTDATED): Duplikatu
+  menu:
+    boxFits:
+      fill(OUTDATED): Estiratu
+      cover(OUTDATED): Osagarla
+      contain(OUTDATED): Contiene
+    bgPatterns:
+      none(OUTDATED): Bidaiaren bidaia
+      college(OUTDATED): Kollegeko aurreko
+      collegeRtl(OUTDATED): Kollegeko aurreko (Inversioa)
+      lined(OUTDATED): Aurrakonak
+      grid(OUTDATED): Sarre
+      dots(OUTDATED): Pintxak
+      staffs(OUTDATED): Zerbitzariak
+      tablature(OUTDATED): Tablatura
+      cornell(OUTDATED): Cornell
+    clearPage(OUTDATED): Zerargatu orria $page/$totalPages
+    clearAllPages(OUTDATED): Lortu guztien zerbeoa jada ez dago
+    insertPage(OUTDATED): Sartu orria zehar
+    duplicatePage(OUTDATED): Ordupetuta orria
+    deletePage(OUTDATED): Ezdugo orria
+    lineHeight(OUTDATED): Aldeus altzaria
+    lineHeightDescription(OUTDATED): Azkionakaren iragazpenetarako tamaina ere kontrolatzen du
+    lineThickness(OUTDATED): Liniaren albortasuna
+    lineThicknessDescription(OUTDATED): Aurrezko lizearen albortasuna
+    backgroundImageFit(OUTDATED): Fit imaxua gaineko
+    backgroundPattern(OUTDATED): Aurrezko adierazpenaren aurreko adierazpena
+    import(OUTDATED): Importatu
+    watchServer(OUTDATED): Ikusi serbideraren eguneratzeak
+    watchServerReadOnly(OUTDATED): Editak ez dira itxita servera ikusten barne
+  photoPdfError:
+    title(OUTDATED): Erro
+    message(OUTDATED): "PDF arreak ez dira sagarra gehi daitezkeen, horrek @:editor.menu.import > PDF erabiltzea eskatzen du."
+  readOnlyBanner:
+    title(OUTDATED): Modu iragartzeko
+    watchingServer(OUTDATED): Egunera, serbideraren eguneratzeak ikasten ari zara. Modi honetan edita ez da aukira.
+    corrupted(OUTDATED): Nota pasatzeko ekailak ez dira. Korruptua daiteke edo berandu ari den.
+  versionTooNew:
+    title(OUTDATED): Hiru hau editatu zen, Saberaren berriago bertsio batean.
+    subtitle(OUTDATED): Hauko nota honi edita zitza informazio bat gordeta daiteke. Aurreikusten du hau ignoratu eta editu egiaztu?
+    allowEditing(OUTDATED): Editatu ematea
+  quill:
+    typeSomething(OUTDATED): Ezer idazteazu...
+  hud:
+    unlockZoom(OUTDATED): Zoom ireki
+    lockZoom(OUTDATED): Zoom lukitzea
+    unlockSingleFingerPan(OUTDATED): Ezinbesteko panak aktibatzea
+    lockSingleFingerPan(OUTDATED): Desaktatu ir-behereko panaketa
+    unlockAxisAlignedPan(OUTDATED): Irekiak goian edo goera/ikurri gehiago egin
+    lockAxisAlignedPan(OUTDATED): Itxaldarpenak gohian edo gorriari lotu
+  pages(OUTDATED): Orriak
+  untitled(OUTDATED): Deskribatuta ez dagoena
+  needsToSaveBeforeExiting(OUTDATED): Aldagai gaurtizten dituz... editoreare txertatu daiteko, gero amaituta dagoenean
