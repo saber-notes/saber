@@ -129,7 +129,7 @@ dependencies:
 
   device_info_plus: ^13.2.0
 
-  yaru: ^10.2.0
+  yaru: ^12.0.0
 
   one_dollar_unistroke_recognizer: ^1.1.1
 
@@ -159,7 +159,7 @@ dependencies:
   background_downloader: ^9.2.6
 
   flutter_hooks: ^0.21.3+1
-  dynamic_yaru: ^0.2.0
+  dynamic_yaru: ^0.3.0
   image: 4.10.2  # 4.11.0 has a broken version constraint for `archive`
   pool: ^1.5.2
 
@@ -193,19 +193,11 @@ dependency_overrides:
       ref: fix/remove-Future.delayed
 
   # https://github.com/GregoryConrad/native_toolchain_rust/issues/103
-  native_toolchain_rust: 1.0.4+0
-
-  # material_ui support: https://github.com/ubuntu/yaru.dart/pull/1110
-  yaru:
+  native_toolchain_rust:
     git:
-      url: https://github.com/adil192/yaru.dart.git
-      ref: feat!/migrate-to-material_ui
-
-  # material_ui support: https://github.com/adil192/dynamic_yaru/pull/1
-  dynamic_yaru:
-    git:
-      url: https://github.com/adil192/dynamic_yaru.git
-      ref: ref!/migrate-to-standalone-material_ui
+      url: https://github.com/GregoryConrad/native_toolchain_rust.git
+      ref: 6113026d7b80344755160cfe9d615e024da0abe7
+      path: native_toolchain_rust
 
   # material_ui support: no pull request yet
   flutter_quill:
@@ -216,8 +208,8 @@ dependency_overrides:
   # https://github.com/canonical/ubuntu-flutter-plugins/pull/541
   platform_linux:
     git:
-      url: https://github.com/adil192/ubuntu-flutter-plugins.git
-      ref: fix/platform-3.2.0
+      url: https://github.com/canonical/ubuntu-flutter-plugins.git
+      ref: af29a469f3e5b3f059d4d10a0e914ff7ef09501d
       path: packages/platform_linux
 
 # For information on the generic Dart part of this file, see the

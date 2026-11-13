@@ -348,12 +348,11 @@ packages:
   dynamic_yaru:
     dependency: "direct main"
     description:
-      path: "."
-      ref: "ref!/migrate-to-standalone-material_ui"
-      resolved-ref: c0a3a8ff4c07f28454efa4bfde32ea503f95b890
-      url: "https://github.com/adil192/dynamic_yaru.git"
-    source: git
-    version: "0.2.0"
+      name: dynamic_yaru
+      sha256: "6760be3f12d90d710c87aee54e8d15abdeeec4a6e8511159b3a35c8e1c908d87"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.3.0"
   dynamite_runtime:
     dependency: transitive
     description:
@@ -671,10 +670,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_svg
-      sha256: bce4a000275c0d0ac42f3fdcf0a6162fb95ac30983ba7ee6cffcf60f6ad33611
+      sha256: "455a22036f8d1b7c74f53283c8644d6af2f6f7c9ec72c7b06a2ff70fb3954a54"
       url: "https://pub.dev"
     source: hosted
-    version: "2.3.4"
+    version: "2.4.0"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -1042,11 +1041,12 @@ packages:
   native_toolchain_rust:
     dependency: "direct overridden"
     description:
-      name: native_toolchain_rust
-      sha256: faa57d2258a3b0fd2a634054f54e4496c9fcbd971977e7d2b7e6916d56892857
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.0.4+0"
+      path: native_toolchain_rust
+      ref: "6113026d7b80344755160cfe9d615e024da0abe7"
+      resolved-ref: "6113026d7b80344755160cfe9d615e024da0abe7"
+      url: "https://github.com/GregoryConrad/native_toolchain_rust.git"
+    source: git
+    version: "1.0.6"
   nested:
     dependency: transitive
     description:
@@ -1290,34 +1290,34 @@ packages:
     dependency: transitive
     description:
       name: pdfium_dart
-      sha256: "3e250021b2f462058aae216837902fdc8b2cb7f0657e4ec2bc9ac541f960ff84"
+      sha256: caf60231f755418e66e76ad0699503b09b03bd8bd8949f1c7a532239c80d7531
       url: "https://pub.dev"
     source: hosted
-    version: "0.4.1"
+    version: "0.4.2"
   pdfium_flutter:
     dependency: transitive
     description:
       name: pdfium_flutter
-      sha256: "4d18e6181aa87200750aa4fc607c870f957731b1de9252c2ea19627c19109388"
+      sha256: "4b98ef6d86ada59ad99abd07cf90871929fa733677d6fbcac83a4f575e759ac3"
       url: "https://pub.dev"
     source: hosted
-    version: "0.4.1"
+    version: "0.4.2"
   pdfrx:
     dependency: "direct main"
     description:
       name: pdfrx
-      sha256: b3bd49fd0918ba7f807ceb0860f4110c346fc70dd96bd68b992418cf17f97650
+      sha256: "98041d7076304542d047ada21cd759994ebb097a98f2949be79ddf07b13f006b"
       url: "https://pub.dev"
     source: hosted
-    version: "2.12.0"
+    version: "2.12.1"
   pdfrx_engine:
     dependency: transitive
     description:
       name: pdfrx_engine
-      sha256: "4f86165b90c8ae7647747e2d2f9880727f0480caab976a712de1c95076c48762"
+      sha256: "67faaaac9de5d0e76c3f5742d943e13731c70a5e3fdabf59e0c9049b10a1c5da"
       url: "https://pub.dev"
     source: hosted
-    version: "0.9.1"
+    version: "0.9.2"
   perfect_freehand:
     dependency: "direct main"
     description:
@@ -1402,9 +1402,9 @@ packages:
     dependency: "direct overridden"
     description:
       path: "packages/platform_linux"
-      ref: "fix/platform-3.2.0"
+      ref: af29a469f3e5b3f059d4d10a0e914ff7ef09501d
       resolved-ref: af29a469f3e5b3f059d4d10a0e914ff7ef09501d
-      url: "https://github.com/adil192/ubuntu-flutter-plugins.git"
+      url: "https://github.com/canonical/ubuntu-flutter-plugins.git"
     source: git
     version: "0.1.3"
   plugin_platform_interface:
@@ -2230,12 +2230,11 @@ packages:
   yaru:
     dependency: "direct main"
     description:
-      path: "."
-      ref: "feat!/migrate-to-material_ui"
-      resolved-ref: "2a6ea465d7b1914d1a16e7502e62305506f7a98d"
-      url: "https://github.com/adil192/yaru.dart.git"
-    source: git
-    version: "11.0.0"
+      name: yaru
+      sha256: "22b000cd45d8fe6bc5d2e76df83f7aa81d903ac09f463360d9a2f72f2226e05e"
+      url: "https://pub.dev"
+    source: hosted
+    version: "12.0.0"
   yaru_window:
     dependency: transitive
     description:
