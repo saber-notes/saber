@@ -131,7 +131,7 @@ void _screenshot({
 }) {
   /// These locales aren't supported by my InterNotoSansHybrid font:
   /// https://github.com/adil192/inter-noto-hybrid
-  const localesWithNoFonts = {'ja', 'zh-Hans-CN', 'zh-Hant-TW'};
+  const localesWithNoFonts = {'ja', 'ko', 'zh-Hans-CN', 'zh-Hant-TW'};
 
   /// These locales are supported by InterNotoSansHybrid but not
   /// Apple or Ubuntu fonts.
