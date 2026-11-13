@@ -942,6 +942,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.1.0"
+  liquid_glass_easy:
+    dependency: "direct main"
+    description:
+      name: liquid_glass_easy
+      sha256: f8beffcd26f942216c9427be94d28030c12cdcd2c334232a1f2869915ad3bb0f
+      url: "https://pub.dev"
+    source: hosted
+    version: "5.2.0"
   list_utilities:
     dependency: transitive
     description:
