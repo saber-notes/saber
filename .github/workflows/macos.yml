@@ -17,7 +17,7 @@ on:
 jobs:
   build-macos:
     name: Build for macOS
-    runs-on: macos-latest
+    runs-on: xcode-27
     env:
       APP_STORE_CONNECT_ISSUER_ID: ${{secrets.APP_STORE_CONNECT_ISSUER_ID}}
       APP_STORE_CONNECT_KEY_IDENTIFIER: ${{secrets.APP_STORE_CONNECT_KEY_IDENTIFIER}}
@@ -32,9 +32,9 @@ jobs:
 
       - name: Setup Xcode
         run: |
-          echo "Selecting Xcode 26.3..."
+          echo "Selecting Xcode 27.2..."
           echo /Applications/Xcode*.app
-          sudo xcode-select -s /Applications/Xcode_26.3.app
+          sudo xcode-select -s /Applications/Xcode_27.2.app
           xcode-select -p
           echo
 

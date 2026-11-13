@@ -17,7 +17,7 @@ on:
 jobs:
   build-ios:
     name: Build for iOS
-    runs-on: macos-latest
+    runs-on: xcode-27
     permissions:
       contents: write
     timeout-minutes: 60
@@ -34,9 +34,9 @@ jobs:
 
       - name: Setup Xcode
         run: |
-          echo "Selecting Xcode 26.3..."
+          echo "Selecting Xcode 27.2..."
           echo /Applications/Xcode*.app
-          sudo xcode-select -s /Applications/Xcode_26.3.app
+          sudo xcode-select -s /Applications/Xcode_27.2.app
           xcode-select -p
           echo
 
@@ -45,7 +45,7 @@ jobs:
           echo
 
           echo "Downloading iOS platform files..."
-          xcodebuild -downloadPlatform iOS -version 26.3
+          xcodebuild -downloadPlatform iOS -version 27.2
           echo
 
       - name: Setup Flutter
