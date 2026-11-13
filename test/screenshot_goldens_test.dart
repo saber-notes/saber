@@ -1,11 +1,15 @@
 import 'dart:io';
+import 'dart:ui' as ui;
 
+import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:golden_screenshot/golden_screenshot.dart';
+import 'package:liquid_glass_easy/liquid_glass_easy.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:saber/components/canvas/pencil_shader.dart';
 import 'package:saber/components/home/syncing_button.dart';
+import 'package:saber/components/navbar/bottom_navbar.dart';
 import 'package:saber/components/settings/nextcloud_profile.dart';
 import 'package:saber/components/theming/saber_theme.dart';
 import 'package:saber/data/file_manager/file_manager.dart';
@@ -166,6 +170,13 @@ void _screenshot({
         stows.platform.value = device.platform;
         await tester.runAsync(() => LocaleSettings.setLocaleRaw(localeCode));
 
+        LiquidGlassEngine.liteGlassOnSkia = true;
+        GlassyContainer.hideLiquidGlassElements = true;
+        addTearDown(() {
+          LiquidGlassEngine.liteGlassOnSkia = false;
+          GlassyContainer.hideLiquidGlassElements = false;
+        });
+
         if (goldenFileName == '4_settings') {
           NextcloudProfile.forceLoginStep = .done;
           addTearDown(() => NextcloudProfile.forceLoginStep = null);
@@ -180,12 +191,32 @@ void _screenshot({
           theme = theme.copyWith(textTheme: materialTheme.textTheme);
         }
 
+        // Prerender screen for refraction effects
+        final repaintBoundaryKey = GlobalKey();
+        final refractionSnapshot = ValueNotifier<ui.Image?>(null);
+
         final widget = ScreenshotApp.withConditionalTitlebar(
           theme: theme,
           device: device,
           frameColors: frameColors,
           title: 'Saber',
-          home: TranslationProvider(child: child),
+          home: AnimatedBuilder(
+            animation: refractionSnapshot,
+            builder: (context, child) {
+              final image = refractionSnapshot.value;
+              if (image != null) {
+                return LiquidGlassView(
+                  backgroundWidget: RawImage(image: image),
+                  child: child,
+                );
+              } else {
+                return child!;
+              }
+            },
+            child: TranslationProvider(
+              child: RepaintBoundary(key: repaintBoundaryKey, child: child),
+            ),
+          ),
         );
         await tester.pumpWidget(widget);
         await tester.pump();
@@ -204,6 +235,20 @@ void _screenshot({
 
         await tester.loadAssets();
         await tester.pumpAndSettle();
+
+        if (device.platform.isCupertino) {
+          refractionSnapshot.value = await tester.runAsync(() {
+            final boundary =
+                repaintBoundaryKey.currentContext!.findRenderObject()!
+                    as RenderRepaintBoundary;
+            return boundary.toImage();
+          });
+          LiquidGlassEngine.liteGlassOnSkia = false;
+          GlassyContainer.hideLiquidGlassElements = false;
+          await tester.pump();
+          await tester.loadAssets();
+          await tester.pumpFrames(widget, const Duration(seconds: 1));
+        }
 
         await tester.expectScreenshot(
           device,
