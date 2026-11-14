@@ -42,7 +42,7 @@ jobs:
             ${{ runner.OS }}-saber-
 
       - name: Setup Flutter
-        uses: adil192/setup-flutter-submodule@v3
+        uses: adil192/setup-flutter-submodule@2ece31d15023c66b1e2ee16bcf57db2ebeaa08b6
         with:
           flutter-path: submodules/flutter
 
