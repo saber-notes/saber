@@ -77,21 +77,32 @@ home:
     folderNameEmpty(OUTDATED): 폴더 이름은 비어 있을 수 없습니다
     folderNameContainsSlash(OUTDATED): 폴더 이름에는 슬래시(/)를 포함할 수 없습니다.
     folderNameExists(OUTDATED): 이 이름의 폴더가 이미 존재합니다
+    folderName: 폴더이름
+    rename: 이름 변경
+    folderNameEmpty: 이름 비워 있을 수 없습니다
   deleteFolder:
     deleteFolder(OUTDATED): 폴더 삭제
     deleteName(OUTDATED): $f 삭제
     delete(OUTDATED): 삭제
     alsoDeleteContents(OUTDATED): 이 폴더 안의 모든 메모도 삭제해 주세요
+    deleteFolder: 폴더 삭제
+    deleteName: $f 삭제
+    delete: 삭제
+    alsoDeleteContents: 폴더 안에 메모 삭제
   sort:
     sortBy(OUTDATED): 정렬 기준
     nameAToZ(OUTDATED): 이름 (A-Z)
     nameZToA(OUTDATED): 이름 (가나다순)
     lastModifiedNewToOld(OUTDATED): 편집됨 (최신순)
     lastModifiedOldToNew(OUTDATED): 수정됨 (오래된 순)
+    sortBy: 정리
+    nameAToZ: 이름 (A-Z)
+    nameZToA: 이름 (Z-A)
   layout:
     layout(OUTDATED): 레이아웃
     masonryGrid(OUTDATED): 메이슨리 그리드
     simpleGrid(OUTDATED): 간단한 그리드
+    layout: 레이아웃
   welcome(OUTDATED): Saber에 오신 것을 환영합니다
   invalidFormat(OUTDATED): 선택하신 파일은 지원되지 않습니다. sbn, sbn2, sba 또는 pdf 파일을 선택해 주세요.
   noFiles(OUTDATED): 파일을 찾을 수 없습니다
