@@ -1,6 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:golden_screenshot/golden_screenshot.dart';
+import 'package:liquid_glass_easy/liquid_glass_easy.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:saber/components/navbar/bottom_navbar.dart';
 import 'package:saber/components/theming/saber_theme.dart';
@@ -68,51 +69,19 @@ class _TestTile extends StatelessWidget {
     );
     return Theme(
       data: theme,
-      child: DefaultTextStyle(
-        style: theme.textTheme.bodyLarge!.copyWith(
-          fontSize: 32,
-          fontWeight: .w600,
-        ),
-        // ignore: use_decorated_box // Container applies padding automatically
-        child: Container(
-          decoration: BoxDecoration(
-            gradient: switch (background) {
-              .lightGradient => const LinearGradient(
-                colors: [Color(0xFFFFFFFF), Color(0xFFCCCCCC)],
-                begin: .topLeft,
-                end: .bottomRight,
-              ),
-              .darkGradient => const LinearGradient(
-                colors: [Color(0xFF333333), Color(0xFF000000)],
-                begin: .topLeft,
-                end: .bottomRight,
-              ),
-              .saturatedGradient => const LinearGradient(
-                colors: [Colors.blue, Colors.purple],
-                begin: .topLeft,
-                end: .bottomRight,
-              ),
-            },
-            border: Border.all(
-              color: brightness == .light ? Colors.white : Colors.black,
-              width: 8,
-            ),
+      child: LiquidGlassView(
+        // This widget is refracted for the liquid glass effect.
+        // This is only needed for this test. Normally, it samples its background automatically.
+        backgroundWidget: _TestTileBackground(platform, brightness, background),
+        child: DefaultTextStyle(
+          style: theme.textTheme.bodyLarge!.copyWith(
+            fontSize: 32,
+            fontWeight: .w600,
           ),
           child: Stack(
             children: [
               Positioned.fill(
-                child: Text(
-                  '${platform.name} - ${background.name}\n${brightness.name}\n' *
-                      7,
-                  softWrap: false,
-                  style: TextStyle(
-                    color: switch (background) {
-                      .lightGradient => Colors.black,
-                      .darkGradient => Colors.white,
-                      .saturatedGradient => Colors.white,
-                    },
-                  ),
-                ),
+                child: _TestTileBackground(platform, brightness, background),
               ),
               Positioned.fill(
                 child: Center(
@@ -122,16 +91,12 @@ class _TestTile extends StatelessWidget {
                       child: AspectRatio(
                         aspectRatio: 1.2,
                         child: Center(
-                          child: UniIcon(
-                            switch (platform) {
-                              .iOS || .macOS => Icons.apple,
-                              .android || .fuchsia => Icons.android,
-                              .linux => FontAwesomeIcons.linux,
-                              .windows => FontAwesomeIcons.windows,
-                            },
-                            size: 24,
-                            color: theme.colorScheme.onSurface,
-                          ),
+                          child: UniIcon(switch (platform) {
+                            .iOS || .macOS => Icons.apple,
+                            .android || .fuchsia => Icons.android,
+                            .linux => FontAwesomeIcons.linux,
+                            .windows => FontAwesomeIcons.windows,
+                          }, size: 24),
                         ),
                       ),
                     ),
@@ -140,6 +105,53 @@ class _TestTile extends StatelessWidget {
               ),
             ],
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class const _TestTileBackground(
+  final TargetPlatform platform,
+  final Brightness brightness,
+  final _Background background,
+) extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    // ignore: use_decorated_box // Container applies padding automatically
+    return Container(
+      decoration: BoxDecoration(
+        gradient: switch (background) {
+          .lightGradient => const LinearGradient(
+            colors: [Color(0xFFFFFFFF), Color(0xFFCCCCCC)],
+            begin: .topLeft,
+            end: .bottomRight,
+          ),
+          .darkGradient => const LinearGradient(
+            colors: [Color(0xFF333333), Color(0xFF000000)],
+            begin: .topLeft,
+            end: .bottomRight,
+          ),
+          .saturatedGradient => const LinearGradient(
+            colors: [Colors.blue, Colors.purple],
+            begin: .topLeft,
+            end: .bottomRight,
+          ),
+        },
+        border: Border.all(
+          color: brightness == .light ? Colors.white : Colors.black,
+          width: 8,
+        ),
+      ),
+      child: Text(
+        '${platform.name} - ${background.name}\n${brightness.name}\n' * 7,
+        softWrap: false,
+        style: TextStyle(
+          color: switch (background) {
+            .lightGradient => Colors.black,
+            .darkGradient => Colors.white,
+            .saturatedGradient => Colors.white,
+          },
         ),
       ),
     );

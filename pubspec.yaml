@@ -162,6 +162,7 @@ dependencies:
   dynamic_yaru: ^0.3.0
   image: 4.10.2  # 4.11.0 has a broken version constraint for `archive`
   pool: ^1.5.2
+  liquid_glass_easy: ^5.2.0
 
 dev_dependencies:
   flutter_test:
