@@ -121,7 +121,7 @@ dependencies:
 
   bson: ^5.0.0
 
-  flutter_speed_dial: ^7.0.0
+  flutter_speed_dial: ^8.0.0
 
   logging: ^1.2.0
 
@@ -185,13 +185,6 @@ dev_dependencies:
   sentry_dart_plugin: ^3.1.1
 
 dependency_overrides:
-  # https://github.com/darioielardi/flutter_speed_dial/pull/344
-  # Note: flutter_speed_dial hasn't been updated in 3 years, maybe replace it.
-  flutter_speed_dial:
-    git:
-      url: https://github.com/adil192/flutter_speed_dial.git
-      ref: fix/remove-Future.delayed
-
   # https://github.com/GregoryConrad/native_toolchain_rust/issues/103
   native_toolchain_rust:
     git:
@@ -204,13 +197,6 @@ dependency_overrides:
     git:
       url: https://github.com/adil192/flutter-quill.git
       ref: ref!/migrate-to-standalone-material_ui
-
-  # https://github.com/canonical/ubuntu-flutter-plugins/pull/541
-  platform_linux:
-    git:
-      url: https://github.com/canonical/ubuntu-flutter-plugins.git
-      ref: af29a469f3e5b3f059d4d10a0e914ff7ef09501d
-      path: packages/platform_linux
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
