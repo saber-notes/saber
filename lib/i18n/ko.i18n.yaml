@@ -2,24 +2,37 @@ common:
   done(OUTDATED): 완료됨
   continueBtn(OUTDATED): 계속하기
   cancel(OUTDATED): 취소
+  done: 완료
+  cancel: 취소
+  continueBtn: 계속
 home:
   tabs:
     home(OUTDATED): 홈
     browse(OUTDATED): 둘러보기
     whiteboard(OUTDATED): 화이트보드
     settings(OUTDATED): 설정
+    home: 홈
+    whiteboard: 화이트보드
+    settings: 설정
+    browse: 발견
   titles:
     home(OUTDATED): 최근 메모
     browse(OUTDATED): 둘러보기
     whiteboard(OUTDATED): 화이트보드
     settings(OUTDATED): 설정
+    home: 최근노트
+    whiteboard: 화이트보드
+    settings: 설정
+    browse: 발견
   tooltips:
     newNote(OUTDATED): 새 메모
     showUpdateDialog(OUTDATED): 업데이트 대화 상자 표시
     exportNote(OUTDATED): 노트 내보내기
+    newNote: 새노트
   create:
     newNote(OUTDATED): 새 메모
     importNote(OUTDATED): 가져오기 참고 사항
+    newNote: 새노트
   newFolder:
     newFolder(OUTDATED): 새 폴더
     folderName(OUTDATED): 폴더 이름
@@ -27,6 +40,9 @@ home:
     folderNameEmpty(OUTDATED): 폴더 이름은 비어 있을 수 없습니다
     folderNameContainsSlash(OUTDATED): 폴더 이름에 슬래시(/)를 포함할 수 없습니다.
     folderNameExists(OUTDATED): 폴더가 이미 존재합니다
+    newFolder: 새 폴더
+    folderName: 폴더 이름
+    create: 만들기
   renameNote:
     renameNote(OUTDATED): 노트 이름 변경
     noteName(OUTDATED): 노트 이름
@@ -35,6 +51,10 @@ home:
     noteNameExists(OUTDATED): 이 이름의 메모가 이미 존재합니다
     noteNameForbiddenCharacters(OUTDATED): 노트 이름에 금지된 문자가 포함되어 있습니다.
     noteNameReserved(OUTDATED): 노트 이름 예약됨
+    renameNote: 노트 이름 바꿈
+    noteName: 노트 이름
+    rename: 이름 바꾸기
+    noteNameEmpty: 노트 이름은 비워둘 수 없습니다
   moveNote:
     moveNote(OUTDATED): 메모 이동
     moveNotes(OUTDATED): $n개의 노트를 이동하세요
@@ -57,21 +77,32 @@ home:
     folderNameEmpty(OUTDATED): 폴더 이름은 비어 있을 수 없습니다
     folderNameContainsSlash(OUTDATED): 폴더 이름에는 슬래시(/)를 포함할 수 없습니다.
     folderNameExists(OUTDATED): 이 이름의 폴더가 이미 존재합니다
+    folderName: 폴더이름
+    rename: 이름 변경
+    folderNameEmpty: 이름 비워 있을 수 없습니다
   deleteFolder:
     deleteFolder(OUTDATED): 폴더 삭제
     deleteName(OUTDATED): $f 삭제
     delete(OUTDATED): 삭제
     alsoDeleteContents(OUTDATED): 이 폴더 안의 모든 메모도 삭제해 주세요
+    deleteFolder: 폴더 삭제
+    deleteName: $f 삭제
+    delete: 삭제
+    alsoDeleteContents: 폴더 안에 메모 삭제
   sort:
     sortBy(OUTDATED): 정렬 기준
     nameAToZ(OUTDATED): 이름 (A-Z)
     nameZToA(OUTDATED): 이름 (가나다순)
     lastModifiedNewToOld(OUTDATED): 편집됨 (최신순)
     lastModifiedOldToNew(OUTDATED): 수정됨 (오래된 순)
+    sortBy: 정리
+    nameAToZ: 이름 (A-Z)
+    nameZToA: 이름 (Z-A)
   layout:
     layout(OUTDATED): 레이아웃
     masonryGrid(OUTDATED): 메이슨리 그리드
     simpleGrid(OUTDATED): 간단한 그리드
+    layout: 레이아웃
   welcome(OUTDATED): Saber에 오신 것을 환영합니다
   invalidFormat(OUTDATED): 선택하신 파일은 지원되지 않습니다. sbn, sbn2, sba 또는 pdf 파일을 선택해 주세요.
   noFiles(OUTDATED): 파일을 찾을 수 없습니다
@@ -79,6 +110,10 @@ home:
   createNewNote(OUTDATED): + 버튼을 탭하여 새 메모를 만드세요
   backFolder(OUTDATED): 이전 폴더로 돌아가기
   deleteNote(OUTDATED): 메모 삭제
+  welcome: 세이버에 환영합니다
+  noFiles: 파일 없음
+  noPreviewAvailable: 미리보기 없음
+  backFolder: 뒤쪽가기
 sentry:
   consent:
     description:
