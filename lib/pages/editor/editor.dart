@@ -1328,10 +1328,10 @@ class EditorState extends State<Editor> {
     for (final pdfPage in pdfDocument.pages) {
       assert(pdfPage.pageNumber >= 1, 'pdfrx page numbers start at 1');
 
-      // resize to [defaultWidth] to keep pen sizes consistent
-      final pageSize = Size(
-        EditorPage.defaultWidth,
-        EditorPage.defaultWidth * pdfPage.height / pdfPage.width,
+      // Resize to a similar size to other pages
+      final pageSize = EditorPage.normalizePageSize(
+        pdfPage.width,
+        pdfPage.height,
       );
 
       final pageIndex = startPageIndex + newPages.length;

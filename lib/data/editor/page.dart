@@ -20,6 +20,16 @@ class EditorPage extends ChangeNotifier implements HasSize {
   static const double defaultWidth = 1000;
   static const double defaultHeight = defaultWidth * 1.4;
   static const defaultSize = Size(defaultWidth, defaultHeight);
+  static const _defaultArea = defaultWidth * defaultHeight;
+
+  /// Adjusts the given dimensions to have roughly the same area as [defaultSize].
+  static Size normalizePageSize(double width, double height) {
+    final prospectiveArea = width * height;
+    if (prospectiveArea <= 0 || !prospectiveArea.isFinite) return defaultSize;
+
+    final sf = sqrt(_defaultArea / prospectiveArea);
+    return Size(width * sf, height * sf);
+  }
 
   @override
   final Size size;

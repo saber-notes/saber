@@ -1,3 +1,4 @@
+import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 /// Matches points with an allowance of 0.1
@@ -19,4 +20,20 @@ class MatchesPoints(final List<Offset> points) extends Matcher {
   @override
   Description describe(Description description) =>
       description.addDescriptionOf(points);
+}
+
+/// Matches a [Size] with an allowance of 0.1
+class MatchesSize(final double width, final double height) extends Matcher {
+  @override
+  bool matches(Object? actual, Map matchState) {
+    if (actual is! Size) return false;
+
+    const epsilon = 0.1;
+    return (actual.width - width).abs() <= epsilon &&
+        (actual.height - height).abs() <= epsilon;
+  }
+
+  @override
+  Description describe(Description description) =>
+      description.addDescriptionOf(Size(width, height));
 }
