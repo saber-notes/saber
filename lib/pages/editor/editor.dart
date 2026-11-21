@@ -1332,7 +1332,7 @@ class EditorState extends State<Editor> {
         pdfPage.height,
       );
 
-      final pageIndex = startPageIndex + newPages.length;
+      final pageIndex = coreInfo.pages.length - 1;
       final page = EditorPage(
         size: pageSize,
         backgroundImage: PdfEditorImage(
@@ -1350,6 +1350,8 @@ class EditorState extends State<Editor> {
           assetCache: coreInfo.assetCache,
         ),
       );
+      coreInfo.pages.insert(pageIndex, page);
+      listenToQuillChanges(page.quill, pageIndex);
       newPages.add(page);
     }
 
@@ -1357,7 +1359,6 @@ class EditorState extends State<Editor> {
       HistoricMultiplePageInsert(pageIndex: startPageIndex, pages: newPages),
     );
 
-    coreInfo.pages.insertAll(startPageIndex, newPages);
     if (mounted) setState(() {});
 
     autosaveAfterDelay();
