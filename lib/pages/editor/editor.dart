@@ -545,20 +545,18 @@ class EditorState extends State<Editor> {
       lastSeenPointerCount = details.pointerCount;
     }
 
-    dragPageIndex = onWhichPageIsFocalPoint(details.focalPoint);
-    if (dragPageIndex == null) return false;
+    if (currentTool == Tool.textEditing) return false;
 
-    if (currentTool == Tool.textEditing) {
-      return false;
-    } else if (stows.editorFingerDrawing.value ||
-        currentPointerKind == PointerDeviceKind.stylus ||
-        currentPointerKind == PointerDeviceKind.invertedStylus ||
-        currentPressure != null) {
-      return true;
-    } else {
+    if (!stows.editorFingerDrawing.value &&
+        currentPointerKind != .stylus &&
+        currentPointerKind != .invertedStylus &&
+        currentPressure == null) {
       log.fine('Non-stylus found, rejected stroke');
       return false;
     }
+
+    dragPageIndex = onWhichPageIsFocalPoint(details.focalPoint);
+    return dragPageIndex != null;
   }
 
   static const changePageThreshold = 50.0;
