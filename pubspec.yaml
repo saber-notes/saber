@@ -143,9 +143,9 @@ dependencies:
 
   args: ^2.5.0
 
-  flutter_web_auth_2: ^5.0.1
+  flutter_web_auth_2: ^6.0.0
 
-  pdfrx: ^2.5.0
+  pdfrx: ^3.0.0
   path: ^1.9.1
 
   stow: ^0.6.0
