@@ -97,6 +97,7 @@ class _DirectorySelectorState extends State<DirectorySelector> {
   late var _isEmpty = true;
 
   Future<void> _pickDir() async {
+    // ignore: deprecated_member_use - TODO(adil192): We need to migrate FileManager to use URIs to use the replacement `FilePicker.pickDirectory`
     final directory = await FilePicker.getDirectoryPath(
       dialogTitle: widget.title,
       initialDirectory: _directory,
