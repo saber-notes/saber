@@ -1,0 +1,4 @@
+• Importado de PDF estas grupita en unu atomika historio-itemo, anstataŭ unu por ĉiu paĝo, permesante al vi unbonklikigi la importon.
+• Plibonigita dimensionado de importitaj PDFoj kun malsamaj aspektoj, precipe tiuj en pejzaĝformato.
+• Lige plibonigita performeco de rolado.
+• Korigita problemo kie paĝoj importitaj el PDF ne registris ŝanĝojn el la tipigita teksto-ilpetilo.

@@ -1,0 +1,5 @@
+• A PDF import is grouped into one atomic history item, rather than one per page, letting you undo the import with one click.
+• Improved sizing of imported PDFs of differing aspect ratios, particularly landscape ones.
+• Slightly improved scrolling performance.
+• Fixed pages imported from a PDF not registering changes from the typed text tool.
+• Removed an unused WebKit dependency from the Linux/Windows builds.

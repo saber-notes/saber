@@ -1,0 +1,4 @@
+• Une importation de PDF est regroupée en un seul élément d'historique atomique, plutôt qu'un par page, vous permettant d'annuler l'importation en un clic.
+• Amélioration du dimensionnement des PDF importés aux différents ratios d'aspect, particulièrement les paysages.
+• Légère amélioration des performances de défilement.
+• Correction : les pages importées à partir d'un PDF ne réenregistraient pas les modifications apportées par l'outil de texte tapé.

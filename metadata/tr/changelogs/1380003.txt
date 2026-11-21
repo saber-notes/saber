@@ -1,0 +1,4 @@
+• Bir PDF içe aktarımı sayfa başına değil, tek bir atomik geçmiş öğesi olarak gruplandırılır, böylece içe aktarmayı tek bir tıklama ile geri alabilirsiniz.
+• Farklı en boy oranlarına sahip içe aktarılan PDF'lerin boyutlandırması iyileştirildi, özellikle yatay olanlar için.
+• Kaydırma performansı hafifçe iyileştirildi.
+• Bir PDF'den içe aktarılan sayfaların yazılı metin aracından yapılan değişiklikleri kaydetmeme sorunu düzeltildi.

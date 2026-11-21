@@ -1,0 +1,4 @@
+• Impor PDF dikelompokkan menjadi satu item riwayat atomik, bukan per halaman, memungkinkan Anda membatalkan impor dengan satu klik.
+• Peningkatan ukuran PDF yang diimpor dengan rasio aspek yang berbeda, terutama yang lanskap.
+• Sedikit peningkatan kinerja menggulir.
+• Memperbaiki halaman yang diimpor dari PDF tidak mendaftarkan perubahan dari alat teks ketik.

@@ -1,0 +1,4 @@
+• Un'importazione di PDF viene raggruppata in un singolo elemento di cronologia atomico, anziché uno per pagina, permettendoti di annullare l'importazione con un clic.
+• Migliorata la dimensione dei PDF importati con diversi rapporti d'aspetto, in particolare quelli orizzontali (landscape).
+• Leggermente migliorate le prestazioni dello scorrimento.
+• Corretto il problema per cui le pagine importate da un PDF non registravano i cambiamenti dallo strumento di testo digitato.

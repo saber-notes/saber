@@ -1,0 +1,4 @@
+• Việc nhập tệp PDF được nhóm thành một mục lịch sử nguyên tử duy nhất, thay vì một mục cho mỗi trang, cho phép bạn hoàn tác việc nhập chỉ bằng một cú nhấp chuột.
+• Cải thiện kích thước của các tệp PDF được nhập có tỷ lệ khung hình khác nhau, đặc biệt là các tệp khổ ngang.
+• Hiệu suất cuộn được cải thiện một chút.
+• Sửa lỗi các trang được nhập từ PDF không ghi nhận thay đổi từ công cụ văn bản đã gõ.

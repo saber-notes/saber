@@ -1,0 +1,4 @@
+• PDF import bat eragile histori item batean agrupatuta dago, orola bakoaren kanpoa ez izatea, horrek importatzea klik batera ezinbesteko egiten du.
+• Importatutako PDF-en sukatze hobetua, eskerki, askotan paisaiak diren arteko proportzio ezberdinetan.
+• Aurreratuagoaz scrollaren errendimenduarekin.
+• PDF batean importatutako orriak idazteko tresnaren bidean gertatutako aldaketak ez direla irekitzen fixatzen.

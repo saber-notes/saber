@@ -1,0 +1,4 @@
+• Uvoz PDF-jev je skupčen v en atomičen zgodovinski element, namesto enega na stran, kar vam omogoča zvrnitev uvoza z enim klikom.
+• Izboljšano merjenje uvoženih PDF-jev različnih razmer, zlasti krajškotnih.
+• Slančica je nekoliko izboljšana.
+• Popravljen problem, da strani, uvozene iz PDF-ja, ne registrirajo sprememb od orodja za vpisano besedilo.

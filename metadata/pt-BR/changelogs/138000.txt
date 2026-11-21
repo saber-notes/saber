@@ -1,0 +1,4 @@
+• Uma importação de PDF é agrupada em um único item de histórico atômico, em vez de um por página, permitindo que você desfaça a importação com um clique.
+• Melhor dimensionamento de PDFs importados com diferentes proporções, especialmente os paisagens.
+• Desempenho de rolagem ligeiramente melhorado.
+• Corrigido o problema de páginas importadas de um PDF não registra alterações da ferramenta de texto digitado.

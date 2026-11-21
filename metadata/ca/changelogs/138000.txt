@@ -1,0 +1,4 @@
+• Una importació de PDF es agrupa en un únic element d'historial atòmic, en lloc d'un per pàgina, permetent desfer la importació amb un clic.
+• Millora en el dimensionament dels PDFs importats amb diferents ratios d'aspect, especialment els paisatges.
+• Lliges de rendiment al scroll lleugerament millors.
+• Corregida la problemàtica per la qual les pàgines importades d'un PDF no registraven els canvis de l'eina de text escrit.

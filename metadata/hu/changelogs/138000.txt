@@ -1,0 +1,4 @@
+• A PDF import egy atomikus történetelembe kerül csoportosításra, nem oldalankként, így egy kattintással vissza tudja venni az importot.
+• Javított méretezés az eltérő arányú beimportált PDF-eknél, különösen a tájolásnál.
+• Enyhén javított scroll teljesítmény.
+• Javítva, hogy a PDF-ből importált oldalak nem regisztrálják a kiírt szöveg eszköztól érkező változásokat.

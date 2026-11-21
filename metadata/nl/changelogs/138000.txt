@@ -1,0 +1,4 @@
+• Een PDF-import wordt gegroepeerd in één atomair geschiedenisitem, in plaats van er één per pagina, zodat u de import met één klik kunt ongedaan maken.
+• Verbeterde grootteafhandeling voor geïmporteerde PDF's met verschillende aspectverhoudingen, met name landschapsdocumenten.
+• Licht verbeterde scrollprestaties.
+• Opgelost dat pagina's die uit een PDF zijn geïmporteerd geen wijzigingen registreren van het getypte tekstgereedschap.

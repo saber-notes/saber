@@ -1,0 +1,4 @@
+• Import PDF jest grupowany w jeden atomowy element historii, zamiast po jednej stronie, co pozwala na cofnięcie importu jednym kliknięciem.
+• Ulepszone skalowanie importowanych plików PDF o różnych proporcjach, zwłaszcza tych poziomo zorientowanych.
+• Nieznacznie poprawiona wydajność przewijania.
+• Naprawiono sytuację, w której strony zaimportowane z pliku PDF nie rejestrowały zmian dokonanych narzędziem do pisania tekstu.

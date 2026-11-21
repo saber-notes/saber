@@ -1,0 +1,4 @@
+• Ein PDF-Import wird als ein einzelner atomarer Verlaufsartikel gruppiert und nicht pro Seite, sodass Sie den Import mit einem Klick rückgängig machen können.
+• Verbesserte Größenanpassung importierter PDFs unterschiedlicher Seitenverhältnisse, insbesondere Querformat.
+• Leicht verbesserte Scroll-Leistung.
+• Beheben des Problems, dass Seiten, die aus einer PDF importiert wurden, keine Änderungen durch das Texteingabe-Tool registrierten.

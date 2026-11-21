@@ -1,0 +1,4 @@
+• Import PDF je seskupován do jednoho atomového historie položky, namísto jedné na stranu, což vám umožňuje zrušit import jedním klikem.
+• Vylepšené velikosti importovaných PDF s různými poměry stran, zejména horizontální.
+• Mírně vylepšený výkon při posouvání.
+• Opraven problém, kdy se stránky importované z PDF nezaznamenávaly změny ze nástroje pro psaní textu.
