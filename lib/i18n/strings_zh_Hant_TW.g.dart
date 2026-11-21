@@ -804,7 +804,7 @@ class Translations$editor$photoPdfError$zh_Hant_TW extends Translations$editor$p
 
 	// Translations
 	@override String get title => '錯誤';
-	@override String get message => '無法將 PDF 檔案作為圖片新增。請使用 "${_root.editor.menu.import} > PDF" 來進行此操作。';
+	@override String get message => '無法將 PDF 檔案作為圖片新增。請使用「${_root.editor.menu.import} > PDF」來執行此操作。';
 }
 
 // Path: editor.readOnlyBanner

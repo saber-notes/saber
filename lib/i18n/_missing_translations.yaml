@@ -905,46 +905,19 @@ ja:
       title(OUTDATED): Error
       message(OUTDATED): "PDF files cannot be added as image. Use \"@:editor.menu.import > PDF\" for that."
 ko:
-  common:
-    done(OUTDATED): Done
-    continueBtn(OUTDATED): Continue
-    cancel(OUTDATED): Cancel
   home:
-    tabs:
-      home(OUTDATED): Home
-      browse(OUTDATED): Browse
-      whiteboard(OUTDATED): Whiteboard
-      settings(OUTDATED): Settings
-    titles:
-      home(OUTDATED): Recent notes
-      browse(OUTDATED): Browse
-      whiteboard(OUTDATED): Whiteboard
-      settings(OUTDATED): Settings
     tooltips:
-      newNote(OUTDATED): New note
       showUpdateDialog(OUTDATED): Show update dialog
       exportNote(OUTDATED): Export note
     create:
-      newNote(OUTDATED): New note
       importNote(OUTDATED): Import note
-    welcome(OUTDATED): Welcome to Saber
     invalidFormat(OUTDATED): The file you selected is not supported. Please select an sbn, sbn2, sba, or pdf file.
-    noFiles(OUTDATED): No files found
-    noPreviewAvailable(OUTDATED): No preview available
     createNewNote(OUTDATED): Tap the + button to create a new note
-    backFolder(OUTDATED): Go back to the previous folder
     newFolder:
-      newFolder(OUTDATED): New folder
-      folderName(OUTDATED): Folder name
-      create(OUTDATED): Create
       folderNameEmpty(OUTDATED): Folder name can't be empty
       folderNameContainsSlash(OUTDATED): Folder name can't contain a slash
       folderNameExists(OUTDATED): Folder already exists
     renameNote:
-      renameNote(OUTDATED): Rename note
-      noteName(OUTDATED): Note name
-      rename(OUTDATED): Rename
-      noteNameEmpty(OUTDATED): Note name can't be empty
       noteNameExists(OUTDATED): A note with this name already exists
       noteNameForbiddenCharacters(OUTDATED): Note name contains forbidden characters
       noteNameReserved(OUTDATED): Note name reserved
@@ -963,24 +936,12 @@ ko:
       delete(OUTDATED): Delete
     renameFolder:
       renameFolder(OUTDATED): Rename folder
-      folderName(OUTDATED): Folder name
-      rename(OUTDATED): Rename
-      folderNameEmpty(OUTDATED): Folder name can't be empty
       folderNameContainsSlash(OUTDATED): Folder name can't contain a slash
       folderNameExists(OUTDATED): A folder with this name already exists
-    deleteFolder:
-      deleteFolder(OUTDATED): Delete folder
-      deleteName(OUTDATED): Delete $f
-      delete(OUTDATED): Delete
-      alsoDeleteContents(OUTDATED): Also delete all notes inside this folder
     sort:
-      sortBy(OUTDATED): Sort by
-      nameAToZ(OUTDATED): Name (A-Z)
-      nameZToA(OUTDATED): Name (Z-A)
       lastModifiedNewToOld(OUTDATED): Edited (Newest first)
       lastModifiedOldToNew(OUTDATED): Edited (Oldest first)
     layout:
-      layout(OUTDATED): Layout
       masonryGrid(OUTDATED): Masonry grid
       simpleGrid(OUTDATED): Simple grid
   sentry:
@@ -1782,7 +1743,3 @@ zh-Hans-CN:
       title(OUTDATED): Error
       message(OUTDATED): "PDF files cannot be added as image. Use \"@:editor.menu.import > PDF\" for that."
 zh-Hant-TW:
-  editor:
-    photoPdfError:
-      title(OUTDATED): Error
-      message(OUTDATED): "PDF files cannot be added as image. Use \"@:editor.menu.import > PDF\" for that."

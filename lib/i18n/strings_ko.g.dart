@@ -53,8 +53,8 @@ class _Translations$common$ko extends Translations$common$en {
 	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
-	@override String get done => '완료됨';
-	@override String get continueBtn => '계속하기';
+	@override String get done => '완료';
+	@override String get continueBtn => '계속';
 	@override String get cancel => '취소';
 }
 
@@ -69,6 +69,10 @@ class _Translations$home$ko extends Translations$home$en {
 	@override late final _Translations$home$titles$ko titles = _Translations$home$titles$ko._(_root);
 	@override late final _Translations$home$tooltips$ko tooltips = _Translations$home$tooltips$ko._(_root);
 	@override late final _Translations$home$create$ko create = _Translations$home$create$ko._(_root);
+	@override String get welcome => '세이버에 환영합니다';
+	@override String get noFiles => '파일 없음';
+	@override String get noPreviewAvailable => '미리보기 없음';
+	@override String get backFolder => '뒤쪽가기';
 	@override late final _Translations$home$newFolder$ko newFolder = _Translations$home$newFolder$ko._(_root);
 	@override late final _Translations$home$renameNote$ko renameNote = _Translations$home$renameNote$ko._(_root);
 	@override late final _Translations$home$moveNote$ko moveNote = _Translations$home$moveNote$ko._(_root);
@@ -77,12 +81,8 @@ class _Translations$home$ko extends Translations$home$en {
 	@override late final _Translations$home$deleteFolder$ko deleteFolder = _Translations$home$deleteFolder$ko._(_root);
 	@override late final _Translations$home$sort$ko sort = _Translations$home$sort$ko._(_root);
 	@override late final _Translations$home$layout$ko layout = _Translations$home$layout$ko._(_root);
-	@override String get welcome => 'Saber에 오신 것을 환영합니다';
 	@override String get invalidFormat => '선택하신 파일은 지원되지 않습니다. sbn, sbn2, sba 또는 pdf 파일을 선택해 주세요.';
-	@override String get noFiles => '파일을 찾을 수 없습니다';
-	@override String get noPreviewAvailable => '미리보기 없음';
 	@override String get createNewNote => '+ 버튼을 탭하여 새 메모를 만드세요';
-	@override String get backFolder => '이전 폴더로 돌아가기';
 	@override String get deleteNote => '메모 삭제';
 }
 
@@ -242,7 +242,7 @@ class _Translations$home$tabs$ko extends Translations$home$tabs$en {
 
 	// Translations
 	@override String get home => '홈';
-	@override String get browse => '둘러보기';
+	@override String get browse => '발견';
 	@override String get whiteboard => '화이트보드';
 	@override String get settings => '설정';
 }
@@ -254,8 +254,8 @@ class _Translations$home$titles$ko extends Translations$home$titles$en {
 	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
-	@override String get home => '최근 메모';
-	@override String get browse => '둘러보기';
+	@override String get home => '최근노트';
+	@override String get browse => '발견';
 	@override String get whiteboard => '화이트보드';
 	@override String get settings => '설정';
 }
@@ -267,7 +267,7 @@ class _Translations$home$tooltips$ko extends Translations$home$tooltips$en {
 	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
-	@override String get newNote => '새 메모';
+	@override String get newNote => '새노트';
 	@override String get showUpdateDialog => '업데이트 대화 상자 표시';
 	@override String get exportNote => '노트 내보내기';
 }
@@ -279,7 +279,7 @@ class _Translations$home$create$ko extends Translations$home$create$en {
 	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
-	@override String get newNote => '새 메모';
+	@override String get newNote => '새노트';
 	@override String get importNote => '가져오기 참고 사항';
 }
 
@@ -305,10 +305,10 @@ class _Translations$home$renameNote$ko extends Translations$home$renameNote$en {
 	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
-	@override String get renameNote => '노트 이름 변경';
+	@override String get renameNote => '노트 이름 바꿈';
 	@override String get noteName => '노트 이름';
 	@override String get rename => '이름 바꾸기';
-	@override String get noteNameEmpty => '노트 이름은 비어 있을 수 없습니다';
+	@override String get noteNameEmpty => '노트 이름은 비워둘 수 없습니다';
 	@override String get noteNameExists => '이 이름의 메모가 이미 존재합니다';
 	@override String get noteNameForbiddenCharacters => '노트 이름에 금지된 문자가 포함되어 있습니다.';
 	@override String get noteNameReserved => '노트 이름 예약됨';
@@ -353,10 +353,10 @@ class _Translations$home$renameFolder$ko extends Translations$home$renameFolder$
 	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
+	@override String get folderName => '폴더이름';
+	@override String get rename => '이름 변경';
+	@override String get folderNameEmpty => '이름 비워 있을 수 없습니다';
 	@override String get renameFolder => '폴더 이름 바꾸기';
-	@override String get folderName => '폴더 이름';
-	@override String get rename => '이름 바꾸기';
-	@override String get folderNameEmpty => '폴더 이름은 비어 있을 수 없습니다';
 	@override String get folderNameContainsSlash => '폴더 이름에는 슬래시(/)를 포함할 수 없습니다.';
 	@override String get folderNameExists => '이 이름의 폴더가 이미 존재합니다';
 }
@@ -371,7 +371,7 @@ class _Translations$home$deleteFolder$ko extends Translations$home$deleteFolder$
 	@override String get deleteFolder => '폴더 삭제';
 	@override String deleteName({required Object f}) => '${f} 삭제';
 	@override String get delete => '삭제';
-	@override String get alsoDeleteContents => '이 폴더 안의 모든 메모도 삭제해 주세요';
+	@override String get alsoDeleteContents => '폴더 안에 메모 삭제';
 }
 
 // Path: home.sort
@@ -381,9 +381,9 @@ class _Translations$home$sort$ko extends Translations$home$sort$en {
 	final TranslationsKo _root; // ignore: unused_field
 
 	// Translations
-	@override String get sortBy => '정렬 기준';
+	@override String get sortBy => '정리';
 	@override String get nameAToZ => '이름 (A-Z)';
-	@override String get nameZToA => '이름 (가나다순)';
+	@override String get nameZToA => '이름 (Z-A)';
 	@override String get lastModifiedNewToOld => '편집됨 (최신순)';
 	@override String get lastModifiedOldToNew => '수정됨 (오래된 순)';
 }
