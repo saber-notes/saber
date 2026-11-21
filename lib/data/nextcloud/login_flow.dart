@@ -36,6 +36,10 @@ class SaberLoginFlow {
       await FlutterWebAuth2.authenticate(
         url: init.login,
         callbackUrlScheme: 'nc',
+        options: const FlutterWebAuth2Options(
+          // We removed the flutter_web_auth_2_desktop_webview package
+          useWebview: false,
+        ),
       );
     } else {
       // Use url_launcher to open the link in the default browser

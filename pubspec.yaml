@@ -198,6 +198,14 @@ dependency_overrides:
       url: https://github.com/adil192/flutter-quill.git
       ref: ref!/migrate-to-standalone-material_ui
 
+  # Remove unused WebKitGTK/WebView2 dependency:
+  # https://github.com/ThexXTURBOXx/flutter_web_auth_2#without-the-webview
+  flutter_web_auth_2_desktop_webview:
+    git:
+      url: https://github.com/ThexXTURBOXx/flutter_web_auth_2
+      ref: ecee5824947c35e89f2116f74dfeec6c903d9383
+      path: flutter_web_auth_2_desktop_webview_stub
+
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
