@@ -208,6 +208,26 @@ class const HistoricPageDelete({
   HistoricPageInsert reverse() => .new(pageIndex: pageIndex, page: page);
 }
 
+/// Multiple [pages] were inserted starting at [pageIndex].
+class const HistoricMultiplePageInsert({
+  required final int pageIndex,
+  required final List<EditorPage> pages,
+}) extends Historic {
+  @override
+  HistoricMultiplePageDelete reverse() =>
+      .new(pageIndex: pageIndex, pages: pages);
+}
+
+/// Multiple [pages] were deleted starting at [pageIndex].
+class const HistoricMultiplePageDelete({
+  required final int pageIndex,
+  required final List<EditorPage> pages,
+}) extends Historic {
+  @override
+  HistoricMultiplePageInsert reverse() =>
+      .new(pageIndex: pageIndex, pages: pages);
+}
+
 /// A change in the Quill text editor.
 class const HistoricQuillChange({
   required final int pageIndex,

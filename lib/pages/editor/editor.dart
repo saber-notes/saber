@@ -384,8 +384,25 @@ class EditorState extends State<Editor> {
         // insert the page at the correct index
         coreInfo.pages.insert(historic.pageIndex, historic.page);
 
-        // fix the page indices of all pages after this one
+        // fix the page indices of all following pages
         for (int i = historic.pageIndex + 1; i < coreInfo.pages.length; ++i) {
+          final page = coreInfo.pages[i];
+          page.updatePageIndex(i);
+        }
+
+      case (final HistoricMultiplePageDelete historic):
+        // make sure we already have a (blank/otherwise) page at this index
+        createPage(historic.pageIndex - 1);
+
+        // insert the pages at the correct index
+        coreInfo.pages.insertAll(historic.pageIndex, historic.pages);
+
+        // fix the page indices of all following pages
+        for (
+          var i = historic.pageIndex + historic.pages.length;
+          i < coreInfo.pages.length;
+          ++i
+        ) {
           final page = coreInfo.pages[i];
           page.updatePageIndex(i);
         }
@@ -394,8 +411,21 @@ class EditorState extends State<Editor> {
         // remove the page at the given index
         coreInfo.pages.removeAt(historic.pageIndex);
 
-        // fix the page indices of all pages after this one
+        // fix the page indices of all following pages
         for (int i = historic.pageIndex; i < coreInfo.pages.length; ++i) {
+          final page = coreInfo.pages[i];
+          page.updatePageIndex(i);
+        }
+
+      case (final HistoricMultiplePageInsert historic):
+        // remove the page at the given index
+        coreInfo.pages.removeRange(
+          historic.pageIndex,
+          historic.pageIndex + historic.pages.length,
+        );
+
+        // fix the page indices of all following pages
+        for (var i = historic.pageIndex; i < coreInfo.pages.length; ++i) {
           final page = coreInfo.pages[i];
           page.updatePageIndex(i);
         }
@@ -1287,9 +1317,13 @@ class EditorState extends State<Editor> {
 
   Future<bool> importPdfFromFilePath(String path) async {
     final pdfDocument = await coreInfo.assetCache.pdfDocumentCache.load(path);
+    if (pdfDocument.pages.isEmpty) {
+      return false;
+    }
 
-    final emptyPage = coreInfo.pages.removeLast();
-    assert(emptyPage.isEmpty);
+    // insert before the empty page
+    final startPageIndex = coreInfo.pages.length - 1;
+    final newPages = <EditorPage>[];
 
     for (final pdfPage in pdfDocument.pages) {
       assert(pdfPage.pageNumber >= 1, 'pdfrx page numbers start at 1');
@@ -1300,6 +1334,7 @@ class EditorState extends State<Editor> {
         EditorPage.defaultWidth * pdfPage.height / pdfPage.width,
       );
 
+      final pageIndex = startPageIndex + newPages.length;
       final page = EditorPage(
         size: pageSize,
         backgroundImage: PdfEditorImage(
@@ -1307,7 +1342,7 @@ class EditorState extends State<Editor> {
           pdfBytes: null,
           pdfFile: File(path),
           pdfPage: pdfPage.pageNumber - 1,
-          pageIndex: coreInfo.pages.length,
+          pageIndex: pageIndex,
           pageSize: pageSize,
           naturalSize: pdfPage.size,
           onMoveImage: onMoveImage,
@@ -1317,14 +1352,14 @@ class EditorState extends State<Editor> {
           assetCache: coreInfo.assetCache,
         ),
       );
-      coreInfo.pages.add(page);
-      // TODO(adil192): Group multiple pages into one atomic change
-      history.recordChange(
-        HistoricPageInsert(pageIndex: coreInfo.pages.length - 1, page: page),
-      );
+      newPages.add(page);
     }
 
-    coreInfo.pages.add(emptyPage);
+    history.recordChange(
+      HistoricMultiplePageInsert(pageIndex: startPageIndex, pages: newPages),
+    );
+
+    coreInfo.pages.insertAll(startPageIndex, newPages);
     if (mounted) setState(() {});
 
     autosaveAfterDelay();
