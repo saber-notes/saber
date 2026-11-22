@@ -5,10 +5,7 @@ import 'package:saber/data/tools/_tool.dart';
 import 'package:sbn/tool_id.dart';
 
 class Select extends Tool {
-  new _();
-
-  static final _currentSelect = Select._();
-  static Select get currentSelect => _currentSelect;
+  new();
 
   /// The minimum ratio of points inside a stroke or image
   /// for it to be selected.

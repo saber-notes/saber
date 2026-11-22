@@ -769,6 +769,11 @@ class _Translations$editor$selectionBar$de extends Translations$editor$selection
 	// Translations
 	@override String get delete => 'Entfernen';
 	@override String get duplicate => 'Duplizieren';
+	@override String get copy => 'Kopieren';
+	@override String get cut => 'Ausschneiden';
+	@override String get paste => 'Einfügen';
+	@override String get copyFailed => 'Die Auswahl konnte nicht kopiert werden.';
+	@override String get cutFailed => 'Die Auswahl konnte nicht ausgeschnitten werden. Bitte versuche es erneut.';
 }
 
 // Path: editor.menu

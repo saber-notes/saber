@@ -65,6 +65,7 @@ void main() {
 
         late final EditorCoreInfo coreInfo;
         late final page = coreInfo.pages.first;
+        final select = Select();
 
         setUpAll(() async {
           StrokeOptionsExtension.setDefaults();
@@ -90,7 +91,6 @@ void main() {
             );
             page.strokes.clear();
           } else if (sbnName == pencilSbn) {
-            final select = Select.currentSelect;
             final page = coreInfo.pages.first;
             select
               ..onDragStart(const Offset(200, 550), 0)
@@ -106,7 +106,6 @@ void main() {
         tearDownAll(() {
           FileManager.shouldUseRawFilePath = false;
           EditorImage.shouldLoadOutImmediately = false;
-          Select.currentSelect.unselect();
         });
 
         testGoldens('(Light)', (tester) async {
@@ -122,6 +121,7 @@ void main() {
               path: path,
               page: page,
               coreInfo: coreInfo,
+              selection: select.selectResult,
             ),
           );
           await tester.loadAssets(alsoLoadTheseFonts: ['Dekko']);
@@ -146,6 +146,7 @@ void main() {
               path: path,
               page: page,
               coreInfo: coreInfo,
+              selection: select.selectResult,
             ),
           );
           await tester.loadAssets(alsoLoadTheseFonts: ['Dekko']);
@@ -170,6 +171,7 @@ void main() {
               path: path,
               page: page,
               coreInfo: coreInfo,
+              selection: select.selectResult,
               currentScale: double.minPositive, // Very zoomed out
             ),
           );
@@ -248,6 +250,7 @@ void main() {
                 path: path,
                 page: page,
                 coreInfo: coreInfo,
+                selection: select.selectResult,
               ),
             );
             await tester.loadAssets(alsoLoadTheseFonts: ['Dekko']);
@@ -374,9 +377,9 @@ Widget _buildCanvas({
   required String path,
   required EditorPage page,
   required EditorCoreInfo coreInfo,
+  SelectResult? selection,
   double currentScale = double.maxFinite,
 }) {
-  final selectResult = Select.currentSelect.selectResult;
   return TranslationProvider(
     child: MaterialApp(
       theme: ThemeData(brightness: brightness),
@@ -394,9 +397,7 @@ Widget _buildCanvas({
                 coreInfo: coreInfo,
                 currentStroke: null,
                 currentStrokeDetectedShape: null,
-                currentSelection: selectResult.pageIndex == 0
-                    ? selectResult
-                    : null,
+                currentSelection: selection?.pageIndex == 0 ? selection : null,
                 setAsBackground: null,
                 currentTool: LaserPointer.currentLaserPointer,
                 currentScale: currentScale,

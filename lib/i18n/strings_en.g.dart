@@ -1256,6 +1256,21 @@ class Translations$editor$selectionBar$en {
 
 	/// en: 'Duplicate'
 	String get duplicate => 'Duplicate';
+
+	/// en: 'Copy'
+	String get copy => 'Copy';
+
+	/// en: 'Cut'
+	String get cut => 'Cut';
+
+	/// en: 'Paste'
+	String get paste => 'Paste';
+
+	/// en: 'Could not copy the selection.'
+	String get copyFailed => 'Could not copy the selection.';
+
+	/// en: 'Could not cut the selection. Please try again.'
+	String get cutFailed => 'Could not cut the selection. Please try again.';
 }
 
 // Path: editor.menu

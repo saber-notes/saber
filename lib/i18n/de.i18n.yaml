@@ -326,6 +326,11 @@ editor:
   selectionBar:
     delete: Entfernen
     duplicate: Duplizieren
+    copy: Kopieren
+    cut: Ausschneiden
+    paste: Einfügen
+    copyFailed: Die Auswahl konnte nicht kopiert werden.
+    cutFailed: Die Auswahl konnte nicht ausgeschnitten werden. Bitte versuche es erneut.
   menu:
     clearPage: Seite $page/$totalPages leeren
     clearAllPages: Alle Seiten löschen
