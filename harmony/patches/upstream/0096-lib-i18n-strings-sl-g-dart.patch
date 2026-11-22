@@ -1,0 +1,107 @@
+diff --git a/lib/i18n/strings_sl.g.dart b/lib/i18n/strings_sl.g.dart
+index e3c990cf..8cb92838 100644
+--- a/lib/i18n/strings_sl.g.dart
++++ b/lib/i18n/strings_sl.g.dart
+@@ -69,7 +69,7 @@ class _Translations$home$sl extends Translations$home$en {
+ 	@override late final _Translations$home$titles$sl titles = _Translations$home$titles$sl._(_root);
+ 	@override late final _Translations$home$tooltips$sl tooltips = _Translations$home$tooltips$sl._(_root);
+ 	@override late final _Translations$home$create$sl create = _Translations$home$create$sl._(_root);
+-	@override String get welcome => 'Dobrodošli v Saber';
++	@override String get welcome => 'Dobrodošli v 赛博手写笔记';
+ 	@override String get invalidFormat => 'Izbrana datoteka ni podprta. Prosim, izberi datoteko sbn, sbn2, sba ali pdf.';
+ 	@override String get noFiles => 'Ni najdenih datotek';
+ 	@override String get noPreviewAvailable => 'Predogled ni na voljo';
+@@ -408,7 +408,7 @@ class _Translations$sentry$consent$sl extends Translations$sentry$consent$en {
+ 	final TranslationsSl _root; // ignore: unused_field
+ 
+ 	// Translations
+-	@override String get title => 'Ali želiš pomagati izboljšati Saber?';
++	@override String get title => 'Ali želiš pomagati izboljšati 赛博手写笔记?';
+ 	@override late final _Translations$sentry$consent$description$sl description = _Translations$sentry$consent$description$sl._(_root);
+ 	@override late final _Translations$sentry$consent$answers$sl answers = _Translations$sentry$consent$answers$sl._(_root);
+ }
+@@ -440,7 +440,7 @@ class _Translations$settings$prefLabels$sl extends Translations$settings$prefLab
+ 	@override String get layoutSize => 'Vrsta postavitve';
+ 	@override String get customAccentColor => 'Barva poudarka po meri';
+ 	@override String get hyperlegibleFont => 'Pisava Atkinson Hyperlegible';
+-	@override String get shouldCheckForUpdates => 'Preveri posodobitve za Saber';
++	@override String get shouldCheckForUpdates => 'Preveri posodobitve za 赛博手写笔记';
+ 	@override String get shouldAlwaysAlertForUpdates => 'Hitrejše posodobitve';
+ 	@override String get allowInsecureConnections => 'Dovoli nezavarovane povezave';
+ 	@override String get editorToolbarAlignment => 'Položaj orodne vrstice';
+@@ -471,7 +471,7 @@ class _Translations$settings$prefDescriptions$sl extends Translations$settings$p
+ 
+ 	// Translations
+ 	@override String get hyperlegibleFont => 'Poveča čitljivost za uporabnike s slabšim vidom';
+-	@override String get allowInsecureConnections => '(Ni priporočljivo) Dovoli Saberju povezovanje s strežniki s samopodpisanimi/nezaupanja vrednimi potrdili';
++	@override String get allowInsecureConnections => '(Ni priporočljivo) Dovoli 赛博手写笔记ju povezovanje s strežniki s samopodpisanimi/nezaupanja vrednimi potrdili';
+ 	@override String get preferGreyscale => 'Za zaslone e-ink';
+ 	@override String get autoClearWhiteboardOnExit => 'Počisti tablo, ko zapustiš aplikacijo';
+ 	@override String get disableEraserAfterUse => 'Po uporabi radirke samodejno preklopi nazaj na pero';
+@@ -582,10 +582,10 @@ class _Translations$login$ncLoginStep$sl extends Translations$login$ncLoginStep$
+ 
+ 	// Translations
+ 	@override String get whereToStoreData => 'Izberi, kje želiš shraniti svoje podatke:';
+-	@override String get saberNcServer => 'Saberjev Nextcloud strežnik';
++	@override String get saberNcServer => '赛博手写笔记jev Nextcloud strežnik';
+ 	@override String get otherNcServer => 'Drug Nextcloud strežnik';
+ 	@override String get serverUrl => 'URL strežnika';
+-	@override String get loginWithSaber => 'Prijava v Saber';
++	@override String get loginWithSaber => 'Prijava v 赛博手写笔记';
+ 	@override String get loginWithNextcloud => 'Prijava v Nextcloud';
+ 	@override late final _Translations$login$ncLoginStep$loginFlow$sl loginFlow = _Translations$login$ncLoginStep$loginFlow$sl._(_root);
+ }
+@@ -598,7 +598,7 @@ class _Translations$login$encLoginStep$sl extends Translations$login$encLoginSte
+ 
+ 	// Translations
+ 	@override String get enterEncPassword => 'Za zaščito tvojih podatkov vnesi geslo za šifriranje:';
+-	@override String get newToSaber => 'Si nov v Saberju? Samo vnesi novo geslo za šifriranje.';
++	@override String get newToSaber => 'Si nov v 赛博手写笔记ju? Samo vnesi novo geslo za šifriranje.';
+ 	@override String get encPassword => 'Geslo za šifriranje';
+ 	@override String get encFaqTitle => 'Pogosta vprašanja';
+ 	@override String get wrongEncPassword => 'Dešifriranje s podanim geslom ni uspelo. Prosim, poskusi znova vnesti geslo.';
+@@ -640,7 +640,7 @@ class _Translations$profile$faq$1$sl extends Translations$profile$faq$1$en {
+ 
+ 	// Translations
+ 	@override String get q => 'Kako spremenim geslo za Nextcloud?';
+-	@override String get a => 'Pojdi na spletno stran tvojega strežnika in se prijavi. Nato pojdi na Nastavitve > Varnost > Spremeni geslo. Po spremembi gesla se boš moral odjaviti in znova prijaviti v Saber.';
++	@override String get a => 'Pojdi na spletno stran tvojega strežnika in se prijavi. Nato pojdi na Nastavitve > Varnost > Spremeni geslo. Po spremembi gesla se boš moral odjaviti in znova prijaviti v 赛博手写笔记.';
+ }
+ 
+ // Path: profile.faq.2
+@@ -651,7 +651,7 @@ class _Translations$profile$faq$2$sl extends Translations$profile$faq$2$en {
+ 
+ 	// Translations
+ 	@override String get q => 'Kako spremenim geslo za šifriranje?';
+-	@override String get a => '0. Prepričaj se, da je sinhronizacija končana (glej napredek sinhronizacije na domačem zaslonu).\n1. Odjavi se iz Saberja.\n2. Pojdi na spletno stran tvojega strežnika in izbriši mapo \'Saber\'. S tem boš izbrisal vse svoje zapiske s strežnika.\n3. Znova se prijavi v Saber. Pri prijavi lahko izbereš novo geslo za šifriranje.\n4. Ne pozabi se odjaviti in znova prijaviti v Saber tudi na drugih napravah.';
++	@override String get a => '0. Prepričaj se, da je sinhronizacija končana (glej napredek sinhronizacije na domačem zaslonu).\n1. Odjavi se iz 赛博手写笔记ja.\n2. Pojdi na spletno stran tvojega strežnika in izbriši mapo \'Saber\'. S tem boš izbrisal vse svoje zapiske s strežnika.\n3. Znova se prijavi v 赛博手写笔记. Pri prijavi lahko izbereš novo geslo za šifriranje.\n4. Ne pozabi se odjaviti in znova prijaviti v 赛博手写笔记 tudi na drugih napravah.';
+ }
+ 
+ // Path: profile.faq.3
+@@ -826,7 +826,7 @@ class _Translations$editor$versionTooNew$sl extends Translations$editor$versionT
+ 	final TranslationsSl _root; // ignore: unused_field
+ 
+ 	// Translations
+-	@override String get title => 'Ta zapisek je bil urejen z novejšo različico Saberja';
++	@override String get title => 'Ta zapisek je bil urejen z novejšo različico 赛博手写笔记ja';
+ 	@override String get subtitle => 'Urejanje tega zapiska lahko povzroči izgubo nekaterih informacij. Ali želiš to prezreti in vseeno urejati?';
+ 	@override String get allowEditing => 'Dovoli urejanje';
+ }
+@@ -918,7 +918,7 @@ class _Translations$login$ncLoginStep$loginFlow$sl extends Translations$login$nc
+ 	final TranslationsSl _root; // ignore: unused_field
+ 
+ 	// Translations
+-	@override String get pleaseAuthorize => 'Prosim, pooblasti Saber za dostop do tvojega Nextcloud računa';
++	@override String get pleaseAuthorize => 'Prosim, pooblasti 赛博手写笔记 za dostop do tvojega Nextcloud računa';
+ 	@override String get followPrompts => 'Prosim, sledi navodilom v vmesniku Nextcloud';
+ 	@override String get browserDidntOpen => 'Prijavna stran se ni odprla? Klikni tukaj';
+ }
+@@ -942,7 +942,7 @@ class _Translations$login$encLoginStep$encFaq$1$sl extends Translations$login$en
+ 
+ 	// Translations
+ 	@override String get q => 'Še nisem nastavil gesla za šifriranje. Kje ga dobim?';
+-	@override String get a => 'Izberi novo geslo za šifriranje in ga vnesi zgoraj.\nSaber bo iz tega gesla samodejno ustvaril tvoje šifrirne ključe.';
++	@override String get a => 'Izberi novo geslo za šifriranje in ga vnesi zgoraj.\n赛博手写笔记 bo iz tega gesla samodejno ustvaril tvoje šifrirne ključe.';
+ }
+ 
+ // Path: login.encLoginStep.encFaq.2

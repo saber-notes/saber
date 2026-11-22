@@ -1,0 +1,89 @@
+diff --git a/lib/i18n/strings_vi.g.dart b/lib/i18n/strings_vi.g.dart
+index c32f74d1..1992cf5c 100644
+--- a/lib/i18n/strings_vi.g.dart
++++ b/lib/i18n/strings_vi.g.dart
+@@ -69,7 +69,7 @@ class _Translations$home$vi extends Translations$home$en {
+ 	@override late final _Translations$home$titles$vi titles = _Translations$home$titles$vi._(_root);
+ 	@override late final _Translations$home$tooltips$vi tooltips = _Translations$home$tooltips$vi._(_root);
+ 	@override late final _Translations$home$create$vi create = _Translations$home$create$vi._(_root);
+-	@override String get welcome => 'Chào mừng đến với Saber';
++	@override String get welcome => 'Chào mừng đến với 赛博手写笔记';
+ 	@override String get invalidFormat => 'Định dạng tệp bạn đã chọn không được hỗ trợ. Chúng tôi hỗ trợ các định dạng sbn, sbn2, hoặc pdf.';
+ 	@override String get noFiles => 'Không tìm thấy tệp';
+ 	@override String get noPreviewAvailable => 'Không có bản xem trước';
+@@ -408,7 +408,7 @@ class _Translations$sentry$consent$vi extends Translations$sentry$consent$en {
+ 	final TranslationsVi _root; // ignore: unused_field
+ 
+ 	// Translations
+-	@override String get title => 'Đóng góp cho Saber?';
++	@override String get title => 'Đóng góp cho 赛博手写笔记?';
+ 	@override late final _Translations$sentry$consent$description$vi description = _Translations$sentry$consent$description$vi._(_root);
+ 	@override late final _Translations$sentry$consent$answers$vi answers = _Translations$sentry$consent$answers$vi._(_root);
+ }
+@@ -471,7 +471,7 @@ class _Translations$settings$prefDescriptions$vi extends Translations$settings$p
+ 
+ 	// Translations
+ 	@override String get hyperlegibleFont => 'Tăng khả năng đọc cho người khiếm thị';
+-	@override String get allowInsecureConnections => '(Không khuyến nghị) Cho phép Saber kết nối với các máy chủ có chứng chỉ tự ký hoặc không đáng tin cậy';
++	@override String get allowInsecureConnections => '(Không khuyến nghị) Cho phép 赛博手写笔记 kết nối với các máy chủ có chứng chỉ tự ký hoặc không đáng tin cậy';
+ 	@override String get preferGreyscale => 'Dành cho màn hình e-ink';
+ 	@override String get autoClearWhiteboardOnExit => 'Xóa bảng vẽ tự do sau khi bạn thoát ứng dụng';
+ 	@override String get disableEraserAfterUse => 'Tự động sử dụng bút vẽ sau khi dùng tẩy';
+@@ -582,10 +582,10 @@ class _Translations$login$ncLoginStep$vi extends Translations$login$ncLoginStep$
+ 
+ 	// Translations
+ 	@override String get whereToStoreData => 'Chọn nơi lưu trữ dữ liệu của bạn:';
+-	@override String get saberNcServer => 'Máy chủ Nextcloud của Saber';
++	@override String get saberNcServer => 'Máy chủ Nextcloud của 赛博手写笔记';
+ 	@override String get otherNcServer => 'Các máy chủ Nextcloud khác';
+ 	@override String get serverUrl => 'Đường dẫn máy chủ';
+-	@override String get loginWithSaber => 'Đăng nhập bằng Saber';
++	@override String get loginWithSaber => 'Đăng nhập bằng 赛博手写笔记';
+ 	@override String get loginWithNextcloud => 'Đăng nhập bằng Nextcloud';
+ 	@override late final _Translations$login$ncLoginStep$loginFlow$vi loginFlow = _Translations$login$ncLoginStep$loginFlow$vi._(_root);
+ }
+@@ -640,7 +640,7 @@ class _Translations$profile$faq$1$vi extends Translations$profile$faq$1$en {
+ 
+ 	// Translations
+ 	@override String get q => 'Làm sao để thay đổi mật khẩu Nextcloud?';
+-	@override String get a => 'Truy cập vào trang web máy chủ của bạn và đăng nhập. Sau đó, đi tới Cài đặt > Bảo mật > Thay đổi mật khẩu. Bạn sẽ cần phải đăng xuất và đăng nhập lại vào Saber sau khi thay đổi mật khẩu.';
++	@override String get a => 'Truy cập vào trang web máy chủ của bạn và đăng nhập. Sau đó, đi tới Cài đặt > Bảo mật > Thay đổi mật khẩu. Bạn sẽ cần phải đăng xuất và đăng nhập lại vào 赛博手写笔记 sau khi thay đổi mật khẩu.';
+ }
+ 
+ // Path: profile.faq.2
+@@ -651,7 +651,7 @@ class _Translations$profile$faq$2$vi extends Translations$profile$faq$2$en {
+ 
+ 	// Translations
+ 	@override String get q => 'Làm sao để thay đổi mật khẩu mã hóa?';
+-	@override String get a => '0. Hãy đảm bảo quá trình đồng bộ đã hoàn tất (kiểm tra tiến trình đồng bộ tại màn hình chính).\n1. Đăng xuất khỏi Saber.\n2. Truy cập vào trang web máy chủ của bạn và xóa thư mục \'Saber\'. Thao tác này sẽ xóa tất cả ghi chú của bạn khỏi máy chủ.\n3. Đăng nhập lại vào Saber. Bạn có thể chọn một mật khẩu mã hóa mới khi đăng nhập.\n4. Đừng quên đăng xuất và đăng nhập lại vào Saber trên các thiết bị khác của bạn nữa nhé.';
++	@override String get a => '0. Hãy đảm bảo quá trình đồng bộ đã hoàn tất (kiểm tra tiến trình đồng bộ tại màn hình chính).\n1. Đăng xuất khỏi 赛博手写笔记.\n2. Truy cập vào trang web máy chủ của bạn và xóa thư mục \'Saber\'. Thao tác này sẽ xóa tất cả ghi chú của bạn khỏi máy chủ.\n3. Đăng nhập lại vào 赛博手写笔记. Bạn có thể chọn một mật khẩu mã hóa mới khi đăng nhập.\n4. Đừng quên đăng xuất và đăng nhập lại vào 赛博手写笔记 trên các thiết bị khác của bạn nữa nhé.';
+ }
+ 
+ // Path: profile.faq.3
+@@ -826,7 +826,7 @@ class _Translations$editor$versionTooNew$vi extends Translations$editor$versionT
+ 	final TranslationsVi _root; // ignore: unused_field
+ 
+ 	// Translations
+-	@override String get title => 'Ghi chú này đã được chỉnh sửa bằng phiên bản Saber mới hơn';
++	@override String get title => 'Ghi chú này đã được chỉnh sửa bằng phiên bản 赛博手写笔记 mới hơn';
+ 	@override String get subtitle => 'Chỉnh sửa có thể làm mất dữ liệu. Bạn vẫn muốn tiếp tục?';
+ 	@override String get allowEditing => 'Cho phép chỉnh sửa';
+ }
+@@ -918,7 +918,7 @@ class _Translations$login$ncLoginStep$loginFlow$vi extends Translations$login$nc
+ 	final TranslationsVi _root; // ignore: unused_field
+ 
+ 	// Translations
+-	@override String get pleaseAuthorize => 'Vui lòng cho phép Saber truy cập vào tài khoản Nextcloud của bạn';
++	@override String get pleaseAuthorize => 'Vui lòng cho phép 赛博手写笔记 truy cập vào tài khoản Nextcloud của bạn';
+ 	@override String get followPrompts => 'Vui lòng làm theo các hướng dẫn trên giao diện Nextcloud';
+ 	@override String get browserDidntOpen => 'Trang đăng nhập không xuất hiện? Hãy ấn vào đây';
+ }
+@@ -942,7 +942,7 @@ class _Translations$login$encLoginStep$encFaq$1$vi extends Translations$login$en
+ 
+ 	// Translations
+ 	@override String get q => 'Tôi chưa thiết lập mật khẩu mã hóa. Tôi có thể tạo nó ở đâu?';
+-	@override String get a => 'Hãy chọn một mật khẩu mã hóa mới và nhập vào ô bên trên.\nSaber sẽ tự động tạo các khóa mã hóa cho bạn từ mật khẩu này.';
++	@override String get a => 'Hãy chọn một mật khẩu mã hóa mới và nhập vào ô bên trên.\n赛博手写笔记 sẽ tự động tạo các khóa mã hóa cho bạn từ mật khẩu này.';
+ }
+ 
+ // Path: login.encLoginStep.encFaq.2

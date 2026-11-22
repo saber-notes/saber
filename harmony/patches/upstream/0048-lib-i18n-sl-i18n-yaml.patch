@@ -1,0 +1,100 @@
+diff --git a/lib/i18n/sl.i18n.yaml b/lib/i18n/sl.i18n.yaml
+index 26a0e253..90a253df 100644
+--- a/lib/i18n/sl.i18n.yaml
++++ b/lib/i18n/sl.i18n.yaml
+@@ -20,7 +20,7 @@ home:
+   create:
+     newNote: Nov zapisek
+     importNote: Uvozi zapisek
+-  welcome: Dobrodošli v Saber
++  welcome: Dobrodošli v 赛博手写笔记
+   invalidFormat: Izbrana datoteka ni podprta. Prosim, izberi datoteko sbn, sbn2, sba ali pdf.
+   noFiles: Ni najdenih datotek
+   noPreviewAvailable: Predogled ni na voljo
+@@ -81,7 +81,7 @@ home:
+     simpleGrid(OUTDATED): Preprosta mreža
+ sentry:
+   consent:
+-    title: Ali želiš pomagati izboljšati Saber?
++    title: Ali želiš pomagati izboljšati 赛博手写笔记?
+     description:
+       question: Ali želiš samodejno poročati o nepričakovanih napakah? To mi pomaga hitreje prepoznati in odpraviti težave.
+       scope: Poročila lahko vsebujejo informacije o napaki in tvoji napravi. Potrudil sem se, da bi filtriral osebne podatke, vendar lahko nekateri ostanejo.
+@@ -106,7 +106,7 @@ settings:
+     layoutSize: Vrsta postavitve
+     customAccentColor: Barva poudarka po meri
+     hyperlegibleFont: Pisava Atkinson Hyperlegible
+-    shouldCheckForUpdates: Preveri posodobitve za Saber
++    shouldCheckForUpdates: Preveri posodobitve za 赛博手写笔记
+     shouldAlwaysAlertForUpdates: Hitrejše posodobitve
+     allowInsecureConnections: Dovoli nezavarovane povezave
+     editorToolbarAlignment: Položaj orodne vrstice
+@@ -129,7 +129,7 @@ settings:
+     sentry: Poročanje o napakah
+   prefDescriptions:
+     hyperlegibleFont: Poveča čitljivost za uporabnike s slabšim vidom
+-    allowInsecureConnections: (Ni priporočljivo) Dovoli Saberju povezovanje s strežniki s samopodpisanimi/nezaupanja vrednimi potrdili
++    allowInsecureConnections: (Ni priporočljivo) Dovoli 赛博手写笔记ju povezovanje s strežniki s samopodpisanimi/nezaupanja vrednimi potrdili
+     preferGreyscale: Za zaslone e-ink
+     autoClearWhiteboardOnExit: Počisti tablo, ko zapustiš aplikacijo
+     disableEraserAfterUse: Po uporabi radirke samodejno preklopi nazaj na pero
+@@ -199,18 +199,18 @@ login:
+     loggedIn: Prijavljen z Nextcloudom
+   ncLoginStep:
+     whereToStoreData: "Izberi, kje želiš shraniti svoje podatke:"
+-    saberNcServer: Saberjev Nextcloud strežnik
++    saberNcServer: 赛博手写笔记jev Nextcloud strežnik
+     otherNcServer: Drug Nextcloud strežnik
+     serverUrl: URL strežnika
+-    loginWithSaber: Prijava v Saber
++    loginWithSaber: Prijava v 赛博手写笔记
+     loginWithNextcloud: Prijava v Nextcloud
+     loginFlow:
+-      pleaseAuthorize: Prosim, pooblasti Saber za dostop do tvojega Nextcloud računa
++      pleaseAuthorize: Prosim, pooblasti 赛博手写笔记 za dostop do tvojega Nextcloud računa
+       followPrompts: Prosim, sledi navodilom v vmesniku Nextcloud
+       browserDidntOpen: Prijavna stran se ni odprla? Klikni tukaj
+   encLoginStep:
+     enterEncPassword: "Za zaščito tvojih podatkov vnesi geslo za šifriranje:"
+-    newToSaber: Si nov v Saberju? Samo vnesi novo geslo za šifriranje.
++    newToSaber: Si nov v 赛博手写笔记ju? Samo vnesi novo geslo za šifriranje.
+     encPassword: Geslo za šifriranje
+     encFaqTitle: Pogosta vprašanja
+     wrongEncPassword: Dešifriranje s podanim geslom ni uspelo. Prosim, poskusi znova vnesti geslo.
+@@ -224,7 +224,7 @@ login:
+     - q: Še nisem nastavil gesla za šifriranje. Kje ga dobim?
+       a: |-
+         Izberi novo geslo za šifriranje in ga vnesi zgoraj.
+-        Saber bo iz tega gesla samodejno ustvaril tvoje šifrirne ključe.
++        赛博手写笔记 bo iz tega gesla samodejno ustvaril tvoje šifrirne ključe.
+     - q: Ali lahko uporabim isto geslo kot za moj Nextcloud račun?
+       a: Da, vendar imej v mislih, da bi bilo skrbniku strežnika ali komu drugemu lažje dostopati do tvojih zapiskov, če pridobijo dostop do tvojega Nextcloud računa.
+ profile:
+@@ -240,14 +240,14 @@ profile:
+   - q: Ali bom izgubil zapiske, če se odjavim?
+     a: Ne. Tvoji zapiski bodo ostali tako na tvoji napravi kot na strežniku. S strežnikom se ne bodo sinhronizirali, dokler se znova ne prijaviš. Prepričaj se, da je sinhronizacija končana, preden se odjaviš, da ne izgubiš podatkov (glej napredek sinhronizacije na domačem zaslonu).
+   - q: Kako spremenim geslo za Nextcloud?
+-    a: Pojdi na spletno stran tvojega strežnika in se prijavi. Nato pojdi na Nastavitve > Varnost > Spremeni geslo. Po spremembi gesla se boš moral odjaviti in znova prijaviti v Saber.
++    a: Pojdi na spletno stran tvojega strežnika in se prijavi. Nato pojdi na Nastavitve > Varnost > Spremeni geslo. Po spremembi gesla se boš moral odjaviti in znova prijaviti v 赛博手写笔记.
+   - q: Kako spremenim geslo za šifriranje?
+     a: |-
+       0. Prepričaj se, da je sinhronizacija končana (glej napredek sinhronizacije na domačem zaslonu).
+-      1. Odjavi se iz Saberja.
++      1. Odjavi se iz 赛博手写笔记ja.
+       2. Pojdi na spletno stran tvojega strežnika in izbriši mapo 'Saber'. S tem boš izbrisal vse svoje zapiske s strežnika.
+-      3. Znova se prijavi v Saber. Pri prijavi lahko izbereš novo geslo za šifriranje.
+-      4. Ne pozabi se odjaviti in znova prijaviti v Saber tudi na drugih napravah.
++      3. Znova se prijavi v 赛博手写笔记. Pri prijavi lahko izbereš novo geslo za šifriranje.
++      4. Ne pozabi se odjaviti in znova prijaviti v 赛博手写笔记 tudi na drugih napravah.
+   - q: Kako lahko izbrišem svoj račun?
+     a: |-
+       Dotakni se gumba "@:profile.quickLinks.deleteAccount" zgoraj in se po potrebi prijavi.
+@@ -363,7 +363,7 @@ editor:
+     watchingServer: Trenutno spremljaš posodobitve na strežniku. Urejanje v tem načinu je onemogočeno.
+     corrupted: Nalaganje zapiska ni uspelo. Morda je poškodovan ali pa se še vedno prenaša.
+   versionTooNew:
+-    title: Ta zapisek je bil urejen z novejšo različico Saberja
++    title: Ta zapisek je bil urejen z novejšo različico 赛博手写笔记ja
+     subtitle: Urejanje tega zapiska lahko povzroči izgubo nekaterih informacij. Ali želiš to prezreti in vseeno urejati?
+     allowEditing: Dovoli urejanje
+   quill:

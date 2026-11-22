@@ -1,0 +1,107 @@
+diff --git a/lib/i18n/strings_pl.g.dart b/lib/i18n/strings_pl.g.dart
+index 2b935210..0042f6a1 100644
+--- a/lib/i18n/strings_pl.g.dart
++++ b/lib/i18n/strings_pl.g.dart
+@@ -69,7 +69,7 @@ class _Translations$home$pl extends Translations$home$en {
+ 	@override late final _Translations$home$titles$pl titles = _Translations$home$titles$pl._(_root);
+ 	@override late final _Translations$home$tooltips$pl tooltips = _Translations$home$tooltips$pl._(_root);
+ 	@override late final _Translations$home$create$pl create = _Translations$home$create$pl._(_root);
+-	@override String get welcome => 'Witaj w Saber';
++	@override String get welcome => 'Witaj w 赛博手写笔记';
+ 	@override String get invalidFormat => 'Plik który wskazano nie jest wspierany. Proszę wybrać plik w formacie sbn, sbn2, sba, lub pdf.';
+ 	@override String get noFiles => 'Nie znaleziono plików';
+ 	@override String get noPreviewAvailable => 'Podgląd niedostępny';
+@@ -408,7 +408,7 @@ class _Translations$sentry$consent$pl extends Translations$sentry$consent$en {
+ 	final TranslationsPl _root; // ignore: unused_field
+ 
+ 	// Translations
+-	@override String get title => 'Chcesz wesprzeć Saber?';
++	@override String get title => 'Chcesz wesprzeć 赛博手写笔记?';
+ 	@override late final _Translations$sentry$consent$description$pl description = _Translations$sentry$consent$description$pl._(_root);
+ 	@override late final _Translations$sentry$consent$answers$pl answers = _Translations$sentry$consent$answers$pl._(_root);
+ }
+@@ -440,7 +440,7 @@ class _Translations$settings$prefLabels$pl extends Translations$settings$prefLab
+ 	@override String get layoutSize => 'Rodzaj układu';
+ 	@override String get customAccentColor => 'Niestandardowy kolor akcentu';
+ 	@override String get hyperlegibleFont => 'Czcionka Atkinson Hyperlegible';
+-	@override String get shouldCheckForUpdates => 'Sprawdź dostępność aktualizacji Saber';
++	@override String get shouldCheckForUpdates => 'Sprawdź dostępność aktualizacji 赛博手写笔记';
+ 	@override String get shouldAlwaysAlertForUpdates => 'Szybsze aktualizacje';
+ 	@override String get allowInsecureConnections => 'Zezwól na niezabezpieczone połączenia';
+ 	@override String get editorToolbarAlignment => 'Pozycja przybornika';
+@@ -471,7 +471,7 @@ class _Translations$settings$prefDescriptions$pl extends Translations$settings$p
+ 
+ 	// Translations
+ 	@override String get hyperlegibleFont => 'Zwiększenie czytelności dla użytkowników słabowidzących';
+-	@override String get allowInsecureConnections => '(Nie zalecane) Zezwól Saber na połączenie z serwerami używając certyfikatów niezaufanych/z własnym podpisem';
++	@override String get allowInsecureConnections => '(Nie zalecane) Zezwól 赛博手写笔记 na połączenie z serwerami używając certyfikatów niezaufanych/z własnym podpisem';
+ 	@override String get preferGreyscale => 'Dla ekranów e-ink';
+ 	@override String get autoClearWhiteboardOnExit => 'Czyści tablice po wyjściu z aplikacji';
+ 	@override String get disableEraserAfterUse => 'Automatycznie przełącza na poprzednie narzędzie po skorzystaniu z gumki';
+@@ -582,10 +582,10 @@ class _Translations$login$ncLoginStep$pl extends Translations$login$ncLoginStep$
+ 
+ 	// Translations
+ 	@override String get whereToStoreData => 'Wybierz gdzie przechowywać twoje dane:';
+-	@override String get saberNcServer => 'Serwer Nextcloud Saber';
++	@override String get saberNcServer => 'Serwer Nextcloud 赛博手写笔记';
+ 	@override String get otherNcServer => 'Inny serwer Nextcloud';
+ 	@override String get serverUrl => 'Serwer URL';
+-	@override String get loginWithSaber => 'Zaloguj przez Saber';
++	@override String get loginWithSaber => 'Zaloguj przez 赛博手写笔记';
+ 	@override String get loginWithNextcloud => 'Zaloguj przez Nextcloud';
+ 	@override late final _Translations$login$ncLoginStep$loginFlow$pl loginFlow = _Translations$login$ncLoginStep$loginFlow$pl._(_root);
+ }
+@@ -598,7 +598,7 @@ class _Translations$login$encLoginStep$pl extends Translations$login$encLoginSte
+ 
+ 	// Translations
+ 	@override String get enterEncPassword => 'Aby chronić twoje dane, podaj proszę hasło szyfrowania:';
+-	@override String get newToSaber => 'Nowy w Saber? Utwórz nowe hasło szyfrowania.';
++	@override String get newToSaber => 'Nowy w 赛博手写笔记? Utwórz nowe hasło szyfrowania.';
+ 	@override String get encPassword => 'Hasło szyfrowania';
+ 	@override String get encFaqTitle => 'Często zadawane pytania (FAQ)';
+ 	@override String get wrongEncPassword => 'Odszyfrowywanie przy użyciu podanego hasła nie powiodło się. Spróbuj wpisać je ponownie.';
+@@ -640,7 +640,7 @@ class _Translations$profile$faq$1$pl extends Translations$profile$faq$1$en {
+ 
+ 	// Translations
+ 	@override String get q => 'Jak mogę zmienić hasło do Nextcloud?';
+-	@override String get a => 'Wejdź na stronę swojego serwera i się zaloguj. Następnie przejdź do Settings > Security > Change password (Ustawienia > Bezpieczeństwo>Zmiana hasła). Po zmianie hasła należy wylogować się z serwera w Saber, a następnie zalogować ponownie za pomocą nowego hasła.';
++	@override String get a => 'Wejdź na stronę swojego serwera i się zaloguj. Następnie przejdź do Settings > Security > Change password (Ustawienia > Bezpieczeństwo>Zmiana hasła). Po zmianie hasła należy wylogować się z serwera w 赛博手写笔记, a następnie zalogować ponownie za pomocą nowego hasła.';
+ }
+ 
+ // Path: profile.faq.2
+@@ -651,7 +651,7 @@ class _Translations$profile$faq$2$pl extends Translations$profile$faq$2$en {
+ 
+ 	// Translations
+ 	@override String get q => 'Jak mogę zmienić moje hasło szyfrowania?';
+-	@override String get a => '0. Upewnij się, że synchronizacja została zakończona (zobacz postęp synchronizacji na ekranie głównym).\n1. Wyloguj się z Saber.\n2. Przejdź na stronę swojego serwera i usuń folder \'Saber\'. Spowoduje to usunięcie wszystkich Twoich notatek z serwera.\n3. Zaloguj się ponownie do Saber. Podczas logowania możesz wybrać nowe hasło szyfrowania.\n4. Nie zapomnij wylogować się i zalogować ponownie do Saber również na swoich innych urządzeniach.';
++	@override String get a => '0. Upewnij się, że synchronizacja została zakończona (zobacz postęp synchronizacji na ekranie głównym).\n1. Wyloguj się z 赛博手写笔记.\n2. Przejdź na stronę swojego serwera i usuń folder \'Saber\'. Spowoduje to usunięcie wszystkich Twoich notatek z serwera.\n3. Zaloguj się ponownie do 赛博手写笔记. Podczas logowania możesz wybrać nowe hasło szyfrowania.\n4. Nie zapomnij wylogować się i zalogować ponownie do 赛博手写笔记 również na swoich innych urządzeniach.';
+ }
+ 
+ // Path: profile.faq.3
+@@ -826,7 +826,7 @@ class _Translations$editor$versionTooNew$pl extends Translations$editor$versionT
+ 	final TranslationsPl _root; // ignore: unused_field
+ 
+ 	// Translations
+-	@override String get title => 'Ta notatka została edytowana w nowszej wersji aplikacji Saber';
++	@override String get title => 'Ta notatka została edytowana w nowszej wersji aplikacji 赛博手写笔记';
+ 	@override String get subtitle => 'Edycja tej notatki może spowodować utratę niektórych informacji. Czy chcesz to zignorować i mimo wszystko ją edytować?';
+ 	@override String get allowEditing => 'Zezwól na edycje';
+ }
+@@ -918,7 +918,7 @@ class _Translations$login$ncLoginStep$loginFlow$pl extends Translations$login$nc
+ 	final TranslationsPl _root; // ignore: unused_field
+ 
+ 	// Translations
+-	@override String get pleaseAuthorize => 'Proszę autoryzuj Saber do używania twojego konta Nextcloud';
++	@override String get pleaseAuthorize => 'Proszę autoryzuj 赛博手写笔记 do używania twojego konta Nextcloud';
+ 	@override String get followPrompts => 'Proszę postępuj zgodnie z poleceniami interfejsu Nextcloud';
+ 	@override String get browserDidntOpen => 'Strona logowania nie otworzyła się? Kliknij tutaj';
+ }
+@@ -942,7 +942,7 @@ class _Translations$login$encLoginStep$encFaq$1$pl extends Translations$login$en
+ 
+ 	// Translations
+ 	@override String get q => 'Nie ustawiłem jeszcze hasła szyfrującego. Jak mogę je uzyskać?';
+-	@override String get a => 'Utwórz nowe hasło i wpisz je poniżej. \nSaber wygeneruje klucze szyfrowania z tego hasła automatycznie.';
++	@override String get a => 'Utwórz nowe hasło i wpisz je poniżej. \n赛博手写笔记 wygeneruje klucze szyfrowania z tego hasła automatycznie.';
+ }
+ 
+ // Path: login.encLoginStep.encFaq.2

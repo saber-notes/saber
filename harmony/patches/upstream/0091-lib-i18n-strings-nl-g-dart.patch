@@ -1,0 +1,98 @@
+diff --git a/lib/i18n/strings_nl.g.dart b/lib/i18n/strings_nl.g.dart
+index 858364e5..f04c302c 100644
+--- a/lib/i18n/strings_nl.g.dart
++++ b/lib/i18n/strings_nl.g.dart
+@@ -69,7 +69,7 @@ class _Translations$home$nl extends Translations$home$en {
+ 	@override late final _Translations$home$titles$nl titles = _Translations$home$titles$nl._(_root);
+ 	@override late final _Translations$home$tooltips$nl tooltips = _Translations$home$tooltips$nl._(_root);
+ 	@override late final _Translations$home$create$nl create = _Translations$home$create$nl._(_root);
+-	@override String get welcome => 'Welkom bij Saber';
++	@override String get welcome => 'Welkom bij 赛博手写笔记';
+ 	@override String get invalidFormat => 'Deze software werkt niet met het geselecteerde bestand. Selecteer een sbn, sbn2, sba of pdf bestand.';
+ 	@override String get noFiles => 'Geen bestand gevonden';
+ 	@override String get noPreviewAvailable => 'Geen voorbeeld beschikbaar';
+@@ -408,7 +408,7 @@ class _Translations$sentry$consent$nl extends Translations$sentry$consent$en {
+ 	final TranslationsNl _root; // ignore: unused_field
+ 
+ 	// Translations
+-	@override String get title => 'Help Saber verbeteren?';
++	@override String get title => 'Help 赛博手写笔记 verbeteren?';
+ 	@override late final _Translations$sentry$consent$description$nl description = _Translations$sentry$consent$description$nl._(_root);
+ 	@override late final _Translations$sentry$consent$answers$nl answers = _Translations$sentry$consent$answers$nl._(_root);
+ }
+@@ -471,7 +471,7 @@ class _Translations$settings$prefDescriptions$nl extends Translations$settings$p
+ 
+ 	// Translations
+ 	@override String get hyperlegibleFont => 'Verbetert leesbaarheid voor gebruikers met weinig zicht';
+-	@override String get allowInsecureConnections => '(Niet aangeraden) Laat Saber met zelf getekende servers verbinden';
++	@override String get allowInsecureConnections => '(Niet aangeraden) Laat 赛博手写笔记 met zelf getekende servers verbinden';
+ 	@override String get preferGreyscale => 'Voor e-ink schermen';
+ 	@override String get autoClearWhiteboardOnExit => 'Maakt het whiteboard leeg nadat de app is verlaten';
+ 	@override String get disableEraserAfterUse => 'Automatisch terug gaan naar schrijven na gum gebruik';
+@@ -582,10 +582,10 @@ class _Translations$login$ncLoginStep$nl extends Translations$login$ncLoginStep$
+ 
+ 	// Translations
+ 	@override String get whereToStoreData => 'Kies welke opslag te gebruiken:';
+-	@override String get saberNcServer => 'Saber\'s Nextcloud server';
++	@override String get saberNcServer => '赛博手写笔记\'s Nextcloud server';
+ 	@override String get otherNcServer => 'Andere Nextcloud server';
+ 	@override String get serverUrl => 'Server URL';
+-	@override String get loginWithSaber => 'Inloggen met Saber';
++	@override String get loginWithSaber => 'Inloggen met 赛博手写笔记';
+ 	@override String get loginWithNextcloud => 'Inloggen met Nextcloud';
+ 	@override late final _Translations$login$ncLoginStep$loginFlow$nl loginFlow = _Translations$login$ncLoginStep$loginFlow$nl._(_root);
+ }
+@@ -598,7 +598,7 @@ class _Translations$login$encLoginStep$nl extends Translations$login$encLoginSte
+ 
+ 	// Translations
+ 	@override String get enterEncPassword => 'Om uw gegevens te beschermen, geef hier uw versleutelingswachtwoord op:';
+-	@override String get newToSaber => 'Nieuw bij Saber? Bedenk gewoon een nieuw wachtwoord.';
++	@override String get newToSaber => 'Nieuw bij 赛博手写笔记? Bedenk gewoon een nieuw wachtwoord.';
+ 	@override String get encPassword => 'Versleutelingswachtwoord';
+ 	@override String get encFaqTitle => 'Vaak gevraagd';
+ 	@override String get wrongEncPassword => 'Ontsleuteling gefaald met gegeven wachtwoord, probeer opnieuw.';
+@@ -640,7 +640,7 @@ class _Translations$profile$faq$1$nl extends Translations$profile$faq$1$en {
+ 
+ 	// Translations
+ 	@override String get q => 'Hoe verander ik mijn Nextcloud wachtwoord?';
+-	@override String get a => 'Ga naar de website van je server en log in. Ga dan naar Instellingen > Beveiliging > Wachtwoord wijzigen. Je moet uitloggen en weer inloggen op Saber nadat je je wachtwoord hebt veranderd.';
++	@override String get a => 'Ga naar de website van je server en log in. Ga dan naar Instellingen > Beveiliging > Wachtwoord wijzigen. Je moet uitloggen en weer inloggen op 赛博手写笔记 nadat je je wachtwoord hebt veranderd.';
+ }
+ 
+ // Path: profile.faq.2
+@@ -651,7 +651,7 @@ class _Translations$profile$faq$2$nl extends Translations$profile$faq$2$en {
+ 
+ 	// Translations
+ 	@override String get q => 'Hoe verander ik mijn versleutelingswachtwoord?';
+-	@override String get a => '0. Zorg dat de synchronisatie voltooid is (zie de voortgang van synchronisatie op het startscherm).\n1. Log uit bij Saber.\n2. Ga naar de website van je server en verwijder je \'Saber\'-map. Dit verwijdert al je notities van de server.\n3. Log weer in op Saber. Je kunt een nieuw encryptiewachtwoord kiezen bij het inloggen.\n4. Vergeet niet uit te loggen en weer in te loggen op Saber op je andere apparaten.';
++	@override String get a => '0. Zorg dat de synchronisatie voltooid is (zie de voortgang van synchronisatie op het startscherm).\n1. Log uit bij 赛博手写笔记.\n2. Ga naar de website van je server en verwijder je \'Saber\'-map. Dit verwijdert al je notities van de server.\n3. Log weer in op 赛博手写笔记. Je kunt een nieuw encryptiewachtwoord kiezen bij het inloggen.\n4. Vergeet niet uit te loggen en weer in te loggen op 赛博手写笔记 op je andere apparaten.';
+ }
+ 
+ // Path: profile.faq.3
+@@ -826,7 +826,7 @@ class _Translations$editor$versionTooNew$nl extends Translations$editor$versionT
+ 	final TranslationsNl _root; // ignore: unused_field
+ 
+ 	// Translations
+-	@override String get title => 'Deze notitie is gemaakt met een nieuwere versie van Saber';
++	@override String get title => 'Deze notitie is gemaakt met een nieuwere versie van 赛博手写笔记';
+ 	@override String get subtitle => 'Het bewerken van deze notitie kan ertoe leiden dat sommige informatie verloren gaat. Wil je dit negeren en toch bewerken?';
+ 	@override String get allowEditing => 'Veranderen toestaan';
+ }
+@@ -918,7 +918,7 @@ class _Translations$login$ncLoginStep$loginFlow$nl extends Translations$login$nc
+ 	final TranslationsNl _root; // ignore: unused_field
+ 
+ 	// Translations
+-	@override String get pleaseAuthorize => 'Autoriseer Saber bij je Nextcloud account';
++	@override String get pleaseAuthorize => 'Autoriseer 赛博手写笔记 bij je Nextcloud account';
+ 	@override String get followPrompts => 'Volg de instructies op de Nextcloud pagina';
+ 	@override String get browserDidntOpen => 'Is de login pagina niet geopend? Klik hier';
+ }
+@@ -942,7 +942,7 @@ class _Translations$login$encLoginStep$encFaq$1$nl extends Translations$login$en
+ 
+ 	// Translations
+ 	@override String get q => 'Ik heb nog geen versleutelingswachtwoord gebruikt, waar krijg ik deze?';
+-	@override String get a => 'Kies een nieuw versleutelingswachtwoord en voer hem hierboven in.\nSaber zal automatisch versleutelingssleutels maken van dit wachtwoord.';
++	@override String get a => 'Kies een nieuw versleutelingswachtwoord en voer hem hierboven in.\n赛博手写笔记 zal automatisch versleutelingssleutels maken van dit wachtwoord.';
+ }
+ 
+ // Path: login.encLoginStep.encFaq.2

@@ -1,0 +1,13 @@
+diff --git a/lib/components/nextcloud/nc_login_step.dart b/lib/components/nextcloud/nc_login_step.dart
+index c53bf09..04ac0e5 100644
+--- a/lib/components/nextcloud/nc_login_step.dart
++++ b/lib/components/nextcloud/nc_login_step.dart
+@@ -292,7 +292,7 @@
+         Row(
+           mainAxisAlignment: .end,
+           children: [
+-            SvgPicture.asset('assets/icon/icon.svg', width: 32, height: 32),
++            Image.asset('assets/icon/brand_icon.png', width: 32, height: 32),
+             const SizedBox(width: 16),
+             Expanded(
+               child: Text(

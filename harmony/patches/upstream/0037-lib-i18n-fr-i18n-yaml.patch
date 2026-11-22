@@ -1,0 +1,91 @@
+diff --git a/lib/i18n/fr.i18n.yaml b/lib/i18n/fr.i18n.yaml
+index 4fbba52a..5ad85380 100644
+--- a/lib/i18n/fr.i18n.yaml
++++ b/lib/i18n/fr.i18n.yaml
+@@ -20,7 +20,7 @@ home:
+   create:
+     newNote: Nouvelle note
+     importNote: Importer une note
+-  welcome: Bienvenue dans Saber
++  welcome: Bienvenue dans 赛博手写笔记
+   invalidFormat: Type de fichier non supporté. Veuillez choisr un fichier .sbn, .sbn2, .sba ou .pdf.
+   noFiles: Aucun fichier trouvé
+   noPreviewAvailable: Aperçu non disponible
+@@ -81,7 +81,7 @@ home:
+     simpleGrid: Grille simple
+ sentry:
+   consent:
+-    title: Aide à améliorer Saber ?
++    title: Aide à améliorer 赛博手写笔记 ?
+     description:
+       question: Voulez-vous signaler automatiquement des erreurs inattendues ? Cela aide à identifier et à corriger les problèmes plus rapidement.
+       scope: Les rapports peuvent contenir des informations sur l'erreur et votre appareil. J'ai fait tout mon possible pour filtrer les données personnelles, mais certaines peuvent rester.
+@@ -129,7 +129,7 @@ settings:
+     sentry: Rapport d’erreurs
+   prefDescriptions:
+     hyperlegibleFont: La fonte Atkinson Hyperlegible améliore la lisibilité pour les personnes malvoyantes
+-    allowInsecureConnections: (Déconseillé) Autoriser Saber à se connecter à des serveurs dont les certificats sont auto-signés/non-sécurisé
++    allowInsecureConnections: (Déconseillé) Autoriser 赛博手写笔记 à se connecter à des serveurs dont les certificats sont auto-signés/non-sécurisé
+     preferGreyscale: Pour les couleurs de stylos proposées
+     autoClearWhiteboardOnExit: Il restera synchronisé avec vos autres appareils
+     disableEraserAfterUse: Revenir automatiquement au stylo après usage de la gomme
+@@ -199,18 +199,18 @@ login:
+     loggedIn: Connecté avec Nextcloud
+   ncLoginStep:
+     whereToStoreData: "Choisissez où vous souhaitez stocker vos données :"
+-    saberNcServer: Le serveur Nextcloud de Saber
++    saberNcServer: Le serveur Nextcloud de 赛博手写笔记
+     otherNcServer: Autre serveur Nextcloud
+     serverUrl: Adresse du serveur
+-    loginWithSaber: Se connecter avec Saber
++    loginWithSaber: Se connecter avec 赛博手写笔记
+     loginWithNextcloud: Se connecter avec Nextcloud
+     loginFlow:
+-      pleaseAuthorize: Veuillez autoriser Saber pour accéder à votre compte Nextcloud
++      pleaseAuthorize: Veuillez autoriser 赛博手写笔记 pour accéder à votre compte Nextcloud
+       followPrompts: Veuillez suivre les indications dans l'interface Nextcloud
+       browserDidntOpen: La page de connexion n'est pas ouverte ? Cliquez ici
+   encLoginStep:
+     enterEncPassword: "Pour protéger vos données, saisissez votre mot de passe de chiffrement :"
+-    newToSaber: Nouveau sur Saber ? Entrez simplement un nouveau mot de passe de chiffrement.
++    newToSaber: Nouveau sur 赛博手写笔记 ? Entrez simplement un nouveau mot de passe de chiffrement.
+     encPassword: Mot de passe de chiffrement
+     encFaqTitle: Foire aux questions
+     wrongEncPassword: Le décryptage a échoué avec le mot de passe fourni. Veuillez réessayer.
+@@ -224,7 +224,7 @@ login:
+     - q: Je n'ai pas encore défini de mot de passe de chiffrement. Où est-ce qu'il se trouve ?
+       a: |-
+         Choisissez un nouveau mot de passe de chiffrement et entrez-le ci-dessus.
+-        Saber va générer vos clés de chiffrement à partir de ce mot de passe automatiquement.
++        赛博手写笔记 va générer vos clés de chiffrement à partir de ce mot de passe automatiquement.
+     - q: Puis-je utiliser le même mot de passe que mon compte Nextcloud ?
+       a: Oui, mais gardez à l'esprit qu'il serait plus facile pour l'administrateur du serveur ou quelqu'un d'autre d'accéder à vos notes s'ils accèdent à votre compte Nextcloud.
+ profile:
+@@ -241,14 +241,14 @@ profile:
+   - q: Vais-je perdre mes notes si je me déconnecte ?
+     a: Non. Vos notes seront conservées à la fois sur votre poste et sur le serveur. Elles ne seront pas synchronisées avec le serveur jusqu'à votre prochaine connexion. Assurez-vous que la synchronisation soit terminée avant de vous déconnecter pour ne perdre aucune donnée (consultez la barre de progression sur l'écran d'accueil).
+   - q: Comment changer mon mot de passe Nextcloud ?
+-    a: Allez sur le site web du serveur et connectez-vous. Allez dans Paramètres > Sécurité > Changer mon mot de passe. Vous devrez vous déconnecter et vous reconnecter dans Saber après avoir changé votre mot de passe.
++    a: Allez sur le site web du serveur et connectez-vous. Allez dans Paramètres > Sécurité > Changer mon mot de passe. Vous devrez vous déconnecter et vous reconnecter dans 赛博手写笔记 après avoir changé votre mot de passe.
+   - q: Comment changer mon mot de passe de chiffrement ?
+     a: |-
+       0. Assurez-vous que la synchronisation soit terminée (regardez la barre de progression sur l'écran d'accueil).
+-      1. Déconnectez-vous de Saber.
++      1. Déconnectez-vous de 赛博手写笔记.
+       2. Sur le site web du serveur supprimez votre dossier 'Saber'. Cela supprimera toutes vos notes sur le serveur.
+-      3. Connectez-vous à nouveau dans Saber. Vous pourrez choisir un nouveau mot de passe de chiffrement à la connexion.
+-      4. N'oubliez pas de vous déconnecter et vous re-connecter dans Saber sur votre poste également.
++      3. Connectez-vous à nouveau dans 赛博手写笔记. Vous pourrez choisir un nouveau mot de passe de chiffrement à la connexion.
++      4. N'oubliez pas de vous déconnecter et vous re-connecter dans 赛博手写笔记 sur votre poste également.
+   - q: Comment puis-je supprimer mon compte ?
+     a: |-
+       Cliquez sur le button "@:profile.quickLinks.deleteAccount" ci-dessus, et connectez-vous si nécessaire.
+@@ -363,7 +363,7 @@ editor:
+     watchingServer: Vous visualisez actuellement les mises à jour sur le serveur. L'édition est désactivée dans ce mode.
+     corrupted: Le chargement de la note a échoué. Il peut être corrompu ou encore en cours de téléchargement.
+   versionTooNew:
+-    title: Cette note a été modifiée avec une version plus récente de Saber
++    title: Cette note a été modifiée avec une version plus récente de 赛博手写笔记
+     subtitle: Éditer cette note pourrait entraîner la perte de certaines informations. Voulez-vous la modifier quand même ?
+     allowEditing: Autoriser les modifications
+   quill:

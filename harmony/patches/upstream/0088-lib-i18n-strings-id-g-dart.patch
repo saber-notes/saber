@@ -1,0 +1,107 @@
+diff --git a/lib/i18n/strings_id.g.dart b/lib/i18n/strings_id.g.dart
+index 92c01ec9..7a9b3b0a 100644
+--- a/lib/i18n/strings_id.g.dart
++++ b/lib/i18n/strings_id.g.dart
+@@ -69,7 +69,7 @@ class _Translations$home$id extends Translations$home$en {
+ 	@override late final _Translations$home$titles$id titles = _Translations$home$titles$id._(_root);
+ 	@override late final _Translations$home$tooltips$id tooltips = _Translations$home$tooltips$id._(_root);
+ 	@override late final _Translations$home$create$id create = _Translations$home$create$id._(_root);
+-	@override String get welcome => 'Selamat datang di Saber';
++	@override String get welcome => 'Selamat datang di 赛博手写笔记';
+ 	@override String get invalidFormat => 'File yang kamu pilih tidak didukung. Pilih file sbn, sbn2, sba, atau pdf.';
+ 	@override String get noFiles => 'Tidak ada file';
+ 	@override String get noPreviewAvailable => 'Pratinjau tidak tersedia';
+@@ -408,7 +408,7 @@ class _Translations$sentry$consent$id extends Translations$sentry$consent$en {
+ 	final TranslationsId _root; // ignore: unused_field
+ 
+ 	// Translations
+-	@override String get title => 'Bantu tingkatkan Saber?';
++	@override String get title => 'Bantu tingkatkan 赛博手写笔记?';
+ 	@override late final _Translations$sentry$consent$description$id description = _Translations$sentry$consent$description$id._(_root);
+ 	@override late final _Translations$sentry$consent$answers$id answers = _Translations$sentry$consent$answers$id._(_root);
+ }
+@@ -440,7 +440,7 @@ class _Translations$settings$prefLabels$id extends Translations$settings$prefLab
+ 	@override String get layoutSize => 'Jenis tata letak';
+ 	@override String get customAccentColor => 'Warna aksen kustom';
+ 	@override String get hyperlegibleFont => 'Font Atkinson Hyperlegible';
+-	@override String get shouldCheckForUpdates => 'Periksa pembaruan Saber';
++	@override String get shouldCheckForUpdates => 'Periksa pembaruan 赛博手写笔记';
+ 	@override String get shouldAlwaysAlertForUpdates => 'Pembaruan lebih cepat';
+ 	@override String get allowInsecureConnections => 'Izinkan koneksi tidak aman';
+ 	@override String get editorToolbarAlignment => 'Posisi toolbar';
+@@ -471,7 +471,7 @@ class _Translations$settings$prefDescriptions$id extends Translations$settings$p
+ 
+ 	// Translations
+ 	@override String get hyperlegibleFont => 'Meningkatkan keterbacaan bagi pengguna dengan penglihatan rendah';
+-	@override String get allowInsecureConnections => '(Tidak disarankan) Izinkan Saber terhubung ke server dengan sertifikat yang ditandatangani sendiri/tidak tepercaya';
++	@override String get allowInsecureConnections => '(Tidak disarankan) Izinkan 赛博手写笔记 terhubung ke server dengan sertifikat yang ditandatangani sendiri/tidak tepercaya';
+ 	@override String get preferGreyscale => 'Untuk layar e-ink';
+ 	@override String get autoClearWhiteboardOnExit => 'Mengosongkan papan tulis setelah kamu keluar dari aplikasi';
+ 	@override String get disableEraserAfterUse => 'Otomatis kembali ke pena setelah memakai penghapus';
+@@ -582,10 +582,10 @@ class _Translations$login$ncLoginStep$id extends Translations$login$ncLoginStep$
+ 
+ 	// Translations
+ 	@override String get whereToStoreData => 'Pilih tempat menyimpan datamu:';
+-	@override String get saberNcServer => 'Server Nextcloud milik Saber';
++	@override String get saberNcServer => 'Server Nextcloud milik 赛博手写笔记';
+ 	@override String get otherNcServer => 'Server Nextcloud lain';
+ 	@override String get serverUrl => 'URL server';
+-	@override String get loginWithSaber => 'Masuk dengan Saber';
++	@override String get loginWithSaber => 'Masuk dengan 赛博手写笔记';
+ 	@override String get loginWithNextcloud => 'Masuk dengan Nextcloud';
+ 	@override late final _Translations$login$ncLoginStep$loginFlow$id loginFlow = _Translations$login$ncLoginStep$loginFlow$id._(_root);
+ }
+@@ -598,7 +598,7 @@ class _Translations$login$encLoginStep$id extends Translations$login$encLoginSte
+ 
+ 	// Translations
+ 	@override String get enterEncPassword => 'Untuk melindungi datamu, masukkan kata sandi enkripsi:';
+-	@override String get newToSaber => 'Baru di Saber? Cukup masukkan kata sandi enkripsi baru.';
++	@override String get newToSaber => 'Baru di 赛博手写笔记? Cukup masukkan kata sandi enkripsi baru.';
+ 	@override String get encPassword => 'Kata sandi enkripsi';
+ 	@override String get encFaqTitle => 'Pertanyaan yang sering diajukan';
+ 	@override String get wrongEncPassword => 'Dekripsi gagal dengan kata sandi tersebut. Coba masukkan lagi.';
+@@ -640,7 +640,7 @@ class _Translations$profile$faq$1$id extends Translations$profile$faq$1$en {
+ 
+ 	// Translations
+ 	@override String get q => 'Bagaimana cara mengganti kata sandi Nextcloud?';
+-	@override String get a => 'Buka situs web server dan masuk. Lalu buka Pengaturan > Keamanan > Ubah kata sandi. Setelah mengganti kata sandi, kamu perlu keluar lalu masuk kembali ke Saber.';
++	@override String get a => 'Buka situs web server dan masuk. Lalu buka Pengaturan > Keamanan > Ubah kata sandi. Setelah mengganti kata sandi, kamu perlu keluar lalu masuk kembali ke 赛博手写笔记.';
+ }
+ 
+ // Path: profile.faq.2
+@@ -651,7 +651,7 @@ class _Translations$profile$faq$2$id extends Translations$profile$faq$2$en {
+ 
+ 	// Translations
+ 	@override String get q => 'Bagaimana cara mengganti kata sandi enkripsi?';
+-	@override String get a => '0. Pastikan sinkronisasi sudah selesai (lihat progres sinkronisasi di layar beranda).\n1. Keluar dari Saber.\n2. Buka situs web server dan hapus folder \'Saber\'. Ini akan menghapus semua catatanmu dari server.\n3. Masuk lagi ke Saber. Kamu bisa memilih kata sandi enkripsi baru saat masuk.\n4. Jangan lupa keluar dan masuk lagi ke Saber di perangkat lainmu juga.';
++	@override String get a => '0. Pastikan sinkronisasi sudah selesai (lihat progres sinkronisasi di layar beranda).\n1. Keluar dari 赛博手写笔记.\n2. Buka situs web server dan hapus folder \'Saber\'. Ini akan menghapus semua catatanmu dari server.\n3. Masuk lagi ke 赛博手写笔记. Kamu bisa memilih kata sandi enkripsi baru saat masuk.\n4. Jangan lupa keluar dan masuk lagi ke 赛博手写笔记 di perangkat lainmu juga.';
+ }
+ 
+ // Path: profile.faq.3
+@@ -826,7 +826,7 @@ class _Translations$editor$versionTooNew$id extends Translations$editor$versionT
+ 	final TranslationsId _root; // ignore: unused_field
+ 
+ 	// Translations
+-	@override String get title => 'Catatan ini diedit menggunakan Saber versi yang lebih baru';
++	@override String get title => 'Catatan ini diedit menggunakan 赛博手写笔记 versi yang lebih baru';
+ 	@override String get subtitle => 'Mengedit catatan ini dapat menyebabkan sebagian informasi hilang. Abaikan peringatan ini dan tetap edit?';
+ 	@override String get allowEditing => 'Izinkan pengeditan';
+ }
+@@ -918,7 +918,7 @@ class _Translations$login$ncLoginStep$loginFlow$id extends Translations$login$nc
+ 	final TranslationsId _root; // ignore: unused_field
+ 
+ 	// Translations
+-	@override String get pleaseAuthorize => 'Izinkan Saber mengakses akun Nextcloud-mu';
++	@override String get pleaseAuthorize => 'Izinkan 赛博手写笔记 mengakses akun Nextcloud-mu';
+ 	@override String get followPrompts => 'Ikuti petunjuk yang muncul di antarmuka Nextcloud';
+ 	@override String get browserDidntOpen => 'Halaman masuk tidak terbuka? Klik di sini';
+ }
+@@ -942,7 +942,7 @@ class _Translations$login$encLoginStep$encFaq$1$id extends Translations$login$en
+ 
+ 	// Translations
+ 	@override String get q => 'Saya belum mengatur kata sandi enkripsi. Dari mana saya mendapatkannya?';
+-	@override String get a => 'Pilih kata sandi enkripsi baru, lalu masukkan di atas.\nSaber akan membuat kunci enkripsimu secara otomatis dari kata sandi tersebut.';
++	@override String get a => 'Pilih kata sandi enkripsi baru, lalu masukkan di atas.\n赛博手写笔记 akan membuat kunci enkripsimu secara otomatis dari kata sandi tersebut.';
+ }
+ 
+ // Path: login.encLoginStep.encFaq.2

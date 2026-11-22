@@ -1,0 +1,19 @@
+diff --git a/lib/pages/home/home.dart b/lib/pages/home/home.dart
+index 5d884c0..24bddfb 100644
+--- a/lib/pages/home/home.dart
++++ b/lib/pages/home/home.dart
+@@ -1,6 +1,5 @@
+ import 'package:cupertino_ui/cupertino_ui.dart';
+ import 'package:material_ui/material_ui.dart';
+-import 'package:saber/components/home/sentry_consent_dialog.dart';
+ import 'package:saber/components/navbar/responsive_navbar.dart';
+ import 'package:saber/components/settings/update_manager.dart';
+ import 'package:saber/components/theming/dynamic_material_app.dart';
+@@ -42,7 +41,6 @@ class _HomePageState extends State<HomePage> {
+     await null; // initState must be completed before using context
+     if (!mounted) return;
+     UpdateManager.showUpdateDialog(context);
+-    SentryConsentDialog.showIfNeeded(context);
+   }
+ 
+   void _setState() {

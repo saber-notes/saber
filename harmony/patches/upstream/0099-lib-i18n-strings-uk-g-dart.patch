@@ -1,0 +1,107 @@
+diff --git a/lib/i18n/strings_uk.g.dart b/lib/i18n/strings_uk.g.dart
+index d7d5bd3b..500ea536 100644
+--- a/lib/i18n/strings_uk.g.dart
++++ b/lib/i18n/strings_uk.g.dart
+@@ -69,7 +69,7 @@ class _Translations$home$uk extends Translations$home$en {
+ 	@override late final _Translations$home$titles$uk titles = _Translations$home$titles$uk._(_root);
+ 	@override late final _Translations$home$tooltips$uk tooltips = _Translations$home$tooltips$uk._(_root);
+ 	@override late final _Translations$home$create$uk create = _Translations$home$create$uk._(_root);
+-	@override String get welcome => 'Вітаємо в Saber';
++	@override String get welcome => 'Вітаємо в 赛博手写笔记';
+ 	@override String get invalidFormat => 'Файл який ви обрали не підтримується. Будь ласка оберіть файл типу sbn, sbn2, sba або pdf.';
+ 	@override String get noFiles => 'Файлів не знайдено';
+ 	@override String get noPreviewAvailable => 'Попередній перегляд недоступний';
+@@ -410,7 +410,7 @@ class _Translations$sentry$consent$uk extends Translations$sentry$consent$en {
+ 	// Translations
+ 	@override late final _Translations$sentry$consent$description$uk description = _Translations$sentry$consent$description$uk._(_root);
+ 	@override late final _Translations$sentry$consent$answers$uk answers = _Translations$sentry$consent$answers$uk._(_root);
+-	@override String get title => 'Допоможіть покращити Saber?';
++	@override String get title => 'Допоможіть покращити 赛博手写笔记?';
+ }
+ 
+ // Path: settings.prefCategories
+@@ -440,7 +440,7 @@ class _Translations$settings$prefLabels$uk extends Translations$settings$prefLab
+ 	@override String get layoutSize => 'Тип макета';
+ 	@override String get customAccentColor => 'Кольоровий акцент';
+ 	@override String get hyperlegibleFont => 'шрифт Atkinson Hyperlegible';
+-	@override String get shouldCheckForUpdates => 'Перевірити оновлення Saber';
++	@override String get shouldCheckForUpdates => 'Перевірити оновлення 赛博手写笔记';
+ 	@override String get shouldAlwaysAlertForUpdates => 'Швидші оновлення';
+ 	@override String get allowInsecureConnections => 'Дозволити незахоплені з\'єднання';
+ 	@override String get editorToolbarAlignment => 'Позиція панелі інструментів';
+@@ -473,7 +473,7 @@ class _Translations$settings$prefDescriptions$uk extends Translations$settings$p
+ 	@override late final _Translations$settings$prefDescriptions$hideFingerDrawing$uk hideFingerDrawing = _Translations$settings$prefDescriptions$hideFingerDrawing$uk._(_root);
+ 	@override late final _Translations$settings$prefDescriptions$sentry$uk sentry = _Translations$settings$prefDescriptions$sentry$uk._(_root);
+ 	@override String get hyperlegibleFont => 'Покращує читабельність для користувачів з низьким зором';
+-	@override String get allowInsecureConnections => '(Не рекомендовано) Дозволити Saber підключатися до серверів з самопідписаними/недовіреними сертифікатами';
++	@override String get allowInsecureConnections => '(Не рекомендовано) Дозволити 赛博手写笔记 підключатися до серверів з самопідписаними/недовіреними сертифікатами';
+ 	@override String get preferGreyscale => 'Для е-чманітерів';
+ 	@override String get autoClearWhiteboardOnExit => 'Очищує дошку після виходу з програми';
+ 	@override String get disableEraserAfterUse => 'Автоматично повертається до ручки після використання гумки.';
+@@ -583,10 +583,10 @@ class _Translations$login$ncLoginStep$uk extends Translations$login$ncLoginStep$
+ 	// Translations
+ 	@override late final _Translations$login$ncLoginStep$loginFlow$uk loginFlow = _Translations$login$ncLoginStep$loginFlow$uk._(_root);
+ 	@override String get whereToStoreData => 'Оберіть, де ви хочете зберігати ваші дані:';
+-	@override String get saberNcServer => 'Сервер Nextcloud Saber';
++	@override String get saberNcServer => 'Сервер Nextcloud 赛博手写笔记';
+ 	@override String get otherNcServer => 'Інший сервер Nextcloud';
+ 	@override String get serverUrl => 'URL сервера';
+-	@override String get loginWithSaber => 'Увійти через Saber';
++	@override String get loginWithSaber => 'Увійти через 赛博手写笔记';
+ 	@override String get loginWithNextcloud => 'Увійти через Nextcloud';
+ }
+ 
+@@ -603,7 +603,7 @@ class _Translations$login$encLoginStep$uk extends Translations$login$encLoginSte
+ 		_Translations$login$encLoginStep$encFaq$2$uk._(_root),
+ 	];
+ 	@override String get enterEncPassword => 'Для захисту ваших даних, будь ласка, введіть ваш пароль шифрування:';
+-	@override String get newToSaber => 'Нова у Saber? Просто введіть новий пароль шифрування.';
++	@override String get newToSaber => 'Нова у 赛博手写笔记? Просто введіть новий пароль шифрування.';
+ 	@override String get encPassword => 'Пароль шифрування';
+ 	@override String get encFaqTitle => 'Часті запитання';
+ 	@override String get wrongEncPassword => 'Дешифрування не вдалося з наданим паролем. Будь ласка, спробуйте ввести його ще раз.';
+@@ -640,7 +640,7 @@ class _Translations$profile$faq$1$uk extends Translations$profile$faq$1$en {
+ 
+ 	// Translations
+ 	@override String get q => 'Як змінити пароль у Nextcloud?';
+-	@override String get a => 'Перейдіть на вебсайт вашого сервера та увійдіть. Потім перейдіть до Налаштування > Безпека > Змінити пароль. Вам потрібно буде вийти та увійти назад до Saber після зміни пароля.';
++	@override String get a => 'Перейдіть на вебсайт вашого сервера та увійдіть. Потім перейдіть до Налаштування > Безпека > Змінити пароль. Вам потрібно буде вийти та увійти назад до 赛博手写笔记 після зміни пароля.';
+ }
+ 
+ // Path: profile.faq.2
+@@ -651,7 +651,7 @@ class _Translations$profile$faq$2$uk extends Translations$profile$faq$2$en {
+ 
+ 	// Translations
+ 	@override String get q => 'Як змінити пароль шифрування?';
+-	@override String get a => '0. Переконайтеся, що синхронізація завершена (подивіться на прогрес синхронізації на головному екрані).\n1. Вийдіть з облікового запису Saber.\n2. Перейдіть на вебсайт вашого сервера та видаліть папку \'Saber\'. Це видалить усі ваші нотатки з сервера.\n3. Увійдіть назад у Saber. Ви можете вибрати новий пароль шифрування при вході.\n4. Не забудьте вийти та увійти назад у Saber на інших пристроях також.';
++	@override String get a => '0. Переконайтеся, що синхронізація завершена (подивіться на прогрес синхронізації на головному екрані).\n1. Вийдіть з облікового запису 赛博手写笔记.\n2. Перейдіть на вебсайт вашого сервера та видаліть папку \'Saber\'. Це видалить усі ваші нотатки з сервера.\n3. Увійдіть назад у 赛博手写笔记. Ви можете вибрати новий пароль шифрування при вході.\n4. Не забудьте вийти та увійти назад у 赛博手写笔记 на інших пристроях також.';
+ }
+ 
+ // Path: profile.faq.3
+@@ -826,7 +826,7 @@ class _Translations$editor$versionTooNew$uk extends Translations$editor$versionT
+ 	final TranslationsUk _root; // ignore: unused_field
+ 
+ 	// Translations
+-	@override String get title => 'Ця нота була відредагована за допомогою новішої версії Saber';
++	@override String get title => 'Ця нота була відредагована за допомогою новішої версії 赛博手写笔记';
+ 	@override String get subtitle => 'Редагування цієї нотатки може призвести до втрати деякої інформації. Ви хочете проігнорувати це та редагувати все одно?';
+ 	@override String get allowEditing => 'Дозволити редагування';
+ }
+@@ -918,7 +918,7 @@ class _Translations$login$ncLoginStep$loginFlow$uk extends Translations$login$nc
+ 	final TranslationsUk _root; // ignore: unused_field
+ 
+ 	// Translations
+-	@override String get pleaseAuthorize => 'Будь ласка, авторизуйте Saber для доступу до вашого облікового запису Nextcloud';
++	@override String get pleaseAuthorize => 'Будь ласка, авторизуйте 赛博手写笔记 для доступу до вашого облікового запису Nextcloud';
+ 	@override String get followPrompts => 'Будь ласка, дотримуйтесь інструкцій у інтерфейсі Nextcloud';
+ 	@override String get browserDidntOpen => 'Сторінка входу не відкрилася? Натисніть сюди';
+ }
+@@ -942,7 +942,7 @@ class _Translations$login$encLoginStep$encFaq$1$uk extends Translations$login$en
+ 
+ 	// Translations
+ 	@override String get q => 'Я ще не встановлював пароль шифрування. Де я його отримаю?';
+-	@override String get a => 'Оберіть новий пароль шифрування та введіть його вище.\nSaber автоматично згенерує ваші ключі шифрування з цього пароля.';
++	@override String get a => 'Оберіть новий пароль шифрування та введіть його вище.\n赛博手写笔记 автоматично згенерує ваші ключі шифрування з цього пароля.';
+ }
+ 
+ // Path: login.encLoginStep.encFaq.2

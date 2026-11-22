@@ -1,0 +1,13 @@
+diff --git a/lib/main.dart b/lib/main.dart
+index 4300b5ef..c43ca904 100644
+--- a/lib/main.dart
++++ b/lib/main.dart
+@@ -338,7 +338,7 @@ class _AppState extends State<App> {
+ 
+   @override
+   Widget build(BuildContext context) {
+-    return DynamicMaterialApp(title: 'Saber', router: App._router);
++    return DynamicMaterialApp(title: '赛博手写笔记', router: App._router);
+   }
+ 
+   @override

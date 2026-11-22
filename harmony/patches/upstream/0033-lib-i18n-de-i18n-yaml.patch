@@ -1,0 +1,100 @@
+diff --git a/lib/i18n/de.i18n.yaml b/lib/i18n/de.i18n.yaml
+index 41b334eb..c1c37b43 100644
+--- a/lib/i18n/de.i18n.yaml
++++ b/lib/i18n/de.i18n.yaml
+@@ -20,7 +20,7 @@ home:
+   create:
+     newNote: Neue Notiz
+     importNote: Notiz importieren
+-  welcome: Willkommen bei Saber
++  welcome: Willkommen bei 赛博手写笔记
+   invalidFormat: Das ausgewählte Dateiformat wird nicht unterstützt. Bitte wähle eine Datei mit dem Format sbn, sbn2, sba oder pdf.
+   noFiles: Keine Dateien gefunden
+   noPreviewAvailable: Keine Vorschau verfügbar
+@@ -81,7 +81,7 @@ home:
+     simpleGrid(OUTDATED): Einfaches Raster
+ sentry:
+   consent:
+-    title: Helfen, Saber zu verbessern?
++    title: Helfen, 赛博手写笔记 zu verbessern?
+     description:
+       question: Möchtest du unerwartete Fehler automatisch melden? Das hilft mir dabei, Fehler schneller zu erkennen und zu beheben.
+       scope: Diese Berichte können Informationen über den Fehler und dein Gerät enthalten. Ich habe mein Bestes getan, um persönliche Daten herauszufiltern, allerdings könnten dennoch personenbezogene Daten enthalten sein.
+@@ -106,7 +106,7 @@ settings:
+     layoutSize: Größe des Layouts
+     customAccentColor: Benutzerdefinierte Akzentfarbe
+     hyperlegibleFont: Verbesserte Lesbarkeit der Schrift
+-    shouldCheckForUpdates: Suche nach Updates für Saber
++    shouldCheckForUpdates: Suche nach Updates für 赛博手写笔记
+     shouldAlwaysAlertForUpdates: Schneller aktualisieren
+     allowInsecureConnections: Unsichere Verbindung erlauben
+     editorToolbarAlignment: Position der Toolleiste
+@@ -129,7 +129,7 @@ settings:
+     sentry: Fehlerberichterstattung
+   prefDescriptions:
+     hyperlegibleFont: Verbessert die Lesbarkeit für Menschen mit geringer Sehkraft
+-    allowInsecureConnections: Saber erlauben, unsichere Zertifikaten zu verwenden (Nicht empfohlen)
++    allowInsecureConnections: 赛博手写笔记 erlauben, unsichere Zertifikaten zu verwenden (Nicht empfohlen)
+     preferGreyscale: Optimierung für E-Ink-Displays
+     autoClearWhiteboardOnExit: Löscht das Whiteboard beim Beenden der App
+     disableEraserAfterUse: Nach dem Nutzen des Radierers automatisch zum Stift zurückwechseln
+@@ -199,18 +199,18 @@ login:
+     loggedIn: Mit Nextcloud angemeldet
+   ncLoginStep:
+     whereToStoreData: "Wähle, wo du deine Daten speichern willst:"
+-    saberNcServer: Sabers Nextcloud-Server
++    saberNcServer: 赛博手写笔记 Nextcloud-Server
+     otherNcServer: Anderer Nextcloud-Server
+     serverUrl: Server URL
+-    loginWithSaber: Mit Saber anmelden
++    loginWithSaber: Mit 赛博手写笔记 anmelden
+     loginWithNextcloud: Mit Nextcloud anmelden
+     loginFlow:
+-      pleaseAuthorize: Bitte gib Saber Zugriff auf dein Nextcloud Konto
++      pleaseAuthorize: Bitte gib 赛博手写笔记 Zugriff auf dein Nextcloud Konto
+       followPrompts: Bitte folge den Anweisungen in der Nextcloud-Oberfläche
+       browserDidntOpen: Die Anmeldeseite hat sich nicht geöffnet? Klicke hier
+   encLoginStep:
+     enterEncPassword: "Gib dein Verschlüsselungspasswort an, um deine Daten zu schützen:"
+-    newToSaber: Neu bei Saber? Gib einfach ein neues Verschlüsselungspasswort an.
++    newToSaber: Neu bei 赛博手写笔记? Gib einfach ein neues Verschlüsselungspasswort an.
+     encPassword: Verschlüsselungspasswort
+     encFaqTitle: Häufig gestellte Fragen
+     wrongEncPassword: Entschlüsselung mit dem angegebenen Passwort fehlgeschlagen. Bitte versuche es erneut einzugeben.
+@@ -224,7 +224,7 @@ login:
+     - q: Ich habe noch kein Verschlüsselungspasswort festgelegt. Wo bekomme ich das her?
+       a: |-
+         Wähle ein neues Verschlüsselungspasswort und gib es oben ein.
+-        Saber wird mit diesem Passwort automatisch deine Schlüssel generieren.
++        赛博手写笔记 wird mit diesem Passwort automatisch deine Schlüssel generieren.
+     - q: Kann ich das gleiche Passwort wie bei meinem Nextcloud-Konto verwenden?
+       a: Ja, aber sei dir bewusst, dass es so für den Serveradministrator oder jemand anderen einfacher wäre, auf deine Notizen zuzugreifen, falls dieser Zugriff auf dein Nextcloud-Konto erlangt.
+ profile:
+@@ -240,14 +240,14 @@ profile:
+   - q: Verliere ich meine Notizen, wenn ich mich abmelde?
+     a: Nein. Deine Notizen bleiben auf deinem Gerät und auf dem Server. Sie werden erst wieder synchronisiert, wenn du dich erneut anmeldest. Um Datenverlust zu vermeiden, solltest du sicherstellen, dass alles korrekt synchronisiert wurde, bevor du dich abmeldest. Dazu kannst du auf dem Startbildschirm den Synchronisationsfortschritt überprüfen.
+   - q: Wie ändere ich mein Nextcloud-Passwort?
+-    a: Öffne die Server-Startseite und melde dich an. Unter Einstellungen > Sicherheit > Passwort, kannst du dein Passwort ändern. Nachdem du dein Passwort geändert hast, musst du dich in Saber ab- und wieder anmelden.
++    a: Öffne die Server-Startseite und melde dich an. Unter Einstellungen > Sicherheit > Passwort, kannst du dein Passwort ändern. Nachdem du dein Passwort geändert hast, musst du dich in 赛博手写笔记 ab- und wieder anmelden.
+   - q: Wie ändere ich mein Verschlüsselungspasswort?
+     a: |-
+       0. Bitte stelle zuerst sicher, dass alle Daten korrekt synchronisiert wurden, damit du keine Daten verlierst (du kannst den Fortschritt auf dem Startbildschirm prüfen).
+-      1. Melde dich in Saber ab.
++      1. Melde dich in 赛博手写笔记 ab.
+       2. Öffne die Server-Startseite und lösche den „Saber“-Order. Dadurch werden alle Notizen vom Server gelöscht.
+-      3. Melde dich wieder in Saber an. Du wirst nach einem neuen Verschlüsselungspasswort gefragt.
+-      4. Vergiss nicht dich auf anderen Geräten in Saber ab- und wieder anzumelden.
++      3. Melde dich wieder in 赛博手写笔记 an. Du wirst nach einem neuen Verschlüsselungspasswort gefragt.
++      4. Vergiss nicht dich auf anderen Geräten in 赛博手写笔记 ab- und wieder anzumelden.
+   - q: Wie lösche ich meinen Account?
+     a: |-
+       Drücke oben den „@:profile.quickLinks.deleteAccount“-Button und melde dich gegebenenfalls an.
+@@ -363,7 +363,7 @@ editor:
+     watchingServer: Sie warten derzeit auf Aktualisierungen des Servers. Die Bearbeitung ist in diesem Modus deaktiviert.
+     corrupted: Die Notiz konnte nicht geladen werden. Sie ist möglicherweise beschädigt oder wird noch heruntergeladen.
+   versionTooNew:
+-    title: Diese Notiz wurde mit einer neueren Version von Saber bearbeitet
++    title: Diese Notiz wurde mit einer neueren Version von 赛博手写笔记 bearbeitet
+     subtitle: Durch das Bearbeiten dieser Notiz können Daten verloren gehen. Möchtest du sie trotzdem bearbeiten?
+     allowEditing: Schreibschutz aufheben
+   quill:

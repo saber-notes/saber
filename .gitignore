@@ -66,3 +66,16 @@ coverage/
 
 # temp files for fdroid pubspec.lock
 /tmpfdroid/
+
+# --- HarmonyOS (OpenHarmony) port -------------------------------------------
+# See harmony/README.md. These two rules only ignore our own build artifacts.
+# The dependency-override file is the canonical copy in
+# harmony/toolchain/pubspec_overrides.yaml, copied to the repo root by the
+# build script (pub only reads the root one). Keeping it out of version
+# control stops unrelated builds from being forced onto the HarmonyOS
+# branches of the plugins.
+/saber-ohos-kit/
+/pubspec_overrides.yaml
+
+# 签名 Profile 的本地备份(绝不能进仓库)
+.signing-backup/

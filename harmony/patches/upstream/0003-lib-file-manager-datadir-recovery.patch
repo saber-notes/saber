@@ -1,0 +1,91 @@
+diff --git a/lib/data/file_manager/file_manager.dart b/lib/data/file_manager/file_manager.dart
+index 74b1e8fd..ab190984 100644
+--- a/lib/data/file_manager/file_manager.dart
++++ b/lib/data/file_manager/file_manager.dart
+@@ -13,6 +13,7 @@ import 'package:path/path.dart' as p;
+ import 'package:path_provider/path_provider.dart';
+ import 'package:permission_handler/permission_handler.dart';
+ import 'package:saber/components/home/sort_button.dart';
++import 'package:saber/data/is_open_harmony.dart';
+ import 'package:saber/data/nextcloud/saber_syncer.dart';
+ import 'package:saber/data/prefs.dart';
+ import 'package:saber/i18n/strings.g.dart';
+@@ -70,12 +71,53 @@ class FileManager {
+     String? documentsDirectory,
+     bool shouldWatchRootDirectory = true,
+   }) async {
++    await _recoverFromUnreachableCustomDataDir();
++
+     FileManager.documentsDirectory =
+         documentsDirectory ?? await getDocumentsDirectory();
+ 
+     if (shouldWatchRootDirectory) unawaited(watchRootDirectory());
+   }
+ 
++  /// 鸿蒙上「自定义数据目录」拿到的目录授权只在**本次会话**内有效 ——
++  /// 系统没有提供把授权持久化的接口(Android 的 SAF 有
++  /// `persistGrant: true`,鸿蒙的 `DocumentViewPicker` 没有对应物),
++  /// 所以应用重启之后就再也读不到那个目录了。
++  ///
++  /// 这种情况下如果还把 `customDataDir` 留着,应用里每一篇笔记都会变成
++  /// `PathAccessException`,而且连设置里的那个入口都会点不开
++  /// (`Directory.existsSync()` 自己就会抛异常)。所以这里主动回退到
++  /// 默认目录,至少让应用还能正常打开。
++  ///
++  /// 只在鸿蒙上做这个兜底,其它平台保持上游的行为。
++  static Future<void> _recoverFromUnreachableCustomDataDir() async {
++    if (!isOpenHarmony) return;
++
++    final String? customDir = stows.customDataDir.value;
++    if (customDir == null) return;
++
++    if (_isReadableDirectory(customDir)) return;
++
++    log.warning(
++      'Custom data directory $customDir is not accessible (the HarmonyOS '
++      'file picker grant does not survive a restart), falling back to the '
++      'default data directory',
++    );
++    stows.customDataDir.value = null;
++  }
++
++  static bool _isReadableDirectory(String path) {
++    try {
++      final Directory dir = Directory(path);
++      if (!dir.existsSync()) return false;
++      // existsSync() 只判断「在不在」,列一下才知道有没有读权限。
++      dir.listSync();
++      return true;
++    } catch (e) {
++      return false;
++    }
++  }
++
+   static Future<String> getDocumentsDirectory() async =>
+       stows.customDataDir.value ?? await getDefaultDocumentsDirectory();
+ 
+@@ -860,6 +902,24 @@ class FileManager {
+         if (file == mainFile) continue;
+ 
+         final extension = file.name.split('.').last;
++
++        // 笔记的缩略图(预览图)。少了它,导入的笔记在首页就是「无可用预览」。
++        if (extension == 'p') {
++          final previewBytes = () {
++            final output = OutputMemoryStream();
++            file.writeContent(output);
++            return output.getBytes();
++          }();
++          writeFutures.add(
++            writeFile(
++              '$importedPath$mainFileExtension.p',
++              previewBytes,
++              awaitWrite: awaitWrite,
++            ),
++          );
++          continue;
++        }
++
+         final assetNumber = int.tryParse(extension);
+         if (assetNumber == null) continue;
+         if (assetNumber < 0) continue;

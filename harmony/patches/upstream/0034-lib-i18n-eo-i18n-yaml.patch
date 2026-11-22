@@ -1,0 +1,85 @@
+diff --git a/lib/i18n/eo.i18n.yaml b/lib/i18n/eo.i18n.yaml
+index 4296d243..a15d7b1d 100644
+--- a/lib/i18n/eo.i18n.yaml
++++ b/lib/i18n/eo.i18n.yaml
+@@ -20,7 +20,7 @@ home:
+   create:
+     newNote: Nova noto
+     importNote: Enportu noton
+-  welcome: Bonvenon al Saber
++  welcome: Bonvenon al 赛博手写笔记
+   invalidFormat: Via dosiero ne estas subtenata. Bonvolu elekti sbn, sbn2, sba aŭ pdf dosieron.
+   noFiles: Neniu dosiero trovita
+   noPreviewAvailable: Neniu antaŭrigardo havebla
+@@ -81,7 +81,7 @@ home:
+     simpleGrid(OUTDATED): Simpla retablo
+ sentry:
+   consent:
+-    title: Helpu plibonigi Saber?
++    title: Helpu plibonigi 赛博手写笔记?
+     description:
+       question: Ĉu vi aŭtomate raportus neatenditajn erarojn? Tio helpus min identigi kaj solvi problemojn pli rapide.
+       scope: La raportoj enhavus informojn pri la eraro kaj aparato. Mi faris ĉion por kolekti malpli da persondatumojn, sed iuj eble kolektiĝus.
+@@ -129,7 +129,7 @@ settings:
+     autoDisableFingerDrawingWhenStylusDetected(OUTDATED): Aŭtomate malŝalti fingrodesegnadon
+   prefDescriptions:
+     hyperlegibleFont: Pliigas legeblecon por uzantoj kun malalta vidkapablo
+-    allowInsecureConnections: (Nerekomendita) Permesu al Sabero konektiĝi al serviloj kun mem-subskribitaj/nefidindaj atestiloj
++    allowInsecureConnections: (Nerekomendita) Permesu al 赛博手写笔记o konektiĝi al serviloj kun mem-subskribitaj/nefidindaj atestiloj
+     preferGreyscale: Por ekranoj de bitlegiloj
+     autoClearWhiteboardOnExit: Malplenigas la tabulon post kiam vi foriras la aplikaĵon
+     disableEraserAfterUse: Aŭtomate ŝanĝas reen al la plumo post uzi la forviŝilon
+@@ -199,13 +199,13 @@ login:
+     loggedIn: Ensalutita per NextCloud-konto
+   ncLoginStep:
+     whereToStoreData: "Elektu kie vi volas konservi viajn datumojn:"
+-    saberNcServer: Sabera Nextcloud-servilo
++    saberNcServer: 赛博手写笔记a Nextcloud-servilo
+     otherNcServer: Aliaj Nextcloud-serviloj
+     serverUrl: Retadreso de servilo
+-    loginWithSaber: Ensalutu per Saber-konto
++    loginWithSaber: Ensalutu per 赛博手写笔记-konto
+     loginWithNextcloud: Ensalutu per Nextcloud-konto
+     loginFlow:
+-      pleaseAuthorize: Bonvolu rajtigi Saber por aliri vian NextCloud-konton
++      pleaseAuthorize: Bonvolu rajtigi 赛博手写笔记 por aliri vian NextCloud-konton
+       followPrompts: Bonvolu sekvi la instrukciojn en la Nextcloud-interfaco
+       browserDidntOpen: Ensalutpaĝo ne malfermiĝis? Alklaku ĉi tie
+   encLoginStep:
+@@ -224,7 +224,7 @@ login:
+     - q: Mi ankoraŭ ne agordis ĉifradopasvorton. Kie mi agordis ĝin?
+       a: |-
+         Elektu novan ĉifradopasvorton kaj enigu ĝin supre.
+-        Saber aŭtomate generos viajn ĉifradoŝlosilojn el ĉi tiu pasvorto.
++        赛博手写笔记 aŭtomate generos viajn ĉifradoŝlosilojn el ĉi tiu pasvorto.
+     - q: Ĉu mi povas uzi la saman pasvorton por mia Nextcloud-konto?
+       a: Jes, sed memoru, ke estus pli facile por la servilestro aŭ iu alia aliri viajn notojn se ili akiras aliron al via Nextcloud-konto.
+ profile:
+@@ -240,14 +240,14 @@ profile:
+   - q: Ĉu mi perdos miajn notojn se mi elsalutas?
+     a: Ne. Viaj notoj restos kaj sur via aparato kaj sur la servilo. Ili ne estos sinkronigataj kun la servilo ĝis vi reensalutos. Certigu, ke la sinkronigado estas kompleta antaŭ ol elsaluti, por ke vi ne perdu iujn ajn datumojn (vidu la sinkronigan progreson sur la ĉefekrano).
+   - q: Kiel mi ŝanĝas mian Nextcloud-pasvorton?
+-    a: Iru al la retejo de via servilo kaj ensalutu. Poste iru al Agordoj > Sekureco > Ŝanĝu pasvorton. Elsalutu kaj reensalutu al Saber post via pasvortoŝanĝo.
++    a: Iru al la retejo de via servilo kaj ensalutu. Poste iru al Agordoj > Sekureco > Ŝanĝu pasvorton. Elsalutu kaj reensalutu al 赛博手写笔记 post via pasvortoŝanĝo.
+   - q: Kiel mi ŝanĝas mian ĉifradopasvorton?
+     a: |-
+       0. Certigu, ke la sinkronigado estas kompleta (vidu la sinkronigan progreson sur la ĉefekrano).
+-      1. Elsalutu el Saber.
++      1. Elsalutu el 赛博手写笔记.
+       2. Iru al la retejo de via servilo kaj forigu vian Saber-dosierujon. Ĉi tio forigos ĉiujn viajn notojn de la servilo.
+-      3. Reensalutu al Saber. Vi povas elekti novan ĉifradopasvorton dum ensalutado.
+-      4. Ne forgesu elsaluti kaj reensaluti al Saber ankaŭ per viaj aliaj aparatoj.
++      3. Reensalutu al 赛博手写笔记. Vi povas elekti novan ĉifradopasvorton dum ensalutado.
++      4. Ne forgesu elsaluti kaj reensaluti al 赛博手写笔记 ankaŭ per viaj aliaj aparatoj.
+   - q: Kiel mi povas forigi mian konton?
+     a: |-
+       Frapetu la butonon "@:profile.quickLinks.deleteAccount" supre, kaj ensalutu se necese.
+@@ -363,7 +363,7 @@ editor:
+     watchingServer(OUTDATED): Vi nuntempe rigardas por ĝisdatigoj sur la servilo. Redaktado estas malŝaltita en ĉi tiu reĝimo.
+     corrupted(OUTDATED): Malsukcesis ŝargi noton. Ĝi povas esti koruptita aŭ ankoraŭ elŝutita.
+   versionTooNew:
+-    title: Ĉi tiu noto estis redaktita per pli nova versio de Saber
++    title: Ĉi tiu noto estis redaktita per pli nova versio de 赛博手写笔记
+     subtitle: Redakti ĉi tiun noton eble kaŭzos perdon de iuj informoj. Ĉu vi volas malatenti kaj redakti ĝin spite al tio?
+     allowEditing: Permesu redaktadon
+   quill:

@@ -1,0 +1,107 @@
+diff --git a/lib/i18n/strings_de.g.dart b/lib/i18n/strings_de.g.dart
+index 7a60783d..0435447e 100644
+--- a/lib/i18n/strings_de.g.dart
++++ b/lib/i18n/strings_de.g.dart
+@@ -69,7 +69,7 @@ class _Translations$home$de extends Translations$home$en {
+ 	@override late final _Translations$home$titles$de titles = _Translations$home$titles$de._(_root);
+ 	@override late final _Translations$home$tooltips$de tooltips = _Translations$home$tooltips$de._(_root);
+ 	@override late final _Translations$home$create$de create = _Translations$home$create$de._(_root);
+-	@override String get welcome => 'Willkommen bei Saber';
++	@override String get welcome => 'Willkommen bei 赛博手写笔记';
+ 	@override String get invalidFormat => 'Das ausgewählte Dateiformat wird nicht unterstützt. Bitte wähle eine Datei mit dem Format sbn, sbn2, sba oder pdf.';
+ 	@override String get noFiles => 'Keine Dateien gefunden';
+ 	@override String get noPreviewAvailable => 'Keine Vorschau verfügbar';
+@@ -408,7 +408,7 @@ class _Translations$sentry$consent$de extends Translations$sentry$consent$en {
+ 	final TranslationsDe _root; // ignore: unused_field
+ 
+ 	// Translations
+-	@override String get title => 'Helfen, Saber zu verbessern?';
++	@override String get title => 'Helfen, 赛博手写笔记 zu verbessern?';
+ 	@override late final _Translations$sentry$consent$description$de description = _Translations$sentry$consent$description$de._(_root);
+ 	@override late final _Translations$sentry$consent$answers$de answers = _Translations$sentry$consent$answers$de._(_root);
+ }
+@@ -440,7 +440,7 @@ class _Translations$settings$prefLabels$de extends Translations$settings$prefLab
+ 	@override String get layoutSize => 'Größe des Layouts';
+ 	@override String get customAccentColor => 'Benutzerdefinierte Akzentfarbe';
+ 	@override String get hyperlegibleFont => 'Verbesserte Lesbarkeit der Schrift';
+-	@override String get shouldCheckForUpdates => 'Suche nach Updates für Saber';
++	@override String get shouldCheckForUpdates => 'Suche nach Updates für 赛博手写笔记';
+ 	@override String get shouldAlwaysAlertForUpdates => 'Schneller aktualisieren';
+ 	@override String get allowInsecureConnections => 'Unsichere Verbindung erlauben';
+ 	@override String get editorToolbarAlignment => 'Position der Toolleiste';
+@@ -471,7 +471,7 @@ class _Translations$settings$prefDescriptions$de extends Translations$settings$p
+ 
+ 	// Translations
+ 	@override String get hyperlegibleFont => 'Verbessert die Lesbarkeit für Menschen mit geringer Sehkraft';
+-	@override String get allowInsecureConnections => 'Saber erlauben, unsichere Zertifikaten zu verwenden (Nicht empfohlen)';
++	@override String get allowInsecureConnections => '赛博手写笔记 erlauben, unsichere Zertifikaten zu verwenden (Nicht empfohlen)';
+ 	@override String get preferGreyscale => 'Optimierung für E-Ink-Displays';
+ 	@override String get autoClearWhiteboardOnExit => 'Löscht das Whiteboard beim Beenden der App';
+ 	@override String get disableEraserAfterUse => 'Nach dem Nutzen des Radierers automatisch zum Stift zurückwechseln';
+@@ -582,10 +582,10 @@ class _Translations$login$ncLoginStep$de extends Translations$login$ncLoginStep$
+ 
+ 	// Translations
+ 	@override String get whereToStoreData => 'Wähle, wo du deine Daten speichern willst:';
+-	@override String get saberNcServer => 'Sabers Nextcloud-Server';
++	@override String get saberNcServer => '赛博手写笔记 Nextcloud-Server';
+ 	@override String get otherNcServer => 'Anderer Nextcloud-Server';
+ 	@override String get serverUrl => 'Server URL';
+-	@override String get loginWithSaber => 'Mit Saber anmelden';
++	@override String get loginWithSaber => 'Mit 赛博手写笔记 anmelden';
+ 	@override String get loginWithNextcloud => 'Mit Nextcloud anmelden';
+ 	@override late final _Translations$login$ncLoginStep$loginFlow$de loginFlow = _Translations$login$ncLoginStep$loginFlow$de._(_root);
+ }
+@@ -598,7 +598,7 @@ class _Translations$login$encLoginStep$de extends Translations$login$encLoginSte
+ 
+ 	// Translations
+ 	@override String get enterEncPassword => 'Gib dein Verschlüsselungspasswort an, um deine Daten zu schützen:';
+-	@override String get newToSaber => 'Neu bei Saber? Gib einfach ein neues Verschlüsselungspasswort an.';
++	@override String get newToSaber => 'Neu bei 赛博手写笔记? Gib einfach ein neues Verschlüsselungspasswort an.';
+ 	@override String get encPassword => 'Verschlüsselungspasswort';
+ 	@override String get encFaqTitle => 'Häufig gestellte Fragen';
+ 	@override String get wrongEncPassword => 'Entschlüsselung mit dem angegebenen Passwort fehlgeschlagen. Bitte versuche es erneut einzugeben.';
+@@ -640,7 +640,7 @@ class _Translations$profile$faq$1$de extends Translations$profile$faq$1$en {
+ 
+ 	// Translations
+ 	@override String get q => 'Wie ändere ich mein Nextcloud-Passwort?';
+-	@override String get a => 'Öffne die Server-Startseite und melde dich an. Unter Einstellungen > Sicherheit > Passwort, kannst du dein Passwort ändern. Nachdem du dein Passwort geändert hast, musst du dich in Saber ab- und wieder anmelden.';
++	@override String get a => 'Öffne die Server-Startseite und melde dich an. Unter Einstellungen > Sicherheit > Passwort, kannst du dein Passwort ändern. Nachdem du dein Passwort geändert hast, musst du dich in 赛博手写笔记 ab- und wieder anmelden.';
+ }
+ 
+ // Path: profile.faq.2
+@@ -651,7 +651,7 @@ class _Translations$profile$faq$2$de extends Translations$profile$faq$2$en {
+ 
+ 	// Translations
+ 	@override String get q => 'Wie ändere ich mein Verschlüsselungspasswort?';
+-	@override String get a => '0. Bitte stelle zuerst sicher, dass alle Daten korrekt synchronisiert wurden, damit du keine Daten verlierst (du kannst den Fortschritt auf dem Startbildschirm prüfen).\n1. Melde dich in Saber ab.\n2. Öffne die Server-Startseite und lösche den „Saber“-Order. Dadurch werden alle Notizen vom Server gelöscht.\n3. Melde dich wieder in Saber an. Du wirst nach einem neuen Verschlüsselungspasswort gefragt.\n4. Vergiss nicht dich auf anderen Geräten in Saber ab- und wieder anzumelden.';
++	@override String get a => '0. Bitte stelle zuerst sicher, dass alle Daten korrekt synchronisiert wurden, damit du keine Daten verlierst (du kannst den Fortschritt auf dem Startbildschirm prüfen).\n1. Melde dich in 赛博手写笔记 ab.\n2. Öffne die Server-Startseite und lösche den „Saber“-Order. Dadurch werden alle Notizen vom Server gelöscht.\n3. Melde dich wieder in 赛博手写笔记 an. Du wirst nach einem neuen Verschlüsselungspasswort gefragt.\n4. Vergiss nicht dich auf anderen Geräten in 赛博手写笔记 ab- und wieder anzumelden.';
+ }
+ 
+ // Path: profile.faq.3
+@@ -826,7 +826,7 @@ class _Translations$editor$versionTooNew$de extends Translations$editor$versionT
+ 	final TranslationsDe _root; // ignore: unused_field
+ 
+ 	// Translations
+-	@override String get title => 'Diese Notiz wurde mit einer neueren Version von Saber bearbeitet';
++	@override String get title => 'Diese Notiz wurde mit einer neueren Version von 赛博手写笔记 bearbeitet';
+ 	@override String get subtitle => 'Durch das Bearbeiten dieser Notiz können Daten verloren gehen. Möchtest du sie trotzdem bearbeiten?';
+ 	@override String get allowEditing => 'Schreibschutz aufheben';
+ }
+@@ -918,7 +918,7 @@ class _Translations$login$ncLoginStep$loginFlow$de extends Translations$login$nc
+ 	final TranslationsDe _root; // ignore: unused_field
+ 
+ 	// Translations
+-	@override String get pleaseAuthorize => 'Bitte gib Saber Zugriff auf dein Nextcloud Konto';
++	@override String get pleaseAuthorize => 'Bitte gib 赛博手写笔记 Zugriff auf dein Nextcloud Konto';
+ 	@override String get followPrompts => 'Bitte folge den Anweisungen in der Nextcloud-Oberfläche';
+ 	@override String get browserDidntOpen => 'Die Anmeldeseite hat sich nicht geöffnet? Klicke hier';
+ }
+@@ -942,7 +942,7 @@ class _Translations$login$encLoginStep$encFaq$1$de extends Translations$login$en
+ 
+ 	// Translations
+ 	@override String get q => 'Ich habe noch kein Verschlüsselungspasswort festgelegt. Wo bekomme ich das her?';
+-	@override String get a => 'Wähle ein neues Verschlüsselungspasswort und gib es oben ein.\nSaber wird mit diesem Passwort automatisch deine Schlüssel generieren.';
++	@override String get a => 'Wähle ein neues Verschlüsselungspasswort und gib es oben ein.\n赛博手写笔记 wird mit diesem Passwort automatisch deine Schlüssel generieren.';
+ }
+ 
+ // Path: login.encLoginStep.encFaq.2

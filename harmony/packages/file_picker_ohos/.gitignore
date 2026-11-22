@@ -1,0 +1,6 @@
+# 库包不提交锁文件 —— 与 packages/stow_secure 保持一致,
+# 版本以 pubspec.yaml 的约束为准。
+/pubspec.lock
+
+# 构建产物(`flutter test` / `flutter build` 生成的)。
+/build/

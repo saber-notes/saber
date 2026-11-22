@@ -1,0 +1,85 @@
+diff --git a/lib/i18n/vi.i18n.yaml b/lib/i18n/vi.i18n.yaml
+index 1e2108f2..69604af6 100644
+--- a/lib/i18n/vi.i18n.yaml
++++ b/lib/i18n/vi.i18n.yaml
+@@ -20,7 +20,7 @@ home:
+   create:
+     newNote: Ghi chú mới
+     importNote: Nhập tệp
+-  welcome: Chào mừng đến với Saber
++  welcome: Chào mừng đến với 赛博手写笔记
+   invalidFormat: Định dạng tệp bạn đã chọn không được hỗ trợ. Chúng tôi hỗ trợ các định dạng sbn, sbn2, hoặc pdf.
+   noFiles: Không tìm thấy tệp
+   noPreviewAvailable: Không có bản xem trước
+@@ -81,7 +81,7 @@ home:
+     simpleGrid(OUTDATED): Lưới đơn giản
+ sentry:
+   consent:
+-    title: Đóng góp cho Saber?
++    title: Đóng góp cho 赛博手写笔记?
+     description:
+       question: Bạn có muốn ứng dụng tự động báo cáo lỗi cho chúng tôi? Điều này sẽ giúp chúng tôi xác định và đưa ra các bản vá kịp thời.
+       scope: Báo cáo này có thể chứa các thông tin về thiết bị của bạn và lỗi gặp phải. Chúng tôi đã cố gắng để lọc đi thông tin cá nhân, nhưng vẫn có thể còn sót một số thông tin.
+@@ -129,7 +129,7 @@ settings:
+     sentry: Báo cáo lỗi
+   prefDescriptions:
+     hyperlegibleFont: Tăng khả năng đọc cho người khiếm thị
+-    allowInsecureConnections: (Không khuyến nghị) Cho phép Saber kết nối với các máy chủ có chứng chỉ tự ký hoặc không đáng tin cậy
++    allowInsecureConnections: (Không khuyến nghị) Cho phép 赛博手写笔记 kết nối với các máy chủ có chứng chỉ tự ký hoặc không đáng tin cậy
+     preferGreyscale: Dành cho màn hình e-ink
+     autoClearWhiteboardOnExit: Xóa bảng vẽ tự do sau khi bạn thoát ứng dụng
+     disableEraserAfterUse: Tự động sử dụng bút vẽ sau khi dùng tẩy
+@@ -199,13 +199,13 @@ login:
+     loggedIn: Đã đăng nhập bằng Nextcloud
+   ncLoginStep:
+     whereToStoreData: "Chọn nơi lưu trữ dữ liệu của bạn:"
+-    saberNcServer: Máy chủ Nextcloud của Saber
++    saberNcServer: Máy chủ Nextcloud của 赛博手写笔记
+     otherNcServer: Các máy chủ Nextcloud khác
+     serverUrl: Đường dẫn máy chủ
+-    loginWithSaber: Đăng nhập bằng Saber
++    loginWithSaber: Đăng nhập bằng 赛博手写笔记
+     loginWithNextcloud: Đăng nhập bằng Nextcloud
+     loginFlow:
+-      pleaseAuthorize: Vui lòng cho phép Saber truy cập vào tài khoản Nextcloud của bạn
++      pleaseAuthorize: Vui lòng cho phép 赛博手写笔记 truy cập vào tài khoản Nextcloud của bạn
+       followPrompts: Vui lòng làm theo các hướng dẫn trên giao diện Nextcloud
+       browserDidntOpen: Trang đăng nhập không xuất hiện? Hãy ấn vào đây
+   encLoginStep:
+@@ -224,7 +224,7 @@ login:
+     - q: Tôi chưa thiết lập mật khẩu mã hóa. Tôi có thể tạo nó ở đâu?
+       a: |-
+         Hãy chọn một mật khẩu mã hóa mới và nhập vào ô bên trên.
+-        Saber sẽ tự động tạo các khóa mã hóa cho bạn từ mật khẩu này.
++        赛博手写笔记 sẽ tự động tạo các khóa mã hóa cho bạn từ mật khẩu này.
+     - q: Tôi có thể dùng cùng một mật khẩu với tài khoản Nextcloud không?
+       a: Được, nhưng hãy lưu ý rằng quản trị viên hoặc bất kỳ ai khác sẽ dễ dàng truy cập vào ghi chú của bạn hơn nếu họ chiếm được quyền truy cập vào tài khoản Nextcloud.
+ profile:
+@@ -240,14 +240,14 @@ profile:
+   - q: Tôi có bị mất ghi chú nếu đăng xuất không?
+     a: Không. Ghi chú của bạn vẫn sẽ được lưu trên cả thiết bị và máy chủ. Tuy nhiên, chúng sẽ không được đồng bộ hóa với máy chủ cho đến khi bạn đăng nhập lại. Hãy đảm bảo quá trình đồng bộ đã hoàn tất trước khi đăng xuất để không bị mất dữ liệu (bạn có thể xem tiến trình đồng bộ tại màn hình chính).
+   - q: Làm sao để thay đổi mật khẩu Nextcloud?
+-    a: Truy cập vào trang web máy chủ của bạn và đăng nhập. Sau đó, đi tới Cài đặt > Bảo mật > Thay đổi mật khẩu. Bạn sẽ cần phải đăng xuất và đăng nhập lại vào Saber sau khi thay đổi mật khẩu.
++    a: Truy cập vào trang web máy chủ của bạn và đăng nhập. Sau đó, đi tới Cài đặt > Bảo mật > Thay đổi mật khẩu. Bạn sẽ cần phải đăng xuất và đăng nhập lại vào 赛博手写笔记 sau khi thay đổi mật khẩu.
+   - q: Làm sao để thay đổi mật khẩu mã hóa?
+     a: |-
+       0. Hãy đảm bảo quá trình đồng bộ đã hoàn tất (kiểm tra tiến trình đồng bộ tại màn hình chính).
+-      1. Đăng xuất khỏi Saber.
++      1. Đăng xuất khỏi 赛博手写笔记.
+       2. Truy cập vào trang web máy chủ của bạn và xóa thư mục 'Saber'. Thao tác này sẽ xóa tất cả ghi chú của bạn khỏi máy chủ.
+-      3. Đăng nhập lại vào Saber. Bạn có thể chọn một mật khẩu mã hóa mới khi đăng nhập.
+-      4. Đừng quên đăng xuất và đăng nhập lại vào Saber trên các thiết bị khác của bạn nữa nhé.
++      3. Đăng nhập lại vào 赛博手写笔记. Bạn có thể chọn một mật khẩu mã hóa mới khi đăng nhập.
++      4. Đừng quên đăng xuất và đăng nhập lại vào 赛博手写笔记 trên các thiết bị khác của bạn nữa nhé.
+   - q: Làm sao để xóa tài khoản của tôi?
+     a: |-
+       Nhấn vào "@:profile.quickLinks.deleteAccount" ở trên và đăng nhập nếu được yêu cầu.
+@@ -363,7 +363,7 @@ editor:
+     watchingServer: Đang theo dõi cập nhật từ máy chủ. Không thể chỉnh sửa lúc này.
+     corrupted: Không thể tải ghi chú. Tệp có thể bị lỗi hoặc vẫn đang được tải xuống.
+   versionTooNew:
+-    title: Ghi chú này đã được chỉnh sửa bằng phiên bản Saber mới hơn
++    title: Ghi chú này đã được chỉnh sửa bằng phiên bản 赛博手写笔记 mới hơn
+     subtitle: Chỉnh sửa có thể làm mất dữ liệu. Bạn vẫn muốn tiếp tục?
+     allowEditing: Cho phép chỉnh sửa
+   quill:

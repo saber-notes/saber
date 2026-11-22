@@ -1,0 +1,18 @@
+diff --git a/lib/data/is_open_harmony.dart b/lib/data/is_open_harmony.dart
+new file mode 100644
+index 0000000..57a209e
+--- /dev/null
++++ b/lib/data/is_open_harmony.dart
+@@ -0,0 +1,12 @@
++import 'package:flutter/foundation.dart';
++
++/// Whether the app is running on OpenHarmony / HarmonyOS NEXT.
++///
++/// 上游 Flutter 的 [TargetPlatform] 里没有 `ohos` 成员,直接在代码里写
++/// `TargetPlatform.ohos` 会让 Android / 桌面端的编译直接失败。所以这里比较
++/// 枚举的字符串名字 —— 上游 Flutter 永远不会等于 `'ohos'`。
++///
++/// Flutter-OH 的引擎会把 `defaultTargetPlatform` 设成 `TargetPlatform.ohos`
++/// (这也是 `patches/ohos/patch_target_platform_ohos.py` 存在的理由:
++/// 很多第三方包对 `TargetPlatform` 的 switch 是穷尽的)。
++bool get isOpenHarmony => defaultTargetPlatform.name == 'ohos';

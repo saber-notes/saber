@@ -1,0 +1,99 @@
+diff --git a/lib/i18n/tr.i18n.yaml b/lib/i18n/tr.i18n.yaml
+index 4733f082..4f444fc6 100644
+--- a/lib/i18n/tr.i18n.yaml
++++ b/lib/i18n/tr.i18n.yaml
+@@ -20,7 +20,7 @@ home:
+   create:
+     newNote: Yeni not
+     importNote: Notu içeri aktar
+-  welcome: Saber'a hoş geldiniz
++  welcome: 赛博手写笔记'a hoş geldiniz
+   invalidFormat: Seçtiğiniz dosya desteklenmiyor. Lütfen bir .sbn, .sbn2, .sba veya .pdf dosyası seçin.
+   noFiles: Dosya yok
+   noPreviewAvailable: Önizleme mevcut değil
+@@ -81,7 +81,7 @@ home:
+     simpleGrid: Basit düzen
+ sentry:
+   consent:
+-    title: Saber'i iyileştirmeye yardım et?
++    title: 赛博手写笔记'i iyileştirmeye yardım et?
+     description:
+       question: Öngörülemeyen hataları otomatik olarak raporlamak ister misiniz? Bu sorunları tanımamıza ve çzömemize destek olur.
+       scope: Raporlar cihazınız ve aldığınız hata hakkında bilgi içerir. Kişisel verilerin filtrelenmesi için elimizden geleni yapmamıza rağmen bir kısmı raporlarda kalabilir.
+@@ -106,7 +106,7 @@ settings:
+     layoutSize: Yerleşim tipi
+     customAccentColor: Farklı ana renk
+     hyperlegibleFont: Hyperlegible font
+-    shouldCheckForUpdates: Otomatik olarak Saber güncellemelerini kontrol et
++    shouldCheckForUpdates: Otomatik olarak 赛博手写笔记 güncellemelerini kontrol et
+     shouldAlwaysAlertForUpdates: Hızlı güncellemeler
+     allowInsecureConnections: Güvensiz bağlantılara izin ver
+     editorToolbarAlignment: Editör araç çubuğunun yerleşimi
+@@ -129,7 +129,7 @@ settings:
+     sentry: Hata raporlama
+   prefDescriptions:
+     hyperlegibleFont: Atkinson Hyperlegible, görme sorunu yaşayanların okumasını kolaylaştıran bir fonttur
+-    allowInsecureConnections: (Önerilmez) Saber'ın kendinden imzalı/güvensiz sertifika kullanan sunuculara bağlanmasına izin verir
++    allowInsecureConnections: (Önerilmez) 赛博手写笔记'ın kendinden imzalı/güvensiz sertifika kullanan sunuculara bağlanmasına izin verir
+     preferGreyscale: E-mürekkep ekranlar için
+     autoClearWhiteboardOnExit: Diğer cihazlarınıza senkronize edilmeye devam edecek
+     disableEraserAfterUse: Silgiyi kullandıktan sonra otomatik olarak kaleme geçer
+@@ -199,18 +199,18 @@ login:
+     loggedIn: Nextcloud'a giriş yapıldı
+   ncLoginStep:
+     whereToStoreData: "Verilerinizi nerede saklamak istediğinizi seçin:"
+-    saberNcServer: Saber'ın resmi Nextcloud sunucus
++    saberNcServer: 赛博手写笔记'ın resmi Nextcloud sunucus
+     otherNcServer: Diğer Nextcloud sunucusu
+     serverUrl: Sunucu URL'i
+-    loginWithSaber: Saber ile giriş yap
++    loginWithSaber: 赛博手写笔记 ile giriş yap
+     loginWithNextcloud: Nextcloud ile giriş yap
+     loginFlow:
+-      pleaseAuthorize: Lütfen Saber'ın Nextcloud hesabınıza erişmesine izin verin
++      pleaseAuthorize: Lütfen 赛博手写笔记'ın Nextcloud hesabınıza erişmesine izin verin
+       followPrompts: Lütfen Nextcloud arayüzündeki aşamaları takip edin
+       browserDidntOpen: Giriş sayfası açılmadıysa buraya tıklayın
+   encLoginStep:
+     enterEncPassword: "Verilerinizi korumak için lütfen şifreleme parolanızı girin:"
+-    newToSaber: Saber'da ilk seferiniz mi? Yeni bir şifreleme parolası girin.
++    newToSaber: 赛博手写笔记'da ilk seferiniz mi? Yeni bir şifreleme parolası girin.
+     encPassword: Şifreleme parolası
+     encFaqTitle: Sıkça sorulan sorular
+     wrongEncPassword: Verilen parola ile şifre çözülemedi. Lütfen parolayı tekrar girin.
+@@ -224,7 +224,7 @@ login:
+     - q: Henüz bir şifreleme parolası belirlemedim. Nereden alacağım?
+       a: |-
+         Yeni bir şifreleme parolası belirleyip yukarıya yazın.
+-        Saber şifreleme anahtarını bu parolayı kullanarak üretecek.
++        赛博手写笔记 şifreleme anahtarını bu parolayı kullanarak üretecek.
+     - q: Nextcloud parolamla şifreleme parolam aynı olabilir mi?
+       a: Evet fakat unutmayın ki bu durumda Nextcloud parolanıza sahip herhangi birisi notlarınıza da erişebilir.
+ profile:
+@@ -241,13 +241,13 @@ profile:
+   - q: Çıkış yaparsam notlarımı kaybedecek miyim?
+     a: Hayır. Notlarınız hem cihazınızda hem de sunucuda tutuluyor olacak. Siz tekrardan giriş yapana dek notlarınız senkronize edilmeyecek. Veri kaybı yaşamamak için çıkış yapmadan önce senkronizasyonun tamamlandığından emin olun (ana sayfada senkronizasyon ilerlemesini görebilirsiniz).
+   - q: Nextcloud parolamı nasıl değiştirebilirim?
+-    a: Sunucu websitesine gidin ve hesabınıza giriş yapın. Arayüzde Ayarlar > Güvenlik > Parola değiştir yolunu takip edin. Parolanızı değiştirdikten sonra Saber'dan çıkış yapıp tekrardan giriş yapmanız gerekecek.
++    a: Sunucu websitesine gidin ve hesabınıza giriş yapın. Arayüzde Ayarlar > Güvenlik > Parola değiştir yolunu takip edin. Parolanızı değiştirdikten sonra 赛博手写笔记'dan çıkış yapıp tekrardan giriş yapmanız gerekecek.
+   - q: Şifreleme parolamı nasıl değiştirebilirim?
+     a: |-
+-      "1. Saber'dan çıkış yap. Veri kaybı yaşamamak için çıkış yapmadan önce senkronizasyonun tamamlandığından emin olun (ana sayfada senkronizasyon ilerlemesini görebilirsiniz)."
++      "1. 赛博手写笔记'dan çıkış yap. Veri kaybı yaşamamak için çıkış yapmadan önce senkronizasyonun tamamlandığından emin olun (ana sayfada senkronizasyon ilerlemesini görebilirsiniz)."
+       2. Sunucu websitesine gidin ve 'Saber' klasörünü silin. Bu sunucudaki tüm notları silecek.
+-      "3. Saber'a giriş yap. Tekrar giriş yaparken yeni şifreleme parolanızı belirleyebilirsiniz.
+-      4. Diğer cihazlarınızda da Saber'dan çıkış yapıp tekrar giriş yapmayı unutmayın.
++      "3. 赛博手写笔记'a giriş yap. Tekrar giriş yaparken yeni şifreleme parolanızı belirleyebilirsiniz.
++      4. Diğer cihazlarınızda da 赛博手写笔记'dan çıkış yapıp tekrar giriş yapmayı unutmayın.
+   - q: Hesabımı nasıl silebilirim?
+     a: |-
+       Üstte yer alan "@:profile.quickLinks.deleteAccount" butonuna tıklayın, gerekirse giriş yapın.
+@@ -363,7 +363,7 @@ editor:
+     watchingServer: Şu an sunucudaki güncellemeler için bekliyorsunuz. Bu modda düzenleme devre dışıdır.
+     corrupted: Not açılamadı. Bozulmuş veya hala indirilmekte olabilir.
+   versionTooNew:
+-    title: Bu not Saber'ın yeni bir versiyonunda düzenlenmiş
++    title: Bu not 赛博手写笔记'ın yeni bir versiyonunda düzenlenmiş
+     subtitle: Bu notu düzenlemek veri kaybına sebep olabilir. Bunu görmezden gelerek düzenlemek ister misiniz?
+     allowEditing: Düzenlemeye izin ver
+   quill:

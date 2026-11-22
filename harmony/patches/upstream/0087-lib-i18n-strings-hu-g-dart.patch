@@ -1,0 +1,107 @@
+diff --git a/lib/i18n/strings_hu.g.dart b/lib/i18n/strings_hu.g.dart
+index d6eec90e..51268337 100644
+--- a/lib/i18n/strings_hu.g.dart
++++ b/lib/i18n/strings_hu.g.dart
+@@ -69,7 +69,7 @@ class _Translations$home$hu extends Translations$home$en {
+ 	@override late final _Translations$home$titles$hu titles = _Translations$home$titles$hu._(_root);
+ 	@override late final _Translations$home$tooltips$hu tooltips = _Translations$home$tooltips$hu._(_root);
+ 	@override late final _Translations$home$create$hu create = _Translations$home$create$hu._(_root);
+-	@override String get welcome => 'Üdvözli a Saber';
++	@override String get welcome => 'Üdvözli a 赛博手写笔记';
+ 	@override String get invalidFormat => 'A kiválasztott fájl nem támogatott. Kérjük, válasszon egy sbn, sbn2, sba vagy pdf fájlt.';
+ 	@override String get noFiles => 'Nem található fájl';
+ 	@override String get noPreviewAvailable => 'Nincs elérhető előnézet';
+@@ -408,7 +408,7 @@ class _Translations$sentry$consent$hu extends Translations$sentry$consent$en {
+ 	final TranslationsHu _root; // ignore: unused_field
+ 
+ 	// Translations
+-	@override String get title => 'Segít a Saber fejlesztésében?';
++	@override String get title => 'Segít a 赛博手写笔记 fejlesztésében?';
+ 	@override late final _Translations$sentry$consent$description$hu description = _Translations$sentry$consent$description$hu._(_root);
+ 	@override late final _Translations$sentry$consent$answers$hu answers = _Translations$sentry$consent$answers$hu._(_root);
+ }
+@@ -440,7 +440,7 @@ class _Translations$settings$prefLabels$hu extends Translations$settings$prefLab
+ 	@override String get layoutSize => 'Elrendezési mód';
+ 	@override String get customAccentColor => 'Egyéni hangsúlyszín';
+ 	@override String get hyperlegibleFont => 'Atkinson Hyperlegible betűtípus';
+-	@override String get shouldCheckForUpdates => 'Automatikusan ellenőrzi a Saber frissítéseket';
++	@override String get shouldCheckForUpdates => 'Automatikusan ellenőrzi a 赛博手写笔记 frissítéseket';
+ 	@override String get shouldAlwaysAlertForUpdates => 'Gyorsabb értesítések a frissítésekről';
+ 	@override String get allowInsecureConnections => 'Nem biztonságos kapcsolatok engedélyezése';
+ 	@override String get editorToolbarAlignment => 'A szerkesztő eszköztár igazítása';
+@@ -471,7 +471,7 @@ class _Translations$settings$prefDescriptions$hu extends Translations$settings$p
+ 
+ 	// Translations
+ 	@override String get hyperlegibleFont => 'Az Atkinson Hyperlegible növeli az olvashatóságot a gyengén látók számára';
+-	@override String get allowInsecureConnections => '(Nem ajánlott) Engedélyezi, hogy a Saber ön-aláírt vagy nem megbízható tanúsítványokat használó szerverekhez csatlakozzon';
++	@override String get allowInsecureConnections => '(Nem ajánlott) Engedélyezi, hogy a 赛博手写笔记 ön-aláírt vagy nem megbízható tanúsítványokat használó szerverekhez csatlakozzon';
+ 	@override String get preferGreyscale => 'E-tinta kijelzőkhöz';
+ 	@override String get autoClearWhiteboardOnExit => 'A tábla törlésre kerül, amikor kilép az alkalmazásból';
+ 	@override String get disableEraserAfterUse => 'Automatikusan visszavált a tollra, miután a radírt használta';
+@@ -582,10 +582,10 @@ class _Translations$login$ncLoginStep$hu extends Translations$login$ncLoginStep$
+ 
+ 	// Translations
+ 	@override String get whereToStoreData => 'Válassza ki, hol szeretné tárolni az adatait:';
+-	@override String get saberNcServer => 'A Saber Nextcloud szervere';
++	@override String get saberNcServer => 'A 赛博手写笔记 Nextcloud szervere';
+ 	@override String get otherNcServer => 'Másik Nextcloud szerver';
+ 	@override String get serverUrl => 'Szerver URL';
+-	@override String get loginWithSaber => 'Bejelentkezés Saber-rel';
++	@override String get loginWithSaber => 'Bejelentkezés 赛博手写笔记-rel';
+ 	@override String get loginWithNextcloud => 'Bejelentkezés Nextcloud-dal';
+ 	@override late final _Translations$login$ncLoginStep$loginFlow$hu loginFlow = _Translations$login$ncLoginStep$loginFlow$hu._(_root);
+ }
+@@ -598,7 +598,7 @@ class _Translations$login$encLoginStep$hu extends Translations$login$encLoginSte
+ 
+ 	// Translations
+ 	@override String get enterEncPassword => 'Az adatai védelme érdekében kérjük, adja meg a titkosítási jelszavát:';
+-	@override String get newToSaber => 'Először használja a Saber-t? Adjon meg egy új titkosítási jelszót.';
++	@override String get newToSaber => 'Először használja a 赛博手写笔记-t? Adjon meg egy új titkosítási jelszót.';
+ 	@override String get encPassword => 'Titkosítási jelszó';
+ 	@override String get encFaqTitle => 'Gyakran ismételt kérdések';
+ 	@override String get wrongEncPassword => 'A megadott jelszóval a visszafejtés nem sikerült. Kérjük, próbálja meg újra megadni.';
+@@ -640,7 +640,7 @@ class _Translations$profile$faq$1$hu extends Translations$profile$faq$1$en {
+ 
+ 	// Translations
+ 	@override String get q => 'Hogyan változtatom meg a Nextcloud jelszavamat?';
+-	@override String get a => 'Nyissa meg a szerver weboldalát, és jelentkezzen be. Ezután menjen a Beállítások > Biztonság > Jelszó módosítása menüpontra. A jelszó módosítása után ki kell jelentkeznie a Saberből, majd újra be kell jelentkeznie.';
++	@override String get a => 'Nyissa meg a szerver weboldalát, és jelentkezzen be. Ezután menjen a Beállítások > Biztonság > Jelszó módosítása menüpontra. A jelszó módosítása után ki kell jelentkeznie a 赛博手写笔记ből, majd újra be kell jelentkeznie.';
+ }
+ 
+ // Path: profile.faq.2
+@@ -651,7 +651,7 @@ class _Translations$profile$faq$2$hu extends Translations$profile$faq$2$en {
+ 
+ 	// Translations
+ 	@override String get q => 'Hogyan változtatom meg a titkosítási jelszavamat?';
+-	@override String get a => '0. Győződjön meg arról, hogy a szinkronizálás befejeződött (a szinkronizálás állapotát a kezdőképernyőn láthatja).\n1. Jelentkezzen ki a Saberből.\n2. Nyissa meg a szerver weboldalát, és törölje a „Saber” mappát. Ez minden jegyzetét törli a szerverről.\n3. Jelentkezzen be újra a Saberbe. Bejelentkezéskor új titkosítási jelszót választhat.\n4. Ne felejtkezzen el kijelentkezni, majd újra bejelentkezni a Saberbe a többi eszközén is.';
++	@override String get a => '0. Győződjön meg arról, hogy a szinkronizálás befejeződött (a szinkronizálás állapotát a kezdőképernyőn láthatja).\n1. Jelentkezzen ki a 赛博手写笔记ből.\n2. Nyissa meg a szerver weboldalát, és törölje a „Saber” mappát. Ez minden jegyzetét törli a szerverről.\n3. Jelentkezzen be újra a 赛博手写笔记be. Bejelentkezéskor új titkosítási jelszót választhat.\n4. Ne felejtkezzen el kijelentkezni, majd újra bejelentkezni a 赛博手写笔记be a többi eszközén is.';
+ }
+ 
+ // Path: profile.faq.3
+@@ -826,7 +826,7 @@ class _Translations$editor$versionTooNew$hu extends Translations$editor$versionT
+ 	final TranslationsHu _root; // ignore: unused_field
+ 
+ 	// Translations
+-	@override String get title => 'Ez a jegyzet a Saber egy újabb verziójával lett szerkesztve';
++	@override String get title => 'Ez a jegyzet a 赛博手写笔记 egy újabb verziójával lett szerkesztve';
+ 	@override String get subtitle => 'A jegyzet szerkesztése bizonyos információk elvesztését eredményezheti. Szeretné ezt figyelmen kívül hagyni, és mégis szerkeszteni?';
+ 	@override String get allowEditing => 'Szerkesztés engedélyezése';
+ }
+@@ -918,7 +918,7 @@ class _Translations$login$ncLoginStep$loginFlow$hu extends Translations$login$nc
+ 	final TranslationsHu _root; // ignore: unused_field
+ 
+ 	// Translations
+-	@override String get pleaseAuthorize => 'Kérjük, engedélyezze a Saber számára a Nextcloud-fiókjához való hozzáférést';
++	@override String get pleaseAuthorize => 'Kérjük, engedélyezze a 赛博手写笔记 számára a Nextcloud-fiókjához való hozzáférést';
+ 	@override String get followPrompts => 'Kérjük, kövesse a Nextcloud felületén megjelenő utasításokat';
+ 	@override String get browserDidntOpen => 'Nem nyílt meg a bejelentkezési oldal? Kattintson ide';
+ }
+@@ -942,7 +942,7 @@ class _Translations$login$encLoginStep$encFaq$1$hu extends Translations$login$en
+ 
+ 	// Translations
+ 	@override String get q => 'Még nem állítottam be titkosítási jelszót. Hol szerezhetem meg?';
+-	@override String get a => 'Válasszon egy új titkosítási jelszót, és adja meg fent.\nA Saber automatikusan létrehozza a titkosítási kulcsokat ebből a jelszóból.';
++	@override String get a => 'Válasszon egy új titkosítási jelszót, és adja meg fent.\nA 赛博手写笔记 automatikusan létrehozza a titkosítási kulcsokat ebből a jelszóból.';
+ }
+ 
+ // Path: login.encLoginStep.encFaq.2

@@ -1,0 +1,80 @@
+diff --git a/lib/i18n/strings_ar.g.dart b/lib/i18n/strings_ar.g.dart
+index 5841c16b..ad086274 100644
+--- a/lib/i18n/strings_ar.g.dart
++++ b/lib/i18n/strings_ar.g.dart
+@@ -471,7 +471,7 @@ class _Translations$settings$prefDescriptions$ar extends Translations$settings$p
+ 
+ 	// Translations
+ 	@override String get hyperlegibleFont => 'يزيد Atkinson Hyperlegible من وضوح الرؤية للقراء الذين يعانون من ضعف في الرؤية';
+-	@override String get allowInsecureConnections => '(غير موصى به) بالاتصال بالخوادم بشهادات غير موثوقة/موقعة ذاتيًا Saber السماح لـ';
++	@override String get allowInsecureConnections => '(غير موصى به) بالاتصال بالخوادم بشهادات غير موثوقة/موقعة ذاتيًا 赛博手写笔记 السماح لـ';
+ 	@override String get preferGreyscale => 'لشاشات الحبر الإلكتروني';
+ 	@override String get autoClearWhiteboardOnExit => 'ستظل متزامنة مع أجهزتك الأخرى';
+ 	@override String get disableEraserAfterUse => 'التبديل تلقائيًا إلى القلم بعد استخدام الممحاة';
+@@ -582,10 +582,10 @@ class _Translations$login$ncLoginStep$ar extends Translations$login$ncLoginStep$
+ 
+ 	// Translations
+ 	@override String get whereToStoreData => 'اختر المكان الذي تريد تخزين بياناتك فيه:';
+-	@override String get saberNcServer => 'Nextcloud الى Saber خادم';
++	@override String get saberNcServer => 'Nextcloud الى 赛博手写笔记 خادم';
+ 	@override String get otherNcServer => 'اخر Nextcloud خادم';
+ 	@override String get serverUrl => 'عنوان الخادم';
+-	@override String get loginWithSaber => 'Saber تسجيل الدخول باستخدام';
++	@override String get loginWithSaber => '赛博手写笔记 تسجيل الدخول باستخدام';
+ 	@override String get loginWithNextcloud => 'Nextcloud تسجيل الدخول باستخدام';
+ 	@override late final _Translations$login$ncLoginStep$loginFlow$ar loginFlow = _Translations$login$ncLoginStep$loginFlow$ar._(_root);
+ }
+@@ -598,7 +598,7 @@ class _Translations$login$encLoginStep$ar extends Translations$login$encLoginSte
+ 
+ 	// Translations
+ 	@override String get enterEncPassword => 'لحماية بياناتك، يرجى إدخال كلمة مرور التشفير:';
+-	@override String get newToSaber => '؟ فقط أدخل كلمة مرور تشفير جديدةSaber جديد على';
++	@override String get newToSaber => '؟ فقط أدخل كلمة مرور تشفير جديدة赛博手写笔记 جديد على';
+ 	@override String get encPassword => 'كلمة مرور التشفير';
+ 	@override String get encFaqTitle => 'الأسئلة الشائعة';
+ 	@override String get wrongEncPassword => 'فشل فك التشفير باستخدام كلمة المرور المقدمة. يرجى المحاولة مرة أخرى.';
+@@ -640,7 +640,7 @@ class _Translations$profile$faq$1$ar extends Translations$profile$faq$1$en {
+ 
+ 	// Translations
+ 	@override String get q => 'كيف يمكنني تغيير كلمة المرور الخاصة بي على Nextcloud؟';
+-	@override String get a => 'انتقل إلى موقع الخادم الخاص بك وقم بتسجيل الدخول. ثم انتقل إلى الإعدادات > الأمان > تغيير كلمة المرور. ستحتاج إلى تسجيل الخروج وتسجيل الدخول مرة أخرى إلى Saber بعد تغيير كلمة المرور الخاصة بك.';
++	@override String get a => 'انتقل إلى موقع الخادم الخاص بك وقم بتسجيل الدخول. ثم انتقل إلى الإعدادات > الأمان > تغيير كلمة المرور. ستحتاج إلى تسجيل الخروج وتسجيل الدخول مرة أخرى إلى 赛博手写笔记 بعد تغيير كلمة المرور الخاصة بك.';
+ }
+ 
+ // Path: profile.faq.2
+@@ -651,7 +651,7 @@ class _Translations$profile$faq$2$ar extends Translations$profile$faq$2$en {
+ 
+ 	// Translations
+ 	@override String get q => 'كيف يمكنني تغيير كلمة مرور التشفير الخاصة بي؟';
+-	@override String get a => '1. تسجيل الخروج من Saber. تأكد من اكتمال المزامنة قبل تسجيل الخروج حتى لا تفقد أي بيانات (انظر تقدم المزامنة على الشاشة الرئيسية).\n2. اذهب إلى موقع الخادم الخاص بك واحذف مجلد "Saber" الخاص بك. سيؤدي هذا إلى حذف كافة ملاحظاتك من الخادم.\n3. قم بتسجيل الدخول مرة أخرى إلى Saber. يمكنك اختيار كلمة مرور تشفير جديدة عند تسجيل الدخول.\n4. لا تنس تسجيل الخروج وتسجيل الدخول مرة أخرى إلى Saber على أجهزتك الأخرى أيضًا.';
++	@override String get a => '1. تسجيل الخروج من 赛博手写笔记. تأكد من اكتمال المزامنة قبل تسجيل الخروج حتى لا تفقد أي بيانات (انظر تقدم المزامنة على الشاشة الرئيسية).\n2. اذهب إلى موقع الخادم الخاص بك واحذف مجلد "Saber" الخاص بك. سيؤدي هذا إلى حذف كافة ملاحظاتك من الخادم.\n3. قم بتسجيل الدخول مرة أخرى إلى 赛博手写笔记. يمكنك اختيار كلمة مرور تشفير جديدة عند تسجيل الدخول.\n4. لا تنس تسجيل الخروج وتسجيل الدخول مرة أخرى إلى 赛博手写笔记 على أجهزتك الأخرى أيضًا.';
+ }
+ 
+ // Path: profile.faq.3
+@@ -826,7 +826,7 @@ class _Translations$editor$versionTooNew$ar extends Translations$editor$versionT
+ 	final TranslationsAr _root; // ignore: unused_field
+ 
+ 	// Translations
+-	@override String get title => 'تم تحرير هذه الملاحظة باستخدام إصدار أحدث من Saber';
++	@override String get title => 'تم تحرير هذه الملاحظة باستخدام إصدار أحدث من 赛博手写笔记';
+ 	@override String get subtitle => 'قد يؤدي تحرير هذه الملاحظة إلى ضياع بعض المعلومات. هل تريد تجاهل هذا وتعديله على أي حال؟';
+ 	@override String get allowEditing => 'السماح بالتعديل';
+ }
+@@ -918,7 +918,7 @@ class _Translations$login$ncLoginStep$loginFlow$ar extends Translations$login$nc
+ 	final TranslationsAr _root; // ignore: unused_field
+ 
+ 	// Translations
+-	@override String get pleaseAuthorize => 'الخاص بك Nextcloud للوصول إلى حساب Saber الرجاء تفويض';
++	@override String get pleaseAuthorize => 'الخاص بك Nextcloud للوصول إلى حساب 赛博手写笔记 الرجاء تفويض';
+ 	@override String get followPrompts => 'Nextcloud الرجاء اتباع الإرشادات في واجهة';
+ 	@override String get browserDidntOpen => 'لم تفتح صفحة تسجيل الدخول؟ اضغط هنا';
+ }
+@@ -942,7 +942,7 @@ class _Translations$login$encLoginStep$encFaq$1$ar extends Translations$login$en
+ 
+ 	// Translations
+ 	@override String get q => 'لم أقم بتعيين كلمة مرور تشفير حتى الآن. من أين أحصل عليها؟';
+-	@override String get a => 'اختر كلمة مرور تشفير جديدة وأدخلها أعلاه.\nبإنشاء مفاتيح التشفير الخاصة بك تلقائيًا من هذه الكلمة Saber سيقوم .';
++	@override String get a => 'اختر كلمة مرور تشفير جديدة وأدخلها أعلاه.\nبإنشاء مفاتيح التشفير الخاصة بك تلقائيًا من هذه الكلمة 赛博手写笔记 سيقوم .';
+ }
+ 
+ // Path: login.encLoginStep.encFaq.2

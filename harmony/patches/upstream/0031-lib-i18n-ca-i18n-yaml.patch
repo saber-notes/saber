@@ -1,0 +1,81 @@
+diff --git a/lib/i18n/ca.i18n.yaml b/lib/i18n/ca.i18n.yaml
+index d0d56303..42b88804 100644
+--- a/lib/i18n/ca.i18n.yaml
++++ b/lib/i18n/ca.i18n.yaml
+@@ -20,7 +20,7 @@ home:
+   create:
+     newNote: Nota Nova
+     importNote: Importar nota
+-  welcome: Benvingut/d@ a Saber
++  welcome: Benvingut/d@ a 赛博手写笔记
+   invalidFormat: L'arxiu seleccionat no és compatible. Seleccioneu un arxiu en format sbn, sbn2, sba o PDF
+   noFiles: Cap arxiu trobat
+   noPreviewAvailable: Previsualització no disponible
+@@ -81,7 +81,7 @@ home:
+     simpleGrid(OUTDATED): Grilla simple
+ sentry:
+   consent:
+-    title: Vols ajudar a millorar Saber?
++    title: Vols ajudar a millorar 赛博手写笔记?
+     description:
+       currentlyOff: Si acceptesu, els informes d'errors s'activaran un cop reiniciada l'app
+       learnMoreInPrivacyPolicy(rich): Més informació a ${link(privacy policy)}.
+@@ -102,7 +102,7 @@ settings:
+   prefLabels:
+     locale: Llengua
+     layoutSize: Format
+-    shouldCheckForUpdates: Comprova si hi ha actualitzacions disponibles per Saber
++    shouldCheckForUpdates: Comprova si hi ha actualitzacions disponibles per 赛博手写笔记
+     shouldAlwaysAlertForUpdates: Actualitzacions més ràpides
+     allowInsecureConnections: Permet connexions no segures
+     appTheme(OUTDATED): tema de l'aplicació
+@@ -138,7 +138,7 @@ settings:
+       activeUntilRestart(OUTDATED): Actiu fins a que reinicies l'aplicació
+       inactiveUntilRestart(OUTDATED): Inactiu fins que reinicies l'aplicació
+     hyperlegibleFont(OUTDATED): Increxeix la legibilitat per als usuaris amb baixa visió
+-    allowInsecureConnections(OUTDATED): (No recomanhat) Permitir a Saber conectar a serveis amb certs autogenerades/no fiables
++    allowInsecureConnections(OUTDATED): (No recomanhat) Permitir a 赛博手写笔记 conectar a serveis amb certs autogenerades/no fiables
+     preferGreyscale(OUTDATED): Per a dispositius e-ink
+     autoClearWhiteboardOnExit(OUTDATED): Borra la llista blanca després de sortir de l'aplicació
+     disableEraserAfterUse(OUTDATED): Automàticament torna al bolífer després de utilitzar l'efaçador
+@@ -196,14 +196,14 @@ login:
+     loggedIn(OUTDATED): Ingessat amb Nextcloud
+   ncLoginStep:
+     loginFlow:
+-      pleaseAuthorize(OUTDATED): Permeta a Saber accedir a la teva compte de Nextcloud
++      pleaseAuthorize(OUTDATED): Permeta a 赛博手写笔记 accedir a la teva compte de Nextcloud
+       followPrompts(OUTDATED): Si us plauseguda les instruccions a l'interfície de Nextcloud
+       browserDidntOpen(OUTDATED): La pàgina de connexió no s'ha obert? Clic aquí
+     whereToStoreData(OUTDATED): "Escollreu on où voleu guardar els teus dades:"
+-    saberNcServer(OUTDATED): Serveur Nextcloud de Saber
++    saberNcServer(OUTDATED): Serveur Nextcloud de 赛博手写笔记
+     otherNcServer(OUTDATED): Un servidor Nextcloud
+     serverUrl(OUTDATED): URL del servidor
+-    loginWithSaber(OUTDATED): Inglesar amb Saber
++    loginWithSaber(OUTDATED): Inglesar amb 赛博手写笔记
+     loginWithNextcloud(OUTDATED): Inglesar amb Nextcloud
+   encLoginStep:
+     encFaq:
+@@ -215,11 +215,11 @@ login:
+     - q(OUTDATED): No he menet altrepass de cifratge fins ara. On l'obtenc?
+       a(OUTDATED): |-
+         Escoll un nou contrasen de cifratge i introduïu-lo a la sota.
+-        Saber generarà les teves clau de cifratge automàticament a partir d'aquest contrasen.
++        赛博手写笔记 generarà les teves clau de cifratge automàticament a partir d'aquest contrasen.
+     - q(OUTDATED): Pucso el mate de la teva compte de Nextcloud?
+       a(OUTDATED): Sí, pero ten en cuenta que sería más fácil para el administrador del servidor o alguien más acceder a tus notas si obtienen acceso a tu cuenta de Nextcloud.
+     enterEncPassword(OUTDATED): "Per protegere i tuoi dati, inserisci la tua password di crittografia:"
+-    newToSaber(OUTDATED): Nou en Saber? Simplement ingresa una nova contrasenya de cifratura.
++    newToSaber(OUTDATED): Nou en 赛博手写笔记? Simplement ingresa una nova contrasenya de cifratura.
+     encPassword(OUTDATED): contraseña de cifrado
+     encFaqTitle(OUTDATED): Preguntes freqüents
+     wrongEncPassword(OUTDATED): Descodificació fallada amb la contrasenya proporcionada. Si us plau, intenteu introduir-la de nou.
+@@ -350,7 +350,7 @@ editor:
+     watchingServer(OUTDATED): Actualmente se están buscando actualizaciones en el servidor. La edición está deshabilitada en este modo.
+     corrupted(OUTDATED): Fallida la descàrre de la nota. Podria estar corrompuda o encara en descàrre.
+   versionTooNew:
+-    title: Aquesta nota va ser editada des d'una versió més recent de Saber
++    title: Aquesta nota va ser editada des d'una versió més recent de 赛博手写笔记
+     allowEditing: Habilitar edició
+     subtitle(OUTDATED): L'édition de cette note peut entraîner la perte d'informations. Voulez-vous ignorer cela et éditer quand même ?
+   quill:

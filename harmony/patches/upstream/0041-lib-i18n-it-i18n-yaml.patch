@@ -1,0 +1,100 @@
+diff --git a/lib/i18n/it.i18n.yaml b/lib/i18n/it.i18n.yaml
+index 22d8c6ea..a985dfeb 100644
+--- a/lib/i18n/it.i18n.yaml
++++ b/lib/i18n/it.i18n.yaml
+@@ -20,7 +20,7 @@ home:
+   create:
+     newNote: Nuova nota
+     importNote: Importa nota
+-  welcome: Benvenuto su Saber
++  welcome: Benvenuto su 赛博手写笔记
+   invalidFormat: Il file selezionato non è supportato. Seleziona un file sbn, sbn2, sba o pdf.
+   noFiles: Nessun file trovato
+   noPreviewAvailable: Nessuna anteprima disponibile
+@@ -81,7 +81,7 @@ home:
+     simpleGrid: Griglia semplice
+ sentry:
+   consent:
+-    title: Vuoi aiutarci a migliorare Saber?
++    title: Vuoi aiutarci a migliorare 赛博手写笔记?
+     description:
+       question: Vuoi segnalare automaticamente gli errori imprevisti? Questo mi aiuta a identificare e risolvere i problemi più velocemente.
+       scope: I resoconti potrebbero contenere informazioni sull'errore e sul tuo dispositivo. Ho fatto il possibile per rimuovere dati personali, ma alcuni potrebbero rimanere.
+@@ -106,7 +106,7 @@ settings:
+     layoutSize: Dimensione del layout
+     customAccentColor: Colore personalizzato
+     hyperlegibleFont: Font Atkinson Hyperlegible
+-    shouldCheckForUpdates: Controlla automaticamente gli aggiornamenti di Saber
++    shouldCheckForUpdates: Controlla automaticamente gli aggiornamenti di 赛博手写笔记
+     shouldAlwaysAlertForUpdates: Aggiornamenti precoci
+     allowInsecureConnections: Consenti connessioni non sicure
+     editorToolbarAlignment: Posizione barra degli strumenti
+@@ -129,7 +129,7 @@ settings:
+     sentry: Segnalazione di errori
+   prefDescriptions:
+     hyperlegibleFont: Migliora la leggibilità per i lettori ipovedenti
+-    allowInsecureConnections: (Non consigliato) Consenti a Saber di connettersi ai server con certificati autofirmati/non attendibili
++    allowInsecureConnections: (Non consigliato) Consenti a 赛博手写笔记 di connettersi ai server con certificati autofirmati/non attendibili
+     preferGreyscale: Per display e-ink
+     autoClearWhiteboardOnExit: Pulisce la lavagna alla chiusura dell'app
+     disableEraserAfterUse: Torna automaticamente alla penna dopo aver utilizzato la gomma
+@@ -199,18 +199,18 @@ login:
+     loggedIn: Effettuato l'accesso con Nextcloud
+   ncLoginStep:
+     whereToStoreData: "Scegli dove vuoi archiviare i tuoi dati:"
+-    saberNcServer: Il server Nextcloud di Saber
++    saberNcServer: Il server Nextcloud di 赛博手写笔记
+     otherNcServer: Altro server Nextcloud
+     serverUrl: URL Server
+-    loginWithSaber: Accedi con Saber
++    loginWithSaber: Accedi con 赛博手写笔记
+     loginWithNextcloud: Accedi con Nextcloud
+     loginFlow:
+-      pleaseAuthorize: Autorizza Saber ad accedere al tuo account Nextcloud
++      pleaseAuthorize: Autorizza 赛博手写笔记 ad accedere al tuo account Nextcloud
+       followPrompts: Seguire le istruzioni nell'interfaccia Nextcloud
+       browserDidntOpen: La pagina di accesso non si è aperta? Clicca qui
+   encLoginStep:
+     enterEncPassword: "Per proteggere i tuoi dati, inserisci la tua password di cifratura:"
+-    newToSaber: Nuovo su Saber? Basta inserire una nuova password di cifratura.
++    newToSaber: Nuovo su 赛博手写笔记? Basta inserire una nuova password di cifratura.
+     encPassword: Password di cifratura
+     encFaqTitle: Domande frequenti
+     wrongEncPassword: La decrittazione non è riuscita con la password fornita. Per favore prova a inserirla nuovamente.
+@@ -224,7 +224,7 @@ login:
+     - q: Non ho ancora impostato una password di cifratura. Come posso ottenerla?
+       a: |-
+         Scegli una nuova password di cifratura e inseriscila sopra.
+-        Saber genererà automaticamente le chiavi di cifratura da questa password.
++        赛博手写笔记 genererà automaticamente le chiavi di cifratura da questa password.
+     - q: Posso utilizzare la stessa password del mio account Nextcloud?
+       a: Sì, ma tieni presente che sarebbe più semplice per l'amministratore del server o per qualcun altro accedere alle tue note se avessero accesso al tuo account Nextcloud.
+ profile:
+@@ -241,14 +241,14 @@ profile:
+   - q: Perderò le mie note se mi disconnetto?
+     a: No. Le tue note rimarranno sia sul tuo dispositivo che sul server. Non verranno sincronizzate con il server finché non effettuerai nuovamente l'accesso. Assicurati che la sincronizzazione sia completata prima di disconnetterti in modo da non perdere alcun dato (vedi l'avanzamento della sincronizzazione nella schermata home).
+   - q: Come cambio la mia password Nextcloud?
+-    a: Vai al sito web del tuo server e accedi. Quindi vai in Impostazioni > Sicurezza > Cambia password. Dovrai disconnetterti e riconnetterti a Saber dopo aver cambiato la tua password.
++    a: Vai al sito web del tuo server e accedi. Quindi vai in Impostazioni > Sicurezza > Cambia password. Dovrai disconnetterti e riconnetterti a 赛博手写笔记 dopo aver cambiato la tua password.
+   - q: Come cambio la mia password di cifratura?
+     a: |-
+       0. Assicurati che la sincronizzazione sia completata (vedi l'avanzamento della sincronizzazione nella schermata home).
+-      1. Disconnettiti da Saber. 
++      1. Disconnettiti da 赛博手写笔记. 
+       2. Vai al sito Web del tuo server ed elimina la cartella "Saber". Questo eliminerà tutte le tue note dal server.
+-      3. Accedi nuovamente a Saber. Puoi scegliere una nuova password di cifratura quando accedi.
+-      4. Non dimenticare di disconnetterti e accedere nuovamente a Saber anche sugli altri tuoi dispositivi.
++      3. Accedi nuovamente a 赛博手写笔记. Puoi scegliere una nuova password di cifratura quando accedi.
++      4. Non dimenticare di disconnetterti e accedere nuovamente a 赛博手写笔记 anche sugli altri tuoi dispositivi.
+   - q: Come posso eliminare il mio account?
+     a: |-
+       Tocca il pulsante "@:profile.quickLinks.deleteAccount" in alto e, se necessario, accedi.
+@@ -363,7 +363,7 @@ editor:
+     watchingServer: Al momento stai monitorando gli aggiornamenti sul server. La modifica è disabilitata in questa modalità.
+     corrupted: Impossibile caricare la nota. Potrebbe essere danneggiata o ancora in fase di download.
+   versionTooNew:
+-    title: Questa nota è stata modificata utilizzando una versione più recente di Saber
++    title: Questa nota è stata modificata utilizzando una versione più recente di 赛博手写笔记
+     subtitle: La modifica di questa nota potrebbe comportare la perdita di alcune informazioni. Vuoi ignorare e modificarla comunque?
+     allowEditing: Consenti modifica
+   quill:

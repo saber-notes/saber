@@ -1,0 +1,10 @@
+# 这个包是上游 `stow_secure` 的鸿蒙替代实现(把 FlutterSecureStorage
+# 换成 shared_preferences),业务代码一行都不用改。
+#
+# `unnecessary_type_name_in_constructor` 在**具名**构造函数上会误报:
+# `SecureStow.int` / `SecureStow.bool` / `SecureStow.numerical` 是这个包的
+# 公开 API,类名前缀不能去掉(去掉就变成 `int` / `bool` / `numerical`)。
+# 所以在这里把这条 lint 关掉,而不是照 analyzer 的建议去改代码。
+analyzer:
+  errors:
+    unnecessary_type_name_in_constructor: ignore

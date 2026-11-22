@@ -1,0 +1,40 @@
+diff --git a/pubspec.yaml b/pubspec.yaml
+index fba2c3e..ac3e53e 100644
+--- a/pubspec.yaml
++++ b/pubspec.yaml
+@@ -166,9 +166,6 @@
+   stow_secure: ^0.7.0
+   stow_codecs: ^1.4.0
+ 
+-  sentry_flutter: ^10.3.0
+-  sentry_logging: ^10.3.0
+-
+   background_downloader: ^9.2.6
+ 
+   flutter_hooks: ^0.21.3+1
+@@ -194,8 +191,6 @@
+   yaml: ^3.1.2
+ 
+   golden_screenshot: ^12.2.0
+-
+-  sentry_dart_plugin: ^3.1.1
+ 
+ dependency_overrides:
+   # https://github.com/GregoryConrad/native_toolchain_rust/issues/103
+@@ -232,6 +227,7 @@
+ 
+   assets:
+     - assets/icon/icon.svg
++    - assets/icon/brand_icon.png
+     - assets/images/
+     - assets/google_fonts/Atkinson_Hyperlegible_Next/OFL.txt
+     - assets/google_fonts/Dekko/OFL.txt
+@@ -321,8 +317,5 @@
+       enable: true
+       image_path: "assets/icon/icon_macos.png"
+ 
+-sentry:
+-  upload_debug_symbols: true
+-  upload_source_maps: true
+   project: saber
+   org: saber-yf

@@ -1,0 +1,69 @@
+diff --git a/lib/components/settings/app_info.dart b/lib/components/settings/app_info.dart
+index 7ef3eca..730b47e 100644
+--- a/lib/components/settings/app_info.dart
++++ b/lib/components/settings/app_info.dart
+@@ -1,9 +1,9 @@
+ import 'dart:io';
+ 
+ import 'package:flutter/foundation.dart';
+-import 'package:flutter_svg/flutter_svg.dart';
+ import 'package:material_ui/material_ui.dart';
+ import 'package:saber/data/flavor_config.dart';
++import 'package:saber/data/is_open_harmony.dart';
+ import 'package:saber/data/is_this_a_test.dart';
+ import 'package:saber/data/prefs.dart';
+ import 'package:saber/data/version.dart';
+@@ -14,9 +14,11 @@ class const AppInfo({super.key}) extends StatelessWidget {
+   static final Uri sponsorUrl = Uri.parse(
+     'https://github.com/sponsors/adil192',
+   );
+-  static final Uri privacyPolicyUrl = Uri.parse(
+-    'https://saber.adil.hanney.org/privacy-policy/',
+-  );
++  static final Uri privacyPolicyUrl = isOpenHarmony
++      // 鸿蒙版在应用市场提交的是这份隐私政策,应用内也要指向同一份,
++      // 否则审核员点「隐私政策」看到的是上游的版本,与商店页不一致。
++      ? Uri.parse('https://brysj22952.github.io/saber/privacy-policy.html')
++      : Uri.parse('https://saber.adil.hanney.org/privacy-policy/');
+   static final Uri licenseUrl = Uri.parse(
+     'https://github.com/saber-notes/saber/blob/main/LICENSE.md',
+   );
+@@ -24,12 +26,23 @@ class const AppInfo({super.key}) extends StatelessWidget {
+     'https://github.com/saber-notes/saber/releases',
+   );
+ 
++  /// 构建期注入的版本号(与包元数据、商店版本号同源)。
++  /// 鸿蒙版用 --dart-define 传入,避免设置页显示的还是上游硬编码的版本号。
++  static const appVersionName = String.fromEnvironment('APP_VERSION_NAME');
++  static const appVersionCode = String.fromEnvironment('APP_VERSION_CODE');
++
+   static String get info => [
+     // Tests use static values to improve reducibility
+-    if (isThisATest) 'v1.35.1' else 'v$buildName',
++    if (isThisATest)
++      'v1.35.1'
++    else
++      'v${appVersionName.isEmpty ? buildName : appVersionName}',
+     if (FlavorConfig.flavor.isNotEmpty) FlavorConfig.flavor,
+     if (kDebugMode && !isThisATest) t.appInfo.debug,
+-    if (isThisATest) '(135010)' else '($buildNumber)',
++    if (isThisATest)
++      '(135010)'
++    else
++      '(${appVersionCode.isEmpty ? buildNumber : appVersionCode})',
+   ].join(' ');
+ 
+   @override
+@@ -46,8 +59,10 @@ class const AppInfo({super.key}) extends StatelessWidget {
+   void _showAboutDialog(BuildContext context) => showAboutDialog(
+     context: context,
+     applicationVersion: info,
+-    applicationIcon: SvgPicture.asset(
+-      'assets/icon/icon.svg',
++    // 用本移植版本自己的图标(与商店/桌面图标同一张母图缩放),
++    // 不用上游 assets/icon/icon.svg —— 那正是市场上「Saber」应用的图标。
++    applicationIcon: Image.asset(
++      'assets/icon/brand_icon.png',
+       width: 50,
+       height: 50,
+     ),

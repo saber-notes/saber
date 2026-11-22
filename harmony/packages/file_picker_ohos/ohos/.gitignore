@@ -1,0 +1,10 @@
+# 构建产物 —— 和 ohos/.gitignore 保持一致。
+#
+# libs/flutter.har 是 `flutter build hap` 在构建过程中从 Flutter-OH SDK
+# 复制进来的引擎产物(几十 MB),不进版本库。
+/oh_modules
+**/build
+/.hvigor
+**/BuildProfile.ets
+**/oh-package-lock.json5
+/libs/flutter.har
