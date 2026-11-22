@@ -1,4 +1,7 @@
-import 'package:file_picker_ohos/src/ohos_platform_file.dart';
+// 相对 import(不是 `package:file_picker_ohos/...`):这个包只有在打了上游
+// 补丁之后才会被注册进 package config,上游 CI 在**没打补丁**的仓库上跑
+// `flutter analyze`,那时候 `package:file_picker_ohos/...` 解析不了。
+import 'ohos_platform_file.dart';
 import 'package:file_picker_platform_interface/file_picker_platform_interface.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
