@@ -17,9 +17,12 @@ home:
     newNote: 새노트
     showUpdateDialog(OUTDATED): 업데이트 대화 상자 표시
     exportNote(OUTDATED): 노트 내보내기
+    showUpdateDialog: 업데이트 보기
+    exportNote: 노트수출
   create:
     newNote: 새노트
     importNote(OUTDATED): 가져오기 참고 사항
+    importNote: 노트수입
   welcome: 세이버에 환영합니다
   noFiles: 파일 없음
   noPreviewAvailable: 미리보기 없음
@@ -31,6 +34,7 @@ home:
     folderNameEmpty(OUTDATED): 폴더 이름은 비어 있을 수 없습니다
     folderNameContainsSlash(OUTDATED): 폴더 이름에 슬래시(/)를 포함할 수 없습니다.
     folderNameExists(OUTDATED): 폴더가 이미 존재합니다
+    folderNameEmpty: 폴더 이름 비워둘 수 없습
   renameNote:
     renameNote: 노트 이름 바꿈
     noteName: 노트 이름
@@ -79,6 +83,8 @@ home:
   invalidFormat(OUTDATED): 선택하신 파일은 지원되지 않습니다. sbn, sbn2, sba 또는 pdf 파일을 선택해 주세요.
   createNewNote(OUTDATED): + 버튼을 탭하여 새 메모를 만드세요
   deleteNote(OUTDATED): 메모 삭제
+  invalidFormat: 파일 지원없습니다. sbn, sbn2, sba, pdf 파일 선택해 주세요
+  createNewNote: + 버튼로 노트 만들어 주세요
 sentry:
   consent:
     description:
