@@ -1,0 +1,100 @@
+diff --git a/lib/i18n/zh-Hant-TW.i18n.yaml b/lib/i18n/zh-Hant-TW.i18n.yaml
+index 711f1d13..827f8e1d 100644
+--- a/lib/i18n/zh-Hant-TW.i18n.yaml
++++ b/lib/i18n/zh-Hant-TW.i18n.yaml
+@@ -20,7 +20,7 @@ home:
+   create:
+     newNote: 新增筆記
+     importNote: 匯入筆記
+-  welcome: 歡迎使用 Saber
++  welcome: 歡迎使用 赛博手写笔记
+   invalidFormat: 不支援您選取的檔案，請選擇 .sbn、.sbn2、.sba 或 .pdf 檔案。
+   noFiles: 未找到檔案
+   noPreviewAvailable: 無可用的預覽
+@@ -81,7 +81,7 @@ home:
+     simpleGrid: 簡單網格
+ sentry:
+   consent:
+-    title: 協助改善 Saber？
++    title: 協助改善 赛博手写笔记？
+     description:
+       question: 您想自動回報意外錯誤嗎？這可以協助我更快地辨識與解決問題。
+       scope: 報告可能包含有關錯誤與您的裝置資訊。我已經盡一切努力過濾了個人資料，但有些可能仍會保留。
+@@ -106,7 +106,7 @@ settings:
+     layoutSize: 佈局大小
+     customAccentColor: 自訂主題色
+     hyperlegibleFont: Atkinson Hyperlegible 字型
+-    shouldCheckForUpdates: 自動檢查 Saber 更新
++    shouldCheckForUpdates: 自動檢查 赛博手写笔记 更新
+     shouldAlwaysAlertForUpdates: 更快的更新
+     allowInsecureConnections: 允許不安全連線
+     editorToolbarAlignment: 編輯器工具列的對齊方式
+@@ -129,7 +129,7 @@ settings:
+     sentry: 錯誤回報
+   prefDescriptions:
+     hyperlegibleFont: Atkinson Hyperlegible 字型為低視力讀者提高易讀性
+-    allowInsecureConnections: （不推薦）允許 Saber 連線到有自行簽署/不受信任憑證的伺服器
++    allowInsecureConnections: （不推薦）允許 赛博手写笔记 連線到有自行簽署/不受信任憑證的伺服器
+     preferGreyscale: 用於電子紙螢幕
+     autoClearWhiteboardOnExit: 在您結束應用程式後清除白板
+     disableEraserAfterUse: 使用橡皮擦後自動切換回筆
+@@ -199,18 +199,18 @@ login:
+     loggedIn: 已使用 Nextcloud 登入
+   ncLoginStep:
+     whereToStoreData: 選擇您要儲存資料的位置：
+-    saberNcServer: Saber 的 Nextcloud 伺服器
++    saberNcServer: 赛博手写笔记 的 Nextcloud 伺服器
+     otherNcServer: 其他 Nextcloud 伺服器
+     serverUrl: 伺服器網址
+-    loginWithSaber: 使用 Saber 登入
++    loginWithSaber: 使用 赛博手写笔记 登入
+     loginWithNextcloud: 使用 Nextcloud 登入
+     loginFlow:
+-      pleaseAuthorize: 請授權 Saber 存取您的 Nextcloud 帳號
++      pleaseAuthorize: 請授權 赛博手写笔记 存取您的 Nextcloud 帳號
+       followPrompts: 請依照 Nextcloud 介面的提示進行操作
+       browserDidntOpen: 登入頁面打不開？點擊這裡
+   encLoginStep:
+     enterEncPassword: 為了保護您的資料，請輸入您的加密密碼：
+-    newToSaber: 第一次使用 Saber？只需輸入新的加密密碼即可。
++    newToSaber: 第一次使用 赛博手写笔记？只需輸入新的加密密碼即可。
+     encPassword: 加密密碼
+     encFaqTitle: 常見問題
+     wrongEncPassword: 使用提供的密碼解密失敗。請嘗試再次輸入。
+@@ -224,7 +224,7 @@ login:
+     - q: 我還沒設定加密密碼。該去哪裡取得呢？
+       a: |-
+         選擇一個新的加密密碼並在上方輸入。
+-        Saber 將自動根據該密碼產生您的加密金鑰。
++        赛博手写笔记 將自動根據該密碼產生您的加密金鑰。
+     - q: 我可以使用與 Nextcloud 帳號相同的密碼嗎？
+       a: 可以，但請記住如果伺服器管理員或其他人獲得了您的 Nextcloud 帳號的存取權限，他們將更容易存取您的筆記。
+ profile:
+@@ -241,14 +241,14 @@ profile:
+   - q: 如果我登出了，我的筆記會不會不見？
+     a: 您的筆記將同時儲存在您的裝置與伺服器上。直到您重新登入，它們才會被同步到伺服器上。在登出前，請確保同步工作已經完成，這樣您就不會遺失任何資料（在主畫面上可以看到同步進度）。
+   - q: 如何變更我的 Nextcloud 密碼？
+-    a: 進入您的伺服器網站並登入，然後進入「設定」→「安全」→「變更密碼」。更改密碼後，您必須登出並重新登入 Saber。
++    a: 進入您的伺服器網站並登入，然後進入「設定」→「安全」→「變更密碼」。更改密碼後，您必須登出並重新登入 赛博手写笔记。
+   - q: 如何變更我的加密密碼？
+     a: |-
+       0. 確定同步處理已完成（請參閱主畫面上的同步處理進度）。
+-      1. 登出 Saber，在登出前確保同步已經完成，這樣您就不會丟失任何資料（在主畫面上可以看到同步進度）。
++      1. 登出 赛博手写笔记，在登出前確保同步已經完成，這樣您就不會丟失任何資料（在主畫面上可以看到同步進度）。
+       2. 進入您的伺服器網站並登入，刪除「Saber」資料夾，這將從伺服器上刪除您所有的筆記。
+-      3. 重新登入 Saber，您可以在登入時選擇一個新的加密密碼。
+-      4. 也不要忘記在您的其他裝置上登出並重新登入 Saber。
++      3. 重新登入 赛博手写笔记，您可以在登入時選擇一個新的加密密碼。
++      4. 也不要忘記在您的其他裝置上登出並重新登入 赛博手写笔记。
+   - q: 如何刪除我的帳號？
+     a: |-
+       點選上面的「@:profile.quickLinks.deleteAccount」按鈕，如果需要請登入。
+@@ -363,7 +363,7 @@ editor:
+     watchingServer: 目前正在監控伺服器上的更新，在此模式下已停用編輯功能。
+     corrupted: 無法載入筆記，檔案可能已損壞或仍在下載中。
+   versionTooNew:
+-    title: 這篇筆記是使用較新版本的 Saber 編輯的
++    title: 這篇筆記是使用較新版本的 赛博手写笔记 編輯的
+     subtitle: 編輯此筆記可能會導致某些資訊遺失。您要忽略並編輯它嗎？
+     allowEditing: 允許編輯
+   quill:

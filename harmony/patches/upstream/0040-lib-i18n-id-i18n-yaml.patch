@@ -1,0 +1,100 @@
+diff --git a/lib/i18n/id.i18n.yaml b/lib/i18n/id.i18n.yaml
+index af7c4e47..b9620be7 100644
+--- a/lib/i18n/id.i18n.yaml
++++ b/lib/i18n/id.i18n.yaml
+@@ -20,7 +20,7 @@ home:
+   create:
+     newNote: Catatan baru
+     importNote: Impor catatan
+-  welcome: Selamat datang di Saber
++  welcome: Selamat datang di 赛博手写笔记
+   invalidFormat: File yang kamu pilih tidak didukung. Pilih file sbn, sbn2, sba, atau pdf.
+   noFiles: Tidak ada file
+   noPreviewAvailable: Pratinjau tidak tersedia
+@@ -81,7 +81,7 @@ home:
+     simpleGrid: Grid sederhana
+ sentry:
+   consent:
+-    title: Bantu tingkatkan Saber?
++    title: Bantu tingkatkan 赛博手写笔记?
+     description:
+       question: Mau melaporkan error tak terduga secara otomatis? Ini membantu saya menemukan dan memperbaiki masalah lebih cepat.
+       scope: Laporan bisa berisi informasi tentang error dan perangkatmu. Saya sudah berusaha semaksimal mungkin menyaring data pribadi, tetapi mungkin masih ada yang tersisa.
+@@ -106,7 +106,7 @@ settings:
+     layoutSize: Jenis tata letak
+     customAccentColor: Warna aksen kustom
+     hyperlegibleFont: Font Atkinson Hyperlegible
+-    shouldCheckForUpdates: Periksa pembaruan Saber
++    shouldCheckForUpdates: Periksa pembaruan 赛博手写笔记
+     shouldAlwaysAlertForUpdates: Pembaruan lebih cepat
+     allowInsecureConnections: Izinkan koneksi tidak aman
+     editorToolbarAlignment: Posisi toolbar
+@@ -129,7 +129,7 @@ settings:
+     sentry: Pelaporan error
+   prefDescriptions:
+     hyperlegibleFont: Meningkatkan keterbacaan bagi pengguna dengan penglihatan rendah
+-    allowInsecureConnections: (Tidak disarankan) Izinkan Saber terhubung ke server dengan sertifikat yang ditandatangani sendiri/tidak tepercaya
++    allowInsecureConnections: (Tidak disarankan) Izinkan 赛博手写笔记 terhubung ke server dengan sertifikat yang ditandatangani sendiri/tidak tepercaya
+     preferGreyscale: Untuk layar e-ink
+     autoClearWhiteboardOnExit: Mengosongkan papan tulis setelah kamu keluar dari aplikasi
+     disableEraserAfterUse: Otomatis kembali ke pena setelah memakai penghapus
+@@ -199,18 +199,18 @@ login:
+     loggedIn: Sudah masuk dengan Nextcloud
+   ncLoginStep:
+     whereToStoreData: "Pilih tempat menyimpan datamu:"
+-    saberNcServer: Server Nextcloud milik Saber
++    saberNcServer: Server Nextcloud milik 赛博手写笔记
+     otherNcServer: Server Nextcloud lain
+     serverUrl: URL server
+-    loginWithSaber: Masuk dengan Saber
++    loginWithSaber: Masuk dengan 赛博手写笔记
+     loginWithNextcloud: Masuk dengan Nextcloud
+     loginFlow:
+-      pleaseAuthorize: Izinkan Saber mengakses akun Nextcloud-mu
++      pleaseAuthorize: Izinkan 赛博手写笔记 mengakses akun Nextcloud-mu
+       followPrompts: Ikuti petunjuk yang muncul di antarmuka Nextcloud
+       browserDidntOpen: Halaman masuk tidak terbuka? Klik di sini
+   encLoginStep:
+     enterEncPassword: "Untuk melindungi datamu, masukkan kata sandi enkripsi:"
+-    newToSaber: Baru di Saber? Cukup masukkan kata sandi enkripsi baru.
++    newToSaber: Baru di 赛博手写笔记? Cukup masukkan kata sandi enkripsi baru.
+     encPassword: Kata sandi enkripsi
+     encFaqTitle: Pertanyaan yang sering diajukan
+     wrongEncPassword: Dekripsi gagal dengan kata sandi tersebut. Coba masukkan lagi.
+@@ -224,7 +224,7 @@ login:
+     - q: Saya belum mengatur kata sandi enkripsi. Dari mana saya mendapatkannya?
+       a: |-
+         Pilih kata sandi enkripsi baru, lalu masukkan di atas.
+-        Saber akan membuat kunci enkripsimu secara otomatis dari kata sandi tersebut.
++        赛博手写笔记 akan membuat kunci enkripsimu secara otomatis dari kata sandi tersebut.
+     - q: Bolehkah memakai kata sandi yang sama dengan akun Nextcloud saya?
+       a: Boleh, tetapi ingat bahwa administrator server atau orang lain akan lebih mudah mengakses catatanmu kalau mereka berhasil masuk ke akun Nextcloud-mu.
+ profile:
+@@ -241,14 +241,14 @@ profile:
+   - q: Apakah catatan saya akan hilang kalau saya keluar?
+     a: Tidak. Catatanmu tetap ada di perangkat maupun di server. Catatan tidak akan disinkronkan dengan server sampai kamu masuk lagi. Pastikan sinkronisasi sudah selesai sebelum keluar supaya tidak ada data yang hilang (lihat progres sinkronisasi di layar beranda).
+   - q: Bagaimana cara mengganti kata sandi Nextcloud?
+-    a: Buka situs web server dan masuk. Lalu buka Pengaturan > Keamanan > Ubah kata sandi. Setelah mengganti kata sandi, kamu perlu keluar lalu masuk kembali ke Saber.
++    a: Buka situs web server dan masuk. Lalu buka Pengaturan > Keamanan > Ubah kata sandi. Setelah mengganti kata sandi, kamu perlu keluar lalu masuk kembali ke 赛博手写笔记.
+   - q: Bagaimana cara mengganti kata sandi enkripsi?
+     a: |-
+       0. Pastikan sinkronisasi sudah selesai (lihat progres sinkronisasi di layar beranda).
+-      1. Keluar dari Saber.
++      1. Keluar dari 赛博手写笔记.
+       2. Buka situs web server dan hapus folder 'Saber'. Ini akan menghapus semua catatanmu dari server.
+-      3. Masuk lagi ke Saber. Kamu bisa memilih kata sandi enkripsi baru saat masuk.
+-      4. Jangan lupa keluar dan masuk lagi ke Saber di perangkat lainmu juga.
++      3. Masuk lagi ke 赛博手写笔记. Kamu bisa memilih kata sandi enkripsi baru saat masuk.
++      4. Jangan lupa keluar dan masuk lagi ke 赛博手写笔记 di perangkat lainmu juga.
+   - q: Bagaimana cara menghapus akun saya?
+     a: |-
+       Ketuk tombol "@:profile.quickLinks.deleteAccount" di atas, lalu masuk jika diminta.
+@@ -363,7 +363,7 @@ editor:
+     watchingServer: Saat ini kamu sedang memantau pembaruan di server. Pengeditan dinonaktifkan di mode ini.
+     corrupted: Gagal memuat catatan. Mungkin file-nya rusak atau masih diunduh.
+   versionTooNew:
+-    title: Catatan ini diedit menggunakan Saber versi yang lebih baru
++    title: Catatan ini diedit menggunakan 赛博手写笔记 versi yang lebih baru
+     subtitle: Mengedit catatan ini dapat menyebabkan sebagian informasi hilang. Abaikan peringatan ini dan tetap edit?
+     allowEditing: Izinkan pengeditan
+   quill:

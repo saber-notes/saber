@@ -1,0 +1,94 @@
+# OpenHarmony(鸿蒙 / HarmonyOS NEXT)适配用的依赖覆盖。
+#
+# 这个文件放在 toolchain/ohos/ 下,**不**直接放在仓库根目录。
+#
+# 原因:pub 会自动读取仓库根目录的 `pubspec_overrides.yaml` 并覆盖同名依赖。
+# 如果把它提交在根目录,上游 CI(以及任何克隆了本仓库的人)在跑
+# `flutter pub get` 时都会被迫拉取下面这些 gitcode 上的鸿蒙分支插件 ——
+# 那会让与鸿蒙无关的 Android / Linux / Windows 构建也依赖 gitcode,
+# 慢、不稳,甚至直接失败。
+#
+# 所以:`scripts/build_ohos.sh` 会在构建前把这个文件复制到仓库根目录
+# (根目录那份已在 .gitignore 里,不会被提交)。
+#
+# ⚠️ 重要:根目录的 pubspec_overrides.yaml 会**整体替换** pubspec.yaml 里的
+# `dependency_overrides` 段(不是合并)。所以下面必须把 pubspec.yaml 里原有的
+# 那几条也一并抄过来,否则 yaru / dynamic_yaru / flutter_quill 会退回到
+# pub.dev 上的正式版 —— 那是迁移到独立 material_ui 包之前的版本,会报
+# "The getter 'link' isn't defined for the type 'ColorScheme'"、
+# "ButtonStyle can't be assigned to ButtonStyle" 之类的类型不匹配错误。
+#
+# 覆盖内容:
+#   1. 上游 pubspec.yaml 里原有的 material_ui 迁移相关 git 依赖
+#      (yaru / dynamic_yaru / flutter_quill);
+#   2. OpenHarmony-TPC/flutter_packages 里带鸿蒙实现的官方插件
+#      (shared_preferences / path_provider / url_launcher ...);
+#   3. stow_secure —— 本仓库 packages/stow_secure 下的鸿蒙实现
+#      (上游依赖 flutter_secure_storage,该插件至今没有鸿蒙实现);
+#   4. file_picker_ohos —— 本仓库 packages/file_picker_ohos 下的鸿蒙实现。
+#      注意它**不在**下面的 overrides 里,而是直接写在 pubspec.yaml 的
+#      dependencies 中 —— 原因见文件末尾的说明。
+#
+# 用法: bash scripts/build_ohos.sh  —— 脚本会自动就位,业务代码无需任何改动。
+
+dependency_overrides:
+  # --- 上游原有的覆盖(必须原样保留,见上面的说明)--------------------------
+  # material_ui support: https://github.com/ubuntu/yaru.dart/pull/1110
+  yaru:
+    git:
+      url: https://github.com/adil192/yaru.dart.git
+      ref: feat!/migrate-to-material_ui
+
+  # material_ui support: https://github.com/adil192/dynamic_yaru/pull/1
+  dynamic_yaru:
+    git:
+      url: https://github.com/adil192/dynamic_yaru.git
+      ref: ref!/migrate-to-standalone-material_ui
+
+  # material_ui support: no pull request yet
+  flutter_quill:
+    git:
+      url: https://github.com/adil192/flutter-quill.git
+      ref: ref!/migrate-to-standalone-material_ui
+
+  # --- 上游 pubspec.yaml 里另外两条,必须一并抄过来 -------------------------
+  # (目录级 pubspec_overrides.yaml 是**整体替换** dependency_overrides 段,
+  #  漏抄的条目会静默回到 pub.dev 的正式版本。)
+  #
+  # https://github.com/darioielardi/flutter_speed_dial/pull/344
+  #   Note: flutter_speed_dial hasn't been updated in 3 years, maybe replace it.
+  flutter_speed_dial:
+    git:
+      url: https://github.com/adil192/flutter_speed_dial.git
+      ref: fix/remove-Future.delayed
+
+  # https://github.com/GregoryConrad/native_toolchain_rust/issues/103
+  native_toolchain_rust: 1.0.4+0
+
+  # --- 带鸿蒙实现的官方插件 -----------------------------------------------
+  shared_preferences:
+    git:
+      url: https://gitcode.com/openharmony-tpc/flutter_packages.git
+      path: packages/shared_preferences/shared_preferences
+      ref: master
+
+  path_provider:
+    git:
+      url: https://gitcode.com/openharmony-tpc/flutter_packages.git
+      path: packages/path_provider/path_provider
+      ref: master
+
+  url_launcher:
+    git:
+      url: https://gitcode.com/openharmony-tpc/flutter_packages.git
+      path: packages/url_launcher/url_launcher
+      ref: master
+
+  # --- 鸿蒙专用替身 -------------------------------------------------------
+  # flutter_secure_storage 暂无鸿蒙实现,改用基于 shared_preferences 的实现。
+  stow_secure:
+    path: harmony/packages/stow_secure
+
+  # file_picker 的鸿蒙实现(file_picker_ohos)已经写进 pubspec.yaml 的
+  # dependencies 里了 —— 只放在 overrides 里 flutter_tools 不会把它当插件
+  # 发现,鸿蒙侧也就注册不上。

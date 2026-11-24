@@ -1,0 +1,15 @@
+# 本目录里的本地产物(不进版本库)
+
+# 工具链的备份、下载的二进制、npm 依赖
+/backup/
+/agc-cli/node_modules/
+/ohos-aot-win/
+toolchain/ohos-aot-win/
+/fs_build/
+
+# Python 缓存
+__pycache__/
+*.pyc
+
+# 打包给终端用户的安装产物(旧版建在仓库根,现在放这里)
+/dist-kit/

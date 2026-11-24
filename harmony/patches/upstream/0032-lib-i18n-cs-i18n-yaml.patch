@@ -1,0 +1,100 @@
+diff --git a/lib/i18n/cs.i18n.yaml b/lib/i18n/cs.i18n.yaml
+index 34568470..3036d4c0 100644
+--- a/lib/i18n/cs.i18n.yaml
++++ b/lib/i18n/cs.i18n.yaml
+@@ -20,7 +20,7 @@ home:
+   create:
+     newNote: Nová poznámka
+     importNote: Import poznámky
+-  welcome: Vítejte v aplikaci Saber
++  welcome: Vítejte v aplikaci 赛博手写笔记
+   invalidFormat: Vybrali jste nepodporovaný soubor. Vyberte prosím soubor s příponou .sbn, .sbn2, .sba nebo .pdf.
+   noFiles: Žádné poznámky nebyly nalezeny
+   noPreviewAvailable: Náhled není k dispozici
+@@ -81,7 +81,7 @@ home:
+     simpleGrid: Jednoduchá mřížka
+ sentry:
+   consent:
+-    title: Chcete pomoct vylepšit aplikaci Saber?
++    title: Chcete pomoct vylepšit aplikaci 赛博手写笔记?
+     description:
+       question: Chtěli byste automaticky nahlašovat neočekávané chyby? Pomohlo by mi to s rychlejší identifikací a opravou.
+       scope: Hlášení mohou obsahovat informace o chybě a vašem zařízení. Dělal jsem, co bylo v mých silách, abych odfiltroval osobní data, ale i tak mohou některá zůstat.
+@@ -106,7 +106,7 @@ settings:
+     layoutSize: Rozvržení uživatelského rozhraní
+     customAccentColor: Vlastní barevný odstín
+     hyperlegibleFont: Lépe čitelný font
+-    shouldCheckForUpdates: Automaticky kontrolovat dostupnost aktualizací aplikace Saber
++    shouldCheckForUpdates: Automaticky kontrolovat dostupnost aktualizací aplikace 赛博手写笔记
+     shouldAlwaysAlertForUpdates: Rychlejší aktualizace
+     allowInsecureConnections: Povolit nezabezpečená připojení
+     editorToolbarAlignment: Umístění nabídky editoru
+@@ -129,7 +129,7 @@ settings:
+     sentry: Hlášení chyb
+   prefDescriptions:
+     hyperlegibleFont: Font Atkinson Hyperlegible zvyšuje čitelnost pro čtenáře se slabým zrakem
+-    allowInsecureConnections: (Nedoporučuje se) Povolit aplikaci Saber připojovat se k serverům se samopodepsaným/nedůvěryhodným certifikátem
++    allowInsecureConnections: (Nedoporučuje se) Povolit aplikaci 赛博手写笔记 připojovat se k serverům se samopodepsaným/nedůvěryhodným certifikátem
+     preferGreyscale: Pro elektronické čtečky knih s e-ink displejem
+     autoClearWhiteboardOnExit: Bude synchronizováno do dalších zařízení
+     disableEraserAfterUse: Po použití gumy automaticky přepnout zpět na pero
+@@ -199,18 +199,18 @@ login:
+     loggedIn: Jste přihlášeni pomocí Nextcloud účtu
+   ncLoginStep:
+     whereToStoreData: "Zvolte si, kam chcete ukládat svá data:"
+-    saberNcServer: Oficiální Nextcloud server aplikace Saber
++    saberNcServer: Oficiální Nextcloud server aplikace 赛博手写笔记
+     otherNcServer: Jiný Nextcloud server
+     serverUrl: URL adresa serveru
+-    loginWithSaber: Přihlásit přes aplikaci Saber
++    loginWithSaber: Přihlásit přes aplikaci 赛博手写笔记
+     loginWithNextcloud: Přihlásit přes Nextcloud server
+     loginFlow:
+-      pleaseAuthorize: Autorizujte prosím aplikaci Saber k přístupu na váš Nextcloud účet
++      pleaseAuthorize: Autorizujte prosím aplikaci 赛博手写笔记 k přístupu na váš Nextcloud účet
+       followPrompts: Následujte prosím kroky v rozhraní Nextcloud serveru
+       browserDidntOpen: Neotevřela se přihlašovací stránka? Klepněte zde
+   encLoginStep:
+     enterEncPassword: "Pro ochranu svých dat prosím zadejte heslo pro šifrování:"
+-    newToSaber: Poprvé v aplikaci Saber? Stačí zadat nové heslo pro šifrování.
++    newToSaber: Poprvé v aplikaci 赛博手写笔记? Stačí zadat nové heslo pro šifrování.
+     encPassword: Heslo pro šifrování
+     encFaqTitle: Často kladené otázky
+     wrongEncPassword: Dešifrování pomocí zadaného hesla pro šifrování selhalo. Zkuste ho prosím zadat znovu.
+@@ -224,7 +224,7 @@ login:
+     - q: Ještě jsem heslo pro šifrování nenastavoval. Kde ho získám?
+       a: |-
+         Zvolte si nové heslo pro šifrování a zadejte ho výše.
+-        Aplikace Saber z hesla automaticky vygeneruje šifrovací klíče.
++        Aplikace 赛博手写笔记 z hesla automaticky vygeneruje šifrovací klíče.
+     - q: Mohu jako heslo pro šifrování použít své heslo od Nextcloud účtu?
+       a: Ano, ale mějte na paměti, že bude pro administrátora Nextcloud serveru či kohokoliv jiného, kdo získá přístup k vašemu Nextcloud účtu, jednodušší získat přístup k vašim poznámkám.
+ profile:
+@@ -241,14 +241,14 @@ profile:
+   - q: Ztratím po odhlášení svoje poznámky?
+     a: Nikoliv. Vaše poznámky zůstanou jak na vašem zařízení, tak na serveru. Dokud se opět nepřihlásíte, nebudou synchronizovány se serverem. Před ohlášením se ujistěte, že byla dokončena synchronizace, abyste předešli ztrátě dat (průběh synchronizace uvidíte na domovské obrazovce).
+   - q: Jak změním své heslo k Nextcloud účtu?
+-    a: Přejděte na webovou stránku vašeho serveru a přihlašte se. Poté přejděte do Nastavení > Zabezpečení > Změnit heslo. Po změně hesla se budete muset odhlásit z aplikace Saber a poté se do ní opětovně přihlásit.
++    a: Přejděte na webovou stránku vašeho serveru a přihlašte se. Poté přejděte do Nastavení > Zabezpečení > Změnit heslo. Po změně hesla se budete muset odhlásit z aplikace 赛博手写笔记 a poté se do ní opětovně přihlásit.
+   - q: Jak změním své heslo pro šifrování?
+     a: |-
+       0. Ujistěte se, že byla dokončena synchronizace (průběh synchronizace uvidíte na domovské obrazovce).
+-      1. Odhlašte se z aplikace Saber.
++      1. Odhlašte se z aplikace 赛博手写笔记.
+       2. Přejděte na webovou stránku vašeho serveru a smažte složku „Saber“. Tím ze serveru odstraníte všechny poznámky.
+-      3. Opětovně se přihlašte do aplikace Saber. Při přihlašování můžete zvolit nové heslo pro šifrování.
+-      4. Nezapomeňte se z aplikace Saber odhlásit a opětovně se do ní přihlásit na ostatních zařízeních.
++      3. Opětovně se přihlašte do aplikace 赛博手写笔记. Při přihlašování můžete zvolit nové heslo pro šifrování.
++      4. Nezapomeňte se z aplikace 赛博手写笔记 odhlásit a opětovně se do ní přihlásit na ostatních zařízeních.
+   - q: Jak odstraním svůj účet?
+     a: |-
+       Klepněte na tlačítko „@:profile.quickLinks.deleteAccount“ umístěné výše a přihlašte se, pokud to bude vyžadováno.
+@@ -363,7 +363,7 @@ editor:
+     watchingServer: Aktuálně máte zapnuté sledování změn ze serveru. V tomto módu jsou vypnuté úpravy.
+     corrupted: Poznámku se nepodařilo načíst. Buď se ještě stahuje, nebo může být poškozená.
+   versionTooNew:
+-    title: Tato poznámka byla upravena v novější verzi aplikace Saber
++    title: Tato poznámka byla upravena v novější verzi aplikace 赛博手写笔记
+     subtitle: Úpravou této poznámky můžete přijít o některé informace. Přejete tuto skutečnost ignorovat a přesto pokračovat k úpravě poznámky?
+     allowEditing: Povolit úpravy
+   quill:

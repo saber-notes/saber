@@ -1,0 +1,23 @@
+name: stow_secure
+description: >-
+  OpenHarmony (HarmonyOS NEXT) 版的 stow_secure:用 shared_preferences 持久化
+  敏感数据,用于 flutter_secure_storage 尚无鸿蒙实现的场景。
+version: 0.7.0
+publish_to: none
+
+environment:
+  sdk: ^3.13.0
+  flutter: ">=3.47.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  mutex: ^3.1.0
+  shared_preferences: ^2.5.3
+  stow: ^0.6.0
+  stow_codecs: ^1.4.0
+
+dev_dependencies:
+  flutter_lints: ^6.0.0
+  flutter_test:
+    sdk: flutter

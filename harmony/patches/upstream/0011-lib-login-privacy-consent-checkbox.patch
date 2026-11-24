@@ -1,0 +1,201 @@
+diff --git a/lib/components/nextcloud/nc_login_step.dart b/lib/components/nextcloud/nc_login_step.dart
+index 93cfc72..c53bf09 100644
+--- a/lib/components/nextcloud/nc_login_step.dart
++++ b/lib/components/nextcloud/nc_login_step.dart
+@@ -1,4 +1,5 @@
+ import 'dart:async';
++import 'dart:io';
+ import 'dart:math';
+ 
+ import 'package:flutter/gestures.dart';
+@@ -75,6 +76,10 @@
+     // dispose the login flow when it changes or the widget is disposed
+     useEffect(() => loginFlow.value?.dispose, [loginFlow.value]);
+ 
++    // 华为应用市场「明示同意」的要求:隐私政策必须由用户主动勾选(默认不勾选),
++    // 没有勾选就不允许发起登录,同时要给出明确的拒绝入口。
++    final agreedToPrivacyPolicy = useState(false);
++
+     final screenSize = MediaQuery.sizeOf(context);
+     final shouldUseTwoColumns = _shouldUseTwoColumns(screenSize);
+     if (shouldUseTwoColumns) {
+@@ -89,7 +94,12 @@
+               spacing: 64,
+               children: [
+                 Expanded(
+-                  child: _Header(shouldUseTwoColumns: shouldUseTwoColumns),
++                  child: _Header(
++                    shouldUseTwoColumns: shouldUseTwoColumns,
++                    agreedToPrivacyPolicy: agreedToPrivacyPolicy.value,
++                    onAgreeToPrivacyPolicyChanged: (value) =>
++                        agreedToPrivacyPolicy.value = value,
++                  ),
+                 ),
+                 Expanded(
+                   child: Column(
+@@ -97,12 +107,14 @@
+                     spacing: 48,
+                     children: [
+                       _LoginWithSaber(
++                        canLogin: agreedToPrivacyPolicy.value,
+                         login: () => loginFlow.value = _createLoginFlow(
+                           context,
+                           NextcloudClientExtension.defaultNextcloudUri,
+                         ),
+                       ),
+                       _LoginWithNextcloud(
++                        canLogin: agreedToPrivacyPolicy.value,
+                         login: (url) => loginFlow.value = _createLoginFlow(
+                           context,
+                           Uri.parse(url),
+@@ -132,9 +144,15 @@
+           ),
+           children: [
+             const SizedBox(height: 16),
+-            _Header(shouldUseTwoColumns: shouldUseTwoColumns),
++            _Header(
++              shouldUseTwoColumns: shouldUseTwoColumns,
++              agreedToPrivacyPolicy: agreedToPrivacyPolicy.value,
++              onAgreeToPrivacyPolicyChanged: (value) =>
++                  agreedToPrivacyPolicy.value = value,
++            ),
+             const SizedBox(height: 32),
+             _LoginWithSaber(
++              canLogin: agreedToPrivacyPolicy.value,
+               login: () => loginFlow.value = _createLoginFlow(
+                 context,
+                 NextcloudClientExtension.defaultNextcloudUri,
+@@ -142,6 +160,7 @@
+             ),
+             const SizedBox(height: 32),
+             _LoginWithNextcloud(
++              canLogin: agreedToPrivacyPolicy.value,
+               login: (url) =>
+                   loginFlow.value = _createLoginFlow(context, Uri.parse(url)),
+             ),
+@@ -152,8 +171,11 @@
+   }
+ }
+ 
+-class const _Header({required final bool shouldUseTwoColumns})
+-    extends StatelessWidget {
++class const _Header({
++  required final bool shouldUseTwoColumns,
++  required final bool agreedToPrivacyPolicy,
++  required final ValueChanged<bool> onAgreeToPrivacyPolicyChanged,
++}) extends StatelessWidget {
+   @override
+   Widget build(BuildContext context) {
+     final theme = Theme.of(context);
+@@ -168,21 +190,61 @@
+           t.login.ncLoginStep.whereToStoreData,
+           style: theme.textTheme.headlineSmall?.copyWith(height: 1.2),
+         ),
+-        Text.rich(
+-          t.login.form.agreeToPrivacyPolicy(
+-            linkToPrivacyPolicy: (text) => TextSpan(
+-              text: text,
+-              style: TextStyle(color: theme.colorScheme.primary),
+-              recognizer: TapGestureRecognizer()
+-                ..onTap = () {
+-                  launchUrl(AppInfo.privacyPolicyUrl);
+-                },
+-            ),
++        // 隐私政策:明示同意。默认不勾选,用户主动勾选之后才能登录。
++        CheckboxListTile.adaptive(
++          value: agreedToPrivacyPolicy,
++          onChanged: (value) => onAgreeToPrivacyPolicyChanged(value ?? false),
++          controlAffinity: .leading,
++          dense: true,
++          contentPadding: EdgeInsets.zero,
++          title: Text.rich(
++            t.login.form.iAgreeToPrivacyPolicy(
++              linkToPrivacyPolicy: (text) => TextSpan(
++                text: text,
++                style: TextStyle(color: theme.colorScheme.primary),
++                recognizer: TapGestureRecognizer()
++                  ..onTap = () {
++                    launchUrl(AppInfo.privacyPolicyUrl);
++                  },
++              ),
++            ),
++          ),
++        ),
++        // 明确的拒绝选项:不同意就退出应用
++        Align(
++          alignment: .centerLeft,
++          child: TextButton(
++            onPressed: () => _showDisagreeDialog(context),
++            child: Text(t.login.form.disagreeAndExit),
+           ),
+         ),
+         if (shouldUseTwoColumns)
+           _HeaderImage(shouldUseTwoColumns: shouldUseTwoColumns),
+       ],
++    );
++  }
++
++  void _showDisagreeDialog(BuildContext context) {
++    showDialog(
++      context: context,
++      builder: (context) => AlertDialog.adaptive(
++        title: Text(t.login.form.disagreeDialogTitle),
++        content: Text(t.login.form.disagreeDialogMessage),
++        actions: [
++          TextButton(
++            onPressed: () => Navigator.of(context).pop(),
++            child: Text(t.common.cancel),
++          ),
++          TextButton(
++            onPressed: () {
++              Navigator.of(context).pop();
++              // 鸿蒙上 SystemNavigator.pop() 是空实现,直接退出进程。
++              exit(0);
++            },
++            child: Text(t.login.form.exitApp),
++          ),
++        ],
++      ),
+     );
+   }
+ }
+@@ -212,8 +274,10 @@
+   }
+ }
+ 
+-class const _LoginWithSaber({required final VoidCallback login})
+-    extends HookWidget {
++class const _LoginWithSaber({
++  required final VoidCallback login,
++  required final bool canLogin,
++}) extends HookWidget {
+   @override
+   Widget build(BuildContext context) {
+     final buttonStyle = useMemoized(
+@@ -240,7 +304,8 @@
+         ),
+         const SizedBox(height: 16),
+         ElevatedButton(
+-          onPressed: login,
++          // 没有勾选隐私政策时不允许发起登录(华为应用市场「明示同意」要求)
++          onPressed: canLogin ? login : null,
+           style: buttonStyle,
+           child: Text(t.login.ncLoginStep.loginWithSaber),
+         ),
+@@ -268,6 +333,7 @@
+ 
+ class const _LoginWithNextcloud({
+   required final void Function(String url) login,
++  required final bool canLogin,
+ }) extends HookWidget {
+   @override
+   Widget build(BuildContext context) {
+@@ -316,7 +382,7 @@
+         ),
+         const SizedBox(height: 4),
+         ElevatedButton(
+-          onPressed: isServerUrlValid
++          onPressed: (isServerUrlValid && canLogin)
+               ? () {
+                   serverUrlController.text = _prependHttpsIfMissing(
+                     serverUrlController.text,

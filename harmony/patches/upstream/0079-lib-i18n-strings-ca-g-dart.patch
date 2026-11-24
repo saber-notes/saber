@@ -1,0 +1,89 @@
+diff --git a/lib/i18n/strings_ca.g.dart b/lib/i18n/strings_ca.g.dart
+index b0d32921..43054e35 100644
+--- a/lib/i18n/strings_ca.g.dart
++++ b/lib/i18n/strings_ca.g.dart
+@@ -69,7 +69,7 @@ class _Translations$home$ca extends Translations$home$en {
+ 	@override late final _Translations$home$titles$ca titles = _Translations$home$titles$ca._(_root);
+ 	@override late final _Translations$home$tooltips$ca tooltips = _Translations$home$tooltips$ca._(_root);
+ 	@override late final _Translations$home$create$ca create = _Translations$home$create$ca._(_root);
+-	@override String get welcome => 'Benvingut/d@ a Saber';
++	@override String get welcome => 'Benvingut/d@ a 赛博手写笔记';
+ 	@override String get invalidFormat => 'L\'arxiu seleccionat no és compatible. Seleccioneu un arxiu en format sbn, sbn2, sba o PDF';
+ 	@override String get noFiles => 'Cap arxiu trobat';
+ 	@override String get noPreviewAvailable => 'Previsualització no disponible';
+@@ -405,7 +405,7 @@ class _Translations$sentry$consent$ca extends Translations$sentry$consent$en {
+ 	final TranslationsCa _root; // ignore: unused_field
+ 
+ 	// Translations
+-	@override String get title => 'Vols ajudar a millorar Saber?';
++	@override String get title => 'Vols ajudar a millorar 赛博手写笔记?';
+ 	@override late final _Translations$sentry$consent$description$ca description = _Translations$sentry$consent$description$ca._(_root);
+ 	@override late final _Translations$sentry$consent$answers$ca answers = _Translations$sentry$consent$answers$ca._(_root);
+ }
+@@ -433,7 +433,7 @@ class _Translations$settings$prefLabels$ca extends Translations$settings$prefLab
+ 	// Translations
+ 	@override String get locale => 'Llengua';
+ 	@override String get layoutSize => 'Format';
+-	@override String get shouldCheckForUpdates => 'Comprova si hi ha actualitzacions disponibles per Saber';
++	@override String get shouldCheckForUpdates => 'Comprova si hi ha actualitzacions disponibles per 赛博手写笔记';
+ 	@override String get shouldAlwaysAlertForUpdates => 'Actualitzacions més ràpides';
+ 	@override String get allowInsecureConnections => 'Permet connexions no segures';
+ 	@override String get appTheme => 'tema de l\'aplicació';
+@@ -470,7 +470,7 @@ class _Translations$settings$prefDescriptions$ca extends Translations$settings$p
+ 	@override late final _Translations$settings$prefDescriptions$hideFingerDrawing$ca hideFingerDrawing = _Translations$settings$prefDescriptions$hideFingerDrawing$ca._(_root);
+ 	@override late final _Translations$settings$prefDescriptions$sentry$ca sentry = _Translations$settings$prefDescriptions$sentry$ca._(_root);
+ 	@override String get hyperlegibleFont => 'Increxeix la legibilitat per als usuaris amb baixa visió';
+-	@override String get allowInsecureConnections => '(No recomanhat) Permitir a Saber conectar a serveis amb certs autogenerades/no fiables';
++	@override String get allowInsecureConnections => '(No recomanhat) Permitir a 赛博手写笔记 conectar a serveis amb certs autogenerades/no fiables';
+ 	@override String get preferGreyscale => 'Per a dispositius e-ink';
+ 	@override String get autoClearWhiteboardOnExit => 'Borra la llista blanca després de sortir de l\'aplicació';
+ 	@override String get disableEraserAfterUse => 'Automàticament torna al bolífer després de utilitzar l\'efaçador';
+@@ -580,10 +580,10 @@ class _Translations$login$ncLoginStep$ca extends Translations$login$ncLoginStep$
+ 	// Translations
+ 	@override late final _Translations$login$ncLoginStep$loginFlow$ca loginFlow = _Translations$login$ncLoginStep$loginFlow$ca._(_root);
+ 	@override String get whereToStoreData => 'Escollreu on où voleu guardar els teus dades:';
+-	@override String get saberNcServer => 'Serveur Nextcloud de Saber';
++	@override String get saberNcServer => 'Serveur Nextcloud de 赛博手写笔记';
+ 	@override String get otherNcServer => 'Un servidor Nextcloud';
+ 	@override String get serverUrl => 'URL del servidor';
+-	@override String get loginWithSaber => 'Inglesar amb Saber';
++	@override String get loginWithSaber => 'Inglesar amb 赛博手写笔记';
+ 	@override String get loginWithNextcloud => 'Inglesar amb Nextcloud';
+ }
+ 
+@@ -600,7 +600,7 @@ class _Translations$login$encLoginStep$ca extends Translations$login$encLoginSte
+ 		_Translations$login$encLoginStep$encFaq$2$ca._(_root),
+ 	];
+ 	@override String get enterEncPassword => 'Per protegere i tuoi dati, inserisci la tua password di crittografia:';
+-	@override String get newToSaber => 'Nou en Saber? Simplement ingresa una nova contrasenya de cifratura.';
++	@override String get newToSaber => 'Nou en 赛博手写笔记? Simplement ingresa una nova contrasenya de cifratura.';
+ 	@override String get encPassword => 'contraseña de cifrado';
+ 	@override String get encFaqTitle => 'Preguntes freqüents';
+ 	@override String get wrongEncPassword => 'Descodificació fallada amb la contrasenya proporcionada. Si us plau, intenteu introduir-la de nou.';
+@@ -789,7 +789,7 @@ class _Translations$editor$versionTooNew$ca extends Translations$editor$versionT
+ 	final TranslationsCa _root; // ignore: unused_field
+ 
+ 	// Translations
+-	@override String get title => 'Aquesta nota va ser editada des d\'una versió més recent de Saber';
++	@override String get title => 'Aquesta nota va ser editada des d\'una versió més recent de 赛博手写笔记';
+ 	@override String get allowEditing => 'Habilitar edició';
+ 	@override String get subtitle => 'L\'édition de cette note peut entraîner la perte d\'informations. Voulez-vous ignorer cela et éditer quand même ?';
+ }
+@@ -881,7 +881,7 @@ class _Translations$login$ncLoginStep$loginFlow$ca extends Translations$login$nc
+ 	final TranslationsCa _root; // ignore: unused_field
+ 
+ 	// Translations
+-	@override String get pleaseAuthorize => 'Permeta a Saber accedir a la teva compte de Nextcloud';
++	@override String get pleaseAuthorize => 'Permeta a 赛博手写笔记 accedir a la teva compte de Nextcloud';
+ 	@override String get followPrompts => 'Si us plauseguda les instruccions a l\'interfície de Nextcloud';
+ 	@override String get browserDidntOpen => 'La pàgina de connexió no s\'ha obert? Clic aquí';
+ }
+@@ -905,7 +905,7 @@ class _Translations$login$encLoginStep$encFaq$1$ca extends Translations$login$en
+ 
+ 	// Translations
+ 	@override String get q => 'No he menet altrepass de cifratge fins ara. On l\'obtenc?';
+-	@override String get a => 'Escoll un nou contrasen de cifratge i introduïu-lo a la sota.\nSaber generarà les teves clau de cifratge automàticament a partir d\'aquest contrasen.';
++	@override String get a => 'Escoll un nou contrasen de cifratge i introduïu-lo a la sota.\n赛博手写笔记 generarà les teves clau de cifratge automàticament a partir d\'aquest contrasen.';
+ }
+ 
+ // Path: login.encLoginStep.encFaq.2

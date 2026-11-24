@@ -1,0 +1,89 @@
+diff --git a/lib/i18n/strings_eo.g.dart b/lib/i18n/strings_eo.g.dart
+index 36ff5f96..471e1797 100644
+--- a/lib/i18n/strings_eo.g.dart
++++ b/lib/i18n/strings_eo.g.dart
+@@ -69,7 +69,7 @@ class _Translations$home$eo extends Translations$home$en {
+ 	@override late final _Translations$home$titles$eo titles = _Translations$home$titles$eo._(_root);
+ 	@override late final _Translations$home$tooltips$eo tooltips = _Translations$home$tooltips$eo._(_root);
+ 	@override late final _Translations$home$create$eo create = _Translations$home$create$eo._(_root);
+-	@override String get welcome => 'Bonvenon al Saber';
++	@override String get welcome => 'Bonvenon al 赛博手写笔记';
+ 	@override String get invalidFormat => 'Via dosiero ne estas subtenata. Bonvolu elekti sbn, sbn2, sba aŭ pdf dosieron.';
+ 	@override String get noFiles => 'Neniu dosiero trovita';
+ 	@override String get noPreviewAvailable => 'Neniu antaŭrigardo havebla';
+@@ -408,7 +408,7 @@ class _Translations$sentry$consent$eo extends Translations$sentry$consent$en {
+ 	final TranslationsEo _root; // ignore: unused_field
+ 
+ 	// Translations
+-	@override String get title => 'Helpu plibonigi Saber?';
++	@override String get title => 'Helpu plibonigi 赛博手写笔记?';
+ 	@override late final _Translations$sentry$consent$description$eo description = _Translations$sentry$consent$description$eo._(_root);
+ 	@override late final _Translations$sentry$consent$answers$eo answers = _Translations$sentry$consent$answers$eo._(_root);
+ }
+@@ -471,7 +471,7 @@ class _Translations$settings$prefDescriptions$eo extends Translations$settings$p
+ 
+ 	// Translations
+ 	@override String get hyperlegibleFont => 'Pliigas legeblecon por uzantoj kun malalta vidkapablo';
+-	@override String get allowInsecureConnections => '(Nerekomendita) Permesu al Sabero konektiĝi al serviloj kun mem-subskribitaj/nefidindaj atestiloj';
++	@override String get allowInsecureConnections => '(Nerekomendita) Permesu al 赛博手写笔记o konektiĝi al serviloj kun mem-subskribitaj/nefidindaj atestiloj';
+ 	@override String get preferGreyscale => 'Por ekranoj de bitlegiloj';
+ 	@override String get autoClearWhiteboardOnExit => 'Malplenigas la tabulon post kiam vi foriras la aplikaĵon';
+ 	@override String get disableEraserAfterUse => 'Aŭtomate ŝanĝas reen al la plumo post uzi la forviŝilon';
+@@ -582,10 +582,10 @@ class _Translations$login$ncLoginStep$eo extends Translations$login$ncLoginStep$
+ 
+ 	// Translations
+ 	@override String get whereToStoreData => 'Elektu kie vi volas konservi viajn datumojn:';
+-	@override String get saberNcServer => 'Sabera Nextcloud-servilo';
++	@override String get saberNcServer => '赛博手写笔记a Nextcloud-servilo';
+ 	@override String get otherNcServer => 'Aliaj Nextcloud-serviloj';
+ 	@override String get serverUrl => 'Retadreso de servilo';
+-	@override String get loginWithSaber => 'Ensalutu per Saber-konto';
++	@override String get loginWithSaber => 'Ensalutu per 赛博手写笔记-konto';
+ 	@override String get loginWithNextcloud => 'Ensalutu per Nextcloud-konto';
+ 	@override late final _Translations$login$ncLoginStep$loginFlow$eo loginFlow = _Translations$login$ncLoginStep$loginFlow$eo._(_root);
+ }
+@@ -640,7 +640,7 @@ class _Translations$profile$faq$1$eo extends Translations$profile$faq$1$en {
+ 
+ 	// Translations
+ 	@override String get q => 'Kiel mi ŝanĝas mian Nextcloud-pasvorton?';
+-	@override String get a => 'Iru al la retejo de via servilo kaj ensalutu. Poste iru al Agordoj > Sekureco > Ŝanĝu pasvorton. Elsalutu kaj reensalutu al Saber post via pasvortoŝanĝo.';
++	@override String get a => 'Iru al la retejo de via servilo kaj ensalutu. Poste iru al Agordoj > Sekureco > Ŝanĝu pasvorton. Elsalutu kaj reensalutu al 赛博手写笔记 post via pasvortoŝanĝo.';
+ }
+ 
+ // Path: profile.faq.2
+@@ -651,7 +651,7 @@ class _Translations$profile$faq$2$eo extends Translations$profile$faq$2$en {
+ 
+ 	// Translations
+ 	@override String get q => 'Kiel mi ŝanĝas mian ĉifradopasvorton?';
+-	@override String get a => '0. Certigu, ke la sinkronigado estas kompleta (vidu la sinkronigan progreson sur la ĉefekrano).\n1. Elsalutu el Saber.\n2. Iru al la retejo de via servilo kaj forigu vian Saber-dosierujon. Ĉi tio forigos ĉiujn viajn notojn de la servilo.\n3. Reensalutu al Saber. Vi povas elekti novan ĉifradopasvorton dum ensalutado.\n4. Ne forgesu elsaluti kaj reensaluti al Saber ankaŭ per viaj aliaj aparatoj.';
++	@override String get a => '0. Certigu, ke la sinkronigado estas kompleta (vidu la sinkronigan progreson sur la ĉefekrano).\n1. Elsalutu el 赛博手写笔记.\n2. Iru al la retejo de via servilo kaj forigu vian Saber-dosierujon. Ĉi tio forigos ĉiujn viajn notojn de la servilo.\n3. Reensalutu al 赛博手写笔记. Vi povas elekti novan ĉifradopasvorton dum ensalutado.\n4. Ne forgesu elsaluti kaj reensaluti al 赛博手写笔记 ankaŭ per viaj aliaj aparatoj.';
+ }
+ 
+ // Path: profile.faq.3
+@@ -826,7 +826,7 @@ class _Translations$editor$versionTooNew$eo extends Translations$editor$versionT
+ 	final TranslationsEo _root; // ignore: unused_field
+ 
+ 	// Translations
+-	@override String get title => 'Ĉi tiu noto estis redaktita per pli nova versio de Saber';
++	@override String get title => 'Ĉi tiu noto estis redaktita per pli nova versio de 赛博手写笔记';
+ 	@override String get subtitle => 'Redakti ĉi tiun noton eble kaŭzos perdon de iuj informoj. Ĉu vi volas malatenti kaj redakti ĝin spite al tio?';
+ 	@override String get allowEditing => 'Permesu redaktadon';
+ }
+@@ -918,7 +918,7 @@ class _Translations$login$ncLoginStep$loginFlow$eo extends Translations$login$nc
+ 	final TranslationsEo _root; // ignore: unused_field
+ 
+ 	// Translations
+-	@override String get pleaseAuthorize => 'Bonvolu rajtigi Saber por aliri vian NextCloud-konton';
++	@override String get pleaseAuthorize => 'Bonvolu rajtigi 赛博手写笔记 por aliri vian NextCloud-konton';
+ 	@override String get followPrompts => 'Bonvolu sekvi la instrukciojn en la Nextcloud-interfaco';
+ 	@override String get browserDidntOpen => 'Ensalutpaĝo ne malfermiĝis? Alklaku ĉi tie';
+ }
+@@ -942,7 +942,7 @@ class _Translations$login$encLoginStep$encFaq$1$eo extends Translations$login$en
+ 
+ 	// Translations
+ 	@override String get q => 'Mi ankoraŭ ne agordis ĉifradopasvorton. Kie mi agordis ĝin?';
+-	@override String get a => 'Elektu novan ĉifradopasvorton kaj enigu ĝin supre.\nSaber aŭtomate generos viajn ĉifradoŝlosilojn el ĉi tiu pasvorto.';
++	@override String get a => 'Elektu novan ĉifradopasvorton kaj enigu ĝin supre.\n赛博手写笔记 aŭtomate generos viajn ĉifradoŝlosilojn el ĉi tiu pasvorto.';
+ }
+ 
+ // Path: login.encLoginStep.encFaq.2

@@ -1,0 +1,127 @@
+diff --git a/lib/pages/home/settings.dart b/lib/pages/home/settings.dart
+index 61c77ff..863b34f 100644
+--- a/lib/pages/home/settings.dart
++++ b/lib/pages/home/settings.dart
+@@ -14,7 +14,6 @@ import 'package:saber/components/settings/settings_color.dart';
+ import 'package:saber/components/settings/settings_directory_selector.dart';
+ import 'package:saber/components/settings/settings_dropdown.dart';
+ import 'package:saber/components/settings/settings_selection.dart';
+-import 'package:saber/components/settings/settings_sentry.dart';
+ import 'package:saber/components/settings/settings_subtitle.dart';
+ import 'package:saber/components/settings/settings_switch.dart';
+ import 'package:saber/components/settings/update_manager.dart';
+@@ -24,11 +23,11 @@ import 'package:saber/components/theming/saber_theme.dart';
+ import 'package:saber/components/theming/uni_icon.dart';
+ import 'package:saber/data/file_manager/file_manager.dart';
+ import 'package:saber/data/flavor_config.dart';
++import 'package:saber/data/is_open_harmony.dart';
+ import 'package:saber/data/is_this_a_test.dart';
+ import 'package:saber/data/locales.dart';
+ import 'package:saber/data/prefs.dart';
+ import 'package:saber/data/routes.dart';
+-import 'package:saber/data/sentry/sentry_init.dart';
+ import 'package:saber/data/tools/shape_pen.dart';
+ import 'package:saber/i18n/strings.g.dart';
+ import 'package:stow/stow.dart';
+@@ -247,42 +246,43 @@ class _SettingsPageState extends State<SettingsPage> {
+                     ),
+                   ],
+                 ),
+-                SettingsSelection(
+-                  title: t.settings.prefLabels.platform,
+-                  iconBuilder: (i) => switch (stows.platform.value) {
+-                    .iOS || .macOS => Icons.apple,
+-                    .linux => FontAwesomeIcons.ubuntu,
+-                    _ => materialIcon,
+-                  },
+-                  pref: _SettingsStows.platform,
+-                  optionsWidth: 60,
+-                  options: [
+-                    ToggleButtonsOption(() {
+-                      if (usesMaterialByDefault)
+-                        return defaultTargetPlatform.index;
+-                      return TargetPlatform.android.index;
+-                    }(), UniIcon(materialIcon, semanticLabel: 'Material')),
+-                    ToggleButtonsOption(() {
+-                      // Hack to allow screenshot golden tests
+-                      if (kDebugMode && stows.platform.value.isCupertino)
+-                        return stows.platform.value.index;
+-                      if (usesCupertinoByDefault)
+-                        return defaultTargetPlatform.index;
+-                      return TargetPlatform.iOS.index;
+-                    }(), const Icon(Icons.apple, semanticLabel: 'Cupertino')),
+-                    ToggleButtonsOption(
+-                      () {
+-                        if (usesYaruByDefault)
++                if (!isOpenHarmony)
++                  SettingsSelection(
++                    title: t.settings.prefLabels.platform,
++                    iconBuilder: (i) => switch (stows.platform.value) {
++                      .iOS || .macOS => Icons.apple,
++                      .linux => FontAwesomeIcons.ubuntu,
++                      _ => materialIcon,
++                    },
++                    pref: _SettingsStows.platform,
++                    optionsWidth: 60,
++                    options: [
++                      ToggleButtonsOption(() {
++                        if (usesMaterialByDefault)
+                           return defaultTargetPlatform.index;
+-                        return TargetPlatform.linux.index;
+-                      }(),
+-                      const UniIcon(
+-                        FontAwesomeIcons.ubuntu,
+-                        semanticLabel: 'Yaru',
++                        return TargetPlatform.android.index;
++                      }(), UniIcon(materialIcon, semanticLabel: 'Material')),
++                      ToggleButtonsOption(() {
++                        // Hack to allow screenshot golden tests
++                        if (kDebugMode && stows.platform.value.isCupertino)
++                          return stows.platform.value.index;
++                        if (usesCupertinoByDefault)
++                          return defaultTargetPlatform.index;
++                        return TargetPlatform.iOS.index;
++                      }(), const Icon(Icons.apple, semanticLabel: 'Cupertino')),
++                      ToggleButtonsOption(
++                        () {
++                          if (usesYaruByDefault)
++                            return defaultTargetPlatform.index;
++                          return TargetPlatform.linux.index;
++                        }(),
++                        const UniIcon(
++                          FontAwesomeIcons.ubuntu,
++                          semanticLabel: 'Yaru',
++                        ),
+                       ),
+-                    ),
+-                  ],
+-                ),
++                    ],
++                  ),
+                 SettingsSelection(
+                   title: t.settings.prefLabels.layoutSize,
+                   subtitle: switch (stows.layoutSize.value) {
+@@ -547,13 +547,21 @@ class _SettingsPageState extends State<SettingsPage> {
+                   pref: stows.autoStraightenLines,
+                 ),
+                 SettingsSubtitle(subtitle: t.settings.prefCategories.advanced),
+-                if (isSentryAvailable) const SettingsSentryConsent(),
++                // 鸿蒙上不显示:系统选择器给的目录授权只在本次会话内有效
++                // (见 FileManager._recoverFromUnreachableCustomDataDir),
++                // 把笔记搬出去就再也搬不回来了。
+                 if (Platform.isAndroid)
+                   SettingsDirectorySelector(
+                     title: t.settings.prefLabels.customDataDir,
+                     icon: Icons.folder,
+                   ),
+-                if (Platform.isWindows || Platform.isLinux || Platform.isMacOS)
++                // 鸿蒙上不显示:dart:io 的 Platform.isLinux 在鸿蒙里为真
++                // (鸿蒙是 Linux 内核),但系统里没有 xdg-open / 文件管理器,
++                // 点这个按钮什么也不会发生。
++                if (!isOpenHarmony &&
++                    (Platform.isWindows ||
++                        Platform.isLinux ||
++                        Platform.isMacOS))
+                   SettingsButton(
+                     title: t.settings.openDataDir,
+                     icon: Icons.folder_open,

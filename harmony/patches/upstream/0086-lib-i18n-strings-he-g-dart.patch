@@ -1,0 +1,107 @@
+diff --git a/lib/i18n/strings_he.g.dart b/lib/i18n/strings_he.g.dart
+index 23378f00..c97606bb 100644
+--- a/lib/i18n/strings_he.g.dart
++++ b/lib/i18n/strings_he.g.dart
+@@ -69,7 +69,7 @@ class _Translations$home$he extends Translations$home$en {
+ 	@override late final _Translations$home$titles$he titles = _Translations$home$titles$he._(_root);
+ 	@override late final _Translations$home$tooltips$he tooltips = _Translations$home$tooltips$he._(_root);
+ 	@override late final _Translations$home$create$he create = _Translations$home$create$he._(_root);
+-	@override String get welcome => 'ברוך בואך אל Saber';
++	@override String get welcome => 'ברוך בואך אל 赛博手写笔记';
+ 	@override String get invalidFormat => 'הקובץ שבחרת אינו נתמך. נא לבחור בקובץ sbn,‏ sbn2,‏ sba, או pdf.';
+ 	@override String get noFiles => 'לא נמצאו קבצים';
+ 	@override String get noPreviewAvailable => 'אין תצוגה מקדימה זמינה';
+@@ -408,7 +408,7 @@ class _Translations$sentry$consent$he extends Translations$sentry$consent$en {
+ 	final TranslationsHe _root; // ignore: unused_field
+ 
+ 	// Translations
+-	@override String get title => 'האם לעזור בשיפור Saber?';
++	@override String get title => 'האם לעזור בשיפור 赛博手写笔记?';
+ 	@override late final _Translations$sentry$consent$description$he description = _Translations$sentry$consent$description$he._(_root);
+ 	@override late final _Translations$sentry$consent$answers$he answers = _Translations$sentry$consent$answers$he._(_root);
+ }
+@@ -440,7 +440,7 @@ class _Translations$settings$prefLabels$he extends Translations$settings$prefLab
+ 	@override String get layoutSize => 'סוג פריסה';
+ 	@override String get customAccentColor => 'צבע הדגשה מותאם אישית';
+ 	@override String get hyperlegibleFont => 'גופן Atkinson Hyperreadible';
+-	@override String get shouldCheckForUpdates => 'לבדוק אם יש עדכונים ל־Saber';
++	@override String get shouldCheckForUpdates => 'לבדוק אם יש עדכונים ל־赛博手写笔记';
+ 	@override String get shouldAlwaysAlertForUpdates => 'עדכונים מהירים יותר';
+ 	@override String get allowInsecureConnections => 'לאפשר חיבורים לא מאובטחים';
+ 	@override String get editorToolbarAlignment => 'מיקום סרגל הכלים';
+@@ -471,7 +471,7 @@ class _Translations$settings$prefDescriptions$he extends Translations$settings$p
+ 
+ 	// Translations
+ 	@override String get hyperlegibleFont => 'מגביר את הקריאות למשתמשים עם ראייה לקויה';
+-	@override String get allowInsecureConnections => '(לא מומלץ) לאפשר ל־Saber להתחבר לשרתים עם חתימה עצמית או תעודות שאינן מהימנות';
++	@override String get allowInsecureConnections => '(לא מומלץ) לאפשר ל־赛博手写笔记 להתחבר לשרתים עם חתימה עצמית או תעודות שאינן מהימנות';
+ 	@override String get preferGreyscale => 'עבור תצוגות דיו אלקטרוני';
+ 	@override String get autoClearWhiteboardOnExit => 'מנקה את לוח הציור לאחר היציאה מהאפליקציה';
+ 	@override String get disableEraserAfterUse => 'מעבר אוטומטי חזרה לעט לאחר שימוש במחק';
+@@ -582,10 +582,10 @@ class _Translations$login$ncLoginStep$he extends Translations$login$ncLoginStep$
+ 
+ 	// Translations
+ 	@override String get whereToStoreData => 'נא לבחור היכן ברצונך לאחסן את הנתונים:';
+-	@override String get saberNcServer => 'שרת ה־Nextcloud של Saber';
++	@override String get saberNcServer => 'שרת ה־Nextcloud של 赛博手写笔记';
+ 	@override String get otherNcServer => 'שרת Nextcloud אחר';
+ 	@override String get serverUrl => 'כתובת שרת';
+-	@override String get loginWithSaber => 'התחברות עם Saber';
++	@override String get loginWithSaber => 'התחברות עם 赛博手写笔记';
+ 	@override String get loginWithNextcloud => 'התחברות עם Nextcloud';
+ 	@override late final _Translations$login$ncLoginStep$loginFlow$he loginFlow = _Translations$login$ncLoginStep$loginFlow$he._(_root);
+ }
+@@ -598,7 +598,7 @@ class _Translations$login$encLoginStep$he extends Translations$login$encLoginSte
+ 
+ 	// Translations
+ 	@override String get enterEncPassword => 'לצורך הגנה על הנתונים שלך, נא להקליד את סיסמת ההצפנה שלך:';
+-	@override String get newToSaber => 'פעם ראשונה ב־Saber? אפשר פשוט להקליד סיסמת הצפנה חדשה.';
++	@override String get newToSaber => 'פעם ראשונה ב־赛博手写笔记? אפשר פשוט להקליד סיסמת הצפנה חדשה.';
+ 	@override String get encPassword => 'סיסמת הצפנה';
+ 	@override String get encFaqTitle => 'שאלות ותשובות';
+ 	@override String get wrongEncPassword => 'פענוח ההצפנה עם הסיסמה שסופקה נכשל. נא לנסות להקליד אותה שוב.';
+@@ -640,7 +640,7 @@ class _Translations$profile$faq$1$he extends Translations$profile$faq$1$en {
+ 
+ 	// Translations
+ 	@override String get q => 'איך לשנות את הסיסמה שלי ל־Nextcloud?';
+-	@override String get a => 'עבור לאתר השרת שלך והתחבר. לאחר מכן עבור אל הגדרות > אבטחה > שנה סיסמה. תצטרך להתנתק ולהיכנס שוב ל-Saber לאחר שינוי הסיסמה שלך.';
++	@override String get a => 'עבור לאתר השרת שלך והתחבר. לאחר מכן עבור אל הגדרות > אבטחה > שנה סיסמה. תצטרך להתנתק ולהיכנס שוב ל-赛博手写笔记 לאחר שינוי הסיסמה שלך.';
+ }
+ 
+ // Path: profile.faq.2
+@@ -651,7 +651,7 @@ class _Translations$profile$faq$2$he extends Translations$profile$faq$2$en {
+ 
+ 	// Translations
+ 	@override String get q => 'איך אני משנה את הסיסמא המוצפנת שלי?';
+-	@override String get a => '0. לוודא שהסנכרון הושלם (ניתן לראות את התקדמות הסנכרון במסך הבית).\n1. להתנתק מ־Saber.\n2. לעבור לאתר האינטרנט של השרת ולמחוק את תיקיית ‚Saber’ שלך. פעולה זו תמחק את כל הפתקים שלך מהשרת.\n3. להתחבר שוב אל Saber. אפשר לבחור סיסמת הצפנה חדשה בעת הכניסה.\n4. לא לשכוח להתנתק ולהתחבר שוב אל Saber גם במכשירים האחרים שלך.';
++	@override String get a => '0. לוודא שהסנכרון הושלם (ניתן לראות את התקדמות הסנכרון במסך הבית).\n1. להתנתק מ־赛博手写笔记.\n2. לעבור לאתר האינטרנט של השרת ולמחוק את תיקיית ‚Saber’ שלך. פעולה זו תמחק את כל הפתקים שלך מהשרת.\n3. להתחבר שוב אל 赛博手写笔记. אפשר לבחור סיסמת הצפנה חדשה בעת הכניסה.\n4. לא לשכוח להתנתק ולהתחבר שוב אל 赛博手写笔记 גם במכשירים האחרים שלך.';
+ }
+ 
+ // Path: profile.faq.3
+@@ -826,7 +826,7 @@ class _Translations$editor$versionTooNew$he extends Translations$editor$versionT
+ 	final TranslationsHe _root; // ignore: unused_field
+ 
+ 	// Translations
+-	@override String get title => 'הערה זו נערכה באמצעות גרסה חדשה יותר של Saber';
++	@override String get title => 'הערה זו נערכה באמצעות גרסה חדשה יותר של 赛博手写笔记';
+ 	@override String get subtitle => 'עריכת פתק זה עלולה לגרום לאיבוד מידע מסוים. להתעלם ולערוך בכל זאת?';
+ 	@override String get allowEditing => 'אפשר עריכה';
+ }
+@@ -918,7 +918,7 @@ class _Translations$login$ncLoginStep$loginFlow$he extends Translations$login$nc
+ 	final TranslationsHe _root; // ignore: unused_field
+ 
+ 	// Translations
+-	@override String get pleaseAuthorize => 'נא לתת ל־Saber הרשאה לגשת לחשבון Nextcloud שלך';
++	@override String get pleaseAuthorize => 'נא לתת ל־赛博手写笔记 הרשאה לגשת לחשבון Nextcloud שלך';
+ 	@override String get followPrompts => 'נא לעקוב אחר ההוראות הבאות בממשק של Nextcloud';
+ 	@override String get browserDidntOpen => 'עמוד ההתחברות לא נפתח? נא ללחוץ כאן';
+ }
+@@ -942,7 +942,7 @@ class _Translations$login$encLoginStep$encFaq$1$he extends Translations$login$en
+ 
+ 	// Translations
+ 	@override String get q => 'עדיין לא הגדרתי סיסמת הצפנה? היכן מקבלים אחת?';
+-	@override String get a => 'נא לבחור סיסמת הצפנה חדשה ולהקליד אותה למעלה.\n‏Saber ייצור את מפתחות ההצפנה שלך באופן אוטומטי מסיסמה זו.';
++	@override String get a => 'נא לבחור סיסמת הצפנה חדשה ולהקליד אותה למעלה.\n‏赛博手写笔记 ייצור את מפתחות ההצפנה שלך באופן אוטומטי מסיסמה זו.';
+ }
+ 
+ // Path: login.encLoginStep.encFaq.2

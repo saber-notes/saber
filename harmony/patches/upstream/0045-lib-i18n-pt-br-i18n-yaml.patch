@@ -1,0 +1,100 @@
+diff --git a/lib/i18n/pt-BR.i18n.yaml b/lib/i18n/pt-BR.i18n.yaml
+index b88caa58..75b3c45c 100644
+--- a/lib/i18n/pt-BR.i18n.yaml
++++ b/lib/i18n/pt-BR.i18n.yaml
+@@ -20,7 +20,7 @@ home:
+   create:
+     newNote: Nova nota
+     importNote: Importar nota
+-  welcome: Bem-vindo(a) ao Saber
++  welcome: Bem-vindo(a) ao 赛博手写笔记
+   invalidFormat: O arquivo que você selecionou não é suportado. Por favor selecione um arquivo .sbn, .sbn2, .sba ou .pdf.
+   noFiles: Nenhum arquivo encontrado
+   noPreviewAvailable: Nenhuma prévia disponível
+@@ -80,7 +80,7 @@ home:
+     masonryGrid(OUTDATED): Grade de alvenaria
+ sentry:
+   consent:
+-    title: Ajudar a melhorar Saber?
++    title: Ajudar a melhorar 赛博手写笔记?
+     description:
+       question: Você gostaria de reportar automaticamente erros inesperados? Isso me ajuda a identificar e corrigir erros mais rápido.
+       scope: Os reportes podem conter informações sobre os erros e o seu dispositivo. Eu tentei o máximo possível remover todas as informações pessoais, mas algumas talvez continuem.
+@@ -105,7 +105,7 @@ settings:
+     layoutSize: Tipo de leiaute
+     customAccentColor: Cor de destaque personalizada
+     hyperlegibleFont: Fonte hiperlegível
+-    shouldCheckForUpdates: Verificar automaticamente as atualizações do Saber
++    shouldCheckForUpdates: Verificar automaticamente as atualizações do 赛博手写笔记
+     shouldAlwaysAlertForUpdates: Atualizações mais rápidas
+     allowInsecureConnections: Permitir conexões inseguras
+     editorToolbarAlignment: Alinhamento da barra de ferramentas do editor
+@@ -128,7 +128,7 @@ settings:
+     sentry: Reportar erro
+   prefDescriptions:
+     hyperlegibleFont: Atkinson Hyperlegible aumenta a legibilidade para leitores com baixa visão
+-    allowInsecureConnections: (Não recomendado) Permitir que o Saber se conecte a servidores com certificados autoassinados/não-confiáveis
++    allowInsecureConnections: (Não recomendado) Permitir que o 赛博手写笔记 se conecte a servidores com certificados autoassinados/não-confiáveis
+     preferGreyscale: Para telas e-ink
+     autoClearWhiteboardOnExit: Ainda será sincronizado com seus outros dispositivos
+     disableEraserAfterUse: Voltar automaticamente para a caneta depois de usar a borracha
+@@ -196,27 +196,27 @@ login:
+     hi(OUTDATED): Olá, $u!
+     almostDone(OUTDATED): Quase pronto para sincronização, toque para finalizar o login
+   ncLoginStep:
+-    saberNcServer: Servidor Nextcloud de Saber
++    saberNcServer: Servidor Nextcloud de 赛博手写笔记
+     serverUrl: URL do servidor
+     loginFlow:
+-      pleaseAuthorize(OUTDATED): Autorize o Saber a acessar sua conta Nextcloud
++      pleaseAuthorize(OUTDATED): Autorize o 赛博手写笔记 a acessar sua conta Nextcloud
+       followPrompts(OUTDATED): Por favor, siga as instruções no seu navegador.
+       browserDidntOpen(OUTDATED): O navegador não abriu
+     whereToStoreData(OUTDATED): "Escolha onde deseja armazenar seus dados:"
+     otherNcServer(OUTDATED): Outro servidor Nextcloud
+-    loginWithSaber(OUTDATED): Faça login com Saber
++    loginWithSaber(OUTDATED): Faça login com 赛博手写笔记
+     loginWithNextcloud(OUTDATED): Faça login com Nextcloud
+   encLoginStep:
+     encFaqTitle: Perguntas frequentes
+     enterEncPassword(OUTDATED): "Para proteger seus dados, digite sua senha de criptografia:"
+-    newToSaber(OUTDATED): Novo no Saber
++    newToSaber(OUTDATED): Novo no 赛博手写笔记
+     encPassword(OUTDATED): Senha de criptografia
+     wrongEncPassword(OUTDATED): A descriptografia falhou com a senha fornecida. Por favor, tente inseri-lo novamente.
+     connectionFailed(OUTDATED): Algo deu errado ao conectar-se ao servidor. Por favor, tente novamente mais tarde.
+     encFaq(OUTDATED):
+     - q: O que é uma senha de criptografia?
+       a: |-
+-        A senha de criptografia é usada para criptografar os seus dados antes de eles serem enviados ao servidor. Você a escolhe quando faz login pela primeira vez no Saber, e ela não está relacionada à sua conta/senha do Nextcloud.
++        A senha de criptografia é usada para criptografar os seus dados antes de eles serem enviados ao servidor. Você a escolhe quando faz login pela primeira vez no 赛博手写笔记, e ela não está relacionada à sua conta/senha do Nextcloud.
+         Ninguém pode acessar as suas notas no servidor sem a sua senha de criptografia. Isso também significa que, se você esquecer a sua senha de criptografia, perderá o acesso aos seus dados.
+     - q: Por que usar duas senhas?
+       a: |-
+@@ -235,13 +235,13 @@ profile:
+   - q: Eu perderei as minhas notas se eu sair da minha conta?
+     a: Não. As suas notas permanecerão tanto no seu dispositivo quanto no servidor. Elas não serão sincronizadas com o servidor até você fazer login novamente. Tenha certeza de que a sincronização foi finalizada antes de sair, de modo que você não perca nenhum dado (veja o progresso da sincronização na tela inicial).
+   - q: Como eu mudo a minha senha do Nextcloud?
+-    a: Vá para o website do seu servidor e faça login. Então vá para Configurações > Segurança > Mudar senha. Você precisará sair da conta e fazer login novamente no Saber depois de mudar a sua senha.
++    a: Vá para o website do seu servidor e faça login. Então vá para Configurações > Segurança > Mudar senha. Você precisará sair da conta e fazer login novamente no 赛博手写笔记 depois de mudar a sua senha.
+   - q: Como eu mudo a minha senha de criptografia?
+     a: |-
+-      1. Saia da sua conta do Saber. Tenha certeza de que a sincronização foi finalizada antes de sair, de modo que você não perca nenhum dado (veja o progresso da sincronização na tela inicial).
++      1. Saia da sua conta do 赛博手写笔记. Tenha certeza de que a sincronização foi finalizada antes de sair, de modo que você não perca nenhum dado (veja o progresso da sincronização na tela inicial).
+       2. Vá para o website do seu servidor e apague a sua pasta do Saber. Isso apagará todas as suas notas do servidor.
+-      3. Faça login na sua conta do Saber. Você pode escolher uma nova senha de criptografia quando fizer login.
+-      4. Não se esqueça de sair e fazer login novamente no Saber em seus outros dispositivos também.
++      3. Faça login na sua conta do 赛博手写笔记. Você pode escolher uma nova senha de criptografia quando fizer login.
++      4. Não se esqueça de sair e fazer login novamente no 赛博手写笔记 em seus outros dispositivos também.
+   - q: Como eu posso apagar a minha conta?
+     a: |-
+       Toque no "@:profile.quickLinks.deleteAccount" botão acima, e faça login se necessário.
+@@ -360,7 +360,7 @@ editor:
+     corrupted(OUTDATED): Falha ao carregar a nota. Ele pode estar corrompido ou ainda sendo baixado.
+     watchingServer(OUTDATED): No momento, você está aguardando atualizações no servidor. A edição está desabilitada neste modo.
+   versionTooNew:
+-    title: Esta nota foi editada usando uma versão mais recente do Saber
++    title: Esta nota foi editada usando uma versão mais recente do 赛博手写笔记
+     subtitle: A edição desta nota pode resultar na perda de algumas informações. Deseja ignorar isso e editá-la mesmo assim?
+     allowEditing: Permitir edição
+   quill:

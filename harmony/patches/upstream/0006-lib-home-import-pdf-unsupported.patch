@@ -1,0 +1,22 @@
+diff --git a/lib/components/home/new_note_button.dart b/lib/components/home/new_note_button.dart
+index 3ce9c49f..a3735b5e 100644
+--- a/lib/components/home/new_note_button.dart
++++ b/lib/components/home/new_note_button.dart
+@@ -98,7 +98,16 @@ class _NewNoteButtonState extends State<NewNoteButton> {
+ 
+               context.push(RoutePaths.editFilePath(path));
+             } else if (filePath.toLowerCase().endsWith('.pdf')) {
+-              if (!Editor.canRasterPdf) return;
++              // 有些平台(例如鸿蒙)没有 pdfium,无法把 PDF 光栅化成图片。
++              // 这里必须明确告诉用户,否则表现就是「点了没反应」。
++              if (!Editor.canRasterPdf) {
++                if (context.mounted) {
++                  ScaffoldMessenger.of(context).showSnackBar(
++                    SnackBar(content: Text(t.home.pdfImportUnsupported)),
++                  );
++                }
++                return;
++              }
+               if (!mounted) return;
+ 
+               final fileNameWithoutExtension = fileName.substring(

@@ -1,0 +1,59 @@
+{
+ "url": "https://developer.huawei.com/consumer/cn/service/josp/agc/index.html#/auditReportView",
+ "docs": [
+  {
+   "label": "顶层文档",
+   "tabs": [],
+   "panes": [],
+   "baseInfo": [],
+   "chrome": "编组 3 Created with Sketch. 游戏增长服务 游戏增长服务备份 Created with Pixso. Created with Pixso. 编组 7 编组 8 编组 5 问号 Created with Sketch. 问号 Created with Sketch. 我们使用Cookies为您提供高速浏览体验. 了解更多. 仅使用基本Cookie同意全部服务 130******20胡中强 版权所有 © 2019 华为。 保留一切权利。 苏ICP备17040376号服务协议关于华为AppGallery Connect与隐私的声明隐私政策联系我们cookies 查看全部服务HarmonyOS元服务质量分析远程配置开发与服务证书、APP ID和Profile云开发华为账号华为钱包应用内购买服务游戏服务联机对战服务 游戏多媒体Connect API锁屏卡片定位服务地图服务测试与分发应用发布云测试云调试运营与分析分发分析质量分析App Linking商品管理互动评论服务分发增长平台负一屏搜索分析服务介绍智能填充推送服务退款管理收藏服务应用下载直达社区管理常用服务证书、APP ID和Profile云调试元服务测试应用发布推送服务社区管理互动中心服务动态New帮助中心协议签署记录开发文档开发工具文档全部服务全部服务迁移到此处，可以查看、搜索全部服务，快速找到您经常使用的功能。下次不再提示知道了查看全部服务HarmonyOS元服务质量分析远程配置开发与服务证书、APP ID和Profile云开发华为账号华为钱包应用内购买服务游戏服务联机对战服务 游戏多媒体Connect API锁屏卡片定位服务地图服务测试与分发应用发布云测试云调试运营与分析分发分析质量分析App Linking商品管理互动评论服务分发增长平台负一屏搜索分析服务介绍智能填充推送服务退款管理收藏服务应用下载直达社区管理常用服务证书、APP ID和Profile云调试元服务测试应用发布推送服务社区管理简体中文EnglishРусский帐号：hw_008613025424320_01昵称：130******20个人信息已购服务账户中心未实名团队帐号胡中强注销",
+   "bodyLen": 108
+  },
+  {
+   "label": "iframe#0(mainIframeView)",
+   "tabs": [
+    {
+     "i": 0,
+     "id": "tab-0",
+     "title": "应用功能",
+     "full": "应用功能 2",
+     "active": true,
+     "ariaSelected": "true",
+     "controls": "pane-0"
+    },
+    {
+     "i": 1,
+     "id": "tab-1",
+     "title": "应用资质",
+     "full": "应用资质 1",
+     "active": false,
+     "ariaSelected": "false",
+     "controls": "pane-1"
+    }
+   ],
+   "panes": [
+    {
+     "i": 0,
+     "id": "pane-0",
+     "cls": "el-tab-pane",
+     "display": "block",
+     "visible": true,
+     "text": "问题1：\n我们还检测到以下可提升项供您参考，本次问题暂不影响APP上架，建议在后续版本迭代优化。\n请在登录页面提供华为账号登录选项，以便用户快捷地登录应用并获得安全配置。\n请参考下列指导文档进行修改和接入：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/account-detailedrules\n问题2：\n我们还检测到以下可提升项供您参考，本次问题暂不影响APP上架，建议在后续版本迭代优化。\n应用存在功能异常问题，影响用户体验。\n修改建议：\n建议您进行优化修复，确保应用可正常使用。\n为提高上架效率，您可在完成优化后使用华为云调试进行排查。\n您可参考《云调试》：https://developer.huawei.com/consumer/cn/doc/doccenter-testing/agc-help-clouddebug-0000002235870046\n测试信息：\n测试步骤：1.首页-导入笔记：导入PDF格式的文件无响应，导入的sba文件未编辑前显示无预览\n2.设置-应用语言：切换语言后部分中文没有变化\n测试环境：WIFI联网、HarmonyOS 6.1.0(HUAWEI Pura 80 Ultra)、API6.1.1(24)、中文环境\n\n举证信息：\n截图/录屏"
+    },
+    {
+     "i": 1,
+     "id": "pane-1",
+     "cls": "el-tab-pane",
+     "display": "none",
+     "visible": false,
+     "text": "问题1：应用因缺少资质证明文件暂无法通过审核。修改建议：需补充提交《Saber官方授权书》；\n版权资质上传路径：在HarmonyOS 开发者中心“开发者管理”页面，总览所有应用，找到对应应用名称后点击“分发”>“版本信息”>“版权信息”。\n资质审核要求可参考：https://developer.huawei.com/consumer/cn/doc/doccenter-submission/80301\n资质常见问题可参考：\n­https://developer.huawei.com/consumer/cn/doc/doccenter-submission/50111"
+    }
+   ],
+   "baseInfo": [
+    "应用信息 应用名称： 赛博手写笔记 提交审核时间： 2026-11-17 23:24:15 包名： com.sabernotes.saber 报告生成时间： 2026-11-18 21:05:42 版本号： 1.0.2 测试环境（人工测试）： WIFI联网、HarmonyOS7.0.0（HUAWEI MateBook Pro）、简体中文环境。 WIFI联网、HarmonyOS7.0.0（HUAWEI Pura 70）、简体中文环境。"
+   ],
+   "chrome": "<strong >We're sorry but agc-app-manage doesn't work properly without JavaScript enabled. Please enable it to continue.</strong > 上架审核报告下载所有日志联系我们审核未通过，共检测出错误问题3个。应用信息应用名称：赛博手写笔记提交审核时间：2026-11-17 23:24:15包名：com.sabernotes.saber报告生成时间：2026-11-18 21:05:42版本号：1.0.2测试环境（人工测试）：WIFI联网、HarmonyOS7.0.0（HUAWEI MateBook Pro）、简体中文环境。 WIFI联网、HarmonyOS7.0.0（HUAWEI Pura 70）、简体中文环境。应用功能2应用资质1 在线互动电话沟通（鸿蒙应用）邮箱沟通 developer@huawei.com",
+   "bodyLen": 848
+  }
+ ]
+}

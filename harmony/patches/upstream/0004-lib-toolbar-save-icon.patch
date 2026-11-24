@@ -1,0 +1,30 @@
+diff --git a/lib/components/toolbar/toolbar.dart b/lib/components/toolbar/toolbar.dart
+index a83b2b1..986099c 100644
+--- a/lib/components/toolbar/toolbar.dart
++++ b/lib/components/toolbar/toolbar.dart
+@@ -19,6 +19,7 @@ import 'package:saber/components/toolbar/size_picker.dart';
+ import 'package:saber/components/toolbar/toolbar_button.dart';
+ import 'package:saber/data/editor/page.dart';
+ import 'package:saber/data/extensions/color_extensions.dart';
++import 'package:saber/data/is_open_harmony.dart';
+ import 'package:saber/data/prefs.dart';
+ import 'package:saber/data/tools/_tool.dart';
+ import 'package:saber/data/tools/eraser.dart';
+@@ -543,9 +544,14 @@ class _ToolbarState extends State<Toolbar> {
+                     child: child!,
+                   );
+                 },
+-                child: const AdaptiveIcon(
+-                  icon: Icons.share,
+-                  cupertinoIcon: CupertinoIcons.share,
++                child: AdaptiveIcon(
++                  // 鸿蒙上这个按钮走的是「另存为」(系统保存对话框),
++                  // 不是「分享到其它应用」——share_plus 没有鸿蒙实现,
++                  // 所以换个图标,免得界面上看着像能分享。
++                  icon: isOpenHarmony ? Icons.save_alt : Icons.share,
++                  cupertinoIcon: isOpenHarmony
++                      ? CupertinoIcons.square_arrow_down
++                      : CupertinoIcons.share,
+                 ),
+               ),
+             ],

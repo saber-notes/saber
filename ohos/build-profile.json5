@@ -1,0 +1,63 @@
+// Saber 的鸿蒙(HarmonyOS NEXT)构建配置。
+//
+// ⚠️ storePassword / keyPassword 在这里留空是有意的:
+// 这两个字段是 hvigor 用的 AES-128-GCM 密文,和**你的**密钥库绑定,
+// 不能进版本库。构建脚本会用 toolchain/ohos/prepare_signing.sh
+// 按 ohos/signing/ 里已有的材料自动填好。
+//
+// 详见 docs/ohos.md §3(签名)。
+
+{
+  "app": {
+    "signingConfigs": [
+      {
+        "name": "default",
+        "type": "HarmonyOS",
+        "material": {
+          "storeFile": "signing/app.p12",
+          "storePassword": "",
+          "keyAlias": "saber-key",
+          "keyPassword": "",
+          "signAlg": "SHA256withECDSA",
+          "profile": "signing/app.p7b",
+          "certpath": "signing/app-cert.pem"
+        }
+      }
+    ],
+    "products": [
+      {
+        "name": "default",
+        "signingConfig": "default",
+        "compileSdkVersion": "6.0.1(21)",
+        "compatibleSdkVersion": "6.0.1(21)",
+        "targetSdkVersion": "6.0.1(21)",
+        "runtimeOS": "HarmonyOS",
+      }
+    ],
+    "buildModeSet": [
+      {
+        "name": "debug"
+      },
+      {
+        "name": "profile"
+      },
+      {
+        "name": "release"
+      }
+    ]
+  },
+  "modules": [
+    {
+      "name": "entry",
+      "srcPath": "./entry",
+      "targets": [
+        {
+          "name": "default",
+          "applyToProducts": [
+            "default"
+          ]
+        }
+      ]
+    }
+  ]
+}

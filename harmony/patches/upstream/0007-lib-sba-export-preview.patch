@@ -1,0 +1,22 @@
+diff --git a/lib/data/editor/editor_core_info.dart b/lib/data/editor/editor_core_info.dart
+index 6a96f8c3..931eb0c2 100644
+--- a/lib/data/editor/editor_core_info.dart
++++ b/lib/data/editor/editor_core_info.dart
+@@ -503,6 +503,17 @@ class EditorCoreInfo {
+     final archive = Archive();
+     archive.addFile(ArchiveFile(filePath, bson.length, bson));
+ 
++    // 把首页卡片用的缩略图也一起打包,
++    // 否则导入之后的笔记在首页显示「无可用预览」,编辑一次之后才有。
++    final previewBytes = await FileManager.readFile(
++      '$filePath${Editor.extension}.p',
++    );
++    if (previewBytes != null) {
++      archive.addFile(
++        ArchiveFile('$filePath.p', previewBytes.length, previewBytes),
++      );
++    }
++
+     await Future.wait([
+       for (int i = 0; i < assets.length; ++i)
+         assets

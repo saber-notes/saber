@@ -1,0 +1,107 @@
+diff --git a/lib/i18n/strings_ru.g.dart b/lib/i18n/strings_ru.g.dart
+index c4c4e634..c11d0a38 100644
+--- a/lib/i18n/strings_ru.g.dart
++++ b/lib/i18n/strings_ru.g.dart
+@@ -69,7 +69,7 @@ class _Translations$home$ru extends Translations$home$en {
+ 	@override late final _Translations$home$titles$ru titles = _Translations$home$titles$ru._(_root);
+ 	@override late final _Translations$home$tooltips$ru tooltips = _Translations$home$tooltips$ru._(_root);
+ 	@override late final _Translations$home$create$ru create = _Translations$home$create$ru._(_root);
+-	@override String get welcome => 'Приветствуем в Saber';
++	@override String get welcome => 'Приветствуем в 赛博手写笔记';
+ 	@override String get invalidFormat => 'Выбранный вами файл не поддерживается. Выберите файл .sbn, .sbn2, .sba или .pdf.';
+ 	@override String get noFiles => 'Файлов ещё нет';
+ 	@override String get noPreviewAvailable => 'Предварительный просмотр недоступен';
+@@ -408,7 +408,7 @@ class _Translations$sentry$consent$ru extends Translations$sentry$consent$en {
+ 	final TranslationsRu _root; // ignore: unused_field
+ 
+ 	// Translations
+-	@override String get title => 'Поможете улучшить Saber?';
++	@override String get title => 'Поможете улучшить 赛博手写笔记?';
+ 	@override late final _Translations$sentry$consent$description$ru description = _Translations$sentry$consent$description$ru._(_root);
+ 	@override late final _Translations$sentry$consent$answers$ru answers = _Translations$sentry$consent$answers$ru._(_root);
+ }
+@@ -440,7 +440,7 @@ class _Translations$settings$prefLabels$ru extends Translations$settings$prefLab
+ 	@override String get layoutSize => 'Размер макета';
+ 	@override String get customAccentColor => 'Свой цвет акцента';
+ 	@override String get hyperlegibleFont => 'Гипер разборчивый шрифт';
+-	@override String get shouldCheckForUpdates => 'Автоматически проверять обновления Saber';
++	@override String get shouldCheckForUpdates => 'Автоматически проверять обновления 赛博手写笔记';
+ 	@override String get shouldAlwaysAlertForUpdates => 'Быстрые обновления';
+ 	@override String get allowInsecureConnections => 'Разрешить небезопасные соединения';
+ 	@override String get editorToolbarAlignment => 'Панель инструментов редактора';
+@@ -471,7 +471,7 @@ class _Translations$settings$prefDescriptions$ru extends Translations$settings$p
+ 
+ 	// Translations
+ 	@override String get hyperlegibleFont => 'Шрифт Atkinson Hyperlegible повышает разборчивость для читателей с плохим зрением';
+-	@override String get allowInsecureConnections => '(Не рекомендуется) Разрешить Saber подключаться к серверам с самоподписанными/ненадёжными сертификатами.';
++	@override String get allowInsecureConnections => '(Не рекомендуется) Разрешить 赛博手写笔记 подключаться к серверам с самоподписанными/ненадёжными сертификатами.';
+ 	@override String get preferGreyscale => 'Для e-ink экранов';
+ 	@override String get autoClearWhiteboardOnExit => 'Это будет синхронизировано с другими вашими устройствами';
+ 	@override String get disableEraserAfterUse => 'Автоматически переключается на перо после использования ластика';
+@@ -582,10 +582,10 @@ class _Translations$login$ncLoginStep$ru extends Translations$login$ncLoginStep$
+ 
+ 	// Translations
+ 	@override String get whereToStoreData => 'Выберите, где вы хотите хранить свои данные:';
+-	@override String get saberNcServer => 'Saber Nextcloud сервер';
++	@override String get saberNcServer => '赛博手写笔记 Nextcloud сервер';
+ 	@override String get otherNcServer => 'Другой Nextcloud сервер';
+ 	@override String get serverUrl => 'URL-адрес сервера';
+-	@override String get loginWithSaber => 'Войти с помощью Saber';
++	@override String get loginWithSaber => 'Войти с помощью 赛博手写笔记';
+ 	@override String get loginWithNextcloud => 'Войти с помощью Nextcloud';
+ 	@override late final _Translations$login$ncLoginStep$loginFlow$ru loginFlow = _Translations$login$ncLoginStep$loginFlow$ru._(_root);
+ }
+@@ -598,7 +598,7 @@ class _Translations$login$encLoginStep$ru extends Translations$login$encLoginSte
+ 
+ 	// Translations
+ 	@override String get enterEncPassword => 'Чтобы защитить ваши данные, введите пароль шифрования:';
+-	@override String get newToSaber => 'Новичок в Saber? Просто введите новый пароль для шифрования.';
++	@override String get newToSaber => 'Новичок в 赛博手写笔记? Просто введите новый пароль для шифрования.';
+ 	@override String get encPassword => 'Пароль шифрования';
+ 	@override String get encFaqTitle => 'Часто задаваемые вопросы';
+ 	@override String get wrongEncPassword => 'Не удалось расшифровать указанным паролем. Пожалуйста, попробуйте ввести его еще раз.';
+@@ -640,7 +640,7 @@ class _Translations$profile$faq$1$ru extends Translations$profile$faq$1$en {
+ 
+ 	// Translations
+ 	@override String get q => 'Как изменить свой пароль Nextcloud?';
+-	@override String get a => 'Перейдите на веб-сайт своего сервера и войдите в систему. Затем перейдите в «Параметры пользователя» > «Безопасность» > «Пароль». Вам нужно будет выйти и снова войти в Saber после смены пароля.';
++	@override String get a => 'Перейдите на веб-сайт своего сервера и войдите в систему. Затем перейдите в «Параметры пользователя» > «Безопасность» > «Пароль». Вам нужно будет выйти и снова войти в 赛博手写笔记 после смены пароля.';
+ }
+ 
+ // Path: profile.faq.2
+@@ -651,7 +651,7 @@ class _Translations$profile$faq$2$ru extends Translations$profile$faq$2$en {
+ 
+ 	// Translations
+ 	@override String get q => 'Как изменить свой пароль шифрования?';
+-	@override String get a => '1. Выйдите из Saber. Перед выходом убедитесь, что синхронизация завершена, чтобы не потерять данные (см. синхронизацию на главном экране).\n2. Перейдите на веб-сайт своего сервера и удалите папку «Saber». Это приведет к удалению всех ваших заметок с сервера.\n3. Снова войдите в Saber. Вы можете создать новый пароль шифрования при входе в систему.\n4. Не забудьте выйти и снова войти в Saber на других своих устройствах.';
++	@override String get a => '1. Выйдите из 赛博手写笔记. Перед выходом убедитесь, что синхронизация завершена, чтобы не потерять данные (см. синхронизацию на главном экране).\n2. Перейдите на веб-сайт своего сервера и удалите папку «Saber». Это приведет к удалению всех ваших заметок с сервера.\n3. Снова войдите в 赛博手写笔记. Вы можете создать новый пароль шифрования при входе в систему.\n4. Не забудьте выйти и снова войти в 赛博手写笔记 на других своих устройствах.';
+ }
+ 
+ // Path: profile.faq.3
+@@ -826,7 +826,7 @@ class _Translations$editor$versionTooNew$ru extends Translations$editor$versionT
+ 	final TranslationsRu _root; // ignore: unused_field
+ 
+ 	// Translations
+-	@override String get title => 'Эта заметка была отредактирована в более новой версии Saber.';
++	@override String get title => 'Эта заметка была отредактирована в более новой версии 赛博手写笔记.';
+ 	@override String get subtitle => 'Редактирование этой заметки может привести к потере некоторой информации. Вы хотите проигнорировать это и начать редактирование?';
+ 	@override String get allowEditing => 'Разрешить редактирование';
+ }
+@@ -918,7 +918,7 @@ class _Translations$login$ncLoginStep$loginFlow$ru extends Translations$login$nc
+ 	final TranslationsRu _root; // ignore: unused_field
+ 
+ 	// Translations
+-	@override String get pleaseAuthorize => 'Пожалуйста, авторизуйте Saber для доступа к вашей учётной записи Nextcloud';
++	@override String get pleaseAuthorize => 'Пожалуйста, авторизуйте 赛博手写笔记 для доступа к вашей учётной записи Nextcloud';
+ 	@override String get followPrompts => 'Пожалуйста, следуйте инструкциям в интерфейсе Nextcloud';
+ 	@override String get browserDidntOpen => 'Страница входа в систему не открылась? Нажмите сюда';
+ }
+@@ -942,7 +942,7 @@ class _Translations$login$encLoginStep$encFaq$1$ru extends Translations$login$en
+ 
+ 	// Translations
+ 	@override String get q => 'Я еще не установил пароль для шифрования. Где я могу его получить?';
+-	@override String get a => 'Придумайте новый пароль для шифрования и введите его выше.\nSaber автоматически сгенерирует ваши ключи шифрования на основе этого пароля.';
++	@override String get a => 'Придумайте новый пароль для шифрования и введите его выше.\n赛博手写笔记 автоматически сгенерирует ваши ключи шифрования на основе этого пароля.';
+ }
+ 
+ // Path: login.encLoginStep.encFaq.2

@@ -1,0 +1,9 @@
+{
+  "name": "saber-agc-tooling",
+  "private": true,
+  "version": "1.0.0",
+  "description": "AGC CLI for Saber HarmonyOS signing automation",
+  "dependencies": {
+    "@byterm/agc-cli": "^0.8.1"
+  }
+}

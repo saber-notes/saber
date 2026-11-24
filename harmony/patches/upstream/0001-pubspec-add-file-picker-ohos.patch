@@ -1,0 +1,24 @@
+diff --git a/pubspec.yaml b/pubspec.yaml
+index 712a6a5..fba2c3e 100644
+--- a/pubspec.yaml
++++ b/pubspec.yaml
+@@ -76,6 +76,19 @@
+   share_plus: ^13.3.0
+   file_picker: ^13.0.0
+   android_file_picker:
++
++  # 鸿蒙(HarmonyOS NEXT / OpenHarmony)版的 file_picker 实现。
++  #
++  # 上游 file_picker 至今没有鸿蒙实现,鸿蒙上「导入笔记」「插入照片」
++  # 「导出另存为」「选择文件夹」全都无法使用。这个包通过
++  # `implements: file_picker` 接入联邦插件机制,只声明 platforms.ohos,
++  # 因此对 Android / Linux / Windows / macOS 没有任何影响。
++  #
++  # 必须写在 dependencies 里(而不是只写进 dependency_overrides):
++  # flutter_tools 只会从「应用声明的依赖」出发遍历依赖图来发现插件,
++  # 只在 overrides 里声明的包不会被当成插件,鸿蒙侧也就不会注册它。
++  file_picker_ohos:
++    path: harmony/packages/file_picker_ohos
+ 
+   regexed_validator: ^2.0.0+1
+ 

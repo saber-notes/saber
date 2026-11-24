@@ -1,0 +1,16 @@
+# 这个包是 `file_picker` 的鸿蒙实现,只有在**打了上游补丁之后**才会作为
+# path 依赖注册进应用的 package config。
+#
+# 而上游 CI 的 `flutter analyze` 跑在**没打补丁**的仓库上 —— 这时
+# `package:file_picker_ohos/...` 在 package config 里根本不存在,
+# 包内任何自引用式的 `package:` import 都会被 analyzer 报成
+# `uri_does_not_exist` + `undefined_class`。
+#
+# 所以:
+#   * 包内改用相对 import(同目录),analyzer 直接按文件系统解析,不需要注册;
+#   * 这个文件不 `include` 上游的 lint 配置,免得上游那套
+#     `always_use_package_imports` 之类的规则跟上面的相对 import 打架。
+analyzer:
+  errors:
+    # 本包不用 flutter_lints,这里只声明一个空的 analyzer 段以覆盖上游配置。
+    unused_import: warning

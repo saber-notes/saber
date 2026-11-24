@@ -1,0 +1,100 @@
+diff --git a/lib/i18n/pl.i18n.yaml b/lib/i18n/pl.i18n.yaml
+index 33be6649..c515c7d9 100644
+--- a/lib/i18n/pl.i18n.yaml
++++ b/lib/i18n/pl.i18n.yaml
+@@ -20,7 +20,7 @@ home:
+   create:
+     newNote: Nowa notatka
+     importNote: Importuj notatkę
+-  welcome: Witaj w Saber
++  welcome: Witaj w 赛博手写笔记
+   invalidFormat: Plik który wskazano nie jest wspierany. Proszę wybrać plik w formacie sbn, sbn2, sba, lub pdf.
+   noFiles: Nie znaleziono plików
+   noPreviewAvailable: Podgląd niedostępny
+@@ -81,7 +81,7 @@ home:
+     simpleGrid: Kafelki (proste)
+ sentry:
+   consent:
+-    title: Chcesz wesprzeć Saber?
++    title: Chcesz wesprzeć 赛博手写笔记?
+     description:
+       question: Czy chciałbyś automatycznie wysyłać raporty o niespodziewanych błędach? To pomaga identyfikować i rozwiązywać problemy szybciej.
+       scope: Te raporty mogą zawierać informacje o błędach i twoim urządzeniu. Przykładamy wszelki wysiłek aby odfiltrować dane personalne, ale część z nich może pozostać.
+@@ -106,7 +106,7 @@ settings:
+     layoutSize: Rodzaj układu
+     customAccentColor: Niestandardowy kolor akcentu
+     hyperlegibleFont: Czcionka Atkinson Hyperlegible
+-    shouldCheckForUpdates: Sprawdź dostępność aktualizacji Saber
++    shouldCheckForUpdates: Sprawdź dostępność aktualizacji 赛博手写笔记
+     shouldAlwaysAlertForUpdates: Szybsze aktualizacje
+     allowInsecureConnections: Zezwól na niezabezpieczone połączenia
+     editorToolbarAlignment: Pozycja przybornika
+@@ -129,7 +129,7 @@ settings:
+     sentry: Zgłaszanie błędów
+   prefDescriptions:
+     hyperlegibleFont: Zwiększenie czytelności dla użytkowników słabowidzących
+-    allowInsecureConnections: (Nie zalecane) Zezwól Saber na połączenie z serwerami używając certyfikatów niezaufanych/z własnym podpisem
++    allowInsecureConnections: (Nie zalecane) Zezwól 赛博手写笔记 na połączenie z serwerami używając certyfikatów niezaufanych/z własnym podpisem
+     preferGreyscale: Dla ekranów e-ink
+     autoClearWhiteboardOnExit: Czyści tablice po wyjściu z aplikacji
+     disableEraserAfterUse: Automatycznie przełącza na poprzednie narzędzie po skorzystaniu z gumki
+@@ -199,18 +199,18 @@ login:
+     loggedIn: Zalogowano przez Nextcloud
+   ncLoginStep:
+     whereToStoreData: "Wybierz gdzie przechowywać twoje dane:"
+-    saberNcServer: Serwer Nextcloud Saber
++    saberNcServer: Serwer Nextcloud 赛博手写笔记
+     otherNcServer: Inny serwer Nextcloud
+     serverUrl: Serwer URL
+-    loginWithSaber: Zaloguj przez Saber
++    loginWithSaber: Zaloguj przez 赛博手写笔记
+     loginWithNextcloud: Zaloguj przez Nextcloud
+     loginFlow:
+-      pleaseAuthorize: Proszę autoryzuj Saber do używania twojego konta Nextcloud
++      pleaseAuthorize: Proszę autoryzuj 赛博手写笔记 do używania twojego konta Nextcloud
+       followPrompts: Proszę postępuj zgodnie z poleceniami interfejsu Nextcloud
+       browserDidntOpen: Strona logowania nie otworzyła się? Kliknij tutaj
+   encLoginStep:
+     enterEncPassword: "Aby chronić twoje dane, podaj proszę hasło szyfrowania:"
+-    newToSaber: Nowy w Saber? Utwórz nowe hasło szyfrowania.
++    newToSaber: Nowy w 赛博手写笔记? Utwórz nowe hasło szyfrowania.
+     encPassword: Hasło szyfrowania
+     encFaqTitle: Często zadawane pytania (FAQ)
+     wrongEncPassword: Odszyfrowywanie przy użyciu podanego hasła nie powiodło się. Spróbuj wpisać je ponownie.
+@@ -224,7 +224,7 @@ login:
+     - q: Nie ustawiłem jeszcze hasła szyfrującego. Jak mogę je uzyskać?
+       a: |-
+         Utwórz nowe hasło i wpisz je poniżej. 
+-        Saber wygeneruje klucze szyfrowania z tego hasła automatycznie.
++        赛博手写笔记 wygeneruje klucze szyfrowania z tego hasła automatycznie.
+     - q: Czy mogę użyć tego samego hasła co do konta Nextcloud?
+       a: Tak, ale pamiętaj że łatwiej będzie uzyskać dostęp do twoich notatek osobie która ma/może uzyskać dostęp do twojego konta Nextcloud (np. administratorowi serwera).
+ profile:
+@@ -241,14 +241,14 @@ profile:
+   - q: Czy utracę moje notatki jeżeli się wyloguje?
+     a: Nie. Twoje notatki pozostaną zarówno na twoim urządzeniu jak i na serwerze. Nie będą synchronizowane dopóki nie zalogujesz się ponownie. Upewnij się, że synchronizacja została ukończona przed wylogowaniem aby nie utracić żadnych danych (zobacz status synchronizacji na stronie głównej).
+   - q: Jak mogę zmienić hasło do Nextcloud?
+-    a: Wejdź na stronę swojego serwera i się zaloguj. Następnie przejdź do Settings > Security > Change password (Ustawienia > Bezpieczeństwo>Zmiana hasła). Po zmianie hasła należy wylogować się z serwera w Saber, a następnie zalogować ponownie za pomocą nowego hasła.
++    a: Wejdź na stronę swojego serwera i się zaloguj. Następnie przejdź do Settings > Security > Change password (Ustawienia > Bezpieczeństwo>Zmiana hasła). Po zmianie hasła należy wylogować się z serwera w 赛博手写笔记, a następnie zalogować ponownie za pomocą nowego hasła.
+   - q: Jak mogę zmienić moje hasło szyfrowania?
+     a: |-
+       0. Upewnij się, że synchronizacja została zakończona (zobacz postęp synchronizacji na ekranie głównym).
+-      1. Wyloguj się z Saber.
++      1. Wyloguj się z 赛博手写笔记.
+       2. Przejdź na stronę swojego serwera i usuń folder 'Saber'. Spowoduje to usunięcie wszystkich Twoich notatek z serwera.
+-      3. Zaloguj się ponownie do Saber. Podczas logowania możesz wybrać nowe hasło szyfrowania.
+-      4. Nie zapomnij wylogować się i zalogować ponownie do Saber również na swoich innych urządzeniach.
++      3. Zaloguj się ponownie do 赛博手写笔记. Podczas logowania możesz wybrać nowe hasło szyfrowania.
++      4. Nie zapomnij wylogować się i zalogować ponownie do 赛博手写笔记 również na swoich innych urządzeniach.
+   - q: Jak mogę usunąć moje konto?
+     a: |-
+       Kliknij "@:profile.quickLinks.deleteAccount" przycisk powyżej i zaloguj się jeżeli to wymagane.
+@@ -363,7 +363,7 @@ editor:
+     watchingServer: Obecnie oczekujesz na zmiany na serwerze. Edycja jest w tym trybie wyłączona.
+     corrupted: Nie udało się załadować notatki. Może być uszkodzona lub wciąż jest pobierana.
+   versionTooNew:
+-    title: Ta notatka została edytowana w nowszej wersji aplikacji Saber
++    title: Ta notatka została edytowana w nowszej wersji aplikacji 赛博手写笔记
+     subtitle: Edycja tej notatki może spowodować utratę niektórych informacji. Czy chcesz to zignorować i mimo wszystko ją edytować?
+     allowEditing: Zezwól na edycje
+   quill:

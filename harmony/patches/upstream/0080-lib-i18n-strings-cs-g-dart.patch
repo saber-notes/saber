@@ -1,0 +1,107 @@
+diff --git a/lib/i18n/strings_cs.g.dart b/lib/i18n/strings_cs.g.dart
+index b32645a4..dcd35fc5 100644
+--- a/lib/i18n/strings_cs.g.dart
++++ b/lib/i18n/strings_cs.g.dart
+@@ -69,7 +69,7 @@ class _Translations$home$cs extends Translations$home$en {
+ 	@override late final _Translations$home$titles$cs titles = _Translations$home$titles$cs._(_root);
+ 	@override late final _Translations$home$tooltips$cs tooltips = _Translations$home$tooltips$cs._(_root);
+ 	@override late final _Translations$home$create$cs create = _Translations$home$create$cs._(_root);
+-	@override String get welcome => 'Vítejte v aplikaci Saber';
++	@override String get welcome => 'Vítejte v aplikaci 赛博手写笔记';
+ 	@override String get invalidFormat => 'Vybrali jste nepodporovaný soubor. Vyberte prosím soubor s příponou .sbn, .sbn2, .sba nebo .pdf.';
+ 	@override String get noFiles => 'Žádné poznámky nebyly nalezeny';
+ 	@override String get noPreviewAvailable => 'Náhled není k dispozici';
+@@ -408,7 +408,7 @@ class _Translations$sentry$consent$cs extends Translations$sentry$consent$en {
+ 	final TranslationsCs _root; // ignore: unused_field
+ 
+ 	// Translations
+-	@override String get title => 'Chcete pomoct vylepšit aplikaci Saber?';
++	@override String get title => 'Chcete pomoct vylepšit aplikaci 赛博手写笔记?';
+ 	@override late final _Translations$sentry$consent$description$cs description = _Translations$sentry$consent$description$cs._(_root);
+ 	@override late final _Translations$sentry$consent$answers$cs answers = _Translations$sentry$consent$answers$cs._(_root);
+ }
+@@ -440,7 +440,7 @@ class _Translations$settings$prefLabels$cs extends Translations$settings$prefLab
+ 	@override String get layoutSize => 'Rozvržení uživatelského rozhraní';
+ 	@override String get customAccentColor => 'Vlastní barevný odstín';
+ 	@override String get hyperlegibleFont => 'Lépe čitelný font';
+-	@override String get shouldCheckForUpdates => 'Automaticky kontrolovat dostupnost aktualizací aplikace Saber';
++	@override String get shouldCheckForUpdates => 'Automaticky kontrolovat dostupnost aktualizací aplikace 赛博手写笔记';
+ 	@override String get shouldAlwaysAlertForUpdates => 'Rychlejší aktualizace';
+ 	@override String get allowInsecureConnections => 'Povolit nezabezpečená připojení';
+ 	@override String get editorToolbarAlignment => 'Umístění nabídky editoru';
+@@ -471,7 +471,7 @@ class _Translations$settings$prefDescriptions$cs extends Translations$settings$p
+ 
+ 	// Translations
+ 	@override String get hyperlegibleFont => 'Font Atkinson Hyperlegible zvyšuje čitelnost pro čtenáře se slabým zrakem';
+-	@override String get allowInsecureConnections => '(Nedoporučuje se) Povolit aplikaci Saber připojovat se k serverům se samopodepsaným/nedůvěryhodným certifikátem';
++	@override String get allowInsecureConnections => '(Nedoporučuje se) Povolit aplikaci 赛博手写笔记 připojovat se k serverům se samopodepsaným/nedůvěryhodným certifikátem';
+ 	@override String get preferGreyscale => 'Pro elektronické čtečky knih s e-ink displejem';
+ 	@override String get autoClearWhiteboardOnExit => 'Bude synchronizováno do dalších zařízení';
+ 	@override String get disableEraserAfterUse => 'Po použití gumy automaticky přepnout zpět na pero';
+@@ -582,10 +582,10 @@ class _Translations$login$ncLoginStep$cs extends Translations$login$ncLoginStep$
+ 
+ 	// Translations
+ 	@override String get whereToStoreData => 'Zvolte si, kam chcete ukládat svá data:';
+-	@override String get saberNcServer => 'Oficiální Nextcloud server aplikace Saber';
++	@override String get saberNcServer => 'Oficiální Nextcloud server aplikace 赛博手写笔记';
+ 	@override String get otherNcServer => 'Jiný Nextcloud server';
+ 	@override String get serverUrl => 'URL adresa serveru';
+-	@override String get loginWithSaber => 'Přihlásit přes aplikaci Saber';
++	@override String get loginWithSaber => 'Přihlásit přes aplikaci 赛博手写笔记';
+ 	@override String get loginWithNextcloud => 'Přihlásit přes Nextcloud server';
+ 	@override late final _Translations$login$ncLoginStep$loginFlow$cs loginFlow = _Translations$login$ncLoginStep$loginFlow$cs._(_root);
+ }
+@@ -598,7 +598,7 @@ class _Translations$login$encLoginStep$cs extends Translations$login$encLoginSte
+ 
+ 	// Translations
+ 	@override String get enterEncPassword => 'Pro ochranu svých dat prosím zadejte heslo pro šifrování:';
+-	@override String get newToSaber => 'Poprvé v aplikaci Saber? Stačí zadat nové heslo pro šifrování.';
++	@override String get newToSaber => 'Poprvé v aplikaci 赛博手写笔记? Stačí zadat nové heslo pro šifrování.';
+ 	@override String get encPassword => 'Heslo pro šifrování';
+ 	@override String get encFaqTitle => 'Často kladené otázky';
+ 	@override String get wrongEncPassword => 'Dešifrování pomocí zadaného hesla pro šifrování selhalo. Zkuste ho prosím zadat znovu.';
+@@ -640,7 +640,7 @@ class _Translations$profile$faq$1$cs extends Translations$profile$faq$1$en {
+ 
+ 	// Translations
+ 	@override String get q => 'Jak změním své heslo k Nextcloud účtu?';
+-	@override String get a => 'Přejděte na webovou stránku vašeho serveru a přihlašte se. Poté přejděte do Nastavení > Zabezpečení > Změnit heslo. Po změně hesla se budete muset odhlásit z aplikace Saber a poté se do ní opětovně přihlásit.';
++	@override String get a => 'Přejděte na webovou stránku vašeho serveru a přihlašte se. Poté přejděte do Nastavení > Zabezpečení > Změnit heslo. Po změně hesla se budete muset odhlásit z aplikace 赛博手写笔记 a poté se do ní opětovně přihlásit.';
+ }
+ 
+ // Path: profile.faq.2
+@@ -651,7 +651,7 @@ class _Translations$profile$faq$2$cs extends Translations$profile$faq$2$en {
+ 
+ 	// Translations
+ 	@override String get q => 'Jak změním své heslo pro šifrování?';
+-	@override String get a => '0. Ujistěte se, že byla dokončena synchronizace (průběh synchronizace uvidíte na domovské obrazovce).\n1. Odhlašte se z aplikace Saber.\n2. Přejděte na webovou stránku vašeho serveru a smažte složku „Saber“. Tím ze serveru odstraníte všechny poznámky.\n3. Opětovně se přihlašte do aplikace Saber. Při přihlašování můžete zvolit nové heslo pro šifrování.\n4. Nezapomeňte se z aplikace Saber odhlásit a opětovně se do ní přihlásit na ostatních zařízeních.';
++	@override String get a => '0. Ujistěte se, že byla dokončena synchronizace (průběh synchronizace uvidíte na domovské obrazovce).\n1. Odhlašte se z aplikace 赛博手写笔记.\n2. Přejděte na webovou stránku vašeho serveru a smažte složku „Saber“. Tím ze serveru odstraníte všechny poznámky.\n3. Opětovně se přihlašte do aplikace 赛博手写笔记. Při přihlašování můžete zvolit nové heslo pro šifrování.\n4. Nezapomeňte se z aplikace 赛博手写笔记 odhlásit a opětovně se do ní přihlásit na ostatních zařízeních.';
+ }
+ 
+ // Path: profile.faq.3
+@@ -826,7 +826,7 @@ class _Translations$editor$versionTooNew$cs extends Translations$editor$versionT
+ 	final TranslationsCs _root; // ignore: unused_field
+ 
+ 	// Translations
+-	@override String get title => 'Tato poznámka byla upravena v novější verzi aplikace Saber';
++	@override String get title => 'Tato poznámka byla upravena v novější verzi aplikace 赛博手写笔记';
+ 	@override String get subtitle => 'Úpravou této poznámky můžete přijít o některé informace. Přejete tuto skutečnost ignorovat a přesto pokračovat k úpravě poznámky?';
+ 	@override String get allowEditing => 'Povolit úpravy';
+ }
+@@ -918,7 +918,7 @@ class _Translations$login$ncLoginStep$loginFlow$cs extends Translations$login$nc
+ 	final TranslationsCs _root; // ignore: unused_field
+ 
+ 	// Translations
+-	@override String get pleaseAuthorize => 'Autorizujte prosím aplikaci Saber k přístupu na váš Nextcloud účet';
++	@override String get pleaseAuthorize => 'Autorizujte prosím aplikaci 赛博手写笔记 k přístupu na váš Nextcloud účet';
+ 	@override String get followPrompts => 'Následujte prosím kroky v rozhraní Nextcloud serveru';
+ 	@override String get browserDidntOpen => 'Neotevřela se přihlašovací stránka? Klepněte zde';
+ }
+@@ -942,7 +942,7 @@ class _Translations$login$encLoginStep$encFaq$1$cs extends Translations$login$en
+ 
+ 	// Translations
+ 	@override String get q => 'Ještě jsem heslo pro šifrování nenastavoval. Kde ho získám?';
+-	@override String get a => 'Zvolte si nové heslo pro šifrování a zadejte ho výše.\nAplikace Saber z hesla automaticky vygeneruje šifrovací klíče.';
++	@override String get a => 'Zvolte si nové heslo pro šifrování a zadejte ho výše.\nAplikace 赛博手写笔记 z hesla automaticky vygeneruje šifrovací klíče.';
+ }
+ 
+ // Path: login.encLoginStep.encFaq.2

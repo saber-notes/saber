@@ -1,0 +1,29 @@
+name: file_picker_ohos
+description: >-
+  OpenHarmony (HarmonyOS NEXT) 版的 file_picker 实现:用系统原生文件选择器
+  (DocumentViewPicker / PhotoViewPicker / AudioViewPicker)选文件、选目录、存文件。
+  上游 file_picker 至今没有鸿蒙实现,这个包补上它。
+version: 1.0.0
+publish_to: none
+
+environment:
+  sdk: ^3.13.0
+  flutter: ">=3.47.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cross_file: ^0.3.4+2
+  file_picker_platform_interface: ^4.2.0
+
+dev_dependencies:
+  flutter_lints: ^6.0.0
+
+flutter:
+  plugin:
+    implements: file_picker
+    platforms:
+      ohos:
+        package: com.file_picker
+        pluginClass: FilePickerPlugin
+        dartPluginClass: FilePickerOhos

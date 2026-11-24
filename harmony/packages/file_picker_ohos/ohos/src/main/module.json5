@@ -1,0 +1,10 @@
+{
+  "module": {
+    "name": "file_picker_ohos",
+    "type": "har",
+    "deviceTypes": [
+      "default",
+      "tablet"
+    ]
+  }
+}

@@ -1,0 +1,13 @@
+diff --git a/test/glassy_container_test.dart b/test/glassy_container_test.dart
+index 6d477f4..f85741f 100644
+--- a/test/glassy_container_test.dart
++++ b/test/glassy_container_test.dart
+@@ -125,7 +125,7 @@ class _TestTile extends StatelessWidget {
+                           child: UniIcon(
+                             switch (platform) {
+                               .iOS || .macOS => Icons.apple,
+-                              .android || .fuchsia => Icons.android,
++                              .android || .fuchsia || .ohos => Icons.android,
+                               .linux => FontAwesomeIcons.linux,
+                               .windows => FontAwesomeIcons.windows,
+                             },

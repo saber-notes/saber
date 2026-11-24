@@ -1,0 +1,137 @@
+diff --git a/lib/i18n/zh-Hans-CN.i18n.yaml b/lib/i18n/zh-Hans-CN.i18n.yaml
+index 8f157000..d8373ef4 100644
+--- a/lib/i18n/zh-Hans-CN.i18n.yaml
++++ b/lib/i18n/zh-Hans-CN.i18n.yaml
+@@ -20,8 +20,9 @@ home:
+   create:
+     newNote: 新建笔记
+     importNote: 导入笔记
+-  welcome: 欢迎使用 Saber
++  welcome: 欢迎使用赛博手写笔记
+   invalidFormat: 不支持该文件。请选择 .sbn、.sbn2、.sba 或 .pdf 文件。
++  pdfImportUnsupported: 当前平台暂不支持导入 PDF 文件。
+   noFiles: 未找到文件
+   noPreviewAvailable: 无可用预览
+   createNewNote: 点击 + 按钮新建一个笔记
+@@ -81,7 +82,7 @@ home:
+     simpleGrid: 简单网格样式
+ sentry:
+   consent:
+-    title: 帮助改进 Saber？
++    title: 帮助改进赛博手写笔记？
+     description:
+       question: 您是否希望自动报告意外错误？这有助于我更快地发现和修复问题。
+       scope: 报告可能包含有关错误和设备的信息。我已尽力过滤个人数据，但仍可能残留部分信息。
+@@ -106,7 +107,7 @@ settings:
+     layoutSize: 布局大小
+     customAccentColor: 自定义主题色
+     hyperlegibleFont: 易读字体
+-    shouldCheckForUpdates: 自动检查 Saber 更新
++    shouldCheckForUpdates: 自动检查赛博手写笔记更新
+     shouldAlwaysAlertForUpdates: 更快的更新提醒
+     allowInsecureConnections: 允许不安全的连接
+     editorToolbarAlignment: 编辑工具栏对齐方式
+@@ -125,11 +126,11 @@ settings:
+     autosave: 自动保存
+     shapeRecognitionDelay: 形状识别延迟
+     autoStraightenLines: 自动拉直线
+-    customDataDir: 自定义 Saber 文件夹
++    customDataDir: 自定义本机应用数据文件夹
+     sentry: 错误报告
+   prefDescriptions:
+     hyperlegibleFont: Atkinson Hyperlegible 字体为低视力读者提高易读性
+-    allowInsecureConnections: （不推荐）允许 Saber 连接到具有自签名/不受信任证书的服务器
++    allowInsecureConnections: （不推荐）允许赛博手写笔记连接到具有自签名/不受信任证书的服务器
+     preferGreyscale: 用于电子墨水显示器
+     autoClearWhiteboardOnExit: 这将会同步到您的其他设备
+     disableEraserAfterUse: 使用橡皮擦后自动切换回笔
+@@ -170,7 +171,7 @@ settings:
+     title: 重置此设置？
+     button: 重置
+   resyncEverything: 重新同步所有
+-  openDataDir: 打开 Saber 文件夹
++  openDataDir: 打开本机的「Saber」应用数据文件夹
+   customDataDir:
+     cancel: 取消
+     select: 选择
+@@ -189,6 +190,11 @@ login:
+   title: 登录
+   form:
+     agreeToPrivacyPolicy(rich): 登录即表示您同意 ${linkToPrivacyPolicy(隐私政策)}。
++    iAgreeToPrivacyPolicy(rich): 我已阅读并同意 ${linkToPrivacyPolicy(《隐私政策》)}
++    disagreeAndExit: 不同意并退出
++    disagreeDialogTitle: 未同意隐私政策
++    disagreeDialogMessage: 您需要同意隐私政策才能使用赛博手写笔记的 Nextcloud 同步功能。是否退出应用?
++    exitApp: 退出应用
+   signup(rich): 还没有帐户？ ${linkToSignup(立即注册)}！
+   notYou(rich): 不是您吗？${undoLogin(Choose another account)}.
+   status:
+@@ -199,18 +205,18 @@ login:
+     loggedIn: 已使用 Nextcloud 登录
+   ncLoginStep:
+     whereToStoreData: 选择数据存储位置：
+-    saberNcServer: Saber 的 Nextcloud 服务器
++    saberNcServer: 赛博手写笔记的 Nextcloud 服务器
+     otherNcServer: 其他 Nextcloud 服务器
+     serverUrl: 服务器 URL
+-    loginWithSaber: 使用 Saber 登录
++    loginWithSaber: 使用赛博手写笔记登录
+     loginWithNextcloud: 使用 Nextcloud 登录
+     loginFlow:
+-      pleaseAuthorize: 请授权 Saber 访问您的 Nextcloud 帐户
++      pleaseAuthorize: 请授权赛博手写笔记访问您的 Nextcloud 帐户
+       followPrompts: 请按照 Nextcloud 界面中的提示操作
+       browserDidntOpen: 登录页面没有打开？点击这里
+   encLoginStep:
+     enterEncPassword: 为了保护您的数据，请输入您的加密密码：
+-    newToSaber: Saber 新手？只需输入新的加密密码即可。
++    newToSaber: 赛博手写笔记新手？只需输入新的加密密码即可。
+     encPassword: 加密密码
+     encFaqTitle: 常见问题解答
+     wrongEncPassword: 使用提供的密码解密失败。请再次尝试输入。
+@@ -224,7 +230,7 @@ login:
+     - q: 我还没有设置加密密码。我在哪里可以买到它？
+       a: |-
+         选择新的加密密码并在上面输入。
+-        Saber 将从此密码自动生成您的加密密钥。
++        赛博手写笔记将从此密码自动生成您的加密密钥。
+     - q: 我可以使用与我的 Nextcloud 帐户相同的密码吗？
+       a: 是的，但请记住，如果服务器管理员或其他人可以访问您的 Nextcloud 帐户，他们将更容易访问您的笔记。
+ profile:
+@@ -241,21 +247,22 @@ profile:
+   - q: 如果我注销，我的笔记会丢失吗？
+     a: 不会。您的笔记将保留在您的设备和服务器上。在您重新登录之前，它们不会与服务器同步。请确保在注销前完成同步，以免丢失任何数据（请在主屏幕上查看同步进度）。
+   - q: 如何更改我的 Nextcloud 密码？
+-    a: 转到您的服务器网站并登录。然后转到设置 > 安全 > 更改密码。更改密码后，您需要注销并重新登录 Saber。
++    a: 转到您的服务器网站并登录。然后转到设置 > 安全 > 更改密码。更改密码后，您需要注销并重新登录赛博手写笔记。
+   - q: 如何更改我的加密密码？
+     a: |-
+       0. 请确保在注销前完成同步，以免丢失任何数据（在主屏幕上查看同步进度）。
+-      1.退出 Saber 登录。
++      1.退出赛博手写笔记登录。
+       2.转到您的服务器网站并删除您的“Saber”文件夹。这将从服务器中删除您的所有笔记。
+-      3.重新登录 Saber。您可以在登录时选择一个新的加密密码。
+-      4.不要忘记在您的其他设备上注销并重新登录 Saber。
++      3.重新登录赛博手写笔记。您可以在登录时选择一个新的加密密码。
++      4.不要忘记在您的其他设备上注销并重新登录赛博手写笔记。
+   - q: 如何删除我的帐户？
+     a: |-
+       点击上面的 "@:profile.quickLinks.deleteAccount" 按钮，并在需要时登录。
+-      如果您使用的是官方 Saber 服务器，您的帐户将在 1 周的宽限期后被删除。在此期间，您可以通过 adilhanney@disroot.org 与我联系以取消删除。
++      如果您使用的是官方 Saber 服务器(上游项目提供的服务器)，您的帐户将在 1 周的宽限期后被删除。在此期间，您可以通过 adilhanney@disroot.org 与我联系以取消删除。
+       如果您使用的是第三方服务器，则可能没有删除帐户的选项：您需要咨询服务器的隐私政策以获取更多信息。
+ appInfo:
+   licenseNotice: |-
++    赛博手写笔记 —— 基于开源项目 Saber 开发
+     Saber  版权所有 © 2022-$buildYear  Adil Hanney
+     本程序不附带任何担保。这是自由软件，您可以在特定条件下重新分发它。
+   debug: DEBUG
+@@ -363,7 +370,7 @@ editor:
+     watchingServer: 当前正在监视服务器的更新，此模式下编辑功能已禁用。
+     corrupted: 无法加载笔记。它可能已损坏或仍在下载中。
+   versionTooNew:
+-    title: 此笔记使用新版 Saber 编辑而成
++    title: 此笔记使用新版赛博手写笔记编辑而成
+     subtitle: 编辑此笔记可能会导致某些信息丢失。您想忽略并编辑吗？
+     allowEditing: 允许编辑
+   quill:

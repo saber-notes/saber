@@ -1,0 +1,25 @@
+diff --git a/lib/components/theming/dynamic_material_app.dart b/lib/components/theming/dynamic_material_app.dart
+index c7f8707..c6fcd49 100644
+--- a/lib/components/theming/dynamic_material_app.dart
++++ b/lib/components/theming/dynamic_material_app.dart
+@@ -7,7 +7,6 @@ import 'package:flutter_hooks/flutter_hooks.dart';
+ import 'package:flutter_localizations/flutter_localizations.dart'
+     show GlobalWidgetsLocalizations;
+ import 'package:flutter_quill/flutter_quill.dart';
+-import 'package:flutter_svg/flutter_svg.dart';
+ import 'package:go_router/go_router.dart';
+ import 'package:material_ui/material_ui.dart';
+ import 'package:saber/components/theming/saber_theme.dart';
+@@ -180,10 +179,10 @@ class const _WindowsTitleBarWrapper({required final Widget? child})
+             SizedBox(
+               width: 16,
+               height: 16,
+-              child: SvgPicture.asset('assets/icon/icon.svg'),
++              child: Image.asset('assets/icon/brand_icon.png'),
+             ),
+             const SizedBox(width: 8),
+-            const Text('Saber'),
++            const Text('赛博手写笔记'),
+           ],
+         ),
+         centerTitle: false,
