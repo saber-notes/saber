@@ -7,7 +7,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && \
     apt-get -qq install -y --no-install-recommends \
         curl git unzip xz-utils zip libglu1-mesa clang cmake ninja-build mesa-utils libgtk-3-dev \
-        libsecret-1-dev libjsoncpp-dev ghostscript webkit2gtk-4.1-dev && \
+        libsecret-1-dev libjsoncpp-dev ghostscript && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
