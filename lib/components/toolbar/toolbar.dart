@@ -35,6 +35,7 @@ class Toolbar extends StatefulWidget {
     required this.readOnly,
     required this.setTool,
     required this.currentTool,
+    required this.selectTool,
     required this.setColor,
     required this.quillFocus,
     required this.textEditing,
@@ -47,6 +48,8 @@ class Toolbar extends StatefulWidget {
     required this.pickPhoto,
     required this.paste,
     required this.duplicateSelection,
+    required this.copySelection,
+    required this.cutSelection,
     required this.deleteSelection,
     required this.exportAsSba,
     required this.exportAsPdf,
@@ -57,6 +60,7 @@ class Toolbar extends StatefulWidget {
 
   final ValueChanged<Tool> setTool;
   final Tool currentTool;
+  final Select selectTool;
   final ValueChanged<Color> setColor;
 
   final ValueNotifier<QuillStruct?> quillFocus;
@@ -75,6 +79,8 @@ class Toolbar extends StatefulWidget {
   final VoidCallback paste;
 
   final VoidCallback duplicateSelection;
+  final VoidCallback copySelection;
+  final VoidCallback cutSelection;
   final VoidCallback deleteSelection;
 
   final Future Function(BuildContext)? exportAsSba;
@@ -192,11 +198,9 @@ class _ToolbarState extends State<Toolbar> {
       _ => null,
     };
 
-    if (widget.currentTool == Select.currentSelect) {
+    if (widget.currentTool == widget.selectTool) {
       // Enable selection bar only when selection is done
-      toolOptionsType.value = Select.currentSelect.doneSelecting
-          ? .select
-          : .hide;
+      toolOptionsType.value = widget.selectTool.doneSelecting ? .select : .hide;
     }
 
     final bars = <Widget>[
@@ -241,6 +245,8 @@ class _ToolbarState extends State<Toolbar> {
               ),
               .select => SelectionBar(
                 duplicateSelection: widget.duplicateSelection,
+                copySelection: widget.copySelection,
+                cutSelection: widget.cutSelection,
                 deleteSelection: widget.deleteSelection,
               ),
             },
@@ -411,7 +417,7 @@ class _ToolbarState extends State<Toolbar> {
                 enabled: !widget.readOnly,
                 onPressed: () {
                   toolOptionsType.value = .hide;
-                  widget.setTool(Select.currentSelect);
+                  widget.setTool(widget.selectTool);
                 },
                 padding: buttonPadding,
                 child: Icon(

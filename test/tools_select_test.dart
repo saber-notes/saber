@@ -11,7 +11,7 @@ import 'package:sbn/has_size.dart';
 void main() {
   group('Select tool', () {
     test('selects the right strokes', () async {
-      final select = Select.currentSelect;
+      final select = Select();
       final options = StrokeOptions(size: 9);
 
       // Drag gesture in a 10x10 square shape, on page 0
@@ -77,7 +77,7 @@ void main() {
     });
 
     test('selects the right images', () async {
-      final select = Select.currentSelect;
+      final select = Select();
 
       // Drag gesture in a 10x10 square shape, on page 0
       select.onDragStart(Offset.zero, 0);
@@ -126,13 +126,13 @@ void main() {
 
     group('getDominantStrokeColor', () {
       test('not done selecting', () {
-        final select = Select.currentSelect;
+        final select = Select();
         select.unselect();
         expect(select.getDominantStrokeColor(), isNull);
       });
 
       test('with no selected strokes', () {
-        final select = Select.currentSelect;
+        final select = Select();
         select.selectResult = SelectResult(
           pageIndex: 0,
           strokes: const [],
@@ -144,7 +144,7 @@ void main() {
       });
 
       test('with selected strokes', () {
-        final select = Select.currentSelect;
+        final select = Select();
         select.selectResult = SelectResult(
           pageIndex: 0,
           strokes: [

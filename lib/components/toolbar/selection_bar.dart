@@ -5,11 +5,15 @@ import 'package:saber/i18n/strings.g.dart';
 
 class SelectionBar extends StatelessWidget {
   final VoidCallback duplicateSelection;
+  final VoidCallback copySelection;
+  final VoidCallback cutSelection;
   final VoidCallback deleteSelection;
 
   const new({
     super.key,
     required this.duplicateSelection,
+    required this.copySelection,
+    required this.cutSelection,
     required this.deleteSelection,
   });
 
@@ -27,8 +31,34 @@ class SelectionBar extends StatelessWidget {
           ),
           tooltip: t.editor.selectionBar.duplicate,
           icon: const AdaptiveIcon(
+            icon: Icons.copy_all,
+            cupertinoIcon: CupertinoIcons.doc_on_doc,
+          ),
+        ),
+        IconButton(
+          onPressed: copySelection,
+          style: TextButton.styleFrom(
+            foregroundColor: ColorScheme.of(context).secondary,
+            backgroundColor: Colors.transparent,
+            shape: const CircleBorder(),
+          ),
+          tooltip: t.editor.selectionBar.copy,
+          icon: const AdaptiveIcon(
             icon: Icons.content_copy,
             cupertinoIcon: CupertinoIcons.doc_on_clipboard,
+          ),
+        ),
+        IconButton(
+          onPressed: cutSelection,
+          style: TextButton.styleFrom(
+            foregroundColor: ColorScheme.of(context).secondary,
+            backgroundColor: Colors.transparent,
+            shape: const CircleBorder(),
+          ),
+          tooltip: t.editor.selectionBar.cut,
+          icon: const AdaptiveIcon(
+            icon: Icons.content_cut,
+            cupertinoIcon: CupertinoIcons.scissors,
           ),
         ),
         IconButton(

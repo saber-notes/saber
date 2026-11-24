@@ -51,9 +51,48 @@ import 'package:saber/data/tools/shape_pen.dart';
 import 'package:saber/i18n/strings.g.dart';
 import 'package:saber/pages/home/whiteboard.dart';
 import 'package:sbn/change.dart';
+import 'package:sbn/has_size.dart';
 import 'package:super_clipboard/super_clipboard.dart';
 
 class const _PhotoInfo(final Uint8List bytes, final String extension);
+
+class _SelectionClipboard {
+  new({
+    required this.strokes,
+    required this.images,
+    required this.assets,
+    required this.path,
+  });
+
+  static final contents = ValueNotifier<_SelectionClipboard?>(null);
+  static var copyGeneration = 0;
+
+  final List<Stroke> strokes;
+  final List<Map<String, dynamic>> images;
+  final List<Uint8List> assets;
+  final Path path;
+
+  static Future<_SelectionClipboard> capture(SelectResult selection) async {
+    final strokes = selection.strokes
+        .map((stroke) => stroke.copy()..page = HasSize(stroke.page.size))
+        .toList();
+    final assetCache = OrderedAssetCache();
+    final images = selection.images
+        .map((image) => image.toJson(assetCache))
+        .toList();
+    final path = Path.from(selection.path);
+    final assets = <Uint8List>[];
+    for (var i = 0; i < assetCache.length; i++) {
+      assets.add(Uint8List.fromList(await assetCache.getBytes(i)));
+    }
+    return _SelectionClipboard(
+      strokes: strokes,
+      images: images,
+      assets: assets,
+      path: path,
+    );
+  }
+}
 
 class Editor extends StatefulWidget {
   new({super.key, String? path, this.customTitle, this.pdfPath})
@@ -121,6 +160,8 @@ class EditorState extends State<Editor> {
 
   var history = EditorHistory();
 
+  final selectTool = Select();
+
   late bool needsNaming = widget.needsNaming && stows.editorPromptRename.value;
 
   late Tool _currentTool = () {
@@ -147,7 +188,7 @@ class EditorState extends State<Editor> {
       case .eraser:
         return Eraser();
       case .select:
-        return Select.currentSelect;
+        return selectTool;
       case .textEditing:
         return Tool.textEditing;
       case .laserPointer:
@@ -441,7 +482,7 @@ class EditorState extends State<Editor> {
             );
           }
         }
-        final select = Select.currentSelect;
+        final select = selectTool;
         if (select.doneSelecting) {
           select.selectResult.path = select.selectResult.path.shift(
             Offset(-historic.offset.left, -historic.offset.top),
@@ -481,7 +522,7 @@ class EditorState extends State<Editor> {
     }
 
     if (historic is! HistoricMove) {
-      Select.currentSelect.unselect();
+      selectTool.unselect();
     }
 
     if (mounted) setState(() {});
@@ -599,7 +640,7 @@ class EditorState extends State<Editor> {
     moveOffset = .zero;
 
     if (currentTool is! Select) {
-      Select.currentSelect.unselect();
+      selectTool.unselect();
     }
 
     // setState to let canvas know about currentStroke
@@ -812,7 +853,7 @@ class EditorState extends State<Editor> {
           select.onDragEnd(page.strokes, page.images);
 
           if (select.selectResult.isEmpty) {
-            Select.currentSelect.unselect();
+            selectTool.unselect();
           }
         }
       } else if (currentTool is LaserPointer) {
@@ -1236,7 +1277,7 @@ class EditorState extends State<Editor> {
 
     if (images.isNotEmpty) {
       // use the Select tool so that the user can move the new image
-      currentTool = Select.currentSelect;
+      currentTool = selectTool;
 
       history.recordChange(HistoricAdd(strokes: const [], images: images));
       createPage(currentPageIndex);
@@ -1364,6 +1405,174 @@ class EditorState extends State<Editor> {
     autosaveAfterDelay();
 
     return true;
+  }
+
+  Future<void> copySelection() => _copySelection(cut: false);
+
+  Future<void> cutSelection() => _copySelection(cut: true);
+
+  Future<void> _copySelection({required bool cut}) async {
+    final select = currentTool;
+    if (select is! Select ||
+        !select.doneSelecting ||
+        select.selectResult.isEmpty ||
+        (cut && coreInfo.readOnly)) {
+      return;
+    }
+
+    final selection = select.selectResult;
+    final pageIndex = selection.pageIndex;
+    final page = coreInfo.pages[pageIndex];
+    final strokes = List<Stroke>.of(selection.strokes);
+    final images = List<EditorImage>.of(selection.images);
+    final imageState = images
+        .map((image) => (image.dstRect, image.srcRect, image.invertible))
+        .toList();
+    final bounds = selection.path.getBounds();
+    final lastChange = history.canUndo ? history.peekUndo() : null;
+    final generation = ++_SelectionClipboard.copyGeneration;
+    final _SelectionClipboard contents;
+    try {
+      contents = await _SelectionClipboard.capture(selection);
+    } catch (error, stackTrace) {
+      log.severe(
+        'Failed to ${cut ? 'cut' : 'copy'} selection',
+        error,
+        stackTrace,
+      );
+      if (mounted && generation == _SelectionClipboard.copyGeneration) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(
+              cut
+                  ? t.editor.selectionBar.cutFailed
+                  : t.editor.selectionBar.copyFailed,
+            ),
+          ),
+        );
+      }
+      return;
+    }
+
+    if (cut) {
+      // Do not remove a selection that changed while its assets were loading.
+      final unchanged =
+          mounted &&
+          !coreInfo.readOnly &&
+          generation == _SelectionClipboard.copyGeneration &&
+          identical(currentTool, select) &&
+          select.doneSelecting &&
+          identical(select.selectResult, selection) &&
+          selection.pageIndex == pageIndex &&
+          pageIndex < coreInfo.pages.length &&
+          identical(coreInfo.pages[pageIndex], page) &&
+          selection.path.getBounds() == bounds &&
+          identical(history.canUndo ? history.peekUndo() : null, lastChange) &&
+          selection.strokes.length == strokes.length &&
+          selection.images.length == images.length &&
+          strokes.every(
+            (stroke) =>
+                selection.strokes.contains(stroke) &&
+                page.strokes.contains(stroke),
+          ) &&
+          images.every(
+            (image) =>
+                selection.images.contains(image) && page.images.contains(image),
+          ) &&
+          images.indexed.every(
+            (entry) =>
+                (entry.$2.dstRect, entry.$2.srcRect, entry.$2.invertible) ==
+                imageState[entry.$1],
+          );
+      if (!unchanged) {
+        log.warning('Selection changed before cut could complete');
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text(t.editor.selectionBar.cutFailed)),
+          );
+        }
+        return;
+      }
+      _SelectionClipboard.contents.value = contents;
+      deleteSelection();
+    } else if (generation == _SelectionClipboard.copyGeneration) {
+      _SelectionClipboard.contents.value = contents;
+    }
+  }
+
+  void deleteSelection() {
+    final select = currentTool;
+    if (select is! Select || !select.doneSelecting || coreInfo.readOnly) return;
+
+    setState(() {
+      final page = coreInfo.pages[select.selectResult.pageIndex];
+      final strokes = select.selectResult.strokes;
+      final images = select.selectResult.images;
+      for (final stroke in strokes) {
+        page.strokes.remove(stroke);
+      }
+      for (final image in images) {
+        page.images.remove(image);
+      }
+      page.redrawStrokes();
+      select.unselect();
+      history.recordChange(HistoricDelete(strokes: strokes, images: images));
+      autosaveAfterDelay();
+    });
+  }
+
+  void pasteSelection() {
+    final contents = _SelectionClipboard.contents.value;
+    if (contents == null || coreInfo.readOnly) return;
+
+    final pageIndex = currentPageIndex;
+    createPage(pageIndex);
+    final page = coreInfo.pages[pageIndex];
+    final strokes = contents.strokes.map((stroke) {
+      return stroke.copy()
+        ..pageIndex = pageIndex
+        ..page = page;
+    }).toList();
+    final images = contents.images.map((json) {
+      return EditorImage.fromJson(
+          json,
+          inlineAssets: contents.assets,
+          sbnPath: coreInfo.filePath,
+          assetCache: coreInfo.assetCache,
+        )
+        ..id = coreInfo.nextImageId++
+        ..pageIndex = pageIndex
+        ..pageSize = page.size
+        ..onMoveImage = onMoveImage
+        ..onDeleteImage = onDeleteImage
+        ..onMiscChange = autosaveAfterDelay;
+    }).toList();
+
+    setState(() {
+      for (final stroke in strokes) {
+        page.insertStroke(stroke);
+      }
+      page.images.addAll(images);
+      page.redrawStrokes();
+      if (currentTool == Tool.textEditing) {
+        for (final page in coreInfo.pages) {
+          page.quill.focusNode.unfocus();
+        }
+      }
+      final select = selectTool;
+      select.selectResult = SelectResult(
+        pageIndex: pageIndex,
+        pageIndexStart: pageIndex,
+        strokes: strokes,
+        images: images,
+        path: Path.from(contents.path),
+      );
+      select.doneSelecting = true;
+      currentTool = select;
+      history.recordChange(HistoricAdd(strokes: strokes, images: images));
+      autosaveAfterDelay();
+    });
+    _SelectionClipboard.contents.value = null;
   }
 
   Future paste() async {
@@ -1538,6 +1747,7 @@ class EditorState extends State<Editor> {
         bottom: stows.editorToolbarAlignment.value != .up,
         child: Toolbar(
           readOnly: coreInfo.readOnly,
+          selectTool: selectTool,
           setTool: (tool) {
             if (tool is Eraser && currentTool is Eraser) {
               // setTool(Eraser) is a special case to toggle the eraser on/off
@@ -1557,6 +1767,8 @@ class EditorState extends State<Editor> {
             if (mounted) setState(() {});
           },
           currentTool: currentTool,
+          copySelection: copySelection,
+          cutSelection: cutSelection,
           duplicateSelection: () {
             final select = currentTool as Select;
             if (!select.doneSelecting) return;
@@ -1575,11 +1787,12 @@ class EditorState extends State<Editor> {
               final duplicatedImages = images.map((image) {
                 return image.copy()
                   ..id = coreInfo.nextImageId++
-                  ..dstRect.shift(duplicationFeedbackOffset);
+                  ..dstRect = image.dstRect.shift(duplicationFeedbackOffset);
               }).toList();
 
               page.strokes.addAll(duplicatedStrokes);
               page.images.addAll(duplicatedImages);
+              page.redrawStrokes();
 
               select.selectResult = select.selectResult.copyWith(
                 strokes: duplicatedStrokes,
@@ -1596,32 +1809,7 @@ class EditorState extends State<Editor> {
               autosaveAfterDelay();
             });
           },
-          deleteSelection: () {
-            final select = currentTool as Select;
-            if (!select.doneSelecting) {
-              return;
-            }
-
-            setState(() {
-              final page = coreInfo.pages[select.selectResult.pageIndex];
-              final strokes = select.selectResult.strokes;
-              final images = select.selectResult.images;
-
-              for (final stroke in strokes) {
-                page.strokes.remove(stroke);
-              }
-              for (final image in images) {
-                page.images.remove(image);
-              }
-
-              select.unselect();
-
-              history.recordChange(
-                HistoricDelete(strokes: strokes, images: images),
-              );
-              autosaveAfterDelay();
-            });
-          },
+          deleteSelection: deleteSelection,
           setColor: (color) {
             setState(() {
               updateColorBar(color);
@@ -1781,6 +1969,20 @@ class EditorState extends State<Editor> {
                   triggerSave: saveToFile,
                 ),
                 actions: [
+                  ValueListenableBuilder(
+                    valueListenable: _SelectionClipboard.contents,
+                    builder: (context, contents, _) {
+                      if (contents == null) return const SizedBox.shrink();
+                      return IconButton(
+                        icon: const AdaptiveIcon(
+                          icon: Icons.paste,
+                          cupertinoIcon: CupertinoIcons.arrow_down_doc,
+                        ),
+                        tooltip: t.editor.selectionBar.paste,
+                        onPressed: coreInfo.readOnly ? null : pasteSelection,
+                      );
+                    },
+                  ),
                   IconButton(
                     icon: const AdaptiveIcon(
                       icon: Icons.insert_page_break,
