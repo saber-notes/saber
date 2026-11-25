@@ -15,6 +15,7 @@ import 'package:saber/data/extensions/matrix4_extensions.dart';
 import 'package:saber/data/prefs.dart';
 import 'package:saber/pages/editor/editor.dart';
 import 'package:vector_math/vector_math_64.dart';
+import 'package:window_manager/window_manager.dart';
 
 class CanvasGestureDetector extends StatefulWidget {
   new({
@@ -143,8 +144,17 @@ class CanvasGestureDetector extends StatefulWidget {
   }
 }
 
-class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
+class CanvasGestureDetectorState extends State<CanvasGestureDetector>
+    with WindowListener, WidgetsBindingObserver {
   late var containerBounds = const BoxConstraints();
+  final Set<int> _activePointers = {};
+
+  void _cancelAllActivePointers() {
+    for (final pointer in _activePointers.toList()) {
+      GestureBinding.instance.cancelPointer(pointer);
+    }
+    _activePointers.clear();
+  }
 
   /// If zooming is locked, this is the zoom level.
   /// Otherwise, this is null.
@@ -302,7 +312,23 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
     setInitialTransform();
     widget._transformationController.addListener(onTransformChanged);
     _assignKeybindings();
+    if (Stows.isDesktop) {
+      windowManager.addListener(this);
+      WidgetsBinding.instance.addObserver(this);
+    }
     super.initState();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state != AppLifecycleState.resumed) {
+      _cancelAllActivePointers();
+    }
+  }
+
+  @override
+  void onWindowBlur() {
+    _cancelAllActivePointers();
   }
 
   /// When the widget is created, we still have an empty coreInfo.
@@ -407,6 +433,9 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
   }
 
   void _listenerPointerEvent(PointerEvent event) {
+    if (event is PointerDownEvent) {
+      _activePointers.add(event.pointer);
+    }
     final isStylus =
         event.kind == PointerDeviceKind.stylus ||
         event.kind == PointerDeviceKind.invertedStylus;
@@ -465,6 +494,7 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
   }
 
   void _listenerPointerUpEvent(PointerEvent event) {
+    _activePointers.remove(event.pointer);
     widget.updatePointerData(event.kind, null);
     if (stylusButtonWasPressed) {
       stylusButtonWasPressed = false;
@@ -482,6 +512,7 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
           onPointerDown: _listenerPointerEvent,
           onPointerMove: _listenerPointerEvent,
           onPointerUp: _listenerPointerUpEvent,
+          onPointerCancel: _listenerPointerUpEvent,
           onPointerHover: _listenerPointerHoverEvent,
           child: GestureDetector(
             child: LayoutBuilder(
@@ -555,6 +586,11 @@ class CanvasGestureDetectorState extends State<CanvasGestureDetector> {
 
   @override
   void dispose() {
+    if (Stows.isDesktop) {
+      windowManager.removeListener(this);
+      WidgetsBinding.instance.removeObserver(this);
+      _cancelAllActivePointers();
+    }
     CanvasTransformCache.add(
       widget.filePath,
       widget._transformationController.value,
