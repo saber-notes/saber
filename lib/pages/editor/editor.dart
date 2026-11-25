@@ -574,9 +574,11 @@ class EditorState extends State<Editor> {
         currentPressure,
       );
     } else if (currentTool is Eraser) {
+      page.eraserPosition = position;
       for (final stroke in (currentTool as Eraser).checkForOverlappingStrokes(
         position,
         page.strokes,
+        scale: _transformationController.value.approxScale,
       )) {
         page.strokes.remove(stroke);
       }
@@ -618,9 +620,11 @@ class EditorState extends State<Editor> {
       (currentTool as Pen).onDragUpdate(position, currentPressure);
       page.redrawStrokes();
     } else if (currentTool is Eraser) {
+      page.eraserPosition = position;
       for (final stroke in (currentTool as Eraser).checkForOverlappingStrokes(
         position,
         page.strokes,
+        scale: _transformationController.value.approxScale,
       )) {
         page.strokes.remove(stroke);
       }
@@ -780,6 +784,7 @@ class EditorState extends State<Editor> {
         page.insertStroke(newStroke);
         history.recordChange(HistoricAdd(strokes: [newStroke], images: []));
       } else if (currentTool is Eraser) {
+        page.eraserPosition = null;
         final erased = (currentTool as Eraser).onDragEnd();
         if (stylusButtonWasPressed || stows.disableEraserAfterUse.value) {
           // restore previous tool

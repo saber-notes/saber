@@ -23,12 +23,14 @@ class Eraser extends Tool {
   /// Returns any [strokes] that are close to the given [eraserPos].
   List<Stroke> checkForOverlappingStrokes(
     Offset eraserPos,
-    List<Stroke> strokes,
-  ) {
+    List<Stroke> strokes, {
+    required double scale,
+  }) {
+    final effectiveSqrSize = sqrSize / square(scale);
     final List<Stroke> overlapping = [];
     for (int i = 0; i < strokes.length; i++) {
       final stroke = strokes[i];
-      if (_shouldStrokeBeErased(eraserPos, stroke, sqrSize)) {
+      if (_shouldStrokeBeErased(eraserPos, stroke, effectiveSqrSize)) {
         overlapping.add(stroke);
         _erased.add(stroke);
       }
