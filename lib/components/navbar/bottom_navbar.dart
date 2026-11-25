@@ -1,9 +1,12 @@
+import 'dart:io';
 import 'dart:ui';
 
 import 'package:cupertino_ui/cupertino_ui.dart';
+import 'package:liquid_glass_easy/liquid_glass_easy.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:saber/components/navbar/responsive_navbar.dart';
 import 'package:saber/components/theming/saber_theme.dart';
+import 'package:saber/data/is_this_a_test.dart';
 import 'package:saber/data/routes.dart';
 
 class const BottomNavbar({
@@ -70,69 +73,65 @@ class const BottomNavbar({
   }
 }
 
-class GlassyContainer extends StatelessWidget {
-  const new({super.key, required this.child, this.height, this.borderRadius});
-  final Widget child;
-  final double? height;
-  final BorderRadius? borderRadius;
+/// A rounded container which uses liquid glass on iOS/macOS or an opaque card otherwise.
+class const GlassyContainer({
+  super.key,
+  final double? height,
+  final BorderRadius? borderRadius,
+  required final Widget child,
+}) extends StatelessWidget {
+  /// Allows a test to temporarily hide liquid glass elements to take a clean screen capture.
+  @visibleForTesting
+  static var hideLiquidGlassElements = false;
+
   @override
   Widget build(BuildContext context) {
-    final platform = Theme.of(context).platform;
-    final colorScheme = ColorScheme.of(context);
-    final height = this.height ?? BottomNavbar._heightForPlatform(platform);
+    final theme = Theme.of(context);
+    final height =
+        this.height ?? BottomNavbar._heightForPlatform(theme.platform);
     final borderRadius = this.borderRadius ?? .circular(height / 2);
-
-    final Color background;
-    if (platform.isCupertino) {
-      background = colorScheme.surfaceContainer.withValues(alpha: 0.7);
-    } else {
-      background = colorScheme.primaryContainer;
-    }
-
-    return SizedBox(
-      height: height,
-      child: DecoratedBox(
-        decoration: BoxDecoration(
-          color: background,
-          borderRadius: borderRadius,
-          boxShadow: [
-            BoxShadow(
-              color: colorScheme.shadow.withValues(alpha: 0.5),
-              spreadRadius: -1,
-              blurRadius: platform.isCupertino ? 2 : 4,
-              offset: const Offset(0, 1),
-              blurStyle: platform.isCupertino
-                  ? BlurStyle.outer
-                  : BlurStyle.normal,
+    if (theme.platform.isCupertino) {
+      return Opacity(
+        opacity: (isThisATest && hideLiquidGlassElements) ? 0 : 1,
+        child: LiquidGlassLens(
+          style: LiquidGlassStyle(
+            adaptivity: LiquidGlassAdaptivity(
+              glassColorOnDark: const Color(0x66000000),
+              contentColorOnDark: const Color(0xFFFFFFFF),
+              glassColorOnLight: const Color(0x77FFFFFF),
+              contentColorOnLight: const Color(0xFF1C1C1E),
+              permanentBrightness: theme.brightness,
+              duration: isThisATest
+                  ? Duration.zero
+                  : const Duration(milliseconds: 300),
             ),
-          ],
-        ),
-        child: ClipRRect(
-          clipBehavior: platform.isCupertino ? Clip.antiAlias : Clip.none,
-          borderRadius: borderRadius,
-          child: DecoratedBox(
-            decoration: BoxDecoration(
-              border: (platform.isCupertino && colorScheme.brightness == .dark)
-                  ? _GlintBorder(width: 1)
-                  : null,
+            shadow: const LiquidGlassShadow(),
+            // Flutter warns that `liquid_glass.frag` may crash on Windows
+            liteGlass: Platform.isWindows,
+          ),
+          child: SizedBox(
+            height: height,
+            child: Material(
+              type: MaterialType.transparency,
+              color: Colors.transparent,
               borderRadius: borderRadius,
-            ),
-            child: BackdropFilter(
-              enabled: platform.isCupertino,
-              filter: ImageFilter.blur(sigmaX: 2, sigmaY: 2),
-              child: Material(
-                type: MaterialType.transparency,
-                color: Colors.transparent,
-                elevation: 3,
-                shadowColor: Colors.white,
-                borderRadius: borderRadius,
-                child: child,
-              ),
+              child: child,
             ),
           ),
         ),
-      ),
-    );
+      );
+    } else {
+      return SizedBox(
+        height: height,
+        child: Material(
+          type: MaterialType.button,
+          color: theme.colorScheme.primaryContainer,
+          elevation: 3,
+          borderRadius: borderRadius,
+          child: child,
+        ),
+      );
+    }
   }
 }
 
@@ -210,59 +209,4 @@ class _ToolbarButton extends StatelessWidget {
       ),
     );
   }
-}
-
-/// A border that lights up the top-left and bottom-right corners.
-class _GlintBorder extends Border {
-  new({double width = 1})
-    : super.fromBorderSide(
-        BorderSide(color: const Color(0x33FFFFFF), width: width),
-      );
-
-  static const gradient = LinearGradient(
-    colors: [
-      Color(0x77FFFFFF),
-      Color(0x33FFFFFF),
-      Color(0x00FFFFFF),
-      Color(0x33FFFFFF),
-      Color(0x77FFFFFF),
-    ],
-    stops: [0.0, 0.2, 0.5, 0.8, 1.0],
-    begin: Alignment(-0.5, -1.5),
-    end: Alignment(0.5, 1.5),
-  );
-
-  /// Copied from [BoxBorder._paintUniformBorderWithRadius] but with a
-  /// gradient shader instead of a solid color.
-  @override
-  void paint(
-    Canvas canvas,
-    Rect rect, {
-    TextDirection? textDirection,
-    BoxShape shape = .rectangle,
-    BorderRadius? borderRadius,
-  }) {
-    borderRadius ??= .zero;
-    assert(top.style != .none);
-    final paint = Paint()
-      ..color = Colors.white
-      ..shader = gradient.createShader(rect);
-    if (top.width == 0.0) {
-      paint
-        ..style = .stroke
-        ..strokeWidth = 0.0;
-      canvas.drawRRect(borderRadius.toRRect(rect), paint);
-    } else {
-      final borderRect = borderRadius.toRRect(rect);
-      final inner = borderRect.deflate(top.strokeInset);
-      final outer = borderRect.inflate(top.strokeOutset);
-      canvas.drawDRRect(outer, inner, paint);
-    }
-  }
-
-  @override
-  bool get isUniform => true;
-
-  @override
-  Border scale(double t) => _GlintBorder(width: top.width * t);
 }
