@@ -107,7 +107,7 @@ home:
   invalidFormat(OUTDATED): 선택하신 파일은 지원되지 않습니다. sbn, sbn2, sba 또는 pdf 파일을 선택해 주세요.
   createNewNote(OUTDATED): + 버튼을 탭하여 새 메모를 만드세요
   deleteNote(OUTDATED): 메모 삭제
-  invalidFormat: 파일 지원없습니다. sbn, sbn2, sba, pdf 파일 선택해 주세요
+  invalidFormat: 파일 지원없습니다. sbn, sbn2, sba, pdf 파일 선택해 주세요.
   createNewNote: + 버튼로 노트 만들어 주세요
   deleteNote: 노트 삭제
 sentry:
@@ -403,6 +403,9 @@ appInfo:
   sponsorButton(OUTDATED): 여기를 탭하여 저를 후원하거나 더 많은 저장 공간을 구매하세요
   licenseButton(OUTDATED): 여기를 탭하여 더 많은 라이선스 정보를 확인하세요
   privacyPolicyButton(OUTDATED): 개인정보 처리방침을 보려면 여기를 탭하세요
+  debug: 디버그
+  licenseButton: 라이선스 정보 보기
+  sponsorButton: 후원 과 저장 올리기
 update:
   updateAvailable(OUTDATED): 업데이트 사용 가능
   updateAvailableDescription(OUTDATED): "새 버전의 앱이 출시되었습니다:"
@@ -457,6 +460,26 @@ editor:
     pastelBlue(OUTDATED): 파스텔 블루
     pastelPurple(OUTDATED): 파스텔 퍼플
     pastelPink(OUTDATED): 파스텔 핑크
+    black: 검은색
+    blue: 파란색
+    cyan: 청록색
+    green: 초록색
+    yellow: 노란색
+    purple: 보란색
+    pink: 분홍색
+    orange: 오렌지색
+    pastelRed: 파스텔 빨간색
+    pastelOrange: 파스텔 오렌지색
+    pastelYellow: 파스텔 노란색
+    pastelGreen: 파스텔 초록색
+    pastelCyan: 파스텔 청록색
+    pastelBlue: 파스텔 파란색
+    pastelPurple: 파스텔 보란색
+    pastelPink: 파스텔 분홍색
+    red: 빨간색
+    white: 하얀색
+    grey: 회색
+    colorPicker: 색깔 선택기
   imageOptions:
     title(OUTDATED): 이미지 옵션
     invertible(OUTDATED): 가역적인
@@ -464,6 +487,7 @@ editor:
     setAsBackground(OUTDATED): 배경으로 설정하기
     removeAsBackground(OUTDATED): 배경에서 제거
     delete(OUTDATED): 삭제
+    title: 사진 옵션
   selectionBar:
     delete(OUTDATED): 삭제
     duplicate(OUTDATED): 복제
@@ -496,6 +520,9 @@ editor:
     import(OUTDATED): 가져오기
     watchServer(OUTDATED): 서버 업데이트를 확인하세요
     watchServerReadOnly(OUTDATED): 서버를 시청하는 동안 편집이 비활성화됩니다.
+    lineThickness: 선 크기
+    lineThicknessDescription: 배경 선 크기
+    backgroundPattern: 배경 패턴
   photoPdfError:
     title(OUTDATED): 오류
     message(OUTDATED): "PDF 파일은 이미지로 추가할 수 없습니다. 해당 기능은 \"@:editor.menu.import > PDF\"를 사용하세요."
